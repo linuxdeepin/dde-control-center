@@ -2,7 +2,8 @@ import QtQuick 2.1
 
 Item {
     signal testDbus (string name)
-    property int trayWidth: 42
+    property bool inInteractiveArea: false
+    property int trayWidth: 50
 
     Rectangle {
         id: trayFrame
@@ -29,6 +30,40 @@ Item {
             color: "#3b3b3d"
         }
 
+        Rectangle {
+            id: trayIconOutArea
+            width: parent.width
+            color: "#00FFFFFF"
+            anchors.centerIn: parent
+
+            ListView {
+                width: parent.width
+                delegate: TabButton{width: trayWidth; height: trayWidth}
+                model: ListModel {id: trayIconTabArea}
+                anchors.fill: parent
+            }
+
+            Timer {
+                id: loadIcon
+                interval: 10; running: true; repeat: false
+                onTriggered: {
+                    var icon_path_array = [
+                        "trayicon_images/bluetooth",
+                        "trayicon_images/dss",
+                        "trayicon_images/notice",
+                        "trayicon_images/power",
+                        "trayicon_images/shutdown",
+                        "trayicon_images/sound",
+                        "trayicon_images/usb",
+                        "trayicon_images/wifi",
+                    ]
+                    for (var path in icon_path_array){
+                        trayIconTabArea.append({'trayIconImage': icon_path_array[path] + '_normal.png'})
+                    }
+                    trayIconOutArea.height = icon_path_array.length * trayWidth
+                } 
+            }
+        }
     }
 
     LauncherList {

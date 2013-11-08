@@ -13,7 +13,7 @@ import importlib
 
 modules_dirs = ['update', 'system_info']
 
-WIDTH = 328
+WIDTH = 360
 
 app = QGuiApplication(sys.argv)
 
