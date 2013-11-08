@@ -8,7 +8,7 @@ Item {
     signal clicked
     property alias containsMouse: mouseArea.containsMouse
     property alias pressed: mouseArea.pressed
-    implicitHeight: 48
+    implicitHeight: 36
     height: implicitHeight
     width: parent.width
 
@@ -22,22 +22,22 @@ Item {
     Image { 
         id: moduleID
         anchors.left: parent.left
-        anchors.leftMargin: 20
+        anchors.leftMargin: 10
         anchors.verticalCenter: container.verticalCenter
         source: "./images/preferences-"+module_id+".png"
-        scale: 1/1.5
+        scale: 0.5
     }
 
     Text {
         id: buttonLabel
         anchors.left: parent.left
-        anchors.leftMargin: 88
+        anchors.leftMargin: 60
         anchors.right: parent.right
         anchors.rightMargin: 10
         anchors.verticalCenter: container.verticalCenter
         text: container.text
         color: "#eaeaea"
-        font.pixelSize: 22
+        font.pixelSize: 18
         styleColor: "white"
         //style: Text.Raised
     }

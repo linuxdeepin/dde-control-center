@@ -17,7 +17,7 @@ Rectangle {
         anchors.rightMargin: 16
     }
 
-    Button {
+    DssLaunchListItem {
         id: button
         anchors.top: parent.top
         anchors.left: parent.left
