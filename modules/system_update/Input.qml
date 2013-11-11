@@ -15,9 +15,7 @@ FocusScope {
         font.bold: true
         color: "#151515"; selectionColor: "mediumseagreen"
         focus: true
-        onAccepted:{
-            testDbus(container.text);
-        }
+        onAccepted:{querySize(input.text)}
         text: ""
         selectByMouse: true
     }

@@ -71,7 +71,7 @@ Item {
         anchors.fill: parent
         anchors.leftMargin: trayWidth
         Component.onCompleted: {
-            addModule("系统更新", Qt.resolvedUrl("../modules/update/Main.qml"), "update");
+            addModule("系统更新", Qt.resolvedUrl("../modules/system_update/Main.qml"), "update");
             //addModule("显示",  Qt.resolvedUrl("../modules/basics/color-animation.qml"), "display");
             //addModule("桌面",  Qt.resolvedUrl("../modules/basics/property-animation.qml"), "desktop");
             //addModule("个性化", Qt.resolvedUrl("../modules/behaviors/behavior-example.qml"), "individuation");
@@ -82,7 +82,7 @@ Item {
             //addModule("账户", Qt.resolvedUrl("../modules/states/transitions.qml"), "account");
             //addModule("网络", Qt.resolvedUrl("../modules/pathanimation/pathanimation.qml"), "network");
             //addModule("蓝牙", Qt.resolvedUrl("../modules/pathinterpolator/pathinterpolator.qml"), "bluetooth");
-            addModule("系统信息", Qt.resolvedUrl("../modules/system_info/main.qml"), "system_information");
+            addModule("系统信息", Qt.resolvedUrl("../modules/system_info_bak/main.qml"), "system_information");
         }
     }
 }

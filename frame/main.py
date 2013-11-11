@@ -9,9 +9,9 @@ from PyQt5.QtQuick import QQuickView
 
 root_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 sys.path.append(root_path)
-import importlib
 
-modules_dirs = ['update', 'system_info']
+from modules.system_info import Controller as system_info
+from modules.system_update import Controller as system_update
 
 WIDTH = 360
 
@@ -34,13 +34,13 @@ qml_context = view.rootContext()
 qml_context.setContextProperty("windowView", view)
 qml_context.setContextProperty("screenSize", screen_size)
 
-for module_dir in modules_dirs:
-    try:
-        mo = importlib.import_module('modules.%s' % module_dir)
-        obj = mo.Controller()
-        qml_context.setContextProperty(module_dir, obj)
-    except:
-        print "import Controller failed:", module_dir 
+'''Start modules context init'''
+system_info_obj = system_info()
+qml_context.setContextProperty('system_info', system_info_obj)
+
+system_update_obj = system_update()
+qml_context.setContextProperty('system_update', system_update_obj)
+'''End modules context init'''
 
 view.show()
 
