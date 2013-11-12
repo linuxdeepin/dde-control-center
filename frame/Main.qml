@@ -2,21 +2,40 @@ import QtQuick 2.1
 
 Item {
     id: root
+    //anchors.right: parent.right
     signal testDbus (string name)
     property bool inInteractiveArea: false
     property int trayWidth: 50
     property int trayIconSelectIndex: -1
+    property bool rootOut: false
+
+    signal enterMouseArea
+
+    Timer {
+        id: displayTimer
+        interval: 800
+        repeat: false
+        onTriggered: {
+            if (!rootOut){
+                if (!showTrayIconBox.running){
+                    showTrayIconBox.restart()
+                }
+            }
+        }
+    }
+
+    onEnterMouseArea: {
+        displayTimer.restart()
+    }
 
     function showRightBox(index) {
-        //rightBox.visible = true
-        //windowView.x = screenSize.width - 360
         if (index == 7){
-            if (!hidingRightBox.running && !showingRightBox.running){
-                hidingRightBox.restart()
+            if (!showTrayIconBox.running && !showingRightBox.running){
+                showTrayIconBox.restart()
             }
         }
         else{
-            if (!showingRightBox.running && !hidingRightBox.running){
+            if (!showingRightBox.running && !showTrayIconBox.running){
                 showingRightBox.restart()
             }
         }
@@ -26,9 +45,16 @@ Item {
         id: frame
 		opacity: 0
         color: Qt.rgba(0, 0, 0, 0.3)
-        anchors.centerIn: parent
-		width: root.width
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+		width: 360
 		height: root.height
+
+        InteractiveArea {
+            anchors.fill: frame
+            hoverEnabled: true
+        }
     }
 
 
@@ -107,12 +133,20 @@ Item {
     }
 
     PropertyAnimation {
-        id: hidingRightBox
+        id: showTrayIconBox
+        alwaysRunToEnd: true
         target: windowView
         property: "x"
         to: screenSize.width - 48
         duration: 300
         easing.type: Easing.OutQuad
+
+        //onStarted: {windowView.width = screenSize.width}
+
+        onStopped: { 
+            rootOut=true 
+            //windowView.width = screenSize.width
+        }
     }
 
     Rectangle {
