@@ -7,7 +7,7 @@ Item {
     Timer {
         interval: 10; running: true; repeat: false
         onTriggered: {
-            var info = system_info.get_systeminfo()
+            var info = module_system_info.get_systeminfo()
             var info = JSON.parse(info)
             for (var key in info) {
                 myInfo.append({"info": key + " : " + info[key]})

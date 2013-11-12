@@ -20,18 +20,20 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import sys
 import json
 
 from PyQt5.QtCore import QObject, pyqtSlot
-from PyQt5.QtDBus import QDBusAbstractInterface, QDBusConnection, QDBusReply
+from PyQt5.QtDBus import QDBusInterface, QDBusConnection, QDBusReply
+from PyQt5.QtGui import QGuiApplication
 
-class Interface(QDBusAbstractInterface):
+class Interface(QDBusInterface):
     def __init__(self, service, path, connection, parent=None):
         super(Interface, self).__init__(service, path,
-                'com.deepin.daemon.systeminfo', connection, parent)
+                'org.freedesktop.DBus.Properties', connection, parent)
 
     def get_systeminfo(self):
-        msg = self.call("GetSystemInfo")
+        msg = self.call('GetAll', 'com.deepin.daemon.SystemInfo')
         result = QDBusReply(msg).value()
         return json.dumps(result)
 
@@ -39,9 +41,14 @@ class Interface(QDBusAbstractInterface):
 class Controller(QObject):
     def __init__(self, parent=None):
         QObject.__init__(self)
-        self.interface = Interface('com.deepin.daemon.systeminfo', '/com/deepin/daemon/systeminfo',
+        self.interface = Interface('com.deepin.daemon.SystemInfo', '/com/deepin/daemon/SystemInfo',
                 QDBusConnection.sessionBus(), self)
 
     @pyqtSlot(result=str)
     def get_systeminfo(self):
         return self.interface.get_systeminfo()
+
+if __name__ == '__main__':
+    app = QGuiApplication(sys.argv)
+    controller = Controller()
+    print controller.get_systeminfo()

@@ -3,7 +3,7 @@ import QtQuick.Controls 1.0
 
 Item {
     function querySize(name) {
-        var result = system_update.get_download_size(name)
+        var result = module_system_update.get_download_size(name)
         result = JSON.parse(result)
         var pkg_status = ''
         var pkg_size = result[1]
