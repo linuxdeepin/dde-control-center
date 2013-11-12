@@ -22,7 +22,7 @@ Rectangle {
 
     ListView {
         clip: true
-        delegate: SimpleLauncherDelegate{exampleItem: moduleItem}
+        delegate: DssLaunchDelegate{exampleItem: moduleItem}
         model: ListModel {id:myModel}
         anchors.fill: parent
         anchors.topMargin: bar.height
@@ -177,6 +177,9 @@ Rectangle {
                     }
                     onReleased: {
                         topButton.source = "images/dss_top_button.png"
+                    }
+                    onClicked: {
+                        windowView.close()
                     }
                 }
             }

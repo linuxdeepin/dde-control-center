@@ -3,16 +3,12 @@ import QtQuick.Controls 1.0
 
 Item {
     id: systemInfoTopItem
-
-    Timer {
-        interval: 10; running: true; repeat: false
-        onTriggered: {
-            var info = module_system_info.get_systeminfo()
-            var info = JSON.parse(info)
-            for (var key in info) {
-                myInfo.append({"info": key + " : " + info[key]})
-            } 
-        }
+    Component.onCompleted: {
+        var info = module_system_info.get_systeminfo()
+        var info = JSON.parse(info)
+        for (var key in info) {
+            myInfo.append({"info": key + " : " + info[key]})
+        } 
     }
 
     Rectangle {
