@@ -21,27 +21,70 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PyQt5.QtCore import QObject, pyqtSlot
-from PyQt5.QtDBus import QtDBusAbstractInterface, QDBusConnection
+from PyQt5.QtDBus import QDBusAbstractInterface, QDBusConnection, QDBusReply
 
-class SystemInfoInterface(QtDBusAbstractInterface):
+class SystemInfoInterface(QDBusAbstractInterface):
     
     def __init__(self):
-        super(SystemInfoInterface, self).__init__("com.deepin.daemon.systeminfo", # service_name
-                                                  "com/deepin/daemon/systeminfo", # path
-                                                  'com.deepin.daemon.systeminfo', # interface
-                                                  QDBusConnection.SessionBus(), None)
-    def getSystemInfo(self):
-        return self.call("GetSystemInfo")
+        super(SystemInfoInterface, self).__init__("com.deepin.daemon.SystemInfo", # service_name
+                                                  "/com/deepin/daemon/SystemInfo", # path
+                                                  'org.freedesktop.DBus.Properties', # interface
+                                                  QDBusConnection.sessionBus(), None)
+        
+    def getPropertyValue(self, interfaceName, propertyName):
+        msg = self.call("Get", interfaceName, propertyName)
+        reply = QDBusReply(msg) 
+        return reply.value()
+        
+    def getVersionInfo(self):
+        return self.getPropertyValue("com.deepin.daemon.SystemInfo", "Version")
+    
+    def getDiskInfo(self):
+        return self.getPropertyValue("com.deepin.daemon.SystemInfo", "DiskCap")
+    
+    def getMemoryInfo(self):
+        return self.getPropertyValue("com.deepin.daemon.SystemInfo", "MemorySize")
+    
+    def getCpuInfo(self):
+        return self.getPropertyValue("com.deepin.daemon.SystemInfo", "Processor")
+    
+    def getArchitectureInfo(self):
+        return self.getPropertyValue("com.deepin.daemon.SystemInfo", "SystemType")
     
 class IfaceWrapper(QObject):
     def __init__(self, systemInfoIface):
         self.systemInfoIface = systemInfoIface
         
     @pyqtSlot(result=str)
-    def getSystemInfo(self):
-        try:
-            result = self.systemInfoIface.getSystemInfo()
-        except Exception, e:
-            print e
-            return ""
-        return str(result)
+    def getVersionInfo(self):
+        return str(self.systemInfoIface.getVersionInfo())
+    
+    @pyqtSlot(result=str)    
+    def getDiskInfo(self):
+        return str(self.systemInfoIface.getDiskInfo())
+    
+    @pyqtSlot(result=str)    
+    def getMemoryInfo(self):
+        return str(self.systemInfoIface.getMemoryInfo())
+    
+    @pyqtSlot(result=str)    
+    def getCpuInfo(self):
+        return str(self.systemInfoIface.getCpuInfo())
+    
+    @pyqtSlot(result=str)    
+    def getArchitectureInfo(self):
+        return str(self.systemInfoIface.getArchitectureInfo())
+
+if __name__ == "__main__":
+    from PyQt5.QtCore import QCoreApplication
+    
+    app = QCoreApplication([])
+    
+    wrapper = IfaceWrapper(SystemInfoInterface())
+    print wrapper.getVersionInfo()
+    print wrapper.getArchitectureInfo()
+    print wrapper.getCpuInfo()
+    print wrapper.getDiskInfo()
+    print wrapper.getMemoryInfo()
+    
+    app.exec_()

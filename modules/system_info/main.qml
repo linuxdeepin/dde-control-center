@@ -61,23 +61,23 @@ Rectangle {
                 id: value
                 Text {
                     id: valueVersion
-                    text: "2013"
+                    text: module_system_info.getVersionInfo()
                 }
                 Text {
                     id: valueCpu
-                    text: "i3 CPU"
+                    text: module_system_info.getCpuInfo()
                 }
                 Text {
                     id: valueMem
-                    text: "2.0GB"
+                    text: module_system_info.getMemoryInfo()
                 }
                 Text {
                     id: valueArch
-                    text: "32 bit"
+                    text: module_system_info.getArchitectureInfo()
                 }
                 Text {
                     id: valueDisk
-                    text: "320.00GB"
+                    text: module_system_info.getDiskInfo()
                 }
             }
         }
