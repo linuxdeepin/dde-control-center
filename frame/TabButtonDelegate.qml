@@ -9,16 +9,17 @@ Rectangle {
     color: Qt.rgba(1, 0, 0, 0)
     
     property int tabIndex: 0
+    property string trayIconId: iconId
+    property string iconPathHeader: "trayicon_images/" + iconId
     
     signal pressed
     
     Image {
         anchors.fill: parent
-        source: trayIconButton.ListView.isCurrentItem ? trayIconImage + "_press.png" : trayIconImage + "_normal.png"
+        source: trayIconButton.ListView.isCurrentItem ? iconPathHeader + "_press.png" : iconPathHeader + "_normal.png"
         scale: 0.8333
 
-        InteractiveArea {
-            id: mouseArea
+        MouseArea {
             anchors.fill: parent
 
             onClicked: {

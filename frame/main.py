@@ -33,7 +33,7 @@ if __name__ == '__main__':
 
     screen_size = view.screen().size()
     view.setGeometry(screen_size.width() - 2,
-            0, WIDTH, screen_size.height() - 30)
+            0, screen_size.width(), screen_size.height() - 30)
 
     qml_context = view.rootContext()
     qml_context.setContextProperty("windowView", view)

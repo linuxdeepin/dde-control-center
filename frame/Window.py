@@ -33,8 +33,11 @@ class Window(QQuickView):
         surface_format.setAlphaBufferSize(8)
         
         self.setColor(QColor(0, 0, 0, 0))
-        self.setFlags(Qt.FramelessWindowHint|Qt.WindowStaysOnTopHint|
-                Qt.X11BypassWindowManagerHint)
+        self.setFlags(
+                Qt.FramelessWindowHint
+                | Qt.WindowStaysOnTopHint
+                | Qt.X11BypassWindowManagerHint
+                )
         self.setResizeMode(QtQuick.QQuickView.SizeRootObjectToView)
         self.setFormat(surface_format)
         
@@ -51,7 +54,4 @@ class Window(QQuickView):
         # Do minimized.
         self.setWindowState(QtCore.Qt.WindowMinimized)
         self.setVisible(True)
-
-    def focusOutEvent(self, event):
-        print event
 

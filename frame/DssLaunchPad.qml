@@ -1,8 +1,21 @@
 import QtQuick 2.0
 
 Rectangle {
-    //model is a list of {"name":"somename", "url":"file:///some/url/mainfile.qml"}
-    //function used to add to model A) to enforce scheme B) to allow Qt.resolveUrl in url assignments
+    anchors.fill: parent
+    Component.onCompleted: {
+        addModule(qsTr("System Update"), Qt.resolvedUrl("../modules/system_update/Main.qml"), "update");
+        //addModule("显示",  Qt.resolvedUrl("../modules/basics/color-animation.qml"), "display");
+        //addModule("桌面",  Qt.resolvedUrl("../modules/basics/property-animation.qml"), "desktop");
+        //addModule("个性化", Qt.resolvedUrl("../modules/behaviors/behavior-example.qml"), "individuation");
+        //addModule("声音", Qt.resolvedUrl("../modules/behaviors/wigglytext.qml"), "sound");
+        //addModule("日期和时间", Qt.resolvedUrl("../modules/behaviors/tvtennis.qml"), "date_time");
+        //addModule("电源", Qt.resolvedUrl("../modules/easing/easing.qml"), "power");
+        //addModule("键盘", Qt.resolvedUrl("../modules/states/states.qml"), "keyboard");
+        //addModule("账户", Qt.resolvedUrl("../modules/states/transitions.qml"), "account");
+        //addModule("网络", Qt.resolvedUrl("../modules/pathanimation/pathanimation.qml"), "network");
+        //addModule("蓝牙", Qt.resolvedUrl("../modules/pathinterpolator/pathinterpolator.qml"), "bluetooth");
+        addModule(qsTr("System Information"), Qt.resolvedUrl("../modules/system_info_bak/main.qml"), "system_information");
+    }
 
     property string dssName: "选项"
     property bool inList: false
@@ -154,6 +167,7 @@ Rectangle {
                 anchors.top: parent.top
                 anchors.left: parent.left
                 anchors.leftMargin: 50
+                width: title.width + 25
 
                 Text{
                     id: title
