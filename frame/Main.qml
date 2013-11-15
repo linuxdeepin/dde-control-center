@@ -2,13 +2,13 @@ import QtQuick 2.1
 
 Item {
     id: root
-    property bool inInteractiveArea: false
-    property int trayWidth: 50
-    property int trayIconSelectIndex: -1
+    property int trayWidth: 48
+    property color defaultBackgroundColor: "#252627"
 
     property int displayState: viewState.hideAll
 
-    QtObject { //enumeration
+    // animation for root frame
+    QtObject { // enumeration for root view state
         id: viewState
         property int hideAll: 0
         property int showTray: 1
@@ -56,99 +56,6 @@ Item {
             }
             else{
                 rightBoxLoaderItem.iconId = trayIconId
-            }
-        }
-    }
-
-    MouseArea {
-        id: fullscreenMouseArea
-        anchors.fill: root
-        hoverEnabled: true
-        onEntered: {
-            root.enterMouseArea()
-        }
-        onClicked: {
-            if ((displayState == viewState.showAll && mouseX < root.width - 360)
-            || (displayState == viewState.showTray && mouseX < root.width - 48))
-            {
-                root.clickOutArea()
-            }
-        }
-    }
-
-    Rectangle {
-        id: frame
-        color: Qt.rgba(0, 0, 0, 0)
-        anchors.left: parent.left
-        anchors.leftMargin: parent.width + 360
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-		width: 360
-		height: root.height
-    }
-
-    Rectangle {
-        id: trayFrame
-        width: trayWidth
-        anchors.left: frame.left
-        anchors.top: frame.top
-        anchors.bottom: frame.bottom
-        color: "#252627"
-        //visible: false
-
-        Rectangle {
-            width: 1
-            anchors.right: parent.right
-            anchors.rightMargin: 1
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            color: "#0b0809"
-        }
-        Rectangle {
-            width: 1
-            anchors.right: parent.right
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            color: "#3b3b3d"
-        }
-
-        Rectangle {
-            id: trayIconOutArea
-            width: parent.width
-            color: "#00FFFFFF"
-            anchors.centerIn: parent
-
-            ListView {
-                id: trayIconTabList
-                width: parent.width
-                anchors.fill: parent
-                model: ListModel {id: trayIconTabArea}
-                delegate: TabButtonDelegate{width: trayWidth; height: trayWidth}
-                currentIndex: trayIconSelectIndex
-                onCurrentIndexChanged: {
-                    if (currentIndex != -1){
-                        showRightBox(currentItem.trayIconId)
-                    }
-                }
-                highlight: Rectangle { color: Qt.rgba(255, 255, 255, 0.1); radius: 3 }
-                highlightMoveVelocity: 800
-            }
-
-            Component.onCompleted: {
-                var icon_path_array = [
-                    "notice",
-                    "wifi",
-                    "sound",
-                    "usb",
-                    "bluetooth",
-                    "power",
-                    "dss",
-                    "shutdown",
-                ]
-                for (var i in icon_path_array){
-                    trayIconTabArea.append({'iconId': icon_path_array[i]})
-                }
-                trayIconOutArea.height = icon_path_array.length * trayWidth
             }
         }
     }
@@ -202,12 +109,105 @@ Item {
             displayState = viewState.showTray
         }
     }
+    // animation for root frame
+
+    MouseArea {
+        id: fullscreenMouseArea
+        anchors.fill: root
+        hoverEnabled: true
+        onEntered: {
+            root.enterMouseArea()
+        }
+        onClicked: {
+            if ((displayState == viewState.showAll && mouseX < root.width - 360)
+            || (displayState == viewState.showTray && mouseX < root.width - 48))
+            {
+                root.clickOutArea()
+            }
+        }
+    }
+
+    Rectangle {
+        id: frame
+        color: Qt.rgba(0, 0, 0, 0)
+        anchors.left: parent.left
+        anchors.leftMargin: parent.width + 360
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+		width: 360
+		height: root.height
+    }
+
+    Rectangle {
+        id: trayFrame
+        width: trayWidth
+        anchors.left: frame.left
+        anchors.top: frame.top
+        anchors.bottom: frame.bottom
+        color: defaultBackgroundColor
+        //visible: false
+
+        Rectangle {
+            id: trayIconOutArea
+            width: parent.width
+            color: "#00FFFFFF"
+            anchors.centerIn: parent
+
+            ListView {
+                id: trayIconTabList
+                width: parent.width
+                anchors.fill: parent
+                model: ListModel {id: trayIconTabArea}
+                delegate: TabButtonDelegate{width: trayWidth; height: trayWidth}
+                currentIndex: -1
+                onCurrentIndexChanged: {
+                    if (currentIndex != -1){
+                        showRightBox(currentItem.trayIconId)
+                    }
+                }
+                highlight: Rectangle { color: Qt.rgba(255, 255, 255, 0.1); radius: 3; }
+                highlightMoveVelocity: 800
+            }
+
+            Component.onCompleted: {
+                var icon_path_array = [
+                    "notice",
+                    "wifi",
+                    "sound",
+                    "usb",
+                    "bluetooth",
+                    "power",
+                    "dss",
+                    "shutdown",
+                ]
+                for (var i in icon_path_array){
+                    trayIconTabArea.append({'iconId': icon_path_array[i]})
+                }
+                trayIconOutArea.height = icon_path_array.length * trayWidth
+            }
+        }
+    }
+
+    // separator lines for trayicon and rightbox
+    Rectangle {
+        width: 1
+        anchors.fill: frame
+        anchors.leftMargin: trayWidth
+        color: "#0b0809"
+    }
+    Rectangle {
+        width: 1
+        anchors.fill: frame
+        anchors.leftMargin: trayWidth + 1
+        color: "#3b3b3d"
+    }
+    // separator lines for trayicon and rightbox
 
     Rectangle {
         id: rightBox
         anchors.fill: frame
-        anchors.leftMargin: trayWidth
-        color: "#252627"
+        anchors.leftMargin: trayWidth + 2
+        color: defaultBackgroundColor
 
         DssLaunchPad {
             id: dssLaunchPad
@@ -243,7 +243,7 @@ Item {
             Loader{
                 id: rightBoxLoader
                 property string iconId
-                property color childColor: "#252627"
+                property color childColor: defaultBackgroundColor
                 focus: true
                 source: ''
                 anchors.fill: parent

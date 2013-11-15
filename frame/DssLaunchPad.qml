@@ -138,7 +138,7 @@ Rectangle {
 
             Image {
                 id: back
-                source: "images/back.png"
+                source: "images/back_normal.png"
                 anchors.top: parent.top
                 anchors.left: parent.left
                 anchors.leftMargin: 20
@@ -156,46 +156,73 @@ Rectangle {
                         back.source = "images/back_press.png"
                     }
                     onReleased: {
-                        back.source = "images/back.png"
+                        back.source = "images/back_normal.png"
                     }
                 }
             }
 
-            Image {
-                id: topButton
-                source: "images/dss_top_button.png"
+            Row {
                 anchors.top: parent.top
                 anchors.left: parent.left
-                anchors.leftMargin: 50
-                width: title.width + 25
+                anchors.leftMargin: 49
 
-                Text{
-                    id: title
-                    text: dssName
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.verticalCenterOffset: -1
-                    color: "#eaeaea"
-                    font.pixelSize: 13
-                    styleColor: "white"
-                    //style: Text.Raised
+                QtObject { //enumeration for topButton image
+                    id: topButtonImage
+                    property string headerNormal: "images/dss_top_title_header_normal.png"
+                    property string headerPress: "images/dss_top_title_header_press.png"
+                    property string middleNormal: "images/dss_top_title_middle_normal.png"
+                    property string middlePress: "images/dss_top_title_middle_press.png"
+                    property string tailNormal: "images/dss_top_title_tail_normal.png"
+                    property string tailPress: "images/dss_top_title_tail_press.png"
                 }
 
-                MouseArea {
-                    hoverEnabled: true
-                    anchors.fill: parent
-                    width: parent.width
-                    height: parent.height
-                    onPressed: {
-                        topButton.source = "images/dss_top_button_press.png"
+                Image{
+                    id: topButtonHeader
+                    source: topButtonImage.headerNormal
+                }
+
+                Image {
+                    id: topButtonMiddle
+                    source: topButtonImage.middleNormal
+                    width: title.width + 6
+
+                    Text{
+                        id: title
+                        text: dssName
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.verticalCenter: parent.verticalCenter
+                        color: "#eaeaea"
+                        font.pixelSize: 13
+                        styleColor: "white"
+                        //style: Text.Raised
                     }
-                    onReleased: {
-                        topButton.source = "images/dss_top_button.png"
-                    }
-                    onClicked: {
-                        windowView.close()
+
+                    MouseArea {
+                        hoverEnabled: true
+                        anchors.fill: parent
+                        width: parent.width
+                        height: parent.height
+                        onPressed: {
+                            topButtonHeader.source = topButtonImage.headerPress
+                            topButtonMiddle.source = topButtonImage.middlePress
+                            topButtonTail.source = topButtonImage.tailPress
+                        }
+                        onReleased: {
+                            topButtonHeader.source = topButtonImage.headerNormal
+                            topButtonMiddle.source = topButtonImage.middleNormal
+                            topButtonTail.source = topButtonImage.tailNormal
+                        }
+                        onClicked: {
+                            windowView.close()
+                        }
                     }
                 }
+
+                Image{
+                    id: topButtonTail
+                    source: topButtonImage.tailNormal
+                }
+
             }
         }
     }
