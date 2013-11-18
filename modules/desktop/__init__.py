@@ -37,8 +37,9 @@ class DesktopSettingsInterface(QDBusAbstractInterface):
         reply = QDBusReply(msg) 
         return reply.value()
         
-    def setPropertyValue(self, interfaceName, propertyName):
-        self.call("Set", interfaceName, propertyName)
+    def setPropertyValue(self, interfaceName, propertyName, propertyValue):
+        print type(propertyValue)
+        self.call("Set", interfaceName, propertyName, propertyValue)
         
     def getShowComputerIcon(self):
         return self.getPropertyValue("com.deepin.daemon.Desktop", "ShowComputerIcon")
@@ -53,10 +54,10 @@ class DesktopSettingsInterface(QDBusAbstractInterface):
         return self.getPropertyValue("com.deepin.daemon.Desktop", "ShowTrashIcon")
     
     def getTopLeftAction(self):
-        return self.getPropertyValue("com.deepin.daemon.Desktop", "TopLeftAction")
+        return self.getPropertyValue("com.deepin.daemon.Desktop", "TopLeft")
     
     def getBottomRightAction(self):
-        return self.getPropertyValue("com.deepin.daemon.Desktop", "BottomRightAction")
+        return self.getPropertyValue("com.deepin.daemon.Desktop", "BottomRight")
     
     def getDockMode(self):
         return self.getPropertyValue("com.deepin.daemon.Desktop", "DockMode")
@@ -75,16 +76,18 @@ class DesktopSettingsInterface(QDBusAbstractInterface):
         self.setPropertyValue("com.deepin.daemon.Desktop", "ShowTrashIcon", value)
     
     def setTopLeftAction(self, value):
-        self.setPropertyValue("com.deepin.daemon.Desktop", "TopLeftAction", value)
+        self.setPropertyValue("com.deepin.daemon.Desktop", "TopLeft", value)
     
     def setBottomRightAction(self, value):
-        self.setPropertyValue("com.deepin.daemon.Desktop", "BottomRightAction", value)
+        self.setPropertyValue("com.deepin.daemon.Desktop", "BottomRight", value)
     
     def setDockMode(self, value):
+        print "start"
         self.setPropertyValue("com.deepin.daemon.Desktop", "DockMode", value)
     
 class IfaceWrapper(QObject):
     def __init__(self, desktopSettingsInterface):
+        super(IfaceWrapper, self).__init__()
         self.desktopSettingsInterface = desktopSettingsInterface
         
     @pyqtSlot(result=bool)
@@ -111,11 +114,11 @@ class IfaceWrapper(QObject):
     def getBottomRightAction(self):
         return self.desktopSettingsInterface.getBottomRightAction()    
     
-    @pyqtSlot(result=int)    
+    @pyqtSlot(result=str)    
     def getDockMode(self):
         return self.desktopSettingsInterface.getDockMode()    
 
-    @pyqtSlot(bool)
+    @pyqtSlot("QVariant")
     def setShowComputerIcon(self, value):
         self.desktopSettingsInterface.setShowComputerIcon(value)
     
@@ -139,9 +142,9 @@ class IfaceWrapper(QObject):
     def setBottomRightAction(self, value):
         self.desktopSettingsInterface.setBottomRightAction(value)    
     
-    @pyqtSlot(int)             
+    @pyqtSlot(str)             
     def setDockMode(self, value):
-        self.desktopSettingsInterface.setDockMode(value)    
+        self.desktopSettingsInterface.setDockMode("autohide")    
 
 if __name__ == "__main__":
     from PyQt5.QtCore import QCoreApplication
@@ -149,5 +152,33 @@ if __name__ == "__main__":
     app = QCoreApplication([])
     
     wrapper = IfaceWrapper(DesktopSettingsInterface())
+    # print wrapper.getShowComputerIcon()
+    # print wrapper.getShowDSCIcon()
+    # print wrapper.getShowHomeIcon()
+    # print wrapper.getShowTrashIcon()
+    
+    # print wrapper.getTopLeftAction()
+    # print wrapper.getBottomRightAction()
+    # print wrapper.getDockMode()
+    
+    # wrapper.setShowComputerIcon(False)
+    # wrapper.setShowDSCIcon(True)
+    # wrapper.setShowHomeIcon(True)
+    # wrapper.setShowTrashIcon(False)
+    
+    # wrapper.setTopLeftAction(1)
+    # wrapper.setBottomRightAction(1)
+    print "start set"
+    wrapper.setDockMode("intelligent")
+    print "end set"
+    
+    # print wrapper.getShowComputerIcon()
+    # print wrapper.getShowDSCIcon()
+    # print wrapper.getShowHomeIcon()
+    # print wrapper.getShowTrashIcon()
+    
+    # print wrapper.getTopLeftAction()
+    # print wrapper.getBottomRightAction()
+    # print wrapper.getDockMode()
     
     app.exec_()
