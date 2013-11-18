@@ -20,10 +20,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import sys
 import json
+import signal
 
-from PyQt5.QtCore import QObject, pyqtSlot
-from PyQt5.QtDBus import QDBusInterface, QDBusConnection, QDBusReply
+from PyQt5.QtCore import QObject, pyqtSlot, QCoreApplication
+from PyQt5.QtDBus import QDBusInterface, QDBusConnection, QDBusReply, QDBusVariant
 
 class Interface(QDBusInterface):
     def __init__(self, service, path, connection, parent=None):
@@ -41,7 +43,29 @@ class Controller(QObject):
         QObject.__init__(self)
         self.interface = Interface('com.deepin.daemon.SystemInfo', '/com/deepin/daemon/SystemInfo',
                 QDBusConnection.sessionBus(), self)
+        QDBusConnection.sessionBus().connect('com.deepin.daemon.SystemInfo', 
+                '/com/deepin/daemon/SystemInfo',
+                'org.freedesktop.DBus.Properties',
+                'PropertiesChanged', self.messageSlot)
+
+    @pyqtSlot(str, QObject, QObject)
+    def messageSlot(self, *args):
+        print args
 
     @pyqtSlot(result=str)
     def get_systeminfo(self):
         return self.interface.get_systeminfo()
+
+    #@pyqtSlot(str, result=bool)
+    def set_processor(self, name):
+        return QDBusReply(self.interface.call("Set", "com.deepin.daemon.SystemInfo", "Processor", QDBusVariant(name)))
+
+if __name__ == '__main__':
+    app = QCoreApplication(sys.argv)
+    c = Controller()
+    msg = c.set_processor("Intel abc")
+    if not msg.isValid():
+        print msg.error().message()
+
+    signal.signal(signal.SIGINT, signal.SIG_DFL)
+    sys.exit(app.exec_())

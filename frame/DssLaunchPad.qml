@@ -9,7 +9,7 @@ Rectangle {
         //addModule("个性化", Qt.resolvedUrl("../modules/behaviors/behavior-example.qml"), "individuation");
         //addModule("声音", Qt.resolvedUrl("../modules/behaviors/wigglytext.qml"), "sound");
         //addModule("日期和时间", Qt.resolvedUrl("../modules/behaviors/tvtennis.qml"), "date_time");
-        //addModule("电源", Qt.resolvedUrl("../modules/easing/easing.qml"), "power");
+        addModule("电源", Qt.resolvedUrl("../modules/power/main.qml"), "power");
         //addModule("键盘", Qt.resolvedUrl("../modules/states/states.qml"), "keyboard");
         //addModule("账户", Qt.resolvedUrl("../modules/states/transitions.qml"), "account");
         //addModule("网络", Qt.resolvedUrl("../modules/pathanimation/pathanimation.qml"), "network");
@@ -61,6 +61,7 @@ Rectangle {
         }
         Loader{
             focus: true
+            property color defaultBackgroundColor: root.defaultBackgroundColor
             source: moduleItem.exampleUrl
             anchors.fill: parent
         }

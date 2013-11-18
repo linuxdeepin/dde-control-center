@@ -12,19 +12,36 @@ Rectangle {
     property string trayIconId: iconId
     property string iconPathHeader: "trayicon_images/" + iconId
     
-    signal pressed
-    
-    Image {
+    property bool hover: false
+
+    ImageCheckButton {
+        color: defaultBackgroundColor
         anchors.fill: parent
-        source: trayIconButton.ListView.isCurrentItem ? iconPathHeader + "_press.png" : iconPathHeader + "_normal.png"
-        scale: 0.8333
+        inactivatedNomralImage: iconPathHeader + '_normal.png'
+        inactivatedHoverImage: iconPathHeader + '_hover.png'
+        inactivatedPressImage: inactivatedHoverImage
 
-        MouseArea {
-            anchors.fill: parent
+        activatedNomralImage: iconPathHeader + '_press.png'
+        activatedHoverImage: activatedNomralImage
+        activatedPressImage: activatedNomralImage
+        
+        selected: trayIconButton.ListView.isCurrentItem ? true : false
 
-            onClicked: {
-                trayIconButton.ListView.view.currentIndex = index
-            }
+        onClicked: {
+            trayIconButton.ListView.view.currentIndex = index
         }
+
+        onHoverChanged: {
+            trayIconButton.hover = hover
+        }
+    }
+
+    Rectangle {
+        anchors.top: parent.top
+        anchors.left: parent.left
+        width: parent.width
+        height: 1
+        color: Qt.rgba(255, 255, 255, 0.1)
+        visible: false
     }
 }

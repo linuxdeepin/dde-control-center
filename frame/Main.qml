@@ -60,6 +60,26 @@ Item {
         }
     }
 
+    function initTrayIcon() {
+        var icon_path_array = modulesId
+        for (var i in icon_path_array){
+            trayIconTabArea.append({'iconId': icon_path_array[i]})
+        }
+        //trayIconOutArea.height = icon_path_array.length * trayWidth
+    }
+
+    Timer {
+        // init something
+        running: true
+        interval: 100
+        repeat: false
+        onTriggered: {
+            initTrayIcon()
+            trayIconTabList.positionViewAtEnd()
+            trayIconTabList.cancelFlick()
+        }
+    }
+
     PropertyAnimation {
         id: showingRightBox
         alwaysRunToEnd: true
@@ -73,7 +93,7 @@ Item {
             windowView.x = 0
         }
 
-        onStopped: { 
+        onStopped: {
             displayState = viewState.showAll
         }
     }
@@ -139,6 +159,23 @@ Item {
     }
 
     Rectangle {
+        id: trayIconTip
+        width: trayIconTipText.width + 10
+        height: 30
+        color: defaultBackgroundColor
+
+        property string text
+
+        Text {
+            id: trayIconTipText
+            anchors.centerIn: parent
+            text: trayIconTip.text
+            font.pixelSize: 10
+            styleColor: "white"
+        }
+    }
+
+    Rectangle {
         id: trayFrame
         width: trayWidth
         anchors.left: frame.left
@@ -147,43 +184,164 @@ Item {
         color: defaultBackgroundColor
         //visible: false
 
-        Rectangle {
-            id: trayIconOutArea
-            width: parent.width
-            color: "#00FFFFFF"
-            anchors.centerIn: parent
+        ListView {
+            property QtObject currentHoverItem
 
-            ListView {
-                id: trayIconTabList
-                width: parent.width
+            id: trayIconTabList
+            width: parent.width
+            height: parent.height - topMoreButton.height - bottomShutdownButton.height
+            anchors.top: parent.top
+            anchors.topMargin: topMoreButton.height
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: bottomShutdownButton.height
+            anchors.left: parent.left
+            delegate: TabButtonDelegate{width: trayWidth; height: trayWidth}
+            model: ListModel {id: trayIconTabArea}
+            currentIndex: -1
+            onCurrentIndexChanged: {
+                if (currentIndex != -1){
+                    showRightBox(currentItem.trayIconId)
+                }
+            }
+            highlight: Rectangle { color: Qt.rgba(255, 255, 255, 0.1); radius: 3; }
+            highlightMoveVelocity: 800
+            highlightFollowsCurrentItem: true
+            maximumFlickVelocity: 0
+
+            /***
+            MouseArea {
                 anchors.fill: parent
-                model: ListModel {id: trayIconTabArea}
-                delegate: TabButtonDelegate{width: trayWidth; height: trayWidth}
-                currentIndex: -1
-                onCurrentIndexChanged: {
-                    if (currentIndex != -1){
-                        showRightBox(currentItem.trayIconId)
+                hoverEnabled: true
+                onPositionChanged: {
+                    var item = trayIconTabList.itemAt(mouseX, mouseY)
+                    if (item != trayIconTabList.currentHoverItem) {
+                        trayIconTabList.currentHoverItem = item
+                        console.log(item)
                     }
                 }
-                highlight: Rectangle { color: Qt.rgba(255, 255, 255, 0.1); radius: 3; }
-                highlightMoveVelocity: 800
+            }
+            ***/
+        }
+
+        Rectangle {
+            id: topMoreButton
+            width: parent.width
+            height: 30
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.right: parent.right
+            color: defaultBackgroundColor
+
+            ImageButton {
+                nomralImage: "images/more.png"
+                hoverImage: nomralImage
+                pressImage: nomralImage
+
+                anchors.fill: parent
+                color: defaultBackgroundColor
+
+                onClicked: {
+                    topMoreButton.visible = false
+                    trayIconTabList.anchors.topMargin = 0
+                    trayIconTabList.anchors.bottomMargin = bottomMoreButton.height + bottomShutdownButton.height
+                    bottomMoreButton.visible = true
+                    trayIconTabList.positionViewAtBeginning()
+                    bottomShutdownButtonLine.visible = false
+                }
             }
 
-            Component.onCompleted: {
-                var icon_path_array = [
-                    "notice",
-                    "wifi",
-                    "sound",
-                    "usb",
-                    "bluetooth",
-                    "power",
-                    "dss",
-                    "shutdown",
-                ]
-                for (var i in icon_path_array){
-                    trayIconTabArea.append({'iconId': icon_path_array[i]})
+            Rectangle {
+                anchors.bottom: parent.bottom
+                anchors.left: parent.left
+                width: parent.width
+                height: 1
+                color: Qt.rgba(255, 255, 255, 0.1)
+                //visible: false
+            }
+        }
+
+        Rectangle {
+            id: bottomMoreButton
+            width: parent.width
+            height: 30
+            anchors.bottom: bottomShutdownButton.top
+            anchors.left: parent.left
+            anchors.right: parent.right
+            color: defaultBackgroundColor
+            visible: false
+
+            ImageButton {
+                nomralImage: "images/more.png"
+                hoverImage: nomralImage
+                pressImage: nomralImage
+
+                anchors.fill: parent
+                color: defaultBackgroundColor
+
+                onClicked: {
+                    topMoreButton.visible = true
+                    trayIconTabList.anchors.topMargin = topMoreButton.height
+                    trayIconTabList.anchors.bottomMargin = bottomShutdownButton.height
+                    bottomMoreButton.visible = false
+                    trayIconTabList.positionViewAtEnd()
+                    bottomShutdownButtonLine.visible = true
                 }
-                trayIconOutArea.height = icon_path_array.length * trayWidth
+            }
+
+            Rectangle {
+                anchors.top: parent.top
+                anchors.left: parent.left
+                width: parent.width
+                height: 1
+                color: Qt.rgba(255, 255, 255, 0.1)
+                //visible: false
+            }
+        }
+
+        Rectangle {
+            id: bottomShutdownButton
+            color: defaultBackgroundColor
+            width: parent.width
+            height: parent.width
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
+
+            ImageButton {
+                nomralImage: "trayicon_images/shutdown_normal.png"
+                hoverImage: "trayicon_images/shutdown_hover.png"
+                pressImage: "trayicon_images/shutdown_press.png"
+
+                anchors.fill: parent
+                color: defaultBackgroundColor
+
+                onClicked: {
+                    Qt.quit()
+                }
+
+                onHoverChanged: {
+                    if (hover){
+                        trayIconTip.anchors.right = frame.left
+                        trayIconTip.anchors.rightMargin = 5
+                        trayIconTip.anchors.bottom = frame.bottom
+                        trayIconTip.anchors.bottomMargin = Math.abs(bottomShutdownButton.height - trayIconTip.height)/2
+                        trayIconTip.text = "Shut Down"
+                        trayIconTip.visible = true
+                    }
+                    else {
+                        trayIconTip.visible = false
+                    }
+                }
+            }
+
+            Rectangle {
+                id: bottomShutdownButtonLine
+                anchors.top: parent.top
+                anchors.left: parent.left
+                width: parent.width
+                height: 1
+                color: Qt.rgba(255, 255, 255, 0.1)
+                //visible: false
             }
         }
     }
@@ -226,7 +384,7 @@ Item {
                 rightBoxLoaderItem.visible = (iconId == '' ? false : true)
                 rightBoxLoader.iconId = iconId
                 if (iconId){
-                    rightBoxLoader.source = 'trayicon_modules/' + iconId + '/main.qml'
+                    rightBoxLoader.source = '../modules/' + iconId + '/main.qml'
                 }
                 else{
                     rightBoxLoader.source = ''

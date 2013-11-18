@@ -27,26 +27,26 @@ from PyQt5.QtCore import QObject, pyqtSlot
 from PyQt5.QtDBus import QDBusInterface, QDBusConnection, QDBusReply
 from PyQt5.QtGui import QGuiApplication
 
-class Interface(QDBusInterface):
-    def __init__(self, service, path, connection, parent=None):
-        super(Interface, self).__init__(service, path,
-                'org.freedesktop.DBus.Properties', connection, parent)
+properties_iface_name = 'org.freedesktop.DBus.Properties'
 
-    def get_systeminfo(self):
-        msg = self.call('GetAll', 'com.deepin.daemon.SystemInfo')
-        result = QDBusReply(msg).value()
-        return json.dumps(result)
-
+service_name = 'com.deepin.daemon.SystemInfo'
+object_path = '/com/deepin/daemon/SystemInfo'
+iface_name = 'com.deepin.daemon.SystemInfo'
 
 class Controller(QObject):
     def __init__(self, parent=None):
         QObject.__init__(self)
-        self.interface = Interface('com.deepin.daemon.SystemInfo', '/com/deepin/daemon/SystemInfo',
-                QDBusConnection.sessionBus(), self)
+        self.interface = QDBusInterface(
+                service_name,
+                object_path,
+                properties_iface_name,
+                QDBusConnection.sessionBus(),
+                self)
 
     @pyqtSlot(result=str)
     def get_systeminfo(self):
-        return self.interface.get_systeminfo()
+        result = QDBusReply(self.interface.call('GetAll', 'com.deepin.daemon.SystemInfo')).value()
+        return json.dumps(result)
 
 if __name__ == '__main__':
     app = QGuiApplication(sys.argv)

@@ -4,17 +4,22 @@ import os
 import sys
 import signal
 
-from PyQt5.QtCore import QUrl, QTranslator
+from PyQt5.QtCore import QUrl, QTranslator, QObject
 from PyQt5.QtGui import QGuiApplication
 
+from dbus.mainloop.pyqt5 import DBusQtMainLoop
+DBusQtMainLoop(set_as_default=True)
+
 from Window import Window
+from modules_info import get_modules_id
 
 root_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 sys.path.append(root_path)
 
 '''Start import modules class'''
-from modules.system_info import Controller as system_info
-from modules.system_update import Controller as system_update
+from modules.system_info import Controller as module_system_info
+from modules.system_update import Controller as module_system_update
+from modules.power import Controller as module_power 
 '''End import modules class'''
 
 WIDTH = 360
@@ -38,13 +43,19 @@ if __name__ == '__main__':
     qml_context = view.rootContext()
     qml_context.setContextProperty("windowView", view)
     qml_context.setContextProperty("screenSize", screen_size)
+    modulesId = get_modules_id()
+    qml_context.setContextProperty("modulesId", modulesId)
 
     '''Start modules context init'''
-    system_info_obj = system_info()
+    system_info_obj = module_system_info()
     qml_context.setContextProperty('module_system_info', system_info_obj)
 
-    system_update_obj = system_update()
+    system_update_obj = module_system_update()
     qml_context.setContextProperty('module_system_update', system_update_obj)
+
+    power_obj = module_power()
+    qml_context.setContextProperty('module_power', power_obj)
+
     '''End modules context init'''
 
     trans = QTranslator(view)

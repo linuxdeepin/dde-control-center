@@ -23,11 +23,13 @@
 import sys
 import json
 
-from PyQt5.QtCore import QObject, pyqtSlot
+from PyQt5.QtCore import QObject, pyqtSlot, pyqtSignal
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtDBus import QDBusAbstractInterface, QDBusConnection, QDBusReply
 
 class DscInterface(QDBusAbstractInterface):
+    update_signal = pyqtSignal(str)
+
     def __init__(self, service, path, connection, parent=None):
         super(DscInterface, self).__init__(service, path,
                 'com.linuxdeepin.softwarecenter', connection, parent)
@@ -38,10 +40,15 @@ class DscInterface(QDBusAbstractInterface):
 
 
 class Controller(QObject):
+
     def __init__(self, parent=None):
         QObject.__init__(self)
         self.dsc_interface = DscInterface('com.linuxdeepin.softwarecenter', '/com/linuxdeepin/softwarecenter',
                 QDBusConnection.systemBus(), self)
+        self.dsc_interface.update_signal.connect(self.message_handler)
+
+    def message_handler(self, *args):
+        print self, args
 
     @pyqtSlot(str, result=str)
     def get_download_size(self, name):
