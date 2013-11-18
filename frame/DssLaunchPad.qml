@@ -1,8 +1,21 @@
 import QtQuick 2.0
 
 Rectangle {
-    //model is a list of {"name":"somename", "url":"file:///some/url/mainfile.qml"}
-    //function used to add to model A) to enforce scheme B) to allow Qt.resolveUrl in url assignments
+    anchors.fill: parent
+    Component.onCompleted: {
+        addModule(qsTr("System Update"), Qt.resolvedUrl("../modules/system_update/Main.qml"), "update");
+        //addModule("显示",  Qt.resolvedUrl("../modules/basics/color-animation.qml"), "display");
+        //addModule("桌面",  Qt.resolvedUrl("../modules/basics/property-animation.qml"), "desktop");
+        //addModule("个性化", Qt.resolvedUrl("../modules/behaviors/behavior-example.qml"), "individuation");
+        //addModule("声音", Qt.resolvedUrl("../modules/behaviors/wigglytext.qml"), "sound");
+        //addModule("日期和时间", Qt.resolvedUrl("../modules/behaviors/tvtennis.qml"), "date_time");
+        //addModule("电源", Qt.resolvedUrl("../modules/easing/easing.qml"), "power");
+        //addModule("键盘", Qt.resolvedUrl("../modules/states/states.qml"), "keyboard");
+        //addModule("账户", Qt.resolvedUrl("../modules/states/transitions.qml"), "account");
+        //addModule("网络", Qt.resolvedUrl("../modules/pathanimation/pathanimation.qml"), "network");
+        //addModule("蓝牙", Qt.resolvedUrl("../modules/pathinterpolator/pathinterpolator.qml"), "bluetooth");
+        addModule(qsTr("System Information"), Qt.resolvedUrl("../modules/system_info_bak/main.qml"), "system_information");
+    }
 
     property string dssName: "选项"
     property bool inList: false
@@ -22,7 +35,7 @@ Rectangle {
 
     ListView {
         clip: true
-        delegate: SimpleLauncherDelegate{exampleItem: moduleItem}
+        delegate: DssLaunchDelegate{exampleItem: moduleItem}
         model: ListModel {id:myModel}
         anchors.fill: parent
         anchors.topMargin: bar.height
@@ -125,7 +138,7 @@ Rectangle {
 
             Image {
                 id: back
-                source: "images/back.png"
+                source: "images/back_normal.png"
                 anchors.top: parent.top
                 anchors.left: parent.left
                 anchors.leftMargin: 20
@@ -143,42 +156,73 @@ Rectangle {
                         back.source = "images/back_press.png"
                     }
                     onReleased: {
-                        back.source = "images/back.png"
+                        back.source = "images/back_normal.png"
                     }
                 }
             }
 
-            Image {
-                id: topButton
-                source: "images/dss_top_button.png"
+            Row {
                 anchors.top: parent.top
                 anchors.left: parent.left
-                anchors.leftMargin: 50
+                anchors.leftMargin: 49
 
-                Text{
-                    id: title
-                    text: dssName
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.verticalCenterOffset: -1
-                    color: "#eaeaea"
-                    font.pixelSize: 13
-                    styleColor: "white"
-                    //style: Text.Raised
+                QtObject { //enumeration for topButton image
+                    id: topButtonImage
+                    property string headerNormal: "images/dss_top_title_header_normal.png"
+                    property string headerPress: "images/dss_top_title_header_press.png"
+                    property string middleNormal: "images/dss_top_title_middle_normal.png"
+                    property string middlePress: "images/dss_top_title_middle_press.png"
+                    property string tailNormal: "images/dss_top_title_tail_normal.png"
+                    property string tailPress: "images/dss_top_title_tail_press.png"
                 }
 
-                MouseArea {
-                    hoverEnabled: true
-                    anchors.fill: parent
-                    width: parent.width
-                    height: parent.height
-                    onPressed: {
-                        topButton.source = "images/dss_top_button_press.png"
+                Image{
+                    id: topButtonHeader
+                    source: topButtonImage.headerNormal
+                }
+
+                Image {
+                    id: topButtonMiddle
+                    source: topButtonImage.middleNormal
+                    width: title.width + 6
+
+                    Text{
+                        id: title
+                        text: dssName
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.verticalCenter: parent.verticalCenter
+                        color: "#eaeaea"
+                        font.pixelSize: 13
+                        styleColor: "white"
+                        //style: Text.Raised
                     }
-                    onReleased: {
-                        topButton.source = "images/dss_top_button.png"
+
+                    MouseArea {
+                        hoverEnabled: true
+                        anchors.fill: parent
+                        width: parent.width
+                        height: parent.height
+                        onPressed: {
+                            topButtonHeader.source = topButtonImage.headerPress
+                            topButtonMiddle.source = topButtonImage.middlePress
+                            topButtonTail.source = topButtonImage.tailPress
+                        }
+                        onReleased: {
+                            topButtonHeader.source = topButtonImage.headerNormal
+                            topButtonMiddle.source = topButtonImage.middleNormal
+                            topButtonTail.source = topButtonImage.tailNormal
+                        }
+                        onClicked: {
+                            windowView.close()
+                        }
                     }
                 }
+
+                Image{
+                    id: topButtonTail
+                    source: topButtonImage.tailNormal
+                }
+
             }
         }
     }
