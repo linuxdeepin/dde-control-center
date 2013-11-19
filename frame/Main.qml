@@ -3,17 +3,21 @@ import QtQuick 2.1
 Item {
     id: root
     property int trayWidth: 48
+    property int trayHeight: trayWidth
     property color defaultBackgroundColor: "#252627"
+    property bool trayIconShowAll: false
 
-    property int displayState: viewState.hideAll
+    property int viewHoverPadding: 100
+
+    property int displayState: viewState.allHide
 
     // animation for root frame
     QtObject { // enumeration for root view state
         id: viewState
-        property int hideAll: 0
-        property int showTray: 1
-        property int showDss: 2
-        property int showAll: 3
+        property int allHide: 0
+        property int trayShow: 1
+        property int rightBoxShow: 2
+        property int allShow: 3
     }
 
     signal enterMouseArea
@@ -31,7 +35,7 @@ Item {
     }
 
     onEnterMouseArea: {
-        if (displayState == viewState.hideAll){
+        if (displayState == viewState.allHide){
             displayTimer.restart()
         }
     }
@@ -46,26 +50,68 @@ Item {
         if (trayIconId == 'shutdown'){
             var d = new Date()
             console.log(d.toLocaleString())
+            Qt.quit()
+        }
+        else if (trayIconId == 'dss'){
+            expandHideTrayIcon()
         }
         else{
             if (!showingRightBox.running && !showingTrayIconBox.running){
                 showingRightBox.restart()
             }
-            if (trayIconId == 'dss'){
-                rightBoxLoaderItem.iconId = ''
-            }
-            else{
-                rightBoxLoaderItem.iconId = trayIconId
-            }
+            rightBoxLoaderItem.iconId = trayIconId
         }
     }
 
     function initTrayIcon() {
-        var icon_path_array = modulesId
-        for (var i in icon_path_array){
-            trayIconTabArea.append({'iconId': icon_path_array[i]})
+        var icon_path_array = modulesId.common_ids()
+        var new_tray_height = screenSize.height/(icon_path_array.length+1.0)
+        if (new_tray_height < trayWidth){
+            trayHeight = new_tray_height
         }
-        //trayIconOutArea.height = icon_path_array.length * trayWidth
+        else{
+            trayHeight = trayWidth
+        }
+        trayIconTabArea.clear()
+        for (var i in icon_path_array){
+            trayIconTabArea.append({
+                'iconId': icon_path_array[i]
+            })
+        }
+        trayIconTabList.height = trayHeight * trayIconTabArea.count
+        trayIconShowAll = false
+    }
+
+    function expandHideTrayIcon() {
+        trayIconTabArea.remove(modulesId.common_ids().length - 2)
+        trayIconTabList.currentIndex = -1
+        var newIds = modulesId.hide_ids()
+        for (var i in newIds){
+            var index = trayIconTabArea.count - 2
+            trayIconTabArea.insert(index, {'iconId': newIds[i]})
+        }
+        var new_tray_height = screenSize.height/(trayIconTabArea.count)
+        if (new_tray_height < trayWidth){
+            trayHeight = new_tray_height
+        }
+        else{
+            trayHeight = trayWidth
+        }
+
+        trayIconTabList.height = trayHeight * trayIconTabArea.count
+        trayIconShowAll = true
+    }
+
+    function trayIconHoverHandler(module_id, index) {
+        //console.log(module_id + ": "  + index)
+        var tipDisplayHeight
+        tipDisplayHeight = Math.abs(trayHeight - trayIconTip.height)/2 + trayHeight * index
+        if (trayHeight == trayWidth) {
+            tipDisplayHeight = (screenSize.height - trayHeight * trayIconTabArea.count)/2 + tipDisplayHeight
+        }
+        trayIconTip.y = tipDisplayHeight
+        trayIconTip.text = module_id
+        trayIconTip.visible = true
     }
 
     Timer {
@@ -76,7 +122,6 @@ Item {
         onTriggered: {
             initTrayIcon()
             trayIconTabList.positionViewAtEnd()
-            trayIconTabList.cancelFlick()
         }
     }
 
@@ -94,7 +139,7 @@ Item {
         }
 
         onStopped: {
-            displayState = viewState.showAll
+            displayState = viewState.allShow
         }
     }
 
@@ -109,7 +154,8 @@ Item {
         onStopped: {
             windowView.x = screenSize.width - 2
             trayIconTabList.currentIndex = -1
-            displayState = viewState.hideAll
+            displayState = viewState.allHide
+            initTrayIcon()
         }
     }
 
@@ -126,7 +172,7 @@ Item {
             windowView.x = 0
         }
         onStopped: {
-            displayState = viewState.showTray
+            displayState = viewState.trayShow
         }
     }
     // animation for root frame
@@ -136,11 +182,15 @@ Item {
         anchors.fill: root
         hoverEnabled: true
         onEntered: {
-            root.enterMouseArea()
+            var min_y = viewHoverPadding
+            var max_y = screenSize.height - viewHoverPadding
+            if (mouseY > min_y && mouseY < max_y){
+                root.enterMouseArea()
+            }
         }
         onClicked: {
-            if ((displayState == viewState.showAll && mouseX < root.width - 360)
-            || (displayState == viewState.showTray && mouseX < root.width - 48))
+            if ((displayState == viewState.allShow && mouseX < root.width - 360)
+            || (displayState == viewState.trayShow && mouseX < root.width - 48))
             {
                 root.clickOutArea()
             }
@@ -160,18 +210,43 @@ Item {
 
     Rectangle {
         id: trayIconTip
-        width: trayIconTipText.width + 10
+        width: trayIconTipImageLeft.width + trayIconTipImageMiddle.width + trayIconTipImageRight.width
         height: 30
-        color: defaultBackgroundColor
+        //anchors.top: frame.top
+        anchors.right: frame.left
+        //anchors.rightMargin: 5
+        color: frame.color
+        visible: false
 
         property string text
 
+        Image {
+            id: trayIconTipImageLeft
+            anchors.top: parent.top
+            anchors.left: parent.left
+            source: "images/tooltips_left.png"
+        }
+        
+        Image {
+            id: trayIconTipImageMiddle
+            anchors.top: parent.top
+            anchors.left: trayIconTipImageLeft.right
+            source: "images/tooltips_middle.png"
+            width: trayIconTipText.width + 4
+        }
+        Image {
+            id: trayIconTipImageRight
+            anchors.top: parent.top
+            anchors.left: trayIconTipImageMiddle.right
+            source: "images/tooltips_right.png"
+        }
+
         Text {
             id: trayIconTipText
-            anchors.centerIn: parent
+            anchors.centerIn: trayIconTipImageMiddle
             text: trayIconTip.text
-            font.pixelSize: 10
-            styleColor: "white"
+            font.pixelSize: 12
+            color: "white"
         }
     }
 
@@ -184,45 +259,40 @@ Item {
         color: defaultBackgroundColor
         //visible: false
 
-        ListView {
-            property QtObject currentHoverItem
-
-            id: trayIconTabList
+        Rectangle {
+            color: defaultBackgroundColor
             width: parent.width
-            height: parent.height - topMoreButton.height - bottomShutdownButton.height
             anchors.top: parent.top
-            anchors.topMargin: topMoreButton.height
             anchors.bottom: parent.bottom
-            anchors.bottomMargin: bottomShutdownButton.height
+            anchors.bottomMargin: bottomShutdownButton.visible ? bottomShutdownButton.height : 0
             anchors.left: parent.left
-            delegate: TabButtonDelegate{width: trayWidth; height: trayWidth}
-            model: ListModel {id: trayIconTabArea}
-            currentIndex: -1
-            onCurrentIndexChanged: {
-                if (currentIndex != -1){
-                    showRightBox(currentItem.trayIconId)
-                }
-            }
-            highlight: Rectangle { color: Qt.rgba(255, 255, 255, 0.1); radius: 3; }
-            highlightMoveVelocity: 800
-            highlightFollowsCurrentItem: true
-            maximumFlickVelocity: 0
 
-            /***
-            MouseArea {
-                anchors.fill: parent
-                hoverEnabled: true
-                onPositionChanged: {
-                    var item = trayIconTabList.itemAt(mouseX, mouseY)
-                    if (item != trayIconTabList.currentHoverItem) {
-                        trayIconTabList.currentHoverItem = item
-                        console.log(item)
+            ListView {
+                property QtObject currentHoverItem
+
+                id: trayIconTabList
+                width: parent.width
+                anchors.centerIn: parent
+
+                delegate: TabButtonDelegate{width: trayWidth; height: trayHeight}
+                model: ListModel {id: trayIconTabArea}
+                currentIndex: -1
+                onCurrentIndexChanged: {
+                    if (currentIndex != -1){
+                        showRightBox(currentItem.trayIconId)
                     }
                 }
+                highlight: Rectangle { color: Qt.rgba(255, 255, 255, 0.1); radius: 3; }
+                highlightMoveVelocity: 800
+                highlightFollowsCurrentItem: true
+                maximumFlickVelocity: 0
+                Behavior on height {
+                    NumberAnimation { duration: 300 }
+                }
             }
-            ***/
         }
 
+        /***
         Rectangle {
             id: topMoreButton
             width: parent.width
@@ -231,6 +301,7 @@ Item {
             anchors.left: parent.left
             anchors.right: parent.right
             color: defaultBackgroundColor
+            visible: false
 
             ImageButton {
                 nomralImage: "images/more.png"
@@ -297,15 +368,17 @@ Item {
                 //visible: false
             }
         }
+        ***/
 
         Rectangle {
             id: bottomShutdownButton
             color: defaultBackgroundColor
             width: parent.width
-            height: parent.width
+            height: trayHeight
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.right: parent.right
+            visible: false
 
             ImageButton {
                 nomralImage: "trayicon_images/shutdown_normal.png"
@@ -341,7 +414,7 @@ Item {
                 width: parent.width
                 height: 1
                 color: Qt.rgba(255, 255, 255, 0.1)
-                //visible: false
+                visible: false
             }
         }
     }

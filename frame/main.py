@@ -11,7 +11,7 @@ from dbus.mainloop.pyqt5 import DBusQtMainLoop
 DBusQtMainLoop(set_as_default=True)
 
 from Window import Window
-from modules_info import get_modules_id
+from modules_info import ModulesId
 
 root_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 sys.path.append(root_path)
@@ -38,12 +38,12 @@ if __name__ == '__main__':
 
     screen_size = view.screen().size()
     view.setGeometry(screen_size.width() - 2,
-            0, screen_size.width(), screen_size.height() - 30)
+            0, screen_size.width(), screen_size.height())
 
     qml_context = view.rootContext()
     qml_context.setContextProperty("windowView", view)
     qml_context.setContextProperty("screenSize", screen_size)
-    modulesId = get_modules_id()
+    modulesId = ModulesId()
     qml_context.setContextProperty("modulesId", modulesId)
 
     '''Start modules context init'''

@@ -37,6 +37,7 @@ class Window(QQuickView):
                 Qt.FramelessWindowHint
                 | Qt.WindowStaysOnTopHint
                 | Qt.X11BypassWindowManagerHint
+                | Qt.Popup
                 )
         self.setResizeMode(QtQuick.QQuickView.SizeRootObjectToView)
         self.setFormat(surface_format)

@@ -4,24 +4,35 @@ import QtGraphicalEffects 1.0
 Rectangle {
     id: trayIconButton
     width: ListView.view.width
-    height: 50
+    height: 32
     smooth: true
     color: Qt.rgba(1, 0, 0, 0)
     
     property int tabIndex: 0
     property string trayIconId: iconId
-    property string iconPathHeader: "trayicon_images/" + iconId
+    property string iconPathHeader: "trayicons/" + iconId
     
     property bool hover: false
 
+    onHoverChanged: {
+        if (hover){
+            root.trayIconHoverHandler(trayIconId, index)
+        }
+        else {
+            trayIconTip.visible = false
+        }
+    }
+
     ImageCheckButton {
         color: defaultBackgroundColor
+        height: 32
+        width: 32
         anchors.fill: parent
-        inactivatedNomralImage: iconPathHeader + '_normal.png'
-        inactivatedHoverImage: iconPathHeader + '_hover.png'
+        inactivatedNomralImage: iconPathHeader + '_normal.svg'
+        inactivatedHoverImage: iconPathHeader + '_hover.svg'
         inactivatedPressImage: inactivatedHoverImage
 
-        activatedNomralImage: iconPathHeader + '_press.png'
+        activatedNomralImage: iconPathHeader + '_press.svg'
         activatedHoverImage: activatedNomralImage
         activatedPressImage: activatedNomralImage
         

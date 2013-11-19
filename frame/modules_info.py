@@ -22,42 +22,38 @@
 
 from PyQt5.QtCore import QObject, pyqtSlot, QVariant
 
-modules_id = [
-"notification",            #系统消息
-"display",                 #显示
-"desktop",                 #桌面
-"individuation",           #个性化
-"sound",                   #声音
-"date_time",               #日期和时间
-"power",                   #电源
-"shortcuts",               #快捷键
-"keyboard",                #键盘
-#"mouse",                   #鼠标*
-"touchpad",                #触摸板
-"network",                 #网络
-"bluetooth",               #蓝牙
-"disk_mount",              #磁盘挂载
-"account",                 #账户设置
-"default_applications",    #默认程序
-"system_info",             #系统信息
-#"shutdown",                #关机
-"dss",
-]
-
-@pyqtSlot(result=QVariant)
-def get_modules_id():
-    return modules_id
-
-class ModulesInfo(QObject):
+class ModulesId(QObject):
     def __init__(self):
         QObject.__init__(self)
+        self._common_ids = [
+            "date_time",
+            "network",
+            "disk_mount",
+            "bluetooth",
+            "sound",
+            "power",
+            "dss",
+            "shutdown",
+        ]
+        self._hide_ids = [
+            "notification",
+            "display",
+            "desktop",
+            "individuation",
+            "shortcuts",
+            "keyboard",
+            #"mouse",
+            "touchpad",
+            "account",
+            "default_applications",
+            "system_info",
+        ]
 
-    def module_id(self):
-        pass
-    
-    def qml_path(self):
-        pass
+    @pyqtSlot(result=QVariant)
+    def common_ids(self):
+        return self._common_ids
 
-    def icon_path(self):
-        pass
+    @pyqtSlot(result=QVariant)
+    def hide_ids(self):
+        return self._hide_ids
 

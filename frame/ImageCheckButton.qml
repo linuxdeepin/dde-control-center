@@ -41,7 +41,7 @@ Rectangle {
         id: currentImage
         anchors.centerIn: parent
         source: inactivatedNomralImage
-        scale: 0.8333
+        scale: 0.875
     }
 
     MouseArea {
