@@ -110,7 +110,7 @@ Item {
             tipDisplayHeight = (screenSize.height - trayHeight * trayIconTabArea.count)/2 + tipDisplayHeight
         }
         trayIconTip.y = tipDisplayHeight
-        trayIconTip.text = module_id
+        trayIconTip.text = modulesId.module_names()[module_id]
         trayIconTip.visible = true
     }
 
@@ -210,43 +210,30 @@ Item {
 
     Rectangle {
         id: trayIconTip
-        width: trayIconTipImageLeft.width + trayIconTipImageMiddle.width + trayIconTipImageRight.width
-        height: 30
-        //anchors.top: frame.top
+        width: trayIconTipText.width + 52
+        height: 44
         anchors.right: frame.left
-        //anchors.rightMargin: 5
-        color: frame.color
         visible: false
+
+        color: frame.color
 
         property string text
 
-        Image {
-            id: trayIconTipImageLeft
-            anchors.top: parent.top
-            anchors.left: parent.left
-            source: "images/tooltips_left.png"
-        }
-        
-        Image {
-            id: trayIconTipImageMiddle
-            anchors.top: parent.top
-            anchors.left: trayIconTipImageLeft.right
-            source: "images/tooltips_middle.png"
-            width: trayIconTipText.width + 4
-        }
-        Image {
-            id: trayIconTipImageRight
-            anchors.top: parent.top
-            anchors.left: trayIconTipImageMiddle.right
-            source: "images/tooltips_right.png"
+        RightArrowTip {
+            x: 0
+            y: 0
+            rectWidth: parent.width
+            rectHeight: parent.height
         }
 
         Text {
             id: trayIconTipText
-            anchors.centerIn: trayIconTipImageMiddle
-            text: trayIconTip.text
-            font.pixelSize: 12
+            anchors.verticalCenter: trayIconTip.verticalCenter
+            anchors.horizontalCenter: trayIconTip.horizontalCenter
+            anchors.horizontalCenterOffset: - 4
+            font.pixelSize: 13
             color: "white"
+            text: parent.text
         }
     }
 

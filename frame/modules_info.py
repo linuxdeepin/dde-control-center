@@ -25,29 +25,52 @@ from PyQt5.QtCore import QObject, pyqtSlot, QVariant
 class ModulesId(QObject):
     def __init__(self):
         QObject.__init__(self)
+        self._l18n_names = {
+                "date_time": "日期和时间",
+                "network": "网络",
+                "disk_mount": "磁盘挂载",
+                "bluetooth": "蓝牙",
+                "sound": "声音",
+                "power": "电源",
+                "dss": "更多设置",
+                "shutdown": "关机",
+                "notification": "系统消息",
+                "display": "显示",
+                "desktop": "桌面",
+                "individuation": "个性化",
+                "shortcuts": "快捷键",
+                "keyboard": "键盘",
+                #"mouse": "",
+                "touchpad": "触摸板",
+                "account": "账户",
+                "default_applications": "默认程序",
+                "system_info": "系统信息",
+            }
+
         self._common_ids = [
-            "date_time",
-            "network",
-            "disk_mount",
-            "bluetooth",
-            "sound",
-            "power",
-            "dss",
-            "shutdown",
-        ]
+                "date_time",
+                "network",
+                "disk_mount",
+                "bluetooth",
+                "sound",
+                "power",
+                "dss",
+                "shutdown",
+            ]
+
         self._hide_ids = [
-            "notification",
-            "display",
-            "desktop",
-            "individuation",
-            "shortcuts",
-            "keyboard",
-            #"mouse",
-            "touchpad",
-            "account",
-            "default_applications",
-            "system_info",
-        ]
+                "notification",
+                "display",
+                "desktop",
+                "individuation",
+                "shortcuts",
+                "keyboard",
+                #"mouse",
+                "touchpad",
+                "account",
+                "default_applications",
+                "system_info",
+            ]
 
     @pyqtSlot(result=QVariant)
     def common_ids(self):
@@ -56,4 +79,8 @@ class ModulesId(QObject):
     @pyqtSlot(result=QVariant)
     def hide_ids(self):
         return self._hide_ids
+
+    @pyqtSlot(result=QVariant)
+    def module_names(self):
+        return self._l18n_names
 
