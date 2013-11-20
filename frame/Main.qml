@@ -46,7 +46,6 @@ Item {
     }
 
     function displayTrayIcon(){
-        console.log("emit...")
         if (!showingTrayIconBox.running){
             showingTrayIconBox.restart()
         }
@@ -93,7 +92,7 @@ Item {
         trayIconTabList.currentIndex = -1
         var newIds = modulesId.hide_ids()
         for (var i in newIds){
-            var index = trayIconTabArea.count - 2
+            var index = trayIconTabArea.count - 1
             trayIconTabArea.insert(index, {'iconId': newIds[i]})
         }
         var new_tray_height = screenSize.height/(trayIconTabArea.count)
