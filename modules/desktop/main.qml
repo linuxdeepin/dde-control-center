@@ -1,4 +1,5 @@
 import QtQuick 2.1
+import Deepin.Daemon.Desktop 1.0
 
 Rectangle {
     id: desktop
@@ -10,6 +11,10 @@ Rectangle {
 
     property string arrowUp: "images/up.png"
     property string arrowDown: "images/down.png"
+	
+	Desktop {
+		id: dde_desktop
+	}
 
     Column {
 
@@ -54,26 +59,51 @@ Rectangle {
 
             rows: 2
             MultipleSelectView {
+				id: desktop_icons_select_view
                 rows: 2
                 columns: 2
 
                 width: parent.width
                 height: rows * 30
-
-                model: ListModel {
-                    ListElement {
-                        label: "计算机"
-                    }
-                    ListElement {
-                        label: "回收站"
-                    }
-                    ListElement {
-                        label: "主文件夹"
-                    }
-                    ListElement {
-                        label: "软件中心"
-                    }
-                }
+				
+                model: ListModel {}
+				Component.onCompleted: {
+					model.append({"label": "计算机", "selected": dde_desktop.showComputerIcon})
+					model.append({"label": "主文件夹", "selected": dde_desktop.showHomeIcon})
+					model.append({"label": "回收站", "selected": dde_desktop.showTrashIcon})
+					model.append({"label": "软件中心", "selected": dde_desktop.showDSCIcon})
+				}
+				
+				onSelect: {
+					switch (index) {
+						case 0:
+						dde_desktop.showComputerIcon = true
+						break
+						case 1:
+						dde_desktop.showHomeIcon = true
+						break						
+						case 2:
+						dde_desktop.showTrashIcon = true
+						break						
+						case 3:
+						dde_desktop.showDSCIcon = true
+					}
+				}
+				onDeselect: {
+					switch (index) {
+						case 0:
+						dde_desktop.showComputerIcon = false
+						break						
+						case 1:
+						dde_desktop.showHomeIcon = false
+						break						
+						case 2:
+						dde_desktop.showTrashIcon = false
+						break						
+						case 3:
+						dde_desktop.showDSCIcon = false
+					}
+				}
             }
         }
         RaisedPart {
