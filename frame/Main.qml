@@ -1,4 +1,5 @@
 import QtQuick 2.1
+import QtQuick.Window 2.0
 
 Item {
     id: root
@@ -11,8 +12,11 @@ Item {
 
     property int displayState: viewState.allHide
 
-    // animation for root frame
-    QtObject { // enumeration for root view state
+    signal enterMouseArea()
+    signal clickOutArea(int mousex, int mousey)
+
+    QtObject { 
+        // enumeration for root view state
         id: viewState
         property int allHide: 0
         property int trayShow: 1
@@ -20,29 +24,31 @@ Item {
         property int allShow: 3
     }
 
-    signal enterMouseArea
-    signal clickOutArea
-
-    Timer {
-        id: displayTimer
-        interval: 800
-        repeat: false
-        onTriggered: {
-            if (!showingTrayIconBox.running){
-                showingTrayIconBox.restart()
-            }
-        }
-    }
-
     onEnterMouseArea: {
-        if (displayState == viewState.allHide){
-            displayTimer.restart()
-        }
+        displayTrayIcon()
     }
 
     onClickOutArea: {
+        if ((root.displayState == viewState.trayShow) && (
+            mousex <= screenSize.width - trayWidth)) {
+            hideTrayIcon()
+        }
+        else if ((root.displayState == viewState.allShow) && (
+            mousex <= screenSize.width - root.width)) {
+            hideTrayIcon()
+        }
+    }
+
+    function hideTrayIcon(){
         if (!hidingRoot.running){
             hidingRoot.restart()
+        }
+    }
+
+    function displayTrayIcon(){
+        console.log("emit...")
+        if (!showingTrayIconBox.running){
+            showingTrayIconBox.restart()
         }
     }
 
@@ -110,7 +116,7 @@ Item {
             tipDisplayHeight = (screenSize.height - trayHeight * trayIconTabArea.count)/2 + tipDisplayHeight
         }
         trayIconTip.y = tipDisplayHeight
-        trayIconTip.text = modulesId.module_names()[module_id]
+        trayIconTipText.text = modulesId.module_names()[module_id]
         trayIconTip.visible = true
     }
 
@@ -128,15 +134,17 @@ Item {
     PropertyAnimation {
         id: showingRightBox
         alwaysRunToEnd: true
-        target: frame
-        property: "anchors.leftMargin"
-        to: root.width - 360
+        target: windowView
+        property: "x"
+        to: screenSize.width - 360
         duration: 300
         easing.type: Easing.OutQuad
 
+        /***
         onStarted: {
             windowView.x = 0
         }
+        ***/
 
         onStopped: {
             displayState = viewState.allShow
@@ -146,13 +154,13 @@ Item {
     PropertyAnimation {
         id: hidingRoot
         alwaysRunToEnd: true
-        target: frame
-        property: "anchors.leftMargin"
-        to: root.width + 360
+        target: windowView
+        property: "x"
+        to: screenSize.width
         duration: 300
         easing.type: Easing.OutQuad
         onStopped: {
-            windowView.x = screenSize.width - 2
+            //windowView.x = screenSize.width - 2
             trayIconTabList.currentIndex = -1
             displayState = viewState.allHide
             initTrayIcon()
@@ -162,15 +170,18 @@ Item {
     PropertyAnimation {
         id: showingTrayIconBox
         alwaysRunToEnd: true
-        target: frame
-        property: "anchors.leftMargin"
-        to: root.width - 48
+        target: windowView
+        property: "x"
+        to: screenSize.width - 48
         duration: 300
         easing.type: Easing.OutQuad
 
+        /**
         onStarted: {
             windowView.x = 0
         }
+        **/
+
         onStopped: {
             displayState = viewState.trayShow
         }
@@ -182,17 +193,18 @@ Item {
         anchors.fill: root
         hoverEnabled: true
         onEntered: {
+            //console.log("Enter...")
             var min_y = viewHoverPadding
             var max_y = screenSize.height - viewHoverPadding
             if (mouseY > min_y && mouseY < max_y){
-                root.enterMouseArea()
+                //root.enterMouseArea()
             }
         }
         onClicked: {
             if ((displayState == viewState.allShow && mouseX < root.width - 360)
             || (displayState == viewState.trayShow && mouseX < root.width - 48))
             {
-                root.clickOutArea()
+                //root.clickOutArea()
             }
         }
     }
@@ -200,26 +212,25 @@ Item {
     Rectangle {
         id: frame
         color: Qt.rgba(0, 0, 0, 0)
-        anchors.left: parent.left
-        anchors.leftMargin: parent.width + 360
+        anchors.right: parent.right
         anchors.top: parent.top
         anchors.bottom: parent.bottom
 		width: 360
 		height: root.height
     }
 
-    Rectangle {
+    Window {
         id: trayIconTip
         width: trayIconTipText.width + 52
         height: 44
-        anchors.right: frame.left
+        x: windowView.x - width
         visible: false
+        flags: Qt.Popup
 
-        color: frame.color
-
-        property string text
+        color: Qt.rgba(0, 0, 0, 0)
 
         RightArrowTip {
+            id: trayIconTipArrowRect
             x: 0
             y: 0
             rectWidth: parent.width
@@ -228,12 +239,11 @@ Item {
 
         Text {
             id: trayIconTipText
-            anchors.verticalCenter: trayIconTip.verticalCenter
-            anchors.horizontalCenter: trayIconTip.horizontalCenter
+            anchors.verticalCenter: trayIconTipArrowRect.verticalCenter
+            anchors.horizontalCenter: trayIconTipArrowRect.horizontalCenter
             anchors.horizontalCenterOffset: - 4
             font.pixelSize: 13
             color: "white"
-            text: parent.text
         }
     }
 

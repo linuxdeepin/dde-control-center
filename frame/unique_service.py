@@ -20,23 +20,25 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt5.QtQuick import QQuickView
-from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QSurfaceFormat, QColor
+from PyQt5.QtCore import pyqtSlot, QObject, pyqtSignal
+from PyQt5.QtDBus import QDBusConnection, QDBusInterface
+import sys
 
-class Window(QQuickView):
-
-    def __init__(self):
-        QQuickView.__init__(self)
-        surface_format = QSurfaceFormat()
-        surface_format.setAlphaBufferSize(8)
+class UniqueService(QObject):
+    uniqueTrigger = pyqtSignal()    
+    
+    def __init__(self, dbus_name, object_name):
+        QObject.__init__(self)
         
-        self.setColor(QColor(0, 0, 0, 0))
-        self.setFlags(
-                Qt.FramelessWindowHint
-                | Qt.WindowStaysOnTopHint
-                | Qt.X11BypassWindowManagerHint
-                | Qt.Popup
-                )
-        self.setResizeMode(QQuickView.SizeRootObjectToView)
-        self.setFormat(surface_format)
+        iface = QDBusInterface(dbus_name, object_name, '', QDBusConnection.sessionBus())
+        if iface.isValid():
+            iface.call("unique")
+            sys.exit(1)
+        
+        QDBusConnection.sessionBus().registerService(dbus_name)
+        QDBusConnection.sessionBus().registerObject(object_name, self, QDBusConnection.ExportAllSlots)
+    
+    @pyqtSlot()
+    def unique(self):
+        self.uniqueTrigger.emit()
+        
