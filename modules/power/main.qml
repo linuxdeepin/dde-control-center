@@ -4,20 +4,13 @@ import Deepin.Daemon.Desktop 1.0
 Rectangle {
     id: desktop
 
-    width: 310
-    height: 600
-
-    color: "#252627"
-
+    color: root.defaultBackgroundColor
     property string arrowUp: "images/up.png"
     property string arrowDown: "images/down.png"
-
     property int topTitleHeight: 50
-	
-	Desktop {
-		id: dde_desktop
-	}
 
+    property variant ddeDesktop: Desktop {}
+	
     Rectangle {
         anchors.top: parent.top
         anchors.left: parent.left
@@ -29,13 +22,12 @@ Rectangle {
             anchors.top: parent.top
             anchors.topMargin: 20
             anchors.left: parent.left
-            anchors.leftMargin: 20
+            anchors.leftMargin: 18
             color: "white"
             font.pixelSize: 15
             font.bold : true
             text: "电源管理"
         }
-
     }
 
     Column {
@@ -50,35 +42,35 @@ Rectangle {
             id: desktop_icons
             title: "电源计划"
 
+            function arrowClicked() {
+                if (desktop_icons_arrow.arrowPic == desktop.arrowUp) {
+                    desktop_icons_arrow.arrowPic = desktop.arrowDown
+                    desktop_icons_select.visible = false
+                } else {
+                    desktop_icons_arrow.arrowPic = desktop.arrowUp
+                    desktop_icons_select.visible = true
+                }
+            }
+
             Image {
                 id: desktop_icons_arrow
                 source: arrowPic
-
                 property string arrowPic: desktop.arrowDown
-
-                function arrowClicked() {
-                    if (desktop_icons_arrow.arrowPic == desktop.arrowUp) {
-                        desktop_icons_arrow.arrowPic = desktop.arrowDown
-                        desktop_icons_select.visible = false
-                    } else {
-                        desktop_icons_arrow.arrowPic = desktop.arrowUp
-                        desktop_icons_select.visible = true
-                    }
-                }
 
                 anchors {
                     right: parent.right
                     rightMargin: parent.rightPadding
                     verticalCenter: parent.verticalCenter
                 }
+            }
 
-                Component.onCompleted: { arrowClicked() }
+            MouseArea {
+                anchors.fill: parent
+                onClicked: { desktop_icons.arrowClicked() }
+            }
 
-                MouseArea {
-                    anchors.fill: parent
-
-                    onPressed: { desktop_icons_arrow.arrowClicked() }
-                }
+            Component.onCompleted: {
+                arrowClicked()
             }
         }
 
@@ -106,31 +98,31 @@ Rectangle {
 				onSelect: {
 					switch (index) {
 						case 0:
-						dde_desktop.showComputerIcon = true
+						ddeDesktop.showComputerIcon = true
 						break
 						case 1:
-						dde_desktop.showHomeIcon = true
+						ddeDesktop.showHomeIcon = true
 						break						
 						case 2:
-						dde_desktop.showTrashIcon = true
+						ddeDesktop.showTrashIcon = true
 						break						
 						case 3:
-						dde_desktop.showDSCIcon = true
+						ddeDesktop.showDSCIcon = true
 					}
 				}
 				onDeselect: {
 					switch (index) {
 						case 0:
-						dde_desktop.showComputerIcon = false
+						ddeDesktop.showComputerIcon = false
 						break						
 						case 1:
-						dde_desktop.showHomeIcon = false
+						ddeDesktop.showHomeIcon = false
 						break						
 						case 2:
-						dde_desktop.showTrashIcon = false
+						ddeDesktop.showTrashIcon = false
 						break						
 						case 3:
-						dde_desktop.showDSCIcon = false
+						ddeDesktop.showDSCIcon = false
 					}
 				}
             }

@@ -54,7 +54,7 @@ Item {
     function showRightBox(trayIconId) {
         if (trayIconId == 'shutdown'){
             var d = new Date()
-            console.log(d.toLocaleString())
+            //console.log(d.toLocaleString())
             Qt.quit()
         }
         else if (trayIconId == 'dss'){
@@ -163,6 +163,7 @@ Item {
             trayIconTabList.currentIndex = -1
             displayState = viewState.allHide
             initTrayIcon()
+            windowView.hide()
         }
     }
 
@@ -175,11 +176,9 @@ Item {
         duration: 300
         easing.type: Easing.OutQuad
 
-        /**
         onStarted: {
-            windowView.x = 0
+            windowView.show()
         }
-        **/
 
         onStopped: {
             displayState = viewState.trayShow
@@ -187,6 +186,7 @@ Item {
     }
     // animation for root frame
 
+    /***
     MouseArea {
         id: fullscreenMouseArea
         anchors.fill: root
@@ -207,6 +207,7 @@ Item {
             }
         }
     }
+    ***/
 
     Rectangle {
         id: frame
@@ -228,12 +229,16 @@ Item {
 
         color: Qt.rgba(0, 0, 0, 0)
 
-        RightArrowTip {
+        RectWithCorner {
             id: trayIconTipArrowRect
             x: 0
             y: 0
+            cornerDirection: "right"
             rectWidth: parent.width
             rectHeight: parent.height
+            cornerPos: rectHeight/2
+            cornerWidth: 12
+            cornerHeight: 8
         }
 
         Text {
@@ -309,11 +314,6 @@ Item {
         anchors.leftMargin: trayWidth + 2
         color: defaultBackgroundColor
 
-        DssLaunchPad {
-            id: dssLaunchPad
-            //visible: false
-        }
-
         Item {
             id: rightBoxLoaderItem
 
@@ -322,7 +322,6 @@ Item {
             visible: false
             clip: true
             onIconIdChanged: {
-                dssLaunchPad.visible = (iconId == '' ? true : false)
                 rightBoxLoaderItem.visible = (iconId == '' ? false : true)
                 rightBoxLoader.iconId = iconId
                 if (iconId){

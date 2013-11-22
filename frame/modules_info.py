@@ -49,6 +49,7 @@ class ModulesId(QObject):
 
         self._common_ids = [
                 "date_time",
+                "notification",
                 "network",
                 "disk_mount",
                 "bluetooth",
@@ -59,7 +60,7 @@ class ModulesId(QObject):
             ]
 
         self._hide_ids = [
-                "notification",
+                "date_time",
                 "display",
                 "desktop",
                 "individuation",
