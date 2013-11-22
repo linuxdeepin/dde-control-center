@@ -12,9 +12,6 @@ Item {
 
     property int displayState: viewState.allHide
 
-    signal enterMouseArea()
-    signal clickOutArea(int mousex, int mousey)
-
     QtObject { 
         // enumeration for root view state
         id: viewState
@@ -24,11 +21,7 @@ Item {
         property int allShow: 3
     }
 
-    onEnterMouseArea: {
-        displayTrayIcon()
-    }
-
-    onClickOutArea: {
+    function outerAreaClicked(mousex, mousey){
         if ((root.displayState == viewState.trayShow) && (
             mousex <= screenSize.width - trayWidth)) {
             hideTrayIcon()

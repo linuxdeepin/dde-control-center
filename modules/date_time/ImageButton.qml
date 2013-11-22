@@ -8,6 +8,7 @@ Rectangle {
     property string pressImage
 
     property bool hover: false
+    property alias image: currentImage
 
     signal clicked
 

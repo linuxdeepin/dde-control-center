@@ -22,9 +22,13 @@ WIDTH = 360
 APP_DBUS_NAME = "com.deepin.system.settings"
 APP_OBJECT_NAME = "/com/deepin/system/settings"
 
+def unique_trigger():
+    print "dss is running"
+
 if __name__ == "__main__":
     app = QGuiApplication(sys.argv)
     uniqueService = UniqueService(APP_DBUS_NAME, APP_OBJECT_NAME)
+    uniqueService.uniqueTrigger.connect(unique_trigger)
 
     view = Window()
     view.setSource(QUrl.fromLocalFile(os.path.join(
@@ -47,7 +51,10 @@ if __name__ == "__main__":
 
     view.show()
 
+    view_object = view.rootObject()
     record_event = RecordEvent(view)
+    record_event.enter_mouse_area.connect(view_object.displayTrayIcon)
+    record_event.click_outer_area.connect(view_object.outerAreaClicked)
     
     thread = threading.Thread(target=record_event.filter_event)
     thread.setDaemon(True)

@@ -6,6 +6,7 @@
 # 
 # Author:     Wang Yong <lazycat.manatee@gmail.com>
 # Maintainer: Wang Yong <lazycat.manatee@gmail.com>
+#             Kaisheng Ye <kaisheng.ye@gmail.com>
 # 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -24,23 +25,14 @@ from PyQt5.QtCore import QObject, pyqtSignal
 from Xlib import X
 #from ocr import ocr_word
 from threading import Timer
-from xutils import record_event, get_keyname, check_valid_event, get_event_data
-import commands, subprocess
+from xutils import record_event, check_valid_event, get_event_data
 
 press_ctrl = False
 
 class RecordEvent(QObject):
-    
-    press_ctrl = pyqtSignal()    
-    release_ctrl = pyqtSignal()    
-    
-    left_button_press = pyqtSignal(int, int, int)
-    right_button_press = pyqtSignal(int, int, int)    
-    wheel_press = pyqtSignal()
-    
-    cursor_stop = pyqtSignal(int, int, str)
-    
-    translate_selection = pyqtSignal(int, int, str)
+
+    enter_mouse_area = pyqtSignal()
+    click_outer_area = pyqtSignal(int, int)
     
     def __init__(self, view):
         QObject.__init__(self)
@@ -58,43 +50,14 @@ class RecordEvent(QObject):
         data = reply.data
         while len(data):
             event, data = get_event_data(data)
-            
-            """
-            if event.type == X.KeyPress:
-                keyname = get_keyname(event)
-                if keyname in ["Control_L", "Control_R"]:
-                    press_ctrl = True
-                    
-                    if not self.view.in_translate_area():
-                        self.press_ctrl.emit()
-            elif event.type == X.KeyRelease:
-                keyname = get_keyname(event)
-                if keyname in ["Control_L", "Control_R"]:
-                    press_ctrl = False
-                    self.release_ctrl.emit()
-            elif event.type == X.ButtonPress:
-                if event.detail == 1:
-                    self.left_button_press.emit(event.root_x, event.root_y, event.time)
-                elif event.detail == 3:
-                    self.right_button_press.emit(event.root_x, event.root_y, event.time)
-                elif event.detail == 5:
-                    self.wheel_press.emit()
-            elif event.type == X.ButtonRelease:
-                if not self.view.in_translate_area():
-                    selection_content = commands.getoutput("xsel -p -o")
-                    subprocess.Popen("xsel -c", shell=True).wait()
-                    
-                    if len(selection_content) > 1:
-                        self.translate_selection.emit(event.root_x, event.root_y, selection_content)
-            elif event.type == X.MotionNotify:
-            """
+
             if event.type == X.MotionNotify:
                 if self.timer:
                     self.timer.cancel()
                 self.timer = Timer(self.stop_delay, lambda : self.emit_cursor_stop(event.root_x, event.root_y))
                 self.timer.start()
             elif event.type == X.ButtonRelease:
-                self.view.rootObject().clickOutArea.emit(event.root_x, event.root_y)
+                self.click_outer_area.emit(event.root_x, event.root_y)
                 
     def emit_cursor_stop(self, mouse_x, mouse_y):
         screen_size = self.view.screen().size()
@@ -102,7 +65,7 @@ class RecordEvent(QObject):
             mouse_x <= screen_size.width() and \
             mouse_y >= self.viewHoverPadding and \
             mouse_y <= screen_size.height() - self.viewHoverPadding:
-            self.view.rootObject().enterMouseArea.emit()
+            self.enter_mouse_area.emit()
                 
     def filter_event(self):
         record_event(self.record_callback)

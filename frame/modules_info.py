@@ -22,6 +22,10 @@
 
 from PyQt5.QtCore import QObject, pyqtSlot, QVariant
 
+"""
+翻译po
+"""
+
 class ModulesId(QObject):
     def __init__(self):
         QObject.__init__(self)
@@ -41,6 +45,7 @@ class ModulesId(QObject):
                 "shortcuts": "快捷键",
                 "keyboard": "键盘",
                 #"mouse": "",
+                #"autostart": "", #开机启动, 系统服务
                 "touchpad": "触摸板",
                 "account": "账户",
                 "default_applications": "默认程序",
