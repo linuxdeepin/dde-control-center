@@ -12,6 +12,10 @@ Item {
 
     property int displayState: viewState.allHide
 
+    function dsTr(s){
+        return qtgettext.qsTr(s)
+    }
+
     QtObject { 
         // enumeration for root view state
         id: viewState
@@ -46,9 +50,9 @@ Item {
 
     function showRightBox(trayIconId) {
         if (trayIconId == 'shutdown'){
-            var d = new Date()
-            //console.log(d.toLocaleString())
             Qt.quit()
+            //hideTrayIcon()
+            //windowView.shutdown()
         }
         else if (trayIconId == 'dss'){
             expandHideTrayIcon()
@@ -178,29 +182,6 @@ Item {
         }
     }
     // animation for root frame
-
-    /***
-    MouseArea {
-        id: fullscreenMouseArea
-        anchors.fill: root
-        hoverEnabled: true
-        onEntered: {
-            //console.log("Enter...")
-            var min_y = viewHoverPadding
-            var max_y = screenSize.height - viewHoverPadding
-            if (mouseY > min_y && mouseY < max_y){
-                //root.enterMouseArea()
-            }
-        }
-        onClicked: {
-            if ((displayState == viewState.allShow && mouseX < root.width - 360)
-            || (displayState == viewState.trayShow && mouseX < root.width - 48))
-            {
-                //root.clickOutArea()
-            }
-        }
-    }
-    ***/
 
     Rectangle {
         id: frame

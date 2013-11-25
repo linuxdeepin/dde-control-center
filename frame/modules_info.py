@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2011~2013 Deepin, Inc.
@@ -21,6 +21,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PyQt5.QtCore import QObject, pyqtSlot, QVariant
+from nls import _
 
 """
 翻译po
@@ -30,15 +31,15 @@ class ModulesId(QObject):
     def __init__(self):
         QObject.__init__(self)
         self._l18n_names = {
-                "date_time": "日期和时间",
-                "network": "网络",
-                "disk_mount": "磁盘挂载",
-                "bluetooth": "蓝牙",
-                "sound": "声音",
-                "power": "电源",
-                "dss": "更多设置",
-                "shutdown": "关机",
-                "notification": "系统消息",
+                "date_time": _("Date & Time"),
+                "network": _("Network"),
+                "disk_mount": _("Disk Mount"),
+                "bluetooth": _("Bluetooth"),
+                "sound": _("Sound"),
+                "power": _("Power"),
+                "dss": _("More Settings"),
+                "shutdown": _("Shutdown"),
+                "notification": _("System Information"),
                 "display": "显示",
                 "desktop": "桌面",
                 "individuation": "个性化",

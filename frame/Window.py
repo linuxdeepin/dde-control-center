@@ -21,8 +21,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PyQt5.QtQuick import QQuickView
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, pyqtSlot
 from PyQt5.QtGui import QSurfaceFormat, QColor
+import subprocess
 
 class Window(QQuickView):
 
@@ -40,3 +41,7 @@ class Window(QQuickView):
                 )
         self.setResizeMode(QQuickView.SizeRootObjectToView)
         self.setFormat(surface_format)
+
+    @pyqtSlot()
+    def shutdown(self):
+        subprocess.Popen(['/data/share/Projects/deepin/dde/build/shutdown'])

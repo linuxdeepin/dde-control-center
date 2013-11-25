@@ -1,0 +1,74 @@
+# Chinese translations for dss package.
+# Copyright (C) 2013 THE dss'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the dss package.
+# Automatically generated, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: dss 2014\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-25 12:30+0800\n"
+"PO-Revision-Date: 2013-11-25 12:27+0800\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../modules/date_time/main.qml:62
+#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:34
+msgid "Date & Time"
+msgstr ""
+
+#: ../modules/date_time/main.qml:154
+msgid "Auto-sync datetime"
+msgstr ""
+
+#: ../modules/date_time/main.qml:170
+msgid "24 Hour"
+msgstr ""
+
+#: ../modules/date_time/main.qml:195
+msgid "Timezone"
+msgstr ""
+
+#: ../modules/date_time/main.qml:234
+msgid "Date"
+msgstr ""
+
+#: ../modules/date_time/main.qml:241
+msgid "Apply Changes"
+msgstr ""
+
+#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:35
+msgid "Network"
+msgstr ""
+
+#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:36
+msgid "Disk Mount"
+msgstr ""
+
+#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:37
+msgid "Bluetooth"
+msgstr ""
+
+#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:38
+msgid "Sound"
+msgstr ""
+
+#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:39
+msgid "Power"
+msgstr ""
+
+#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:40
+msgid "More Settings"
+msgstr ""
+
+#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:41
+msgid "Shutdown"
+msgstr ""
+
+#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:42
+msgid "System Information"
+msgstr ""

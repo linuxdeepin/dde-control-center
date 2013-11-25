@@ -59,7 +59,7 @@ Rectangle {
         font.pixelSize: 15
         font.bold: true
         color: textColor
-        text: "时间和日期"
+        text: dsTr("Date & Time")
     }
 
     SepratorHorizontal {
@@ -151,7 +151,7 @@ Rectangle {
         id: autoSetTimeBox
         anchors.top: timeBox.bottom
         anchors.topMargin: 2
-        text: "自动设置时间"
+        text: dsTr("Auto-sync datetime")
         button.checked: true
 
         onClicked: {
@@ -167,7 +167,7 @@ Rectangle {
         id: twentyFourHourSetBox
         anchors.top: autoSetTimeBox.bottom
         anchors.topMargin: 2
-        text: "24小时制"
+        text: dsTr("24 Hour")
         onClicked: {
             console.log("twentyFourHourSetBox: "+ button.checked)
         }
@@ -192,7 +192,7 @@ Rectangle {
             anchors.leftMargin: 18
             font.pixelSize: 13
             color: textColor
-            text: "时区"
+            text: dsTr("Timezone")
         }
 
         Text {
@@ -231,14 +231,14 @@ Rectangle {
             anchors.leftMargin: 18
             font.pixelSize: 13
             color: textColor
-            text: "日期"
+            text: dsTr("Date")
         }
 
         TextButton {
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
             anchors.rightMargin: 8
-            text: "调整"
+            text: dsTr("Apply Changes")
         }
     }
 
