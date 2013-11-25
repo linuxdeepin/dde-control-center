@@ -1,12 +1,12 @@
 import QtQuick 2.1
-import Deepin.Daemon.gdatetime 1.0
+import Deepin.Daemon.DateAndTime 1.0
 
 Rectangle {
     id: dateTimeModule
     anchors.fill: parent
     color: childColor
 
-    property variant gDateTime: DateTimeMechanism { path: "/" }
+    //property variant gDateTime: DateAndTime { }
 
     property color textColor: "#b4b4b4"
 
@@ -46,7 +46,6 @@ Rectangle {
         var weekNames = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
 
         dayText.text = date.getFullYear() + "年" + date.getMonth()+ "月"+ date.getDate() + "日" + ", " + weekNames[date.getDay()]
-
     }
 
 

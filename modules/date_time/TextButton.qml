@@ -37,9 +37,8 @@ Rectangle{
                 id: title
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
-                color: "#eaeaea"
-                font.pixelSize: 13
-                styleColor: "white"
+                color: "#b4b4b4"
+                font.pixelSize: 12
             }
 
             MouseArea {

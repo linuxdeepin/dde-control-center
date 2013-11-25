@@ -1,4 +1,5 @@
 import QtQuick 2.1
+import "calendar_core.js" as CalendarCore
 
 Item {
     Rectangle {
@@ -73,7 +74,7 @@ Item {
 
         Text {
             id: monthAdjustment
-            property int monthNumber: Number(date.getMonth())
+            property int monthNumber: Number(date.getMonth() + 1)
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: decreaseMonthButton.left
             anchors.rightMargin: 12
@@ -113,11 +114,55 @@ Item {
     CalendarRow {
         id: weekTitle
         anchors.top: dateBoxAdjustment.bottom
-        anchors.topMargin: 2
+        anchors.topMargin: 1
     }
 
+    GridView {
+        anchors.top: weekTitle.bottom
+        anchors.left: parent.left
+        width: cellWidth * 7
+        cellWidth: 44 
+        cellHeight: 30
+        model: ListModel {id: testModule}
+        delegate: CalendarItem {}
+
+        Component.onCompleted: {
+            var dates = CalendarCore.getDates("2013-11-25");
+            for (var i=0; i < dates.length; i++){
+                testModule.append(dates[i])
+            }
+            height = (parseInt(dates.length/7) + 1) * cellHeight
+        }
+    }
+
+    /***
     Column {
         anchors.top: weekTitle.bottom
+
+        CalendarRow {
+            sevenString: [
+                {"text": "27", "grey": true},
+                {"text": "28", "grey": true},
+                {"text": "29", "grey": true},
+                {"text": "30", "grey": true},
+                {"text": "31", "grey": true},
+                {"text": "1", "grey": false},
+                {"text": "2", "grey": false},
+            ]
+        }
+
+        CalendarRow {
+            sevenString: [
+                {"text": "3", "grey": false},
+                {"text": "4", "grey": false},
+                {"text": "5", "grey": false},
+                {"text": "6", "grey": false},
+                {"text": "7", "grey": false},
+                {"text": "8", "grey": false},
+                {"text": "9", "grey": false},
+            ]
+        }
     }
+    ***/
 
 }
