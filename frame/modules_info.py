@@ -79,6 +79,15 @@ class ModulesId(QObject):
                 "system_info",
             ]
 
+    @pyqtSlot(str, result=str)
+    def check_valid(self, s):
+        if s in self._common_ids:
+            return 'normal'
+        elif s in self._hide_ids:
+            return 'expand'
+        else:
+            return ''
+
     @pyqtSlot(result=QVariant)
     def common_ids(self):
         return self._common_ids

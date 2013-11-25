@@ -20,10 +20,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt5.QtQuick import QQuickView
-from PyQt5.QtCore import Qt, pyqtSlot
-from PyQt5.QtGui import QSurfaceFormat, QColor
+import sys
 import subprocess
+
+from PyQt5.QtQuick import QQuickView
+from PyQt5.QtCore import Qt, pyqtSlot, QVariant
+from PyQt5.QtGui import QSurfaceFormat, QColor
 
 class Window(QQuickView):
 
@@ -45,3 +47,7 @@ class Window(QQuickView):
     @pyqtSlot()
     def shutdown(self):
         subprocess.Popen(['/data/share/Projects/deepin/dde/build/shutdown'])
+
+    @pyqtSlot(result=QVariant)
+    def argv(self):
+        return sys.argv[1:]

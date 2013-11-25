@@ -45,7 +45,7 @@ APP_OBJECT_NAME = "/com/deepin/system/settings"
 def unique_trigger():
     print "dss is running"
 
-if __name__ == "__main__":
+def main():
     app = QGuiApplication(sys.argv)
     uniqueService = UniqueService(APP_DBUS_NAME, APP_OBJECT_NAME)
     uniqueService.uniqueTrigger.connect(unique_trigger)
@@ -64,10 +64,6 @@ if __name__ == "__main__":
     qtgettext = QtGettext()
     qml_context.setContextProperty("qtgettext", qtgettext)
 
-    #trans = QTranslator(view)
-    #trans.load(os.path.join(root_path, 'locale', "zh_CN.qm"))
-    #app.installTranslator(trans)
-
     view.setSource(QUrl.fromLocalFile(os.path.join(
         os.path.dirname(__file__), 'Main.qml')))
     view.engine().quit.connect(app.quit)
@@ -77,6 +73,12 @@ if __name__ == "__main__":
     record_event = RecordEvent(view)
     record_event.enter_mouse_area.connect(view_object.displayTrayIcon)
     record_event.click_outer_area.connect(view_object.outerAreaClicked)
+
+    if len(sys.argv) == 2:
+        if sys.argv[1] in modulesId._l18n_names.keys():
+            view_object.showModule(sys.argv[1])
+        else:
+            print "Error module id:", sys.argv[1]
     
     thread = threading.Thread(target=record_event.filter_event)
     thread.setDaemon(True)
@@ -84,3 +86,6 @@ if __name__ == "__main__":
 
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     sys.exit(app.exec_())
+
+if __name__ == "__main__":
+    main()

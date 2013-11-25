@@ -23,3 +23,10 @@ Linux Deepin 2014 的新设置中心
 
 模块的形式为 modules/{module_id}/main.qml，需要注册新的py对象的时候，根据需要
 讨论增加吧
+
+### 国际化翻译
+
+* 在qml中使用 dsTr 代替qt默认的 qsTr 方法来包裹字符串
+* 编译./tools/dupdate.tar.gz，使用dupdate/bin/lupdate覆盖系统默认的lupdate
+* 新项目编辑locale_config.ini，执行./create_po.py，./update_po.py，这里只执行
+./update_po.py就可以了

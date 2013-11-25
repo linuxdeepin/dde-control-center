@@ -1,5 +1,5 @@
 import QtQuick 2.1
-import QtQuick.Window 2.0
+import QtQuick.Window 2.1
 
 Item {
     id: root
@@ -30,6 +30,10 @@ Item {
             mousex <= screenSize.width - trayWidth)) {
             hideTrayIcon()
         }
+        else if ((root.displayState == viewState.rightBoxShow) && (
+            mousex < screenSize.width - root.width +  48)) {
+            hideTrayIcon()
+        }
         else if ((root.displayState == viewState.allShow) && (
             mousex <= screenSize.width - root.width)) {
             hideTrayIcon()
@@ -43,9 +47,17 @@ Item {
     }
 
     function displayTrayIcon(){
-        if (!showingTrayIconBox.running){
+        if (displayState == viewState.allHide && 
+            !showingTrayIconBox.running){
+            trayFrame.visible = true
             showingTrayIconBox.restart()
         }
+    }
+
+    function showModule(id){
+        trayFrame.visible = false
+        showRightBox(id)
+        displayState = viewState.rightBoxShow
     }
 
     function showRightBox(trayIconId) {
