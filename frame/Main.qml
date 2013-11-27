@@ -4,7 +4,7 @@ import QtQuick.Window 2.1
 Item {
     id: root
     property int trayWidth: 48
-    property int trayHeight: trayWidth
+    property real trayHeight: trayWidth
     property color defaultBackgroundColor: "#252627"
     property bool trayIconShowAll: false
 
@@ -65,6 +65,7 @@ Item {
             Qt.quit()
             //hideTrayIcon()
             //windowView.shutdown()
+            console.log(trayIconTabList.height)
         }
         else if (trayIconId == 'dss'){
             expandHideTrayIcon()
@@ -79,7 +80,7 @@ Item {
 
     function initTrayIcon() {
         var icon_path_array = modulesId.common_ids()
-        var new_tray_height = screenSize.height/(icon_path_array.length+1.0)
+        var new_tray_height = root.height/(icon_path_array.length+1.0)
         if (new_tray_height < trayWidth){
             trayHeight = new_tray_height
         }
@@ -104,7 +105,7 @@ Item {
             var index = trayIconTabArea.count - 1
             trayIconTabArea.insert(index, {'iconId': newIds[i]})
         }
-        var new_tray_height = screenSize.height/(trayIconTabArea.count)
+        var new_tray_height = root.height/(trayIconTabArea.count)
         if (new_tray_height < trayWidth){
             trayHeight = new_tray_height
         }
@@ -135,7 +136,7 @@ Item {
         repeat: false
         onTriggered: {
             initTrayIcon()
-            trayIconTabList.positionViewAtEnd()
+            //trayIconTabList.positionViewAtEnd()
         }
     }
 
@@ -273,7 +274,9 @@ Item {
                 highlightFollowsCurrentItem: true
                 maximumFlickVelocity: 0
                 Behavior on height {
-                    NumberAnimation { duration: 300 }
+                    NumberAnimation { 
+                        duration: 300 
+                    }
                 }
             }
         }

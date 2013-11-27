@@ -23,10 +23,6 @@
 from PyQt5.QtCore import QObject, pyqtSlot, QVariant
 from nls import _
 
-"""
-翻译po
-"""
-
 class ModulesId(QObject):
     def __init__(self):
         QObject.__init__(self)
@@ -45,7 +41,7 @@ class ModulesId(QObject):
                 "individuation": _("Individuation"),
                 "shortcuts": _("Shortcuts"),
                 "keyboard": _("Keyboard"),
-                #"mouse": "",
+                "mouse": _("Mouse"),
                 #"autostart": "", #开机启动, 系统服务
                 "touchpad": _("Touchpad"),
                 "account": _("Account"),
@@ -66,13 +62,13 @@ class ModulesId(QObject):
 
         self._hide_ids = [
                 "date_time",
-                "display",
                 "desktop",
                 "individuation",
-                "shortcuts",
-                "keyboard",
-                #"mouse",
+                "mouse",
                 "touchpad",
+                "keyboard",
+                "shortcuts",
+                "display",
                 "account",
                 "default_applications",
                 "system_info",

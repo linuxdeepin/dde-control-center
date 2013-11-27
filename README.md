@@ -24,6 +24,8 @@ Linux Deepin 2014 的新设置中心
 模块的形式为 modules/{module_id}/main.qml，需要注册新的py对象的时候，根据需要
 讨论增加吧
 
+Debug自己的模块: python ./frame/main.py {module_id}
+
 ### 国际化翻译
 
 * 在qml中使用 dsTr 代替qt默认的 qsTr 方法来包裹字符串
