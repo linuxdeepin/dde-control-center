@@ -1,4 +1,6 @@
 import QtQuick 2.1
+import QtQuick.Controls 1.0
+import QtQuick.Controls.Styles 1.0
 
 Rectangle {
     id: dateTimeModule
@@ -181,7 +183,7 @@ Rectangle {
         anchors.topMargin: 2
         width: parent.width
         height: 28
-        color: "transparent"
+        color: childColor
 
         Text {
             id: timezoneTitleText
@@ -202,26 +204,71 @@ Rectangle {
             text: "(UTC+08:00)北京时间"
         }
 
-        Image {
-            id: expandTimezoneSelect
-            source: "images/arrow_down.png"
+        ImageCheckButton {
+            color: childColor
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
-            anchors.rightMargin: 8
+            anchors.rightMargin: 12
+
+            inactivatedNomralImage: "images/arrow_down_normal.png"
+            inactivatedHoverImage: "images/arrow_down_hover.png"
+            inactivatedPressImage: "images/arrow_down_press.png"
+
+            activatedNomralImage: "images/arrow_up_normal.png"
+            activatedHoverImage: "images/arrow_up_hover.png"
+            activatedPressImage: "images/arrow_up_press.png"
+
+            onActivateChanged: {
+                if (activate){
+                    timezoneList.height = 260
+                }
+                else {
+                    timezoneList.height = 0
+                }
+            }
         }
     }
 
-    SepratorHorizontal {
+    Rectangle {
+        id: timezoneList
         anchors.top: timezoneTitle.bottom
+        anchors.left: parent.left
+        width: parent.width
+        height: 0
+        color: "#1a1b1b"
+
+        Behavior on height {
+            NumberAnimation { 
+                duration: 300 
+            }
+        }
+
+        TimezoneData { id: timezoneDate }
+
+        ListView {
+            anchors.fill: parent
+            model: timezoneDate.timezoneList
+            delegate: TimezoneItem {}
+            focus: true
+            currentIndex: 19
+            
+            onCurrentItemChanged: {
+                currentTimezone.text = currentItem.timezoneText
+            }
+        }
+    }
+    
+    SepratorHorizontal {
+        anchors.top: timezoneList.bottom
     }
 
     Rectangle {
         id: dateBoxTitle
-        anchors.top: timezoneTitle.bottom
+        anchors.top: timezoneList.bottom
         anchors.topMargin: 2
         width: parent.width
         height: 28
-        color: "transparent"
+        color: childColor
 
         Text {
             anchors.verticalCenter: parent.verticalCenter
@@ -251,6 +298,6 @@ Rectangle {
         anchors.left: parent.left
         width: parent.width
 
-        Calendar {}
+        Calendar { }
     }
 }
