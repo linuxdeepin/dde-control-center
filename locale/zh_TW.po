@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dss 2014\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-27 12:14+0800\n"
+"POT-Creation-Date: 2013-11-27 16:52+0800\n"
 "PO-Revision-Date: 2013-11-25 12:27+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -16,29 +16,158 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../modules/date_time/main.qml:60
+#: ../modules/date_time/TimezoneData.qml:9
+msgid "(UTC-11:00)Samoa"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:10
+msgid "(UTC-10:00)Hawaii"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:11
+msgid "(UTC-09:00)Alaska"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:12
+msgid "(UTC-08:00)Lower California"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:13
+msgid "(UTC-07:00)Arizona, Llamas, Mazatlan, Chihuahua"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:14
+msgid "(UTC-06:00)Saskatchewan, Mexico City, Monterrey"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:15
+msgid "(UTC-05:00)Indiana, Bogota, Lima, Quito"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:16
+msgid "(UTC-04:00)San Diego, Georgetown, San Juan"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:17
+msgid "(UTC-03:00)Greenland, Brasilia, Fortaleza"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:18
+msgid "(UTC-02:00)Mid-Atlantic"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:19
+msgid "(UTC-01:00)Cape Verde Islands, Azores"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:20
+msgid "(UTC)London, Dublin, Edinburgh, Lisbon, Casablanca"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:21
+msgid "(UTC+01:00)Paris, Amsterdam, Berlin, Rome, Vienna"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:22
+msgid "(UTC+02:00)Cairo, Athens, Istanbul, Jerusalem"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:23
+msgid "(UTC+03:00)Moscow, St. Petersburg, Baghdad"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:24
+msgid "(UTC+04:00)Port Louis, Abu Dhabi, Muscat, Yerevan"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:25
+msgid "(UTC+05:00)Islamabad, Karachi, Tashkent"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:26
+msgid "(UTC+06:00)Dhaka, Novosibirsk"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:27
+msgid "(UTC+07:00)Bangkok, Hanoi, Jakarta"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:28
+msgid "(UTC+08:00)Beijing, Chongqing, HongKong, Taipei, Urumqi"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:29
+msgid "(UTC+09:00)Osaka, Sapporo, Tokyo, Seoul"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:30
+msgid "(UTC+10:00)Guam, Canberra, Melbourne, Sydney"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:31
+msgid "(UTC+11:00)Magadan, Solomon Islands"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:32
+msgid "(UTC+12:00)New Zealand, Kiribati"
+msgstr ""
+
+#: ../modules/date_time/main.qml:61
 #: /data/share/Projects/deepin/dss2014/frame/modules_info.py:30
 msgid "Date & Time"
 msgstr ""
 
-#: ../modules/date_time/main.qml:152
+#: ../modules/date_time/main.qml:153
 msgid "Auto-sync datetime"
 msgstr ""
 
-#: ../modules/date_time/main.qml:168
+#: ../modules/date_time/main.qml:169
 msgid "24 Hour"
 msgstr ""
 
-#: ../modules/date_time/main.qml:193
+#: ../modules/date_time/main.qml:194
 msgid "Timezone"
 msgstr ""
 
-#: ../modules/date_time/main.qml:232
+#: ../modules/date_time/main.qml:278
 msgid "Date"
 msgstr ""
 
-#: ../modules/date_time/main.qml:239
+#: ../modules/date_time/main.qml:285
 msgid "Apply Changes"
+msgstr ""
+
+#: ../modules/system_info/main.qml:44
+#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:49
+msgid "System Information"
+msgstr ""
+
+#: ../modules/system_info/main.qml:76
+msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
+msgstr ""
+
+#: ../modules/system_info/main.qml:83
+msgid "System Version"
+msgstr ""
+
+#: ../modules/system_info/main.qml:90
+msgid "System Type"
+msgstr ""
+
+#: ../modules/system_info/main.qml:91
+msgid "Bit"
+msgstr ""
+
+#: ../modules/system_info/main.qml:98
+msgid "CPU"
+msgstr ""
+
+#: ../modules/system_info/main.qml:105
+msgid "Memory"
+msgstr ""
+
+#: ../modules/system_info/main.qml:112
+msgid "Disk"
 msgstr ""
 
 #: /data/share/Projects/deepin/dss2014/frame/modules_info.py:31
@@ -70,8 +199,7 @@ msgid "Shutdown"
 msgstr ""
 
 #: /data/share/Projects/deepin/dss2014/frame/modules_info.py:38
-#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:49
-msgid "System Information"
+msgid "Notification"
 msgstr ""
 
 #: /data/share/Projects/deepin/dss2014/frame/modules_info.py:39

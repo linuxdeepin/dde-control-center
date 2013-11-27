@@ -332,6 +332,7 @@ Item {
                 id: rightBoxLoader
                 property string iconId
                 property color childColor: defaultBackgroundColor
+                property string languageCode: qtgettext.get_locale_code()
                 focus: true
                 source: ''
                 anchors.fill: parent

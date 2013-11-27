@@ -7,8 +7,10 @@ Rectangle {
 
     property string title
     property string value
-    property int fontSize: 13
+    property int fontSize: languageCode == "en_US" ? 11 : 12
     property int leftWidth: 100
+
+    property bool valueWrapped: false
 
     Rectangle {
         id: itemTitleBox
@@ -21,7 +23,8 @@ Rectangle {
         Text {
             anchors.right: parent.right
             anchors.rightMargin: 5
-            anchors.verticalCenter: parent.verticalCenter
+            //anchors.verticalCenter: parent.verticalCenter
+            anchors.top: parent.top
             color: textColor
             font.pixelSize: fontSize
             text: title
@@ -32,9 +35,22 @@ Rectangle {
         id: systemVersion
         anchors.left: itemTitleBox.right
         anchors.leftMargin: 5
-        anchors.verticalCenter: itemTitleBox.verticalCenter
+        //anchors.verticalCenter: itemTitleBox.verticalCenter
+        anchors.top: parent.top
+        anchors.topMargin: 1
         color: textColor
         font.pixelSize: fontSize
         text: value
+        width: parent.width - leftWidth
+        //elide: Text.ElideRight
+        lineHeight: 1.4
+
+        Component.onCompleted: {
+            if (width < contentWidth){
+                valueWrapped = true
+                wrapMode = Text.WordWrap
+                parent.height += 14
+            }
+        }
     }
 }

@@ -12,7 +12,6 @@ Rectangle {
     property color textColor: "#b4b4b4"
 
     property var date: new Date()
-    property var _monthNames: [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN","JUL", "AUG", "SEP", "OCT", "NOV", "DEC" ];
 
     Timer {
         running: true

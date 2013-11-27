@@ -35,7 +35,7 @@ class ModulesId(QObject):
                 "power": _("Power"),
                 "dss": _("More Settings"),
                 "shutdown": _("Shutdown"),
-                "notification": _("System Information"),
+                "notification": _("Notification"),
                 "display": _("Display"),
                 "desktop": _("Desktop"),
                 "individuation": _("Individuation"),

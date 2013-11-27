@@ -10,6 +10,28 @@ Rectangle {
 
     property var systemInfoDbus: SystemInfo {}
 
+    function bitToHuman(b){
+        if (b < 1024) {
+            return b + "B"
+        }
+        else{
+            b = b/1024
+            if ( b < 1024 ){
+                return parseInt(b)+"KB"
+            }
+            else {
+                b = b/1024
+                if (b < 1024){
+                    return parseInt(b) + "MB"
+                }
+                else{
+                    b = b/1024
+                    return parseInt(b) + "GB"
+                }
+            }
+        }
+    }
+
     Text {
         id: systemInfoTitle
         anchors.top: parent.top
@@ -50,57 +72,57 @@ Rectangle {
 
             font.pixelSize: 10
             color: textColor
-            text: dsTr("Copyright (c) 2011-2014 武汉深之度科技有限公司 版权所有")
+            //text: dsTr("Copyright (c) 2011-2014 武汉深之度科技有限公司 版权所有")
+            text: dsTr("Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd.")
         }
     }
-
-    SepratorHorizontal { anchors.top: logoBox.bottom }
 
     InfoItem { 
         id: versionItem
         anchors.top: logoBox.bottom
-        anchors.topMargin: 2
         title: dsTr("System Version")
-        value: dsTr("2014")
+        value: systemInfoDbus.version
     }
-
-    SepratorHorizontal { anchors.top: versionItem.bottom }
 
     InfoItem { 
         id: typeItem
         anchors.top: versionItem.bottom
-        anchors.topMargin: 2
         title: dsTr("System Type")
-        value: dsTr("32Bit")
+        value: systemInfoDbus.systemType + dsTr("Bit")
     }
 
-    SepratorHorizontal { anchors.top: typeItem.bottom }
 
     InfoItem { 
         id: cpuItem
         anchors.top: typeItem.bottom
-        anchors.topMargin: 2
         title: dsTr("CPU")
-        value: dsTr("Intel Core")
+        value: systemInfoDbus.processor
     }
-    SepratorHorizontal { anchors.top: cpuItem.bottom }
     
     InfoItem { 
         id: memoryItem
         anchors.top: cpuItem.bottom
-        anchors.topMargin: 2
         title: dsTr("Memory")
-        value: dsTr("4GB")
+        value: bitToHuman(systemInfoDbus.memoryCap)
     }
-    SepratorHorizontal { anchors.top: memoryItem.bottom }
 
     InfoItem { 
         id: distItem
         anchors.top: memoryItem.bottom
-        anchors.topMargin: 2
         title: dsTr("Disk")
-        value: dsTr("500GB")
+        value: bitToHuman(systemInfoDbus.diskCap)
     }
-    SepratorHorizontal { anchors.top: distItem.bottom }
+
+    Rectangle { 
+        color: "#1a1b1b"
+        height: 15
+        width: parent.width
+        anchors.top: distItem.bottom 
+    }
+
+    SepratorHorizontal { 
+        anchors.top: distItem.bottom 
+        anchors.topMargin: 15
+    }
 
 }

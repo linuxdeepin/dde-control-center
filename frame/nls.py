@@ -26,7 +26,7 @@
 from deepin_utils.file import get_parent_dir
 import gettext
 import os
-from PyQt5.QtCore import pyqtSlot, QObject
+from PyQt5.QtCore import pyqtSlot, QObject, pyqtProperty
 
 LOCALE_DIR=os.path.join(get_parent_dir(__file__, 2), "locale")
 if not os.path.exists(LOCALE_DIR):
