@@ -5,10 +5,11 @@ Rectangle {
     width: 44
     height: 30
     color: "#1a1b1b"
+    //color: "transparent"
 
     property alias inText: inText
-    property date currentDate
     property bool grey: isGrey
+    property bool isClicked: false
 
     // start border
     Rectangle{
@@ -45,6 +46,31 @@ Rectangle {
     }
     // end border
 
+    Rectangle {
+        id: clickedDateBackground
+        anchors.top: parent.top
+        anchors.left: parent.left
+        width: parent.width -1
+        height: parent.height -1
+        color: Qt.rgba(0, 144, 255, 0.2)
+        visible: index == calendarItem.GridView.view.currentIndex && !isCurrentDate ? true : false
+    }
+
+    Rectangle {
+        id: currentDateBackground
+        anchors.top: parent.top
+        anchors.left: parent.left
+        width: parent.width -1
+        height: parent.height -1
+        gradient: Gradient {
+            GradientStop { position: 0.0; color: Qt.rgba(21/255, 147/255, 1, 0.5) }
+            GradientStop { position: 1.0; color: Qt.rgba(0, 144/255, 1, 1.0) }
+        }
+        //visible: inText.text == 1 ? true : false
+        visible: isCurrentDate
+    }
+
+
     Text {
         id: inText
         anchors.centerIn: parent
@@ -57,7 +83,14 @@ Rectangle {
     MouseArea {
         anchors.fill: parent
         onClicked: {
-            console.log(dayText+":"+isGrey)
+            //console.log(dateValue)
+            if (grey){
+                calendarWidget.updateDates(dateValue)
+                //calendarWidget.monthChange(dateValue);
+            }
+            else{
+                calendarItem.GridView.view.currentIndex = index
+            }
         }
     }
 }

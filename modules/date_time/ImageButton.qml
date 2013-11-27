@@ -10,6 +10,10 @@ Rectangle {
     property bool hover: false
     property alias image: currentImage
 
+    width: currentImage.width
+    height: currentImage.height
+    color: "transparent"
+
     signal clicked
 
     Image {

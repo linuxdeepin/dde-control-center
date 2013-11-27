@@ -1,5 +1,4 @@
 import QtQuick 2.1
-import Deepin.Daemon.DateAndTime 1.0
 
 Rectangle {
     id: dateTimeModule
@@ -182,7 +181,7 @@ Rectangle {
         anchors.topMargin: 2
         width: parent.width
         height: 28
-        color: "#1a1b1b"
+        color: "transparent"
 
         Text {
             id: timezoneTitleText
@@ -245,10 +244,13 @@ Rectangle {
         anchors.top: dateBoxTitle.bottom
     }
 
-    Calendar {
+    Rectangle {
+        id: calendarBox
         anchors.top: dateBoxTitle.bottom
         anchors.topMargin: 2
         anchors.left: parent.left
         width: parent.width
+
+        Calendar {}
     }
 }
