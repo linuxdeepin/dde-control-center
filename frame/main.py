@@ -65,7 +65,7 @@ def main():
     qml_context.setContextProperty("qtgettext", qtgettext)
 
     view.setSource(QUrl.fromLocalFile(os.path.join(
-        os.path.dirname(__file__), 'Main.qml')))
+        os.path.dirname(os.path.realpath(__file__)), 'Main.qml')))
     view.engine().quit.connect(app.quit)
     view.show()
 
