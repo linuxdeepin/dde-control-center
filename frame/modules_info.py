@@ -56,6 +56,7 @@ class ModulesId(QObject):
                 "bluetooth",
                 "sound",
                 "power",
+                "system_info",
                 "dss",
                 "shutdown",
             ]
@@ -71,7 +72,6 @@ class ModulesId(QObject):
                 "display",
                 "account",
                 "default_applications",
-                "system_info",
             ]
 
     @pyqtSlot(str, result=str)

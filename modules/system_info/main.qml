@@ -1,94 +1,106 @@
-import QtQuick 2.0
+import QtQuick 2.1
+import DBus.Com.Deepin.Daemon.SystemInfo 1.0
 
 Rectangle {
-    id:system_info
-    width: logo.implicitWidth
-    height: 768
+    id: systemInfoModule
+    anchors.fill: parent
+    color: childColor
 
-    property int fontSize: 15
-	property int infoLeftMargin: 40
-	property int infoBottomMargin: 20
+    property color textColor: "#b4b4b4"
 
-    Image {
-        id: logo
-        source: "images/logo.png"
-        anchors {
-            horizontalCenter: parent.horizontalCenter
-        }
+    property var systemInfoDbus: SystemInfo {}
+
+    Text {
+        id: systemInfoTitle
+        anchors.top: parent.top
+        anchors.topMargin: 16
+        anchors.left: parent.left
+        anchors.leftMargin: 20
+        font.pixelSize: 15
+        font.bold: true
+        color: textColor
+        text: dsTr("System Information")
+    }
+
+    SepratorHorizontal {
+        anchors.top: parent.top
+        anchors.topMargin: 46
     }
 
     Rectangle {
-        id: box
+        id: logoBox
+        anchors.top: parent.top
+        anchors.topMargin: 48
         width: parent.width
-		height: row.height
+        height: 118
+        color: "#1a1b1b"
 
-        anchors {
-            top: logo.bottom
-			left: parent.left
-			leftMargin: system_info.infoLeftMargin
-         }
-
-        Row {
-			id: row
-			height: keyVersion.implicitHeight + keyCpu.implicitHeight + keyMem.implicitHeight
-			+ keyArch.implicitHeight + keyDisk.implicitHeight
-			spacing: 15
-            Column {
-                id: key
-                Text {
-                    id: keyVersion
-                    text: qsTr("Version")
-                }
-                Text {
-                    id: keyCpu
-                    text: qsTr("CPU")
-                }
-                Text {
-                    id: keyMem
-                    text: qsTr("Memory")
-                }
-                Text {
-                    id: keyArch
-                    text: qsTr("OS Type")
-                }
-                Text {
-                    id: keyDisk
-                    text: qsTr("Disk")
-                }
-            }
-
-            Column {
-                id: value
-                Text {
-                    id: valueVersion
-                    text: module_system_info.getVersionInfo()
-                }
-                Text {
-                    id: valueCpu
-                    text: module_system_info.getCpuInfo()
-                }
-                Text {
-                    id: valueMem
-                    text: module_system_info.getMemoryInfo()
-                }
-                Text {
-                    id: valueArch
-                    text: module_system_info.getArchitectureInfo()
-                }
-                Text {
-                    id: valueDisk
-                    text: module_system_info.getDiskInfo()
-                }
-            }
+        Image {
+            anchors.top: parent.top
+            anchors.topMargin: 10
+            anchors.horizontalCenter: parent.horizontalCenter
+            fillMode: Image.PreserveAspectFit
+            source: "images/logo.png"
         }
 
         Text {
-            id: company_info
-            text: qsTr("Copyright © 2011 - 2013 \nWuhan Deepin Technology Co.Ltd \nAll rights reserved")
-			anchors {
-				top: box.bottom
-				topMargin: system_info.infoBottomMargin 
-			}
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 18
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            font.pixelSize: 10
+            color: textColor
+            text: dsTr("Copyright (c) 2011-2014 武汉深之度科技有限公司 版权所有")
         }
     }
+
+    SepratorHorizontal { anchors.top: logoBox.bottom }
+
+    InfoItem { 
+        id: versionItem
+        anchors.top: logoBox.bottom
+        anchors.topMargin: 2
+        title: dsTr("System Version")
+        value: dsTr("2014")
+    }
+
+    SepratorHorizontal { anchors.top: versionItem.bottom }
+
+    InfoItem { 
+        id: typeItem
+        anchors.top: versionItem.bottom
+        anchors.topMargin: 2
+        title: dsTr("System Type")
+        value: dsTr("32Bit")
+    }
+
+    SepratorHorizontal { anchors.top: typeItem.bottom }
+
+    InfoItem { 
+        id: cpuItem
+        anchors.top: typeItem.bottom
+        anchors.topMargin: 2
+        title: dsTr("CPU")
+        value: dsTr("Intel Core")
+    }
+    SepratorHorizontal { anchors.top: cpuItem.bottom }
+    
+    InfoItem { 
+        id: memoryItem
+        anchors.top: cpuItem.bottom
+        anchors.topMargin: 2
+        title: dsTr("Memory")
+        value: dsTr("4GB")
+    }
+    SepratorHorizontal { anchors.top: memoryItem.bottom }
+
+    InfoItem { 
+        id: distItem
+        anchors.top: memoryItem.bottom
+        anchors.topMargin: 2
+        title: dsTr("Disk")
+        value: dsTr("500GB")
+    }
+    SepratorHorizontal { anchors.top: distItem.bottom }
+
 }
