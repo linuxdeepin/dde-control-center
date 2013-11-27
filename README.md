@@ -1,7 +1,7 @@
 ## deepin-system-settings 
 Linux Deepin 2014 的新设置中心
 
-## 统一一下模块id:
+### 统一一下模块id:
 * notification            系统消息
 * display                 显示
 * desktop                 桌面
@@ -25,6 +25,10 @@ Linux Deepin 2014 的新设置中心
 讨论增加吧
 
 Debug自己的模块: python ./frame/main.py {module_id}
+
+### 每个模块可引用的全局变量:
+* childColor 默认的背景色
+* languageCode  当前启动的界面，可用于中英文不同的排版
 
 ### 国际化翻译
 
