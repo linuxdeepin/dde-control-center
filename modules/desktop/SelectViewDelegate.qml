@@ -11,13 +11,54 @@ Rectangle {
     property int verticalPadding: 3
     property int horizontalPadding: 10
 
-    property bool pressed: false
-
     property color fontNormalColor: "#898989"
     /* property color fontHoverColor: "white" */
     property color fontPressedColor: "#19A9F9"
     property color bgNormalColor: Qt.rgba(0, 0, 0, 0)
     property color bgPressedColor: Qt.rgba(0, 0, 0, 0.4)
+
+    property bool pressed: false
+    property int delegateIndex: index
+
+    function select() {
+        if (delegate.GridView.view.singleSelectionMode == true) {
+            delegate.GridView.view.clear()
+        }
+
+        if (!delegate.pressed) {
+            /* text */
+            txt.color = delegate.fontPressedColor
+            /* background */
+            contentBox.color = delegate.bgPressedColor
+
+            delegate.GridView.view.selectedIndexs.push(index)
+            delegate.GridView.view.selectedItems.push(delegate)
+            delegate.pressed = true
+        }
+    }
+
+    function deselect() {
+
+        if (delegate.pressed) {
+            /* text */
+            txt.color = delegate.fontNormalColor
+            /* background */
+            contentBox.color = delegate.bgNormalColor
+
+            var target_index_index = delegate.GridView.view.selectedIndexs.indexOf(index)
+            var target_item_index = delegate.GridView.view.selectedItems.indexOf(delegate)
+
+            delegate.GridView.view.selectedIndexs.splice(target_index_index, 1)
+            delegate.GridView.view.selectedItems.splice(target_item_index, 1)
+            delegate.pressed = false
+        }
+    }
+
+    Component.onCompleted: {
+        if ((typeof selected != "undefined") && selected) {
+            delegate.select()
+        }
+    }
 
     Rectangle {
         id: contentBox
@@ -39,20 +80,6 @@ Rectangle {
 
         anchors.centerIn: parent
 
-        Component.onCompleted: {
-            if ((typeof selected != "undefined") && selected) {
-                if (!delegate.pressed) {
-                    /* text */
-					delegate.pressed = true
-                    txt.color = delegate.fontPressedColor
-                    /* background */
-                    contentBox.color = delegate.bgPressedColor
-
-                    delegate.GridView.view.selectedIndexs.push(index)
-                    delegate.GridView.view.selectedItems.push(delegate)
-                }
-            }
-        }
     }
 
     MouseArea {
@@ -60,28 +87,15 @@ Rectangle {
 
         onPressed: {
             if (!delegate.pressed) {
-                /* text */
-                txt.color = delegate.fontPressedColor
-                /* background */
-                contentBox.color = delegate.bgPressedColor
-
-                delegate.GridView.view.selectedIndexs.push(index)
-                delegate.GridView.view.selectedItems.push(delegate)
+                select()
                 delegate.GridView.view.select(index, delegate)
             } else {
-                /* text */
-                txt.color = delegate.fontNormalColor
-                /* background */
-                contentBox.color = delegate.bgNormalColor
-
-                var target_index_index = delegate.GridView.view.selectedIndexs.indexOf(index)
-                var target_item_index = delegate.GridView.view.selectedItems.indexOf(delegate)
-
-                delegate.GridView.view.selectedIndexs.splice(target_index_index, 1)
-                delegate.GridView.view.selectedItems.splice(target_item_index, 1)
+                if (delegate.GridView.view.singleSelectionMode == true && delegate.GridView.view.selectedIndexs.length == 1) {
+                    return
+                }
+                deselect()
                 delegate.GridView.view.deselect(index, delegate)
             }
-            delegate.pressed = !delegate.pressed
         }
     }
 }
