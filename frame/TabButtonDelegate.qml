@@ -11,6 +11,7 @@ Rectangle {
     property int tabIndex: 0
     property string trayIconId: iconId
     property string iconPathHeader: "trayicons/" + iconId
+    property string extStr: iconId == "system_info" ? ".png": ".svg"
     
     property bool hover: false
 
@@ -28,11 +29,11 @@ Rectangle {
         height: 32
         width: 32
         anchors.fill: parent
-        inactivatedNomralImage: iconPathHeader + '_normal.svg'
-        inactivatedHoverImage: iconPathHeader + '_hover.svg'
+        inactivatedNomralImage: iconPathHeader + '_normal' + extStr
+        inactivatedHoverImage: iconPathHeader + '_hover' + extStr
         inactivatedPressImage: inactivatedHoverImage
 
-        activatedNomralImage: iconPathHeader + '_press.svg'
+        activatedNomralImage: iconPathHeader + '_press' + extStr
         activatedHoverImage: activatedNomralImage
         activatedPressImage: activatedNomralImage
         

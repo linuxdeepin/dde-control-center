@@ -20,10 +20,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import sys
+import subprocess
+
 from PyQt5.QtQuick import QQuickView
-from PyQt5.QtCore import pyqtSlot, Qt
+from PyQt5.QtCore import Qt, pyqtSlot, QVariant
 from PyQt5.QtGui import QSurfaceFormat, QColor
-from PyQt5 import QtCore, QtQuick
 
 class Window(QQuickView):
 
@@ -39,20 +41,13 @@ class Window(QQuickView):
                 | Qt.X11BypassWindowManagerHint
                 | Qt.Popup
                 )
-        self.setResizeMode(QtQuick.QQuickView.SizeRootObjectToView)
+        self.setResizeMode(QQuickView.SizeRootObjectToView)
         self.setFormat(surface_format)
-        
-    @pyqtSlot(result=int)    
-    def getState(self):
-        return self.windowState()
-    
-    @pyqtSlot()
-    def doMinimized(self):
-        # NOTE: This is bug of Qt5 that showMinimized() just can work once after restore window.
-        # I change window state before set it as WindowMinimized to fixed this bug!
-        self.setWindowState(QtCore.Qt.WindowMaximized)
-        
-        # Do minimized.
-        self.setWindowState(QtCore.Qt.WindowMinimized)
-        self.setVisible(True)
 
+    @pyqtSlot()
+    def shutdown(self):
+        subprocess.Popen(['/data/share/Projects/deepin/dde/build/shutdown'])
+
+    @pyqtSlot(result=QVariant)
+    def argv(self):
+        return sys.argv[1:]

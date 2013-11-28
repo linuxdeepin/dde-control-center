@@ -15,7 +15,6 @@ Rectangle {
         id: currentImage
         anchors.centerIn: parent
         source: nomralImage
-        scale: 0.8333
     }
 
     MouseArea {

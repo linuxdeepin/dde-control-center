@@ -1,9 +1,10 @@
 import QtQuick 2.1
+import QtQuick.Window 2.1
 
 Item {
     id: root
     property int trayWidth: 48
-    property int trayHeight: trayWidth
+    property real trayHeight: trayWidth
     property color defaultBackgroundColor: "#252627"
     property bool trayIconShowAll: false
 
@@ -11,8 +12,12 @@ Item {
 
     property int displayState: viewState.allHide
 
-    // animation for root frame
-    QtObject { // enumeration for root view state
+    function dsTr(s){
+        return qtgettext.qsTr(s)
+    }
+
+    QtObject { 
+        // enumeration for root view state
         id: viewState
         property int allHide: 0
         property int trayShow: 1
@@ -20,37 +25,47 @@ Item {
         property int allShow: 3
     }
 
-    signal enterMouseArea
-    signal clickOutArea
-
-    Timer {
-        id: displayTimer
-        interval: 800
-        repeat: false
-        onTriggered: {
-            if (!showingTrayIconBox.running){
-                showingTrayIconBox.restart()
-            }
+    function outerAreaClicked(mousex, mousey){
+        if ((root.displayState == viewState.trayShow) && (
+            mousex <= screenSize.width - trayWidth)) {
+            hideTrayIcon()
+        }
+        else if ((root.displayState == viewState.rightBoxShow) && (
+            mousex < screenSize.width - root.width +  48)) {
+            hideTrayIcon()
+        }
+        else if ((root.displayState == viewState.allShow) && (
+            mousex <= screenSize.width - root.width)) {
+            hideTrayIcon()
         }
     }
 
-    onEnterMouseArea: {
-        if (displayState == viewState.allHide){
-            displayTimer.restart()
-        }
-    }
-
-    onClickOutArea: {
+    function hideTrayIcon(){
         if (!hidingRoot.running){
             hidingRoot.restart()
         }
     }
 
+    function displayTrayIcon(){
+        if (displayState == viewState.allHide && 
+            !showingTrayIconBox.running){
+            trayFrame.visible = true
+            showingTrayIconBox.restart()
+        }
+    }
+
+    function showModule(id){
+        trayFrame.visible = false
+        showRightBox(id)
+        displayState = viewState.rightBoxShow
+    }
+
     function showRightBox(trayIconId) {
         if (trayIconId == 'shutdown'){
-            var d = new Date()
-            console.log(d.toLocaleString())
             Qt.quit()
+            //hideTrayIcon()
+            //windowView.shutdown()
+            console.log(trayIconTabList.height)
         }
         else if (trayIconId == 'dss'){
             expandHideTrayIcon()
@@ -65,7 +80,7 @@ Item {
 
     function initTrayIcon() {
         var icon_path_array = modulesId.common_ids()
-        var new_tray_height = screenSize.height/(icon_path_array.length+1.0)
+        var new_tray_height = root.height/(icon_path_array.length+1.0)
         if (new_tray_height < trayWidth){
             trayHeight = new_tray_height
         }
@@ -87,10 +102,10 @@ Item {
         trayIconTabList.currentIndex = -1
         var newIds = modulesId.hide_ids()
         for (var i in newIds){
-            var index = trayIconTabArea.count - 2
+            var index = trayIconTabArea.count - 1
             trayIconTabArea.insert(index, {'iconId': newIds[i]})
         }
-        var new_tray_height = screenSize.height/(trayIconTabArea.count)
+        var new_tray_height = root.height/(trayIconTabArea.count)
         if (new_tray_height < trayWidth){
             trayHeight = new_tray_height
         }
@@ -110,7 +125,7 @@ Item {
             tipDisplayHeight = (screenSize.height - trayHeight * trayIconTabArea.count)/2 + tipDisplayHeight
         }
         trayIconTip.y = tipDisplayHeight
-        trayIconTip.text = modulesId.module_names()[module_id]
+        trayIconTipText.text = modulesId.module_names()[module_id]
         trayIconTip.visible = true
     }
 
@@ -121,22 +136,24 @@ Item {
         repeat: false
         onTriggered: {
             initTrayIcon()
-            trayIconTabList.positionViewAtEnd()
+            //trayIconTabList.positionViewAtEnd()
         }
     }
 
     PropertyAnimation {
         id: showingRightBox
         alwaysRunToEnd: true
-        target: frame
-        property: "anchors.leftMargin"
-        to: root.width - 360
+        target: windowView
+        property: "x"
+        to: screenSize.width - 360
         duration: 300
         easing.type: Easing.OutQuad
 
+        /***
         onStarted: {
             windowView.x = 0
         }
+        ***/
 
         onStopped: {
             displayState = viewState.allShow
@@ -146,94 +163,78 @@ Item {
     PropertyAnimation {
         id: hidingRoot
         alwaysRunToEnd: true
-        target: frame
-        property: "anchors.leftMargin"
-        to: root.width + 360
+        target: windowView
+        property: "x"
+        to: screenSize.width
         duration: 300
         easing.type: Easing.OutQuad
         onStopped: {
-            windowView.x = screenSize.width - 2
+            //windowView.x = screenSize.width - 2
             trayIconTabList.currentIndex = -1
             displayState = viewState.allHide
             initTrayIcon()
+            windowView.hide()
         }
     }
 
     PropertyAnimation {
         id: showingTrayIconBox
         alwaysRunToEnd: true
-        target: frame
-        property: "anchors.leftMargin"
-        to: root.width - 48
+        target: windowView
+        property: "x"
+        to: screenSize.width - 48
         duration: 300
         easing.type: Easing.OutQuad
 
         onStarted: {
-            windowView.x = 0
+            windowView.show()
         }
+
         onStopped: {
             displayState = viewState.trayShow
         }
     }
     // animation for root frame
 
-    MouseArea {
-        id: fullscreenMouseArea
-        anchors.fill: root
-        hoverEnabled: true
-        onEntered: {
-            var min_y = viewHoverPadding
-            var max_y = screenSize.height - viewHoverPadding
-            if (mouseY > min_y && mouseY < max_y){
-                root.enterMouseArea()
-            }
-        }
-        onClicked: {
-            if ((displayState == viewState.allShow && mouseX < root.width - 360)
-            || (displayState == viewState.trayShow && mouseX < root.width - 48))
-            {
-                root.clickOutArea()
-            }
-        }
-    }
-
     Rectangle {
         id: frame
         color: Qt.rgba(0, 0, 0, 0)
-        anchors.left: parent.left
-        anchors.leftMargin: parent.width + 360
+        anchors.right: parent.right
         anchors.top: parent.top
         anchors.bottom: parent.bottom
 		width: 360
 		height: root.height
     }
 
-    Rectangle {
+    Window {
         id: trayIconTip
         width: trayIconTipText.width + 52
         height: 44
-        anchors.right: frame.left
+        x: windowView.x - width
         visible: false
+        flags: Qt.Popup
 
-        color: frame.color
+        color: Qt.rgba(0, 0, 0, 0)
 
-        property string text
-
-        RightArrowTip {
+        RectWithCorner {
+            id: trayIconTipArrowRect
             x: 0
             y: 0
+            cornerDirection: "right"
             rectWidth: parent.width
             rectHeight: parent.height
+            cornerPos: rectHeight/2
+            cornerWidth: 12
+            cornerHeight: 8
         }
 
         Text {
             id: trayIconTipText
-            anchors.verticalCenter: trayIconTip.verticalCenter
-            anchors.horizontalCenter: trayIconTip.horizontalCenter
+            anchors.verticalCenter: trayIconTipArrowRect.verticalCenter
+            anchors.horizontalCenter: trayIconTipArrowRect.horizontalCenter
             anchors.horizontalCenterOffset: - 4
             font.pixelSize: 13
             color: "white"
-            text: parent.text
         }
     }
 
@@ -273,7 +274,9 @@ Item {
                 highlightFollowsCurrentItem: true
                 maximumFlickVelocity: 0
                 Behavior on height {
-                    NumberAnimation { duration: 300 }
+                    NumberAnimation { 
+                        duration: 300 
+                    }
                 }
             }
         }
@@ -300,11 +303,6 @@ Item {
         anchors.leftMargin: trayWidth + 2
         color: defaultBackgroundColor
 
-        DssLaunchPad {
-            id: dssLaunchPad
-            //visible: false
-        }
-
         Item {
             id: rightBoxLoaderItem
 
@@ -313,7 +311,6 @@ Item {
             visible: false
             clip: true
             onIconIdChanged: {
-                dssLaunchPad.visible = (iconId == '' ? true : false)
                 rightBoxLoaderItem.visible = (iconId == '' ? false : true)
                 rightBoxLoader.iconId = iconId
                 if (iconId){

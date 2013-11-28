@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=DSS
+Name[zh_CN]=DSS
+Name[zh_TW]=DSS
+Comment=Deepin System Settings
+Exec=dss %f
+Icon=preferences-system
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Encoding=UTF-8
+Categories=Application;System;Settings
+StartupNotify=false

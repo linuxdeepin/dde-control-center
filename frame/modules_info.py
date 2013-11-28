@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2011~2013 Deepin, Inc.
@@ -21,56 +21,67 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PyQt5.QtCore import QObject, pyqtSlot, QVariant
+from nls import _
 
 class ModulesId(QObject):
     def __init__(self):
         QObject.__init__(self)
         self._l18n_names = {
-                "date_time": "日期和时间",
-                "network": "网络",
-                "disk_mount": "磁盘挂载",
-                "bluetooth": "蓝牙",
-                "sound": "声音",
-                "power": "电源",
-                "dss": "更多设置",
-                "shutdown": "关机",
-                "notification": "系统消息",
-                "display": "显示",
-                "desktop": "桌面",
-                "individuation": "个性化",
-                "shortcuts": "快捷键",
-                "keyboard": "键盘",
-                #"mouse": "",
-                "touchpad": "触摸板",
-                "account": "账户",
-                "default_applications": "默认程序",
-                "system_info": "系统信息",
+                "date_time": _("Date & Time"),
+                "network": _("Network"),
+                "disk_mount": _("Disk Mount"),
+                "bluetooth": _("Bluetooth"),
+                "sound": _("Sound"),
+                "power": _("Power"),
+                "dss": _("More Settings"),
+                "shutdown": _("Shutdown"),
+                "notification": _("System Information"),
+                "display": _("Display"),
+                "desktop": _("Desktop"),
+                "individuation": _("Individuation"),
+                "shortcuts": _("Shortcuts"),
+                "keyboard": _("Keyboard"),
+                "mouse": _("Mouse"),
+                #"autostart": "", #开机启动, 系统服务
+                "touchpad": _("Touchpad"),
+                "account": _("Account"),
+                "default_applications": _("Default Applications"),
+                "system_info": _("System Information"),
             }
 
         self._common_ids = [
-                "date_time",
+                "notification",
                 "network",
                 "disk_mount",
                 "bluetooth",
                 "sound",
                 "power",
+                "system_info",
                 "dss",
                 "shutdown",
             ]
 
         self._hide_ids = [
-                "notification",
-                "display",
+                "date_time",
                 "desktop",
                 "individuation",
-                "shortcuts",
-                "keyboard",
-                #"mouse",
+                "mouse",
                 "touchpad",
+                "keyboard",
+                "shortcuts",
+                "display",
                 "account",
                 "default_applications",
-                "system_info",
             ]
+
+    @pyqtSlot(str, result=str)
+    def check_valid(self, s):
+        if s in self._common_ids:
+            return 'normal'
+        elif s in self._hide_ids:
+            return 'expand'
+        else:
+            return ''
 
     @pyqtSlot(result=QVariant)
     def common_ids(self):
