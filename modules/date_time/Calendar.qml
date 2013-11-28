@@ -130,6 +130,10 @@ Item {
             anchors.left: parent.left
             anchors.leftMargin: 10
             text: dsTr("今天")
+
+            onClicked: {
+                monthChange(CalendarCore.dateToString(new Date()))
+            }
         }
 
         ImageButton {
