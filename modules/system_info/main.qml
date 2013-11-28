@@ -12,21 +12,21 @@ Rectangle {
 
     function bitToHuman(b){
         if (b < 1024) {
-            return b + "B"
+            return b + " B"
         }
         else{
             b = b/1024
             if ( b < 1024 ){
-                return parseInt(b)+"KB"
+                return b.toFixed(2) +" KB"
             }
             else {
                 b = b/1024
                 if (b < 1024){
-                    return parseInt(b) + "MB"
+                    return b.toFixed(2) + " MB"
                 }
                 else{
                     b = b/1024
-                    return parseInt(b) + "GB"
+                    return b.toFixed(2) + " GB"
                 }
             }
         }
