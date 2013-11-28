@@ -32,6 +32,24 @@ function isLeapYear(year){
 function dateToString(d){
     return d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
 }
+function setDateOne(d){
+    var year = d.getFullYear();
+    var month = d.getMonth() + 1;
+    return new Date(year+"-"+month+"-"+1)
+}
+
+function getDateWidthMonthStep(d, step){
+    var new_d = new Date(dateToString(d));
+    var new_month = d.getMonth() + step;
+    if (new_month > 11) {
+        new_month = new_month - 12
+    }
+    else if (new_month < 0){
+        new_month = 12 + new_month
+    }
+    new_d.setMonth(d.getMonth() + step)
+    return new_d
+}
 
 function getDates(dateStr){
     var results = new Array();

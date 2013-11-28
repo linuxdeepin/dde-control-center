@@ -3,18 +3,18 @@ import "calendar_core.js" as CalendarCore
 
 Rectangle {
     width: 308
+    //height: weekTitle.height + datesGridView.height
     color: "#1a1b1b"
 
     property alias weekTitleModel: weekTitleModel
     property alias datesGridView: datesGridView
     property alias datesModule: datesModule
 
-    //property var clickedDateObject: new Date()
-    property var myDateObject: CalendarCore.dateToString(clickedDateObject)
+    property var clickedDateObject: new Date()
+
+    property var debug_dates
     
     function updateDates(date_str) {
-        clickedDateObject = new Date(date_str);
-
         var currentDateString = CalendarCore.dateToString(new Date())
         var dates = CalendarCore.getDates(date_str);
 
@@ -26,6 +26,7 @@ Rectangle {
             }
         }
         datesGridView.height = (parseInt(dates.length/7) + 1) * datesGridView.cellHeight
+        debug_dates = dates
     }
 
     ListView {
@@ -62,7 +63,9 @@ Rectangle {
         focus: true
         currentIndex: -1
 
-        Component.onCompleted: { updateDates(parent.myDateObject) }
+        Component.onCompleted: { 
+            updateDates(CalendarCore.dateToString(clickedDateObject))
+        }
 
         function getDelegateInstanceAt(index) {
             var item = contentItem.children[index];

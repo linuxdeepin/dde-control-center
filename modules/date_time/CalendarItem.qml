@@ -1,4 +1,5 @@
 import QtQuick 2.1
+import "calendar_core.js" as CalendarCore
 
 Rectangle {
     id: calendarItem
@@ -10,6 +11,7 @@ Rectangle {
     property alias inText: inText
     property bool grey: isGrey
     property bool isClicked: false
+    property var curDate: new Date(dateValue)
 
     // start border
     Rectangle{
@@ -77,16 +79,25 @@ Rectangle {
 
         font.pixelSize: 12
         color: grey ? "#444" : "white"
-        text: dayText
+        text: curDate.getDate()
     }
 
     MouseArea {
         anchors.fill: parent
+        onWheel: {
+            if (wheel.angleDelta.y < 0){
+                var new_date = CalendarCore.getDateWidthMonthStep(curDate, 1)
+            }
+            else {
+                var new_date = CalendarCore.getDateWidthMonthStep(curDate, -1)
+            }
+            new_date = CalendarCore.setDateOne(new_date)
+            var new_date_str = CalendarCore.dateToString(new_date)
+            calendarWidget.monthChange(new_date_str)
+        }
         onClicked: {
-            //console.log(dateValue)
             if (grey){
-                calendarWidget.updateDates(dateValue)
-                //calendarWidget.monthChange(dateValue);
+                calendarWidget.monthChange(dateValue);
             }
             else{
                 calendarItem.GridView.view.currentIndex = index

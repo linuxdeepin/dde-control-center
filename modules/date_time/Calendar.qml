@@ -9,23 +9,94 @@ Item {
     property var cur_calendar;
     property var pre_calendar;
     property var next_calendar;
+    property bool slideStop: true
 
-    signal monthChange(string dateValue);
-
-    function updateDates(date_str) {
-        clickedDateObject = new Date(date_str);
-
-        var currentDateString = CalendarCore.dateToString(new Date())
-        var dates = CalendarCore.getDates(date_str);
-
-        cur_calendar.datesModule.clear()
-        for (var i=0; i < dates.length; i++){
-            cur_calendar.datesModule.append(dates[i])
-            if (dates[i].dateValue == date_str) {
-                cur_calendar.datesGridView.currentIndex = i
+    function monthChange(dateValue){
+        var d = new Date(dateValue)
+        if (d > cur_calendar.clickedDateObject && slideStop){
+            //var next_d = CalendarCore.getDateWidthMonthStep(cur_calendar.clickedDateObject, 1)
+            next_calendar = calendarSlideBox.createCanlendar(d, "next")
+            if (!toNextMonth.running && !toPreviousMonth.running){
+                toNextMonth.restart()
             }
+            clickedDateObject = d
         }
-        cur_calendar.datesGridView.height = (parseInt(dates.length/7) + 1) * cur_calendar.datesGridView.cellHeight
+        else if (d < cur_calendar.clickedDateObject && slideStop){
+            //var pre_d = CalendarCore.getDateWidthMonthStep(cur_calendar.clickedDateObject, -1)
+            pre_calendar = calendarSlideBox.createCanlendar(d, "previous")
+            if (!toNextMonth.running && !toPreviousMonth.running){
+                toPreviousMonth.restart()
+            }
+            clickedDateObject = d
+        }
+    }
+
+    ParallelAnimation {
+        id: toNextMonth
+
+        onStarted: {
+            slideStop = false
+        }
+
+        PropertyAnimation {
+            target: cur_calendar
+            properties: "x"
+            to: calendarSlideBox.x - calendarSlideBox.width
+            easing.type: Easing.InOutQuad 
+            duration: 300
+        }
+
+        PropertyAnimation {
+            target: next_calendar
+            properties: "x"
+            to: calendarSlideBox.x
+            easing.type: Easing.InOutQuad 
+            duration: 300
+        }
+
+        onStopped: {
+            cur_calendar.destroy()
+            cur_calendar = next_calendar
+            slideStop = true
+
+            //for (var i=0; i<cur_calendar.debug_dates.length; i++){
+                //console.log(cur_calendar.debug_dates[i].dateValue)
+            //}
+        }
+    }
+
+    ParallelAnimation {
+        id: toPreviousMonth
+
+        onStarted: {
+            slideStop = false
+        }
+
+        PropertyAnimation {
+            target: pre_calendar
+            properties: "x"
+            to: calendarSlideBox.x
+            easing.type: Easing.InOutQuad 
+            duration: 300
+        }
+
+        PropertyAnimation {
+            target: cur_calendar
+            properties: "x"
+            to: calendarSlideBox.x + calendarSlideBox.width
+            easing.type: Easing.InOutQuad 
+            duration: 300
+        }
+
+        onStopped: {
+            cur_calendar.destroy()
+            cur_calendar = pre_calendar
+            slideStop = true
+
+            //for (var i=0; i<cur_calendar.debug_dates.length; i++){
+                //console.log(cur_calendar.debug_dates[i].dateValue)
+            //}
+        }
     }
 
     Rectangle {
@@ -54,11 +125,18 @@ Item {
             color: "#120f10"
         }
 
+        TextButton {
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.left: parent.left
+            anchors.leftMargin: 10
+            text: dsTr("今天")
+        }
+
         ImageButton {
             id: decreaseYearButton
             anchors.verticalCenter: parent.verticalCenter
-            anchors.left: parent.left
-            anchors.leftMargin: 16
+            anchors.right: yearAdjustmentBox.left
+            //anchors.leftMargin: 16
 
             nomralImage: 'images/arrow_left_normal.png'
             hoverImage: 'images/arrow_left_hover.png'
@@ -67,27 +145,37 @@ Item {
             onClicked: { 
                 var new_date_str = (yearAdjustment.yearNumber-1) + "-" + 
                     monthAdjustment.monthNumber + "-" + 1;
-                updateDates(new_date_str);
+                //updateDates(new_date_str);
+                monthChange(new_date_str)
             }
         }
 
-        Text {
-            id: yearAdjustment
-            property int yearNumber: Number(clickedDateObject.getFullYear())
+        Rectangle{
+            id: yearAdjustmentBox
             anchors.verticalCenter: parent.verticalCenter
-            anchors.left: decreaseYearButton.right
-            anchors.leftMargin: 12
+            anchors.right: increaseYearButton.left
+            width: 50
+            height: parent.height
+            color: parent.color
 
-            color: textColor
-            font.pixelSize: 12
-            text: yearNumber + "年"
+            Text {
+                id: yearAdjustment
+                anchors.centerIn: parent
+                color: textColor
+                font.pixelSize: 12
+
+                property int yearNumber: Number(clickedDateObject.getFullYear())
+
+                text: yearNumber + "年"
+            }
+                
         }
 
         ImageButton {
             id: increaseYearButton
             anchors.verticalCenter: parent.verticalCenter
-            anchors.left: yearAdjustment.right
-            anchors.leftMargin: 12
+            anchors.right: decreaseMonthButton.left
+            anchors.rightMargin: 6
 
             nomralImage: 'images/arrow_right_normal.png'
             hoverImage: 'images/arrow_right_hover.png'
@@ -96,15 +184,15 @@ Item {
             onClicked: { 
                 var new_date_str = (yearAdjustment.yearNumber+1) + "-" + 
                     monthAdjustment.monthNumber + "-" + 1;
-                updateDates(new_date_str);
+                //updateDates(new_date_str);
+                monthChange(new_date_str)
             }
         }
 
         ImageButton {
             id: decreaseMonthButton
             anchors.verticalCenter: parent.verticalCenter
-            anchors.right: monthAdjustment.left
-            anchors.rightMargin: 12
+            anchors.right: monthAdjustmentBox.left
 
             nomralImage: 'images/arrow_left_normal.png'
             hoverImage: 'images/arrow_left_hover.png'
@@ -112,35 +200,44 @@ Item {
 
             onClicked: { 
                 if (monthAdjustment.monthNumber == 1) {
-
                     var new_monthNumber = 12
+                    var new_yearNumber = yearAdjustment.yearNumber - 1
                 }
                 else {
                     var new_monthNumber = monthAdjustment.monthNumber - 1 
+                    var new_yearNumber = yearAdjustment.yearNumber
                 }
-                var new_date_str = yearAdjustment.yearNumber + "-" + 
+                var new_date_str = new_yearNumber + "-" + 
                     new_monthNumber + "-" + 1;
-                updateDates(new_date_str);
+                //updateDates(new_date_str);
+                monthChange(new_date_str)
             }
         }
 
-        Text {
-            id: monthAdjustment
-            property int monthNumber: Number(clickedDateObject.getMonth() + 1)
+        Rectangle{
+            id: monthAdjustmentBox
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: increaseMonthButton.left
-            anchors.rightMargin: 12
+            width: 40
+            height: parent.height
+            color: parent.color
 
-            color: textColor
-            font.pixelSize: 12
-            text: monthNumber + "月"
+            Text {
+                id: monthAdjustment
+                anchors.centerIn: parent
+                color: textColor
+                font.pixelSize: 12
+
+                property int monthNumber: Number(clickedDateObject.getMonth() + 1)
+                text: monthNumber + "月"
+            }
         }
 
         ImageButton {
             id: increaseMonthButton
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
-            anchors.rightMargin: 16
+            anchors.rightMargin: 8
 
             nomralImage: 'images/arrow_right_normal.png'
             hoverImage: 'images/arrow_right_hover.png'
@@ -148,15 +245,17 @@ Item {
 
             onClicked: {
                 if (monthAdjustment.monthNumber == 12) {
-
                     var new_monthNumber = 1
+                    var new_yearNumber = yearAdjustment.yearNumber + 1
                 }
                 else {
                     var new_monthNumber = monthAdjustment.monthNumber + 1
+                    var new_yearNumber = yearAdjustment.yearNumber
                 }
-                var new_date_str = yearAdjustment.yearNumber + "-" + 
+                var new_date_str = new_yearNumber + "-" + 
                     new_monthNumber + "-" + 1
-                updateDates(new_date_str)
+                //updateDates(new_date_str)
+                monthChange(new_date_str)
             }
         }
     }
@@ -174,7 +273,12 @@ Item {
         anchors.left: parent.left
 
         Component.onCompleted: {
-            cur_calendar = createCanlendar(new Date(), '');
+            var cur_d = clickedDateObject
+            cur_calendar = createCanlendar(cur_d, '');
+            var pre_d = CalendarCore.getDateWidthMonthStep(cur_calendar.clickedDateObject, -1)
+            var next_d = CalendarCore.getDateWidthMonthStep(cur_calendar.clickedDateObject, 1)
+            pre_calendar = createCanlendar(pre_d, "previous")
+            next_calendar = createCanlendar(next_d, "next")
         }
 
         function createCanlendar(d_obj, position){

@@ -93,7 +93,6 @@ Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
 
                     font.pixelSize: 50
-                    font.bold: true
                     color: "white"
                     text: date.getHours()
                 }
@@ -103,7 +102,6 @@ Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
 
                     font.pixelSize: 50
-                    font.bold: true
                     color: 'white'
                     text: ":"
                 }
@@ -113,7 +111,6 @@ Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
 
                     font.pixelSize: 50
-                    font.bold: true
                     color: "white"
                     text: date.getMinutes()
                 }
@@ -282,7 +279,7 @@ Rectangle {
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
             anchors.rightMargin: 8
-            text: dsTr("Apply Changes")
+            text: dsTr("修改日期")
         }
     }
 
