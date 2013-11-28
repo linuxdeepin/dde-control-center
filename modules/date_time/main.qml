@@ -10,6 +10,7 @@ Rectangle {
     //property variant gDateTime: DateAndTime { }
 
     property color textColor: "#b4b4b4"
+    property string timeFont: "WenQuanYi Micro Hei"
 
     property var date: new Date()
 
@@ -81,6 +82,7 @@ Rectangle {
             anchors.topMargin: 24
             color: Qt.rgba(0, 0, 0, 0)
 
+
             width: 150
             height: 38
 
@@ -93,6 +95,7 @@ Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
 
                     font.pixelSize: 50
+                    font.family: timeFont
                     color: "white"
                     text: date.getHours()
                 }
@@ -102,6 +105,7 @@ Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
 
                     font.pixelSize: 50
+                    font.family: timeFont
                     color: 'white'
                     text: ":"
                 }
@@ -111,20 +115,23 @@ Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
 
                     font.pixelSize: 50
+                    font.family: timeFont
                     color: "white"
                     text: date.getMinutes()
                 }
 
-                Text {
-                    id: amPmText
-                    anchors.bottom: minutesText.bottom
-                    anchors.bottomMargin: 6
-                    color: "#666666"
-
-                    font.pixelSize: 20
-                    font.bold: true
-                }
             }
+        }
+
+        Text {
+            id: amPmText
+            anchors.left: dynamicTime.right
+            anchors.bottom: dynamicTime.bottom
+            anchors.bottomMargin: -2
+            color: "#666666"
+
+            font.pixelSize: 12
+            font.family: timeFont
         }
 
         Text {

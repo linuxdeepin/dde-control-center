@@ -58,6 +58,11 @@ Image {
                 delegate.GridView.view.selectedItems.push(delegate)
                 delegate.GridView.view.select(index, delegate)
             } else {
+				
+				if (delegate.GridView.view.singleSelectionMode && delegate.GridView.view.selectedIndexs.length == 1) {
+					return
+				}
+				
                 delegate.source = delegate.normalImage
                 txt.color = delegate.fontNormalColor
 
