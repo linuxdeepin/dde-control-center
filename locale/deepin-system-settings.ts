@@ -2,6 +2,14 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>Calendar</name>
+    <message>
+        <location filename="../modules/date_time/Calendar.qml" line="132"/>
+        <source>今天</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>TimezoneData</name>
     <message>
         <location filename="../modules/date_time/TimezoneData.qml" line="9"/>
@@ -127,33 +135,33 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../modules/date_time/main.qml" line="61"/>
+        <location filename="../modules/date_time/main.qml" line="62"/>
         <source>Date &amp; Time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="153"/>
+        <location filename="../modules/date_time/main.qml" line="157"/>
         <source>Auto-sync datetime</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="169"/>
+        <location filename="../modules/date_time/main.qml" line="173"/>
         <source>24 Hour</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="194"/>
+        <location filename="../modules/date_time/main.qml" line="198"/>
         <source>Timezone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="278"/>
+        <location filename="../modules/date_time/main.qml" line="282"/>
         <source>Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="285"/>
-        <source>Apply Changes</source>
+        <location filename="../modules/date_time/main.qml" line="289"/>
+        <source>修改日期</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

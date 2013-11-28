@@ -29,7 +29,7 @@ if __name__ == "__main__":
     config_parser = ConfigParser()
     config_parser.read("locale_config.ini")
     project_name = config_parser.get("locale", "project_name")
-    source_dir = os.path.realpath(config_parser.get("locale", "source_dir"))
+    source_dir = config_parser.get("locale", "source_dir")
     locale_dir = os.path.abspath(config_parser.get("locale", "locale_dir"))
     langs = eval(config_parser.get("locale", "langs"))
     
@@ -45,7 +45,7 @@ if __name__ == "__main__":
 
     # Generate ts file 
     subprocess.call(
-        "lupdate -recursive %s -ts %s" % (source_dir, ts_filepath),
+        "lupdate -recursive %s -ts %s" % (os.path.realpath(source_dir), ts_filepath),
         shell=True)
     
     # Generate pot file.

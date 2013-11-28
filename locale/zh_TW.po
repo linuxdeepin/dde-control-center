@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dss 2014\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-27 16:52+0800\n"
+"POT-Creation-Date: 2013-11-28 21:24+0800\n"
 "PO-Revision-Date: 2013-11-25 12:27+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -15,6 +15,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: ../modules/date_time/Calendar.qml:132
+msgid "今天"
+msgstr ""
 
 #: ../modules/date_time/TimezoneData.qml:9
 msgid "(UTC-11:00)Samoa"
@@ -112,33 +116,31 @@ msgstr ""
 msgid "(UTC+12:00)New Zealand, Kiribati"
 msgstr ""
 
-#: ../modules/date_time/main.qml:61
-#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:30
+#: ../modules/date_time/main.qml:62 ../frame/modules_info.py:30
 msgid "Date & Time"
 msgstr ""
 
-#: ../modules/date_time/main.qml:153
+#: ../modules/date_time/main.qml:157
 msgid "Auto-sync datetime"
 msgstr ""
 
-#: ../modules/date_time/main.qml:169
+#: ../modules/date_time/main.qml:173
 msgid "24 Hour"
 msgstr ""
 
-#: ../modules/date_time/main.qml:194
+#: ../modules/date_time/main.qml:198
 msgid "Timezone"
 msgstr ""
 
-#: ../modules/date_time/main.qml:278
+#: ../modules/date_time/main.qml:282
 msgid "Date"
 msgstr ""
 
-#: ../modules/date_time/main.qml:285
-msgid "Apply Changes"
+#: ../modules/date_time/main.qml:289
+msgid "修改日期"
 msgstr ""
 
-#: ../modules/system_info/main.qml:44
-#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:49
+#: ../modules/system_info/main.qml:44 ../frame/modules_info.py:49
 msgid "System Information"
 msgstr ""
 
@@ -170,70 +172,70 @@ msgstr ""
 msgid "Disk"
 msgstr ""
 
-#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:31
+#: ../frame/modules_info.py:31
 msgid "Network"
 msgstr ""
 
-#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:32
+#: ../frame/modules_info.py:32
 msgid "Disk Mount"
 msgstr ""
 
-#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:33
+#: ../frame/modules_info.py:33
 msgid "Bluetooth"
 msgstr ""
 
-#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:34
+#: ../frame/modules_info.py:34
 msgid "Sound"
 msgstr ""
 
-#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:35
+#: ../frame/modules_info.py:35
 msgid "Power"
 msgstr ""
 
-#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:36
+#: ../frame/modules_info.py:36
 msgid "More Settings"
 msgstr ""
 
-#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:37
+#: ../frame/modules_info.py:37
 msgid "Shutdown"
 msgstr ""
 
-#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:38
+#: ../frame/modules_info.py:38
 msgid "Notification"
 msgstr ""
 
-#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:39
+#: ../frame/modules_info.py:39
 msgid "Display"
 msgstr ""
 
-#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:40
+#: ../frame/modules_info.py:40
 msgid "Desktop"
 msgstr ""
 
-#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:41
+#: ../frame/modules_info.py:41
 msgid "Individuation"
 msgstr ""
 
-#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:42
+#: ../frame/modules_info.py:42
 msgid "Shortcuts"
 msgstr ""
 
-#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:43
+#: ../frame/modules_info.py:43
 msgid "Keyboard"
 msgstr ""
 
-#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:44
+#: ../frame/modules_info.py:44
 msgid "Mouse"
 msgstr ""
 
-#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:46
+#: ../frame/modules_info.py:46
 msgid "Touchpad"
 msgstr ""
 
-#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:47
+#: ../frame/modules_info.py:47
 msgid "Account"
 msgstr ""
 
-#: /data/share/Projects/deepin/dss2014/frame/modules_info.py:48
+#: ../frame/modules_info.py:48
 msgid "Default Applications"
 msgstr ""
