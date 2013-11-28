@@ -6,9 +6,10 @@ Rectangle {
 	
 	color: "#252627"
 	
-	property int leftPadding: 20
-	property int rightPadding: 20
 	property string title: ""
+	property int leftPadding: 15
+	property int rightPadding: 15
+	property int fontSize: 12
 	
 	Rectangle {
 		id: top_shade
@@ -23,7 +24,7 @@ Rectangle {
 	Text {
 		color: "white"
 		text: parent.title
-		font.pixelSize: 12
+		font.pixelSize: parent.fontSize
 		
 		anchors.left: parent.left
 		anchors.leftMargin: parent.leftPadding
