@@ -28,6 +28,7 @@ Debug自己的模块: python ./frame/main.py {module_id}
 
 ### 每个模块可引用的全局变量:
 * childColor 默认的背景色
+* textColor 默认背景下白色的文字颜色
 * languageCode  当前启动的界面，可用于中英文不同的排版
 
 ### 国际化翻译
