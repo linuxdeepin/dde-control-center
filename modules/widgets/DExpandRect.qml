@@ -18,7 +18,7 @@ Rectangle {
         color: textColor
     }
 
-    ImageCheckButton {
+    DImageCheckButton {
         color: childColor
         anchors.verticalCenter: parent.verticalCenter
         anchors.right: parent.right

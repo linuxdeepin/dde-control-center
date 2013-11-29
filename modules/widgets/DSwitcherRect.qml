@@ -19,7 +19,7 @@ Rectangle {
         text: parent.text
     }
 
-    SwitcherButton {
+    DSwitcherButton {
         id: button
         anchors.verticalCenter: parent.verticalCenter
         anchors.right: parent.right
