@@ -63,7 +63,7 @@ Rectangle {
         text: dsTr("Date & Time")
     }
 
-    SepratorHorizontal {
+    DSepratorHorizontal {
         anchors.top: parent.top
         anchors.topMargin: 46
     }
@@ -147,11 +147,11 @@ Rectangle {
 
     }
 
-    SepratorHorizontal {
+    DSepratorHorizontal {
         anchors.top: timeBox.bottom
     }
 
-    SwitcherRect {
+    DSwitcherRect {
         id: autoSetTimeBox
         anchors.top: timeBox.bottom
         anchors.topMargin: 2
@@ -163,11 +163,11 @@ Rectangle {
         }
     }
 
-    SepratorHorizontal {
+    DSepratorHorizontal {
         anchors.top: autoSetTimeBox.bottom
     }
 
-    SwitcherRect {
+    DSwitcherRect {
         id: twentyFourHourSetBox
         anchors.top: autoSetTimeBox.bottom
         anchors.topMargin: 2
@@ -177,7 +177,7 @@ Rectangle {
         }
     }
 
-    SepratorHorizontal {
+    DSepratorHorizontal {
         anchors.top: twentyFourHourSetBox.bottom
     }
 
@@ -262,7 +262,7 @@ Rectangle {
         }
     }
     
-    SepratorHorizontal {
+    DSepratorHorizontal {
         anchors.top: timezoneList.bottom
     }
 
@@ -292,7 +292,7 @@ Rectangle {
         }
     }
 
-    SepratorHorizontal {
+    DSepratorHorizontal {
         anchors.top: dateBoxTitle.bottom
     }
 

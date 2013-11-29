@@ -1,5 +1,6 @@
 import QtQuick 2.1
 import "calendar_core.js" as CalendarCore
+import "../widgets/"
 
 Item {
     id: calendarWidget
@@ -265,7 +266,7 @@ Item {
         }
     }
 
-    SepratorHorizontal {
+    DSepratorHorizontal {
         anchors.top: dateBoxAdjustment.bottom
         width: parent.width
     }
