@@ -2,7 +2,7 @@ import QtQuick 2.1
 
 Rectangle {
 
-    property alias headText: headText
+    property alias head: headText
     property bool expand: false
 
     width: parent.width
