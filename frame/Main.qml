@@ -333,6 +333,7 @@ Item {
                 property string iconId
                 property color childColor: defaultBackgroundColor
                 property string languageCode: qtgettext.get_locale_code()
+                property color textColor: "#b4b4b4"
                 focus: true
                 source: ''
                 anchors.fill: parent
