@@ -127,6 +127,7 @@ Item {
 
         TextButton {
             anchors.verticalCenter: parent.verticalCenter
+            anchors.verticalCenterOffset: -1
             anchors.left: parent.left
             anchors.leftMargin: 10
             text: dsTr("今天")

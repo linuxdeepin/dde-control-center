@@ -1,6 +1,7 @@
 import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
+import "../widgets/"
 
 Rectangle {
     id: dateTimeModule
@@ -10,7 +11,7 @@ Rectangle {
     //property variant gDateTime: DateAndTime { }
 
     property color textColor: "#b4b4b4"
-    property string timeFont: "WenQuanYi Micro Hei"
+    property string timeFont: "Maven Pro Light"
 
     property var date: new Date()
 
@@ -94,7 +95,7 @@ Rectangle {
                     id: hoursText
                     anchors.verticalCenter: parent.verticalCenter
 
-                    font.pixelSize: 50
+                    font.pixelSize: 55
                     font.family: timeFont
                     color: "white"
                     text: date.getHours()
@@ -104,7 +105,7 @@ Rectangle {
                     id: secondColon
                     anchors.verticalCenter: parent.verticalCenter
 
-                    font.pixelSize: 50
+                    font.pixelSize: 55
                     font.family: timeFont
                     color: 'white'
                     text: ":"
@@ -114,7 +115,7 @@ Rectangle {
                     id: minutesText
                     anchors.verticalCenter: parent.verticalCenter
 
-                    font.pixelSize: 50
+                    font.pixelSize: 55
                     font.family: timeFont
                     color: "white"
                     text: date.getMinutes()
@@ -130,7 +131,7 @@ Rectangle {
             anchors.bottomMargin: -2
             color: "#666666"
 
-            font.pixelSize: 12
+            font.pixelSize: 14
             font.family: timeFont
         }
 
@@ -284,6 +285,7 @@ Rectangle {
 
         TextButton {
             anchors.verticalCenter: parent.verticalCenter
+            anchors.verticalCenterOffset: -1
             anchors.right: parent.right
             anchors.rightMargin: 8
             text: dsTr("修改日期")
