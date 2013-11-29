@@ -31,6 +31,10 @@ Debug自己的模块: python ./frame/main.py {module_id}
 * textColor 默认背景下白色的文字颜色
 * languageCode  当前启动的界面，可用于中英文不同的排版
 
+### 公用widgets
+* 公用widgets统一以D开头
+* widgets内容变化，请通知大家
+
 ### 国际化翻译
 
 * 在qml中使用 dsTr 代替qt默认的 qsTr 方法来包裹字符串
