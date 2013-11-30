@@ -239,6 +239,7 @@ Rectangle {
         anchors.left: parent.left
         width: parent.width
         height: 0
+        clip: true
         color: "#1a1b1b"
 
         Behavior on height {
