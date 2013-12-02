@@ -6,11 +6,10 @@ import "../widgets/"
 Rectangle {
     id: dateTimeModule
     anchors.fill: parent
-    color: childColor
+    color: bgColor 
 
     //property variant gDateTime: DateAndTime { }
 
-    property color textColor: "#b4b4b4"
     property string timeFont: "Maven Pro Light"
 
     property var date: new Date()
@@ -59,7 +58,7 @@ Rectangle {
         anchors.leftMargin: 20
         font.pixelSize: 15
         font.bold: true
-        color: textColor
+        color: fgColor
         text: dsTr("Date & Time")
     }
 
@@ -187,7 +186,7 @@ Rectangle {
         anchors.topMargin: 2
         width: parent.width
         height: 28
-        color: childColor
+        color: bgColor
 
         Text {
             id: timezoneTitleText
@@ -195,7 +194,7 @@ Rectangle {
             anchors.left: parent.left
             anchors.leftMargin: 18
             font.pixelSize: 13
-            color: textColor
+            color: fgColor
             text: dsTr("Timezone")
         }
 
@@ -209,7 +208,7 @@ Rectangle {
         }
 
         ImageCheckButton {
-            color: childColor
+            color: bgColor
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
             anchors.rightMargin: 12
@@ -273,14 +272,14 @@ Rectangle {
         anchors.topMargin: 2
         width: parent.width
         height: 28
-        color: childColor
+        color: bgColor
 
         Text {
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
             anchors.leftMargin: 18
             font.pixelSize: 13
-            color: textColor
+            color: fgColor
             text: dsTr("Date")
         }
 

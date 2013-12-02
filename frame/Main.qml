@@ -331,9 +331,9 @@ Item {
             Loader{
                 id: rightBoxLoader
                 property string iconId
-                property color childColor: defaultBackgroundColor
-                property string languageCode: qtgettext.get_locale_code()
-                property color textColor: "#b4b4b4"
+                property color bgColor: defaultBackgroundColor
+                property color fgColor: "#b4b4b4"
+                property string lang: qtgettext.get_locale_code()
                 focus: true
                 source: ''
                 anchors.fill: parent

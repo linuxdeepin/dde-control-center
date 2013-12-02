@@ -7,8 +7,8 @@ Rectangle {
 
     property string title
     property string value
-    property int fontSize: languageCode == "en_US" ? 11 : 12
-    property int leftWidth: languageCode == "en_US" ? 100 : 80
+    property int fontSize: lang == "en_US" ? 11 : 12
+    property int leftWidth: lang == "en_US" ? 100 : 80
 
     property bool valueWrapped: false
 
@@ -25,7 +25,7 @@ Rectangle {
             anchors.rightMargin: 5
             //anchors.verticalCenter: parent.verticalCenter
             anchors.top: parent.top
-            color: textColor
+            color: fgColor
             font.pixelSize: fontSize
             text: title
         }
@@ -38,7 +38,7 @@ Rectangle {
         //anchors.verticalCenter: itemTitleBox.verticalCenter
         anchors.top: parent.top
         anchors.topMargin: 1
-        color: textColor
+        color: fgColor
         font.pixelSize: fontSize
         text: value
         width: parent.width - leftWidth

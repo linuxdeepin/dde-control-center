@@ -4,9 +4,7 @@ import DBus.Com.Deepin.Daemon.SystemInfo 1.0
 Rectangle {
     id: systemInfoModule
     anchors.fill: parent
-    color: childColor
-
-    property color textColor: "#b4b4b4"
+    color: bgColor
 
     property var systemInfoDbus: SystemInfo {}
 
@@ -40,7 +38,7 @@ Rectangle {
         anchors.leftMargin: 20
         font.pixelSize: 15
         font.bold: true
-        color: textColor
+        color: fgColor
         text: dsTr("System Information")
     }
 
@@ -71,7 +69,7 @@ Rectangle {
             anchors.horizontalCenter: parent.horizontalCenter
 
             font.pixelSize: 10
-            color: textColor
+            color: fgColor
             //text: dsTr("Copyright (c) 2011-2014 武汉深之度科技有限公司 版权所有")
             text: dsTr("Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd.")
         }
