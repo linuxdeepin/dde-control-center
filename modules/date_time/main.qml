@@ -200,11 +200,12 @@ Rectangle {
 
         Text {
             id: currentTimezone
+            width: parent.width - timezoneTitleText.width - 42
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: timezoneTitleText.right
             font.pixelSize: 13
             color: "#666666"
-            text: "(UTC+08:00)北京时间"
+            elide: Text.ElideRight
         }
 
         ImageCheckButton {
@@ -255,6 +256,7 @@ Rectangle {
             delegate: TimezoneItem {}
             focus: true
             currentIndex: 19
+            boundsBehavior: Flickable.DragOverBounds
             
             onCurrentItemChanged: {
                 currentTimezone.text = currentItem.timezoneText

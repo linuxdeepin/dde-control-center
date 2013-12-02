@@ -2,6 +2,7 @@ import QtQuick 2.1
 
 Item {
     property alias timezoneList: timezone_items
+    property var currentTimezoneItem
 
     ListModel { id: timezone_items }
 
@@ -30,5 +31,14 @@ Item {
         timezone_items.append({"textD": dsTr("(UTC+10:00)Guam, Canberra, Melbourne, Sydney"), "value": 10})
         timezone_items.append({"textD": dsTr("(UTC+11:00)Magadan, Solomon Islands"), "value": 11})
         timezone_items.append({"textD": dsTr("(UTC+12:00)New Zealand, Kiribati"), "value": 12})
+
+        var curOffset = -1 * date.getTimezoneOffset()/60
+
+        for(var i=0;i<timezone_items.count;i++){
+            if (timezone_items.get(i).value == curOffset){
+                currentTimezoneItem = timezone_items.get(i)
+            }
+        }
+        currentTimezone.text = currentTimezoneItem.textD
     }
 }
