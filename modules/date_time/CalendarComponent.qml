@@ -65,11 +65,22 @@ Rectangle {
 
         Component.onCompleted: { 
             updateDates(CalendarCore.dateToString(clickedDateObject))
+            //dateTick.start()
         }
 
         function getDelegateInstanceAt(index) {
             var item = contentItem.children[index];
             return item;
+        }
+    }
+
+    Timer {
+        id: dateTick
+        running: false
+        repeat: true
+        interval: 500
+        onTriggered: {
+            updateDates(CalendarCore.dateToString(clickedDateObject))
         }
     }
 }

@@ -4,14 +4,16 @@ import QtQuick.Controls.Styles 1.0
 import "../widgets/"
 import DBus.Com.Deepin.Daemon.DateAndTime 1.0
 
-Rectangle {
+Item {
     id: dateTimeModule
     anchors.fill: parent
-    color: bgColor 
+    //color: bgColor 
 
     property string timeFont: "Maven Pro Light"
+    property var gDate: DateAndTime {}
 
     property var date: new Date()
+    property var weekNames: ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
 
     Timer {
         running: true
@@ -19,35 +21,6 @@ Rectangle {
         interval: 500
         onTriggered: { parent.date = new Date() }
     }
-
-    onDateChanged: {
-        var hours = date.getHours()
-        if (hours < 10) {
-            hoursText.text = "0"+hours
-        }
-        else{
-            hoursText.text = hours
-        }
-
-        if (hours < 12) {
-            amPmText.text = "AM"
-        }
-        else {
-            amPmText.text = "PM"
-        }
-
-        var minutes = date.getMinutes()
-        if (minutes < 10){
-            minutesText.text = "0"+minutes
-        }
-        else {
-            minutesText.text = minutes
-        }
-        var weekNames = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
-
-        dayText.text = date.getFullYear() + "年" + date.getMonth()+ "月"+ date.getDate() + "日" + ", " + weekNames[date.getDay()]
-    }
-
 
     Text {
         id: datetimeTitle
@@ -74,52 +47,11 @@ Rectangle {
         height: 118
         color: "#1a1b1b"
 
-        Rectangle {
+        DigitalTime {
             id: dynamicTime
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: parent.top
             anchors.topMargin: 24
-            color: Qt.rgba(0, 0, 0, 0)
-
-
-            width: 150
-            height: 38
-
-            Row {
-                spacing: 10
-                anchors.centerIn: parent
-
-                Text {
-                    id: hoursText
-                    anchors.verticalCenter: parent.verticalCenter
-
-                    font.pixelSize: 55
-                    font.family: timeFont
-                    color: "white"
-                    text: date.getHours()
-                }
-
-                Text {
-                    id: secondColon
-                    anchors.verticalCenter: parent.verticalCenter
-
-                    font.pixelSize: 55
-                    font.family: timeFont
-                    color: 'white'
-                    text: ":"
-                }
-
-                Text {
-                    id: minutesText
-                    anchors.verticalCenter: parent.verticalCenter
-
-                    font.pixelSize: 55
-                    font.family: timeFont
-                    color: "white"
-                    text: date.getMinutes()
-                }
-
-            }
         }
 
         Text {
@@ -131,6 +63,8 @@ Rectangle {
 
             font.pixelSize: 14
             font.family: timeFont
+            visible: !twentyFourHourSetBox.button.checked
+            text: date.getHours() < 12 ? "AM" : "PM"
         }
 
         Text {
@@ -141,6 +75,7 @@ Rectangle {
 
             color: "#666666"
             font.pixelSize: 12
+            text: date.getFullYear() + "年" + date.getMonth()+ "月"+ date.getDate() + "日" + ", " + weekNames[date.getDay()]
         }
 
     }
@@ -154,11 +89,7 @@ Rectangle {
         anchors.top: timeBox.bottom
         anchors.topMargin: 2
         text: dsTr("Auto-sync datetime")
-        button.checked: true
-
-        onClicked: {
-            console.log("autoSetTimeBox: " + button.checked)
-        }
+        button.checked: gDate.autoSetTime ? true : false
     }
 
     DSepratorHorizontal {
@@ -170,9 +101,6 @@ Rectangle {
         anchors.top: autoSetTimeBox.bottom
         anchors.topMargin: 2
         text: dsTr("24 Hour")
-        onClicked: {
-            console.log("twentyFourHourSetBox: "+ button.checked)
-        }
     }
 
     DSepratorHorizontal {
@@ -247,11 +175,11 @@ Rectangle {
             }
         }
 
-        TimezoneData { id: timezoneDate }
+        TimezoneData { id: timezoneData }
 
         ListView {
             anchors.fill: parent
-            model: timezoneDate.timezoneList
+            model: timezoneData.timezoneList
             delegate: TimezoneItem {}
             focus: true
             currentIndex: 19
@@ -259,6 +187,8 @@ Rectangle {
             
             onCurrentItemChanged: {
                 currentTimezone.text = currentItem.timezoneText
+                gDate.SetTimeZone(timezoneData.getTimezoneByOffset(currentItem.timezoneValue))
+                Date.timeZoneUpdated()
             }
         }
     }

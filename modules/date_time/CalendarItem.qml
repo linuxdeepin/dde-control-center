@@ -101,6 +101,7 @@ Rectangle {
             }
             else{
                 calendarItem.GridView.view.currentIndex = index
+                calendarWidget.cur_calendar.clickedDateObject = new Date(dateValue)
             }
         }
     }
