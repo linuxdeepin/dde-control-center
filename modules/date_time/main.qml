@@ -39,78 +39,71 @@ Item {
         anchors.topMargin: 46
     }
 
-    Rectangle {
-        id: timeBox
+    Column {
+        id: contentColumn
         anchors.top: parent.top
         anchors.topMargin: 48
         width: parent.width
-        height: 118
-        color: "#1a1b1b"
+        Rectangle {
+            id: timeBox
+            width: parent.width
+            height: 118
+            color: "#1a1b1b"
 
-        DigitalTime {
-            id: dynamicTime
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: parent.top
-            anchors.topMargin: 24
+            DigitalTime {
+                id: dynamicTime
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.top: parent.top
+                anchors.topMargin: 24
+            }
+
+            Text {
+                id: amPmText
+                anchors.left: dynamicTime.right
+                anchors.bottom: dynamicTime.bottom
+                anchors.bottomMargin: -2
+                color: "#666666"
+
+                font.pixelSize: 14
+                font.family: timeFont
+                visible: !twentyFourHourSetBox.button.checked
+                text: date.getHours() < 12 ? "AM" : "PM"
+            }
+
+            Text {
+                id: dayText
+                anchors.top: dynamicTime.bottom
+                anchors.topMargin: 10
+                anchors.horizontalCenter: dynamicTime.horizontalCenter
+
+                color: "#666666"
+                font.pixelSize: 12
+                text: date.getFullYear() + "年" + date.getMonth()+ "月"+ date.getDate() + "日" + ", " + weekNames[date.getDay()]
+            }
+
         }
 
-        Text {
-            id: amPmText
-            anchors.left: dynamicTime.right
-            anchors.bottom: dynamicTime.bottom
-            anchors.bottomMargin: -2
-            color: "#666666"
+        DSepratorHorizontal {}
 
-            font.pixelSize: 14
-            font.family: timeFont
-            visible: !twentyFourHourSetBox.button.checked
-            text: date.getHours() < 12 ? "AM" : "PM"
+        DSwitcherRect {
+            id: autoSetTimeBox
+            text: dsTr("Auto-sync datetime")
+            button.checked: gDate.autoSetTime ? true : false
         }
 
-        Text {
-            id: dayText
-            anchors.top: dynamicTime.bottom
-            anchors.topMargin: 10
-            anchors.horizontalCenter: dynamicTime.horizontalCenter
+        DSepratorHorizontal {}
 
-            color: "#666666"
-            font.pixelSize: 12
-            text: date.getFullYear() + "年" + date.getMonth()+ "月"+ date.getDate() + "日" + ", " + weekNames[date.getDay()]
+        DSwitcherRect {
+            id: twentyFourHourSetBox
+            text: dsTr("24 Hour")
         }
 
-    }
-
-    DSepratorHorizontal {
-        anchors.top: timeBox.bottom
-    }
-
-    DSwitcherRect {
-        id: autoSetTimeBox
-        anchors.top: timeBox.bottom
-        anchors.topMargin: 2
-        text: dsTr("Auto-sync datetime")
-        button.checked: gDate.autoSetTime ? true : false
-    }
-
-    DSepratorHorizontal {
-        anchors.top: autoSetTimeBox.bottom
-    }
-
-    DSwitcherRect {
-        id: twentyFourHourSetBox
-        anchors.top: autoSetTimeBox.bottom
-        anchors.topMargin: 2
-        text: dsTr("24 Hour")
-    }
-
-    DSepratorHorizontal {
-        anchors.top: twentyFourHourSetBox.bottom
+        DSepratorHorizontal {}
     }
 
     Rectangle {
         id: timezoneTitle
-        anchors.top: twentyFourHourSetBox.bottom
-        anchors.topMargin: 2
+        anchors.top: contentColumn.bottom
         width: parent.width
         height: 28
         color: bgColor

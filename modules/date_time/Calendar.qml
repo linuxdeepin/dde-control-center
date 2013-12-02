@@ -138,20 +138,16 @@ Item {
             }
         }
 
-        ImageButton {
+        OpacityImageButton {
             id: decreaseYearButton
+
+            source: 'images/arrow_left_white.png'
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: yearAdjustmentBox.left
-            //anchors.leftMargin: 16
-
-            nomralImage: 'images/arrow_left_normal.png'
-            hoverImage: 'images/arrow_left_hover.png'
-            pressImage: 'images/arrow_left_press.png'
 
             onClicked: { 
                 var new_date_str = (yearAdjustment.yearNumber-1) + "-" + 
                     monthAdjustment.monthNumber + "-" + 1;
-                //updateDates(new_date_str);
                 monthChange(new_date_str)
             }
         }
@@ -177,32 +173,27 @@ Item {
                 
         }
 
-        ImageButton {
+        OpacityImageButton {
             id: increaseYearButton
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: decreaseMonthButton.left
             anchors.rightMargin: 6
 
-            nomralImage: 'images/arrow_right_normal.png'
-            hoverImage: 'images/arrow_right_hover.png'
-            pressImage: 'images/arrow_right_press.png'
+            source: "images/arrow_right_white.png"
 
             onClicked: { 
                 var new_date_str = (yearAdjustment.yearNumber+1) + "-" + 
                     monthAdjustment.monthNumber + "-" + 1;
-                //updateDates(new_date_str);
                 monthChange(new_date_str)
             }
         }
 
-        ImageButton {
+        OpacityImageButton {
             id: decreaseMonthButton
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: monthAdjustmentBox.left
 
-            nomralImage: 'images/arrow_left_normal.png'
-            hoverImage: 'images/arrow_left_hover.png'
-            pressImage: 'images/arrow_left_press.png'
+            source: "images/arrow_left_white.png"
 
             onClicked: { 
                 if (monthAdjustment.monthNumber == 1) {
@@ -239,15 +230,13 @@ Item {
             }
         }
 
-        ImageButton {
+        OpacityImageButton {
             id: increaseMonthButton
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
             anchors.rightMargin: 8
 
-            nomralImage: 'images/arrow_right_normal.png'
-            hoverImage: 'images/arrow_right_hover.png'
-            pressImage: 'images/arrow_right_press.png'
+            source: "images/arrow_right_white.png"
 
             onClicked: {
                 if (monthAdjustment.monthNumber == 12) {

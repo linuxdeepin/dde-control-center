@@ -47,7 +47,7 @@ Item {
             font.pixelSize: digitalSize
             font.family: timeFont
             color: "white"
-            text: date.getMinutes()
+            text: date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()
         }
     }
 }
