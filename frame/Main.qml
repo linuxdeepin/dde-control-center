@@ -332,6 +332,7 @@ Item {
                 property string iconId
                 property color bgColor: defaultBackgroundColor
                 property color fgColor: "#b4b4b4"
+                property color contentBgColor: "#1a1b1b"
                 property string lang: qtgettext.get_locale_code()
                 focus: true
                 source: ''
