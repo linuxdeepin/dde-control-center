@@ -2,17 +2,19 @@ import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
 
-Item {
+Rectangle {
+    id: expandRect
     property alias title: titleRect.sourceComponent
     property alias content: content.sourceComponent
 
-    height: header.height + content.height + 2
+    height: header.height + contentRect.height + 2
     width: parent.width
 
     property bool expand: false
     function toggle() {
         expand = !expand
         contentRect.height = expand ? content.height : 0
+        console.log(expandRect.height)
     }
 
     Column {
