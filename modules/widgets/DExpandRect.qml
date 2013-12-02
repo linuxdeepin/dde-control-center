@@ -14,7 +14,6 @@ Rectangle {
     function toggle() {
         expand = !expand
         contentRect.height = expand ? content.height : 0
-        console.log(expandRect.height)
     }
 
     Column {
@@ -52,7 +51,10 @@ Rectangle {
             Behavior on height {
                 NumberAnimation { duration: 200 }
             }
+
         }
+
+        DSepratorHorizontal {id: bottomSep;visible: expand}
     }
 }
 
