@@ -65,7 +65,6 @@ Item {
             Qt.quit()
             //hideTrayIcon()
             //windowView.shutdown()
-            console.log(trayIconTabList.height)
         }
         else if (trayIconId == 'dss'){
             expandHideTrayIcon()

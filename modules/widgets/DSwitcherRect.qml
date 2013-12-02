@@ -15,7 +15,7 @@ Rectangle {
         anchors.left: parent.left
         anchors.leftMargin: 18
         font.pixelSize: 13
-        color: textColor
+        color: fgColor
         text: parent.text
     }
 
