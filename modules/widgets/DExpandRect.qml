@@ -7,7 +7,7 @@ Rectangle {
     property alias title: titleRect.sourceComponent
     property alias content: content.sourceComponent
 
-    height: header.height + contentRect.height + 2
+    height: header.height + contentRect.height
     width: parent.width
 
     property bool expand: false
@@ -28,11 +28,12 @@ Rectangle {
 
             Loader {
                 id: titleRect
+		width: header.width
                 anchors.verticalCenter: parent.verticalCenter
             }
         }
 
-        DSepratorHorizontal {}
+	DSepratorHorizontal { id: bottomSep;visible: expand }
 
         Rectangle {
             id: contentRect
@@ -42,6 +43,7 @@ Rectangle {
             color: contentBgColor
 
             Loader { 
+		width: header.width
                 id: content 
                 onLoaded: { content.height = content.childrenRect.height }
                 anchors.top: parent.top
@@ -54,7 +56,6 @@ Rectangle {
 
         }
 
-        DSepratorHorizontal {id: bottomSep;visible: expand}
     }
 }
 
