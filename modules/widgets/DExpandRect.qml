@@ -7,7 +7,7 @@ Rectangle {
 
     width: parent.width
     height: 28
-    color: childColor
+    color: bgColor
 
     Text {
         id: headText
@@ -15,11 +15,11 @@ Rectangle {
         anchors.left: parent.left
         anchors.leftMargin: 18
         font.pixelSize: 13
-        color: textColor
+        color: fgColor
     }
 
     DImageCheckButton {
-        color: childColor
+        color: bgColor
         anchors.verticalCenter: parent.verticalCenter
         anchors.right: parent.right
         anchors.rightMargin: 12

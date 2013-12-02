@@ -15,7 +15,7 @@ Item {
 	    Layout.preferredHeight: 50
 	    Label {
 		text: dsTr("Network Settings")
-		color: textColor
+		color: fgColor
 		font.pointSize: 12
 	    }
 	    DTextButton {

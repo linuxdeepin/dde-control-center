@@ -29,7 +29,7 @@ Item {
 		    Label {
 			id:a
 			text: title
-			color: textColor
+			color: fgColor
 		    }
 		    DSwitcherButton {
 			id: toggle
