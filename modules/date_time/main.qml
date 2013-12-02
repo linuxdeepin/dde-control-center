@@ -2,13 +2,12 @@ import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import "../widgets/"
+import DBus.Com.Deepin.Daemon.DateAndTime 1.0
 
 Rectangle {
     id: dateTimeModule
     anchors.fill: parent
     color: bgColor 
-
-    //property variant gDateTime: DateAndTime { }
 
     property string timeFont: "Maven Pro Light"
 
@@ -200,11 +199,12 @@ Rectangle {
 
         Text {
             id: currentTimezone
+            width: parent.width - timezoneTitleText.width - 42
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: timezoneTitleText.right
             font.pixelSize: 13
             color: "#666666"
-            text: "(UTC+08:00)北京时间"
+            elide: Text.ElideRight
         }
 
         ImageCheckButton {
@@ -255,6 +255,7 @@ Rectangle {
             delegate: TimezoneItem {}
             focus: true
             currentIndex: 19
+            boundsBehavior: Flickable.DragOverBounds
             
             onCurrentItemChanged: {
                 currentTimezone.text = currentItem.timezoneText

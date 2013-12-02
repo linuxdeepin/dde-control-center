@@ -2,6 +2,41 @@ import QtQuick 2.1
 
 Item {
     property alias timezoneList: timezone_items
+    property var currentTimezoneItem
+    property var timezoneIndexInfo: [
+            [-11, "Pacific/Pago_Pago"],
+            [-10, "Pacific/Tahiti"],
+            [-9, "Pacific/Gambier"],
+            [-8, "America/Los_Angeles"],
+            [-7, "America/Edmonton"],
+            [-6, "America/Rainy_River"],
+            [-5, "America/Montreal"],
+            [-4, "America/Goose_Bay"],
+            [-3, "America/Godthab"],
+            [-2, "America/Noronha"],
+            [-1, "America/Scoresbysund"],
+            [0, "Africa/Bamako"],
+            [1, "Africa/Ndjamena"],
+            [2, "Africa/Lusaka"],
+            [3, "Africa/Addis_Ababa"],
+            [4, "Asia/Dubai"],
+            [5, "Indian/Maldives"],
+            [6, "Asia/Almaty"],
+            [7, "Asia/Phnom_Penh"],
+            [8, "Asia/Shanghai"],
+            [9, "Asia/Tokyo"],
+            [10, "Asia/Yakutsk"],
+            [11, "Pacific/Guadalcanal"],
+            [12, "Asia/Kamchatka"]]
+
+    function getTimezoneByOffset(gmtoff){
+        for(var i=0;i<timezoneIndexInfo.length;i++){
+            if(gmtoff == timezoneIndexInfo[i][0]){
+                return timezoneIndexInfo[i][1]
+            }
+        }
+        return "Asia/Shanghai"
+    }
 
     ListModel { id: timezone_items }
 
@@ -30,5 +65,14 @@ Item {
         timezone_items.append({"textD": dsTr("(UTC+10:00)Guam, Canberra, Melbourne, Sydney"), "value": 10})
         timezone_items.append({"textD": dsTr("(UTC+11:00)Magadan, Solomon Islands"), "value": 11})
         timezone_items.append({"textD": dsTr("(UTC+12:00)New Zealand, Kiribati"), "value": 12})
+
+        var curOffset = -1 * date.getTimezoneOffset()/60
+
+        for(var i=0;i<timezone_items.count;i++){
+            if (timezone_items.get(i).value == curOffset){
+                currentTimezoneItem = timezone_items.get(i)
+            }
+        }
+        currentTimezone.text = currentTimezoneItem.textD
     }
 }
