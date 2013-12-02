@@ -1,39 +1,56 @@
 import QtQuick 2.1
+import QtQuick.Controls 1.0
+import QtQuick.Layouts 1.0
 
-Rectangle {
+Item {
+    property alias title: titleRect.sourceComponent
+    property alias content: content.sourceComponent
 
-    property alias head: headText
-    property bool expand: false
-
+    height: header.height + content.height + 2
     width: parent.width
-    height: 28
-    color: bgColor
 
-    Text {
-        id: headText
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.left: parent.left
-        anchors.leftMargin: 18
-        font.pixelSize: 13
-        color: fgColor
+    property bool expand: false
+    function toggle() {
+        expand = !expand
+        contentRect.height = expand ? content.height : 0
     }
 
-    DImageCheckButton {
-        color: bgColor
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.right: parent.right
-        anchors.rightMargin: 12
+    Column {
+        width: parent.width
 
-        inactivatedNomralImage: "images/arrow_down_normal.png"
-        inactivatedHoverImage: "images/arrow_down_hover.png"
-        inactivatedPressImage: "images/arrow_down_press.png"
+        Rectangle {
+            id: header
+            width: parent.width
+            height: 28
+            clip: true
+            color: bgColor
 
-        activatedNomralImage: "images/arrow_up_normal.png"
-        activatedHoverImage: "images/arrow_up_hover.png"
-        activatedPressImage: "images/arrow_up_press.png"
+            Loader {
+                id: titleRect
+                anchors.verticalCenter: parent.verticalCenter
+            }
+        }
 
-        onActivateChanged: {
-            expand = activate
+        DSepratorHorizontal {}
+
+        Rectangle {
+            id: contentRect
+            width: parent.width
+            height: 0
+            clip: true
+            color: contentBgColor
+
+            Loader { 
+                id: content 
+                onLoaded: { content.height = content.childrenRect.height }
+                anchors.top: parent.top
+                anchors.left: parent.left
+            }
+
+            Behavior on height {
+                NumberAnimation { duration: 200 }
+            }
         }
     }
 }
+
