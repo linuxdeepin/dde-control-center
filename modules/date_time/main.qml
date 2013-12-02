@@ -2,13 +2,12 @@ import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import "../widgets/"
+import DBus.Com.Deepin.Daemon.DateAndTime 1.0
 
 Rectangle {
     id: dateTimeModule
     anchors.fill: parent
     color: bgColor 
-
-    //property variant gDateTime: DateAndTime { }
 
     property string timeFont: "Maven Pro Light"
 
