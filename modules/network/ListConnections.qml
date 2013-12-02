@@ -8,7 +8,7 @@ DColumn {
     width: root.width
     DExpandRect {
 	id: c1
-	title: DToggleLabel{
+	header: DToggleButtonHeader {
 	    text: dsTr("Wired Connections")
 	    onToggled: c1.toggle()
 	}
@@ -22,7 +22,7 @@ DColumn {
 
     DExpandRect {
 	id: c2
-	title: DToggleLabel {
+	header: DToggleButtonHeader {
 	    text: dsTr("Wireless Connections")
 	    onToggled: c2.toggle()
 	}
@@ -38,7 +38,7 @@ DColumn {
 
     DExpandRect {
 	id:c3
-	title: DToggleLabel {
+	header: DRightArrowHeader {
 	    text: dsTr("VPN Connections")
 	    onToggled: c3.toggle()
 	}
@@ -50,7 +50,7 @@ DColumn {
 
     DExpandRect {
 	id:c4
-	title: DToggleLabel {
+	header: DDownArrowHeader {
 	    text: dsTr("DSL Connections")
 	    onToggled: c4.toggle()
 	}

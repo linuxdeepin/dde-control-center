@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.0
 
 Rectangle {
     id: expandRect
-    property alias title: titleRect.sourceComponent
+    property alias header: headerRect.sourceComponent
     property alias content: content.sourceComponent
 
     height: header.height + contentRect.height
@@ -27,7 +27,7 @@ Rectangle {
             color: bgColor
 
             Loader {
-                id: titleRect
+                id: headerRect
 		width: header.width
                 anchors.verticalCenter: parent.verticalCenter
             }
@@ -51,7 +51,7 @@ Rectangle {
             }
 
             Behavior on height {
-                NumberAnimation { duration: 200 }
+                SmoothedAnimation { duration: 200 }
             }
 
         }
