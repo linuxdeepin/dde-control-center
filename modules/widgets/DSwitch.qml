@@ -2,10 +2,10 @@ import QtQuick 2.1
 
 Image {
     id: switch_button
-    /* width: 55 */
-    /* height: 24 */
-    source: "images/switch_frame.svg"
     state: "on"
+    clip: true
+    source: "images/switch_frame.svg"
+    anchors.centerIn: parent
 
     transitions: Transition {
         NumberAnimation { properties: "x"; duration: 150; easing.type: Easing.InOutQuad }
@@ -14,8 +14,6 @@ Image {
     Image {
         id: inner
         z: parent.z - 1
-        /* width: 100 */
-        /* height: 17 */
         source: "images/switch_inner.svg"
 
         anchors.verticalCenter: parent.verticalCenter
