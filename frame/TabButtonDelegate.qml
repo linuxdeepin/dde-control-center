@@ -3,21 +3,24 @@ import QtGraphicalEffects 1.0
 
 Rectangle {
     id: trayIconButton
-    width: ListView.view.width
-    height: 32
     smooth: true
-    color: Qt.rgba(1, 0, 0, 0)
     
     property int tabIndex: 0
-    property string trayIconId: iconId
-    property string iconPathHeader: "trayicons/" + iconId
-    property string extStr: iconId == "system_info" ? ".png": ".svg"
+    property string rightboxId: moduleId
+    property string iconPathHeader: "trayicons/" + moduleId
+    property string extStr: moduleId == "system_info" ? ".png": ".svg"
     
     property bool hover: false
 
+    states: [
+        State {
+            name: "selected"
+        }
+    ]
+
     onHoverChanged: {
         if (hover){
-            root.trayIconHoverHandler(trayIconId, index)
+            root.trayIconHoverHandler(moduleId, index)
         }
         else {
             trayIconTip.visible = false
@@ -46,14 +49,5 @@ Rectangle {
         onHoverChanged: {
             trayIconButton.hover = hover
         }
-    }
-
-    Rectangle {
-        anchors.top: parent.top
-        anchors.left: parent.left
-        width: parent.width
-        height: 1
-        color: Qt.rgba(255, 255, 255, 0.1)
-        visible: false
     }
 }

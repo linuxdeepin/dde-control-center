@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt5.QtCore import QObject, pyqtSlot, QVariant
+from PyQt5.QtCore import QObject, pyqtSlot, QVariant, pyqtProperty
 from nls import _
 
 class ModulesId(QObject):
@@ -49,6 +49,10 @@ class ModulesId(QObject):
                 "system_info": _("System Information"),
             }
 
+        self._states_info = {
+                "network": ['wifi', 'wire'],
+            }
+
         self._common_ids = [
                 "notification",
                 "network",
@@ -74,6 +78,10 @@ class ModulesId(QObject):
                 "default_applications",
             ]
 
+    @pyqtSlot(str, result=QVariant)
+    def getStatesArray(self, s):
+        return self._states_info.get(s, [])
+
     @pyqtSlot(str, result=str)
     def check_valid(self, s):
         if s in self._common_ids:
@@ -83,15 +91,15 @@ class ModulesId(QObject):
         else:
             return ''
 
-    @pyqtSlot(result=QVariant)
-    def common_ids(self):
+    @pyqtProperty(QVariant)
+    def commonIds(self):
         return self._common_ids
 
-    @pyqtSlot(result=QVariant)
-    def hide_ids(self):
+    @pyqtProperty(QVariant)
+    def hideIds(self):
         return self._hide_ids
 
-    @pyqtSlot(result=QVariant)
-    def module_names(self):
+    @pyqtProperty(QVariant)
+    def moduleLocaleNames(self):
         return self._l18n_names
 

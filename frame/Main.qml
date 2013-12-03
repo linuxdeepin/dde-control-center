@@ -78,8 +78,8 @@ Item {
     }
 
     function initTrayIcon() {
-        var icon_path_array = modulesId.common_ids()
-        var new_tray_height = root.height/(icon_path_array.length+1.0)
+        var modules_id_array = modulesId.commonIds
+        var new_tray_height = root.height/(modules_id_array.length+1.0)
         if (new_tray_height < trayWidth){
             trayHeight = new_tray_height
         }
@@ -87,9 +87,11 @@ Item {
             trayHeight = trayWidth
         }
         trayIconTabArea.clear()
-        for (var i in icon_path_array){
+        for (var i in modules_id_array){
+            var module_id = modules_id_array[i]
             trayIconTabArea.append({
-                'iconId': icon_path_array[i]
+                "moduleId": module_id,
+                'statesArray': modulesId.getStatesArray(module_id)
             })
         }
         trayIconTabList.height = trayHeight * trayIconTabArea.count
@@ -97,12 +99,16 @@ Item {
     }
 
     function expandHideTrayIcon() {
-        trayIconTabArea.remove(modulesId.common_ids().length - 2)
+        trayIconTabArea.remove(modulesId.commonIds.length - 2)
         trayIconTabList.currentIndex = -1
-        var newIds = modulesId.hide_ids()
+        var newIds = modulesId.hideIds
         for (var i in newIds){
             var index = trayIconTabArea.count - 1
-            trayIconTabArea.insert(index, {'iconId': newIds[i]})
+            var module_id = newIds[i]
+            trayIconTabArea.insert(index, {
+                "moduleId": module_id,
+                'statesArray': modulesId.getStatesArray(module_id)
+            })
         }
         var new_tray_height = root.height/(trayIconTabArea.count)
         if (new_tray_height < trayWidth){
@@ -124,7 +130,7 @@ Item {
             tipDisplayHeight = (screenSize.height - trayHeight * trayIconTabArea.count)/2 + tipDisplayHeight
         }
         trayIconTip.y = tipDisplayHeight
-        trayIconTipText.text = modulesId.module_names()[module_id]
+        trayIconTipText.text = modulesId.moduleLocaleNames[module_id]
         trayIconTip.visible = true
     }
 
@@ -265,7 +271,7 @@ Item {
                 currentIndex: -1
                 onCurrentIndexChanged: {
                     if (currentIndex != -1){
-                        showRightBox(currentItem.trayIconId)
+                        showRightBox(currentItem.rightboxId)
                     }
                 }
                 highlight: Rectangle { color: Qt.rgba(255, 255, 255, 0.1); radius: 3; }
