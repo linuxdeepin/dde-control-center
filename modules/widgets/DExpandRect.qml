@@ -28,12 +28,12 @@ Rectangle {
 
             Loader {
                 id: headerRect
-		width: header.width
+                width: header.width
                 anchors.verticalCenter: parent.verticalCenter
             }
         }
 
-	DSepratorHorizontal { id: bottomSep;visible: expand }
+        DSepratorHorizontal {}
 
         Rectangle {
             id: contentRect
@@ -43,7 +43,7 @@ Rectangle {
             color: contentBgColor
 
             Loader { 
-		width: header.width
+                width: header.width
                 id: content 
                 onLoaded: { content.height = content.childrenRect.height }
                 anchors.top: parent.top
