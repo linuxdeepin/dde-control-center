@@ -65,7 +65,6 @@ Item {
             Qt.quit()
             //hideTrayIcon()
             //windowView.shutdown()
-            console.log(trayIconTabList.height)
         }
         else if (trayIconId == 'dss'){
             expandHideTrayIcon()
@@ -331,8 +330,10 @@ Item {
             Loader{
                 id: rightBoxLoader
                 property string iconId
-                property color childColor: defaultBackgroundColor
-                property string languageCode: qtgettext.get_locale_code()
+                property color bgColor: defaultBackgroundColor
+                property color fgColor: "#b4b4b4"
+                property color contentBgColor: "#1a1b1b"
+                property string lang: qtgettext.get_locale_code()
                 focus: true
                 source: ''
                 anchors.fill: parent

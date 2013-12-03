@@ -1,10 +1,11 @@
 import QtQuick 2.1
 import "calendar_core.js" as CalendarCore
+import "../widgets/"
 
 Item {
     id: calendarWidget
     width: 308
-    property var clickedDateObject: new Date()
+    property var clickedDateObject: date
     property string clickedDate: CalendarCore.dateToString(clickedDateObject)
     property var cur_calendar;
     property var pre_calendar;
@@ -127,25 +128,26 @@ Item {
 
         TextButton {
             anchors.verticalCenter: parent.verticalCenter
+            anchors.verticalCenterOffset: -1
             anchors.left: parent.left
             anchors.leftMargin: 10
             text: dsTr("今天")
+
+            onClicked: {
+                monthChange(CalendarCore.dateToString(new Date()))
+            }
         }
 
-        ImageButton {
+        OpacityImageButton {
             id: decreaseYearButton
+
+            source: 'images/arrow_left_white.png'
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: yearAdjustmentBox.left
-            //anchors.leftMargin: 16
-
-            nomralImage: 'images/arrow_left_normal.png'
-            hoverImage: 'images/arrow_left_hover.png'
-            pressImage: 'images/arrow_left_press.png'
 
             onClicked: { 
                 var new_date_str = (yearAdjustment.yearNumber-1) + "-" + 
                     monthAdjustment.monthNumber + "-" + 1;
-                //updateDates(new_date_str);
                 monthChange(new_date_str)
             }
         }
@@ -161,7 +163,7 @@ Item {
             Text {
                 id: yearAdjustment
                 anchors.centerIn: parent
-                color: textColor
+                color: fgColor
                 font.pixelSize: 12
 
                 property int yearNumber: Number(clickedDateObject.getFullYear())
@@ -171,32 +173,27 @@ Item {
                 
         }
 
-        ImageButton {
+        OpacityImageButton {
             id: increaseYearButton
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: decreaseMonthButton.left
             anchors.rightMargin: 6
 
-            nomralImage: 'images/arrow_right_normal.png'
-            hoverImage: 'images/arrow_right_hover.png'
-            pressImage: 'images/arrow_right_press.png'
+            source: "images/arrow_right_white.png"
 
             onClicked: { 
                 var new_date_str = (yearAdjustment.yearNumber+1) + "-" + 
                     monthAdjustment.monthNumber + "-" + 1;
-                //updateDates(new_date_str);
                 monthChange(new_date_str)
             }
         }
 
-        ImageButton {
+        OpacityImageButton {
             id: decreaseMonthButton
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: monthAdjustmentBox.left
 
-            nomralImage: 'images/arrow_left_normal.png'
-            hoverImage: 'images/arrow_left_hover.png'
-            pressImage: 'images/arrow_left_press.png'
+            source: "images/arrow_left_white.png"
 
             onClicked: { 
                 if (monthAdjustment.monthNumber == 1) {
@@ -225,7 +222,7 @@ Item {
             Text {
                 id: monthAdjustment
                 anchors.centerIn: parent
-                color: textColor
+                color: fgColor
                 font.pixelSize: 12
 
                 property int monthNumber: Number(clickedDateObject.getMonth() + 1)
@@ -233,15 +230,13 @@ Item {
             }
         }
 
-        ImageButton {
+        OpacityImageButton {
             id: increaseMonthButton
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
             anchors.rightMargin: 8
 
-            nomralImage: 'images/arrow_right_normal.png'
-            hoverImage: 'images/arrow_right_hover.png'
-            pressImage: 'images/arrow_right_press.png'
+            source: "images/arrow_right_white.png"
 
             onClicked: {
                 if (monthAdjustment.monthNumber == 12) {
@@ -260,7 +255,7 @@ Item {
         }
     }
 
-    SepratorHorizontal {
+    DSepratorHorizontal {
         anchors.top: dateBoxAdjustment.bottom
         width: parent.width
     }

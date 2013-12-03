@@ -38,9 +38,9 @@ class RecordEvent(QObject):
         QObject.__init__(self)
 
         self.timer = None
-        self.stop_delay = 0.8
+        self.stop_delay = 0.1
         self.view = view
-        self.viewHoverPadding = 100
+        self.viewHoverPadding = 15
     
     def record_callback(self, reply):
         global press_ctrl
@@ -61,10 +61,10 @@ class RecordEvent(QObject):
                 
     def emit_cursor_stop(self, mouse_x, mouse_y):
         screen_size = self.view.screen().size()
-        if mouse_x >= screen_size.width() - 2 and \
+        if mouse_x >= screen_size.width() - self.viewHoverPadding and \
             mouse_x <= screen_size.width() and \
-            mouse_y >= self.viewHoverPadding and \
-            mouse_y <= screen_size.height() - self.viewHoverPadding:
+            mouse_y >= screen_size.height() - self.viewHoverPadding and \
+            mouse_y <= screen_size.height():
             self.enter_mouse_area.emit()
                 
     def filter_event(self):

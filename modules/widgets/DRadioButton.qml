@@ -81,9 +81,9 @@ Rectangle {
             }
         }
 
-        delegate: RadioButtonDelegate {}
+        delegate: DRadioButtonDelegate {}
 
-        highlight: RadioButtonHighlight {}
+        highlight: DRadioButtonHighlight {}
 
         signal itemSelected (int idx)
 

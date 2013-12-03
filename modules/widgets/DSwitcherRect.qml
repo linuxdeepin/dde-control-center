@@ -15,11 +15,11 @@ Rectangle {
         anchors.left: parent.left
         anchors.leftMargin: 18
         font.pixelSize: 13
-        color: textColor
+        color: fgColor
         text: parent.text
     }
 
-    DarkSwitcherButton {
+    DSwitcherButton {
         id: button
         anchors.verticalCenter: parent.verticalCenter
         anchors.right: parent.right

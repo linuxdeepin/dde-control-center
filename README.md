@@ -27,8 +27,14 @@ Linux Deepin 2014 的新设置中心
 Debug自己的模块: python ./frame/main.py {module_id}
 
 ### 每个模块可引用的全局变量:
-* childColor 默认的背景色
-* languageCode  当前启动的界面，可用于中英文不同的排版
+* bgColor 默认的背景色
+* fgColor 默认背景下白色的文字颜色
+* contentBgColor 展开内容区域的背景颜色
+* lang  当前启动的界面，可用于中英文不同的排版，值为{'en_US', 'zh_CN', 'zh_TW', ...}
+
+### 公用widgets
+* 公用widgets统一以D开头
+* widgets内容变化，请通知大家
 
 ### 国际化翻译
 
