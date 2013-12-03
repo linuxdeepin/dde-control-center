@@ -1,9 +1,6 @@
 import QtQuick 2.1
 
 Rectangle {
-	color: Qt.rgba(0, 0, 0, 0)
-}
-Rectangle {
     id: delegate
 
     width: delegate.GridView.view.cellWidth

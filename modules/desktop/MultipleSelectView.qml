@@ -1,48 +1,41 @@
 import QtQuick 2.1
 
-Rectangle {
-    color: "transparent"
-	
-    property bool radioMode: false	
-	
-	property int rows: 1
-	property int columns: 3
-	
-	property int topPadding: 10
-	property int bottomPadding: 10
-	property int leftPadding: 15
-	property int rightPadding: 15
-	property int horizontalSpacing: 10
-	property int verticalSpacing: 10
+GridView {
 
-    GridView {
-        interactive: false
+    interactive: false
+    cellWidth: width / columns
+    cellHeight: height / rows
+    property bool singleSelectionMode: false
 
-        property var selectedIndexs: []
-        property var selectedItems: []
+    property int rows: 1
+    property int columns: 3
+    property int viewWidth: 80
+    property int viewHeight: 24
 
-        signal itemSelected(int index, var item)
-        signal itemDeselected(int index, var item)
+    property int dele
+    property var selectedIndexs: []
+    property var selectedItems: []
 
-        function clearSelection() {
-            for (var index in selectedItems) {
-                selectedItems[index].deselect()
-            }
-			
-            selectedItems = []
-            selectedIndexs = []
+    signal select(int index, var item)
+    signal deselect(int index, var item)
+
+    function clear() {
+        for (var index in selectedItems) {
+            selectedItems[index].deselect()
         }
-
-        function getDelegateInstanceAt(index) {
-            for(var i = 0; i < contentItem.children.length; ++i) {
-                var item = contentItem.children[i];
-                if ((typeof item.delegateIndex != "undefined") && item.delegateIndex == index) {
-                    return item
-                }
-            }
-            return undefined
-        }
-
-        delegate: SelectViewDelegate{}
+        selectedItems = []
+        selectedIndexs = []
     }
+
+    function getDelegateInstanceAt(index) {
+        for(var i = 0; i < contentItem.children.length; ++i) {
+            var item = contentItem.children[i];
+            if ((typeof item.delegateIndex != "undefined") && item.delegateIndex == index) {
+                return item
+            }
+        }
+        return undefined
+    }
+
+    delegate: SelectViewDelegate{}
 }
