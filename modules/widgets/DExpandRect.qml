@@ -4,16 +4,19 @@ import QtQuick.Layouts 1.0
 
 Rectangle {
     id: expandRect
+
     property alias header: headerRect.sourceComponent
     property alias content: content.sourceComponent
 
     height: header.height + contentRect.height
     width: parent.width
+    property bool _expand_: false
 
-    property bool expand: false
+    signal contentLoaded
+
     function toggle() {
-        expand = !expand
-        contentRect.height = expand ? content.height : 0
+        _expand_ = !_expand_
+        contentRect.height = _expand_ ? content.height : 0
     }
 
     Column {
@@ -28,12 +31,12 @@ Rectangle {
 
             Loader {
                 id: headerRect
-		width: header.width
+                width: header.width
                 anchors.verticalCenter: parent.verticalCenter
             }
         }
 
-	DSepratorHorizontal { id: bottomSep;visible: expand }
+        DSepratorHorizontal {}
 
         Rectangle {
             id: contentRect
@@ -43,9 +46,12 @@ Rectangle {
             color: contentBgColor
 
             Loader { 
-		width: header.width
+                width: header.width
                 id: content 
-                onLoaded: { content.height = content.childrenRect.height }
+                onLoaded: { 
+                    content.height = content.childrenRect.height 
+                    expandRect.contentLoaded()
+                }
                 anchors.top: parent.top
                 anchors.left: parent.left
             }
