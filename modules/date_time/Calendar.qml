@@ -131,7 +131,7 @@ Item {
             anchors.verticalCenterOffset: -1
             anchors.left: parent.left
             anchors.leftMargin: 10
-            text: dsTr("今天")
+            text: dsTr("Today")
 
             onClicked: {
                 monthChange(CalendarCore.dateToString(new Date()))

@@ -13,7 +13,9 @@ Item {
     property var gDate: DateAndTime {}
 
     property var date: new Date()
-    property var weekNames: ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+    property var weekNames: [dsTr("Sunday"), dsTr("Monday"), dsTr("Tuesday"), 
+        dsTr("Wednesday"), dsTr("Thursday"), dsTr("Friday"), dsTr("Saturday"), 
+        dsTr("Sunday")]
 
     Timer {
         running: true
@@ -78,7 +80,7 @@ Item {
                 anchors.horizontalCenter: dynamicTime.horizontalCenter
 
                 font.pixelSize: 12
-                text: date.getFullYear() + "年" + date.getMonth()+ "月"+ date.getDate() + "日" + ", " + weekNames[date.getDay()]
+                text: date.getFullYear() + "-" + date.getMonth()+ "-"+ date.getDate() + ", " + weekNames[date.getDay()]
             }
 
         }
@@ -215,7 +217,7 @@ Item {
         }
 
         button: DTextButton {
-            text: dsTr("修改日期")
+            text: dsTr("Change Date")
         }
     }
 

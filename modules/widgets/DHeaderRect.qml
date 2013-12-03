@@ -32,6 +32,7 @@ Rectangle {
         anchors.rightMargin: rightMargin
         anchors.verticalCenter: parent.verticalCenter
         anchors.verticalCenterOffset: -1
+        clip: true
         onLoaded: { header.buttonLoaded() }
     }
 
