@@ -2,28 +2,33 @@ import QtQuick 2.1
 
 Rectangle {
     color: "transparent"
+	
+    property bool radioMode: false	
+	
+	property int rows: 1
+	property int columns: 3
+	
+	property int topPadding: 10
+	property int bottomPadding: 10
+	property int leftPadding: 15
+	property int rightPadding: 15
+	property int horizontalSpacing: 10
+	property int verticalSpacing: 10
 
     GridView {
-        cellWidth: width / columns
-        cellHeight: height / rows
         interactive: false
-        property bool radioMode: false
-
-        property int rows: 1
-        property int columns: 3
-        property int viewWidth: 80
-        property int viewHeight: 24
 
         property var selectedIndexs: []
         property var selectedItems: []
 
-        signal select(int index, var item)
-        signal deselect(int index, var item)
+        signal itemSelected(int index, var item)
+        signal itemDeselected(int index, var item)
 
-        function clear() {
+        function clearSelection() {
             for (var index in selectedItems) {
                 selectedItems[index].deselect()
             }
+			
             selectedItems = []
             selectedIndexs = []
         }
