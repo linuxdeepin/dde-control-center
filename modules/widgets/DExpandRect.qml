@@ -4,16 +4,19 @@ import QtQuick.Layouts 1.0
 
 Rectangle {
     id: expandRect
+
     property alias header: headerRect.sourceComponent
     property alias content: content.sourceComponent
 
     height: header.height + contentRect.height
     width: parent.width
+    property bool _expand_: false
 
-    property bool expand: false
+    signal contentLoaded
+
     function toggle() {
-        expand = !expand
-        contentRect.height = expand ? content.height : 0
+        _expand_ = !_expand_
+        contentRect.height = _expand_ ? content.height : 0
     }
 
     Column {
@@ -45,7 +48,10 @@ Rectangle {
             Loader { 
                 width: header.width
                 id: content 
-                onLoaded: { content.height = content.childrenRect.height }
+                onLoaded: { 
+                    content.height = content.childrenRect.height 
+                    expandRect.contentLoaded()
+                }
                 anchors.top: parent.top
                 anchors.left: parent.left
             }

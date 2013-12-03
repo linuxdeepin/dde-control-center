@@ -44,6 +44,7 @@ Item {
         anchors.top: parent.top
         anchors.topMargin: 48
         width: parent.width
+
         Rectangle {
             id: timeBox
             width: parent.width
@@ -70,13 +71,12 @@ Item {
                 text: date.getHours() < 12 ? "AM" : "PM"
             }
 
-            Text {
+            DLabel {
                 id: dayText
                 anchors.top: dynamicTime.bottom
                 anchors.topMargin: 10
                 anchors.horizontalCenter: dynamicTime.horizontalCenter
 
-                color: "#666666"
                 font.pixelSize: 12
                 text: date.getFullYear() + "年" + date.getMonth()+ "月"+ date.getDate() + "日" + ", " + weekNames[date.getDay()]
             }
@@ -89,6 +89,10 @@ Item {
             id: autoSetTimeBox
             text: dsTr("Auto-sync datetime")
             button.checked: gDate.autoSetTime ? true : false
+
+            onClicked: {
+                gDate.SetAutoSetTime(button.checked)
+            }
         }
 
         DSepratorHorizontal {}
@@ -96,6 +100,11 @@ Item {
         DSwitcherRect {
             id: twentyFourHourSetBox
             text: dsTr("24 Hour")
+            button.checked: gDate.use24HourDisplay
+
+            onClicked: {
+                gDate.use24HourDisplay = button.checked
+            }
         }
 
         DSepratorHorizontal {}
@@ -185,48 +194,30 @@ Item {
             }
         }
     }
-    
+
+
     DSepratorHorizontal {
         anchors.top: timezoneList.bottom
     }
 
-    Rectangle {
+    DHeaderRect {
         id: dateBoxTitle
         anchors.top: timezoneList.bottom
         anchors.topMargin: 2
         width: parent.width
-        height: 28
-        color: bgColor
+        height: 38
 
-        Text {
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.left: parent.left
-            anchors.leftMargin: 18
+        title: DLabel {
             font.pixelSize: 13
-            color: fgColor
             text: dsTr("Date")
         }
 
-        TextButton {
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.verticalCenterOffset: -1
-            anchors.right: parent.right
-            anchors.rightMargin: 8
+        button: DTextButton {
             text: dsTr("修改日期")
         }
     }
 
-    DSepratorHorizontal {
+    Calendar {
         anchors.top: dateBoxTitle.bottom
-    }
-
-    Rectangle {
-        id: calendarBox
-        anchors.top: dateBoxTitle.bottom
-        anchors.topMargin: 2
-        anchors.left: parent.left
-        width: parent.width
-
-        Calendar { }
     }
 }

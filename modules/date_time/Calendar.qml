@@ -105,7 +105,7 @@ Item {
         anchors.top: parent.top
         anchors.left: parent.left
         width: parent.width
-        height: 28
+        height: 38
         color: "#1a1b1b"
 
         Rectangle {
