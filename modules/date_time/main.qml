@@ -85,29 +85,31 @@ Item {
 
         DSepratorHorizontal {}
 
-        DSwitcherRect {
+        DHeaderRect {
             id: autoSetTimeBox
-            text: dsTr("Auto-sync datetime")
-            button.checked: gDate.autoSetTime ? true : false
+            width: parent.width
+            title: DLabel { text: dsTr("Auto-sync datetime") }
+            button: DSwitch {
+                state: gDate.autoSetTime ? "on" : "off"
 
-            onClicked: {
-                gDate.SetAutoSetTime(button.checked)
+                onStateChanged: {
+                    gDate.SetAutoSetTime(state == "on")
+                }
             }
         }
 
-        DSepratorHorizontal {}
-
-        DSwitcherRect {
+        DHeaderRect {
             id: twentyFourHourSetBox
-            text: dsTr("24 Hour")
-            button.checked: gDate.use24HourDisplay
+            width: parent.width
+            title: DLabel{ text: dsTr("24 Hour") }
+            button: DSwitch {
+                state: gDate.use24HourDisplay ? "on" : "off"
 
-            onClicked: {
-                gDate.use24HourDisplay = button.checked
+                onStateChanged: {
+                    gDate.use24HourDisplay = (state == "on")
+                }
             }
         }
-
-        DSepratorHorizontal {}
     }
 
     Rectangle {

@@ -11,6 +11,7 @@ Rectangle {
     property int rightMargin: 5
 
     height: 30
+    width: parent.width
     color: bgColor
 
     signal titleLoaded
