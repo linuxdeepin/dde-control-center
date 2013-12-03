@@ -17,6 +17,7 @@ Rectangle {
     property color unselectedFontColor: Qt.rgba(1, 1, 1, 1)
 
     property var buttonModels: []
+    signal itemSelected (int idx)
 	
     Rectangle {
         id: bg
@@ -84,11 +85,9 @@ Rectangle {
         delegate: RadioButtonDelegate {}
 
         highlight: RadioButtonHighlight {}
-
-        signal itemSelected (int idx)
-
+		
         onCurrentIndexChanged: {
-            itemSelected(currentIndex)
+            select_button.itemSelected(currentIndex)
         }
 
         onWidthChanged: {
