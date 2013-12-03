@@ -19,7 +19,9 @@ Item {
 		    id: i
 		    Component.onCompleted: {
 			i.children = root.datas[index]
-			seperator.createObject(i).width = root.width
+			if (root.datas[index].width != 0) { //Let Loader(or other Component) with empty content work with this trick
+			    seperator.createObject(i).width = root.width
+			}
 		    }
 		}
 	    }
