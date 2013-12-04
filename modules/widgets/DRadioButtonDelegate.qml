@@ -29,8 +29,8 @@ Component {
 		
 		Connections {
 			target: rect.ListView.view
-			onItemSelected: {
-				if (idx == index) {
+			onCurrentIndexChanged: {
+				if (rect.ListView.view.currentIndex == index) {
 					rect.select()
 				} else {
 					rect.deselect()
