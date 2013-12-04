@@ -31,14 +31,14 @@ Item {
         anchors.topMargin: 48
         width: parent.width
 
-        DHeaderRect {
+        DBaseHeader {
             title: DLabel {
                 text: dsTr("Repeat")
                 font.pixelSize: 13
             }
         }
 
-        DHeaderRect {
+        DBaseHeader {
             color: contentBgColor
             height: 60
             leftMargin: contentLeftMargin
@@ -46,9 +46,12 @@ Item {
                 text: dsTr("Repeat Delay")
                 font.pixelSize: 12
             }
+            button: DSlider {
+                onValueChanged: print(value)
+            }
         }
 
-        DHeaderRect {
+        DBaseHeader {
             color: contentBgColor
             height: 60
             leftMargin: contentLeftMargin
@@ -56,9 +59,12 @@ Item {
                 text: dsTr("Repeat Interval")
                 font.pixelSize: 12
             }
+            button: DSlider {
+                onValueChanged: print(value)
+            }
         }
 
-        DHeaderRect {
+        DBaseHeader {
             color: contentBgColor
             leftMargin: contentLeftMargin
             title: DLabel {
@@ -73,14 +79,14 @@ Item {
             }
         }
 
-        DHeaderRect {
+        DBaseHeader {
             title: DLabel {
                 text: dsTr("Cusor Blink")
                 font.pixelSize: 13
             }
         }
 
-        DHeaderRect {
+        DBaseHeader {
             color: contentBgColor
             height: 60
             leftMargin: contentLeftMargin
@@ -90,13 +96,16 @@ Item {
                 color: fgColor
                 focus: true
             }
+            button: DSlider {
+                onValueChanged: print(value)
+            }
         }
 
-        DExpandRect {
+        DBaseExpand {
             id: keyboardLayoutSetting
             header: DDownArrowHeader {
                 text: dsTr("Keyboard Layout")
-                onToggled: keyboardLayoutSetting.toggle()
+                onToggled: keyboardLayoutSetting.expanded = !keyboardLayoutSetting.expanded
             }
 
             content: Column {
