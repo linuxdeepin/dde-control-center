@@ -22,8 +22,8 @@ Item {
 	    }
 	    DSepratorHorizontal{}
 	}
-	DExpandRect {
-	    title: Text { text:"Realtek PCIe GBE Family Controller" }
+	DBaseExpand {
+	    header: Text { text:"Realtek PCIe GBE Family Controller" }
 	    width: root.width
 	}
 	GridLayout {
