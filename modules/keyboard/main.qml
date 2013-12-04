@@ -1,4 +1,5 @@
-import QtQuick 2.1
+import DBus.Com.Deepin.Daemon.ExtDevManager 1.0
+import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import "../widgets/"
@@ -8,6 +9,24 @@ Item {
     anchors.fill: parent
 
     property int contentLeftMargin: 22
+
+    ExtDevManager {
+       id: "extDevManagerID"
+       // path: "/com/deepin/daemon/ExtDevManager"
+    } 
+    Keyboard {
+       id: "keyboardID"
+       // path: "/com/deepin/daemon/ExtDevManager/Keyboard"
+    } 
+    Mouse {
+       id: "mouseID"
+       // path: "/com/deepin/daemon/ExtDevManager/Mouse"
+    } 
+    TouchPad {
+       id: "touchPadID"
+       // path: "/com/deepin/daemon/ExtDevManager/TouchPad"
+    } 
+
 
     Text {
         id: keyboardModuleTitle
@@ -47,7 +66,20 @@ Item {
                 font.pixelSize: 12
             }
             button: DSlider {
-                onValueChanged: print(value)
+                property real tmp: -1
+                function getRepeatDelay(percent){
+                    return 2000 - 1900 * percent
+                }
+
+                function getRepeatDelayPercent(interval){
+                    return (2000 - interval)/1900
+                }
+                tmp: getRepeatDelayPercent(keyboardID.repeatDelay)
+                onValueChanged: {
+                    if (keyboardID.repeatDelay != getRepeatDelay(value)){
+                        keyboardID.repeatDelay = getRepeatDelay(value)
+                    }
+                }
             }
         }
 
