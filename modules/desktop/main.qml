@@ -1,5 +1,6 @@
 import QtQuick 2.1
 import DBus.Com.Deepin.Daemon.Desktop 1.0
+import "../widgets"
 
 Rectangle {
     id: desktop
@@ -220,7 +221,7 @@ Rectangle {
         RaisedPart {
             title: "屏幕热区"
 
-            RadioButton {
+            DRadioButton {
 				buttonModels: [{"buttonId": "top_left", "buttonLabel": "左上角"}, 
 							   {"buttonId": "bottom_right", "buttonLabel": "右下角"}]
 

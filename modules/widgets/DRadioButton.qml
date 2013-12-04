@@ -17,7 +17,8 @@ Rectangle {
     property color unselectedFontColor: Qt.rgba(1, 1, 1, 1)
 
     property var buttonModels: []
-	
+    signal itemSelected (int idx)
+
     Rectangle {
         id: bg
         radius: 3
@@ -85,10 +86,8 @@ Rectangle {
 
         highlight: DRadioButtonHighlight {}
 
-        signal itemSelected (int idx)
-
         onCurrentIndexChanged: {
-            itemSelected(currentIndex)
+            select_button.itemSelected(currentIndex)
         }
 
         onWidthChanged: {
