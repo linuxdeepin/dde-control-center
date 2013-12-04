@@ -51,6 +51,7 @@ Item {
             !showingTrayIconBox.running){
             trayFrame.visible = true
             showingTrayIconBox.restart()
+            expandHideTrayIcon()
         }
     }
 
