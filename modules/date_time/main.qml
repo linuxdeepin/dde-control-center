@@ -69,7 +69,7 @@ Item {
 
                 font.pixelSize: 14
                 font.family: timeFont
-                visible: !twentyFourHourSetBox.button.checked
+                visible: !twentyFourHourSetBox.checked
                 text: date.getHours() < 12 ? "AM" : "PM"
             }
 
@@ -87,29 +87,24 @@ Item {
 
         DSepratorHorizontal {}
 
-        DHeaderRect {
+        DSwitcherButtonHeader {
             id: autoSetTimeBox
+            text: dsTr("Auto-sync datetime")
             width: parent.width
-            title: DLabel { text: dsTr("Auto-sync datetime") }
-            button: DSwitch {
-                state: gDate.autoSetTime ? "on" : "off"
+            checked: gDate.autoSetTime
 
-                onStateChanged: {
-                    gDate.SetAutoSetTime(state == "on")
-                }
+            onClicked: {
+                gDate.SetAutoSetTime(checked)
             }
         }
 
-        DHeaderRect {
+        DSwitcherButtonHeader {
             id: twentyFourHourSetBox
-            width: parent.width
-            title: DLabel{ text: dsTr("24 Hour") }
-            button: DSwitch {
-                state: gDate.use24HourDisplay ? "on" : "off"
+            text: dsTr("24 Hour")
+            checked: gDate.use24HourDisplay
 
-                onStateChanged: {
-                    gDate.use24HourDisplay = (state == "on")
-                }
+            onClicked: {
+                gDate.use24HourDisplay = checked
             }
         }
     }
@@ -204,7 +199,7 @@ Item {
         anchors.top: timezoneList.bottom
     }
 
-    DHeaderRect {
+    DBaseHeader {
         id: dateBoxTitle
         anchors.top: timezoneList.bottom
         anchors.topMargin: 2

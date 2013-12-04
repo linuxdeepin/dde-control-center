@@ -21,7 +21,7 @@ Item {
 
             font.pixelSize: digitalSize
             font.family: timeFont
-            text: twentyFourHourSetBox.button.checked ? date.getHours() : date.getHours() % 12
+            text: twentyFourHourSetBox.checked ? date.getHours() : date.getHours() % 12
             color: "white"
 
             MouseArea {

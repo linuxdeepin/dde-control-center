@@ -7,17 +7,12 @@ Rectangle {
 
     property alias header: headerRect.sourceComponent
     property alias content: content.sourceComponent
+    property bool expanded: false
 
     height: header.height + contentRect.height
     width: parent.width
-    property bool _expand_: false
 
     signal contentLoaded
-
-    function toggle() {
-        _expand_ = !_expand_
-        contentRect.height = _expand_ ? content.height : 0
-    }
 
     Column {
         width: parent.width
@@ -41,7 +36,7 @@ Rectangle {
         Rectangle {
             id: contentRect
             width: parent.width
-            height: 0
+            height: expanded ? content.height : 0
             clip: true
             color: contentBgColor
 
@@ -59,9 +54,7 @@ Rectangle {
             Behavior on height {
                 SmoothedAnimation { duration: 200 }
             }
-
         }
-
     }
 }
 
