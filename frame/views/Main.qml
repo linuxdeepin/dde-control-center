@@ -320,7 +320,7 @@ Item {
                 rightBoxLoaderItem.visible = (iconId == '' ? false : true)
                 rightBoxLoader.iconId = iconId
                 if (iconId){
-                    rightBoxLoader.source = '../modules/' + iconId + '/main.qml'
+                    rightBoxLoader.source = '../../modules/' + iconId + '/main.qml'
                 }
                 else{
                     rightBoxLoader.source = ''

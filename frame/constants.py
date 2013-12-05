@@ -20,3 +20,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+PANEL_WIDTH = 360
+
+SHUT_DOWN_ORDER_PATH = '/data/share/Projects/deepin/dde/build/shutdown'
+
+APP_DBUS_NAME = "com.deepin.system.settings"
+APP_OBJECT_PATH = "/com/deepin/system/settings"
