@@ -103,6 +103,15 @@ Item {
             text: dsTr("24 Hour")
             checked: gDate.use24HourDisplay
 
+            Timer{
+                running: true
+                repeat: true
+                interval: 1000
+                onTriggered: {
+                    twentyFourHourSetBox.checked = gDate.use24HourDisplay
+                }
+            }
+
             onClicked: {
                 gDate.use24HourDisplay = checked
             }

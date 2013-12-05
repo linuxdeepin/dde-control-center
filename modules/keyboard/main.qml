@@ -66,15 +66,13 @@ Item {
                 font.pixelSize: 12
             }
             button: DSlider {
-                property real tmp: -1
                 function getRepeatDelay(percent){
                     return 2000 - 1900 * percent
                 }
 
-                function getRepeatDelayPercent(interval){
-                    return (2000 - interval)/1900
+                Component.onCompleted: {
+                    value = (2000 - keyboardID.repeatDelay)/1900
                 }
-                tmp: getRepeatDelayPercent(keyboardID.repeatDelay)
                 onValueChanged: {
                     if (keyboardID.repeatDelay != getRepeatDelay(value)){
                         keyboardID.repeatDelay = getRepeatDelay(value)

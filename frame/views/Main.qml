@@ -7,10 +7,10 @@ Item {
     property real trayHeight: trayWidth
     property color defaultBackgroundColor: "#252627"
     property bool trayIconShowAll: false
-
     property int viewHoverPadding: 100
-
     property int displayState: viewState.allHide
+
+    property bool clickedToHide: true
 
     function dsTr(s){
         return qtgettext.qsTr(s)
@@ -26,17 +26,19 @@ Item {
     }
 
     function outerAreaClicked(mousex, mousey){
-        if ((root.displayState == viewState.trayShow) && (
-            mousex <= screenSize.width - trayWidth)) {
-            hideTrayIcon()
-        }
-        else if ((root.displayState == viewState.rightBoxShow) && (
-            mousex < screenSize.width - root.width +  48)) {
-            hideTrayIcon()
-        }
-        else if ((root.displayState == viewState.allShow) && (
-            mousex <= screenSize.width - root.width)) {
-            hideTrayIcon()
+        if (clickedToHide){
+            if ((root.displayState == viewState.trayShow) && (
+                mousex <= screenSize.width - trayWidth)) {
+                hideTrayIcon()
+            }
+            else if ((root.displayState == viewState.rightBoxShow) && (
+                mousex < screenSize.width - root.width +  48)) {
+                hideTrayIcon()
+            }
+            else if ((root.displayState == viewState.allShow) && (
+                mousex <= screenSize.width - root.width)) {
+                hideTrayIcon()
+            }
         }
     }
 
@@ -63,7 +65,8 @@ Item {
 
     function showRightBox(trayIconId) {
         if (trayIconId == 'shutdown'){
-            Qt.quit()
+            clickedToHide = !clickedToHide
+            //Qt.quit()
             //hideTrayIcon()
             //windowView.shutdown()
         }
