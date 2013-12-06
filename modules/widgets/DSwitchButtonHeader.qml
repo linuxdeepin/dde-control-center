@@ -32,7 +32,7 @@ Rectangle {
         height: parent.height - 2
         width: actionArea.width
 
-        DSwitch {
+        DSwitchButton {
             id: actionArea
             anchors.centerIn: parent
 

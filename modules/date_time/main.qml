@@ -87,7 +87,7 @@ Item {
 
         DSepratorHorizontal {}
 
-        DSwitcherButtonHeader {
+        DSwitchButtonHeader {
             id: autoSetTimeBox
             text: dsTr("Auto-sync datetime")
             width: parent.width
@@ -98,7 +98,7 @@ Item {
             }
         }
 
-        DSwitcherButtonHeader {
+        DSwitchButtonHeader {
             id: twentyFourHourSetBox
             text: dsTr("24 Hour")
             checked: gDate.use24HourDisplay
