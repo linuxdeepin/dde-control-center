@@ -135,7 +135,9 @@ Item {
             id: keyboardLayoutSetting
             header.sourceComponent: DDownArrowHeader {
                 text: dsTr("Keyboard Layout")
-                onClicked: keyboardLayoutSetting.expanded = !keyboardLayoutSetting.expanded
+                onClicked: {
+                    keyboardLayoutSetting.expanded = !keyboardLayoutSetting.expanded
+                }
             }
 
             content.sourceComponent: Column {
@@ -146,7 +148,6 @@ Item {
                 Text {text:"test"}
                 Text {text:"test"}
                 Text {text:"test"}
-                DSepratorHorizontal {}
             }
         }
     }

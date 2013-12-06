@@ -43,8 +43,8 @@ Rectangle {
                 currentStatus: header.active ? "up" : "down"
 
                 onClicked: {
-                    header.clicked()
                     header.active = !header.active
+                    header.clicked()
                 }
             }
         }

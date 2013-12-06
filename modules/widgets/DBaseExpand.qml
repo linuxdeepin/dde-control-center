@@ -11,7 +11,9 @@ Rectangle {
 
     property var dconstants: DConstants {}
 
-    height: header.height + contentRect.height
+    property int separatorPadding: expanded ? 4 : 2
+
+    height: header.height + contentRect.height + separatorPadding
     width: parent.width
 
     signal contentLoaded
@@ -57,6 +59,8 @@ Rectangle {
                 SmoothedAnimation { duration: 200 }
             }
         }
+
+        DSepratorHorizontal { visible: expanded }
     }
 }
 
