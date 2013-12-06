@@ -12,30 +12,30 @@ RowLayout {
 
     height: 50
     Label {
-	text: dsTr("Network Settings")
-	color: fgColor
-	font.pointSize: 12
-	MouseArea {
-	    anchors.fill: parent
-	    onClicked: {
-		stackView.pop(null)
-	    }
-	}
+        text: dsTr("Network Settings")
+        color: fgColor
+        font.pointSize: 12
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                stackView.pop(null)
+            }
+        }
     }
     DTextButton {
-	text: dsTr("Create Connections")
-	anchors.right: abc.left
+        text: dsTr("Create Connections")
+        anchors.right: abc.left
     }
     DTextButton {
-	anchors.right: parent.right
-	id: abc
-	text: "i"
-	anchors.rightMargin: 5
-	MouseArea {
-	    anchors.fill: parent
-	    onClicked: {
-		stackView.push(Qt.resolvedUrl("Info.qml"))
-	    }
-	}
+        anchors.right: parent.right
+        id: abc
+        text: "i"
+        anchors.rightMargin: 5
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                stackView.push(Qt.resolvedUrl("Info.qml"))
+            }
+        }
     }
 }

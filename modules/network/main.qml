@@ -12,8 +12,8 @@ Item {
 
     Header { id:header }
     StackView {
-	id:stackView
-	anchors.top: header.bottom
-	initialItem: currenItem
+        id:stackView
+        anchors.top: header.bottom
+        initialItem: currenItem
     }
 }
