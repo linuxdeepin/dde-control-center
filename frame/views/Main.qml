@@ -53,11 +53,11 @@ Item {
             !showingTrayIconBox.running){
             trayFrame.visible = true
             showingTrayIconBox.restart()
-            expandHideTrayIcon()
         }
     }
 
     function showModule(id){
+        clickedToHide = false 
         trayFrame.visible = false
         showRightBox(id)
         displayState = viewState.rightBoxShow
@@ -65,8 +65,8 @@ Item {
 
     function showRightBox(trayIconId) {
         if (trayIconId == 'shutdown'){
-            clickedToHide = !clickedToHide
-            //Qt.quit()
+            //clickedToHide = !clickedToHide
+            Qt.quit()
             //hideTrayIcon()
             //windowView.shutdown()
         }
