@@ -7,10 +7,10 @@ import DBus.Com.Deepin.Daemon.DateAndTime 1.0
 Item {
     id: dateTimeModule
     anchors.fill: parent
-    //color: bgColor 
 
     property string timeFont: "Maven Pro Light"
     property var gDate: DateAndTime {}
+    property var dconstants: DConstants {}
 
     property var date: new Date()
     property var weekNames: [dsTr("Sunday"), dsTr("Monday"), dsTr("Tuesday"), 
@@ -32,7 +32,7 @@ Item {
         anchors.leftMargin: 20
         font.pixelSize: 15
         font.bold: true
-        color: fgColor
+        color: dconstants.fgColor
         text: dsTr("Date & Time")
     }
 
@@ -123,7 +123,7 @@ Item {
         anchors.top: contentColumn.bottom
         width: parent.width
         height: 28
-        color: bgColor
+        color: dconstants.bgColor
 
         Text {
             id: timezoneTitleText
@@ -131,7 +131,7 @@ Item {
             anchors.left: parent.left
             anchors.leftMargin: 18
             font.pixelSize: 13
-            color: fgColor
+            color: dconstants.fgColor
             text: dsTr("Timezone")
         }
 
@@ -146,7 +146,7 @@ Item {
         }
 
         ImageCheckButton {
-            color: bgColor
+            color: dconstants.bgColor
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
             anchors.rightMargin: 12
@@ -215,12 +215,12 @@ Item {
         width: parent.width
         height: 38
 
-        title: DLabel {
+        title.sourceComponent: DLabel {
             font.pixelSize: 13
             text: dsTr("Date")
         }
 
-        button: DTextButton {
+        button.sourceComponent: DTextButton {
             text: dsTr("Change Date")
         }
     }

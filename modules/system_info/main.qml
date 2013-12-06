@@ -1,10 +1,13 @@
 import QtQuick 2.1
 import DBus.Com.Deepin.Daemon.SystemInfo 1.0
+import "../widgets"
 
 Rectangle {
     id: systemInfoModule
     anchors.fill: parent
-    color: bgColor
+
+    property var dconstants: DConstants {}
+    color: dconstants.bgColor
 
     property var systemInfoDbus: SystemInfo {}
 
@@ -38,7 +41,7 @@ Rectangle {
         anchors.leftMargin: 20
         font.pixelSize: 15
         font.bold: true
-        color: fgColor
+        color: dconstants.fgColor
         text: dsTr("System Information")
     }
 
@@ -53,7 +56,7 @@ Rectangle {
         anchors.topMargin: 48
         width: parent.width
         height: 118
-        color: "#1a1b1b"
+        color: dconstants.contentBgColor
 
         Image {
             anchors.top: parent.top
@@ -69,7 +72,7 @@ Rectangle {
             anchors.horizontalCenter: parent.horizontalCenter
 
             font.pixelSize: 10
-            color: fgColor
+            color: dconstants.fgColor
             //text: dsTr("Copyright (c) 2011-2014 武汉深之度科技有限公司 版权所有")
             text: dsTr("Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd.")
         }
@@ -112,7 +115,7 @@ Rectangle {
     }
 
     Rectangle { 
-        color: "#1a1b1b"
+        color: dconstants.contentBgColor
         height: 15
         width: parent.width
         anchors.top: distItem.bottom 

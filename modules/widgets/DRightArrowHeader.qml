@@ -10,13 +10,13 @@ DBaseHeader {
 
     signal toggled
 
-    title: Label {
+    title.sourceComponent: Label {
         id: titleLabel
         text: header.text
         color: dconstants.fgColor
 	}
 
-    button: Image {
+    button.sourceComponent: Image {
         id: arrow
         source: "images/arrow_right_normal.png"
         MouseArea {

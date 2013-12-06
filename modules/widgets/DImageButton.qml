@@ -1,49 +1,29 @@
 import QtQuick 2.1
 
-Rectangle {
-    id: imageButton
-
-    property string nomralImage
-    property string hoverImage
-    property string pressImage
-
-    property bool hover: false
-    property alias image: currentImage
-
-    width: currentImage.width
-    height: currentImage.height
-    color: "transparent"
-
-    signal clicked
-
-    Image {
-        id: currentImage
-        anchors.centerIn: parent
-        source: nomralImage
-    }
-
-    MouseArea {
-        anchors.fill: parent
-        hoverEnabled: true
-
-        onClicked: { imageButton.clicked() }
-
-        onPressed: {
-            currentImage.source = pressImage
-        }
-
-        onReleased: {
-            currentImage.source = hoverImage
-        }
-
-        onEntered: {
-            imageButton.hover = true
-            currentImage.source = hoverImage
-        }
-
-        onExited: {
-            imageButton.hover = false
-            currentImage.source = nomralImage
-        }
-    }
+Item {
+	id: button
+	
+	property string normal_image
+	property string hover_image
+	property string press_image
+	
+	signal clicked
+	
+	width: image.width;	height: image.height
+	
+	Image {
+		id: image
+		source: normal_image
+	}
+	
+	MouseArea {
+		id: mouseArea
+		anchors.fill: parent
+		hoverEnabled: true
+		onEntered: { image.source = hover_image }
+		onExited: { image.source = normal_image }
+		onPressed: { image.source = press_image }
+		onReleased: { image.source= mouseArea.containsMouse ? hover_image : normal_image}
+		onClicked: button.clicked()
+	}
 }

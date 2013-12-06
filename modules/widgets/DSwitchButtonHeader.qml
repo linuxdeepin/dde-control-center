@@ -37,13 +37,8 @@ Rectangle {
             anchors.centerIn: parent
 
             onClicked: {
-                //header.checked = (state == "on")
                 header.clicked()
             }
         }
-    }
-
-    DSepratorHorizontal {
-        anchors.bottom: parent.bottom
     }
 }

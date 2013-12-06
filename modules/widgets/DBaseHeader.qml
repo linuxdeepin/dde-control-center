@@ -5,8 +5,8 @@ import QtQuick.Layouts 1.0
 Rectangle {
     id: header
 
-    property alias title: titleArea.sourceComponent
-    property alias button: actionArea.sourceComponent
+    property alias title: titleArea
+    property alias button: actionArea
     property int leftMargin: 18
     property int rightMargin: 5
     property var dconstants: DConstants {}
@@ -35,9 +35,5 @@ Rectangle {
         anchors.verticalCenterOffset: -1
         clip: true
         onLoaded: { header.buttonLoaded() }
-    }
-
-    DSepratorHorizontal {
-        anchors.bottom: parent.bottom
     }
 }

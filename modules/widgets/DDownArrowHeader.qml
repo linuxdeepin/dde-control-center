@@ -13,29 +13,37 @@ Rectangle {
     width: parent.width
     height: 32 
     color: dconstants.bgColor
+
     ColumnLayout {
         width: parent.width
         anchors.verticalCenter: header.verticalCenter
+
         RowLayout {
             anchors.left:parent.left
             anchors.leftMargin: 10
             spacing: parent.width - label.width - arrow.width - anchors.leftMargin
             width: header.width
+
             Label {
                 id:label
                 text: header.text
                 color: dconstants.fgColor
             }
-            Image {
+
+            DStatusImageButton {
+                id: arrow
                 anchors.right:parent.right
                 anchors.rightMargin: 10
-                id: arrow
-                source: "images/arrow_down.png"
-                MouseArea {
-                    anchors.fill:parent
-                    onClicked: {
-                        toggled()
-                    }
+
+                statusImageList: {
+                    "down": ['images/arrow_down_normal.png', 'images/arrow_down_hover.png', 'images/arrow_down_press.png'],
+                    "up": ['images/arrow_up_normal.png', 'images/arrow_up_hover.png', 'images/arrow_up_press.png']
+                }
+                currentStatus: "down"
+
+                onClicked: {
+                    toggled()
+                    currentStatus = currentStatus == "down" ? "up" : "down"
                 }
             }
         }

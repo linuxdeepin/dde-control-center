@@ -163,7 +163,7 @@ Item {
             Text {
                 id: yearAdjustment
                 anchors.centerIn: parent
-                color: fgColor
+                color: dconstants.fgColor
                 font.pixelSize: 12
 
                 property int yearNumber: Number(clickedDateObject.getFullYear())
@@ -222,7 +222,7 @@ Item {
             Text {
                 id: monthAdjustment
                 anchors.centerIn: parent
-                color: fgColor
+                color: dconstants.fgColor
                 font.pixelSize: 12
 
                 property int monthNumber: Number(clickedDateObject.getMonth() + 1)

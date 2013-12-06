@@ -1,11 +1,14 @@
 import QtQuick 2.1
 import QtQuick.Window 2.1
+import "../../modules/widgets"
 
 Item {
     id: root
+    property var dconstants: DConstants {}
+
     property int trayWidth: 48
     property real trayHeight: trayWidth
-    property color defaultBackgroundColor: "#252627"
+    property color defaultBackgroundColor: dconstants.bgColor
     property bool trayIconShowAll: false
     property int viewHoverPadding: 100
     property int displayState: viewState.allHide
@@ -340,9 +343,6 @@ Item {
             Loader{
                 id: rightBoxLoader
                 property string iconId
-                property color bgColor: defaultBackgroundColor
-                property color fgColor: "#b4b4b4"
-                property color contentBgColor: "#1a1b1b"
                 property string lang: qtgettext.get_locale_code()
                 focus: true
                 source: ''

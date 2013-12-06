@@ -10,6 +10,8 @@ Item {
 
     property int contentLeftMargin: 22
 
+    property var dconstants: DConstants {}
+
     ExtDevManager {
        id: "extDevManagerID"
        // path: "/com/deepin/daemon/ExtDevManager"
@@ -36,7 +38,7 @@ Item {
         anchors.leftMargin: 20
         font.pixelSize: 15
         font.bold: true
-        color: fgColor
+        color: dconstants.fgColor
         text: dsTr("Keyboard")
     }
 
@@ -51,28 +53,26 @@ Item {
         width: parent.width
 
         DBaseHeader {
-            title: DLabel {
+            title.sourceComponent: DLabel {
                 text: dsTr("Repeat")
                 font.pixelSize: 13
             }
         }
 
         DBaseHeader {
-            color: contentBgColor
+            color: dconstants.contentBgColor
             height: 60
             leftMargin: contentLeftMargin
-            title: DLabel {
+            title.sourceComponent: DLabel {
                 text: dsTr("Repeat Delay")
                 font.pixelSize: 12
             }
-            button: DSlider {
+            button.sourceComponent: DSlider {
                 function getRepeatDelay(percent){
                     return 2000 - 1900 * percent
                 }
 
-                Component.onCompleted: {
-                    value = (2000 - keyboardID.repeatDelay)/1900
-                }
+                value: (2000 - keyboardID.repeatDelay)/1900
                 onValueChanged: {
                     if (keyboardID.repeatDelay != getRepeatDelay(value)){
                         keyboardID.repeatDelay = getRepeatDelay(value)
@@ -82,63 +82,63 @@ Item {
         }
 
         DBaseHeader {
-            color: contentBgColor
+            color: dconstants.contentBgColor
             height: 60
             leftMargin: contentLeftMargin
-            title: DLabel {
+            title.sourceComponent: DLabel {
                 text: dsTr("Repeat Interval")
                 font.pixelSize: 12
             }
-            button: DSlider {
+            button.sourceComponent: DSlider {
                 onValueChanged: print(value)
             }
         }
 
         DBaseHeader {
-            color: contentBgColor
+            color: dconstants.contentBgColor
             leftMargin: contentLeftMargin
-            title: DLabel {
+            title.sourceComponent: DLabel {
                 text: dsTr("Test Repeat Interval")
                 font.pixelSize: 13
             }
-            button: TextInput {
+            button.sourceComponent: TextInput {
                 width: 100
                 font.pixelSize: 12
-                color: fgColor
+                color: dconstants.fgColor
                 focus: true
             }
         }
 
         DBaseHeader {
-            title: DLabel {
+            title.sourceComponent: DLabel {
                 text: dsTr("Cusor Blink")
                 font.pixelSize: 13
             }
         }
 
         DBaseHeader {
-            color: contentBgColor
+            color: dconstants.contentBgColor
             height: 60
             leftMargin: contentLeftMargin
-            title: TextInput {
+            title.sourceComponent: TextInput {
                 width: 100
                 font.pixelSize: 12
-                color: fgColor
+                color: dconstants.fgColor
                 focus: true
             }
-            button: DSlider {
+            button.sourceComponent: DSlider {
                 onValueChanged: print(value)
             }
         }
 
         DBaseExpand {
             id: keyboardLayoutSetting
-            header: DDownArrowHeader {
+            header.sourceComponent: DDownArrowHeader {
                 text: dsTr("Keyboard Layout")
                 onToggled: keyboardLayoutSetting.expanded = !keyboardLayoutSetting.expanded
             }
 
-            content: Column {
+            content.sourceComponent: Column {
                 Text {text:"test"}
                 Text {text:"test"}
                 Text {text:"test"}

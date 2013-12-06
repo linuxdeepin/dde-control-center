@@ -15,7 +15,7 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
 
         font.pixelSize: 13
-        color: parent.ListView.view.currentIndex == index ? Qt.rgba(0, 144/255, 1, 1.0) :fgColor
+        color: parent.ListView.view.currentIndex == index ? Qt.rgba(0, 144/255, 1, 1.0) :dconstants.fgColor
         text: textD
     }
 

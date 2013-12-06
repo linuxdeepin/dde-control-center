@@ -3,7 +3,7 @@ import QtQuick 2.1
 Rectangle {
     width: parent.width
     height: 28
-    color: "#1a1b1b"
+    color: dconstants.contentBgColor
 
     property string title
     property string value
@@ -25,7 +25,7 @@ Rectangle {
             anchors.rightMargin: 5
             //anchors.verticalCenter: parent.verticalCenter
             anchors.top: parent.top
-            color: fgColor
+            color: dconstants.fgColor
             font.pixelSize: fontSize
             text: title
         }
@@ -38,7 +38,7 @@ Rectangle {
         //anchors.verticalCenter: itemTitleBox.verticalCenter
         anchors.top: parent.top
         anchors.topMargin: 1
-        color: fgColor
+        color: dconstants.fgColor
         font.pixelSize: fontSize
         text: value
         width: parent.width - leftWidth
