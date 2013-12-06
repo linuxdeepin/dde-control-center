@@ -4,7 +4,7 @@ Rectangle {
     id: header
 
     property string text: dsTr("Untitled")
-    property alias checked: actionArea.checked
+    property alias active: actionArea.checked
 
     property int leftMargin: 18
     property int rightMargin: 5
