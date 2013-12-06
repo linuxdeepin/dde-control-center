@@ -10,9 +10,9 @@ Slider {
     style: SliderStyle {
         groove: Rectangle {
             implicitWidth: grooveWidth + handleWidth - 2
-            implicitHeight: grooveHeight + 2
+            implicitHeight: grooveHeight * 2
             clip: true
-            color: "transparent"
+            color: Qt.rgba(1, 1, 1, 0.1)
 
             Rectangle{
                 implicitWidth: grooveWidth

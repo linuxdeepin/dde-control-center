@@ -135,7 +135,7 @@ Item {
             id: keyboardLayoutSetting
             header.sourceComponent: DDownArrowHeader {
                 text: dsTr("Keyboard Layout")
-                onToggled: keyboardLayoutSetting.expanded = !keyboardLayoutSetting.expanded
+                onClicked: keyboardLayoutSetting.expanded = !keyboardLayoutSetting.expanded
             }
 
             content.sourceComponent: Column {

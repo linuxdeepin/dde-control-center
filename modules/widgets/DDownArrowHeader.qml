@@ -4,11 +4,12 @@ import QtQuick.Layouts 1.0
 
 Rectangle {
     id: header
-
-    property string text: "untitled"
     property var dconstants: DConstants {}
 
-    signal toggled
+    property string text: "untitled"
+    property bool active: false
+
+    signal clicked
 
     width: parent.width
     height: 32 
@@ -39,11 +40,11 @@ Rectangle {
                     "down": ['images/arrow_down_normal.png', 'images/arrow_down_hover.png', 'images/arrow_down_press.png'],
                     "up": ['images/arrow_up_normal.png', 'images/arrow_up_hover.png', 'images/arrow_up_press.png']
                 }
-                currentStatus: "down"
+                currentStatus: header.active ? "up" : "down"
 
                 onClicked: {
-                    toggled()
-                    currentStatus = currentStatus == "down" ? "up" : "down"
+                    header.clicked()
+                    header.active = !header.active
                 }
             }
         }
