@@ -6,12 +6,14 @@ DBaseHeader {
     id: header
 
     property string text: "untitled"
+    property var dconstants: DConstants {}
+
     signal toggled
 
     title: Label {
         id: titleLabel
         text: header.text
-        color: fgColor
+        color: dconstants.fgColor
 	}
 
     button: Image {

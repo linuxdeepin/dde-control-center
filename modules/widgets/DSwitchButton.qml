@@ -2,10 +2,14 @@ import QtQuick 2.1
 
 Image {
     id: switch_button
-    state: "on"
     clip: true
     source: "images/switch_frame.svg"
     anchors.centerIn: parent
+
+    property bool checked: false
+    state: checked ? "on" : "off"
+
+    signal clicked
 
     transitions: Transition {
         NumberAnimation { properties: "x"; duration: 150; easing.type: Easing.InOutQuad }
@@ -22,7 +26,8 @@ Image {
     MouseArea {
         anchors.fill: parent
         onClicked: {
-            switch_button.state = switch_button.state == "on" ? "off" : "on"
+            checked = !checked
+            switch_button.clicked()
         }
     }
 

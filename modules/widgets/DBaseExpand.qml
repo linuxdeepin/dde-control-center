@@ -5,9 +5,11 @@ import QtQuick.Layouts 1.0
 Rectangle {
     id: expandRect
 
-    property alias header: headerRect.sourceComponent
-    property alias content: content.sourceComponent
+    property alias header: headerRect
+    property alias content: content
     property bool expanded: false
+
+    property var dconstants: DConstants {}
 
     height: header.height + contentRect.height
     width: parent.width
@@ -22,7 +24,7 @@ Rectangle {
             width: parent.width
             height: 28
             clip: true
-            color: bgColor
+            color: dconstants.bgColor
 
             Loader {
                 id: headerRect
@@ -38,7 +40,7 @@ Rectangle {
             width: parent.width
             height: expanded ? content.height : 0
             clip: true
-            color: contentBgColor
+            color: dconstants.contentBgColor
 
             Loader { 
                 width: header.width

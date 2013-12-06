@@ -4,14 +4,15 @@ Rectangle {
     id: header
 
     property string text: dsTr("Untitled")
-    property bool checked: false
+    property alias checked: actionArea.checked
 
     property int leftMargin: 18
     property int rightMargin: 5
+    property var dconstants: DConstants {}
 
     height: 30
     width: parent.width
-    color: bgColor
+    color: dconstants.bgColor
 
     signal clicked
 
@@ -34,10 +35,9 @@ Rectangle {
         DSwitch {
             id: actionArea
             anchors.centerIn: parent
-            state: header.checked ? "on" : "off"
 
-            onStateChanged: {
-                header.checked = (state == "on")
+            onClicked: {
+                //header.checked = (state == "on")
                 header.clicked()
             }
         }

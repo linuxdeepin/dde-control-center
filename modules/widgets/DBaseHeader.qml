@@ -9,10 +9,11 @@ Rectangle {
     property alias button: actionArea.sourceComponent
     property int leftMargin: 18
     property int rightMargin: 5
+    property var dconstants: DConstants {}
 
     height: 30
     width: parent.width
-    color: bgColor
+    color: dconstants.bgColor
 
     signal titleLoaded
     signal buttonLoaded
