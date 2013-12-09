@@ -1,276 +1,182 @@
 import QtQuick 2.1
-import Deepin.Daemon.Desktop 1.0
+import DBus.Com.Deepin.Daemon.Power 1.0
+import "../widgets"
 
 Rectangle {
-    id: desktop
-
-    color: root.defaultBackgroundColor
-    property string arrowUp: "images/up.png"
-    property string arrowDown: "images/down.png"
-    property int topTitleHeight: 50
-
-    property variant ddeDesktop: Desktop {}
+    id: root
+    color: constants.bgColor
+    width: 310
+    height: 600
 	
-    Rectangle {
-        anchors.top: parent.top
-        anchors.left: parent.left
-        width: parent.width
-        height: topTitleHeight
-        color: root.defaultBackgroundColor
-        
-        Text {
-            anchors.top: parent.top
-            anchors.topMargin: 20
-            anchors.left: parent.left
-            anchors.leftMargin: 18
-            color: "white"
-            font.pixelSize: 15
-            font.bold : true
-            text: "电源管理"
-        }
+	property var constants: DConstants{}
+
+    property var dbus_power: Power{
+		Component.onCompleted: {
+			print(suspendTime)
+		}
     }
-
+	
     Column {
-        anchors.top: parent.top
-        anchors.topMargin: topTitleHeight
+        anchors.fill: parent
 
-        move: Transition {
-            NumberAnimation { properties: "x,y"; duration: 100 }
-        }
+        DBaseExpand {
+            id: press_sleep_button_rect
+            header.sourceComponent: DDownArrowHeader {
+                text: dsTr("When I press the sleep button")
+				onClicked: press_sleep_button_rect.expanded = active
+            }
+            content.sourceComponent: MultipleSelectView {
+                rows: 1
+                columns: 3
 
-        RaisedPart {
-            id: desktop_icons
-            title: "电源计划"
+                width: parent.width
+                height: rows * 30
+				singleSelectionMode: true
 
-            function arrowClicked() {
-                if (desktop_icons_arrow.arrowPic == desktop.arrowUp) {
-                    desktop_icons_arrow.arrowPic = desktop.arrowDown
-                    desktop_icons_select.visible = false
-                } else {
-                    desktop_icons_arrow.arrowPic = desktop.arrowUp
-                    desktop_icons_select.visible = true
+                model: ListModel {}
+                Component.onCompleted: {
+                    model.append({"label": dsTr("Shut down"), "selected": dbus_power.buttonPower == "shutdown"})
+                    model.append({"label": dsTr("Suspent"), "selected": dbus_power.buttonPower == "suspend"})
+                    model.append({"label": dsTr("None"), "selected": dbus_power.buttonPower == "nothing"})
+                }
+                onSelect: {
+                    switch (index) {
+                        case 0:
+						dbus_power.buttonPower = "shutdown"
+                        break
+                        case 1:
+						dbus_power.buttonPower = "suspend"						
+                        break
+                        case 2:
+						dbus_power.buttonPower = "nothing"					
+                    }
                 }
             }
+        }
+        DBaseExpand {
+            id: close_the_lid_rect
+            header.sourceComponent: DDownArrowHeader {
+                text: dsTr("When I close the lid")
+				onClicked: close_the_lid_rect.expanded = active
+            }
+            content.sourceComponent: MultipleSelectView {
+                rows: 1
+                columns: 3
 
-            Image {
-                id: desktop_icons_arrow
-                source: arrowPic
-                property string arrowPic: desktop.arrowDown
+                width: parent.width
+                height: rows * 30
+				singleSelectionMode: true
 
-                anchors {
-                    right: parent.right
-                    rightMargin: parent.rightPadding
-                    verticalCenter: parent.verticalCenter
+                model: ListModel {}
+                Component.onCompleted: {
+                    model.append({"label": dsTr("Shut down"), "selected": dbus_power.lidCloseBatteryAction == "shutdown"})
+                    model.append({"label": dsTr("Suspent"), "selected": dbus_power.lidCloseBatteryAction == "suspend"})
+                    model.append({"label": dsTr("None"), "selected": dbus_power.lidCloseBatteryAction == "nothing"})
+                }
+                onSelect: {
+                    switch (index) {
+                        case 0:
+						dbus_power.lidCloseBatteryAction = "shutdown"
+                        break
+                        case 1:
+						dbus_power.lidCloseBatteryAction = "suspend"						
+                        break
+                        case 2:
+						dbus_power.lidCloseBatteryAction = "nothing"					
+                    }					
                 }
             }
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked: { desktop_icons.arrowClicked() }
-            }
-
-            Component.onCompleted: {
-                arrowClicked()
-            }
         }
-
-        ConcavePart {
-            id:desktop_icons_select
-            visible: false
-
-            rows: 2
-            MultipleSelectView {
-				id: desktop_icons_select_view
+        DBaseExpand {
+            id: power_plan_rect
+            header.sourceComponent: DDownArrowHeader {
+                text: dsTr("Power Plan")
+				onClicked: power_plan_rect.expanded = active
+            }
+            content.sourceComponent: MultipleSelectView {
                 rows: 2
                 columns: 2
-
+				singleSelectionMode: true
+				
                 width: parent.width
                 height: rows * 30
-				
+				viewWidth: 100
+
                 model: ListModel {}
-				Component.onCompleted: {
-					model.append({"label": "平衡", "selected": false})
-					model.append({"label": "节能", "selected": false})
-					model.append({"label": "高性能", "selected": false})
-					model.append({"label": "自定义", "selected": true})
-				}
-				
-				onSelect: {
-					switch (index) {
-						case 0:
-						ddeDesktop.showComputerIcon = true
-						break
-						case 1:
-						ddeDesktop.showHomeIcon = true
-						break						
-						case 2:
-						ddeDesktop.showTrashIcon = true
-						break						
-						case 3:
-						ddeDesktop.showDSCIcon = true
-					}
-				}
-				onDeselect: {
-					switch (index) {
-						case 0:
-						ddeDesktop.showComputerIcon = false
-						break						
-						case 1:
-						ddeDesktop.showHomeIcon = false
-						break						
-						case 2:
-						ddeDesktop.showTrashIcon = false
-						break						
-						case 3:
-						ddeDesktop.showDSCIcon = false
-					}
-				}
-            }
-        }
-
-        RaisedPart {
-            title: "电源节能设置"
-
-            Image {
-                id: dock_display_arrow
-                source: arrowPic
-
-                property string arrowPic: arrowDown
-
-                anchors {
-                    right: parent.right
-                    rightMargin: parent.rightPadding
-                    verticalCenter: parent.verticalCenter
+                Component.onCompleted: {
+                    model.append({"label": dsTr("Balance"), "selected": dbus_power.currentPlan == "balance"})
+                    model.append({"label": dsTr("Power saver"), "selected": dbus_power.currentPlan == "saving"})
+                    model.append({"label": dsTr("High performance"), "selected": dbus_power.currentPlan == "high-performance"})
+                    model.append({"label": dsTr("Custom"), "selected": dbus_power.currentPlan == "customized"})
                 }
-
-                MouseArea {
-                    anchors.fill: parent
-
-                    onPressed: {
-                        if (parent.arrowPic == desktop.arrowUp) {
-                            parent.arrowPic = desktop.arrowDown
-                            dock_display_select.visible = false
-                        } else {
-                            parent.arrowPic = desktop.arrowUp
-                            dock_display_select.visible = true
-                        }
-                    }
-                }
-            }
-        }
-
-        ConcavePart {
-            id: dock_display_select
-            visible: false
-
-            rows: 1
-            MultipleSelectView {
-                rows: 1
-                columns: 3
-
-                width: parent.width
-                height: rows * 30
-
-                model: ListModel {
-                    ListElement {
-                        label: "计算机"
-                    }
-                    ListElement {
-                        label: "回收站"
-                    }
-                    ListElement {
-                        label: "主文件夹"
-                    }
-                }
-            }
-        }
-
-        RaisedPart {
-            title: "电源按钮配置"
-
-            MultipleSelectButton {
-                singleSelectionMode: true
-
-                model: ListModel {
-                    ListElement {
-                        label: "左上角"
-                    }
-                    ListElement {
-                        label: "右下角"
-                    }
-                }
-
-                anchors {
-                    right: parent.right
-                }
-
                 onSelect: {
-                    /* console.log(index) */
-                    if (index == 0) {
-                        hotspot_top_left_select.visible = true
-                    } else {
-                        hotspot_bottom_right_select.visible = true
-                    }
-                }
-
-                onDeselect: {
-                    /* console.log(index) */
-                    if (index == 0) {
-                        hotspot_top_left_select.visible = false
-                    } else {
-                        hotspot_bottom_right_select.visible = false
-                    }
-                }
-            }
-        }
-        ConcavePart {
-            id: hotspot_top_left_select
-            visible: false
-
-            rows: 1
-            MultipleSelectView {
-                rows: 1
-                columns: 3
-
-                width: parent.width
-                height: rows * 30
-
-                model: ListModel {
-                    ListElement {
-                        label: "无"
-                    }
-                    ListElement {
-                        label: "启动器"
-                    }
-                    ListElement {
-                        label: "打开的窗口"
+                    switch (index) {
+                        case 0:
+                        dbus_power.currentPlan = "balance"
+                        break
+                        case 1:
+						dbus_power.currentPlan = "saving"						
+                        break
+                        case 2:
+                        dbus_power.currentPlan = "high-performance"						
+                        break
+                        case 3:
+                        dbus_power.currentPlan = "customized"						
                     }
                 }
             }
+        }		
+		
+        DBaseExpand {
+            id: turn_off_monitor_rect
+            header.sourceComponent: DDownArrowHeader {
+                text: dsTr("Turn off monitor")
+				onClicked: turn_off_monitor_rect.expanded = active
+            }
+            content.sourceComponent: DRadioButton {
+				buttonModels: [{"buttonId": "1_m", "buttonLabel": "1m"},
+							   {"buttonId": "2_m", "buttonLabel": "2m"},
+							   {"buttonId": "3_m", "buttonLabel": "3m"},
+							   {"buttonId": "5_m", "buttonLabel": "5m"},
+							   {"buttonId": "10_m", "buttonLabel": "10m"},
+							   {"buttonId": "30_m", "buttonLabel": "30m"},
+							   {"buttonId": "1_h", "buttonLabel": "1h"},							   
+							   {"buttonId": "never", "buttonLabel": dsTr("Never")}]
+				width: parent.width
+				height: 22
+			}
+        }		
+		
+        DBaseExpand {
+            id: suspend_rect
+            header.sourceComponent: DDownArrowHeader {
+                text: dsTr("Suspend")
+				onClicked: suspend_rect.expanded = active
+            }
+            content.sourceComponent: DRadioButton {
+				buttonModels: [{"buttonId": "1_m", "buttonLabel": "1m"},
+							   {"buttonId": "2_m", "buttonLabel": "2m"},
+							   {"buttonId": "3_m", "buttonLabel": "3m"},
+							   {"buttonId": "5_m", "buttonLabel": "5m"},
+							   {"buttonId": "10_m", "buttonLabel": "10m"},
+							   {"buttonId": "30_m", "buttonLabel": "30m"},
+							   {"buttonId": "1_h", "buttonLabel": "1h"},							   
+							   {"buttonId": "never", "buttonLabel": dsTr("Never")}]
+				width: parent.width
+				height: 22
+			}
+        }		
+		
+        DBaseExpand {
+            id: wake_require_password
+            header.sourceComponent: DSwitchButtonHeader {
+                text: dsTr("Require password when computer wakes")
+            }
         }
-        ConcavePart {
-            id: hotspot_bottom_right_select
-            visible: false
-
-            rows: 1
-           MultipleSelectView {
-                rows: 1
-                columns: 3
-
-                width: parent.width
-                height: rows * 30
-
-                model: ListModel {
-                    ListElement {
-                        label: "无"
-                    }
-                    ListElement {
-                        label: "启动器"
-                    }
-                    ListElement {
-                        label: "打开的窗口"
-                    }
-                }
+        DBaseExpand {
+            id: tray_show_battery_state
+            header.sourceComponent: DSwitchButtonHeader {
+                text: dsTr("Always show icon in the tray")
             }
         }
     }

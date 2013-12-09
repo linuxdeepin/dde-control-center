@@ -12,7 +12,6 @@ GridView {
     property int viewWidth: 80
     property int viewHeight: 24
 
-    property int dele
     property var selectedIndexs: []
     property var selectedItems: []
 
