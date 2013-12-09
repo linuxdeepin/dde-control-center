@@ -150,5 +150,6 @@ Item {
             }
         }
 
+        DSepratorHorizontal {}
     }
 }
