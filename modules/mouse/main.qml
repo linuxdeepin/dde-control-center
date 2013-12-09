@@ -11,18 +11,7 @@ Item {
     property int contentLeftMargin: 22
     property int contentHeight: 60
 
-    ExtDevManager {
-       id: "extDevManagerID"
-    } 
-    Keyboard {
-       id: "keyboardID"
-    } 
-    Mouse {
-       id: "mouseID"
-    } 
-    TouchPad {
-       id: "touchPadID"
-    } 
+    property var mouseID: Mouse {}
 
     Column {
         anchors.top: parent.top
@@ -52,9 +41,8 @@ Item {
         DSepratorHorizontal {}
 
         DBaseHeader {
-            title.sourceComponent: DLabel {
+            title.sourceComponent: DssH2 {
                 text: dsTr("Point Speed")
-                font.pixelSize: 13
             }
         }
 
@@ -72,11 +60,11 @@ Item {
                 leftLabel: dsTr("Slow")
                 rightLabel: dsTr("Fast")
 
-                //value: (2000 - keyboardID.repeatDelay)/1900
+                value: (mouseID.moveSpeed - 1)/9
                 onValueChanged: {
-                    //if (keyboardID.repeatDelay != (2000 - 1900 * value)){
-                        //keyboardID.repeatDelay = (2000 - 1900 * value)
-                    //}
+                    if (mouseID.moveSpeed!= (9 * value + 1)){
+                        mouseID.moveSpeed = 9 * value + 1
+                    }
                 }
             }
         }
@@ -95,11 +83,11 @@ Item {
                 leftLabel: dsTr("Low")
                 rightLabel: dsTr("High")
 
-                //value: (2000 - keyboardID.repeatDelay)/1900
+                value: (mouseID.moveAccuracy - 1)/9
                 onValueChanged: {
-                    //if (keyboardID.repeatDelay != (2000 - 1900 * value)){
-                        //keyboardID.repeatDelay = (2000 - 1900 * value)
-                    //}
+                    if (mouseID.moveAccuracy != (9 * value + 1)){
+                        mouseID.moveAccuracy = 9 * value + 1
+                    }
                 }
             }
         }
@@ -126,11 +114,11 @@ Item {
                 leftLabel: dsTr("Slow")
                 rightLabel: dsTr("Fast")
 
-                //value: (2000 - keyboardID.repeatDelay)/1900
+                value: (mouseID.clickFrequency - 100)/900
                 onValueChanged: {
-                    //if (keyboardID.repeatDelay != (2000 - 1900 * value)){
-                        //keyboardID.repeatDelay = (2000 - 1900 * value)
-                    //}
+                    if (mouseID.clickFrequency != (900 * value + 100)){
+                        mouseID.clickFrequency = 900 * value + 100
+                    }
                 }
             }
         }
