@@ -64,8 +64,8 @@ Rectangle {
         id: contentBox
         radius: 4
         color: bgNormalColor
-        /* width: horizontalPadding * 2 + Math.max(img.implicitWidth, txt.implicitWidth) */
-        width: delegate.GridView.view.viewWidth
+        width: horizontalPadding * 2 + txt.implicitWidth
+        /* width: delegate.GridView.view.viewWidth */
         height: verticalPadding * 2 + txt.height + centerSpacing
 
         Text {
