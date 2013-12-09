@@ -9,26 +9,22 @@ Item {
     anchors.fill: parent
 
     property int contentLeftMargin: 22
+    property int contentHeight: 60
 
     property var dconstants: DConstants {}
 
     ExtDevManager {
        id: "extDevManagerID"
-       // path: "/com/deepin/daemon/ExtDevManager"
     } 
     Keyboard {
        id: "keyboardID"
-       // path: "/com/deepin/daemon/ExtDevManager/Keyboard"
     } 
     Mouse {
        id: "mouseID"
-       // path: "/com/deepin/daemon/ExtDevManager/Mouse"
     } 
     TouchPad {
        id: "touchPadID"
-       // path: "/com/deepin/daemon/ExtDevManager/TouchPad"
     } 
-
 
     Text {
         id: keyboardModuleTitle
@@ -59,40 +55,55 @@ Item {
             }
         }
 
+        DSepratorHorizontal {}
+
         DBaseHeader {
             color: dconstants.contentBgColor
-            height: 60
+            height: contentHeight
             leftMargin: contentLeftMargin
             title.sourceComponent: DLabel {
                 text: dsTr("Repeat Delay")
                 font.pixelSize: 12
             }
-            button.sourceComponent: DSlider {
-                function getRepeatDelay(percent){
-                    return 2000 - 1900 * percent
-                }
+            button.sourceComponent: SliderRect {
+                leftLabel: dsTr("Long")
+                rightLabel: dsTr("Short")
 
                 value: (2000 - keyboardID.repeatDelay)/1900
                 onValueChanged: {
-                    if (keyboardID.repeatDelay != getRepeatDelay(value)){
-                        keyboardID.repeatDelay = getRepeatDelay(value)
+                    if (keyboardID.repeatDelay != (2000 - 1900 * value)){
+                        keyboardID.repeatDelay = (2000 - 1900 * value)
                     }
                 }
             }
         }
 
+        DSepratorHorizontal {}
+
         DBaseHeader {
             color: dconstants.contentBgColor
-            height: 60
+            height: contentHeight
             leftMargin: contentLeftMargin
             title.sourceComponent: DLabel {
                 text: dsTr("Repeat Interval")
                 font.pixelSize: 12
             }
-            button.sourceComponent: DSlider {
-                onValueChanged: print(value)
+
+            button.sourceComponent: SliderRect {
+                leftLabel: dsTr("Slow")
+                rightLabel: dsTr("Fast")
+
+                value: (2000 - keyboardID.repeatSpeed)/1980
+                onValueChanged: {
+                    if (keyboardID.repeatSpeed != (2000 - 1980 * value)){
+                        keyboardID.repeatSpeed = 2000 - 1980 * value
+                    }
+                }
             }
+
         }
+
+        DSepratorHorizontal {}
 
         DBaseHeader {
             color: dconstants.contentBgColor
@@ -101,13 +112,28 @@ Item {
                 text: dsTr("Test Repeat Interval")
                 font.pixelSize: 13
             }
-            button.sourceComponent: TextInput {
-                width: 100
-                font.pixelSize: 12
-                color: dconstants.fgColor
-                focus: true
+            button.sourceComponent: Rectangle {
+                clip: true
+                color: "transparent"
+                border.width: 1
+                border.color: "#888"
+
+                width: testRepeatIntervalInput.width + 4
+                height: testRepeatIntervalInput.height + 4
+
+                TextInput {
+                    id: testRepeatIntervalInput
+                    anchors.centerIn: parent
+                    width: 130
+                    font.pixelSize: 12
+                    color: dconstants.fgColor
+                    focus: true
+                    selectByMouse: true
+                }
             }
         }
+
+        DSepratorHorizontal {}
 
         DBaseHeader {
             title.sourceComponent: DLabel {
@@ -116,25 +142,45 @@ Item {
             }
         }
 
+        DSepratorHorizontal {}
+
         DBaseHeader {
             color: dconstants.contentBgColor
-            height: 60
+            height: contentHeight
             leftMargin: contentLeftMargin
-            title.sourceComponent: TextInput {
-                width: 100
-                font.pixelSize: 12
-                color: dconstants.fgColor
-                focus: true
+            title.sourceComponent: Rectangle {
+                width: 1
+                height: 14
+                color: "white"
+
+                Timer {
+                    running: true
+                    interval: keyboardID.cursorBlink/2
+                    repeat: true
+                    onTriggered: parent.visible = !parent.visible
+                }
             }
-            button.sourceComponent: DSlider {
-                onValueChanged: print(value)
+            button.sourceComponent: SliderRect{
+                id: cursorBlinkSlider
+                leftLabel: dsTr("Slow")
+                rightLabel: dsTr("Fast")
+
+                value: (2500 - keyboardID.cursorBlink)/2400
+                onValueChanged: {
+                    if (keyboardID.cursorBlink != (2500 - 2400 * value)){
+                        keyboardID.cursorBlink = 2500 - 2400 * value
+                    }
+                }
+
             }
         }
+
+        DSepratorHorizontal {}
 
         DBaseExpand {
             id: keyboardLayoutSetting
             header.sourceComponent: DDownArrowHeader {
-                text: dsTr("Keyboard Layout")
+                text: dsTr("Keyboard Layout") + " <font color='#666'>(" + dsTr("US") + ")</font>"
                 onClicked: {
                     keyboardLayoutSetting.expanded = !keyboardLayoutSetting.expanded
                 }

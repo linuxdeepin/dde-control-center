@@ -7,8 +7,8 @@ Rectangle {
 
     property alias title: titleArea
     property alias button: actionArea
-    property int leftMargin: 18
-    property int rightMargin: 5
+    property int leftMargin: 15
+    property int rightMargin: 15
     property var dconstants: DConstants {}
 
     height: 30
@@ -32,7 +32,6 @@ Rectangle {
         anchors.right: parent.right
         anchors.rightMargin: rightMargin
         anchors.verticalCenter: parent.verticalCenter
-        anchors.verticalCenterOffset: -1
         clip: true
         onLoaded: { header.buttonLoaded() }
     }

@@ -4,15 +4,17 @@ import QtQuick.Controls.Styles 1.0
 
 Slider {
     id: slider
-    property int grooveWidth: 180
+    width: 196
+    property int grooveWidth: width - handleWidth + 2
     property int grooveHeight: 8
     property int handleWidth: 18
+
     style: SliderStyle {
         groove: Rectangle {
             implicitWidth: grooveWidth + handleWidth - 2
             implicitHeight: grooveHeight * 2
             clip: true
-            color: Qt.rgba(1, 1, 1, 0.1)
+            color: Qt.rgba(1, 1, 1, 0)
 
             Rectangle{
                 implicitWidth: grooveWidth
