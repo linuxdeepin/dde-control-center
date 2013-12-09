@@ -1,5 +1,6 @@
 import QtQuick 2.1
 import DBus.Com.Deepin.Daemon.Power 1.0
+import DBus.Com.Deepin.Daemon.SystemInfo 1.0
 import "../widgets"
 
 Rectangle {
@@ -11,21 +12,49 @@ Rectangle {
 	property var constants: DConstants{}
 
     property var dbus_power: Power{
-		Component.onCompleted: {
-			print(suspendTime)
+		onButtonPowerChanged: {
+			print(buttonPower)
 		}
     }
+	property var dbus_system_info: SystemInfo {}
+	
+	function timeoutToIndex(timeout) {
+		switch (timeout) {
+			case 60 * 1: return 0; break
+			case 60 * 2: return 1; break
+			case 60 * 3: return 2; break
+			case 60 * 5: return 3; break
+			case 60 * 10: return 4; break
+			case 60 * 30: return 5; break
+			case 60 * 60: return 6; break
+			default: return 7
+		}
+	}
+	
+	function indexToTimeout(idx) {
+		switch (idx) {
+			case 0: return 60 * 1; break
+			case 1: return 60 * 2; break
+			case 2: return 60 * 3; break
+			case 3: return 60 * 5; break
+			case 4: return 60 * 10; break
+			case 5: return 60 * 30; break
+			case 6: return 60 * 60; break
+			case 7: return null
+		}
+	}
 	
     Column {
         anchors.fill: parent
 
         DBaseExpand {
-            id: press_sleep_button_rect
+            id: power_button_rect
             header.sourceComponent: DDownArrowHeader {
                 text: dsTr("When I press the sleep button")
-				onClicked: press_sleep_button_rect.expanded = active
+				onClicked: power_button_rect.expanded = active
             }
             content.sourceComponent: MultipleSelectView {
+				id: power_button_view
                 rows: 1
                 columns: 3
 
@@ -55,6 +84,7 @@ Rectangle {
         }
         DBaseExpand {
             id: close_the_lid_rect
+			visible: dbus_system_info.isLaptop ? true : false
             header.sourceComponent: DDownArrowHeader {
                 text: dsTr("When I close the lid")
 				onClicked: close_the_lid_rect.expanded = active
@@ -125,15 +155,16 @@ Rectangle {
                     }
                 }
             }
-        }		
+        }	
 		
         DBaseExpand {
             id: turn_off_monitor_rect
             header.sourceComponent: DDownArrowHeader {
-                text: dsTr("Turn off monitor")
+                text: dsTr("Turn off monitor<font color='black'>(Normal)</font>")
 				onClicked: turn_off_monitor_rect.expanded = active
             }
             content.sourceComponent: DRadioButton {
+				id: turn_off_monitor_button
 				buttonModels: [{"buttonId": "1_m", "buttonLabel": "1m"},
 							   {"buttonId": "2_m", "buttonLabel": "2m"},
 							   {"buttonId": "3_m", "buttonLabel": "3m"},
@@ -144,6 +175,15 @@ Rectangle {
 							   {"buttonId": "never", "buttonLabel": dsTr("Never")}]
 				width: parent.width
 				height: 22
+				
+				Component.onCompleted: {
+					/* turn_off_monitor_button.selectItem(timeoutToIndex(dbus_power.sleepDisplayAc)) */
+				}
+				onItemSelected: {
+					dbus_power.sleepDisplayAc = indexToTimeout(idx)
+					dbus_power.sleepDisplayBattery = indexToTimeout(idx)
+					dbus_power.currentPlan = "custom"
+				}
 			}
         }		
 		
@@ -154,30 +194,41 @@ Rectangle {
 				onClicked: suspend_rect.expanded = active
             }
             content.sourceComponent: DRadioButton {
+				id: suspend_button
 				buttonModels: [{"buttonId": "1_m", "buttonLabel": "1m"},
 							   {"buttonId": "2_m", "buttonLabel": "2m"},
 							   {"buttonId": "3_m", "buttonLabel": "3m"},
 							   {"buttonId": "5_m", "buttonLabel": "5m"},
 							   {"buttonId": "10_m", "buttonLabel": "10m"},
 							   {"buttonId": "30_m", "buttonLabel": "30m"},
-							   {"buttonId": "1_h", "buttonLabel": "1h"},							   
+							   {"buttonId": "1_h", "buttonLabel": "1h"},
 							   {"buttonId": "never", "buttonLabel": dsTr("Never")}]
 				width: parent.width
 				height: 22
+				
+				Component.onCompleted: {
+					suspend_button.selectItem(timeoutToIndex(dbus_power.sleepInactiveAcTimeout))
+				}
+				onItemSelected: {
+					dbus_power.sleepInactiveAcTimeout = indexToTimeout(idx)
+					dbus_power.sleepInactiveBatteryTimeout = indexToTimeout(idx)
+					dbus_power.currentPlan = "custom"
+				}
 			}
-        }		
+        }
 		
         DBaseExpand {
             id: wake_require_password
             header.sourceComponent: DSwitchButtonHeader {
                 text: dsTr("Require password when computer wakes")
+				active: dbus_power.lockEnabled ? true : false
             }
         }
-        DBaseExpand {
-            id: tray_show_battery_state
-            header.sourceComponent: DSwitchButtonHeader {
-                text: dsTr("Always show icon in the tray")
-            }
-        }
+        /* DBaseExpand { */
+        /*     id: tray_show_battery_state */
+        /*     header.sourceComponent: DSwitchButtonHeader { */
+        /*         text: dsTr("Always show icon in the tray") */
+        /*     } */
+        /* } */
     }
 }

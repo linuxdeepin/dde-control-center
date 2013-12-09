@@ -19,6 +19,10 @@ Rectangle {
     property var buttonModels: []
     signal itemSelected (int idx)
 
+    function selectItem(idx) {
+        listview.currentIndex = idx
+    }
+
     Rectangle {
         id: bg
         radius: 3
@@ -48,7 +52,7 @@ Rectangle {
         color: Qt.rgba(1, 1, 1, 0.15)
         source: bg
     }
-	
+
     InnerShadow {
         anchors.fill: bg
         radius: 2
@@ -58,10 +62,11 @@ Rectangle {
         color: Qt.rgba(0, 0, 0, 0.3)
         source: bg
     }
-	
+
     ListView {
         id: listview
         focus: true
+        interactive: false
         orientation: ListView.Horizontal
 
         property alias buttonModels: select_button.buttonModels
@@ -85,6 +90,7 @@ Rectangle {
         delegate: DRadioButtonDelegate {}
 
         highlight: DRadioButtonHighlight {}
+		highlightMoveDuration: 100
 
         onCurrentIndexChanged: {
             select_button.itemSelected(currentIndex)
