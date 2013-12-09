@@ -90,6 +90,7 @@ Rectangle {
         delegate: DRadioButtonDelegate {}
 
         highlight: DRadioButtonHighlight {}
+		highlightMoveDuration: 100
 
         onCurrentIndexChanged: {
             select_button.itemSelected(currentIndex)
