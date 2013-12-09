@@ -91,31 +91,25 @@ Item {
             id: autoSetTimeBox
             text: dsTr("Auto-sync datetime")
             width: parent.width
-            checked: gDate.autoSetTime
+            active: gDate.autoSetTime
 
             onClicked: {
                 gDate.SetAutoSetTime(checked)
             }
         }
 
+        DSepratorHorizontal {}
+
         DSwitchButtonHeader {
             id: twentyFourHourSetBox
             text: dsTr("24 Hour")
-            checked: gDate.use24HourDisplay
-
-            Timer{
-                running: true
-                repeat: true
-                interval: 1000
-                onTriggered: {
-                    twentyFourHourSetBox.checked = gDate.use24HourDisplay
-                }
-            }
+            active: gDate.use24HourDisplay
 
             onClicked: {
-                gDate.use24HourDisplay = checked
+                gDate.use24HourDisplay = active
             }
         }
+        DSepratorHorizontal {}
     }
 
     Rectangle {
@@ -187,18 +181,20 @@ Item {
 
         TimezoneData { id: timezoneData }
 
-        ListView {
+        DScrollWidget {
             anchors.fill: parent
-            model: timezoneData.timezoneList
-            delegate: TimezoneItem {}
-            focus: true
-            currentIndex: 19
-            boundsBehavior: Flickable.DragOverBounds
-            
-            onCurrentItemChanged: {
-                currentTimezone.text = currentItem.timezoneText
-                gDate.SetTimeZone(timezoneData.getTimezoneByOffset(currentItem.timezoneValue))
-                Date.timeZoneUpdated()
+            ListView {
+                anchors.fill: parent
+                model: timezoneData.timezoneList
+                delegate: TimezoneItem {}
+                focus: true
+                currentIndex: 19
+                
+                onCurrentItemChanged: {
+                    currentTimezone.text = currentItem.timezoneText
+                    gDate.SetTimeZone(timezoneData.getTimezoneByOffset(currentItem.timezoneValue))
+                    Date.timeZoneUpdated()
+                }
             }
         }
     }
@@ -225,7 +221,12 @@ Item {
         }
     }
 
+    DSepratorHorizontal {
+        anchors.top: dateBoxTitle.bottom
+    }
+
     Calendar {
         anchors.top: dateBoxTitle.bottom
+        anchors.topMargin: 2
     }
 }
