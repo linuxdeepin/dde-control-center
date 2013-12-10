@@ -16,7 +16,7 @@ Item {
     DOpacityImageButton {
         id: image
         anchors.centerIn: parent
-        source: "images/arrow_" + imageKey + "_normal.png"
+        source: "images/arrow_" + imageKey + "_white.png"
 
         onClicked: {
             arrowButton.checked = !arrowButton.checked

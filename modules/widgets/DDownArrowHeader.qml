@@ -6,6 +6,7 @@ Rectangle {
     id: header
 
     property string text: dsTr("Untitled")
+    property string darkText
     property alias active: actionArea.checked
 
     property int leftMargin: 18
@@ -24,6 +25,16 @@ Rectangle {
         anchors.leftMargin: leftMargin
         anchors.verticalCenter: parent.verticalCenter
         text: header.text
+    }
+
+    DssH2 {
+        id: darkArea
+        anchors.left: titleArea.right
+        anchors.verticalCenter: parent.verticalCenter
+        font.pixelSize: 12
+        color: dconstants.fgDarkColor
+        visible: darkText ? true : false
+        text: " (" + header.darkText + ")"
     }
 
     Item {
