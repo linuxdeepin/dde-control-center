@@ -29,8 +29,16 @@ Item {
                 text: dsTr("Custom")
             }
             button.sourceComponent: DRadioButton {
-				buttonModels: [{"buttonId": "left_hand", "buttonLabel": dsTr("Left Hand")}, 
-							   {"buttonId": "right_hand", "buttonLabel": dsTr("Right Hand")}]
+				buttonModel: ListModel {
+					ListElement {
+						buttonId: "left_hand"
+						buttonLabel: "Left Hand"
+					}
+					ListElement {
+						buttonId: "right_hand"
+						buttonLabel: "Right Hand"
+					}
+                }
 
                 onItemSelected: {
                     print(idx)
