@@ -16,7 +16,7 @@ Rectangle {
     property color selectedFontColor: "#19A9F9"
     property color unselectedFontColor: Qt.rgba(1, 1, 1, 1)
 
-    property var buttonModels: []
+    property var buttonModel: null
     signal itemSelected (int idx)
 
     function selectItem(idx) {
@@ -69,8 +69,6 @@ Rectangle {
         interactive: false
         orientation: ListView.Horizontal
 
-        property alias buttonModels: select_button.buttonModels
-
         property alias fontSize: select_button.fontSize
         property alias leftRightPadding: select_button.leftRightPadding
         property alias buttonHeight: select_button.buttonHeight
@@ -79,13 +77,7 @@ Rectangle {
         property alias selectedFontColor: select_button.selectedFontColor
         property alias unselectedFontColor: select_button.unselectedFontColor
 
-        model: ListModel {
-            Component.onCompleted: {
-                for (var i = 0; i < listview.buttonModels.length; i++) {
-                    append(listview.buttonModels[i])
-                }
-            }
-        }
+        model: select_button.buttonModel
 
         delegate: DRadioButtonDelegate {}
 

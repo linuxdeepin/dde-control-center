@@ -222,15 +222,23 @@ Rectangle {
             title: "屏幕热区"
 
             DRadioButton {
-				buttonModels: [{"buttonId": "top_left", "buttonLabel": "左上角"}, 
-							   {"buttonId": "bottom_right", "buttonLabel": "右下角"}]
+				buttonModel: ListModel {
+					ListElement {
+						buttonId: "top_left"
+						buttonLabel: "左上角"
+					}
+					ListElement {
+						buttonId: "bottom_right"
+						buttonLabel: "右下角"
+					}
+				}
 
                 anchors {
                     right: parent.right
 					rightMargin: parent.rightPadding
 					verticalCenter: parent.verticalCenter
                 }
-
+				
                 onItemSelected: {
                     if (idx == 0) {
                         hotspot_top_left_select.visible = true

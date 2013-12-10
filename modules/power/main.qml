@@ -159,60 +159,101 @@ Rectangle {
 		
         DBaseExpand {
             id: turn_off_monitor_rect
+			
+			property string headerText: dsTr("Turn off monitor")
+			
             header.sourceComponent: DDownArrowHeader {
-                text: dsTr("Turn off monitor<font color='black'>(Normal)</font>")
+				id: turn_off_monitor_header
+                text: turn_off_monitor_rect.headerText
 				onClicked: turn_off_monitor_rect.expanded = active
             }
             content.sourceComponent: DRadioButton {
 				id: turn_off_monitor_button
-				buttonModels: [{"buttonId": "1_m", "buttonLabel": "1m"},
-							   {"buttonId": "2_m", "buttonLabel": "2m"},
-							   {"buttonId": "3_m", "buttonLabel": "3m"},
-							   {"buttonId": "5_m", "buttonLabel": "5m"},
-							   {"buttonId": "10_m", "buttonLabel": "10m"},
-							   {"buttonId": "30_m", "buttonLabel": "30m"},
-							   {"buttonId": "1_h", "buttonLabel": "1h"},							   
-							   {"buttonId": "never", "buttonLabel": dsTr("Never")}]
+				
+				buttonModel: ListModel {
+					ListElement {buttonId: "1_m"; buttonLabel: "1m"}
+					ListElement {buttonId: "2_m"; buttonLabel: "2m"}
+					ListElement {buttonId: "3_m"; buttonLabel: "3m"}
+					ListElement {buttonId: "5_m"; buttonLabel: "5m"}
+					ListElement {buttonId: "10_m"; buttonLabel: "10m"}
+					ListElement {buttonId: "30_m"; buttonLabel: "30m"}
+					ListElement {buttonId: "1_h"; buttonLabel: "1h"}
+					
+					Component.onCompleted: {
+						append({"buttonId": "never", "buttonLabel": dsTr("Never")})
+					}
+				}
+
 				width: parent.width
 				height: 22
 				
 				Component.onCompleted: {
-					/* turn_off_monitor_button.selectItem(timeoutToIndex(dbus_power.sleepDisplayAc)) */
+					turn_off_monitor_rect.headerText = dsTr("Turn off monitor") + 
+					                                   "<font color='black'>(" + 
+													   buttonModel.get(timeoutToIndex(dbus_power.sleepDisplayAc)).buttonLabel +
+													   ")</font>"
+												   
+					turn_off_monitor_button.selectItem(timeoutToIndex(dbus_power.sleepDisplayAc))
 				}
 				onItemSelected: {
-					dbus_power.sleepDisplayAc = indexToTimeout(idx)
-					dbus_power.sleepDisplayBattery = indexToTimeout(idx)
-					dbus_power.currentPlan = "custom"
+					/* dbus_power.currentPlan = "custom" */					
+					/* dbus_power.sleepDisplayAc = indexToTimeout(idx) */
+					/* dbus_power.sleepDisplayBattery = indexToTimeout(idx) */
+					
+					turn_off_monitor_rect.headerText = dsTr("Turn off monitor") + 
+					                                   "<font color='black'>(" + 
+													   buttonModel.get(timeoutToIndex(dbus_power.sleepDisplayAc)).buttonLabel +
+													   ")</font>"
 				}
 			}
         }		
 		
         DBaseExpand {
             id: suspend_rect
+			property string headerText: dsTr("Suspend")
+			
             header.sourceComponent: DDownArrowHeader {
-                text: dsTr("Suspend")
+                text: suspend_rect.headerText
 				onClicked: suspend_rect.expanded = active
             }
             content.sourceComponent: DRadioButton {
 				id: suspend_button
-				buttonModels: [{"buttonId": "1_m", "buttonLabel": "1m"},
-							   {"buttonId": "2_m", "buttonLabel": "2m"},
-							   {"buttonId": "3_m", "buttonLabel": "3m"},
-							   {"buttonId": "5_m", "buttonLabel": "5m"},
-							   {"buttonId": "10_m", "buttonLabel": "10m"},
-							   {"buttonId": "30_m", "buttonLabel": "30m"},
-							   {"buttonId": "1_h", "buttonLabel": "1h"},
-							   {"buttonId": "never", "buttonLabel": dsTr("Never")}]
+
+				buttonModel: ListModel {
+					ListElement {buttonId: "1_m"; buttonLabel: "1m"}
+					ListElement {buttonId: "2_m"; buttonLabel: "2m"}
+					ListElement {buttonId: "3_m"; buttonLabel: "3m"}
+					ListElement {buttonId: "5_m"; buttonLabel: "5m"}
+					ListElement {buttonId: "10_m"; buttonLabel: "10m"}
+					ListElement {buttonId: "30_m"; buttonLabel: "30m"}
+					ListElement {buttonId: "1_h"; buttonLabel: "1h"}
+					
+					Component.onCompleted: {
+						append({"buttonId": "never", "buttonLabel": dsTr("Never")})
+					}
+				}
+				
 				width: parent.width
 				height: 22
 				
 				Component.onCompleted: {
+					suspend_rect.headerText = dsTr("Turn off monitor") +
+					                          "<font color='black'>(" +
+											  buttonModel.get(timeoutToIndex(dbus_power.sleepInactiveAcTimeout)).buttonLabel +
+											  ")</font>"
+					
 					suspend_button.selectItem(timeoutToIndex(dbus_power.sleepInactiveAcTimeout))
 				}
+				
 				onItemSelected: {
-					dbus_power.sleepInactiveAcTimeout = indexToTimeout(idx)
-					dbus_power.sleepInactiveBatteryTimeout = indexToTimeout(idx)
-					dbus_power.currentPlan = "custom"
+					/* dbus_power.sleepInactiveAcTimeout = indexToTimeout(idx) */
+					/* dbus_power.sleepInactiveBatteryTimeout = indexToTimeout(idx) */
+					/* dbus_power.currentPlan = "custom" */
+					
+					/* suspend_rect.headerText = dsTr("Turn off monitor") +  */
+					/*                           "<font color='black'>(" +  */
+					/* 						  buttonModel.get(timeoutToIndex(dbus_power.sleepInactiveAc)).buttonLabel + */
+					/* 						  ")</font>" */
 				}
 			}
         }
@@ -222,8 +263,13 @@ Rectangle {
             header.sourceComponent: DSwitchButtonHeader {
                 text: dsTr("Require password when computer wakes")
 				active: dbus_power.lockEnabled ? true : false
+				
+				onActiveChanged: {
+					dbus_power.lockEnabled = active
+				}
             }
         }
+		
         /* DBaseExpand { */
         /*     id: tray_show_battery_state */
         /*     header.sourceComponent: DSwitchButtonHeader { */
