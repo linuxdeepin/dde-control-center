@@ -45,5 +45,5 @@ GridView {
         return undefined
     }
 
-    delegate: SelectViewDelegate{}
+    delegate: DSelectViewDelegate{}
 }

@@ -12,7 +12,7 @@ Column {
             verticalAlignment: Text.AlignVCenter
             width:parent.width
             text: accessPoints[index][0]
-            DSepratorHorizontal{}
+            DSeparatorHorizontal{}
         }
     }
 }

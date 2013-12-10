@@ -12,7 +12,7 @@ Item {
 	Column{
 	    width: root.width
 	    height: 30
-	    DSepratorHorizontal{}
+	    DSeparatorHorizontal{}
 	    Label {
 		height: 30
 		anchors.leftMargin: 10
@@ -20,7 +20,7 @@ Item {
 		text: "当前活动的网络链接"
 		color: fgColor
 	    }
-	    DSepratorHorizontal{}
+	    DSeparatorHorizontal{}
 	}
 	DBaseExpand {
 	    header: Text { text:"Realtek PCIe GBE Family Controller" }

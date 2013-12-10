@@ -7,7 +7,7 @@ Column {
     id:body
     width: root.width
 
-    DSepratorHorizontal{ visible: wired.active}
+    DSeparatorHorizontal{ visible: wired.active}
     Loader {
         id:wired
         active: nm.hasWired
@@ -30,7 +30,7 @@ Column {
                         verticalAlignment: Text.AlignVCenter
                         width:parent.width
                         text: nm.wiredConnections[index][1] 
-                        DSepratorHorizontal{}
+                        DSeparatorHorizontal{}
                     }
                 }
             }
@@ -77,7 +77,7 @@ Column {
                         verticalAlignment: Text.AlignVCenter
                         width:parent.width
                         text: nm.vPNConnections[index][1] 
-                        DSepratorHorizontal{}
+                        DSeparatorHorizontal{}
                     }
                 }
             }

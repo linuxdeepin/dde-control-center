@@ -7,10 +7,10 @@ Item {
     width:parent.width
     Component {
 	id:seperator 
-	DSepratorHorizontal{}
+	DSeparatorHorizontal{}
     }
     Column {
-	DSepratorHorizontal{}
+	DSeparatorHorizontal{}
 	Repeater {
 	    model: datas
 	    delegate: Component {

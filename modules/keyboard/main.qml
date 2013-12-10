@@ -34,7 +34,7 @@ Item {
             text:dsTr("Keyboard")
         }
 
-        DSepratorHorizontal {}
+        DSeparatorHorizontal {}
 
         DBaseHeader {
             title.sourceComponent: DssH2 {
@@ -42,7 +42,7 @@ Item {
             }
         }
 
-        DSepratorHorizontal {}
+        DSeparatorHorizontal {}
 
         DBaseHeader {
             color: dconstants.contentBgColor
@@ -65,7 +65,7 @@ Item {
             }
         }
 
-        DSepratorHorizontal {}
+        DSeparatorHorizontal {}
 
         DBaseHeader {
             color: dconstants.contentBgColor
@@ -90,7 +90,7 @@ Item {
 
         }
 
-        DSepratorHorizontal {}
+        DSeparatorHorizontal {}
 
         DBaseHeader {
             color: dconstants.contentBgColor
@@ -120,7 +120,7 @@ Item {
             }
         }
 
-        DSepratorHorizontal {}
+        DSeparatorHorizontal {}
 
         DBaseHeader {
             title.sourceComponent: DssH2 {
@@ -128,7 +128,7 @@ Item {
             }
         }
 
-        DSepratorHorizontal {}
+        DSeparatorHorizontal {}
 
         DBaseHeader {
             color: dconstants.contentBgColor
@@ -161,7 +161,7 @@ Item {
             }
         }
 
-        DSepratorHorizontal {}
+        DSeparatorHorizontal {}
 
         DBaseExpand {
             id: keyboardLayoutSetting

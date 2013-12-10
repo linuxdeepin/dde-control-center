@@ -14,6 +14,6 @@ ToggleSwitcher {
         Text { text:"4444444"}
         Text { text:"4444444"}
         Text { text:"4444444"}
-        DSepratorHorizontal {}
+        DSeparatorHorizontal {}
     }
 }
