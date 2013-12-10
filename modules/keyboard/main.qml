@@ -166,7 +166,8 @@ Item {
         DBaseExpand {
             id: keyboardLayoutSetting
             header.sourceComponent: DDownArrowHeader {
-                text: dsTr("Keyboard Layout") + " <font color='#666'>(" + dsTr("US") + ")</font>"
+                text: dsTr("Keyboard Layout")
+                darkText: dsTr("US")
                 onClicked: {
                     keyboardLayoutSetting.expanded = !keyboardLayoutSetting.expanded
                 }

@@ -85,8 +85,8 @@ Item {
 
                 value: (mouseID.moveAccuracy - 1)/9
                 onValueChanged: {
-                    if (mouseID.moveAccuracy != (9 * value + 1)){
-                        mouseID.moveAccuracy = 9 * value + 1
+                    if (mouseID.moveAccuracy != parseInt(9 * value + 2)){
+                        mouseID.moveAccuracy = parseInt(9 * value + 2)
                     }
                 }
             }
