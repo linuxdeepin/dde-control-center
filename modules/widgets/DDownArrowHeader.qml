@@ -4,49 +4,50 @@ import QtQuick.Layouts 1.0
 
 Rectangle {
     id: header
+
+    property string text: dsTr("Untitled")
+    property alias active: actionArea.checked
+
+    property int leftMargin: 18
+    property int rightMargin: 5
     property var dconstants: DConstants {}
 
-    property string text: "untitled"
-    property bool active: false
+    height: 30
+    width: parent.width
+    color: dconstants.bgColor
 
     signal clicked
 
-    width: parent.width
-    height: 32 
-    color: dconstants.bgColor
+    DssH2 {
+        id: titleArea
+        anchors.left: parent.left
+        anchors.leftMargin: leftMargin
+        anchors.verticalCenter: parent.verticalCenter
+        text: header.text
+    }
 
-    ColumnLayout {
-        width: parent.width
-        anchors.verticalCenter: header.verticalCenter
+    Item {
+        anchors.right: parent.right
+        anchors.rightMargin: rightMargin
+        anchors.verticalCenter: parent.verticalCenter
+        height: parent.height - 2
+        width: actionArea.width
 
-        RowLayout {
-            anchors.left:parent.left
-            anchors.leftMargin: 10
-            spacing: parent.width - label.width - arrow.width - anchors.leftMargin
-            width: header.width
+        DDownArrowButton {
+            id: actionArea
+            anchors.centerIn: parent
 
-            Label {
-                id:label
-                text: header.text
-                color: dconstants.fgColor
+            onClicked: {
+                header.clicked()
             }
+        }
+    }
 
-            DStatusImageButton {
-                id: arrow
-                anchors.right:parent.right
-                anchors.rightMargin: 10
-
-                statusImageList: {
-                    "down": ['images/arrow_down_normal.png', 'images/arrow_down_hover.png', 'images/arrow_down_press.png'],
-                    "up": ['images/arrow_up_normal.png', 'images/arrow_up_hover.png', 'images/arrow_up_press.png']
-                }
-                currentStatus: header.active ? "up" : "down"
-
-                onClicked: {
-                    header.active = !header.active
-                    header.clicked()
-                }
-            }
+    MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            actionArea.checked = !actionArea.checked
+            actionArea.clicked()
         }
     }
 }

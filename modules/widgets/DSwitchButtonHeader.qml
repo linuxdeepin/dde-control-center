@@ -16,12 +16,11 @@ Rectangle {
 
     signal clicked
 
-    DLabel {
+    DssH2 {
         id: titleArea
         anchors.left: parent.left
         anchors.leftMargin: leftMargin
         anchors.verticalCenter: parent.verticalCenter
-        font.pixelSize: 13
         text: header.text
     }
 
