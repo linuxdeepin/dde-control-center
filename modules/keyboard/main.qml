@@ -26,32 +26,19 @@ Item {
        id: "touchPadID"
     } 
 
-    Text {
-        id: keyboardModuleTitle
-        anchors.top: parent.top
-        anchors.topMargin: 16
-        anchors.left: parent.left
-        anchors.leftMargin: 20
-        font.pixelSize: 15
-        font.bold: true
-        color: dconstants.fgColor
-        text: dsTr("Keyboard")
-    }
-
-    DSepratorHorizontal {
-        anchors.top: parent.top
-        anchors.topMargin: 46
-    }
-
     Column {
         anchors.top: parent.top
-        anchors.topMargin: 48
         width: parent.width
 
+        DssTitle {
+            text:dsTr("Keyboard")
+        }
+
+        DSepratorHorizontal {}
+
         DBaseHeader {
-            title.sourceComponent: DLabel {
+            title.sourceComponent: DssH2 {
                 text: dsTr("Repeat")
-                font.pixelSize: 13
             }
         }
 
@@ -136,9 +123,8 @@ Item {
         DSepratorHorizontal {}
 
         DBaseHeader {
-            title.sourceComponent: DLabel {
+            title.sourceComponent: DssH2 {
                 text: dsTr("Cusor Blink")
-                font.pixelSize: 13
             }
         }
 
