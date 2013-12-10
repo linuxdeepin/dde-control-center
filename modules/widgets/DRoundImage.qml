@@ -10,7 +10,7 @@ Rectangle {
 	property int roundRadius: 50
 	property int borderWidth: 3
 	property color borderColor: "white"
-	property string imageSource: "/home/hualet/Pictures/idols/Richard Stallman with Emacs.png"
+	property string imageSource: ""
 	
     DRoundItem {
 		radius: parent.roundRadius
