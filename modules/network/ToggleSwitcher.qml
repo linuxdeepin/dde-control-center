@@ -21,7 +21,7 @@ Item {
             ColumnLayout {
                 width: parent.width
                 anchors.verticalCenter: header.verticalCenter
-                DSepratorHorizontal {}
+                DSeparatorHorizontal {}
                 RowLayout {
                     anchors.left:parent.left
                     anchors.leftMargin: 10
@@ -36,7 +36,7 @@ Item {
                         onClicked: calcContentHeight()
                     }
                 }
-                DSepratorHorizontal {}
+                DSeparatorHorizontal {}
             }
         }
         Loader {

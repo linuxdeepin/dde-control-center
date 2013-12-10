@@ -7,9 +7,10 @@ Rectangle {
 
     property string text: dsTr("Untitled")
     property string darkText
+    property alias icon: iconArea.source
     property alias active: actionArea.checked
 
-    property int leftMargin: 18
+    property int leftMargin: 15
     property int rightMargin: 5
     property var dconstants: DConstants {}
 
@@ -19,37 +20,57 @@ Rectangle {
 
     signal clicked
 
-    DssH2 {
-        id: titleArea
+    Item {
+        anchors.fill: parent
         anchors.left: parent.left
         anchors.leftMargin: leftMargin
-        anchors.verticalCenter: parent.verticalCenter
-        text: header.text
-    }
 
-    DssH2 {
-        id: darkArea
-        anchors.left: titleArea.right
-        anchors.verticalCenter: parent.verticalCenter
-        font.pixelSize: 12
-        color: dconstants.fgDarkColor
-        visible: darkText ? true : false
-        text: " (" + header.darkText + ")"
-    }
+        Row {
+            height: parent.height
+            width: parent.width
 
-    Item {
-        anchors.right: parent.right
-        anchors.rightMargin: rightMargin
-        anchors.verticalCenter: parent.verticalCenter
-        height: parent.height - 2
-        width: actionArea.width
+            Item {
+                width: iconArea.width + 8
+                height: iconArea.height
+                anchors.verticalCenter: parent.verticalCenter
+                Image {
+                    id: iconArea
+                    anchors.left: parent.left
+                    anchors.verticalCenter: parent.verticalCenter
+                    visible: source ? true : false
+                }
+            }
 
-        DDownArrowButton {
-            id: actionArea
-            anchors.centerIn: parent
+            DssH2 {
+                id: titleArea
+                text: header.text
+                anchors.verticalCenter: parent.verticalCenter
+            }
 
-            onClicked: {
-                header.clicked()
+            DssH2 {
+                id: darkArea
+                anchors.verticalCenter: parent.verticalCenter
+                font.pixelSize: 12
+                color: dconstants.fgDarkColor
+                visible: darkText ? true : false
+                text: " (" + header.darkText + ")"
+            }
+        }
+
+        Item {
+            anchors.right: parent.right
+            anchors.rightMargin: rightMargin
+            anchors.verticalCenter: parent.verticalCenter
+            height: parent.height - 2
+            width: actionArea.width
+
+            DDownArrowButton {
+                id: actionArea
+                anchors.centerIn: parent
+
+                onClicked: {
+                    header.clicked()
+                }
             }
         }
     }

@@ -255,7 +255,7 @@ Item {
         }
     }
 
-    DSepratorHorizontal {
+    DSeparatorHorizontal {
         anchors.top: dateBoxAdjustment.bottom
         width: parent.width
     }

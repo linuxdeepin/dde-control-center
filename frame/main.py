@@ -20,14 +20,14 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from controlpanel import ControlPanel
+
 import sys
 import threading
 import signal
 signal.signal(signal.SIGINT, signal.SIG_DFL)
-
 from PyQt5.QtGui import QGuiApplication
 
-from controlpanel import ControlPanel
 from unique_service import UniqueService
 from constants import APP_DBUS_NAME, APP_OBJECT_PATH
 

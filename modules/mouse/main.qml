@@ -21,7 +21,7 @@ Item {
             text: dsTr("Mouse")
         }
 
-        DSepratorHorizontal {}
+        DSeparatorHorizontal {}
 
         DBaseHeader {
             height: 44
@@ -46,7 +46,7 @@ Item {
             }
         }
 
-        DSepratorHorizontal {}
+        DSeparatorHorizontal {}
 
         DBaseHeader {
             title.sourceComponent: DssH2 {
@@ -54,7 +54,7 @@ Item {
             }
         }
 
-        DSepratorHorizontal {}
+        DSeparatorHorizontal {}
 
         DBaseHeader {
             color: dconstants.contentBgColor
@@ -77,7 +77,7 @@ Item {
             }
         }
 
-        DSepratorHorizontal {}
+        DSeparatorHorizontal {}
 
         DBaseHeader {
             color: dconstants.contentBgColor
@@ -100,7 +100,7 @@ Item {
             }
         }
 
-        DSepratorHorizontal {}
+        DSeparatorHorizontal {}
 
         DBaseHeader {
             title.sourceComponent: DssH2 {
@@ -108,7 +108,7 @@ Item {
             }
         }
 
-        DSepratorHorizontal {}
+        DSeparatorHorizontal {}
 
         DBaseHeader {
             color: dconstants.contentBgColor
@@ -131,7 +131,7 @@ Item {
             }
         }
 
-        DSepratorHorizontal {}
+        DSeparatorHorizontal {}
 
         DBaseHeader {
             color: dconstants.contentBgColor
@@ -158,6 +158,6 @@ Item {
             }
         }
 
-        DSepratorHorizontal {}
+        DSeparatorHorizontal {}
     }
 }

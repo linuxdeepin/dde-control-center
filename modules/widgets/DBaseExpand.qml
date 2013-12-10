@@ -35,7 +35,7 @@ Rectangle {
             }
         }
 
-        DSepratorHorizontal {}
+        DSeparatorHorizontal {}
 
         Rectangle {
             id: contentRect
@@ -60,7 +60,7 @@ Rectangle {
             }
         }
 
-        DSepratorHorizontal { visible: expanded }
+        DSeparatorHorizontal { visible: expanded }
     }
 }
 

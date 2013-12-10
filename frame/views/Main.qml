@@ -1,5 +1,6 @@
 import QtQuick 2.1
 import QtQuick.Window 2.1
+import Deepin.Locale 1.0
 import "../../modules/widgets"
 
 Item {
@@ -15,9 +16,17 @@ Item {
 
     property bool clickedToHide: true
 
-    function dsTr(s){
-        return qtgettext.qsTr(s)
+    DLocale {
+        id: dsslocale
+        domain: "deepin-system-settings"
+        //domain: "DDE"
     }
+
+    function dsTr(s){
+        return dsslocale.dsTr(s)
+    }
+
+    property var modulesId: ModulesData {}
 
     QtObject { 
         // enumeration for root view state
@@ -85,6 +94,7 @@ Item {
     }
 
     function initTrayIcon() {
+        print(dsslocale.localeMESSAGES)
         var modules_id_array = modulesId.commonIds
         var new_tray_height = root.height/(modules_id_array.length+1.0)
         if (new_tray_height < trayWidth){
@@ -343,7 +353,6 @@ Item {
             Loader{
                 id: rightBoxLoader
                 property string iconId
-                property string lang: qtgettext.get_locale_code()
                 focus: true
                 source: ''
                 anchors.fill: parent

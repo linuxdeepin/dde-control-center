@@ -36,7 +36,7 @@ Item {
         text: dsTr("Date & Time")
     }
 
-    DSepratorHorizontal {
+    DSeparatorHorizontal {
         anchors.top: parent.top
         anchors.topMargin: 46
     }
@@ -85,7 +85,7 @@ Item {
 
         }
 
-        DSepratorHorizontal {}
+        DSeparatorHorizontal {}
 
         DSwitchButtonHeader {
             id: autoSetTimeBox
@@ -98,7 +98,7 @@ Item {
             }
         }
 
-        DSepratorHorizontal {}
+        DSeparatorHorizontal {}
 
         DSwitchButtonHeader {
             id: twentyFourHourSetBox
@@ -109,7 +109,7 @@ Item {
                 gDate.use24HourDisplay = active
             }
         }
-        DSepratorHorizontal {}
+        DSeparatorHorizontal {}
     }
 
     Rectangle {
@@ -200,7 +200,7 @@ Item {
     }
 
 
-    DSepratorHorizontal {
+    DSeparatorHorizontal {
         anchors.top: timezoneList.bottom
     }
 
@@ -221,7 +221,7 @@ Item {
         }
     }
 
-    DSepratorHorizontal {
+    DSeparatorHorizontal {
         anchors.top: dateBoxTitle.bottom
     }
 
