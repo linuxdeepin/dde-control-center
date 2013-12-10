@@ -52,7 +52,7 @@ Component {
 			anchors.fill: parent
 			
 			onReleased: {
-				rect.ListView.view.currentIndex = index
+				rect.ListView.view.selectItem(index)
 			}
 		}
     }

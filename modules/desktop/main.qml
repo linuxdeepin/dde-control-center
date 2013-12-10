@@ -222,17 +222,11 @@ Rectangle {
             title: "屏幕热区"
 
             DRadioButton {
-				buttonModel: ListModel {
-					ListElement {
-						buttonId: "top_left"
-						buttonLabel: "左上角"
-					}
-					ListElement {
-						buttonId: "bottom_right"
-						buttonLabel: "右下角"
-					}
-				}
-
+				buttonModel: [
+					{"buttonId": "top_left", "buttonLabel": "左上角"},
+					{"buttonId": "bottom_right", "buttonLabel": "右下角"}
+				]
+				
                 anchors {
                     right: parent.right
 					rightMargin: parent.rightPadding

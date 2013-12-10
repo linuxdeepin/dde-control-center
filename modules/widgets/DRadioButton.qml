@@ -16,7 +16,9 @@ Rectangle {
     property color selectedFontColor: "#19A9F9"
     property color unselectedFontColor: Qt.rgba(1, 1, 1, 1)
 
-    property var buttonModel: null
+	property int initializeIndex: 0
+    property variant buttonModel: null
+	
     signal itemSelected (int idx)
 
     function selectItem(idx) {
@@ -76,17 +78,20 @@ Rectangle {
         property alias selectedMaskColor: select_button.selectedMaskColor
         property alias selectedFontColor: select_button.selectedFontColor
         property alias unselectedFontColor: select_button.unselectedFontColor
-
-        model: select_button.buttonModel
+		
+		property alias initializeIndex: select_button.initializeIndex
+		
+		function selectItem(idx) {
+			currentIndex = idx
+			select_button.itemSelected(idx)
+		}
+		
+        model: ListModel {id: button_model}
 
         delegate: DRadioButtonDelegate {}
 
         highlight: DRadioButtonHighlight {}
 		highlightMoveDuration: 100
-
-        onCurrentIndexChanged: {
-            select_button.itemSelected(currentIndex)
-        }
 
         onWidthChanged: {
             select_button.width = width
@@ -96,5 +101,13 @@ Rectangle {
         }
 
         anchors.top: parent.top
+		
+		Component.onCompleted: {
+			for(var idx in select_button.buttonModel) {
+				button_model.append(select_button.buttonModel[idx])
+			}
+			
+			currentIndex = initializeIndex
+		}
     }
 }
