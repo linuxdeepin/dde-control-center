@@ -17,12 +17,13 @@ Rectangle {
     property color unselectedFontColor: Qt.rgba(1, 1, 1, 1)
 
 	property int initializeIndex: 0
+    property alias currentIndex: listview.currentIndex
     property variant buttonModel: null
 	
     signal itemSelected (int idx)
 
     function selectItem(idx) {
-        listview.currentIndex = idx
+        currentIndex = idx
     }
 
     Rectangle {
