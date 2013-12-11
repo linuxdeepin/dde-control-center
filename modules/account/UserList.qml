@@ -17,6 +17,7 @@ ListView {
         Rectangle{
             id: component_bg
             color: "#191919"
+            state: "dialog"
 
             width: 310
             height: component_top.height + component_sep.height
@@ -52,6 +53,8 @@ ListView {
                 }
                 
                 UserStatusButton {
+                    state: userStatus
+                    
                     anchors.right: parent.right
                     anchors.rightMargin: root.rightPadding
                     anchors.verticalCenter: parent.verticalCenter
@@ -66,10 +69,47 @@ ListView {
 
             DSeparatorHorizontal {
                 id: component_sep
+                
+                anchors.top: component_top.bottom
             }
+            
+            DeleteUserDialog {
+                id: delete_user_dialog
+                width: 310
+                height: 100
+                visible: false
+                
+                anchors.top: component_sep.bottom
+            }
+            
+            states: [
+                State {
+                    name: "normal"
+                    PropertyChanges { 
+                        target: delete_user_dialog
+                        visible: false
+                    }
+                    PropertyChanges { 
+                        target: component_bg
+                        height: component_top.height + component_sep.height
+                    }
+                },
+                State {
+                    name: "dialog"
+                    PropertyChanges { 
+                        target: delete_user_dialog
+                        visible: true
+                    }                    
+                    PropertyChanges { 
+                        target: component_bg
+                        height: component_top.height + component_sep.height + delete_user_dialog.height
+                    }
+                }
+            ]
 
             Component.onCompleted: {
                 if (index == 0) {root.width = width}
+                print(height)
                 root.height += height
             }
         }
@@ -80,16 +120,20 @@ ListView {
             userAvatar: "/home/hualet/Pictures/DeepinScreenshot20131108122543.png"
             userName: "Hualet0"
             userType: "Administrator"
+            userStatus: "currentUser"
         }
         ListElement {
             userAvatar: "/home/hualet/Pictures/DeepinScreenshot20131108122543.png"
             userName: "Hualet1"
             userType: "Administrator"
+            userIsCurrent: "false"
+            userStatus: "otherUser"            
         }
         ListElement {
             userAvatar: "/home/hualet/Pictures/DeepinScreenshot20131108122543.png"
             userName: "Hualet2"
             userType: "Administrator"
+            userStatus: "inactiveUser"            
         }
     }
 
