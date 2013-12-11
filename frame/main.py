@@ -22,6 +22,7 @@
 
 from controlpanel import ControlPanel
 
+import os
 import sys
 import threading
 import signal
@@ -32,6 +33,9 @@ from unique_service import UniqueService
 from constants import APP_DBUS_NAME, APP_OBJECT_PATH
 
 def main():
+    root_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+    os.chdir(root_dir)
+
     app = QGuiApplication(sys.argv)
     uniqueService = UniqueService(APP_DBUS_NAME, APP_OBJECT_PATH)
     uniqueService.uniqueTrigger.connect(unique_trigger)

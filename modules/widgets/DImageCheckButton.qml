@@ -6,13 +6,13 @@ Rectangle {
     height: currentImage.height
     color: "transparent"
 
-    property string inactivatedNomralImage
-    property string inactivatedHoverImage
-    property string inactivatedPressImage
+    property url inactivatedNomralImage
+    property url inactivatedHoverImage
+    property url inactivatedPressImage
 
-    property string activatedNomralImage
-    property string activatedHoverImage
-    property string activatedPressImage
+    property url activatedNomralImage
+    property url activatedHoverImage
+    property url activatedPressImage
 
     property bool activate: false
 

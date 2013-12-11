@@ -3,11 +3,14 @@ import QtQuick 2.1
 Rectangle {
     id: header
 
-    property string text: dsTr("Untitled")
+    property alias text: titleArea.text
+    property alias style: titleArea.style
+    property alias styleColor: titleArea.styleColor
     property alias active: actionArea.checked
+    property alias font: titleArea.font
 
     property int leftMargin: 18
-    property int rightMargin: 5
+    property int rightMargin: 15
     property var dconstants: DConstants {}
 
     height: 30
@@ -21,7 +24,6 @@ Rectangle {
         anchors.left: parent.left
         anchors.leftMargin: leftMargin
         anchors.verticalCenter: parent.verticalCenter
-        text: header.text
     }
 
     Item {

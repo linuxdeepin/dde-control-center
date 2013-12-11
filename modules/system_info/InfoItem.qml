@@ -7,8 +7,8 @@ Rectangle {
 
     property string title
     property string value
-    property int fontSize: lang == "en_US" ? 11 : 12
-    property int leftWidth: lang == "en_US" ? 100 : 80
+    property int fontSize: 11
+    property int leftWidth: 100
 
     property bool valueWrapped: false
 

@@ -3,9 +3,9 @@ import QtQuick 2.1
 Item {
 	id: button
 	
-	property string normal_image
-	property string hover_image
-	property string press_image
+	property url normal_image
+	property url hover_image
+	property url press_image
 	
 	signal clicked
 	
