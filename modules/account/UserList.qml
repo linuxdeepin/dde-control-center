@@ -16,7 +16,7 @@ ListView {
 
         Rectangle{
             id: component_bg
-            color: "#191919"
+            color: "#1A1B1B"
             state: "action"
 
             width: 310
@@ -91,6 +91,15 @@ ListView {
                 width: 310
                 height: 100
                 visible: false
+                
+                onCancel: {
+                    component_bg.state = "action"
+                }
+                
+                onConfirm: {
+                    component_bg.state = "normal"                    
+                    print("delete user files? ", deleteFiles)
+                }
                 
                 anchors.top: component_sep.bottom
             }
