@@ -20,15 +20,15 @@ Rectangle {
             }
             button.sourceComponent: Row {
                 DImageButton {
-                    normal_image: "../account/images/delete_normal.png"
-                    hover_image: "../account/images/delete_hover.png"
-                    press_image: "../account/images/delete_press.png"
+                    normal_image: "images/delete_normal.png"
+                    hover_image: "images/delete_hover.png"
+                    press_image: "images/delete_press.png"
                 }
                 
                 DImageButton {
-                    normal_image: "../account/images/add_normal.png"
-                    hover_image: "../account/images/add_hover.png"
-                    press_image: "../account/images/add_press.png"
+                    normal_image: "images/add_normal.png"
+                    hover_image: "images/add_hover.png"
+                    press_image: "images/add_press.png"
                 }
             }
         }

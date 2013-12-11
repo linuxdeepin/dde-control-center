@@ -17,7 +17,7 @@ ListView {
         Rectangle{
             id: component_bg
             color: "#191919"
-            state: "dialog"
+            state: "action"
 
             width: 310
             height: component_top.height + component_sep.height
@@ -53,7 +53,20 @@ ListView {
                 }
                 
                 UserStatusButton {
+                    id: user_status_button
                     state: userStatus
+                    
+                    anchors.right: parent.right
+                    anchors.rightMargin: root.rightPadding
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+                
+                DeleteUserButton {
+                    id: delete_user_button
+                    
+                    onClicked: {
+                        component_bg.state = "dialog"
+                    }
                     
                     anchors.right: parent.right
                     anchors.rightMargin: root.rightPadding
@@ -93,6 +106,33 @@ ListView {
                         target: component_bg
                         height: component_top.height + component_sep.height
                     }
+                    PropertyChanges { 
+                        target: user_status_button
+                        visible: true
+                    }
+                    PropertyChanges { 
+                        target: delete_user_button
+                        visible: false
+                    }
+                },
+                State {
+                    name: "action"
+                    PropertyChanges { 
+                        target: delete_user_dialog
+                        visible: false
+                    }
+                    PropertyChanges { 
+                        target: component_bg
+                        height: component_top.height + component_sep.height
+                    }
+                    PropertyChanges { 
+                        target: user_status_button
+                        visible: false
+                    }
+                    PropertyChanges { 
+                        target: delete_user_button
+                        visible: true
+                    }
                 },
                 State {
                     name: "dialog"
@@ -104,9 +144,21 @@ ListView {
                         target: component_bg
                         height: component_top.height + component_sep.height + delete_user_dialog.height
                     }
+                    PropertyChanges { 
+                        target: user_status_button
+                        visible: false
+                    }
+                    PropertyChanges { 
+                        target: delete_user_button
+                        visible: true
+                    }
                 }
             ]
-
+            
+            Behavior on height {
+                SmoothedAnimation { duration: 200 }
+            }
+            
             Component.onCompleted: {
                 if (index == 0) {root.width = width}
                 print(height)
