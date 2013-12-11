@@ -6,9 +6,9 @@ Item {
     property var statusImageList: {}
     property string currentStatus: "undefined"
 
-	property string normal_image: statusImageList[currentStatus][0]
-	property string hover_image: statusImageList[currentStatus][1]
-	property string press_image: statusImageList[currentStatus][2]
+	property url normal_image: statusImageList[currentStatus][0]
+	property url hover_image: statusImageList[currentStatus][1]
+	property url press_image: statusImageList[currentStatus][2]
 
 	signal clicked
 	
@@ -27,7 +27,7 @@ Item {
 		onEntered: { image.source = hover_image }
 		onExited: { image.source = normal_image }
 		onPressed: { image.source = press_image }
-        onReleased: { 
+        onReleased: {
             button.clicked()
             image.source= mouseArea.containsMouse ? hover_image : normal_image
         }

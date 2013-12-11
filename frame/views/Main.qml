@@ -19,6 +19,7 @@ Item {
     DLocale {
         id: dsslocale
         domain: "deepin-system-settings"
+        dirname: "locale"
         //domain: "DDE"
     }
 
@@ -94,7 +95,6 @@ Item {
     }
 
     function initTrayIcon() {
-        print(dsslocale.localeMESSAGES)
         var modules_id_array = modulesId.commonIds
         var new_tray_height = root.height/(modules_id_array.length+1.0)
         if (new_tray_height < trayWidth){

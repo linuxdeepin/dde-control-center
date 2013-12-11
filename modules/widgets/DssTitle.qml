@@ -14,5 +14,8 @@ Item {
         anchors.left: parent.left
         anchors.leftMargin: dconstants.leftMargin
         font.bold: true
+        style: Text.Raised
+        styleColor: Qt.rgba(0, 0, 0, 0.9)
+        color: "white"
     }
 }

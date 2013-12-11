@@ -45,7 +45,7 @@ if __name__ == "__main__":
 
     # Generate ts file 
     subprocess.call(
-        "lupdate -recursive %s -ts %s" % (os.path.realpath(source_dir), ts_filepath),
+        "deepin-lupdate -recursive %s -ts %s" % (os.path.realpath(source_dir), ts_filepath),
         shell=True)
     
     # Generate pot file.

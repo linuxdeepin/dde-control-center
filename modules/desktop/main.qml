@@ -107,7 +107,7 @@ Rectangle {
             visible: false
 
             rows: 2
-            MultipleSelectView {
+            DMultipleSelectView {
                 id: desktop_icons_select_view
                 rows: 2
                 columns: 2
@@ -189,7 +189,7 @@ Rectangle {
             visible: false
 
             rows: 1
-            MultipleSelectView {
+            DMultipleSelectView {
                 id: dock_display_select_view
                 width: parent.width
                 height: rows * 30
@@ -249,7 +249,7 @@ Rectangle {
             visible: false
 
             rows: 1
-            MultipleSelectView {
+            DMultipleSelectView {
 				id: hotspot_top_left_select_view
                 width: parent.width
                 height: rows * 30
@@ -274,7 +274,7 @@ Rectangle {
             visible: false
 
             rows: 1
-            MultipleSelectView {
+            DMultipleSelectView {
 				id: hotspot_bottom_right_select_view
                 width: parent.width
                 height: rows * 30

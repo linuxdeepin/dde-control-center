@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-28 21:24+0800\n"
+"POT-Creation-Date: 2013-12-10 17:53+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,226 +17,477 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../modules/date_time/Calendar.qml:132
-msgid "今天"
+#: ../modules/date_time/Calendar.qml:134
+msgid "Today"
 msgstr ""
 
-#: ../modules/date_time/TimezoneData.qml:9
-msgid "(UTC-11:00)Samoa"
+#: ../modules/widgets/DDownArrowHeader.qml:8
+msgid "Untitled"
 msgstr ""
 
-#: ../modules/date_time/TimezoneData.qml:10
-msgid "(UTC-10:00)Hawaii"
+#: ../modules/network/EthernetConnections.qml:10
+#: ../modules/network/ListConnections.qml:19
+msgid "Wired Connections"
 msgstr ""
 
-#: ../modules/date_time/TimezoneData.qml:11
-msgid "(UTC-09:00)Alaska"
+#: ../modules/network/Header.qml:15
+msgid "Network Settings"
 msgstr ""
 
-#: ../modules/date_time/TimezoneData.qml:12
-msgid "(UTC-08:00)Lower California"
+#: ../modules/network/Header.qml:26
+msgid "Create Connections"
 msgstr ""
 
-#: ../modules/date_time/TimezoneData.qml:13
-msgid "(UTC-07:00)Arizona, Llamas, Mazatlan, Chihuahua"
+#: ../modules/network/ListConnections.qml:48
+msgid "Wireless Acess Points"
 msgstr ""
 
-#: ../modules/date_time/TimezoneData.qml:14
-msgid "(UTC-06:00)Saskatchewan, Mexico City, Monterrey"
+#: ../modules/network/ListConnections.qml:66
+msgid "VPN Connections"
 msgstr ""
 
-#: ../modules/date_time/TimezoneData.qml:15
-msgid "(UTC-05:00)Indiana, Bogota, Lima, Quito"
-msgstr ""
-
-#: ../modules/date_time/TimezoneData.qml:16
-msgid "(UTC-04:00)San Diego, Georgetown, San Juan"
-msgstr ""
-
-#: ../modules/date_time/TimezoneData.qml:17
-msgid "(UTC-03:00)Greenland, Brasilia, Fortaleza"
-msgstr ""
-
-#: ../modules/date_time/TimezoneData.qml:18
-msgid "(UTC-02:00)Mid-Atlantic"
-msgstr ""
-
-#: ../modules/date_time/TimezoneData.qml:19
-msgid "(UTC-01:00)Cape Verde Islands, Azores"
-msgstr ""
-
-#: ../modules/date_time/TimezoneData.qml:20
-msgid "(UTC)London, Dublin, Edinburgh, Lisbon, Casablanca"
-msgstr ""
-
-#: ../modules/date_time/TimezoneData.qml:21
-msgid "(UTC+01:00)Paris, Amsterdam, Berlin, Rome, Vienna"
-msgstr ""
-
-#: ../modules/date_time/TimezoneData.qml:22
-msgid "(UTC+02:00)Cairo, Athens, Istanbul, Jerusalem"
-msgstr ""
-
-#: ../modules/date_time/TimezoneData.qml:23
-msgid "(UTC+03:00)Moscow, St. Petersburg, Baghdad"
-msgstr ""
-
-#: ../modules/date_time/TimezoneData.qml:24
-msgid "(UTC+04:00)Port Louis, Abu Dhabi, Muscat, Yerevan"
-msgstr ""
-
-#: ../modules/date_time/TimezoneData.qml:25
-msgid "(UTC+05:00)Islamabad, Karachi, Tashkent"
-msgstr ""
-
-#: ../modules/date_time/TimezoneData.qml:26
-msgid "(UTC+06:00)Dhaka, Novosibirsk"
-msgstr ""
-
-#: ../modules/date_time/TimezoneData.qml:27
-msgid "(UTC+07:00)Bangkok, Hanoi, Jakarta"
-msgstr ""
-
-#: ../modules/date_time/TimezoneData.qml:28
-msgid "(UTC+08:00)Beijing, Chongqing, HongKong, Taipei, Urumqi"
-msgstr ""
-
-#: ../modules/date_time/TimezoneData.qml:29
-msgid "(UTC+09:00)Osaka, Sapporo, Tokyo, Seoul"
-msgstr ""
-
-#: ../modules/date_time/TimezoneData.qml:30
-msgid "(UTC+10:00)Guam, Canberra, Melbourne, Sydney"
-msgstr ""
-
-#: ../modules/date_time/TimezoneData.qml:31
-msgid "(UTC+11:00)Magadan, Solomon Islands"
-msgstr ""
-
-#: ../modules/date_time/TimezoneData.qml:32
-msgid "(UTC+12:00)New Zealand, Kiribati"
-msgstr ""
-
-#: ../modules/date_time/main.qml:62 ../frame/modules_info.py:30
+#: ../frame/views/ModulesData.qml:5 ../modules/date_time/main.qml:36
+#: ../frame/modules_info.py:30
 msgid "Date & Time"
 msgstr ""
 
-#: ../modules/date_time/main.qml:157
-msgid "Auto-sync datetime"
-msgstr ""
-
-#: ../modules/date_time/main.qml:173
-msgid "24 Hour"
-msgstr ""
-
-#: ../modules/date_time/main.qml:198
-msgid "Timezone"
-msgstr ""
-
-#: ../modules/date_time/main.qml:282
-msgid "Date"
-msgstr ""
-
-#: ../modules/date_time/main.qml:289
-msgid "修改日期"
-msgstr ""
-
-#: ../modules/system_info/main.qml:44 ../frame/modules_info.py:49
-msgid "System Information"
-msgstr ""
-
-#: ../modules/system_info/main.qml:76
-msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
-msgstr ""
-
-#: ../modules/system_info/main.qml:83
-msgid "System Version"
-msgstr ""
-
-#: ../modules/system_info/main.qml:90
-msgid "System Type"
-msgstr ""
-
-#: ../modules/system_info/main.qml:91
-msgid "Bit"
-msgstr ""
-
-#: ../modules/system_info/main.qml:98
-msgid "CPU"
-msgstr ""
-
-#: ../modules/system_info/main.qml:105
-msgid "Memory"
-msgstr ""
-
-#: ../modules/system_info/main.qml:112
-msgid "Disk"
-msgstr ""
-
-#: ../frame/modules_info.py:31
+#: ../frame/views/ModulesData.qml:6 ../frame/modules_info.py:31
 msgid "Network"
 msgstr ""
 
-#: ../frame/modules_info.py:32
+#: ../frame/views/ModulesData.qml:7 ../frame/modules_info.py:32
 msgid "Disk Mount"
 msgstr ""
 
-#: ../frame/modules_info.py:33
+#: ../frame/views/ModulesData.qml:8 ../frame/modules_info.py:33
 msgid "Bluetooth"
 msgstr ""
 
-#: ../frame/modules_info.py:34
+#: ../frame/views/ModulesData.qml:9 ../frame/modules_info.py:34
 msgid "Sound"
 msgstr ""
 
-#: ../frame/modules_info.py:35
+#: ../frame/views/ModulesData.qml:10 ../frame/modules_info.py:35
 msgid "Power"
 msgstr ""
 
-#: ../frame/modules_info.py:36
+#: ../frame/views/ModulesData.qml:11 ../frame/modules_info.py:36
 msgid "More Settings"
 msgstr ""
 
-#: ../frame/modules_info.py:37
+#: ../frame/views/ModulesData.qml:12 ../frame/modules_info.py:37
 msgid "Shutdown"
 msgstr ""
 
-#: ../frame/modules_info.py:38
+#: ../frame/views/ModulesData.qml:13 ../frame/modules_info.py:38
 msgid "Notification"
 msgstr ""
 
-#: ../frame/modules_info.py:39
+#: ../frame/views/ModulesData.qml:14 ../frame/modules_info.py:39
 msgid "Display"
 msgstr ""
 
-#: ../frame/modules_info.py:40
+#: ../frame/views/ModulesData.qml:15 ../frame/modules_info.py:40
 msgid "Desktop"
 msgstr ""
 
-#: ../frame/modules_info.py:41
+#: ../frame/views/ModulesData.qml:16 ../frame/modules_info.py:41
 msgid "Individuation"
 msgstr ""
 
-#: ../frame/modules_info.py:42
+#: ../frame/views/ModulesData.qml:17 ../frame/modules_info.py:42
 msgid "Shortcuts"
 msgstr ""
 
+#: ../frame/views/ModulesData.qml:18 ../modules/keyboard/main.qml:34
 #: ../frame/modules_info.py:43
 msgid "Keyboard"
 msgstr ""
 
+#: ../frame/views/ModulesData.qml:19 ../modules/mouse/main.qml:21
 #: ../frame/modules_info.py:44
 msgid "Mouse"
 msgstr ""
 
-#: ../frame/modules_info.py:46
+#: ../frame/views/ModulesData.qml:21 ../frame/modules_info.py:46
 msgid "Touchpad"
 msgstr ""
 
-#: ../frame/modules_info.py:47
+#: ../frame/views/ModulesData.qml:22 ../frame/modules_info.py:47
 msgid "Account"
 msgstr ""
 
-#: ../frame/modules_info.py:48
+#: ../frame/views/ModulesData.qml:23
+#: ../modules/default_applications/main.qml:20
+#: ../modules/default_applications/main.qml:27 ../frame/modules_info.py:48
 msgid "Default Applications"
+msgstr ""
+
+#: ../frame/views/ModulesData.qml:24 ../modules/system_info/main.qml:45
+#: ../frame/modules_info.py:49
+msgid "System Information"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:44
+msgid "(UTC-11:00)Samoa"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:45
+msgid "(UTC-10:00)Hawaii"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:46
+msgid "(UTC-09:00)Alaska"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:47
+msgid "(UTC-08:00)Lower California"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:48
+msgid "(UTC-07:00)Arizona, Llamas, Mazatlan, Chihuahua"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:49
+msgid "(UTC-06:00)Saskatchewan, Mexico City, Monterrey"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:50
+msgid "(UTC-05:00)Indiana, Bogota, Lima, Quito"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:51
+msgid "(UTC-04:00)San Diego, Georgetown, San Juan"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:52
+msgid "(UTC-03:00)Greenland, Brasilia, Fortaleza"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:53
+msgid "(UTC-02:00)Mid-Atlantic"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:54
+msgid "(UTC-01:00)Cape Verde Islands, Azores"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:55
+msgid "(UTC)London, Dublin, Edinburgh, Lisbon, Casablanca"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:56
+msgid "(UTC+01:00)Paris, Amsterdam, Berlin, Rome, Vienna"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:57
+msgid "(UTC+02:00)Cairo, Athens, Istanbul, Jerusalem"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:58
+msgid "(UTC+03:00)Moscow, St. Petersburg, Baghdad"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:59
+msgid "(UTC+04:00)Port Louis, Abu Dhabi, Muscat, Yerevan"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:60
+msgid "(UTC+05:00)Islamabad, Karachi, Tashkent"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:61
+msgid "(UTC+06:00)Dhaka, Novosibirsk"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:62
+msgid "(UTC+07:00)Bangkok, Hanoi, Jakarta"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:63
+msgid "(UTC+08:00)Beijing, Chongqing, HongKong, Taipei, Urumqi"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:64
+msgid "(UTC+09:00)Osaka, Sapporo, Tokyo, Seoul"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:65
+msgid "(UTC+10:00)Guam, Canberra, Melbourne, Sydney"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:66
+msgid "(UTC+11:00)Magadan, Solomon Islands"
+msgstr ""
+
+#: ../modules/date_time/TimezoneData.qml:67
+msgid "(UTC+12:00)New Zealand, Kiribati"
+msgstr ""
+
+#: ../modules/date_time/main.qml:16 ../modules/date_time/main.qml:18
+msgid "Sunday"
+msgstr ""
+
+#: ../modules/date_time/main.qml:16
+msgid "Monday"
+msgstr ""
+
+#: ../modules/date_time/main.qml:16
+msgid "Tuesday"
+msgstr ""
+
+#: ../modules/date_time/main.qml:17
+msgid "Wednesday"
+msgstr ""
+
+#: ../modules/date_time/main.qml:17
+msgid "Thursday"
+msgstr ""
+
+#: ../modules/date_time/main.qml:17
+msgid "Friday"
+msgstr ""
+
+#: ../modules/date_time/main.qml:17
+msgid "Saturday"
+msgstr ""
+
+#: ../modules/date_time/main.qml:92
+msgid "Auto-sync datetime"
+msgstr ""
+
+#: ../modules/date_time/main.qml:105
+msgid "24 Hour"
+msgstr ""
+
+#: ../modules/date_time/main.qml:129
+msgid "Timezone"
+msgstr ""
+
+#: ../modules/date_time/main.qml:216
+msgid "Date"
+msgstr ""
+
+#: ../modules/date_time/main.qml:220
+msgid "Change Date"
+msgstr ""
+
+#: ../modules/system_info/main.qml:77
+msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
+msgstr ""
+
+#: ../modules/system_info/main.qml:84
+msgid "System Version"
+msgstr ""
+
+#: ../modules/system_info/main.qml:91
+msgid "System Type"
+msgstr ""
+
+#: ../modules/system_info/main.qml:92
+msgid "Bit"
+msgstr ""
+
+#: ../modules/system_info/main.qml:99
+msgid "CPU"
+msgstr ""
+
+#: ../modules/system_info/main.qml:106
+msgid "Memory"
+msgstr ""
+
+#: ../modules/system_info/main.qml:113
+msgid "Disk"
+msgstr ""
+
+#: ../modules/default_applications/main.qml:38
+msgid "Browser"
+msgstr ""
+
+#: ../modules/default_applications/main.qml:39
+msgid "Mail"
+msgstr ""
+
+#: ../modules/default_applications/main.qml:40
+msgid "Text"
+msgstr ""
+
+#: ../modules/default_applications/main.qml:41
+msgid "Music"
+msgstr ""
+
+#: ../modules/default_applications/main.qml:42
+msgid "Video"
+msgstr ""
+
+#: ../modules/default_applications/main.qml:43
+msgid "Picture Viewer"
+msgstr ""
+
+#: ../modules/default_applications/main.qml:44
+msgid "Terminal"
+msgstr ""
+
+#: ../modules/default_applications/main.qml:85
+msgid "Auto Play"
+msgstr ""
+
+#: ../modules/default_applications/main.qml:100
+msgid "CD Audio"
+msgstr ""
+
+#: ../modules/default_applications/main.qml:101
+msgid "DVD Video"
+msgstr ""
+
+#: ../modules/default_applications/main.qml:102
+msgid "Music Player"
+msgstr ""
+
+#: ../modules/default_applications/main.qml:103
+msgid "Camera"
+msgstr ""
+
+#: ../modules/default_applications/main.qml:104
+msgid "Software"
+msgstr ""
+
+#: ../modules/keyboard/main.qml:41
+msgid "Repeat"
+msgstr ""
+
+#: ../modules/keyboard/main.qml:52
+msgid "Repeat Delay"
+msgstr ""
+
+#: ../modules/keyboard/main.qml:56
+msgid "Long"
+msgstr ""
+
+#: ../modules/keyboard/main.qml:57
+msgid "Short"
+msgstr ""
+
+#: ../modules/keyboard/main.qml:75
+msgid "Repeat Interval"
+msgstr ""
+
+#: ../modules/keyboard/main.qml:80 ../modules/keyboard/main.qml:151
+#: ../modules/mouse/main.qml:62 ../modules/mouse/main.qml:116
+msgid "Slow"
+msgstr ""
+
+#: ../modules/keyboard/main.qml:81 ../modules/keyboard/main.qml:152
+#: ../modules/mouse/main.qml:63 ../modules/mouse/main.qml:117
+msgid "Fast"
+msgstr ""
+
+#: ../modules/keyboard/main.qml:99
+msgid "Test Repeat Interval"
+msgstr ""
+
+#: ../modules/keyboard/main.qml:127
+msgid "Cusor Blink"
+msgstr ""
+
+#: ../modules/keyboard/main.qml:169
+msgid "Keyboard Layout"
+msgstr ""
+
+#: ../modules/keyboard/main.qml:170
+msgid "US"
+msgstr ""
+
+#: ../modules/mouse/main.qml:29 ../modules/power/main.qml:159
+msgid "Custom"
+msgstr ""
+
+#: ../modules/mouse/main.qml:33
+msgid "Left Hand"
+msgstr ""
+
+#: ../modules/mouse/main.qml:34
+msgid "Right Hand"
+msgstr ""
+
+#: ../modules/mouse/main.qml:47
+msgid "Point Speed"
+msgstr ""
+
+#: ../modules/mouse/main.qml:58
+msgid "Acceleration"
+msgstr ""
+
+#: ../modules/mouse/main.qml:81
+msgid "Sensitivity"
+msgstr ""
+
+#: ../modules/mouse/main.qml:85
+msgid "Low"
+msgstr ""
+
+#: ../modules/mouse/main.qml:86
+msgid "High"
+msgstr ""
+
+#: ../modules/mouse/main.qml:101
+msgid "Double-click"
+msgstr ""
+
+#: ../modules/mouse/main.qml:112
+msgid "Frequency"
+msgstr ""
+
+#: ../modules/mouse/main.qml:135
+msgid "Double click the smiling face to test"
+msgstr ""
+
+#: ../modules/power/main.qml:47
+msgid "When I press the sleep button"
+msgstr ""
+
+#: ../modules/power/main.qml:61 ../modules/power/main.qml:108
+msgid "Shut down"
+msgstr ""
+
+#: ../modules/power/main.qml:62 ../modules/power/main.qml:109
+msgid "Suspent"
+msgstr ""
+
+#: ../modules/power/main.qml:63 ../modules/power/main.qml:110
+msgid "None"
+msgstr ""
+
+#: ../modules/power/main.qml:94
+msgid "When I close the lid"
+msgstr ""
+
+#: ../modules/power/main.qml:141
+msgid "Power Plan"
+msgstr ""
+
+#: ../modules/power/main.qml:156
+msgid "Balance"
+msgstr ""
+
+#: ../modules/power/main.qml:157
+msgid "Power saver"
+msgstr ""
+
+#: ../modules/power/main.qml:158
+msgid "High performance"
+msgstr ""
+
+#: ../modules/power/main.qml:193 ../modules/power/main.qml:218
+#: ../modules/power/main.qml:229 ../modules/power/main.qml:277
+#: ../modules/power/main.qml:288
+msgid "Turn off monitor"
+msgstr ""
+
+#: ../modules/power/main.qml:252
+msgid "Suspend"
+msgstr ""
+
+#: ../modules/power/main.qml:312
+msgid "Require password when computer wakes"
 msgstr ""

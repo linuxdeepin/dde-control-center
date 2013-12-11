@@ -7,8 +7,8 @@ Item {
     height: content.height
 
     property var modelComponent
-    
     property var expandItems
+
     property int expandItemIndex: -1
 
     Column {
@@ -19,6 +19,7 @@ Item {
         Repeater {
             id: repeater
             model: expandArea.expandItems.length
+            property alias items: expandArea.expandItems
             delegate: DBaseExpand {
                 id: expand
                 expanded: expandArea.expandItemIndex == index
@@ -33,10 +34,8 @@ Item {
                     text: expandArea.expandItems[index].name
                     icon: expandArea.expandItems[index].icon
                     width: parent.width
-                    anchors.left: parent.left
-                    anchors.leftMargin: 2
-                    anchors.right: parent.right
-                    anchors.rightMargin: 2
+                    leftMargin: 25
+                    rightMargin: 15
                     
                     Component.onCompleted: {
                         active = expand.expanded
@@ -48,6 +47,7 @@ Item {
                 }
                 
                 content.sourceComponent: modelComponent
+                contentData: expandArea.expandItems[index]
             }
         }
     }
