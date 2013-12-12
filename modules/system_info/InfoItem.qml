@@ -8,11 +8,17 @@ Rectangle {
 
     property string title
     property string value
-    property int fontSize: 11
-    property int leftWidth: 100
+    property int fontSize: 12
+    property int leftWidth: 80
 
     property bool valueWrapped: false
 
+    Component.onCompleted: {
+        if (dsslocale.lang == "en") {
+            fontSize = 11
+            leftWidth = 100
+        }
+    }
 
      DLabel {
         id: titleArea
