@@ -6,7 +6,7 @@ Rectangle {
 	property int roundRadius: 50
 	property int borderWidth: 3
 	property color borderColor: "white"
-	property string imageSource: ""
+	property url imageSource: ""
     
 	width: (roundRadius + borderWidth) * 2
 	height: (roundRadius + borderWidth) * 2

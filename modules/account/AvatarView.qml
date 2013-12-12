@@ -1,13 +1,13 @@
 import QtQuick 2.1
-import QtMultimedia 5.0
 import "../widgets"
 
 Item {
     id: root
     width: 310
     height: 240
+    state: "default"
 
-    property int horizontalPadding: 8
+    property int verticalPadding: 8
 
     DRadioButton {
         id: radio_button
@@ -17,90 +17,121 @@ Item {
             {"buttonId": "default", "buttonLabel": "Default"},
             {"buttonId": "webcam", "buttonLabel": "Webcam"},
         ]
+        
+        initializeIndex: 1
+        
+        onItemSelected: {
+            switch (idx) {
+                case 0: root.state = "recently"; break
+                case 1: root.state = "default"; break
+                case 2: root.state = "webcam"; break
+            }
+        }
 
         anchors.top: parent.top
-        anchors.topMargin: root.horizontalPadding
+        anchors.topMargin: root.verticalPadding
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
-    Item {
-        id: avatar_default_view
-    }
-
-    Item {
-        id: avatar_webcam_view
-
-        Camera {
-            id: camera
-
-            imageProcessing.whiteBalanceMode: CameraImageProcessing.WhiteBalanceFlash
-
-            imageCapture {
-                resolution: Qt.size(320, 240)
-                onImageCaptured: {
-                }
+    states: [
+        State {
+            name: "recently"
+            PropertyChanges {
+                target: avatar_recently_used_view
+                x: 0
+                visible: true
+            }
+            PropertyChanges {
+                target: avatar_default_view
+                x: root.width
+                visible: false
+            }
+            PropertyChanges {
+                target: avatar_webcam_view
+                x: root.width * 2
+                visible: false
+                running: false
+            }
+        },
+        State {
+            name: "default"
+            PropertyChanges {
+                target: avatar_recently_used_view
+                x: - root.width
+                visible: false
+            }
+            PropertyChanges {
+                target: avatar_default_view
+                x: 0
+                visible: true
+            }
+            PropertyChanges {
+                target: avatar_webcam_view
+                x: root.width
+                visible: false
+                running: false
+            }
+        },
+        State {
+            name: "webcam"
+            PropertyChanges {
+                target: avatar_recently_used_view
+                x: - root.width * 2
+                visible: false
+            }
+            PropertyChanges {
+                target: avatar_default_view
+                x: - root.width
+                visible: false
+            }
+            PropertyChanges {
+                target: avatar_webcam_view
+                x: 0
+                visible: true
+                running: true
             }
         }
+    ]
 
-        VideoOutput {
-            id: video_output
+    AvatarIconView {
+        id: avatar_recently_used_view
 
-            width: 120
-            height: 120
-            source: camera
-            scale: 1.0
-
-            fillMode: VideoOutput.PreserveAspectCrop
-
-            anchors.top: parent.top
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
-
-        Image {
-            id: mask
-            source: "images/mask.png"
-
-            anchors.fill: video_output
-        }
-
-        SliderWithButtons {
-            id: slider
-
-            anchors.top: mask.bottom
-            anchors.topMargin: root.horizontalPadding
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
-
-        DTextButton {
-            id: snapshot_button
-            text: dsTr("Snapshot")
-
-            anchors.top: slider.bottom
-            anchors.topMargin: root.horizontalPadding * 2
-            anchors.right: confirm_button.left
-            anchors.rightMargin: root.horizontalPadding
-
-            onClicked: {
-                root.cancel()
-            }
-        }
-
-        DTextButton {
-            id: confirm_button
-            text: dsTr("Confirm")
-
-            anchors.right: parent.right
-            anchors.rightMargin: root.horizontalPadding
-            anchors.verticalCenter: snapshot_button.verticalCenter
-
-            onClicked: {
-                root.confirm(radio_button.currentIndex == 1)
-            }
-        }
+        width: parent.width
+        height: 280
 
         anchors.top: radio_button.bottom
-        anchors.topMargin: root.horizontalPadding
-        anchors.left: parent.left
-        anchors.right: parent.right
+        anchors.topMargin: root.verticalPadding
+        
+        Behavior on x {
+            SmoothedAnimation { duration: 200 }            
+        }
+    }
+
+    AvatarIconView {
+        id: avatar_default_view
+
+        width: parent.width
+        height: 280
+        withAddButton: true
+
+        anchors.top: radio_button.bottom
+        anchors.topMargin: root.verticalPadding
+        
+        Behavior on x {
+            SmoothedAnimation { duration: 200 }            
+        }
+    }
+
+    WebCam {
+        id: avatar_webcam_view
+        width: parent.width
+        height: 280
+        
+        anchors.top: radio_button.bottom
+        anchors.topMargin: root.verticalPadding
+        
+        Behavior on x {
+            SmoothedAnimation { duration: 200 }            
+        }
     }
 }
