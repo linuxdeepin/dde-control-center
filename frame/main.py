@@ -21,11 +21,10 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
-from PyQt5.QtCore import Qt, QCoreApplication
-if os.name == 'posix':
-    QCoreApplication.setAttribute(Qt.AA_X11InitThreads, True) 
-
+from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QGuiApplication
+if os.name == 'posix':
+    QGuiApplication.setAttribute(Qt.AA_X11InitThreads, True) 
 
 import os
 import sys
