@@ -1,14 +1,13 @@
-import QtQuick 2.1
 import DBus.Com.Deepin.Daemon.SystemInfo 1.0
+import QtQuick 2.0
+import QtQuick.Controls 1.0
+import QtQuick.Controls.Styles 1.0
 import "../widgets"
 
-Rectangle {
-    id: systemInfoModule
+Item {
     anchors.fill: parent
 
     property var dconstants: DConstants {}
-    color: dconstants.bgColor
-
     property var systemInfoDbus: SystemInfo {}
 
     function bitToHuman(b){
@@ -33,97 +32,77 @@ Rectangle {
         }
     }
 
-    Text {
-        id: systemInfoTitle
+    Column {
         anchors.top: parent.top
-        anchors.topMargin: 16
-        anchors.left: parent.left
-        anchors.leftMargin: 20
-        font.pixelSize: 15
-        font.bold: true
-        color: dconstants.fgColor
-        text: dsTr("System Information")
-    }
-
-    SepratorHorizontal {
-        anchors.top: parent.top
-        anchors.topMargin: 46
-    }
-
-    Rectangle {
-        id: logoBox
-        anchors.top: parent.top
-        anchors.topMargin: 48
         width: parent.width
-        height: 118
-        color: dconstants.contentBgColor
 
-        Image {
-            anchors.top: parent.top
-            anchors.topMargin: 10
-            anchors.horizontalCenter: parent.horizontalCenter
-            fillMode: Image.PreserveAspectFit
-            source: "images/logo.png"
+        DssTitle { text: dsTr("System Information") }
+
+        SepratorHorizontal {}
+
+        Rectangle {
+            id: logoBox
+            width: parent.width
+            height: 118
+            color: dconstants.contentBgColor
+
+            Image {
+                anchors.top: parent.top
+                anchors.topMargin: 10
+                anchors.horizontalCenter: parent.horizontalCenter
+                fillMode: Image.PreserveAspectFit
+                source: "images/logo.png"
+            }
+
+            DssH4 {
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 18
+                anchors.horizontalCenter: parent.horizontalCenter
+
+                text: dsTr("Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd.")
+            }
         }
 
-        Text {
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 18
-            anchors.horizontalCenter: parent.horizontalCenter
-
-            font.pixelSize: 10
-            color: dconstants.fgColor
-            //text: dsTr("Copyright (c) 2011-2014 武汉深之度科技有限公司 版权所有")
-            text: dsTr("Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd.")
+        InfoItem { 
+            id: versionItem
+            title: dsTr("System Version")
+            value: systemInfoDbus.version
         }
-    }
 
-    InfoItem { 
-        id: versionItem
-        anchors.top: logoBox.bottom
-        title: dsTr("System Version")
-        value: systemInfoDbus.version
-    }
+        InfoItem { 
+            id: typeItem
+            title: dsTr("System Type")
+            value: systemInfoDbus.systemType + dsTr("Bit")
+        }
 
-    InfoItem { 
-        id: typeItem
-        anchors.top: versionItem.bottom
-        title: dsTr("System Type")
-        value: systemInfoDbus.systemType + dsTr("Bit")
-    }
+        InfoItem { 
+            id: cpuItem
+            title: dsTr("CPU")
+            //value: systemInfoDbus.processor
+        }
+        
+        InfoItem { 
+            id: memoryItem
+            title: dsTr("Memory")
+            value: bitToHuman(systemInfoDbus.memoryCap)
+        }
 
+        InfoItem { 
+            id: distItem
+            title: dsTr("Disk")
+            value: bitToHuman(systemInfoDbus.diskCap)
+        }
 
-    InfoItem { 
-        id: cpuItem
-        anchors.top: typeItem.bottom
-        title: dsTr("CPU")
-        value: systemInfoDbus.processor
-    }
-    
-    InfoItem { 
-        id: memoryItem
-        anchors.top: cpuItem.bottom
-        title: dsTr("Memory")
-        value: bitToHuman(systemInfoDbus.memoryCap)
-    }
+        ////Rectangle { 
+            ////color: dconstants.contentBgColor
+            ////height: 15
+            ////width: parent.width
+            ////anchors.top: distItem.bottom 
+        ////}
 
-    InfoItem { 
-        id: distItem
-        anchors.top: memoryItem.bottom
-        title: dsTr("Disk")
-        value: bitToHuman(systemInfoDbus.diskCap)
+        SepratorHorizontal {}
     }
-
-    Rectangle { 
-        color: dconstants.contentBgColor
-        height: 15
-        width: parent.width
-        anchors.top: distItem.bottom 
-    }
-
-    SepratorHorizontal { 
-        anchors.top: distItem.bottom 
-        anchors.topMargin: 15
-    }
-
 }
+
+
+

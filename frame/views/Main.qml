@@ -144,10 +144,11 @@ Item {
         var tipDisplayHeight
         tipDisplayHeight = Math.abs(trayHeight - trayIconTip.height)/2 + trayHeight * index
         if (trayHeight == trayWidth) {
-            tipDisplayHeight = (screenSize.height - trayHeight * trayIconTabArea.count)/2 + tipDisplayHeight
+            tipDisplayHeight = (windowView.height - trayHeight * trayIconTabArea.count)/2 + tipDisplayHeight
         }
         trayIconTip.y = tipDisplayHeight
         trayIconTipText.text = modulesId.moduleLocaleNames[module_id]
+        //trayIconTip.opacity = 1.0
         trayIconTip.visible = true
     }
 
@@ -233,10 +234,30 @@ Item {
         width: trayIconTipText.width + 52
         height: 44
         x: windowView.x - width
-        visible: false
         flags: Qt.Popup
+        visible: false
+        //opacity: 1
+
+        property alias timeOutHide: hide
+        property bool isHover: false
 
         color: Qt.rgba(0, 0, 0, 0)
+
+        Timer {
+            id: hide
+            interval: 300
+            running: false
+            repeat: false
+            onTriggered: {
+                if (!trayIconTip.isHover){
+                    trayIconTip.visible = false
+                }
+            }
+        }
+
+        Behavior on y {
+            SmoothedAnimation { duration: 300 }
+        }
 
         RectWithCorner {
             id: trayIconTipArrowRect

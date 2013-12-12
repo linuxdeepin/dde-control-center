@@ -24,28 +24,14 @@ Item {
         onTriggered: { parent.date = new Date() }
     }
 
-    Text {
-        id: datetimeTitle
-        anchors.top: parent.top
-        anchors.topMargin: 16
-        anchors.left: parent.left
-        anchors.leftMargin: 20
-        font.pixelSize: 15
-        font.bold: true
-        color: dconstants.fgColor
-        text: dsTr("Date & Time")
-    }
-
-    DSeparatorHorizontal {
-        anchors.top: parent.top
-        anchors.topMargin: 46
-    }
-
     Column {
         id: contentColumn
         anchors.top: parent.top
-        anchors.topMargin: 48
         width: parent.width
+
+        DssTitle { text: dsTr("Date & Time") }
+
+        DSeparatorHorizontal {}
 
         Rectangle {
             id: timeBox

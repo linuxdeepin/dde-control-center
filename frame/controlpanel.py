@@ -25,9 +25,6 @@ import sys
 import subprocess
 
 from PyQt5.QtCore import Qt, pyqtSlot, QVariant, QCoreApplication, QUrl
-if os.name == 'posix':
-    QCoreApplication.setAttribute(Qt.AA_X11InitThreads, True) 
-
 from PyQt5.QtGui import QSurfaceFormat, QColor
 from PyQt5.QtQuick import QQuickView
 
@@ -54,7 +51,7 @@ class ControlPanel(QQuickView):
         self.setFormat(surface_format)
         self.screen_size = self.screen().size()
         self.setGeometry(self.screen_size.width(), 0,
-                360, self.screen_size.height())
+                360, self.screen_size.height()- 60)
         self.set_all_contexts()
         self.setSource(QUrl.fromLocalFile(os.path.join(
             os.path.dirname(os.path.realpath(__file__)), 'views/Main.qml')))

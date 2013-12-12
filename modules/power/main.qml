@@ -41,13 +41,19 @@ Rectangle {
     Column {
         anchors.fill: parent
 
+        DssTitle {
+            text: dsTr("Power")
+        }
+
+        DSeparatorHorizontal {}
+
         DBaseExpand {
             id: power_button_rect
             header.sourceComponent: DDownArrowHeader {
                 text: dsTr("When I press the sleep button")
                 onClicked: power_button_rect.expanded = active
             }
-            content.sourceComponent: MultipleSelectView {
+            content.sourceComponent: DMultipleSelectView {
                 id: power_button_view
                 rows: 1
                 columns: 3
@@ -94,7 +100,7 @@ Rectangle {
                 text: dsTr("When I close the lid")
                 onClicked: close_the_lid_rect.expanded = active
             }
-            content.sourceComponent: MultipleSelectView {
+            content.sourceComponent: DMultipleSelectView {
                 id: close_the_lid_view
                 rows: 1
                 columns: 3
@@ -141,7 +147,7 @@ Rectangle {
                 text: dsTr("Power Plan")
                 onClicked: power_plan_rect.expanded = active
             }
-            content.sourceComponent: MultipleSelectView {
+            content.sourceComponent: DMultipleSelectView {
                 id: power_plan_view
                 rows: 2
                 columns: 2
@@ -313,7 +319,7 @@ Rectangle {
                 active: dbus_power.lockEnabled
 
                 onActiveChanged: {
-                    dbus_power.lockEnabled = active
+                    //dbus_power.lockEnabled = active
                 }
             }
 			

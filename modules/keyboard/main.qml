@@ -167,7 +167,7 @@ Item {
             id: keyboardLayoutSetting
             header.sourceComponent: DDownArrowHeader {
                 text: dsTr("Keyboard Layout")
-                darkText: dsTr("US")
+                hintText: dsTr("US")
                 onClicked: {
                     keyboardLayoutSetting.expanded = !keyboardLayoutSetting.expanded
                 }

@@ -11,10 +11,8 @@ RowLayout {
     anchors.leftMargin: 10
 
     height: 50
-    Label {
+    DLabel {
         text: dsTr("Network Settings")
-        color: fgColor
-        font.pointSize: 12
         MouseArea {
             anchors.fill: parent
             onClicked: {
