@@ -15,14 +15,20 @@ Column {
             id:c1
             width:root.width
             expanded: nm.wiredEnabled
-            header: DSwitcherButtonHeader {
+            Binding{
+                target: nm
+                property: "wiredEnabled"
+                value:c1.expanded
+            }
+            header.sourceComponent: DSwitchButtonHeader {
                 text: dsTr("Wired Connections")
-                checked: c1.expanded
-                onCheckedChanged: {
-                    nm.wiredEnabled = checked
+                Binding{
+                    target: c1;
+                    property: "expanded";
+                    value:parent.active
                 }
             }
-            content: Column {
+            content.sourceComponent: Column {
                 Repeater {
                     model: nm.wiredConnections
                     DLabel {
@@ -37,21 +43,20 @@ Column {
         }
     }
 
-    Loader {
-        id:wireless
-        active: nm.hasWireless
-        sourceComponent: DBaseExpand{
-            width:root.width
-            expanded: nm.wirelessEnabled
+    Repeater {
+        model: 1//nm.wirelessDevices
+        delegate: DBaseExpand {
             id: c2
-            header: DSwitcherButtonHeader {
-                text: dsTr("Wireless Acess Points")
-                checked: c2.expanded
-                onCheckedChanged: {
-                    nm.wirelessEnabled = checked
+            width: root.width
+            expanded: nm.wirelessEnabled
+            header.sourceComponent: DSwitchButtonHeader {
+                text: dsTr("Wireless Access Points")
+                active: c2.expanded
+                onActiveChanged: {
+                    nm.wirelessEnabled = active
                 }
             }
-            content: ListAccessPoints {width:root.width; accessPoints: nm.aPs}
+            content.sourceComponent: ListAccessPoints {width:root.width; accessPoints: nm.aPs}
         }
     }
 
@@ -62,14 +67,14 @@ Column {
             id:c3
             width:root.width
             expanded: nm.vPNEnabled
-            header: DSwitcherButtonHeader {
+            header.sourceComponent: DSwitchButtonHeader {
                 text: dsTr("VPN Connections")
-                checked: c3.expanded
-                onCheckedChanged: {
-                    nm.vPNEnabled = checked
+                active: c3.expanded
+                onActiveChanged: {
+                    nm.vPNEnabled = active
                 }
             }
-            content: Column {
+            content.sourceComponent: Column {
                 Repeater {
                     model: nm.vPNConnections
                     DLabel {
