@@ -1,4 +1,5 @@
 import QtQuick 2.1
+import "../widgets"
 
 Rectangle {
     width: parent.width
@@ -12,38 +13,24 @@ Rectangle {
 
     property bool valueWrapped: false
 
-    Rectangle {
-        id: itemTitleBox
-        anchors.top: parent.top
-        anchors.left: parent.left
-        width: leftWidth
-        height: parent.height
-        color: "transparent"
 
-        Text {
-            anchors.right: parent.right
-            anchors.rightMargin: 5
-            //anchors.verticalCenter: parent.verticalCenter
-            anchors.top: parent.top
-            color: dconstants.fgColor
-            font.pixelSize: fontSize
-            text: title
-        }
+     DLabel {
+        id: titleArea
+        width: leftWidth
+        anchors.verticalCenter: parent.verticalCenter
+        horizontalAlignment: Text.AlignRight
+        font.pixelSize: fontSize
+        text: title + " : "
     }
 
-    Text {
+    DLabel {
         id: systemVersion
-        anchors.left: itemTitleBox.right
+        anchors.left: titleArea.right
         anchors.leftMargin: 5
-        //anchors.verticalCenter: itemTitleBox.verticalCenter
-        anchors.top: parent.top
-        anchors.topMargin: 1
-        color: dconstants.fgColor
+        anchors.verticalCenter: parent.verticalCenter
         font.pixelSize: fontSize
-        text: value
         width: parent.width - leftWidth
-        //elide: Text.ElideRight
-        lineHeight: 1.4
+        text: value
 
         Component.onCompleted: {
             if (width < contentWidth){

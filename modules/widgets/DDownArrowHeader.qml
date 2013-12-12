@@ -6,7 +6,7 @@ Rectangle {
     id: header
 
     property string text: dsTr("Untitled")
-    property string darkText
+    property string hintText
     property alias icon: iconArea.source
     property alias active: actionArea.checked
 
@@ -52,8 +52,8 @@ Rectangle {
                 anchors.verticalCenter: parent.verticalCenter
                 font.pixelSize: 12
                 color: dconstants.fgDarkColor
-                visible: darkText ? true : false
-                text: " (" + header.darkText + ")"
+                visible: hintText ? true : false
+                text: " (" + header.hintText + ")"
             }
         }
 

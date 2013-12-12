@@ -66,6 +66,12 @@ Rectangle {
     }
 
     Column {
+        width: parent.width
+        anchors.top: parent.top
+
+        DssTitle { text: dsTr("Desktop") }
+
+        DSeparatorHorizontal {}
 
         move: Transition {
             NumberAnimation { properties: "x,y"; duration: 100 }
