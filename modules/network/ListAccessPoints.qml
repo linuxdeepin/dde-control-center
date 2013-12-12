@@ -10,9 +10,12 @@ Column {
         DLabel {
             height: 30
             verticalAlignment: Text.AlignVCenter
-            width:parent.width
+            width: parent.width
             text: accessPoints[index][0]
             DSeparatorHorizontal{}
         }
+    }
+    Component.onCompleted: {
+        print("A", nm.aPs)
     }
 }

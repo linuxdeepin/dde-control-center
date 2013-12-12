@@ -54,7 +54,7 @@ class ControlPanel(QQuickView):
         self.setFormat(surface_format)
         self.screen_size = self.screen().size()
         self.setGeometry(self.screen_size.width(), 0,
-                360, self.screen_size.height())
+                360, self.screen_size.height()- 60)
         self.set_all_contexts()
         self.setSource(QUrl.fromLocalFile(os.path.join(
             os.path.dirname(os.path.realpath(__file__)), 'views/Main.qml')))
