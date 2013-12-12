@@ -19,11 +19,12 @@ Rectangle {
     ]
 
     onHoverChanged: {
+        trayIconTip.isHover = hover
         if (hover){
             root.trayIconHoverHandler(moduleId, index)
         }
         else {
-            trayIconTip.visible = false
+            trayIconTip.timeOutHide.restart()
         }
     }
 

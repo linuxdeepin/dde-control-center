@@ -25,9 +25,6 @@ import sys
 import subprocess
 
 from PyQt5.QtCore import Qt, pyqtSlot, QVariant, QCoreApplication, QUrl
-if os.name == 'posix':
-    QCoreApplication.setAttribute(Qt.AA_X11InitThreads, True) 
-
 from PyQt5.QtGui import QSurfaceFormat, QColor
 from PyQt5.QtQuick import QQuickView
 
