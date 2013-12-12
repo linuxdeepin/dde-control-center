@@ -218,12 +218,12 @@ Item {
             modelComponent: Component {
 
                 ListView {
-                    id: autostartAppListView
+                    id: autoPlayAppListView
                     width: parent.width
 
                     property string defaultItemId: ""
 
-                    model: ListModel {}
+                    model: ListModel {id: autoPlayModel}
                     delegate: Item {
                         width: parent.width
                         height: 28
@@ -240,14 +240,14 @@ Item {
                                 id: nameImage
                                 anchors.verticalCenter: parent.verticalCenter
                                 source: "images/select.png"
-                                opacity: autostartAppListView.defaultDesktopName == desktopName ? 1 : 0
+                                opacity: autoPlayAppListView.defaultDesktopName == desktopName ? 1 : 0
                             }
                             
                             DssH3 {
                                 id: nameText
                                 anchors.verticalCenter: parent.verticalCenter
                                 text: label 
-                                color: autostartAppListView.defaultDesktopName == desktopName ? "#009EFF" : "#fff"
+                                color: autoPlayAppListView.defaultDesktopName == desktopName ? "#009EFF" : "#fff"
                                 font.pixelSize: 12
                             }
                         }
@@ -257,11 +257,11 @@ Item {
                             hoverEnabled: true
                             
                             onEntered: {
-                                autostartAppListView.currentIndex = index
+                                autoPlayAppListView.currentIndex = index
                             }
                             
                             onClicked: {
-                                autostartAppListView.defaultDesktopName = desktopName
+                                autoPlayAppListView.defaultDesktopName = desktopName
                             }
                         }
                     }
@@ -282,21 +282,21 @@ Item {
 
                     Component.onCompleted: {
                         var datas = defaultAppsId.GetAppsListViaType(componentData.contentType)
-                        height = datas.length * 28
                         for (var i=0;i<datas.length;i++){
-                            model.append({
+                            autoPlayModel.append({
                                 "label": datas[i][1],
                                 "desktop_name": datas[i][0]
                             })
                         }
-                        model.append({
-                            "label": dsTr("Nothing"),
+                        autoPlayModel.append({
+                            "label": "Nothing",
                             "desktop_name": "nothing"
                         })
-                        model.append({
-                            "label": dsTr("Open folder"),
+                        autoPlayModel.append({
+                            "label": "Open folder",
                             "desktop_name": "folder"
                         })
+                        height = autoPlayModel.count * 28
                     }
                 }
 
