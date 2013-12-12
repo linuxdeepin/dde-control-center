@@ -5,6 +5,7 @@ import "../widgets/"
 Item {
     id: calendarWidget
     width: 308
+    height: 240
     property var clickedDateObject: date
     property string clickedDate: CalendarCore.dateToString(clickedDateObject)
     property var cur_calendar;
