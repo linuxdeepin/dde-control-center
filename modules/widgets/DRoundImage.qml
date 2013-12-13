@@ -8,8 +8,8 @@ Rectangle {
     property url imageSource: ""
     property int borderWidth: 3
     property color borderColor: "white"
-    property int glowRadius: 9
-    property color glowColor: "lightsteelblue"
+    property int glowRadius: 0
+    property color glowColor: "#19A9F9"
 
     property bool checkSupport: false
 
@@ -18,15 +18,19 @@ Rectangle {
     radius: roundRadius + borderWidth
     color: borderColor
     state: "normal"
-    
+
     signal clicked
-    
+
     states: [
         State {
             name: "normal"
             PropertyChanges {
                 target: glow
                 visible: false
+            }
+            PropertyChanges {
+                target: round_image
+                borderColor: "white"
             }
         },
         State {
@@ -35,8 +39,33 @@ Rectangle {
                 target: glow
                 visible: true
             }
+            PropertyChanges {
+                target: round_image
+                borderColor: "#19A9F9"
+            }
         }
     ]
+
+    Rectangle {
+        id: round_bg
+        radius: round_image.roundRadius
+
+        width: round_item.width
+        height: round_item.height
+
+        anchors.centerIn: parent
+    }
+
+    RectangularGlow {
+        id: glow
+
+        spread: 0.5
+        color: round_image.glowColor
+        cornerRadius: round_image.roundRadius + round_image.glowRadius
+        glowRadius: round_image.glowRadius
+
+        anchors.fill: round_bg
+    }
 
     DRoundItem {
         id: round_item
@@ -50,16 +79,6 @@ Rectangle {
         }
 
         anchors.centerIn: parent
-    }
-
-    Glow {
-        id: glow
-
-        anchors.fill: round_item
-        radius: round_image.glowRadius
-        samples: 10
-        color: round_image.glowColor
-        source: round_item
     }
 
     MouseArea {
