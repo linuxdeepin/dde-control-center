@@ -8,7 +8,7 @@ Item {
     state: "default"
 
     property int verticalPadding: 8
-
+    
     DRadioButton {
         id: radio_button
 
@@ -17,9 +17,9 @@ Item {
             {"buttonId": "default", "buttonLabel": "Default"},
             {"buttonId": "webcam", "buttonLabel": "Webcam"},
         ]
-        
+
         initializeIndex: 1
-        
+
         onItemSelected: {
             switch (idx) {
                 case 0: root.state = "recently"; break
@@ -98,12 +98,12 @@ Item {
 
         width: parent.width
         height: parent.height - root.verticalPadding * 3 - radio_button.height
-
+        
         anchors.top: radio_button.bottom
         anchors.topMargin: root.verticalPadding * 2
         
         Behavior on x {
-            SmoothedAnimation { duration: 200 }            
+            SmoothedAnimation { duration: 200 }
         }
     }
 
@@ -111,28 +111,28 @@ Item {
         id: avatar_default_view
 
         width: parent.width
-        height: parent.height - root.verticalPadding * 3 - radio_button.height        
-        
-        withAddButton: true
+        height: parent.height - root.verticalPadding * 3 - radio_button.height
 
+        withAddButton: true
+        
         anchors.top: radio_button.bottom
         anchors.topMargin: root.verticalPadding * 2
-        
+
         Behavior on x {
-            SmoothedAnimation { duration: 200 }            
+            SmoothedAnimation { duration: 200 }
         }
     }
 
     WebCam {
         id: avatar_webcam_view
         width: parent.width
-        height: parent.height - root.verticalPadding * 3- radio_button.height        
-        
+        height: parent.height - root.verticalPadding * 3- radio_button.height
+
         anchors.top: radio_button.bottom
         anchors.topMargin: root.verticalPadding * 2
-        
+
         Behavior on x {
-            SmoothedAnimation { duration: 200 }            
+            SmoothedAnimation { duration: 200 }
         }
     }
 }

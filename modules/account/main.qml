@@ -13,32 +13,50 @@ Rectangle {
         DssTitle {
             text: dsTr("Account")
         }
-        
+
         DSeparatorHorizontal{}
-        
+
         DBaseHeader {
             title.sourceComponent: DssH2 {
                 text: dsTr("User List")
             }
             button.sourceComponent: Row {
                 spacing: 10
-                
-                DImageButton {
-                    normal_image: "images/delete_normal.png"
-                    hover_image: "images/delete_hover.png"
-                    press_image: "images/delete_press.png"
+
+                DImageCheckButton {
+                    inactivatedNomralImage: "images/delete_normal.png"
+                    inactivatedHoverImage: "images/delete_normal.png"
+                    inactivatedPressImage: "images/delete_normal.png"
+
+                    activatedNomralImage: "images/delete_press.png"
+                    activatedHoverImage: "images/delete_press.png"
+                    activatedPressImage: "images/delete_press.png"
+                    
+                    onActivateChanged: {
+                        if (activate) {
+                            user_list.allAction()
+                        } else {
+                            user_list.allNormal()
+                        }
+                    }
                 }
-                
-                DImageButton {
-                    normal_image: "images/add_normal.png"
-                    hover_image: "images/add_hover.png"
-                    press_image: "images/add_press.png"
+
+                DImageCheckButton {
+                    inactivatedNomralImage: "images/add_normal.png"
+                    inactivatedHoverImage: "images/add_normal.png"
+                    inactivatedPressImage: "images/add_normal.png"
+
+                    activatedNomralImage: "images/add_press.png"
+                    activatedHoverImage: "images/add_press.png"
+                    activatedPressImage: "images/add_press.png"
                 }
             }
         }
-        
+
         DSeparatorHorizontal{}
-        
-        UserList {}
+
+        UserList {
+            id: user_list
+        }
     }
 }

@@ -2,15 +2,16 @@ import QtQuick 2.1
 import "../widgets"
 
 Item {
+    id: root
     width: 310
     height: column.height
 
     DColumn {
         id: column
-        
+
         AvatarView {
             id: avatar_view
-            
+
             width: 310
             height: 300
         }
@@ -87,7 +88,7 @@ Item {
         PasswordDialog {
             id: password_dialog
         }
-        
+
         Component.onCompleted: {
             height = password_dialog.height + 38 * 3 + avatar_view.height + 2 * 4
             parent.height = height

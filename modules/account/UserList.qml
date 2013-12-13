@@ -8,28 +8,31 @@ ListView {
     property int leftPadding: 15
     property int rightPadding: 15
     property int avatarNamePadding: 30
-    
+
     /* property variant dbus_accounts: Accounts {} */
-    
+
     signal hideAllPrivate (int idx)
     signal showAllPrivate ()
-    
+    signal allNormal ()
+    signal allAction ()
+
     Component {
         id: delegate_component
+
 
         Rectangle{
             id: component_bg
             color: "#1A1B1B"
-            state: "action"
+            state: "normal"
 
             width: 310
             height: component_top.height + component_sep.height
-            
+
             /* property string lastHeight: component_top.height + component_sep.height */
             /* onHeightChanged: { */
             /*     ListView.view.height += height - lastHeight */
             /* } */
-            
+
             Connections {
                 target: component_bg.ListView.view
                 onHideAllPrivate: {
@@ -42,8 +45,16 @@ ListView {
                         component_bg.height = 100 + 2
                     }
                 }
+
+                onAllAction: {
+                    component_bg.state = "action"
+                }
+
+                onAllNormal: {
+                    component_bg.state = "normal"
+                }
             }
-            
+
             Rectangle {
                 id: component_top
 
@@ -54,9 +65,9 @@ ListView {
                     id: round_image
                     roundRadius: 25
                     imageSource: userAvatar
-                    
+
                     property bool toggleFlag: false
-                    
+
                     onClicked: {
                         if (!toggleFlag) {
                             component_bg.state = "edit_dialog"
@@ -67,47 +78,47 @@ ListView {
                         }
                         toggleFlag = !toggleFlag
                     }
-                    
+
                     anchors.verticalCenter: parent.verticalCenter
                 }
-                
+
                 Column {
                     id: name_column
-                    
+
                     DssH2 {
                         text: userName
                     }
-                    
+
                     DssH3 {
                         text: userType
                     }
-                    
+
                     anchors.left: round_image.right
                     anchors.leftMargin: root.avatarNamePadding
                     anchors.verticalCenter: parent.verticalCenter
                 }
-                
+
                 UserStatusButton {
                     id: user_status_button
                     state: userStatus
-                    
+
                     anchors.right: parent.right
                     anchors.rightMargin: root.rightPadding
                     anchors.verticalCenter: parent.verticalCenter
                 }
-                
+
                 DeleteUserButton {
                     id: delete_user_button
-                    
+
                     onClicked: {
                         component_bg.state = "delete_dialog"
                     }
-                    
+
                     anchors.right: parent.right
                     anchors.rightMargin: root.rightPadding
                     anchors.verticalCenter: parent.verticalCenter
                 }
-                
+
                 anchors.top: parent.top
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -117,133 +128,133 @@ ListView {
 
             DSeparatorHorizontal {
                 id: component_sep
-                
+
                 anchors.top: component_top.bottom
             }
-            
+
             DeleteUserDialog {
                 id: delete_user_dialog
                 width: 310
                 height: 100
                 visible: false
-                
+
                 onCancel: {
                     component_bg.state = "action"
                 }
-                
+
                 onConfirm: {
-                    component_bg.state = "normal"                    
+                    component_bg.state = "normal"
                     print("delete user files? ", deleteFiles)
                 }
-                
+
                 anchors.top: component_sep.bottom
             }
-            
+
             EditUserDialog {
                 id: edit_user_dialog
-                
+
                 anchors.top: component_sep.bottom
             }
-            
+
             states: [
                 State {
                     name: "normal"
-                    PropertyChanges { 
+                    PropertyChanges {
                         target: delete_user_dialog
                         visible: false
                     }
-                    PropertyChanges { 
+                    PropertyChanges {
                         target: edit_user_dialog
                         visible: false
                     }
-                    PropertyChanges { 
+                    PropertyChanges {
                         target: delete_user_button
                         visible: false
                     }
-                    PropertyChanges { 
+                    PropertyChanges {
                         target: component_bg
                         height: component_top.height + component_sep.height
                     }
-                    PropertyChanges { 
+                    PropertyChanges {
                         target: user_status_button
                         visible: true
                     }
                 },
                 State {
                     name: "action"
-                    PropertyChanges { 
+                    PropertyChanges {
                         target: delete_user_dialog
                         visible: false
                     }
-                    PropertyChanges { 
+                    PropertyChanges {
                         target: edit_user_dialog
                         visible: false
                     }
-                    PropertyChanges { 
+                    PropertyChanges {
                         target: user_status_button
                         visible: false
                     }
-                    PropertyChanges { 
+                    PropertyChanges {
                         target: component_bg
                         height: component_top.height + component_sep.height
                     }
-                    PropertyChanges { 
+                    PropertyChanges {
                         target: delete_user_button
                         visible: true
                     }
                 },
                 State {
                     name: "delete_dialog"
-                    PropertyChanges { 
+                    PropertyChanges {
                         target: edit_user_dialog
                         visible: false
-                    }                    
-                    PropertyChanges { 
+                    }
+                    PropertyChanges {
                         target: user_status_button
                         visible: false
                     }
-                    PropertyChanges { 
+                    PropertyChanges {
                         target: component_bg
                         height: component_top.height + component_sep.height + delete_user_dialog.height
                     }
-                    PropertyChanges { 
+                    PropertyChanges {
                         target: delete_user_button
                         visible: true
                     }
-                    PropertyChanges { 
+                    PropertyChanges {
                         target: delete_user_dialog
                         visible: true
-                    }                    
+                    }
                 },
                 State {
                     name: "edit_dialog"
-                    PropertyChanges { 
+                    PropertyChanges {
                         target: delete_user_dialog
                         visible: false
-                    }                    
-                    PropertyChanges { 
+                    }
+                    PropertyChanges {
                         target: user_status_button
                         visible: false
                     }
-                    PropertyChanges { 
+                    PropertyChanges {
                         target: delete_user_button
                         visible: false
                     }
-                    PropertyChanges { 
+                    PropertyChanges {
                         target: component_bg
                         height: component_top.height + component_sep.height + edit_user_dialog.height
                     }
-                    PropertyChanges { 
+                    PropertyChanges {
                         target: edit_user_dialog
                         visible: true
-                    }                    
+                    }
                 }
             ]
-            
+
             Behavior on height {
                 SmoothedAnimation { duration: 200 }
             }
-            
+
             Component.onCompleted: {
                 if (index == 0) {root.width = width}
                 root.height += height
@@ -251,30 +262,30 @@ ListView {
         }
     }
 
-    model: ListModel { id: user_list_model        
-        ListElement {
-            userAvatar: "/home/hualet/Pictures/DeepinScreenshot20131108122543.png"
-            userName: "Hualet0"
-            userType: "Administrator"
-            userStatus: "currentUser"
-        }
-        ListElement {
-            userAvatar: "/home/hualet/Pictures/DeepinScreenshot20131108122543.png"
-            userName: "Hualet1"
-            userType: "Administrator"
-            userIsCurrent: "false"
-            userStatus: "otherUser"            
-        }
-        ListElement {
-            userAvatar: "/home/hualet/Pictures/DeepinScreenshot20131108122543.png"
-            userName: "Hualet2"
-            userType: "Administrator"
-            userStatus: "inactiveUser"            
-        }
-    }
+    model: ListModel { id: user_list_model
+                       ListElement {
+                           userAvatar: "/home/hualet/Pictures/DeepinScreenshot20131108122543.png"
+                           userName: "Hualet0"
+                           userType: "Administrator"
+                           userStatus: "currentUser"
+                       }
+                       ListElement {
+                           userAvatar: "/home/hualet/Pictures/DeepinScreenshot20131108122543.png"
+                           userName: "Hualet1"
+                           userType: "Administrator"
+                           userIsCurrent: "false"
+                           userStatus: "otherUser"
+                       }
+                       ListElement {
+                           userAvatar: "/home/hualet/Pictures/DeepinScreenshot20131108122543.png"
+                           userName: "Hualet2"
+                           userType: "Administrator"
+                           userStatus: "inactiveUser"
+                       }
+                     }
 
     delegate: delegate_component
-    
+
     Component.onCompleted: {
         print(dbus_accounts.ListCachedUsers())
     }

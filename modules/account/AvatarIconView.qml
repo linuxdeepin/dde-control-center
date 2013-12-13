@@ -2,6 +2,7 @@ import QtQuick 2.1
 import "../widgets"
 
 DScrollWidget {
+    id: root
     width: 300
     height: 300
 
@@ -21,13 +22,43 @@ DScrollWidget {
                 height: GridView.view.cellHeight
 
                 DRoundImage {
+                    id: round_image
+                    
                     roundRadius: 30
                     borderWidth: 2
                     glowRadius: 2
                     imageSource: avatarPath
                     checkSupport: true
 
+                    onClicked: {
+                        animation.start()
+                    }
+
                     anchors.centerIn: parent
+                }
+
+                PathAnimation {
+                    id: animation
+
+                    target: round_image
+                    duration: 500
+                    easing.type: Easing.InQuad
+
+                    property int startX: target.x
+                    property int startY: target.y
+                    property int endX: -100
+                    property int endY: -100
+
+                    path: Path {
+                        startX: animation.startX
+                        startY: animation.startY
+
+                        PathCubic {
+                            x: animation.endX; y: animation.endY
+                            relativeControl1X: -10; relativeControl1Y: -30
+                            relativeControl2X: 10; relativeControl2Y: -20
+                        }
+                    }
                 }
             }
         }
@@ -48,7 +79,7 @@ DScrollWidget {
                 avatar_icon_view_model.append({"avatarPath": "images/avatar_add.png"})
             }
         }
-        
+
         anchors.fill: parent
     }
 }
