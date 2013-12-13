@@ -92,7 +92,7 @@ Item {
                     id: defaultAppListview
                     width: parent.width
 
-                    property string defaultDesktopName: defaultAppsId.GetDefaultAppViaType(componentData.defaultGetType)[0]
+                    property string defaultDesktopName: defaultAppsId.DefaultAppViaType(componentData.defaultGetType)[0]
                     property var setTypeGroup: componentData.setTypeGroup
 
                     model: ListModel {}
@@ -156,7 +156,7 @@ Item {
                     interactive: true
 
                     Component.onCompleted: {
-                        var datas = defaultAppsId.GetAppsListViaType(componentData.defaultGetType)
+                        var datas = defaultAppsId.AppsListViaType(componentData.defaultGetType)
                         height = datas.length * 28
                         for (var i=0;i<datas.length;i++){
                             model.append({
@@ -281,7 +281,7 @@ Item {
                     interactive: true
 
                     Component.onCompleted: {
-                        var datas = defaultAppsId.GetAppsListViaType(componentData.contentType)
+                        var datas = defaultAppsId.AppsListViaType(componentData.contentType)
                         for (var i=0;i<datas.length;i++){
                             autoPlayModel.append({
                                 "label": datas[i][1],

@@ -131,7 +131,8 @@ function getDates(dateStr){
         }
     }
 
-    var tmpInterval = results.length % 7 == 0 ? 0 : 7 - (results.length % 7);
+    //var tmpInterval = results.length % 7 == 0 ? 0 : 7 - (results.length % 7);
+    var tmpInterval = 42 - results.length
     var next_year = cur_month == 12 ? cur_year + 1: cur_year;
     var next_month = cur_month == 12 ? 1 : cur_month + 1;
     for (var i=1;i<= tmpInterval; i++){

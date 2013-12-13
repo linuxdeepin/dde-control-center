@@ -18,6 +18,7 @@ Item {
         if (d > cur_calendar.clickedDateObject && slideStop){
             //var next_d = CalendarCore.getDateWidthMonthStep(cur_calendar.clickedDateObject, 1)
             next_calendar = calendarSlideBox.createCanlendar(d, "next")
+            next_calendar.visible = true
             if (!toNextMonth.running && !toPreviousMonth.running){
                 toNextMonth.restart()
             }
@@ -26,6 +27,7 @@ Item {
         else if (d < cur_calendar.clickedDateObject && slideStop){
             //var pre_d = CalendarCore.getDateWidthMonthStep(cur_calendar.clickedDateObject, -1)
             pre_calendar = calendarSlideBox.createCanlendar(d, "previous")
+            pre_calendar.visible = true
             if (!toNextMonth.running && !toPreviousMonth.running){
                 toPreviousMonth.restart()
             }
@@ -285,9 +287,11 @@ Item {
 
             if (position == 'previous'){
                 calendar.x = calendarSlideBox.x - calendarSlideBox.width;
+                calendar.visible = false
             }
             else if (position == 'next') {
                 calendar.x = calendarSlideBox.x + calendarSlideBox.width;
+                calendar.visible = false
             }
             else{
                 calendar.x = calendarSlideBox.x

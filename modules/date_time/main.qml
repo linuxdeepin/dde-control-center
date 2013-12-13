@@ -95,59 +95,8 @@ Item {
                 gDate.use24HourDisplay = active
             }
         }
+
         DSeparatorHorizontal {}
-
-    //Rectangle {
-        //id: timezoneTitle
-        //anchors.top: contentColumn.bottom
-        //width: parent.width
-        //height: 28
-        //color: dconstants.bgColor
-
-        //Text {
-            //id: timezoneTitleText
-            //anchors.verticalCenter: parent.verticalCenter
-            //anchors.left: parent.left
-            //anchors.leftMargin: 18
-            //font.pixelSize: 13
-            //color: dconstants.fgColor
-            //text: dsTr("Timezone")
-        //}
-
-        //Text {
-            //id: currentTimezone
-            //width: parent.width - timezoneTitleText.width - 42
-            //anchors.verticalCenter: parent.verticalCenter
-            //anchors.left: timezoneTitleText.right
-            //font.pixelSize: 13
-            //color: "#666666"
-            //elide: Text.ElideRight
-        //}
-
-        //ImageCheckButton {
-            //color: dconstants.bgColor
-            //anchors.verticalCenter: parent.verticalCenter
-            //anchors.right: parent.right
-            //anchors.rightMargin: 12
-
-            //inactivatedNomralImage: "images/arrow_down_normal.png"
-            //inactivatedHoverImage: "images/arrow_down_hover.png"
-            //inactivatedPressImage: "images/arrow_down_press.png"
-
-            //activatedNomralImage: "images/arrow_up_normal.png"
-            //activatedHoverImage: "images/arrow_up_hover.png"
-            //activatedPressImage: "images/arrow_up_press.png"
-
-            //onActivateChanged: {
-                //if (activate){
-                    //timezoneList.height = 260
-                //}
-                //else {
-                    //timezoneList.height = 0
-                //}
-            //}
-        //}
-    //}
 
         DBaseExpand {
             id: timezoneExpand
@@ -177,6 +126,7 @@ Item {
                         model: timezoneData.timezoneList
                         delegate: TimezoneItem {}
                         focus: true
+                        currentIndex: 19
                         
                         onCurrentItemChanged: {
                             timezoneExpand.currentTimezoneLabel = currentItem.timezoneText

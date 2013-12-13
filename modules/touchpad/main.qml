@@ -26,7 +26,6 @@ Item {
 
         DSwitchButtonHeader {
             text: dsTr("Enable touchpad")
-            leftMargin: 15
             active: touchPadID.tPadEnable ? true : false
 
             onClicked: {

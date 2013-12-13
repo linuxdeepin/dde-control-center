@@ -7,12 +7,12 @@ Rectangle {
 
     property string text: dsTr("Untitled")
     property string hintText
-    property alias icon: iconArea.source
-    property alias active: actionArea.checked
+    property alias icon: iconImage.source
+    property alias active: actionButton.checked
 
-    property int leftMargin: 15
-    property int rightMargin: 5
     property var dconstants: DConstants {}
+    property int leftMargin: dconstants.leftMargin
+    property int rightMargin: dconstants.rightMargin
 
     height: 30
     width: parent.width
@@ -24,17 +24,21 @@ Rectangle {
         anchors.fill: parent
         anchors.left: parent.left
         anchors.leftMargin: leftMargin
+        anchors.right: parent.right
+        anchors.rightMargin: rightMargin
 
         Row {
             height: parent.height
-            width: parent.width
+            width: parent.width - actionArea.width
+            spacing: 2
 
             Item {
-                width: iconArea.width + 8
-                height: iconArea.height
+                id: iconArea
+                width: iconImage.width + 8
+                height: iconImage.height
                 anchors.verticalCenter: parent.verticalCenter
                 Image {
-                    id: iconArea
+                    id: iconImage
                     anchors.left: parent.left
                     anchors.verticalCenter: parent.verticalCenter
                     visible: source ? true : false
@@ -53,19 +57,23 @@ Rectangle {
                 font.pixelSize: 12
                 color: dconstants.fgDarkColor
                 visible: hintText ? true : false
-                text: " (" + header.hintText + ")"
+                text: header.hintText
+                elide: Text.ElideRight
+            }
+            Component.onCompleted: {
+                darkArea.width = width - iconArea.width - titleArea.width
             }
         }
 
         Item {
+            id: actionArea
             anchors.right: parent.right
-            anchors.rightMargin: rightMargin
             anchors.verticalCenter: parent.verticalCenter
             height: parent.height - 2
-            width: actionArea.width
+            width: actionButton.width
 
             DDownArrowButton {
-                id: actionArea
+                id: actionButton
                 anchors.centerIn: parent
 
                 onClicked: {
@@ -78,8 +86,8 @@ Rectangle {
     MouseArea {
         anchors.fill: parent
         onClicked: {
-            actionArea.checked = !actionArea.checked
-            actionArea.clicked()
+            actionButton.checked = !actionButton.checked
+            actionButton.clicked()
         }
     }
 }
