@@ -14,7 +14,7 @@ DBaseHeader {
         id: titleLabel
         text: header.text
         color: dconstants.fgColor
-	}
+    }
 
     button.sourceComponent: Image {
         id: arrow
