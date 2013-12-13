@@ -8,8 +8,8 @@ Column {
     width: root.width
 
     DSeparatorHorizontal{}
-    DBaseHeader {
-        title.sourceComponent: DssH1{
+    DBaseLine {
+        leftLoader.sourceComponent: DssH1{
             text: dsTr("Wired Connections")
         }
     }
@@ -18,10 +18,10 @@ Column {
         model: nm.wiredDevices
         Column {
             width:root.width
-            DBaseHeader {
+            DBaseLine {
                 id:content
                 color: dconstants.contentBgColor
-                title.sourceComponent: DLabel {
+                leftLoader.sourceComponent: DLabel {
                     height: 30
                     verticalAlignment: Text.AlignVCenter
                     width:parent.width
@@ -29,7 +29,7 @@ Column {
                     color: nm.wiredDevices[index][1] != "/" ? "blue" : dconstants.fgColor
                     DSeparatorHorizontal{}
                 }
-                button.sourceComponent: DSwitchButton {
+                rightLoader.sourceComponent: DSwitchButton {
                     checked: nm.wiredDevices[index][1] != "/"
                 }
             }

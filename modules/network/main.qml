@@ -10,10 +10,10 @@ Item {
     //property Item currenItem: Info {width: root.width}
     property variant nm: NetworkManager{}
 
-    DBaseHeader {
+    DBaseLine {
         id:header
         height: 50
-        title.sourceComponent: DLabel {
+        leftLoader.sourceComponent: DLabel {
                 text: dsTr("Network Settings")
                 MouseArea {
                     anchors.fill: parent
@@ -22,7 +22,7 @@ Item {
                     }
                 }
             }
-        button.sourceComponent: Row {
+        rightLoader.sourceComponent: Row {
             DTextButton {
                 text: dsTr("Create Connections")
             }

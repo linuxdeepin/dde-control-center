@@ -16,7 +16,7 @@ Rectangle {
     color: dconstants.bgColor
 
     Loader {
-        id: leftArea 
+        id: leftArea
         anchors.left: parent.left
         anchors.leftMargin: leftMargin
         anchors.verticalCenter: parent.verticalCenter
