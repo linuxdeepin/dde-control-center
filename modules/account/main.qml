@@ -5,14 +5,16 @@ Rectangle {
     id: root
     color: constants.bgColor
     width: 310
-    height: 600
+    height: 900
 
     property variant constants: DConstants {}
 
-    DColumn {
+    Column {
         DssTitle {
             text: dsTr("Account")
         }
+        
+        DSeparatorHorizontal{}
         
         DBaseHeader {
             title.sourceComponent: DssH2 {
@@ -33,6 +35,12 @@ Rectangle {
             }
         }
         
-        UserList {}
+        DSeparatorHorizontal{}
+        
+        UserList {
+            onHeightChanged: {
+                print(height)
+            }
+        }
     }
 }

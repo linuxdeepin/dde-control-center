@@ -4,7 +4,6 @@ Image {
     id: switch_button
     clip: true
     source: "images/switch_frame.svg"
-    anchors.centerIn: parent
 
     property bool checked: false
     state: checked ? "on" : "off"

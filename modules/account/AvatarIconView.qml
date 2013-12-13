@@ -23,6 +23,7 @@ DScrollWidget {
                 DRoundImage {
                     roundRadius: 30
                     imageSource: avatarPath
+                    checkSupport: true
 
                     anchors.centerIn: parent
                 }

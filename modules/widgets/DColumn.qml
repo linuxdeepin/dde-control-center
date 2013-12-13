@@ -10,7 +10,6 @@ Item {
 	DSeparatorHorizontal{}
     }
     Column {
-	DSeparatorHorizontal{}
 	Repeater {
 	    model: datas
 	    delegate: Component {

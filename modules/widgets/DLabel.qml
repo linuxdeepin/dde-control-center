@@ -3,6 +3,6 @@ import QtQuick.Controls 1.0
 
 Label {
     property var dconstants: DConstants {}
-
+    
     color: dconstants.fgColor
 }
