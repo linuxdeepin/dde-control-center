@@ -267,7 +267,7 @@ Item {
             rectWidth: parent.width
             rectHeight: parent.height
             cornerPos: rectHeight/2
-            cornerWidth: 12
+            cornerWidth: 16
             cornerHeight: 8
         }
 

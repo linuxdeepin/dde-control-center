@@ -71,8 +71,9 @@ Item {
         for(var i=0;i<timezone_items.count;i++){
             if (timezone_items.get(i).value == curOffset){
                 currentTimezoneItem = timezone_items.get(i)
+                timezoneExpand.currentTimezoneLabel = currentTimezoneItem.textD
+                //timezoneExpand.timezoneListview.positionViewAtIndex(i, ListView.Center)
             }
         }
-        currentTimezone.text = currentTimezoneItem.textD
     }
 }

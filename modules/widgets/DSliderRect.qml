@@ -3,17 +3,18 @@ import QtQuick.Controls 1.0
 import "../widgets/"
 
 Item {
+    id: sliderRect
     property alias value: dslider.value
     property string leftLabel: undefined
     property string rightLabel: undefined
 
     height: 20 + dslider.height
-    width: dslider.width + 4
+    width: 190
 
     Column {
         DSlider {
             id: dslider
-            width: 186
+            width: sliderRect.width - 4
             anchors.leftMargin: 2
             anchors.rightMargin: 2
         }

@@ -95,124 +95,66 @@ Item {
                 gDate.use24HourDisplay = active
             }
         }
+
         DSeparatorHorizontal {}
-    }
 
-    Rectangle {
-        id: timezoneTitle
-        anchors.top: contentColumn.bottom
-        width: parent.width
-        height: 28
-        color: dconstants.bgColor
+        DBaseExpand {
+            id: timezoneExpand
+            property string currentTimezoneLabel
 
-        Text {
-            id: timezoneTitleText
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.left: parent.left
-            anchors.leftMargin: 18
-            font.pixelSize: 13
-            color: dconstants.fgColor
-            text: dsTr("Timezone")
-        }
-
-        Text {
-            id: currentTimezone
-            width: parent.width - timezoneTitleText.width - 42
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.left: timezoneTitleText.right
-            font.pixelSize: 13
-            color: "#666666"
-            elide: Text.ElideRight
-        }
-
-        ImageCheckButton {
-            color: dconstants.bgColor
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.right: parent.right
-            anchors.rightMargin: 12
-
-            inactivatedNomralImage: "images/arrow_down_normal.png"
-            inactivatedHoverImage: "images/arrow_down_hover.png"
-            inactivatedPressImage: "images/arrow_down_press.png"
-
-            activatedNomralImage: "images/arrow_up_normal.png"
-            activatedHoverImage: "images/arrow_up_hover.png"
-            activatedPressImage: "images/arrow_up_press.png"
-
-            onActivateChanged: {
-                if (activate){
-                    timezoneList.height = 260
+            header.sourceComponent: DDownArrowHeader {
+                text: dsTr("Timezone")
+                hintText: timezoneExpand.currentTimezoneLabel
+                onClicked: {
+                    timezoneExpand.expanded = !timezoneExpand.expanded
                 }
-                else {
-                    timezoneList.height = 0
+            }
+            content.sourceComponent: Rectangle {
+                id: timezoneList
+                width: parent.width
+                height: 200
+                clip: true
+                color: dconstants.contentBgColor
+
+                TimezoneData { id: timezoneData }
+
+                DScrollWidget {
+                    anchors.fill: parent
+                    ListView {
+                        id: timezone_listview
+                        anchors.fill: parent
+                        model: timezoneData.timezoneList
+                        delegate: TimezoneItem {}
+                        focus: true
+                        currentIndex: 19
+                        
+                        onCurrentItemChanged: {
+                            timezoneExpand.currentTimezoneLabel = currentItem.timezoneText
+                            //gDate.SetTimeZone(timezoneData.getTimezoneByOffset(currentItem.timezoneValue))
+                            //Date.timeZoneUpdated()
+                        }
+                    }
                 }
             }
         }
-    }
 
-    Rectangle {
-        id: timezoneList
-        anchors.top: timezoneTitle.bottom
-        anchors.left: parent.left
-        width: parent.width
-        height: 0
-        clip: true
-        color: "#1a1b1b"
+        DBaseHeader {
+            id: dateBoxTitle
+            width: parent.width
+            height: 38
 
-        Behavior on height {
-            NumberAnimation { 
-                duration: 300 
+            title.sourceComponent: DLabel {
+                font.pixelSize: 13
+                text: dsTr("Date")
+            }
+
+            button.sourceComponent: DTextButton {
+                text: dsTr("Change Date")
             }
         }
 
-        TimezoneData { id: timezoneData }
+        DSeparatorHorizontal {}
 
-        DScrollWidget {
-            anchors.fill: parent
-            ListView {
-                anchors.fill: parent
-                model: timezoneData.timezoneList
-                delegate: TimezoneItem {}
-                focus: true
-                currentIndex: 19
-                
-                onCurrentItemChanged: {
-                    currentTimezone.text = currentItem.timezoneText
-                    gDate.SetTimeZone(timezoneData.getTimezoneByOffset(currentItem.timezoneValue))
-                    Date.timeZoneUpdated()
-                }
-            }
-        }
-    }
-
-
-    DSeparatorHorizontal {
-        anchors.top: timezoneList.bottom
-    }
-
-    DBaseHeader {
-        id: dateBoxTitle
-        anchors.top: timezoneList.bottom
-        anchors.topMargin: 2
-        width: parent.width
-        height: 38
-
-        title.sourceComponent: DLabel {
-            font.pixelSize: 13
-            text: dsTr("Date")
-        }
-
-        button.sourceComponent: DTextButton {
-            text: dsTr("Change Date")
-        }
-    }
-
-    DSeparatorHorizontal {
-        anchors.top: dateBoxTitle.bottom
-    }
-
-    Calendar {
-        anchors.top: dateBoxTitle.bottom
-        anchors.topMargin: 2
+        Calendar {}
     }
 }

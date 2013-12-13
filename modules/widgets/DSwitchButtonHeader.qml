@@ -9,9 +9,9 @@ Rectangle {
     property alias active: actionArea.checked
     property alias font: titleArea.font
 
-    property int leftMargin: 18
-    property int rightMargin: 15
     property var dconstants: DConstants {}
+    property int leftMargin: dconstants.leftMargin
+    property int rightMargin: dconstants.rightMargin
 
     height: 30
     width: parent.width

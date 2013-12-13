@@ -96,14 +96,14 @@ Item {
             color: dconstants.contentBgColor
             leftMargin: contentLeftMargin
             title.sourceComponent: DLabel {
-                text: dsTr("Test Repeat Interval")
+                text: dsTr(" Test Repeat Interval")
                 font.pixelSize: 13
             }
             button.sourceComponent: Rectangle {
                 clip: true
                 color: "transparent"
                 border.width: 1
-                border.color: "#888"
+                border.color: Qt.rgba(1, 1, 1, 0.2)
 
                 width: testRepeatIntervalInput.width + 4
                 height: testRepeatIntervalInput.height + 4
@@ -116,6 +116,7 @@ Item {
                     color: dconstants.fgColor
                     focus: true
                     selectByMouse: true
+                    text: dsTr("Test repeat interval")
                 }
             }
         }

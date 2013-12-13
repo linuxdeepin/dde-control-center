@@ -7,6 +7,7 @@ Rectangle{
     color: "transparent"
 
     property alias text: title.text
+    property alias textColor: title.color
     signal clicked
 
     QtObject { //enumeration for button image
