@@ -72,7 +72,7 @@ Item {
             if (timezone_items.get(i).value == curOffset){
                 currentTimezoneItem = timezone_items.get(i)
                 timezoneExpand.currentTimezoneLabel = currentTimezoneItem.textD
-                //timezoneExpand.timezoneListview.positionViewAtIndex(i, ListView.Center)
+                timezoneExpand.currentIndex = i
             }
         }
     }

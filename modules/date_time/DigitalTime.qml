@@ -9,6 +9,7 @@ Item {
 
     property bool inEdit: false
     property int digitalSize: 55
+    property bool use24Hour: false
 
     Row {
         spacing: 10
@@ -21,7 +22,7 @@ Item {
 
             font.pixelSize: digitalSize
             font.family: timeFont
-            text: twentyFourHourSetBox.checked ? date.getHours() : date.getHours() % 12
+            text: use24Hour ? date.getHours() : date.getHours() % 12
             color: "white"
 
             MouseArea {
