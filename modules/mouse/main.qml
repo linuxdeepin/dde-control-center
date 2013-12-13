@@ -30,10 +30,10 @@ Item {
             }
             button.sourceComponent: DRadioButton {
                 currentIndex: mouseID.useHabit ? 1 : 0
-				buttonModel: [
-					{"buttonId": "left_hand", "buttonLabel": dsTr("Left Hand")},
-					{"buttonId": "right_hand", "buttonLabel": dsTr("Right Hand")}
-				]
+                buttonModel: [
+                    {"buttonId": "left_hand", "buttonLabel": dsTr("Left Hand")},
+                    {"buttonId": "right_hand", "buttonLabel": dsTr("Right Hand")}
+                ]
 
                 onItemSelected: {
                     mouseID.useHabit = idx == 1 ? true : false
