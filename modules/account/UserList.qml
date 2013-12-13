@@ -10,7 +10,10 @@ ListView {
     property int avatarNamePadding: 30
     
     /* property variant dbus_accounts: Accounts {} */
-
+    
+    signal hideAllPrivate (int idx)
+    signal showAllPrivate ()
+    
     Component {
         id: delegate_component
 
@@ -21,6 +24,25 @@ ListView {
 
             width: 310
             height: component_top.height + component_sep.height
+            
+            /* property string lastHeight: component_top.height + component_sep.height */
+            /* onHeightChanged: { */
+            /*     ListView.view.height += height - lastHeight */
+            /* } */
+            
+            Connections {
+                target: component_bg.ListView.view
+                onHideAllPrivate: {
+                    if (idx != index) {
+                        component_bg.height = 0
+                    }
+                }
+                onShowAllPrivate: {
+                    if (component_bg.height == 0) {
+                        component_bg.height = 100 + 2
+                    }
+                }
+            }
             
             Rectangle {
                 id: component_top
@@ -38,8 +60,10 @@ ListView {
                     onClicked: {
                         if (!toggleFlag) {
                             component_bg.state = "edit_dialog"
+                            component_bg.ListView.view.hideAllPrivate(index)
                         } else {
                             component_bg.state = "normal"
+                            component_bg.ListView.view.showAllPrivate()
                         }
                         toggleFlag = !toggleFlag
                     }
@@ -133,16 +157,16 @@ ListView {
                         visible: false
                     }
                     PropertyChanges { 
+                        target: delete_user_button
+                        visible: false
+                    }
+                    PropertyChanges { 
                         target: component_bg
                         height: component_top.height + component_sep.height
                     }
                     PropertyChanges { 
                         target: user_status_button
                         visible: true
-                    }
-                    PropertyChanges { 
-                        target: delete_user_button
-                        visible: false
                     }
                 },
                 State {
@@ -156,12 +180,12 @@ ListView {
                         visible: false
                     }
                     PropertyChanges { 
-                        target: component_bg
-                        height: component_top.height + component_sep.height
-                    }
-                    PropertyChanges { 
                         target: user_status_button
                         visible: false
+                    }
+                    PropertyChanges { 
+                        target: component_bg
+                        height: component_top.height + component_sep.height
                     }
                     PropertyChanges { 
                         target: delete_user_button
@@ -171,25 +195,25 @@ ListView {
                 State {
                     name: "delete_dialog"
                     PropertyChanges { 
-                        target: delete_user_dialog
-                        visible: true
-                    }                    
-                    PropertyChanges { 
                         target: edit_user_dialog
                         visible: false
                     }                    
-                    PropertyChanges { 
-                        target: component_bg
-                        height: component_top.height + component_sep.height + delete_user_dialog.height
-                    }
                     PropertyChanges { 
                         target: user_status_button
                         visible: false
                     }
                     PropertyChanges { 
+                        target: component_bg
+                        height: component_top.height + component_sep.height + delete_user_dialog.height
+                    }
+                    PropertyChanges { 
                         target: delete_user_button
                         visible: true
                     }
+                    PropertyChanges { 
+                        target: delete_user_dialog
+                        visible: true
+                    }                    
                 },
                 State {
                     name: "edit_dialog"
@@ -198,14 +222,6 @@ ListView {
                         visible: false
                     }                    
                     PropertyChanges { 
-                        target: edit_user_dialog
-                        visible: true
-                    }                    
-                    PropertyChanges { 
-                        target: component_bg
-                        height: component_top.height + component_sep.height + edit_user_dialog.height
-                    }
-                    PropertyChanges { 
                         target: user_status_button
                         visible: false
                     }
@@ -213,6 +229,14 @@ ListView {
                         target: delete_user_button
                         visible: false
                     }
+                    PropertyChanges { 
+                        target: component_bg
+                        height: component_top.height + component_sep.height + edit_user_dialog.height
+                    }
+                    PropertyChanges { 
+                        target: edit_user_dialog
+                        visible: true
+                    }                    
                 }
             ]
             

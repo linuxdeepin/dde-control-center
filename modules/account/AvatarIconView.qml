@@ -3,7 +3,7 @@ import "../widgets"
 
 DScrollWidget {
     width: 300
-    height: 100
+    height: 300
 
     property bool withAddButton: false
 
@@ -11,7 +11,7 @@ DScrollWidget {
         id: avatar_icon_view
 
         cellWidth: parent.width / 3
-        cellHeight: 70
+        cellHeight: parent.height / 3
 
         Component {
             id: avatar_icon_view_delegate
@@ -22,6 +22,8 @@ DScrollWidget {
 
                 DRoundImage {
                     roundRadius: 30
+                    borderWidth: 2
+                    glowRadius: 2
                     imageSource: avatarPath
                     checkSupport: true
 
@@ -46,5 +48,7 @@ DScrollWidget {
                 avatar_icon_view_model.append({"avatarPath": "images/avatar_add.png"})
             }
         }
+        
+        anchors.fill: parent
     }
 }

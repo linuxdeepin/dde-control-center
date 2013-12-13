@@ -78,7 +78,7 @@ Item {
 
     DColumn {
         id: detail_view
-        height: (38 + 1) * 5
+        height: (38 + 2) * 5
 
         Rectangle {
             width: parent.width
@@ -199,6 +199,8 @@ Item {
                 }
             }
         }
+        
+        DSeparatorHorizontal {}
 
         anchors.right: parent.right
     }

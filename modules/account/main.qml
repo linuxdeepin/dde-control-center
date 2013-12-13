@@ -21,6 +21,8 @@ Rectangle {
                 text: dsTr("User List")
             }
             button.sourceComponent: Row {
+                spacing: 10
+                
                 DImageButton {
                     normal_image: "images/delete_normal.png"
                     hover_image: "images/delete_hover.png"
@@ -37,10 +39,6 @@ Rectangle {
         
         DSeparatorHorizontal{}
         
-        UserList {
-            onHeightChanged: {
-                print(height)
-            }
-        }
+        UserList {}
     }
 }

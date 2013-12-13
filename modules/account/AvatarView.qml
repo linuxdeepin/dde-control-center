@@ -4,7 +4,7 @@ import "../widgets"
 Item {
     id: root
     width: 310
-    height: 240
+    height: 300
     state: "default"
 
     property int verticalPadding: 8
@@ -97,10 +97,10 @@ Item {
         id: avatar_recently_used_view
 
         width: parent.width
-        height: 280
+        height: parent.height - root.verticalPadding * 3 - radio_button.height
 
         anchors.top: radio_button.bottom
-        anchors.topMargin: root.verticalPadding
+        anchors.topMargin: root.verticalPadding * 2
         
         Behavior on x {
             SmoothedAnimation { duration: 200 }            
@@ -111,11 +111,12 @@ Item {
         id: avatar_default_view
 
         width: parent.width
-        height: 280
+        height: parent.height - root.verticalPadding * 3 - radio_button.height        
+        
         withAddButton: true
 
         anchors.top: radio_button.bottom
-        anchors.topMargin: root.verticalPadding
+        anchors.topMargin: root.verticalPadding * 2
         
         Behavior on x {
             SmoothedAnimation { duration: 200 }            
@@ -125,10 +126,10 @@ Item {
     WebCam {
         id: avatar_webcam_view
         width: parent.width
-        height: 280
+        height: parent.height - root.verticalPadding * 3- radio_button.height        
         
         anchors.top: radio_button.bottom
-        anchors.topMargin: root.verticalPadding
+        anchors.topMargin: root.verticalPadding * 2
         
         Behavior on x {
             SmoothedAnimation { duration: 200 }            

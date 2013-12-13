@@ -9,8 +9,10 @@ Item {
         id: column
         
         AvatarView {
+            id: avatar_view
+            
             width: 310
-            height: 280
+            height: 300
         }
 
         Rectangle {
@@ -87,7 +89,7 @@ Item {
         }
         
         Component.onCompleted: {
-            height = password_dialog.height + 3 * 38 + 280 + 4 * 2
+            height = password_dialog.height + 38 * 3 + avatar_view.height + 2 * 4
             parent.height = height
         }
     }
