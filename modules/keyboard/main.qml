@@ -36,23 +36,23 @@ Item {
 
         DSeparatorHorizontal {}
 
-        DBaseHeader {
-            title.sourceComponent: DssH2 {
+        DBaseLine {
+            leftLoader.sourceComponent: DssH2 {
                 text: dsTr("Repeat")
             }
         }
 
         DSeparatorHorizontal {}
 
-        DBaseHeader {
+        DBaseLine {
             color: dconstants.contentBgColor
             height: contentHeight
             leftMargin: contentLeftMargin
-            title.sourceComponent: DLabel {
+            leftLoader.sourceComponent: DLabel {
                 text: dsTr("Repeat Delay")
                 font.pixelSize: 12
             }
-            button.sourceComponent: SliderRect {
+            rightLoader.sourceComponent: SliderRect {
                 leftLabel: dsTr("Long")
                 rightLabel: dsTr("Short")
 
@@ -67,16 +67,16 @@ Item {
 
         DSeparatorHorizontal {}
 
-        DBaseHeader {
+        DBaseLine {
             color: dconstants.contentBgColor
             height: contentHeight
             leftMargin: contentLeftMargin
-            title.sourceComponent: DLabel {
+            leftLoader.sourceComponent: DLabel {
                 text: dsTr("Repeat Interval")
                 font.pixelSize: 12
             }
 
-            button.sourceComponent: SliderRect {
+            rightLoader.sourceComponent: SliderRect {
                 leftLabel: dsTr("Slow")
                 rightLabel: dsTr("Fast")
 
@@ -92,14 +92,14 @@ Item {
 
         DSeparatorHorizontal {}
 
-        DBaseHeader {
+        DBaseLine {
             color: dconstants.contentBgColor
             leftMargin: contentLeftMargin
-            title.sourceComponent: DLabel {
+            leftLoader.sourceComponent: DLabel {
                 text: dsTr(" Test Repeat Interval")
                 font.pixelSize: 13
             }
-            button.sourceComponent: Rectangle {
+            rightLoader.sourceComponent: Rectangle {
                 clip: true
                 color: "transparent"
                 border.width: 1
@@ -123,19 +123,19 @@ Item {
 
         DSeparatorHorizontal {}
 
-        DBaseHeader {
-            title.sourceComponent: DssH2 {
+        DBaseLine {
+            leftLoader.sourceComponent: DssH2 {
                 text: dsTr("Cusor Blink")
             }
         }
 
         DSeparatorHorizontal {}
 
-        DBaseHeader {
+        DBaseLine {
             color: dconstants.contentBgColor
             height: contentHeight
             leftMargin: contentLeftMargin
-            title.sourceComponent: Rectangle {
+            leftLoader.sourceComponent: Rectangle {
                 width: 1
                 height: 14
                 color: "white"
@@ -147,7 +147,7 @@ Item {
                     onTriggered: parent.visible = !parent.visible
                 }
             }
-            button.sourceComponent: SliderRect{
+            rightLoader.sourceComponent: SliderRect{
                 id: cursorBlinkSlider
                 leftLabel: dsTr("Slow")
                 rightLabel: dsTr("Fast")

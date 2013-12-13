@@ -138,17 +138,17 @@ Item {
             }
         }
 
-        DBaseHeader {
+        DBaseLine {
             id: dateBoxTitle
             width: parent.width
             height: 38
 
-            title.sourceComponent: DLabel {
+            leftLoader.sourceComponent: DLabel {
                 font.pixelSize: 13
                 text: dsTr("Date")
             }
 
-            button.sourceComponent: DTextButton {
+            rightLoader.sourceComponent: DTextButton {
                 text: dsTr("Change Date")
             }
         }

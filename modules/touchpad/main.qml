@@ -35,12 +35,12 @@ Item {
 
         DSeparatorHorizontal {}
 
-        DBaseHeader {
+        DBaseLine {
             height: 44
-            title.sourceComponent: DssH2 {
+            leftLoader.sourceComponent: DssH2 {
                 text: dsTr("Custom")
             }
-            button.sourceComponent: DRadioButton {
+            rightLoader.sourceComponent: DRadioButton {
                 currentIndex: touchPadID.useHabit == "right" ? 1 : 0
                 buttonModel: [
                     {"buttonId": "left_hand", "buttonLabel": dsTr("Left Hand")},
@@ -55,23 +55,23 @@ Item {
 
         DSeparatorHorizontal {}
 
-        DBaseHeader {
-            title.sourceComponent: DssH2 {
+        DBaseLine {
+            leftLoader.sourceComponent: DssH2 {
                 text: dsTr("Point Speed")
             }
         }
 
         DSeparatorHorizontal {}
 
-        DBaseHeader {
+        DBaseLine {
             color: dconstants.contentBgColor
             height: contentHeight
             leftMargin: contentLeftMargin
-            title.sourceComponent: DLabel {
+            leftLoader.sourceComponent: DLabel {
                 text: dsTr("Acceleration")
                 font.pixelSize: 12
             }
-            button.sourceComponent: DSliderRect {
+            rightLoader.sourceComponent: DSliderRect {
                 width: sliderWidth
                 leftLabel: dsTr("Slow")
                 rightLabel: dsTr("Fast")
@@ -87,15 +87,15 @@ Item {
 
         DSeparatorHorizontal {}
 
-        DBaseHeader {
+        DBaseLine {
             color: dconstants.contentBgColor
             height: contentHeight
             leftMargin: contentLeftMargin
-            title.sourceComponent: DLabel {
+            leftLoader.sourceComponent: DLabel {
                 text: dsTr("Sensitivity")
                 font.pixelSize: 12
             }
-            button.sourceComponent: DSliderRect {
+            rightLoader.sourceComponent: DSliderRect {
                 width: sliderWidth
                 leftLabel: dsTr("Low")
                 rightLabel: dsTr("High")
@@ -111,23 +111,23 @@ Item {
 
         DSeparatorHorizontal {}
 
-        DBaseHeader {
-            title.sourceComponent: DssH2 {
+        DBaseLine {
+            leftLoader.sourceComponent: DssH2 {
                 text: dsTr("Double-click")
             }
         }
 
         DSeparatorHorizontal {}
 
-        DBaseHeader {
+        DBaseLine {
             color: dconstants.contentBgColor
             height: contentHeight
             leftMargin: contentLeftMargin
-            title.sourceComponent: DLabel {
+            leftLoader.sourceComponent: DLabel {
                 text: dsTr("Frequency")
                 font.pixelSize: 12
             }
-            button.sourceComponent: DSliderRect {
+            rightLoader.sourceComponent: DSliderRect {
                 width: sliderWidth
                 leftLabel: dsTr("Slow")
                 rightLabel: dsTr("Fast")
@@ -143,15 +143,15 @@ Item {
 
         DSeparatorHorizontal {}
 
-        DBaseHeader {
+        DBaseLine {
             color: dconstants.contentBgColor
             height: contentHeight
             leftMargin: contentLeftMargin
-            title.sourceComponent: DLabel {
+            leftLoader.sourceComponent: DLabel {
                 text: dsTr("Double click the smiling face to test")
                 font.pixelSize: 12
             }
-            button.sourceComponent: Image {
+            rightLoader.sourceComponent: Image {
                 id: smileyImage
                 property string pic0: "images/smiley00.png"
                 property string pic1: "images/smiley01.png"
@@ -170,23 +170,23 @@ Item {
 
         DSeparatorHorizontal {}
 
-        DBaseHeader {
-            title.sourceComponent: DssH2 {
+        DBaseLine {
+            leftLoader.sourceComponent: DssH2 {
                 text: dsTr("Drag and Drop")
             }
         }
 
         DSeparatorHorizontal {}
 
-        DBaseHeader {
+        DBaseLine {
             color: dconstants.contentBgColor
             height: contentHeight
             leftMargin: contentLeftMargin
-            title.sourceComponent: DLabel {
+            leftLoader.sourceComponent: DLabel {
                 text: dsTr("Drag threshold")
                 font.pixelSize: 12
             }
-            button.sourceComponent: DSliderRect {
+            rightLoader.sourceComponent: DSliderRect {
                 width: sliderWidth
                 leftLabel: dsTr("Short")
                 rightLabel: dsTr("Long")

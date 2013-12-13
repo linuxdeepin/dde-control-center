@@ -23,8 +23,8 @@ Item {
 
         DSeparatorHorizontal {}
 
-        DBaseHeader {
-            title.sourceComponent: DssH2 {
+        DBaseLine{
+            leftLoader.sourceComponent: DssH2 {
                 text: dsTr("Default Applications")
                 font.bold: true
                 style: Text.Raised
