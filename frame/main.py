@@ -21,10 +21,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
-from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QGuiApplication
+from PyQt5.QtCore import Qt, QCoreApplication
 if os.name == 'posix':
-    QGuiApplication.setAttribute(Qt.AA_X11InitThreads, True) 
+    QCoreApplication.setAttribute(Qt.AA_X11InitThreads, True) 
 
 import os
 import sys
@@ -36,11 +35,13 @@ from controlpanel import ControlPanel
 from unique_service import UniqueService
 from constants import APP_DBUS_NAME, APP_OBJECT_PATH
 
+from PyQt5.QtWidgets import QApplication
+
 def main():
     root_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
     os.chdir(root_dir)
 
-    app = QGuiApplication(sys.argv)
+    app = QApplication(sys.argv)
     uniqueService = UniqueService(APP_DBUS_NAME, APP_OBJECT_PATH)
     uniqueService.uniqueTrigger.connect(unique_trigger)
 

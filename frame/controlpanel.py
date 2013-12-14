@@ -24,7 +24,7 @@ import os
 import sys
 import subprocess
 
-from PyQt5.QtCore import Qt, pyqtSlot, QVariant, QCoreApplication, QUrl
+from PyQt5.QtCore import Qt, pyqtSlot, QVariant, QUrl
 from PyQt5.QtGui import QSurfaceFormat, QColor
 from PyQt5.QtQuick import QQuickView
 
