@@ -5,6 +5,8 @@ Item {
     id: root
     width: 310
     height: column.height
+    
+    signal avatarSet (Item item)
 
     DColumn {
         id: column
@@ -14,6 +16,10 @@ Item {
 
             width: 310
             height: 300
+            
+            onAvatarSet: {
+                root.avatarSet(item)
+            }
         }
 
         Rectangle {

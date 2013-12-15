@@ -9,6 +9,8 @@ Item {
 
     property int verticalPadding: 8
     
+    signal avatarSet (Item item)
+    
     DRadioButton {
         id: radio_button
 
@@ -99,6 +101,10 @@ Item {
         width: parent.width
         height: parent.height - root.verticalPadding * 3 - radio_button.height
         
+        onAvatarSet: {
+            root.avatarSet(item)
+        }
+        
         anchors.top: radio_button.bottom
         anchors.topMargin: root.verticalPadding * 2
         
@@ -114,6 +120,10 @@ Item {
         height: parent.height - root.verticalPadding * 3 - radio_button.height
 
         withAddButton: true
+        
+        onAvatarSet: {
+            root.avatarSet(item)
+        }
         
         anchors.top: radio_button.bottom
         anchors.topMargin: root.verticalPadding * 2

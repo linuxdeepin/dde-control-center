@@ -153,6 +153,46 @@ ListView {
             EditUserDialog {
                 id: edit_user_dialog
 
+                PathAnimation {
+                    id: animation
+
+                    target: round_image
+                    duration: 500
+                    easing.type: Easing.InQuad
+
+                    property int startX: target.x
+                    property int startY: target.y
+                    property int endX: round_image.x
+                    property int endY: round_image.y
+
+                    path: Path {
+                        startX: animation.startX
+                        startY: animation.startY
+
+                        PathCubic {
+                            x: animation.endX; y: animation.endY
+                            relativeControl1X: -10; relativeControl1Y: -30
+                            relativeControl2X: 10; relativeControl2Y: -20
+                        }
+                    }
+                }
+                
+                onAvatarSet: {
+                    var newObject = Qt.createQmlObject('import QtQuick 2.1; import \"../widgets\"; DRoundImage { roundRadius: 25; }', root, "new");
+                    newObject.imageSource = "/home/hualet/Pictures/DeepinScreenshot20131108122543.png"
+                    newObject.width = round_image.width
+                    newObject.height = round_image.height
+                    
+                    var startPoint = item.parent.mapToItem(root, item.x, item.y)
+                    var endPoint = round_image.parent.mapToItem(root, item.x, item.y)
+
+                    newObject.x = startPoint.x
+                    newObject.y = startPoint.y
+
+                    animation.target = newObject
+                    animation.start()
+                }
+
                 anchors.top: component_sep.bottom
             }
 
