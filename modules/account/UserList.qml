@@ -17,6 +17,10 @@ ListView {
     signal showAllPrivate ()
     signal allNormal ()
     signal allAction ()
+    
+    function deleteItem(idx) {
+        root.model.remove(idx, 1)
+    }
 
     Component {
         id: delegate_component
@@ -28,7 +32,9 @@ ListView {
 
             width: 310
             height: component_top.height + component_sep.height
-
+            
+            property string dbusPath: userDBusPath
+            
             Connections {
                 target: component_bg.ListView.view
                 onHideAllPrivate: {
@@ -139,8 +145,9 @@ ListView {
                 }
 
                 onConfirm: {
+                    dbus_accounts.deleteUser(userId, deleteFiles)
                     component_bg.state = "normal"
-                    print("delete user files? ", deleteFiles)
+                    root.deleteItem(index)
                 }
 
                 anchors.top: component_sep.bottom
@@ -322,8 +329,10 @@ ListView {
             var user_status = dbus_user.loginTime != 0 ? "currentUser" : "otherUser"
 
             user_list_model.append({"userAvatar": dbus_user.iconFile,
+                                    "userId": dbus_user.uid,
                                     "userName": dbus_user.userName,
                                     "userType": dbus_user.accountType,
-                                    "userStatus": user_status})}
+                                    "userStatus": user_status,
+                                    "userDBusPath": cached_users[i]})}
     }
 }
