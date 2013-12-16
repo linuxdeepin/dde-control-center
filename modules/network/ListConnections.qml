@@ -7,39 +7,33 @@ Column {
     id:body
     width: root.width
 
-    DSeparatorHorizontal{ visible: wired.active}
-    Loader {
-        id:wired
-        active: nm.hasWired
-        sourceComponent: DBaseExpand {
-            id:c1
+    DSeparatorHorizontal{}
+    DBaseLine {
+        leftLoader.sourceComponent: DssH1{
+            text: dsTr("Wired Connections")
+        }
+    }
+    DSeparatorHorizontal{}
+    Repeater {
+        model: nm.wiredDevices
+        Column {
             width:root.width
-            expanded: nm.wiredEnabled
-            Binding{
-                target: nm
-                property: "wiredEnabled"
-                value:c1.expanded
-            }
-            header.sourceComponent: DSwitchButtonHeader {
-                text: dsTr("Wired Connections")
-                Binding{
-                    target: c1;
-                    property: "expanded";
-                    value:parent.active
+            DBaseLine {
+                id:content
+                color: dconstants.contentBgColor
+                leftLoader.sourceComponent: DLabel {
+                    height: 30
+                    verticalAlignment: Text.AlignVCenter
+                    width:parent.width
+                    text: dsTr("Wired Conections") + index
+                    color: nm.wiredDevices[index][1] != "/" ? "blue" : dconstants.fgColor
+                    DSeparatorHorizontal{}
+                }
+                rightLoader.sourceComponent: DSwitchButton {
+                    checked: nm.wiredDevices[index][1] != "/"
                 }
             }
-            content.sourceComponent: Column {
-                Repeater {
-                    model: nm.wiredConnections
-                    DLabel {
-                        height: 30
-                        verticalAlignment: Text.AlignVCenter
-                        width:parent.width
-                        text: nm.wiredConnections[index][1] 
-                        DSeparatorHorizontal{}
-                    }
-                }
-            }
+            DSeparatorHorizontal{}
         }
     }
 
@@ -48,7 +42,7 @@ Column {
         delegate: DBaseExpand {
             id: c2
             width: root.width
-            expanded: nm.wirelessEnabled
+            expanded: true
             header.sourceComponent: DSwitchButtonHeader {
                 text: dsTr("Wireless Access Points")
                 active: c2.expanded

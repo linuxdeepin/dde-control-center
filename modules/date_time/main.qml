@@ -44,6 +44,7 @@ Item {
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.top: parent.top
                 anchors.topMargin: 24
+                use24Hour: twentyFourHourSetBox.active
             }
 
             Text {
@@ -55,7 +56,7 @@ Item {
 
                 font.pixelSize: 14
                 font.family: timeFont
-                visible: !twentyFourHourSetBox.checked
+                visible: !twentyFourHourSetBox.active
                 text: date.getHours() < 12 ? "AM" : "PM"
             }
 
@@ -80,7 +81,7 @@ Item {
             active: gDate.autoSetTime
 
             onClicked: {
-                gDate.SetAutoSetTime(checked)
+                gDate.SetAutoSetTime(active)
             }
         }
 
@@ -100,6 +101,7 @@ Item {
 
         DBaseExpand {
             id: timezoneExpand
+            property int currentIndex: -1
             property string currentTimezoneLabel
 
             header.sourceComponent: DDownArrowHeader {
@@ -116,39 +118,38 @@ Item {
                 clip: true
                 color: dconstants.contentBgColor
 
-                TimezoneData { id: timezoneData }
+                TimezoneData { 
+                    id: timezoneData 
+                }
 
-                DScrollWidget {
+                ListView {
+                    id: timezone_listview
                     anchors.fill: parent
-                    ListView {
-                        id: timezone_listview
-                        anchors.fill: parent
-                        model: timezoneData.timezoneList
-                        delegate: TimezoneItem {}
-                        focus: true
-                        currentIndex: 19
-                        
-                        onCurrentItemChanged: {
-                            timezoneExpand.currentTimezoneLabel = currentItem.timezoneText
-                            //gDate.SetTimeZone(timezoneData.getTimezoneByOffset(currentItem.timezoneValue))
-                            //Date.timeZoneUpdated()
-                        }
+                    model: timezoneData.timezoneList
+                    delegate: TimezoneItem {}
+                    focus: true
+                    currentIndex: timezoneExpand.currentIndex
+                    
+                    onCurrentItemChanged: {
+                        timezoneExpand.currentTimezoneLabel = currentItem.timezoneText
+                        gDate.SetTimeZone(timezoneData.getTimezoneByOffset(currentItem.timezoneValue))
+                        Date.timeZoneUpdated()
                     }
                 }
             }
         }
 
-        DBaseHeader {
+        DBaseLine {
             id: dateBoxTitle
             width: parent.width
             height: 38
 
-            title.sourceComponent: DLabel {
+            leftLoader.sourceComponent: DLabel {
                 font.pixelSize: 13
                 text: dsTr("Date")
             }
 
-            button.sourceComponent: DTextButton {
+            rightLoader.sourceComponent: DTextButton {
                 text: dsTr("Change Date")
             }
         }

@@ -78,7 +78,7 @@ Item {
         InfoItem { 
             id: cpuItem
             title: dsTr("CPU")
-            //value: systemInfoDbus.processor
+            value: systemInfoDbus.processor
         }
         
         InfoItem { 

@@ -17,6 +17,9 @@ Rectangle {
         font.pixelSize: 13
         color: parent.ListView.view.currentIndex == index ? Qt.rgba(0, 144/255, 1, 1.0) :dconstants.fgColor
         text: textD
+        Component.onCompleted: {
+            //print(width)
+        }
     }
 
     MouseArea {

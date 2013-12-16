@@ -10,7 +10,35 @@ Item {
     //property Item currenItem: Info {width: root.width}
     property variant nm: NetworkManager{}
 
-    Header { id:header }
+    DBaseLine {
+        id:header
+        height: 50
+        leftLoader.sourceComponent: DLabel {
+                text: dsTr("Network Settings")
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        stackView.pop(null)
+                    }
+                }
+            }
+        rightLoader.sourceComponent: Row {
+            DTextButton {
+                text: dsTr("Create Connections")
+            }
+            DTextButton {
+                id: abc
+                text: "i"
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        stackView.push(Qt.resolvedUrl("Info.qml"))
+                    }
+                }
+            }
+        }
+    }
+
     StackView {
         id:stackView
         anchors.top: header.bottom

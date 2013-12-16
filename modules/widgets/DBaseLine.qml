@@ -5,8 +5,8 @@ import QtQuick.Layouts 1.0
 Rectangle {
     id: header
 
-    property alias title: titleArea
-    property alias button: actionArea
+    property alias leftLoader: leftArea
+    property alias rightLoader: rightArea
     property int leftMargin: 15
     property int rightMargin: 15
     property var dconstants: DConstants {}
@@ -15,24 +15,17 @@ Rectangle {
     width: parent.width
     color: dconstants.bgColor
 
-    signal titleLoaded
-    signal buttonLoaded
-
     Loader {
-        id: titleArea
+        id: leftArea
         anchors.left: parent.left
         anchors.leftMargin: leftMargin
         anchors.verticalCenter: parent.verticalCenter
-        //height: childrenRect.height
-        onLoaded: { header.titleLoaded() }
     }
 
     Loader {
-        id: actionArea
+        id: rightArea
         anchors.right: parent.right
         anchors.rightMargin: rightMargin
         anchors.verticalCenter: parent.verticalCenter
-        clip: true
-        onLoaded: { header.buttonLoaded() }
     }
 }

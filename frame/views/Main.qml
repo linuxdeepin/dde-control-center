@@ -225,8 +225,8 @@ Item {
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.bottom: parent.bottom
-		width: 360
-		height: root.height
+        width: 360
+        height: root.height
     }
 
     Window {
