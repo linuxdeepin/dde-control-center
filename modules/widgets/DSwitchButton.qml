@@ -24,9 +24,10 @@ Item {
         color: "transparent"
 
         Rectangle {
-            width: 54
+            width: 50
             height: 18
             radius: 9
+            antialiasing: true
 
             anchors.centerIn: parent
         }
@@ -52,8 +53,8 @@ Item {
 
     OpacityMask {
         anchors.fill: mask
-        source: ShaderEffectSource { id: shader_effect_source; sourceItem: inner; hideSource: true }
-        maskSource: mask
+        source: ShaderEffectSource { sourceItem: inner; hideSource: true }
+        maskSource: ShaderEffectSource { sourceItem: mask; hideSource: true }
     }
 
     states:  [
