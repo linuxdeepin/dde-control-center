@@ -4,12 +4,14 @@ import DBus.Org.Freedesktop.Accounts 1.0
 
 ListView {
     id: root
+    interactive: false
 
     property int leftPadding: 15
     property int rightPadding: 15
     property int avatarNamePadding: 30
 
     property variant dbus_accounts: Accounts {}
+    property variant dbus_user: User {}
 
     signal hideAllPrivate (int idx)
     signal showAllPrivate ()
@@ -19,7 +21,6 @@ ListView {
     Component {
         id: delegate_component
 
-
         Rectangle{
             id: component_bg
             color: "#1A1B1B"
@@ -27,11 +28,6 @@ ListView {
 
             width: 310
             height: component_top.height + component_sep.height
-
-            /* property string lastHeight: component_top.height + component_sep.height */
-            /* onHeightChanged: { */
-            /*     ListView.view.height += height - lastHeight */
-            /* } */
 
             Connections {
                 target: component_bg.ListView.view
@@ -314,31 +310,20 @@ ListView {
         }
     }
 
-    model: ListModel { id: user_list_model
-                       ListElement {
-                           userAvatar: "/home/hualet/Pictures/DeepinScreenshot20131108122543.png"
-                           userName: "Hualet0"
-                           userType: "Administrator"
-                           userStatus: "currentUser"
-                       }
-                       ListElement {
-                           userAvatar: "/home/hualet/Pictures/DeepinScreenshot20131108122543.png"
-                           userName: "Hualet1"
-                           userType: "Administrator"
-                           userIsCurrent: "false"
-                           userStatus: "otherUser"
-                       }
-                       ListElement {
-                           userAvatar: "/home/hualet/Pictures/DeepinScreenshot20131108122543.png"
-                           userName: "Hualet2"
-                           userType: "Administrator"
-                           userStatus: "inactiveUser"
-                       }
-                     }
+    model: ListModel { id: user_list_model }
 
     delegate: delegate_component
 
     Component.onCompleted: {
-        print(dbus_accounts.ListCachedUsers())
+        var cached_users = dbus_accounts.ListCachedUsers()
+        for (var i = 0; i < cached_users.length; i++) {
+            dbus_user.path = cached_users[i]
+
+            var user_status = dbus_user.loginTime != 0 ? "currentUser" : "otherUser"
+
+            user_list_model.append({"userAvatar": dbus_user.iconFile,
+                                    "userName": dbus_user.userName,
+                                    "userType": dbus_user.accountType,
+                                    "userStatus": user_status})}
     }
 }
