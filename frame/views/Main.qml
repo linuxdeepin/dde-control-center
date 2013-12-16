@@ -19,7 +19,7 @@ Item {
     DLocale {
         id: dsslocale
         domain: "deepin-system-settings"
-        dirname: "locale"
+        dirname: "../../locale"
         //domain: "DDE"
     }
 

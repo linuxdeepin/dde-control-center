@@ -10,6 +10,29 @@ var CONST = {
     monthsDates: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
 }
 
+function getDateByLocale(d, lang){
+    var results_str = "";
+    if (lang == "en"){
+        results_str += CONST.days[d.getDay()];
+        results_str += ", " + CONST.months[d.getMonth()];
+        results_str += " " + d.getDate();
+        results_str += ", " + d.getFullYear();
+    }
+    else if (lang == 'zh'){
+        results_str += d.getFullYear() + "年";
+        results_str += (d.getMonth() + 1) + "月";
+        results_str += d.getDate() + "日";
+        results_str += ", " + CONST.days[d.getDay()];
+    }
+    else{
+        results_str += d.getFullYear();
+        results_str += "-" + (d.getMonth() + 1);
+        results_str += "-" + d.getDate();
+        results_str += ", " + CONST.days[d.getDay()];
+    }
+    return results_str
+}
+
 function isLeapYear(year){
     if (year % 100 == 0){
         if (year % 400 == 0){
