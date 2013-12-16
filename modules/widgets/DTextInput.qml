@@ -11,7 +11,7 @@ Item {
     Rectangle {
         id: text_input_box
 
-        width: 160
+        width: parent.width
         height: 22
         clip: true
         color: "#1A1B1B"

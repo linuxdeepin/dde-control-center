@@ -3,6 +3,7 @@ import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import "../widgets/"
 import DBus.Com.Deepin.Daemon.DateAndTime 1.0
+import "calendar_core.js" as CalendarCore
 
 Item {
     id: dateTimeModule
@@ -11,17 +12,25 @@ Item {
     property string timeFont: "Maven Pro Light"
     property var gDate: DateAndTime {}
     property var dconstants: DConstants {}
+    property string lang: 'en'
 
     property var date: new Date()
     property var weekNames: [dsTr("Sunday"), dsTr("Monday"), dsTr("Tuesday"), 
         dsTr("Wednesday"), dsTr("Thursday"), dsTr("Friday"), dsTr("Saturday"), 
         dsTr("Sunday")]
+    
+    Component.onCompleted: {
+        lang = dsslocale.lang
+    }
 
     Timer {
         running: true
         repeat: true
         interval: 500
-        onTriggered: { parent.date = new Date() }
+        onTriggered: { 
+            parent.date = new Date()
+            lang = dsslocale.lang
+        }
     }
 
     Column {
@@ -67,7 +76,8 @@ Item {
                 anchors.horizontalCenter: dynamicTime.horizontalCenter
 
                 font.pixelSize: 12
-                text: date.getFullYear() + "-" + date.getMonth()+ "-"+ date.getDate() + ", " + weekNames[date.getDay()]
+                //text: date.getFullYear() + "-" + date.getMonth()+ "-"+ date.getDate() + ", " + weekNames[date.getDay()]
+                text: CalendarCore.getDateByLocale(date, lang)
             }
 
         }

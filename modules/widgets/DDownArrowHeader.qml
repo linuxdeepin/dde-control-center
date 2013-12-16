@@ -13,6 +13,7 @@ Rectangle {
     property var dconstants: DConstants {}
     property int leftMargin: dconstants.leftMargin
     property int rightMargin: dconstants.rightMargin
+    focus: true
 
     height: 30
     width: parent.width

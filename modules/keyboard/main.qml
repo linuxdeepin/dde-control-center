@@ -10,6 +10,7 @@ Item {
 
     property int contentLeftMargin: 22
     property int contentHeight: 60
+    property int sliderWidth: 180
 
     property var dconstants: DConstants {}
 
@@ -53,6 +54,7 @@ Item {
                 font.pixelSize: 12
             }
             rightLoader.sourceComponent: SliderRect {
+                width: sliderWidth
                 leftLabel: dsTr("Long")
                 rightLabel: dsTr("Short")
 
@@ -77,6 +79,7 @@ Item {
             }
 
             rightLoader.sourceComponent: SliderRect {
+                width: sliderWidth
                 leftLabel: dsTr("Slow")
                 rightLabel: dsTr("Fast")
 
@@ -99,25 +102,10 @@ Item {
                 text: dsTr(" Test Repeat Interval")
                 font.pixelSize: 13
             }
-            rightLoader.sourceComponent: Rectangle {
-                clip: true
-                color: "transparent"
-                border.width: 1
-                border.color: Qt.rgba(1, 1, 1, 0.2)
-
-                width: testRepeatIntervalInput.width + 4
-                height: testRepeatIntervalInput.height + 4
-
-                TextInput {
-                    id: testRepeatIntervalInput
-                    anchors.centerIn: parent
-                    width: 130
-                    font.pixelSize: 12
-                    color: dconstants.fgColor
-                    focus: true
-                    selectByMouse: true
-                    text: dsTr("Test repeat interval")
-                }
+            rightLoader.sourceComponent: DTextInput {
+                id: testRepeatIntervalInput
+                width: 130
+                //text: dsTr("Test repeat interval")
             }
         }
 
@@ -149,6 +137,7 @@ Item {
             }
             rightLoader.sourceComponent: SliderRect{
                 id: cursorBlinkSlider
+                width: sliderWidth
                 leftLabel: dsTr("Slow")
                 rightLabel: dsTr("Fast")
 
