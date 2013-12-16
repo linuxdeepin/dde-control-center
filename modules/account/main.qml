@@ -16,11 +16,11 @@ Rectangle {
 
         DSeparatorHorizontal{}
 
-        DBaseHeader {
-            title.sourceComponent: DssH2 {
+        DBaseLine {
+            leftLoader.sourceComponent: DssH2 {
                 text: dsTr("User List")
             }
-            button.sourceComponent: Row {
+            rightLoader.sourceComponent: Row {
                 spacing: 10
 
                 DImageCheckButton {

@@ -4,21 +4,26 @@ import DBus.Org.Freedesktop.Accounts 1.0
 
 ListView {
     id: root
+    interactive: false
 
     property int leftPadding: 15
     property int rightPadding: 15
     property int avatarNamePadding: 30
 
     property variant dbus_accounts: Accounts {}
+    property variant dbus_user: User {}
 
     signal hideAllPrivate (int idx)
     signal showAllPrivate ()
     signal allNormal ()
     signal allAction ()
+    
+    function deleteItem(idx) {
+        root.model.remove(idx, 1)
+    }
 
     Component {
         id: delegate_component
-
 
         Rectangle{
             id: component_bg
@@ -27,12 +32,9 @@ ListView {
 
             width: 310
             height: component_top.height + component_sep.height
-
-            /* property string lastHeight: component_top.height + component_sep.height */
-            /* onHeightChanged: { */
-            /*     ListView.view.height += height - lastHeight */
-            /* } */
-
+            
+            property string dbusPath: userDBusPath
+            
             Connections {
                 target: component_bg.ListView.view
                 onHideAllPrivate: {
@@ -143,8 +145,9 @@ ListView {
                 }
 
                 onConfirm: {
+                    dbus_accounts.deleteUser(userId, deleteFiles)
                     component_bg.state = "normal"
-                    print("delete user files? ", deleteFiles)
+                    root.deleteItem(index)
                 }
 
                 anchors.top: component_sep.bottom
@@ -155,10 +158,12 @@ ListView {
 
                 ParallelAnimation {
                     id: animation
+                    
+                    property variant destination: round_image.parent.mapToItem(component_bg, round_image.x + 15, round_image.y)
 
                     property Item target: round_image
                     property point startPoint: Qt.point(target.x, target.y)
-                    property point endPoint: Qt.point(round_image.x, round_image.y)
+                    property point endPoint: Qt.point(destination.x, destination.y)
                     property int startRoundRadius: target.roundRadius
                     property int endRoundRadius: round_image.roundRadius
 
@@ -192,13 +197,11 @@ ListView {
 
                 onAvatarSet: {
                     var newObject = Qt.createQmlObject('import QtQuick 2.1; import \"../widgets\"; DRoundImage {}', component_bg, "new");
-
                     var startPoint = item.parent.mapToItem(component_bg, item.x, item.y)
-                    var endPoint = round_image.parent.mapToItem(component_bg, item.x, item.y)
 
                     newObject.x = startPoint.x
                     newObject.y = startPoint.y
-                    newObject.imageSource = "/home/hualet/Pictures/DeepinScreenshot20131108122543.png"
+                    newObject.imageSource = item.imageSource
                     newObject.roundRadius = item.roundRadius
 
                     animation.target = newObject
@@ -314,31 +317,22 @@ ListView {
         }
     }
 
-    model: ListModel { id: user_list_model
-                       ListElement {
-                           userAvatar: "/home/hualet/Pictures/DeepinScreenshot20131108122543.png"
-                           userName: "Hualet0"
-                           userType: "Administrator"
-                           userStatus: "currentUser"
-                       }
-                       ListElement {
-                           userAvatar: "/home/hualet/Pictures/DeepinScreenshot20131108122543.png"
-                           userName: "Hualet1"
-                           userType: "Administrator"
-                           userIsCurrent: "false"
-                           userStatus: "otherUser"
-                       }
-                       ListElement {
-                           userAvatar: "/home/hualet/Pictures/DeepinScreenshot20131108122543.png"
-                           userName: "Hualet2"
-                           userType: "Administrator"
-                           userStatus: "inactiveUser"
-                       }
-                     }
+    model: ListModel { id: user_list_model }
 
     delegate: delegate_component
 
     Component.onCompleted: {
-        print(dbus_accounts.ListCachedUsers())
+        var cached_users = dbus_accounts.ListCachedUsers()
+        for (var i = 0; i < cached_users.length; i++) {
+            dbus_user.path = cached_users[i]
+
+            var user_status = dbus_user.loginTime != 0 ? "currentUser" : "otherUser"
+
+            user_list_model.append({"userAvatar": dbus_user.iconFile,
+                                    "userId": dbus_user.uid,
+                                    "userName": dbus_user.userName,
+                                    "userType": dbus_user.accountType,
+                                    "userStatus": user_status,
+                                    "userDBusPath": cached_users[i]})}
     }
 }
