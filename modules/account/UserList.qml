@@ -153,41 +153,53 @@ ListView {
             EditUserDialog {
                 id: edit_user_dialog
 
-                PathAnimation {
+                ParallelAnimation {
                     id: animation
 
-                    target: round_image
-                    duration: 500
-                    easing.type: Easing.InQuad
+                    property Item target: round_image
+                    property point startPoint: Qt.point(target.x, target.y)
+                    property point endPoint: Qt.point(round_image.x, round_image.y)
+                    property int startRoundRadius: target.roundRadius
+                    property int endRoundRadius: round_image.roundRadius
 
-                    property int startX: target.x
-                    property int startY: target.y
-                    property int endX: round_image.x
-                    property int endY: round_image.y
+                    NumberAnimation {
+                        target: animation.target
+                        duration: 500
+                        easing.type: Easing.InQuad
 
-                    path: Path {
-                        startX: animation.startX
-                        startY: animation.startY
+                        properties: "roundRadius"
+                        from: animation.startRoundRadius
+                        to: animation.endRoundRadius
+                    }
 
-                        PathCubic {
-                            x: animation.endX; y: animation.endY
-                            relativeControl1X: -10; relativeControl1Y: -30
-                            relativeControl2X: 10; relativeControl2Y: -20
+                    PathAnimation {
+                        target: animation.target
+                        duration: 500
+                        easing.type: Easing.InQuad
+
+                        path: Path {
+                            startX: animation.startPoint.x
+                            startY: animation.startPoint.y
+
+                            PathCubic {
+                                x: animation.endPoint.x; y: animation.endPoint.y
+                                relativeControl1X: -10; relativeControl1Y: -30
+                                relativeControl2X: 10; relativeControl2Y: -20
+                            }
                         }
                     }
                 }
-                
+
                 onAvatarSet: {
-                    var newObject = Qt.createQmlObject('import QtQuick 2.1; import \"../widgets\"; DRoundImage { roundRadius: 25; }', root, "new");
-                    newObject.imageSource = "/home/hualet/Pictures/DeepinScreenshot20131108122543.png"
-                    newObject.width = round_image.width
-                    newObject.height = round_image.height
-                    
-                    var startPoint = item.parent.mapToItem(root, item.x, item.y)
-                    var endPoint = round_image.parent.mapToItem(root, item.x, item.y)
+                    var newObject = Qt.createQmlObject('import QtQuick 2.1; import \"../widgets\"; DRoundImage {}', component_bg, "new");
+
+                    var startPoint = item.parent.mapToItem(component_bg, item.x, item.y)
+                    var endPoint = round_image.parent.mapToItem(component_bg, item.x, item.y)
 
                     newObject.x = startPoint.x
                     newObject.y = startPoint.y
+                    newObject.imageSource = "/home/hualet/Pictures/DeepinScreenshot20131108122543.png"
+                    newObject.roundRadius = item.roundRadius
 
                     animation.target = newObject
                     animation.start()
