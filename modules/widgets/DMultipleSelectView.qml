@@ -1,8 +1,8 @@
 import QtQuick 2.1
 
 GridView {
-	id: select_view
-	
+    id: select_view
+
     interactive: false
     cellWidth: width / columns
     cellHeight: height / rows
@@ -18,14 +18,14 @@ GridView {
 
     signal select(int index, var item)
     signal deselect(int index, var item)
-	
-	function selectItem(index) {
-		select_view.getDelegateInstanceAt(index).select()
-	}
-	
-	function deselectItem(index) {
-		select_view.getDelegateInstanceAt(index).deselect()
-	}
+
+    function selectItem(index) {
+        select_view.getDelegateInstanceAt(index).select()
+    }
+
+    function deselectItem(index) {
+        select_view.getDelegateInstanceAt(index).deselect()
+    }
 
     function clear() {
         for (var index in selectedItems) {

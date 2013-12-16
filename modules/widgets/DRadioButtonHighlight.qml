@@ -14,7 +14,7 @@ Rectangle {
     }
 
     Rectangle {
-		id: white_stroke
+        id: white_stroke
         width: parent.width - 2
         height: parent.height - 2
         border.color: Qt.rgba(1, 1, 1, 0.1)

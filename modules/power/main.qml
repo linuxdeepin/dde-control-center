@@ -314,7 +314,7 @@ Rectangle {
         DBaseExpand {
             id: wake_require_password_rect
             header.sourceComponent: DSwitchButtonHeader {
-				id: wake_require_password_header
+                id: wake_require_password_header
                 text: dsTr("Require password when computer wakes")
                 active: dbus_power.lockEnabled
 
@@ -322,11 +322,11 @@ Rectangle {
                     //dbus_power.lockEnabled = active
                 }
             }
-			
+
             Connections {
-                 target: dbus_power
+                target: dbus_power
                 onLockEnabledChanged: {
-					wake_require_password_header.active = dbus_power.lockEnabled
+                    wake_require_password_header.active = dbus_power.lockEnabled
                 }
             }
         }

@@ -46,23 +46,23 @@ Rectangle {
         }
 
         onDockModeChanged: {
-			if (dockMode == "default") {
-				dock_display_select_view.getDelegateInstanceAt(0).select()
-			}
-			if (dockMode == "autohide") {
-				dock_display_select_view.getDelegateInstanceAt(1).select()
-			}
-			if (dockMode == "keephidden") {
-				dock_display_select_view.getDelegateInstanceAt(2).select()
-			}
+            if (dockMode == "default") {
+                dock_display_select_view.getDelegateInstanceAt(0).select()
+            }
+            if (dockMode == "autohide") {
+                dock_display_select_view.getDelegateInstanceAt(1).select()
+            }
+            if (dockMode == "keephidden") {
+                dock_display_select_view.getDelegateInstanceAt(2).select()
+            }
         }
-		
-		onTopLeftChanged: {
-			hotspot_top_left_select_view.getDelegateInstanceAt(topLeft).select()
-		}
-		onBottomRightChanged: {
-			hotspot_bottom_right_select_view.getDelegateInstanceAt(bottomRight).select()
-		}
+
+        onTopLeftChanged: {
+            hotspot_top_left_select_view.getDelegateInstanceAt(topLeft).select()
+        }
+        onBottomRightChanged: {
+            hotspot_bottom_right_select_view.getDelegateInstanceAt(bottomRight).select()
+        }
     }
 
     Column {
@@ -228,21 +228,21 @@ Rectangle {
             title: "屏幕热区"
 
             DRadioButton {
-				buttonModel: [
-					{"buttonId": "top_left", "buttonLabel": "左上角"},
-					{"buttonId": "bottom_right", "buttonLabel": "右下角"}
-				]
-				
+                buttonModel: [
+                    {"buttonId": "top_left", "buttonLabel": "左上角"},
+                    {"buttonId": "bottom_right", "buttonLabel": "右下角"}
+                ]
+
                 anchors {
                     right: parent.right
-					rightMargin: parent.rightPadding
-					verticalCenter: parent.verticalCenter
+                    rightMargin: parent.rightPadding
+                    verticalCenter: parent.verticalCenter
                 }
-				
+
                 onItemSelected: {
                     if (idx == 0) {
                         hotspot_top_left_select.visible = true
-						hotspot_bottom_right_select.visible = false
+                        hotspot_bottom_right_select.visible = false
                     } else {
                         hotspot_top_left_select.visible = false
                         hotspot_bottom_right_select.visible = true
@@ -256,13 +256,13 @@ Rectangle {
 
             rows: 1
             DMultipleSelectView {
-				id: hotspot_top_left_select_view
+                id: hotspot_top_left_select_view
                 width: parent.width
                 height: rows * 30
 
                 rows: 1
                 columns: 3
-				singleSelectionMode: true
+                singleSelectionMode: true
 
                 model: ListModel {}
                 Component.onCompleted: {
@@ -271,7 +271,7 @@ Rectangle {
                     model.append({"label": "启动器", "selected": dde_desktop.topLeft == 2})
                 }
                 onSelect: {
-					dde_desktop.SetTopLeftAction(index)
+                    dde_desktop.SetTopLeftAction(index)
                 }
             }
         }
@@ -281,24 +281,24 @@ Rectangle {
 
             rows: 1
             DMultipleSelectView {
-				id: hotspot_bottom_right_select_view
+                id: hotspot_bottom_right_select_view
                 width: parent.width
                 height: rows * 30
 
                 rows: 1
                 columns: 3
-				singleSelectionMode: true
+                singleSelectionMode: true
 
                 model: ListModel {}
-               Component.onCompleted: {
+                Component.onCompleted: {
                     model.append({"label": "无", "selected": dde_desktop.bottomRight == 0})
                     model.append({"label": "打开的窗口", "selected": dde_desktop.bottomRight == 1})
                     model.append({"label": "启动器", "selected": dde_desktop.bottomRight == 2})
                 }
                 onSelect: {
-					dde_desktop.SetBottomRightAction(index)
+                    dde_desktop.SetBottomRightAction(index)
                 }
-             }
+            }
         }
     }
 }

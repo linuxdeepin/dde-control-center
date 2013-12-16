@@ -15,9 +15,9 @@ Image {
 
     property string normalImage: "images/button_center_normal.png"
     property string pressedImage: "images/button_center_pressed.png"
-	
-	property alias imageSource: delegate.source
-	property alias textColor: txt.color
+
+    property alias imageSource: delegate.source
+    property alias textColor: txt.color
 
     Text {
         id: txt
@@ -28,7 +28,7 @@ Image {
 
         anchors.centerIn: parent
     }
-	
+
     Rectangle {
         color: "black"
         opacity: 0.5
@@ -46,11 +46,11 @@ Image {
 
         onPressed: {
             if (!delegate.pressed) {
-				
-				if (delegate.GridView.view.singleSelectionMode) {
-					delegate.GridView.view.clear()
-				}
-				
+
+                if (delegate.GridView.view.singleSelectionMode) {
+                    delegate.GridView.view.clear()
+                }
+
                 delegate.source = delegate.pressedImage
                 txt.color = delegate.fontPressedColor
 
@@ -58,11 +58,11 @@ Image {
                 delegate.GridView.view.selectedItems.push(delegate)
                 delegate.GridView.view.select(index, delegate)
             } else {
-				
-				if (delegate.GridView.view.singleSelectionMode && delegate.GridView.view.selectedIndexs.length == 1) {
-					return
-				}
-				
+
+                if (delegate.GridView.view.singleSelectionMode && delegate.GridView.view.selectedIndexs.length == 1) {
+                    return
+                }
+
                 delegate.source = delegate.normalImage
                 txt.color = delegate.fontNormalColor
 

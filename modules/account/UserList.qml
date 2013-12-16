@@ -1,6 +1,6 @@
 import QtQuick 2.1
 import "../widgets"
-/* import DBus.Org.Freedesktop.Accounts 1.0 */
+import DBus.Org.Freedesktop.Accounts 1.0
 
 ListView {
     id: root
@@ -9,7 +9,7 @@ ListView {
     property int rightPadding: 15
     property int avatarNamePadding: 30
 
-    /* property variant dbus_accounts: Accounts {} */
+    property variant dbus_accounts: Accounts {}
 
     signal hideAllPrivate (int idx)
     signal showAllPrivate ()
