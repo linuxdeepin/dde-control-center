@@ -78,12 +78,12 @@ Item {
                         "image/gif"
                     ]
                 },
-                //{
-                    //"name": dsTr("Terminal"),
-                    //"icon": "images/terminal.png"
-                    //"defaultGetType": ""
-                    //"setTypeGroup": [""]
-                //}
+                {
+                    "name": dsTr("Terminal"),
+                    "icon": "images/terminal.png",
+                    "defaultGetType": "terminal",
+                    "setTypeGroup": ["terminal"]
+                }
             ]
 
             modelComponent: Component {
@@ -176,10 +176,10 @@ Item {
             styleColor: Qt.rgba(0, 0, 0, 0.9)
             font.bold: true
             rightMargin: 13
-            active: mediaMountId.allowAutoMount
+            active: mediaMountId.autoMountOpen
 
             onClicked: {
-                mediaMountId.SetAllowAutoRun(active)
+                mediaMountId.autoMountOpen = active
             }
         }
 
