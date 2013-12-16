@@ -33,9 +33,8 @@ ListView {
             width: 310
             height: component_top.height + component_sep.height
             
-            property string dbusPath: userDBusPath
-            
             Connections {
+
                 target: component_bg.ListView.view
                 onHideAllPrivate: {
                     if (idx != index) {
@@ -56,7 +55,12 @@ ListView {
                     component_bg.state = "normal"
                 }
             }
-
+            
+            User{
+                id: this_user
+                path: userDBusPath
+            }
+            
             Rectangle {
                 id: component_top
 
@@ -79,6 +83,10 @@ ListView {
                             component_bg.ListView.view.showAllPrivate()
                         }
                         toggleFlag = !toggleFlag
+                    }
+                    
+                    onImageSourceChanged: {
+                        this_user.SetIconFile(imageSource.toString().replace("file:\/\/", ""))
                     }
 
                     anchors.verticalCenter: parent.verticalCenter
@@ -192,6 +200,11 @@ ListView {
                                 relativeControl2X: 10; relativeControl2Y: -20
                             }
                         }
+                    }
+                    
+                    onStopped: {
+                        round_image.imageSource = target.imageSource
+                        target.destroy()
                     }
                 }
 
