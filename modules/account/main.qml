@@ -54,6 +54,10 @@ Rectangle {
         }
 
         DSeparatorHorizontal{}
+        
+        AddUserDialog {visible: false}
+        
+        DSeparatorHorizontal{}
 
         UserList {
             id: user_list
