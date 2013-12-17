@@ -85,10 +85,6 @@ ListView {
                         toggleFlag = !toggleFlag
                     }
                     
-                    onImageSourceChanged: {
-                        this_user.SetIconFile(imageSource.toString().replace("file:\/\/", ""))
-                    }
-
                     anchors.verticalCenter: parent.verticalCenter
                 }
 
@@ -163,6 +159,8 @@ ListView {
 
             EditUserDialog {
                 id: edit_user_dialog
+                
+                this_user: this_user
 
                 ParallelAnimation {
                     id: animation

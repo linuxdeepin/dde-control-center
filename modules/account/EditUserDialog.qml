@@ -5,8 +5,24 @@ Item {
     id: root
     width: 310
     height: column.height
+    
+    property variant this_user: null
+    
+    property string lastEditedEntry: null
+    property Item lastClickedAvatar: null
 
     signal avatarSet (Item item)
+    signal autoLoginSet ()
+    
+    Connections {
+        target: this_user
+        
+        onChanged: {
+            switch (root.lastEditedEntry) {
+                case "avatar": root.avatarSet(root.lastClickedAvatar); break;
+            }
+        }
+    }
 
     DColumn {
         id: column
@@ -18,7 +34,9 @@ Item {
             height: 300
 
             onAvatarSet: {
-                root.avatarSet(item)
+                root.lastEditedEntry = "avatar"
+                root.lastClickedAvatar = item
+                this_user.SetIconFile(item.imageSource.toString().replace("file:\/\/", ""))
             }
         }
 
