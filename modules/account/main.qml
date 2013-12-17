@@ -5,18 +5,24 @@ Rectangle {
     id: root
     color: constants.bgColor
     width: 310
-    height: 900
+    height: 600
 
     property variant constants: DConstants {}
 
     Column {
+        id: main_column
+        state: "normal"
+
         DssTitle {
+            id: module_title
             text: dsTr("Account")
         }
 
         DSeparatorHorizontal{}
 
         DBaseLine {
+            id:title
+
             leftLoader.sourceComponent: DssH2 {
                 text: dsTr("User List")
             }
@@ -31,7 +37,7 @@ Rectangle {
                     activatedNomralImage: "images/delete_press.png"
                     activatedHoverImage: "images/delete_press.png"
                     activatedPressImage: "images/delete_press.png"
-                    
+
                     onActivateChanged: {
                         if (activate) {
                             user_list.allAction()
@@ -49,14 +55,55 @@ Rectangle {
                     activatedNomralImage: "images/add_press.png"
                     activatedHoverImage: "images/add_press.png"
                     activatedPressImage: "images/add_press.png"
+
+                    onActivateChanged: {
+                        if (activate) {
+                            main_column.state = "add_dialog"
+                        } else {
+                            main_column.state = "normal"
+                        }
+                    }
                 }
             }
         }
 
         DSeparatorHorizontal{}
 
+        AddUserDialog { id: add_user_dialog }
+
         UserList {
             id: user_list
         }
+
+        move: Transition {
+            NumberAnimation { properties: "y"; duration: 200 }
+        }
+
+        states: [
+            State {
+                name: "normal"
+
+                /* PropertyChanges { */
+                /*     target: user_list */
+                /*     visible: true */
+                /* } */
+                PropertyChanges {
+                    target: add_user_dialog
+                    visible: false
+                }
+            },
+            State {
+                name: "add_dialog"
+
+                /* PropertyChanges { */
+                /*     target: user_list */
+                /*     visible: false */
+                /* } */
+                PropertyChanges {
+                    target: add_user_dialog
+                    visible: true
+                }
+            }
+        ]
     }
 }

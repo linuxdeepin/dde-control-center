@@ -17,7 +17,7 @@ ListView {
     signal showAllPrivate ()
     signal allNormal ()
     signal allAction ()
-    
+
     function deleteItem(idx) {
         root.model.remove(idx, 1)
     }
@@ -32,10 +32,9 @@ ListView {
 
             width: 310
             height: component_top.height + component_sep.height
-            
-            property string dbusPath: userDBusPath
-            
+
             Connections {
+
                 target: component_bg.ListView.view
                 onHideAllPrivate: {
                     if (idx != index) {
@@ -92,7 +91,7 @@ ListView {
                     }
 
                     DssH3 {
-                        text: userType
+                        text: userType == 0 ? dsTr("User") : dsTr("Administrator")
                     }
 
                     anchors.left: round_image.right
@@ -142,8 +141,8 @@ ListView {
 
                 onCancel: {
                     component_bg.state = "action"
-                }
 
+                }
                 onConfirm: {
                     dbus_accounts.deleteUser(userId, deleteFiles)
                     component_bg.state = "normal"
@@ -156,9 +155,11 @@ ListView {
             EditUserDialog {
                 id: edit_user_dialog
 
+                this_user: User { path: userDBusPath }
+
                 ParallelAnimation {
                     id: animation
-                    
+
                     property variant destination: round_image.parent.mapToItem(component_bg, round_image.x + 15, round_image.y)
 
                     property Item target: round_image
@@ -193,19 +194,29 @@ ListView {
                             }
                         }
                     }
+
+                    onStopped: {
+                        round_image.imageSource = target.imageSource
+                        target.destroy()
+                    }
                 }
 
                 onAvatarSet: {
-                    var newObject = Qt.createQmlObject('import QtQuick 2.1; import \"../widgets\"; DRoundImage {}', component_bg, "new");
-                    var startPoint = item.parent.mapToItem(component_bg, item.x, item.y)
+                    if (item) {
+                        var newObject = Qt.createQmlObject('import QtQuick 2.1; import \"../widgets\"; DRoundImage {}', 
+                                                           component_bg, "new");
+                        var startPoint = item.parent.mapToItem(component_bg, item.x, item.y)
 
-                    newObject.x = startPoint.x
-                    newObject.y = startPoint.y
-                    newObject.imageSource = item.imageSource
-                    newObject.roundRadius = item.roundRadius
+                        newObject.x = startPoint.x
+                        newObject.y = startPoint.y
+                        newObject.imageSource = item.imageSource
+                        newObject.roundRadius = item.roundRadius
 
-                    animation.target = newObject
-                    animation.start()
+                        animation.target = newObject
+                        animation.start()
+                    } else {
+                        round_image.imageSource = this_user.iconFile
+                    }
                 }
 
                 anchors.top: component_sep.bottom

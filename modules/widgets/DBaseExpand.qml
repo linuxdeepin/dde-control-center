@@ -47,12 +47,12 @@ Rectangle {
             clip: true
             color: dconstants.contentBgColor
 
-            Loader { 
-                id: content 
+            Loader {
+                id: content
                 width: headerRect.width
                 property var componentData: undefined
-                onLoaded: { 
-                    content.height = content.childrenRect.height 
+                height: sourceComponent.height
+                onLoaded: {
                     expandRect.contentLoaded()
                 }
                 anchors.top: parent.top

@@ -6,6 +6,9 @@ Item {
     width: 310
     height: column.height
 
+    property variant this_user: null
+
+    /* item == null indicates that avatar set by other programs */
     signal avatarSet (Item item)
 
     DColumn {
@@ -17,15 +20,29 @@ Item {
             width: 310
             height: 300
 
+            property variant lastClickedAvatar: null
+
             onAvatarSet: {
-                root.avatarSet(item)
+                lastClickedAvatar = item
+                this_user.SetIconFile(item.imageSource.toString().replace("file:\/\/", ""))
+            }
+
+            Connections {
+                target: root.this_user
+
+                onChanged: {
+                    root.avatarSet(avatar_view.lastClickedAvatar)
+                    avatar_view.lastClickedAvatar = null
+
+                    //TODO IconView selection
+                }
             }
         }
 
         DScrollWidget {
             width: parent.width + 15
             height: (38 + 2) * 4
-            
+
             Column {
                 id: edit_entries
 
@@ -44,6 +61,21 @@ Item {
                     }
 
                     DSwitchButton {
+                        id: auto_login_switch
+                        checked: root.this_user
+
+                        onClicked: {
+                            this_user.SetAutomaticLogin(checked)
+                        }
+
+                        Connections {
+                            target: root.this_user
+
+                            onChanged: {
+                                auto_login_switch.checked = root.this_user.automaticLogin
+                            }
+                        }
+
                         anchors.right: parent.right
                         anchors.rightMargin: 15
                         anchors.verticalCenter: parent.verticalCenter
@@ -67,6 +99,15 @@ Item {
                     }
 
                     DSwitchButton {
+
+                        Connections {
+                            target: root.this_user
+
+                            onChanged: {
+
+                            }
+                        }
+
                         anchors.right: parent.right
                         anchors.rightMargin: 15
                         anchors.verticalCenter: parent.verticalCenter
@@ -90,12 +131,23 @@ Item {
                     }
 
                     DRadioButton {
+                        id: user_type_radio
 
                         buttonModel: [
-                            {"buttonId": "administrator", "buttonLabel": "Administrator"},
                             {"buttonId": "user", "buttonLabel": "User"},
+                            {"buttonId": "administrator", "buttonLabel": "Administrator"},
                         ]
+                        initializeIndex: root.this_user.accountType
+                        onItemSelected: root.this_user.setAccountType(idx)
 
+                        Connections {
+                            target: root.this_user
+
+                            onChanged: {
+                                user_type_radio.selectItem(root.this_user.accountType)
+                            }
+                        }
+                        
                         anchors.right: parent.right
                         anchors.rightMargin: 15
                         anchors.verticalCenter: parent.verticalCenter
@@ -106,6 +158,10 @@ Item {
 
                 PasswordDialog {
                     id: password_dialog
+                    
+                    onPasswordSet: {
+                        print(password)
+                    }
                 }
             }
         }

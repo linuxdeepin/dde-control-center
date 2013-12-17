@@ -6,6 +6,9 @@ Item {
     width: 310
     state: "brief"
 
+    signal passwordSet (string password)
+    signal cancelled
+
     states: [
         State {
             name: "brief"
@@ -78,7 +81,13 @@ Item {
 
     DColumn {
         id: detail_view
-        height: (38 + 2) * 5
+        height: (38 + 2) * 4
+
+        property int echoMode: TextInput.Password
+
+        function validate() {
+            return new_password_input.text == repeat_input.text
+        }
 
         Rectangle {
             width: parent.width
@@ -86,7 +95,7 @@ Item {
             color: "transparent"
 
             DLabel {
-                text: "Current Password"
+                text: "New Password"
                 font.pixelSize: 12
 
                 anchors.left: parent.left
@@ -95,7 +104,11 @@ Item {
             }
 
             DTextInput {
-                echoMode: TextInput.Password
+                id: new_password_input
+                focus: true
+                echoMode: detail_view.echoMode
+
+                KeyNavigation.tab: repeat_input
 
                 anchors.right: parent.right
                 anchors.rightMargin: 15
@@ -109,7 +122,7 @@ Item {
             color: "transparent"
 
             DLabel {
-                text: "Current Password"
+                text: "Repeat"
                 font.pixelSize: 12
 
                 anchors.left: parent.left
@@ -118,30 +131,8 @@ Item {
             }
 
             DTextInput {
-                echoMode: TextInput.Password
-
-                anchors.right: parent.right
-                anchors.rightMargin: 15
-                anchors.verticalCenter: parent.verticalCenter
-            }
-        }
-
-        Rectangle {
-            width: parent.width
-            height: 38
-            color: "transparent"
-
-            DLabel {
-                text: "Current Password"
-                font.pixelSize: 12
-
-                anchors.left: parent.left
-                anchors.leftMargin: 15
-                anchors.verticalCenter: parent.verticalCenter
-            }
-
-            DTextInput {
-                echoMode: TextInput.Password
+                id: repeat_input
+                echoMode: detail_view.echoMode
 
                 anchors.right: parent.right
                 anchors.rightMargin: 15
@@ -164,6 +155,15 @@ Item {
             }
 
             DSwitchButton {
+
+                onClicked: {
+                    if(checked) {
+                        detail_view.echoMode = TextInput.Normal
+                    } else {
+                        detail_view.echoMode = TextInput.Password
+                    }
+                }
+
                 anchors.right: parent.right
                 anchors.rightMargin: 15
                 anchors.verticalCenter: parent.verticalCenter
@@ -184,6 +184,8 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
 
                 onClicked: {
+                    root.cancelled()
+                    root.state = "brief"
                 }
             }
 
@@ -196,10 +198,17 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
 
                 onClicked: {
+                    if (detail_view.validate()) {
+                        root.passwordSet(new_password_input.text)
+                        root.state = "brief"
+                    } else {
+                        new_password_input.state = "warning"
+                        repeat_input.state = "warning"
+                    }
                 }
             }
         }
-        
+
         DSeparatorHorizontal {}
 
         anchors.right: parent.right
