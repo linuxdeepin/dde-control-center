@@ -158,6 +158,10 @@ Item {
 
                 PasswordDialog {
                     id: password_dialog
+                    
+                    onPasswordSet: {
+                        print(password)
+                    }
                 }
             }
         }

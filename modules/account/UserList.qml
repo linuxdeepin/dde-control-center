@@ -91,7 +91,7 @@ ListView {
                     }
 
                     DssH3 {
-                        text: userType
+                        text: userType == 0 ? dsTr("User") : dsTr("Administrator")
                     }
 
                     anchors.left: round_image.right
