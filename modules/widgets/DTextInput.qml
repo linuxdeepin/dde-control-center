@@ -1,13 +1,15 @@
 import QtQuick 2.1
 import QtGraphicalEffects 1.0
 
-Item {
+FocusScope {
     width: 160
     height: 22
 
     property alias echoMode: text_input.echoMode
+    property alias text: text_input.text
+    property color borderColor: "black"
     property variant constants: DConstants {}
-
+    
     Rectangle {
         id: text_input_box
 
@@ -16,7 +18,7 @@ Item {
         clip: true
         color: "#1A1B1B"
         radius: 3
-        border.color: "black"
+        border.color: parent.borderColor
     }
 
     DropShadow {
@@ -46,6 +48,7 @@ Item {
         TextInput {
             id: text_input
 
+            focus: true
             color: constants.fgColor
             selectByMouse: true
             verticalAlignment: TextInput.AlignVCenter
