@@ -26,11 +26,15 @@ Column {
                     verticalAlignment: Text.AlignVCenter
                     width:parent.width
                     text: dsTr("Wired Conections") + index
-                    color: nm.wiredDevices[index][1] != "/" ? "blue" : dconstants.fgColor
+                    color: nm.wiredDevices[index][1] == 100 ? "blue" : dconstants.fgColor
                     DSeparatorHorizontal{}
                 }
                 rightLoader.sourceComponent: DSwitchButton {
-                    checked: nm.wiredDevices[index][1] != "/"
+                    checked: nm.wiredDevices[index][1] == 100
+                    onCheckedChanged: {
+                        print("huhu", nm.wiredDevices[index][0], checked)
+                        nm.ActiveWiredDevice(checked, nm.wiredDevices[index][0])
+                    }
                 }
             }
             DSeparatorHorizontal{}
@@ -38,19 +42,10 @@ Column {
     }
 
     Repeater {
-        model: 1//nm.wirelessDevices
-        delegate: DBaseExpand {
-            id: c2
-            width: root.width
-            expanded: true
-            header.sourceComponent: DSwitchButtonHeader {
-                text: dsTr("Wireless Access Points")
-                active: c2.expanded
-                onActiveChanged: {
-                    nm.wirelessEnabled = active
-                }
-            }
-            content.sourceComponent: ListAccessPoints {width:root.width; accessPoints: nm.aPs}
+        model: nm.wirelessDevices
+        delegate: ListAccessPoints{dev: nm.wirelessDevices[index]}
+        onModelChanged: {
+            print("Repeater changed", nm.wirelessDevices)
         }
     }
 
