@@ -27,6 +27,8 @@ Item {
        id: "touchPadID"
     } 
 
+    property var allLayoutList: keyboardID.LayoutList()
+
     Column {
         anchors.top: parent.top
         width: parent.width
@@ -155,22 +157,102 @@ Item {
 
         DBaseExpand {
             id: keyboardLayoutSetting
+            property string layoutLabel
             header.sourceComponent: DDownArrowHeader {
                 text: dsTr("Keyboard Layout")
-                hintText: dsTr("US")
+                hintText: "[" + keyboardLayoutSetting.layoutLabel + "]"
                 onClicked: {
                     keyboardLayoutSetting.expanded = !keyboardLayoutSetting.expanded
                 }
             }
 
-            content.sourceComponent: Column {
-                Text {text:"test"}
-                Text {text:"test"}
-                Text {text:"test"}
-                Text {text:"test"}
-                Text {text:"test"}
-                Text {text:"test"}
-                Text {text:"test"}
+            content.sourceComponent: Component {
+
+                ListView {
+                    id: layoutList
+                    width: parent.width
+
+                    property string defaultSelectItemId: keyboardID.keyboardLayout[0] ? keyboardID.keyboardLayout[0] : "us"
+
+                    model: ListModel {}
+                    delegate: Item {
+                        width: parent.width
+                        height: 28
+                        anchors.left: parent.left
+                        anchors.leftMargin: 25
+
+                        property string itemId: item_id
+                        
+                        Row {
+                            spacing: 5
+                            anchors.verticalCenter: parent.verticalCenter
+                            
+                            Image {
+                                id: nameImage
+                                anchors.verticalCenter: parent.verticalCenter
+                                source: "images/select.png"
+                                opacity: layoutList.defaultSelectItemId == itemId ? 1 : 0
+                            }
+                            
+                            DssH3 {
+                                id: nameText
+                                anchors.verticalCenter: parent.verticalCenter
+                                text: label 
+                                color: layoutList.defaultSelectItemId == itemId ? "#009EFF" : "#fff"
+                                font.pixelSize: 12
+                            }
+                        }
+                        
+                        MouseArea {
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            
+                            onEntered: {
+                                layoutList.currentIndex = index
+                            }
+                            
+                            onClicked: {
+                                layoutList.defaultSelectItemId = itemId
+                                keyboardID.keyboardLayout = [itemId]
+                                keyboardLayoutSetting.layoutLabel = allLayoutList[itemId]
+                            }
+                        }
+                    }
+
+                    highlight: Rectangle {
+                        width: parent.width
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        anchors.leftMargin: 5
+                        anchors.rightMargin: 5
+                        height: 28
+                        color: "#0D0D0D"
+                        radius: 4
+                    }
+                    highlightMoveDuration: 200
+                    focus: true
+                    interactive: true
+
+                    Component.onCompleted: {
+                        var length = 0;
+                        var currentIndex = -1
+                        for (var key in allLayoutList){
+                            model.append({
+                                "label": allLayoutList[key],
+                                "item_id": key
+                            })
+                            if(key == layoutList.defaultSelectItemId){
+                                currentIndex = length
+                            }
+                            length += 1
+                        }
+                        height = 150
+                        if(currentIndex != -1){
+                            layoutList.positionViewAtIndex(currentIndex, ListView.Visible)
+                        }
+                        keyboardLayoutSetting.layoutLabel = allLayoutList[layoutList.defaultSelectItemId]
+                    }
+                }
             }
         }
     }
