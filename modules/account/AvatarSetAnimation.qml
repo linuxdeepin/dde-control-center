@@ -1,73 +1,45 @@
 import QtQuick 2.1
 
-PathAnimation {
-    target: null
-    duration: 500
-    easing.type: Easing.InQuad
-    
+ParallelAnimation {
     id: animation
 
-    /* property variant target: animation */
-    property point startPoint: Qt.point(0, 0)
-    property point endPoint: Qt.point(0, 0)
-    property size startSize: Qt.size(0, 0)
-    property size endSize: Qt.size(0, 0)
-    
-    path: Path {
-        startX: animation.startPoint.x
-        startY: animation.startPoint.y
+    property variant destination: round_image.parent.mapToItem(component_bg, round_image.x + 15, round_image.y)
 
-        PathCubic {
-            x: animation.endPoint.x; y: animation.endPoint.y
-            relativeControl1X: -10; relativeControl1Y: -30
-            relativeControl2X: 10; relativeControl2Y: -20
+    property Item target: round_image
+    property point startPoint: Qt.point(target.x, target.y)
+    property point endPoint: Qt.point(destination.x, destination.y)
+    property int startRoundRadius: target.roundRadius
+    property int endRoundRadius: round_image.roundRadius
+
+    NumberAnimation {
+        target: animation.target
+        duration: 500
+        easing.type: Easing.InQuad
+
+        properties: "roundRadius"
+        from: animation.startRoundRadius
+        to: animation.endRoundRadius
+    }
+
+    PathAnimation {
+        target: animation.target
+        duration: 500
+        easing.type: Easing.InQuad
+
+        path: Path {
+            startX: animation.startPoint.x
+            startY: animation.startPoint.y
+
+            PathCubic {
+                x: animation.endPoint.x; y: animation.endPoint.y
+                relativeControl1X: -10; relativeControl1Y: -30
+                relativeControl2X: 10; relativeControl2Y: -20
+            }
         }
     }
+
+    onStopped: {
+        round_image.imageSource = target.imageSource
+        target.destroy()
+    }
 }
-
-/* ParallelAnimation { */
-/*     id: animation */
-
-/*     property variant target: animation */
-/*     property point startPoint: Qt.point(0, 0) */
-/*     property point endPoint: Qt.point(0, 0) */
-/*     property size startSize: Qt.size(0, 0) */
-/*     property size endSize: Qt.size(0, 0) */
-
-/*     NumberAnimation { */
-/*         target: animation.target */
-/*         duration: 500 */
-/*         easing.type: Easing.InQuad */
-
-/*         properties: "width" */
-/*         from: startSize.width */
-/*         to: endSize.width */
-/*     } */
-
-/*     NumberAnimation { */
-/*         target: animation.target */
-/*         duration: 500 */
-/*         easing.type: Easing.InQuad */
-
-/*         properties: "height" */
-/*         from: startSize.height */
-/*         to: endSize.height */
-/*     } */
-
-/*     PathAnimation { */
-/*         target: animation.target */
-/*         duration: 500 */
-/*         easing.type: Easing.InQuad */
-
-/*         path: Path { */
-/*             startX: animation.startPoint.x */
-/*             startY: animation.startPoint.y */
-
-/*             PathCubic { */
-/*                 x: animation.endPoint.x; y: animation.endPoint.y */
-/*                 relativeControl1X: -10; relativeControl1Y: -30 */
-/*                 relativeControl2X: 10; relativeControl2Y: -20 */
-/*             } */
-/*         } */
-/*     } */
-/* } */
