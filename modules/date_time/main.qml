@@ -147,7 +147,7 @@ Item {
                     }
                 }
 
-                Scrollbar {
+                DScrollBar {
                     flickable: timezone_listview
                 }
             }
