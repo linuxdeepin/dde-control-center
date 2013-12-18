@@ -4,6 +4,7 @@ Image {
     id: actionButton
 
     opacity: 0.5
+    property alias mouseArea: mouseArea
 
     signal clicked
     
