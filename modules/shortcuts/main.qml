@@ -69,9 +69,11 @@ Item {
             modelComponent: Component {
 
                 ListView {
-                    height: 60
+                    property int lineHeight: 30
+
                     width: parent.width
                     focus: true
+                    height: model.count * lineHeight
 
                     model: ListModel {
                         ListElement { name: "Bob" }
@@ -79,37 +81,8 @@ Item {
                         ListElement { name: "Michael" }
                     }
 
-                    delegate: FocusScope {
-                            width: parent.width; height: 28
-                            //x:childrenRect.x; y: childrenRect.y
-                            TextInput {
-                                anchors.fill: parent
-                                focus: true
-                                text: name
-                                Keys.onReturnPressed: console.log(name)
-                                cursorVisible: false
-                                readOnly: true
-                                color: activeFocus ? "blue" : "white"
-
-                                property string oldShortcut
-
-                                Keys.onReleased: {
-                                    if(event.key == Qt.Key_Escape){
-                                        parent.focus = false
-                                    }
-                                }
-
-                                onActiveFocusChanged: {
-                                    if (activeFocus){
-                                        print(parent.width)
-                                        oldShortcut = text
-                                        text = "get"
-                                    }
-                                    else {
-                                        text = oldShortcut
-                                    }
-                                }
-                            }
+                    delegate: ShortcutInput {
+                        height: lineHeight
                     }
                 }
 
