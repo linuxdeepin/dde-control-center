@@ -72,6 +72,10 @@ class ControlPanel(QQuickView):
         self.record_event.enter_mouse_area.connect(self.view_object.displayTrayIcon)
         self.record_event.click_outer_area.connect(self.view_object.outerAreaClicked)
 
+    @pyqtSlot(bool, result=bool)
+    def grabKeyboard(self, flag):
+        return self.setKeyboardGrabEnabled(flag)
+
     @pyqtSlot()
     def shutdown(self):
         subprocess.Popen([SHUT_DOWN_ORDER_PATH])
