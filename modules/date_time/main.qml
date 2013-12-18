@@ -146,6 +146,10 @@ Item {
                         Date.timeZoneUpdated()
                     }
                 }
+
+                Scrollbar {
+                    flickable: timezone_listview
+                }
             }
         }
 

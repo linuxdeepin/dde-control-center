@@ -67,104 +67,52 @@ Item {
             ]
 
             modelComponent: Component {
-                Column {
-                    Repeater {
-                        model: 5
-                        delegate: DBaseLine {
-                            leftMargin: 25
-                            color: dconstants.contentBgColor
-                            leftLoader.sourceComponent: DssH3 {
-                                text: "Launcher"
-                            }
-                            rightLoader.sourceComponent: TextInput {
-                                text: activeFocus ? "Please input new shortcuts" : "Super"
-                                color: dconstants.fgColor
-                                font.pixelSize: 11
-                            }
-                        }
-                    }
-                }
 
-                /***
                 ListView {
-                    id: defaultAppListview
+                    height: 60
                     width: parent.width
+                    focus: true
 
-                    property string defaultDesktopName: defaultAppsId.DefaultAppViaType(componentData.defaultGetType)[0]
-                    property var setTypeGroup: componentData.setTypeGroup
+                    model: ListModel {
+                        ListElement { name: "Bob" }
+                        ListElement { name: "John" }
+                        ListElement { name: "Michael" }
+                    }
 
-                    model: ListModel {}
-                    delegate: Item {
-                        width: parent.width
-                        height: 28
-                        anchors.left: parent.left
-                        anchors.leftMargin: 25
+                    delegate: FocusScope {
+                            width: parent.width; height: 28
+                            //x:childrenRect.x; y: childrenRect.y
+                            TextInput {
+                                anchors.fill: parent
+                                focus: true
+                                text: name
+                                Keys.onReturnPressed: console.log(name)
+                                cursorVisible: false
+                                readOnly: true
+                                color: activeFocus ? "blue" : "white"
 
-                        property string desktopName: desktop_name
-                        
-                        Row {
-                            spacing: 5
-                            anchors.verticalCenter: parent.verticalCenter
-                            
-                            Image {
-                                id: nameImage
-                                anchors.verticalCenter: parent.verticalCenter
-                                source: "images/select.png"
-                                opacity: defaultAppListview.defaultDesktopName == desktopName ? 1 : 0
-                            }
-                            
-                            DssH3 {
-                                id: nameText
-                                anchors.verticalCenter: parent.verticalCenter
-                                text: label 
-                                color: defaultAppListview.defaultDesktopName == desktopName ? "#009EFF" : "#fff"
-                                font.pixelSize: 12
-                            }
-                        }
-                        
-                        MouseArea {
-                            anchors.fill: parent
-                            hoverEnabled: true
-                            
-                            onEntered: {
-                                defaultAppListview.currentIndex = index
-                            }
-                            
-                            onClicked: {
-                                defaultAppListview.defaultDesktopName = desktopName
-                                for(var i=0;i<setTypeGroup.length;i++){
-                                    defaultAppsId.SetDefaultAppViaType(setTypeGroup[i], desktopName)
+                                property string oldShortcut
+
+                                Keys.onReleased: {
+                                    if(event.key == Qt.Key_Escape){
+                                        parent.focus = false
+                                    }
+                                }
+
+                                onActiveFocusChanged: {
+                                    if (activeFocus){
+                                        print(parent.width)
+                                        oldShortcut = text
+                                        text = "get"
+                                    }
+                                    else {
+                                        text = oldShortcut
+                                    }
                                 }
                             }
-                        }
-                    }
-
-                    highlight: Rectangle {
-                        width: parent.width
-                        anchors.left: parent.left
-                        anchors.right: parent.right
-                        anchors.leftMargin: 5
-                        anchors.rightMargin: 5
-                        height: 28
-                        color: "#0D0D0D"
-                        radius: 4
-                    }
-                    highlightMoveDuration: 200
-                    focus: true
-                    interactive: true
-
-                    Component.onCompleted: {
-                        var datas = defaultAppsId.AppsListViaType(componentData.defaultGetType)
-                        height = datas.length * 28
-                        for (var i=0;i<datas.length;i++){
-                            model.append({
-                                "label": datas[i][1],
-                                "desktop_name": datas[i][0]
-                            })
-                        }
                     }
                 }
-                ***/
+
             }
 
         }

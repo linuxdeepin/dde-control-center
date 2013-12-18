@@ -14,9 +14,20 @@ Rectangle {
     property url activatedHoverImage
     property url activatedPressImage
 
+    signal clicked
     property bool activate: false
 
     property bool hover: false
+    property bool pressed: false
+
+    function changeStatus(){
+        if(activate){
+            if(pressed){
+                currentImage.source = activatedPressImage
+            }
+        }else{
+        }
+    }
 
     Image {
         id: currentImage
@@ -29,42 +40,34 @@ Rectangle {
         hoverEnabled: true
 
         onPressed: {
-            if (imageCheckButton.activate) {
-                currentImage.source = activatedPressImage
-            }
-            else {
-                currentImage.source = inactivatedPressImage
-            }
+            parent.hover = false
+            parent.pressed = true
         }
 
         onReleased: {
-            imageCheckButton.activate = !imageCheckButton.activate
-            if (imageCheckButton.activate) {
-                currentImage.source = activatedHoverImage
+            parent.pressed = false
+            if (containsMouse){
+                parent.hover = true
             }
             else {
-                currentImage.source = inactivatedHoverImage
+                parent.hover = false
             }
+            parent.activate = !parent.activate
+            imageCheckButton.clicked()
         }
 
         onEntered: {
-            imageCheckButton.hover = true
-            if (imageCheckButton.activate) {
-                currentImage.source = activatedHoverImage
-            }
-            else {
-                currentImage.source = inactivatedHoverImage
-            }
+            parent.hover = true
+            parent.pressed = false
+            print(activate, hover, pressed)
+            print(currentImage.source)
         }
 
         onExited: {
-            imageCheckButton.hover = false
-            if (imageCheckButton.activate) {
-                currentImage.source = activatedNomralImage
-            }
-            else {
-                currentImage.source = inactivatedNomralImage
-            }
+            parent.hover = false
+            parent.pressed = false
+            print(activate, hover, pressed)
+            print(currentImage.source)
         }
     }
 }
