@@ -14,6 +14,10 @@ Rectangle {
     
     signal confirmed (variant userInfo)
     signal cancelled
+    
+    function warnUserName() {
+        user_name_input.state = "warning"
+    }
 
     Column {
         id: column
@@ -31,7 +35,6 @@ Rectangle {
             
             if (password_input.text != repeat_password_input.text) {
                 result = false
-                password_input.state = "warning"
                 repeat_password_input.state = "warning"
             }
             
@@ -315,6 +318,7 @@ Rectangle {
                 anchors.verticalCenter: parent.verticalCenter
 
                 onClicked: {
+                    focus = true
                     if (column.validate()) {
                         root.confirmed({userName: user_name_input.text,
                                         userPassword: password_input.text,

@@ -8,9 +8,9 @@ Item {
     state: "default"
 
     property int verticalPadding: 8
-    
+
     signal avatarSet (Item item)
-    
+
     DRadioButton {
         id: radio_button
 
@@ -49,10 +49,10 @@ Item {
                 visible: false
             }
             PropertyChanges {
-                target: avatar_webcam_view
+                target: webcam_loader
                 x: root.width * 2
+                sourceComponent: null
                 visible: false
-                running: false
             }
         },
         State {
@@ -68,10 +68,10 @@ Item {
                 visible: true
             }
             PropertyChanges {
-                target: avatar_webcam_view
+                target: webcam_loader
                 x: root.width
+                sourceComponent: null
                 visible: false
-                running: false
             }
         },
         State {
@@ -87,10 +87,10 @@ Item {
                 visible: false
             }
             PropertyChanges {
-                target: avatar_webcam_view
+                target: webcam_loader
                 x: 0
+                sourceComponent: avatar_webcam_view
                 visible: true
-                running: true
             }
         }
     ]
@@ -100,14 +100,14 @@ Item {
 
         width: parent.width
         height: parent.height - root.verticalPadding * 3 - radio_button.height
-        
+
         onAvatarSet: {
             root.avatarSet(item)
         }
-        
+
         anchors.top: radio_button.bottom
         anchors.topMargin: root.verticalPadding * 2
-        
+
         Behavior on x {
             SmoothedAnimation { duration: 200 }
         }
@@ -120,11 +120,11 @@ Item {
         height: parent.height - root.verticalPadding * 3 - radio_button.height
 
         withAddButton: true
-        
+
         onAvatarSet: {
             root.avatarSet(item)
         }
-        
+
         anchors.top: radio_button.bottom
         anchors.topMargin: root.verticalPadding * 2
 
@@ -133,16 +133,23 @@ Item {
         }
     }
 
-    WebCam {
-        id: avatar_webcam_view
+
+    Loader {
+        id: webcam_loader
         width: parent.width
         height: parent.height - root.verticalPadding * 3- radio_button.height
 
         anchors.top: radio_button.bottom
         anchors.topMargin: root.verticalPadding * 2
+    }
 
-        Behavior on x {
-            SmoothedAnimation { duration: 200 }
+    Component {
+        id: avatar_webcam_view
+
+        WebCam {
+            Behavior on x {
+                SmoothedAnimation { duration: 200 }
+            }
         }
     }
 }

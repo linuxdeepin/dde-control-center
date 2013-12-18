@@ -92,9 +92,17 @@ Rectangle {
             }
 
             onConfirmed: {
-                
-                
-                main_column.state = "normal"
+                var new_user = dbus_accounts.CreateUser(userInfo.userName, userInfo.userName, userInfo.userAccountType)
+                if (new_user == undefined) {
+                    add_user_dialog.warnUserName()
+                } else {
+                    dbus_user.path = new_user
+                    dbus_user.SetPassword(userInfo.userPassword, "")
+                    dbus_user.SetAccountType(userInfo.userAccountType)
+                    dbus_user.SetAutomaticLogin(userInfo.userAutoLogin)
+                    
+                    main_column.state = "normal"
+                }
             }
         }
 
