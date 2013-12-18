@@ -1,12 +1,16 @@
 import QtQuick 2.1
 import "../widgets"
+import DBus.Org.Freedesktop.Accounts 1.0
 
 Rectangle {
     id: root
     color: constants.bgColor
     width: 310
     height: 600
-
+    
+    Accounts { id: dbus_accounts }
+    User { id: dbus_user}
+    
     property variant constants: DConstants {}
 
     Column {
@@ -30,6 +34,8 @@ Rectangle {
                 spacing: 10
 
                 DImageCheckButton {
+                    id: delete_check_button
+
                     inactivatedNomralImage: "images/delete_normal.png"
                     inactivatedHoverImage: "images/delete_normal.png"
                     inactivatedPressImage: "images/delete_normal.png"
@@ -48,6 +54,8 @@ Rectangle {
                 }
 
                 DImageCheckButton {
+                    id: add_check_button
+
                     inactivatedNomralImage: "images/add_normal.png"
                     inactivatedHoverImage: "images/add_normal.png"
                     inactivatedPressImage: "images/add_normal.png"
@@ -63,13 +71,32 @@ Rectangle {
                             main_column.state = "normal"
                         }
                     }
+
+                    Connections {
+                        target: main_column
+                        onStateChanged: {
+                            add_check_button.activate = (main_column.state == "add_dialog")
+                        }
+                    }
                 }
             }
         }
 
         DSeparatorHorizontal{}
 
-        AddUserDialog { id: add_user_dialog }
+        AddUserDialog {
+            id: add_user_dialog
+
+            onCancelled: {
+                main_column.state = "normal"
+            }
+
+            onConfirmed: {
+                
+                
+                main_column.state = "normal"
+            }
+        }
 
         UserList {
             id: user_list

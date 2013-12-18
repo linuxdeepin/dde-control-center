@@ -10,9 +10,6 @@ ListView {
     property int rightPadding: 15
     property int avatarNamePadding: 30
 
-    property variant dbus_accounts: Accounts {}
-    property variant dbus_user: User {}
-
     signal hideAllPrivate (int idx)
     signal showAllPrivate ()
     signal allNormal ()
