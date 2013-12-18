@@ -14,8 +14,8 @@ ListView {
     signal showAllPrivate ()
     signal allNormal ()
     signal allAction ()
-
-    function deleteItem(idx) {
+    
+    function deleteItem (idx) {
         root.model.remove(idx, 1)
     }
 
@@ -29,6 +29,7 @@ ListView {
 
             width: 310
             height: component_top.height + component_sep.height
+            property variant this_user: User { path: userDBusPath}
 
             Connections {
 
@@ -100,6 +101,10 @@ ListView {
                     id: user_status_button
                     state: userStatus
 
+                    onChangeStatus: {
+                        component_bg.this_user.SetLocked(locked)
+                    }
+
                     anchors.right: parent.right
                     anchors.rightMargin: root.rightPadding
                     anchors.verticalCenter: parent.verticalCenter
@@ -152,7 +157,7 @@ ListView {
             EditUserDialog {
                 id: edit_user_dialog
 
-                this_user: User { path: userDBusPath }
+                this_user: User { path: userDBusPath}
 
                 ParallelAnimation {
                     id: animation
@@ -200,7 +205,7 @@ ListView {
 
                 onAvatarSet: {
                     if (item) {
-                        var newObject = Qt.createQmlObject('import QtQuick 2.1; import \"../widgets\"; DRoundImage {}', 
+                        var newObject = Qt.createQmlObject('import QtQuick 2.1; import \"../widgets\"; DRoundImage {}',
                                                            component_bg, "new");
                         var startPoint = item.parent.mapToItem(component_bg, item.x, item.y)
 
@@ -334,9 +339,10 @@ ListView {
         for (var i = 0; i < cached_users.length; i++) {
             dbus_user.path = cached_users[i]
 
-            var user_status = dbus_user.loginTime != 0 ? "currentUser" : "otherUser"
+            var user_status = dbus_user.locked ? "inactiveUser" : dbus_user.loginTime != 0 ? "currentUser" : "otherUser"
+            var user_avatar = dbus_user.iconFile.lastIndexOf(".face") != -1 ? "/var/lib/AccountsService/icons/guest.jpg" : dbus_user.iconFile
 
-            user_list_model.append({"userAvatar": dbus_user.iconFile,
+            user_list_model.append({"userAvatar": user_avatar,
                                     "userId": dbus_user.uid,
                                     "userName": dbus_user.userName,
                                     "userType": dbus_user.accountType,

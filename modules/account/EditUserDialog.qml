@@ -62,7 +62,7 @@ Item {
 
                     DSwitchButton {
                         id: auto_login_switch
-                        checked: root.this_user
+                        checked: root.this_user.automaticLogin
 
                         onClicked: {
                             this_user.SetAutomaticLogin(checked)
@@ -147,7 +147,7 @@ Item {
                                 user_type_radio.selectItem(root.this_user.accountType)
                             }
                         }
-                        
+
                         anchors.right: parent.right
                         anchors.rightMargin: 15
                         anchors.verticalCenter: parent.verticalCenter
@@ -158,7 +158,7 @@ Item {
 
                 PasswordDialog {
                     id: password_dialog
-                    
+
                     onPasswordSet: {
                         print(password)
                     }

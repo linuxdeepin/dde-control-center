@@ -15,14 +15,6 @@ Item {
         }
     }
 
-    Component.onCompleted: {
-        if (running) {
-            camera.start()
-        } else {
-            camera.stop()
-        }
-    }
-
     Camera {
         id: camera
 
