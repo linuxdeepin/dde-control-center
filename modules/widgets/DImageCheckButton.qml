@@ -15,24 +15,60 @@ Rectangle {
     property url activatedPressImage
 
     signal clicked
-    property bool activate: false
+    property bool active: false
 
     property bool hover: false
     property bool pressed: false
 
+    onActiveChanged: {
+        changeStatus()
+    }
+    onHoverChanged: {
+        changeStatus()
+    }
+    onPressedChanged: {
+        changeStatus()
+    }
+
     function changeStatus(){
-        if(activate){
+        if(active){
             if(pressed){
                 currentImage.source = activatedPressImage
             }
+            else{
+                if(hover){
+                    currentImage.source = activatedHoverImage
+                }
+                else{
+                    currentImage.source = activatedNomralImage
+                }
+            }
         }else{
+            if(pressed){
+                currentImage.source = inactivatedPressImage
+            }
+            else{
+                if(hover){
+                    currentImage.source = inactivatedHoverImage
+                }
+                else{
+                    currentImage.source = inactivatedNomralImage
+                }
+            }
         }
     }
 
     Image {
         id: currentImage
         anchors.centerIn: parent
-        source: inactivatedNomralImage
+        Component.onCompleted: {
+            if(active){
+                source = activatedNomralImage
+            }
+            else{
+                source = inactivatedNomralImage
+            }
+        }
     }
 
     MouseArea {
@@ -52,22 +88,18 @@ Rectangle {
             else {
                 parent.hover = false
             }
-            parent.activate = !parent.activate
+            parent.active = !parent.active
             imageCheckButton.clicked()
         }
 
         onEntered: {
             parent.hover = true
             parent.pressed = false
-            print(activate, hover, pressed)
-            print(currentImage.source)
         }
 
         onExited: {
             parent.hover = false
             parent.pressed = false
-            print(activate, hover, pressed)
-            print(currentImage.source)
         }
     }
 }
