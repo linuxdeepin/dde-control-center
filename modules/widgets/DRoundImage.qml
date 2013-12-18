@@ -20,6 +20,7 @@ Rectangle {
     state: "normal"
 
     signal clicked
+    signal imageLoadError
 
     states: [
         State {
@@ -76,6 +77,12 @@ Rectangle {
 
         Image {
             source: round_image.imageSource
+
+            onStatusChanged: {
+                if (status == Image.Error) {
+                    round_image.imageLoadError()
+                }
+            }
         }
 
         anchors.centerIn: parent
