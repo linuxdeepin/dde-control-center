@@ -13,6 +13,7 @@ Item {
     property bool trayIconShowAll: false
     property int viewHoverPadding: 100
     property int displayState: viewState.allHide
+    property int lastDisplayState: viewState.allHide
 
     property bool clickedToHide: true
 
@@ -20,7 +21,6 @@ Item {
         id: dsslocale
         domain: "deepin-system-settings"
         dirname: "../../locale"
-        //domain: "DDE"
     }
 
     function dsTr(s){
@@ -62,9 +62,13 @@ Item {
     }
 
     function displayTrayIcon(){
-        if (displayState == viewState.allHide && 
+        trayFrame.visible = true
+        if (lastDisplayState == viewState.allShow && timerResetState.running){
+            timerResetState.stop()
+            showingRightBox.restart()
+        }
+        else if (displayState == viewState.allHide && 
             !showingTrayIconBox.running){
-            trayFrame.visible = true
             showingTrayIconBox.restart()
         }
     }
@@ -152,14 +156,27 @@ Item {
         trayIconTip.visible = true
     }
 
+    function resetState(){
+        trayIconTabList.currentIndex = -1
+        initTrayIcon()
+    }
+
     Timer {
-        // init something
         running: true
         interval: 100
         repeat: false
         onTriggered: {
             initTrayIcon()
-            //trayIconTabList.positionViewAtEnd()
+        }
+    }
+
+    Timer {
+        id: timerResetState
+        running: false
+        interval: 1000 * 10
+        repeat: false
+        onTriggered: {
+            resetState()
         }
     }
 
@@ -172,11 +189,9 @@ Item {
         duration: 300
         easing.type: Easing.OutQuad
 
-        /***
         onStarted: {
-            windowView.x = 0
+            windowView.show()
         }
-        ***/
 
         onStopped: {
             displayState = viewState.allShow
@@ -191,11 +206,21 @@ Item {
         to: screenSize.width
         duration: 300
         easing.type: Easing.OutQuad
+        
+        onStarted: {
+            lastDisplayState = displayState
+        }
+
         onStopped: {
-            //windowView.x = screenSize.width - 2
-            trayIconTabList.currentIndex = -1
+            if (lastDisplayState == viewState.allShow){
+                if(timerResetState.running){
+                    timerResetState.stop()
+                }
+                timerResetState.restart()
+            }else{
+                resetState()
+            }
             displayState = viewState.allHide
-            initTrayIcon()
             windowView.hide()
         }
     }

@@ -78,7 +78,10 @@ class ControlPanel(QQuickView):
 
     @pyqtSlot()
     def shutdown(self):
-        subprocess.Popen([SHUT_DOWN_ORDER_PATH])
+        if os.path.exists(SHUT_DOWN_ORDER_PATH):
+            subprocess.Popen([SHUT_DOWN_ORDER_PATH])
+        else:
+            print "File not exist:", SHUT_DOWN_ORDER_PATH
 
     @pyqtSlot(result=QVariant)
     def argv(self):
