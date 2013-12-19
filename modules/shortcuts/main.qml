@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
+import DBus.Com.Deepin.Daemon.KeyBinding 1.0
 import "../widgets"
 
 Item {
@@ -11,12 +12,17 @@ Item {
     property int contentLeftMargin: 22
     property int contentHeight: 60
 
+    property var keybindingId: KeyBinding {}
+
     Column {
         anchors.top: parent.top
         width: parent.width
 
         DssTitle {
             text: dsTr("Shortcuts")
+            Component.onCompleted: {
+                print(keybindingId.GetSystemList())
+            }
         }
 
         DSeparatorHorizontal {}

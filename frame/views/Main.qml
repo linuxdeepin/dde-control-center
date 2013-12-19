@@ -79,9 +79,9 @@ Item {
     function showRightBox(trayIconId) {
         if (trayIconId == 'shutdown'){
             //clickedToHide = !clickedToHide
-            Qt.quit()
+            //Qt.quit()
             //hideTrayIcon()
-            //windowView.shutdown()
+            windowView.shutdown()
         }
         else if (trayIconId == 'dss'){
             expandHideTrayIcon()
