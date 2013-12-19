@@ -10,6 +10,7 @@ Item {
     property int verticalPadding: 8
 
     signal avatarSet (Item item)
+    signal avatarPictured (Item item, url path)
 
     DRadioButton {
         id: radio_button
@@ -147,6 +148,10 @@ Item {
         id: avatar_webcam_view
 
         WebCam {
+            onAvatarPictured: {
+                root.avatarPictured(item, path)
+            }
+            
             Behavior on x {
                 SmoothedAnimation { duration: 200 }
             }
