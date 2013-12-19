@@ -44,8 +44,8 @@ Rectangle {
                     activatedHoverImage: "images/delete_press.png"
                     activatedPressImage: "images/delete_press.png"
 
-                    onActivateChanged: {
-                        if (activate) {
+                    onClicked: {
+                        if (active) {
                             user_list.allAction()
                         } else {
                             user_list.allNormal()
@@ -64,8 +64,8 @@ Rectangle {
                     activatedHoverImage: "images/add_press.png"
                     activatedPressImage: "images/add_press.png"
 
-                    onActivateChanged: {
-                        if (activate) {
+                    onClicked: {
+                        if (active) {
                             main_column.state = "add_dialog"
                         } else {
                             main_column.state = "normal"
@@ -75,7 +75,11 @@ Rectangle {
                     Connections {
                         target: main_column
                         onStateChanged: {
-                            add_check_button.activate = (main_column.state == "add_dialog")
+                            if (main_column.state == "add_dialog") {
+                                add_check_button.active = true
+                            } else {
+                                add_check_button.active = false
+                            }
                         }
                     }
                 }
