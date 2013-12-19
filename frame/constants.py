@@ -22,7 +22,7 @@
 
 PANEL_WIDTH = 360
 
-SHUT_DOWN_ORDER_PATH = '/data/share/Projects/deepin/dde/build/shutdown'
+SHUT_DOWN_ORDER_PATH = '/usr/lib/deepin-daemon/dpowerchoose'
 
 APP_DBUS_NAME = "com.deepin.system.settings"
 APP_OBJECT_PATH = "/com/deepin/system/settings"

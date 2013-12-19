@@ -54,6 +54,7 @@ Item {
                 if (event.modifiers){
                     print(event.modifiers)
                 }
+                print(event.text)
             }
 
             Keys.onReleased: {
