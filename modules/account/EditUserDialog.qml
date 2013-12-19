@@ -8,41 +8,40 @@ Item {
 
     property variant this_user: null
 
-    /* item == null indicates that avatar set by other programs */
     signal avatarSet (Item item)
+    signal avatarPictured (Item item, url path)
 
     Column {
         id: column
 
         AvatarView {
-
-
             id: avatar_view
 
             width: 310
             height: 300
 
-            property variant lastClickedAvatar: null
-
             onAvatarSet: {
-                lastClickedAvatar = item
-                this_user.SetIconFile(item.imageSource.toString().replace("file:\/\/", ""))
-            }
-
-            Connections {
-                target: root.this_user
-
-                onChanged: {
-                    root.avatarSet(avatar_view.lastClickedAvatar)
-                    avatar_view.lastClickedAvatar = null
-
-                    //TODO IconView selection
+                var iconFile = item.imageSource.toString().replace("file:\/\/", "")
+                this_user.SetIconFile(iconFile)
+                if (this_user.iconFile == iconFile) {
+                    root.avatarSet(item)
                 }
             }
+
+            onAvatarPictured: {
+                root.avatarPictured(item , path)                
+                /* var iconFile = path.toString().replace("file:\/\/", "") */
+                /* this_user.SetIconFile(iconFile) */
+                /* print(this_user.iconFile) */
+                /* print(iconFile) */
+                /* if (this_user.iconFile == iconFile) { */
+                /*     root.avatarPictured(item , path) */
+                /* } */
+            }
         }
-        
+
         DSeparatorHorizontal {}
-        
+
         Column {
             id: edit_entries
 
@@ -162,7 +161,7 @@ Item {
                 onPasswordSet: {
                     print(password)
                 }
-                
+
                 onHeightChanged: {
                     root.height = password_dialog.height + 38 * 3 + avatar_view.height + 2 * 4
                 }

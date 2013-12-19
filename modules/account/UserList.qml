@@ -14,7 +14,7 @@ ListView {
     signal showAllPrivate ()
     signal allNormal ()
     signal allAction ()
-    
+
     function deleteItem (idx) {
         root.model.remove(idx, 1)
     }
@@ -204,21 +204,32 @@ ListView {
                 }
 
                 onAvatarSet: {
-                    if (item) {
-                        var newObject = Qt.createQmlObject('import QtQuick 2.1; import \"../widgets\"; DRoundImage {}',
-                                                           component_bg, "new");
-                        var startPoint = item.parent.mapToItem(component_bg, item.x, item.y)
+                    var newObject = Qt.createQmlObject('import QtQuick 2.1; import \"../widgets\"; DRoundImage {}',
+                                                       component_bg, "new");
+                    var startPoint = item.parent.mapToItem(component_bg, item.x, item.y)
 
-                        newObject.x = startPoint.x
-                        newObject.y = startPoint.y
-                        newObject.imageSource = item.imageSource
-                        newObject.roundRadius = item.roundRadius
+                    newObject.x = startPoint.x
+                    newObject.y = startPoint.y
+                    newObject.imageSource = item.imageSource
+                    newObject.roundRadius = item.roundRadius
 
-                        animation.target = newObject
-                        animation.start()
-                    } else {
-                        round_image.imageSource = this_user.iconFile
-                    }
+                    animation.target = newObject
+                    animation.start()
+                }
+
+                onAvatarPictured: {
+                    print("onAvatarPictured, ", path)
+                    var newObject = Qt.createQmlObject('import QtQuick 2.1; import \"../widgets\"; DRoundImage {}',
+                                                       component_bg, "new");
+                    var startPoint = item.parent.mapToItem(component_bg, item.x, item.y)
+
+                    newObject.x = startPoint.x
+                    newObject.y = startPoint.y
+                    newObject.imageSource = path
+                    newObject.roundRadius = 60
+
+                    animation.target = newObject
+                    animation.start()
                 }
 
                 anchors.top: component_sep.bottom
