@@ -86,6 +86,8 @@ Item {
             //Qt.quit()
             //hideTrayIcon()
             windowView.shutdown()
+            displayState = viewState.allHide
+            hideTrayIcon()
         }
         else if (trayIconId == 'dss'){
             expandHideTrayIcon()
