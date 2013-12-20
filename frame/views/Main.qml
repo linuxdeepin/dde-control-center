@@ -163,6 +163,16 @@ Item {
         initTrayIcon()
     }
 
+    function moduleFileChanged(module_id){
+        if(rightBoxLoaderItem.iconId == module_id 
+        | module_id == "widgets"){
+            print(module_id)
+            var lastId = rightBoxLoaderItem.iconId
+            rightBoxLoaderItem.iconId = ""
+            rightBoxLoaderItem.iconId = lastId
+        }
+    }
+
     Timer {
         running: true
         interval: 100
@@ -192,6 +202,7 @@ Item {
         easing.type: Easing.OutQuad
 
         onStarted: {
+            lastDisplayState = displayState
             windowView.show()
         }
 
@@ -237,11 +248,17 @@ Item {
         easing.type: Easing.OutQuad
 
         onStarted: {
+            lastDisplayState = displayState
             windowView.show()
         }
 
         onStopped: {
-            displayState = viewState.trayShow
+            if (lastDisplayState == viewState.allShow){
+                displayState = viewState.allShow
+            }
+            else{
+                displayState = viewState.trayShow
+            }
         }
     }
     // animation for root frame
@@ -384,7 +401,7 @@ Item {
                 rightBoxLoaderItem.visible = (iconId == '' ? false : true)
                 rightBoxLoader.iconId = iconId
                 if (iconId){
-                    rightBoxLoader.source = '../../modules/' + iconId + '/main.qml'
+                    rightBoxLoader.source = '../../modules/' + iconId + '/main.qml?g=' + Math.random()
                 }
                 else{
                     rightBoxLoader.source = ''

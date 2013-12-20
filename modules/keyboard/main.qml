@@ -5,7 +5,7 @@ import QtQuick.Controls.Styles 1.0
 import "../widgets/"
 
 Item {
-    id: keyboardModule
+    id: keyboardMod
     anchors.fill: parent
 
     property int contentLeftMargin: 22
