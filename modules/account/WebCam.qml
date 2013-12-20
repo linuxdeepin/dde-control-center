@@ -7,15 +7,9 @@ Item {
     property bool running: false
     property int verticalPadding: 8
 
-    onRunningChanged: {
-        if (running) {
-            camera.start()
-        } else {
-            camera.stop()
-        }
-    }
+    signal avatarPictured (Item item, url path)
 
-    Component.onCompleted: {
+    onRunningChanged: {
         if (running) {
             camera.start()
         } else {
@@ -26,9 +20,11 @@ Item {
     Camera {
         id: camera
 
+        captureMode: Camera.CaptureStillImage
         property url imageSavedPath: ""
 
         imageCapture {
+            /* resolution: Qt.size(320, 240) */
 
             onImageCaptured: {
                 avatar_preview.source = preview
@@ -69,7 +65,7 @@ Item {
             height: 120
 
             scale: video_output.scale
-            
+
             visible: false
             fillMode: Image.PreserveAspectCrop
             anchors.centerIn: parent
@@ -133,7 +129,7 @@ Item {
         anchors.verticalCenter: snapshot_button.verticalCenter
 
         onClicked: {
-            root.confirm(radio_button.currentIndex == 1)
+            root.avatarPictured(mask, camera.imageSavedPath)
         }
     }
 }

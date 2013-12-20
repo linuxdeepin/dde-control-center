@@ -1,6 +1,6 @@
 import QtQuick 2.1
 import "../widgets"
-import DBus.Org.Freedesktop.Accounts 1.0
+import DBus.Com.Deepin.Daemon.Accounts 1.0
 
 ListView {
     id: root
@@ -10,15 +10,24 @@ ListView {
     property int rightPadding: 15
     property int avatarNamePadding: 30
 
-    property variant dbus_accounts: Accounts {}
-    property variant dbus_user: User {}
-
     signal hideAllPrivate (int idx)
     signal showAllPrivate ()
     signal allNormal ()
     signal allAction ()
 
-    function deleteItem(idx) {
+    function addUser(path) {
+        dbus_user.path = path
+
+        var user_status = dbus_user.locked ? "inactiveUser" : dbus_user.loginTime != 0 ? "currentUser" : "otherUser"
+        user_list_model.append({"userAvatar": dbus_user.iconFile,
+                                "userId": dbus_user.uid,
+                                "userName": dbus_user.userName,
+                                "userType": dbus_user.accountType,
+                                "userStatus": user_status,
+                                "userDBusPath": path})
+    }
+
+    function deleteItem (idx) {
         root.model.remove(idx, 1)
     }
 
@@ -32,6 +41,7 @@ ListView {
 
             width: 310
             height: component_top.height + component_sep.height
+            property variant this_user: User { path: userDBusPath}
 
             Connections {
 
@@ -103,6 +113,10 @@ ListView {
                     id: user_status_button
                     state: userStatus
 
+                    onChangeStatus: {
+                        component_bg.this_user.locked = locked
+                    }
+
                     anchors.right: parent.right
                     anchors.rightMargin: root.rightPadding
                     anchors.verticalCenter: parent.verticalCenter
@@ -144,7 +158,7 @@ ListView {
 
                 }
                 onConfirm: {
-                    dbus_accounts.deleteUser(userId, deleteFiles)
+                    dbus_accounts.DeleteUser(userId, deleteFiles)
                     component_bg.state = "normal"
                     root.deleteItem(index)
                 }
@@ -155,7 +169,7 @@ ListView {
             EditUserDialog {
                 id: edit_user_dialog
 
-                this_user: User { path: userDBusPath }
+                this_user: User { path: userDBusPath}
 
                 ParallelAnimation {
                     id: animation
@@ -202,21 +216,32 @@ ListView {
                 }
 
                 onAvatarSet: {
-                    if (item) {
-                        var newObject = Qt.createQmlObject('import QtQuick 2.1; import \"../widgets\"; DRoundImage {}', 
-                                                           component_bg, "new");
-                        var startPoint = item.parent.mapToItem(component_bg, item.x, item.y)
+                    var newObject = Qt.createQmlObject('import QtQuick 2.1; import \"../widgets\"; DRoundImage {}',
+                                                       component_bg, "new");
+                    var startPoint = item.parent.mapToItem(component_bg, item.x, item.y)
 
-                        newObject.x = startPoint.x
-                        newObject.y = startPoint.y
-                        newObject.imageSource = item.imageSource
-                        newObject.roundRadius = item.roundRadius
+                    newObject.x = startPoint.x
+                    newObject.y = startPoint.y
+                    newObject.imageSource = item.imageSource
+                    newObject.roundRadius = item.roundRadius
 
-                        animation.target = newObject
-                        animation.start()
-                    } else {
-                        round_image.imageSource = this_user.iconFile
-                    }
+                    animation.target = newObject
+                    animation.start()
+                }
+
+                onAvatarPictured: {
+                    print("onAvatarPictured, ", path)
+                    var newObject = Qt.createQmlObject('import QtQuick 2.1; import \"../widgets\"; DRoundImage {}',
+                                                       component_bg, "new");
+                    var startPoint = item.parent.mapToItem(component_bg, item.x, item.y)
+
+                    newObject.x = startPoint.x
+                    newObject.y = startPoint.y
+                    newObject.imageSource = path
+                    newObject.roundRadius = 60
+
+                    animation.target = newObject
+                    animation.start()
                 }
 
                 anchors.top: component_sep.bottom
@@ -335,15 +360,7 @@ ListView {
     Component.onCompleted: {
         var cached_users = dbus_accounts.ListCachedUsers()
         for (var i = 0; i < cached_users.length; i++) {
-            dbus_user.path = cached_users[i]
-
-            var user_status = dbus_user.loginTime != 0 ? "currentUser" : "otherUser"
-
-            user_list_model.append({"userAvatar": dbus_user.iconFile,
-                                    "userId": dbus_user.uid,
-                                    "userName": dbus_user.userName,
-                                    "userType": dbus_user.accountType,
-                                    "userStatus": user_status,
-                                    "userDBusPath": cached_users[i]})}
+            root.addUser(cached_users[i])
+        }
     }
 }

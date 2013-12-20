@@ -8,10 +8,10 @@ Item {
 
     property variant this_user: null
 
-    /* item == null indicates that avatar set by other programs */
     signal avatarSet (Item item)
+    signal avatarPictured (Item item, url path)
 
-    DColumn {
+    Column {
         id: column
 
         AvatarView {
@@ -20,154 +20,129 @@ Item {
             width: 310
             height: 300
 
-            property variant lastClickedAvatar: null
-
             onAvatarSet: {
-                lastClickedAvatar = item
-                this_user.SetIconFile(item.imageSource.toString().replace("file:\/\/", ""))
+                var iconFile = item.imageSource.toString().replace("file:\/\/", "")
+                this_user.iconFile = iconFile
+                root.avatarSet(item)                
             }
 
-            Connections {
-                target: root.this_user
-
-                onChanged: {
-                    root.avatarSet(avatar_view.lastClickedAvatar)
-                    avatar_view.lastClickedAvatar = null
-
-                    //TODO IconView selection
-                }
+            onAvatarPictured: {
+                root.avatarPictured(item , path)                
+                /* var iconFile = path.toString().replace("file:\/\/", "") */
+                /* this_user.SetIconFile(iconFile) */
+                /* print(this_user.iconFile) */
+                /* print(iconFile) */
+                /* if (this_user.iconFile == iconFile) { */
+                /*     root.avatarPictured(item , path) */
+                /* } */
             }
         }
 
-        DScrollWidget {
-            width: parent.width + 15
-            height: (38 + 2) * 4
+        DSeparatorHorizontal {}
 
-            Column {
-                id: edit_entries
+        Column {
+            id: edit_entries
 
-                Rectangle {
-                    width: parent.width
-                    height: 38
-                    color: "transparent"
+            Rectangle {
+                width: parent.width
+                height: 38
+                color: "transparent"
 
-                    DLabel {
-                        text: "Auto-login"
-                        font.pixelSize: 12
+                DLabel {
+                    text: "Auto-login"
+                    font.pixelSize: 12
 
-                        anchors.left: parent.left
-                        anchors.leftMargin: 15
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
-
-                    DSwitchButton {
-                        id: auto_login_switch
-                        checked: root.this_user
-
-                        onClicked: {
-                            this_user.SetAutomaticLogin(checked)
-                        }
-
-                        Connections {
-                            target: root.this_user
-
-                            onChanged: {
-                                auto_login_switch.checked = root.this_user.automaticLogin
-                            }
-                        }
-
-                        anchors.right: parent.right
-                        anchors.rightMargin: 15
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
+                    anchors.left: parent.left
+                    anchors.leftMargin: 15
+                    anchors.verticalCenter: parent.verticalCenter
                 }
 
-                DSeparatorHorizontal{}
+                DSwitchButton {
+                    id: auto_login_switch
+                    checked: root.this_user.automaticLogin
 
-                Rectangle {
-                    width: parent.width
-                    height: 38
-                    color: "transparent"
-
-                    DLabel {
-                        text: "Face Recognition"
-                        font.pixelSize: 12
-
-                        anchors.left: parent.left
-                        anchors.leftMargin: 15
-                        anchors.verticalCenter: parent.verticalCenter
+                    onClicked: {
+                        this_user.SetAutomaticLogin(checked)
                     }
 
-                    DSwitchButton {
+                    anchors.right: parent.right
+                    anchors.rightMargin: 15
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+            }
 
-                        Connections {
-                            target: root.this_user
+            /* DSeparatorHorizontal{} */
 
-                            onChanged: {
+            /* Rectangle { */
+            /*     width: parent.width */
+            /*     height: 38 */
+            /*     color: "transparent" */
 
-                            }
-                        }
+            /*     DLabel { */
+            /*         text: "Face Recognition" */
+            /*         font.pixelSize: 12 */
 
-                        anchors.right: parent.right
-                        anchors.rightMargin: 15
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
+            /*         anchors.left: parent.left */
+            /*         anchors.leftMargin: 15 */
+            /*         anchors.verticalCenter: parent.verticalCenter */
+            /*     } */
+
+            /*     DSwitchButton { */
+            /*         anchors.right: parent.right */
+            /*         anchors.rightMargin: 15 */
+            /*         anchors.verticalCenter: parent.verticalCenter */
+            /*     } */
+            /* } */
+
+            DSeparatorHorizontal{}
+
+            Rectangle {
+                width: parent.width
+                height: 38
+                color: "transparent"
+
+                DLabel {
+                    text: "User Group"
+                    font.pixelSize: 12
+
+                    anchors.left: parent.left
+                    anchors.leftMargin: 15
+                    anchors.verticalCenter: parent.verticalCenter
                 }
 
-                DSeparatorHorizontal{}
+                DRadioButton {
+                    id: user_type_radio
 
-                Rectangle {
-                    width: parent.width
-                    height: 38
-                    color: "transparent"
+                    buttonModel: [
+                        {"buttonId": "user", "buttonLabel": "User"},
+                        {"buttonId": "administrator", "buttonLabel": "Administrator"},
+                    ]
+                    initializeIndex: root.this_user.accountType
+                    onItemSelected: root.this_user.setAccountType(idx)
 
-                    DLabel {
-                        text: "User Group"
-                        font.pixelSize: 12
+                    anchors.right: parent.right
+                    anchors.rightMargin: 15
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+            }
 
-                        anchors.left: parent.left
-                        anchors.leftMargin: 15
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
+            DSeparatorHorizontal{}
 
-                    DRadioButton {
-                        id: user_type_radio
+            PasswordDialog {
+                id: password_dialog
 
-                        buttonModel: [
-                            {"buttonId": "user", "buttonLabel": "User"},
-                            {"buttonId": "administrator", "buttonLabel": "Administrator"},
-                        ]
-                        initializeIndex: root.this_user.accountType
-                        onItemSelected: root.this_user.setAccountType(idx)
-
-                        Connections {
-                            target: root.this_user
-
-                            onChanged: {
-                                user_type_radio.selectItem(root.this_user.accountType)
-                            }
-                        }
-                        
-                        anchors.right: parent.right
-                        anchors.rightMargin: 15
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
+                onPasswordSet: {
+                    print(password)
                 }
 
-                DSeparatorHorizontal{}
-
-                PasswordDialog {
-                    id: password_dialog
-                    
-                    onPasswordSet: {
-                        print(password)
-                    }
+                onHeightChanged: {
+                    root.height = password_dialog.height + 38 * 2 + avatar_view.height + 2 * 3
                 }
             }
         }
 
         Component.onCompleted: {
-            height = password_dialog.height + 38 * 3 + avatar_view.height + 2 * 4
+            height = password_dialog.height + 38 * 2 + avatar_view.height + 2 * 3
             parent.height = height
         }
     }

@@ -79,8 +79,9 @@ Item {
         }
     }
 
-    DColumn {
+    Column {
         id: detail_view
+        width: parent.width
         height: (38 + 2) * 4
 
         property int echoMode: TextInput.Password
@@ -115,6 +116,8 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
             }
         }
+        
+        DSeparatorHorizontal {}
 
         Rectangle {
             width: parent.width
@@ -139,6 +142,8 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
             }
         }
+        
+        DSeparatorHorizontal {}
 
         Rectangle {
             width: parent.width
@@ -169,6 +174,8 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
             }
         }
+        
+        DSeparatorHorizontal {}
 
         Rectangle {
             width: parent.width
