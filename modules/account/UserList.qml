@@ -1,6 +1,6 @@
 import QtQuick 2.1
 import "../widgets"
-import DBus.Org.Freedesktop.Accounts 1.0
+import DBus.Com.Deepin.Daemon.Accounts 1.0
 
 ListView {
     id: root
@@ -14,6 +14,18 @@ ListView {
     signal showAllPrivate ()
     signal allNormal ()
     signal allAction ()
+
+    function addUser(path) {
+        dbus_user.path = path
+
+        var user_status = dbus_user.locked ? "inactiveUser" : dbus_user.loginTime != 0 ? "currentUser" : "otherUser"
+        user_list_model.append({"userAvatar": dbus_user.iconFile,
+                                "userId": dbus_user.uid,
+                                "userName": dbus_user.userName,
+                                "userType": dbus_user.accountType,
+                                "userStatus": user_status,
+                                "userDBusPath": path})
+    }
 
     function deleteItem (idx) {
         root.model.remove(idx, 1)
@@ -102,7 +114,7 @@ ListView {
                     state: userStatus
 
                     onChangeStatus: {
-                        component_bg.this_user.SetLocked(locked)
+                        component_bg.this_user.locked = locked
                     }
 
                     anchors.right: parent.right
@@ -146,7 +158,7 @@ ListView {
 
                 }
                 onConfirm: {
-                    dbus_accounts.deleteUser(userId, deleteFiles)
+                    dbus_accounts.DeleteUser(userId, deleteFiles)
                     component_bg.state = "normal"
                     root.deleteItem(index)
                 }
@@ -348,16 +360,7 @@ ListView {
     Component.onCompleted: {
         var cached_users = dbus_accounts.ListCachedUsers()
         for (var i = 0; i < cached_users.length; i++) {
-            dbus_user.path = cached_users[i]
-
-            var user_status = dbus_user.locked ? "inactiveUser" : dbus_user.loginTime != 0 ? "currentUser" : "otherUser"
-            var user_avatar = dbus_user.iconFile.lastIndexOf(".face") != -1 ? "/var/lib/AccountsService/icons/guest.jpg" : dbus_user.iconFile
-
-            user_list_model.append({"userAvatar": user_avatar,
-                                    "userId": dbus_user.uid,
-                                    "userName": dbus_user.userName,
-                                    "userType": dbus_user.accountType,
-                                    "userStatus": user_status,
-                                    "userDBusPath": cached_users[i]})}
+            root.addUser(cached_users[i])
+        }
     }
 }

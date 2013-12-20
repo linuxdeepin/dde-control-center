@@ -264,30 +264,30 @@ Rectangle {
             }
         }
 
-        DSeparatorHorizontal{}
+        /* DSeparatorHorizontal{} */
 
-        Rectangle {
-            width: parent.width
-            height: 38
-            color: "transparent"
+        /* Rectangle { */
+        /*     width: parent.width */
+        /*     height: 38 */
+        /*     color: "transparent" */
 
-            DLabel {
-                text: "Face Recognition"
-                font.pixelSize: 12
+        /*     DLabel { */
+        /*         text: "Face Recognition" */
+        /*         font.pixelSize: 12 */
 
-                anchors.left: parent.left
-                anchors.leftMargin: 15
-                anchors.verticalCenter: parent.verticalCenter
-            }
+        /*         anchors.left: parent.left */
+        /*         anchors.leftMargin: 15 */
+        /*         anchors.verticalCenter: parent.verticalCenter */
+        /*     } */
 
-            DSwitchButton {
-                id: face_recognition_switch
+        /*     DSwitchButton { */
+        /*         id: face_recognition_switch */
                 
-                anchors.right: parent.right
-                anchors.rightMargin: 15
-                anchors.verticalCenter: parent.verticalCenter
-            }
-        }
+        /*         anchors.right: parent.right */
+        /*         anchors.rightMargin: 15 */
+        /*         anchors.verticalCenter: parent.verticalCenter */
+        /*     } */
+        /* } */
 
         DSeparatorHorizontal {}
 
@@ -324,7 +324,7 @@ Rectangle {
                                         userPassword: password_input.text,
                                         userAccountType: user_group_radio.currentIndex,
                                         userAutoLogin: auto_login_switch.checked,
-                                        userFaceRecognition: face_recognition_switch.checked})
+                                        /* userFaceRecognition: face_recognition_switch.checked */ })
                     }
                 }
             }

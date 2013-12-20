@@ -1,6 +1,6 @@
 import QtQuick 2.1
 import "../widgets"
-import DBus.Org.Freedesktop.Accounts 1.0
+import DBus.Com.Deepin.Daemon.Accounts 1.0
 
 Rectangle {
     id: root
@@ -101,9 +101,12 @@ Rectangle {
                     add_user_dialog.warnUserName()
                 } else {
                     dbus_user.path = new_user
+                    dbus_user.passwordMode = 2 // i think this nonsense too, but the fact is this help a lot >_<
+                    // The user should be in a group named "nopasswdlogin" before we set his password,
+                    // but a fresh _new_ user is not in that group(weird), so we should set it first.
                     dbus_user.SetPassword(userInfo.userPassword, "")
-                    dbus_user.SetAccountType(userInfo.userAccountType)
-                    dbus_user.SetAutomaticLogin(userInfo.userAutoLogin)
+                    dbus_user.accountType = userInfo.userAccountType
+                    dbus_user.automaticLogin = userInfo.userAutoLogin
                     
                     main_column.state = "normal"
                 }
@@ -112,6 +115,14 @@ Rectangle {
 
         UserList {
             id: user_list
+            
+            Connections {
+                target: dbus_accounts
+                onUserAdded: {
+                    print(arg)
+                    user_list.addUser(arg)
+                }
+            }
         }
 
         move: Transition {
