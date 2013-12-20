@@ -3,8 +3,6 @@ import "../widgets"
 
 Item {
     id: root
-    width: 310
-    height: 300
     state: "default"
 
     property int verticalPadding: 8
@@ -40,6 +38,10 @@ Item {
         State {
             name: "recently"
             PropertyChanges {
+                target: root
+                height: root.verticalPadding * 3 + radio_button.height + avatar_recently_used_view.height
+            }
+            PropertyChanges {
                 target: avatar_recently_used_view
                 x: 0
                 visible: true
@@ -59,6 +61,10 @@ Item {
         State {
             name: "default"
             PropertyChanges {
+                target: root
+                height: root.verticalPadding * 3 + radio_button.height + avatar_default_view.height
+            }
+            PropertyChanges {
                 target: avatar_recently_used_view
                 x: - root.width
                 visible: false
@@ -77,6 +83,10 @@ Item {
         },
         State {
             name: "webcam"
+            PropertyChanges {
+                target: root
+                height: root.verticalPadding * 3 + radio_button.height + webcam_loader.height
+            }
             PropertyChanges {
                 target: avatar_recently_used_view
                 x: - root.width * 2
@@ -99,8 +109,8 @@ Item {
     AvatarIconView {
         id: avatar_recently_used_view
 
-        width: parent.width
-        height: parent.height - root.verticalPadding * 3 - radio_button.height
+        /* width: parent.width */
+        /* height: parent.height - root.verticalPadding * 3 - radio_button.height */
 
         onAvatarSet: {
             root.avatarSet(item)
@@ -117,8 +127,8 @@ Item {
     AvatarIconView {
         id: avatar_default_view
 
-        width: parent.width
-        height: parent.height - root.verticalPadding * 3 - radio_button.height
+        /* width: parent.width */
+        /* height: parent.height - root.verticalPadding * 3 - radio_button.height */
 
         withAddButton: true
 
@@ -137,8 +147,8 @@ Item {
 
     Loader {
         id: webcam_loader
-        width: parent.width
-        height: parent.height - root.verticalPadding * 3- radio_button.height
+        width: 310
+        height: 280
 
         anchors.top: radio_button.bottom
         anchors.topMargin: root.verticalPadding * 2
