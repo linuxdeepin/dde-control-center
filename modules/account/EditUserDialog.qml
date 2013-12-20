@@ -19,6 +19,7 @@ Item {
 
             width: 310
             height: 280
+            this_user: root.this_user
 
             onHeightChanged: {
                 root.height = password_dialog.height + 38 * 2 + avatar_view.height + 2 * 3
