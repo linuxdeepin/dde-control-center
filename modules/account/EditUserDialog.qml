@@ -22,10 +22,8 @@ Item {
 
             onAvatarSet: {
                 var iconFile = item.imageSource.toString().replace("file:\/\/", "")
-                this_user.SetIconFile(iconFile)
-                if (this_user.iconFile == iconFile) {
-                    root.avatarSet(item)
-                }
+                this_user.iconFile = iconFile
+                root.avatarSet(item)                
             }
 
             onAvatarPictured: {
@@ -67,51 +65,34 @@ Item {
                         this_user.SetAutomaticLogin(checked)
                     }
 
-                    Connections {
-                        target: root.this_user
-
-                        onChanged: {
-                            auto_login_switch.checked = root.this_user.automaticLogin
-                        }
-                    }
-
                     anchors.right: parent.right
                     anchors.rightMargin: 15
                     anchors.verticalCenter: parent.verticalCenter
                 }
             }
 
-            DSeparatorHorizontal{}
+            /* DSeparatorHorizontal{} */
 
-            Rectangle {
-                width: parent.width
-                height: 38
-                color: "transparent"
+            /* Rectangle { */
+            /*     width: parent.width */
+            /*     height: 38 */
+            /*     color: "transparent" */
 
-                DLabel {
-                    text: "Face Recognition"
-                    font.pixelSize: 12
+            /*     DLabel { */
+            /*         text: "Face Recognition" */
+            /*         font.pixelSize: 12 */
 
-                    anchors.left: parent.left
-                    anchors.leftMargin: 15
-                    anchors.verticalCenter: parent.verticalCenter
-                }
+            /*         anchors.left: parent.left */
+            /*         anchors.leftMargin: 15 */
+            /*         anchors.verticalCenter: parent.verticalCenter */
+            /*     } */
 
-                DSwitchButton {
-
-                    Connections {
-                        target: root.this_user
-
-                        onChanged: {
-
-                        }
-                    }
-
-                    anchors.right: parent.right
-                    anchors.rightMargin: 15
-                    anchors.verticalCenter: parent.verticalCenter
-                }
-            }
+            /*     DSwitchButton { */
+            /*         anchors.right: parent.right */
+            /*         anchors.rightMargin: 15 */
+            /*         anchors.verticalCenter: parent.verticalCenter */
+            /*     } */
+            /* } */
 
             DSeparatorHorizontal{}
 
@@ -139,14 +120,6 @@ Item {
                     initializeIndex: root.this_user.accountType
                     onItemSelected: root.this_user.setAccountType(idx)
 
-                    Connections {
-                        target: root.this_user
-
-                        onChanged: {
-                            user_type_radio.selectItem(root.this_user.accountType)
-                        }
-                    }
-
                     anchors.right: parent.right
                     anchors.rightMargin: 15
                     anchors.verticalCenter: parent.verticalCenter
@@ -163,13 +136,13 @@ Item {
                 }
 
                 onHeightChanged: {
-                    root.height = password_dialog.height + 38 * 3 + avatar_view.height + 2 * 4
+                    root.height = password_dialog.height + 38 * 2 + avatar_view.height + 2 * 3
                 }
             }
         }
 
         Component.onCompleted: {
-            height = password_dialog.height + 38 * 3 + avatar_view.height + 2 * 4
+            height = password_dialog.height + 38 * 2 + avatar_view.height + 2 * 3
             parent.height = height
         }
     }
