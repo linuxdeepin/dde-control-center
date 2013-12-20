@@ -6,6 +6,7 @@ Item {
     state: "default"
 
     property int verticalPadding: 8
+    property variant this_user: null
 
     signal avatarSet (Item item)
     signal avatarPictured (Item item, url path)
@@ -109,11 +110,15 @@ Item {
     AvatarIconView {
         id: avatar_recently_used_view
 
-        /* width: parent.width */
-        /* height: parent.height - root.verticalPadding * 3 - radio_button.height */
-
         onAvatarSet: {
             root.avatarSet(item)
+        }
+
+        onInitialize: {
+            var allIcons = root.this_user.AllHistoryIcons()
+            for (var i = 0; i < allIcons.length; i++) {
+                avatar_recently_used_view.model.append({"avatarPath": allIcons[i]})
+            }
         }
 
         anchors.top: radio_button.bottom
@@ -127,13 +132,17 @@ Item {
     AvatarIconView {
         id: avatar_default_view
 
-        /* width: parent.width */
-        /* height: parent.height - root.verticalPadding * 3 - radio_button.height */
-
         withAddButton: true
 
         onAvatarSet: {
             root.avatarSet(item)
+        }
+        
+        onInitialize: {
+            var allIcons = root.this_user.AllAccountsIcons()
+            for (var i = 0; i < allIcons.length; i++) {
+                avatar_default_view.model.append({"avatarPath": allIcons[i]})
+            }
         }
 
         anchors.top: radio_button.bottom
@@ -161,7 +170,7 @@ Item {
             onAvatarPictured: {
                 root.avatarPictured(item, path)
             }
-            
+
             Behavior on x {
                 SmoothedAnimation { duration: 200 }
             }

@@ -3,12 +3,14 @@ import "../widgets"
 
 GridView {
     id: avatar_icon_view
+    clip: true
     
     cellWidth: 103
     cellHeight: 93
 
     property bool withAddButton: false
 
+    signal initialize
     signal avatarSet (Item item)
 
     Component {
@@ -38,16 +40,10 @@ GridView {
 
     delegate: avatar_icon_view_delegate
     model: ListModel { id: avatar_icon_view_model }
-
+    
     Component.onCompleted: {
-        avatar_icon_view_model.append([{"avatarPath": "/var/lib/AccountsService/icons/001.jpg"},
-                                       {"avatarPath": "/var/lib/AccountsService/icons/002.jpg"},
-                                       /* {"avatarPath": "/var/lib/AccountsService/icons/003.jpg"}, */
-                                       /* {"avatarPath": "/var/lib/AccountsService/icons/004.jpg"}, */
-                                       /* {"avatarPath": "/var/lib/AccountsService/icons/005.jpg"}, */
-                                       /* {"avatarPath": "/var/lib/AccountsService/icons/006.jpg"}, */
-                                       {"avatarPath": "/var/lib/AccountsService/icons/007.jpg"},
-                                       {"avatarPath": "/var/lib/AccountsService/icons/008.jpg"}])
+        avatar_icon_view.initialize()
+        
         if (withAddButton) {
             avatar_icon_view_model.append({"avatarPath": "images/avatar_add.png"})
         }
