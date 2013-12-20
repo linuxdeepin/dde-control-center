@@ -46,7 +46,7 @@ def main():
     uniqueService.uniqueTrigger.connect(unique_trigger)
 
     panel = ControlPanel()
-    panel.engine().quit.connect(app.quit)
+    panel.engine_obj.quit.connect(app.quit)
     panel.show()
 
     if len(sys.argv) == 2:
