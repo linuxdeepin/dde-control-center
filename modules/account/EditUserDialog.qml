@@ -18,23 +18,20 @@ Item {
             id: avatar_view
 
             width: 310
-            height: 300
+            height: 280
+
+            onHeightChanged: {
+                root.height = password_dialog.height + 38 * 2 + avatar_view.height + 2 * 3
+            }
 
             onAvatarSet: {
                 var iconFile = item.imageSource.toString().replace("file:\/\/", "")
                 this_user.iconFile = iconFile
-                root.avatarSet(item)                
+                root.avatarSet(item)
             }
 
             onAvatarPictured: {
-                root.avatarPictured(item , path)                
-                /* var iconFile = path.toString().replace("file:\/\/", "") */
-                /* this_user.SetIconFile(iconFile) */
-                /* print(this_user.iconFile) */
-                /* print(iconFile) */
-                /* if (this_user.iconFile == iconFile) { */
-                /*     root.avatarPictured(item , path) */
-                /* } */
+                root.avatarPictured(item , path)
             }
         }
 
@@ -70,29 +67,6 @@ Item {
                     anchors.verticalCenter: parent.verticalCenter
                 }
             }
-
-            /* DSeparatorHorizontal{} */
-
-            /* Rectangle { */
-            /*     width: parent.width */
-            /*     height: 38 */
-            /*     color: "transparent" */
-
-            /*     DLabel { */
-            /*         text: "Face Recognition" */
-            /*         font.pixelSize: 12 */
-
-            /*         anchors.left: parent.left */
-            /*         anchors.leftMargin: 15 */
-            /*         anchors.verticalCenter: parent.verticalCenter */
-            /*     } */
-
-            /*     DSwitchButton { */
-            /*         anchors.right: parent.right */
-            /*         anchors.rightMargin: 15 */
-            /*         anchors.verticalCenter: parent.verticalCenter */
-            /*     } */
-            /* } */
 
             DSeparatorHorizontal{}
 
@@ -132,18 +106,12 @@ Item {
                 id: password_dialog
 
                 onPasswordSet: {
-                    print(password)
                 }
 
                 onHeightChanged: {
                     root.height = password_dialog.height + 38 * 2 + avatar_view.height + 2 * 3
                 }
             }
-        }
-
-        Component.onCompleted: {
-            height = password_dialog.height + 38 * 2 + avatar_view.height + 2 * 3
-            parent.height = height
         }
     }
 }
