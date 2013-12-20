@@ -21,11 +21,11 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
-from PyQt5.QtCore import Qt, QCoreApplication
+from PyQt5 import QtCore
+from PyQt5.QtCore import QCoreApplication
 if os.name == 'posix':
-    QCoreApplication.setAttribute(Qt.AA_X11InitThreads, True) 
+    QCoreApplication.setAttribute(QtCore.Qt.AA_X11InitThreads, True)
 
-import os
 import sys
 import threading
 import signal

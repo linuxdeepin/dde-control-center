@@ -20,6 +20,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import os
+
+ROOT_LOCATION = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+
 PANEL_WIDTH = 360
 
 SHUT_DOWN_ORDER_PATH = '/usr/lib/deepin-daemon/dpowerchoose'

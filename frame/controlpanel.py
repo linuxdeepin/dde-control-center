@@ -24,16 +24,24 @@ import os
 import sys
 import subprocess
 
-from PyQt5.QtCore import Qt, pyqtSlot, QVariant, QUrl
+from PyQt5.QtCore import Qt, pyqtSlot, pyqtSignal, QVariant, QUrl, QFileSystemWatcher
 from PyQt5.QtGui import QSurfaceFormat, QColor
 from PyQt5.QtQuick import QQuickView
 
-from constants import SHUT_DOWN_ORDER_PATH
+from constants import SHUT_DOWN_ORDER_PATH, ROOT_LOCATION
 from modules_info import ModulesId
 from event import RecordEvent
 from nls import QtGettext
 
+def walk_directory(root_dir):
+    for (root, folder, files) in os.walk(root_dir):
+        for f in files:
+            path = os.path.join(root, f)
+            yield root, path
+
 class ControlPanel(QQuickView):
+
+    moduleFileChanged = pyqtSignal(str)
 
     def __init__(self):
         QQuickView.__init__(self)
@@ -54,8 +62,25 @@ class ControlPanel(QQuickView):
                 360, self.screen_size.height())
         self.set_all_contexts()
         self.setSource(QUrl.fromLocalFile(os.path.join(
-            os.path.dirname(os.path.realpath(__file__)), 'views/Main.qml')))
+            ROOT_LOCATION, 'frame', 'views', 'Main.qml')))
         self.connect_all_object_function()
+
+        self.modules_dir = os.path.join(ROOT_LOCATION, 'modules')
+        self.module_file_monotor = QFileSystemWatcher()
+        for root, path in walk_directory(self.modules_dir):
+            self.module_file_monotor.addPath(path)
+            self.module_file_monotor.addPath(root)
+
+        self.module_file_monotor.fileChanged.connect(self.fileChangedNotify)
+        #self.module_file_monotor.directoryChanged.connect(self.fileChangedNotify)
+
+    def fileChangedNotify(self, path):
+        module_id = path.split(self.modules_dir)[1].split("/")[1]
+        module_dir = os.path.join(ROOT_LOCATION, 'modules', module_id)
+        for r, p in walk_directory(module_dir):
+            if p not in self.module_file_monotor.files():
+                self.module_file_monotor.addPath(p)
+        self.moduleFileChanged.emit(module_id)
 
     def set_all_contexts(self):
         self.qml_context = self.rootContext()
@@ -71,6 +96,7 @@ class ControlPanel(QQuickView):
         self.record_event = RecordEvent(self)
         self.record_event.enter_mouse_area.connect(self.view_object.displayTrayIcon)
         self.record_event.click_outer_area.connect(self.view_object.outerAreaClicked)
+        self.moduleFileChanged.connect(self.view_object.moduleFileChanged)
 
     @pyqtSlot(bool, result=bool)
     def grabKeyboard(self, flag):

@@ -5,11 +5,11 @@ import "../widgets/"
 Item {
     id: sliderRect
     property alias value: dslider.value
-    property string leftLabel: undefined
-    property string rightLabel: undefined
+    property string leftLabel: ""
+    property string rightLabel: ""
 
     height: 20 + dslider.height
-    width: 190
+    width: 180
 
     Column {
         DSlider {
