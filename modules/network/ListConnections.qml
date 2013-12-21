@@ -25,15 +25,18 @@ Column {
                     height: 30
                     verticalAlignment: Text.AlignVCenter
                     width:parent.width
-                    text: dsTr("Wired Conections") + index
-                    color: nm.wiredDevices[index][1] == 100 ? "blue" : dconstants.fgColor
+                    text: dsTr("Wired Conections") + ' "'+ nm.wiredDevices[index][1] + '"'
                     DSeparatorHorizontal{}
                 }
                 rightLoader.sourceComponent: DSwitchButton {
                     checked: nm.wiredDevices[index][1] == 100
                     onCheckedChanged: {
                         print("huhu", nm.wiredDevices[index][0], checked)
-                        nm.ActiveWiredDevice(checked, nm.wiredDevices[index][0])
+                        if (checked) {
+                            nm.ActiveWiredDevice(checked, nm.wiredDevices[index][0])
+                        } else {
+                            nm.DisconnectDevice(nm.wiredDevices[index][0])
+                        }
                     }
                 }
             }
