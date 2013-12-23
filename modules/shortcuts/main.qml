@@ -34,6 +34,8 @@ Item {
                 style: Text.Raised
                 styleColor: Qt.rgba(0, 0, 0, 0.9)
             }
+
+            rightLoader.sourceComponent: TestFocus{ height: 28 }
         }
 
         DSeparatorHorizontal {}
@@ -87,7 +89,7 @@ Item {
                         ListElement { name: "Michael" }
                     }
 
-                    delegate: ShortcutInput {
+                    delegate: TestFocus {
                         height: lineHeight
                     }
                 }
