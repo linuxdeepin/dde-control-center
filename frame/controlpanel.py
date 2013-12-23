@@ -23,6 +23,7 @@
 import os
 import sys
 import subprocess
+from threading import Timer
 
 from PyQt5.QtCore import Qt, pyqtSlot, pyqtSignal, QVariant, QUrl, QFileSystemWatcher
 from PyQt5.QtGui import QSurfaceFormat, QColor
@@ -48,6 +49,7 @@ class ControlPanel(QQuickView):
         surface_format = QSurfaceFormat()
         surface_format.setAlphaBufferSize(8)
         
+        self.timer = None
         self.setColor(QColor(0, 0, 0, 0))
         self.setFlags(
                 Qt.FramelessWindowHint
@@ -65,6 +67,8 @@ class ControlPanel(QQuickView):
             ROOT_LOCATION, 'frame', 'views', 'Main.qml')))
         self.connect_all_object_function()
 
+        self.engine_obj = self.engine()
+
         self.modules_dir = os.path.join(ROOT_LOCATION, 'modules')
         self.module_file_monotor = QFileSystemWatcher()
         for root, path in walk_directory(self.modules_dir):
@@ -75,12 +79,17 @@ class ControlPanel(QQuickView):
         #self.module_file_monotor.directoryChanged.connect(self.fileChangedNotify)
 
     def fileChangedNotify(self, path):
+        self.engine_obj.clearComponentCache()
         module_id = path.split(self.modules_dir)[1].split("/")[1]
         module_dir = os.path.join(ROOT_LOCATION, 'modules', module_id)
         for r, p in walk_directory(module_dir):
             if p not in self.module_file_monotor.files():
                 self.module_file_monotor.addPath(p)
-        self.moduleFileChanged.emit(module_id)
+
+        if self.timer:
+            self.timer.cancel()
+        self.timer = Timer(0.2, lambda : self.moduleFileChanged.emit(module_id))
+        self.timer.start()
 
     def set_all_contexts(self):
         self.qml_context = self.rootContext()

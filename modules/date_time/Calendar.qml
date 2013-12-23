@@ -269,8 +269,10 @@ Item {
         anchors.top: dateBoxAdjustment.bottom
         anchors.topMargin: 1
         anchors.left: parent.left
+        property var component
 
         Component.onCompleted: {
+            component = Qt.createComponent("CalendarComponent.qml");
             var cur_d = clickedDateObject
             cur_calendar = createCanlendar(cur_d, '');
             var pre_d = CalendarCore.getDateWidthMonthStep(cur_calendar.clickedDateObject, -1)
@@ -280,8 +282,7 @@ Item {
         }
 
         function createCanlendar(d_obj, position){
-            var component = Qt.createComponent("CalendarComponent.qml");
-            var calendar = component.createObject(calendarSlideBox, {
+            var calendar = calendarSlideBox.component.createObject(calendarSlideBox, {
                 "clickedDateObject": d_obj
             })
 
