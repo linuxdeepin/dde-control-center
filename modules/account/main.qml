@@ -7,10 +7,10 @@ Rectangle {
     color: constants.bgColor
     width: 310
     height: 600
-    
+
     Accounts { id: dbus_accounts }
     User { id: dbus_user}
-    
+
     property variant constants: DConstants {}
 
     Column {
@@ -107,7 +107,7 @@ Rectangle {
                     dbus_user.SetPassword(userInfo.userPassword, "")
                     dbus_user.accountType = userInfo.userAccountType
                     dbus_user.automaticLogin = userInfo.userAutoLogin
-                    
+
                     main_column.state = "normal"
                 }
             }
@@ -115,12 +115,11 @@ Rectangle {
 
         UserList {
             id: user_list
-            
+
             Connections {
                 target: dbus_accounts
                 onUserAdded: {
-                    print(arg)
-                    user_list.addUser(arg)
+                    user_list.addUser(arg0)
                 }
             }
         }
