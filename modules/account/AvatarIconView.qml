@@ -4,7 +4,7 @@ import "../widgets"
 GridView {
     id: avatar_icon_view
     clip: true
-    
+
     cellWidth: 103
     cellHeight: 93
 
@@ -27,10 +27,12 @@ GridView {
                 borderWidth: 2
                 glowRadius: 2
                 imageSource: avatarPath
-                checkSupport: true
+                checkSupport: !(withAddButton && index == (count - 1))
 
                 onClicked: {
-                    avatar_icon_view.avatarSet(round_image)
+                    if (checkSupport) {
+                        avatar_icon_view.avatarSet(round_image)
+                    }
                 }
 
                 anchors.centerIn: parent
@@ -40,14 +42,14 @@ GridView {
 
     delegate: avatar_icon_view_delegate
     model: ListModel { id: avatar_icon_view_model }
-    
+
     Component.onCompleted: {
         avatar_icon_view.initialize()
-        
+
         if (withAddButton) {
             avatar_icon_view_model.append({"avatarPath": "images/avatar_add.png"})
         }
-        
+
         width = 310
         height = cellHeight * Math.min(3, Math.ceil(count /3))
     }

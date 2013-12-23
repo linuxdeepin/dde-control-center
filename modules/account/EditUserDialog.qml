@@ -60,7 +60,7 @@ Item {
                     checked: root.this_user.automaticLogin
 
                     onClicked: {
-                        this_user.SetAutomaticLogin(checked)
+                        this_user.automaticLogin = checked
                     }
 
                     anchors.right: parent.right
@@ -93,7 +93,7 @@ Item {
                         {"buttonId": "administrator", "buttonLabel": "Administrator"},
                     ]
                     initializeIndex: root.this_user.accountType
-                    onItemSelected: root.this_user.setAccountType(idx)
+                    onItemSelected: root.this_user.accountType = idx
 
                     anchors.right: parent.right
                     anchors.rightMargin: 15
@@ -107,6 +107,10 @@ Item {
                 id: password_dialog
 
                 onPasswordSet: {
+                    dbus_user.passwordMode = 2 // i think this nonsense too, but the fact is this help a lot >_<
+                    // The user should be in a group named "nopasswdlogin" before we set his password,
+                    // but a fresh _new_ user is not in that group(weird), so we should set it first.
+                    dbus_user.SetPassword(password, "")
                 }
 
                 onHeightChanged: {

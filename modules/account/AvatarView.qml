@@ -157,7 +157,7 @@ Item {
     Loader {
         id: webcam_loader
         width: 310
-        height: 280
+        height: 200
 
         anchors.top: radio_button.bottom
         anchors.topMargin: root.verticalPadding * 2
