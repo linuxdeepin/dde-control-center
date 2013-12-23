@@ -166,7 +166,7 @@ Item {
     function moduleFileChanged(module_id){
         if(rightBoxLoaderItem.iconId == module_id 
         | module_id == "widgets"){
-            print(module_id)
+            print("File changed, reload module:", module_id)
             var lastId = rightBoxLoaderItem.iconId
             rightBoxLoaderItem.iconId = ""
             rightBoxLoaderItem.iconId = lastId

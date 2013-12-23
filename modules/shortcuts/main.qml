@@ -3,6 +3,7 @@ import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import DBus.Com.Deepin.Daemon.KeyBinding 1.0
 import "../widgets"
+import "./shortcuts_maps.js" as ShortcutsMap
 
 Item {
     id: default_applications
@@ -21,7 +22,8 @@ Item {
         DssTitle {
             text: dsTr("Shortcuts")
             Component.onCompleted: {
-                print(keybindingId.GetSystemList())
+                //print(keybindingId.GetSystemList())
+                //print(default_applications.parent.y)
             }
         }
 
@@ -34,8 +36,6 @@ Item {
                 style: Text.Raised
                 styleColor: Qt.rgba(0, 0, 0, 0.9)
             }
-
-            rightLoader.sourceComponent: TestFocus{ height: 28 }
         }
 
         DSeparatorHorizontal {}
@@ -44,56 +44,50 @@ Item {
             expandItems: [
                 {
                     "name": dsTr("System"),
-                    "icon": "images/network.png",
-                    "defaultGetType": "x-scheme-handler/http", 
-                    "setTypeGroup": ["x-scheme-handler/http"]
+                    //"icon": "images/network.png",
+                    "keyBindings": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 645, 670, 671]
                 },
                 {
                     "name": dsTr("Sound and Media"),
-                    "icon": "images/mail.png",
-                    "defaultGetType": "x-scheme-handler/mailto",
-                    "setTypeGroup": ["x-scheme-handler/mailto"]
+                    //"icon": "images/mail.png",
+                    "keyBindings": [302, 305, 306, 334, 314, 319, 318, 326, 329, 330, 331, 320, 315]
                 },
                 {
                     "name": dsTr("Window"),
-                    "icon": "images/document.png",
-                    "defaultGetType": "text/plain",
-                    "setTypeGroup": ["text/plain"]
+                    //"icon": "images/document.png",
+                    "keyBindings": [600, 601, 602, 603, 611, 614, 676, 677]
                 },
                 {
                     "name": dsTr("Workspace"),
-                    "icon": "images/music.png",
-                    "defaultGetType": "audio/mpeg",
-                    "setTypeGroup": ["audio/mpeg"]
+                    //"icon": "images/music.png",
+                    "keyBindings": [654, 655, 656, 657, 666, 667, 668, 669, 900, 901, 902, 903, 636, 637, 638, 639, 800, 801]
                 },
                 {
                     "name": dsTr("Custom"),
-                    "icon": "images/video.png",
-                    "defaultGetType": "video/mp4",
-                    "setTypeGroup": ["video/mp4"]
+                    //"icon": "images/video.png",
+                    "keyBindings": []
                 }
             ]
 
             modelComponent: Component {
-
                 ListView {
-                    property int lineHeight: 30
-
+                    id: lists
                     width: parent.width
+                    height: lists.count * 30 > 300 ? 200 : lists.count * 30
                     focus: true
-                    height: model.count * lineHeight
+                    model: ListModel {id: keyBindingModel}
+                    delegate: ShortcutInput {}
 
-                    model: ListModel {
-                        ListElement { name: "Bob" }
-                        ListElement { name: "John" }
-                        ListElement { name: "Michael" }
-                    }
-
-                    delegate: TestFocus {
-                        height: lineHeight
+                    Component.onCompleted: {
+                        for(var i=0; i<componentData.keyBindings.length; i++){
+                            var shortcutId = componentData.keyBindings[i]
+                            keyBindingModel.append({
+                                "displayName": ShortcutsMap.currentSystemBindings[shortcutId],
+                                "shortcutId": shortcutId
+                            })
+                        }
                     }
                 }
-
             }
 
         }
