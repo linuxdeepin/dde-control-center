@@ -18,42 +18,42 @@ Rectangle {
 
         onShowComputerIconChanged: {
             if (showComputerIcon) {
-                desktop_icons_select_view.getDelegateInstanceAt(0).select()
+                desktop_icons.selectView.getDelegateInstanceAt(0).select()
             } else {
-                desktop_icons_select_view.getDelegateInstanceAt(0).deselect()
+                desktop_icons.selectView.getDelegateInstanceAt(0).deselect()
             }
         }
         onShowHomeIconChanged: {
             if (showHomeIcon) {
-                desktop_icons_select_view.getDelegateInstanceAt(1).select()
+                desktop_icons.selectView.getDelegateInstanceAt(1).select()
             } else {
-                desktop_icons_select_view.getDelegateInstanceAt(1).deselect()
+                desktop_icons.selectView.getDelegateInstanceAt(1).deselect()
             }
         }
         onShowTrashIconChanged: {
             if (showTrashIcon) {
-                desktop_icons_select_view.getDelegateInstanceAt(2).select()
+                desktop_icons.selectView.getDelegateInstanceAt(2).select()
             } else {
-                desktop_icons_select_view.getDelegateInstanceAt(2).deselect()
+                desktop_icons.selectView.getDelegateInstanceAt(2).deselect()
             }
         }
         onShowDSCIconChanged: {
             if (showDSCIcon) {
-                desktop_icons_select_view.getDelegateInstanceAt(3).select()
+                desktop_icons.selectView.getDelegateInstanceAt(3).select()
             } else {
-                desktop_icons_select_view.getDelegateInstanceAt(3).deselect()
+                desktop_icons.selectView.getDelegateInstanceAt(3).deselect()
             }
         }
 
         onDockModeChanged: {
             if (dockMode == "default") {
-                dock_display_select_view.getDelegateInstanceAt(0).select()
+                dock_display.selectView.getDelegateInstanceAt(0).select()
             }
             if (dockMode == "autohide") {
-                dock_display_select_view.getDelegateInstanceAt(1).select()
+                dock_display.selectView.getDelegateInstanceAt(1).select()
             }
             if (dockMode == "keephidden") {
-                dock_display_select_view.getDelegateInstanceAt(2).select()
+                dock_display.selectView.getDelegateInstanceAt(2).select()
             }
         }
 
@@ -73,47 +73,15 @@ Rectangle {
 
         DSeparatorHorizontal {}
 
-        move: Transition {
-            NumberAnimation { properties: "x,y"; duration: 100 }
-        }
-
-        RaisedPart {
+        DBaseExpand {
             id: desktop_icons
-            title: "桌面图标"
-
-            Image {
-                id: desktop_icons_arrow
-                source: arrowPic
-
-                property string arrowPic: desktop.arrowDown
-
-                anchors {
-                    right: parent.right
-                    rightMargin: parent.rightPadding
-                    verticalCenter: parent.verticalCenter
-                }
-
-                MouseArea {
-                    anchors.fill: parent
-
-                    onPressed: {
-                        if (parent.arrowPic == desktop.arrowUp) {
-                            parent.arrowPic = desktop.arrowDown
-                            desktop_icons_select.visible = false
-                        } else {
-                            parent.arrowPic = desktop.arrowUp
-                            desktop_icons_select.visible = true
-                        }
-                    }
-                }
+            property Item selectView
+            
+            header.sourceComponent: DDownArrowHeader {
+                text: dsTr("Desktop Icons")
+                onClicked: desktop_icons.expanded = active
             }
-        }
-        ConcavePart {
-            id:desktop_icons_select
-            visible: false
-
-            rows: 2
-            DMultipleSelectView {
+            content.sourceComponent: DMultipleSelectView {
                 id: desktop_icons_select_view
                 rows: 2
                 columns: 2
@@ -123,6 +91,7 @@ Rectangle {
 
                 model: ListModel {}
                 Component.onCompleted: {
+                    desktop_icons.selectView = desktop_icons_select_view
                     model.append({"label": "计算机", "selected": dde_desktop.showComputerIcon})
                     model.append({"label": "主文件夹", "selected": dde_desktop.showHomeIcon})
                     model.append({"label": "回收站", "selected": dde_desktop.showTrashIcon})
@@ -160,42 +129,16 @@ Rectangle {
                 }
             }
         }
-        RaisedPart {
-            title: "Dock显示"
 
-            Image {
-                id: dock_display_arrow
-                source: arrowPic
-
-                property string arrowPic: arrowDown
-
-                anchors {
-                    right: parent.right
-                    rightMargin: parent.rightPadding
-                    verticalCenter: parent.verticalCenter
-                }
-
-                MouseArea {
-                    anchors.fill: parent
-
-                    onPressed: {
-                        if (parent.arrowPic == desktop.arrowUp) {
-                            parent.arrowPic = desktop.arrowDown
-                            dock_display_select.visible = false
-                        } else {
-                            parent.arrowPic = desktop.arrowUp
-                            dock_display_select.visible = true
-                        }
-                    }
-                }
+        DBaseExpand {
+            id: dock_display
+            property Item selectView
+            
+            header.sourceComponent: DDownArrowHeader {
+                text: dsTr("Dock Display")
+                onClicked: dock_display.expanded = active
             }
-        }
-        ConcavePart {
-            id: dock_display_select
-            visible: false
-
-            rows: 1
-            DMultipleSelectView {
+            content.sourceComponent: DMultipleSelectView {
                 id: dock_display_select_view
                 width: parent.width
                 height: rows * 30
@@ -206,6 +149,7 @@ Rectangle {
 
                 model: ListModel {}
                 Component.onCompleted: {
+                    dock_display.selectView = dock_display_select_view
                     model.append({"label": "正常模式", "selected": dde_desktop.dockMode == "default"})
                     model.append({"label": "自动隐藏", "selected": dde_desktop.dockMode == "autohide"})
                     model.append({"label": "一直隐藏", "selected": dde_desktop.dockMode == "keephidden"})
@@ -224,6 +168,7 @@ Rectangle {
                 }
             }
         }
+        
         RaisedPart {
             title: "屏幕热区"
 
