@@ -21,7 +21,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt5.QtCore import QObject, pyqtSignal
+from PyQt5.QtCore import pyqtSignal, QThread
 from Xlib import X
 #from ocr import ocr_word
 from threading import Timer
@@ -29,13 +29,13 @@ from xutils import record_event, check_valid_event, get_event_data
 
 press_ctrl = False
 
-class RecordEvent(QObject):
+class RecordEvent(QThread):
 
     enter_mouse_area = pyqtSignal()
     click_outer_area = pyqtSignal(int, int)
     
     def __init__(self, view):
-        QObject.__init__(self)
+        QThread.__init__(self)
 
         self.timer = None
         self.stop_delay = 0.1
@@ -67,5 +67,5 @@ class RecordEvent(QObject):
             mouse_y <= screen_size.height():
             self.enter_mouse_area.emit()
                 
-    def filter_event(self):
+    def run(self):
         record_event(self.record_callback)

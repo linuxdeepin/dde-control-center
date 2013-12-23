@@ -28,19 +28,20 @@ Item {
         anchors.right: parent.right
         anchors.rightMargin: dconstants.rightMargin
         anchors.verticalCenter: parent.verticalCenter
+        focus: true
 
-        Rectangle {
-            anchors.fill: parent
-            radius: 4
-            color: field.activeFocus ? "#101010" : "transparent"
-        }
+        //Rectangle {
+            //anchors.fill: parent
+            //radius: 4
+            //color: field.activeFocus ? "#101010" : "transparent"
+        //}
 
-        TextInput {
+        Text {
             id: field
             anchors.fill: parent
-            readOnly: true
-            focus: true
-            cursorVisible: false
+            //readOnly: true
+            //cursorVisible: false
+            focus: false
             horizontalAlignment: TextInput.AlignRight
             verticalAlignment: TextInput.AlignVCenter
             font.pixelSize: 11
@@ -49,16 +50,15 @@ Item {
 
             Keys.onPressed: {
                 if(event.key == Qt.Key_Escape){
-                    parent.focus = false
-                }
-                if (event.modifiers){
-                    print(event.modifiers)
+                    field.focus = false
                 }
                 print(event.text)
+                //if (event.modifiers){
+                    //print(event.modifiers)
+                //}
             }
 
             Keys.onReleased: {
-                
             }
 
             onActiveFocusChanged: {
@@ -71,6 +71,14 @@ Item {
                 else {
                     text = oldShortcut
                     print(windowView.grabKeyboard(false))
+                }
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    field.focus = true
+                    print(field.focus, field.activeFocus)
                 }
             }
         }

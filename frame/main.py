@@ -27,7 +27,6 @@ if os.name == 'posix':
     QCoreApplication.setAttribute(QtCore.Qt.AA_X11InitThreads, True)
 
 import sys
-import threading
 import signal
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 
@@ -55,9 +54,7 @@ def main():
         else:
             print "Error module id:", sys.argv[1]
     
-    thread = threading.Thread(target=panel.record_event.filter_event)
-    thread.setDaemon(True)
-    thread.start()
+    panel.record_event.start()
 
     sys.exit(app.exec_())
 
