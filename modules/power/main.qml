@@ -1,6 +1,5 @@
 import QtQuick 2.1
 import DBus.Com.Deepin.Daemon.Power 1.0
-import DBus.Com.Deepin.Daemon.SystemInfo 1.0
 import "../widgets"
 
 Rectangle {
@@ -10,9 +9,7 @@ Rectangle {
     height: 600
 
     property var constants: DConstants{}
-
     property var dbus_power: Power{}
-    property var dbus_system_info: SystemInfo {}
 
     function timeoutToIndex(timeout) {
         switch (timeout) {

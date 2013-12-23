@@ -197,7 +197,7 @@ Rectangle {
         }
         ConcavePart {
             id: hotspot_top_left_select
-            visible: false
+            visible: true
 
             rows: 1
             DMultipleSelectView {
