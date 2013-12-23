@@ -1,43 +1,81 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
-import DBus.Com.Deepin.Daemon.Network 1.0
 import "../widgets"
 
-
-Item {
-    ColumnLayout{
-        height: 34
-        width: parent.width
-        Column{
-            width: root.width
-            height: 30
-            DSeparatorHorizontal{}
-            Label {
-                height: 30
-                anchors.leftMargin: 10
-                anchors.left: parent.left
-                text: "当前活动的网络链接"
-                color: fgColor
-            }
-            DSeparatorHorizontal{}
+Column {
+    DSeparatorHorizontal{}
+    DBaseLine {
+        leftLoader.sourceComponent: DssH1 {
+            text: dsTr("Actived Connections")
         }
-        DBaseExpand {
-            header: Text { text:"Realtek PCIe GBE Family Controller" }
-            width: root.width
-        }
-        GridLayout {
-            width: root.width
-            columns: 2
-            Layout.preferredWidth: root.width
-            Label { text: "接口"} Label {text: "以太网"}
-            Label { text: "硬件地址"} Label {text: "c8:60:00:de:79:f6"}
-            Label { text: "驱动"} Label {text: "r8619" }
-            Label { text: "速度"} Label {text: "100Mb/s" }
-        }
-
     }
-    Component.onCompleted: {
-        console.log(nm.aPs)
+    DSeparatorHorizontal{}
+
+    function filterConnection(devs) {
+        var conns = []
+        for (var i=0; i<devs.length; i++) {
+            var c = nm.GetActiveConnection(devs[i][0])
+            if (c[0]) {
+                conns.push(c)
+            }
+        }
+        return conns
+    }
+
+    Repeater {
+        model: filterConnection(nm.wiredDevices)
+        DBaseExpand {
+            width: root.width
+            expanded: header.item.active
+            header.sourceComponent: DDownArrowHeader {
+                active: true
+                text: modelData[0]
+            }
+            content.sourceComponent: DBaseLine {
+                height: leftLoader.item.height
+                color: dconstants.contentBgColor
+                leftLoader.sourceComponent: GridLayout {
+                    width: root.width
+                    columns: 2
+                    Layout.preferredWidth: root.width
+                    DLabel { text: dsTr("DeviceType") }         DLabel { text: dsTr("wired") }
+                    DLabel { text: dsTr("DeviceAddr")}      DLabel { text: modelData[1] }
+                    DLabel { text: dsTr("IpAddress")}        DLabel { text: modelData[2] }
+                    DLabel { text: dsTr("SubnetMask")}      DLabel { text: modelData[3] }
+                    DLabel { text: dsTr("RouteAddr")}      DLabel { text: modelData[4] }
+                    DLabel { text: dsTr("DeviceSpeed")}      DLabel { text: modelData[5] + "Mb/s" }
+                    DLabel { text: dsTr("InternetSpeed")}      Button { text: dsTr("test it") }
+                }
+            }
+        }
+    }
+    Repeater {
+        model: filterConnection(nm.wirelessDevices)
+        DBaseExpand {
+            visible: true
+            width: root.width
+            expanded: header.item.active
+            header.sourceComponent: DDownArrowHeader {
+                active: true
+                text: modelData[0]
+            }
+            content.sourceComponent: DBaseLine {
+                height: leftLoader.item.height
+                color: dconstants.contentBgColor
+                leftLoader.sourceComponent: GridLayout {
+                    width: root.width
+                    columns: 2
+                    Layout.preferredWidth: root.width
+                    DLabel { text: dsTr("DeviceType") }         DLabel { text: dsTr("wireless") }
+                    DLabel { text: dsTr("DeviceAddr")}      DLabel { text: modelData[1] }
+                    DLabel { text: dsTr("IpAddress")}        DLabel { text: modelData[2] }
+                    DLabel { text: dsTr("SubnetMask")}      DLabel { text: modelData[3] }
+                    DLabel { text: dsTr("RouteAddr")}      DLabel { text: modelData[4] }
+                    DLabel { text: dsTr("DeviceSpeed")}      DLabel { text: modelData[5] + "Mb/s" }
+                    DLabel { text: dsTr("InternetSpeed")}      Button { text: dsTr("test it") }
+                }
+            }
+        }
     }
 }
