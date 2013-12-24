@@ -3,20 +3,35 @@ import QtQuick.Window 2.1
 import "../widgets"
 
 Window {
-    x: 1000
-    y: 100
+    id: root
+    
     width: 300
     height: 500
     flags: Qt.Popup
     color: "transparent"
 
+    property int pointer: 0
     property variant previews: [
         "/home/hualet/Pictures/wallpapers-collect/firefox.jpg",
         "/home/hualet/Pictures/wallpapers-collect/xingkong.jpg",
         "/home/hualet/Pictures/wallpapers-collect/yuzhou17.jpg",
         "/home/hualet/Pictures/wallpapers-collect/test.jpg",
-        "/home/hualet/Pictures/wallpapers-collect/Unix.jpg"
+        "/home/hualet/Pictures/wallpapers-collect/Unix.png"
     ]
+    
+    function showPrevious() {
+        if (pointer > 0) {
+            pointer--
+        } 
+        preview_image.source = previews[pointer]
+    }
+    
+    function showNext() {
+        if (pointer < previews.length -1) {
+            pointer++
+        }
+        preview_image.source = previews[pointer]
+    }
 
     Rectangle {
         radius: 8
@@ -34,6 +49,20 @@ Window {
                 anchors.topMargin: 8
                 anchors.leftMargin: 10
             }
+            
+            DImageButton {
+                normal_image: "images/close_normal.png"
+                hover_image: "images/close_normal.png"
+                press_image: "images/close_normal.png"
+                
+                onClicked: {
+                    root.hide()
+                }
+                anchors.top: parent.top
+                anchors.right: parent.right
+                anchors.topMargin: 8
+                anchors.rightMargin: 8
+            }
         }
 
         Rectangle {
@@ -42,7 +71,7 @@ Window {
 
             Image {
                 id: preview_image
-                source: previews[0]
+                source: previews[root.pointer]
 
                 anchors.fill: parent
                 anchors.topMargin: 10
@@ -73,6 +102,10 @@ Window {
                     cursor_image.x = pos.x
                     cursor_image.y = pos.y
                 }
+                
+                onClicked: {
+                    root.showPrevious()
+                }
 
                 onExited: {
                     cursorShape = Qt.ArrowCursor
@@ -97,6 +130,10 @@ Window {
                     cursor_image.x = pos.x
                     cursor_image.y = pos.y
                 }
+                
+                onClicked: {
+                    root.showNext()
+                }
 
                 onExited: {
                     cursorShape = Qt.ArrowCursor
@@ -114,6 +151,14 @@ Window {
             id: bottom_bar
             width: parent.width
             height: 40
+            
+             DssH2 {
+                text: qsTr("Previews %1/%2").arg(root.pointer + 1).arg(root.previews.length)
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.topMargin: 8
+                anchors.leftMargin: 10
+            }
 
             anchors.bottom: parent.bottom
         }
