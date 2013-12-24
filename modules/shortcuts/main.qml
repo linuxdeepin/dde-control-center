@@ -22,7 +22,7 @@ Item {
         DssTitle {
             text: dsTr("Shortcuts")
             Component.onCompleted: {
-                //print(keybindingId.GetSystemList())
+                //print(keybindingId.keyBindingList)
                 //print(default_applications.parent.y)
             }
         }
@@ -83,7 +83,8 @@ Item {
                             var shortcutId = componentData.keyBindings[i]
                             keyBindingModel.append({
                                 "displayName": ShortcutsMap.currentSystemBindings[shortcutId],
-                                "shortcutId": shortcutId
+                                "shortcutId": shortcutId,
+                                "shortcutName": keybindingId.GetBindingAccel(shortcutId).replace(/\</g, "").replace(/\>/g, "+")
                             })
                         }
                     }

@@ -11,7 +11,7 @@ FocusScope {
     property var dconstants: DConstants {}
     property int grabKeyAreaWidth: 150
 
-    property string shortcutName: ""
+    //property string shortcutName: ""
     property string keybindLabel: ""
     property string oldShortcut: ""
 
@@ -49,7 +49,7 @@ FocusScope {
             if(event.key == Qt.Key_Escape){
                 field.focus = false
             }
-            print(event.text)
+            print(event.key, event.text)
             //if (event.modifiers){
                 //print(event.modifiers)
             //}
@@ -60,14 +60,13 @@ FocusScope {
 
         onActiveFocusChanged: {
             if (activeFocus){
-                print(parent.width)
                 oldShortcut = text
                 text = dsTr("Please input new shortcuts")
-                print(windowView.grabKeyboard(true))
+                //print(windowView.grabKeyboard(true))
             }
             else {
                 text = oldShortcut
-                print(windowView.grabKeyboard(false))
+                //print(windowView.grabKeyboard(false))
             }
         }
 
