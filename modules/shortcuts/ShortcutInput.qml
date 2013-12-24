@@ -42,7 +42,7 @@ FocusScope {
         horizontalAlignment: TextInput.AlignRight
         verticalAlignment: TextInput.AlignVCenter
         font.pixelSize: 11
-        color: activeFocus ? "blue" : dconstants.fgColor
+        color: activeFocus ? dconstants.fgDarkColor : dconstants.fgColor
         text: shortcutName? shortcutName : "Disable"
 
         Keys.onPressed: {

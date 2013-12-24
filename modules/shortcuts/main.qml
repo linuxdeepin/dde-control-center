@@ -45,22 +45,22 @@ Item {
                 {
                     "name": dsTr("System"),
                     //"icon": "images/network.png",
-                    "keyBindings": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 645, 670, 671]
+                    "keyBindings": ShortcutsMap.systemBindingCategories['system']
                 },
                 {
                     "name": dsTr("Sound and Media"),
                     //"icon": "images/mail.png",
-                    "keyBindings": [302, 305, 306, 334, 314, 319, 318, 326, 329, 330, 331, 320, 315]
+                    "keyBindings": ShortcutsMap.systemBindingCategories['sound and media']
                 },
                 {
                     "name": dsTr("Window"),
                     //"icon": "images/document.png",
-                    "keyBindings": [600, 601, 602, 603, 611, 614, 676, 677]
+                    "keyBindings": ShortcutsMap.systemBindingCategories['window']
                 },
                 {
                     "name": dsTr("Workspace"),
                     //"icon": "images/music.png",
-                    "keyBindings": [654, 655, 656, 657, 666, 667, 668, 669, 900, 901, 902, 903, 636, 637, 638, 639, 800, 801]
+                    "keyBindings": ShortcutsMap.systemBindingCategories['workspace']
                 },
                 {
                     "name": dsTr("Custom"),

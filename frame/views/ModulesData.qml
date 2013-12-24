@@ -53,11 +53,12 @@ Item {
         }
 
     function getStatesArray(s){
-        if (statesInfo[s]){
-            return statesInfo[s]
-        }
-        else{
-            return new Array()
-        }
+        return new Array();
+        //if (statesInfo[s]){
+            //return statesInfo[s]
+        //}
+        //else{
+            //return new Array()
+        //}
     }
 }
