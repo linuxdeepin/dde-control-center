@@ -19,9 +19,10 @@ Item {
             anchors.rightMargin: 2
         }
 
-        Item {
+        Rectangle{
             height: 20
             width: dslider.width
+            color: Qt.rgba(1, 1, 1, 0)
 
             DSliderLabelItem {
                 anchors.left: parent.left

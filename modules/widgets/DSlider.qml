@@ -9,6 +9,8 @@ Slider {
     property int grooveHeight: 8
     property int handleWidth: 18
 
+    property int _buttonWidth: 0
+
     style: SliderStyle {
         groove: Rectangle {
             implicitWidth: grooveWidth + handleWidth - 2
@@ -52,6 +54,9 @@ Slider {
         }
         handle: Image {
             source: "images/slider_handle.svg"
+            Component.onCompleted: {
+                _buttonWidth = width
+            }
         }
     }
 

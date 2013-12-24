@@ -6,6 +6,8 @@ Rectangle {
     height: 28
     color: "#1a1b1b"
 
+    signal clicked
+
     property int timezoneValue: value
     property string timezoneText: textD
 
@@ -17,14 +19,14 @@ Rectangle {
         font.pixelSize: 13
         color: parent.ListView.view.currentIndex == index ? Qt.rgba(0, 144/255, 1, 1.0) :dconstants.fgColor
         text: textD
-        Component.onCompleted: {
-            //print(width)
-        }
     }
 
     MouseArea {
         anchors.fill: parent
-        onClicked: { parent.ListView.view.currentIndex = index }
+        onClicked: { 
+            parent.ListView.view.currentIndex = index
+            parent.ListView.view.currentTimezoneValue = parent.timezoneValue
+        }
     }
 }
 

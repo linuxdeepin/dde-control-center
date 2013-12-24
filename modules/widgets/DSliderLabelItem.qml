@@ -5,12 +5,15 @@ import "../widgets/"
 Item {
     width: label.width
     height: label.height
+    property int edgeMargin: 0
+
     property alias text: label.text
 
     Rectangle {
         anchors.top: parent.top
         anchors.topMargin: -1 * height
-        anchors.horizontalCenter: label.horizontalCenter
+        anchors.left: parent.left
+        anchors.leftMargin: edgeMargin
         color: "white"
         width: 1
         height: 6

@@ -135,15 +135,20 @@ Item {
                 ListView {
                     id: timezone_listview
                     anchors.fill: parent
+
                     model: timezoneData.timezoneList
                     delegate: TimezoneItem {}
                     focus: true
                     currentIndex: timezoneExpand.currentIndex
+
+                    property int currentTimezoneValue: -1
                     
-                    onCurrentItemChanged: {
-                        timezoneExpand.currentTimezoneLabel = currentItem.timezoneText
-                        gDate.SetTimeZone(timezoneData.getTimezoneByOffset(currentItem.timezoneValue))
-                        Date.timeZoneUpdated()
+                    onCurrentTimezoneValueChanged: {
+                        if (currentTimezoneValue != -1){
+                            timezoneExpand.currentTimezoneLabel = currentItem.timezoneText
+                            gDate.SetTimeZone(timezoneData.getTimezoneByOffset(currentTimezoneValue))
+                            Date.timeZoneUpdated()
+                        }
                     }
                 }
 
