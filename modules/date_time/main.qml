@@ -171,11 +171,14 @@ Item {
 
             rightLoader.sourceComponent: DTextButton {
                 text: dsTr("Change Date")
+                onClicked: {
+                    print(calendarObj.cur_calendar.clickedDateObject)
+                }
             }
         }
 
         DSeparatorHorizontal {}
 
-        Calendar {}
+        Calendar { id: calendarObj }
     }
 }

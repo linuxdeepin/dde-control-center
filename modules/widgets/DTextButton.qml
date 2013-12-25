@@ -5,6 +5,7 @@ Rectangle{
     width: buttonHeader.width + buttonMiddle.width + buttonTail.width
     height: buttonHeader.height
     color: "transparent"
+    property int minMiddleWidth: 48
 
     property alias text: title.text
     property alias textColor: title.color
@@ -32,7 +33,7 @@ Rectangle{
         Image {
             id: buttonMiddle
             source: buttonImage.middleNormal
-            width: title.width + 8
+            width: title.width + 8 < minMiddleWidth ? minMiddleWidth : title.width + 8
 
             Text{
                 id: title

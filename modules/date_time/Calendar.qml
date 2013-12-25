@@ -7,7 +7,6 @@ Item {
     width: 308
     height: 240
     property var clickedDateObject: globalDate
-    property string clickedDate: CalendarCore.dateToString(clickedDateObject)
     property var cur_calendar;
     property var pre_calendar;
     property var next_calendar;
@@ -129,9 +128,8 @@ Item {
             color: "#120f10"
         }
 
-        TextButton {
+        DTextButton {
             anchors.verticalCenter: parent.verticalCenter
-            anchors.verticalCenterOffset: -1
             anchors.left: parent.left
             anchors.leftMargin: 10
             text: dsTr("Today")
@@ -149,8 +147,12 @@ Item {
             anchors.right: yearAdjustmentBox.left
 
             onClicked: { 
+                var month_str = monthAdjustment.monthNumber;
+                if(monthAdjustment.monthNumber < 10){
+                    month_str = "0" + month_str
+                }
                 var new_date_str = (yearAdjustment.yearNumber-1) + "-" + 
-                    monthAdjustment.monthNumber + "-" + 1;
+                    month_str + "-" + "01";
                 monthChange(new_date_str)
             }
         }
@@ -185,8 +187,12 @@ Item {
             source: "images/arrow_right_white.png"
 
             onClicked: { 
+                var month_str = monthAdjustment.monthNumber;
+                if(monthAdjustment.monthNumber < 10){
+                    month_str = "0" + month_str
+                }
                 var new_date_str = (yearAdjustment.yearNumber+1) + "-" + 
-                    monthAdjustment.monthNumber + "-" + 1;
+                    month_str + "-" + "01";
                 monthChange(new_date_str)
             }
         }
