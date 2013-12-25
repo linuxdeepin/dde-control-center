@@ -207,8 +207,11 @@ Item {
                     var new_monthNumber = monthAdjustment.monthNumber - 1 
                     var new_yearNumber = yearAdjustment.yearNumber
                 }
+                if(new_monthNumber<10){
+                    new_monthNumber = "0" + new_monthNumber
+                }
                 var new_date_str = new_yearNumber + "-" + 
-                    new_monthNumber + "-" + 1;
+                    new_monthNumber + "-" + "01";
                 //updateDates(new_date_str);
                 monthChange(new_date_str)
             }
@@ -250,8 +253,11 @@ Item {
                     var new_monthNumber = monthAdjustment.monthNumber + 1
                     var new_yearNumber = yearAdjustment.yearNumber
                 }
+                if(new_monthNumber<10){
+                    new_monthNumber = "0" + new_monthNumber
+                }
                 var new_date_str = new_yearNumber + "-" + 
-                    new_monthNumber + "-" + 1
+                    new_monthNumber + "-" + "01"
                 //updateDates(new_date_str)
                 monthChange(new_date_str)
             }

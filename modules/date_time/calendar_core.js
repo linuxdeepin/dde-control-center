@@ -113,12 +113,11 @@ function getDates(dateStr){
     }
 
 
-    var i = 1;
     var cur_month_str = String(cur_month);
     if(cur_month<10){
-        cur_date_str = "0" + cur_date_str;
+        cur_month_str = "0" + cur_month_str;
     }
-    while (i <= dates_arr[1] ){
+    for(var i=1; i <= dates_arr[1]; i++){
         var i_str = String(i);
         if(i<10){
             i_str = "0" + i_str;
@@ -127,7 +126,6 @@ function getDates(dateStr){
         results.push({"dayText": String(i), "isGrey": false, 
             "dateValue": dateValue,
             "isCurrentDate": cur_date_str == dateValue});
-        i += 1;
     }
 
     var pre_year = cur_month == 1 ? cur_year-1 : cur_year;
