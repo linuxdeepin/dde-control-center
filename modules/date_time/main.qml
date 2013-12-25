@@ -32,6 +32,7 @@ Item {
             parent.globalDate= new Date()
             lang = dsslocale.lang
             dynamicTime.secondColonDisplay = !dynamicTime.secondColonDisplay
+            Date.timeZoneUpdated()
         }
     }
 
@@ -148,8 +149,6 @@ Item {
                         if (currentTimezoneValue != -1){
                             timezoneExpand.currentTimezoneLabel = currentItem.timezoneText
                             gDate.SetTimeZone(timezoneData.getTimezoneByOffset(currentTimezoneValue))
-                            Date.timeZoneUpdated()
-                            print(new Date())
                         }
                     }
                 }
