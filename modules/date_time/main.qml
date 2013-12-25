@@ -13,8 +13,9 @@ Item {
     property var gDate: DateAndTime {}
     property var dconstants: DConstants {}
     property string lang: 'en'
+    property var locale: Qt.locale()
 
-    property var date: new Date()
+    property var globalDate: new Date()
     property var weekNames: [dsTr("Sunday"), dsTr("Monday"), dsTr("Tuesday"), 
         dsTr("Wednesday"), dsTr("Thursday"), dsTr("Friday"), dsTr("Saturday"), 
         dsTr("Sunday")]
@@ -28,8 +29,9 @@ Item {
         repeat: true
         interval: 500
         onTriggered: { 
-            parent.date = new Date()
+            parent.globalDate= new Date()
             lang = dsslocale.lang
+            dynamicTime.secondColonDisplay = !dynamicTime.secondColonDisplay
         }
     }
 
@@ -66,7 +68,7 @@ Item {
                 font.pixelSize: 14
                 font.family: timeFont
                 visible: !twentyFourHourSetBox.active
-                text: date.getHours() < 12 ? "AM" : "PM"
+                text: globalDate.getHours() < 12 ? "AM" : "PM"
             }
 
             DLabel {
@@ -76,8 +78,7 @@ Item {
                 anchors.horizontalCenter: dynamicTime.horizontalCenter
 
                 font.pixelSize: 12
-                //text: date.getFullYear() + "-" + date.getMonth()+ "-"+ date.getDate() + ", " + weekNames[date.getDay()]
-                text: CalendarCore.getDateByLocale(date, lang)
+                text: globalDate.toLocaleDateString(locale)
             }
 
         }
@@ -148,6 +149,7 @@ Item {
                             timezoneExpand.currentTimezoneLabel = currentItem.timezoneText
                             gDate.SetTimeZone(timezoneData.getTimezoneByOffset(currentTimezoneValue))
                             Date.timeZoneUpdated()
+                            print(new Date())
                         }
                     }
                 }

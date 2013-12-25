@@ -10,6 +10,7 @@ Item {
     property bool inEdit: false
     property int digitalSize: 55
     property bool use24Hour: false
+    property bool secondColonDisplay: true
 
     Row {
         spacing: 10
@@ -22,7 +23,7 @@ Item {
 
             font.pixelSize: digitalSize
             font.family: timeFont
-            text: use24Hour ? date.getHours() : date.getHours() % 12
+            text: use24Hour ? globalDate.getHours() : globalDate.getHours() % 12
             color: "white"
 
             MouseArea {
@@ -37,7 +38,7 @@ Item {
 
             font.pixelSize: digitalSize
             font.family: timeFont
-            color: 'white'
+            color: secondColonDisplay ? 'white' : "transparent"
             text: ":"
         }
 
@@ -48,7 +49,7 @@ Item {
             font.pixelSize: digitalSize
             font.family: timeFont
             color: "white"
-            text: date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()
+            text: globalDate.getMinutes() < 10 ? "0" + globalDate.getMinutes() : globalDate.getMinutes()
         }
     }
 }

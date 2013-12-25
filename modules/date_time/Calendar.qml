@@ -6,7 +6,7 @@ Item {
     id: calendarWidget
     width: 308
     height: 240
-    property var clickedDateObject: date
+    property var clickedDateObject: globalDate
     property string clickedDate: CalendarCore.dateToString(clickedDateObject)
     property var cur_calendar;
     property var pre_calendar;

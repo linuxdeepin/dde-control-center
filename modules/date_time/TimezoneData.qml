@@ -66,7 +66,7 @@ Item {
         timezone_items.append({"textD": dsTr("(UTC+11:00)Magadan, Solomon Islands"), "value": 11})
         timezone_items.append({"textD": dsTr("(UTC+12:00)New Zealand, Kiribati"), "value": 12})
 
-        var curOffset = -1 * date.getTimezoneOffset()/60
+        var curOffset = -1 * globalDate.getTimezoneOffset()/60
 
         for(var i=0;i<timezone_items.count;i++){
             if (timezone_items.get(i).value == curOffset){
