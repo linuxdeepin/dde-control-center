@@ -1,6 +1,6 @@
 import QtQuick 2.1
 import "calendar_core.js" as CalendarCore
-import "../widgets/"
+import Deepin.Widgets 1.0
 
 Item {
     id: calendarWidget

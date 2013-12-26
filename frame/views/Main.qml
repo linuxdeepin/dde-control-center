@@ -1,7 +1,7 @@
 import QtQuick 2.1
 import QtQuick.Window 2.1
 import Deepin.Locale 1.0
-import "../../modules/widgets"
+import Deepin.Widgets 1.0
 
 Item {
     id: root

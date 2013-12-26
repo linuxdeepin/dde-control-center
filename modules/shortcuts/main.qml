@@ -2,7 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import DBus.Com.Deepin.Daemon.KeyBinding 1.0
-import "../widgets"
+import Deepin.Widgets 1.0
 import "./shortcuts_maps.js" as ShortcutsMap
 
 Item {
