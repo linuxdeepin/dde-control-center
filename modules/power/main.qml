@@ -1,6 +1,6 @@
 import QtQuick 2.1
 import DBus.Com.Deepin.Daemon.Power 1.0
-import "../widgets"
+import Deepin.Widgets 1.0
 
 Rectangle {
     id: root

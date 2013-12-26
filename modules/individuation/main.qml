@@ -1,5 +1,5 @@
 import QtQuick 2.1
-import "../widgets"
+import Deepin.Widgets 1.0
 
 Item {
     id: individuation
