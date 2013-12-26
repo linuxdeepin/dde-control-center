@@ -73,7 +73,7 @@ Window {
             DImageButton {
                 normal_image: "images/close_normal.png"
                 hover_image: "images/close_normal.png"
-                press_image: "images/close_normal.png"
+                press_image: "images/close_press.png"
 
                 onClicked: {
                     root.hide()
