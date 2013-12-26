@@ -83,7 +83,6 @@ Window {
             Image {
                 id: cursor_image
                 visible: false
-                source: "images/close_normal.png"
             }
 
             MouseArea {
@@ -94,6 +93,7 @@ Window {
 
                 onEntered: {
                     cursorShape = Qt.BlankCursor
+                    cursor_image.source = "images/left_normal.png"
                     cursor_image.visible = true
                 }
 
@@ -103,7 +103,12 @@ Window {
                     cursor_image.y = pos.y
                 }
                 
-                onClicked: {
+                onPressed: {
+                    cursor_image.source = "images/left_pressed.png"
+                }
+                
+                onReleased: {
+                    cursor_image.source = "images/left_normal.png"                    
                     root.showPrevious()
                 }
 
@@ -122,6 +127,7 @@ Window {
 
                 onEntered: {
                     cursorShape = Qt.BlankCursor
+                    cursor_image.source = "images/right_normal.png"                    
                     cursor_image.visible = true
                 }
 
@@ -131,7 +137,12 @@ Window {
                     cursor_image.y = pos.y
                 }
                 
-                onClicked: {
+                onPressed: {
+                    cursor_image.source = "images/right_pressed.png"
+                }
+                
+                onReleased: {
+                    cursor_image.source = "images/right_normal.png"                                        
                     root.showNext()
                 }
 
