@@ -4,10 +4,10 @@ import "../widgets"
 
 Window {
     id: root
-    
+
     width: 300
     height: 500
-    flags: Qt.Popup
+    flags: Qt.FramelessWindowHint
     color: "transparent"
 
     property int pointer: 0
@@ -18,14 +18,14 @@ Window {
         "/home/hualet/Pictures/wallpapers-collect/test.jpg",
         "/home/hualet/Pictures/wallpapers-collect/Unix.png"
     ]
-    
+
     function showPrevious() {
         if (pointer > 0) {
             pointer--
-        } 
+        }
         preview_image.source = previews[pointer]
     }
-    
+
     function showNext() {
         if (pointer < previews.length -1) {
             pointer++
@@ -41,6 +41,26 @@ Window {
             id: title_bar
             width: parent.width
             height: 30
+            
+            MouseArea {
+                anchors.fill: parent
+
+                property int startX
+                property int startY
+                property bool holdFlag
+                onPressed: {
+                    startX = mouse.x;
+                    startY = mouse.y;
+                    holdFlag = true;
+                }
+                onReleased: holdFlag = false;
+                onPositionChanged: {
+                    if (holdFlag) {
+                        root.setX(root.x + mouse.x - startX)
+                        root.setY(root.y + mouse.y - startY)
+                    }
+                }
+            }            
 
             DssH2 {
                 text: "Theme preview"
@@ -49,12 +69,12 @@ Window {
                 anchors.topMargin: 8
                 anchors.leftMargin: 10
             }
-            
+
             DImageButton {
                 normal_image: "images/close_normal.png"
                 hover_image: "images/close_normal.png"
                 press_image: "images/close_normal.png"
-                
+
                 onClicked: {
                     root.hide()
                 }
@@ -102,19 +122,19 @@ Window {
                     cursor_image.x = pos.x
                     cursor_image.y = pos.y
                 }
-                
+
                 onPressed: {
                     cursor_image.source = "images/left_pressed.png"
                 }
-                
+
                 onReleased: {
-                    cursor_image.source = "images/left_normal.png"                    
+                    cursor_image.source = "images/left_normal.png"
                     root.showPrevious()
                 }
 
                 onExited: {
                     cursorShape = Qt.ArrowCursor
-                    cursor_image.visible = false                    
+                    cursor_image.visible = false
                 }
             }
 
@@ -127,7 +147,7 @@ Window {
 
                 onEntered: {
                     cursorShape = Qt.BlankCursor
-                    cursor_image.source = "images/right_normal.png"                    
+                    cursor_image.source = "images/right_normal.png"
                     cursor_image.visible = true
                 }
 
@@ -136,19 +156,19 @@ Window {
                     cursor_image.x = pos.x
                     cursor_image.y = pos.y
                 }
-                
+
                 onPressed: {
                     cursor_image.source = "images/right_pressed.png"
                 }
-                
+
                 onReleased: {
-                    cursor_image.source = "images/right_normal.png"                                        
+                    cursor_image.source = "images/right_normal.png"
                     root.showNext()
                 }
 
                 onExited: {
                     cursorShape = Qt.ArrowCursor
-                    cursor_image.visible = false                           
+                    cursor_image.visible = false
                 }
             }
 
@@ -162,8 +182,8 @@ Window {
             id: bottom_bar
             width: parent.width
             height: 40
-            
-             DssH2 {
+
+            DssH2 {
                 text: qsTr("Previews %1/%2").arg(root.pointer + 1).arg(root.previews.length)
                 anchors.top: parent.top
                 anchors.left: parent.left
