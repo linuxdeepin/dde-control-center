@@ -1,0 +1,3 @@
+[submodule "modules/widgets"]
+	path = modules/widgets
+	url = git@github.com:linuxdeepin/deepin-qml-widget.git
