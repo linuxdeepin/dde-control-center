@@ -2,6 +2,7 @@ import DBus.Com.Deepin.Daemon.ExtDevManager 1.0
 import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
+import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
 
 Item {
@@ -13,6 +14,11 @@ Item {
     property int sliderWidth: 180
 
     property var dconstants: DConstants {}
+
+    DLocale {
+        id: xkeyboardLocale
+        domain: "xkeyboard-config"
+    }
 
     ExtDevManager {
        id: "extDevManagerID"
@@ -55,7 +61,7 @@ Item {
                 text: dsTr("Repeat Delay")
                 font.pixelSize: 12
             }
-            rightLoader.sourceComponent: SliderRect {
+            rightLoader.sourceComponent: DSliderRect {
                 width: sliderWidth
                 leftLabel: dsTr("Long")
                 rightLabel: dsTr("Short")
@@ -80,7 +86,7 @@ Item {
                 font.pixelSize: 12
             }
 
-            rightLoader.sourceComponent: SliderRect {
+            rightLoader.sourceComponent: DSliderRect {
                 width: sliderWidth
                 leftLabel: dsTr("Slow")
                 rightLabel: dsTr("Fast")
@@ -137,7 +143,7 @@ Item {
                     onTriggered: parent.visible = !parent.visible
                 }
             }
-            rightLoader.sourceComponent: SliderRect{
+            rightLoader.sourceComponent: DSliderRect{
                 id: cursorBlinkSlider
                 width: sliderWidth
                 leftLabel: dsTr("Slow")
@@ -167,6 +173,7 @@ Item {
             }
 
             content.sourceComponent: Component {
+
 
                 ListView {
                     id: layoutList
@@ -238,7 +245,7 @@ Item {
                         var currentIndex = -1
                         for (var key in allLayoutList){
                             model.append({
-                                "label": allLayoutList[key],
+                                "label": xkeyboardLocale.dsTr(allLayoutList[key]),
                                 "item_id": key
                             })
                             if(key == layoutList.defaultSelectItemId){
@@ -252,7 +259,13 @@ Item {
                         }
                         keyboardLayoutSetting.layoutLabel = allLayoutList[layoutList.defaultSelectItemId]
                     }
+
+                    DScrollBar {
+                        flickable: layoutList
+                    }
                 }
+
+
             }
         }
     }
