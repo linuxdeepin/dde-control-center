@@ -81,10 +81,12 @@ Item {
                     Component.onCompleted: {
                         for(var i=0; i<componentData.keyBindings.length; i++){
                             var shortcutId = componentData.keyBindings[i]
+                            var shortcutName = keybindingId.GetBindingAccel(shortcutId)
+                            print(shortcutName)
                             keyBindingModel.append({
                                 "displayName": ShortcutsMap.currentSystemBindings[shortcutId],
                                 "shortcutId": shortcutId,
-                                "shortcutName": keybindingId.GetBindingAccel(shortcutId).replace(/\</g, "").replace(/\>/g, "+")
+                                "shortcutName": windowView.toHumanShortcutLabel(shortcutName)
                             })
                         }
                     }

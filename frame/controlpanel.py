@@ -26,7 +26,7 @@ import subprocess
 from threading import Timer
 
 from PyQt5.QtCore import Qt, pyqtSlot, pyqtSignal, QVariant, QUrl, QFileSystemWatcher
-from PyQt5.QtGui import QSurfaceFormat, QColor
+from PyQt5.QtGui import QSurfaceFormat, QColor, QKeySequence
 from PyQt5.QtQuick import QQuickView
 
 from constants import SHUT_DOWN_ORDER_PATH, ROOT_LOCATION
@@ -106,6 +106,11 @@ class ControlPanel(QQuickView):
         self.record_event.enter_mouse_area.connect(self.view_object.displayTrayIcon)
         self.record_event.click_outer_area.connect(self.view_object.outerAreaClicked)
         self.moduleFileChanged.connect(self.view_object.moduleFileChanged)
+
+    @pyqtSlot(str, result=str)
+    def toHumanShortcutLabel(self, sequence):
+        keys = sequence.split("-")
+        return "+".join(keys).title()
 
     @pyqtSlot(bool, result=bool)
     def grabKeyboard(self, flag):
