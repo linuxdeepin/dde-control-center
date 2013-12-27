@@ -216,7 +216,7 @@ ListView {
                 }
 
                 onAvatarSet: {
-                    var newObject = Qt.createQmlObject('import QtQuick 2.1; import \"../widgets\"; DRoundImage {}',
+                    var newObject = Qt.createQmlObject('import QtQuick 2.1; import Deepin.Widgets 1.0; DRoundImage {}',
                                                        component_bg, "new");
                     var startPoint = item.parent.mapToItem(component_bg, item.x, item.y)
 
@@ -231,7 +231,7 @@ ListView {
 
                 onAvatarPictured: {
                     print("onAvatarPictured, ", path)
-                    var newObject = Qt.createQmlObject('import QtQuick 2.1; import \"../widgets\"; DRoundImage {}',
+                    var newObject = Qt.createQmlObject('import QtQuick 2.1; import Deepin.Widgets 1.0; DRoundImage {}',
                                                        component_bg, "new");
                     var startPoint = item.parent.mapToItem(component_bg, item.x, item.y)
 
