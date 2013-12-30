@@ -11,21 +11,16 @@ Item {
 
     property var dconstants: DConstants {}
     property int contentLeftMargin: 22
-    property int contentHeight: 60
 
-    property var keybindingId: KeyBinding {}
+    property var keyBindingId: KeyBinding {}
+    property var grabManagerId: GrabManager {}
+    property int currentShortcutId: -1
 
     Column {
         anchors.top: parent.top
         width: parent.width
 
-        DssTitle {
-            text: dsTr("Shortcuts")
-            Component.onCompleted: {
-                //print(keybindingId.keyBindingList)
-                //print(default_applications.parent.y)
-            }
-        }
+        DssTitle { text: dsTr("Shortcuts") }
 
         DSeparatorHorizontal {}
 
@@ -81,8 +76,10 @@ Item {
                     Component.onCompleted: {
                         for(var i=0; i<componentData.keyBindings.length; i++){
                             var shortcutId = componentData.keyBindings[i]
-                            var shortcutName = keybindingId.GetBindingAccel(shortcutId)
-                            print(shortcutName)
+                            var shortcutName = keyBindingId.GetBindingAccel(shortcutId)
+                            if(!shortcutName){
+                                print(shortcutId, "Disabled")
+                            }
                             keyBindingModel.append({
                                 "displayName": ShortcutsMap.currentSystemBindings[shortcutId],
                                 "shortcutId": shortcutId,

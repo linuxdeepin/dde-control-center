@@ -4,12 +4,42 @@ import Deepin.Widgets 1.0
 Item {
     id: expandArea
     width: parent.width
-    height: content.height
+    clip: true
 
     property var modelComponent
     property var expandItems
 
     property int expandItemIndex: -1
+    property bool loaded: false
+
+    Timer {
+        interval: 50
+        repeat: false
+        running: true
+        onTriggered: {
+            loadAnimation.start()
+        }
+    }
+
+    PropertyAnimation {
+        id: loadAnimation
+        duration: 500
+        target: expandArea
+        properties: "height"
+        from: 0
+        to: content.height
+
+        onStopped: {
+            expandArea.loaded = true
+        }
+    }
+
+    Binding {
+        target: expandArea
+        property: "height"
+        value: content.height
+        when: loaded
+    }
 
     Column {
         id: content
