@@ -126,7 +126,7 @@ Item {
         trayIconTabList.currentIndex = -1
         var newIds = modulesId.hideIds
         for (var i in newIds){
-            var index = trayIconTabArea.count - 2
+            var index = trayIconTabArea.count - 1
             var module_id = newIds[i]
             trayIconTabArea.insert(index, {
                 "moduleId": module_id,

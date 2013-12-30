@@ -25,28 +25,28 @@ Item {
         }
 
     property var commonIds: [
-            "notification",
+            //"notification",
             "network",
             "disk_mount",
             "bluetooth",
             "sound",
             "power",
-            "system_info",
             "dss",
             "shutdown"
         ]
 
     property var hideIds: [
             "date_time",
-            "desktop",
-            "individuation",
             "mouse",
             "touchpad",
             "keyboard",
             "shortcuts",
             "display",
             "account",
-            "default_applications"
+            "desktop",
+            "individuation",
+            "default_applications",
+            "system_info"
         ]
     property var statesInfo: {
             "network": ['wifi', 'wire']

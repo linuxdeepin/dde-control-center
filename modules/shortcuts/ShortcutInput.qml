@@ -29,15 +29,13 @@ FocusScope {
         anchors.rightMargin: 12
         anchors.verticalCenter: parent.verticalCenter
         radius: 4
-        color: field.activeFocus ? "#101010" : "transparent"
+        color: field.grabFlag ? "#101010" : "transparent"
     }
 
-    TextInput {
+    Text {
         id: field
         anchors.fill: parent
         anchors.rightMargin: 15
-        readOnly: true
-        cursorVisible: false
         focus: true
         horizontalAlignment: TextInput.AlignRight
         verticalAlignment: TextInput.AlignVCenter
@@ -45,31 +43,38 @@ FocusScope {
         color: activeFocus ? dconstants.fgDarkColor : dconstants.fgColor
         text: shortcutName? shortcutName : "Disable"
 
-        Keys.onPressed: {
-            if(event.key == Qt.Key_Escape){
-                field.focus = false
-            }
-            print(event.key, event.text)
-            //if (event.modifiers){
-                //print(event.modifiers)
-            //}
-        }
+        property bool grabFlag: false
+        property int myShortcutId: shortcutId
 
-        Keys.onReleased: {
-        }
-
-        onActiveFocusChanged: {
-            if (activeFocus){
-                oldShortcut = text
-                text = dsTr("Please input new shortcuts")
-                //print(windowView.grabKeyboard(true))
-            }
-            else {
-                text = oldShortcut
-                //print(windowView.grabKeyboard(false))
+        Connections {
+            target: grabManagerId
+            onGrabKeyEvent: {
+                if (currentShortcutId == field.myShortcutId){
+                    field.grabFlag = false
+                    print(arg0)
+                    if( arg0 == 'Escape' | !arg0 ){
+                        field.text = oldShortcut
+                    }
+                    else if( arg0=="BackSpace" ){
+                        field.text = dsTr("Disable")
+                    }
+                    else {
+                        field.text = windowView.toHumanShortcutLabel(arg0)
+                    }
+                }
             }
         }
 
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                oldShortcut = field.text
+                field.text = dsTr("Please input new shortcuts")
+                field.grabFlag = true
+                currentShortcutId = field.myShortcutId
+                grabManagerId.GrabKeyboard()
+            }
+        }
     }
 }
 
