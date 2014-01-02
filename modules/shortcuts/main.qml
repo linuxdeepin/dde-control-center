@@ -77,9 +77,6 @@ Item {
                         for(var i=0; i<componentData.keyBindings.length; i++){
                             var shortcutId = componentData.keyBindings[i]
                             var shortcutName = keyBindingId.GetBindingAccel(shortcutId)
-                            if(!shortcutName){
-                                print(shortcutId, "Disabled")
-                            }
                             keyBindingModel.append({
                                 "displayName": ShortcutsMap.currentSystemBindings[shortcutId],
                                 "shortcutId": shortcutId,

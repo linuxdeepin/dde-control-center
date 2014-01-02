@@ -348,7 +348,10 @@ Item {
                 width: parent.width
                 anchors.centerIn: parent
 
-                delegate: TabButtonDelegate{width: trayWidth; height: trayHeight}
+                delegate: ModuleIconItem {
+                    width: trayWidth
+                    height: trayHeight
+                }
                 model: ListModel {id: trayIconTabArea}
                 currentIndex: -1
                 onCurrentIndexChanged: {
