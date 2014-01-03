@@ -128,6 +128,11 @@ Item {
             SmoothedAnimation { duration: 200 }
         }
     }
+    
+    DScrollBar {
+        id: recently_used_scrollbar
+        flickable: avatar_recently_used_view
+    }
 
     AvatarIconView {
         id: avatar_default_view
@@ -152,7 +157,11 @@ Item {
             SmoothedAnimation { duration: 200 }
         }
     }
-
+    
+    DScrollBar {
+        id: default_scrollbar
+        flickable: avatar_default_view
+    }
 
     Loader {
         id: webcam_loader
