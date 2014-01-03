@@ -37,10 +37,10 @@ class RecordEvent(QThread):
     def __init__(self, view):
         QThread.__init__(self)
 
-        self.timer = None
-        self.stop_delay = 0.1
+        self.stop_delay = 0.8
         self.view = view
-        self.viewHoverPadding = 15
+        self.viewHoverPadding = 60
+        self.timer = Timer(self.stop_delay, self.enter_mouse_area.emit)
     
     def record_callback(self, reply):
         global press_ctrl
@@ -52,20 +52,24 @@ class RecordEvent(QThread):
             event, data = get_event_data(data)
 
             if event.type == X.MotionNotify:
-                if self.timer:
+                if self.in_emit_area(event) and not self.timer.isAlive():
+                    self.timer = Timer(self.stop_delay, self.enter_mouse_area.emit)
+                    self.timer.start()
+                elif not self.in_emit_area(event) and self.timer.isAlive():
                     self.timer.cancel()
-                self.timer = Timer(self.stop_delay, lambda : self.emit_cursor_stop(event.root_x, event.root_y))
-                self.timer.start()
+
             elif event.type == X.ButtonRelease:
                 self.click_outer_area.emit(event.root_x, event.root_y)
                 
-    def emit_cursor_stop(self, mouse_x, mouse_y):
-        screen_size = self.view.screen().size()
-        if mouse_x >= screen_size.width() - self.viewHoverPadding and \
-            mouse_x <= screen_size.width() and \
-            mouse_y >= screen_size.height() - self.viewHoverPadding and \
-            mouse_y <= screen_size.height():
-            self.enter_mouse_area.emit()
+    def in_emit_area(self, event):
+        if not event:
+            return False
+        else:
+            screen_size = self.view.screen().size()
+            return event.root_x >= screen_size.width() - 2 and \
+                event.root_x <= screen_size.width() and \
+                event.root_y >= self.viewHoverPadding and \
+                event.root_y <= screen_size.height() - self.viewHoverPadding
                 
     def run(self):
         record_event(self.record_callback)
