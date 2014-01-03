@@ -1,7 +1,9 @@
-import QtQuick 2.0
+import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
+import QtQml.Models 2.1
 import DBus.Com.Deepin.Daemon.KeyBinding 1.0
+import DBus.Com.Deepin.Daemon.BindManager 1.0
 import Deepin.Widgets 1.0
 import "./shortcuts_maps.js" as ShortcutsMap
 
@@ -14,7 +16,9 @@ Item {
 
     property var keyBindingId: KeyBinding {}
     property var grabManagerId: GrabManager {}
+    property var bindManagerId: BindManager {}
     property int currentShortcutId: -1
+    property int expandItemIndex: -1
 
     Column {
         anchors.top: parent.top
@@ -35,58 +39,85 @@ Item {
 
         DSeparatorHorizontal {}
 
-        MultiExpandArea {
-            expandItems: [
-                {
-                    "name": dsTr("System"),
-                    //"icon": "images/network.png",
-                    "keyBindings": ShortcutsMap.systemBindingCategories['system']
-                },
-                {
-                    "name": dsTr("Sound and Media"),
-                    //"icon": "images/mail.png",
-                    "keyBindings": ShortcutsMap.systemBindingCategories['sound and media']
-                },
-                {
-                    "name": dsTr("Window"),
-                    //"icon": "images/document.png",
-                    "keyBindings": ShortcutsMap.systemBindingCategories['window']
-                },
-                {
-                    "name": dsTr("Workspace"),
-                    //"icon": "images/music.png",
-                    "keyBindings": ShortcutsMap.systemBindingCategories['workspace']
-                },
-                {
-                    "name": dsTr("Custom"),
-                    //"icon": "images/video.png",
-                    "keyBindings": []
+        Item {
+            id: allArea
+            width: parent.width
+            height: content.height
+            clip: true
+
+            property var expandItems: ObjectModel {
+                ObjectModelItem {
+                    id: systemItem
+                    property string name: dsTr("System")
+                    property var myIndex: ObjectModel.index
+
+                    Binding {
+                        target: systemItem
+                        property: "keyBindings"
+                        value: bindManagerId.systemList
+                        when: true
+                    }
                 }
-            ]
 
-            modelComponent: Component {
-                ListView {
-                    id: lists
-                    width: parent.width
-                    height: lists.count * 30 > 300 ? 200 : lists.count * 30
-                    focus: true
-                    model: ListModel {id: keyBindingModel}
-                    delegate: ShortcutInput {}
+                ObjectModelItem {
+                    id: mediaItem
+                    property string name: dsTr("Sound and Media")
+                    property var myIndex: ObjectModel.index
+                    Binding {
+                        target: mediaItem
+                        property: "keyBindings"
+                        value: bindManagerId.mediaList
+                        when: true
+                    }
+                }
 
-                    Component.onCompleted: {
-                        for(var i=0; i<componentData.keyBindings.length; i++){
-                            var shortcutId = componentData.keyBindings[i]
-                            var shortcutName = keyBindingId.GetBindingAccel(shortcutId)
-                            keyBindingModel.append({
-                                "displayName": ShortcutsMap.currentSystemBindings[shortcutId],
-                                "shortcutId": shortcutId,
-                                "shortcutName": windowView.toHumanShortcutLabel(shortcutName)
-                            })
-                        }
+                ObjectModelItem {
+                    id: windowItem
+                    property string name: dsTr("Window")
+                    property var myIndex: ObjectModel.index
+                    Binding {
+                        target: windowItem
+                        property: "keyBindings"
+                        value: bindManagerId.windowList
+                        when: true
+                    }
+                }
+
+                ObjectModelItem {
+                    id: workspaceItem
+                    property string name: dsTr("Workspace")
+                    property var myIndex: ObjectModel.index
+                    Binding {
+                        target: workspaceItem
+                        property: "keyBindings"
+                        value: bindManagerId.workSpaceList
+                        when: true
+                    }
+                }
+
+                ObjectModelItem {
+                    id: customItem
+                    property string name: dsTr("Custom")
+                    property var myIndex: ObjectModel.index
+                    Binding {
+                        target: customItem
+                        property: "keyBindings"
+                        value: bindManagerId.customList
+                        when: true
                     }
                 }
             }
 
+            Column {
+                id: content
+                anchors.top: parent.top
+                width: parent.width
+                
+                Repeater {
+                    id: repeater
+                    model: allArea.expandItems
+                }
+            }
         }
     }
 }

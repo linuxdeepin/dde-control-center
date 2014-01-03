@@ -109,6 +109,7 @@ class ControlPanel(QQuickView):
 
     @pyqtSlot(str, result=str)
     def toHumanShortcutLabel(self, sequence):
+        sequence = sequence.replace("<", "").replace(">", "+")
         keys = sequence.split("-")
         return "+".join(keys).title()
 

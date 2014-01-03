@@ -8,12 +8,16 @@ FocusScope {
     width: parent.width
     height: 30
 
+    property var info
+
     property var dconstants: DConstants {}
     property int grabKeyAreaWidth: 150
 
-    //property string shortcutName: ""
-    property string keybindLabel: ""
-    property string oldShortcut: ""
+    property int shortcutId: info[0]
+    property string displayName: info[1]
+    property string shortcutName: windowView.toHumanShortcutLabel(info[2])
+
+    property bool grabFlag: false
 
     DssH3 {
         text: displayName
@@ -29,52 +33,64 @@ FocusScope {
         anchors.rightMargin: 12
         anchors.verticalCenter: parent.verticalCenter
         radius: 4
-        color: field.grabFlag ? "#101010" : "transparent"
+        color: "#101010"
+        visible: grabFlag
+    }
+
+    Text {
+        id: realShortcutName
+        anchors.fill: parent
+        anchors.rightMargin: 15
+        horizontalAlignment: Text.AlignRight
+        verticalAlignment: Text.AlignVCenter
+        font.pixelSize: 11
+        color: dconstants.fgColor
+        text: shortcutName? shortcutName : "Disable"
+        visible: !grabFlag
     }
 
     Text {
         id: field
         anchors.fill: parent
         anchors.rightMargin: 15
-        focus: true
-        horizontalAlignment: TextInput.AlignRight
-        verticalAlignment: TextInput.AlignVCenter
+        horizontalAlignment: Text.AlignRight
+        verticalAlignment: Text.AlignVCenter
         font.pixelSize: 11
-        color: activeFocus ? dconstants.fgDarkColor : dconstants.fgColor
-        text: shortcutName? shortcutName : "Disable"
+        color: dconstants.fgDarkColor
+        text: dsTr("Please input new shortcuts")
+        visible: grabFlag
+    }
 
-        property bool grabFlag: false
-        property int myShortcutId: shortcutId
-
-        Connections {
-            target: grabManagerId
-            onGrabKeyEvent: {
-                if (currentShortcutId == field.myShortcutId){
-                    field.grabFlag = false
-                    print(arg0)
-                    if( arg0 == 'Escape' | !arg0 ){
-                        field.text = oldShortcut
-                    }
-                    else if( arg0=="BackSpace" ){
-                        field.text = dsTr("Disable")
-                    }
-                    else {
-                        field.text = windowView.toHumanShortcutLabel(arg0)
-                    }
+    Connections {
+        target: grabManagerId
+        onKeyReleaseEvent: {
+            if (currentShortcutId == shortcutId){
+                grabFlag = false
+                print("Release:", arg0)
+                if( arg0 == 'Escape' | !arg0 ){
+                }
+                else if( arg0=="BackSpace" ){
+                    //print("disable")
+                    bindManagerId.ChangeShortcut(currentShortcutId, "")
+                }
+                else {
+                    bindManagerId.ChangeShortcut(currentShortcutId, arg0)
+                    print(bindManagerId.systemList)
+                    print("------------")
+                    print(keyBindings)
                 }
             }
         }
+    }
 
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                oldShortcut = field.text
-                field.text = dsTr("Please input new shortcuts")
-                field.grabFlag = true
-                currentShortcutId = field.myShortcutId
-                grabManagerId.GrabKeyboard()
-            }
+    MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            grabFlag = true
+            currentShortcutId = shortcutId
+            grabManagerId.GrabKeyboard()
         }
     }
+
 }
 
