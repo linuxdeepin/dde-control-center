@@ -92,10 +92,10 @@ Rectangle {
                 model: ListModel {}
                 Component.onCompleted: {
                     desktop_icons.selectView = desktop_icons_select_view
-                    model.append({"label": "计算机", "selected": dde_desktop.showComputerIcon})
-                    model.append({"label": "主文件夹", "selected": dde_desktop.showHomeIcon})
-                    model.append({"label": "回收站", "selected": dde_desktop.showTrashIcon})
-                    model.append({"label": "软件中心", "selected": dde_desktop.showDSCIcon})
+                    model.append({"label": dsTr("Computer"), "selected": dde_desktop.showComputerIcon})
+                    model.append({"label": dsTr("Home"), "selected": dde_desktop.showHomeIcon})
+                    model.append({"label": dsTr("Trash"), "selected": dde_desktop.showTrashIcon})
+                    model.append({"label": dsTr("DSC"), "selected": dde_desktop.showDSCIcon})
                 }
                 onSelect: {
                     switch (index) {
@@ -150,9 +150,9 @@ Rectangle {
                 model: ListModel {}
                 Component.onCompleted: {
                     dock_display.selectView = dock_display_select_view
-                    model.append({"label": "正常模式", "selected": dde_desktop.dockMode == "default"})
-                    model.append({"label": "自动隐藏", "selected": dde_desktop.dockMode == "autohide"})
-                    model.append({"label": "一直隐藏", "selected": dde_desktop.dockMode == "keephidden"})
+                    model.append({"label": dsTr("Default Style"), "selected": dde_desktop.dockMode == "default"})
+                    model.append({"label": dsTr("Auto Hide"), "selected": dde_desktop.dockMode == "autohide"})
+                    model.append({"label": dsTr("Invisible"), "selected": dde_desktop.dockMode == "keephidden"})
                 }
                 onSelect: {
                     switch (index) {
@@ -170,12 +170,12 @@ Rectangle {
         }
         
         RaisedPart {
-            title: "屏幕热区"
+            title: dsTr("Hot Zone")
 
             DRadioButton {
                 buttonModel: [
-                    {"buttonId": "top_left", "buttonLabel": "左上角"},
-                    {"buttonId": "bottom_right", "buttonLabel": "右下角"}
+                    {"buttonId": "top_left", "buttonLabel": dsTr("Top Left")},
+                    {"buttonId": "bottom_right", "buttonLabel": dsTr("Bottom Right")}
                 ]
 
                 anchors {
@@ -211,9 +211,9 @@ Rectangle {
 
                 model: ListModel {}
                 Component.onCompleted: {
-                    model.append({"label": "无", "selected": dde_desktop.topLeft == 0})
-                    model.append({"label": "打开的窗口", "selected": dde_desktop.topLeft == 1})
-                    model.append({"label": "启动器", "selected": dde_desktop.topLeft == 2})
+                    model.append({"label": dsTr("Nothing"), "selected": dde_desktop.topLeft == 0})
+                    model.append({"label": dsTr("Opening Window"), "selected": dde_desktop.topLeft == 1})
+                    model.append({"label": dsTr("Launcher"), "selected": dde_desktop.topLeft == 2})
                 }
                 onSelect: {
                     dde_desktop.SetTopLeftAction(index)
@@ -236,9 +236,9 @@ Rectangle {
 
                 model: ListModel {}
                 Component.onCompleted: {
-                    model.append({"label": "无", "selected": dde_desktop.bottomRight == 0})
-                    model.append({"label": "打开的窗口", "selected": dde_desktop.bottomRight == 1})
-                    model.append({"label": "启动器", "selected": dde_desktop.bottomRight == 2})
+                    model.append({"label": dsTr("Nothing"), "selected": dde_desktop.bottomRight == 0})
+                    model.append({"label": dsTr("Opening Window"), "selected": dde_desktop.bottomRight == 1})
+                    model.append({"label": dsTr("Launcher"), "selected": dde_desktop.bottomRight == 2})
                 }
                 onSelect: {
                     dde_desktop.SetBottomRightAction(index)
