@@ -46,7 +46,7 @@ def main():
 
     panel = ControlPanel()
     panel.engine_obj.quit.connect(app.quit)
-    panel.show()
+    #panel.show()
 
     if len(sys.argv) == 2:
         if sys.argv[1] in panel.modulesId._l18n_names.keys():

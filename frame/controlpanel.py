@@ -26,7 +26,7 @@ import subprocess
 from threading import Timer
 
 from PyQt5.QtCore import Qt, pyqtSlot, pyqtSignal, QVariant, QUrl, QFileSystemWatcher
-from PyQt5.QtGui import QSurfaceFormat, QColor, QKeySequence
+from PyQt5.QtGui import QSurfaceFormat, QColor
 from PyQt5.QtQuick import QQuickView
 
 from constants import SHUT_DOWN_ORDER_PATH, ROOT_LOCATION

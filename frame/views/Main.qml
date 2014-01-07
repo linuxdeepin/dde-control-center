@@ -2,10 +2,16 @@ import QtQuick 2.1
 import QtQuick.Window 2.1
 import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
+import DBus.Com.Deepin.Daemon.Display 1.0
 
 Item {
     id: root
     property var dconstants: DConstants {}
+    property var displayId: Display {
+        onPrimaryChanged: {
+            print(arg0)
+        }
+    }
 
     property int trayWidth: 48
     property real trayHeight: trayWidth
@@ -75,7 +81,7 @@ Item {
 
     function showModule(id){
         clickedToHide = false 
-        trayFrame.visible = false
+        //trayFrame.visible = false
         showRightBox(id)
         displayState = viewState.rightBoxShow
     }
@@ -101,6 +107,10 @@ Item {
     }
 
     function initTrayIcon() {
+        var screen_info = displayId.primaryRect
+        windowView.height = screen_info[3]
+        windowView.x = screen_info[0]+screen_info[2]
+        windowView.y = screen_info[1]
         var modules_id_array = modulesId.commonIds
         var new_tray_height = root.height/(modules_id_array.length+1.0)
         if (new_tray_height < trayWidth){

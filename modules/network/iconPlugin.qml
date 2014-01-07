@@ -27,7 +27,7 @@ Item {
 
     Component.onCompleted: {
         //parent.tipNumber = 97
-        parent.showWarning = true
-        parent.icon = wiredIcon
+        //parent.showWarning = true
+        //parent.icon = wiredIcon
     }
 }

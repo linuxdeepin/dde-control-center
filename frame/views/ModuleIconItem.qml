@@ -77,8 +77,8 @@ Item {
             parent.hover = false
         }
         onReleased: {
-            iconImage.source= mouseArea.containsMouse ? pluginLoader.icon.hoverImage : pluginLoader.icon.normalImage
-            parent.hover = mouseArea.containsMouse
+            iconImage.source= containsMouse ? pluginLoader.icon.hoverImage : pluginLoader.icon.normalImage
+            parent.hover = containsMouse
         }
     }
 

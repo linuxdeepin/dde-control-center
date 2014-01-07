@@ -22,12 +22,55 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PyQt5.QtCore import pyqtSignal, QThread
-from Xlib import X
-#from ocr import ocr_word
-from threading import Timer
-from xutils import record_event, check_valid_event, get_event_data
 
-press_ctrl = False
+import xcb
+import xcb.xproto
+from Xlib import X, display
+from Xlib.ext import record
+from Xlib.protocol import rq
+from threading import Timer
+
+conn = xcb.connect()
+screen = conn.get_setup().roots[0]
+root = screen.root
+screen_width = screen.width_in_pixels
+screen_height = screen.height_in_pixels
+        
+record_dpy = display.Display()
+
+def get_pointer_coordiante():
+    pointer = conn.core.QueryPointer(root).reply()
+    return (pointer.root_x, pointer.root_y)
+
+def record_event(record_callback):
+    ctx = record_dpy.record_create_context(
+        0,
+        [record.AllClients],
+        [{
+                'core_requests': (0, 0),
+                'core_replies': (0, 0),
+                'ext_requests': (0, 0, 0, 0),
+                'ext_replies': (0, 0, 0, 0),
+                'delivered_events': (0, 0),
+                'device_events': (X.KeyPress, X.MotionNotify),
+                'errors': (0, 0),
+                'client_started': False,
+                'client_died': False,
+                }])
+         
+    record_dpy.record_enable_context(ctx, record_callback)
+    record_dpy.record_free_context(ctx)
+
+def get_event_data(data):
+    return rq.EventField(None).parse_binary_value(data, record_dpy.display, None, None)
+    
+def check_valid_event(reply):
+    if reply.category != record.FromServer:
+        return 
+    if reply.client_swapped:
+        return
+    if not len(reply.data) or ord(reply.data[0]) < 2:
+        return
 
 class RecordEvent(QThread):
 
@@ -43,7 +86,6 @@ class RecordEvent(QThread):
         self.timer = Timer(self.stop_delay, self.enter_mouse_area.emit)
     
     def record_callback(self, reply):
-        global press_ctrl
         
         check_valid_event(reply)
      
@@ -59,17 +101,17 @@ class RecordEvent(QThread):
                     self.timer.cancel()
 
             elif event.type == X.ButtonRelease:
+                #print(event.root_x, event.root_y)
                 self.click_outer_area.emit(event.root_x, event.root_y)
                 
     def in_emit_area(self, event):
         if not event:
             return False
         else:
-            screen_size = self.view.screen().size()
-            return event.root_x >= screen_size.width() - 2 and \
-                event.root_x <= screen_size.width() and \
+            return event.root_x >= screen_width - 2 and \
+                event.root_x <= screen_width and \
                 event.root_y >= self.viewHoverPadding and \
-                event.root_y <= screen_size.height() - self.viewHoverPadding
+                event.root_y <= screen_height
                 
     def run(self):
         record_event(self.record_callback)

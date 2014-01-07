@@ -2,7 +2,6 @@ import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import QtQml.Models 2.1
-import DBus.Com.Deepin.Daemon.KeyBinding 1.0
 import DBus.Com.Deepin.Daemon.BindManager 1.0
 import Deepin.Widgets 1.0
 import "./shortcuts_maps.js" as ShortcutsMap
@@ -14,7 +13,6 @@ Item {
     property var dconstants: DConstants {}
     property int contentLeftMargin: 22
 
-    property var keyBindingId: KeyBinding {}
     property var grabManagerId: GrabManager {}
     property var bindManagerId: BindManager {}
     property int currentShortcutId: -1
