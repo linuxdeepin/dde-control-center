@@ -8,7 +8,7 @@ Item {
 
     property variant constants: DConstants {}
     property variant dbus_individuation: Individuation {}
-
+    
     Column {
         anchors.top: parent.top
         width: parent.width
@@ -60,11 +60,13 @@ Item {
 
             content.sourceComponent: Item {
                 width: individuation.width
-                height: 36
+                height: window_themes_select.height
                 
                 SelectView {
-                    anchors.fill: parent
-
+                    id: window_themes_select
+                    width: parent.width - 15 * 2
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    
                     Component.onCompleted: {
                         var avaThemes = dbus_individuation.availableGtkTheme
                         for(var i = 0; i < avaThemes.length; i++) {
@@ -87,11 +89,13 @@ Item {
 
             content.sourceComponent: Item {
                 width: individuation.width
-                height: 36
+                height: cursor_themes_select.height
                 
                 SelectView {
-                    anchors.fill: parent
-
+                    id: cursor_themes_select
+                    width: parent.width - 15 * 2
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    
                     Component.onCompleted: {
                         var avaThemes = dbus_individuation.availableCursorTheme
                         for(var i = 0; i < avaThemes.length; i++) {
@@ -114,11 +118,13 @@ Item {
 
             content.sourceComponent: Item {
                 width: individuation.width
-                height: 36
+                height: wallpaper_themes_select.height
                 
                 SelectView {
-                    anchors.fill: parent
-
+                    id: wallpaper_themes_select
+                    width: parent.width - 15 * 2
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    
                     Component.onCompleted: {
                         var avaThemes = dbus_individuation.availableBackground
                         for(var i = 0; i < avaThemes.length; i++) {
@@ -141,11 +147,13 @@ Item {
 
             content.sourceComponent: Item {
                 width: individuation.width
-                height: 36
+                height: icons_themes_select.height
                 
                 SelectView {
-                    anchors.fill: parent
-
+                    id: icons_themes_select
+                    width: parent.width - 15 * 2
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    
                     Component.onCompleted: {
                         var avaThemes = dbus_individuation.availableIconTheme
                         for(var i = 0; i < avaThemes.length; i++) {
@@ -168,11 +176,13 @@ Item {
 
             content.sourceComponent: Item {
                 width: individuation.width
-                height: 36
+                height: font_themes_select.height
                 
                 SelectView {
-                    anchors.fill: parent
-
+                    id: font_themes_select
+                    width: parent.width - 15 * 2
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    
                     Component.onCompleted: {
                         var avaThemes = dbus_individuation.availableFontTheme
                         for(var i = 0; i < avaThemes.length; i++) {

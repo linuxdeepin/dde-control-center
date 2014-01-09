@@ -2,12 +2,13 @@ import QtQuick 2.1
 
 Item {
     id: root
-    width: 310
-    height: 200
+    width: 100
+    height: 100
 
     property int spacing: 5
-    property int verticalPadding: 6
+    property int lineHeight: 22
     property int horizontalPadding: 6
+    property variant model: ListModel{}
 
     signal itemSelected (int idx, string itemId)
     signal selectItemPrivate (string id)
@@ -21,44 +22,16 @@ Item {
         spacing: root.spacing
         anchors.fill: parent
 
-        property alias verticalPadding: root.verticalPadding
         property alias horizontalPadding: root.horizontalPadding
 
         Repeater {
-            model: ListModel {
-                ListElement {
-                    itemId: "hello_world"
-                    itemText: "Hello World"
-					itemWidth: 0
-                }
-                ListElement {
-                    itemId: "linux_deepin"
-                    itemText: "Linux Deepin"
-					itemWidth: 0
-                }
-                ListElement {
-                    itemId: "deepin_is_great"
-                    itemText: "Deepin is great Hello Linux Deepin"
-					itemWidth: 0
-                }
-                ListElement {
-                    itemId: "deepin_is"
-                    itemText: "Deepin"
-					itemWidth: 0
-                }
-                ListElement {
-                    itemId: "is_deepin"
-                    itemText: "Deepin Hello"
-					itemWidth: 0
-                }
-            }
-            Rectangle {
+            model: root.model
+            Item {
 
                 id: delegate
                 state: "normal"
-                color: "grey"
                 width: Math.max(label.implicitWidth + horizontalPadding, itemWidth)
-                height: label.implicitHeight + verticalPadding
+                height: root.lineHeight
 
                 function select () {
                     delegate.state = "selected"
@@ -165,16 +138,19 @@ Item {
             Component.onCompleted: {
                 var spacing = flow.spacing
                 var rowStart = 0
+                var rowCount = 1
 
                 for (var i = 0; i < model.count; i++) {
                     if (insertToRow (rowStart, i)) {
                         updateRow (rowStart, i)
                     } else {
                         rowStart = i
+                        rowCount += 1
                         insertToRow (rowStart, i)
                         updateRow (rowStart, i)
                     }
                 }
+                root.height = root.lineHeight * rowCount
             }
         }
     }
