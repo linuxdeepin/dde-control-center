@@ -144,19 +144,18 @@ class RecordEvent(QThread):
                     self.timer.cancel()
 
             elif event.type == X.ButtonRelease:
-                #print (event.root_x, event.root_y)
+                print (event.root_x, event.root_y)
                 self.click_outer_area.emit(event.root_x, event.root_y)
                 
     def in_emit_area(self, event):
         if not event:
             return False
         else:
-            width = self.screen_rect[2]
-            height = self.screen_rect[3]
-            return event.root_x >= width - self.viewHoverPadding and \
-                event.root_x <= width and \
-                event.root_y >= height - self.viewHoverPadding and \
-                event.root_y <= height
+            x, y, width, height = self.screen_rect
+            return event.root_x >= x + width - self.viewHoverPadding and \
+                event.root_x <= x + width and \
+                event.root_y >= y + height - self.viewHoverPadding and \
+                event.root_y <= y + height
                 
     def run(self):
         record_event(self.record_callback)
