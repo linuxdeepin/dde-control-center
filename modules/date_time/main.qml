@@ -10,15 +10,17 @@ Item {
     anchors.fill: parent
 
     property string timeFont: "Maven Pro Light"
-    property var gDate: DateAndTime {}
+    property var gDate: DateAndTime {
+        onCurrentTimeZoneChanged: {
+            Date.timeZoneUpdated()
+            globalDate = new Date()
+        }
+    }
     property var dconstants: DConstants {}
     property string lang: 'en'
     property var locale: Qt.locale()
 
     property var globalDate: new Date()
-    property var weekNames: [dsTr("Sunday"), dsTr("Monday"), dsTr("Tuesday"), 
-        dsTr("Wednesday"), dsTr("Thursday"), dsTr("Friday"), dsTr("Saturday"), 
-        dsTr("Sunday")]
     
     Component.onCompleted: {
         lang = dsslocale.lang
@@ -32,7 +34,6 @@ Item {
             parent.globalDate= new Date()
             lang = dsslocale.lang
             dynamicTime.secondColonDisplay = !dynamicTime.secondColonDisplay
-            Date.timeZoneUpdated()
         }
     }
 
@@ -111,53 +112,7 @@ Item {
 
         DSeparatorHorizontal {}
 
-        DBaseExpand {
-            id: timezoneExpand
-            property int currentIndex: -1
-            property string currentTimezoneLabel
-
-            header.sourceComponent: DDownArrowHeader {
-                text: dsTr("Timezone")
-                hintText: timezoneExpand.currentTimezoneLabel
-                onClicked: {
-                    timezoneExpand.expanded = !timezoneExpand.expanded
-                }
-            }
-            content.sourceComponent: Rectangle {
-                id: timezoneList
-                width: parent.width
-                height: 200
-                clip: true
-                color: dconstants.contentBgColor
-
-                TimezoneData { 
-                    id: timezoneData 
-                }
-
-                ListView {
-                    id: timezone_listview
-                    anchors.fill: parent
-
-                    model: timezoneData.timezoneList
-                    delegate: TimezoneItem {}
-                    focus: true
-                    currentIndex: timezoneExpand.currentIndex
-
-                    property int currentTimezoneValue: -1
-                    
-                    onCurrentTimezoneValueChanged: {
-                        if (currentTimezoneValue != -1){
-                            timezoneExpand.currentTimezoneLabel = currentItem.timezoneText
-                            gDate.SetTimeZone(timezoneData.getTimezoneByOffset(currentTimezoneValue))
-                        }
-                    }
-                }
-
-                DScrollBar {
-                    flickable: timezone_listview
-                }
-            }
-        }
+        TimezoneExpand {}
 
         DBaseLine {
             id: dateBoxTitle

@@ -23,9 +23,8 @@ Rectangle {
 
     MouseArea {
         anchors.fill: parent
-        onClicked: { 
-            parent.ListView.view.currentIndex = index
-            parent.ListView.view.currentTimezoneValue = parent.timezoneValue
+        onClicked: {
+            gDate.SetTimeZone(getTimeZoneInfoByOffset(parent.timezoneValue)[1])
         }
     }
 }
