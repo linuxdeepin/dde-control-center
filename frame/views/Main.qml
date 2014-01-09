@@ -7,11 +7,7 @@ import DBus.Com.Deepin.Daemon.Display 1.0
 Item {
     id: root
     property var dconstants: DConstants {}
-    property var displayId: Display {
-        onPrimaryChanged: {
-            print(arg0)
-        }
-    }
+    property var displayId: Display {}
 
     property int trayWidth: 48
     property real trayHeight: trayWidth
@@ -34,6 +30,12 @@ Item {
     }
 
     property var modulesId: ModulesData {}
+
+    QtObject {
+        id: screenSize
+        property int width: displayId.primaryRect[2]
+        property int height: displayId.primaryRect[3]
+    }
 
     QtObject { 
         // enumeration for root view state
@@ -258,6 +260,7 @@ Item {
         easing.type: Easing.OutQuad
 
         onStarted: {
+            print(screenSize.width, screenSize.height)
             lastDisplayState = displayState
             windowView.show()
         }

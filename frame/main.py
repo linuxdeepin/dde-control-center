@@ -33,6 +33,7 @@ signal.signal(signal.SIGINT, signal.SIG_DFL)
 from controlpanel import ControlPanel
 from unique_service import UniqueService
 from constants import APP_DBUS_NAME, APP_OBJECT_PATH
+from display_monitor import connect_to_primary_changed
 
 from PyQt5.QtWidgets import QApplication
 
@@ -47,6 +48,7 @@ def main():
     panel = ControlPanel()
     panel.engine_obj.quit.connect(app.quit)
     #panel.show()
+    connect_to_primary_changed(panel.display_primary_changed)
 
     if len(sys.argv) == 2:
         if sys.argv[1] in panel.modulesId._l18n_names.keys():

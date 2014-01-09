@@ -28,10 +28,11 @@ from threading import Timer
 from PyQt5.QtCore import Qt, pyqtSlot, pyqtSignal, QVariant, QUrl, QFileSystemWatcher
 from PyQt5.QtGui import QSurfaceFormat, QColor
 from PyQt5.QtQuick import QQuickView
+from PyQt5.QtDBus import QDBusMessage, QDBusReply
 
+from display_monitor import RecordEvent
 from constants import SHUT_DOWN_ORDER_PATH, ROOT_LOCATION
 from modules_info import ModulesId
-from event import RecordEvent
 from nls import QtGettext
 
 def walk_directory(root_dir):
@@ -59,9 +60,8 @@ class ControlPanel(QQuickView):
                 )
         self.setResizeMode(QQuickView.SizeRootObjectToView)
         self.setFormat(surface_format)
-        self.screen_size = self.screen().size()
-        self.setGeometry(self.screen_size.width(), 0,
-                360, self.screen_size.height())
+        self.record_event = RecordEvent(self)
+        self.set_geometry(self.record_event.primaryRect)
         self.set_all_contexts()
         self.setSource(QUrl.fromLocalFile(os.path.join(
             ROOT_LOCATION, 'frame', 'views', 'Main.qml')))
@@ -77,6 +77,17 @@ class ControlPanel(QQuickView):
 
         self.module_file_monotor.fileChanged.connect(self.fileChangedNotify)
         #self.module_file_monotor.directoryChanged.connect(self.fileChangedNotify)
+
+    def set_geometry(self, rect):
+        x, y, width, height = rect
+        self.setGeometry(x + width, y,
+                360, height)
+
+    @pyqtSlot(QDBusMessage)
+    def display_primary_changed(self, message):
+        rect = QDBusReply(message).value()
+        print rect
+        self.set_geometry(rect)
 
     def fileChangedNotify(self, path):
         self.engine_obj.clearComponentCache()
@@ -96,13 +107,11 @@ class ControlPanel(QQuickView):
         self.modulesId = ModulesId()
         self.qtGettext = QtGettext()
         self.qml_context.setContextProperty("windowView", self)
-        self.qml_context.setContextProperty("screenSize", self.screen_size)
         self.qml_context.setContextProperty("modulesId", self.modulesId)
         self.qml_context.setContextProperty("qtgettext", self.qtGettext)
 
     def connect_all_object_function(self):
         self.view_object = self.rootObject()
-        self.record_event = RecordEvent(self)
         self.record_event.enter_mouse_area.connect(self.view_object.displayTrayIcon)
         self.record_event.click_outer_area.connect(self.view_object.outerAreaClicked)
         self.moduleFileChanged.connect(self.view_object.moduleFileChanged)
