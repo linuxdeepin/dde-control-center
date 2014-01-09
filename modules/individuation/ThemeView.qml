@@ -19,29 +19,7 @@ GridView {
         selectItemPrivate(themeId)
     }
 
-    model: ListModel {
-        ListElement {
-            themeId: "theme0"
-        }
-        ListElement {
-            themeId: "theme1"
-        }
-        ListElement {
-            themeId: "theme2"
-        }
-        ListElement {
-            themeId: "theme3"
-        }
-        ListElement {
-            themeId: "theme4"
-        }
-        ListElement {
-            themeId: "theme5"
-        }
-        ListElement {
-            themeId: "theme6"
-        }
-    }
+    model: ListModel {}
     delegate: Component {
         Item{
             id: delegate

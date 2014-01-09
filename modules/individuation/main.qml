@@ -1,4 +1,5 @@
 import QtQuick 2.1
+import DBus.Com.Deepin.Daemon.Individuation 1.0
 import Deepin.Widgets 1.0
 
 Item {
@@ -6,6 +7,7 @@ Item {
     anchors.fill: parent
 
     property variant constants: DConstants {}
+    property variant dbus_individuation: Individuation {}
 
     Column {
         anchors.top: parent.top
@@ -32,10 +34,17 @@ Item {
                 height: 260
 
                 ThemeView {
+                    id: theme_view
                     width: parent.width - 2 * 15
                     height: parent.height - 2 * 15
-
                     anchors.centerIn: parent
+
+                    Component.onCompleted: {
+                        var avaThemes = dbus_individuation.availableBackground
+                        for(var i = 0; i < avaThemes.length; i++) {
+                            model.append({themeId: avaThemes[i][0]})
+                        }
+                    }
                 }
             }
         }
@@ -51,12 +60,16 @@ Item {
 
             content.sourceComponent: Item {
                 width: individuation.width
-                height: 50
+                height: 36
+                
                 SelectView {
                     anchors.fill: parent
 
                     Component.onCompleted: {
-                        select("hello_world")
+                        var avaThemes = dbus_individuation.availableGtkTheme
+                        for(var i = 0; i < avaThemes.length; i++) {
+                            model.append({itemId: avaThemes[i][0], itemText: avaThemes[i][0], itemWidth: 0})
+                        }
                     }
                 }
             }
@@ -74,12 +87,16 @@ Item {
 
             content.sourceComponent: Item {
                 width: individuation.width
-                height: 50
+                height: 36
+                
                 SelectView {
                     anchors.fill: parent
 
                     Component.onCompleted: {
-                        select("hello_world")
+                        var avaThemes = dbus_individuation.availableCursorTheme
+                        for(var i = 0; i < avaThemes.length; i++) {
+                            model.append({itemId: avaThemes[i][0], itemText: avaThemes[i][0], itemWidth: 0})
+                        }
                     }
                 }
             }
@@ -97,12 +114,16 @@ Item {
 
             content.sourceComponent: Item {
                 width: individuation.width
-                height: 50
+                height: 36
+                
                 SelectView {
                     anchors.fill: parent
 
                     Component.onCompleted: {
-                        select("hello_world")
+                        var avaThemes = dbus_individuation.availableBackground
+                        for(var i = 0; i < avaThemes.length; i++) {
+                            model.append({itemId: avaThemes[i][0], itemText: avaThemes[i][0], itemWidth: 0})
+                        }
                     }
                 }
             }
@@ -120,12 +141,16 @@ Item {
 
             content.sourceComponent: Item {
                 width: individuation.width
-                height: 50
+                height: 36
+                
                 SelectView {
                     anchors.fill: parent
 
                     Component.onCompleted: {
-                        select("hello_world")
+                        var avaThemes = dbus_individuation.availableIconTheme
+                        for(var i = 0; i < avaThemes.length; i++) {
+                            model.append({itemId: avaThemes[i][0], itemText: avaThemes[i][0], itemWidth: 0})
+                        }
                     }
                 }
             }
@@ -143,12 +168,16 @@ Item {
 
             content.sourceComponent: Item {
                 width: individuation.width
-                height: 50
+                height: 36
+                
                 SelectView {
                     anchors.fill: parent
 
                     Component.onCompleted: {
-                        select("hello_world")
+                        var avaThemes = dbus_individuation.availableFontTheme
+                        for(var i = 0; i < avaThemes.length; i++) {
+                            model.append({itemId: avaThemes[i][0], itemText: avaThemes[i][0], itemWidth: 0})
+                        }
                     }
                 }
             }
