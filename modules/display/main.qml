@@ -57,7 +57,7 @@ Item {
 
                 DRadioButton {
                     id: chooser
-                    currentIndex: 1
+                    currentIndex: 0
                     buttonModel: {
                         var myModel = new Array()
                         for(var i=0; i<outputs.length; i++){
