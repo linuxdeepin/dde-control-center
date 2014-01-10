@@ -165,7 +165,7 @@ Item {
                             })
                         }
                     }
-                }
+                } //end ListView
             }
 
         }

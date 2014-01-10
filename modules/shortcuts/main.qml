@@ -48,61 +48,35 @@ Item {
                     id: systemItem
                     property string name: dsTr("System")
                     property var myIndex: ObjectModel.index
-
-                    Binding {
-                        target: systemItem
-                        property: "keyBindings"
-                        value: bindManagerId.systemList
-                        when: true
-                    }
+                    property var keyBindings: bindManagerId.systemList
                 }
 
                 ObjectModelItem {
                     id: mediaItem
                     property string name: dsTr("Sound and Media")
                     property var myIndex: ObjectModel.index
-                    Binding {
-                        target: mediaItem
-                        property: "keyBindings"
-                        value: bindManagerId.mediaList
-                        when: true
-                    }
+                    property var keyBindings: bindManagerId.mediaList
                 }
 
                 ObjectModelItem {
                     id: windowItem
                     property string name: dsTr("Window")
                     property var myIndex: ObjectModel.index
-                    Binding {
-                        target: windowItem
-                        property: "keyBindings"
-                        value: bindManagerId.windowList
-                        when: true
-                    }
+                    property var keyBindings: bindManagerId.windowList
                 }
 
                 ObjectModelItem {
                     id: workspaceItem
                     property string name: dsTr("Workspace")
                     property var myIndex: ObjectModel.index
-                    Binding {
-                        target: workspaceItem
-                        property: "keyBindings"
-                        value: bindManagerId.workSpaceList
-                        when: true
-                    }
+                    property var keyBindings: bindManagerId.workSpaceList
                 }
 
                 ObjectModelItem {
                     id: customItem
                     property string name: dsTr("Custom")
                     property var myIndex: ObjectModel.index
-                    Binding {
-                        target: customItem
-                        property: "keyBindings"
-                        value: bindManagerId.customList
-                        when: true
-                    }
+                    property var keyBindings: bindManagerId.customList
                 }
             }
 

@@ -1,13 +1,10 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
-import DBus.Com.Deepin.Daemon.Audio 1.0
 import Deepin.Widgets 1.0
 
 Item {
     anchors.fill: parent
-
-    property var audioId: Audio {}
 
     property int contentLeftMargin: 22
     property int contentHeight: 60

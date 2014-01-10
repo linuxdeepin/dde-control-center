@@ -114,6 +114,8 @@ Item {
 
         TimezoneExpand {}
 
+        DSeparatorHorizontal {}
+
         DBaseLine {
             id: dateBoxTitle
             width: parent.width

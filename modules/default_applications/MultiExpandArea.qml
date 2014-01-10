@@ -20,34 +20,41 @@ Item {
             id: repeater
             model: expandArea.expandItems.length
             property alias items: expandArea.expandItems
-            delegate: DBaseExpand {
-                id: expand
-                expanded: expandArea.expandItemIndex == index
-                
-                property string currentDisplayName: ""
-                
-                onExpandedChanged: {
-                    header.item.active = expanded
-                }
-                
-                header.sourceComponent: DDownArrowHeader {
-                    text: expandArea.expandItems[index].name
-                    icon: expandArea.expandItems[index].icon
+            delegate: Component {
+                Column {
                     width: parent.width
-                    leftMargin: 25
-                    rightMargin: 15
-                    
-                    Component.onCompleted: {
-                        active = expand.expanded
+                    height: expand.height + 2
+                    DBaseExpand {
+                        id: expand
+                        expanded: expandArea.expandItemIndex == index
+                        
+                        property string currentDisplayName: ""
+                        
+                        onExpandedChanged: {
+                            header.item.active = expanded
+                        }
+                        
+                        header.sourceComponent: DDownArrowHeader {
+                            text: expandArea.expandItems[index].name
+                            icon: expandArea.expandItems[index].icon
+                            width: parent.width
+                            leftMargin: 25
+                            rightMargin: 15
+                            
+                            Component.onCompleted: {
+                                active = expand.expanded
+                            }
+                            
+                            onClicked: {
+                                expandArea.expandItemIndex = active ? index : -1
+                            }
+                        }
+                        
+                        content.sourceComponent: modelComponent
+                        contentData: expandArea.expandItems[index]
                     }
-                    
-                    onClicked: {
-                        expandArea.expandItemIndex = active ? index : -1
-                    }
+                    DSeparatorHorizontal {}
                 }
-                
-                content.sourceComponent: modelComponent
-                contentData: expandArea.expandItems[index]
             }
         }
     }

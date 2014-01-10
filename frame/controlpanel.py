@@ -25,13 +25,14 @@ import sys
 import subprocess
 from threading import Timer
 
-from PyQt5.QtCore import Qt, pyqtSlot, pyqtSignal, QVariant, QUrl, QFileSystemWatcher
+from PyQt5.QtCore import (Qt, pyqtSlot, pyqtSignal, QVariant, QUrl,
+        QFileSystemWatcher, pyqtProperty)
 from PyQt5.QtGui import QSurfaceFormat, QColor
 from PyQt5.QtQuick import QQuickView
 from PyQt5.QtDBus import QDBusMessage, QDBusReply
 
 from display_monitor import RecordEvent
-from constants import SHUT_DOWN_ORDER_PATH, ROOT_LOCATION
+from constants import SHUT_DOWN_ORDER_PATH, ROOT_LOCATION, PANEL_WIDTH
 from modules_info import ModulesId
 from nls import QtGettext
 
@@ -81,7 +82,11 @@ class ControlPanel(QQuickView):
     def set_geometry(self, rect):
         x, y, width, height = rect
         self.setGeometry(x + width, y,
-                360, height)
+                PANEL_WIDTH, height)
+
+    @pyqtProperty(int)
+    def panelWith(self):
+        return PANEL_WIDTH
 
     @pyqtSlot(QDBusMessage)
     def display_primary_changed(self, message):

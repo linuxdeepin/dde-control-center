@@ -77,52 +77,77 @@ Item {
         height: childrenRect.height
 
         DBaseExpand {
-            id: resolutionArea
-            header.sourceComponent: DDownArrowHeader {
-                text: dsTr("Resolution")
-                hintText: " (" + currentResolution + ")"
-                leftMargin: 25
-                onClicked: resolutionArea.expanded = active
-            }
-        
-            content.sourceComponent: DMultipleSelectView {
-                width: parent.width
-                height: rows * 30
-
-                columns: 3
-                rows: Math.ceil(resolutionModel.count/3)
-                singleSelectionMode: true
-
-                model: resolutionModel
-                onSelect: {
-                    outputObj.SetMode(allResolutionModes[index][0])
+            id: outputSwitch
+            expanded: header.item.active
+            header.sourceComponent: DSwitchButtonHeader {
+                text: outputObj.name
+                active: outputObj.opened
+                onClicked: {
+                    //outputObj.opened = active
                 }
             }
-        }
 
-        DBaseExpand {
-            id: rotationArea
-            header.sourceComponent: DDownArrowHeader {
-                text: dsTr("Rotation")
-                hintText: rotationNames[currentRotation]
-                leftMargin: 25
-                onClicked: rotationArea.expanded = active
-            }
-        
-            content.sourceComponent: DMultipleSelectView {
-                width: parent.width
-                height: rows * 30
+            content.sourceComponent: Component{
+                Column{
+                    width: parent.width
+                    height: resolutionArea.height + rotationArea.height
 
-                columns: 2
-                rows: 2
-                singleSelectionMode: true
+                    DBaseExpand {
+                        id: resolutionArea
+                        header.sourceComponent: DDownArrowHeader {
+                            text: dsTr("Resolution")
+                            hintText: " (" + currentResolution + ")"
+                            leftMargin: 25
+                            onClicked: resolutionArea.expanded = active
+                        }
+                    
+                        content.sourceComponent: DMultipleSelectView {
+                            width: parent.width
+                            height: rows * 30
 
-                model: rotationModel
-                onSelect: {
-                    outputObj.rotation = allRotations[index]
-                }
-            }
-        }
+                            columns: 3
+                            rows: Math.ceil(resolutionModel.count/3)
+                            singleSelectionMode: true
 
-    }
+                            model: resolutionModel
+                            onSelect: {
+                                outputObj.SetMode(allResolutionModes[index][0])
+                            }
+                        }
+                    }
+
+                    DSeparatorHorizontal {}
+
+                    DBaseExpand {
+                        id: rotationArea
+                        header.sourceComponent: DDownArrowHeader {
+                            text: dsTr("Rotation")
+                            hintText: rotationNames[currentRotation]
+                            leftMargin: 25
+                            onClicked: rotationArea.expanded = active
+                        }
+                    
+                        content.sourceComponent: DMultipleSelectView {
+                            width: parent.width
+                            height: rows * 30
+
+                            columns: 2
+                            rows: 2
+                            singleSelectionMode: true
+
+                            model: rotationModel
+                            onSelect: {
+                                outputObj.rotation = allRotations[index]
+                            }
+                        }
+                    }
+
+                    DSeparatorHorizontal {}
+
+                } //end Column
+            } //end Component
+        } //end content.sourceComponent
+
+        DSeparatorHorizontal {}
+    } // end Column
 }
