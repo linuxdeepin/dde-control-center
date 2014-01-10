@@ -1,12 +1,14 @@
 import QtQuick 2.1
+import Deepin.Widgets 1.0
 
 ListView {
+    height: count * 48
     model: ListModel {
         ListElement {
             deviceName: "Document"
             deviceType: "internal"
             deviceTotalStorage: 120
-            deviceUsableStorage: 70
+            deviceUsableStorage: 30
             deviceMountable: true
             deviceMounted: false
         }
@@ -20,9 +22,9 @@ ListView {
         }
         ListElement {
             deviceName: "Document"
-            deviceType: "internal"
+            deviceType: "removable"
             deviceTotalStorage: 120
-            deviceUsableStorage: 70
+            deviceUsableStorage: 50
             deviceMountable: true
             deviceMounted: false
         }
@@ -31,13 +33,13 @@ ListView {
     delegate: Item {
         id: deleaget
         width: ListView.view.width
-        height: 36
+        height: 48
 
         property string iconsDir: "/usr/share/icons/Deepin/devices/48/"
 
-        Item {
+        Item{
             width: parent.width - 15 * 2
-            height: parent.height - 10 * 2
+            height: parent.height - 9 * 2
             anchors.centerIn: parent
 
             Image {
@@ -47,6 +49,7 @@ ListView {
                 source: deviceType == "internal" ? iconsDir + "drive-harddisk.png" : iconsDir + "drive-removable-media-usb.png"
 
                 anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
             }
 
             DssH3 {
@@ -54,28 +57,39 @@ ListView {
                 text: deviceName
 
                 anchors.top: parent.top
-                anchors.left: d_storage_progress.right
+                anchors.left: d_storage_progress.left
             }
 
             DssH3 {
                 id: d_storage_status
-                text: deviceUsableStorage + "/" deviceTotalStorage
+                text: deviceUsableStorage + "/" + deviceTotalStorage
 
                 anchors.top: parent.top
-                anchors.left: d_storage_progress.right
+                anchors.right: d_storage_progress.right
+            }
+
+            DImageButton {
+                id: d_unmount_button
+
+                normal_image: "images/eject_normal.png"
+                hover_image: "images/eject_normal.png"
+                press_image: "images/eject_press.png"
+
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
             }
 
             StorageBar {
+                id: d_storage_progress
+                percentage: deviceUsableStorage / deviceTotalStorage
+
                 anchors.bottom: parent.bottom
                 anchors.left: d_icon.right
                 anchors.leftMargin: 10
-                anchors.right: parent.right
+                anchors.right: d_unmount_button.left
+                anchors.rightMargin: 10
             }
         }
+        DSeparatorHorizontal { anchors.bottom: parent.bottom }
     }
 }
-
-
-
-
-
