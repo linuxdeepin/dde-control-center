@@ -47,7 +47,7 @@ def main():
 
     panel = ControlPanel()
     panel.engine_obj.quit.connect(app.quit)
-    #panel.show()
+    panel.show()
     connect_to_primary_changed(panel.display_primary_changed)
 
     if len(sys.argv) == 2:

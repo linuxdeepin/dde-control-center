@@ -25,13 +25,14 @@ import sys
 import subprocess
 from threading import Timer
 
-from PyQt5.QtCore import Qt, pyqtSlot, pyqtSignal, QVariant, QUrl, QFileSystemWatcher
+from PyQt5.QtCore import (Qt, pyqtSlot, pyqtSignal, QVariant, QUrl,
+        QFileSystemWatcher, pyqtProperty)
 from PyQt5.QtGui import QSurfaceFormat, QColor
 from PyQt5.QtQuick import QQuickView
 from PyQt5.QtDBus import QDBusMessage, QDBusReply
 
 from display_monitor import RecordEvent
-from constants import SHUT_DOWN_ORDER_PATH, ROOT_LOCATION
+from constants import SHUT_DOWN_ORDER_PATH, ROOT_LOCATION, PANEL_WIDTH
 from modules_info import ModulesId
 from nls import QtGettext
 
@@ -61,7 +62,6 @@ class ControlPanel(QQuickView):
         self.setResizeMode(QQuickView.SizeRootObjectToView)
         self.setFormat(surface_format)
         self.record_event = RecordEvent(self)
-        self.set_geometry(self.record_event.primaryRect)
         self.set_all_contexts()
         self.setSource(QUrl.fromLocalFile(os.path.join(
             ROOT_LOCATION, 'frame', 'views', 'Main.qml')))
@@ -81,12 +81,15 @@ class ControlPanel(QQuickView):
     def set_geometry(self, rect):
         x, y, width, height = rect
         self.setGeometry(x + width, y,
-                360, height)
+                PANEL_WIDTH, height)
+
+    @pyqtProperty(int)
+    def panelWith(self):
+        return PANEL_WIDTH
 
     @pyqtSlot(QDBusMessage)
     def display_primary_changed(self, message):
         rect = QDBusReply(message).value()
-        print rect
         self.set_geometry(rect)
 
     def fileChangedNotify(self, path):
@@ -108,13 +111,17 @@ class ControlPanel(QQuickView):
         self.qtGettext = QtGettext()
         self.qml_context.setContextProperty("windowView", self)
         self.qml_context.setContextProperty("modulesId", self.modulesId)
-        self.qml_context.setContextProperty("qtgettext", self.qtGettext)
+        #self.qml_context.setContextProperty("qtgettext", self.qtGettext)
 
     def connect_all_object_function(self):
         self.view_object = self.rootObject()
         self.record_event.enter_mouse_area.connect(self.view_object.displayTrayIcon)
         self.record_event.click_outer_area.connect(self.view_object.outerAreaClicked)
-        self.moduleFileChanged.connect(self.view_object.moduleFileChanged)
+        #self.moduleFileChanged.connect(self.view_object.moduleFileChanged)
+
+    @pyqtSlot(str, result=bool)
+    def isIconPluginExist(self, module_id):
+        return os.path.exists(os.path.join(ROOT_LOCATION, "modules", module_id, "iconPlugin.qml"))
 
     @pyqtSlot(str, result=str)
     def toHumanShortcutLabel(self, sequence):

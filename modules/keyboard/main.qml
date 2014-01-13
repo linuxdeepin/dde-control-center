@@ -6,7 +6,7 @@ import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
 
 Item {
-    id: keyboardMod
+    id: keyboardModule
     anchors.fill: parent
 
     property int contentLeftMargin: 22
@@ -35,13 +35,18 @@ Item {
 
     property var allLayoutList: keyboardID.LayoutList()
 
+    Component {
+        id: listModelComponent
+        ListModel {}
+    }
+
     Column {
+        id: contentColumn
         anchors.top: parent.top
         width: parent.width
+        height: childrenRect.height
 
-        DssTitle {
-            text:dsTr("Keyboard")
-        }
+        DssTitle { text:dsTr("Keyboard") }
 
         DSeparatorHorizontal {}
 
@@ -161,70 +166,54 @@ Item {
 
         DSeparatorHorizontal {}
 
+    }
+
+    Column {
+        width: parent.width
+        height: childrenRect.height
+        anchors.top: contentColumn.bottom
+        anchors.left: contentColumn.left
+
         DBaseExpand {
             id: keyboardLayoutSetting
-            property string layoutLabel
+            property string defaultSelectItemId: keyboardID.keyboardLayout[0] ? keyboardID.keyboardLayout[0] : "us"
+            property string currentLayoutName: xkeyboardLocale.dsTr(allLayoutList[defaultSelectItemId])
             header.sourceComponent: DDownArrowHeader {
                 text: dsTr("Keyboard Layout")
-                hintText: "[" + keyboardLayoutSetting.layoutLabel + "]"
+                hintText: "[" + keyboardLayoutSetting.currentLayoutName + "]"
                 onClicked: {
                     keyboardLayoutSetting.expanded = !keyboardLayoutSetting.expanded
                 }
             }
 
             content.sourceComponent: Component {
-
-
                 ListView {
                     id: layoutList
                     width: parent.width
+                    height: keyboardModule.height - contentColumn.height - 34
 
-                    property string defaultSelectItemId: keyboardID.keyboardLayout[0] ? keyboardID.keyboardLayout[0] : "us"
-
-                    model: ListModel {}
-                    delegate: Item {
-                        width: parent.width
-                        height: 28
-                        anchors.left: parent.left
-                        anchors.leftMargin: 25
-
-                        property string itemId: item_id
-                        
-                        Row {
-                            spacing: 5
-                            anchors.verticalCenter: parent.verticalCenter
-                            
-                            Image {
-                                id: nameImage
-                                anchors.verticalCenter: parent.verticalCenter
-                                source: "images/select.png"
-                                opacity: layoutList.defaultSelectItemId == itemId ? 1 : 0
-                            }
-                            
-                            DssH3 {
-                                id: nameText
-                                anchors.verticalCenter: parent.verticalCenter
-                                text: label 
-                                color: layoutList.defaultSelectItemId == itemId ? "#009EFF" : "#fff"
-                                font.pixelSize: 12
-                            }
+                    property var layoutKeyAndIndex: {
+                        var obj = new Object();
+                        var index = 0
+                        for (var key in allLayoutList){
+                            obj[key] = index
+                            index += 1
                         }
-                        
-                        MouseArea {
-                            anchors.fill: parent
-                            hoverEnabled: true
-                            
-                            onEntered: {
-                                layoutList.currentIndex = index
-                            }
-                            
-                            onClicked: {
-                                layoutList.defaultSelectItemId = itemId
-                                keyboardID.keyboardLayout = [itemId]
-                                keyboardLayoutSetting.layoutLabel = allLayoutList[itemId]
-                            }
-                        }
+                        return obj
                     }
+
+                    model: {
+                        var myModel = listModelComponent.createObject(parent, {})
+                        for (var key in allLayoutList){
+                            myModel.append({
+                                "label": xkeyboardLocale.dsTr(allLayoutList[key]),
+                                "item_id": key
+                            })
+                        }
+                        return myModel
+                    }
+
+                    delegate: LayoutItem {}
 
                     highlight: Rectangle {
                         width: parent.width
@@ -236,28 +225,12 @@ Item {
                         color: "#0D0D0D"
                         radius: 4
                     }
-                    highlightMoveDuration: 200
+                    highlightMoveDuration: 100
                     focus: true
                     interactive: true
 
                     Component.onCompleted: {
-                        var length = 0;
-                        var currentIndex = -1
-                        for (var key in allLayoutList){
-                            model.append({
-                                "label": xkeyboardLocale.dsTr(allLayoutList[key]),
-                                "item_id": key
-                            })
-                            if(key == layoutList.defaultSelectItemId){
-                                currentIndex = length
-                            }
-                            length += 1
-                        }
-                        height = 150
-                        if(currentIndex != -1){
-                            layoutList.positionViewAtIndex(currentIndex, ListView.Visible)
-                        }
-                        keyboardLayoutSetting.layoutLabel = allLayoutList[layoutList.defaultSelectItemId]
+                        positionViewAtIndex(layoutKeyAndIndex[keyboardLayoutSetting.defaultSelectItemId], ListView.center)
                     }
 
                     DScrollBar {
@@ -267,6 +240,8 @@ Item {
 
 
             }
-        }
+        } // end DBaseExpand
+
+        DSeparatorHorizontal {}
     }
 }

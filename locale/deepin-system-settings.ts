@@ -213,6 +213,19 @@
     </message>
 </context>
 <context>
+    <name>MonitorProperties</name>
+    <message>
+        <location filename="../modules/display/MonitorProperties.qml" line="98"/>
+        <source>Resolution</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/display/MonitorProperties.qml" line="124"/>
+        <source>Rotation</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ShortcutInput</name>
     <message>
         <location filename="../modules/shortcuts/ShortcutInput.qml" line="60"/>
@@ -221,124 +234,129 @@
     </message>
 </context>
 <context>
-    <name>TimezoneData</name>
+    <name>TimezoneExpand</name>
     <message>
-        <location filename="../modules/date_time/TimezoneData.qml" line="44"/>
+        <location filename="../modules/date_time/TimezoneExpand.qml" line="59"/>
+        <source>Timezone</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/date_time/TimezoneExpand.qml" line="79"/>
         <source>(UTC-11:00)Samoa</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneData.qml" line="45"/>
+        <location filename="../modules/date_time/TimezoneExpand.qml" line="80"/>
         <source>(UTC-10:00)Hawaii</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneData.qml" line="46"/>
+        <location filename="../modules/date_time/TimezoneExpand.qml" line="81"/>
         <source>(UTC-09:00)Alaska</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneData.qml" line="47"/>
+        <location filename="../modules/date_time/TimezoneExpand.qml" line="82"/>
         <source>(UTC-08:00)Lower California</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneData.qml" line="48"/>
+        <location filename="../modules/date_time/TimezoneExpand.qml" line="83"/>
         <source>(UTC-07:00)Arizona, Llamas, Mazatlan, Chihuahua</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneData.qml" line="49"/>
+        <location filename="../modules/date_time/TimezoneExpand.qml" line="84"/>
         <source>(UTC-06:00)Saskatchewan, Mexico City, Monterrey</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneData.qml" line="50"/>
+        <location filename="../modules/date_time/TimezoneExpand.qml" line="85"/>
         <source>(UTC-05:00)Indiana, Bogota, Lima, Quito</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneData.qml" line="51"/>
+        <location filename="../modules/date_time/TimezoneExpand.qml" line="86"/>
         <source>(UTC-04:00)San Diego, Georgetown, San Juan</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneData.qml" line="52"/>
+        <location filename="../modules/date_time/TimezoneExpand.qml" line="87"/>
         <source>(UTC-03:00)Greenland, Brasilia, Fortaleza</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneData.qml" line="53"/>
+        <location filename="../modules/date_time/TimezoneExpand.qml" line="88"/>
         <source>(UTC-02:00)Mid-Atlantic</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneData.qml" line="54"/>
+        <location filename="../modules/date_time/TimezoneExpand.qml" line="89"/>
         <source>(UTC-01:00)Cape Verde Islands, Azores</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneData.qml" line="55"/>
+        <location filename="../modules/date_time/TimezoneExpand.qml" line="90"/>
         <source>(UTC)London, Dublin, Edinburgh, Lisbon, Casablanca</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneData.qml" line="56"/>
+        <location filename="../modules/date_time/TimezoneExpand.qml" line="91"/>
         <source>(UTC+01:00)Paris, Amsterdam, Berlin, Rome, Vienna</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneData.qml" line="57"/>
+        <location filename="../modules/date_time/TimezoneExpand.qml" line="92"/>
         <source>(UTC+02:00)Cairo, Athens, Istanbul, Jerusalem</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneData.qml" line="58"/>
+        <location filename="../modules/date_time/TimezoneExpand.qml" line="93"/>
         <source>(UTC+03:00)Moscow, St. Petersburg, Baghdad</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneData.qml" line="59"/>
+        <location filename="../modules/date_time/TimezoneExpand.qml" line="94"/>
         <source>(UTC+04:00)Port Louis, Abu Dhabi, Muscat, Yerevan</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneData.qml" line="60"/>
+        <location filename="../modules/date_time/TimezoneExpand.qml" line="95"/>
         <source>(UTC+05:00)Islamabad, Karachi, Tashkent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneData.qml" line="61"/>
+        <location filename="../modules/date_time/TimezoneExpand.qml" line="96"/>
         <source>(UTC+06:00)Dhaka, Novosibirsk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneData.qml" line="62"/>
+        <location filename="../modules/date_time/TimezoneExpand.qml" line="97"/>
         <source>(UTC+07:00)Bangkok, Hanoi, Jakarta</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneData.qml" line="63"/>
+        <location filename="../modules/date_time/TimezoneExpand.qml" line="98"/>
         <source>(UTC+08:00)Beijing, Chongqing, HongKong, Taipei, Urumqi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneData.qml" line="64"/>
+        <location filename="../modules/date_time/TimezoneExpand.qml" line="99"/>
         <source>(UTC+09:00)Osaka, Sapporo, Tokyo, Seoul</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneData.qml" line="65"/>
+        <location filename="../modules/date_time/TimezoneExpand.qml" line="100"/>
         <source>(UTC+10:00)Guam, Canberra, Melbourne, Sydney</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneData.qml" line="66"/>
+        <location filename="../modules/date_time/TimezoneExpand.qml" line="101"/>
         <source>(UTC+11:00)Magadan, Solomon Islands</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneData.qml" line="67"/>
+        <location filename="../modules/date_time/TimezoneExpand.qml" line="102"/>
         <source>(UTC+12:00)New Zealand, Kiribati</source>
         <translation type="unfinished"></translation>
     </message>
@@ -422,68 +440,27 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../modules/date_time/main.qml" line="19"/>
-        <location filename="../modules/date_time/main.qml" line="21"/>
-        <source>Sunday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/main.qml" line="19"/>
-        <source>Monday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/main.qml" line="19"/>
-        <source>Tuesday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/main.qml" line="20"/>
-        <source>Wednesday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/main.qml" line="20"/>
-        <source>Thursday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/main.qml" line="20"/>
-        <source>Friday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/main.qml" line="20"/>
-        <source>Saturday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/main.qml" line="44"/>
+        <location filename="../modules/date_time/main.qml" line="45"/>
         <source>Date &amp; Time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="91"/>
+        <location filename="../modules/date_time/main.qml" line="92"/>
         <source>Auto-sync datetime</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="104"/>
+        <location filename="../modules/date_time/main.qml" line="105"/>
         <source>24 Hour</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="120"/>
-        <source>Timezone</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/main.qml" line="169"/>
+        <location filename="../modules/date_time/main.qml" line="126"/>
         <source>Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="173"/>
+        <location filename="../modules/date_time/main.qml" line="130"/>
         <source>Change Date</source>
         <translation type="unfinished"></translation>
     </message>
@@ -599,40 +576,40 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="43"/>
+        <location filename="../modules/keyboard/main.qml" line="49"/>
         <source>Keyboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="50"/>
+        <location filename="../modules/keyboard/main.qml" line="55"/>
         <source>Repeat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="61"/>
+        <location filename="../modules/keyboard/main.qml" line="66"/>
         <source>Repeat Delay</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="66"/>
+        <location filename="../modules/keyboard/main.qml" line="71"/>
         <location filename="../modules/touchpad/main.qml" line="192"/>
         <source>Long</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="67"/>
+        <location filename="../modules/keyboard/main.qml" line="72"/>
         <location filename="../modules/touchpad/main.qml" line="191"/>
         <source>Short</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="85"/>
+        <location filename="../modules/keyboard/main.qml" line="90"/>
         <source>Repeat Interval</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="91"/>
-        <location filename="../modules/keyboard/main.qml" line="149"/>
+        <location filename="../modules/keyboard/main.qml" line="96"/>
+        <location filename="../modules/keyboard/main.qml" line="154"/>
         <location filename="../modules/mouse/main.qml" line="63"/>
         <location filename="../modules/mouse/main.qml" line="117"/>
         <location filename="../modules/touchpad/main.qml" line="76"/>
@@ -641,8 +618,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="92"/>
-        <location filename="../modules/keyboard/main.qml" line="150"/>
+        <location filename="../modules/keyboard/main.qml" line="97"/>
+        <location filename="../modules/keyboard/main.qml" line="155"/>
         <location filename="../modules/mouse/main.qml" line="64"/>
         <location filename="../modules/mouse/main.qml" line="118"/>
         <location filename="../modules/touchpad/main.qml" line="77"/>
@@ -651,17 +628,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="110"/>
+        <location filename="../modules/keyboard/main.qml" line="115"/>
         <source> Test Repeat Interval</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="124"/>
+        <location filename="../modules/keyboard/main.qml" line="129"/>
         <source>Cusor Blink</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="168"/>
+        <location filename="../modules/keyboard/main.qml" line="182"/>
         <source>Keyboard Layout</source>
         <translation type="unfinished"></translation>
     </message>
@@ -674,7 +651,7 @@
         <location filename="../modules/mouse/main.qml" line="29"/>
         <location filename="../modules/power/main.qml" line="162"/>
         <location filename="../modules/shortcuts/main.old.qml" line="61"/>
-        <location filename="../modules/shortcuts/main.qml" line="100"/>
+        <location filename="../modules/shortcuts/main.qml" line="77"/>
         <location filename="../modules/touchpad/main.qml" line="41"/>
         <source>Custom</source>
         <translation type="unfinished"></translation>
@@ -779,7 +756,7 @@
     </message>
     <message>
         <location filename="../modules/power/main.qml" line="159"/>
-        <location filename="../modules/sound/main.qml" line="132"/>
+        <location filename="../modules/sound/main.qml" line="129"/>
         <source>Balance</source>
         <translation type="unfinished"></translation>
     </message>
@@ -906,44 +883,54 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/main.qml" line="14"/>
+        <location filename="../modules/display/main.qml" line="36"/>
         <source>Display</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/individuation/main.qml" line="15"/>
+        <location filename="../modules/display/main.qml" line="49"/>
+        <source>Primary Monitor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/display/main.qml" line="92"/>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/individuation/main.qml" line="17"/>
         <source>Individuation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/individuation/main.qml" line="24"/>
+        <location filename="../modules/individuation/main.qml" line="26"/>
         <source>Themes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/individuation/main.qml" line="46"/>
+        <location filename="../modules/individuation/main.qml" line="55"/>
         <location filename="../modules/shortcuts/main.old.qml" line="51"/>
-        <location filename="../modules/shortcuts/main.qml" line="76"/>
+        <location filename="../modules/shortcuts/main.qml" line="63"/>
         <source>Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/individuation/main.qml" line="69"/>
+        <location filename="../modules/individuation/main.qml" line="84"/>
         <source>Cursor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/individuation/main.qml" line="92"/>
+        <location filename="../modules/individuation/main.qml" line="113"/>
         <source>Wallpaper</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/individuation/main.qml" line="115"/>
+        <location filename="../modules/individuation/main.qml" line="142"/>
         <source>Icons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/individuation/main.qml" line="138"/>
+        <location filename="../modules/individuation/main.qml" line="171"/>
         <source>Font</source>
         <translation type="unfinished"></translation>
     </message>
@@ -960,98 +947,98 @@
     <message>
         <location filename="../modules/shortcuts/main.old.qml" line="23"/>
         <location filename="../modules/shortcuts/main.old.qml" line="29"/>
-        <location filename="../modules/shortcuts/main.qml" line="27"/>
-        <location filename="../modules/shortcuts/main.qml" line="33"/>
+        <location filename="../modules/shortcuts/main.qml" line="25"/>
+        <location filename="../modules/shortcuts/main.qml" line="31"/>
         <source>Shortcuts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/main.old.qml" line="41"/>
-        <location filename="../modules/shortcuts/main.qml" line="51"/>
+        <location filename="../modules/shortcuts/main.qml" line="49"/>
         <source>System</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/main.old.qml" line="46"/>
-        <location filename="../modules/shortcuts/main.qml" line="64"/>
+        <location filename="../modules/shortcuts/main.qml" line="56"/>
         <source>Sound and Media</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/main.old.qml" line="56"/>
-        <location filename="../modules/shortcuts/main.qml" line="88"/>
+        <location filename="../modules/shortcuts/main.qml" line="70"/>
         <source>Workspace</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="21"/>
+        <location filename="../modules/sound/main.qml" line="18"/>
         <source>Sound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="26"/>
+        <location filename="../modules/sound/main.qml" line="23"/>
         <source>Speaker</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="34"/>
+        <location filename="../modules/sound/main.qml" line="31"/>
         <source>Enable Speaker</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="51"/>
+        <location filename="../modules/sound/main.qml" line="48"/>
         <source>Output Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="113"/>
+        <location filename="../modules/sound/main.qml" line="110"/>
         <source>Output Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="117"/>
-        <location filename="../modules/sound/main.qml" line="243"/>
+        <location filename="../modules/sound/main.qml" line="114"/>
+        <location filename="../modules/sound/main.qml" line="240"/>
         <source>-</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="118"/>
-        <location filename="../modules/sound/main.qml" line="244"/>
+        <location filename="../modules/sound/main.qml" line="115"/>
+        <location filename="../modules/sound/main.qml" line="241"/>
         <source>+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="136"/>
+        <location filename="../modules/sound/main.qml" line="133"/>
         <source>Left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="137"/>
+        <location filename="../modules/sound/main.qml" line="134"/>
         <source>Right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="154"/>
+        <location filename="../modules/sound/main.qml" line="151"/>
         <source>Microphone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="162"/>
+        <location filename="../modules/sound/main.qml" line="159"/>
         <source>Enable Microphone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="177"/>
+        <location filename="../modules/sound/main.qml" line="174"/>
         <source>Input Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="239"/>
+        <location filename="../modules/sound/main.qml" line="236"/>
         <source>Input Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="258"/>
+        <location filename="../modules/sound/main.qml" line="255"/>
         <source>Input Level</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1073,6 +1060,17 @@
     <message>
         <location filename="../modules/touchpad/main.qml" line="186"/>
         <source>Drag threshold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/disk_mount/main.qml" line="13"/>
+        <source>Disk Mount</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/disk_mount/main.qml" line="22"/>
+        <location filename="../modules/disk_mount/main.qml" line="39"/>
+        <source>Internal Devices</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

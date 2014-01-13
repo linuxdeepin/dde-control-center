@@ -144,7 +144,7 @@ class RecordEvent(QThread):
                     self.timer.cancel()
 
             elif event.type == X.ButtonRelease:
-                print (event.root_x, event.root_y)
+                #print (event.root_x, event.root_y)
                 self.click_outer_area.emit(event.root_x, event.root_y)
                 
     def in_emit_area(self, event):

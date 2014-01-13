@@ -43,12 +43,10 @@ Item {
         DSeparatorHorizontal {}
 
         DBaseLine {
-            height: 10
-        }
-        DBaseLine {
             id: monitorChoose
+            height: 40
             leftLoader.sourceComponent: DssH2 {
-                text: dsTr("Monitor")
+                text: dsTr("Primary Monitor")
             }
             rightLoader.sourceComponent: Item {
                 width: childrenRect.width
@@ -80,8 +78,11 @@ Item {
 
         DSeparatorHorizontal{}
 
-        MonitorProperties {
-            outputObj: getOutputObject(outputs[monitorChoose.rightLoader.item.currentOutput])
+        Repeater{
+            model: outputs.length
+            delegate: MonitorProperties {
+                outputObj: getOutputObject(outputs[index])
+            }
         }
 
         DBaseLine {
