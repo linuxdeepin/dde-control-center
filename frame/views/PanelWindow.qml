@@ -1,6 +1,5 @@
 import QtQuick 2.1
 import QtQuick.Window 2.1
-import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
 
 Window {
@@ -17,16 +16,6 @@ Window {
 
     property var dconstants: DConstants {}
     property var listModelComponent: DListModelComponent {}
-
-    DLocale {
-        id: dsslocale
-        domain: "deepin-system-settings"
-        dirname: "../../locale"
-    }
-
-    function dsTr(s){
-        return dsslocale.dsTr(s)
-    }
 
     function showTrayOrPanel() {
         if(panelContent.moduleLoaderItem.iconId == ''){

@@ -23,6 +23,17 @@ Item {
         property int height: displayId.primaryRect[3]
     }
 
+    DLocale {
+        id: dsslocale
+        domain: "deepin-system-settings"
+        dirname: "../../locale"
+    }
+
+    function dsTr(s){
+        return dsslocale.dsTr(s)
+    }
+
+
     PanelWindow {
         id: rootWindow
     }

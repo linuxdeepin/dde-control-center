@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dss 2014\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-07 10:13+0800\n"
+"POT-Creation-Date: 2014-01-13 15:40+0800\n"
 "PO-Revision-Date: 2013-11-25 12:27+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -89,7 +89,7 @@ msgstr ""
 msgid "VPN Connections"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:5 ../modules/date_time/main.qml:44
+#: ../frame/views/ModulesData.qml:5 ../modules/date_time/main.qml:45
 #: ../frame/modules_info.py:30
 msgid "Date & Time"
 msgstr "时间和日期"
@@ -98,7 +98,8 @@ msgstr "时间和日期"
 msgid "Network"
 msgstr "网络"
 
-#: ../frame/views/ModulesData.qml:7 ../frame/modules_info.py:32
+#: ../frame/views/ModulesData.qml:7 ../modules/disk_mount/main.qml:13
+#: ../frame/modules_info.py:32
 msgid "Disk Mount"
 msgstr "磁盘挂载"
 
@@ -106,7 +107,7 @@ msgstr "磁盘挂载"
 msgid "Bluetooth"
 msgstr "蓝牙"
 
-#: ../frame/views/ModulesData.qml:9 ../modules/sound/main.qml:21
+#: ../frame/views/ModulesData.qml:9 ../modules/sound/main.qml:18
 #: ../frame/modules_info.py:34
 msgid "Sound"
 msgstr "声音"
@@ -128,7 +129,7 @@ msgstr "关机"
 msgid "Notification"
 msgstr "消息中心"
 
-#: ../frame/views/ModulesData.qml:14 ../modules/display/main.qml:14
+#: ../frame/views/ModulesData.qml:14 ../modules/display/main.qml:36
 #: ../frame/modules_info.py:39
 msgid "Display"
 msgstr "显示"
@@ -138,18 +139,18 @@ msgstr "显示"
 msgid "Desktop"
 msgstr "桌面"
 
-#: ../frame/views/ModulesData.qml:16 ../modules/individuation/main.qml:15
+#: ../frame/views/ModulesData.qml:16 ../modules/individuation/main.qml:17
 #: ../frame/modules_info.py:41
 msgid "Individuation"
 msgstr "个性化"
 
 #: ../frame/views/ModulesData.qml:17 ../modules/shortcuts/main.old.qml:23
-#: ../modules/shortcuts/main.old.qml:29 ../modules/shortcuts/main.qml:27
-#: ../modules/shortcuts/main.qml:33 ../frame/modules_info.py:42
+#: ../modules/shortcuts/main.old.qml:29 ../modules/shortcuts/main.qml:25
+#: ../modules/shortcuts/main.qml:31 ../frame/modules_info.py:42
 msgid "Shortcuts"
 msgstr "快捷键"
 
-#: ../frame/views/ModulesData.qml:18 ../modules/keyboard/main.qml:43
+#: ../frame/views/ModulesData.qml:18 ../modules/keyboard/main.qml:49
 #: ../frame/modules_info.py:43
 msgid "Keyboard"
 msgstr "键盘"
@@ -179,103 +180,116 @@ msgstr "默认程序"
 msgid "System Information"
 msgstr "系统信息"
 
+#: ../modules/display/MonitorProperties.qml:98
+msgid "Resolution"
+msgstr ""
+
+#: ../modules/display/MonitorProperties.qml:124
+#, fuzzy
+msgid "Rotation"
+msgstr "消息中心"
+
 #: ../modules/shortcuts/ShortcutInput.qml:60
 msgid "Please input new shortcuts"
 msgstr ""
 
-#: ../modules/date_time/TimezoneData.qml:44
+#: ../modules/date_time/TimezoneExpand.qml:59
+msgid "Timezone"
+msgstr "时区"
+
+#: ../modules/date_time/TimezoneExpand.qml:79
 msgid "(UTC-11:00)Samoa"
 msgstr "(UTC-11:00)萨摩亚"
 
-#: ../modules/date_time/TimezoneData.qml:45
+#: ../modules/date_time/TimezoneExpand.qml:80
 msgid "(UTC-10:00)Hawaii"
 msgstr "(UTC-10:00)夏威夷"
 
-#: ../modules/date_time/TimezoneData.qml:46
+#: ../modules/date_time/TimezoneExpand.qml:81
 msgid "(UTC-09:00)Alaska"
 msgstr "(UTC-09:00)阿拉斯加州"
 
-#: ../modules/date_time/TimezoneData.qml:47
+#: ../modules/date_time/TimezoneExpand.qml:82
 msgid "(UTC-08:00)Lower California"
 msgstr "(UTC-08:00)下加利福尼亚州"
 
-#: ../modules/date_time/TimezoneData.qml:48
+#: ../modules/date_time/TimezoneExpand.qml:83
 msgid "(UTC-07:00)Arizona, Llamas, Mazatlan, Chihuahua"
 msgstr "(UTC-07:00)亚利桑那州, 利马斯, 马萨特兰, 吉瓦瓦"
 
-#: ../modules/date_time/TimezoneData.qml:49
+#: ../modules/date_time/TimezoneExpand.qml:84
 msgid "(UTC-06:00)Saskatchewan, Mexico City, Monterrey"
 msgstr "(UTC-06:00)萨斯喀彻温, 墨西哥城, 蒙特雷"
 
-#: ../modules/date_time/TimezoneData.qml:50
+#: ../modules/date_time/TimezoneExpand.qml:85
 msgid "(UTC-05:00)Indiana, Bogota, Lima, Quito"
 msgstr "(UTC-05:00)印第安纳州, 波哥达, 利马, 基多"
 
-#: ../modules/date_time/TimezoneData.qml:51
+#: ../modules/date_time/TimezoneExpand.qml:86
 msgid "(UTC-04:00)San Diego, Georgetown, San Juan"
 msgstr "(UTC-04:00)圣地亚哥, 乔治敦, 圣胡安"
 
-#: ../modules/date_time/TimezoneData.qml:52
+#: ../modules/date_time/TimezoneExpand.qml:87
 msgid "(UTC-03:00)Greenland, Brasilia, Fortaleza"
 msgstr "(UTC-03:00)格陵兰岛, 巴西利亚, 福塔雷萨"
 
-#: ../modules/date_time/TimezoneData.qml:53
+#: ../modules/date_time/TimezoneExpand.qml:88
 msgid "(UTC-02:00)Mid-Atlantic"
 msgstr "(UTC-02:00)中大西洋"
 
-#: ../modules/date_time/TimezoneData.qml:54
+#: ../modules/date_time/TimezoneExpand.qml:89
 msgid "(UTC-01:00)Cape Verde Islands, Azores"
 msgstr "(UTC-01:00)佛得角群岛, 亚速尔群岛"
 
-#: ../modules/date_time/TimezoneData.qml:55
+#: ../modules/date_time/TimezoneExpand.qml:90
 msgid "(UTC)London, Dublin, Edinburgh, Lisbon, Casablanca"
 msgstr "(UTC)伦敦, 都柏林, 爱丁堡, 里斯本, 卡萨布兰卡"
 
-#: ../modules/date_time/TimezoneData.qml:56
+#: ../modules/date_time/TimezoneExpand.qml:91
 msgid "(UTC+01:00)Paris, Amsterdam, Berlin, Rome, Vienna"
 msgstr "(UTC+01:00)巴黎, 阿姆斯特丹, 柏林, 罗马, 维也纳"
 
-#: ../modules/date_time/TimezoneData.qml:57
+#: ../modules/date_time/TimezoneExpand.qml:92
 msgid "(UTC+02:00)Cairo, Athens, Istanbul, Jerusalem"
 msgstr "(UTC+02:00)开罗, 雅典, 伊斯坦布尔, 耶路撒冷"
 
-#: ../modules/date_time/TimezoneData.qml:58
+#: ../modules/date_time/TimezoneExpand.qml:93
 msgid "(UTC+03:00)Moscow, St. Petersburg, Baghdad"
 msgstr "(UTC+03:00)莫斯科, 圣彼得堡, 巴格达"
 
-#: ../modules/date_time/TimezoneData.qml:59
+#: ../modules/date_time/TimezoneExpand.qml:94
 msgid "(UTC+04:00)Port Louis, Abu Dhabi, Muscat, Yerevan"
 msgstr "(UTC+04:00)路易港, 阿布扎比, 马斯喀特, 埃里温"
 
-#: ../modules/date_time/TimezoneData.qml:60
+#: ../modules/date_time/TimezoneExpand.qml:95
 msgid "(UTC+05:00)Islamabad, Karachi, Tashkent"
 msgstr "(UTC+05:00)伊斯兰堡, 卡拉奇, 塔什干"
 
-#: ../modules/date_time/TimezoneData.qml:61
+#: ../modules/date_time/TimezoneExpand.qml:96
 msgid "(UTC+06:00)Dhaka, Novosibirsk"
 msgstr "(UTC+06:00)达卡, 新西伯利亚"
 
-#: ../modules/date_time/TimezoneData.qml:62
+#: ../modules/date_time/TimezoneExpand.qml:97
 msgid "(UTC+07:00)Bangkok, Hanoi, Jakarta"
 msgstr "(UTC+07:00)曼谷, 河内, 雅加达"
 
-#: ../modules/date_time/TimezoneData.qml:63
+#: ../modules/date_time/TimezoneExpand.qml:98
 msgid "(UTC+08:00)Beijing, Chongqing, HongKong, Taipei, Urumqi"
 msgstr "(UTC+08:00)北京, 重庆, 香港特别行政区, 台北, 乌鲁木齐"
 
-#: ../modules/date_time/TimezoneData.qml:64
+#: ../modules/date_time/TimezoneExpand.qml:99
 msgid "(UTC+09:00)Osaka, Sapporo, Tokyo, Seoul"
 msgstr "(UTC+09:00)大阪, 札幌, 东京, 首尔"
 
-#: ../modules/date_time/TimezoneData.qml:65
+#: ../modules/date_time/TimezoneExpand.qml:100
 msgid "(UTC+10:00)Guam, Canberra, Melbourne, Sydney"
 msgstr "(UTC+10:00)关岛, 堪培拉, 墨尔本, 悉尼"
 
-#: ../modules/date_time/TimezoneData.qml:66
+#: ../modules/date_time/TimezoneExpand.qml:101
 msgid "(UTC+11:00)Magadan, Solomon Islands"
 msgstr "(UTC+11:00)马加丹, 索罗门群岛"
 
-#: ../modules/date_time/TimezoneData.qml:67
+#: ../modules/date_time/TimezoneExpand.qml:102
 msgid "(UTC+12:00)New Zealand, Kiribati"
 msgstr "(UTC+12:00)新西兰, 基里巴斯"
 
@@ -335,51 +349,19 @@ msgstr ""
 msgid "December"
 msgstr ""
 
-#: ../modules/date_time/main.qml:19 ../modules/date_time/main.qml:21
-msgid "Sunday"
-msgstr ""
-
-#: ../modules/date_time/main.qml:19
-msgid "Monday"
-msgstr ""
-
-#: ../modules/date_time/main.qml:19
-msgid "Tuesday"
-msgstr ""
-
-#: ../modules/date_time/main.qml:20
-msgid "Wednesday"
-msgstr ""
-
-#: ../modules/date_time/main.qml:20
-msgid "Thursday"
-msgstr ""
-
-#: ../modules/date_time/main.qml:20
-msgid "Friday"
-msgstr ""
-
-#: ../modules/date_time/main.qml:20
-msgid "Saturday"
-msgstr ""
-
-#: ../modules/date_time/main.qml:91
+#: ../modules/date_time/main.qml:92
 msgid "Auto-sync datetime"
 msgstr "自动同步时间"
 
-#: ../modules/date_time/main.qml:104
+#: ../modules/date_time/main.qml:105
 msgid "24 Hour"
 msgstr "24小时制"
 
-#: ../modules/date_time/main.qml:120
-msgid "Timezone"
-msgstr "时区"
-
-#: ../modules/date_time/main.qml:169
+#: ../modules/date_time/main.qml:126
 msgid "Date"
 msgstr "日期"
 
-#: ../modules/date_time/main.qml:173
+#: ../modules/date_time/main.qml:130
 msgid "Change Date"
 msgstr ""
 
@@ -463,54 +445,54 @@ msgstr ""
 msgid "Software"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:50
+#: ../modules/keyboard/main.qml:55
 msgid "Repeat"
 msgstr "重复"
 
-#: ../modules/keyboard/main.qml:61
+#: ../modules/keyboard/main.qml:66
 msgid "Repeat Delay"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:66 ../modules/touchpad/main.qml:192
+#: ../modules/keyboard/main.qml:71 ../modules/touchpad/main.qml:192
 msgid "Long"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:67 ../modules/touchpad/main.qml:191
+#: ../modules/keyboard/main.qml:72 ../modules/touchpad/main.qml:191
 #, fuzzy
 msgid "Short"
 msgstr "快捷键"
 
-#: ../modules/keyboard/main.qml:85
+#: ../modules/keyboard/main.qml:90
 msgid "Repeat Interval"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:91 ../modules/keyboard/main.qml:149
+#: ../modules/keyboard/main.qml:96 ../modules/keyboard/main.qml:154
 #: ../modules/mouse/main.qml:63 ../modules/mouse/main.qml:117
 #: ../modules/touchpad/main.qml:76 ../modules/touchpad/main.qml:132
 msgid "Slow"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:92 ../modules/keyboard/main.qml:150
+#: ../modules/keyboard/main.qml:97 ../modules/keyboard/main.qml:155
 #: ../modules/mouse/main.qml:64 ../modules/mouse/main.qml:118
 #: ../modules/touchpad/main.qml:77 ../modules/touchpad/main.qml:133
 msgid "Fast"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:110
+#: ../modules/keyboard/main.qml:115
 msgid " Test Repeat Interval"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:124
+#: ../modules/keyboard/main.qml:129
 msgid "Cusor Blink"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:168
+#: ../modules/keyboard/main.qml:182
 #, fuzzy
 msgid "Keyboard Layout"
 msgstr "键盘"
 
 #: ../modules/mouse/main.qml:29 ../modules/power/main.qml:162
-#: ../modules/shortcuts/main.old.qml:61 ../modules/shortcuts/main.qml:100
+#: ../modules/shortcuts/main.old.qml:61 ../modules/shortcuts/main.qml:77
 #: ../modules/touchpad/main.qml:41
 msgid "Custom"
 msgstr ""
@@ -581,7 +563,7 @@ msgstr ""
 msgid "Power Plan"
 msgstr "电源"
 
-#: ../modules/power/main.qml:159 ../modules/sound/main.qml:132
+#: ../modules/power/main.qml:159 ../modules/sound/main.qml:129
 msgid "Balance"
 msgstr ""
 
@@ -672,28 +654,36 @@ msgstr "打开的窗口"
 msgid "Launcher"
 msgstr "启动器"
 
-#: ../modules/individuation/main.qml:24
+#: ../modules/display/main.qml:49
+msgid "Primary Monitor"
+msgstr ""
+
+#: ../modules/display/main.qml:92
+msgid "Apply"
+msgstr ""
+
+#: ../modules/individuation/main.qml:26
 msgid "Themes"
 msgstr ""
 
-#: ../modules/individuation/main.qml:46 ../modules/shortcuts/main.old.qml:51
-#: ../modules/shortcuts/main.qml:76
+#: ../modules/individuation/main.qml:55 ../modules/shortcuts/main.old.qml:51
+#: ../modules/shortcuts/main.qml:63
 msgid "Window"
 msgstr ""
 
-#: ../modules/individuation/main.qml:69
+#: ../modules/individuation/main.qml:84
 msgid "Cursor"
 msgstr ""
 
-#: ../modules/individuation/main.qml:92
+#: ../modules/individuation/main.qml:113
 msgid "Wallpaper"
 msgstr ""
 
-#: ../modules/individuation/main.qml:115
+#: ../modules/individuation/main.qml:142
 msgid "Icons"
 msgstr ""
 
-#: ../modules/individuation/main.qml:138
+#: ../modules/individuation/main.qml:171
 msgid "Font"
 msgstr ""
 
@@ -706,68 +696,68 @@ msgstr "更多设置"
 msgid "Create Connections"
 msgstr ""
 
-#: ../modules/shortcuts/main.old.qml:41 ../modules/shortcuts/main.qml:51
+#: ../modules/shortcuts/main.old.qml:41 ../modules/shortcuts/main.qml:49
 #, fuzzy
 msgid "System"
 msgstr "系统类型"
 
-#: ../modules/shortcuts/main.old.qml:46 ../modules/shortcuts/main.qml:64
+#: ../modules/shortcuts/main.old.qml:46 ../modules/shortcuts/main.qml:56
 msgid "Sound and Media"
 msgstr ""
 
-#: ../modules/shortcuts/main.old.qml:56 ../modules/shortcuts/main.qml:88
+#: ../modules/shortcuts/main.old.qml:56 ../modules/shortcuts/main.qml:70
 msgid "Workspace"
 msgstr ""
 
-#: ../modules/sound/main.qml:26
+#: ../modules/sound/main.qml:23
 msgid "Speaker"
 msgstr ""
 
-#: ../modules/sound/main.qml:34
+#: ../modules/sound/main.qml:31
 msgid "Enable Speaker"
 msgstr ""
 
-#: ../modules/sound/main.qml:51
+#: ../modules/sound/main.qml:48
 msgid "Output Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:113
+#: ../modules/sound/main.qml:110
 msgid "Output Volume"
 msgstr ""
 
-#: ../modules/sound/main.qml:117 ../modules/sound/main.qml:243
+#: ../modules/sound/main.qml:114 ../modules/sound/main.qml:240
 msgid "-"
 msgstr ""
 
-#: ../modules/sound/main.qml:118 ../modules/sound/main.qml:244
+#: ../modules/sound/main.qml:115 ../modules/sound/main.qml:241
 msgid "+"
 msgstr ""
 
-#: ../modules/sound/main.qml:136
+#: ../modules/sound/main.qml:133
 msgid "Left"
 msgstr ""
 
-#: ../modules/sound/main.qml:137
+#: ../modules/sound/main.qml:134
 msgid "Right"
 msgstr ""
 
-#: ../modules/sound/main.qml:154
+#: ../modules/sound/main.qml:151
 msgid "Microphone"
 msgstr ""
 
-#: ../modules/sound/main.qml:162
+#: ../modules/sound/main.qml:159
 msgid "Enable Microphone"
 msgstr ""
 
-#: ../modules/sound/main.qml:177
+#: ../modules/sound/main.qml:174
 msgid "Input Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:239
+#: ../modules/sound/main.qml:236
 msgid "Input Volume"
 msgstr ""
 
-#: ../modules/sound/main.qml:258
+#: ../modules/sound/main.qml:255
 msgid "Input Level"
 msgstr ""
 
@@ -787,6 +777,10 @@ msgstr ""
 
 #: ../modules/touchpad/main.qml:186
 msgid "Drag threshold"
+msgstr ""
+
+#: ../modules/disk_mount/main.qml:22 ../modules/disk_mount/main.qml:39
+msgid "Internal Devices"
 msgstr ""
 
 #~ msgid "Apply Changes"
