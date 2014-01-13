@@ -4,21 +4,18 @@ import QtGraphicalEffects 1.0
 Item {
     id: trayIconButton
     
-    property int tabIndex: 0
     property string rightboxId: moduleId
     property string iconPathHeader: "trayicons/" + moduleId
     property string extStr: moduleId == "system_info" ? ".png": ".svg"
     
     property bool hover: false
-    property url iconPath: '../../modules/' + moduleId + '/iconPlugin.qml'
-
-    signal clicked
+    property url iconPath: windowView.isIconPluginExist(moduleId) ? '../../modules/' + moduleId + '/iconPlugin.qml' : ''
 
     QtObject {
         id: defaultIcon
         property url normalImage: iconPathHeader + '_normal' + extStr
         property url hoverImage: iconPathHeader + '_hover' + extStr
-        property url pressImage: hoverImage
+        property url pressImage: iconPathHeader + '_press' + extStr
     }
 
     Loader {
@@ -62,7 +59,7 @@ Item {
         hoverEnabled: true
         onClicked: {
             trayIconButton.ListView.view.currentIndex = index
-            parent.clicked()
+            trayIconButton.ListView.view.iconClickAction(trayIconButton.rightboxId)
         }
         onEntered: {
             iconImage.source = pluginLoader.icon.hoverImage
@@ -85,7 +82,7 @@ Item {
     onHoverChanged: {
         trayIconTip.isHover = hover
         if (hover){
-            root.trayIconHoverHandler(moduleId, index)
+            panelContent.trayIconHoverHandler(moduleId, index)
         }
         else {
             trayIconTip.timeOutHide.restart()
