@@ -16,29 +16,44 @@ Window {
 
     property var dconstants: DConstants {}
     property var listModelComponent: DListModelComponent {}
+    property bool clickedToHide: true
+
+    // debug mode
+    function showModule(modulesId){
+        clickedToHide = false
+        panelContent.moduleLoaderItem.iconId = modulesId
+        if(!showAll.running){
+            showAll.start()
+        }
+    }
+    // debug mode
 
     function showTrayOrPanel() {
-        if(panelContent.moduleLoaderItem.iconId == ''){
-            if(!showTray.running){
-                showTray.start()
+        if(clickedToHide){
+            if(panelContent.moduleLoaderItem.iconId == ''){
+                if(!showTray.running){
+                    showTray.start()
+                }
             }
-        }
-        else if(panelContent.moduleLoaderItem.iconId != ''){
-            if(!showAll.running){
-                showAll.start()
+            else{
+                if(!showAll.running){
+                    showAll.start()
+                }
             }
         }
     }
 
     function hideTrayIcon() {
-        if(!hideAll.running){
-            if(showTray.running){
-                showTray.stop()
+        if(clickedToHide){
+            if(!hideAll.running){
+                if(showTray.running){
+                    showTray.stop()
+                }
+                else if(showAll.running){
+                    showAll.stop()
+                }
+                hideAll.start()
             }
-            else if(showAll.running){
-                showAll.stop()
-            }
-            hideAll.start()
         }
     }
 
@@ -55,7 +70,7 @@ Window {
 
     PropertyAnimation {
         id: "hideAll"
-        duration: 300
+        duration: 400
         target: rootWindow
         properties: "displayWidth"
         to: 0
@@ -74,7 +89,7 @@ Window {
 
     PropertyAnimation {
         id: "showTray"
-        duration: 300
+        duration: 200
         target: rootWindow
         properties: "displayWidth"
         to: trayWidth

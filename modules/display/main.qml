@@ -11,7 +11,24 @@ Item {
 
     property var dconstants: DConstants {}
     property var displayId: Display {}
-    property var outputs: displayId.outputs
+    property var outputObjects: {
+        var myOutputObjects = new Array()
+        var outputs = displayId.outputs
+        for(var i=0; i<outputs.length; i++){
+            myOutputObjects.push(getOutputObject(outputs[i]))
+        }
+        return myOutputObjects
+    }
+
+    property var outputObjectsOpened: {
+        var opened = new Array()
+        for(var i in outputObjects){
+            if(outputObjects[i].opened){
+                opened.push(outputObjects[i])
+            }
+        }
+        return opened
+    }
 
     Component {
         id: outputComponent
@@ -58,8 +75,8 @@ Item {
                     currentIndex: 0
                     buttonModel: {
                         var myModel = new Array()
-                        for(var i=0; i<outputs.length; i++){
-                            var outputObj = getOutputObject(outputs[i])
+                        for(var i=0; i<outputObjects.length; i++){
+                            var outputObj = outputObjects[i]
                             myModel.push({
                                 "buttonId": outputObj,
                                 "buttonLabel": outputObj.name
@@ -79,9 +96,9 @@ Item {
         DSeparatorHorizontal{}
 
         Repeater{
-            model: outputs.length
+            model: outputObjects.length
             delegate: MonitorProperties {
-                outputObj: getOutputObject(outputs[index])
+                outputObj: outputObjects[index]
             }
         }
 

@@ -47,6 +47,12 @@ Item {
         //rootWindow.show()
     }
 
+    // debug mode
+    function showModule(modulesId){
+        rootWindow.showModule(modulesId)
+    }
+    // debug mode
+
     function displayTrayIcon(){
         rootWindow.showTrayOrPanel()
     }
@@ -77,4 +83,5 @@ Item {
             return false
         }
     }
+
 }

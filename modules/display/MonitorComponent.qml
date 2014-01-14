@@ -7,15 +7,15 @@ Rectangle{
     width: 120
     height: 90
 
-    property string displayName: "Unknown"
-    property string monitorId: "LVDS1"
+    property var outputObj
+    property int monitorIndex
 
-    signal pressed(string monitorId)
-    signal release(string monitorId)
+    property string displayName: outputObj.name
 
     color: "#0d0d0d"
     border.width: 1
     border.color: dconstants.fgDarkColor
+    visible: outputObj.opened
 
     DssH2 {
         anchors.centerIn: parent
@@ -29,12 +29,10 @@ Rectangle{
         onPressed: {
             parent.color = "#252525"
             parent.opacity = 0.6
-            monitorComponent.pressed(monitorId)
         }
         onReleased: {
             parent.color = "#0d0d0d"
-            monitorComponent.pressed(monitorId)
+            releaseAction(monitorIndex)
         }
     }
-
 }
