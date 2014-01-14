@@ -17,6 +17,8 @@ Item {
     property var bindManagerId: BindManager {}
     property int currentShortcutId: -1
     property int expandItemIndex: -1
+    property var conflictInvalid: bindManagerId.conflictInvalid
+    property var conflictValid: bindManagerId.conflictValid
 
     Column {
         anchors.top: parent.top
