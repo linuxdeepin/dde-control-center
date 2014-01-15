@@ -1,8 +1,8 @@
-import DBus.Com.Deepin.Daemon.ExtDevManager 1.0
 import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import Deepin.Widgets 1.0
+import DBus.Com.Deepin.Daemon.InputDevices 1.0
 
 Item {
     id: keyboardModule

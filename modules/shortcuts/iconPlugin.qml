@@ -1,12 +1,12 @@
 import QtQuick 2.1
 import Deepin.Widgets 1.0
-import DBus.Com.Deepin.Daemon.BindManager 1.0
+import DBus.Com.Deepin.Daemon.KeyBinding 1.0
 
 Item {
     anchors.fill: parent
     clip: true
 
-    property var bindManagerId: BindManager {}
+    property var bindManagerId: KeyBinding {}
 
     Binding {
         target: parent
