@@ -44,7 +44,7 @@ Item {
     }
 
     Component.onCompleted: {
-        //rootWindow.show()
+        rootWindow.show()
     }
 
     // debug mode

@@ -50,8 +50,15 @@ def main():
     connect_to_primary_changed(panel.display_primary_changed)
 
     if len(sys.argv) == 2:
-        if sys.argv[1] in panel.modulesId._l18n_names.keys():
+        if sys.argv[1].endswith("/"):
+            order = sys.argv[1][:-1]
+        else:
+            order = sys.argv[1]
+
+        if order in panel.modulesId._l18n_names.keys():
             panel.view_object.showModule(sys.argv[1])
+        elif order == "all":
+            panel.view_object.showModule(order)
         else:
             print "Error module id:", sys.argv[1]
     

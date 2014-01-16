@@ -41,6 +41,7 @@ Item {
 
         DSeparatorHorizontal {}
 
+        DBaseLine {}
         DBaseLine {
             leftLoader.sourceComponent: DssH2 {
                 text: dsTr("Repeat")
@@ -50,7 +51,7 @@ Item {
         DSeparatorHorizontal {}
 
         DBaseLine {
-            color: dconstants.contentBgColor
+            //color: dconstants.contentBgColor
             height: contentHeight
             leftMargin: contentLeftMargin
             leftLoader.sourceComponent: DLabel {
@@ -71,10 +72,8 @@ Item {
             }
         }
 
-        DSeparatorHorizontal {}
-
         DBaseLine {
-            color: dconstants.contentBgColor
+            //color: dconstants.contentBgColor
             height: contentHeight
             leftMargin: contentLeftMargin
             leftLoader.sourceComponent: DLabel {
@@ -97,10 +96,8 @@ Item {
 
         }
 
-        DSeparatorHorizontal {}
-
         DBaseLine {
-            color: dconstants.contentBgColor
+            //color: dconstants.contentBgColor
             leftMargin: contentLeftMargin
             leftLoader.sourceComponent: DLabel {
                 text: dsTr(" Test Repeat Interval")
@@ -115,6 +112,7 @@ Item {
 
         DSeparatorHorizontal {}
 
+        DBaseLine {}
         DBaseLine {
             leftLoader.sourceComponent: DssH2 {
                 text: dsTr("Cusor Blink")
@@ -124,7 +122,7 @@ Item {
         DSeparatorHorizontal {}
 
         DBaseLine {
-            color: dconstants.contentBgColor
+            //color: dconstants.contentBgColor
             height: contentHeight
             leftMargin: contentLeftMargin
             leftLoader.sourceComponent: Rectangle {
