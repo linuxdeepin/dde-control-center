@@ -35,6 +35,27 @@ Item {
             "shutdown"
         ]
 
+    property var allIds: [
+            //"notification",
+            "network",
+            "disk_mount",
+            "bluetooth",
+            "sound",
+            "power",
+            "date_time",
+            "mouse",
+            "touchpad",
+            "keyboard",
+            "shortcuts",
+            "display",
+            "account",
+            "desktop",
+            "individuation",
+            "default_applications",
+            "system_info",
+            "shutdown"
+        ]
+
     property var hideIds: [
             "date_time",
             "mouse",

@@ -28,6 +28,7 @@ Item {
         DSeparatorHorizontal {}
 
         DSwitchButtonHeader {
+            //color: dconstants.contentBgColor
             text: dsTr("Enable Speaker")
             active: true
             leftMargin: contentLeftMargin
@@ -37,23 +38,20 @@ Item {
             }
         }
 
-        DSeparatorHorizontal {}
-
         DBaseExpand {
             id: outputChoose
             property int currentIndex: -1
             property string currentTimezoneLabel
+            expanded: header.item.active
 
             header.sourceComponent: DDownArrowHeader {
                 text: dsTr("Output Port")
                 leftMargin: contentLeftMargin
-                onClicked: {
-                    outputChoose.expanded = !outputChoose.expanded
-                }
             }
-            content.sourceComponent: Item {
+            content.sourceComponent: Rectangle {
                 width: parent.width
                 height: outputList.count * 30
+                color: dconstants.contentBgColor
 
                 ListView {
                     id: outputList
@@ -120,8 +118,6 @@ Item {
             }
         }
 
-        DSeparatorHorizontal {}
-
         DBaseLine {
             height: contentHeight
             leftMargin: contentLeftMargin
@@ -165,21 +161,19 @@ Item {
             }
         }
 
-        DSeparatorHorizontal {}
-
         DBaseExpand {
             id: inputChoose
+            expanded: header.item.active
 
             header.sourceComponent: DDownArrowHeader {
                 text: dsTr("Input Port")
                 leftMargin: contentLeftMargin
-                onClicked: {
-                    outputChoose.expanded = !outputChoose.expanded
-                }
+                active: false
             }
-            content.sourceComponent: Item {
+            content.sourceComponent: Rectangle {
                 width: parent.width
                 height: inputList.count * 30
+                color: dconstants.contentBgColor
 
                 ListView {
                     id: inputList
@@ -245,8 +239,6 @@ Item {
                 }
             }
         }
-
-        DSeparatorHorizontal {}
 
         DBaseLine {
             height: contentHeight

@@ -18,7 +18,7 @@ Window {
 
     Timer {
         id: hide
-        interval: 300
+        interval: 200
         running: false
         repeat: false
         onTriggered: {
@@ -30,6 +30,7 @@ Window {
 
     Behavior on y {
         SmoothedAnimation { duration: 300 }
+        enabled: trayIconTip.visible
     }
 
     RectWithCorner {

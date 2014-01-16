@@ -4,7 +4,6 @@ import QtQuick.Controls.Styles 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Display 1.0
 
-
 Item {
     id: displayModule
     anchors.fill: parent
@@ -24,7 +23,7 @@ Item {
         var opened = new Array()
         for(var i in outputObjects){
             if(outputObjects[i].opened){
-                opened.push(outputObjects[i])
+                opened.push([outputObjects[i], i])
             }
         }
         return opened
