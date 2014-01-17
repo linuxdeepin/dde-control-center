@@ -216,7 +216,7 @@ Rectangle {
                     model.append({"label": dsTr("Launcher"), "selected": dde_desktop.topLeft == 2})
                 }
                 onSelect: {
-                    dde_desktop.SetTopLeftAction(index)
+                    dde_desktop.topLeft = index
                 }
             }
         }
@@ -241,7 +241,7 @@ Rectangle {
                     model.append({"label": dsTr("Launcher"), "selected": dde_desktop.bottomRight == 2})
                 }
                 onSelect: {
-                    dde_desktop.SetBottomRightAction(index)
+                    dde_desktop.bottomRight = index
                 }
             }
         }
