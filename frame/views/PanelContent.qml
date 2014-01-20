@@ -4,17 +4,17 @@ import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Display 1.0
 
-Row {
+Item {
     id: panelContent
-    width: parent.width
-    height: parent.height
 
     property alias moduleLoaderItem: rightBoxLoaderItem
-
+    property alias moduleBox: rightBox
     property var iconIdToIndex
 
     property var modulesId: ModulesData {}
     property bool inExpandHideTrayIcon: false
+    property bool inDssHome: true
+    property var trayIconModel: ListModel {}
     property real trayIconHeight: {
         if(trayIconModel.count==0){
             return trayWidth
@@ -27,7 +27,7 @@ Row {
 
     function initTrayIcon() {
         print(">>>>> initTrayIcon emit")
-        var modules_id_array = modulesId.commonIds
+        var modules_id_array = modulesId.allIds
         trayIconList.currentIndex = -1
         trayIconModel.clear()
         for (var i in modules_id_array){
@@ -63,7 +63,6 @@ Row {
     }
 
     function trayIconHoverHandler(module_id, index) {
-        //console.log(module_id + ": "  + index)
         var tipDisplayHeight
         tipDisplayHeight = Math.abs(trayIconHeight - trayIconTip.height)/2 + trayIconHeight * index
         if (trayIconHeight == trayWidth) {
@@ -71,8 +70,9 @@ Row {
         }
         trayIconTip.y = tipDisplayHeight
         trayIconTip.text = modulesId.moduleLocaleNames[module_id]
-        //trayIconTip.opacity = 1.0
-        trayIconTip.visible = true
+        if(!inDssHome){
+            trayIconTip.visible = true
+        }
     }
 
     NumberAnimation {
@@ -103,13 +103,19 @@ Row {
         }
     }
 
-    Item {
-        id: trayArea
+    Rectangle {
+        id: leftBackground
+        color: "#212121"
         width: trayWidth
         height: parent.height
+    }
 
-        Rectangle {
-            color: dconstants.bgColor
+    Item {
+        id: trayArea
+        width: parent.width
+        height: parent.height
+
+        Item {
             width: parent.width
             anchors.top: parent.top
             anchors.bottom: parent.bottom
@@ -119,7 +125,8 @@ Row {
                 id: trayIconList
                 width: parent.width
                 //height: childrenRect.height
-                anchors.centerIn: parent
+                //anchors.centerIn: parent
+                contentHeight: height
 
                 function iconClickAction(trayIconId) {
                     if (trayIconId == 'shutdown'){
@@ -140,37 +147,59 @@ Row {
                             showAll.restart()
                         }
                         rightBoxLoaderItem.iconId = trayIconId
+                        if( rightBox.x == panelContent.width ) { 
+                            rightBox.x = trayWidth
+                        }
+                        inDssHome = false
                     }
                 }
 
                 delegate: ModuleIconItem {
-                    width: trayWidth
+                    width: parent.width
                     height: trayIconHeight
                 }
-                model: ListModel { id: trayIconModel }
+                model: trayIconModel
                 currentIndex: -1
-                highlight: Rectangle { color: Qt.rgba(255, 255, 255, 0.1); radius: 2; }
-                highlightMoveDuration: 300
-                highlightFollowsCurrentItem: true
+                //highlight: Rectangle { color: Qt.rgba(255, 255, 255, 0.1); radius: 2; }
+                //highlightMoveDuration: 300
+                //highlightFollowsCurrentItem: true
                 maximumFlickVelocity: 0
             }
         }
     }
 
-    DSeparatorVertical {}
+    DSeparatorVertical {
+        anchors.left: leftBackground.right
+    }
 
-    Item {
+    Rectangle {
         id: rightBox
-        width: parent.width - trayWidth - 2
+        width: parent.width - trayWidth
         height: parent.height
+        color: dconstants.bgColor
+        x: parent.width
+        clip: true
 
-        Item {
+        MouseArea{
+            anchors.fill: parent
+            hoverEnabled: true
+            //Eats mouse events
+        }
+
+        Behavior on x {
+            SmoothedAnimation { 
+                duration: 300 
+                easing.type: Easing.InQuart
+            }
+        }
+
+        Row {
             id: rightBoxLoaderItem
+            width: parent.width
+            height: parent.height
+            clip: true
 
             property string iconId
-
-            visible: false
-            clip: true
             onIconIdChanged: {
                 rightBoxLoaderItem.visible = (iconId == '' ? false : true)
                 rightBoxLoader.iconId = iconId
@@ -181,20 +210,17 @@ Row {
                     rightBoxLoader.source = ''
                 }
             }
-            anchors.fill: parent
 
-            MouseArea{
-                anchors.fill: parent
-                enabled: rightBoxLoaderItem.visible
-                //Eats mouse events
-            }
+            DSeparatorVertical {}
 
             Loader{
                 id: rightBoxLoader
                 property string iconId
                 focus: true
+                clip: true
                 source: ''
-                anchors.fill: parent
+                width: parent.width - 2
+                height: parent.height
             }
         }
     }

@@ -83,7 +83,7 @@ Item {
                 text: outputObj.name
                 active: outputObj.opened
                 onClicked: {
-                    //outputObj.opened = active
+                    outputObj.opened = active
                 }
             }
 
@@ -94,11 +94,12 @@ Item {
 
                     DBaseExpand {
                         id: resolutionArea
+                        expanded: header.item.active
                         header.sourceComponent: DDownArrowHeader {
                             text: dsTr("Resolution")
                             hintText: " (" + currentResolution + ")"
                             leftMargin: 25
-                            onClicked: resolutionArea.expanded = active
+                            active: true
                         }
                     
                         content.sourceComponent: DMultipleSelectView {
@@ -120,11 +121,12 @@ Item {
 
                     DBaseExpand {
                         id: rotationArea
+                        expanded: header.item.active
                         header.sourceComponent: DDownArrowHeader {
                             text: dsTr("Rotation")
                             hintText: rotationNames[currentRotation]
                             leftMargin: 25
-                            onClicked: rotationArea.expanded = active
+                            active: true
                         }
                     
                         content.sourceComponent: DMultipleSelectView {

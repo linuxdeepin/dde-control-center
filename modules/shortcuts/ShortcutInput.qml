@@ -9,6 +9,7 @@ FocusScope {
     height: 30
 
     property var info
+    property var warning
 
     property var dconstants: DConstants {}
     property int grabKeyAreaWidth: 150
@@ -19,11 +20,22 @@ FocusScope {
 
     property bool grabFlag: false
 
-    DssH3 {
-        text: displayName
+    Row {
+        height: parent.height
         anchors.left: parent.left
-        anchors.leftMargin: dconstants.leftMargin
-        anchors.verticalCenter: parent.verticalCenter
+        anchors.leftMargin: warning ? 2 : dconstants.leftMargin + 4
+        spacing: 4
+
+        Image{
+            source: warning ? "images/" + warning + "_key.png" :""
+            visible: source ? true : false
+            anchors.verticalCenter: parent.verticalCenter
+        }
+
+        DssH3 {
+            text: displayName
+            anchors.verticalCenter: parent.verticalCenter
+        }
     }
 
     Rectangle {
@@ -67,17 +79,13 @@ FocusScope {
             if (currentShortcutId == shortcutId){
                 grabFlag = false
                 print("Release:", arg0)
-                if( arg0 == 'Escape' | !arg0 ){
+                if( arg0 == 'escape' | !arg0 ){
                 }
-                else if( arg0=="BackSpace" ){
-                    //print("disable")
+                else if( arg0=="backSpace" ){
                     bindManagerId.ChangeShortcut(currentShortcutId, "")
                 }
                 else {
                     bindManagerId.ChangeShortcut(currentShortcutId, arg0)
-                    print(bindManagerId.systemList)
-                    print("------------")
-                    print(keyBindings)
                 }
             }
         }

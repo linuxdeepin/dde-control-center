@@ -2,7 +2,7 @@ import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import QtQml.Models 2.1
-import DBus.Com.Deepin.Daemon.BindManager 1.0
+import DBus.Com.Deepin.Daemon.KeyBinding 1.0
 import Deepin.Widgets 1.0
 import "./shortcuts_maps.js" as ShortcutsMap
 
@@ -13,12 +13,15 @@ Item {
     property var dconstants: DConstants {}
     property int contentLeftMargin: 22
 
-    property var grabManagerId: GrabManager {}
-    property var bindManagerId: BindManager {}
+    property var grabManagerId: GrabKey {}
+    property var bindManagerId: KeyBinding {}
     property int currentShortcutId: -1
     property int expandItemIndex: -1
+    property var conflictInvalid: bindManagerId.conflictInvalid
+    property var conflictValid: bindManagerId.conflictValid
 
     Column {
+        id: defaultApplicationsColumn
         anchors.top: parent.top
         width: parent.width
 

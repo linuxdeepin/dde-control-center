@@ -27,6 +27,9 @@ if os.name == 'posix':
     QCoreApplication.setAttribute(QtCore.Qt.AA_X11InitThreads, True)
 
 import sys
+from PyQt5.QtWidgets import QApplication
+app = QApplication(sys.argv)
+
 import signal
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 
@@ -35,24 +38,27 @@ from unique_service import UniqueService
 from constants import APP_DBUS_NAME, APP_OBJECT_PATH
 from display_monitor import connect_to_primary_changed
 
-from PyQt5.QtWidgets import QApplication
-
 def main():
     root_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
     os.chdir(root_dir)
 
-    app = QApplication(sys.argv)
     uniqueService = UniqueService(APP_DBUS_NAME, APP_OBJECT_PATH)
     uniqueService.uniqueTrigger.connect(unique_trigger)
 
     panel = ControlPanel()
     panel.engine_obj.quit.connect(app.quit)
-    panel.show()
     connect_to_primary_changed(panel.display_primary_changed)
 
     if len(sys.argv) == 2:
-        if sys.argv[1] in panel.modulesId._l18n_names.keys():
+        if sys.argv[1].endswith("/"):
+            order = sys.argv[1][:-1]
+        else:
+            order = sys.argv[1]
+
+        if order in panel.modulesId._l18n_names.keys():
             panel.view_object.showModule(sys.argv[1])
+        elif order == "all":
+            panel.view_object.showModule(order)
         else:
             print "Error module id:", sys.argv[1]
     
