@@ -4,7 +4,7 @@ import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Display 1.0
 
-Row {
+Item {
     id: panelContent
 
     property alias moduleLoaderItem: rightBoxLoaderItem
@@ -103,6 +103,13 @@ Row {
         }
     }
 
+    Rectangle {
+        id: leftBackground
+        color: "#212121"
+        width: trayWidth
+        height: parent.height
+    }
+
     Item {
         id: trayArea
         width: parent.width
@@ -153,12 +160,16 @@ Row {
                 }
                 model: trayIconModel
                 currentIndex: -1
-                highlight: Rectangle { color: Qt.rgba(255, 255, 255, 0.1); radius: 2; }
-                highlightMoveDuration: 300
-                highlightFollowsCurrentItem: true
+                //highlight: Rectangle { color: Qt.rgba(255, 255, 255, 0.1); radius: 2; }
+                //highlightMoveDuration: 300
+                //highlightFollowsCurrentItem: true
                 maximumFlickVelocity: 0
             }
         }
+    }
+
+    DSeparatorVertical {
+        anchors.left: leftBackground.right
     }
 
     Rectangle {

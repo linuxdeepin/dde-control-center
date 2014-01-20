@@ -22,6 +22,7 @@ Item {
             leftLoader.sourceComponent: DssH2 {
                 text: dsTr("Speaker")
                 font.bold: true
+                color: "#fff"
             }
         }
 
@@ -146,6 +147,7 @@ Item {
             leftLoader.sourceComponent: DssH2 {
                 text: dsTr("Microphone")
                 font.bold: true
+                color: "#fff"
             }
         }
 

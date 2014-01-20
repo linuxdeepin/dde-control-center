@@ -21,6 +21,7 @@ Item {
     property var conflictValid: bindManagerId.conflictValid
 
     Column {
+        id: defaultApplicationsColumn
         anchors.top: parent.top
         width: parent.width
 

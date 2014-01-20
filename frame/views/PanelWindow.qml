@@ -139,29 +139,36 @@ Window {
         }
     }
 
-    Rectangle {
-        id: borderLine
+    Image {
+        anchors.right: frame.left
         width: 16
         height: parent.height
-        anchors.right: frame.left
-        color: "transparent"
-
-        Rectangle {
-            id: canvas
-            width: 1
-            height: parent.height
-            anchors.right: parent.right
-            color: Qt.rgba(1, 1, 1, 0.1)
-        }
-
+        source: "images/shadow.png"
     }
 
-    Glow {
-        anchors.fill: borderLine
-        radius: 16
-        samples: 16
-        color: Qt.rgba(1, 1, 1, 1)
-        source: borderLine
-    }
+    //Rectangle {
+        //id: borderLine
+        //width: 16
+        //height: parent.height
+        //anchors.right: frame.left
+        //color: "transparent"
+
+        //Rectangle {
+            //id: canvas
+            //width: 1
+            //height: parent.height
+            //anchors.right: parent.right
+            //color: "#3c3c3c"
+        //}
+
+    //}
+
+    //Glow {
+        //anchors.fill: borderLine
+        //radius: 8
+        //samples: 8
+        //color: "black"
+        //source: borderLine
+    //}
 
 }
