@@ -46,8 +46,10 @@ Rectangle {
 
         DBaseExpand {
             id: power_button_rect
+            expanded: true
             header.sourceComponent: DDownArrowHeader {
                 text: dsTr("When I press the sleep button")
+                active: true
                 onClicked: power_button_rect.expanded = active
             }
             content.sourceComponent: DMultipleSelectView {
@@ -92,9 +94,11 @@ Rectangle {
         }
         DBaseExpand {
             id: close_the_lid_rect
+            expanded: true
             visible: dbus_system_info.isLaptop ? true : false
             header.sourceComponent: DDownArrowHeader {
                 text: dsTr("When I close the lid")
+                active: true
                 onClicked: close_the_lid_rect.expanded = active
             }
             content.sourceComponent: DMultipleSelectView {
@@ -140,8 +144,10 @@ Rectangle {
         }
         DBaseExpand {
             id: power_plan_rect
+            expanded: true
             header.sourceComponent: DDownArrowHeader {
                 text: dsTr("Power Plan")
+                active: true
                 onClicked: power_plan_rect.expanded = active
             }
             content.sourceComponent: DMultipleSelectView {
@@ -192,11 +198,12 @@ Rectangle {
 
         DBaseExpand {
             id: turn_off_monitor_rect
-
+            expanded: true
             property string headerText: dsTr("Turn off monitor")
 
             header.sourceComponent: DDownArrowHeader {
                 id: turn_off_monitor_header
+                active: true
                 text: turn_off_monitor_rect.headerText
                 onClicked: turn_off_monitor_rect.expanded = active
             }
@@ -248,14 +255,17 @@ Rectangle {
                 }
             }
         }
+        
+        DSeparatorHorizontal{}
 
         DBaseExpand {
             id: suspend_rect
-
+            expanded: true
             property string headerText: dsTr("Suspend")
 
             header.sourceComponent: DDownArrowHeader {
                 id: suspend_header
+                active: true
                 text: suspend_rect.headerText
                 onClicked: suspend_rect.expanded = active
             }
