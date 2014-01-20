@@ -54,11 +54,12 @@ Item {
             DLabel {
                 id: moduleName
                 anchors.left: iconImage.right
-                anchors.leftMargin: 25
+                anchors.leftMargin: 27
                 anchors.verticalCenter: parent.verticalCenter
                 font.pixelSize: 14
                 text: modulesId.moduleLocaleNames[moduleId]
                 color: trayIconButton.hover ? Qt.rgba(0, 144/255, 1, 1.0) : dconstants.fgColor
+
             }
 
             Image {

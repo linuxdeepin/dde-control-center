@@ -48,7 +48,7 @@ Column {
                 id: lists
                 focus: true
                 width: parent.width
-                height: lists.count * 30 > 300 ? 200 : lists.count * 30
+                height: lists.count * 30
                 model: keyBindings.length
                 property var keyData: keyBindings
                 delegate: ShortcutInput {
