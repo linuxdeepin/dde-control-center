@@ -78,10 +78,10 @@ Rectangle {
             expanded: true
             property Item selectView
             
-            header.sourceComponent: DDownArrowHeader {
-                text: dsTr("Desktop Icons")
-                active: true
-                onClicked: desktop_icons.expanded = active
+            header.sourceComponent: DBaseLine {
+                leftLoader.sourceComponent: DssH2 {
+                    text: dsTr("Dock Display")
+                }
             }
             content.sourceComponent: DMultipleSelectView {
                 id: desktop_icons_select_view
@@ -137,10 +137,10 @@ Rectangle {
             expanded: true
             property Item selectView
             
-            header.sourceComponent: DDownArrowHeader {
-                text: dsTr("Dock Display")
-                active: true
-                onClicked: dock_display.expanded = active
+            header.sourceComponent: DBaseLine {
+                leftLoader.sourceComponent: DssH2 {
+                    text: dsTr("Dock Display")
+                }
             }
             content.sourceComponent: DMultipleSelectView {
                 id: dock_display_select_view
