@@ -75,10 +75,12 @@ Rectangle {
 
         DBaseExpand {
             id: desktop_icons
+            expanded: true
             property Item selectView
             
             header.sourceComponent: DDownArrowHeader {
                 text: dsTr("Desktop Icons")
+                active: true
                 onClicked: desktop_icons.expanded = active
             }
             content.sourceComponent: DMultipleSelectView {
@@ -132,10 +134,12 @@ Rectangle {
 
         DBaseExpand {
             id: dock_display
+            expanded: true
             property Item selectView
             
             header.sourceComponent: DDownArrowHeader {
                 text: dsTr("Dock Display")
+                active: true
                 onClicked: dock_display.expanded = active
             }
             content.sourceComponent: DMultipleSelectView {
