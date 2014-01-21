@@ -41,7 +41,7 @@ Item {
 
         DSeparatorHorizontal {}
 
-        DBaseLine {}
+        DBaseLine{height: 8}
         DBaseLine {
             leftLoader.sourceComponent: DssH2 {
                 text: dsTr("Repeat")

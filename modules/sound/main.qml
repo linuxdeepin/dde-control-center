@@ -18,6 +18,9 @@ Item {
             text: dsTr("Sound")
         }
 
+        DSeparatorHorizontal{}
+
+        DBaseLine{height: 8}
         DBaseLine {
             leftLoader.sourceComponent: DssH2 {
                 text: dsTr("Speaker")

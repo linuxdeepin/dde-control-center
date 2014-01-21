@@ -5,7 +5,7 @@ import Deepin.Widgets 1.0
 Item {
     id: calendarWidget
     width: 308
-    height: 240
+    height: childrenRect.height + 30 * 7
     property var clickedDateObject: globalDate
     property var cur_calendar;
     property var pre_calendar;
