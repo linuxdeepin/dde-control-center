@@ -65,6 +65,7 @@ Item {
                 rightLabel: dsTr("Fast")
 
                 value: (mouseID.moveSpeed - 1)/9
+                realValue: mouseID.moveSpeed
                 onValueChanged: {
                     if (mouseID.moveSpeed!= (9 * value + 1)){
                         mouseID.moveSpeed = 9 * value + 1
@@ -85,6 +86,7 @@ Item {
                 rightLabel: dsTr("High")
 
                 value: (mouseID.moveAccuracy - 1)/9
+                realValue: mouseID.moveAccuracy
                 onValueChanged: {
                     if (mouseID.moveAccuracy != 9 * value + 1){
                         mouseID.moveAccuracy = 9 * value + 1
@@ -117,6 +119,7 @@ Item {
                 rightLabel: dsTr("Fast")
 
                 value: (mouseID.clickFrequency - 100)/900
+                realValue: mouseID.clickFrequency
                 onValueChanged: {
                     if (mouseID.clickFrequency != (900 * value + 100)){
                         mouseID.clickFrequency = 900 * value + 100

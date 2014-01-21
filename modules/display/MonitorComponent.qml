@@ -34,8 +34,8 @@ Rectangle{
 
     MouseArea {
         anchors.fill: parent
-        drag.target: parent
-        drag.axis: Drag.XAndYAxis
+        //drag.target: parent
+        //drag.axis: Drag.XAndYAxis
         onPressed: {
             parent.color = "#252525"
             parent.opacity = 0.6

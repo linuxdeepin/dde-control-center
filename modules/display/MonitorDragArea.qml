@@ -3,7 +3,7 @@ import Deepin.Widgets 1.0
 
 Rectangle {
     id: monitorDragArea
-    width: parent.width 
+    width: parent.width
     height: 180
     color: dconstants.contentBgColor
     clip: true
@@ -44,7 +44,6 @@ Rectangle {
             var x2 = windowView.sortArray(xPositionRight, true)[0]
             var y1 = windowView.sortArray(yPositionUp, false)[0]
             var y2 = windowView.sortArray(yPositionDown, true)[0]
-            print(x1, x2, y1, y2)
         }
     }
 

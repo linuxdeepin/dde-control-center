@@ -68,7 +68,7 @@ Item {
         var tipDisplayHeight
         tipDisplayHeight = Math.abs(trayIconHeight - trayIconTip.height)/2 + trayIconHeight * index
         if (trayIconHeight == trayWidth) {
-            tipDisplayHeight += (panelContent.height - trayIconHeight * trayIconModel.count)/2
+            //tipDisplayHeight += (panelContent.height - trayIconHeight * trayIconModel.count)/2
         }
         trayIconTip.y = tipDisplayHeight
         trayIconTip.text = modulesId.moduleLocaleNames[module_id]

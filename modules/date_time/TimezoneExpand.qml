@@ -55,20 +55,30 @@ Item {
     DBaseExpand {
         id: timezoneExpand
 
+        function currentItemToVisible(){
+            content.item.toVisible()
+        }
+
         header.sourceComponent: DDownArrowHeader {
             text: dsTr("Timezone")
             hintText: timezoneExpand.content.item.currentItem
             onClicked: {
                 timezoneExpand.expanded = !timezoneExpand.expanded
+                if(timezoneExpand.expanded){
+                    timezoneExpand.currentItemToVisible()
+                }
             }
         }
-        content.sourceComponent: Rectangle {
+        content.sourceComponent: Item {
             id: timezoneList
             width: parent.width
-            height: 200
+            height: timezone_listview.model.count * 30 > leftHeight ? leftHeight : timezone_listview.model.count * 30
             clip: true
-            color: dconstants.contentBgColor
             property string currentItem: timezone_listview.currentItem.timezoneText
+
+            function toVisible(){
+                timezone_listview.positionViewAtIndex(timezone_listview.currentIndex, ListView.Visible)
+            }
 
             ListView {
                 id: timezone_listview

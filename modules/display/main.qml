@@ -71,7 +71,6 @@ Item {
 
                 DRadioButton {
                     id: chooser
-                    currentIndex: 0
                     buttonModel: {
                         var myModel = new Array()
                         for(var i=0; i<outputObjects.length; i++){
@@ -98,6 +97,7 @@ Item {
             model: outputObjects.length
             delegate: MonitorProperties {
                 outputObj: outputObjects[index]
+                initExpanded: index == 0
             }
         }
 

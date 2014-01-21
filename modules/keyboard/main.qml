@@ -64,6 +64,7 @@ Item {
                 rightLabel: dsTr("Short")
 
                 value: (2000 - keyboardID.repeatDelay)/1900
+                realValue: keyboardID.repeatDelay
                 onValueChanged: {
                     if (keyboardID.repeatDelay != (2000 - 1900 * value)){
                         keyboardID.repeatDelay = (2000 - 1900 * value)
@@ -87,6 +88,7 @@ Item {
                 rightLabel: dsTr("Fast")
 
                 value: (2000 - keyboardID.repeatSpeed)/1980
+                realValue: keyboardID.repeatSpeed
                 onValueChanged: {
                     if (keyboardID.repeatSpeed != (2000 - 1980 * value)){
                         keyboardID.repeatSpeed = 2000 - 1980 * value
@@ -144,6 +146,7 @@ Item {
                 rightLabel: dsTr("Fast")
 
                 value: (2500 - keyboardID.cursorBlink)/2400
+                realValue: keyboardID.cursorBlink
                 onValueChanged: {
                     if (keyboardID.cursorBlink != (2500 - 2400 * value)){
                         keyboardID.cursorBlink = 2500 - 2400 * value

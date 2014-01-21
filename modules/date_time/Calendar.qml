@@ -219,7 +219,7 @@ Item {
                         font.pixelSize: 12
 
                         property int monthNumber: Number(clickedDateObject.getMonth() + 1)
-                        text: CalendarCore.CONST.months[monthNumber - 1]
+                        text: monthNumber < 10 ? "0" + monthNumber : monthNumber
                     }
                 }
 

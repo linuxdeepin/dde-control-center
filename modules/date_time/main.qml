@@ -33,14 +33,15 @@ Item {
         onTriggered: { 
             parent.globalDate= new Date()
             lang = dsslocale.lang
-            dynamicTime.secondColonDisplay = !dynamicTime.secondColonDisplay
+            //dynamicTime.secondColonDisplay = !dynamicTime.secondColonDisplay
         }
     }
 
     Column {
-        id: contentColumn
+        id: beforeTimeZoneArea
         anchors.top: parent.top
         width: parent.width
+        height: childrenRect.height
 
         DssTitle { text: dsTr("Date & Time") }
 
@@ -111,8 +112,17 @@ Item {
         }
 
         DSeparatorHorizontal {}
+    }
 
-        TimezoneExpand {}
+    TimezoneExpand {
+        id: timeZoneArea
+        anchors.top: beforeTimeZoneArea.bottom
+        property int leftHeight: parent.height - beforeTimeZoneArea.height - afterTimeZoneArea.height - 40
+    }
+
+    Column {
+        id: afterTimeZoneArea
+        anchors.top: timeZoneArea.bottom
 
         DSeparatorHorizontal {}
 
