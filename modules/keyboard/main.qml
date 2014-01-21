@@ -54,9 +54,8 @@ Item {
             //color: dconstants.contentBgColor
             height: contentHeight
             leftMargin: contentLeftMargin
-            leftLoader.sourceComponent: DLabel {
+            leftLoader.sourceComponent: DssH3 {
                 text: dsTr("Repeat Delay")
-                font.pixelSize: 12
             }
             rightLoader.sourceComponent: DSliderRect {
                 width: sliderWidth
@@ -77,9 +76,8 @@ Item {
             //color: dconstants.contentBgColor
             height: contentHeight
             leftMargin: contentLeftMargin
-            leftLoader.sourceComponent: DLabel {
+            leftLoader.sourceComponent: DssH3 {
                 text: dsTr("Repeat Interval")
-                font.pixelSize: 12
             }
 
             rightLoader.sourceComponent: DSliderRect {
@@ -101,9 +99,8 @@ Item {
         DBaseLine {
             //color: dconstants.contentBgColor
             leftMargin: contentLeftMargin
-            leftLoader.sourceComponent: DLabel {
+            leftLoader.sourceComponent: DssH3 {
                 text: dsTr(" Test Repeat Interval")
-                font.pixelSize: 13
             }
             rightLoader.sourceComponent: DTextInput {
                 id: testRepeatIntervalInput
