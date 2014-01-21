@@ -21,23 +21,20 @@ Item {
         DBaseLine {
             leftLoader.sourceComponent: DssH2 {
                 text: dsTr("Speaker")
-                font.bold: true
+                //font.bold: true
                 color: "#fff"
+            }
+
+            rightLoader.sourceComponent: Component{
+                DSwitchButton {
+                    checked: true
+                    onClicked: {
+                    }
+                }
             }
         }
 
         DSeparatorHorizontal {}
-
-        DSwitchButtonHeader {
-            //color: dconstants.contentBgColor
-            text: dsTr("Enable Speaker")
-            active: true
-            leftMargin: contentLeftMargin
-
-            onClicked: {
-
-            }
-        }
 
         DBaseExpand {
             id: outputChoose
@@ -146,22 +143,20 @@ Item {
         DBaseLine {
             leftLoader.sourceComponent: DssH2 {
                 text: dsTr("Microphone")
-                font.bold: true
+                //font.bold: true
                 color: "#fff"
+            }
+
+            rightLoader.sourceComponent: Component{
+                DSwitchButton {
+                    checked: true
+                    onClicked: {
+                    }
+                }
             }
         }
 
         DSeparatorHorizontal {}
-
-        DSwitchButtonHeader {
-            text: dsTr("Enable Microphone")
-            active: true
-            leftMargin: contentLeftMargin
-
-            onClicked: {
-
-            }
-        }
 
         DBaseExpand {
             id: inputChoose
@@ -259,5 +254,11 @@ Item {
 
         DSeparatorHorizontal {}
 
+        DBaseLine{
+            height: 40
+            rightLoader.sourceComponent: DTextButton{
+                text: dsTr("Advanced")
+            }
+        }
     }
 }
