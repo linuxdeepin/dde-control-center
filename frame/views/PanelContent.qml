@@ -3,6 +3,7 @@ import QtQuick.Window 2.1
 import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Display 1.0
+import DBus.Com.Deepin.StartManager 1.0
 
 Item {
     id: panelContent
@@ -11,6 +12,7 @@ Item {
     property alias moduleBox: rightBox
     property var iconIdToIndex
 
+    property var sessionManager: SessionManager {}
     property var modulesId: ModulesData {}
     property bool inExpandHideTrayIcon: false
     property bool inDssHome: true
@@ -130,14 +132,17 @@ Item {
 
                 function iconClickAction(trayIconId) {
                     if (trayIconId == 'shutdown'){
-                        windowView.shutdown()
-                        hideAll.restart()
+                        rootWindow.displayWidth = 0
+                        rootWindow.hide()
                         if(rightBoxLoaderItem.iconId != ''){
                             trayIconList.currentIndex = iconIdToIndex[rightBoxLoaderItem.iconId]
+                            resetTimer.restart()
                         }
                         else{
                             trayIconList.currentIndex = -1
+                            initTrayIcon()
                         }
+                        sessionManager.PowerOffChoose()
                     }
                     else if (trayIconId == 'dss'){
                         expandHideTrayIcon()
