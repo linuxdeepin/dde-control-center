@@ -117,7 +117,7 @@ Item {
     TimezoneExpand {
         id: timeZoneArea
         anchors.top: beforeTimeZoneArea.bottom
-        property int leftHeight: parent.height - beforeTimeZoneArea.height - afterTimeZoneArea.height - 36
+        property int leftHeight: parent.height - beforeTimeZoneArea.height - afterTimeZoneArea.height - 40
     }
 
     Column {
