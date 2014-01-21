@@ -1,6 +1,7 @@
 import QtQuick 2.0
-import QtQuick.Controls 1.0
-import QtQuick.Controls.Styles 1.0
+import QtQuick.Controls 1.1
+import QtQuick.Controls.Styles 1.1
+import QtQuick.Layouts 1.1
 import Deepin.Widgets 1.0
 
 Item {
@@ -15,6 +16,7 @@ Item {
     property var allRotations: outputObj.ListRotations()
     property var resolutionModel: getResolutionModel(allResolutionModes)
     property var rotationModel: getRotationModel(allRotations)
+    property var initExpanded: false
 
     property var rotationNames: {
         1: "Normal",
@@ -90,7 +92,7 @@ Item {
             content.sourceComponent: Component{
                 Column{
                     width: parent.width
-                    height: resolutionArea.height + rotationArea.height
+                    height: childrenRect.height
 
                     DBaseExpand {
                         id: resolutionArea
@@ -99,7 +101,7 @@ Item {
                             text: dsTr("Resolution")
                             hintText: " (" + currentResolution + ")"
                             leftMargin: 25
-                            active: true
+                            active: initExpanded
                         }
                     
                         content.sourceComponent: DMultipleSelectView {
@@ -112,7 +114,8 @@ Item {
 
                             model: resolutionModel
                             onSelect: {
-                                outputObj.SetMode(allResolutionModes[index][0])
+                                //outputObj.SetMode(allResolutionModes[index][0])
+                                print(index)
                             }
                         }
                     }
@@ -126,7 +129,7 @@ Item {
                             text: dsTr("Rotation")
                             hintText: rotationNames[currentRotation]
                             leftMargin: 25
-                            active: true
+                            active: initExpanded
                         }
                     
                         content.sourceComponent: DMultipleSelectView {
@@ -139,12 +142,11 @@ Item {
 
                             model: rotationModel
                             onSelect: {
-                                outputObj.rotation = allRotations[index]
+                                //outputObj.rotation = allRotations[index]
+                                print(index)
                             }
                         }
                     }
-
-                    DSeparatorHorizontal {}
 
                 } //end Column
             } //end Component
@@ -152,4 +154,5 @@ Item {
 
         DSeparatorHorizontal {}
     } // end Column
+
 }
