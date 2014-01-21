@@ -75,11 +75,13 @@ Rectangle {
 
         DBaseExpand {
             id: desktop_icons
+            expanded: true
             property Item selectView
             
-            header.sourceComponent: DDownArrowHeader {
-                text: dsTr("Desktop Icons")
-                onClicked: desktop_icons.expanded = active
+            header.sourceComponent: DBaseLine {
+                leftLoader.sourceComponent: DssH2 {
+                    text: dsTr("Dock Display")
+                }
             }
             content.sourceComponent: DMultipleSelectView {
                 id: desktop_icons_select_view
@@ -132,11 +134,13 @@ Rectangle {
 
         DBaseExpand {
             id: dock_display
+            expanded: true
             property Item selectView
             
-            header.sourceComponent: DDownArrowHeader {
-                text: dsTr("Dock Display")
-                onClicked: dock_display.expanded = active
+            header.sourceComponent: DBaseLine {
+                leftLoader.sourceComponent: DssH2 {
+                    text: dsTr("Dock Display")
+                }
             }
             content.sourceComponent: DMultipleSelectView {
                 id: dock_display_select_view
@@ -216,7 +220,7 @@ Rectangle {
                     model.append({"label": dsTr("Launcher"), "selected": dde_desktop.topLeft == 2})
                 }
                 onSelect: {
-                    dde_desktop.SetTopLeftAction(index)
+                    dde_desktop.topLeft = index
                 }
             }
         }
@@ -241,7 +245,7 @@ Rectangle {
                     model.append({"label": dsTr("Launcher"), "selected": dde_desktop.bottomRight == 2})
                 }
                 onSelect: {
-                    dde_desktop.SetBottomRightAction(index)
+                    dde_desktop.bottomRight = index
                 }
             }
         }

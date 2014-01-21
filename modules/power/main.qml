@@ -46,9 +46,11 @@ Rectangle {
 
         DBaseExpand {
             id: power_button_rect
-            header.sourceComponent: DDownArrowHeader {
-                text: dsTr("When I press the sleep button")
-                onClicked: power_button_rect.expanded = active
+            expanded: true
+            header.sourceComponent: DBaseLine {
+                leftLoader.sourceComponent: DssH2 {
+                    text: dsTr("When I press the sleep button")
+                }
             }
             content.sourceComponent: DMultipleSelectView {
                 id: power_button_view
@@ -92,10 +94,12 @@ Rectangle {
         }
         DBaseExpand {
             id: close_the_lid_rect
+            expanded: true
             visible: dbus_system_info.isLaptop ? true : false
-            header.sourceComponent: DDownArrowHeader {
-                text: dsTr("When I close the lid")
-                onClicked: close_the_lid_rect.expanded = active
+            header.sourceComponent: DBaseLine {
+                leftLoader.sourceComponent: DssH2 {
+                    text: dsTr("When I close the lid")
+                }
             }
             content.sourceComponent: DMultipleSelectView {
                 id: close_the_lid_view
@@ -140,9 +144,11 @@ Rectangle {
         }
         DBaseExpand {
             id: power_plan_rect
-            header.sourceComponent: DDownArrowHeader {
-                text: dsTr("Power Plan")
-                onClicked: power_plan_rect.expanded = active
+            expanded: true
+            header.sourceComponent: DBaseLine {
+                leftLoader.sourceComponent: DssH2 {
+                    text: dsTr("Power plan")
+                }
             }
             content.sourceComponent: DMultipleSelectView {
                 id: power_plan_view
@@ -192,13 +198,13 @@ Rectangle {
 
         DBaseExpand {
             id: turn_off_monitor_rect
-
+            expanded: true
             property string headerText: dsTr("Turn off monitor")
 
-            header.sourceComponent: DDownArrowHeader {
-                id: turn_off_monitor_header
-                text: turn_off_monitor_rect.headerText
-                onClicked: turn_off_monitor_rect.expanded = active
+            header.sourceComponent: DBaseLine {
+                leftLoader.sourceComponent: DssH2 {
+                    text: turn_off_monitor_rect.headerText
+                }
             }
             content.sourceComponent: DRadioButton {
                 id: turn_off_monitor_button
@@ -249,15 +255,17 @@ Rectangle {
             }
         }
 
+        DSeparatorHorizontal{}
+
         DBaseExpand {
             id: suspend_rect
-
+            expanded: true
             property string headerText: dsTr("Suspend")
 
-            header.sourceComponent: DDownArrowHeader {
-                id: suspend_header
-                text: suspend_rect.headerText
-                onClicked: suspend_rect.expanded = active
+            header.sourceComponent: DBaseLine {
+                leftLoader.sourceComponent: DssH2 {
+                    text: suspend_rect.headerText
+                }
             }
             content.sourceComponent: DRadioButton {
                 id: suspend_button
@@ -310,6 +318,7 @@ Rectangle {
 
         DBaseExpand {
             id: wake_require_password_rect
+            
             header.sourceComponent: DSwitchButtonHeader {
                 id: wake_require_password_header
                 text: dsTr("Require password when computer wakes")
