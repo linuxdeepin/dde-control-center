@@ -3,7 +3,7 @@ import QtQuick 2.1
 ParallelAnimation {
     id: animation
 
-    property variant destination: round_image.parent.mapToItem(component_bg, round_image.x + 15, round_image.y)
+    property var destination: round_image.parent.mapToItem(component_bg, round_image.x + 15, round_image.y)
 
     property Item target: round_image
     property point startPoint: Qt.point(target.x, target.y)

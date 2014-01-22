@@ -6,8 +6,8 @@ Item {
     id: individuation
     anchors.fill: parent
 
-    property variant constants: DConstants {}
-    property variant dbus_individuation: Individuation {}
+    property var constants: DConstants {}
+    property var dbus_individuation: Individuation {}
     
     Column {
         anchors.top: parent.top

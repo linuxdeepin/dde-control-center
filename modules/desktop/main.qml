@@ -72,7 +72,7 @@ Rectangle {
         DssTitle { text: dsTr("Desktop") }
 
         DSeparatorHorizontal {}
-
+        DBaseLine {}
         DBaseExpand {
             id: desktop_icons
             expanded: true
@@ -131,7 +131,8 @@ Rectangle {
                 }
             }
         }
-
+        DSeparatorHorizontal {}
+        DBaseLine {}
         DBaseExpand {
             id: dock_display
             expanded: true
@@ -172,7 +173,8 @@ Rectangle {
                 }
             }
         }
-        
+        DSeparatorHorizontal {}
+        DBaseLine {}
         RaisedPart {
             title: dsTr("Hot Zone")
 

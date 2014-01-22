@@ -6,7 +6,7 @@ Item {
     width: 310
     height: column.height
 
-    property variant this_user: null
+    property var this_user: null
 
     signal avatarSet (Item item)
     signal avatarPictured (Item item, url path)

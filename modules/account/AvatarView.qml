@@ -6,7 +6,7 @@ Item {
     state: "default"
 
     property int verticalPadding: 8
-    property variant this_user: null
+    property var this_user: null
 
     signal avatarSet (Item item)
     signal avatarPictured (Item item, url path)

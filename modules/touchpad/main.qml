@@ -185,5 +185,7 @@ Item {
                 text: dsTr("Reset")
             }
         }
+
+        DSeparatorHorizontal {}
     }
 }
