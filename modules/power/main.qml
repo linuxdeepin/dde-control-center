@@ -92,6 +92,7 @@ Rectangle {
                 }
             }
         }
+        DSeparatorHorizontal{}
         DBaseExpand {
             id: close_the_lid_rect
             expanded: true
@@ -142,6 +143,7 @@ Rectangle {
                 }
             }
         }
+        DSeparatorHorizontal{}        
         DBaseExpand {
             id: power_plan_rect
             expanded: true
@@ -195,7 +197,7 @@ Rectangle {
                 }
             }
         }
-
+        DSeparatorHorizontal{}
         DBaseExpand {
             id: turn_off_monitor_rect
             expanded: true
@@ -254,9 +256,7 @@ Rectangle {
                 }
             }
         }
-
         DSeparatorHorizontal{}
-
         DBaseExpand {
             id: suspend_rect
             expanded: true
@@ -315,7 +315,8 @@ Rectangle {
                 }
             }
         }
-
+        
+        DSeparatorHorizontal{}
         DBaseExpand {
             id: wake_require_password_rect
             
@@ -336,6 +337,7 @@ Rectangle {
                 }
             }
         }
+        DSeparatorHorizontal{}
 
     /* DBaseExpand { */
     /*     id: tray_show_battery_state */
