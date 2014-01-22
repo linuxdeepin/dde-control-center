@@ -5,16 +5,25 @@ Item {
     width: 100
     height: 100
 
+    property bool radioMode: true
     property int spacing: 5
     property int lineHeight: 22
     property int horizontalPadding: 6
     property variant model: ListModel{}
 
+    property var selectedItems: []
+
     signal itemSelected (int idx, string itemId)
+    signal itemDeselected (int idx, string itemId)
     signal selectItemPrivate (string id)
+    signal deselectItemPrivate (string id)
 
     function select (itemId) {
         selectItemPrivate(itemId)
+    }
+
+    function deselect(itemId) {
+        deselectItemPrivate(itemId)
     }
 
     Flow {
@@ -27,19 +36,25 @@ Item {
         Repeater {
             model: root.model
             Item {
-
                 id: delegate
                 state: "normal"
                 width: Math.max(label.implicitWidth + horizontalPadding, itemWidth)
                 height: root.lineHeight
 
                 function select () {
-                    delegate.state = "selected"
-                    root.itemSelected(index, itemId)
+                    if (delegate.state == "normal") {
+                        delegate.state = "selected"
+                        root.selectedItems.push(itemId)
+                        root.itemSelected(index, itemId)
+                    }
                 }
 
                 function deselect () {
-                    delegate.state = "normal"
+                    if (delegate.state == "selected") {
+                        delegate.state = "normal"
+                        root.selectedItems.splice(root.selectedItems.indexOf(itemId), 1)
+                        root.itemDeselected(index, itemId)
+                    }
                 }
 
                 Connections {
@@ -47,7 +62,13 @@ Item {
                     onSelectItemPrivate: {
                         if (itemId == id) {
                             delegate.select()
-                        } else {
+                        } else if (root.radioMode) {
+                            delegate.deselect()
+                        }
+
+                    }
+                    onDeselectItemPrivate: {
+                        if (itemId == id && root.selectedItems.length != 1) {
                             delegate.deselect()
                         }
                     }
@@ -95,7 +116,17 @@ Item {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        root.select(itemId)
+                        if (delegate.state == "normal") {
+                            root.select(itemId)
+                        } else {
+                            root.deselect(itemId)
+                        }
+                    }
+                }
+
+                Component.onCompleted: {
+                    if (root.selectedItems.indexOf(itemId) != -1) {
+                        delegate.state = "selected"
                     }
                 }
             }
@@ -110,7 +141,7 @@ Item {
                It returns true if the action success, otherwise false.
                */
             function insertToRow(rowStart, itemIndex) {
-				var spacing = flow.spacing
+                var spacing = flow.spacing
                 var totalWidth = 0
                 for (var i = rowStart; i <= itemIndex; i++) {
                     totalWidth += getStringWidth(model.get(i).itemText) + horizontalPadding + spacing
@@ -123,11 +154,11 @@ Item {
             }
 
             function updateRow(rowStart, rowEnd) {
-				var spacing = flow.spacing
+                var spacing = flow.spacing
                 var totalWidth = 0
                 var space = 0
                 for (var i = rowStart; i <= rowEnd; i++) {
-                    totalWidth += getStringWidth(model.get(i).itemText) + horizontalPadding + spacing 
+                    totalWidth += getStringWidth(model.get(i).itemText) + horizontalPadding + spacing
                 }
                 space = root.width - (totalWidth - spacing)
                 for (var i = rowStart; i <= rowEnd; i++) {
