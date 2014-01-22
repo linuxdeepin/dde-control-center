@@ -179,7 +179,7 @@ Item {
                 ListView {
                     id: layoutList
                     width: parent.width
-                    height: keyboardModule.height - contentColumn.height - 34
+                    height: keyboardModule.height - contentColumn.height - 74
 
                     property var layoutKeyAndIndex: {
                         var obj = new Object();
@@ -232,5 +232,13 @@ Item {
         } // end DBaseExpand
 
         DSeparatorHorizontal {}
+
+        DBaseLine{
+            height: 40
+            rightMargin: 10
+            rightLoader.sourceComponent: DTextButton{
+                text: dsTr("Reset")
+            }
+        }
     }
 }

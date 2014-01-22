@@ -153,5 +153,13 @@ Item {
         }
 
         DSeparatorHorizontal {}
+
+        DBaseLine{
+            height: 40
+            rightMargin: 10
+            rightLoader.sourceComponent: DTextButton{
+                text: dsTr("Reset")
+            }
+        }
     }
 }

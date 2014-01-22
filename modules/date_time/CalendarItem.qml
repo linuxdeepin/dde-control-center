@@ -84,6 +84,7 @@ Rectangle {
 
     MouseArea {
         anchors.fill: parent
+        hoverEnabled: true
         onWheel: {
             if (wheel.angleDelta.y < 0){
                 var new_date = CalendarCore.getDateWidthMonthStep(curDate, 1)
@@ -103,6 +104,12 @@ Rectangle {
                 calendarItem.GridView.view.currentIndex = index
                 calendarWidget.cur_calendar.clickedDateObject = new Date(dateValue)
             }
+        }
+        onEntered: {
+            toolTip.showTip(dateValue)
+        }
+        onExited: {
+            toolTip.hideTip()
         }
     }
 }

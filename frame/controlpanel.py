@@ -92,6 +92,11 @@ class ControlPanel(QQuickView):
         rect = QDBusReply(message).value()
         self.set_geometry(rect)
 
+    @pyqtSlot(result=QVariant)
+    def getCursorPos(self):
+        qpoint = self.cursor().pos()
+        return [qpoint.x(), qpoint.y()]
+
     def fileChangedNotify(self, path):
         self.engine_obj.clearComponentCache()
         module_id = path.split(self.modules_dir)[1].split("/")[1]

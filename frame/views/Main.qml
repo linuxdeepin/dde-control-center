@@ -14,6 +14,7 @@ Item {
 
     property bool clickedToHide: true
     property var displayId: Display {}
+    property var toolTip: ToolTip {}
 
     QtObject {
         id: screenSize
