@@ -12,7 +12,7 @@ Rectangle {
     property int rightPadding: 15
     property int avatarNamePadding: 30
     
-    signal confirmed (variant userInfo)
+    signal confirmed (var userInfo)
     signal cancelled
     
     function warnUserName() {

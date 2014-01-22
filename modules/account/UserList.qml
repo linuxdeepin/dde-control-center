@@ -41,7 +41,7 @@ ListView {
 
             width: 310
             height: component_top.height + component_sep.height
-            property variant this_user: User { path: userDBusPath}
+            property var this_user: User { path: userDBusPath}
 
             Connections {
 
@@ -174,7 +174,7 @@ ListView {
                 ParallelAnimation {
                     id: animation
 
-                    property variant destination: round_image.parent.mapToItem(component_bg, round_image.x + 15, round_image.y)
+                    property var destination: round_image.parent.mapToItem(component_bg, round_image.x + 15, round_image.y)
 
                     property Item target: round_image
                     property point startPoint: Qt.point(target.x, target.y)

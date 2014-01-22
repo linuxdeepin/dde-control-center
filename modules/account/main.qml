@@ -11,7 +11,7 @@ Rectangle {
     Accounts { id: dbus_accounts }
     User { id: dbus_user}
 
-    property variant constants: DConstants {}
+    property var constants: DConstants {}
 
     Column {
         id: main_column

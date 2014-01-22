@@ -9,7 +9,7 @@ Item {
     property int spacing: 5
     property int lineHeight: 22
     property int horizontalPadding: 6
-    property variant model: ListModel{}
+    property var model: ListModel{}
 
     property var selectedItems: []
 

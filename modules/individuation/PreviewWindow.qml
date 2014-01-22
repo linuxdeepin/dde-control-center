@@ -11,7 +11,7 @@ Window {
     color: "transparent"
 
     property int pointer: 0
-    property variant previews: [
+    property var previews: [
         "/home/hualet/Pictures/wallpapers-collect/firefox.jpg",
         "/home/hualet/Pictures/wallpapers-collect/xingkong.jpg",
         "/home/hualet/Pictures/wallpapers-collect/yuzhou17.jpg",
