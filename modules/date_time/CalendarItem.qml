@@ -12,6 +12,7 @@ Rectangle {
     property bool grey: isGrey
     property bool isClicked: false
     property var curDate: new Date(dateValue)
+    property var lunarDay: windowView.getLunarDay(dateValue)
 
     // start border
     Rectangle{
@@ -72,14 +73,37 @@ Rectangle {
         visible: isCurrentDate
     }
 
-
-    Text {
-        id: inText
+    Column {
         anchors.centerIn: parent
+        width: parent.width - 2
+        height: childrenRect.height
 
-        font.pixelSize: 12
-        color: grey ? "#444" : "white"
-        text: curDate.getDate()
+        Text {
+            id: inText
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            font.pixelSize: 10
+            color: grey ? "#444" : dconstants.fgColor
+            text: curDate.getDate()
+        }
+
+        Text {
+            id: lunarDayLabel
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            font.pixelSize: 10
+            color: {
+                if(lunarDay[2]){
+                    return Qt.rgba(0, 144/255, 1, 1.0)
+                }
+                else if(grey){
+                    return "#444"
+                }
+                return dconstants.fgColor
+            }
+            text: lunarDay[2] ? lunarDay[2] : lunarDay[0]
+            visible: dsslocale.lang == "zh"
+        }
     }
 
     MouseArea {
@@ -106,7 +130,14 @@ Rectangle {
             }
         }
         onEntered: {
-            toolTip.showTip(dateValue)
+            var tipStr = ""
+            if(dsslocale.lang == "zh"){
+                tipStr = lunarDay[1]
+            }
+            else{
+                tipStr = dateValue
+            }
+            toolTip.showTip(tipStr)
         }
         onExited: {
             toolTip.hideTip()

@@ -51,7 +51,7 @@ Rectangle {
         anchors.centerIn: parent
 
         font.pixelSize: 12
-        color: highlight ? highlightColor : "white"
+        color: highlight ? highlightColor : dconstants.fgColor
         text: dayText
     }
 
