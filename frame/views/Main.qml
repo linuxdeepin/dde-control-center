@@ -3,6 +3,7 @@ import QtQuick.Window 2.1
 import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Display 1.0
+import DBus.Com.Deepin.Daemon.InputDevices 1.0
 
 Item {
     id: root
@@ -15,6 +16,24 @@ Item {
     property bool clickedToHide: true
     property var displayId: Display {}
     property var toolTip: ToolTip {}
+    property var inputDevicesId: InputDevices {}
+
+    property var inputDevices: {
+        var devices = new Object()
+        for(var i in inputDevicesId.devInfoList){
+            var path = inputDevicesId.devInfoList[i][0]
+            var type = inputDevicesId.devInfoList[i][1]
+            if(typeof devices[type] == "undefined"){
+                var paths = new Array()
+                paths.push(path)
+                devices[type] = paths
+            }
+            else{
+                devices[type].push(path)
+            }
+        }
+        return devices
+    }
 
     QtObject {
         id: screenSize

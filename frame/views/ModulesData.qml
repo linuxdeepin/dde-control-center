@@ -37,22 +37,22 @@ Item {
 
     property var allIds: [
             //"notification",
-            "network",
-            "disk_mount",
-            "bluetooth",
-            "sound",
-            "power",
-            "date_time",
+            "system_info",
+            "default_applications",
+            "desktop",
+            "display",
             "mouse",
             "touchpad",
             "keyboard",
             "shortcuts",
-            "display",
+            "disk_mount",
+            "bluetooth",
+            "sound",
+            "power",
             "account",
-            "desktop",
             "individuation",
-            "default_applications",
-            "system_info",
+            "network",
+            "date_time",
             "shutdown"
         ]
 

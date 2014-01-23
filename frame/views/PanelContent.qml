@@ -34,9 +34,16 @@ Item {
         trayIconModel.clear()
         for (var i in modules_id_array){
             var module_id = modules_id_array[i]
-            trayIconModel.append({
-                "moduleId": module_id,
-            })
+            if(module_id != "touchpad"){
+                trayIconModel.append({
+                    "moduleId": module_id,
+                })
+            }
+            else if("module_id" == "touchpad" && typeof inputDevices[module_id] != "undefined"){
+                trayIconModel.append({
+                    "moduleId": module_id,
+                })
+            }
         }
         iconIdToIndex = new Object()
         for(var i=0; i<trayIconModel.count; i++){
