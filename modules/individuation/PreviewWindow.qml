@@ -1,6 +1,6 @@
 import QtQuick 2.1
 import QtQuick.Window 2.1
-import "../widgets"
+import Deepin.Widgets 1.0
 
 Window {
     id: root
