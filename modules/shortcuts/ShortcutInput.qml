@@ -81,7 +81,7 @@ FocusScope {
                 print("Release:", arg0)
                 if( arg0 == 'escape' | !arg0 ){
                 }
-                else if( arg0=="backSpace" ){
+                else if( arg0=="backspace" ){
                     bindManagerId.ChangeShortcut(currentShortcutId, "")
                 }
                 else {

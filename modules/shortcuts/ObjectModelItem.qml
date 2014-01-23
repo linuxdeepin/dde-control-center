@@ -8,6 +8,23 @@ Column {
     property bool isConflictValid: false
     property bool isConflictInvalid: false
 
+    property var keyBindingIds: {
+        var obj = new Object()
+        for(var i in keyBindings){
+            obj[keyBindings[i][0]] = keyBindings[i][1]
+        }
+        return obj
+    }
+
+    property url iconPath: {
+        for(var i in conflictInvalid){
+            if(typeof keyBindingIds[conflictInvalid[i]] != "undefined"){
+                return "images/error_key.png"
+            }
+        }
+        return ""
+    }
+
     DBaseExpand {
         id: expand
 
@@ -20,17 +37,7 @@ Column {
         header.sourceComponent: DDownArrowHeader {
             text: name
             width: parent.width
-            icon: {
-                if(isConflictInvalid){
-                    return "images/error_key.png"
-                }
-                else if(isConflictValid){
-                    return "images/conflict_key.png"
-                }
-                else{
-                    return ""
-                }
-            }
+            icon: iconPath
             leftMargin: icon ? 20 : 0
             rightMargin: 15
             
@@ -56,13 +63,11 @@ Column {
                     warning: {
                         for(var i in conflictValid){
                             if (keyBindings[index][0] == conflictValid[i]){
-                                isConflictValid = true
                                 return "conflict"
                             }
                         }
                         for(var i in conflictInvalid){
                             if (keyBindings[index][0] == conflictInvalid[i]){
-                                isConflictInvalid = true
                                 return "error"
                             }
                         }
