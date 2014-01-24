@@ -1,5 +1,4 @@
 import QtQuick 2.1
-import QtQuick.Dialogs 1.0
 import Deepin.Widgets 1.0
 
 Rectangle {
@@ -35,9 +34,9 @@ Rectangle {
                 height: 30
             }
         }
-        
+
         DSeparatorHorizontal{}
-        
+
         DBaseExpand {
             id: resolution_expand
 
@@ -52,9 +51,9 @@ Rectangle {
                 height: 30
             }
         }
-        
+
         DSeparatorHorizontal{}
-        
+
         DBaseExpand {
             id: theme_expand
 
@@ -67,13 +66,6 @@ Rectangle {
             content.sourceComponent: Rectangle {
                 width: 310
                 height: 30
-            }
-        }
-        
-        ColorDialog {
-            title: "choose"
-            Component.onCompleted: {
-                open()
             }
         }
     }
