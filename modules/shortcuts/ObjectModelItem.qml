@@ -62,12 +62,12 @@ Column {
                     info: keyBindings[index]
                     warning: {
                         for(var i in conflictValid){
-                            if (keyBindings[index][0] == conflictValid[i]){
+                            if (info[0] == conflictValid[i]){
                                 return "conflict"
                             }
                         }
                         for(var i in conflictInvalid){
-                            if (keyBindings[index][0] == conflictInvalid[i]){
+                            if (info[0] == conflictInvalid[i]){
                                 return "error"
                             }
                         }
