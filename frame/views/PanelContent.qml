@@ -39,7 +39,7 @@ Item {
                     "moduleId": module_id,
                 })
             }
-            else if("module_id" == "touchpad" && typeof inputDevices[module_id] != "undefined"){
+            else if(module_id == "touchpad" && typeof inputDevices[module_id] != "undefined"){
                 trayIconModel.append({
                     "moduleId": module_id,
                 })
