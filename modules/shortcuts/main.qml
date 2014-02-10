@@ -3,7 +3,7 @@ import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import QtQml.Models 2.1
 import DBus.Com.Deepin.Daemon.KeyBinding 1.0
-import DBus.Com.Deepin.Api.Pinyin 1.0
+import DBus.Com.Deepin.Api.Search 1.0
 import Deepin.Widgets 1.0
 import "./shortcuts_maps.js" as ShortcutsMap
 
@@ -16,14 +16,15 @@ Item {
 
     property var grabManagerId: GrabKey {}
     property var bindManagerId: KeyBinding {}
-    property var pinyinId: PinyinTrie {}
+    property var searchId: Search {}
 
     property int currentShortcutId: -1
     property int expandItemIndex: -1
     property var conflictInvalid: bindManagerId.conflictInvalid
     property var conflictValid: bindManagerId.conflictValid
-    property string searchMd5: pinyinId.NewTrieWithString(searchObject.keywords, "deepin-system-settings.shortcuts")
 
+    property string searchMd5
+    property string currentSearchKeyword: ""
     property var searchObject: {
         var keywords = {}
         var allKeybindings = {}
@@ -35,6 +36,7 @@ Item {
                 allKeybindings[temp_list[0]] = temp_list
             }
         }
+        default_applications.searchMd5 = searchId.NewTrieWithString(keywords, "deepin-system-settings.shortcuts")
         return {
             "keywords": JSON.parse(JSON.stringify(keywords)),
             "keyBindings": JSON.parse(JSON.stringify(allKeybindings))
@@ -211,7 +213,7 @@ Item {
                 property var keyData: {
                     var resultKeyBindings = new Array()
                     if(keyword){
-                        var results = pinyinId.SearchKeys(keyword, searchMd5)
+                        var results = searchId.SearchKeys(keyword, searchMd5)
                         for(var i in results){
                             resultKeyBindings.push(searchObject["keyBindings"][results[i]])
                         }

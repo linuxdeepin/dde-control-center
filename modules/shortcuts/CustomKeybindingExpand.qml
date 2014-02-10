@@ -39,29 +39,17 @@ Column {
             header.item.active = expanded
         }
         
-        //header.sourceComponent: DDownArrowHeader {
-            //text: name
-            //width: parent.width
-            ////icon: iconpath
-            //leftMargin: icon ? 20 : 0
-            //rightMargin: 15
-            
-            //Component.onCompleted: {
-                //active = expand.expanded
-            //}
-
-            //onClicked: {
-                //expanditemindex = active ? myindex : -1
-            //}
-        //}
-
         header.sourceComponent: DBaseLine {
+            property bool active: false
+
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
+                    active = !active
                     expandItemIndex = active ? myIndex : -1
                 }
             }
+
             leftLoader.sourceComponent: Row {
                 anchors.left: parent.left
                 anchors.leftMargin: 5
@@ -74,6 +62,9 @@ Column {
                 DssH2 {
                     text: name
                 }
+            }
+
+            rightLoader.sourceComponent: Row {
             }
 
         }
