@@ -2,13 +2,32 @@ import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import Deepin.Widgets 1.0
+import DBus.Com.Deepin.Daemon.Audio 1.0
 
 Item {
+    id: soundModule
     anchors.fill: parent
 
     property int contentLeftMargin: 22
     property int contentHeight: 60
     property int sliderWidth: 170
+
+    property var audioId: Audio {}
+
+    property var currentSink: {
+        var sinkPaths = audioId.GetSinks()
+        return sinkComponent.createObject(soundModule, {path: sinkPaths[0]})
+    }
+
+    Component {
+        id: sinkComponent
+        Output {}
+    }
+
+    Component {
+        id: sourceComponent
+        Input {}
+    }
 
     Column {
         anchors.top: parent.top
@@ -30,7 +49,7 @@ Item {
 
             rightLoader.sourceComponent: Component{
                 DSwitchButton {
-                    checked: true
+                    checked: currentSink.Mute
                     onClicked: {
                     }
                 }

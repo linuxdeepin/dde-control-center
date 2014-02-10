@@ -25,14 +25,20 @@ Item {
 
         DBaseLine {
             height: 44
-            leftLoader.sourceComponent: DssH2 {
-                text: dsTr("Custom")
+            leftMargin: contentLeftMargin + 3
+            leftLoader.sourceComponent: Item{
+                width: parent.height
+                height: parent.height
+                Image {
+                    anchors.centerIn: parent
+                    source: mouseID.useHabit ? "images/mouse_right.png" : "images/mouse_left.png"
+                }
             }
             rightLoader.sourceComponent: DRadioButton {
                 currentIndex: mouseID.useHabit ? 1 : 0
                 buttonModel: [
-                    {"buttonId": "left_hand", "buttonLabel": dsTr("Left Hand")},
-                    {"buttonId": "right_hand", "buttonLabel": dsTr("Right Hand")}
+                    {"buttonId": "right_hand", "buttonLabel": dsTr("Right Hand")},
+                    {"buttonId": "left_hand", "buttonLabel": dsTr("Left Hand")}
                 ]
 
                 onItemSelected: {

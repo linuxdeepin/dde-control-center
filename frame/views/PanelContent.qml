@@ -12,7 +12,7 @@ Item {
     property alias moduleBox: rightBox
     property var iconIdToIndex
 
-    property var sessionManager: SessionManager {}
+    //property var sessionManager: SessionManager {}
     property var modulesId: ModulesData {}
     property bool inExpandHideTrayIcon: false
     property bool inDssHome: true
@@ -149,7 +149,8 @@ Item {
                             trayIconList.currentIndex = -1
                             initTrayIcon()
                         }
-                        sessionManager.PowerOffChoose()
+                        //sessionManager.PowerOffChoose()
+                        print("show PowerOffChoose")
                     }
                     else if (trayIconId == 'dss'){
                         expandHideTrayIcon()
