@@ -12,6 +12,7 @@ Item {
     property int lineHeight: 30
     property int contentHeight: 60
     property int sliderWidth: 170
+    property int leftWidth: 100
 
     property var audioId: Audio {}
     property var listModelComponent: DListModelComponent {}
@@ -117,7 +118,7 @@ Item {
         DBaseLine {
             height: contentHeight
             leftMargin: contentLeftMargin
-            leftLoader.sourceComponent: DssH2 {
+            leftLoader.sourceComponent: LeftTitle {
                 text: dsTr("Output Volume")
             }
             rightLoader.sourceComponent: DSliderRect {
@@ -135,7 +136,7 @@ Item {
         DBaseLine {
             height: contentHeight
             leftMargin: contentLeftMargin
-            leftLoader.sourceComponent: DssH2 {
+            leftLoader.sourceComponent: LeftTitle {
                 text: dsTr("Balance")
             }
             rightLoader.sourceComponent: DSliderRect {
@@ -221,7 +222,7 @@ Item {
         DBaseLine {
             height: contentHeight
             leftMargin: contentLeftMargin
-            leftLoader.sourceComponent: DssH2 {
+            leftLoader.sourceComponent: LeftTitle {
                 text: dsTr("Input Volume")
             }
             rightLoader.sourceComponent: DSliderRect {
@@ -239,7 +240,7 @@ Item {
         DBaseLine {
             height: contentHeight
             leftMargin: contentLeftMargin
-            leftLoader.sourceComponent: DssH2 {
+            leftLoader.sourceComponent: LeftTitle {
                 text: dsTr("Input Level")
             }
             rightLoader.sourceComponent: DSliderRect {
@@ -254,6 +255,16 @@ Item {
 
         DSeparatorHorizontal {}
 
+        DBaseLine{
+            rightLoader.sourceComponent: LinkButton {
+                text: "高级设置..."
+                onClicked: {
+                    visible = false
+                    advancedSettings.visible = true
+                }
+            }
+        }
+
     }
 
     Column {
@@ -261,8 +272,7 @@ Item {
         anchors.top: normalSettings.bottom
         width: parent.width
         height: childrenRect.height
-
-        DBaseLine{}
+        visible: false
         
         DBaseLine{
             leftLoader.sourceComponent: DssH2 {
