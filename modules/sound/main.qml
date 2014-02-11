@@ -9,15 +9,15 @@ Item {
     anchors.fill: parent
 
     property int contentLeftMargin: 22
+    property int lineHeight: 30
     property int contentHeight: 60
     property int sliderWidth: 170
 
     property var audioId: Audio {}
+    property var listModelComponent: DListModelComponent {}
 
-    property var currentSink: {
-        var sinkPaths = audioId.GetSinks()
-        return sinkComponent.createObject(soundModule, {path: sinkPaths[0]})
-    }
+    property var currentSink: inputDeviceList.currentItem.itemObj
+    property var currentSource: outputDeviceList.currentItem.itemObj
 
     Component {
         id: sinkComponent
@@ -30,27 +30,40 @@ Item {
     }
 
     Column {
+        id: titleColumn
         anchors.top: parent.top
         width: parent.width
+        height: childrenRect.height
 
         DssTitle {
             text: dsTr("Sound")
         }
 
         DSeparatorHorizontal{}
+    }
+
+    Column {
+        id: normalSettings
+        anchors.top: titleColumn.bottom
+        width: parent.width
+        height: childrenRect.height
+
+        Behavior on x {
+            NumberAnimation { duration: 300 }
+        }
 
         DBaseLine{height: 8}
         DBaseLine {
             leftLoader.sourceComponent: DssH2 {
                 text: dsTr("Speaker")
-                //font.bold: true
                 color: "#fff"
             }
 
             rightLoader.sourceComponent: Component{
                 DSwitchButton {
-                    checked: currentSink.Mute
+                    checked: currentSink.mute
                     onClicked: {
+                        currentSink.mute = checked
                     }
                 }
             }
@@ -70,53 +83,33 @@ Item {
             }
             content.sourceComponent: Rectangle {
                 width: parent.width
-                height: outputList.count * 30
+                height: childrenRect.height
                 color: dconstants.contentBgColor
 
                 ListView {
-                    id: outputList
-                    anchors.fill: parent
+                    id: outputPortList
                     focus: true
-                    currentIndex: 0
+                    currentIndex: currentSink.activePort
 
-                    model: ListModel {
-                        ListElement { name: "Inner" }
-                        ListElement { name: "Headset" }
+                    model: {
+                        var outputPortListModel = listModelComponent.createObject(outputPortList, {})
+                        var ports = currentSink.ports
+                        outputPortList.height = ports.length * lineHeight
+                        for(var i=0; i<ports.length; i++){
+                            var portObj = {}
+                            portObj['id'] = ports[i][0]
+                            portObj['name'] = ports[i][1]
+                            portObj['choose'] = ports[i][2]
+
+                            outputPortListModel.append({
+                                "name": ports[i][1],
+                                "obj": portObj
+                            })
+                        }
+                        return outputPortListModel
                     }
 
-                    delegate: Item {
-                        anchors.left: parent.left
-                        anchors.leftMargin: contentLeftMargin
-                        width: parent.width
-                        height: 30
-
-                        Row {
-                            spacing: 5
-                            anchors.verticalCenter: parent.verticalCenter
-                            
-                            Image {
-                                id: nameImage
-                                anchors.verticalCenter: parent.verticalCenter
-                                source: "images/select.png"
-                                opacity: outputList.currentIndex == index ? 1 : 0
-                            }
-                            
-                            DssH3 {
-                                id: nameText
-                                anchors.verticalCenter: parent.verticalCenter
-                                text: name 
-                                color: outputList.currentIndex == index ? Qt.rgba(0, 144/255, 1, 1.0) :dconstants.fgColor
-                                font.pixelSize: 12
-                            }
-                        }
-
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: { 
-                                parent.ListView.view.currentIndex = index
-                            }
-                        }
-                    }
+                    delegate: ChooseItem {}
                 }
             }
         }
@@ -132,8 +125,9 @@ Item {
                 leftLabel: dsTr("-")
                 rightLabel: dsTr("+")
 
-                value: 0.47
+                value: currentSink.volume/100
                 onValueChanged: {
+                    currentSink.volume = parseInt(value * 100)
                 }
             }
         }
@@ -149,8 +143,9 @@ Item {
                 leftLabel: dsTr("Left")
                 rightLabel: dsTr("Right")
 
-                value: 0.5
+                value: (currentSink.balance+1)/2
                 onValueChanged: {
+                    currentSink.balance = value * 2 - 1
                 }
             }
         }
@@ -171,8 +166,9 @@ Item {
 
             rightLoader.sourceComponent: Component{
                 DSwitchButton {
-                    checked: true
+                    checked: currentSource.mute
                     onClicked: {
+                        currentSource.mute = checked
                     }
                 }
             }
@@ -191,53 +187,33 @@ Item {
             }
             content.sourceComponent: Rectangle {
                 width: parent.width
-                height: inputList.count * 30
+                height: childrenRect.height
                 color: dconstants.contentBgColor
 
                 ListView {
-                    id: inputList
-                    anchors.fill: parent
+                    id: inputPortList
                     focus: true
-                    currentIndex: 0
+                    currentIndex: currentSource.activePort
 
-                    model: ListModel {
-                        ListElement { name: "Inner" }
-                        ListElement { name: "Headset" }
+                    model: {
+                        var inputPortListModel = listModelComponent.createObject(inputPortList, {})
+                        var ports = currentSource.ports
+                        inputPortList.height = ports.length * lineHeight
+                        for(var i=0; i<ports.length; i++){
+                            var portObj = {}
+                            portObj['id'] = ports[i][0]
+                            portObj['name'] = ports[i][1]
+                            portObj['choose'] = ports[i][2]
+
+                            inputPortListModel.append({
+                                "name": ports[i][1],
+                                "obj": portObj
+                            })
+                        }
+                        return inputPortListModel
                     }
 
-                    delegate: Item {
-                        anchors.left: parent.left
-                        anchors.leftMargin: contentLeftMargin
-                        width: parent.width
-                        height: 30
-
-                        Row {
-                            spacing: 5
-                            anchors.verticalCenter: parent.verticalCenter
-                            
-                            Image {
-                                id: nameImage
-                                anchors.verticalCenter: parent.verticalCenter
-                                source: "images/select.png"
-                                opacity: inputList.currentIndex == index ? 1 : 0
-                            }
-                            
-                            DssH3 {
-                                id: nameText
-                                anchors.verticalCenter: parent.verticalCenter
-                                text: name 
-                                color: inputList.currentIndex == index ? Qt.rgba(0, 144/255, 1, 1.0) :dconstants.fgColor
-                                font.pixelSize: 12
-                            }
-                        }
-
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: { 
-                                parent.ListView.view.currentIndex = index
-                            }
-                        }
-                    }
+                    delegate: ChooseItem {}
                 }
             }
         }
@@ -253,8 +229,9 @@ Item {
                 leftLabel: dsTr("-")
                 rightLabel: dsTr("+")
 
-                value: 0.47
+                value: currentSource.volume/100
                 onValueChanged: {
+                    currentSource.volume = parseInt(value * 100)
                 }
             }
         }
@@ -268,19 +245,99 @@ Item {
             rightLoader.sourceComponent: DSliderRect {
                 width: sliderWidth
 
-                value: 0.5
+                value: (currentSource.balance+1)/2
                 onValueChanged: {
+                    currentSource.balance = value * 2 - 1
                 }
             }
         }
 
         DSeparatorHorizontal {}
 
+    }
+
+    Column {
+        id: advancedSettings
+        anchors.top: normalSettings.bottom
+        width: parent.width
+        height: childrenRect.height
+
+        DBaseLine{}
+        
         DBaseLine{
-            height: 40
-            rightLoader.sourceComponent: DTextButton{
-                text: dsTr("Advanced")
+            leftLoader.sourceComponent: DssH2 {
+                text: "高级设置"
+                color: "#fff"
             }
         }
+        DSeparatorHorizontal{}
+
+        DBaseLine{
+            leftMargin: contentLeftMargin
+            leftLoader.sourceComponent: DssH2 {
+                text: "选择音频输入设备"
+            }
+        }
+        DSeparatorHorizontal {}
+
+        ListView{
+            id: inputDeviceList
+            property int lineHeight: 30
+
+            width: parent.width
+
+            model: {
+                var inputDeviceListModel = listModelComponent.createObject(inputDeviceList, {})
+                var sinkPaths = audioId.GetSinks()
+                inputDeviceList.height = sinkPaths.length * lineHeight
+                for(var i=0; i<sinkPaths.length; i++){
+                    var sinkObj = sinkComponent.createObject(soundModule, { path: sinkPaths[i] })
+                    inputDeviceListModel.append({
+                        "name": sinkObj.description,
+                        "obj": sinkObj
+                    })
+                }
+                return inputDeviceListModel
+            }
+
+            delegate: ChooseItem {}
+        }
+
+        DSeparatorHorizontal {}
+
+        DBaseLine{
+            leftMargin: contentLeftMargin
+            leftLoader.sourceComponent: DssH2 {
+                text: "选择音频输出设备"
+            }
+        }
+        DSeparatorHorizontal {}
+
+        ListView{
+            id: outputDeviceList
+            property int lineHeight: 30
+
+            width: parent.width
+            height: model.count * lineHeight
+            currentIndex: 1
+
+            model: {
+                var outputDeviceListModel = listModelComponent.createObject(outputDeviceList, {})
+                var sourcePaths = audioId.GetSources()
+                outputDeviceList.height = sourcePaths.length * lineHeight
+                for(var i=0; i<sourcePaths.length; i++){
+                    var sourceObj = sourceComponent.createObject(soundModule, { path: sourcePaths[i] })
+                    outputDeviceListModel.append({
+                        "name": sourceObj.description,
+                        "obj": sourceObj
+                    })
+                }
+                return outputDeviceListModel
+            }
+
+            delegate: ChooseItem {}
+        }
+
+        DSeparatorHorizontal {}
     }
 }
