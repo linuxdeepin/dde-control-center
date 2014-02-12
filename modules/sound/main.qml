@@ -13,12 +13,19 @@ Item {
     property int contentHeight: 60
     property int sliderWidth: 170
     property int leftWidth: 100
+    property color titleColor: "#ffffff"
 
     property var audioId: Audio {}
     property var listModelComponent: DListModelComponent {}
 
     property var currentSink: inputDeviceList.currentItem.itemObj
     property var currentSource: outputDeviceList.currentItem.itemObj
+
+    Component.onCompleted: {
+        if (dsslocale.lang == "zh") {
+            leftWidth = 80
+        }
+    }
 
     Component {
         id: sinkComponent
@@ -57,14 +64,14 @@ Item {
         DBaseLine {
             leftLoader.sourceComponent: DssH2 {
                 text: dsTr("Speaker")
-                color: "#fff"
+                color: titleColor
             }
 
             rightLoader.sourceComponent: Component{
                 DSwitchButton {
-                    checked: currentSink.mute
+                    checked: !currentSink.mute
                     onClicked: {
-                        currentSink.mute = checked
+                        currentSink.mute = !checked
                     }
                 }
             }
@@ -114,6 +121,7 @@ Item {
                 }
             }
         }
+        DSeparatorHorizontal{}
 
         DBaseLine {
             height: contentHeight
@@ -161,15 +169,14 @@ Item {
         DBaseLine {
             leftLoader.sourceComponent: DssH2 {
                 text: dsTr("Microphone")
-                //font.bold: true
-                color: "#fff"
+                color: titleColor
             }
 
             rightLoader.sourceComponent: Component{
                 DSwitchButton {
-                    checked: currentSource.mute
+                    checked: !currentSource.mute
                     onClicked: {
-                        currentSource.mute = checked
+                        currentSource.mute = !checked
                     }
                 }
             }
@@ -218,6 +225,7 @@ Item {
                 }
             }
         }
+        DSeparatorHorizontal{}
 
         DBaseLine {
             height: contentHeight
@@ -257,7 +265,7 @@ Item {
 
         DBaseLine{
             rightLoader.sourceComponent: LinkButton {
-                text: "高级设置..."
+                text: dsTr("Advanced...")
                 onClicked: {
                     visible = false
                     advancedSettings.visible = true
@@ -276,8 +284,8 @@ Item {
         
         DBaseLine{
             leftLoader.sourceComponent: DssH2 {
-                text: "高级设置"
-                color: "#fff"
+                text: dsTr("Advanced")
+                color: titleColor
             }
         }
         DSeparatorHorizontal{}
@@ -285,7 +293,7 @@ Item {
         DBaseLine{
             leftMargin: contentLeftMargin
             leftLoader.sourceComponent: DssH2 {
-                text: "选择音频输入设备"
+                text: dsTr("Choose audio output device")
             }
         }
         DSeparatorHorizontal {}
@@ -318,7 +326,7 @@ Item {
         DBaseLine{
             leftMargin: contentLeftMargin
             leftLoader.sourceComponent: DssH2 {
-                text: "选择音频输出设备"
+                text: dsTr("Choose audio input device")
             }
         }
         DSeparatorHorizontal {}

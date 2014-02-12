@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dss 2014\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-13 15:40+0800\n"
+"POT-Creation-Date: 2014-02-12 12:32+0800\n"
 "PO-Revision-Date: 2013-11-25 12:27+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -88,7 +88,7 @@ msgstr ""
 msgid "VPN Connections"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:5 ../modules/date_time/main.qml:45
+#: ../frame/views/ModulesData.qml:5 ../modules/date_time/main.qml:46
 #: ../frame/modules_info.py:30
 msgid "Date & Time"
 msgstr ""
@@ -97,7 +97,7 @@ msgstr ""
 msgid "Network"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:7 ../modules/disk_mount/main.qml:13
+#: ../frame/views/ModulesData.qml:7 ../modules/disk_mount/main.qml:16
 #: ../frame/modules_info.py:32
 msgid "Disk Mount"
 msgstr ""
@@ -106,7 +106,7 @@ msgstr ""
 msgid "Bluetooth"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:9 ../modules/sound/main.qml:18
+#: ../frame/views/ModulesData.qml:9 ../modules/sound/main.qml:47
 #: ../frame/modules_info.py:34
 msgid "Sound"
 msgstr ""
@@ -128,7 +128,7 @@ msgstr ""
 msgid "Notification"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:14 ../modules/display/main.qml:36
+#: ../frame/views/ModulesData.qml:14 ../modules/display/main.qml:52
 #: ../frame/modules_info.py:39
 msgid "Display"
 msgstr ""
@@ -143,13 +143,13 @@ msgstr ""
 msgid "Individuation"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:17 ../modules/shortcuts/main.old.qml:23
-#: ../modules/shortcuts/main.old.qml:29 ../modules/shortcuts/main.qml:25
-#: ../modules/shortcuts/main.qml:31 ../frame/modules_info.py:42
+#: ../frame/views/ModulesData.qml:17 ../modules/shortcuts/main.qml:53
+#: ../modules/shortcuts/main.qml:172 ../modules/shortcuts/main.qml:232
+#: ../frame/modules_info.py:42
 msgid "Shortcuts"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:18 ../modules/keyboard/main.qml:49
+#: ../frame/views/ModulesData.qml:18 ../modules/keyboard/main.qml:40
 #: ../frame/modules_info.py:43
 msgid "Keyboard"
 msgstr ""
@@ -179,116 +179,116 @@ msgstr ""
 msgid "System Information"
 msgstr ""
 
-#: ../modules/display/MonitorProperties.qml:98
+#: ../modules/display/MonitorProperties.qml:101
 msgid "Resolution"
 msgstr ""
 
-#: ../modules/display/MonitorProperties.qml:124
+#: ../modules/display/MonitorProperties.qml:129
 msgid "Rotation"
 msgstr ""
 
-#: ../modules/shortcuts/ShortcutInput.qml:60
+#: ../modules/shortcuts/ShortcutInput.qml:86
 msgid "Please input new shortcuts"
 msgstr ""
 
-#: ../modules/date_time/TimezoneExpand.qml:59
+#: ../modules/date_time/TimezoneExpand.qml:63
 msgid "Timezone"
 msgstr ""
 
-#: ../modules/date_time/TimezoneExpand.qml:79
-msgid "(UTC-11:00)Samoa"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:80
-msgid "(UTC-10:00)Hawaii"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:81
-msgid "(UTC-09:00)Alaska"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:82
-msgid "(UTC-08:00)Lower California"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:83
-msgid "(UTC-07:00)Arizona, Llamas, Mazatlan, Chihuahua"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:84
-msgid "(UTC-06:00)Saskatchewan, Mexico City, Monterrey"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:85
-msgid "(UTC-05:00)Indiana, Bogota, Lima, Quito"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:86
-msgid "(UTC-04:00)San Diego, Georgetown, San Juan"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:87
-msgid "(UTC-03:00)Greenland, Brasilia, Fortaleza"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:88
-msgid "(UTC-02:00)Mid-Atlantic"
-msgstr ""
-
 #: ../modules/date_time/TimezoneExpand.qml:89
-msgid "(UTC-01:00)Cape Verde Islands, Azores"
+msgid "(UTC-11:00) Samoa"
 msgstr ""
 
 #: ../modules/date_time/TimezoneExpand.qml:90
-msgid "(UTC)London, Dublin, Edinburgh, Lisbon, Casablanca"
+msgid "(UTC-10:00) Hawaii"
 msgstr ""
 
 #: ../modules/date_time/TimezoneExpand.qml:91
-msgid "(UTC+01:00)Paris, Amsterdam, Berlin, Rome, Vienna"
+msgid "(UTC-09:00) Alaska"
 msgstr ""
 
 #: ../modules/date_time/TimezoneExpand.qml:92
-msgid "(UTC+02:00)Cairo, Athens, Istanbul, Jerusalem"
+msgid "(UTC-08:00) Lower California"
 msgstr ""
 
 #: ../modules/date_time/TimezoneExpand.qml:93
-msgid "(UTC+03:00)Moscow, St. Petersburg, Baghdad"
+msgid "(UTC-07:00) Arizona, Llamas, Mazatlan, Chihuahua"
 msgstr ""
 
 #: ../modules/date_time/TimezoneExpand.qml:94
-msgid "(UTC+04:00)Port Louis, Abu Dhabi, Muscat, Yerevan"
+msgid "(UTC-06:00) Saskatchewan, Mexico City, Monterrey"
 msgstr ""
 
 #: ../modules/date_time/TimezoneExpand.qml:95
-msgid "(UTC+05:00)Islamabad, Karachi, Tashkent"
+msgid "(UTC-05:00) Indiana, Bogota, Lima, Quito"
 msgstr ""
 
 #: ../modules/date_time/TimezoneExpand.qml:96
-msgid "(UTC+06:00)Dhaka, Novosibirsk"
+msgid "(UTC-04:00) San Diego, Georgetown, San Juan"
 msgstr ""
 
 #: ../modules/date_time/TimezoneExpand.qml:97
-msgid "(UTC+07:00)Bangkok, Hanoi, Jakarta"
+msgid "(UTC-03:00) Greenland, Brasilia, Fortaleza"
 msgstr ""
 
 #: ../modules/date_time/TimezoneExpand.qml:98
-msgid "(UTC+08:00)Beijing, Chongqing, HongKong, Taipei, Urumqi"
+msgid "(UTC-02:00) Mid-Atlantic"
 msgstr ""
 
 #: ../modules/date_time/TimezoneExpand.qml:99
-msgid "(UTC+09:00)Osaka, Sapporo, Tokyo, Seoul"
+msgid "(UTC-01:00) Cape Verde Islands, Azores"
 msgstr ""
 
 #: ../modules/date_time/TimezoneExpand.qml:100
-msgid "(UTC+10:00)Guam, Canberra, Melbourne, Sydney"
+msgid "(UTC) London, Dublin, Edinburgh, Lisbon, Casablanca"
 msgstr ""
 
 #: ../modules/date_time/TimezoneExpand.qml:101
-msgid "(UTC+11:00)Magadan, Solomon Islands"
+msgid "(UTC+01:00) Paris, Amsterdam, Berlin, Rome, Vienna"
 msgstr ""
 
 #: ../modules/date_time/TimezoneExpand.qml:102
-msgid "(UTC+12:00)New Zealand, Kiribati"
+msgid "(UTC+02:00) Cairo, Athens, Istanbul, Jerusalem"
+msgstr ""
+
+#: ../modules/date_time/TimezoneExpand.qml:103
+msgid "(UTC+03:00) Moscow, St. Petersburg, Baghdad"
+msgstr ""
+
+#: ../modules/date_time/TimezoneExpand.qml:104
+msgid "(UTC+04:00) Port Louis, Abu Dhabi, Muscat, Yerevan"
+msgstr ""
+
+#: ../modules/date_time/TimezoneExpand.qml:105
+msgid "(UTC+05:00) Islamabad, Karachi, Tashkent"
+msgstr ""
+
+#: ../modules/date_time/TimezoneExpand.qml:106
+msgid "(UTC+06:00) Dhaka, Novosibirsk"
+msgstr ""
+
+#: ../modules/date_time/TimezoneExpand.qml:107
+msgid "(UTC+07:00) Bangkok, Hanoi, Jakarta"
+msgstr ""
+
+#: ../modules/date_time/TimezoneExpand.qml:108
+msgid "(UTC+08:00) Beijing, Chongqing, HongKong, Taipei, Urumqi"
+msgstr ""
+
+#: ../modules/date_time/TimezoneExpand.qml:109
+msgid "(UTC+09:00) Osaka, Sapporo, Tokyo, Seoul"
+msgstr ""
+
+#: ../modules/date_time/TimezoneExpand.qml:110
+msgid "(UTC+10:00) Guam, Canberra, Melbourne, Sydney"
+msgstr ""
+
+#: ../modules/date_time/TimezoneExpand.qml:111
+msgid "(UTC+11:00) Magadan, Solomon Islands"
+msgstr ""
+
+#: ../modules/date_time/TimezoneExpand.qml:112
+msgid "(UTC+12:00) New Zealand, Kiribati"
 msgstr ""
 
 #: ../modules/account/UserList.qml:104
@@ -347,19 +347,19 @@ msgstr ""
 msgid "December"
 msgstr ""
 
-#: ../modules/date_time/main.qml:92
+#: ../modules/date_time/main.qml:93
 msgid "Auto-sync datetime"
 msgstr ""
 
-#: ../modules/date_time/main.qml:105
+#: ../modules/date_time/main.qml:106
 msgid "24 Hour"
 msgstr ""
 
-#: ../modules/date_time/main.qml:126
+#: ../modules/date_time/main.qml:136
 msgid "Date"
 msgstr ""
 
-#: ../modules/date_time/main.qml:130
+#: ../modules/date_time/main.qml:140
 msgid "Change Date"
 msgstr ""
 
@@ -443,143 +443,147 @@ msgstr ""
 msgid "Software"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:55
+#: ../modules/keyboard/main.qml:47
 msgid "Repeat"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:66
+#: ../modules/keyboard/main.qml:58
 msgid "Repeat Delay"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:71 ../modules/touchpad/main.qml:192
+#: ../modules/keyboard/main.qml:62 ../modules/touchpad/main.qml:179
 msgid "Long"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:72 ../modules/touchpad/main.qml:191
+#: ../modules/keyboard/main.qml:63 ../modules/touchpad/main.qml:178
 msgid "Short"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:90
+#: ../modules/keyboard/main.qml:80
 msgid "Repeat Interval"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:96 ../modules/keyboard/main.qml:154
-#: ../modules/mouse/main.qml:63 ../modules/mouse/main.qml:117
-#: ../modules/touchpad/main.qml:76 ../modules/touchpad/main.qml:132
+#: ../modules/keyboard/main.qml:85 ../modules/keyboard/main.qml:142
+#: ../modules/mouse/main.qml:70 ../modules/mouse/main.qml:124
+#: ../modules/touchpad/main.qml:77 ../modules/touchpad/main.qml:131
 msgid "Slow"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:97 ../modules/keyboard/main.qml:155
-#: ../modules/mouse/main.qml:64 ../modules/mouse/main.qml:118
-#: ../modules/touchpad/main.qml:77 ../modules/touchpad/main.qml:133
+#: ../modules/keyboard/main.qml:86 ../modules/keyboard/main.qml:143
+#: ../modules/mouse/main.qml:71 ../modules/mouse/main.qml:125
+#: ../modules/touchpad/main.qml:78 ../modules/touchpad/main.qml:132
 msgid "Fast"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:115
+#: ../modules/keyboard/main.qml:103
 msgid " Test Repeat Interval"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:129
+#: ../modules/keyboard/main.qml:117
 msgid "Cusor Blink"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:182
+#: ../modules/keyboard/main.qml:171
 msgid "Keyboard Layout"
 msgstr ""
 
-#: ../modules/mouse/main.qml:29 ../modules/power/main.qml:162
-#: ../modules/shortcuts/main.old.qml:61 ../modules/shortcuts/main.qml:77
+#: ../modules/keyboard/main.qml:240 ../modules/mouse/main.qml:167
+#: ../modules/shortcuts/main.qml:333 ../modules/touchpad/main.qml:196
+msgid "Reset"
+msgstr ""
+
+#: ../modules/power/main.qml:170 ../modules/shortcuts/main.qml:313
 #: ../modules/touchpad/main.qml:41
 msgid "Custom"
 msgstr ""
 
-#: ../modules/mouse/main.qml:34 ../modules/touchpad/main.qml:46
+#: ../modules/mouse/main.qml:41 ../modules/touchpad/main.qml:46
 msgid "Left Hand"
 msgstr ""
 
-#: ../modules/mouse/main.qml:35 ../modules/touchpad/main.qml:47
+#: ../modules/mouse/main.qml:40 ../modules/touchpad/main.qml:47
 msgid "Right Hand"
 msgstr ""
 
-#: ../modules/mouse/main.qml:48 ../modules/touchpad/main.qml:60
+#: ../modules/mouse/main.qml:56 ../modules/touchpad/main.qml:62
 msgid "Point Speed"
 msgstr ""
 
-#: ../modules/mouse/main.qml:59 ../modules/touchpad/main.qml:71
+#: ../modules/mouse/main.qml:66 ../modules/touchpad/main.qml:72
 msgid "Acceleration"
 msgstr ""
 
-#: ../modules/mouse/main.qml:82 ../modules/touchpad/main.qml:95
+#: ../modules/mouse/main.qml:87 ../modules/touchpad/main.qml:93
 msgid "Sensitivity"
 msgstr ""
 
-#: ../modules/mouse/main.qml:86 ../modules/touchpad/main.qml:100
+#: ../modules/mouse/main.qml:91 ../modules/touchpad/main.qml:98
 msgid "Low"
 msgstr ""
 
-#: ../modules/mouse/main.qml:87 ../modules/touchpad/main.qml:101
+#: ../modules/mouse/main.qml:92 ../modules/touchpad/main.qml:99
 msgid "High"
 msgstr ""
 
-#: ../modules/mouse/main.qml:102 ../modules/touchpad/main.qml:116
+#: ../modules/mouse/main.qml:110 ../modules/touchpad/main.qml:116
 msgid "Double-click"
 msgstr ""
 
-#: ../modules/mouse/main.qml:113 ../modules/touchpad/main.qml:127
+#: ../modules/mouse/main.qml:120 ../modules/touchpad/main.qml:126
 msgid "Frequency"
 msgstr ""
 
-#: ../modules/mouse/main.qml:136 ../modules/touchpad/main.qml:151
+#: ../modules/mouse/main.qml:141 ../modules/touchpad/main.qml:147
 msgid "Double click the smiling face to test"
 msgstr ""
 
-#: ../modules/power/main.qml:50
+#: ../modules/power/main.qml:52
 msgid "When I press the sleep button"
 msgstr ""
 
-#: ../modules/power/main.qml:64 ../modules/power/main.qml:111
+#: ../modules/power/main.qml:66 ../modules/power/main.qml:116
 msgid "Shut down"
 msgstr ""
 
-#: ../modules/power/main.qml:65 ../modules/power/main.qml:112
+#: ../modules/power/main.qml:67 ../modules/power/main.qml:117
 msgid "Suspent"
 msgstr ""
 
-#: ../modules/power/main.qml:66 ../modules/power/main.qml:113
+#: ../modules/power/main.qml:68 ../modules/power/main.qml:118
 msgid "None"
 msgstr ""
 
-#: ../modules/power/main.qml:97
+#: ../modules/power/main.qml:102
 msgid "When I close the lid"
 msgstr ""
 
-#: ../modules/power/main.qml:144
-msgid "Power Plan"
+#: ../modules/power/main.qml:152
+msgid "Power plan"
 msgstr ""
 
-#: ../modules/power/main.qml:159 ../modules/sound/main.qml:129
+#: ../modules/power/main.qml:167 ../modules/sound/main.qml:147
 msgid "Balance"
 msgstr ""
 
-#: ../modules/power/main.qml:160
+#: ../modules/power/main.qml:168
 msgid "Power saver"
 msgstr ""
 
-#: ../modules/power/main.qml:161
+#: ../modules/power/main.qml:169
 msgid "High performance"
 msgstr ""
 
-#: ../modules/power/main.qml:196 ../modules/power/main.qml:221
-#: ../modules/power/main.qml:232 ../modules/power/main.qml:280
-#: ../modules/power/main.qml:291
+#: ../modules/power/main.qml:204 ../modules/power/main.qml:229
+#: ../modules/power/main.qml:240 ../modules/power/main.qml:288
+#: ../modules/power/main.qml:299
 msgid "Turn off monitor"
 msgstr ""
 
-#: ../modules/power/main.qml:255
+#: ../modules/power/main.qml:263
 msgid "Suspend"
 msgstr ""
 
-#: ../modules/power/main.qml:315
+#: ../modules/power/main.qml:325
 msgid "Require password when computer wakes"
 msgstr ""
 
@@ -587,71 +591,67 @@ msgstr ""
 msgid "User List"
 msgstr ""
 
-#: ../modules/desktop/main.qml:81
-msgid "Desktop Icons"
-msgstr ""
-
-#: ../modules/desktop/main.qml:95
+#: ../modules/desktop/main.qml:97
 msgid "Computer"
 msgstr ""
 
-#: ../modules/desktop/main.qml:96
+#: ../modules/desktop/main.qml:98
 msgid "Home"
 msgstr ""
 
-#: ../modules/desktop/main.qml:97
+#: ../modules/desktop/main.qml:99
 msgid "Trash"
 msgstr ""
 
-#: ../modules/desktop/main.qml:98
+#: ../modules/desktop/main.qml:100
 msgid "DSC"
 msgstr ""
 
-#: ../modules/desktop/main.qml:138
+#: ../modules/desktop/main.qml:83 ../modules/desktop/main.qml:143
 msgid "Dock Display"
 msgstr ""
 
-#: ../modules/desktop/main.qml:153
+#: ../modules/desktop/main.qml:158
 msgid "Default Style"
 msgstr ""
 
-#: ../modules/desktop/main.qml:154
+#: ../modules/desktop/main.qml:159
 msgid "Auto Hide"
 msgstr ""
 
-#: ../modules/desktop/main.qml:155
+#: ../modules/desktop/main.qml:160
 msgid "Invisible"
 msgstr ""
 
-#: ../modules/desktop/main.qml:173
+#: ../modules/desktop/main.qml:179
 msgid "Hot Zone"
 msgstr ""
 
-#: ../modules/desktop/main.qml:177
+#: ../modules/desktop/main.qml:183
 msgid "Top Left"
 msgstr ""
 
-#: ../modules/desktop/main.qml:178
+#: ../modules/desktop/main.qml:184
 msgid "Bottom Right"
 msgstr ""
 
-#: ../modules/desktop/main.qml:214 ../modules/desktop/main.qml:239
+#: ../modules/desktop/main.qml:220 ../modules/desktop/main.qml:245
 msgid "Nothing"
 msgstr ""
 
-#: ../modules/desktop/main.qml:215 ../modules/desktop/main.qml:240
+#: ../modules/desktop/main.qml:221 ../modules/desktop/main.qml:246
 msgid "Opening Window"
 msgstr ""
 
-#: ../modules/desktop/main.qml:216 ../modules/desktop/main.qml:241
+#: ../modules/desktop/main.qml:222 ../modules/desktop/main.qml:247
 msgid "Launcher"
 msgstr ""
 
-#: ../modules/display/main.qml:49
+#: ../modules/display/main.qml:65
 msgid "Primary Monitor"
 msgstr ""
 
-#: ../modules/display/main.qml:92
+#: ../modules/display/main.qml:108
 msgid "Apply"
 msgstr ""
 
@@ -659,8 +659,7 @@ msgstr ""
 msgid "Themes"
 msgstr ""
 
-#: ../modules/individuation/main.qml:55 ../modules/shortcuts/main.old.qml:51
-#: ../modules/shortcuts/main.qml:63
+#: ../modules/individuation/main.qml:55 ../modules/shortcuts/main.qml:288
 msgid "Window"
 msgstr ""
 
@@ -688,68 +687,80 @@ msgstr ""
 msgid "Create Connections"
 msgstr ""
 
-#: ../modules/shortcuts/main.old.qml:41 ../modules/shortcuts/main.qml:49
+#: ../modules/shortcuts/main.qml:274
 msgid "System"
 msgstr ""
 
-#: ../modules/shortcuts/main.old.qml:46 ../modules/shortcuts/main.qml:56
+#: ../modules/shortcuts/main.qml:281
 msgid "Sound and Media"
 msgstr ""
 
-#: ../modules/shortcuts/main.old.qml:56 ../modules/shortcuts/main.qml:70
+#: ../modules/shortcuts/main.qml:295
 msgid "Workspace"
 msgstr ""
 
-#: ../modules/sound/main.qml:23
+#: ../modules/shortcuts/main.qml:325
+msgid "Add"
+msgstr ""
+
+#: ../modules/sound/main.qml:66
 msgid "Speaker"
 msgstr ""
 
-#: ../modules/sound/main.qml:31
-msgid "Enable Speaker"
-msgstr ""
-
-#: ../modules/sound/main.qml:48
+#: ../modules/sound/main.qml:89
 msgid "Output Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:110
+#: ../modules/sound/main.qml:129
 msgid "Output Volume"
 msgstr ""
 
-#: ../modules/sound/main.qml:114 ../modules/sound/main.qml:240
+#: ../modules/sound/main.qml:133 ../modules/sound/main.qml:236
 msgid "-"
 msgstr ""
 
-#: ../modules/sound/main.qml:115 ../modules/sound/main.qml:241
+#: ../modules/sound/main.qml:134 ../modules/sound/main.qml:237
 msgid "+"
 msgstr ""
 
-#: ../modules/sound/main.qml:133
+#: ../modules/sound/main.qml:151
 msgid "Left"
 msgstr ""
 
-#: ../modules/sound/main.qml:134
+#: ../modules/sound/main.qml:152
 msgid "Right"
 msgstr ""
 
-#: ../modules/sound/main.qml:151
+#: ../modules/sound/main.qml:170
 msgid "Microphone"
 msgstr ""
 
-#: ../modules/sound/main.qml:159
-msgid "Enable Microphone"
-msgstr ""
-
-#: ../modules/sound/main.qml:174
+#: ../modules/sound/main.qml:191
 msgid "Input Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:236
+#: ../modules/sound/main.qml:232
 msgid "Input Volume"
 msgstr ""
 
-#: ../modules/sound/main.qml:255
+#: ../modules/sound/main.qml:250
 msgid "Input Level"
+msgstr ""
+
+#: ../modules/sound/main.qml:266
+msgid "Advanced..."
+msgstr ""
+
+#: ../modules/sound/main.qml:285
+msgid "Advanced"
+msgstr ""
+
+#: ../modules/sound/main.qml:294
+msgid "Choose audio output device"
+msgstr ""
+
+#: ../modules/sound/main.qml:327
+msgid "Choose audio input device"
 msgstr ""
 
 #: ../modules/touchpad/main.qml:22
@@ -757,17 +768,17 @@ msgid "TouchPad"
 msgstr ""
 
 #: ../modules/touchpad/main.qml:28
-msgid "Enable touchpad"
+msgid "Enabled"
 msgstr ""
 
-#: ../modules/touchpad/main.qml:175
-msgid "Drag and Drop"
-msgstr ""
-
-#: ../modules/touchpad/main.qml:186
+#: ../modules/touchpad/main.qml:173
 msgid "Drag threshold"
 msgstr ""
 
-#: ../modules/disk_mount/main.qml:22 ../modules/disk_mount/main.qml:39
+#: ../modules/disk_mount/main.qml:25
 msgid "Internal Devices"
+msgstr ""
+
+#: ../modules/disk_mount/main.qml:69
+msgid "External Devices"
 msgstr ""

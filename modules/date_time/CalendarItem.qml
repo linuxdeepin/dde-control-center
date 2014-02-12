@@ -102,7 +102,13 @@ Rectangle {
                 return dconstants.fgColor
             }
             text: lunarDay[2] ? lunarDay[2] : lunarDay[0]
-            visible: dsslocale.lang == "zh"
+            visible: false
+
+            Component.onCompleted: {
+                if(dsslocale.lang == "zh"){
+                    lunarDayLabel.visible = true
+                }
+            }
         }
     }
 

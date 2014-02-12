@@ -24,6 +24,17 @@ Item {
 
         DSeparatorHorizontal {}
 
+        DSwitchButtonHeader {
+            text: dsTr("Enabled")
+            active: touchPadID.tPadEnable ? true : false
+
+            onClicked: {
+                touchPadID.tPadEnable = active
+            }
+        }
+
+        DSeparatorHorizontal {}
+
         DBaseLine {
             height: 44
             leftLoader.sourceComponent: DssH2 {

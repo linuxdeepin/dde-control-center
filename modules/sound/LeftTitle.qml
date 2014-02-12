@@ -9,7 +9,7 @@ Item {
     height: parent.height
     DssH2 {
         id: label
-        anchors.right: parent.right
+        //anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
     }
 }
