@@ -39,7 +39,7 @@ Rectangle {
         anchors.fill: parent
 
         DssTitle {
-            text: dsTr("Power") + "(" + dbus_power.batteryPercentage + ")"
+            text: dsTr("Power") + "  (" + dbus_power.batteryPercentage + "%)"
         }
 
         DSeparatorHorizontal {}
@@ -83,7 +83,7 @@ Rectangle {
                     onItemSelected: {
                         dbus_power.buttonPower = itemId
                     }
-                    
+
                     Connections {
                         target: dbus_power
                         onButtonPowerChanged: {
@@ -91,7 +91,7 @@ Rectangle {
                         }
                     }
                 }
-            }            
+            }
         }
         DSeparatorHorizontal{}
         DBaseExpand {
@@ -133,7 +133,7 @@ Rectangle {
                     onItemSelected: {
                         dbus_power.lidCloseBatteryAction = itemId
                     }
-                    
+
                     Connections {
                         target: dbus_power
                         onLidCloseBatteryActionChanged: {
@@ -188,11 +188,12 @@ Rectangle {
             }
             content.sourceComponent: Item {
                 width: root.width
-                height: 30
+                height: 30 * 2
 
                 DSelectView {
                     id: power_plan_view
                     width: parent.width - 15 * 2
+                    horizontalPadding: 20
                     selectedItems: [dbus_power.lidCloseBatteryAction]
                     anchors.centerIn: parent
 
@@ -204,14 +205,14 @@ Rectangle {
                         }
                         ListElement {
                             itemId: "saving"
-                            itemText: "Saving"
+                            itemText: "Power Saver"
                             itemWidth: 0
                         }
                         ListElement {
-                            itemId: "High Performance"
-                            itemText: "high-performance"
+                            itemId: "high-performance"
+                            itemText: "High Performance"
                             itemWidth: 0
-                        }                        
+                        }
                         ListElement {
                             itemId: "customized"
                             itemText: "Custom"
@@ -220,73 +221,90 @@ Rectangle {
                     }
 
                     onItemSelected: {
+                        print(itemId)
                         dbus_power.currentPlan = itemId
                     }
-                    
                     Connections {
                         target: dbus_power
                         onCurrentPlanChanged: {
+                            /* There's a bug that the currentPlan broadcasted with the signal is always undefined */
                             power_plan_view.select(dbus_power.currentPlan)
                         }
                     }
                 }
-            }            
+            }
         }
         DSeparatorHorizontal{}
         DBaseExpand {
             id: turn_off_monitor_rect
             expanded: true
-            property string headerText: dsTr("Turn off monitor")
+            property string headerText: "-" + dsTr("Turn off monitor")
 
             header.sourceComponent: DBaseLine {
                 leftLoader.sourceComponent: DssH2 {
                     text: turn_off_monitor_rect.headerText
                 }
             }
-            content.sourceComponent: DRadioButton {
-                id: turn_off_monitor_button
-                width: parent.width
-                height: 22
+            content.sourceComponent: Item {
+                width: root.width
+                height: 30
 
-                buttonModel: [
-                    {"buttonId": "1_m", "buttonLabel": "1m"},
-                    {"buttonId": "5_m", "buttonLabel": "5m"},
-                    {"buttonId": "10_m", "buttonLabel": "10m"},
-                    {"buttonId": "15_m", "buttonLabel": "15m"},
-                    {"buttonId": "30_m", "buttonLabel": "30m"},
-                    {"buttonId": "1_h", "buttonLabel": "1h"},
-                    {"buttonId": "never", "buttonLabel": "Never"}
-                ]
+                DSelectView {
+                    id: turn_off_monitor_view
+                    width: parent.width - 15 * 2
+                    selectedItems: [timeoutToIndex(dbus_power.sleepInactiveBatteryTimeout)]
+                    anchors.centerIn: parent
 
-                initializeIndex: timeoutToIndex(dbus_power.sleepDisplayAc)
-
-                Component.onCompleted: {
-                    turn_off_monitor_rect.headerText = dsTr("Turn off monitor") +
-                    "<font color='black'>(" +
-                    buttonModel[timeoutToIndex(dbus_power.sleepDisplayAc)].buttonLabel +
-                    ")</font>"
-                }
-
-                onItemSelected: {
-                    dbus_power.currentPlan = "customized"
-                    dbus_power.sleepDisplayAc = indexToTimeout(idx)
-                    dbus_power.sleepDisplayBattery = indexToTimeout(idx)
-
-                    turn_off_monitor_rect.headerText = dsTr("Turn off monitor") +
-                    "<font color='black'>(" +
-                    buttonModel[timeoutToIndex(dbus_power.sleepDisplayAc)].buttonLabel +
-                    ")</font>"
-                }
-
-                Connections {
-                    target: dbus_power
-                    onSleepDisplayBatteryChanged: {
-                        print("sleepDisplayAc", dbus_power.sleepDisplayAc)
-                        turn_off_monitor_button.selectItem(timeoutToIndex(dbus_power.sleepDisplayBattery))
+                    model: ListModel {
+                        ListElement {
+                            itemId: "1_m"
+                            itemText: "1m"
+                            itemWidth: 0
+                        }
+                        ListElement {
+                            itemId: "5_m"
+                            itemText: "5m"
+                            itemWidth: 0
+                        }
+                        ListElement {
+                            itemId: "10_m"
+                            itemText: "10m"
+                            itemWidth: 0
+                        }
+                        ListElement {
+                            itemId: "15_m"
+                            itemText: "15m"
+                            itemWidth: 0
+                        }
+                        ListElement {
+                            itemId: "30_m"
+                            itemText: "30m"
+                            itemWidth: 0
+                        }
+                        ListElement {
+                            itemId: "1_h"
+                            itemText: "1h"
+                            itemWidth: 0
+                        }
+                        ListElement {
+                            itemId: "never"
+                            itemText: "Never"
+                            itemWidth: 0
+                        }
                     }
-                    onSleepDisplayAcChanged: {
-                        print("sleepDisplayBattery", dbus_power.sleepDisplayBattery)
-                        turn_off_monitor_button.selectItem(timeoutToIndex(dbus_power.sleepDisplayAc))
+
+                    onItemSelected: {
+                        dbus_power.sleepDisplayAc = root.indexToTimeout(idx)
+                        dbus_power.sleepDisplayBattery = root.indexToTimeout(idx)
+                    }
+                    Connections {
+                        target: dbus_power
+                        onSleepDisplayBatteryChanged: {
+                            turn_off_monitor_view.selectItem(timeoutToIndex(dbus_power.sleepDisplayBattery))
+                        }
+                        onSleepDisplayAcChanged: {
+                            turn_off_monitor_view.selectItem(timeoutToIndex(dbus_power.sleepDisplayAc))
+                        }
                     }
                 }
             }
@@ -295,60 +313,76 @@ Rectangle {
         DBaseExpand {
             id: suspend_rect
             expanded: true
-            property string headerText: dsTr("Suspend")
+            property string headerText: "-" + dsTr("Suspend")
 
             header.sourceComponent: DBaseLine {
                 leftLoader.sourceComponent: DssH2 {
                     text: suspend_rect.headerText
                 }
             }
-            content.sourceComponent: DRadioButton {
-                id: suspend_button
-                width: parent.width
-                height: 22
+            content.sourceComponent: Item {
+                width: root.width
+                height: 30
 
-                buttonModel: [
-                    {"buttonId": "1_m", "buttonLabel": "1m"},
-                    {"buttonId": "5_m", "buttonLabel": "5m"},
-                    {"buttonId": "10_m", "buttonLabel": "10m"},
-                    {"buttonId": "15_m", "buttonLabel": "15m"},
-                    {"buttonId": "30_m", "buttonLabel": "30m"},
-                    {"buttonId": "1_h", "buttonLabel": "1h"},
-                    {"buttonId": "never", "buttonLabel": "Never"}
-                ]
+                DSelectView {
+                    id: suspend_view
+                    width: parent.width - 15 * 2
+                    selectedItems: [timeoutToIndex(dbus_power.sleepInactiveAcTimeout)]
+                    anchors.centerIn: parent
 
-                initializeIndex: timeoutToIndex(dbus_power.sleepInactiveAcTimeout)
-
-                Component.onCompleted: {
-                    suspend_rect.headerText = dsTr("Turn off monitor") +
-                    "<font color='black'>(" +
-                    buttonModel[timeoutToIndex(dbus_power.sleepInactiveAcTimeout)].buttonLabel +
-                    ")</font>"
-                }
-
-                onItemSelected: {
-                    dbus_power.currentPlan = "customized"
-                    dbus_power.sleepInactiveAcTimeout = indexToTimeout(idx)
-                    dbus_power.sleepInactiveBatteryTimeout = indexToTimeout(idx)
-
-                    suspend_rect.headerText = dsTr("Turn off monitor") +
-                    "<font color='black'>(" +
-                    buttonModel[timeoutToIndex(dbus_power.sleepInactiveAcTimeout)].buttonLabel +
-                    ")</font>"
-                }
-
-                Connections {
-                    target: dbus_power
-                    onSleepInactiveBatteryTimeoutChanged: {
-                        print("sleepInactiveAcTimeout", dbus_power.sleepInactiveAcTimeout)
-                        suspend_button.selectItem(timeoutToIndex(dbus_power.sleepInactiveBatteryTimeout))
+                    model: ListModel {
+                        ListElement {
+                            itemId: "1_m"
+                            itemText: "1m"
+                            itemWidth: 0
+                        }
+                        ListElement {
+                            itemId: "5_m"
+                            itemText: "5m"
+                            itemWidth: 0
+                        }
+                        ListElement {
+                            itemId: "10_m"
+                            itemText: "10m"
+                            itemWidth: 0
+                        }
+                        ListElement {
+                            itemId: "15_m"
+                            itemText: "15m"
+                            itemWidth: 0
+                        }
+                        ListElement {
+                            itemId: "30_m"
+                            itemText: "30m"
+                            itemWidth: 0
+                        }
+                        ListElement {
+                            itemId: "1_h"
+                            itemText: "1h"
+                            itemWidth: 0
+                        }
+                        ListElement {
+                            itemId: "never"
+                            itemText: "Never"
+                            itemWidth: 0
+                        }
                     }
-                    onSleepInactiveAcTimeoutChanged: {
-                        print("sleepInactiveBatteryTimeout", dbus_power.sleepInactiveBatteryTimeout)
-                        suspend_button.selectItem(timeoutToIndex(dbus_power.sleepinActiveAcTimeout))
+
+                    onItemSelected: {
+                        dbus_power.sleepInActiveAcTimeout = root.indexToTimeout(idx)
+                        dbus_power.sleepInactiveBatteryTimeout = root.indexToTimeout(idx)
+                    }
+                    Connections {
+                        target: dbus_power
+                        onSleepInactiveAcTimeoutChanged: {
+                            turn_off_monitor_view.selectItem(timeoutToIndex(dbus_power.sleepInActiveAcTimeout))
+                        }
+                        onSleepInactiveBatteryTimeoutChanged: {
+                            turn_off_monitor_view.selectItem(timeoutToIndex(dbus_power.sleepInactiveBatteryTimeout))
+                        }
                     }
                 }
-            }
+            }            
         }
 
         DSeparatorHorizontal{}
