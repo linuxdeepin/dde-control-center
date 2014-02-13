@@ -1,11 +1,12 @@
 import QtQuick 2.1
+import Deepin.Widgets 1.0
 
 Rectangle {
     width: 200
     height: 500
 
     color: "black"
-    SelectView {
+    DSelectView {
         width: 200
         radioMode: false
 

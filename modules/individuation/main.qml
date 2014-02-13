@@ -62,7 +62,7 @@ Item {
                 width: individuation.width
                 height: window_themes_select.height
                 
-                SelectView {
+                DSelectView {
                     id: window_themes_select
                     width: parent.width - 15 * 2
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -91,7 +91,7 @@ Item {
                 width: individuation.width
                 height: cursor_themes_select.height
                 
-                SelectView {
+                DSelectView {
                     id: cursor_themes_select
                     width: parent.width - 15 * 2
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -120,7 +120,7 @@ Item {
                 width: individuation.width
                 height: wallpaper_themes_select.height
                 
-                SelectView {
+                DSelectView {
                     id: wallpaper_themes_select
                     width: parent.width - 15 * 2
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -149,7 +149,7 @@ Item {
                 width: individuation.width
                 height: icons_themes_select.height
                 
-                SelectView {
+                DSelectView {
                     id: icons_themes_select
                     width: parent.width - 15 * 2
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -178,7 +178,7 @@ Item {
                 width: individuation.width
                 height: font_themes_select.height
                 
-                SelectView {
+                DSelectView {
                     id: font_themes_select
                     width: parent.width - 15 * 2
                     anchors.horizontalCenter: parent.horizontalCenter
