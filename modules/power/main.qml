@@ -39,7 +39,7 @@ Rectangle {
         anchors.fill: parent
 
         DssTitle {
-            text: dsTr("Power")
+            text: dsTr("Power") + "(" + dbus_power.batteryPercentage + ")"
         }
 
         DSeparatorHorizontal {}
@@ -52,41 +52,92 @@ Rectangle {
                     text: dsTr("When I press the sleep button")
                 }
             }
-            content.sourceComponent: DMultipleSelectView {
-                id: power_button_view
-                rows: 1
-                columns: 3
+            content.sourceComponent: Item {
+                width: root.width
+                height: 30
 
-                width: parent.width
-                height: rows * 30
-                singleSelectionMode: true
+                DSelectView {
+                    id: power_button_view
+                    width: parent.width - 15 * 2
+                    selectedItems: [dbus_power.buttonPower]
+                    anchors.centerIn: parent
 
-                model: ListModel {}
-                Component.onCompleted: {
-                    model.append({"label": dsTr("Shut down"), "selected": dbus_power.buttonPower == "shutdown"})
-                    model.append({"label": dsTr("Suspent"), "selected": dbus_power.buttonPower == "suspend"})
-                    model.append({"label": dsTr("None"), "selected": dbus_power.buttonPower == "nothing"})
-                }
-                onSelect: {
-                    switch (index) {
-                        case 0:
-                        dbus_power.buttonPower = "shutdown"
-                        break
-                        case 1:
-                        dbus_power.buttonPower = "suspend"
-                        break
-                        case 2:
-                        dbus_power.buttonPower = "nothing"
+                    model: ListModel {
+                        ListElement {
+                            itemId: "shutdown"
+                            itemText: "Shutdown"
+                            itemWidth: 0
+                        }
+                        ListElement {
+                            itemId: "suspend"
+                            itemText: "Suspend"
+                            itemWidth: 0
+                        }
+                        ListElement {
+                            itemId: "nothing"
+                            itemText: "None"
+                            itemWidth: 0
+                        }
+                    }
+
+                    onItemSelected: {
+                        dbus_power.buttonPower = itemId
+                    }
+                    
+                    Connections {
+                        target: dbus_power
+                        onButtonPowerChanged: {
+                            power_button_view.select(dbus_power.buttonPower)
+                        }
                     }
                 }
+            }            
+        }
+        DSeparatorHorizontal{}
+        DBaseExpand {
+            id: close_the_lid_rect
+            expanded: true
+            header.sourceComponent: DBaseLine {
+                leftLoader.sourceComponent: DssH2 {
+                    text: dsTr("When I close the lid")
+                }
+            }
+            content.sourceComponent: Item {
+                width: root.width
+                height: 30
 
-                Connections {
-                    target: dbus_power
-                    onButtonPowerChanged: {
-                        switch (dbus_power.buttonPower) {
-                            case "shutdown": power_button_view.selectItem(0); break
-                            case "suspend": power_button_view.selectItem(1); break
-                            case "nothing": power_button_view.selectItem(2); break
+                DSelectView {
+                    id: close_the_lid_view
+                    width: parent.width - 15 * 2
+                    selectedItems: [dbus_power.lidCloseBatteryAction]
+                    anchors.centerIn: parent
+
+                    model: ListModel {
+                        ListElement {
+                            itemId: "shutdown"
+                            itemText: "Shutdown"
+                            itemWidth: 0
+                        }
+                        ListElement {
+                            itemId: "suspend"
+                            itemText: "Suspend"
+                            itemWidth: 0
+                        }
+                        ListElement {
+                            itemId: "nothing"
+                            itemText: "None"
+                            itemWidth: 0
+                        }
+                    }
+
+                    onItemSelected: {
+                        dbus_power.lidCloseBatteryAction = itemId
+                    }
+                    
+                    Connections {
+                        target: dbus_power
+                        onLidCloseBatteryActionChanged: {
+                            close_the_lid_view.select(dbus_power.lidCloseBatteryAction)
                         }
                     }
                 }
@@ -94,56 +145,39 @@ Rectangle {
         }
         DSeparatorHorizontal{}
         DBaseExpand {
-            id: close_the_lid_rect
+            id: wake_require_password_rect
             expanded: true
-            visible: dbus_system_info.isLaptop ? true : false
             header.sourceComponent: DBaseLine {
                 leftLoader.sourceComponent: DssH2 {
-                    text: dsTr("When I close the lid")
+                    text: dsTr("Require password when computer wakes")
                 }
             }
-            content.sourceComponent: DMultipleSelectView {
-                id: close_the_lid_view
-                rows: 1
-                columns: 3
+            content.sourceComponent: Item {
+                width: root.width
+                height: 30
 
-                width: parent.width
-                height: rows * 30
-                singleSelectionMode: true
+                DSelectView {
+                    width: parent.width - 15 * 2
+                    selectedItems: ["require_yes"]
+                    anchors.centerIn: parent
 
-                model: ListModel {}
-                Component.onCompleted: {
-                    model.append({"label": dsTr("Shut down"), "selected": dbus_power.lidCloseBatteryAction == "shutdown"})
-                    model.append({"label": dsTr("Suspent"), "selected": dbus_power.lidCloseBatteryAction == "suspend"})
-                    model.append({"label": dsTr("None"), "selected": dbus_power.lidCloseBatteryAction == "nothing"})
-                }
-
-                onSelect: {
-                    switch (index) {
-                        case 0:
-                        dbus_power.lidCloseBatteryAction = "shutdown"
-                        break
-                        case 1:
-                        dbus_power.lidCloseBatteryAction = "suspend"
-                        break
-                        case 2:
-                        dbus_power.lidCloseBatteryAction = "nothing"
-                    }
-                }
-
-                Connections {
-                    target: dbus_power
-                    onLidCloseBatteryActionChanged: {
-                        switch (dbus_power.lidCloseBatteryAction) {
-                            case "shutdown": close_the_lid_view.selectItem(0); break
-                            case "suspend": close_the_lid_view.selectItem(1); break
-                            case "nothing": close_the_lid_view.selectItem(2); break
+                    model: ListModel {
+                        ListElement {
+                            itemId: "require_yes"
+                            itemText: "Requires a password"
+                            itemWidth: 0
+                        }
+                        ListElement {
+                            itemId: "require_no"
+                            itemText: "Without a password"
+                            itemWidth: 0
                         }
                     }
                 }
             }
         }
-        DSeparatorHorizontal{}        
+        DSeparatorHorizontal{}
+        DBaseLine{}
         DBaseExpand {
             id: power_plan_rect
             expanded: true
@@ -152,50 +186,51 @@ Rectangle {
                     text: dsTr("Power plan")
                 }
             }
-            content.sourceComponent: DMultipleSelectView {
-                id: power_plan_view
-                rows: 2
-                columns: 2
-                singleSelectionMode: true
+            content.sourceComponent: Item {
+                width: root.width
+                height: 30
 
-                width: parent.width
-                height: rows * 30
-                viewWidth: 100
+                DSelectView {
+                    id: power_plan_view
+                    width: parent.width - 15 * 2
+                    selectedItems: [dbus_power.lidCloseBatteryAction]
+                    anchors.centerIn: parent
 
-                model: ListModel {}
-                Component.onCompleted: {
-                    model.append({"label": dsTr("Balance"), "selected": dbus_power.currentPlan == "balance"})
-                    model.append({"label": dsTr("Power saver"), "selected": dbus_power.currentPlan == "saving"})
-                    model.append({"label": dsTr("High performance"), "selected": dbus_power.currentPlan == "high-performance"})
-                    model.append({"label": dsTr("Custom"), "selected": dbus_power.currentPlan == "customized"})
-                }
-                onSelect: {
-                    switch (index) {
-                        case 0:
-                        dbus_power.currentPlan = "balance"
-                        break
-                        case 1:
-                        dbus_power.currentPlan = "saving"
-                        break
-                        case 2:
-                        dbus_power.currentPlan = "high-performance"
-                        break
-                        case 3:
-                        dbus_power.currentPlan = "customized"
+                    model: ListModel {
+                        ListElement {
+                            itemId: "balance"
+                            itemText: "Balance"
+                            itemWidth: 0
+                        }
+                        ListElement {
+                            itemId: "saving"
+                            itemText: "Saving"
+                            itemWidth: 0
+                        }
+                        ListElement {
+                            itemId: "High Performance"
+                            itemText: "high-performance"
+                            itemWidth: 0
+                        }                        
+                        ListElement {
+                            itemId: "customized"
+                            itemText: "Custom"
+                            itemWidth: 0
+                        }
                     }
-                }
-                Connections {
-                    target: dbus_power
-                    onCurrentPlanChanged: {
-                        switch (dbus_power.currentPlan) {
-                            case "balance": power_plan_view.selectItem(0); break
-                            case "saving": power_plan_view.selectItem(1); break
-                            case "high-performance": power_plan_view.selectItem(2); break
-                            case "customized": power_plan_view.selectItem(3); break
+
+                    onItemSelected: {
+                        dbus_power.currentPlan = itemId
+                    }
+                    
+                    Connections {
+                        target: dbus_power
+                        onCurrentPlanChanged: {
+                            power_plan_view.select(dbus_power.currentPlan)
                         }
                     }
                 }
-            }
+            }            
         }
         DSeparatorHorizontal{}
         DBaseExpand {
@@ -315,28 +350,7 @@ Rectangle {
                 }
             }
         }
-        
-        DSeparatorHorizontal{}
-        DBaseExpand {
-            id: wake_require_password_rect
-            
-            header.sourceComponent: DSwitchButtonHeader {
-                id: wake_require_password_header
-                text: dsTr("Require password when computer wakes")
-                active: dbus_power.lockEnabled
 
-                onActiveChanged: {
-                    //dbus_power.lockEnabled = active
-                }
-            }
-
-            Connections {
-                target: dbus_power
-                onLockEnabledChanged: {
-                    wake_require_password_header.active = dbus_power.lockEnabled
-                }
-            }
-        }
         DSeparatorHorizontal{}
 
     /* DBaseExpand { */
