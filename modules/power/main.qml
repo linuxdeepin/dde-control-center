@@ -38,8 +38,27 @@ Rectangle {
     Column {
         anchors.fill: parent
 
+<<<<<<< HEAD
         DssTitle {
             text: dsTr("Power") + "  (" + dbus_power.batteryPercentage + "%)"
+=======
+        Item {
+            width: root.width
+            height: title.height
+
+            DssTitle {
+                id: title
+                text: dsTr("Power") + "  (" + dbus_power.batteryPercentage + "%)"
+            }
+
+            DTextButton {
+                text: dsTr("Reset")
+
+                anchors.right: parent.right
+                anchors.rightMargin: 15
+                anchors.verticalCenter: parent.verticalCenter
+            }
+>>>>>>> power front end
         }
 
         DSeparatorHorizontal {}
@@ -177,7 +196,54 @@ Rectangle {
             }
         }
         DSeparatorHorizontal{}
+<<<<<<< HEAD
         DBaseLine{}
+=======
+        DBaseExpand {
+            id: wake_require_password_rect
+            expanded: true
+            header.sourceComponent: DBaseLine {
+                leftLoader.sourceComponent: DssH2 {
+                    text: dsTr("Require password when computer wakes")
+                }
+            }
+
+            content.sourceComponent: DMultipleSelectView {
+                id: wake_require_password_view
+                rows: 1
+                columns: 2
+
+                width: parent.width
+                height: rows * 30
+                singleSelectionMode: true
+
+                model: ListModel {}
+                Component.onCompleted: {
+                    model.append({"label": dsTr("Requires a password"),
+                                  "selected": dbus_power.lockEnabled})
+                    model.append({"label": dsTr("Without a password"),
+                                  "selected": !dbus_power.lockEnabled})
+                }
+
+                onSelect: {
+                    dbus_power.lockEnabled = (index == 0)
+                }
+
+                Connections {
+                    target: dbus_power
+                    onLockEnabledChanged: {
+                        if (dbus_power.lockEnabled) {
+                            wake_require_password_view.selectItem(0)
+                        } else {
+                            wake_require_password_view.selectItem(1)
+                        }
+                    }
+                }
+            }
+        }
+        DSeparatorHorizontal{}
+        DBaseExpand {}
+>>>>>>> power front end
         DBaseExpand {
             id: power_plan_rect
             expanded: true
@@ -238,13 +304,18 @@ Rectangle {
         DBaseExpand {
             id: turn_off_monitor_rect
             expanded: true
+<<<<<<< HEAD
             property string headerText: "-" + dsTr("Turn off monitor")
+=======
+            property string headerText: "- " + dsTr("Turn off monitor")
+>>>>>>> power front end
 
             header.sourceComponent: DBaseLine {
                 leftLoader.sourceComponent: DssH2 {
                     text: turn_off_monitor_rect.headerText
                 }
             }
+<<<<<<< HEAD
             content.sourceComponent: Item {
                 width: root.width
                 height: 30
@@ -305,21 +376,84 @@ Rectangle {
                         onSleepDisplayAcChanged: {
                             turn_off_monitor_view.selectItem(timeoutToIndex(dbus_power.sleepDisplayAc))
                         }
+=======
+            content.sourceComponent: DMultipleSelectView {
+                id: turn_off_monitor_view
+                rows: 1
+                columns: 7
+
+                width: parent.width
+                height: rows * 30
+                singleSelectionMode: true
+
+                model: ListModel {
+                    ListElement {
+                        label: "1m"
+                        selected: false
+                    }
+                    ListElement {
+                        label: "5m"
+                        selected: false
+                    }
+                    ListElement {
+                        label: "10m"
+                        selected: false
+                    }
+                    ListElement {
+                        label: "15m"
+                        selected: false
+                    }
+                    ListElement {
+                        label: "30m"
+                        selected: false
+                    }
+                    ListElement {
+                        label: "1h"
+                        selected: false
+                    }
+                    ListElement {
+                        label: "Never"
+                        selected: false
                     }
                 }
-            }
+                Component.onCompleted: {
+                    turn_off_monitor_view.selectItem(timeoutToIndex(dbus_power.sleepDisplayAc))
+                }
+
+                onSelect: {
+                    dbus_power.currentPlan = "customized"
+                    dbus_power.sleepDisplayAc = indexToTimeout(index)
+                    dbus_power.sleepDisplayBattery = indexToTimeout(index)
+                }
+
+                Connections {
+                    target: dbus_power
+                    onSleepDisplayBatteryChanged: {
+                        turn_off_monitor_view.selectItem(timeoutToIndex(dbus_power.sleepDisplayBattery))
+                    }
+                    onSleepDisplayAcChanged: {
+                        turn_off_monitor_view.selectItem(timeoutToIndex(dbus_power.sleepDisplayAc))
+>>>>>>> power front end
+                    }
+                }
+            }            
         }
         DSeparatorHorizontal{}
         DBaseExpand {
             id: suspend_rect
             expanded: true
+<<<<<<< HEAD
             property string headerText: "-" + dsTr("Suspend")
+=======
+            property string headerText: "- " + dsTr("Suspend")
+>>>>>>> power front end
 
             header.sourceComponent: DBaseLine {
                 leftLoader.sourceComponent: DssH2 {
                     text: suspend_rect.headerText
                 }
             }
+<<<<<<< HEAD
             content.sourceComponent: Item {
                 width: root.width
                 height: 30
@@ -380,6 +514,64 @@ Rectangle {
                         onSleepInactiveBatteryTimeoutChanged: {
                             turn_off_monitor_view.selectItem(timeoutToIndex(dbus_power.sleepInactiveBatteryTimeout))
                         }
+=======
+            content.sourceComponent: DMultipleSelectView {
+                id: suspend_view
+                rows: 1
+                columns: 7
+
+                width: parent.width
+                height: rows * 30
+                singleSelectionMode: true
+
+                model: ListModel {
+                    ListElement {
+                        label: "1m"
+                        selected: false
+                    }
+                    ListElement {
+                        label: "5m"
+                        selected: false
+                    }
+                    ListElement {
+                        label: "10m"
+                        selected: false
+                    }
+                    ListElement {
+                        label: "15m"
+                        selected: false
+                    }
+                    ListElement {
+                        label: "30m"
+                        selected: false
+                    }
+                    ListElement {
+                        label: "1h"
+                        selected: false
+                    }
+                    ListElement {
+                        label: "Never"
+                        selected: false
+                    }
+                }
+                Component.onCompleted: {
+                    suspend_view.selectItem(timeoutToIndex(dbus_power.sleepinActiveAcTimeout))
+                }
+
+                onSelect: {
+                    dbus_power.currentPlan = "customized"
+                    dbus_power.sleepinActiveAcTimeout = indexToTimeout(index)
+                    dbus_power.sleepInactiveBatteryTimeout = indexToTimeout(index)
+                }
+
+                Connections {
+                    target: dbus_power
+                    onSleepInactiveBatteryTimeoutChanged: {
+                        suspend_view.selectItem(timeoutToIndex(dbus_power.sleepInactiveBatteryTimeout))
+                    }
+                    onSleepInactiveAcTimeoutChanged: {
+                        suspend_view.selectItem(timeoutToIndex(dbus_power.sleepinActiveAcTimeout))
+>>>>>>> power front end
                     }
                 }
             }            
