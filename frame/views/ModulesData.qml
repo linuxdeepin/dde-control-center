@@ -21,7 +21,9 @@ Item {
             "touchpad": dsTr("Touchpad"),
             "account": dsTr("Account"),
             "default_applications": dsTr("Default Applications"),
-            "system_info": dsTr("System Information")
+            "system_info": dsTr("System Information"),
+            "grub": dsTr("Grub Setting"),
+            "home": dsTr("Home")
         }
 
     property var commonIds: [
@@ -37,23 +39,23 @@ Item {
 
     property var allIds: [
             //"notification",
-            "system_info",
-            "default_applications",
-            "desktop",
-            "display",
-            "mouse",
-            "touchpad",
-            "keyboard",
-            "shortcuts",
-            "disk_mount",
-            "bluetooth",
-            "sound",
-            "power",
-            "account",
             "individuation",
+            "display",
+            "power",
+            "sound",
+            "mouse",
+            "keyboard",
+            "bluetooth",
+            "account",
+            "default_applications",
+            //"desktop",
+            //"touchpad",
+            //"shortcuts",
+            //"disk_mount",
             "network",
             "date_time",
-            "shutdown"
+            "grub",
+            "system_info",
         ]
 
     property var hideIds: [

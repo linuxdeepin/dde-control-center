@@ -1,19 +1,26 @@
 import QtQuick 2.1
 import QtQuick.Window 2.1
+import QtGraphicalEffects 1.0
 import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Display 1.0
 import DBus.Com.Deepin.SessionManager 1.0
+import DBus.Com.Deepin.Daemon.Accounts 1.0
 
-Item {
+Rectangle {
     id: panelContent
+    color: dconstants.bgColor
 
     property alias moduleLoaderItem: rightBoxLoaderItem
     property alias moduleBox: rightBox
     property var iconIdToIndex
+    property color tuhaoColor: "#faca57"
 
     property var sessionManager: SessionManager {}
     property var modulesId: ModulesData {}
+    property var accountId: Accounts {}
+    property var currentUserObj: User { path: accountId.ListCachedUsers()[0] }
+
     property bool inExpandHideTrayIcon: false
     property bool inDssHome: true
     property var trayIconModel: ListModel {}
@@ -22,15 +29,17 @@ Item {
             return trayWidth
         }
         else{
-            var new_tray_height = trayArea.height/(trayIconModel.count)
+            var new_tray_height = iconsArea.height/(trayIconModel.count)
             return new_tray_height < trayWidth ? new_tray_height : trayWidth
         }
     }
 
     function initTrayIcon() {
         print(">>>>> initTrayIcon emit")
+        avatarImage.imageSource = currentUserObj.iconFile
+        userName.text = currentUserObj.userName.substring(0, 1).toUpperCase() + currentUserObj.userName.substring(1)
         var modules_id_array = modulesId.allIds
-        trayIconList.currentIndex = -1
+        moduleIconList.currentIndex = -1
         trayIconModel.clear()
         for (var i in modules_id_array){
             var module_id = modules_id_array[i]
@@ -55,7 +64,7 @@ Item {
         print(">>>>> expandHideTrayIcon emit")
         inExpandHideTrayIcon = true
         trayIconModel.remove(trayIconModel.count - 2)
-        trayIconList.currentIndex = -1
+        moduleIconList.currentIndex = -1
         var newIds = modulesId.hideIds
         for (var i in newIds){
             var index = trayIconModel.count - 1
@@ -87,7 +96,7 @@ Item {
     NumberAnimation {
         id: expandHideTrayIconAnimation
         duration: 300
-        target: trayIconList
+        target: moduleIconList
         properties: "height"
         to: trayIconModel.count * trayIconHeight
 
@@ -97,7 +106,7 @@ Item {
     }
 
     Binding {
-        target: trayIconList
+        target: moduleIconList
         property: "height"
         value: trayIconModel.count * trayIconHeight
         when: !inExpandHideTrayIcon
@@ -112,76 +121,155 @@ Item {
         }
     }
 
-    Rectangle {
-        id: leftBackground
-        color: "#212121"
-        width: trayWidth
-        height: parent.height
+    states: [
+        State {
+            name: "siderNavigate"
+            PropertyChanges {target: moduleIconList; itemSize: 48}
+            PropertyChanges {target: iconsArea; width: 50; anchors.leftMargin: 0}
+            PropertyChanges {target: headerArea; y: 0 - headerArea.height;}
+            PropertyChanges {target: bottomArea; anchors.bottomMargin: -80;}
+        }
+    ]
+
+    function changeToSiderNavigate(){
+    }
+
+    function returnToHomeNavigate(){
+    }
+
+    Column {
+        id: headerArea
+        height: childrenRect.height
+        width: parent.width
+
+        Rectangle {
+            width: parent.width
+            height: 150
+            color: dconstants.contentBgColor
+
+            DRoundImage {
+                id: avatarImage
+                roundRadius: 40
+                anchors.top: parent.top
+                anchors.topMargin: 10
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+
+            DLabel {
+                id: userName
+                anchors.top: avatarImage.bottom
+                anchors.topMargin: 6
+                anchors.horizontalCenter: parent.horizontalCenter
+                font.pixelSize: 22
+                color: tuhaoColor
+            }
+        }
+
+        DSeparatorHorizontal{}
+
+        DBaseLine {}
     }
 
     Item {
-        id: trayArea
-        width: parent.width
-        height: parent.height
+        id: iconsArea
+        anchors.top: headerArea.bottom
+        anchors.left: parent.left
+        anchors.leftMargin: (parent.width - width) / 2
+        width: 96 * 3
+        height: childrenRect.height
 
-        Item {
+        GridView {
+            id: moduleIconList
             width: parent.width
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            anchors.left: parent.left
+            anchors.horizontalCenter: parent.horizontalCenter
+            property int itemSize: 96
+            cellHeight: itemSize
+            cellWidth: itemSize
 
-            ListView {
-                id: trayIconList
-                width: parent.width
-                //height: childrenRect.height
-                //anchors.centerIn: parent
-                contentHeight: height
-
-                function iconClickAction(trayIconId) {
-                    if (trayIconId == 'shutdown'){
-                        rootWindow.displayWidth = 0
-                        rootWindow.hide()
-                        if(rightBoxLoaderItem.iconId != ''){
-                            trayIconList.currentIndex = iconIdToIndex[rightBoxLoaderItem.iconId]
-                            resetTimer.restart()
-                        }
-                        else{
-                            trayIconList.currentIndex = -1
-                            initTrayIcon()
-                        }
-                        sessionManager.PowerOffChoose()
-                    }
-                    else if (trayIconId == 'dss'){
-                        expandHideTrayIcon()
+            function iconClickAction(index, trayIconId) {
+                if (trayIconId == 'shutdown'){
+                    rootWindow.displayWidth = 0
+                    rootWindow.hide()
+                    if(rightBoxLoaderItem.iconId != ''){
+                        moduleIconList.currentIndex = iconIdToIndex[rightBoxLoaderItem.iconId]
+                        resetTimer.restart()
                     }
                     else{
-                        if (frame.x != rootWindow.width - panelWidth){
-                            showAll.restart()
-                        }
-                        rightBoxLoaderItem.iconId = trayIconId
-                        if( rightBox.x == panelContent.width ) { 
-                            rightBox.x = trayWidth
-                        }
-                        inDssHome = false
+                        moduleIconList.currentIndex = -1
+                        initTrayIcon()
                     }
+                    sessionManager.PowerOffChoose()
                 }
-
-                delegate: ModuleIconItem {
-                    width: parent.width
-                    height: trayIconHeight
+                else{
+                    if (frame.x != rootWindow.width - panelWidth){
+                        showAll.restart()
+                    }
+                    rightBoxLoaderItem.iconId = trayIconId
+                    if( rightBox.visible == false ) { 
+                        rightBox.visible = true
+                        rightBox.opacity = 1
+                    }
+                    inDssHome = false
+                    panelContent.state = "siderNavigate"
                 }
-                model: trayIconModel
-                currentIndex: -1
-                //highlight: Rectangle { color: Qt.rgba(255, 255, 255, 0.1); radius: 2; }
-                //highlightMoveDuration: 300
-                //highlightFollowsCurrentItem: true
-                maximumFlickVelocity: 0
             }
+
+            delegate: ModuleIconItem {
+                property bool isSiderNavigate: panelContent.state == "siderNavigate"
+            }
+            model: trayIconModel
+            currentIndex: -1
+            maximumFlickVelocity: 0
+            //displaced: Transition {
+                //NumberAnimation { properties: "x,y"; duration: 600 }
+            //}
         }
     }
 
-    DSeparatorVertical {
-        anchors.left: leftBackground.right
+    Item {
+        id: bottomArea
+        width: parent.width
+        anchors.bottom: parent.bottom
+
+        Behavior on anchors.bottomMargin {
+            NumberAnimation { duration: 300 }
+        }
+
+        Image {
+            anchors.bottom: parent.bottom
+            source: "images/shutdown_bg.png"
+        }
+
+        DImageButton {
+            id: shutdownButton
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 36
+            normal_image: "images/shutdown_normal.png"
+            hover_image: "images/shutdown_hover.png"
+            press_image: hover_image
+
+            onStateChanged: {
+                if(state == ""){
+                    shutdownText.color = dconstants.fgColor
+                } else {
+                    shutdownText.color = tuhaoColor
+                }
+            }
+
+            onClicked: {
+                sessionManager.PowerOffChoose()
+            }
+        }
+
+        DLabel {
+            id: shutdownText
+            text: dsTr("Shutdown")
+            anchors.top: shutdownButton.bottom
+            anchors.topMargin: 6
+            anchors.horizontalCenter: parent.horizontalCenter
+            font.pixelSize: 12
+        }
     }
 
     Rectangle {
@@ -189,8 +277,10 @@ Item {
         width: parent.width - trayWidth
         height: parent.height
         color: dconstants.bgColor
-        x: parent.width
+        x: 50
         clip: true
+        visible: false
+        opacity: 0
 
         MouseArea{
             anchors.fill: parent
@@ -198,10 +288,9 @@ Item {
             //Eats mouse events
         }
 
-        Behavior on x {
-            SmoothedAnimation { 
-                duration: 300 
-                easing.type: Easing.InQuart
+        Behavior on opacity {
+            NumberAnimation { 
+                duration: 1000
             }
         }
 

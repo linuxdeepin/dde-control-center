@@ -2,12 +2,24 @@ import QtQuick 2.1
 import QtGraphicalEffects 1.0
 import Deepin.Widgets 1.0
 
-Item {
-    id: trayIconButton
+Rectangle {
+    id: moduleIconItem
+    clip: true
     
-    property string rightboxId: moduleId
+    width: GridView.view.itemSize
+    height: GridView.view.itemSize
+    color: Qt.rgba(1, 1, 1, 0)
+
+    property string itemId: moduleId
     property string iconPathHeader: "trayicons/" + moduleId
-    property string extStr: moduleId == "system_info" ? ".png": ".svg"
+    property string extStr: {
+        if(moduleId == "system_info" | moduleId == "grub" | moduleId == "home"){
+            return ".png"
+        }
+        else{
+            return ".svg"
+        }
+    }
     
     property bool hover: false
     property url iconPath: windowView.isIconPluginExist(moduleId) ? '../../modules/' + moduleId + '/iconPlugin.qml' : ''
@@ -27,89 +39,109 @@ Item {
         property var icon: defaultIcon
     }
 
-    Column {
-        anchors.fill: parent
-        Item {
-            width: parent.width
-            height: parent.height
+    states: [
+        State {
+            name: "hovered"
+            PropertyChanges { target: outBox; color: Qt.rgba(1, 1, 1, 0.1); }
+            PropertyChanges { target: moduleIcon; source: pluginLoader.icon.hoverImage }
+            PropertyChanges { target: moduleName; color: Qt.rgba(0, 144/255, 1, 1.0) }
+        },
+        State {
+            name: "selected"
+            PropertyChanges { target: outBox; color: Qt.rgba(1, 1, 1, 0);}
+            PropertyChanges { target: moduleIcon; source: pluginLoader.icon.hoverImage; anchors.topMargin: 8 }
+            PropertyChanges { target: moduleName; visible: false }
+        }
+    ]
 
-            Image {
-                id: iconImage
-                anchors.left: parent.left
-                anchors.leftMargin: 10
-                anchors.verticalCenter: parent.verticalCenter
-                width: 28
-                height: 28
-                source: {
-                    if(trayIconButton.ListView.view.currentIndex == index){
-                        return pluginLoader.icon.pressImage
-                    }
-                    else if(trayIconButton.hover){
-                        return pluginLoader.icon.hoverImage
-                    }
-                    return pluginLoader.icon.normalImage
+    Rectangle {
+        id: outBox
+        property int size: parent.width - 6
+        width: size
+        height: size
+        anchors.centerIn: parent
+        radius: 3
+        color: Qt.rgba(1, 1, 1, 0)
+
+        Image {
+            id: moduleIcon
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.verticalCenterOffset: isSiderNavigate ? 0 : -16
+            source: pluginLoader.icon.normalImage
+            /***
+            {
+                if(moduleIconItem.GridView.view.currentIndex == index){
+                    return pluginLoader.icon.pressImage
                 }
+                else if(moduleIconItem.hover){
+                    return pluginLoader.icon.hoverImage
+                }
+                return pluginLoader.icon.normalImage
             }
-
-            DLabel {
-                id: moduleName
-                anchors.left: iconImage.right
-                anchors.leftMargin: 27
-                anchors.verticalCenter: parent.verticalCenter
-                font.pixelSize: 14
-                text: modulesId.moduleLocaleNames[moduleId]
-                color: trayIconButton.hover ? Qt.rgba(0, 144/255, 1, 1.0) : dconstants.fgColor
-
-            }
-
-            Image {
-                id: warning
-                anchors.top: parent.top
-                anchors.topMargin: 2
-                anchors.left: parent.left
-                anchors.leftMargin: 2
-                source: "images/warning.svg"
-                visible: pluginLoader.showWarning
-            }
-
-            NumberTip {
-                id: numberTip
-                anchors.top: parent.top
-                anchors.topMargin: 2
-                anchors.left: parent.left
-                anchors.leftMargin: 2
-                visible: pluginLoader.tipNumber != 0
-                currentNumber: pluginLoader.tipNumber
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                hoverEnabled: true
-                onClicked: {
-                }
-                onEntered: {
-                    //iconImage.source = pluginLoader.icon.hoverImage
-                    trayIconButton.hover = true
-                }
-                onExited: {
-                    trayIconButton.hover = false
-                }
-                onPressed: {
-                    //iconImage.source = pluginLoader.icon.pressImage
-                    trayIconButton.ListView.view.currentIndex = index
-                    trayIconButton.hover = false
-                    trayIconButton.ListView.view.iconClickAction(trayIconButton.rightboxId)
-                }
-                onReleased: {
-                    trayIconButton.hover = containsMouse
-                }
-            }
-
+            ***/
         }
 
-        //DSeparatorHorizontal {}
-    }
+        DLabel {
+            id: moduleName
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: moduleIcon.bottom
+            anchors.topMargin: 6
+            width: parent.width - 4
+            wrapMode: Text.WordWrap
+            horizontalAlignment: Text.AlignHCenter
+            font.pixelSize: 14
+            text: modulesId.moduleLocaleNames[moduleId]
+            elide: Text.ElideRight
+            visible: !isSiderNavigate
+            //visible: false
+        }
 
+        Image {
+            id: warning
+            anchors.top: parent.top
+            anchors.topMargin: 2
+            anchors.left: parent.left
+            anchors.leftMargin: 2
+            source: "images/warning.svg"
+            visible: pluginLoader.showWarning
+        }
+
+        NumberTip {
+            id: numberTip
+            anchors.top: parent.top
+            anchors.topMargin: 2
+            anchors.left: parent.left
+            anchors.leftMargin: 2
+            visible: pluginLoader.tipNumber != 0
+            currentNumber: pluginLoader.tipNumber
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            hoverEnabled: true
+            onClicked: {
+                moduleIconItem.GridView.view.iconClickAction(index, moduleIconItem.itemId)
+            }
+            onEntered: {
+                moduleIconItem.state = "hovered"
+            }
+            onExited: {
+                moduleIconItem.state = ""
+            }
+            onPressed: {
+            }
+            onReleased: {
+                if(containsMouse){
+                    moduleIconItem.state = "hovered"
+                }
+                else{
+                    moduleIconItem.state = ""
+                }
+            }
+        }
+
+    }
 
     onHoverChanged: {
         trayIconTip.isHover = hover

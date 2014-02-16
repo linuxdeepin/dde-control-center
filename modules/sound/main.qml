@@ -29,12 +29,12 @@ Item {
 
     Component {
         id: sinkComponent
-        Output {}
+        AudioSink {}
     }
 
     Component {
         id: sourceComponent
-        Input {}
+        AudioSource {}
     }
 
     Column {

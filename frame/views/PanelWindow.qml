@@ -6,7 +6,7 @@ import QtGraphicalEffects 1.0
 Window {
     id: rootWindow
     color: "transparent"
-    flags: Qt.Popup
+    flags: Qt.Popup | Qt.WindowStaysOnTopHint
 
     x: screenSize.x + screenSize.width - width
     y: screenSize.y
@@ -84,7 +84,7 @@ Window {
             rootWindow.width = 0
             rootWindow.hide()
             if(panelContent.moduleLoaderItem.iconId != ''){
-                resetTimer.restart()
+                //resetTimer.restart()
             }
             else {
                 panelContent.initTrayIcon()
