@@ -10,6 +10,7 @@ import DBus.Com.Deepin.Daemon.Accounts 1.0
 Rectangle {
     id: panelContent
     color: dconstants.bgColor
+    property bool isSiderNavigate: false
 
     property alias moduleLoaderItem: rightBoxLoaderItem
     property alias moduleBox: rightBox
@@ -23,68 +24,74 @@ Rectangle {
 
     property bool inExpandHideTrayIcon: false
     property bool inDssHome: true
-    property var trayIconModel: ListModel {}
+    property var navigateIconModel: ListModel {}
     property real trayIconHeight: {
-        if(trayIconModel.count==0){
+        if(navigateIconModel.count==0){
             return trayWidth
         }
         else{
-            var new_tray_height = iconsArea.height/(trayIconModel.count)
+            var new_tray_height = iconsArea.height/(navigateIconModel.count)
             return new_tray_height < trayWidth ? new_tray_height : trayWidth
         }
     }
 
     function initTrayIcon() {
-        print(">>>>> initTrayIcon emit")
+        print("==> initTrayIcon emit")
         avatarImage.imageSource = currentUserObj.iconFile
         userName.text = currentUserObj.userName.substring(0, 1).toUpperCase() + currentUserObj.userName.substring(1)
         var modules_id_array = modulesId.allIds
         moduleIconList.currentIndex = -1
-        trayIconModel.clear()
+        navigateIconModel.clear()
         for (var i in modules_id_array){
             var module_id = modules_id_array[i]
             if(module_id != "touchpad"){
-                trayIconModel.append({
+                navigateIconModel.append({
                     "moduleId": module_id,
                 })
             }
             else if(module_id == "touchpad" && typeof inputDevices[module_id] != "undefined"){
-                trayIconModel.append({
+                navigateIconModel.append({
                     "moduleId": module_id,
                 })
             }
         }
         iconIdToIndex = new Object()
-        for(var i=0; i<trayIconModel.count; i++){
-            iconIdToIndex[trayIconModel.get(i).moduleId] = i
+        for(var i=0; i<navigateIconModel.count; i++){
+            iconIdToIndex[navigateIconModel.get(i).moduleId] = i
         }
     }
 
-    function expandHideTrayIcon() {
-        print(">>>>> expandHideTrayIcon emit")
-        inExpandHideTrayIcon = true
-        trayIconModel.remove(trayIconModel.count - 2)
-        moduleIconList.currentIndex = -1
-        var newIds = modulesId.hideIds
-        for (var i in newIds){
-            var index = trayIconModel.count - 1
-            var module_id = newIds[i]
-            trayIconModel.insert(index, {
-                "moduleId": module_id,
-            })
+    function addHomeShutdownButton() {
+        navigateIconModel.insert(0, { "moduleId": "home" })
+        navigateIconModel.append({ "moduleId": "shutdown" })
+        panelContent.isSiderNavigate = true
+    }
+
+    function removeHomeShutdownButton() {
+        navigateIconModel.remove(0)
+        navigateIconModel.remove(navigateIconModel.count - 1)
+        panelContent.isSiderNavigate = false
+    }
+
+    function shutdownButtonClicked(){
+        rootWindow.displayWidth = 0
+        rootWindow.hide()
+        if(rightBoxLoaderItem.iconId != ''){
+            moduleIconList.currentIndex = iconIdToIndex[rightBoxLoaderItem.iconId]
+            resetTimer.restart()
         }
-        expandHideTrayIconAnimation.start()
-        iconIdToIndex = new Object()
-        for(var i=0; i<trayIconModel.count; i++){
-            iconIdToIndex[trayIconModel.get(i).moduleId] = i
+        else{
+            moduleIconList.currentIndex = -1
+            initTrayIcon()
         }
+        sessionManager.PowerOffChoose()
     }
 
     function trayIconHoverHandler(module_id, index) {
         var tipDisplayHeight
         tipDisplayHeight = Math.abs(trayIconHeight - trayIconTip.height)/2 + trayIconHeight * index
         if (trayIconHeight == trayWidth) {
-            //tipDisplayHeight += (panelContent.height - trayIconHeight * trayIconModel.count)/2
+            //tipDisplayHeight += (panelContent.height - trayIconHeight * navigateIconModel.count)/2
         }
         trayIconTip.y = tipDisplayHeight
         trayIconTip.text = modulesId.moduleLocaleNames[module_id]
@@ -98,7 +105,7 @@ Rectangle {
         duration: 300
         target: moduleIconList
         properties: "height"
-        to: trayIconModel.count * trayIconHeight
+        to: navigateIconModel.count * trayIconHeight
 
         onStopped: {
             inExpandHideTrayIcon = false
@@ -108,7 +115,7 @@ Rectangle {
     Binding {
         target: moduleIconList
         property: "height"
-        value: trayIconModel.count * trayIconHeight
+        value: navigateIconModel.count * trayIconHeight
         when: !inExpandHideTrayIcon
     }
 
@@ -121,20 +128,123 @@ Rectangle {
         }
     }
 
-    states: [
-        State {
-            name: "siderNavigate"
-            PropertyChanges {target: moduleIconList; itemSize: 48}
-            PropertyChanges {target: iconsArea; width: 50; anchors.leftMargin: 0}
-            PropertyChanges {target: headerArea; y: 0 - headerArea.height;}
-            PropertyChanges {target: bottomArea; anchors.bottomMargin: -80;}
-        }
-    ]
+    SequentialAnimation {
+        id: toSiderNavigateAnimation
 
-    function changeToSiderNavigate(){
+        onStopped: addHomeShutdownButton()
+
+        ParallelAnimation {
+            PropertyAnimation {
+                target: headerArea
+                property: "y"
+                to: 0 - headerArea.height
+                duration: 300
+            }
+
+            PropertyAnimation {
+                target: footerArea
+                property: "anchors.bottomMargin"
+                to: -80
+                duration: 300
+            }
+
+        }
+
+        ParallelAnimation {
+            PropertyAnimation {
+                target: iconsArea
+                property: "width"
+                to: 48
+                duration: 300
+            }
+
+            PropertyAnimation {
+                target: iconsArea
+                property: "anchors.topMargin"
+                to: 0
+                duration: 300
+            }
+
+            PropertyAnimation {
+                target: listBox
+                property: "width"
+                to: 48
+                duration: 300
+            }
+
+            PropertyAnimation {
+                target: moduleIconList
+                property: "iconLabelOpacity"
+                to: 0
+                duration: 300
+            }
+
+            PropertyAnimation {
+                target: moduleIconList
+                property: "itemSize"
+                to: 48
+                duration: 300
+            }
+        }
     }
 
-    function returnToHomeNavigate(){
+    SequentialAnimation {
+        id: toGridNavigateAnimation
+
+        onStarted: removeHomeShutdownButton()
+
+        ParallelAnimation {
+            PropertyAnimation {
+                target: iconsArea
+                property: "width"
+                to: panelContent.width
+                duration: 300
+            }
+
+            PropertyAnimation {
+                target: iconsArea
+                property: "anchors.topMargin"
+                to: headerArea.height
+                duration: 300
+            }
+
+            PropertyAnimation {
+                target: listBox
+                property: "width"
+                to: 96 * 3
+                duration: 300
+            }
+
+            PropertyAnimation {
+                target: moduleIconList
+                property: "iconLabelOpacity"
+                to: 1
+                duration: 300
+            }
+
+            PropertyAnimation {
+                target: moduleIconList
+                property: "itemSize"
+                to: 96
+                duration: 300
+            }
+        }
+
+        ParallelAnimation {
+            PropertyAnimation {
+                target: headerArea
+                property: "y"
+                to: 0
+                duration: 300
+            }
+
+            PropertyAnimation {
+                target: footerArea
+                property: "anchors.bottomMargin"
+                to: 0
+                duration: 300
+            }
+        }
     }
 
     Column {
@@ -172,62 +282,61 @@ Rectangle {
 
     Item {
         id: iconsArea
-        anchors.top: headerArea.bottom
+        anchors.top: parent.top
+        anchors.topMargin: headerArea.height
         anchors.left: parent.left
-        anchors.leftMargin: (parent.width - width) / 2
-        width: 96 * 3
+        width: parent.width
         height: childrenRect.height
 
-        GridView {
-            id: moduleIconList
-            width: parent.width
+        Item {
+            id: listBox
+            width: 96 * 3
+            height: childrenRect.height
             anchors.horizontalCenter: parent.horizontalCenter
-            property int itemSize: 96
-            cellHeight: itemSize
-            cellWidth: itemSize
 
-            function iconClickAction(index, trayIconId) {
-                if (trayIconId == 'shutdown'){
-                    rootWindow.displayWidth = 0
-                    rootWindow.hide()
-                    if(rightBoxLoaderItem.iconId != ''){
-                        moduleIconList.currentIndex = iconIdToIndex[rightBoxLoaderItem.iconId]
-                        resetTimer.restart()
+            GridView {
+                id: moduleIconList
+                width: parent.width
+                anchors.horizontalCenter: parent.horizontalCenter
+                property int itemSize: 96
+                cellHeight: itemSize
+                cellWidth: itemSize
+                property bool isSiderNavigate: false
+                property real iconLabelOpacity: 1
+
+                function iconClickAction(index, iconId) {
+                    if (iconId == 'shutdown'){
+                        shutdownButtonClicked()
+                    }
+                    else if(iconId == "home"){
+                        toGridNavigateAnimation.start()
                     }
                     else{
-                        moduleIconList.currentIndex = -1
-                        initTrayIcon()
+                        if (frame.x != rootWindow.width - panelWidth){
+                            showAll.restart()
+                        }
+                        rightBoxLoaderItem.iconId = iconId
+                        if( rightBox.visible == false ) { 
+                            rightBox.visible = true
+                            rightBox.opacity = 1
+                        }
+                        inDssHome = false
+                        if(!panelContent.isSiderNavigate){
+                            toSiderNavigateAnimation.start()
+                        }
                     }
-                    sessionManager.PowerOffChoose()
                 }
-                else{
-                    if (frame.x != rootWindow.width - panelWidth){
-                        showAll.restart()
-                    }
-                    rightBoxLoaderItem.iconId = trayIconId
-                    if( rightBox.visible == false ) { 
-                        rightBox.visible = true
-                        rightBox.opacity = 1
-                    }
-                    inDssHome = false
-                    panelContent.state = "siderNavigate"
-                }
-            }
 
-            delegate: ModuleIconItem {
-                property bool isSiderNavigate: panelContent.state == "siderNavigate"
+                delegate: ModuleIconItem {}
+                model: navigateIconModel
+                currentIndex: -1
+                maximumFlickVelocity: 0
             }
-            model: trayIconModel
-            currentIndex: -1
-            maximumFlickVelocity: 0
-            //displaced: Transition {
-                //NumberAnimation { properties: "x,y"; duration: 600 }
-            //}
         }
     }
 
     Item {
-        id: bottomArea
+        id: footerArea
         width: parent.width
         anchors.bottom: parent.bottom
 
@@ -258,7 +367,7 @@ Rectangle {
             }
 
             onClicked: {
-                sessionManager.PowerOffChoose()
+                shutdownButtonClicked()
             }
         }
 
@@ -277,21 +386,13 @@ Rectangle {
         width: parent.width - trayWidth
         height: parent.height
         color: dconstants.bgColor
-        x: 50
+        anchors.left: iconsArea.right
         clip: true
-        visible: false
-        opacity: 0
 
         MouseArea{
             anchors.fill: parent
             hoverEnabled: true
             //Eats mouse events
-        }
-
-        Behavior on opacity {
-            NumberAnimation { 
-                duration: 1000
-            }
         }
 
         Row {

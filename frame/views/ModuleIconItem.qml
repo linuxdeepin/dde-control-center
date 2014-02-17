@@ -67,19 +67,8 @@ Rectangle {
             id: moduleIcon
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
-            anchors.verticalCenterOffset: isSiderNavigate ? 0 : -16
+            anchors.verticalCenterOffset: moduleName.visible ? -16 : 0
             source: pluginLoader.icon.normalImage
-            /***
-            {
-                if(moduleIconItem.GridView.view.currentIndex == index){
-                    return pluginLoader.icon.pressImage
-                }
-                else if(moduleIconItem.hover){
-                    return pluginLoader.icon.hoverImage
-                }
-                return pluginLoader.icon.normalImage
-            }
-            ***/
         }
 
         DLabel {
@@ -90,10 +79,11 @@ Rectangle {
             width: parent.width - 4
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
-            font.pixelSize: 14
+            font.pixelSize: 12
             text: modulesId.moduleLocaleNames[moduleId]
             elide: Text.ElideRight
-            visible: !isSiderNavigate
+            visible: opacity != 0
+            opacity: moduleIconItem.GridView.view.iconLabelOpacity
             //visible: false
         }
 

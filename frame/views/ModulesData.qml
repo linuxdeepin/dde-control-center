@@ -38,24 +38,23 @@ Item {
         ]
 
     property var allIds: [
-            //"notification",
-            "individuation",
             "display",
-            "power",
+            "individuation",
             "sound",
-            "mouse",
             "keyboard",
+            "network",
             "bluetooth",
-            "account",
+            "mouse",
+            "power",
+            "date_time",
             "default_applications",
+            "account",
+            "system_info",
+            "shortcuts",
+            "grub",
             //"desktop",
             //"touchpad",
-            //"shortcuts",
             //"disk_mount",
-            "network",
-            "date_time",
-            "grub",
-            "system_info",
         ]
 
     property var hideIds: [

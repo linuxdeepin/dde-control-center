@@ -53,7 +53,6 @@ Item {
         return dsslocale.dsTr(s)
     }
 
-
     PanelWindow {
         id: rootWindow
     }
