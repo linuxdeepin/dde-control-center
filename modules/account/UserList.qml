@@ -72,6 +72,17 @@ ListView {
                 height: 100
                 color: Qt.rgba(0, 0, 0, 0)
 
+                DeleteUserButton {
+                    id: delete_user_button
+
+                    onClicked: {
+                        component_bg.state = "delete_dialog"
+                    }
+
+                    anchors.left: parent.left
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+
                 DRoundImage {
                     id: round_image
                     roundRadius: 25
@@ -90,6 +101,8 @@ ListView {
                         toggleFlag = !toggleFlag
                     }
 
+                    anchors.left: delete_user_button.right
+                    anchors.leftMargin: root.leftPadding
                     anchors.verticalCenter: parent.verticalCenter
                 }
 
@@ -115,18 +128,6 @@ ListView {
 
                     onChangeStatus: {
                         component_bg.this_user.locked = locked
-                    }
-
-                    anchors.right: parent.right
-                    anchors.rightMargin: root.rightPadding
-                    anchors.verticalCenter: parent.verticalCenter
-                }
-
-                DeleteUserButton {
-                    id: delete_user_button
-
-                    onClicked: {
-                        component_bg.state = "delete_dialog"
                     }
 
                     anchors.right: parent.right
