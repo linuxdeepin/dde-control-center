@@ -10,6 +10,17 @@ Rectangle {
     height: GridView.view.itemSize
     color: Qt.rgba(1, 1, 1, 0)
 
+    property bool isSelected: rightBoxLoaderItem.iconId == itemId
+
+    onIsSelectedChanged: {
+        if(isSelected){
+            state = "selected"
+        }
+        else{
+            state = ""
+        }
+    }
+
     property string itemId: moduleId
     property string iconPathHeader: "trayicons/" + moduleId
     property string extStr: {
@@ -53,6 +64,12 @@ Rectangle {
             PropertyChanges { target: moduleName; visible: false }
         }
     ]
+
+    function changeState(s){
+        if(moduleIconItem.state != "selected"){
+            moduleIconItem.state = s
+        }
+    }
 
     Rectangle {
         id: outBox
@@ -114,19 +131,23 @@ Rectangle {
                 moduleIconItem.GridView.view.iconClickAction(index, moduleIconItem.itemId)
             }
             onEntered: {
-                moduleIconItem.state = "hovered"
+                changeState("hovered")
+                moduleIconItem.hover = true
             }
             onExited: {
-                moduleIconItem.state = ""
+                changeState("")
+                moduleIconItem.hover = false
             }
             onPressed: {
             }
             onReleased: {
                 if(containsMouse){
-                    moduleIconItem.state = "hovered"
+                    changeState("hovered")
+                    moduleIconItem.hover = true
                 }
                 else{
-                    moduleIconItem.state = ""
+                    changeState("")
+                    moduleIconItem.hover = false
                 }
             }
         }
@@ -135,7 +156,7 @@ Rectangle {
 
     onHoverChanged: {
         trayIconTip.isHover = hover
-        if (hover){
+        if(trayIconTip.isHover){
             panelContent.trayIconHoverHandler(moduleId, index)
         }
         else {

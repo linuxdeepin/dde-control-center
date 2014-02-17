@@ -11,6 +11,7 @@ Rectangle {
     id: panelContent
     color: dconstants.bgColor
     property bool isSiderNavigate: false
+    property string currentContentId: ""
 
     property alias moduleLoaderItem: rightBoxLoaderItem
     property alias moduleBox: rightBox
@@ -100,6 +101,9 @@ Rectangle {
         }
     }
 
+    function iconViewToList(){
+    }
+
     NumberAnimation {
         id: expandHideTrayIconAnimation
         duration: 300
@@ -128,122 +132,104 @@ Rectangle {
         }
     }
 
-    SequentialAnimation {
+    ParallelAnimation {
         id: toSiderNavigateAnimation
-
-        onStopped: addHomeShutdownButton()
-
-        ParallelAnimation {
-            PropertyAnimation {
-                target: headerArea
-                property: "y"
-                to: 0 - headerArea.height
-                duration: 300
-            }
-
-            PropertyAnimation {
-                target: footerArea
-                property: "anchors.bottomMargin"
-                to: -80
-                duration: 300
-            }
-
+        PropertyAnimation {
+            target: headerArea
+            property: "y"
+            to: 0 - headerArea.height
+            duration: 300
         }
 
-        ParallelAnimation {
-            PropertyAnimation {
-                target: iconsArea
-                property: "width"
-                to: 48
-                duration: 300
-            }
+        PropertyAnimation {
+            target: footerArea
+            property: "anchors.bottomMargin"
+            to: -80
+            duration: 300
+        }
+        PropertyAnimation {
+            target: iconsArea
+            property: "opacity"
+            to: 0
+            duration: 300
+        }
 
-            PropertyAnimation {
-                target: iconsArea
-                property: "anchors.topMargin"
-                to: 0
-                duration: 300
-            }
-
-            PropertyAnimation {
-                target: listBox
-                property: "width"
-                to: 48
-                duration: 300
-            }
-
-            PropertyAnimation {
-                target: moduleIconList
-                property: "iconLabelOpacity"
-                to: 0
-                duration: 300
-            }
-
-            PropertyAnimation {
-                target: moduleIconList
-                property: "itemSize"
-                to: 48
-                duration: 300
-            }
+        onStopped: {
+            iconsArea.width = 48
+            iconsArea.anchors.topMargin = 0
+            listBox.width = 48
+            moduleIconList.itemSize = 48
+            addHomeShutdownButton()
+            rightBoxLoaderItem.iconId = currentContentId
+            moduleIconList.iconLabelOpacity = 0
+            showContentPanel.start()
         }
     }
 
-    SequentialAnimation {
+    ParallelAnimation {
+        id: showContentPanel
+        PropertyAnimation {
+            target: iconsArea
+            property: "opacity"
+            to: 1
+            duration: 300
+        }
+        PropertyAnimation {
+            target: rightBox
+            property: "x"
+            to: 48
+            duration: 300
+        }
+    }
+
+    ParallelAnimation {
         id: toGridNavigateAnimation
-
-        onStarted: removeHomeShutdownButton()
-
-        ParallelAnimation {
-            PropertyAnimation {
-                target: iconsArea
-                property: "width"
-                to: panelContent.width
-                duration: 300
-            }
-
-            PropertyAnimation {
-                target: iconsArea
-                property: "anchors.topMargin"
-                to: headerArea.height
-                duration: 300
-            }
-
-            PropertyAnimation {
-                target: listBox
-                property: "width"
-                to: 96 * 3
-                duration: 300
-            }
-
-            PropertyAnimation {
-                target: moduleIconList
-                property: "iconLabelOpacity"
-                to: 1
-                duration: 300
-            }
-
-            PropertyAnimation {
-                target: moduleIconList
-                property: "itemSize"
-                to: 96
-                duration: 300
-            }
+        PropertyAnimation {
+            target: iconsArea
+            property: "opacity"
+            to: 0
+            duration: 300
+        }
+        PropertyAnimation {
+            target: rightBox
+            property: "x"
+            to: panelContent.width
+            duration: 300
         }
 
-        ParallelAnimation {
-            PropertyAnimation {
-                target: headerArea
-                property: "y"
-                to: 0
-                duration: 300
-            }
+        onStopped: {
+            iconsArea.width = panelContent.width
+            iconsArea.anchors.topMargin = headerArea.height
+            listBox.width = 96 * 3
+            moduleIconList.itemSize = 96
+            removeHomeShutdownButton()
+            rightBoxLoaderItem.iconId = ""
+            moduleIconList.iconLabelOpacity = 1
+            showHomePanel.start()
+        }
+    }
 
-            PropertyAnimation {
-                target: footerArea
-                property: "anchors.bottomMargin"
-                to: 0
-                duration: 300
-            }
+    ParallelAnimation {
+        id: showHomePanel
+        PropertyAnimation {
+            target: headerArea
+            property: "y"
+            to: 0
+            duration: 300
+        }
+
+        PropertyAnimation {
+            target: footerArea
+            property: "anchors.bottomMargin"
+            to: 0
+            duration: 300
+        }
+        
+        PropertyAnimation {
+            target: iconsArea
+            property: "opacity"
+            to: 1
+            duration: 300
         }
     }
 
@@ -305,17 +291,19 @@ Rectangle {
                 property real iconLabelOpacity: 1
 
                 function iconClickAction(index, iconId) {
+                    currentContentId = iconId
                     if (iconId == 'shutdown'){
                         shutdownButtonClicked()
                     }
                     else if(iconId == "home"){
+                        inDssHome = true
+                        trayIconTip.visible = false
                         toGridNavigateAnimation.start()
                     }
                     else{
                         if (frame.x != rootWindow.width - panelWidth){
                             showAll.restart()
                         }
-                        rightBoxLoaderItem.iconId = iconId
                         if( rightBox.visible == false ) { 
                             rightBox.visible = true
                             rightBox.opacity = 1
@@ -324,6 +312,17 @@ Rectangle {
                         if(!panelContent.isSiderNavigate){
                             toSiderNavigateAnimation.start()
                         }
+                        else{
+                            rightBoxLoaderItem.iconId = currentContentId
+                        }
+                    }
+                }
+
+                function hightLightSelected(id){
+                    for(var i=0; i<navigateIconModel.count; i++){
+                        if(navigateIconModel.get(i).moduleId == id){
+                            moduleIconList.currentIndex = i
+                        }
                     }
                 }
 
@@ -331,6 +330,9 @@ Rectangle {
                 model: navigateIconModel
                 currentIndex: -1
                 maximumFlickVelocity: 0
+                moveDisplaced: Transition {
+                    NumberAnimation { properties: "x,y"; duration: 500 }
+                }
             }
         }
     }
@@ -386,7 +388,7 @@ Rectangle {
         width: parent.width - trayWidth
         height: parent.height
         color: dconstants.bgColor
-        anchors.left: iconsArea.right
+        x: panelContent.width
         clip: true
 
         MouseArea{
@@ -403,14 +405,9 @@ Rectangle {
 
             property string iconId
             onIconIdChanged: {
-                rightBoxLoaderItem.visible = (iconId == '' ? false : true)
+                rightBoxLoaderItem.visible = iconId != ''
                 rightBoxLoader.iconId = iconId
-                if (iconId){
-                    rightBoxLoader.source = '../../modules/' + iconId + '/main.qml'
-                }
-                else{
-                    rightBoxLoader.source = ''
-                }
+                rightBoxLoader.source = (iconId == ''? '' : '../../modules/' + iconId + '/main.qml')
             }
 
             DSeparatorVertical {}

@@ -2,7 +2,7 @@ import QtQuick 2.1
 
 Item {
     property var moduleLocaleNames: {
-            "date_time": dsTr("Date & Time"),
+            "date_time": dsTr("Date and Time"),
             "network": dsTr("Network"),
             "disk_mount": dsTr("Disk Mount"),
             "bluetooth": dsTr("Bluetooth"),
@@ -13,13 +13,13 @@ Item {
             "notification": dsTr("Notification"),
             "display": dsTr("Display"),
             "desktop": dsTr("Desktop"),
-            "individuation": dsTr("Individuation"),
-            "shortcuts": dsTr("Shortcuts"),
+            "personalization": dsTr("Personalization"),
+            "shortcuts": dsTr("Keyboard Shortcuts"),
             "keyboard": dsTr("Keyboard"),
-            "mouse": dsTr("Mouse"),
+            "mouse": dsTr("Mouse and Touchpad"),
             //"autostart": "", #开机启动, 系统服务
             "touchpad": dsTr("Touchpad"),
-            "account": dsTr("Account"),
+            "account": dsTr("User Accounts"),
             "default_applications": dsTr("Default Applications"),
             "system_info": dsTr("System Information"),
             "grub": dsTr("Grub Setting"),
@@ -39,7 +39,7 @@ Item {
 
     property var allIds: [
             "display",
-            "individuation",
+            "personalization",
             "sound",
             "keyboard",
             "network",
