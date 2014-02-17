@@ -10,6 +10,30 @@ Rectangle {
 
     Grub2 { id: dbus_grub2 }
     Theme { id: dbus_grub2_theme }
+    
+    function timeoutToIndex(timeout) {
+        switch (timeout) {
+            case 1: return 0; break
+            case 5: return 1; break
+            case 10: return 2; break
+            case 15: return 3; break
+            case 20: return 4; break
+            case 25: return 5; break
+            case 30: return 6; break
+        }
+    }
+
+    function indexToTimeout(idx) {
+        switch (idx) {
+            case 0: return 1; break
+            case 1: return 5; break
+            case 2: return 10; break
+            case 3: return 15; break
+            case 4: return 20; break
+            case 5: return 25; break
+            case 6: return 30
+        }
+    }
 
     DssTitle {
         id: title
@@ -29,8 +53,8 @@ Rectangle {
         Column {
             id: contentColumn
             width: root.width
-            height: preview.height + default_entry_expand.height + 
-            delay_expand.height + normal_item_expand.height + selected_item_expand.height
+            height: preview.height + default_entry_expand.height + delay_expand.height
+            + normal_item_expand.height + selected_item_expand.height + 10
 
             DSeparatorHorizontal{}
             Preview { 
@@ -62,7 +86,7 @@ Rectangle {
                     Component.onCompleted: {
                         var entries = dbus_grub2.GetSimpleEntryTitles();
                         for (var i = 0; i < entries.length; i++) {
-                            model.append({"label": entries[i], "selected": false})
+                            model.append({"label": entries[i], "selected": entries[i] == dbus_grub2.defaultEntry})
                         }
                     }
                 }
@@ -70,11 +94,10 @@ Rectangle {
             DSeparatorHorizontal{}
             DBaseExpand {
                 id: delay_expand
-                expanded: true
-
-                header.sourceComponent: DBaseLine {
-                    leftLoader.sourceComponent: DssH2 {
-                        text: "Delay"
+                header.sourceComponent: DDownArrowHeader {
+                    text: "Delay"
+                    onClicked: {
+                        delay_expand.expanded = !delay_expand.expanded
                     }
                 }
                 content.sourceComponent: DMultipleSelectView {
@@ -116,8 +139,9 @@ Rectangle {
                             selected: false
                         }
                     }
-
-                    onSelect: {
+                    
+                    Component.onCompleted: {
+                        delay_view.selectItem(root.timeoutToIndex(dbus_grub2.timeout))
                     }
                 }
             }
