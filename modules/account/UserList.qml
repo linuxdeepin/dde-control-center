@@ -122,14 +122,7 @@ ListView {
                     anchors.verticalCenter: parent.verticalCenter
                 }
 
-                UserStatusButton {
-                    id: user_status_button
-                    state: userStatus
-
-                    onChangeStatus: {
-                        component_bg.this_user.locked = locked
-                    }
-
+                ExpandButton {
                     anchors.right: parent.right
                     anchors.rightMargin: root.rightPadding
                     anchors.verticalCenter: parent.verticalCenter
@@ -267,10 +260,6 @@ ListView {
                         target: component_bg
                         height: component_top.height + component_sep.height
                     }
-                    PropertyChanges {
-                        target: user_status_button
-                        visible: true
-                    }
                 },
                 State {
                     name: "action"
@@ -280,10 +269,6 @@ ListView {
                     }
                     PropertyChanges {
                         target: edit_user_dialog
-                        visible: false
-                    }
-                    PropertyChanges {
-                        target: user_status_button
                         visible: false
                     }
                     PropertyChanges {
@@ -299,10 +284,6 @@ ListView {
                     name: "delete_dialog"
                     PropertyChanges {
                         target: edit_user_dialog
-                        visible: false
-                    }
-                    PropertyChanges {
-                        target: user_status_button
                         visible: false
                     }
                     PropertyChanges {
@@ -322,10 +303,6 @@ ListView {
                     name: "edit_dialog"
                     PropertyChanges {
                         target: delete_user_dialog
-                        visible: false
-                    }
-                    PropertyChanges {
-                        target: user_status_button
                         visible: false
                     }
                     PropertyChanges {
