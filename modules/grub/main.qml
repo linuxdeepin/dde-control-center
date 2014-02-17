@@ -2,8 +2,8 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 
 Rectangle {
+    id: root
     color: "#1A1B1B"
-    /* anchors.fill: parent */
     width: 310
     height: 600
 
@@ -17,16 +17,16 @@ Rectangle {
             width: 310
             height: 1
         }
+        DSeparatorHorizontal{}        
+        Preview { anchors.horizontalCenter: parent.horizontalCenter}
+        DSeparatorHorizontal{}        
 
         DBaseExpand {
             id: delay_expand
-
-            header.sourceComponent: DSwitchButtonHeader {
-                id: delay_switch_button
-                text: "Delay"
-
-                onActiveChanged: {
-                    delay_expand.expanded = active
+            expanded: true
+            header.sourceComponent: DBaseLine {
+                leftLoader.sourceComponent: DssH2 {
+                    text: "Delay"
                 }
             }
             content.sourceComponent: Rectangle {
@@ -38,17 +38,34 @@ Rectangle {
         DSeparatorHorizontal{}
 
         DBaseExpand {
-            id: resolution_expand
+            id: normal_item_expand
 
             header.sourceComponent: DDownArrowHeader {
-                text: "Resolution"
+                text: "Item Color"
                 onClicked: {
-                    resolution_expand.expanded = !resolution_expand.expanded
+                    normal_item_expand.expanded = !normal_item_expand.expanded
                 }
             }
-            content.sourceComponent: Rectangle {
-                width: 310
-                height: 30
+            content.sourceComponent: ColorPicker{
+                width: root.width
+                height: 220
+            }
+        }
+
+        DSeparatorHorizontal{}
+
+        DBaseExpand {
+            id: selected_item_expand
+
+            header.sourceComponent: DDownArrowHeader {
+                text: "Selected Item Color"
+                onClicked: {
+                    selected_item_expand.expanded = !selected_item_expand.expanded
+                }
+            }
+            content.sourceComponent: ColorPicker{
+                width: root.width
+                height: 220
             }
         }
 
