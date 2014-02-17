@@ -5,7 +5,7 @@ Item {
     id: root
     width: 300
     height: 300
-
+    
     Grub2 { id: dbus_grub2 }
     Theme { id: dbus_grub2_theme }
 
@@ -43,7 +43,7 @@ Item {
                 delegate: Text {
                     text: itemTitle
                     font.pixelSize: 16 * background.scaleRatio
-                    color: index == 0 ? dbus_grub2_theme.selectedItemColor : dbus_grub2_theme.itemColor
+                    color: itemTitle == dbus_grub2.defaultEntry ? dbus_grub2_theme.selectedItemColor : dbus_grub2_theme.itemColor
                 }
 
                 Component.onCompleted: {
