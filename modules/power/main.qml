@@ -38,17 +38,13 @@ Rectangle {
     Column {
         anchors.fill: parent
 
-<<<<<<< HEAD
-        DssTitle {
-            text: dsTr("Power") + "  (" + dbus_power.batteryPercentage + "%)"
-=======
         Item {
-            width: root.width
+            width: parent.width
             height: title.height
 
             DssTitle {
                 id: title
-                text: dsTr("Power") + "  (" + dbus_power.batteryPercentage + "%)"
+                text: dsTr("Power")
             }
 
             DTextButton {
@@ -58,7 +54,6 @@ Rectangle {
                 anchors.rightMargin: 15
                 anchors.verticalCenter: parent.verticalCenter
             }
->>>>>>> power front end
         }
 
         DSeparatorHorizontal {}
@@ -71,42 +66,41 @@ Rectangle {
                     text: dsTr("When I press the sleep button")
                 }
             }
-            content.sourceComponent: Item {
-                width: root.width
-                height: 30
+            content.sourceComponent: DMultipleSelectView {
+                id: power_button_view
+                rows: 1
+                columns: 3
 
-                DSelectView {
-                    id: power_button_view
-                    width: parent.width - 15 * 2
-                    selectedItems: [dbus_power.buttonPower]
-                    anchors.centerIn: parent
+                width: parent.width
+                height: rows * 30
+                singleSelectionMode: true
 
-                    model: ListModel {
-                        ListElement {
-                            itemId: "shutdown"
-                            itemText: "Shutdown"
-                            itemWidth: 0
-                        }
-                        ListElement {
-                            itemId: "suspend"
-                            itemText: "Suspend"
-                            itemWidth: 0
-                        }
-                        ListElement {
-                            itemId: "nothing"
-                            itemText: "None"
-                            itemWidth: 0
-                        }
+                model: ListModel {}
+                Component.onCompleted: {
+                    model.append({"label": dsTr("Shut down"), "selected": dbus_power.buttonPower == "shutdown"})
+                    model.append({"label": dsTr("Suspent"), "selected": dbus_power.buttonPower == "suspend"})
+                    model.append({"label": dsTr("None"), "selected": dbus_power.buttonPower == "nothing"})
+                }
+                onSelect: {
+                    switch (index) {
+                        case 0:
+                        dbus_power.buttonPower = "shutdown"
+                        break
+                        case 1:
+                        dbus_power.buttonPower = "suspend"
+                        break
+                        case 2:
+                        dbus_power.buttonPower = "nothing"
                     }
+                }
 
-                    onItemSelected: {
-                        dbus_power.buttonPower = itemId
-                    }
-
-                    Connections {
-                        target: dbus_power
-                        onButtonPowerChanged: {
-                            power_button_view.select(dbus_power.buttonPower)
+                Connections {
+                    target: dbus_power
+                    onButtonPowerChanged: {
+                        switch (dbus_power.buttonPower) {
+                            case "shutdown": power_button_view.selectItem(0); break
+                            case "suspend": power_button_view.selectItem(1); break
+                            case "nothing": power_button_view.selectItem(2); break
                         }
                     }
                 }
@@ -116,47 +110,48 @@ Rectangle {
         DBaseExpand {
             id: close_the_lid_rect
             expanded: true
+            visible: dbus_system_info.isLaptop ? true : false
             header.sourceComponent: DBaseLine {
                 leftLoader.sourceComponent: DssH2 {
                     text: dsTr("When I close the lid")
                 }
             }
-            content.sourceComponent: Item {
-                width: root.width
-                height: 30
+            content.sourceComponent: DMultipleSelectView {
+                id: close_the_lid_view
+                rows: 1
+                columns: 3
 
-                DSelectView {
-                    id: close_the_lid_view
-                    width: parent.width - 15 * 2
-                    selectedItems: [dbus_power.lidCloseBatteryAction]
-                    anchors.centerIn: parent
+                width: parent.width
+                height: rows * 30
+                singleSelectionMode: true
 
-                    model: ListModel {
-                        ListElement {
-                            itemId: "shutdown"
-                            itemText: "Shutdown"
-                            itemWidth: 0
-                        }
-                        ListElement {
-                            itemId: "suspend"
-                            itemText: "Suspend"
-                            itemWidth: 0
-                        }
-                        ListElement {
-                            itemId: "nothing"
-                            itemText: "None"
-                            itemWidth: 0
-                        }
+                model: ListModel {}
+                Component.onCompleted: {
+                    model.append({"label": dsTr("Shut down"), "selected": dbus_power.lidCloseBatteryAction == "shutdown"})
+                    model.append({"label": dsTr("Suspent"), "selected": dbus_power.lidCloseBatteryAction == "suspend"})
+                    model.append({"label": dsTr("None"), "selected": dbus_power.lidCloseBatteryAction == "nothing"})
+                }
+
+                onSelect: {
+                    switch (index) {
+                        case 0:
+                        dbus_power.lidCloseBatteryAction = "shutdown"
+                        break
+                        case 1:
+                        dbus_power.lidCloseBatteryAction = "suspend"
+                        break
+                        case 2:
+                        dbus_power.lidCloseBatteryAction = "nothing"
                     }
+                }
 
-                    onItemSelected: {
-                        dbus_power.lidCloseBatteryAction = itemId
-                    }
-
-                    Connections {
-                        target: dbus_power
-                        onLidCloseBatteryActionChanged: {
-                            close_the_lid_view.select(dbus_power.lidCloseBatteryAction)
+                Connections {
+                    target: dbus_power
+                    onLidCloseBatteryActionChanged: {
+                        switch (dbus_power.lidCloseBatteryAction) {
+                            case "shutdown": close_the_lid_view.selectItem(0); break
+                            case "suspend": close_the_lid_view.selectItem(1); break
+                            case "nothing": close_the_lid_view.selectItem(2); break
                         }
                     }
                 }
@@ -164,50 +159,13 @@ Rectangle {
         }
         DSeparatorHorizontal{}
         DBaseExpand {
-            id: wake_require_password_rect
+            id: wake_require_password_expand
             expanded: true
             header.sourceComponent: DBaseLine {
                 leftLoader.sourceComponent: DssH2 {
                     text: dsTr("Require password when computer wakes")
                 }
             }
-            content.sourceComponent: Item {
-                width: root.width
-                height: 30
-
-                DSelectView {
-                    width: parent.width - 15 * 2
-                    selectedItems: ["require_yes"]
-                    anchors.centerIn: parent
-
-                    model: ListModel {
-                        ListElement {
-                            itemId: "require_yes"
-                            itemText: "Requires a password"
-                            itemWidth: 0
-                        }
-                        ListElement {
-                            itemId: "require_no"
-                            itemText: "Without a password"
-                            itemWidth: 0
-                        }
-                    }
-                }
-            }
-        }
-        DSeparatorHorizontal{}
-<<<<<<< HEAD
-        DBaseLine{}
-=======
-        DBaseExpand {
-            id: wake_require_password_rect
-            expanded: true
-            header.sourceComponent: DBaseLine {
-                leftLoader.sourceComponent: DssH2 {
-                    text: dsTr("Require password when computer wakes")
-                }
-            }
-
             content.sourceComponent: DMultipleSelectView {
                 id: wake_require_password_view
                 rows: 1
@@ -219,10 +177,8 @@ Rectangle {
 
                 model: ListModel {}
                 Component.onCompleted: {
-                    model.append({"label": dsTr("Requires a password"),
-                                  "selected": dbus_power.lockEnabled})
-                    model.append({"label": dsTr("Without a password"),
-                                  "selected": !dbus_power.lockEnabled})
+                    model.append({"label": dsTr("Requires a password"), "selected": dbus_power.lockEnabled})
+                    model.append({"label": dsTr("Without a password"), "selected": !dbus_power.lockEnabled})
                 }
 
                 onSelect: {
@@ -232,18 +188,14 @@ Rectangle {
                 Connections {
                     target: dbus_power
                     onLockEnabledChanged: {
-                        if (dbus_power.lockEnabled) {
-                            wake_require_password_view.selectItem(0)
-                        } else {
-                            wake_require_password_view.selectItem(1)
-                        }
+                        var target = dbus_power.lockEnabled ? 0 : 1
+                        wake_require_password_view.selectItem(target)
                     }
                 }
             }
         }
         DSeparatorHorizontal{}
-        DBaseExpand {}
->>>>>>> power front end
+        DBaseLine{}
         DBaseExpand {
             id: power_plan_rect
             expanded: true
@@ -252,49 +204,46 @@ Rectangle {
                     text: dsTr("Power plan")
                 }
             }
-            content.sourceComponent: Item {
-                width: root.width
-                height: 30 * 2
+            content.sourceComponent: DMultipleSelectView {
+                id: power_plan_view
+                rows: 2
+                columns: 2
+                singleSelectionMode: true
 
-                DSelectView {
-                    id: power_plan_view
-                    width: parent.width - 15 * 2
-                    horizontalPadding: 20
-                    selectedItems: [dbus_power.lidCloseBatteryAction]
-                    anchors.centerIn: parent
+                width: parent.width
+                height: rows * 30
+                viewWidth: 100
 
-                    model: ListModel {
-                        ListElement {
-                            itemId: "balance"
-                            itemText: "Balance"
-                            itemWidth: 0
-                        }
-                        ListElement {
-                            itemId: "saving"
-                            itemText: "Power Saver"
-                            itemWidth: 0
-                        }
-                        ListElement {
-                            itemId: "high-performance"
-                            itemText: "High Performance"
-                            itemWidth: 0
-                        }
-                        ListElement {
-                            itemId: "customized"
-                            itemText: "Custom"
-                            itemWidth: 0
-                        }
+                model: ListModel {}
+                Component.onCompleted: {
+                    model.append({"label": dsTr("Balance"), "selected": dbus_power.currentPlan == "balance"})
+                    model.append({"label": dsTr("Power saver"), "selected": dbus_power.currentPlan == "saving"})
+                    model.append({"label": dsTr("High performance"), "selected": dbus_power.currentPlan == "high-performance"})
+                    model.append({"label": dsTr("Custom"), "selected": dbus_power.currentPlan == "customized"})
+                }
+                onSelect: {
+                    switch (index) {
+                        case 0:
+                        dbus_power.currentPlan = "balance"
+                        break
+                        case 1:
+                        dbus_power.currentPlan = "saving"
+                        break
+                        case 2:
+                        dbus_power.currentPlan = "high-performance"
+                        break
+                        case 3:
+                        dbus_power.currentPlan = "customized"
                     }
-
-                    onItemSelected: {
-                        print(itemId)
-                        dbus_power.currentPlan = itemId
-                    }
-                    Connections {
-                        target: dbus_power
-                        onCurrentPlanChanged: {
-                            /* There's a bug that the currentPlan broadcasted with the signal is always undefined */
-                            power_plan_view.select(dbus_power.currentPlan)
+                }
+                Connections {
+                    target: dbus_power
+                    onCurrentPlanChanged: {
+                        switch (dbus_power.currentPlan) {
+                            case "balance": power_plan_view.selectItem(0); break
+                            case "saving": power_plan_view.selectItem(1); break
+                            case "high-performance": power_plan_view.selectItem(2); break
+                            case "customized": power_plan_view.selectItem(3); break
                         }
                     }
                 }
@@ -304,79 +253,13 @@ Rectangle {
         DBaseExpand {
             id: turn_off_monitor_rect
             expanded: true
-<<<<<<< HEAD
-            property string headerText: "-" + dsTr("Turn off monitor")
-=======
             property string headerText: "- " + dsTr("Turn off monitor")
->>>>>>> power front end
 
             header.sourceComponent: DBaseLine {
                 leftLoader.sourceComponent: DssH2 {
                     text: turn_off_monitor_rect.headerText
                 }
             }
-<<<<<<< HEAD
-            content.sourceComponent: Item {
-                width: root.width
-                height: 30
-
-                DSelectView {
-                    id: turn_off_monitor_view
-                    width: parent.width - 15 * 2
-                    selectedItems: [timeoutToIndex(dbus_power.sleepInactiveBatteryTimeout)]
-                    anchors.centerIn: parent
-
-                    model: ListModel {
-                        ListElement {
-                            itemId: "1_m"
-                            itemText: "1m"
-                            itemWidth: 0
-                        }
-                        ListElement {
-                            itemId: "5_m"
-                            itemText: "5m"
-                            itemWidth: 0
-                        }
-                        ListElement {
-                            itemId: "10_m"
-                            itemText: "10m"
-                            itemWidth: 0
-                        }
-                        ListElement {
-                            itemId: "15_m"
-                            itemText: "15m"
-                            itemWidth: 0
-                        }
-                        ListElement {
-                            itemId: "30_m"
-                            itemText: "30m"
-                            itemWidth: 0
-                        }
-                        ListElement {
-                            itemId: "1_h"
-                            itemText: "1h"
-                            itemWidth: 0
-                        }
-                        ListElement {
-                            itemId: "never"
-                            itemText: "Never"
-                            itemWidth: 0
-                        }
-                    }
-
-                    onItemSelected: {
-                        dbus_power.sleepDisplayAc = root.indexToTimeout(idx)
-                        dbus_power.sleepDisplayBattery = root.indexToTimeout(idx)
-                    }
-                    Connections {
-                        target: dbus_power
-                        onSleepDisplayBatteryChanged: {
-                            turn_off_monitor_view.selectItem(timeoutToIndex(dbus_power.sleepDisplayBattery))
-                        }
-                        onSleepDisplayAcChanged: {
-                            turn_off_monitor_view.selectItem(timeoutToIndex(dbus_power.sleepDisplayAc))
-                        }
-=======
             content.sourceComponent: DMultipleSelectView {
                 id: turn_off_monitor_view
                 rows: 1
@@ -412,10 +295,11 @@ Rectangle {
                         selected: false
                     }
                     ListElement {
-                        label: "Never"
+                        label: "never"
                         selected: false
                     }
                 }
+
                 Component.onCompleted: {
                     turn_off_monitor_view.selectItem(timeoutToIndex(dbus_power.sleepDisplayAc))
                 }
@@ -433,88 +317,21 @@ Rectangle {
                     }
                     onSleepDisplayAcChanged: {
                         turn_off_monitor_view.selectItem(timeoutToIndex(dbus_power.sleepDisplayAc))
->>>>>>> power front end
                     }
                 }
-            }            
+            }
         }
         DSeparatorHorizontal{}
         DBaseExpand {
             id: suspend_rect
             expanded: true
-<<<<<<< HEAD
-            property string headerText: "-" + dsTr("Suspend")
-=======
             property string headerText: "- " + dsTr("Suspend")
->>>>>>> power front end
 
             header.sourceComponent: DBaseLine {
                 leftLoader.sourceComponent: DssH2 {
                     text: suspend_rect.headerText
                 }
             }
-<<<<<<< HEAD
-            content.sourceComponent: Item {
-                width: root.width
-                height: 30
-
-                DSelectView {
-                    id: suspend_view
-                    width: parent.width - 15 * 2
-                    selectedItems: [timeoutToIndex(dbus_power.sleepInactiveAcTimeout)]
-                    anchors.centerIn: parent
-
-                    model: ListModel {
-                        ListElement {
-                            itemId: "1_m"
-                            itemText: "1m"
-                            itemWidth: 0
-                        }
-                        ListElement {
-                            itemId: "5_m"
-                            itemText: "5m"
-                            itemWidth: 0
-                        }
-                        ListElement {
-                            itemId: "10_m"
-                            itemText: "10m"
-                            itemWidth: 0
-                        }
-                        ListElement {
-                            itemId: "15_m"
-                            itemText: "15m"
-                            itemWidth: 0
-                        }
-                        ListElement {
-                            itemId: "30_m"
-                            itemText: "30m"
-                            itemWidth: 0
-                        }
-                        ListElement {
-                            itemId: "1_h"
-                            itemText: "1h"
-                            itemWidth: 0
-                        }
-                        ListElement {
-                            itemId: "never"
-                            itemText: "Never"
-                            itemWidth: 0
-                        }
-                    }
-
-                    onItemSelected: {
-                        dbus_power.sleepInActiveAcTimeout = root.indexToTimeout(idx)
-                        dbus_power.sleepInactiveBatteryTimeout = root.indexToTimeout(idx)
-                    }
-                    Connections {
-                        target: dbus_power
-                        onSleepInactiveAcTimeoutChanged: {
-                            turn_off_monitor_view.selectItem(timeoutToIndex(dbus_power.sleepInActiveAcTimeout))
-                        }
-                        onSleepInactiveBatteryTimeoutChanged: {
-                            turn_off_monitor_view.selectItem(timeoutToIndex(dbus_power.sleepInactiveBatteryTimeout))
-                        }
-=======
             content.sourceComponent: DMultipleSelectView {
                 id: suspend_view
                 rows: 1
@@ -550,40 +367,32 @@ Rectangle {
                         selected: false
                     }
                     ListElement {
-                        label: "Never"
+                        label: "never"
                         selected: false
                     }
                 }
+
                 Component.onCompleted: {
-                    suspend_view.selectItem(timeoutToIndex(dbus_power.sleepinActiveAcTimeout))
+                    suspend_view.selectItem(timeoutToIndex(dbus_power.sleepInactiveAc))
                 }
 
                 onSelect: {
                     dbus_power.currentPlan = "customized"
-                    dbus_power.sleepinActiveAcTimeout = indexToTimeout(index)
-                    dbus_power.sleepInactiveBatteryTimeout = indexToTimeout(index)
+                    dbus_power.sleepInactiveAc = indexToTimeout(index)
+                    dbus_power.sleepInactiveBattery = indexToTimeout(index)
                 }
 
                 Connections {
                     target: dbus_power
-                    onSleepInactiveBatteryTimeoutChanged: {
-                        suspend_view.selectItem(timeoutToIndex(dbus_power.sleepInactiveBatteryTimeout))
+                    onSleepDisplayBatteryChanged: {
+                        suspend_view.selectItem(timeoutToIndex(dbus_power.sleepInactiveBattery))
                     }
-                    onSleepInactiveAcTimeoutChanged: {
-                        suspend_view.selectItem(timeoutToIndex(dbus_power.sleepinActiveAcTimeout))
->>>>>>> power front end
+                    onSleepDisplayAcChanged: {
+                        suspend_view.selectItem(timeoutToIndex(dbus_power.sleepInactiveAc))
                     }
                 }
-            }            
+            }
         }
-
         DSeparatorHorizontal{}
-
-    /* DBaseExpand { */
-    /*     id: tray_show_battery_state */
-    /*     header.sourceComponent: DSwitchButtonHeader { */
-    /*         text: dsTr("Always show icon in the tray") */
-    /*     } */
-    /* } */
     }
 }
