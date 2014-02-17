@@ -25,19 +25,22 @@ Item {
     function selectColor(clr) {
         selectColorPrivate(clr)
     }
-
+    
     GridView {
         id: gridview
-        anchors.fill: parent
+        width: cellHeight * root.colors[0].length
+        height: cellWidth * root.colors.length
         model: 70
-        cellWidth: width / 10
-        cellHeight: cellWidth
+        interactive: false
+        cellWidth: 25
+        cellHeight: 25
+        anchors.centerIn: parent
         delegate: Item {
             width: gridview.cellWidth
             height: gridview.cellHeight
             Rectangle {
-                width: 25
-                height: 25
+                width: 20
+                height: 20
                 color: root.colors[Math.floor(index / 10)][index % 10]
                 anchors.centerIn: parent
                 

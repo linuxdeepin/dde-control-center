@@ -22,6 +22,16 @@ Item {
             root.width = width
             root.height = height
         }
+        
+        DropArea {
+            anchors.fill: parent
+            
+            onDropped: {
+                if (drop.hasUrls) {
+                    print(drop.urls)
+                }
+            }
+        }
 
         Column {
             anchors.left: parent.left

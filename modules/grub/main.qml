@@ -1,5 +1,6 @@
 import QtQuick 2.1
 import Deepin.Widgets 1.0
+import DBus.Com.Deepin.Daemon.Grub2 1.0
 
 Rectangle {
     id: root
@@ -7,83 +8,155 @@ Rectangle {
     width: 310
     height: 600
 
-    Column {
-        id: contentColumn
+    Grub2 { id: dbus_grub2 }
+    Theme { id: dbus_grub2_theme }
 
-        DssTitle { text: "Grub2"}
+    DssTitle {
+        id: title
+        z: 1
+        text: "Grub2"
+    }
 
-        Rectangle {
-            color: "transparent"
-            width: 310
-            height: 1
-        }
-        DSeparatorHorizontal{}        
-        Preview { anchors.horizontalCenter: parent.horizontalCenter}
-        DSeparatorHorizontal{}        
+    Flickable {
+        anchors.top: title.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
 
-        DBaseExpand {
-            id: delay_expand
-            expanded: true
-            header.sourceComponent: DBaseLine {
-                leftLoader.sourceComponent: DssH2 {
-                    text: "Delay"
+        contentWidth: contentColumn.width
+        contentHeight: contentColumn.height
+
+        Column {
+            id: contentColumn
+            width: root.width
+            height: preview.height + default_entry_expand.height + 
+            delay_expand.height + normal_item_expand.height + selected_item_expand.height
+
+            DSeparatorHorizontal{}
+            Preview { 
+                id: preview
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+            DSeparatorHorizontal{}
+
+            DBaseExpand {
+                id: default_entry_expand
+
+                header.sourceComponent: DDownArrowHeader {
+                    text: "Default Entry"
+                    onClicked: {
+                        default_entry_expand.expanded = !default_entry_expand.expanded
+                    }
+                }
+                content.sourceComponent: DMultipleSelectView {
+                    id: default_entry_view
+                    rows: dbus_grub2.GetSimpleEntryTitles().length
+                    columns: 1
+
+                    width: parent.width
+                    height: rows * 30
+                    singleSelectionMode: true
+
+                    model: ListModel {}
+
+                    Component.onCompleted: {
+                        var entries = dbus_grub2.GetSimpleEntryTitles();
+                        for (var i = 0; i < entries.length; i++) {
+                            model.append({"label": entries[i], "selected": false})
+                        }
+                    }
                 }
             }
-            content.sourceComponent: Rectangle {
-                width: 310
-                height: 30
-            }
-        }
+            DSeparatorHorizontal{}
+            DBaseExpand {
+                id: delay_expand
+                expanded: true
 
-        DSeparatorHorizontal{}
+                header.sourceComponent: DBaseLine {
+                    leftLoader.sourceComponent: DssH2 {
+                        text: "Delay"
+                    }
+                }
+                content.sourceComponent: DMultipleSelectView {
+                    id: delay_view
+                    rows: 1
+                    columns: 7
 
-        DBaseExpand {
-            id: normal_item_expand
+                    width: parent.width
+                    height: rows * 30
+                    singleSelectionMode: true
 
-            header.sourceComponent: DDownArrowHeader {
-                text: "Item Color"
-                onClicked: {
-                    normal_item_expand.expanded = !normal_item_expand.expanded
+                    model: ListModel {
+                        ListElement {
+                            label: "1s"
+                            selected: false
+                        }
+                        ListElement {
+                            label: "5s"
+                            selected: false
+                        }
+                        ListElement {
+                            label: "10s"
+                            selected: false
+                        }
+                        ListElement {
+                            label: "15s"
+                            selected: false
+                        }
+                        ListElement {
+                            label: "20s"
+                            selected: false
+                        }
+                        ListElement {
+                            label: "25s"
+                            selected: false
+                        }
+                        ListElement {
+                            label: "30s"
+                            selected: false
+                        }
+                    }
+
+                    onSelect: {
+                    }
                 }
             }
-            content.sourceComponent: ColorPicker{
-                width: root.width
-                height: 220
-            }
-        }
 
-        DSeparatorHorizontal{}
+            DSeparatorHorizontal{}
 
-        DBaseExpand {
-            id: selected_item_expand
+            DBaseExpand {
+                id: normal_item_expand
 
-            header.sourceComponent: DDownArrowHeader {
-                text: "Selected Item Color"
-                onClicked: {
-                    selected_item_expand.expanded = !selected_item_expand.expanded
+                header.sourceComponent: DDownArrowHeader {
+                    text: "Item Color"
+                    onClicked: {
+                        normal_item_expand.expanded = !normal_item_expand.expanded
+                    }
+                }
+                content.sourceComponent: ColorPicker{
+                    width: root.width
+                    height: 200
                 }
             }
-            content.sourceComponent: ColorPicker{
-                width: root.width
-                height: 220
-            }
-        }
 
-        DSeparatorHorizontal{}
+            DSeparatorHorizontal{}
 
-        DBaseExpand {
-            id: theme_expand
+            DBaseExpand {
+                id: selected_item_expand
 
-            header.sourceComponent: DDownArrowHeader {
-                text: "Theme"
-                onClicked: {
-                    theme_expand.expanded = !theme_expand.expanded
+                header.sourceComponent: DDownArrowHeader {
+                    text: "Selected Item Color"
+                    onClicked: {
+                        selected_item_expand.expanded = !selected_item_expand.expanded
+                    }
+                }
+                content.sourceComponent: ColorPicker{
+                    width: root.width
+                    height: 200
                 }
             }
-            content.sourceComponent: Rectangle {
-                width: 310
-                height: 30
-            }
+
+            DSeparatorHorizontal{}
         }
     }
 }
