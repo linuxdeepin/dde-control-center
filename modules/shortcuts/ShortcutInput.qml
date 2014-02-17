@@ -26,19 +26,19 @@ FocusScope {
         anchors.leftMargin: warning ? 2 : dconstants.leftMargin + 4
         spacing: 4
 
-        Item {
-            height: parent.height
-            width: childrenRect.width
-            visible: shortcutId >= 10000
+        //Item {
+            //height: parent.height
+            //width: childrenRect.width
+            //visible: shortcutId >= 10000
 
-            DOpacityImageButton{
-                id: deleteButton
-                anchors.left: parent.left
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.verticalCenterOffset: 2
-                source: "images/clear.png"
-            }
-        }
+            //DOpacityImageButton{
+                //id: deleteButton
+                //anchors.left: parent.left
+                //anchors.verticalCenter: parent.verticalCenter
+                //anchors.verticalCenterOffset: 2
+                //source: "images/clear.png"
+            //}
+        //}
 
         Image{
             source: warning ? "images/" + warning + "_key.png" :""

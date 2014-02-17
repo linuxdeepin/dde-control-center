@@ -138,20 +138,20 @@ Rectangle {
             target: headerArea
             property: "y"
             to: 0 - headerArea.height
-            duration: 300
+            duration: 200
         }
 
         PropertyAnimation {
             target: footerArea
             property: "anchors.bottomMargin"
             to: -80
-            duration: 300
+            duration: 200
         }
         PropertyAnimation {
             target: iconsArea
             property: "opacity"
             to: 0
-            duration: 300
+            duration: 200
         }
 
         onStopped: {
@@ -162,6 +162,7 @@ Rectangle {
             addHomeShutdownButton()
             rightBoxLoaderItem.iconId = currentContentId
             moduleIconList.iconLabelOpacity = 0
+            rightBox.x = 48
             showContentPanel.start()
         }
     }
@@ -172,13 +173,7 @@ Rectangle {
             target: iconsArea
             property: "opacity"
             to: 1
-            duration: 300
-        }
-        PropertyAnimation {
-            target: rightBox
-            property: "x"
-            to: 48
-            duration: 300
+            duration: 200
         }
     }
 
@@ -188,13 +183,7 @@ Rectangle {
             target: iconsArea
             property: "opacity"
             to: 0
-            duration: 300
-        }
-        PropertyAnimation {
-            target: rightBox
-            property: "x"
-            to: panelContent.width
-            duration: 300
+            duration: 200
         }
 
         onStopped: {
@@ -205,6 +194,7 @@ Rectangle {
             removeHomeShutdownButton()
             rightBoxLoaderItem.iconId = ""
             moduleIconList.iconLabelOpacity = 1
+            rightBox.x = panelContent.width
             showHomePanel.start()
         }
     }
@@ -215,21 +205,21 @@ Rectangle {
             target: headerArea
             property: "y"
             to: 0
-            duration: 300
+            duration: 200
         }
 
         PropertyAnimation {
             target: footerArea
             property: "anchors.bottomMargin"
             to: 0
-            duration: 300
+            duration: 200
         }
         
         PropertyAnimation {
             target: iconsArea
             property: "opacity"
             to: 1
-            duration: 300
+            duration: 200
         }
     }
 
@@ -247,16 +237,16 @@ Rectangle {
                 id: avatarImage
                 roundRadius: 40
                 anchors.top: parent.top
-                anchors.topMargin: 10
+                anchors.topMargin: 20
                 anchors.horizontalCenter: parent.horizontalCenter
             }
 
             DLabel {
                 id: userName
                 anchors.top: avatarImage.bottom
-                anchors.topMargin: 6
+                anchors.topMargin: 8
                 anchors.horizontalCenter: parent.horizontalCenter
-                font.pixelSize: 22
+                font.pixelSize: 18
                 color: tuhaoColor
             }
         }

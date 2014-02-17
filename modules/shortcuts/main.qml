@@ -310,30 +310,12 @@ Item {
 
                 CustomKeybindingExpand {
                     id: customItem
-                    property string name: dsTr("Custom")
+                    property string name: dsTr("Custom Shortcuts")
                     property var myIndex: 4
                     property var keyBindings: bindManagerId.customList
                     property bool isCustom: true
                 }
 
-                DBaseLine{
-                    height: 40
-                    rightMargin: 10
-                    rightLoader.sourceComponent: Row{
-                        DTextButton{
-                            id: addButton
-                            text: dsTr("Add")
-                            onClicked: {
-                                customItem.expandId.header.item.active = true
-                                expandItemIndex = 4
-                            }
-                        }
-                        DTextButton{
-                            id: resetButton
-                            text: dsTr("Reset")
-                        }
-                    }
-                }
             }
         }
 

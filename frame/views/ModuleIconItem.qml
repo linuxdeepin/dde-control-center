@@ -53,7 +53,7 @@ Rectangle {
     states: [
         State {
             name: "hovered"
-            PropertyChanges { target: outBox; color: Qt.rgba(1, 1, 1, 0.1); }
+            PropertyChanges { target: outBox; color: dconstants.contentBgColor; }
             PropertyChanges { target: moduleIcon; source: pluginLoader.icon.hoverImage }
             PropertyChanges { target: moduleName; color: Qt.rgba(0, 144/255, 1, 1.0) }
         },
