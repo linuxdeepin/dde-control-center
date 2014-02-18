@@ -10,7 +10,7 @@ Rectangle {
 
     Grub2 { id: dbus_grub2 }
     Theme { id: dbus_grub2_theme }
-    
+
     function timeoutToIndex(timeout) {
         switch (timeout) {
             case 1: return 0; break
@@ -55,12 +55,13 @@ Rectangle {
             width: root.width
             height: preview.height + default_entry_expand.height + delay_expand.height
             + normal_item_expand.height + selected_item_expand.height + 10
-
             DSeparatorHorizontal{}
-            Preview { 
+
+            Preview {
                 id: preview
                 anchors.horizontalCenter: parent.horizontalCenter
             }
+
             DSeparatorHorizontal{}
 
             DBaseExpand {
@@ -87,6 +88,22 @@ Rectangle {
                         var entries = dbus_grub2.GetSimpleEntryTitles();
                         for (var i = 0; i < entries.length; i++) {
                             model.append({"label": entries[i], "selected": entries[i] == dbus_grub2.defaultEntry})
+                        }
+                    }
+
+                    onSelect: {
+                        print("select..." + index)
+                        dbus_grub2.defaultEntry = dbus_grub2.GetSimpleEntryTitles()[index]
+                    }
+
+                    Connections {
+                        target: dbus_grub2
+                        onDefaultEntryChanged: {
+                            print("default entry changed")
+                            var i = dbus_grub2.GetSimpleEntryTitles().indexOf(dbus_grub2.defaultEntry)
+                            if (i != -1) {
+                                dbus_grub2.defaultEntry = dbus_grub2.GetSimpleEntryTitles()[i]
+                            }
                         }
                     }
                 }
@@ -139,9 +156,22 @@ Rectangle {
                             selected: false
                         }
                     }
-                    
+
                     Component.onCompleted: {
                         delay_view.selectItem(root.timeoutToIndex(dbus_grub2.timeout))
+                    }
+
+                    onSelect: {
+                        print("select..." + index)
+                        dbus_grub2.timeout = root.indexToTimeout(index)
+                    }
+
+                    Connections {
+                        target: dbus_grub2
+                        onTimeoutChanged: {
+                            print("timeout changed")
+                            delay_view.selectItem(root.timeoutToIndex(dbus_grub2.timeout))
+                        }
                     }
                 }
             }
@@ -158,8 +188,24 @@ Rectangle {
                     }
                 }
                 content.sourceComponent: ColorPicker{
+                    id: picker
                     width: root.width
-                    height: 200
+                    height: 180
+
+                    Component.onCompleted: {
+                        selectColor(dbus_grub2_theme.itemColor)
+                    }
+
+                    onColorSet: {
+                        dbus_grub2_theme.itemColor = clr
+                    }
+
+                    Connections {
+                        target: dbus_grub2_theme
+                        onItemColorChanged: {
+                            picker.selectColor(dbus_grub2_theme.itemColor)
+                        }
+                    }
                 }
             }
 
@@ -176,7 +222,23 @@ Rectangle {
                 }
                 content.sourceComponent: ColorPicker{
                     width: root.width
-                    height: 200
+                    height: 180
+
+                    Component.onCompleted: {
+                        selectColor(dbus_grub2_theme.selectedItemColor)
+                    }
+
+                    onColorSet: {
+                        dbus_grub2_theme.selectedItemColor = clr
+                    }
+
+                    Connections {
+                        target: dbus_grub2_theme
+                        onItemColorChanged: {
+                            picker.selectColor(dbus_grub2_theme.selectedItemColor)
+                        }
+                    }
+
                 }
             }
 
