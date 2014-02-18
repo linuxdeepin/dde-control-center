@@ -102,7 +102,7 @@ Rectangle {
                             print("default entry changed")
                             var i = dbus_grub2.GetSimpleEntryTitles().indexOf(dbus_grub2.defaultEntry)
                             if (i != -1) {
-                                dbus_grub2.defaultEntry = dbus_grub2.GetSimpleEntryTitles()[i]
+                                default_entry_view.selectItem(i)
                             }
                         }
                     }
@@ -197,12 +197,14 @@ Rectangle {
                     }
 
                     onColorSet: {
+                        print(clr)
                         dbus_grub2_theme.itemColor = clr
                     }
 
                     Connections {
                         target: dbus_grub2_theme
                         onItemColorChanged: {
+                            print("changed..." + dbus_grub2_theme.itemColor)
                             picker.selectColor(dbus_grub2_theme.itemColor)
                         }
                     }
@@ -221,6 +223,7 @@ Rectangle {
                     }
                 }
                 content.sourceComponent: ColorPicker{
+                    id: picker
                     width: root.width
                     height: 180
 
@@ -229,6 +232,7 @@ Rectangle {
                     }
 
                     onColorSet: {
+                        print(clr)
                         dbus_grub2_theme.selectedItemColor = clr
                     }
 
