@@ -47,12 +47,18 @@ Item {
         width: 120
         height: 120
         clip: true
+        
+        transform: Rotation {
+            origin.x: 60
+            origin.y: 60 
+            axis { x: 0; y: 1; z: 0 } 
+            angle: 180 
+        }
 
         VideoOutput {
             id: video_output
             width: 120
             height: 120
-
             source: camera
 
             fillMode: VideoOutput.PreserveAspectCrop
