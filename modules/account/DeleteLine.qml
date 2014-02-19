@@ -7,12 +7,13 @@ Item {
     height: 100
 
     property int leftPadding: 15
-    property int moveDelta: 100
+    property int moveDelta: 50
     property bool active: false
     property alias content: loader.sourceComponent
     
     signal expanded
     signal shrinked
+    signal action
     
     function expand() {
         out_animation.start()
@@ -22,9 +23,13 @@ Item {
         in_animation.start()
     }
     
-    DssDeleteButton {
+    DssMultiDeleteButton {
         id: button
         opacity: 0
+        
+        onClicked: {
+            root.action()
+        }
 
         anchors.left: parent.left
         anchors.leftMargin: root.leftPadding
@@ -36,7 +41,7 @@ Item {
     SequentialAnimation {
         id: out_animation
         SmoothedAnimation { target: loader; property: "x"; from: 0; to: root.moveDelta; duration: 300}
-        SmoothedAnimation { target: button; property: "opacity"; from: 0; to: 1; duration: 1000}
+        SmoothedAnimation { target: button; property: "opacity"; from: 0; to: 1; duration: 3000}
         onStopped: { root.expanded() }
     }
 
