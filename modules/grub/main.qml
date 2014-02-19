@@ -188,7 +188,7 @@ Rectangle {
                     }
                 }
                 content.sourceComponent: ColorPicker{
-                    id: picker
+                    id: normal_picker
                     width: root.width
                     height: 180
 
@@ -197,15 +197,14 @@ Rectangle {
                     }
 
                     onColorSet: {
-                        print(clr)
-                        dbus_grub2_theme.itemColor = clr
+                        dbus_grub2_theme.itemColor = clr + ""
                     }
 
                     Connections {
                         target: dbus_grub2_theme
                         onItemColorChanged: {
                             print("changed..." + dbus_grub2_theme.itemColor)
-                            picker.selectColor(dbus_grub2_theme.itemColor)
+                            normal_picker.selectColor(dbus_grub2_theme.itemColor)
                         }
                     }
                 }
@@ -223,25 +222,25 @@ Rectangle {
                     }
                 }
                 content.sourceComponent: ColorPicker{
-                    id: picker
+                    id: selected_picker
                     width: root.width
                     height: 180
 
-                    Component.onCompleted: {
-                        selectColor(dbus_grub2_theme.selectedItemColor)
-                    }
+                    /* Component.onCompleted: { */
+                    /*     selectColor(dbus_grub2_theme.selectedItemColor) */
+                    /* } */
 
-                    onColorSet: {
-                        print(clr)
-                        dbus_grub2_theme.selectedItemColor = clr
-                    }
+                    /* onColorSet: { */
+                    /*     print(clr) */
+                    /*     dbus_grub2_theme.selectedItemColor = clr */
+                    /* } */
 
-                    Connections {
-                        target: dbus_grub2_theme
-                        onItemColorChanged: {
-                            picker.selectColor(dbus_grub2_theme.selectedItemColor)
-                        }
-                    }
+                    /* Connections { */
+                    /*     target: dbus_grub2_theme */
+                    /*     onItemColorChanged: { */
+                    /*         picker.selectColor(dbus_grub2_theme.selectedItemColor) */
+                    /*     } */
+                    /* } */
 
                 }
             }

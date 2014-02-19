@@ -93,9 +93,12 @@ Item {
                     target: root
                     onSelectColorPrivate: {
                         if (clr == content.color) {
+                            print(delegate.state)
+                        }
+                        if (clr == content.color + "" && delegate.state == "normal") {
                             delegate.state = "selected"
                             root.colorSet(content.color)
-                        } else {
+                        } else if (clr != content.color + "") {
                             delegate.state = "normal"
                         }
                     }
