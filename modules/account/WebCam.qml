@@ -49,7 +49,7 @@ Item {
         clip: true
         
         transform: Rotation {
-            origin.x: 60
+            origin.x: 61
             origin.y: 60 
             axis { x: 0; y: 1; z: 0 } 
             angle: 180 
