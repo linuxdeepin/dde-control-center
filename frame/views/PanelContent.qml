@@ -277,7 +277,6 @@ Rectangle {
                 property int itemSize: 96
                 cellHeight: itemSize
                 cellWidth: itemSize
-                property bool isSiderNavigate: false
                 property real iconLabelOpacity: 1
 
                 function iconClickAction(index, iconId) {

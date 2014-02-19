@@ -19,6 +19,10 @@ Item {
 
         DssTitle {
             text: dsTr("Mouse")
+
+            rightLoader.sourceComponent: DTextButton {
+                text: dsTr("Reset")
+            }
         }
 
         DSeparatorHorizontal {}
@@ -26,14 +30,15 @@ Item {
         DBaseLine {
             height: 44
             leftMargin: contentLeftMargin + 3
-            leftLoader.sourceComponent: Item{
-                width: parent.height
-                height: parent.height
-                Image {
-                    anchors.centerIn: parent
-                    source: mouseID.useHabit ? "images/mouse_right.png" : "images/mouse_left.png"
-                }
-            }
+            leftLoader.sourceComponent: DssH2 { text: dsTr("Button Order") }
+            //leftLoader.sourceComponent: Item{
+                //width: parent.height
+                //height: parent.height
+                //Image {
+                    //anchors.centerIn: parent
+                    //source: mouseID.useHabit ? "images/mouse_right.png" : "images/mouse_left.png"
+                //}
+            //}
             rightLoader.sourceComponent: DRadioButton {
                 currentIndex: mouseID.useHabit ? 1 : 0
                 buttonModel: [
@@ -62,19 +67,24 @@ Item {
         DBaseLine {
             height: contentHeight
             leftMargin: contentLeftMargin
-            leftLoader.sourceComponent: DLabel {
-                text: dsTr("Acceleration")
-                font.pixelSize: 12
-            }
-            rightLoader.sourceComponent: DSliderRect {
-                leftLabel: dsTr("Slow")
-                rightLabel: dsTr("Fast")
+            rightLoader.sourceComponent: Row {
+                spacing: 10
+                DLabel {
+                    text: dsTr("Acceleration")
+                    font.pixelSize: 12
+                    anchors.verticalCenter: parent.verticalCenter
+                }
 
-                value: (mouseID.moveSpeed - 1)/9
-                realValue: mouseID.moveSpeed
-                onValueChanged: {
-                    if (mouseID.moveSpeed!= (9 * value + 1)){
-                        mouseID.moveSpeed = 9 * value + 1
+                DSliderRect {
+                    leftLabel: dsTr("Slow")
+                    rightLabel: dsTr("Fast")
+
+                    value: (mouseID.moveSpeed - 1)/9
+                    realValue: mouseID.moveSpeed
+                    onValueChanged: {
+                        if (mouseID.moveSpeed!= (9 * value + 1)){
+                            mouseID.moveSpeed = 9 * value + 1
+                        }
                     }
                 }
             }
@@ -83,19 +93,24 @@ Item {
         DBaseLine {
             height: contentHeight
             leftMargin: contentLeftMargin
-            leftLoader.sourceComponent: DLabel {
-                text: dsTr("Sensitivity")
-                font.pixelSize: 12
-            }
-            rightLoader.sourceComponent: DSliderRect {
-                leftLabel: dsTr("Low")
-                rightLabel: dsTr("High")
+            rightLoader.sourceComponent: Row {
+                spacing: 10
 
-                value: (mouseID.moveAccuracy - 1)/9
-                realValue: mouseID.moveAccuracy
-                onValueChanged: {
-                    if (mouseID.moveAccuracy != 9 * value + 1){
-                        mouseID.moveAccuracy = 9 * value + 1
+                DLabel {
+                    text: dsTr("Sensitivity")
+                    font.pixelSize: 12
+                }
+
+                DSliderRect {
+                    leftLabel: dsTr("Low")
+                    rightLabel: dsTr("High")
+
+                    value: (mouseID.moveAccuracy - 1)/9
+                    realValue: mouseID.moveAccuracy
+                    onValueChanged: {
+                        if (mouseID.moveAccuracy != 9 * value + 1){
+                            mouseID.moveAccuracy = 9 * value + 1
+                        }
                     }
                 }
             }
@@ -116,43 +131,25 @@ Item {
         DBaseLine {
             height: contentHeight
             leftMargin: contentLeftMargin
-            leftLoader.sourceComponent: DLabel {
-                text: dsTr("Frequency")
-                font.pixelSize: 12
-            }
-            rightLoader.sourceComponent: DSliderRect {
-                leftLabel: dsTr("Slow")
-                rightLabel: dsTr("Fast")
+            rightLoader.sourceComponent: Row {
+                spacing: 10
 
-                value: (mouseID.clickFrequency - 100)/900
-                realValue: mouseID.clickFrequency
-                onValueChanged: {
-                    if (mouseID.clickFrequency != (900 * value + 100)){
-                        mouseID.clickFrequency = 900 * value + 100
-                    }
+                DLabel {
+                    text: dsTr("Frequency")
+                    font.pixelSize: 12
+                    anchors.verticalCenter: parent.verticalCenter
                 }
-            }
-        }
 
-        DBaseLine {
-            height: contentHeight
-            leftMargin: contentLeftMargin
-            leftLoader.sourceComponent: DLabel {
-                text: dsTr("Double click the smiling face to test")
-                font.pixelSize: 12
-            }
-            rightLoader.sourceComponent: Image {
-                id: smileyImage
-                property string pic0: "images/smiley00.png"
-                property string pic1: "images/smiley01.png"
-                property bool opened: true
-                scale: 0.8
-                source: opened ? pic0 : pic1
+                DSliderRect {
+                    leftLabel: dsTr("Slow")
+                    rightLabel: dsTr("Fast")
 
-                MouseArea {
-                    anchors.fill: parent
-                    onDoubleClicked: {
-                        smileyImage.opened = !smileyImage.opened
+                    value: (mouseID.clickFrequency - 100)/900
+                    realValue: mouseID.clickFrequency
+                    onValueChanged: {
+                        if (mouseID.clickFrequency != (900 * value + 100)){
+                            mouseID.clickFrequency = 900 * value + 100
+                        }
                     }
                 }
             }
@@ -160,12 +157,5 @@ Item {
 
         DSeparatorHorizontal {}
 
-        DBaseLine{
-            height: 40
-            rightMargin: 10
-            rightLoader.sourceComponent: DTextButton{
-                text: dsTr("Reset")
-            }
-        }
     }
 }

@@ -23,7 +23,7 @@ Item {
             delegate: Component {
                 Column {
                     width: parent.width
-                    height: expand.height + 2
+                    height: repeater.count - 1 == index ? expand.height : expand.height + 2
                     DBaseExpand {
                         id: expand
                         expanded: expandArea.expandItemIndex == index
@@ -53,6 +53,7 @@ Item {
                         content.sourceComponent: modelComponent
                         contentData: expandArea.expandItems[index]
                     }
+
                     DSeparatorHorizontal {}
                 }
             }

@@ -19,37 +19,35 @@ FocusScope {
     property string shortcutName: windowView.toHumanShortcutLabel(info[2])
 
     property bool grabFlag: false
+    property bool showDelete: false
+    property int contentLeftMargin: 22
 
-    Row {
-        height: parent.height
+    DssMultiDeleteButton {
+        id: deleteButton
         anchors.left: parent.left
         anchors.leftMargin: warning ? 2 : dconstants.leftMargin + 4
-        spacing: 4
+        anchors.verticalCenter: parent.verticalCenter
+        visible: showDelete
 
-        //Item {
-            //height: parent.height
-            //width: childrenRect.width
-            //visible: shortcutId >= 10000
-
-            //DOpacityImageButton{
-                //id: deleteButton
-                //anchors.left: parent.left
-                //anchors.verticalCenter: parent.verticalCenter
-                //anchors.verticalCenterOffset: 2
-                //source: "images/clear.png"
-            //}
-        //}
-
-        Image{
-            source: warning ? "images/" + warning + "_key.png" :""
-            visible: source ? true : false
-            anchors.verticalCenter: parent.verticalCenter
+        onClicked: {
+            bindManagerId.DeleteCustomBind(shortcutId)
         }
+    }
 
-        DssH3 {
-            text: displayName
-            anchors.verticalCenter: parent.verticalCenter
-        }
+    Image{
+        id: warningImage
+        anchors.left: parent.left
+        anchors.leftMargin: warning ? 2 : dconstants.leftMargin + 4
+        source: warning ? "images/" + warning + "_key.png" :""
+        visible: source ? true : false
+        anchors.verticalCenter: parent.verticalCenter
+    }
+
+    DssH3 {
+        text: displayName
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.left: parent.left
+        anchors.leftMargin: showDelete ? contentLeftMargin + deleteButton.width : contentLeftMargin
     }
 
     Rectangle {

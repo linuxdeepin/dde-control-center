@@ -176,6 +176,9 @@ Item {
                 style: Text.Raised
                 styleColor: Qt.rgba(0, 0, 0, 0.9)
             }
+            rightLoader.sourceComponent: DTextButton {
+                text: dsTr("Reset")
+            }
         }
 
         DSeparatorHorizontal {}
@@ -186,7 +189,6 @@ Item {
         anchors.top: keybindingTitleColumn.bottom
         width: parent.width
         height: childrenRect.height
-        clip: true
 
         Rectangle {
             height: childrenRect.height
@@ -262,11 +264,11 @@ Item {
             visible: searchResultListView.count != 0
         }
 
-        Item {
+        Rectangle {
             id: allCategoriesArea
             width: parent.width
             height: content.height
-            clip: true
+            color: dconstants.bgColor
 
             property var expandItems: ObjectModel {
                 ObjectModelItem {
@@ -311,12 +313,9 @@ Item {
                 CustomKeybindingExpand {
                     id: customItem
                     property string name: dsTr("Custom Shortcuts")
-                    property var myIndex: 4
                     property var keyBindings: bindManagerId.customList
-                    property bool isCustom: true
                 }
-
-            }
+            } // End of content
         }
 
     }

@@ -19,6 +19,10 @@ Item {
 
         DssTitle {
             text: dsTr("Default Applications")
+
+            rightLoader.sourceComponent: DTextButton {
+                text: dsTr("Reset")
+            }
         }
 
         DSeparatorHorizontal {}
@@ -170,137 +174,142 @@ Item {
 
         }
 
-        DSwitchButtonHeader {
-            text: dsTr("Auto Play")
-            style: Text.Raised
-            styleColor: Qt.rgba(0, 0, 0, 0.9)
-            font.bold: true
-            rightMargin: 13
-            active: mediaMountId.autoMountOpen
+        DSeparatorHorizontal {}
 
-            onClicked: {
-                mediaMountId.autoMountOpen = active
+        DBaseExpand {
+            id: autoPlayExpand
+            expanded: header.item.active
+            header.sourceComponent: DSwitchButtonHeader {
+                text: dsTr("Auto Play")
+                style: Text.Raised
+                styleColor: Qt.rgba(0, 0, 0, 0.9)
+                font.bold: true
+                rightMargin: 13
+                active: mediaMountId.autoMountOpen
+
+                onClicked: {
+                    mediaMountId.autoMountOpen = active
+                }
             }
+
+            content.sourceComponent: MultiExpandArea {
+                expandItems: [
+                    { 
+                        "name": dsTr("CD Audio"),
+                        "icon": "images/cd.png",
+                        "contentType": "x-content/audio-cdda"
+                    },
+                    {
+                        "name": dsTr("DVD Video"),
+                        "icon": "images/dvd.png",
+                        "contentType": "x-content/video-dvd"
+                    },
+                    {
+                        "name": dsTr("Music Player"),
+                        "icon": "images/music_player.png",
+                        "contentType": "x-content/audio-player"
+                    },
+                    {
+                        "name": dsTr("Camera"),
+                        "icon": "images/camera.png",
+                        "contentType": "x-content/image-dcf"
+                    },
+                    {
+                        "name": dsTr("Software"),
+                        "icon": "images/application.png",
+                        "contentType": "x-content/unix-software"
+                    }
+                ]
+
+                modelComponent: Component {
+
+                    ListView {
+                        id: autoPlayAppListView
+                        width: parent.width
+
+                        property string defaultItemId: ""
+
+                        model: ListModel {id: autoPlayModel}
+                        delegate: Item {
+                            width: parent.width
+                            height: 28
+                            anchors.left: parent.left
+                            anchors.leftMargin: 25
+
+                            property string desktopName: desktop_name
+                            
+                            Row {
+                                spacing: 5
+                                anchors.verticalCenter: parent.verticalCenter
+                                
+                                Image {
+                                    id: nameImage
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    source: "images/select.png"
+                                    opacity: autoPlayAppListView.defaultDesktopName == desktopName ? 1 : 0
+                                }
+                                
+                                DssH3 {
+                                    id: nameText
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    text: label 
+                                    color: autoPlayAppListView.defaultDesktopName == desktopName ? "#009EFF" : "#fff"
+                                    font.pixelSize: 12
+                                }
+                            }
+                            
+                            MouseArea {
+                                anchors.fill: parent
+                                hoverEnabled: true
+                                
+                                onEntered: {
+                                    autoPlayAppListView.currentIndex = index
+                                }
+                                
+                                onClicked: {
+                                    autoPlayAppListView.defaultDesktopName = desktopName
+                                }
+                            }
+                        }
+
+                        highlight: Rectangle {
+                            width: parent.width
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            anchors.leftMargin: 5
+                            anchors.rightMargin: 5
+                            height: 28
+                            color: "#0D0D0D"
+                            radius: 4
+                        }
+                        highlightMoveDuration: 200
+                        focus: true
+                        interactive: true
+
+                        Component.onCompleted: {
+                            var datas = defaultAppsId.AppsListViaType(componentData.contentType)
+                            for (var i=0;i<datas.length;i++){
+                                autoPlayModel.append({
+                                    "label": datas[i][1],
+                                    "desktop_name": datas[i][0]
+                                })
+                            }
+                            autoPlayModel.append({
+                                "label": "Nothing",
+                                "desktop_name": "nothing"
+                            })
+                            autoPlayModel.append({
+                                "label": "Open folder",
+                                "desktop_name": "folder"
+                            })
+                            height = autoPlayModel.count * 28
+                        }
+                    }
+
+                }
+            } // End of MultiExpandArea
         }
 
         DSeparatorHorizontal {}
-
-        MultiExpandArea {
-
-            expandItems: [
-                { 
-                    "name": dsTr("CD Audio"),
-                    "icon": "images/cd.png",
-                    "contentType": "x-content/audio-cdda"
-                },
-                {
-                    "name": dsTr("DVD Video"),
-                    "icon": "images/dvd.png",
-                    "contentType": "x-content/video-dvd"
-                },
-                {
-                    "name": dsTr("Music Player"),
-                    "icon": "images/music_player.png",
-                    "contentType": "x-content/audio-player"
-                },
-                {
-                    "name": dsTr("Camera"),
-                    "icon": "images/camera.png",
-                    "contentType": "x-content/image-dcf"
-                },
-                {
-                    "name": dsTr("Software"),
-                    "icon": "images/application.png",
-                    "contentType": "x-content/unix-software"
-                }
-            ]
-
-            modelComponent: Component {
-
-                ListView {
-                    id: autoPlayAppListView
-                    width: parent.width
-
-                    property string defaultItemId: ""
-
-                    model: ListModel {id: autoPlayModel}
-                    delegate: Item {
-                        width: parent.width
-                        height: 28
-                        anchors.left: parent.left
-                        anchors.leftMargin: 25
-
-                        property string desktopName: desktop_name
-                        
-                        Row {
-                            spacing: 5
-                            anchors.verticalCenter: parent.verticalCenter
-                            
-                            Image {
-                                id: nameImage
-                                anchors.verticalCenter: parent.verticalCenter
-                                source: "images/select.png"
-                                opacity: autoPlayAppListView.defaultDesktopName == desktopName ? 1 : 0
-                            }
-                            
-                            DssH3 {
-                                id: nameText
-                                anchors.verticalCenter: parent.verticalCenter
-                                text: label 
-                                color: autoPlayAppListView.defaultDesktopName == desktopName ? "#009EFF" : "#fff"
-                                font.pixelSize: 12
-                            }
-                        }
-                        
-                        MouseArea {
-                            anchors.fill: parent
-                            hoverEnabled: true
-                            
-                            onEntered: {
-                                autoPlayAppListView.currentIndex = index
-                            }
-                            
-                            onClicked: {
-                                autoPlayAppListView.defaultDesktopName = desktopName
-                            }
-                        }
-                    }
-
-                    highlight: Rectangle {
-                        width: parent.width
-                        anchors.left: parent.left
-                        anchors.right: parent.right
-                        anchors.leftMargin: 5
-                        anchors.rightMargin: 5
-                        height: 28
-                        color: "#0D0D0D"
-                        radius: 4
-                    }
-                    highlightMoveDuration: 200
-                    focus: true
-                    interactive: true
-
-                    Component.onCompleted: {
-                        var datas = defaultAppsId.AppsListViaType(componentData.contentType)
-                        for (var i=0;i<datas.length;i++){
-                            autoPlayModel.append({
-                                "label": datas[i][1],
-                                "desktop_name": datas[i][0]
-                            })
-                        }
-                        autoPlayModel.append({
-                            "label": "Nothing",
-                            "desktop_name": "nothing"
-                        })
-                        autoPlayModel.append({
-                            "label": "Open folder",
-                            "desktop_name": "folder"
-                        })
-                        height = autoPlayModel.count * 28
-                    }
-                }
-
-            }
-        }
     }
 }
