@@ -29,6 +29,10 @@ Item {
             source: "images/zoom_slider.png"
 
             x: root.percentage * root.mostDistance
+            
+            onXChanged: {
+                root.percentage = zoom_slider.x / root.mostDistance
+            }
 
             MouseArea {
                 anchors.fill: parent
