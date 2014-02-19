@@ -4,6 +4,7 @@ import QtQuick.Controls.Styles 1.0
 import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.InputDevices 1.0
+import DBus.Com.Deepin.Api.Search 1.0
 
 Item {
     id: keyboardModule
@@ -14,17 +15,29 @@ Item {
     property int sliderWidth: 178
 
     property var dconstants: DConstants {}
+    property var keyboardID: Keyboard {}
+    property var searchId: Search {}
+    property var xkeyboardLocale: DLocale { domain: "xkeyboard-config" }
 
-    DLocale {
-        id: xkeyboardLocale
-        domain: "xkeyboard-config"
+    property var allLayoutMapL10n: {
+        var layoutMap = keyboardID.LayoutList()
+        for(var key in layoutMap){
+            layoutMap[key] = xkeyboardLocale.dsTr(layoutMap[key])
+        }
+        return layoutMap
     }
 
-    Keyboard {
-       id: "keyboardID"
-    } 
+    property string searchMd5: searchId.NewTrieWithString(allLayoutMapL10n, "deepin-system-settings-keyboard-layouts")
+    property var userLayouts: ["us", "gb"]
 
-    property var allLayoutList: keyboardID.LayoutList()
+    function isInUserLayouts(key){
+        for(var i=0; i<userLayouts.length; i++){
+            if(userLayouts[i] == key){
+                return true
+            }
+        }
+        return false
+    }
 
     Component {
         id: listModelComponent
@@ -40,7 +53,7 @@ Item {
         DssTitle {
             text:dsTr("Keyboard")
             rightLoader.sourceComponent: DTextButton {
-                text: "Reset"
+                text: dsTr("Reset")
             }
         }
 
@@ -177,86 +190,172 @@ Item {
                 }
             }
         }
-
         DSeparatorHorizontal {}
-
     }
 
     Column {
+        id: keyboardLayoutArea
         width: parent.width
         height: childrenRect.height
         anchors.top: contentColumn.bottom
         anchors.left: contentColumn.left
 
-        DBaseExpand {
-            id: keyboardLayoutSetting
-            property string defaultSelectItemId: keyboardID.keyboardLayout[0] ? keyboardID.keyboardLayout[0] : "us"
-            property string currentLayoutName: xkeyboardLocale.dsTr(allLayoutList[defaultSelectItemId])
-            header.sourceComponent: DDownArrowHeader {
+        property string currentActionStateName: ""
+
+        DBaseLine {
+            leftLoader.sourceComponent: DssH2 {
                 text: dsTr("Keyboard Layout")
-                hintText: "[" + keyboardLayoutSetting.currentLayoutName + "]"
-                onClicked: {
-                    keyboardLayoutSetting.expanded = !keyboardLayoutSetting.expanded
+            }
+            rightLoader.sourceComponent: StateButtons {
+                deleteButton.visible: layoutList.count > 1
+                onCurrentActionStateNameChanged: {
+                    if(keyboardLayoutArea.currentActionStateName == "addButton"){
+                        var selectedKeys = addLayoutList.getSelectedKeys()
+                        for(var i=0; i<selectedKeys.length; i++){
+                            if(!keyboardModule.isInUserLayouts(selectedKeys[i])){
+                                keyboardModule.userLayouts.push(selectedKeys[i])
+                            }
+                        }
+                    }
+                    keyboardLayoutArea.currentActionStateName = currentActionStateName
                 }
             }
-
-            content.sourceComponent: Component {
-                ListView {
-                    id: layoutList
-                    width: parent.width
-                    height: keyboardModule.height - contentColumn.height - 74
-
-                    property var layoutKeyAndIndex: {
-                        var obj = new Object();
-                        var index = 0
-                        for (var key in allLayoutList){
-                            obj[key] = index
-                            index += 1
-                        }
-                        return obj
-                    }
-
-                    model: {
-                        var myModel = listModelComponent.createObject(parent, {})
-                        for (var key in allLayoutList){
-                            myModel.append({
-                                "label": xkeyboardLocale.dsTr(allLayoutList[key]),
-                                "item_id": key
-                            })
-                        }
-                        return myModel
-                    }
-
-                    delegate: LayoutItem {}
-
-                    highlight: Rectangle {
-                        width: parent.width
-                        anchors.left: parent.left
-                        anchors.right: parent.right
-                        anchors.leftMargin: 5
-                        anchors.rightMargin: 5
-                        height: 28
-                        color: "#0D0D0D"
-                        radius: 4
-                    }
-                    highlightMoveDuration: 100
-                    focus: true
-                    interactive: true
-
-                    Component.onCompleted: {
-                        positionViewAtIndex(layoutKeyAndIndex[keyboardLayoutSetting.defaultSelectItemId], ListView.center)
-                    }
-
-                    DScrollBar {
-                        flickable: layoutList
-                    }
-                }
-
-
-            }
-        } // end DBaseExpand
+        }
 
         DSeparatorHorizontal {}
 
+        Rectangle {
+            id: userKeyboardLayoutsArea
+            color: dconstants.contentBgColor
+            width: parent.width
+            height: childrenRect.height
+            visible: keyboardLayoutArea.currentActionStateName != "addButton"
+
+            ListView {
+                id: layoutList
+                width: parent.width
+                height: count * 28
+                currentIndex: -1
+                clip: true
+
+                property string selectLayoutId: keyboardID.keyboardLayout ? keyboardID.keyboardLayout[0] : "us"
+                property bool inDeleteAction: keyboardLayoutArea.currentActionStateName == "deleteButton"
+
+                function switchLayout(id){
+                    keyboardID.keyboardLayout = [id]
+                }
+
+                function deleteLayout(id){
+                    print("==> deleteButton")
+                }
+
+                model: {
+                    var myModel = listModelComponent.createObject(layoutList, {})
+                    var userKeyboardLayouts = keyboardModule.userLayouts
+                    for (var i=0; i<userKeyboardLayouts.length; i++){
+                        var id = userKeyboardLayouts[i]
+                        myModel.append({
+                            "label": allLayoutMapL10n[id],
+                            "item_id": id
+                        })
+                    }
+                    return myModel
+                }
+
+                delegate: LayoutItem {}
+            }
+        } // End of userKeyboardLayoutsArea
+
+        Column {
+            id: addLayoutArea
+            width: parent.width
+            visible: keyboardLayoutArea.currentActionStateName == "addButton"
+
+            Rectangle {
+                id: addLayoutIndex
+                height: 28
+                width: parent.width
+                color: dconstants.bgColor
+                property string currentSelectedIndex: "A"
+
+                Row{
+                    spacing: 3
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    Repeater{
+                        model: ["A", "B", "C", "D", "E", "F", "G",
+                            "H", "I", "J", "K", "L", "M", "N",
+                            "O", "P", "Q", "R", "S", "T",
+                            "U", "V", "W", "X", "Y", "Z"
+                        ]
+
+                        DLabel{
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: modelData
+                            font.pixelSize: addLayoutIndex.currentSelectedIndex == modelData ? 18 : 13
+                            color: {
+                                if (addLayoutIndex.currentSelectedIndex == modelData | hovered){
+                                    return "#009EFF"
+                                }
+                                return dconstants.fgColor
+                            }
+
+                            property bool hovered: false
+
+                            MouseArea {
+                                anchors.fill: parent
+                                hoverEnabled: true
+                                onEntered: parent.hovered = true
+                                onExited: parent.hovered = false
+                                onReleased: containsMouse ? parent.hovered = true : parent.hovered = false
+                                onClicked: addLayoutIndex.currentSelectedIndex = modelData
+                            }
+                        }
+                    }
+                }
+            } // End of addLayoutIndex
+
+            DSeparatorHorizontal {}
+
+            ListView {
+                id: addLayoutList
+                height: keyboardModule.height - 360
+                width: parent.width
+                clip: true
+
+                function getSelectedKeys(){
+                    var selectedKeys = []
+                    var allChildren = contentItem.children
+                    for(var i=0; i<allChildren.length; i++){
+                        if(allChildren[i]["selected"]){
+                            selectedKeys.push(allChildren[i].itemId)
+                        }
+                    }
+                    return selectedKeys
+                }
+
+                model: {
+                    var myModel = listModelComponent.createObject(addLayoutList, {})
+                    if(searchMd5){
+                        var search_result = searchId.SearchKeysByFirstLetter(addLayoutIndex.currentSelectedIndex, keyboardModule.searchMd5)
+                        for (var i=0; i<search_result.length; i++){
+                            var id = search_result[i]
+                            if(!keyboardModule.isInUserLayouts(id)){
+                                myModel.append({
+                                    "label": allLayoutMapL10n[id],
+                                    "item_id": id
+                                })
+                            }
+                        }
+                    }
+                    return myModel
+                }
+
+                delegate: AddLayoutItem {}
+                DScrollBar { flickable: addLayoutList }
+            }
+        } // End of addLayoutArea
+
+        DSeparatorHorizontal {}
     }
 }
