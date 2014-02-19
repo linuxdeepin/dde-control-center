@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dss 2014\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-12 12:32+0800\n"
+"POT-Creation-Date: 2014-02-19 09:17+0800\n"
 "PO-Revision-Date: 2013-11-25 12:27+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,6 +18,20 @@ msgstr ""
 
 #: ../modules/date_time/Calendar.qml:115
 msgid "Today"
+msgstr ""
+
+#: ../modules/shortcuts/CustomKeybindingExpand.qml:197
+#: ../modules/shortcuts/ShortcutInput.qml:84
+msgid "Please input new shortcuts"
+msgstr ""
+
+#: ../modules/shortcuts/CustomKeybindingExpand.qml:205
+#: ../modules/shortcuts/CustomKeybindingExpand.qml:217
+msgid "Grab key combination"
+msgstr ""
+
+#: ../modules/shortcuts/CustomKeybindingExpand.qml:220
+msgid "Disable"
 msgstr ""
 
 #: ../modules/account/DeleteUserDialog.qml:20
@@ -88,9 +102,8 @@ msgstr ""
 msgid "VPN Connections"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:5 ../modules/date_time/main.qml:46
-#: ../frame/modules_info.py:30
-msgid "Date & Time"
+#: ../frame/views/ModulesData.qml:5
+msgid "Date and Time"
 msgstr ""
 
 #: ../frame/views/ModulesData.qml:6 ../frame/modules_info.py:31
@@ -111,7 +124,7 @@ msgstr ""
 msgid "Sound"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:10 ../modules/power/main.qml:42
+#: ../frame/views/ModulesData.qml:10 ../modules/power/main.qml:47
 #: ../frame/modules_info.py:35
 msgid "Power"
 msgstr ""
@@ -120,7 +133,8 @@ msgstr ""
 msgid "More Settings"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:12 ../frame/modules_info.py:37
+#: ../frame/views/ModulesData.qml:12 ../frame/views/PanelContent.qml:367
+#: ../frame/modules_info.py:37
 msgid "Shutdown"
 msgstr ""
 
@@ -138,39 +152,42 @@ msgstr ""
 msgid "Desktop"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:16 ../modules/individuation/main.qml:17
-#: ../frame/modules_info.py:41
-msgid "Individuation"
+#: ../frame/views/ModulesData.qml:16
+msgid "Personalization"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:17 ../modules/shortcuts/main.qml:53
-#: ../modules/shortcuts/main.qml:172 ../modules/shortcuts/main.qml:232
-#: ../frame/modules_info.py:42
-msgid "Shortcuts"
+#: ../frame/views/ModulesData.qml:17
+msgid "Keyboard Shortcuts"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:18 ../modules/keyboard/main.qml:40
+#: ../frame/views/ModulesData.qml:19
+msgid "Mouse and Touchpad"
+msgstr ""
+
+#: ../frame/views/ModulesData.qml:22
+msgid "User Accounts"
+msgstr ""
+
+#: ../frame/views/ModulesData.qml:25
+msgid "Startup Screen"
+msgstr ""
+
+#: ../frame/views/ModulesData.qml:26 ../modules/desktop/main.qml:98
+msgid "Home"
+msgstr ""
+
+#: ../frame/views/ModulesData.qml:18 ../modules/keyboard/main.qml:41
 #: ../frame/modules_info.py:43
 msgid "Keyboard"
-msgstr ""
-
-#: ../frame/views/ModulesData.qml:19 ../modules/mouse/main.qml:21
-#: ../frame/modules_info.py:44
-msgid "Mouse"
 msgstr ""
 
 #: ../frame/views/ModulesData.qml:21 ../frame/modules_info.py:46
 msgid "Touchpad"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:22 ../modules/account/main.qml:22
-#: ../frame/modules_info.py:47
-msgid "Account"
-msgstr ""
-
 #: ../frame/views/ModulesData.qml:23
 #: ../modules/default_applications/main.qml:21
-#: ../modules/default_applications/main.qml:28 ../frame/modules_info.py:48
+#: ../modules/default_applications/main.qml:32 ../frame/modules_info.py:48
 msgid "Default Applications"
 msgstr ""
 
@@ -187,8 +204,8 @@ msgstr ""
 msgid "Rotation"
 msgstr ""
 
-#: ../modules/shortcuts/ShortcutInput.qml:86
-msgid "Please input new shortcuts"
+#: ../modules/shortcuts/StateButtons.qml:11
+msgid "Finish"
 msgstr ""
 
 #: ../modules/date_time/TimezoneExpand.qml:63
@@ -347,6 +364,10 @@ msgstr ""
 msgid "December"
 msgstr ""
 
+#: ../modules/date_time/main.qml:46 ../frame/modules_info.py:30
+msgid "Date & Time"
+msgstr ""
+
 #: ../modules/date_time/main.qml:93
 msgid "Auto-sync datetime"
 msgstr ""
@@ -391,200 +412,218 @@ msgstr ""
 msgid "Disk"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:40
+#: ../modules/default_applications/main.qml:44
 msgid "Browser"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:46
+#: ../modules/default_applications/main.qml:50
 msgid "Mail"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:52
+#: ../modules/default_applications/main.qml:56
 msgid "Text"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:58
+#: ../modules/default_applications/main.qml:62
 msgid "Music"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:64
+#: ../modules/default_applications/main.qml:68
 msgid "Video"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:70
+#: ../modules/default_applications/main.qml:74
 msgid "Picture Viewer"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:82
+#: ../modules/default_applications/main.qml:86
 msgid "Terminal"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:174
+#: ../modules/default_applications/main.qml:183
 msgid "Auto Play"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:192
+#: ../modules/default_applications/main.qml:198
 msgid "CD Audio"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:197
+#: ../modules/default_applications/main.qml:203
 msgid "DVD Video"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:202
+#: ../modules/default_applications/main.qml:208
 msgid "Music Player"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:207
+#: ../modules/default_applications/main.qml:213
 msgid "Camera"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:212
+#: ../modules/default_applications/main.qml:218
 msgid "Software"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:47
-msgid "Repeat"
-msgstr ""
-
-#: ../modules/keyboard/main.qml:58
+#: ../modules/keyboard/main.qml:55
 msgid "Repeat Delay"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:62 ../modules/touchpad/main.qml:179
+#: ../modules/keyboard/main.qml:60 ../modules/touchpad/main.qml:179
 msgid "Long"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:63 ../modules/touchpad/main.qml:178
+#: ../modules/keyboard/main.qml:61 ../modules/touchpad/main.qml:178
 msgid "Short"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:80
+#: ../modules/keyboard/main.qml:83
 msgid "Repeat Interval"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:85 ../modules/keyboard/main.qml:142
-#: ../modules/mouse/main.qml:70 ../modules/mouse/main.qml:124
+#: ../modules/keyboard/main.qml:89 ../modules/keyboard/main.qml:136
+#: ../modules/mouse/main.qml:79 ../modules/mouse/main.qml:144
 #: ../modules/touchpad/main.qml:77 ../modules/touchpad/main.qml:131
 msgid "Slow"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:86 ../modules/keyboard/main.qml:143
-#: ../modules/mouse/main.qml:71 ../modules/mouse/main.qml:125
+#: ../modules/keyboard/main.qml:90 ../modules/keyboard/main.qml:137
+#: ../modules/mouse/main.qml:80 ../modules/mouse/main.qml:145
 #: ../modules/touchpad/main.qml:78 ../modules/touchpad/main.qml:132
 msgid "Fast"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:103
-msgid " Test Repeat Interval"
+#: ../modules/keyboard/main.qml:110
+msgid " Repeat Test"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:117
+#: ../modules/keyboard/main.qml:129
 msgid "Cusor Blink"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:171
+#: ../modules/keyboard/main.qml:156
+msgid "Blink Show"
+msgstr ""
+
+#: ../modules/keyboard/main.qml:196
 msgid "Keyboard Layout"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:240 ../modules/mouse/main.qml:167
-#: ../modules/shortcuts/main.qml:333 ../modules/touchpad/main.qml:196
+#: ../modules/default_applications/main.qml:24 ../modules/mouse/main.qml:24
+#: ../modules/power/main.qml:51 ../modules/shortcuts/main.qml:180
+#: ../modules/touchpad/main.qml:196
 msgid "Reset"
 msgstr ""
 
-#: ../modules/power/main.qml:170 ../modules/shortcuts/main.qml:313
-#: ../modules/touchpad/main.qml:41
+#: ../modules/mouse/main.qml:21 ../frame/modules_info.py:44
+msgid "Mouse"
+msgstr ""
+
+#: ../modules/power/main.qml:222 ../modules/touchpad/main.qml:41
 msgid "Custom"
 msgstr ""
 
-#: ../modules/mouse/main.qml:41 ../modules/touchpad/main.qml:46
+#: ../modules/mouse/main.qml:46 ../modules/touchpad/main.qml:46
 msgid "Left Hand"
 msgstr ""
 
-#: ../modules/mouse/main.qml:40 ../modules/touchpad/main.qml:47
+#: ../modules/mouse/main.qml:45 ../modules/touchpad/main.qml:47
 msgid "Right Hand"
 msgstr ""
 
-#: ../modules/mouse/main.qml:56 ../modules/touchpad/main.qml:62
+#: ../modules/mouse/main.qml:33
+msgid "Button Order"
+msgstr ""
+
+#: ../modules/mouse/main.qml:61 ../modules/touchpad/main.qml:62
 msgid "Point Speed"
 msgstr ""
 
-#: ../modules/mouse/main.qml:66 ../modules/touchpad/main.qml:72
+#: ../modules/mouse/main.qml:73 ../modules/touchpad/main.qml:72
 msgid "Acceleration"
 msgstr ""
 
-#: ../modules/mouse/main.qml:87 ../modules/touchpad/main.qml:93
+#: ../modules/mouse/main.qml:100 ../modules/touchpad/main.qml:93
 msgid "Sensitivity"
 msgstr ""
 
-#: ../modules/mouse/main.qml:91 ../modules/touchpad/main.qml:98
+#: ../modules/mouse/main.qml:105 ../modules/touchpad/main.qml:98
 msgid "Low"
 msgstr ""
 
-#: ../modules/mouse/main.qml:92 ../modules/touchpad/main.qml:99
+#: ../modules/mouse/main.qml:106 ../modules/touchpad/main.qml:99
 msgid "High"
 msgstr ""
 
-#: ../modules/mouse/main.qml:110 ../modules/touchpad/main.qml:116
+#: ../modules/mouse/main.qml:125 ../modules/touchpad/main.qml:116
 msgid "Double-click"
 msgstr ""
 
-#: ../modules/mouse/main.qml:120 ../modules/touchpad/main.qml:126
+#: ../modules/mouse/main.qml:138 ../modules/touchpad/main.qml:126
 msgid "Frequency"
 msgstr ""
 
-#: ../modules/mouse/main.qml:141 ../modules/touchpad/main.qml:147
+#: ../modules/touchpad/main.qml:147
 msgid "Double click the smiling face to test"
 msgstr ""
 
-#: ../modules/power/main.qml:52
+#: ../modules/power/main.qml:66
 msgid "When I press the sleep button"
 msgstr ""
 
-#: ../modules/power/main.qml:66 ../modules/power/main.qml:116
+#: ../modules/power/main.qml:80 ../modules/power/main.qml:130
 msgid "Shut down"
 msgstr ""
 
-#: ../modules/power/main.qml:67 ../modules/power/main.qml:117
+#: ../modules/power/main.qml:81 ../modules/power/main.qml:131
 msgid "Suspent"
 msgstr ""
 
-#: ../modules/power/main.qml:68 ../modules/power/main.qml:118
+#: ../modules/power/main.qml:82 ../modules/power/main.qml:132
 msgid "None"
 msgstr ""
 
-#: ../modules/power/main.qml:102
+#: ../modules/power/main.qml:116
 msgid "When I close the lid"
 msgstr ""
 
-#: ../modules/power/main.qml:152
+#: ../modules/power/main.qml:180
+msgid "Requires a password"
+msgstr ""
+
+#: ../modules/power/main.qml:181
+msgid "Without a password"
+msgstr ""
+
+#: ../modules/power/main.qml:204
 msgid "Power plan"
 msgstr ""
 
-#: ../modules/power/main.qml:167 ../modules/sound/main.qml:147
+#: ../modules/power/main.qml:219 ../modules/sound/main.qml:148
 msgid "Balance"
 msgstr ""
 
-#: ../modules/power/main.qml:168
+#: ../modules/power/main.qml:220
 msgid "Power saver"
 msgstr ""
 
-#: ../modules/power/main.qml:169
+#: ../modules/power/main.qml:221
 msgid "High performance"
 msgstr ""
 
-#: ../modules/power/main.qml:204 ../modules/power/main.qml:229
-#: ../modules/power/main.qml:240 ../modules/power/main.qml:288
-#: ../modules/power/main.qml:299
+#: ../modules/power/main.qml:256
 msgid "Turn off monitor"
 msgstr ""
 
-#: ../modules/power/main.qml:263
+#: ../modules/power/main.qml:328
 msgid "Suspend"
 msgstr ""
 
-#: ../modules/power/main.qml:325
+#: ../modules/power/main.qml:166
 msgid "Require password when computer wakes"
+msgstr ""
+
+#: ../modules/account/main.qml:22 ../frame/modules_info.py:47
+msgid "Account"
 msgstr ""
 
 #: ../modules/account/main.qml:31
@@ -593,10 +632,6 @@ msgstr ""
 
 #: ../modules/desktop/main.qml:97
 msgid "Computer"
-msgstr ""
-
-#: ../modules/desktop/main.qml:98
-msgid "Home"
 msgstr ""
 
 #: ../modules/desktop/main.qml:99
@@ -655,11 +690,15 @@ msgstr ""
 msgid "Apply"
 msgstr ""
 
+#: ../modules/individuation/main.qml:17 ../frame/modules_info.py:41
+msgid "Individuation"
+msgstr ""
+
 #: ../modules/individuation/main.qml:26
 msgid "Themes"
 msgstr ""
 
-#: ../modules/individuation/main.qml:55 ../modules/shortcuts/main.qml:288
+#: ../modules/individuation/main.qml:55 ../modules/shortcuts/main.qml:290
 msgid "Window"
 msgstr ""
 
@@ -687,20 +726,25 @@ msgstr ""
 msgid "Create Connections"
 msgstr ""
 
-#: ../modules/shortcuts/main.qml:274
+#: ../modules/shortcuts/main.qml:53 ../modules/shortcuts/main.qml:172
+#: ../modules/shortcuts/main.qml:234 ../frame/modules_info.py:42
+msgid "Shortcuts"
+msgstr ""
+
+#: ../modules/shortcuts/main.qml:276
 msgid "System"
 msgstr ""
 
-#: ../modules/shortcuts/main.qml:281
+#: ../modules/shortcuts/main.qml:283
 msgid "Sound and Media"
 msgstr ""
 
-#: ../modules/shortcuts/main.qml:295
+#: ../modules/shortcuts/main.qml:297
 msgid "Workspace"
 msgstr ""
 
-#: ../modules/shortcuts/main.qml:325
-msgid "Add"
+#: ../modules/shortcuts/main.qml:315
+msgid "Custom Shortcuts"
 msgstr ""
 
 #: ../modules/sound/main.qml:66
@@ -711,55 +755,55 @@ msgstr ""
 msgid "Output Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:129
+#: ../modules/sound/main.qml:130
 msgid "Output Volume"
 msgstr ""
 
-#: ../modules/sound/main.qml:133 ../modules/sound/main.qml:236
+#: ../modules/sound/main.qml:134 ../modules/sound/main.qml:238
 msgid "-"
 msgstr ""
 
-#: ../modules/sound/main.qml:134 ../modules/sound/main.qml:237
+#: ../modules/sound/main.qml:135 ../modules/sound/main.qml:239
 msgid "+"
 msgstr ""
 
-#: ../modules/sound/main.qml:151
+#: ../modules/sound/main.qml:152
 msgid "Left"
 msgstr ""
 
-#: ../modules/sound/main.qml:152
+#: ../modules/sound/main.qml:153
 msgid "Right"
 msgstr ""
 
-#: ../modules/sound/main.qml:170
+#: ../modules/sound/main.qml:171
 msgid "Microphone"
 msgstr ""
 
-#: ../modules/sound/main.qml:191
+#: ../modules/sound/main.qml:192
 msgid "Input Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:232
+#: ../modules/sound/main.qml:234
 msgid "Input Volume"
 msgstr ""
 
-#: ../modules/sound/main.qml:250
+#: ../modules/sound/main.qml:252
 msgid "Input Level"
 msgstr ""
 
-#: ../modules/sound/main.qml:266
+#: ../modules/sound/main.qml:268
 msgid "Advanced..."
 msgstr ""
 
-#: ../modules/sound/main.qml:285
+#: ../modules/sound/main.qml:287
 msgid "Advanced"
 msgstr ""
 
-#: ../modules/sound/main.qml:294
+#: ../modules/sound/main.qml:296
 msgid "Choose audio output device"
 msgstr ""
 
-#: ../modules/sound/main.qml:327
+#: ../modules/sound/main.qml:329
 msgid "Choose audio input device"
 msgstr ""
 

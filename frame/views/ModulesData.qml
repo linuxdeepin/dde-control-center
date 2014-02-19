@@ -22,7 +22,7 @@ Item {
             "account": dsTr("User Accounts"),
             "default_applications": dsTr("Default Applications"),
             "system_info": dsTr("System Information"),
-            "grub": dsTr("Grub Setting"),
+            "grub": dsTr("Startup Screen"),
             "home": dsTr("Home")
         }
 

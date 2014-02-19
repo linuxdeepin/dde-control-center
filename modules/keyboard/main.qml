@@ -51,7 +51,7 @@ Item {
             leftMargin: contentLeftMargin
             rightLoader.sourceComponent: Row {
                 spacing: 16
-                DssH3 {
+                DssH2 {
                     text: dsTr("Repeat Delay")
                     anchors.verticalCenter: parent.verticalCenter
                 }
@@ -79,7 +79,7 @@ Item {
             rightLoader.sourceComponent: Row {
                 spacing: 16
 
-                DssH3 {
+                DssH2 {
                     text: dsTr("Repeat Interval")
                     anchors.verticalCenter: parent.verticalCenter
                 }
@@ -106,7 +106,7 @@ Item {
             rightLoader.sourceComponent: Row {
                 spacing: 16
 
-                DssH3 {
+                DssH2 {
                     text: dsTr(" Repeat Test")
                 }
 
@@ -152,7 +152,7 @@ Item {
             rightLoader.sourceComponent: Row {
                 spacing: 16
 
-                DssH3 {
+                DssH2 {
                     text: dsTr("Blink Show")
                     anchors.verticalCenter: parent.verticalCenter
                 }
