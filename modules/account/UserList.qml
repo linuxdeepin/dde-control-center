@@ -59,10 +59,12 @@ ListView {
 
                 onAllAction: {
                     component_bg.state = "action"
+                    delete_line.expand()
                 }
 
                 onAllNormal: {
                     component_bg.state = "normal"
+                    delete_line.shrink()
                 }
             }
 
@@ -70,43 +72,21 @@ ListView {
                 id: delete_line
                 width: component_bg.width
                 height: 100
+                moveDelta: 50
 
                 property bool deleteUserDialogVisible
                 property bool editUserDialogVisible
                 property bool nameColumnVisible
                 property bool expandButtonVisible
-                property string expandButtonState: "normal"
+                property bool expandButtonUp: false
+                property string expandButtonStatus: "normal"
 
                 property int roundImageRadius: 25
                 property color nameColor: "white"
 
-                MouseArea {
-                    anchors.fill: parent
-                    hoverEnabled: true
-
-                    onClicked: {
-                        if (component_bg.state == "normal") {
-                            component_bg.state = "edit_dialog"
-                            root.hideAllPrivate(index)
-                        } else {
-                            component_bg.state = "normal"
-                            root.showAllPrivate()
-                        }
-                    }
-
-                    onEntered: {
-                        delete_line.roundImageRadius = 30
-                        delete_line.nameColor = "#faca57"
-                        delete_line.expandButtonState = "hover"
-                    }
-
-                    onExited: {
-                        if (component_bg.state != "edit_dialog") {
-                            delete_line.roundImageRadius = 25
-                            delete_line.nameColor = "white"
-                            delete_line.expandButtonState = "normal"
-                        }
-                    }
+                onAction: {
+                    component_bg.state = "delete_dialog"
+                    delete_line.shrink()
                 }
 
                 content: Item {
@@ -144,8 +124,9 @@ ListView {
 
                     ExpandButton {
                         id: expand_button
-                        state: delete_line.expandButtonState
+                        up: delete_line.expandButtonUp
                         visible: delete_line.expandButtonVisible
+                        status: delete_line.expandButtonStatus
 
                         anchors.right: parent.right
                         anchors.rightMargin: root.rightPadding
@@ -154,11 +135,12 @@ ListView {
 
                     DeleteUserDialog {
                         id: delete_user_dialog
+                        z: 2    // get mouse click action before the mouse area
                         visible: delete_line.deleteUserDialogVisible
 
                         onCancel: {
                             component_bg.state = "action"
-
+                            delete_line.expand()
                         }
                         onConfirm: {
                             dbus_accounts.DeleteUser(userId, deleteFiles)
@@ -170,6 +152,40 @@ ListView {
                         anchors.right: parent.right
                         anchors.top: parent.top
                         anchors.bottom: parent.bottom
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        hoverEnabled: true
+
+                        onClicked: {
+                            if (component_bg.state == "normal") {
+                                component_bg.state = "edit_dialog"
+                                delete_line.expandButtonUp = true
+                                root.hideAllPrivate(index)
+                            } else {
+                                component_bg.state = "normal"
+                                delete_line.expandButtonUp = false
+                                root.showAllPrivate()
+                            }
+                        }
+
+                        onEntered: {
+                            if (component_bg.state == "normal") {
+                                delete_line.roundImageRadius = 30
+                                delete_line.nameColor = "#faca57"
+                                delete_line.expandButtonStatus = "hover"
+                            }
+                        }
+
+                        onExited: {
+                            if (component_bg.state != "edit_dialog")
+                            {
+                                delete_line.roundImageRadius = 25
+                                delete_line.nameColor = "white"
+                                delete_line.expandButtonStatus = "normal"
+                            }
+                        }
                     }
                 }
             }
@@ -208,7 +224,7 @@ ListView {
                         deleteUserDialogVisible: false
                         editUserDialogVisible: false
                         nameColumnVisible: true
-                        expandButtonVisible: false
+                        expandButtonVisible: true
                     }
                     PropertyChanges {
                         target: component_bg
@@ -226,7 +242,7 @@ ListView {
                     }
                     PropertyChanges {
                         target: component_bg
-                        height: delete_line.height + component_sep.height + delete_user_dialog.height
+                        height: delete_line.height + component_sep.height
                     }
                 },
                 State {

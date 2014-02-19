@@ -123,10 +123,6 @@ Item {
 
         anchors.top: radio_button.bottom
         anchors.topMargin: root.verticalPadding * 2
-
-        Behavior on x {
-            SmoothedAnimation { duration: 200 }
-        }
     }
     
     DScrollBar {
@@ -152,10 +148,6 @@ Item {
 
         anchors.top: radio_button.bottom
         anchors.topMargin: root.verticalPadding * 2
-
-        Behavior on x {
-            SmoothedAnimation { duration: 200 }
-        }
     }
     
     DScrollBar {
@@ -178,10 +170,6 @@ Item {
         WebCam {
             onAvatarPictured: {
                 root.avatarPictured(item, path)
-            }
-
-            Behavior on x {
-                SmoothedAnimation { duration: 200 }
             }
         }
     }

@@ -3,29 +3,12 @@ import Deepin.Widgets 1.0
 
 DImageButton {
     id: root
-    state: "normal"
+    property string status: "normal"
     property bool up: false
-    
-    states: [
-        State {
-            name: "normal"
-            PropertyChanges {
-                target: root
-                normal_image: root.up ? "images/arrow_up_normal.png" : "images/arrow_down_normal.png"
-                hover_image: root.up ? "images/arrow_up_normal.png" : "images/arrow_down_normal.png"
-                press_image: root.up ? "images/arrow_up_normal.png" : "images/arrow_down_normal.png"
-            }
-        },
-        State {
-            name: "hover"
-            PropertyChanges {
-                target: root
-                normal_image: root.up ? "images/arrow_up_hover.png" : "images/arrow_down_hover.png"
-                hover_image: root.up ? "images/arrow_up_hover.png" : "images/arrow_down_hover.png"
-                press_image: root.up ? "images/arrow_up_hover.png" : "images/arrow_down_hover.png"
-            }
-        }
-    ]
+
+    normal_image: root.up ? "images/arrow_up_" + status + ".png" : "images/arrow_down_" + status + ".png"
+    hover_image: root.up ? "images/arrow_up_" + status + ".png" : "images/arrow_down_" + status + ".png"
+    press_image: root.up ? "images/arrow_up_" + status + ".png" : "images/arrow_down_" + status + ".png"
 
     onClicked: {
         root.up = !root.up
