@@ -3,31 +3,31 @@ import Deepin.Widgets 1.0
 
 DImageButton {
     id: root
-    state: "not-expanded"
-    property bool expanded: false
-
+    state: "normal"
+    property bool up: false
+    
     states: [
-        State{
-            name: "not-expanded"
+        State {
+            name: "normal"
             PropertyChanges {
                 target: root
-                normal_image: "images/arrow_down_normal.png"
-                hover_image: "images/arrow_down_hover.png"
-                press_image: "images/arrow_down_hover.png"
+                normal_image: root.up ? "images/arrow_up_normal.png" : "images/arrow_down_normal.png"
+                hover_image: root.up ? "images/arrow_up_normal.png" : "images/arrow_down_normal.png"
+                press_image: root.up ? "images/arrow_up_normal.png" : "images/arrow_down_normal.png"
             }
         },
-        State{
-            name: "expanded"
+        State {
+            name: "hover"
             PropertyChanges {
                 target: root
-                normal_image: "images/arrow_up_normal.png"
-                hover_image: "images/arrow_up_hover.png"
-                press_image: "images/arrow_up_hover.png"
+                normal_image: root.up ? "images/arrow_up_hover.png" : "images/arrow_down_hover.png"
+                hover_image: root.up ? "images/arrow_up_hover.png" : "images/arrow_down_hover.png"
+                press_image: root.up ? "images/arrow_up_hover.png" : "images/arrow_down_hover.png"
             }
-        }        
+        }
     ]
-    
+
     onClicked: {
-        root.state = root.state == "expanded" ? "not-expanded" : "expanded"
+        root.up = !root.up
     }
 }

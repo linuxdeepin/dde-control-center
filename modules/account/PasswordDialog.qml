@@ -42,10 +42,6 @@ Item {
         }
     ]
 
-    Behavior on height {
-        SmoothedAnimation {duration: 200}
-    }
-
     Rectangle {
         id: brief_view
 
