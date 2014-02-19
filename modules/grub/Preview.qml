@@ -28,7 +28,7 @@ Item {
             
             onDropped: {
                 if (drop.hasUrls) {
-                    print(drop.urls)
+                    dbus_grub2_theme.SetBackgroundSourceFile(drop.urls[0].substring(6))
                 }
             }
         }
