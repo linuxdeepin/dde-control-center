@@ -8,6 +8,7 @@ Item {
 
     property real setp: 0.1
     property real percentage: 0
+    property real mostDistance: zoom_bg.implicitWidth - zoom_slider.implicitWidth
 
     DImageButton {
         id: zoom_out_button
@@ -23,22 +24,25 @@ Item {
         id: zoom_bg
         source: "images/zoom_background.png"
 
+        Image {
+            id: zoom_slider
+            source: "images/zoom_slider.png"
+
+            x: root.percentage * root.mostDistance
+
+            MouseArea {
+                anchors.fill: parent
+
+                drag.target: zoom_slider
+                drag.axis: Drag.XAxis
+                drag.minimumX: 0
+                drag.maximumX: root.mostDistance
+            }
+        }
+
         anchors.left: zoom_out_button.right
         anchors.leftMargin: 8
         anchors.verticalCenter: parent.verticalCenter
-    }
-
-    Image {
-        id: zoom_slider
-        source: "images/zoom_slider.png"
-
-        anchors.left: zoom_bg.left
-        anchors.leftMargin: root.percentage * (zoom_bg.implicitWidth - zoom_slider.implicitWidth)
-        anchors.verticalCenter: parent.verticalCenter
-
-        Behavior on anchors.leftMargin {
-            SmoothedAnimation { duration: 200 }
-        }
     }
 
     DImageButton {
@@ -48,7 +52,7 @@ Item {
         hover_image: "images/zoomin.png"
         press_image: "images/zoomin_press.png"
 
-        onClicked: root.percentage = Math.min(1, root.percentage + 0.1)
+        onClicked: root.percentage = Math.min(1, (zoom_slider.x / root.mostDistance) + 0.1)
 
         anchors.left: zoom_bg.right
         anchors.leftMargin: 8
