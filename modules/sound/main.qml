@@ -76,7 +76,6 @@ Item {
                     checked: !currentSink.mute
                     onClicked: {
                         currentSink.mute = !checked
-                        outputColumn.visible = checked
                     }
                 }
             }
@@ -86,6 +85,7 @@ Item {
             id: outputColumn
             width: parent.width
             height: childrenRect.height
+            visible: !currentSink.mute
 
             DSeparatorHorizontal {}
 
@@ -184,7 +184,6 @@ Item {
                     checked: !currentSource.mute
                     onClicked: {
                         currentSource.mute = !checked
-                        inputColumn.visible = checked
                     }
                 }
             }
@@ -194,6 +193,7 @@ Item {
             id: inputColumn
             width: parent.width
             height: childrenRect.height
+            visible: !currentSource.mute
 
             DSeparatorHorizontal {}
 
