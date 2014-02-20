@@ -326,7 +326,15 @@ Item {
 
             ListView {
                 id: addLayoutList
-                height: myModel.count * 28 
+                height: {
+                    var listHeight = myModel.count * 28
+                    if(listHeight > keyboardModule.height - 360){
+                        return keyboardModule.height - 360
+                    }
+                    else{
+                        return listHeight
+                    }
+                }
                 width: parent.width
                 clip: true
 
@@ -354,7 +362,6 @@ Item {
                                 })
                             }
                         }
-                        print(">>>", search_result.length)
                     }
                 }
 
