@@ -36,7 +36,7 @@ Item {
         id: sourceComponent
         AudioSource {}
     }
-
+    
     Column {
         id: titleColumn
         anchors.top: parent.top
@@ -49,7 +49,7 @@ Item {
 
         DSeparatorHorizontal{}
     }
-
+    
     Column {
         id: normalSettings
         anchors.top: titleColumn.bottom
@@ -59,11 +59,11 @@ Item {
         Behavior on x {
             NumberAnimation { duration: 300 }
         }
-
+        
         move: Transition {
             SmoothedAnimation { property: "y"; duration: 100 }
         }
-
+        
         DBaseLine{height: 8}
         DBaseLine {
             leftLoader.sourceComponent: DssH2 {
@@ -88,50 +88,6 @@ Item {
             visible: !currentSink.mute
 
             DSeparatorHorizontal {}
-
-            DBaseExpand {
-                id: outputChoose
-                property int currentIndex: -1
-                property string currentTimezoneLabel
-                expanded: header.item.active
-
-                header.sourceComponent: DDownArrowHeader {
-                    text: dsTr("Output Port")
-                    leftMargin: contentLeftMargin
-                }
-                content.sourceComponent: Rectangle {
-                    width: parent.width
-                    height: childrenRect.height
-                    color: dconstants.contentBgColor
-
-                    ListView {
-                        id: outputPortList
-                        focus: true
-                        currentIndex: currentSink.activePort
-
-                        model: {
-                            var outputPortListModel = listModelComponent.createObject(outputPortList, {})
-                            var ports = currentSink.ports
-                            outputPortList.height = ports.length * lineHeight
-                            for(var i=0; i<ports.length; i++){
-                                var portObj = {}
-                                portObj['id'] = ports[i][0]
-                                portObj['name'] = ports[i][1]
-                                portObj['choose'] = ports[i][2]
-
-                                outputPortListModel.append({
-                                                               "name": ports[i][1],
-                                                               "obj": portObj
-                                                           })
-                            }
-                            return outputPortListModel
-                        }
-
-                        delegate: ChooseItem {}
-                    }
-                }
-            }
-            DSeparatorHorizontal{}
 
             DBaseLine {
                 height: contentHeight
@@ -197,49 +153,6 @@ Item {
 
             DSeparatorHorizontal {}
 
-            DBaseExpand {
-                id: inputChoose
-                expanded: header.item.active
-
-                header.sourceComponent: DDownArrowHeader {
-                    text: dsTr("Input Port")
-                    leftMargin: contentLeftMargin
-                    active: false
-                }
-                content.sourceComponent: Rectangle {
-                    width: parent.width
-                    height: childrenRect.height
-                    color: dconstants.contentBgColor
-
-                    ListView {
-                        id: inputPortList
-                        focus: true
-                        currentIndex: currentSource.activePort
-
-                        model: {
-                            var inputPortListModel = listModelComponent.createObject(inputPortList, {})
-                            var ports = currentSource.ports
-                            inputPortList.height = ports.length * lineHeight
-                            for(var i=0; i<ports.length; i++){
-                                var portObj = {}
-                                portObj['id'] = ports[i][0]
-                                portObj['name'] = ports[i][1]
-                                portObj['choose'] = ports[i][2]
-
-                                inputPortListModel.append({
-                                                              "name": ports[i][1],
-                                                              "obj": portObj
-                                                          })
-                            }
-                            return inputPortListModel
-                        }
-
-                        delegate: ChooseItem {}
-                    }
-                }
-            }
-            DSeparatorHorizontal{}
-
             DBaseLine {
                 height: contentHeight
                 leftMargin: contentLeftMargin
@@ -298,6 +211,96 @@ Item {
                     color: titleColor
                 }
             }
+
+            DSeparatorHorizontal{}
+
+            DBaseExpand {
+                id: outputChoose
+                property int currentIndex: -1
+                property string currentTimezoneLabel
+                expanded: header.item.active
+
+                header.sourceComponent: DDownArrowHeader {
+                    text: dsTr("Output Port")
+                    leftMargin: contentLeftMargin
+                }
+                content.sourceComponent: Rectangle {
+                    width: parent.width
+                    height: childrenRect.height
+                    color: dconstants.contentBgColor
+
+                    ListView {
+                        id: outputPortList
+                        focus: true
+                        currentIndex: currentSink.activePort
+
+                        model: {
+                            var outputPortListModel = listModelComponent.createObject(outputPortList, {})
+                            var ports = currentSink.ports
+                            outputPortList.height = ports.length * lineHeight
+                            for(var i=0; i<ports.length; i++){
+                                var portObj = {}
+                                portObj['id'] = ports[i][0]
+                                portObj['name'] = ports[i][1]
+                                portObj['choose'] = ports[i][2]
+
+                                outputPortListModel.append({
+                                                               "name": ports[i][1],
+                                                               "obj": portObj
+                                                           })
+                            }
+                            return outputPortListModel
+                        }
+
+                        delegate: ChooseItem {}
+                    }
+                }
+            }
+
+            DSeparatorHorizontal{}
+            
+            DBaseExpand {
+                id: inputChoose
+                expanded: header.item.active
+
+                header.sourceComponent: DDownArrowHeader {
+                    text: dsTr("Input Port")
+                    leftMargin: contentLeftMargin
+                    active: false
+                }
+                content.sourceComponent: Rectangle {
+                    width: parent.width
+                    height: childrenRect.height
+                    color: dconstants.contentBgColor
+
+                    ListView {
+                        id: inputPortList
+                        focus: true
+                        currentIndex: currentSource.activePort
+
+                        model: {
+                            var inputPortListModel = listModelComponent.createObject(inputPortList, {})
+                            var ports = currentSource.ports
+                            inputPortList.height = ports.length * lineHeight
+                            for(var i=0; i<ports.length; i++){
+                                var portObj = {}
+                                portObj['id'] = ports[i][0]
+                                portObj['name'] = ports[i][1]
+                                portObj['choose'] = ports[i][2]
+
+                                inputPortListModel.append({
+                                                              "name": ports[i][1],
+                                                              "obj": portObj
+                                                          })
+                            }
+                            return inputPortListModel
+                        }
+
+                        delegate: ChooseItem {}
+                    }
+                }
+            }
+            
             DSeparatorHorizontal{}
 
             DBaseLine{
@@ -306,6 +309,7 @@ Item {
                     text: dsTr("Choose audio output device")
                 }
             }
+
             DSeparatorHorizontal {}
 
             ListView{
