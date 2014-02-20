@@ -15,7 +15,11 @@ Item {
     property int sliderWidth: 178
 
     property var dconstants: DConstants {}
-    property var keyboardID: Keyboard {}
+    property var keyboardID: Keyboard {
+        onUserLayoutListChanged: {
+            print(userLayoutList)
+        }
+    }
     property var searchId: Search {}
     property var xkeyboardLocale: DLocale { domain: "xkeyboard-config" }
 
@@ -28,11 +32,10 @@ Item {
     }
 
     property string searchMd5: searchId.NewTrieWithString(allLayoutMapL10n, "deepin-system-settings-keyboard-layouts")
-    property var userLayouts: ["us", "gb"]
 
     function isInUserLayouts(key){
-        for(var i=0; i<userLayouts.length; i++){
-            if(userLayouts[i] == key){
+        for(var i=0; i<keyboardID.userLayoutList.length; i++){
+            if(keyboardID.userLayoutList[i] == key){
                 return true
             }
         }
@@ -213,7 +216,7 @@ Item {
                         var selectedKeys = addLayoutList.getSelectedKeys()
                         for(var i=0; i<selectedKeys.length; i++){
                             if(!keyboardModule.isInUserLayouts(selectedKeys[i])){
-                                keyboardModule.userLayouts.push(selectedKeys[i])
+                                keyboardID.AddUserLayout(selectedKeys[i])
                             }
                         }
                     }
@@ -238,7 +241,7 @@ Item {
                 currentIndex: -1
                 clip: true
 
-                property string selectLayoutId: keyboardID.keyboardLayout ? keyboardID.keyboardLayout[0] : "us"
+                property string selectLayoutId: keyboardID.currentLayout ? keyboardID.currentLayout : "us;"
                 property bool inDeleteAction: keyboardLayoutArea.currentActionStateName == "deleteButton"
 
                 function switchLayout(id){
@@ -246,12 +249,13 @@ Item {
                 }
 
                 function deleteLayout(id){
-                    print("==> deleteButton")
+                    print("==> Delete layout", id)
+                    keyboardID.DeleteUserLayout(id)
                 }
 
                 model: {
                     var myModel = listModelComponent.createObject(layoutList, {})
-                    var userKeyboardLayouts = keyboardModule.userLayouts
+                    var userKeyboardLayouts = keyboardID.userLayoutList
                     for (var i=0; i<userKeyboardLayouts.length; i++){
                         var id = userKeyboardLayouts[i]
                         myModel.append({
