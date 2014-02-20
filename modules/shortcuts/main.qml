@@ -8,7 +8,7 @@ import Deepin.Widgets 1.0
 import "./shortcuts_maps.js" as ShortcutsMap
 
 Item {
-    id: default_applications
+    id: shortcutsModule
     anchors.fill: parent
 
     property var dconstants: DConstants {}
@@ -36,7 +36,7 @@ Item {
                 allKeybindings[temp_list[0]] = temp_list
             }
         }
-        default_applications.searchMd5 = searchId.NewTrieWithString(keywords, "deepin-system-settings.shortcuts")
+        shortcutsModule.searchMd5 = searchId.NewTrieWithString(keywords, "deepin-system-settings.shortcuts")
         return {
             "keywords": JSON.parse(JSON.stringify(keywords)),
             "keyBindings": JSON.parse(JSON.stringify(allKeybindings))
@@ -51,133 +51,25 @@ Item {
 
         DssTitle {
             text: dsTr("Shortcuts")
-            rightLoader.sourceComponent: Item {
-                height: 38
-                width: 160
-
-                property bool handHide: false
-
-                NumberAnimation {
-                    id: showSearchEntyArea
-                    target: searchEntryArea
-                    properties: "width"
-                    to: 160
-                    duration: 400
-
-                    onStarted: {
-                        searchInput.forceActiveFocus()
-                        searchButtonArea.visible = false
-                    }
-                }
-
-                NumberAnimation {
-                    id: hideSearchEntyArea
-                    target: searchEntryArea
-                    property: "width"
-                    to: 0
-                    duration: 400
-
-                    onStarted: {
-                        handHide = true
-                    }
-
-                    onStopped: {
-                        searchButtonArea.visible = true
-                        if(!searchButtonMouseArea.containsMouse) {
-                            handHide = false
-                        }
-                    }
-                }
-
-                Item {
-                    id: searchEntryArea
-                    width: 0
-                    height: parent.height
-                    clip: true
-                    anchors.right: parent.right
-
-                    DTextInput {
-                        id: searchInput
-                        anchors.right: parent.right
-                        anchors.verticalCenter: parent.verticalCenter
-                        text: ""
-                        onTextChanged: {
-                            searchResultListView.keyword = text
-                            /***
-                            print("++++++++++++++++++++")
-                            for(var i in searchObject["keyBindings"]){
-                                if (searchObject["keyBindings"].hasOwnProperty(i)){
-                                    print(i, searchObject["keyBindings"][i])
-                                }
-                            }
-                            print("++++++++++++++++++++")
-                            ***/
-                        }
-
-                        Keys.onEscapePressed: {
-                            text = ""
-                            if(!hideSearchEntyArea.running){
-                                hideSearchEntyArea.start()
-                            }
-                        }
-                    }
-
-                    DOpacityImageButton {
-                        id: clearButton
-                        anchors.right: parent.right
-                        anchors.rightMargin: 2
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.verticalCenterOffset: 1
-                        source: "images/clear.png"
-
-                        onClicked: {
-                            if(searchInput.text == "" && !hideSearchEntyArea.running){
-                                hideSearchEntyArea.start()
-                            }
-                            else{
-                                searchInput.text = ""
-                            }
-                        }
-                    }
-                }
-
-                Image {
-                    id: searchButtonArea
-                    anchors.right: parent.right
-                    anchors.verticalCenter: parent.verticalCenter
-                    source: "images/search_normal.png"
-
-                    MouseArea {
-                        id: searchButtonMouseArea
-                        anchors.fill: parent
-                        hoverEnabled: true
-                        onEntered: {
-                            if(!showSearchEntyArea.running && !handHide){
-                                showSearchEntyArea.start()
-                            }
-                        }
-                        onExited: {
-                            handHide = false
-                        }
-                    }
-                }
-
+            rightLoader.sourceComponent: DTextButton {
+                text: dsTr("Reset")
             }
+            rightLoader.visible: searchResultListView.keyword == ""
         }
 
         DSeparatorHorizontal {}
 
         DBaseLine{
-            id: secondTitle
-            property string text: dsTr("Shortcuts")
-            leftLoader.sourceComponent: DssH2 {
-                text: secondTitle.text
-                font.bold: true
-                style: Text.Raised
-                styleColor: Qt.rgba(0, 0, 0, 0.9)
-            }
-            rightLoader.sourceComponent: DTextButton {
-                text: dsTr("Reset")
+            leftMargin: 18
+            leftLoader.sourceComponent: DSearchInput {
+                width: shortcutsModule.width - 36
+                onTextChanged: {
+                    searchResultListView.keyword = text
+                }
+
+                Keys.onEscapePressed: {
+                    text = ""
+                }
             }
         }
 
@@ -199,8 +91,8 @@ Item {
                 id: searchResultListView
                 width: parent.width
                 height: {
-                    if(default_applications.height - keybindingTitleColumn.height - 2 < searchResultListView.count * 30){
-                        return default_applications.height - keybindingTitleColumn.height - 2
+                    if(shortcutsModule.height - keybindingTitleColumn.height - 2 < searchResultListView.count * 30){
+                        return shortcutsModule.height - keybindingTitleColumn.height - 2
                     }
                     return searchResultListView.count * 30
                 }
@@ -219,19 +111,6 @@ Item {
                         for(var i in results){
                             resultKeyBindings.push(searchObject["keyBindings"][results[i]])
                         }
-                        if(results.length == 0){
-                            secondTitle.text = "<font color='red'>No result</font>" 
-                        }
-                        else if(results.length == 1){
-                            secondTitle.text = "<font color='red'>1</font> result"
-                        }
-                        else{
-                            secondTitle.text = "<font color='red'>" + results.length  + "</font> results"
-                        }
-                    }
-                    else{
-                        //allCategoriesArea.visible = true
-                        secondTitle.text = dsTr("Shortcuts")
                     }
                     return resultKeyBindings
                 }
@@ -269,6 +148,7 @@ Item {
             width: parent.width
             height: content.height
             color: dconstants.bgColor
+            visible: searchResultListView.keyword == ""
 
             property var expandItems: ObjectModel {
                 ObjectModelItem {
