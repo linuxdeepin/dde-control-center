@@ -227,7 +227,7 @@ Item {
                         id: autoPlayAppListView
                         width: parent.width
 
-                        property string defaultDesktopName: mediaMountId.DefaultMediaAppByMime(componentData.contentType)[1]
+                        property string defaultDesktopName: mediaMountId.DefaultMediaAppByMime(componentData.contentType)[0]
 
                         model: ListModel {id: autoPlayModel}
                         delegate: Item {
