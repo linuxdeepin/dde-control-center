@@ -6,6 +6,7 @@ Item {
     id: calendarWidget
     width: 308
     height: childrenRect.height + 30 * 7
+
     property var clickedDateObject: globalDate
     property var cur_calendar;
     property var pre_calendar;
@@ -15,7 +16,6 @@ Item {
     function monthChange(dateValue){
         var d = new Date(dateValue)
         if (d > cur_calendar.clickedDateObject && slideStop){
-            //var next_d = CalendarCore.getDateWidthMonthStep(cur_calendar.clickedDateObject, 1)
             next_calendar = calendarSlideBox.createCanlendar(d, "next")
             next_calendar.visible = true
             if (!toNextMonth.running && !toPreviousMonth.running){
@@ -24,7 +24,6 @@ Item {
             clickedDateObject = d
         }
         else if (d < cur_calendar.clickedDateObject && slideStop){
-            //var pre_d = CalendarCore.getDateWidthMonthStep(cur_calendar.clickedDateObject, -1)
             pre_calendar = calendarSlideBox.createCanlendar(d, "previous")
             pre_calendar.visible = true
             if (!toNextMonth.running && !toPreviousMonth.running){
@@ -61,10 +60,6 @@ Item {
             cur_calendar.destroy()
             cur_calendar = next_calendar
             slideStop = true
-
-            //for (var i=0; i<cur_calendar.debug_dates.length; i++){
-                //console.log(cur_calendar.debug_dates[i].dateValue)
-            //}
         }
     }
 
@@ -95,10 +90,6 @@ Item {
             cur_calendar.destroy()
             cur_calendar = pre_calendar
             slideStop = true
-
-            //for (var i=0; i<cur_calendar.debug_dates.length; i++){
-                //console.log(cur_calendar.debug_dates[i].dateValue)
-            //}
         }
     }
 
@@ -251,32 +242,6 @@ Item {
             // end row
         }
     }
-
-    /***
-    Rectangle {
-        anchors.left: parent.left
-        width: parent.width
-
-        Rectangle {
-            //left border
-            anchors.top: parent.top
-            anchors.left: parent.left
-            width: 1
-            height: parent.height
-            color: "#303132"
-        }
-
-        Rectangle {
-            //right border
-            anchors.top: parent.top
-            anchors.right: parent.right
-            width: 1
-            height: parent.height
-            color: "#120f10"
-        }
-
-    }
-    ***/
 
     DSeparatorHorizontal {
         anchors.top: dateBoxAdjustment.bottom

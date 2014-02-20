@@ -1,20 +1,21 @@
 import QtQuick 2.1
+import QtGraphicalEffects 1.0
 import "calendar_core.js" as CalendarCore
 
 Rectangle {
     id: calendarItem
-    width: 44
-    height: 30
     color: "#1a1b1b"
-    //color: "transparent"
+    
+    property string currentDateString: ""
 
+    property bool isCurrentDate: currentDateString == dateValue
     property alias inText: inText
     property bool grey: isGrey
     property bool isClicked: false
     property var curDate: new Date(dateValue)
     property var lunarDay: windowView.getLunarDay(dateValue)
 
-    // start border
+    // Start border
     Rectangle{
         // left
         anchors.top: parent.top
@@ -47,66 +48,78 @@ Rectangle {
         height: 1
         color: "#120f10"
     }
-    // end border
+    // End of border
+
+
+    Item{
+        id: contentFrame
+        anchors.centerIn: parent
+        width: parent.width - 2
+        height: parent.height - 2
+
+        Rectangle {
+            id: currentDateBackground
+            anchors.fill: parent
+            color: "#1a1b1b"
+            visible: false
+        }
+
+        InnerShadow {
+            source: currentDateBackground
+            anchors.fill: currentDateBackground
+            radius: 4
+            samples: 10
+            color: "#003A5F"
+            horizontalOffset: 0
+            verticalOffset: 0
+            spread: 0.2
+            visible: isCurrentDate
+        }
 
     Rectangle {
         id: clickedDateBackground
-        anchors.top: parent.top
-        anchors.left: parent.left
-        width: parent.width -1
-        height: parent.height -1
-        color: Qt.rgba(0, 144, 255, 0.2)
-        visible: index == calendarItem.GridView.view.currentIndex && !isCurrentDate ? true : false
+        anchors.fill: parent
+        color: "#003A5F"
+        visible: index == calendarItem.GridView.view.currentIndex ? true : false
     }
 
-    Rectangle {
-        id: currentDateBackground
-        anchors.top: parent.top
-        anchors.left: parent.left
-        width: parent.width -1
-        height: parent.height -1
-        gradient: Gradient {
-            GradientStop { position: 0.0; color: Qt.rgba(21/255, 147/255, 1, 0.5) }
-            GradientStop { position: 1.0; color: Qt.rgba(0, 144/255, 1, 1.0) }
-        }
-        //visible: inText.text == 1 ? true : false
-        visible: isCurrentDate
-    }
+        Item {
+            anchors.fill: parent
 
-    Column {
-        anchors.centerIn: parent
-        width: parent.width - 2
-        height: childrenRect.height
+            Text {
+                id: inText
+                anchors.top: parent.top
+                anchors.topMargin: lunarDayLabel.visible ? 2 : (parent.height - height)/2
+                anchors.horizontalCenter: parent.horizontalCenter
 
-        Text {
-            id: inText
-            anchors.horizontalCenter: parent.horizontalCenter
-
-            font.pixelSize: 10
-            color: grey ? "#444" : dconstants.fgColor
-            text: curDate.getDate()
-        }
-
-        Text {
-            id: lunarDayLabel
-            anchors.horizontalCenter: parent.horizontalCenter
-
-            font.pixelSize: 10
-            color: {
-                if(lunarDay[2]){
-                    return Qt.rgba(0, 144/255, 1, 1.0)
-                }
-                else if(grey){
-                    return "#444"
-                }
-                return dconstants.fgColor
+                font.pixelSize: 16
+                color: grey ? "#444" : dconstants.fgColor
+                text: curDate.getDate()
             }
-            text: lunarDay[2] ? lunarDay[2] : lunarDay[0]
-            visible: false
 
-            Component.onCompleted: {
-                if(dsslocale.lang == "zh"){
-                    lunarDayLabel.visible = true
+            Text {
+                id: lunarDayLabel
+                anchors.top: inText.bottom
+                //anchors.topMargin: 2
+                anchors.horizontalCenter: parent.horizontalCenter
+
+                font.pixelSize: 10
+                color: {
+                    if(lunarDay[2]){
+                        return Qt.rgba(0, 144/255, 1, 1.0)
+                    }
+                    else if(grey){
+                        return "#444"
+                    }
+                    return dconstants.fgColor
+                }
+                text: lunarDay[2] ? lunarDay[2] : lunarDay[0]
+                visible: false
+
+                Component.onCompleted: {
+                    if(dsslocale.lang == "zh"){
+                        lunarDayLabel.visible = true
+                    }
                 }
             }
         }
@@ -145,8 +158,7 @@ Rectangle {
             }
             toolTip.showTip(tipStr)
         }
-        onExited: {
-            toolTip.hideTip()
-        }
-    }
+        onExited: toolTip.hideTip()
+    } // End of mousearea
+
 }

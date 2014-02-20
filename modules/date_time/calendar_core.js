@@ -70,8 +70,6 @@ function getDates(dateStr){
     var feb_dates = isLeapYear(d.getFullYear())?29:28;
 
     var cur_d = new Date();
-    var cur_date_str = cur_d.getFullYear() + "-" + (cur_d.getMonth() + 1) + "-" 
-        + cur_d.getDate();
 
     if (cur_month == 1){
         var dates_arr = [31, 31, feb_dates];
@@ -100,9 +98,10 @@ function getDates(dateStr){
             i_str = "0" + i_str;
         }
         var dateValue = cur_year + "-" + cur_month_str + "-" + i_str;
-        results.push({"dayText": String(i), "isGrey": false, 
-            "dateValue": dateValue,
-            "isCurrentDate": cur_date_str == dateValue});
+        results.push({
+            "dayText": String(i), "isGrey": false, 
+            "dateValue": dateValue
+        });
     }
 
     var pre_year = cur_month == 1 ? cur_year-1 : cur_year;
@@ -120,9 +119,10 @@ function getDates(dateStr){
                 i_str = "0" + i_str;
             }
             var dateValue = pre_year + "-" + pre_month_str + "-" + i_str;
-            results.splice(0, 0, {"dayText": String(day), "isGrey": true, 
-                "dateValue": dateValue,
-                "isCurrentDate": cur_date_str == dateValue});
+            results.splice(0, 0, {
+                "dayText": String(day), "isGrey": true, 
+                "dateValue": dateValue
+            });
         }
         else if (tmpInterval > 1){
             var firstDay = dates_arr[0] + tmpInterval - 7;
@@ -133,9 +133,10 @@ function getDates(dateStr){
                     i_str = "0" + i_str;
                 }
                 var dateValue = pre_year + "-" + pre_month_str + "-" + i_str;
-                results.splice(0, 0, {"dayText": String(day), "isGrey": true, 
-                    "dateValue": dateValue,
-                    "isCurrentDate": cur_date_str == dateValue});
+                results.splice(0, 0, {
+                    "dayText": String(day), "isGrey": true, 
+                    "dateValue": dateValue
+                });
             }
         }
     }
@@ -149,9 +150,10 @@ function getDates(dateStr){
                     i_str = "0" + i_str;
                 }
                 var dateValue = pre_year + "-" + pre_month_str + "-" + i_str;
-                results.splice(0, 0, {"dayText": String(day), "isGrey": true, 
-                    "dateValue": dateValue,
-                    "isCurrentDate": cur_date_str == dateValue});
+                results.splice(0, 0, {
+                    "dayText": String(day), "isGrey": true, 
+                    "dateValue": dateValue
+                });
             }
         }
         else if (tmpInterval < 1){
@@ -162,9 +164,10 @@ function getDates(dateStr){
                     i_str = "0" + i_str;
                 }
                 var dateValue = pre_year + "-" + pre_month_str + "-" + i_str;
-                results.splice(0, 0, {"dayText": String(day), "isGrey": true, 
-                    "dateValue": dateValue,
-                    "isCurrentDate": cur_date_str == dateValue});
+                results.splice(0, 0, {
+                    "dayText": String(day), "isGrey": true, 
+                    "dateValue": dateValue
+                });
             }
         }
     }
@@ -183,9 +186,10 @@ function getDates(dateStr){
             i_str = "0" + i_str;
         }
         var dateValue = next_year + "-" + next_month_str + "-" + i_str;
-        results.push({"dayText": String(i), "isGrey": true,
-            "dateValue": dateValue,
-            "isCurrentDate": cur_date_str == dateValue});
+        results.push({
+            "dayText": String(i), "isGrey": true,
+            "dateValue": dateValue
+        });
     }
 
     return results;

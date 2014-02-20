@@ -31,9 +31,8 @@ Item {
         repeat: true
         interval: 500
         onTriggered: { 
-            parent.globalDate= new Date()
+            dateTimeModule.globalDate= new Date()
             lang = dsslocale.lang
-            //dynamicTime.secondColonDisplay = !dynamicTime.secondColonDisplay
         }
     }
 

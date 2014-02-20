@@ -2,20 +2,24 @@ import QtQuick 2.1
 import "calendar_core.js" as CalendarCore
 
 Rectangle {
-    width: 308
-    //height: weekTitle.height + datesGridView.height
+    id: calendarComponent
+    width: calendarItemCellWidth * 7
+    height: calendarItemCellHeight * 6 + weekTitle.height
     color: "#1a1b1b"
 
     property alias weekTitleModel: weekTitleModel
     property alias datesGridView: datesGridView
     property alias datesModule: datesModule
 
+    property int calendarItemCellWidth: 44
+    property int calendarItemCellHeight: 38
+
     property var clickedDateObject: new Date()
+    property var currentDateString: CalendarCore.dateToString(globalDate)
 
     property var debug_dates
     
     function updateDates(date_str) {
-        var currentDateString = CalendarCore.dateToString(new Date())
         var dates = CalendarCore.getDates(date_str);
 
         datesModule.clear()
@@ -40,32 +44,34 @@ Rectangle {
         orientation: ListView.Horizontal
 
         Component.onCompleted: {
-            weekTitleModel.append({"dayText": "日", "isHighlight": false})
-            weekTitleModel.append({"dayText": "一", "isHighlight": false})
-            weekTitleModel.append({"dayText": "二", "isHighlight": false})
-            weekTitleModel.append({"dayText": "三", "isHighlight": false})
-            weekTitleModel.append({"dayText": "四", "isHighlight": false})
-            weekTitleModel.append({"dayText": "五", "isHighlight": false})
-            weekTitleModel.append({"dayText": "六", "isHighlight": false})
+            weekTitleModel.append({"dayText": dsTr("日"), "isHighlight": false})
+            weekTitleModel.append({"dayText": dsTr("一"), "isHighlight": false})
+            weekTitleModel.append({"dayText": dsTr("二"), "isHighlight": false})
+            weekTitleModel.append({"dayText": dsTr("三"), "isHighlight": false})
+            weekTitleModel.append({"dayText": dsTr("四"), "isHighlight": false})
+            weekTitleModel.append({"dayText": dsTr("五"), "isHighlight": false})
+            weekTitleModel.append({"dayText": dsTr("六"), "isHighlight": false})
         }
     }
 
     GridView {
         id: datesGridView
         anchors.top: weekTitle.bottom
-        //anchors.topMargin: 30
         anchors.horizontalCenter: parent.horizontalCenter
         width: cellWidth * 7
-        cellWidth: 44 
-        cellHeight: 30
+        cellWidth: calendarItemCellWidth
+        cellHeight: calendarItemCellHeight
         model: ListModel {id: datesModule}
-        delegate: CalendarItem {}
+        delegate: CalendarItem {
+            width: calendarItemCellWidth
+            height: calendarItemCellHeight
+            currentDateString: calendarComponent.currentDateString
+        }
         focus: true
         currentIndex: -1
 
         Component.onCompleted: { 
             updateDates(CalendarCore.dateToString(clickedDateObject))
-            //dateTick.start()
         }
 
         function getDelegateInstanceAt(index) {

@@ -11,8 +11,11 @@ Item {
     anchors.fill: parent
 
     property int contentLeftMargin: 22
-    property int contentHeight: 60
+    property int contentHeight: 40
     property int sliderWidth: 178
+
+    property int titleWidth: 100
+    property int centerPadding: 20
 
     property var dconstants: DConstants {}
     property var keyboardID: Keyboard {}
@@ -58,134 +61,98 @@ Item {
 
         DSeparatorHorizontal {}
 
-        DBaseLine {
+        DCenterLine {
             height: contentHeight
-            leftMargin: contentLeftMargin
-            rightLoader.sourceComponent: Row {
-                spacing: 16
-                DssH2 {
-                    text: dsTr("Repeat Delay")
-                    anchors.verticalCenter: parent.verticalCenter
-                }
-                DSliderRect {
-                    width: sliderWidth
-                    leftLabel: dsTr("Long")
-                    rightLabel: dsTr("Short")
+            centerPadding: centerPadding
+            leftWidth: titleWidth
+            title.text: dsTr("Repeat Delay")
+            content.sourceComponent: DSliderRect {
+                width: sliderWidth
+                leftLabel: dsTr("Long")
+                rightLabel: dsTr("Short")
 
-                    value: (2000 - keyboardID.repeatDelay)/1900
-                    realValue: keyboardID.repeatDelay
-                    onValueChanged: {
-                        if (keyboardID.repeatDelay != (2000 - 1900 * value)){
-                            keyboardID.repeatDelay = (2000 - 1900 * value)
-                        }
+                value: (2000 - keyboardID.repeatDelay)/1900
+                realValue: keyboardID.repeatDelay
+                onValueChanged: {
+                    if (keyboardID.repeatDelay != (2000 - 1900 * value)){
+                        keyboardID.repeatDelay = (2000 - 1900 * value)
                     }
                 }
             }
         }
 
-        DBaseLine {
-            //color: dconstants.contentBgColor
+        DCenterLine {
             height: contentHeight
-            leftMargin: contentLeftMargin
+            centerPadding: centerPadding
+            leftWidth: titleWidth
+            title.text: dsTr("Repeat Interval")
 
-            rightLoader.sourceComponent: Row {
-                spacing: 16
+            content.sourceComponent: DSliderRect {
+                width: sliderWidth
+                leftLabel: dsTr("Slow")
+                rightLabel: dsTr("Fast")
 
-                DssH2 {
-                    text: dsTr("Repeat Interval")
-                    anchors.verticalCenter: parent.verticalCenter
-                }
-
-                DSliderRect {
-                    width: sliderWidth
-                    leftLabel: dsTr("Slow")
-                    rightLabel: dsTr("Fast")
-
-                    value: (2000 - keyboardID.repeatSpeed)/1980
-                    realValue: keyboardID.repeatSpeed
-                    onValueChanged: {
-                        if (keyboardID.repeatSpeed != (2000 - 1980 * value)){
-                            keyboardID.repeatSpeed = 2000 - 1980 * value
-                        }
+                value: (2000 - keyboardID.repeatSpeed)/1980
+                realValue: keyboardID.repeatSpeed
+                onValueChanged: {
+                    if (keyboardID.repeatSpeed != (2000 - 1980 * value)){
+                        keyboardID.repeatSpeed = 2000 - 1980 * value
                     }
                 }
-
             }
         }
 
-        DBaseLine {
-            leftMargin: contentLeftMargin
-            rightLoader.sourceComponent: Row {
-                spacing: 16
-
-                DssH2 {
-                    text: dsTr(" Repeat Test")
-                }
-
-                DTextInput {
-                    id: testRepeatIntervalInput
-                    width: sliderWidth
-                    //text: dsTr("Test repeat interval")
-                }
-            }
-        }
-
-        //DSeparatorHorizontal {}
-
-        DBaseLine {
+        DCenterLine {
             height: contentHeight
-            rightLoader.sourceComponent: Row {
-                spacing: 16
+            centerPadding: centerPadding
+            leftWidth: titleWidth
+            title.text: dsTr("Repeat Test")
 
-                DssH2 {
-                    text: dsTr("Cusor Blink")
-                    anchors.verticalCenter: parent.verticalCenter
-                }
+            content.sourceComponent: DTextInput {
+                id: testRepeatIntervalInput
+                width: sliderWidth
+            }
+        }
 
-                DSliderRect{
-                    id: cursorBlinkSlider
-                    width: sliderWidth
-                    leftLabel: dsTr("Slow")
-                    rightLabel: dsTr("Fast")
+        DCenterLine {
+            height: contentHeight
+            centerPadding: centerPadding
+            leftWidth: titleWidth
+            title.text: dsTr("Cursor Blink")
 
-                    value: (2500 - keyboardID.cursorBlink)/2400
-                    realValue: keyboardID.cursorBlink
-                    onValueChanged: {
-                        if (keyboardID.cursorBlink != (2500 - 2400 * value)){
-                            keyboardID.cursorBlink = 2500 - 2400 * value
-                        }
+            content.sourceComponent: DSliderRect{
+                id: cursorBlinkSlider
+                width: sliderWidth
+                leftLabel: dsTr("Slow")
+                rightLabel: dsTr("Fast")
+
+                value: (2500 - keyboardID.cursorBlink)/2400
+                realValue: keyboardID.cursorBlink
+                onValueChanged: {
+                    if (keyboardID.cursorBlink != (2500 - 2400 * value)){
+                        keyboardID.cursorBlink = 2500 - 2400 * value
                     }
                 }
             }
         }
 
-        DBaseLine {
-            leftMargin: contentLeftMargin
-            rightLoader.sourceComponent: Row {
-                spacing: 16
+        DCenterLine {
+            height: contentHeight
+            centerPadding: centerPadding
+            leftWidth: titleWidth
+            title.text: dsTr("Cursor Blink Show")
 
-                DssH2 {
-                    text: dsTr("Blink Show")
-                    anchors.verticalCenter: parent.verticalCenter
-                }
+            content.sourceComponent: Rectangle {
+                width: 1
+                height: 14
+                color: "white"
+                anchors.verticalCenter: parent.verticalCenter
 
-                Item {
-                    width: sliderWidth
-                    height: parent.height
-
-                    Rectangle {
-                        width: 1
-                        height: 14
-                        color: "white"
-                        anchors.verticalCenter: parent.verticalCenter
-
-                        Timer {
-                            running: true
-                            interval: keyboardID.cursorBlink/2
-                            repeat: true
-                            onTriggered: parent.visible = !parent.visible
-                        }
-                    }
+                Timer {
+                    running: true
+                    interval: keyboardID.cursorBlink/2
+                    repeat: true
+                    onTriggered: parent.visible = !parent.visible
                 }
             }
         }
@@ -245,7 +212,7 @@ Item {
                 property bool inDeleteAction: keyboardLayoutArea.currentActionStateName == "deleteButton"
 
                 function switchLayout(id){
-                    keyboardID.keyboardLayout = [id]
+                    keyboardID.currentLayout = id
                 }
 
                 function deleteLayout(id){
