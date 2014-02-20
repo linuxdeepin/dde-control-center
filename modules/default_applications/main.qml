@@ -227,7 +227,7 @@ Item {
                         id: autoPlayAppListView
                         width: parent.width
 
-                        property string defaultItemId: ""
+                        property string defaultDesktopName: mediaMountId.DefaultMediaAppByMime(componentData.contentType)[1]
 
                         model: ListModel {id: autoPlayModel}
                         delegate: Item {
@@ -268,6 +268,7 @@ Item {
                                 
                                 onClicked: {
                                     autoPlayAppListView.defaultDesktopName = desktopName
+                                    mediaMountId.SetMediaAppByMime(componentData.contentType, desktopName)
                                 }
                             }
                         }
@@ -287,21 +288,13 @@ Item {
                         interactive: true
 
                         Component.onCompleted: {
-                            var datas = defaultAppsId.AppsListViaType(componentData.contentType)
+                            var datas = mediaMountId.MediaAppListByMime(componentData.contentType)
                             for (var i=0;i<datas.length;i++){
                                 autoPlayModel.append({
                                     "label": datas[i][1],
                                     "desktop_name": datas[i][0]
                                 })
                             }
-                            autoPlayModel.append({
-                                "label": "Nothing",
-                                "desktop_name": "nothing"
-                            })
-                            autoPlayModel.append({
-                                "label": "Open folder",
-                                "desktop_name": "folder"
-                            })
                             height = autoPlayModel.count * 28
                         }
                     }
