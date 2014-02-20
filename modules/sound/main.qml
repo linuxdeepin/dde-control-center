@@ -194,9 +194,15 @@ Item {
                 text: dsTr("Advanced...")
                 onClicked: {
                     visible = false
+                    shadow.visible = false
                     advancedSettings.visible = true
                 }
             }
+        }
+        
+        DBaseLine {             /* Do _NOT_ delete this. */
+            id: shadow          
+            height: 200
         }
 
         Column {
