@@ -15,11 +15,7 @@ Item {
     property int sliderWidth: 178
 
     property var dconstants: DConstants {}
-    property var keyboardID: Keyboard {
-        onUserLayoutListChanged: {
-            print(userLayoutList)
-        }
-    }
+    property var keyboardID: Keyboard {}
     property var searchId: Search {}
     property var xkeyboardLocale: DLocale { domain: "xkeyboard-config" }
 
@@ -221,6 +217,10 @@ Item {
                         }
                     }
                     keyboardLayoutArea.currentActionStateName = currentActionStateName
+
+                    if(currentActionStateName == "addButton"){
+                        addLayoutIndex.currentSelectedIndex = "A"
+                    }
                 }
             }
         }
@@ -249,7 +249,6 @@ Item {
                 }
 
                 function deleteLayout(id){
-                    print("==> Delete layout", id)
                     keyboardID.DeleteUserLayout(id)
                 }
 
@@ -280,7 +279,11 @@ Item {
                 height: 28
                 width: parent.width
                 color: dconstants.bgColor
-                property string currentSelectedIndex: "A"
+                property string currentSelectedIndex: ""
+
+                onCurrentSelectedIndexChanged: {
+                    addLayoutList.rebuildModel(currentSelectedIndex)
+                }
 
                 Row{
                     spacing: 3
@@ -323,7 +326,7 @@ Item {
 
             ListView {
                 id: addLayoutList
-                height: keyboardModule.height - 360
+                height: myModel.count * 28 
                 width: parent.width
                 clip: true
 
@@ -338,10 +341,10 @@ Item {
                     return selectedKeys
                 }
 
-                model: {
-                    var myModel = listModelComponent.createObject(addLayoutList, {})
-                    if(searchMd5){
-                        var search_result = searchId.SearchKeysByFirstLetter(addLayoutIndex.currentSelectedIndex, keyboardModule.searchMd5)
+                function rebuildModel(selectedIndex){
+                    myModel.clear()
+                    if(keyboardModule.searchMd5 && selectedIndex){
+                        var search_result = searchId.SearchKeysByFirstLetter(selectedIndex, keyboardModule.searchMd5)
                         for (var i=0; i<search_result.length; i++){
                             var id = search_result[i]
                             if(!keyboardModule.isInUserLayouts(id)){
@@ -351,12 +354,23 @@ Item {
                                 })
                             }
                         }
+                        print(">>>", search_result.length)
                     }
-                    return myModel
                 }
+
+                model: ListModel { id: myModel }
 
                 delegate: AddLayoutItem {}
                 DScrollBar { flickable: addLayoutList }
+            }
+
+            DBaseLine {
+                height: 28
+                visible: addLayoutList.model.count == 0
+                color: dconstants.contentBgColor
+                leftLoader.sourceComponent: DLabel{
+                    text: dsTr("No result")
+                }
             }
         } // End of addLayoutArea
 

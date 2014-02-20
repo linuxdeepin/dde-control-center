@@ -37,7 +37,7 @@ Item {
             title.text: dsTr("Button Order")
             content.sourceComponent: DRadioButton {
                 anchors.verticalCenter: parent.verticalCenter
-                currentIndex: mouseID.useHabit ? 1 : 0
+                initializeIndex: mouseID.useHabit ? 1 : 0
                 buttonModel: [
                     {"buttonId": "right_hand", "buttonLabel": dsTr("Right Hand")},
                     {"buttonId": "left_hand", "buttonLabel": dsTr("Left Hand")}
