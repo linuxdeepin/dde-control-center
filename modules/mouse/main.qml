@@ -5,11 +5,14 @@ import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.InputDevices 1.0
 
 Item {
-    id: keyboardModule
+    id: mouseModule
     anchors.fill: parent
 
     property int contentLeftMargin: 22
     property int contentHeight: 60
+    property int sliderWidth: 180
+    property int leftWidth: 100
+    property int centerPadding: 16
 
     property var mouseID: Mouse {}
 
@@ -27,19 +30,13 @@ Item {
 
         DSeparatorHorizontal {}
 
-        DBaseLine {
-            height: 44
-            leftMargin: contentLeftMargin + 3
-            leftLoader.sourceComponent: DssH2 { text: dsTr("Button Order") }
-            //leftLoader.sourceComponent: Item{
-                //width: parent.height
-                //height: parent.height
-                //Image {
-                    //anchors.centerIn: parent
-                    //source: mouseID.useHabit ? "images/mouse_right.png" : "images/mouse_left.png"
-                //}
-            //}
-            rightLoader.sourceComponent: DRadioButton {
+        DCenterLine {
+            height: contentHeight
+            leftWidth: mouseModule.leftWidth
+            centerPadding: mouseModule.centerPadding
+            title.text: dsTr("Button Order")
+            content.sourceComponent: DRadioButton {
+                anchors.verticalCenter: parent.verticalCenter
                 currentIndex: mouseID.useHabit ? 1 : 0
                 buttonModel: [
                     {"buttonId": "right_hand", "buttonLabel": dsTr("Right Hand")},
@@ -52,104 +49,59 @@ Item {
             }
         }
 
-        DSeparatorHorizontal {}
-
-        DBaseLine {}
-
-        DBaseLine {
-            leftLoader.sourceComponent: DssH2 {
-                text: dsTr("Point Speed")
-            }
-        }
-
-        DSeparatorHorizontal {}
-
-        DBaseLine {
+        DCenterLine {
             height: contentHeight
-            leftMargin: contentLeftMargin
-            rightLoader.sourceComponent: Row {
-                spacing: 10
-                DLabel {
-                    text: dsTr("Acceleration")
-                    font.pixelSize: 12
-                    anchors.verticalCenter: parent.verticalCenter
-                }
+            leftWidth: mouseModule.leftWidth
+            centerPadding: mouseModule.centerPadding
+            title.text: dsTr("Pointer Move Speed")
+            content.sourceComponent: DSliderRect {
+                leftLabel: dsTr("Slow")
+                rightLabel: dsTr("Fast")
 
-                DSliderRect {
-                    leftLabel: dsTr("Slow")
-                    rightLabel: dsTr("Fast")
-
-                    value: (mouseID.moveSpeed - 1)/9
-                    realValue: mouseID.moveSpeed
-                    onValueChanged: {
-                        if (mouseID.moveSpeed!= (9 * value + 1)){
-                            mouseID.moveSpeed = 9 * value + 1
-                        }
+                value: (mouseID.moveSpeed - 1)/9
+                realValue: mouseID.moveSpeed
+                onValueChanged: {
+                    if (mouseID.moveSpeed!= (9 * value + 1)){
+                        mouseID.moveSpeed = 9 * value + 1
                     }
                 }
             }
         }
 
-        DBaseLine {
+        DCenterLine {
             height: contentHeight
-            leftMargin: contentLeftMargin
-            rightLoader.sourceComponent: Row {
-                spacing: 10
+            leftWidth: mouseModule.leftWidth
+            centerPadding: mouseModule.centerPadding
+            title.text: dsTr("Pointer Accuracy")
+            content.sourceComponent: DSliderRect {
+                leftLabel: dsTr("Low")
+                rightLabel: dsTr("High")
 
-                DLabel {
-                    text: dsTr("Sensitivity")
-                    font.pixelSize: 12
-                }
-
-                DSliderRect {
-                    leftLabel: dsTr("Low")
-                    rightLabel: dsTr("High")
-
-                    value: (mouseID.moveAccuracy - 1)/9
-                    realValue: mouseID.moveAccuracy
-                    onValueChanged: {
-                        if (mouseID.moveAccuracy != 9 * value + 1){
-                            mouseID.moveAccuracy = 9 * value + 1
-                        }
+                value: (mouseID.moveAccuracy - 1)/9
+                realValue: mouseID.moveAccuracy
+                onValueChanged: {
+                    if (mouseID.moveAccuracy != 9 * value + 1){
+                        mouseID.moveAccuracy = 9 * value + 1
                     }
                 }
             }
         }
 
-        DSeparatorHorizontal {}
-
-        DBaseLine {}
-
-        DBaseLine {
-            leftLoader.sourceComponent: DssH2 {
-                text: dsTr("Double-click")
-            }
-        }
-
-        DSeparatorHorizontal {}
-
-        DBaseLine {
+        DCenterLine {
             height: contentHeight
-            leftMargin: contentLeftMargin
-            rightLoader.sourceComponent: Row {
-                spacing: 10
+            leftWidth: mouseModule.leftWidth
+            centerPadding: mouseModule.centerPadding
+            title.text: dsTr("Double-click Frequency")
+            content.sourceComponent: DSliderRect {
+                leftLabel: dsTr("Slow")
+                rightLabel: dsTr("Fast")
+                width: sliderWidth
 
-                DLabel {
-                    text: dsTr("Frequency")
-                    font.pixelSize: 12
-                    anchors.verticalCenter: parent.verticalCenter
-                }
-
-                DSliderRect {
-                    leftLabel: dsTr("Slow")
-                    rightLabel: dsTr("Fast")
-
-                    value: (mouseID.clickFrequency - 100)/900
-                    realValue: mouseID.clickFrequency
-                    onValueChanged: {
-                        if (mouseID.clickFrequency != (900 * value + 100)){
-                            mouseID.clickFrequency = 900 * value + 100
-                        }
+                value: (mouseID.clickFrequency - 100)/900
+                realValue: mouseID.clickFrequency
+                onValueChanged: {
+                    if (mouseID.clickFrequency != (900 * value + 100)){
+                        mouseID.clickFrequency = 900 * value + 100
                     }
                 }
             }
