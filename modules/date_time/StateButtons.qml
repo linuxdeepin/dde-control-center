@@ -8,13 +8,16 @@ Item {
     width: actionButtons.width
     height: parent.height
 
-    property string completeButtonLabel: dsTr("Finish")
+    property string completeLabel: dsTr("Finish")
+    property string addLabel: dsTr("Add")
     property string currentActionStateName: ""
+    property alias deleteButton: deleteButton
+    property alias addButton: addButton
 
     DTextButton {
         id: completeButton
-        text: completeButtonLabel
-        opacity: stateButtons.currentActionStateName == "" ? 0 : 1
+        text: currentActionStateName == "addButton" ? addLabel : completeLabel
+        opacity: currentActionStateName != "" ? 1 : 0
         anchors.verticalCenter: parent.verticalCenter
         anchors.right: parent.right
         visible: opacity == 0 ? false : true

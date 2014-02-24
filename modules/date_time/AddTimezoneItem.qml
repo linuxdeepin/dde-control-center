@@ -1,37 +1,39 @@
 import QtQuick 2.0
 import Deepin.Widgets 1.0
 
-Rectangle {
-    id: addLayoutItem
+Item {
     width: parent.width
     height: 28
-    color: dconstants.contentBgColor
+    anchors.left: parent.left
+    anchors.leftMargin: 15
+    anchors.right: parent.right
+    anchors.rightMargin: 15
 
-    property string itemId: item_id
-    property string layoutName: label
+    property string itemValue: value
+    property string itemLabel: label
 
     property bool selected: false
-    
+
+    signal selectAction(string itemValue, bool selected)
+
+    Component.onCompleted: {
+    }
+
     DssH3 {
         id: nameText
-        anchors.left: parent.left
-        anchors.leftMargin: 18
         anchors.verticalCenter: parent.verticalCenter
+        anchors.left: parent.left
+        text: itemLabel
+        color: selected ? "#009EFF" : "#fff"
         font.pixelSize: 12
-        text: layoutName
-        width: parent.width - deleteButton.width - 40
-        elide: Text.ElideRight
     }
 
     DssMultiAddCheckButton {
-        id: deleteButton
         anchors.right: parent.right
-        anchors.rightMargin: 18
         anchors.verticalCenter: parent.verticalCenter
-
         onClicked: {
             parent.selected = !parent.selected
+            selectAction(itemValue, selected)
         }
     }
 }
-

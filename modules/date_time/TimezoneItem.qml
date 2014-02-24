@@ -1,50 +1,85 @@
-import QtQuick 2.1
+import QtQuick 2.0
+import Deepin.Widgets 1.0
 
-Rectangle {
-    anchors.left: parent.left
+Item {
     width: parent.width
     height: 28
-    color: "#1a1b1b"
+    anchors.left: parent.left
+    anchors.leftMargin: 15
+    property bool hovered: false
 
-    signal clicked
+    property string itemValue: value
+    property string itemLabel: label
 
-    property string timezoneValue: value
-    property string timezoneText: textD
+    property string selectedItemValue: ""
+    property bool inDeleteAction: false
 
-    Text {
-        id: label
-        anchors.left: parent.left
-        anchors.leftMargin: 20
+    signal deleteAction(string itemValue)
+    signal selectAction(string itemValue)
+
+    Row {
+        spacing: 5
         anchors.verticalCenter: parent.verticalCenter
+        
+        Image {
+            id: nameImage
+            width: deleteButton.width
+            fillMode: Image.PreserveAspectFit
+            anchors.verticalCenter: parent.verticalCenter
+            source: "images/select.png"
+            opacity: selectedItemValue == itemValue
+        }
 
-        font.pixelSize: 13
-        color: parent.ListView.view.currentIndex == index ? Qt.rgba(0, 144/255, 1, 1.0) :dconstants.fgColor
-        text: textD
+        DssMultiDeleteButton {
+            id: deleteButton
+            opacity: visible ? 1 : 0
+            visible: {
+                if(selectedItemValue == itemValue | !inDeleteAction){
+                    nameImage.visible = true
+                    return false
+                }
+                else {
+                    nameImage.visible = false
+                    return true
+                }
+            }
 
-        property var elideOpen: false
+            onClicked: {
+                deleteAction(itemValue)
+            }
 
-        Component.onCompleted: {
-            if(width > parent.width - 25){
-                label.width = parent.width - 25
-                label.elide = Text.ElideRight
-                label.elideOpen = true
+            Behavior on opacity {
+                PropertyAnimation { duration: 150 }
+            }
+        }
+        
+        DssH3 {
+            id: nameText
+            anchors.verticalCenter: parent.verticalCenter
+            text: itemLabel
+            color: {
+                if(selectedItemValue == itemValue | hovered){
+                    return "#009EFF"
+                }
+                else{
+                    return "#FFF"
+                }
+            }
+            font.pixelSize: 12
+        }
+    }
+    
+    MouseArea {
+        anchors.fill: parent
+        hoverEnabled: true
+        visible: !inDeleteAction
+        
+        onEntered: hovered = true
+        onExited: hovered = false
+        onClicked: {
+            if(selectedItemValue != itemValue) {
+                selectAction(itemValue)
             }
         }
     }
-
-    MouseArea {
-        anchors.fill: parent
-        hoverEnabled: label.elideOpen
-        onClicked: {
-            gDate.SetTimeZone(getTimeZoneInfoByOffset(parent.timezoneValue)[1])
-        }
-
-        onEntered: {
-            toolTip.showTip(label.text)
-        }
-        onExited: {
-            toolTip.hideTip()
-        }
-    }
 }
-

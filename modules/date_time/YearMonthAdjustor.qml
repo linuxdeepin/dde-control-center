@@ -9,7 +9,7 @@ Row {
     property var currentDateObject: new Date()
     signal monthChanged(var newDateString )
 
-    OpacityImageButton {
+    DOpacityImageButton {
         id: decreaseYearButton
         source: 'images/arrow_left_white.png'
         anchors.verticalCenter: parent.verticalCenter
@@ -40,7 +40,7 @@ Row {
         }
     }
 
-    OpacityImageButton {
+    DOpacityImageButton {
         id: increaseYearButton
         anchors.verticalCenter: parent.verticalCenter
         anchors.rightMargin: 6
@@ -56,7 +56,7 @@ Row {
         }
     }
 
-    OpacityImageButton {
+    DOpacityImageButton {
         id: decreaseMonthButton
         anchors.verticalCenter: parent.verticalCenter
 
@@ -97,7 +97,7 @@ Row {
         }
     }
 
-    OpacityImageButton {
+    DOpacityImageButton {
         id: increaseMonthButton
         anchors.verticalCenter: parent.verticalCenter
 

@@ -37,7 +37,7 @@ Rectangle {
     }
 
     function initTrayIcon() {
-        print("==> initTrayIcon emit")
+        print("==> [info] initTrayIcon emit")
         avatarImage.imageSource = currentUserObj.iconFile
         userName.text = currentUserObj.userName.substring(0, 1).toUpperCase() + currentUserObj.userName.substring(1)
         var modules_id_array = modulesId.allIds
@@ -75,18 +75,9 @@ Rectangle {
     }
 
     function shutdownButtonClicked(){
+        rootWindow.width = 0
         rootWindow.displayWidth = 0
         rootWindow.hide()
-        /***
-        if(rightBoxLoaderItem.iconId != ''){
-            moduleIconList.currentIndex = iconIdToIndex[rightBoxLoaderItem.iconId]
-            resetTimer.restart()
-        }
-        else{
-            moduleIconList.currentIndex = -1
-            initTrayIcon()
-        }
-        ***/
         sessionManager.PowerOffChoose()
     }
 

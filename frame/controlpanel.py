@@ -146,6 +146,10 @@ class ControlPanel(QQuickView):
         self.record_event.click_outer_area.connect(self.view_object.outerAreaClicked)
         #self.moduleFileChanged.connect(self.view_object.moduleFileChanged)
 
+    @pyqtSlot(str, result=str)
+    def stripString(self, s):
+        return s.strip()
+
     @pyqtSlot(str, result=bool)
     def isIconPluginExist(self, module_id):
         return os.path.exists(os.path.join(ROOT_LOCATION, "modules", module_id, "iconPlugin.qml"))
@@ -155,17 +159,6 @@ class ControlPanel(QQuickView):
         sequence = sequence.replace("<", "").replace(">", "+")
         keys = sequence.split("-")
         return "+".join(keys).title()
-
-    @pyqtSlot(bool, result=bool)
-    def grabKeyboard(self, flag):
-        return self.setKeyboardGrabEnabled(flag)
-
-    @pyqtSlot()
-    def shutdown(self):
-        if os.path.exists(SHUT_DOWN_ORDER_PATH):
-            subprocess.Popen([SHUT_DOWN_ORDER_PATH])
-        else:
-            print "File not exist:", SHUT_DOWN_ORDER_PATH
 
     @pyqtSlot(result=QVariant)
     def argv(self):
@@ -183,5 +176,3 @@ class ControlPanel(QQuickView):
         dt = datetime.strptime(value, "%Y-%m-%d")
         cc150 = ChineseCalendar150(dt)
         return [cc150.get_lunar_day(), cc150.GetFullGanzhiDate1(), cc150.GetJieQi()]
-        #return cc150.GetFullGanzhiDate1()
-

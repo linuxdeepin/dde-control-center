@@ -129,9 +129,7 @@ class RecordEvent(QThread):
         return self.screen_rect
     
     def record_callback(self, reply):
-        
         check_valid_event(reply)
-     
         data = reply.data
         while len(data):
             event, data = get_event_data(data)

@@ -91,7 +91,6 @@ Window {
         to: panelWidth
 
         onStarted: {
-            //rootWindow.width = screenSize.width
             rootWindow.width = panelWidth
             rootWindow.show()
         }

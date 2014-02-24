@@ -113,10 +113,13 @@ Item {
         DSeparatorHorizontal {}
     }
 
-    TimezoneExpand {
+    TimezoneArea {
         id: timeZoneArea
         anchors.top: beforeTimeZoneArea.bottom
-        property int leftHeight: parent.height - beforeTimeZoneArea.height - afterTimeZoneArea.height - 40
+        listAreaMaxHeight: parent.height - beforeTimeZoneArea.height - afterTimeZoneArea.height - 32
+
+        Component.onCompleted: {
+        }
     }
 
     Column {
