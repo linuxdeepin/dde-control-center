@@ -226,22 +226,21 @@ Rectangle {
                     width: root.width
                     height: 180
 
-                    /* Component.onCompleted: { */
-                    /*     selectColor(dbus_grub2_theme.selectedItemColor) */
-                    /* } */
+                    Component.onCompleted: {
+                        selectColor(dbus_grub2_theme.selectedItemColor)
+                    }
 
-                    /* onColorSet: { */
-                    /*     print(clr) */
-                    /*     dbus_grub2_theme.selectedItemColor = clr */
-                    /* } */
+                    onColorSet: {
+                        dbus_grub2_theme.selectedItemColor = clr + ""
+                    }
 
-                    /* Connections { */
-                    /*     target: dbus_grub2_theme */
-                    /*     onItemColorChanged: { */
-                    /*         picker.selectColor(dbus_grub2_theme.selectedItemColor) */
-                    /*     } */
-                    /* } */
-
+                    Connections {
+                        target: dbus_grub2_theme
+                        onItemColorChanged: {
+                            print("changed..." + dbus_grub2_theme.selectedItemColor)                            
+                            selected_picker.selectColor(dbus_grub2_theme.selectedItemColor)
+                        }
+                    }
                 }
             }
 

@@ -92,9 +92,6 @@ Item {
                 Connections {
                     target: root
                     onSelectColorPrivate: {
-                        if (clr == content.color) {
-                            print(delegate.state)
-                        }
                         if (clr == content.color + "" && delegate.state == "normal") {
                             delegate.state = "selected"
                             root.colorSet(content.color)
