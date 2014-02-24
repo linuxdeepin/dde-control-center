@@ -10,6 +10,20 @@ var CONST = {
     monthsDates: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
 }
 
+function isSameMonth(d_obj_1, d_obj_2){
+    if(d_obj_1.getFullYear() != d_obj_2.getFullYear()){
+        return false
+    }
+    else{
+        if(d_obj_1.getMonth() != d_obj_2.getMonth()){
+            return false
+        }
+        else{
+            return true
+        }
+    }
+}
+
 function isLeapYear(year){
     if (year % 100 == 0){
         if (year % 400 == 0){

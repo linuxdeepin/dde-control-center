@@ -71,17 +71,17 @@ Rectangle {
             samples: 10
             color: "#003A5F"
             horizontalOffset: 0
-            verticalOffset: 0
-            spread: 0.2
+            verticalOffset: -3
+            spread: 0.5
             visible: isCurrentDate
         }
 
-    Rectangle {
-        id: clickedDateBackground
-        anchors.fill: parent
-        color: "#003A5F"
-        visible: index == calendarItem.GridView.view.currentIndex ? true : false
-    }
+        Rectangle {
+            id: clickedDateBackground
+            anchors.fill: parent
+            color: "#003A5F"
+            visible: index == calendarItem.GridView.view.currentIndex ? true : false
+        }
 
         Item {
             anchors.fill: parent
@@ -144,8 +144,10 @@ Rectangle {
                 calendarWidget.monthChange(dateValue);
             }
             else{
-                calendarItem.GridView.view.currentIndex = index
-                calendarWidget.cur_calendar.clickedDateObject = new Date(dateValue)
+                //calendarItem.GridView.view.currentIndex = index
+                var myDate = new Date(dateValue)
+                calendarWidget.clickedDateObject = myDate
+                calendarWidget.cur_calendar.clickedDateObject = myDate
             }
         }
         onEntered: {

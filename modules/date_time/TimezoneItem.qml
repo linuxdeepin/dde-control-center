@@ -8,7 +8,7 @@ Rectangle {
 
     signal clicked
 
-    property int timezoneValue: value
+    property string timezoneValue: value
     property string timezoneText: textD
 
     Text {

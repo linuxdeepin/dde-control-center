@@ -2,16 +2,17 @@ import QtQuick 2.1
 import "calendar_core.js" as CalendarCore
 import Deepin.Widgets 1.0
 
-Item {
+Column {
     id: calendarWidget
     width: 308
-    height: childrenRect.height + 30 * 7
+    height: childrenRect.height
 
     property var clickedDateObject: globalDate
+    property bool slideStop: true
+    property bool isToday: CalendarCore.dateToString(clickedDateObject) == CalendarCore.dateToString(globalDate)
     property var cur_calendar;
     property var pre_calendar;
     property var next_calendar;
-    property bool slideStop: true
 
     function monthChange(dateValue){
         var d = new Date(dateValue)
@@ -35,11 +36,9 @@ Item {
 
     ParallelAnimation {
         id: toNextMonth
-
         onStarted: {
             slideStop = false
         }
-
         PropertyAnimation {
             target: cur_calendar
             properties: "x"
@@ -47,7 +46,6 @@ Item {
             easing.type: Easing.InOutQuad 
             duration: 300
         }
-
         PropertyAnimation {
             target: next_calendar
             properties: "x"
@@ -55,7 +53,6 @@ Item {
             easing.type: Easing.InOutQuad 
             duration: 300
         }
-
         onStopped: {
             cur_calendar.destroy()
             cur_calendar = next_calendar
@@ -65,11 +62,9 @@ Item {
 
     ParallelAnimation {
         id: toPreviousMonth
-
         onStarted: {
             slideStop = false
         }
-
         PropertyAnimation {
             target: pre_calendar
             properties: "x"
@@ -77,7 +72,6 @@ Item {
             easing.type: Easing.InOutQuad 
             duration: 300
         }
-
         PropertyAnimation {
             target: cur_calendar
             properties: "x"
@@ -85,7 +79,6 @@ Item {
             easing.type: Easing.InOutQuad 
             duration: 300
         }
-
         onStopped: {
             cur_calendar.destroy()
             cur_calendar = pre_calendar
@@ -95,174 +88,47 @@ Item {
 
     DBaseLine {
         id: dateBoxAdjustment
-
         height: 38
         color: "#1a1b1b"
-        anchors.top: parent.top
 
-        leftLoader.sourceComponent: DTextButton {
+        leftLoader.sourceComponent: YearMonthAdjustor {
+            height: dateBoxAdjustment.height
+            currentDateObject: calendarWidget.clickedDateObject
+            onMonthChanged: calendarWidget.monthChange(newDateString)
+        }
+
+        rightLoader.sourceComponent: TextAction {
             anchors.verticalCenter: parent.verticalCenter
-            anchors.left: parent.left
-            text: dsTr("Today")
-
+            text: dsTr("Show Today")
             onClicked: {
-                monthChange(CalendarCore.dateToString(new Date()))
+                if(CalendarCore.isSameMonth(globalDate, calendarWidget.clickedDateObject)){
+                    calendarWidget.clickedDateObject = globalDate
+                    calendarWidget.cur_calendar.clickedDateObject = globalDate
+                }
+                else{
+                    calendarWidget.monthChange(CalendarCore.dateToString(globalDate))
+                }
             }
         }
 
-        rightLoader.sourceComponent: Component {
-            // start row
-            Row {
-                height: dateBoxAdjustment.height
-                width: (decreaseYearButton.width + decreaseMonthButton.width + 
-                        monthAdjustmentBox.width + yearAdjustmentBox.width + 
-                        increaseYearButton.width + increaseMonthButton.width)
-
-                OpacityImageButton {
-                    id: decreaseYearButton
-
-                    source: 'images/arrow_left_white.png'
-                    anchors.verticalCenter: parent.verticalCenter
-
-                    onClicked: { 
-                        var month_str = monthAdjustment.monthNumber;
-                        if(monthAdjustment.monthNumber < 10){
-                            month_str = "0" + month_str
-                        }
-                        var new_date_str = (yearAdjustment.yearNumber-1) + "-" + 
-                            month_str + "-" + "01";
-                        monthChange(new_date_str)
-                    }
-                }
-
-                Item {
-                    id: yearAdjustmentBox
-                    anchors.verticalCenter: parent.verticalCenter
-                    width: yearAdjustment.width + 6
-                    height: parent.height
-
-                    Text {
-                        id: yearAdjustment
-                        anchors.centerIn: parent
-                        color: dconstants.fgColor
-                        font.pixelSize: 12
-
-                        property int yearNumber: Number(clickedDateObject.getFullYear())
-
-                        text: String(yearNumber)
-                    }
-                        
-                }
-
-                OpacityImageButton {
-                    id: increaseYearButton
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.rightMargin: 6
-
-                    source: "images/arrow_right_white.png"
-
-                    onClicked: { 
-                        var month_str = monthAdjustment.monthNumber;
-                        if(monthAdjustment.monthNumber < 10){
-                            month_str = "0" + month_str
-                        }
-                        var new_date_str = (yearAdjustment.yearNumber+1) + "-" + 
-                            month_str + "-" + "01";
-                        monthChange(new_date_str)
-                    }
-                }
-
-                OpacityImageButton {
-                    id: decreaseMonthButton
-                    anchors.verticalCenter: parent.verticalCenter
-
-                    source: "images/arrow_left_white.png"
-
-                    onClicked: { 
-                        if (monthAdjustment.monthNumber == 1) {
-                            var new_monthNumber = 12
-                            var new_yearNumber = yearAdjustment.yearNumber - 1
-                        }
-                        else {
-                            var new_monthNumber = monthAdjustment.monthNumber - 1 
-                            var new_yearNumber = yearAdjustment.yearNumber
-                        }
-                        if(new_monthNumber<10){
-                            new_monthNumber = "0" + new_monthNumber
-                        }
-                        var new_date_str = new_yearNumber + "-" + 
-                            new_monthNumber + "-" + "01";
-                        //updateDates(new_date_str);
-                        monthChange(new_date_str)
-                    }
-                }
-
-                Item {
-                    id: monthAdjustmentBox
-                    anchors.verticalCenter: parent.verticalCenter
-                    width: monthAdjustment.width + 6
-                    height: parent.height
-
-                    Text {
-                        id: monthAdjustment
-                        anchors.centerIn: parent
-                        color: dconstants.fgColor
-                        font.pixelSize: 12
-
-                        property int monthNumber: Number(clickedDateObject.getMonth() + 1)
-                        text: monthNumber < 10 ? "0" + monthNumber : monthNumber
-                    }
-                }
-
-                OpacityImageButton {
-                    id: increaseMonthButton
-                    anchors.verticalCenter: parent.verticalCenter
-
-                    source: "images/arrow_right_white.png"
-
-                    onClicked: {
-                        if (monthAdjustment.monthNumber == 12) {
-                            var new_monthNumber = 1
-                            var new_yearNumber = yearAdjustment.yearNumber + 1
-                        }
-                        else {
-                            var new_monthNumber = monthAdjustment.monthNumber + 1
-                            var new_yearNumber = yearAdjustment.yearNumber
-                        }
-                        if(new_monthNumber<10){
-                            new_monthNumber = "0" + new_monthNumber
-                        }
-                        var new_date_str = new_yearNumber + "-" + 
-                            new_monthNumber + "-" + "01"
-                        //updateDates(new_date_str)
-                        monthChange(new_date_str)
-                    }
-                }
-            }
-            // end row
-        }
     }
 
-    DSeparatorHorizontal {
-        anchors.top: dateBoxAdjustment.bottom
-        width: parent.width
-    }
+    DSeparatorHorizontal {}
 
     Rectangle {
         id: calendarSlideBox
         width: parent.width
-        anchors.top: dateBoxAdjustment.bottom
-        anchors.topMargin: 1
-        anchors.left: parent.left
-        property var component
+        height: cur_calendar.height
+        property var component: Qt.createComponent("CalendarComponent.qml")
 
         Component.onCompleted: {
-            component = Qt.createComponent("CalendarComponent.qml");
             var cur_d = clickedDateObject
             cur_calendar = createCanlendar(cur_d, '');
+
             var pre_d = CalendarCore.getDateWidthMonthStep(cur_calendar.clickedDateObject, -1)
-            var next_d = CalendarCore.getDateWidthMonthStep(cur_calendar.clickedDateObject, 1)
             pre_calendar = createCanlendar(pre_d, "previous")
+
+            var next_d = CalendarCore.getDateWidthMonthStep(cur_calendar.clickedDateObject, 1)
             next_calendar = createCanlendar(next_d, "next")
         }
 

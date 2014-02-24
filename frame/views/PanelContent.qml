@@ -21,7 +21,7 @@ Rectangle {
     property var sessionManager: SessionManager {}
     property var modulesId: ModulesData {}
     property var accountId: Accounts {}
-    property var currentUserObj: User { path: accountId.ListCachedUsers()[0] }
+    property var currentUserObj: User { path: accountId.userList[0] }
 
     property bool inExpandHideTrayIcon: false
     property bool inDssHome: true
@@ -77,6 +77,7 @@ Rectangle {
     function shutdownButtonClicked(){
         rootWindow.displayWidth = 0
         rootWindow.hide()
+        /***
         if(rightBoxLoaderItem.iconId != ''){
             moduleIconList.currentIndex = iconIdToIndex[rightBoxLoaderItem.iconId]
             resetTimer.restart()
@@ -85,6 +86,7 @@ Rectangle {
             moduleIconList.currentIndex = -1
             initTrayIcon()
         }
+        ***/
         sessionManager.PowerOffChoose()
     }
 

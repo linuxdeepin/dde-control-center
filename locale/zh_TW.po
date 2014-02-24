@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dss 2014\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-20 17:26+0800\n"
+"POT-Creation-Date: 2014-02-21 14:45+0800\n"
 "PO-Revision-Date: 2013-11-25 12:27+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -16,36 +16,36 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../modules/date_time/Calendar.qml:106
-msgid "Today"
+#: ../modules/date_time/Calendar.qml:102
+msgid "Show Today"
 msgstr ""
 
 #: ../modules/date_time/CalendarComponent.qml:47
-msgid "日"
+msgid "Sun"
 msgstr ""
 
 #: ../modules/date_time/CalendarComponent.qml:48
-msgid "一"
+msgid "Mon"
 msgstr ""
 
 #: ../modules/date_time/CalendarComponent.qml:49
-msgid "二"
+msgid "Tue"
 msgstr ""
 
 #: ../modules/date_time/CalendarComponent.qml:50
-msgid "三"
+msgid "Wed"
 msgstr ""
 
 #: ../modules/date_time/CalendarComponent.qml:51
-msgid "四"
+msgid "Thu"
 msgstr ""
 
 #: ../modules/date_time/CalendarComponent.qml:52
-msgid "五"
+msgid "Fri"
 msgstr ""
 
 #: ../modules/date_time/CalendarComponent.qml:53
-msgid "六"
+msgid "Sat"
 msgstr ""
 
 #: ../modules/shortcuts/CustomKeybindingExpand.qml:197
@@ -161,7 +161,7 @@ msgstr ""
 msgid "More Settings"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:12 ../frame/views/PanelContent.qml:367
+#: ../frame/views/ModulesData.qml:12 ../frame/views/PanelContent.qml:369
 #: ../frame/modules_info.py:37
 msgid "Shutdown"
 msgstr ""
@@ -232,109 +232,14 @@ msgstr ""
 msgid "Rotation"
 msgstr ""
 
+#: ../modules/date_time/StateButtons.qml:11
 #: ../modules/keyboard/StateButtons.qml:11
 #: ../modules/shortcuts/StateButtons.qml:11
 msgid "Finish"
 msgstr ""
 
-#: ../modules/date_time/TimezoneExpand.qml:63
+#: ../modules/date_time/TimezoneExpand.qml:16
 msgid "Timezone"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:89
-msgid "(UTC-11:00) Samoa"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:90
-msgid "(UTC-10:00) Hawaii"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:91
-msgid "(UTC-09:00) Alaska"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:92
-msgid "(UTC-08:00) Lower California"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:93
-msgid "(UTC-07:00) Arizona, Llamas, Mazatlan, Chihuahua"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:94
-msgid "(UTC-06:00) Saskatchewan, Mexico City, Monterrey"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:95
-msgid "(UTC-05:00) Indiana, Bogota, Lima, Quito"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:96
-msgid "(UTC-04:00) San Diego, Georgetown, San Juan"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:97
-msgid "(UTC-03:00) Greenland, Brasilia, Fortaleza"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:98
-msgid "(UTC-02:00) Mid-Atlantic"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:99
-msgid "(UTC-01:00) Cape Verde Islands, Azores"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:100
-msgid "(UTC) London, Dublin, Edinburgh, Lisbon, Casablanca"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:101
-msgid "(UTC+01:00) Paris, Amsterdam, Berlin, Rome, Vienna"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:102
-msgid "(UTC+02:00) Cairo, Athens, Istanbul, Jerusalem"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:103
-msgid "(UTC+03:00) Moscow, St. Petersburg, Baghdad"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:104
-msgid "(UTC+04:00) Port Louis, Abu Dhabi, Muscat, Yerevan"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:105
-msgid "(UTC+05:00) Islamabad, Karachi, Tashkent"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:106
-msgid "(UTC+06:00) Dhaka, Novosibirsk"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:107
-msgid "(UTC+07:00) Bangkok, Hanoi, Jakarta"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:108
-msgid "(UTC+08:00) Beijing, Chongqing, HongKong, Taipei, Urumqi"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:109
-msgid "(UTC+09:00) Osaka, Sapporo, Tokyo, Seoul"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:110
-msgid "(UTC+10:00) Guam, Canberra, Melbourne, Sydney"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:111
-msgid "(UTC+11:00) Magadan, Solomon Islands"
-msgstr ""
-
-#: ../modules/date_time/TimezoneExpand.qml:112
-msgid "(UTC+12:00) New Zealand, Kiribati"
 msgstr ""
 
 #: ../modules/account/UserList.qml:104
@@ -409,8 +314,8 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: ../modules/date_time/main.qml:139
-msgid "Change Date"
+#: ../modules/date_time/main.qml:156
+msgid "假期安排提示"
 msgstr ""
 
 #: ../modules/system_info/main.qml:62
@@ -643,7 +548,7 @@ msgstr ""
 msgid "Power plan"
 msgstr ""
 
-#: ../modules/power/main.qml:219 ../modules/sound/main.qml:158
+#: ../modules/power/main.qml:219 ../modules/sound/main.qml:114
 msgid "Balance"
 msgstr ""
 
@@ -795,59 +700,59 @@ msgstr ""
 msgid "Speaker"
 msgstr ""
 
-#: ../modules/sound/main.qml:99
+#: ../modules/sound/main.qml:230
 msgid "Output Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:140
+#: ../modules/sound/main.qml:96
 msgid "Output Volume"
 msgstr ""
 
-#: ../modules/sound/main.qml:144 ../modules/sound/main.qml:251
+#: ../modules/sound/main.qml:100 ../modules/sound/main.qml:164
 msgid "-"
 msgstr ""
 
-#: ../modules/sound/main.qml:145 ../modules/sound/main.qml:252
+#: ../modules/sound/main.qml:101 ../modules/sound/main.qml:165
 msgid "+"
 msgstr ""
 
-#: ../modules/sound/main.qml:162
+#: ../modules/sound/main.qml:118
 msgid "Left"
 msgstr ""
 
-#: ../modules/sound/main.qml:163
+#: ../modules/sound/main.qml:119
 msgid "Right"
 msgstr ""
 
-#: ../modules/sound/main.qml:178
+#: ../modules/sound/main.qml:134
 msgid "Microphone"
 msgstr ""
 
-#: ../modules/sound/main.qml:205
+#: ../modules/sound/main.qml:273
 msgid "Input Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:247
+#: ../modules/sound/main.qml:160
 msgid "Input Volume"
 msgstr ""
 
-#: ../modules/sound/main.qml:265
+#: ../modules/sound/main.qml:178
 msgid "Input Level"
 msgstr ""
 
-#: ../modules/sound/main.qml:281
+#: ../modules/sound/main.qml:194
 msgid "Advanced..."
 msgstr ""
 
-#: ../modules/sound/main.qml:297
+#: ../modules/sound/main.qml:216
 msgid "Advanced"
 msgstr ""
 
-#: ../modules/sound/main.qml:306
+#: ../modules/sound/main.qml:315
 msgid "Choose audio output device"
 msgstr ""
 
-#: ../modules/sound/main.qml:339
+#: ../modules/sound/main.qml:349
 msgid "Choose audio input device"
 msgstr ""
 

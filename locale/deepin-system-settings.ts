@@ -4,8 +4,8 @@
 <context>
     <name>Calendar</name>
     <message>
-        <location filename="../modules/date_time/Calendar.qml" line="106"/>
-        <source>Today</source>
+        <location filename="../modules/date_time/Calendar.qml" line="102"/>
+        <source>Show Today</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -13,37 +13,37 @@
     <name>CalendarComponent</name>
     <message>
         <location filename="../modules/date_time/CalendarComponent.qml" line="47"/>
-        <source>日</source>
+        <source>Sun</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/date_time/CalendarComponent.qml" line="48"/>
-        <source>一</source>
+        <source>Mon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/date_time/CalendarComponent.qml" line="49"/>
-        <source>二</source>
+        <source>Tue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/date_time/CalendarComponent.qml" line="50"/>
-        <source>三</source>
+        <source>Wed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/date_time/CalendarComponent.qml" line="51"/>
-        <source>四</source>
+        <source>Thu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/date_time/CalendarComponent.qml" line="52"/>
-        <source>五</source>
+        <source>Fri</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/date_time/CalendarComponent.qml" line="53"/>
-        <source>六</source>
+        <source>Sat</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -295,7 +295,7 @@
 <context>
     <name>PanelContent</name>
     <message>
-        <location filename="../frame/views/PanelContent.qml" line="367"/>
+        <location filename="../frame/views/PanelContent.qml" line="369"/>
         <source>Shutdown</source>
         <translation type="unfinished"></translation>
     </message>
@@ -311,6 +311,7 @@
 <context>
     <name>StateButtons</name>
     <message>
+        <location filename="../modules/date_time/StateButtons.qml" line="11"/>
         <location filename="../modules/keyboard/StateButtons.qml" line="11"/>
         <location filename="../modules/shortcuts/StateButtons.qml" line="11"/>
         <source>Finish</source>
@@ -320,128 +321,8 @@
 <context>
     <name>TimezoneExpand</name>
     <message>
-        <location filename="../modules/date_time/TimezoneExpand.qml" line="63"/>
+        <location filename="../modules/date_time/TimezoneExpand.qml" line="16"/>
         <source>Timezone</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/TimezoneExpand.qml" line="89"/>
-        <source>(UTC-11:00) Samoa</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/TimezoneExpand.qml" line="90"/>
-        <source>(UTC-10:00) Hawaii</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/TimezoneExpand.qml" line="91"/>
-        <source>(UTC-09:00) Alaska</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/TimezoneExpand.qml" line="92"/>
-        <source>(UTC-08:00) Lower California</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/TimezoneExpand.qml" line="93"/>
-        <source>(UTC-07:00) Arizona, Llamas, Mazatlan, Chihuahua</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/TimezoneExpand.qml" line="94"/>
-        <source>(UTC-06:00) Saskatchewan, Mexico City, Monterrey</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/TimezoneExpand.qml" line="95"/>
-        <source>(UTC-05:00) Indiana, Bogota, Lima, Quito</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/TimezoneExpand.qml" line="96"/>
-        <source>(UTC-04:00) San Diego, Georgetown, San Juan</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/TimezoneExpand.qml" line="97"/>
-        <source>(UTC-03:00) Greenland, Brasilia, Fortaleza</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/TimezoneExpand.qml" line="98"/>
-        <source>(UTC-02:00) Mid-Atlantic</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/TimezoneExpand.qml" line="99"/>
-        <source>(UTC-01:00) Cape Verde Islands, Azores</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/TimezoneExpand.qml" line="100"/>
-        <source>(UTC) London, Dublin, Edinburgh, Lisbon, Casablanca</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/TimezoneExpand.qml" line="101"/>
-        <source>(UTC+01:00) Paris, Amsterdam, Berlin, Rome, Vienna</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/TimezoneExpand.qml" line="102"/>
-        <source>(UTC+02:00) Cairo, Athens, Istanbul, Jerusalem</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/TimezoneExpand.qml" line="103"/>
-        <source>(UTC+03:00) Moscow, St. Petersburg, Baghdad</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/TimezoneExpand.qml" line="104"/>
-        <source>(UTC+04:00) Port Louis, Abu Dhabi, Muscat, Yerevan</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/TimezoneExpand.qml" line="105"/>
-        <source>(UTC+05:00) Islamabad, Karachi, Tashkent</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/TimezoneExpand.qml" line="106"/>
-        <source>(UTC+06:00) Dhaka, Novosibirsk</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/TimezoneExpand.qml" line="107"/>
-        <source>(UTC+07:00) Bangkok, Hanoi, Jakarta</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/TimezoneExpand.qml" line="108"/>
-        <source>(UTC+08:00) Beijing, Chongqing, HongKong, Taipei, Urumqi</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/TimezoneExpand.qml" line="109"/>
-        <source>(UTC+09:00) Osaka, Sapporo, Tokyo, Seoul</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/TimezoneExpand.qml" line="110"/>
-        <source>(UTC+10:00) Guam, Canberra, Melbourne, Sydney</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/TimezoneExpand.qml" line="111"/>
-        <source>(UTC+11:00) Magadan, Solomon Islands</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/TimezoneExpand.qml" line="112"/>
-        <source>(UTC+12:00) New Zealand, Kiribati</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -544,8 +425,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="139"/>
-        <source>Change Date</source>
+        <location filename="../modules/date_time/main.qml" line="156"/>
+        <source>假期安排提示</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -876,7 +757,7 @@
     </message>
     <message>
         <location filename="../modules/power/main.qml" line="219"/>
-        <location filename="../modules/sound/main.qml" line="158"/>
+        <location filename="../modules/sound/main.qml" line="114"/>
         <source>Balance</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1091,74 +972,74 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="99"/>
+        <location filename="../modules/sound/main.qml" line="230"/>
         <source>Output Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="140"/>
+        <location filename="../modules/sound/main.qml" line="96"/>
         <source>Output Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="144"/>
-        <location filename="../modules/sound/main.qml" line="251"/>
+        <location filename="../modules/sound/main.qml" line="100"/>
+        <location filename="../modules/sound/main.qml" line="164"/>
         <source>-</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="145"/>
-        <location filename="../modules/sound/main.qml" line="252"/>
+        <location filename="../modules/sound/main.qml" line="101"/>
+        <location filename="../modules/sound/main.qml" line="165"/>
         <source>+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="162"/>
+        <location filename="../modules/sound/main.qml" line="118"/>
         <source>Left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="163"/>
+        <location filename="../modules/sound/main.qml" line="119"/>
         <source>Right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="178"/>
+        <location filename="../modules/sound/main.qml" line="134"/>
         <source>Microphone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="205"/>
+        <location filename="../modules/sound/main.qml" line="273"/>
         <source>Input Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="247"/>
+        <location filename="../modules/sound/main.qml" line="160"/>
         <source>Input Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="265"/>
+        <location filename="../modules/sound/main.qml" line="178"/>
         <source>Input Level</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="281"/>
+        <location filename="../modules/sound/main.qml" line="194"/>
         <source>Advanced...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="297"/>
+        <location filename="../modules/sound/main.qml" line="216"/>
         <source>Advanced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="306"/>
+        <location filename="../modules/sound/main.qml" line="315"/>
         <source>Choose audio output device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="339"/>
+        <location filename="../modules/sound/main.qml" line="349"/>
         <source>Choose audio input device</source>
         <translation type="unfinished"></translation>
     </message>

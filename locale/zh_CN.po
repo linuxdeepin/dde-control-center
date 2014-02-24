@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dss 2014\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-20 17:26+0800\n"
+"POT-Creation-Date: 2014-02-21 14:45+0800\n"
 "PO-Revision-Date: 2013-11-25 12:27+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,37 +17,37 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../modules/date_time/Calendar.qml:106
-msgid "Today"
-msgstr "今天"
+#: ../modules/date_time/Calendar.qml:102
+msgid "Show Today"
+msgstr "返回今天"
 
 #: ../modules/date_time/CalendarComponent.qml:47
-msgid "日"
-msgstr ""
+msgid "Sun"
+msgstr "日"
 
 #: ../modules/date_time/CalendarComponent.qml:48
-msgid "一"
-msgstr ""
+msgid "Mon"
+msgstr "一"
 
 #: ../modules/date_time/CalendarComponent.qml:49
-msgid "二"
-msgstr ""
+msgid "Tue"
+msgstr "二"
 
 #: ../modules/date_time/CalendarComponent.qml:50
-msgid "三"
-msgstr ""
+msgid "Wed"
+msgstr "三"
 
 #: ../modules/date_time/CalendarComponent.qml:51
-msgid "四"
-msgstr ""
+msgid "Thu"
+msgstr "四"
 
 #: ../modules/date_time/CalendarComponent.qml:52
-msgid "五"
-msgstr ""
+msgid "Fri"
+msgstr "五"
 
 #: ../modules/date_time/CalendarComponent.qml:53
-msgid "六"
-msgstr ""
+msgid "Sat"
+msgstr "六"
 
 #: ../modules/shortcuts/CustomKeybindingExpand.qml:197
 #: ../modules/shortcuts/ShortcutInput.qml:84
@@ -162,7 +162,7 @@ msgstr "电源"
 msgid "More Settings"
 msgstr "更多设置"
 
-#: ../frame/views/ModulesData.qml:12 ../frame/views/PanelContent.qml:367
+#: ../frame/views/ModulesData.qml:12 ../frame/views/PanelContent.qml:369
 #: ../frame/modules_info.py:37
 msgid "Shutdown"
 msgstr "关机"
@@ -234,110 +234,15 @@ msgstr ""
 msgid "Rotation"
 msgstr "消息中心"
 
+#: ../modules/date_time/StateButtons.qml:11
 #: ../modules/keyboard/StateButtons.qml:11
 #: ../modules/shortcuts/StateButtons.qml:11
 msgid "Finish"
 msgstr ""
 
-#: ../modules/date_time/TimezoneExpand.qml:63
+#: ../modules/date_time/TimezoneExpand.qml:16
 msgid "Timezone"
 msgstr "时区"
-
-#: ../modules/date_time/TimezoneExpand.qml:89
-msgid "(UTC-11:00) Samoa"
-msgstr "(UTC-11:00)萨摩亚"
-
-#: ../modules/date_time/TimezoneExpand.qml:90
-msgid "(UTC-10:00) Hawaii"
-msgstr "(UTC-10:00)夏威夷"
-
-#: ../modules/date_time/TimezoneExpand.qml:91
-msgid "(UTC-09:00) Alaska"
-msgstr "(UTC-09:00)阿拉斯加州"
-
-#: ../modules/date_time/TimezoneExpand.qml:92
-msgid "(UTC-08:00) Lower California"
-msgstr "(UTC-08:00)下加利福尼亚州"
-
-#: ../modules/date_time/TimezoneExpand.qml:93
-msgid "(UTC-07:00) Arizona, Llamas, Mazatlan, Chihuahua"
-msgstr "(UTC-07:00)亚利桑那州, 利马斯, 马萨特兰, 吉瓦瓦"
-
-#: ../modules/date_time/TimezoneExpand.qml:94
-msgid "(UTC-06:00) Saskatchewan, Mexico City, Monterrey"
-msgstr "(UTC-06:00)萨斯喀彻温, 墨西哥城, 蒙特雷"
-
-#: ../modules/date_time/TimezoneExpand.qml:95
-msgid "(UTC-05:00) Indiana, Bogota, Lima, Quito"
-msgstr "(UTC-05:00)印第安纳州, 波哥达, 利马, 基多"
-
-#: ../modules/date_time/TimezoneExpand.qml:96
-msgid "(UTC-04:00) San Diego, Georgetown, San Juan"
-msgstr "(UTC-04:00)圣地亚哥, 乔治敦, 圣胡安"
-
-#: ../modules/date_time/TimezoneExpand.qml:97
-msgid "(UTC-03:00) Greenland, Brasilia, Fortaleza"
-msgstr "(UTC-03:00)格陵兰岛, 巴西利亚, 福塔雷萨"
-
-#: ../modules/date_time/TimezoneExpand.qml:98
-msgid "(UTC-02:00) Mid-Atlantic"
-msgstr "(UTC-02:00)中大西洋"
-
-#: ../modules/date_time/TimezoneExpand.qml:99
-msgid "(UTC-01:00) Cape Verde Islands, Azores"
-msgstr "(UTC-01:00)佛得角群岛, 亚速尔群岛"
-
-#: ../modules/date_time/TimezoneExpand.qml:100
-msgid "(UTC) London, Dublin, Edinburgh, Lisbon, Casablanca"
-msgstr "(UTC)伦敦, 都柏林, 爱丁堡, 里斯本, 卡萨布兰卡"
-
-#: ../modules/date_time/TimezoneExpand.qml:101
-msgid "(UTC+01:00) Paris, Amsterdam, Berlin, Rome, Vienna"
-msgstr "(UTC+01:00)巴黎, 阿姆斯特丹, 柏林, 罗马, 维也纳"
-
-#: ../modules/date_time/TimezoneExpand.qml:102
-msgid "(UTC+02:00) Cairo, Athens, Istanbul, Jerusalem"
-msgstr "(UTC+02:00)开罗, 雅典, 伊斯坦布尔, 耶路撒冷"
-
-#: ../modules/date_time/TimezoneExpand.qml:103
-msgid "(UTC+03:00) Moscow, St. Petersburg, Baghdad"
-msgstr "(UTC+03:00)莫斯科, 圣彼得堡, 巴格达"
-
-#: ../modules/date_time/TimezoneExpand.qml:104
-msgid "(UTC+04:00) Port Louis, Abu Dhabi, Muscat, Yerevan"
-msgstr "(UTC+04:00)路易港, 阿布扎比, 马斯喀特, 埃里温"
-
-#: ../modules/date_time/TimezoneExpand.qml:105
-msgid "(UTC+05:00) Islamabad, Karachi, Tashkent"
-msgstr "(UTC+05:00)伊斯兰堡, 卡拉奇, 塔什干"
-
-#: ../modules/date_time/TimezoneExpand.qml:106
-msgid "(UTC+06:00) Dhaka, Novosibirsk"
-msgstr "(UTC+06:00)达卡, 新西伯利亚"
-
-#: ../modules/date_time/TimezoneExpand.qml:107
-msgid "(UTC+07:00) Bangkok, Hanoi, Jakarta"
-msgstr "(UTC+07:00)曼谷, 河内, 雅加达"
-
-#: ../modules/date_time/TimezoneExpand.qml:108
-msgid "(UTC+08:00) Beijing, Chongqing, HongKong, Taipei, Urumqi"
-msgstr "(UTC+08:00)北京, 重庆, 香港特别行政区, 台北, 乌鲁木齐"
-
-#: ../modules/date_time/TimezoneExpand.qml:109
-msgid "(UTC+09:00) Osaka, Sapporo, Tokyo, Seoul"
-msgstr "(UTC+09:00)大阪, 札幌, 东京, 首尔"
-
-#: ../modules/date_time/TimezoneExpand.qml:110
-msgid "(UTC+10:00) Guam, Canberra, Melbourne, Sydney"
-msgstr "(UTC+10:00)关岛, 堪培拉, 墨尔本, 悉尼"
-
-#: ../modules/date_time/TimezoneExpand.qml:111
-msgid "(UTC+11:00) Magadan, Solomon Islands"
-msgstr "(UTC+11:00)马加丹, 索罗门群岛"
-
-#: ../modules/date_time/TimezoneExpand.qml:112
-msgid "(UTC+12:00) New Zealand, Kiribati"
-msgstr "(UTC+12:00)新西兰, 基里巴斯"
 
 #: ../modules/account/UserList.qml:104
 msgid "User"
@@ -411,8 +316,8 @@ msgstr "24小时制"
 msgid "Date"
 msgstr "日期"
 
-#: ../modules/date_time/main.qml:139
-msgid "Change Date"
+#: ../modules/date_time/main.qml:156
+msgid "假期安排提示"
 msgstr ""
 
 #: ../modules/system_info/main.qml:62
@@ -647,7 +552,7 @@ msgstr ""
 msgid "Power plan"
 msgstr "电源"
 
-#: ../modules/power/main.qml:219 ../modules/sound/main.qml:158
+#: ../modules/power/main.qml:219 ../modules/sound/main.qml:114
 msgid "Balance"
 msgstr "均衡"
 
@@ -803,59 +708,59 @@ msgstr "快捷键"
 msgid "Speaker"
 msgstr "扬声器"
 
-#: ../modules/sound/main.qml:99
+#: ../modules/sound/main.qml:230
 msgid "Output Port"
 msgstr "输出端口"
 
-#: ../modules/sound/main.qml:140
+#: ../modules/sound/main.qml:96
 msgid "Output Volume"
 msgstr "输出音量"
 
-#: ../modules/sound/main.qml:144 ../modules/sound/main.qml:251
+#: ../modules/sound/main.qml:100 ../modules/sound/main.qml:164
 msgid "-"
 msgstr ""
 
-#: ../modules/sound/main.qml:145 ../modules/sound/main.qml:252
+#: ../modules/sound/main.qml:101 ../modules/sound/main.qml:165
 msgid "+"
 msgstr ""
 
-#: ../modules/sound/main.qml:162
+#: ../modules/sound/main.qml:118
 msgid "Left"
 msgstr "左"
 
-#: ../modules/sound/main.qml:163
+#: ../modules/sound/main.qml:119
 msgid "Right"
 msgstr "右"
 
-#: ../modules/sound/main.qml:178
+#: ../modules/sound/main.qml:134
 msgid "Microphone"
 msgstr "麦克风"
 
-#: ../modules/sound/main.qml:205
+#: ../modules/sound/main.qml:273
 msgid "Input Port"
 msgstr "输入端口"
 
-#: ../modules/sound/main.qml:247
+#: ../modules/sound/main.qml:160
 msgid "Input Volume"
 msgstr "输入音量"
 
-#: ../modules/sound/main.qml:265
+#: ../modules/sound/main.qml:178
 msgid "Input Level"
 msgstr "输入等级"
 
-#: ../modules/sound/main.qml:281
+#: ../modules/sound/main.qml:194
 msgid "Advanced..."
 msgstr "高级设置..."
 
-#: ../modules/sound/main.qml:297
+#: ../modules/sound/main.qml:216
 msgid "Advanced"
 msgstr "高级设置"
 
-#: ../modules/sound/main.qml:306
+#: ../modules/sound/main.qml:315
 msgid "Choose audio output device"
 msgstr "选择音频输出设备"
 
-#: ../modules/sound/main.qml:339
+#: ../modules/sound/main.qml:349
 msgid "Choose audio input device"
 msgstr "选择音频输入设备"
 
@@ -879,6 +784,78 @@ msgstr ""
 #: ../modules/disk_mount/main.qml:69
 msgid "External Devices"
 msgstr ""
+
+#~ msgid "(UTC-11:00) Samoa"
+#~ msgstr "(UTC-11:00)萨摩亚"
+
+#~ msgid "(UTC-10:00) Hawaii"
+#~ msgstr "(UTC-10:00)夏威夷"
+
+#~ msgid "(UTC-09:00) Alaska"
+#~ msgstr "(UTC-09:00)阿拉斯加州"
+
+#~ msgid "(UTC-08:00) Lower California"
+#~ msgstr "(UTC-08:00)下加利福尼亚州"
+
+#~ msgid "(UTC-07:00) Arizona, Llamas, Mazatlan, Chihuahua"
+#~ msgstr "(UTC-07:00)亚利桑那州, 利马斯, 马萨特兰, 吉瓦瓦"
+
+#~ msgid "(UTC-06:00) Saskatchewan, Mexico City, Monterrey"
+#~ msgstr "(UTC-06:00)萨斯喀彻温, 墨西哥城, 蒙特雷"
+
+#~ msgid "(UTC-05:00) Indiana, Bogota, Lima, Quito"
+#~ msgstr "(UTC-05:00)印第安纳州, 波哥达, 利马, 基多"
+
+#~ msgid "(UTC-04:00) San Diego, Georgetown, San Juan"
+#~ msgstr "(UTC-04:00)圣地亚哥, 乔治敦, 圣胡安"
+
+#~ msgid "(UTC-03:00) Greenland, Brasilia, Fortaleza"
+#~ msgstr "(UTC-03:00)格陵兰岛, 巴西利亚, 福塔雷萨"
+
+#~ msgid "(UTC-02:00) Mid-Atlantic"
+#~ msgstr "(UTC-02:00)中大西洋"
+
+#~ msgid "(UTC-01:00) Cape Verde Islands, Azores"
+#~ msgstr "(UTC-01:00)佛得角群岛, 亚速尔群岛"
+
+#~ msgid "(UTC) London, Dublin, Edinburgh, Lisbon, Casablanca"
+#~ msgstr "(UTC)伦敦, 都柏林, 爱丁堡, 里斯本, 卡萨布兰卡"
+
+#~ msgid "(UTC+01:00) Paris, Amsterdam, Berlin, Rome, Vienna"
+#~ msgstr "(UTC+01:00)巴黎, 阿姆斯特丹, 柏林, 罗马, 维也纳"
+
+#~ msgid "(UTC+02:00) Cairo, Athens, Istanbul, Jerusalem"
+#~ msgstr "(UTC+02:00)开罗, 雅典, 伊斯坦布尔, 耶路撒冷"
+
+#~ msgid "(UTC+03:00) Moscow, St. Petersburg, Baghdad"
+#~ msgstr "(UTC+03:00)莫斯科, 圣彼得堡, 巴格达"
+
+#~ msgid "(UTC+04:00) Port Louis, Abu Dhabi, Muscat, Yerevan"
+#~ msgstr "(UTC+04:00)路易港, 阿布扎比, 马斯喀特, 埃里温"
+
+#~ msgid "(UTC+05:00) Islamabad, Karachi, Tashkent"
+#~ msgstr "(UTC+05:00)伊斯兰堡, 卡拉奇, 塔什干"
+
+#~ msgid "(UTC+06:00) Dhaka, Novosibirsk"
+#~ msgstr "(UTC+06:00)达卡, 新西伯利亚"
+
+#~ msgid "(UTC+07:00) Bangkok, Hanoi, Jakarta"
+#~ msgstr "(UTC+07:00)曼谷, 河内, 雅加达"
+
+#~ msgid "(UTC+08:00) Beijing, Chongqing, HongKong, Taipei, Urumqi"
+#~ msgstr "(UTC+08:00)北京, 重庆, 香港特别行政区, 台北, 乌鲁木齐"
+
+#~ msgid "(UTC+09:00) Osaka, Sapporo, Tokyo, Seoul"
+#~ msgstr "(UTC+09:00)大阪, 札幌, 东京, 首尔"
+
+#~ msgid "(UTC+10:00) Guam, Canberra, Melbourne, Sydney"
+#~ msgstr "(UTC+10:00)关岛, 堪培拉, 墨尔本, 悉尼"
+
+#~ msgid "(UTC+11:00) Magadan, Solomon Islands"
+#~ msgstr "(UTC+11:00)马加丹, 索罗门群岛"
+
+#~ msgid "(UTC+12:00) New Zealand, Kiribati"
+#~ msgstr "(UTC+12:00)新西兰, 基里巴斯"
 
 #~ msgid "Blink Show"
 #~ msgstr "闪烁效果"

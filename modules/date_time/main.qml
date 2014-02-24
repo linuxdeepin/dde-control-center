@@ -11,7 +11,7 @@ Item {
 
     property string timeFont: "Maven Pro Light"
     property var gDate: DateAndTime {
-        onCurrentTimeZoneChanged: {
+        onCurrentTimezoneChanged: {
             Date.timeZoneUpdated()
             globalDate = new Date()
         }
@@ -94,7 +94,7 @@ Item {
             active: gDate.autoSetTime
 
             onClicked: {
-                gDate.SetAutoSetTime(active)
+                gDate.autoSetTime = active
             }
         }
 
@@ -128,7 +128,7 @@ Item {
         DBaseLine {
             id: dateBoxTitle
             width: parent.width
-            height: 38
+            rightMargin: 10
 
             leftLoader.sourceComponent: DLabel {
                 font.pixelSize: 13
@@ -137,14 +137,32 @@ Item {
 
             rightLoader.sourceComponent: DTextButton {
                 text: dsTr("Change Date")
+                visible: opacity != 0
+                opacity: calendarObj.isToday ? 0 : 1
+
+                Behavior on opacity {
+                    PropertyAnimation { duration: 200 }
+                }
+
                 onClicked: {
-                    print(calendarObj.cur_calendar.clickedDateObject)
+                    gDate.SetDate(CalendarCore.dateToString(calendarObj.clickedDateObject))
                 }
             }
         }
 
         DSeparatorHorizontal {}
 
-        Calendar { id: calendarObj }
+        Calendar { 
+            id: calendarObj 
+        }
+
+        DSeparatorHorizontal {}
+
+        DSwitchButtonHeader {
+            text: dsTr("假期安排提示")
+            onClicked: {
+            }
+        }
+        DSeparatorHorizontal {}
     }
 }
