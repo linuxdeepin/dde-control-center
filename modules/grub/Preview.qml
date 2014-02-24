@@ -23,6 +23,14 @@ Item {
             root.height = height
         }
         
+        Connections {
+            target: dbus_grub2_theme
+            onBackgroundUpdated: {
+                background.source = ""
+                background.source = dbus_grub2_theme.background
+            }
+        }
+        
         DropArea {
             anchors.fill: parent
             
