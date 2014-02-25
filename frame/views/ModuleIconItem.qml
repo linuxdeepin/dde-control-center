@@ -23,23 +23,14 @@ Rectangle {
 
     property string itemId: moduleId
     property string iconPathHeader: "trayicons/" + moduleId
-    property string extStr: {
-        if(moduleId == "system_info" | moduleId == "grub" | moduleId == "home"){
-            return ".png"
-        }
-        else{
-            return ".svg"
-        }
-    }
-    
     property bool hover: false
     property url iconPath: windowView.isIconPluginExist(moduleId) ? '../../modules/' + moduleId + '/iconPlugin.qml' : ''
 
     QtObject {
         id: defaultIcon
-        property url normalImage: iconPathHeader + '_normal' + extStr
-        property url hoverImage: iconPathHeader + '_press' + extStr
-        property url pressImage: iconPathHeader + '_press' + extStr
+        property url normalImage: iconPathHeader + '_normal.png'
+        property url hoverImage: iconPathHeader + '_press.png'
+        property url pressImage: iconPathHeader + '_press.png'
     }
 
     Loader {
