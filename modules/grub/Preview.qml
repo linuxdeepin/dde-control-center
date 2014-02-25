@@ -50,7 +50,7 @@ Item {
                 model: ListModel {}
                 delegate: Text {
                     text: itemTitle
-                    font.pixelSize: 16 * background.scaleRatio
+                    font.pixelSize: 20 * background.scaleRatio
                     color: itemTitle == dbus_grub2.defaultEntry ? dbus_grub2_theme.selectedItemColor : dbus_grub2_theme.itemColor
                 }
 
