@@ -4,52 +4,51 @@ import QtQuick.Controls.Styles 1.0
 import Deepin.Widgets 1.0
 
 Item {
+    id: digitalTime
     width: 150
     height: 38
 
-    property bool inEdit: false
-    property int digitalSize: 55
     property bool use24Hour: false
-    property bool secondColonDisplay: true
+
+    property bool mouseAreaVisible: true
+
+    Binding {
+        target: hoursText
+        property: "text"
+        value: use24Hour ? globalDate.getHours() : globalDate.getHours() % 12
+        when: mouseAreaVisible
+    }
+
+    Binding {
+        target: minutesText
+        property: "text"
+        value: globalDate.getMinutes() < 10 ? "0" + globalDate.getMinutes() : globalDate.getMinutes()
+        when: mouseAreaVisible
+    }
 
     Row {
         spacing: 10
         anchors.centerIn: parent
 
-
-        TextInput {
+        DigitalInput {
             id: hoursText
-            anchors.verticalCenter: parent.verticalCenter
-
-            font.pixelSize: digitalSize
-            font.family: timeFont
-            text: use24Hour ? globalDate.getHours() : globalDate.getHours() % 12
-            color: "white"
-
-            MouseArea {
-                anchors.fill: parent
-                cursorShape: Qt.IBeamCursor
-            }
+            mouseAreaVisible: digitalTime.mouseAreaVisible
+            IntValidator{bottom: 0; top: 23;}
         }
 
         Text {
             id: secondColon
             anchors.verticalCenter: parent.verticalCenter
 
-            font.pixelSize: digitalSize
-            font.family: timeFont
-            color: secondColonDisplay ? 'white' : "transparent"
+            font.pixelSize: 55
+            color: "white"
             text: ":"
         }
 
-        Text {
+        DigitalInput {
             id: minutesText
-            anchors.verticalCenter: parent.verticalCenter
-
-            font.pixelSize: digitalSize
-            font.family: timeFont
-            color: "white"
-            text: globalDate.getMinutes() < 10 ? "0" + globalDate.getMinutes() : globalDate.getMinutes()
+            mouseAreaVisible: digitalTime.mouseAreaVisible
+            IntValidator{bottom: 0; top: 59;}
         }
     }
 }

@@ -73,7 +73,7 @@ Column {
         ListView {
             id: userTimezoneListView
             width: parent.width
-            height: model.count * 28
+            height: model.count * 28 > listAreaMaxHeight ? listAreaMaxHeight : model.count * 28
 
             model: {
                 var myListModel = listModelComponent.createObject(userTimezoneListView, {})
@@ -93,6 +93,13 @@ Column {
                 onDeleteAction: {
                     gDate.DeleteTimezoneList(itemValue)
                 }
+                onSelectAction: {
+                    gDate.SetTimeZone(itemValue)
+                }
+            }
+
+            DScrollBar {
+                flickable: parent
             }
         }
     }

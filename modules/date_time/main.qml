@@ -32,7 +32,6 @@ Item {
         interval: 500
         onTriggered: { 
             dateTimeModule.globalDate= new Date()
-            lang = dsslocale.lang
         }
     }
 
@@ -117,9 +116,6 @@ Item {
         id: timeZoneArea
         anchors.top: beforeTimeZoneArea.bottom
         listAreaMaxHeight: parent.height - beforeTimeZoneArea.height - afterTimeZoneArea.height - 32
-
-        Component.onCompleted: {
-        }
     }
 
     Column {
