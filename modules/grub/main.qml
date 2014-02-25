@@ -13,7 +13,7 @@ Rectangle {
 
     function timeoutToIndex(timeout) {
         switch (timeout) {
-            case 1: return 0; break
+            case 0: return 0; break
             case 5: return 1; break
             case 10: return 2; break
             case 15: return 3; break
@@ -25,7 +25,7 @@ Rectangle {
 
     function indexToTimeout(idx) {
         switch (idx) {
-            case 0: return 1; break
+            case 0: return 0; break
             case 1: return 5; break
             case 2: return 10; break
             case 3: return 15; break
@@ -73,42 +73,51 @@ Rectangle {
                         default_entry_expand.expanded = !default_entry_expand.expanded
                     }
                 }
-                content.sourceComponent: DMultipleSelectView {
-                    id: default_entry_view
-                    rows: dbus_grub2.GetSimpleEntryTitles().length
-                    columns: 1
-
+                content.sourceComponent: Rectangle {
                     width: parent.width
-                    height: rows * 30
-                    singleSelectionMode: true
+                    height: childrenRect.height
+                    color: dconstants.contentBgColor
 
-                    model: ListModel {}
-
-                    Component.onCompleted: {
-                        var entries = dbus_grub2.GetSimpleEntryTitles();
-                        for (var i = 0; i < entries.length; i++) {
-                            model.append({"label": entries[i], "selected": entries[i] == dbus_grub2.defaultEntry})
+                    ListView {
+                        id: entries_list
+                        focus: true
+                        width: parent.width
+                        height: childrenRect.height
+                        model: ListModel {}
+                        delegate: ChooseItem {}
+                        
+                        Component.onCompleted: {
+                            var entries = dbus_grub2.GetSimpleEntryTitles();
+                            for (var i = 0; i < entries.length; i++) {
+                                model.append({"name": entries[i]})
+                                if (dbus_grub2.defaultEntry == entries[i]) {
+                                    currentIndex = 0
+                                }
+                            }
                         }
-                    }
-
-                    onSelect: {
-                        print("select..." + index)
-                        dbus_grub2.defaultEntry = dbus_grub2.GetSimpleEntryTitles()[index]
-                    }
-
-                    Connections {
-                        target: dbus_grub2
-                        onDefaultEntryChanged: {
-                            print("default entry changed")
-                            var i = dbus_grub2.GetSimpleEntryTitles().indexOf(dbus_grub2.defaultEntry)
-                            if (i != -1) {
-                                default_entry_view.selectItem(i)
+                        
+                        onCurrentIndexChanged: {
+                            dbus_grub2.defaultEntry = model.get(currentIndex).name
+                        }
+                        
+                        Connections {
+                            target: dbus_grub2
+                            onDefaultEntryChanged: {
+                                if (entries_list.model.get(entries_list.currentIndex).name != dbus_grub2.defaultEntry) {
+                                    for (var i = 0; i < entries_list.count; i++) {
+                                        if (dbus_grub2.defaultEntry == entries_list.model.get(i).name) {
+                                            entries_list.currentIndex = i
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
                 }
             }
+            
             DSeparatorHorizontal{}
+            
             DBaseExpand {
                 id: delay_expand
                 header.sourceComponent: DDownArrowHeader {
@@ -128,7 +137,7 @@ Rectangle {
 
                     model: ListModel {
                         ListElement {
-                            label: "1s"
+                            label: "0s"
                             selected: false
                         }
                         ListElement {
@@ -237,7 +246,7 @@ Rectangle {
                     Connections {
                         target: dbus_grub2_theme
                         onItemColorChanged: {
-                            print("changed..." + dbus_grub2_theme.selectedItemColor)                            
+                            print("changed..." + dbus_grub2_theme.selectedItemColor)
                             selected_picker.selectColor(dbus_grub2_theme.selectedItemColor)
                         }
                     }
