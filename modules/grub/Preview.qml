@@ -44,8 +44,8 @@ Item {
         Column {
             anchors.left: parent.left
             anchors.top: parent.top
-            anchors.leftMargin: 20
-            anchors.topMargin: 20
+            anchors.leftMargin: 50
+            anchors.topMargin: 50
             Repeater {
                 model: ListModel {}
                 delegate: Text {
