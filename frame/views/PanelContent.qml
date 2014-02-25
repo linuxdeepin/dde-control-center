@@ -257,11 +257,12 @@ Rectangle {
         width: parent.width
         height: childrenRect.height
 
-        Item {
+        Rectangle {
             id: listBox
             width: 96 * 3
             height: childrenRect.height
             anchors.horizontalCenter: parent.horizontalCenter
+            color: Qt.rgba(1, 0, 0, 0)
 
             GridView {
                 id: moduleIconList
@@ -312,9 +313,6 @@ Rectangle {
                 model: navigateIconModel
                 currentIndex: -1
                 maximumFlickVelocity: 0
-                moveDisplaced: Transition {
-                    NumberAnimation { properties: "x,y"; duration: 500 }
-                }
             }
         }
     }
