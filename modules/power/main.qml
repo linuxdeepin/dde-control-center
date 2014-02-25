@@ -78,7 +78,7 @@ Rectangle {
                 model: ListModel {}
                 Component.onCompleted: {
                     model.append({"label": dsTr("Shut down"), "selected": dbus_power.buttonPower == "shutdown"})
-                    model.append({"label": dsTr("Suspent"), "selected": dbus_power.buttonPower == "suspend"})
+                    model.append({"label": dsTr("Suspend"), "selected": dbus_power.buttonPower == "suspend"})
                     model.append({"label": dsTr("None"), "selected": dbus_power.buttonPower == "nothing"})
                 }
                 onSelect: {
@@ -128,7 +128,7 @@ Rectangle {
                 model: ListModel {}
                 Component.onCompleted: {
                     model.append({"label": dsTr("Shut down"), "selected": dbus_power.lidCloseBatteryAction == "shutdown"})
-                    model.append({"label": dsTr("Suspent"), "selected": dbus_power.lidCloseBatteryAction == "suspend"})
+                    model.append({"label": dsTr("Suspend"), "selected": dbus_power.lidCloseBatteryAction == "suspend"})
                     model.append({"label": dsTr("None"), "selected": dbus_power.lidCloseBatteryAction == "nothing"})
                 }
 
