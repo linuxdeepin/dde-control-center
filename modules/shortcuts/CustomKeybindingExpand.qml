@@ -1,246 +1,122 @@
 import QtQuick 2.0
-import QtQml.Models 2.1
 import Deepin.Widgets 1.0
 
 Column {
+    id: customKeybindingExpand
     width: parent.width
-    //height: addCustomShortcutBox.visible ? childrenRect.height : customKeybindingExpand.height
 
-    Column {
-        id: customKeybindingExpand
+    property int listMaxHeight
+
+    property bool inDeleteStatus: false
+    property string currentActionStateName: ""
+
+    DBaseLine {
+        id: customTitleLine
+        leftLoader.sourceComponent: DssH2 {
+            text: name
+        }
+
+        rightLoader.sourceComponent: StateButtons {
+            deleteButton.visible: keyBindings.length > 0
+            onCurrentActionStateNameChanged: {
+                if(customKeybindingExpand.currentActionStateName == "addButton"){
+                    addCustomShortcutBox.height = 0
+                }
+                customKeybindingExpand.currentActionStateName = currentActionStateName
+                if(currentActionStateName == "addButton"){
+                    newShortcutName.content.item.text = ""
+                    newShortcutCommand.content.item.text = ""
+                    addCustomShortcutBox.height = addCustomShortcutBox.realHeight
+                }
+            }
+        }
+    }
+
+    DSeparatorHorizontal {}
+
+    Rectangle {
+        id: customKeybindingContentArea
+        color: dconstants.contentBgColor
         width: parent.width
+        height: childrenRect.height
+        clip: true
 
-        property bool inDeleteStatus: false
-        property string currentActionStateName: ""
-
-        signal addCustomShortcutEmit
-
-        property var keyBindingIds: {
-            var obj = new Object()
-            for(var i in keyBindings){
-                obj[keyBindings[i][0]] = keyBindings[i][1]
-            }
-            return obj
-        }
-
-        property url iconPath: {
-            for(var i in conflictInvalid){
-                if(typeof keyBindingIds[conflictInvalid[i]] != "undefined"){
-                    return "images/error_key.png"
-                }
-            }
-            for(var i in conflictValid){
-                if(typeof keyBindingIds[conflictValid[i]] != "undefined"){
-                    return "images/conflict_key.png"
-                }
-            }
-            return ""
-        }
-
-        DBaseLine {
-            property bool active: false
-
-            leftLoader.sourceComponent: Row {
-                anchors.left: parent.left
-                anchors.leftMargin: 5
-                spacing: 3
-                Image {
-                    source: customKeybindingExpand.iconPath
-                    visible: customKeybindingExpand.iconPath != ""
-                }
-
-                DssH2 {
-                    text: name
-                }
-            }
-
-            rightLoader.sourceComponent: StateButtons {
-                onCurrentActionStateNameChanged: {
-                    if(customKeybindingExpand.currentActionStateName == "addButton"){
-                        customKeybindingExpand.addCustomShortcutEmit()
-                    }
-                    customKeybindingExpand.currentActionStateName = currentActionStateName
-                }
-            }
-
-        }
-
-        DSeparatorHorizontal {}
-            
-        Rectangle {
-            color: dconstants.contentBgColor
+        Column {
+            id: customKeybindingListBox
             width: parent.width
             height: childrenRect.height
-            visible: customKeybindingExpand.currentActionStateName != "addButton"
 
             ListView {
-                id: lists
-                focus: true
+                id: customKeybindingList
                 width: parent.width
-                height: lists.count * 30
+                height: childrenRect.height
                 model: keyBindings.length
-                property var keyData: keyBindings
+                clip: true
 
                 delegate: ShortcutInput {
                     showDelete: customKeybindingExpand.currentActionStateName == "deleteButton"
                     info: keyBindings[index]
-                    warning: {
-                        for(var i in conflictValid){
-                            if (info[0] == conflictValid[i]){
-                                return "conflict"
-                            }
-                        }
-                        for(var i in conflictInvalid){
-                            if (info[0] == conflictInvalid[i]){
-                                return "error"
-                            }
-                        }
-                        return ""
-                    }
                 }
+            }
+
+            DSeparatorHorizontal {
+                visible: keyBindings.length > 0
             }
         }
 
         Column {
             id: addCustomShortcutBox
             width: parent.width
-            height: childrenRect.height
-            property int spacing: 14
+            height: 0
+            anchors.top: customKeybindingListBox.bottom
+            clip: true
             property int inputTextWidth: 180
-            visible: customKeybindingExpand.currentActionStateName == "addButton"
 
-            Connections {
-                target: customKeybindingExpand
-                onAddCustomShortcutEmit: {
-                    if(addCustomShortcutNameArea.name && addCustomShortcutCommandArea.command){
-                        bindManagerId.AddKeyBind(addCustomShortcutNameArea.name, addCustomShortcutCommandArea.command, addCustomShortcutGrabArea.grabKeyCombination)
-                    }
+            property int realHeight: childrenRect.height
+
+            Behavior on height {
+                PropertyAnimation { duration: 100 }
+            }
+
+            DCenterLine {
+                id: newShortcutName
+                title.text: dsTr("Name")
+                leftWidth: 100
+                content.sourceComponent: DTextInput{
+                    width: addCustomShortcutBox.inputTextWidth
                 }
             }
 
-            DBaseLine{
-                id: addCustomShortcutNameArea
-                property string name: rightLoader.item.name
-                color: dconstants.contentBgColor
-                rightLoader.sourceComponent: Row {
-                    spacing: addCustomShortcutBox.spacing
-                    property alias name: nameInput.text
-
-                    DssH3{
-                        anchors.verticalCenter: parent.verticalCenter
-                        text: "Name"
-                    }
-
-                    DTextInput {
-                        id: nameInput
-                        anchors.verticalCenter: parent.verticalCenter
-                        width: addCustomShortcutBox.inputTextWidth
-                    }
-                }
-            }
-
-            DBaseLine{
-                id: addCustomShortcutCommandArea
-                property string command: rightLoader.item.command
-                color: dconstants.contentBgColor
-                rightLoader.sourceComponent: Row {
-                    spacing: addCustomShortcutBox.spacing
-                    property alias command: commandInput.text
-
-                    DssH3{
-                        anchors.verticalCenter: parent.verticalCenter
-                        text: "Command"
-                    }
-
-                    DTextInput {
-                        id: commandInput
-                        anchors.verticalCenter: parent.verticalCenter
-                        width: addCustomShortcutBox.inputTextWidth
-                    }
+            DCenterLine {
+                id: newShortcutCommand
+                title.text: dsTr("Command")
+                leftWidth: 100
+                content.sourceComponent: DTextInput{
+                    width: addCustomShortcutBox.inputTextWidth
                 }
             }
 
             DBaseLine{
                 id: addCustomShortcutGrabArea
-                property string grabKeyCombination: ""
-                color: dconstants.contentBgColor
                 rightLoader.sourceComponent: Row {
-                    spacing: addCustomShortcutBox.spacing
-
-                    DssH3{
-                        anchors.verticalCenter: parent.verticalCenter
-                        text: "Shortcut"
+                    DTextButton {
+                        text: dsTr("Cancel")
+                        onClicked: {
+                            customTitleLine.rightLoader.item.currentActionStateName = ""
+                        }
                     }
-
-                    Item {
-                        id: addCustomShortcutTextInput
-                        width: addCustomShortcutBox.inputTextWidth
-                        height: 26
-                        anchors.verticalCenter: parent.verticalCenter
-
-                        property bool grabFlag: false
-
-                        Rectangle {
-                            width: addCustomShortcutBox.inputTextWidth
-                            height: parent.height
-                            radius: 4
-                            color: "#101010"
-                            visible: addCustomShortcutTextInput.grabFlag
+                    DTextButton {
+                        text: dsTr("Add")
+                        onClicked: {
+                            customTitleLine.rightLoader.item.currentActionStateName = ""
+                            bindManagerId.AddKeyBind(newShortcutName.content.item.text, newShortcutCommand.content.item.text, "")
                         }
-
-                        DLabel {
-                            id: field
-                            font.pixelSize: 11
-                            color: dconstants.fgDarkColor
-                            anchors.left: parent.left
-                            anchors.leftMargin: 4
-                            text: dsTr("Please input new shortcuts")
-                            anchors.verticalCenter: parent.verticalCenter
-                            visible: addCustomShortcutTextInput.grabFlag
-                        }
-
-                        DLabel {
-                            id: realShortcutName
-                            font.pixelSize: 11
-                            text: dsTr("Grab key combination")
-                            anchors.verticalCenter: parent.verticalCenter
-                            visible: !addCustomShortcutTextInput.grabFlag
-                        }
-
-                        Connections {
-                            target: grabManagerId
-                            onKeyReleaseEvent: {
-                                if (customKeybindingExpand.currentActionStateName == "addButton"){
-                                    addCustomShortcutTextInput.grabFlag = false
-                                    print("Release:", arg0)
-                                    if( arg0 == 'escape' | !arg0 ){
-                                        realShortcutName.text = dsTr("Grab key combination")
-                                    }
-                                    else if( arg0=="backspace" ){
-                                        realShortcutName.text = dsTr("Disable")
-                                        addCustomShortcutGrabArea.grabKeyCombination = ""
-                                    }
-                                    else {
-                                        realShortcutName.text = windowView.toHumanShortcutLabel(arg0)
-                                        addCustomShortcutGrabArea.grabKeyCombination = arg0
-                                    }
-                                }
-                            }
-                        }
-
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: {
-                                addCustomShortcutTextInput.grabFlag = true
-                                grabManagerId.GrabKeyboard()
-                            }
-                        }
-                    } // End of grab key ShortcutInput
+                    }
                 }
             }
 
+            DSeparatorHorizontal {}
         } // End of addCustomShortcutBox
-
-        DSeparatorHorizontal {}
     }
+
 }
