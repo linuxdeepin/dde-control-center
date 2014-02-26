@@ -18,6 +18,23 @@ Rectangle {
     function warnUserName() {
         user_name_input.state = "warning"
     }
+    
+    function reset() {
+        user_name_input.focus = true
+        user_name_input.text = ""
+        password_input.text = ""
+        repeat_password_input.text = ""
+        auto_login_switch.checked = false
+        show_password_switch.checked = false
+        user_group_radio.selectItem(0)
+    }
+    
+    onConfirmed: {
+        reset()
+    }
+    onCancelled: {
+        reset()
+    }
 
     Column {
         id: column
@@ -75,20 +92,11 @@ Rectangle {
                 }
 
                 DssH3 {
-                    text: ["User", "Administrator"][user_group_radio.currentIndex]
+                    text: [dsTr("User"), dsTr("Administrator")][user_group_radio.currentIndex]
                 }
 
                 anchors.left: round_image.right
                 anchors.leftMargin: root.avatarNamePadding
-                anchors.verticalCenter: parent.verticalCenter
-            }
-
-            UserStatusButton {
-                id: user_status_button
-                state: "inactiveUser"
-
-                anchors.right: parent.right
-                anchors.rightMargin: root.rightPadding
                 anchors.verticalCenter: parent.verticalCenter
             }
         }
@@ -191,6 +199,7 @@ Rectangle {
             }
 
             DSwitchButton {
+                id: show_password_switch
                 onClicked: {
                     if(checked) {
                         password_input.echoMode = TextInput.Normal

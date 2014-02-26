@@ -145,7 +145,7 @@ ListView {
                             delete_line.expand()
                         }
                         onConfirm: {
-                            dbus_accounts.DeleteUser(userId, deleteFiles)
+                            dbus_accounts.DeleteUser(userName, deleteFiles)
                             component_bg.state = "normal"
                             root.deleteItem(index)
                         }

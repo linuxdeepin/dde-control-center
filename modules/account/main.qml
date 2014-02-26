@@ -22,7 +22,7 @@ Rectangle {
             text: dsTr("Account")
         }
 
-        DSeparatorHorizontal{}
+        DSeparatorHorizontal{ visible: title.visible }
 
         DBaseLine {
             id:title
@@ -101,12 +101,12 @@ Rectangle {
                     add_user_dialog.warnUserName()
                 } else {
                     dbus_user.path = new_user
-                    dbus_user.passwordMode = 2 // i think this nonsense too, but the fact is this help a lot >_<
-                    // The user should be in a group named "nopasswdlogin" before we set his password,
-                    // but a fresh _new_ user is not in that group(weird), so we should set it first.
+                    /* dbus_user.passwordMode = 2 // i think this nonsense too, but the fact is this help a lot >_< */
+                    /* // The user should be in a group named "nopasswdlogin" before we set his password, */
+                    /* // but a fresh _new_ user is not in that group(weird), so we should set it first. */
                     dbus_user.SetPassword(userInfo.userPassword, "")
-                    dbus_user.accountType = userInfo.userAccountType
-                    dbus_user.automaticLogin = userInfo.userAutoLogin
+                    dbus_user.SetAccountType(userInfo.userAccountType)
+                    dbus_user.SetAutomaticLogin(userInfo.userAutoLogin)
 
                     main_column.state = "normal"
                 }

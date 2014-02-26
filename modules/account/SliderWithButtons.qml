@@ -24,12 +24,18 @@ Item {
         id: zoom_bg
         source: "images/zoom_background.png"
 
+        MouseArea {
+            anchors.fill: parent
+
+            onClicked: zoom_slider.x = mouse.x - zoom_slider.width / 2
+        }
+
         Image {
             id: zoom_slider
             source: "images/zoom_slider.png"
 
             x: root.percentage * root.mostDistance
-            
+
             onXChanged: {
                 root.percentage = zoom_slider.x / root.mostDistance
             }
