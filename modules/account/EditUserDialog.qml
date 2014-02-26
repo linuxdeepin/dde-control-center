@@ -1,16 +1,17 @@
 import QtQuick 2.1
 import Deepin.Widgets 1.0
 
-Item {
+Rectangle {
     id: root
     width: 310
     height: column.height
+    color: dconstants.contentBgColor
 
     property var this_user: null
 
     signal avatarSet (Item item)
     signal avatarPictured (Item item, url path)
-
+    
     Column {
         id: column
 
@@ -107,9 +108,9 @@ Item {
                 id: password_dialog
 
                 onPasswordSet: {
-                    dbus_user.passwordMode = 2 // i think this nonsense too, but the fact is this help a lot >_<
-                    // The user should be in a group named "nopasswdlogin" before we set his password,
-                    // but a fresh _new_ user is not in that group(weird), so we should set it first.
+                    /* dbus_user.passwordMode = 2 // i think this nonsense too, but the fact is this help a lot >_< */
+                    /* // The user should be in a group named "nopasswdlogin" before we set his password, */
+                    /* // but a fresh _new_ user is not in that group(weird), so we should set it first. */
                     dbus_user.SetPassword(password, "")
                 }
 
