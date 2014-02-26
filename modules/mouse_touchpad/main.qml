@@ -15,8 +15,25 @@ Item {
     property int centerPadding: 16
 
     property var mouseID: Mouse {}
+    property var inputDevicesId: InputDevices {}
+    property var touchpadObj
+
+    property var inputDevices: {
+        var devices = new Object()
+        for(var i in inputDevicesId.devInfoList){
+            var path = inputDevicesId.devInfoList[i][0]
+            var type = inputDevicesId.devInfoList[i][1]
+            if(typeof devices[type] == "undefined"){
+                var paths = new Array()
+                devices[type] = paths
+            }
+            devices[type].push(path)
+        }
+        return devices
+    }
 
     Column {
+        id: mouseSettingsColumn
         anchors.top: parent.top
         width: parent.width
 
@@ -31,7 +48,6 @@ Item {
         DSeparatorHorizontal {}
 
         DCenterLine {
-            height: contentHeight
             leftWidth: mouseModule.leftWidth
             centerPadding: mouseModule.centerPadding
             title.text: dsTr("Button Order")
@@ -108,6 +124,42 @@ Item {
         }
 
         DSeparatorHorizontal {}
+    }
 
+    Column {
+        id: touchpadSettingsColumn
+        anchors.top: mouseSettingsColumn.bottom
+        anchors.topMargin: 30
+        width: parent.width
+
+        property var touchpadComponent: Qt.createComponent("TouchpadComponent.qml")
+        property bool isExist: typeof(inputDevices["touchpad"]) != "undefined"
+
+        DssTitle {
+            text: dsTr("TouchPad")
+        }
+
+        DSeparatorHorizontal {}
+
+        DBaseLine {
+            visible: !parent.isExist
+            leftLoader.sourceComponent: DssH3{
+                text: dsTr("No touchpad device exist!")
+            }
+        }
+
+        Item {
+            id: touchpadBox
+            width: parent.width
+            height: touchpadObj.height
+
+            Component.onCompleted: {
+                if(touchpadSettingsColumn.isExist){
+                    touchpadObj = touchpadSettingsColumn.touchpadComponent.createObject(touchpadBox, {})
+                    touchpadObj.x = touchpadBox.x
+                    touchpadObj.y = touchpadBox.y
+                }
+            }
+        }
     }
 }
