@@ -45,16 +45,9 @@ Rectangle {
         navigateIconModel.clear()
         for (var i in modules_id_array){
             var module_id = modules_id_array[i]
-            if(module_id != "touchpad"){
-                navigateIconModel.append({
-                    "moduleId": module_id,
-                })
-            }
-            else if(module_id == "touchpad" && typeof inputDevices[module_id] != "undefined"){
-                navigateIconModel.append({
-                    "moduleId": module_id,
-                })
-            }
+            navigateIconModel.append({
+                "moduleId": module_id,
+            })
         }
         iconIdToIndex = new Object()
         for(var i=0; i<navigateIconModel.count; i++){

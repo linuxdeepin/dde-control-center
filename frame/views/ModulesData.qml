@@ -17,6 +17,7 @@ Item {
             "shortcuts": dsTr("Keyboard Shortcuts"),
             "keyboard": dsTr("Keyboard"),
             "mouse_touchpad": dsTr("Mouse and Touchpad"),
+            "touchpad": "TouchPad",
             "touchpad": dsTr("Touchpad"),
             "account": dsTr("User Accounts"),
             "default_applications": dsTr("Default Applications"),
