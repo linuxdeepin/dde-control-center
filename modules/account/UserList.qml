@@ -14,6 +14,7 @@ ListView {
     signal showAllPrivate ()
     signal allNormal ()
     signal allAction ()
+    signal currentUserDetail ()
 
     function addUser(path) {
         dbus_user.path = path
@@ -56,6 +57,16 @@ ListView {
                     if (component_bg.height == 0) {
                         component_bg.height = 100 + 2
                         component_bg.visible = true                        
+                    }
+                }
+                
+                onCurrentUserDetail: {
+                    if (index == 0) {
+                        component_bg.height = 100 + 1
+                        component_bg.visible = true
+                    } else {
+                        component_bg.height = 0
+                        component_bg.visible = false
                     }
                 }
 

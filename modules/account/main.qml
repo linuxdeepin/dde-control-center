@@ -12,6 +12,10 @@ Rectangle {
     User { id: dbus_user}
 
     property var constants: DConstants {}
+    
+    function showCurrentUserDetail () {
+        user_list.currentUserDetail()
+    }
 
     Column {
         id: main_column
