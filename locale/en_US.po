@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dss 2014\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-21 14:45+0800\n"
+"POT-Creation-Date: 2014-02-26 10:40+0800\n"
 "PO-Revision-Date: 2013-11-25 12:27+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -21,54 +21,58 @@ msgstr ""
 msgid "Show Today"
 msgstr ""
 
-#: ../modules/date_time/CalendarComponent.qml:47
+#: ../modules/date_time/CalendarComponent.qml:56
 #, fuzzy
 msgid "Sun"
 msgstr "Sound"
 
-#: ../modules/date_time/CalendarComponent.qml:48
+#: ../modules/date_time/CalendarComponent.qml:57
 msgid "Mon"
 msgstr ""
 
-#: ../modules/date_time/CalendarComponent.qml:49
+#: ../modules/date_time/CalendarComponent.qml:58
 msgid "Tue"
 msgstr ""
 
-#: ../modules/date_time/CalendarComponent.qml:50
+#: ../modules/date_time/CalendarComponent.qml:59
 msgid "Wed"
 msgstr ""
 
-#: ../modules/date_time/CalendarComponent.qml:51
+#: ../modules/date_time/CalendarComponent.qml:60
 msgid "Thu"
 msgstr ""
 
-#: ../modules/date_time/CalendarComponent.qml:52
+#: ../modules/date_time/CalendarComponent.qml:61
 msgid "Fri"
 msgstr ""
 
-#: ../modules/date_time/CalendarComponent.qml:53
+#: ../modules/date_time/CalendarComponent.qml:62
 msgid "Sat"
 msgstr ""
 
-#: ../modules/shortcuts/CustomKeybindingExpand.qml:197
-#: ../modules/shortcuts/ShortcutInput.qml:84
-msgid "Please input new shortcuts"
+#: ../modules/shortcuts/CustomKeybindingExpand.qml:83
+msgid "Name"
 msgstr ""
 
-#: ../modules/shortcuts/CustomKeybindingExpand.qml:205
-#: ../modules/shortcuts/CustomKeybindingExpand.qml:217
-msgid "Grab key combination"
+#: ../modules/shortcuts/CustomKeybindingExpand.qml:92
+msgid "Command"
 msgstr ""
 
-#: ../modules/shortcuts/CustomKeybindingExpand.qml:220
-msgid "Disable"
+#: ../modules/shortcuts/CustomKeybindingExpand.qml:103
+#: ../modules/shortcuts/ShortcutInput.qml:192
+msgid "Cancel"
 msgstr ""
 
-#: ../modules/account/DeleteUserDialog.qml:20
+#: ../modules/shortcuts/CustomKeybindingExpand.qml:109
+#: ../modules/date_time/StateButtons.qml:12
+msgid "Add"
+msgstr ""
+
+#: ../modules/account/DeleteUserDialog.qml:19
 msgid "Keep user files"
 msgstr ""
 
-#: ../modules/account/DeleteUserDialog.qml:21
+#: ../modules/account/DeleteUserDialog.qml:20
 msgid "Delete user files"
 msgstr ""
 
@@ -150,7 +154,7 @@ msgstr "Disk Mount"
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: ../frame/views/ModulesData.qml:9 ../modules/sound/main.qml:47
+#: ../frame/views/ModulesData.qml:9 ../modules/sound/main.qml:50
 #: ../frame/modules_info.py:34
 msgid "Sound"
 msgstr "Sound"
@@ -164,7 +168,7 @@ msgstr "Power"
 msgid "More Settings"
 msgstr "More Settings"
 
-#: ../frame/views/ModulesData.qml:12 ../frame/views/PanelContent.qml:369
+#: ../frame/views/ModulesData.qml:12 ../frame/views/PanelContent.qml:351
 #: ../frame/modules_info.py:37
 msgid "Shutdown"
 msgstr "Shutdown"
@@ -235,21 +239,112 @@ msgstr ""
 msgid "Rotation"
 msgstr ""
 
+#: ../modules/grub/Preview.qml:88
+msgid "Drop a picture here to change the background"
+msgstr ""
+
+#: ../modules/shortcuts/ShortcutInput.qml:114
+msgid "Please input new shortcuts"
+msgstr ""
+
+#: ../modules/shortcuts/ShortcutInput.qml:185
+msgid "Replace"
+msgstr ""
+
 #: ../modules/date_time/StateButtons.qml:11
 #: ../modules/keyboard/StateButtons.qml:11
-#: ../modules/shortcuts/StateButtons.qml:11
+#: ../modules/shortcuts/StateButtons.qml:15
 msgid "Finish"
 msgstr ""
 
-#: ../modules/date_time/TimezoneExpand.qml:16
+#: ../modules/date_time/TimezoneArea.qml:42
 msgid "Timezone"
 msgstr ""
 
-#: ../modules/account/UserList.qml:104
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:25
+#: ../modules/mouse_touchpad/main.qml:139
+msgid "TouchPad"
+msgstr ""
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:34
+msgid "Enabled"
+msgstr ""
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:53
+#: ../modules/mouse_touchpad/main.qml:53
+msgid "Button Order"
+msgstr ""
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:59
+#: ../modules/mouse_touchpad/main.qml:58
+msgid "Right Hand"
+msgstr ""
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:60
+#: ../modules/mouse_touchpad/main.qml:59
+msgid "Left Hand"
+msgstr ""
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:73
+#: ../modules/mouse_touchpad/main.qml:72
+msgid "Pointer Move Speed"
+msgstr ""
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:75
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:113
+#: ../modules/keyboard/main.qml:92 ../modules/keyboard/main.qml:114
+#: ../modules/mouse_touchpad/main.qml:74
+#: ../modules/mouse_touchpad/main.qml:112
+msgid "Slow"
+msgstr ""
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:76
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:114
+#: ../modules/keyboard/main.qml:93 ../modules/keyboard/main.qml:115
+#: ../modules/mouse_touchpad/main.qml:75
+#: ../modules/mouse_touchpad/main.qml:113
+msgid "Fast"
+msgstr ""
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:92
+#: ../modules/mouse_touchpad/main.qml:91
+msgid "Pointer Accuracy"
+msgstr ""
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:94
+#: ../modules/mouse_touchpad/main.qml:93
+msgid "Low"
+msgstr ""
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:95
+#: ../modules/mouse_touchpad/main.qml:94
+msgid "High"
+msgstr ""
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:111
+#: ../modules/mouse_touchpad/main.qml:110
+msgid "Double-click Frequency"
+msgstr ""
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:131
+msgid "Drag threshold"
+msgstr ""
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:133
+#: ../modules/keyboard/main.qml:72
+msgid "Short"
+msgstr ""
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:134
+#: ../modules/keyboard/main.qml:71
+msgid "Long"
+msgstr ""
+
+#: ../modules/account/UserList.qml:117
 msgid "User"
 msgstr ""
 
-#: ../modules/account/UserList.qml:104
+#: ../modules/account/UserList.qml:117
 msgid "Administrator"
 msgstr ""
 
@@ -301,23 +396,27 @@ msgstr ""
 msgid "December"
 msgstr ""
 
-#: ../modules/date_time/main.qml:45 ../frame/modules_info.py:30
+#: ../modules/date_time/main.qml:44 ../frame/modules_info.py:30
 msgid "Date & Time"
 msgstr "Date & Time"
 
-#: ../modules/date_time/main.qml:92
+#: ../modules/date_time/main.qml:91
 msgid "Auto-sync datetime"
 msgstr ""
 
-#: ../modules/date_time/main.qml:105
+#: ../modules/date_time/main.qml:104
 msgid "24 Hour"
 msgstr ""
 
-#: ../modules/date_time/main.qml:135
+#: ../modules/date_time/main.qml:134
 msgid "Date"
 msgstr ""
 
-#: ../modules/date_time/main.qml:156
+#: ../modules/date_time/main.qml:138
+msgid "Change Date"
+msgstr ""
+
+#: ../modules/date_time/main.qml:161
 msgid "假期安排提示"
 msgstr ""
 
@@ -406,118 +505,42 @@ msgstr ""
 msgid "Repeat Delay"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:71 ../modules/touchpad/main.qml:179
-msgid "Long"
-msgstr ""
-
-#: ../modules/keyboard/main.qml:72 ../modules/touchpad/main.qml:178
-msgid "Short"
-msgstr ""
-
 #: ../modules/keyboard/main.qml:88
 msgid "Repeat Interval"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:92 ../modules/keyboard/main.qml:126
-#: ../modules/mouse/main.qml:58 ../modules/mouse/main.qml:96
-#: ../modules/touchpad/main.qml:77 ../modules/touchpad/main.qml:131
-msgid "Slow"
-msgstr ""
-
-#: ../modules/keyboard/main.qml:93 ../modules/keyboard/main.qml:127
-#: ../modules/mouse/main.qml:59 ../modules/mouse/main.qml:97
-#: ../modules/touchpad/main.qml:78 ../modules/touchpad/main.qml:132
-msgid "Fast"
+#: ../modules/keyboard/main.qml:131
+msgid "Test Area"
 msgstr ""
 
 #: ../modules/keyboard/main.qml:109
-msgid "Repeat Test"
-msgstr ""
-
-#: ../modules/keyboard/main.qml:121
 msgid "Cursor Blink"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:143
-msgid "Cursor Blink Show"
-msgstr ""
-
-#: ../modules/keyboard/main.qml:346
+#: ../modules/keyboard/main.qml:326
 msgid "No result"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:173
+#: ../modules/keyboard/main.qml:153
 msgid "Keyboard Layout"
 msgstr ""
 
 #: ../modules/default_applications/main.qml:24 ../modules/keyboard/main.qml:58
-#: ../modules/mouse/main.qml:27 ../modules/power/main.qml:51
-#: ../modules/shortcuts/main.qml:55 ../modules/touchpad/main.qml:196
+#: ../modules/mouse_touchpad/main.qml:44 ../modules/power/main.qml:51
+#: ../modules/shortcuts/main.qml:65
 msgid "Reset"
 msgstr ""
 
-#: ../modules/mouse/main.qml:24 ../frame/modules_info.py:44
+#: ../modules/mouse_touchpad/main.qml:41 ../frame/modules_info.py:44
 msgid "Mouse"
 msgstr ""
 
-#: ../modules/power/main.qml:222 ../modules/touchpad/main.qml:41
+#: ../modules/power/main.qml:222
 msgid "Custom"
 msgstr ""
 
-#: ../modules/mouse/main.qml:43 ../modules/touchpad/main.qml:46
-msgid "Left Hand"
-msgstr ""
-
-#: ../modules/mouse/main.qml:42 ../modules/touchpad/main.qml:47
-msgid "Right Hand"
-msgstr ""
-
-#: ../modules/mouse/main.qml:37
-msgid "Button Order"
-msgstr ""
-
-#: ../modules/mouse/main.qml:56
-msgid "Pointer Move Speed"
-msgstr ""
-
-#: ../modules/mouse/main.qml:75
-msgid "Pointer Accuracy"
-msgstr ""
-
-#: ../modules/mouse/main.qml:94
-msgid "Double-click Frequency"
-msgstr ""
-
-#: ../modules/touchpad/main.qml:62
-msgid "Point Speed"
-msgstr ""
-
-#: ../modules/touchpad/main.qml:72
-msgid "Acceleration"
-msgstr ""
-
-#: ../modules/touchpad/main.qml:93
-msgid "Sensitivity"
-msgstr ""
-
-#: ../modules/mouse/main.qml:77 ../modules/touchpad/main.qml:98
-msgid "Low"
-msgstr ""
-
-#: ../modules/mouse/main.qml:78 ../modules/touchpad/main.qml:99
-msgid "High"
-msgstr ""
-
-#: ../modules/touchpad/main.qml:116
-msgid "Double-click"
-msgstr ""
-
-#: ../modules/touchpad/main.qml:126
-msgid "Frequency"
-msgstr ""
-
-#: ../modules/touchpad/main.qml:147
-msgid "Double click the smiling face to test"
+#: ../modules/mouse_touchpad/main.qml:147
+msgid "No touchpad device exist!"
 msgstr ""
 
 #: ../modules/power/main.qml:66
@@ -528,10 +551,6 @@ msgstr ""
 #, fuzzy
 msgid "Shut down"
 msgstr "Shutdown"
-
-#: ../modules/power/main.qml:81 ../modules/power/main.qml:131
-msgid "Suspent"
-msgstr ""
 
 #: ../modules/power/main.qml:82 ../modules/power/main.qml:132
 msgid "None"
@@ -554,7 +573,7 @@ msgstr ""
 msgid "Power plan"
 msgstr "Power"
 
-#: ../modules/power/main.qml:219 ../modules/sound/main.qml:114
+#: ../modules/power/main.qml:219 ../modules/sound/main.qml:104
 msgid "Balance"
 msgstr ""
 
@@ -571,6 +590,7 @@ msgstr ""
 msgid "Turn off monitor"
 msgstr ""
 
+#: ../modules/power/main.qml:81 ../modules/power/main.qml:131
 #: ../modules/power/main.qml:328
 msgid "Suspend"
 msgstr ""
@@ -647,31 +667,31 @@ msgstr ""
 msgid "Apply"
 msgstr ""
 
-#: ../modules/individuation/main.qml:17 ../frame/modules_info.py:41
+#: ../modules/personalization/main.qml:17 ../frame/modules_info.py:41
 msgid "Individuation"
 msgstr ""
 
-#: ../modules/individuation/main.qml:26
+#: ../modules/personalization/main.qml:26
 msgid "Themes"
 msgstr ""
 
-#: ../modules/individuation/main.qml:55 ../modules/shortcuts/main.qml:170
+#: ../modules/personalization/main.qml:55 ../modules/shortcuts/main.qml:31
 msgid "Window"
 msgstr ""
 
-#: ../modules/individuation/main.qml:84
+#: ../modules/personalization/main.qml:84
 msgid "Cursor"
 msgstr ""
 
-#: ../modules/individuation/main.qml:113
+#: ../modules/personalization/main.qml:113
 msgid "Wallpaper"
 msgstr ""
 
-#: ../modules/individuation/main.qml:142
+#: ../modules/personalization/main.qml:142
 msgid "Icons"
 msgstr ""
 
-#: ../modules/individuation/main.qml:171
+#: ../modules/personalization/main.qml:171
 msgid "Font"
 msgstr ""
 
@@ -684,97 +704,93 @@ msgstr "More Settings"
 msgid "Create Connections"
 msgstr ""
 
-#: ../modules/shortcuts/main.qml:53 ../frame/modules_info.py:42
+#: ../modules/shortcuts/main.qml:63 ../frame/modules_info.py:42
 msgid "Shortcuts"
 msgstr ""
 
-#: ../modules/shortcuts/main.qml:156
+#: ../modules/shortcuts/main.qml:29
 #, fuzzy
 msgid "System"
 msgstr "System Information"
 
-#: ../modules/shortcuts/main.qml:163
+#: ../modules/shortcuts/main.qml:30
 msgid "Sound and Media"
 msgstr ""
 
-#: ../modules/shortcuts/main.qml:177
+#: ../modules/shortcuts/main.qml:32
 msgid "Workspace"
 msgstr ""
 
-#: ../modules/shortcuts/main.qml:195
+#: ../modules/shortcuts/main.qml:174
 msgid "Custom Shortcuts"
 msgstr ""
 
-#: ../modules/sound/main.qml:70
+#: ../modules/sound/main.qml:60
 msgid "Speaker"
 msgstr ""
 
-#: ../modules/sound/main.qml:230
+#: ../modules/sound/main.qml:201
 msgid "Output Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:96
+#: ../modules/sound/main.qml:86
 msgid "Output Volume"
 msgstr ""
 
-#: ../modules/sound/main.qml:100 ../modules/sound/main.qml:164
+#: ../modules/sound/main.qml:90 ../modules/sound/main.qml:155
 msgid "-"
 msgstr ""
 
-#: ../modules/sound/main.qml:101 ../modules/sound/main.qml:165
+#: ../modules/sound/main.qml:91 ../modules/sound/main.qml:156
 msgid "+"
 msgstr ""
 
-#: ../modules/sound/main.qml:118
+#: ../modules/sound/main.qml:108
 msgid "Left"
 msgstr ""
 
-#: ../modules/sound/main.qml:119
+#: ../modules/sound/main.qml:109
 msgid "Right"
 msgstr ""
 
-#: ../modules/sound/main.qml:134
+#: ../modules/sound/main.qml:125
 msgid "Microphone"
 msgstr ""
 
-#: ../modules/sound/main.qml:273
+#: ../modules/sound/main.qml:191
+msgid "Output"
+msgstr ""
+
+#: ../modules/sound/main.qml:278
+msgid "Input"
+msgstr ""
+
+#: ../modules/sound/main.qml:288
 msgid "Input Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:160
+#: ../modules/sound/main.qml:375
+msgid "Hide Advanced..."
+msgstr ""
+
+#: ../modules/sound/main.qml:375
+msgid "Show Advanced..."
+msgstr ""
+
+#: ../modules/sound/main.qml:151
 msgid "Input Volume"
 msgstr ""
 
-#: ../modules/sound/main.qml:178
+#: ../modules/sound/main.qml:169
 msgid "Input Level"
 msgstr ""
 
-#: ../modules/sound/main.qml:194
-msgid "Advanced..."
-msgstr ""
-
-#: ../modules/sound/main.qml:216
-msgid "Advanced"
-msgstr ""
-
-#: ../modules/sound/main.qml:315
+#: ../modules/sound/main.qml:244
 msgid "Choose audio output device"
 msgstr ""
 
-#: ../modules/sound/main.qml:349
+#: ../modules/sound/main.qml:331
 msgid "Choose audio input device"
-msgstr ""
-
-#: ../modules/touchpad/main.qml:22
-msgid "TouchPad"
-msgstr ""
-
-#: ../modules/touchpad/main.qml:28
-msgid "Enabled"
-msgstr ""
-
-#: ../modules/touchpad/main.qml:173
-msgid "Drag threshold"
 msgstr ""
 
 #: ../modules/disk_mount/main.qml:25

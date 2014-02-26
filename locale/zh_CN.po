@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dss 2014\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-21 14:45+0800\n"
+"POT-Creation-Date: 2014-02-26 10:40+0800\n"
 "PO-Revision-Date: 2013-11-25 12:27+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -21,53 +21,57 @@ msgstr ""
 msgid "Show Today"
 msgstr "返回今天"
 
-#: ../modules/date_time/CalendarComponent.qml:47
+#: ../modules/date_time/CalendarComponent.qml:56
 msgid "Sun"
 msgstr "日"
 
-#: ../modules/date_time/CalendarComponent.qml:48
+#: ../modules/date_time/CalendarComponent.qml:57
 msgid "Mon"
 msgstr "一"
 
-#: ../modules/date_time/CalendarComponent.qml:49
+#: ../modules/date_time/CalendarComponent.qml:58
 msgid "Tue"
 msgstr "二"
 
-#: ../modules/date_time/CalendarComponent.qml:50
+#: ../modules/date_time/CalendarComponent.qml:59
 msgid "Wed"
 msgstr "三"
 
-#: ../modules/date_time/CalendarComponent.qml:51
+#: ../modules/date_time/CalendarComponent.qml:60
 msgid "Thu"
 msgstr "四"
 
-#: ../modules/date_time/CalendarComponent.qml:52
+#: ../modules/date_time/CalendarComponent.qml:61
 msgid "Fri"
 msgstr "五"
 
-#: ../modules/date_time/CalendarComponent.qml:53
+#: ../modules/date_time/CalendarComponent.qml:62
 msgid "Sat"
 msgstr "六"
 
-#: ../modules/shortcuts/CustomKeybindingExpand.qml:197
-#: ../modules/shortcuts/ShortcutInput.qml:84
-msgid "Please input new shortcuts"
+#: ../modules/shortcuts/CustomKeybindingExpand.qml:83
+msgid "Name"
 msgstr ""
 
-#: ../modules/shortcuts/CustomKeybindingExpand.qml:205
-#: ../modules/shortcuts/CustomKeybindingExpand.qml:217
-msgid "Grab key combination"
+#: ../modules/shortcuts/CustomKeybindingExpand.qml:92
+msgid "Command"
 msgstr ""
 
-#: ../modules/shortcuts/CustomKeybindingExpand.qml:220
-msgid "Disable"
-msgstr ""
+#: ../modules/shortcuts/CustomKeybindingExpand.qml:103
+#: ../modules/shortcuts/ShortcutInput.qml:192
+msgid "Cancel"
+msgstr "取消"
 
-#: ../modules/account/DeleteUserDialog.qml:20
+#: ../modules/shortcuts/CustomKeybindingExpand.qml:109
+#: ../modules/date_time/StateButtons.qml:12
+msgid "Add"
+msgstr "添加"
+
+#: ../modules/account/DeleteUserDialog.qml:19
 msgid "Keep user files"
 msgstr ""
 
-#: ../modules/account/DeleteUserDialog.qml:21
+#: ../modules/account/DeleteUserDialog.qml:20
 msgid "Delete user files"
 msgstr ""
 
@@ -148,7 +152,7 @@ msgstr "磁盘挂载"
 msgid "Bluetooth"
 msgstr "蓝牙"
 
-#: ../frame/views/ModulesData.qml:9 ../modules/sound/main.qml:47
+#: ../frame/views/ModulesData.qml:9 ../modules/sound/main.qml:50
 #: ../frame/modules_info.py:34
 msgid "Sound"
 msgstr "声音"
@@ -162,7 +166,7 @@ msgstr "电源"
 msgid "More Settings"
 msgstr "更多设置"
 
-#: ../frame/views/ModulesData.qml:12 ../frame/views/PanelContent.qml:369
+#: ../frame/views/ModulesData.qml:12 ../frame/views/PanelContent.qml:351
 #: ../frame/modules_info.py:37
 msgid "Shutdown"
 msgstr "关机"
@@ -234,21 +238,112 @@ msgstr ""
 msgid "Rotation"
 msgstr "消息中心"
 
-#: ../modules/date_time/StateButtons.qml:11
-#: ../modules/keyboard/StateButtons.qml:11
-#: ../modules/shortcuts/StateButtons.qml:11
-msgid "Finish"
+#: ../modules/grub/Preview.qml:88
+msgid "Drop a picture here to change the background"
 msgstr ""
 
-#: ../modules/date_time/TimezoneExpand.qml:16
+#: ../modules/shortcuts/ShortcutInput.qml:114
+msgid "Please input new shortcuts"
+msgstr "请输入新的快捷键"
+
+#: ../modules/shortcuts/ShortcutInput.qml:185
+msgid "Replace"
+msgstr "替换"
+
+#: ../modules/date_time/StateButtons.qml:11
+#: ../modules/keyboard/StateButtons.qml:11
+#: ../modules/shortcuts/StateButtons.qml:15
+msgid "Finish"
+msgstr "完成"
+
+#: ../modules/date_time/TimezoneArea.qml:42
 msgid "Timezone"
 msgstr "时区"
 
-#: ../modules/account/UserList.qml:104
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:25
+#: ../modules/mouse_touchpad/main.qml:139
+msgid "TouchPad"
+msgstr "触摸板"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:34
+msgid "Enabled"
+msgstr "启用"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:53
+#: ../modules/mouse_touchpad/main.qml:53
+msgid "Button Order"
+msgstr "按键顺序"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:59
+#: ../modules/mouse_touchpad/main.qml:58
+msgid "Right Hand"
+msgstr "习惯右手"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:60
+#: ../modules/mouse_touchpad/main.qml:59
+msgid "Left Hand"
+msgstr "习惯左手"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:73
+#: ../modules/mouse_touchpad/main.qml:72
+msgid "Pointer Move Speed"
+msgstr "指针移动速度"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:75
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:113
+#: ../modules/keyboard/main.qml:92 ../modules/keyboard/main.qml:114
+#: ../modules/mouse_touchpad/main.qml:74
+#: ../modules/mouse_touchpad/main.qml:112
+msgid "Slow"
+msgstr "慢"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:76
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:114
+#: ../modules/keyboard/main.qml:93 ../modules/keyboard/main.qml:115
+#: ../modules/mouse_touchpad/main.qml:75
+#: ../modules/mouse_touchpad/main.qml:113
+msgid "Fast"
+msgstr "快"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:92
+#: ../modules/mouse_touchpad/main.qml:91
+msgid "Pointer Accuracy"
+msgstr "指针精确度"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:94
+#: ../modules/mouse_touchpad/main.qml:93
+msgid "Low"
+msgstr "低"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:95
+#: ../modules/mouse_touchpad/main.qml:94
+msgid "High"
+msgstr "高"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:111
+#: ../modules/mouse_touchpad/main.qml:110
+msgid "Double-click Frequency"
+msgstr "双击频率"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:131
+msgid "Drag threshold"
+msgstr "拖动阀值"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:133
+#: ../modules/keyboard/main.qml:72
+msgid "Short"
+msgstr "短"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:134
+#: ../modules/keyboard/main.qml:71
+msgid "Long"
+msgstr "长"
+
+#: ../modules/account/UserList.qml:117
 msgid "User"
 msgstr ""
 
-#: ../modules/account/UserList.qml:104
+#: ../modules/account/UserList.qml:117
 msgid "Administrator"
 msgstr ""
 
@@ -300,23 +395,27 @@ msgstr ""
 msgid "December"
 msgstr ""
 
-#: ../modules/date_time/main.qml:45 ../frame/modules_info.py:30
+#: ../modules/date_time/main.qml:44 ../frame/modules_info.py:30
 msgid "Date & Time"
 msgstr "时间和日期"
 
-#: ../modules/date_time/main.qml:92
+#: ../modules/date_time/main.qml:91
 msgid "Auto-sync datetime"
 msgstr "自动同步时间"
 
-#: ../modules/date_time/main.qml:105
+#: ../modules/date_time/main.qml:104
 msgid "24 Hour"
 msgstr "24小时制"
 
-#: ../modules/date_time/main.qml:135
+#: ../modules/date_time/main.qml:134
 msgid "Date"
 msgstr "日期"
 
-#: ../modules/date_time/main.qml:156
+#: ../modules/date_time/main.qml:138
+msgid "Change Date"
+msgstr "更改日期"
+
+#: ../modules/date_time/main.qml:161
 msgid "假期安排提示"
 msgstr ""
 
@@ -404,118 +503,42 @@ msgstr ""
 msgid "Repeat Delay"
 msgstr "重复延迟"
 
-#: ../modules/keyboard/main.qml:71 ../modules/touchpad/main.qml:179
-msgid "Long"
-msgstr "长"
-
-#: ../modules/keyboard/main.qml:72 ../modules/touchpad/main.qml:178
-msgid "Short"
-msgstr "短"
-
 #: ../modules/keyboard/main.qml:88
 msgid "Repeat Interval"
 msgstr "重复间隔"
 
-#: ../modules/keyboard/main.qml:92 ../modules/keyboard/main.qml:126
-#: ../modules/mouse/main.qml:58 ../modules/mouse/main.qml:96
-#: ../modules/touchpad/main.qml:77 ../modules/touchpad/main.qml:131
-msgid "Slow"
-msgstr "慢"
-
-#: ../modules/keyboard/main.qml:93 ../modules/keyboard/main.qml:127
-#: ../modules/mouse/main.qml:59 ../modules/mouse/main.qml:97
-#: ../modules/touchpad/main.qml:78 ../modules/touchpad/main.qml:132
-msgid "Fast"
-msgstr "快"
+#: ../modules/keyboard/main.qml:131
+msgid "Test Area"
+msgstr "测试区"
 
 #: ../modules/keyboard/main.qml:109
-msgid "Repeat Test"
-msgstr "重复测试"
-
-#: ../modules/keyboard/main.qml:121
 msgid "Cursor Blink"
 msgstr "光标闪烁"
 
-#: ../modules/keyboard/main.qml:143
-msgid "Cursor Blink Show"
-msgstr "光标闪烁效果"
-
-#: ../modules/keyboard/main.qml:346
+#: ../modules/keyboard/main.qml:326
 msgid "No result"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:173
+#: ../modules/keyboard/main.qml:153
 msgid "Keyboard Layout"
 msgstr "键盘布局"
 
 #: ../modules/default_applications/main.qml:24 ../modules/keyboard/main.qml:58
-#: ../modules/mouse/main.qml:27 ../modules/power/main.qml:51
-#: ../modules/shortcuts/main.qml:55 ../modules/touchpad/main.qml:196
+#: ../modules/mouse_touchpad/main.qml:44 ../modules/power/main.qml:51
+#: ../modules/shortcuts/main.qml:65
 msgid "Reset"
 msgstr "重置"
 
-#: ../modules/mouse/main.qml:24 ../frame/modules_info.py:44
+#: ../modules/mouse_touchpad/main.qml:41 ../frame/modules_info.py:44
 msgid "Mouse"
 msgstr "鼠标"
 
-#: ../modules/power/main.qml:222 ../modules/touchpad/main.qml:41
+#: ../modules/power/main.qml:222
 msgid "Custom"
 msgstr ""
 
-#: ../modules/mouse/main.qml:43 ../modules/touchpad/main.qml:46
-msgid "Left Hand"
-msgstr ""
-
-#: ../modules/mouse/main.qml:42 ../modules/touchpad/main.qml:47
-msgid "Right Hand"
-msgstr ""
-
-#: ../modules/mouse/main.qml:37
-msgid "Button Order"
-msgstr ""
-
-#: ../modules/mouse/main.qml:56
-msgid "Pointer Move Speed"
-msgstr ""
-
-#: ../modules/mouse/main.qml:75
-msgid "Pointer Accuracy"
-msgstr ""
-
-#: ../modules/mouse/main.qml:94
-msgid "Double-click Frequency"
-msgstr ""
-
-#: ../modules/touchpad/main.qml:62
-msgid "Point Speed"
-msgstr ""
-
-#: ../modules/touchpad/main.qml:72
-msgid "Acceleration"
-msgstr ""
-
-#: ../modules/touchpad/main.qml:93
-msgid "Sensitivity"
-msgstr ""
-
-#: ../modules/mouse/main.qml:77 ../modules/touchpad/main.qml:98
-msgid "Low"
-msgstr ""
-
-#: ../modules/mouse/main.qml:78 ../modules/touchpad/main.qml:99
-msgid "High"
-msgstr ""
-
-#: ../modules/touchpad/main.qml:116
-msgid "Double-click"
-msgstr ""
-
-#: ../modules/touchpad/main.qml:126
-msgid "Frequency"
-msgstr ""
-
-#: ../modules/touchpad/main.qml:147
-msgid "Double click the smiling face to test"
+#: ../modules/mouse_touchpad/main.qml:147
+msgid "No touchpad device exist!"
 msgstr ""
 
 #: ../modules/power/main.qml:66
@@ -526,10 +549,6 @@ msgstr ""
 #, fuzzy
 msgid "Shut down"
 msgstr "关机"
-
-#: ../modules/power/main.qml:81 ../modules/power/main.qml:131
-msgid "Suspent"
-msgstr ""
 
 #: ../modules/power/main.qml:82 ../modules/power/main.qml:132
 msgid "None"
@@ -552,7 +571,7 @@ msgstr ""
 msgid "Power plan"
 msgstr "电源"
 
-#: ../modules/power/main.qml:219 ../modules/sound/main.qml:114
+#: ../modules/power/main.qml:219 ../modules/sound/main.qml:104
 msgid "Balance"
 msgstr "均衡"
 
@@ -569,6 +588,7 @@ msgstr ""
 msgid "Turn off monitor"
 msgstr ""
 
+#: ../modules/power/main.qml:81 ../modules/power/main.qml:131
 #: ../modules/power/main.qml:328
 msgid "Suspend"
 msgstr ""
@@ -645,31 +665,31 @@ msgstr ""
 msgid "Apply"
 msgstr ""
 
-#: ../modules/individuation/main.qml:17 ../frame/modules_info.py:41
+#: ../modules/personalization/main.qml:17 ../frame/modules_info.py:41
 msgid "Individuation"
 msgstr "个性化"
 
-#: ../modules/individuation/main.qml:26
+#: ../modules/personalization/main.qml:26
 msgid "Themes"
 msgstr ""
 
-#: ../modules/individuation/main.qml:55 ../modules/shortcuts/main.qml:170
+#: ../modules/personalization/main.qml:55 ../modules/shortcuts/main.qml:31
 msgid "Window"
 msgstr ""
 
-#: ../modules/individuation/main.qml:84
+#: ../modules/personalization/main.qml:84
 msgid "Cursor"
 msgstr ""
 
-#: ../modules/individuation/main.qml:113
+#: ../modules/personalization/main.qml:113
 msgid "Wallpaper"
 msgstr ""
 
-#: ../modules/individuation/main.qml:142
+#: ../modules/personalization/main.qml:142
 msgid "Icons"
 msgstr ""
 
-#: ../modules/individuation/main.qml:171
+#: ../modules/personalization/main.qml:171
 msgid "Font"
 msgstr ""
 
@@ -682,100 +702,98 @@ msgstr "更多设置"
 msgid "Create Connections"
 msgstr ""
 
-#: ../modules/shortcuts/main.qml:53 ../frame/modules_info.py:42
+#: ../modules/shortcuts/main.qml:63 ../frame/modules_info.py:42
 msgid "Shortcuts"
 msgstr "快捷键"
 
-#: ../modules/shortcuts/main.qml:156
+#: ../modules/shortcuts/main.qml:29
 #, fuzzy
 msgid "System"
 msgstr "系统类型"
 
-#: ../modules/shortcuts/main.qml:163
+#: ../modules/shortcuts/main.qml:30
 msgid "Sound and Media"
 msgstr ""
 
-#: ../modules/shortcuts/main.qml:177
+#: ../modules/shortcuts/main.qml:32
 msgid "Workspace"
 msgstr ""
 
-#: ../modules/shortcuts/main.qml:195
-#, fuzzy
+#: ../modules/shortcuts/main.qml:174
 msgid "Custom Shortcuts"
-msgstr "快捷键"
+msgstr "自定义快捷键"
 
-#: ../modules/sound/main.qml:70
+#: ../modules/sound/main.qml:60
 msgid "Speaker"
 msgstr "扬声器"
 
-#: ../modules/sound/main.qml:230
+#: ../modules/sound/main.qml:201
 msgid "Output Port"
 msgstr "输出端口"
 
-#: ../modules/sound/main.qml:96
+#: ../modules/sound/main.qml:86
 msgid "Output Volume"
 msgstr "输出音量"
 
-#: ../modules/sound/main.qml:100 ../modules/sound/main.qml:164
+#: ../modules/sound/main.qml:90 ../modules/sound/main.qml:155
 msgid "-"
 msgstr ""
 
-#: ../modules/sound/main.qml:101 ../modules/sound/main.qml:165
+#: ../modules/sound/main.qml:91 ../modules/sound/main.qml:156
 msgid "+"
 msgstr ""
 
-#: ../modules/sound/main.qml:118
+#: ../modules/sound/main.qml:108
 msgid "Left"
 msgstr "左"
 
-#: ../modules/sound/main.qml:119
+#: ../modules/sound/main.qml:109
 msgid "Right"
 msgstr "右"
 
-#: ../modules/sound/main.qml:134
+#: ../modules/sound/main.qml:125
 msgid "Microphone"
 msgstr "麦克风"
 
-#: ../modules/sound/main.qml:273
+#: ../modules/sound/main.qml:191
+#, fuzzy
+msgid "Output"
+msgstr "输出端口"
+
+#: ../modules/sound/main.qml:278
+#, fuzzy
+msgid "Input"
+msgstr "输入端口"
+
+#: ../modules/sound/main.qml:288
 msgid "Input Port"
 msgstr "输入端口"
 
-#: ../modules/sound/main.qml:160
+#: ../modules/sound/main.qml:375
+#, fuzzy
+msgid "Hide Advanced..."
+msgstr "高级设置..."
+
+#: ../modules/sound/main.qml:375
+#, fuzzy
+msgid "Show Advanced..."
+msgstr "高级设置..."
+
+#: ../modules/sound/main.qml:151
 msgid "Input Volume"
 msgstr "输入音量"
 
-#: ../modules/sound/main.qml:178
+#: ../modules/sound/main.qml:169
 msgid "Input Level"
 msgstr "输入等级"
 
-#: ../modules/sound/main.qml:194
-msgid "Advanced..."
-msgstr "高级设置..."
-
-#: ../modules/sound/main.qml:216
-msgid "Advanced"
-msgstr "高级设置"
-
-#: ../modules/sound/main.qml:315
+#: ../modules/sound/main.qml:244
 msgid "Choose audio output device"
 msgstr "选择音频输出设备"
 
-#: ../modules/sound/main.qml:349
+#: ../modules/sound/main.qml:331
 msgid "Choose audio input device"
 msgstr "选择音频输入设备"
-
-#: ../modules/touchpad/main.qml:22
-msgid "TouchPad"
-msgstr "触摸板"
-
-#: ../modules/touchpad/main.qml:28
-#, fuzzy
-msgid "Enabled"
-msgstr "触摸板"
-
-#: ../modules/touchpad/main.qml:173
-msgid "Drag threshold"
-msgstr ""
 
 #: ../modules/disk_mount/main.qml:25
 msgid "Internal Devices"
@@ -784,6 +802,15 @@ msgstr ""
 #: ../modules/disk_mount/main.qml:69
 msgid "External Devices"
 msgstr ""
+
+#~ msgid "Repeat Test"
+#~ msgstr "重复测试"
+
+#~ msgid "Cursor Blink Show"
+#~ msgstr "光标闪烁效果"
+
+#~ msgid "Advanced"
+#~ msgstr "高级设置"
 
 #~ msgid "(UTC-11:00) Samoa"
 #~ msgstr "(UTC-11:00)萨摩亚"
