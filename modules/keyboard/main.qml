@@ -188,7 +188,7 @@ Item {
                 currentIndex: -1
                 clip: true
 
-                property string selectLayoutId: keyboardID.currentLayout ? keyboardID.currentLayout : "us;"
+                property string selectLayoutId: keyboardID.currentLayout != ";"? keyboardID.currentLayout : "us;"
                 property bool inDeleteAction: keyboardLayoutArea.currentActionStateName == "deleteButton"
 
                 function switchLayout(id){

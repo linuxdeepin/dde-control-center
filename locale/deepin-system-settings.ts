@@ -12,37 +12,37 @@
 <context>
     <name>CalendarComponent</name>
     <message>
-        <location filename="../modules/date_time/CalendarComponent.qml" line="47"/>
+        <location filename="../modules/date_time/CalendarComponent.qml" line="56"/>
         <source>Sun</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/CalendarComponent.qml" line="48"/>
+        <location filename="../modules/date_time/CalendarComponent.qml" line="57"/>
         <source>Mon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/CalendarComponent.qml" line="49"/>
+        <location filename="../modules/date_time/CalendarComponent.qml" line="58"/>
         <source>Tue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/CalendarComponent.qml" line="50"/>
+        <location filename="../modules/date_time/CalendarComponent.qml" line="59"/>
         <source>Wed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/CalendarComponent.qml" line="51"/>
+        <location filename="../modules/date_time/CalendarComponent.qml" line="60"/>
         <source>Thu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/CalendarComponent.qml" line="52"/>
+        <location filename="../modules/date_time/CalendarComponent.qml" line="61"/>
         <source>Fri</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/CalendarComponent.qml" line="53"/>
+        <location filename="../modules/date_time/CalendarComponent.qml" line="62"/>
         <source>Sat</source>
         <translation type="unfinished"></translation>
     </message>
@@ -50,31 +50,35 @@
 <context>
     <name>CustomKeybindingExpand</name>
     <message>
-        <location filename="../modules/shortcuts/CustomKeybindingExpand.qml" line="197"/>
-        <source>Please input new shortcuts</source>
+        <location filename="../modules/shortcuts/CustomKeybindingExpand.qml" line="83"/>
+        <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/CustomKeybindingExpand.qml" line="205"/>
-        <location filename="../modules/shortcuts/CustomKeybindingExpand.qml" line="217"/>
-        <source>Grab key combination</source>
+        <location filename="../modules/shortcuts/CustomKeybindingExpand.qml" line="92"/>
+        <source>Command</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/CustomKeybindingExpand.qml" line="220"/>
-        <source>Disable</source>
+        <location filename="../modules/shortcuts/CustomKeybindingExpand.qml" line="103"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/shortcuts/CustomKeybindingExpand.qml" line="109"/>
+        <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>DeleteUserDialog</name>
     <message>
-        <location filename="../modules/account/DeleteUserDialog.qml" line="20"/>
+        <location filename="../modules/account/DeleteUserDialog.qml" line="19"/>
         <source>Keep user files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/DeleteUserDialog.qml" line="21"/>
+        <location filename="../modules/account/DeleteUserDialog.qml" line="20"/>
         <source>Delete user files</source>
         <translation type="unfinished"></translation>
     </message>
@@ -295,16 +299,34 @@
 <context>
     <name>PanelContent</name>
     <message>
-        <location filename="../frame/views/PanelContent.qml" line="369"/>
+        <location filename="../frame/views/PanelContent.qml" line="351"/>
         <source>Shutdown</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Preview</name>
+    <message>
+        <location filename="../modules/grub/Preview.qml" line="88"/>
+        <source>Drop a picture here to change the background</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>ShortcutInput</name>
     <message>
-        <location filename="../modules/shortcuts/ShortcutInput.qml" line="84"/>
+        <location filename="../modules/shortcuts/ShortcutInput.qml" line="114"/>
         <source>Please input new shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/shortcuts/ShortcutInput.qml" line="185"/>
+        <source>Replace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/shortcuts/ShortcutInput.qml" line="192"/>
+        <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -313,28 +335,113 @@
     <message>
         <location filename="../modules/date_time/StateButtons.qml" line="11"/>
         <location filename="../modules/keyboard/StateButtons.qml" line="11"/>
-        <location filename="../modules/shortcuts/StateButtons.qml" line="11"/>
+        <location filename="../modules/shortcuts/StateButtons.qml" line="15"/>
         <source>Finish</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/date_time/StateButtons.qml" line="12"/>
+        <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>TimezoneExpand</name>
+    <name>TimezoneArea</name>
     <message>
-        <location filename="../modules/date_time/TimezoneExpand.qml" line="16"/>
+        <location filename="../modules/date_time/TimezoneArea.qml" line="42"/>
         <source>Timezone</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TouchpadComponent</name>
+    <message>
+        <location filename="../modules/mouse_touchpad/TouchpadComponent.qml" line="25"/>
+        <source>TouchPad</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse_touchpad/TouchpadComponent.qml" line="34"/>
+        <source>Enabled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse_touchpad/TouchpadComponent.qml" line="53"/>
+        <source>Button Order</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse_touchpad/TouchpadComponent.qml" line="59"/>
+        <source>Right Hand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse_touchpad/TouchpadComponent.qml" line="60"/>
+        <source>Left Hand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse_touchpad/TouchpadComponent.qml" line="73"/>
+        <source>Pointer Move Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse_touchpad/TouchpadComponent.qml" line="75"/>
+        <location filename="../modules/mouse_touchpad/TouchpadComponent.qml" line="113"/>
+        <source>Slow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse_touchpad/TouchpadComponent.qml" line="76"/>
+        <location filename="../modules/mouse_touchpad/TouchpadComponent.qml" line="114"/>
+        <source>Fast</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse_touchpad/TouchpadComponent.qml" line="92"/>
+        <source>Pointer Accuracy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse_touchpad/TouchpadComponent.qml" line="94"/>
+        <source>Low</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse_touchpad/TouchpadComponent.qml" line="95"/>
+        <source>High</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse_touchpad/TouchpadComponent.qml" line="111"/>
+        <source>Double-click Frequency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse_touchpad/TouchpadComponent.qml" line="131"/>
+        <source>Drag threshold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse_touchpad/TouchpadComponent.qml" line="133"/>
+        <source>Short</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse_touchpad/TouchpadComponent.qml" line="134"/>
+        <source>Long</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>UserList</name>
     <message>
-        <location filename="../modules/account/UserList.qml" line="104"/>
+        <location filename="../modules/account/UserList.qml" line="117"/>
         <source>User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/UserList.qml" line="104"/>
+        <location filename="../modules/account/UserList.qml" line="117"/>
         <source>Administrator</source>
         <translation type="unfinished"></translation>
     </message>
@@ -405,27 +512,32 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../modules/date_time/main.qml" line="45"/>
+        <location filename="../modules/date_time/main.qml" line="44"/>
         <source>Date &amp; Time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="92"/>
+        <location filename="../modules/date_time/main.qml" line="91"/>
         <source>Auto-sync datetime</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="105"/>
+        <location filename="../modules/date_time/main.qml" line="104"/>
         <source>24 Hour</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="135"/>
+        <location filename="../modules/date_time/main.qml" line="134"/>
         <source>Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="156"/>
+        <location filename="../modules/date_time/main.qml" line="138"/>
+        <source>Change Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/date_time/main.qml" line="161"/>
         <source>假期安排提示</source>
         <translation type="unfinished"></translation>
     </message>
@@ -552,13 +664,11 @@
     </message>
     <message>
         <location filename="../modules/keyboard/main.qml" line="71"/>
-        <location filename="../modules/touchpad/main.qml" line="179"/>
         <source>Long</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/keyboard/main.qml" line="72"/>
-        <location filename="../modules/touchpad/main.qml" line="178"/>
         <source>Short</source>
         <translation type="unfinished"></translation>
     </message>
@@ -569,142 +679,102 @@
     </message>
     <message>
         <location filename="../modules/keyboard/main.qml" line="92"/>
-        <location filename="../modules/keyboard/main.qml" line="126"/>
-        <location filename="../modules/mouse/main.qml" line="58"/>
-        <location filename="../modules/mouse/main.qml" line="96"/>
-        <location filename="../modules/touchpad/main.qml" line="77"/>
-        <location filename="../modules/touchpad/main.qml" line="131"/>
+        <location filename="../modules/keyboard/main.qml" line="114"/>
+        <location filename="../modules/mouse_touchpad/main.qml" line="74"/>
+        <location filename="../modules/mouse_touchpad/main.qml" line="112"/>
         <source>Slow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/keyboard/main.qml" line="93"/>
-        <location filename="../modules/keyboard/main.qml" line="127"/>
-        <location filename="../modules/mouse/main.qml" line="59"/>
-        <location filename="../modules/mouse/main.qml" line="97"/>
-        <location filename="../modules/touchpad/main.qml" line="78"/>
-        <location filename="../modules/touchpad/main.qml" line="132"/>
+        <location filename="../modules/keyboard/main.qml" line="115"/>
+        <location filename="../modules/mouse_touchpad/main.qml" line="75"/>
+        <location filename="../modules/mouse_touchpad/main.qml" line="113"/>
         <source>Fast</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="109"/>
-        <source>Repeat Test</source>
+        <location filename="../modules/keyboard/main.qml" line="131"/>
+        <source>Test Area</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="121"/>
+        <location filename="../modules/keyboard/main.qml" line="109"/>
         <source>Cursor Blink</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="143"/>
-        <source>Cursor Blink Show</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/keyboard/main.qml" line="346"/>
+        <location filename="../modules/keyboard/main.qml" line="326"/>
         <source>No result</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="173"/>
+        <location filename="../modules/keyboard/main.qml" line="153"/>
         <source>Keyboard Layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/default_applications/main.qml" line="24"/>
         <location filename="../modules/keyboard/main.qml" line="58"/>
-        <location filename="../modules/mouse/main.qml" line="27"/>
+        <location filename="../modules/mouse_touchpad/main.qml" line="44"/>
         <location filename="../modules/power/main.qml" line="51"/>
-        <location filename="../modules/shortcuts/main.qml" line="55"/>
-        <location filename="../modules/touchpad/main.qml" line="196"/>
+        <location filename="../modules/shortcuts/main.qml" line="65"/>
         <source>Reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/main.qml" line="24"/>
+        <location filename="../modules/mouse_touchpad/main.qml" line="41"/>
         <source>Mouse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/power/main.qml" line="222"/>
-        <location filename="../modules/touchpad/main.qml" line="41"/>
         <source>Custom</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/main.qml" line="43"/>
-        <location filename="../modules/touchpad/main.qml" line="46"/>
+        <location filename="../modules/mouse_touchpad/main.qml" line="59"/>
         <source>Left Hand</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/main.qml" line="42"/>
-        <location filename="../modules/touchpad/main.qml" line="47"/>
+        <location filename="../modules/mouse_touchpad/main.qml" line="58"/>
         <source>Right Hand</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/main.qml" line="37"/>
+        <location filename="../modules/mouse_touchpad/main.qml" line="53"/>
         <source>Button Order</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/main.qml" line="56"/>
+        <location filename="../modules/mouse_touchpad/main.qml" line="72"/>
         <source>Pointer Move Speed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/main.qml" line="75"/>
+        <location filename="../modules/mouse_touchpad/main.qml" line="91"/>
         <source>Pointer Accuracy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/main.qml" line="94"/>
+        <location filename="../modules/mouse_touchpad/main.qml" line="110"/>
         <source>Double-click Frequency</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/touchpad/main.qml" line="62"/>
-        <source>Point Speed</source>
+        <location filename="../modules/mouse_touchpad/main.qml" line="147"/>
+        <source>No touchpad device exist!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/touchpad/main.qml" line="72"/>
-        <source>Acceleration</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/touchpad/main.qml" line="93"/>
-        <source>Sensitivity</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/main.qml" line="77"/>
-        <location filename="../modules/touchpad/main.qml" line="98"/>
+        <location filename="../modules/mouse_touchpad/main.qml" line="93"/>
         <source>Low</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/main.qml" line="78"/>
-        <location filename="../modules/touchpad/main.qml" line="99"/>
+        <location filename="../modules/mouse_touchpad/main.qml" line="94"/>
         <source>High</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/touchpad/main.qml" line="116"/>
-        <source>Double-click</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/touchpad/main.qml" line="126"/>
-        <source>Frequency</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/touchpad/main.qml" line="147"/>
-        <source>Double click the smiling face to test</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -721,12 +791,6 @@
         <location filename="../modules/power/main.qml" line="80"/>
         <location filename="../modules/power/main.qml" line="130"/>
         <source>Shut down</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/power/main.qml" line="81"/>
-        <location filename="../modules/power/main.qml" line="131"/>
-        <source>Suspent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -757,7 +821,7 @@
     </message>
     <message>
         <location filename="../modules/power/main.qml" line="219"/>
-        <location filename="../modules/sound/main.qml" line="114"/>
+        <location filename="../modules/sound/main.qml" line="104"/>
         <source>Balance</source>
         <translation type="unfinished"></translation>
     </message>
@@ -777,6 +841,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../modules/power/main.qml" line="81"/>
+        <location filename="../modules/power/main.qml" line="131"/>
         <location filename="../modules/power/main.qml" line="328"/>
         <source>Suspend</source>
         <translation type="unfinished"></translation>
@@ -891,38 +957,38 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/individuation/main.qml" line="17"/>
+        <location filename="../modules/personalization/main.qml" line="17"/>
         <source>Individuation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/individuation/main.qml" line="26"/>
+        <location filename="../modules/personalization/main.qml" line="26"/>
         <source>Themes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/individuation/main.qml" line="55"/>
-        <location filename="../modules/shortcuts/main.qml" line="170"/>
+        <location filename="../modules/personalization/main.qml" line="55"/>
+        <location filename="../modules/shortcuts/main.qml" line="31"/>
         <source>Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/individuation/main.qml" line="84"/>
+        <location filename="../modules/personalization/main.qml" line="84"/>
         <source>Cursor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/individuation/main.qml" line="113"/>
+        <location filename="../modules/personalization/main.qml" line="113"/>
         <source>Wallpaper</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/individuation/main.qml" line="142"/>
+        <location filename="../modules/personalization/main.qml" line="142"/>
         <source>Icons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/individuation/main.qml" line="171"/>
+        <location filename="../modules/personalization/main.qml" line="171"/>
         <source>Font</source>
         <translation type="unfinished"></translation>
     </message>
@@ -937,125 +1003,125 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/main.qml" line="53"/>
+        <location filename="../modules/shortcuts/main.qml" line="63"/>
         <source>Shortcuts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/main.qml" line="156"/>
+        <location filename="../modules/shortcuts/main.qml" line="29"/>
         <source>System</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/main.qml" line="163"/>
+        <location filename="../modules/shortcuts/main.qml" line="30"/>
         <source>Sound and Media</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/main.qml" line="177"/>
+        <location filename="../modules/shortcuts/main.qml" line="32"/>
         <source>Workspace</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/main.qml" line="195"/>
+        <location filename="../modules/shortcuts/main.qml" line="174"/>
         <source>Custom Shortcuts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="47"/>
+        <location filename="../modules/sound/main.qml" line="50"/>
         <source>Sound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="70"/>
+        <location filename="../modules/sound/main.qml" line="60"/>
         <source>Speaker</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="230"/>
+        <location filename="../modules/sound/main.qml" line="201"/>
         <source>Output Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="96"/>
+        <location filename="../modules/sound/main.qml" line="86"/>
         <source>Output Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="100"/>
-        <location filename="../modules/sound/main.qml" line="164"/>
+        <location filename="../modules/sound/main.qml" line="90"/>
+        <location filename="../modules/sound/main.qml" line="155"/>
         <source>-</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="101"/>
-        <location filename="../modules/sound/main.qml" line="165"/>
+        <location filename="../modules/sound/main.qml" line="91"/>
+        <location filename="../modules/sound/main.qml" line="156"/>
         <source>+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="118"/>
+        <location filename="../modules/sound/main.qml" line="108"/>
         <source>Left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="119"/>
+        <location filename="../modules/sound/main.qml" line="109"/>
         <source>Right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="134"/>
+        <location filename="../modules/sound/main.qml" line="125"/>
         <source>Microphone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="273"/>
+        <location filename="../modules/sound/main.qml" line="191"/>
+        <source>Output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/main.qml" line="278"/>
+        <source>Input</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/main.qml" line="288"/>
         <source>Input Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="160"/>
+        <location filename="../modules/sound/main.qml" line="375"/>
+        <source>Hide Advanced...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/main.qml" line="375"/>
+        <source>Show Advanced...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/main.qml" line="151"/>
         <source>Input Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="178"/>
+        <location filename="../modules/sound/main.qml" line="169"/>
         <source>Input Level</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="194"/>
-        <source>Advanced...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/main.qml" line="216"/>
-        <source>Advanced</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/main.qml" line="315"/>
+        <location filename="../modules/sound/main.qml" line="244"/>
         <source>Choose audio output device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="349"/>
+        <location filename="../modules/sound/main.qml" line="331"/>
         <source>Choose audio input device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/touchpad/main.qml" line="22"/>
+        <location filename="../modules/mouse_touchpad/main.qml" line="139"/>
         <source>TouchPad</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/touchpad/main.qml" line="28"/>
-        <source>Enabled</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/touchpad/main.qml" line="173"/>
-        <source>Drag threshold</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
