@@ -277,7 +277,7 @@ ListView {
     delegate: delegate_component
 
     Component.onCompleted: {
-        var cached_users = dbus_accounts.ListCachedUsers()
+        var cached_users = dbus_accounts.userList
         for (var i = 0; i < cached_users.length; i++) {
             root.addUser(cached_users[i])
         }
