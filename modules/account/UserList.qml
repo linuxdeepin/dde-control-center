@@ -49,11 +49,13 @@ ListView {
                 onHideAllPrivate: {
                     if (idx != index) {
                         component_bg.height = 0
+                        component_bg.visible = false
                     }
                 }
                 onShowAllPrivate: {
                     if (component_bg.height == 0) {
                         component_bg.height = 100 + 2
+                        component_bg.visible = true                        
                     }
                 }
 
@@ -262,7 +264,7 @@ ListView {
             ]
 
             Behavior on height {
-                SmoothedAnimation { duration: 200 }
+                SmoothedAnimation { duration: 50 }
             }
 
             Component.onCompleted: {

@@ -132,10 +132,14 @@ Rectangle {
             State {
                 name: "normal"
 
-                /* PropertyChanges { */
-                /*     target: user_list */
-                /*     visible: true */
-                /* } */
+                PropertyChanges {
+                    target: title
+                    visible: true
+                }
+                PropertyChanges {
+                    target: user_list
+                    visible: true
+                }
                 PropertyChanges {
                     target: add_user_dialog
                     visible: false
@@ -143,11 +147,15 @@ Rectangle {
             },
             State {
                 name: "add_dialog"
-
-                /* PropertyChanges { */
-                /*     target: user_list */
-                /*     visible: false */
-                /* } */
+                
+                PropertyChanges {
+                    target: title
+                    visible: false
+                }
+                PropertyChanges {
+                    target: user_list
+                    visible: false
+                }
                 PropertyChanges {
                     target: add_user_dialog
                     visible: true
