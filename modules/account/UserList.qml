@@ -40,12 +40,12 @@ ListView {
             state: "normal"
 
             width: 310
-            height: component_top.height + component_sep.height
+            height: delete_line.height + component_sep.height
             property var this_user: User { path: userDBusPath}
 
             Connections {
-
                 target: component_bg.ListView.view
+
                 onHideAllPrivate: {
                     if (idx != index) {
                         component_bg.height = 0
@@ -59,191 +59,146 @@ ListView {
 
                 onAllAction: {
                     component_bg.state = "action"
+                    delete_line.expand()
                 }
 
                 onAllNormal: {
                     component_bg.state = "normal"
+                    delete_line.shrink()
                 }
             }
 
-            Rectangle {
-                id: component_top
-
+            DeleteLine {
+                id: delete_line
+                width: component_bg.width
                 height: 100
-                color: Qt.rgba(0, 0, 0, 0)
+                moveDelta: 50
 
-                DRoundImage {
-                    id: round_image
-                    roundRadius: 25
-                    imageSource: userAvatar
+                property bool deleteUserDialogVisible
+                property bool editUserDialogVisible
+                property bool nameColumnVisible
+                property bool expandButtonVisible
+                property bool expandButtonUp: false
+                property string expandButtonStatus: "normal"
 
-                    property bool toggleFlag: false
+                property int roundImageRadius: 25
+                property color nameColor: "white"
 
-                    onClicked: {
-                        if (!toggleFlag) {
-                            component_bg.state = "edit_dialog"
-                            component_bg.ListView.view.hideAllPrivate(index)
-                        } else {
-                            component_bg.state = "normal"
-                            component_bg.ListView.view.showAllPrivate()
+                onAction: {
+                    component_bg.state = "delete_dialog"
+                    delete_line.shrink()
+                }
+
+                content: Item {
+                    id: component_top
+                    width: delete_line.width
+                    height: delete_line.height
+
+                    DRoundImage {
+                        id: round_image
+                        roundRadius: delete_line.roundImageRadius
+                        imageSource: userAvatar
+
+                        anchors.left: parent.left
+                        anchors.leftMargin: root.leftPadding
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+
+                    Column {
+                        id: name_column
+                        visible: delete_line.nameColumnVisible
+
+                        DssH2 {
+                            text: userName
+                            color: delete_line.nameColor
                         }
-                        toggleFlag = !toggleFlag
+
+                        DssH3 {
+                            text: userType == 0 ? dsTr("User") : dsTr("Administrator")
+                        }
+
+                        anchors.left: round_image.right
+                        anchors.leftMargin: root.avatarNamePadding
+                        anchors.verticalCenter: parent.verticalCenter
                     }
 
-                    anchors.verticalCenter: parent.verticalCenter
+                    ExpandButton {
+                        id: expand_button
+                        up: delete_line.expandButtonUp
+                        visible: delete_line.expandButtonVisible
+                        status: delete_line.expandButtonStatus
+
+                        anchors.right: parent.right
+                        anchors.rightMargin: root.rightPadding
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+
+                    DeleteUserDialog {
+                        id: delete_user_dialog
+                        z: 2    // get mouse click action before the mouse area
+                        visible: delete_line.deleteUserDialogVisible
+
+                        onCancel: {
+                            component_bg.state = "action"
+                            delete_line.expand()
+                        }
+                        onConfirm: {
+                            dbus_accounts.DeleteUser(userId, deleteFiles)
+                            component_bg.state = "normal"
+                            root.deleteItem(index)
+                        }
+
+                        anchors.left: round_image.right
+                        anchors.right: parent.right
+                        anchors.top: parent.top
+                        anchors.bottom: parent.bottom
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        hoverEnabled: true
+
+                        onClicked: {
+                            if (component_bg.state == "normal") {
+                                component_bg.state = "edit_dialog"
+                                delete_line.expandButtonUp = true
+                                root.hideAllPrivate(index)
+                            } else {
+                                component_bg.state = "normal"
+                                delete_line.expandButtonUp = false
+                                root.showAllPrivate()
+                            }
+                        }
+
+                        onEntered: {
+                            if (component_bg.state == "normal") {
+                                delete_line.roundImageRadius = 30
+                                delete_line.nameColor = "#faca57"
+                                delete_line.expandButtonStatus = "hover"
+                            }
+                        }
+
+                        onExited: {
+                            if (component_bg.state != "edit_dialog")
+                            {
+                                delete_line.roundImageRadius = 25
+                                delete_line.nameColor = "white"
+                                delete_line.expandButtonStatus = "normal"
+                            }
+                        }
+                    }
                 }
-
-                Column {
-                    id: name_column
-
-                    DssH2 {
-                        text: userName
-                    }
-
-                    DssH3 {
-                        text: userType == 0 ? dsTr("User") : dsTr("Administrator")
-                    }
-
-                    anchors.left: round_image.right
-                    anchors.leftMargin: root.avatarNamePadding
-                    anchors.verticalCenter: parent.verticalCenter
-                }
-
-                UserStatusButton {
-                    id: user_status_button
-                    state: userStatus
-
-                    onChangeStatus: {
-                        component_bg.this_user.locked = locked
-                    }
-
-                    anchors.right: parent.right
-                    anchors.rightMargin: root.rightPadding
-                    anchors.verticalCenter: parent.verticalCenter
-                }
-
-                DeleteUserButton {
-                    id: delete_user_button
-
-                    onClicked: {
-                        component_bg.state = "delete_dialog"
-                    }
-
-                    anchors.right: parent.right
-                    anchors.rightMargin: root.rightPadding
-                    anchors.verticalCenter: parent.verticalCenter
-                }
-
-                anchors.top: parent.top
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.leftMargin: root.leftPadding
-                anchors.rightMargin: root.rightPadding
             }
 
             DSeparatorHorizontal {
                 id: component_sep
-
-                anchors.top: component_top.bottom
-            }
-
-            DeleteUserDialog {
-                id: delete_user_dialog
-                width: 310
-                height: 100
-                visible: false
-
-                onCancel: {
-                    component_bg.state = "action"
-
-                }
-                onConfirm: {
-                    dbus_accounts.DeleteUser(userId, deleteFiles)
-                    component_bg.state = "normal"
-                    root.deleteItem(index)
-                }
-
-                anchors.top: component_sep.bottom
+                anchors.top: delete_line.bottom
             }
 
             EditUserDialog {
                 id: edit_user_dialog
-
+                visible: delete_line.editUserDialogVisible
                 this_user: User { path: userDBusPath}
-
-                ParallelAnimation {
-                    id: animation
-
-                    property var destination: round_image.parent.mapToItem(component_bg, round_image.x + 15, round_image.y)
-
-                    property Item target: round_image
-                    property point startPoint: Qt.point(target.x, target.y)
-                    property point endPoint: Qt.point(destination.x, destination.y)
-                    property int startRoundRadius: target.roundRadius
-                    property int endRoundRadius: round_image.roundRadius
-
-                    NumberAnimation {
-                        target: animation.target
-                        duration: 500
-                        easing.type: Easing.InQuad
-
-                        properties: "roundRadius"
-                        from: animation.startRoundRadius
-                        to: animation.endRoundRadius
-                    }
-
-                    PathAnimation {
-                        target: animation.target
-                        duration: 500
-                        easing.type: Easing.InQuad
-
-                        path: Path {
-                            startX: animation.startPoint.x
-                            startY: animation.startPoint.y
-
-                            PathCubic {
-                                x: animation.endPoint.x; y: animation.endPoint.y
-                                relativeControl1X: -10; relativeControl1Y: -30
-                                relativeControl2X: 10; relativeControl2Y: -20
-                            }
-                        }
-                    }
-
-                    onStopped: {
-                        round_image.imageSource = target.imageSource
-                        target.destroy()
-                    }
-                }
-
-                onAvatarSet: {
-                    var newObject = Qt.createQmlObject('import QtQuick 2.1; import Deepin.Widgets 1.0; DRoundImage {}',
-                                                       component_bg, "new");
-                    var startPoint = item.parent.mapToItem(component_bg, item.x, item.y)
-
-                    newObject.x = startPoint.x
-                    newObject.y = startPoint.y
-                    newObject.imageSource = item.imageSource
-                    newObject.roundRadius = item.roundRadius
-
-                    animation.target = newObject
-                    animation.start()
-                }
-
-                onAvatarPictured: {
-                    print("onAvatarPictured, ", path)
-                    var newObject = Qt.createQmlObject('import QtQuick 2.1; import Deepin.Widgets 1.0; DRoundImage {}',
-                                                       component_bg, "new");
-                    var startPoint = item.parent.mapToItem(component_bg, item.x, item.y)
-
-                    newObject.x = startPoint.x
-                    newObject.y = startPoint.y
-                    newObject.imageSource = path
-                    newObject.roundRadius = 60
-
-                    animation.target = newObject
-                    animation.start()
-                }
-
                 anchors.top: component_sep.bottom
             }
 
@@ -251,93 +206,57 @@ ListView {
                 State {
                     name: "normal"
                     PropertyChanges {
-                        target: delete_user_dialog
-                        visible: false
-                    }
-                    PropertyChanges {
-                        target: edit_user_dialog
-                        visible: false
-                    }
-                    PropertyChanges {
-                        target: delete_user_button
-                        visible: false
+                        target: delete_line
+                        deleteUserDialogVisible: false
+                        editUserDialogVisible: false
+                        nameColumnVisible: true
+                        expandButtonVisible: true
                     }
                     PropertyChanges {
                         target: component_bg
-                        height: component_top.height + component_sep.height
-                    }
-                    PropertyChanges {
-                        target: user_status_button
-                        visible: true
+                        height: delete_line.height + component_sep.height
                     }
                 },
                 State {
                     name: "action"
                     PropertyChanges {
-                        target: delete_user_dialog
-                        visible: false
-                    }
-                    PropertyChanges {
-                        target: edit_user_dialog
-                        visible: false
-                    }
-                    PropertyChanges {
-                        target: user_status_button
-                        visible: false
+                        target: delete_line
+                        deleteUserDialogVisible: false
+                        editUserDialogVisible: false
+                        nameColumnVisible: true
+                        expandButtonVisible: true
                     }
                     PropertyChanges {
                         target: component_bg
-                        height: component_top.height + component_sep.height
-                    }
-                    PropertyChanges {
-                        target: delete_user_button
-                        visible: true
+                        height: delete_line.height + component_sep.height
                     }
                 },
                 State {
                     name: "delete_dialog"
                     PropertyChanges {
-                        target: edit_user_dialog
-                        visible: false
-                    }
-                    PropertyChanges {
-                        target: user_status_button
-                        visible: false
+                        target: delete_line
+                        deleteUserDialogVisible: true
+                        editUserDialogVisible: false
+                        nameColumnVisible: false
+                        expandButtonVisible: false
                     }
                     PropertyChanges {
                         target: component_bg
-                        height: component_top.height + component_sep.height + delete_user_dialog.height
-                    }
-                    PropertyChanges {
-                        target: delete_user_button
-                        visible: true
-                    }
-                    PropertyChanges {
-                        target: delete_user_dialog
-                        visible: true
+                        height: delete_line.height + component_sep.height
                     }
                 },
                 State {
                     name: "edit_dialog"
                     PropertyChanges {
-                        target: delete_user_dialog
-                        visible: false
-                    }
-                    PropertyChanges {
-                        target: user_status_button
-                        visible: false
-                    }
-                    PropertyChanges {
-                        target: delete_user_button
-                        visible: false
+                        target: delete_line
+                        deleteUserDialogVisible: false
+                        editUserDialogVisible: true
+                        nameColumnVisible: true
+                        expandButtonVisible: true
                     }
                     PropertyChanges {
                         target: component_bg
-                        height: component_top.height + component_sep.height + edit_user_dialog.height
-                    }
-                    PropertyChanges {
-                        target: edit_user_dialog
-                        visible: true
+                        height: delete_line.height + component_sep.height + edit_user_dialog.height
                     }
                 }
             ]

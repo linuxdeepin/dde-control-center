@@ -10,7 +10,7 @@ Rectangle {
 
     Grub2 { id: dbus_grub2 }
     Theme { id: dbus_grub2_theme }
-
+    
     function timeoutToIndex(timeout) {
         switch (timeout) {
             case 0: return 0; break
@@ -55,6 +55,7 @@ Rectangle {
             width: root.width
             height: preview.height + default_entry_expand.height + delay_expand.height
             + normal_item_expand.height + selected_item_expand.height + 10
+            
             DSeparatorHorizontal{}
 
             Preview {
@@ -165,7 +166,7 @@ Rectangle {
                             selected: false
                         }
                     }
-
+                    
                     Component.onCompleted: {
                         delay_view.selectItem(root.timeoutToIndex(dbus_grub2.timeout))
                     }
