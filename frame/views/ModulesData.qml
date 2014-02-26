@@ -16,8 +16,7 @@ Item {
             "personalization": dsTr("Personalization"),
             "shortcuts": dsTr("Keyboard Shortcuts"),
             "keyboard": dsTr("Keyboard"),
-            "mouse": dsTr("Mouse and Touchpad"),
-            //"autostart": "", #开机启动, 系统服务
+            "mouse_touchpad": dsTr("Mouse and Touchpad"),
             "touchpad": dsTr("Touchpad"),
             "account": dsTr("User Accounts"),
             "default_applications": dsTr("Default Applications"),
@@ -26,61 +25,20 @@ Item {
             "home": dsTr("Home")
         }
 
-    property var commonIds: [
-            //"notification",
-            "network",
-            "disk_mount",
-            "bluetooth",
-            "sound",
-            "power",
-            "dss",
-            "shutdown"
-        ]
-
     property var allIds: [
+            "account",
             "display",
+            "default_applications",
             "personalization",
-            "sound",
-            "keyboard",
             "network",
             "bluetooth",
-            "mouse",
-            "power",
+            "sound",
             "date_time",
-            "default_applications",
-            "account",
-            "system_info",
+            "power",
+            "mouse_touchpad",
+            "keyboard",
             "shortcuts",
             "grub",
-            //"desktop",
-            //"touchpad",
-            //"disk_mount",
-        ]
-
-    property var hideIds: [
-            "date_time",
-            "mouse",
-            "touchpad",
-            "keyboard",
-            "shortcuts",
-            "display",
-            "account",
-            "desktop",
-            "individuation",
-            "default_applications",
             "system_info"
         ]
-    property var statesInfo: {
-            "network": ['wifi', 'wire']
-        }
-
-    function getStatesArray(s){
-        return new Array();
-        //if (statesInfo[s]){
-            //return statesInfo[s]
-        //}
-        //else{
-            //return new Array()
-        //}
-    }
 }

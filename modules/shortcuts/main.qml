@@ -1,18 +1,20 @@
 import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
-import QtQml.Models 2.1
 import DBus.Com.Deepin.Daemon.KeyBinding 1.0
 import DBus.Com.Deepin.Api.Search 1.0
 import Deepin.Widgets 1.0
 import "./shortcuts_maps.js" as ShortcutsMap
 
-Item {
+Flickable {
     id: shortcutsModule
     anchors.fill: parent
+    contentWidth: width
+    contentHeight: childrenRect.height
 
     property var dconstants: DConstants {}
     property int contentLeftMargin: 22
+    property var listModelComponent: DListModelComponent {}
 
     property var grabManagerId: GrabKey {}
     property var bindManagerId: KeyBinding {}
@@ -23,24 +25,32 @@ Item {
     property var conflictInvalid: bindManagerId.conflictInvalid
     property var conflictValid: bindManagerId.conflictValid
 
+    property var categoryObjects: {
+        "systemList": dsTr("System"),
+        "mediaList": dsTr("Sound and Media"),
+        "windowList": dsTr("Window"),
+        "workSpaceList": dsTr("Workspace")
+    }
+
     property string searchMd5
     property string currentSearchKeyword: ""
     property var searchObject: {
         var keywords = {}
         var allKeybindings = {}
-        var d = ['customList', "systemList", 'mediaList', 'windowList', 'workSpaceList']
-        for(var i in d){
-            for(var j in bindManagerId[d[i]]){
-                var temp_list = JSON.parse(JSON.stringify(bindManagerId[d[i]][j]))
+        for(var key in categoryObjects){
+            for(var i in bindManagerId[key]){
+                var temp_list = bindManagerId[key][i]
                 keywords[temp_list[0]] = temp_list[1]
                 allKeybindings[temp_list[0]] = temp_list
             }
         }
-        shortcutsModule.searchMd5 = searchId.NewTrieWithString(keywords, "deepin-system-settings.shortcuts")
-        return {
-            "keywords": JSON.parse(JSON.stringify(keywords)),
-            "keyBindings": JSON.parse(JSON.stringify(allKeybindings))
+        for(var i in bindManagerId.customList){
+            var temp_list = bindManagerId.customList[i]
+            keywords[temp_list[0]] = temp_list[1]
+            allKeybindings[temp_list[0]] = temp_list
         }
+        shortcutsModule.searchMd5 = searchId.NewTrieWithString(keywords, "deepin-system-settings.shortcuts")
+        return allKeybindings
     }
 
     Column {
@@ -83,6 +93,7 @@ Item {
         height: childrenRect.height
 
         Rectangle {
+            id: searchResultListBox
             height: childrenRect.height
             width: parent.width
             color: dconstants.contentBgColor
@@ -100,7 +111,7 @@ Item {
                 clip: true
 
                 Behavior on height {
-                    NumberAnimation {duration: 200}
+                    NumberAnimation {duration: 100}
                 }
 
                 property string keyword: ""
@@ -109,7 +120,7 @@ Item {
                     if(keyword){
                         var results = searchId.SearchKeys(keyword, searchMd5)
                         for(var i in results){
-                            resultKeyBindings.push(searchObject["keyBindings"][results[i]])
+                            resultKeyBindings.push(searchObject[results[i]])
                         }
                     }
                     return resultKeyBindings
@@ -118,19 +129,6 @@ Item {
                 model: keyData.length
                 delegate: ShortcutInput {
                     info: searchResultListView.keyData[index]
-                    warning: {
-                        for(var i in conflictValid){
-                            if (info[0] == conflictValid[i]){
-                                return "conflict"
-                            }
-                        }
-                        for(var i in conflictInvalid){
-                            if (info[0] == conflictInvalid[i]){
-                                return "error"
-                            }
-                        }
-                        return ""
-                    }
                 }
             }
 
@@ -144,59 +142,43 @@ Item {
         }
 
         Rectangle {
-            id: allCategoriesArea
+            id: systemCategoriesArea
             width: parent.width
-            height: content.height
+            height: childrenRect.height
             color: dconstants.bgColor
             visible: searchResultListView.keyword == ""
 
-            property var expandItems: ObjectModel {
-                ObjectModelItem {
-                    id: systemItem
-                    property string name: dsTr("System")
-                    property var myIndex: ObjectModel.index
-                    property var keyBindings: bindManagerId.systemList
-                }
-
-                ObjectModelItem {
-                    id: mediaItem
-                    property string name: dsTr("Sound and Media")
-                    property var myIndex: ObjectModel.index
-                    property var keyBindings: bindManagerId.mediaList
-                }
-
-                ObjectModelItem {
-                    id: windowItem
-                    property string name: dsTr("Window")
-                    property var myIndex: ObjectModel.index
-                    property var keyBindings: bindManagerId.windowList
-                }
-
-                ObjectModelItem {
-                    id: workspaceItem
-                    property string name: dsTr("Workspace")
-                    property var myIndex: ObjectModel.index
-                    property var keyBindings: bindManagerId.workSpaceList
-                }
-            }
-
             Column {
-                id: content
-                anchors.top: parent.top
                 width: parent.width
-                
+                height: childrenRect.height
+
                 Repeater {
-                    id: repeater
-                    model: allCategoriesArea.expandItems
+                    id: systemShortcutCategoryList
+                    width: parent.width
+                    height: childrenRect.height
+                    model: {
+                        var myModel = listModelComponent.createObject(systemShortcutCategoryList, {})
+                        for(var key in categoryObjects){
+                            myModel.append({
+                                "name": categoryObjects[key],
+                                "propertyName": key
+                            })
+                        }
+                        return myModel
+                    }
+                    delegate: ShortcutCategoryItem{}
                 }
 
                 CustomKeybindingExpand {
                     id: customItem
                     property string name: dsTr("Custom Shortcuts")
                     property var keyBindings: bindManagerId.customList
+                    listMaxHeight: shortcutsModule.height - keybindingTitleColumn.height - keybindingListColumn.height
                 }
-            } // End of content
+            }
         }
+    }
 
+    Component.onCompleted: {
     }
 }

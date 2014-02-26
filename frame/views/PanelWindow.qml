@@ -46,10 +46,7 @@ Window {
     function hideTrayIcon() {
         if(clickedToHide){
             if(!hideAll.running){
-                if(showTray.running){
-                    showTray.stop()
-                }
-                else if(showAll.running){
+                if(showAll.running){
                     showAll.stop()
                 }
                 hideAll.start()
@@ -70,19 +67,6 @@ Window {
         }
     }
 
-    PropertyAnimation {
-        id: showTray
-        duration: 200
-        target: rootWindow
-        properties: "displayWidth"
-        to: trayWidth
-
-        onStarted: {
-            rootWindow.width = panelWidth
-            rootWindow.show()
-        }
-    }
-
     SmoothedAnimation {
         id: showAll
         duration: 300
@@ -91,7 +75,7 @@ Window {
         to: panelWidth
 
         onStarted: {
-            rootWindow.width = panelWidth
+            rootWindow.width = panelWidth + 16
             rootWindow.show()
         }
     }
