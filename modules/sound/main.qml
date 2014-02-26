@@ -6,7 +6,8 @@ import DBus.Com.Deepin.Daemon.Audio 1.0
 
 Column {
     id: soundModule
-    anchors.fill: parent
+    width: parent.width
+    height: childrenRect.height
 
     property int contentLeftMargin: 22
     property int lineHeight: 30
@@ -20,11 +21,7 @@ Column {
 
     property var currentSink: inputDeviceList.currentItem.itemObj
     property var currentSource: outputDeviceList.currentItem.itemObj
-
-    move: Transition {
-        SmoothedAnimation { property: "y"; duration: 100 }
-    }
-
+    
     Component.onCompleted: {
         if (dsslocale.lang == "zh") {
             leftWidth = 80
@@ -40,7 +37,7 @@ Column {
         id: sourceComponent
         AudioSource {}
     }
-
+    
     Column {
         id: titleColumn
         width: parent.width
@@ -53,132 +50,144 @@ Column {
         DSeparatorHorizontal{}
     }
 
-    DBaseLine{height: 8; visible: !link_button_column.isAdvanced}
-    DBaseLine {
+    Column {
+        id: normalSettings
+        width: parent.width
+        height: childrenRect.height
         visible: !link_button_column.isAdvanced
-        leftLoader.sourceComponent: DssH2 {
-            text: dsTr("Speaker")
-            color: titleColor
-        }
+        
+        DBaseLine{height: 8}
+        DBaseLine {
+            leftLoader.sourceComponent: DssH2 {
+                text: dsTr("Speaker")
+                color: titleColor
+            }
 
-        rightLoader.sourceComponent: Component{
-            DSwitchButton {
-                checked: !currentSink.mute
-                onClicked: {
-                    currentSink.mute = !checked
+            rightLoader.sourceComponent: Component{
+                DSwitchButton {
+                    checked: !currentSink.mute
+                    onClicked: {
+                        currentSink.mute = !checked
+                    }
                 }
             }
         }
-    }
 
-    Column {
-        id: outputColumn
-        width: parent.width
-        height: childrenRect.height
-        visible: !currentSink.mute && !link_button_column.isAdvanced
+        Column {
+            id: outputColumn
+            width: parent.width
+            height: currentSink.mute ? 0 : childrenRect.height
+            visible: !currentSink.mute
+            
+            Behavior on height {
+                NumberAnimation { duration: 100 }
+            }
+            
+            DSeparatorHorizontal {}
+
+            DBaseLine {
+                height: contentHeight
+                leftMargin: contentLeftMargin
+                leftLoader.sourceComponent: LeftTitle {
+                    text: dsTr("Output Volume")
+                }
+                rightLoader.sourceComponent: DSliderRect {
+                    width: sliderWidth
+                    leftLabel: dsTr("-")
+                    rightLabel: dsTr("+")
+
+                    value: currentSink.volume/100
+                    onValueChanged: {
+                        currentSink.volume = parseInt(value * 100)
+                    }
+                }
+            }
+
+            DBaseLine {
+                height: contentHeight
+                leftMargin: contentLeftMargin
+                leftLoader.sourceComponent: LeftTitle {
+                    text: dsTr("Balance")
+                }
+                rightLoader.sourceComponent: DSliderRect {
+                    width: sliderWidth
+                    leftLabel: dsTr("Left")
+                    rightLabel: dsTr("Right")
+
+                    value: (currentSink.balance+1)/2
+                    onValueChanged: {
+                        currentSink.balance = value * 2 - 1
+                    }
+                }
+            }
+        }
 
         DSeparatorHorizontal {}
 
+        DBaseLine {}
         DBaseLine {
-            height: contentHeight
-            leftMargin: contentLeftMargin
-            leftLoader.sourceComponent: LeftTitle {
-                text: dsTr("Output Volume")
+            leftLoader.sourceComponent: DssH2 {
+                text: dsTr("Microphone")
+                color: titleColor
             }
-            rightLoader.sourceComponent: DSliderRect {
-                width: sliderWidth
-                leftLabel: dsTr("-")
-                rightLabel: dsTr("+")
 
-                value: currentSink.volume/100
-                onValueChanged: {
-                    currentSink.volume = parseInt(value * 100)
+            rightLoader.sourceComponent: Component{
+                DSwitchButton {
+                    checked: !currentSource.mute
+                    onClicked: {
+                        currentSource.mute = !checked
+                    }
                 }
             }
         }
 
-        DBaseLine {
-            height: contentHeight
-            leftMargin: contentLeftMargin
-            leftLoader.sourceComponent: LeftTitle {
-                text: dsTr("Balance")
+        Column {
+            id: inputColumn
+            width: parent.width
+            height: currentSource.mute ? 0 : childrenRect.height
+            visible: !currentSource.mute
+            
+            Behavior on height {
+                NumberAnimation { duration: 100 }
             }
-            rightLoader.sourceComponent: DSliderRect {
-                width: sliderWidth
-                leftLabel: dsTr("Left")
-                rightLabel: dsTr("Right")
 
-                value: (currentSink.balance+1)/2
-                onValueChanged: {
-                    currentSink.balance = value * 2 - 1
+            DSeparatorHorizontal {}
+
+            DBaseLine {
+                height: contentHeight
+                leftMargin: contentLeftMargin
+                leftLoader.sourceComponent: LeftTitle {
+                    text: dsTr("Input Volume")
+                }
+                rightLoader.sourceComponent: DSliderRect {
+                    width: sliderWidth
+                    leftLabel: dsTr("-")
+                    rightLabel: dsTr("+")
+
+                    value: currentSource.volume/100
+                    onValueChanged: {
+                        currentSource.volume = parseInt(value * 100)
+                    }
+                }
+            }
+
+            DBaseLine {
+                height: contentHeight
+                leftMargin: contentLeftMargin
+                leftLoader.sourceComponent: LeftTitle {
+                    text: dsTr("Input Level")
+                }
+                rightLoader.sourceComponent: DSliderRect {
+                    width: sliderWidth
+
+                    value: (currentSource.balance+1)/2
+                    onValueChanged: {
+                        currentSource.balance = value * 2 - 1
+                    }
                 }
             }
         }
     }
-
-    DSeparatorHorizontal { visible: !link_button_column.isAdvanced }
-
-    DBaseLine { visible: !link_button_column.isAdvanced }
-    DBaseLine {
-        visible: !link_button_column.isAdvanced
-        leftLoader.sourceComponent: DssH2 {
-            text: dsTr("Microphone")
-            color: titleColor
-        }
-
-        rightLoader.sourceComponent: Component{
-            DSwitchButton {
-                checked: !currentSource.mute
-                onClicked: {
-                    currentSource.mute = !checked
-                }
-            }
-        }
-    }
-
-    Column {
-        id: inputColumn
-        width: parent.width
-        height: childrenRect.height
-        visible: !currentSource.mute && !link_button_column.isAdvanced
-
-        DSeparatorHorizontal {}
-
-        DBaseLine {
-            height: contentHeight
-            leftMargin: contentLeftMargin
-            leftLoader.sourceComponent: LeftTitle {
-                text: dsTr("Input Volume")
-            }
-            rightLoader.sourceComponent: DSliderRect {
-                width: sliderWidth
-                leftLabel: dsTr("-")
-                rightLabel: dsTr("+")
-
-                value: currentSource.volume/100
-                onValueChanged: {
-                    currentSource.volume = parseInt(value * 100)
-                }
-            }
-        }
-
-        DBaseLine {
-            height: contentHeight
-            leftMargin: contentLeftMargin
-            leftLoader.sourceComponent: LeftTitle {
-                text: dsTr("Input Level")
-            }
-            rightLoader.sourceComponent: DSliderRect {
-                width: sliderWidth
-
-                value: (currentSource.balance+1)/2
-                onValueChanged: {
-                    currentSource.balance = value * 2 - 1
-                }
-            }
-        }
-    }
-
 
     Column {
         id: advancedSettings
@@ -366,7 +375,7 @@ Column {
         width: parent.width
         height: childrenRect.height
         property bool isAdvanced: false
-
+        
         DSeparatorHorizontal {}
 
         DBaseLine{
@@ -377,13 +386,11 @@ Column {
                     link_button_column.isAdvanced = !link_button_column.isAdvanced
                     shadow.visible = !link_button_column.isAdvanced
                     advancedSettings.visible = link_button_column.isAdvanced
+                    soundModule.height = titleColumn.height + link_button_column.height + link_button_column.isAdvanced ? advancedSettings.height : normalSettings.height
                 }
             }
         }
-
-        DBaseLine {             /* Do _NOT_ delete this. */
-            id: shadow
-            height: 200
-        }
+        
+        DBaseLine { id: shadow; height: 200; }
     }
 }
