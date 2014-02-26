@@ -106,18 +106,6 @@ Item {
             height: contentHeight
             centerPadding: centerPadding
             leftWidth: titleWidth
-            title.text: dsTr("Repeat Test")
-
-            content.sourceComponent: DTextInput {
-                id: testRepeatIntervalInput
-                width: sliderWidth
-            }
-        }
-
-        DCenterLine {
-            height: contentHeight
-            centerPadding: centerPadding
-            leftWidth: titleWidth
             title.text: dsTr("Cursor Blink")
 
             content.sourceComponent: DSliderRect{
@@ -140,22 +128,14 @@ Item {
             height: contentHeight
             centerPadding: centerPadding
             leftWidth: titleWidth
-            title.text: dsTr("Cursor Blink Show")
+            title.text: dsTr("Test Area")
 
-            content.sourceComponent: Rectangle {
-                width: 1
-                height: 14
-                color: "white"
-                anchors.verticalCenter: parent.verticalCenter
-
-                Timer {
-                    running: true
-                    interval: keyboardID.cursorBlink/2
-                    repeat: true
-                    onTriggered: parent.visible = !parent.visible
-                }
+            content.sourceComponent: DTextInput {
+                id: testRepeatIntervalInput
+                width: sliderWidth
             }
         }
+
         DSeparatorHorizontal {}
     }
 
