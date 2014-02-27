@@ -63,7 +63,7 @@ Rectangle {
             expanded: true
             header.sourceComponent: DBaseLine {
                 leftLoader.sourceComponent: DssH2 {
-                    text: dsTr("When I press the sleep button")
+                    text: dsTr("When I press the power button")
                 }
             }
             content.sourceComponent: DMultipleSelectView {
