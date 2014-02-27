@@ -56,7 +56,7 @@ Item {
         width: parent.width
         height: myRealHeight
         x: 0
-        y: link_button_column.isAdvanced ? 40 - myRealHeight : 40
+        y: link_button_column.isAdvanced ? titleColumn.height - myRealHeight : titleColumn.height
         property int myRealHeight: childrenRect.height
         clip: true
 
@@ -403,7 +403,6 @@ Item {
                 text: link_button_column.isAdvanced ? dsTr("Hide Advanced...") : dsTr("Show Advanced...")
                 onClicked: {
                     link_button_column.isAdvanced = !link_button_column.isAdvanced
-                    shadow.visible = !link_button_column.isAdvanced
                 }
             }
         }
