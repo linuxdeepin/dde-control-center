@@ -62,12 +62,12 @@ Rectangle {
         panelContent.isSiderNavigate = true
 
         var item = navigateIconModel.get(0)
-        if(item.modulesId != "home"){
+        if(item.moduleId != "home"){
             navigateIconModel.insert(0, { "moduleId": "home" })
         }
 
         var item = navigateIconModel.get(navigateIconModel.count-1)
-        if(item.modulesId != "shutdown"){
+        if(item.moduleId != "shutdown"){
             navigateIconModel.append({ "moduleId": "shutdown" })
         }
     }
@@ -76,11 +76,11 @@ Rectangle {
         panelContent.isSiderNavigate = false
 
         var item = navigateIconModel.get(0)
-        if(item.modulesId == "home"){
+        if(item.moduleId == "home"){
             navigateIconModel.remove(0)
         }
         var item = navigateIconModel.get(navigateIconModel.count-1)
-        if(item.modulesId == "shutdown"){
+        if(item.moduleId == "shutdown"){
             navigateIconModel.remove(navigateIconModel.count - 1)
         }
     }

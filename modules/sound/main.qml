@@ -3,11 +3,11 @@ import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Audio 1.0
+import "../shared/"
 
-Column {
+Item {
     id: soundModule
-    width: parent.width
-    height: childrenRect.height
+    anchors.fill: parent
 
     property int contentLeftMargin: 22
     property int lineHeight: 30
@@ -37,11 +37,12 @@ Column {
         id: sourceComponent
         AudioSource {}
     }
-    
+
     Column {
         id: titleColumn
         width: parent.width
         height: childrenRect.height
+        z: 1
 
         DssTitle {
             text: dsTr("Sound")
@@ -49,12 +50,19 @@ Column {
 
         DSeparatorHorizontal{}
     }
-
+    
     Column {
         id: normalSettings
         width: parent.width
-        height: childrenRect.height
-        visible: !link_button_column.isAdvanced
+        height: myRealHeight
+        x: 0
+        y: link_button_column.isAdvanced ? 40 - myRealHeight : 40
+        property int myRealHeight: childrenRect.height
+        clip: true
+
+        Behavior on y{
+            PropertyAnimation {duration: 200}
+        }
         
         DBaseLine{height: 8}
         DBaseLine {
@@ -77,7 +85,7 @@ Column {
             id: outputColumn
             width: parent.width
             height: currentSink.mute ? 0 : childrenRect.height
-            visible: !currentSink.mute
+            clip: true
             
             Behavior on height {
                 NumberAnimation { duration: 100 }
@@ -141,17 +149,17 @@ Column {
             }
         }
 
+        DSeparatorHorizontal {}
+
         Column {
             id: inputColumn
             width: parent.width
             height: currentSource.mute ? 0 : childrenRect.height
-            visible: !currentSource.mute
             
             Behavior on height {
                 NumberAnimation { duration: 100 }
             }
 
-            DSeparatorHorizontal {}
 
             DBaseLine {
                 height: contentHeight
@@ -186,14 +194,22 @@ Column {
                     }
                 }
             }
+
+            DSeparatorHorizontal {}
         }
     }
 
     Column {
         id: advancedSettings
+        anchors.top: normalSettings.bottom
         width: parent.width
-        height: childrenRect.height
-        visible: link_button_column.isAdvanced
+        height: link_button_column.isAdvanced ? myRealHeight : 0
+        property int myRealHeight: childrenRect.height
+        clip: true
+
+        Behavior on height {
+            PropertyAnimation {duration: 200}
+        }
 
         DBaseLine {
             leftLoader.sourceComponent: DssH2 {
@@ -221,7 +237,8 @@ Column {
             ListView {
                 id: outputPortList
                 focus: true
-                currentIndex: currentSink.activePort
+
+                property int selectItemId: currentSink.activePort
 
                 model: {
                     var outputPortListModel = listModelComponent.createObject(outputPortList, {})
@@ -234,14 +251,17 @@ Column {
                         portObj['choose'] = ports[i][2]
 
                         outputPortListModel.append({
-                                                       "name": ports[i][1],
-                                                       "obj": portObj
-                                                   })
+                            "item_id": i,
+                            "item_name": portObj['name']
+                        })
                     }
                     return outputPortListModel
                 }
 
-                delegate: ChooseItem {}
+                delegate: SelectItem {
+                    totalItemNumber: outputPortList.count
+                    selectItemId: String(outputPortList.selectItemId)
+                }
             }
         }
 
@@ -372,12 +392,11 @@ Column {
 
     Column {
         id: link_button_column
+        anchors.top: advancedSettings.bottom
         width: parent.width
         height: childrenRect.height
         property bool isAdvanced: false
         
-        DSeparatorHorizontal {}
-
         DBaseLine{
             rightLoader.sourceComponent: LinkButton {
                 id: link_button
@@ -385,12 +404,8 @@ Column {
                 onClicked: {
                     link_button_column.isAdvanced = !link_button_column.isAdvanced
                     shadow.visible = !link_button_column.isAdvanced
-                    advancedSettings.visible = link_button_column.isAdvanced
-                    soundModule.height = titleColumn.height + link_button_column.height + link_button_column.isAdvanced ? advancedSettings.height : normalSettings.height
                 }
             }
         }
-        
-        DBaseLine { id: shadow; height: 200; }
     }
 }

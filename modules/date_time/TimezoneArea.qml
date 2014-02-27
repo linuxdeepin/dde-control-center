@@ -1,6 +1,7 @@
 import QtQuick 2.1
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Api.Search 1.0
+import "../shared/"
 
 Column {
     id: timezoneArea
@@ -74,27 +75,31 @@ Column {
             id: userTimezoneListView
             width: parent.width
             height: model.count * 28 > listAreaMaxHeight ? listAreaMaxHeight : model.count * 28
+            clip: true
 
             model: {
                 var myListModel = listModelComponent.createObject(userTimezoneListView, {})
                 for(var i in userTimezoneList){
                     var timezoneValue = userTimezoneList[i]
                     myListModel.append({
-                        "value": timezoneValue,
-                        "label": timezoneCityDict[timezoneValue]
+                        "item_id": timezoneValue,
+                        "item_name": timezoneCityDict[timezoneValue]
                     })
                 }
                 return myListModel
             }
 
-            delegate: TimezoneItem {
-                selectedItemValue: windowView.stripString(gDate.currentTimezone)
+            delegate: SelectItem {
+                totalItemNumber: userTimezoneListView.count
+                selectItemId: windowView.stripString(gDate.currentTimezone)
                 inDeleteAction: timezoneArea.currentActionStateName == "deleteButton"
+
                 onDeleteAction: {
-                    gDate.DeleteTimezoneList(itemValue)
+                    gDate.DeleteTimezoneList(itemId)
                 }
                 onSelectAction: {
-                    gDate.SetTimeZone(itemValue)
+                    print(itemId)
+                    gDate.SetTimeZone(itemId)
                 }
             }
 
