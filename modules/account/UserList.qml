@@ -43,7 +43,7 @@ ListView {
         Rectangle{
             id: component_bg
             color: "#1A1B1B"
-            state: fromPanelAvatar ? index == 0 ? "edit_dialog" : "invisible" : "normal"
+            state: root.fromPanelAvatar ? index == 0 ? "edit_dialog" : "invisible" : "normal"
 
             width: 310
             height: delete_line.height + component_sep.height
@@ -202,11 +202,9 @@ ListView {
                         onClicked: {
                             if (component_bg.state == "normal") {
                                 component_bg.state = "edit_dialog"
-                                delete_line.expandButtonUp = true
                                 root.hideAllPrivate(index)
                             } else {
                                 component_bg.state = "normal"
-                                delete_line.expandButtonUp = false
                                 root.showAllPrivate()
                             }
                         }
