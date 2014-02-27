@@ -7,16 +7,15 @@ Rectangle {
     color: constants.bgColor
     width: 310
     height: 600
-
-    Accounts { id: dbus_accounts }
-    User { id: dbus_user}
-
     property var constants: DConstants {}
     
+    Accounts { id: dbus_accounts }
+    User { id: dbus_user}
+    
     function showCurrentUserDetail () {
-        user_list.currentUserDetail()
+        user_list.showCurrentUserDetail()
     }
-
+    
     Column {
         id: main_column
         state: "normal"
@@ -119,7 +118,7 @@ Rectangle {
 
         UserList {
             id: user_list
-
+            
             Connections {
                 target: dbus_accounts
                 onUserAdded: {

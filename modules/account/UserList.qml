@@ -10,11 +10,16 @@ ListView {
     property int rightPadding: 15
     property int avatarNamePadding: 30
 
+    property bool fromPanelAvatar
+
     signal hideAllPrivate (int idx)
     signal showAllPrivate ()
     signal allNormal ()
     signal allAction ()
-    signal currentUserDetail ()
+
+    function showCurrentUserDetail () {
+        fromPanelAvatar = true
+    }
 
     function addUser(path) {
         dbus_user.path = path
@@ -38,7 +43,7 @@ ListView {
         Rectangle{
             id: component_bg
             color: "#1A1B1B"
-            state: "normal"
+            state: fromPanelAvatar ? index == 0 ? "edit_dialog" : "invisible" : "normal"
 
             width: 310
             height: delete_line.height + component_sep.height
@@ -49,24 +54,12 @@ ListView {
 
                 onHideAllPrivate: {
                     if (idx != index) {
-                        component_bg.height = 0
-                        component_bg.visible = false
+                        component_bg.state = "invisible"
                     }
                 }
                 onShowAllPrivate: {
                     if (component_bg.height == 0) {
-                        component_bg.height = 100 + 2
-                        component_bg.visible = true                        
-                    }
-                }
-                
-                onCurrentUserDetail: {
-                    if (index == 0) {
-                        component_bg.height = 100 + 1
-                        component_bg.visible = true
-                    } else {
-                        component_bg.height = 0
-                        component_bg.visible = false
+                        component_bg.state = "normal"
                     }
                 }
 
@@ -86,21 +79,56 @@ ListView {
                 width: component_bg.width
                 height: 100
                 moveDelta: 50
+                
+                state: "normal"
 
                 property bool deleteUserDialogVisible
                 property bool editUserDialogVisible
                 property bool nameColumnVisible
                 property bool expandButtonVisible
-                property bool expandButtonUp: false
-                property string expandButtonStatus: "normal"
+                property bool expandButtonUp
 
-                property int roundImageRadius: 25
-                property color nameColor: "white"
+                property int roundImageRadius
+                property color nameColor
+                property string expandButtonStatus
 
                 onAction: {
                     component_bg.state = "delete_dialog"
                     delete_line.shrink()
                 }
+
+                states: [
+                    State {
+                        name: "hover_shrinked"
+                        PropertyChanges {
+                            target: delete_line
+                            roundImageRadius: 30
+                            nameColor: "#faca57"
+                            expandButtonStatus: "hover"
+                            expandButtonUp: false
+                        }
+                    },
+                    State {
+                        name: "hover_expanded"
+                        PropertyChanges {
+                            target: delete_line
+                            roundImageRadius: 30
+                            nameColor: "#faca57"
+                            expandButtonStatus: "hover"
+                            expandButtonUp: true                            
+                        }
+                    },                    
+                    State {
+                        name: "normal"
+                        PropertyChanges {
+                            target: delete_line
+                            roundImageRadius: 25
+                            nameColor: "white"
+                            expandButtonStatus: "normal"
+                            expandButtonUp: false
+                        }
+                    }
+                ]
 
                 content: Item {
                     id: component_top
@@ -185,18 +213,14 @@ ListView {
 
                         onEntered: {
                             if (component_bg.state == "normal") {
-                                delete_line.roundImageRadius = 30
-                                delete_line.nameColor = "#faca57"
-                                delete_line.expandButtonStatus = "hover"
+                                delete_line.state = "hover_shrinked"
                             }
                         }
 
                         onExited: {
                             if (component_bg.state != "edit_dialog")
                             {
-                                delete_line.roundImageRadius = 25
-                                delete_line.nameColor = "white"
-                                delete_line.expandButtonStatus = "normal"
+                                delete_line.state = "normal"
                             }
                         }
                     }
@@ -220,6 +244,7 @@ ListView {
                     name: "normal"
                     PropertyChanges {
                         target: delete_line
+                        state: "normal"
                         deleteUserDialogVisible: false
                         editUserDialogVisible: false
                         nameColumnVisible: true
@@ -231,9 +256,26 @@ ListView {
                     }
                 },
                 State {
+                    name: "invisible"
+                    PropertyChanges {
+                        target: delete_line
+                        state: "normal"                        
+                        deleteUserDialogVisible: false
+                        editUserDialogVisible: false
+                        nameColumnVisible: true
+                        expandButtonVisible: true
+                    }
+                    PropertyChanges {
+                        target: component_bg
+                        height: 0
+                        visible: false
+                    }
+                },
+                State {
                     name: "action"
                     PropertyChanges {
                         target: delete_line
+                        state: "normal"                        
                         deleteUserDialogVisible: false
                         editUserDialogVisible: false
                         nameColumnVisible: true
@@ -248,6 +290,7 @@ ListView {
                     name: "delete_dialog"
                     PropertyChanges {
                         target: delete_line
+                        state: "normal"                        
                         deleteUserDialogVisible: true
                         editUserDialogVisible: false
                         nameColumnVisible: false
@@ -262,6 +305,7 @@ ListView {
                     name: "edit_dialog"
                     PropertyChanges {
                         target: delete_line
+                        state: "hover_expanded"                        
                         deleteUserDialogVisible: false
                         editUserDialogVisible: true
                         nameColumnVisible: true
@@ -285,14 +329,16 @@ ListView {
         }
     }
 
-    model: ListModel { id: user_list_model }
+    model: ListModel {
+        id: user_list_model
 
-    delegate: delegate_component
-
-    Component.onCompleted: {
-        var cached_users = dbus_accounts.userList
-        for (var i = 0; i < cached_users.length; i++) {
-            root.addUser(cached_users[i])
+        Component.onCompleted: {
+            var cached_users = dbus_accounts.userList
+            for (var i = 0; i < cached_users.length; i++) {
+                root.addUser(cached_users[i])
+            }
         }
     }
+
+    delegate: delegate_component
 }
