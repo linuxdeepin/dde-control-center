@@ -60,14 +60,29 @@ Rectangle {
 
     function addHomeShutdownButton() {
         panelContent.isSiderNavigate = true
-        navigateIconModel.insert(0, { "moduleId": "home" })
-        navigateIconModel.append({ "moduleId": "shutdown" })
+
+        var item = navigateIconModel.get(0)
+        if(item.modulesId != "home"){
+            navigateIconModel.insert(0, { "moduleId": "home" })
+        }
+
+        var item = navigateIconModel.get(navigateIconModel.count-1)
+        if(item.modulesId != "shutdown"){
+            navigateIconModel.append({ "moduleId": "shutdown" })
+        }
     }
 
     function removeHomeShutdownButton() {
         panelContent.isSiderNavigate = false
-        navigateIconModel.remove(0)
-        navigateIconModel.remove(navigateIconModel.count - 1)
+
+        var item = navigateIconModel.get(0)
+        if(item.modulesId == "home"){
+            navigateIconModel.remove(0)
+        }
+        var item = navigateIconModel.get(navigateIconModel.count-1)
+        if(item.modulesId == "shutdown"){
+            navigateIconModel.remove(navigateIconModel.count - 1)
+        }
     }
 
     function shutdownButtonClicked(){
@@ -281,14 +296,13 @@ Rectangle {
                         inDssHome = true
                         trayIconTip.visible = false
                         toGridNavigateAnimation.start()
+                        if (frame.x != rootWindow.width - panelWidth){
+                            showAll.restart()
+                        }
                     }
                     else{
                         if (frame.x != rootWindow.width - panelWidth){
                             showAll.restart()
-                        }
-                        if( rightBox.visible == false ) { 
-                            rightBox.visible = true
-                            rightBox.opacity = 1
                         }
                         inDssHome = false
                         if(!panelContent.isSiderNavigate){
