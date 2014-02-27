@@ -11,6 +11,7 @@ Rectangle {
     color: Qt.rgba(1, 1, 1, 0)
 
     property bool isSelected: rightBoxLoaderItem.iconId == itemId
+    property bool isSiderNavigate: false
 
     onIsSelectedChanged: {
         if(isSelected){
@@ -22,14 +23,14 @@ Rectangle {
     }
 
     property string itemId: moduleId
-    property string iconPathHeader: "trayicons/" + moduleId
+    property string iconPathHeader: isSiderNavigate ? "small_icons/" + moduleId : "icons/" + moduleId
     property bool hover: false
     property url iconPath: windowView.isIconPluginExist(moduleId) ? '../../modules/' + moduleId + '/iconPlugin.qml' : ''
 
     QtObject {
         id: defaultIcon
         property url normalImage: iconPathHeader + '_normal.png'
-        property url hoverImage: iconPathHeader + '_press.png'
+        property url hoverImage: iconPathHeader + '_hover.png'
         property url pressImage: iconPathHeader + '_press.png'
     }
 
@@ -44,14 +45,12 @@ Rectangle {
     states: [
         State {
             name: "hovered"
-            PropertyChanges { target: outBox; color: dconstants.contentBgColor; }
             PropertyChanges { target: moduleIcon; source: pluginLoader.icon.hoverImage }
-            PropertyChanges { target: moduleName; color: Qt.rgba(0, 144/255, 1, 1.0) }
+            PropertyChanges { target: moduleName; color: "#FFF" }
         },
         State {
             name: "selected"
-            PropertyChanges { target: outBox; color: Qt.rgba(1, 1, 1, 0);}
-            PropertyChanges { target: moduleIcon; source: pluginLoader.icon.hoverImage; anchors.topMargin: 8 }
+            PropertyChanges { target: moduleIcon; source: pluginLoader.icon.pressImage; anchors.topMargin: 8 }
             PropertyChanges { target: moduleName; visible: false }
         }
     ]
@@ -62,14 +61,26 @@ Rectangle {
         }
     }
 
-    Rectangle {
-        id: outBox
+    Item {
         property int size: parent.width - 6
         width: size
         height: size
         anchors.centerIn: parent
-        radius: 3
-        color: Qt.rgba(1, 1, 1, 0)
+
+        Rectangle {
+            id: outBox
+            anchors.fill: parent
+            radius: 3
+            color: dconstants.contentBgColor
+            visible: {
+                if(isSiderNavigate){
+                    return false
+                }
+                else{
+                    return moduleIconItem.hover
+                }
+            }
+        }
 
         Image {
             id: moduleIcon
@@ -119,7 +130,7 @@ Rectangle {
             anchors.fill: parent
             hoverEnabled: true
             onClicked: {
-                moduleIconItem.GridView.view.iconClickAction(index, moduleIconItem.itemId)
+                moduleIconItem.GridView.view.iconClickAction(moduleIconItem.itemId)
             }
             onEntered: {
                 changeState("hovered")
