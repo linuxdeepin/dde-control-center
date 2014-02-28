@@ -15,19 +15,11 @@ Item {
     property int sliderWidth: 170
     property int leftWidth: 100
     property color titleColor: "#ffffff"
+    property int itemLabelLeftMargin: 22
 
     property var audioId: Audio {}
     property var listModelComponent: DListModelComponent {}
-
-    property var currentSink: inputDeviceList.currentItem.itemObj
-    property var currentSource: outputDeviceList.currentItem.itemObj
     
-    Component.onCompleted: {
-        if (dsslocale.lang == "zh") {
-            leftWidth = 80
-        }
-    }
-
     Component {
         id: sinkComponent
         AudioSink {}
@@ -36,6 +28,35 @@ Item {
     Component {
         id: sourceComponent
         AudioSource {}
+    }
+
+    property var allSources: {
+        var sourceList = new Array()
+        var sourcePaths = audioId.GetSources()
+        for(var i=0; i<sourcePaths.length; i++){
+            var sourceObj = sourceComponent.createObject(soundModule, { path: sourcePaths[i] })
+            sourceList.push(sourceObj)
+        }
+        return sourceList
+    }
+
+    property var allSinks: {
+        var sinkList = new Array()
+        var sinkPaths = audioId.GetSinks()
+        for(var i=0; i<sinkPaths.length; i++){
+            var sinkObj = sinkComponent.createObject(soundModule, { path: sinkPaths[i] })
+            sinkList.push(sinkObj)
+        }
+        return sinkList
+    }
+
+    property var currentSink: allSinks[audioId.defaultSink]
+    property var currentSource: allSources[audioId.defaultSource]
+
+    Component.onCompleted: {
+        if (dsslocale.lang == "zh") {
+            leftWidth = 80
+        }
     }
 
     Column {
@@ -201,24 +222,16 @@ Item {
 
     Column {
         id: advancedSettings
-        anchors.top: normalSettings.bottom
         width: parent.width
         height: link_button_column.isAdvanced ? myRealHeight : 0
-        property int myRealHeight: childrenRect.height
+        anchors.top: normalSettings.bottom
         clip: true
+
+        property int myRealHeight: childrenRect.height
 
         Behavior on height {
             PropertyAnimation {duration: 200}
         }
-
-        DBaseLine {
-            leftLoader.sourceComponent: DssH2 {
-                text: dsTr("Output")
-                color: titleColor
-            }
-        }
-
-        DSeparatorHorizontal {}
 
         DBaseLine{
             leftMargin: contentLeftMargin
@@ -234,35 +247,46 @@ Item {
             height: childrenRect.height
             color: dconstants.contentBgColor
 
+            DBaseLine{
+                visible: outputPortList.count == 0
+                color: dconstants.contentBgColor
+                leftMargin: itemLabelLeftMargin
+                leftLoader.sourceComponent: DssH3{
+                    text: dsTr("No port exist in this device.")
+                }
+            }
+
             ListView {
                 id: outputPortList
-                focus: true
+                width: parent.width
+                height: childrenRect.height
+                visible: count != 0
 
                 property int selectItemId: currentSink.activePort
 
                 model: {
                     var outputPortListModel = listModelComponent.createObject(outputPortList, {})
                     var ports = currentSink.ports
-                    outputPortList.height = ports.length * lineHeight
                     for(var i=0; i<ports.length; i++){
-                        var portObj = {}
-                        portObj['id'] = ports[i][0]
-                        portObj['name'] = ports[i][1]
-                        portObj['choose'] = ports[i][2]
-
                         outputPortListModel.append({
                             "item_id": i,
-                            "item_name": portObj['name']
+                            "item_name": ports[i][1]
                         })
                     }
                     return outputPortListModel
                 }
 
                 delegate: SelectItem {
+                    labelLeftMargin: itemLabelLeftMargin
                     totalItemNumber: outputPortList.count
                     selectItemId: String(outputPortList.selectItemId)
+
+                    onSelectAction: {
+                        currentSink.SetSinkPort(itemId)
+                    }
                 }
-            }
+            } // End of outputPortList
+
         }
 
         DSeparatorHorizontal{}
@@ -270,47 +294,52 @@ Item {
         DBaseLine{
             leftMargin: contentLeftMargin
             leftLoader.sourceComponent: DssH2 {
-                text: dsTr("Choose audio output device")
+                text: dsTr("Output device")
             }
         }
 
         DSeparatorHorizontal {}
 
-        ListView{
-            id: inputDeviceList
-            property int lineHeight: 30
-
+        Rectangle {
             width: parent.width
+            height: childrenRect.height
+            color: dconstants.contentBgColor
 
-            model: {
-                var inputDeviceListModel = listModelComponent.createObject(inputDeviceList, {})
-                var sinkPaths = audioId.GetSinks()
-                inputDeviceList.height = sinkPaths.length * lineHeight
-                for(var i=0; i<sinkPaths.length; i++){
-                    var sinkObj = sinkComponent.createObject(soundModule, { path: sinkPaths[i] })
-                    inputDeviceListModel.append({
-                                                    "name": sinkObj.description,
-                                                    "obj": sinkObj
-                                                })
+            ListView{
+                id: outputDeviceList
+                width: parent.width
+                height: count * 28
+
+                property int selectItemId: audioId.defaultSink
+
+                model: {
+                    var outputDeviceListModel = listModelComponent.createObject(outputDeviceList, {})
+                    for(var i=0; i<allSinks.length; i++){
+                        outputDeviceListModel.append({
+                            "item_id": i,
+                            "item_name": allSinks[i].description
+                        })
+                    }
+                    return outputDeviceListModel
                 }
-                return inputDeviceListModel
-            }
 
-            delegate: ChooseItem {}
+                delegate: SelectItem{
+                    labelLeftMargin: itemLabelLeftMargin
+                    totalItemNumber: outputDeviceList.count
+                    selectItemId: String(outputDeviceList.selectItemId)
+
+                    onSelectAction: {
+                        audioId.defaultSink = itemId
+                    }
+                }
+            } // End of inputDeviceList
+
         }
 
 
         DSeparatorHorizontal{}
 
-        DBaseLine {
-            leftLoader.sourceComponent: DssH2 {
-                text: dsTr("Input")
-                color: titleColor
-            }
-        }
-
-        DSeparatorHorizontal {}
-
+        DBaseLine {}
         DBaseLine{
             leftMargin: contentLeftMargin
             leftLoader.sourceComponent: DssH2 {
@@ -325,31 +354,46 @@ Item {
             height: childrenRect.height
             color: dconstants.contentBgColor
 
+            DBaseLine{
+                visible: inputPortList.count == 0
+                color: dconstants.contentBgColor
+                leftMargin: itemLabelLeftMargin
+                leftLoader.sourceComponent: DssH3{
+                    text: dsTr("No port exist in this device.")
+                }
+            }
+
             ListView {
                 id: inputPortList
-                focus: true
-                currentIndex: currentSource.activePort
+                width: parent.width
+                height: childrenRect.height
+                visible: count != 0
+
+                property int selectItemId: currentSource.activePort
 
                 model: {
                     var inputPortListModel = listModelComponent.createObject(inputPortList, {})
                     var ports = currentSource.ports
-                    inputPortList.height = ports.length * lineHeight
                     for(var i=0; i<ports.length; i++){
-                        var portObj = {}
-                        portObj['id'] = ports[i][0]
-                        portObj['name'] = ports[i][1]
-                        portObj['choose'] = ports[i][2]
-
                         inputPortListModel.append({
-                                                      "name": ports[i][1],
-                                                      "obj": portObj
-                                                  })
+                            "item_id": i,
+                            "item_name": ports[i][1]
+                        })
                     }
                     return inputPortListModel
                 }
 
-                delegate: ChooseItem {}
-            }
+                delegate: SelectItem {
+                    labelLeftMargin: itemLabelLeftMargin
+                    totalItemNumber: inputPortList.count
+                    selectItemId: String(inputPortList.selectItemId)
+
+                    onSelectAction: {
+                        currentSource.SetSourcePort(itemId)
+                    }
+                }
+            } // End of outputPortList
+
         }
 
         DSeparatorHorizontal {}
@@ -357,34 +401,44 @@ Item {
         DBaseLine{
             leftMargin: contentLeftMargin
             leftLoader.sourceComponent: DssH2 {
-                text: dsTr("Choose audio input device")
+                text: dsTr("Input device")
             }
         }
         DSeparatorHorizontal {}
 
-        ListView{
-            id: outputDeviceList
-            property int lineHeight: 30
-
+        Rectangle {
             width: parent.width
-            height: model.count * lineHeight
-            currentIndex: 1
+            height: childrenRect.height
+            color: dconstants.contentBgColor
 
-            model: {
-                var outputDeviceListModel = listModelComponent.createObject(outputDeviceList, {})
-                var sourcePaths = audioId.GetSources()
-                outputDeviceList.height = sourcePaths.length * lineHeight
-                for(var i=0; i<sourcePaths.length; i++){
-                    var sourceObj = sourceComponent.createObject(soundModule, { path: sourcePaths[i] })
-                    outputDeviceListModel.append({
-                                                     "name": sourceObj.description,
-                                                     "obj": sourceObj
-                                                 })
+            ListView{
+                id: inputDeviceList
+                width: parent.width
+                height: childrenRect.height
+
+                property int selectItemId: audioId.defaultSource
+
+                model: {
+                    var inputDeviceListModel = listModelComponent.createObject(inputDeviceList, {})
+                    for(var i=0; i<allSources.length; i++){
+                        inputDeviceListModel.append({
+                            "item_id": i,
+                            "item_name": allSources[i].description
+                        })
+                    }
+                    return inputDeviceListModel
                 }
-                return outputDeviceListModel
-            }
 
-            delegate: ChooseItem {}
+                delegate: SelectItem{
+                    labelLeftMargin: itemLabelLeftMargin
+                    totalItemNumber: inputDeviceList.count
+                    selectItemId: String(inputDeviceList.selectItemId)
+
+                    onSelectAction: {
+                        audioId.defaultSource = itemId
+                    }
+                }
+            }
         }
 
         DSeparatorHorizontal {}

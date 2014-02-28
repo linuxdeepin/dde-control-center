@@ -37,7 +37,7 @@ Rectangle {
             name: "pressed"
             PropertyChanges { target: label; color: hoverColor }
             PropertyChanges { target: underLine; opacity: 1 }
-            PropertyChanges { target: linkButtonWidget; color: Qt.rgba(0, 0, 0, 0.1) }
+            //PropertyChanges { target: linkButtonWidget; color: Qt.rgba(0, 0, 0, 0.1) }
         }
     ]
 
