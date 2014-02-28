@@ -20,6 +20,7 @@ Item {
     property bool grabFlag: false
     property bool showDelete: false
     property int contentLeftMargin: 22
+    property bool hovered: false
 
     Behavior on height {
         PropertyAnimation { duration: 100 }
@@ -109,7 +110,7 @@ Item {
             horizontalAlignment: Text.AlignRight
             verticalAlignment: Text.AlignVCenter
             font.pixelSize: 11
-            color: dconstants.fgColor
+            color: hovered ? dconstants.hoverColor :  dconstants.fgColor
             text: shortcutName? shortcutName : "Disable"
             visible: !grabFlag
         }
@@ -160,6 +161,15 @@ Item {
             height: parent.height
             width: grabKeyAreaWidth + 12
             anchors.right: parent.right
+            hoverEnabled: true
+
+            onEntered: {
+                hovered = true
+            }
+            onExited: {
+                hovered = false
+            }
+
             onClicked: {
                 if(stopSetKeyBinding) return;
                 if(showDelete) return;
