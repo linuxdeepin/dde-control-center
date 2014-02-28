@@ -44,26 +44,68 @@ Item {
             }
         }
 
-        Column {
+        ListView {
+            id: entries_list
+            width: 100
+            height: root.height / 2
+
             anchors.left: parent.left
             anchors.top: parent.top
             anchors.leftMargin: 50
             anchors.topMargin: 50
-            Repeater {
-                model: ListModel {}
-                delegate: Text {
+
+            highlight: Rectangle { color: Qt.rgba(1, 1, 1, 0.3); radius: 2 }
+
+            model: ListModel {}
+            delegate: Item {
+                width: 160
+                height: entry_name.implicitHeight + 4
+
+                Text {
+                    id: entry_name
                     text: itemTitle
                     font.pixelSize: 7
                     color: itemTitle == dbus_grub2.defaultEntry ? dbus_grub2_theme.selectedItemColor : dbus_grub2_theme.itemColor
-                }
 
-                Component.onCompleted: {
-                    var entries = dbus_grub2.GetSimpleEntryTitles();
-                    for (var i = 0; i < entries.length; i++) {
-                        model.append({"itemTitle": entries[i]})
-                    }
+                    anchors.left: parent.left
+                    anchors.leftMargin: 20
+                    anchors.verticalCenter: parent.verticalCenter
                 }
             }
+
+            function getCurrentIndex () {
+                var entries = dbus_grub2.GetSimpleEntryTitles()
+                for (var i = 0; i < entries.length; i++) {
+                    if (entries[i] == dbus_grub2.defaultEntry) {
+                        return i
+                    }
+                }
+                return 0
+            }
+
+            Connections {
+                target: dbus_grub2
+                onDefaultEntryChanged: {
+                    entries_list.currentIndex = entries_list.getCurrentIndex()
+                }
+            }
+
+            Component.onCompleted: {
+                var entries = dbus_grub2.GetSimpleEntryTitles();
+                for (var i = 0; i < entries.length; i++) {
+                    model.append({"itemTitle": entries[i]})
+                }
+            }
+        }
+
+        Text {
+            color: "#A34545"
+            font.pixelSize: 7
+            text: "Booting in " + dbus_grub2.timeout + " seconds"
+
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 10
         }
     }
 
@@ -77,7 +119,7 @@ Item {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 15
-        
+
         Behavior on opacity {
             SmoothedAnimation { duration: 200 }
         }
