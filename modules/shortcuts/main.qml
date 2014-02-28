@@ -22,35 +22,65 @@ Flickable {
 
     property int currentShortcutId: -1
     property int expandItemIndex: -1
-    property var conflictInvalid: bindManagerId.conflictInvalid
-    property var conflictValid: bindManagerId.conflictValid
+
+    property var stopSetKeyBinding: false
 
     property var categoryObjects: {
         "systemList": dsTr("System"),
         "mediaList": dsTr("Sound and Media"),
         "windowList": dsTr("Window"),
-        "workSpaceList": dsTr("Workspace")
+        "workSpaceList": dsTr("Workspace"),
+        "customList": dsTr("Custom Shortcuts")
     }
 
     property string searchMd5
     property string currentSearchKeyword: ""
-    property var searchObject: {
+    property var systemKeybindingsDict: {
         var keywords = {}
         var allKeybindings = {}
         for(var key in categoryObjects){
+            if(key=="customList") continue;
             for(var i in bindManagerId[key]){
                 var temp_list = bindManagerId[key][i]
                 keywords[temp_list[0]] = temp_list[1]
+                temp_list.push(key)
                 allKeybindings[temp_list[0]] = temp_list
             }
         }
         for(var i in bindManagerId.customList){
             var temp_list = bindManagerId.customList[i]
             keywords[temp_list[0]] = temp_list[1]
-            allKeybindings[temp_list[0]] = temp_list
         }
         shortcutsModule.searchMd5 = searchId.NewTrieWithString(keywords, "deepin-system-settings.shortcuts")
         return allKeybindings
+    }
+
+    property var customKeyBindingsList: {
+        var b = []
+        for(var i in bindManagerId.customList){
+            var temp_list = bindManagerId.customList[i]
+            temp_list.push("customList")
+            b.push(temp_list)
+        }
+        return b
+    }
+
+    function getKeyBindingInfo(id){
+        var info = systemKeybindingsDict[id]
+        if(info){
+            return info
+        }
+        else{
+            for(var i=0; i<customKeyBindingsList.length; i++){
+                if(customKeyBindingsList[i][0]==id){
+                    return customKeyBindingsList[i]
+                }
+            }
+            return [-1, "", "", ""]
+        }
+    }
+
+    Component.onCompleted: {
     }
 
     Column {
@@ -63,6 +93,8 @@ Flickable {
             text: dsTr("Shortcuts")
             rightLoader.sourceComponent: DTextButton {
                 text: dsTr("Reset")
+                onClicked: {
+                }
             }
             rightLoader.visible: searchResultListView.keyword == ""
         }
@@ -120,7 +152,7 @@ Flickable {
                     if(keyword){
                         var results = searchId.SearchKeys(keyword, searchMd5)
                         for(var i in results){
-                            resultKeyBindings.push(searchObject[results[i]])
+                            resultKeyBindings.push(getKeyBindingInfo(results[i]))
                         }
                     }
                     return resultKeyBindings
@@ -159,6 +191,7 @@ Flickable {
                     model: {
                         var myModel = listModelComponent.createObject(systemShortcutCategoryList, {})
                         for(var key in categoryObjects){
+                            if(key=="customList") continue;
                             myModel.append({
                                 "name": categoryObjects[key],
                                 "propertyName": key
@@ -177,8 +210,5 @@ Flickable {
                 }
             }
         }
-    }
-
-    Component.onCompleted: {
     }
 }
