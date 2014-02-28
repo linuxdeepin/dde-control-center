@@ -108,10 +108,15 @@ Rectangle {
                 id: password_dialog
 
                 onPasswordSet: {
+                    password_dialog.reset()
                     /* dbus_user.passwordMode = 2 // i think this nonsense too, but the fact is this help a lot >_< */
                     /* // The user should be in a group named "nopasswdlogin" before we set his password, */
                     /* // but a fresh _new_ user is not in that group(weird), so we should set it first. */
                     dbus_user.SetPassword(password, "")
+                }
+                
+                onCancelled: {
+                    password_dialog.reset()
                 }
 
                 onHeightChanged: {

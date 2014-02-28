@@ -8,6 +8,12 @@ Item {
 
     signal passwordSet (string password)
     signal cancelled
+    
+    function reset() {
+        new_password_input.text = ""
+        repeat_input.text = ""
+        edit_show_password_switch.checked = false
+    }
 
     states: [
         State {
@@ -156,7 +162,7 @@ Item {
             }
 
             DSwitchButton {
-
+                id: edit_show_password_switch
                 onClicked: {
                     if(checked) {
                         detail_view.echoMode = TextInput.Normal
