@@ -55,13 +55,8 @@ def main():
         else:
             order = sys.argv[1]
 
-        if order in panel.modulesId._l18n_names.keys():
-            panel.view_object.showModule(sys.argv[1])
-        elif order == "all":
-            panel.view_object.showModule(order)
-        else:
-            print "Error module id:", sys.argv[1]
-    
+        panel.view_object.showModule(order)
+
     panel.record_event.start()
 
     sys.exit(app.exec_())

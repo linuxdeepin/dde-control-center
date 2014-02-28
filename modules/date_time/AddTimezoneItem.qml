@@ -24,7 +24,7 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         text: itemLabel
-        color: selected ? "#009EFF" : "#fff"
+        color: dconstants.fgColor
         font.pixelSize: 12
     }
 

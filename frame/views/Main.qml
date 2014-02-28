@@ -3,7 +3,7 @@ import QtQuick.Window 2.1
 import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Display 1.0
-import DBus.Com.Deepin.Daemon.InputDevices 1.0
+import DBus.Com.Deepin.Api.XMouseArea 1.0
 
 Item {
     id: root
@@ -16,6 +16,12 @@ Item {
     property bool clickedToHide: true
     property var displayId: Display {}
     property var toolTip: ToolTip {}
+    //property var xmouseAreaId: XMouseArea {
+        //onMotionCoordinate: {
+            //print("onMotionCoordinate:", arg0, arg1, arg2, arg3)
+        //}
+    //}
+
 
     QtObject {
         id: screenSize
@@ -24,6 +30,17 @@ Item {
         property int width: displayId.primaryRect[2]
         property int height: displayId.primaryRect[3]
     }
+
+    //property int showAreaId: {
+        //var x1 = screenSize.x + screenSize.width - 30
+        //var x2 = screenSize.x + screenSize.width
+        //var y1 = screenSize.y + screenSize.height - 30
+        //var y2 = screenSize.y + screenSize.height
+        //print("RegisterArea:", x1, x2, y1, y2)
+        //var areaId = xmouseAreaId.RegisterArea(x1, x2, y1, y2)
+        //print("AreaId:", areaId)
+        //return areaId
+    //}
 
     DLocale {
         id: dsslocale

@@ -15,6 +15,8 @@ Rectangle {
 
     property alias moduleLoaderItem: rightBoxLoaderItem
     property alias moduleBox: rightBox
+    property alias moduleIconList: moduleIconList
+
     property var iconIdToIndex
     property color tuhaoColor: "#faca57"
 
@@ -39,7 +41,8 @@ Rectangle {
     function initTrayIcon() {
         print("==> [info] initTrayIcon emit")
         avatarImage.imageSource = currentUserObj.iconFile
-        userName.text = currentUserObj.userName.substring(0, 1).toUpperCase() + currentUserObj.userName.substring(1)
+        userName.text = currentUserObj.userName.substring(0, 1).toUpperCase()
+            +currentUserObj.userName.substring(1)
         var modules_id_array = modulesId.allIds
         moduleIconList.currentIndex = -1
         navigateIconModel.clear()
@@ -56,15 +59,30 @@ Rectangle {
     }
 
     function addHomeShutdownButton() {
-        navigateIconModel.insert(0, { "moduleId": "home" })
-        navigateIconModel.append({ "moduleId": "shutdown" })
         panelContent.isSiderNavigate = true
+
+        var item = navigateIconModel.get(0)
+        if(item.moduleId != "home"){
+            navigateIconModel.insert(0, { "moduleId": "home" })
+        }
+
+        var item = navigateIconModel.get(navigateIconModel.count-1)
+        if(item.moduleId != "shutdown"){
+            navigateIconModel.append({ "moduleId": "shutdown" })
+        }
     }
 
     function removeHomeShutdownButton() {
-        navigateIconModel.remove(0)
-        navigateIconModel.remove(navigateIconModel.count - 1)
         panelContent.isSiderNavigate = false
+
+        var item = navigateIconModel.get(0)
+        if(item.moduleId == "home"){
+            navigateIconModel.remove(0)
+        }
+        var item = navigateIconModel.get(navigateIconModel.count-1)
+        if(item.moduleId == "shutdown"){
+            navigateIconModel.remove(navigateIconModel.count - 1)
+        }
     }
 
     function shutdownButtonClicked(){
@@ -76,18 +94,15 @@ Rectangle {
 
     function trayIconHoverHandler(module_id, index) {
         var tipDisplayHeight
-        tipDisplayHeight = Math.abs(trayIconHeight - trayIconTip.height)/2 + trayIconHeight * index
+        tipDisplayHeight = Math.abs(trayIconHeight - trayIconTip.height)/2 
+            + trayIconHeight * index
         if (trayIconHeight == trayWidth) {
-            //tipDisplayHeight += (panelContent.height - trayIconHeight * navigateIconModel.count)/2
         }
         trayIconTip.y = tipDisplayHeight
         trayIconTip.text = modulesId.moduleLocaleNames[module_id]
         if(!inDssHome){
             trayIconTip.visible = true
         }
-    }
-
-    function iconViewToList(){
     }
 
     NumberAnimation {
@@ -214,6 +229,8 @@ Rectangle {
         height: childrenRect.height
         width: parent.width
 
+        property bool headerClicked: false
+
         Rectangle {
             width: parent.width
             height: 150
@@ -225,6 +242,10 @@ Rectangle {
                 anchors.top: parent.top
                 anchors.topMargin: 20
                 anchors.horizontalCenter: parent.horizontalCenter
+                onClicked: {
+                    moduleIconList.iconClickAction("account")
+                    headerArea.headerClicked = true
+                }
             }
 
             DLabel {
@@ -266,7 +287,7 @@ Rectangle {
                 cellWidth: itemSize
                 property real iconLabelOpacity: 1
 
-                function iconClickAction(index, iconId) {
+                function iconClickAction(iconId) {
                     currentContentId = iconId
                     if (iconId == 'shutdown'){
                         shutdownButtonClicked()
@@ -275,14 +296,13 @@ Rectangle {
                         inDssHome = true
                         trayIconTip.visible = false
                         toGridNavigateAnimation.start()
+                        if (frame.x != rootWindow.width - panelWidth){
+                            showAll.restart()
+                        }
                     }
                     else{
                         if (frame.x != rootWindow.width - panelWidth){
                             showAll.restart()
-                        }
-                        if( rightBox.visible == false ) { 
-                            rightBox.visible = true
-                            rightBox.opacity = 1
                         }
                         inDssHome = false
                         if(!panelContent.isSiderNavigate){
@@ -302,7 +322,7 @@ Rectangle {
                     }
                 }
 
-                delegate: ModuleIconItem {}
+                delegate: ModuleIconItem { isSiderNavigate: panelContent.isSiderNavigate}
                 model: navigateIconModel
                 currentIndex: -1
                 maximumFlickVelocity: 0
@@ -393,6 +413,23 @@ Rectangle {
                 source: ''
                 width: parent.width - 2
                 height: parent.height
+
+                onLoaded: {
+                    if(iconId == "account" && headerArea.headerClicked){
+                        timeoutShowCurrentUserDetail.start()
+                    }
+                }
+
+                Timer {
+                    id: timeoutShowCurrentUserDetail
+                    interval: 200
+                    running: false
+                    repeat: false
+                    onTriggered: {
+                        rightBoxLoader.item.showCurrentUserDetail()
+                        headerArea.headerClicked = false
+                    }
+                }
             }
         }
     }

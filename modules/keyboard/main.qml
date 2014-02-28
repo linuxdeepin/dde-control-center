@@ -5,6 +5,7 @@ import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.InputDevices 1.0
 import DBus.Com.Deepin.Api.Search 1.0
+import "../shared/"
 
 Item {
     id: keyboardModule
@@ -205,14 +206,26 @@ Item {
                     for (var i=0; i<userKeyboardLayouts.length; i++){
                         var id = userKeyboardLayouts[i]
                         myModel.append({
-                            "label": allLayoutMapL10n[id],
-                            "item_id": id
+                            "item_id": id,
+                            "item_name": allLayoutMapL10n[id]
                         })
                     }
                     return myModel
                 }
 
-                delegate: LayoutItem {}
+                delegate: SelectItem {
+                    selectItemId: layoutList.selectLayoutId
+                    totalItemNumber: layoutList.count
+                    inDeleteAction: layoutList.inDeleteAction
+
+                    onDeleteAction: {
+                        layoutList.deleteLayout(itemId)
+                    }
+
+                    onSelectAction: {
+                        layoutList.switchLayout(itemId)
+                    }
+                }
             }
         } // End of userKeyboardLayoutsArea
 
@@ -249,7 +262,7 @@ Item {
                             font.pixelSize: addLayoutIndex.currentSelectedIndex == modelData ? 18 : 13
                             color: {
                                 if (addLayoutIndex.currentSelectedIndex == modelData | hovered){
-                                    return "#009EFF"
+                                    return dconstants.activeColor
                                 }
                                 return dconstants.fgColor
                             }
@@ -275,8 +288,8 @@ Item {
                 id: addLayoutList
                 height: {
                     var listHeight = myModel.count * 28
-                    if(listHeight > keyboardModule.height - 360){
-                        return keyboardModule.height - 360
+                    if(listHeight > keyboardModule.height - 278){
+                        return keyboardModule.height - 278
                     }
                     else{
                         return listHeight

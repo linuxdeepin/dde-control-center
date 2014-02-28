@@ -91,6 +91,7 @@ class ControlPanel(QQuickView):
 
         self.engine_obj = self.engine()
 
+        ### file monitor
         self.modules_dir = os.path.join(ROOT_LOCATION, 'modules')
         self.module_file_monotor = QFileSystemWatcher()
         for root, path in walk_directory(self.modules_dir):
@@ -99,6 +100,7 @@ class ControlPanel(QQuickView):
 
         self.module_file_monotor.fileChanged.connect(self.fileChangedNotify)
         #self.module_file_monotor.directoryChanged.connect(self.fileChangedNotify)
+        ### file monitor
 
     def set_geometry(self, rect):
         x, y, width, height = rect

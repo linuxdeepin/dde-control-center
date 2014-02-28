@@ -20,14 +20,10 @@ Window {
     property bool clickedToHide: true
 
     // debug mode
-    function showModule(modulesId){
-        clickedToHide = false
-        if(modulesId != "all"){
-            panelContent.moduleLoaderItem.iconId = modulesId
-            panelContent.moduleBox.x = trayWidth
-        }
-        if(!showAll.running){
-            showAll.start()
+    function showModule(moduleId){
+        //clickedToHide = false
+        if(moduleId != "all"){
+            panelContent.moduleIconList.iconClickAction(moduleId)
         }
     }
     // debug mode
