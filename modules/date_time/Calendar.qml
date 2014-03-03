@@ -100,6 +100,8 @@ Column {
         rightLoader.sourceComponent: TextAction {
             anchors.verticalCenter: parent.verticalCenter
             text: dsTr("Show Today")
+            visible: opacity != 0
+            opacity: isToday ? 0 : 1
             onClicked: {
                 if(CalendarCore.isSameMonth(globalDate, calendarWidget.clickedDateObject)){
                     calendarWidget.clickedDateObject = globalDate
