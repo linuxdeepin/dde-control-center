@@ -94,6 +94,9 @@ Item {
                 var entries = dbus_grub2.GetSimpleEntryTitles();
                 for (var i = 0; i < entries.length; i++) {
                     model.append({"itemTitle": entries[i]})
+                    if (entries[i] == dbus_grub2.defaultEntry) {
+                        currentIndex = i
+                    }
                 }
             }
         }

@@ -1,16 +1,17 @@
 import QtQuick 2.1
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Grub2 1.0
+import "../shared"
 
 Rectangle {
-    id: root
-    color: "#1A1B1B"
+    id: grub
+    color: dconstants.bgColor
     width: 310
     height: 600
 
     Grub2 { id: dbus_grub2 }
     Theme { id: dbus_grub2_theme }
-    
+
     function timeoutToIndex(timeout) {
         switch (timeout) {
             case 0: return 0; break
@@ -52,10 +53,10 @@ Rectangle {
 
         Column {
             id: contentColumn
-            width: root.width
+            width: grub.width
             height: preview.height + default_entry_expand.height + delay_expand.height
             + normal_item_expand.height + selected_item_expand.height + 10
-            
+
             DSeparatorHorizontal{}
 
             Preview {
@@ -85,22 +86,26 @@ Rectangle {
                         width: parent.width
                         height: childrenRect.height
                         model: ListModel {}
-                        delegate: ChooseItem {}
-                        
+                        delegate: SelectItem{
+                            labelLeftMargin: 6
+                            totalItemNumber: dbus_grub2.GetSimpleEntryTitles().length
+                            selectItemId: dbus_grub2.defaultEntry
+
+                            onSelectAction: {
+                                dbus_grub2.defaultEntry = itemName
+                            }
+                        }
+                        anchors.left: parent.left
+                        anchors.leftMargin: 10
+
                         Component.onCompleted: {
                             var entries = dbus_grub2.GetSimpleEntryTitles();
                             for (var i = 0; i < entries.length; i++) {
-                                model.append({"name": entries[i]})
-                                if (dbus_grub2.defaultEntry == entries[i]) {
-                                    currentIndex = 0
-                                }
+                                model.append({"item_name": entries[i], "item_id": entries[i]})
                             }
                         }
-                        
-                        onCurrentIndexChanged: {
-                            dbus_grub2.defaultEntry = model.get(currentIndex).name
-                        }
-                        
+
+
                         Connections {
                             target: dbus_grub2
                             onDefaultEntryChanged: {
@@ -116,9 +121,9 @@ Rectangle {
                     }
                 }
             }
-            
+
             DSeparatorHorizontal{}
-            
+
             DBaseExpand {
                 id: delay_expand
                 header.sourceComponent: DDownArrowHeader {
@@ -166,21 +171,21 @@ Rectangle {
                             selected: false
                         }
                     }
-                    
+
                     Component.onCompleted: {
-                        delay_view.selectItem(root.timeoutToIndex(dbus_grub2.timeout))
+                        delay_view.selectItem(grub.timeoutToIndex(dbus_grub2.timeout))
                     }
 
                     onSelect: {
                         print("select..." + index)
-                        dbus_grub2.timeout = root.indexToTimeout(index)
+                        dbus_grub2.timeout = grub.indexToTimeout(index)
                     }
 
                     Connections {
                         target: dbus_grub2
                         onTimeoutChanged: {
                             print("timeout changed")
-                            delay_view.selectItem(root.timeoutToIndex(dbus_grub2.timeout))
+                            delay_view.selectItem(grub.timeoutToIndex(dbus_grub2.timeout))
                         }
                     }
                 }
@@ -199,7 +204,7 @@ Rectangle {
                 }
                 content.sourceComponent: ColorPicker{
                     id: normal_picker
-                    width: root.width
+                    width: grub.width
                     height: 180
 
                     Component.onCompleted: {
@@ -233,7 +238,7 @@ Rectangle {
                 }
                 content.sourceComponent: ColorPicker{
                     id: selected_picker
-                    width: root.width
+                    width: grub.width
                     height: 180
 
                     Component.onCompleted: {
