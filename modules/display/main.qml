@@ -10,38 +10,20 @@ Item {
 
     property var dconstants: DConstants {}
     property var displayId: Display {}
-    property var outputObjects: {
-        var myOutputObjects = new Array()
-        var outputs = displayId.outputs
-        for(var i=0; i<outputs.length; i++){
-            myOutputObjects.push(getOutputObject(outputs[i]))
+    property var allMonitorsObjects: {
+        displayId.ResetChanged()
+        var myObjects = new Array()
+        var monitors = displayId.monitors
+        for(var i=0; i<monitors.length; i++){
+            var monitorObj = monitorComponent.createObject(displayModule, { path: monitors[i] })
+            myObjects.push(monitorObj)
         }
-        return myOutputObjects
-    }
-
-    property var outputObjectsOpened: {
-        var opened = new Array()
-        for(var i in outputObjects){
-            if(outputObjects[i].opened){
-                opened.push([outputObjects[i], i])
-            }
-        }
-        return opened
+        return myObjects
     }
 
     Component {
-        id: outputComponent
-        Output {}
-    }
-
-    Component {
-        id: listModelComponent
-        ListModel {}
-    }
-
-    function getOutputObject(path){
-        var obj = outputComponent.createObject(parent, { path: path })
-        return obj
+        id: monitorComponent
+        Monitor {}
     }
 
     Column {
@@ -60,52 +42,51 @@ Item {
 
         DBaseLine {
             id: monitorChoose
-            height: 40
+            height: 38
+
+            property var currentSelectedMonitor: rightLoader.item.currentItem.delegateId
+
             leftLoader.sourceComponent: DssH2 {
-                text: dsTr("Primary Monitor")
+                text: dsTr("Monitor")
             }
-            rightLoader.sourceComponent: Item {
-                width: childrenRect.width
-                height: childrenRect.height
-                property alias currentOutput: chooser.currentIndex
 
-                DRadioButton {
-                    id: chooser
-                    buttonModel: {
-                        var myModel = new Array()
-                        for(var i=0; i<outputObjects.length; i++){
-                            var outputObj = outputObjects[i]
-                            myModel.push({
-                                "buttonId": outputObj,
-                                "buttonLabel": outputObj.name
-                            })
-                        }
-                        return myModel
+            rightLoader.sourceComponent: DRadioButton {
+                buttonModel: {
+                    var myModel = new Array()
+                    for(var i=0; i<allMonitorsObjects.length; i++){
+                        var outputObj = allMonitorsObjects[i]
+                        myModel.push({
+                            "buttonId": outputObj,
+                            "buttonLabel": outputObj.name
+                        })
                     }
-
-                    onItemSelected: {
-                    }
-                    visible: true
+                    return myModel
                 }
-
             }
         }
 
         DSeparatorHorizontal{}
 
-        Repeater{
-            model: outputObjects.length
-            delegate: MonitorProperties {
-                outputObj: outputObjects[index]
-                initExpanded: index == 0
-            }
+        MonitorProperties {
+            outputObj: monitorChoose.currentSelectedMonitor
+            monitorsNumber: allMonitorsObjects.length
         }
 
         DBaseLine {
             rightMargin: 10
-            rightLoader.sourceComponent: Component {
+            rightLoader.sourceComponent: Row {
+                spacing: 6
                 DTextButton {
                     text: dsTr("Apply")
+                    onClicked: {
+                        displayId.Apply()
+                    }
+                }
+                DTextButton{
+                    text: dsTr("Cancel")
+                    onClicked: {
+                        displayId.ResetChanged()
+                    }
                 }
             }
         }

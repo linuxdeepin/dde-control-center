@@ -7,9 +7,11 @@ import Deepin.Widgets 1.0
 Item {
     width: parent.width
     height: childrenRect.height
-    property var outputObj
 
-    property string currentResolution: getResolutionFromMode(outputObj.mode)
+    property var outputObj
+    property int monitorsNumber: 0
+
+    property string currentResolution: getResolutionFromMode(outputObj.currentMode)
     property int currentRotation: outputObj.rotation
 
     property var allResolutionModes: outputObj.ListModes()
@@ -43,7 +45,8 @@ Item {
             var resolution = getResolutionFromMode(modes[i])
             resolutionModel.append({
                 "label": resolution,
-                "selected": resolution == currentResolution
+                "selected": resolution == currentResolution,
+                "modeId": modes[i][0]
             })
         }
         return resolutionModel
@@ -55,7 +58,8 @@ Item {
             var rotation = rotations[i]
             rotation_model.append({
                 "label": rotationNames[rotation],
-                "selected": rotation == currentRotation
+                "selected": rotation == currentRotation,
+                "rotationId": rotations[i]
             })
         }
         return rotation_model
@@ -71,88 +75,92 @@ Item {
     }
 
     function getResolutionFromMode(mode){
-        return mode[1] + "x" + mode[2] + "x" + mode[3]
+        return mode[1] + "x" + mode[2]
     }
 
     Column{
         width: parent.width
         height: childrenRect.height
 
+        DSwitchButtonHeader {
+            text: dsTr("Enabled")
+            active: outputObj.opened
+            onClicked: {
+                outputObj.opened = active
+            }
+            visible: monitorsNumber > 1
+        }
+
+        DSeparatorHorizontal {
+            visible: monitorsNumber > 1
+        }
+
         DBaseExpand {
-            id: outputSwitch
+            id: resolutionArea
             expanded: header.item.active
-            header.sourceComponent: DSwitchButtonHeader {
-                text: outputObj.name
-                active: outputObj.opened
-                onClicked: {
-                    outputObj.opened = active
+            header.sourceComponent: DDownArrowHeader {
+                text: dsTr("Resolution")
+                hintText: " (" + currentResolution + ")"
+                active: initExpanded
+            }
+        
+            content.sourceComponent: DMultipleSelectView {
+                width: parent.width
+                height: rows * 30
+
+                columns: 3
+                rows: Math.ceil(resolutionModel.count/3)
+                singleSelectionMode: true
+
+                model: resolutionModel
+                onSelect: {
+                    outputObj.SetMode(resolutionModel.get(index).modeId)
                 }
             }
-
-            content.sourceComponent: Component{
-                Column{
-                    width: parent.width
-                    height: childrenRect.height
-
-                    DBaseExpand {
-                        id: resolutionArea
-                        expanded: header.item.active
-                        header.sourceComponent: DDownArrowHeader {
-                            text: dsTr("Resolution")
-                            hintText: " (" + currentResolution + ")"
-                            leftMargin: 25
-                            active: initExpanded
-                        }
-                    
-                        content.sourceComponent: DMultipleSelectView {
-                            width: parent.width
-                            height: rows * 30
-
-                            columns: 3
-                            rows: Math.ceil(resolutionModel.count/3)
-                            singleSelectionMode: true
-
-                            model: resolutionModel
-                            onSelect: {
-                                //outputObj.SetMode(allResolutionModes[index][0])
-                                print(index)
-                            }
-                        }
-                    }
-
-                    DSeparatorHorizontal {}
-
-                    DBaseExpand {
-                        id: rotationArea
-                        expanded: header.item.active
-                        header.sourceComponent: DDownArrowHeader {
-                            text: dsTr("Rotation")
-                            hintText: rotationNames[currentRotation]
-                            leftMargin: 25
-                            active: initExpanded
-                        }
-                    
-                        content.sourceComponent: DMultipleSelectView {
-                            width: parent.width
-                            height: rows * 30
-
-                            columns: 2
-                            rows: 2
-                            singleSelectionMode: true
-
-                            model: rotationModel
-                            onSelect: {
-                                //outputObj.rotation = allRotations[index]
-                                print(index)
-                            }
-                        }
-                    }
-
-                } //end Column
-            } //end Component
-        } //end content.sourceComponent
+        }
 
         DSeparatorHorizontal {}
-    } // end Column
+
+        DBaseExpand {
+            id: rotationArea
+            expanded: header.item.active
+            header.sourceComponent: DDownArrowHeader {
+                text: dsTr("Rotation")
+                hintText: " (" + rotationNames[currentRotation] + ")"
+                active: initExpanded
+            }
+        
+            content.sourceComponent: DMultipleSelectView {
+                width: parent.width
+                height: rows * 30
+
+                columns: 2
+                rows: 2
+                singleSelectionMode: true
+
+                model: rotationModel
+                onSelect: {
+                    outputObj.SetRotation(rotationModel.get(index).rotationId)
+                }
+            }
+        }
+
+        DSeparatorHorizontal {}
+
+        DBaseLine {
+            leftLoader.sourceComponent: DssH2 {
+                text: "Brightness"
+            }
+
+            rightLoader.sourceComponent: DSlider{
+                value: outputObj.brightness
+                onValueChanged: {
+                    outputObj.SetBrightness(value)
+                }
+            }
+        }
+
+        DSeparatorHorizontal{}
+    }
 
 }

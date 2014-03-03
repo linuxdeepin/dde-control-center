@@ -8,7 +8,7 @@ Rectangle{
     property int monitorIndex
 
     property string displayName: outputObj.name
-    property var modeInfo: outputObj.mode
+    property var modeInfo: outputObj.currentMode
 
     property real whFactor: modeInfo[1]/modeInfo[2]
 
@@ -21,7 +21,7 @@ Rectangle{
 
     DssH3 {
         anchors.centerIn: parent
-        text: modeInfo[1]+ "x" + modeInfo[2] + "x" + modeInfo[3]
+        text: modeInfo[1]+ "x" + modeInfo[2]
     }
 
     DssH3 {

@@ -14,9 +14,9 @@ Rectangle {
 
     property var monitorViews: {
         var views = new Array()
-        for(var i=0; i<outputObjects.length;i++){
+        for(var i=0; i<allMonitorsObjects.length;i++){
             var view = monitorComponent.createObject(monitorDragArea, {
-                "outputObj": outputObjects[i],
+                "outputObj": allMonitorsObjects[i],
                 "monitorIndex": i
             })
             views.push(view)
@@ -24,9 +24,19 @@ Rectangle {
         return views
     }
 
+    property var outputObjectsOpened: {
+        var a = new Array()
+        for(var i in allMonitorsObjects){
+            if(allMonitorsObjects[i].opened){
+                a.push(allMonitorsObjects[i])
+            }
+        }
+        return a
+    }
+
     Component.onCompleted: {
         if(outputObjectsOpened.length == 1){
-            releaseAction(outputObjectsOpened[0][1])
+            releaseAction(0)
         }
         else{
             var xPositionLeft = new Array()
@@ -59,8 +69,8 @@ Rectangle {
     function releaseAction(index){
         var currentView = monitorViews[index]
         if(outputObjectsOpened.length == 1){
-            var modeInfo = currentView.outputObj.mode
-            currentView.width = width - 60
+            var modeInfo = currentView.outputObj.currentMode
+            currentView.width = width - 100
             currentView.height = currentView.width * modeInfo[2]/modeInfo[1]
             currentView.x = (width - currentView.width)/2
             currentView.y = (height - currentView.height)/2
