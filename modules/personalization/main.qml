@@ -1,5 +1,5 @@
 import QtQuick 2.1
-import DBus.Com.Deepin.Daemon.Individuation 1.0
+import DBus.Com.Deepin.Daemon.Personalization 1.0
 import Deepin.Widgets 1.0
 
 Item {
@@ -7,7 +7,11 @@ Item {
     anchors.fill: parent
 
     property var constants: DConstants {}
-    property var dbus_individuation: Individuation {}
+    property var dbusPersonalization: Personalization {}
+    property var listModelComponent: DListModelComponent {}
+    property url dataDir: windowView.getModuleDataDir("personalization")
+
+    property int activeExpandIndex: 0
     
     Column {
         anchors.top: parent.top
@@ -21,176 +25,260 @@ Item {
 
         DBaseExpand {
             id: themes_expand
+            property int myIndex: 0
+            expanded: activeExpandIndex == myIndex
+            onExpandedChanged: {
+                header.item.active = expanded
+            }
 
             header.sourceComponent: DDownArrowHeader {
                 text: dsTr("Themes")
                 onClicked: {
-                    themes_expand.expanded = !themes_expand.expanded
+                    if(activeExpandIndex == root.myIndex){
+                        activeExpandIndex = -1
+                    }
+                    else{
+                        activeExpandIndex = root.myIndex
+                    }
                 }
             }
 
             content.sourceComponent: Item {
                 width: individuation.width
-                height: 260
+                height: themeList.height
 
                 ThemeView {
-                    id: theme_view
-                    width: parent.width - 2 * 15
-                    height: parent.height - 2 * 15
-                    anchors.centerIn: parent
+                    id: themeList
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width - 22
+                    height: childrenRect.height
 
-                    Component.onCompleted: {
-                        var avaThemes = dbus_individuation.availableBackground
-                        for(var i = 0; i < avaThemes.length; i++) {
-                            model.append({themeId: avaThemes[i][0]})
-                        }
+                    model: {
+                        var myModel = listModelComponent.createObject(themeList, {})
+                        myModel.append({
+                            "item_img_url": "/themes/Deepin/thumbnail.png",
+                            "item_name": "Deepin",
+                            "item_value": "deepin"
+                        })
+                        myModel.append({
+                            "item_img_url": "/themes/Deepin-Blue/thumbnail.png",
+                            "item_name": "Deepin Blue",
+                            "item_value": "deepin-blue"
+                        })
+                        return myModel
                     }
                 }
             }
         }
+
+        DSeparatorHorizontal {}
+
         DBaseExpand {
             id: window_themes_expand
+            property int myIndex: 1
+            expanded: activeExpandIndex == myIndex
+            onExpandedChanged: {
+                header.item.active = expanded
+            }
 
             header.sourceComponent: DDownArrowHeader {
-                text: dsTr("Window")
+                text: dsTr("GTK Window")
                 onClicked: {
-                    window_themes_expand.expanded = !window_themes_expand.expanded
+                    if(activeExpandIndex == root.myIndex){
+                        activeExpandIndex = -1
+                    }
+                    else{
+                        activeExpandIndex = root.myIndex
+                    }
                 }
             }
 
             content.sourceComponent: Item {
                 width: individuation.width
-                height: window_themes_select.height
-                
-                DSelectView {
-                    id: window_themes_select
-                    width: parent.width - 15 * 2
+                height: childrenRect.height
+
+                ThemeView {
+                    id: gtkList
                     anchors.horizontalCenter: parent.horizontalCenter
-                    
-                    Component.onCompleted: {
-                        var avaThemes = dbus_individuation.availableGtkTheme
-                        for(var i = 0; i < avaThemes.length; i++) {
-                            model.append({itemId: avaThemes[i][0], itemText: avaThemes[i][0], itemWidth: 0})
+                    width: parent.width - 22
+                    height: childrenRect.height
+
+                    model: {
+                        var myModel = listModelComponent.createObject(gtkList, {})
+                        var themes = dbusPersonalization.availableGtkTheme
+                        for(var i in themes){
+                            var theme_id = themes[i][0]
+                            myModel.append({
+                                "item_img_url": "/gtk/" + theme_id + "/thumbnail.png",
+                                "item_name": windowView.toHumanThemeName(theme_id),
+                                "item_value": theme_id
+                            })
                         }
+                        return myModel
                     }
                 }
+                
             }
         }
+
+        DSeparatorHorizontal {}
 
         DBaseExpand {
             id: cursor_themes_expand
+            property int myIndex: 2
+            expanded: activeExpandIndex == myIndex
+            onExpandedChanged: {
+                header.item.active = expanded
+            }
 
             header.sourceComponent: DDownArrowHeader {
                 text: dsTr("Cursor")
                 onClicked: {
-                    cursor_themes_expand.expanded = !cursor_themes_expand.expanded
+                    if(activeExpandIndex == root.myIndex){
+                        activeExpandIndex = -1
+                    }
+                    else{
+                        activeExpandIndex = root.myIndex
+                    }
                 }
             }
 
             content.sourceComponent: Item {
                 width: individuation.width
-                height: cursor_themes_select.height
-                
-                DSelectView {
-                    id: cursor_themes_select
-                    width: parent.width - 15 * 2
+                height: childrenRect.height
+
+                ThemeView {
+                    id: cursorList
                     anchors.horizontalCenter: parent.horizontalCenter
-                    
-                    Component.onCompleted: {
-                        var avaThemes = dbus_individuation.availableCursorTheme
-                        for(var i = 0; i < avaThemes.length; i++) {
-                            model.append({itemId: avaThemes[i][0], itemText: avaThemes[i][0], itemWidth: 0})
+                    width: parent.width - 22
+                    height: childrenRect.height
+
+                    model: {
+                        var myModel = listModelComponent.createObject(cursorList, {})
+                        var themes = dbusPersonalization.availableCursorTheme
+                        for(var i in themes){
+                            var theme_id = themes[i][0]
+                            myModel.append({
+                                "item_img_url": "/cursor/" + theme_id + "/thumbnail.png",
+                                "item_name": windowView.toHumanThemeName(theme_id),
+                                "item_value": theme_id
+                            })
                         }
+                        return myModel
                     }
                 }
+                
             }
         }
 
+        DSeparatorHorizontal {}
+
         DBaseExpand {
             id: wallpaper_themes_expand
+            property int myIndex: 3
+            expanded: activeExpandIndex == myIndex
+            onExpandedChanged: {
+                header.item.active = expanded
+            }
 
             header.sourceComponent: DDownArrowHeader {
                 text: dsTr("Wallpaper")
                 onClicked: {
-                    wallpaper_themes_expand.expanded = !wallpaper_themes_expand.expanded
+                    if(activeExpandIndex == root.myIndex){
+                        activeExpandIndex = -1
+                    }
+                    else{
+                        activeExpandIndex = root.myIndex
+                    }
                 }
             }
 
             content.sourceComponent: Item {
                 width: individuation.width
-                height: wallpaper_themes_select.height
+                height: childrenRect.height
                 
-                DSelectView {
-                    id: wallpaper_themes_select
-                    width: parent.width - 15 * 2
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    
-                    Component.onCompleted: {
-                        var avaThemes = dbus_individuation.availableBackground
-                        for(var i = 0; i < avaThemes.length; i++) {
-                            model.append({itemId: avaThemes[i][0], itemText: avaThemes[i][0], itemWidth: 0})
-                        }
-                    }
-                }
             }
         }
 
+        DSeparatorHorizontal {}
+
         DBaseExpand {
             id: icon_themes_expand
+            property int myIndex: 4
+            expanded: activeExpandIndex == myIndex
+            onExpandedChanged: {
+                header.item.active = expanded
+            }
 
             header.sourceComponent: DDownArrowHeader {
                 text: dsTr("Icons")
                 onClicked: {
-                    icon_themes_expand.expanded = !icon_themes_expand.expanded
+                    if(activeExpandIndex == root.myIndex){
+                        activeExpandIndex = -1
+                    }
+                    else{
+                        activeExpandIndex = root.myIndex
+                    }
                 }
             }
 
             content.sourceComponent: Item {
                 width: individuation.width
-                height: icons_themes_select.height
+                height: childrenRect.height
                 
-                DSelectView {
-                    id: icons_themes_select
-                    width: parent.width - 15 * 2
+                ThemeView {
+                    id: iconList
                     anchors.horizontalCenter: parent.horizontalCenter
-                    
-                    Component.onCompleted: {
-                        var avaThemes = dbus_individuation.availableIconTheme
-                        for(var i = 0; i < avaThemes.length; i++) {
-                            model.append({itemId: avaThemes[i][0], itemText: avaThemes[i][0], itemWidth: 0})
+                    width: parent.width - 22
+                    height: childrenRect.height
+
+                    model: {
+                        var myModel = listModelComponent.createObject(iconList, {})
+                        var themes = dbusPersonalization.availableIconTheme
+                        for(var i in themes){
+                            var theme_id = themes[i][0]
+                            myModel.append({
+                                "item_img_url": "/icons/" + theme_id + "/thumbnail.png",
+                                "item_name": windowView.toHumanThemeName(theme_id),
+                                "item_value": theme_id
+                            })
                         }
+                        return myModel
                     }
                 }
+
             }
         }
 
+        DSeparatorHorizontal {}
+
         DBaseExpand {
             id: font_themes_expand
+            property int myIndex: 5
+            expanded: activeExpandIndex == myIndex
+            onExpandedChanged: {
+                header.item.active = expanded
+            }
 
             header.sourceComponent: DDownArrowHeader {
                 text: dsTr("Font")
                 onClicked: {
-                    font_themes_expand.expanded = !font_themes_expand.expanded
+                    if(activeExpandIndex == root.myIndex){
+                        activeExpandIndex = -1
+                    }
+                    else{
+                        activeExpandIndex = root.myIndex
+                    }
                 }
             }
 
             content.sourceComponent: Item {
                 width: individuation.width
-                height: font_themes_select.height
+                height: childrenRect.height
                 
-                DSelectView {
-                    id: font_themes_select
-                    width: parent.width - 15 * 2
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    
-                    Component.onCompleted: {
-                        var avaThemes = dbus_individuation.availableFontTheme
-                        for(var i = 0; i < avaThemes.length; i++) {
-                            model.append({itemId: avaThemes[i][0], itemText: avaThemes[i][0], itemWidth: 0})
-                        }
-                    }
-                }
             }
         }
+
+        DSeparatorHorizontal {}
     }
 }

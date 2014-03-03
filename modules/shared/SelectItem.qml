@@ -101,4 +101,18 @@ Item {
             selectAction(itemId)
         }
     }
+
+    ListView.onAdd: SequentialAnimation {
+        PropertyAction { target: selectItem; property: "height"; value: 0 }
+        NumberAnimation { target: selectItem; property: "height"; to: 28; duration: 250; easing.type: Easing.InOutQuad }
+    }
+
+    ListView.onRemove: SequentialAnimation {
+        PropertyAction { target: selectItem; property: "ListView.delayRemove"; value: true }
+        NumberAnimation { target: selectItem; property: "height"; to: 0; duration: 250; easing.type: Easing.InOutQuad }
+
+        // Make sure delayRemove is set back to false so that the item can be destroyed
+        PropertyAction { target: selectItem; property: "ListView.delayRemove"; value: false }
+    }
+
 }

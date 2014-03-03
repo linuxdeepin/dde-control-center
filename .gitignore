@@ -7,4 +7,3 @@ dist
 dtk.egg-info
 *.po~
 *.swp
-data

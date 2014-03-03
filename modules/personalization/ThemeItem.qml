@@ -1,73 +1,75 @@
 import QtQuick 2.1
+import Deepin.Widgets 1.0
 
 Item {
-    signal selected
+    id: themeItem
 
-    state: "normal"
+    property string itemValue: item_value
+
     states: [
         State {
-            name: "normal"
-            PropertyChanges {
-                target: theme_thumbnail
-                border.color: "white"
-            }
-            PropertyChanges {
-                target: theme_name_box
-                color: "transparent"
-            }
-            PropertyChanges {
-                target: theme_name
-                color: "#fff"
-            }
-        },
-        State {
-            name: "selected"
-            PropertyChanges {
-                target: theme_thumbnail
-                border.color: "lightblue"
-            }
-            PropertyChanges {
-                target: theme_name_box
-                color: "#0D0D0D"
-            }
-            PropertyChanges {
-                target: theme_name
-                color: "#009EFF"
-            }
+            name: "hovered"
+            PropertyChanges { target: itemNameArea; color: dconstants.hoverColor }
+            PropertyChanges { target: itemThumbnailBox; border.color: dconstants.hoverColor }
         }
     ]
 
+    Rectangle{
+        id: hoverBackground
+        anchors.fill: parent
+        color: "#101010"
+        radius: 3
+        visible: false
+    }
+    
     Rectangle {
-        id: theme_thumbnail
-        width: parent.width
-        height: 50
-        color: "#092255"
+        id: itemThumbnailBox
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: parent.top
+        anchors.topMargin: 8
+        width: 130
+        height: 74
+        color: "transparent"
         border.width: 1
+        border.color: dconstants.fgColor
+
+        Image {
+            id: itemThumbnailImage
+            anchors.centerIn: parent
+            source: dataDir + item_img_url
+            width: parent.width - 2
+            height: parent.height - 2
+        }
     }
 
-    Rectangle {
-        id: theme_name_box
-        radius: 3
-        width: parent.width
-        height: theme_name.implicitHeight + 6
-
-        Text {
-            id: theme_name
-            text: "Theme" + index
-            font.pixelSize: 12
-            anchors.centerIn: parent
-        }
-
-        anchors.top: theme_thumbnail.bottom
+    DssH2 {
+        id: itemNameArea
+        anchors.top: itemThumbnailBox.bottom
+        anchors.topMargin: 6
+        anchors.horizontalCenter: parent.horizontalCenter
+        text: item_name
     }
 
     MouseArea {
         anchors.fill: parent
+        hoverEnabled: true
 
         onClicked: {
-            if (parent.state == "normal") {
-                parent.selected()
-            } 
+        }
+
+        onEntered: {
+            parent.state = "hovered"
+        }
+
+        onExited: {
+            parent.state = ""
+        }
+
+        onPressed: {
+        }
+
+        onReleased: {
         }
     }
+
 }

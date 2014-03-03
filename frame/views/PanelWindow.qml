@@ -52,7 +52,7 @@ Window {
 
     PropertyAnimation {
         id: hideAll
-        duration: 400
+        duration: 150
         target: rootWindow
         properties: "displayWidth"
         to: 0
@@ -65,7 +65,7 @@ Window {
 
     SmoothedAnimation {
         id: showAll
-        duration: 300
+        duration: 150
         target: rootWindow
         properties: "displayWidth"
         to: panelWidth

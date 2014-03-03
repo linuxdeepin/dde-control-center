@@ -102,38 +102,6 @@ class ControlPanel(QQuickView):
         #self.module_file_monotor.directoryChanged.connect(self.fileChangedNotify)
         ### file monitor
 
-    def set_geometry(self, rect):
-        x, y, width, height = rect
-        self.setGeometry(x + width, y,
-                PANEL_WIDTH, height)
-
-    @pyqtProperty(int)
-    def panelWith(self):
-        return PANEL_WIDTH
-
-    @pyqtSlot(QDBusMessage)
-    def display_primary_changed(self, message):
-        rect = QDBusReply(message).value()
-        self.set_geometry(rect)
-
-    @pyqtSlot(result=QVariant)
-    def getCursorPos(self):
-        qpoint = self.cursor().pos()
-        return [qpoint.x(), qpoint.y()]
-
-    def fileChangedNotify(self, path):
-        self.engine_obj.clearComponentCache()
-        module_id = path.split(self.modules_dir)[1].split("/")[1]
-        module_dir = os.path.join(ROOT_LOCATION, 'modules', module_id)
-        for r, p in walk_directory(module_dir):
-            if p not in self.module_file_monotor.files():
-                self.module_file_monotor.addPath(p)
-
-        if self.timer:
-            self.timer.cancel()
-        self.timer = Timer(0.2, lambda : self.moduleFileChanged.emit(module_id))
-        self.timer.start()
-
     def set_all_contexts(self):
         self.qml_context = self.rootContext()
         self.modulesId = ModulesId()
@@ -148,6 +116,42 @@ class ControlPanel(QQuickView):
         self.record_event.click_outer_area.connect(self.view_object.outerAreaClicked)
         #self.moduleFileChanged.connect(self.view_object.moduleFileChanged)
 
+    def set_geometry(self, rect):
+        x, y, width, height = rect
+        self.setGeometry(x + width, y,
+                PANEL_WIDTH, height)
+
+    def fileChangedNotify(self, path):
+        self.engine_obj.clearComponentCache()
+        module_id = path.split(self.modules_dir)[1].split("/")[1]
+        module_dir = os.path.join(ROOT_LOCATION, 'modules', module_id)
+        for r, p in walk_directory(module_dir):
+            if p not in self.module_file_monotor.files():
+                self.module_file_monotor.addPath(p)
+
+        if self.timer:
+            self.timer.cancel()
+        self.timer = Timer(0.2, lambda : self.moduleFileChanged.emit(module_id))
+        self.timer.start()
+
+    @pyqtProperty(int)
+    def panelWith(self):
+        return PANEL_WIDTH
+
+    @pyqtSlot(str, result=str)
+    def getModuleDataDir(self, module_id):
+        return os.path.join(ROOT_LOCATION, "data", module_id)
+
+    @pyqtSlot(QDBusMessage)
+    def display_primary_changed(self, message):
+        rect = QDBusReply(message).value()
+        self.set_geometry(rect)
+
+    @pyqtSlot(result=QVariant)
+    def getCursorPos(self):
+        qpoint = self.cursor().pos()
+        return [qpoint.x(), qpoint.y()]
+
     @pyqtSlot(str, result=str)
     def stripString(self, s):
         return s.strip()
@@ -161,6 +165,11 @@ class ControlPanel(QQuickView):
         sequence = sequence.replace("<", "").replace(">", "+")
         keys = sequence.split("-")
         return "+".join(keys).title()
+
+    @pyqtSlot(str, result=str)
+    def toHumanThemeName(self, sequence):
+        keys = sequence.split("-")
+        return " ".join(keys).title()
 
     @pyqtSlot(result=QVariant)
     def argv(self):
