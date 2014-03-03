@@ -137,9 +137,12 @@ Item {
 
         DssTitle {
             text: dsTr("TouchPad")
+            visible: !parent.isExist
         }
 
-        DSeparatorHorizontal {}
+        DSeparatorHorizontal {
+            visible: !parent.isExist
+        }
 
         DBaseLine {
             visible: !parent.isExist

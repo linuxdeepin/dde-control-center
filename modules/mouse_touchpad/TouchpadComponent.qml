@@ -15,35 +15,39 @@ Item {
     property var touchPadID: TouchPad {}
 
     Column {
+        id: touchpadTitleColumn
         anchors.top: parent.top
         width: parent.width
 
         DBaseLine {
+            id: touchpadTitle
             leftLoader.sourceComponent: DssH2 {
                 color: "white"
                 font.bold: true
                 text: dsTr("TouchPad")
             }
+            rightLoader.sourceComponent: DSwitchButton{
+                checked: touchPadID.tPadEnable ? true : false
+                onClicked: {
+                    touchPadID.tPadEnable = checked
+                }
+            }
         }
 
         DSeparatorHorizontal {}
+    }
 
-        DCenterLine {
-            leftWidth: mouseModule.leftWidth
-            centerPadding: mouseModule.centerPadding
-            title.text: dsTr("Enabled")
-            content.sourceComponent: Item {
-                width: 180
-                height: parent.height
-                DSwitchButton {
-                    anchors.right: parent.right
-                    anchors.verticalCenter: parent.verticalCenter
-                    checked: touchPadID.tPadEnable ? true : false
-                    onClicked: {
-                        touchPadID.tPadEnable = checked
-                    }
-                }
-            }
+    Column {
+        id: touchpadSettingColumn
+        anchors.top: touchpadTitleColumn.bottom
+        width: parent.width
+        clip: true
+        property int realHeight: childrenRect.height
+
+        height: touchpadTitle.rightLoader.item.checked ? realHeight : 0
+
+        Behavior on height {
+            PropertyAnimation { duration: 100 }
         }
 
         DCenterLine {
@@ -144,6 +148,5 @@ Item {
         }
 
         DSeparatorHorizontal {}
-
     }
 }
