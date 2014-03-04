@@ -15,22 +15,7 @@ Item {
     property int centerPadding: 16
 
     property var mouseID: Mouse {}
-    property var inputDevicesId: InputDevices {}
     property var touchpadObj
-
-    property var inputDevices: {
-        var devices = new Object()
-        for(var i in inputDevicesId.devInfoList){
-            var path = inputDevicesId.devInfoList[i][0]
-            var type = inputDevicesId.devInfoList[i][1]
-            if(typeof devices[type] == "undefined"){
-                var paths = new Array()
-                devices[type] = paths
-            }
-            devices[type].push(path)
-        }
-        return devices
-    }
 
     Column {
         id: mouseSettingsColumn
@@ -133,23 +118,8 @@ Item {
         width: parent.width
 
         property var touchpadComponent: Qt.createComponent("TouchpadComponent.qml")
-        property bool isExist: typeof(inputDevices["touchpad"]) != "undefined"
-
-        DssTitle {
-            text: dsTr("TouchPad")
-            visible: !parent.isExist
-        }
-
-        DSeparatorHorizontal {
-            visible: !parent.isExist
-        }
-
-        DBaseLine {
-            visible: !parent.isExist
-            leftLoader.sourceComponent: DssH3{
-                text: dsTr("No touchpad device exist!")
-            }
-        }
+        property bool isExist: isTouchpadExist
+        visible: isExist
 
         Item {
             id: touchpadBox

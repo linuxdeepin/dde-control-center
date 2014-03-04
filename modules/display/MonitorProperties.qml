@@ -7,6 +7,7 @@ import Deepin.Widgets 1.0
 Item {
     width: parent.width
     height: childrenRect.height
+    property var listModelComponent: DListModelComponent {}
 
     property var outputObj
     property int monitorsNumber: 0
@@ -27,20 +28,8 @@ Item {
         8: "Rotate Right",
     }
 
-    property var reflectNames: {
-        0: "Normal",
-        16: "x reflect",
-        32: "y reflect",
-        48: "x,y reflect"
-    }
-
-    Component {
-        id: list_model
-        ListModel {}
-    }
-
     function getResolutionModel(modes){
-        var resolutionModel = list_model.createObject(parent, {})
+        var resolutionModel = listModelComponent.createObject(parent, {})
         for(var i=0; i<modes.length; i++){
             var resolution = getResolutionFromMode(modes[i])
             resolutionModel.append({
@@ -53,7 +42,7 @@ Item {
     }
 
     function getRotationModel(rotations){
-        var rotation_model = list_model.createObject(parent, {})
+        var rotation_model = listModelComponent.createObject(parent, {})
         for(var i=0; i<rotations.length; i++){
             var rotation = rotations[i]
             rotation_model.append({
@@ -155,7 +144,8 @@ Item {
             rightLoader.sourceComponent: DSlider{
                 value: outputObj.brightness
                 onValueChanged: {
-                    outputObj.SetBrightness(value)
+                    outputObj.ChangeBrightness(value)
+                    displayId.SaveChanged()
                 }
             }
         }

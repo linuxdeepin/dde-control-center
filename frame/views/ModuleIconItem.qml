@@ -23,6 +23,7 @@ Rectangle {
     }
 
     property string itemId: moduleId
+    property string itemLabel: moduleLocaleName
     property string iconPathHeader: isSiderNavigate ? "small_icons/" + moduleId : "icons/" + moduleId
     property bool hover: false
     property url iconPath: windowView.isIconPluginExist(moduleId) ? '../../modules/' + moduleId + '/iconPlugin.qml' : ''
@@ -99,11 +100,10 @@ Rectangle {
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
             font.pixelSize: 12
-            text: modulesId.moduleLocaleNames[moduleId]
+            text: itemLabel
             elide: Text.ElideRight
             visible: opacity != 0
             opacity: moduleIconItem.GridView.view.iconLabelOpacity
-            //visible: false
         }
 
         Image {

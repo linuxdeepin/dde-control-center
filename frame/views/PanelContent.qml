@@ -6,10 +6,28 @@ import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Display 1.0
 import DBus.Com.Deepin.SessionManager 1.0
 import DBus.Com.Deepin.Daemon.Accounts 1.0
+import DBus.Com.Deepin.Daemon.InputDevices 1.0
 
 Rectangle {
     id: panelContent
     color: dconstants.bgColor
+
+    property var inputDevicesId: InputDevices {}
+    property var inputDevices: {
+        var devices = new Object()
+        for(var i in inputDevicesId.devInfoList){
+            var path = inputDevicesId.devInfoList[i][0]
+            var type = inputDevicesId.devInfoList[i][1]
+            if(typeof(devices[type]) == "undefined"){
+                var paths = new Array()
+                devices[type] = paths
+            }
+            devices[type].push(path)
+        }
+        return devices
+    }
+    property bool isTouchpadExist: typeof(inputDevices["touchpad"]) != "undefined"
+
     property bool isSiderNavigate: false
     property string currentContentId: ""
 
@@ -48,8 +66,15 @@ Rectangle {
         navigateIconModel.clear()
         for (var i in modules_id_array){
             var module_id = modules_id_array[i]
+            if(module_id == "mouse_touchpad" && !isTouchpadExist){
+                var localeName = modulesId.moduleLocaleNames["mouse"]
+            }
+            else{
+                var localeName = modulesId.moduleLocaleNames[module_id]
+            }
             navigateIconModel.append({
                 "moduleId": module_id,
+                "moduleLocaleName": localeName
             })
         }
         iconIdToIndex = new Object()
@@ -63,12 +88,18 @@ Rectangle {
 
         var item = navigateIconModel.get(0)
         if(item.moduleId != "home"){
-            navigateIconModel.insert(0, { "moduleId": "home" })
+            navigateIconModel.insert(0, {
+                "moduleId": "home",
+                "moduleLocaleName": modulesId.moduleLocaleNames["home"]
+            })
         }
 
         var item = navigateIconModel.get(navigateIconModel.count-1)
         if(item.moduleId != "shutdown"){
-            navigateIconModel.append({ "moduleId": "shutdown" })
+            navigateIconModel.append({
+                "moduleId": "shutdown",
+                "moduleLocaleName": modulesId.moduleLocaleNames["shutdown"]
+            })
         }
     }
 
@@ -322,7 +353,9 @@ Rectangle {
                     }
                 }
 
-                delegate: ModuleIconItem { isSiderNavigate: panelContent.isSiderNavigate}
+                delegate: ModuleIconItem {
+                    isSiderNavigate: panelContent.isSiderNavigate
+                }
                 model: navigateIconModel
                 currentIndex: -1
                 maximumFlickVelocity: 0
