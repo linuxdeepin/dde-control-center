@@ -124,7 +124,7 @@ Item {
         Item {
             id: touchpadBox
             width: parent.width
-            height: touchpadObj.height
+            height: childrenRect.height
 
             Component.onCompleted: {
                 if(touchpadSettingsColumn.isExist){

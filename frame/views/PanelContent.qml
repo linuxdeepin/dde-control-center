@@ -130,7 +130,13 @@ Rectangle {
         if (trayIconHeight == trayWidth) {
         }
         trayIconTip.y = tipDisplayHeight
-        trayIconTip.text = modulesId.moduleLocaleNames[module_id]
+        if(module_id == "mouse_touchpad" && !isTouchpadExist){
+            var localeName = modulesId.moduleLocaleNames["mouse"]
+        }
+        else{
+            var localeName = modulesId.moduleLocaleNames[module_id]
+        }
+        trayIconTip.text = localeName
         if(!inDssHome){
             trayIconTip.visible = true
         }
