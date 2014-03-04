@@ -39,7 +39,7 @@ Rectangle {
     DssTitle {
         id: title
         z: 1
-        text: "Grub2"
+        text: dsTr("Startup Screen")
     }
 
     Flickable {
@@ -70,7 +70,7 @@ Rectangle {
                 id: default_entry_expand
 
                 header.sourceComponent: DDownArrowHeader {
-                    text: "Default Entry"
+                    text: dsTr("Default Entry")
                     onClicked: {
                         default_entry_expand.expanded = !default_entry_expand.expanded
                     }
@@ -127,7 +127,7 @@ Rectangle {
             DBaseExpand {
                 id: delay_expand
                 header.sourceComponent: DDownArrowHeader {
-                    text: "Delay"
+                    text: dsTr("Delay")
                     onClicked: {
                         delay_expand.expanded = !delay_expand.expanded
                     }
@@ -197,7 +197,7 @@ Rectangle {
                 id: normal_item_expand
 
                 header.sourceComponent: DDownArrowHeader {
-                    text: "Item Color"
+                    text: dsTr("Item Color")
                     onClicked: {
                         normal_item_expand.expanded = !normal_item_expand.expanded
                     }
@@ -231,7 +231,7 @@ Rectangle {
                 id: selected_item_expand
 
                 header.sourceComponent: DDownArrowHeader {
-                    text: "Selected Item Color"
+                    text: dsTr("Selected Item Color")
                     onClicked: {
                         selected_item_expand.expanded = !selected_item_expand.expanded
                     }

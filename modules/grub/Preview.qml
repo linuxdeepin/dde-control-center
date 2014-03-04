@@ -101,15 +101,15 @@ Item {
             }
         }
 
-        Text {
-            color: "#A34545"
-            font.pixelSize: 7
-            text: "Booting in " + dbus_grub2.timeout + " seconds"
+        /* Text { */
+        /*     color: "#A34545" */
+        /*     font.pixelSize: 7 */
+        /*     text: "Booting in " + dbus_grub2.timeout + " seconds" */
 
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 10
-        }
+        /*     anchors.horizontalCenter: parent.horizontalCenter */
+        /*     anchors.bottom: parent.bottom */
+        /*     anchors.bottomMargin: 10 */
+        /* } */
     }
 
     Rectangle {
