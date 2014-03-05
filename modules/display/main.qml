@@ -21,6 +21,10 @@ Item {
         return myObjects
     }
 
+    onAllMonitorsObjectsChanged: {
+        //displayId.SetPrimary(allMonitorsObjects[0].name)
+    }
+
     Component {
         id: monitorComponent
         Monitor {}
@@ -83,7 +87,7 @@ Item {
                     }
                 }
                 DTextButton{
-                    text: dsTr("Cancel")
+                    text: dsTr("Reset")
                     onClicked: {
                         displayId.ResetChanged()
                     }

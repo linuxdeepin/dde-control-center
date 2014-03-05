@@ -131,9 +131,16 @@ Item {
             leftWidth: titleWidth
             title.text: dsTr("Test Area")
 
-            content.sourceComponent: DTextInput {
-                id: testRepeatIntervalInput
+            content.sourceComponent: Item {
                 width: sliderWidth
+                height: parent.height
+
+                DTextInput {
+                    id: testRepeatIntervalInput
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: sliderWidth - 16
+                }
             }
         }
 

@@ -5,6 +5,7 @@ import QtQuick.Layouts 1.1
 import Deepin.Widgets 1.0
 
 Item {
+    id: monitorProperties
     width: parent.width
     height: childrenRect.height
     property var listModelComponent: DListModelComponent {}
@@ -15,9 +16,7 @@ Item {
     property string currentResolution: getResolutionFromMode(outputObj.currentMode)
     property int currentRotation: outputObj.rotation
 
-    property var allResolutionModes: outputObj.ListModes()
     property var allRotations: outputObj.ListRotations()
-    property var resolutionModel: getResolutionModel(allResolutionModes)
     property var rotationModel: getRotationModel(allRotations)
     property var initExpanded: false
 
@@ -94,16 +93,26 @@ Item {
             }
         
             content.sourceComponent: DMultipleSelectView {
+                id: modesView
                 width: parent.width
                 height: rows * 30
 
                 columns: 3
-                rows: Math.ceil(resolutionModel.count/3)
+                rows: Math.ceil(count/3)
                 singleSelectionMode: true
 
-                model: resolutionModel
                 onSelect: {
                     outputObj.SetMode(resolutionModel.get(index).modeId)
+                }
+
+                Connections {
+                    target: monitorProperties
+                    onOutputObjChanged: {
+                        if(outputObj){
+                            var allResolutionModes = outputObj.ListModes()
+                            modesView.model = getResolutionModel(allResolutionModes)
+                        }
+                    }
                 }
             }
         }
@@ -120,6 +129,7 @@ Item {
             }
         
             content.sourceComponent: DMultipleSelectView {
+                id: rotationsView
                 width: parent.width
                 height: rows * 30
 
@@ -127,10 +137,20 @@ Item {
                 rows: 2
                 singleSelectionMode: true
 
-                model: rotationModel
                 onSelect: {
                     outputObj.SetRotation(rotationModel.get(index).rotationId)
                 }
+
+                Connections {
+                    target: monitorProperties
+                    onOutputObjChanged: {
+                        if(outputObj){
+                            var rotations = outputObj.ListRotations()
+                            rotationsView.model = getRotationModel(rotations)
+                        }
+                    }
+                }
+
             }
         }
 
