@@ -2,11 +2,12 @@ import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import Deepin.Widgets 1.0
+import "../shared/"
 
 Item {
     id: keyBindingItem
     width: parent.width
-    height: 30
+    height: childrenRect.height
     clip: true
 
     property var dconstants: DConstants {}
@@ -21,40 +22,10 @@ Item {
     property bool showDelete: false
     property int contentLeftMargin: 22
     property bool hovered: false
+    property bool inConfictDealing: false
 
     Behavior on height {
         PropertyAnimation { duration: 100 }
-    }
-
-    function showConfictArea(shortcutName, conflictIds){
-        replaceButton.conflictKeyId = conflictIds[0]
-        replaceButton.grabKeys = shortcutName
-        var info = '您设置的快捷键"' + windowView.toHumanShortcutLabel(shortcutName) + '"，'
-        for(var i in conflictIds){
-            var keyBindingInfo = getKeyBindingInfo(conflictIds[i])
-            info += '与"' + categoryObjects[keyBindingInfo[3]] + '"类别下的"' + keyBindingInfo[1] + '"的快捷键冲突，'
-        }
-        info += '是否进行替换？'
-
-        conflictInfo.text = info
-        keyBindingItem.height = keyBindingArea.height + conflictInfoArea.height
-        stopSetKeyBinding = true
-    }
-
-    function showInvalidInfo(shortcutName){
-        conflictInfo.text = '无效的快捷键"' + windowView.toHumanShortcutLabel(shortcutName) + '"，请重新输入！'
-        keyBindingItem.height = keyBindingArea.height + conflictInfo.height + 8
-        hideConfictInfoArea.restart()
-    }
-
-    Timer{
-        id: hideConfictInfoArea
-        repeat: false
-        running: false
-        interval: 1500
-        onTriggered: {
-            keyBindingItem.height = keyBindingArea.height
-        }
     }
 
     Item {
@@ -112,7 +83,14 @@ Item {
             font.pixelSize: 11
             color: hovered ? dconstants.hoverColor :  dconstants.fgColor
             text: shortcutName? shortcutName : "Disable"
-            visible: !grabFlag
+            visible: {
+                if(grabFlag | inConfictDealing){
+                    return false
+                }
+                else{
+                    return true
+                }
+            }
         }
 
         Text {
@@ -126,12 +104,21 @@ Item {
             visible: grabFlag
         }
 
+        Text {
+            id: confictText
+            anchors.right: parent.right
+            anchors.rightMargin: 15
+            anchors.verticalCenter: parent.verticalCenter
+            font.pixelSize: 11
+            color: "#f68a32"
+            visible: inConfictDealing
+        }
+
         Connections {
             target: grabManagerId
             onKeyReleaseEvent: {
                 if (currentShortcutId == shortcutId){
                     grabFlag = false
-                    print("Release:", arg0)
                     if( arg0 == 'escape' | !arg0 ){
                     }
                     else if( arg0=="backspace" ){
@@ -139,12 +126,14 @@ Item {
                     }
                     else {
                         var result = bindManagerId.CheckShortcut(arg0)
+                        print("Release:", arg0, result)
                         switch(result[0]){
                             case "Invalid":
-                                showInvalidInfo(arg0);
+                                invalidInfoArea.showInvalidInfo(arg0);
                                 break;
                             case "Conflict":
-                                showConfictArea(arg0, result[1]);
+                                if (result[1][0]==currentShortcutId) return
+                                conflictInfoArea.showConfictArea(arg0, result[1]);
                                 break;
                             case "Valid":
                                 bindManagerId.ChangeShortcut(currentShortcutId, arg0);
@@ -180,27 +169,105 @@ Item {
         }
     }
 
-    Rectangle {
-        id: conflictInfoArea
+    Rectangle{
+        id: invalidInfoArea
         anchors.top: keyBindingArea.bottom
         width: parent.width
-        height: childrenRect.height
+        height: 0
         color: dconstants.bgColor
+        clip: true
+
+        function showInvalidInfo(shortcutName){
+            invalidInfo.text = '无效的快捷键"' + windowView.toHumanShortcutLabel(shortcutName) + '"，请重新输入！'
+            invalidInfoArea.height = conflictInfo.height + 8
+            hideInvalidInfoArea.restart()
+        }
 
         DLabel {
-            id: conflictInfo
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: parent.top
-            anchors.topMargin: 4
-            width: parent.width - 30
+            id: invalidInfo
+            anchors.left: parent.left
+            anchors.leftMargin: 10
+            anchors.verticalCenter: parent.verticalCenter
+            width: parent.width - 20
             wrapMode: Text.WordWrap
-            text: ""
+        }
+
+        Timer{
+            id: hideInvalidInfoArea 
+            repeat: false
+            running: false
+            interval: 1500
+            onTriggered: {
+                invalidInfoArea.height = 0
+            }
+        }
+    }
+
+    Item {
+        id: conflictInfoArea
+        anchors.top: keyBindingArea.bottom
+        anchors.topMargin: 0 - arrowRectBackground.arrowHeight
+        width: parent.width
+        height: 0
+        property int realHeight: childrenRect.height
+        clip: true
+
+        function showConfictArea(shortcutName, conflictIds){
+            replaceButton.conflictKeyIds = conflictIds
+            replaceButton.grabKeys = shortcutName
+            confictText.text = windowView.toHumanShortcutLabel(shortcutName)
+            var info = '您设置的快捷键'
+            for(var i in conflictIds){
+                var keyBindingInfo = getKeyBindingInfo(conflictIds[i])
+                info += '与 "' + categoryObjects[keyBindingInfo[3]] + '" 类别下的 "' + keyBindingInfo[1] + '" 的快捷键冲突，'
+            }
+            info += '是否进行替换？'
+
+            conflictInfo.text = info
+            conflictInfoArea.height = conflictInfoArea.realHeight
+            stopSetKeyBinding = true
+            inConfictDealing = true
+        }
+
+        ArrowRect{
+            id: arrowRectBackground
+            anchors.fill: parent
+            fillStyle: dconstants.bgColor
+            stroke: false
+            radius: 0
+            lineWidth: 0
+        }
+
+        Item{
+            id: conflictInfoContent
+            anchors.top: parent.top
+            anchors.topMargin: arrowRectBackground.arrowHeight
+            width: parent.width
+            height: Math.max(conflictInfo.height, conflictWarningImg.height) + 16
+
+            DLabel {
+                id: conflictInfo
+                anchors.left: parent.left
+                anchors.leftMargin: 10
+                anchors.verticalCenter: parent.verticalCenter
+                width: parent.width - conflictWarningImg.width - 20
+                wrapMode: Text.WordWrap
+                text: ""
+            }
+
+            Image{
+                id: conflictWarningImg
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.right: parent.right
+                anchors.rightMargin: 10
+                source: "images/ico_warning.png"
+            }
         }
 
         Item{
             width: parent.width
             height: 38
-            anchors.top: conflictInfo.bottom
+            anchors.top: conflictInfoContent.bottom
 
             Row {
                 width: childrenRect.width
@@ -213,22 +280,26 @@ Item {
                 DTextButton {
                     id: replaceButton
                     text: dsTr("Replace")
-                    property int conflictKeyId: -1
+                    property var conflictKeyIds: new Array()
                     property string grabKeys: ""
 
                     onClicked: {
-                        keyBindingItem.height = keyBindingArea.height
+                        conflictInfoArea.height = 0
                         stopSetKeyBinding = false
-                        bindManagerId.ChangeShortcut(currentShortcutId, "")
-                        bindManagerId.ChangeShortcut(conflictKeyId, grabKeys)
+                        inConfictDealing = false
+                        for(var i in conflictKeyIds){
+                            bindManagerId.ChangeShortcut(conflictKeyIds[i], "")
+                        }
+                        bindManagerId.ChangeShortcut(currentShortcutId, grabKeys)
                     }
                 }
 
                 DTextButton {
                     text: dsTr("Cancel")
                     onClicked: {
-                        keyBindingItem.height = keyBindingArea.height
+                        conflictInfoArea.height = 0
                         stopSetKeyBinding = false
+                        inConfictDealing = false
                     }
                 }
             }

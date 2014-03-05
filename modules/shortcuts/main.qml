@@ -42,7 +42,7 @@ Flickable {
             if(key=="customList") continue;
             for(var i in bindManagerId[key]){
                 var temp_list = bindManagerId[key][i]
-                keywords[temp_list[0]] = temp_list[1]
+                keywords[temp_list[0]] = temp_list[1] + ", " + windowView.toHumanShortcutLabel(temp_list[2])
                 temp_list.push(key)
                 allKeybindings[temp_list[0]] = temp_list
             }

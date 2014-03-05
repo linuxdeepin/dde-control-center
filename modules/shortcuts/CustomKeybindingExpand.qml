@@ -83,6 +83,7 @@ Column {
                 title.text: dsTr("Name")
                 leftWidth: 100
                 content.sourceComponent: DTextInput{
+                    activeFocusOnTab: true
                     width: addCustomShortcutBox.inputTextWidth
                 }
             }
@@ -92,6 +93,7 @@ Column {
                 title.text: dsTr("Command")
                 leftWidth: 100
                 content.sourceComponent: DTextInput{
+                    activeFocusOnTab: true
                     width: addCustomShortcutBox.inputTextWidth
                 }
             }

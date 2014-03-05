@@ -36,7 +36,7 @@ Column {
                 id: lists
                 focus: true
                 width: parent.width
-                height: categoryKeyBindings.length * 30
+                height: childrenRect.height
                 model: categoryKeyBindings.length
                 delegate: ShortcutInput {
                     info: categoryKeyBindings[index]
