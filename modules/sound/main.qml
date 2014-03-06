@@ -19,7 +19,7 @@ Item {
 
     property var audioId: Audio {}
     property var listModelComponent: DListModelComponent {}
-    
+
     Component {
         id: sinkComponent
         AudioSink {}
@@ -71,392 +71,403 @@ Item {
 
         DSeparatorHorizontal{}
     }
-    
-    Column {
-        id: normalSettings
-        width: parent.width
-        height: myRealHeight
-        x: 0
-        y: link_button_column.isAdvanced ? titleColumn.height - myRealHeight : titleColumn.height
-        property int myRealHeight: childrenRect.height
-        clip: true
 
-        Behavior on y{
-            PropertyAnimation {duration: 200}
-        }
-        
-        DBaseLine{height: 8}
-        DBaseLine {
-            leftLoader.sourceComponent: DssH2 {
-                text: dsTr("Speaker")
-                color: titleColor
-            }
+    Flickable {
+        anchors.top: titleColumn.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
 
-            rightLoader.sourceComponent: Component{
-                DSwitchButton {
-                    checked: !currentSink.mute
-                    onClicked: {
-                        currentSink.mute = !checked
-                    }
-                }
-            }
-        }
+        contentWidth: parent.width
+        contentHeight: normalSettings.height + advancedSettings.height + link_button_column.height
 
         Column {
-            id: outputColumn
+            id: normalSettings
             width: parent.width
-            height: currentSink.mute ? 0 : childrenRect.height
+            height: myRealHeight
+            x: 0
+            /* y: link_button_column.isAdvanced ? titleColumn.height - myRealHeight : titleColumn.height */
+            property int myRealHeight: childrenRect.height
             clip: true
-            
-            Behavior on height {
-                NumberAnimation { duration: 100 }
+
+            Behavior on y{
+                PropertyAnimation {duration: 200}
             }
-            
+
+            DBaseLine{height: 8}
+            DBaseLine {
+                leftLoader.sourceComponent: DssH2 {
+                    text: dsTr("Speaker")
+                    color: titleColor
+                }
+
+                rightLoader.sourceComponent: Component{
+                    DSwitchButton {
+                        checked: !currentSink.mute
+                        onClicked: {
+                            currentSink.mute = !checked
+                        }
+                    }
+                }
+            }
+
+            Column {
+                id: outputColumn
+                width: parent.width
+                height: currentSink.mute ? 0 : childrenRect.height
+                clip: true
+
+                Behavior on height {
+                    NumberAnimation { duration: 100 }
+                }
+
+                DSeparatorHorizontal {}
+
+                DBaseLine {
+                    height: contentHeight
+                    leftMargin: contentLeftMargin
+                    leftLoader.sourceComponent: LeftTitle {
+                        text: dsTr("Output Volume")
+                    }
+                    rightLoader.sourceComponent: DSliderRect {
+                        width: sliderWidth
+                        leftLabel: dsTr("-")
+                        rightLabel: dsTr("+")
+
+                        value: currentSink.volume/100
+                        onValueChanged: {
+                            currentSink.volume = parseInt(value * 100)
+                        }
+                    }
+                }
+
+                DBaseLine {
+                    height: contentHeight
+                    leftMargin: contentLeftMargin
+                    leftLoader.sourceComponent: LeftTitle {
+                        text: dsTr("Balance")
+                    }
+                    rightLoader.sourceComponent: DSliderRect {
+                        width: sliderWidth
+                        leftLabel: dsTr("Left")
+                        rightLabel: dsTr("Right")
+
+                        value: (currentSink.balance+1)/2
+                        onValueChanged: {
+                            currentSink.balance = value * 2 - 1
+                        }
+                    }
+                }
+            }
+
             DSeparatorHorizontal {}
 
+            DBaseLine {}
             DBaseLine {
-                height: contentHeight
-                leftMargin: contentLeftMargin
-                leftLoader.sourceComponent: LeftTitle {
-                    text: dsTr("Output Volume")
+                leftLoader.sourceComponent: DssH2 {
+                    text: dsTr("Microphone")
+                    color: titleColor
                 }
-                rightLoader.sourceComponent: DSliderRect {
-                    width: sliderWidth
-                    leftLabel: dsTr("-")
-                    rightLabel: dsTr("+")
 
-                    value: currentSink.volume/100
-                    onValueChanged: {
-                        currentSink.volume = parseInt(value * 100)
+                rightLoader.sourceComponent: Component{
+                    DSwitchButton {
+                        checked: !currentSource.mute
+                        onClicked: {
+                            currentSource.mute = !checked
+                        }
                     }
                 }
             }
 
-            DBaseLine {
-                height: contentHeight
-                leftMargin: contentLeftMargin
-                leftLoader.sourceComponent: LeftTitle {
-                    text: dsTr("Balance")
-                }
-                rightLoader.sourceComponent: DSliderRect {
-                    width: sliderWidth
-                    leftLabel: dsTr("Left")
-                    rightLabel: dsTr("Right")
+            DSeparatorHorizontal {}
 
-                    value: (currentSink.balance+1)/2
-                    onValueChanged: {
-                        currentSink.balance = value * 2 - 1
+            Column {
+                id: inputColumn
+                width: parent.width
+                height: currentSource.mute ? 0 : childrenRect.height
+
+                Behavior on height {
+                    NumberAnimation { duration: 100 }
+                }
+
+
+                DBaseLine {
+                    height: contentHeight
+                    leftMargin: contentLeftMargin
+                    leftLoader.sourceComponent: LeftTitle {
+                        text: dsTr("Input Volume")
+                    }
+                    rightLoader.sourceComponent: DSliderRect {
+                        width: sliderWidth
+                        leftLabel: dsTr("-")
+                        rightLabel: dsTr("+")
+
+                        value: currentSource.volume/100
+                        onValueChanged: {
+                            currentSource.volume = parseInt(value * 100)
+                        }
                     }
                 }
+
+                DBaseLine {
+                    height: contentHeight
+                    leftMargin: contentLeftMargin
+                    leftLoader.sourceComponent: LeftTitle {
+                        text: dsTr("Input Level")
+                    }
+                    rightLoader.sourceComponent: DSliderRect {
+                        width: sliderWidth
+
+                        value: (currentSource.balance+1)/2
+                        onValueChanged: {
+                            currentSource.balance = value * 2 - 1
+                        }
+                    }
+                }
+
+                DSeparatorHorizontal {}
             }
         }
-
-        DSeparatorHorizontal {}
-
-        DBaseLine {}
-        DBaseLine {
-            leftLoader.sourceComponent: DssH2 {
-                text: dsTr("Microphone")
-                color: titleColor
-            }
-
-            rightLoader.sourceComponent: Component{
-                DSwitchButton {
-                    checked: !currentSource.mute
-                    onClicked: {
-                        currentSource.mute = !checked
-                    }
-                }
-            }
-        }
-
-        DSeparatorHorizontal {}
 
         Column {
-            id: inputColumn
+            id: advancedSettings
             width: parent.width
-            height: currentSource.mute ? 0 : childrenRect.height
-            
+            height: link_button_column.isAdvanced ? myRealHeight : 0
+            anchors.top: normalSettings.bottom
+            clip: true
+
+            property int myRealHeight: childrenRect.height
+
             Behavior on height {
-                NumberAnimation { duration: 100 }
+                PropertyAnimation {duration: 200}
             }
 
-
-            DBaseLine {
-                height: contentHeight
-                leftMargin: contentLeftMargin
-                leftLoader.sourceComponent: LeftTitle {
-                    text: dsTr("Input Volume")
+            DBaseLine{}
+            DBaseLine{
+                leftLoader.sourceComponent: DssH2 {
+                    text: dsTr("Output Port")
+                    color: titleColor
                 }
-                rightLoader.sourceComponent: DSliderRect {
-                    width: sliderWidth
-                    leftLabel: dsTr("-")
-                    rightLabel: dsTr("+")
+            }
 
-                    value: currentSource.volume/100
-                    onValueChanged: {
-                        currentSource.volume = parseInt(value * 100)
+            DSeparatorHorizontal {}
+
+            Rectangle {
+                width: parent.width
+                height: childrenRect.height
+                color: dconstants.contentBgColor
+
+                DBaseLine{
+                    visible: outputPortList.count == 0
+                    color: dconstants.contentBgColor
+                    leftMargin: itemLabelLeftMargin
+                    leftLoader.sourceComponent: DssH3{
+                        text: dsTr("No port exist in this device.")
                     }
                 }
+
+                ListView {
+                    id: outputPortList
+                    width: parent.width
+                    height: childrenRect.height
+                    visible: count != 0
+
+                    property int selectItemId: currentSink.activePort
+
+                    model: {
+                        var outputPortListModel = listModelComponent.createObject(outputPortList, {})
+                        var ports = currentSink.ports
+                        for(var i=0; i<ports.length; i++){
+                            outputPortListModel.append({
+                                                           "item_id": i,
+                                                           "item_name": ports[i][1]
+                                                       })
+                        }
+                        return outputPortListModel
+                    }
+
+                    delegate: SelectItem {
+                        labelLeftMargin: itemLabelLeftMargin
+                        totalItemNumber: outputPortList.count
+                        selectItemId: String(outputPortList.selectItemId)
+
+                        onSelectAction: {
+                            currentSink.SetSinkPort(itemId)
+                        }
+                    }
+                } // End of outputPortList
+
             }
 
-            DBaseLine {
-                height: contentHeight
-                leftMargin: contentLeftMargin
-                leftLoader.sourceComponent: LeftTitle {
-                    text: dsTr("Input Level")
-                }
-                rightLoader.sourceComponent: DSliderRect {
-                    width: sliderWidth
+            DSeparatorHorizontal{}
 
-                    value: (currentSource.balance+1)/2
-                    onValueChanged: {
-                        currentSource.balance = value * 2 - 1
+            DBaseLine{
+                leftLoader.sourceComponent: DssH2 {
+                    text: dsTr("Output device")
+                    color: titleColor
+                }
+            }
+
+            DSeparatorHorizontal {}
+
+            Rectangle {
+                width: parent.width
+                height: childrenRect.height
+                color: dconstants.contentBgColor
+
+                ListView{
+                    id: outputDeviceList
+                    width: parent.width
+                    height: count * 28
+
+                    property int selectItemId: audioId.defaultSink
+
+                    model: {
+                        var outputDeviceListModel = listModelComponent.createObject(outputDeviceList, {})
+                        for(var i=0; i<allSinks.length; i++){
+                            outputDeviceListModel.append({
+                                                             "item_id": i,
+                                                             "item_name": allSinks[i].description
+                                                         })
+                        }
+                        return outputDeviceListModel
+                    }
+
+                    delegate: SelectItem{
+                        labelLeftMargin: itemLabelLeftMargin
+                        totalItemNumber: outputDeviceList.count
+                        selectItemId: String(outputDeviceList.selectItemId)
+
+                        onSelectAction: {
+                            audioId.defaultSink = itemId
+                        }
+                    }
+                } // End of inputDeviceList
+
+            }
+
+
+            DSeparatorHorizontal{}
+
+            DBaseLine {}
+            DBaseLine{
+                leftLoader.sourceComponent: DssH2 {
+                    text: dsTr("Input Port")
+                    color: titleColor
+                }
+            }
+
+            DSeparatorHorizontal {}
+
+            Rectangle {
+                width: parent.width
+                height: childrenRect.height
+                color: dconstants.contentBgColor
+
+                DBaseLine{
+                    visible: inputPortList.count == 0
+                    color: dconstants.contentBgColor
+                    leftMargin: itemLabelLeftMargin
+                    leftLoader.sourceComponent: DssH3{
+                        text: dsTr("No port exist in this device.")
+                    }
+                }
+
+                ListView {
+                    id: inputPortList
+                    width: parent.width
+                    height: childrenRect.height
+                    visible: count != 0
+
+                    property int selectItemId: currentSource.activePort
+
+                    model: {
+                        var inputPortListModel = listModelComponent.createObject(inputPortList, {})
+                        var ports = currentSource.ports
+                        for(var i=0; i<ports.length; i++){
+                            inputPortListModel.append({
+                                                          "item_id": i,
+                                                          "item_name": ports[i][1]
+                                                      })
+                        }
+                        return inputPortListModel
+                    }
+
+                    delegate: SelectItem {
+                        labelLeftMargin: itemLabelLeftMargin
+                        totalItemNumber: inputPortList.count
+                        selectItemId: String(inputPortList.selectItemId)
+
+                        onSelectAction: {
+                            currentSource.SetSourcePort(itemId)
+                        }
+                    }
+                } // End of outputPortList
+
+            }
+
+            DSeparatorHorizontal {}
+
+            DBaseLine{
+                leftLoader.sourceComponent: DssH2 {
+                    text: dsTr("Input device")
+                    color: titleColor
+                }
+            }
+            DSeparatorHorizontal {}
+
+            Rectangle {
+                width: parent.width
+                height: childrenRect.height
+                color: dconstants.contentBgColor
+
+                ListView{
+                    id: inputDeviceList
+                    width: parent.width
+                    height: childrenRect.height
+
+                    property int selectItemId: audioId.defaultSource
+
+                    model: {
+                        var inputDeviceListModel = listModelComponent.createObject(inputDeviceList, {})
+                        for(var i=0; i<allSources.length; i++){
+                            inputDeviceListModel.append({
+                                                            "item_id": i,
+                                                            "item_name": allSources[i].description
+                                                        })
+                        }
+                        return inputDeviceListModel
+                    }
+
+                    delegate: SelectItem{
+                        labelLeftMargin: itemLabelLeftMargin
+                        totalItemNumber: inputDeviceList.count
+                        selectItemId: String(inputDeviceList.selectItemId)
+
+                        onSelectAction: {
+                            audioId.defaultSource = itemId
+                        }
                     }
                 }
             }
 
             DSeparatorHorizontal {}
         }
-    }
 
-    Column {
-        id: advancedSettings
-        width: parent.width
-        height: link_button_column.isAdvanced ? myRealHeight : 0
-        anchors.top: normalSettings.bottom
-        clip: true
-
-        property int myRealHeight: childrenRect.height
-
-        Behavior on height {
-            PropertyAnimation {duration: 200}
-        }
-
-        DBaseLine{
-            leftMargin: contentLeftMargin
-            leftLoader.sourceComponent: DssH2 {
-                text: dsTr("Output Port")
-            }
-        }
-
-        DSeparatorHorizontal {}
-
-        Rectangle {
+        Column {
+            id: link_button_column
+            anchors.top: advancedSettings.bottom
             width: parent.width
             height: childrenRect.height
-            color: dconstants.contentBgColor
+            property bool isAdvanced: false
 
             DBaseLine{
-                visible: outputPortList.count == 0
-                color: dconstants.contentBgColor
-                leftMargin: itemLabelLeftMargin
-                leftLoader.sourceComponent: DssH3{
-                    text: dsTr("No port exist in this device.")
-                }
-            }
-
-            ListView {
-                id: outputPortList
-                width: parent.width
-                height: childrenRect.height
-                visible: count != 0
-
-                property int selectItemId: currentSink.activePort
-
-                model: {
-                    var outputPortListModel = listModelComponent.createObject(outputPortList, {})
-                    var ports = currentSink.ports
-                    for(var i=0; i<ports.length; i++){
-                        outputPortListModel.append({
-                            "item_id": i,
-                            "item_name": ports[i][1]
-                        })
+                rightLoader.sourceComponent: LinkButton {
+                    id: link_button
+                    text: link_button_column.isAdvanced ? dsTr("Hide Advanced...") : dsTr("Show Advanced...")
+                    onClicked: {
+                        link_button_column.isAdvanced = !link_button_column.isAdvanced
                     }
-                    return outputPortListModel
-                }
-
-                delegate: SelectItem {
-                    labelLeftMargin: itemLabelLeftMargin
-                    totalItemNumber: outputPortList.count
-                    selectItemId: String(outputPortList.selectItemId)
-
-                    onSelectAction: {
-                        currentSink.SetSinkPort(itemId)
-                    }
-                }
-            } // End of outputPortList
-
-        }
-
-        DSeparatorHorizontal{}
-
-        DBaseLine{
-            leftMargin: contentLeftMargin
-            leftLoader.sourceComponent: DssH2 {
-                text: dsTr("Output device")
-            }
-        }
-
-        DSeparatorHorizontal {}
-
-        Rectangle {
-            width: parent.width
-            height: childrenRect.height
-            color: dconstants.contentBgColor
-
-            ListView{
-                id: outputDeviceList
-                width: parent.width
-                height: count * 28
-
-                property int selectItemId: audioId.defaultSink
-
-                model: {
-                    var outputDeviceListModel = listModelComponent.createObject(outputDeviceList, {})
-                    for(var i=0; i<allSinks.length; i++){
-                        outputDeviceListModel.append({
-                            "item_id": i,
-                            "item_name": allSinks[i].description
-                        })
-                    }
-                    return outputDeviceListModel
-                }
-
-                delegate: SelectItem{
-                    labelLeftMargin: itemLabelLeftMargin
-                    totalItemNumber: outputDeviceList.count
-                    selectItemId: String(outputDeviceList.selectItemId)
-
-                    onSelectAction: {
-                        audioId.defaultSink = itemId
-                    }
-                }
-            } // End of inputDeviceList
-
-        }
-
-
-        DSeparatorHorizontal{}
-
-        DBaseLine {}
-        DBaseLine{
-            leftMargin: contentLeftMargin
-            leftLoader.sourceComponent: DssH2 {
-                text: dsTr("Input Port")
-            }
-        }
-
-        DSeparatorHorizontal {}
-
-        Rectangle {
-            width: parent.width
-            height: childrenRect.height
-            color: dconstants.contentBgColor
-
-            DBaseLine{
-                visible: inputPortList.count == 0
-                color: dconstants.contentBgColor
-                leftMargin: itemLabelLeftMargin
-                leftLoader.sourceComponent: DssH3{
-                    text: dsTr("No port exist in this device.")
-                }
-            }
-
-            ListView {
-                id: inputPortList
-                width: parent.width
-                height: childrenRect.height
-                visible: count != 0
-
-                property int selectItemId: currentSource.activePort
-
-                model: {
-                    var inputPortListModel = listModelComponent.createObject(inputPortList, {})
-                    var ports = currentSource.ports
-                    for(var i=0; i<ports.length; i++){
-                        inputPortListModel.append({
-                            "item_id": i,
-                            "item_name": ports[i][1]
-                        })
-                    }
-                    return inputPortListModel
-                }
-
-                delegate: SelectItem {
-                    labelLeftMargin: itemLabelLeftMargin
-                    totalItemNumber: inputPortList.count
-                    selectItemId: String(inputPortList.selectItemId)
-
-                    onSelectAction: {
-                        currentSource.SetSourcePort(itemId)
-                    }
-                }
-            } // End of outputPortList
-
-        }
-
-        DSeparatorHorizontal {}
-
-        DBaseLine{
-            leftMargin: contentLeftMargin
-            leftLoader.sourceComponent: DssH2 {
-                text: dsTr("Input device")
-            }
-        }
-        DSeparatorHorizontal {}
-
-        Rectangle {
-            width: parent.width
-            height: childrenRect.height
-            color: dconstants.contentBgColor
-
-            ListView{
-                id: inputDeviceList
-                width: parent.width
-                height: childrenRect.height
-
-                property int selectItemId: audioId.defaultSource
-
-                model: {
-                    var inputDeviceListModel = listModelComponent.createObject(inputDeviceList, {})
-                    for(var i=0; i<allSources.length; i++){
-                        inputDeviceListModel.append({
-                            "item_id": i,
-                            "item_name": allSources[i].description
-                        })
-                    }
-                    return inputDeviceListModel
-                }
-
-                delegate: SelectItem{
-                    labelLeftMargin: itemLabelLeftMargin
-                    totalItemNumber: inputDeviceList.count
-                    selectItemId: String(inputDeviceList.selectItemId)
-
-                    onSelectAction: {
-                        audioId.defaultSource = itemId
-                    }
-                }
-            }
-        }
-
-        DSeparatorHorizontal {}
-    }
-
-    Column {
-        id: link_button_column
-        anchors.top: advancedSettings.bottom
-        width: parent.width
-        height: childrenRect.height
-        property bool isAdvanced: false
-        
-        DBaseLine{
-            rightLoader.sourceComponent: LinkButton {
-                id: link_button
-                text: link_button_column.isAdvanced ? dsTr("Hide Advanced...") : dsTr("Show Advanced...")
-                onClicked: {
-                    link_button_column.isAdvanced = !link_button_column.isAdvanced
                 }
             }
         }
