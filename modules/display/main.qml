@@ -42,7 +42,6 @@ Item {
 
         DSeparatorHorizontal {}
 
-        /**
         DBaseLine {
             id: monitorChoose
             height: 38
@@ -74,7 +73,6 @@ Item {
             outputObj: monitorChoose.currentSelectedMonitor
             monitorsNumber: allMonitorsObjects.length
         }
-        **/
 
         DBaseLine {
             rightMargin: 10

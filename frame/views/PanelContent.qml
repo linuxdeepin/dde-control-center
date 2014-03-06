@@ -41,7 +41,15 @@ Rectangle {
     property var sessionManager: SessionManager {}
     property var modulesId: ModulesData {}
     property var accountId: Accounts {}
-    property var currentUserObj: User { path: accountId.userList[0] }
+    property var currentUserObj: User {
+        path: accountId.userList[0]
+        onIconFileChanged: {
+            avatarImage.imageSource = iconFile
+        }
+        Component.onCompleted: {
+            avatarImage.imageSource = iconFile
+        }
+    }
 
     property bool inExpandHideTrayIcon: false
     property bool inDssHome: true
@@ -58,7 +66,7 @@ Rectangle {
 
     function initTrayIcon() {
         print("==> [info] initTrayIcon emit")
-        avatarImage.imageSource = currentUserObj.iconFile
+        //avatarImage.imageSource = currentUserObj.iconFile
         userName.text = currentUserObj.userName.substring(0, 1).toUpperCase()
             +currentUserObj.userName.substring(1)
         var modules_id_array = modulesId.allIds

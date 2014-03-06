@@ -8,6 +8,94 @@ Rectangle {
     color: dconstants.contentBgColor
     clip: true
 
+    property int padding: 10
+    property var monitorComponent: Qt.createComponent("MonitorComponent.qml")
+    property var scaleFactorAndPadding: getScaleFactorAndPadding()
+    property var monitorViews: new Array()
+
+    property var openedMonitors: {
+        var openedM = new Array()
+        for(var i in allMonitorsObjects){
+            if(allMonitorsObjects[i].opened){
+                openedM.push(allMonitorsObjects[i])
+            }
+        }
+        print("==> [debug] primary:", displayId.primary)
+        return openedM
+    }
+
+    function getScaleFactorAndPadding(){
+        var xPositionLeft = new Array()
+        var xPositionRight = new Array()
+        var yPositionUp = new Array()
+        var yPositionDown = new Array()
+        for(var i in openedMonitors){
+            var obj = openedMonitors[i]
+            xPositionLeft.push(obj.x)
+            xPositionRight.push(obj.x + obj.width)
+            yPositionUp.push(obj.y)
+            yPositionDown.push(obj.y + obj.height)
+        }
+        var x1 = windowView.sortArray(xPositionLeft, false)[0]
+        var x2 = windowView.sortArray(xPositionRight, true)[0]
+        var y1 = windowView.sortArray(yPositionUp, false)[0]
+        var y2 = windowView.sortArray(yPositionDown, true)[0]
+        var real_width = x2 - x1
+        var real_height = y2 - y1
+        if(real_height/real_width < validArea.height/validArea.width){
+            var scale_factor = validArea.width/real_width
+            var y_padding = (validArea.height - scale_factor * real_height)/2
+            return [scale_factor, 0, y_padding]
+        }
+        else{
+            var scale_factor = validArea.height/real_height
+            var x_padding = (validArea.width - scale_factor * real_width)/2
+            return [scale_factor, x_padding, 0]
+        }
+    }
+
+    function presentCurrent(index){
+        for(var i=0; i<monitorItems.count; i++){
+            var monitorItem = monitorItems.itemAt(i)
+            monitorItem.z = index == i ? 10 : 0
+        }
+    }
+
+    function releaseAction(index){
+        var currentView = monitorItems.itemAt(index)
+        for(var i=0; i<monitorItems.count; i++){
+            if(i !=index ){
+                var bView = monitorItems.itemAt(i)
+                if(bView.beJoined){
+                    displayId.JoinMonitor(currentView.monitorObject.name, bView.monitorObject.name)
+                }
+            }
+        }
+    }
+
+    function dragAction(index){
+        var currentView = monitorItems.itemAt(index)
+        for(var i=0; i<monitorItems.count; i++){
+            if(i !=index ){
+                var bView = monitorItems.itemAt(i)
+                var c_x1 = Math.max(currentView.x1, bView.x1)
+                var c_x2 = Math.min(currentView.x2, bView.x2)
+                var c_y1 = Math.max(currentView.y1, bView.y1)
+                var c_y2 = Math.min(currentView.y2, bView.y2)
+                if(c_x1 < c_x2 && c_y1 < c_y2){
+                    var c_area = (c_x2-c_x1)*(c_y2-c_y1)
+                    var b_area = (bView.x2-bView.x1)*(bView.y2-bView.y1)
+                    var cur_area = currentView.width*currentView.height
+                    if(c_area >= cur_area/2 || c_area >= b_area/2){
+                        bView.beJoined = true
+                        return 
+                    }
+                }
+                bView.beJoined = false
+            }
+        }
+    }
+
     DOpacityImageButton{
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 5
@@ -21,115 +109,15 @@ Rectangle {
         anchors.centerIn: parent
         height: parent.height - 40
         width: parent.width - 20
-        color: Qt.rgba(1, 0, 0, 0.1)
+        color: Qt.rgba(1, 0, 0, 0)
 
         Repeater{
             id: monitorItems
-            model: {
-                var myModel = listModelComponent.createObject(monitorItems, {})
-                print(scaleFactorAndPadding)
-                //for(var i in allMonitorsObjects){
-                    var obj = {"name": "1", "x": 0,"y": 0, "width": 1366, "height": 768}
-                    myModel.append({
-                        "monitorObj": obj,
-                        "scaleFactorAndPadding": scaleFactorAndPadding
-                    })
-                //}
-                return myModel
+            model: openedMonitors.length
+            delegate: MonitorComponent{
+                monitorObject: openedMonitors[index]
+                scaleFactorAndPadding: monitorDragArea.scaleFactorAndPadding
             }
-            delegate: MonitorComponent{}
-        }
-    }
-
-    property int padding: 10
-    property var monitorComponent: Qt.createComponent("MonitorComponent.qml")
-    property var scaleFactorAndPadding: getScaleFactorAndPadding()
-    property var monitorViews: new Array()
-
-    function monitorChanged(all){
-        print(scaleFactorAndPadding)
-        for(var i in monitorViews){
-            monitorViews[i].destroy()
-        }
-        if(all){
-            for(var i=0; i<all.length;i++){
-                var view = monitorComponent.createObject(validArea, {
-                    "outputObj": all[i],
-                    "monitorIndex": i,
-                    "scaleFactor": scaleFactorAndPadding[0],
-                    "xPadding": scaleFactorAndPadding[1],
-                    "yPadding": scaleFactorAndPadding[2]
-                })
-                monitorViews.push(view)
-            }
-        }
-    }
-
-    property var outputObjectsOpened: {
-        var openedMonitors = new Array()
-        for(var i in allMonitorsObjects){
-            if(allMonitorsObjects[i].opened){
-                openedMonitors.push(allMonitorsObjects[i])
-            }
-        }
-        return openedMonitors
-    }
-
-    Component.onCompleted: {
-        if(outputObjectsOpened.length == 1){
-            //releaseAction(0)
-        }
-        else{
-        }
-    }
-
-    function getScaleFactorAndPadding(){
-        var xPositionLeft = new Array()
-        var xPositionRight = new Array()
-        var yPositionUp = new Array()
-        var yPositionDown = new Array()
-        for(var i in outputObjectsOpened){
-            var obj = outputObjectsOpened[i]
-            xPositionLeft.push(obj.x)
-            xPositionRight.push(obj.x + obj.width)
-            yPositionUp.push(obj.y)
-            yPositionDown.push(obj.y + obj.height)
-        }
-        var x1 = windowView.sortArray(xPositionLeft, false)[0]
-        var x2 = windowView.sortArray(xPositionRight, true)[0]
-        var y1 = windowView.sortArray(yPositionUp, false)[0]
-        var y2 = windowView.sortArray(yPositionDown, true)[0]
-        if(y2-y1/x2-x1 > validArea.height/validArea.width){
-            var scale_factor = validArea.width/(x2-x1)
-            var y_padding = (validArea.height - scale_factor * (y2-y1))/2
-            return [scale_factor, 0, y_padding]
-        }
-        else{
-            var scale_factor = validArea.height/(y2-y1)
-            var x_padding = (validArea.width - scale_factor * (x2-x1))/2
-            return [scale_factor, x_padding, 0]
-        }
-    }
-
-    function presentCurrent(index){
-        monitorViews[index].z = 10
-        for(var i in monitorViews){
-            if(monitorViews[i].z == 10 && i != index){
-                monitorViews[i].z = 0
-            }
-        }
-    }
-
-    function releaseAction(index){
-        var currentView = monitorViews[index]
-        if(outputObjectsOpened.length == 1){
-            var modeInfo = currentView.outputObj.currentMode
-            currentView.width = width - 100
-            currentView.height = currentView.width * modeInfo[2]/modeInfo[1]
-            currentView.x = (width - currentView.width)/2
-            currentView.y = (height - currentView.height)/2
-        }
-        else{
         }
     }
 }

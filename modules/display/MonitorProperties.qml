@@ -74,7 +74,7 @@ Item {
             text: dsTr("Enabled")
             active: outputObj.opened
             onClicked: {
-                outputObj.opened = active
+                outputObj.SwitchOn(active)
             }
             visible: monitorsNumber > 1
         }
@@ -162,11 +162,12 @@ Item {
             }
 
             rightLoader.sourceComponent: DSlider{
-                value: outputObj.brightness
+                value: outputObj.isComposited ? 0 : outputObj.brightness[outputObj.name]
                 onValueChanged: {
-                    outputObj.ChangeBrightness(value)
+                    outputObj.ChangeBrightness(outputObj.name, value)
                     displayId.SaveChanged()
                 }
+                visible: !outputObj.isComposited
             }
         }
 
