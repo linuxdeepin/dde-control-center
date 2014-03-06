@@ -52,23 +52,20 @@ DBaseExpand {
                         Image {
                             source: {
                                 var power=  accessPoints[index][2]
-                                if (power <= 20)
-                                    return "img/wifi_1.png"
+                                var secure = accessPoints[index][1] ? "-secure": ""
+                                if (power <= 5)
+                                    return "img/ap-signal-0" + secure + ".svg"
+                                else if (power <= 25)
+                                    return "img/ap-signal-25" + secure + ".svg"
                                 else if (power <= 50)
-                                    return "img/wifi_2.png"
-                                else if (power <= 80)
-                                    return "img/wifi_3.png"
+                                    return "img/ap-signal-50" + secure + ".svg"
+                                else if (power <= 75)
+                                    return "img/ap-signal-75" + secure + ".svg"
                                 else if (power <= 100)
-                                    return "img/wifi_4.png"
+                                    return "img/ap-signal-100" + secure + ".svg"
                             }
                         }
-                        DLabel {
-                            text: accessPoints[index][2] + " " + (accessPoints[index][1] ? "!" : " ")
-                        }
-                        DImageButton {
-                            normal_image: "../widgets/images/arrow_right_normal.png"
-                            hover_image: "../widgets/images/arrow_right_hover.png"
-                            press_image: "../widgets/images/arrow_right_press.png"
+                        DArrowButton {
                             onClicked: {
                                 print("X")
                             }
