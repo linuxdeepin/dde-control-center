@@ -8,8 +8,8 @@ Item {
     property int verticalPadding: 8
     property var this_user: null
 
-    signal avatarSet (Item item)
-    signal avatarPictured (Item item, url path)
+    signal avatarSet (url path)
+    signal avatarPictured (url path)
 
     DRadioButton {
         id: radio_button
@@ -111,7 +111,7 @@ Item {
         id: avatar_recently_used_view
 
         onAvatarSet: {
-            root.avatarSet(item)
+            root.avatarSet(path)
         }
 
         onInitialize: {
@@ -136,7 +136,7 @@ Item {
         withAddButton: true
 
         onAvatarSet: {
-            root.avatarSet(item)
+            root.avatarSet(path)
         }
         
         onInitialize: {
@@ -169,7 +169,7 @@ Item {
 
         WebCam {
             onAvatarPictured: {
-                root.avatarPictured(item, path)
+                root.avatarPictured(path)
             }
         }
     }

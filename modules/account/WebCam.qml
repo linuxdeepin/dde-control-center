@@ -7,7 +7,7 @@ Item {
     property bool running: false
     property int verticalPadding: 8
 
-    signal avatarPictured (Item item, url path)
+    signal avatarPictured (url path)
 
     onRunningChanged: {
         if (running) {

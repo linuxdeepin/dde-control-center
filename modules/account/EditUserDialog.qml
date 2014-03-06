@@ -9,9 +9,6 @@ Rectangle {
 
     property var this_user: null
 
-    signal avatarSet (Item item)
-    signal avatarPictured (Item item, url path)
-    
     Column {
         id: column
 
@@ -27,13 +24,13 @@ Rectangle {
             }
 
             onAvatarSet: {
-                var iconFile = item.imageSource.toString().replace("file:\/\/", "")
-                this_user.iconFile = iconFile
-                root.avatarSet(item)
+                var iconFile = path.toString().replace("file:\/\/", "")
+                this_user.SetIconFile(iconFile)
             }
 
             onAvatarPictured: {
-                root.avatarPictured(item , path)
+                var iconFile = path.toString().replace("file:\/\/", "")                
+                this_user.SetIconFile(iconFile)                
             }
         }
 
@@ -61,7 +58,7 @@ Rectangle {
                     checked: root.this_user.automaticLogin
 
                     onClicked: {
-                        this_user.automaticLogin = checked
+                        this_user.SetAutomaticLogin(checked)
                     }
 
                     anchors.right: parent.right
@@ -94,7 +91,7 @@ Rectangle {
                         {"buttonId": "administrator", "buttonLabel": "Administrator"},
                     ]
                     initializeIndex: root.this_user.accountType
-                    onItemSelected: root.this_user.accountType = idx
+                    onItemSelected: root.this_user.SetAccountType(idx)
 
                     anchors.right: parent.right
                     anchors.rightMargin: 15

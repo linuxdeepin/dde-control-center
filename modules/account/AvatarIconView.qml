@@ -11,7 +11,8 @@ GridView {
     property bool withAddButton: false
 
     signal initialize
-    signal avatarSet (Item item)
+    signal avatarSet (url path)
+    signal checkPrivate (int idx)
 
     Component {
         id: avatar_icon_view_delegate
@@ -19,6 +20,19 @@ GridView {
         Item {
             width: GridView.view.cellWidth
             height: GridView.view.cellHeight
+
+            Connections {
+                target: avatar_icon_view
+
+                onCheckPrivate: {
+                    if (index == idx) {
+                        round_image.state = "checked"
+                        avatar_icon_view.avatarSet(round_image.imageSource)
+                    } else {
+                        round_image.state = "normal"
+                    }
+                }
+            }
 
             DRoundImage {
                 id: round_image
@@ -31,7 +45,7 @@ GridView {
 
                 onClicked: {
                     if (checkSupport) {
-                        avatar_icon_view.avatarSet(round_image)
+                        avatar_icon_view.checkPrivate(index)
                     }
                 }
 

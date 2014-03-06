@@ -134,7 +134,7 @@ ListView {
                     DRoundImage {
                         id: round_image
                         roundRadius: index == 0 ? 30 : 25 
-                        imageSource: userAvatar
+                        imageSource: this_user.iconFile
 
                         anchors.left: parent.left
                         anchors.leftMargin: root.leftPadding + 30 - roundRadius
