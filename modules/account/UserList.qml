@@ -8,7 +8,7 @@ ListView {
 
     property int leftPadding: 15
     property int rightPadding: 15
-    property int avatarNamePadding: 30
+    property int nameLeftPadding: 120
 
     property bool fromPanelAvatar
 
@@ -88,7 +88,6 @@ ListView {
                 property bool expandButtonVisible
                 property bool expandButtonUp
 
-                property int roundImageRadius
                 property color nameColor
                 property string expandButtonStatus
 
@@ -102,9 +101,8 @@ ListView {
                         name: "hover_shrinked"
                         PropertyChanges {
                             target: delete_line
-                            roundImageRadius: 30
-                            nameColor: "#faca57"
-                            expandButtonStatus: "hover"
+                            nameColor: index == 0 ? "#faca57" : dconstants.hoverColor
+                            expandButtonStatus: index == 0 ? "golden" : "hover"
                             expandButtonUp: false
                         }
                     },
@@ -112,9 +110,8 @@ ListView {
                         name: "hover_expanded"
                         PropertyChanges {
                             target: delete_line
-                            roundImageRadius: 30
-                            nameColor: "#faca57"
-                            expandButtonStatus: "hover"
+                            nameColor: index == 0 ? "#faca57" : dconstants.hoverColor                            
+                            expandButtonStatus: index == 0 ? "golden" : "hover"                            
                             expandButtonUp: true                            
                         }
                     },                    
@@ -122,9 +119,8 @@ ListView {
                         name: "normal"
                         PropertyChanges {
                             target: delete_line
-                            roundImageRadius: 25
-                            nameColor: "white"
-                            expandButtonStatus: "normal"
+                            nameColor: index == 0 ? "#faca57" : dconstants.fgColor
+                            expandButtonStatus: index == 0 ? "golden" : "normal"    
                             expandButtonUp: false
                         }
                     }
@@ -137,11 +133,11 @@ ListView {
 
                     DRoundImage {
                         id: round_image
-                        roundRadius: delete_line.roundImageRadius
+                        roundRadius: index == 0 ? 30 : 25 
                         imageSource: userAvatar
 
                         anchors.left: parent.left
-                        anchors.leftMargin: root.leftPadding
+                        anchors.leftMargin: root.leftPadding + 30 - roundRadius
                         anchors.verticalCenter: parent.verticalCenter
                     }
 
@@ -156,10 +152,11 @@ ListView {
 
                         DssH3 {
                             text: userType == 0 ? dsTr("User") : dsTr("Administrator")
+                            color: dconstants.fgColor
                         }
 
-                        anchors.left: round_image.right
-                        anchors.leftMargin: root.avatarNamePadding
+                        anchors.left: parent.left
+                        anchors.leftMargin: root.nameLeftPadding
                         anchors.verticalCenter: parent.verticalCenter
                     }
 
@@ -317,7 +314,7 @@ ListView {
             ]
 
             Behavior on height {
-                SmoothedAnimation { duration: 50 }
+                SmoothedAnimation { duration: 300 }
             }
 
             Component.onCompleted: {

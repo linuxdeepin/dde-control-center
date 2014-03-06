@@ -3,8 +3,8 @@ import Deepin.Widgets 1.0
 
 DImageButton {
     id: root
-    property string status: "normal"
     property bool up: false
+    property string status: "normal"
 
     normal_image: root.up ? "images/arrow_up_" + status + ".png" : "images/arrow_down_" + status + ".png"
     hover_image: root.up ? "images/arrow_up_" + status + ".png" : "images/arrow_down_" + status + ".png"
