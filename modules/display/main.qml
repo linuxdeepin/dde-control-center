@@ -10,19 +10,15 @@ Item {
 
     property var dconstants: DConstants {}
     property var displayId: Display {}
-    property var allMonitorsObjects: {
-        displayId.ResetChanged()
-        var myObjects = new Array()
-        var monitors = displayId.monitors
-        for(var i=0; i<monitors.length; i++){
-            var monitorObj = monitorComponent.createObject(displayModule, { path: monitors[i] })
-            myObjects.push(monitorObj)
-        }
-        return myObjects
-    }
+    property var allMonitorsObjects: getAllMonitorsObj(displayId.monitors)
 
-    onAllMonitorsObjectsChanged: {
-        //displayId.SetPrimary(allMonitorsObjects[0].name)
+    function getAllMonitorsObj(monitors){
+            var monitorsObjects = new Array()
+            for(var i=0; i<monitors.length; i++){
+                var monitorObj = monitorComponent.createObject(displayModule, { path: monitors[i] })
+                monitorsObjects.push(monitorObj)
+            }
+            return monitorsObjects
     }
 
     Component {
@@ -40,10 +36,13 @@ Item {
 
         DSeparatorHorizontal {}
 
-        MonitorDragArea {}
+        MonitorDragArea {
+            id: monitorDragArea
+        }
 
         DSeparatorHorizontal {}
 
+        /**
         DBaseLine {
             id: monitorChoose
             height: 38
@@ -75,6 +74,7 @@ Item {
             outputObj: monitorChoose.currentSelectedMonitor
             monitorsNumber: allMonitorsObjects.length
         }
+        **/
 
         DBaseLine {
             rightMargin: 10

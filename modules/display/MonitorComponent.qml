@@ -4,20 +4,25 @@ import Deepin.Widgets 1.0
 Rectangle{
     id: monitorComponent
 
-    property var outputObj
-    property int monitorIndex
+    property var monitorObject: monitorObj
+    property int monitorIndex: index
 
-    property string displayName: outputObj.name
-    property var modeInfo: outputObj.currentMode
+    property string displayName: monitorObject.name
+    property real scaleFactor: scaleFactorAndPadding[0]
+    property int xPadding: scaleFactorAndPadding[1]
+    property int yPadding: scaleFactorAndPadding[2]
 
-    property real whFactor: modeInfo[1]/modeInfo[2]
-
-    width: 120
-    height: width/whFactor
+    width: monitorObject.width*scaleFactor
+    height: monitorObject.height*scaleFactor
+    x: monitorObject.x * scaleFactor + xPadding
+    y: monitorObject.y * scaleFactor + yPadding
     color: "#0d0d0d"
     border.width: 1
     border.color: dconstants.fgDarkColor
-    visible: outputObj.opened
+    visible: monitorObject.opened
+
+    Component.onCompleted: {
+    }
 
     DssH3 {
         anchors.centerIn: parent
@@ -34,8 +39,8 @@ Rectangle{
 
     MouseArea {
         anchors.fill: parent
-        //drag.target: parent
-        //drag.axis: Drag.XAndYAxis
+        drag.target: parent
+        drag.axis: Drag.XAndYAxis
         onPressed: {
             parent.color = "#252525"
             parent.opacity = 0.6
