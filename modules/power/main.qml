@@ -35,6 +35,14 @@ Rectangle {
         }
     }
 
+    function getBatteryPercentage() {
+        if (dbus_power.batteryIsPresent) {
+            return " (" + dbus_power.batteryPercentage + "%)"
+        } else {
+            return ""
+        }
+    }
+
     Column {
         anchors.fill: parent
 
@@ -44,7 +52,7 @@ Rectangle {
 
             DssTitle {
                 id: title
-                text: dsTr("Power")
+                text: dsTr("Power") + root.getBatteryPercentage()
             }
 
             DTextButton {
@@ -110,7 +118,6 @@ Rectangle {
         DBaseExpand {
             id: close_the_lid_rect
             expanded: true
-            visible: dbus_system_info.isLaptop ? true : false
             header.sourceComponent: DBaseLine {
                 leftLoader.sourceComponent: DssH2 {
                     text: dsTr("When I close the lid")
@@ -216,112 +223,112 @@ Rectangle {
 
                 model: ListModel {}
                 Component.onCompleted: {
-                    model.append({"label": dsTr("Balance"), "selected": dbus_power.currentPlan == "balance"})
-                    model.append({"label": dsTr("Power saver"), "selected": dbus_power.currentPlan == "saving"})
-                    model.append({"label": dsTr("High performance"), "selected": dbus_power.currentPlan == "high-performance"})
-                    model.append({"label": dsTr("Custom"), "selected": dbus_power.currentPlan == "customized"})
+                    model.append({"label": dsTr("Balance"), "selected": dbus_power.currentProfile == "Default"})
+                    model.append({"label": dsTr("Power saver"), "selected": dbus_power.currentProfile == "Powersave"})
+                    model.append({"label": dsTr("High performance"), "selected": dbus_power.currentProfile == "Performance"})
+                    model.append({"label": dsTr("Custom"), "selected": dbus_power.currentProfile == "Customize"})
                 }
                 onSelect: {
                     switch (index) {
                         case 0:
-                        dbus_power.currentPlan = "balance"
+                        dbus_power.currentProfile = "Default"
                         break
                         case 1:
-                        dbus_power.currentPlan = "saving"
+                        dbus_power.currentProfile = "Powersave"
                         break
                         case 2:
-                        dbus_power.currentPlan = "high-performance"
+                        dbus_power.currentProfile = "Performance"
                         break
                         case 3:
-                        dbus_power.currentPlan = "customized"
+                        dbus_power.currentProfile = "Customize"
                     }
                 }
                 Connections {
                     target: dbus_power
-                    onCurrentPlanChanged: {
+                    onCurrentProfileChanged: {
                         switch (dbus_power.currentPlan) {
-                            case "balance": power_plan_view.selectItem(0); break
-                            case "saving": power_plan_view.selectItem(1); break
-                            case "high-performance": power_plan_view.selectItem(2); break
-                            case "customized": power_plan_view.selectItem(3); break
+                            case "Default": power_plan_view.selectItem(0); break
+                            case "Powersave": power_plan_view.selectItem(1); break
+                            case "Performance": power_plan_view.selectItem(2); break
+                            case "Customize": power_plan_view.selectItem(3); break
                         }
                     }
                 }
             }
         }
         DSeparatorHorizontal{}
-        DBaseExpand {
-            id: turn_off_monitor_rect
-            expanded: true
-            property string headerText: "- " + dsTr("Turn off monitor")
+        /* DBaseExpand { */
+        /*     id: turn_off_monitor_rect */
+        /*     expanded: true */
+        /*     property string headerText: "- " + dsTr("Turn off monitor") */
 
-            header.sourceComponent: DBaseLine {
-                leftLoader.sourceComponent: DssH2 {
-                    text: turn_off_monitor_rect.headerText
-                }
-            }
-            content.sourceComponent: DMultipleSelectView {
-                id: turn_off_monitor_view
-                rows: 1
-                columns: 7
+        /*     header.sourceComponent: DBaseLine { */
+        /*         leftLoader.sourceComponent: DssH2 { */
+        /*             text: turn_off_monitor_rect.headerText */
+        /*         } */
+        /*     } */
+        /*     content.sourceComponent: DMultipleSelectView { */
+        /*         id: turn_off_monitor_view */
+        /*         rows: 1 */
+        /*         columns: 7 */
 
-                width: parent.width
-                height: rows * 30
-                singleSelectionMode: true
+        /*         width: parent.width */
+        /*         height: rows * 30 */
+        /*         singleSelectionMode: true */
 
-                model: ListModel {
-                    ListElement {
-                        label: "1m"
-                        selected: false
-                    }
-                    ListElement {
-                        label: "5m"
-                        selected: false
-                    }
-                    ListElement {
-                        label: "10m"
-                        selected: false
-                    }
-                    ListElement {
-                        label: "15m"
-                        selected: false
-                    }
-                    ListElement {
-                        label: "30m"
-                        selected: false
-                    }
-                    ListElement {
-                        label: "1h"
-                        selected: false
-                    }
-                    ListElement {
-                        label: "never"
-                        selected: false
-                    }
-                }
+        /*         model: ListModel { */
+        /*             ListElement { */
+        /*                 label: "1m" */
+        /*                 selected: false */
+        /*             } */
+        /*             ListElement { */
+        /*                 label: "5m" */
+        /*                 selected: false */
+        /*             } */
+        /*             ListElement { */
+        /*                 label: "10m" */
+        /*                 selected: false */
+        /*             } */
+        /*             ListElement { */
+        /*                 label: "15m" */
+        /*                 selected: false */
+        /*             } */
+        /*             ListElement { */
+        /*                 label: "30m" */
+        /*                 selected: false */
+        /*             } */
+        /*             ListElement { */
+        /*                 label: "1h" */
+        /*                 selected: false */
+        /*             } */
+        /*             ListElement { */
+        /*                 label: "never" */
+        /*                 selected: false */
+        /*             } */
+        /*         } */
 
-                Component.onCompleted: {
-                    turn_off_monitor_view.selectItem(timeoutToIndex(dbus_power.sleepDisplayAc))
-                }
+        /*         Component.onCompleted: { */
+        /*             turn_off_monitor_view.selectItem(timeoutToIndex(dbus_power.sleepDisplayAc)) */
+        /*         } */
 
-                onSelect: {
-                    dbus_power.currentPlan = "customized"
-                    dbus_power.sleepDisplayAc = indexToTimeout(index)
-                    dbus_power.sleepDisplayBattery = indexToTimeout(index)
-                }
+        /*         onSelect: { */
+        /*             dbus_power.currentPlan = "Customize" */
+        /*             dbus_power.sleepDisplayAc = indexToTimeout(index) */
+        /*             dbus_power.sleepDisplayBattery = indexToTimeout(index) */
+        /*         } */
 
-                Connections {
-                    target: dbus_power
-                    onSleepDisplayBatteryChanged: {
-                        turn_off_monitor_view.selectItem(timeoutToIndex(dbus_power.sleepDisplayBattery))
-                    }
-                    onSleepDisplayAcChanged: {
-                        turn_off_monitor_view.selectItem(timeoutToIndex(dbus_power.sleepDisplayAc))
-                    }
-                }
-            }
-        }
-        DSeparatorHorizontal{}
+        /*         Connections { */
+        /*             target: dbus_power */
+        /*             onSleepDisplayBatteryChanged: { */
+        /*                 turn_off_monitor_view.selectItem(timeoutToIndex(dbus_power.sleepDisplayBattery)) */
+        /*             } */
+        /*             onSleepDisplayAcChanged: { */
+        /*                 turn_off_monitor_view.selectItem(timeoutToIndex(dbus_power.sleepDisplayAc)) */
+        /*             } */
+        /*         } */
+        /*     } */
+        /* } */
+        /* DSeparatorHorizontal{} */
         DBaseExpand {
             id: suspend_rect
             expanded: true
@@ -373,22 +380,22 @@ Rectangle {
                 }
 
                 Component.onCompleted: {
-                    suspend_view.selectItem(timeoutToIndex(dbus_power.sleepInactiveAc))
+                    suspend_view.selectItem(timeoutToIndex(dbus_power.sleepInactiveAcTimeout))
                 }
 
                 onSelect: {
-                    dbus_power.currentPlan = "customized"
-                    dbus_power.sleepInactiveAc = indexToTimeout(index)
-                    dbus_power.sleepInactiveBattery = indexToTimeout(index)
+                    dbus_power.currentPlan = "Customize"
+                    dbus_power.sleepInactiveAcTimeout = indexToTimeout(index)
+                    dbus_power.sleepInactiveBatteryTimeout = indexToTimeout(index)
                 }
 
                 Connections {
                     target: dbus_power
-                    onSleepDisplayBatteryChanged: {
-                        suspend_view.selectItem(timeoutToIndex(dbus_power.sleepInactiveBattery))
+                    onSleepInactiveBatteryTimeoutChanged: {
+                        suspend_view.selectItem(timeoutToIndex(dbus_power.sleepInactiveBatteryTimeout))
                     }
-                    onSleepDisplayAcChanged: {
-                        suspend_view.selectItem(timeoutToIndex(dbus_power.sleepInactiveAc))
+                    onSleepInactiveAcTimeoutChanged: {
+                        suspend_view.selectItem(timeoutToIndex(dbus_power.sleepInactiveAcTimeout))
                     }
                 }
             }
