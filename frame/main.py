@@ -33,17 +33,16 @@ app = QApplication(sys.argv)
 import signal
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 
-from controlpanel import ControlPanel
-from unique_service import UniqueService
+from controlpanel import ControlPanel, DBusService
 from constants import APP_DBUS_NAME, APP_OBJECT_PATH
 from display_monitor import connect_to_primary_changed
+
+from PyQt5.QtDBus import QDBusConnection, QDBusInterface
+session_bus = QDBusConnection.sessionBus()
 
 def main():
     root_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
     os.chdir(root_dir)
-
-    uniqueService = UniqueService(APP_DBUS_NAME, APP_OBJECT_PATH)
-    uniqueService.uniqueTrigger.connect(unique_trigger)
 
     panel = ControlPanel()
     panel.engine_obj.quit.connect(app.quit)
@@ -59,10 +58,17 @@ def main():
 
     panel.record_event.start()
 
+    DBusService(panel)
+    session_bus.registerObject(APP_OBJECT_PATH, panel)
+    session_bus.registerService(APP_DBUS_NAME)
+
     sys.exit(app.exec_())
 
-def unique_trigger():
-    print "dss is running"
-
 if __name__ == "__main__":
-    main()
+    iface = QDBusInterface(APP_DBUS_NAME, APP_OBJECT_PATH, '', session_bus)
+    if iface.isValid():
+        print "dss is running"
+        iface.call("show")
+        sys.exit(0)
+    else:
+        main()

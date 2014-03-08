@@ -42,39 +42,28 @@ DISPLAY_DBUS_INTERFACE = DISPLAY_DBUS_SERVICE
 
 session_bus = QDBusConnection.sessionBus()
 
-import xcb
-import xcb.xproto
 from Xlib import X, display
 from Xlib.ext import record
 from Xlib.protocol import rq
 from threading import Timer
 
-conn = xcb.connect()
-screen = conn.get_setup().roots[0]
-root = screen.root
-        
 record_dpy = display.Display()
-
-def get_pointer_coordiante():
-    pointer = conn.core.QueryPointer(root).reply()
-    return (pointer.root_x, pointer.root_y)
 
 def record_event(record_callback):
     ctx = record_dpy.record_create_context(
         0,
         [record.AllClients],
         [{
-                'core_requests': (0, 0),
-                'core_replies': (0, 0),
-                'ext_requests': (0, 0, 0, 0),
-                'ext_replies': (0, 0, 0, 0),
-                'delivered_events': (0, 0),
-                'device_events': (X.KeyPress, X.MotionNotify),
-                'errors': (0, 0),
-                'client_started': False,
-                'client_died': False,
-                }])
-         
+            'core_requests': (0, 0),
+            'core_replies': (0, 0),
+            'ext_requests': (0, 0, 0, 0),
+            'ext_replies': (0, 0, 0, 0),
+            'delivered_events': (0, 0),
+            'device_events': (X.KeyPress, X.MotionNotify),
+            'errors': (0, 0),
+            'client_started': False,
+            'client_died': False,
+        }])
     record_dpy.record_enable_context(ctx, record_callback)
     record_dpy.record_free_context(ctx)
 
@@ -117,7 +106,8 @@ class RecordEvent(QThread):
                 session_bus,
                 None)
 
-        self.screen_rect = QDBusReply(self.display_iface.call("Get", DISPLAY_DBUS_INTERFACE, "PrimaryRect")).value()
+        self.screen_rect = QDBusReply(self.display_iface.call("Get",
+            DISPLAY_DBUS_INTERFACE, "PrimaryRect")).value()
         connect_to_primary_changed(self.update_screen_rect)
 
     @pyqtSlot(QDBusMessage)

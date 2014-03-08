@@ -9,22 +9,29 @@ Rectangle{
     property var scaleFactorAndPadding: [1.0, 0, 0]
     property bool inEditMode: true
 
+    signal pressedAction(int monitorIndex)
+    signal releasedAction(int monitorIndex)
+    signal dragAndMoveAction(int monitorIndex)
+
     property string displayName: monitorObject.name
     property real scaleFactor: scaleFactorAndPadding[0]
     property int xPadding: scaleFactorAndPadding[1]
     property int yPadding: scaleFactorAndPadding[2]
+
     property bool pressed: false
     property bool beJoined: false
+    property bool beOverlapped: false
 
-    width: monitorObject.width*scaleFactor
-    height: monitorObject.height*scaleFactor
-    x: monitorObject.x * scaleFactor + xPadding
-    y: monitorObject.y * scaleFactor + yPadding
     color: pressed ? "#252525" : "#0d0d0d"
     border.width: 1
     border.color: beJoined ? "red" : dconstants.fgDarkColor
     visible: monitorObject.opened
     opacity: pressed ? 0.6 : 0.9
+
+    x: monitorObject.x * scaleFactor + xPadding
+    y: monitorObject.y * scaleFactor + yPadding
+    width: monitorObject.width*scaleFactor
+    height: monitorObject.height*scaleFactor
 
     property int x1: parseInt(x)
     property int x2: parseInt(x+width)
@@ -55,19 +62,30 @@ Rectangle{
         anchors.fill: parent
         drag.target: parent
         drag.axis: Drag.XAndYAxis
-        cursorShape: inEditMode ? Qt.ClosedHandCursor : Qt.ArrowCursor
+        visible: inEditMode
+        cursorShape: {
+            if(inEditMode){
+                if(parent.pressed){
+                    return Qt.ClosedHandCursor
+                }
+                else{
+                    return Qt.OpenHandCursor
+                }
+            }
+            else{
+                return Qt.ArrowCursor
+            }
+        }
         onPressed: {
-            print("Pressed:", monitorObject.name)
             parent.pressed = true
-            presentCurrent(monitorIndex)
+            pressedAction(monitorIndex)
         }
         onReleased: {
-            print("Released:", monitorObject.name)
             parent.pressed = false
-            releaseAction(monitorIndex)
+            releasedAction(monitorIndex)
         }
         onPositionChanged: {
-            dragAction(monitorIndex)
+            dragAndMoveAction(monitorIndex)
         }
     }
 

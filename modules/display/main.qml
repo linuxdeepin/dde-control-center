@@ -9,7 +9,11 @@ Item {
     anchors.fill: parent
 
     property var dconstants: DConstants {}
-    property var displayId: Display {}
+    property var displayId: Display {
+        onPrimaryChanged: {
+            print("==> [debug] primary:", displayId.primary)
+        }
+    }
     property var allMonitorsObjects: getAllMonitorsObj(displayId.monitors)
 
     function getAllMonitorsObj(monitors){
@@ -19,6 +23,9 @@ Item {
                 monitorsObjects.push(monitorObj)
             }
             return monitorsObjects
+    }
+    
+    Component.onCompleted: {
     }
 
     Component {
@@ -75,6 +82,7 @@ Item {
         }
 
         DBaseLine {
+            visible: displayId.hasChanged
             rightMargin: 10
             rightLoader.sourceComponent: Row {
                 spacing: 6

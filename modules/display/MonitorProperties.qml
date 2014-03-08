@@ -16,9 +16,7 @@ Item {
     property string currentResolution: getResolutionFromMode(outputObj.currentMode)
     property int currentRotation: outputObj.rotation
 
-    property var allRotations: outputObj.ListRotations()
-    property var rotationModel: getRotationModel(allRotations)
-    property var initExpanded: false
+    property var initExpanded: true
 
     property var rotationNames: {
         1: "Normal",
@@ -27,151 +25,147 @@ Item {
         8: "Rotate Right",
     }
 
-    function getResolutionModel(modes){
-        var resolutionModel = listModelComponent.createObject(parent, {})
-        for(var i=0; i<modes.length; i++){
-            var resolution = getResolutionFromMode(modes[i])
-            resolutionModel.append({
-                "label": resolution,
-                "selected": resolution == currentResolution,
-                "modeId": modes[i][0]
-            })
-        }
-        return resolutionModel
-    }
-
-    function getRotationModel(rotations){
-        var rotation_model = listModelComponent.createObject(parent, {})
-        for(var i=0; i<rotations.length; i++){
-            var rotation = rotations[i]
-            rotation_model.append({
-                "label": rotationNames[rotation],
-                "selected": rotation == currentRotation,
-                "rotationId": rotations[i]
-            })
-        }
-        return rotation_model
-    }
-
-    function in_array(e, a){
-        for(var i=0; i<a.length; i++){
-            if(a[i] == e){
-                return true
-            }
-        }
-        return false
-    }
-
     function getResolutionFromMode(mode){
         return mode[1] + "x" + mode[2]
     }
 
     Column{
+        id: enabledColumn
         width: parent.width
         height: childrenRect.height
 
-        DSwitchButtonHeader {
-            text: dsTr("Enabled")
-            active: outputObj.opened
-            onClicked: {
-                outputObj.SwitchOn(active)
-            }
+        Column{
+            width: parent.width
+            height: childrenRect.height
             visible: monitorsNumber > 1
-        }
 
-        DSeparatorHorizontal {
-            visible: monitorsNumber > 1
-        }
-
-        DBaseExpand {
-            id: resolutionArea
-            expanded: header.item.active
-            header.sourceComponent: DDownArrowHeader {
-                text: dsTr("Resolution")
-                hintText: " (" + currentResolution + ")"
-                active: initExpanded
-            }
-        
-            content.sourceComponent: DMultipleSelectView {
-                id: modesView
-                width: parent.width
-                height: rows * 30
-
-                columns: 3
-                rows: Math.ceil(count/3)
-                singleSelectionMode: true
-
-                onSelect: {
-                    outputObj.SetMode(resolutionModel.get(index).modeId)
+            DSwitchButtonHeader {
+                id: enabledSwitcher
+                text: dsTr("Enabled")
+                active: outputObj.opened
+                onClicked: {
+                    outputObj.SwitchOn(!outputObj.opened)
                 }
+            }
 
-                Connections {
-                    target: monitorProperties
-                    onOutputObjChanged: {
-                        if(outputObj){
-                            var allResolutionModes = outputObj.ListModes()
-                            modesView.model = getResolutionModel(allResolutionModes)
+            DSeparatorHorizontal{}
+        }
+
+        Item {
+            width: parent.width
+            height: enabledSwitcher.active ? propertyColumn.height : 0
+            clip: true
+
+            Behavior on height{
+                PropertyAnimation { duration: 150 }
+            }
+
+            Column{
+                id: propertyColumn
+                clip: true
+                width: parent.width
+                height: childrenRect.height
+
+                DBaseExpand {
+                    id: resolutionArea
+                    expanded: header.item.active
+                    header.sourceComponent: DDownArrowHeader {
+                        text: dsTr("Resolution")
+                        hintText: " (" + currentResolution + ")"
+                        active: initExpanded
+                    }
+                
+                    content.sourceComponent: GridView{
+                        id: modesView
+                        width: parent.width
+                        height: Math.ceil(count/3) * 30
+
+                        cellWidth: width/3
+                        cellHeight: 30
+                        property int currentValue: outputObj.currentMode[0]
+
+                        model: {
+                            var resolutionModel = listModelComponent.createObject(modesView, {})
+                            var modes = outputObj.ListModes()
+                            for(var i=0; i<modes.length; i++){
+                                var resolution = getResolutionFromMode(modes[i])
+                                resolutionModel.append({
+                                    "item_label": resolution,
+                                    "item_value": modes[i][0]
+                                })
+                            }
+                            return resolutionModel
+                        }
+
+                        delegate: PropertyItem {
+                            currentValue: modesView.currentValue
+                            onSelectAction: {
+                                outputObj.SetMode(itemValue)
+                            }
                         }
                     }
                 }
-            }
-        }
 
-        DSeparatorHorizontal {}
+                DSeparatorHorizontal {}
 
-        DBaseExpand {
-            id: rotationArea
-            expanded: header.item.active
-            header.sourceComponent: DDownArrowHeader {
-                text: dsTr("Rotation")
-                hintText: " (" + rotationNames[currentRotation] + ")"
-                active: initExpanded
-            }
-        
-            content.sourceComponent: DMultipleSelectView {
-                id: rotationsView
-                width: parent.width
-                height: rows * 30
+                DBaseExpand {
+                    id: rotationArea
+                    expanded: header.item.active
+                    header.sourceComponent: DDownArrowHeader {
+                        text: dsTr("Rotation")
+                        hintText: " (" + rotationNames[currentRotation] + ")"
+                        active: initExpanded
+                    }
+                
+                    content.sourceComponent: GridView{
+                        id: rotationView
+                        width: parent.width
+                        height: Math.ceil(count/2) * 30
 
-                columns: 2
-                rows: 2
-                singleSelectionMode: true
+                        cellWidth: width/2
+                        cellHeight: 30
+                        property int currentValue: outputObj.rotation
 
-                onSelect: {
-                    outputObj.SetRotation(rotationModel.get(index).rotationId)
-                }
-
-                Connections {
-                    target: monitorProperties
-                    onOutputObjChanged: {
-                        if(outputObj){
+                        model: {
+                            var rotation_model = listModelComponent.createObject(rotationView, {})
                             var rotations = outputObj.ListRotations()
-                            rotationsView.model = getRotationModel(rotations)
+                            for(var i=0; i<rotations.length; i++){
+                                var rotation = rotations[i]
+                                rotation_model.append({
+                                    "item_label": rotationNames[rotation],
+                                    "item_value": rotations[i]
+                                })
+                            }
+                            return rotation_model
+                        }
+
+                        delegate: PropertyItem {
+                            currentValue: rotationView.currentValue
+                            onSelectAction: {
+                                outputObj.SetRotation(itemValue)
+                            }
                         }
                     }
+
                 }
 
-            }
-        }
+                DSeparatorHorizontal {}
 
-        DSeparatorHorizontal {}
+                DBaseLine {
+                    leftLoader.sourceComponent: DssH2 {
+                        text: "Brightness"
+                    }
 
-        DBaseLine {
-            leftLoader.sourceComponent: DssH2 {
-                text: "Brightness"
-            }
-
-            rightLoader.sourceComponent: DSlider{
-                value: outputObj.isComposited ? 0 : outputObj.brightness[outputObj.name]
-                onValueChanged: {
-                    outputObj.ChangeBrightness(outputObj.name, value)
-                    displayId.SaveChanged()
+                    rightLoader.sourceComponent: DSlider{
+                        value: outputObj.isComposited ? 0 : outputObj.brightness[outputObj.name]
+                        onValueChanged: {
+                            outputObj.ChangeBrightness(outputObj.name, value)
+                        }
+                        visible: !outputObj.isComposited
+                    }
                 }
-                visible: !outputObj.isComposited
+                DSeparatorHorizontal {}
             }
         }
-
-        DSeparatorHorizontal{}
     }
-
 }

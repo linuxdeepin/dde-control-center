@@ -27,13 +27,14 @@ from threading import Timer
 from datetime import datetime
 
 from PyQt5.QtCore import (Qt, pyqtSlot, pyqtSignal, QVariant, QUrl,
-        QFileSystemWatcher, pyqtProperty)
+        QFileSystemWatcher, pyqtProperty, Q_CLASSINFO)
 from PyQt5.QtGui import QSurfaceFormat, QColor
 from PyQt5.QtQuick import QQuickView
-from PyQt5.QtDBus import QDBusMessage, QDBusReply
+from PyQt5.QtDBus import QDBusMessage, QDBusReply, QDBusAbstractAdaptor
 
 from display_monitor import RecordEvent
-from constants import SHUT_DOWN_ORDER_PATH, ROOT_LOCATION, PANEL_WIDTH
+from constants import ROOT_LOCATION, PANEL_WIDTH
+from constants import APP_DBUS_NAME, APP_OBJECT_PATH
 from modules_info import ModulesId
 from nls import QtGettext
 from ChineseLunar import ChineseCalendar150
@@ -64,12 +65,32 @@ def quicksort(data, low = 0, high = None):
         quicksort(data, low, i - 1)
         quicksort(data, i + 1, high)
 
+class DBusService(QDBusAbstractAdaptor):
+    Q_CLASSINFO("D-Bus Interface", APP_DBUS_NAME)
+
+    Q_CLASSINFO("D-Bus Introspection", """
+            '  <interface name="%s">\n'
+            '    <method name="show"/>\n'
+            '  </interface>\n'
+            """ % APP_DBUS_NAME)
+
+    def __init__(self, parent):
+        super(DBusService, self).__init__(parent)
+
+        self.setAutoRelaySignals(True)
+
+    @pyqtSlot()
+    def show(self):
+        self.parent().show()
+
+
 class ControlPanel(QQuickView):
 
     moduleFileChanged = pyqtSignal(str)
 
     def __init__(self):
         QQuickView.__init__(self)
+
         surface_format = QSurfaceFormat()
         surface_format.setAlphaBufferSize(8)
         
@@ -115,6 +136,10 @@ class ControlPanel(QQuickView):
         self.record_event.enter_mouse_area.connect(self.view_object.displayTrayIcon)
         self.record_event.click_outer_area.connect(self.view_object.outerAreaClicked)
         #self.moduleFileChanged.connect(self.view_object.moduleFileChanged)
+
+    @pyqtSlot()
+    def show(self):
+        self.view_object.displayTrayIcon()
 
     def set_geometry(self, rect):
         x, y, width, height = rect
