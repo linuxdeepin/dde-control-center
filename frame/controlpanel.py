@@ -22,7 +22,6 @@
 
 import os
 import sys
-import subprocess
 from threading import Timer
 from datetime import datetime
 
@@ -34,7 +33,7 @@ from PyQt5.QtDBus import QDBusMessage, QDBusReply, QDBusAbstractAdaptor
 
 from display_monitor import RecordEvent
 from constants import ROOT_LOCATION, PANEL_WIDTH
-from constants import APP_DBUS_NAME, APP_OBJECT_PATH
+from constants import APP_DBUS_NAME
 from modules_info import ModulesId
 from nls import QtGettext
 from ChineseLunar import ChineseCalendar150
@@ -162,6 +161,10 @@ class ControlPanel(QQuickView):
     @pyqtProperty(int)
     def panelWith(self):
         return PANEL_WIDTH
+
+    @pyqtSlot(result=bool)
+    def getDisplayConfigExists(self):
+        return os.path.exists(os.path.expanduser("~/.config/deepin_monitors.json"))
 
     @pyqtSlot(str, result=str)
     def getModuleDataDir(self, module_id):

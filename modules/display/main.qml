@@ -26,6 +26,9 @@ Item {
     }
     
     Component.onCompleted: {
+        if(!windowView.getDisplayConfigExists()){
+            displayId.saveChanged()
+        }
     }
 
     Component {
@@ -34,6 +37,7 @@ Item {
     }
 
     Column {
+        id: topColumn
         anchors.top: parent.top
         width: parent.width
 
@@ -48,6 +52,13 @@ Item {
         }
 
         DSeparatorHorizontal {}
+    }
+
+    Column{
+        id: propertiesColumn
+        anchors.top: topColumn.bottom
+        width: parent.width
+        visible: !monitorDragArea.editable
 
         DBaseLine {
             id: monitorChoose

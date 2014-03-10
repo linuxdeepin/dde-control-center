@@ -9,14 +9,19 @@ Rectangle{
     property var scaleFactorAndPadding: [1.0, 0, 0]
     property bool inEditMode: true
 
+    property var identifyWindow: IdentifyWindow{
+        monitorObject: monitorComponent.monitorObject
+        visible: inEditMode
+    }
+
     signal pressedAction(int monitorIndex)
     signal releasedAction(int monitorIndex)
     signal dragAndMoveAction(int monitorIndex)
 
     property string displayName: monitorObject.name
     property real scaleFactor: scaleFactorAndPadding[0]
-    property int xPadding: scaleFactorAndPadding[1]
-    property int yPadding: scaleFactorAndPadding[2]
+    property real xPadding: scaleFactorAndPadding[1]
+    property real yPadding: scaleFactorAndPadding[2]
 
     property bool pressed: false
     property bool beJoined: false
@@ -33,29 +38,36 @@ Rectangle{
     width: monitorObject.width*scaleFactor
     height: monitorObject.height*scaleFactor
 
-    property int x1: parseInt(x)
-    property int x2: parseInt(x+width)
-    property int y1: parseInt(y)
-    property int y2: parseInt(y+height)
+    function reset(){
+        x = monitorObject.x * scaleFactor + xPadding
+        y = monitorObject.y * scaleFactor + yPadding
+        width = monitorObject.width*scaleFactor
+        height = monitorObject.height*scaleFactor
+    }
+
+    property real x1: x
+    property real x2: x+width
+    property real y1: y
+    property real y2: y+height
 
     DssH4 {
         id: position
-        anchors.top: parent.top
-        anchors.right: parent.left
         text: "(" + parseInt(parent.x) + ", " + parseInt(parent.y) + ")"
         visible: pressed
     }
 
     DssH3 {
-        text: monitorObject.width + "x" + monitorObject.height
+        id: nameText
+        anchors.centerIn: parent
+        text: displayName
     }
 
-    DssH3 {
-        anchors.right: parent.right
-        anchors.rightMargin: 2
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 2
-        text: displayName
+    DssH4 {
+        text: "Drag me"
+        anchors.top: nameText.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+        opacity: 0.5
+        visible: inEditMode
     }
 
     MouseArea {
@@ -90,7 +102,8 @@ Rectangle{
     }
 
     DTextButton{
-        anchors.centerIn: parent
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
         text: "Split"
         onClicked: {
             displayId.SplitMonitor(monitorObject.name)

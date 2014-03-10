@@ -4,9 +4,18 @@ import Deepin.Widgets 1.0
 Rectangle {
     id: monitorDragArea
     width: parent.width
-    height: 180
+    height: 220
     color: dconstants.contentBgColor
     clip: true
+
+    property bool editable: false
+
+    property int rootWindowWidth: rootWindow.displayWidth
+    onRootWindowWidthChanged: {
+        if(rootWindowWidth == 0){
+            editable = false
+        }
+    }
 
     property var scaleFactorAndPadding: getScaleFactorAndPadding(openedMonitors)
     property var openedMonitors: {
@@ -71,6 +80,25 @@ Rectangle {
         }
     }
 
+    function applyPostion(){
+        var x_arr = new Array()
+        var y_arr = new Array()
+        for(var i in monitorsViews){
+            var view = monitorsViews[i]
+            x_arr.push(view.x)
+            y_arr.push(view.y)
+        }
+        var min_x = arrayMin(x_arr)
+        var min_y = arrayMin(y_arr)
+        var factor = monitorsViews[0].monitorObject.width/monitorsViews[0].width
+        for(var i in monitorsViews){
+            var view = monitorsViews[i]
+            var x_pos = (view.x - min_x) * factor
+            var y_pos = (view.y - min_y) * factor
+            view.monitorObject.SetPos(x_pos, y_pos)
+        }
+    }
+
     function resetPosition(){
         var myScaleFactorAndPadding = getScaleFactorAndPadding(monitorsViews)
         for(var i in monitorsViews){
@@ -89,45 +117,106 @@ Rectangle {
         }
     }
 
-    function doRelease(index){
-        var currentView = monitorItems.itemAt(index)
-        for(var i=0; i<monitorItems.count; i++){
-            if(i !=index ){
-                var bView = monitorItems.itemAt(i)
-                if(bView.beJoined){
-                    displayId.JoinMonitor(currentView.monitorObject.name, bView.monitorObject.name)
-                    return 
-                }
-                else if(bView.beOverlapped){
-                    var positionCode = getRelativePosition(bView, currentView)
-                    switch(positionCode){
-                        case "right": currentView.x = bView.x2; resetPosition(); break;
-                        case "left": currentView.x = bView.x - currentView.width; resetPosition(); break;
-                        case "top": currentView.y = bView.y - currentView.height; resetPosition(); break;
-                        case "bottom": currentView.y = bView.y2; resetPosition(); break;
-                    }
-                }
-                else{
-                    var positionCode = getRelativePosition(bView, currentView)
-                    switch(positionCode){
-                        case "right": currentView.x = bView.x2; resetPosition(); break;
-                        case "left": currentView.x = bView.x - currentView.width; resetPosition(); break;
-                        case "top": currentView.y = bView.y - currentView.height; resetPosition(); break;
-                        case "bottom": currentView.y = bView.y2; resetPosition(); break;
-                    }
+    function closeToView(bView, currentView){
+        var positionCode = getRelativePosition(bView, currentView)
+        switch(positionCode){
+            case "right":
+            currentView.x = bView.x2;
+            if((currentView.y + currentView.height) < bView.y){
+                currentView.y = bView.y - currentView.height
+            }
+            else if(currentView.y > (bView.y + bView.height)){
+                currentView.y = bView.y + bView.height
+            }
+            break;
+
+            case "left":
+            currentView.x = bView.x - currentView.width;
+            if(currentView.y2 < bView.y){
+                currentView.y = bView.y - currentView.height
+            }
+            else if(currentView.y > bView.y2){
+                currentView.y = bView.y + bView.height
+            }
+            break;
+
+            case "top": 
+            currentView.y = bView.y - currentView.height; 
+            if(currentView.x2 < bView.x){
+                currentView.x = bView.x - currentView.width
+            }
+            else if(currentView.x > bView.x2){
+                currentView.x = bView.x + bView.width
+            }
+            break;
+
+            case "bottom": 
+            currentView.y = bView.y2; 
+            if(currentView.x2 < bView.x){
+                currentView.x = bView.x - currentView.width
+            }
+            else if(currentView.x > bView.x2){
+                currentView.x = bView.x + bView.width
+            }
+            break;
+        }
+    }
+
+    function arrayMin(a){
+        var minIndex = 0
+        if(a.length > 1){
+            for(var i=1; i<a.length-1; i++){
+                if(a[minIndex] > a[i]){
+                    minIndex = i
                 }
             }
         }
+        return minIndex
+    }
+
+    function getDistance(x1, y1, x2, y2){
+        return Math.sqrt(Math.pow((x2-x1), 2) + Math.pow((y2-y1), 2))
     }
 
     function getAngle(x1, y1, x2, y2){
         return Math.atan2(x2-x1, y2-y1) + Math.PI
     }
 
+    function isInside(a_view, b_view){
+        var b_center_x = b_view.x + (b_view.x2 - b_view.x)/2
+        var b_center_y = b_view.y + (b_view.y2 - b_view.y)/2
+        if(b_center_x >= a_view.x && b_center_x <= a_view.x2 && b_center_y >= a_view.y && b_center_y <= a_view.y2){
+            return true
+        }
+        else{
+            return false
+        }
+    }
+
+    function getViewDistance(aView, bView){
+        var c_x1 = Math.max(aView.x1, bView.x1)
+        var c_x2 = Math.min(aView.x2, bView.x2)
+        var c_y1 = Math.max(aView.y1, bView.y1)
+        var c_y2 = Math.min(aView.y2, bView.y2)
+
+        if(c_x1 <= c_x2 && c_y1 <= c_y2){
+            return 0
+        }
+        else if(c_x1 <= c_x2 && c_y1 > c_y2){
+            return c_y1 - c_y2
+        }
+        else if(c_x1 > c_x2 && c_y1 <= c_y2){
+            return c_x1 - c_x2
+        }
+        else{
+            return getDistance(c_x1, c_y2, c_x2, c_y2)
+        }
+    }
+
     function getRelativePosition(a_view, b_view){
-        var b_center_x = b_view.x1 + (b_view.x2 - b_view.x1)/2
-        var b_center_y = b_view.y1 + (b_view.y2 - b_view.y1)/2
-        if(b_center_x >= a_view.x1 && b_center_x <= a_view.x2 && b_center_y >= a_view.y1 && b_center_y <= a_view.y2){
+        var b_center_x = b_view.x + (b_view.x2 - b_view.x)/2
+        var b_center_y = b_view.y + (b_view.y2 - b_view.y)/2
+        if(b_center_x >= a_view.x && b_center_x <= a_view.x2 && b_center_y >= a_view.y && b_center_y <= a_view.y2){
             return "inside"
         }
         else{
@@ -156,6 +245,93 @@ Rectangle {
         }
     }
 
+    function isInArray(m, arr){
+        for(var i=0; i<arr.length; i++){
+            if(m == arr[i]){
+                return true
+            }
+        }
+        return false
+    }
+
+    function getNeighbors(currentView){
+        var neighbors = new Array()
+        var fatherViews = new Array()
+        var childrenViews = new Array()
+
+        for(var i=0; i<monitorItems.count; i++){
+            var view = monitorItems.itemAt(i)
+            if(view == currentView){
+                fatherViews.push(view)
+            }
+            else{
+                childrenViews.push(view)
+            }
+        }
+
+        while(fatherViews.length > 0){
+            var tempFather = new Array()
+            for(var i in fatherViews){
+                var f = fatherViews[i]
+                var tempChildren = new Array()
+                for(var j in childrenViews){
+                    var c = childrenViews[j]
+                    if(getDistance(c, f) == 0){
+                        tempFather.push(c)
+                    }
+                    else{
+                        tempChildren.push(c)
+                    }
+                }
+                neighbors.push(f)
+                childrenViews = tempChildren
+            }
+            fatherViews = tempFather
+        }
+        return [neighbors, childrenViews]
+    }
+
+    function doRelease(index){
+        var currentView = monitorItems.itemAt(index)
+        
+        // lookup the beJoined view or beOverlapped view
+        var farAwayViews = new Array()
+        var farAwayViewsDistance = new Array()
+        for(var i=0; i<monitorItems.count; i++){
+            if(i !=index ){
+                var bView = monitorItems.itemAt(i)
+                if(bView.beJoined){
+                    displayId.JoinMonitor(currentView.monitorObject.name, bView.monitorObject.name)
+                    return 
+                }
+                else if(bView.beOverlapped){
+                    var positionCode = getRelativePosition(bView, currentView)
+                    switch(positionCode){
+                        case "right": currentView.x = bView.x2; break;
+                        case "left": currentView.x = bView.x - currentView.width; break;
+                        case "top": currentView.y = bView.y - currentView.height; break;
+                        case "bottom": currentView.y = bView.y2; break;
+                    }
+                }
+            }
+        }
+
+        var infos = getNeighbors(currentView)
+        var currentViewNeighbors = infos[0]
+        var farAwayViews = infos[1]
+        for(var i in farAwayViews){
+            var distances = new Array()
+            for(var j in currentViewNeighbors){
+                distances.push(getDistance(farAwayViews[i], currentViewNeighbors[j]))
+            }
+            var nearestIndex = arrayMin(distances)
+            closeToView(currentViewNeighbors[nearestIndex], farAwayViews[i])
+            currentViewNeighbors.push(farAwayViews[i])
+        }
+
+        resetPosition(); 
+    }
+
     function doDrag(index){
         var currentView = monitorItems.itemAt(index)
         for(var i=0; i<monitorItems.count; i++){
@@ -165,11 +341,11 @@ Rectangle {
                 var c_x2 = Math.min(currentView.x2, bView.x2)
                 var c_y1 = Math.max(currentView.y1, bView.y1)
                 var c_y2 = Math.min(currentView.y2, bView.y2)
-                if(c_x1 < c_x2 && c_y1 < c_y2){
+                if(c_x1 <= c_x2 && c_y1 <= c_y2){
                     var c_area = (c_x2-c_x1)*(c_y2-c_y1)
                     var b_area = (bView.x2-bView.x1)*(bView.y2-bView.y1)
                     var cur_area = currentView.width*currentView.height
-                    if(c_area >= cur_area/2 || c_area >= b_area/2 || getRelativePosition(bView, currentView) == "inside"){
+                    if(c_area >= cur_area/2 || c_area >= b_area/2 || isInside(bView, currentView)){
                         bView.beJoined = true
                         bView.beOverlapped = false
                     }
@@ -186,18 +362,59 @@ Rectangle {
         }
     }
 
-    DOpacityImageButton{
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 5
+    Item {
+        id: buttonArea
         anchors.right: parent.right
-        anchors.rightMargin: 5
-        source: "images/edit.png"
+        anchors.bottom: parent.bottom
+        height: editButton.height
+        visible: openedMonitors.length > 1
+
+        DTextButton {
+            id: editButton
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            text: "编辑"
+            visible: !editable
+            onClicked: {
+                editable = true
+                for(var i=0; i<monitorsViews.length; i++){
+                    monitorsViews[i].identifyWindow.show()
+                }
+            }
+        }
+        
+        Row {
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            visible: editable
+
+            DTextButton {
+                text: "应用"
+                onClicked: {
+                    applyPostion()
+                    displayId.Apply()
+                    editable = false
+                }
+            }
+
+            DTextButton {
+                text: "取消"
+                onClicked: {
+                    editable = false
+                    for(var i in monitorsViews){
+                        var view = monitorsViews[i]
+                        view.reset()
+                    }
+                }
+            }
+        }
+
     }
 
     Rectangle{
         id: validArea
         anchors.centerIn: parent
-        height: parent.height - 40
+        height: parent.height - buttonArea.height * 2
         width: parent.width - 40
         color: Qt.rgba(1, 0, 0, 0)
 
@@ -207,7 +424,7 @@ Rectangle {
             delegate: MonitorComponent{
                 monitorObject: openedMonitors[index]
                 scaleFactorAndPadding: monitorDragArea.scaleFactorAndPadding
-                inEditMode: true
+                inEditMode: monitorDragArea.editable
 
                 onPressedAction: {
                     recordLastComponentInfo()
