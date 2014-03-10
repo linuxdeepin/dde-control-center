@@ -58,6 +58,8 @@ Column {
             leftLoader.sourceComponent: DssH2 {
                 text: dsTr("Devices nearby")
             }
+            rightLoader.sourceComponent: RefreshButton {
+            }
         }
     }
 
