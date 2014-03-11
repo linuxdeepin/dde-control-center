@@ -165,7 +165,7 @@ Rectangle {
     function arrayMin(a){
         var minIndex = 0
         if(a.length > 1){
-            for(var i=1; i<a.length-1; i++){
+            for(var i=1; i<a.length; i++){
                 if(a[minIndex] > a[i]){
                     minIndex = i
                 }
@@ -276,7 +276,7 @@ Rectangle {
                 var tempChildren = new Array()
                 for(var j in childrenViews){
                     var c = childrenViews[j]
-                    if(getDistance(c, f) == 0){
+                    if(getViewDistance(c, f) == 0){
                         tempFather.push(c)
                     }
                     else{
@@ -294,15 +294,16 @@ Rectangle {
     function getNearestView(currentView, farAwayViews){
         var distances = new Array()
         for(var i in farAwayViews){
-            distances.push(getDistance(currentView, farAwayViews[i]))
+            var distance = getViewDistance(currentView, farAwayViews[i])
+            distances.push(distance)
         }
-        var nearestIndex = arrayMin[distances]
+        var nearestIndex = arrayMin(distances)
         return farAwayViews[nearestIndex]
     }
 
     function doRelease(index){
         var currentView = monitorItems.itemAt(index)
-        
+
         // lookup the beJoined view or beOverlapped view
         var farAwayViews = new Array()
         var farAwayViewsDistance = new Array()
@@ -311,7 +312,7 @@ Rectangle {
                 var bView = monitorItems.itemAt(i)
                 if(bView.beJoined){
                     displayId.JoinMonitor(currentView.monitorObject.name, bView.monitorObject.name)
-                    return 
+                    return
                 }
                 else if(bView.beOverlapped){
                     var positionCode = getRelativePosition(bView, currentView)
@@ -330,23 +331,19 @@ Rectangle {
         var farAwayViews = infos[1]
         if(currentViewNeighbors.length == 1){
             var nearestView = getNearestView(currentViewNeighbors[0], farAwayViews)
-            closeToView(nearestView, currentView)
+            closeToView(nearestView, currentViewNeighbors[0])
         }
 
         var infos = getNeighbors(currentView)
         var currentViewNeighbors = infos[0]
         var farAwayViews = infos[1]
         for(var i in farAwayViews){
-            var distances = new Array()
-            for(var j in currentViewNeighbors){
-                distances.push(getDistance(farAwayViews[i], currentViewNeighbors[j]))
-            }
-            var nearestIndex = arrayMin(distances)
-            closeToView(currentViewNeighbors[nearestIndex], farAwayViews[i])
+            var nearestView = getNearestView(farAwayViews[i], currentViewNeighbors)
+            closeToView(nearestView, farAwayViews[i])
             currentViewNeighbors.push(farAwayViews[i])
         }
 
-        resetPosition(); 
+        resetPosition();
     }
 
     function doDrag(index){
