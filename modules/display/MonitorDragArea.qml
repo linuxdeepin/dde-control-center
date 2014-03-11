@@ -291,6 +291,15 @@ Rectangle {
         return [neighbors, childrenViews]
     }
 
+    function getNearestView(currentView, farAwayViews){
+        var distances = new Array()
+        for(var i in farAwayViews){
+            distances.push(getDistance(currentView, farAwayViews[i]))
+        }
+        var nearestIndex = arrayMin[distances]
+        return farAwayViews[nearestIndex]
+    }
+
     function doRelease(index){
         var currentView = monitorItems.itemAt(index)
         
@@ -314,6 +323,14 @@ Rectangle {
                     }
                 }
             }
+        }
+
+        var infos = getNeighbors(currentView)
+        var currentViewNeighbors = infos[0]
+        var farAwayViews = infos[1]
+        if(currentViewNeighbors.length == 1){
+            var nearestView = getNearestView(currentViewNeighbors[0], farAwayViews)
+            closeToView(nearestView, currentView)
         }
 
         var infos = getNeighbors(currentView)
