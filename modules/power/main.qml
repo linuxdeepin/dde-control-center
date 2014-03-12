@@ -10,6 +10,15 @@ Rectangle {
 
     property var constants: DConstants{}
     property var dbus_power: Power{}
+    property var listModelComponent: DListModelComponent {}
+    
+    function reset() {
+        dbus_power.buttonPower = "shutdown"
+        dbus_power.lidCloseACAction = "suspend"
+        dbus_power.lidCloseBatteryAction = "suspend"
+        dbus_power.lockEnabled = true
+        dbus_power.currentProfile = "Default"
+    }
 
     function timeoutToIndex(timeout) {
         switch (timeout) {
@@ -31,7 +40,19 @@ Rectangle {
             case 3: return 60 * 15; break
             case 4: return 60 * 30; break
             case 5: return 60 * 60; break
-            case 6: return null
+            case 6: return 0
+        }
+    }
+
+    function indexToLabel(idx) {
+        switch (idx) {
+            case 0: return "1m"; break
+            case 1: return "5m"; break
+            case 2: return "10m"; break
+            case 3: return "15m"; break
+            case 4: return "30m"; break
+            case 5: return "1h"; break
+            case 6: return "Never"
         }
     }
 
@@ -57,6 +78,8 @@ Rectangle {
 
             DTextButton {
                 text: dsTr("Reset")
+                
+                onClicked: reset()
 
                 anchors.right: parent.right
                 anchors.rightMargin: 15
@@ -74,42 +97,35 @@ Rectangle {
                     text: dsTr("When I press the power button")
                 }
             }
-            content.sourceComponent: DMultipleSelectView {
+            content.sourceComponent: GridView{
                 id: power_button_view
-                rows: 1
-                columns: 3
-
                 width: parent.width
-                height: rows * 30
-                singleSelectionMode: true
+                height: 30
 
-                model: ListModel {}
-                Component.onCompleted: {
-                    model.append({"label": dsTr("Shut down"), "selected": dbus_power.buttonPower == "shutdown"})
-                    model.append({"label": dsTr("Suspend"), "selected": dbus_power.buttonPower == "suspend"})
-                    model.append({"label": dsTr("None"), "selected": dbus_power.buttonPower == "nothing"})
-                }
-                onSelect: {
-                    switch (index) {
-                        case 0:
-                        dbus_power.buttonPower = "shutdown"
-                        break
-                        case 1:
-                        dbus_power.buttonPower = "suspend"
-                        break
-                        case 2:
-                        dbus_power.buttonPower = "nothing"
-                    }
+                cellWidth: width/3
+                cellHeight: 30
+
+                model: {
+                    var model = listModelComponent.createObject(power_button_view, {})
+                    model.append({
+                                     "item_label": dsTr("Shutdown"),
+                                     "item_value": "shutdown"
+                                 })
+                    model.append({
+                                     "item_label": dsTr("Suspend"),
+                                     "item_value": "suspend"
+                                 })                    
+                    model.append({
+                                     "item_label": dsTr("Nothing"),
+                                     "item_value": "nothing"
+                                 })                    
+                    return model
                 }
 
-                Connections {
-                    target: dbus_power
-                    onButtonPowerChanged: {
-                        switch (dbus_power.buttonPower) {
-                            case "shutdown": power_button_view.selectItem(0); break
-                            case "suspend": power_button_view.selectItem(1); break
-                            case "nothing": power_button_view.selectItem(2); break
-                        }
+                delegate: PropertyItem {
+                    currentValue: dbus_power.buttonPower
+                    onSelectAction: {
+                        dbus_power.buttonPower = itemValue
                     }
                 }
             }
@@ -117,49 +133,43 @@ Rectangle {
         DSeparatorHorizontal{}
         DBaseExpand {
             id: close_the_lid_rect
+            visible: dbus_power.batteryIsPresent
             expanded: true
             header.sourceComponent: DBaseLine {
                 leftLoader.sourceComponent: DssH2 {
                     text: dsTr("When I close the lid")
                 }
             }
-            content.sourceComponent: DMultipleSelectView {
+            content.sourceComponent: GridView{
                 id: close_the_lid_view
-                rows: 1
-                columns: 3
-
                 width: parent.width
-                height: rows * 30
-                singleSelectionMode: true
+                height: 30
 
-                model: ListModel {}
-                Component.onCompleted: {
-                    model.append({"label": dsTr("Shut down"), "selected": dbus_power.lidCloseBatteryAction == "shutdown"})
-                    model.append({"label": dsTr("Suspend"), "selected": dbus_power.lidCloseBatteryAction == "suspend"})
-                    model.append({"label": dsTr("None"), "selected": dbus_power.lidCloseBatteryAction == "nothing"})
+                cellWidth: width/3
+                cellHeight: 30
+
+                model: {
+                    var model = listModelComponent.createObject(close_the_lid_view, {})
+                    model.append({
+                                     "item_label": dsTr("Shutdown"),
+                                     "item_value": "shutdown"
+                                 })
+                    model.append({
+                                     "item_label": dsTr("Suspend"),
+                                     "item_value": "suspend"
+                                 })                    
+                    model.append({
+                                     "item_label": dsTr("Nothing"),
+                                     "item_value": "nothing"
+                                 })                    
+                    return model
                 }
 
-                onSelect: {
-                    switch (index) {
-                        case 0:
-                        dbus_power.lidCloseBatteryAction = "shutdown"
-                        break
-                        case 1:
-                        dbus_power.lidCloseBatteryAction = "suspend"
-                        break
-                        case 2:
-                        dbus_power.lidCloseBatteryAction = "nothing"
-                    }
-                }
-
-                Connections {
-                    target: dbus_power
-                    onLidCloseBatteryActionChanged: {
-                        switch (dbus_power.lidCloseBatteryAction) {
-                            case "shutdown": close_the_lid_view.selectItem(0); break
-                            case "suspend": close_the_lid_view.selectItem(1); break
-                            case "nothing": close_the_lid_view.selectItem(2); break
-                        }
+                delegate: PropertyItem {
+                    currentValue: dbus_power.lidCloseACAction
+                    onSelectAction: {
+                        dbus_power.lidCloseACAction = itemValue
+                        dbus_power.lidCloseBatteryAction = itemValue
                     }
                 }
             }
@@ -173,30 +183,31 @@ Rectangle {
                     text: dsTr("Require password when computer wakes")
                 }
             }
-            content.sourceComponent: DMultipleSelectView {
+            content.sourceComponent: GridView{
                 id: wake_require_password_view
-                rows: 1
-                columns: 2
-
                 width: parent.width
-                height: rows * 30
-                singleSelectionMode: true
+                height: 30
 
-                model: ListModel {}
-                Component.onCompleted: {
-                    model.append({"label": dsTr("Requires a password"), "selected": dbus_power.lockEnabled})
-                    model.append({"label": dsTr("Without a password"), "selected": !dbus_power.lockEnabled})
+                cellWidth: width/2
+                cellHeight: 30
+
+                model: {
+                    var model = listModelComponent.createObject(wake_require_password_view, {})
+                    model.append({
+                                     "item_label": dsTr("Requires a password"),
+                                     "item_value": true
+                                 })
+                    model.append({
+                                     "item_label": dsTr("Without a password"),
+                                     "item_value": false
+                                 })                    
+                    return model
                 }
 
-                onSelect: {
-                    dbus_power.lockEnabled = (index == 0)
-                }
-
-                Connections {
-                    target: dbus_power
-                    onLockEnabledChanged: {
-                        var target = dbus_power.lockEnabled ? 0 : 1
-                        wake_require_password_view.selectItem(target)
+                delegate: PropertyItem {
+                    currentValue: dbus_power.lockEnabled
+                    onSelectAction: {
+                        dbus_power.lockEnabled = itemValue
                     }
                 }
             }
@@ -211,124 +222,84 @@ Rectangle {
                     text: dsTr("Power plan")
                 }
             }
-            content.sourceComponent: DMultipleSelectView {
-                id: power_plan_view
-                rows: 2
-                columns: 2
-                singleSelectionMode: true
-
+            content.sourceComponent: GridView{
+                id: wake_require_password_view
                 width: parent.width
-                height: rows * 30
-                viewWidth: 100
+                height: 30 * 2
 
-                model: ListModel {}
-                Component.onCompleted: {
-                    model.append({"label": dsTr("Balance"), "selected": dbus_power.currentProfile == "Default"})
-                    model.append({"label": dsTr("Power saver"), "selected": dbus_power.currentProfile == "Powersave"})
-                    model.append({"label": dsTr("High performance"), "selected": dbus_power.currentProfile == "Performance"})
-                    model.append({"label": dsTr("Custom"), "selected": dbus_power.currentProfile == "Customize"})
+                cellWidth: width/2
+                cellHeight: 30
+
+                model: {
+                    var model = listModelComponent.createObject(wake_require_password_view, {})
+                    model.append({
+                                     "item_label": dsTr("Balance"),
+                                     "item_value": "Default"
+                                 })
+                    model.append({
+                                     "item_label": dsTr("Power saver"),
+                                     "item_value": "Powersave"
+                                 })                    
+                    model.append({
+                                     "item_label": dsTr("High performance"),
+                                     "item_value": "Performance"
+                                 })                    
+                    model.append({
+                                     "item_label": dsTr("Custom"),
+                                     "item_value": "Customize"
+                                 })                    
+                    return model
                 }
-                onSelect: {
-                    switch (index) {
-                        case 0:
-                        dbus_power.currentProfile = "Default"
-                        break
-                        case 1:
-                        dbus_power.currentProfile = "Powersave"
-                        break
-                        case 2:
-                        dbus_power.currentProfile = "Performance"
-                        break
-                        case 3:
-                        dbus_power.currentProfile = "Customize"
-                    }
-                }
-                Connections {
-                    target: dbus_power
-                    onCurrentProfileChanged: {
-                        switch (dbus_power.currentPlan) {
-                            case "Default": power_plan_view.selectItem(0); break
-                            case "Powersave": power_plan_view.selectItem(1); break
-                            case "Performance": power_plan_view.selectItem(2); break
-                            case "Customize": power_plan_view.selectItem(3); break
-                        }
+
+                delegate: PropertyItem {
+                    currentValue: dbus_power.currentProfile
+                    onSelectAction: {
+                        print(itemValue)
+                        dbus_power.currentProfile = itemValue
                     }
                 }
             }
         }
         DSeparatorHorizontal{}
-        /* DBaseExpand { */
-        /*     id: turn_off_monitor_rect */
-        /*     expanded: true */
-        /*     property string headerText: "- " + dsTr("Turn off monitor") */
+        DBaseExpand {
+            id: turn_off_monitor_rect
+            expanded: true
+            property string headerText: "- " + dsTr("Turn off monitor")
 
-        /*     header.sourceComponent: DBaseLine { */
-        /*         leftLoader.sourceComponent: DssH2 { */
-        /*             text: turn_off_monitor_rect.headerText */
-        /*         } */
-        /*     } */
-        /*     content.sourceComponent: DMultipleSelectView { */
-        /*         id: turn_off_monitor_view */
-        /*         rows: 1 */
-        /*         columns: 7 */
+            header.sourceComponent: DBaseLine {
+                leftLoader.sourceComponent: DssH2 {
+                    text: turn_off_monitor_rect.headerText
+                }
+            }
+            content.sourceComponent: GridView{
+                id: turn_off_monitor_view
+                width: parent.width
+                height: 30
 
-        /*         width: parent.width */
-        /*         height: rows * 30 */
-        /*         singleSelectionMode: true */
+                cellWidth: width/7
+                cellHeight: 30
 
-        /*         model: ListModel { */
-        /*             ListElement { */
-        /*                 label: "1m" */
-        /*                 selected: false */
-        /*             } */
-        /*             ListElement { */
-        /*                 label: "5m" */
-        /*                 selected: false */
-        /*             } */
-        /*             ListElement { */
-        /*                 label: "10m" */
-        /*                 selected: false */
-        /*             } */
-        /*             ListElement { */
-        /*                 label: "15m" */
-        /*                 selected: false */
-        /*             } */
-        /*             ListElement { */
-        /*                 label: "30m" */
-        /*                 selected: false */
-        /*             } */
-        /*             ListElement { */
-        /*                 label: "1h" */
-        /*                 selected: false */
-        /*             } */
-        /*             ListElement { */
-        /*                 label: "never" */
-        /*                 selected: false */
-        /*             } */
-        /*         } */
+                model: {
+                    var model = listModelComponent.createObject(turn_off_monitor_view, {})
+                    for(var i=0; i<7; i++){
+                        model.append({
+                                         "item_label": indexToLabel(i),
+                                         "item_value": indexToTimeout(i)
+                                     })
+                    }
+                    return model
+                }
 
-        /*         Component.onCompleted: { */
-        /*             turn_off_monitor_view.selectItem(timeoutToIndex(dbus_power.sleepDisplayAc)) */
-        /*         } */
-
-        /*         onSelect: { */
-        /*             dbus_power.currentPlan = "Customize" */
-        /*             dbus_power.sleepDisplayAc = indexToTimeout(index) */
-        /*             dbus_power.sleepDisplayBattery = indexToTimeout(index) */
-        /*         } */
-
-        /*         Connections { */
-        /*             target: dbus_power */
-        /*             onSleepDisplayBatteryChanged: { */
-        /*                 turn_off_monitor_view.selectItem(timeoutToIndex(dbus_power.sleepDisplayBattery)) */
-        /*             } */
-        /*             onSleepDisplayAcChanged: { */
-        /*                 turn_off_monitor_view.selectItem(timeoutToIndex(dbus_power.sleepDisplayAc)) */
-        /*             } */
-        /*         } */
-        /*     } */
-        /* } */
-        /* DSeparatorHorizontal{} */
+                delegate: PropertyItem {
+                    currentValue: dbus_power.idleDelay
+                    onSelectAction: {
+                        dbus_power.currentProfile = "Customize"
+                        dbus_power.idleDelay = itemValue
+                    }
+                }
+            }
+        }
+        DSeparatorHorizontal{}
         DBaseExpand {
             id: suspend_rect
             expanded: true
@@ -339,63 +310,32 @@ Rectangle {
                     text: suspend_rect.headerText
                 }
             }
-            content.sourceComponent: DMultipleSelectView {
+            content.sourceComponent: GridView{
                 id: suspend_view
-                rows: 1
-                columns: 7
-
                 width: parent.width
-                height: rows * 30
-                singleSelectionMode: true
+                height: 30
 
-                model: ListModel {
-                    ListElement {
-                        label: "1m"
-                        selected: false
+                cellWidth: width/7
+                cellHeight: 30
+                property int currentValue: dbus_power.sleepInactiveAcTimeout
+
+                model: {
+                    var model = listModelComponent.createObject(suspend_view, {})
+                    for(var i=0; i<7; i++){
+                        model.append({
+                                         "item_label": indexToLabel(i),
+                                         "item_value": indexToTimeout(i)
+                                     })
                     }
-                    ListElement {
-                        label: "5m"
-                        selected: false
-                    }
-                    ListElement {
-                        label: "10m"
-                        selected: false
-                    }
-                    ListElement {
-                        label: "15m"
-                        selected: false
-                    }
-                    ListElement {
-                        label: "30m"
-                        selected: false
-                    }
-                    ListElement {
-                        label: "1h"
-                        selected: false
-                    }
-                    ListElement {
-                        label: "never"
-                        selected: false
-                    }
+                    return model
                 }
 
-                Component.onCompleted: {
-                    suspend_view.selectItem(timeoutToIndex(dbus_power.sleepInactiveAcTimeout))
-                }
-
-                onSelect: {
-                    dbus_power.currentPlan = "Customize"
-                    dbus_power.sleepInactiveAcTimeout = indexToTimeout(index)
-                    dbus_power.sleepInactiveBatteryTimeout = indexToTimeout(index)
-                }
-
-                Connections {
-                    target: dbus_power
-                    onSleepInactiveBatteryTimeoutChanged: {
-                        suspend_view.selectItem(timeoutToIndex(dbus_power.sleepInactiveBatteryTimeout))
-                    }
-                    onSleepInactiveAcTimeoutChanged: {
-                        suspend_view.selectItem(timeoutToIndex(dbus_power.sleepInactiveAcTimeout))
+                delegate: PropertyItem {
+                    currentValue: dbus_power.sleepInactiveAcTimeout
+                    onSelectAction: {
+                        dbus_power.currentProfile = "Customize"
+                        dbus_power.sleepInactiveAcTimeout = itemValue
+                        dbus_power.sleepInactiveBatteryTimeout = itemValue
                     }
                 }
             }
