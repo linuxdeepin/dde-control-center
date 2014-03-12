@@ -21,7 +21,7 @@ Item {
             "account": dsTr("User Accounts"),
             "default_applications": dsTr("Default Applications"),
             "system_info": dsTr("System Information"),
-            "grub": dsTr("Startup Screen"),
+            "grub": dsTr("Boot Menu"),
             "home": dsTr("Home")
         }
 

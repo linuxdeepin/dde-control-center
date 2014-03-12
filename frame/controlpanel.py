@@ -37,6 +37,7 @@ from constants import APP_DBUS_NAME
 from modules_info import ModulesId
 from nls import QtGettext
 from ChineseLunar import ChineseCalendar150
+from dialog_window import MessageDialog
 
 def walk_directory(root_dir):
     for (root, folder, files) in os.walk(root_dir):
@@ -126,19 +127,16 @@ class ControlPanel(QQuickView):
         self.qml_context = self.rootContext()
         self.modulesId = ModulesId()
         self.qtGettext = QtGettext()
+        self.message_view = MessageDialog()
         self.qml_context.setContextProperty("windowView", self)
         self.qml_context.setContextProperty("modulesId", self.modulesId)
-        #self.qml_context.setContextProperty("qtgettext", self.qtGettext)
+        self.qml_context.setContextProperty("messageView", self.message_view)
 
     def connect_all_object_function(self):
         self.view_object = self.rootObject()
         self.record_event.enter_mouse_area.connect(self.view_object.displayTrayIcon)
         self.record_event.click_outer_area.connect(self.view_object.outerAreaClicked)
         #self.moduleFileChanged.connect(self.view_object.moduleFileChanged)
-
-    @pyqtSlot()
-    def show(self):
-        self.view_object.displayTrayIcon()
 
     def set_geometry(self, rect):
         x, y, width, height = rect
@@ -157,6 +155,10 @@ class ControlPanel(QQuickView):
             self.timer.cancel()
         self.timer = Timer(0.2, lambda : self.moduleFileChanged.emit(module_id))
         self.timer.start()
+
+    @pyqtSlot()
+    def show(self):
+        self.view_object.displayTrayIcon()
 
     @pyqtProperty(int)
     def panelWith(self):

@@ -8,6 +8,7 @@ Rectangle{
     property var monitorObject: undefined
     property var scaleFactorAndPadding: [1.0, 0, 0]
     property bool inEditMode: true
+    property int openedMonitorNumber: 0
 
     property var identifyWindow: IdentifyWindow{
         monitorObject: monitorComponent.monitorObject
@@ -109,6 +110,65 @@ Rectangle{
             displayId.SplitMonitor(monitorObject.name)
         }
         visible: monitorObject.isComposited
+    }
+
+    Item{
+        id: setPrimaryButton
+        anchors.right: parent.right
+        anchors.top: parent.top
+        width: stateButton.width + 6
+        height: stateButton.height + 6
+        visible: openedMonitorNumber > 1
+
+        property bool hovered: false
+        property bool selected: displayId.primary == monitorObject.name
+
+        Rectangle{
+            id: stateButton
+            anchors.centerIn: parent
+            width: 16
+            height: 16
+            radius: 8
+            color: {
+                if(parent.selected){
+                    return dconstants.activeColor
+                }
+                else{
+                    return Qt.rgba(0, 0, 0, 0.3)
+                }
+            }
+            border.width: 1
+            border.color: {
+                if(parent.selected){
+                    return "#1493f2"
+                }
+                else if(parent.hovered){
+                    return dconstants.activeColor
+                }
+                else{
+                    return "white"
+                }
+            }
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            hoverEnabled: true
+
+            onEntered: {
+                parent.hovered = true
+            }
+
+            onExited: {
+                parent.hovered = false
+            }
+
+            onClicked: {
+                if(!parent.selected){
+                    displayId.SetPrimary(monitorObject.name)
+                }
+            }
+        }
     }
 
 }

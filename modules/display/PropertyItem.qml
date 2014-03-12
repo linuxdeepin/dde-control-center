@@ -1,4 +1,5 @@
 import QtQuick 2.1
+import QtQuick.Controls 1.1
 
 Rectangle {
     id: delegate
@@ -37,7 +38,7 @@ Rectangle {
         color: delegate.selected ? bgPressedColor : bgNormalColor
         radius: 4
 
-        Text {
+        Label {
             id: txt
             anchors.centerIn: parent
             color: {

@@ -11,7 +11,7 @@ DBaseExpand {
     width: root.width
     expanded: dev[1] != 20
     header.sourceComponent: DSwitchButtonHeader {
-        text: dsTr("Wireless Access Points" + dev[1])
+        text: dsTr("Wireless Access Points") + dev[1]
         active: c2.expanded
         onActiveChanged: {
             nm.wirelessEnabled = active

@@ -8,13 +8,15 @@ Item {
     id: displayModule
     anchors.fill: parent
 
+    property var messageBox: MessageBox{}
     property var dconstants: DConstants {}
-    property var displayId: Display {
-        onPrimaryChanged: {
-            print("==> [debug] primary:", displayId.primary)
-        }
-    }
+    property var displayId: Display {}
     property var allMonitorsObjects: getAllMonitorsObj(displayId.monitors)
+
+    function displayChangesApply(){
+        displayId.Apply()
+        messageBox.showDialog()
+    }
 
     function getAllMonitorsObj(monitors){
             var monitorsObjects = new Array()
@@ -26,9 +28,7 @@ Item {
     }
     
     Component.onCompleted: {
-        if(!windowView.getDisplayConfigExists()){
-            displayId.saveChanged()
-        }
+        displayId.SaveChanged()
     }
 
     Component {
@@ -41,8 +41,27 @@ Item {
         anchors.top: parent.top
         width: parent.width
 
-        DssTitle {
-            text: dsTr("Display")
+        DBaseLine{
+            height: 48
+            leftLoader.sourceComponent: Row{
+                spacing: 4
+                height: moduleName.height
+                anchors.verticalCenter: parent.verticalCenter
+
+                DssH1 {
+                    id: moduleName
+                    text: dsTr("Display")
+                    color: "white"
+                    font.bold: true
+                }
+
+                DssH3 {
+                    visible: allMonitorsObjects.length > 1
+                    anchors.bottom: moduleName.bottom
+                    text: "(" + dsTr("Main Display: ") + displayId.primary + ")"
+                    color: "white"
+                }
+            }
         }
 
         DSeparatorHorizontal {}
@@ -100,7 +119,7 @@ Item {
                 DTextButton {
                     text: dsTr("Apply")
                     onClicked: {
-                        displayId.Apply()
+                        displayChangesApply()
                     }
                 }
                 DTextButton{

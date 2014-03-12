@@ -311,6 +311,7 @@ Rectangle {
             if(i !=index ){
                 var bView = monitorItems.itemAt(i)
                 if(bView.beJoined){
+                    timeoutResetAllPosition.restart()
                     displayId.JoinMonitor(currentView.monitorObject.name, bView.monitorObject.name)
                     return
                 }
@@ -329,21 +330,15 @@ Rectangle {
         var infos = getNeighbors(currentView)
         var currentViewNeighbors = infos[0]
         var farAwayViews = infos[1]
+
+        // if 1 monitor is far away from others, it need close to nearest View firstly.
         if(currentViewNeighbors.length == 1){
             var nearestView = getNearestView(currentViewNeighbors[0], farAwayViews)
             closeToView(nearestView, currentViewNeighbors[0])
         }
 
-        var infos = getNeighbors(currentView)
-        var currentViewNeighbors = infos[0]
-        var farAwayViews = infos[1]
-        for(var i in farAwayViews){
-            var nearestView = getNearestView(farAwayViews[i], currentViewNeighbors)
-            closeToView(nearestView, farAwayViews[i])
-            currentViewNeighbors.push(farAwayViews[i])
-        }
+        resetAllPosition(currentView)
 
-        resetPosition();
     }
 
     function doDrag(index){
@@ -376,12 +371,42 @@ Rectangle {
         }
     }
 
+    function resetAllPosition(currentView){
+        var infos = getNeighbors(currentView)
+        var currentViewNeighbors = infos[0]
+        var farAwayViews = infos[1]
+
+        for(var i in farAwayViews){
+            var nearestView = getNearestView(farAwayViews[i], currentViewNeighbors)
+            closeToView(nearestView, farAwayViews[i])
+            currentViewNeighbors.push(farAwayViews[i])
+        }
+        resetPosition()
+    }
+
+    Timer{
+        id: timeoutResetAllPosition
+        repeat: false
+        running: false
+        interval: 200
+        onTriggered: {
+            resetAllPosition(monitorsViews[0])
+        }
+    }
+
     Item {
         id: buttonArea
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         height: editButton.height
-        visible: openedMonitors.length > 1
+        visible: {
+            if(openedMonitors.length == 1){
+                return openedMonitors[0].isComposited
+            }
+            else{
+                return true
+            }
+        }
 
         DTextButton {
             id: editButton
@@ -406,8 +431,8 @@ Rectangle {
                 text: "应用"
                 onClicked: {
                     applyPostion()
-                    displayId.Apply()
                     editable = false
+                    displayChangesApply()
                 }
             }
 
@@ -439,6 +464,7 @@ Rectangle {
                 monitorObject: openedMonitors[index]
                 scaleFactorAndPadding: monitorDragArea.scaleFactorAndPadding
                 inEditMode: monitorDragArea.editable
+                openedMonitorNumber: openedMonitors.length
 
                 onPressedAction: {
                     recordLastComponentInfo()

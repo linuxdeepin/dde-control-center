@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dss 2014\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-04 10:35+0800\n"
+"POT-Creation-Date: 2014-03-12 15:12+0800\n"
 "PO-Revision-Date: 2013-11-25 12:27+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../modules/account/AddUserDialog.qml:95 ../modules/account/UserList.qml:158
+#: ../modules/account/AddUserDialog.qml:95 ../modules/account/UserList.qml:154
 msgid "User"
 msgstr ""
 
-#: ../modules/account/AddUserDialog.qml:95 ../modules/account/UserList.qml:158
+#: ../modules/account/AddUserDialog.qml:95 ../modules/account/UserList.qml:154
 msgid "Administrator"
 msgstr ""
 
@@ -62,16 +62,16 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: ../modules/shortcuts/CustomKeybindingExpand.qml:92
+#: ../modules/shortcuts/CustomKeybindingExpand.qml:93
 msgid "Command"
 msgstr ""
 
-#: ../modules/shortcuts/CustomKeybindingExpand.qml:103
-#: ../modules/shortcuts/ShortcutInput.qml:228 ../modules/display/main.qml:86
+#: ../modules/shortcuts/CustomKeybindingExpand.qml:105
+#: ../modules/shortcuts/ShortcutInput.qml:298
 msgid "Cancel"
 msgstr ""
 
-#: ../modules/shortcuts/CustomKeybindingExpand.qml:109
+#: ../modules/shortcuts/CustomKeybindingExpand.qml:111
 #: ../modules/date_time/StateButtons.qml:12
 msgid "Add"
 msgstr ""
@@ -128,7 +128,11 @@ msgstr ""
 msgid "wireless"
 msgstr ""
 
-#: ../modules/network/ListAccessPoints.qml:83
+#: ../modules/network/ListAccessPoints.qml:14
+msgid "Wireless Access Points"
+msgstr ""
+
+#: ../modules/network/ListAccessPoints.qml:80
 msgid "PassWord"
 msgstr ""
 
@@ -158,7 +162,8 @@ msgstr "Network"
 msgid "Disk Mount"
 msgstr "Disk Mount"
 
-#: ../frame/views/ModulesData.qml:8 ../frame/modules_info.py:33
+#: ../frame/views/ModulesData.qml:8 ../modules/bluetooth/main.qml:9
+#: ../frame/modules_info.py:33
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
@@ -167,7 +172,7 @@ msgstr "Bluetooth"
 msgid "Sound"
 msgstr "Sound"
 
-#: ../frame/views/ModulesData.qml:10 ../modules/power/main.qml:47
+#: ../frame/views/ModulesData.qml:10 ../modules/power/main.qml:55
 #: ../frame/modules_info.py:35
 msgid "Power"
 msgstr "Power"
@@ -176,7 +181,7 @@ msgstr "Power"
 msgid "More Settings"
 msgstr "More Settings"
 
-#: ../frame/views/ModulesData.qml:12 ../frame/views/PanelContent.qml:371
+#: ../frame/views/ModulesData.qml:12 ../frame/views/PanelContent.qml:418
 #: ../frame/modules_info.py:37
 msgid "Shutdown"
 msgstr "Shutdown"
@@ -185,7 +190,7 @@ msgstr "Shutdown"
 msgid "Notification"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:14 ../modules/display/main.qml:34
+#: ../frame/views/ModulesData.qml:14 ../modules/display/main.qml:53
 #: ../frame/modules_info.py:39
 msgid "Display"
 msgstr ""
@@ -207,15 +212,20 @@ msgstr ""
 msgid "Mouse and Touchpad"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:22
+#: ../frame/views/ModulesData.qml:20 ../modules/mouse_touchpad/main.qml:26
+#: ../frame/modules_info.py:44
+msgid "Mouse"
+msgstr ""
+
+#: ../frame/views/ModulesData.qml:21
 msgid "User Accounts"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:25 ../modules/grub/main.qml:42
-msgid "Startup Screen"
+#: ../frame/views/ModulesData.qml:24
+msgid "Boot Menu"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:26 ../modules/desktop/main.qml:98
+#: ../frame/views/ModulesData.qml:25 ../modules/desktop/main.qml:98
 msgid "Home"
 msgstr ""
 
@@ -224,31 +234,26 @@ msgstr ""
 msgid "Keyboard"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:21 ../frame/modules_info.py:46
-msgid "Touchpad"
-msgstr ""
-
-#: ../frame/views/ModulesData.qml:23
+#: ../frame/views/ModulesData.qml:22
 #: ../modules/default_applications/main.qml:21
 #: ../modules/default_applications/main.qml:32 ../frame/modules_info.py:48
 msgid "Default Applications"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:24 ../modules/system_info/main.qml:39
+#: ../frame/views/ModulesData.qml:23 ../modules/system_info/main.qml:39
 #: ../frame/modules_info.py:49
 msgid "System Information"
 msgstr "System Information"
 
-#: ../modules/display/MonitorProperties.qml:86
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:34
+#: ../modules/display/MonitorProperties.qml:44
 msgid "Enabled"
 msgstr ""
 
-#: ../modules/display/MonitorProperties.qml:102
+#: ../modules/display/MonitorProperties.qml:73
 msgid "Resolution"
 msgstr ""
 
-#: ../modules/display/MonitorProperties.qml:128
+#: ../modules/display/MonitorProperties.qml:127
 msgid "Rotation"
 msgstr ""
 
@@ -256,11 +261,11 @@ msgstr ""
 msgid "Drop a picture here to change the background"
 msgstr ""
 
-#: ../modules/shortcuts/ShortcutInput.qml:125
+#: ../modules/shortcuts/ShortcutInput.qml:103
 msgid "Please input new shortcuts"
 msgstr ""
 
-#: ../modules/shortcuts/ShortcutInput.qml:215
+#: ../modules/shortcuts/ShortcutInput.qml:282
 msgid "Replace"
 msgstr ""
 
@@ -274,77 +279,74 @@ msgstr ""
 msgid "Timezone"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:25
-#: ../modules/mouse_touchpad/main.qml:139
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:27
 msgid "TouchPad"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:53
-#: ../modules/mouse_touchpad/main.qml:53
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:57
+#: ../modules/mouse_touchpad/main.qml:38
 msgid "Button Order"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:59
-#: ../modules/mouse_touchpad/main.qml:58
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:63
+#: ../modules/mouse_touchpad/main.qml:43
 msgid "Right Hand"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:60
-#: ../modules/mouse_touchpad/main.qml:59
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:64
+#: ../modules/mouse_touchpad/main.qml:44
 msgid "Left Hand"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:73
-#: ../modules/mouse_touchpad/main.qml:72
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:77
+#: ../modules/mouse_touchpad/main.qml:57
 msgid "Pointer Move Speed"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:75
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:113
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:79
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:117
 #: ../modules/keyboard/main.qml:93 ../modules/keyboard/main.qml:115
-#: ../modules/mouse_touchpad/main.qml:74
-#: ../modules/mouse_touchpad/main.qml:112
+#: ../modules/mouse_touchpad/main.qml:59 ../modules/mouse_touchpad/main.qml:97
 msgid "Slow"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:76
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:114
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:80
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:118
 #: ../modules/keyboard/main.qml:94 ../modules/keyboard/main.qml:116
-#: ../modules/mouse_touchpad/main.qml:75
-#: ../modules/mouse_touchpad/main.qml:113
+#: ../modules/mouse_touchpad/main.qml:60 ../modules/mouse_touchpad/main.qml:98
 msgid "Fast"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:92
-#: ../modules/mouse_touchpad/main.qml:91
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:96
+#: ../modules/mouse_touchpad/main.qml:76
 msgid "Pointer Accuracy"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:94
-#: ../modules/mouse_touchpad/main.qml:93
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:98
+#: ../modules/mouse_touchpad/main.qml:78
 msgid "Low"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:95
-#: ../modules/mouse_touchpad/main.qml:94
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:99
+#: ../modules/mouse_touchpad/main.qml:79
 msgid "High"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:111
-#: ../modules/mouse_touchpad/main.qml:110
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:115
+#: ../modules/mouse_touchpad/main.qml:95
 msgid "Double-click Frequency"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:131
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:135
 msgid "Drag threshold"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:133
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:137
 #: ../modules/keyboard/main.qml:73
 msgid "Short"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:134
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:138
 #: ../modules/keyboard/main.qml:72
 msgid "Long"
 msgstr ""
@@ -518,85 +520,73 @@ msgstr ""
 msgid "Cursor Blink"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:339
+#: ../modules/keyboard/main.qml:346
 msgid "No result"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:154
+#: ../modules/keyboard/main.qml:161
 msgid "Keyboard Layout"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:24 ../modules/keyboard/main.qml:59
-#: ../modules/mouse_touchpad/main.qml:44 ../modules/power/main.qml:51
-#: ../modules/shortcuts/main.qml:95
+#: ../modules/default_applications/main.qml:24 ../modules/display/main.qml:127
+#: ../modules/keyboard/main.qml:59 ../modules/mouse_touchpad/main.qml:29
+#: ../modules/power/main.qml:59 ../modules/shortcuts/main.qml:95
 msgid "Reset"
 msgstr ""
 
-#: ../modules/mouse_touchpad/main.qml:41 ../frame/modules_info.py:44
-msgid "Mouse"
-msgstr ""
-
-#: ../modules/power/main.qml:222
+#: ../modules/power/main.qml:229
 msgid "Custom"
 msgstr ""
 
-#: ../modules/mouse_touchpad/main.qml:147
-msgid "No touchpad device exist!"
-msgstr ""
-
-#: ../modules/power/main.qml:80 ../modules/power/main.qml:130
+#: ../modules/power/main.qml:88 ../modules/power/main.qml:137
 #, fuzzy
 msgid "Shut down"
 msgstr "Shutdown"
 
-#: ../modules/power/main.qml:82 ../modules/power/main.qml:132
+#: ../modules/power/main.qml:90 ../modules/power/main.qml:139
 msgid "None"
 msgstr ""
 
-#: ../modules/power/main.qml:116
+#: ../modules/power/main.qml:123
 msgid "When I close the lid"
 msgstr ""
 
-#: ../modules/power/main.qml:180
+#: ../modules/power/main.qml:187
 msgid "Requires a password"
 msgstr ""
 
-#: ../modules/power/main.qml:181
+#: ../modules/power/main.qml:188
 msgid "Without a password"
 msgstr ""
 
-#: ../modules/power/main.qml:204
+#: ../modules/power/main.qml:211
 #, fuzzy
 msgid "Power plan"
 msgstr "Power"
 
-#: ../modules/power/main.qml:219 ../modules/sound/main.qml:139
+#: ../modules/power/main.qml:226 ../modules/sound/main.qml:148
 msgid "Balance"
 msgstr ""
 
-#: ../modules/power/main.qml:220
+#: ../modules/power/main.qml:227
 #, fuzzy
 msgid "Power saver"
 msgstr "Power"
 
-#: ../modules/power/main.qml:221
+#: ../modules/power/main.qml:228
 msgid "High performance"
 msgstr ""
 
-#: ../modules/power/main.qml:256
-msgid "Turn off monitor"
-msgstr ""
-
-#: ../modules/power/main.qml:81 ../modules/power/main.qml:131
-#: ../modules/power/main.qml:328
+#: ../modules/power/main.qml:89 ../modules/power/main.qml:138
+#: ../modules/power/main.qml:335
 msgid "Suspend"
 msgstr ""
 
-#: ../modules/power/main.qml:66
+#: ../modules/power/main.qml:74
 msgid "When I press the power button"
 msgstr ""
 
-#: ../modules/power/main.qml:166
+#: ../modules/power/main.qml:173
 msgid "Require password when computer wakes"
 msgstr ""
 
@@ -632,8 +622,28 @@ msgstr ""
 msgid "Auto Hide"
 msgstr ""
 
-#: ../modules/desktop/main.qml:160
+#: ../modules/bluetooth/main.qml:17
+msgid "ON/OFF"
+msgstr ""
+
+#: ../modules/bluetooth/main.qml:35
+msgid "Visible"
+msgstr ""
+
+#: ../modules/bluetooth/main.qml:36 ../modules/desktop/main.qml:160
 msgid "Invisible"
+msgstr ""
+
+#: ../modules/bluetooth/main.qml:47
+msgid "Device name"
+msgstr ""
+
+#: ../modules/bluetooth/main.qml:59
+msgid "Devices nearby"
+msgstr ""
+
+#: ../modules/bluetooth/main.qml:72
+msgid "Recently connected devices"
 msgstr ""
 
 #: ../modules/desktop/main.qml:179
@@ -660,11 +670,15 @@ msgstr ""
 msgid "Launcher"
 msgstr ""
 
-#: ../modules/display/main.qml:50
+#: ../modules/display/main.qml:61
+msgid "Main Display: "
+msgstr ""
+
+#: ../modules/display/main.qml:89
 msgid "Monitor"
 msgstr ""
 
-#: ../modules/display/main.qml:80
+#: ../modules/display/main.qml:120
 msgid "Apply"
 msgstr ""
 
@@ -730,67 +744,67 @@ msgstr ""
 msgid "Custom Shortcuts"
 msgstr ""
 
-#: ../modules/sound/main.qml:91
+#: ../modules/sound/main.qml:100
 msgid "Speaker"
 msgstr ""
 
-#: ../modules/sound/main.qml:239
+#: ../modules/sound/main.qml:248
 msgid "Output Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:121
+#: ../modules/sound/main.qml:130
 msgid "Output Volume"
 msgstr ""
 
-#: ../modules/sound/main.qml:125 ../modules/sound/main.qml:193
+#: ../modules/sound/main.qml:134 ../modules/sound/main.qml:202
 msgid "-"
 msgstr ""
 
-#: ../modules/sound/main.qml:126 ../modules/sound/main.qml:194
+#: ../modules/sound/main.qml:135 ../modules/sound/main.qml:203
 msgid "+"
 msgstr ""
 
-#: ../modules/sound/main.qml:143
+#: ../modules/sound/main.qml:152
 msgid "Left"
 msgstr ""
 
-#: ../modules/sound/main.qml:144
+#: ../modules/sound/main.qml:153
 msgid "Right"
 msgstr ""
 
-#: ../modules/sound/main.qml:159
+#: ../modules/sound/main.qml:168
 msgid "Microphone"
 msgstr ""
 
-#: ../modules/sound/main.qml:255 ../modules/sound/main.qml:362
+#: ../modules/sound/main.qml:265 ../modules/sound/main.qml:372
 msgid "No port exist in this device."
 msgstr ""
 
-#: ../modules/sound/main.qml:297
+#: ../modules/sound/main.qml:306
 msgid "Output device"
 msgstr ""
 
-#: ../modules/sound/main.qml:346
+#: ../modules/sound/main.qml:355
 msgid "Input Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:404
+#: ../modules/sound/main.qml:413
 msgid "Input device"
 msgstr ""
 
-#: ../modules/sound/main.qml:457
+#: ../modules/sound/main.qml:467
 msgid "Hide Advanced..."
 msgstr ""
 
-#: ../modules/sound/main.qml:457
+#: ../modules/sound/main.qml:467
 msgid "Show Advanced..."
 msgstr ""
 
-#: ../modules/sound/main.qml:189
+#: ../modules/sound/main.qml:198
 msgid "Input Volume"
 msgstr ""
 
-#: ../modules/sound/main.qml:207
+#: ../modules/sound/main.qml:216
 msgid "Input Level"
 msgstr ""
 
@@ -800,6 +814,10 @@ msgstr ""
 
 #: ../modules/disk_mount/main.qml:69
 msgid "External Devices"
+msgstr ""
+
+#: ../modules/grub/main.qml:42
+msgid "Startup Screen"
 msgstr ""
 
 #: ../modules/grub/main.qml:73
@@ -816,4 +834,8 @@ msgstr ""
 
 #: ../modules/grub/main.qml:234
 msgid "Selected Item Color"
+msgstr ""
+
+#: ../frame/modules_info.py:46
+msgid "Touchpad"
 msgstr ""

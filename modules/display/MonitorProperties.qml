@@ -84,18 +84,30 @@ Item {
                         cellHeight: 30
                         property int currentValue: outputObj.currentMode[0]
 
-                        model: {
+                        function getResolutionModel(){
                             var resolutionModel = listModelComponent.createObject(modesView, {})
                             var modes = outputObj.ListModes()
+                            var checkRepeatDict = {}
+                            resolution = getResolutionFromMode(outputObj.bestMode)
+                            resolutionModel.append({
+                                "item_label": resolution + " *",
+                                "item_value": outputObj.bestMode[0]
+                            })
+                            checkRepeatDict[resolution] = true
                             for(var i=0; i<modes.length; i++){
                                 var resolution = getResolutionFromMode(modes[i])
-                                resolutionModel.append({
-                                    "item_label": resolution,
-                                    "item_value": modes[i][0]
-                                })
+                                if(!checkRepeatDict[resolution]){
+                                    resolutionModel.append({
+                                        "item_label": resolution,
+                                        "item_value": modes[i][0]
+                                    })
+                                    checkRepeatDict[resolution] = true
+                                }
                             }
                             return resolutionModel
                         }
+
+                        model: getResolutionModel()
 
                         delegate: PropertyItem {
                             currentValue: modesView.currentValue
@@ -164,6 +176,27 @@ Item {
                         visible: !outputObj.isComposited
                     }
                 }
+
+                Repeater{
+                    model: Object.keys(outputObj.brightness)
+                    delegate: DBaseLine{
+                        visible: outputObj.isComposited
+                        leftMargin: 18
+
+                        leftLoader.sourceComponent: LeftTitle{
+                            width: 70
+                            text: modelData
+                        }
+
+                        rightLoader.sourceComponent: DSlider{
+                            value: outputObj.brightness[modelData]
+                            onValueChanged: {
+                                outputObj.ChangeBrightness(modelData, value)
+                            }
+                        }
+                    }
+                }
+
                 DSeparatorHorizontal {}
             }
         }

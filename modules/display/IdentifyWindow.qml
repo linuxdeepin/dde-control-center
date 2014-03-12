@@ -6,8 +6,8 @@ Window {
     id: identifyWindow
     color: "transparent"
     flags: Qt.Popup | Qt.WindowStaysOnTopHint
-    width: monitorName.width + 8
-    height: monitorName.height + 8
+    width: monitorName.width + 20
+    height: monitorName.height + 20
 
     property var monitorObject
     property alias timeoutHide: timeoutHide
@@ -18,13 +18,15 @@ Window {
     Rectangle {
         anchors.fill: parent
         color: "yellow"
+        border.width: 2
+        border.color: "black"
     }
 
     DLabel {
         id: monitorName
         anchors.centerIn: parent
         text: monitorObject.name
-        font.pixelSize: monitorObject.width/70
+        font.pixelSize: monitorObject.width/50
         font.bold: true
         color: "black"
     }
