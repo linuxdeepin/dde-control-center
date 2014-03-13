@@ -129,14 +129,21 @@ Item {
                     leftLoader.sourceComponent: LeftTitle {
                         text: dsTr("Output Volume")
                     }
-                    rightLoader.sourceComponent: DSliderRect {
+                    rightLoader.sourceComponent: DSliderEnhanced {
                         width: sliderWidth
-                        leftLabel: dsTr("-")
-                        rightLabel: dsTr("+")
 
-                        value: currentSink.volume/100
-                        onValueChanged: {
-                            currentSink.volume = parseInt(value * 100)
+                        min: 0
+                        max: 150
+                        init: currentSink.volume
+
+                        onValueConfirmed:{
+                            currentSink.volume = value
+                        }
+
+                        Component.onCompleted: {
+                            addRuler(0, "-")
+                            addRuler(100, "100")
+                            addRuler(150, "+")
                         }
                     }
                 }
@@ -147,14 +154,24 @@ Item {
                     leftLoader.sourceComponent: LeftTitle {
                         text: dsTr("Balance")
                     }
-                    rightLoader.sourceComponent: DSliderRect {
+                    rightLoader.sourceComponent: DSliderEnhanced {
                         width: sliderWidth
-                        leftLabel: dsTr("Left")
-                        rightLabel: dsTr("Right")
 
-                        value: (currentSink.balance+1)/2
-                        onValueChanged: {
-                            currentSink.balance = value * 2 - 1
+                        min: -1
+                        max: 1
+                        init: currentSink.balance
+                        completeColorVisible: false
+
+                        handler.source: "images/balance.png"
+
+                        onValueConfirmed:{
+                            currentSink.balance = value
+                        }
+
+                        Component.onCompleted: {
+                            addRuler(-1, "Left")
+                            addRuler(0, "0")
+                            addRuler(1, "Right")
                         }
                     }
                 }
@@ -197,14 +214,21 @@ Item {
                     leftLoader.sourceComponent: LeftTitle {
                         text: dsTr("Input Volume")
                     }
-                    rightLoader.sourceComponent: DSliderRect {
+                    rightLoader.sourceComponent: DSliderEnhanced {
                         width: sliderWidth
-                        leftLabel: dsTr("-")
-                        rightLabel: dsTr("+")
 
-                        value: currentSource.volume/100
-                        onValueChanged: {
-                            currentSource.volume = parseInt(value * 100)
+                        min: 0
+                        max: 150
+                        init: currentSource.volume
+
+                        onValueConfirmed:{
+                            currentSource.volume = value
+                        }
+
+                        Component.onCompleted: {
+                            addRuler(0, "-")
+                            addRuler(100, "100")
+                            addRuler(150, "+")
                         }
                     }
                 }
@@ -215,12 +239,20 @@ Item {
                     leftLoader.sourceComponent: LeftTitle {
                         text: dsTr("Input Level")
                     }
-                    rightLoader.sourceComponent: DSliderRect {
+                    rightLoader.sourceComponent: DSliderEnhanced {
                         width: sliderWidth
 
-                        value: (currentSource.balance+1)/2
-                        onValueChanged: {
-                            currentSource.balance = value * 2 - 1
+                        min: -1
+                        max: 1
+                        init: currentSource.balance
+                        handlerVisible: false
+                        valueDisplayVisible: false
+
+                        onValueConfirmed:{
+                            currentSource.balance = value
+                        }
+
+                        Component.onCompleted: {
                         }
                     }
                 }
