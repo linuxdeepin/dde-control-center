@@ -160,11 +160,8 @@ Rectangle{
             }
             border.width: 1
             border.color: {
-                if(parent.selected){
-                    return "#1493f2"
-                }
-                else if(parent.hovered){
-                    return dconstants.activeColor
+                if(parent.selected || parent.hovered){
+                    return  dconstants.activeColor
                 }
                 else{
                     return "white"
@@ -178,10 +175,14 @@ Rectangle{
 
             onEntered: {
                 parent.hovered = true
+                if(!parent.selected){
+                    toolTip.showTip(dsTr("Select as Main Monitor"))
+                }
             }
 
             onExited: {
                 parent.hovered = false
+                toolTip.hideTip()
             }
 
             onClicked: {

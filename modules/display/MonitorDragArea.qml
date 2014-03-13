@@ -30,26 +30,21 @@ Rectangle {
         return openedM
     }
 
-    property var lastComponentInfo: new Array()
     property var monitorsViews: {
         var views = new Array()
-        for(var i=0; i<monitorItems.count; i++){
-            views.push(monitorItems.itemAt(i))
+        for(var i=0; i<openedMonitors.count; i++){
+            views.push(openedMonitors.itemAt(i))
         }
         return views
     }
-
-    function recordLastComponentInfo(){
-        lastComponentInfo = new Array()
-        for(var i=0; i<monitorItems.count; i++){
-            var info = {}
-            var item = monitorItems.itemAt(i)
-            info["x"] = item.x
-            info["y"] = item.y
-            info["width"] = item.width
-            info["height"] = item.height
-            lastComponentInfo.push(info)
+    property var centerIdentifyWindows: {
+        var wins = new Array()
+        var component = Qt.createComponent("CenterIdentifyWindow.qml")
+        for(var i in openedMonitors){
+            var win = component.createObject(displayModule, { monitorObject: openedMonitors[i] })
+            wins.push(win)
         }
+        return wins
     }
 
     function getScaleFactorAndPadding(objs){
@@ -428,16 +423,28 @@ Rectangle {
             }
         }
 
-        DTextButton {
-            id: editButton
+        Row{
             anchors.right: parent.right
             anchors.bottom: parent.bottom
-            text: dsTr("Edit")
             visible: !editable
-            onClicked: {
-                editable = true
-                for(var i=0; i<monitorsViews.length; i++){
-                    monitorsViews[i].identifyWindow.show()
+
+            DTextButton {
+                text: dsTr("Identify")
+                onClicked: {
+                    for(var i in centerIdentifyWindows){
+                        centerIdentifyWindows[i].showWindow()
+                    }
+                }
+            }
+
+            DTextButton {
+                id: editButton
+                text: dsTr("Edit")
+                onClicked: {
+                    editable = true
+                    for(var i=0; i<monitorsViews.length; i++){
+                        monitorsViews[i].identifyWindow.show()
+                    }
                 }
             }
         }
@@ -487,7 +494,6 @@ Rectangle {
                 openedMonitorNumber: openedMonitors.length
 
                 onPressedAction: {
-                    recordLastComponentInfo()
                     presentCurrent(monitorIndex)
                 }
 

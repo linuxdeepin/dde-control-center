@@ -180,6 +180,7 @@ Item {
                 Repeater{
                     model: Object.keys(outputObj.brightness)
                     delegate: DBaseLine{
+                        width: monitorProperties.width
                         visible: outputObj.isComposited
                         leftMargin: 18
 
