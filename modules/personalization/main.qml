@@ -1,24 +1,30 @@
 import QtQuick 2.1
-import DBus.Com.Deepin.Daemon.Personalization 1.0
+import DBus.Com.Deepin.Daemon.Themes 1.0
 import Deepin.Widgets 1.0
 
 Item {
-    id: individuation
+    id: personalization
     anchors.fill: parent
 
     property var constants: DConstants {}
-    property var dbusPersonalization: Personalization {}
     property var listModelComponent: DListModelComponent {}
     property url dataDir: windowView.getModuleDataDir("personalization")
 
     property int activeExpandIndex: 0
+
+    property var dbusThemeManager: ThemeManager{}
+
+    Component{
+        id: themeComponent
+        Theme {}
+    }
     
     Column {
         anchors.top: parent.top
         width: parent.width
 
         DssTitle {
-            text: dsTr("Individuation")
+            text: dsTr("Personalization")
         }
 
         DSeparatorHorizontal {}
@@ -28,7 +34,9 @@ Item {
             property int myIndex: 0
             expanded: activeExpandIndex == myIndex
             onExpandedChanged: {
-                header.item.active = expanded
+                if(header.item){
+                    header.item.active = expanded
+                }
             }
 
             header.sourceComponent: DDownArrowHeader {
@@ -41,10 +49,13 @@ Item {
                         activeExpandIndex = root.myIndex
                     }
                 }
+                Component.onCompleted: {
+                    active = (activeExpandIndex == root.myIndex)
+                }
             }
 
             content.sourceComponent: Item {
-                width: individuation.width
+                width: personalization.width
                 height: themeList.height
 
                 ThemeView {
@@ -55,16 +66,16 @@ Item {
 
                     model: {
                         var myModel = listModelComponent.createObject(themeList, {})
-                        myModel.append({
-                            "item_img_url": "/themes/Deepin/thumbnail.png",
-                            "item_name": "Deepin",
-                            "item_value": "deepin"
-                        })
-                        myModel.append({
-                            "item_img_url": "/themes/Deepin-Blue/thumbnail.png",
-                            "item_name": "Deepin Blue",
-                            "item_value": "deepin-blue"
-                        })
+                        var themeList = dbusThemeManager.themeList
+                        for(var i in themeList){
+                            var themeObj = themeComponent.createObject(personalization, { path: themeList[i] })
+                            myModel.append({
+                                "item_img_url": themeObj.thumbnailPath,
+                                "item_name": themeObj.name,
+                                "item_value": themeObj.name,
+                                "themeObj": themeObj
+                            })
+                        }
                         return myModel
                     }
                 }
@@ -94,7 +105,7 @@ Item {
             }
 
             content.sourceComponent: Item {
-                width: individuation.width
+                width: personalization.width
                 height: childrenRect.height
 
                 ThemeView {
@@ -105,11 +116,11 @@ Item {
 
                     model: {
                         var myModel = listModelComponent.createObject(gtkList, {})
-                        var themes = dbusPersonalization.availableGtkTheme
+                        var themes = dbusThemeManager.gtkThemeList
                         for(var i in themes){
-                            var theme_id = themes[i][0]
+                            var theme_id = themes[i]
                             myModel.append({
-                                "item_img_url": "/gtk/" + theme_id + "/thumbnail.png",
+                                "item_img_url": dataDir + "/gtk/" + theme_id + "/thumbnail.png",
                                 "item_name": windowView.toHumanThemeName(theme_id),
                                 "item_value": theme_id
                             })
@@ -144,7 +155,7 @@ Item {
             }
 
             content.sourceComponent: Item {
-                width: individuation.width
+                width: personalization.width
                 height: childrenRect.height
 
                 ThemeView {
@@ -155,11 +166,11 @@ Item {
 
                     model: {
                         var myModel = listModelComponent.createObject(cursorList, {})
-                        var themes = dbusPersonalization.availableCursorTheme
+                        var themes = dbusThemeManager.cursorThemeList
                         for(var i in themes){
-                            var theme_id = themes[i][0]
+                            var theme_id = themes[i]
                             myModel.append({
-                                "item_img_url": "/cursor/" + theme_id + "/thumbnail.png",
+                                "item_img_url": dataDir + "/cursor/" + theme_id + "/thumbnail.png",
                                 "item_name": windowView.toHumanThemeName(theme_id),
                                 "item_value": theme_id
                             })
@@ -194,7 +205,7 @@ Item {
             }
 
             content.sourceComponent: Item {
-                width: individuation.width
+                width: personalization.width
                 height: childrenRect.height
                 
             }
@@ -223,7 +234,7 @@ Item {
             }
 
             content.sourceComponent: Item {
-                width: individuation.width
+                width: personalization.width
                 height: childrenRect.height
                 
                 ThemeView {
@@ -234,11 +245,11 @@ Item {
 
                     model: {
                         var myModel = listModelComponent.createObject(iconList, {})
-                        var themes = dbusPersonalization.availableIconTheme
+                        var themes = dbusThemeManager.iconThemeList
                         for(var i in themes){
-                            var theme_id = themes[i][0]
+                            var theme_id = themes[i]
                             myModel.append({
-                                "item_img_url": "/icons/" + theme_id + "/thumbnail.png",
+                                "item_img_url": dataDir + "/icons/" + theme_id + "/thumbnail.png",
                                 "item_name": windowView.toHumanThemeName(theme_id),
                                 "item_value": theme_id
                             })
@@ -273,7 +284,7 @@ Item {
             }
 
             content.sourceComponent: Item {
-                width: individuation.width
+                width: personalization.width
                 height: childrenRect.height
                 
             }
