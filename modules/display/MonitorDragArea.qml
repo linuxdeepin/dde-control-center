@@ -8,6 +8,8 @@ Rectangle {
     color: dconstants.contentBgColor
     clip: true
 
+    property int adsorptionValue: 3
+
     property bool editable: false
 
     property int rootWindowWidth: rootWindow.displayWidth
@@ -128,6 +130,12 @@ Rectangle {
             else if(currentView.y > (bView.y + bView.height)){
                 currentView.y = bView.y + bView.height
             }
+            if(Math.abs(currentView.y - bView.y) < adsorptionValue){
+                currentView.y = bView.y
+            }
+            if(Math.abs(currentView.y2 - bView.y2) < adsorptionValue){
+                currentView.y = bView.y2 - currentView.height
+            }
             break;
 
             case "left":
@@ -137,6 +145,12 @@ Rectangle {
             }
             else if(currentView.y > bView.y2){
                 currentView.y = bView.y + bView.height
+            }
+            if(Math.abs(currentView.y - bView.y) < adsorptionValue){
+                currentView.y = bView.y
+            }
+            if(Math.abs(currentView.y2 - bView.y2) < adsorptionValue){
+                currentView.y = bView.y2 - currentView.height
             }
             break;
 
@@ -148,6 +162,12 @@ Rectangle {
             else if(currentView.x > bView.x2){
                 currentView.x = bView.x + bView.width
             }
+            if(Math.abs(currentView.x - bView.x) < adsorptionValue){
+                currentView.x = bView.x
+            }
+            if(Math.abs(currentView.x2 - bView.x2) < adsorptionValue){
+                currentView.x = bView.x2 - currentView.width
+            }
             break;
 
             case "bottom": 
@@ -157,6 +177,12 @@ Rectangle {
             }
             else if(currentView.x > bView.x2){
                 currentView.x = bView.x + bView.width
+            }
+            if(Math.abs(currentView.x - bView.x) < adsorptionValue){
+                currentView.x = bView.x
+            }
+            if(Math.abs(currentView.x2 - bView.x2) < adsorptionValue){
+                currentView.x = bView.x2 - currentView.width
             }
             break;
         }
@@ -316,13 +342,7 @@ Rectangle {
                     return
                 }
                 else if(bView.beOverlapped){
-                    var positionCode = getRelativePosition(bView, currentView)
-                    switch(positionCode){
-                        case "right": currentView.x = bView.x2; break;
-                        case "left": currentView.x = bView.x - currentView.width; break;
-                        case "top": currentView.y = bView.y - currentView.height; break;
-                        case "bottom": currentView.y = bView.y2; break;
-                    }
+                    closeToView(bView, currentView)
                 }
             }
         }
@@ -412,7 +432,7 @@ Rectangle {
             id: editButton
             anchors.right: parent.right
             anchors.bottom: parent.bottom
-            text: "编辑"
+            text: dsTr("Edit")
             visible: !editable
             onClicked: {
                 editable = true
@@ -428,7 +448,7 @@ Rectangle {
             visible: editable
 
             DTextButton {
-                text: "应用"
+                text: dsTr("Apply")
                 onClicked: {
                     applyPostion()
                     editable = false
@@ -437,7 +457,7 @@ Rectangle {
             }
 
             DTextButton {
-                text: "取消"
+                text: dsTr("Cancel")
                 onClicked: {
                     editable = false
                     for(var i in monitorsViews){

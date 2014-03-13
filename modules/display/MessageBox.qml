@@ -60,11 +60,13 @@ Window {
             spacing: 6
 
             DssH1{
+                color: "white"
                 text: "是否要保存这些显示设置？"
                 anchors.horizontalCenter: parent.horizontalCenter
             }
 
             DssH3{
+                color: "white"
                 text: "<font color='red'>" + countdown.totalTime + "</font> " + "秒之后还原之前的显示设置。"
                 anchors.horizontalCenter: parent.horizontalCenter
             }

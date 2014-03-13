@@ -84,12 +84,33 @@ Item {
             height: 38
 
             property var currentSelectedMonitor: rightLoader.item.currentItem.delegateId
-
+            
             leftLoader.sourceComponent: DssH2 {
                 text: dsTr("Monitor")
             }
 
             rightLoader.sourceComponent: DRadioButton {
+
+                function getIndexFromId(buttonId){
+                    for(var i=0; i<buttonModel.length; i++){
+                        if(buttonId == buttonModel[i].buttonId){
+                            return i
+                        }
+                    }
+                    return -1
+                }
+
+                function selectItemFromId(buttonId){
+                    var index = getIndexFromId(buttonId)
+                    if(index != -1){
+                        selectItem(index)
+                        return true
+                    }
+                    else{
+                        return false
+                    }
+                }
+
                 buttonModel: {
                     var myModel = new Array()
                     for(var i=0; i<allMonitorsObjects.length; i++){

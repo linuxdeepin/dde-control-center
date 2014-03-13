@@ -30,7 +30,17 @@ Rectangle{
 
     color: pressed ? "#252525" : "#0d0d0d"
     border.width: 1
-    border.color: beJoined ? "red" : dconstants.fgDarkColor
+    border.color: {
+        if(inEditMode && beJoined){
+            return "red"
+        }
+        else if(monitorChoose.currentSelectedMonitor == monitorObject){
+            return dconstants.activeColor
+        }
+        else{
+            return dconstants.fgDarkColor
+        }
+    }
     visible: monitorObject.opened
     opacity: pressed ? 0.6 : 0.9
 
@@ -64,7 +74,7 @@ Rectangle{
     }
 
     DssH4 {
-        text: "Drag me"
+        text: "Move me"
         anchors.top: nameText.bottom
         anchors.horizontalCenter: parent.horizontalCenter
         opacity: 0.5
@@ -75,7 +85,6 @@ Rectangle{
         anchors.fill: parent
         drag.target: parent
         drag.axis: Drag.XAndYAxis
-        visible: inEditMode
         cursorShape: {
             if(inEditMode){
                 if(parent.pressed){
@@ -90,15 +99,27 @@ Rectangle{
             }
         }
         onPressed: {
-            parent.pressed = true
-            pressedAction(monitorIndex)
+            if(inEditMode){
+                parent.pressed = true
+                pressedAction(monitorIndex)
+            }
         }
         onReleased: {
-            parent.pressed = false
-            releasedAction(monitorIndex)
+            if(inEditMode){
+                parent.pressed = false
+                releasedAction(monitorIndex)
+            }
         }
         onPositionChanged: {
-            dragAndMoveAction(monitorIndex)
+            if(inEditMode){
+                dragAndMoveAction(monitorIndex)
+            }
+        }
+
+        onClicked: {
+            if(!inEditMode){
+                monitorChoose.rightLoader.item.selectItemFromId(monitorObject)
+            }
         }
     }
 
