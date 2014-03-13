@@ -12,7 +12,7 @@ Item {
     property int contentLeftMargin: 22
     property int lineHeight: 30
     property int contentHeight: 60
-    property int sliderWidth: 170
+    property int sliderWidth: 171
     property int leftWidth: 100
     property color titleColor: "#ffffff"
     property int itemLabelLeftMargin: 22
