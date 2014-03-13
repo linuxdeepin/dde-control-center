@@ -115,7 +115,7 @@ Item {
         }
 
         onInitialize: {
-            var allIcons = root.this_user.AllHistoryIcons()
+            var allIcons = root.this_user.historyIcons
             for (var i = 0; i < allIcons.length; i++) {
                 avatar_recently_used_view.model.append({"avatarPath": allIcons[i]})
             }
