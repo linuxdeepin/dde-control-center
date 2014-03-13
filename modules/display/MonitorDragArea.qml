@@ -32,8 +32,8 @@ Rectangle {
 
     property var monitorsViews: {
         var views = new Array()
-        for(var i=0; i<openedMonitors.count; i++){
-            views.push(openedMonitors.itemAt(i))
+        for(var i=0; i<monitorItems.count; i++){
+            views.push(monitorItems.itemAt(i))
         }
         return views
     }

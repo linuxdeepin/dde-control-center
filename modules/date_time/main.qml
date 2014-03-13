@@ -1,4 +1,4 @@
-import QtQuick 2.1
+import QtQuick 2.2
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import Deepin.Widgets 1.0
@@ -9,7 +9,7 @@ Item {
     id: dateTimeModule
     anchors.fill: parent
 
-    property string timeFont: "Maven Pro Light"
+    FontLoader { id: fixedFont; source: "MavenProLight-200.otf" }
     property var gDate: DateAndTime {
         onCurrentTimezoneChanged: {
             Date.timeZoneUpdated()
@@ -67,7 +67,8 @@ Item {
                 color: "#666666"
 
                 font.pixelSize: 14
-                font.family: timeFont
+                font.family: fixedFont.name
+                font.bold: true
                 visible: !twentyFourHourSetBox.active
                 text: globalDate.getHours() < 12 ? "AM" : "PM"
             }
