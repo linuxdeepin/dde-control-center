@@ -9,7 +9,7 @@ Item {
     property int verticalPadding: 8
 
     signal avatarPictured (url path)
-    
+
     Graphic { id: dbus_graphic }
 
     onRunningChanged: {
@@ -19,7 +19,7 @@ Item {
             camera.stop()
         }
     }
-    
+
     function urlToPath(url) {
         return url.toString().substring(7)
     }
@@ -31,7 +31,7 @@ Item {
         property url imageSavedPath: ""
 
         imageCapture {
-            /* resolution: Qt.size(320, 240) */
+            resolution: Qt.size(320, 240)
 
             onImageCaptured: {
                 avatar_preview.source = preview
@@ -54,12 +54,12 @@ Item {
         width: 120
         height: 120
         clip: true
-        
+
         transform: Rotation {
             origin.x: 61
-            origin.y: 60 
-            axis { x: 0; y: 1; z: 0 } 
-            angle: 180 
+            origin.y: 60
+            axis { x: 0; y: 1; z: 0 }
+            angle: 180
         }
 
         VideoOutput {
@@ -142,7 +142,17 @@ Item {
         anchors.verticalCenter: snapshot_button.verticalCenter
 
         onClicked: {
-            /* dbus_graphic.FlipImageHorizontal(urlToPath(camera.imageSavedPath), urlToPath(camera.imageSavedPath), "png") */
+            var imagePath = urlToPath(camera.imageSavedPath)
+            var scaledSize = Math.floor(240 * video_output.scale)
+            dbus_graphic.FlipImageHorizontal(imagePath, imagePath, "jpeg")
+            dbus_graphic.ClipImage(imagePath, imagePath, 40, 0, 280, 240, "jpeg")
+            dbus_graphic.ResizeImage(imagePath, imagePath, scaledSize, scaledSize, "jpeg")
+            var margins = Math.floor((scaledSize - 150) / 2)
+            dbus_graphic.ClipImage(imagePath, imagePath,
+                                   margins, margins,
+                                   margins + 150,
+                                   margins + 150,
+                                   "jpeg")
             root.avatarPictured(camera.imageSavedPath)
         }
     }
