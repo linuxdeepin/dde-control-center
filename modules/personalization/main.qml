@@ -13,10 +13,14 @@ Item {
     property int activeExpandIndex: 0
 
     property var dbusThemeManager: ThemeManager{}
+    property var dbusThumbPath: ThumbPath{ path: "/com/deepin/daemon/ThemeManager" }
 
     Component{
         id: themeComponent
         Theme {}
+    }
+
+    Component.onCompleted: {
     }
     
     Column {
@@ -120,7 +124,7 @@ Item {
                         for(var i in themes){
                             var theme_id = themes[i]
                             myModel.append({
-                                "item_img_url": dataDir + "/gtk/" + theme_id + "/thumbnail.png",
+                                "item_img_url": dbusThumbPath.GtkPath(theme_id),
                                 "item_name": windowView.toHumanThemeName(theme_id),
                                 "item_value": theme_id
                             })
@@ -170,7 +174,7 @@ Item {
                         for(var i in themes){
                             var theme_id = themes[i]
                             myModel.append({
-                                "item_img_url": dataDir + "/cursor/" + theme_id + "/thumbnail.png",
+                                "item_img_url": dbusThumbPath.CursorPath(theme_id),
                                 "item_name": windowView.toHumanThemeName(theme_id),
                                 "item_value": theme_id
                             })

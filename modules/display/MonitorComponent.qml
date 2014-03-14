@@ -83,7 +83,7 @@ Rectangle{
 
     MouseArea {
         anchors.fill: parent
-        drag.target: parent
+        drag.target: inEditMode ? parent : undefined
         drag.axis: Drag.XAndYAxis
         cursorShape: {
             if(inEditMode){
