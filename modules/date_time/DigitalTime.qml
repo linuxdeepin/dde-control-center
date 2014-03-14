@@ -49,6 +49,9 @@ Item {
             id: minutesText
             mouseAreaVisible: digitalTime.mouseAreaVisible
             IntValidator{bottom: 0; top: 59;}
+
+            onAccepted: {
+            }
         }
     }
 }

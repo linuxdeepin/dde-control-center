@@ -16,6 +16,7 @@ Column {
             text: name
         }
 
+        rightLoader.visible: !stopSetKeyBinding
         rightLoader.sourceComponent: StateButtons {
             deleteButton.visible: keyBindings.length > 0
             onCurrentActionStateNameChanged: {
@@ -44,7 +45,9 @@ Column {
         Column {
             id: customKeybindingListBox
             width: parent.width
-            height: childrenRect.height
+            height: customKeybindingList.count > 0 ? realHeight : 0
+
+            property int realHeight: childrenRect.height
 
             ListView {
                 id: customKeybindingList
@@ -60,7 +63,7 @@ Column {
             }
 
             DSeparatorHorizontal {
-                visible: keyBindings.length > 0
+                visible: customKeybindingList.count > 0
             }
         }
 
