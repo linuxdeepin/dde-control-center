@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-12 15:12+0800\n"
+"POT-Creation-Date: 2014-03-14 10:45+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,6 +66,7 @@ msgid "Command"
 msgstr ""
 
 #: ../modules/shortcuts/CustomKeybindingExpand.qml:105
+#: ../modules/display/MonitorDragArea.qml:467
 #: ../modules/shortcuts/ShortcutInput.qml:298
 msgid "Cancel"
 msgstr ""
@@ -147,6 +148,14 @@ msgstr ""
 msgid "VPN Connections"
 msgstr ""
 
+#: ../modules/display/MessageBox.qml:82
+msgid "Save Changes"
+msgstr ""
+
+#: ../modules/display/MessageBox.qml:90
+msgid "Restore"
+msgstr ""
+
 #: ../frame/views/ModulesData.qml:5
 msgid "Date and Time"
 msgstr ""
@@ -170,7 +179,7 @@ msgstr ""
 msgid "Sound"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:10 ../modules/power/main.qml:55
+#: ../frame/views/ModulesData.qml:10 ../modules/power/main.qml:76
 #: ../frame/modules_info.py:35
 msgid "Power"
 msgstr ""
@@ -180,6 +189,7 @@ msgid "More Settings"
 msgstr ""
 
 #: ../frame/views/ModulesData.qml:12 ../frame/views/PanelContent.qml:418
+#: ../modules/power/main.qml:111 ../modules/power/main.qml:154
 #: ../frame/modules_info.py:37
 msgid "Shutdown"
 msgstr ""
@@ -198,7 +208,7 @@ msgstr ""
 msgid "Desktop"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:16
+#: ../frame/views/ModulesData.qml:16 ../modules/personalization/main.qml:27
 msgid "Personalization"
 msgstr ""
 
@@ -241,6 +251,22 @@ msgstr ""
 #: ../frame/views/ModulesData.qml:23 ../modules/system_info/main.qml:39
 #: ../frame/modules_info.py:49
 msgid "System Information"
+msgstr ""
+
+#: ../modules/display/MonitorComponent.qml:179
+msgid "Select as Main Monitor"
+msgstr ""
+
+#: ../modules/display/MonitorDragArea.qml:432
+msgid "Identify"
+msgstr ""
+
+#: ../modules/display/MonitorDragArea.qml:442
+msgid "Edit"
+msgstr ""
+
+#: ../modules/display/MonitorDragArea.qml:458 ../modules/display/main.qml:141
+msgid "Apply"
 msgstr ""
 
 #: ../modules/display/MonitorProperties.qml:44
@@ -401,23 +427,23 @@ msgstr ""
 msgid "Date & Time"
 msgstr ""
 
-#: ../modules/date_time/main.qml:91
+#: ../modules/date_time/main.qml:92
 msgid "Auto-sync datetime"
 msgstr ""
 
-#: ../modules/date_time/main.qml:104
+#: ../modules/date_time/main.qml:105
 msgid "24 Hour"
 msgstr ""
 
-#: ../modules/date_time/main.qml:134
+#: ../modules/date_time/main.qml:135
 msgid "Date"
 msgstr ""
 
-#: ../modules/date_time/main.qml:138
+#: ../modules/date_time/main.qml:139
 msgid "Change Date"
 msgstr ""
 
-#: ../modules/date_time/main.qml:161
+#: ../modules/date_time/main.qml:162
 msgid "假期安排提示"
 msgstr ""
 
@@ -525,62 +551,58 @@ msgstr ""
 msgid "Keyboard Layout"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:24 ../modules/display/main.qml:127
+#: ../modules/default_applications/main.qml:24 ../modules/display/main.qml:147
 #: ../modules/keyboard/main.qml:59 ../modules/mouse_touchpad/main.qml:29
-#: ../modules/power/main.qml:59 ../modules/shortcuts/main.qml:95
+#: ../modules/power/main.qml:80 ../modules/shortcuts/main.qml:95
 msgid "Reset"
 msgstr ""
 
-#: ../modules/power/main.qml:229
+#: ../modules/power/main.qml:248
 msgid "Custom"
 msgstr ""
 
-#: ../modules/power/main.qml:88 ../modules/power/main.qml:137
-msgid "Shut down"
-msgstr ""
-
-#: ../modules/power/main.qml:90 ../modules/power/main.qml:139
-msgid "None"
-msgstr ""
-
-#: ../modules/power/main.qml:123
+#: ../modules/power/main.qml:140
 msgid "When I close the lid"
 msgstr ""
 
-#: ../modules/power/main.qml:187
+#: ../modules/power/main.qml:197
 msgid "Requires a password"
 msgstr ""
 
-#: ../modules/power/main.qml:188
+#: ../modules/power/main.qml:201
 msgid "Without a password"
 msgstr ""
 
-#: ../modules/power/main.qml:211
+#: ../modules/power/main.qml:222
 msgid "Power plan"
 msgstr ""
 
-#: ../modules/power/main.qml:226 ../modules/sound/main.qml:148
+#: ../modules/power/main.qml:236 ../modules/sound/main.qml:155
 msgid "Balance"
 msgstr ""
 
-#: ../modules/power/main.qml:227
+#: ../modules/power/main.qml:240
 msgid "Power saver"
 msgstr ""
 
-#: ../modules/power/main.qml:228
+#: ../modules/power/main.qml:244
 msgid "High performance"
 msgstr ""
 
-#: ../modules/power/main.qml:89 ../modules/power/main.qml:138
-#: ../modules/power/main.qml:335
+#: ../modules/power/main.qml:267
+msgid "Turn off monitor"
+msgstr ""
+
+#: ../modules/power/main.qml:115 ../modules/power/main.qml:158
+#: ../modules/power/main.qml:306
 msgid "Suspend"
 msgstr ""
 
-#: ../modules/power/main.qml:74
+#: ../modules/power/main.qml:97
 msgid "When I press the power button"
 msgstr ""
 
-#: ../modules/power/main.qml:173
+#: ../modules/power/main.qml:183
 msgid "Require password when computer wakes"
 msgstr ""
 
@@ -653,6 +675,7 @@ msgid "Bottom Right"
 msgstr ""
 
 #: ../modules/desktop/main.qml:220 ../modules/desktop/main.qml:245
+#: ../modules/power/main.qml:119 ../modules/power/main.qml:162
 msgid "Nothing"
 msgstr ""
 
@@ -672,15 +695,7 @@ msgstr ""
 msgid "Monitor"
 msgstr ""
 
-#: ../modules/display/main.qml:120
-msgid "Apply"
-msgstr ""
-
-#: ../modules/personalization/main.qml:21 ../frame/modules_info.py:41
-msgid "Individuation"
-msgstr ""
-
-#: ../modules/personalization/main.qml:35
+#: ../modules/personalization/main.qml:43
 msgid "Themes"
 msgstr ""
 
@@ -688,23 +703,23 @@ msgstr ""
 msgid "Window"
 msgstr ""
 
-#: ../modules/personalization/main.qml:85
+#: ../modules/personalization/main.qml:96
 msgid "GTK Window"
 msgstr ""
 
-#: ../modules/personalization/main.qml:135
+#: ../modules/personalization/main.qml:146
 msgid "Cursor"
 msgstr ""
 
-#: ../modules/personalization/main.qml:185
+#: ../modules/personalization/main.qml:196
 msgid "Wallpaper"
 msgstr ""
 
-#: ../modules/personalization/main.qml:214
+#: ../modules/personalization/main.qml:225
 msgid "Icons"
 msgstr ""
 
-#: ../modules/personalization/main.qml:264
+#: ../modules/personalization/main.qml:275
 msgid "Font"
 msgstr ""
 
@@ -740,7 +755,7 @@ msgstr ""
 msgid "Speaker"
 msgstr ""
 
-#: ../modules/sound/main.qml:248
+#: ../modules/sound/main.qml:280
 msgid "Output Port"
 msgstr ""
 
@@ -748,56 +763,40 @@ msgstr ""
 msgid "Output Volume"
 msgstr ""
 
-#: ../modules/sound/main.qml:134 ../modules/sound/main.qml:202
-msgid "-"
-msgstr ""
-
-#: ../modules/sound/main.qml:135 ../modules/sound/main.qml:203
-msgid "+"
-msgstr ""
-
-#: ../modules/sound/main.qml:152
-msgid "Left"
-msgstr ""
-
-#: ../modules/sound/main.qml:153
-msgid "Right"
-msgstr ""
-
-#: ../modules/sound/main.qml:168
+#: ../modules/sound/main.qml:185
 msgid "Microphone"
 msgstr ""
 
-#: ../modules/sound/main.qml:265 ../modules/sound/main.qml:372
+#: ../modules/sound/main.qml:240
+msgid "Input Feedback"
+msgstr ""
+
+#: ../modules/sound/main.qml:297 ../modules/sound/main.qml:404
 msgid "No port exist in this device."
 msgstr ""
 
-#: ../modules/sound/main.qml:306
+#: ../modules/sound/main.qml:338
 msgid "Output device"
 msgstr ""
 
-#: ../modules/sound/main.qml:355
+#: ../modules/sound/main.qml:387
 msgid "Input Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:413
+#: ../modules/sound/main.qml:445
 msgid "Input device"
 msgstr ""
 
-#: ../modules/sound/main.qml:467
+#: ../modules/sound/main.qml:499
 msgid "Hide Advanced..."
 msgstr ""
 
-#: ../modules/sound/main.qml:467
+#: ../modules/sound/main.qml:499
 msgid "Show Advanced..."
 msgstr ""
 
-#: ../modules/sound/main.qml:198
+#: ../modules/sound/main.qml:215
 msgid "Input Volume"
-msgstr ""
-
-#: ../modules/sound/main.qml:216
-msgid "Input Level"
 msgstr ""
 
 #: ../modules/disk_mount/main.qml:25
@@ -826,6 +825,10 @@ msgstr ""
 
 #: ../modules/grub/main.qml:234
 msgid "Selected Item Color"
+msgstr ""
+
+#: ../frame/modules_info.py:41
+msgid "Individuation"
 msgstr ""
 
 #: ../frame/modules_info.py:46

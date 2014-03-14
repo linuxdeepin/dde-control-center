@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dss 2014\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-12 15:12+0800\n"
+"POT-Creation-Date: 2014-03-14 10:45+0800\n"
 "PO-Revision-Date: 2013-11-25 12:27+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -66,6 +66,7 @@ msgid "Command"
 msgstr "命令"
 
 #: ../modules/shortcuts/CustomKeybindingExpand.qml:105
+#: ../modules/display/MonitorDragArea.qml:467
 #: ../modules/shortcuts/ShortcutInput.qml:298
 msgid "Cancel"
 msgstr "取消"
@@ -147,6 +148,15 @@ msgstr ""
 msgid "VPN Connections"
 msgstr ""
 
+#: ../modules/display/MessageBox.qml:82
+#, fuzzy
+msgid "Save Changes"
+msgstr "保存更改"
+
+#: ../modules/display/MessageBox.qml:90
+msgid "Restore"
+msgstr ""
+
 #: ../frame/views/ModulesData.qml:5
 msgid "Date and Time"
 msgstr "日期和时间"
@@ -170,7 +180,7 @@ msgstr "蓝牙"
 msgid "Sound"
 msgstr "声音"
 
-#: ../frame/views/ModulesData.qml:10 ../modules/power/main.qml:55
+#: ../frame/views/ModulesData.qml:10 ../modules/power/main.qml:76
 #: ../frame/modules_info.py:35
 msgid "Power"
 msgstr "电源"
@@ -180,6 +190,7 @@ msgid "More Settings"
 msgstr "更多设置"
 
 #: ../frame/views/ModulesData.qml:12 ../frame/views/PanelContent.qml:418
+#: ../modules/power/main.qml:111 ../modules/power/main.qml:154
 #: ../frame/modules_info.py:37
 msgid "Shutdown"
 msgstr "关机"
@@ -198,7 +209,7 @@ msgstr "显示"
 msgid "Desktop"
 msgstr "桌面"
 
-#: ../frame/views/ModulesData.qml:16
+#: ../frame/views/ModulesData.qml:16 ../modules/personalization/main.qml:27
 msgid "Personalization"
 msgstr "个性化"
 
@@ -242,6 +253,22 @@ msgstr "默认程序"
 #: ../frame/modules_info.py:49
 msgid "System Information"
 msgstr "系统信息"
+
+#: ../modules/display/MonitorComponent.qml:179
+msgid "Select as Main Monitor"
+msgstr ""
+
+#: ../modules/display/MonitorDragArea.qml:432
+msgid "Identify"
+msgstr ""
+
+#: ../modules/display/MonitorDragArea.qml:442
+msgid "Edit"
+msgstr ""
+
+#: ../modules/display/MonitorDragArea.qml:458 ../modules/display/main.qml:141
+msgid "Apply"
+msgstr ""
 
 #: ../modules/display/MonitorProperties.qml:44
 msgid "Enabled"
@@ -402,23 +429,23 @@ msgstr ""
 msgid "Date & Time"
 msgstr "时间和日期"
 
-#: ../modules/date_time/main.qml:91
+#: ../modules/date_time/main.qml:92
 msgid "Auto-sync datetime"
 msgstr "自动同步时间"
 
-#: ../modules/date_time/main.qml:104
+#: ../modules/date_time/main.qml:105
 msgid "24 Hour"
 msgstr "24小时制"
 
-#: ../modules/date_time/main.qml:134
+#: ../modules/date_time/main.qml:135
 msgid "Date"
 msgstr "日期"
 
-#: ../modules/date_time/main.qml:138
+#: ../modules/date_time/main.qml:139
 msgid "Change Date"
 msgstr "更改日期"
 
-#: ../modules/date_time/main.qml:161
+#: ../modules/date_time/main.qml:162
 msgid "假期安排提示"
 msgstr ""
 
@@ -526,67 +553,60 @@ msgstr ""
 msgid "Keyboard Layout"
 msgstr "键盘布局"
 
-#: ../modules/default_applications/main.qml:24 ../modules/display/main.qml:127
+#: ../modules/default_applications/main.qml:24 ../modules/display/main.qml:147
 #: ../modules/keyboard/main.qml:59 ../modules/mouse_touchpad/main.qml:29
-#: ../modules/power/main.qml:59 ../modules/shortcuts/main.qml:95
+#: ../modules/power/main.qml:80 ../modules/shortcuts/main.qml:95
 msgid "Reset"
 msgstr "重置"
 
-#: ../modules/power/main.qml:229
+#: ../modules/power/main.qml:248
 msgid "Custom"
 msgstr ""
 
-#: ../modules/power/main.qml:88 ../modules/power/main.qml:137
-#, fuzzy
-msgid "Shut down"
-msgstr "关机"
-
-#: ../modules/power/main.qml:90 ../modules/power/main.qml:139
-msgid "None"
-msgstr ""
-
-#: ../modules/power/main.qml:123
+#: ../modules/power/main.qml:140
 msgid "When I close the lid"
 msgstr ""
 
-#: ../modules/power/main.qml:187
+#: ../modules/power/main.qml:197
 msgid "Requires a password"
 msgstr ""
 
-#: ../modules/power/main.qml:188
+#: ../modules/power/main.qml:201
 msgid "Without a password"
 msgstr ""
 
-#: ../modules/power/main.qml:211
-#, fuzzy
+#: ../modules/power/main.qml:222
 msgid "Power plan"
 msgstr "电源"
 
-#: ../modules/power/main.qml:226 ../modules/sound/main.qml:148
+#: ../modules/power/main.qml:236 ../modules/sound/main.qml:155
 msgid "Balance"
 msgstr "均衡"
 
-#: ../modules/power/main.qml:227
-#, fuzzy
+#: ../modules/power/main.qml:240
 msgid "Power saver"
-msgstr "电源"
+msgstr "节能"
 
-#: ../modules/power/main.qml:228
+#: ../modules/power/main.qml:244
 msgid "High performance"
-msgstr ""
+msgstr "高性能"
 
-#: ../modules/power/main.qml:89 ../modules/power/main.qml:138
-#: ../modules/power/main.qml:335
+#: ../modules/power/main.qml:267
+msgid "Turn off monitor"
+msgstr "关闭显示器"
+
+#: ../modules/power/main.qml:115 ../modules/power/main.qml:158
+#: ../modules/power/main.qml:306
 msgid "Suspend"
-msgstr ""
+msgstr "待机"
 
-#: ../modules/power/main.qml:74
+#: ../modules/power/main.qml:97
 msgid "When I press the power button"
-msgstr ""
+msgstr "按下电源按钮"
 
-#: ../modules/power/main.qml:173
+#: ../modules/power/main.qml:183
 msgid "Require password when computer wakes"
-msgstr ""
+msgstr "唤醒需要密码"
 
 #: ../modules/account/main.qml:25 ../frame/modules_info.py:47
 msgid "Account"
@@ -594,7 +614,7 @@ msgstr "账户"
 
 #: ../modules/account/main.qml:34
 msgid "User List"
-msgstr ""
+msgstr "用户列表"
 
 #: ../modules/desktop/main.qml:97
 msgid "Computer"
@@ -625,7 +645,6 @@ msgid "ON/OFF"
 msgstr ""
 
 #: ../modules/bluetooth/main.qml:35
-#, fuzzy
 msgid "Visible"
 msgstr "一直隐藏"
 
@@ -635,15 +654,15 @@ msgstr "一直隐藏"
 
 #: ../modules/bluetooth/main.qml:47
 msgid "Device name"
-msgstr ""
+msgstr "设备名称"
 
 #: ../modules/bluetooth/main.qml:59
 msgid "Devices nearby"
-msgstr ""
+msgstr "附近的设备"
 
 #: ../modules/bluetooth/main.qml:72
 msgid "Recently connected devices"
-msgstr ""
+msgstr "最近连接的设备"
 
 #: ../modules/desktop/main.qml:179
 msgid "Hot Zone"
@@ -658,6 +677,7 @@ msgid "Bottom Right"
 msgstr "右下角"
 
 #: ../modules/desktop/main.qml:220 ../modules/desktop/main.qml:245
+#: ../modules/power/main.qml:119 ../modules/power/main.qml:162
 msgid "Nothing"
 msgstr "无"
 
@@ -678,15 +698,7 @@ msgstr "显示"
 msgid "Monitor"
 msgstr ""
 
-#: ../modules/display/main.qml:120
-msgid "Apply"
-msgstr ""
-
-#: ../modules/personalization/main.qml:21 ../frame/modules_info.py:41
-msgid "Individuation"
-msgstr "个性化"
-
-#: ../modules/personalization/main.qml:35
+#: ../modules/personalization/main.qml:43
 msgid "Themes"
 msgstr ""
 
@@ -694,23 +706,23 @@ msgstr ""
 msgid "Window"
 msgstr ""
 
-#: ../modules/personalization/main.qml:85
+#: ../modules/personalization/main.qml:96
 msgid "GTK Window"
 msgstr ""
 
-#: ../modules/personalization/main.qml:135
+#: ../modules/personalization/main.qml:146
 msgid "Cursor"
 msgstr ""
 
-#: ../modules/personalization/main.qml:185
+#: ../modules/personalization/main.qml:196
 msgid "Wallpaper"
 msgstr ""
 
-#: ../modules/personalization/main.qml:214
+#: ../modules/personalization/main.qml:225
 msgid "Icons"
 msgstr ""
 
-#: ../modules/personalization/main.qml:264
+#: ../modules/personalization/main.qml:275
 msgid "Font"
 msgstr ""
 
@@ -748,7 +760,7 @@ msgstr "自定义快捷键"
 msgid "Speaker"
 msgstr "扬声器"
 
-#: ../modules/sound/main.qml:248
+#: ../modules/sound/main.qml:280
 msgid "Output Port"
 msgstr "输出端口"
 
@@ -756,61 +768,41 @@ msgstr "输出端口"
 msgid "Output Volume"
 msgstr "输出音量"
 
-#: ../modules/sound/main.qml:134 ../modules/sound/main.qml:202
-msgid "-"
-msgstr ""
-
-#: ../modules/sound/main.qml:135 ../modules/sound/main.qml:203
-msgid "+"
-msgstr ""
-
-#: ../modules/sound/main.qml:152
-msgid "Left"
-msgstr "左"
-
-#: ../modules/sound/main.qml:153
-msgid "Right"
-msgstr "右"
-
-#: ../modules/sound/main.qml:168
+#: ../modules/sound/main.qml:185
 msgid "Microphone"
 msgstr "麦克风"
 
-#: ../modules/sound/main.qml:265 ../modules/sound/main.qml:372
+#: ../modules/sound/main.qml:240
+msgid "Input Feedback"
+msgstr "输入反馈"
+
+#: ../modules/sound/main.qml:297 ../modules/sound/main.qml:404
 msgid "No port exist in this device."
-msgstr ""
+msgstr "这个设备没有端口"
 
-#: ../modules/sound/main.qml:306
-#, fuzzy
+#: ../modules/sound/main.qml:338
 msgid "Output device"
-msgstr "输出端口"
+msgstr "输出设备"
 
-#: ../modules/sound/main.qml:355
+#: ../modules/sound/main.qml:387
 msgid "Input Port"
 msgstr "输入端口"
 
-#: ../modules/sound/main.qml:413
-#, fuzzy
+#: ../modules/sound/main.qml:445
 msgid "Input device"
-msgstr "输入等级"
+msgstr "输入设备"
 
-#: ../modules/sound/main.qml:467
-#, fuzzy
+#: ../modules/sound/main.qml:499
 msgid "Hide Advanced..."
-msgstr "高级设置..."
+msgstr "隐藏高级设置..."
 
-#: ../modules/sound/main.qml:467
-#, fuzzy
+#: ../modules/sound/main.qml:499
 msgid "Show Advanced..."
-msgstr "高级设置..."
+msgstr "显示高级设置..."
 
-#: ../modules/sound/main.qml:198
+#: ../modules/sound/main.qml:215
 msgid "Input Volume"
 msgstr "输入音量"
-
-#: ../modules/sound/main.qml:216
-msgid "Input Level"
-msgstr "输入等级"
 
 #: ../modules/disk_mount/main.qml:25
 msgid "Internal Devices"
@@ -840,9 +832,23 @@ msgstr "一般项颜色"
 msgid "Selected Item Color"
 msgstr "选中项颜色"
 
+#: ../frame/modules_info.py:41
+msgid "Individuation"
+msgstr "个性化"
+
 #: ../frame/modules_info.py:46
 msgid "Touchpad"
 msgstr "触摸板"
+
+#, fuzzy
+#~ msgid "Shut down"
+#~ msgstr "关机"
+
+#~ msgid "Left"
+#~ msgstr "左"
+
+#~ msgid "Right"
+#~ msgstr "右"
 
 #, fuzzy
 #~ msgid "Input"
@@ -940,6 +946,3 @@ msgstr "触摸板"
 
 #~ msgid "Desktop Icons"
 #~ msgstr "桌面图标"
-
-#~ msgid "Apply Changes"
-#~ msgstr "保存更改"

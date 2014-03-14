@@ -237,7 +237,7 @@ Item {
                     height: contentHeight
                     leftMargin: contentLeftMargin
                     leftLoader.sourceComponent: LeftTitle {
-                        text: dsTr("Input Level")
+                        text: dsTr("Input Feedback")
                     }
                     rightLoader.sourceComponent: DSliderEnhanced {
                         width: sliderWidth
