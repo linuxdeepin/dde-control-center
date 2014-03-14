@@ -1,6 +1,7 @@
 import QtQuick 2.1
 import QtMultimedia 5.0
 import Deepin.Widgets 1.0
+import DBus.Com.Deepin.Api.Graphic 1.0
 
 Item {
     id: root
@@ -8,6 +9,8 @@ Item {
     property int verticalPadding: 8
 
     signal avatarPictured (url path)
+    
+    Graphic { id: dbus_graphic }
 
     onRunningChanged: {
         if (running) {
@@ -15,6 +18,10 @@ Item {
         } else {
             camera.stop()
         }
+    }
+    
+    function urlToPath(url) {
+        return url.toString().substring(7)
     }
 
     Camera {
@@ -135,7 +142,8 @@ Item {
         anchors.verticalCenter: snapshot_button.verticalCenter
 
         onClicked: {
-            root.avatarPictured(mask, camera.imageSavedPath)
+            /* dbus_graphic.FlipImageHorizontal(urlToPath(camera.imageSavedPath), urlToPath(camera.imageSavedPath), "png") */
+            root.avatarPictured(camera.imageSavedPath)
         }
     }
 }

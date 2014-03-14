@@ -110,21 +110,33 @@ Item {
     AvatarIconView {
         id: avatar_recently_used_view
 
-        onAvatarSet: {
-            root.avatarSet(path)
-        }
-
-        onInitialize: {
+        function setContent() {
+            avatar_recently_used_view.model.clear()            
             var allIcons = root.this_user.historyIcons
             for (var i = 0; i < allIcons.length; i++) {
                 avatar_recently_used_view.model.append({"avatarPath": allIcons[i]})
             }
         }
 
+        onAvatarSet: {
+            root.avatarSet(path)
+        }
+
+        onInitialize: {
+            avatar_recently_used_view.setContent()
+        }
+
+        Connections {
+            target: dbus_user
+            onHistoryIconsChanged: {
+                avatar_recently_used_view.setContent()                
+            }
+        }
+
         anchors.top: radio_button.bottom
         anchors.topMargin: root.verticalPadding * 2
     }
-    
+
     DScrollBar {
         id: recently_used_scrollbar
         flickable: avatar_recently_used_view
@@ -138,7 +150,7 @@ Item {
         onAvatarSet: {
             root.avatarSet(path)
         }
-        
+
         onInitialize: {
             var allIcons = root.this_user.GetIconList()
             for (var i = 0; i < allIcons.length; i++) {
@@ -149,7 +161,7 @@ Item {
         anchors.top: radio_button.bottom
         anchors.topMargin: root.verticalPadding * 2
     }
-    
+
     DScrollBar {
         id: default_scrollbar
         flickable: avatar_default_view
