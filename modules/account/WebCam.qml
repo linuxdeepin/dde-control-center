@@ -64,23 +64,23 @@ Item {
 
         VideoOutput {
             id: video_output
-            width: 120
+            width: 240
             height: 120
             source: camera
 
-            fillMode: VideoOutput.PreserveAspectCrop
+            fillMode: VideoOutput.PreserveAspectFit
             anchors.centerIn: parent
         }
 
         Image {
             id: avatar_preview
-            width: 120
+            width: 240
             height: 120
 
             scale: video_output.scale
 
             visible: false
-            fillMode: Image.PreserveAspectCrop
+            fillMode: Image.PreserveAspectFit
             anchors.centerIn: parent
         }
 
@@ -143,16 +143,17 @@ Item {
 
         onClicked: {
             var imagePath = urlToPath(camera.imageSavedPath)
-            var scaledSize = Math.floor(240 * video_output.scale)
+            var scaledSize = Math.floor(240 * video_output.scale * 120 / 240)
             dbus_graphic.FlipImageHorizontal(imagePath, imagePath, "jpeg")
             dbus_graphic.ClipImage(imagePath, imagePath, 40, 0, 280, 240, "jpeg")
             dbus_graphic.ResizeImage(imagePath, imagePath, scaledSize, scaledSize, "jpeg")
-            var margins = Math.floor((scaledSize - 150) / 2)
+            var margins = Math.floor((scaledSize - 120) / 2)
             dbus_graphic.ClipImage(imagePath, imagePath,
                                    margins, margins,
-                                   margins + 150,
-                                   margins + 150,
+                                   margins + 120,
+                                   margins + 120,
                                    "jpeg")
+            dbus_graphic.ResizeImage(imagePath, imagePath, 150, 150, "jpeg")
             root.avatarPictured(camera.imageSavedPath)
         }
     }
