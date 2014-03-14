@@ -28,6 +28,7 @@ Item {
         for(var key in layoutMap){
             layoutMap[key] = xkeyboardLocale.dsTr(layoutMap[key])
         }
+        layoutMap[";"] = xkeyboardLocale.dsTr(layoutMap["us;"])
         return layoutMap
     }
 
@@ -196,7 +197,7 @@ Item {
                 currentIndex: -1
                 clip: true
 
-                property string selectLayoutId: keyboardID.currentLayout != ";"? keyboardID.currentLayout : "us;"
+                property string selectLayoutId: keyboardID.currentLayout
                 property bool inDeleteAction: keyboardLayoutArea.currentActionStateName == "deleteButton"
 
                 function switchLayout(id){
