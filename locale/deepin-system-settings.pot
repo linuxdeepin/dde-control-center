@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-14 10:45+0800\n"
+"POT-Creation-Date: 2014-03-17 09:05+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -561,6 +561,10 @@ msgstr ""
 msgid "Custom"
 msgstr ""
 
+#: ../modules/power/main.qml:119
+msgid "Ask"
+msgstr ""
+
 #: ../modules/power/main.qml:140
 msgid "When I close the lid"
 msgstr ""
@@ -675,7 +679,7 @@ msgid "Bottom Right"
 msgstr ""
 
 #: ../modules/desktop/main.qml:220 ../modules/desktop/main.qml:245
-#: ../modules/power/main.qml:119 ../modules/power/main.qml:162
+#: ../modules/power/main.qml:162
 msgid "Nothing"
 msgstr ""
 

@@ -116,8 +116,8 @@ Rectangle {
                                      "item_value": "suspend"
                                  })                    
                     model.append({
-                                     "item_label": dsTr("Nothing"),
-                                     "item_value": "nothing"
+                                     "item_label": dsTr("Ask"),
+                                     "item_value": "interactive"
                                  })                    
                     return model
                 }

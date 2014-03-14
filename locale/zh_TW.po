@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dss 2014\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-14 10:45+0800\n"
+"POT-Creation-Date: 2014-03-17 09:05+0800\n"
 "PO-Revision-Date: 2013-11-25 12:27+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -560,6 +560,10 @@ msgstr ""
 msgid "Custom"
 msgstr ""
 
+#: ../modules/power/main.qml:119
+msgid "Ask"
+msgstr ""
+
 #: ../modules/power/main.qml:140
 msgid "When I close the lid"
 msgstr ""
@@ -674,7 +678,7 @@ msgid "Bottom Right"
 msgstr ""
 
 #: ../modules/desktop/main.qml:220 ../modules/desktop/main.qml:245
-#: ../modules/power/main.qml:119 ../modules/power/main.qml:162
+#: ../modules/power/main.qml:162
 msgid "Nothing"
 msgstr ""
 

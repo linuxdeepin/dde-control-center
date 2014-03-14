@@ -841,6 +841,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../modules/power/main.qml" line="119"/>
+        <source>Ask</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../modules/power/main.qml" line="140"/>
         <source>When I close the lid</source>
         <translation type="unfinished"></translation>
@@ -1009,7 +1014,6 @@
     <message>
         <location filename="../modules/desktop/main.qml" line="220"/>
         <location filename="../modules/desktop/main.qml" line="245"/>
-        <location filename="../modules/power/main.qml" line="119"/>
         <location filename="../modules/power/main.qml" line="162"/>
         <source>Nothing</source>
         <translation type="unfinished"></translation>
