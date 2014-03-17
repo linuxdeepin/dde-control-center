@@ -48,13 +48,20 @@ def main():
     panel.engine_obj.quit.connect(app.quit)
     connect_to_primary_changed(panel.display_primary_changed)
 
-    if len(sys.argv) == 2:
+    if len(sys.argv) > 1:
         if sys.argv[1].endswith("/"):
             order = sys.argv[1][:-1]
         else:
             order = sys.argv[1]
 
-        panel.view_object.showModule(order)
+        if order == "show":
+            if len(sys.argv) == 3:
+                second = int(sys.argv[2])
+            else:
+                second = 0
+            panel.view_object.showDss(second)
+        else:
+            panel.view_object.showModule(order)
 
     panel.record_event.start()
 
@@ -68,7 +75,7 @@ if __name__ == "__main__":
     iface = QDBusInterface(APP_DBUS_NAME, APP_OBJECT_PATH, '', session_bus)
     if iface.isValid():
         print "dss is running"
-        iface.call("show")
+        iface.call("show", 0)
         sys.exit(0)
     else:
         main()

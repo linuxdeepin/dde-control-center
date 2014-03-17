@@ -70,18 +70,20 @@ class DBusService(QDBusAbstractAdaptor):
 
     Q_CLASSINFO("D-Bus Introspection", """
             '  <interface name="%s">\n'
-            '    <method name="show"/>\n'
+            '    <method name="show">\n'
+            '      <arg direction="in" type="i" name="seconds"/>\n'
+            '    </method>
             '  </interface>\n'
             """ % APP_DBUS_NAME)
 
     def __init__(self, parent):
-        super(DBusService, self).__init__(parent)
+        QDBusAbstractAdaptor.__init__(self, parent)
 
         self.setAutoRelaySignals(True)
 
-    @pyqtSlot()
-    def show(self):
-        self.parent().show()
+    @pyqtSlot(int)
+    def show(self, seconds):
+        self.parent().show(seconds)
 
 
 class ControlPanel(QQuickView):
@@ -134,7 +136,7 @@ class ControlPanel(QQuickView):
 
     def connect_all_object_function(self):
         self.view_object = self.rootObject()
-        self.record_event.enter_mouse_area.connect(self.view_object.displayTrayIcon)
+        self.record_event.enter_mouse_area.connect(lambda :self.view_object.showDss(0))
         self.record_event.click_outer_area.connect(self.view_object.outerAreaClicked)
         #self.moduleFileChanged.connect(self.view_object.moduleFileChanged)
 
@@ -156,9 +158,9 @@ class ControlPanel(QQuickView):
         self.timer = Timer(0.2, lambda : self.moduleFileChanged.emit(module_id))
         self.timer.start()
 
-    @pyqtSlot()
-    def show(self):
-        self.view_object.displayTrayIcon()
+    @pyqtSlot(int)
+    def show(self, seconds):
+        self.view_object.showDss(seconds)
 
     @pyqtProperty(int)
     def panelWith(self):

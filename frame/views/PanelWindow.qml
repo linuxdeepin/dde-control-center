@@ -19,20 +19,12 @@ Window {
     property var listModelComponent: DListModelComponent {}
     property bool clickedToHide: true
 
-    // debug mode
     function showModule(moduleId){
-        //clickedToHide = false
-        if(moduleId != "all"){
-            panelContent.moduleIconList.iconClickAction(moduleId)
-        }
+        panelContent.moduleIconList.iconClickAction(moduleId)
     }
-    // debug mode
 
     function showTrayOrPanel() {
         if(clickedToHide){
-            if(panelContent.moduleLoaderItem.iconId != ''){
-                panelContent.moduleBox.x = trayWidth
-            }
             if(!showAll.running && rootWindow.width != panelWidth){
                 showAll.start()
             }
@@ -48,6 +40,18 @@ Window {
                 hideAll.start()
             }
         }
+    }
+
+    function showAllImmediately(){
+        rootWindow.width = panelWidth + 16
+        rootWindow.show()
+        rootWindow.displayWidth = panelWidth
+    }
+
+    function hideAllImmediately(){
+        rootWindow.width = 0
+        rootWindow.hide()
+        rootWindow.displayWidth = 0
     }
 
     PropertyAnimation {

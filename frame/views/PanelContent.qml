@@ -3,7 +3,6 @@ import QtQuick.Window 2.1
 import QtGraphicalEffects 1.0
 import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
-import DBus.Com.Deepin.Daemon.Display 1.0
 import DBus.Com.Deepin.SessionManager 1.0
 import DBus.Com.Deepin.Daemon.Accounts 1.0
 import DBus.Com.Deepin.Daemon.InputDevices 1.0
@@ -12,28 +11,23 @@ Rectangle {
     id: panelContent
     color: dconstants.bgColor
 
-    property var inputDevicesId: InputDevices {}
-    property var inputDevices: {
-        var devices = new Object()
-        for(var i in inputDevicesId.devInfoList){
-            var path = inputDevicesId.devInfoList[i][0]
-            var type = inputDevicesId.devInfoList[i][1]
-            if(typeof(devices[type]) == "undefined"){
-                var paths = new Array()
-                devices[type] = paths
-            }
-            devices[type].push(path)
-        }
-        return devices
-    }
-    property bool isTouchpadExist: typeof(inputDevices["touchpad"]) != "undefined"
-
-    property bool isSiderNavigate: false
-    property string currentContentId: ""
-
     property alias moduleLoaderItem: rightBoxLoaderItem
     property alias moduleBox: rightBox
     property alias moduleIconList: moduleIconList
+
+    property var inputDevicesId: InputDevices {}
+    property bool isTouchpadExist: {
+        var devInfoList = inputDevicesId.devInfoList
+        for(var i in devInfoList){
+            if(devInfoList[i][1] == 'touchpad'){
+                return true
+            }
+        }
+        return false
+    }
+
+    property bool isSiderNavigate: false
+    property string currentContentId: ""
 
     property var iconIdToIndex
     property color tuhaoColor: "#faca57"
@@ -51,7 +45,6 @@ Rectangle {
         }
     }
 
-    property bool inExpandHideTrayIcon: false
     property bool inDssHome: true
     property var navigateIconModel: ListModel {}
     property real trayIconHeight: {
@@ -66,13 +59,12 @@ Rectangle {
 
     function initTrayIcon() {
         print("==> [info] initTrayIcon emit")
-        //avatarImage.imageSource = currentUserObj.iconFile
         userName.text = currentUserObj.userName.substring(0, 1).toUpperCase()
-            +currentUserObj.userName.substring(1)
+            + currentUserObj.userName.substring(1)
         var modules_id_array = modulesId.allIds
         moduleIconList.currentIndex = -1
         navigateIconModel.clear()
-        for (var i in modules_id_array){
+        for(var i in modules_id_array){
             var module_id = modules_id_array[i]
             if(module_id == "mouse_touchpad" && !isTouchpadExist){
                 var localeName = modulesId.moduleLocaleNames["mouse"]
@@ -148,25 +140,6 @@ Rectangle {
         if(!inDssHome){
             trayIconTip.visible = true
         }
-    }
-
-    NumberAnimation {
-        id: expandHideTrayIconAnimation
-        duration: 300
-        target: moduleIconList
-        properties: "height"
-        to: navigateIconModel.count * trayIconHeight
-
-        onStopped: {
-            inExpandHideTrayIcon = false
-        }
-    }
-
-    Binding {
-        target: moduleIconList
-        property: "height"
-        value: navigateIconModel.count * trayIconHeight
-        when: !inExpandHideTrayIcon
     }
 
     Timer {
@@ -308,13 +281,15 @@ Rectangle {
         DBaseLine {}
     }
 
-    Item {
+    Rectangle{
         id: iconsArea
         anchors.top: parent.top
         anchors.topMargin: headerArea.height
         anchors.left: parent.left
         width: parent.width
-        height: childrenRect.height
+        height: inDssHome ? parent.height - headerArea.height - footerArea.height : parent.height
+        clip: true
+        color: Qt.rgba(1, 1, 1, 0)
 
         Rectangle {
             id: listBox
@@ -326,10 +301,13 @@ Rectangle {
             GridView {
                 id: moduleIconList
                 width: parent.width
+                height: childrenRect.height
                 anchors.horizontalCenter: parent.horizontalCenter
-                property int itemSize: 96
+                boundsBehavior: Flickable.StopAtBounds
                 cellHeight: itemSize
                 cellWidth: itemSize
+
+                property int itemSize: 96
                 property real iconLabelOpacity: 1
 
                 function iconClickAction(iconId) {
@@ -380,6 +358,7 @@ Rectangle {
     Item {
         id: footerArea
         width: parent.width
+        height: shutdownButton.height + 36
         anchors.bottom: parent.bottom
 
         Behavior on anchors.bottomMargin {
@@ -387,6 +366,7 @@ Rectangle {
         }
 
         Image {
+            id: bottomImage
             anchors.bottom: parent.bottom
             source: "images/shutdown_bg.png"
         }

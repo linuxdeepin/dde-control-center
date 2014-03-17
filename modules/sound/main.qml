@@ -142,7 +142,7 @@ Item {
 
                         Component.onCompleted: {
                             addRuler(0, "-")
-                            addRuler(100, "100")
+                            addRuler(100, "")
                             addRuler(150, "+")
                         }
                     }
@@ -170,7 +170,7 @@ Item {
 
                         Component.onCompleted: {
                             addRuler(-1, "Left")
-                            addRuler(0, "0")
+                            addRuler(0, "")
                             addRuler(1, "Right")
                         }
                     }
@@ -227,7 +227,7 @@ Item {
 
                         Component.onCompleted: {
                             addRuler(0, "-")
-                            addRuler(100, "100")
+                            addRuler(100, "")
                             addRuler(150, "+")
                         }
                     }

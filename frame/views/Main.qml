@@ -3,7 +3,6 @@ import QtQuick.Window 2.1
 import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Display 1.0
-import DBus.Com.Deepin.Api.XMouseArea 1.0
 
 Item {
     id: root
@@ -16,9 +15,10 @@ Item {
     property bool clickedToHide: true
     property var displayId: Display {}
     property var toolTip: ToolTip {}
+
     //property var xmouseAreaId: XMouseArea {
         //onMotionCoordinate: {
-            //print("onMotionCoordinate:", arg0, arg1, arg2, arg3)
+            ////print(arg0, arg1, arg2, arg3)
         //}
     //}
 
@@ -37,7 +37,7 @@ Item {
         //var y1 = screenSize.y + screenSize.height - 30
         //var y2 = screenSize.y + screenSize.height
         //print("RegisterArea:", x1, x2, y1, y2)
-        //var areaId = xmouseAreaId.RegisterArea(x1, x2, y1, y2)
+        //var areaId = xmouseAreaId.RegisterArea([(x1, x2, y1, y2)])
         //print("AreaId:", areaId)
         //return areaId
     //}
@@ -65,14 +65,30 @@ Item {
         rootWindow.show()
     }
 
-    // debug mode
+    Timer{
+        id: timeoutHideDss
+        repeat: false
+        running: false
+        interval: 2000
+        onTriggered: {
+            rootWindow.hideTrayIcon()
+        }
+    }
+
     function showModule(modulesId){
         rootWindow.showModule(modulesId)
     }
-    // debug mode
 
-    function displayTrayIcon(){
+    function showDss(seconds){
         rootWindow.showTrayOrPanel()
+        if(seconds > 0){
+            timeoutHideDss.interval = 1000 * seconds
+            timeoutHideDss.restart()
+        }
+    }
+
+    function showDssImmediately(){
+        rootWindow.showAllImmediately()
     }
 
     function outerAreaClicked(mousex, mousey){

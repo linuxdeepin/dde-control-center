@@ -5,8 +5,8 @@ import Deepin.Widgets 1.0
 
 Window {
     id: trayIconTip
-    width: trayIconTipText.width + 52
-    height: 44
+    width: trayIconTipArrowRect.width
+    height: trayIconTipArrowRect.height
     flags: Qt.Popup
     visible: false
 
@@ -33,17 +33,35 @@ Window {
         enabled: trayIconTip.visible
     }
 
-    RectWithCorner {
+    Row {
         id: trayIconTipArrowRect
-        x: 0
-        y: 0
-        cornerDirection: "right"
-        rectWidth: parent.width
-        rectHeight: parent.height
-        cornerPos: rectHeight/2
-        cornerWidth: 16
-        cornerHeight: 8
+
+        Image{
+            source: "images/tooltip_left.png"
+        }
+
+        Image{
+            width: trayIconTipText.width + 20
+            source: "images/tooltip_middle.png"
+        }
+        
+        Image{
+            source: "images/tooltip_right.png"
+        }
+
     }
+
+    //RectWithCorner {
+        //id: trayIconTipArrowRect
+        //x: 0
+        //y: 0
+        //cornerDirection: "right"
+        //rectWidth: parent.width
+        //rectHeight: parent.height
+        //cornerPos: rectHeight/2
+        //cornerWidth: 16
+        //cornerHeight: 8
+    //}
 
     Text {
         id: trayIconTipText
