@@ -10,7 +10,7 @@ Item {
 
     signal avatarSet (url path)
     signal avatarPictured (url path)
-
+    
     DRadioButton {
         id: radio_button
 
@@ -109,9 +109,10 @@ Item {
 
     AvatarIconView {
         id: avatar_recently_used_view
+        currentIndex: -1        
 
         function setContent() {
-            avatar_recently_used_view.model.clear()            
+            avatar_recently_used_view.model.clear()
             var allIcons = root.this_user.historyIcons
             for (var i = 0; i < allIcons.length; i++) {
                 avatar_recently_used_view.model.append({"avatarPath": allIcons[i]})
@@ -129,7 +130,7 @@ Item {
         Connections {
             target: dbus_user
             onHistoryIconsChanged: {
-                avatar_recently_used_view.setContent()                
+                avatar_recently_used_view.setContent()
             }
         }
 
@@ -144,6 +145,7 @@ Item {
 
     AvatarIconView {
         id: avatar_default_view
+        currentIndex: -1
 
         withAddButton: true
 

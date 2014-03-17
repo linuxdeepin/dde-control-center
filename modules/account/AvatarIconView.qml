@@ -14,23 +14,44 @@ GridView {
     signal avatarSet (url path)
     signal checkPrivate (int idx)
 
+    MouseArea {
+        z: -1
+        anchors.fill: parent
+        onClicked: { parent.forceActiveFocus() }
+    }
+
+    Keys.onUpPressed: { avatar_icon_view.moveCurrentIndexUp() }
+    Keys.onDownPressed: { avatar_icon_view.moveCurrentIndexDown() }
+    Keys.onLeftPressed: { avatar_icon_view.moveCurrentIndexLeft() }
+    Keys.onRightPressed: { avatar_icon_view.moveCurrentIndexRight() }
+
     Component {
         id: avatar_icon_view_delegate
+
 
         Item {
             width: GridView.view.cellWidth
             height: GridView.view.cellHeight
 
+            function checkSelect() {
+                if (index == avatar_icon_view.currentIndex && index != avatar_icon_view.count - 1) {
+                    round_image.state = "checked"
+                    avatar_icon_view.avatarSet(round_image.imageSource)
+                } else {
+                    round_image.state = "normal"
+                }
+            }
+
             Connections {
                 target: avatar_icon_view
 
-                onCheckPrivate: {
-                    if (index == idx) {
-                        round_image.state = "checked"
-                        avatar_icon_view.avatarSet(round_image.imageSource)
-                    } else {
-                        round_image.state = "normal"
-                    }
+                onCurrentIndexChanged: { checkSelect() }
+            }
+
+            Component.onCompleted: {
+                if (avatarPath == this_user.iconFile) {
+                    avatar_icon_view.currentIndex = index
+                    round_image.state = "checked"
                 }
             }
 
@@ -45,7 +66,8 @@ GridView {
 
                 onClicked: {
                     if (checkSupport) {
-                        avatar_icon_view.checkPrivate(index)
+                        avatar_icon_view.currentIndex = index
+                        avatar_icon_view.forceActiveFocus()
                     }
                 }
 
