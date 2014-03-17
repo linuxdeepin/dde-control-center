@@ -46,6 +46,16 @@ Item {
         function snapshot() {
             imageCapture.capture()
         }
+        
+        onError: {
+            warning.visible = true
+            camera.visible = false
+            video_output_box.visible = false
+            mask.visible = false
+            slider.visible = false
+            snapshot_button.visible = false
+            confirm_button.visible = false
+        }
     }
 
     Rectangle {
@@ -156,5 +166,13 @@ Item {
             dbus_graphic.ResizeImage(imagePath, imagePath, 150, 150, "jpeg")
             root.avatarPictured(camera.imageSavedPath)
         }
+    }
+
+    Text {
+        id: warning
+        visible: false
+        text: dsTr("No camera found.")
+        font.pixelSize: 15
+        anchors.centerIn: parent
     }
 }
