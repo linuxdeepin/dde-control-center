@@ -34,7 +34,7 @@ Rectangle{
         if(inEditMode && beJoined){
             return "red"
         }
-        else if(monitorChoose.currentSelectedMonitor == monitorObject){
+        else if(!inEditMode && monitorChoose.currentSelectedMonitor == monitorObject){
             return dconstants.activeColor
         }
         else{
