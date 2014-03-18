@@ -13,7 +13,7 @@ Rectangle {
     property var listModelComponent: DListModelComponent {}
     
     function reset() {
-        dbus_power.buttonPower = "shutdown"
+        dbus_power.buttonPower = "interactive"
         dbus_power.lidCloseACAction = "suspend"
         dbus_power.lidCloseBatteryAction = "suspend"
         dbus_power.lockEnabled = true
