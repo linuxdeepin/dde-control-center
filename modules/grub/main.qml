@@ -15,6 +15,18 @@ Rectangle {
         dbus_grub2.reset()
     }
 
+    function indexToLabel(idx) {
+        switch (idx) {
+            case 0: return "0m"; break
+            case 1: return "5m"; break
+            case 2: return "10m"; break
+            case 3: return "15m"; break
+            case 4: return "30m"; break
+            case 5: return "1h"; break
+            case 6: return "Never"
+        }
+    }
+
     function timeoutToIndex(timeout) {
         switch (timeout) {
             case 0: return 0; break
@@ -150,60 +162,29 @@ Rectangle {
                         delay_expand.expanded = !delay_expand.expanded
                     }
                 }
-                content.sourceComponent: DMultipleSelectView {
+                content.sourceComponent: GridView {
                     id: delay_view
-                    rows: 1
-                    columns: 7
-
                     width: parent.width
-                    height: rows * 30
-                    singleSelectionMode: true
+                    height: 30
 
-                    model: ListModel {
-                        ListElement {
-                            label: "0s"
-                            selected: false
+                    cellWidth: width/7
+                    cellHeight: 30
+
+                    model: {
+                        var model = listModelComponent.createObject(delay_view, {})
+                        for(var i=0; i<7; i++){
+                            model.append({
+                                             "item_label": indexToLabel(i),
+                                             "item_value": indexToTimeout(i)
+                                         })
                         }
-                        ListElement {
-                            label: "5s"
-                            selected: false
-                        }
-                        ListElement {
-                            label: "10s"
-                            selected: false
-                        }
-                        ListElement {
-                            label: "15s"
-                            selected: false
-                        }
-                        ListElement {
-                            label: "20s"
-                            selected: false
-                        }
-                        ListElement {
-                            label: "25s"
-                            selected: false
-                        }
-                        ListElement {
-                            label: "30s"
-                            selected: false
-                        }
+                        return model
                     }
 
-                    Component.onCompleted: {
-                        delay_view.selectItem(grub.timeoutToIndex(dbus_grub2.timeout))
-                    }
-
-                    onSelect: {
-                        print("select..." + index)
-                        dbus_grub2.timeout = grub.indexToTimeout(index)
-                    }
-
-                    Connections {
-                        target: dbus_grub2
-                        onTimeoutChanged: {
-                            print("timeout changed")
-                            delay_view.selectItem(grub.timeoutToIndex(dbus_grub2.timeout))
+                    delegate: PropertyItem {
+                        currentValue: dbus_grub2.timeout
+                        onSelectAction: {
+                            dbus_grub2.timeout = itemValue
                         }
                     }
                 }
