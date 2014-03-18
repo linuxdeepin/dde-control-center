@@ -6,11 +6,14 @@ import "../shared"
 Rectangle {
     id: grub
     color: dconstants.bgColor
-    width: 310
-    height: 600
+    anchors.fill: parent
 
     Grub2 { id: dbus_grub2 }
     Theme { id: dbus_grub2_theme }
+
+    function reset() {
+        
+    }
 
     function timeoutToIndex(timeout) {
         switch (timeout) {
@@ -36,14 +39,29 @@ Rectangle {
         }
     }
 
-    DssTitle {
-        id: title
-        z: 1
-        text: dsTr("Startup Screen")
+    Item {
+        id: title_row
+        width: parent.width
+        height: title.height
+
+        DssTitle {
+            id: title
+            text: dsTr("Startup Screen")
+        }
+
+        DTextButton {
+            text: dsTr("Reset")
+
+            onClicked: reset()
+
+            anchors.right: parent.right
+            anchors.rightMargin: 15
+            anchors.verticalCenter: parent.verticalCenter
+        }
     }
 
     Flickable {
-        anchors.top: title.bottom
+        anchors.top: title_row.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
