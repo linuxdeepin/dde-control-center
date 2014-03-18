@@ -448,33 +448,6 @@ Rectangle {
                 }
             }
         }
-        
-        Row {
-            anchors.right: parent.right
-            anchors.bottom: parent.bottom
-            visible: editable
-
-            DTextButton {
-                text: dsTr("Apply")
-                onClicked: {
-                    applyPostion()
-                    editable = false
-                    displayChangesApply()
-                }
-            }
-
-            DTextButton {
-                text: dsTr("Cancel")
-                onClicked: {
-                    editable = false
-                    for(var i in monitorsViews){
-                        var view = monitorsViews[i]
-                        view.reset()
-                    }
-                }
-            }
-        }
-
     }
 
     Rectangle{

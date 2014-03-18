@@ -133,20 +133,31 @@ Item {
         }
 
         DBaseLine {
-            visible: displayId.hasChanged
             rightMargin: 10
             rightLoader.sourceComponent: Row {
                 spacing: 6
                 DTextButton {
                     text: dsTr("Apply")
+                    visible: displayId.hasChanged
                     onClicked: {
                         displayChangesApply()
                     }
                 }
-                DTextButton{
-                    text: dsTr("Reset")
+
+                DTextButton {
+                    text: { 
+                        if(displayId.hasChanged){
+                            return dsTr("Reset")
+                        }
+                        else{
+                            return dsTr("Cancel")
+                        }
+                    }
+
+                    visible: displayId.hasChanged | monitorDragArea.editable
                     onClicked: {
                         displayId.ResetChanged()
+                        monitorDragArea.editable = false
                     }
                 }
             }

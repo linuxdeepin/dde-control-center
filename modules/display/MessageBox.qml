@@ -89,6 +89,7 @@ Window {
             DTextButton {
                 text: dsTr("Restore")
                 onClicked: {
+                    displayId.ResetChanged()
                     hideDialog()
                 }
             }
