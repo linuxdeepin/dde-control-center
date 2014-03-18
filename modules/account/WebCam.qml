@@ -46,15 +46,16 @@ Item {
         function snapshot() {
             imageCapture.capture()
         }
-        
-        onError: {
-            warning.visible = true
-            camera.visible = false
-            video_output_box.visible = false
-            mask.visible = false
-            slider.visible = false
-            snapshot_button.visible = false
-            confirm_button.visible = false
+
+        Component.onCompleted: {
+            if (availability != 14) {
+                warning.visible = true
+                video_output_box.visible = false
+                mask.visible = false
+                slider.visible = false
+                snapshot_button.visible = false
+                confirm_button.visible = false
+            }
         }
     }
 
@@ -172,6 +173,7 @@ Item {
         id: warning
         visible: false
         text: dsTr("No camera found.")
+        color: "white"
         font.pixelSize: 15
         anchors.centerIn: parent
     }
