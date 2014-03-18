@@ -16,7 +16,7 @@ Item {
         target: hoursText
         property: "text"
         value: {
-            if(globalDate.getHours() == 12){
+            if(globalDate.getHours() == 12 | globalDate.getHours() == 0){
                 return 12
             }
             else{
