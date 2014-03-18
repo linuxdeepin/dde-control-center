@@ -178,7 +178,7 @@ Item {
         clip: true
 
         function showInvalidInfo(shortcutName){
-            invalidInfo.text = '无效的快捷键"' + windowView.toHumanShortcutLabel(shortcutName) + '"，请重新输入！'
+            invalidInfo.text = dsTr('无效的快捷键"%1"，请重新输入！').arg(windowView.toHumanShortcutLabel(shortcutName))
             invalidInfoArea.height = conflictInfo.height + 8
             hideInvalidInfoArea.restart()
         }
@@ -216,12 +216,12 @@ Item {
             replaceButton.conflictKeyIds = conflictIds
             replaceButton.grabKeys = shortcutName
             confictText.text = windowView.toHumanShortcutLabel(shortcutName)
-            var info = '您设置的快捷键'
+            var info = dsTr('您设置的快捷键，')
             for(var i in conflictIds){
                 var keyBindingInfo = getKeyBindingInfo(conflictIds[i])
-                info += '与 "' + categoryObjects[keyBindingInfo[3]] + '" 类别下的 "' + keyBindingInfo[1] + '" 的快捷键冲突，'
+                info += dsTr('与 "%1" 类别下的 "%2" 的快捷键冲突，').arg(categoryObjects[keyBindingInfo[3]]).arg(keyBindingInfo[1])
             }
-            info += '是否进行替换？'
+            info += dsTr('是否进行替换？')
 
             conflictInfo.text = info
             conflictInfoArea.height = conflictInfoArea.realHeight

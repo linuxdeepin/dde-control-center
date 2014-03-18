@@ -63,22 +63,22 @@
 <context>
     <name>CustomKeybindingExpand</name>
     <message>
-        <location filename="../modules/shortcuts/CustomKeybindingExpand.qml" line="83"/>
+        <location filename="../modules/shortcuts/CustomKeybindingExpand.qml" line="86"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/CustomKeybindingExpand.qml" line="93"/>
+        <location filename="../modules/shortcuts/CustomKeybindingExpand.qml" line="96"/>
         <source>Command</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/CustomKeybindingExpand.qml" line="105"/>
+        <location filename="../modules/shortcuts/CustomKeybindingExpand.qml" line="108"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/CustomKeybindingExpand.qml" line="111"/>
+        <location filename="../modules/shortcuts/CustomKeybindingExpand.qml" line="114"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
@@ -195,6 +195,16 @@
 </context>
 <context>
     <name>MessageBox</name>
+    <message>
+        <location filename="../modules/display/MessageBox.qml" line="64"/>
+        <source>是否要保存这些显示设置？</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/display/MessageBox.qml" line="70"/>
+        <source>&lt;font color=&apos;red&apos;&gt;%1&lt;/font&gt; 秒之后还原之前的显示设置。</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <location filename="../modules/display/MessageBox.qml" line="82"/>
         <source>Save Changes</source>
@@ -366,7 +376,7 @@
 <context>
     <name>PanelContent</name>
     <message>
-        <location filename="../frame/views/PanelContent.qml" line="418"/>
+        <location filename="../frame/views/PanelContent.qml" line="397"/>
         <source>Shutdown</source>
         <translation type="unfinished"></translation>
     </message>
@@ -384,6 +394,26 @@
     <message>
         <location filename="../modules/shortcuts/ShortcutInput.qml" line="103"/>
         <source>Please input new shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/shortcuts/ShortcutInput.qml" line="181"/>
+        <source>无效的快捷键&quot;%1&quot;，请重新输入！</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/shortcuts/ShortcutInput.qml" line="219"/>
+        <source>您设置的快捷键，</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/shortcuts/ShortcutInput.qml" line="222"/>
+        <source>与 &quot;%1&quot; 类别下的 &quot;%2&quot; 的快捷键冲突，</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/shortcuts/ShortcutInput.qml" line="224"/>
+        <source>是否进行替换？</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -498,13 +528,21 @@
 <context>
     <name>UserList</name>
     <message>
-        <location filename="../modules/account/UserList.qml" line="154"/>
+        <location filename="../modules/account/UserList.qml" line="156"/>
         <source>User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/UserList.qml" line="154"/>
+        <location filename="../modules/account/UserList.qml" line="156"/>
         <source>Administrator</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WebCam</name>
+    <message>
+        <location filename="../modules/account/WebCam.qml" line="174"/>
+        <source>No camera found.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -715,70 +753,71 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="57"/>
+        <location filename="../modules/keyboard/main.qml" line="58"/>
         <source>Keyboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="69"/>
+        <location filename="../modules/keyboard/main.qml" line="70"/>
         <source>Repeat Delay</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="72"/>
+        <location filename="../modules/keyboard/main.qml" line="73"/>
         <source>Long</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="73"/>
+        <location filename="../modules/keyboard/main.qml" line="74"/>
         <source>Short</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="89"/>
+        <location filename="../modules/keyboard/main.qml" line="90"/>
         <source>Repeat Interval</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="93"/>
-        <location filename="../modules/keyboard/main.qml" line="115"/>
+        <location filename="../modules/keyboard/main.qml" line="94"/>
+        <location filename="../modules/keyboard/main.qml" line="116"/>
         <location filename="../modules/mouse_touchpad/main.qml" line="59"/>
         <location filename="../modules/mouse_touchpad/main.qml" line="97"/>
         <source>Slow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="94"/>
-        <location filename="../modules/keyboard/main.qml" line="116"/>
+        <location filename="../modules/keyboard/main.qml" line="95"/>
+        <location filename="../modules/keyboard/main.qml" line="117"/>
         <location filename="../modules/mouse_touchpad/main.qml" line="60"/>
         <location filename="../modules/mouse_touchpad/main.qml" line="98"/>
         <source>Fast</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="132"/>
+        <location filename="../modules/keyboard/main.qml" line="133"/>
         <source>Test Area</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="110"/>
+        <location filename="../modules/keyboard/main.qml" line="111"/>
         <source>Cursor Blink</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="346"/>
+        <location filename="../modules/keyboard/main.qml" line="347"/>
         <source>No result</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="161"/>
+        <location filename="../modules/keyboard/main.qml" line="162"/>
         <source>Keyboard Layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/default_applications/main.qml" line="24"/>
         <location filename="../modules/display/main.qml" line="147"/>
-        <location filename="../modules/keyboard/main.qml" line="59"/>
+        <location filename="../modules/grub/main.qml" line="65"/>
+        <location filename="../modules/keyboard/main.qml" line="60"/>
         <location filename="../modules/mouse_touchpad/main.qml" line="29"/>
         <location filename="../modules/power/main.qml" line="80"/>
         <location filename="../modules/shortcuts/main.qml" line="95"/>
@@ -1051,7 +1090,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/main.qml" line="43"/>
+        <location filename="../modules/personalization/main.qml" line="90"/>
         <source>Themes</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1061,32 +1100,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/main.qml" line="27"/>
+        <location filename="../modules/personalization/main.qml" line="74"/>
         <source>Personalization</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/main.qml" line="96"/>
+        <location filename="../modules/personalization/main.qml" line="175"/>
         <source>GTK Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/main.qml" line="146"/>
+        <location filename="../modules/personalization/main.qml" line="231"/>
         <source>Cursor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/main.qml" line="196"/>
+        <location filename="../modules/personalization/main.qml" line="287"/>
         <source>Wallpaper</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/main.qml" line="225"/>
+        <location filename="../modules/personalization/main.qml" line="316"/>
         <source>Icons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/main.qml" line="275"/>
+        <location filename="../modules/personalization/main.qml" line="372"/>
         <source>Font</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1208,27 +1247,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/main.qml" line="42"/>
+        <location filename="../modules/grub/main.qml" line="61"/>
         <source>Startup Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/main.qml" line="73"/>
+        <location filename="../modules/grub/main.qml" line="103"/>
         <source>Default Entry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/main.qml" line="130"/>
+        <location filename="../modules/grub/main.qml" line="160"/>
         <source>Delay</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/main.qml" line="200"/>
+        <location filename="../modules/grub/main.qml" line="199"/>
         <source>Item Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/main.qml" line="234"/>
+        <location filename="../modules/grub/main.qml" line="233"/>
         <source>Selected Item Color</source>
         <translation type="unfinished"></translation>
     </message>

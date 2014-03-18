@@ -33,12 +33,18 @@ Window {
         if (pointer > 0) {
             pointer--
         }
+        else{
+            pointer = previews.length - 1
+        }
         preview_image.source = previews[pointer]
     }
 
     function showNext() {
         if (pointer < previews.length -1) {
             pointer++
+        }
+        else{
+            pointer = 0
         }
         preview_image.source = previews[pointer]
     }
@@ -79,6 +85,11 @@ Window {
             }
 
             DImageButton {
+                anchors.top: parent.top
+                anchors.right: parent.right
+                anchors.topMargin: 8
+                anchors.rightMargin: 8
+
                 normal_image: "images/close_normal.png"
                 hover_image: "images/close_normal.png"
                 press_image: "images/close_press.png"
@@ -86,10 +97,6 @@ Window {
                 onClicked: {
                     root.hideWindow()
                 }
-                anchors.top: parent.top
-                anchors.right: parent.right
-                anchors.topMargin: 8
-                anchors.rightMargin: 8
             }
         }
 

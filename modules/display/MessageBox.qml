@@ -61,13 +61,13 @@ Window {
 
             DssH1{
                 color: "white"
-                text: "是否要保存这些显示设置？"
+                text: dsTr("是否要保存这些显示设置？")
                 anchors.horizontalCenter: parent.horizontalCenter
             }
 
             DssH3{
                 color: "white"
-                text: "<font color='red'>" + countdown.totalTime + "</font> " + "秒之后还原之前的显示设置。"
+                text: dsTr("<font color='red'>%1</font> 秒之后还原之前的显示设置。").arg(countdown.totalTime)
                 anchors.horizontalCenter: parent.horizontalCenter
             }
         }

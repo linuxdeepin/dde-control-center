@@ -22,10 +22,33 @@ Item {
 
     property var previewsPics: {
         var pics = new Array()
-        pics.push(currentThemeObject.previewPath)
-        pics.push(dbusPreviewPath.GtkPath(currentThemeObject.gtkTheme))
-        pics.push(dbusPreviewPath.GtkPath(currentThemeObject.iconTheme))
-        pics.push(dbusPreviewPath.GtkPath(currentThemeObject.gtkCursorTheme))
+
+        var currentThemePreviewPath = currentThemeObject.previewPath
+        if(currentThemePreviewPath){
+            pics.push(currentThemePreviewPath)
+        }
+
+        var currenGtkTheme = currentThemeObject.gtkTheme
+        var currenGtkThemePreviewPath = dbusPreviewPath.GtkPath(currenGtkTheme)
+        print("Gtk:", currenGtkTheme)
+        if(currenGtkThemePreviewPath){
+            pics.push(currenGtkThemePreviewPath)
+        }
+
+        var currentIconTheme = currentThemeObject.iconTheme
+        var currentIconThemePreviewPath = dbusPreviewPath.IconPath(currentIconTheme)
+        print("Icon:", currentIconTheme)
+        if(currentIconThemePreviewPath){
+            pics.push(currentIconThemePreviewPath)
+        }
+
+        var currentCursorTheme = currentThemeObject.gtkCursorTheme
+        var currentCursorThemePreviewPath = dbusPreviewPath.CursorPath(currentCursorTheme)
+        print("Cursor:", currentCursorTheme)
+        if(currentCursorThemePreviewPath){
+            pics.push(currentCursorThemePreviewPath)
+        }
+
         return pics
     }
 

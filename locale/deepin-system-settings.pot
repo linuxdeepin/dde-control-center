@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-17 09:05+0800\n"
+"POT-Creation-Date: 2014-03-18 17:03+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../modules/account/AddUserDialog.qml:95 ../modules/account/UserList.qml:154
+#: ../modules/account/AddUserDialog.qml:95 ../modules/account/UserList.qml:156
 msgid "User"
 msgstr ""
 
-#: ../modules/account/AddUserDialog.qml:95 ../modules/account/UserList.qml:154
+#: ../modules/account/AddUserDialog.qml:95 ../modules/account/UserList.qml:156
 msgid "Administrator"
 msgstr ""
 
@@ -57,21 +57,21 @@ msgstr ""
 msgid "Sat"
 msgstr ""
 
-#: ../modules/shortcuts/CustomKeybindingExpand.qml:83
+#: ../modules/shortcuts/CustomKeybindingExpand.qml:86
 msgid "Name"
 msgstr ""
 
-#: ../modules/shortcuts/CustomKeybindingExpand.qml:93
+#: ../modules/shortcuts/CustomKeybindingExpand.qml:96
 msgid "Command"
 msgstr ""
 
-#: ../modules/shortcuts/CustomKeybindingExpand.qml:105
+#: ../modules/shortcuts/CustomKeybindingExpand.qml:108
 #: ../modules/display/MonitorDragArea.qml:467
 #: ../modules/shortcuts/ShortcutInput.qml:298
 msgid "Cancel"
 msgstr ""
 
-#: ../modules/shortcuts/CustomKeybindingExpand.qml:111
+#: ../modules/shortcuts/CustomKeybindingExpand.qml:114
 #: ../modules/date_time/StateButtons.qml:12
 msgid "Add"
 msgstr ""
@@ -148,6 +148,15 @@ msgstr ""
 msgid "VPN Connections"
 msgstr ""
 
+#: ../modules/display/MessageBox.qml:64
+msgid "是否要保存这些显示设置？"
+msgstr ""
+
+#: ../modules/display/MessageBox.qml:70
+#, qt-format
+msgid "<font color='red'>%1</font> 秒之后还原之前的显示设置。"
+msgstr ""
+
 #: ../modules/display/MessageBox.qml:82
 msgid "Save Changes"
 msgstr ""
@@ -188,7 +197,7 @@ msgstr ""
 msgid "More Settings"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:12 ../frame/views/PanelContent.qml:418
+#: ../frame/views/ModulesData.qml:12 ../frame/views/PanelContent.qml:397
 #: ../modules/power/main.qml:111 ../modules/power/main.qml:154
 #: ../frame/modules_info.py:37
 msgid "Shutdown"
@@ -208,7 +217,7 @@ msgstr ""
 msgid "Desktop"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:16 ../modules/personalization/main.qml:27
+#: ../frame/views/ModulesData.qml:16 ../modules/personalization/main.qml:74
 msgid "Personalization"
 msgstr ""
 
@@ -237,7 +246,7 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:18 ../modules/keyboard/main.qml:57
+#: ../frame/views/ModulesData.qml:18 ../modules/keyboard/main.qml:58
 #: ../frame/modules_info.py:43
 msgid "Keyboard"
 msgstr ""
@@ -289,6 +298,24 @@ msgstr ""
 msgid "Please input new shortcuts"
 msgstr ""
 
+#: ../modules/shortcuts/ShortcutInput.qml:181
+#, qt-format
+msgid "无效的快捷键\"%1\"，请重新输入！"
+msgstr ""
+
+#: ../modules/shortcuts/ShortcutInput.qml:219
+msgid "您设置的快捷键，"
+msgstr ""
+
+#: ../modules/shortcuts/ShortcutInput.qml:222
+#, qt-format
+msgid "与 \"%1\" 类别下的 \"%2\" 的快捷键冲突，"
+msgstr ""
+
+#: ../modules/shortcuts/ShortcutInput.qml:224
+msgid "是否进行替换？"
+msgstr ""
+
 #: ../modules/shortcuts/ShortcutInput.qml:282
 msgid "Replace"
 msgstr ""
@@ -329,14 +356,14 @@ msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:79
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:117
-#: ../modules/keyboard/main.qml:93 ../modules/keyboard/main.qml:115
+#: ../modules/keyboard/main.qml:94 ../modules/keyboard/main.qml:116
 #: ../modules/mouse_touchpad/main.qml:59 ../modules/mouse_touchpad/main.qml:97
 msgid "Slow"
 msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:80
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:118
-#: ../modules/keyboard/main.qml:94 ../modules/keyboard/main.qml:116
+#: ../modules/keyboard/main.qml:95 ../modules/keyboard/main.qml:117
 #: ../modules/mouse_touchpad/main.qml:60 ../modules/mouse_touchpad/main.qml:98
 msgid "Fast"
 msgstr ""
@@ -366,13 +393,17 @@ msgid "Drag threshold"
 msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:137
-#: ../modules/keyboard/main.qml:73
+#: ../modules/keyboard/main.qml:74
 msgid "Short"
 msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:138
-#: ../modules/keyboard/main.qml:72
+#: ../modules/keyboard/main.qml:73
 msgid "Long"
+msgstr ""
+
+#: ../modules/account/WebCam.qml:174
+msgid "No camera found."
 msgstr ""
 
 #: ../modules/date_time/calendar_core.js:6
@@ -527,33 +558,34 @@ msgstr ""
 msgid "Software"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:69
+#: ../modules/keyboard/main.qml:70
 msgid "Repeat Delay"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:89
+#: ../modules/keyboard/main.qml:90
 msgid "Repeat Interval"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:132
+#: ../modules/keyboard/main.qml:133
 msgid "Test Area"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:110
+#: ../modules/keyboard/main.qml:111
 msgid "Cursor Blink"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:346
+#: ../modules/keyboard/main.qml:347
 msgid "No result"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:161
+#: ../modules/keyboard/main.qml:162
 msgid "Keyboard Layout"
 msgstr ""
 
 #: ../modules/default_applications/main.qml:24 ../modules/display/main.qml:147
-#: ../modules/keyboard/main.qml:59 ../modules/mouse_touchpad/main.qml:29
-#: ../modules/power/main.qml:80 ../modules/shortcuts/main.qml:95
+#: ../modules/grub/main.qml:65 ../modules/keyboard/main.qml:60
+#: ../modules/mouse_touchpad/main.qml:29 ../modules/power/main.qml:80
+#: ../modules/shortcuts/main.qml:95
 msgid "Reset"
 msgstr ""
 
@@ -699,7 +731,7 @@ msgstr ""
 msgid "Monitor"
 msgstr ""
 
-#: ../modules/personalization/main.qml:43
+#: ../modules/personalization/main.qml:90
 msgid "Themes"
 msgstr ""
 
@@ -707,23 +739,23 @@ msgstr ""
 msgid "Window"
 msgstr ""
 
-#: ../modules/personalization/main.qml:96
+#: ../modules/personalization/main.qml:175
 msgid "GTK Window"
 msgstr ""
 
-#: ../modules/personalization/main.qml:146
+#: ../modules/personalization/main.qml:231
 msgid "Cursor"
 msgstr ""
 
-#: ../modules/personalization/main.qml:196
+#: ../modules/personalization/main.qml:287
 msgid "Wallpaper"
 msgstr ""
 
-#: ../modules/personalization/main.qml:225
+#: ../modules/personalization/main.qml:316
 msgid "Icons"
 msgstr ""
 
-#: ../modules/personalization/main.qml:275
+#: ../modules/personalization/main.qml:372
 msgid "Font"
 msgstr ""
 
@@ -811,23 +843,23 @@ msgstr ""
 msgid "External Devices"
 msgstr ""
 
-#: ../modules/grub/main.qml:42
+#: ../modules/grub/main.qml:61
 msgid "Startup Screen"
 msgstr ""
 
-#: ../modules/grub/main.qml:73
+#: ../modules/grub/main.qml:103
 msgid "Default Entry"
 msgstr ""
 
-#: ../modules/grub/main.qml:130
+#: ../modules/grub/main.qml:160
 msgid "Delay"
 msgstr ""
 
-#: ../modules/grub/main.qml:200
+#: ../modules/grub/main.qml:199
 msgid "Item Color"
 msgstr ""
 
-#: ../modules/grub/main.qml:234
+#: ../modules/grub/main.qml:233
 msgid "Selected Item Color"
 msgstr ""
 
