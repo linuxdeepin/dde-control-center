@@ -4,7 +4,7 @@ import QtQuick.Controls.Styles 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Display 1.0
 
-Item {
+Column {
     id: displayModule
     anchors.fill: parent
 
@@ -38,8 +38,8 @@ Item {
 
     Column {
         id: topColumn
-        anchors.top: parent.top
         width: parent.width
+        height: childrenRect.height
 
         DBaseLine{
             height: 48
@@ -75,8 +75,8 @@ Item {
 
     Column{
         id: propertiesColumn
-        anchors.top: topColumn.bottom
         width: parent.width
+        height: childrenRect.height
         visible: !monitorDragArea.editable
 
         DBaseLine {
@@ -131,34 +131,49 @@ Item {
             outputObj: monitorChoose.currentSelectedMonitor
             monitorsNumber: allMonitorsObjects.length
         }
+    }
 
-        DBaseLine {
-            rightMargin: 10
-            rightLoader.sourceComponent: Row {
-                spacing: 6
-                DTextButton {
-                    text: dsTr("Apply")
-                    visible: displayId.hasChanged
-                    onClicked: {
-                        displayChangesApply()
+    DBaseLine {
+        rightMargin: 10
+        rightLoader.sourceComponent: Row {
+            spacing: 6
+            DTextButton {
+                text: dsTr("Apply")
+                visible: { 
+                    if (monitorDragArea.editable || displayId.hasChanged){
+                        return true
+                    }
+                    else{
+                        return false
+                    }
+                } 
+                onClicked: {
+                    displayChangesApply()
+                }
+            }
+
+            DTextButton {
+                text: { 
+                    if(displayId.hasChanged){
+                        return dsTr("Reset")
+                    }
+                    else{
+                        return dsTr("Cancel")
                     }
                 }
 
-                DTextButton {
-                    text: { 
-                        if(displayId.hasChanged){
-                            return dsTr("Reset")
-                        }
-                        else{
-                            return dsTr("Cancel")
-                        }
+                visible: { 
+                    if (monitorDragArea.editable || displayId.hasChanged){
+                        return true
                     }
+                    else{
+                        return false
+                    }
+                } 
 
-                    visible: displayId.hasChanged | monitorDragArea.editable
-                    onClicked: {
-                        displayId.ResetChanged()
-                        monitorDragArea.editable = false
-                    }
+                onClicked: {
+                    displayId.ResetChanged()
+                    monitorDragArea.editable = false
                 }
             }
         }
