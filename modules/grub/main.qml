@@ -12,7 +12,7 @@ Rectangle {
     Theme { id: dbus_grub2_theme }
 
     function reset() {
-        dbus_grub2.reset()
+        dbus_grub2.Reset()
     }
 
     function indexToLabel(idx) {
