@@ -8,21 +8,36 @@ Item {
 
     property var constants: DConstants {}
     property var listModelComponent: DListModelComponent {}
-    property url dataDir: windowView.getModuleDataDir("personalization")
 
     property int activeExpandIndex: 0
 
     property var dbusThemeManager: ThemeManager{}
     property var dbusThumbPath: ThumbPath{ path: "/com/deepin/daemon/ThemeManager" }
+    property var dbusPreviewPath: PreviewPath{ path: "/com/deepin/daemon/ThemeManager" }
+    property var currentThemeObject: {
+        var path = dbusThemeManager.GetPathViaName(dbusThemeManager.currentTheme)
+        var obj = themeComponent.createObject(personalization, { path: path[0] })
+        return obj
+    }
+
+    property var previewsPics: {
+        var pics = new Array()
+        pics.push(currentThemeObject.previewPath)
+        pics.push(dbusPreviewPath.GtkPath(currentThemeObject.gtkTheme))
+        pics.push(dbusPreviewPath.GtkPath(currentThemeObject.iconTheme))
+        pics.push(dbusPreviewPath.GtkPath(currentThemeObject.gtkCursorTheme))
+        return pics
+    }
+    property var previewsWindow: PreviewWindow{ previews: previewsPics }
+
+    Component.onCompleted: {
+    }
 
     Component{
         id: themeComponent
         Theme {}
     }
 
-    Component.onCompleted: {
-    }
-    
     Column {
         anchors.top: parent.top
         width: parent.width
@@ -62,19 +77,36 @@ Item {
                 width: personalization.width
                 height: themeList.height
 
-                ThemeView {
+                GridView {
                     id: themeList
                     anchors.horizontalCenter: parent.horizontalCenter
                     width: parent.width - 22
                     height: childrenRect.height
+
+                    cellWidth: 144
+                    cellHeight: 112
+
+                    property string currentItemName: dbusThemeManager.currentTheme
+
+                    function selectItem(itemValue){
+                        dbusThemeManager.currentTheme = itemValue
+                    }
 
                     model: {
                         var myModel = listModelComponent.createObject(themeList, {})
                         var themeList = dbusThemeManager.themeList
                         for(var i in themeList){
                             var themeObj = themeComponent.createObject(personalization, { path: themeList[i] })
+
+                            if(themeObj.name == "Custom"){
+                                var thumbnailPath = themeObj.backgroundFile
+                            }
+                            else{
+                                var thumbnailPath = themeObj.thumbnailPath
+                            }
+
                             myModel.append({
-                                "item_img_url": themeObj.thumbnailPath,
+                                "item_img_url": thumbnailPath,
                                 "item_name": themeObj.name,
                                 "item_value": themeObj.name,
                                 "themeObj": themeObj
@@ -82,6 +114,21 @@ Item {
                         }
                         return myModel
                     }
+
+                    delegate: ThemeItem{
+                        width: themeList.cellWidth
+                        height: themeList.cellHeight
+                        selectedItemValue: themeList.currentItemName
+
+                        onSelectAction: {
+                            themeList.selectItem(itemValue)
+                        }
+
+                        onPreviewAction:{
+                            previewsWindow.show()
+                        }
+                    }
+
                 }
             }
         }
@@ -112,11 +159,17 @@ Item {
                 width: personalization.width
                 height: childrenRect.height
 
-                ThemeView {
+                ComponentThemeView {
                     id: gtkList
                     anchors.horizontalCenter: parent.horizontalCenter
                     width: parent.width - 22
                     height: childrenRect.height
+
+                    property string currentItemName: currentThemeObject.gtkTheme
+
+                    function selectItem(itemValue){
+                        dbusThemeManager.SetGtkTheme(itemValue)
+                    }
 
                     model: {
                         var myModel = listModelComponent.createObject(gtkList, {})
@@ -162,11 +215,17 @@ Item {
                 width: personalization.width
                 height: childrenRect.height
 
-                ThemeView {
+                ComponentThemeView {
                     id: cursorList
                     anchors.horizontalCenter: parent.horizontalCenter
                     width: parent.width - 22
                     height: childrenRect.height
+
+                    property string currentItemName: currentThemeObject.gtkCursorTheme
+
+                    function selectItem(itemValue){
+                        dbusThemeManager.SetGtkCursorTheme(itemValue)
+                    }
 
                     model: {
                         var myModel = listModelComponent.createObject(cursorList, {})
@@ -241,11 +300,17 @@ Item {
                 width: personalization.width
                 height: childrenRect.height
                 
-                ThemeView {
+                ComponentThemeView {
                     id: iconList
                     anchors.horizontalCenter: parent.horizontalCenter
                     width: parent.width - 22
                     height: childrenRect.height
+
+                    property string currentItemName: currentThemeObject.iconTheme
+
+                    function selectItem(itemValue){
+                        dbusThemeManager.SetIconTheme(itemValue)
+                    }
 
                     model: {
                         var myModel = listModelComponent.createObject(iconList, {})
@@ -253,7 +318,7 @@ Item {
                         for(var i in themes){
                             var theme_id = themes[i]
                             myModel.append({
-                                "item_img_url": dataDir + "/icons/" + theme_id + "/thumbnail.png",
+                                "item_img_url": dbusThumbPath.IconPath(theme_id),
                                 "item_name": windowView.toHumanThemeName(theme_id),
                                 "item_value": theme_id
                             })

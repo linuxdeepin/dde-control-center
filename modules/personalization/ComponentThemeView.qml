@@ -7,7 +7,7 @@ GridView {
     cellWidth: 144
     cellHeight: 112
 
-    delegate: ThemeItem{
+    delegate: ComponentThemeItem{
         width: themeView.cellWidth
         height: themeView.cellHeight
         selectedItemValue: currentItemName

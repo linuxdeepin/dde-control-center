@@ -11,7 +11,6 @@ Item {
     property bool selected: selectedItemValue == itemValue
 
     signal selectAction(string itemValue)
-    signal previewAction(string itemValue)
 
     Rectangle{
         id: selectedBackground
@@ -86,24 +85,4 @@ Item {
         }
     }
 
-    Rectangle{
-        id: zoomButtonBox
-        anchors.top: itemThumbnailBox.top
-        anchors.topMargin: 3
-        anchors.right: itemThumbnailBox.right
-        anchors.rightMargin: 3
-        width: zoomButton.width + 16
-        height: zoomButton.height + 4
-        radius: height/2
-        color: Qt.rgba(1, 1, 1, 0.5)
-        border.color: Qt.rgba(0, 0, 0, 0.5)
-        border.width: 1
-
-        DOpacityImageButton{
-            id: zoomButton
-            source: "images/zoom.gif"
-            anchors.centerIn: parent
-            onClicked: previewAction(itemValue)
-        }
-    }
 }

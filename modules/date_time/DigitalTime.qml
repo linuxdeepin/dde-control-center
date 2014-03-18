@@ -15,7 +15,14 @@ Item {
     Binding {
         target: hoursText
         property: "text"
-        value: use24Hour ? globalDate.getHours() : globalDate.getHours() % 12
+        value: {
+            if(globalDate.getHours() == 12){
+                return 12
+            }
+            else{
+                return use24Hour ? globalDate.getHours() : globalDate.getHours() % 12
+            }
+        }
         when: mouseAreaVisible
     }
 
@@ -34,6 +41,7 @@ Item {
             id: hoursText
             mouseAreaVisible: digitalTime.mouseAreaVisible
             IntValidator{bottom: 0; top: 23;}
+            font.family: fixedFont.name
         }
 
         Text {
@@ -41,6 +49,7 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
 
             font.pixelSize: 55
+            font.family: fixedFont.name
             color: "white"
             text: ":"
         }
@@ -49,6 +58,7 @@ Item {
             id: minutesText
             mouseAreaVisible: digitalTime.mouseAreaVisible
             IntValidator{bottom: 0; top: 59;}
+            font.family: fixedFont.name
 
             onAccepted: {
             }

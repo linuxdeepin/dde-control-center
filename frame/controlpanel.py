@@ -170,10 +170,6 @@ class ControlPanel(QQuickView):
     def getDisplayConfigExists(self):
         return os.path.exists(os.path.expanduser("~/.config/deepin_monitors.json"))
 
-    @pyqtSlot(str, result=str)
-    def getModuleDataDir(self, module_id):
-        return os.path.join(ROOT_LOCATION, "data", module_id)
-
     @pyqtSlot(QDBusMessage)
     def display_primary_changed(self, message):
         rect = QDBusReply(message).value()

@@ -12,11 +12,7 @@ Window {
 
     property int pointer: 0
     property var previews: [
-        "/home/hualet/Pictures/wallpapers-collect/firefox.jpg",
-        "/home/hualet/Pictures/wallpapers-collect/xingkong.jpg",
-        "/home/hualet/Pictures/wallpapers-collect/yuzhou17.jpg",
-        "/home/hualet/Pictures/wallpapers-collect/test.jpg",
-        "/home/hualet/Pictures/wallpapers-collect/Unix.png"
+        "/usr/share/backgrounds/default_background.jpg"
     ]
 
     function showPrevious() {
@@ -33,9 +29,7 @@ Window {
         preview_image.source = previews[pointer]
     }
 
-    Rectangle {
-        radius: 8
-        color: "#1A1B1B"
+    DWindowFrame {
 
         Item {
             id: title_bar
@@ -60,7 +54,7 @@ Window {
                         root.setY(root.y + mouse.y - startY)
                     }
                 }
-            }            
+            }
 
             DssH2 {
                 text: "Theme preview"
@@ -89,15 +83,15 @@ Window {
             id: central_area
             color: "grey"
 
+            width: parent.width - 2
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: title_bar.bottom
+            anchors.bottom: bottom_bar.top
+
             Image {
                 id: preview_image
-                source: previews[root.pointer]
-
                 anchors.fill: parent
-                anchors.topMargin: 10
-                anchors.bottomMargin: 10
-                anchors.leftMargin: 10
-                anchors.rightMargin: 10
+                source: previews[root.pointer]
             }
 
             Image {
@@ -172,10 +166,6 @@ Window {
                 }
             }
 
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.top: title_bar.bottom
-            anchors.bottom: bottom_bar.top
         }
 
         Item {
