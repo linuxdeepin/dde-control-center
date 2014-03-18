@@ -28,7 +28,7 @@ Item {
 
         Connections {
             target: dbus_grub2_theme
-            onBackgroundUpdated: {
+            onBackgroundChanged: {
                 background.source = ""
                 background.source = dbus_grub2_theme.background
             }
