@@ -137,22 +137,25 @@ ListView {
                         imageSource: this_user.iconFile
 
                         anchors.left: parent.left
-                        anchors.leftMargin: root.leftPadding + 30 - roundRadius
+                        anchors.leftMargin: root.leftPadding + 40 - roundRadius
                         anchors.verticalCenter: parent.verticalCenter
                     }
 
                     Column {
                         id: name_column
+                        spacing: 2
                         visible: delete_line.nameColumnVisible
 
                         DssH2 {
                             text: userName
                             color: delete_line.nameColor
+                            font.pixelSize: 14
                         }
 
                         DssH3 {
                             text: userType == 0 ? dsTr("User") : dsTr("Administrator")
                             color: dconstants.fgColor
+                            font.pixelSize: 10                            
                         }
 
                         anchors.left: parent.left
