@@ -73,18 +73,23 @@ class DBusService(QDBusAbstractAdaptor):
             '    <method name="show">\n'
             '      <arg direction="in" type="i" name="seconds"/>\n'
             '    </method>
+            '    <method name="showModule">\n'
+            '      <arg direction="in" type="s" name="moduleName"/>\n'
+            '    </method>
             '  </interface>\n'
             """ % APP_DBUS_NAME)
 
     def __init__(self, parent):
         QDBusAbstractAdaptor.__init__(self, parent)
-
         self.setAutoRelaySignals(True)
 
     @pyqtSlot(int)
     def show(self, seconds):
         self.parent().show(seconds)
 
+    @pyqtSlot(str)
+    def showModule(self, moduleName):
+        self.parent().view_object.showModule(moduleName)
 
 class ControlPanel(QQuickView):
 
