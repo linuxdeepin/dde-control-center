@@ -28,7 +28,12 @@ Item {
         pics.push(dbusPreviewPath.GtkPath(currentThemeObject.gtkCursorTheme))
         return pics
     }
-    property var previewsWindow: PreviewWindow{ previews: previewsPics }
+
+    property var previewsWindow: PreviewWindow{
+        previews: previewsPics
+        x: rootWindow.x - width
+        y: rootWindow.y
+    }
 
     Component.onCompleted: {
     }
@@ -125,7 +130,7 @@ Item {
                         }
 
                         onPreviewAction:{
-                            previewsWindow.show()
+                            previewsWindow.showWindow()
                         }
                     }
 

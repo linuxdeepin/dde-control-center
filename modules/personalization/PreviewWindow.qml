@@ -15,6 +15,20 @@ Window {
         "/usr/share/backgrounds/default_background.jpg"
     ]
 
+    property bool showPreviewWindow: false
+
+    function showWindow(){
+        root.show()
+        root.showPreviewWindow = true
+        rootWindow.clickedToHide = false
+    }
+
+    function hideWindow(){
+        root.hide()
+        root.showPreviewWindow = false
+        rootWindow.clickedToHide = true
+    }
+
     function showPrevious() {
         if (pointer > 0) {
             pointer--
@@ -70,7 +84,7 @@ Window {
                 press_image: "images/close_press.png"
 
                 onClicked: {
-                    root.hide()
+                    root.hideWindow()
                 }
                 anchors.top: parent.top
                 anchors.right: parent.right

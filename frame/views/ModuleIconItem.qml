@@ -1,5 +1,4 @@
 import QtQuick 2.1
-import QtGraphicalEffects 1.0
 import Deepin.Widgets 1.0
 
 Rectangle {

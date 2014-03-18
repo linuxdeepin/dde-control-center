@@ -1,7 +1,6 @@
 import QtQuick 2.1
 import QtQuick.Window 2.1
 import Deepin.Widgets 1.0
-import QtGraphicalEffects 1.0
 
 Window {
     id: rootWindow

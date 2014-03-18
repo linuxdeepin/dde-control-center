@@ -1,6 +1,5 @@
 import QtQuick 2.1
 import QtQuick.Window 2.1
-import QtGraphicalEffects 1.0
 import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.SessionManager 1.0
