@@ -68,9 +68,9 @@ Item {
             height: outputObj.opened ? propertyColumn.height : 0
             clip: true
 
-            Behavior on height{
-                PropertyAnimation { duration: 150 }
-            }
+            //Behavior on height{
+                //PropertyAnimation { duration: 150 }
+            //}
 
             Column{
                 id: propertyColumn
