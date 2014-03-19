@@ -9,7 +9,7 @@ Item {
     anchors.fill: parent
 
     property int contentLeftMargin: 22
-    property int contentHeight: 60
+    property int contentHeight: 48
     property int sliderWidth: 180
     property int leftWidth: 100
     property int centerPadding: 16
@@ -22,6 +22,7 @@ Item {
         anchors.top: parent.top
         width: parent.width
 
+        DBaseLine { height: 6 }
         DssTitle {
             text: dsTr("Mouse")
 
@@ -136,7 +137,7 @@ Item {
     Column {
         id: touchpadSettingsColumn
         anchors.top: mouseSettingsColumn.bottom
-        anchors.topMargin: 30
+        anchors.topMargin: 26
         width: parent.width
 
         property var touchpadComponent: Qt.createComponent("TouchpadComponent.qml")

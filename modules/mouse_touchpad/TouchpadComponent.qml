@@ -9,7 +9,7 @@ Item {
     anchors.fill: parent
 
     property int contentLeftMargin: 22
-    property int contentHeight: 60
+    property int contentHeight: 48
     property int sliderWidth: 180
 
     property var touchPadID: TouchPad {}

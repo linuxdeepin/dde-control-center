@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dss 2014\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-18 17:03+0800\n"
+"POT-Creation-Date: 2014-03-19 16:14+0800\n"
 "PO-Revision-Date: 2013-11-25 12:27+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -65,8 +65,7 @@ msgid "Command"
 msgstr ""
 
 #: ../modules/shortcuts/CustomKeybindingExpand.qml:108
-#: ../modules/display/MonitorDragArea.qml:467
-#: ../modules/shortcuts/ShortcutInput.qml:298
+#: ../modules/shortcuts/ShortcutInput.qml:298 ../modules/display/main.qml:170
 msgid "Cancel"
 msgstr ""
 
@@ -206,7 +205,7 @@ msgstr ""
 msgid "Notification"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:14 ../modules/display/main.qml:53
+#: ../frame/views/ModulesData.qml:14 ../modules/display/main.qml:62
 #: ../frame/modules_info.py:39
 msgid "Display"
 msgstr ""
@@ -265,27 +264,23 @@ msgstr ""
 msgid "Select as Main Monitor"
 msgstr ""
 
-#: ../modules/display/MonitorDragArea.qml:432
+#: ../modules/display/MonitorDragArea.qml:423
 msgid "Identify"
 msgstr ""
 
-#: ../modules/display/MonitorDragArea.qml:442
+#: ../modules/display/MonitorDragArea.qml:433
 msgid "Edit"
 msgstr ""
 
-#: ../modules/display/MonitorDragArea.qml:458 ../modules/display/main.qml:141
-msgid "Apply"
-msgstr ""
-
-#: ../modules/display/MonitorProperties.qml:44
+#: ../modules/display/MonitorProperties.qml:53
 msgid "Enabled"
 msgstr ""
 
-#: ../modules/display/MonitorProperties.qml:73
+#: ../modules/display/MonitorProperties.qml:85
 msgid "Resolution"
 msgstr ""
 
-#: ../modules/display/MonitorProperties.qml:127
+#: ../modules/display/MonitorProperties.qml:139
 msgid "Rotation"
 msgstr ""
 
@@ -338,70 +333,72 @@ msgstr ""
 msgid "Button Order"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:63
-#: ../modules/mouse_touchpad/main.qml:43
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:65
+#: ../modules/mouse_touchpad/main.qml:45
 msgid "Right Hand"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:64
-#: ../modules/mouse_touchpad/main.qml:44
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:66
+#: ../modules/mouse_touchpad/main.qml:46
 msgid "Left Hand"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:77
-#: ../modules/mouse_touchpad/main.qml:57
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:79
+#: ../modules/mouse_touchpad/main.qml:59
 msgid "Pointer Move Speed"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:79
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:117
-#: ../modules/keyboard/main.qml:94 ../modules/keyboard/main.qml:116
-#: ../modules/mouse_touchpad/main.qml:59 ../modules/mouse_touchpad/main.qml:97
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:94
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:144
+#: ../modules/keyboard/main.qml:110 ../modules/keyboard/main.qml:135
+#: ../modules/mouse_touchpad/main.qml:74
+#: ../modules/mouse_touchpad/main.qml:126
 msgid "Slow"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:80
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:118
-#: ../modules/keyboard/main.qml:95 ../modules/keyboard/main.qml:117
-#: ../modules/mouse_touchpad/main.qml:60 ../modules/mouse_touchpad/main.qml:98
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:95
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:145
+#: ../modules/keyboard/main.qml:109 ../modules/keyboard/main.qml:134
+#: ../modules/mouse_touchpad/main.qml:75
+#: ../modules/mouse_touchpad/main.qml:127
 msgid "Fast"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:96
-#: ../modules/mouse_touchpad/main.qml:76
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:104
+#: ../modules/mouse_touchpad/main.qml:85
 msgid "Pointer Accuracy"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:98
-#: ../modules/mouse_touchpad/main.qml:78
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:119
+#: ../modules/mouse_touchpad/main.qml:100
 msgid "Low"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:99
-#: ../modules/mouse_touchpad/main.qml:79
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:120
+#: ../modules/mouse_touchpad/main.qml:101
 msgid "High"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:115
-#: ../modules/mouse_touchpad/main.qml:95
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:129
+#: ../modules/mouse_touchpad/main.qml:111
 msgid "Double-click Frequency"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:135
-msgid "Drag threshold"
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:155
+msgid "Drag Threshold"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:137
-#: ../modules/keyboard/main.qml:74
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:170
+#: ../modules/keyboard/main.qml:84
 msgid "Short"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:138
-#: ../modules/keyboard/main.qml:73
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:171
+#: ../modules/keyboard/main.qml:85
 msgid "Long"
 msgstr ""
 
-#: ../modules/account/WebCam.qml:174
+#: ../modules/account/WebCam.qml:175
 msgid "No camera found."
 msgstr ""
 
@@ -561,30 +558,30 @@ msgstr ""
 msgid "Repeat Delay"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:90
+#: ../modules/keyboard/main.qml:94
 msgid "Repeat Interval"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:133
+#: ../modules/keyboard/main.qml:144
 msgid "Test Area"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:111
+#: ../modules/keyboard/main.qml:119
 msgid "Cursor Blink"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:347
+#: ../modules/keyboard/main.qml:358
 msgid "No result"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:162
+#: ../modules/keyboard/main.qml:173
 msgid "Keyboard Layout"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:24 ../modules/display/main.qml:147
+#: ../modules/default_applications/main.qml:24 ../modules/display/main.qml:167
 #: ../modules/grub/main.qml:65 ../modules/keyboard/main.qml:60
 #: ../modules/mouse_touchpad/main.qml:29 ../modules/power/main.qml:80
-#: ../modules/shortcuts/main.qml:95
+#: ../modules/shortcuts/main.qml:95 ../modules/sound/main.qml:72
 msgid "Reset"
 msgstr ""
 
@@ -612,7 +609,7 @@ msgstr ""
 msgid "Power plan"
 msgstr ""
 
-#: ../modules/power/main.qml:236 ../modules/sound/main.qml:155
+#: ../modules/power/main.qml:236 ../modules/sound/main.qml:159
 msgid "Balance"
 msgstr ""
 
@@ -722,12 +719,16 @@ msgstr ""
 msgid "Launcher"
 msgstr ""
 
-#: ../modules/display/main.qml:61
+#: ../modules/display/main.qml:70
 msgid "Main Display: "
 msgstr ""
 
-#: ../modules/display/main.qml:89
+#: ../modules/display/main.qml:98
 msgid "Monitor"
+msgstr ""
+
+#: ../modules/display/main.qml:150
+msgid "Apply"
 msgstr ""
 
 #: ../modules/personalization/main.qml:90
@@ -786,51 +787,51 @@ msgstr ""
 msgid "Custom Shortcuts"
 msgstr ""
 
-#: ../modules/sound/main.qml:100
+#: ../modules/sound/main.qml:104
 msgid "Speaker"
 msgstr ""
 
-#: ../modules/sound/main.qml:280
+#: ../modules/sound/main.qml:282
 msgid "Output Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:130
+#: ../modules/sound/main.qml:134
 msgid "Output Volume"
 msgstr ""
 
-#: ../modules/sound/main.qml:185
+#: ../modules/sound/main.qml:189
 msgid "Microphone"
 msgstr ""
 
-#: ../modules/sound/main.qml:240
+#: ../modules/sound/main.qml:244
 msgid "Input Feedback"
 msgstr ""
 
-#: ../modules/sound/main.qml:297 ../modules/sound/main.qml:404
+#: ../modules/sound/main.qml:299 ../modules/sound/main.qml:406
 msgid "No port exist in this device."
 msgstr ""
 
-#: ../modules/sound/main.qml:338
+#: ../modules/sound/main.qml:340
 msgid "Output device"
 msgstr ""
 
-#: ../modules/sound/main.qml:387
+#: ../modules/sound/main.qml:389
 msgid "Input Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:445
+#: ../modules/sound/main.qml:447
 msgid "Input device"
 msgstr ""
 
-#: ../modules/sound/main.qml:499
+#: ../modules/sound/main.qml:501
 msgid "Hide Advanced..."
 msgstr ""
 
-#: ../modules/sound/main.qml:499
+#: ../modules/sound/main.qml:501
 msgid "Show Advanced..."
 msgstr ""
 
-#: ../modules/sound/main.qml:215
+#: ../modules/sound/main.qml:219
 msgid "Input Volume"
 msgstr ""
 
