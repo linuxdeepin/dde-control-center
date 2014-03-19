@@ -12,6 +12,15 @@ Column {
     property var dconstants: DConstants {}
     property var displayId: Display {}
     property var allMonitorsObjects: getAllMonitorsObj(displayId.monitors)
+    property var openedMonitors: {
+        var openedM = new Array()
+        for(var i in allMonitorsObjects){
+            if(allMonitorsObjects[i].opened){
+                openedM.push(allMonitorsObjects[i])
+            }
+        }
+        return openedM
+    }
 
     function displayChangesApply(){
         displayId.Apply()
@@ -56,7 +65,7 @@ Column {
                 }
 
                 DssH3 {
-                    visible: allMonitorsObjects.length > 1
+                    visible: openedMonitors.length > 1
                     anchors.bottom: moduleName.bottom
                     text: "(" + dsTr("Main Display: ") + displayId.primary + ")"
                     color: "white"

@@ -20,15 +20,6 @@ Rectangle {
     }
 
     property var scaleFactorAndPadding: getScaleFactorAndPadding(openedMonitors)
-    property var openedMonitors: {
-        var openedM = new Array()
-        for(var i in allMonitorsObjects){
-            if(allMonitorsObjects[i].opened){
-                openedM.push(allMonitorsObjects[i])
-            }
-        }
-        return openedM
-    }
 
     property var monitorsViews: {
         var views = new Array()

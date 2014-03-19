@@ -34,7 +34,7 @@ Rectangle{
         if(inEditMode && beJoined){
             return "red"
         }
-        else if(!inEditMode && monitorChoose.currentSelectedMonitor == monitorObject){
+        else if(!inEditMode && monitorChoose.currentSelectedMonitor == monitorObject && openedMonitorNumber > 1){
             return dconstants.activeColor
         }
         else{
@@ -139,7 +139,7 @@ Rectangle{
         anchors.top: parent.top
         width: stateButton.width + 6
         height: stateButton.height + 6
-        visible: openedMonitorNumber > 1
+        visible: openedMonitorNumber > 1 && !inEditMode
 
         property bool hovered: false
         property bool selected: displayId.primary == monitorObject.name

@@ -25,6 +25,12 @@ Item {
         8: "Rotate Right",
     }
 
+    onOutputObjChanged: {
+        if(outputObj){
+            enabledSwitcher.rightLoader.item.checked = outputObj.opened
+        }
+    }
+
     function getResolutionFromMode(mode){
         return mode[1] + "x" + mode[2]
     }
@@ -39,21 +45,25 @@ Item {
             height: childrenRect.height
             visible: monitorsNumber > 1
 
-            DSwitchButtonHeader {
+            DBaseLine{
                 id: enabledSwitcher
-                text: dsTr("Enabled")
-                active: outputObj.opened
-                onClicked: {
-                    outputObj.SwitchOn(!outputObj.opened)
+                leftLoader.sourceComponent: DssH2{
+                    text: dsTr("Enabled")
+                }
+                rightLoader.sourceComponent: DSwitchButton{
+                    onClicked: {
+                        outputObj.SwitchOn(!outputObj.opened)
+                    }
                 }
             }
+
 
             DSeparatorHorizontal{}
         }
 
         Item {
             width: parent.width
-            height: enabledSwitcher.active ? propertyColumn.height : 0
+            height: outputObj.opened ? propertyColumn.height : 0
             clip: true
 
             Behavior on height{
