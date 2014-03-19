@@ -30,12 +30,12 @@ import sys
 from PyQt5.QtWidgets import QApplication
 app = QApplication(sys.argv)
 
+
 import signal
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 
-from controlpanel import ControlPanel, DBusService
+from control_panel import ControlPanel, DBusService
 from constants import APP_DBUS_NAME, APP_OBJECT_PATH
-from display_monitor import connect_to_primary_changed
 
 from PyQt5.QtDBus import QDBusConnection, QDBusInterface
 session_bus = QDBusConnection.sessionBus()
@@ -46,7 +46,6 @@ def main():
 
     panel = ControlPanel()
     panel.engine_obj.quit.connect(app.quit)
-    connect_to_primary_changed(panel.display_primary_changed)
 
     if len(sys.argv) > 1:
         if sys.argv[1].endswith("/"):

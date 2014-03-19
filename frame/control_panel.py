@@ -22,28 +22,21 @@
 
 import os
 import sys
-from threading import Timer
 from datetime import datetime
 
 from PyQt5.QtCore import (Qt, pyqtSlot, pyqtSignal, QVariant, QUrl,
-        QFileSystemWatcher, pyqtProperty, Q_CLASSINFO)
+        pyqtProperty, Q_CLASSINFO)
 from PyQt5.QtGui import QSurfaceFormat, QColor
 from PyQt5.QtQuick import QQuickView
 from PyQt5.QtDBus import QDBusMessage, QDBusReply, QDBusAbstractAdaptor
 
-from display_monitor import RecordEvent
+from display_monitor import RecordEvent, connect_to_primary_changed
 from constants import ROOT_LOCATION, PANEL_WIDTH
 from constants import APP_DBUS_NAME
 from modules_info import ModulesId
 from nls import QtGettext
 from ChineseLunar import ChineseCalendar150
 from dialog_window import MessageDialog
-
-def walk_directory(root_dir):
-    for (root, folder, files) in os.walk(root_dir):
-        for f in files:
-            path = os.path.join(root, f)
-            yield root, path
 
 def quicksort(data, low = 0, high = None):
     if high == None:
@@ -101,13 +94,10 @@ class ControlPanel(QQuickView):
         surface_format = QSurfaceFormat()
         surface_format.setAlphaBufferSize(8)
         
-        self.timer = None
         self.setColor(QColor(0, 0, 0, 0))
         self.setFlags(
                 Qt.FramelessWindowHint
                 | Qt.WindowStaysOnTopHint
-                | Qt.X11BypassWindowManagerHint
-                | Qt.Popup
                 )
         self.setResizeMode(QQuickView.SizeRootObjectToView)
         self.setFormat(surface_format)
@@ -119,16 +109,7 @@ class ControlPanel(QQuickView):
 
         self.engine_obj = self.engine()
 
-        ### file monitor
-        self.modules_dir = os.path.join(ROOT_LOCATION, 'modules')
-        self.module_file_monotor = QFileSystemWatcher()
-        for root, path in walk_directory(self.modules_dir):
-            self.module_file_monotor.addPath(path)
-            self.module_file_monotor.addPath(root)
-
-        self.module_file_monotor.fileChanged.connect(self.fileChangedNotify)
-        #self.module_file_monotor.directoryChanged.connect(self.fileChangedNotify)
-        ### file monitor
+        connect_to_primary_changed(self.display_primary_changed)
 
     def set_all_contexts(self):
         self.qml_context = self.rootContext()
@@ -143,25 +124,11 @@ class ControlPanel(QQuickView):
         self.view_object = self.rootObject()
         self.record_event.enter_mouse_area.connect(lambda :self.view_object.showDss(0))
         self.record_event.click_outer_area.connect(self.view_object.outerAreaClicked)
-        #self.moduleFileChanged.connect(self.view_object.moduleFileChanged)
 
     def set_geometry(self, rect):
         x, y, width, height = rect
         self.setGeometry(x + width, y,
                 PANEL_WIDTH, height)
-
-    def fileChangedNotify(self, path):
-        self.engine_obj.clearComponentCache()
-        module_id = path.split(self.modules_dir)[1].split("/")[1]
-        module_dir = os.path.join(ROOT_LOCATION, 'modules', module_id)
-        for r, p in walk_directory(module_dir):
-            if p not in self.module_file_monotor.files():
-                self.module_file_monotor.addPath(p)
-
-        if self.timer:
-            self.timer.cancel()
-        self.timer = Timer(0.2, lambda : self.moduleFileChanged.emit(module_id))
-        self.timer.start()
 
     @pyqtSlot(int)
     def show(self, seconds):
