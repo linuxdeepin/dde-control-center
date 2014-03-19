@@ -71,10 +71,11 @@ def main():
     sys.exit(app.exec_())
 
 if __name__ == "__main__":
-    iface = QDBusInterface(APP_DBUS_NAME, APP_OBJECT_PATH, '', session_bus)
-    if iface.isValid():
-        print "dss is running"
-        iface.call("show", 0)
-        sys.exit(0)
-    else:
-        main()
+    main()
+    #iface = QDBusInterface(APP_DBUS_NAME, APP_OBJECT_PATH, '', session_bus)
+    #if iface.isValid():
+        #print "dss is running"
+        #iface.call("show", 0)
+        #sys.exit(0)
+    #else:
+        #main()

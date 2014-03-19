@@ -3,7 +3,7 @@ Name=DSS
 Name[zh_CN]=DSS
 Name[zh_TW]=DSS
 Comment=Deepin System Settings
-Exec=/usr/bin/dss show 2
+Exec=dbus-send --session --print-reply --dest=com.deepin.system.settings /dss com.deepin.system.settings.show int32:2
 Icon=preferences-system
 Terminal=false
 X-MultipleArgs=false
