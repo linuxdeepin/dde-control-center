@@ -14,6 +14,8 @@ Window {
 
     property int displayWidth: 0
 
+    signal moduleStartChange(string nextModuleName)
+
     property var dconstants: DConstants {}
     property var listModelComponent: DListModelComponent {}
     property bool clickedToHide: true

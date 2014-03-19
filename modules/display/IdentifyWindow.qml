@@ -10,7 +10,11 @@ Window {
     height: monitorName.height + 20
 
     property var monitorObject
-    property alias timeoutHide: timeoutHide
+
+    function showWindow(){
+        identifyWindow.show()
+        repaintTimer.restart()
+    }
 
     x: monitorObject.x
     y: monitorObject.y
@@ -29,15 +33,21 @@ Window {
         font.pixelSize: monitorObject.width/50
         font.bold: true
         color: "black"
+        opacity: 0.8
     }
 
     Timer {
-        id: timeoutHide
+        id: repaintTimer
         running: false
-        interval: 2500
-        repeat: false
+        interval: 300
+        repeat: true
         onTriggered: {
-            identifyWindow.hide()
+            if(monitorName.opacity < 1){
+                monitorName.opacity += 0.1
+            }
+            else{
+                repaintTimer.stop()
+            }
         }
     }
 }

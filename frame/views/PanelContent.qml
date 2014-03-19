@@ -424,6 +424,7 @@ Rectangle {
 
             property string iconId
             onIconIdChanged: {
+                rootWindow.moduleStartChange(iconId)
                 rightBoxLoaderItem.visible = iconId != ''
                 rightBoxLoader.iconId = iconId
                 rightBoxLoader.source = (iconId == ''? '' : '../../modules/' + iconId + '/main.qml')

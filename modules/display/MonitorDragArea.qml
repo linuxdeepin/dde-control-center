@@ -12,13 +12,6 @@ Rectangle {
 
     property bool editable: false
 
-    property int rootWindowWidth: rootWindow.displayWidth
-    onRootWindowWidthChanged: {
-        if(rootWindowWidth == 0){
-            editable = false
-        }
-    }
-
     property var scaleFactorAndPadding: getScaleFactorAndPadding(openedMonitors)
 
     property var monitorsViews: {
@@ -434,7 +427,7 @@ Rectangle {
                 onClicked: {
                     editable = true
                     for(var i=0; i<monitorsViews.length; i++){
-                        monitorsViews[i].identifyWindow.show()
+                        monitorsViews[i].identifyWindow.showWindow()
                     }
                 }
             }

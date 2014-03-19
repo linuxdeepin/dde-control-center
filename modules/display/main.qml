@@ -8,6 +8,21 @@ Column {
     id: displayModule
     anchors.fill: parent
 
+    Connections{
+        target: rootWindow
+
+        onModuleStartChange: {
+            displayId.ResetChanged()
+        }
+
+        onDisplayWidthChanged: {
+            if(rootWindow.displayWidth == 0){
+                monitorDragArea.editable = false
+                displayId.ResetChanged()
+            }
+        }
+    }
+
     property var messageBox: MessageBox{}
     property var dconstants: DConstants {}
     property var displayId: Display {}

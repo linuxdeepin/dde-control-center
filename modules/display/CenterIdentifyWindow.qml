@@ -16,6 +16,7 @@ Window {
 
     function showWindow(){
         identifyWindow.showNormal()
+        repaintTimer.restart()
         timeoutHide.restart()
     }
 
@@ -26,7 +27,24 @@ Window {
         font.pixelSize: monitorObject.width/8
         font.bold: true
         color: "white"
-        style: Text.Outline; styleColor: "black"
+        style: Text.Outline; 
+        styleColor: "black"
+        opacity: 0.8
+    }
+
+    Timer {
+        id: repaintTimer
+        running: false
+        interval: 300
+        repeat: true
+        onTriggered: {
+            if(monitorName.opacity < 1){
+                monitorName.opacity += 0.1
+            }
+            else{
+                repaintTimer.stop()
+            }
+        }
     }
 
     Timer {
