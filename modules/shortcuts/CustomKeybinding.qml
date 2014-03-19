@@ -56,6 +56,12 @@ Column {
                 model: keyBindings.length
                 clip: true
 
+                onCountChanged: {
+                    if(count == 0 && customTitleLine.rightLoader.item){
+                        customTitleLine.rightLoader.item.currentActionStateName = ""
+                    }
+                }
+
                 delegate: ShortcutInput {
                     showDelete: customKeybindingExpand.currentActionStateName == "deleteButton"
                     info: keyBindings[index]
