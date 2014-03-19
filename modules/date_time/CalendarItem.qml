@@ -106,7 +106,7 @@ Rectangle {
                 font.pixelSize: 10
                 color: {
                     if(lunarDay[2]){
-                        return Qt.rgba(0, 144/255, 1, 1.0)
+                        return "#00BDFF"
                     }
                     else if(grey){
                         return "#444"
