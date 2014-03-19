@@ -57,6 +57,8 @@ Item {
             title.text: dsTr("Button Order")
             content.sourceComponent: DRadioButton {
                 width: 180
+                anchors.left: parent.left
+                anchors.leftMargin: 2
                 anchors.verticalCenter: parent.verticalCenter
                 initializeIndex: touchPadID.useHabit ? 1 : 0
                 buttonModel: [
@@ -75,16 +77,22 @@ Item {
             leftWidth: mouseModule.leftWidth
             centerPadding: mouseModule.centerPadding
             title.text: dsTr("Pointer Move Speed")
-            content.sourceComponent: DSliderRect {
-                leftLabel: dsTr("Slow")
-                rightLabel: dsTr("Fast")
 
-                value: (touchPadID.moveSpeed - 1)/9
-                realValue: touchPadID.moveSpeed
-                onValueChanged: {
-                    if (touchPadID.moveSpeed!= (9 * value + 1)){
-                        touchPadID.moveSpeed = 9 * value + 1
-                    }
+            content.sourceComponent: DSliderEnhanced {
+                width: sliderWidth
+
+                min: 1
+                max: 20
+                init: touchPadID.moveSpeed
+                valueDisplayVisible: false
+
+                onValueConfirmed:{
+                    touchPadID.moveSpeed = value
+                }
+
+                Component.onCompleted: {
+                    addRuler(1, dsTr("Slow"))
+                    addRuler(20, dsTr("Fast"))
                 }
             }
         }
@@ -94,16 +102,22 @@ Item {
             leftWidth: mouseModule.leftWidth
             centerPadding: mouseModule.centerPadding
             title.text: dsTr("Pointer Accuracy")
-            content.sourceComponent: DSliderRect {
-                leftLabel: dsTr("Low")
-                rightLabel: dsTr("High")
 
-                value: (touchPadID.moveAccuracy - 1)/9
-                realValue: touchPadID.moveAccuracy
-                onValueChanged: {
-                    if (touchPadID.moveAccuracy != 9 * value + 1){
-                        touchPadID.moveAccuracy = 9 * value + 1
-                    }
+            content.sourceComponent: DSliderEnhanced {
+                width: sliderWidth
+
+                min: 1
+                max: 20
+                init: touchPadID.moveAccuracy
+                valueDisplayVisible: false
+
+                onValueConfirmed:{
+                    touchPadID.moveAccuracy = value
+                }
+
+                Component.onCompleted: {
+                    addRuler(1, dsTr("Low"))
+                    addRuler(20, dsTr("High"))
                 }
             }
         }
@@ -113,36 +127,48 @@ Item {
             leftWidth: mouseModule.leftWidth
             centerPadding: mouseModule.centerPadding
             title.text: dsTr("Double-click Frequency")
-            content.sourceComponent: DSliderRect {
-                leftLabel: dsTr("Slow")
-                rightLabel: dsTr("Fast")
+
+            content.sourceComponent: DSliderEnhanced {
                 width: sliderWidth
 
-                value: (touchPadID.clickFrequency - 100)/900
-                realValue: touchPadID.clickFrequency
-                onValueChanged: {
-                    if (touchPadID.clickFrequency != (900 * value + 100)){
-                        touchPadID.clickFrequency = 900 * value + 100
-                    }
+                min: 100
+                max: 1000
+                init: touchPadID.clickFrequency
+                valueDisplayVisible: false
+
+                onValueConfirmed:{
+                    touchPadID.clickFrequency = value
+                }
+
+                Component.onCompleted: {
+                    addRuler(100, dsTr("Slow"))
+                    addRuler(1000, dsTr("Fast"))
                 }
             }
+
         }
 
         DCenterLine {
             height: contentHeight
             leftWidth: mouseModule.leftWidth
             centerPadding: mouseModule.centerPadding
-            title.text: dsTr("Drag threshold")
-            content.sourceComponent: DSliderRect {
-                leftLabel: dsTr("Short")
-                rightLabel: dsTr("Long")
+            title.text: dsTr("Drag Threshold")
+
+            content.sourceComponent: DSliderEnhanced {
                 width: sliderWidth
 
-                value: (touchPadID.dragDelay- 1)/9
-                onValueChanged: {
-                    if (touchPadID.dragDelay != (9 * value + 1)){
-                        touchPadID.dragDelay = 9 * value + 1
-                    }
+                min: 1
+                max: 10
+                init: touchPadID.dragDelay
+                valueDisplayVisible: false
+
+                onValueConfirmed:{
+                    touchPadID.dragDelay = value
+                }
+
+                Component.onCompleted: {
+                    addRuler(1, dsTr("Short"))
+                    addRuler(10, dsTr("Long"))
                 }
             }
         }

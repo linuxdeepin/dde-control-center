@@ -37,6 +37,8 @@ Item {
             centerPadding: mouseModule.centerPadding
             title.text: dsTr("Button Order")
             content.sourceComponent: DRadioButton {
+                anchors.left: parent.left
+                anchors.leftMargin: 2
                 anchors.verticalCenter: parent.verticalCenter
                 initializeIndex: mouseID.useHabit ? 1 : 0
                 buttonModel: [
@@ -55,18 +57,25 @@ Item {
             leftWidth: mouseModule.leftWidth
             centerPadding: mouseModule.centerPadding
             title.text: dsTr("Pointer Move Speed")
-            content.sourceComponent: DSliderRect {
-                leftLabel: dsTr("Slow")
-                rightLabel: dsTr("Fast")
 
-                value: (mouseID.moveSpeed - 1)/9
-                realValue: mouseID.moveSpeed
-                onValueChanged: {
-                    if (mouseID.moveSpeed!= (9 * value + 1)){
-                        mouseID.moveSpeed = 9 * value + 1
-                    }
+            content.sourceComponent: DSliderEnhanced {
+                width: sliderWidth
+
+                min: 1
+                max: 20
+                init: mouseID.moveSpeed
+                valueDisplayVisible: false
+
+                onValueConfirmed:{
+                    mouseID.moveSpeed = value
+                }
+
+                Component.onCompleted: {
+                    addRuler(1, dsTr("Slow"))
+                    addRuler(20, dsTr("Fast"))
                 }
             }
+
         }
 
         DCenterLine {
@@ -74,18 +83,25 @@ Item {
             leftWidth: mouseModule.leftWidth
             centerPadding: mouseModule.centerPadding
             title.text: dsTr("Pointer Accuracy")
-            content.sourceComponent: DSliderRect {
-                leftLabel: dsTr("Low")
-                rightLabel: dsTr("High")
 
-                value: (mouseID.moveAccuracy - 1)/9
-                realValue: mouseID.moveAccuracy
-                onValueChanged: {
-                    if (mouseID.moveAccuracy != 9 * value + 1){
-                        mouseID.moveAccuracy = 9 * value + 1
-                    }
+            content.sourceComponent: DSliderEnhanced {
+                width: sliderWidth
+
+                min: 1
+                max: 20
+                init: mouseID.moveAccuracy
+                valueDisplayVisible: false
+
+                onValueConfirmed:{
+                    mouseID.moveAccuracy = value
+                }
+
+                Component.onCompleted: {
+                    addRuler(1, dsTr("Low"))
+                    addRuler(20, dsTr("High"))
                 }
             }
+
         }
 
         DCenterLine {
@@ -93,19 +109,25 @@ Item {
             leftWidth: mouseModule.leftWidth
             centerPadding: mouseModule.centerPadding
             title.text: dsTr("Double-click Frequency")
-            content.sourceComponent: DSliderRect {
-                leftLabel: dsTr("Slow")
-                rightLabel: dsTr("Fast")
+
+            content.sourceComponent: DSliderEnhanced {
                 width: sliderWidth
 
-                value: (mouseID.clickFrequency - 100)/900
-                realValue: mouseID.clickFrequency
-                onValueChanged: {
-                    if (mouseID.clickFrequency != (900 * value + 100)){
-                        mouseID.clickFrequency = 900 * value + 100
-                    }
+                min: 100
+                max: 1000
+                init: mouseID.clickFrequency
+                valueDisplayVisible: false
+
+                onValueConfirmed:{
+                    mouseID.clickFrequency = value
+                }
+
+                Component.onCompleted: {
+                    addRuler(100, dsTr("Slow"))
+                    addRuler(1000, dsTr("Fast"))
                 }
             }
+
         }
 
         DSeparatorHorizontal {}

@@ -67,6 +67,10 @@ Item {
 
         DssTitle {
             text: dsTr("Sound")
+
+            rightLoader.sourceComponent: DTextButton{
+                text: dsTr("Reset")
+            }
         }
 
         DSeparatorHorizontal{}
@@ -247,12 +251,10 @@ Item {
                         init: currentSource.balance
                         handlerVisible: false
                         valueDisplayVisible: false
+                        clickable: false
 
                         onValueConfirmed:{
                             currentSource.balance = value
-                        }
-
-                        Component.onCompleted: {
                         }
                     }
                 }

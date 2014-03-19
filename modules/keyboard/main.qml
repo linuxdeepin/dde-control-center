@@ -68,17 +68,21 @@ Item {
             centerPadding: centerPadding
             leftWidth: titleWidth
             title.text: dsTr("Repeat Delay")
-            content.sourceComponent: DSliderRect {
+            content.sourceComponent: DSliderEnhanced {
                 width: sliderWidth
-                leftLabel: dsTr("Long")
-                rightLabel: dsTr("Short")
 
-                value: (2000 - keyboardID.repeatDelay)/1900
-                realValue: keyboardID.repeatDelay
-                onValueChanged: {
-                    if (keyboardID.repeatDelay != (2000 - 1900 * value)){
-                        keyboardID.repeatDelay = (2000 - 1900 * value)
-                    }
+                min: 100
+                max: 2000
+                init: keyboardID.repeatDelay
+                valueDisplayVisible: false
+
+                onValueConfirmed:{
+                    keyboardID.repeatDelay = value
+                }
+
+                Component.onCompleted: {
+                    addRuler(100, dsTr("Short"))
+                    addRuler(2000, dsTr("Long"))
                 }
             }
         }
@@ -89,17 +93,21 @@ Item {
             leftWidth: titleWidth
             title.text: dsTr("Repeat Interval")
 
-            content.sourceComponent: DSliderRect {
+            content.sourceComponent: DSliderEnhanced {
                 width: sliderWidth
-                leftLabel: dsTr("Slow")
-                rightLabel: dsTr("Fast")
 
-                value: (2000 - keyboardID.repeatSpeed)/1980
-                realValue: keyboardID.repeatSpeed
-                onValueChanged: {
-                    if (keyboardID.repeatSpeed != (2000 - 1980 * value)){
-                        keyboardID.repeatSpeed = 2000 - 1980 * value
-                    }
+                min: 2000
+                max: 30
+                init: keyboardID.repeatSpeed
+                valueDisplayVisible: false
+
+                onValueConfirmed:{
+                    keyboardID.repeatSpeed = value
+                }
+
+                Component.onCompleted: {
+                    addRuler(30, dsTr("Fast"))
+                    addRuler(2000, dsTr("Slow"))
                 }
             }
         }
@@ -110,18 +118,21 @@ Item {
             leftWidth: titleWidth
             title.text: dsTr("Cursor Blink")
 
-            content.sourceComponent: DSliderRect{
-                id: cursorBlinkSlider
+            content.sourceComponent: DSliderEnhanced {
                 width: sliderWidth
-                leftLabel: dsTr("Slow")
-                rightLabel: dsTr("Fast")
 
-                value: (2500 - keyboardID.cursorBlink)/2400
-                realValue: keyboardID.cursorBlink
-                onValueChanged: {
-                    if (keyboardID.cursorBlink != (2500 - 2400 * value)){
-                        keyboardID.cursorBlink = 2500 - 2400 * value
-                    }
+                min: 2500
+                max: 100
+                init: keyboardID.cursorBlink
+                valueDisplayVisible: false
+
+                onValueConfirmed:{
+                    keyboardID.cursorBlink = value
+                }
+
+                Component.onCompleted: {
+                    addRuler(100, dsTr("Fast"))
+                    addRuler(2500, dsTr("Slow"))
                 }
             }
         }

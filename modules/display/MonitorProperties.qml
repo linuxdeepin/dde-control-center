@@ -8,6 +8,8 @@ Item {
     id: monitorProperties
     width: parent.width
     height: childrenRect.height
+
+    property int sliderWidth: 186
     property var listModelComponent: DListModelComponent {}
 
     property var outputObj
@@ -178,14 +180,21 @@ Item {
                         text: "Brightness"
                     }
 
-                    rightLoader.sourceComponent: DSlider{
-                        value: outputObj.isComposited ? 0 : outputObj.brightness[outputObj.name]
-                        onValueChanged: {
+                    rightLoader.sourceComponent: DSliderEnhanced {
+                        width: sliderWidth
+                        height: 28
+                        min: 0
+                        max: 1.0
+                        init: outputObj.isComposited ? 0 : outputObj.brightness[outputObj.name]
+                        valueDisplayVisible: false
+
+                        onValueConfirmed:{
                             outputObj.ChangeBrightness(outputObj.name, value)
                         }
                         visible: !outputObj.isComposited
                     }
                 }
+                DSeparatorHorizontal {}
 
                 Repeater{
                     model: Object.keys(outputObj.brightness)
@@ -199,16 +208,22 @@ Item {
                             text: modelData
                         }
 
-                        rightLoader.sourceComponent: DSlider{
-                            value: outputObj.brightness[modelData]
-                            onValueChanged: {
+                        rightLoader.sourceComponent: DSliderEnhanced {
+                            width: sliderWidth
+                            height: 28
+                            min: 0
+                            max: 1.0
+                            init: outputObj.brightness[modelData]
+                            valueDisplayVisible: false
+
+                            onValueConfirmed:{
                                 outputObj.ChangeBrightness(modelData, value)
                             }
                         }
                     }
                 }
 
-                DSeparatorHorizontal {}
+                DSeparatorHorizontal { visible: outputObj.isComposited }
             }
         }
     }
