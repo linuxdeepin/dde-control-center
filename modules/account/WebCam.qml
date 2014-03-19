@@ -48,7 +48,7 @@ Item {
         }
 
         Component.onCompleted: {
-            if (availability != 14) {
+            if (availability != Camera.Available) {
                 warning.visible = true
                 video_output_box.visible = false
                 mask.visible = false
