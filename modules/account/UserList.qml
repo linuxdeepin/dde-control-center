@@ -43,7 +43,7 @@ ListView {
         Rectangle{
             id: component_bg
             color: "#1A1B1B"
-            state: root.fromPanelAvatar ? index == 0 ? "edit_dialog" : "invisible" : "normal"
+            state: root.fromPanelAvatar ? userIsCurrentUser(this_user) ? "edit_dialog" : "invisible" : "normal"
 
             width: 310
             height: delete_line.height + component_sep.height
@@ -64,8 +64,10 @@ ListView {
                 }
 
                 onAllAction: {
-                    component_bg.state = "action"
-                    delete_line.expand()
+                    if (!userIsCurrentUser(this_user)) {
+                        component_bg.state = "action"
+                        delete_line.expand()
+                    }
                 }
 
                 onAllNormal: {
@@ -77,9 +79,9 @@ ListView {
             DeleteLine {
                 id: delete_line
                 width: component_bg.width
-                height: index == 0 ? 116 : 100
+                height: userIsCurrentUser(this_user) ? 116 : 100
                 moveDelta: 50
-                
+
                 state: "normal"
 
                 property bool deleteUserDialogVisible
@@ -101,8 +103,8 @@ ListView {
                         name: "hover_shrinked"
                         PropertyChanges {
                             target: delete_line
-                            nameColor: index == 0 ? "#faca57" : dconstants.hoverColor
-                            expandButtonStatus: index == 0 ? "golden" : "hover"
+                            nameColor: userIsCurrentUser(this_user) ? "#faca57" : dconstants.hoverColor
+                            expandButtonStatus: userIsCurrentUser(this_user) ? "golden" : "hover"
                             expandButtonUp: false
                         }
                     },
@@ -110,17 +112,17 @@ ListView {
                         name: "hover_expanded"
                         PropertyChanges {
                             target: delete_line
-                            nameColor: index == 0 ? "#faca57" : dconstants.hoverColor                            
-                            expandButtonStatus: index == 0 ? "golden" : "hover"                            
-                            expandButtonUp: true                            
+                            nameColor: userIsCurrentUser(this_user) ? "#faca57" : dconstants.hoverColor
+                            expandButtonStatus: userIsCurrentUser(this_user) ? "golden" : "hover"
+                            expandButtonUp: true
                         }
-                    },                    
+                    },
                     State {
                         name: "normal"
                         PropertyChanges {
                             target: delete_line
-                            nameColor: index == 0 ? "#faca57" : dconstants.fgColor
-                            expandButtonStatus: index == 0 ? "golden" : "normal"    
+                            nameColor: userIsCurrentUser(this_user) ? "#faca57" : dconstants.fgColor
+                            expandButtonStatus: userIsCurrentUser(this_user) ? "golden" : "normal"
                             expandButtonUp: false
                         }
                     }
@@ -155,7 +157,7 @@ ListView {
                         DssH3 {
                             text: userType == 0 ? dsTr("User") : dsTr("Administrator")
                             color: dconstants.fgColor
-                            font.pixelSize: 10                            
+                            font.pixelSize: 10
                         }
 
                         anchors.left: parent.left
@@ -257,7 +259,7 @@ ListView {
                     name: "invisible"
                     PropertyChanges {
                         target: delete_line
-                        state: "normal"                        
+                        state: "normal"
                         deleteUserDialogVisible: false
                         editUserDialogVisible: false
                         nameColumnVisible: true
@@ -273,7 +275,7 @@ ListView {
                     name: "action"
                     PropertyChanges {
                         target: delete_line
-                        state: "normal"                        
+                        state: "normal"
                         deleteUserDialogVisible: false
                         editUserDialogVisible: false
                         nameColumnVisible: true
@@ -288,7 +290,7 @@ ListView {
                     name: "delete_dialog"
                     PropertyChanges {
                         target: delete_line
-                        state: "normal"                        
+                        state: "normal"
                         deleteUserDialogVisible: true
                         editUserDialogVisible: false
                         nameColumnVisible: false
@@ -303,7 +305,7 @@ ListView {
                     name: "edit_dialog"
                     PropertyChanges {
                         target: delete_line
-                        state: "hover_expanded"                        
+                        state: "hover_expanded"
                         deleteUserDialogVisible: false
                         editUserDialogVisible: true
                         nameColumnVisible: true

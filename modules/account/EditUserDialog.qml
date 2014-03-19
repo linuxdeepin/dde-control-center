@@ -14,14 +14,9 @@ Rectangle {
 
         AvatarView {
             id: avatar_view
-
             width: 310
-            height: 280
+            height: 326
             this_user: root.this_user
-
-            onHeightChanged: {
-                root.height = password_dialog.height + 38 * 2 + avatar_view.height + 2 * 3
-            }
 
             onAvatarSet: {
                 var iconFile = path.toString().replace("file:\/\/", "")
@@ -29,8 +24,8 @@ Rectangle {
             }
 
             onAvatarPictured: {
-                var iconFile = path.toString().replace("file:\/\/", "")                
-                this_user.SetIconFile(iconFile)                
+                var iconFile = path.toString().replace("file:\/\/", "")
+                this_user.SetIconFile(iconFile)
             }
         }
 
@@ -67,11 +62,15 @@ Rectangle {
                 }
             }
 
-            DSeparatorHorizontal{}
+            DSeparatorHorizontal{
+                visible: account_type_radio.visible
+            }
 
             Rectangle {
+                id: account_type_radio
                 width: parent.width
                 height: 38
+                visible: !userIsCurrentUser(this_user) && currentUserIsAdmin()
                 color: "transparent"
 
                 DLabel {
@@ -111,13 +110,9 @@ Rectangle {
                     /* // but a fresh _new_ user is not in that group(weird), so we should set it first. */
                     dbus_user.SetPassword(password, "")
                 }
-                
+
                 onCancelled: {
                     password_dialog.reset()
-                }
-
-                onHeightChanged: {
-                    root.height = password_dialog.height + 38 * 2 + avatar_view.height + 2 * 3
                 }
             }
         }

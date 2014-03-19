@@ -2,7 +2,7 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 
 Item {
-    id: root
+    id: root_view
     state: "default"
 
     property int verticalPadding: 8
@@ -24,14 +24,14 @@ Item {
 
         onItemSelected: {
             switch (idx) {
-                case 0: root.state = "recently"; break
-                case 1: root.state = "default"; break
-                case 2: root.state = "webcam"; break
+                case 0: root_view.state = "recently"; break
+                case 1: root_view.state = "default"; break
+                case 2: root_view.state = "webcam"; break
             }
         }
 
         anchors.top: parent.top
-        anchors.topMargin: root.verticalPadding
+        anchors.topMargin: root_view.verticalPadding
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
@@ -39,8 +39,8 @@ Item {
         State {
             name: "recently"
             PropertyChanges {
-                target: root
-                height: root.verticalPadding * 3 + radio_button.height + avatar_recently_used_view.height
+                target: root_view
+                height: root_view.verticalPadding * 3 + radio_button.height + avatar_recently_used_view.height
             }
             PropertyChanges {
                 target: avatar_recently_used_view
@@ -49,12 +49,12 @@ Item {
             }
             PropertyChanges {
                 target: avatar_default_view
-                x: root.width
+                x: root_view.width
                 visible: false
             }
             PropertyChanges {
                 target: webcam_loader
-                x: root.width * 2
+                x: root_view.width * 2
                 sourceComponent: null
                 visible: false
             }
@@ -62,12 +62,12 @@ Item {
         State {
             name: "default"
             PropertyChanges {
-                target: root
-                height: root.verticalPadding * 3 + radio_button.height + avatar_default_view.height
+                target: root_view
+                height: root_view.verticalPadding * 3 + radio_button.height + avatar_default_view.height
             }
             PropertyChanges {
                 target: avatar_recently_used_view
-                x: - root.width
+                x: - root_view.width
                 visible: false
             }
             PropertyChanges {
@@ -77,7 +77,7 @@ Item {
             }
             PropertyChanges {
                 target: webcam_loader
-                x: root.width
+                x: root_view.width
                 sourceComponent: null
                 visible: false
             }
@@ -85,17 +85,17 @@ Item {
         State {
             name: "webcam"
             PropertyChanges {
-                target: root
-                height: root.verticalPadding * 3 + radio_button.height + webcam_loader.height
+                target: root_view
+                height: root_view.verticalPadding * 3 + radio_button.height + webcam_loader.height
             }
             PropertyChanges {
                 target: avatar_recently_used_view
-                x: - root.width * 2
+                x: - root_view.width * 2
                 visible: false
             }
             PropertyChanges {
                 target: avatar_default_view
-                x: - root.width
+                x: - root_view.width
                 visible: false
             }
             PropertyChanges {
@@ -113,14 +113,14 @@ Item {
 
         function setContent() {
             avatar_recently_used_view.model.clear()
-            var allIcons = root.this_user.historyIcons
+            var allIcons = root_view.this_user.historyIcons
             for (var i = 0; i < allIcons.length; i++) {
                 avatar_recently_used_view.model.append({"avatarPath": allIcons[i]})
             }
         }
 
         onAvatarSet: {
-            root.avatarSet(path)
+            root_view.avatarSet(path)
         }
 
         onInitialize: {
@@ -135,7 +135,7 @@ Item {
         }
 
         anchors.top: radio_button.bottom
-        anchors.topMargin: root.verticalPadding * 2
+        anchors.topMargin: root_view.verticalPadding * 2
     }
 
     DScrollBar {
@@ -150,18 +150,18 @@ Item {
         withAddButton: true
 
         onAvatarSet: {
-            root.avatarSet(path)
+            root_view.avatarSet(path)
         }
 
         onInitialize: {
-            var allIcons = root.this_user.GetIconList()
+            var allIcons = root_view.this_user.GetIconList()
             for (var i = 0; i < allIcons.length; i++) {
                 avatar_default_view.model.append({"avatarPath": allIcons[i]})
             }
         }
 
         anchors.top: radio_button.bottom
-        anchors.topMargin: root.verticalPadding * 2
+        anchors.topMargin: root_view.verticalPadding * 2
     }
 
     DScrollBar {
@@ -175,7 +175,7 @@ Item {
         height: 200
 
         anchors.top: radio_button.bottom
-        anchors.topMargin: root.verticalPadding * 2
+        anchors.topMargin: root_view.verticalPadding * 2
     }
 
     Component {
@@ -183,7 +183,7 @@ Item {
 
         WebCam {
             onAvatarPictured: {
-                root.avatarPictured(path)
+                root_view.avatarPictured(path)
             }
         }
     }

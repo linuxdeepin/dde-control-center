@@ -1,6 +1,7 @@
 import QtQuick 2.1
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Accounts 1.0
+import DBus.Com.Deepin.SessionManager 1.0
 
 Rectangle {
     id: root
@@ -8,14 +9,27 @@ Rectangle {
     width: 310
     height: 600
     property var constants: DConstants {}
-    
+
+    SessionManager { id: dbus_session_manager }
     Accounts { id: dbus_accounts }
-    User { id: dbus_user}
+    User { id: dbus_user }
+    User { id: current_user; path: dbus_accounts.FindUserById(dbus_session_manager.currentUid)}
     
+    // this function is intend to used as the entry from the home page
     function showCurrentUserDetail () {
         user_list.showCurrentUserDetail()
     }
     
+    function userIsCurrentUser(user) {
+        return user.uid == current_user.uid
+    }
+
+    function currentUserIsAdmin() {
+        return current_user.accountType == 1
+    }
+    
+    Component.onCompleted: currentUserIsAdmin()
+
     Column {
         id: main_column
         state: "normal"
@@ -118,7 +132,7 @@ Rectangle {
 
         UserList {
             id: user_list
-            
+
             Connections {
                 target: dbus_accounts
                 onUserAdded: {
@@ -150,7 +164,7 @@ Rectangle {
             },
             State {
                 name: "add_dialog"
-                
+
                 PropertyChanges {
                     target: title
                     visible: false
