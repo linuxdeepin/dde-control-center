@@ -182,6 +182,7 @@ Item {
         id: avatar_webcam_view
 
         WebCam {
+            running: rootWindow.displayWidth != 0
             onAvatarPictured: {
                 root_view.avatarPictured(path)
             }
