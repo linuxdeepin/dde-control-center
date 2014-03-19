@@ -21,9 +21,9 @@ Rectangle {
             case 1: return "5m"; break
             case 2: return "10m"; break
             case 3: return "15m"; break
-            case 4: return "30m"; break
-            case 5: return "1h"; break
-            case 6: return "Never"
+            case 4: return "20m"; break
+            case 5: return "25m"; break
+            case 6: return "30m"
         }
     }
 
