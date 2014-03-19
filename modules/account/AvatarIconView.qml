@@ -5,7 +5,7 @@ GridView {
     id: avatar_icon_view
     clip: true
 
-    cellWidth: 103
+    cellWidth: 96
     cellHeight: 93
 
     property bool withAddButton: false
@@ -86,7 +86,7 @@ GridView {
             avatar_icon_view_model.append({"avatarPath": "images/avatar_add.png"})
         }
 
-        width = 310
+        width = 290
         height = cellHeight * Math.min(3, Math.ceil(count /3))
     }
 }

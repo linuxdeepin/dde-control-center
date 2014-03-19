@@ -44,7 +44,7 @@ Item {
             }
             PropertyChanges {
                 target: avatar_recently_used_view
-                x: 0
+                x: 10
                 visible: true
             }
             PropertyChanges {
@@ -72,7 +72,7 @@ Item {
             }
             PropertyChanges {
                 target: avatar_default_view
-                x: 0
+                x: 10
                 visible: true
             }
             PropertyChanges {

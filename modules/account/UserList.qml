@@ -77,7 +77,7 @@ ListView {
             DeleteLine {
                 id: delete_line
                 width: component_bg.width
-                height: 100
+                height: index == 0 ? 116 : 100
                 moveDelta: 50
                 
                 state: "normal"
@@ -133,7 +133,7 @@ ListView {
 
                     DRoundImage {
                         id: round_image
-                        roundRadius: index == 0 ? 30 : 25 
+                        roundRadius: index == 0 ? 36 : 30
                         imageSource: this_user.iconFile
 
                         anchors.left: parent.left
