@@ -152,10 +152,6 @@ class ControlPanel(QQuickView):
     def panelWith(self):
         return PANEL_WIDTH
 
-    @pyqtSlot(result=bool)
-    def getDisplayConfigExists(self):
-        return os.path.exists(os.path.expanduser("~/.config/deepin_monitors.json"))
-
     @pyqtSlot(QDBusMessage)
     def display_primary_changed(self, message):
         rect = QDBusReply(message).value()
@@ -169,6 +165,10 @@ class ControlPanel(QQuickView):
     @pyqtSlot(str, result=str)
     def stripString(self, s):
         return s.strip()
+
+    @pyqtSlot(QVariant, str, result=str)
+    def joinString(self, s_list, key):
+        return key.join(s_list)
 
     @pyqtSlot(str, result=bool)
     def isIconPluginExist(self, module_id):

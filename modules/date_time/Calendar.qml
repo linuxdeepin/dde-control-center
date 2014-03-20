@@ -97,7 +97,7 @@ Column {
             onMonthChanged: calendarWidget.monthChange(newDateString)
         }
 
-        rightLoader.sourceComponent: TextAction {
+        rightLoader.sourceComponent: DTextAction {
             anchors.verticalCenter: parent.verticalCenter
             text: dsTr("Show Today")
             visible: opacity != 0

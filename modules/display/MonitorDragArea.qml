@@ -395,7 +395,7 @@ Rectangle {
 
     Item {
         id: buttonArea
-        anchors.right: parent.right
+        anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
         height: editButton.height
         visible: {
@@ -408,11 +408,14 @@ Rectangle {
         }
 
         Row{
-            anchors.right: parent.right
+            anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottom: parent.bottom
             visible: !editable
+            width: childrenRect.width
+            height: childrenRect.height
+            spacing: 10
 
-            DTextButton {
+            DTextAction {
                 text: dsTr("Identify")
                 onClicked: {
                     for(var i in centerIdentifyWindows){
@@ -421,7 +424,14 @@ Rectangle {
                 }
             }
 
-            DTextButton {
+            Rectangle {
+                width: 1
+                height: editButton.height - 4
+                anchors.verticalCenter: editButton.verticalCenter
+                color: dconstants.fgColor
+            }
+
+            DTextAction {
                 id: editButton
                 text: dsTr("Edit")
                 onClicked: {

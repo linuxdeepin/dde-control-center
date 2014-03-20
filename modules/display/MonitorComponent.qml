@@ -19,7 +19,7 @@ Rectangle{
     signal releasedAction(int monitorIndex)
     signal dragAndMoveAction(int monitorIndex)
 
-    property string displayName: monitorObject.name
+    property string displayName: getDisplayMonitorName(monitorObject)
     property real scaleFactor: scaleFactorAndPadding[0]
     property real xPadding: scaleFactorAndPadding[1]
     property real yPadding: scaleFactorAndPadding[2]
@@ -67,10 +67,12 @@ Rectangle{
         visible: pressed
     }
 
-    DssH3 {
+    DssH1 {
         id: nameText
         anchors.centerIn: parent
         text: displayName
+        font.bold: true
+        font.pixelSize: parent.width/8
     }
 
     DssH4 {
@@ -123,7 +125,7 @@ Rectangle{
         }
     }
 
-    DTextButton{
+    DTextAction{
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         text: "Split"

@@ -26,6 +26,7 @@ Column {
     property var messageBox: MessageBox{}
     property var dconstants: DConstants {}
     property var displayId: Display {}
+
     property var allMonitorsObjects: getAllMonitorsObj(displayId.monitors)
     property var openedMonitors: {
         var openedM = new Array()
@@ -36,6 +37,21 @@ Column {
         }
         return openedM
     }
+    property var monitorNameDict: new Object()
+
+    function getDisplayMonitorName(outputObj){
+        if(outputObj.isComposited){
+            var names = Object.keys(outputObj.brightness)
+            var numberNames = new Array()
+            for(var i in names){
+                numberNames.push(String(monitorNameDict[names[i]]))
+            }
+            return windowView.joinString(numberNames, "=")
+        }
+        else{
+            return monitorNameDict[outputObj.name]
+        }
+    }
 
     function displayChangesApply(){
         displayId.Apply()
@@ -43,12 +59,27 @@ Column {
     }
 
     function getAllMonitorsObj(monitors){
-            var monitorsObjects = new Array()
-            for(var i=0; i<monitors.length; i++){
-                var monitorObj = monitorComponent.createObject(displayModule, { path: monitors[i] })
-                monitorsObjects.push(monitorObj)
+        var monitorsObjects = new Array()
+        for(var i=0; i<monitors.length; i++){
+            var monitorObj = monitorComponent.createObject(displayModule, { path: monitors[i] })
+            monitorsObjects.push(monitorObj)
+            if(monitorObj.isComposited){
+                var names = Object.keys(monitorObj.brightness)
+                for(var i in names){
+                    var name = names[i]
+                    if(!monitorNameDict[name]){
+                        monitorNameDict[name] = Object.keys(monitorNameDict).length + 1
+                    }
+                }
             }
-            return monitorsObjects
+            else{
+                var name = monitorObj.name
+                if(!monitorNameDict[name]){
+                    monitorNameDict[name] = Object.keys(monitorNameDict).length + 1
+                }
+            }
+        }
+        return monitorsObjects
     }
     
     Component.onCompleted: {
@@ -141,7 +172,7 @@ Column {
                         var outputObj = allMonitorsObjects[i]
                         myModel.push({
                             "buttonId": outputObj,
-                            "buttonLabel": outputObj.name
+                            "buttonLabel": " " + getDisplayMonitorName(outputObj) + " "
                         })
                     }
                     return myModel
