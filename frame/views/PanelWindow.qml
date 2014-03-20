@@ -32,12 +32,13 @@ Window {
         }
     }
 
-    function hideTrayIcon() {
+    function hideTrayIcon(quit) {
         if(clickedToHide){
             if(!hideAll.running){
                 if(showAll.running){
                     showAll.stop()
                 }
+                hideAll.quit = quit
                 hideAll.start()
             }
         }
@@ -72,10 +73,15 @@ Window {
         properties: "displayWidth"
         to: 0
 
+        property bool quit: false
+
         onStopped: {
             rootWindow.width = 0
             rootWindow.hide()
             timeoutQuit.restart()
+            if(quit){
+                Qt.quit()
+            }
         }
     }
 

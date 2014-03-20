@@ -16,13 +16,6 @@ Item {
     property var displayId: Display {}
     property var toolTip: ToolTip {}
 
-    //property var xmouseAreaId: XMouseArea {
-        //onMotionCoordinate: {
-            ////print(arg0, arg1, arg2, arg3)
-        //}
-    //}
-
-
     QtObject {
         id: screenSize
         property int x: displayId.primaryRect[0]
@@ -30,17 +23,6 @@ Item {
         property int width: displayId.primaryRect[2]
         property int height: displayId.primaryRect[3]
     }
-
-    //property int showAreaId: {
-        //var x1 = screenSize.x + screenSize.width - 30
-        //var x2 = screenSize.x + screenSize.width
-        //var y1 = screenSize.y + screenSize.height - 30
-        //var y2 = screenSize.y + screenSize.height
-        //print("RegisterArea:", x1, x2, y1, y2)
-        //var areaId = xmouseAreaId.RegisterArea([(x1, x2, y1, y2)])
-        //print("AreaId:", areaId)
-        //return areaId
-    //}
 
     DLocale {
         id: dsslocale
@@ -71,7 +53,7 @@ Item {
         running: false
         interval: 2000
         onTriggered: {
-            rootWindow.hideTrayIcon()
+            rootWindow.hideTrayIcon(true)
         }
     }
 
@@ -92,18 +74,18 @@ Item {
     }
 
     function hideDss(){
-        rootWindow.hideTrayIcon()
+        rootWindow.hideTrayIcon(false)
     }
 
     function outerAreaClicked(mousex, mousey){
         if (clickedToHide){
             if ((rootWindow.displayWidth == trayWidth) && (
                 !in_visible_area(mousex, mousey))) {
-                rootWindow.hideTrayIcon()
+                rootWindow.hideTrayIcon(false)
             }
             else if ((rootWindow.displayWidth == panelWidth) && (
                 !in_visible_area(mousex, mousey))) {
-                rootWindow.hideTrayIcon()
+                rootWindow.hideTrayIcon(false)
             }
         }
     }
