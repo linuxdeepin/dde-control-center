@@ -17,13 +17,13 @@ Rectangle {
 
     function indexToLabel(idx) {
         switch (idx) {
-            case 0: return "0m"; break
-            case 1: return "5m"; break
-            case 2: return "10m"; break
-            case 3: return "15m"; break
-            case 4: return "20m"; break
-            case 5: return "25m"; break
-            case 6: return "30m"
+            case 0: return "0s"; break
+            case 1: return "5s"; break
+            case 2: return "10s"; break
+            case 3: return "15s"; break
+            case 4: return "20s"; break
+            case 5: return "25s"; break
+            case 6: return "30s"
         }
     }
 
@@ -53,6 +53,7 @@ Rectangle {
 
     Item {
         id: title_row
+        z: 3
         width: parent.width
         height: title.height
 

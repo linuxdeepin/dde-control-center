@@ -1,30 +1,23 @@
 import QtQuick 2.1
 import DBus.Com.Deepin.Daemon.Grub2 1.0
+import DBus.Com.Deepin.Daemon.Display 1.0
 
 Item {
     id: root
-    width: 300
-    height: 300
+    width: 310
+    height: dbus_display.screenHeight / dbus_display.screenWidth * width
 
+    Display { id: dbus_display }
     Grub2 { id: dbus_grub2 }
     Theme { id: dbus_grub2_theme }
 
     Image {
         id: background
-        smooth: true
-        width: parent.width
-        height: width * sourceSize.height / sourceSize.width
+        asynchronous: true
         source: dbus_grub2_theme.background
+        anchors.fill: parent
 
         property real scaleRatio: width / sourceSize.width
-
-        Component.onCompleted: {
-            root.width = width
-            root.height = height
-
-            print(sourceSize.width)
-            print(sourceSize.height)
-        }
 
         Connections {
             target: dbus_grub2_theme
@@ -54,21 +47,25 @@ Item {
             anchors.leftMargin: 50
             anchors.topMargin: 50
 
-            highlight: Rectangle { color: Qt.rgba(1, 1, 1, 0.3); radius: 2 }
+            highlight: Rectangle { color: Qt.rgba(1, 1, 1, 0.1); radius: 2 }
 
             model: ListModel {}
             delegate: Item {
-                width: 160
+                width: 220
                 height: entry_name.implicitHeight + 4
+                clip: true
 
                 Text {
                     id: entry_name
                     text: itemTitle
                     font.pixelSize: 7
+                    elide: Text.ElideRight
                     color: itemTitle == dbus_grub2.defaultEntry ? dbus_grub2_theme.selectedItemColor : dbus_grub2_theme.itemColor
 
                     anchors.left: parent.left
+                    anchors.right: parent.right
                     anchors.leftMargin: 20
+                    anchors.rightMargin: 20
                     anchors.verticalCenter: parent.verticalCenter
                 }
             }
