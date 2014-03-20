@@ -42,6 +42,7 @@ DISPLAY_DBUS_INTERFACE = DISPLAY_DBUS_SERVICE
 
 session_bus = QDBusConnection.sessionBus()
 
+'''
 from Xlib import X, display
 from Xlib.ext import record
 from Xlib.protocol import rq
@@ -77,6 +78,7 @@ def check_valid_event(reply):
         return
     if not len(reply.data) or ord(reply.data[0]) < 2:
         return
+'''
 
 def connect_to_primary_changed(method):
     session_bus.connect(
@@ -86,6 +88,7 @@ def connect_to_primary_changed(method):
             "PrimaryChanged",
             method)
 
+'''
 class RecordEvent(QThread):
 
     enter_mouse_area = pyqtSignal()
@@ -148,3 +151,4 @@ class RecordEvent(QThread):
     def run(self):
         record_event(self.record_callback)
 
+'''

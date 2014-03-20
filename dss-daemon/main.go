@@ -27,109 +27,134 @@ package main
 import "C"
 
 import (
-	"dlib/dbus"
-	dlogger "dlib/logger"
-	"os"
-	"sync"
+    "dbus/com/deepin/daemon/display"
+    "dbus/com/deepin/dss"
+    "dlib/dbus"
+    dlogger "dlib/logger"
+    "os"
+    "sync"
 )
+
+var dbusDss *dss.Dss
+var ddisplay *display.Display
+
+const EmitAreaWidth = 30
 
 var logger = dlogger.NewLogger("dde-api/mousearea")
 
-type Manager struct {
-	ButtonCoordinate   func(string, int32, int32, int32)
-	KeyboardCoordinate func(string, int32, int32, int32)
-	CancleAllArea      func(int32, int32, int32)
-}
-
-func (m *Manager) GetDBusInfo() dbus.DBusInfo {
-	return dbus.DBusInfo{
-		"com.deepin.dss.daemon",
-		"/com/deepin/dss/daemon",
-		"com.deepin.dss.daemon",
-	}
-}
-
 type coordinateInfo struct {
-	areas    []coordinateRange
-	moveFlag int32
+    areas    []coordinateRange
+    moveFlag int32
 }
 
 var (
-	opMouse    *Manager
-	lock       sync.Mutex
-	idRangeMap map[int32]*coordinateInfo
+    opMouse    *Manager
+    lock       sync.Mutex
+    idRangeMap = make(map[int32]*coordinateInfo)
 
-	genID = func() func() int32 {
-		id := int32(0)
-		return func() int32 {
-			lock.Lock()
-			tmp := id
-			id += 1
-			lock.Unlock()
-			return tmp
-		}
-	}()
+    genID = func() func() int32 {
+        id := int32(0)
+        return func() int32 {
+            lock.Lock()
+            tmp := id
+            id += 1
+            lock.Unlock()
+            return tmp
+        }
+    }()
+
+    rightBottomCornerId int32
+    primaryRect         []interface{}
 )
 
 func (op *Manager) RegisterArea(area []coordinateRange) int32 {
-	cookie := genID()
-	idRangeMap[cookie] = &coordinateInfo{areas: area, moveFlag: -1}
+    cookie := genID()
+    idRangeMap[cookie] = &coordinateInfo{areas: area, moveFlag: -1}
 
-	return cookie
+    return cookie
 }
 
 func (op *Manager) UnregisterArea(cookie int32) {
-	delete(idRangeMap, cookie)
+    delete(idRangeMap, cookie)
 }
 
 func NewManager() *Manager {
-	return &Manager{}
+    return &Manager{}
 }
 
 func stringInSlice(a string, list []string) bool {
-	for _, b := range list {
-		if b == a {
-			return true
-		}
-	}
-	return false
+    for _, b := range list {
+        if b == a {
+            return true
+        }
+    }
+    return false
+}
+
+func initDssDbus() {
+    var err error
+    dbusDss, err = dss.NewDss("com.deepin.Dss", "/com/deepin/Dss")
+    if err != nil {
+        logger.Error("Start dss Failed:", err)
+        panic(err)
+    }
+    dbusDss.Show(2)
+}
+
+func initDDisplay() {
+    var err error
+    ddisplay, err = display.NewDisplay("com.deepin.daemon.Display", "/com/deepin/daemon/Display")
+    if err != nil {
+        logger.Error("display Failed:", err)
+        panic(err)
+    }
+    primaryRect = ddisplay.PrimaryRect.Get()
+}
+
+func resetEmitRectangle(primaryRect []interface{}) {
+    cancleAllReigsterArea()
+    screenWidth := int32(primaryRect[2].(uint16))
+    screenHeight := int32(primaryRect[3].(uint16))
+    logger.Debug("screenWidth = %v", screenWidth)
+    logger.Debug("screenHeight = %v", screenHeight)
+    tmp := coordinateRange{X1: screenWidth - EmitAreaWidth, X2: screenWidth, Y1: screenHeight - EmitAreaWidth, Y2: screenHeight}
+    rightBottomCornerId = opMouse.RegisterArea([]coordinateRange{tmp})
 }
 
 func main() {
-	defer func() {
-		if err := recover(); err != nil {
-			logger.Error("recover error:", err)
-		}
-	}()
+    defer func() {
+        if err := recover(); err != nil {
+            logger.Error("recover error:", err)
+        }
+    }()
 
-	// configure logger
-	logger.SetRestartCommand("/usr/lib/deepin-api/mousearea", "--debug")
-	if stringInSlice("-d", os.Args) || stringInSlice("--debug", os.Args) {
-		logger.SetLogLevel(dlogger.LEVEL_DEBUG)
-	}
+    // configure logger
+    logger.SetRestartCommand("/usr/lib/go/bin/dss-daemon", "--debug")
+    if stringInSlice("-d", os.Args) || stringInSlice("--debug", os.Args) {
+        logger.SetLogLevel(dlogger.LEVEL_DEBUG)
+    }
 
-	idRangeMap = make(map[int32]*coordinateInfo)
-	opMouse = NewManager()
-	err := dbus.InstallOnSession(opMouse)
-	if err != nil {
-		logger.Error("Install DBus Session Failed:", err)
-		panic(err)
-	}
+    initDssDbus()
+    initDDisplay()
+    resetEmitRectangle(primaryRect)
 
-	dbus.DealWithUnhandledMessage()
-	cancleAllReigsterArea()
-	tmp := coordinateRange{X1: 1336, X2: 1366, Y1: 738, Y2: 768}
-	opMouse.RegisterArea([]coordinateRange{tmp})
-	tmp2 := coordinateRange{X1: 0, X2: 1006, Y1: 0, Y2: 768}
-    opMouse.RegisterArea([]coordinateRange{tmp2})
-	C.record_init()
-	defer C.record_finalize()
+    ddisplay.ConnectPrimaryChanged(resetEmitRectangle)
+    opMouse = NewManager()
+    err := dbus.InstallOnSession(opMouse)
+    if err != nil {
+        logger.Error("Install DBus Session Failed:", err)
+        panic(err)
+    }
 
-	//select {}
-	if err = dbus.Wait(); err != nil {
-		logger.Error("lost dbus session:", err)
-		os.Exit(1)
-	} else {
-		os.Exit(0)
-	}
+    dbus.DealWithUnhandledMessage()
+    C.record_init()
+    defer C.record_finalize()
+
+    //select {}
+    if err = dbus.Wait(); err != nil {
+        logger.Error("lost dbus session:", err)
+        os.Exit(1)
+    } else {
+        os.Exit(0)
+    }
 }

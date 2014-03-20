@@ -91,6 +91,10 @@ Item {
         rootWindow.showAllImmediately()
     }
 
+    function hideDss(){
+        rootWindow.hideTrayIcon()
+    }
+
     function outerAreaClicked(mousex, mousey){
         if (clickedToHide){
             if ((rootWindow.displayWidth == trayWidth) && (
@@ -107,10 +111,10 @@ Item {
     function in_visible_area(mousex, mousey){
         var width = rootWindow.displayWidth
         var height = rootWindow.height
-        if ((mousex > screenSize.x + screenSize.width - width) && (
-        mousex < screenSize.x + screenSize.width) && (
-        mousey > screenSize.y + screenSize.height - height) && (
-        mousey < screenSize.y + screenSize.height)){
+        if ((mousex >= screenSize.x + screenSize.width - width) && (
+        mousex <= screenSize.x + screenSize.width) && (
+        mousey >= screenSize.y + screenSize.height - height) && (
+        mousey <= screenSize.y + screenSize.height)){
             return true
         }
         else {

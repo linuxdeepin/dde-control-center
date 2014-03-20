@@ -62,7 +62,7 @@ def main():
         else:
             panel.view_object.showModule(order)
 
-    panel.record_event.start()
+    #panel.record_event.start()
 
     DBusService(panel)
     session_bus.registerObject(APP_OBJECT_PATH, panel)

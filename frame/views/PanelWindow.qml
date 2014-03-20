@@ -55,6 +55,16 @@ Window {
         rootWindow.displayWidth = 0
     }
 
+    Timer {
+        id: timeoutQuit
+        running: false
+        repeat: false
+        interval: 1000 * 60 * 30
+        onTrigerred: {
+            Qt.quit()
+        }
+    }
+
     PropertyAnimation {
         id: hideAll
         duration: 150
@@ -65,6 +75,7 @@ Window {
         onStopped: {
             rootWindow.width = 0
             rootWindow.hide()
+            timeoutQuit.restart()
         }
     }
 
@@ -78,6 +89,9 @@ Window {
         onStarted: {
             rootWindow.width = panelWidth + 16
             rootWindow.show()
+            if(timeoutQuit.running){
+                timeoutQuit.stop()
+            }
         }
     }
 

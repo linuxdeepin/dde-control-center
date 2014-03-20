@@ -30,7 +30,7 @@ from PyQt5.QtGui import QSurfaceFormat, QColor
 from PyQt5.QtQuick import QQuickView
 from PyQt5.QtDBus import QDBusMessage, QDBusReply, QDBusAbstractAdaptor
 
-from display_monitor import RecordEvent, connect_to_primary_changed
+from display_monitor import connect_to_primary_changed
 from constants import ROOT_LOCATION, PANEL_WIDTH
 from constants import APP_DBUS_NAME
 from modules_info import ModulesId
@@ -63,12 +63,18 @@ class DBusService(QDBusAbstractAdaptor):
 
     Q_CLASSINFO("D-Bus Introspection", """
             '  <interface name="%s">\n'
-            '    <method name="show">\n'
+            '    <method name="Show">\n'
             '      <arg direction="in" type="i" name="seconds"/>\n'
-            '    </method>
-            '    <method name="showModule">\n'
+            '    </method>\n'
+            '    <method name="ShowModule">\n'
             '      <arg direction="in" type="s" name="moduleName"/>\n'
-            '    </method>
+            '    </method>\n'
+            '    <method name="ClickToHide">\n'
+            '      <arg direction="in" type="i" name="mouseX"/>\n'
+            '      <arg direction="in" type="i" name="mouseY"/>\n'
+            '    </method>\n'
+            '    <method name="Hide">\n'
+            '    </method>\n'
             '  </interface>\n'
             """ % APP_DBUS_NAME)
 
@@ -77,12 +83,20 @@ class DBusService(QDBusAbstractAdaptor):
         self.setAutoRelaySignals(True)
 
     @pyqtSlot(int)
-    def show(self, seconds):
+    def Show(self, seconds):
         self.parent().show(seconds)
 
     @pyqtSlot(str)
-    def showModule(self, moduleName):
+    def ShowModule(self, moduleName):
         self.parent().view_object.showModule(moduleName)
+
+    @pyqtSlot()
+    def Hide(self):
+        self.parent().view_object.hideDss()
+    
+    @pyqtSlot(int, int)
+    def ClickToHide(self, mouseX, mouseY):
+        self.parent().view_object.outerAreaClicked(mouseX, mouseY)
 
 class ControlPanel(QQuickView):
 
@@ -101,7 +115,7 @@ class ControlPanel(QQuickView):
                 )
         self.setResizeMode(QQuickView.SizeRootObjectToView)
         self.setFormat(surface_format)
-        self.record_event = RecordEvent(self)
+        #self.record_event = RecordEvent(self)
         self.set_all_contexts()
         self.setSource(QUrl.fromLocalFile(os.path.join(
             ROOT_LOCATION, 'frame', 'views', 'Main.qml')))
@@ -122,8 +136,8 @@ class ControlPanel(QQuickView):
 
     def connect_all_object_function(self):
         self.view_object = self.rootObject()
-        self.record_event.enter_mouse_area.connect(lambda :self.view_object.showDss(0))
-        self.record_event.click_outer_area.connect(self.view_object.outerAreaClicked)
+        #self.record_event.enter_mouse_area.connect(lambda :self.view_object.showDss(0))
+        #self.record_event.click_outer_area.connect(self.view_object.outerAreaClicked)
 
     def set_geometry(self, rect):
         x, y, width, height = rect
