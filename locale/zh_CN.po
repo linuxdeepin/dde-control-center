@@ -588,7 +588,7 @@ msgstr "重置"
 
 #: ../modules/power/main.qml:248
 msgid "Custom"
-msgstr ""
+msgstr "自定义"
 
 #: ../modules/power/main.qml:119
 msgid "Ask"
@@ -596,15 +596,15 @@ msgstr "询问"
 
 #: ../modules/power/main.qml:140
 msgid "When I close the lid"
-msgstr ""
+msgstr "合上笔记本盖子"
 
 #: ../modules/power/main.qml:197
 msgid "Requires a password"
-msgstr ""
+msgstr "需要密码"
 
 #: ../modules/power/main.qml:201
 msgid "Without a password"
-msgstr ""
+msgstr "不需要密码"
 
 #: ../modules/power/main.qml:222
 msgid "Power plan"
