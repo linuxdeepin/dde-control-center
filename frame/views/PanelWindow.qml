@@ -60,7 +60,7 @@ Window {
         running: false
         repeat: false
         interval: 1000 * 60 * 30
-        onTrigerred: {
+        onTriggered: {
             Qt.quit()
         }
     }
