@@ -5,6 +5,7 @@ import Deepin.Widgets 1.0
 import DBus.Com.Deepin.SessionManager 1.0
 import DBus.Com.Deepin.Daemon.Accounts 1.0
 import DBus.Com.Deepin.Daemon.InputDevices 1.0
+import DBus.Com.Deepin.Daemon.Network 1.0
 
 Rectangle {
     id: panelContent
@@ -27,6 +28,17 @@ Rectangle {
 
     property bool isSiderNavigate: false
     property string currentContentId: ""
+
+    property var passwordWindow: WifiPasswordWindow {}
+    property var dbusNetwork: NetworkManager{
+        onNeedSecrets:{
+            print("******", arg0, arg1, arg2)
+            passwordWindow.accessPointObj = arg0
+            passwordWindow.accessPointEncryption = arg1
+            passwordWindow.accessPointName = arg2
+            passwordWindow.showDialog()
+        }
+    }
 
     property var iconIdToIndex
     property color tuhaoColor: "#faca57"

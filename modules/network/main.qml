@@ -4,24 +4,23 @@ import QtQuick.Layouts 1.0
 import DBus.Com.Deepin.Daemon.Network 1.0
 import Deepin.Widgets 1.0
 
-Item {
+Column{
     id:root
     property Item currenItem: ListConnections {}
-    //property Item currenItem: Info {width: root.width}
     property variant nm: NetworkManager{}
 
     DBaseLine {
         id:header
         height: 50
         leftLoader.sourceComponent: DLabel {
-                text: dsTr("Network Settings")
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        stackView.pop(null)
-                    }
+            text: dsTr("Network Settings")
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    stackView.pop(null)
                 }
             }
+        }
         rightLoader.sourceComponent: Row {
             DTextButton {
                 text: dsTr("Create Connections")
@@ -39,9 +38,10 @@ Item {
         }
     }
 
+    DSeparatorHorizontal{}
+
     StackView {
         id:stackView
-        anchors.top: header.bottom
         initialItem: currenItem
     }
 }
