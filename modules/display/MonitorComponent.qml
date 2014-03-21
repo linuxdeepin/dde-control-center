@@ -19,7 +19,7 @@ Rectangle{
     signal releasedAction(int monitorIndex)
     signal dragAndMoveAction(int monitorIndex)
 
-    property string displayName: getDisplayMonitorName(monitorObject)
+    property string displayName: monitorObject.name
     property real scaleFactor: scaleFactorAndPadding[0]
     property real xPadding: scaleFactorAndPadding[1]
     property real yPadding: scaleFactorAndPadding[2]
@@ -72,7 +72,7 @@ Rectangle{
         anchors.centerIn: parent
         text: displayName
         font.bold: true
-        font.pixelSize: parent.width/8
+        font.pixelSize: parent.width/12
     }
 
     DssH4 {

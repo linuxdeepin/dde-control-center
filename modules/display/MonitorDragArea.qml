@@ -9,10 +9,14 @@ Rectangle {
     clip: true
 
     property int adsorptionValue: 3
-
     property bool editable: false
 
+    property int openedMonitorNumber: openedMonitors.length
     property var scaleFactorAndPadding: getScaleFactorAndPadding(openedMonitors)
+
+    onOpenedMonitorNumberChanged: {
+        resetAllPosition()
+    }
 
     property var monitorsViews: {
         var views = new Array()
