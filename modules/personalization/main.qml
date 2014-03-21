@@ -3,8 +3,11 @@ import DBus.Com.Deepin.Daemon.Themes 1.0
 import Deepin.Widgets 1.0
 
 Item {
-    id: personalization
+    id: personalizationModule
     anchors.fill: parent
+
+    property int cellWidth: 144
+    property int cellHeight: 112
 
     property var constants: DConstants {}
     property var listModelComponent: DListModelComponent {}
@@ -16,11 +19,11 @@ Item {
     property var dbusPreviewPath: PreviewPath{ path: "/com/deepin/daemon/ThemeManager" }
     property var currentThemeObject: {
         var path = dbusThemeManager.GetPathViaName(dbusThemeManager.currentTheme)
-        var obj = themeComponent.createObject(personalization, { path: path[0] })
+        var obj = themeComponent.createObject(personalizationModule, { path: path[0] })
         return obj
     }
 
-    property var previewsPics: {
+    function getPreviewPictures() {
         var pics = new Array()
 
         var currentThemePreviewPath = currentThemeObject.previewPath
@@ -42,7 +45,7 @@ Item {
             pics.push(currentIconThemePreviewPath)
         }
 
-        var currentCursorTheme = currentThemeObject.gtkCursorTheme
+        var currentCursorTheme = currentThemeObject.cursorTheme
         var currentCursorThemePreviewPath = dbusPreviewPath.CursorPath(currentCursorTheme)
         print("Cursor:", currentCursorTheme)
         if(currentCursorThemePreviewPath){
@@ -53,7 +56,6 @@ Item {
     }
 
     property var previewsWindow: PreviewWindow{
-        previews: previewsPics
         x: rootWindow.x - width
         y: rootWindow.y
     }
@@ -102,29 +104,29 @@ Item {
             }
 
             content.sourceComponent: Item {
-                width: personalization.width
-                height: themeList.height
+                width: personalizationModule.width
+                height: themeView.height
 
                 GridView {
-                    id: themeList
+                    id: themeView
                     anchors.horizontalCenter: parent.horizontalCenter
                     width: parent.width - 22
                     height: childrenRect.height
 
-                    cellWidth: 144
-                    cellHeight: 112
+                    cellWidth: personalizationModule.cellWidth
+                    cellHeight: personalizationModule.cellHeight
 
                     property string currentItemName: dbusThemeManager.currentTheme
 
                     function selectItem(itemValue){
-                        dbusThemeManager.currentTheme = itemValue
+                        dbusThemeManager.SetCurrentTheme(itemValue)
                     }
 
                     model: {
                         var myModel = listModelComponent.createObject(themeList, {})
                         var themeList = dbusThemeManager.themeList
                         for(var i in themeList){
-                            var themeObj = themeComponent.createObject(personalization, { path: themeList[i] })
+                            var themeObj = themeComponent.createObject(personalizationModule, { path: themeList[i] })
 
                             if(themeObj.name == "Custom"){
                                 var thumbnailPath = themeObj.backgroundFile
@@ -144,12 +146,12 @@ Item {
                     }
 
                     delegate: ThemeItem{
-                        width: themeList.cellWidth
-                        height: themeList.cellHeight
-                        selectedItemValue: themeList.currentItemName
+                        width: cellWidth
+                        height: cellHeight
+                        selectedItemValue: themeView.currentItemName
 
                         onSelectAction: {
-                            themeList.selectItem(itemValue)
+                            themeView.selectItem(itemValue)
                         }
 
                         onPreviewAction:{
@@ -184,7 +186,7 @@ Item {
             }
 
             content.sourceComponent: Item {
-                width: personalization.width
+                width: personalizationModule.width
                 height: childrenRect.height
 
                 ComponentThemeView {
@@ -240,7 +242,7 @@ Item {
             }
 
             content.sourceComponent: Item {
-                width: personalization.width
+                width: personalizationModule.width
                 height: childrenRect.height
 
                 ComponentThemeView {
@@ -249,7 +251,7 @@ Item {
                     width: parent.width - 22
                     height: childrenRect.height
 
-                    property string currentItemName: currentThemeObject.gtkCursorTheme
+                    property string currentItemName: currentThemeObject.cursorTheme
 
                     function selectItem(itemValue){
                         dbusThemeManager.SetGtkCursorTheme(itemValue)
@@ -296,10 +298,43 @@ Item {
             }
 
             content.sourceComponent: Item {
-                width: personalization.width
+                width: personalizationModule.width
                 height: childrenRect.height
-                
+
+                GridView {
+                    id: wallpapperView
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width - 22
+                    height: childrenRect.height
+
+                    cellWidth: personalizationModule.cellWidth
+                    cellHeight: personalizationModule.cellHeight - 14
+
+                    property string currentItemName: currentThemeObject.backgroundFile
+
+                    function selectItem(itemValue){
+                        dbusThemeManager.SetBackgroundFile(itemValue)
+                    }
+
+                    model: dbusThemeManager.backgroundList
+
+                    delegate: WallpapperItem {
+                        width: cellWidth
+                        height: cellHeight - 14
+                        selectedItemValue: wallpapperView.currentItemName
+
+                        onSelectAction: {
+                            wallpapperView.selectItem(itemValue)
+                        }
+
+                        onPreviewAction:{
+                            previewsWindow.showWindow()
+                        }
+                    }
+
+                }
             }
+
         }
 
         DSeparatorHorizontal {}
@@ -325,7 +360,7 @@ Item {
             }
 
             content.sourceComponent: Item {
-                width: personalization.width
+                width: personalizationModule.width
                 height: childrenRect.height
                 
                 ComponentThemeView {
@@ -381,7 +416,7 @@ Item {
             }
 
             content.sourceComponent: Item {
-                width: personalization.width
+                width: personalizationModule.width
                 height: childrenRect.height
                 
             }

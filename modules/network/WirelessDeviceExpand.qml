@@ -10,6 +10,7 @@ DBaseExpand {
 
     property variant dev
     property variant accessPoints : nm.GetAccessPoints(dev[0])
+    property bool freshPoints: false
 
     expanded: dev[1] != 20
     header.sourceComponent: DSwitchButtonHeader {
@@ -25,7 +26,7 @@ DBaseExpand {
         height: childrenRect.height
         ListView {
             width: parent.width
-            height: 600
+            height: childrenRect.height
             model: c2.accessPoints
             delegate: WirelessItem {}
             Component.onCompleted: {
@@ -38,7 +39,8 @@ DBaseExpand {
         running: c2.expanded
         interval: 1000
         onTriggered : {
-            c2.accessPoints = nm.GetAccessPoints(dev[0])
+            if (freshPoints)
+                c2.accessPoints = nm.GetAccessPoints(dev[0])
         }
     }
 }

@@ -5,9 +5,20 @@ import DBus.Com.Deepin.Daemon.Network 1.0
 import Deepin.Widgets 1.0
 
 Column{
-    id:root
-    property Item currenItem: ListConnections {}
+    id: networkModule
+    width: parent.width
+    height: parent.height
+
     property variant nm: NetworkManager{}
+
+    signal needSecretsEmit(string path, string encryptionName, string accessPointName)
+    property bool inPasswordInputting: false
+
+    property bool inAllConnectionPage: stackView.depth == 1
+    property Item allConnectionPage: ListConnections {
+        width: parent.width
+        height: parent.height - header.height - 2
+    }
 
     DBaseLine {
         id:header
@@ -42,6 +53,6 @@ Column{
 
     StackView {
         id:stackView
-        initialItem: currenItem
+        initialItem: allConnectionPage
     }
 }

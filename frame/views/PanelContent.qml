@@ -32,11 +32,17 @@ Rectangle {
     property var passwordWindow: WifiPasswordWindow {}
     property var dbusNetwork: NetworkManager{
         onNeedSecrets:{
-            print("******", arg0, arg1, arg2)
-            passwordWindow.accessPointObj = arg0
-            passwordWindow.accessPointEncryption = arg1
-            passwordWindow.accessPointName = arg2
-            passwordWindow.showDialog()
+            if(currentContentId == "network"
+            && rightBoxLoader.item.inAllConnectionPage){
+                rightBoxLoader.item.needSecretsEmit(arg0, arg1, arg2)
+                print(arg0)
+            }
+            else{
+                passwordWindow.accessPointObj = arg0
+                passwordWindow.accessPointEncryption = arg1
+                passwordWindow.accessPointName = arg2
+                passwordWindow.showDialog()
+            }
         }
     }
 

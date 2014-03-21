@@ -2,42 +2,72 @@ import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
 import Deepin.Widgets 1.0
+import "../shared/"
 
-Column {
+Item {
     width: parent.width
+    height: childrenRect.height
+
+    Behavior on height {
+        PropertyAnimation { duration: 100 }
+    }
 
     DBaseLine {
+        id: wirelessLine
+
+        property bool hovered: false
+        property bool selected: false
+
         MouseArea{
             z:-1
             anchors.fill:parent
+            hoverEnabled: true
+            visible: !networkModule.inPasswordInputting
+
+            onEntered: {
+                parent.hovered = true
+            }
+
+            onExited: {
+                parent.hovered = false
+            }
+
             onClicked: {
-                print("***********")
-                print("Device:", dev[0])
-                print("AccessPoint:", accessPoints[index][3])
-                print("***********")
                 nm.ActiveAccessPoint(dev[0], accessPoints[index][3])
             }
         }
         color: dconstants.contentBgColor
 
-        leftLoader.sourceComponent: Row {
+        leftLoader.sourceComponent: Item {
             height: childrenRect.height
             anchors.verticalCenter: parent.verticalCenter
-            spacing: 4
 
             DImageButton {
-                visible: accessPoints[index][4]
+                anchors.left: parent.left
                 normal_image: "img/check_1.png"
                 hover_image: "img/check_2.png"
+                visible: accessPoints[index][4]
                 onClicked: {
-                    print("Try disconnect", dev[0])
                     nm.DisconnectDevice(dev[0])
                 }
             }
 
             DLabel {
+                anchors.left: parent.left
+                anchors.leftMargin: 18
                 verticalAlignment: Text.AlignVCenter
                 text: accessPoints[index][0]
+                color: {
+                    if(wirelessLine.selected){
+                        return dconstants.activeColor
+                    }
+                    else if(wirelessLine.hovered){
+                        return dconstants.hoverColor
+                    }
+                    else{
+                        return dconstants.fgColor
+                    }
+                }
             }
         }
 
@@ -75,35 +105,111 @@ Column {
         }
     }
 
-    DBaseLine {
-        id:password
-        property string conn
-        visible: false
-        leftLoader.sourceComponent: DLabel {
-            text: dsTr("PassWord")
+    Item{
+        id: passwordArea
+        anchors.top: wirelessLine.bottom
+        anchors.topMargin: 0 - arrowRectBackground.arrowHeight
+        width: parent.width
+        height: 0
+        property int realHeight: childrenRect.height
+        clip: true
+
+        property string path: nm.GetConnectionByAccessPoint(accessPoints[index][3])[1]
+        property string encryptionName: ""
+
+        function showArea(encryptionName){
+            encryptionName = encryptionName
+            height = realHeight
+            networkModule.inPasswordInputting = true
         }
-        rightLoader.sourceComponent: TextField {
-            width: 200
-            onAccepted: {
-                print("Try Active...")
-                visible= false
-                nm.SetKey(password.conn,  text)
-            }
+
+        function cancelAction(){
+            height = 0
+            networkModule.inPasswordInputting = false
+        }
+
+        function connectAction(){
+            cancelAction()
+            dbusNetwork.FeedSecret(path, encryptionName, passwordInput.text)
         }
 
         Connections {
-            target: nm
-            onNeedSecrets: {
-                //password.conn = nm.GetConnectionByAccessPoint(accessPoints[index][3])[1]
-                //if (password.conn == arg0) {
-                    //password.visible = true
-                    //print("HAHAHAHAHAHAH", parent)
-                //} else {
-                    //print("HandleNeedMoreConfigure:", arg0, arg1, password.conn)
-                //}
+            target: networkModule
+            onNeedSecretsEmit: {
+                if(passwordArea.path == path){
+                    passwordArea.showArea(encryptionName)
+                }
+            }
+        }
+
+        ArrowRect{
+            id: arrowRectBackground
+            anchors.fill: parent
+            fillStyle: dconstants.bgColor
+            stroke: false
+            radius: 0
+            lineWidth: 0
+            arrowPosition: 0.15
+        }
+
+        Row{
+            id: passwordInputArea
+            anchors.top: parent.top
+            anchors.topMargin: arrowRectBackground.arrowHeight + 18
+            anchors.left: parent.left
+            anchors.leftMargin: 30
+            height: childrenRect.height
+            spacing: 10
+
+            DssH2 {
+                text: "Password: "
+            }
+
+            Column{
+                DTextInput{
+                    id: passwordInput
+                    echoMode: showPasswordButton.checked ? TextInput.Normal : TextInput.Password
+                }
+                Row{
+                    spacing: 6
+
+                    DSwitchButton{
+                        id: showPasswordButton
+                    }
+
+                    DssH3{
+                        text: "Show password"
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                }
+            }
+        }
+
+        Row{
+            anchors.top: passwordInputArea.bottom
+            anchors.right: parent.right
+            anchors.rightMargin: 15
+            height: childrenRect.height
+            spacing: 10
+
+            DTextButton{
+                text: "Cancel"
+                onClicked: {
+                    passwordArea.cancelAction()
+                }
+            }
+
+            DTextButton{
+                text: "Connect"
+                onClicked: {
+                    passwordArea.connectAction()
+                }
             }
         }
     }
 
-    DSeparatorHorizontal{}
+    DSeparatorHorizontal{
+        anchors.top: wirelessLine.bottom
+        anchors.topMargin: passwordArea.height == 0 ? 0 : passwordArea.height - arrowRectBackground.arrowHeight
+    }
 }

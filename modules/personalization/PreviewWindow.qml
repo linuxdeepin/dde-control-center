@@ -56,26 +56,6 @@ Window {
             width: parent.width
             height: 30
             
-            MouseArea {
-                anchors.fill: parent
-
-                property int startX
-                property int startY
-                property bool holdFlag
-                onPressed: {
-                    startX = mouse.x;
-                    startY = mouse.y;
-                    holdFlag = true;
-                }
-                onReleased: holdFlag = false;
-                onPositionChanged: {
-                    if (holdFlag) {
-                        root.setX(root.x + mouse.x - startX)
-                        root.setY(root.y + mouse.y - startY)
-                    }
-                }
-            }
-
             DssH2 {
                 text: "Theme preview"
                 anchors.top: parent.top
