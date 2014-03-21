@@ -48,6 +48,14 @@ ListView {
             width: 310
             height: delete_line.height + component_sep.height
             property var this_user: User { path: userDBusPath}
+            
+            Timer {
+                id: to_edit_timer
+                interval: 300
+                onTriggered: {
+                    component_bg.state = "edit_dialog"
+                }
+            }
 
             Connections {
                 target: component_bg.ListView.view
@@ -55,6 +63,9 @@ ListView {
                 onHideAllPrivate: {
                     if (idx != index) {
                         component_bg.state = "invisible"
+                    }
+                    else {
+                        to_edit_timer.restart()
                     }
                 }
                 onShowAllPrivate: {
@@ -203,7 +214,7 @@ ListView {
 
                         onClicked: {
                             if (component_bg.state == "normal") {
-                                component_bg.state = "edit_dialog"
+                                /* component_bg.state = "edit_dialog" */
                                 root.hideAllPrivate(index)
                             } else {
                                 component_bg.state = "normal"
