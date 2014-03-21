@@ -14,6 +14,13 @@ GridView {
     signal avatarSet (url path)
     signal checkPrivate (int idx)
 
+    AvatarPickDialog {
+        id: avatar_pick_dialog
+        onAccepted: {
+            avatarSet(fileUrl)
+        }
+    }
+
     MouseArea {
         z: -1
         anchors.fill: parent
@@ -68,6 +75,8 @@ GridView {
                     if (checkSupport) {
                         avatar_icon_view.currentIndex = index
                         avatar_icon_view.forceActiveFocus()
+                    } else {
+                        avatar_pick_dialog.open()
                     }
                 }
 
