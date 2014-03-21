@@ -20,6 +20,7 @@ Rectangle {
     }
     
     function reset() {
+        round_image.imageSource = dbus_accounts.RandUserIcon()[0]
         user_name_input.focus = true
         user_name_input.text = ""
         password_input.text = ""
@@ -75,7 +76,7 @@ Rectangle {
             DRoundImage {
                 id: round_image
                 roundRadius: 25
-                imageSource: "/var/lib/AccountsService/icons/guest.jpg"
+                imageSource: dbus_accounts.RandUserIcon()[0]
 
                 property bool toggleFlag: false
 
@@ -333,6 +334,7 @@ Rectangle {
                                         userPassword: password_input.text,
                                         userAccountType: user_group_radio.currentIndex,
                                         userAutoLogin: auto_login_switch.checked,
+                                        userIconFile: round_image.imageSource.toString().substring(7),
                                         /* userFaceRecognition: face_recognition_switch.checked */ })
                     }
                 }

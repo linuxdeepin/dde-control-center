@@ -122,6 +122,7 @@ Rectangle {
                     /* // The user should be in a group named "nopasswdlogin" before we set his password, */
                     /* // but a fresh _new_ user is not in that group(weird), so we should set it first. */
                     dbus_user.SetPassword(userInfo.userPassword, "")
+                    dbus_user.SetIconFile(userInfo.userIconFile)
                     dbus_user.SetAccountType(userInfo.userAccountType)
                     dbus_user.SetAutomaticLogin(userInfo.userAutoLogin)
 

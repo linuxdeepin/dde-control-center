@@ -154,7 +154,7 @@ Item {
         }
 
         onInitialize: {
-            var allIcons = root_view.this_user.GetIconList()
+            var allIcons = root_view.this_user.iconList
             for (var i = 0; i < allIcons.length; i++) {
                 avatar_default_view.model.append({"avatarPath": allIcons[i]})
             }
