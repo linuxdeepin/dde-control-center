@@ -58,7 +58,7 @@ Rectangle {
 
     function getBatteryPercentage() {
         if (dbus_power.batteryIsPresent) {
-            return " (" + dbus_power.batteryPercentage + "%)"
+            return dbus_power.batteryPercentage + "%"
         } else {
             return ""
         }
@@ -71,9 +71,17 @@ Rectangle {
             width: parent.width
             height: title.height
 
-            DssTitle {
+            PowerTitle {
                 id: title
-                text: dsTr("Power") + root.getBatteryPercentage()
+                text: dsTr("Power")
+                hint: root.getBatteryPercentage()
+                breath: dbus_power.state != 1
+                /* | value | description                        | */
+                /* |     1 | battery is charging                | */
+                /* |     2 | battery is in use                  | */
+                /* |     3 | battery is not in use              | */
+                /* |     4 | battery is full, using AC directly | */
+                /* |       |                                    | */
             }
 
             DTextButton {
