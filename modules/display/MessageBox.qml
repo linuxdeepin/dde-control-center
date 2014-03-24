@@ -3,6 +3,7 @@ import QtQuick.Window 2.1
 import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Display 1.0
+import "../shared"
 
 Window {
     id: messageBox
@@ -13,7 +14,7 @@ Window {
     y: screenSize.y + (screenSize.height - height)/2
 
     width: 300
-    height: 140
+    height: 120
 
     function showDialog(){
         rootWindow.clickedToHide = false
@@ -50,26 +51,50 @@ Window {
         }
     }
 
-    DWindowFrame {
+    DialogBox {
         id: window
         anchors.fill: parent
+        radius: 5
 
-        Column{
-            width: parent.width - 30
-            anchors.centerIn: parent
-            spacing: 6
+        MouseArea {
+            anchors.fill: parent
 
-            DssH1{
-                color: "white"
-                text: dsTr("是否要保存这些显示设置？")
-                anchors.horizontalCenter: parent.horizontalCenter
+            property int startX
+            property int startY
+            property bool holdFlag
+            onPressed: {
+                startX = mouse.x;
+                startY = mouse.y;
+                holdFlag = true;
             }
-
-            DssH3{
-                color: "white"
-                text: dsTr("<font color='red'>%1</font> 秒之后还原之前的显示设置。").arg(countdown.totalTime)
-                anchors.horizontalCenter: parent.horizontalCenter
+            onReleased: holdFlag = false;
+            onPositionChanged: {
+                if (holdFlag) {
+                    messageBox.setX(messageBox.x + mouse.x - startX)
+                    messageBox.setY(messageBox.y + mouse.y - startY)
+                }
             }
+        }
+
+        DssH1{
+            id: messageLabel
+            anchors.top: parent.top
+            anchors.topMargin: 20
+            anchors.left: parent.left
+            anchors.leftMargin: 20
+            color: "white"
+            text: dsTr("是否要保存这些显示设置？")
+            font.pixelSize: 13
+        }
+
+        DssH3{
+            anchors.top: messageLabel.bottom
+            anchors.topMargin: 6
+            anchors.left: messageLabel.left
+
+            color: dconstants.fgColor
+            text: dsTr("<font color='#F48914'>%1</font> 秒之后还原之前的显示设置。").arg(countdown.totalTime)
+            font.pixelSize: 9
         }
 
         Row {
