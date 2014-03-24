@@ -228,7 +228,7 @@ Item {
                     property string currentItemName: currentThemeObject.cursorTheme
 
                     function selectItem(itemValue){
-                        dbusThemeManager.SetGtkCursorTheme(itemValue)
+                        dbusThemeManager.SetCursorTheme(itemValue)
                     }
 
                     model: {
