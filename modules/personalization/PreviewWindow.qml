@@ -1,15 +1,18 @@
 import QtQuick 2.1
+import QtGraphicalEffects 1.0
 import QtQuick.Window 2.1
 import Deepin.Widgets 1.0
+import QtQml.Models 2.1
 
 Window {
-    id: root
+    id: previewsWindow
 
     width: 300
     height: 500
-    flags: Qt.FramelessWindowHint
+    flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
     color: "transparent"
 
+    property var themeObject
     property int pointer: 0
     property var previews: [
         "/usr/share/backgrounds/default_background.jpg"
@@ -17,15 +20,52 @@ Window {
 
     property bool showPreviewWindow: false
 
-    function showWindow(){
-        root.show()
-        root.showPreviewWindow = true
+    function getPreviewPictures() {
+        var pics = new Array()
+
+        if (themeObject.name == "Custom"){
+            var currentThemePreviewPath = themeObject.backgroundFile
+        }
+        else{
+            var currentThemePreviewPath = themeObject.previewPath
+        }
+        if(currentThemePreviewPath){
+            pics.push(currentThemePreviewPath)
+        }
+
+        var currenGtkTheme = themeObject.gtkTheme
+        var currenGtkThemePreviewPath = dbusPreviewPath.GtkPath(currenGtkTheme)
+        if(currenGtkThemePreviewPath){
+            pics.push(currenGtkThemePreviewPath)
+        }
+
+        var currentIconTheme = themeObject.iconTheme
+        var currentIconThemePreviewPath = dbusPreviewPath.IconPath(currentIconTheme)
+        if(currentIconThemePreviewPath){
+            pics.push(currentIconThemePreviewPath)
+        }
+
+        var currentCursorTheme = themeObject.cursorTheme
+        var currentCursorThemePreviewPath = dbusPreviewPath.CursorPath(currentCursorTheme)
+        if(currentCursorThemePreviewPath){
+            pics.push(currentCursorThemePreviewPath)
+        }
+
+        return pics
+    }
+
+    function showWindow(themeObject){
+        print("Show theme previews:", themeObject.name)
+        previewsWindow.themeObject = themeObject
+        previewsWindow.previews = getPreviewPictures()
+        previewsWindow.show()
+        previewsWindow.showPreviewWindow = true
         rootWindow.clickedToHide = false
     }
 
     function hideWindow(){
-        root.hide()
-        root.showPreviewWindow = false
+        previewsWindow.hide()
+        previewsWindow.showPreviewWindow = false
         rootWindow.clickedToHide = true
     }
 
@@ -33,23 +73,19 @@ Window {
         if (pointer > 0) {
             pointer--
         }
-        else{
-            pointer = previews.length - 1
-        }
-        preview_image.source = previews[pointer]
     }
 
     function showNext() {
         if (pointer < previews.length -1) {
             pointer++
         }
-        else{
-            pointer = 0
-        }
-        preview_image.source = previews[pointer]
     }
 
-    DWindowFrame {
+    Rectangle {
+        color: dconstants.contentBgColor
+        radius: 3
+        border.width: 1
+        border.color: dconstants.fgColor
 
         Item {
             id: title_bar
@@ -57,7 +93,7 @@ Window {
             height: 30
             
             DssH2 {
-                text: "Theme preview"
+                text: "Theme preview: %1".arg(themeObject.name)
                 anchors.top: parent.top
                 anchors.left: parent.left
                 anchors.topMargin: 8
@@ -75,24 +111,72 @@ Window {
                 press_image: "images/close_press.png"
 
                 onClicked: {
-                    root.hideWindow()
+                    previewsWindow.hideWindow()
                 }
             }
         }
 
         Rectangle {
             id: central_area
-            color: "grey"
 
             width: parent.width - 2
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: title_bar.bottom
             anchors.bottom: bottom_bar.top
 
-            Image {
-                id: preview_image
+            ListView {
+                id: view
                 anchors.fill: parent
-                source: previews[root.pointer]
+                model: previews.length
+                preferredHighlightBegin: 0;
+                preferredHighlightEnd: 0
+                highlightRangeMode: ListView.StrictlyEnforceRange
+                orientation: ListView.Horizontal
+                snapMode: ListView.SnapOneItem; 
+                flickDeceleration: 100
+                cacheBuffer: 200
+                currentIndex: pointer
+
+                delegate: Item {
+                    width: view.width; height: view.height
+                    Image {
+                        anchors.fill: parent
+                        source: previews[index]
+                    }
+                }
+            }
+
+            Item{
+                width: parent.width
+                height: 20
+                anchors.bottom: parent.bottom
+
+                Row {
+                    anchors.centerIn: parent
+                    height: parent.height
+                    spacing: 20
+
+                    Repeater {
+                        model: previews.length
+
+                        Rectangle {
+                            width: 10; height: 10
+                            radius: 5
+                            border.width: 1
+                            border.color: Qt.rgba(0, 0, 0, 0.5)
+                            color: view.currentIndex == index ? dconstants.activeColor : dconstants.fgColor
+
+                            MouseArea {
+                                width: 20; height: 20
+                                anchors.centerIn: parent
+                                onClicked: {
+                                    view.currentIndex = index
+                                    print(previews.length)
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
             Image {
@@ -124,7 +208,7 @@ Window {
 
                 onReleased: {
                     cursor_image.source = "images/left_normal.png"
-                    root.showPrevious()
+                    previewsWindow.showPrevious()
                 }
 
                 onExited: {
@@ -158,7 +242,7 @@ Window {
 
                 onReleased: {
                     cursor_image.source = "images/right_normal.png"
-                    root.showNext()
+                    previewsWindow.showNext()
                 }
 
                 onExited: {
@@ -166,23 +250,28 @@ Window {
                     cursor_image.visible = false
                 }
             }
-
         }
 
         Item {
             id: bottom_bar
             width: parent.width
             height: 40
+            anchors.bottom: parent.bottom
 
             DssH2 {
-                text: qsTr("Previews %1/%2").arg(root.pointer + 1).arg(root.previews.length)
-                anchors.top: parent.top
+                text: qsTr("Previews %1/%2").arg(previewsWindow.pointer + 1).arg(previewsWindow.previews.length)
+                anchors.verticalCenter: parent.verticalCenter
                 anchors.left: parent.left
-                anchors.topMargin: 8
                 anchors.leftMargin: 10
             }
 
-            anchors.bottom: parent.bottom
+            DTextButton{
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.right: parent.right
+                anchors.rightMargin: 6
+                text: dsTr("Apply")
+            }
+
         }
 
         anchors.fill: parent

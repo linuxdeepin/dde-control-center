@@ -79,6 +79,7 @@ Item {
 
         onEntered: {
             parent.hovered = true
+            previewAction(themeObj)
         }
 
         onExited: {
@@ -86,6 +87,7 @@ Item {
         }
     }
 
+    /***
     Rectangle{
         id: zoomButtonBox
         anchors.top: itemThumbnailBox.top
@@ -106,4 +108,5 @@ Item {
             onClicked: previewAction(itemValue)
         }
     }
+    ***/
 }

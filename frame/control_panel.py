@@ -26,7 +26,7 @@ from datetime import datetime
 
 from PyQt5.QtCore import (Qt, pyqtSlot, pyqtSignal, QVariant, QUrl,
         pyqtProperty, Q_CLASSINFO)
-from PyQt5.QtGui import QSurfaceFormat, QColor
+from PyQt5.QtGui import QSurfaceFormat, QColor, QCursor, QPixmap
 from PyQt5.QtQuick import QQuickView
 from PyQt5.QtDBus import QDBusMessage, QDBusReply, QDBusAbstractAdaptor
 

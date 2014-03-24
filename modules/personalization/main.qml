@@ -23,41 +23,10 @@ Item {
         return obj
     }
 
-    function getPreviewPictures() {
-        var pics = new Array()
-
-        var currentThemePreviewPath = currentThemeObject.previewPath
-        if(currentThemePreviewPath){
-            pics.push(currentThemePreviewPath)
-        }
-
-        var currenGtkTheme = currentThemeObject.gtkTheme
-        var currenGtkThemePreviewPath = dbusPreviewPath.GtkPath(currenGtkTheme)
-        print("Gtk:", currenGtkTheme)
-        if(currenGtkThemePreviewPath){
-            pics.push(currenGtkThemePreviewPath)
-        }
-
-        var currentIconTheme = currentThemeObject.iconTheme
-        var currentIconThemePreviewPath = dbusPreviewPath.IconPath(currentIconTheme)
-        print("Icon:", currentIconTheme)
-        if(currentIconThemePreviewPath){
-            pics.push(currentIconThemePreviewPath)
-        }
-
-        var currentCursorTheme = currentThemeObject.cursorTheme
-        var currentCursorThemePreviewPath = dbusPreviewPath.CursorPath(currentCursorTheme)
-        print("Cursor:", currentCursorTheme)
-        if(currentCursorThemePreviewPath){
-            pics.push(currentCursorThemePreviewPath)
-        }
-
-        return pics
-    }
-
     property var previewsWindow: PreviewWindow{
         x: rootWindow.x - width
-        y: rootWindow.y
+        y: rootWindow.y + 18
+        themeObject: currentThemeObject
     }
 
     Component.onCompleted: {
@@ -155,7 +124,12 @@ Item {
                         }
 
                         onPreviewAction:{
-                            previewsWindow.showWindow()
+                            if (themeObj.name == "Custom"){
+                                previewsWindow.hideWindow()
+                            }
+                            else {
+                                previewsWindow.showWindow(themeObj)
+                            }
                         }
                     }
 
@@ -327,9 +301,6 @@ Item {
                             wallpapperView.selectItem(itemValue)
                         }
 
-                        onPreviewAction:{
-                            previewsWindow.showWindow()
-                        }
                     }
 
                 }
