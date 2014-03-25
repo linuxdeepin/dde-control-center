@@ -78,6 +78,11 @@ Column {
                     text: dsTr("Display")
                     color: "white"
                     font.bold: true
+
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked: messageBox.showDialog()
+                    }
                 }
 
                 DssH3 {

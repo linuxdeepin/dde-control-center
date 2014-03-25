@@ -5,7 +5,7 @@ import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Display 1.0
 import "../shared"
 
-Window {
+DOverrideWindow {
     id: messageBox
     color: "transparent"
     flags: Qt.Popup | Qt.WindowStaysOnTopHint
@@ -102,8 +102,9 @@ Window {
             anchors.rightMargin: 6
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 6
+            spacing: 6
 
-            DTextButton {
+            DTransparentButton {
                 text: dsTr("Save Changes")
                 onClicked: {
                     displayId.SaveChanged()
@@ -111,7 +112,7 @@ Window {
                 }
             }
 
-            DTextButton {
+            DTransparentButton {
                 text: dsTr("Restore")
                 onClicked: {
                     displayId.ResetChanged()
