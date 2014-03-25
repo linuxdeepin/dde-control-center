@@ -45,44 +45,9 @@ Item {
 
         DSeparatorHorizontal {}
 
-        Rectangle {
-            id: timeBox
-            width: parent.width
-            height: 118
-            color: "#1a1b1b"
-
-            DigitalTime {
-                id: dynamicTime
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.top: parent.top
-                anchors.topMargin: 24
-                use24Hour: twentyFourHourSetBox.active
-            }
-
-            Text {
-                id: amPmText
-                anchors.left: dynamicTime.right
-                anchors.bottom: dynamicTime.bottom
-                anchors.bottomMargin: -2
-                color: "#666666"
-
-                font.pixelSize: 14
-                font.family: fixedFont.name
-                font.bold: true
-                visible: !twentyFourHourSetBox.active
-                text: globalDate.getHours() < 12 ? "AM" : "PM"
-            }
-
-            DLabel {
-                id: dayText
-                anchors.top: dynamicTime.bottom
-                anchors.topMargin: 10
-                anchors.horizontalCenter: dynamicTime.horizontalCenter
-
-                font.pixelSize: 12
-                text: globalDate.toLocaleDateString(locale)
-            }
-
+        TimeBox {
+            use24Hour: twentyFourHourSetBox.active
+            editable: !gDate.autoSetTime
         }
 
         DSeparatorHorizontal {}
