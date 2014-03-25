@@ -41,7 +41,7 @@ GridView {
             height: GridView.view.cellHeight
 
             function checkSelect() {
-                if (index == avatar_icon_view.currentIndex && index != avatar_icon_view.count - 1) {
+                if (index == avatar_icon_view.currentIndex && round_image.checkSupport) {
                     round_image.state = "checked"
                     avatar_icon_view.avatarSet(round_image.imageSource)
                 } else {
