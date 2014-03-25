@@ -10,7 +10,7 @@ Item {
 
     signal avatarSet (url path)
     signal avatarPictured (url path)
-    
+
     DRadioButton {
         id: radio_button
 
@@ -109,7 +109,7 @@ Item {
 
     AvatarIconView {
         id: avatar_recently_used_view
-        currentIndex: -1        
+        currentIndex: -1
 
         function setContent() {
             avatar_recently_used_view.model.clear()
@@ -117,6 +117,9 @@ Item {
             for (var i = 0; i < allIcons.length; i++) {
                 avatar_recently_used_view.model.append({"avatarPath": allIcons[i]})
             }
+
+            width = 290
+            height = cellHeight * Math.min(3, Math.ceil(count /3))
         }
 
         onAvatarSet: {
