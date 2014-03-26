@@ -11,22 +11,30 @@ Item {
     property var systemInfoDbus: SystemInfo {}
 
     function bitToHuman(b){
-        if (b < 1024) {
+        if (b < 1000) {
             return b + " B"
         }
         else{
-            b = b/1024
-            if ( b < 1024 ){
+            b = b/1000
+            if ( b < 1000 ){
                 return b.toFixed(2) +" KB"
             }
             else {
-                b = b/1024
-                if (b < 1024){
+                b = b/1000
+                if (b < 1000){
                     return b.toFixed(2) + " MB"
                 }
                 else{
-                    b = b/1024
-                    return b.toFixed(2) + " GB"
+                    b = b/1000
+                    if(b<10){
+                        return b.toFixed(2) + " GB"
+                    }
+                    else if(b<100){
+                        return b.toFixed(1) + " GB"
+                    }
+                    else{
+                        return parseInt(b) + " GB"
+                    }
                 }
             }
         }
