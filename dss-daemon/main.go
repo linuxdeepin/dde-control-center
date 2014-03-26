@@ -98,7 +98,6 @@ func initDssDbus() {
         logger.Error("Start dss Failed:", err)
         panic(err)
     }
-    dbusDss.Show(2)
 }
 
 func initDDisplay() {
