@@ -10,34 +10,6 @@ Column{
 
     property int wiredDevicesSignal: nm.wiredDevices[index][1]
 
-    //DBaseLine {
-        //id:content
-        //color: dconstants.contentBgColor
-
-        //leftMargin: 32
-        //leftLoader.sourceComponent: DTextAction {
-            //text: dsTr("Wired Conections") + " " + index
-        //}
-
-        //rightLoader.sourceComponent: DSwitchButton {
-            //checked: wiredDevicesSignal == 100
-            //onClicked: {
-                //if (checked) {
-                    //nm.ActiveWiredDevice(checked, nm.wiredDevices[index][0])
-                //} else {
-                    //nm.DisconnectDevice(nm.wiredDevices[index][0])
-                //}
-            //}
-
-            //Connections{
-                //target: wiredDevicesItem
-                //onWiredDevicesSignalChanged:{
-                    //parent.checked = (wiredDevicesSignal == 100)
-                //}
-            //}
-        //}
-    //}
-
     DBaseLine {
         id: wiredLine
 
@@ -63,12 +35,12 @@ Column{
             }
         }
 
-        leftLoader.sourceComponent: Item {
-            height: childrenRect.height
-            anchors.verticalCenter: parent.verticalCenter
+        leftLoader.sourceComponent: Row{
+            height: parent.height
+            spacing: 8
 
             DImageButton {
-                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
                 normal_image: "img/check_1.png"
                 hover_image: "img/check_2.png"
                 visible: wiredDevicesSignal == 100
@@ -85,10 +57,9 @@ Column{
             }
 
             DLabel {
-                anchors.left: parent.left
-                anchors.leftMargin: 18
-                verticalAlignment: Text.AlignVCenter
-                text: dsTr("Wired Conections") + " " + index
+                anchors.verticalCenter: parent.verticalCenter
+                text: dsTr("Wired Conection %1").arg(index+1)
+                font.pixelSize: 12
                 color: {
                     if(wiredLine.selected){
                         return dconstants.activeColor

@@ -26,6 +26,7 @@ Item {
 
             onEntered: {
                 parent.hovered = true
+                //print(accessPoints[index])
             }
 
             onExited: {
@@ -39,11 +40,12 @@ Item {
         color: dconstants.contentBgColor
 
         leftLoader.sourceComponent: Item {
-            height: childrenRect.height
-            anchors.verticalCenter: parent.verticalCenter
+            height: parent.height
+            width: childrenRect.width
 
             DImageButton {
                 anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
                 normal_image: "img/check_1.png"
                 hover_image: "img/check_2.png"
                 visible: accessPoints[index][4]
@@ -52,11 +54,18 @@ Item {
                 }
             }
 
+            WaitingImage {
+                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
+            }
+
             DLabel {
                 anchors.left: parent.left
-                anchors.leftMargin: 18
+                anchors.leftMargin: 24
+                anchors.verticalCenter: parent.verticalCenter
                 verticalAlignment: Text.AlignVCenter
                 text: accessPoints[index][0]
+                font.pixelSize: 12
                 color: {
                     if(wirelessLine.selected){
                         return dconstants.activeColor

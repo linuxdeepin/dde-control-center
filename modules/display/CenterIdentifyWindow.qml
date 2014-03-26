@@ -5,7 +5,7 @@ import Deepin.Widgets 1.0
 Window {
     id: identifyWindow
     color: "transparent"
-    flags: Qt.Popup | Qt.WindowStaysOnTopHint
+    flags: Qt.Tool | Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint
     width: monitorName.width + 20
     height: monitorName.height + 20
 
@@ -16,7 +16,6 @@ Window {
 
     function showWindow(){
         identifyWindow.showNormal()
-        repaintTimer.restart()
         timeoutHide.restart()
     }
 

@@ -11,25 +11,7 @@ Flickable{
         id:body
         width: networkModule.width
 
-        DBaseLine {
-            leftLoader.sourceComponent: DssH1{
-                text: dsTr("Wired Connections")
-            }
-        }
-        DSeparatorHorizontal{}
-
-        Item {
-            id: wiredDevicesArea
-            width: parent.width
-            height: childrenRect.height
-
-            ListView {
-                width: parent.width
-                height: childrenRect.height
-                model: nm.wiredDevices
-                delegate: WiredItem {}
-            }
-        }
+        WiredConnections {}
 
         Item {
             id: wirelessDevicesArea

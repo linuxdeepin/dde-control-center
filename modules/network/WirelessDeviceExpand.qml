@@ -13,11 +13,37 @@ DBaseExpand {
     property bool freshPoints: false
 
     expanded: dev[1] != 20
-    header.sourceComponent: DSwitchButtonHeader {
-        text: dsTr("Wireless Access Points") + dev[1]
-        active: c2.expanded
-        onActiveChanged: {
-            nm.wirelessEnabled = active
+    header.sourceComponent: DBaseLine{
+        leftLoader.sourceComponent: Item {
+            height: parent.height
+            width: childrenRect.width
+
+            WaitingImage{
+                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
+                on: dev[1] != 30 && dev[1] != 100
+            }
+
+            DssH1 {
+                anchors.left: parent.left
+                anchors.leftMargin: 24
+                anchors.verticalCenter: parent.verticalCenter
+                text: {
+                    if(nm.wirelessDevices.length < 2){
+                        return dsTr("Wireless Device")
+                    }
+                    else{
+                        return dsTr("Wireless Device %1").arg(index + 1)
+                    }
+                }
+            }
+        }
+
+        rightLoader.sourceComponent: DSwitchButton{
+            checked: c2.expanded
+            onClicked: {
+                nm.wirelessEnabled = checked
+            }
         }
     }
 

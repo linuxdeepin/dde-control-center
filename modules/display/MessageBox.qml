@@ -5,10 +5,10 @@ import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Display 1.0
 import "../shared"
 
-DOverrideWindow {
+Window {
     id: messageBox
     color: "transparent"
-    flags: Qt.Popup | Qt.WindowStaysOnTopHint
+    flags: Qt.Tool | Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint
 
     x: screenSize.x + (screenSize.width - width)/2
     y: screenSize.y + (screenSize.height - height)/2
