@@ -496,7 +496,7 @@ Item {
             property bool isAdvanced: false
 
             DBaseLine{
-                rightLoader.sourceComponent: LinkButton {
+                rightLoader.sourceComponent: DTextAction {
                     id: link_button
                     text: link_button_column.isAdvanced ? dsTr("Hide Advanced...") : dsTr("Show Advanced...")
                     onClicked: {
