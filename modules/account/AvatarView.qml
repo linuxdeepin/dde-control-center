@@ -170,6 +170,8 @@ Item {
     DScrollBar {
         id: default_scrollbar
         flickable: avatar_default_view
+        anchors.right: parent.right
+        anchors.rightMargin: 5
     }
 
     Loader {
