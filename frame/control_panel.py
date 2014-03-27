@@ -37,26 +37,7 @@ from modules_info import ModulesId
 from nls import QtGettext
 from ChineseLunar import ChineseCalendar150
 from dialog_window import MessageDialog
-
-def quicksort(data, low = 0, high = None):
-    if high == None:
-        high = len(data) - 1
-    if low < high:
-        s, i, j = data[low], low, high
-        while i < j:
-            while i < j and data[j] >= s:
-                j = j - 1
-            if i < j:
-                data[i] = data[j]
-                i = i + 1
-            while i < j and data[i] <= s:
-                i = i + 1
-            if i < j:
-                data[j] = data[i]
-                j = j - 1
-        data[i] = s
-        quicksort(data, low, i - 1)
-        quicksort(data, i + 1, high)
+import utils
 
 class DBusService(QDBusAbstractAdaptor):
     Q_CLASSINFO("D-Bus Interface", APP_DBUS_NAME)
@@ -189,7 +170,7 @@ class ControlPanel(QQuickView):
 
     @pyqtSlot(QVariant, bool, result=QVariant)
     def sortArray(self, data, reverse=False):
-        quicksort(data)
+        utils.quicksort(data)
         if reverse:
             data.reverse()
         return data

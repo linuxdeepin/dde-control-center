@@ -40,6 +40,13 @@ from constants import APP_DBUS_NAME, APP_OBJECT_PATH
 from PyQt5.QtDBus import QDBusConnection, QDBusInterface
 session_bus = QDBusConnection.sessionBus()
 
+from PyQt5 import QtQml
+from popup import PopupItem
+from PyQtWindow import PyQtWindow
+
+QtQml.qmlRegisterType(PopupItem, "DGui", 1, 0, "PopupItem")
+QtQml.qmlRegisterType(PyQtWindow, "DGui", 1, 0, "PyQtWindow")
+
 def main():
     root_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
     os.chdir(root_dir)

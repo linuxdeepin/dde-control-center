@@ -22,45 +22,28 @@
 
 from PyQt5.QtCore import QSize
 from PyQt5 import QtGui
-from PyQt5.QtQuick import QQuickView
+from PyQt5.QtQuick import QQuickWindow
 from PyQt5.QtCore import pyqtSlot, Qt
 from PyQt5.QtGui import QSurfaceFormat, QColor
+from PyQt5 import QtCore, QtWidgets, QtGui
 
-class PyQtWindow(QQuickView):
+class PyQtWindow(QQuickWindow):
+
+    #mousePressed = QtCore.pyqtSignal(QtCore.QPointF)
+    #focusLosed =QtCore.pyqtSignal()
 
     def __init__(self, test):
-        QQuickView.__init__(self)
+        QQuickWindow.__init__(self)
         surface_format = QSurfaceFormat()
         surface_format.setAlphaBufferSize(8)
-        
-        self.setColor(QColor(0, 0, 0, 0))
-        self.setFlags(
-                Qt.FramelessWindowHint
-                )
-        self.setResizeMode(QQuickView.SizeRootObjectToView)
         self.setFormat(surface_format)
-        self.qml_context = self.rootContext()
-        print test
-        
-    @pyqtSlot(result=int)    
-    def getState(self):
-        return self.windowState()
-    
-    @pyqtSlot()
-    def doMinimized(self):
-        # NOTE: This is bug of Qt5 that showMinimized() just can work once after restore window.
-        # I change window state before set it as WindowMinimized to fixed this bug!
-        self.setWindowState(Qt.WindowMaximized)
-        
-        # Do minimized.
-        self.setWindowState(Qt.WindowMinimized)
-        self.setVisible(True)
-        
-    @pyqtSlot(result="QVariant")    
-    def getCursorPos(self):
-        return QtGui.QCursor.pos()        
-    
-    @pyqtSlot(int, int)
-    def setMinSize(self, min_width, min_height):
-        self.setMinimumSize(QSize(min_width, min_height))
 
+    #def onFocusWindowChanged(self, win):    
+        #if  win.__class__.__name__   != "QWindow":
+            #self._calendar.hide()
+        #if win is None:    
+            #self.focusLosed.emit()
+
+    #def mousePressEvent(self, event):    
+        #self.mousePressed.emit(QtCore.QPointF(event.x(), event.y()))
+        #return super(PyQtWindow, self).mousePressEvent(event)

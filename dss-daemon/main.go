@@ -38,7 +38,7 @@ import (
 var dbusDss *dss.Dss
 var ddisplay *display.Display
 
-const EmitAreaWidth = 30
+const EmitAreaWidth = 10
 
 var logger = dlogger.NewLogger("dde-api/mousearea")
 
