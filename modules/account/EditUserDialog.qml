@@ -34,10 +34,9 @@ Rectangle {
         Column {
             id: edit_entries
 
-            Rectangle {
+            Item {
                 width: parent.width
                 height: 38
-                color: "transparent"
 
                 DLabel {
                     text: "Auto-login"
@@ -63,15 +62,46 @@ Rectangle {
             }
 
             DSeparatorHorizontal{
-                visible: account_type_radio.visible
+                visible: account_enabled_switch.visible
             }
+            
+            Item {
+                id: account_enabled_switch
+                width: parent.width
+                height: 38
+                visible: !userIsCurrentUser(this_user) && currentUserIsAdmin()
 
-            Rectangle {
+                DLabel {
+                    text: dsTr("Enable User")
+                    font.pixelSize: 12
+
+                    anchors.left: parent.left
+                    anchors.leftMargin: 15
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+
+                DSwitchButton {
+                    checked: !root.this_user.locked
+
+                    onClicked: {
+                        this_user.SetLocked(!checked)
+                    }
+
+                    anchors.right: parent.right
+                    anchors.rightMargin: 15
+                    anchors.verticalCenter: parent.verticalCenter
+                }                
+            }            
+            
+            DSeparatorHorizontal{
+                visible: account_type_radio.visible
+            }            
+
+            Item {
                 id: account_type_radio
                 width: parent.width
                 height: 38
                 visible: !userIsCurrentUser(this_user) && currentUserIsAdmin()
-                color: "transparent"
 
                 DLabel {
                     text: "User Group"
