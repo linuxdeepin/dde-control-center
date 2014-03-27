@@ -125,7 +125,7 @@ Item {
 
                         onPreviewAction:{
                             if (themeObj.name == "Custom"){
-                                previewsWindow.hideWindow()
+                                //previewsWindow.hideWindow()
                             }
                             else {
                                 previewsWindow.showWindow(themeObj)
@@ -386,10 +386,33 @@ Item {
                 }
             }
 
-            content.sourceComponent: Item {
-                width: personalizationModule.width
-                height: childrenRect.height
-                
+            content.sourceComponent:  DCenterLine {
+                height: 50
+                color: dconstants.contentBgColor
+                centerPadding: 20
+                leftWidth: 70
+                title.text: dsTr("Size")
+                content.sourceComponent: DSliderEnhanced {
+                    width: 190
+
+                    min: 9
+                    max: 16
+                    init: 11
+
+                    onValueConfirmed:{
+                    }
+
+                    Component.onCompleted: {
+                        //addRuler(9, "")
+                        //addRuler(10, "")
+                        //addRuler(11, "")
+                        //addRuler(12, "")
+                        //addRuler(13, "")
+                        //addRuler(14, "")
+                        //addRuler(15, "")
+                        //addRuler(16, "")
+                    }
+                }
             }
         }
 
