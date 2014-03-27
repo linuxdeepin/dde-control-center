@@ -26,7 +26,7 @@ from datetime import datetime
 
 from PyQt5.QtCore import (Qt, pyqtSlot, pyqtSignal, QVariant, QUrl,
         pyqtProperty, Q_CLASSINFO)
-from PyQt5.QtGui import QSurfaceFormat, QColor, QCursor, QPixmap
+from PyQt5.QtGui import QSurfaceFormat, QColor
 from PyQt5.QtQuick import QQuickView
 from PyQt5.QtDBus import QDBusMessage, QDBusReply, QDBusAbstractAdaptor
 
@@ -110,12 +110,12 @@ class ControlPanel(QQuickView):
         
         self.setColor(QColor(0, 0, 0, 0))
         self.setFlags(
-                Qt.FramelessWindowHint
+                Qt.Tool
+                | Qt.FramelessWindowHint
                 | Qt.WindowStaysOnTopHint
                 )
         self.setResizeMode(QQuickView.SizeRootObjectToView)
         self.setFormat(surface_format)
-        #self.record_event = RecordEvent(self)
         self.set_all_contexts()
         self.setSource(QUrl.fromLocalFile(os.path.join(
             ROOT_LOCATION, 'frame', 'views', 'Main.qml')))
@@ -136,8 +136,6 @@ class ControlPanel(QQuickView):
 
     def connect_all_object_function(self):
         self.view_object = self.rootObject()
-        #self.record_event.enter_mouse_area.connect(lambda :self.view_object.showDss(0))
-        #self.record_event.click_outer_area.connect(self.view_object.outerAreaClicked)
 
     def set_geometry(self, rect):
         x, y, width, height = rect

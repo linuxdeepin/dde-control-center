@@ -21,7 +21,7 @@ DBaseExpand {
             WaitingImage{
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
-                on: dev[1] != 30 && dev[1] != 100
+                on: dev[1] != 20 && dev[1] != 30 && dev[1] != 100
             }
 
             DssH1 {

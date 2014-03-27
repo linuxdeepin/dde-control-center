@@ -62,20 +62,15 @@ def main():
         else:
             panel.view_object.showModule(order)
 
-    #panel.record_event.start()
-
     DBusService(panel)
     session_bus.registerObject(APP_OBJECT_PATH, panel)
-    session_bus.registerService(APP_DBUS_NAME)
+    success = session_bus.registerService(APP_DBUS_NAME)
+    if not success:
+        iface = QDBusInterface(APP_DBUS_NAME, APP_OBJECT_PATH, '', session_bus)
+        print 'dss is running...'
+        sys.exit(0)
 
     sys.exit(app.exec_())
 
 if __name__ == "__main__":
     main()
-    #iface = QDBusInterface(APP_DBUS_NAME, APP_OBJECT_PATH, '', session_bus)
-    #if iface.isValid():
-        #print "dss is running"
-        #iface.call("show", 0)
-        #sys.exit(0)
-    #else:
-        #main()
