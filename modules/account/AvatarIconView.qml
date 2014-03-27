@@ -8,6 +8,7 @@ GridView {
     cellWidth: 96
     cellHeight: 93
 
+    property bool itemCanbeDeleted: false
     property bool withAddButton: false
 
     signal initialize
@@ -57,7 +58,6 @@ GridView {
 
             Component.onCompleted: {
                 if (avatarPath == this_user.iconFile) {
-                    avatar_icon_view.currentIndex = index
                     round_image.state = "checked"
                 }
             }
@@ -80,7 +80,29 @@ GridView {
                     }
                 }
 
+                onEntered: { delete_icon_button.visible = (avatar_icon_view.itemCanbeDeleted
+                                                           && avatarPath != this_user.iconFile
+                                                           && true)}
+                onExited: { delete_icon_button.visible = false}
+
                 anchors.centerIn: parent
+            }
+
+            Image {
+                id: delete_icon_button
+
+                visible: false
+                source: "images/delete_icon.png"
+                anchors.top: parent.top
+                anchors.right: parent.right
+                anchors.topMargin: 8
+                anchors.rightMargin: 10
+
+                MouseArea {
+                    anchors.fill: parent
+
+                    onClicked: this_user.DeleteHistoryIcon(avatarPath)
+                }
             }
         }
     }

@@ -110,12 +110,16 @@ Item {
     AvatarIconView {
         id: avatar_recently_used_view
         currentIndex: -1
+        itemCanbeDeleted: true
 
         function setContent() {
             avatar_recently_used_view.model.clear()
             var allIcons = root_view.this_user.historyIcons
             for (var i = 0; i < allIcons.length; i++) {
                 avatar_recently_used_view.model.append({"avatarPath": allIcons[i]})
+                if (this_user.iconFile == allIcons[i]) {
+                    avatar_recently_used_view.currentIndex = i
+                }
             }
 
             width = 290
@@ -152,16 +156,23 @@ Item {
 
         withAddButton: true
 
+        function setContent() {
+            avatar_recently_used_view.model.clear()
+            var allIcons = root_view.this_user.iconList
+            for (var i = 0; i < allIcons.length; i++) {
+                avatar_default_view.model.append({"avatarPath": allIcons[i]})
+                if (this_user.iconFile == allIcons[i]) {
+                    avatar_recently_used_view.currentIndex = i
+                }
+            }
+        }
+
+
         onAvatarSet: {
             root_view.avatarSet(path)
         }
 
-        onInitialize: {
-            var allIcons = root_view.this_user.iconList
-            for (var i = 0; i < allIcons.length; i++) {
-                avatar_default_view.model.append({"avatarPath": allIcons[i]})
-            }
-        }
+        onInitialize: setContent()
 
         anchors.top: radio_button.bottom
         anchors.topMargin: root_view.verticalPadding * 2
