@@ -11,7 +11,7 @@ Flickable{
         id:body
         width: networkModule.width
 
-        WiredConnections {}
+        WiredDeviceExpand {}
 
         Item {
             id: wirelessDevicesArea

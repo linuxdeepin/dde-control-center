@@ -119,7 +119,7 @@ Item {
             onKeyReleaseEvent: {
                 if (currentShortcutId == shortcutId){
                     grabFlag = false
-                    if( arg0 == 'escape' | !arg0 ){
+                    if(arg0 == 'escape' | arg0 == ""){
                     }
                     else if( arg0=="backspace" ){
                         bindManagerId.ChangeShortcut(currentShortcutId, "")
@@ -183,7 +183,7 @@ Item {
             hideInvalidInfoArea.restart()
         }
 
-        DLabel {
+        DssH2 {
             id: invalidInfo
             anchors.left: parent.left
             anchors.leftMargin: 10
@@ -245,7 +245,7 @@ Item {
             width: parent.width
             height: Math.max(conflictInfo.height, conflictWarningImg.height) + 16
 
-            DLabel {
+            DssH2 {
                 id: conflictInfo
                 anchors.left: parent.left
                 anchors.leftMargin: 10

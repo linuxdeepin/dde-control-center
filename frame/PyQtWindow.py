@@ -29,8 +29,8 @@ from PyQt5 import QtCore, QtWidgets, QtGui
 
 class PyQtWindow(QQuickWindow):
 
-    #mousePressed = QtCore.pyqtSignal(QtCore.QPointF)
-    #focusLosed =QtCore.pyqtSignal()
+    mousePressed = QtCore.pyqtSignal(QtCore.QPointF)
+    focusLosed =QtCore.pyqtSignal()
 
     def __init__(self, test):
         QQuickWindow.__init__(self)
@@ -38,12 +38,12 @@ class PyQtWindow(QQuickWindow):
         surface_format.setAlphaBufferSize(8)
         self.setFormat(surface_format)
 
-    #def onFocusWindowChanged(self, win):    
-        #if  win.__class__.__name__   != "QWindow":
-            #self._calendar.hide()
-        #if win is None:    
-            #self.focusLosed.emit()
+    def onFocusWindowChanged(self, win):    
+        if  win.__class__.__name__   != "QWindow":
+            self._calendar.hide()
+        if win is None:    
+            self.focusLosed.emit()
 
-    #def mousePressEvent(self, event):    
-        #self.mousePressed.emit(QtCore.QPointF(event.x(), event.y()))
-        #return super(PyQtWindow, self).mousePressEvent(event)
+    def mousePressEvent(self, event):    
+        self.mousePressed.emit(QtCore.QPointF(event.x(), event.y()))
+        return super(PyQtWindow, self).mousePressEvent(event)

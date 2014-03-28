@@ -1,13 +1,14 @@
-import QtQuick 2.0
+import QtQuick 2.1
+import QtQuick.Window 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
 import DBus.Com.Deepin.Daemon.Network 1.0
 import Deepin.Widgets 1.0
+import DGui 1.0
 
 Column{
     id: networkModule
-    width: parent.width
-    height: parent.height
+    anchors.fill: parent
 
     property variant nm: NetworkManager{}
 
@@ -22,9 +23,12 @@ Column{
 
     DBaseLine {
         id:header
-        height: 50
-        leftLoader.sourceComponent: DLabel {
+        height: 48
+
+        leftLoader.sourceComponent: DssH1 {
             text: dsTr("Network Settings")
+            color: "white"
+            font.bold: true
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
@@ -32,13 +36,19 @@ Column{
                 }
             }
         }
+
         rightLoader.sourceComponent: Row {
-            DTextButton {
-                text: dsTr("Create Connections")
+            height: header.height
+            spacing: 4
+
+            DssAddButton{
+                anchors.verticalCenter: parent.verticalCenter
             }
+
             DTextButton {
                 id: abc
-                text: "i"
+                text: "info"
+                anchors.verticalCenter: parent.verticalCenter
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {

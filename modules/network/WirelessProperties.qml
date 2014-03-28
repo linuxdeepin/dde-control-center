@@ -11,7 +11,8 @@ Column{
     property var accessPoint
 
     property int activeExpandIndex: 0
-    property int valueWidth: 180
+    property int valueWidth: 190
+    property int contentLeftMargin: 18
 
     DBaseLine{
         height: 38
@@ -49,12 +50,54 @@ Column{
         }
 
         content.sourceComponent: Column {
+
             DBaseLine {
+                color: dconstants.contentBgColor
+                leftMargin: contentLeftMargin
                 leftLoader.sourceComponent: DssH2{
                     text: dsTr("Method")
                 }
 
                 rightLoader.sourceComponent: DComboBox{
+                    width: valueWidth
+                    text: "Automatic (DHCP)"
+                    onClicked: {}
+                }
+            }
+
+            DBaseLine {
+                color: dconstants.contentBgColor
+                leftMargin: contentLeftMargin
+                leftLoader.sourceComponent: DssH2{
+                    text: dsTr("IP Address")
+                }
+
+                rightLoader.sourceComponent: DTextInput{
+                    width: valueWidth
+                }
+            }
+
+            DBaseLine {
+                color: dconstants.contentBgColor
+                leftMargin: contentLeftMargin
+                leftLoader.sourceComponent: DssH2{
+                    text: dsTr("Netmask")
+                }
+
+                rightLoader.sourceComponent: DTextInput{
+                    width: valueWidth
+                }
+            }
+
+            DBaseLine {
+                color: dconstants.contentBgColor
+                leftMargin: contentLeftMargin
+                leftLoader.sourceComponent: DssH2{
+                    text: dsTr("Gateway")
+                }
+
+                rightLoader.sourceComponent: DTextInput{
+                    width: valueWidth
                 }
             }
         }

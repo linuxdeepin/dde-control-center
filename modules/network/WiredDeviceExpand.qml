@@ -9,26 +9,9 @@ DBaseExpand {
 
     header.sourceComponent: DBaseLine{
         id: wiredDeviceHeader
-        leftLoader.sourceComponent: Row {
-            height: parent.height
-            spacing: 6
-
-            ConnectStatusImage{
-                currentStatusCode: nm.wiredDevices[index][1]
-                anchors.verticalCenter: parent.verticalCenter
-            }
-
-            DssH1 {
-                text: {
-                    if(nm.wiredDevices.length < 2){
-                        return "Wired Device"
-                    }
-                    else{
-                        "Wired Device %1".arg(index + 1)
-                    }
-                }
-                anchors.verticalCenter: parent.verticalCenter
-            }
+        leftLoader.sourceComponent: DssH2 {
+            anchors.verticalCenter: parent.verticalCenter
+            text: dsTr("Wired Connetions")
         }
 
         rightLoader.sourceComponent: DSwitchButton{
@@ -46,10 +29,8 @@ DBaseExpand {
         ListView {
             width: parent.width
             height: childrenRect.height
-            model: 1
+            model: nm.wiredDevices
             delegate: WiredItem {}
-            Component.onCompleted: {
-            }
         }
 
     }

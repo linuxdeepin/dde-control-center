@@ -76,11 +76,6 @@ Column{
 
         rightLoader.sourceComponent: DArrowButton {
             onClicked: {
-                stackView.push({
-                    "item": Qt.resolvedUrl("WirelessProperties.qml"),
-                    //"properties": { "accessPoint": accessPoints[index]},
-                    "destroyOnPop": true
-                })
             }
         }
     }
