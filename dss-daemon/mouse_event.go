@@ -35,15 +35,15 @@ type coordinateRange struct {
 
 //export parseMotionEvent
 func parseMotionEvent(_x, _y int32) {
-    coorX := int32(_x)
-    coorY := int32(_y)
+    //coorX := int32(_x)
+    //coorY := int32(_y)
 
-    inList, _ := getIDList(coorX, coorY)
-    for _, cookie := range inList {
-        if cookie == rightBottomCornerId {
-            dbusDss.Show(0)
-        }
-    }
+    //inList, _ := getIDList(coorX, coorY)
+    //for _, cookie := range inList {
+    //if cookie == rightBottomCornerId {
+    //dbusDss.Show(0)
+    //}
+    //}
 }
 
 //export parseButtonEvent
