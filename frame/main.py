@@ -41,10 +41,10 @@ from PyQt5.QtDBus import QDBusConnection, QDBusInterface
 session_bus = QDBusConnection.sessionBus()
 
 from PyQt5 import QtQml
-from popup import PopupItem
+#from popup import PopupItem
 from PyQtWindow import PyQtWindow
 
-QtQml.qmlRegisterType(PopupItem, "DGui", 1, 0, "PopupItem")
+#QtQml.qmlRegisterType(PopupItem, "DGui", 1, 0, "PopupItem")
 QtQml.qmlRegisterType(PyQtWindow, "DGui", 1, 0, "PyQtWindow")
 
 def main():
