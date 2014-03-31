@@ -8,6 +8,9 @@ Item {
     width: parent.width
     height: childrenRect.height
 
+    property string devicePath
+    property var accessPoint
+
     Behavior on height {
         PropertyAnimation { duration: 100 }
     }
@@ -26,7 +29,6 @@ Item {
 
             onEntered: {
                 parent.hovered = true
-                //print(accessPoints[index])
             }
 
             onExited: {
@@ -34,7 +36,9 @@ Item {
             }
 
             onClicked: {
-                nm.ActiveAccessPoint(dev[0], accessPoints[index][3])
+                var uuid = nm.GetConnectionByAccessPoint(accessPoint[3])
+                print("UUID:", uuid, "Device:", devicePath)
+                nm.ActivateConnection(uuid, devicePath)
             }
         }
         color: dconstants.contentBgColor
@@ -48,9 +52,9 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
                 normal_image: "img/check_1.png"
                 hover_image: "img/check_2.png"
-                visible: accessPoints[index][4]
+                visible: accessPoint[4]
                 onClicked: {
-                    nm.DisconnectDevice(dev[0])
+                    nm.DeactivateConnection(devicePath)
                 }
             }
 
@@ -64,7 +68,7 @@ Item {
                 anchors.leftMargin: 24
                 anchors.verticalCenter: parent.verticalCenter
                 verticalAlignment: Text.AlignVCenter
-                text: accessPoints[index][0]
+                text: accessPoint[0]
                 font.pixelSize: 12
                 color: {
                     if(wirelessLine.selected){
@@ -87,8 +91,8 @@ Item {
 
             Image {
                 source: {
-                    var power=  accessPoints[index][2]
-                    var secure = accessPoints[index][1] ? "-secure": ""
+                    var power=  accessPoint[2]
+                    var secure = accessPoint[1] ? "-secure": ""
                     if (power <= 5)
                         return "img/ap-signal-0" + secure + ".svg"
                     else if (power <= 25)
@@ -106,7 +110,7 @@ Item {
                 onClicked: {
                     stackView.push({
                         "item": Qt.resolvedUrl("WirelessProperties.qml"),
-                        "properties": { "accessPoint": accessPoints[index]},
+                        "properties": { "uuid": nm.GetConnectionByAccessPoint(accessPoint[3])},
                         "destroyOnPop": true
                     })
                 }
@@ -123,7 +127,7 @@ Item {
         property int realHeight: childrenRect.height
         clip: true
 
-        property string path: nm.GetConnectionByAccessPoint(accessPoints[index][3])[1]
+        property string path: nm.GetConnectionByAccessPoint(accessPoint[3])[1]
         property string encryptionName: ""
 
         function showArea(encryptionName){
@@ -220,5 +224,6 @@ Item {
     DSeparatorHorizontal{
         anchors.top: wirelessLine.bottom
         anchors.topMargin: passwordArea.height == 0 ? 0 : passwordArea.height - arrowRectBackground.arrowHeight
+        visible: index != parent.ListView.view.count - 1
     }
 }

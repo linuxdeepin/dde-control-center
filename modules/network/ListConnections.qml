@@ -7,32 +7,28 @@ Flickable{
 
     contentWidth: width
     contentHeight: childrenRect.height
+
     Column {
         id:body
         width: networkModule.width
 
-        WiredDeviceExpand {}
-
-        Item {
-            id: wirelessDevicesArea
+        Loader{
+            id: wired
+            active: true
             width: parent.width
-            height: wirelessDevicesList.height
+            sourceComponent: WiredDeviceExpand {}
+        }
 
-            ListView{
-                id: wirelessDevicesList
-                width: parent.width
-                height: childrenRect.height
-                model: nm.wirelessDevices
-                delegate: WirelessDeviceExpand{ dev: nm.wirelessDevices[index] }
-                onModelChanged: {
-                    //print("Repeater changed", nm.wirelessDevices)
-                }
-            }
+        Loader{
+            id: wireless
+            active: true
+            width: parent.width
+            sourceComponent: WirelessDevicesArea{}
         }
 
         Loader {
             id:vpn
-            active:true
+            active: true
             sourceComponent: DBaseExpand{
                 id:c3
                 width: networkModule.width

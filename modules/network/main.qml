@@ -21,6 +21,11 @@ Column{
         height: parent.height - header.height - 2
     }
 
+    Component {
+        id: connectionSession
+        ConnectionSession {}
+    }
+
     DBaseLine {
         id:header
         height: 48
@@ -29,12 +34,6 @@ Column{
             text: dsTr("Network Settings")
             color: "white"
             font.bold: true
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    stackView.pop(null)
-                }
-            }
         }
 
         rightLoader.sourceComponent: Row {

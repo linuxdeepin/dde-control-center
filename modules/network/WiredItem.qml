@@ -31,7 +31,7 @@ Column{
             }
 
             onClicked: {
-                nm.ActiveWiredDevice(nm.wiredDevices[index][0])
+                nm.ActivateConnection(nm.wiredConnections[index], nm.wiredDevices[index][0])
             }
         }
 
@@ -45,7 +45,7 @@ Column{
                 hover_image: "img/check_2.png"
                 visible: wiredDevicesSignal == 100
                 onClicked: {
-                    nm.DisconnectDevice(nm.wiredDevices[index][0])
+                    nm.DeactivateConnection(nm.wiredDevices[index][0])
                 }
 
                 Connections{
@@ -76,6 +76,11 @@ Column{
 
         rightLoader.sourceComponent: DArrowButton {
             onClicked: {
+                stackView.push({
+                    "item": Qt.resolvedUrl("WiredProperties.qml"),
+                    "properties": { "uuid": nm.wiredConnections[index]},
+                    "destroyOnPop": true
+                })
             }
         }
     }

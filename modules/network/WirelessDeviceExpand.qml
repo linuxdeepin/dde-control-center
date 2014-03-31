@@ -9,7 +9,7 @@ DBaseExpand {
     width: parent.width
 
     property variant dev
-    property variant accessPoints : nm.GetAccessPoints(dev[0])
+    property variant accessPoints
 
     expanded: dev[1] != 20
     header.sourceComponent: DBaseLine{
@@ -23,6 +23,10 @@ DBaseExpand {
                 else{
                     return dsTr("Wireless Device %1").arg(index + 1)
                 }
+            }
+            MouseArea {
+                anchors.fill: parent
+                onClicked: scanTimer.restart()
             }
         }
 
@@ -38,21 +42,34 @@ DBaseExpand {
         width: parent.width
         height: childrenRect.height
         ListView {
+            visible: wirelessDevicesExpand.accessPoints ? true: false
             width: parent.width
             height: childrenRect.height
             model: wirelessDevicesExpand.accessPoints
-            delegate: WirelessItem {}
+            delegate: WirelessItem {
+                devicePath: dev[0]
+                accessPoint: wirelessDevicesExpand.accessPoints[index]
+            }
             Component.onCompleted: {
             }
         }
-
+        DBaseLine{
+            visible: wirelessDevicesExpand.accessPoints ? false: true
+            color: dconstants.contentBgColor
+            leftLoader.sourceComponent: DssH3{
+                text: "Scanning..."
+            }
+        }
     }
 
     Timer {
+        id: scanTimer
         running: wirelessDevicesExpand.expanded
         interval: 1000
-        onTriggered : {
+        onTriggered: {
+            print("Scan Start:", dev[0])
             wirelessDevicesExpand.accessPoints = nm.GetAccessPoints(dev[0])
+            print("Scan Stop:", dev[0])
         }
     }
 }
