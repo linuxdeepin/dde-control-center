@@ -73,7 +73,6 @@ def main():
     session_bus.registerObject(APP_OBJECT_PATH, panel)
     success = session_bus.registerService(APP_DBUS_NAME)
     if not success:
-        iface = QDBusInterface(APP_DBUS_NAME, APP_OBJECT_PATH, '', session_bus)
         print 'dss is running...'
         sys.exit(0)
 
