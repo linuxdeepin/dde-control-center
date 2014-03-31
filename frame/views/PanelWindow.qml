@@ -97,6 +97,7 @@ DOverrideWindow {
         onStarted: {
             rootWindow.width = panelWidth + 16
             rootWindow.show()
+            rootWindow.raise()
             if(timeoutQuit.running){
                 timeoutQuit.stop()
             }
