@@ -75,13 +75,13 @@ Rectangle {
                 id: title
                 text: dsTr("Power")
                 hint: root.getBatteryPercentage()
-                breath: dbus_power.state != 1
+                showHyphen: dbus_power.batteryIsPresent
+                breath: dbus_power.state == 1
                 /* | value | description                        | */
                 /* |     1 | battery is charging                | */
                 /* |     2 | battery is in use                  | */
                 /* |     3 | battery is not in use              | */
                 /* |     4 | battery is full, using AC directly | */
-                /* |       |                                    | */
             }
 
             DTextButton {
