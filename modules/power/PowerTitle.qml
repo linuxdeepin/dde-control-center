@@ -10,6 +10,7 @@ DBaseLine {
     property string text: ""
     property string hint: ""
     property bool breath: false
+    property bool showHyphen: false
 
     leftLoader.sourceComponent: Row {
         DssH1 {
@@ -20,6 +21,7 @@ DBaseLine {
         }
         
         DssH1 {
+            visible: dssTitle.showHyphen
             font.bold: true
             color: "#666666"
             text: " - "
@@ -46,6 +48,7 @@ DBaseLine {
             }
             
             Glow {
+                visible: breath
                 anchors.fill: hint
                 radius: 4
                 samples: 8
