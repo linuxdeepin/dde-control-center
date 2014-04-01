@@ -13,8 +13,10 @@ Column{
     property variant nm: NetworkManager{}
 
     signal needSecretsEmit(string path, string encryptionName, string accessPointName)
+
     property bool inPasswordInputting: false
 
+    //property bool inAllConnectionPage: false
     property bool inAllConnectionPage: stackView.depth == 1
     property Item allConnectionPage: ListConnections {
         width: parent.width

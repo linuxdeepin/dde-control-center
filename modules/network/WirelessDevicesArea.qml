@@ -16,6 +16,12 @@ Item {
             //print("Repeater changed", nm.wirelessDevices)
         }
     }
+
+    Connections{
+        target: nm
+        onWirelessDevicesChanged:{
+        }
+    }
     
     DSeparatorHorizontal {
         anchors.bottom: parent.bottom

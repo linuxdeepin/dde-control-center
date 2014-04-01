@@ -5,11 +5,11 @@ import Deepin.Widgets 1.0
 import "../shared/"
 
 Item {
+    id: wirelessItem
     width: parent.width
     height: childrenRect.height
 
-    property string devicePath
-    property var accessPoint
+    property string uuid: ""
 
     Behavior on height {
         PropertyAnimation { duration: 100 }
@@ -36,9 +36,9 @@ Item {
             }
 
             onClicked: {
-                var uuid = nm.GetConnectionByAccessPoint(accessPoint[3])
-                print("UUID:", uuid, "Device:", devicePath)
+                wirelessItem.uuid = nm.GetConnectionByAccessPoint(apPath)
                 nm.ActivateConnection(uuid, devicePath)
+                wirelessDevicesExpand.inConnectingApPath = apPath
             }
         }
         color: dconstants.contentBgColor
@@ -52,7 +52,14 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
                 normal_image: "img/check_1.png"
                 hover_image: "img/check_2.png"
-                visible: accessPoint[4]
+                visible: {
+                    if(wirelessDevicesExpand.inConnectingApPath != "/"){
+                        return false
+                    }
+                    else{
+                        return apConnected
+                    }
+                }
                 onClicked: {
                     nm.DeactivateConnection(devicePath)
                 }
@@ -61,6 +68,7 @@ Item {
             WaitingImage {
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
+                on: wirelessDevicesExpand.inConnectingApPath == apPath
             }
 
             DLabel {
@@ -68,7 +76,7 @@ Item {
                 anchors.leftMargin: 24
                 anchors.verticalCenter: parent.verticalCenter
                 verticalAlignment: Text.AlignVCenter
-                text: accessPoint[0]
+                text: apName
                 font.pixelSize: 12
                 color: {
                     if(wirelessLine.selected){
@@ -91,8 +99,8 @@ Item {
 
             Image {
                 source: {
-                    var power=  accessPoint[2]
-                    var secure = accessPoint[1] ? "-secure": ""
+                    var power = apSignal
+                    var secure = apSecured ? "-secure": ""
                     if (power <= 5)
                         return "img/ap-signal-0" + secure + ".svg"
                     else if (power <= 25)
@@ -110,7 +118,7 @@ Item {
                 onClicked: {
                     stackView.push({
                         "item": Qt.resolvedUrl("WirelessProperties.qml"),
-                        "properties": { "uuid": nm.GetConnectionByAccessPoint(accessPoint[3])},
+                        "properties": { "uuid": nm.GetConnectionByAccessPoint(apPath)},
                         "destroyOnPop": true
                     })
                 }
@@ -127,13 +135,14 @@ Item {
         property int realHeight: childrenRect.height
         clip: true
 
-        property string path: nm.GetConnectionByAccessPoint(accessPoint[3])[1]
+        property string path: ""
         property string encryptionName: ""
 
         function showArea(encryptionName){
-            encryptionName = encryptionName
+            passwordArea.encryptionName = encryptionName
             height = realHeight
             networkModule.inPasswordInputting = true
+            passwordInput.forceActiveFocus()
         }
 
         function cancelAction(){
@@ -143,14 +152,17 @@ Item {
 
         function connectAction(){
             cancelAction()
-            dbusNetwork.FeedSecret(path, encryptionName, passwordInput.text)
+            dbusNetwork.FeedSecret(passwordArea.path, passwordArea.encryptionName, passwordInput.text)
         }
 
         Connections {
             target: networkModule
             onNeedSecretsEmit: {
-                if(passwordArea.path == path){
-                    passwordArea.showArea(encryptionName)
+                if (wirelessItem.uuid != ""){
+                    passwordArea.path = dbusNetwork.GetConnectionByUuid(wirelessItem.uuid)
+                    if(passwordArea.path == path){
+                        passwordArea.showArea(encryptionName)
+                    }
                 }
             }
         }
@@ -181,7 +193,11 @@ Item {
             Column{
                 DTextInput{
                     id: passwordInput
+                    textInput.color: dconstants.fgColor
                     echoMode: showPasswordButton.checked ? TextInput.Normal : TextInput.Password
+                    onAccepted: {
+                        passwordArea.connectAction()
+                    }
                 }
                 Row{
                     spacing: 6

@@ -8,17 +8,29 @@ DBaseExpand {
     id: wirelessDevicesExpand
     width: parent.width
 
-    property variant dev
-    property variant accessPoints
+    property string devicePath: "/"
+    property int deviceStatus: 20
 
-    expanded: dev[1] != 20
+    property string inConnectingApPath: "/"
+
+    ListModel {
+        id: accessPointsModel
+    }
+
+    onDeviceStatusChanged:{
+        if(deviceStatus == 100){
+            scanTimer.start()
+        }
+    }
+
+    expanded: deviceStatus != 20
     header.sourceComponent: DBaseLine{
 
         leftLoader.sourceComponent: DssH2 {
             anchors.verticalCenter: parent.verticalCenter
             text: {
                 if(nm.wirelessDevices.length < 2){
-                    return dsTr("Wireless Device")
+                    return dsTr("Wireless Device: %1").arg(deviceStatus)
                 }
                 else{
                     return dsTr("Wireless Device %1").arg(index + 1)
@@ -41,20 +53,17 @@ DBaseExpand {
     content.sourceComponent: Item {
         width: parent.width
         height: childrenRect.height
+
         ListView {
-            visible: wirelessDevicesExpand.accessPoints ? true: false
+            visible: accessPointsModel.count > 0 ? true: false
             width: parent.width
             height: childrenRect.height
-            model: wirelessDevicesExpand.accessPoints
-            delegate: WirelessItem {
-                devicePath: dev[0]
-                accessPoint: wirelessDevicesExpand.accessPoints[index]
-            }
-            Component.onCompleted: {
-            }
+            model: accessPointsModel
+            delegate: WirelessItem {}
         }
+
         DBaseLine{
-            visible: wirelessDevicesExpand.accessPoints ? false: true
+            visible: accessPointsModel.count > 0 ? false: true
             color: dconstants.contentBgColor
             leftLoader.sourceComponent: DssH3{
                 text: "Scanning..."
@@ -64,12 +73,22 @@ DBaseExpand {
 
     Timer {
         id: scanTimer
-        running: wirelessDevicesExpand.expanded
         interval: 1000
         onTriggered: {
-            print("Scan Start:", dev[0])
-            wirelessDevicesExpand.accessPoints = nm.GetAccessPoints(dev[0])
-            print("Scan Stop:", dev[0])
+            var accessPoints = nm.GetAccessPoints(devicePath)
+            wirelessDevicesExpand.inConnectingApPath = "/"
+            accessPointsModel.clear()
+            for(var i in accessPoints){
+                var ap = accessPoints[i]
+                accessPointsModel.append({
+                    "devicePath": devicePath,
+                    "apName": ap[0],
+                    "apSecured": ap[1],
+                    "apSignal": ap[2],
+                    "apPath": ap[3],
+                    "apConnected": ap[4]
+                })
+            }
         }
     }
 }

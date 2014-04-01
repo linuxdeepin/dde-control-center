@@ -23,7 +23,10 @@ Flickable{
             id: wireless
             active: true
             width: parent.width
-            sourceComponent: WirelessDevicesArea{}
+            sourceComponent: WirelessDeviceExpand{
+                devicePath: nm.wirelessDevices[0][0]
+                deviceStatus: nm.wirelessDevices[0][1]
+            }
         }
 
         Loader {
