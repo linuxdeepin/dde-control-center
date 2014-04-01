@@ -55,7 +55,6 @@ Window {
     }
 
     function showWindow(themeObject){
-        print("Show theme previews:", themeObject.name)
         previewsWindow.themeObject = themeObject
         previewsWindow.previews = getPreviewPictures()
         previewsWindow.show()
@@ -66,7 +65,7 @@ Window {
     function hideWindow(){
         previewsWindow.hide()
         previewsWindow.showPreviewWindow = false
-        rootWindow.clickedToHide = true
+        hideToTrue.restart()
     }
 
     function showPrevious() {
@@ -78,6 +77,15 @@ Window {
     function showNext() {
         if (pointer < previews.length -1) {
             pointer++
+        }
+    }
+
+    Timer{
+        id: hideToTrue
+        interval: 200
+        running: false
+        onTriggered: {
+            rootWindow.clickedToHide = true
         }
     }
 

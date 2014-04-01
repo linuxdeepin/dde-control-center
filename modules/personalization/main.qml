@@ -91,9 +91,16 @@ Item {
                         dbusThemeManager.SetCurrentTheme(itemValue)
                     }
 
-                    model: {
-                        var myModel = listModelComponent.createObject(themeList, {})
+                    Connections{
+                        target: dbusThemeManager
+                        onThemeListChanged: {
+                            themeView.load_theme_list()
+                        }
+                    }
+
+                    function load_theme_list(){
                         var themeList = dbusThemeManager.themeList
+                        themeView.model.clear()
                         for(var i in themeList){
                             var themeObj = themeComponent.createObject(personalizationModule, { path: themeList[i] })
 
@@ -104,15 +111,18 @@ Item {
                                 var thumbnailPath = themeObj.thumbnailPath
                             }
 
-                            myModel.append({
+                            themeView.model.append({
                                 "item_img_url": thumbnailPath,
                                 "item_name": themeObj.name,
                                 "item_value": themeObj.name,
                                 "themeObj": themeObj
                             })
                         }
-                        return myModel
                     }
+
+                    Component.onCompleted: load_theme_list()
+
+                    model: ListModel{}
 
                     delegate: ThemeItem{
                         width: cellWidth

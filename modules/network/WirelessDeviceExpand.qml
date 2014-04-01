@@ -18,7 +18,7 @@ DBaseExpand {
     }
 
     onDeviceStatusChanged:{
-        if(deviceStatus == 100){
+        if(deviceStatus == 100 || deviceStatus == 30){
             scanTimer.start()
         }
     }
