@@ -121,7 +121,13 @@ Column{
                     anchors.leftMargin: -3
                     width: valueWidth
                     text: connectionSessionObject.GetKey(ipv4Settings.sectionName, "method")
-                    onClicked: {}
+                    onClicked: {
+                        var pos = mapToItem(null, 0, 0)
+                        rootMenu.posX = pos.x
+                        rootMenu.posY = pos.y
+                        rootMenu.innerWidth = width
+                        rootMenu.visible = true
+                    }
                 }
             }
 
@@ -252,4 +258,5 @@ Column{
             }
         }
     }
+
 }

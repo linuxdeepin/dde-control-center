@@ -2,7 +2,6 @@ import QtQuick 2.1
 import QtQuick.Window 2.1
 import Deepin.Widgets 1.0
 import Deepin.Window 1.0
-import DGui 1.0
 
 DOverrideWindow {
     id: rootWindow

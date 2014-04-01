@@ -29,6 +29,7 @@ from PyQt5.QtCore import (Qt, pyqtSlot, pyqtSignal, QVariant, QUrl,
 from PyQt5.QtGui import QSurfaceFormat, QColor
 from PyQt5.QtQuick import QQuickView
 from PyQt5.QtDBus import QDBusMessage, QDBusReply, QDBusAbstractAdaptor
+from PyQt5.QtWidgets import qApp
 
 from display_monitor import connect_to_primary_changed
 from constants import ROOT_LOCATION, PANEL_WIDTH
@@ -39,7 +40,7 @@ from ChineseLunar import ChineseCalendar150
 from dialog_window import MessageDialog
 import utils
 
-class DBusService(QDBusAbstractAdaptor):
+class DssDbusAdptor(QDBusAbstractAdaptor):
     Q_CLASSINFO("D-Bus Interface", APP_DBUS_NAME)
 
     Q_CLASSINFO("D-Bus Introspection", """
@@ -82,18 +83,20 @@ class DBusService(QDBusAbstractAdaptor):
 class ControlPanel(QQuickView):
 
     moduleFileChanged = pyqtSignal(str)
+    focusLosed = pyqtSignal()
 
     def __init__(self):
         QQuickView.__init__(self)
 
         surface_format = QSurfaceFormat()
         surface_format.setAlphaBufferSize(8)
-        
+
         self.setColor(QColor(0, 0, 0, 0))
         self.setFlags(
                 Qt.Tool
                 | Qt.FramelessWindowHint
                 | Qt.WindowStaysOnTopHint
+                | Qt.X11BypassWindowManagerHint
                 )
         self.setResizeMode(QQuickView.SizeRootObjectToView)
         self.setFormat(surface_format)
@@ -103,8 +106,17 @@ class ControlPanel(QQuickView):
         self.connect_all_object_function()
 
         self.engine_obj = self.engine()
-
         connect_to_primary_changed(self.display_primary_changed)
+
+        self._dbus_adptor = DssDbusAdptor(self)
+        qApp.focusWindowChanged.connect(self.onFocusWindowChanged)
+
+    def onFocusWindowChanged(self, win):
+        if  win.__class__.__name__   != "QWindow":
+            print "Focus Window:", win.__class__.__name__
+        if win is None:
+            print "focusLosed"
+            self.focusLosed.emit()
 
     def set_all_contexts(self):
         self.qml_context = self.rootContext()

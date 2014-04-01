@@ -34,18 +34,17 @@ app = QApplication(sys.argv)
 import signal
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 
-from control_panel import ControlPanel, DBusService
+from control_panel import ControlPanel
 from constants import APP_DBUS_NAME, APP_OBJECT_PATH
 
-from PyQt5.QtDBus import QDBusConnection, QDBusInterface
+from PyQt5.QtDBus import QDBusConnection
 session_bus = QDBusConnection.sessionBus()
 
 from PyQt5 import QtQml
-#from popup import PopupItem
-from PyQtWindow import PyQtWindow
+from popup import PopupItem
 
-#QtQml.qmlRegisterType(PopupItem, "DGui", 1, 0, "PopupItem")
-QtQml.qmlRegisterType(PyQtWindow, "DGui", 1, 0, "PyQtWindow")
+QtQml.qmlRegisterType(PopupItem, "DGui", 1, 0, "PopupItem")
+
 
 def main():
     root_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
@@ -69,7 +68,6 @@ def main():
         else:
             panel.view_object.showModule(order)
 
-    DBusService(panel)
     session_bus.registerObject(APP_OBJECT_PATH, panel)
     success = session_bus.registerService(APP_DBUS_NAME)
     if not success:

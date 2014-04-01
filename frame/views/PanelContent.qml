@@ -52,16 +52,6 @@ Rectangle {
 
     property var sessionManager: SessionManager {}
     property var modulesId: ModulesData {}
-    property var accountId: Accounts {}
-    property var currentUserObj: User {
-        path: accountId.userList[0]
-        onIconFileChanged: {
-            avatarImage.imageSource = iconFile
-        }
-        Component.onCompleted: {
-            avatarImage.imageSource = iconFile
-        }
-    }
 
     property bool inDssHome: true
     property var navigateIconModel: ListModel {}
@@ -77,8 +67,6 @@ Rectangle {
 
     function initTrayIcon() {
         print("==> [info] initTrayIcon emit")
-        userName.text = currentUserObj.userName.substring(0, 1).toUpperCase()
-            + currentUserObj.userName.substring(1)
         var modules_id_array = modulesId.allIds
         moduleIconList.currentIndex = -1
         navigateIconModel.clear()
@@ -260,43 +248,12 @@ Rectangle {
         }
     }
 
-    Column {
+    Loader {
         id: headerArea
-        height: childrenRect.height
         width: parent.width
-
-        property bool headerClicked: false
-
-        Rectangle {
-            width: parent.width
-            height: 150
-            color: dconstants.contentBgColor
-
-            DRoundImage {
-                id: avatarImage
-                roundRadius: 40
-                anchors.top: parent.top
-                anchors.topMargin: 20
-                anchors.horizontalCenter: parent.horizontalCenter
-                onClicked: {
-                    moduleIconList.iconClickAction("account")
-                    headerArea.headerClicked = true
-                }
-            }
-
-            DLabel {
-                id: userName
-                anchors.top: avatarImage.bottom
-                anchors.topMargin: 8
-                anchors.horizontalCenter: parent.horizontalCenter
-                font.pixelSize: 18
-                color: tuhaoColor
-            }
-        }
-
-        DSeparatorHorizontal{}
-
-        DBaseLine {}
+        height: childrenRect.height
+        active: true
+        sourceComponent: HeaderArea {}
     }
 
     Rectangle{
@@ -478,5 +435,9 @@ Rectangle {
                 }
             }
         }
+    }
+
+    Menu {
+        id: rootMenu
     }
 }
