@@ -197,9 +197,11 @@ ListView {
                             delete_line.expand()
                         }
                         onConfirm: {
-                            dbus_accounts.DeleteUser(userName, deleteFiles)
-                            component_bg.state = "normal"
-                            root.deleteItem(index)
+                            if (checkPolkitAuth()) {
+                                dbus_accounts.DeleteUser(userName, deleteFiles)
+                                component_bg.state = "normal"
+                                root.deleteItem(index)
+                            }
                         }
 
                         anchors.left: round_image.right
