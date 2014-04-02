@@ -135,7 +135,7 @@ class ControlPanel(QQuickView):
         self.setGeometry(x + width, y,
                 PANEL_WIDTH, height)
 
-    @pyqtSlot(int)
+    @pyqtSlot(result=int)
     def getPid(self):
         return os.getpid()
 
