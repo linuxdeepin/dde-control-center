@@ -19,13 +19,17 @@ Rectangle {
             this_user: root.this_user
 
             onAvatarSet: {
-                var iconFile = path.toString().replace("file:\/\/", "")
-                this_user.SetIconFile(iconFile)
+                if (checkPolkitAuth()) {
+                    var iconFile = path.toString().replace("file:\/\/", "")
+                    this_user.SetIconFile(iconFile)
+                }
             }
 
             onAvatarPictured: {
-                var iconFile = path.toString().replace("file:\/\/", "")
-                this_user.SetIconFile(iconFile)
+                if (checkPolkitAuth()) {
+                    var iconFile = path.toString().replace("file:\/\/", "")
+                    this_user.SetIconFile(iconFile)
+                }
             }
         }
 
@@ -52,7 +56,9 @@ Rectangle {
                     checked: root.this_user.automaticLogin
 
                     onClicked: {
-                        this_user.SetAutomaticLogin(checked)
+                        if (checkPolkitAuth()) {
+                            this_user.SetAutomaticLogin(checked)                           
+                        }
                     }
 
                     anchors.right: parent.right
@@ -84,7 +90,9 @@ Rectangle {
                     checked: !root.this_user.locked
 
                     onClicked: {
-                        this_user.SetLocked(!checked)
+                        if (checkPolkitAuth()) {
+                            this_user.SetLocked(!checked)
+                        }
                     }
 
                     anchors.right: parent.right
@@ -120,7 +128,7 @@ Rectangle {
                         {"buttonId": "administrator", "buttonLabel": "Administrator"},
                     ]
                     initializeIndex: root.this_user.accountType
-                    onItemSelected: root.this_user.SetAccountType(idx)
+                    onItemSelected: if(checkPolkitAuth()) {root.this_user.SetAccountType(idx)}
 
                     anchors.right: parent.right
                     anchors.rightMargin: 15
@@ -134,11 +142,13 @@ Rectangle {
                 id: password_dialog
 
                 onPasswordSet: {
-                    password_dialog.reset()
-                    /* dbus_user.passwordMode = 2 // i think this nonsense too, but the fact is this help a lot >_< */
-                    /* // The user should be in a group named "nopasswdlogin" before we set his password, */
-                    /* // but a fresh _new_ user is not in that group(weird), so we should set it first. */
-                    dbus_user.SetPassword(password, "")
+                    if (checkPolkitAuth()) {
+                        password_dialog.reset()
+                        /* dbus_user.passwordMode = 2 // i think this nonsense too, but the fact is this help a lot >_< */
+                        /* // The user should be in a group named "nopasswdlogin" before we set his password, */
+                        /* // but a fresh _new_ user is not in that group(weird), so we should set it first. */
+                        dbus_user.SetPassword(password, "")
+                    }
                 }
 
                 onCancelled: {

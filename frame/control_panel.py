@@ -140,7 +140,7 @@ class ControlPanel(QQuickView):
     def getDefaultMask(self, ip_addr):
         return ip_utils.getDefaultMask(ip_addr)
 
-    @pyqtSlot(int)
+    @pyqtSlot(result=int)
     def getPid(self):
         return os.getpid()
 
