@@ -134,13 +134,14 @@ Item {
                         text: dsTr("Output Volume")
                     }
                     rightLoader.sourceComponent: DSliderEnhanced {
+                        id: output_volume_slider
                         width: sliderWidth
 
                         min: 0
                         max: 150
                         init: currentSink.volume
 
-                        onValueConfirmed:{
+                        onValueChanged:{
                             currentSink.volume = value
                         }
 
@@ -148,6 +149,16 @@ Item {
                             addRuler(0, "-")
                             addRuler(100, "")
                             addRuler(150, "+")
+                        }
+
+                        Connections {
+                            target: currentSink
+
+                            onVolumeChanged: {
+                                if (!output_volume_slider.pressedFlag) {
+                                    output_volume_slider.setValue(currentSink.volume)
+                                }
+                            }
                         }
                     }
                 }
@@ -159,6 +170,7 @@ Item {
                         text: dsTr("Balance")
                     }
                     rightLoader.sourceComponent: DSliderEnhanced {
+                        id: output_balance_slider
                         width: sliderWidth
 
                         min: -1
@@ -168,7 +180,7 @@ Item {
 
                         handler.source: "images/balance.png"
 
-                        onValueConfirmed:{
+                        onValueChanged:{
                             currentSink.balance = value
                         }
 
@@ -176,6 +188,16 @@ Item {
                             addRuler(-1, "Left")
                             addRuler(0, "")
                             addRuler(1, "Right")
+                        }
+
+                        Connections {
+                            target: currentSink
+
+                            onVolumeChanged: {
+                                if (!output_balance_slider.pressedFlag) {
+                                    output_balance_slider.setValue(currentSink.balance)
+                                }
+                            }
                         }
                     }
                 }
@@ -219,13 +241,14 @@ Item {
                         text: dsTr("Input Volume")
                     }
                     rightLoader.sourceComponent: DSliderEnhanced {
+                        id: input_volume_slider
                         width: sliderWidth
 
                         min: 0
                         max: 150
                         init: currentSource.volume
 
-                        onValueConfirmed:{
+                        onValueChanged:{
                             currentSource.volume = value
                         }
 
@@ -233,6 +256,16 @@ Item {
                             addRuler(0, "-")
                             addRuler(100, "")
                             addRuler(150, "+")
+                        }
+
+                        Connections {
+                            target: currentSource
+
+                            onVolumeChanged: {
+                                if (!input_volume_slider.pressedFlag) {
+                                    input_volume_slider.setValue(currentSource.volume)
+                                }
+                            }
                         }
                     }
                 }
@@ -252,10 +285,6 @@ Item {
                         handlerVisible: false
                         valueDisplayVisible: false
                         clickable: false
-
-                        onValueConfirmed:{
-                            currentSource.balance = value
-                        }
                     }
                 }
 
