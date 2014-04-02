@@ -44,7 +44,6 @@ GridView {
             function checkSelect() {
                 if (index == avatar_icon_view.currentIndex && round_image.checkSupport) {
                     round_image.state = "checked"
-                    avatar_icon_view.avatarSet(round_image.imageSource)
                 } else {
                     round_image.state = "normal"
                 }
@@ -75,6 +74,7 @@ GridView {
                     if (checkSupport) {
                         avatar_icon_view.currentIndex = index
                         avatar_icon_view.forceActiveFocus()
+                        avatar_icon_view.avatarSet(round_image.imageSource)
                     } else {
                         avatar_pick_dialog.open()
                     }

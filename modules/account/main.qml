@@ -29,7 +29,7 @@ Rectangle {
     }
 
     function checkPolkitAuth() {
-        return dbus_accounts.AuthWidhPolkit(windowView.getPid()) ? true : false
+        return dbus_accounts.AuthWithPolkit(windowView.getPid()) ? true : false
     }
     
     Component.onCompleted: currentUserIsAdmin()
@@ -146,6 +146,27 @@ Rectangle {
                     user_list.addUser(arg0)
                 }
             }
+            
+            onHideAllPrivate: {
+                guest_user.visible = false
+            }
+            
+            onShowAllPrivate: {
+                guest_user.visible = true
+            }
+        }
+        
+        GuestUser {
+            id: guest_user
+            z: user_list.z - 1
+            
+            onExpandedChanged: {
+                user_list.visible = !expanded
+            }
+            
+            leftPadding: user_list.leftPadding
+            rightPadding: user_list.rightPadding
+            nameLeftPadding: user_list.nameLeftPadding
         }
 
         move: Transition {
