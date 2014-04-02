@@ -44,7 +44,10 @@ Item {
                     "name": dsTr("Browser"),
                     "icon": "images/network.png",
                     "defaultGetType": "x-scheme-handler/http", 
-                    "setTypeGroup": ["x-scheme-handler/http"]
+                    "setTypeGroup": [
+                        "x-scheme-handler/http",
+                        "x-scheme-handler/https"
+                    ]
                 },
                 {
                     "name": dsTr("Mail"),

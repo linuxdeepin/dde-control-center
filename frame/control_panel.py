@@ -39,6 +39,7 @@ from nls import QtGettext
 from ChineseLunar import ChineseCalendar150
 from dialog_window import MessageDialog
 import utils
+import ip_utils
 
 class DssDbusAdptor(QDBusAbstractAdaptor):
     Q_CLASSINFO("D-Bus Interface", APP_DBUS_NAME)
@@ -134,6 +135,10 @@ class ControlPanel(QQuickView):
         x, y, width, height = rect
         self.setGeometry(x + width, y,
                 PANEL_WIDTH, height)
+
+    @pyqtSlot(str, result=str)
+    def getDefaultMask(self, ip_addr):
+        return ip_utils.getDefaultMask(ip_addr)
 
     @pyqtSlot(int)
     def getPid(self):

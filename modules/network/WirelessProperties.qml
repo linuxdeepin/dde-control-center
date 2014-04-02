@@ -3,6 +3,7 @@ import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
 import Deepin.Widgets 1.0
 import QtQuick.Controls 1.1
+import "widgets"
 
 Column{
     id: wirelessProperties
@@ -10,7 +11,7 @@ Column{
 
     property var uuid
 
-    property int activeExpandIndex: 0
+    property int activeExpandIndex: 1
     property int valueWidth: 190
     property int contentLeftMargin: 18
     property var connectionSessionObject: {
@@ -132,48 +133,68 @@ Column{
             }
 
             DBaseLine {
+                id: ipAddressLine
                 color: dconstants.contentBgColor
                 leftMargin: contentLeftMargin
                 leftLoader.sourceComponent: DssH2{
                     text: dsTr("IP Address")
                 }
 
-                rightLoader.sourceComponent: DTextInput{
+                rightLoader.sourceComponent: Ipv4Input{
                     width: valueWidth
+                    onToNext: {
+                        var ipAddress = getValue()
+                        if(ipAddress){
+                            var netmask = windowView.getDefaultMask(ipAddress)
+                            if(netmask){
+                                netmaskLine.rightLoader.item.setValue(netmask)
+                            }
+                        }
+                        netmaskLine.rightLoader.item.getFocus()
+                    }
                 }
             }
 
             DBaseLine {
+                id: netmaskLine
                 color: dconstants.contentBgColor
                 leftMargin: contentLeftMargin
                 leftLoader.sourceComponent: DssH2{
                     text: dsTr("Netmask")
                 }
 
-                rightLoader.sourceComponent: DTextInput{
+                rightLoader.sourceComponent: Ipv4Input{
                     width: valueWidth
+                    onToNext: {
+                        gatewayLine.rightLoader.item.getFocus()
+                    }
                 }
             }
 
             DBaseLine {
+                id: gatewayLine
                 color: dconstants.contentBgColor
                 leftMargin: contentLeftMargin
                 leftLoader.sourceComponent: DssH2{
                     text: dsTr("Gateway")
                 }
 
-                rightLoader.sourceComponent: DTextInput{
+                rightLoader.sourceComponent: Ipv4Input{
                     width: valueWidth
+                    onToNext: {
+                        dnsServerLine.rightLoader.item.getFocus()
+                    }
                 }
             }
             DBaseLine {
+                id: dnsServerLine
                 color: dconstants.contentBgColor
                 leftMargin: contentLeftMargin
                 leftLoader.sourceComponent: DssH2{
                     text: dsTr("DNS Server")
                 }
 
-                rightLoader.sourceComponent: DTextInput{
+                rightLoader.sourceComponent: Ipv4Input{
                     width: valueWidth
                 }
             }
