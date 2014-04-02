@@ -46,14 +46,19 @@ Item {
                     "defaultGetType": "x-scheme-handler/http", 
                     "setTypeGroup": [
                         "x-scheme-handler/http",
-                        "x-scheme-handler/https"
+                        "x-scheme-handler/https",
+                        "text/html"
                     ]
                 },
                 {
                     "name": dsTr("Mail"),
                     "icon": "images/mail.png",
                     "defaultGetType": "x-scheme-handler/mailto",
-                    "setTypeGroup": ["x-scheme-handler/mailto"]
+                    "setTypeGroup": [
+                        "x-scheme-handler/mailto",
+                        "message/rfc822",
+                        "application/x-extension-eml"
+                    ]
                 },
                 {
                     "name": dsTr("Text"),
@@ -65,13 +70,31 @@ Item {
                     "name": dsTr("Music"),
                     "icon": "images/music.png",
                     "defaultGetType": "audio/mpeg",
-                    "setTypeGroup": ["audio/mpeg"]
+                    "setTypeGroup": [
+                        "audio/mpeg",
+                        "audio/flac",
+                        "audio/x-ape",
+                        "audio/ogg",
+                        "audio/x-ms-wma",
+                        "audio/x-wav"
+                    ]
                 },
                 {
                     "name": dsTr("Video"),
                     "icon": "images/video.png",
                     "defaultGetType": "video/mp4",
-                    "setTypeGroup": ["video/mp4"]
+                    "setTypeGroup": [
+                        "video/mp4",
+                        "video/x-matroska",
+                        "video/x-msvideo",
+                        "video/ogg",
+                        "video/3gpp",
+                        "video/3gpp2",
+                        "video/x-flv",
+                        "video/x-flic",
+                        "video/x-ms-asf",
+                        "video/x-ms-wmv"
+                    ]
                 },
                 {
                     "name": dsTr("Picture Viewer"),
@@ -82,6 +105,7 @@ Item {
                         "image/bmp",
                         "image/png",
                         "image/tiff",
+                        "image/svg+xml",
                         "image/gif"
                     ]
                 },
