@@ -19,28 +19,43 @@ Item {
     property int centerPadding: 20
 
     property var dconstants: DConstants {}
-    property var keyboardID: Keyboard {}
+    property var dbusKeyboard: Keyboard {}
     property var searchId: Search {}
     property var xkeyboardLocale: DLocale { domain: "xkeyboard-config" }
 
-    property var allLayoutMapL10n: {
-        var layoutMap = keyboardID.LayoutList()
+    property var allLayoutMapL10n: { ";": xkeyboardLocale.dsTr(dbusKeyboard.LayoutList["us;"]) }
+
+    property string searchMd5: ""
+
+    function getAllLayoutMapL10n(){
+        var layoutMap = dbusKeyboard.LayoutList()
+        var layoutMapL10n = new Object()
         for(var key in layoutMap){
-            layoutMap[key] = xkeyboardLocale.dsTr(layoutMap[key])
+            layoutMapL10n[key] = xkeyboardLocale.dsTr(layoutMap[key])
         }
-        layoutMap[";"] = xkeyboardLocale.dsTr(layoutMap["us;"])
-        return layoutMap
+        return layoutMapL10n
     }
 
-    property string searchMd5: searchId.NewTrieWithString(allLayoutMapL10n, "deepin-system-settings-keyboard-layouts")
-
     function isInUserLayouts(key){
-        for(var i=0; i<keyboardID.userLayoutList.length; i++){
-            if(keyboardID.userLayoutList[i] == key){
+        for(var i=0; i<dbusKeyboard.userLayoutList.length; i++){
+            if(dbusKeyboard.userLayoutList[i] == key){
                 return true
             }
         }
         return false
+    }
+
+    Timer{
+        id: getSearchMd5
+        //running: true
+        interval: 300
+        onTriggered: {
+            keyboardModule.allLayoutMapL10n = getAllLayoutMapL10n()
+            print(keyboardModule.allLayoutMapL10n)
+            keyboardModule.searchMd5 = searchId.NewTrieWithString(
+                keyboardModule.allLayoutMapL10n, "deepin-system-settings-keyboard-layouts")
+            print(keyboardModule.searchMd5)
+        }
     }
 
     Component {
@@ -73,11 +88,11 @@ Item {
 
                 min: 100
                 max: 2000
-                init: keyboardID.repeatDelay
+                init: dbusKeyboard.repeatDelay
                 valueDisplayVisible: false
 
                 onValueConfirmed:{
-                    keyboardID.repeatDelay = value
+                    dbusKeyboard.repeatDelay = value
                 }
 
                 Component.onCompleted: {
@@ -98,11 +113,11 @@ Item {
 
                 min: 2000
                 max: 30
-                init: keyboardID.repeatSpeed
+                init: dbusKeyboard.repeatSpeed
                 valueDisplayVisible: false
 
                 onValueConfirmed:{
-                    keyboardID.repeatSpeed = value
+                    dbusKeyboard.repeatSpeed = value
                 }
 
                 Component.onCompleted: {
@@ -123,11 +138,11 @@ Item {
 
                 min: 2500
                 max: 100
-                init: keyboardID.cursorBlink
+                init: dbusKeyboard.cursorBlink
                 valueDisplayVisible: false
 
                 onValueConfirmed:{
-                    keyboardID.cursorBlink = value
+                    dbusKeyboard.cursorBlink = value
                 }
 
                 Component.onCompleted: {
@@ -179,7 +194,7 @@ Item {
                         var selectedKeys = addLayoutList.getSelectedKeys()
                         for(var i=0; i<selectedKeys.length; i++){
                             if(!keyboardModule.isInUserLayouts(selectedKeys[i])){
-                                keyboardID.AddUserLayout(selectedKeys[i])
+                                dbusKeyboard.AddUserLayout(selectedKeys[i])
                             }
                         }
                     }
@@ -208,29 +223,31 @@ Item {
                 currentIndex: -1
                 clip: true
 
-                property string selectLayoutId: keyboardID.currentLayout
+                property string selectLayoutId: dbusKeyboard.currentLayout
                 property bool inDeleteAction: keyboardLayoutArea.currentActionStateName == "deleteButton"
 
                 function switchLayout(id){
-                    keyboardID.currentLayout = id
+                    dbusKeyboard.currentLayout = id
                 }
 
                 function deleteLayout(id){
-                    keyboardID.DeleteUserLayout(id)
+                    dbusKeyboard.DeleteUserLayout(id)
                 }
 
-                model: {
-                    var myModel = listModelComponent.createObject(layoutList, {})
-                    var userKeyboardLayouts = keyboardID.userLayoutList
+                function loadLayoutListModel(){
+                    var userKeyboardLayouts = dbusKeyboard.userLayoutList
                     for (var i=0; i<userKeyboardLayouts.length; i++){
                         var id = userKeyboardLayouts[i]
-                        myModel.append({
+                        layoutList.model.append({
                             "item_id": id,
                             "item_name": allLayoutMapL10n[id]
                         })
                     }
-                    return myModel
                 }
+
+                Component.onCompleted: loadLayoutListModel()
+
+                model: ListModel {}
 
                 delegate: SelectItem {
                     selectItemId: layoutList.selectLayoutId
@@ -306,7 +323,7 @@ Item {
             ListView {
                 id: addLayoutList
                 height: {
-                    var listHeight = myModel.count * 28
+                    var listHeight = addLayoutList.model.count * 28
                     if(listHeight > keyboardModule.height - 278){
                         return keyboardModule.height - 278
                     }
@@ -329,13 +346,13 @@ Item {
                 }
 
                 function rebuildModel(selectedIndex){
-                    myModel.clear()
+                    addLayoutList.model.clear()
                     if(keyboardModule.searchMd5 && selectedIndex){
                         var search_result = searchId.SearchKeysByFirstLetter(selectedIndex, keyboardModule.searchMd5)
                         for (var i=0; i<search_result.length; i++){
                             var id = search_result[i]
                             if(!keyboardModule.isInUserLayouts(id)){
-                                myModel.append({
+                                addLayoutList.model.append({
                                     "label": allLayoutMapL10n[id],
                                     "item_id": id
                                 })
@@ -344,7 +361,7 @@ Item {
                     }
                 }
 
-                model: ListModel { id: myModel }
+                model: ListModel {}
 
                 delegate: AddLayoutItem {}
                 DScrollBar { flickable: addLayoutList }

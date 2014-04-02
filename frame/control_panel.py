@@ -136,6 +136,10 @@ class ControlPanel(QQuickView):
                 PANEL_WIDTH, height)
 
     @pyqtSlot(int)
+    def getPid(self):
+        return os.getpid()
+
+    @pyqtSlot(int)
     def show(self, seconds):
         self.view_object.showDss(seconds)
 
