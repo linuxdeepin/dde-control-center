@@ -17,9 +17,17 @@ DBaseExpand {
         id: accessPointsModel
     }
 
+    Component.onCompleted: {
+        if(!scanTimer.running){
+            scanTimer.start()
+        }
+    }
+
     onDeviceStatusChanged:{
         if(deviceStatus == 100 || deviceStatus == 30){
-            scanTimer.start()
+            if(!scanTimer.running){
+                scanTimer.start()
+            }
         }
     }
 
