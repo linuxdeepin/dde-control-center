@@ -67,10 +67,12 @@ Item {
     
     DssH3 {
         id: nameText
+        width: parent.width - nameImage.width - deleteButton.width
         anchors.left: parent.left
         anchors.leftMargin: labelLeftMargin
         anchors.verticalCenter: parent.verticalCenter
         text: itemName
+        elide: Text.ElideRight
         color: {
             if(selected){
                 return dconstants.activeColor
