@@ -10,7 +10,7 @@ Item {
         id: wiredDevicesList
         width: parent.width
         height: childrenRect.height
-        model: nm.wiredDevices
+        model: dbusNetwork.wiredDevices
 
         delegate: WiredDeviceExpand{}
     }

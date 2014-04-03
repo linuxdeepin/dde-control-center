@@ -15,7 +15,7 @@ Column{
     property int valueWidth: 190
     property int contentLeftMargin: 18
     property var connectionSessionObject: {
-        var connectionPath = nm.EditConnection(uuid)
+        var connectionPath = dbusNetwork.EditConnection(uuid)
         return connectionSession.createObject(wirelessProperties, { path: connectionPath })
     }
 

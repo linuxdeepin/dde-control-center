@@ -10,7 +10,8 @@ Column{
     id: networkModule
     anchors.fill: parent
 
-    property variant nm: NetworkManager{}
+    property var dbusNetwork: NetworkManager{}
+    property var activeConnections: dbusNetwork.activeConnections
 
     signal needSecretsEmit(string path, string encryptionName, string accessPointName)
 
@@ -18,9 +19,15 @@ Column{
 
     //property bool inAllConnectionPage: false
     property bool inAllConnectionPage: stackView.depth == 1
-    property Item allConnectionPage: ListConnections {
-        width: parent.width
-        height: parent.height - header.height - 2
+    property Item allConnectionPage: ListConnections {}
+
+    function isInList(s, sList){
+        for(var i in sList){
+            if (s == sList[i]){
+                return i
+            }
+        }
+        return -1
     }
 
     Component {
@@ -64,6 +71,8 @@ Column{
 
     StackView {
         id:stackView
+        width: parent.width
+        height: parent.height - header.height - 2
         initialItem: allConnectionPage
     }
 }

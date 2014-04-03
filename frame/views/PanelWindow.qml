@@ -25,7 +25,7 @@ DOverrideWindow {
         panelContent.moduleIconList.iconClickAction(moduleId)
     }
 
-    function showTrayOrPanel() {
+    function showPanel() {
         if(clickedToHide){
             if(!showAll.running && rootWindow.width != panelWidth){
                 showAll.start()
@@ -33,7 +33,7 @@ DOverrideWindow {
         }
     }
 
-    function hideTrayIcon(quit) {
+    function hidePanel(quit) {
         if(clickedToHide){
             if(!hideAll.running){
                 if(showAll.running){
@@ -55,6 +55,15 @@ DOverrideWindow {
         rootWindow.width = 0
         rootWindow.hide()
         rootWindow.displayWidth = 0
+    }
+
+    function togglePanel(){
+        if(rootWindow.displayWidth == 0){
+            rootWindow.showPanel()
+        }
+        else{
+            rootWindow.hidePanel(false)
+        }
     }
 
     Timer {

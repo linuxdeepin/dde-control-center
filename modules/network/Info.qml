@@ -15,7 +15,7 @@ Column {
     function filterConnection(devs) {
         var conns = []
         for (var i=0; i<devs.length; i++) {
-            var c = nm.GetActiveConnection(devs[i][0])
+            var c = dbusNetwork.GetActiveConnection(devs[i][0])
             if (c[0]) {
                 conns.push(c)
             }
@@ -24,7 +24,7 @@ Column {
     }
 
     Repeater {
-        model: filterConnection(nm.wiredDevices)
+        model: filterConnection(dbusNetwork.wiredDevices)
         DBaseExpand {
             width: root.width
             expanded: header.item.active
@@ -51,7 +51,7 @@ Column {
         }
     }
     Repeater {
-        model: filterConnection(nm.wirelessDevices)
+        model: filterConnection(dbusNetwork.wirelessDevices)
         DBaseExpand {
             visible: true
             width: root.width

@@ -9,25 +9,63 @@ DBaseExpand {
     width: parent.width
 
     property string devicePath: "/"
-    property int deviceStatus: 20
+    property int deviceStatus: 0
 
     property string inConnectingApPath: "/"
 
-    ListModel {
-        id: accessPointsModel
-    }
-
     Component.onCompleted: {
+        for(var i in dbusNetwork.wirelessDevices){
+            if(dbusNetwork.wirelessDevices[i][0] == wirelessDevicesExpand.devicePath){
+                wirelessDevicesExpand.deviceStatus = dbusNetwork.wirelessDevices[i][1]
+            }
+        }
         if(!scanTimer.running){
             scanTimer.start()
         }
     }
 
-    onDeviceStatusChanged:{
-        if(deviceStatus == 100 || deviceStatus == 30){
-            if(!scanTimer.running){
-                scanTimer.start()
+    ListModel {
+        id: accessPointsModel
+    }
+
+    Connections{
+        target: dbusNetwork
+        onAccessPointAdded:{
+            if(arg0 == devicePath){
+                print("AccessPointAdded:", arg0, arg1)
+                accessPointsModel.append({
+                    "apName": arg1[0],
+                    "apSecured": arg1[1],
+                    "apSignal": arg1[2],
+                    "apPath": arg1[3]
+                })
             }
+        }
+        onAccessPointRemoved:{
+            if(arg0 == devicePath){
+                print("AccessPointRemoved:", arg0, arg1)
+                var i = 0;
+                while(i < accessPointsModel.count){
+                    var accessPointInfo = accessPointsModel.get(i);
+                    if(arg1 == accessPointInfo.apPath){
+                        accessPointsModel.remove(i, 1);
+                        break;
+                    }
+                    i++;
+                }
+            }
+        }
+        onDeviceStateChanged: {
+            wirelessDevicesExpand.deviceStatus = arg1
+            if(arg1 == 100){
+                wirelessDevicesExpand.inConnectingApPath = "/"
+            }
+            if(arg0 == devicePath){
+                wirelessDevicesExpand.deviceStatus = arg1
+            }
+        }
+        onAccessPointPropertiesChanged: {
+            print("onAccessPointPropertiesChanged:", arg0, arg1)
         }
     }
 
@@ -37,7 +75,7 @@ DBaseExpand {
         leftLoader.sourceComponent: DssH2 {
             anchors.verticalCenter: parent.verticalCenter
             text: {
-                if(nm.wirelessDevices.length < 2){
+                if(dbusNetwork.wirelessDevices.length < 2){
                     return dsTr("Wireless Device: %1").arg(deviceStatus)
                 }
                 else{
@@ -53,7 +91,7 @@ DBaseExpand {
         rightLoader.sourceComponent: DSwitchButton{
             checked: wirelessDevicesExpand.expanded
             onClicked: {
-                nm.wirelessEnabled = checked
+                dbusNetwork.wirelessEnabled = checked
             }
         }
     }
@@ -67,34 +105,26 @@ DBaseExpand {
             width: parent.width
             height: childrenRect.height
             model: accessPointsModel
-            delegate: WirelessItem {}
-        }
-
-        DBaseLine{
-            visible: accessPointsModel.count > 0 ? false: true
-            color: dconstants.contentBgColor
-            leftLoader.sourceComponent: DssH3{
-                text: "Scanning..."
+            delegate: WirelessItem {
+                devicePath: wirelessDevicesExpand.devicePath
             }
         }
     }
 
     Timer {
         id: scanTimer
-        interval: 1000
+        interval: 100
         onTriggered: {
-            var accessPoints = nm.GetAccessPoints(devicePath)
+            var accessPoints = dbusNetwork.GetAccessPoints(devicePath)
             wirelessDevicesExpand.inConnectingApPath = "/"
             accessPointsModel.clear()
             for(var i in accessPoints){
                 var ap = accessPoints[i]
                 accessPointsModel.append({
-                    "devicePath": devicePath,
                     "apName": ap[0],
                     "apSecured": ap[1],
                     "apSignal": ap[2],
                     "apPath": ap[3],
-                    "apConnected": ap[4]
                 })
             }
         }

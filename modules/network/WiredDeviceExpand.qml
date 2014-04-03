@@ -5,7 +5,7 @@ DBaseExpand {
     id: wiredDeviceExpand
     width: parent.width
 
-    expanded: nm.wiredEnabled
+    expanded: dbusNetwork.wiredEnabled
 
     header.sourceComponent: DBaseLine{
         id: wiredDeviceHeader
@@ -17,7 +17,7 @@ DBaseExpand {
         rightLoader.sourceComponent: DSwitchButton{
             checked: wiredDeviceExpand.expanded
             onClicked: {
-                nm.wiredEnabled = checked
+                dbusNetwork.wiredEnabled = checked
             }
         }
     }
@@ -29,7 +29,7 @@ DBaseExpand {
         ListView {
             width: parent.width
             height: childrenRect.height
-            model: nm.wiredDevices
+            model: dbusNetwork.wiredDevices
             delegate: WiredItem {}
         }
 

@@ -56,8 +56,8 @@ class DssDbusAdptor(QDBusAbstractAdaptor):
             '      <arg direction="in" type="i" name="mouseX"/>\n'
             '      <arg direction="in" type="i" name="mouseY"/>\n'
             '    </method>\n'
-            '    <method name="Hide">\n'
-            '    </method>\n'
+            '    <method name="Hide"></method>\n'
+            '    <method name="Toggle"></method>\n'
             '  </interface>\n'
             """ % APP_DBUS_NAME)
 
@@ -80,6 +80,10 @@ class DssDbusAdptor(QDBusAbstractAdaptor):
     @pyqtSlot(int, int)
     def ClickToHide(self, mouseX, mouseY):
         self.parent().view_object.outerAreaClicked(mouseX, mouseY)
+
+    @pyqtSlot()
+    def Toggle(self):
+        self.parent().view_object.togglePanel()
 
 class ControlPanel(QQuickView):
 

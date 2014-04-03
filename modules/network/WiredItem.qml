@@ -8,7 +8,7 @@ Column{
     width: parent.width
     height: childrenRect.height
 
-    property int wiredDevicesSignal: nm.wiredDevices[index][1]
+    property int wiredDevicesSignal: dbusNetwork.wiredDevices[index][1]
 
     DBaseLine {
         id: wiredLine
@@ -31,7 +31,7 @@ Column{
             }
 
             onClicked: {
-                nm.ActivateConnection(nm.wiredConnections[index], nm.wiredDevices[index][0])
+                dbusNetwork.ActivateConnection(dbusNetwork.wiredConnections[index], dbusNetwork.wiredDevices[index][0])
             }
         }
 
@@ -45,7 +45,7 @@ Column{
                 hover_image: "img/check_2.png"
                 visible: wiredDevicesSignal == 100
                 onClicked: {
-                    nm.DeactivateConnection(nm.wiredDevices[index][0])
+                    dbusNetwork.DeactivateConnection(dbusNetwork.wiredDevices[index][0])
                 }
 
                 Connections{
@@ -78,7 +78,7 @@ Column{
             onClicked: {
                 stackView.push({
                     "item": Qt.resolvedUrl("WiredProperties.qml"),
-                    "properties": { "uuid": nm.wiredConnections[index]},
+                    "properties": { "uuid": dbusNetwork.wiredConnections[index]},
                     "destroyOnPop": true
                 })
             }

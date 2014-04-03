@@ -5,21 +5,20 @@ Item {
     id: wirelessDevicesArea
     width: parent.width
     height: wirelessDevicesList.height + 2
+    property int wirelessDevicesNumber: dbusNetwork.wirelessDevices.length
+    property int wirelessAreaMaxHeight: 0
 
     ListView{
         id: wirelessDevicesList
         width: parent.width
-        height: childrenRect.height
-        model: nm.wirelessDevices
-        delegate: WirelessDeviceExpand{ dev: nm.wirelessDevices[index] }
-        onModelChanged: {
-            //print("Repeater changed", nm.wirelessDevices)
+        height: Math.min(childrenRect.height, parent.wirelessAreaMaxHeight - 2)
+        model: wirelessDevicesNumber
+        clip: true
+        delegate: WirelessDeviceExpand {
+            devicePath: dbusNetwork.wirelessDevices[index][0]
         }
-    }
-
-    Connections{
-        target: nm
-        onWirelessDevicesChanged:{
+        onModelChanged: {
+            //print("Repeater changed", dbusNetwork.wirelessDevices)
         }
     }
     

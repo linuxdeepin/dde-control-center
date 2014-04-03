@@ -9,7 +9,9 @@ Item {
     width: parent.width
     height: childrenRect.height
 
-    property string uuid: ""
+    property string devicePath: "/"
+    property string uuid: dbusNetwork.GetConnectionByAccessPoint(apPath)
+    property bool apConnected: isInList(uuid, activeConnections) != -1
 
     Behavior on height {
         PropertyAnimation { duration: 100 }
@@ -36,8 +38,10 @@ Item {
             }
 
             onClicked: {
-                wirelessItem.uuid = nm.GetConnectionByAccessPoint(apPath)
-                nm.ActivateConnection(uuid, devicePath)
+                if(wirelessItem.uuid == ""){
+                    wirelessItem.uuid = dbusNetwork.CreateConnectionForAccessPoint(apPath)
+                }
+                dbusNetwork.ActivateConnection(wirelessItem.uuid, wirelessItem.devicePath)
                 wirelessDevicesExpand.inConnectingApPath = apPath
             }
         }
@@ -61,7 +65,7 @@ Item {
                     }
                 }
                 onClicked: {
-                    nm.DeactivateConnection(devicePath)
+                    dbusNetwork.DeactivateConnection(devicePath)
                 }
             }
 
@@ -118,7 +122,7 @@ Item {
                 onClicked: {
                     stackView.push({
                         "item": Qt.resolvedUrl("WirelessProperties.qml"),
-                        "properties": { "uuid": nm.GetConnectionByAccessPoint(apPath)},
+                        "properties": { "uuid": dbusNetwork.GetConnectionByAccessPoint(apPath)},
                         "destroyOnPop": true
                     })
                 }
@@ -160,6 +164,7 @@ Item {
             onNeedSecretsEmit: {
                 if (wirelessItem.uuid != ""){
                     passwordArea.path = dbusNetwork.GetConnectionByUuid(wirelessItem.uuid)
+                    print(passwordArea.path)
                     if(passwordArea.path == path){
                         passwordArea.showArea(encryptionName)
                     }

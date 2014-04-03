@@ -47,6 +47,11 @@ QtQml.qmlRegisterType(PopupItem, "DGui", 1, 0, "PopupItem")
 
 
 def main():
+    success = session_bus.registerService(APP_DBUS_NAME)
+    if not success:
+        print 'dss is running...'
+        sys.exit(0)
+
     root_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
     os.chdir(root_dir)
 
@@ -69,11 +74,6 @@ def main():
             panel.view_object.showModule(order)
 
     session_bus.registerObject(APP_OBJECT_PATH, panel)
-    success = session_bus.registerService(APP_DBUS_NAME)
-    if not success:
-        print 'dss is running...'
-        sys.exit(0)
-
     sys.exit(app.exec_())
 
 if __name__ == "__main__":

@@ -53,7 +53,7 @@ Item {
         running: false
         interval: 2000
         onTriggered: {
-            rootWindow.hideTrayIcon(true)
+            rootWindow.hidePanel(true)
         }
     }
 
@@ -62,7 +62,7 @@ Item {
     }
 
     function showDss(seconds){
-        rootWindow.showTrayOrPanel()
+        rootWindow.showPanel()
         if(seconds > 0){
             timeoutHideDss.interval = 1000 * seconds
             timeoutHideDss.restart()
@@ -74,18 +74,22 @@ Item {
     }
 
     function hideDss(){
-        rootWindow.hideTrayIcon(false)
+        rootWindow.hidePanel(false)
+    }
+
+    function togglePanel(){
+        rootWindow.togglePanel()
     }
 
     function outerAreaClicked(mousex, mousey){
         if (clickedToHide){
             if ((rootWindow.displayWidth == trayWidth) && (
                 !in_visible_area(mousex, mousey))) {
-                rootWindow.hideTrayIcon(false)
+                hideDss()
             }
             else if ((rootWindow.displayWidth == panelWidth) && (
                 !in_visible_area(mousex, mousey))) {
-                rootWindow.hideTrayIcon(false)
+                hideDss()
             }
         }
     }
