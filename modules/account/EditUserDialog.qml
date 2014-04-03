@@ -58,6 +58,8 @@ Rectangle {
                     onClicked: {
                         if (checkPolkitAuth()) {
                             this_user.SetAutomaticLogin(checked)                           
+                        } else {
+                            checked = Qt.binding(function () {return root.this_user.automaticLogin})
                         }
                     }
 
@@ -92,6 +94,8 @@ Rectangle {
                     onClicked: {
                         if (checkPolkitAuth()) {
                             this_user.SetLocked(!checked)
+                        } else {
+                            checked = Qt.binding(function () {return !root.this_user.locked})
                         }
                     }
 
@@ -128,7 +132,13 @@ Rectangle {
                         {"buttonId": "administrator", "buttonLabel": "Administrator"},
                     ]
                     initializeIndex: root.this_user.accountType
-                    onItemSelected: if(checkPolkitAuth()) {root.this_user.SetAccountType(idx)}
+                    onItemSelected: {
+                        if(checkPolkitAuth()) {
+                            root.this_user.SetAccountType(idx)
+                        } else {
+                            selectItem(root.this_user.accountType)
+                        }
+                    }
 
                     anchors.right: parent.right
                     anchors.rightMargin: 15

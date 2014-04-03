@@ -127,7 +127,11 @@ Item {
         }
 
         onAvatarSet: {
-            root_view.avatarSet(path)
+            if (checkPolkitAuth()) {
+                root_view.avatarSet(path)
+            } else {
+                doCheck(this_user.iconFile)
+            }
         }
 
         onInitialize: {
@@ -169,7 +173,11 @@ Item {
 
 
         onAvatarSet: {
-            root_view.avatarSet(path)
+            if (checkPolkitAuth()) {
+                root_view.avatarSet(path)
+            } else {
+                doCheck(this_user.iconFile)
+            }
         }
 
         onInitialize: setContent()

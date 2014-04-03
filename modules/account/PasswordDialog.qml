@@ -8,7 +8,7 @@ Item {
 
     signal passwordSet (string password)
     signal cancelled
-    
+
     function reset() {
         new_password_input.text = ""
         repeat_input.text = ""
@@ -118,7 +118,7 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
             }
         }
-        
+
         DSeparatorHorizontal {}
 
         Rectangle {
@@ -144,7 +144,7 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
             }
         }
-        
+
         DSeparatorHorizontal {}
 
         Rectangle {
@@ -176,7 +176,7 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
             }
         }
-        
+
         DSeparatorHorizontal {}
 
         Rectangle {
@@ -208,8 +208,10 @@ Item {
 
                 onClicked: {
                     if (detail_view.validate()) {
-                        root.passwordSet(new_password_input.text)
-                        root.state = "brief"
+                        if (checkPolkitAuth()) {
+                            root.passwordSet(new_password_input.text)
+                            root.state = "brief"
+                        }
                     } else {
                         new_password_input.state = "warning"
                         repeat_input.state = "warning"

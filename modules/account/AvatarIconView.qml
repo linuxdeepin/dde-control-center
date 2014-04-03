@@ -14,6 +14,14 @@ GridView {
     signal initialize
     signal avatarSet (url path)
     signal checkPrivate (int idx)
+    
+    function doCheck(iconFile) {
+        for (var i = 0; i < model.count; i++) {
+            if (model.get(i).avatarPath == iconFile) {
+                currentIndex = i
+            }
+        }
+    }
 
     AvatarPickDialog {
         id: avatar_pick_dialog
