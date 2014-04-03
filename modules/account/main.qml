@@ -114,6 +114,7 @@ Rectangle {
 
             onCancelled: {
                 main_column.state = "normal"
+                add_user_dialog.reset()
             }
 
             onConfirmed: {
@@ -132,6 +133,7 @@ Rectangle {
                             dbus_user.SetAutomaticLogin(userInfo.userAutoLogin)
 
                             main_column.state = "normal"
+                            add_user_dialog.reset()
                     }
                 }
            }
@@ -186,6 +188,10 @@ Rectangle {
                     visible: true
                 }
                 PropertyChanges {
+                    target: guest_user
+                    visible: true
+                }
+                PropertyChanges {
                     target: add_user_dialog
                     visible: false
                 }
@@ -199,6 +205,10 @@ Rectangle {
                 }
                 PropertyChanges {
                     target: user_list
+                    visible: false
+                }
+                PropertyChanges {
+                    target: guest_user
                     visible: false
                 }
                 PropertyChanges {

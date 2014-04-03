@@ -30,13 +30,6 @@ Rectangle {
         user_group_radio.selectItem(0)
     }
     
-    onConfirmed: {
-        reset()
-    }
-    onCancelled: {
-        reset()
-    }
-
     Column {
         id: column
         width: 310
