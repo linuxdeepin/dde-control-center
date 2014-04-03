@@ -33,8 +33,9 @@ ListView {
                                 "userDBusPath": path})
     }
 
-    function deleteItem (idx) {
+    function deleteItem (idx, height) {
         root.model.remove(idx, 1)
+        root.height -= height
     }
 
     Component {
@@ -200,7 +201,7 @@ ListView {
                             if (checkPolkitAuth()) {
                                 dbus_accounts.DeleteUser(userName, deleteFiles)
                                 component_bg.state = "normal"
-                                root.deleteItem(index)
+                                root.deleteItem(index, component_bg.height)
                             }
                         }
 
