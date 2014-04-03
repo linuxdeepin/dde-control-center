@@ -5,7 +5,7 @@ import QtGraphicalEffects 1.0
 Item {
     id: ipv4Input
     width: 176
-    height: 26
+    height: 22
     clip: true
 
     property int inputItemHeight: height - 4
@@ -82,9 +82,19 @@ Item {
             height: inputItemHeight
             onToNext: {
                 ipInput2.forceActiveFocus()
+                if(resetPosition){
+                    ipInput2.setPositionToStart()
+                }
             }
             onToPrevious: {
                 ipv4Input.toPrevious()
+            }
+            onToStart: {
+                input.cursorPosition = 0
+            }
+            onToEnd: {
+                ipInput4.forceActiveFocus()
+                ipInput4.setPositionToEnd()
             }
         }
 
@@ -96,9 +106,23 @@ Item {
             height: inputItemHeight
             onToNext: {
                 ipInput3.forceActiveFocus()
+                if(resetPosition){
+                    ipInput3.setPositionToStart()
+                }
             }
             onToPrevious: {
                 ipInput1.forceActiveFocus()
+                if(resetPosition){
+                    ipInput1.setPositionToEnd()
+                }
+            }
+            onToStart: {
+                ipInput1.forceActiveFocus()
+                ipInput1.input.cursorPosition = 0
+            }
+            onToEnd: {
+                ipInput4.forceActiveFocus()
+                ipInput4.setPositionToEnd()
             }
         }
 
@@ -110,9 +134,23 @@ Item {
             height: inputItemHeight
             onToNext: {
                 ipInput4.forceActiveFocus()
+                if(resetPosition){
+                    ipInput4.setPositionToStart()
+                }
             }
             onToPrevious: {
                 ipInput2.forceActiveFocus()
+                if(resetPosition){
+                    ipInput2.setPositionToEnd()
+                }
+            }
+            onToStart: {
+                ipInput1.forceActiveFocus()
+                ipInput1.input.cursorPosition = 0
+            }
+            onToEnd: {
+                ipInput4.forceActiveFocus()
+                ipInput4.setPositionToEnd()
             }
         }
 
@@ -127,9 +165,20 @@ Item {
             }
             onToPrevious: {
                 ipInput3.forceActiveFocus()
+                if(resetPosition){
+                    ipInput3.setPositionToEnd()
+                }
             }
 
             onAccepted: ipv4Input.accepted()
+
+            onToStart: {
+                ipInput1.forceActiveFocus()
+                ipInput1.input.cursorPosition = 0
+            }
+            onToEnd: {
+                ipInput4.setPositionToEnd()
+            }
         }
     }
     Rectangle {

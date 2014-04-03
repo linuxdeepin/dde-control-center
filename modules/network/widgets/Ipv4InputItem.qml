@@ -17,28 +17,19 @@ FocusScope {
     property int max: 255
 
     signal accepted
-    signal toNext
-    signal toPrevious
+    signal toNext(bool resetPosition)
+    signal toPrevious(bool resetPosition)
 
-    function increase(){
-        var value = parseInt(text_input.text)
-        if(value == max){
-            text_input.text = min
-        }
-        else{
-            value += 1
-            text_input.text = value
-        }
+    signal toStart
+    signal toEnd
+
+    function setPositionToStart(){
+        text_input.cursorPosition = 0
     }
 
-    function decrease(){
-        var value = parseInt(text_input.text)
-        if(value == min){
-            text_input.text = max
-        }
-        else{
-            value -= 1
-            text_input.text = value
+    function setPositionToEnd(){
+        if(text_input.length != 0){
+            text_input.cursorPosition = text_input.length
         }
     }
 
@@ -90,43 +81,45 @@ FocusScope {
                     || event.key == 32
                     || event.key == 16777217
                 ){
-                    toNext()
+                    toNext(false)
                 }
                 // Shift+Tab ==> 16777218
                 else if( event.key == 16777218 ){
-                    toPrevious()
+                    toPrevious(false)
                 }
                 // backspace ==> 16777219
                 else if(event.key == 16777219){ 
                     if(text_input.length == 0){
-                        toPrevious()
+                        toPrevious(false)
                     }
+                }
+                // home ==> 16777232
+                else if(event.key == 16777232){
+                    toStart()
+                }
+                // end ==> 16777233
+                else if(event.key == 16777233){
+                    toEnd()
                 }
             }
 
-            Keys.onDownPressed:{
-                root.decrease()
-            }
-
-            Keys.onUpPressed: {
-                root.increase()
-            }
-
-            MouseArea{
-                anchors.fill: parent
-                onClicked: {
-                    parent.forceActiveFocus()
+            Keys.onLeftPressed: {
+                if(length == 0 || cursorPosition == 0){
+                    toPrevious(true)
                 }
-                onWheel: {
-                    if(wheel.angleDelta.y > 0){
-                        root.increase()
-                    }
-                    else{
-                        root.decrease()
-                    }
+                else{
+                    cursorPosition --
                 }
             }
-
+            Keys.onRightPressed: {
+                print(cursorPosition)
+                if(length == 0 || cursorPosition == length){
+                    toNext(true)
+                }
+                else{
+                    cursorPosition ++
+                }
+            }
         }
     }
 
