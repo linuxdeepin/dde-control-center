@@ -92,10 +92,12 @@ Item {
         visible: !inDeleteAction
         
         onEntered: {
+            toolTip.showTip(itemName)
             hovered = true
         }
 
         onExited: {
+            toolTip.hideTip()
             hovered = false
         }
         
