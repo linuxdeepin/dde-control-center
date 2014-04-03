@@ -23,7 +23,7 @@ Item {
     property var searchId: Search {}
     property var xkeyboardLocale: DLocale { domain: "xkeyboard-config" }
 
-    property var allLayoutMapL10n: { ";": xkeyboardLocale.dsTr(dbusKeyboard.LayoutList["us;"]) }
+    property var allLayoutMapL10n: new Object()
 
     property string searchMd5: ""
 
@@ -33,6 +33,7 @@ Item {
         for(var key in layoutMap){
             layoutMapL10n[key] = xkeyboardLocale.dsTr(layoutMap[key])
         }
+        layoutMapL10n[";"] = xkeyboardLocale.dsTr(layoutMap["us;"])
         return layoutMapL10n
     }
 
@@ -45,16 +46,17 @@ Item {
         return false
     }
 
-    Timer{
-        id: getSearchMd5
-        //running: true
-        interval: 300
-        onTriggered: {
-            keyboardModule.allLayoutMapL10n = getAllLayoutMapL10n()
-            print(keyboardModule.allLayoutMapL10n)
-            keyboardModule.searchMd5 = searchId.NewTrieWithString(
-                keyboardModule.allLayoutMapL10n, "deepin-system-settings-keyboard-layouts")
-            print(keyboardModule.searchMd5)
+    Component.onCompleted:{
+        keyboardModule.allLayoutMapL10n = getAllLayoutMapL10n()
+        keyboardModule.searchMd5 = searchId.NewTrieWithString(
+            keyboardModule.allLayoutMapL10n, "deepin-system-settings-keyboard-layouts")
+        layoutList.reloadLayout()
+    }
+
+    Connections {
+        target: dbusKeyboard
+        onUserLayoutListChanged: {
+            layoutList.reloadLayout()
         }
     }
 
@@ -234,20 +236,18 @@ Item {
                     dbusKeyboard.DeleteUserLayout(id)
                 }
 
-                function loadLayoutListModel(){
+                function reloadLayout(){
+                    var myModel = listModelComponent.createObject(layoutList, {})
                     var userKeyboardLayouts = dbusKeyboard.userLayoutList
                     for (var i=0; i<userKeyboardLayouts.length; i++){
                         var id = userKeyboardLayouts[i]
-                        layoutList.model.append({
+                        myModel.append({
                             "item_id": id,
                             "item_name": allLayoutMapL10n[id]
                         })
                     }
+                    layoutList.model = myModel
                 }
-
-                Component.onCompleted: loadLayoutListModel()
-
-                model: ListModel {}
 
                 delegate: SelectItem {
                     selectItemId: layoutList.selectLayoutId
