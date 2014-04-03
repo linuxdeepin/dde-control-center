@@ -147,6 +147,10 @@ class ControlPanel(QQuickView):
     @pyqtSlot(result=int)
     def getPid(self):
         return os.getpid()
+        
+    @pyqtSlot(result=str)
+    def getHomeDir(self):
+        return os.path.expanduser("~")
 
     @pyqtSlot(int)
     def show(self, seconds):

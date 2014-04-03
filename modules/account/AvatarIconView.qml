@@ -25,6 +25,7 @@ GridView {
 
     AvatarPickDialog {
         id: avatar_pick_dialog
+        folder: windowView.getHomeDir()
         onAccepted: {
             avatarSet(fileUrl)
         }
