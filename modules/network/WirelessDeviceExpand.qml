@@ -26,36 +26,75 @@ DBaseExpand {
 
     ListModel {
         id: accessPointsModel
+
+        function getIndexByApPath(path){
+            for(var i; i<count; i++){
+                var obj = get(i)
+                if(obj.apPath == path){
+                    return i
+                }
+            }
+            return -1
+        }
+
+        function getInsertPosition(apProperty){
+            var position = count
+            for(var i; i<count; i++){
+                var obj = get(i)
+                if(apProperty[3] != obj.apPath && apProperty[2] >= obj.apSignal){
+                    position = i
+                    break
+                }
+            }
+            return position
+        }
     }
 
     Connections{
         target: dbusNetwork
         onAccessPointAdded:{
             if(arg0 == devicePath){
-                print("AccessPointAdded:", arg0, arg1)
-                accessPointsModel.append({
-                    "apName": arg1[0],
-                    "apSecured": arg1[1],
-                    "apSignal": arg1[2],
-                    "apPath": arg1[3]
+                var apProperty = dbusNetwork.GetAccessPointProperty(arg1)
+                var insertPosition = accessPointsModel.getInsertPosition(apProperty)
+                accessPointsModel.insert(insertPosition, {
+                    "apName": apProperty[0],
+                    "apSecured": apProperty[1],
+                    "apSignal": apProperty[2],
+                    "apPath": apProperty[3]
                 })
             }
         }
+
         onAccessPointRemoved:{
             if(arg0 == devicePath){
-                print("AccessPointRemoved:", arg0, arg1)
-                var i = 0;
-                while(i < accessPointsModel.count){
-                    var accessPointInfo = accessPointsModel.get(i);
-                    if(arg1 == accessPointInfo.apPath){
-                        accessPointsModel.remove(i, 1);
-                        break;
-                    }
-                    i++;
+                var index = accessPointsModel.getIndexByApPath(arg1)
+                if(index != -1){
+                    accessPointsModel.remove(index, 1)
                 }
             }
         }
+
+        onAccessPointPropertiesChanged: {
+            if(arg0 == devicePath){
+                var newApProperty = dbusNetwork.GetAccessPointProperty(arg1)
+                var index = accessPointsModel.getIndexByApPath(arg1)
+                var apPropertyObject = accessPointsModel.get(index)
+                for(var i in newApProperty){
+                    apPropertyObject.apName = newApProperty[0]
+                    apPropertyObject.apSecured = newApProperty[1]
+                    apPropertyObject.apSignal = newApProperty[2]
+                    apPropertyObject.apPath = newApProperty[3]
+                }
+
+                var insertPosition = accessPointsModel.getInsertPosition(newApProperty)
+                if(insertPosition != index){
+                    accessPointsModel.move(index, position, 1)
+                }
+            }
+        }
+
         onDeviceStateChanged: {
+            print("onDeviceStateChanged:", arg0, arg1)
             wirelessDevicesExpand.deviceStatus = arg1
             if(arg1 == 100){
                 wirelessDevicesExpand.inConnectingApPath = "/"
@@ -63,9 +102,6 @@ DBaseExpand {
             if(arg0 == devicePath){
                 wirelessDevicesExpand.deviceStatus = arg1
             }
-        }
-        onAccessPointPropertiesChanged: {
-            print("onAccessPointPropertiesChanged:", arg0, arg1)
         }
     }
 
@@ -111,6 +147,21 @@ DBaseExpand {
         }
     }
 
+    function sortModel()
+    {
+        var n;
+        var i;
+        for (n=0; n < accessPointsModel.count; n++)
+            for (i=n+1; i < accessPointsModel.count; i++)
+            {
+                if (accessPointsModel.get(n).apSignal < accessPointsModel.get(i).apSignal)
+                {
+                    accessPointsModel.move(i, n, 1);
+                    n=0; // Repeat at start since I can't swap items i and n
+                }
+            }
+    }
+
     Timer {
         id: scanTimer
         interval: 100
@@ -118,15 +169,17 @@ DBaseExpand {
             var accessPoints = dbusNetwork.GetAccessPoints(devicePath)
             wirelessDevicesExpand.inConnectingApPath = "/"
             accessPointsModel.clear()
+
             for(var i in accessPoints){
-                var ap = accessPoints[i]
+                var ap = dbusNetwork.GetAccessPointProperty(accessPoints[i])
                 accessPointsModel.append({
                     "apName": ap[0],
                     "apSecured": ap[1],
                     "apSignal": ap[2],
-                    "apPath": ap[3],
+                    "apPath": ap[3]
                 })
             }
+            wirelessDevicesExpand.sortModel()
         }
     }
 }

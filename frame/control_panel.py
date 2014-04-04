@@ -44,23 +44,6 @@ import ip_utils
 class DssDbusAdptor(QDBusAbstractAdaptor):
     Q_CLASSINFO("D-Bus Interface", APP_DBUS_NAME)
 
-    Q_CLASSINFO("D-Bus Introspection", """
-            '  <interface name="%s">\n'
-            '    <method name="Show">\n'
-            '      <arg direction="in" type="i" name="seconds"/>\n'
-            '    </method>\n'
-            '    <method name="ShowModule">\n'
-            '      <arg direction="in" type="s" name="moduleName"/>\n'
-            '    </method>\n'
-            '    <method name="ClickToHide">\n'
-            '      <arg direction="in" type="i" name="mouseX"/>\n'
-            '      <arg direction="in" type="i" name="mouseY"/>\n'
-            '    </method>\n'
-            '    <method name="Hide"></method>\n'
-            '    <method name="Toggle"></method>\n'
-            '  </interface>\n'
-            """ % APP_DBUS_NAME)
-
     def __init__(self, parent):
         QDBusAbstractAdaptor.__init__(self, parent)
         self.setAutoRelaySignals(True)
