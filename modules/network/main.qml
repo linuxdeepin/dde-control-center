@@ -19,7 +19,7 @@ Column{
 
     //property bool inAllConnectionPage: false
     property bool inAllConnectionPage: stackView.depth == 1
-    property Item allConnectionPage: ListConnections {}
+    property var allConnectionPage: ListConnections {}
 
     function isInList(s, sList){
         for(var i in sList){
@@ -35,16 +35,10 @@ Column{
         ConnectionSession {}
     }
 
-    DBaseLine {
+    DssTitle {
         id:header
         height: 48
-
-        leftLoader.sourceComponent: DssH1 {
-            text: dsTr("Network Settings")
-            color: "white"
-            font.bold: true
-        }
-
+        text: dsTr("Network Settings")
         rightLoader.sourceComponent: Row {
             height: header.height
             spacing: 4
@@ -54,14 +48,10 @@ Column{
             }
 
             DTextButton {
-                id: abc
-                text: "info"
+                text: "Info"
                 anchors.verticalCenter: parent.verticalCenter
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        stackView.push(Qt.resolvedUrl("Info.qml"))
-                    }
+                onClicked: {
+                    stackView.push(Qt.resolvedUrl("Info.qml"))
                 }
             }
         }

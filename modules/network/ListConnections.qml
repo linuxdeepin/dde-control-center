@@ -6,10 +6,6 @@ import Deepin.Widgets 1.0
 Column {
     id:body
 
-    Component.onCompleted: {
-        print(width, height)
-    }
-
     Loader{
         id: wired
         active: true

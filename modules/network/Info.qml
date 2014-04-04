@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
 import Deepin.Widgets 1.0
+import "widgets"
 
 Column {
     DSeparatorHorizontal{}
@@ -16,7 +17,7 @@ Column {
         var conns = []
         for (var i=0; i<devs.length; i++) {
             var c = dbusNetwork.GetActiveConnection(devs[i][0])
-            if (c[0]) {
+            if (c && c[0]) {
                 conns.push(c)
             }
         }
@@ -39,17 +40,17 @@ Column {
                     width: root.width
                     columns: 2
                     Layout.preferredWidth: root.width
-                    DLabel { text: dsTr("DeviceType") }         DLabel { text: dsTr("wired") }
-                    DLabel { text: dsTr("DeviceAddr")}      DLabel { text: modelData[1] }
-                    DLabel { text: dsTr("IpAddress")}        DLabel { text: modelData[2] }
-                    DLabel { text: dsTr("SubnetMask")}      DLabel { text: modelData[3] }
-                    DLabel { text: dsTr("RouteAddr")}      DLabel { text: modelData[4] }
-                    DLabel { text: dsTr("DeviceSpeed")}      DLabel { text: modelData[5] + "Mb/s" }
-                    DLabel { text: dsTr("InternetSpeed")}      Button { text: dsTr("test it") }
+                    DssH2 { text: dsTr("DeviceType") }         DssH2 { text: dsTr("wired") }
+                    DssH2 { text: dsTr("DeviceAddr")}      DssH2 { text: modelData[1] }
+                    DssH2 { text: dsTr("IpAddress")}        DssH2 { text: modelData[2] }
+                    DssH2 { text: dsTr("SubnetMask")}      DssH2 { text: modelData[3] }
+                    DssH2 { text: dsTr("RouteAddr")}      DssH2 { text: modelData[4] }
+                    DssH2 { text: dsTr("DeviceSpeed")}      DssH2 { text: modelData[5] + "Mb/s" }
                 }
             }
         }
     }
+
     Repeater {
         model: filterConnection(dbusNetwork.wirelessDevices)
         DBaseExpand {
@@ -67,15 +68,23 @@ Column {
                     width: root.width
                     columns: 2
                     Layout.preferredWidth: root.width
-                    DLabel { text: dsTr("DeviceType") }         DLabel { text: dsTr("wireless") }
-                    DLabel { text: dsTr("DeviceAddr")}      DLabel { text: modelData[1] }
-                    DLabel { text: dsTr("IpAddress")}        DLabel { text: modelData[2] }
-                    DLabel { text: dsTr("SubnetMask")}      DLabel { text: modelData[3] }
-                    DLabel { text: dsTr("RouteAddr")}      DLabel { text: modelData[4] }
-                    DLabel { text: dsTr("DeviceSpeed")}      DLabel { text: modelData[5] + "Mb/s" }
-                    DLabel { text: dsTr("InternetSpeed")}      Button { text: dsTr("test it") }
+                    DssH2 { text: dsTr("DeviceType") }         DssH2 { text: dsTr("wireless") }
+                    DssH2 { text: dsTr("DeviceAddr")}      DssH2 { text: modelData[1] }
+                    DssH2 { text: dsTr("IpAddress")}        DssH2 { text: modelData[2] }
+                    DssH2 { text: dsTr("SubnetMask")}      DssH2 { text: modelData[3] }
+                    DssH2 { text: dsTr("RouteAddr")}      DssH2 { text: modelData[4] }
+                    DssH2 { text: dsTr("DeviceSpeed")}      DssH2 { text: modelData[5] + "Mb/s" }
                 }
             }
+        }
+    }
+
+    DSeparatorHorizontal {}
+
+    DBaseLine{
+        rightLoader.sourceComponent: DTextButton{
+            text: "Close"
+            onClicked: stackView.pop(null)
         }
     }
 }
