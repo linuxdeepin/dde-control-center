@@ -84,7 +84,7 @@ Window {
             anchors.leftMargin: 20
             color: "white"
             text: dsTr("是否要保存这些显示设置？")
-            font.pixelSize: 13
+            font.pixelSize: 14
         }
 
         DssH3{
@@ -94,7 +94,7 @@ Window {
 
             color: dconstants.fgColor
             text: dsTr("<font color='#F48914'>%1</font> 秒之后还原之前的显示设置。").arg(countdown.totalTime)
-            font.pixelSize: 9
+            font.pixelSize: 12
         }
 
         Row {
