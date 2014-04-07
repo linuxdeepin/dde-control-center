@@ -152,6 +152,7 @@ Item {
         function cancelAction(){
             height = 0
             networkModule.inPasswordInputting = false
+            dbusNetwork.CancelSecret(passwordArea.path, passwordArea.encryptionName)
         }
 
         function connectAction(){
