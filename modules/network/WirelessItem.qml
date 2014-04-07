@@ -149,14 +149,18 @@ Item {
             passwordInput.forceActiveFocus()
         }
 
-        function cancelAction(){
+        function hideArea(){
             height = 0
             networkModule.inPasswordInputting = false
+        }
+
+        function cancelAction(){
+            hideArea()
             dbusNetwork.CancelSecret(passwordArea.path, passwordArea.encryptionName)
         }
 
         function connectAction(){
-            cancelAction()
+            hideArea()
             dbusNetwork.FeedSecret(passwordArea.path, passwordArea.encryptionName, passwordInput.text)
         }
 
