@@ -138,10 +138,10 @@ Rectangle {
                 }
             }
         }
-        DSeparatorHorizontal{}
+        DSeparatorHorizontal{ visible: close_the_lid_rect.visible }
         DBaseExpand {
             id: close_the_lid_rect
-            visible: dbus_power.batteryIsPresent
+            visible: dbus_power.lidIsPresent
             expanded: true
             header.sourceComponent: DBaseLine {
                 leftLoader.sourceComponent: DssH2 {
