@@ -284,6 +284,7 @@ Item {
                         init: currentSource.balance
                         handlerVisible: false
                         valueDisplayVisible: false
+                        showPulseGradient: true
                         clickable: false
                     }
                 }
