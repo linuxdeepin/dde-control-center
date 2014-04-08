@@ -29,7 +29,7 @@ from PyQt5.QtCore import (Qt, pyqtSlot, pyqtSignal, QVariant, QUrl,
 from PyQt5.QtGui import QSurfaceFormat, QColor
 from PyQt5.QtQuick import QQuickView
 from PyQt5.QtDBus import QDBusMessage, QDBusReply, QDBusAbstractAdaptor
-from PyQt5.QtWidgets import qApp
+from PyQt5.QtWidgets import qApp, QApplication
 
 from display_monitor import connect_to_primary_changed
 from constants import ROOT_LOCATION, PANEL_WIDTH
@@ -122,6 +122,10 @@ class ControlPanel(QQuickView):
         x, y, width, height = rect
         self.setGeometry(x + width, y,
                 PANEL_WIDTH, height)
+
+    @pyqtSlot(int)
+    def setCursorFlashTime(self, time):
+        QApplication.setCursorFlashTime(time)
 
     @pyqtSlot(str, result=str)
     def getDefaultMask(self, ip_addr):

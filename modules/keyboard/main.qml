@@ -145,6 +145,7 @@ Item {
 
                 onValueConfirmed:{
                     dbusKeyboard.cursorBlink = value
+                    windowView.setCursorFlashTime(parseInt(value))
                 }
 
                 Component.onCompleted: {

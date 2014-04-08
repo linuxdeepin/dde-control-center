@@ -118,14 +118,23 @@ Column{
                 }
 
                 rightLoader.sourceComponent: DComboBox{
+                    id: ipv4MethodCombox
                     anchors.left: parent.left
-                    anchors.leftMargin: -3
                     width: valueWidth
                     text: connectionSessionObject.GetKey(ipv4Settings.sectionName, "method")
+
+                    property var menuLabels: connectionSessionObject.GetAvailableValues(ipv4Settings.sectionName, "method")
+
+                    function menuSelect(i){
+                        text = menuLabels[i]
+                    }
+
                     onClicked: {
                         var pos = mapToItem(null, 0, 0)
+                        rootMenu.labels = ipv4MethodCombox.menuLabels
+                        rootMenu.requestMenuItem = ipv4MethodCombox
                         rootMenu.posX = pos.x
-                        rootMenu.posY = pos.y
+                        rootMenu.posY = pos.y + height
                         rootMenu.innerWidth = width
                         rootMenu.visible = true
                     }
@@ -265,6 +274,7 @@ Column{
 
     DBaseLine{
         rightLoader.sourceComponent: Row {
+            spacing: 6
 
             DTextButton{
                 text: dsTr("Save")

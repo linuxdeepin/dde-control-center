@@ -12,12 +12,17 @@ DWindowFrame{
     property real posX: 0
     property real posY: 0
 
-    x: posX - 25
-    y: posY - 10
+    x: posX - 28
+    y: posY - 12
 
-    width: innerWidth < 100 ? 100 : innerWidth + 6
-    height: completeView.contentHeight + 6
+    width: innerWidth + 24
+    height: completeViewBox.height + 32
     visible: false
+
+    property var labels: []
+    property Item requestMenuItem: popupWindow
+
+    function menuSelect(i){}
 
     PopupItem {
         anchors.fill: parent
@@ -27,15 +32,25 @@ DWindowFrame{
     }
 
     Item {
+        id: completeViewBox
         anchors.centerIn: parent
         width: parent.width - 6
-        height: parent.height - 6
+        height: childrenRect.height
 
         ListView {
             id: completeView
-            anchors.fill: parent
-            model: 5
-            delegate: MenuItem {}
+            width: parent.width
+            height: childrenRect.height
+            model: labels
+            delegate: MenuItem {
+                text: labels[index]
+                onSelectAction:{
+                    popupWindow.visible = false
+                    if(popupWindow.requestMenuItem){
+                        popupWindow.requestMenuItem.menuSelect(index)
+                    }
+                }
+            }
             clip: true
             interactive: false
         }

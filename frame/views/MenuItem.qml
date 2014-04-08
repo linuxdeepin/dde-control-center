@@ -4,12 +4,18 @@ import Deepin.Widgets 1.0
 Item {
     id: wrapper
     width: wrapper.ListView.view.width; height: 26
+
+    signal selectAction(int index)
+
+    property alias text: label.text
+
     Rectangle {
         color: wrapper.ListView.view.currentIndex == index ? "#141414" : "#232323"
         anchors.fill: parent
     }
 
     DssH2 {
+        id: label
         anchors.left: parent.left
         anchors.leftMargin: 5
         anchors.verticalCenter: parent.verticalCenter
@@ -26,6 +32,6 @@ Item {
                 wrapper.ListView.view.currentIndex = index
             }
         }
-        onClicked: print(index)
+        onClicked: selectAction(index)
     }
 }

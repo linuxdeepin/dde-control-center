@@ -17,6 +17,12 @@ Item {
         PropertyAnimation { duration: 100 }
     }
 
+    function requestUuid(){
+        if(wirelessItem.uuid == ""){
+            wirelessItem.uuid = dbusNetwork.CreateConnectionForAccessPoint(apPath)
+        }
+    }
+
     DBaseLine {
         id: wirelessLine
 
@@ -38,9 +44,7 @@ Item {
             }
 
             onClicked: {
-                if(wirelessItem.uuid == ""){
-                    wirelessItem.uuid = dbusNetwork.CreateConnectionForAccessPoint(apPath)
-                }
+                wirelessItem.requestUuid()
                 dbusNetwork.ActivateConnection(wirelessItem.uuid, wirelessItem.devicePath)
                 wirelessDevicesExpand.inConnectingApPath = apPath
             }
@@ -120,9 +124,10 @@ Item {
 
             DArrowButton {
                 onClicked: {
+                    wirelessItem.requestUuid()
                     stackView.push({
                         "item": Qt.resolvedUrl("WirelessProperties.qml"),
-                        "properties": { "uuid": dbusNetwork.GetConnectionByAccessPoint(apPath)},
+                        "properties": { "uuid": wirelessItem.uuid },
                         "destroyOnPop": true
                     })
                 }
@@ -197,7 +202,7 @@ Item {
             spacing: 10
 
             DssH2 {
-                text: "Password: "
+                text: dsTr("Password: ")
             }
 
             Column{
@@ -217,7 +222,7 @@ Item {
                     }
 
                     DssH3{
-                        text: "Show password"
+                        text: dsTr("Show password")
                         anchors.verticalCenter: parent.verticalCenter
                     }
                 }
@@ -232,14 +237,14 @@ Item {
             spacing: 10
 
             DTextButton{
-                text: "Cancel"
+                text: dsTr("Cancel")
                 onClicked: {
                     passwordArea.cancelAction()
                 }
             }
 
             DTextButton{
-                text: "Connect"
+                text: dsTr("Connect")
                 onClicked: {
                     passwordArea.connectAction()
                 }

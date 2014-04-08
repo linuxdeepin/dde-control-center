@@ -72,7 +72,7 @@ Window {
 
             DssH1{
                 id: title
-                text: "Authentication required by Wi-Fi network"
+                text: dsTr("Authentication required by Wi-Fi network")
                 font.bold: true
             }
 
@@ -80,8 +80,7 @@ Window {
                 id: message
                 anchors.top: title.bottom
                 anchors.topMargin: 6
-                text: 'Passwords or encryption keys are required to access the Wi-Fi network "'
-                    + '<font color="#0ff">' + accessPointName + '</font>".'
+                text: dsTr('Passwords or encryption keys are required to access the Wi-Fi network <font color="#0ff">%1</font>').arg(accessPointName)
                 width: parent.width
                 wrapMode: Text.WordWrap
             }
@@ -95,7 +94,7 @@ Window {
                 anchors.topMargin: 10
                 spacing: 10
                 DssH2{
-                    text: "Password:"
+                    text: dsTr("Password:")
                     anchors.top: parent.top
                     anchors.topMargin: 2
                 }
@@ -117,7 +116,7 @@ Window {
                         }
 
                         DssH3{
-                            text: "Show Passwords"
+                            text: dsTr("Show Password")
                             anchors.verticalCenter: parent.verticalCenter
                         }
 
@@ -134,14 +133,15 @@ Window {
             anchors.bottomMargin: 10
 
             DTextButton {
-                text: ("Cancel")
+                text: dsTr("Cancel")
                 onClicked: {
                     hideDialog()
+                    dbusNetwork.FeedSecret(accessPointObj, accessPointEncryption)
                 }
             }
 
             DTextButton {
-                text: ("Connect")
+                text: dsTr("Connect")
                 onClicked: {
                     dbusNetwork.FeedSecret(accessPointObj, accessPointEncryption, passwordInput.text)
                     hideDialog()
