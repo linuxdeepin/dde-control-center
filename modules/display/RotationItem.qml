@@ -28,6 +28,15 @@ Rectangle {
     property bool selected: itemValue == currentValue
     property bool hovered: false
 
+    function isInArray(s, a){
+        for(var i in a){
+            if(a[i] == s){
+                return i
+            }
+        }
+        return -1
+    }
+
     signal selectAction(int itemValue)
 
     Rectangle {

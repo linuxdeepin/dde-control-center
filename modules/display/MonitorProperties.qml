@@ -12,7 +12,7 @@ Item {
     property int sliderWidth: 186
     property var listModelComponent: DListModelComponent {}
 
-    property var outputObj
+    property var outputObj: undefined
     property int monitorsNumber: 0
 
     property string currentResolution: getResolutionFromMode(outputObj.currentMode)
@@ -30,6 +30,7 @@ Item {
     onOutputObjChanged: {
         if(outputObj){
             enabledSwitcher.rightLoader.item.checked = outputObj.opened
+            resolutionArea.content.item.loadResolutionModel()
         }
     }
 
@@ -37,7 +38,7 @@ Item {
         return mode[1] + "x" + mode[2]
     }
 
-    Column{
+    Column {
         id: enabledColumn
         width: parent.width
         height: childrenRect.height
@@ -95,33 +96,31 @@ Item {
                         cellWidth: width/3
                         cellHeight: 30
                         property int currentValue: outputObj.currentMode[0]
+                        property var valueDict: new Object()
 
-                        function getResolutionModel(){
-                            var resolutionModel = listModelComponent.createObject(modesView, {})
+                        function loadResolutionModel(){
                             var modes = outputObj.ListModes()
-                            var checkRepeatDict = {}
-                            resolution = getResolutionFromMode(outputObj.bestMode)
-                            resolutionModel.append({
-                                "item_label": resolution + " *",
-                                "item_value": outputObj.bestMode[0]
-                            })
-                            checkRepeatDict[resolution] = true
                             for(var i=0; i<modes.length; i++){
                                 var resolution = getResolutionFromMode(modes[i])
-                                if(!checkRepeatDict[resolution]){
-                                    resolutionModel.append({
-                                        "item_label": resolution,
-                                        "item_value": modes[i][0]
-                                    })
-                                    checkRepeatDict[resolution] = true
+                                if(!valueDict[resolution]){
+                                    valueDict[resolution] = []
                                 }
+                                valueDict[resolution].push(modes[i][0])
                             }
-                            return resolutionModel
+
+                            modesView.model.clear()
+                            for(var key in valueDict){
+                                modesView.model.append({
+                                    "item_label": key,
+                                    "item_value": valueDict[key][0]
+                                })
+                            }
                         }
 
-                        model: getResolutionModel()
+                        model: ListModel{}
 
-                        delegate: PropertyItem {
+                        delegate: ModeItem {
+                            modesDict: modesView.valueDict
                             currentValue: modesView.currentValue
                             onSelectAction: {
                                 outputObj.SetMode(itemValue)
@@ -163,7 +162,7 @@ Item {
                             return rotation_model
                         }
 
-                        delegate: PropertyItem {
+                        delegate: RotationItem {
                             currentValue: rotationView.currentValue
                             onSelectAction: {
                                 outputObj.SetRotation(itemValue)
