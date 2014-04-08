@@ -69,7 +69,7 @@ Item {
                     }
                 }
                 onClicked: {
-                    dbusNetwork.DeactivateConnection(devicePath)
+                    dbusNetwork.DeactivateConnection(uuid)
                 }
             }
 
