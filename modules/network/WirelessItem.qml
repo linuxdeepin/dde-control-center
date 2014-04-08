@@ -18,6 +18,11 @@ Item {
     }
 
     function requestUuid(){
+        // TODO get uuid each time to fix connection issue temporary
+        uuid = dbusNetwork.GetConnectionByAccessPoint(apPath)
+        if(uuid != ""){
+            wirelessItem.uuid = uuid
+        }
         if(wirelessItem.uuid == ""){
             wirelessItem.uuid = dbusNetwork.CreateConnectionForAccessPoint(apPath)
         }
