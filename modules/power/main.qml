@@ -51,422 +51,402 @@ Rectangle {
     function getBatteryPercentage() {
         if (dbus_power.batteryIsPresent) {
             return dbus_power.batteryPercentage + "%"
-            } else {
-                return ""
+        } else {
+            return ""
+        }
+    }
+
+    Column {
+        anchors.fill: parent
+
+        Item {
+            width: parent.width
+            height: title.height
+
+            PowerTitle {
+                id: title
+                text: dsTr("Power")
+                hint: root.getBatteryPercentage()
+                showHyphen: dbus_power.batteryIsPresent
+                breath: dbus_power.batteryState == 1
+            }
+
+            DTextButton {
+                text: dsTr("Reset")
+
+                onClicked: dbus_power.reset()
+
+                anchors.right: parent.right
+                anchors.rightMargin: 15
+                anchors.verticalCenter: parent.verticalCenter
             }
         }
 
-        Column {
-            anchors.fill: parent
+        DSeparatorHorizontal {}
 
-            Item {
+        DBaseExpand {
+            id: power_button_rect
+            expanded: true
+            header.sourceComponent: DBaseLine {
+                leftLoader.sourceComponent: DssH2 {
+                    text: dsTr("When I press the power button")
+                }
+            }
+            content.sourceComponent: GridView{
+                id: power_button_view
                 width: parent.width
-                height: title.height
+                height: 30
 
-                PowerTitle {
-                    id: title
-                    text: dsTr("Power")
-                    hint: root.getBatteryPercentage()
-                    showHyphen: dbus_power.batteryIsPresent
-                    breath: dbus_power.batteryState == 1
+                cellWidth: width/3
+                cellHeight: 30
+
+                model: {
+                    var model = listModelComponent.createObject(power_button_view, {})
+                    model.append({
+                                     "item_label": dsTr("Shutdown"),
+                                     "item_value": 2
+                                 })
+                    model.append({
+                                     "item_label": dsTr("Suspend"),
+                                     "item_value": 1
+                                 })
+                    model.append({
+                                     "item_label": dsTr("Ask"),
+                                     "item_value": 4
+                                 })
+                    return model
                 }
 
-                DTextButton {
-                    text: dsTr("Reset")
-
-                    onClicked: dbus_power.reset()
-
-                    anchors.right: parent.right
-                    anchors.rightMargin: 15
-                    anchors.verticalCenter: parent.verticalCenter
-                }
-            }
-
-            DSeparatorHorizontal {}
-
-            DBaseExpand {
-                id: power_button_rect
-                expanded: true
-                header.sourceComponent: DBaseLine {
-                    leftLoader.sourceComponent: DssH2 {
-                        text: dsTr("When I press the power button")
-                    }
-                }
-                content.sourceComponent: GridView{
-                    id: power_button_view
-                    width: parent.width
-                    height: 30
-
-                    cellWidth: width/3
-                    cellHeight: 30
-
-                    model: {
-                        var model = listModelComponent.createObject(power_button_view, {})
-                        model.append({
-                         "item_label": dsTr("Shutdown"),
-                         "item_value": 2
-                         })
-                        model.append({
-                         "item_label": dsTr("Suspend"),
-                         "item_value": 1
-                         })                    
-                        model.append({
-                         "item_label": dsTr("Ask"),
-                         "item_value": 4
-                         })                    
-                        return model
-                    }
-
-                    delegate: PropertyItem {
-                        currentValue: dbus_power.powerButtonAction
-                        onSelectAction: {
-                            dbus_power.powerButtonAction = itemValue
-                        }
+                delegate: PropertyItem {
+                    currentValue: dbus_power.powerButtonAction
+                    onSelectAction: {
+                        dbus_power.powerButtonAction = itemValue
                     }
                 }
             }
-            DSeparatorHorizontal{ visible: close_the_lid_rect.visible }
-            DBaseExpand {
-                id: close_the_lid_rect
-                visible: dbus_power.lidIsPresent
-                expanded: true
-                header.sourceComponent: DBaseLine {
-                    leftLoader.sourceComponent: DssH2 {
-                        text: dsTr("When I close the lid")
-                    }
+        }
+        DSeparatorHorizontal{ visible: close_the_lid_rect.visible }
+        DBaseExpand {
+            id: close_the_lid_rect
+            visible: dbus_power.lidIsPresent
+            expanded: true
+            header.sourceComponent: DBaseLine {
+                leftLoader.sourceComponent: DssH2 {
+                    text: dsTr("When I close the lid")
                 }
-                content.sourceComponent: GridView{
-                    id: close_the_lid_view
-                    width: parent.width
-                    height: 30
+            }
+            content.sourceComponent: GridView{
+                id: close_the_lid_view
+                width: parent.width
+                height: 30
 
-                    cellWidth: width/3
-                    cellHeight: 30
+                cellWidth: width/3
+                cellHeight: 30
 
-                    model: {
-                        var model = listModelComponent.createObject(close_the_lid_view, {})
-                        model.append({
-                         "item_label": dsTr("Shutdown"),
-                         "item_value": 2
-                         })
-                        model.append({
-                         "item_label": dsTr("Suspend"),
-                         "item_value": 1
-                         })                    
-                        model.append({
-                         "item_label": dsTr("Nothing"),
-                         "item_value": 0
-                         })                    
-                        return model
-                    }
+                model: {
+                    var model = listModelComponent.createObject(close_the_lid_view, {})
+                    model.append({
+                                     "item_label": dsTr("Shutdown"),
+                                     "item_value": 2
+                                 })
+                    model.append({
+                                     "item_label": dsTr("Suspend"),
+                                     "item_value": 1
+                                 })
+                    model.append({
+                                     "item_label": dsTr("Nothing"),
+                                     "item_value": 0
+                                 })
+                    return model
+                }
 
-                    delegate: PropertyItem {
-                        currentValue: dbus_power.lidClosedAction
-                        onSelectAction: {
-                            dbus_power.lidClosedAction = itemValue
-                        }
+                delegate: PropertyItem {
+                    currentValue: dbus_power.lidClosedAction
+                    onSelectAction: {
+                        dbus_power.lidClosedAction = itemValue
                     }
                 }
             }
-            DSeparatorHorizontal{}
-            DBaseExpand {
-                id: wake_require_password_expand
-                expanded: true
-                header.sourceComponent: DBaseLine {
-                    leftLoader.sourceComponent: DssH2 {
-                        text: dsTr("Require password when computer wakes")
+        }
+        DSeparatorHorizontal{}
+        DBaseLine {
+            id: wake_require_password_expand
+            leftLoader.sourceComponent: DssH2 {
+                text: dsTr("Require password when computer wakes")
+            }
+
+            rightLoader.sourceComponent: Component{
+                DSwitchButton {
+                    checked: dbus_power.lockWhenActive
+
+                    onClicked: {
+                        dbus_power.lockWhenActive = checked
                     }
                 }
-                content.sourceComponent: GridView{
-                    id: wake_require_password_view
+            }
+        }
+        DSeparatorHorizontal{}
+
+
+        DBaseLine{}
+        DBaseExpand {
+            id: power_plan_ac_rect
+            expanded: true
+            header.sourceComponent: DBaseLine {
+                leftLoader.sourceComponent: ImageTitle {
+                    imageSource: "images/power_plan_ac.png"
+                    title: dsTr("Battery")
+                }
+            }
+            content.sourceComponent: Column {
+                GridView{
+                    id: power_plan
                     width: parent.width
-                    height: 30
+                    height: 30 * 2
 
                     cellWidth: width/2
                     cellHeight: 30
 
                     model: {
-                        var model = listModelComponent.createObject(wake_require_password_view, {})
+                        var model = listModelComponent.createObject(power_plan, {})
                         model.append({
-                         "item_label": dsTr("Requires a password"),
-                         "item_value": true
-                         })
+                                         "item_label": dsTr("Balance"),
+                                         "item_value": 2
+                                     })
                         model.append({
-                         "item_label": dsTr("Without a password"),
-                         "item_value": false
-                         })                    
+                                         "item_label": dsTr("Power saver"),
+                                         "item_value": 1
+                                     })
+                        model.append({
+                                         "item_label": dsTr("High performance"),
+                                         "item_value": 3
+                                     })
+                        model.append({
+                                         "item_label": dsTr("Custom"),
+                                         "item_value": 0
+                                     })
                         return model
                     }
 
                     delegate: PropertyItem {
-                        currentValue: dbus_power.lockWhenActive
+                        currentValue: dbus_power.batteryPlan
                         onSelectAction: {
-                            dbus_power.lockWhenActive = itemValue
+                            print(itemValue)
+                            dbus_power.batteryPlan = itemValue
                         }
                     }
                 }
-            }
-            DSeparatorHorizontal{}
 
-
-            DBaseLine{}
-            DBaseExpand {
-                id: power_plan_ac_rect
-                expanded: true
-                header.sourceComponent: DBaseLine {
-                    leftLoader.sourceComponent: ImageTitle {
-                        imageSource: "images/power_plan_ac.png"        
-                        title: dsTr("Power plan")
-                    }
+                TitleSeparator {
+                    id: trun_of_monitor_sep
+                    title: dsTr("Turn off monitor")
+                    width: parent.width
                 }
-                content.sourceComponent: Column {
-                    GridView{
-                        id: power_plan
-                        width: parent.width
-                        height: 30 * 2
 
-                        cellWidth: width/2
+                Item {
+                    width: parent.width
+                    height: 30
+                    GridView{
+                        id: turn_off_monitor_view
+                        anchors.fill: parent
+                        anchors.leftMargin: 20
+                        anchors.rightMargin: 20
+
+                        cellWidth: width/7
                         cellHeight: 30
 
                         model: {
-                            var model = listModelComponent.createObject(power_plan, {})
-                            model.append({
-                               "item_label": dsTr("Balance"),
-                               "item_value": 2
-                               })
-                            model.append({
-                               "item_label": dsTr("Power saver"),
-                               "item_value": 1
-                               })                    
-                            model.append({
-                               "item_label": dsTr("High performance"),
-                               "item_value": 3
-                               })                    
-                            model.append({
-                               "item_label": dsTr("Custom"),
-                               "item_value": 0
-                               })                    
+                            var model = listModelComponent.createObject(turn_off_monitor_view, {})
+                            for(var i=0; i<7; i++){
+                                model.append({
+                                                 "item_label": indexToLabel(i),
+                                                 "item_value": indexToTimeout(i)
+                                             })
+                            }
                             return model
                         }
 
                         delegate: PropertyItem {
-                            currentValue: dbus_power.batteryPlan
+                            currentValue: dbus_power.batteryIdleDelay
                             onSelectAction: {
-                                print(itemValue)
-                                dbus_power.batteryPlan = itemValue
-                            }
-                        }
-                    }
-
-                    TitleSeparator {
-                        id: trun_of_monitor_sep
-                        title: dsTr("Turn off monitor")
-                        width: parent.width
-                    }
-
-                    Item {
-                        width: parent.width
-                        height: 30
-                        GridView{
-                            id: turn_off_monitor_view
-                            anchors.fill: parent
-                            anchors.leftMargin: 20
-                            anchors.rightMargin: 20
-
-                            cellWidth: width/7
-                            cellHeight: 30
-
-                            model: {
-                                var model = listModelComponent.createObject(turn_off_monitor_view, {})
-                                for(var i=0; i<7; i++){
-                                    model.append({
-                                       "item_label": indexToLabel(i),
-                                       "item_value": indexToTimeout(i)
-                                       })
-                                }
-                                return model
-                            }
-
-                            delegate: PropertyItem {
-                                currentValue: dbus_power.batteryIdleDelay
-                                onSelectAction: {
-                                    dbus_power.batteryPlan = 0
-                                    dbus_power.batteryIdleDelay = itemValue
-                                }
-                            }
-                        }
-                    }
-
-                    TitleSeparator {
-                        id: suspend_sep
-                        title: dsTr("Suspend")
-                        width: parent.width
-                    }
-                    Item {
-                        width: parent.width
-                        height: 30
-                        GridView{
-                            id: suspend_view
-                            anchors.fill: parent
-                            anchors.leftMargin: 20
-                            anchors.rightMargin: 20
-
-
-                            cellWidth: width/7
-                            cellHeight: 30
-
-                            model: {
-                                var model = listModelComponent.createObject(suspend_view, {})
-                                for(var i=0; i<7; i++){
-                                    model.append({
-                                     "item_label": indexToLabel(i),
-                                     "item_value": indexToTimeout(i)
-                                     })
-                                }
-                                return model
-                            }
-
-                            delegate: PropertyItem {
-                                currentValue: dbus_power.batterySuspendDelay
-                                onSelectAction: {
-                                    dbus_power.currentProfile = 0
-                                    dbus_power.batterySuspendDelay = itemValue
-                                }
+                                dbus_power.batteryPlan = 0
+                                dbus_power.batteryIdleDelay = itemValue
                             }
                         }
                     }
                 }
-            }
-            DSeparatorHorizontal{}
 
-
-            DBaseLine{}
-            DBaseExpand {
-                id: power_plan_battery_rect
-                expanded: true
-                header.sourceComponent: DBaseLine {
-                    leftLoader.sourceComponent: ImageTitle {
-                        imageSource: "images/power_plan_battery.png"
-                        title: dsTr("Power plan")
-                    }
+                TitleSeparator {
+                    id: suspend_sep
+                    title: dsTr("Suspend")
+                    width: parent.width
                 }
-                content.sourceComponent: Column {
+                Item {
+                    width: parent.width
+                    height: 30
                     GridView{
-                        id: power_plan
-                        width: parent.width
-                        height: 30 * 2
+                        id: suspend_view
+                        anchors.fill: parent
+                        anchors.leftMargin: 20
+                        anchors.rightMargin: 20
 
-                        cellWidth: width/2
+
+                        cellWidth: width/7
                         cellHeight: 30
 
                         model: {
-                            var model = listModelComponent.createObject(power_plan, {})
-                            model.append({
-                               "item_label": dsTr("Balance"),
-                               "item_value": 2
-                               })
-                            model.append({
-                               "item_label": dsTr("Power saver"),
-                               "item_value": 1
-                               })                    
-                            model.append({
-                               "item_label": dsTr("High performance"),
-                               "item_value": 3
-                               })                    
-                            model.append({
-                               "item_label": dsTr("Custom"),
-                               "item_value": 0
-                               })                    
+                            var model = listModelComponent.createObject(suspend_view, {})
+                            for(var i=0; i<7; i++){
+                                model.append({
+                                                 "item_label": indexToLabel(i),
+                                                 "item_value": indexToTimeout(i)
+                                             })
+                            }
                             return model
                         }
 
                         delegate: PropertyItem {
-                            currentValue: dbus_power.linePowerPlan
+                            currentValue: dbus_power.batterySuspendDelay
                             onSelectAction: {
-                                dbus_power.linePowerPlan = itemValue
-                            }
-                        }
-                    }
-
-                    TitleSeparator {
-                        id: trun_of_monitor_sep
-                        title: dsTr("Turn off monitor")
-                        width: parent.width
-                    }
-
-                    Item {
-                        width: parent.width
-                        height: 30
-                        GridView{
-                            id: turn_off_monitor_view
-                            anchors.fill: parent
-                            anchors.leftMargin: 20
-                            anchors.rightMargin: 20
-
-                            cellWidth: width/7
-                            cellHeight: 30
-
-                            model: {
-                                var model = listModelComponent.createObject(turn_off_monitor_view, {})
-                                for(var i=0; i<7; i++){
-                                    model.append({
-                                       "item_label": indexToLabel(i),
-                                       "item_value": indexToTimeout(i)
-                                       })
-                                }
-                                return model
-                            }
-
-                            delegate: PropertyItem {
-                                currentValue: dbus_power.linePowerIdleDelay
-                                onSelectAction: {
-                                    dbus_power.linePowerPlan = 0
-                                    dbus_power.linePowerIdleDelay = itemValue
-                                }
-                            }
-                        }
-                    }
-
-                    TitleSeparator {
-                        id: suspend_sep
-                        title: dsTr("Suspend")
-                        width: parent.width
-                    }
-                    Item {
-                        width: parent.width
-                        height: 30
-                        GridView{
-                            id: suspend_view
-                            anchors.fill: parent
-                            anchors.leftMargin: 20
-                            anchors.rightMargin: 20
-
-
-                            cellWidth: width/7
-                            cellHeight: 30
-
-                            model: {
-                                var model = listModelComponent.createObject(suspend_view, {})
-                                for(var i=0; i<7; i++){
-                                    model.append({
-                                     "item_label": indexToLabel(i),
-                                     "item_value": indexToTimeout(i)
-                                     })
-                                }
-                                return model
-                            }
-
-                            delegate: PropertyItem {
-                                currentValue: dbus_power.linePowerSuspendDelay
-                                onSelectAction: {
-                                    dbus_power.linePowerPlan = 0
-                                    dbus_power.linePowerSuspendDelay = itemValue
-                                }
+                                dbus_power.currentProfile = 0
+                                dbus_power.batterySuspendDelay = itemValue
                             }
                         }
                     }
                 }
             }
-            DSeparatorHorizontal{}
         }
+        DSeparatorHorizontal{}
+
+
+        DBaseLine{visible: power_plan_battery_rect.visible}
+        DBaseExpand {
+            id: power_plan_battery_rect
+            visible: dbus_power.batteryIsPresent
+            expanded: true
+            header.sourceComponent: DBaseLine {
+                leftLoader.sourceComponent: ImageTitle {
+                    imageSource: "images/power_plan_battery.png"
+                    title: dsTr("Power Adapter")
+                }
+            }
+            content.sourceComponent: Column {
+                GridView{
+                    id: power_plan
+                    width: parent.width
+                    height: 30 * 2
+
+                    cellWidth: width/2
+                    cellHeight: 30
+
+                    model: {
+                        var model = listModelComponent.createObject(power_plan, {})
+                        model.append({
+                                         "item_label": dsTr("Balance"),
+                                         "item_value": 2
+                                     })
+                        model.append({
+                                         "item_label": dsTr("Power saver"),
+                                         "item_value": 1
+                                     })
+                        model.append({
+                                         "item_label": dsTr("High performance"),
+                                         "item_value": 3
+                                     })
+                        model.append({
+                                         "item_label": dsTr("Custom"),
+                                         "item_value": 0
+                                     })
+                        return model
+                    }
+
+                    delegate: PropertyItem {
+                        currentValue: dbus_power.linePowerPlan
+                        onSelectAction: {
+                            dbus_power.linePowerPlan = itemValue
+                        }
+                    }
+                }
+
+                TitleSeparator {
+                    id: trun_of_monitor_sep
+                    title: dsTr("Turn off monitor")
+                    width: parent.width
+                }
+
+                Item {
+                    width: parent.width
+                    height: 30
+                    GridView{
+                        id: turn_off_monitor_view
+                        anchors.fill: parent
+                        anchors.leftMargin: 20
+                        anchors.rightMargin: 20
+
+                        cellWidth: width/7
+                        cellHeight: 30
+
+                        model: {
+                            var model = listModelComponent.createObject(turn_off_monitor_view, {})
+                            for(var i=0; i<7; i++){
+                                model.append({
+                                                 "item_label": indexToLabel(i),
+                                                 "item_value": indexToTimeout(i)
+                                             })
+                            }
+                            return model
+                        }
+
+                        delegate: PropertyItem {
+                            currentValue: dbus_power.linePowerIdleDelay
+                            onSelectAction: {
+                                dbus_power.linePowerPlan = 0
+                                dbus_power.linePowerIdleDelay = itemValue
+                            }
+                        }
+                    }
+                }
+
+                TitleSeparator {
+                    id: suspend_sep
+                    title: dsTr("Suspend")
+                    width: parent.width
+                }
+                Item {
+                    width: parent.width
+                    height: 30
+                    GridView{
+                        id: suspend_view
+                        anchors.fill: parent
+                        anchors.leftMargin: 20
+                        anchors.rightMargin: 20
+
+
+                        cellWidth: width/7
+                        cellHeight: 30
+
+                        model: {
+                            var model = listModelComponent.createObject(suspend_view, {})
+                            for(var i=0; i<7; i++){
+                                model.append({
+                                                 "item_label": indexToLabel(i),
+                                                 "item_value": indexToTimeout(i)
+                                             })
+                            }
+                            return model
+                        }
+
+                        delegate: PropertyItem {
+                            currentValue: dbus_power.linePowerSuspendDelay
+                            onSelectAction: {
+                                dbus_power.linePowerPlan = 0
+                                dbus_power.linePowerSuspendDelay = itemValue
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        DSeparatorHorizontal{visible: power_plan_battery_rect.visible}
     }
+}
