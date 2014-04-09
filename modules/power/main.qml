@@ -1,6 +1,7 @@
 import QtQuick 2.1
 import DBus.Com.Deepin.Daemon.Power 1.0
 import Deepin.Widgets 1.0
+import "../shared"
 
 Rectangle {
     id: root
@@ -235,18 +236,50 @@ Rectangle {
                         }
                     }
                 }
+            }
+        }
+
+        Rectangle {
+            width: parent.width
+            height: dbus_power.linePowerPlan == 0 ? ac_custom_column.height + arrow_rect_1.arrowHeight :  0
+            color: dconstants.contentBgColor
+
+            Behavior on height {
+                SmoothedAnimation { duration: 300 }
+            }
+
+            ArrowRect {
+                id: arrow_rect_1
+                fillStyle: dconstants.bgColor
+                stroke: false
+                radius: 0
+                lineWidth: 0
+                arrowPosition: 0.75
+
+                anchors.fill: parent    
+            }
+            Column {
+                id: ac_custom_column
+                width: parent.width
+                anchors.top: parent.top
+                anchors.topMargin: arrow_rect_1.arrowHeight
 
                 TitleSeparator {
-                    id: trun_of_monitor_sep
-                    title: dsTr("Turn off monitor")
-                    width: parent.width
+                    text: dsTr("Custom Options")
                 }
 
-                Item {
+                TitleSeparator {
+                    width: parent.width
+                    text: dsTr("Turn off monitor")
+                    color: dconstants.contentBgColor
+                }
+
+                Rectangle {
                     width: parent.width
                     height: 30
+                    color: dconstants.contentBgColor
                     GridView{
-                        id: turn_off_monitor_view
+                        id: ac_turn_off_monitor_view
                         anchors.fill: parent
                         anchors.leftMargin: 20
                         anchors.rightMargin: 20
@@ -255,12 +288,12 @@ Rectangle {
                         cellHeight: 30
 
                         model: {
-                            var model = listModelComponent.createObject(turn_off_monitor_view, {})
+                            var model = listModelComponent.createObject(ac_turn_off_monitor_view, {})
                             for(var i=0; i<7; i++){
                                 model.append({
-                                                 "item_label": indexToLabel(i),
-                                                 "item_value": indexToTimeout(i)
-                                             })
+                                   "item_label": indexToLabel(i),
+                                   "item_value": indexToTimeout(i)
+                                   })
                             }
                             return model
                         }
@@ -274,17 +307,17 @@ Rectangle {
                         }
                     }
                 }
-
                 TitleSeparator {
-                    id: suspend_sep
-                    title: dsTr("Suspend")
                     width: parent.width
+                    text: dsTr("Suspend")
+                    color: dconstants.contentBgColor
                 }
-                Item {
+                Rectangle {
                     width: parent.width
                     height: 30
+                    color: dconstants.contentBgColor
                     GridView{
-                        id: suspend_view
+                        id: ac_suspend_view
                         anchors.fill: parent
                         anchors.leftMargin: 20
                         anchors.rightMargin: 20
@@ -294,12 +327,12 @@ Rectangle {
                         cellHeight: 30
 
                         model: {
-                            var model = listModelComponent.createObject(suspend_view, {})
+                            var model = listModelComponent.createObject(ac_suspend_view, {})
                             for(var i=0; i<7; i++){
                                 model.append({
-                                                 "item_label": indexToLabel(i),
-                                                 "item_value": indexToTimeout(i)
-                                             })
+                                 "item_label": indexToLabel(i),
+                                 "item_value": indexToTimeout(i)
+                                 })
                             }
                             return model
                         }
@@ -318,11 +351,10 @@ Rectangle {
         DSeparatorHorizontal{}
         
         
-        DBaseLine{visible: power_plan_battery_rect.visible}
+        DBaseLine{}
         DBaseExpand {
             id: power_plan_battery_rect
             expanded: true
-            visible: dbus_power.batteryIsPresent
             header.sourceComponent: DBaseLine {
                 leftLoader.sourceComponent: ImageTitle {
                     imageSource: "images/power_plan_battery.png"
@@ -362,23 +394,54 @@ Rectangle {
                     delegate: PropertyItem {
                         currentValue: dbus_power.batteryPlan
                         onSelectAction: {
-                            print(itemValue)
                             dbus_power.batteryPlan = itemValue
                         }
                     }
                 }
+            }
+        }
+
+        Rectangle {
+            width: parent.width
+            height: dbus_power.batteryPlan == 0 ? battery_custom_column.height + arrow_rect_2.arrowHeight : 0
+            color: dconstants.contentBgColor
+
+            Behavior on height {
+                SmoothedAnimation { duration: 300 }
+            }
+
+            ArrowRect {
+                id: arrow_rect_2
+                fillStyle: dconstants.bgColor
+                stroke: false
+                radius: 0
+                lineWidth: 0
+                arrowPosition: 0.75
+
+                anchors.fill: parent    
+            }
+
+            Column {
+                id: battery_custom_column
+                width: parent.width
+                anchors.top: parent.top
+                anchors.topMargin: arrow_rect_2.arrowHeight
 
                 TitleSeparator {
-                    id: trun_of_monitor_sep
-                    title: dsTr("Turn off monitor")
+                    text: dsTr("Custom Options")
+                }
+                TitleSeparator {
                     width: parent.width
+                    color: constants.contentBgColor
+                    text: dsTr("Turn off monitor")
                 }
 
-                Item {
+                Rectangle {
                     width: parent.width
                     height: 30
+                    color: constants.contentBgColor
                     GridView{
-                        id: turn_off_monitor_view
+                        id: battery_turn_off_monitor_view
                         anchors.fill: parent
                         anchors.leftMargin: 20
                         anchors.rightMargin: 20
@@ -387,12 +450,12 @@ Rectangle {
                         cellHeight: 30
 
                         model: {
-                            var model = listModelComponent.createObject(turn_off_monitor_view, {})
+                            var model = listModelComponent.createObject(battery_turn_off_monitor_view, {})
                             for(var i=0; i<7; i++){
                                 model.append({
-                                                 "item_label": indexToLabel(i),
-                                                 "item_value": indexToTimeout(i)
-                                             })
+                                   "item_label": indexToLabel(i),
+                                   "item_value": indexToTimeout(i)
+                                   })
                             }
                             return model
                         }
@@ -406,17 +469,17 @@ Rectangle {
                         }
                     }
                 }
-
                 TitleSeparator {
-                    id: suspend_sep
-                    title: dsTr("Suspend")
                     width: parent.width
+                    color: dconstants.contentBgColor
+                    text: dsTr("Suspend")
                 }
-                Item {
+                Rectangle {
                     width: parent.width
                     height: 30
+                    color: dconstants.contentBgColor
                     GridView{
-                        id: suspend_view
+                        id: battery_suspend_view
                         anchors.fill: parent
                         anchors.leftMargin: 20
                         anchors.rightMargin: 20
@@ -426,12 +489,12 @@ Rectangle {
                         cellHeight: 30
 
                         model: {
-                            var model = listModelComponent.createObject(suspend_view, {})
+                            var model = listModelComponent.createObject(battery_suspend_view, {})
                             for(var i=0; i<7; i++){
                                 model.append({
-                                                 "item_label": indexToLabel(i),
-                                                 "item_value": indexToTimeout(i)
-                                             })
+                                 "item_label": indexToLabel(i),
+                                 "item_value": indexToTimeout(i)
+                                 })
                             }
                             return model
                         }
@@ -447,6 +510,5 @@ Rectangle {
                 }
             }
         }
-        DSeparatorHorizontal{visible: power_plan_battery_rect.visible}
     }
 }
