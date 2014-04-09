@@ -188,145 +188,13 @@ Rectangle {
         DSeparatorHorizontal{}
 
 
-        DBaseLine{}
+        DBaseLine{visible: power_plan_ac_rect.visible}
         DBaseExpand {
             id: power_plan_ac_rect
             expanded: true
             header.sourceComponent: DBaseLine {
                 leftLoader.sourceComponent: ImageTitle {
                     imageSource: "images/power_plan_ac.png"
-                    title: dsTr("Battery")
-                }
-            }
-            content.sourceComponent: Column {
-                GridView{
-                    id: power_plan
-                    width: parent.width
-                    height: 30 * 2
-
-                    cellWidth: width/2
-                    cellHeight: 30
-
-                    model: {
-                        var model = listModelComponent.createObject(power_plan, {})
-                        model.append({
-                                         "item_label": dsTr("Balance"),
-                                         "item_value": 2
-                                     })
-                        model.append({
-                                         "item_label": dsTr("Power saver"),
-                                         "item_value": 1
-                                     })
-                        model.append({
-                                         "item_label": dsTr("High performance"),
-                                         "item_value": 3
-                                     })
-                        model.append({
-                                         "item_label": dsTr("Custom"),
-                                         "item_value": 0
-                                     })
-                        return model
-                    }
-
-                    delegate: PropertyItem {
-                        currentValue: dbus_power.batteryPlan
-                        onSelectAction: {
-                            print(itemValue)
-                            dbus_power.batteryPlan = itemValue
-                        }
-                    }
-                }
-
-                TitleSeparator {
-                    id: trun_of_monitor_sep
-                    title: dsTr("Turn off monitor")
-                    width: parent.width
-                }
-
-                Item {
-                    width: parent.width
-                    height: 30
-                    GridView{
-                        id: turn_off_monitor_view
-                        anchors.fill: parent
-                        anchors.leftMargin: 20
-                        anchors.rightMargin: 20
-
-                        cellWidth: width/7
-                        cellHeight: 30
-
-                        model: {
-                            var model = listModelComponent.createObject(turn_off_monitor_view, {})
-                            for(var i=0; i<7; i++){
-                                model.append({
-                                                 "item_label": indexToLabel(i),
-                                                 "item_value": indexToTimeout(i)
-                                             })
-                            }
-                            return model
-                        }
-
-                        delegate: PropertyItem {
-                            currentValue: dbus_power.batteryIdleDelay
-                            onSelectAction: {
-                                dbus_power.batteryPlan = 0
-                                dbus_power.batteryIdleDelay = itemValue
-                            }
-                        }
-                    }
-                }
-
-                TitleSeparator {
-                    id: suspend_sep
-                    title: dsTr("Suspend")
-                    width: parent.width
-                }
-                Item {
-                    width: parent.width
-                    height: 30
-                    GridView{
-                        id: suspend_view
-                        anchors.fill: parent
-                        anchors.leftMargin: 20
-                        anchors.rightMargin: 20
-
-
-                        cellWidth: width/7
-                        cellHeight: 30
-
-                        model: {
-                            var model = listModelComponent.createObject(suspend_view, {})
-                            for(var i=0; i<7; i++){
-                                model.append({
-                                                 "item_label": indexToLabel(i),
-                                                 "item_value": indexToTimeout(i)
-                                             })
-                            }
-                            return model
-                        }
-
-                        delegate: PropertyItem {
-                            currentValue: dbus_power.batterySuspendDelay
-                            onSelectAction: {
-                                dbus_power.currentProfile = 0
-                                dbus_power.batterySuspendDelay = itemValue
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        DSeparatorHorizontal{}
-
-
-        DBaseLine{visible: power_plan_battery_rect.visible}
-        DBaseExpand {
-            id: power_plan_battery_rect
-            visible: dbus_power.batteryIsPresent
-            expanded: true
-            header.sourceComponent: DBaseLine {
-                leftLoader.sourceComponent: ImageTitle {
-                    imageSource: "images/power_plan_battery.png"
                     title: dsTr("Power Adapter")
                 }
             }
@@ -441,6 +309,138 @@ Rectangle {
                             onSelectAction: {
                                 dbus_power.linePowerPlan = 0
                                 dbus_power.linePowerSuspendDelay = itemValue
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        DSeparatorHorizontal{}
+        
+        
+        DBaseLine{visible: power_plan_battery_rect.visible}
+        DBaseExpand {
+            id: power_plan_battery_rect
+            expanded: true
+            visible: dbus_power.batteryIsPresent
+            header.sourceComponent: DBaseLine {
+                leftLoader.sourceComponent: ImageTitle {
+                    imageSource: "images/power_plan_battery.png"
+                    title: dsTr("Battery")
+                }
+            }
+            content.sourceComponent: Column {
+                GridView{
+                    id: power_plan
+                    width: parent.width
+                    height: 30 * 2
+
+                    cellWidth: width/2
+                    cellHeight: 30
+
+                    model: {
+                        var model = listModelComponent.createObject(power_plan, {})
+                        model.append({
+                                         "item_label": dsTr("Balance"),
+                                         "item_value": 2
+                                     })
+                        model.append({
+                                         "item_label": dsTr("Power saver"),
+                                         "item_value": 1
+                                     })
+                        model.append({
+                                         "item_label": dsTr("High performance"),
+                                         "item_value": 3
+                                     })
+                        model.append({
+                                         "item_label": dsTr("Custom"),
+                                         "item_value": 0
+                                     })
+                        return model
+                    }
+
+                    delegate: PropertyItem {
+                        currentValue: dbus_power.batteryPlan
+                        onSelectAction: {
+                            print(itemValue)
+                            dbus_power.batteryPlan = itemValue
+                        }
+                    }
+                }
+
+                TitleSeparator {
+                    id: trun_of_monitor_sep
+                    title: dsTr("Turn off monitor")
+                    width: parent.width
+                }
+
+                Item {
+                    width: parent.width
+                    height: 30
+                    GridView{
+                        id: turn_off_monitor_view
+                        anchors.fill: parent
+                        anchors.leftMargin: 20
+                        anchors.rightMargin: 20
+
+                        cellWidth: width/7
+                        cellHeight: 30
+
+                        model: {
+                            var model = listModelComponent.createObject(turn_off_monitor_view, {})
+                            for(var i=0; i<7; i++){
+                                model.append({
+                                                 "item_label": indexToLabel(i),
+                                                 "item_value": indexToTimeout(i)
+                                             })
+                            }
+                            return model
+                        }
+
+                        delegate: PropertyItem {
+                            currentValue: dbus_power.batteryIdleDelay
+                            onSelectAction: {
+                                dbus_power.batteryPlan = 0
+                                dbus_power.batteryIdleDelay = itemValue
+                            }
+                        }
+                    }
+                }
+
+                TitleSeparator {
+                    id: suspend_sep
+                    title: dsTr("Suspend")
+                    width: parent.width
+                }
+                Item {
+                    width: parent.width
+                    height: 30
+                    GridView{
+                        id: suspend_view
+                        anchors.fill: parent
+                        anchors.leftMargin: 20
+                        anchors.rightMargin: 20
+
+
+                        cellWidth: width/7
+                        cellHeight: 30
+
+                        model: {
+                            var model = listModelComponent.createObject(suspend_view, {})
+                            for(var i=0; i<7; i++){
+                                model.append({
+                                                 "item_label": indexToLabel(i),
+                                                 "item_value": indexToTimeout(i)
+                                             })
+                            }
+                            return model
+                        }
+
+                        delegate: PropertyItem {
+                            currentValue: dbus_power.batterySuspendDelay
+                            onSelectAction: {
+                                dbus_power.batteryPlan = 0
+                                dbus_power.batterySuspendDelay = itemValue
                             }
                         }
                     }
