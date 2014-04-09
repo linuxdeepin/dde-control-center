@@ -19,17 +19,13 @@ Rectangle {
             this_user: root.this_user
 
             onAvatarSet: {
-                if (checkPolkitAuth()) {
-                    var iconFile = path.toString().replace("file:\/\/", "")
-                    this_user.SetIconFile(iconFile)
-                }
+                var iconFile = path.toString().replace("file:\/\/", "")
+                this_user.SetIconFile(iconFile)
             }
 
             onAvatarPictured: {
-                if (checkPolkitAuth()) {
-                    var iconFile = path.toString().replace("file:\/\/", "")
-                    this_user.SetIconFile(iconFile)
-                }
+                var iconFile = path.toString().replace("file:\/\/", "")
+                this_user.SetIconFile(iconFile)
             }
         }
 
@@ -57,7 +53,7 @@ Rectangle {
 
                     onClicked: {
                         if (checkPolkitAuth()) {
-                            this_user.SetAutomaticLogin(checked)                           
+                            this_user.SetAutomaticLogin(checked)
                         } else {
                             checked = Qt.binding(function () {return root.this_user.automaticLogin})
                         }
@@ -72,7 +68,7 @@ Rectangle {
             DSeparatorHorizontal{
                 visible: account_enabled_switch.visible
             }
-            
+
             Item {
                 id: account_enabled_switch
                 width: parent.width
@@ -102,12 +98,12 @@ Rectangle {
                     anchors.right: parent.right
                     anchors.rightMargin: 15
                     anchors.verticalCenter: parent.verticalCenter
-                }                
-            }            
-            
+                }
+            }
+
             DSeparatorHorizontal{
                 visible: account_type_radio.visible
-            }            
+            }
 
             Item {
                 id: account_type_radio

@@ -127,7 +127,7 @@ Item {
         }
 
         onAvatarSet: {
-            if (checkPolkitAuth()) {
+            if (userIsCurrentUser(this_user) || checkPolkitAuth()) {
                 root_view.avatarSet(path)
             } else {
                 doCheck(this_user.iconFile)
@@ -173,7 +173,7 @@ Item {
 
 
         onAvatarSet: {
-            if (checkPolkitAuth()) {
+            if (userIsCurrentUser(this_user) || checkPolkitAuth()) {
                 root_view.avatarSet(path)
             } else {
                 doCheck(this_user.iconFile)
@@ -208,7 +208,9 @@ Item {
         WebCam {
             running: rootWindow.displayWidth != 0
             onAvatarPictured: {
-                root_view.avatarPictured(path)
+                if (userIsCurrentUser(this_user) || checkPolkitAuth()) {
+                    root_view.avatarPictured(path)
+                }
             }
         }
     }
