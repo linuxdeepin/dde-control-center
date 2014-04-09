@@ -28,7 +28,7 @@ Rectangle {
 
     property bool selected: {
         if(itemLabel){
-            return isInArray(currentValue, modesDict[itemLabel])
+            return getIndexFromArray(currentValue, modesDict[itemLabel]) != -1
         }
         else{
             return false
@@ -37,15 +37,6 @@ Rectangle {
     property bool hovered: false
 
     Component.onCompleted: {
-    }
-
-    function isInArray(s, a){
-        for(var i in a){
-            if(a[i] == s){
-                return true
-            }
-        }
-        return false
     }
 
     signal selectAction(int itemValue)

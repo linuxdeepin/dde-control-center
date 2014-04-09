@@ -11,7 +11,7 @@ Item {
 
     property string devicePath: "/"
     property string uuid: dbusNetwork.GetConnectionByAccessPoint(apPath)
-    property bool apConnected: isInList(uuid, activeConnections) != -1
+    property bool apConnected: getIndexFromArray(uuid, activeConnections) != -1
 
     Behavior on height {
         PropertyAnimation { duration: 100 }
@@ -131,10 +131,11 @@ Item {
                 onClicked: {
                     wirelessItem.requestUuid()
                     stackView.push({
-                        "item": Qt.resolvedUrl("WirelessProperties.qml"),
+                        "item": stackViewPages["wirelessPropertiesPage"],
                         "properties": { "uuid": wirelessItem.uuid },
                         "destroyOnPop": true
                     })
+                    stackView.currentItemId = "wirelessPropertiesPage"
                 }
             }
         }

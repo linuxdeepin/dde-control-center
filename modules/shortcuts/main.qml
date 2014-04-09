@@ -26,7 +26,7 @@ Flickable {
 
     property var categoryObjects: {
         "systemList": dsTr("System"),
-        "mediaList": dsTr("Sound and Media"),
+        //"mediaList": dsTr("Sound and Media"), TODO: the backend is not available
         "windowList": dsTr("Window"),
         "workSpaceList": dsTr("Workspace"),
         "customList": dsTr("Custom Shortcuts")

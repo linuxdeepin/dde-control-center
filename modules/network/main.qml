@@ -17,17 +17,33 @@ Column{
 
     property bool inPasswordInputting: false
 
-    //property bool inAllConnectionPage: false
     property bool inAllConnectionPage: stackView.depth == 1
     property var allConnectionPage: ListConnections {}
 
-    function isInList(s, sList){
-        for(var i in sList){
-            if (s == sList[i]){
-                return i
-            }
+    property var stackViewPages: {
+        "allConnectionPage": Qt.resolvedUrl("ListConnections.qml"),
+        "infoPage": Qt.resolvedUrl("Info.qml"),
+        "wirelessPropertiesPage": Qt.resolvedUrl("WirelessProperties.qml"),
+        "wiredPropertiesPage": Qt.resolvedUrl("WiredProperties.qml")
+    }
+
+    function resetConnectionSession(){
+        if(stackView.currentItemId == "wirelessPropertiesPage"){
+            stackView.currentItem.connectionSessionObject.Close()
         }
-        return -1
+    }
+
+    Connections{
+        target: rootWindow
+
+        onModuleStartChange: {
+            resetConnectionSession()
+        }
+
+        onPanelHided: {
+            resetConnectionSession()
+            stackView.reset()
+        }
     }
 
     Component {
@@ -51,7 +67,8 @@ Column{
                 text: "Info"
                 anchors.verticalCenter: parent.verticalCenter
                 onClicked: {
-                    stackView.push(Qt.resolvedUrl("Info.qml"))
+                    stackView.push(stackViewPages["infoPage"])
+                    stackView.currentItemId = "infoPage"
                 }
             }
         }
@@ -63,6 +80,16 @@ Column{
         id:stackView
         width: parent.width
         height: parent.height - header.height - 2
-        initialItem: allConnectionPage
+        property string currentItemId: ""
+
+        function reset(){
+            stackView.pop(null)
+            stackView.currentItemId = "allConnectionPage"
+        }
+
+        Component.onCompleted: {
+            stackView.push(stackViewPages["allConnectionPage"])
+            stackView.currentItemId = "allConnectionPage"
+        }
     }
 }

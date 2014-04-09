@@ -24,5 +24,6 @@ Item {
     
     DSeparatorHorizontal {
         anchors.bottom: parent.bottom
+        visible: wirelessDevicesNumber > 0
     }
 }

@@ -19,6 +19,16 @@ Column{
         return connectionSession.createObject(wirelessProperties, { path: connectionPath })
     }
 
+    function unmarshalJSON(valueJSON){
+        var value = JSON.parse(valueJSON)
+        return value
+    }
+    
+    function marshalJSON(value){
+        var valueJSON = JSON.stringify(value);
+        return valueJSON
+    }
+
     DBaseLine{
         height: 38
         leftLoader.sourceComponent: Row{
@@ -28,7 +38,7 @@ Column{
             }
             DTextInput{
                 textInput.color: dconstants.fgColor
-                text: connectionSessionObject.GetKey("General", "id")
+                text: unmarshalJSON(connectionSessionObject.GetKey("General", "id"))
             }
         }
     }
@@ -67,13 +77,13 @@ Column{
             DSwitchButtonHeader{
                 color: dconstants.contentBgColor
                 text: dsTr("Automatically connect")
-                active: connectionSessionObject.GetKey(generalSettings.sectionName, "autoconnect")
+                active: unmarshalJSON(connectionSessionObject.GetKey(generalSettings.sectionName, "autoconnect"))
             }
 
             DSwitchButtonHeader{
                 color: dconstants.contentBgColor
                 text: dsTr("All users may connect to this network")
-                active: connectionSessionObject.GetKey(generalSettings.sectionName, "permissions")
+                active: unmarshalJSON(connectionSessionObject.GetKey(generalSettings.sectionName, "permissions"))
             }
         }
     }
@@ -83,8 +93,8 @@ Column{
     DBaseExpand{
         id: ipv4Settings
         property int myIndex: 1
-
         property string sectionName: "IPv4"
+        property var myKeys: connectionSessionObject.availableKeys[sectionName]
 
         expanded: activeExpandIndex == myIndex
         onExpandedChanged: {
@@ -121,12 +131,13 @@ Column{
                     id: ipv4MethodCombox
                     anchors.left: parent.left
                     width: valueWidth
-                    text: connectionSessionObject.GetKey(ipv4Settings.sectionName, "method")
+                    text: unmarshalJSON(connectionSessionObject.GetKey(ipv4Settings.sectionName, "method"))
 
                     property var menuLabels: connectionSessionObject.GetAvailableValues(ipv4Settings.sectionName, "method")
 
                     function menuSelect(i){
                         text = menuLabels[i]
+                        connectionSessionObject.SetKey(ipv4MethodCombox.sectionName, "method", marshalJSON(text))
                     }
 
                     onClicked: {
@@ -143,6 +154,7 @@ Column{
 
             DBaseLine {
                 id: ipAddressLine
+                visible: getIndexFromArray("address", ipv4Settings.myKeys) != -1
                 color: dconstants.contentBgColor
                 leftMargin: contentLeftMargin
                 leftLoader.sourceComponent: DssH2{
@@ -166,6 +178,7 @@ Column{
 
             DBaseLine {
                 id: netmaskLine
+                visible: getIndexFromArray("address", ipv4Settings.myKeys) != -1
                 color: dconstants.contentBgColor
                 leftMargin: contentLeftMargin
                 leftLoader.sourceComponent: DssH2{
@@ -182,6 +195,7 @@ Column{
 
             DBaseLine {
                 id: gatewayLine
+                visible: getIndexFromArray("address", ipv4Settings.myKeys) != -1
                 color: dconstants.contentBgColor
                 leftMargin: contentLeftMargin
                 leftLoader.sourceComponent: DssH2{
@@ -195,6 +209,7 @@ Column{
                     }
                 }
             }
+
             DBaseLine {
                 id: dnsServerLine
                 color: dconstants.contentBgColor
@@ -284,7 +299,7 @@ Column{
                 text: dsTr("Close")
                 onClicked: {
                     connectionSessionObject.Close()
-                    stackView.pop(null)
+                    stackView.reset()
                 }
             }
         }

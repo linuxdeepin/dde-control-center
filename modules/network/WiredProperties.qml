@@ -193,7 +193,7 @@ Column{
                 text: dsTr("Close")
                 onClicked: {
                     connectionSessionObject.Close()
-                    stackView.pop(null)
+                    stackView.reset()
                 }
             }
         }

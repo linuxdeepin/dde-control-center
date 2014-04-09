@@ -15,11 +15,9 @@ Column {
             displayId.ResetChanged()
         }
 
-        onDisplayWidthChanged: {
-            if(rootWindow.displayWidth == 0){
-                monitorDragArea.editable = false
-                displayId.ResetChanged()
-            }
+        onPanelHided: {
+            monitorDragArea.editable = false
+            displayId.ResetChanged()
         }
     }
 

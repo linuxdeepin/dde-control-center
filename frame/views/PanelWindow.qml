@@ -16,6 +16,7 @@ DOverrideWindow {
     property int displayWidth: 0
 
     signal moduleStartChange(string nextModuleName)
+    signal panelHided
 
     property var dconstants: DConstants {}
     property var listModelComponent: DListModelComponent {}
@@ -92,6 +93,7 @@ DOverrideWindow {
             if(quit){
                 Qt.quit()
             }
+            rootWindow.panelHided()
         }
     }
 

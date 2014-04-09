@@ -77,10 +77,11 @@ Column{
         rightLoader.sourceComponent: DArrowButton {
             onClicked: {
                 stackView.push({
-                    "item": Qt.resolvedUrl("WiredProperties.qml"),
+                    "item": stackViewPages["wiredPropertiesPage"],
                     "properties": { "uuid": dbusNetwork.wiredConnections[index]},
                     "destroyOnPop": true
                 })
+                stackView.currentItemId = "wiredPropertiesPage"
             }
         }
     }
