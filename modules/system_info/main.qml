@@ -10,22 +10,22 @@ Item {
     property var dconstants: DConstants {}
     property var systemInfoDbus: SystemInfo {}
 
-    function bitToHuman(b){
-        if (b < 1000) {
+    function bitToHuman(b, factor){
+        if (b < factor) {
             return b + " B"
         }
         else{
-            b = b/1000
-            if ( b < 1000 ){
+            b = b/factor
+            if ( b < factor ){
                 return b.toFixed(2) +" KB"
             }
             else {
-                b = b/1000
-                if (b < 1000){
+                b = b/factor
+                if (b < factor){
                     return b.toFixed(2) + " MB"
                 }
                 else{
-                    b = b/1000
+                    b = b/factor
                     if(b<10){
                         return b.toFixed(2) + " GB"
                     }
@@ -62,7 +62,7 @@ Item {
                 source: "images/logo.png"
             }
 
-            DssH4 {
+            DssH3 {
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 18
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -92,13 +92,13 @@ Item {
         InfoItem { 
             id: memoryItem
             title: dsTr("Memory")
-            value: bitToHuman(systemInfoDbus.memoryCap)
+            value: bitToHuman(systemInfoDbus.memoryCap, 1024)
         }
 
         InfoItem { 
             id: distItem
             title: dsTr("Disk")
-            value: bitToHuman(systemInfoDbus.diskCap)
+            value: bitToHuman(systemInfoDbus.diskCap, 1000)
         }
 
         Rectangle { 
