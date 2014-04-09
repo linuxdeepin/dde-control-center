@@ -74,7 +74,7 @@ Rectangle {
             DTextButton {
                 text: dsTr("Reset")
 
-                onClicked: dbus_power.reset()
+                onClicked: dbus_power.Reset()
 
                 anchors.right: parent.right
                 anchors.rightMargin: 15
@@ -188,7 +188,7 @@ Rectangle {
         DSeparatorHorizontal{}
 
 
-        DBaseLine{visible: power_plan_ac_rect.visible}
+        DBaseLine{}
         DBaseExpand {
             id: power_plan_ac_rect
             expanded: true

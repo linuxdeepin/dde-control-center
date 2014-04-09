@@ -30,6 +30,11 @@ Item {
         AudioSource {}
     }
 
+    Component {
+        id: applicationComponent
+        AudioApplication {}
+    }
+
     property var allSources: {
         var sourceList = new Array()
         var sourcePaths = audioId.GetSources()
@@ -52,6 +57,15 @@ Item {
 
     property var currentSink: allSinks[audioId.defaultSink]
     property var currentSource: allSources[audioId.defaultSource]
+    property var currentStream: {
+        if (currentSource.GetSourceOutputs().length == 0) {
+            currentSource.CreateStream()
+
+        }
+
+        var path = currentSource.GetSourceOutputs()[0]
+        return applicationComponent.createObject(soundModule, { path: path })
+    }
 
     Component.onCompleted: {
         if (dsslocale.lang == "zh") {
@@ -279,9 +293,9 @@ Item {
                     rightLoader.sourceComponent: DSliderEnhanced {
                         width: sliderWidth
 
-                        min: -1
+                        min: 0
                         max: 1
-                        init: currentSource.balance
+                        init: currentStream.inputLevel
                         handlerVisible: false
                         valueDisplayVisible: false
                         showPulseGradient: true
