@@ -55,13 +55,16 @@ DBaseExpand {
         onAccessPointAdded:{
             if(arg0 == devicePath){
                 var apProperty = dbusNetwork.GetAccessPointProperty(arg1)
-                var insertPosition = accessPointsModel.getInsertPosition(apProperty)
-                accessPointsModel.insert(insertPosition, {
-                    "apName": apProperty[0],
-                    "apSecured": apProperty[1],
-                    "apSignal": apProperty[2],
-                    "apPath": apProperty[3]
-                })
+                var index = accessPointsModel.getIndexByApPath(arg1)
+                if(index == -1){
+                    var insertPosition = accessPointsModel.getInsertPosition(apProperty)
+                    accessPointsModel.insert(insertPosition, {
+                        "apName": apProperty[0],
+                        "apSecured": apProperty[1],
+                        "apSignal": apProperty[2],
+                        "apPath": apProperty[3]
+                    })
+                }
             }
         }
 
@@ -94,13 +97,11 @@ DBaseExpand {
         }
 
         onDeviceStateChanged: {
-            print("onDeviceStateChanged:", arg0, arg1)
-            wirelessDevicesExpand.deviceStatus = arg1
-            if(arg1 == 100){
-                wirelessDevicesExpand.inConnectingApPath = "/"
-            }
             if(arg0 == devicePath){
                 wirelessDevicesExpand.deviceStatus = arg1
+                if(arg1 == 100){
+                    wirelessDevicesExpand.inConnectingApPath = "/"
+                }
             }
         }
     }
@@ -128,6 +129,7 @@ DBaseExpand {
             checked: wirelessDevicesExpand.expanded
             onClicked: {
                 dbusNetwork.wirelessEnabled = checked
+                accessPointsModel.clear()
             }
         }
     }
@@ -145,13 +147,23 @@ DBaseExpand {
                 devicePath: wirelessDevicesExpand.devicePath
             }
         }
+
+        DBaseLine{
+            visible: accessPointsModel.count > 0 ? false: true
+            color: dconstants.contentBgColor
+            leftMargin: 24
+            leftLoader.sourceComponent: DssH2{
+                font.pixelSize: 12
+                text: dsTr("Scanning...")
+            }
+        }
     }
 
     function sortModel()
     {
         var n;
         var i;
-        for (n=0; n < accessPointsModel.count; n++)
+        for (n=0; n < accessPointsModel.count; n++){
             for (i=n+1; i < accessPointsModel.count; i++)
             {
                 if (accessPointsModel.get(n).apSignal < accessPointsModel.get(i).apSignal)
@@ -160,6 +172,7 @@ DBaseExpand {
                     n=0; // Repeat at start since I can't swap items i and n
                 }
             }
+        }
     }
 
     Timer {
