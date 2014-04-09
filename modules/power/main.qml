@@ -11,14 +11,6 @@ Rectangle {
     property var constants: DConstants{}
     property var dbus_power: Power{}
     property var listModelComponent: DListModelComponent {}
-    
-    function reset() {
-        dbus_power.buttonPower = "interactive"
-        dbus_power.lidCloseACAction = "suspend"
-        dbus_power.lidCloseBatteryAction = "suspend"
-        dbus_power.lockEnabled = true
-        dbus_power.currentProfile = "Default"
-    }
 
     function timeoutToIndex(timeout) {
         switch (timeout) {
@@ -76,18 +68,13 @@ Rectangle {
                     text: dsTr("Power")
                     hint: root.getBatteryPercentage()
                     showHyphen: dbus_power.batteryIsPresent
-                    breath: dbus_power.state == 1
-                    /* | value | description                        | */
-                    /* |     1 | battery is charging                | */
-                    /* |     2 | battery is in use                  | */
-                    /* |     3 | battery is not in use              | */
-                    /* |     4 | battery is full, using AC directly | */
+                    breath: dbus_power.batteryState == 1
                 }
 
                 DTextButton {
                     text: dsTr("Reset")
 
-                    onClicked: reset()
+                    onClicked: dbus_power.reset()
 
                     anchors.right: parent.right
                     anchors.rightMargin: 15
@@ -117,23 +104,23 @@ Rectangle {
                         var model = listModelComponent.createObject(power_button_view, {})
                         model.append({
                          "item_label": dsTr("Shutdown"),
-                         "item_value": "shutdown"
+                         "item_value": 2
                          })
                         model.append({
                          "item_label": dsTr("Suspend"),
-                         "item_value": "suspend"
+                         "item_value": 1
                          })                    
                         model.append({
                          "item_label": dsTr("Ask"),
-                         "item_value": "interactive"
+                         "item_value": 4
                          })                    
                         return model
                     }
 
                     delegate: PropertyItem {
-                        currentValue: dbus_power.buttonPower
+                        currentValue: dbus_power.powerButtonAction
                         onSelectAction: {
-                            dbus_power.buttonPower = itemValue
+                            dbus_power.powerButtonAction = itemValue
                         }
                     }
                 }
@@ -160,24 +147,23 @@ Rectangle {
                         var model = listModelComponent.createObject(close_the_lid_view, {})
                         model.append({
                          "item_label": dsTr("Shutdown"),
-                         "item_value": "shutdown"
+                         "item_value": 2
                          })
                         model.append({
                          "item_label": dsTr("Suspend"),
-                         "item_value": "suspend"
+                         "item_value": 1
                          })                    
                         model.append({
                          "item_label": dsTr("Nothing"),
-                         "item_value": "nothing"
+                         "item_value": 0
                          })                    
                         return model
                     }
 
                     delegate: PropertyItem {
-                        currentValue: dbus_power.lidCloseACAction
+                        currentValue: dbus_power.lidClosedAction
                         onSelectAction: {
-                            dbus_power.lidCloseACAction = itemValue
-                            dbus_power.lidCloseBatteryAction = itemValue
+                            dbus_power.lidClosedAction = itemValue
                         }
                     }
                 }
@@ -213,9 +199,9 @@ Rectangle {
                     }
 
                     delegate: PropertyItem {
-                        currentValue: dbus_power.lockEnabled
+                        currentValue: dbus_power.lockWhenActive
                         onSelectAction: {
-                            dbus_power.lockEnabled = itemValue
+                            dbus_power.lockWhenActive = itemValue
                         }
                     }
                 }
@@ -246,28 +232,28 @@ Rectangle {
                             var model = listModelComponent.createObject(power_plan, {})
                             model.append({
                                "item_label": dsTr("Balance"),
-                               "item_value": "Default"
+                               "item_value": 2
                                })
                             model.append({
                                "item_label": dsTr("Power saver"),
-                               "item_value": "Powersave"
+                               "item_value": 1
                                })                    
                             model.append({
                                "item_label": dsTr("High performance"),
-                               "item_value": "Performance"
+                               "item_value": 3
                                })                    
                             model.append({
                                "item_label": dsTr("Custom"),
-                               "item_value": "Customize"
+                               "item_value": 0
                                })                    
                             return model
                         }
 
                         delegate: PropertyItem {
-                            currentValue: dbus_power.currentProfile
+                            currentValue: dbus_power.batteryPlan
                             onSelectAction: {
                                 print(itemValue)
-                                dbus_power.currentProfile = itemValue
+                                dbus_power.batteryPlan = itemValue
                             }
                         }
                     }
@@ -302,10 +288,10 @@ Rectangle {
                             }
 
                             delegate: PropertyItem {
-                                currentValue: dbus_power.idleDelay
+                                currentValue: dbus_power.batteryIdleDelay
                                 onSelectAction: {
-                                    dbus_power.currentProfile = "Customize"
-                                    dbus_power.idleDelay = itemValue
+                                    dbus_power.batteryPlan = 0
+                                    dbus_power.batteryIdleDelay = itemValue
                                 }
                             }
                         }
@@ -328,7 +314,6 @@ Rectangle {
 
                             cellWidth: width/7
                             cellHeight: 30
-                            property int currentValue: dbus_power.sleepInactiveAcTimeout
 
                             model: {
                                 var model = listModelComponent.createObject(suspend_view, {})
@@ -342,11 +327,10 @@ Rectangle {
                             }
 
                             delegate: PropertyItem {
-                                currentValue: dbus_power.sleepInactiveAcTimeout
+                                currentValue: dbus_power.batterySuspendDelay
                                 onSelectAction: {
-                                    dbus_power.currentProfile = "Customize"
-                                    dbus_power.sleepInactiveAcTimeout = itemValue
-                                    dbus_power.sleepInactiveBatteryTimeout = itemValue
+                                    dbus_power.currentProfile = 0
+                                    dbus_power.batterySuspendDelay = itemValue
                                 }
                             }
                         }
@@ -379,28 +363,27 @@ Rectangle {
                             var model = listModelComponent.createObject(power_plan, {})
                             model.append({
                                "item_label": dsTr("Balance"),
-                               "item_value": "Default"
+                               "item_value": 2
                                })
                             model.append({
                                "item_label": dsTr("Power saver"),
-                               "item_value": "Powersave"
+                               "item_value": 1
                                })                    
                             model.append({
                                "item_label": dsTr("High performance"),
-                               "item_value": "Performance"
+                               "item_value": 3
                                })                    
                             model.append({
                                "item_label": dsTr("Custom"),
-                               "item_value": "Customize"
+                               "item_value": 0
                                })                    
                             return model
                         }
 
                         delegate: PropertyItem {
-                            currentValue: dbus_power.currentProfile
+                            currentValue: dbus_power.linePowerPlan
                             onSelectAction: {
-                                print(itemValue)
-                                dbus_power.currentProfile = itemValue
+                                dbus_power.linePowerPlan = itemValue
                             }
                         }
                     }
@@ -435,10 +418,10 @@ Rectangle {
                             }
 
                             delegate: PropertyItem {
-                                currentValue: dbus_power.idleDelay
+                                currentValue: dbus_power.linePowerIdleDelay
                                 onSelectAction: {
-                                    dbus_power.currentProfile = "Customize"
-                                    dbus_power.idleDelay = itemValue
+                                    dbus_power.linePowerPlan = 0
+                                    dbus_power.linePowerIdleDelay = itemValue
                                 }
                             }
                         }
@@ -461,7 +444,6 @@ Rectangle {
 
                             cellWidth: width/7
                             cellHeight: 30
-                            property int currentValue: dbus_power.sleepInactiveAcTimeout
 
                             model: {
                                 var model = listModelComponent.createObject(suspend_view, {})
@@ -475,11 +457,10 @@ Rectangle {
                             }
 
                             delegate: PropertyItem {
-                                currentValue: dbus_power.sleepInactiveAcTimeout
+                                currentValue: dbus_power.linePowerSuspendDelay
                                 onSelectAction: {
-                                    dbus_power.currentProfile = "Customize"
-                                    dbus_power.sleepInactiveAcTimeout = itemValue
-                                    dbus_power.sleepInactiveBatteryTimeout = itemValue
+                                    dbus_power.linePowerPlan = 0
+                                    dbus_power.linePowerSuspendDelay = itemValue
                                 }
                             }
                         }
