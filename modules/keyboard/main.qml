@@ -165,11 +165,12 @@ Item {
                 width: sliderWidth
                 height: parent.height
 
-                DTextInput {
+                TestInput {
                     id: testRepeatIntervalInput
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.horizontalCenter: parent.horizontalCenter
                     width: sliderWidth - 16
+                    cursorBlinkTime: dbusKeyboard.cursorBlink
                 }
             }
         }
