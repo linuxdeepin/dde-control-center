@@ -181,7 +181,7 @@ Item {
                         handler.source: "images/balance.png"
 
                         onValueChanged:{
-                            currentSink.balance = value
+                            currentSink.SetSinkBalance(value)
                         }
 
                         Component.onCompleted: {
