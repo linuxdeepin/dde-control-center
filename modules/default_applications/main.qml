@@ -45,9 +45,13 @@ Item {
                     "icon": "images/network.png",
                     "defaultGetType": "x-scheme-handler/http", 
                     "setTypeGroup": [
+                        "x-scheme-handler/ftp",
                         "x-scheme-handler/http",
                         "x-scheme-handler/https",
-                        "text/html"
+                        "text/html",
+                        "text/xml",
+                        "text/xhtml_xml",
+                        "text/xhtml+xml"
                     ]
                 },
                 {
@@ -57,7 +61,8 @@ Item {
                     "setTypeGroup": [
                         "x-scheme-handler/mailto",
                         "message/rfc822",
-                        "application/x-extension-eml"
+                        "application/x-extension-eml",
+                        "application/x-xpinstall"
                     ]
                 },
                 {
@@ -71,12 +76,30 @@ Item {
                     "icon": "images/music.png",
                     "defaultGetType": "audio/mpeg",
                     "setTypeGroup": [
+                        "audio/mp3",
+                        "audio/x-mp3",
+                        "audio/mpeg3",
+                        "audio/x-mpeg-3",
                         "audio/mpeg",
+                        "audio/x-mpeg",
                         "audio/flac",
+                        "audio/x-flac",
+                        "application/x-flac",
+                        "audio/ape",
                         "audio/x-ape",
+                        "application/x-ape",
                         "audio/ogg",
-                        "audio/x-ms-wma",
-                        "audio/x-wav"
+                        "audio/x-ogg",
+                        "audio/musepack",
+                        "application/musepack",
+                        "audio/x-musepack",
+                        "application/x-musepack",
+                        "audio/mpc",
+                        "audio/x-mpc",
+                        "audio/vorbis",
+                        "audio/x-vorbis",
+                        "audio/x-wav",
+                        "audio/x-ms-wma"
                     ]
                 },
                 {
@@ -84,14 +107,28 @@ Item {
                     "icon": "images/video.png",
                     "defaultGetType": "video/mp4",
                     "setTypeGroup": [
+                        "audio/mp4",
                         "video/mp4",
+                        "audio/x-matroska",
                         "video/x-matroska",
+                        "application/x-matroska",
+                        "video/avi",
+                        "video/msvideo",
                         "video/x-msvideo",
                         "video/ogg",
+                        "application/ogg",
+                        "application/x-ogg",
                         "video/3gpp",
                         "video/3gpp2",
+                        "video/flv",
                         "video/x-flv",
                         "video/x-flic",
+                        "video/mpeg",
+                        "video/x-mpeg",
+                        "video/x-ogm",
+                        "application/x-shockwave-flash",
+                        "video/x-theora",
+                        "video/quicktime",
                         "video/x-ms-asf",
                         "video/x-ms-wmv"
                     ]
@@ -102,10 +139,15 @@ Item {
                     "defaultGetType": "image/jpeg",
                     "setTypeGroup": [
                         "image/jpeg",
+                        "image/pjpeg",
                         "image/bmp",
+                        "image/x-bmp",
                         "image/png",
+                        "image/x-png",
                         "image/tiff",
                         "image/svg+xml",
+                        "image/x-xbitmap",
+                        "image/x-xpixmap",
                         "image/gif"
                     ]
                 },
