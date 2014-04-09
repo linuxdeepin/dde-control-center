@@ -12,7 +12,7 @@ Item {
     property int sliderWidth: 186
     property var listModelComponent: DListModelComponent {}
 
-    property var outputObj: undefined
+    property var outputObj
     property int monitorsNumber: 0
 
     property string currentResolution: getResolutionFromMode(outputObj.currentMode)
@@ -26,6 +26,9 @@ Item {
         4: "Upside Down",
         8: "Rotate Right",
     }
+
+    property var monitorNames: Object.keys(outputObj.brightness)
+    property var brightnessValues: outputObj.brightness
 
     onOutputObjChanged: {
         if(outputObj){
@@ -180,43 +183,64 @@ Item {
                     }
 
                     rightLoader.sourceComponent: DSliderEnhanced {
+                        id: oneBrightnessSlider
                         width: sliderWidth
                         height: 28
                         min: 0
                         max: 1.0
-                        init: outputObj.isComposited ? 0 : outputObj.brightness[outputObj.name]
+                        init: 0
                         valueDisplayVisible: false
 
-                        onValueConfirmed:{
-                            outputObj.ChangeBrightness(outputObj.name, value)
+                        onValueChanged:{
+                            outputObj.ChangeBrightness(monitorNames[0], value)
                         }
-                        visible: !outputObj.isComposited
+                        visible: monitorNames.length == 1
+
+                        Connections {
+                            target: monitorProperties
+                            onBrightnessValuesChanged: {
+                                if (!oneBrightnessSlider.pressedFlag) {
+                                    oneBrightnessSlider.setValue(brightnessValues[monitorNames[0]])
+                                }
+                            }
+                        }
                     }
                 }
+
                 DSeparatorHorizontal {}
 
                 Repeater{
-                    model: Object.keys(outputObj.brightness)
+                    model: monitorNames
                     delegate: DBaseLine{
                         width: monitorProperties.width
-                        visible: outputObj.isComposited
+                        visible: monitorNames.length > 1
                         leftMargin: 18
 
                         leftLoader.sourceComponent: LeftTitle{
                             width: 70
-                            text: modelData
+                            text: monitorNames[index]
                         }
 
                         rightLoader.sourceComponent: DSliderEnhanced {
+                            id: multiBrightnessSlider
                             width: sliderWidth
                             height: 28
                             min: 0
                             max: 1.0
-                            init: outputObj.brightness[modelData]
+                            init: 0
                             valueDisplayVisible: false
 
-                            onValueConfirmed:{
-                                outputObj.ChangeBrightness(modelData, value)
+                            onValueChanged:{
+                                outputObj.ChangeBrightness(monitorNames[index], value)
+                            }
+
+                            Connections {
+                                target: monitorProperties
+                                onBrightnessValuesChanged: {
+                                    if (!multiBrightnessSlider.pressedFlag) {
+                                        multiBrightnessSlider.setValue(brightnessValues[monitorNames[index]])
+                                    }
+                                }
                             }
                         }
                     }
