@@ -10,6 +10,19 @@ Column{
 
     property int wiredDevicesSignal: dbusNetwork.wiredDevices[index][1]
 
+    function activateThisConnection(){
+        dbusNetwork.ActivateConnection(dbusNetwork.wiredConnections[index], dbusNetwork.wiredDevices[index][0])
+    }
+
+    function goToEditConnection(){
+        stackView.push({
+            "item": stackViewPages["wiredPropertiesPage"],
+            "properties": { "uuid": dbusNetwork.wiredConnections[index]},
+            "destroyOnPop": true
+        })
+        stackView.currentItemId = "wiredPropertiesPage"
+    }
+
     DBaseLine {
         id: wiredLine
 
@@ -31,7 +44,12 @@ Column{
             }
 
             onClicked: {
-                dbusNetwork.ActivateConnection(dbusNetwork.wiredConnections[index], dbusNetwork.wiredDevices[index][0])
+                if (wiredDevicesSignal == 100){
+                    goToEditConnection()
+                }
+                else{
+                    activateThisConnection()
+                }
             }
         }
 
@@ -76,12 +94,7 @@ Column{
 
         rightLoader.sourceComponent: DArrowButton {
             onClicked: {
-                stackView.push({
-                    "item": stackViewPages["wiredPropertiesPage"],
-                    "properties": { "uuid": dbusNetwork.wiredConnections[index]},
-                    "destroyOnPop": true
-                })
-                stackView.currentItemId = "wiredPropertiesPage"
+                goToEditConnection()
             }
         }
     }
