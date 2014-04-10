@@ -2,7 +2,7 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 
 Rectangle {
-    id: root
+    id: edit_dialog
     width: 310
     height: column.height
     color: dconstants.contentBgColor
@@ -16,7 +16,7 @@ Rectangle {
             id: avatar_view
             width: 310
             height: 326
-            this_user: root.this_user
+            this_user: edit_dialog.this_user
 
             onAvatarSet: {
                 var iconFile = path.toString().replace("file:\/\/", "")
@@ -49,13 +49,13 @@ Rectangle {
 
                 DSwitchButton {
                     id: auto_login_switch
-                    checked: root.this_user.automaticLogin
+                    checked: edit_dialog.this_user.automaticLogin
 
                     onClicked: {
                         if (checkPolkitAuth()) {
                             this_user.SetAutomaticLogin(checked)
                         } else {
-                            checked = Qt.binding(function () {return root.this_user.automaticLogin})
+                            checked = Qt.binding(function () {return edit_dialog.this_user.automaticLogin})
                         }
                     }
 
@@ -85,13 +85,13 @@ Rectangle {
                 }
 
                 DSwitchButton {
-                    checked: !root.this_user.locked
+                    checked: !edit_dialog.this_user.locked
 
                     onClicked: {
                         if (checkPolkitAuth()) {
                             this_user.SetLocked(!checked)
                         } else {
-                            checked = Qt.binding(function () {return !root.this_user.locked})
+                            checked = Qt.binding(function () {return !edit_dialog.this_user.locked})
                         }
                     }
 
@@ -127,12 +127,12 @@ Rectangle {
                         {"buttonId": "user", "buttonLabel": "User"},
                         {"buttonId": "administrator", "buttonLabel": "Administrator"},
                     ]
-                    initializeIndex: root.this_user.accountType
+                    initializeIndex: edit_dialog.this_user.accountType
                     onItemSelected: {
                         if(checkPolkitAuth()) {
-                            root.this_user.SetAccountType(idx)
+                            edit_dialog.this_user.SetAccountType(idx)
                         } else {
-                            selectItem(root.this_user.accountType)
+                            selectItem(edit_dialog.this_user.accountType)
                         }
                     }
 
@@ -153,7 +153,7 @@ Rectangle {
                         /* dbus_user.passwordMode = 2 // i think this nonsense too, but the fact is this help a lot >_< */
                         /* // The user should be in a group named "nopasswdlogin" before we set his password, */
                         /* // but a fresh _new_ user is not in that group(weird), so we should set it first. */
-                        dbus_user.SetPassword(password, "")
+                        edit_dialog.this_user.SetPassword(password)
                     }
                 }
 
