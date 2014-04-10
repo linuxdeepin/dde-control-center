@@ -82,7 +82,6 @@ Item {
 
         onEntered: {
             parent.hovered = true
-            previewAction(themeObj)
         }
 
         onExited: {
@@ -90,26 +89,24 @@ Item {
         }
     }
 
-    /***
-    Rectangle{
+    Item {
         id: zoomButtonBox
+        visible: parent.hovered
         anchors.top: itemThumbnailBox.top
         anchors.topMargin: 3
         anchors.right: itemThumbnailBox.right
         anchors.rightMargin: 3
-        width: zoomButton.width + 16
-        height: zoomButton.height + 4
-        radius: height/2
-        color: Qt.rgba(1, 1, 1, 0.5)
-        border.color: Qt.rgba(0, 0, 0, 0.5)
-        border.width: 1
+        width: zoomButton.width 
+        height: zoomButton.height
 
-        DOpacityImageButton{
+        PreviewButton {
             id: zoomButton
-            source: "images/zoom.gif"
+            source: "images/preview.png"
             anchors.centerIn: parent
             onClicked: previewAction(itemValue)
+            onStateChanged: {
+                themeItem.hovered = (state == "hovered")
+            }
         }
     }
-    ***/
 }

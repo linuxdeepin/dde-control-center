@@ -101,10 +101,11 @@ class ControlPanel(QQuickView):
 
     def onFocusWindowChanged(self, win):
         if win is None:
-            print "focusLosed"
+            #print "focusLosed"
             self.focusLosed.emit()
         else:
-            print "Focus Window:", win.__class__.__name__
+            pass
+            #print "Focus Window:", win.__class__.__name__
 
     def set_all_contexts(self):
         self.qml_context = self.rootContext()
