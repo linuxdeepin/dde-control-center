@@ -49,6 +49,7 @@ DOverrideWindow {
     function showAllImmediately(){
         rootWindow.width = panelWidth + 16
         rootWindow.show()
+        rootWindow.raise()
         rootWindow.displayWidth = panelWidth
     }
 

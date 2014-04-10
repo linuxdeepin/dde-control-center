@@ -6,42 +6,41 @@ MyBaseExpand {
     id: font_themes_expand
 
     content.sourceComponent:  DCenterLine {
-        height: 50
+        height: 60
         color: dconstants.contentBgColor
         centerPadding: 20
-        leftWidth: 70
+        leftWidth: 60
         title.text: dsTr("Size")
-        content.sourceComponent: DSliderEnhanced {
-            width: 190
+        content.sourceComponent: Row {
+            spacing: 10
+            FontSlider{
+                id: slider
+                width: 160
+                maximumValue: 16
+                minimumValue: 9
+                value: currentThemeObject.fontSize
+                stepSize: 1
 
-            min: 9
-            max: 16
-            init: 11
-            rulerVisible: false
-
-            onValueConfirmed:{
-                print(value)
-            }
-
-            onValueChanged: {
-                var newValue = parseInt(value)
-                if(newValue != value){
-                    if(value - newValue >= 0.5){
-                        newValue += 1
+                onPressedChanged: {
+                    if(!pressed){
+                        if(currentThemeObject.fontSize != parseInt(slider.value)){
+                            dbusThemeManager.SetFontSize(parseInt(slider.value))
+                        }
                     }
-                    setValue(newValue, false)
                 }
             }
 
-            Component.onCompleted: {
-                addRuler(9, "")
-                addRuler(10, "")
-                addRuler(11, "")
-                addRuler(12, "")
-                addRuler(13, "")
-                addRuler(14, "")
-                addRuler(15, "")
-                addRuler(16, "")
+            DssH3 {
+                anchors.verticalCenter: parent.verticalCenter
+                property int fontSize: {
+                    var new_value = parseInt(slider.value)
+                    if((slider.value - new_value) >= 0.5){
+                        new_value += 1
+                    }
+                    return new_value
+                }
+                text: "Font %1".arg(fontSize)
+                font.pixelSize: fontSize
             }
         }
     }
