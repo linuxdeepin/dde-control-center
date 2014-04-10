@@ -5,7 +5,6 @@ import Deepin.Widgets 1.0
 import "widgets"
 
 Column {
-    DSeparatorHorizontal{}
     DBaseLine {
         leftLoader.sourceComponent: DssH1 {
             text: dsTr("Actived Connections")

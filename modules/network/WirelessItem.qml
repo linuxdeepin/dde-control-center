@@ -28,6 +28,22 @@ Item {
         }
     }
 
+    function activateThisConnection(){
+        wirelessItem.requestUuid()
+        dbusNetwork.ActivateConnection(wirelessItem.uuid, wirelessItem.devicePath)
+        wirelessDevicesExpand.inConnectingApPath = apPath
+    }
+
+    function goToEditConnection(){
+        wirelessItem.requestUuid()
+        stackView.push({
+            "item": stackViewPages["wirelessPropertiesPage"],
+            "properties": { "uuid": wirelessItem.uuid },
+            "destroyOnPop": true
+        })
+        stackView.currentItemId = "wirelessPropertiesPage"
+    }
+
     DBaseLine {
         id: wirelessLine
 
@@ -49,9 +65,12 @@ Item {
             }
 
             onClicked: {
-                wirelessItem.requestUuid()
-                dbusNetwork.ActivateConnection(wirelessItem.uuid, wirelessItem.devicePath)
-                wirelessDevicesExpand.inConnectingApPath = apPath
+                if(!apConnected){
+                    activateThisConnection()
+                }
+                else{
+                    goToEditConnection()
+                }
             }
         }
         color: dconstants.contentBgColor
@@ -129,13 +148,7 @@ Item {
 
             DArrowButton {
                 onClicked: {
-                    wirelessItem.requestUuid()
-                    stackView.push({
-                        "item": stackViewPages["wirelessPropertiesPage"],
-                        "properties": { "uuid": wirelessItem.uuid },
-                        "destroyOnPop": true
-                    })
-                    stackView.currentItemId = "wirelessPropertiesPage"
+                    goToEditConnection()
                 }
             }
         }

@@ -48,8 +48,9 @@ Column{
     DBaseExpand{
         id: generalSettings
         property int myIndex: 0
-
         property string sectionName: "General"
+        property var myKeys: connectionSessionObject.availableKeys[sectionName]
+        property var errors: connectionSessionObject.errors[sectionName]
 
         expanded: activeExpandIndex == myIndex
         onExpandedChanged: {
@@ -95,6 +96,14 @@ Column{
         property int myIndex: 1
         property string sectionName: "IPv4"
         property var myKeys: connectionSessionObject.availableKeys[sectionName]
+        property var errors: connectionSessionObject.errors[sectionName]
+
+        onErrorsChanged: {
+            for(var key in errors){
+                print("%1 == %2".arg(key).arg(errors[key]))
+            }
+            print("****************")
+        }
 
         expanded: activeExpandIndex == myIndex
         onExpandedChanged: {
@@ -123,7 +132,7 @@ Column{
             DBaseLine {
                 color: dconstants.contentBgColor
                 leftMargin: contentLeftMargin
-                leftLoader.sourceComponent: DssH2{
+                leftLoader.sourceComponent: DssH2 {
                     text: dsTr("Method")
                 }
 
@@ -137,7 +146,7 @@ Column{
 
                     function menuSelect(i){
                         text = menuLabels[i]
-                        connectionSessionObject.SetKey(ipv4MethodCombox.sectionName, "method", marshalJSON(text))
+                        connectionSessionObject.SetKey(ipv4Settings.sectionName, "method", marshalJSON(text))
                     }
 
                     onClicked: {
@@ -154,7 +163,8 @@ Column{
 
             DBaseLine {
                 id: ipAddressLine
-                visible: getIndexFromArray("address", ipv4Settings.myKeys) != -1
+                property string keyName: "vk-addresses-address"
+                visible: getIndexFromArray(keyName, ipv4Settings.myKeys) != -1
                 color: dconstants.contentBgColor
                 leftMargin: contentLeftMargin
                 leftLoader.sourceComponent: DssH2{
@@ -162,6 +172,7 @@ Column{
                 }
 
                 rightLoader.sourceComponent: Ipv4Input{
+                    isError: ipv4Settings.errors[ipAddressLine.keyName] ? true : false
                     width: valueWidth
                     onToNext: {
                         var ipAddress = getValue()
@@ -173,12 +184,19 @@ Column{
                         }
                         netmaskLine.rightLoader.item.getFocus()
                     }
+                    onIsFocusChanged: {
+                        if(!isFocus){
+                            var ipAddress = getValue()
+                            connectionSessionObject.SetKey(ipv4Settings.sectionName, ipAddressLine.keyName, ipAddress)
+                        }
+                    }
                 }
             }
 
             DBaseLine {
                 id: netmaskLine
-                visible: getIndexFromArray("address", ipv4Settings.myKeys) != -1
+                property string keyName: "vk-addresses-mask"
+                visible: getIndexFromArray(keyName, ipv4Settings.myKeys) != -1
                 color: dconstants.contentBgColor
                 leftMargin: contentLeftMargin
                 leftLoader.sourceComponent: DssH2{
@@ -186,16 +204,24 @@ Column{
                 }
 
                 rightLoader.sourceComponent: Ipv4Input{
+                    isError: ipv4Settings.errors[netmaskLine.keyName] ? true : false
                     width: valueWidth
                     onToNext: {
                         gatewayLine.rightLoader.item.getFocus()
+                    }
+                    onIsFocusChanged: {
+                        if(!isFocus){
+                            var value = getValue()
+                            connectionSessionObject.SetKey(ipv4Settings.sectionName, netmaskLine.keyName, value)
+                        }
                     }
                 }
             }
 
             DBaseLine {
                 id: gatewayLine
-                visible: getIndexFromArray("address", ipv4Settings.myKeys) != -1
+                property string keyName: "vk-addresses-gateway"
+                visible: getIndexFromArray(keyName, ipv4Settings.myKeys) != -1
                 color: dconstants.contentBgColor
                 leftMargin: contentLeftMargin
                 leftLoader.sourceComponent: DssH2{
@@ -203,15 +229,23 @@ Column{
                 }
 
                 rightLoader.sourceComponent: Ipv4Input{
+                    isError: ipv4Settings.errors[gatewayLine.keyName] ? true : false
                     width: valueWidth
                     onToNext: {
                         dnsServerLine.rightLoader.item.getFocus()
+                    }
+                    onIsFocusChanged: {
+                        if(!isFocus){
+                            var value = getValue()
+                            connectionSessionObject.SetKey(ipv4Settings.sectionName, gatewayLine.keyName, value)
+                        }
                     }
                 }
             }
 
             DBaseLine {
                 id: dnsServerLine
+                property string keyName: "vk-dns"
                 color: dconstants.contentBgColor
                 leftMargin: contentLeftMargin
                 leftLoader.sourceComponent: DssH2{
@@ -219,7 +253,14 @@ Column{
                 }
 
                 rightLoader.sourceComponent: Ipv4Input{
+                    isError: ipv4Settings.errors[dnsServerLine.keyName] ? true : false
                     width: valueWidth
+                    onIsFocusChanged: {
+                        if(!isFocus){
+                            var value = getValue()
+                            connectionSessionObject.SetKey(ipv4Settings.sectionName, dnsServerLine.keyName, value)
+                        }
+                    }
                 }
             }
         }
@@ -230,8 +271,9 @@ Column{
     DBaseExpand{
         id: securitySettings
         property int myIndex: 3
-
         property string sectionName: "Security"
+        property var myKeys: connectionSessionObject.availableKeys[sectionName]
+        property var errors: connectionSessionObject.errors[sectionName]
 
         expanded: activeExpandIndex == myIndex
         onExpandedChanged: {
@@ -292,7 +334,12 @@ Column{
             spacing: 6
 
             DTextButton{
+                visible: !generalSettings.errors && !ipv4Settings.errors && !securitySettings.errors
                 text: dsTr("Save")
+                onClicked: {
+                    connectionSessionObject.Save()
+                    stackView.reset()
+                }
             }
 
             DTextButton{

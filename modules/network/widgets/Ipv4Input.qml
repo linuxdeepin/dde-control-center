@@ -8,10 +8,13 @@ Item {
     height: 22
     clip: true
 
+    property bool isError: false
     property int inputItemHeight: height - 4
     property int inputItemWidth: (width - ipDot.width * 3 - 4)/4
 
     property var dconstants: DConstants {}
+
+    property bool isFocus: ipInput1.activeFocus || ipInput2.activeFocus || ipInput3.activeFocus || ipInput4.activeFocus
 
     signal accepted
     signal toNext
@@ -185,7 +188,7 @@ Item {
         id: text_input_box_border
         radius: 3
         color: "transparent"
-        border.color: "black"
+        border.color: isError ? "#F48914" : "black"
 
         anchors.fill:text_input_box
     }
