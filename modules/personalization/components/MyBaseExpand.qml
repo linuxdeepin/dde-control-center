@@ -5,7 +5,7 @@ DBaseExpand {
     id: myBaseExpand
 
     property int myIndex: 0
-    property string title: header.item.text
+    property string title: ""
 
     expanded: activeExpandIndex == myIndex
     onExpandedChanged: {
@@ -15,6 +15,7 @@ DBaseExpand {
     }
 
     header.sourceComponent: DDownArrowHeader {
+        text: root.title
         onClicked: {
             if(activeExpandIndex == root.myIndex){
                 activeExpandIndex = -1

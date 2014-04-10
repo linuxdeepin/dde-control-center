@@ -7,7 +7,7 @@ Window {
     id: trayIconTip
     width: trayIconTipArrowRect.width
     height: trayIconTipArrowRect.height
-    flags: Qt.Popup
+    flags: Qt.Tool | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
     visible: false
 
     property alias text: trayIconTipText.text

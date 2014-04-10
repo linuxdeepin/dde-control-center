@@ -5,9 +5,6 @@ import "../widgets"
 MyBaseExpand {
     id: wallpaper_themes_expand
 
-    myIndex: 3
-    title: dsTr("Wallpaper")
-
     content.sourceComponent: Item {
         width: personalizationModule.width
         height: childrenRect.height

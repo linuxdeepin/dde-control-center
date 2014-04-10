@@ -5,9 +5,6 @@ import "../widgets"
 MyBaseExpand {
     id: icon_themes_expand
 
-    myIndex: 4
-    title: dsTr("Icon")
-
     content.sourceComponent: Item {
         width: personalizationModule.width
         height: childrenRect.height

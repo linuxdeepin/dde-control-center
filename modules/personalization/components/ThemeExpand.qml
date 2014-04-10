@@ -5,9 +5,6 @@ import "../widgets"
 MyBaseExpand {
     id: themes_expand
 
-    myIndex: 0
-    title: dsTr("Theme")
-
     content.sourceComponent: Item {
         width: personalizationModule.width
         height: themeView.height

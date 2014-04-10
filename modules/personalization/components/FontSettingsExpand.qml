@@ -5,9 +5,6 @@ import "../widgets"
 MyBaseExpand {
     id: font_themes_expand
 
-    myIndex: 5
-    title: dsTr("Font")
-
     content.sourceComponent:  DCenterLine {
         height: 50
         color: dconstants.contentBgColor

@@ -5,9 +5,6 @@ import "../widgets"
 MyBaseExpand {
     id: cursor_themes_expand
 
-    myIndex: 4
-    title: dsTr("Cursor")
-
     content.sourceComponent: Item {
         width: personalizationModule.width
         height: childrenRect.height

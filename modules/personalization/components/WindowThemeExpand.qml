@@ -5,9 +5,6 @@ import "../widgets"
 MyBaseExpand {
     id: window_themes_expand
 
-    myIndex: 1
-    title: dsTr("GTK Window")
-
     content.sourceComponent: Item {
         width: personalizationModule.width
         height: childrenRect.height

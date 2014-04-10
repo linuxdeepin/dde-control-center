@@ -93,7 +93,7 @@ Window {
         color: dconstants.contentBgColor
         radius: 3
         border.width: 1
-        border.color: dconstants.fgColor
+        border.color: dconstants.fgDarkColor
 
         Item {
             id: title_bar
@@ -278,6 +278,10 @@ Window {
                 anchors.right: parent.right
                 anchors.rightMargin: 6
                 text: dsTr("Apply")
+                onClicked: {
+                    dbusThemeManager.SetCurrentTheme(themeObject.name)
+                    previewsWindow.hideWindow()
+                }
             }
 
         }

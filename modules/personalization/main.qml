@@ -50,27 +50,45 @@ Item {
 
         DSeparatorHorizontal {}
 
-        ThemeExpand {}
+        ThemeExpand {
+            myIndex: 0
+            title: dsTr("Theme")
+        }
 
         DSeparatorHorizontal {}
 
-        WindowThemeExpand {}
+        WindowThemeExpand {
+            myIndex: 1
+            title: dsTr("GTK Window")
+        }
 
         DSeparatorHorizontal {}
 
-        CursorThemeExpand {}
-
-        DSeparatorHorizontal {}
-        
-        WallpapperExpand {}
-
-        DSeparatorHorizontal {}
-
-        IconThemeExpand {}
+        IconThemeExpand {
+            myIndex: 4
+            title: dsTr("Icon")
+        }
 
         DSeparatorHorizontal {}
 
-        FontSettingsExpand {}
+        CursorThemeExpand {
+            myIndex: 2
+            title: dsTr("Cursor")
+        }
+
+        DSeparatorHorizontal {}
+
+        WallpapperExpand {
+            myIndex: 3
+            title: dsTr("Wallpappers")
+        }
+
+        DSeparatorHorizontal {}
+
+        FontSettingsExpand {
+            myIndex: 5
+            title: dsTr("Font")
+        }
 
         DSeparatorHorizontal {}
     }
