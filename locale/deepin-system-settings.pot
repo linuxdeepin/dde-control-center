@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-19 16:14+0800\n"
+"POT-Creation-Date: 2014-04-10 17:35+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,12 +17,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../modules/account/AddUserDialog.qml:95 ../modules/account/UserList.qml:156
+#: ../modules/account/AddUserDialog.qml:89 ../modules/account/UserList.qml:170
 msgid "User"
 msgstr ""
 
-#: ../modules/account/AddUserDialog.qml:95 ../modules/account/UserList.qml:156
+#: ../modules/account/AddUserDialog.qml:89 ../modules/account/UserList.qml:170
 msgid "Administrator"
+msgstr ""
+
+#: ../modules/account/AvatarPickDialog.qml:5
+msgid "Please choose one image as you avatar"
 msgstr ""
 
 #: ../modules/date_time/Calendar.qml:102
@@ -57,20 +61,23 @@ msgstr ""
 msgid "Sat"
 msgstr ""
 
-#: ../modules/shortcuts/CustomKeybindingExpand.qml:86
+#: ../modules/shortcuts/CustomKeybinding.qml:92
 msgid "Name"
 msgstr ""
 
-#: ../modules/shortcuts/CustomKeybindingExpand.qml:96
+#: ../modules/shortcuts/CustomKeybinding.qml:102
 msgid "Command"
 msgstr ""
 
-#: ../modules/shortcuts/CustomKeybindingExpand.qml:108
-#: ../modules/shortcuts/ShortcutInput.qml:298 ../modules/display/main.qml:170
+#: ../modules/shortcuts/CustomKeybinding.qml:114
+#: ../modules/shortcuts/ShortcutInput.qml:298
+#: ../modules/date_time/TimeBox.qml:186
+#: ../frame/views/WifiPasswordWindow.qml:136
+#: ../modules/network/WirelessItem.qml:259 ../modules/display/main.qml:193
 msgid "Cancel"
 msgstr ""
 
-#: ../modules/shortcuts/CustomKeybindingExpand.qml:114
+#: ../modules/shortcuts/CustomKeybinding.qml:120
 #: ../modules/date_time/StateButtons.qml:12
 msgid "Add"
 msgstr ""
@@ -81,6 +88,47 @@ msgstr ""
 
 #: ../modules/account/DeleteUserDialog.qml:20
 msgid "Delete user files"
+msgstr ""
+
+#: ../modules/network/components/EditIpv4Section.qml:28
+msgid "IPv4"
+msgstr ""
+
+#: ../modules/network/components/EditIpv4Section.qml:48
+msgid "Method"
+msgstr ""
+
+#: ../modules/network/components/EditIpv4Section.qml:83
+msgid "IP Address"
+msgstr ""
+
+#: ../modules/network/components/EditIpv4Section.qml:124
+msgid "Netmask"
+msgstr ""
+
+#: ../modules/network/components/EditIpv4Section.qml:157
+msgid "Gateway"
+msgstr ""
+
+#: ../modules/network/components/EditIpv4Section.qml:189
+msgid "DNS Server"
+msgstr ""
+
+#: ../modules/network/components/EditTitle.qml:9
+msgid "Connection Name:"
+msgstr ""
+
+#: ../modules/account/EditUserDialog.qml:79
+#: ../modules/account/GuestUser.qml:93
+msgid "Enable User"
+msgstr ""
+
+#: ../modules/personalization/components/FontSettingsExpand.qml:13
+msgid "Size"
+msgstr ""
+
+#: ../modules/account/GuestUser.qml:32
+msgid "Guest"
 msgstr ""
 
 #: ../modules/network/Info.qml:10
@@ -115,52 +163,28 @@ msgstr ""
 msgid "DeviceSpeed"
 msgstr ""
 
-#: ../modules/network/Info.qml:48 ../modules/network/Info.qml:76
-msgid "InternetSpeed"
-msgstr ""
-
-#: ../modules/network/Info.qml:48 ../modules/network/Info.qml:76
-msgid "test it"
-msgstr ""
-
 #: ../modules/network/Info.qml:70
 msgid "wireless"
 msgstr ""
 
-#: ../modules/network/ListAccessPoints.qml:14
-msgid "Wireless Access Points"
-msgstr ""
-
-#: ../modules/network/ListAccessPoints.qml:80
-msgid "PassWord"
-msgstr ""
-
-#: ../modules/network/ListConnections.qml:13
-msgid "Wired Connections"
-msgstr ""
-
-#: ../modules/network/ListConnections.qml:28
-msgid "Wired Conections"
-msgstr ""
-
-#: ../modules/network/ListConnections.qml:63
+#: ../modules/network/ListConnections.qml:34
 msgid "VPN Connections"
 msgstr ""
 
-#: ../modules/display/MessageBox.qml:64
+#: ../modules/display/MessageBox.qml:86
 msgid "是否要保存这些显示设置？"
 msgstr ""
 
-#: ../modules/display/MessageBox.qml:70
+#: ../modules/display/MessageBox.qml:96
 #, qt-format
-msgid "<font color='red'>%1</font> 秒之后还原之前的显示设置。"
+msgid "<font color='#F48914'>%1</font> 秒之后还原之前的显示设置。"
 msgstr ""
 
-#: ../modules/display/MessageBox.qml:82
+#: ../modules/display/MessageBox.qml:108
 msgid "Save Changes"
 msgstr ""
 
-#: ../modules/display/MessageBox.qml:90
+#: ../modules/display/MessageBox.qml:116
 msgid "Restore"
 msgstr ""
 
@@ -182,12 +206,12 @@ msgstr ""
 msgid "Bluetooth"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:9 ../modules/sound/main.qml:69
+#: ../frame/views/ModulesData.qml:9 ../modules/sound/main.qml:90
 #: ../frame/modules_info.py:34
 msgid "Sound"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:10 ../modules/power/main.qml:76
+#: ../frame/views/ModulesData.qml:10 ../modules/power/main.qml:74
 #: ../frame/modules_info.py:35
 msgid "Power"
 msgstr ""
@@ -196,8 +220,8 @@ msgstr ""
 msgid "More Settings"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:12 ../frame/views/PanelContent.qml:397
-#: ../modules/power/main.qml:111 ../modules/power/main.qml:154
+#: ../frame/views/ModulesData.qml:12 ../frame/views/PanelContent.qml:372
+#: ../modules/power/main.qml:112 ../modules/power/main.qml:158
 #: ../frame/modules_info.py:37
 msgid "Shutdown"
 msgstr ""
@@ -206,7 +230,7 @@ msgstr ""
 msgid "Notification"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:14 ../modules/display/main.qml:62
+#: ../frame/views/ModulesData.qml:14 ../modules/display/main.qml:76
 #: ../frame/modules_info.py:39
 msgid "Display"
 msgstr ""
@@ -216,7 +240,7 @@ msgstr ""
 msgid "Desktop"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:16 ../modules/personalization/main.qml:74
+#: ../frame/views/ModulesData.qml:16 ../modules/personalization/main.qml:48
 msgid "Personalization"
 msgstr ""
 
@@ -228,7 +252,7 @@ msgstr ""
 msgid "Mouse and Touchpad"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:20 ../modules/mouse_touchpad/main.qml:26
+#: ../frame/views/ModulesData.qml:20 ../modules/mouse_touchpad/main.qml:27
 #: ../frame/modules_info.py:44
 msgid "Mouse"
 msgstr ""
@@ -245,7 +269,7 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:18 ../modules/keyboard/main.qml:58
+#: ../frame/views/ModulesData.qml:18 ../modules/keyboard/main.qml:75
 #: ../frame/modules_info.py:43
 msgid "Keyboard"
 msgstr ""
@@ -256,12 +280,12 @@ msgstr ""
 msgid "Default Applications"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:23 ../modules/system_info/main.qml:39
+#: ../frame/views/ModulesData.qml:23 ../modules/system_info/main.qml:47
 #: ../frame/modules_info.py:49
 msgid "System Information"
 msgstr ""
 
-#: ../modules/display/MonitorComponent.qml:179
+#: ../modules/display/MonitorComponent.qml:181
 msgid "Select as Main Monitor"
 msgstr ""
 
@@ -269,24 +293,33 @@ msgstr ""
 msgid "Identify"
 msgstr ""
 
-#: ../modules/display/MonitorDragArea.qml:433
+#: ../modules/display/MonitorDragArea.qml:440
 msgid "Edit"
 msgstr ""
 
-#: ../modules/display/MonitorProperties.qml:53
+#: ../modules/display/MonitorProperties.qml:57
 msgid "Enabled"
 msgstr ""
 
-#: ../modules/display/MonitorProperties.qml:85
+#: ../modules/display/MonitorProperties.qml:89
 msgid "Resolution"
 msgstr ""
 
-#: ../modules/display/MonitorProperties.qml:139
+#: ../modules/display/MonitorProperties.qml:141
 msgid "Rotation"
 msgstr ""
 
-#: ../modules/grub/Preview.qml:133
+#: ../modules/grub/Preview.qml:130
 msgid "Drop a picture here to change the background"
+msgstr ""
+
+#: ../modules/personalization/widgets/PreviewButton.qml:30
+msgid "Open theme preview"
+msgstr ""
+
+#: ../modules/personalization/widgets/PreviewWindow.qml:280
+#: ../modules/display/main.qml:169
+msgid "Apply"
 msgstr ""
 
 #: ../modules/shortcuts/ShortcutInput.qml:103
@@ -321,6 +354,14 @@ msgstr ""
 msgid "Finish"
 msgstr ""
 
+#: ../modules/date_time/TimeBox.qml:135
+msgid "双击数字修改时间"
+msgstr ""
+
+#: ../modules/date_time/TimeBox.qml:170
+msgid "Change"
+msgstr ""
+
 #: ../modules/date_time/TimezoneArea.qml:43
 msgid "Timezone"
 msgstr ""
@@ -330,58 +371,58 @@ msgid "TouchPad"
 msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:57
-#: ../modules/mouse_touchpad/main.qml:38
+#: ../modules/mouse_touchpad/main.qml:39
 msgid "Button Order"
 msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:65
-#: ../modules/mouse_touchpad/main.qml:45
+#: ../modules/mouse_touchpad/main.qml:46
 msgid "Right Hand"
 msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:66
-#: ../modules/mouse_touchpad/main.qml:46
+#: ../modules/mouse_touchpad/main.qml:47
 msgid "Left Hand"
 msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:79
-#: ../modules/mouse_touchpad/main.qml:59
+#: ../modules/mouse_touchpad/main.qml:60
 msgid "Pointer Move Speed"
 msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:94
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:144
-#: ../modules/keyboard/main.qml:110 ../modules/keyboard/main.qml:135
-#: ../modules/mouse_touchpad/main.qml:74
-#: ../modules/mouse_touchpad/main.qml:126
+#: ../modules/keyboard/main.qml:127 ../modules/keyboard/main.qml:153
+#: ../modules/mouse_touchpad/main.qml:75
+#: ../modules/mouse_touchpad/main.qml:127
 msgid "Slow"
 msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:95
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:145
-#: ../modules/keyboard/main.qml:109 ../modules/keyboard/main.qml:134
-#: ../modules/mouse_touchpad/main.qml:75
-#: ../modules/mouse_touchpad/main.qml:127
+#: ../modules/keyboard/main.qml:126 ../modules/keyboard/main.qml:152
+#: ../modules/mouse_touchpad/main.qml:76
+#: ../modules/mouse_touchpad/main.qml:128
 msgid "Fast"
 msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:104
-#: ../modules/mouse_touchpad/main.qml:85
+#: ../modules/mouse_touchpad/main.qml:86
 msgid "Pointer Accuracy"
 msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:119
-#: ../modules/mouse_touchpad/main.qml:100
+#: ../modules/mouse_touchpad/main.qml:101
 msgid "Low"
 msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:120
-#: ../modules/mouse_touchpad/main.qml:101
+#: ../modules/mouse_touchpad/main.qml:102
 msgid "High"
 msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:129
-#: ../modules/mouse_touchpad/main.qml:111
+#: ../modules/mouse_touchpad/main.qml:112
 msgid "Double-click Frequency"
 msgstr ""
 
@@ -390,17 +431,106 @@ msgid "Drag Threshold"
 msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:170
-#: ../modules/keyboard/main.qml:84
+#: ../modules/keyboard/main.qml:101
 msgid "Short"
 msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:171
-#: ../modules/keyboard/main.qml:85
+#: ../modules/keyboard/main.qml:102
 msgid "Long"
 msgstr ""
 
 #: ../modules/account/WebCam.qml:175
 msgid "No camera found."
+msgstr ""
+
+#: ../frame/views/WifiPasswordWindow.qml:75
+msgid "Authentication required by Wi-Fi network"
+msgstr ""
+
+#: ../frame/views/WifiPasswordWindow.qml:83
+#, qt-format
+msgid ""
+"Passwords or encryption keys are required to access the Wi-Fi network <font "
+"color=\"#0ff\">%1</font>"
+msgstr ""
+
+#: ../frame/views/WifiPasswordWindow.qml:97
+#: ../modules/network/WirelessProperties.qml:114
+msgid "Password:"
+msgstr ""
+
+#: ../frame/views/WifiPasswordWindow.qml:119
+msgid "Show Password"
+msgstr ""
+
+#: ../frame/views/WifiPasswordWindow.qml:144
+#: ../modules/network/WirelessItem.qml:266
+msgid "Connect"
+msgstr ""
+
+#: ../modules/network/WiredDeviceExpand.qml:14
+msgid "Wired Connetions"
+msgstr ""
+
+#: ../modules/network/WiredItem.qml:79
+#, qt-format
+msgid "Wired Conection %1"
+msgstr ""
+
+#: ../modules/network/WiredProperties.qml:27
+#: ../modules/network/WirelessProperties.qml:28
+msgid "General"
+msgstr ""
+
+#: ../modules/network/WiredProperties.qml:44
+#: ../modules/network/WirelessProperties.qml:45
+msgid "Automatically connect"
+msgstr ""
+
+#: ../modules/network/WiredProperties.qml:50
+#: ../modules/network/WirelessProperties.qml:51
+msgid "All users may connect to this network"
+msgstr ""
+
+#: ../modules/network/WiredProperties.qml:68
+#: ../modules/network/WirelessProperties.qml:131
+msgid "Save"
+msgstr ""
+
+#: ../modules/network/WiredProperties.qml:72
+#: ../modules/network/WirelessProperties.qml:140
+msgid "Close"
+msgstr ""
+
+#: ../modules/network/WirelessDeviceExpand.qml:116
+#, qt-format
+msgid "Wireless Device: %1"
+msgstr ""
+
+#: ../modules/network/WirelessDeviceExpand.qml:119
+#, qt-format
+msgid "Wireless Device %1"
+msgstr ""
+
+#: ../modules/network/WirelessDeviceExpand.qml:157
+msgid "Scanning..."
+msgstr ""
+
+#: ../modules/network/WirelessItem.qml:224
+msgid "Password: "
+msgstr ""
+
+#: ../modules/network/WirelessItem.qml:244
+msgid "Show password"
+msgstr ""
+
+#: ../modules/network/WirelessProperties.qml:80
+msgid "Security"
+msgstr ""
+
+#: ../modules/network/WirelessProperties.qml:99
+msgid "Security:"
 msgstr ""
 
 #: ../modules/date_time/calendar_core.js:6
@@ -455,51 +585,51 @@ msgstr ""
 msgid "Date & Time"
 msgstr ""
 
-#: ../modules/date_time/main.qml:92
+#: ../modules/date_time/main.qml:57
 msgid "Auto-sync datetime"
 msgstr ""
 
-#: ../modules/date_time/main.qml:105
+#: ../modules/date_time/main.qml:70
 msgid "24 Hour"
 msgstr ""
 
-#: ../modules/date_time/main.qml:135
+#: ../modules/date_time/main.qml:100
 msgid "Date"
 msgstr ""
 
-#: ../modules/date_time/main.qml:139
+#: ../modules/date_time/main.qml:104
 msgid "Change Date"
 msgstr ""
 
-#: ../modules/date_time/main.qml:162
+#: ../modules/date_time/main.qml:127
 msgid "假期安排提示"
 msgstr ""
 
-#: ../modules/system_info/main.qml:62
+#: ../modules/system_info/main.qml:70
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
 msgstr ""
 
-#: ../modules/system_info/main.qml:68
+#: ../modules/system_info/main.qml:76
 msgid "System Version"
 msgstr ""
 
-#: ../modules/system_info/main.qml:74
+#: ../modules/system_info/main.qml:82
 msgid "System Type"
 msgstr ""
 
-#: ../modules/system_info/main.qml:75
+#: ../modules/system_info/main.qml:83
 msgid "Bit"
 msgstr ""
 
-#: ../modules/system_info/main.qml:80
+#: ../modules/system_info/main.qml:88
 msgid "CPU"
 msgstr ""
 
-#: ../modules/system_info/main.qml:86
+#: ../modules/system_info/main.qml:94
 msgid "Memory"
 msgstr ""
 
-#: ../modules/system_info/main.qml:92
+#: ../modules/system_info/main.qml:100
 msgid "Disk"
 msgstr ""
 
@@ -507,143 +637,158 @@ msgstr ""
 msgid "Browser"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:50
+#: ../modules/default_applications/main.qml:58
 msgid "Mail"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:56
+#: ../modules/default_applications/main.qml:69
 msgid "Text"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:62
+#: ../modules/default_applications/main.qml:75
 msgid "Music"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:68
+#: ../modules/default_applications/main.qml:106
 msgid "Video"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:74
+#: ../modules/default_applications/main.qml:137
 msgid "Picture Viewer"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:86
+#: ../modules/default_applications/main.qml:155
 msgid "Terminal"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:183
+#: ../modules/default_applications/main.qml:252
 msgid "Auto Play"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:198
+#: ../modules/default_applications/main.qml:267
 msgid "CD Audio"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:203
+#: ../modules/default_applications/main.qml:272
 msgid "DVD Video"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:208
+#: ../modules/default_applications/main.qml:277
 msgid "Music Player"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:213
+#: ../modules/default_applications/main.qml:282
 msgid "Camera"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:218
+#: ../modules/default_applications/main.qml:287
 msgid "Software"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:70
+#: ../modules/keyboard/main.qml:87
 msgid "Repeat Delay"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:94
+#: ../modules/keyboard/main.qml:111
 msgid "Repeat Interval"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:144
+#: ../modules/keyboard/main.qml:162
 msgid "Test Area"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:119
+#: ../modules/keyboard/main.qml:136
 msgid "Cursor Blink"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:358
+#: ../modules/keyboard/main.qml:377
 msgid "No result"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:173
+#: ../modules/keyboard/main.qml:192
 msgid "Keyboard Layout"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:24 ../modules/display/main.qml:167
-#: ../modules/grub/main.qml:65 ../modules/keyboard/main.qml:60
-#: ../modules/mouse_touchpad/main.qml:29 ../modules/power/main.qml:80
-#: ../modules/shortcuts/main.qml:95 ../modules/sound/main.qml:72
+#: ../modules/default_applications/main.qml:24 ../modules/display/main.qml:190
+#: ../modules/grub/main.qml:66 ../modules/keyboard/main.qml:77
+#: ../modules/mouse_touchpad/main.qml:30 ../modules/power/main.qml:81
+#: ../modules/shortcuts/main.qml:92 ../modules/sound/main.qml:93
 msgid "Reset"
 msgstr ""
 
-#: ../modules/power/main.qml:248
+#: ../modules/power/main.qml:243 ../modules/power/main.qml:416
 msgid "Custom"
 msgstr ""
 
-#: ../modules/power/main.qml:119
+#: ../modules/power/main.qml:122
 msgid "Ask"
 msgstr ""
 
-#: ../modules/power/main.qml:140
+#: ../modules/power/main.qml:144
 msgid "When I close the lid"
 msgstr ""
 
-#: ../modules/power/main.qml:197
-msgid "Requires a password"
+#: ../modules/power/main.qml:210
+msgid "Power Adapter"
 msgstr ""
 
-#: ../modules/power/main.qml:201
-msgid "Without a password"
-msgstr ""
-
-#: ../modules/power/main.qml:222
-msgid "Power plan"
-msgstr ""
-
-#: ../modules/power/main.qml:236 ../modules/sound/main.qml:159
+#: ../modules/power/main.qml:225 ../modules/power/main.qml:398
+#: ../modules/sound/main.qml:191
 msgid "Balance"
 msgstr ""
 
-#: ../modules/power/main.qml:240
+#: ../modules/power/main.qml:227 ../modules/power/main.qml:233
+#: ../modules/power/main.qml:239 ../modules/power/main.qml:245
+#: ../modules/power/main.qml:400 ../modules/power/main.qml:406
+#: ../modules/power/main.qml:412 ../modules/power/main.qml:418
+msgid "Turn off monitor: "
+msgstr ""
+
+#: ../modules/power/main.qml:228 ../modules/power/main.qml:234
+#: ../modules/power/main.qml:240 ../modules/power/main.qml:246
+#: ../modules/power/main.qml:401 ../modules/power/main.qml:407
+#: ../modules/power/main.qml:413 ../modules/power/main.qml:419
+msgid " Suspend: "
+msgstr ""
+
+#: ../modules/power/main.qml:231 ../modules/power/main.qml:404
 msgid "Power saver"
 msgstr ""
 
-#: ../modules/power/main.qml:244
+#: ../modules/power/main.qml:237 ../modules/power/main.qml:410
 msgid "High performance"
 msgstr ""
 
-#: ../modules/power/main.qml:267
+#: ../modules/power/main.qml:288 ../modules/power/main.qml:462
+msgid "Custom Options"
+msgstr ""
+
+#: ../modules/power/main.qml:293 ../modules/power/main.qml:467
 msgid "Turn off monitor"
 msgstr ""
 
-#: ../modules/power/main.qml:115 ../modules/power/main.qml:158
-#: ../modules/power/main.qml:306
+#: ../modules/power/main.qml:383
+msgid "Battery"
+msgstr ""
+
+#: ../modules/power/main.qml:117 ../modules/power/main.qml:163
+#: ../modules/power/main.qml:333 ../modules/power/main.qml:507
 msgid "Suspend"
 msgstr ""
 
-#: ../modules/power/main.qml:97
+#: ../modules/power/main.qml:98
 msgid "When I press the power button"
 msgstr ""
 
-#: ../modules/power/main.qml:183
+#: ../modules/power/main.qml:187
 msgid "Require password when computer wakes"
 msgstr ""
 
-#: ../modules/account/main.qml:25 ../frame/modules_info.py:47
+#: ../modules/account/main.qml:43 ../frame/modules_info.py:47
 msgid "Account"
 msgstr ""
 
-#: ../modules/account/main.qml:34
+#: ../modules/account/main.qml:52
 msgid "User List"
 msgstr ""
 
@@ -708,7 +853,7 @@ msgid "Bottom Right"
 msgstr ""
 
 #: ../modules/desktop/main.qml:220 ../modules/desktop/main.qml:245
-#: ../modules/power/main.qml:162
+#: ../modules/power/main.qml:168
 msgid "Nothing"
 msgstr ""
 
@@ -720,119 +865,107 @@ msgstr ""
 msgid "Launcher"
 msgstr ""
 
-#: ../modules/display/main.qml:70
+#: ../modules/display/main.qml:89
 msgid "Main Display: "
 msgstr ""
 
-#: ../modules/display/main.qml:98
+#: ../modules/display/main.qml:117
 msgid "Monitor"
 msgstr ""
 
-#: ../modules/display/main.qml:150
-msgid "Apply"
-msgstr ""
-
-#: ../modules/personalization/main.qml:90
-msgid "Themes"
-msgstr ""
-
-#: ../modules/shortcuts/main.qml:31
+#: ../modules/shortcuts/main.qml:28
 msgid "Window"
 msgstr ""
 
-#: ../modules/personalization/main.qml:175
+#: ../modules/personalization/main.qml:55
+msgid "Theme"
+msgstr ""
+
+#: ../modules/personalization/main.qml:62
 msgid "GTK Window"
 msgstr ""
 
-#: ../modules/personalization/main.qml:231
+#: ../modules/personalization/main.qml:69
+msgid "Icon"
+msgstr ""
+
+#: ../modules/personalization/main.qml:76
 msgid "Cursor"
 msgstr ""
 
-#: ../modules/personalization/main.qml:287
-msgid "Wallpaper"
+#: ../modules/personalization/main.qml:83
+msgid "Wallpappers"
 msgstr ""
 
-#: ../modules/personalization/main.qml:316
-msgid "Icons"
-msgstr ""
-
-#: ../modules/personalization/main.qml:372
+#: ../modules/personalization/main.qml:90
 msgid "Font"
 msgstr ""
 
-#: ../modules/network/main.qml:17
+#: ../modules/network/main.qml:57
 msgid "Network Settings"
 msgstr ""
 
-#: ../modules/network/main.qml:27
-msgid "Create Connections"
-msgstr ""
-
-#: ../modules/shortcuts/main.qml:93 ../frame/modules_info.py:42
+#: ../modules/shortcuts/main.qml:90 ../frame/modules_info.py:42
 msgid "Shortcuts"
 msgstr ""
 
-#: ../modules/shortcuts/main.qml:29
+#: ../modules/shortcuts/main.qml:26
 msgid "System"
 msgstr ""
 
-#: ../modules/shortcuts/main.qml:30
-msgid "Sound and Media"
-msgstr ""
-
-#: ../modules/shortcuts/main.qml:32
+#: ../modules/shortcuts/main.qml:29
 msgid "Workspace"
 msgstr ""
 
-#: ../modules/shortcuts/main.qml:33 ../modules/shortcuts/main.qml:207
+#: ../modules/shortcuts/main.qml:30 ../modules/shortcuts/main.qml:204
 msgid "Custom Shortcuts"
 msgstr ""
 
-#: ../modules/sound/main.qml:104
+#: ../modules/sound/main.qml:125
 msgid "Speaker"
 msgstr ""
 
-#: ../modules/sound/main.qml:282
+#: ../modules/sound/main.qml:334
 msgid "Output Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:134
+#: ../modules/sound/main.qml:155
 msgid "Output Volume"
 msgstr ""
 
-#: ../modules/sound/main.qml:189
+#: ../modules/sound/main.qml:232
 msgid "Microphone"
 msgstr ""
 
-#: ../modules/sound/main.qml:244
+#: ../modules/sound/main.qml:298
 msgid "Input Feedback"
 msgstr ""
 
-#: ../modules/sound/main.qml:299 ../modules/sound/main.qml:406
+#: ../modules/sound/main.qml:351 ../modules/sound/main.qml:458
 msgid "No port exist in this device."
 msgstr ""
 
-#: ../modules/sound/main.qml:340
+#: ../modules/sound/main.qml:392
 msgid "Output device"
 msgstr ""
 
-#: ../modules/sound/main.qml:389
+#: ../modules/sound/main.qml:441
 msgid "Input Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:447
+#: ../modules/sound/main.qml:499
 msgid "Input device"
 msgstr ""
 
-#: ../modules/sound/main.qml:501
+#: ../modules/sound/main.qml:553
 msgid "Hide Advanced..."
 msgstr ""
 
-#: ../modules/sound/main.qml:501
+#: ../modules/sound/main.qml:553
 msgid "Show Advanced..."
 msgstr ""
 
-#: ../modules/sound/main.qml:219
+#: ../modules/sound/main.qml:262
 msgid "Input Volume"
 msgstr ""
 
@@ -844,23 +977,23 @@ msgstr ""
 msgid "External Devices"
 msgstr ""
 
-#: ../modules/grub/main.qml:61
+#: ../modules/grub/main.qml:62
 msgid "Startup Screen"
 msgstr ""
 
-#: ../modules/grub/main.qml:103
+#: ../modules/grub/main.qml:104
 msgid "Default Entry"
 msgstr ""
 
-#: ../modules/grub/main.qml:160
+#: ../modules/grub/main.qml:161
 msgid "Delay"
 msgstr ""
 
-#: ../modules/grub/main.qml:199
+#: ../modules/grub/main.qml:200
 msgid "Item Color"
 msgstr ""
 
-#: ../modules/grub/main.qml:233
+#: ../modules/grub/main.qml:234
 msgid "Selected Item Color"
 msgstr ""
 
