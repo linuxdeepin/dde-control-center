@@ -19,6 +19,14 @@ Column{
         return connectionSession.createObject(wirelessProperties, { path: connectionPath })
     }
 
+    function setKey(section, key, value){
+        connectionSessionObject.SetKey(section, key, marshalJSON(value))
+    }
+
+    function getKey(section, key){
+        return unmarshalJSON(connectionSessionObject.GetKey(section, key))
+    }
+
     function unmarshalJSON(valueJSON){
         var value = JSON.parse(valueJSON)
         return value
@@ -38,7 +46,7 @@ Column{
             }
             DTextInput{
                 textInput.color: dconstants.fgColor
-                text: unmarshalJSON(connectionSessionObject.GetKey("General", "id"))
+                text: getKey("General", "id")
             }
         }
     }
@@ -78,13 +86,13 @@ Column{
             DSwitchButtonHeader{
                 color: dconstants.contentBgColor
                 text: dsTr("Automatically connect")
-                active: unmarshalJSON(connectionSessionObject.GetKey(generalSettings.sectionName, "autoconnect"))
+                active: getKey(generalSettings.sectionName, "autoconnect")
             }
 
             DSwitchButtonHeader{
                 color: dconstants.contentBgColor
                 text: dsTr("All users may connect to this network")
-                active: unmarshalJSON(connectionSessionObject.GetKey(generalSettings.sectionName, "permissions"))
+                active: getKey(generalSettings.sectionName, "permissions")
             }
         }
     }
@@ -100,9 +108,8 @@ Column{
 
         onErrorsChanged: {
             for(var key in errors){
-                print("%1 == %2".arg(key).arg(errors[key]))
+                print("==> [error] %1: %2".arg(key).arg(errors[key]))
             }
-            print("****************")
         }
 
         expanded: activeExpandIndex == myIndex
@@ -140,13 +147,13 @@ Column{
                     id: ipv4MethodCombox
                     anchors.left: parent.left
                     width: valueWidth
-                    text: unmarshalJSON(connectionSessionObject.GetKey(ipv4Settings.sectionName, "method"))
+                    text: getKey(ipv4Settings.sectionName, "method")
 
                     property var menuLabels: connectionSessionObject.GetAvailableValues(ipv4Settings.sectionName, "method")
 
                     function menuSelect(i){
                         text = menuLabels[i]
-                        connectionSessionObject.SetKey(ipv4Settings.sectionName, "method", marshalJSON(text))
+                        setKey(ipv4Settings.sectionName, "method", text)
                     }
 
                     onClicked: {
@@ -187,7 +194,16 @@ Column{
                     onIsFocusChanged: {
                         if(!isFocus){
                             var ipAddress = getValue()
-                            connectionSessionObject.SetKey(ipv4Settings.sectionName, ipAddressLine.keyName, ipAddress)
+                            setKey(ipv4Settings.sectionName, ipAddressLine.keyName, ipAddress)
+                        }
+                    }
+                    
+                    Component.onCompleted: {
+                        if(ipAddressLine.visible){
+                            var value = getKey(ipv4Settings.sectionName, ipAddressLine.keyName)
+                            if(value){
+                                setValue(value)
+                            }
                         }
                     }
                 }
@@ -212,7 +228,15 @@ Column{
                     onIsFocusChanged: {
                         if(!isFocus){
                             var value = getValue()
-                            connectionSessionObject.SetKey(ipv4Settings.sectionName, netmaskLine.keyName, value)
+                            setKey(ipv4Settings.sectionName, netmaskLine.keyName, value)
+                        }
+                    }
+                    Component.onCompleted: {
+                        if(netmaskLine.visible){
+                            var value = getKey(ipv4Settings.sectionName, netmaskLine.keyName)
+                            if(value){
+                                setValue(value)
+                            }
                         }
                     }
                 }
@@ -237,7 +261,15 @@ Column{
                     onIsFocusChanged: {
                         if(!isFocus){
                             var value = getValue()
-                            connectionSessionObject.SetKey(ipv4Settings.sectionName, gatewayLine.keyName, value)
+                            setKey(ipv4Settings.sectionName, gatewayLine.keyName, value)
+                        }
+                    }
+                    Component.onCompleted: {
+                        if(gatewayLine.visible){
+                            var value = getKey(ipv4Settings.sectionName, gatewayLine.keyName)
+                            if(value){
+                                setValue(value)
+                            }
                         }
                     }
                 }
@@ -258,9 +290,19 @@ Column{
                     onIsFocusChanged: {
                         if(!isFocus){
                             var value = getValue()
-                            connectionSessionObject.SetKey(ipv4Settings.sectionName, dnsServerLine.keyName, value)
+                            setKey(ipv4Settings.sectionName, dnsServerLine.keyName, value)
                         }
                     }
+
+                    Component.onCompleted: {
+                        if(dnsServerLine.visible){
+                            var value = getKey(ipv4Settings.sectionName, dnsServerLine.keyName)
+                            if(value){
+                                setValue(value)
+                            }
+                        }
+                    }
+
                 }
             }
         }
@@ -334,11 +376,11 @@ Column{
             spacing: 6
 
             DTextButton{
-                visible: !generalSettings.errors && !ipv4Settings.errors && !securitySettings.errors
                 text: dsTr("Save")
                 onClicked: {
-                    connectionSessionObject.Save()
-                    stackView.reset()
+                    if (connectionSessionObject.Save()){
+                        stackView.reset()
+                    }
                 }
             }
 
