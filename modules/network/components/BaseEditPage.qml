@@ -6,6 +6,7 @@ Column{
     width: parent.width
 
     property var uuid
+    property var devicePath
 
     property int activeExpandIndex: 1
     property int valueWidth: 190

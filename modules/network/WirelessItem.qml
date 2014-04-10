@@ -19,7 +19,7 @@ Item {
 
     function requestUuid(){
         // TODO get uuid each time to fix connection issue temporary
-        uuid = dbusNetwork.GetConnectionByAccessPoint(apPath)
+        var uuid = dbusNetwork.GetConnectionByAccessPoint(apPath)
         if(uuid != ""){
             wirelessItem.uuid = uuid
         }
@@ -38,7 +38,7 @@ Item {
         wirelessItem.requestUuid()
         stackView.push({
             "item": stackViewPages["wirelessPropertiesPage"],
-            "properties": { "uuid": wirelessItem.uuid },
+            "properties": { "uuid": wirelessItem.uuid, "devicePath": wirelessItem.devicePath },
             "destroyOnPop": true
         })
         stackView.currentItemId = "wirelessPropertiesPage"

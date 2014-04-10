@@ -132,6 +132,7 @@ BaseEditPage {
                 onClicked: {
                     if (connectionSessionObject.Save()){
                         stackView.reset()
+                        dbusNetwork.ActivateConnection(uuid, devicePath) // TODO
                     }
                 }
             }
