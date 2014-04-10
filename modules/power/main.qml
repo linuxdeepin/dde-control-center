@@ -4,7 +4,7 @@ import Deepin.Widgets 1.0
 import "../shared"
 
 Rectangle {
-    id: root
+    id: power
     color: constants.bgColor
     width: 310
     height: 600
@@ -12,6 +12,11 @@ Rectangle {
     property var constants: DConstants{}
     property var dbus_power: Power{}
     property var listModelComponent: DListModelComponent {}
+    property var planInfo: JSON.parse(dbus_power.planInfo)
+
+    function formatTime(timeout) {
+        return indexToLabel(timeoutToIndex(timeout))
+    }
 
     function timeoutToIndex(timeout) {
         switch (timeout) {
@@ -67,7 +72,7 @@ Rectangle {
             PowerTitle {
                 id: title
                 text: dsTr("Power")
-                hint: root.getBatteryPercentage()
+                hint: power.getBatteryPercentage()
                 showHyphen: dbus_power.batteryIsPresent
                 breath: dbus_power.batteryState == 1
             }
@@ -105,15 +110,18 @@ Rectangle {
                     var model = listModelComponent.createObject(power_button_view, {})
                     model.append({
                                      "item_label": dsTr("Shutdown"),
-                                     "item_value": 2
+                                     "item_value": 2,
+                                     "item_tooltip": ""
                                  })
                     model.append({
                                      "item_label": dsTr("Suspend"),
-                                     "item_value": 1
+                                     "item_value": 1,
+                                     "item_tooltip": ""
                                  })
                     model.append({
                                      "item_label": dsTr("Ask"),
-                                     "item_value": 4
+                                     "item_value": 4,
+                                     "item_tooltip": ""
                                  })
                     return model
                 }
@@ -148,15 +156,18 @@ Rectangle {
                     var model = listModelComponent.createObject(close_the_lid_view, {})
                     model.append({
                                      "item_label": dsTr("Shutdown"),
-                                     "item_value": 2
+                                     "item_value": 2,
+                                     "item_tooltip": ""
                                  })
                     model.append({
                                      "item_label": dsTr("Suspend"),
-                                     "item_value": 1
+                                     "item_value": 1,
+                                     "item_tooltip": ""
                                  })
                     model.append({
                                      "item_label": dsTr("Nothing"),
-                                     "item_value": 0
+                                     "item_value": 0,
+                                     "item_tooltip": ""
                                  })
                     return model
                 }
@@ -212,19 +223,27 @@ Rectangle {
                         var model = listModelComponent.createObject(power_plan, {})
                         model.append({
                                          "item_label": dsTr("Balance"),
-                                         "item_value": 2
+                                         "item_value": 2,
+                                         "item_tooltip": dsTr("Turn off monitor: ") + formatTime(planInfo.PowerLine.Balanced[0]) +
+                                                         dsTr(" Suspend: ") + formatTime(planInfo.PowerLine.Balanced[1])
                                      })
                         model.append({
                                          "item_label": dsTr("Power saver"),
-                                         "item_value": 1
+                                         "item_value": 1,
+                                         "item_tooltip": dsTr("Turn off monitor: ") + formatTime(planInfo.PowerLine.PowerSaver[0]) +
+                                                         dsTr(" Suspend: ") + formatTime(planInfo.PowerLine.PowerSaver[1])
                                      })
                         model.append({
                                          "item_label": dsTr("High performance"),
-                                         "item_value": 3
+                                         "item_value": 3,
+                                         "item_tooltip": dsTr("Turn off monitor: ") + formatTime(planInfo.PowerLine.HighPerformance[0]) +
+                                                         dsTr(" Suspend: ") + formatTime(planInfo.PowerLine.HighPerformance[1])
                                      })
                         model.append({
                                          "item_label": dsTr("Custom"),
-                                         "item_value": 0
+                                         "item_value": 0,
+                                         "item_tooltip": dsTr("Turn off monitor: ") + formatTime(planInfo.PowerLine.Custom[0]) +
+                                                         dsTr(" Suspend: ") + formatTime(planInfo.PowerLine.Custom[1])
                                      })
                         return model
                     }
@@ -292,7 +311,8 @@ Rectangle {
                             for(var i=0; i<7; i++){
                                 model.append({
                                    "item_label": indexToLabel(i),
-                                   "item_value": indexToTimeout(i)
+                                   "item_value": indexToTimeout(i),
+                                   "item_tooltip": ""
                                    })
                             }
                             return model
@@ -331,7 +351,8 @@ Rectangle {
                             for(var i=0; i<7; i++){
                                 model.append({
                                  "item_label": indexToLabel(i),
-                                 "item_value": indexToTimeout(i)
+                                 "item_value": indexToTimeout(i),
+                                 "item_tooltip": ""
                                  })
                             }
                             return model
@@ -374,19 +395,27 @@ Rectangle {
                         var model = listModelComponent.createObject(power_plan, {})
                         model.append({
                                          "item_label": dsTr("Balance"),
-                                         "item_value": 2
+                                         "item_value": 2,
+                                         "item_tooltip": dsTr("Turn off monitor: ") + formatTime(planInfo.Battery.Balanced[0]) +
+                                                         dsTr(" Suspend: ") + formatTime(planInfo.Battery.Balanced[1])
                                      })
                         model.append({
                                          "item_label": dsTr("Power saver"),
-                                         "item_value": 1
+                                         "item_value": 1,
+                                         "item_tooltip": dsTr("Turn off monitor: ") + formatTime(planInfo.Battery.PowerSaver[0]) +
+                                                         dsTr(" Suspend: ") + formatTime(planInfo.Battery.PowerSaver[1])
                                      })
                         model.append({
                                          "item_label": dsTr("High performance"),
-                                         "item_value": 3
+                                         "item_value": 3,
+                                         "item_tooltip": dsTr("Turn off monitor: ") + formatTime(planInfo.Battery.HighPerformance[0]) +
+                                                         dsTr(" Suspend: ") + formatTime(planInfo.Battery.HighPerformance[1])
                                      })
                         model.append({
                                          "item_label": dsTr("Custom"),
-                                         "item_value": 0
+                                         "item_value": 0,
+                                         "item_tooltip": dsTr("Turn off monitor: ") + formatTime(planInfo.Battery.Custom[0]) +
+                                                         dsTr(" Suspend: ") + formatTime(planInfo.Battery.Custom[1])
                                      })
                         return model
                     }
@@ -454,7 +483,8 @@ Rectangle {
                             for(var i=0; i<7; i++){
                                 model.append({
                                    "item_label": indexToLabel(i),
-                                   "item_value": indexToTimeout(i)
+                                   "item_value": indexToTimeout(i),
+                                   "item_tooltip": ""
                                    })
                             }
                             return model
@@ -493,7 +523,8 @@ Rectangle {
                             for(var i=0; i<7; i++){
                                 model.append({
                                  "item_label": indexToLabel(i),
-                                 "item_value": indexToTimeout(i)
+                                 "item_value": indexToTimeout(i),
+                                 "item_tooltip": ""
                                  })
                             }
                             return model
