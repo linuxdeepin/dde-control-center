@@ -52,7 +52,7 @@ Window {
             id: tipText
             anchors.centerIn: parent
             font.pixelSize: 12
-            color: "white"
+            color: "#faca57"
         }
     }
 }
