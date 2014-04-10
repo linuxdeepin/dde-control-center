@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=DSS Daemon
+Comment=Deepin System Settings Daemon
+Exec=/usr/bin/dss-daemon
+Icon=preferences-system
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Encoding=UTF-8
+StartupNotify=false
+NoDisplay=true
+NotShowIn=KDE;

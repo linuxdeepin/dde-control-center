@@ -1,14 +1,16 @@
 [Desktop Entry]
-Name=DSS
-Name[zh_CN]=DSS
-Name[zh_TW]=DSS
-Comment=Deepin System Settings
-Exec=/usr/bin/dss-daemon
+Exec=/usr/bin/dss show
 Icon=preferences-system
-Terminal=false
-X-MultipleArgs=false
-Type=Application
-Encoding=UTF-8
 Categories=Application;System;Settings
+Encoding=UTF-8
+Terminal=false
+Type=Application
+X-MultipleArgs=false
 StartupNotify=false
+Name=System Settings
+Name[zh_CN]=系统设置
+Name[zh_TW]=系統設置
+Comment=Deepin System Settings
+Comment[zh_CN]=Deepin 系统设置
+Comment[zh_TW]=Deepin 系統設置
 OnlyShowIn=Deepin

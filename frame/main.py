@@ -37,8 +37,8 @@ signal.signal(signal.SIGINT, signal.SIG_DFL)
 from control_panel import ControlPanel
 from constants import APP_DBUS_NAME, APP_OBJECT_PATH
 
-from PyQt5.QtDBus import QDBusConnection
-session_bus = QDBusConnection.sessionBus()
+from PyQt5 import QtDBus
+session_bus = QtDBus.QDBusConnection.sessionBus()
 
 from PyQt5 import QtQml
 from popup import PopupItem
@@ -50,6 +50,9 @@ def main():
     success = session_bus.registerService(APP_DBUS_NAME)
     if not success:
         print 'dss is running...'
+        if len(sys.argv) == 2 and sys.argv[1] == "show":
+            iface = QtDBus.QDBusInterface(APP_DBUS_NAME, APP_OBJECT_PATH, "", session_bus)
+            iface.call("Show", 0)
         sys.exit(0)
 
     root_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))

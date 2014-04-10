@@ -38,10 +38,14 @@ Item {
     }
 
     Column {
-        anchors.top: parent.top
+        id: contentArea
         width: parent.width
+        height: parent.height
+
+        property int maxConetentHeight: height - personalizationTitle.height -  32 * 6 - 2
 
         DssTitle {
+            id: personalizationTitle
             text: dsTr("Personalization")
         }
 
@@ -80,7 +84,7 @@ Item {
                     id: themeView
                     anchors.horizontalCenter: parent.horizontalCenter
                     width: parent.width - 22
-                    height: childrenRect.height
+                    height: Math.min(childrenRect.height, contentArea.maxConetentHeight)
 
                     cellWidth: personalizationModule.cellWidth
                     cellHeight: personalizationModule.cellHeight
@@ -142,8 +146,7 @@ Item {
                             }
                         }
                     }
-
-                }
+                } // end of GridView
             }
         }
 
@@ -177,7 +180,7 @@ Item {
                     id: gtkList
                     anchors.horizontalCenter: parent.horizontalCenter
                     width: parent.width - 22
-                    height: childrenRect.height
+                    height: Math.min(childrenRect.height, contentArea.maxConetentHeight)
 
                     property string currentItemName: currentThemeObject.gtkTheme
 
@@ -233,7 +236,7 @@ Item {
                     id: cursorList
                     anchors.horizontalCenter: parent.horizontalCenter
                     width: parent.width - 22
-                    height: childrenRect.height
+                    height: Math.min(childrenRect.height, contentArea.maxConetentHeight)
 
                     property string currentItemName: currentThemeObject.cursorTheme
 
@@ -289,7 +292,7 @@ Item {
                     id: wallpapperView
                     anchors.horizontalCenter: parent.horizontalCenter
                     width: parent.width - 22
-                    height: childrenRect.height
+                    height: Math.min(childrenRect.height, contentArea.maxConetentHeight)
 
                     cellWidth: personalizationModule.cellWidth
                     cellHeight: personalizationModule.cellHeight - 14
@@ -312,7 +315,6 @@ Item {
                         }
 
                     }
-
                 }
             }
 
@@ -348,7 +350,7 @@ Item {
                     id: iconList
                     anchors.horizontalCenter: parent.horizontalCenter
                     width: parent.width - 22
-                    height: childrenRect.height
+                    height: Math.min(childrenRect.height, contentArea.maxConetentHeight)
 
                     property string currentItemName: currentThemeObject.iconTheme
 
@@ -408,19 +410,31 @@ Item {
                     min: 9
                     max: 16
                     init: 11
+                    rulerVisible: false
 
                     onValueConfirmed:{
+                        print(value)
+                    }
+
+                    onValueChanged: {
+                        var newValue = parseInt(value)
+                        if(newValue != value){
+                            if(value - newValue >= 0.5){
+                                newValue += 1
+                            }
+                            setValue(newValue, false)
+                        }
                     }
 
                     Component.onCompleted: {
-                        //addRuler(9, "")
-                        //addRuler(10, "")
-                        //addRuler(11, "")
-                        //addRuler(12, "")
-                        //addRuler(13, "")
-                        //addRuler(14, "")
-                        //addRuler(15, "")
-                        //addRuler(16, "")
+                        addRuler(9, "")
+                        addRuler(10, "")
+                        addRuler(11, "")
+                        addRuler(12, "")
+                        addRuler(13, "")
+                        addRuler(14, "")
+                        addRuler(15, "")
+                        addRuler(16, "")
                     }
                 }
             }

@@ -33,7 +33,10 @@ Item {
         color: "transparent"
         border.width: 1
         border.color: {
-            if(parent.hovered | parent.selected){
+            if(parent.selected){
+                return dconstants.activeColor
+            }
+            else if(parent.hovered){
                 return dconstants.hoverColor
             }
             else{

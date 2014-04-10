@@ -5,11 +5,9 @@ import DBus.Com.Deepin.Daemon.KeyBinding 1.0
 import DBus.Com.Deepin.Api.Search 1.0
 import Deepin.Widgets 1.0
 
-Flickable {
+Item {
     id: shortcutsModule
     anchors.fill: parent
-    contentWidth: width
-    contentHeight: childrenRect.height
 
     property var dconstants: DConstants {}
     property int contentLeftMargin: 22
