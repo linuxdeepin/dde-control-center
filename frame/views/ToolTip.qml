@@ -8,19 +8,17 @@ Window {
     flags: Qt.Popup | Qt.WindowStaysOnTopHint
     color: Qt.rgba(0, 0, 0, 0)
 
+    property var cursorPos
+
     function showTip(s){
+        cursorPos = windowView.getCursorPos()
         tipText.text = s
-        if(timeoutShow.running){
-            timeoutShow.stop()
-        }
-        timeoutShow.start()
+        timeoutShow.restart()
     }
 
     function hideTip(){
         toolTip.hide()
-        if(timeoutShow.running){
-            timeoutShow.stop()
-        }
+        timeoutShow.stop()
     }
 
     Timer {
@@ -29,7 +27,7 @@ Window {
         running: false
         repeat: false
         onTriggered: {
-            var pos = windowView.getCursorPos()
+            var pos = toolTip.cursorPos
             toolTip.x = pos[0] + 10
             toolTip.y = pos[1] + 10
             if (toolTip.x + toolTip.width > screenSize.width){
@@ -39,6 +37,17 @@ Window {
                 toolTip.y = pos[1] - 10 - toolTip.height
             }
             toolTip.show()
+            timeoutHide.restart()
+        }
+    }
+
+    Timer {
+        id: timeoutHide
+        interval: 3000
+        running: false
+        repeat: false 
+        onTriggered: {
+            toolTip.hideTip()
         }
     }
 
