@@ -93,7 +93,9 @@ Item {
                     }
                 }
                 onClicked: {
-                    dbusNetwork.DeactivateConnection(uuid)
+                    // TODO
+                    // dbusNetwork.DeactivateConnection(uuid)
+                    dbusNetwork.DeleteConnection(uuid)
                 }
             }
 
