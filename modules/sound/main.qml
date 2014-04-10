@@ -58,13 +58,20 @@ Item {
     property var currentSink: allSinks[audioId.defaultSink]
     property var currentSource: allSources[audioId.defaultSource]
     property var currentStream: {
-        if (currentSource.GetSourceOutputs().length == 0) {
-            currentSource.CreateStream()
+        var result = null
 
+        while(!result) {
+            var allApplications = currentSource.GetSourceOutputs()
+            for (var i = 0; i < allApplications.length; i++) {
+                 var _app = applicationComponent.createObject(soundModule, {path: allApplications[i]})
+                 if (_app.name == 'dde daemon audio stream') {
+                    result = _app
+                 }
+            }
+            currentSource.CreateStream()
         }
 
-        var path = currentSource.GetSourceOutputs()[0]
-        return applicationComponent.createObject(soundModule, { path: path })
+        return result
     }
 
     Component.onCompleted: {
@@ -296,6 +303,7 @@ Item {
                         min: 0
                         max: 1
                         init: currentStream.inputLevel
+                        value: currentStream.inputLevel
                         handlerVisible: false
                         valueDisplayVisible: false
                         showPulseGradient: true
