@@ -261,6 +261,7 @@ Rectangle {
         Rectangle {
             width: parent.width
             height: dbus_power.linePowerPlan == 0 ? ac_custom_column.height + arrow_rect_1.arrowHeight :  0
+            visible: dbus_power.linePowerPlan == 0
             color: dconstants.contentBgColor
 
             Behavior on height {
@@ -433,6 +434,7 @@ Rectangle {
         Rectangle {
             width: parent.width
             height: dbus_power.batteryPlan == 0 ? battery_custom_column.height + arrow_rect_2.arrowHeight : 0
+            visible: dbus_power.batteryPlan == 0
             color: dconstants.contentBgColor
 
             Behavior on height {
