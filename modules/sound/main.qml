@@ -17,6 +17,8 @@ Item {
     property color titleColor: "#ffffff"
     property int itemLabelLeftMargin: 22
 
+    property int currrentStreamIndex
+
     property var audioId: Audio {}
     property var listModelComponent: DListModelComponent {}
 
@@ -66,6 +68,7 @@ Item {
                  var _app = applicationComponent.createObject(soundModule, {path: allApplications[i]})
                  if (_app.name == 'dde daemon audio stream') {
                     result = _app
+                    currrentStreamIndex = _app.index
                  }
             }
             currentSource.CreateStream()
@@ -78,6 +81,10 @@ Item {
         if (dsslocale.lang == "zh") {
             leftWidth = 80
         }
+    }
+
+    Component.onDestruction: {
+        audioId.KillSourceOutput(currrentStreamIndex)
     }
 
     Column {
