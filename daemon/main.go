@@ -28,14 +28,14 @@ import "C"
 
 import (
     "dbus/com/deepin/daemon/display"
-    "dbus/com/deepin/dss"
+    "dbus/com/deepin/dde/controlcenter"
     "dlib/dbus"
     dlogger "dlib/logger"
     "os"
     "sync"
 )
 
-var dbusDss *dss.Dss
+var dbusDss *controlcenter.ControlCenter
 var ddisplay *display.Display
 
 const EmitAreaWidth = 10
@@ -93,7 +93,7 @@ func stringInSlice(a string, list []string) bool {
 
 func initDssDbus() {
     var err error
-    dbusDss, err = dss.NewDss("com.deepin.Dss", "/com/deepin/Dss")
+    dbusDss, err = controlcenter.NewControlCenter("com.deepin.dde.ControlCenter", "/com/deepin/dde/ControlCenter")
     if err != nil {
         logger.Error("Start dss Failed:", err)
         panic(err)
