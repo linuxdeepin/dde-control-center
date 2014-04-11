@@ -205,6 +205,7 @@ Item {
                         max: 1
                         init: currentSink.balance
                         completeColorVisible: false
+                        floatNumber: 2
 
                         handler.source: "images/balance.png"
 
