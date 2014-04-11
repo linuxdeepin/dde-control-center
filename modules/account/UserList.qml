@@ -6,6 +6,9 @@ ListView {
     id: root
     interactive: false
 
+    width: 310
+    height: childrenRect.height
+
     property int leftPadding: 15
     property int rightPadding: 15
     property int nameLeftPadding: 120
@@ -35,7 +38,6 @@ ListView {
 
     function deleteItem (idx, height) {
         root.model.remove(idx, 1)
-        root.height -= height
     }
 
     Component {
@@ -334,11 +336,6 @@ ListView {
 
             Behavior on height {
                 SmoothedAnimation { duration: 300 }
-            }
-
-            Component.onCompleted: {
-                if (index == 0) {root.width = width}
-                root.height += height
             }
         }
     }
