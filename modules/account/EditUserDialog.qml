@@ -9,6 +9,10 @@ Rectangle {
 
     property var this_user: null
 
+    function reset() {
+        password_dialog.reset()
+    }
+
     Column {
         id: column
 

@@ -205,9 +205,8 @@ Rectangle {
             id: power_plan_ac_rect
             expanded: true
             header.sourceComponent: DBaseLine {
-                leftLoader.sourceComponent: ImageTitle {
-                    imageSource: "images/power_plan_ac.png"
-                    title: dsTr("Power Adapter")
+                leftLoader.sourceComponent: DssH2 {
+                    text: dsTr("Power Adapter")
                 }
             }
             content.sourceComponent: Column {
@@ -379,9 +378,8 @@ Rectangle {
             visible: dbus_power.batteryIsPresent
             expanded: true
             header.sourceComponent: DBaseLine {
-                leftLoader.sourceComponent: ImageTitle {
-                    imageSource: "images/power_plan_battery.png"
-                    title: dsTr("Battery")
+                leftLoader.sourceComponent: DssH2 {
+                    text: dsTr("Battery")
                 }
             }
             content.sourceComponent: Column {

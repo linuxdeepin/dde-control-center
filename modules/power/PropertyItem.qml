@@ -20,7 +20,7 @@ Rectangle {
     // set from model
     property string itemLabel: item_label
     property var itemValue: item_value
-    property string itemTooltip: {print(item_tooltip); return item_tooltip}
+    property string itemTooltip: item_tooltip
     // set from model
 
     property var currentValue: "0x0" // set from delegate

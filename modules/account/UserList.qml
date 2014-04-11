@@ -75,6 +75,7 @@ ListView {
                     if (component_bg.height == 0) {
                         component_bg.state = "normal"
                     }
+                    edit_user_dialog.reset()
                 }
 
                 onAllAction: {

@@ -10,6 +10,7 @@ Item {
     signal cancelled
 
     function reset() {
+        state = "brief"
         new_password_input.text = ""
         repeat_input.text = ""
         edit_show_password_switch.checked = false
