@@ -64,14 +64,13 @@ Rectangle {
         onEntered: {
             parent.hovered = true
             if (delegate.itemTooltip && delegate.itemTooltip != "") {
-                print(delegate.itemTooltip)
                 toolTip.showTip(delegate.itemTooltip)
             }
         }
 
         onExited: {
             parent.hovered = false
-            toolTip.hide()
+            toolTip.hideTip()
         }
 
         onClicked: {

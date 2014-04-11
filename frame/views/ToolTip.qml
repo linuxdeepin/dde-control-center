@@ -17,8 +17,8 @@ Window {
     }
 
     function hideTip(){
-        toolTip.hide()
         timeoutShow.stop()
+        toolTip.hide()
     }
 
     Timer {
