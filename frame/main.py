@@ -30,7 +30,6 @@ import sys
 from PyQt5.QtWidgets import QApplication
 app = QApplication(sys.argv)
 
-
 import signal
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 
@@ -50,9 +49,12 @@ def main():
     success = session_bus.registerService(APP_DBUS_NAME)
     if not success:
         print 'dss is running...'
-        if len(sys.argv) == 2 and sys.argv[1] == "show":
+        if len(sys.argv) == 2:
             iface = QtDBus.QDBusInterface(APP_DBUS_NAME, APP_OBJECT_PATH, "", session_bus)
-            iface.call("Show", 0)
+            if sys.argv[1] == "show":
+                iface.call("Show", 0)
+            else:
+                iface.call("ShowModule", sys.argv[1])
         sys.exit(0)
 
     root_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
