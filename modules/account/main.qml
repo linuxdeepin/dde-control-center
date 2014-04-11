@@ -157,23 +157,6 @@ Rectangle {
                 guest_user.visible = true
             }
         }
-        
-        GuestUser {
-            id: guest_user
-            z: user_list.z - 1
-            
-            onExpandedChanged: {
-                user_list.visible = !expanded
-            }
-            
-            leftPadding: user_list.leftPadding
-            rightPadding: user_list.rightPadding
-            nameLeftPadding: user_list.nameLeftPadding
-        }
-
-        move: Transition {
-            NumberAnimation { properties: "y"; duration: 200 }
-        }
 
         states: [
             State {
@@ -217,5 +200,24 @@ Rectangle {
                 }
             }
         ]
+    }
+
+    GuestUser {
+        id: guest_user
+        width: parent.width
+    
+        onExpandedChanged: {
+            user_list.visible = !expanded
+        }
+
+        Behavior on anchors.top {
+            NumberAnimation { duration: 100 }
+        }
+
+        anchors.top: main_column.bottom
+        
+        leftPadding: user_list.leftPadding
+        rightPadding: user_list.rightPadding
+        nameLeftPadding: user_list.nameLeftPadding
     }
 }
