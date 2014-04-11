@@ -370,12 +370,13 @@ Rectangle {
                 }
             }
         }
-        DSeparatorHorizontal{}
+        DSeparatorHorizontal{visible: power_plan_battery_rect.visible}
         
         
-        DBaseLine{}
+        DBaseLine{visible: power_plan_battery_rect.visible}
         DBaseExpand {
             id: power_plan_battery_rect
+            visible: dbus_power.batteryIsPresent
             expanded: true
             header.sourceComponent: DBaseLine {
                 leftLoader.sourceComponent: ImageTitle {
@@ -434,7 +435,7 @@ Rectangle {
         Rectangle {
             width: parent.width
             height: dbus_power.batteryPlan == 0 ? battery_custom_column.height + arrow_rect_2.arrowHeight : 0
-            visible: dbus_power.batteryPlan == 0
+            visible: dbus_power.batteryPlan == 0 && dbus_power.batteryIsPresent
             color: dconstants.contentBgColor
 
             Behavior on height {
