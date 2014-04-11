@@ -26,7 +26,5 @@ ROOT_LOCATION = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 
 PANEL_WIDTH = 360
 
-SHUT_DOWN_ORDER_PATH = '/usr/lib/deepin-daemon/dpowerchoose'
-
-APP_DBUS_NAME = "com.deepin.Dss"
-APP_OBJECT_PATH = "/com/deepin/Dss"
+APP_DBUS_NAME = "com.deepin.dde.ControlCenter"
+APP_OBJECT_PATH = "/com/deepin/dde/ControlCenter"

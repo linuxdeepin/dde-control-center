@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=/usr/bin/dss show
+Exec=/usr/bin/dde-control-center show
 Icon=preferences-system
 Categories=Application;System;Settings
 Encoding=UTF-8
@@ -7,10 +7,10 @@ Terminal=false
 Type=Application
 X-MultipleArgs=false
 StartupNotify=false
-Name=System Settings
+Name=Control Center
 Name[zh_CN]=系统设置
 Name[zh_TW]=系統設置
-Comment=Deepin System Settings
+Comment=Deepin Desktop Environment Control Center
 Comment[zh_CN]=Deepin 系统设置
 Comment[zh_TW]=Deepin 系統設置
 OnlyShowIn=Deepin
