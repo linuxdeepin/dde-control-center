@@ -210,6 +210,7 @@ Item {
                         handler.source: "images/balance.png"
 
                         onValueChanged:{
+                            // currentSink.balance = value
                             currentSink.SetSinkBalance(value)
                         }
 
@@ -222,7 +223,7 @@ Item {
                         Connections {
                             target: currentSink
 
-                            onVolumeChanged: {
+                            onBalanceChanged: {
                                 if (!output_balance_slider.pressedFlag) {
                                     output_balance_slider.setValue(currentSink.balance)
                                 }
