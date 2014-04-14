@@ -156,17 +156,13 @@ Item {
         onClicked: {
             var imagePath = urlToPath(camera.imageSavedPath)
             var imageSize = dbus_graphic.GetImageSize(imagePath)
-            dbus_graphic.ResizeImage(imagePath, imagePath, imageSize[0] * 240 / imageSize[1], 240, "jpeg")            
+            print(imageSize)
+            imageSize = [imageSize[0] * 120 / imageSize[1], 120]
+            dbus_graphic.ResizeImage(imagePath, imagePath, imageSize[0], imageSize[1], "jpeg")            
             var scaledSize = Math.floor(240 * video_output.scale * 120 / 240)
             dbus_graphic.FlipImageHorizontal(imagePath, imagePath, "jpeg")
-            dbus_graphic.ClipImage(imagePath, imagePath, 40, 0, 280, 240, "jpeg")
-            dbus_graphic.ResizeImage(imagePath, imagePath, scaledSize, scaledSize, "jpeg")
-            var margins = Math.floor((scaledSize - 120) / 2)
-            dbus_graphic.ClipImage(imagePath, imagePath,
-                                   margins, margins,
-                                   margins + 120,
-                                   margins + 120,
-                                   "jpeg")
+            var horiMargin = Math.floor((imageSize[0] - 120) / 2)
+            dbus_graphic.ClipImage(imagePath, imagePath, horiMargin, 0, horiMargin + 120, imageSize[1], "jpeg")
             dbus_graphic.ResizeImage(imagePath, imagePath, 150, 150, "jpeg")
             root.avatarPictured(camera.imageSavedPath)
         }

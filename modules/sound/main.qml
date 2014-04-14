@@ -65,11 +65,11 @@ Item {
         while(!result) {
             var allApplications = currentSource.GetSourceOutputs()
             for (var i = 0; i < allApplications.length; i++) {
-                 var _app = applicationComponent.createObject(soundModule, {path: allApplications[i]})
-                 if (_app.name == 'dde daemon audio stream') {
+                var _app = applicationComponent.createObject(soundModule, {path: allApplications[i]})
+                if (_app.name == 'dde daemon audio stream') {
                     result = _app
                     currrentStreamIndex = _app.index
-                 }
+                }
             }
             currentSource.CreateStream()
         }
@@ -188,6 +188,14 @@ Item {
                                 }
                             }
                         }
+
+                        Connections {
+                            target: soundModule
+
+                            onCurrentSinkChanged: {
+                                output_volume_slider.setValue(currentSink.volume)
+                            }
+                        }
                     }
                 }
 
@@ -227,6 +235,14 @@ Item {
                                 if (!output_balance_slider.pressedFlag) {
                                     output_balance_slider.setValue(currentSink.balance)
                                 }
+                            }
+                        }
+
+                        Connections {
+                            target: soundModule
+
+                            onCurrentSinkChanged: {
+                                output_balance_slider.setValue(currentSink.balance)
                             }
                         }
                     }
@@ -293,6 +309,14 @@ Item {
 
                             onVolumeChanged: {
                                 if (!input_volume_slider.pressedFlag) {
+                                    input_volume_slider.setValue(currentSource.volume)
+                                }
+                            }
+
+                            Connections {
+                                target: soundModule
+
+                                onCurrentSourceChanged: {
                                     input_volume_slider.setValue(currentSource.volume)
                                 }
                             }
