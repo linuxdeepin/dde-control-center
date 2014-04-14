@@ -2,7 +2,9 @@
 # Copyright (C) 2013 THE dss'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the dss package.
 # Automatically generated, 2013.
-#
+# Translators:
+# Peter Dave Hello <hsu@peterdavehello.org>, 2014
+ 
 msgid ""
 msgstr ""
 "Project-Id-Version: dss 2014\n"
@@ -18,11 +20,11 @@ msgstr ""
 
 #: ../modules/account/AddUserDialog.qml:89 ../modules/account/UserList.qml:170
 msgid "User"
-msgstr ""
+msgstr "使用者"
 
 #: ../modules/account/AddUserDialog.qml:89 ../modules/account/UserList.qml:170
 msgid "Administrator"
-msgstr ""
+msgstr "系統管理員"
 
 #: ../modules/account/AvatarPickDialog.qml:5
 msgid "Please choose one image as you avatar"
@@ -34,39 +36,39 @@ msgstr ""
 
 #: ../modules/date_time/CalendarComponent.qml:56
 msgid "Sun"
-msgstr ""
+msgstr "星期日"
 
 #: ../modules/date_time/CalendarComponent.qml:57
 msgid "Mon"
-msgstr ""
+msgstr "星期一"
 
 #: ../modules/date_time/CalendarComponent.qml:58
 msgid "Tue"
-msgstr ""
+msgstr "星期二"
 
 #: ../modules/date_time/CalendarComponent.qml:59
 msgid "Wed"
-msgstr ""
+msgstr "星期三"
 
 #: ../modules/date_time/CalendarComponent.qml:60
 msgid "Thu"
-msgstr ""
+msgstr "星期四"
 
 #: ../modules/date_time/CalendarComponent.qml:61
 msgid "Fri"
-msgstr ""
+msgstr "星期五"
 
 #: ../modules/date_time/CalendarComponent.qml:62
 msgid "Sat"
-msgstr ""
+msgstr "星期六"
 
 #: ../modules/shortcuts/CustomKeybinding.qml:92
 msgid "Name"
-msgstr ""
+msgstr "名稱"
 
 #: ../modules/shortcuts/CustomKeybinding.qml:102
 msgid "Command"
-msgstr ""
+msgstr "命令"
 
 #: ../modules/shortcuts/CustomKeybinding.qml:114
 #: ../modules/shortcuts/ShortcutInput.qml:298
@@ -74,20 +76,20 @@ msgstr ""
 #: ../frame/views/WifiPasswordWindow.qml:136
 #: ../modules/network/WirelessItem.qml:259 ../modules/display/main.qml:193
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: ../modules/shortcuts/CustomKeybinding.qml:120
 #: ../modules/date_time/StateButtons.qml:12
 msgid "Add"
-msgstr ""
+msgstr "新增"
 
 #: ../modules/account/DeleteUserDialog.qml:19
 msgid "Keep user files"
-msgstr ""
+msgstr "保留使用者檔案"
 
 #: ../modules/account/DeleteUserDialog.qml:20
 msgid "Delete user files"
-msgstr ""
+msgstr "刪除使用者檔案"
 
 #: ../modules/network/components/EditIpv4Section.qml:28
 msgid "IPv4"
@@ -132,23 +134,23 @@ msgstr ""
 
 #: ../modules/network/Info.qml:10
 msgid "Actived Connections"
-msgstr ""
+msgstr "使用中連線"
 
 #: ../modules/network/Info.qml:42 ../modules/network/Info.qml:70
 msgid "DeviceType"
-msgstr ""
+msgstr "裝置類型"
 
 #: ../modules/network/Info.qml:42
 msgid "wired"
-msgstr ""
+msgstr "有線"
 
 #: ../modules/network/Info.qml:43 ../modules/network/Info.qml:71
 msgid "DeviceAddr"
-msgstr ""
+msgstr "裝置位址"
 
 #: ../modules/network/Info.qml:44 ../modules/network/Info.qml:72
 msgid "IpAddress"
-msgstr ""
+msgstr "IP位址"
 
 #: ../modules/network/Info.qml:45 ../modules/network/Info.qml:73
 msgid "SubnetMask"
@@ -160,157 +162,181 @@ msgstr ""
 
 #: ../modules/network/Info.qml:47 ../modules/network/Info.qml:75
 msgid "DeviceSpeed"
-msgstr ""
+msgstr "裝置速度"
+
+#: ../modules/network/Info.qml:48 ../modules/network/Info.qml:76
+msgid "InternetSpeed"
+msgstr "網路速度"
+
+#: ../modules/network/Info.qml:48 ../modules/network/Info.qml:76
+msgid "test it"
+msgstr "測試"
 
 #: ../modules/network/Info.qml:70
 msgid "wireless"
-msgstr ""
+msgstr "無線"
 
 #: ../modules/network/ListConnections.qml:34
+msgid "Wireless Access Points"
+msgstr "無線網路存取點"
+
+#: ../modules/network/ListAccessPoints.qml:80
+msgid "PassWord"
+msgstr "密碼"
+
+#: ../modules/network/ListConnections.qml:13
+msgid "Wired Connections"
+msgstr "有線連線"
+
+#: ../modules/network/ListConnections.qml:28
+msgid "Wired Conections"
+msgstr "有線連線"
+
+#: ../modules/network/ListConnections.qml:63
 msgid "VPN Connections"
-msgstr ""
+msgstr "VPN連線"
 
 #: ../modules/display/MessageBox.qml:86
 msgid "是否要保存这些显示设置？"
-msgstr ""
+msgstr "是否要儲存這些顯示設定"
 
 #: ../modules/display/MessageBox.qml:96
 #, qt-format
 msgid "<font color='#F48914'>%1</font> 秒之后还原之前的显示设置。"
-msgstr ""
+msgstr "<font color='#F48914'>%1</font> 免後還原回上一次的顯是設定。"
 
 #: ../modules/display/MessageBox.qml:108
 msgid "Save Changes"
-msgstr ""
+msgstr "儲存更改"
 
 #: ../modules/display/MessageBox.qml:116
 msgid "Restore"
-msgstr ""
+msgstr "還原"
 
 #: ../frame/views/ModulesData.qml:5
 msgid "Date and Time"
-msgstr ""
+msgstr "日期時間"
 
 #: ../frame/views/ModulesData.qml:6 ../frame/modules_info.py:31
 msgid "Network"
-msgstr ""
+msgstr "網路"
 
 #: ../frame/views/ModulesData.qml:7 ../modules/disk_mount/main.qml:16
 #: ../frame/modules_info.py:32
 msgid "Disk Mount"
-msgstr ""
+msgstr "磁碟掛載"
 
 #: ../frame/views/ModulesData.qml:8 ../modules/bluetooth/main.qml:9
 #: ../frame/modules_info.py:33
 msgid "Bluetooth"
-msgstr ""
+msgstr "藍牙"
 
 #: ../frame/views/ModulesData.qml:9 ../modules/sound/main.qml:90
 #: ../frame/modules_info.py:34
 msgid "Sound"
-msgstr ""
+msgstr "音效"
 
 #: ../frame/views/ModulesData.qml:10 ../modules/power/main.qml:74
 #: ../frame/modules_info.py:35
 msgid "Power"
-msgstr ""
+msgstr "電源"
 
 #: ../frame/views/ModulesData.qml:11 ../frame/modules_info.py:36
 msgid "More Settings"
-msgstr ""
+msgstr "更多設定"
 
 #: ../frame/views/ModulesData.qml:12 ../frame/views/PanelContent.qml:372
 #: ../modules/power/main.qml:112 ../modules/power/main.qml:158
 #: ../frame/modules_info.py:37
 msgid "Shutdown"
-msgstr ""
+msgstr "關機"
 
 #: ../frame/views/ModulesData.qml:13 ../frame/modules_info.py:38
 msgid "Notification"
-msgstr ""
+msgstr "通知"
 
 #: ../frame/views/ModulesData.qml:14 ../modules/display/main.qml:76
 #: ../frame/modules_info.py:39
 msgid "Display"
-msgstr ""
+msgstr "顯示"
 
 #: ../frame/views/ModulesData.qml:15 ../modules/desktop/main.qml:72
 #: ../frame/modules_info.py:40
 msgid "Desktop"
-msgstr ""
+msgstr "桌面"
 
 #: ../frame/views/ModulesData.qml:16 ../modules/personalization/main.qml:48
 msgid "Personalization"
-msgstr ""
+msgstr "個人化"
 
 #: ../frame/views/ModulesData.qml:17
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "鍵盤快捷鍵"
 
 #: ../frame/views/ModulesData.qml:19
 msgid "Mouse and Touchpad"
-msgstr ""
+msgstr "滑鼠與觸控板"
 
 #: ../frame/views/ModulesData.qml:20 ../modules/mouse_touchpad/main.qml:27
 #: ../frame/modules_info.py:44
 msgid "Mouse"
-msgstr ""
+msgstr "滑鼠"
 
 #: ../frame/views/ModulesData.qml:21
 msgid "User Accounts"
-msgstr ""
+msgstr "使用者帳戶"
 
 #: ../frame/views/ModulesData.qml:24
 msgid "Boot Menu"
-msgstr ""
+msgstr "開機選單"
 
 #: ../frame/views/ModulesData.qml:25 ../modules/desktop/main.qml:98
 msgid "Home"
-msgstr ""
+msgstr "加目錄"
 
 #: ../frame/views/ModulesData.qml:18 ../modules/keyboard/main.qml:75
 #: ../frame/modules_info.py:43
 msgid "Keyboard"
-msgstr ""
+msgstr "鍵盤"
 
 #: ../frame/views/ModulesData.qml:22
 #: ../modules/default_applications/main.qml:21
 #: ../modules/default_applications/main.qml:32 ../frame/modules_info.py:48
 msgid "Default Applications"
-msgstr ""
+msgstr "預設應用程式"
 
 #: ../frame/views/ModulesData.qml:23 ../modules/system_info/main.qml:47
 #: ../frame/modules_info.py:49
 msgid "System Information"
-msgstr ""
+msgstr "系統資訊"
 
 #: ../modules/display/MonitorComponent.qml:181
 msgid "Select as Main Monitor"
-msgstr ""
+msgstr "設為預設顯示器"
 
 #: ../modules/display/MonitorDragArea.qml:423
 msgid "Identify"
-msgstr ""
+msgstr "識別"
 
 #: ../modules/display/MonitorDragArea.qml:440
 msgid "Edit"
-msgstr ""
+msgstr "編輯"
 
 #: ../modules/display/MonitorProperties.qml:57
 msgid "Enabled"
-msgstr ""
+msgstr "啟用"
 
 #: ../modules/display/MonitorProperties.qml:89
 msgid "Resolution"
-msgstr ""
+msgstr "解析度"
 
 #: ../modules/display/MonitorProperties.qml:141
 msgid "Rotation"
-msgstr ""
+msgstr "旋轉"
 
 #: ../modules/grub/Preview.qml:130
 msgid "Drop a picture here to change the background"
-msgstr ""
+msgstr "將一張圖片拖曳至此以設為背景"
 
 #: ../modules/personalization/widgets/PreviewButton.qml:30
 msgid "Open theme preview"
@@ -323,35 +349,35 @@ msgstr ""
 
 #: ../modules/shortcuts/ShortcutInput.qml:103
 msgid "Please input new shortcuts"
-msgstr ""
+msgstr "請輸入一個新的快捷鍵"
 
 #: ../modules/shortcuts/ShortcutInput.qml:181
 #, qt-format
 msgid "无效的快捷键\"%1\"，请重新输入！"
-msgstr ""
+msgstr "無效的快捷鍵\"%1\"，請重新輸入"
 
 #: ../modules/shortcuts/ShortcutInput.qml:219
 msgid "您设置的快捷键，"
-msgstr ""
+msgstr "您設定的快捷鍵，"
 
 #: ../modules/shortcuts/ShortcutInput.qml:222
 #, qt-format
 msgid "与 \"%1\" 类别下的 \"%2\" 的快捷键冲突，"
-msgstr ""
+msgstr "與 \"%1\" 類別下的 \"%2\" 的快捷鍵衝突，"
 
 #: ../modules/shortcuts/ShortcutInput.qml:224
 msgid "是否进行替换？"
-msgstr ""
+msgstr "是否進行取代?"
 
 #: ../modules/shortcuts/ShortcutInput.qml:282
 msgid "Replace"
-msgstr ""
+msgstr "取代"
 
 #: ../modules/date_time/StateButtons.qml:11
 #: ../modules/keyboard/StateButtons.qml:11
 #: ../modules/shortcuts/StateButtons.qml:15
 msgid "Finish"
-msgstr ""
+msgstr "完成"
 
 #: ../modules/date_time/TimeBox.qml:135
 msgid "双击数字修改时间"
@@ -363,31 +389,31 @@ msgstr ""
 
 #: ../modules/date_time/TimezoneArea.qml:43
 msgid "Timezone"
-msgstr ""
+msgstr "時區"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:27
 msgid "TouchPad"
-msgstr ""
+msgstr "觸控板"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:57
 #: ../modules/mouse_touchpad/main.qml:39
 msgid "Button Order"
-msgstr ""
+msgstr "按鍵順序"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:65
 #: ../modules/mouse_touchpad/main.qml:46
 msgid "Right Hand"
-msgstr ""
+msgstr "右手"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:66
 #: ../modules/mouse_touchpad/main.qml:47
 msgid "Left Hand"
-msgstr ""
+msgstr "左手"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:79
 #: ../modules/mouse_touchpad/main.qml:60
 msgid "Pointer Move Speed"
-msgstr ""
+msgstr "游標移動速度"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:94
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:144
@@ -395,7 +421,7 @@ msgstr ""
 #: ../modules/mouse_touchpad/main.qml:75
 #: ../modules/mouse_touchpad/main.qml:127
 msgid "Slow"
-msgstr ""
+msgstr "慢"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:95
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:145
@@ -403,45 +429,45 @@ msgstr ""
 #: ../modules/mouse_touchpad/main.qml:76
 #: ../modules/mouse_touchpad/main.qml:128
 msgid "Fast"
-msgstr ""
+msgstr "快"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:104
 #: ../modules/mouse_touchpad/main.qml:86
 msgid "Pointer Accuracy"
-msgstr ""
+msgstr "游標精確度"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:119
 #: ../modules/mouse_touchpad/main.qml:101
 msgid "Low"
-msgstr ""
+msgstr "低"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:120
 #: ../modules/mouse_touchpad/main.qml:102
 msgid "High"
-msgstr ""
+msgstr "高"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:129
 #: ../modules/mouse_touchpad/main.qml:112
 msgid "Double-click Frequency"
-msgstr ""
+msgstr "雙點頻率"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:155
 msgid "Drag Threshold"
-msgstr ""
+msgstr "拖曳設定"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:170
 #: ../modules/keyboard/main.qml:101
 msgid "Short"
-msgstr ""
+msgstr "短"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:171
 #: ../modules/keyboard/main.qml:102
 msgid "Long"
-msgstr ""
+msgstr "長"
 
 #: ../modules/account/WebCam.qml:175
 msgid "No camera found."
-msgstr ""
+msgstr "找不到攝影機"
 
 #: ../frame/views/WifiPasswordWindow.qml:75
 msgid "Authentication required by Wi-Fi network"
@@ -534,198 +560,198 @@ msgstr ""
 
 #: ../modules/date_time/calendar_core.js:6
 msgid "January"
-msgstr ""
+msgstr "一月"
 
 #: ../modules/date_time/calendar_core.js:6
 msgid "February"
-msgstr ""
+msgstr "二月"
 
 #: ../modules/date_time/calendar_core.js:6
 msgid "March"
-msgstr ""
+msgstr "三月"
 
 #: ../modules/date_time/calendar_core.js:6
 msgid "April"
-msgstr ""
+msgstr "四月"
 
 #: ../modules/date_time/calendar_core.js:6
 msgid "May"
-msgstr ""
+msgstr "五月"
 
 #: ../modules/date_time/calendar_core.js:6
 msgid "June"
-msgstr ""
+msgstr "六月"
 
 #: ../modules/date_time/calendar_core.js:6
 msgid "July"
-msgstr ""
+msgstr "七月"
 
 #: ../modules/date_time/calendar_core.js:7
 msgid "August"
-msgstr ""
+msgstr "八月"
 
 #: ../modules/date_time/calendar_core.js:7
 msgid "September"
-msgstr ""
+msgstr "九月"
 
 #: ../modules/date_time/calendar_core.js:7
 msgid "October"
-msgstr ""
+msgstr "十月"
 
 #: ../modules/date_time/calendar_core.js:7
 msgid "November"
-msgstr ""
+msgstr "十一月"
 
 #: ../modules/date_time/calendar_core.js:7
 msgid "December"
-msgstr ""
+msgstr "十二月"
 
 #: ../modules/date_time/main.qml:44 ../frame/modules_info.py:30
 msgid "Date & Time"
-msgstr ""
+msgstr "日期與時間"
 
 #: ../modules/date_time/main.qml:57
 msgid "Auto-sync datetime"
-msgstr ""
+msgstr "自動同步日期時間"
 
 #: ../modules/date_time/main.qml:70
 msgid "24 Hour"
-msgstr ""
+msgstr "二十四小時"
 
 #: ../modules/date_time/main.qml:100
 msgid "Date"
-msgstr ""
+msgstr "日期"
 
 #: ../modules/date_time/main.qml:104
 msgid "Change Date"
-msgstr ""
+msgstr "更改日期"
 
 #: ../modules/date_time/main.qml:127
 msgid "假期安排提示"
-msgstr ""
+msgstr "假期安排提示"
 
 #: ../modules/system_info/main.qml:70
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
-msgstr ""
+msgstr "版權所有 (c) 2011-2014 武漢深之度科技有限公司"
 
 #: ../modules/system_info/main.qml:76
 msgid "System Version"
-msgstr ""
+msgstr "系統版本"
 
 #: ../modules/system_info/main.qml:82
 msgid "System Type"
-msgstr ""
+msgstr "系統類型"
 
 #: ../modules/system_info/main.qml:83
 msgid "Bit"
-msgstr ""
+msgstr "位元"
 
 #: ../modules/system_info/main.qml:88
 msgid "CPU"
-msgstr ""
+msgstr "處理器"
 
 #: ../modules/system_info/main.qml:94
 msgid "Memory"
-msgstr ""
+msgstr "記憶體"
 
 #: ../modules/system_info/main.qml:100
 msgid "Disk"
-msgstr ""
+msgstr "硬碟"
 
 #: ../modules/default_applications/main.qml:44
 msgid "Browser"
-msgstr ""
+msgstr "瀏覽器"
 
 #: ../modules/default_applications/main.qml:58
 msgid "Mail"
-msgstr ""
+msgstr "郵件"
 
 #: ../modules/default_applications/main.qml:69
 msgid "Text"
-msgstr ""
+msgstr "文字"
 
 #: ../modules/default_applications/main.qml:75
 msgid "Music"
-msgstr ""
+msgstr "音樂"
 
 #: ../modules/default_applications/main.qml:106
 msgid "Video"
-msgstr ""
+msgstr "影片"
 
 #: ../modules/default_applications/main.qml:137
 msgid "Picture Viewer"
-msgstr ""
+msgstr "圖片檢視器"
 
 #: ../modules/default_applications/main.qml:155
 msgid "Terminal"
-msgstr ""
+msgstr "終端機"
 
 #: ../modules/default_applications/main.qml:252
 msgid "Auto Play"
-msgstr ""
+msgstr "自動撥放"
 
 #: ../modules/default_applications/main.qml:267
 msgid "CD Audio"
-msgstr ""
+msgstr "音樂CD"
 
 #: ../modules/default_applications/main.qml:272
 msgid "DVD Video"
-msgstr ""
+msgstr "DVD影片"
 
 #: ../modules/default_applications/main.qml:277
 msgid "Music Player"
-msgstr ""
+msgstr "音樂撥放器"
 
 #: ../modules/default_applications/main.qml:282
 msgid "Camera"
-msgstr ""
+msgstr "照相機"
 
 #: ../modules/default_applications/main.qml:287
 msgid "Software"
-msgstr ""
+msgstr "軟體"
 
 #: ../modules/keyboard/main.qml:87
 msgid "Repeat Delay"
-msgstr ""
+msgstr "重複延遲"
 
 #: ../modules/keyboard/main.qml:111
 msgid "Repeat Interval"
-msgstr ""
+msgstr "重複頻率"
 
 #: ../modules/keyboard/main.qml:162
 msgid "Test Area"
-msgstr ""
+msgstr "測試區"
 
 #: ../modules/keyboard/main.qml:136
 msgid "Cursor Blink"
-msgstr ""
+msgstr "游標閃爍"
 
 #: ../modules/keyboard/main.qml:377
 msgid "No result"
-msgstr ""
+msgstr "沒有結果"
 
 #: ../modules/keyboard/main.qml:192
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "鍵盤配置"
 
 #: ../modules/default_applications/main.qml:24 ../modules/display/main.qml:190
 #: ../modules/grub/main.qml:66 ../modules/keyboard/main.qml:77
 #: ../modules/mouse_touchpad/main.qml:30 ../modules/power/main.qml:81
 #: ../modules/shortcuts/main.qml:92 ../modules/sound/main.qml:93
 msgid "Reset"
-msgstr ""
+msgstr "重設"
 
 #: ../modules/power/main.qml:243 ../modules/power/main.qml:416
 msgid "Custom"
-msgstr ""
+msgstr "自訂"
 
 #: ../modules/power/main.qml:122
 msgid "Ask"
-msgstr ""
+msgstr "詢問"
 
 #: ../modules/power/main.qml:144
 msgid "When I close the lid"
-msgstr ""
+msgstr "當我關上螢幕"
 
 #: ../modules/power/main.qml:210
 msgid "Power Adapter"
@@ -750,13 +776,29 @@ msgstr ""
 msgid " Suspend: "
 msgstr ""
 
+#: ../modules/power/main.qml:197
+msgid "Requires a password"
+msgstr "需要一組密碼"
+
+#: ../modules/power/main.qml:201
+msgid "Without a password"
+msgstr "不需要密碼"
+
+#: ../modules/power/main.qml:222
+msgid "Power plan"
+msgstr "電源計畫"
+
+#: ../modules/power/main.qml:236 ../modules/sound/main.qml:159
+msgid "Balance"
+msgstr "平衡"
+
 #: ../modules/power/main.qml:231 ../modules/power/main.qml:404
 msgid "Power saver"
-msgstr ""
+msgstr "省電"
 
 #: ../modules/power/main.qml:237 ../modules/power/main.qml:410
 msgid "High performance"
-msgstr ""
+msgstr "高效能"
 
 #: ../modules/power/main.qml:288 ../modules/power/main.qml:462
 msgid "Custom Options"
@@ -764,7 +806,7 @@ msgstr ""
 
 #: ../modules/power/main.qml:293 ../modules/power/main.qml:467
 msgid "Turn off monitor"
-msgstr ""
+msgstr "關閉螢幕"
 
 #: ../modules/power/main.qml:383
 msgid "Battery"
@@ -773,31 +815,31 @@ msgstr ""
 #: ../modules/power/main.qml:117 ../modules/power/main.qml:163
 #: ../modules/power/main.qml:333 ../modules/power/main.qml:507
 msgid "Suspend"
-msgstr ""
+msgstr "休眠"
 
 #: ../modules/power/main.qml:98
 msgid "When I press the power button"
-msgstr ""
+msgstr "當我按下電源按鈕"
 
 #: ../modules/power/main.qml:187
 msgid "Require password when computer wakes"
-msgstr ""
+msgstr "當喚醒電腦時需要輸入密碼"
 
 #: ../modules/account/main.qml:43 ../frame/modules_info.py:47
 msgid "Account"
-msgstr ""
+msgstr "帳戶"
 
 #: ../modules/account/main.qml:52
 msgid "User List"
-msgstr ""
+msgstr "使用者清單"
 
 #: ../modules/desktop/main.qml:97
 msgid "Computer"
-msgstr ""
+msgstr "電腦"
 
 #: ../modules/desktop/main.qml:99
 msgid "Trash"
-msgstr ""
+msgstr "回收桶"
 
 #: ../modules/desktop/main.qml:100
 msgid "DSC"
@@ -805,72 +847,72 @@ msgstr ""
 
 #: ../modules/desktop/main.qml:83 ../modules/desktop/main.qml:143
 msgid "Dock Display"
-msgstr ""
+msgstr "Dock托盤顯示"
 
 #: ../modules/desktop/main.qml:158
 msgid "Default Style"
-msgstr ""
+msgstr "預設風格"
 
 #: ../modules/desktop/main.qml:159
 msgid "Auto Hide"
-msgstr ""
+msgstr "自動隱藏"
 
 #: ../modules/bluetooth/main.qml:17
 msgid "ON/OFF"
-msgstr ""
+msgstr "開/關"
 
 #: ../modules/bluetooth/main.qml:35
 msgid "Visible"
-msgstr ""
+msgstr "可見"
 
 #: ../modules/bluetooth/main.qml:36 ../modules/desktop/main.qml:160
 msgid "Invisible"
-msgstr ""
+msgstr "不可見"
 
 #: ../modules/bluetooth/main.qml:47
 msgid "Device name"
-msgstr ""
+msgstr "裝置名稱"
 
 #: ../modules/bluetooth/main.qml:59
 msgid "Devices nearby"
-msgstr ""
+msgstr "附近的裝置"
 
 #: ../modules/bluetooth/main.qml:72
 msgid "Recently connected devices"
-msgstr ""
+msgstr "最近使用的裝置"
 
 #: ../modules/desktop/main.qml:179
 msgid "Hot Zone"
-msgstr ""
+msgstr "熱區"
 
 #: ../modules/desktop/main.qml:183
 msgid "Top Left"
-msgstr ""
+msgstr "左上"
 
 #: ../modules/desktop/main.qml:184
 msgid "Bottom Right"
-msgstr ""
+msgstr "右下"
 
 #: ../modules/desktop/main.qml:220 ../modules/desktop/main.qml:245
 #: ../modules/power/main.qml:168
 msgid "Nothing"
-msgstr ""
+msgstr "無"
 
 #: ../modules/desktop/main.qml:221 ../modules/desktop/main.qml:246
 msgid "Opening Window"
-msgstr ""
+msgstr "開啟視窗"
 
 #: ../modules/desktop/main.qml:222 ../modules/desktop/main.qml:247
 msgid "Launcher"
-msgstr ""
+msgstr "啟動器"
 
 #: ../modules/display/main.qml:89
 msgid "Main Display: "
-msgstr ""
+msgstr "主要顯示: "
 
 #: ../modules/display/main.qml:117
 msgid "Monitor"
-msgstr ""
+msgstr "顯示器"
 
 #: ../modules/shortcuts/main.qml:28
 msgid "Window"
@@ -880,9 +922,21 @@ msgstr ""
 msgid "Theme"
 msgstr ""
 
+#: ../modules/display/main.qml:150
+msgid "Apply"
+msgstr "套用"
+
+#: ../modules/personalization/main.qml:90
+msgid "Themes"
+msgstr "主題"
+
+#: ../modules/shortcuts/main.qml:31
+msgid "Window"
+msgstr "視窗"
+
 #: ../modules/personalization/main.qml:62
 msgid "GTK Window"
-msgstr ""
+msgstr "GTW 視窗"
 
 #: ../modules/personalization/main.qml:69
 msgid "Icon"
@@ -896,110 +950,130 @@ msgstr ""
 msgid "Wallpappers"
 msgstr ""
 
+#: ../modules/personalization/main.qml:231
+msgid "Cursor"
+msgstr "游標"
+
+#: ../modules/personalization/main.qml:287
+msgid "Wallpaper"
+msgstr "桌布"
+
+#: ../modules/personalization/main.qml:316
+msgid "Icons"
+msgstr "圖示"
+
 #: ../modules/personalization/main.qml:90
 msgid "Font"
-msgstr ""
+msgstr "字型"
 
 #: ../modules/network/main.qml:57
 msgid "Network Settings"
-msgstr ""
+msgstr "網路設定"
 
 #: ../modules/shortcuts/main.qml:90 ../frame/modules_info.py:42
+msgid "Create Connections"
+msgstr "建立連線"
+
+#: ../modules/shortcuts/main.qml:93 ../frame/modules_info.py:42
 msgid "Shortcuts"
-msgstr ""
+msgstr "捷徑"
 
 #: ../modules/shortcuts/main.qml:26
 msgid "System"
-msgstr ""
+msgstr "系統"
 
 #: ../modules/shortcuts/main.qml:29
+msgid "Sound and Media"
+msgstr "音效與多媒體"
+
+#: ../modules/shortcuts/main.qml:32
 msgid "Workspace"
-msgstr ""
+msgstr "工作區"
 
 #: ../modules/shortcuts/main.qml:30 ../modules/shortcuts/main.qml:204
 msgid "Custom Shortcuts"
-msgstr ""
+msgstr "自訂捷徑"
 
 #: ../modules/sound/main.qml:125
 msgid "Speaker"
-msgstr ""
+msgstr "揚聲器"
 
 #: ../modules/sound/main.qml:334
 msgid "Output Port"
-msgstr ""
+msgstr "輸出連接埠"
 
 #: ../modules/sound/main.qml:155
 msgid "Output Volume"
-msgstr ""
+msgstr "輸出音量"
 
 #: ../modules/sound/main.qml:232
 msgid "Microphone"
-msgstr ""
+msgstr "麥克風"
 
 #: ../modules/sound/main.qml:298
 msgid "Input Feedback"
-msgstr ""
+msgstr "輸入回音"
 
 #: ../modules/sound/main.qml:351 ../modules/sound/main.qml:458
 msgid "No port exist in this device."
-msgstr ""
+msgstr 在這個裝置中沒有可用的連接埠."
 
 #: ../modules/sound/main.qml:392
 msgid "Output device"
-msgstr ""
+msgstr "輸出裝置"
 
 #: ../modules/sound/main.qml:441
 msgid "Input Port"
-msgstr ""
+msgstr "輸入連接埠"
 
 #: ../modules/sound/main.qml:499
 msgid "Input device"
-msgstr ""
+msgstr "輸入裝置"
 
 #: ../modules/sound/main.qml:553
 msgid "Hide Advanced..."
-msgstr ""
+msgstr "隱藏進階..."
 
 #: ../modules/sound/main.qml:553
 msgid "Show Advanced..."
-msgstr ""
+msgstr "顯示進階..."
 
 #: ../modules/sound/main.qml:262
 msgid "Input Volume"
-msgstr ""
+msgstr "輸入音量"
 
 #: ../modules/disk_mount/main.qml:25
 msgid "Internal Devices"
-msgstr ""
+msgstr "內部設備"
 
 #: ../modules/disk_mount/main.qml:69
 msgid "External Devices"
-msgstr ""
+msgstr "外部設備"
 
 #: ../modules/grub/main.qml:62
 msgid "Startup Screen"
-msgstr ""
+msgstr "啟動畫面"
 
 #: ../modules/grub/main.qml:104
 msgid "Default Entry"
-msgstr ""
+msgstr "預設選項"
 
 #: ../modules/grub/main.qml:161
 msgid "Delay"
-msgstr ""
+msgstr "延遲"
 
 #: ../modules/grub/main.qml:200
 msgid "Item Color"
-msgstr ""
+msgstr "項目顏色"
 
 #: ../modules/grub/main.qml:234
 msgid "Selected Item Color"
-msgstr ""
+msgstr "選擇項目顏色"
 
 #: ../frame/modules_info.py:41
 msgid "Individuation"
-msgstr ""
+msgstr "個性化"
 
 #: ../frame/modules_info.py:46
 msgid "Touchpad"
-msgstr ""
+msgstr "觸控板"
