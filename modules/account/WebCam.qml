@@ -154,6 +154,7 @@ Item {
 
         onClicked: {
             var imagePath = urlToPath(camera.imageSavedPath)
+            print(dbus_graphic.GetImageSize(imagePath))
             dbus_graphic.ResizeImage(imagePath, imagePath, 320, 240, "jpeg")            
             var scaledSize = Math.floor(240 * video_output.scale * 120 / 240)
             dbus_graphic.FlipImageHorizontal(imagePath, imagePath, "jpeg")
