@@ -64,7 +64,7 @@ Item {
 
         width: 120
         height: 120
-        clip: true
+        clip: true     
 
         transform: Rotation {
             origin.x: 61
@@ -102,6 +102,7 @@ Item {
     Image {
         id: mask
         source: "images/mask.png"
+        visible: true
 
         anchors.top: parent.top
         anchors.horizontalCenter: parent.horizontalCenter
@@ -154,8 +155,8 @@ Item {
 
         onClicked: {
             var imagePath = urlToPath(camera.imageSavedPath)
-            print(dbus_graphic.GetImageSize(imagePath))
-            dbus_graphic.ResizeImage(imagePath, imagePath, 320, 240, "jpeg")            
+            var imageSize = dbus_graphic.GetImageSize(imagePath)
+            dbus_graphic.ResizeImage(imagePath, imagePath, imageSize[0] * 240 / imageSize[1], 240, "jpeg")            
             var scaledSize = Math.floor(240 * video_output.scale * 120 / 240)
             dbus_graphic.FlipImageHorizontal(imagePath, imagePath, "jpeg")
             dbus_graphic.ClipImage(imagePath, imagePath, 40, 0, 280, 240, "jpeg")
