@@ -21,10 +21,10 @@ Item {
     property var initExpanded: true
 
     property var rotationNames: {
-        1: "Normal",
-        2: "Rotate Left",
-        4: "Upside Down",
-        8: "Rotate Right",
+        1: dsTr("Normal"),
+        2: dsTr("Rotate Right"),
+        4: dsTr("Upside Down"),
+        8: dsTr("Rotate Left"),
     }
 
     property var monitorNames: Object.keys(outputObj.brightness)
