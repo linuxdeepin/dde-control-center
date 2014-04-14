@@ -8,7 +8,7 @@ Window {
     id: previewsWindow
 
     width: 300
-    height: 500
+    height: 580
     flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
     color: "transparent"
 
@@ -147,6 +147,7 @@ Window {
 
                 delegate: Item {
                     width: view.width; height: view.height
+                    clip: true
                     Image {
                         anchors.fill: parent
                         source: previews[index]
