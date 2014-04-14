@@ -178,7 +178,7 @@ msgstr "是否要儲存這些顯示設定"
 #: ../modules/display/MessageBox.qml:96
 #, qt-format
 msgid "<font color='#F48914'>%1</font> 秒之后还原之前的显示设置。"
-msgstr "<font color='#F48914'>%1</font> 免後還原回上一次的顯是設定。"
+msgstr "<font color='#F48914'>%1</font> 秒後還原回上一次的顯示設定。"
 
 #: ../modules/display/MessageBox.qml:108
 msgid "Save Changes"
