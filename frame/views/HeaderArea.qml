@@ -17,6 +17,29 @@ Column {
     property var accountId: Accounts {}
     property var currentUserObj: User { path: accountId.userList[0] }
 
+    function setAvatar(){
+        avatarImage.imageSource = currentUserObj.iconFile
+    }
+
+    function setUserName(){
+        userName.text = currentUserObj.userName.substring(0, 1).toUpperCase()
+            + currentUserObj.userName.substring(1)
+    }
+
+    Connections {
+        target: currentUserObj
+
+        onIconFileChanged: {
+            if(currentUserObj && currentUserObj.iconFile)
+                setAvatar()
+        }
+
+        onUserNameChanged: {
+            if (currentUserObj && currentUserObj.userName)
+                setUserName()
+        }
+    }
+
     Rectangle {
         width: parent.width
         height: 150
@@ -52,9 +75,8 @@ Column {
         interval: 100
         running: true
         onTriggered: {
-            avatarImage.imageSource = currentUserObj.iconFile
-            userName.text = currentUserObj.userName.substring(0, 1).toUpperCase()
-                + currentUserObj.userName.substring(1)
+            setAvatar()
+            setUserName()
         }
     }
 }
