@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-14 09:40+0800\n"
+"POT-Creation-Date: 2014-04-14 13:58+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -112,6 +112,24 @@ msgstr ""
 
 #: ../modules/network/components/EditIpv4Section.qml:189
 msgid "DNS Server"
+msgstr ""
+
+#: ../modules/network/components/EditSecuritySection.qml:28
+msgid "Security"
+msgstr ""
+
+#: ../modules/network/components/EditSecuritySection.qml:47
+msgid "Security:"
+msgstr ""
+
+#: ../modules/network/components/EditSecuritySection.qml:88
+#: ../frame/views/WifiPasswordWindow.qml:97
+msgid "Password:"
+msgstr ""
+
+#: ../modules/network/components/EditSecuritySection.qml:110
+#: ../modules/network/WirelessItem.qml:251
+msgid "Show password"
 msgstr ""
 
 #: ../modules/network/components/EditTitle.qml:9
@@ -252,7 +270,7 @@ msgstr ""
 msgid "Mouse and Touchpad"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:20 ../modules/mouse_touchpad/main.qml:27
+#: ../frame/views/ModulesData.qml:20 ../modules/mouse_touchpad/main.qml:26
 #: ../frame/modules_info.py:44
 msgid "Mouse"
 msgstr ""
@@ -317,7 +335,7 @@ msgstr ""
 msgid "Open theme preview"
 msgstr ""
 
-#: ../modules/personalization/widgets/PreviewWindow.qml:280
+#: ../modules/personalization/widgets/PreviewWindow.qml:281
 #: ../modules/display/main.qml:169
 msgid "Apply"
 msgstr ""
@@ -366,81 +384,81 @@ msgstr ""
 msgid "Timezone"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:27
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:28
 msgid "TouchPad"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:57
-#: ../modules/mouse_touchpad/main.qml:39
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:58
+#: ../modules/mouse_touchpad/main.qml:38
 msgid "Button Order"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:65
-#: ../modules/mouse_touchpad/main.qml:46
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:73
+#: ../modules/mouse_touchpad/main.qml:45
 msgid "Right Hand"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:66
-#: ../modules/mouse_touchpad/main.qml:47
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:74
+#: ../modules/mouse_touchpad/main.qml:46
 msgid "Left Hand"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:79
-#: ../modules/mouse_touchpad/main.qml:60
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:92
+#: ../modules/mouse_touchpad/main.qml:59
 msgid "Pointer Move Speed"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:94
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:144
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:107
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:157
 #: ../modules/keyboard/main.qml:127 ../modules/keyboard/main.qml:153
-#: ../modules/mouse_touchpad/main.qml:75
-#: ../modules/mouse_touchpad/main.qml:127
+#: ../modules/mouse_touchpad/main.qml:74
+#: ../modules/mouse_touchpad/main.qml:126
 msgid "Slow"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:95
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:145
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:108
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:158
 #: ../modules/keyboard/main.qml:126 ../modules/keyboard/main.qml:152
-#: ../modules/mouse_touchpad/main.qml:76
-#: ../modules/mouse_touchpad/main.qml:128
+#: ../modules/mouse_touchpad/main.qml:75
+#: ../modules/mouse_touchpad/main.qml:127
 msgid "Fast"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:104
-#: ../modules/mouse_touchpad/main.qml:86
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:117
+#: ../modules/mouse_touchpad/main.qml:85
 msgid "Pointer Accuracy"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:119
-#: ../modules/mouse_touchpad/main.qml:101
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:132
+#: ../modules/mouse_touchpad/main.qml:100
 msgid "Low"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:120
-#: ../modules/mouse_touchpad/main.qml:102
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:133
+#: ../modules/mouse_touchpad/main.qml:101
 msgid "High"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:129
-#: ../modules/mouse_touchpad/main.qml:112
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:142
+#: ../modules/mouse_touchpad/main.qml:111
 msgid "Double-click Frequency"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:155
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:168
 msgid "Drag Threshold"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:170
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:183
 #: ../modules/keyboard/main.qml:101
 msgid "Short"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:171
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:184
 #: ../modules/keyboard/main.qml:102
 msgid "Long"
 msgstr ""
 
-#: ../modules/account/WebCam.qml:175
+#: ../modules/account/WebCam.qml:176
 msgid "No camera found."
 msgstr ""
 
@@ -453,11 +471,6 @@ msgstr ""
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network <font "
 "color=\"#0ff\">%1</font>"
-msgstr ""
-
-#: ../frame/views/WifiPasswordWindow.qml:97
-#: ../modules/network/WirelessProperties.qml:114
-msgid "Password:"
 msgstr ""
 
 #: ../frame/views/WifiPasswordWindow.qml:119
@@ -494,12 +507,12 @@ msgid "All users may connect to this network"
 msgstr ""
 
 #: ../modules/network/WiredProperties.qml:68
-#: ../modules/network/WirelessProperties.qml:131
+#: ../modules/network/WirelessProperties.qml:76
 msgid "Save"
 msgstr ""
 
 #: ../modules/network/WiredProperties.qml:72
-#: ../modules/network/WirelessProperties.qml:141
+#: ../modules/network/WirelessProperties.qml:86
 msgid "Close"
 msgstr ""
 
@@ -519,18 +532,6 @@ msgstr ""
 
 #: ../modules/network/WirelessItem.qml:231
 msgid "Password: "
-msgstr ""
-
-#: ../modules/network/WirelessItem.qml:251
-msgid "Show password"
-msgstr ""
-
-#: ../modules/network/WirelessProperties.qml:80
-msgid "Security"
-msgstr ""
-
-#: ../modules/network/WirelessProperties.qml:99
-msgid "Security:"
 msgstr ""
 
 #: ../modules/date_time/calendar_core.js:6
@@ -711,7 +712,7 @@ msgstr ""
 
 #: ../modules/default_applications/main.qml:24 ../modules/display/main.qml:190
 #: ../modules/grub/main.qml:66 ../modules/keyboard/main.qml:77
-#: ../modules/mouse_touchpad/main.qml:30 ../modules/power/main.qml:81
+#: ../modules/mouse_touchpad/main.qml:29 ../modules/power/main.qml:81
 #: ../modules/shortcuts/main.qml:92 ../modules/sound/main.qml:100
 msgid "Reset"
 msgstr ""
@@ -894,7 +895,7 @@ msgid "Cursor"
 msgstr ""
 
 #: ../modules/personalization/main.qml:83
-msgid "Wallpappers"
+msgid "Wallpapper"
 msgstr ""
 
 #: ../modules/personalization/main.qml:90
