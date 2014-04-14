@@ -80,7 +80,7 @@ Item {
 
         WallpapperExpand {
             myIndex: 3
-            title: dsTr("Wallpappers")
+            title: dsTr("Wallpapper")
         }
 
         DSeparatorHorizontal {}

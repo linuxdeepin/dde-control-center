@@ -22,7 +22,6 @@ Item {
         anchors.top: parent.top
         width: parent.width
 
-        DBaseLine { height: 6 }
         DssTitle {
             text: dsTr("Mouse")
 
@@ -62,8 +61,8 @@ Item {
             content.sourceComponent: DSliderEnhanced {
                 width: sliderWidth
 
-                min: 1
-                max: 20
+                min: 0.5
+                max: 5
                 init: mouseID.moveSpeed
                 valueDisplayVisible: false
 
@@ -72,8 +71,8 @@ Item {
                 }
 
                 Component.onCompleted: {
-                    addRuler(1, dsTr("Slow"))
-                    addRuler(20, dsTr("Fast"))
+                    addRuler(0.5, dsTr("Slow"))
+                    addRuler(5, dsTr("Fast"))
                 }
             }
 
@@ -132,26 +131,21 @@ Item {
         }
 
         DSeparatorHorizontal {}
-    }
 
-    Column {
-        id: touchpadSettingsColumn
-        anchors.top: mouseSettingsColumn.bottom
-        anchors.topMargin: 26
-        width: parent.width
 
-        property var touchpadComponent: Qt.createComponent("TouchpadComponent.qml")
-        property bool isExist: isTouchpadExist
-        visible: isExist
-
+        DBaseLine{ height: 26 }
         Item {
             id: touchpadBox
             width: parent.width
             height: childrenRect.height
+            visible: isExist
+
+            property var touchpadComponent: Qt.createComponent("TouchpadComponent.qml")
+            property bool isExist: isTouchpadExist
 
             Component.onCompleted: {
-                if(touchpadSettingsColumn.isExist){
-                    touchpadObj = touchpadSettingsColumn.touchpadComponent.createObject(touchpadBox, {})
+                if(isExist){
+                    touchpadObj = touchpadComponent.createObject(touchpadBox, {})
                     touchpadObj.x = touchpadBox.x
                     touchpadObj.y = touchpadBox.y
                 }

@@ -6,7 +6,8 @@ import DBus.Com.Deepin.Daemon.InputDevices 1.0
 
 Item {
     id: keyboardModule
-    anchors.fill: parent
+    width: parent.width
+    height: childrenRect.height
 
     property int contentLeftMargin: 22
     property int contentHeight: 48
@@ -60,14 +61,26 @@ Item {
                 anchors.left: parent.left
                 anchors.leftMargin: 2
                 anchors.verticalCenter: parent.verticalCenter
-                initializeIndex: touchPadID.useHabit ? 1 : 0
+                initializeIndex: {
+                    if(touchPadID.useHabit == "left"){
+                        return 1
+                    }
+                    else{
+                        return 0
+                    }
+                }
                 buttonModel: [
                     {"buttonId": "right_hand", "buttonLabel": dsTr("Right Hand")},
                     {"buttonId": "left_hand", "buttonLabel": dsTr("Left Hand")}
                 ]
 
                 onItemSelected: {
-                    touchPadID.useHabit = idx == 1 ? true : false
+                    if(idx == 1){
+                        touchPadID.useHabit = "left"
+                    }
+                    else{
+                        touchPadID.useHabit = "right"
+                    }
                 }
             }
         }
@@ -81,8 +94,8 @@ Item {
             content.sourceComponent: DSliderEnhanced {
                 width: sliderWidth
 
-                min: 1
-                max: 20
+                min: 0.5
+                max: 5
                 init: touchPadID.moveSpeed
                 valueDisplayVisible: false
 
@@ -91,8 +104,8 @@ Item {
                 }
 
                 Component.onCompleted: {
-                    addRuler(1, dsTr("Slow"))
-                    addRuler(20, dsTr("Fast"))
+                    addRuler(0.5, dsTr("Slow"))
+                    addRuler(5, dsTr("Fast"))
                 }
             }
         }

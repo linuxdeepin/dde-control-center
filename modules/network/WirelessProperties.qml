@@ -62,63 +62,8 @@ BaseEditPage {
 
     DSeparatorHorizontal {}
 
-    DBaseExpand{
-        id: securitySettings
-        property int myIndex: 3
-        property string sectionName: "Security"
-        property var myKeys: connectionSessionObject.availableKeys[sectionName]
-        property var errors: connectionSessionObject.errors[sectionName]
-
-        expanded: activeExpandIndex == myIndex
-        onExpandedChanged: {
-            if(header.item){
-                header.item.active = expanded
-            }
-        }
-
-        header.sourceComponent: DDownArrowHeader{
-            text: dsTr("Security")
-            onClicked: {
-                if(activeExpandIndex == root.myIndex){
-                    activeExpandIndex = -1
-                }
-                else{
-                    activeExpandIndex = root.myIndex
-                }
-            }
-            Component.onCompleted: {
-                active = (activeExpandIndex == root.myIndex)
-            }
-        }
-
-        content.sourceComponent: Column {
-            DBaseLine {
-                color: dconstants.contentBgColor
-                leftMargin: contentLeftMargin
-                leftLoader.sourceComponent: DssH2{
-                    text: dsTr("Security:")
-                }
-
-                rightLoader.sourceComponent: DComboBox{
-                    anchors.left: parent.left
-                    anchors.leftMargin: -3
-                    width: valueWidth
-                    text: "wep-key0"
-                }
-            }
-
-            DBaseLine {
-                color: dconstants.contentBgColor
-                leftMargin: contentLeftMargin
-                leftLoader.sourceComponent: DssH2{
-                    text: dsTr("Password:")
-                }
-
-                rightLoader.sourceComponent: DTextInput{
-                    width: valueWidth
-                }
-            }
-        }
+    EditSecuritySection {
+        activeExpandIndex: wirelessProperties.activeExpandIndex
     }
 
     DSeparatorHorizontal{}

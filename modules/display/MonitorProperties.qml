@@ -192,7 +192,7 @@ Item {
                         valueDisplayVisible: false
 
                         onValueChanged:{
-                            outputObj.ChangeBrightness(monitorNames[0], value)
+                            outputObj.SetBrightness(monitorNames[0], value)
                         }
                         visible: monitorNames.length == 1
 
@@ -231,7 +231,7 @@ Item {
                             valueDisplayVisible: false
 
                             onValueChanged:{
-                                outputObj.ChangeBrightness(monitorNames[index], value)
+                                outputObj.SetBrightness(monitorNames[index], value)
                             }
 
                             Connections {
