@@ -4,12 +4,11 @@
 # Automatically generated, 2013.
 # Translators:
 # Peter Dave Hello <hsu@peterdavehello.org>, 2014
- 
 msgid ""
 msgstr ""
 "Project-Id-Version: dss 2014\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-10 17:35+0800\n"
+"POT-Creation-Date: 2014-04-14 09:40+0800\n"
 "PO-Revision-Date: 2013-11-25 12:27+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../modules/account/AddUserDialog.qml:89 ../modules/account/UserList.qml:170
+#: ../modules/account/AddUserDialog.qml:89 ../modules/account/UserList.qml:173
 msgid "User"
 msgstr "使用者"
 
-#: ../modules/account/AddUserDialog.qml:89 ../modules/account/UserList.qml:170
+#: ../modules/account/AddUserDialog.qml:89 ../modules/account/UserList.qml:173
 msgid "Administrator"
 msgstr "系統管理員"
 
@@ -36,31 +35,31 @@ msgstr ""
 
 #: ../modules/date_time/CalendarComponent.qml:56
 msgid "Sun"
-msgstr "星期日"
+msgstr "日"
 
 #: ../modules/date_time/CalendarComponent.qml:57
 msgid "Mon"
-msgstr "星期一"
+msgstr "一"
 
 #: ../modules/date_time/CalendarComponent.qml:58
 msgid "Tue"
-msgstr "星期二"
+msgstr "二"
 
 #: ../modules/date_time/CalendarComponent.qml:59
 msgid "Wed"
-msgstr "星期三"
+msgstr "三"
 
 #: ../modules/date_time/CalendarComponent.qml:60
 msgid "Thu"
-msgstr "星期四"
+msgstr "四"
 
 #: ../modules/date_time/CalendarComponent.qml:61
 msgid "Fri"
-msgstr "星期五"
+msgstr "五"
 
 #: ../modules/date_time/CalendarComponent.qml:62
 msgid "Sat"
-msgstr "星期六"
+msgstr "六"
 
 #: ../modules/shortcuts/CustomKeybinding.qml:92
 msgid "Name"
@@ -74,7 +73,7 @@ msgstr "命令"
 #: ../modules/shortcuts/ShortcutInput.qml:298
 #: ../modules/date_time/TimeBox.qml:186
 #: ../frame/views/WifiPasswordWindow.qml:136
-#: ../modules/network/WirelessItem.qml:259 ../modules/display/main.qml:193
+#: ../modules/network/WirelessItem.qml:266 ../modules/display/main.qml:193
 msgid "Cancel"
 msgstr "取消"
 
@@ -119,7 +118,7 @@ msgstr ""
 msgid "Connection Name:"
 msgstr ""
 
-#: ../modules/account/EditUserDialog.qml:79
+#: ../modules/account/EditUserDialog.qml:83
 #: ../modules/account/GuestUser.qml:93
 msgid "Enable User"
 msgstr ""
@@ -164,35 +163,11 @@ msgstr ""
 msgid "DeviceSpeed"
 msgstr "裝置速度"
 
-#: ../modules/network/Info.qml:48 ../modules/network/Info.qml:76
-msgid "InternetSpeed"
-msgstr "網路速度"
-
-#: ../modules/network/Info.qml:48 ../modules/network/Info.qml:76
-msgid "test it"
-msgstr "測試"
-
 #: ../modules/network/Info.qml:70
 msgid "wireless"
 msgstr "無線"
 
 #: ../modules/network/ListConnections.qml:34
-msgid "Wireless Access Points"
-msgstr "無線網路存取點"
-
-#: ../modules/network/ListAccessPoints.qml:80
-msgid "PassWord"
-msgstr "密碼"
-
-#: ../modules/network/ListConnections.qml:13
-msgid "Wired Connections"
-msgstr "有線連線"
-
-#: ../modules/network/ListConnections.qml:28
-msgid "Wired Conections"
-msgstr "有線連線"
-
-#: ../modules/network/ListConnections.qml:63
 msgid "VPN Connections"
 msgstr "VPN連線"
 
@@ -231,7 +206,7 @@ msgstr "磁碟掛載"
 msgid "Bluetooth"
 msgstr "藍牙"
 
-#: ../frame/views/ModulesData.qml:9 ../modules/sound/main.qml:90
+#: ../frame/views/ModulesData.qml:9 ../modules/sound/main.qml:97
 #: ../frame/modules_info.py:34
 msgid "Sound"
 msgstr "音效"
@@ -345,7 +320,7 @@ msgstr ""
 #: ../modules/personalization/widgets/PreviewWindow.qml:280
 #: ../modules/display/main.qml:169
 msgid "Apply"
-msgstr ""
+msgstr "套用"
 
 #: ../modules/shortcuts/ShortcutInput.qml:103
 msgid "Please input new shortcuts"
@@ -490,7 +465,7 @@ msgid "Show Password"
 msgstr ""
 
 #: ../frame/views/WifiPasswordWindow.qml:144
-#: ../modules/network/WirelessItem.qml:266
+#: ../modules/network/WirelessItem.qml:273
 msgid "Connect"
 msgstr ""
 
@@ -524,7 +499,7 @@ msgid "Save"
 msgstr ""
 
 #: ../modules/network/WiredProperties.qml:72
-#: ../modules/network/WirelessProperties.qml:140
+#: ../modules/network/WirelessProperties.qml:141
 msgid "Close"
 msgstr ""
 
@@ -542,11 +517,11 @@ msgstr ""
 msgid "Scanning..."
 msgstr ""
 
-#: ../modules/network/WirelessItem.qml:224
+#: ../modules/network/WirelessItem.qml:231
 msgid "Password: "
 msgstr ""
 
-#: ../modules/network/WirelessItem.qml:244
+#: ../modules/network/WirelessItem.qml:251
 msgid "Show password"
 msgstr ""
 
@@ -737,11 +712,11 @@ msgstr "鍵盤配置"
 #: ../modules/default_applications/main.qml:24 ../modules/display/main.qml:190
 #: ../modules/grub/main.qml:66 ../modules/keyboard/main.qml:77
 #: ../modules/mouse_touchpad/main.qml:30 ../modules/power/main.qml:81
-#: ../modules/shortcuts/main.qml:92 ../modules/sound/main.qml:93
+#: ../modules/shortcuts/main.qml:92 ../modules/sound/main.qml:100
 msgid "Reset"
 msgstr "重設"
 
-#: ../modules/power/main.qml:243 ../modules/power/main.qml:416
+#: ../modules/power/main.qml:242 ../modules/power/main.qml:415
 msgid "Custom"
 msgstr "自訂"
 
@@ -753,67 +728,52 @@ msgstr "詢問"
 msgid "When I close the lid"
 msgstr "當我關上螢幕"
 
-#: ../modules/power/main.qml:210
+#: ../modules/power/main.qml:209
 msgid "Power Adapter"
 msgstr ""
 
-#: ../modules/power/main.qml:225 ../modules/power/main.qml:398
-#: ../modules/sound/main.qml:191
+#: ../modules/power/main.qml:224 ../modules/power/main.qml:397
+#: ../modules/sound/main.qml:198
 msgid "Balance"
+msgstr "平衡"
+
+#: ../modules/power/main.qml:226 ../modules/power/main.qml:232
+#: ../modules/power/main.qml:238 ../modules/power/main.qml:244
+#: ../modules/power/main.qml:399 ../modules/power/main.qml:405
+#: ../modules/power/main.qml:411 ../modules/power/main.qml:417
+msgid "Turn off monitor: "
 msgstr ""
 
 #: ../modules/power/main.qml:227 ../modules/power/main.qml:233
 #: ../modules/power/main.qml:239 ../modules/power/main.qml:245
 #: ../modules/power/main.qml:400 ../modules/power/main.qml:406
 #: ../modules/power/main.qml:412 ../modules/power/main.qml:418
-msgid "Turn off monitor: "
-msgstr ""
+#, fuzzy
+msgid "Suspend: "
+msgstr "休眠"
 
-#: ../modules/power/main.qml:228 ../modules/power/main.qml:234
-#: ../modules/power/main.qml:240 ../modules/power/main.qml:246
-#: ../modules/power/main.qml:401 ../modules/power/main.qml:407
-#: ../modules/power/main.qml:413 ../modules/power/main.qml:419
-msgid " Suspend: "
-msgstr ""
-
-#: ../modules/power/main.qml:197
-msgid "Requires a password"
-msgstr "需要一組密碼"
-
-#: ../modules/power/main.qml:201
-msgid "Without a password"
-msgstr "不需要密碼"
-
-#: ../modules/power/main.qml:222
-msgid "Power plan"
-msgstr "電源計畫"
-
-#: ../modules/power/main.qml:236 ../modules/sound/main.qml:159
-msgid "Balance"
-msgstr "平衡"
-
-#: ../modules/power/main.qml:231 ../modules/power/main.qml:404
+#: ../modules/power/main.qml:230 ../modules/power/main.qml:403
 msgid "Power saver"
 msgstr "省電"
 
-#: ../modules/power/main.qml:237 ../modules/power/main.qml:410
+#: ../modules/power/main.qml:236 ../modules/power/main.qml:409
 msgid "High performance"
 msgstr "高效能"
 
-#: ../modules/power/main.qml:288 ../modules/power/main.qml:462
+#: ../modules/power/main.qml:287 ../modules/power/main.qml:461
 msgid "Custom Options"
 msgstr ""
 
-#: ../modules/power/main.qml:293 ../modules/power/main.qml:467
+#: ../modules/power/main.qml:292 ../modules/power/main.qml:466
 msgid "Turn off monitor"
 msgstr "關閉螢幕"
 
-#: ../modules/power/main.qml:383
+#: ../modules/power/main.qml:382
 msgid "Battery"
 msgstr ""
 
 #: ../modules/power/main.qml:117 ../modules/power/main.qml:163
-#: ../modules/power/main.qml:333 ../modules/power/main.qml:507
+#: ../modules/power/main.qml:332 ../modules/power/main.qml:506
 msgid "Suspend"
 msgstr "休眠"
 
@@ -916,23 +876,11 @@ msgstr "顯示器"
 
 #: ../modules/shortcuts/main.qml:28
 msgid "Window"
-msgstr ""
+msgstr "視窗"
 
 #: ../modules/personalization/main.qml:55
 msgid "Theme"
 msgstr ""
-
-#: ../modules/display/main.qml:150
-msgid "Apply"
-msgstr "套用"
-
-#: ../modules/personalization/main.qml:90
-msgid "Themes"
-msgstr "主題"
-
-#: ../modules/shortcuts/main.qml:31
-msgid "Window"
-msgstr "視窗"
 
 #: ../modules/personalization/main.qml:62
 msgid "GTK Window"
@@ -944,23 +892,11 @@ msgstr ""
 
 #: ../modules/personalization/main.qml:76
 msgid "Cursor"
-msgstr ""
+msgstr "游標"
 
 #: ../modules/personalization/main.qml:83
 msgid "Wallpappers"
 msgstr ""
-
-#: ../modules/personalization/main.qml:231
-msgid "Cursor"
-msgstr "游標"
-
-#: ../modules/personalization/main.qml:287
-msgid "Wallpaper"
-msgstr "桌布"
-
-#: ../modules/personalization/main.qml:316
-msgid "Icons"
-msgstr "圖示"
 
 #: ../modules/personalization/main.qml:90
 msgid "Font"
@@ -971,10 +907,6 @@ msgid "Network Settings"
 msgstr "網路設定"
 
 #: ../modules/shortcuts/main.qml:90 ../frame/modules_info.py:42
-msgid "Create Connections"
-msgstr "建立連線"
-
-#: ../modules/shortcuts/main.qml:93 ../frame/modules_info.py:42
 msgid "Shortcuts"
 msgstr "捷徑"
 
@@ -983,10 +915,6 @@ msgid "System"
 msgstr "系統"
 
 #: ../modules/shortcuts/main.qml:29
-msgid "Sound and Media"
-msgstr "音效與多媒體"
-
-#: ../modules/shortcuts/main.qml:32
 msgid "Workspace"
 msgstr "工作區"
 
@@ -994,51 +922,51 @@ msgstr "工作區"
 msgid "Custom Shortcuts"
 msgstr "自訂捷徑"
 
-#: ../modules/sound/main.qml:125
+#: ../modules/sound/main.qml:132
 msgid "Speaker"
 msgstr "揚聲器"
 
-#: ../modules/sound/main.qml:334
+#: ../modules/sound/main.qml:343
 msgid "Output Port"
 msgstr "輸出連接埠"
 
-#: ../modules/sound/main.qml:155
+#: ../modules/sound/main.qml:162
 msgid "Output Volume"
 msgstr "輸出音量"
 
-#: ../modules/sound/main.qml:232
+#: ../modules/sound/main.qml:241
 msgid "Microphone"
 msgstr "麥克風"
 
-#: ../modules/sound/main.qml:298
+#: ../modules/sound/main.qml:307
 msgid "Input Feedback"
 msgstr "輸入回音"
 
-#: ../modules/sound/main.qml:351 ../modules/sound/main.qml:458
+#: ../modules/sound/main.qml:360 ../modules/sound/main.qml:467
 msgid "No port exist in this device."
-msgstr 在這個裝置中沒有可用的連接埠."
+msgstr "在這個裝置中沒有可用的連接埠."
 
-#: ../modules/sound/main.qml:392
+#: ../modules/sound/main.qml:401
 msgid "Output device"
 msgstr "輸出裝置"
 
-#: ../modules/sound/main.qml:441
+#: ../modules/sound/main.qml:450
 msgid "Input Port"
 msgstr "輸入連接埠"
 
-#: ../modules/sound/main.qml:499
+#: ../modules/sound/main.qml:508
 msgid "Input device"
 msgstr "輸入裝置"
 
-#: ../modules/sound/main.qml:553
+#: ../modules/sound/main.qml:562
 msgid "Hide Advanced..."
 msgstr "隱藏進階..."
 
-#: ../modules/sound/main.qml:553
+#: ../modules/sound/main.qml:562
 msgid "Show Advanced..."
 msgstr "顯示進階..."
 
-#: ../modules/sound/main.qml:262
+#: ../modules/sound/main.qml:271
 msgid "Input Volume"
 msgstr "輸入音量"
 
@@ -1077,3 +1005,45 @@ msgstr "個性化"
 #: ../frame/modules_info.py:46
 msgid "Touchpad"
 msgstr "觸控板"
+
+#~ msgid "InternetSpeed"
+#~ msgstr "網路速度"
+
+#~ msgid "test it"
+#~ msgstr "測試"
+
+#~ msgid "Wireless Access Points"
+#~ msgstr "無線網路存取點"
+
+#~ msgid "PassWord"
+#~ msgstr "密碼"
+
+#~ msgid "Wired Connections"
+#~ msgstr "有線連線"
+
+#~ msgid "Wired Conections"
+#~ msgstr "有線連線"
+
+#~ msgid "Requires a password"
+#~ msgstr "需要一組密碼"
+
+#~ msgid "Without a password"
+#~ msgstr "不需要密碼"
+
+#~ msgid "Power plan"
+#~ msgstr "電源計畫"
+
+#~ msgid "Themes"
+#~ msgstr "主題"
+
+#~ msgid "Wallpaper"
+#~ msgstr "桌布"
+
+#~ msgid "Icons"
+#~ msgstr "圖示"
+
+#~ msgid "Create Connections"
+#~ msgstr "建立連線"
+
+#~ msgid "Sound and Media"
+#~ msgstr "音效與多媒體"

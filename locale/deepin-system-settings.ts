@@ -148,7 +148,7 @@
 <context>
     <name>EditUserDialog</name>
     <message>
-        <location filename="../modules/account/EditUserDialog.qml" line="79"/>
+        <location filename="../modules/account/EditUserDialog.qml" line="83"/>
         <source>Enable User</source>
         <translation type="unfinished"></translation>
     </message>
@@ -595,12 +595,12 @@
 <context>
     <name>UserList</name>
     <message>
-        <location filename="../modules/account/UserList.qml" line="170"/>
+        <location filename="../modules/account/UserList.qml" line="173"/>
         <source>User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/UserList.qml" line="170"/>
+        <location filename="../modules/account/UserList.qml" line="173"/>
         <source>Administrator</source>
         <translation type="unfinished"></translation>
     </message>
@@ -711,22 +711,22 @@
 <context>
     <name>WirelessItem</name>
     <message>
-        <location filename="../modules/network/WirelessItem.qml" line="224"/>
+        <location filename="../modules/network/WirelessItem.qml" line="231"/>
         <source>Password: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/WirelessItem.qml" line="244"/>
+        <location filename="../modules/network/WirelessItem.qml" line="251"/>
         <source>Show password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/WirelessItem.qml" line="259"/>
+        <location filename="../modules/network/WirelessItem.qml" line="266"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/WirelessItem.qml" line="266"/>
+        <location filename="../modules/network/WirelessItem.qml" line="273"/>
         <source>Connect</source>
         <translation type="unfinished"></translation>
     </message>
@@ -769,7 +769,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/WirelessProperties.qml" line="140"/>
+        <location filename="../modules/network/WirelessProperties.qml" line="141"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1049,7 +1049,7 @@
         <location filename="../modules/mouse_touchpad/main.qml" line="30"/>
         <location filename="../modules/power/main.qml" line="81"/>
         <location filename="../modules/shortcuts/main.qml" line="92"/>
-        <location filename="../modules/sound/main.qml" line="93"/>
+        <location filename="../modules/sound/main.qml" line="100"/>
         <source>Reset</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1059,8 +1059,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/main.qml" line="243"/>
-        <location filename="../modules/power/main.qml" line="416"/>
+        <location filename="../modules/power/main.qml" line="242"/>
+        <location filename="../modules/power/main.qml" line="415"/>
         <source>Custom</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1120,15 +1120,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/main.qml" line="210"/>
+        <location filename="../modules/power/main.qml" line="209"/>
         <source>Power Adapter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/main.qml" line="225"/>
-        <location filename="../modules/power/main.qml" line="398"/>
-        <location filename="../modules/sound/main.qml" line="191"/>
+        <location filename="../modules/power/main.qml" line="224"/>
+        <location filename="../modules/power/main.qml" line="397"/>
+        <location filename="../modules/sound/main.qml" line="198"/>
         <source>Balance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/power/main.qml" line="226"/>
+        <location filename="../modules/power/main.qml" line="232"/>
+        <location filename="../modules/power/main.qml" line="238"/>
+        <location filename="../modules/power/main.qml" line="244"/>
+        <location filename="../modules/power/main.qml" line="399"/>
+        <location filename="../modules/power/main.qml" line="405"/>
+        <location filename="../modules/power/main.qml" line="411"/>
+        <location filename="../modules/power/main.qml" line="417"/>
+        <source>Turn off monitor: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1140,55 +1152,43 @@
         <location filename="../modules/power/main.qml" line="406"/>
         <location filename="../modules/power/main.qml" line="412"/>
         <location filename="../modules/power/main.qml" line="418"/>
-        <source>Turn off monitor: </source>
+        <source>Suspend: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/main.qml" line="228"/>
-        <location filename="../modules/power/main.qml" line="234"/>
-        <location filename="../modules/power/main.qml" line="240"/>
-        <location filename="../modules/power/main.qml" line="246"/>
-        <location filename="../modules/power/main.qml" line="401"/>
-        <location filename="../modules/power/main.qml" line="407"/>
-        <location filename="../modules/power/main.qml" line="413"/>
-        <location filename="../modules/power/main.qml" line="419"/>
-        <source> Suspend: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/power/main.qml" line="231"/>
-        <location filename="../modules/power/main.qml" line="404"/>
+        <location filename="../modules/power/main.qml" line="230"/>
+        <location filename="../modules/power/main.qml" line="403"/>
         <source>Power saver</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/main.qml" line="237"/>
-        <location filename="../modules/power/main.qml" line="410"/>
+        <location filename="../modules/power/main.qml" line="236"/>
+        <location filename="../modules/power/main.qml" line="409"/>
         <source>High performance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/main.qml" line="288"/>
-        <location filename="../modules/power/main.qml" line="462"/>
+        <location filename="../modules/power/main.qml" line="287"/>
+        <location filename="../modules/power/main.qml" line="461"/>
         <source>Custom Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/main.qml" line="293"/>
-        <location filename="../modules/power/main.qml" line="467"/>
+        <location filename="../modules/power/main.qml" line="292"/>
+        <location filename="../modules/power/main.qml" line="466"/>
         <source>Turn off monitor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/main.qml" line="383"/>
+        <location filename="../modules/power/main.qml" line="382"/>
         <source>Battery</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/power/main.qml" line="117"/>
         <location filename="../modules/power/main.qml" line="163"/>
-        <location filename="../modules/power/main.qml" line="333"/>
-        <location filename="../modules/power/main.qml" line="507"/>
+        <location filename="../modules/power/main.qml" line="332"/>
+        <location filename="../modules/power/main.qml" line="506"/>
         <source>Suspend</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1421,68 +1421,68 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="90"/>
+        <location filename="../modules/sound/main.qml" line="97"/>
         <source>Sound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="125"/>
+        <location filename="../modules/sound/main.qml" line="132"/>
         <source>Speaker</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="334"/>
+        <location filename="../modules/sound/main.qml" line="343"/>
         <source>Output Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="155"/>
+        <location filename="../modules/sound/main.qml" line="162"/>
         <source>Output Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="232"/>
+        <location filename="../modules/sound/main.qml" line="241"/>
         <source>Microphone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="298"/>
+        <location filename="../modules/sound/main.qml" line="307"/>
         <source>Input Feedback</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="351"/>
-        <location filename="../modules/sound/main.qml" line="458"/>
+        <location filename="../modules/sound/main.qml" line="360"/>
+        <location filename="../modules/sound/main.qml" line="467"/>
         <source>No port exist in this device.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="392"/>
+        <location filename="../modules/sound/main.qml" line="401"/>
         <source>Output device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="441"/>
+        <location filename="../modules/sound/main.qml" line="450"/>
         <source>Input Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="499"/>
+        <location filename="../modules/sound/main.qml" line="508"/>
         <source>Input device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="553"/>
+        <location filename="../modules/sound/main.qml" line="562"/>
         <source>Hide Advanced...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="553"/>
+        <location filename="../modules/sound/main.qml" line="562"/>
         <source>Show Advanced...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="262"/>
+        <location filename="../modules/sound/main.qml" line="271"/>
         <source>Input Volume</source>
         <translation type="unfinished"></translation>
     </message>

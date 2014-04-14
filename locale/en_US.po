@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dss 2014\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-10 17:35+0800\n"
+"POT-Creation-Date: 2014-04-14 09:38+0800\n"
 "PO-Revision-Date: 2013-11-25 12:27+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../modules/account/AddUserDialog.qml:89 ../modules/account/UserList.qml:170
+#: ../modules/account/AddUserDialog.qml:89 ../modules/account/UserList.qml:173
 msgid "User"
 msgstr ""
 
-#: ../modules/account/AddUserDialog.qml:89 ../modules/account/UserList.qml:170
+#: ../modules/account/AddUserDialog.qml:89 ../modules/account/UserList.qml:173
 msgid "Administrator"
 msgstr ""
 
@@ -74,7 +74,7 @@ msgstr ""
 #: ../modules/shortcuts/ShortcutInput.qml:298
 #: ../modules/date_time/TimeBox.qml:186
 #: ../frame/views/WifiPasswordWindow.qml:136
-#: ../modules/network/WirelessItem.qml:259 ../modules/display/main.qml:193
+#: ../modules/network/WirelessItem.qml:266 ../modules/display/main.qml:193
 msgid "Cancel"
 msgstr ""
 
@@ -119,7 +119,7 @@ msgstr ""
 msgid "Connection Name:"
 msgstr ""
 
-#: ../modules/account/EditUserDialog.qml:79
+#: ../modules/account/EditUserDialog.qml:83
 #: ../modules/account/GuestUser.qml:93
 msgid "Enable User"
 msgstr ""
@@ -208,7 +208,7 @@ msgstr "Disk Mount"
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: ../frame/views/ModulesData.qml:9 ../modules/sound/main.qml:90
+#: ../frame/views/ModulesData.qml:9 ../modules/sound/main.qml:97
 #: ../frame/modules_info.py:34
 msgid "Sound"
 msgstr "Sound"
@@ -467,7 +467,7 @@ msgid "Show Password"
 msgstr ""
 
 #: ../frame/views/WifiPasswordWindow.qml:144
-#: ../modules/network/WirelessItem.qml:266
+#: ../modules/network/WirelessItem.qml:273
 msgid "Connect"
 msgstr ""
 
@@ -501,7 +501,7 @@ msgid "Save"
 msgstr ""
 
 #: ../modules/network/WiredProperties.qml:72
-#: ../modules/network/WirelessProperties.qml:140
+#: ../modules/network/WirelessProperties.qml:141
 msgid "Close"
 msgstr ""
 
@@ -519,11 +519,11 @@ msgstr ""
 msgid "Scanning..."
 msgstr ""
 
-#: ../modules/network/WirelessItem.qml:224
+#: ../modules/network/WirelessItem.qml:231
 msgid "Password: "
 msgstr ""
 
-#: ../modules/network/WirelessItem.qml:244
+#: ../modules/network/WirelessItem.qml:251
 msgid "Show password"
 msgstr ""
 
@@ -715,11 +715,11 @@ msgstr ""
 #: ../modules/default_applications/main.qml:24 ../modules/display/main.qml:190
 #: ../modules/grub/main.qml:66 ../modules/keyboard/main.qml:77
 #: ../modules/mouse_touchpad/main.qml:30 ../modules/power/main.qml:81
-#: ../modules/shortcuts/main.qml:92 ../modules/sound/main.qml:93
+#: ../modules/shortcuts/main.qml:92 ../modules/sound/main.qml:100
 msgid "Reset"
 msgstr ""
 
-#: ../modules/power/main.qml:243 ../modules/power/main.qml:416
+#: ../modules/power/main.qml:242 ../modules/power/main.qml:415
 msgid "Custom"
 msgstr ""
 
@@ -731,53 +731,53 @@ msgstr ""
 msgid "When I close the lid"
 msgstr ""
 
-#: ../modules/power/main.qml:210
+#: ../modules/power/main.qml:209
 #, fuzzy
 msgid "Power Adapter"
 msgstr "Power"
 
-#: ../modules/power/main.qml:225 ../modules/power/main.qml:398
-#: ../modules/sound/main.qml:191
+#: ../modules/power/main.qml:224 ../modules/power/main.qml:397
+#: ../modules/sound/main.qml:198
 msgid "Balance"
+msgstr ""
+
+#: ../modules/power/main.qml:226 ../modules/power/main.qml:232
+#: ../modules/power/main.qml:238 ../modules/power/main.qml:244
+#: ../modules/power/main.qml:399 ../modules/power/main.qml:405
+#: ../modules/power/main.qml:411 ../modules/power/main.qml:417
+msgid "Turn off monitor: "
 msgstr ""
 
 #: ../modules/power/main.qml:227 ../modules/power/main.qml:233
 #: ../modules/power/main.qml:239 ../modules/power/main.qml:245
 #: ../modules/power/main.qml:400 ../modules/power/main.qml:406
 #: ../modules/power/main.qml:412 ../modules/power/main.qml:418
-msgid "Turn off monitor: "
+msgid "Suspend: "
 msgstr ""
 
-#: ../modules/power/main.qml:228 ../modules/power/main.qml:234
-#: ../modules/power/main.qml:240 ../modules/power/main.qml:246
-#: ../modules/power/main.qml:401 ../modules/power/main.qml:407
-#: ../modules/power/main.qml:413 ../modules/power/main.qml:419
-msgid " Suspend: "
-msgstr ""
-
-#: ../modules/power/main.qml:231 ../modules/power/main.qml:404
+#: ../modules/power/main.qml:230 ../modules/power/main.qml:403
 #, fuzzy
 msgid "Power saver"
 msgstr "Power"
 
-#: ../modules/power/main.qml:237 ../modules/power/main.qml:410
+#: ../modules/power/main.qml:236 ../modules/power/main.qml:409
 msgid "High performance"
 msgstr ""
 
-#: ../modules/power/main.qml:288 ../modules/power/main.qml:462
+#: ../modules/power/main.qml:287 ../modules/power/main.qml:461
 msgid "Custom Options"
 msgstr ""
 
-#: ../modules/power/main.qml:293 ../modules/power/main.qml:467
+#: ../modules/power/main.qml:292 ../modules/power/main.qml:466
 msgid "Turn off monitor"
 msgstr ""
 
-#: ../modules/power/main.qml:383
+#: ../modules/power/main.qml:382
 msgid "Battery"
 msgstr ""
 
 #: ../modules/power/main.qml:117 ../modules/power/main.qml:163
-#: ../modules/power/main.qml:333 ../modules/power/main.qml:507
+#: ../modules/power/main.qml:332 ../modules/power/main.qml:506
 msgid "Suspend"
 msgstr ""
 
@@ -928,51 +928,51 @@ msgstr ""
 msgid "Custom Shortcuts"
 msgstr ""
 
-#: ../modules/sound/main.qml:125
+#: ../modules/sound/main.qml:132
 msgid "Speaker"
 msgstr ""
 
-#: ../modules/sound/main.qml:334
+#: ../modules/sound/main.qml:343
 msgid "Output Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:155
+#: ../modules/sound/main.qml:162
 msgid "Output Volume"
 msgstr ""
 
-#: ../modules/sound/main.qml:232
+#: ../modules/sound/main.qml:241
 msgid "Microphone"
 msgstr ""
 
-#: ../modules/sound/main.qml:298
+#: ../modules/sound/main.qml:307
 msgid "Input Feedback"
 msgstr ""
 
-#: ../modules/sound/main.qml:351 ../modules/sound/main.qml:458
+#: ../modules/sound/main.qml:360 ../modules/sound/main.qml:467
 msgid "No port exist in this device."
 msgstr ""
 
-#: ../modules/sound/main.qml:392
+#: ../modules/sound/main.qml:401
 msgid "Output device"
 msgstr ""
 
-#: ../modules/sound/main.qml:441
+#: ../modules/sound/main.qml:450
 msgid "Input Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:499
+#: ../modules/sound/main.qml:508
 msgid "Input device"
 msgstr ""
 
-#: ../modules/sound/main.qml:553
+#: ../modules/sound/main.qml:562
 msgid "Hide Advanced..."
 msgstr ""
 
-#: ../modules/sound/main.qml:553
+#: ../modules/sound/main.qml:562
 msgid "Show Advanced..."
 msgstr ""
 
-#: ../modules/sound/main.qml:262
+#: ../modules/sound/main.qml:271
 msgid "Input Volume"
 msgstr ""
 
