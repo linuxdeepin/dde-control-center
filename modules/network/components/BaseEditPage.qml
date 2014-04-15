@@ -12,7 +12,7 @@ Column{
     property int valueWidth: 190
     property int contentLeftMargin: 18
     property var connectionSessionObject: {
-        var connectionPath = dbusNetwork.EditConnection(uuid)
+        var connectionPath = dbusNetwork.EditConnection(uuid, devicePath)
         return connectionSession.createObject(properiesPage, { path: connectionPath })
     }
 

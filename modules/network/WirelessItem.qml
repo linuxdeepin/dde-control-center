@@ -10,7 +10,7 @@ Item {
     height: childrenRect.height
 
     property string devicePath: "/"
-    property string uuid: dbusNetwork.GetConnectionByAccessPoint(apPath)
+    property string uuid: dbusNetwork.GetConnectionUuidByAccessPoint(apPath)
     property bool apConnected: getIndexFromArray(uuid, activeConnections) != -1
 
     Behavior on height {
@@ -19,7 +19,7 @@ Item {
 
     function requestUuid(){
         // TODO get uuid each time to fix connection issue temporary
-        var uuid = dbusNetwork.GetConnectionByAccessPoint(apPath)
+        var uuid = dbusNetwork.GetConnectionUuidByAccessPoint(apPath)
         print("uuid=",uuid, uuid=="")
         if(uuid == ""){
             uuid = dbusNetwork.CreateConnectionForAccessPoint(apPath)
@@ -34,8 +34,8 @@ Item {
     }
 
     function activateThisConnection(){
-        wirelessItem.requestUuid()
-        dbusNetwork.ActivateConnection(wirelessItem.uuid, wirelessItem.devicePath)
+        // wirelessItem.requestUuid()
+        dbusNetwork.ActivateConnectionForAccessPoint(wirelessItem.apPath, wirelessItem.devicePath)
         wirelessDevicesExpand.inConnectingApPath = apPath
     }
 

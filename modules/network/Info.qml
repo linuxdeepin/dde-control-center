@@ -15,7 +15,7 @@ Column {
     function filterConnection(devs) {
         var conns = []
         for (var i=0; i<devs.length; i++) {
-            var c = dbusNetwork.GetActiveConnection(devs[i][0])
+            var c = dbusNetwork.GetActiveConnectionInfo(devs[i][0])
             if (c && c[0]) {
                 conns.push(c)
             }
