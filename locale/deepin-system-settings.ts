@@ -631,7 +631,7 @@
 <context>
     <name>WebCam</name>
     <message>
-        <location filename="../modules/account/WebCam.qml" line="176"/>
+        <location filename="../modules/account/WebCam.qml" line="174"/>
         <source>No camera found.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1135,32 +1135,8 @@
     <message>
         <location filename="../modules/power/main.qml" line="224"/>
         <location filename="../modules/power/main.qml" line="397"/>
-        <location filename="../modules/sound/main.qml" line="198"/>
+        <location filename="../modules/sound/main.qml" line="206"/>
         <source>Balance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/power/main.qml" line="226"/>
-        <location filename="../modules/power/main.qml" line="232"/>
-        <location filename="../modules/power/main.qml" line="238"/>
-        <location filename="../modules/power/main.qml" line="244"/>
-        <location filename="../modules/power/main.qml" line="399"/>
-        <location filename="../modules/power/main.qml" line="405"/>
-        <location filename="../modules/power/main.qml" line="411"/>
-        <location filename="../modules/power/main.qml" line="417"/>
-        <source>Turn off monitor: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/power/main.qml" line="227"/>
-        <location filename="../modules/power/main.qml" line="233"/>
-        <location filename="../modules/power/main.qml" line="239"/>
-        <location filename="../modules/power/main.qml" line="245"/>
-        <location filename="../modules/power/main.qml" line="400"/>
-        <location filename="../modules/power/main.qml" line="406"/>
-        <location filename="../modules/power/main.qml" line="412"/>
-        <location filename="../modules/power/main.qml" line="418"/>
-        <source>Suspend: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1182,7 +1158,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../modules/power/main.qml" line="226"/>
+        <location filename="../modules/power/main.qml" line="232"/>
+        <location filename="../modules/power/main.qml" line="238"/>
+        <location filename="../modules/power/main.qml" line="244"/>
         <location filename="../modules/power/main.qml" line="292"/>
+        <location filename="../modules/power/main.qml" line="399"/>
+        <location filename="../modules/power/main.qml" line="405"/>
+        <location filename="../modules/power/main.qml" line="411"/>
+        <location filename="../modules/power/main.qml" line="417"/>
         <location filename="../modules/power/main.qml" line="466"/>
         <source>Turn off monitor</source>
         <translation type="unfinished"></translation>
@@ -1195,7 +1179,15 @@
     <message>
         <location filename="../modules/power/main.qml" line="117"/>
         <location filename="../modules/power/main.qml" line="163"/>
+        <location filename="../modules/power/main.qml" line="227"/>
+        <location filename="../modules/power/main.qml" line="233"/>
+        <location filename="../modules/power/main.qml" line="239"/>
+        <location filename="../modules/power/main.qml" line="245"/>
         <location filename="../modules/power/main.qml" line="332"/>
+        <location filename="../modules/power/main.qml" line="400"/>
+        <location filename="../modules/power/main.qml" line="406"/>
+        <location filename="../modules/power/main.qml" line="412"/>
+        <location filename="../modules/power/main.qml" line="418"/>
         <location filename="../modules/power/main.qml" line="506"/>
         <source>Suspend</source>
         <translation type="unfinished"></translation>
@@ -1439,7 +1431,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="343"/>
+        <location filename="../modules/sound/main.qml" line="367"/>
         <source>Output Port</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1449,48 +1441,48 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="241"/>
+        <location filename="../modules/sound/main.qml" line="257"/>
         <source>Microphone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="307"/>
+        <location filename="../modules/sound/main.qml" line="331"/>
         <source>Input Feedback</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="360"/>
-        <location filename="../modules/sound/main.qml" line="467"/>
+        <location filename="../modules/sound/main.qml" line="384"/>
+        <location filename="../modules/sound/main.qml" line="491"/>
         <source>No port exist in this device.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="401"/>
+        <location filename="../modules/sound/main.qml" line="425"/>
         <source>Output device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="450"/>
+        <location filename="../modules/sound/main.qml" line="474"/>
         <source>Input Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="508"/>
+        <location filename="../modules/sound/main.qml" line="532"/>
         <source>Input device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="562"/>
+        <location filename="../modules/sound/main.qml" line="586"/>
         <source>Hide Advanced...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="562"/>
+        <location filename="../modules/sound/main.qml" line="586"/>
         <source>Show Advanced...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="271"/>
+        <location filename="../modules/sound/main.qml" line="287"/>
         <source>Input Volume</source>
         <translation type="unfinished"></translation>
     </message>

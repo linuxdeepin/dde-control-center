@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dss 2014\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-14 13:58+0800\n"
+"POT-Creation-Date: 2014-04-15 09:49+0800\n"
 "PO-Revision-Date: 2013-11-25 12:27+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -460,7 +460,7 @@ msgstr ""
 msgid "Long"
 msgstr ""
 
-#: ../modules/account/WebCam.qml:176
+#: ../modules/account/WebCam.qml:174
 msgid "No camera found."
 msgstr ""
 
@@ -738,22 +738,8 @@ msgid "Power Adapter"
 msgstr "Power"
 
 #: ../modules/power/main.qml:224 ../modules/power/main.qml:397
-#: ../modules/sound/main.qml:198
+#: ../modules/sound/main.qml:206
 msgid "Balance"
-msgstr ""
-
-#: ../modules/power/main.qml:226 ../modules/power/main.qml:232
-#: ../modules/power/main.qml:238 ../modules/power/main.qml:244
-#: ../modules/power/main.qml:399 ../modules/power/main.qml:405
-#: ../modules/power/main.qml:411 ../modules/power/main.qml:417
-msgid "Turn off monitor: "
-msgstr ""
-
-#: ../modules/power/main.qml:227 ../modules/power/main.qml:233
-#: ../modules/power/main.qml:239 ../modules/power/main.qml:245
-#: ../modules/power/main.qml:400 ../modules/power/main.qml:406
-#: ../modules/power/main.qml:412 ../modules/power/main.qml:418
-msgid "Suspend: "
 msgstr ""
 
 #: ../modules/power/main.qml:230 ../modules/power/main.qml:403
@@ -769,7 +755,11 @@ msgstr ""
 msgid "Custom Options"
 msgstr ""
 
-#: ../modules/power/main.qml:292 ../modules/power/main.qml:466
+#: ../modules/power/main.qml:226 ../modules/power/main.qml:232
+#: ../modules/power/main.qml:238 ../modules/power/main.qml:244
+#: ../modules/power/main.qml:292 ../modules/power/main.qml:399
+#: ../modules/power/main.qml:405 ../modules/power/main.qml:411
+#: ../modules/power/main.qml:417 ../modules/power/main.qml:466
 msgid "Turn off monitor"
 msgstr ""
 
@@ -778,7 +768,11 @@ msgid "Battery"
 msgstr ""
 
 #: ../modules/power/main.qml:117 ../modules/power/main.qml:163
-#: ../modules/power/main.qml:332 ../modules/power/main.qml:506
+#: ../modules/power/main.qml:227 ../modules/power/main.qml:233
+#: ../modules/power/main.qml:239 ../modules/power/main.qml:245
+#: ../modules/power/main.qml:332 ../modules/power/main.qml:400
+#: ../modules/power/main.qml:406 ../modules/power/main.qml:412
+#: ../modules/power/main.qml:418 ../modules/power/main.qml:506
 msgid "Suspend"
 msgstr ""
 
@@ -933,7 +927,7 @@ msgstr ""
 msgid "Speaker"
 msgstr ""
 
-#: ../modules/sound/main.qml:343
+#: ../modules/sound/main.qml:367
 msgid "Output Port"
 msgstr ""
 
@@ -941,39 +935,39 @@ msgstr ""
 msgid "Output Volume"
 msgstr ""
 
-#: ../modules/sound/main.qml:241
+#: ../modules/sound/main.qml:257
 msgid "Microphone"
 msgstr ""
 
-#: ../modules/sound/main.qml:307
+#: ../modules/sound/main.qml:331
 msgid "Input Feedback"
 msgstr ""
 
-#: ../modules/sound/main.qml:360 ../modules/sound/main.qml:467
+#: ../modules/sound/main.qml:384 ../modules/sound/main.qml:491
 msgid "No port exist in this device."
 msgstr ""
 
-#: ../modules/sound/main.qml:401
+#: ../modules/sound/main.qml:425
 msgid "Output device"
 msgstr ""
 
-#: ../modules/sound/main.qml:450
+#: ../modules/sound/main.qml:474
 msgid "Input Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:508
+#: ../modules/sound/main.qml:532
 msgid "Input device"
 msgstr ""
 
-#: ../modules/sound/main.qml:562
+#: ../modules/sound/main.qml:586
 msgid "Hide Advanced..."
 msgstr ""
 
-#: ../modules/sound/main.qml:562
+#: ../modules/sound/main.qml:586
 msgid "Show Advanced..."
 msgstr ""
 
-#: ../modules/sound/main.qml:271
+#: ../modules/sound/main.qml:287
 msgid "Input Volume"
 msgstr ""
 
