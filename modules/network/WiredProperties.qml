@@ -63,9 +63,15 @@ BaseEditPage {
 
     DBaseLine{
         rightLoader.sourceComponent: Row {
+            spacing: 6
 
             DTextButton{
                 text: dsTr("Save")
+                onClicked: {
+                    if (connectionSessionObject.Save()){
+                        stackView.reset()
+                    }
+                }
             }
 
             DTextButton{
