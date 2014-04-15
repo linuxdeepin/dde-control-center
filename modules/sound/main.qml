@@ -312,13 +312,13 @@ Item {
                                     input_volume_slider.setValue(currentSource.volume)
                                 }
                             }
+                        }
+                        
+                        Connections {
+                            target: soundModule
 
-                            Connections {
-                                target: soundModule
-
-                                onCurrentSourceChanged: {
-                                    input_volume_slider.setValue(currentSource.volume)
-                                }
+                            onCurrentSourceChanged: {
+                                input_volume_slider.setValue(currentSource.volume)
                             }
                         }
                     }
