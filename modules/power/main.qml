@@ -223,26 +223,26 @@ Rectangle {
                         model.append({
                                          "item_label": dsTr("Balance"),
                                          "item_value": 2,
-                                         "item_tooltip": dsTr("Turn off monitor: ") + formatTime(planInfo.PowerLine.Balanced[0]) + "\n" + 
-                                                         dsTr("Suspend: ") + formatTime(planInfo.PowerLine.Balanced[1])
+                                         "item_tooltip": dsTr("Turn off monitor") + ": " + formatTime(planInfo.PowerLine.Balanced[0]) + "\n" + 
+                                                         dsTr("Suspend") + ": " + formatTime(planInfo.PowerLine.Balanced[1])
                                      })
                         model.append({
                                          "item_label": dsTr("Power saver"),
                                          "item_value": 1,
-                                         "item_tooltip": dsTr("Turn off monitor: ") + formatTime(planInfo.PowerLine.PowerSaver[0]) + "\n" + 
-                                                         dsTr("Suspend: ") + formatTime(planInfo.PowerLine.PowerSaver[1])
+                                         "item_tooltip": dsTr("Turn off monitor") + ": " + formatTime(planInfo.PowerLine.PowerSaver[0]) + "\n" + 
+                                                         dsTr("Suspend") + ": " + formatTime(planInfo.PowerLine.PowerSaver[1])
                                      })
                         model.append({
                                          "item_label": dsTr("High performance"),
                                          "item_value": 3,
-                                         "item_tooltip": dsTr("Turn off monitor: ") + formatTime(planInfo.PowerLine.HighPerformance[0]) + "\n" + 
-                                                         dsTr("Suspend: ") + formatTime(planInfo.PowerLine.HighPerformance[1])
+                                         "item_tooltip": dsTr("Turn off monitor") + ": " + formatTime(planInfo.PowerLine.HighPerformance[0]) + "\n" + 
+                                                         dsTr("Suspend") + ": " + formatTime(planInfo.PowerLine.HighPerformance[1])
                                      })
                         model.append({
                                          "item_label": dsTr("Custom"),
                                          "item_value": 0,
-                                         "item_tooltip": dsTr("Turn off monitor: ") + formatTime(planInfo.PowerLine.Custom[0]) + "\n" + 
-                                                         dsTr("Suspend: ") + formatTime(planInfo.PowerLine.Custom[1])
+                                         "item_tooltip": dsTr("Turn off monitor") + ": " + formatTime(planInfo.PowerLine.Custom[0]) + "\n" + 
+                                                         dsTr("Suspend") + ": " + formatTime(planInfo.PowerLine.Custom[1])
                                      })
                         return model
                     }
@@ -396,26 +396,26 @@ Rectangle {
                         model.append({
                                          "item_label": dsTr("Balance"),
                                          "item_value": 2,
-                                         "item_tooltip": dsTr("Turn off monitor: ") + formatTime(planInfo.Battery.Balanced[0]) + "\n" + 
-                                                         dsTr("Suspend: ") + formatTime(planInfo.Battery.Balanced[1])
+                                         "item_tooltip": dsTr("Turn off monitor") + ": " + formatTime(planInfo.Battery.Balanced[0]) + "\n" + 
+                                                         dsTr("Suspend") + ": " + formatTime(planInfo.Battery.Balanced[1])
                                      })
                         model.append({
                                          "item_label": dsTr("Power saver"),
                                          "item_value": 1,
-                                         "item_tooltip": dsTr("Turn off monitor: ") + formatTime(planInfo.Battery.PowerSaver[0]) + "\n" + 
-                                                         dsTr("Suspend: ") + formatTime(planInfo.Battery.PowerSaver[1])
+                                         "item_tooltip": dsTr("Turn off monitor") + ": " + formatTime(planInfo.Battery.PowerSaver[0]) + "\n" + 
+                                                         dsTr("Suspend") + ": " + formatTime(planInfo.Battery.PowerSaver[1])
                                      })
                         model.append({
                                          "item_label": dsTr("High performance"),
                                          "item_value": 3,
-                                         "item_tooltip": dsTr("Turn off monitor: ") + formatTime(planInfo.Battery.HighPerformance[0]) + "\n" + 
-                                                         dsTr("Suspend: ") + formatTime(planInfo.Battery.HighPerformance[1])
+                                         "item_tooltip": dsTr("Turn off monitor") + ": " + formatTime(planInfo.Battery.HighPerformance[0]) + "\n" + 
+                                                         dsTr("Suspend") + ": " + formatTime(planInfo.Battery.HighPerformance[1])
                                      })
                         model.append({
                                          "item_label": dsTr("Custom"),
                                          "item_value": 0,
-                                         "item_tooltip": dsTr("Turn off monitor: ") + formatTime(planInfo.Battery.Custom[0]) + "\n" + 
-                                                         dsTr("Suspend: ") + formatTime(planInfo.Battery.Custom[1])
+                                         "item_tooltip": dsTr("Turn off monitor") + ": " + formatTime(planInfo.Battery.Custom[0]) + "\n" + 
+                                                         dsTr("Suspend") + ": " + formatTime(planInfo.Battery.Custom[1])
                                      })
                         return model
                     }

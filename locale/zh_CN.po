@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dss 2014\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-14 13:46+0800\n"
+"POT-Creation-Date: 2014-04-15 09:49+0800\n"
 "PO-Revision-Date: 2013-11-25 12:27+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -458,7 +458,7 @@ msgstr "短"
 msgid "Long"
 msgstr "长"
 
-#: ../modules/account/WebCam.qml:176
+#: ../modules/account/WebCam.qml:174
 msgid "No camera found."
 msgstr "未找到相机设备"
 
@@ -734,23 +734,9 @@ msgid "Power Adapter"
 msgstr "电源适配器"
 
 #: ../modules/power/main.qml:224 ../modules/power/main.qml:397
-#: ../modules/sound/main.qml:198
+#: ../modules/sound/main.qml:206
 msgid "Balance"
 msgstr "均衡"
-
-#: ../modules/power/main.qml:226 ../modules/power/main.qml:232
-#: ../modules/power/main.qml:238 ../modules/power/main.qml:244
-#: ../modules/power/main.qml:399 ../modules/power/main.qml:405
-#: ../modules/power/main.qml:411 ../modules/power/main.qml:417
-msgid "Turn off monitor: "
-msgstr "关闭显示器"
-
-#: ../modules/power/main.qml:227 ../modules/power/main.qml:233
-#: ../modules/power/main.qml:239 ../modules/power/main.qml:245
-#: ../modules/power/main.qml:400 ../modules/power/main.qml:406
-#: ../modules/power/main.qml:412 ../modules/power/main.qml:418
-msgid "Suspend: "
-msgstr "待机: "
 
 #: ../modules/power/main.qml:230 ../modules/power/main.qml:403
 msgid "Power saver"
@@ -762,18 +748,26 @@ msgstr "高性能"
 
 #: ../modules/power/main.qml:287 ../modules/power/main.qml:461
 msgid "Custom Options"
-msgstr "自定义快捷键"
+msgstr "自定义选项"
 
-#: ../modules/power/main.qml:292 ../modules/power/main.qml:466
+#: ../modules/power/main.qml:226 ../modules/power/main.qml:232
+#: ../modules/power/main.qml:238 ../modules/power/main.qml:244
+#: ../modules/power/main.qml:292 ../modules/power/main.qml:399
+#: ../modules/power/main.qml:405 ../modules/power/main.qml:411
+#: ../modules/power/main.qml:417 ../modules/power/main.qml:466
 msgid "Turn off monitor"
 msgstr "关闭显示器"
 
 #: ../modules/power/main.qml:382
 msgid "Battery"
-msgstr ""
+msgstr "电池"
 
 #: ../modules/power/main.qml:117 ../modules/power/main.qml:163
-#: ../modules/power/main.qml:332 ../modules/power/main.qml:506
+#: ../modules/power/main.qml:227 ../modules/power/main.qml:233
+#: ../modules/power/main.qml:239 ../modules/power/main.qml:245
+#: ../modules/power/main.qml:332 ../modules/power/main.qml:400
+#: ../modules/power/main.qml:406 ../modules/power/main.qml:412
+#: ../modules/power/main.qml:418 ../modules/power/main.qml:506
 msgid "Suspend"
 msgstr "待机"
 
@@ -926,7 +920,7 @@ msgstr "自定义快捷键"
 msgid "Speaker"
 msgstr "扬声器"
 
-#: ../modules/sound/main.qml:343
+#: ../modules/sound/main.qml:367
 msgid "Output Port"
 msgstr "输出端口"
 
@@ -934,39 +928,39 @@ msgstr "输出端口"
 msgid "Output Volume"
 msgstr "输出音量"
 
-#: ../modules/sound/main.qml:241
+#: ../modules/sound/main.qml:257
 msgid "Microphone"
 msgstr "麦克风"
 
-#: ../modules/sound/main.qml:307
+#: ../modules/sound/main.qml:331
 msgid "Input Feedback"
 msgstr "输入反馈"
 
-#: ../modules/sound/main.qml:360 ../modules/sound/main.qml:467
+#: ../modules/sound/main.qml:384 ../modules/sound/main.qml:491
 msgid "No port exist in this device."
 msgstr "这个设备没有端口"
 
-#: ../modules/sound/main.qml:401
+#: ../modules/sound/main.qml:425
 msgid "Output device"
 msgstr "输出设备"
 
-#: ../modules/sound/main.qml:450
+#: ../modules/sound/main.qml:474
 msgid "Input Port"
 msgstr "输入端口"
 
-#: ../modules/sound/main.qml:508
+#: ../modules/sound/main.qml:532
 msgid "Input device"
 msgstr "输入设备"
 
-#: ../modules/sound/main.qml:562
+#: ../modules/sound/main.qml:586
 msgid "Hide Advanced..."
 msgstr "隐藏高级设置..."
 
-#: ../modules/sound/main.qml:562
+#: ../modules/sound/main.qml:586
 msgid "Show Advanced..."
 msgstr "显示高级设置..."
 
-#: ../modules/sound/main.qml:271
+#: ../modules/sound/main.qml:287
 msgid "Input Volume"
 msgstr "输入音量"
 
@@ -1005,6 +999,12 @@ msgstr "个性化"
 #: ../frame/modules_info.py:46
 msgid "Touchpad"
 msgstr "触摸板"
+
+#~ msgid "Turn off monitor: "
+#~ msgstr "关闭显示器"
+
+#~ msgid "Suspend: "
+#~ msgstr "待机: "
 
 #~ msgid "Requires a password"
 #~ msgstr "需要密码"
