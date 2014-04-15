@@ -24,12 +24,11 @@ import os
 import sys
 from datetime import datetime
 
-from PyQt5.QtCore import (Qt, pyqtSlot, pyqtSignal, QVariant, QUrl,
-        pyqtProperty, Q_CLASSINFO)
-from PyQt5.QtGui import QSurfaceFormat, QColor
-from PyQt5.QtQuick import QQuickView
-from PyQt5.QtDBus import QDBusMessage, QDBusReply, QDBusAbstractAdaptor
-from PyQt5.QtWidgets import qApp, QApplication
+from PyQt5 import QtCore
+from PyQt5 import QtGui
+from PyQt5 import QtDBus
+from PyQt5 import QtWidgets
+from PyQt5 import QtQuick
 
 from display_monitor import connect_to_primary_changed
 from constants import ROOT_LOCATION, PANEL_WIDTH
@@ -41,55 +40,55 @@ from dialog_window import MessageDialog
 import utils
 import ip_utils
 
-class DssDbusAdptor(QDBusAbstractAdaptor):
-    Q_CLASSINFO("D-Bus Interface", APP_DBUS_NAME)
+class DssDbusAdptor(QtDBus.QDBusAbstractAdaptor):
+    QtCore.Q_CLASSINFO("D-Bus Interface", APP_DBUS_NAME)
 
     def __init__(self, parent):
-        QDBusAbstractAdaptor.__init__(self, parent)
+        QtDBus.QDBusAbstractAdaptor.__init__(self, parent)
         self.setAutoRelaySignals(True)
 
-    @pyqtSlot(int)
+    @QtCore.pyqtSlot(int)
     def Show(self, seconds):
         self.parent().show(seconds)
 
-    @pyqtSlot(str)
+    @QtCore.pyqtSlot(str)
     def ShowModule(self, moduleName):
         self.parent().view_object.showModule(moduleName)
 
-    @pyqtSlot()
+    @QtCore.pyqtSlot()
     def Hide(self):
         self.parent().view_object.hideDss()
     
-    @pyqtSlot(int, int)
+    @QtCore.pyqtSlot(int, int)
     def ClickToHide(self, mouseX, mouseY):
         self.parent().view_object.outerAreaClicked(mouseX, mouseY)
 
-    @pyqtSlot()
+    @QtCore.pyqtSlot()
     def Toggle(self):
         self.parent().view_object.togglePanel()
 
-class ControlPanel(QQuickView):
+class ControlPanel(QtQuick.QQuickView):
 
-    moduleFileChanged = pyqtSignal(str)
-    focusLosed = pyqtSignal()
+    moduleFileChanged = QtCore.pyqtSignal(str)
+    focusLosed = QtCore.pyqtSignal()
 
     def __init__(self):
-        QQuickView.__init__(self)
+        QtQuick.QQuickView.__init__(self)
 
-        surface_format = QSurfaceFormat()
+        surface_format = QtGui.QSurfaceFormat()
         surface_format.setAlphaBufferSize(8)
 
-        self.setColor(QColor(0, 0, 0, 0))
+        self.setColor(QtGui.QColor(0, 0, 0, 0))
         self.setFlags(
-                Qt.Tool
-                | Qt.FramelessWindowHint
-                | Qt.WindowStaysOnTopHint
-                | Qt.X11BypassWindowManagerHint
+                QtCore.Qt.Tool
+                | QtCore.Qt.FramelessWindowHint
+                | QtCore.Qt.WindowStaysOnTopHint
+                | QtCore.Qt.X11BypassWindowManagerHint
                 )
-        self.setResizeMode(QQuickView.SizeRootObjectToView)
+        self.setResizeMode(QtQuick.QQuickView.SizeRootObjectToView)
         self.setFormat(surface_format)
         self.set_all_contexts()
-        self.setSource(QUrl.fromLocalFile(os.path.join(
+        self.setSource(QtCore.QUrl.fromLocalFile(os.path.join(
             ROOT_LOCATION, 'frame', 'views', 'Main.qml')))
         self.connect_all_object_function()
 
@@ -97,7 +96,7 @@ class ControlPanel(QQuickView):
         connect_to_primary_changed(self.display_primary_changed)
 
         self._dbus_adptor = DssDbusAdptor(self)
-        qApp.focusWindowChanged.connect(self.onFocusWindowChanged)
+        QtWidgets.qApp.focusWindowChanged.connect(self.onFocusWindowChanged)
 
     def onFocusWindowChanged(self, win):
         if win is None:
@@ -124,75 +123,86 @@ class ControlPanel(QQuickView):
         self.setGeometry(x + width, y,
                 PANEL_WIDTH, height)
 
-    @pyqtSlot(int)
-    def setCursorFlashTime(self, time):
-        QApplication.setCursorFlashTime(time)
+    @QtCore.pyqtSlot(str)
+    def setCustomCursor(self, path):
+        pixmap = QtGui.QPixmap(path.split("//")[1])
+        cursor = QtGui.QCursor(pixmap, -1, -1)
+        QtGui.QGuiApplication.setOverrideCursor(cursor)
+        QtGui.QGuiApplication.changeOverrideCursor(cursor)
 
-    @pyqtSlot(str, result=str)
+    @QtCore.pyqtSlot()
+    def clearCustomCursor(self):
+        QtGui.QGuiApplication.restoreOverrideCursor()
+
+    @QtCore.pyqtSlot(int)
+    def setCursorFlashTime(self, time):
+        QtWidgets.QApplication.setCursorFlashTime(time)
+
+    @QtCore.pyqtSlot(str, result=str)
     def getDefaultMask(self, ip_addr):
         return ip_utils.getDefaultMask(ip_addr)
 
-    @pyqtSlot(result=int)
+    @QtCore.pyqtSlot(result=int)
     def getPid(self):
         return os.getpid()
         
-    @pyqtSlot(result=str)
+    @QtCore.pyqtSlot(result=str)
     def getHomeDir(self):
         return os.path.expanduser("~")
 
-    @pyqtSlot(int)
+    @QtCore.pyqtSlot(int)
     def show(self, seconds):
         self.view_object.showDss(seconds)
 
-    @pyqtProperty(int)
+    @QtCore.pyqtProperty(int)
     def panelWith(self):
         return PANEL_WIDTH
 
-    @pyqtSlot(QDBusMessage)
+    @QtCore.pyqtSlot(QtDBus.QDBusMessage)
     def display_primary_changed(self, message):
-        rect = QDBusReply(message).value()
+        rect = QtDBus.QDBusReply(message).value()
         self.set_geometry(rect)
 
-    @pyqtSlot(result=QVariant)
+    @QtCore.pyqtSlot(result=QtCore.QVariant)
     def getCursorPos(self):
         qpoint = self.cursor().pos()
         return [qpoint.x(), qpoint.y()]
 
-    @pyqtSlot(str, result=str)
+    @QtCore.pyqtSlot(str, result=str)
     def stripString(self, s):
         return s.strip()
 
-    @pyqtSlot(QVariant, str, result=str)
+    @QtCore.pyqtSlot(QtCore.QVariant, str, result=str)
     def joinString(self, s_list, key):
         return key.join(s_list)
 
-    @pyqtSlot(str, result=bool)
+    @QtCore.pyqtSlot(str, result=bool)
     def isIconPluginExist(self, module_id):
         return os.path.exists(os.path.join(ROOT_LOCATION, "modules", module_id, "iconPlugin.qml"))
 
-    @pyqtSlot(str, result=str)
+    @QtCore.pyqtSlot(str, result=str)
     def toHumanShortcutLabel(self, sequence):
         sequence = sequence.replace("<", "").replace(">", "+")
         keys = sequence.split("-")
         return "+".join(keys).title()
 
-    @pyqtSlot(str, result=str)
+    @QtCore.pyqtSlot(str, result=str)
     def toHumanThemeName(self, sequence):
         keys = sequence.split("-")
         return " ".join(keys).title()
 
-    @pyqtSlot(result=QVariant)
+    @QtCore.pyqtSlot(result=QtCore.QVariant)
     def argv(self):
         return sys.argv[1:]
 
-    @pyqtSlot(QVariant, bool, result=QVariant)
+    @QtCore.pyqtSlot(QtCore.QVariant, bool, result=QtCore.QVariant)
     def sortArray(self, data, reverse=False):
         utils.quicksort(data)
         if reverse:
             data.reverse()
         return data
 
-    @pyqtSlot(str, result=QVariant)
+    @QtCore.pyqtSlot(str, result=QtCore.QVariant)
     def getLunarDay(self, value):
         dt = datetime.strptime(value, "%Y-%m-%d")
         cc150 = ChineseCalendar150(dt)

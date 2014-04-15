@@ -25,7 +25,7 @@ Item {
         return obj
     }
 
-    property var previewsWindow: PreviewWindow{
+    property var previewsWindow: NewPreviewWindow{
         x: rootWindow.x - width
         y: rootWindow.y + 18
         themeObject: currentThemeObject
