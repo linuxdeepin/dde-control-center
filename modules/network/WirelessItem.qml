@@ -34,7 +34,7 @@ Item {
     }
 
     function activateThisConnection(){
-        dbusNetwork.ActivateConnectionForAccessPoint(apPath, wirelessItem.devicePath)
+        wirelessItem.uuid = dbusNetwork.ActivateConnectionForAccessPoint(apPath, wirelessItem.devicePath)
         wirelessDevicesExpand.inConnectingApPath = apPath
     }
 
