@@ -61,8 +61,9 @@ DBaseExpand {
                     accessPointsModel.insert(insertPosition, {
                         "apName": apProperty[0],
                         "apSecured": apProperty[1],
-                        "apSignal": apProperty[2],
-                        "apPath": apProperty[3]
+                        "apSecuredInEap": apProperty[2],
+                        "apSignal": apProperty[3],
+                        "apPath": apProperty[4]
                     })
                 }
             }
@@ -85,8 +86,9 @@ DBaseExpand {
                 for(var i in newApProperty){
                     apPropertyObject.apName = newApProperty[0]
                     apPropertyObject.apSecured = newApProperty[1]
-                    apPropertyObject.apSignal = newApProperty[2]
-                    apPropertyObject.apPath = newApProperty[3]
+                    apPropertyObject.apSecuredInEap = newApProperty[2]
+                    apPropertyObject.apSignal = newApProperty[3]
+                    apPropertyObject.apPath = newApProperty[4]
                 }
 
                 var insertPosition = accessPointsModel.getInsertPosition(newApProperty)
@@ -188,8 +190,9 @@ DBaseExpand {
                 accessPointsModel.append({
                     "apName": ap[0],
                     "apSecured": ap[1],
-                    "apSignal": ap[2],
-                    "apPath": ap[3]
+                    "apSecuredInEap": ap[2],
+                    "apSignal": ap[3],
+                    "apPath": ap[4]
                 })
             }
             wirelessDevicesExpand.sortModel()

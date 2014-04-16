@@ -34,8 +34,7 @@ Item {
     }
 
     function activateThisConnection(){
-        // wirelessItem.requestUuid()
-        dbusNetwork.ActivateConnectionForAccessPoint(wirelessItem.apPath, wirelessItem.devicePath)
+        dbusNetwork.ActivateConnectionForAccessPoint(apPath, wirelessItem.devicePath)
         wirelessDevicesExpand.inConnectingApPath = apPath
     }
 
@@ -70,11 +69,20 @@ Item {
             }
 
             onClicked: {
-                if(!apConnected){
-                    activateThisConnection()
+                // if security in eap, go to edit connection always
+                if(apSecuredInEap) {
+                    print("secured in eap") // TODO debug
+                    goToEditConnection()
                 }
                 else{
-                    goToEditConnection()
+                    if(!apConnected){
+                        print("activate connection") // TODO debug
+                        activateThisConnection()
+                    }
+                    else{
+                        print("edit connection") // TODO debug
+                        goToEditConnection()
+                    }
                 }
             }
         }
