@@ -414,6 +414,26 @@
 <context>
     <name>MonitorProperties</name>
     <message>
+        <location filename="../modules/display/MonitorProperties.qml" line="24"/>
+        <source>Normal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/display/MonitorProperties.qml" line="25"/>
+        <source>Rotate Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/display/MonitorProperties.qml" line="26"/>
+        <source>Upside Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/display/MonitorProperties.qml" line="27"/>
+        <source>Rotate Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../modules/display/MonitorProperties.qml" line="57"/>
         <source>Enabled</source>
         <translation type="unfinished"></translation>
@@ -1438,6 +1458,16 @@
     <message>
         <location filename="../modules/sound/main.qml" line="162"/>
         <source>Output Volume</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/main.qml" line="226"/>
+        <source>Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/main.qml" line="228"/>
+        <source>Right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

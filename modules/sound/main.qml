@@ -223,9 +223,9 @@ Item {
                         }
 
                         Component.onCompleted: {
-                            addRuler(-1, "Left")
+                            addRuler(-1, dsTr("Left"))
                             addRuler(0, "")
-                            addRuler(1, "Right")
+                            addRuler(1, dsTr("Right"))
                         }
 
                         Connections {

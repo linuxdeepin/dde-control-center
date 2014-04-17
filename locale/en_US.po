@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dss 2014\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-15 09:49+0800\n"
+"POT-Creation-Date: 2014-04-17 10:19+0800\n"
 "PO-Revision-Date: 2013-11-25 12:27+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -315,6 +315,22 @@ msgstr ""
 
 #: ../modules/display/MonitorDragArea.qml:440
 msgid "Edit"
+msgstr ""
+
+#: ../modules/display/MonitorProperties.qml:24
+msgid "Normal"
+msgstr ""
+
+#: ../modules/display/MonitorProperties.qml:25
+msgid "Rotate Right"
+msgstr ""
+
+#: ../modules/display/MonitorProperties.qml:26
+msgid "Upside Down"
+msgstr ""
+
+#: ../modules/display/MonitorProperties.qml:27
+msgid "Rotate Left"
 msgstr ""
 
 #: ../modules/display/MonitorProperties.qml:57
@@ -933,6 +949,14 @@ msgstr ""
 
 #: ../modules/sound/main.qml:162
 msgid "Output Volume"
+msgstr ""
+
+#: ../modules/sound/main.qml:226
+msgid "Left"
+msgstr ""
+
+#: ../modules/sound/main.qml:228
+msgid "Right"
 msgstr ""
 
 #: ../modules/sound/main.qml:257
