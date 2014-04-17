@@ -15,7 +15,7 @@ Rectangle {
     property var planInfo: JSON.parse(dbus_power.planInfo)
 
     function formatTime(timeout) {
-        return indexToLabel(timeoutToIndex(timeout))
+        return indexToText(timeoutToIndex(timeout))
     }
 
     function timeoutToIndex(timeout) {
@@ -51,6 +51,18 @@ Rectangle {
             case 4: return "30m"; break
             case 5: return "1h"; break
             case 6: return "Never"
+        }
+    }
+
+    function indexToText(idx) {
+        switch (idx) {
+            case 0: return dsTr("1 minute"); break
+            case 1: return dsTr("5 minutes"); break
+            case 2: return dsTr("10 minutes"); break
+            case 3: return dsTr("15 minutes"); break
+            case 4: return dsTr("30 minutes"); break
+            case 5: return dsTr("1 hour"); break
+            case 6: return dsTr("Never")
         }
     }
 
