@@ -1,14 +1,29 @@
-# Chinese translations for dss package.
-# Copyright (C) 2013 THE dss'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the dss package.
-# Automatically generated, 2013.
-# Translators:
-# Peter Dave Hello <hsu@peterdavehello.org>, 2014
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: dss 2014\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-15 09:49+0800\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#~ # Chinese translations for dss package.
+#~ # Copyright (C) 2013 THE dss'S COPYRIGHT HOLDER
+#~ # This file is distributed under the same license as the dss package.
+#~ # Automatically generated, 2013.
+#~ # Translators:
+#~ # Peter Dave Hello <hsu@peterdavehello.org>, 2014
+#~ msgid ""
+#~ msgstr ""
+#~ "Project-Id-Version: dss 2014\n"
+#~ "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-04-17 10:19+0800\n"
 "PO-Revision-Date: 2013-11-25 12:27+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -314,6 +329,24 @@ msgstr "識別"
 #: ../modules/display/MonitorDragArea.qml:440
 msgid "Edit"
 msgstr "編輯"
+
+#: ../modules/display/MonitorProperties.qml:24
+msgid "Normal"
+msgstr ""
+
+#: ../modules/display/MonitorProperties.qml:25
+#, fuzzy
+msgid "Rotate Right"
+msgstr "右下"
+
+#: ../modules/display/MonitorProperties.qml:26
+msgid "Upside Down"
+msgstr ""
+
+#: ../modules/display/MonitorProperties.qml:27
+#, fuzzy
+msgid "Rotate Left"
+msgstr "左上"
 
 #: ../modules/display/MonitorProperties.qml:57
 msgid "Enabled"
@@ -927,6 +960,16 @@ msgstr "輸出連接埠"
 #: ../modules/sound/main.qml:162
 msgid "Output Volume"
 msgstr "輸出音量"
+
+#: ../modules/sound/main.qml:226
+#, fuzzy
+msgid "Left"
+msgstr "左上"
+
+#: ../modules/sound/main.qml:228
+#, fuzzy
+msgid "Right"
+msgstr "右手"
 
 #: ../modules/sound/main.qml:257
 msgid "Microphone"

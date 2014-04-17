@@ -1,14 +1,29 @@
-# Chinese translations for dss package
-# dss 软件包的简体中文翻译.
-# Copyright (C) 2013 THE dss'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the dss package.
-# Automatically generated, 2013.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: dss 2014\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-15 09:49+0800\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#~ # Chinese translations for dss package
+#~ # dss 软件包的简体中文翻译.
+#~ # Copyright (C) 2013 THE dss'S COPYRIGHT HOLDER
+#~ # This file is distributed under the same license as the dss package.
+#~ # Automatically generated, 2013.
+#~ #
+#~ msgid ""
+#~ msgstr ""
+#~ "Project-Id-Version: dss 2014\n"
+#~ "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-04-17 10:19+0800\n"
 "PO-Revision-Date: 2013-11-25 12:27+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -314,6 +329,24 @@ msgstr "识别"
 #: ../modules/display/MonitorDragArea.qml:440
 msgid "Edit"
 msgstr "编辑"
+
+#: ../modules/display/MonitorProperties.qml:24
+msgid "Normal"
+msgstr ""
+
+#: ../modules/display/MonitorProperties.qml:25
+#, fuzzy
+msgid "Rotate Right"
+msgstr "右下角"
+
+#: ../modules/display/MonitorProperties.qml:26
+msgid "Upside Down"
+msgstr ""
+
+#: ../modules/display/MonitorProperties.qml:27
+#, fuzzy
+msgid "Rotate Left"
+msgstr "左上角"
 
 #: ../modules/display/MonitorProperties.qml:57
 msgid "Enabled"
@@ -928,6 +961,14 @@ msgstr "输出端口"
 msgid "Output Volume"
 msgstr "输出音量"
 
+#: ../modules/sound/main.qml:226
+msgid "Left"
+msgstr "左"
+
+#: ../modules/sound/main.qml:228
+msgid "Right"
+msgstr "右"
+
 #: ../modules/sound/main.qml:257
 msgid "Microphone"
 msgstr "麦克风"
@@ -1018,12 +1059,6 @@ msgstr "触摸板"
 #, fuzzy
 #~ msgid "Shut down"
 #~ msgstr "关机"
-
-#~ msgid "Left"
-#~ msgstr "左"
-
-#~ msgid "Right"
-#~ msgstr "右"
 
 #, fuzzy
 #~ msgid "Input"
