@@ -145,10 +145,12 @@ Rectangle {
 
             onHideAllPrivate: {
                 guest_user.visible = false
+                title.visible = false
             }
 
             onShowAllPrivate: {
                 guest_user.visible = true
+                title.visible = true                
             }
         }
 

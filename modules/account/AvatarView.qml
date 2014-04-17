@@ -129,6 +129,10 @@ Item {
         onInitialize: {
             avatar_recently_used_view.setContent()
         }
+        
+        onAvatarSet: {
+            root_view.avatarSet(path)
+        }
 
         Connections {
             target: dbus_user
@@ -164,6 +168,10 @@ Item {
         }
 
         onInitialize: setContent()
+        
+        onAvatarSet: {
+            root_view.avatarSet(path)
+        }        
 
         anchors.top: radio_button.bottom
         anchors.topMargin: root_view.verticalPadding * 2
@@ -190,6 +198,10 @@ Item {
 
         WebCam {
             running: rootWindow.displayWidth != 0
+            
+            onAvatarPictured: {
+                root_view.avatarPictured(path)
+            }
         }
     }
 }
