@@ -209,10 +209,8 @@ Item {
 
                 onClicked: {
                     if (detail_view.validate()) {
-                        if (checkPolkitAuth()) {
-                            root.passwordSet(new_password_input.text)
-                            root.state = "brief"
-                        }
+                        root.passwordSet(new_password_input.text)
+                        root.state = "brief"
                     } else {
                         new_password_input.state = "warning"
                         repeat_input.state = "warning"

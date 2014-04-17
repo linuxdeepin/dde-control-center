@@ -51,7 +51,7 @@ ListView {
             width: 310
             height: delete_line.height + component_sep.height
             property var this_user: User { path: userDBusPath}
-            
+
             Timer {
                 id: to_edit_timer
                 interval: 300
@@ -201,8 +201,8 @@ ListView {
                             delete_line.expand()
                         }
                         onConfirm: {
-                            if (checkPolkitAuth()) {
-                                dbus_accounts.DeleteUser(userName, deleteFiles)
+                            var right = dbus_accounts.DeleteUser(userName, deleteFiles)
+                            if (right) {
                                 component_bg.state = "normal"
                                 root.deleteItem(index, component_bg.height)
                             }

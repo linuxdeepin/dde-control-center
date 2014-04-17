@@ -24,12 +24,18 @@ Rectangle {
 
             onAvatarSet: {
                 var iconFile = path.toString().replace("file:\/\/", "")
-                this_user.SetIconFile(iconFile)
+                var right = edit_dialog.this_user.SetIconFile(iconFile)
+                if (!right) {
+                    doCheck(edit_dialog.this_user.iconFile)
+                }
             }
 
             onAvatarPictured: {
                 var iconFile = path.toString().replace("file:\/\/", "")
-                this_user.SetIconFile(iconFile)
+                var right = edit_dialog.this_user.SetIconFile(iconFile)
+                if (!right) {
+                    doCheck(edit_dialog.this_user.iconFile)
+                }                
             }
         }
 
@@ -56,9 +62,8 @@ Rectangle {
                     checked: edit_dialog.this_user.automaticLogin
 
                     onClicked: {
-                        if (checkPolkitAuth()) {
-                            this_user.SetAutomaticLogin(checked)
-                        } else {
+                        var right = edit_dialog.this_user.SetAutomaticLogin(checked)                        
+                        if (!right) {
                             checked = Qt.binding(function () {return edit_dialog.this_user.automaticLogin})
                         }
                     }
@@ -77,7 +82,7 @@ Rectangle {
                 id: account_enabled_switch
                 width: parent.width
                 height: 38
-                visible: !userIsCurrentUser(this_user) && currentUserIsAdmin()
+                visible: !userIsCurrentUser(edit_dialog.this_user) && currentUserIsAdmin()
 
                 DLabel {
                     text: dsTr("Enable User")
@@ -92,9 +97,8 @@ Rectangle {
                     checked: !edit_dialog.this_user.locked
 
                     onClicked: {
-                        if (checkPolkitAuth()) {
-                            this_user.SetLocked(!checked)
-                        } else {
+                        var right = edit_dialog.this_user.SetLocked(!checked)
+                        if (!right) {
                             checked = Qt.binding(function () {return !edit_dialog.this_user.locked})
                         }
                     }
@@ -113,7 +117,7 @@ Rectangle {
                 id: account_type_radio
                 width: parent.width
                 height: 38
-                visible: !userIsCurrentUser(this_user) && currentUserIsAdmin()
+                visible: !userIsCurrentUser(edit_dialog.this_user) && currentUserIsAdmin()
 
                 DLabel {
                     text: "User Group"
@@ -133,9 +137,8 @@ Rectangle {
                     ]
                     initializeIndex: edit_dialog.this_user.accountType
                     onItemSelected: {
-                        if(checkPolkitAuth()) {
-                            edit_dialog.this_user.SetAccountType(idx)
-                        } else {
+                        var right = edit_dialog.this_user.SetAccountType(idx)
+                        if (!right) {
                             selectItem(edit_dialog.this_user.accountType)
                         }
                     }
@@ -152,12 +155,9 @@ Rectangle {
                 id: password_dialog
 
                 onPasswordSet: {
-                    if (checkPolkitAuth()) {
+                    var right = edit_dialog.this_user.SetPassword(password)
+                    if (!right) {
                         password_dialog.reset()
-                        /* dbus_user.passwordMode = 2 // i think this nonsense too, but the fact is this help a lot >_< */
-                        /* // The user should be in a group named "nopasswdlogin" before we set his password, */
-                        /* // but a fresh _new_ user is not in that group(weird), so we should set it first. */
-                        edit_dialog.this_user.SetPassword(password)
                     }
                 }
 

@@ -126,14 +126,6 @@ Item {
             height = cellHeight * Math.min(3, Math.ceil(count /3))
         }
 
-        onAvatarSet: {
-            if (userIsCurrentUser(this_user) || checkPolkitAuth()) {
-                root_view.avatarSet(path)
-            } else {
-                doCheck(this_user.iconFile)
-            }
-        }
-
         onInitialize: {
             avatar_recently_used_view.setContent()
         }
@@ -171,15 +163,6 @@ Item {
             }
         }
 
-
-        onAvatarSet: {
-            if (userIsCurrentUser(this_user) || checkPolkitAuth()) {
-                root_view.avatarSet(path)
-            } else {
-                doCheck(this_user.iconFile)
-            }
-        }
-
         onInitialize: setContent()
 
         anchors.top: radio_button.bottom
@@ -207,11 +190,6 @@ Item {
 
         WebCam {
             running: rootWindow.displayWidth != 0
-            onAvatarPictured: {
-                if (userIsCurrentUser(this_user) || checkPolkitAuth()) {
-                    root_view.avatarPictured(path)
-                }
-            }
         }
     }
 }

@@ -102,9 +102,8 @@ Column {
                 checked: dbus_accounts.allowGuest
 
                 onClicked: {
-                    if (checkPolkitAuth()) {
-                        dbus_accounts.AllowGuestAccount(checked)
-                    } else {
+                    var right = dbus_accounts.AllowGuestAccount(checked)
+                    if (!right) {
                         checked = Qt.binding(function () {return dbus_accounts.allowGuest})
                     }
                 }

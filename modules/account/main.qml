@@ -14,12 +14,12 @@ Rectangle {
     Accounts { id: dbus_accounts }
     User { id: dbus_user }
     User { id: current_user; path: dbus_accounts.FindUserById(dbus_session_manager.currentUid)}
-    
+
     // this function is intend to used as the entry from the home page
     function showCurrentUserDetail () {
         user_list.showCurrentUserDetail()
     }
-    
+
     function userIsCurrentUser(user) {
         return user.uid == current_user.uid
     }
@@ -27,13 +27,6 @@ Rectangle {
     function currentUserIsAdmin() {
         return current_user.accountType == 1
     }
-
-    function checkPolkitAuth() {
-        return true
-        //return dbus_accounts.AuthWithPolkit(windowView.getPid()) ? true : false
-    }
-    
-    Component.onCompleted: currentUserIsAdmin()
 
     Column {
         id: main_column
@@ -119,25 +112,25 @@ Rectangle {
             }
 
             onConfirmed: {
-                if (checkPolkitAuth()) {
-                    var new_user = dbus_accounts.CreateUser(userInfo.userName, userInfo.userName, userInfo.userAccountType)
-                    if (new_user == undefined) {
-                        add_user_dialog.warnUserName()
-                        } else {
-                            dbus_user.path = new_user
-                            /* dbus_user.passwordMode = 2 // i think this nonsense too, but the fact is this help a lot >_< */
-                            /* // The user should be in a group named "nopasswdlogin" before we set his password, */
-                            /* // but a fresh _new_ user is not in that group(weird), so we should set it first. */
-                            dbus_user.SetPassword(userInfo.userPassword, "")
-                            dbus_user.SetIconFile(userInfo.userIconFile)
-                            dbus_user.SetAccountType(userInfo.userAccountType)
-                            dbus_user.SetAutomaticLogin(userInfo.userAutoLogin)
+                var result = dbus_accounts.CreateUser(userInfo.userName, userInfo.userName, userInfo.userAccountType)
+                var new_user = result[0]
+                var right = result[1]
+                if (!right) {
+                    add_user_dialog.warnUserName()
+                } else {
+                    dbus_user.path = new_user
+                    /* dbus_user.passwordMode = 2 // i think this nonsense too, but the fact is this help a lot >_< */
+                    /* // The user should be in a group named "nopasswdlogin" before we set his password, */
+                    /* // but a fresh _new_ user is not in that group(weird), so we should set it first. */
+                    dbus_user.SetPassword(userInfo.userPassword, "")
+                    dbus_user.SetIconFile(userInfo.userIconFile)
+                    dbus_user.SetAccountType(userInfo.userAccountType)
+                    dbus_user.SetAutomaticLogin(userInfo.userAutoLogin)
 
-                            main_column.state = "normal"
-                            add_user_dialog.reset()
-                    }
+                    main_column.state = "normal"
+                    add_user_dialog.reset()
                 }
-           }
+            }
         }
 
         UserList {
@@ -149,11 +142,11 @@ Rectangle {
                     user_list.addUser(arg0)
                 }
             }
-            
+
             onHideAllPrivate: {
                 guest_user.visible = false
             }
-            
+
             onShowAllPrivate: {
                 guest_user.visible = true
             }
@@ -206,7 +199,7 @@ Rectangle {
     GuestUser {
         id: guest_user
         width: parent.width
-    
+
         onExpandedChanged: {
             user_list.visible = !expanded
         }
@@ -216,7 +209,7 @@ Rectangle {
         }
 
         anchors.top: main_column.bottom
-        
+
         leftPadding: user_list.leftPadding
         rightPadding: user_list.rightPadding
         nameLeftPadding: user_list.nameLeftPadding
