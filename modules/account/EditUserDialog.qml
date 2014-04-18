@@ -62,10 +62,8 @@ Rectangle {
                     checked: edit_dialog.this_user.automaticLogin
 
                     onClicked: {
-                        var right = edit_dialog.this_user.SetAutomaticLogin(checked)                        
-                        if (!right) {
-                            checked = Qt.binding(function () {return edit_dialog.this_user.automaticLogin})
-                        }
+                        var right = edit_dialog.this_user.SetAutomaticLogin(checked)   
+                        checked = Qt.binding(function () {return edit_dialog.this_user.automaticLogin})                     
                     }
 
                     anchors.right: parent.right
@@ -98,9 +96,7 @@ Rectangle {
 
                     onClicked: {
                         var right = edit_dialog.this_user.SetLocked(!checked)
-                        if (!right) {
-                            checked = Qt.binding(function () {return !edit_dialog.this_user.locked})
-                        }
+                        checked = Qt.binding(function () {return !edit_dialog.this_user.locked})
                     }
 
                     anchors.right: parent.right
