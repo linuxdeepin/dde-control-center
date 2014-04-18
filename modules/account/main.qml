@@ -203,6 +203,7 @@ Rectangle {
         width: parent.width
 
         onExpandedChanged: {
+            title.visible = !expanded
             user_list.visible = !expanded
         }
 
