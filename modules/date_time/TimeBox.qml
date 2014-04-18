@@ -132,7 +132,7 @@ Rectangle {
             anchors.horizontalCenter: dynamicTime.horizontalCenter
             font.pixelSize: 12
             color: "#F48914"
-            text: dsTr("双击数字修改时间")
+            text: dsTr("Double-click the overhead digital to modify local time")
             visible: opacity != 0
             opacity: 0
 

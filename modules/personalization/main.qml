@@ -20,7 +20,7 @@ Item {
     property var dbusThumbPath: ThumbPath{ path: "/com/deepin/daemon/ThemeManager" }
     property var dbusPreviewPath: PreviewPath{ path: "/com/deepin/daemon/ThemeManager" }
     property var currentThemeObject: {
-        var path = dbusThemeManager.GetPathViaName(dbusThemeManager.currentTheme)
+        var path = dbusThemeManager.GetThemeByName(dbusThemeManager.currentTheme)
         var obj = themeComponent.createObject(personalizationModule, { path: path[0] })
         return obj
     }
