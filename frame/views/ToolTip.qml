@@ -14,11 +14,36 @@ Window {
         cursorPos = windowView.getCursorPos()
         tipText.text = s
         timeoutShow.restart()
+        freshBackground.restart()
     }
 
     function hideTip(){
         timeoutShow.stop()
         toolTip.hide()
+        toolTip.visible = false
+    }
+
+    Timer{
+        id: freshBackground
+        interval: 200
+        repeat: true
+        property int repeatTime: 0
+
+        onTriggered: {
+            if(repeatTime > 10){
+                freshBackground.stop()
+                freshBackground.repeat = false
+            }
+            else{
+                repeatTime += 1
+                if (background.color == Qt.rgba(0, 0, 0, 0.9)){
+                    background.color = Qt.rgba(0, 0, 0, 0.91)
+                }
+                else{
+                    background.color = Qt.rgba(0, 0, 0, 0.9)
+                }
+            }
+        }
     }
 
     Timer {
@@ -37,6 +62,7 @@ Window {
                 toolTip.y = pos[1] - 10 - toolTip.height
             }
             toolTip.show()
+            toolTip.visible = true
             timeoutHide.restart()
         }
     }
@@ -52,6 +78,7 @@ Window {
     }
 
     Rectangle {
+        id: background
         width: parent.width
         height: parent.height
         color: Qt.rgba(0, 0, 0, 0.9)
