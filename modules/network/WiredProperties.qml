@@ -55,7 +55,7 @@ BaseEditPage {
 
     DSeparatorHorizontal {}
 
-    EditIpv4Section{
+    EditSectionIpv4{
         activeExpandIndex: wiredProperties.activeExpandIndex
     }
 

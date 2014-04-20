@@ -69,20 +69,20 @@ Item {
             }
 
             onClicked: {
-                // if security in eap, go to edit connection always
-                if(apSecuredInEap) {
-                    print("secured in eap") // TODO debug
-                    goToEditConnection()
-                }
-                else{
-                    if(!apConnected){
+                if(!apConnected){
+                    if(apSecuredInEap) {
+                        // if security in eap, go to edit connection always
+                        print("secured in eap") // TODO debug
+                        goToEditConnection()
+                    }
+                    else{
                         print("activate connection") // TODO debug
                         activateThisConnection()
                     }
-                    else{
-                        print("edit connection") // TODO debug
-                        goToEditConnection()
-                    }
+                }
+                else{
+                    print("edit connection") // TODO debug
+                    goToEditConnection()
                 }
             }
         }

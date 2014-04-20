@@ -8,7 +8,7 @@ Column{
     property var uuid
     property var devicePath
 
-    property int activeExpandIndex: 1
+    property int activeExpandIndex: -1
     property int valueWidth: 190
     property int contentLeftMargin: 18
     property var connectionSessionObject: {
