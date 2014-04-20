@@ -4,7 +4,7 @@ import Deepin.Widgets 1.0
 BaseEditLine {
     id: root
     rightLoader.sourceComponent: DSwitchButtonHeader{
-        active: root.value
+        active: getKey()
         onActiveChanged: {
             root.value = active
             setKey()

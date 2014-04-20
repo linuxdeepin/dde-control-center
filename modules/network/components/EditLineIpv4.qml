@@ -29,8 +29,9 @@ BaseEditLine {
         Component.onCompleted: {
             if(root.visible){
                 value = getKey()
-                print("EditLineIpv4.onCompleted", value)
-                setValue(value)
+                if (value) {
+                    setValue(value)
+                }
             }
         }
     }

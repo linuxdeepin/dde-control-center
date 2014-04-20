@@ -10,12 +10,10 @@ BaseEditLine {
         id: passwordArea
         width: valueWidth
         echoMode: root.echoMode
-        text: root.value
-        onActiveFocusChanged: {
-            if(!activeFocus){
-                root.value = text
-                setKey()
-            }
+        text: getKey()
+        onTextChanged: {
+            root.value = text
+            setKey()
         }
     }
     

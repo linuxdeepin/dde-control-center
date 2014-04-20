@@ -10,14 +10,14 @@ BaseEditPage {
     EditTitle {}
 
     DSeparatorHorizontal {}
-    EditSectionGeneral{
+    EditSectionGeneral {
         id: generalSettings
         myIndex: 0
         activeExpandIndex: wirelessProperties.activeExpandIndex
     }
 
     DSeparatorHorizontal {}
-    EditSectionIpv4{
+    EditSectionIpv4 {
         id: ipv4Settings
         myIndex: 1
         activeExpandIndex: wirelessProperties.activeExpandIndex
@@ -30,24 +30,24 @@ BaseEditPage {
         activeExpandIndex: wirelessProperties.activeExpandIndex
     }
 
-    DSeparatorHorizontal{}
-    DBaseLine{
+    DSeparatorHorizontal {}
+    DBaseLine {
         rightLoader.sourceComponent: Row {
             spacing: 6
 
-            DTextButton{
+            DTextButton {
                 text: dsTr("Save")
                 onClicked: {
                     // save all keys TODO
                     // generalSettings.saveKeys()
                     // securitySettings.saveKeys()
-                    if (connectionSessionObject.Save()){
+                    if (connectionSessionObject.Save()) {
                         stackView.reset()
                     }
                 }
             }
 
-            DTextButton{
+            DTextButton {
                 text: dsTr("Close")
                 onClicked: {
                     connectionSessionObject.Close()

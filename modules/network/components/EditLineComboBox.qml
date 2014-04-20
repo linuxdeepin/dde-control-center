@@ -9,7 +9,7 @@ BaseEditLine {
         anchors.left: parent.left
         anchors.leftMargin: -3
         width: valueWidth
-        text: root.value
+        text: getKey()
 
         property var menuLabels: getAvailableValues()
 
@@ -35,6 +35,6 @@ BaseEditLine {
     
     Component.onCompleted: {
         // TODO test
-        print("EditLineComboBox.onCompleted:", section, key, getKey(), "[", getAvailableValues(), "]")
+        print("EditLineComboBox.onCompleted:", root.section, root.key, root.value, "[", getAvailableValues(), "]")
     }
 }
