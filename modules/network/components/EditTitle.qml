@@ -10,7 +10,8 @@ DBaseLine {
         }
         DTextInput{
             textInput.color: dconstants.fgColor
-            text: getKey("General", "id")
+            // TODO page name
+            text: generalGetKey("General", "id")
         }
     }
 }

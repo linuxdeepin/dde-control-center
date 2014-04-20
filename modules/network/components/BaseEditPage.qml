@@ -16,21 +16,25 @@ Column{
         return connectionSession.createObject(properiesPage, { path: connectionPath })
     }
 
-    function setKey(section, key, value){
+    // TODO
+    function saveAllKeys() {
+    }
+    
+    function generalSetKey(section, key, value){
         connectionSessionObject.SetKey(section, key, marshalJSON(value))
     }
 
-    function getKey(section, key){
+    function generalGetKey(section, key){
         return unmarshalJSON(connectionSessionObject.GetKey(section, key))
     }
 
-    function unmarshalJSON(valueJSON){
-        var value = JSON.parse(valueJSON)
-        return value
-    }
-    
     function marshalJSON(value){
         var valueJSON = JSON.stringify(value);
         return valueJSON
+    }
+    
+    function unmarshalJSON(valueJSON){
+        var value = JSON.parse(valueJSON)
+        return value
     }
 }

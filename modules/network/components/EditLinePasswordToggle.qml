@@ -5,18 +5,20 @@ DBaseLine {
     id: showPasswordLine
     property DBaseLine targetTextInput
     
+    visible: targetTextInput.visible
+    
     rightLoader.sourceComponent: Row{
         width: valueWidth
         spacing: 6
-        property bool showPassword: showPasswordButton.checked
 
         DSwitchButton{
             id: showPasswordButton
             onCheckedChanged: {
-                targetTextInput.echoMode = showPassword ? TextInput.Normal : TextInput.Password
+                targetTextInput.echoMode = checked ? TextInput.Normal : TextInput.Password
             }
             Component.onCompleted: {
-                checked = true
+                checked = false
+                targetTextInput.echoMode = checked ? TextInput.Normal : TextInput.Password
             }
         }
 

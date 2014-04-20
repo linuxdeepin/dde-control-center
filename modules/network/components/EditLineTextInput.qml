@@ -4,12 +4,9 @@ import Deepin.Widgets 1.0
 BaseEditLine {
     id: root
     
-    property int echoMode
-    
     rightLoader.sourceComponent: DTextInput{
         id: passwordArea
         width: valueWidth
-        echoMode: root.echoMode
         text: root.value
         onActiveFocusChanged: {
             if(!activeFocus){

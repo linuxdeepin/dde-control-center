@@ -39,8 +39,8 @@ BaseEditPage {
                 text: dsTr("Save")
                 onClicked: {
                     // save all keys TODO
-                    generalSettings.saveKeys()
-                    securitySettings.saveKeys()
+                    // generalSettings.saveKeys()
+                    // securitySettings.saveKeys()
                     if (connectionSessionObject.Save()){
                         stackView.reset()
                     }

@@ -3,7 +3,7 @@ import Deepin.Widgets 1.0
 
 BaseEditSection{
     id: securitySettings
-    sectionName: "Security"
+    section: "Security"
 
     header.sourceComponent: EditDownArrowHeader{
         text: dsTr("Security")
@@ -11,15 +11,13 @@ BaseEditSection{
 
     content.sourceComponent: Column {
         EditLineComboBox {
-            section: securitySettings.sectionName
             key: "vk-key-mgmt"
-            text: dsTr("Security:")
+            text: dsTr("Security") // TODO section name append with ":"
         }
         EditLinePassword {
             id: passwordPsk
-            section: securitySettings.sectionName
             key: "psk"
-            text: dsTr("Password:")
+            text: dsTr("Password")
         }
         EditLinePasswordToggle{
             targetTextInput: passwordPsk

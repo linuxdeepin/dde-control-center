@@ -2,25 +2,13 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 import "../widgets"
 
-DBaseLine {
+BaseEditLine {
     id: root
     
-    property string section
-    property string key
-    property string text
-    
-    visible: isKeyAvailable(key)
-    
-    color: dconstants.contentBgColor
-    leftMargin: contentLeftMargin
-    leftLoader.sourceComponent: DssH2{
-        text: root.text
-    }
-
     rightLoader.sourceComponent: Ipv4Input{
         width: valueWidth
-        isError: isValueError(key)
-        // TODO
+        isError: isValueError()
+        // TODO fix focus issue
         // onToNext: {
             // var ipAddress = getValue()
             // if(ipAddress){
@@ -33,19 +21,17 @@ DBaseLine {
         // }
         onIsFocusChanged: {
             if(!isFocus){
-                var value = getValue()
-                setKey(root.section, root.key, value)
+                root.value = getValue()
+                setKey()
             }
         }
         
-        // TODO
-        // Component.onCompleted: {
-        //     if(root.visible){
-        //         var value = getKey(root.section, root.key)
-        //         if(value){
-        //             setValue(value)
-        //         }
-        //     }
-        // }
+        Component.onCompleted: {
+            if(root.visible){
+                value = getKey()
+                print("EditLineIpv4.onCompleted", value)
+                setValue(value)
+            }
+        }
     }
 }
