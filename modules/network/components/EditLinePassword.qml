@@ -10,10 +10,14 @@ BaseEditLine {
         id: passwordArea
         width: valueWidth
         echoMode: root.echoMode
-        text: getKey()
         onTextChanged: {
             root.value = text
             setKey()
+        }
+        Component.onCompleted: {
+            if (root.visible) {
+                text = getKey()
+            }
         }
     }
     

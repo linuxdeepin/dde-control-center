@@ -23,12 +23,14 @@ Column{
     property var stackViewPages: {
         "allConnectionPage": Qt.resolvedUrl("ListConnections.qml"),
         "infoPage": Qt.resolvedUrl("Info.qml"),
-        "wirelessPropertiesPage": Qt.resolvedUrl("WirelessProperties.qml"),
-        "wiredPropertiesPage": Qt.resolvedUrl("WiredProperties.qml")
+        "connectionPropertiesPage": Qt.resolvedUrl("ConnectionProperties.qml"),
+        // TODO remove
+        // "wirelessPropertiesPage": Qt.resolvedUrl("WirelessProperties.qml"),
+        // "wiredPropertiesPage": Qt.resolvedUrl("WiredProperties.qml")
     }
 
     function resetConnectionSession(){
-        if(stackView.currentItemId == "wirelessPropertiesPage"){
+        if(stackView.currentItemId == "connectionPropertiesPage"){
             stackView.currentItem.connectionSessionObject.Close()
         }
     }

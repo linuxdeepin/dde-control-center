@@ -9,7 +9,6 @@ BaseEditLine {
         anchors.left: parent.left
         anchors.leftMargin: -3
         width: valueWidth
-        text: getKey()
 
         property var menuLabels: getAvailableValues()
 
@@ -31,10 +30,12 @@ BaseEditLine {
             rootMenu.visible = !rootMenu.visible
         }
 
-    }
-    
-    Component.onCompleted: {
-        // TODO test
-        print("EditLineComboBox.onCompleted:", root.section, root.key, root.value, "[", getAvailableValues(), "]")
+        Component.onCompleted: {
+            if (root.visible) {
+                text = getKey()
+                // TODO test
+                print("EditLineComboBox.onCompleted:", root.section, root.key, root.value, "[", getAvailableValues(), "]")
+            }
+        }
     }
 }

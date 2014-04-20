@@ -7,12 +7,15 @@ BaseEditLine {
     rightLoader.sourceComponent: DTextInput{
         id: passwordArea
         width: valueWidth
-        text: getKey()
         onTextChanged: {
             root.value = text
             setKey()
         }
+        Component.onCompleted: {
+            if (root.visible) {
+                text = getKey()
+            }
+        }
     }
-    
 }
 

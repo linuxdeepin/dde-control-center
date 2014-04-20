@@ -4,30 +4,27 @@ import "components"
 // import "components_autogen"
 
 BaseEditPage {
-    id: wirelessProperties
+    id: root
     activeExpandIndex: 0
 
     EditTitle {}
 
     DSeparatorHorizontal {}
     EditSectionGeneral {
-        id: generalSettings
         myIndex: 0
-        activeExpandIndex: wirelessProperties.activeExpandIndex
+        activeExpandIndex: root.activeExpandIndex
     }
 
     DSeparatorHorizontal {}
     EditSectionIpv4 {
-        id: ipv4Settings
         myIndex: 1
-        activeExpandIndex: wirelessProperties.activeExpandIndex
+        activeExpandIndex: root.activeExpandIndex
     }
 
     DSeparatorHorizontal {}
     EditSectionSecurity {
-        id: securitySettings    // TODO
         myIndex: 2
-        activeExpandIndex: wirelessProperties.activeExpandIndex
+        activeExpandIndex: root.activeExpandIndex
     }
 
     DSeparatorHorizontal {}
@@ -38,9 +35,6 @@ BaseEditPage {
             DTextButton {
                 text: dsTr("Save")
                 onClicked: {
-                    // save all keys TODO
-                    // generalSettings.saveKeys()
-                    // securitySettings.saveKeys()
                     if (connectionSessionObject.Save()) {
                         stackView.reset()
                     }

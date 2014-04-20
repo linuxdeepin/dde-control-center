@@ -22,8 +22,5 @@ DBaseExpand{
         }
     }
     
-    // TODO
-    // function saveKeys() {
-        // print("saveKeys generalSettings")
-    // }
+    visible: getIndexFromArray(section, avaiableSections) != -1
 }

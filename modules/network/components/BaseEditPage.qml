@@ -15,16 +15,16 @@ Column{
         var connectionPath = dbusNetwork.EditConnection(uuid, devicePath)
         return connectionSession.createObject(properiesPage, { path: connectionPath })
     }
+    property var avaiableSections: connectionSessionObject.ListPages()
 
-    // TODO
-    function saveAllKeys() {
-    }
-    
     function generalSetKey(section, key, value){
         connectionSessionObject.SetKey(section, key, marshalJSON(value))
     }
 
     function generalGetKey(section, key){
+        // print("--> generalGetKey", section, key) // TODO test
+        // var value = unmarshalJSON(connectionSessionObject.GetKey(section, key))
+        // print("--| generalGetKey", section, key, value)
         return unmarshalJSON(connectionSessionObject.GetKey(section, key))
     }
 
@@ -36,5 +36,10 @@ Column{
     function unmarshalJSON(valueJSON){
         var value = JSON.parse(valueJSON)
         return value
+    }
+    
+    // TODO
+    Component.onCompleted: {
+        print("BaseEditPage.avaiableSections:", avaiableSections)
     }
 }

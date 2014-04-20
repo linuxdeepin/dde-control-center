@@ -15,6 +15,7 @@ BaseEditSection {
             key: "method"
             text: dsTr("Method")
         }
+        // TODO fix focus issue
         EditLineIpv4 {
             key: "vk-addresses-address"
             text: dsTr("IP Address")

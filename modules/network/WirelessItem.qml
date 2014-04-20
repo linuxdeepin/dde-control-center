@@ -41,11 +41,11 @@ Item {
     function goToEditConnection(){
         wirelessItem.requestUuid()
         stackView.push({
-            "item": stackViewPages["wirelessPropertiesPage"],
+            "item": stackViewPages["connectionPropertiesPage"],
             "properties": { "uuid": wirelessItem.uuid, "devicePath": wirelessItem.devicePath },
             "destroyOnPop": true
         })
-        stackView.currentItemId = "wirelessPropertiesPage"
+        stackView.currentItemId = "connectionPropertiesPage"
     }
 
     DBaseLine {

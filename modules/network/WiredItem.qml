@@ -17,11 +17,11 @@ Column{
     function goToEditConnection(){
         // print("wired device path", dbusNetwork.wiredDevices[index][0])
         stackView.push({
-            "item": stackViewPages["wiredPropertiesPage"],
+            "item": stackViewPages["connectionPropertiesPage"],
             "properties": { "uuid": dbusNetwork.wiredConnections[index], "devicePath": dbusNetwork.wiredDevices[index][0]},
             "destroyOnPop": true
         })
-        stackView.currentItemId = "wiredPropertiesPage"
+        stackView.currentItemId = "connectionPropertiesPage"
     }
 
     DBaseLine {
