@@ -3,7 +3,7 @@ import Deepin.Widgets 1.0
 
 BaseEditSection{
     id: generalSettings
-    section: "General"
+    section: "general"
     
     header.sourceComponent: EditDownArrowHeader{
         text: dsTr("General")
@@ -13,11 +13,6 @@ BaseEditSection{
         EditLineSwitchButton{
             key: "autoconnect"
             text: dsTr("Automatically connect")
-        }
-        // TODO remove
-        EditLineSwitchButton{
-            key: "permissions"
-            text: dsTr("All users may connect to this network")
         }
     }
 }

@@ -4,7 +4,7 @@ import "../widgets"
 
 BaseEditSection {
     id: ipv4Settings
-    section: "IPv4"
+    section: "ipv4"
 
     header.sourceComponent: EditDownArrowHeader{
         text: dsTr("IPv4")
