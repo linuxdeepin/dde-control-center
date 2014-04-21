@@ -29,10 +29,36 @@ import sys
 from PyQt5 import QtGui
 from PyQt5 import QtQml
 from PyQt5 import QtQuick
+from PyQt5 import QtDBus
 app = QtGui.QGuiApplication(sys.argv)
 
 import signal
 signal.signal(signal.SIGINT, signal.SIG_DFL)
+
+DDE_DOCK_APPLET_MANAGER_NAME = "com.deepin.dde.dock.applet.manager"
+DDE_DOCK_APPLET_MANAGER_PATH = "/com/deepin/dde/dock/applet/manager"
+
+def registerDBus(dbus_name, path, obj):
+    session_bus = QtDBus.QDBusConnection.sessionBus()
+    session_bus.registerService(dbus_name)
+    session_bus.registerObject(path, obj)
+
+class DockAppletManagerAdptor(QtDBus.QDBusAbstractAdaptor):
+    QtCore.Q_CLASSINFO("D-Bus Interface", DDE_DOCK_APPLET_MANAGER_NAME)
+
+    AllAppletsChanged = QtCore.pyqtSignal()
+
+    def __init__(self, parent):
+        QtDBus.QDBusAbstractAdaptor.__init__(self, parent)
+        self.setAutoRelaySignals(True)
+
+    @QtCore.pyqtSlot(str)
+    def SetHideApplet(self, name):
+        self.parent().rootObject.set_hide_applet(name)
+
+    @QtCore.pyqtSlot(str)
+    def SetShowApplet(self, name):
+        self.parent().rootObject.set_show_applet(name)
 
 class MainObject(QtCore.QObject):
     def __init__(self, qml_path):
@@ -48,17 +74,16 @@ class MainObject(QtCore.QObject):
 
         self.component.loadUrl(QtCore.QUrl.fromLocalFile(qml_path))
 
-        self.component.beginCreate(self.rootContext)
+        self.rootObject = self.component.beginCreate(self.rootContext)
         if self.component.isReady():
-            self.rootObject = self.component.completeCreate()
+            self.component.completeCreate()
         else:
             print self.component.errorString()
             sys.exit(1)
 
-        sys.exit(app.exec_())
+        self._adaptor = DockAppletManagerAdptor(self)
 
     def set_all_contexts(self):
-        print self.rootContext
         self.rootContext.setContextProperty("mainObject", self)
 
     @QtCore.pyqtSlot(result=int)
@@ -66,5 +91,7 @@ class MainObject(QtCore.QObject):
         return os.getpid()
     
 if __name__ == "__main__":
-    MainObject("qml/main.qml")
-
+    qml_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "qml/main.qml")
+    t = MainObject(qml_path)
+    registerDBus(DDE_DOCK_APPLET_MANAGER_NAME, DDE_DOCK_APPLET_MANAGER_PATH, t)
+    sys.exit(app.exec_())

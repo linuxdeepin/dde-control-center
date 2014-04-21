@@ -7,9 +7,10 @@ import DBus.Com.Deepin.Daemon.Display 1.0
 DockQuickWindow {
     id: root
     title: "DSS"
-    appid: "Applet100663307"
+    appid: "AppletDss"
     icon: iconPath
-    width: 320; height: 200
+    width: buttonRow.width + xEdgePadding * 2
+    height: contentColumn.height + xEdgePadding * 2
     color: Qt.rgba(0, 0, 0, 0.85)
 
     property url iconPath: "images/icon.png"
@@ -17,27 +18,29 @@ DockQuickWindow {
     property var dbusDisplay: Display{}
     property var monitorObject: Monitor{ path: dbusDisplay.monitors[0] }
     property var brightnessDict: monitorObject.brightness
+    property int xEdgePadding: 10
 
     Component.onCompleted: root.show()
 
     Item {
         anchors.centerIn: parent
-        width: parent.width - 20
-        height: parent.height - 20
+        width: parent.width - xEdgePadding * 2
+        height: parent.height - xEdgePadding * 2
 
         Column {
+            id: contentColumn
             width: parent.width
-            spacing: 16
+            spacing: 20
             Row {
-                //anchors.horizontalCenter: parent.horizontalCenter
+                id: buttonRow
                 spacing: 16
                 DImageCheckButton{
                     anchors.verticalCenter: parent.verticalCenter
-                    inactivatedNomralImage: "images/wifi_off.svg"
+                    inactivatedNomralImage: "images/wire_off.png"
                     inactivatedHoverImage: inactivatedNomralImage
                     inactivatedPressImage: inactivatedNomralImage
 
-                    activatedNomralImage: "images/wifi_on.svg"
+                    activatedNomralImage: "images/wire_on.png"
                     activatedHoverImage: activatedNomralImage
                     activatedPressImage: activatedNomralImage
                     active: true
@@ -45,11 +48,11 @@ DockQuickWindow {
 
                 DImageCheckButton{
                     anchors.verticalCenter: parent.verticalCenter
-                    inactivatedNomralImage: "images/wired_network_off.svg"
+                    inactivatedNomralImage: "images/wifi_off.png"
                     inactivatedHoverImage: inactivatedNomralImage
                     inactivatedPressImage: inactivatedNomralImage
 
-                    activatedNomralImage: "images/wired_network_on.svg"
+                    activatedNomralImage: "images/wifi_on.png"
                     activatedHoverImage: activatedNomralImage
                     activatedPressImage: activatedNomralImage
                     active: true
@@ -57,11 +60,23 @@ DockQuickWindow {
 
                 DImageCheckButton{
                     anchors.verticalCenter: parent.verticalCenter
-                    inactivatedNomralImage: "images/gsm_3g_off.svg"
+                    inactivatedNomralImage: "images/3g_off.png"
                     inactivatedHoverImage: inactivatedNomralImage
                     inactivatedPressImage: inactivatedNomralImage
 
-                    activatedNomralImage: "images/gsm_3g_on.svg"
+                    activatedNomralImage: "images/3g_on.png"
+                    activatedHoverImage: activatedNomralImage
+                    activatedPressImage: activatedNomralImage
+                    active: true
+                }
+
+                DImageCheckButton{
+                    anchors.verticalCenter: parent.verticalCenter
+                    inactivatedNomralImage: "images/vpn_off.png"
+                    inactivatedHoverImage: inactivatedNomralImage
+                    inactivatedPressImage: inactivatedNomralImage
+
+                    activatedNomralImage: "images/vpn_on.png"
                     activatedHoverImage: activatedNomralImage
                     activatedPressImage: activatedNomralImage
                     active: true
@@ -78,6 +93,18 @@ DockQuickWindow {
                     activatedPressImage: activatedNomralImage
                     active: true
                 }
+
+                DImageCheckButton{
+                    anchors.verticalCenter: parent.verticalCenter
+                    inactivatedNomralImage: "images/airplane_mode_off.png"
+                    inactivatedHoverImage: inactivatedNomralImage
+                    inactivatedPressImage: inactivatedNomralImage
+
+                    activatedNomralImage: "images/airplane_mode_on.png"
+                    activatedHoverImage: activatedNomralImage
+                    activatedPressImage: activatedNomralImage
+                    active: true
+                }
             }
 
             Row {
@@ -86,14 +113,12 @@ DockQuickWindow {
                 spacing: 8
 
                 Image{
-                    width: 26
-                    height: 26
-                    source: "images/brightness.png"
+                    source: "images/light.png"
                 }
 
                 DSliderEnhanced{
                     id: brightnessSlider
-                    width: 250
+                    width: parent.width - 30
                     height: 26
 
                     min: 0
