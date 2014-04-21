@@ -3,7 +3,7 @@ import Deepin.Widgets 1.0
 import "../widgets"
 
 BaseEditSection {
-    id: ipv4Settings
+    id: sectionIpv4
     section: "ipv4"
 
     header.sourceComponent: EditDownArrowHeader{

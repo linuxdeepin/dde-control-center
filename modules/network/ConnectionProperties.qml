@@ -9,21 +9,24 @@ BaseEditPage {
 
     EditTitle {}
 
-    DSeparatorHorizontal {}
+    EditSectionSeparator {relatedSection: sectionGeneral}
     EditSectionGeneral {
         myIndex: 0
+        id: sectionGeneral
         activeExpandIndex: root.activeExpandIndex
     }
 
-    DSeparatorHorizontal {}
+    EditSectionSeparator {relatedSection: sectionIpv4}
     EditSectionIpv4 {
         myIndex: 1
+        id: sectionIpv4
         activeExpandIndex: root.activeExpandIndex
     }
 
-    DSeparatorHorizontal {}
+    EditSectionSeparator {relatedSection: sectionSecurity}
     EditSectionSecurity {
         myIndex: 2
+        id: sectionSecurity
         activeExpandIndex: root.activeExpandIndex
     }
 

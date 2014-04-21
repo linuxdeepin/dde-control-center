@@ -2,7 +2,7 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 
 BaseEditSection{
-    id: generalSettings
+    id: sectionGeneral
     section: "general"
     
     header.sourceComponent: EditDownArrowHeader{
