@@ -3,6 +3,7 @@ import QtQuick.Window 2.1
 import Deepin.DockApplet 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Display 1.0
+import "../widgets/"
 
 DockQuickWindow {
     id: root
@@ -18,6 +19,7 @@ DockQuickWindow {
     property var dbusDisplay: Display{}
     property var monitorObject: Monitor{ path: dbusDisplay.monitors[0] }
     property var brightnessDict: monitorObject.brightness
+    property string monitorName: Object.keys(brightnessDict)[0]
     property int xEdgePadding: 10
 
     Component.onCompleted: root.show()
@@ -31,6 +33,7 @@ DockQuickWindow {
             id: contentColumn
             width: parent.width
             spacing: 20
+
             Row {
                 id: buttonRow
                 spacing: 16
@@ -107,31 +110,46 @@ DockQuickWindow {
                 }
             }
 
-            Row {
+            Item {
                 width: parent.width
-                height: brightnessSlider.height
-                spacing: 8
+                height: 40
 
                 Image{
                     source: "images/light.png"
+                    anchors.verticalCenter: parent.verticalCenter
                 }
 
-                DSliderEnhanced{
+                WhiteSlider{
                     id: brightnessSlider
-                    width: parent.width - 30
-                    height: 26
+                    width: parent.width - 40
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                    minimumValue: 0
+                    maximumValue: 1.0
 
-                    min: 0
-                    max: 1.0
-                    init: brightnessDict[Object.keys(brightnessDict)[0]]
-
-                    onValueConfirmed: {
-                        for(var key in brightnessDict){
-                            monitorObject.SetBrightness(key, value)
+                    onValueChanged: {
+                        if(pressed){
+                            monitorObject.SetBrightness(monitorName, value)
                         }
                     }
 
-                    valueDisplayVisible: false
+                    Connections{
+                        target: monitorObject
+                        onBrightnessChanged: {
+                            if(!brightnessSlider.pressed){
+                                brightnessSlider.value = brightnessDict[monitorName]
+                            }
+                        }
+                    }
+
+                    Timer{
+                        running: true
+                        interval: 200
+                        onTriggered: {
+                            brightnessSlider.value = brightnessDict[monitorName]
+                        }
+                    }
+
                 }
             }
         }

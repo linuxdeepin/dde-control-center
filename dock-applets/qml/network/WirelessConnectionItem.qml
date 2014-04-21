@@ -48,8 +48,8 @@ Item {
             DImageButton {
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
-                normal_image: "img/check_1.png"
-                hover_image: "img/check_2.png"
+                normal_image: "images/check_1.png"
+                hover_image: "images/check_2.png"
                 visible: {
                     if(inConnectingApPath != "/"){
                         return false
@@ -97,15 +97,15 @@ Item {
                 var power = apSignal
                 var secure = apSecured ? "-secure": ""
                 if (power <= 5)
-                    return "img/ap-signal-0" + secure + ".svg"
+                    return "images/ap-signal-0" + secure + ".svg"
                 else if (power <= 25)
-                    return "img/ap-signal-25" + secure + ".svg"
+                    return "images/ap-signal-25" + secure + ".svg"
                 else if (power <= 50)
-                    return "img/ap-signal-50" + secure + ".svg"
+                    return "images/ap-signal-50" + secure + ".svg"
                 else if (power <= 75)
-                    return "img/ap-signal-75" + secure + ".svg"
+                    return "images/ap-signal-75" + secure + ".svg"
                 else if (power <= 100)
-                    return "img/ap-signal-100" + secure + ".svg"
+                    return "images/ap-signal-100" + secure + ".svg"
             }
         }
 

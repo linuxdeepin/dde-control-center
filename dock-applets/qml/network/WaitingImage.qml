@@ -5,7 +5,7 @@ Image {
     property bool on: false
 
     visible: container.on
-    source: "img/waiting.svg";
+    source: "images/waiting.svg";
     NumberAnimation on rotation {
         running: container.on;
         from: 0;

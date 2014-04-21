@@ -35,10 +35,18 @@ QtObject {
     }
 
     property var dssLoader: AppletLoader{
-        qmlPath: "dss/DssWindow.qml"
+        qmlPath: "dss/main.qml"
     }
 
     property var networkLoader: AppletLoader{
-        qmlPath: "network/network.qml"
+        qmlPath: "network/main.qml"
+    }
+
+    property var soundLoader: AppletLoader{
+        qmlPath: "sound/main.qml"
+    }
+
+    property var powerLoader: AppletLoader{
+        qmlPath: "power/main.qml"
     }
 }

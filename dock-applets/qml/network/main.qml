@@ -15,7 +15,7 @@ DockQuickWindow {
 
     Component.onCompleted: root.show()
 
-    property url iconPath: "img/icon.png"
+    property url iconPath: "images/icon.png"
     property var dconstants: DConstants {}
 
     function dsTr(s){
