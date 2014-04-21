@@ -1,6 +1,6 @@
 [Desktop Entry]
-Name=DSS Daemon
-Comment=Deepin System Settings Daemon
+Name=DDE Control Center Daemon
+Comment=Deepin Desktop Environment Control Center Daemon
 Exec=/usr/bin/dde-control-center-daemon
 Icon=preferences-system
 Terminal=false
@@ -9,4 +9,3 @@ Type=Application
 Encoding=UTF-8
 StartupNotify=false
 NoDisplay=true
-NotShowIn=KDE;

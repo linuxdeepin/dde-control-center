@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=DDE Dock Applets
+Comment=Deepin Desktop Environment Dock Applets
+Exec=/usr/bin/dde-dock-applets
+Icon=preferences-system
+Encoding=UTF-8
+Terminal=false
+Type=Application
+X-MultipleArgs=false
+StartupNotify=false
+NoDisplay=true
