@@ -3,6 +3,7 @@ import QtQuick.Window 2.1
 import Deepin.DockApplet 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Display 1.0
+import DBus.Com.Deepin.Daemon.Network 1.0
 import "../widgets/"
 
 DockQuickWindow {
@@ -16,10 +17,15 @@ DockQuickWindow {
 
     property url iconPath: "images/icon.png"
 
+    // display
     property var dbusDisplay: Display{}
     property var monitorObject: Monitor{ path: dbusDisplay.monitors[0] }
     property var brightnessDict: monitorObject.brightness
     property string monitorName: Object.keys(brightnessDict)[0]
+
+    // network
+    property var dbusNetwork: NetworkManager{}
+
     property int xEdgePadding: 10
 
     Component.onCompleted: root.show()
@@ -37,64 +43,30 @@ DockQuickWindow {
             Row {
                 id: buttonRow
                 spacing: 16
-                DImageCheckButton{
-                    anchors.verticalCenter: parent.verticalCenter
-                    inactivatedNomralImage: "images/wire_off.png"
-                    inactivatedHoverImage: inactivatedNomralImage
-                    inactivatedPressImage: inactivatedNomralImage
 
-                    activatedNomralImage: "images/wire_on.png"
-                    activatedHoverImage: activatedNomralImage
-                    activatedPressImage: activatedNomralImage
-                    active: true
+                Loader {
+                    id: wiredButtonLoader
+                    source: dbusNetwork.wiredDevices.length > 0 ? "WiredCheckButton.qml" : ""
                 }
 
-                DImageCheckButton{
-                    anchors.verticalCenter: parent.verticalCenter
-                    inactivatedNomralImage: "images/wifi_off.png"
-                    inactivatedHoverImage: inactivatedNomralImage
-                    inactivatedPressImage: inactivatedNomralImage
-
-                    activatedNomralImage: "images/wifi_on.png"
-                    activatedHoverImage: activatedNomralImage
-                    activatedPressImage: activatedNomralImage
-                    active: true
+                Loader {
+                    id: wifiButtonLoader
+                    source: dbusNetwork.wirelessDevices.length > 0 ? "WifiCheckButton.qml": ""
                 }
 
-                DImageCheckButton{
-                    anchors.verticalCenter: parent.verticalCenter
-                    inactivatedNomralImage: "images/3g_off.png"
-                    inactivatedHoverImage: inactivatedNomralImage
-                    inactivatedPressImage: inactivatedNomralImage
-
-                    activatedNomralImage: "images/3g_on.png"
-                    activatedHoverImage: activatedNomralImage
-                    activatedPressImage: activatedNomralImage
-                    active: true
+                Loader {
+                    id: gsmButtonLoader
+                    source: "GsmCheckButton.qml"
                 }
 
-                DImageCheckButton{
-                    anchors.verticalCenter: parent.verticalCenter
-                    inactivatedNomralImage: "images/vpn_off.png"
-                    inactivatedHoverImage: inactivatedNomralImage
-                    inactivatedPressImage: inactivatedNomralImage
-
-                    activatedNomralImage: "images/vpn_on.png"
-                    activatedHoverImage: activatedNomralImage
-                    activatedPressImage: activatedNomralImage
-                    active: true
+                Loader {
+                    id: vpnButtonLoader
+                    source: "VpnCheckButton.qml"
                 }
 
-                DImageCheckButton{
-                    anchors.verticalCenter: parent.verticalCenter
-                    inactivatedNomralImage: "images/bluetooth_off.png"
-                    inactivatedHoverImage: inactivatedNomralImage
-                    inactivatedPressImage: inactivatedNomralImage
-
-                    activatedNomralImage: "images/bluetooth_on.png"
-                    activatedHoverImage: activatedNomralImage
-                    activatedPressImage: activatedNomralImage
-                    active: true
+                Loader {
+                    id: vpnButtonLoader
+                    source: "BluetoothCheckButton.qml"
                 }
 
                 DImageCheckButton{
@@ -106,7 +78,6 @@ DockQuickWindow {
                     activatedNomralImage: "images/airplane_mode_on.png"
                     activatedHoverImage: activatedNomralImage
                     activatedPressImage: activatedNomralImage
-                    active: true
                 }
             }
 
