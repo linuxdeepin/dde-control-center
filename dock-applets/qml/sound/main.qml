@@ -39,7 +39,6 @@ DockQuickWindow {
     Connections{
         target: defaultSink
         onVolumeChanged: {
-            print("test", defaultSink.volume)
             if(!soundSlider.pressed){
                 soundSlider.value = defaultSink.volume
             }
@@ -92,6 +91,7 @@ DockQuickWindow {
 
                 WhiteSlider{
                     id: soundSlider
+                    width: parent.width - soundImage.width - 16 - xEdgePadding * 3
                     anchors.right: parent.right
                     anchors.rightMargin: xEdgePadding
                     anchors.verticalCenter: parent.verticalCenter
