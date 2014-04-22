@@ -15,20 +15,20 @@ BaseEditSection{
             text: dsTr("Security:") // TODO section name append with ":"
         }
         EditLinePassword{
-            id: wepkey0
+            id: lineWepkey0
             key: "wep-key0"
             text: dsTr("Password:")
         }
         EditLinePasswordToggle{
-            targetTextInput: wepkey0
+            targetTextInput: lineWepkey0
         }
         EditLinePassword{
-            id: psk
+            id: linePsk
             key: "psk"
             text: dsTr("Password:")
         }
         EditLinePasswordToggle{
-            targetTextInput: psk
+            targetTextInput: linePsk
         }
         EditLineComboBox{
             key: "vk-eap"
@@ -73,12 +73,12 @@ BaseEditSection{
             text: dsTr("identity")// TODO
         }
         EditLinePassword{
-            id: password
+            id: linePassword
             key: "password"
             text: dsTr("password")// TODO
         }
         EditLinePasswordToggle{
-            targetTextInput: password
+            targetTextInput: linePassword
         }
     }
 }
