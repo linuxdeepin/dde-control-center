@@ -15,7 +15,7 @@ DockMenu {
     property var actionDict: new Object()
 
     function generateId(){
-        return "action_" + Object.keys(actionDict).length
+        return Object.keys(actionDict).length
     }
 
     function addItem(name, callback){

@@ -33,8 +33,8 @@ DockApplet {
 
     menu: Menu{
         Component.onCompleted: {
-            addItem("Run", showPower);
-            addItem("Remove From Dock", hidePower);
+            addItem("_Run", showPower);
+            addItem("_Undock", hidePower);
         }
     }
 
