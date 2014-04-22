@@ -3,6 +3,7 @@ import Deepin.Widgets 1.0
 
 DBaseLine {
     id: root
+    objectName: "BaseEditLine"
     
     property string key
     property string text
@@ -26,6 +27,10 @@ DBaseLine {
     }
     
     color: dconstants.contentBgColor
+    // TODO
+    property color normalColor: "black"
+    property color errorColor: "#F48914"
+    
     leftMargin: contentLeftMargin
     leftLoader.sourceComponent: DssH2{
         text: root.text
@@ -57,5 +62,11 @@ DBaseLine {
     
     function getAvailableValues() {
         return connectionSessionObject.GetAvailableValues(section, key)
+    }
+    
+    // overload this function if need
+    function saveKey() {
+        print("save key", section, key, value) // TODO test
+        setKey()
     }
 }

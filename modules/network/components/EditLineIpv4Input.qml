@@ -62,4 +62,10 @@ BaseEditLine {
             }
         }
     }
+    
+    function saveKey() {
+        print("ipv4 save key", section, key, value) // TODO test
+        value = root.rightLoader.item.getValue()
+        setKey()
+    }
 }

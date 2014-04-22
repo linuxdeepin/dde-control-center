@@ -38,6 +38,16 @@ Column{
         return value
     }
     
+    function saveAllKeys() {
+        print("save all keys")
+        for (var i=0; i<children.length; i++) {
+            var objSection = children[i]
+            if (objSection.objectName == "BaseEditSection" && objSection.visible) {
+                objSection.saveKeys()
+            }
+        }
+    }
+    
     // TODO
     Component.onCompleted: {
         print("BaseEditPage.avaiableSections:", avaiableSections)

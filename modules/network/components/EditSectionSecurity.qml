@@ -23,8 +23,8 @@ BaseEditSection{
             targetTextInput: psk
         }
         EditLineComboBox{
-            key: "eap"
-            text: dsTr("eap")// TODO
+            key: "vk-eap"
+            text: dsTr("vk-eap")// TODO
         }
         EditLineTextInput{
             key: "anonymous-identity"

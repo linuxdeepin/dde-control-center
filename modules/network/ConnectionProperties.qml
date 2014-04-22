@@ -38,6 +38,7 @@ BaseEditPage {
             DTextButton {
                 text: dsTr("Save")
                 onClicked: {
+                    saveAllKeys()
                     if (connectionSessionObject.Save()) {
                         stackView.reset()
                     }
