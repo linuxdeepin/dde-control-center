@@ -11,6 +11,9 @@ DBaseLine {
         DTextInput{
             textInput.color: dconstants.fgColor
             text: generalGetKey("general", "id")
+            onTextChanged: {
+                generalSetKey("general", "id", text)
+            }
         }
     }
 }

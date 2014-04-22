@@ -15,12 +15,57 @@ BaseEditSection{
             text: dsTr("Security:") // TODO section name append with ":"
         }
         EditLinePassword{
-            id: passwordPsk
+            id: psk
             key: "psk"
             text: dsTr("Password:")
         }
         EditLinePasswordToggle{
-            targetTextInput: passwordPsk
+            targetTextInput: psk
+        }
+        EditLineComboBox{
+            key: "eap"
+            text: dsTr("eap")// TODO
+        }
+        EditLineTextInput{
+            key: "anonymous-identity"
+            text: dsTr("anonymous-identity")// TODO
+        }
+        EditLineFileChooser{
+            key: "ca-cert"
+            text: dsTr("ca-cert")// TODO
+            nameFilters: ["(*.png *.jpg *.bmp)"] //TODO
+        }
+        EditLineFileChooser{
+            key: "client-cert"
+            text: dsTr("client-cert")// TODO
+        }
+        EditLineTextInput{
+            key: "identity"
+            text: dsTr("identity")// TODO
+        }
+        EditLineFileChooser{
+            key: "pac-file"
+            text: dsTr("pac-file")// TODO
+        }
+        EditLinePassword{
+            id: password
+            key: "password"
+            text: dsTr("password")// TODO
+        }
+        EditLinePasswordToggle{
+            targetTextInput: password
+        }
+        EditLineComboBox{
+            key: "phase1-fast-provisioning"
+            text: dsTr("phase1-fast-provisioning")// TODO
+        }
+        EditLineComboBox{
+            key: "phase2-auth"
+            text: dsTr("phase2-auth")// TODO
+        }
+        EditLineFileChooser{
+            key: "phase2-private-key"
+            text: dsTr("phase2-private-key")// TODO
         }
     }
 }

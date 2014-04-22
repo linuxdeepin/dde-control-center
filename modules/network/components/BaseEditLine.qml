@@ -6,21 +6,23 @@ DBaseLine {
     
     property string key
     property string text
-    property var value
+    property var value // mid-value between ConnectionSession and widget
     
-    visible: isKeyAvailable()
+    visible: false
+    Binding on visible {
+        value: isKeyAvailable()
+    }
     onVisibleChanged: {
-        print("DBaseLine.onVisibleChanged", visible ? "(show)" : "(hide)", section, key, value)
-        // TODO
         if (visible) {
-            if (value == undefined) {
+            if (value) {
+                // reset key if value already defined
+                setKey()
+            } else {
                 // get value only when undefined
                 value = getKey()
-            } else {
-                // reset key if value defined
-                setKey()
             }
         }
+        print("DBaseLine.onVisibleChanged", visible ? "(show)" : "(hide)", section, key, value)
     }
     
     color: dconstants.contentBgColor
@@ -29,19 +31,19 @@ DBaseLine {
         text: root.text
     }
     
-    Component.onCompleted: {
-        if (visible) {
-            value = getKey()
-            print("DBaseLine.onCompleted(show)", section, key, value)
-        }
-    }
-    
     function setKey() {
         print("BaseEditLine.setKey", section, key, value) // TODO test
         generalSetKey(section, key, value)
     }
 
     function getKey() {
+        // TODO remove
+        // var value = generalGetKey(section, key)
+        // if (value) {
+        //     return value
+        // } else {
+        //     return "" //null
+        // }
         return generalGetKey(section, key)
     }
     
