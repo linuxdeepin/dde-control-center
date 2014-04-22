@@ -9,12 +9,6 @@ BaseEditLine {
         width: valueWidth
         isError: isValueError()
         
-        // TODO add property text for Ipv4Input
-        // Binding on text {
-        //     when: root.value != undefined
-        //     value: root.value
-        // }
-        
         // TODO fix focus issue
         // onToNext: {
             // var ipAddress = getValue()
@@ -55,7 +49,7 @@ BaseEditLine {
         // onVisibleChanged() will not be called when widget loaded
         Component.onCompleted: {
             if (root.visible) {
-                root.value = getKey() // getKey() is need here
+                updateValue() // re-get value is need here
                 if (root.value) {
                     setValue(root.value)
                 }
@@ -65,7 +59,7 @@ BaseEditLine {
     
     function saveKey() {
         print("ipv4 save key", section, key, value) // TODO test
-        value = root.rightLoader.item.getValue()
+        root.value = root.rightLoader.item.getValue()
         setKey()
     }
 }

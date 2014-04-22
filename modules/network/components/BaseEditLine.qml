@@ -9,6 +9,9 @@ DBaseLine {
     property string text
     property var value // mid-value between ConnectionSession and widget
     
+    // update value even if other key changed
+    property bool alwaysUpdate: false
+    
     visible: false
     Binding on visible {
         value: isKeyAvailable()
@@ -20,9 +23,10 @@ DBaseLine {
                 setKey()
             } else {
                 // get value only when undefined
-                value = getKey()
+                updateValue()
             }
         }
+        // TODO test
         print("DBaseLine.onVisibleChanged", visible ? "(show)" : "(hide)", section, key, value)
     }
     
@@ -39,6 +43,7 @@ DBaseLine {
     function setKey() {
         print("BaseEditLine.setKey", section, key, value) // TODO test
         generalSetKey(section, key, value)
+        updateKeysAlways()
     }
 
     function getKey() {
@@ -50,6 +55,10 @@ DBaseLine {
         //     return "" //null
         // }
         return generalGetKey(section, key)
+    }
+    
+    function updateValue() {
+        value = getKey()
     }
     
     function isKeyAvailable() {

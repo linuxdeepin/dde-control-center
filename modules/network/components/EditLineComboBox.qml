@@ -22,10 +22,10 @@ BaseEditLine {
             setKey()
         }
 
-        // TODO select current item when popup root menu firste time
+        // TODO select current item when popup root menu
         onClicked: {
             if(!rootMenu.visible){
-                menuLabels = getAvailableValues() // update menu labels always
+                menuLabels = getAvailableValues() // update menu labels
                 var pos = mapToItem(null, 0, 0)
                 rootMenu.labels = comboBox.menuLabels
                 rootMenu.requestMenuItem = comboBox
@@ -34,9 +34,8 @@ BaseEditLine {
                 rootMenu.innerWidth = width
             }
             rootMenu.visible = !rootMenu.visible
+            // TODO test
+            print("==> EditLineComboBox.onClicked:", section, root.key, root.value, "[", getAvailableValues(), "]")
         }
-
-        // TODO test
-        // print("==> EditLineComboBox.onCompleted:", root.section, root.key, root.value, "[", getAvailableValues(), "]")
     }
 }

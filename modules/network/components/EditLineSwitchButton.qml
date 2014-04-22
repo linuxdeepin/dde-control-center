@@ -8,8 +8,6 @@ BaseEditLine {
             when: root.value != undefined
             value: root.value
         }
-        // TODO fix property loop binding
-        // onClicked: {
         onActiveChanged: {
             root.value = active
             setKey()

@@ -37,6 +37,19 @@ DBaseExpand{
     
     visible: getIndexFromArray(section, avaiableSections) != -1
     
+    function updateKeysAlways() {
+        if (!content.item) {
+            // ignore if content is not ready
+            return
+        }
+        for (var i=0; i<content.item.children.length; i++) {
+            var objLine = content.item.children[i]
+            if (objLine.objectName == "BaseEditLine" && objLine.visible && objLine.alwaysUpdate) {
+                objLine.updateValue()
+            }
+        }
+    }
+    
     function saveKeys() {
         for (var i=0; i<content.item.children.length; i++) {
             var objLine = content.item.children[i]

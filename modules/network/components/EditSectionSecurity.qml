@@ -15,6 +15,14 @@ BaseEditSection{
             text: dsTr("Security:") // TODO section name append with ":"
         }
         EditLinePassword{
+            id: wepkey0
+            key: "wep-key0"
+            text: dsTr("Password:")
+        }
+        EditLinePasswordToggle{
+            targetTextInput: wepkey0
+        }
+        EditLinePassword{
             id: psk
             key: "psk"
             text: dsTr("Password:")
@@ -39,13 +47,30 @@ BaseEditSection{
             key: "client-cert"
             text: dsTr("client-cert")// TODO
         }
-        EditLineTextInput{
-            key: "identity"
-            text: dsTr("identity")// TODO
+        EditLineComboBox{
+            key: "phase1-fast-provisioning"
+            text: dsTr("phase1-fast-provisioning")// TODO
         }
         EditLineFileChooser{
             key: "pac-file"
             text: dsTr("pac-file")// TODO
+        }
+        EditLineFileChooser{
+            key: "phase2-private-key"
+            text: dsTr("phase2-private-key")// TODO
+        }
+        EditLineComboBox{
+            key: "phase1-peapver"
+            text: dsTr("phase1-peapver")// TODO
+        }
+        EditLineComboBox{
+            key: "phase2-auth"
+            text: dsTr("phase2-auth")// TODO
+            alwaysUpdate: true
+        }
+        EditLineTextInput{
+            key: "identity"
+            text: dsTr("identity")// TODO
         }
         EditLinePassword{
             id: password
@@ -54,18 +79,6 @@ BaseEditSection{
         }
         EditLinePasswordToggle{
             targetTextInput: password
-        }
-        EditLineComboBox{
-            key: "phase1-fast-provisioning"
-            text: dsTr("phase1-fast-provisioning")// TODO
-        }
-        EditLineComboBox{
-            key: "phase2-auth"
-            text: dsTr("phase2-auth")// TODO
-        }
-        EditLineFileChooser{
-            key: "phase2-private-key"
-            text: dsTr("phase2-private-key")// TODO
         }
     }
 }
