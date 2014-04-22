@@ -65,8 +65,6 @@ DockApplet{
         height: content.height
         color: Qt.rgba(0, 0, 0, 0.85)
 
-        Component.onCompleted: root.show()
-
         Column {
             id: content
             width: parent.width

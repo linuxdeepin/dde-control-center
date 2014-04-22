@@ -41,8 +41,6 @@ DockApplet{
         height: contentColumn.height + xEdgePadding * 2
         color: Qt.rgba(0, 0, 0, 0.85)
 
-        Component.onCompleted: root.show()
-
         Item {
             anchors.centerIn: parent
             width: parent.width - xEdgePadding * 2

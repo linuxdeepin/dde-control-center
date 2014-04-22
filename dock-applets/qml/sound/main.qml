@@ -48,8 +48,6 @@ DockApplet{
         height: 200
         color: Qt.rgba(0, 0, 0, 0.85)
 
-        Component.onCompleted: root.show()
-
         Connections{
             target: defaultSink
             onVolumeChanged: {
