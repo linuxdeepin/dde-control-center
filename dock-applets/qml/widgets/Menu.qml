@@ -9,13 +9,9 @@ DockMenu {
         }
     }
 
-    property var menuContent: {
-        "checkableMenu": false,
-        "singleCheck": false,
-        "items": menuItems
-    }
+    property var menuContent: new Object()
 
-    property var menuItems: []
+    property var menuItems: new Array()
     property var actionDict: new Object()
 
     function generateId(){
@@ -48,5 +44,10 @@ DockMenu {
             }
         };
         menuItems.push(menuItem);
+        menuContent = {
+            "checkableMenu": false,
+            "singleCheck": false,
+            "items": menuItems
+        }
     }
 }
