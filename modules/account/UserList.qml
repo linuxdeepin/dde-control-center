@@ -222,7 +222,7 @@ ListView {
                             if (component_bg.state == "normal") {
                                 /* component_bg.state = "edit_dialog" */
                                 root.hideAllPrivate(index)
-                            } else {
+                            } else if (delete_line.state !== "normal") {
                                 component_bg.state = "normal"
                                 root.showAllPrivate()
                             }
