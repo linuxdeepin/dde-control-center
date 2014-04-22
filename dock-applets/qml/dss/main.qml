@@ -6,15 +6,10 @@ import DBus.Com.Deepin.Daemon.Display 1.0
 import DBus.Com.Deepin.Daemon.Network 1.0
 import "../widgets/"
 
-DockQuickWindow {
-    id: root
+DockApplet{
     title: "DSS"
     appid: "AppletDss"
     icon: iconPath
-    width: buttonRow.width + xEdgePadding * 2
-    height: contentColumn.height + xEdgePadding * 2
-    color: Qt.rgba(0, 0, 0, 0.85)
-
     property url iconPath: "images/icon.png"
 
     // display
@@ -28,103 +23,111 @@ DockQuickWindow {
 
     property int xEdgePadding: 10
 
-    Component.onCompleted: root.show()
 
-    Item {
-        anchors.centerIn: parent
-        width: parent.width - xEdgePadding * 2
-        height: parent.height - xEdgePadding * 2
+    window: DockQuickWindow {
+        id: root
+        width: buttonRow.width + xEdgePadding * 2
+        height: contentColumn.height + xEdgePadding * 2
+        color: Qt.rgba(0, 0, 0, 0.85)
 
-        Column {
-            id: contentColumn
-            width: parent.width
-            spacing: 20
+        Component.onCompleted: root.show()
 
-            Row {
-                id: buttonRow
-                spacing: 16
+        Item {
+            anchors.centerIn: parent
+            width: parent.width - xEdgePadding * 2
+            height: parent.height - xEdgePadding * 2
 
-                Loader {
-                    id: wiredButtonLoader
-                    source: dbusNetwork.wiredDevices.length > 0 ? "WiredCheckButton.qml" : ""
-                }
-
-                Loader {
-                    id: wifiButtonLoader
-                    source: dbusNetwork.wirelessDevices.length > 0 ? "WifiCheckButton.qml": ""
-                }
-
-                Loader {
-                    id: gsmButtonLoader
-                    source: "GsmCheckButton.qml"
-                }
-
-                Loader {
-                    id: vpnButtonLoader
-                    source: "VpnCheckButton.qml"
-                }
-
-                Loader {
-                    id: vpnButtonLoader
-                    source: "BluetoothCheckButton.qml"
-                }
-
-                DImageCheckButton{
-                    anchors.verticalCenter: parent.verticalCenter
-                    inactivatedNomralImage: "images/airplane_mode_off.png"
-                    inactivatedHoverImage: inactivatedNomralImage
-                    inactivatedPressImage: inactivatedNomralImage
-
-                    activatedNomralImage: "images/airplane_mode_on.png"
-                    activatedHoverImage: activatedNomralImage
-                    activatedPressImage: activatedNomralImage
-                }
-            }
-
-            Item {
+            Column {
+                id: contentColumn
                 width: parent.width
-                height: 40
+                spacing: 20
 
-                Image{
-                    source: "images/light.png"
-                    anchors.verticalCenter: parent.verticalCenter
-                }
+                Row {
+                    id: buttonRow
+                    spacing: 16
 
-                WhiteSlider{
-                    id: brightnessSlider
-                    width: parent.width - 40
-                    anchors.right: parent.right
-                    anchors.verticalCenter: parent.verticalCenter
-                    minimumValue: 0
-                    maximumValue: 1.0
-
-                    onValueChanged: {
-                        if(pressed){
-                            monitorObject.SetBrightness(monitorName, value)
-                        }
+                    Loader {
+                        id: wiredButtonLoader
+                        source: dbusNetwork.wiredDevices.length > 0 ? "WiredCheckButton.qml" : ""
                     }
 
-                    Connections{
-                        target: monitorObject
-                        onBrightnessChanged: {
-                            if(!brightnessSlider.pressed){
+                    Loader {
+                        id: wifiButtonLoader
+                        source: dbusNetwork.wirelessDevices.length > 0 ? "WifiCheckButton.qml": ""
+                    }
+
+                    Loader {
+                        id: gsmButtonLoader
+                        source: "GsmCheckButton.qml"
+                    }
+
+                    Loader {
+                        id: vpnButtonLoader
+                        source: "VpnCheckButton.qml"
+                    }
+
+                    Loader {
+                        id: bluetoothLoader
+                        source: "BluetoothCheckButton.qml"
+                    }
+
+                    DImageCheckButton{
+                        anchors.verticalCenter: parent.verticalCenter
+                        inactivatedNomralImage: "images/airplane_mode_off.png"
+                        inactivatedHoverImage: inactivatedNomralImage
+                        inactivatedPressImage: inactivatedNomralImage
+
+                        activatedNomralImage: "images/airplane_mode_on.png"
+                        activatedHoverImage: activatedNomralImage
+                        activatedPressImage: activatedNomralImage
+                    }
+                }
+
+                Item {
+                    width: parent.width
+                    height: 40
+
+                    Image{
+                        source: "images/light.png"
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+
+                    WhiteSlider{
+                        id: brightnessSlider
+                        width: parent.width - 40
+                        anchors.right: parent.right
+                        anchors.verticalCenter: parent.verticalCenter
+                        minimumValue: 0
+                        maximumValue: 1.0
+
+                        onValueChanged: {
+                            if(pressed){
+                                monitorObject.SetBrightness(monitorName, value)
+                            }
+                        }
+
+                        Connections{
+                            target: monitorObject
+                            onBrightnessChanged: {
+                                if(!brightnessSlider.pressed){
+                                    brightnessSlider.value = brightnessDict[monitorName]
+                                }
+                            }
+                        }
+
+                        Timer{
+                            running: true
+                            interval: 200
+                            onTriggered: {
                                 brightnessSlider.value = brightnessDict[monitorName]
                             }
                         }
-                    }
 
-                    Timer{
-                        running: true
-                        interval: 200
-                        onTriggered: {
-                            brightnessSlider.value = brightnessDict[monitorName]
-                        }
                     }
-
                 }
             }
+
         }
 
     }
-
 }

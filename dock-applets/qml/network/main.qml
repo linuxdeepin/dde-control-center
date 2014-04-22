@@ -4,17 +4,10 @@ import Deepin.DockApplet 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Network 1.0
 
-DockQuickWindow {
-    id: root
+DockApplet{
     title: "DSS"
     appid: "AppletNetwork"
     icon: iconPath
-    width: 280
-    height: content.height
-    color: Qt.rgba(0, 0, 0, 0.85)
-
-    Component.onCompleted: root.show()
-
     property url iconPath: "images/icon.png"
     property var dconstants: DConstants {}
 
@@ -54,32 +47,41 @@ DockQuickWindow {
     }
     property var wiredDeviceList: getWiredDeviceList()
 
-    Column {
-        id: content
-        width: parent.width
+    window: DockQuickWindow {
+        id: root
+        width: 280
+        height: content.height
+        color: Qt.rgba(0, 0, 0, 0.85)
 
-        Loader {
-            id: wiredNetworkArea
+        Component.onCompleted: root.show()
+
+        Column {
+            id: content
             width: parent.width
-            height: childrenRect.height
-            source: "WiredConnection.qml"
-            visible: dbusNetwork.wiredConnections.length > 0
-        }
 
-        DSeparatorHorizontal {
-            visible: wiredNetworkArea.visible && wirelessDeviceList.length > 0
-            width: parent.width * 0.9
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
-
-        Repeater{
-            id: wirelessNetworkRepeater
-            model: wirelessDeviceList
-            delegate: Loader {
-                id: wirelessNetworkArea
+            Loader {
+                id: wiredNetworkArea
                 width: parent.width
                 height: childrenRect.height
-                source: "WirelessConnection.qml"
+                source: "WiredConnection.qml"
+                visible: dbusNetwork.wiredConnections.length > 0
+            }
+
+            DSeparatorHorizontal {
+                visible: wiredNetworkArea.visible && wirelessDeviceList.length > 0
+                width: parent.width * 0.9
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+
+            Repeater{
+                id: wirelessNetworkRepeater
+                model: wirelessDeviceList
+                delegate: Loader {
+                    id: wirelessNetworkArea
+                    width: parent.width
+                    height: childrenRect.height
+                    source: "WirelessConnection.qml"
+                }
             }
         }
     }

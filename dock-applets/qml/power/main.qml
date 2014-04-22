@@ -4,24 +4,24 @@ import Deepin.DockApplet 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Power 1.0
 
-DockQuickWindow {
+DockApplet {
     id: root
-    title: "DSS"
-    appid: "Applet100663308"
+    title: dbusPower.batteryPercentage + "%"
+    appid: "AppletPower"
     icon: iconPath
     width: 260; height: 30
-    color: Qt.rgba(0, 0, 0, 0.85)
 
     property url iconPath: getIconPath()
     property var dbusPower: Power{
-        onBatteryPercentageChanged:{
+        onBatteryPercentageChanged: {
             root.iconPath = getIconPath()
         }
     }
 
     function getIconPath(){
-        var percentage = dbusPower.batteryPercentage
-        if(percentage < 5){
+        var percentage = parseInt(dbusPower.batteryPercentage)
+        print("Debug:", percentage)
+        if(percentage <= 5){
             return "images/power_0.png"
         }
         else if(percentage <= 20){
@@ -36,13 +36,11 @@ DockQuickWindow {
         else if(percentage <= 80){
             return "images/power_80.png"
         }
-        else if(percentage >= 95 && percentage < 100){
+        else if(percentage <= 95){
             return "images/power_100.png"
         }
-        else if(percentage == 100){
+        else if(percentage <= 100){
             return "images/power_100_full.png"
         }
     }
-
-    Component.onCompleted: root.show()
 }
