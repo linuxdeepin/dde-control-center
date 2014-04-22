@@ -29,12 +29,8 @@ Item {
 
     function getAllLayoutMapL10n(){
         var layoutMap = dbusKeyboard.LayoutList()
-        var layoutMapL10n = new Object()
-        for(var key in layoutMap){
-            layoutMapL10n[key] = xkeyboardLocale.dsTr(layoutMap[key])
-        }
-        layoutMapL10n[";"] = xkeyboardLocale.dsTr(layoutMap["us;"])
-        return layoutMapL10n
+        layoutMap[";"] = layoutMap["us;"]
+        return layoutMap
     }
 
     function isInUserLayouts(key){
