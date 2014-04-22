@@ -3,6 +3,7 @@ import QtQuick.Window 2.1
 import Deepin.DockApplet 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Power 1.0
+import "../widgets"
 
 DockApplet {
     id: root
@@ -18,9 +19,23 @@ DockApplet {
         }
     }
 
+    function showPower(){
+        dbusControlCenter.ShowModule("power")
+    }
+
+    function hidePower(){
+        set_hide_applet("power")
+    }
+
+    menu: Menu{
+        Component.onCompleted: {
+            addItem("Run", showPower);
+            addItem("Remove From Dock", hidePower);
+        }
+    }
+
     function getIconPath(){
         var percentage = parseInt(dbusPower.batteryPercentage)
-        print("Debug:", percentage)
         if(percentage <= 5){
             return "images/power_0.png"
         }

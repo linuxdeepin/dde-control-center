@@ -1,8 +1,11 @@
 import QtQuick 2.0
 import QtQuick.Window 2.1
+import DBus.Com.Deepin.Dde.ControlCenter 1.0
 
 QtObject {
     id: root
+
+    property var dbusControlCenter: ControlCenter{}
 
     function set_hide_applet(name){
         print("set_hide_applet: " + name)
