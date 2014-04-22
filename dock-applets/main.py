@@ -35,8 +35,10 @@ app = QtGui.QGuiApplication(sys.argv)
 import signal
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 
-DDE_DOCK_APPLET_MANAGER_NAME = "com.deepin.dde.dock.applet.manager"
-DDE_DOCK_APPLET_MANAGER_PATH = "/com/deepin/dde/dock/applet/manager"
+DDE_DOCK_APPLET_MANAGER_NAME = "dde.dock.entry.AppletManager"
+DDE_DOCK_APPLET_MANAGER_PATH = "/dde/dock/entry/AppletManager"
+
+ROOT_DIR = os.path.dirname(os.path.realpath(__file__))
 
 def registerDBus(dbus_name, path, obj):
     session_bus = QtDBus.QDBusConnection.sessionBus()
@@ -45,20 +47,34 @@ def registerDBus(dbus_name, path, obj):
 
 class DockAppletManagerAdptor(QtDBus.QDBusAbstractAdaptor):
     QtCore.Q_CLASSINFO("D-Bus Interface", DDE_DOCK_APPLET_MANAGER_NAME)
+    QtCore.Q_CLASSINFO("D-Bus Introspection",
+                '  <interface name="%s">\n'
+                '    <method name="ShowApplet">\n'
+                '      <arg direction="in" type="s" name="name"/>\n'
+                '    </method>\n'
+                '    <method name="HideApplet">\n'
+                '      <arg direction="in" type="s" name="name"/>\n'
+                '    </method>\n'
+                '    <property name="AppletList" type="as" access="read"/>\n'
+                '  </interface>\n' % DDE_DOCK_APPLET_MANAGER_NAME)
 
-    AllAppletsChanged = QtCore.pyqtSignal()
+    _AppletListChanged = QtCore.pyqtSignal()
 
     def __init__(self, parent):
         QtDBus.QDBusAbstractAdaptor.__init__(self, parent)
         self.setAutoRelaySignals(True)
 
     @QtCore.pyqtSlot(str)
-    def SetHideApplet(self, name):
+    def HideApplet(self, name):
         self.parent().rootObject.set_hide_applet(name)
 
     @QtCore.pyqtSlot(str)
-    def SetShowApplet(self, name):
+    def ShowApplet(self, name):
         self.parent().rootObject.set_show_applet(name)
+
+    @QtCore.pyqtProperty("QVariant", notify=_AppletListChanged)
+    def AppletList(self):
+        return self.parent().get_applet_list()
 
 class MainObject(QtCore.QObject):
     def __init__(self, qml_path):
@@ -86,12 +102,23 @@ class MainObject(QtCore.QObject):
     def set_all_contexts(self):
         self.rootContext.setContextProperty("mainObject", self)
 
+    @QtCore.pyqtSlot(result="QVariant")
+    def get_applet_list(self):
+        applets = {}
+        for name in os.listdir(os.path.join(ROOT_DIR, "qml")):
+            appet_path = os.path.join(ROOT_DIR, "qml", name)
+            if os.path.isdir(appet_path):
+                main_qml = os.path.join(appet_path, "main.qml")
+                if os.path.exists(main_qml):
+                    applets[name] = main_qml
+        return applets.keys()
+
     @QtCore.pyqtSlot(result=int)
     def getPid(self):
         return os.getpid()
     
 if __name__ == "__main__":
-    qml_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "qml/main.qml")
+    qml_path = os.path.join(ROOT_DIR, "qml/main.qml")
     t = MainObject(qml_path)
     registerDBus(DDE_DOCK_APPLET_MANAGER_NAME, DDE_DOCK_APPLET_MANAGER_PATH, t)
     sys.exit(app.exec_())

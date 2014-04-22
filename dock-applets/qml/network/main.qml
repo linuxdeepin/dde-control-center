@@ -11,19 +11,6 @@ DockApplet{
     property url iconPath: "images/icon.png"
     property var dconstants: DConstants {}
 
-    function dsTr(s){
-        return s
-    }
-
-    function getIndexFromArray(s, a){
-        for(var i in a){
-            if(a[i] == s){
-                return i
-            }
-        }
-        return -1
-    }
-
     function showNetwork(){
         dbusControlCenter.ShowModule("network")
     }
