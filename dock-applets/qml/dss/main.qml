@@ -23,6 +23,17 @@ DockApplet{
 
     property int xEdgePadding: 10
 
+    onActivate:{
+        showDss()
+    }
+
+    function showDss(){
+        dbusControlCenter.ShowModule("home")
+    }
+
+    function hideDss(){
+        set_hide_applet("dss")
+    }
 
     window: DockQuickWindow {
         id: root

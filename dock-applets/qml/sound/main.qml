@@ -30,6 +30,18 @@ DockApplet{
         return "images/sound-%1.png".arg(step)
     }
 
+    onActivate:{
+        showSound()
+    }
+
+    function showSound(){
+        dbusControlCenter.ShowModule("sound")
+    }
+
+    function hideSound(){
+        set_hide_applet("sound")
+    }
+
     window: DockQuickWindow {
         id: root
         width: rootWidth

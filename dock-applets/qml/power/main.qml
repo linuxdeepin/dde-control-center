@@ -27,6 +27,10 @@ DockApplet {
         set_hide_applet("power")
     }
 
+    onActivate: {
+        showPower()
+    }
+
     menu: Menu{
         Component.onCompleted: {
             addItem("Run", showPower);

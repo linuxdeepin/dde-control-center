@@ -24,6 +24,18 @@ DockApplet{
         return -1
     }
 
+    function showNetwork(){
+        dbusControlCenter.ShowModule("network")
+    }
+
+    function hideNetwork(){
+        set_hide_applet("network")
+    }
+
+    onActivate: {
+        showNetwork()
+    }
+
     property var dbusNetwork: NetworkManager{}
     property var activeConnections: dbusNetwork.activeConnections
 
