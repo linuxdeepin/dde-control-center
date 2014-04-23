@@ -34,8 +34,20 @@ Column{
     }
     
     function unmarshalJSON(valueJSON){
+        // TODO test
+        // print("==> unmarshalJSON:", valueJSON)
         var value = JSON.parse(valueJSON)
         return value
+    }
+    
+    function saveAllKeys() {
+        print("save all keys")
+        for (var i=0; i<children.length; i++) {
+            var objSection = children[i]
+            if (objSection.objectName == "BaseEditSection" && objSection.visible) {
+                objSection.saveKeys()
+            }
+        }
     }
     
     // TODO

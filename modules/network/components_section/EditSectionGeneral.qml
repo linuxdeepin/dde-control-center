@@ -1,9 +1,10 @@
 import QtQuick 2.1
 import Deepin.Widgets 1.0
+import "../components"
 
 BaseEditSection{
-    id: generalSettings
-    section: "General"
+    id: sectionGeneral
+    section: "general"
     
     header.sourceComponent: EditDownArrowHeader{
         text: dsTr("General")
@@ -13,11 +14,6 @@ BaseEditSection{
         EditLineSwitchButton{
             key: "autoconnect"
             text: dsTr("Automatically connect")
-        }
-        // TODO remove
-        EditLineSwitchButton{
-            key: "permissions"
-            text: dsTr("All users may connect to this network")
         }
     }
 }

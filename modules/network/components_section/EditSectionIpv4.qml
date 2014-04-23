@@ -1,10 +1,11 @@
 import QtQuick 2.1
 import Deepin.Widgets 1.0
+import "../components"
 import "../widgets"
 
 BaseEditSection {
-    id: ipv4Settings
-    section: "IPv4"
+    id: sectionIpv4
+    section: "ipv4"
 
     header.sourceComponent: EditDownArrowHeader{
         text: dsTr("IPv4")
@@ -16,19 +17,19 @@ BaseEditSection {
             text: dsTr("Method")
         }
         // TODO fix focus issue
-        EditLineIpv4 {
+        EditLineIpv4Input {
             key: "vk-addresses-address"
             text: dsTr("IP Address")
         }
-        EditLineIpv4 {
+        EditLineIpv4Input {
             key: "vk-addresses-mask"
             text: dsTr("Netmask")
         }
-        EditLineIpv4 {
+        EditLineIpv4Input {
             key: "vk-addresses-gateway"
             text: dsTr("Gateway")
         }
-        EditLineIpv4 {
+        EditLineIpv4Input {
             key: "vk-dns"
             text: dsTr("DNS Server")
         }

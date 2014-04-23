@@ -1,32 +1,9 @@
 import QtQuick 2.1
 import Deepin.Widgets 1.0
-import "components"
-// import "components_autogen"
+import "components_section"
+// import "components_section_autogen"
 
-BaseEditPage {
-    id: root
-    activeExpandIndex: 0
-
-    EditTitle {}
-
-    DSeparatorHorizontal {}
-    EditSectionGeneral {
-        myIndex: 0
-        activeExpandIndex: root.activeExpandIndex
-    }
-
-    DSeparatorHorizontal {}
-    EditSectionIpv4 {
-        myIndex: 1
-        activeExpandIndex: root.activeExpandIndex
-    }
-
-    DSeparatorHorizontal {}
-    EditSectionSecurity {
-        myIndex: 2
-        activeExpandIndex: root.activeExpandIndex
-    }
-
+BaseConnectionProperties {
     DSeparatorHorizontal {}
     DBaseLine {
         rightLoader.sourceComponent: Row {
@@ -35,6 +12,7 @@ BaseEditPage {
             DTextButton {
                 text: dsTr("Save")
                 onClicked: {
+                    saveAllKeys()
                     if (connectionSessionObject.Save()) {
                         stackView.reset()
                     }
