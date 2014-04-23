@@ -3,19 +3,20 @@ import Deepin.Widgets 1.0
 
 Rectangle{
     id: buttonOuterBox
-    width: label.width + xPadding * 2
-    height: label.height + yPadding * 2
+    width: content.width + xPadding * 2
+    height: content.height + yPadding * 2
     border.width: hasBorder ? 1 : 0
     radius: 2
 
+    property alias contentLoader: content
+
     signal clicked
 
-    property alias text: label.text
     property int xPadding: 10
     property int yPadding: 2
     property color hoverBgColor: Qt.rgba(0, 0, 0, 0.2)
     property color hoverBorderColor: Qt.rgba(1, 1, 1, 0.2)
-    property bool hasBorder: false
+    property bool hasBorder: true
 
     property var dconstants: DConstants {}
     property bool hovered: false
@@ -39,21 +40,13 @@ Rectangle{
         }
     }
 
-    DLabel {
-        id: label
+    Loader{
+        id: content
         anchors.centerIn: parent
-
-        color: {
-            if(parent.pressed){
-                return dconstants.activeColor
-            }
-            else if (parent.hovered){
-                return dconstants.hoverColor
-            }
-            else{
-                return dconstants.fgColor
-            }
-        }
+        width: item.width
+        height: item.height
+        property bool pressed: parent.pressed
+        property bool hovered: parent.hovered
     }
 
     MouseArea {

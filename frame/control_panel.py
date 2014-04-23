@@ -127,6 +127,7 @@ class ControlPanel(QtQuick.QQuickView):
     def setCustomCursor(self, path):
         pixmap = QtGui.QPixmap(path.split("//")[1])
         cursor = QtGui.QCursor(pixmap, -1, -1)
+        QtGui.QGuiApplication.restoreOverrideCursor()
         QtGui.QGuiApplication.setOverrideCursor(cursor)
         QtGui.QGuiApplication.changeOverrideCursor(cursor)
 

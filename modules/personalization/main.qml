@@ -8,6 +8,18 @@ Item {
     id: personalizationModule
     anchors.fill: parent
 
+    Connections{
+        target: rootWindow
+
+        onModuleStartChange: {
+            rootWindow.clickedToHide = true
+        }
+
+        onPanelHided: {
+            rootWindow.clickedToHide = true
+        }
+    }
+
     property int cellWidth: 144
     property int cellHeight: 112
 

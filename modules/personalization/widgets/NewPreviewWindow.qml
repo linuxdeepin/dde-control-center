@@ -7,22 +7,21 @@ import QtQml.Models 2.1
 Window {
     id: previewsWindow
 
-    width: 300
-    height: 500
-    flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
-    color: "transparent"
-    property int windowRadius: 6
-    property var themeObject
+    width: rootFrame.width + (frameRadius + shadowRadius) * 2
+    height: rootFrame.height + (frameRadius + shadowRadius) * 2
+    flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.Tool 
 
+    color: "transparent"
+    property int frameRadius: 3
+    property int shadowRadius: 10
+
+    property int contentWidth: 300
+    property int contentHeight: 500
+
+    property var themeObject
     property var dconstants: DConstants {}
     property int pointer: 0
-    property var previewsImages: [
-        "/usr/share/personalization/themes/Deepin/wallpappers/new-1.JPG",
-        "/usr/share/personalization/themes/Deepin/wallpappers/new-2.JPG",
-        "/usr/share/personalization/themes/Deepin/wallpappers/new-3.JPG",
-        "/usr/share/personalization/themes/Deepin/wallpappers/time-1.JPG",
-    ]
-
+    property var previewsImages: ["/usr/share/backgrounds/default_background.jpg"]
     property bool showPreviewWindow: false
 
     function getPreviewPictures() {
@@ -83,78 +82,97 @@ Window {
         }
     }
 
-    Item {
-        anchors.fill: parent
-        clip: true
+    RectangularGlow {
+        id: effect
+        anchors.fill: rootFrame
+        glowRadius: shadowRadius
+        spread: 0.2
+        color: Qt.rgba(0, 0, 0, 0.4)
+        cornerRadius: rootFrame.radius + glowRadius
+    }
 
-        Slide {
-            id: previewSlide
-            anchors.right: parent.right
-            width: itemWidth * previewsImages.length
-            height: itemHeight
-            itemWidth: 300
-            itemHeight: 500
-            model: previewsImages
-            delegate: PreviewImage {
-                radius: windowRadius
-                imageSource: previewsImages[index]
-                width: previewSlide.itemWidth
-                height: previewSlide.itemHeight
-                onClicked: {
-                    if(side == "left"){
-                        previewSlide.view.decrementCurrentIndex()
+    Rectangle {
+        id: rootFrame
+        anchors.centerIn: parent
+        width: contentWidth 
+        height: contentHeight
+        radius: frameRadius
+        color: Qt.rgba(0, 0, 0, 0.4)
+
+        Item {
+            width: contentWidth
+            height: contentHeight
+            clip: true
+
+            Slide {
+                id: previewSlide
+                anchors.right: parent.right
+                width: itemWidth * previewsImages.length
+                height: itemHeight
+                itemWidth: 300
+                itemHeight: 500
+                model: previewsImages
+                delegate: PreviewImage {
+                    radius: frameRadius 
+                    imageSource: previewsImages[index]
+                    width: previewSlide.itemWidth
+                    height: previewSlide.itemHeight
+                    onClicked: {
+                        if(side == "left"){
+                            previewSlide.view.decrementCurrentIndex()
+                        }
+                        else{
+                            previewSlide.view.incrementCurrentIndex()
+                        }
                     }
-                    else{
-                        previewSlide.view.incrementCurrentIndex()
-                    }
+                }
+
+                Component.onCompleted: {
+                    view.incrementCurrentIndex()
                 }
             }
 
-            Component.onCompleted: {
-                view.incrementCurrentIndex()
-            }
-        }
+            Item{
+                width: parent.width
+                height: 20
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: bottomToolBar.height + 10
 
-        Item{
-            width: parent.width
-            height: 20
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: bottomToolBar.height + 10
+                Row {
+                    anchors.centerIn: parent
+                    height: parent.height
+                    spacing: 20
 
-            Row {
-                anchors.centerIn: parent
-                height: parent.height
-                spacing: 20
+                    Repeater {
+                        model: previewsImages.length
 
-                Repeater {
-                    model: previewsImages.length
+                        Rectangle {
+                            width: 10; height: 10
+                            radius: 5
+                            border.width: 1
+                            border.color: Qt.rgba(0, 0, 0, 0.5)
+                            property int realIndex: previewSlide.currentIndex == 0 ? previewsImages.length - 1 : previewSlide.currentIndex - 1
+                            color: realIndex == index ? dconstants.activeColor : dconstants.fgColor
 
-                    Rectangle {
-                        width: 10; height: 10
-                        radius: 5
-                        border.width: 1
-                        border.color: Qt.rgba(0, 0, 0, 0.5)
-                        property int realIndex: previewSlide.currentIndex == 0 ? previewsImages.length - 1 : previewSlide.currentIndex - 1
-                        color: realIndex == index ? dconstants.activeColor : dconstants.fgColor
-
-                        MouseArea {
-                            width: 20; height: 20
-                            anchors.centerIn: parent
-                            hoverEnabled: true
-                            onEntered: {
-                                cursorShape = Qt.PointingHandCursor
-                            }
-
-                            onExited: {
-                                cursorShape = Qt.ArrowCursor
-                            }
-
-                            onReleased: {
-                                if(index == previewsImages.length -1 ){
-                                    previewSlide.currentIndex = 0
+                            MouseArea {
+                                width: 25; height: 25
+                                anchors.centerIn: parent
+                                hoverEnabled: true
+                                onEntered: {
+                                    cursorShape = Qt.PointingHandCursor
                                 }
-                                else{
-                                    previewSlide.currentIndex = index + 1
+
+                                onExited: {
+                                    cursorShape = Qt.ArrowCursor
+                                }
+
+                                onReleased: {
+                                    if(index == previewsImages.length -1 ){
+                                        previewSlide.currentIndex = 0
+                                    }
+                                    else{
+                                        previewSlide.currentIndex = index + 1
+                                    }
                                 }
                             }
                         }
@@ -162,30 +180,109 @@ Window {
                 }
             }
         }
-    }
-
-    Rectangle{
-        anchors.fill: parent
-        radius: windowRadius
-        border.color: Qt.rgba(1, 1, 1, 0.3)
-        border.width: 1
-        color: "transparent"
 
         Rectangle{
-            id: bottomToolBar
-            anchors.bottom: parent.bottom
-            width: parent.width
-            height: 40
-            color: Qt.rgba(0, 0, 0, 0.5)
+            width: contentWidth
+            height: contentHeight
 
-            NewButton {
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.right: parent.right
-                anchors.rightMargin: 10
-                text: "Apply"
+            radius: frameRadius
+            border.color: Qt.rgba(1, 1, 1, 0.3)
+            border.width: 1
+            color: "transparent"
 
-                onClicked: {
-                    previewsWindow.hideWindow()
+            MouseArea{
+                width: parent.width
+                height: 100
+                hoverEnabled: true
+
+                onEntered: topToolBar.show()
+                onExited: topToolBar.hide()
+            }
+
+            Rectangle{
+                id: topToolBar
+                width: parent.width
+                height: 40
+                color: Qt.rgba(0, 0, 0, 0.5)
+                radius: frameRadius
+                visible: opacity > 0
+                opacity: 0
+
+                function show(){
+                    opacity = 1
+                }
+
+                function hide(){
+                    hideTimer.restart()
+                }
+
+                Timer{
+                    id: hideTimer
+                    interval: 200
+                    onTriggered: {
+                        if(!closeButton.hovered && !closeButton.pressed){
+                            topToolBar.opacity = 0
+                        }
+                    }
+                }
+
+                Behavior on opacity { 
+                    NumberAnimation { duration: 200 }
+                }
+
+                CustomButton {
+                    id: closeButton
+                    anchors.right: parent.right
+                    anchors.rightMargin: 12
+                    anchors.verticalCenter: parent.verticalCenter
+                    xPadding: 2
+
+                    contentLoader.sourceComponent: Image{ source: "images/close_normal.png" }
+
+                    onClicked: {
+                        previewsWindow.hideWindow()
+                    }
+                }
+            }
+
+            Rectangle{
+                id: bottomToolBar
+                anchors.bottom: parent.bottom
+                width: parent.width
+                height: 40
+                color: Qt.rgba(0, 0, 0, 0.5)
+                radius: frameRadius
+
+                MouseArea {
+                    anchors.fill: parent
+                    hoverEnabled: true
+                }
+
+                CustomButton {
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.right: parent.right
+                    anchors.rightMargin: 10
+
+                    contentLoader.sourceComponent: DLabel {
+                        text: "Apply"
+                        anchors.centerIn: parent
+
+                        color: {
+                            if(parent.pressed){
+                                return dconstants.activeColor
+                            }
+                            else if (parent.hovered){
+                                return dconstants.hoverColor
+                            }
+                            else{
+                                return dconstants.fgColor
+                            }
+                        }
+                    }
+
+                    onClicked: {
+                        previewsWindow.hideWindow()
+                    }
                 }
             }
         }
