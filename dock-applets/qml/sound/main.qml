@@ -42,6 +42,13 @@ DockApplet{
         set_hide_applet("sound")
     }
 
+    menu: Menu{
+        Component.onCompleted: {
+            addItem("_Run", showSound);
+            addItem("_Undock", hideSound);
+        }
+    }
+
     window: DockQuickWindow {
         id: root
         width: rootWidth

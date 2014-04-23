@@ -35,11 +35,20 @@ DockApplet{
         set_hide_applet("dss")
     }
 
+    menu: Menu{
+        Component.onCompleted: {
+            addItem("_Run", showDss);
+            addItem("_Undock", hideDss);
+        }
+    }
+
     window: DockQuickWindow {
         id: root
         width: buttonRow.width + xEdgePadding * 2
         height: contentColumn.height + xEdgePadding * 2
         color: Qt.rgba(0, 0, 0, 0.85)
+
+        //Component.onCompleted: show()
 
         Item {
             anchors.centerIn: parent
@@ -55,40 +64,80 @@ DockApplet{
                     id: buttonRow
                     spacing: 16
 
-                    Loader {
-                        id: wiredButtonLoader
-                        source: dbusNetwork.wiredDevices.length > 0 ? "WiredCheckButton.qml" : ""
+                    CheckButton{
+                        id: wiredCheckButton
+                        onImage: "images/wire_on.png"
+                        offImage: "images/wire_off.png"
+                        visible: dbusNetwork.wiredDevices.length > 0
+
+                        onClicked: {
+                            dbusNetwork.wiredEnabled = active
+                        }
+
+                        Connections{
+                            target: dbusNetwork
+                            onWiredEnabledChanged:{
+                                if(!wiredCheckButton.pressed){
+                                    wiredCheckButton.active = dbusNetwork.wiredEnabled
+                                }
+                            }
+                        }
+
+                        Timer{
+                            running: true
+                            interval: 100
+                            onTriggered: {
+                                parent.active = dbusNetwork.wiredEnabled
+                            }
+                        }
                     }
 
-                    Loader {
-                        id: wifiButtonLoader
-                        source: dbusNetwork.wirelessDevices.length > 0 ? "WifiCheckButton.qml": ""
+                    CheckButton{
+                        id: wirelessCheckButton
+                        onImage: "images/wifi_on.png"
+                        offImage: "images/wifi_off.png"
+                        visible: dbusNetwork.wirelessDevices.length > 0
+
+                        onClicked: {
+                            dbusNetwork.wirelessEnabled = active
+                        }
+
+                        Connections{
+                            target: dbusNetwork
+                            onWirelessEnabledChanged:{
+                                if(!wirelessCheckButton.pressed){
+                                    wirelessCheckButton.active = dbusNetwork.wirelessEnabled
+                                }
+                            }
+                        }
+
+                        Timer{
+                            running: true
+                            interval: 100
+                            onTriggered: {
+                                parent.active = dbusNetwork.wirelessEnabled
+                            }
+                        }
                     }
 
-                    Loader {
-                        id: gsmButtonLoader
-                        source: "GsmCheckButton.qml"
+                    CheckButton{
+                        onImage: "images/3g_on.png"
+                        offImage: "images/3g_off.png"
                     }
 
-                    Loader {
-                        id: vpnButtonLoader
-                        source: "VpnCheckButton.qml"
+                    CheckButton{
+                        onImage: "images/vpn_on.png"
+                        offImage: "images/vpn_off.png"
                     }
 
-                    Loader {
-                        id: bluetoothLoader
-                        source: "BluetoothCheckButton.qml"
+                    CheckButton{
+                        onImage: "images/bluetooth_on.png"
+                        offImage: "images/bluetooth_off.png"
                     }
 
-                    DImageCheckButton{
-                        anchors.verticalCenter: parent.verticalCenter
-                        inactivatedNomralImage: "images/airplane_mode_off.png"
-                        inactivatedHoverImage: inactivatedNomralImage
-                        inactivatedPressImage: inactivatedNomralImage
-
-                        activatedNomralImage: "images/airplane_mode_on.png"
-                        activatedHoverImage: activatedNomralImage
-                        activatedPressImage: activatedNomralImage
+                    CheckButton {
+                        onImage: "images/airplane_mode_on.png"
+                        offImage: "images/airplane_mode_off.png"
                     }
                 }
 

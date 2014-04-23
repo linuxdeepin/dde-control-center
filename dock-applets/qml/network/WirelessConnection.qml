@@ -8,21 +8,39 @@ Column {
     DBaseExpand {
         width: parent.width
         height: childrenRect.height
-        expanded: true
+        expanded: dbusNetwork.wirelessEnabled
 
         headerRect.color: "transparent"
         contentRect.color: "transparent"
+        separator.visible: false
 
-        separator.width: parent.width * 0.9
+        header.sourceComponent: Item {
+            width: parent.width
+            height: 30
+            DssH2{
+                text: wirelessDeviceList.length > 1 ? dsTr("Wireless Network %1").arg(index + 1) : dsTr("Wireless Network")
+                anchors.left: parent.left
+                anchors.leftMargin: 28
+                anchors.verticalCenter: parent.verticalCenter
+            }
 
-        header.sourceComponent: DSwitchButtonHeader{
-            color: "transparent"
-            text: {
-                if (wirelessDeviceList.length > 1){
-                    return dsTr("Wireless Network %1").arg(index + 1)
+            DSwitchButton {
+                id: switchButton
+                anchors.right: parent.right
+                anchors.rightMargin: 15
+                anchors.verticalCenter: parent.verticalCenter
+                checked: dbusNetwork.wirelessEnabled
+                onClicked: {
+                    dbusNetwork.wirelessEnabled = checked
                 }
-                else{
-                    return dsTr("Wireless Network")
+
+                Connections {
+                    target: dbusNetwork
+                    onWirelessEnabledChanged:{
+                        if (!switchButton.pressed){
+                            switchButton.checked = dbusNetwork.wirelessEnabled
+                        }
+                    }
                 }
             }
         }
@@ -32,6 +50,4 @@ Column {
             wirelessDevicePath: modelData
         }
     }
-
-    DSeparatorHorizontal{}
 }

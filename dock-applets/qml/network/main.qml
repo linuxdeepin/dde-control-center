@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Window 2.1
 import Deepin.DockApplet 1.0
 import Deepin.Widgets 1.0
+import "../widgets/"
 
 DockApplet{
     title: "DSS"
@@ -22,6 +23,13 @@ DockApplet{
         showNetwork()
     }
 
+    menu: Menu{
+        Component.onCompleted: {
+            addItem("_Run", showNetwork);
+            addItem("_Undock", hideNetwork);
+        }
+    }
+
     property var activeConnections: dbusNetwork.activeConnections
 
     function getWiredDeviceList(){
@@ -40,23 +48,11 @@ DockApplet{
         height: content.height
         color: Qt.rgba(0, 0, 0, 0.85)
 
+        //Component.onCompleted: show()
+
         Column {
             id: content
             width: parent.width
-
-            Loader {
-                id: wiredNetworkArea
-                width: parent.width
-                height: childrenRect.height
-                source: "WiredConnection.qml"
-                visible: dbusNetwork.wiredConnections.length > 0
-            }
-
-            DSeparatorHorizontal {
-                visible: wiredNetworkArea.visible && wirelessDeviceList.length > 0
-                width: parent.width * 0.9
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
 
             Repeater{
                 id: wirelessNetworkRepeater

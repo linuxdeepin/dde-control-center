@@ -10,10 +10,6 @@ DockApplet{
     property url iconPath: "images/icon.png"
     property int xEdgePadding: 0
 
-    Component.onCompleted: {
-        root.show()
-    }
-
     onActivate:{
         showDiskMount()
     }
@@ -24,6 +20,13 @@ DockApplet{
 
     function hideDiskMount(){
         set_hide_applet("disk_mount")
+    }
+
+    menu: Menu{
+        Component.onCompleted: {
+            addItem("_Run", showDiskMount);
+            addItem("_Undock", hideDiskMount);
+        }
     }
 
     function bitToHuman(b){

@@ -1,13 +1,43 @@
 import QtQuick 2.0
 import Deepin.Widgets 1.0
 
-Item {
+Column {
     id: wirelessDeviceList
     width: parent.width
-    height: childrenRect.height
 
     property string wirelessDevicePath: "/"
     property string inConnectingApPath: "/"
+
+    Rectangle {
+        width: parent.width - 10
+        height: 1
+        color: Qt.rgba(1, 1, 1, 0.1)
+        anchors.horizontalCenter: parent.horizontalCenter
+    }
+
+    ListView {
+        width: parent.width
+        height: Math.min(childrenRect.height, 255)
+        model: accessPointsModel
+        delegate: WirelessConnectionItem{
+            devicePath: wirelessDevicePath
+            inConnectingApPath: wirelessDeviceList.inConnectingApPath
+        }
+        visible: accessPointsModel.count > 0
+
+        DScrollBar {
+            flickable: parent
+        }
+    }
+
+    DBaseLine{
+        visible: accessPointsModel.count == 0
+        color: "transparent"
+        leftLoader.sourceComponent: DssH2{
+            font.pixelSize: 12
+            text: dsTr("Scanning...")
+        }
+    }
 
     ListModel {
         id: accessPointsModel
@@ -32,26 +62,6 @@ Item {
                 }
             }
             return position
-        }
-    }
-
-    ListView {
-        width: parent.width
-        height: Math.min(childrenRect.height, 180)
-        model: accessPointsModel
-        delegate: WirelessConnectionItem{
-            devicePath: wirelessDevicePath
-            inConnectingApPath: wirelessDeviceList.inConnectingApPath
-        }
-        visible: accessPointsModel.count > 0
-    }
-
-    DBaseLine{
-        visible: accessPointsModel.count == 0
-        color: "transparent"
-        leftLoader.sourceComponent: DssH2{
-            font.pixelSize: 12
-            text: dsTr("Scanning...")
         }
     }
 
