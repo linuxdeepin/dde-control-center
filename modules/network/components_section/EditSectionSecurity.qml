@@ -1,5 +1,6 @@
 import QtQuick 2.1
 import Deepin.Widgets 1.0
+import "../components"
 
 BaseEditSection{
     id: sectionSecurity
@@ -41,7 +42,7 @@ BaseEditSection{
         EditLineFileChooser{
             key: "ca-cert"
             text: dsTr("ca-cert")// TODO
-            nameFilters: ["(*.png *.jpg *.bmp)"] //TODO
+            nameFilters: ["DER or PEM certificates(*.der *.pem *.crt *.cer)"] //TODO
         }
         EditLineFileChooser{
             key: "client-cert"
@@ -54,10 +55,12 @@ BaseEditSection{
         EditLineFileChooser{
             key: "pac-file"
             text: dsTr("pac-file")// TODO
+            nameFilters: ["PAC files(*.pac)"] //TODO
         }
         EditLineFileChooser{
             key: "phase2-private-key"
             text: dsTr("phase2-private-key")// TODO
+            nameFilters: ["DER, PEM or PKCS#12 private key(*.der *.pem *.p12 *.key)"] //TODO
         }
         EditLineComboBox{
             key: "phase1-peapver"
