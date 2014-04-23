@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import Deepin.DockApplet 1.0
 import Deepin.Widgets 1.0
+import "../widgets"
 
 DockApplet{
     title: "Disk Mount"
