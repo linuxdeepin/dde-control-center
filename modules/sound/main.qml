@@ -232,6 +232,9 @@ Item {
                             target: currentSink
 
                             onBalanceChanged: {
+                                if (currentSink.balance.toFixed(output_balance_slider.floatNumber) == 
+                                    output_balance_slider.value.toFixed(output_balance_slider.floatNumber))
+                                    return
                                 if (!output_balance_slider.pressedFlag) {
                                     output_balance_slider.setValue(currentSink.balance)
                                 }
