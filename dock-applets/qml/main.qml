@@ -10,9 +10,12 @@ QtObject {
     id: root
 
     property var appletList: new Array()
+
     Component.onCompleted: {
-        appletList = get_applet_list()
+        init_applet_list_model()
     }
+
+    property var appletListModel: ListModel {}
 
     // start init dbus backend
     property var dbusControlCenter: ControlCenter{}
@@ -39,7 +42,11 @@ QtObject {
             update_applet_list("power", batteryIsPresent)
         }
     }
-    property var dbusNetwork: NetworkManager{}
+    property var dbusNetwork: NetworkManager{
+        onWirelessDevicesChanged: {
+            wirelessDeviceList = getWirelessDeviceList()
+        }
+    }
     function getWirelessDeviceList(){
         var r = new Array()
         var devices = dbusNetwork.wirelessDevices
@@ -75,43 +82,63 @@ QtObject {
         return -1
     }
 
-    function get_applet_list(){
-        var applet_list = new Array()
-        applet_list.push("dss")
+    function getAppletIndex(applet_id){
+        for(var i=0; i<appletListModel.count; i++){
+            if(applet_id == appletListModel.get(i).applet_id){
+                return i
+            }
+        }
+        return -1
+    }
+
+    function init_applet_list_model(){
+        appletListModel.append({
+            "applet_id": "dss"
+        })
 
         if (dbusPower.batteryIsPresent){
-            applet_list.push("power")
+            appletListModel.append({
+                "applet_id": "power"
+            })
         }
 
-        applet_list.push("sound")
+        appletListModel.append({
+            "applet_id": "sound"
+        })
 
-        if (dbusNetwork.wirelessDevices){
-            applet_list.push("network")
-        }
+        //if (dbusNetwork.wirelessDevices){
+            //appletListModel.append({
+                //"applet_id": "network"
+            //})
+        //}
 
-        if (mountDiskList.length > 0) {
-            applet_list.push("disk_mount")
-        }
-        return applet_list
+        //if (mountDiskList.length > 0) {
+            //appletListModel.append({
+                //"applet_id": "disk_mount"
+            //})
+        //}
     }
 
     function update_applet_list(name, add){
-        var i = getIndexFromArray(name, appletList)
+        print(">> Dock Applet Status Changed:", name, add)
+        var i = getAppletIndex(name)
         if(add){
             if (i == "-1"){
-                appletList.push(name)
+                appletListModel.append({
+                    "applet_id": name
+                })
             }
         }
         else{
             if (i != "-1"){
-                appletList.splice(i, 1)
+                appletListModel.remove(i, 1)
             }
         }
     }
 
     function set_hide_applet(name){
         print("set_hide_applet: " + name)
-        var i = getIndexFromArray(name, appletList)
+        var i = getAppletIndex(name)
         if(i != "-1"){
             repeater.itemAt(i).hide()
         }
@@ -122,7 +149,7 @@ QtObject {
 
     function set_show_applet(name){
         print("set_show_applet: " + name)
-        var i = getIndexFromArray(name, appletList)
+        var i = getAppletIndex(name)
         if(i != "-1"){
             repeater.itemAt(i).show()
         }
@@ -131,12 +158,20 @@ QtObject {
         }
     }
 
+    function get_applet_list(){
+        var applet_list = new Array()
+        for(var i=0; i<appletListModel.count; i++){
+            applet_list.push(appletListModel.get(i).applet_id)
+        }
+        return applet_list
+    }
+
     property var applets: Item {
         Repeater {
             id: repeater
-            model: appletList
+            model: appletListModel
             delegate: AppletLoader {
-                qmlPath: "%1/main.qml".arg(modelData)
+                qmlPath: "%1/main.qml".arg(applet_id)
             }
         }
     }
