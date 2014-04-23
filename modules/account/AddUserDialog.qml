@@ -38,7 +38,7 @@ Rectangle {
             var result = true
             
             /* user name validation */
-            var linux_username_regex = /^[a-z_][a-z0-9_-]{0,30}$/
+            var linux_username_regex = /^[a-z_][a-z0-9_-]{0,30}$/i
             if (!linux_username_regex.test(user_name_input.text)) {
                 result = false
                 user_name_input.state = "warning"
