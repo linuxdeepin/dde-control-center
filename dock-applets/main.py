@@ -74,7 +74,7 @@ class DockAppletManagerAdptor(QtDBus.QDBusAbstractAdaptor):
 
     @QtCore.pyqtProperty("QVariant", notify=_AppletListChanged)
     def AppletList(self):
-        return self.parent().get_applet_list()
+        return self.parent().rootObject.get_applet_list()
 
 class MainObject(QtCore.QObject):
     def __init__(self, qml_path):

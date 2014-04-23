@@ -2,7 +2,6 @@ import QtQuick 2.0
 import QtQuick.Window 2.1
 import Deepin.DockApplet 1.0
 import Deepin.Widgets 1.0
-import DBus.Com.Deepin.Daemon.Power 1.0
 import "../widgets"
 
 DockApplet {
@@ -13,7 +12,9 @@ DockApplet {
     width: 260; height: 30
 
     property url iconPath: getIconPath()
-    property var dbusPower: Power{
+
+    Connections{
+        target: dbusPower
         onBatteryPercentageChanged: {
             root.iconPath = getIconPath()
         }
