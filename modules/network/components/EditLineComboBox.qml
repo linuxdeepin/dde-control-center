@@ -15,7 +15,17 @@ BaseEditLine {
             value: root.value
         }
         
-        property var menuLabels: getAvailableValues()
+        property var menuLabels
+        Connections {
+            target: root
+            onVisibleChanged: {
+                if (root.visible) {
+                    menuLabels = getAvailableValues()
+                }
+                // TODO test
+                print("EditLineComboBox.onVisibleChanged", visible ? "(show)" : "(hide)", section, key, value, "[", getAvailableValues(), "]")
+            }
+        }
 
         function menuSelect(i){
             root.value = menuLabels[i]
@@ -34,8 +44,6 @@ BaseEditLine {
                 rootMenu.innerWidth = width
             }
             rootMenu.visible = !rootMenu.visible
-            // TODO test
-            print("==> EditLineComboBox.onClicked:", section, root.key, root.value, "[", getAvailableValues(), "]")
         }
     }
 }
