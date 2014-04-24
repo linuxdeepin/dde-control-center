@@ -50,6 +50,10 @@ Column {
         }
         return monitorsObjects
     }
+
+    function getMonitorNames(outputObj){
+        return Object.keys(outputObj.brightness)
+    }
     
     Component.onCompleted: {
         displayId.SaveChanged()

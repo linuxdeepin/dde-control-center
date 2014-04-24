@@ -73,14 +73,44 @@ Rectangle{
         text: displayName
         font.bold: true
         font.pixelSize: parent.width/12
+        visible: !monitorObject.isComposited && !inEditMode
     }
 
-    DssH4 {
-        text: "Move me"
-        anchors.top: nameText.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
-        opacity: 0.5
-        visible: inEditMode
+    Item {
+        id: compositedMonitorBox
+        anchors.centerIn: parent
+        width: parent.width - 40
+        height: parent.height - 60
+        property var monitorNames: getMonitorNames(monitorObject)
+        property int childrenWidth: compositedMonitorBox.width/4 * 3
+        property int childrenHeight: compositedMonitorBox.height/4 * 3
+        property int xSpacing: (width - childrenWidth)/(monitorNames.length - 1)
+        property int ySpacing: (height - childrenHeight)/(monitorNames.length - 1)
+
+        Repeater{
+            model: compositedMonitorBox.monitorNames
+            delegate: Rectangle {
+                width: compositedMonitorBox.childrenWidth
+                height: compositedMonitorBox.childrenHeight
+                border.width: 1
+                border.color: dconstants.fgDarkColor
+                color: "black"
+                x: compositedMonitorBox.xSpacing * index
+                y: compositedMonitorBox.ySpacing * index
+
+                DssH3 {
+                    text: modelData
+                    anchors.right: parent.right
+                }
+
+                DssH1 {
+                    text: "A"
+                    font.pixelSize: parent.width/3
+                    anchors.centerIn: parent
+                }
+            }
+        }
+        visible: monitorObject.isComposited
     }
 
     MouseArea {
@@ -127,12 +157,12 @@ Rectangle{
 
     DTextAction{
         anchors.right: parent.right
-        anchors.bottom: parent.bottom
         text: "Split"
         onClicked: {
             displayId.SplitMonitor(monitorObject.name)
         }
         visible: monitorObject.isComposited
+        hasUnderline: true
     }
 
     Item{

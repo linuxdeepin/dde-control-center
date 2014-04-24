@@ -27,7 +27,7 @@ Item {
         8: dsTr("Rotate Left"),
     }
 
-    property var monitorNames: Object.keys(outputObj.brightness)
+    property var monitorNames: getMonitorNames(outputObj)
     property var brightnessValues: outputObj.brightness
 
     onOutputObjChanged: {
