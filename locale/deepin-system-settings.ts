@@ -69,6 +69,19 @@
     </message>
 </context>
 <context>
+    <name>ConnectionProperties</name>
+    <message>
+        <location filename="../modules/network/ConnectionProperties.qml" line="13"/>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/ConnectionProperties.qml" line="23"/>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CustomKeybinding</name>
     <message>
         <location filename="../modules/shortcuts/CustomKeybinding.qml" line="92"/>
@@ -105,58 +118,329 @@
     </message>
 </context>
 <context>
-    <name>EditIpv4Section</name>
+    <name>EditLineFileChooser</name>
     <message>
-        <location filename="../modules/network/components/EditIpv4Section.qml" line="28"/>
+        <location filename="../modules/network/components/EditLineFileChooser.qml" line="29"/>
+        <source>...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>EditLinePasswordToggle</name>
+    <message>
+        <location filename="../modules/network/components/EditLinePasswordToggle.qml" line="26"/>
+        <source>Show password</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>EditSectionEthernet</name>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionEthernet.qml" line="11"/>
+        <source>Ethernet</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>EditSectionGeneral</name>
+    <message>
+        <location filename="../modules/network/components_section/EditSectionGeneral.qml" line="10"/>
+        <location filename="../modules/network/components_section_autogen/EditSectionGeneral.qml" line="11"/>
+        <source>General</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section/EditSectionGeneral.qml" line="16"/>
+        <location filename="../modules/network/components_section_autogen/EditSectionGeneral.qml" line="18"/>
+        <source>Automatically connect</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>EditSectionIpv4</name>
+    <message>
+        <location filename="../modules/network/components_section/EditSectionIpv4.qml" line="11"/>
+        <location filename="../modules/network/components_section_autogen/EditSectionIpv4.qml" line="11"/>
         <source>IPv4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/components/EditIpv4Section.qml" line="48"/>
+        <location filename="../modules/network/components_section/EditSectionIpv4.qml" line="17"/>
+        <location filename="../modules/network/components_section_autogen/EditSectionIpv4.qml" line="38"/>
         <source>Method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/components/EditIpv4Section.qml" line="83"/>
+        <location filename="../modules/network/components_section/EditSectionIpv4.qml" line="22"/>
+        <location filename="../modules/network/components_section_autogen/EditSectionIpv4.qml" line="18"/>
         <source>IP Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/components/EditIpv4Section.qml" line="124"/>
+        <location filename="../modules/network/components_section/EditSectionIpv4.qml" line="26"/>
+        <location filename="../modules/network/components_section_autogen/EditSectionIpv4.qml" line="23"/>
         <source>Netmask</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/components/EditIpv4Section.qml" line="157"/>
+        <location filename="../modules/network/components_section/EditSectionIpv4.qml" line="30"/>
+        <location filename="../modules/network/components_section_autogen/EditSectionIpv4.qml" line="28"/>
         <source>Gateway</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/components/EditIpv4Section.qml" line="189"/>
+        <location filename="../modules/network/components_section/EditSectionIpv4.qml" line="34"/>
+        <location filename="../modules/network/components_section_autogen/EditSectionIpv4.qml" line="33"/>
         <source>DNS Server</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>EditSecuritySection</name>
+    <name>EditSectionIpv6</name>
     <message>
-        <location filename="../modules/network/components/EditSecuritySection.qml" line="28"/>
+        <location filename="../modules/network/components_section_autogen/EditSectionIpv6.qml" line="11"/>
+        <source>IPv6</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionIpv6.qml" line="18"/>
+        <source>IPv6 Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionIpv6.qml" line="23"/>
+        <source>Prefix</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionIpv6.qml" line="28"/>
+        <source>Gateway</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionIpv6.qml" line="33"/>
+        <source>DNS Server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionIpv6.qml" line="38"/>
+        <source>Method</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>EditSectionPpp</name>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionPpp.qml" line="11"/>
+        <source>PPP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionPpp.qml" line="18"/>
+        <source>!!refuse-eap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionPpp.qml" line="23"/>
+        <source>!!refuse-pap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionPpp.qml" line="28"/>
+        <source>!!refuse-chap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionPpp.qml" line="33"/>
+        <source>!!refuse-mschap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionPpp.qml" line="38"/>
+        <source>!!refuse-mschapv2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionPpp.qml" line="43"/>
+        <source>!!nobsdcomp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionPpp.qml" line="48"/>
+        <source>!!nodeflate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionPpp.qml" line="53"/>
+        <source>!!no-vj-comp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionPpp.qml" line="58"/>
+        <source>!!require-mppe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionPpp.qml" line="63"/>
+        <source>!!require-mppe-128</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionPpp.qml" line="68"/>
+        <source>!!mppe-stateful</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionPpp.qml" line="73"/>
+        <source>!!lcp-echo-failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionPpp.qml" line="78"/>
+        <source>!!lcp-echo-interval</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>EditSectionPppoe</name>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionPppoe.qml" line="11"/>
+        <source>PPPoE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionPppoe.qml" line="18"/>
+        <source>Service</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionPppoe.qml" line="23"/>
+        <source>Username</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionPppoe.qml" line="28"/>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>EditSectionSecurity</name>
+    <message>
+        <location filename="../modules/network/components_section/EditSectionSecurity.qml" line="10"/>
+        <location filename="../modules/network/components_section_autogen/EditSectionSecurity.qml" line="11"/>
+        <location filename="../modules/network/components_section_autogen/EditSectionSecurity.qml" line="18"/>
         <source>Security</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/components/EditSecuritySection.qml" line="47"/>
+        <location filename="../modules/network/components_section/EditSectionSecurity.qml" line="16"/>
         <source>Security:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/components/EditSecuritySection.qml" line="88"/>
+        <location filename="../modules/network/components_section/EditSectionSecurity.qml" line="21"/>
+        <location filename="../modules/network/components_section/EditSectionSecurity.qml" line="29"/>
         <source>Password:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/components/EditSecuritySection.qml" line="110"/>
-        <source>Show password</source>
+        <location filename="../modules/network/components_section/EditSectionSecurity.qml" line="36"/>
+        <source>EAP Auth</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section/EditSectionSecurity.qml" line="40"/>
+        <location filename="../modules/network/components_section_autogen/EditSectionSecurity.qml" line="68"/>
+        <source>Anonymous Identity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section/EditSectionSecurity.qml" line="45"/>
+        <location filename="../modules/network/components_section_autogen/EditSectionSecurity.qml" line="43"/>
+        <source>PAC file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section/EditSectionSecurity.qml" line="51"/>
+        <location filename="../modules/network/components_section_autogen/EditSectionSecurity.qml" line="48"/>
+        <source>CA Cert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section/EditSectionSecurity.qml" line="57"/>
+        <location filename="../modules/network/components_section_autogen/EditSectionSecurity.qml" line="53"/>
+        <source>User Cert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section/EditSectionSecurity.qml" line="62"/>
+        <location filename="../modules/network/components_section_autogen/EditSectionSecurity.qml" line="58"/>
+        <source>Private Key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section/EditSectionSecurity.qml" line="67"/>
+        <location filename="../modules/network/components_section_autogen/EditSectionSecurity.qml" line="78"/>
+        <source>PAC Provisioning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section/EditSectionSecurity.qml" line="71"/>
+        <location filename="../modules/network/components_section_autogen/EditSectionSecurity.qml" line="73"/>
+        <source>PEAP Version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section/EditSectionSecurity.qml" line="75"/>
+        <source>Inner Auth</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section/EditSectionSecurity.qml" line="80"/>
+        <location filename="../modules/network/components_section_autogen/EditSectionSecurity.qml" line="63"/>
+        <source>Identity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section/EditSectionSecurity.qml" line="85"/>
+        <location filename="../modules/network/components_section_autogen/EditSectionSecurity.qml" line="28"/>
+        <location filename="../modules/network/components_section_autogen/EditSectionSecurity.qml" line="88"/>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section/EditSectionSecurity.qml" line="93"/>
+        <location filename="../modules/network/components_section_autogen/EditSectionSecurity.qml" line="93"/>
+        <source>Private Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionSecurity.qml" line="23"/>
+        <source>Key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionSecurity.qml" line="33"/>
+        <source>Use security</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionSecurity.qml" line="38"/>
+        <source>Authentication</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionSecurity.qml" line="83"/>
+        <source>Inner Authentication</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>EditSectionWifi</name>
+    <message>
+        <location filename="../modules/network/components_section_autogen/EditSectionWifi.qml" line="11"/>
+        <source>Wi-Fi</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -171,7 +455,7 @@
 <context>
     <name>EditUserDialog</name>
     <message>
-        <location filename="../modules/account/EditUserDialog.qml" line="83"/>
+        <location filename="../modules/account/EditUserDialog.qml" line="86"/>
         <source>Enable User</source>
         <translation type="unfinished"></translation>
     </message>
@@ -474,14 +758,6 @@
     </message>
 </context>
 <context>
-    <name>PreviewWindow</name>
-    <message>
-        <location filename="../modules/personalization/widgets/PreviewWindow.qml" line="281"/>
-        <source>Apply</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>ShortcutInput</name>
     <message>
         <location filename="../modules/shortcuts/ShortcutInput.qml" line="103"/>
@@ -538,7 +814,7 @@
     <name>TimeBox</name>
     <message>
         <location filename="../modules/date_time/TimeBox.qml" line="135"/>
-        <source>双击数字修改时间</source>
+        <source>Double-click the overhead digital to modify local time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -690,6 +966,19 @@
     </message>
 </context>
 <context>
+    <name>WiredConnection</name>
+    <message>
+        <location filename="../dock-applets/qml/network/WiredConnection.qml" line="16"/>
+        <source>Wired Network %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../dock-applets/qml/network/WiredConnection.qml" line="19"/>
+        <source>Wired Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>WiredDeviceExpand</name>
     <message>
         <location filename="../modules/network/WiredDeviceExpand.qml" line="14"/>
@@ -700,53 +989,46 @@
 <context>
     <name>WiredItem</name>
     <message>
-        <location filename="../modules/network/WiredItem.qml" line="79"/>
+        <location filename="../modules/network/WiredItem.qml" line="80"/>
         <source>Wired Conection %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>WiredProperties</name>
+    <name>WirelessConnection</name>
     <message>
-        <location filename="../modules/network/WiredProperties.qml" line="27"/>
-        <source>General</source>
+        <location filename="../dock-applets/qml/network/WirelessConnection.qml" line="21"/>
+        <source>Wireless Network %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/WiredProperties.qml" line="44"/>
-        <source>Automatically connect</source>
+        <location filename="../dock-applets/qml/network/WirelessConnection.qml" line="21"/>
+        <source>Wireless Network</source>
         <translation type="unfinished"></translation>
     </message>
+</context>
+<context>
+    <name>WirelessConnectionList</name>
     <message>
-        <location filename="../modules/network/WiredProperties.qml" line="50"/>
-        <source>All users may connect to this network</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/WiredProperties.qml" line="68"/>
-        <source>Save</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/WiredProperties.qml" line="72"/>
-        <source>Close</source>
+        <location filename="../dock-applets/qml/network/WirelessConnectionList.qml" line="38"/>
+        <source>Scanning...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>WirelessDeviceExpand</name>
     <message>
-        <location filename="../modules/network/WirelessDeviceExpand.qml" line="116"/>
+        <location filename="../modules/network/WirelessDeviceExpand.qml" line="118"/>
         <source>Wireless Device: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/WirelessDeviceExpand.qml" line="119"/>
+        <location filename="../modules/network/WirelessDeviceExpand.qml" line="121"/>
         <source>Wireless Device %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/WirelessDeviceExpand.qml" line="157"/>
+        <location filename="../modules/network/WirelessDeviceExpand.qml" line="159"/>
         <source>Scanning...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -754,51 +1036,23 @@
 <context>
     <name>WirelessItem</name>
     <message>
-        <location filename="../modules/network/WirelessItem.qml" line="231"/>
+        <location filename="../modules/network/WirelessItem.qml" line="239"/>
         <source>Password: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/WirelessItem.qml" line="251"/>
+        <location filename="../modules/network/WirelessItem.qml" line="259"/>
         <source>Show password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/WirelessItem.qml" line="266"/>
+        <location filename="../modules/network/WirelessItem.qml" line="274"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/WirelessItem.qml" line="273"/>
+        <location filename="../modules/network/WirelessItem.qml" line="281"/>
         <source>Connect</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>WirelessProperties</name>
-    <message>
-        <location filename="../modules/network/WirelessProperties.qml" line="28"/>
-        <source>General</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/WirelessProperties.qml" line="45"/>
-        <source>Automatically connect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/WirelessProperties.qml" line="51"/>
-        <source>All users may connect to this network</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/WirelessProperties.qml" line="76"/>
-        <source>Save</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/WirelessProperties.qml" line="86"/>
-        <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -893,7 +1147,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="127"/>
+        <location filename="../modules/date_time/main.qml" line="128"/>
         <source>假期安排提示</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1009,63 +1263,63 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="75"/>
+        <location filename="../modules/keyboard/main.qml" line="71"/>
         <source>Keyboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="87"/>
+        <location filename="../modules/keyboard/main.qml" line="83"/>
         <source>Repeat Delay</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="102"/>
+        <location filename="../modules/keyboard/main.qml" line="98"/>
         <source>Long</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="101"/>
+        <location filename="../modules/keyboard/main.qml" line="97"/>
         <source>Short</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="111"/>
+        <location filename="../modules/keyboard/main.qml" line="107"/>
         <source>Repeat Interval</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="127"/>
-        <location filename="../modules/keyboard/main.qml" line="153"/>
+        <location filename="../modules/keyboard/main.qml" line="123"/>
+        <location filename="../modules/keyboard/main.qml" line="149"/>
         <location filename="../modules/mouse_touchpad/main.qml" line="74"/>
         <location filename="../modules/mouse_touchpad/main.qml" line="126"/>
         <source>Slow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="126"/>
-        <location filename="../modules/keyboard/main.qml" line="152"/>
+        <location filename="../modules/keyboard/main.qml" line="122"/>
+        <location filename="../modules/keyboard/main.qml" line="148"/>
         <location filename="../modules/mouse_touchpad/main.qml" line="75"/>
         <location filename="../modules/mouse_touchpad/main.qml" line="127"/>
         <source>Fast</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="162"/>
+        <location filename="../modules/keyboard/main.qml" line="158"/>
         <source>Test Area</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="136"/>
+        <location filename="../modules/keyboard/main.qml" line="132"/>
         <source>Cursor Blink</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="377"/>
+        <location filename="../modules/keyboard/main.qml" line="373"/>
         <source>No result</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="192"/>
+        <location filename="../modules/keyboard/main.qml" line="188"/>
         <source>Keyboard Layout</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1073,9 +1327,9 @@
         <location filename="../modules/default_applications/main.qml" line="24"/>
         <location filename="../modules/display/main.qml" line="190"/>
         <location filename="../modules/grub/main.qml" line="66"/>
-        <location filename="../modules/keyboard/main.qml" line="77"/>
+        <location filename="../modules/keyboard/main.qml" line="73"/>
         <location filename="../modules/mouse_touchpad/main.qml" line="29"/>
-        <location filename="../modules/power/main.qml" line="81"/>
+        <location filename="../modules/power/main.qml" line="93"/>
         <location filename="../modules/shortcuts/main.qml" line="92"/>
         <location filename="../modules/sound/main.qml" line="100"/>
         <source>Reset</source>
@@ -1087,8 +1341,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/main.qml" line="242"/>
-        <location filename="../modules/power/main.qml" line="415"/>
+        <location filename="../modules/power/main.qml" line="254"/>
+        <location filename="../modules/power/main.qml" line="427"/>
         <source>Custom</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1133,108 +1387,143 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/main.qml" line="74"/>
+        <location filename="../modules/power/main.qml" line="86"/>
         <source>Power</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/main.qml" line="122"/>
+        <location filename="../modules/power/main.qml" line="134"/>
         <source>Ask</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/main.qml" line="144"/>
+        <location filename="../modules/power/main.qml" line="156"/>
         <source>When I close the lid</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/main.qml" line="209"/>
+        <location filename="../modules/power/main.qml" line="221"/>
         <source>Power Adapter</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/power/main.qml" line="224"/>
-        <location filename="../modules/power/main.qml" line="397"/>
-        <location filename="../modules/sound/main.qml" line="206"/>
-        <source>Balance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/power/main.qml" line="230"/>
-        <location filename="../modules/power/main.qml" line="403"/>
-        <source>Power saver</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/power/main.qml" line="236"/>
         <location filename="../modules/power/main.qml" line="409"/>
+        <location filename="../modules/sound/main.qml" line="206"/>
+        <source>Balance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/power/main.qml" line="242"/>
+        <location filename="../modules/power/main.qml" line="415"/>
+        <source>Power saver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/power/main.qml" line="248"/>
+        <location filename="../modules/power/main.qml" line="421"/>
         <source>High performance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/main.qml" line="287"/>
-        <location filename="../modules/power/main.qml" line="461"/>
+        <location filename="../modules/power/main.qml" line="299"/>
+        <location filename="../modules/power/main.qml" line="473"/>
         <source>Custom Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/main.qml" line="226"/>
-        <location filename="../modules/power/main.qml" line="232"/>
         <location filename="../modules/power/main.qml" line="238"/>
         <location filename="../modules/power/main.qml" line="244"/>
-        <location filename="../modules/power/main.qml" line="292"/>
-        <location filename="../modules/power/main.qml" line="399"/>
-        <location filename="../modules/power/main.qml" line="405"/>
+        <location filename="../modules/power/main.qml" line="250"/>
+        <location filename="../modules/power/main.qml" line="256"/>
+        <location filename="../modules/power/main.qml" line="304"/>
         <location filename="../modules/power/main.qml" line="411"/>
         <location filename="../modules/power/main.qml" line="417"/>
-        <location filename="../modules/power/main.qml" line="466"/>
+        <location filename="../modules/power/main.qml" line="423"/>
+        <location filename="../modules/power/main.qml" line="429"/>
+        <location filename="../modules/power/main.qml" line="478"/>
         <source>Turn off monitor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/main.qml" line="382"/>
+        <location filename="../modules/power/main.qml" line="394"/>
         <source>Battery</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/main.qml" line="117"/>
-        <location filename="../modules/power/main.qml" line="163"/>
-        <location filename="../modules/power/main.qml" line="227"/>
-        <location filename="../modules/power/main.qml" line="233"/>
+        <location filename="../modules/power/main.qml" line="129"/>
+        <location filename="../modules/power/main.qml" line="175"/>
         <location filename="../modules/power/main.qml" line="239"/>
         <location filename="../modules/power/main.qml" line="245"/>
-        <location filename="../modules/power/main.qml" line="332"/>
-        <location filename="../modules/power/main.qml" line="400"/>
-        <location filename="../modules/power/main.qml" line="406"/>
+        <location filename="../modules/power/main.qml" line="251"/>
+        <location filename="../modules/power/main.qml" line="257"/>
+        <location filename="../modules/power/main.qml" line="344"/>
         <location filename="../modules/power/main.qml" line="412"/>
         <location filename="../modules/power/main.qml" line="418"/>
-        <location filename="../modules/power/main.qml" line="506"/>
+        <location filename="../modules/power/main.qml" line="424"/>
+        <location filename="../modules/power/main.qml" line="430"/>
+        <location filename="../modules/power/main.qml" line="518"/>
         <source>Suspend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/main.qml" line="98"/>
+        <location filename="../modules/power/main.qml" line="59"/>
+        <source>1 minute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/power/main.qml" line="60"/>
+        <source>5 minutes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/power/main.qml" line="61"/>
+        <source>10 minutes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/power/main.qml" line="62"/>
+        <source>15 minutes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/power/main.qml" line="63"/>
+        <source>30 minutes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/power/main.qml" line="64"/>
+        <source>1 hour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/power/main.qml" line="65"/>
+        <source>Never</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/power/main.qml" line="110"/>
         <source>When I press the power button</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/main.qml" line="112"/>
-        <location filename="../modules/power/main.qml" line="158"/>
+        <location filename="../modules/power/main.qml" line="124"/>
+        <location filename="../modules/power/main.qml" line="170"/>
         <source>Shutdown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/main.qml" line="187"/>
+        <location filename="../modules/power/main.qml" line="199"/>
         <source>Require password when computer wakes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/main.qml" line="43"/>
+        <location filename="../modules/account/main.qml" line="37"/>
         <source>Account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/main.qml" line="52"/>
+        <location filename="../modules/account/main.qml" line="46"/>
         <source>User List</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1333,7 +1622,7 @@
     <message>
         <location filename="../modules/desktop/main.qml" line="220"/>
         <location filename="../modules/desktop/main.qml" line="245"/>
-        <location filename="../modules/power/main.qml" line="168"/>
+        <location filename="../modules/power/main.qml" line="180"/>
         <source>Nothing</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1380,42 +1669,42 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/main.qml" line="48"/>
+        <location filename="../modules/personalization/main.qml" line="60"/>
         <source>Personalization</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/main.qml" line="55"/>
+        <location filename="../modules/personalization/main.qml" line="67"/>
         <source>Theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/main.qml" line="62"/>
+        <location filename="../modules/personalization/main.qml" line="74"/>
         <source>GTK Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/main.qml" line="69"/>
+        <location filename="../modules/personalization/main.qml" line="81"/>
         <source>Icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/main.qml" line="76"/>
+        <location filename="../modules/personalization/main.qml" line="88"/>
         <source>Cursor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/main.qml" line="83"/>
+        <location filename="../modules/personalization/main.qml" line="95"/>
         <source>Wallpapper</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/main.qml" line="90"/>
+        <location filename="../modules/personalization/main.qml" line="102"/>
         <source>Font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="57"/>
+        <location filename="../modules/network/main.qml" line="59"/>
         <source>Network Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1451,7 +1740,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="367"/>
+        <location filename="../modules/sound/main.qml" line="370"/>
         <source>Output Port</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1471,48 +1760,48 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="257"/>
+        <location filename="../modules/sound/main.qml" line="260"/>
         <source>Microphone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="331"/>
+        <location filename="../modules/sound/main.qml" line="334"/>
         <source>Input Feedback</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="384"/>
-        <location filename="../modules/sound/main.qml" line="491"/>
+        <location filename="../modules/sound/main.qml" line="387"/>
+        <location filename="../modules/sound/main.qml" line="494"/>
         <source>No port exist in this device.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="425"/>
+        <location filename="../modules/sound/main.qml" line="428"/>
         <source>Output device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="474"/>
+        <location filename="../modules/sound/main.qml" line="477"/>
         <source>Input Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="532"/>
+        <location filename="../modules/sound/main.qml" line="535"/>
         <source>Input device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="586"/>
+        <location filename="../modules/sound/main.qml" line="589"/>
         <source>Hide Advanced...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="586"/>
+        <location filename="../modules/sound/main.qml" line="589"/>
         <source>Show Advanced...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="287"/>
+        <location filename="../modules/sound/main.qml" line="290"/>
         <source>Input Volume</source>
         <translation type="unfinished"></translation>
     </message>
