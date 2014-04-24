@@ -27,7 +27,7 @@ DBaseLine {
             }
         }
         // TODO test
-        print("DBaseLine.onVisibleChanged", visible ? "(show)" : "(hide)", section, key, value)
+        print("BaseEditLine.onVisibleChanged", visible ? "(show)" : "(hide)", section, key, value)
     }
     
     color: dconstants.contentBgColor

@@ -7,13 +7,20 @@ Column{
 
     property var uuid
     property var devicePath
+    property bool create: false
+    property string type
 
     property int activeExpandIndex: -1
     property int valueWidth: 190
     property int contentLeftMargin: 18
     property var connectionSessionObject: {
-        var connectionPath = dbusNetwork.EditConnection(uuid, devicePath)
-        return connectionSession.createObject(properiesPage, { path: connectionPath })
+        if (create) {
+            var connectionPath = dbusNetwork.CreateConnection(type, "/")
+            return connectionSession.createObject(properiesPage, { path: connectionPath })
+        } else {
+            var connectionPath = dbusNetwork.EditConnection(uuid, devicePath)
+            return connectionSession.createObject(properiesPage, { path: connectionPath })
+        }
     }
     property var avaiableSections: connectionSessionObject.ListPages()
 

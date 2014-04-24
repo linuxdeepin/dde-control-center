@@ -62,7 +62,34 @@ Column{
             spacing: 4
 
             DssAddButton{
+                id: addButton
                 anchors.verticalCenter: parent.verticalCenter
+                // TODO temporary scheme
+                property var menuLabels
+                function menuSelect(i){
+                    print("create connection", menuLabels[i])
+                    goToCreateConnection(menuLabels[i])
+                }
+                onClicked: {
+                    if(!rootMenu.visible){
+                        menuLabels = dbusNetwork.GetSupportedConnectionTypes() // update menu labels
+                        var pos = mapToItem(null, 0, 0)
+                        rootMenu.labels = addButton.menuLabels
+                        rootMenu.requestMenuItem = addButton
+                        rootMenu.posX = pos.x
+                        rootMenu.posY = pos.y + height
+                        rootMenu.innerWidth = 100
+                    }
+                    rootMenu.visible = !rootMenu.visible
+                }
+                function goToCreateConnection(type){
+                    stackView.push({
+                        "item": stackViewPages["connectionPropertiesPage"],
+                        "properties": { "create": true, "type":  type},
+                        "destroyOnPop": true
+                    })
+                    stackView.currentItemId = "connectionPropertiesPage"
+                }
             }
 
             DTextButton {

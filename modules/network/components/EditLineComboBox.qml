@@ -22,8 +22,6 @@ BaseEditLine {
                 if (root.visible) {
                     menuLabels = getAvailableValues()
                 }
-                // TODO test
-                print("EditLineComboBox.onVisibleChanged", visible ? "(show)" : "(hide)", section, key, value, "[", getAvailableValues(), "]")
             }
         }
 

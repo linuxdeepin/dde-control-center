@@ -1,7 +1,7 @@
 import QtQuick 2.1
 import Deepin.Widgets 1.0
-import "components_section"
-// import "components_section_autogen"
+// import "components_section"
+import "components_section_autogen"
 
 BaseConnectionProperties {
     DSeparatorHorizontal {}
