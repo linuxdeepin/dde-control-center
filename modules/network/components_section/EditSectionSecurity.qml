@@ -15,7 +15,7 @@ BaseEditSection{
             key: "vk-key-mgmt"
             text: dsTr("Security:") // TODO section name append with ":"
         }
-        EditLinePassword{
+        EditLinePasswordInput{
             id: lineWepkey0
             key: "wep-key0"
             text: dsTr("Password:")
@@ -23,7 +23,7 @@ BaseEditSection{
         EditLinePasswordToggle{
             targetTextInput: lineWepkey0
         }
-        EditLinePassword{
+        EditLinePasswordInput{
             id: linePsk
             key: "psk"
             text: dsTr("Password:")
@@ -79,7 +79,7 @@ BaseEditSection{
             key: "identity"
             text: dsTr("Identity")
         }
-        EditLinePassword{
+        EditLinePasswordInput{
             id: linePassword
             key: "password"
             text: dsTr("Password")
@@ -87,7 +87,7 @@ BaseEditSection{
         EditLinePasswordToggle{
             targetTextInput: linePassword
         }
-        EditLinePassword {
+        EditLinePasswordInput {
             id: linePrivateKeyPassword
             key: "private-key-password"
             text: dsTr("Private Password") //TODO

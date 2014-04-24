@@ -17,12 +17,12 @@ BaseEditSection {
             key: "vk-key-mgmt"
             text: dsTr("Security")
         }
-        EditLinePassword {
+        EditLinePasswordInput {
             id: lineWepKey0
             key: "wep-key0"
             text: dsTr("Key")
         }
-        EditLinePassword {
+        EditLinePasswordInput {
             id: linePsk
             key: "psk"
             text: dsTr("Password")
@@ -82,12 +82,12 @@ BaseEditSection {
             key: "phase2-auth"
             text: dsTr("Inner Authentication")
         }
-        EditLinePassword {
+        EditLinePasswordInput {
             id: linePassword
             key: "password"
             text: dsTr("Password")
         }
-        EditLinePassword {
+        EditLinePasswordInput {
             id: linePrivateKeyPassword
             key: "private-key-password"
             text: dsTr("Private Password")
