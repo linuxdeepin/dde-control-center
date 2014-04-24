@@ -14,7 +14,7 @@ Item {
     property int leftWidth: 100
     property int centerPadding: 16
 
-    property var mouseID: Mouse {}
+    property var dbusMouse: Mouse {}
     property var touchpadObj
 
     Column {
@@ -40,14 +40,14 @@ Item {
                 anchors.left: parent.left
                 anchors.leftMargin: 2
                 anchors.verticalCenter: parent.verticalCenter
-                initializeIndex: mouseID.useHabit ? 1 : 0
+                initializeIndex: dbusMouse.leftHanded ? 1 : 0
                 buttonModel: [
                     {"buttonId": "right_hand", "buttonLabel": dsTr("Right Hand")},
                     {"buttonId": "left_hand", "buttonLabel": dsTr("Left Hand")}
                 ]
 
                 onItemSelected: {
-                    mouseID.useHabit = idx == 1 ? true : false
+                    dbusMouse.leftHanded = idx == 1 ? true : false
                 }
             }
         }
@@ -63,11 +63,11 @@ Item {
 
                 min: 0.5
                 max: 5
-                init: mouseID.moveSpeed
+                init: dbusMouse.motionAccel
                 valueDisplayVisible: false
 
                 onValueConfirmed:{
-                    mouseID.moveSpeed = value
+                    dbusMouse.motionAccel = value
                 }
 
                 Component.onCompleted: {
@@ -89,11 +89,11 @@ Item {
 
                 min: 1
                 max: 20
-                init: mouseID.moveAccuracy
+                init: dbusMouse.motionThres
                 valueDisplayVisible: false
 
                 onValueConfirmed:{
-                    mouseID.moveAccuracy = value
+                    dbusMouse.motionThres = value
                 }
 
                 Component.onCompleted: {
@@ -115,11 +115,11 @@ Item {
 
                 min: 100
                 max: 1000
-                init: mouseID.clickFrequency
+                init: dbusMouse.doubleClick
                 valueDisplayVisible: false
 
                 onValueConfirmed:{
-                    mouseID.clickFrequency = value
+                    dbusMouse.doubleClick = value
                 }
 
                 Component.onCompleted: {

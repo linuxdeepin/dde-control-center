@@ -99,7 +99,7 @@ Item {
         width: zoomButton.width 
         height: zoomButton.height
 
-        PreviewButton {
+        ShowPreviewButton {
             id: zoomButton
             source: "images/preview.png"
             anchors.centerIn: parent

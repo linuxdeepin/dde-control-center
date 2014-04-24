@@ -37,7 +37,7 @@ Item {
         return obj
     }
 
-    property var previewsWindow: NewPreviewWindow{
+    property var previewsWindow: PreviewWindow{
         x: rootWindow.x - width
         y: rootWindow.y + 18
         themeObject: currentThemeObject
@@ -90,9 +90,9 @@ Item {
 
         DSeparatorHorizontal {}
 
-        WallpapperExpand {
+        WallpaperExpand {
             myIndex: 3
-            title: dsTr("Wallpapper")
+            title: dsTr("Wallpaper")
         }
 
         DSeparatorHorizontal {}

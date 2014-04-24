@@ -17,7 +17,7 @@ Rectangle {
 
     property var inputDevicesId: InputDevices {}
     property bool isTouchpadExist: {
-        var devInfoList = inputDevicesId.devInfoList
+        var devInfoList = inputDevicesId.infos
         for(var i in devInfoList){
             if(devInfoList[i][1] == 'touchpad'){
                 return true

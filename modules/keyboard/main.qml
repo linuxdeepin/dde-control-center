@@ -111,11 +111,11 @@ Item {
 
                 min: 2000
                 max: 30
-                init: dbusKeyboard.repeatSpeed
+                init: dbusKeyboard.repeatInterval
                 valueDisplayVisible: false
 
                 onValueConfirmed:{
-                    dbusKeyboard.repeatSpeed = value
+                    dbusKeyboard.repeatInterval = value
                 }
 
                 Component.onCompleted: {

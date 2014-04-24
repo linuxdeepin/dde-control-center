@@ -13,7 +13,7 @@ Item {
     property int contentHeight: 48
     property int sliderWidth: 180
 
-    property var touchPadID: TouchPad {}
+    property var dbusTouchpad: TouchPad {}
 
     Column {
         id: touchpadTitleColumn
@@ -28,9 +28,9 @@ Item {
                 text: dsTr("TouchPad")
             }
             rightLoader.sourceComponent: DSwitchButton{
-                checked: touchPadID.tPadEnable ? true : false
+                checked: dbusTouchpad.tPadEnable
                 onClicked: {
-                    touchPadID.tPadEnable = checked
+                    dbusTouchpad.tPadEnable = checked
                 }
             }
         }
@@ -61,26 +61,14 @@ Item {
                 anchors.left: parent.left
                 anchors.leftMargin: 2
                 anchors.verticalCenter: parent.verticalCenter
-                initializeIndex: {
-                    if(touchPadID.useHabit == "left"){
-                        return 1
-                    }
-                    else{
-                        return 0
-                    }
-                }
+                initializeIndex: dbusTouchpad.leftHanded ? 1 : 0
                 buttonModel: [
                     {"buttonId": "right_hand", "buttonLabel": dsTr("Right Hand")},
                     {"buttonId": "left_hand", "buttonLabel": dsTr("Left Hand")}
                 ]
 
                 onItemSelected: {
-                    if(idx == 1){
-                        touchPadID.useHabit = "left"
-                    }
-                    else{
-                        touchPadID.useHabit = "right"
-                    }
+                    dbusTouchpad.leftHanded = (idx == 1)
                 }
             }
         }
@@ -96,11 +84,11 @@ Item {
 
                 min: 0.5
                 max: 5
-                init: touchPadID.moveSpeed
+                init: dbusTouchpad.motionAccel
                 valueDisplayVisible: false
 
                 onValueConfirmed:{
-                    touchPadID.moveSpeed = value
+                    dbusTouchpad.motionAccel = value
                 }
 
                 Component.onCompleted: {
@@ -121,11 +109,11 @@ Item {
 
                 min: 1
                 max: 20
-                init: touchPadID.moveAccuracy
+                init: dbusTouchpad.motionThres
                 valueDisplayVisible: false
 
                 onValueConfirmed:{
-                    touchPadID.moveAccuracy = value
+                    dbusTouchpad.motionThres = value
                 }
 
                 Component.onCompleted: {
@@ -146,11 +134,11 @@ Item {
 
                 min: 100
                 max: 1000
-                init: touchPadID.clickFrequency
+                init: dbusTouchpad.doubleClick
                 valueDisplayVisible: false
 
                 onValueConfirmed:{
-                    touchPadID.clickFrequency = value
+                    dbusTouchpad.doubleClick = value
                 }
 
                 Component.onCompleted: {
@@ -172,11 +160,11 @@ Item {
 
                 min: 1
                 max: 10
-                init: touchPadID.dragDelay
+                init: dbusTouchpad.dragThres
                 valueDisplayVisible: false
 
                 onValueConfirmed:{
-                    touchPadID.dragDelay = value
+                    dbusTouchpad.dragThres = value
                 }
 
                 Component.onCompleted: {
