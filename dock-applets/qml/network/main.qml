@@ -46,7 +46,7 @@ DockApplet{
         id: root
         width: 280
         height: content.height
-        color: Qt.rgba(0, 0, 0, 0.85)
+        color: "transparent"
 
         //Component.onCompleted: show()
 

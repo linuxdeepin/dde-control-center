@@ -46,7 +46,7 @@ DockApplet{
         id: root
         width: buttonRow.width + xEdgePadding * 2
         height: contentColumn.height + xEdgePadding * 2
-        color: Qt.rgba(0, 0, 0, 0.85)
+        color: "transparent"
 
         //Component.onCompleted: show()
 

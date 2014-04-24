@@ -66,7 +66,7 @@ DockApplet{
         id: root
         width: 240 + xEdgePadding * 2
         height: diskListView.height + xEdgePadding * 2
-        color: Qt.rgba(0, 0, 0, 0.85)
+        color: "transparent"
 
         ListView {
             id: diskListView

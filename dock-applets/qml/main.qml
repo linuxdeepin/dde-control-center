@@ -120,7 +120,7 @@ QtObject {
     }
 
     function update_applet_list(name, add){
-        print(">> Dock Applet Status Changed:", name, add)
+        print("==> [info] Applet Status Changed:", name, add)
         var i = getAppletIndex(name)
         if(add){
             if (i == "-1"){

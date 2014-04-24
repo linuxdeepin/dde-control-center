@@ -53,7 +53,7 @@ DockApplet{
         id: root
         width: rootWidth
         height: 200
-        color: Qt.rgba(0, 0, 0, 0.85)
+        color: "transparent"
 
         Connections{
             target: defaultSink
