@@ -3,6 +3,7 @@ import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.InputDevices 1.0
+import "../shared"
 
 Item {
     id: mouseModule
@@ -25,8 +26,7 @@ Item {
         DssTitle {
             text: dsTr("Mouse")
 
-            rightLoader.sourceComponent: DTextButton {
-                text: dsTr("Reset")
+            rightLoader.sourceComponent: ResetButton {
             }
         }
 

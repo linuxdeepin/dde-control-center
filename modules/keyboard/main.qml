@@ -69,8 +69,7 @@ Item {
 
         DssTitle {
             text:dsTr("Keyboard")
-            rightLoader.sourceComponent: DTextButton {
-                text: dsTr("Reset")
+            rightLoader.sourceComponent: ResetButton {
             }
         }
 

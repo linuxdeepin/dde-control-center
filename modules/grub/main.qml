@@ -62,9 +62,7 @@ Rectangle {
             text: dsTr("Startup Screen")
         }
 
-        DTextButton {
-            text: dsTr("Reset")
-
+        ResetButton {
             onClicked: reset()
 
             anchors.right: parent.right

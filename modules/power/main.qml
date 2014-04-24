@@ -89,9 +89,7 @@ Rectangle {
                 breath: dbus_power.batteryState == 1
             }
 
-            DTextButton {
-                text: dsTr("Reset")
-
+            ResetButton {
                 onClicked: dbus_power.Reset()
 
                 anchors.right: parent.right

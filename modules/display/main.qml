@@ -3,6 +3,7 @@ import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Display 1.0
+import "../shared"
 
 Column {
     id: displayModule
@@ -89,6 +90,8 @@ Column {
                     text: "(" + dsTr("Main Display: ") + displayId.primary + ")"
                     color: "white"
                 }
+            }
+            rightLoader.sourceComponent: ResetButton {
             }
         }
 

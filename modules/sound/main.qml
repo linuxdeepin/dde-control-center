@@ -96,8 +96,7 @@ Item {
         DssTitle {
             text: dsTr("Sound")
 
-            rightLoader.sourceComponent: DTextButton{
-                text: dsTr("Reset")
+            rightLoader.sourceComponent: ResetButton {
             }
         }
 
