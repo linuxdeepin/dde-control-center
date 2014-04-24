@@ -33,55 +33,67 @@ BaseEditSection{
         }
         EditLineComboBox{
             key: "vk-eap"
-            text: dsTr("vk-eap")// TODO
+            text: dsTr("EAP Auth")
         }
         EditLineTextInput{
             key: "anonymous-identity"
-            text: dsTr("anonymous-identity")// TODO
+            text: dsTr("Anonymous Identity") // TODO
         }
-        EditLineFileChooser{
-            key: "ca-cert"
-            text: dsTr("ca-cert")// TODO
-            nameFilters: ["DER or PEM certificates(*.der *.pem *.crt *.cer)"] //TODO
-        }
-        EditLineFileChooser{
-            key: "client-cert"
-            text: dsTr("client-cert")// TODO
-        }
-        EditLineComboBox{
-            key: "phase1-fast-provisioning"
-            text: dsTr("phase1-fast-provisioning")// TODO
-        }
-        EditLineFileChooser{
-            key: "pac-file"
-            text: dsTr("pac-file")// TODO
+        EditLineFileChooser {
+            id: lineVkPacFile
+            key: "vk-pac-file"
+            text: dsTr("PAC file")
             nameFilters: ["PAC files(*.pac)"] //TODO
         }
-        EditLineFileChooser{
-            key: "phase2-private-key"
-            text: dsTr("phase2-private-key")// TODO
+        EditLineFileChooser {
+            id: lineVkCaCert
+            key: "vk-ca-cert"
+            text: dsTr("CA Cert")
+            nameFilters: ["DER or PEM certificates(*.der *.pem *.crt *.cer)"] //TODO
+        }
+        EditLineFileChooser {
+            id: lineVkClientCert
+            key: "vk-client-cert"
+            text: dsTr("User Cert")
+        }
+        EditLineFileChooser {
+            id: lineVkPrivateKey
+            key: "vk-private-key"
+            text: dsTr("Private Key")
             nameFilters: ["DER, PEM or PKCS#12 private key(*.der *.pem *.p12 *.key)"] //TODO
         }
         EditLineComboBox{
+            key: "phase1-fast-provisioning"
+            text: dsTr("PAC Provisioning") //TODO
+        }
+        EditLineComboBox{
             key: "phase1-peapver"
-            text: dsTr("phase1-peapver")// TODO
+            text: dsTr("PEAP Version")
         }
         EditLineComboBox{
             key: "phase2-auth"
-            text: dsTr("phase2-auth")// TODO
+            text: dsTr("Inner Auth")
             alwaysUpdate: true
         }
         EditLineTextInput{
             key: "identity"
-            text: dsTr("identity")// TODO
+            text: dsTr("Identity")
         }
         EditLinePassword{
             id: linePassword
             key: "password"
-            text: dsTr("password")// TODO
+            text: dsTr("Password")
         }
         EditLinePasswordToggle{
             targetTextInput: linePassword
+        }
+        EditLinePassword {
+            id: linePrivateKeyPassword
+            key: "private-key-password"
+            text: dsTr("Private Password") //TODO
+        }
+        EditLinePasswordToggle{
+            targetTextInput: linePrivateKeyPassword
         }
     }
 }
