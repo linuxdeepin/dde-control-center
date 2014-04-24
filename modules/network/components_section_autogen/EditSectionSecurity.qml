@@ -13,84 +13,69 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineComboBox {
-            id: lineVkKeyMgmt
             key: "vk-key-mgmt"
             text: dsTr("Security")
         }
         EditLinePasswordInput {
-            id: lineWepKey0
             key: "wep-key0"
             text: dsTr("Key")
         }
         EditLinePasswordInput {
-            id: linePsk
             key: "psk"
             text: dsTr("Password")
         }
         EditLineSwitchButton {
-            id: lineVkEnable
             key: "vk-enable"
             text: dsTr("Use security")
         }
         EditLineComboBox {
-            id: lineVkEap
             key: "vk-eap"
-            text: dsTr("Authentication")
+            text: dsTr("EAP Auth")
+        }
+        EditLineTextInput {
+            key: "anonymous-identity"
+            text: dsTr("Anon Identity")
         }
         EditLineFileChooser {
-            id: lineVkPacFile
-            key: "vk-pac-file"
-            text: dsTr("PAC file")
-        }
-        EditLineFileChooser {
-            id: lineVkCaCert
-            key: "vk-ca-cert"
-            text: dsTr("CA Cert")
-        }
-        EditLineFileChooser {
-            id: lineVkClientCert
             key: "vk-client-cert"
             text: dsTr("User Cert")
         }
         EditLineFileChooser {
-            id: lineVkPrivateKey
-            key: "vk-private-key"
-            text: dsTr("Private Key")
-        }
-        EditLineTextInput {
-            id: lineIdentity
-            key: "identity"
-            text: dsTr("Identity")
-        }
-        EditLineTextInput {
-            id: lineAnonymousIdentity
-            key: "anonymous-identity"
-            text: dsTr("Anonymous Identity")
+            key: "vk-ca-cert"
+            text: dsTr("CA Cert")
         }
         EditLineComboBox {
-            id: linePhase1Peapver
+            key: "phase1-fast-provisioning"
+            text: dsTr("Provisioning")
+        }
+        EditLineFileChooser {
+            key: "vk-pac-file"
+            text: dsTr("PAC file")
+        }
+        EditLineComboBox {
             key: "phase1-peapver"
             text: dsTr("PEAP Version")
         }
         EditLineComboBox {
-            id: linePhase1FastProvisioning
-            key: "phase1-fast-provisioning"
-            text: dsTr("PAC Provisioning")
-        }
-        EditLineComboBox {
-            id: linePhase2Auth
             key: "phase2-auth"
-            text: dsTr("Inner Authentication")
+            text: dsTr("Inner Auth")
+            alwaysUpdate: true
+        }
+        EditLineFileChooser {
+            key: "vk-private-key"
+            text: dsTr("Private Key")
+        }
+        EditLineTextInput {
+            key: "identity"
+            text: dsTr("Username")
         }
         EditLinePasswordInput {
-            id: linePassword
             key: "password"
             text: dsTr("Password")
         }
         EditLinePasswordInput {
-            id: linePrivateKeyPassword
             key: "private-key-password"
-            text: dsTr("Private Password")
+            text: dsTr("Private Pwd")
         }
     }
 }

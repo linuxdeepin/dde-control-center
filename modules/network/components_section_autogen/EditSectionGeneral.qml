@@ -13,9 +13,12 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineSwitchButton {
-            id: lineAutoconnect
             key: "autoconnect"
             text: dsTr("Automatically connect")
+        }
+        EditLineSwitchButton {
+            key: "vk-no-permission"
+            text: dsTr("All Users Could Connect")
         }
     }
 }

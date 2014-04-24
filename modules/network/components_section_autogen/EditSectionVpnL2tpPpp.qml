@@ -4,8 +4,8 @@ import Deepin.Widgets 1.0
 import "../components"
 
 BaseEditSection {
-    id: sectionPpp
-    section: "ppp"
+    id: sectionVpnL2tpPpp
+    section: "vpn-l2tp-ppp"
     
     header.sourceComponent: EditDownArrowHeader{
         text: dsTr("PPP")
@@ -38,6 +38,11 @@ BaseEditSection {
             alwaysUpdate: true
         }
         EditLineSwitchButton {
+            key: "require-mppe-40"
+            text: dsTr("40-bit MPPE")
+            alwaysUpdate: true
+        }
+        EditLineSwitchButton {
             key: "require-mppe-128"
             text: dsTr("128-bit MPPE")
             alwaysUpdate: true
@@ -57,6 +62,14 @@ BaseEditSection {
         EditLineSwitchButton {
             key: "no-vj-comp"
             text: dsTr("No TCP Header Compression")
+        }
+        EditLineSwitchButton {
+            key: "nopcomp"
+            text: dsTr("No Protocol Field Compression")
+        }
+        EditLineSwitchButton {
+            key: "noaccomp"
+            text: dsTr("No Address/Control Compression")
         }
         EditLineSwitchButton {
             key: "vk-lcp-echo-enable"
