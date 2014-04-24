@@ -67,7 +67,12 @@ MyBaseExpand {
                 }
 
                 onPreviewAction:{
-                    previewsWindow.showWindow(themeObj)
+                    if (previewsWindow.isVisible && previewsWindow.themeObject == themeObj){
+                        previewsWindow.hideWindow()
+                    }
+                    else{
+                        previewsWindow.showWindow(themeObj)
+                    }
                 }
             }
         } // end of GridView

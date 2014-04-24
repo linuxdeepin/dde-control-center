@@ -4,6 +4,7 @@ Item {
     property alias model: view.model
     property alias delegate: view.delegate
     property alias currentIndex: view.currentIndex
+
     property real itemWidth: 30
     property real itemHeight: 30
     property alias view: view

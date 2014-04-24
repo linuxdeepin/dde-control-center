@@ -3,6 +3,7 @@ import QtGraphicalEffects 1.0
 import QtQuick.Window 2.1
 import Deepin.Widgets 1.0
 import QtQml.Models 2.1
+import "../../shared"
 
 Window {
     id: previewsWindow
@@ -12,7 +13,7 @@ Window {
     flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.Tool 
 
     color: "transparent"
-    property int frameRadius: 3
+    property int frameRadius: 4
     property int shadowRadius: 10
 
     property int contentWidth: 300
@@ -22,7 +23,12 @@ Window {
     property var dconstants: DConstants {}
     property int pointer: 0
     property var previewsImages: ["/usr/share/backgrounds/default_background.jpg"]
-    property bool showPreviewWindow: false
+    property bool isVisible: false
+
+    onThemeObjectChanged: {
+        if(themeObject)
+            previewsImages = getPreviewPictures()
+    }
 
     function getPreviewPictures() {
         var pics = new Array()
@@ -60,16 +66,15 @@ Window {
 
     function showWindow(themeObject){
         previewsWindow.themeObject = themeObject
-        previewsWindow.previewsImages = getPreviewPictures()
-        previewSlide.view.incrementCurrentIndex()
+        previewSlide.currentIndex = 1
         previewsWindow.show()
-        previewsWindow.showPreviewWindow = true
+        previewsWindow.isVisible = true
         rootWindow.clickedToHide = false
     }
 
     function hideWindow(){
         previewsWindow.hide()
-        previewsWindow.showPreviewWindow = false
+        previewsWindow.isVisible = false
         hideToTrue.restart()
     }
 
@@ -113,7 +118,7 @@ Window {
                 itemHeight: 500
                 model: previewsImages
                 delegate: PreviewImage {
-                    radius: frameRadius 
+                    radius: frameRadius
                     imageSource: previewsImages[index]
                     width: previewSlide.itemWidth
                     height: previewSlide.itemHeight
@@ -125,10 +130,6 @@ Window {
                             previewSlide.view.incrementCurrentIndex()
                         }
                     }
-                }
-
-                Component.onCompleted: {
-                    view.incrementCurrentIndex()
                 }
             }
 
@@ -203,10 +204,20 @@ Window {
                 id: topToolBar
                 width: parent.width
                 height: 40
-                color: Qt.rgba(0, 0, 0, 0.5)
-                radius: frameRadius
+                color: "transparent"
                 visible: opacity > 0
                 opacity: 0
+
+                RadiusRect{
+                    width: parent.width
+                    height: parent.height
+                    stroke: false
+                    fillStyle: Qt.rgba(0, 0, 0, 0.5)
+                    topLeftRadius: frameRadius
+                    topRightRadius: frameRadius
+                    bottomLeftRadius: 0
+                    bottomRightRadius: 0
+                }
 
                 function show(){
                     opacity = 1
@@ -245,13 +256,17 @@ Window {
                 }
             }
 
-            Rectangle{
+            RadiusRect {
                 id: bottomToolBar
                 anchors.bottom: parent.bottom
                 width: parent.width
                 height: 40
-                color: Qt.rgba(0, 0, 0, 0.5)
-                radius: frameRadius
+                stroke: false
+                fillStyle: Qt.rgba(0, 0, 0, 0.5)
+                topLeftRadius: 0
+                topRightRadius: 0
+                bottomLeftRadius: frameRadius
+                bottomRightRadius: frameRadius
 
                 MouseArea {
                     anchors.fill: parent

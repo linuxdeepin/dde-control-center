@@ -37,13 +37,13 @@ Item {
         return obj
     }
 
-    property var previewsWindow: PreviewWindow{
+    property var previewsWindow: PreviewWindow {
         x: rootWindow.x - width
         y: rootWindow.y + 18
         themeObject: currentThemeObject
     }
 
-    Component{
+    Component {
         id: themeComponent
         Theme {}
     }
