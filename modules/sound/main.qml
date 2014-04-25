@@ -128,16 +128,22 @@ Item {
 
             DBaseLine{height: 8}
             DBaseLine {
-                leftLoader.sourceComponent: DssH2 {
+                height: 38
+                leftMargin: contentLeftMargin
+                leftLoader.sourceComponent: LeftTitle {
                     text: dsTr("Speaker")
-                    color: titleColor
                 }
 
                 rightLoader.sourceComponent: Component{
-                    DSwitchButton {
-                        checked: !currentSink.mute
-                        onClicked: {
-                            currentSink.mute = !checked
+                    Item {
+                        height: 38
+                        width: sliderWidth
+                        DSwitchButton {
+                            anchors.verticalCenter: parent.verticalCenter
+                            checked: !currentSink.mute
+                            onClicked: {
+                                currentSink.mute = !checked
+                            }
                         }
                     }
                 }
@@ -256,16 +262,22 @@ Item {
 
             DBaseLine {}
             DBaseLine {
-                leftLoader.sourceComponent: DssH2 {
+                height: 38
+                leftMargin: contentLeftMargin
+                leftLoader.sourceComponent: LeftTitle {
                     text: dsTr("Microphone")
-                    color: titleColor
                 }
 
                 rightLoader.sourceComponent: Component{
-                    DSwitchButton {
-                        checked: !currentSource.mute
-                        onClicked: {
-                            currentSource.mute = !checked
+                    Item {
+                        height: 38
+                        width: sliderWidth
+                        DSwitchButton {
+                            anchors.verticalCenter: parent.verticalCenter
+                            checked: !currentSource.mute
+                            onClicked: {
+                                currentSource.mute = !checked
+                            }
                         }
                     }
                 }

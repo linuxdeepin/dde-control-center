@@ -122,13 +122,5 @@ Item {
         }
 
         DSeparatorHorizontal {}
-
-        DSwitchButtonHeader {
-            visible: false
-            text: dsTr("假期安排提示")
-            onClicked: {
-            }
-        }
-        DSeparatorHorizontal {}
     }
 }
