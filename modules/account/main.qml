@@ -29,8 +29,9 @@ Rectangle {
     }
 
     Column {
-        id: main_column
-        state: "normal"
+        id: title_column
+        z: 3
+        width: parent.width
 
         DssTitle {
             id: module_title
@@ -102,122 +103,137 @@ Rectangle {
         }
 
         DSeparatorHorizontal{}
+    }
 
-        AddUserDialog {
-            id: add_user_dialog
+    Flickable {
+        anchors.top: title_column.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
 
-            onCancelled: {
-                main_column.state = "normal"
-                add_user_dialog.reset()
-            }
+        contentWidth: main_column.childrenRect.width
+        contentHeight: main_column.childrenRect.height
 
-            onConfirmed: {
-                var result = dbus_accounts.CreateUser(userInfo.userName, userInfo.userName, userInfo.userAccountType)
-                var new_user = result[0]
-                var right = result[1]
-                if (!right) {
-                    add_user_dialog.warnUserName()
-                } else {
-                    dbus_user.path = new_user
-                    /* dbus_user.passwordMode = 2 // i think this nonsense too, but the fact is this help a lot >_< */
-                    /* // The user should be in a group named "nopasswdlogin" before we set his password, */
-                    /* // but a fresh _new_ user is not in that group(weird), so we should set it first. */
-                    dbus_user.SetPassword(userInfo.userPassword, "")
-                    dbus_user.SetIconFile(userInfo.userIconFile)
-                    dbus_user.SetAccountType(userInfo.userAccountType)
-                    dbus_user.SetAutomaticLogin(userInfo.userAutoLogin)
+        Column {
+            id: main_column
+            state: "normal"
 
+            AddUserDialog {
+                id: add_user_dialog
+
+                onCancelled: {
                     main_column.state = "normal"
                     add_user_dialog.reset()
                 }
+
+                onConfirmed: {
+                    var result = dbus_accounts.CreateUser(userInfo.userName, userInfo.userName, userInfo.userAccountType)
+                    var new_user = result[0]
+                    var right = result[1]
+                    if (!right) {
+                        add_user_dialog.warnUserName()
+                    } else {
+                        dbus_user.path = new_user
+                        /* dbus_user.passwordMode = 2 // i think this nonsense too, but the fact is this help a lot >_< */
+                        /* // The user should be in a group named "nopasswdlogin" before we set his password, */
+                        /* // but a fresh _new_ user is not in that group(weird), so we should set it first. */
+                        dbus_user.SetPassword(userInfo.userPassword, "")
+                        dbus_user.SetIconFile(userInfo.userIconFile)
+                        dbus_user.SetAccountType(userInfo.userAccountType)
+                        dbus_user.SetAutomaticLogin(userInfo.userAutoLogin)
+
+                        main_column.state = "normal"
+                        add_user_dialog.reset()
+                    }
+                }
             }
+
+            UserList {
+                id: user_list
+
+                Connections {
+                    target: dbus_accounts
+                    onUserAdded: {
+                        user_list.addUser(arg0)
+                    }
+                    onUserDeleted: {
+                        user_list.deleteUser(arg0)
+                    }
+                }
+
+                onHideAllPrivate: {
+                    guest_user.visible = false
+                    title.visible = false
+                }
+
+                onShowAllPrivate: {
+                    guest_user.visible = true
+                    title.visible = true
+                }
+            }
+
+            states: [
+                State {
+                    name: "normal"
+
+                    PropertyChanges {
+                        target: title
+                        visible: true
+                    }
+                    PropertyChanges {
+                        target: user_list
+                        visible: true
+                    }
+                    PropertyChanges {
+                        target: guest_user
+                        visible: true
+                    }
+                    PropertyChanges {
+                        target: add_user_dialog
+                        visible: false
+                    }
+                },
+                State {
+                    name: "add_dialog"
+
+                    PropertyChanges {
+                        target: title
+                        visible: false
+                    }
+                    PropertyChanges {
+                        target: user_list
+                        visible: false
+                    }
+                    PropertyChanges {
+                        target: guest_user
+                        visible: false
+                    }
+                    PropertyChanges {
+                        target: add_user_dialog
+                        visible: true
+                    }
+                }
+            ]
         }
 
-        UserList {
-            id: user_list
+        GuestUser {
+            id: guest_user
+            width: parent.width
 
-            Connections {
-                target: dbus_accounts
-                onUserAdded: {
-                    user_list.addUser(arg0)
-                }
-                onUserDeleted: {
-                    user_list.deleteUser(arg0)
-                }
+            onExpandedChanged: {
+                title.visible = !expanded
+                user_list.visible = !expanded
             }
 
-            onHideAllPrivate: {
-                guest_user.visible = false
-                title.visible = false
+            Behavior on anchors.top {
+                NumberAnimation { duration: 100 }
             }
 
-            onShowAllPrivate: {
-                guest_user.visible = true
-                title.visible = true                
-            }
+            anchors.top: main_column.bottom
+
+            leftPadding: user_list.leftPadding
+            rightPadding: user_list.rightPadding
+            nameLeftPadding: user_list.nameLeftPadding
         }
-
-        states: [
-            State {
-                name: "normal"
-
-                PropertyChanges {
-                    target: title
-                    visible: true
-                }
-                PropertyChanges {
-                    target: user_list
-                    visible: true
-                }
-                PropertyChanges {
-                    target: guest_user
-                    visible: true
-                }
-                PropertyChanges {
-                    target: add_user_dialog
-                    visible: false
-                }
-            },
-            State {
-                name: "add_dialog"
-
-                PropertyChanges {
-                    target: title
-                    visible: false
-                }
-                PropertyChanges {
-                    target: user_list
-                    visible: false
-                }
-                PropertyChanges {
-                    target: guest_user
-                    visible: false
-                }
-                PropertyChanges {
-                    target: add_user_dialog
-                    visible: true
-                }
-            }
-        ]
-    }
-
-    GuestUser {
-        id: guest_user
-        width: parent.width
-
-        onExpandedChanged: {
-            title.visible = !expanded
-            user_list.visible = !expanded
-        }
-
-        Behavior on anchors.top {
-            NumberAnimation { duration: 100 }
-        }
-
-        anchors.top: main_column.bottom
-
-        leftPadding: user_list.leftPadding
-        rightPadding: user_list.rightPadding
-        nameLeftPadding: user_list.nameLeftPadding
     }
 }
