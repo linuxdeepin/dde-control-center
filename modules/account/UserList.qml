@@ -206,9 +206,6 @@ ListView {
                         }
                         onConfirm: {
                             var right = dbus_accounts.DeleteUser(userName, deleteFiles)
-                            if (right) {
-                                component_bg.state = "normal"
-                            }
                         }
 
                         anchors.left: round_image.right
