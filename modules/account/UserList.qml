@@ -35,9 +35,13 @@ ListView {
                                 "userStatus": user_status,
                                 "userDBusPath": path})
     }
-
-    function deleteItem (idx, height) {
-        root.model.remove(idx, 1)
+    
+    function deleteUser(path) {
+        for (var i = 0; i < user_list_model.count; i++) {
+            if (user_list_model.get(i).userDBusPath == path) {
+                user_list_model.remove(i, 1)                
+            }
+        }
     }
 
     Component {
@@ -164,7 +168,7 @@ ListView {
                         visible: delete_line.nameColumnVisible
 
                         DssH2 {
-                            text: userName
+                            text: this_user.userName
                             color: delete_line.nameColor
                             font.pixelSize: 14
                         }
@@ -204,7 +208,6 @@ ListView {
                             var right = dbus_accounts.DeleteUser(userName, deleteFiles)
                             if (right) {
                                 component_bg.state = "normal"
-                                root.deleteItem(index, component_bg.height)
                             }
                         }
 

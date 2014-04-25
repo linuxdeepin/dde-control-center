@@ -141,6 +141,9 @@ Rectangle {
                 onUserAdded: {
                     user_list.addUser(arg0)
                 }
+                onUserDeleted: {
+                    user_list.deleteUser(arg0)
+                }
             }
 
             onHideAllPrivate: {
