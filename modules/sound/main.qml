@@ -39,7 +39,7 @@ Item {
 
     property var allSources: {
         var sourceList = new Array()
-        var sourcePaths = audioId.GetSources()
+        var sourcePaths = audioId.sources
         for(var i=0; i<sourcePaths.length; i++){
             var sourceObj = sourceComponent.createObject(soundModule, { path: sourcePaths[i] })
             sourceList.push(sourceObj)
@@ -49,7 +49,7 @@ Item {
 
     property var allSinks: {
         var sinkList = new Array()
-        var sinkPaths = audioId.GetSinks()
+        var sinkPaths = audioId.sinks
         for(var i=0; i<sinkPaths.length; i++){
             var sinkObj = sinkComponent.createObject(soundModule, { path: sinkPaths[i] })
             sinkList.push(sinkObj)
