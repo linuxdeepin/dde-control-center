@@ -86,6 +86,10 @@ Item {
         rootWindow.hidePanel(false)
     }
 
+    function hideDssImmediately(){
+        rootWindow.hideAllImmediately()
+    }
+
     function togglePanel(){
         rootWindow.togglePanel()
     }

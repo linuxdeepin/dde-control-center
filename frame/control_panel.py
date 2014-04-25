@@ -47,9 +47,9 @@ class DssDbusAdptor(QtDBus.QDBusAbstractAdaptor):
         QtDBus.QDBusAbstractAdaptor.__init__(self, parent)
         self.setAutoRelaySignals(True)
 
-    @QtCore.pyqtSlot(int)
-    def Show(self, seconds):
-        self.parent().show(seconds)
+    @QtCore.pyqtSlot()
+    def Show(self):
+        self.parent().show(0)
 
     @QtCore.pyqtSlot(str)
     def ShowModule(self, moduleName):
@@ -66,6 +66,14 @@ class DssDbusAdptor(QtDBus.QDBusAbstractAdaptor):
     @QtCore.pyqtSlot()
     def Toggle(self):
         self.parent().view_object.togglePanel()
+
+    @QtCore.pyqtSlot()
+    def ShowImmediately(self):
+        self.parent().view_object.showDssImmediately()
+
+    @QtCore.pyqtSlot()
+    def HideImmediately(self):
+        self.parent().view_object.hideDssImmediately()
 
 class ControlPanel(QtQuick.QQuickView):
 
