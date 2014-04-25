@@ -55,10 +55,10 @@ class DockAppletManagerAdptor(QtDBus.QDBusAbstractAdaptor):
                 '    <method name="HideApplet">\n'
                 '      <arg direction="in" type="s" name="name"/>\n'
                 '    </method>\n'
-                '    <property name="AppletList" type="as" access="read"/>\n'
+                '    <property name="AppletInfos" type="a(sss)" access="read"/>\n'
                 '  </interface>\n' % DDE_DOCK_APPLET_MANAGER_NAME)
 
-    _AppletListChanged = QtCore.pyqtSignal()
+    _AppletInfosChanged = QtCore.pyqtSignal()
 
     def __init__(self, parent):
         QtDBus.QDBusAbstractAdaptor.__init__(self, parent)
@@ -72,9 +72,9 @@ class DockAppletManagerAdptor(QtDBus.QDBusAbstractAdaptor):
     def ShowApplet(self, name):
         self.parent().rootObject.set_show_applet(name)
 
-    @QtCore.pyqtProperty("QVariant", notify=_AppletListChanged)
-    def AppletList(self):
-        return self.parent().rootObject.get_applet_list()
+    @QtCore.pyqtProperty("QVariant", notify=_AppletInfosChanged)
+    def AppletInfos(self):
+        return self.parent().rootObject.get_applet_infos()
 
 class MainObject(QtCore.QObject):
     def __init__(self, qml_path):
@@ -82,8 +82,9 @@ class MainObject(QtCore.QObject):
 
         self.engine = QtQml.QQmlEngine()
 
+        # set context
         self.rootContext = QtQml.QQmlContext(self.engine, self)
-        self.set_all_contexts()
+        self.rootContext.setContextProperty("mainObject", self)
 
         self.component = QtQml.QQmlComponent(self.engine, self)
         QtQuick.QQuickWindow.setDefaultAlphaBuffer(True)
@@ -98,24 +99,7 @@ class MainObject(QtCore.QObject):
             sys.exit(1)
 
         self._adaptor = DockAppletManagerAdptor(self)
-
-    def set_all_contexts(self):
-        self.rootContext.setContextProperty("mainObject", self)
-
-    @QtCore.pyqtSlot(result="QVariant")
-    def get_applet_list(self):
-        applets = {}
-        for name in os.listdir(os.path.join(ROOT_DIR, "qml")):
-            appet_path = os.path.join(ROOT_DIR, "qml", name)
-            if os.path.isdir(appet_path):
-                main_qml = os.path.join(appet_path, "main.qml")
-                if os.path.exists(main_qml):
-                    applets[name] = main_qml
-        return applets.keys()
-
-    @QtCore.pyqtSlot(result=int)
-    def getPid(self):
-        return os.getpid()
+        self.rootObject.appletInfosChanged.connect(self._adaptor._AppletInfosChanged)
     
 if __name__ == "__main__":
     qml_path = os.path.join(ROOT_DIR, "qml/main.qml")

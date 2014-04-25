@@ -10,10 +10,19 @@ QtObject {
     id: root
 
     property var appletList: new Array()
+    property var appletNames: {
+        "dss": dsTr("Control Center"),
+        "network": dsTr("Network"),
+        "sound": dsTr("Sound"),
+        "power": dsTr("Power"),
+        "disk_mount": dsTr("Disk Mount")
+    }
 
     Component.onCompleted: {
         init_applet_list_model()
     }
+
+    signal appletInfosChanged
 
     property var appletListModel: ListModel {}
 
@@ -120,7 +129,6 @@ QtObject {
     }
 
     function update_applet_list(name, add){
-        print("==> [info] Applet Status Changed:", name, add)
         var i = getAppletIndex(name)
         if(add){
             if (i == "-1"){
@@ -134,6 +142,8 @@ QtObject {
                 appletListModel.remove(i, 1)
             }
         }
+        print("==> [info] Applet Status Changed:", name, add)
+        root.appletInfosChanged()
     }
 
     function set_hide_applet(name){
@@ -141,6 +151,7 @@ QtObject {
         var i = getAppletIndex(name)
         if(i != "-1"){
             repeater.itemAt(i).hide()
+            root.appletInfosChanged()
         }
         else{
             print("Unknown applet name: " + name)
@@ -152,18 +163,24 @@ QtObject {
         var i = getAppletIndex(name)
         if(i != "-1"){
             repeater.itemAt(i).show()
+            root.appletInfosChanged()
         }
         else{
             print("Unknown applet name: " + name)
         }
     }
 
-    function get_applet_list(){
-        var applet_list = new Array()
+    function get_applet_infos(){
+        var applet_infos = new Array()
         for(var i=0; i<appletListModel.count; i++){
-            applet_list.push(appletListModel.get(i).applet_id)
+            var info = new Array()
+            var id = appletListModel.get(i).applet_id
+            info.push(id)
+            info.push(appletNames[id])
+            info.push(repeater.itemAt(i).source != "")
+            applet_infos.push(info)
         }
-        return applet_list
+        return applet_infos
     }
 
     property var applets: Item {
