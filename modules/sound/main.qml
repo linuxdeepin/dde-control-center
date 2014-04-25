@@ -126,24 +126,18 @@ Item {
                 PropertyAnimation {duration: 200}
             }
 
-            DBaseLine{height: 8}
             DBaseLine {
                 height: 38
-                leftMargin: contentLeftMargin
-                leftLoader.sourceComponent: LeftTitle {
+                leftLoader.sourceComponent: DssH2 {
                     text: dsTr("Speaker")
+                    color: titleColor
                 }
 
                 rightLoader.sourceComponent: Component{
-                    Item {
-                        height: 38
-                        width: sliderWidth
-                        DSwitchButton {
-                            anchors.verticalCenter: parent.verticalCenter
-                            checked: !currentSink.mute
-                            onClicked: {
-                                currentSink.mute = !checked
-                            }
+                    DSwitchButton {
+                        checked: !currentSink.mute
+                        onClicked: {
+                            currentSink.mute = !checked
                         }
                     }
                 }
@@ -262,22 +256,16 @@ Item {
 
             DBaseLine {}
             DBaseLine {
-                height: 38
-                leftMargin: contentLeftMargin
-                leftLoader.sourceComponent: LeftTitle {
+                leftLoader.sourceComponent: DssH2 {
                     text: dsTr("Microphone")
+                    color: titleColor
                 }
 
                 rightLoader.sourceComponent: Component{
-                    Item {
-                        height: 38
-                        width: sliderWidth
-                        DSwitchButton {
-                            anchors.verticalCenter: parent.verticalCenter
-                            checked: !currentSource.mute
-                            onClicked: {
-                                currentSource.mute = !checked
-                            }
+                    DSwitchButton {
+                        checked: !currentSource.mute
+                        onClicked: {
+                            currentSource.mute = !checked
                         }
                     }
                 }
