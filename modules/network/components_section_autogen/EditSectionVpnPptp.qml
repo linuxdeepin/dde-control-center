@@ -4,25 +4,29 @@ import Deepin.Widgets 1.0
 import "../components"
 
 BaseEditSection {
-    id: sectionPppoe
-    section: "pppoe"
+    id: sectionVpnPptp
+    section: "vpn-pptp"
     
     header.sourceComponent: EditDownArrowHeader{
-        text: dsTr("PPPoE")
+        text: dsTr("VPN")
     }
 
     content.sourceComponent: Column { 
         EditLineTextInput {
-            key: "username"
-            text: dsTr("Username")
+            key: "gateway"
+            text: dsTr("Gateway")
         }
         EditLineTextInput {
-            key: "service"
-            text: dsTr("Service")
+            key: "user"
+            text: dsTr("Username")
         }
         EditLinePasswordInput {
             key: "password"
             text: dsTr("Password")
+        }
+        EditLineTextInput {
+            key: "domain"
+            text: dsTr("Domain")
         }
     }
 }

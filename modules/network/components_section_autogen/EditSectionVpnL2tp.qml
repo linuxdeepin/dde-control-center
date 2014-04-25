@@ -14,19 +14,19 @@ BaseEditSection {
     content.sourceComponent: Column { 
         EditLineTextInput {
             key: "gateway"
-            text: dsTr("!!gateway")
+            text: dsTr("Gateway")
         }
         EditLineTextInput {
             key: "user"
-            text: dsTr("!!user")
+            text: dsTr("Username")
         }
         EditLinePasswordInput {
             key: "password"
-            text: dsTr("!!password")
+            text: dsTr("Password")
         }
         EditLineTextInput {
             key: "domain"
-            text: dsTr("!!domain")
+            text: dsTr("Domain")
         }
     }
 }

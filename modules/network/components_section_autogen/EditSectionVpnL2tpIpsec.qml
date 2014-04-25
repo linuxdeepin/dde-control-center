@@ -14,19 +14,19 @@ BaseEditSection {
     content.sourceComponent: Column { 
         EditLineSwitchButton {
             key: "ipsec-enabled"
-            text: dsTr("!!ipsec-enabled")
-        }
-        EditLineTextInput {
-            key: "ipsec-gateway-id"
-            text: dsTr("!!ipsec-gateway-id")
+            text: dsTr("Enable IPsec")
         }
         EditLineTextInput {
             key: "ipsec-group-name"
-            text: dsTr("!!ipsec-group-name")
+            text: dsTr("Group Name")
+        }
+        EditLineTextInput {
+            key: "ipsec-gateway-id"
+            text: dsTr("Group ID")
         }
         EditLinePasswordInput {
             key: "ipsec-psk"
-            text: dsTr("!!ipsec-psk")
+            text: dsTr("Password")
         }
     }
 }

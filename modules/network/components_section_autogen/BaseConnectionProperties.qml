@@ -86,9 +86,37 @@ BaseEditPage {
         activeExpandIndex: root.activeExpandIndex
     }
     
+    EditSectionSeparator {relatedSection: sectionVpnPptp}
+    EditSectionVpnPptp {
+        myIndex: 11
+        id: sectionVpnPptp
+        activeExpandIndex: root.activeExpandIndex
+    }
+    
+    EditSectionSeparator {relatedSection: sectionVpnPptpPpp}
+    EditSectionVpnPptpPpp {
+        myIndex: 12
+        id: sectionVpnPptpPpp
+        activeExpandIndex: root.activeExpandIndex
+    }
+    
+    EditSectionSeparator {relatedSection: sectionVpnVpnc}
+    EditSectionVpnVpnc {
+        myIndex: 13
+        id: sectionVpnVpnc
+        activeExpandIndex: root.activeExpandIndex
+    }
+    
+    EditSectionSeparator {relatedSection: sectionVpnVpncAdvanced}
+    EditSectionVpnVpncAdvanced {
+        myIndex: 14
+        id: sectionVpnVpncAdvanced
+        activeExpandIndex: root.activeExpandIndex
+    }
+    
     EditSectionSeparator {relatedSection: sectionSecurity}
     EditSectionSecurity {
-        myIndex: 11
+        myIndex: 15
         id: sectionSecurity
         activeExpandIndex: root.activeExpandIndex
     }

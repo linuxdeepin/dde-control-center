@@ -14,35 +14,35 @@ BaseEditSection {
     content.sourceComponent: Column { 
         EditLineTextInput {
             key: "gateway"
-            text: dsTr("!!gateway")
+            text: dsTr("Gateway")
         }
         EditLineFileChooser {
             key: "cacert"
-            text: dsTr("!!cacert")
+            text: dsTr("CA Cert")
         }
         EditLineTextInput {
             key: "proxy"
-            text: dsTr("!!proxy")
+            text: dsTr("Proxy")
         }
         EditLineSwitchButton {
             key: "enable_csd_trojan"
-            text: dsTr("!!enable_csd_trojan")
+            text: dsTr("Allow Cisco Secure Desktop Trojan")
         }
         EditLineTextInput {
             key: "csd_wrapper"
-            text: dsTr("!!csd_wrapper")
+            text: dsTr("CSD Wrapper")
         }
         EditLineFileChooser {
             key: "usercert"
-            text: dsTr("!!usercert")
+            text: dsTr("Uesr Cert")
         }
         EditLineFileChooser {
             key: "userkey"
-            text: dsTr("!!userkey")
+            text: dsTr("Private Key")
         }
         EditLineSwitchButton {
             key: "pem_passphrase_fsid"
-            text: dsTr("!!pem_passphrase_fsid")
+            text: dsTr("User FSID For Key Passphrase")
         }
     }
 }
