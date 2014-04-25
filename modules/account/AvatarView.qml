@@ -15,9 +15,9 @@ Item {
         id: radio_button
 
         buttonModel: [
-            {"buttonId": "recently_used", "buttonLabel": "Recently Used"},
-            {"buttonId": "default", "buttonLabel": "Default"},
-            {"buttonId": "webcam", "buttonLabel": "Webcam"},
+            {"buttonId": "recently_used", "buttonLabel": dsTr("Recently Used")},
+            {"buttonId": "default", "buttonLabel": dsTr("Default")},
+            {"buttonId": "webcam", "buttonLabel": dsTr("Webcam")},
         ]
 
         initializeIndex: 1

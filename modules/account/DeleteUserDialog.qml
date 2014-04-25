@@ -30,7 +30,7 @@ Column {
 
         DTextButton {
             id: cancel_button
-            text: "Cancel"
+            text: dsTr("Cancel")
 
             anchors.right: confirm_button.left
             anchors.rightMargin: 5
@@ -43,7 +43,7 @@ Column {
 
         DTextButton {
             id: confirm_button
-            text: "Confirm"
+            text: dsTr("Confirm")
 
             anchors.right: parent.right
             anchors.rightMargin: 15

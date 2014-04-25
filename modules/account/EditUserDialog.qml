@@ -49,7 +49,7 @@ Rectangle {
                 height: 38
 
                 DLabel {
-                    text: "Auto-login"
+                    text: dsTr("Auto-login")
                     font.pixelSize: 12
 
                     anchors.left: parent.left
@@ -116,7 +116,7 @@ Rectangle {
                 visible: !userIsCurrentUser(edit_dialog.this_user) && currentUserIsAdmin()
 
                 DLabel {
-                    text: "User Group"
+                    text: dsTr("User Group")
                     font.pixelSize: 12
 
                     anchors.left: parent.left

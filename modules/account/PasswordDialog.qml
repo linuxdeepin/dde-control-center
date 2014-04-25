@@ -57,7 +57,7 @@ Item {
         color: "transparent"
 
         DLabel {
-            text: "Password"
+            text: dsTr("Password")
             font.pixelSize: 12
 
             anchors.left: parent.left
@@ -99,7 +99,7 @@ Item {
             color: "transparent"
 
             DLabel {
-                text: "New Password"
+                text: dsTr("New Password")
                 font.pixelSize: 12
 
                 anchors.left: parent.left
@@ -128,7 +128,7 @@ Item {
             color: "transparent"
 
             DLabel {
-                text: "Repeat"
+                text: dsTr("Repeat")
                 font.pixelSize: 12
 
                 anchors.left: parent.left
@@ -154,7 +154,7 @@ Item {
             color: "transparent"
 
             DLabel {
-                text: "Show Password"
+                text: dsTr("Show Password")
                 font.pixelSize: 12
 
                 anchors.left: parent.left
@@ -187,7 +187,7 @@ Item {
 
             DTextButton {
                 id: cancel_button
-                text: "Cancel"
+                text: dsTr("Cancel")
 
                 anchors.right: confirm_button.left
                 anchors.rightMargin: 5
@@ -201,7 +201,7 @@ Item {
 
             DTextButton {
                 id: confirm_button
-                text: "Confirm"
+                text: dsTr("Confirm")
 
                 anchors.right: parent.right
                 anchors.rightMargin: 15
