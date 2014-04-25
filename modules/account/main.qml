@@ -112,7 +112,7 @@ Rectangle {
         anchors.bottom: parent.bottom
 
         contentWidth: main_column.childrenRect.width
-        contentHeight: main_column.childrenRect.height
+        contentHeight: main_column.childrenRect.height + guest_user.height
 
         Column {
             id: main_column
