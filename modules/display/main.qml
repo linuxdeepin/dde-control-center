@@ -13,12 +13,12 @@ Column {
         target: rootWindow
 
         onModuleStartChange: {
-            displayId.ResetChanged()
+            displayId.ResetChanges()
         }
 
         onPanelHided: {
             monitorDragArea.editable = false
-            displayId.ResetChanged()
+            displayId.ResetChanges()
         }
     }
 
@@ -56,7 +56,7 @@ Column {
     }
     
     Component.onCompleted: {
-        displayId.SaveChanged()
+        displayId.SaveChanges()
     }
 
     Component {
@@ -215,7 +215,7 @@ Column {
                     if(monitorDragArea.editable){
                         monitorDragArea.editable = false
                     }
-                    displayId.ResetChanged()
+                    displayId.ResetChanges()
                     monitorDragArea.editable = false
                 }
             }

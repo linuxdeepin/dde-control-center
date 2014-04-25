@@ -81,7 +81,7 @@ Rectangle{
         anchors.centerIn: parent
         width: parent.width - 40
         height: parent.height - 60
-        property var monitorNames: getMonitorNames(monitorObject)
+        property var monitorNames: monitorObject.outputs
         property int childrenWidth: compositedMonitorBox.width/4 * 3
         property int childrenHeight: compositedMonitorBox.height/4 * 3
         property int xSpacing: (width - childrenWidth)/(monitorNames.length - 1)

@@ -27,8 +27,8 @@ Item {
         8: dsTr("Rotate Left"),
     }
 
-    property var monitorNames: getMonitorNames(outputObj)
-    property var brightnessValues: outputObj.brightness
+    property var monitorNames: outputObj.outputs
+    property var brightnessValues: displayId.brightness
 
     onOutputObjChanged: {
         if(outputObj){
@@ -184,23 +184,29 @@ Item {
 
                     rightLoader.sourceComponent: DSliderEnhanced {
                         id: oneBrightnessSlider
+                        property var outputName: monitorNames[0]
                         width: sliderWidth
                         height: 28
                         min: 0
                         max: 1.0
-                        init: 0
+                        init: brightnessValues[outputName]
                         valueDisplayVisible: false
 
                         onValueChanged:{
-                            outputObj.SetBrightness(monitorNames[0], value)
+                            displayId.SetBrightness(outputName, value)
                         }
                         visible: monitorNames.length == 1
+
+                        onOutputNameChanged: {
+                            if (outputName && brightnessValues)
+                                setValue(brightnessValues[outputName])
+                        }
 
                         Connections {
                             target: monitorProperties
                             onBrightnessValuesChanged: {
                                 if (!oneBrightnessSlider.pressedFlag) {
-                                    oneBrightnessSlider.setValue(brightnessValues[monitorNames[0]])
+                                    oneBrightnessSlider.setValue(brightnessValues[oneBrightnessSlider.outputName])
                                 }
                             }
                         }
@@ -223,22 +229,27 @@ Item {
 
                         rightLoader.sourceComponent: DSliderEnhanced {
                             id: multiBrightnessSlider
+                            property var outputName: monitorNames[index]
                             width: sliderWidth
                             height: 28
                             min: 0
                             max: 1.0
-                            init: 0
+                            init: brightnessValues[outputName]
                             valueDisplayVisible: false
 
                             onValueChanged:{
-                                outputObj.SetBrightness(monitorNames[index], value)
+                                displayId.SetBrightness(outputName, value)
+                            }
+
+                            onOutputNameChanged:{
+                                setValue(brightnessValues[outputName])
                             }
 
                             Connections {
                                 target: monitorProperties
                                 onBrightnessValuesChanged: {
                                     if (!multiBrightnessSlider.pressedFlag) {
-                                        multiBrightnessSlider.setValue(brightnessValues[monitorNames[index]])
+                                        multiBrightnessSlider.setValue(brightnessValues[multiBrightnessSlider.outputName])
                                     }
                                 }
                             }
