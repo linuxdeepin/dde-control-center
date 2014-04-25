@@ -96,6 +96,7 @@ Column {
                 }
             }
             rightLoader.sourceComponent: ResetButton {
+                onClicked: displayId.Reset()
             }
         }
 

@@ -91,6 +91,7 @@ Item {
             text: dsTr("Shortcuts")
             rightLoader.sourceComponent: ResetButton {
                 onClicked: {
+                    bindManagerId.Reset()
                 }
             }
             rightLoader.visible: searchResultListView.keyword == ""

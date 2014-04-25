@@ -97,6 +97,7 @@ Item {
             text: dsTr("Sound")
 
             rightLoader.sourceComponent: ResetButton {
+                onClicked: audioId.Reset()
             }
         }
 

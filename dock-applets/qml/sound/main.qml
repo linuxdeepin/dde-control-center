@@ -18,7 +18,7 @@ DockApplet{
     property var defaultSink: AudioSink{ path: audioId.GetDefaultSink() }
 
     function getIconPath(){
-        if(defaultSink.volume){
+        if(typeof(defaultSink.volume) != "undefined"){
             var step = parseInt(defaultSink.volume/10) * 10
             if(step >= 100){
                 step = 100

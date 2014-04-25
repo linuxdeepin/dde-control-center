@@ -27,6 +27,12 @@ Item {
             text: dsTr("Mouse")
 
             rightLoader.sourceComponent: ResetButton {
+                onClicked: {
+                    dbusMouse.Reset()
+                    if (isTouchpadExist){
+                        touchpadObj.dbusTouchpad.Reset()
+                    }
+                }
             }
         }
 

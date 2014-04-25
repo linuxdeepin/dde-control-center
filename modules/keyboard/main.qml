@@ -70,6 +70,7 @@ Item {
         DssTitle {
             text:dsTr("Keyboard")
             rightLoader.sourceComponent: ResetButton {
+                onClicked: dbusKeyboard.Reset()
             }
         }
 

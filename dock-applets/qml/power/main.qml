@@ -6,7 +6,14 @@ import "../widgets"
 
 DockApplet {
     id: root
-    title: dbusPower.batteryPercentage + "%"
+    title: {
+        if (dbusPower.onBattery || dbusPower.batteryPercentage == 100){
+            return parseInt(dbusPower.batteryPercentage) + "%"
+        }
+        else{
+            return "%1%% On Changing...".arg(parseInt(dbusPower.batteryPercentage))
+        }
+    }
     appid: "AppletPower"
     icon: iconPath
     width: 260; height: 30
@@ -41,26 +48,26 @@ DockApplet {
 
     function getIconPath(){
         var percentage = parseInt(dbusPower.batteryPercentage)
-        if(percentage <= 5){
+        if (!dbusPower.onBattery){
+            return "images/power_100_full.png"
+        }
+        else if(percentage <= 10){
             return "images/power_0.png"
         }
-        else if(percentage <= 20){
+        else if(percentage <= 30){
             return "images/power_20.png"
         }
-        else if(percentage <= 40){
+        else if(percentage <= 50){
             return "images/power_40.png"
         }
-        else if(percentage <= 60){
+        else if(percentage <= 70){
             return "images/power_60.png"
         }
-        else if(percentage <= 80){
+        else if(percentage <= 90){
             return "images/power_80.png"
         }
-        else if(percentage <= 95){
-            return "images/power_100.png"
-        }
         else if(percentage <= 100){
-            return "images/power_100_full.png"
+            return "images/power_100.png"
         }
     }
 }

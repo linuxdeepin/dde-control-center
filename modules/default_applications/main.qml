@@ -22,6 +22,10 @@ Item {
             text: dsTr("Default Applications")
 
             rightLoader.sourceComponent: ResetButton {
+                onClicked: {
+                    defaultAppsId.Reset()
+                    mediaMountId.Reset()
+                }
             }
         }
 
