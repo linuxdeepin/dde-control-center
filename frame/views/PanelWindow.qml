@@ -6,7 +6,7 @@ import Deepin.Window 1.0
 DOverrideWindow {
     id: rootWindow
     color: "transparent"
-    flags: Qt.Tool | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.X11BypassWindowManagerHint
+    flags: Qt.Popup
 
     x: screenSize.x + screenSize.width - width
     y: screenSize.y

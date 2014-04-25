@@ -29,6 +29,16 @@ Window {
         messageBox.hide()
     }
 
+    function cancelAction(){
+        hideDialog()
+        dbusNetwork.CancelSecret(accessPointObj, accessPointEncryption)
+    }
+
+    function connectAction(){
+        hideDialog()
+        dbusNetwork.FeedSecret(accessPointObj, accessPointEncryption, passwordInput.text)
+    }
+
     DWindowFrame {
         id: window
         anchors.fill: parent
@@ -57,7 +67,7 @@ Window {
             id: closeButton
             anchors.right: parent.right
             onClicked: {
-                hideDialog()
+                cancelAction()
             }
         }
 
@@ -131,20 +141,19 @@ Window {
             anchors.rightMargin: 10
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 10
+            spacing: 8
 
             DTextButton {
                 text: dsTr("Cancel")
                 onClicked: {
-                    hideDialog()
-                    dbusNetwork.FeedSecret(accessPointObj, accessPointEncryption)
+                    cancelAction()
                 }
             }
 
             DTextButton {
                 text: dsTr("Connect")
                 onClicked: {
-                    dbusNetwork.FeedSecret(accessPointObj, accessPointEncryption, passwordInput.text)
-                    hideDialog()
+                    connectAction()
                 }
             }
         }

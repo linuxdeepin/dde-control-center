@@ -142,7 +142,7 @@ Rectangle {
             var localeName = modulesId.moduleLocaleNames[module_id]
         }
         trayIconTip.text = localeName
-        if(!inDssHome){
+        if(isSiderNavigate){
             trayIconTip.visible = true
         }
     }
@@ -168,7 +168,7 @@ Rectangle {
         PropertyAnimation {
             target: footerArea
             property: "anchors.bottomMargin"
-            to: -80
+            to: -footerArea.height
             duration: 200
         }
         PropertyAnimation {
@@ -179,9 +179,17 @@ Rectangle {
         }
 
         onStopped: {
+            showContentPanelTimer.start()
+        }
+    }
+
+    Timer {
+        id: showContentPanelTimer
+        interval: 100
+        onTriggered: {
             iconsArea.width = 48
             iconsArea.anchors.topMargin = 0
-            listBox.width = 48
+            //listBox.width = 48
             moduleIconList.itemSize = 48
             addHomeShutdownButton()
             rightBoxLoaderItem.iconId = currentContentId
@@ -213,7 +221,7 @@ Rectangle {
         onStopped: {
             iconsArea.width = panelContent.width
             iconsArea.anchors.topMargin = headerArea.height
-            listBox.width = 96 * 3
+            //listBox.width = 96 * 3
             moduleIconList.itemSize = 96
             removeHomeShutdownButton()
             rightBoxLoaderItem.iconId = ""
@@ -261,71 +269,59 @@ Rectangle {
         anchors.topMargin: headerArea.height
         anchors.left: parent.left
         width: parent.width
-        height: inDssHome ? parent.height - headerArea.height - footerArea.height : parent.height
+        height: !isSiderNavigate ? parent.height - headerArea.height - footerArea.height : parent.height
         clip: true
         color: Qt.rgba(1, 1, 1, 0)
 
-        Rectangle {
-            id: listBox
-            width: 96 * 3
-            height: childrenRect.height
+        GridView {
+            id: moduleIconList
+            width: !isSiderNavigate ? itemSize * 3 : itemSize
+            height: Math.min(iconsArea.height, childrenRect.height)
             anchors.horizontalCenter: parent.horizontalCenter
-            color: Qt.rgba(1, 0, 0, 0)
+            cellHeight: itemSize
+            cellWidth: itemSize
 
-            GridView {
-                id: moduleIconList
-                width: parent.width
-                height: childrenRect.height
-                anchors.horizontalCenter: parent.horizontalCenter
-                boundsBehavior: Flickable.StopAtBounds
-                cellHeight: itemSize
-                cellWidth: itemSize
+            property int itemSize: 96
+            property real iconLabelOpacity: 1
 
-                property int itemSize: 96
-                property real iconLabelOpacity: 1
-
-                function iconClickAction(iconId) {
-                    currentContentId = iconId
-                    if (iconId == 'shutdown'){
-                        shutdownButtonClicked()
+            function iconClickAction(iconId) {
+                currentContentId = iconId
+                if (iconId == 'shutdown'){
+                    shutdownButtonClicked()
+                }
+                else if(iconId == "home"){
+                    trayIconTip.visible = false
+                    toGridNavigateAnimation.start()
+                    if (frame.x != rootWindow.width - panelWidth){
+                        showAll.restart()
                     }
-                    else if(iconId == "home"){
-                        inDssHome = true
-                        trayIconTip.visible = false
-                        toGridNavigateAnimation.start()
-                        if (frame.x != rootWindow.width - panelWidth){
-                            showAll.restart()
-                        }
+                }
+                else{
+                    if (frame.x != rootWindow.width - panelWidth){
+                        showAll.restart()
+                    }
+                    if(!panelContent.isSiderNavigate){
+                        toSiderNavigateAnimation.start()
                     }
                     else{
-                        if (frame.x != rootWindow.width - panelWidth){
-                            showAll.restart()
-                        }
-                        inDssHome = false
-                        if(!panelContent.isSiderNavigate){
-                            toSiderNavigateAnimation.start()
-                        }
-                        else{
-                            rightBoxLoaderItem.iconId = currentContentId
-                        }
+                        rightBoxLoaderItem.iconId = currentContentId
                     }
                 }
-
-                function hightLightSelected(id){
-                    for(var i=0; i<navigateIconModel.count; i++){
-                        if(navigateIconModel.get(i).moduleId == id){
-                            moduleIconList.currentIndex = i
-                        }
-                    }
-                }
-
-                delegate: ModuleIconItem {
-                    isSiderNavigate: panelContent.isSiderNavigate
-                }
-                model: navigateIconModel
-                currentIndex: -1
-                maximumFlickVelocity: 0
             }
+
+            function hightLightSelected(id){
+                for(var i=0; i<navigateIconModel.count; i++){
+                    if(navigateIconModel.get(i).moduleId == id){
+                        moduleIconList.currentIndex = i
+                    }
+                }
+            }
+
+            delegate: ModuleIconItem {
+                isSiderNavigate: panelContent.isSiderNavigate
+            }
+            model: navigateIconModel
+            currentIndex: -1
         }
     }
 

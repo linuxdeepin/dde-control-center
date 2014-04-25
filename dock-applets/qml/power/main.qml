@@ -11,7 +11,7 @@ DockApplet {
             return parseInt(dbusPower.batteryPercentage) + "%"
         }
         else{
-            return "%1%% On Changing...".arg(parseInt(dbusPower.batteryPercentage))
+            return "%1% On Changing...".arg(parseInt(dbusPower.batteryPercentage))
         }
     }
     appid: "AppletPower"
