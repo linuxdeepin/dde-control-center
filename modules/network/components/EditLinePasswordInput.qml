@@ -8,7 +8,8 @@ BaseEditLine {
     
     rightLoader.sourceComponent: DTextInput{
         width: valueWidth
-        echoMode: root.echoMode
+        // echoMode: root.echoMode
+        echoMode: TextInput.Password
         // TODO fix property loop binding
         Binding on text {
             when: root.value != undefined

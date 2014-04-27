@@ -59,7 +59,7 @@ BaseEditSection {
             text: dsTr("No TCP Header Compression")
         }
         EditLineSwitchButton {
-            key: "vk-lcp-echo-enable"
+            key: "vk-enable-lcp-echo"
             text: dsTr("Send PPP Echo Packets")
         }
     }

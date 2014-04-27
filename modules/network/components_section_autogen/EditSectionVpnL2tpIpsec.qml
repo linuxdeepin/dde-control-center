@@ -8,7 +8,7 @@ BaseEditSection {
     section: "vpn-l2tp-ipsec"
     
     header.sourceComponent: EditDownArrowHeader{
-        text: dsTr("IPsec")
+        text: dsTr("VPN IPsec")
     }
 
     content.sourceComponent: Column { 

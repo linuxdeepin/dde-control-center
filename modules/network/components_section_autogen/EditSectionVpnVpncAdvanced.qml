@@ -8,7 +8,7 @@ BaseEditSection {
     section: "vpn-vpnc-advanced"
     
     header.sourceComponent: EditDownArrowHeader{
-        text: dsTr("Advanced")
+        text: dsTr("VPN Advanced")
     }
 
     content.sourceComponent: Column { 

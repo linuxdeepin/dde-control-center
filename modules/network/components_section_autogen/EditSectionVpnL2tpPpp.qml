@@ -8,7 +8,7 @@ BaseEditSection {
     section: "vpn-l2tp-ppp"
     
     header.sourceComponent: EditDownArrowHeader{
-        text: dsTr("PPP")
+        text: dsTr("VPN PPP")
     }
 
     content.sourceComponent: Column { 
@@ -72,7 +72,7 @@ BaseEditSection {
             text: dsTr("No Address/Control Compression")
         }
         EditLineSwitchButton {
-            key: "vk-lcp-echo-enable"
+            key: "vk-enable-lcp-echo"
             text: dsTr("Send PPP Echo Packets")
         }
     }
