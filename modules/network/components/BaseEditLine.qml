@@ -31,10 +31,10 @@ DBaseLine {
     }
     
     color: dconstants.contentBgColor
-    property color normalColor: dconstants.contentBgColor
-    property color errorColor: "#F48914"
     
     // TODO error state
+    property color normalColor: dconstants.contentBgColor
+    property color errorColor: "#F48914"
     property bool showErrorConditon
     property bool showError: showErrorConditon && isValueError()
     Connections {
