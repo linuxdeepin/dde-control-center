@@ -68,19 +68,30 @@ Column{
                 property var menuLabels
                 function menuSelect(i){
                     print("create connection", menuLabels[i])
-                    goToCreateConnection(menuLabels[i])
+                    goToCreateConnection(getSupportedConnectionTypesInfo()[i].Value)
                 }
                 onClicked: {
                     if(!rootMenu.visible){
-                        menuLabels = dbusNetwork.GetSupportedConnectionTypes() // update menu labels
+                        menuLabels = getSupportedConnectionTypesText() // update menu labels
                         var pos = mapToItem(null, 0, 0)
                         rootMenu.labels = addButton.menuLabels
                         rootMenu.requestMenuItem = addButton
-                        rootMenu.posX = pos.x
+                        rootMenu.innerWidth = 200
+                        rootMenu.posX = pos.x - rootMenu.innerWidth
                         rootMenu.posY = pos.y + height
-                        rootMenu.innerWidth = 100
                     }
                     rootMenu.visible = !rootMenu.visible
+                }
+                function getSupportedConnectionTypesInfo() {
+                    return JSON.parse(dbusNetwork.GetSupportedConnectionTypes())
+                }
+                function getSupportedConnectionTypesText() {
+                    var connTypesText = []
+                    var connTypesInfo = getSupportedConnectionTypesInfo()
+                    for (var i=0; i<connTypesInfo.length; i++) {
+                        connTypesText.push(connTypesInfo[i].Text)
+                    }
+                    return connTypesText
                 }
                 function goToCreateConnection(type){
                     stackView.push({
