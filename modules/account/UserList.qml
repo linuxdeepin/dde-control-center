@@ -110,7 +110,7 @@ ListView {
                 property bool expandButtonUp
 
                 property color nameColor
-                property string expandButtonStatus
+                property string expandButtonStatus: "normal"
 
                 onAction: {
                     component_bg.state = "delete_dialog"
