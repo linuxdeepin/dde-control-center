@@ -58,4 +58,8 @@ DBaseExpand{
             }
         }
     }
+    
+    function expandSection() {
+        expanded = true
+    }
 }

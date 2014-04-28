@@ -52,6 +52,10 @@ BaseEditSection {
             key: "static-key"
             text: dsTr("Static Key")
         }
+        EditLineSwitchButton {
+            key: "vk-static-key-direction"
+            text: dsTr("Use Key Direction")
+        }
         EditLineComboBox {
             key: "static-key-direction"
             text: dsTr("Key Direction")

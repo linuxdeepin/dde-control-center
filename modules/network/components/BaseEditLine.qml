@@ -31,9 +31,26 @@ DBaseLine {
     }
     
     color: dconstants.contentBgColor
-    // TODO
-    property color normalColor: "black"
+    property color normalColor: dconstants.contentBgColor
     property color errorColor: "#F48914"
+    
+    // TODO error state
+    property bool showErrorConditon
+    property bool showError: showErrorConditon && isValueError()
+    Connections {
+        target: rightLoader.item
+        onActiveFocusChanged: {
+            if (!rightLoader.item.activeFocus) {
+                showErrorConditon = true
+            }
+        }
+    }
+    onShowErrorChanged: {
+        border.color = showError ? errorColor : normalColor
+        if (showError) {
+            expandSection()
+        }
+    }
     
     leftMargin: contentLeftMargin
     leftLoader.sourceComponent: DssH2{
@@ -66,6 +83,9 @@ DBaseLine {
     }
     
     function isValueError() {
+        if (root.value == undefined) {
+            return false
+        }
         return errors[root.key] ? true : false
     }
     
@@ -104,6 +124,7 @@ DBaseLine {
     // overload this function if need
     function saveKey() {
         print("save key", section, key, value) // TODO test
+        showErrorConditon = true
         setKey()
     }
 }

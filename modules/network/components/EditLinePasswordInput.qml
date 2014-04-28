@@ -19,10 +19,6 @@ BaseEditLine {
             root.value = text
             setKey()
         }
-        
-        // TODO error stat
-        // property bool isError: isValueError()
-        // border.color: isError ? errorColor : normalColor
     }
     
 }

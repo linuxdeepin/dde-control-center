@@ -24,6 +24,10 @@ BaseEditSection {
             key: "ta"
             text: dsTr("Key File")
         }
+        EditLineSwitchButton {
+            key: "vk-ta-dir"
+            text: dsTr("Use Key Direction")
+        }
         EditLineComboBox {
             key: "ta-dir"
             text: dsTr("Key Direction")
