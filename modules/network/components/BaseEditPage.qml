@@ -40,6 +40,8 @@ Column{
 
     function marshalJSON(value){
         var valueJSON = JSON.stringify(value);
+        // TODO test
+        // print("==> unmarshalJSON:", value, valueJSON)
         return valueJSON
     }
     

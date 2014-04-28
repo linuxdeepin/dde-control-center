@@ -70,7 +70,35 @@ DBaseLine {
     }
     
     function getAvailableValues() {
-        return connectionSessionObject.GetAvailableValues(section, key)
+        // TODO remove
+        // return connectionSessionObject.GetAvailableValues(section, key)
+        var valuesJSON = connectionSessionObject.GetAvailableValues(section, key);
+        var values = unmarshalJSON(valuesJSON)
+        return values
+    }
+    
+    function getAvailableValuesText() {
+        var values = getAvailableValues()
+        var valuesText = []
+        for (var i=0; i<values.length; i++) {
+            valuesText.push(values[i].Text)
+        }
+        return valuesText
+    }
+    
+    function getAvailableValuesTextByValue(value) {
+        var values = getAvailableValues()
+        if (values == null) {
+            // TODO fixme, values is null here so this function should
+            // not be called in this case
+            print("==> [WARNING]", values, section, key, value) //TODO test
+            return
+        }
+        for (var i=0; i<values.length; i++) {
+            if (values[i].Value === value) {
+                return values[i].Text
+            }
+        }
     }
     
     // overload this function if need

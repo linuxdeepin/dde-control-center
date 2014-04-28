@@ -12,7 +12,7 @@ BaseEditLine {
         
         Binding on text {
             when: root.value != undefined
-            value: root.value
+            value: getAvailableValuesTextByValue(root.value)
         }
         
         property var menuLabels
@@ -20,20 +20,20 @@ BaseEditLine {
             target: root
             onVisibleChanged: {
                 if (root.visible) {
-                    menuLabels = getAvailableValues()
+                    menuLabels = getAvailableValuesText()
                 }
             }
         }
 
         function menuSelect(i){
-            root.value = menuLabels[i]
+            root.value = getAvailableValues()[i].Value
             setKey()
         }
 
         // TODO select current item when popup root menu
         onClicked: {
             if(!rootMenu.visible){
-                menuLabels = getAvailableValues() // update menu labels
+                menuLabels = getAvailableValuesText() // update menu labels
                 var pos = mapToItem(null, 0, 0)
                 rootMenu.labels = comboBox.menuLabels
                 rootMenu.requestMenuItem = comboBox
