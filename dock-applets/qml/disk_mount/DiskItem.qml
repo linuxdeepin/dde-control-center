@@ -57,7 +57,8 @@ Item {
                         source: "images/unmount_button.png"
 
                         onClicked: {
-                            r = dbusDiskMount.DeviceUnmount(diskInfo[0])
+                            var r = dbusDiskMount.DeviceUnmount(diskInfo[0])
+                            print("==> [info] Unmount status:", r)
                             unmountFailedInfo.visible = !r[0]
                         }
                     }
