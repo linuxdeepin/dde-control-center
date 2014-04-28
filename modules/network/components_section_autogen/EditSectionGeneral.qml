@@ -12,6 +12,10 @@ BaseEditSection {
     }
 
     content.sourceComponent: Column { 
+        EditLineTextInput {
+            key: "id"
+            text: dsTr("Connection Name")
+        }
         EditLineSwitchButton {
             key: "autoconnect"
             text: dsTr("Automatically connect")

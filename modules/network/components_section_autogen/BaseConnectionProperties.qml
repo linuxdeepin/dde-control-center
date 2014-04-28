@@ -7,7 +7,6 @@ BaseEditPage {
     id: root
     activeExpandIndex: 0
 
-    EditTitle {}
     
     EditSectionSeparator {relatedSection: sectionGeneral}
     EditSectionGeneral {
