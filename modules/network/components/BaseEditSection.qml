@@ -35,7 +35,7 @@ DBaseExpand{
         }
     }
     
-    visible: getIndexFromArray(section, avaiableSections) != -1
+    visible: getIndexFromArray(section, availableSections) != -1
     
     function updateKeysAlways() {
         if (!content.item) {

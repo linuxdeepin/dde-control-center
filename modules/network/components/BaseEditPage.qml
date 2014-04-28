@@ -5,8 +5,11 @@ Column{
     id: properiesPage
     width: parent.width
 
+    // edit connection
     property var uuid
     property var devicePath
+    
+    // create connection
     property bool create: false
     property string type
 
@@ -22,7 +25,7 @@ Column{
             return connectionSession.createObject(properiesPage, { path: connectionPath })
         }
     }
-    property var avaiableSections: connectionSessionObject.ListPages()
+    property var availableSections: connectionSessionObject.availablePages
 
     function generalSetKey(section, key, value){
         connectionSessionObject.SetKey(section, key, marshalJSON(value))
@@ -59,6 +62,6 @@ Column{
     
     // TODO
     Component.onCompleted: {
-        print("BaseEditPage.avaiableSections:", avaiableSections)
+        print("BaseEditPage.availableSections:", availableSections)
     }
 }
