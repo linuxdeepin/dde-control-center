@@ -1,8 +1,8 @@
-
 import QtQuick 2.0
 import Deepin.Widgets 1.0
 
 Item {
+    id: diskItem
     width: 240
     height: lastItem ? childrenRect.height : childrenRect.height + 6
 
@@ -15,8 +15,6 @@ Item {
 
         DssH2{
             text: diskInfo[1]
-            anchors.left: parent.left
-            anchors.leftMargin: 4
         }
 
         Row {
@@ -31,7 +29,7 @@ Item {
 
             Column {
                 anchors.verticalCenter: parent.verticalCenter
-                width: 175
+                width: diskItem.width - diskIcon.width - 10
                 spacing: 6
 
                 Item {
@@ -42,13 +40,26 @@ Item {
                         text: "%1/%2".arg(bitToHuman(parseInt(diskInfo[5]))).arg(bitToHuman(parseInt(diskInfo[6])))
                     }
 
+                    DssH2 {
+                        id: unmountFailedInfo
+                        anchors.right: parent.right
+                        anchors.rightMargin: 20
+                        font.pixelSize: 11
+                        color: dconstants.tuhaoColor
+                        text: dsTr("Unmount failed!")
+                        visible: false
+                    }
+
                     DOpacityImageButton {
                         anchors.right: parent.right
                         width: 16
                         height: 16
                         source: "images/unmount_button.png"
 
-                        onClicked: dbusDiskMount.DeviceUnmount(diskInfo[0])
+                        onClicked: {
+                            r = dbusDiskMount.DeviceUnmount(diskInfo[0])
+                            unmountFailedInfo.visible = !r[0]
+                        }
                     }
                 }
 

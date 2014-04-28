@@ -105,16 +105,6 @@ QtObject {
             "applet_id": "dss"
         })
 
-        if (dbusPower.batteryIsPresent){
-            appletListModel.append({
-                "applet_id": "power"
-            })
-        }
-
-        appletListModel.append({
-            "applet_id": "sound"
-        })
-
         //if (dbusNetwork.wirelessDevices){
             //appletListModel.append({
                 //"applet_id": "network"
@@ -126,6 +116,16 @@ QtObject {
                 //"applet_id": "disk_mount"
             //})
         //}
+
+        appletListModel.append({
+            "applet_id": "sound"
+        })
+
+        if (dbusPower.batteryIsPresent){
+            appletListModel.append({
+                "applet_id": "power"
+            })
+        }
     }
 
     function update_applet_list(name, add){
@@ -142,7 +142,7 @@ QtObject {
                 appletListModel.remove(i, 1)
             }
         }
-        print("==> [info] Applet Status Changed:", name, add)
+        print("==> [info] Status Changed:", name, add)
         root.appletInfosChanged()
     }
 

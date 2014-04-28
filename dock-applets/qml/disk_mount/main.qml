@@ -9,6 +9,7 @@ DockApplet{
     icon: iconPath
 
     property url iconPath: "images/icon.png"
+    property int windowWidth: 300
     property int xEdgePadding: 0
 
     onActivate:{
@@ -64,7 +65,7 @@ DockApplet{
 
     window: DockQuickWindow {
         id: root
-        width: 240 + xEdgePadding * 2
+        width: windowWidth + xEdgePadding * 2
         height: diskListView.height + xEdgePadding * 2
         color: "transparent"
 
@@ -73,7 +74,9 @@ DockApplet{
             width: parent.width
             height: childrenRect.height
             model: mountDiskList
-            delegate: DiskItem {}
+            delegate: DiskItem {
+                width: root.width
+            }
         }
     }
 }

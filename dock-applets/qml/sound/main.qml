@@ -11,8 +11,9 @@ DockApplet{
     icon: iconPath
     property url iconPath: getIconPath()
 
-    property int xEdgePadding: 10
-    property int rootWidth: 260
+    property int xEdgePadding: 0
+    property int titleSpacing: 10
+    property int rootWidth: 250
 
     property var audioId: Audio {}
     property var defaultSink: AudioSink{ path: audioId.GetDefaultSink() }
@@ -85,7 +86,7 @@ DockApplet{
 
                     Rectangle {
                         height: 2
-                        width: parent.width - allSoundLabel.width - xEdgePadding * 3
+                        width: parent.width - allSoundLabel.width - xEdgePadding * 2 - titleSpacing
                         anchors.right: parent.right
                         anchors.rightMargin: xEdgePadding
                         anchors.verticalCenter: parent.verticalCenter
@@ -110,7 +111,7 @@ DockApplet{
 
                     WhiteSlider{
                         id: soundSlider
-                        width: parent.width - soundImage.width - 16 - xEdgePadding * 3
+                        width: parent.width - soundImage.width - 16 - xEdgePadding * 2 - titleSpacing
                         anchors.right: parent.right
                         anchors.rightMargin: xEdgePadding
                         anchors.verticalCenter: parent.verticalCenter
@@ -153,7 +154,7 @@ DockApplet{
 
                     Rectangle {
                         height: 2
-                        width: parent.width - appLabel.width - xEdgePadding * 3
+                        width: parent.width - appLabel.width - xEdgePadding * 2 - titleSpacing
                         anchors.right: parent.right
                         anchors.rightMargin: xEdgePadding
                         anchors.verticalCenter: parent.verticalCenter

@@ -48,8 +48,6 @@ DockApplet{
         height: content.height
         color: "transparent"
 
-        //Component.onCompleted: show()
-
         Column {
             id: content
             width: parent.width

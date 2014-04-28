@@ -14,14 +14,12 @@ DockApplet{
 
     // display
     property var dbusDisplay: Display{}
-    property var monitorObject: Monitor{ path: dbusDisplay.monitors[0] }
-    property var brightnessDict: monitorObject.brightness
-    property string monitorName: Object.keys(brightnessDict)[0]
+    property string monitorName: dbusDisplay.primary
 
     // network
     property var dbusNetwork: NetworkManager{}
 
-    property int xEdgePadding: 10
+    property int xEdgePadding: 0
 
     onActivate:{
         showDss()
@@ -160,15 +158,15 @@ DockApplet{
 
                         onValueChanged: {
                             if(pressed){
-                                monitorObject.SetBrightness(monitorName, value)
+                                dbusDisplay.SetBrightness(monitorName, value)
                             }
                         }
 
                         Connections{
-                            target: monitorObject
+                            target: dbusDisplay
                             onBrightnessChanged: {
                                 if(!brightnessSlider.pressed){
-                                    brightnessSlider.value = brightnessDict[monitorName]
+                                    brightnessSlider.value = dbusDisplay.brightness[monitorName]
                                 }
                             }
                         }
@@ -177,7 +175,7 @@ DockApplet{
                             running: true
                             interval: 200
                             onTriggered: {
-                                brightnessSlider.value = brightnessDict[monitorName]
+                                brightnessSlider.value = dbusDisplay.brightness[monitorName]
                             }
                         }
 
