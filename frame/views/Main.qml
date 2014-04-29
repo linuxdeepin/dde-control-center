@@ -17,7 +17,6 @@ Item {
     property var displayId: Display {}
     property var dbusXMouseArea: XMouseArea {
         onButtonRelease: {
-            print(arg0, arg1, arg2, arg3)
             if(arg3 != -1){
                 outerAreaClicked(arg1, arg2)
             }

@@ -12,6 +12,8 @@ DWindowFrame{
     property real posX: 0
     property real posY: 0
 
+    property alias currentIndex: completeView.currentIndex
+
     x: posX - 28
     y: posY - 12
 
