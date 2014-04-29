@@ -127,7 +127,7 @@ Item {
         Text {
             id: txt
             color: "white"
-            text: dsTr("Drop a picture here to change the background")
+            text: dsTr("Drag and drop an image to change background.")
 
             anchors.centerIn: parent
         }

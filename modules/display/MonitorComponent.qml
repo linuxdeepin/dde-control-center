@@ -208,7 +208,7 @@ Rectangle{
             onEntered: {
                 parent.hovered = true
                 if(!parent.selected){
-                    toolTip.showTip(dsTr("Select as Main Monitor"))
+                    toolTip.showTip(dsTr("Set as primary display"))
                 }
             }
 

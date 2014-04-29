@@ -25,7 +25,7 @@ Item {
             leftLoader.sourceComponent: DssH2 {
                 color: "white"
                 font.bold: true
-                text: dsTr("TouchPad")
+                text: dsTr("Touchpad")
             }
             rightLoader.sourceComponent: DSwitchButton{
                 checked: dbusTouchpad.tPadEnable
@@ -55,7 +55,7 @@ Item {
             height: 38
             leftWidth: mouseModule.leftWidth
             centerPadding: mouseModule.centerPadding
-            title.text: dsTr("Button Order")
+            title.text: dsTr("Primary Button")
             content.sourceComponent: DRadioButton {
                 width: 180
                 anchors.left: parent.left
@@ -63,8 +63,8 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
                 initializeIndex: dbusTouchpad.leftHanded ? 1 : 0
                 buttonModel: [
-                    {"buttonId": "right_hand", "buttonLabel": dsTr("Right Hand")},
-                    {"buttonId": "left_hand", "buttonLabel": dsTr("Left Hand")}
+                    {"buttonId": "right_hand", "buttonLabel": dsTr("Left-handed")},
+                    {"buttonId": "left_hand", "buttonLabel": dsTr("Left")}
                 ]
 
                 onItemSelected: {
@@ -77,7 +77,7 @@ Item {
             height: contentHeight
             leftWidth: mouseModule.leftWidth
             centerPadding: mouseModule.centerPadding
-            title.text: dsTr("Pointer Move Speed")
+            title.text: dsTr("Pointer Speed")
 
             content.sourceComponent: DSliderEnhanced {
                 width: sliderWidth
@@ -102,7 +102,7 @@ Item {
             height: contentHeight
             leftWidth: mouseModule.leftWidth
             centerPadding: mouseModule.centerPadding
-            title.text: dsTr("Pointer Accuracy")
+            title.text: dsTr("Pointer Precision")
 
             content.sourceComponent: DSliderEnhanced {
                 width: sliderWidth
@@ -127,7 +127,7 @@ Item {
             height: contentHeight
             leftWidth: mouseModule.leftWidth
             centerPadding: mouseModule.centerPadding
-            title.text: dsTr("Double-click Frequency")
+            title.text: dsTr("Double-click Speed")
 
             content.sourceComponent: DSliderEnhanced {
                 width: sliderWidth

@@ -40,7 +40,7 @@ Column {
 
     DBaseLine {
         leftLoader.sourceComponent: DssH2 {
-            text: dsTr("Timezone")
+            text: dsTr("Time zone")
         }
 
         rightLoader.sourceComponent: StateButtons {

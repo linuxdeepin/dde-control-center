@@ -104,7 +104,7 @@ Item {
             height: contentHeight
             centerPadding: centerPadding
             leftWidth: titleWidth
-            title.text: dsTr("Repeat Interval")
+            title.text: dsTr("Repeat Rate")
 
             content.sourceComponent: DSliderEnhanced {
                 width: sliderWidth
@@ -129,7 +129,7 @@ Item {
             height: contentHeight
             centerPadding: centerPadding
             leftWidth: titleWidth
-            title.text: dsTr("Cursor Blink")
+            title.text: dsTr("Cursor Blink Rate")
 
             content.sourceComponent: DSliderEnhanced {
                 width: sliderWidth

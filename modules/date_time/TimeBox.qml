@@ -132,7 +132,7 @@ Rectangle {
             anchors.horizontalCenter: dynamicTime.horizontalCenter
             font.pixelSize: 12
             color: "#F48914"
-            text: dsTr("Double-click the overhead digital to modify local time")
+            text: dsTr("Double-click the above digits to change your time.")
             visible: opacity != 0
             opacity: 0
 
@@ -167,7 +167,7 @@ Rectangle {
             spacing: 10
 
             DTextAction {
-                text: dsTr("Change")
+                text: dsTr("Set")
                 onClicked: {
                     gDate.SetTime(timeEdit.currentTime)
                     timeBox.showTimeNormal()

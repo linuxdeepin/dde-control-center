@@ -73,19 +73,19 @@ Item {
 
         InfoItem { 
             id: versionItem
-            title: dsTr("System Version")
+            title: dsTr("Deepin Edition")
             value: systemInfoDbus.version
         }
 
         InfoItem { 
             id: typeItem
             title: dsTr("System Type")
-            value: systemInfoDbus.systemType + dsTr("Bit")
+            value: systemInfoDbus.systemType + dsTr("-bit")
         }
 
         InfoItem { 
             id: cpuItem
-            title: dsTr("CPU")
+            title: dsTr("Processor")
             value: systemInfoDbus.processor
         }
         

@@ -90,7 +90,7 @@ Column {
             color: dconstants.contentBgColor
 
             DLabel {
-                text: dsTr("Enable User")
+                text: dsTr("Enabled")
                 font.pixelSize: 12
 
                 anchors.left: parent.left

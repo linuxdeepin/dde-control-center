@@ -100,7 +100,7 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             font.pixelSize: 11
             color: dconstants.fgDarkColor
-            text: dsTr("Please input new shortcuts")
+            text: dsTr("Please input new shortcut")
             visible: grabFlag
         }
 
@@ -178,7 +178,7 @@ Item {
         clip: true
 
         function showInvalidInfo(shortcutName){
-            invalidInfo.text = dsTr('无效的快捷键"%1"，请重新输入！').arg(windowView.toHumanShortcutLabel(shortcutName))
+            invalidInfo.text = dsTr('Shortcut \"%1\" is invalid, please retype new shortcut.').arg(windowView.toHumanShortcutLabel(shortcutName))
             invalidInfoArea.height = conflictInfo.height + 8
             hideInvalidInfoArea.restart()
         }
@@ -216,12 +216,12 @@ Item {
             replaceButton.conflictKeyIds = conflictIds
             replaceButton.grabKeys = shortcutName
             confictText.text = windowView.toHumanShortcutLabel(shortcutName)
-            var info = dsTr('您设置的快捷键，')
+            var info = dsTr('The shortcut you set ')
             for(var i in conflictIds){
                 var keyBindingInfo = getKeyBindingInfo(conflictIds[i])
-                info += dsTr('与 "%1" 类别下的 "%2" 的快捷键冲突，').arg(categoryObjects[keyBindingInfo[3]]).arg(keyBindingInfo[1])
+                info += dsTr('conflicts with the one used for \"%2\" in the \"%1\" category.').arg(categoryObjects[keyBindingInfo[3]]).arg(keyBindingInfo[1])
             }
-            info += dsTr('是否进行替换？')
+            info += dsTr('Do you want to replace it?')
 
             conflictInfo.text = info
             conflictInfoArea.height = conflictInfoArea.realHeight

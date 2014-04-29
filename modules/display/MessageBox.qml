@@ -83,7 +83,7 @@ Window {
             anchors.left: parent.left
             anchors.leftMargin: 20
             color: "white"
-            text: dsTr("是否要保存这些显示设置？")
+            text: dsTr("Do you want to keep these display settings?")
             font.pixelSize: 14
         }
 
@@ -93,7 +93,7 @@ Window {
             anchors.left: messageLabel.left
 
             color: dconstants.fgColor
-            text: dsTr("<font color='#F48914'>%1</font> 秒之后还原之前的显示设置。").arg(countdown.totalTime)
+            text: dsTr("Reverting to previous display settings in <font color='#F48914'>%1</font> seconds.").arg(countdown.totalTime)
             font.pixelSize: 12
         }
 
@@ -105,7 +105,7 @@ Window {
             spacing: 6
 
             DTransparentButton {
-                text: dsTr("Save Changes")
+                text: dsTr("Keep changes")
                 onClicked: {
                     displayId.SaveChanged()
                     hideDialog()
@@ -113,7 +113,7 @@ Window {
             }
 
             DTransparentButton {
-                text: dsTr("Restore")
+                text: dsTr("Revert")
                 onClicked: {
                     displayId.ResetChanged()
                     hideDialog()

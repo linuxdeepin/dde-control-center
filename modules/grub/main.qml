@@ -156,7 +156,7 @@ Rectangle {
             DBaseExpand {
                 id: delay_expand
                 header.sourceComponent: DDownArrowHeader {
-                    text: dsTr("Delay")
+                    text: dsTr("Timeout")
                     onClicked: {
                         delay_expand.expanded = !delay_expand.expanded
                     }

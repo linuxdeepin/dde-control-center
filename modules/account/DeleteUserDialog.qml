@@ -16,8 +16,8 @@ Column {
             id: radio_button
 
             buttonModel: [
-                {"buttonId": "keep_files", "buttonLabel": dsTr("Keep user files")},
-                {"buttonId": "delete_files", "buttonLabel": dsTr("Delete user files")},
+                {"buttonId": "keep_files", "buttonLabel": dsTr("Keep user's files")},
+                {"buttonId": "delete_files", "buttonLabel": dsTr("Delete user's files")},
             ]
 
             anchors.centerIn: parent

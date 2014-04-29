@@ -8,7 +8,7 @@ Item {
     width: actionButtons.width
     height: parent.height
 
-    property string completeLabel: dsTr("Finish")
+    property string completeLabel: dsTr("Done")
     property string addLabel: dsTr("Add")
     property string currentActionStateName: ""
     property alias deleteButton: deleteButton

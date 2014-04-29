@@ -27,12 +27,12 @@ class ModulesId(QObject):
     def __init__(self):
         QObject.__init__(self)
         self._l18n_names = {
-                "date_time": _("Date & Time"),
+                "date_time": _("Date and Time"),
                 "network": _("Network"),
                 "disk_mount": _("Disk Mount"),
                 "bluetooth": _("Bluetooth"),
                 "sound": _("Sound"),
-                "power": _("Power"),
+                "power": _("Power Options"),
                 "dss": _("More Settings"),
                 "shutdown": _("Shutdown"),
                 "notification": _("Notification"),

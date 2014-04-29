@@ -365,7 +365,7 @@ Rectangle {
 
         DLabel {
             id: shutdownText
-            text: dsTr("Shutdown")
+            text: dsTr("Power")
             anchors.top: shutdownButton.bottom
             anchors.topMargin: 6
             anchors.horizontalCenter: parent.horizontalCenter

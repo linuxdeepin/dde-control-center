@@ -71,7 +71,7 @@ Item {
 
         WindowThemeExpand {
             myIndex: 1
-            title: dsTr("GTK Window")
+            title: dsTr("Window appearance")
         }
 
         DSeparatorHorizontal {}
@@ -99,7 +99,7 @@ Item {
 
         FontSettingsExpand {
             myIndex: 5
-            title: dsTr("Font")
+            title: dsTr("Fonts")
         }
 
         DSeparatorHorizontal {}

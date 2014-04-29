@@ -27,7 +27,7 @@ Image {
         onEntered: {
             actionButton.state = "hovered"
             mouseArea.cursorShape = Qt.PointingHandCursor
-            toolTip.showTip(dsTr("Open theme preview"))
+            toolTip.showTip(dsTr("Preview theme"))
         }
         
         onExited: {

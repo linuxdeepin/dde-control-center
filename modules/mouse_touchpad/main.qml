@@ -41,15 +41,15 @@ Item {
         DCenterLine {
             leftWidth: mouseModule.leftWidth
             centerPadding: mouseModule.centerPadding
-            title.text: dsTr("Button Order")
+            title.text: dsTr("Primary Button")
             content.sourceComponent: DRadioButton {
                 anchors.left: parent.left
                 anchors.leftMargin: 2
                 anchors.verticalCenter: parent.verticalCenter
                 initializeIndex: dbusMouse.leftHanded ? 1 : 0
                 buttonModel: [
-                    {"buttonId": "right_hand", "buttonLabel": dsTr("Right Hand")},
-                    {"buttonId": "left_hand", "buttonLabel": dsTr("Left Hand")}
+                    {"buttonId": "right_hand", "buttonLabel": dsTr("Left-handed")},
+                    {"buttonId": "left_hand", "buttonLabel": dsTr("Left")}
                 ]
 
                 onItemSelected: {
@@ -62,7 +62,7 @@ Item {
             height: contentHeight
             leftWidth: mouseModule.leftWidth
             centerPadding: mouseModule.centerPadding
-            title.text: dsTr("Pointer Move Speed")
+            title.text: dsTr("Pointer Speed")
 
             content.sourceComponent: DSliderEnhanced {
                 width: sliderWidth
@@ -88,7 +88,7 @@ Item {
             height: contentHeight
             leftWidth: mouseModule.leftWidth
             centerPadding: mouseModule.centerPadding
-            title.text: dsTr("Pointer Accuracy")
+            title.text: dsTr("Pointer Precision")
 
             content.sourceComponent: DSliderEnhanced {
                 width: sliderWidth
@@ -114,7 +114,7 @@ Item {
             height: contentHeight
             leftWidth: mouseModule.leftWidth
             centerPadding: mouseModule.centerPadding
-            title.text: dsTr("Double-click Frequency")
+            title.text: dsTr("Double-click Speed")
 
             content.sourceComponent: DSliderEnhanced {
                 width: sliderWidth

@@ -138,7 +138,7 @@ Item {
                     ]
                 },
                 {
-                    "name": dsTr("Picture Viewer"),
+                    "name": dsTr("Picture"),
                     "icon": "images/picture.png",
                     "defaultGetType": "image/jpeg",
                     "setTypeGroup": [
@@ -253,7 +253,7 @@ Item {
             id: autoPlayExpand
             expanded: header.item.active
             header.sourceComponent: DSwitchButtonHeader {
-                text: dsTr("Auto Play")
+                text: dsTr("AutoPlay")
                 style: Text.Raised
                 styleColor: Qt.rgba(0, 0, 0, 0.9)
                 font.bold: true

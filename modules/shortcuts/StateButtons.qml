@@ -12,7 +12,7 @@ Item {
     property alias deleteButton: deleteButton
     property alias completeButton: completeButton
 
-    property string completeButtonLabel: dsTr("Finish")
+    property string completeButtonLabel: dsTr("Done")
     property string currentActionStateName: ""
 
     DTextButton {

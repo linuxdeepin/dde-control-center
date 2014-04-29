@@ -21,10 +21,10 @@ Item {
     property var initExpanded: true
 
     property var rotationNames: {
-        1: dsTr("Normal"),
-        2: dsTr("Rotate Right"),
-        4: dsTr("Upside Down"),
-        8: dsTr("Rotate Left"),
+        1: dsTr("Standard"),
+        2: dsTr("90°"),
+        4: dsTr("180°"),
+        8: dsTr("270°"),
     }
 
     property var monitorNames: outputObj.outputs

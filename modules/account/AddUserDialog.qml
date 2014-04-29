@@ -86,7 +86,7 @@ Rectangle {
                 }
 
                 DssH3 {
-                    text: [dsTr("User"), dsTr("Administrator")][user_group_radio.currentIndex]
+                    text: [dsTr("Standard"), dsTr("Administrator")][user_group_radio.currentIndex]
                 }
 
                 anchors.left: round_image.right
@@ -230,8 +230,8 @@ Rectangle {
                 id: user_group_radio
 
                 buttonModel: [
-                    {"buttonId": "user", "buttonLabel": "User"},
-                    {"buttonId": "administrator", "buttonLabel": "Administrator"},
+                    {"buttonId": "user", "buttonLabel": dsTr("Standard")},
+                    {"buttonId": "administrator", "buttonLabel": dsTr("Administrator")},
                 ]
                 
                 initializeIndex: 0

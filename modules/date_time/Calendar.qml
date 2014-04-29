@@ -99,7 +99,7 @@ Column {
 
         rightLoader.sourceComponent: DTextAction {
             anchors.verticalCenter: parent.verticalCenter
-            text: dsTr("Show Today")
+            text: dsTr("Today")
             visible: opacity != 0
             opacity: isToday ? 0 : 1
             onClicked: {

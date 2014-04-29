@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-25 09:48+0800\n"
+"POT-Creation-Date: 2014-04-29 16:13+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,17 +16,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../modules/account/AddUserDialog.qml:89 ../modules/account/UserList.qml:177
-msgid "User"
-msgstr "使用者"
-
-#: ../modules/account/AddUserDialog.qml:89 ../modules/account/UserList.qml:177
+#: ../modules/account/AddUserDialog.qml:89
+#: ../modules/account/AddUserDialog.qml:234
+#: ../modules/account/UserList.qml:177
 msgid "Administrator"
 msgstr "系統管理員"
 
+#: ../modules/account/AddUserDialog.qml:89
+#: ../modules/account/AddUserDialog.qml:233
+#: ../modules/display/MonitorProperties.qml:24
+#: ../modules/account/UserList.qml:177
+msgid "Standard"
+msgstr ""
+
 #: ../modules/account/AvatarPickDialog.qml:5
-msgid "Please choose one image as you avatar"
-msgstr "請選擇一張圖片作為你的使用者圖片"
+msgid "Choose a new picture for your account"
+msgstr ""
 
 #: ../modules/account/AvatarView.qml:18
 msgid "Recently Used"
@@ -42,7 +47,8 @@ msgid "Webcam"
 msgstr ""
 
 #: ../modules/date_time/Calendar.qml:102
-msgid "Show Today"
+#, fuzzy
+msgid "Today"
 msgstr "顯示今天"
 
 #: ../modules/date_time/CalendarComponent.qml:56
@@ -94,8 +100,8 @@ msgstr "命令"
 #: ../modules/account/PasswordDialog.qml:190
 #: ../modules/shortcuts/ShortcutInput.qml:298
 #: ../modules/date_time/TimeBox.qml:186
-#: ../frame/views/WifiPasswordWindow.qml:136
-#: ../modules/network/WirelessItem.qml:274 ../modules/display/main.qml:200
+#: ../frame/views/WifiPasswordWindow.qml:147
+#: ../modules/network/WirelessItem.qml:274 ../modules/display/main.qml:201
 msgid "Cancel"
 msgstr "取消"
 
@@ -105,16 +111,25 @@ msgid "Add"
 msgstr "新增"
 
 #: ../modules/account/DeleteUserDialog.qml:19
-msgid "Keep user files"
+#, fuzzy
+msgid "Keep user's files"
 msgstr "保留使用者檔案"
 
 #: ../modules/account/DeleteUserDialog.qml:20
-msgid "Delete user files"
+#, fuzzy
+msgid "Delete user's files"
 msgstr "刪除使用者檔案"
 
 #: ../modules/account/DeleteUserDialog.qml:46
 #: ../modules/account/PasswordDialog.qml:204
 msgid "Confirm"
+msgstr ""
+
+#: ../dock-applets/build/build/Debug/qml/disk_mount/DiskItem.qml:49
+#: ../dock-applets/build/build/Release/qml/disk_mount/DiskItem.qml:49
+#: ../dock-applets/build/qml/disk_mount/DiskItem.qml:49
+#: ../dock-applets/qml/disk_mount/DiskItem.qml:57
+msgid "Unmount failed!"
 msgstr ""
 
 #: ../modules/network/components/EditLineFileChooser.qml:29
@@ -136,11 +151,16 @@ msgid "General"
 msgstr "一般"
 
 #: ../modules/network/components_section/EditSectionGeneral.qml:16
-#: ../modules/network/components_section_autogen/EditSectionGeneral.qml:17
+#: ../modules/network/components_section_autogen/EditSectionGeneral.qml:21
 msgid "Automatically connect"
 msgstr "自動連線"
 
-#: ../modules/network/components_section_autogen/EditSectionGeneral.qml:21
+#: ../modules/network/components_section_autogen/EditSectionGeneral.qml:17
+#, fuzzy
+msgid "Connection Name"
+msgstr "連線名稱:"
+
+#: ../modules/network/components_section_autogen/EditSectionGeneral.qml:25
 msgid "All Users Could Connect"
 msgstr ""
 
@@ -169,6 +189,11 @@ msgstr "網路遮罩(Netmask)"
 #: ../modules/network/components_section/EditSectionIpv4.qml:30
 #: ../modules/network/components_section_autogen/EditSectionIpv4.qml:29
 #: ../modules/network/components_section_autogen/EditSectionIpv6.qml:29
+#: ../modules/network/components_section_autogen/EditSectionVpnL2tp.qml:17
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:17
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:17
+#: ../modules/network/components_section_autogen/EditSectionVpnPptp.qml:17
+#: ../modules/network/components_section_autogen/EditSectionVpnVpnc.qml:17
 msgid "Gateway"
 msgstr "閘道器(Gateway)"
 
@@ -187,72 +212,83 @@ msgid "Prefix"
 msgstr ""
 
 #: ../modules/network/components_section_autogen/EditSectionPpp.qml:11
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:11
 msgid "PPP"
 msgstr ""
 
 #: ../modules/network/components_section_autogen/EditSectionPpp.qml:17
 #: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:17
+#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:17
 #, fuzzy
 msgid "Refuse EAP Authentication"
 msgstr "通知"
 
 #: ../modules/network/components_section_autogen/EditSectionPpp.qml:21
 #: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:21
+#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:21
 #, fuzzy
 msgid "Refuse PAP Authentication"
 msgstr "通知"
 
 #: ../modules/network/components_section_autogen/EditSectionPpp.qml:25
 #: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:25
+#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:25
 #, fuzzy
 msgid "Refuse CHAP Authentication"
 msgstr "通知"
 
 #: ../modules/network/components_section_autogen/EditSectionPpp.qml:29
 #: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:29
+#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:29
 #, fuzzy
 msgid "Refuse MSCHAP Authentication"
 msgstr "通知"
 
 #: ../modules/network/components_section_autogen/EditSectionPpp.qml:33
 #: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:33
+#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:33
 #, fuzzy
 msgid "Refuse MSCHAPv2 Authentication"
 msgstr "通知"
 
 #: ../modules/network/components_section_autogen/EditSectionPpp.qml:37
 #: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:37
+#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:37
 msgid "Use MPPE"
 msgstr ""
 
 #: ../modules/network/components_section_autogen/EditSectionPpp.qml:42
 #: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:47
+#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:47
 msgid "128-bit MPPE"
 msgstr ""
 
 #: ../modules/network/components_section_autogen/EditSectionPpp.qml:47
 #: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:52
+#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:52
 msgid "Stateful MPPE"
 msgstr ""
 
 #: ../modules/network/components_section_autogen/EditSectionPpp.qml:51
 #: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:56
+#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:56
 msgid "No BSD Data Compression"
 msgstr ""
 
 #: ../modules/network/components_section_autogen/EditSectionPpp.qml:55
 #: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:60
+#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:60
 msgid "No Deflate Data Compression"
 msgstr ""
 
 #: ../modules/network/components_section_autogen/EditSectionPpp.qml:59
 #: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:64
+#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:64
 msgid "No TCP Header Compression"
 msgstr ""
 
 #: ../modules/network/components_section_autogen/EditSectionPpp.qml:63
 #: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:76
+#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:68
 msgid "Send PPP Echo Packets"
 msgstr ""
 
@@ -266,6 +302,8 @@ msgstr ""
 
 #: ../modules/network/components_section_autogen/EditSectionPppoe.qml:17
 #: ../modules/network/components_section_autogen/EditSectionSecurity.qml:70
+#: ../modules/network/components_section_autogen/EditSectionVpnL2tp.qml:21
+#: ../modules/network/components_section_autogen/EditSectionVpnPptp.qml:21
 #, fuzzy
 msgid "Username"
 msgstr "使用者"
@@ -274,6 +312,11 @@ msgstr "使用者"
 #: ../modules/network/components_section/EditSectionSecurity.qml:85
 #: ../modules/network/components_section_autogen/EditSectionSecurity.qml:25
 #: ../modules/network/components_section_autogen/EditSectionSecurity.qml:74
+#: ../modules/network/components_section_autogen/EditSectionVpnL2tp.qml:25
+#: ../modules/network/components_section_autogen/EditSectionVpnL2tpIpsec.qml:29
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:33
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnProxies.qml:37
+#: ../modules/network/components_section_autogen/EditSectionVpnPptp.qml:25
 #: ../modules/account/PasswordDialog.qml:60
 #, fuzzy
 msgid "Password"
@@ -291,7 +334,7 @@ msgstr "安全性"
 
 #: ../modules/network/components_section/EditSectionSecurity.qml:21
 #: ../modules/network/components_section/EditSectionSecurity.qml:29
-#: ../frame/views/WifiPasswordWindow.qml:97
+#: ../frame/views/WifiPasswordWindow.qml:107
 msgid "Password:"
 msgstr "密碼:"
 
@@ -311,17 +354,22 @@ msgstr ""
 
 #: ../modules/network/components_section/EditSectionSecurity.qml:51
 #: ../modules/network/components_section_autogen/EditSectionSecurity.qml:45
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:21
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:41
 msgid "CA Cert"
 msgstr ""
 
 #: ../modules/network/components_section/EditSectionSecurity.qml:57
 #: ../modules/network/components_section_autogen/EditSectionSecurity.qml:41
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:37
 #, fuzzy
 msgid "User Cert"
 msgstr "使用者清單"
 
 #: ../modules/network/components_section/EditSectionSecurity.qml:62
 #: ../modules/network/components_section_autogen/EditSectionSecurity.qml:66
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:41
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:45
 msgid "Private Key"
 msgstr ""
 
@@ -369,55 +417,50 @@ msgid "Provisioning"
 msgstr ""
 
 #: ../modules/network/components_section_autogen/EditSectionSecurity.qml:78
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:49
 #, fuzzy
 msgid "Private Pwd"
 msgstr "密碼:"
 
 #: ../modules/network/components_section_autogen/EditSectionVpnL2tp.qml:11
 #: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:11
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:11
+#: ../modules/network/components_section_autogen/EditSectionVpnPptp.qml:11
+#: ../modules/network/components_section_autogen/EditSectionVpnVpnc.qml:11
 msgid "VPN"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tp.qml:17
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:17
-#, fuzzy
-msgid "!!gateway"
-msgstr "閘道器(Gateway)"
-
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tp.qml:21
-msgid "!!user"
-msgstr ""
-
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tp.qml:25
-#, fuzzy
-msgid "!!password"
-msgstr "密碼:"
-
 #: ../modules/network/components_section_autogen/EditSectionVpnL2tp.qml:29
-msgid "!!domain"
+#: ../modules/network/components_section_autogen/EditSectionVpnPptp.qml:29
+#: ../modules/network/components_section_autogen/EditSectionVpnVpncAdvanced.qml:17
+msgid "Domain"
 msgstr ""
 
 #: ../modules/network/components_section_autogen/EditSectionVpnL2tpIpsec.qml:11
-msgid "IPsec"
+msgid "VPN IPsec"
 msgstr ""
 
 #: ../modules/network/components_section_autogen/EditSectionVpnL2tpIpsec.qml:17
-msgid "!!ipsec-enabled"
-msgstr ""
+#, fuzzy
+msgid "Enable IPsec"
+msgstr "啟用使用者"
 
 #: ../modules/network/components_section_autogen/EditSectionVpnL2tpIpsec.qml:21
-msgid "!!ipsec-gateway-id"
+#: ../modules/network/components_section_autogen/EditSectionVpnVpnc.qml:33
+msgid "Group Name"
 msgstr ""
 
 #: ../modules/network/components_section_autogen/EditSectionVpnL2tpIpsec.qml:25
-msgid "!!ipsec-group-name"
+msgid "Group ID"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tpIpsec.qml:29
-msgid "!!ipsec-psk"
+#: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:11
+#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:11
+msgid "VPN PPP"
 msgstr ""
 
 #: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:42
+#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:42
 msgid "40-bit MPPE"
 msgstr ""
 
@@ -429,48 +472,240 @@ msgstr ""
 msgid "No Address/Control Compression"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:21
-msgid "!!cacert"
-msgstr ""
-
 #: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:25
-msgid "!!proxy"
+msgid "Proxy"
 msgstr ""
 
 #: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:29
-msgid "!!enable_csd_trojan"
+msgid "Allow Cisco Secure Desktop Trojan"
 msgstr ""
 
 #: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:33
-msgid "!!csd_wrapper"
+msgid "CSD Wrapper"
 msgstr ""
 
 #: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:37
-msgid "!!usercert"
-msgstr ""
-
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:41
-msgid "!!userkey"
-msgstr ""
+#, fuzzy
+msgid "Uesr Cert"
+msgstr "使用者清單"
 
 #: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:45
-msgid "!!pem_passphrase_fsid"
+msgid "User FSID For Key Passphrase"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:21
+#, fuzzy
+msgid "Auth Type"
+msgstr "系統類型"
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:25
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnProxies.qml:33
+#: ../modules/network/components_section_autogen/EditSectionVpnVpnc.qml:21
+#, fuzzy
+msgid "User Name"
+msgstr "使用者"
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:29
+#: ../modules/network/components_section_autogen/EditSectionVpnVpnc.qml:25
+#: ../modules/network/components_section_autogen/EditSectionVpnVpnc.qml:37
+msgid "Ask For Pwd"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:53
+msgid "Static Key"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:57
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnTlsauth.qml:29
+msgid "Use Key Direction"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:61
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnTlsauth.qml:33
+msgid "Key Direction"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:65
+msgid "Remote IP"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:69
+msgid "Local IP"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:11
+#: ../modules/network/components_section_autogen/EditSectionVpnVpncAdvanced.qml:11
+#, fuzzy
+msgid "VPN Advanced"
+msgstr "隱藏進階..."
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:17
+msgid "Use Custom Gateway Port"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:21
+#, fuzzy
+msgid "Gateway Port"
+msgstr "閘道器(Gateway)"
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:25
+msgid "Use Custom Renegotiation Interval"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:29
+#, fuzzy
+msgid "Renegotiation Interval"
+msgstr "重複頻率"
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:33
+msgid "Use LZO data compression"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:37
+#, fuzzy
+msgid "Use a TCP connection"
+msgstr "建立連線"
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:41
+msgid "Use a TAP device"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:45
+msgid "Use Custom Tunnel MTU"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:49
+msgid "MTU"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:53
+msgid "Use Custom UDP Fragment Size"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:57
+msgid "UDP Fragment Size"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:61
+msgid "Restrict Tunnel TCP MSS"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:65
+msgid "Randomize Remote Hosts"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnProxies.qml:11
+msgid "VPN Proxies"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnProxies.qml:17
+msgid "Proxy Type"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnProxies.qml:21
+#, fuzzy
+msgid "Server IP"
+msgstr "DNS伺服器"
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnProxies.qml:25
+msgid "Port"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnProxies.qml:29
+msgid "Retry Indefinitely When Failed"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnSecurity.qml:11
+#, fuzzy
+msgid "VPN Security"
+msgstr "安全性"
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnSecurity.qml:17
+msgid "Cipher"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnSecurity.qml:21
+msgid "HMAC Auth"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnTlsauth.qml:11
+#, fuzzy
+msgid "VPN TLS Authentication"
+msgstr "通知"
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnTlsauth.qml:17
+msgid "Subject Match"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnTlsauth.qml:21
+#, fuzzy
+msgid "Remote Cert"
+msgstr "使用者清單"
+
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnTlsauth.qml:25
+msgid "Key File"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnVpnc.qml:29
+#, fuzzy
+msgid "User Pwd"
+msgstr "使用者"
+
+#: ../modules/network/components_section_autogen/EditSectionVpnVpnc.qml:41
+msgid "Group Pwd"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnVpnc.qml:45
+#, fuzzy
+msgid "Use Hybrid Authentication"
+msgstr "通知"
+
+#: ../modules/network/components_section_autogen/EditSectionVpnVpnc.qml:49
+msgid "CA File"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnVpncAdvanced.qml:21
+msgid "Vendor"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnVpncAdvanced.qml:25
+#, fuzzy
+msgid "Version"
+msgstr "系統版本"
+
+#: ../modules/network/components_section_autogen/EditSectionVpnVpncAdvanced.qml:29
+msgid "Encryption Method"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnVpncAdvanced.qml:33
+msgid "NAT Traversal"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnVpncAdvanced.qml:37
+msgid "IKE DH Group"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnVpncAdvanced.qml:41
+msgid "Perfect Forward Secrecy"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnVpncAdvanced.qml:45
+msgid "Local Port"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionVpnVpncAdvanced.qml:49
+msgid "Disable Dead Peer Detection"
 msgstr ""
 
 #: ../modules/network/components_section_autogen/EditSectionWifi.qml:11
 msgid "Wi-Fi"
 msgstr ""
 
-#: ../modules/network/components/EditTitle.qml:9
-msgid "Connection Name:"
-msgstr "連線名稱:"
-
 #: ../modules/account/EditUserDialog.qml:52
 msgid "Auto-login"
 msgstr ""
 
 #: ../modules/account/EditUserDialog.qml:86
-#: ../modules/account/GuestUser.qml:93
 msgid "Enable User"
 msgstr "啟用使用者"
 
@@ -486,6 +721,11 @@ msgstr "大小"
 #: ../modules/account/GuestUser.qml:32
 msgid "Guest"
 msgstr "訪客"
+
+#: ../modules/account/GuestUser.qml:93
+#: ../modules/display/MonitorProperties.qml:57
+msgid "Enabled"
+msgstr "啟用"
 
 #: ../modules/network/Info.qml:10
 msgid "Actived Connections"
@@ -528,31 +768,42 @@ msgid "VPN Connections"
 msgstr "VPN連線"
 
 #: ../modules/display/MessageBox.qml:86
-msgid "是否要保存这些显示设置？"
-msgstr "是否要儲存這些顯示設定"
+msgid "Do you want to keep these display settings?"
+msgstr ""
 
 #: ../modules/display/MessageBox.qml:96
 #, qt-format
-msgid "<font color='#F48914'>%1</font> 秒之后还原之前的显示设置。"
-msgstr "<font color='#F48914'>%1</font> 秒後還原回上一次的顯示設定。"
+msgid ""
+"Reverting to previous display settings in <font color='#F48914'>%1</font> "
+"seconds."
+msgstr ""
 
 #: ../modules/display/MessageBox.qml:108
-msgid "Save Changes"
+#, fuzzy
+msgid "Keep changes"
 msgstr "儲存更改"
 
 #: ../modules/display/MessageBox.qml:116
-msgid "Restore"
-msgstr "還原"
+msgid "Revert"
+msgstr ""
 
-#: ../frame/views/ModulesData.qml:5
+#: ../frame/views/ModulesData.qml:5 ../modules/date_time/main.qml:44
+#: ../frame/modules_info.py:30
 msgid "Date and Time"
 msgstr "日期時間"
 
-#: ../frame/views/ModulesData.qml:6 ../frame/modules_info.py:31
+#: ../frame/views/ModulesData.qml:6
+#: ../dock-applets/build/build/Debug/qml/main.qml:17
+#: ../dock-applets/build/build/Release/qml/main.qml:17
+#: ../dock-applets/build/qml/main.qml:17 ../dock-applets/qml/main.qml:15
+#: ../frame/modules_info.py:31
 msgid "Network"
 msgstr "網路"
 
-#: ../frame/views/ModulesData.qml:7 ../modules/disk_mount/main.qml:16
+#: ../frame/views/ModulesData.qml:7
+#: ../dock-applets/build/build/Debug/qml/main.qml:20
+#: ../dock-applets/build/build/Release/qml/main.qml:20
+#: ../dock-applets/build/qml/main.qml:20 ../dock-applets/qml/main.qml:18
 #: ../frame/modules_info.py:32
 msgid "Disk Mount"
 msgstr "磁碟掛載"
@@ -562,13 +813,24 @@ msgstr "磁碟掛載"
 msgid "Bluetooth"
 msgstr "藍牙"
 
-#: ../frame/views/ModulesData.qml:9 ../modules/sound/main.qml:97
-#: ../frame/modules_info.py:34
+#: ../frame/views/ModulesData.qml:9
+#: ../dock-applets/build/build/Debug/qml/main.qml:18
+#: ../dock-applets/build/build/Release/qml/main.qml:18
+#: ../dock-applets/build/qml/main.qml:18 ../dock-applets/qml/main.qml:16
+#: ../modules/sound/main.qml:97 ../frame/modules_info.py:34
 msgid "Sound"
 msgstr "音效"
 
 #: ../frame/views/ModulesData.qml:10 ../modules/power/main.qml:86
 #: ../frame/modules_info.py:35
+#, fuzzy
+msgid "Power Options"
+msgstr "電源計畫"
+
+#: ../frame/views/ModulesData.qml:12 ../frame/views/PanelContent.qml:368
+#: ../dock-applets/build/build/Debug/qml/main.qml:19
+#: ../dock-applets/build/build/Release/qml/main.qml:19
+#: ../dock-applets/build/qml/main.qml:19 ../dock-applets/qml/main.qml:17
 msgid "Power"
 msgstr "電源"
 
@@ -576,74 +838,63 @@ msgstr "電源"
 msgid "More Settings"
 msgstr "更多設定"
 
-#: ../frame/views/ModulesData.qml:12 ../frame/views/PanelContent.qml:372
-#: ../modules/power/main.qml:122 ../modules/power/main.qml:168
-#: ../frame/modules_info.py:37
-msgid "Shutdown"
-msgstr "關機"
-
-#: ../frame/views/ModulesData.qml:13 ../frame/modules_info.py:38
-msgid "Notification"
-msgstr "通知"
-
-#: ../frame/views/ModulesData.qml:14 ../modules/display/main.qml:81
+#: ../frame/views/ModulesData.qml:13 ../modules/display/main.qml:81
 #: ../frame/modules_info.py:39
 msgid "Display"
 msgstr "顯示"
 
-#: ../frame/views/ModulesData.qml:15 ../modules/desktop/main.qml:72
-#: ../frame/modules_info.py:40
+#: ../frame/views/ModulesData.qml:14 ../frame/modules_info.py:40
 msgid "Desktop"
 msgstr "桌面"
 
-#: ../frame/views/ModulesData.qml:16 ../modules/personalization/main.qml:60
+#: ../frame/views/ModulesData.qml:15 ../modules/personalization/main.qml:60
 msgid "Personalization"
 msgstr "個人化"
 
-#: ../frame/views/ModulesData.qml:17
+#: ../frame/views/ModulesData.qml:16
 msgid "Keyboard Shortcuts"
 msgstr "鍵盤快捷鍵"
 
-#: ../frame/views/ModulesData.qml:19
+#: ../frame/views/ModulesData.qml:18
 msgid "Mouse and Touchpad"
 msgstr "滑鼠與觸控板"
 
-#: ../frame/views/ModulesData.qml:20 ../modules/mouse_touchpad/main.qml:27
+#: ../frame/views/ModulesData.qml:19 ../modules/mouse_touchpad/main.qml:27
 #: ../frame/modules_info.py:44
 msgid "Mouse"
 msgstr "滑鼠"
 
-#: ../frame/views/ModulesData.qml:21
+#: ../frame/views/ModulesData.qml:20
 msgid "User Accounts"
 msgstr "使用者帳戶"
 
-#: ../frame/views/ModulesData.qml:24
+#: ../frame/views/ModulesData.qml:23
 msgid "Boot Menu"
 msgstr "開機選單"
 
-#: ../frame/views/ModulesData.qml:25 ../modules/desktop/main.qml:98
+#: ../frame/views/ModulesData.qml:24
 msgid "Home"
 msgstr "加目錄"
 
-#: ../frame/views/ModulesData.qml:18 ../modules/keyboard/main.qml:71
+#: ../frame/views/ModulesData.qml:17 ../modules/keyboard/main.qml:71
 #: ../frame/modules_info.py:43
 msgid "Keyboard"
 msgstr "鍵盤"
 
-#: ../frame/views/ModulesData.qml:22
+#: ../frame/views/ModulesData.qml:21
 #: ../modules/default_applications/main.qml:22
-#: ../modules/default_applications/main.qml:32 ../frame/modules_info.py:48
+#: ../modules/default_applications/main.qml:36 ../frame/modules_info.py:48
 msgid "Default Applications"
 msgstr "預設應用程式"
 
-#: ../frame/views/ModulesData.qml:23 ../modules/system_info/main.qml:47
+#: ../frame/views/ModulesData.qml:22 ../modules/system_info/main.qml:47
 #: ../frame/modules_info.py:49
 msgid "System Information"
 msgstr "系統資訊"
 
 #: ../modules/display/MonitorComponent.qml:211
-msgid "Select as Main Monitor"
-msgstr "設為預設顯示器"
+msgid "Set as primary display"
+msgstr ""
 
 #: ../modules/display/MonitorDragArea.qml:423
 msgid "Identify"
@@ -653,27 +904,17 @@ msgstr "識別"
 msgid "Edit"
 msgstr "編輯"
 
-#: ../modules/display/MonitorProperties.qml:24
-msgid "Normal"
+#: ../modules/display/MonitorProperties.qml:25
+msgid "90°"
 msgstr ""
 
-#: ../modules/display/MonitorProperties.qml:25
-#, fuzzy
-msgid "Rotate Right"
-msgstr "右下"
-
 #: ../modules/display/MonitorProperties.qml:26
-msgid "Upside Down"
+msgid "180°"
 msgstr ""
 
 #: ../modules/display/MonitorProperties.qml:27
-#, fuzzy
-msgid "Rotate Left"
-msgstr "左上"
-
-#: ../modules/display/MonitorProperties.qml:57
-msgid "Enabled"
-msgstr "啟用"
+msgid "270°"
+msgstr ""
 
 #: ../modules/display/MonitorProperties.qml:89
 msgid "Resolution"
@@ -694,128 +935,138 @@ msgid "Repeat"
 msgstr "重複延遲"
 
 #: ../modules/account/PasswordDialog.qml:157
-#: ../frame/views/WifiPasswordWindow.qml:119
+#: ../frame/views/WifiPasswordWindow.qml:129
 msgid "Show Password"
 msgstr "顯示密碼:"
 
 #: ../modules/grub/Preview.qml:130
-msgid "Drop a picture here to change the background"
+#, fuzzy
+msgid "Drag and drop an image to change background."
 msgstr "將一張圖片拖曳至此以設為背景"
 
 #: ../modules/shared/ResetButton.qml:16
 msgid "Reset the success"
 msgstr ""
 
-#: ../modules/shared/ResetButton.qml:24 ../modules/display/main.qml:197
+#: ../modules/shared/ResetButton.qml:24 ../modules/display/main.qml:198
 msgid "Reset"
 msgstr "重設"
 
 #: ../modules/shortcuts/ShortcutInput.qml:103
-msgid "Please input new shortcuts"
+#, fuzzy
+msgid "Please input new shortcut"
 msgstr "請輸入一個新的快捷鍵"
 
 #: ../modules/shortcuts/ShortcutInput.qml:181
 #, qt-format
-msgid "无效的快捷键\"%1\"，请重新输入！"
-msgstr "無效的快捷鍵\"%1\"，請重新輸入"
+msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
+msgstr ""
 
 #: ../modules/shortcuts/ShortcutInput.qml:219
-msgid "您设置的快捷键，"
-msgstr "您設定的快捷鍵，"
+msgid "The shortcut you set "
+msgstr ""
 
 #: ../modules/shortcuts/ShortcutInput.qml:222
 #, qt-format
-msgid "与 \"%1\" 类别下的 \"%2\" 的快捷键冲突，"
-msgstr "與 \"%1\" 類別下的 \"%2\" 的快捷鍵衝突，"
+msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
+msgstr ""
 
 #: ../modules/shortcuts/ShortcutInput.qml:224
-msgid "是否进行替换？"
-msgstr "是否進行取代?"
+msgid "Do you want to replace it?"
+msgstr ""
 
 #: ../modules/shortcuts/ShortcutInput.qml:282
 msgid "Replace"
 msgstr "取代"
 
 #: ../modules/personalization/widgets/ShowPreviewButton.qml:30
-msgid "Open theme preview"
-msgstr "開啟主題預覽"
+msgid "Preview theme"
+msgstr ""
 
 #: ../modules/date_time/StateButtons.qml:11
 #: ../modules/keyboard/StateButtons.qml:11
 #: ../modules/shortcuts/StateButtons.qml:15
-msgid "Finish"
-msgstr "完成"
+msgid "Done"
+msgstr ""
 
 #: ../modules/date_time/TimeBox.qml:135
-msgid "Double-click the overhead digital to modify local time"
+msgid "Double-click the above digits to change your time."
 msgstr ""
 
 #: ../modules/date_time/TimeBox.qml:170
-msgid "Change"
-msgstr "更改"
+#, fuzzy
+msgid "Set"
+msgstr "六"
 
 #: ../modules/date_time/TimezoneArea.qml:43
-msgid "Timezone"
+#, fuzzy
+msgid "Time zone"
 msgstr "時區"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:28
-msgid "TouchPad"
-msgstr "觸控板"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:58
-#: ../modules/mouse_touchpad/main.qml:38
-msgid "Button Order"
-msgstr "按鍵順序"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:66
-#: ../modules/mouse_touchpad/main.qml:45
-msgid "Right Hand"
-msgstr "右手"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:67
-#: ../modules/mouse_touchpad/main.qml:46
-msgid "Left Hand"
-msgstr "左手"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:80
-#: ../modules/mouse_touchpad/main.qml:59
-msgid "Pointer Move Speed"
-msgstr "游標移動速度"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:95
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:145
-#: ../modules/keyboard/main.qml:122 ../modules/keyboard/main.qml:148
-#: ../modules/mouse_touchpad/main.qml:74
-#: ../modules/mouse_touchpad/main.qml:126
+#: ../modules/keyboard/main.qml:123 ../modules/keyboard/main.qml:149
+#: ../modules/mouse_touchpad/main.qml:80
+#: ../modules/mouse_touchpad/main.qml:132
 msgid "Slow"
 msgstr "慢"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:96
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:146
-#: ../modules/keyboard/main.qml:121 ../modules/keyboard/main.qml:147
-#: ../modules/mouse_touchpad/main.qml:75
-#: ../modules/mouse_touchpad/main.qml:127
+#: ../modules/keyboard/main.qml:122 ../modules/keyboard/main.qml:148
+#: ../modules/mouse_touchpad/main.qml:81
+#: ../modules/mouse_touchpad/main.qml:133
 msgid "Fast"
 msgstr "快"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:105
-#: ../modules/mouse_touchpad/main.qml:85
-msgid "Pointer Accuracy"
-msgstr "游標精確度"
-
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:120
-#: ../modules/mouse_touchpad/main.qml:100
+#: ../modules/mouse_touchpad/main.qml:106
 msgid "Low"
 msgstr "低"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:121
-#: ../modules/mouse_touchpad/main.qml:101
+#: ../modules/mouse_touchpad/main.qml:107
 msgid "High"
 msgstr "高"
 
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:28
+#: ../frame/modules_info.py:46
+msgid "Touchpad"
+msgstr "觸控板"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:58
+#: ../modules/mouse_touchpad/main.qml:44
+msgid "Primary Button"
+msgstr ""
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:66
+#: ../modules/mouse_touchpad/main.qml:51
+#, fuzzy
+msgid "Left-handed"
+msgstr "左手"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:67
+#: ../modules/mouse_touchpad/main.qml:52 ../modules/sound/main.qml:226
+#, fuzzy
+msgid "Left"
+msgstr "左上"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:80
+#: ../modules/mouse_touchpad/main.qml:65
+#, fuzzy
+msgid "Pointer Speed"
+msgstr "游標移動速度"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:105
+#: ../modules/mouse_touchpad/main.qml:91
+#, fuzzy
+msgid "Pointer Precision"
+msgstr "游標精確度"
+
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:130
-#: ../modules/mouse_touchpad/main.qml:111
-msgid "Double-click Frequency"
+#: ../modules/mouse_touchpad/main.qml:117
+#, fuzzy
+msgid "Double-click Speed"
 msgstr "雙點頻率"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:156
@@ -823,12 +1074,12 @@ msgid "Drag Threshold"
 msgstr "拖曳設定"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:171
-#: ../modules/keyboard/main.qml:96
+#: ../modules/keyboard/main.qml:97
 msgid "Short"
 msgstr "短"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:172
-#: ../modules/keyboard/main.qml:97
+#: ../modules/keyboard/main.qml:98
 msgid "Long"
 msgstr "長"
 
@@ -836,27 +1087,33 @@ msgstr "長"
 msgid "No camera found."
 msgstr "找不到攝影機"
 
-#: ../frame/views/WifiPasswordWindow.qml:75
+#: ../frame/views/WifiPasswordWindow.qml:85
 msgid "Authentication required by Wi-Fi network"
 msgstr "Wi-Fi網路需要驗證"
 
-#: ../frame/views/WifiPasswordWindow.qml:83
+#: ../frame/views/WifiPasswordWindow.qml:93
 #, qt-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network <font "
 "color=\"#0ff\">%1</font>"
 msgstr "Wi-Fi網路 <font color=\"#0ff\">%1</font>需要驗證密碼或是金鑰驗證"
 
-#: ../frame/views/WifiPasswordWindow.qml:144
+#: ../frame/views/WifiPasswordWindow.qml:154
 #: ../modules/network/WirelessItem.qml:281
 msgid "Connect"
 msgstr "連線"
 
+#: ../dock-applets/build/build/Debug/qml/network/WiredConnection.qml:16
+#: ../dock-applets/build/build/Release/qml/network/WiredConnection.qml:16
+#: ../dock-applets/build/qml/network/WiredConnection.qml:16
 #: ../dock-applets/qml/network/WiredConnection.qml:16
 #, fuzzy, qt-format
 msgid "Wired Network %1"
 msgstr "有線連線 %1"
 
+#: ../dock-applets/build/build/Debug/qml/network/WiredConnection.qml:19
+#: ../dock-applets/build/build/Release/qml/network/WiredConnection.qml:19
+#: ../dock-applets/build/qml/network/WiredConnection.qml:19
 #: ../dock-applets/qml/network/WiredConnection.qml:19
 #, fuzzy
 msgid "Wired Network"
@@ -871,16 +1128,25 @@ msgstr "有線連線"
 msgid "Wired Conection %1"
 msgstr "有線連線 %1"
 
+#: ../dock-applets/build/build/Debug/qml/network/WirelessConnection.qml:21
+#: ../dock-applets/build/build/Release/qml/network/WirelessConnection.qml:21
+#: ../dock-applets/build/qml/network/WirelessConnection.qml:21
 #: ../dock-applets/qml/network/WirelessConnection.qml:21
 #, fuzzy, qt-format
 msgid "Wireless Network %1"
 msgstr "無線裝置: %1"
 
+#: ../dock-applets/build/build/Debug/qml/network/WirelessConnection.qml:21
+#: ../dock-applets/build/build/Release/qml/network/WirelessConnection.qml:21
+#: ../dock-applets/build/qml/network/WirelessConnection.qml:21
 #: ../dock-applets/qml/network/WirelessConnection.qml:21
 #, fuzzy
 msgid "Wireless Network"
 msgstr "網路"
 
+#: ../dock-applets/build/build/Debug/qml/network/WirelessConnectionList.qml:38
+#: ../dock-applets/build/build/Release/qml/network/WirelessConnectionList.qml:38
+#: ../dock-applets/build/qml/network/WirelessConnectionList.qml:38
 #: ../dock-applets/qml/network/WirelessConnectionList.qml:38
 #: ../modules/network/WirelessDeviceExpand.qml:159
 msgid "Scanning..."
@@ -948,49 +1214,43 @@ msgstr "十一月"
 msgid "December"
 msgstr "十二月"
 
-#: ../modules/date_time/main.qml:44 ../frame/modules_info.py:30
-msgid "Date & Time"
-msgstr "日期與時間"
-
 #: ../modules/date_time/main.qml:57
-msgid "Auto-sync datetime"
+#, fuzzy
+msgid "Automatic date and time"
 msgstr "自動同步日期時間"
 
 #: ../modules/date_time/main.qml:70
-msgid "24 Hour"
-msgstr "二十四小時"
+msgid "Use 24-hour clock"
+msgstr ""
 
 #: ../modules/date_time/main.qml:100
 msgid "Date"
 msgstr "日期"
 
 #: ../modules/date_time/main.qml:104
-msgid "Change Date"
-msgstr "更改日期"
-
-#: ../modules/date_time/main.qml:128
-msgid "假期安排提示"
-msgstr "假期安排提示"
+#, fuzzy
+msgid "Set Date"
+msgstr "日期"
 
 #: ../modules/system_info/main.qml:70
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
 msgstr "版權所有 (c) 2011-2014 武漢深之度科技有限公司"
 
 #: ../modules/system_info/main.qml:76
-msgid "System Version"
-msgstr "系統版本"
+msgid "Deepin Edition"
+msgstr ""
+
+#: ../modules/system_info/main.qml:83
+msgid "-bit"
+msgstr ""
+
+#: ../modules/system_info/main.qml:88
+msgid "Processor"
+msgstr ""
 
 #: ../modules/system_info/main.qml:82
 msgid "System Type"
 msgstr "系統類型"
-
-#: ../modules/system_info/main.qml:83
-msgid "Bit"
-msgstr "位元"
-
-#: ../modules/system_info/main.qml:88
-msgid "CPU"
-msgstr "處理器"
 
 #: ../modules/system_info/main.qml:94
 msgid "Memory"
@@ -1000,85 +1260,95 @@ msgstr "記憶體"
 msgid "Disk"
 msgstr "硬碟"
 
-#: ../modules/default_applications/main.qml:44
+#: ../modules/default_applications/main.qml:48
 msgid "Browser"
 msgstr "瀏覽器"
 
-#: ../modules/default_applications/main.qml:58
+#: ../modules/default_applications/main.qml:62
 msgid "Mail"
 msgstr "郵件"
 
-#: ../modules/default_applications/main.qml:69
+#: ../modules/default_applications/main.qml:73
 msgid "Text"
 msgstr "文字"
 
-#: ../modules/default_applications/main.qml:75
+#: ../modules/default_applications/main.qml:79
 msgid "Music"
 msgstr "音樂"
 
-#: ../modules/default_applications/main.qml:106
+#: ../modules/default_applications/main.qml:110
 msgid "Video"
 msgstr "影片"
 
-#: ../modules/default_applications/main.qml:137
-msgid "Picture Viewer"
+#: ../modules/default_applications/main.qml:141
+#, fuzzy
+msgid "Picture"
 msgstr "圖片檢視器"
 
-#: ../modules/default_applications/main.qml:155
+#: ../modules/default_applications/main.qml:256
+#, fuzzy
+msgid "AutoPlay"
+msgstr "自動撥放"
+
+#: ../modules/default_applications/main.qml:159
 msgid "Terminal"
 msgstr "終端機"
 
-#: ../modules/default_applications/main.qml:252
-msgid "Auto Play"
-msgstr "自動撥放"
-
-#: ../modules/default_applications/main.qml:267
+#: ../modules/default_applications/main.qml:271
 msgid "CD Audio"
 msgstr "音樂CD"
 
-#: ../modules/default_applications/main.qml:272
+#: ../modules/default_applications/main.qml:276
 msgid "DVD Video"
 msgstr "DVD影片"
 
-#: ../modules/default_applications/main.qml:277
+#: ../modules/default_applications/main.qml:281
 msgid "Music Player"
 msgstr "音樂撥放器"
 
-#: ../modules/default_applications/main.qml:282
+#: ../modules/default_applications/main.qml:286
 msgid "Camera"
 msgstr "照相機"
 
-#: ../modules/default_applications/main.qml:287
+#: ../modules/default_applications/main.qml:291
 msgid "Software"
 msgstr "軟體"
 
-#: ../modules/keyboard/main.qml:82
+#: ../modules/keyboard/main.qml:83
 msgid "Repeat Delay"
 msgstr "重複延遲"
 
-#: ../modules/keyboard/main.qml:106
-msgid "Repeat Interval"
-msgstr "重複頻率"
+#: ../modules/keyboard/main.qml:107
+#, fuzzy
+msgid "Repeat Rate"
+msgstr "重複延遲"
 
-#: ../modules/keyboard/main.qml:157
+#: ../modules/keyboard/main.qml:132
+#, fuzzy
+msgid "Cursor Blink Rate"
+msgstr "游標閃爍"
+
+#: ../modules/keyboard/main.qml:158
 msgid "Test Area"
 msgstr "測試區"
 
-#: ../modules/keyboard/main.qml:131
-msgid "Cursor Blink"
-msgstr "游標閃爍"
-
-#: ../modules/keyboard/main.qml:372
+#: ../modules/keyboard/main.qml:373
 msgid "No result"
 msgstr "沒有結果"
 
-#: ../modules/keyboard/main.qml:187
+#: ../modules/keyboard/main.qml:188
 msgid "Keyboard Layout"
 msgstr "鍵盤配置"
 
 #: ../modules/power/main.qml:252 ../modules/power/main.qml:425
 msgid "Custom"
 msgstr "自訂"
+
+#: ../dock-applets/build/build/Debug/qml/main.qml:16
+#: ../dock-applets/build/build/Release/qml/main.qml:16
+#: ../dock-applets/build/qml/main.qml:16 ../dock-applets/qml/main.qml:14
+msgid "Control Center"
+msgstr ""
 
 #: ../modules/power/main.qml:132
 msgid "Ask"
@@ -1092,8 +1362,7 @@ msgstr "當我關上螢幕"
 msgid "Power Adapter"
 msgstr "變壓器"
 
-#: ../modules/power/main.qml:234 ../modules/power/main.qml:407
-#: ../modules/sound/main.qml:205
+#: ../modules/sound/main.qml:206
 msgid "Balance"
 msgstr "平衡"
 
@@ -1108,14 +1377,6 @@ msgstr "高效能"
 #: ../modules/power/main.qml:297 ../modules/power/main.qml:471
 msgid "Custom Options"
 msgstr "自訂選項"
-
-#: ../modules/power/main.qml:236 ../modules/power/main.qml:242
-#: ../modules/power/main.qml:248 ../modules/power/main.qml:254
-#: ../modules/power/main.qml:302 ../modules/power/main.qml:409
-#: ../modules/power/main.qml:415 ../modules/power/main.qml:421
-#: ../modules/power/main.qml:427 ../modules/power/main.qml:476
-msgid "Turn off monitor"
-msgstr "關閉螢幕"
 
 #: ../modules/power/main.qml:392
 msgid "Battery"
@@ -1162,41 +1423,35 @@ msgstr ""
 msgid "When I press the power button"
 msgstr "當我按下電源按鈕"
 
+#: ../modules/power/main.qml:122 ../modules/power/main.qml:168
+#: ../frame/modules_info.py:37
+msgid "Shutdown"
+msgstr "關機"
+
 #: ../modules/power/main.qml:197
 msgid "Require password when computer wakes"
 msgstr "當喚醒電腦時需要輸入密碼"
 
-#: ../modules/account/main.qml:37 ../frame/modules_info.py:47
+#: ../modules/power/main.qml:234 ../modules/power/main.qml:407
+#, fuzzy
+msgid "Balanced"
+msgstr "平衡"
+
+#: ../modules/power/main.qml:236 ../modules/power/main.qml:242
+#: ../modules/power/main.qml:248 ../modules/power/main.qml:254
+#: ../modules/power/main.qml:302 ../modules/power/main.qml:409
+#: ../modules/power/main.qml:415 ../modules/power/main.qml:421
+#: ../modules/power/main.qml:427 ../modules/power/main.qml:476
+msgid "Turn off the display"
+msgstr ""
+
+#: ../modules/account/main.qml:38 ../frame/modules_info.py:47
 msgid "Account"
 msgstr "帳戶"
 
-#: ../modules/account/main.qml:46
+#: ../modules/account/main.qml:47
 msgid "User List"
 msgstr "使用者清單"
-
-#: ../modules/desktop/main.qml:97
-msgid "Computer"
-msgstr "電腦"
-
-#: ../modules/desktop/main.qml:99
-msgid "Trash"
-msgstr "回收桶"
-
-#: ../modules/desktop/main.qml:100
-msgid "DSC"
-msgstr ""
-
-#: ../modules/desktop/main.qml:83 ../modules/desktop/main.qml:143
-msgid "Dock Display"
-msgstr "Dock托盤顯示"
-
-#: ../modules/desktop/main.qml:158
-msgid "Default Style"
-msgstr "預設風格"
-
-#: ../modules/desktop/main.qml:159
-msgid "Auto Hide"
-msgstr "自動隱藏"
 
 #: ../modules/bluetooth/main.qml:17
 msgid "ON/OFF"
@@ -1206,7 +1461,7 @@ msgstr "開/關"
 msgid "Visible"
 msgstr "可見"
 
-#: ../modules/bluetooth/main.qml:36 ../modules/desktop/main.qml:160
+#: ../modules/bluetooth/main.qml:36
 msgid "Invisible"
 msgstr "不可見"
 
@@ -1222,40 +1477,19 @@ msgstr "附近的裝置"
 msgid "Recently connected devices"
 msgstr "最近使用的裝置"
 
-#: ../modules/desktop/main.qml:179
-msgid "Hot Zone"
-msgstr "熱區"
-
-#: ../modules/desktop/main.qml:183
-msgid "Top Left"
-msgstr "左上"
-
-#: ../modules/desktop/main.qml:184
-msgid "Bottom Right"
-msgstr "右下"
-
-#: ../modules/desktop/main.qml:220 ../modules/desktop/main.qml:245
 #: ../modules/power/main.qml:178
 msgid "Nothing"
 msgstr "無"
-
-#: ../modules/desktop/main.qml:221 ../modules/desktop/main.qml:246
-msgid "Opening Window"
-msgstr "開啟視窗"
-
-#: ../modules/desktop/main.qml:222 ../modules/desktop/main.qml:247
-msgid "Launcher"
-msgstr "啟動器"
 
 #: ../modules/display/main.qml:94
 msgid "Main Display: "
 msgstr "主要顯示: "
 
-#: ../modules/display/main.qml:124
+#: ../modules/display/main.qml:125
 msgid "Monitor"
 msgstr "顯示器"
 
-#: ../modules/display/main.qml:176
+#: ../modules/display/main.qml:177
 msgid "Apply"
 msgstr "套用"
 
@@ -1268,8 +1502,8 @@ msgid "Theme"
 msgstr "主題"
 
 #: ../modules/personalization/main.qml:74
-msgid "GTK Window"
-msgstr "GTW 視窗"
+msgid "Window appearance"
+msgstr ""
 
 #: ../modules/personalization/main.qml:81
 msgid "Icon"
@@ -1284,7 +1518,8 @@ msgid "Wallpaper"
 msgstr "桌布"
 
 #: ../modules/personalization/main.qml:102
-msgid "Font"
+#, fuzzy
+msgid "Fonts"
 msgstr "字型"
 
 #: ../modules/network/main.qml:59
@@ -1303,75 +1538,62 @@ msgstr "系統"
 msgid "Workspace"
 msgstr "工作區"
 
-#: ../modules/shortcuts/main.qml:31 ../modules/shortcuts/main.qml:204
+#: ../modules/shortcuts/main.qml:31 ../modules/shortcuts/main.qml:205
 msgid "Custom Shortcuts"
 msgstr "自訂捷徑"
 
-#: ../modules/sound/main.qml:131
+#: ../modules/sound/main.qml:132
 msgid "Speaker"
 msgstr "揚聲器"
 
-#: ../modules/sound/main.qml:369
+#: ../modules/sound/main.qml:370
 msgid "Output Port"
 msgstr "輸出連接埠"
 
-#: ../modules/sound/main.qml:161
+#: ../modules/sound/main.qml:162
 msgid "Output Volume"
 msgstr "輸出音量"
 
-#: ../modules/sound/main.qml:225
-#, fuzzy
-msgid "Left"
-msgstr "左上"
-
-#: ../modules/sound/main.qml:227
+#: ../modules/sound/main.qml:228
 #, fuzzy
 msgid "Right"
 msgstr "右手"
 
-#: ../modules/sound/main.qml:259
+#: ../modules/sound/main.qml:260
 msgid "Microphone"
 msgstr "麥克風"
 
-#: ../modules/sound/main.qml:333
+#: ../modules/sound/main.qml:334
 msgid "Input Feedback"
 msgstr "輸入回音"
 
-#: ../modules/sound/main.qml:386 ../modules/sound/main.qml:493
+#: ../modules/sound/main.qml:387 ../modules/sound/main.qml:494
 msgid "No port exist in this device."
 msgstr "在這個裝置中沒有可用的連接埠."
 
-#: ../modules/sound/main.qml:427
+#: ../modules/sound/main.qml:428
 msgid "Output device"
 msgstr "輸出裝置"
 
-#: ../modules/sound/main.qml:476
+#: ../modules/sound/main.qml:477
 msgid "Input Port"
 msgstr "輸入連接埠"
 
-#: ../modules/sound/main.qml:534
+#: ../modules/sound/main.qml:535
 msgid "Input device"
 msgstr "輸入裝置"
 
-#: ../modules/sound/main.qml:588
+#: ../modules/sound/main.qml:589
 msgid "Hide Advanced..."
 msgstr "隱藏進階..."
 
-#: ../modules/sound/main.qml:588
+#: ../modules/sound/main.qml:589
 msgid "Show Advanced..."
 msgstr "顯示進階..."
 
-#: ../modules/sound/main.qml:289
+#: ../modules/sound/main.qml:290
 msgid "Input Volume"
 msgstr "輸入音量"
-
-#: ../modules/disk_mount/main.qml:25
-msgid "Internal Devices"
-msgstr "內部設備"
-
-#: ../modules/disk_mount/main.qml:69
-msgid "External Devices"
-msgstr "外部設備"
 
 #: ../modules/grub/main.qml:62
 msgid "Startup Screen"
@@ -1382,8 +1604,9 @@ msgid "Default Entry"
 msgstr "預設選項"
 
 #: ../modules/grub/main.qml:159
-msgid "Delay"
-msgstr "延遲"
+#, fuzzy
+msgid "Timeout"
+msgstr "時區"
 
 #: ../modules/grub/main.qml:198
 msgid "Item Color"
@@ -1393,13 +1616,140 @@ msgstr "項目顏色"
 msgid "Selected Item Color"
 msgstr "選擇項目顏色"
 
+#: ../frame/modules_info.py:38
+msgid "Notification"
+msgstr "通知"
+
 #: ../frame/modules_info.py:41
 msgid "Individuation"
 msgstr "個性化"
 
-#: ../frame/modules_info.py:46
-msgid "Touchpad"
-msgstr "觸控板"
+#~ msgid "Computer"
+#~ msgstr "電腦"
+
+#~ msgid "Trash"
+#~ msgstr "回收桶"
+
+#~ msgid "Dock Display"
+#~ msgstr "Dock托盤顯示"
+
+#~ msgid "Default Style"
+#~ msgstr "預設風格"
+
+#~ msgid "Auto Hide"
+#~ msgstr "自動隱藏"
+
+#~ msgid "Hot Zone"
+#~ msgstr "熱區"
+
+#~ msgid "Top Left"
+#~ msgstr "左上"
+
+#~ msgid "Bottom Right"
+#~ msgstr "右下"
+
+#~ msgid "Opening Window"
+#~ msgstr "開啟視窗"
+
+#~ msgid "Launcher"
+#~ msgstr "啟動器"
+
+#~ msgid "Internal Devices"
+#~ msgstr "內部設備"
+
+#~ msgid "External Devices"
+#~ msgstr "外部設備"
+
+#~ msgid "Please choose one image as you avatar"
+#~ msgstr "請選擇一張圖片作為你的使用者圖片"
+
+#, fuzzy
+#~ msgid "!!gateway"
+#~ msgstr "閘道器(Gateway)"
+
+#, fuzzy
+#~ msgid "!!password"
+#~ msgstr "密碼:"
+
+#~ msgid "是否要保存这些显示设置？"
+#~ msgstr "是否要儲存這些顯示設定"
+
+#~ msgid "<font color='#F48914'>%1</font> 秒之后还原之前的显示设置。"
+#~ msgstr "<font color='#F48914'>%1</font> 秒後還原回上一次的顯示設定。"
+
+#~ msgid "Restore"
+#~ msgstr "還原"
+
+#~ msgid "Select as Main Monitor"
+#~ msgstr "設為預設顯示器"
+
+#, fuzzy
+#~ msgid "Rotate Right"
+#~ msgstr "右下"
+
+#, fuzzy
+#~ msgid "Rotate Left"
+#~ msgstr "左上"
+
+#~ msgid "无效的快捷键\"%1\"，请重新输入！"
+#~ msgstr "無效的快捷鍵\"%1\"，請重新輸入"
+
+#~ msgid "您设置的快捷键，"
+#~ msgstr "您設定的快捷鍵，"
+
+#~ msgid "与 \"%1\" 类别下的 \"%2\" 的快捷键冲突，"
+#~ msgstr "與 \"%1\" 類別下的 \"%2\" 的快捷鍵衝突，"
+
+#~ msgid "是否进行替换？"
+#~ msgstr "是否進行取代?"
+
+#~ msgid "Open theme preview"
+#~ msgstr "開啟主題預覽"
+
+#~ msgid "Finish"
+#~ msgstr "完成"
+
+#~ msgid "Change"
+#~ msgstr "更改"
+
+#~ msgid "TouchPad"
+#~ msgstr "觸控板"
+
+#~ msgid "Button Order"
+#~ msgstr "按鍵順序"
+
+#~ msgid "Right Hand"
+#~ msgstr "右手"
+
+#~ msgid "Date & Time"
+#~ msgstr "日期與時間"
+
+#~ msgid "24 Hour"
+#~ msgstr "二十四小時"
+
+#~ msgid "Change Date"
+#~ msgstr "更改日期"
+
+#~ msgid "假期安排提示"
+#~ msgstr "假期安排提示"
+
+#~ msgid "System Version"
+#~ msgstr "系統版本"
+
+#~ msgid "Bit"
+#~ msgstr "位元"
+
+#~ msgid "CPU"
+#~ msgstr "處理器"
+
+#~ msgid "Turn off monitor"
+#~ msgstr "關閉螢幕"
+
+#~ msgid "GTK Window"
+#~ msgstr "GTW 視窗"
+
+#~ msgid "Delay"
+#~ msgstr "延遲"
 
 #, fuzzy
 #~ msgid "IPv6 Address"
@@ -1444,17 +1794,11 @@ msgstr "觸控板"
 #~ msgid "Without a password"
 #~ msgstr "不需要密碼"
 
-#~ msgid "Power plan"
-#~ msgstr "電源計畫"
-
 #~ msgid "Themes"
 #~ msgstr "主題"
 
 #~ msgid "Icons"
 #~ msgstr "圖示"
-
-#~ msgid "Create Connections"
-#~ msgstr "建立連線"
 
 #~ msgid "Sound and Media"
 #~ msgstr "音效與多媒體"

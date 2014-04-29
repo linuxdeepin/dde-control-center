@@ -41,7 +41,7 @@ Item {
         width: parent.width
         height: childrenRect.height
 
-        DssTitle { text: dsTr("Date & Time") }
+        DssTitle { text: dsTr("Date and Time") }
 
         DSeparatorHorizontal {}
 
@@ -54,7 +54,7 @@ Item {
 
         DSwitchButtonHeader {
             id: autoSetTimeBox
-            text: dsTr("Auto-sync datetime")
+            text: dsTr("Automatic date and time")
             width: parent.width
             active: gDate.autoSetTime
 
@@ -67,7 +67,7 @@ Item {
 
         DSwitchButtonHeader {
             id: twentyFourHourSetBox
-            text: dsTr("24 Hour")
+            text: dsTr("Use 24-hour clock")
             active: gDate.use24HourDisplay
 
             onClicked: {
@@ -101,7 +101,7 @@ Item {
             }
 
             rightLoader.sourceComponent: DTextButton {
-                text: dsTr("Change Date")
+                text: dsTr("Set Date")
                 visible: opacity != 0
                 opacity: calendarObj.isToday ? 0 : 1
 
