@@ -47,7 +47,8 @@ DBaseExpand{
         }
     }
     
+    // TODO expand section if error occured when pressing save button
     function expandSection() {
-        expanded = true
+        // expanded = true
     }
 }

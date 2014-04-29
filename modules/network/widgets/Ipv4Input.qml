@@ -26,12 +26,19 @@ Item {
         var t2 = ipInput2.text
         var t3 = ipInput3.text
         var t4 = ipInput4.text
-        if(t1 != "" && t2 != "" && t3 != "" && t4 != "" ){
-            return "%1.%2.%3.%4".arg(t1).arg(t2).arg(t3).arg(t4)
-        }
-        else{
+        if(t1 == "" && t2 == "" && t3 == "" && t4 == "" ){
             return ""
         }
+        else{
+            return "%1.%2.%3.%4".arg(t1).arg(t2).arg(t3).arg(t4)
+        }
+        // TODO remove
+        // if(t1 != "" && t2 != "" && t3 != "" && t4 != "" ){
+        //     return "%1.%2.%3.%4".arg(t1).arg(t2).arg(t3).arg(t4)
+        // }
+        // else{
+        //     return ""
+        // }
     }
 
     function setValue(ipAddr){
