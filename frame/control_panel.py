@@ -48,6 +48,10 @@ class DssDbusAdptor(QtDBus.QDBusAbstractAdaptor):
         self.setAutoRelaySignals(True)
 
     @QtCore.pyqtSlot()
+    def Toggle(self):
+        self.parent().view_object.togglePanel()
+
+    @QtCore.pyqtSlot()
     def Show(self):
         self.parent().show(0)
 
@@ -56,20 +60,12 @@ class DssDbusAdptor(QtDBus.QDBusAbstractAdaptor):
         self.parent().view_object.showModule(moduleName)
 
     @QtCore.pyqtSlot()
-    def Hide(self):
-        self.parent().view_object.hideDss()
-    
-    @QtCore.pyqtSlot(int, int)
-    def ClickToHide(self, mouseX, mouseY):
-        self.parent().view_object.outerAreaClicked(mouseX, mouseY)
-
-    @QtCore.pyqtSlot()
-    def Toggle(self):
-        self.parent().view_object.togglePanel()
-
-    @QtCore.pyqtSlot()
     def ShowImmediately(self):
         self.parent().view_object.showDssImmediately()
+
+    @QtCore.pyqtSlot()
+    def Hide(self):
+        self.parent().view_object.hideDss()
 
     @QtCore.pyqtSlot()
     def HideImmediately(self):

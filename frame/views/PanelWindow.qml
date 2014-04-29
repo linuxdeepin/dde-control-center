@@ -55,7 +55,7 @@ DOverrideWindow {
 
     function hideAllImmediately(){
         rootWindow.width = 0
-        rootWindow.hide()
+        rootWindow.hideWindow()
         rootWindow.displayWidth = 0
     }
 
@@ -68,11 +68,16 @@ DOverrideWindow {
         }
     }
 
+    function hideWindow(){
+        rootWindow.hide()
+        timeoutQuit.restart()
+    }
+
     Timer {
         id: timeoutQuit
         running: false
         repeat: false
-        interval: 1000 * 60 * 30
+        interval: 1000 * 60 * 10 // 10 minutes to quit
         onTriggered: {
             Qt.quit()
         }
@@ -89,7 +94,7 @@ DOverrideWindow {
 
         onStopped: {
             rootWindow.width = 0
-            rootWindow.hide()
+            rootWindow.hideWindow()
             timeoutQuit.restart()
             if(quit){
                 Qt.quit()

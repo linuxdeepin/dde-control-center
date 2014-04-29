@@ -3,6 +3,7 @@ import QtQuick.Window 2.1
 import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Display 1.0
+import DBus.Com.Deepin.Api.XMouseArea 1.0
 
 Item {
     id: root
@@ -14,6 +15,14 @@ Item {
 
     property bool clickedToHide: true
     property var displayId: Display {}
+    property var dbusXMouseArea: XMouseArea {
+        onButtonRelease: {
+            print(arg0, arg1, arg2, arg3)
+            if(arg3 != -1){
+                outerAreaClicked(arg1, arg2)
+            }
+        }
+    }
     property var toolTip: ToolTip {}
 
     QtObject {
@@ -54,6 +63,7 @@ Item {
 
     Component.onCompleted: {
         rootWindow.show()
+        dbusXMouseArea.RegisterFullScreen()
     }
 
     Timer{
