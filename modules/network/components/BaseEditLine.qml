@@ -106,7 +106,7 @@ DBaseLine {
         return valuesText
     }
     
-    function getAvailableValuesTextByValue(value) {
+    function getAvailableValuesTextByValue() {
         var values = getAvailableValues()
         if (values == null) {
             // TODO fixme, values is null here so this function should
@@ -121,6 +121,19 @@ DBaseLine {
         }
     }
     
+    function getAvailableValuesIndex() {
+        var values = getAvailableValues()
+        if (values == null) {
+            return 0
+        }
+        for (var i=0; i<values.length; i++) {
+            if (values[i].Value === value) {
+                return i
+            }
+        }
+    }
+    
+    // TODO rename to checkKey()
     // overload this function if need
     function saveKey() {
         print("save key", section, key, value) // TODO test

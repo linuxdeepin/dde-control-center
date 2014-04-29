@@ -76,8 +76,8 @@ Column{
                         var pos = mapToItem(null, 0, 0)
                         rootMenu.labels = addButton.menuLabels
                         rootMenu.requestMenuItem = addButton
-                        rootMenu.innerWidth = 200
-                        rootMenu.posX = pos.x - rootMenu.innerWidth
+                        rootMenu.innerWidth = 250
+                        rootMenu.posX = pos.x - rootMenu.innerWidth + width
                         rootMenu.posY = pos.y + height
                     }
                     rootMenu.visible = !rootMenu.visible

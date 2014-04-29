@@ -20,11 +20,17 @@ BaseEditLine {
             // }
             // netmaskLine.rightLoader.item.getFocus()
         // }
-        onIsFocusChanged: {
-            if(!isFocus){
-                root.value = getValue()
-                setKey()
-            }
+        
+        // onIsFocusChanged: {
+        //     if(!isFocus){
+        //         root.value = getValue()
+        //         setKey()
+        //     }
+        // }
+        
+        onTextChanged: {
+            root.value = getValue()
+            setKey()
         }
         
         // Binding {
