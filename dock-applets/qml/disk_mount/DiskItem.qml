@@ -14,7 +14,7 @@ Item {
         spacing: 4
 
         DssH2{
-            text: diskInfo[1]
+            text: diskInfo[0]
         }
 
         Row {
@@ -45,7 +45,7 @@ Item {
                     height: childrenRect.height
 
                     DssH2 {
-                        text: "%1/%2".arg(bitToHuman(parseInt(diskInfo[5]))).arg(bitToHuman(parseInt(diskInfo[6])))
+                        text: "%1/%2".arg(bitToHuman(parseInt(diskInfo[4]))).arg(bitToHuman(parseInt(diskInfo[5])))
                     }
 
                     DssH2 {
@@ -60,7 +60,9 @@ Item {
                         Connections {
                             target: dbusDiskMount
                             onError: {
-                                print("Disk Mount Error:", arg0)
+                                if(arg0 == diskInfo[7]){
+                                    unmountFailedInfo.visible = true
+                                }
                             }
                         }
                     }
@@ -72,9 +74,8 @@ Item {
                         source: "images/unmount_button.png"
 
                         onClicked: {
-                            var r = dbusDiskMount.DeviceUnmount(diskInfo[0])
+                            var r = dbusDiskMount.DeviceUnmount(diskInfo[7])
                             print("==> [info] Unmount status:", r)
-                            unmountFailedInfo.visible = !r[0]
                         }
                     }
                 }
@@ -85,7 +86,7 @@ Item {
                     color: Qt.rgba(1, 1, 1, 0.1)
 
                     Rectangle {
-                        width: parent.width * diskInfo[5]/diskInfo[6]
+                        width: parent.width * diskInfo[4]/diskInfo[5]
                         height: parent.height
                         color: Qt.rgba(1, 1, 1, 0.6)
                     }

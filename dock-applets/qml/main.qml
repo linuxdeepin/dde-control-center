@@ -34,7 +34,7 @@ QtObject {
         var diskList = dbusDiskMount.diskList
         var mounts = new Array()
         for(var i in dbusDiskMount.diskList){
-            if(diskList[i][3]){
+            if(diskList[i][2]){
                 mounts.push(diskList[i])
             }
         }
