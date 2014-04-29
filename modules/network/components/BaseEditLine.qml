@@ -133,11 +133,8 @@ DBaseLine {
         }
     }
     
-    // TODO rename to checkKey()
-    // overload this function if need
-    function saveKey() {
-        print("save key", section, key, value) // TODO test
+    function checkKey() {
+        print("check key", section, key, value) // TODO test
         showErrorConditon = true
-        setKey()
     }
 }

@@ -12,7 +12,7 @@ BaseConnectionProperties {
             DTextButton {
                 text: dsTr("Save")
                 onClicked: {
-                    saveAllKeys()
+                    checkAllKeys()
                     if (connectionSessionObject.Save()) {
                         stackView.reset()
                     }
