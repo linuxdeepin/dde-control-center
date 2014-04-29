@@ -13,58 +13,72 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineTextInput {
+            id: lineRemote
             key: "remote"
             text: dsTr("Gateway")
         }
         EditLineComboBox {
+            id: lineConnectionType
             key: "connection-type"
             text: dsTr("Auth Type")
         }
         EditLineTextInput {
+            id: lineUsername
             key: "username"
             text: dsTr("User Name")
         }
         EditLineComboBox {
+            id: linePasswordFlags
             key: "password-flags"
             text: dsTr("Ask For Pwd")
         }
         EditLinePasswordInput {
+            id: linePassword
             key: "password"
             text: dsTr("Password")
         }
         EditLineFileChooser {
+            id: lineCert
             key: "cert"
             text: dsTr("User Cert")
         }
         EditLineFileChooser {
+            id: lineCa
             key: "ca"
             text: dsTr("CA Cert")
         }
         EditLineFileChooser {
+            id: lineKey
             key: "key"
             text: dsTr("Private Key")
         }
         EditLinePasswordInput {
+            id: lineCertPass
             key: "cert-pass"
             text: dsTr("Private Pwd")
         }
         EditLineFileChooser {
+            id: lineStaticKey
             key: "static-key"
             text: dsTr("Static Key")
         }
         EditLineSwitchButton {
+            id: lineVkStaticKeyDirection
             key: "vk-static-key-direction"
             text: dsTr("Use Key Direction")
         }
         EditLineComboBox {
+            id: lineStaticKeyDirection
             key: "static-key-direction"
             text: dsTr("Key Direction")
         }
         EditLineTextInput {
+            id: lineRemoteIp
             key: "remote-ip"
             text: dsTr("Remote IP")
         }
         EditLineTextInput {
+            id: lineLocalIp
             key: "local-ip"
             text: dsTr("Local IP")
         }

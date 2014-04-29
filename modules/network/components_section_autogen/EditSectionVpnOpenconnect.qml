@@ -13,34 +13,42 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineTextInput {
+            id: lineGateway
             key: "gateway"
             text: dsTr("Gateway")
         }
         EditLineFileChooser {
+            id: lineCacert
             key: "cacert"
             text: dsTr("CA Cert")
         }
         EditLineTextInput {
+            id: lineProxy
             key: "proxy"
             text: dsTr("Proxy")
         }
         EditLineSwitchButton {
+            id: lineEnableCsdTrojan
             key: "enable_csd_trojan"
             text: dsTr("Allow Cisco Secure Desktop Trojan")
         }
         EditLineTextInput {
+            id: lineCsdWrapper
             key: "csd_wrapper"
             text: dsTr("CSD Wrapper")
         }
         EditLineFileChooser {
+            id: lineUsercert
             key: "usercert"
             text: dsTr("Uesr Cert")
         }
         EditLineFileChooser {
+            id: lineUserkey
             key: "userkey"
             text: dsTr("Private Key")
         }
         EditLineSwitchButton {
+            id: linePemPassphraseFsid
             key: "pem_passphrase_fsid"
             text: dsTr("User FSID For Key Passphrase")
         }

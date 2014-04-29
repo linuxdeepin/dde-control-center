@@ -13,24 +13,36 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineComboBox {
+            id: lineMethod
             key: "method"
             text: dsTr("Method")
         }
         EditLineIpv4Input {
+            id: lineVkAddressesAddress
             key: "vk-addresses-address"
             text: dsTr("IP Address")
+            nextIpv4Input: lineVkAddressesMask
         }
         EditLineIpv4Input {
+            id: lineVkAddressesMask
             key: "vk-addresses-mask"
             text: dsTr("Netmask")
+            netmaskMode: true
+            nextIpv4Input: lineVkAddressesGateway
+            previousIpv4Input: lineVkAddressesAddress
         }
         EditLineIpv4Input {
+            id: lineVkAddressesGateway
             key: "vk-addresses-gateway"
             text: dsTr("Gateway")
+            nextIpv4Input: lineVkDns
+            previousIpv4Input: lineVkAddressesMask
         }
         EditLineIpv4Input {
+            id: lineVkDns
             key: "vk-dns"
             text: dsTr("DNS Server")
+            previousIpv4Input: lineVkAddressesGateway
         }
     }
 }

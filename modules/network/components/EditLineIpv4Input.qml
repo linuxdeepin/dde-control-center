@@ -5,38 +5,46 @@ import "../widgets"
 BaseEditLine {
     id: root
     
+    property BaseEditLine previousIpv4Input
+    property BaseEditLine nextIpv4Input
+    property bool netmaskMode: false
+    
     rightLoader.sourceComponent: Ipv4Input{
         width: valueWidth
         isError: root.showError
         
-        // TODO onActiveFocusChanged() of Ipv4Input
-        
-        // TODO fix focus issue
-        // onToNext: {
-            // var ipAddress = getValue()
-            // if(ipAddress){
-            //     var netmask = windowView.getDefaultMask(ipAddress)
-            //     if(netmask){
-             //         netmaskLine.rightLoader.item.setValue(netmask)
-            //     }
-            // }
-            // netmaskLine.rightLoader.item.getFocus()
-        // }
-        
-        // onIsFocusChanged: {
-        //     if(!isFocus){
-        //         root.value = getValue()
-        //         setKey()
-        //     }
-        // }
+        onIsFocusChanged: {
+            if(!isFocus){
+                root.showErrorConditon = true
+            }
+        }
         
         onTextChanged: {
             root.value = getValue()
             setKey()
         }
         
-        // Binding {
-        // }
+        onToPrevious: {
+            if (previousIpv4Input && previousIpv4Input.visible) {
+                previousIpv4Input.rightLoader.item.getFocus()
+            }
+        }
+        onToNext: {
+            if (nextIpv4Input && nextIpv4Input.visible) {
+                var ipAddress = getValue()
+                if(ipAddress){
+                    if (nextIpv4Input.netmaskMode) {
+                        // TODO fix netmas
+                        // var netmask = windowView.getDefaultMask(ipAddress)
+                        var netmask = "255.255.255.0"
+                        if (netmask) {
+                            nextIpv4Input.rightLoader.item.setValue(netmask)
+                        }
+                    }
+                }
+                nextIpv4Input.rightLoader.item.getFocus()
+            }
+        }
         
         // make onVisibleChanged() wrapped by Connections to ensure
         // code excuted after EditLineIpv4Input.onVisibleChanged()

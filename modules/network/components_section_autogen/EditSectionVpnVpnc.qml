@@ -13,38 +13,47 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineTextInput {
+            id: lineIpsecGateway
             key: "IPSec gateway"
             text: dsTr("Gateway")
         }
         EditLineTextInput {
+            id: lineXauthUsername
             key: "Xauth username"
             text: dsTr("User Name")
         }
         EditLineComboBox {
+            id: lineXauthPasswordFlags
             key: "Xauth password-flags"
             text: dsTr("Ask For Pwd")
         }
         EditLinePasswordInput {
+            id: lineXauthPassword
             key: "Xauth password"
             text: dsTr("User Pwd")
         }
         EditLineTextInput {
+            id: lineIpsecId
             key: "IPSec ID"
             text: dsTr("Group Name")
         }
         EditLineComboBox {
+            id: lineIpsecSecretFlags
             key: "IPSec secret-flags"
             text: dsTr("Ask For Pwd")
         }
         EditLinePasswordInput {
+            id: lineIpsecSecret
             key: "IPSec secret"
             text: dsTr("Group Pwd")
         }
         EditLineSwitchButton {
+            id: lineVkHybridAuthmode
             key: "vk-hybrid-authmode"
             text: dsTr("Use Hybrid Authentication")
         }
         EditLineFileChooser {
+            id: lineCaFile
             key: "CA-File"
             text: dsTr("CA File")
         }

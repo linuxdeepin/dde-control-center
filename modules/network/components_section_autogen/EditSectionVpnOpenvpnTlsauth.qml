@@ -13,22 +13,27 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineTextInput {
+            id: lineTlsRemote
             key: "tls-remote"
             text: dsTr("Subject Match")
         }
         EditLineComboBox {
+            id: lineRemoteCertTls
             key: "remote-cert-tls"
             text: dsTr("Remote Cert")
         }
         EditLineFileChooser {
+            id: lineTa
             key: "ta"
             text: dsTr("Key File")
         }
         EditLineSwitchButton {
+            id: lineVkTaDir
             key: "vk-ta-dir"
             text: dsTr("Use Key Direction")
         }
         EditLineComboBox {
+            id: lineTaDir
             key: "ta-dir"
             text: dsTr("Key Direction")
         }

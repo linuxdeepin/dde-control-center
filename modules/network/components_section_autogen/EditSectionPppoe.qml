@@ -13,14 +13,17 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineTextInput {
+            id: lineUsername
             key: "username"
             text: dsTr("Username")
         }
         EditLineTextInput {
+            id: lineService
             key: "service"
             text: dsTr("Service")
         }
         EditLinePasswordInput {
+            id: linePassword
             key: "password"
             text: dsTr("Password")
         }

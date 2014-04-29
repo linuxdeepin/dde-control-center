@@ -13,54 +13,67 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineSwitchButton {
+            id: lineVkEnablePort
             key: "vk-enable-port"
             text: dsTr("Use Custom Gateway Port")
         }
         EditLineSpinner {
+            id: linePort
             key: "port"
             text: dsTr("Gateway Port")
         }
         EditLineSwitchButton {
+            id: lineVkEnableRenegSeconds
             key: "vk-enable-reneg-seconds"
             text: dsTr("Use Custom Renegotiation Interval")
         }
         EditLineSpinner {
+            id: lineRenegSeconds
             key: "reneg-seconds"
             text: dsTr("Renegotiation Interval")
         }
         EditLineSwitchButton {
+            id: lineCompLzo
             key: "comp-lzo"
             text: dsTr("Use LZO data compression")
         }
         EditLineSwitchButton {
+            id: lineProtoTcp
             key: "proto-tcp"
             text: dsTr("Use a TCP connection")
         }
         EditLineSwitchButton {
+            id: lineTapDev
             key: "tap-dev"
             text: dsTr("Use a TAP device")
         }
         EditLineSwitchButton {
+            id: lineVkEnableTunnelMtu
             key: "vk-enable-tunnel-mtu"
             text: dsTr("Use Custom Tunnel MTU")
         }
         EditLineSpinner {
+            id: lineTunnelMtu
             key: "tunnel-mtu"
             text: dsTr("MTU")
         }
         EditLineSwitchButton {
+            id: lineVkEnableFragmentSize
             key: "vk-enable-fragment-size"
             text: dsTr("Use Custom UDP Fragment Size")
         }
         EditLineSpinner {
+            id: lineFragmentSize
             key: "fragment-size"
             text: dsTr("UDP Fragment Size")
         }
         EditLineSwitchButton {
+            id: lineMssfix
             key: "mssfix"
             text: dsTr("Restrict Tunnel TCP MSS")
         }
         EditLineSwitchButton {
+            id: lineRemoteRandom
             key: "remote-random"
             text: dsTr("Randomize Remote Hosts")
         }

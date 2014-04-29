@@ -13,67 +13,83 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineComboBox {
+            id: lineVkKeyMgmt
             key: "vk-key-mgmt"
             text: dsTr("Security")
         }
         EditLinePasswordInput {
+            id: lineWepKey0
             key: "wep-key0"
             text: dsTr("Key")
         }
         EditLinePasswordInput {
+            id: linePsk
             key: "psk"
             text: dsTr("Password")
         }
         EditLineSwitchButton {
+            id: lineVkEnable
             key: "vk-enable"
             text: dsTr("Use security")
         }
         EditLineComboBox {
+            id: lineVkEap
             key: "vk-eap"
             text: dsTr("EAP Auth")
         }
         EditLineTextInput {
+            id: lineAnonymousIdentity
             key: "anonymous-identity"
             text: dsTr("Anon Identity")
         }
         EditLineFileChooser {
+            id: lineVkClientCert
             key: "vk-client-cert"
             text: dsTr("User Cert")
         }
         EditLineFileChooser {
+            id: lineVkCaCert
             key: "vk-ca-cert"
             text: dsTr("CA Cert")
         }
         EditLineComboBox {
+            id: linePhase1FastProvisioning
             key: "phase1-fast-provisioning"
             text: dsTr("Provisioning")
         }
         EditLineFileChooser {
+            id: lineVkPacFile
             key: "vk-pac-file"
             text: dsTr("PAC file")
         }
         EditLineComboBox {
+            id: linePhase1Peapver
             key: "phase1-peapver"
             text: dsTr("PEAP Version")
         }
         EditLineComboBox {
+            id: linePhase2Auth
             key: "phase2-auth"
             text: dsTr("Inner Auth")
             alwaysUpdate: true
         }
         EditLineFileChooser {
+            id: lineVkPrivateKey
             key: "vk-private-key"
             text: dsTr("Private Key")
         }
         EditLineTextInput {
+            id: lineIdentity
             key: "identity"
             text: dsTr("Username")
         }
         EditLinePasswordInput {
+            id: linePassword
             key: "password"
             text: dsTr("Password")
         }
         EditLinePasswordInput {
+            id: linePrivateKeyPassword
             key: "private-key-password"
             text: dsTr("Private Pwd")
         }

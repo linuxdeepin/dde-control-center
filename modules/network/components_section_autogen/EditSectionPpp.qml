@@ -13,52 +13,64 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineSwitchButton {
+            id: lineRefuseEap
             key: "refuse-eap"
             text: dsTr("Refuse EAP Authentication")
         }
         EditLineSwitchButton {
+            id: lineRefusePap
             key: "refuse-pap"
             text: dsTr("Refuse PAP Authentication")
         }
         EditLineSwitchButton {
+            id: lineRefuseChap
             key: "refuse-chap"
             text: dsTr("Refuse CHAP Authentication")
         }
         EditLineSwitchButton {
+            id: lineRefuseMschap
             key: "refuse-mschap"
             text: dsTr("Refuse MSCHAP Authentication")
         }
         EditLineSwitchButton {
+            id: lineRefuseMschapv2
             key: "refuse-mschapv2"
             text: dsTr("Refuse MSCHAPv2 Authentication")
         }
         EditLineSwitchButton {
+            id: lineRequireMppe
             key: "require-mppe"
             text: dsTr("Use MPPE")
             alwaysUpdate: true
         }
         EditLineSwitchButton {
+            id: lineRequireMppe128
             key: "require-mppe-128"
             text: dsTr("128-bit MPPE")
             alwaysUpdate: true
         }
         EditLineSwitchButton {
+            id: lineMppeStateful
             key: "mppe-stateful"
             text: dsTr("Stateful MPPE")
         }
         EditLineSwitchButton {
+            id: lineNobsdcomp
             key: "nobsdcomp"
             text: dsTr("No BSD Data Compression")
         }
         EditLineSwitchButton {
+            id: lineNodeflate
             key: "nodeflate"
             text: dsTr("No Deflate Data Compression")
         }
         EditLineSwitchButton {
+            id: lineNoVjComp
             key: "no-vj-comp"
             text: dsTr("No TCP Header Compression")
         }
         EditLineSwitchButton {
+            id: lineVkEnableLcpEcho
             key: "vk-enable-lcp-echo"
             text: dsTr("Send PPP Echo Packets")
         }

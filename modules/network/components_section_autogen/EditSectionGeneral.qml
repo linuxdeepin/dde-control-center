@@ -13,14 +13,17 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineTextInput {
+            id: lineId
             key: "id"
             text: dsTr("Connection Name")
         }
         EditLineSwitchButton {
+            id: lineAutoconnect
             key: "autoconnect"
             text: dsTr("Automatically connect")
         }
         EditLineSwitchButton {
+            id: lineVkNoPermission
             key: "vk-no-permission"
             text: dsTr("All Users Could Connect")
         }

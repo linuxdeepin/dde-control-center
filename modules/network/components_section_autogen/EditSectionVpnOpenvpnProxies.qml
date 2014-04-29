@@ -13,26 +13,32 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineComboBox {
+            id: lineProxyType
             key: "proxy-type"
             text: dsTr("Proxy Type")
         }
         EditLineTextInput {
+            id: lineProxyServer
             key: "proxy-server"
             text: dsTr("Server IP")
         }
         EditLineSpinner {
+            id: lineProxyPort
             key: "proxy-port"
             text: dsTr("Port")
         }
         EditLineSwitchButton {
+            id: lineProxyRetry
             key: "proxy-retry"
             text: dsTr("Retry Indefinitely When Failed")
         }
         EditLineTextInput {
+            id: lineHttpProxyUsername
             key: "http-proxy-username"
             text: dsTr("User Name")
         }
         EditLinePasswordInput {
+            id: lineHttpProxyPassword
             key: "http-proxy-password"
             text: dsTr("Password")
         }

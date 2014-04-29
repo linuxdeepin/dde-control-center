@@ -13,10 +13,12 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineComboBox {
+            id: lineCipher
             key: "cipher"
             text: dsTr("Cipher")
         }
         EditLineComboBox {
+            id: lineAuth
             key: "auth"
             text: dsTr("HMAC Auth")
         }

@@ -13,38 +13,47 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineTextInput {
+            id: lineDomain
             key: "Domain"
             text: dsTr("Domain")
         }
         EditLineTextInput {
+            id: lineVendor
             key: "Vendor"
             text: dsTr("Vendor")
         }
         EditLineTextInput {
+            id: lineApplicationVersion
             key: "Application Version"
             text: dsTr("Version")
         }
         EditLineComboBox {
+            id: lineVkEncryptionMethod
             key: "vk-encryption-method"
             text: dsTr("Encryption Method")
         }
         EditLineComboBox {
+            id: lineNatTraversalMode
             key: "NAT Traversal Mode"
             text: dsTr("NAT Traversal")
         }
         EditLineComboBox {
+            id: lineIkeDhGroup
             key: "IKE DH Group"
             text: dsTr("IKE DH Group")
         }
         EditLineComboBox {
+            id: linePerfectForwardSecrecy
             key: "Perfect Forward Secrecy"
             text: dsTr("Perfect Forward Secrecy")
         }
         EditLineSpinner {
+            id: lineLocalPort
             key: "Local Port"
             text: dsTr("Local Port")
         }
         EditLineSwitchButton {
+            id: lineVkDisableDpd
             key: "vk-disable-dpd"
             text: dsTr("Disable Dead Peer Detection")
         }
