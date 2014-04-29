@@ -14,10 +14,18 @@ BaseEditLine{
         DTextInput{
             id: fileText
             width: valueWidth * 0.65 // TODO layout and width
+            // TODO
             Binding on text {
                 when: root.value != undefined
                 value: root.value
             }
+            // text: {
+            //     if (root.value) {
+            //         return root.value
+            //     } else {
+            //         return ""
+            //     }
+            // }
             onTextChanged: {
                 root.value = text
                 setKey()

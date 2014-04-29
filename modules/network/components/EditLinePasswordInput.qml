@@ -15,6 +15,13 @@ BaseEditLine {
             when: root.value != undefined
             value: root.value
         }
+        // text: {
+        //     if (root.value) {
+        //         return root.value
+        //     } else {
+        //         return ""
+        //     }
+        // }
         onTextChanged: {
             root.value = text
             setKey()

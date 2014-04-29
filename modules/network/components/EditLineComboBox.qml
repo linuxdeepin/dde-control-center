@@ -9,10 +9,18 @@ BaseEditLine {
         anchors.left: parent.left
         anchors.leftMargin: -3
         width: valueWidth
-        
-        Binding on text {
-            when: root.value != undefined
-            value: getAvailableValuesTextByValue()
+        // TODO
+        // Binding on text {
+        //     when: root.value != undefined
+        //     value: getAvailableValuesTextByValue()
+        // }
+        // text: root.value ? getAvailableValuesTextByValue() : ""
+        text: {
+            if (root.visible) {
+                return getAvailableValuesTextByValue()
+            } else {
+                return ""
+            }
         }
         
         property var menuLabels

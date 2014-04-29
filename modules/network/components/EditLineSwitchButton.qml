@@ -8,6 +8,14 @@ BaseEditLine {
             when: root.value != undefined
             value: root.value
         }
+        // TODO
+        // active: {
+        //     if (root.value) {
+        //         return root.value
+        //     } else {
+        //         return false
+        //     }
+        // }
         onActiveChanged: {
             root.value = active
             setKey()

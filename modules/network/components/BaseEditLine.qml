@@ -105,7 +105,7 @@ DBaseLine {
     function getAvailableValuesTextByValue() {
         var values = getAvailableValues()
         if (values == null) {
-            // TODO fixme, values is null here so this function should
+            // values is null here so this function should
             // not be called in this case
             print("==> [WARNING]", values, section, key, value) //TODO test
             return
