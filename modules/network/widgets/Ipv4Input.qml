@@ -19,6 +19,7 @@ Item {
     signal accepted
     signal toNext
     signal toPrevious
+    signal textChanged
 
     function getValue(){
         var t1 = ipInput1.text
@@ -99,6 +100,7 @@ Item {
                 ipInput4.forceActiveFocus()
                 ipInput4.setPositionToEnd()
             }
+            onTextChanged: ipv4Input.textChanged()
         }
 
         Ipv4Dot{id: ipDot}
@@ -127,6 +129,7 @@ Item {
                 ipInput4.forceActiveFocus()
                 ipInput4.setPositionToEnd()
             }
+            onTextChanged: ipv4Input.textChanged()
         }
 
         Ipv4Dot{}
@@ -155,6 +158,7 @@ Item {
                 ipInput4.forceActiveFocus()
                 ipInput4.setPositionToEnd()
             }
+            onTextChanged: ipv4Input.textChanged()
         }
 
         Ipv4Dot{}
@@ -182,6 +186,7 @@ Item {
             onToEnd: {
                 ipInput4.setPositionToEnd()
             }
+            onTextChanged: ipv4Input.textChanged()
         }
     }
     Rectangle {
