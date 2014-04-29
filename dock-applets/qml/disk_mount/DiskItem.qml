@@ -25,6 +25,14 @@ Item {
                 id: diskIcon
                 source: "images/usb_disk.png" 
                 anchors.verticalCenter: parent.verticalCenter
+
+                MouseArea{
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    onClicked: mainObject.xdgOpen("file:///media/")
+                    onEntered: cursorShape = Qt.PointingHandCursor
+                    onExited: cursorShape = Qt.ArrowCursor
+                }
             }
 
             Column {
@@ -48,6 +56,13 @@ Item {
                         color: dconstants.tuhaoColor
                         text: dsTr("Unmount failed!")
                         visible: false
+
+                        Connections {
+                            target: dbusDiskMount
+                            onError: {
+                                print("Disk Mount Error:", arg0)
+                            }
+                        }
                     }
 
                     DOpacityImageButton {

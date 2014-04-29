@@ -40,11 +40,6 @@ DDE_DOCK_APPLET_MANAGER_PATH = "/dde/dock/entry/AppletManager"
 
 ROOT_DIR = os.path.dirname(os.path.realpath(__file__))
 
-def registerDBus(dbus_name, path, obj):
-    session_bus = QtDBus.QDBusConnection.sessionBus()
-    session_bus.registerService(dbus_name)
-    session_bus.registerObject(path, obj)
-
 class DockAppletManagerAdptor(QtDBus.QDBusAbstractAdaptor):
     QtCore.Q_CLASSINFO("D-Bus Interface", DDE_DOCK_APPLET_MANAGER_NAME)
     QtCore.Q_CLASSINFO("D-Bus Introspection",
@@ -100,9 +95,17 @@ class MainObject(QtCore.QObject):
 
         self._adaptor = DockAppletManagerAdptor(self)
         self.rootObject.appletInfosChanged.connect(self._adaptor._AppletInfosChanged)
+
+    @QtCore.pyqtSlot(str)
+    def xdgOpen(self, path):
+        os.system("xdg-open %s" % path)
     
 if __name__ == "__main__":
-    qml_path = os.path.join(ROOT_DIR, "qml/main.qml")
-    t = MainObject(qml_path)
-    registerDBus(DDE_DOCK_APPLET_MANAGER_NAME, DDE_DOCK_APPLET_MANAGER_PATH, t)
-    sys.exit(app.exec_())
+    session_bus = QtDBus.QDBusConnection.sessionBus()
+    if session_bus.registerService(DDE_DOCK_APPLET_MANAGER_NAME):
+        qml_path = os.path.join(ROOT_DIR, "qml/main.qml")
+        t = MainObject(qml_path)
+        session_bus.registerObject(DDE_DOCK_APPLET_MANAGER_PATH, t)
+        sys.exit(app.exec_())
+    else:
+        print "dde dock applets is running..."
