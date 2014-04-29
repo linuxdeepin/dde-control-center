@@ -7,7 +7,9 @@ BaseEditLine {
     
     rightLoader.sourceComponent: Ipv4Input{
         width: valueWidth
-        isError: isValueError()
+        isError: root.showError
+        
+        // TODO onActiveFocusChanged() of Ipv4Input
         
         // TODO fix focus issue
         // onToNext: {

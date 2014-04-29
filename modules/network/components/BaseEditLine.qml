@@ -30,23 +30,28 @@ DBaseLine {
         print("BaseEditLine.onVisibleChanged", visible ? "(show)" : "(hide)", section, key, value)
     }
     
+    // colors
     color: dconstants.contentBgColor
-    
-    // TODO error state
-    property color normalColor: dconstants.contentBgColor
+    property color normalBorderColor: dconstants.contentBgColor
+    property color normalColor: dconstants.fgColor
     property color errorColor: "#F48914"
+    
+    // error state
     property bool showErrorConditon
     property bool showError: showErrorConditon && isValueError()
     Connections {
         target: rightLoader.item
         onActiveFocusChanged: {
+            print("->", rightLoader.item.activeFocus)
             if (!rightLoader.item.activeFocus) {
                 showErrorConditon = true
             }
         }
     }
     onShowErrorChanged: {
-        border.color = showError ? errorColor : normalColor
+        // TODO border color or text color
+        // border.color = showError ? errorColor : normalBorderColor
+        leftLoader.item.color = showError ? errorColor : normalColor
         if (showError) {
             expandSection()
         }
@@ -64,13 +69,6 @@ DBaseLine {
     }
 
     function getKey() {
-        // TODO remove
-        // var value = generalGetKey(section, key)
-        // if (value) {
-        //     return value
-        // } else {
-        //     return "" //null
-        // }
         return generalGetKey(section, key)
     }
     
@@ -90,8 +88,6 @@ DBaseLine {
     }
     
     function getAvailableValues() {
-        // TODO remove
-        // return connectionSessionObject.GetAvailableValues(section, key)
         var valuesJSON = connectionSessionObject.GetAvailableValues(section, key);
         var values = unmarshalJSON(valuesJSON)
         return values
