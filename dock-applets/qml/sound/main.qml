@@ -53,7 +53,7 @@ DockApplet{
     window: DockQuickWindow {
         id: root
         width: rootWidth
-        height: 200
+        height: content.height
         color: "transparent"
 
         Connections{
@@ -66,11 +66,11 @@ DockApplet{
         }
 
         Item {
-            anchors.centerIn: parent
-            width: parent.width - xEdgePadding * 2
-            height: parent.height - xEdgePadding * 2
+            width: parent.width
+            height: content.height
 
             Column {
+                id: content
                 width: parent.width
                 Item {
                     height: 30
@@ -80,7 +80,7 @@ DockApplet{
                         id: allSoundLabel
                         anchors.left: parent.left
                         anchors.leftMargin: xEdgePadding
-                        text: "全局声音"
+                        text: dsTr("全局音量")
                         anchors.verticalCenter: parent.verticalCenter
                     }
 
@@ -141,6 +141,7 @@ DockApplet{
                 }
 
                 Item {
+                    id: appSoundTitleBox
                     height: 30
                     width: parent.width
 
@@ -148,7 +149,7 @@ DockApplet{
                         id: appLabel
                         anchors.left: parent.left
                         anchors.leftMargin: xEdgePadding
-                        text: "应用程序"
+                        text: dsTr("应用程序")
                         anchors.verticalCenter: parent.verticalCenter
                     }
 
@@ -159,6 +160,61 @@ DockApplet{
                         anchors.rightMargin: xEdgePadding
                         anchors.verticalCenter: parent.verticalCenter
                         opacity: 0.1
+                    }
+                }
+
+                Item {
+                    width: parent.width
+                    height: childrenRect.height
+
+                    ListView {
+                        width: parent.width
+                        height: childrenRect.height
+                        model: 2
+                        delegate: Item {
+                            height: 32
+                            width: ListView.view.width
+
+                            Item {
+                                height: 20
+                                width: parent.width
+                                anchors.verticalCenter: parent.verticalCenter
+
+                                Item {
+                                    id: appIconBox
+                                    width: 60
+                                    height: parent.height
+                                    Image {
+                                        height: parent.height
+                                        width: parent.height
+                                        anchors.left: parent.left
+                                        anchors.leftMargin: 16
+                                        source: "images/app.png"
+                                    }
+                                }
+
+                                Image {
+                                    id: soundIndicator
+                                    height: parent.height
+                                    width: parent.height
+                                    anchors.left: appIconBox.right
+                                    source: "images/sound-indicator.png"
+                                }
+
+
+                                WhiteSlider{
+                                    id: appSlider
+                                    width: parent.width - appIconBox.width - soundIndicator.width - anchors.leftMargin
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    anchors.left: soundIndicator.right
+                                    anchors.leftMargin: 10
+                                    minimumValue: 0
+                                    maximumValue: 150
+                                    stepSize: 1
+                                }
+
+                            }
+                        }
                     }
                 }
             }

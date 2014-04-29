@@ -87,29 +87,33 @@ Column {
                 PropertyAnimation { duration: 100 }
             }
 
+            property int leftWidth: Math.max(newShortcutName.title.contentWidth, newShortcutCommand.title.contentWidth) + 24
+            property int rightWidth: width - leftWidth - 24
+
             DCenterLine {
                 id: newShortcutName
                 title.text: dsTr("Name")
-                leftWidth: 100
+                leftWidth: addCustomShortcutBox.leftWidth
                 content.sourceComponent: DTextInput{
                     activeFocusOnTab: true
-                    width: addCustomShortcutBox.inputTextWidth
+                    width: addCustomShortcutBox.rightWidth
                 }
             }
 
             DCenterLine {
                 id: newShortcutCommand
                 title.text: dsTr("Command")
-                leftWidth: 100
+                leftWidth: addCustomShortcutBox.leftWidth
                 content.sourceComponent: DTextInput{
                     activeFocusOnTab: true
-                    width: addCustomShortcutBox.inputTextWidth
+                    width: addCustomShortcutBox.rightWidth
                 }
             }
 
             DBaseLine{
                 id: addCustomShortcutGrabArea
                 rightLoader.sourceComponent: Row {
+                    spacing: 6
                     DTextButton {
                         text: dsTr("Cancel")
                         onClicked: {
