@@ -5,10 +5,12 @@ import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Display 1.0
 import DBus.Com.Deepin.Api.XMouseArea 1.0
 
-Item {
+QtObject {
     id: root
-    width: 1
-    height: 1
+
+    Component.onCompleted: {
+        dbusXMouseArea.RegisterFullScreen()
+    }
 
     property int panelWidth: 360
     property int trayWidth: 48
@@ -21,21 +23,40 @@ Item {
                 outerAreaClicked(arg1, arg2)
             }
         }
+        onMotionMove: {
+            cursorPosition.x = arg0
+            cursorPosition.y = arg1
+        }
     }
     property var toolTip: ToolTip {}
 
-    QtObject {
-        id: screenSize
+    property var screenSize: QtObject {
         property int x: displayId.primaryRect[0]
         property int y: displayId.primaryRect[1]
         property int width: displayId.primaryRect[2]
         property int height: displayId.primaryRect[3]
     }
+    property var cursorPosition: QtObject {
+        property int x: 0
+        property int y: 0
+    }
 
-    DLocale {
-        id: dsslocale
+    property var dsslocale: DLocale {
         domain: "deepin-system-settings"
         dirname: "../../locale"
+    }
+
+    property var rootWindow: PanelWindow {}
+
+    property var trayIconTip: TipWindow {
+        x: screenSize.x + screenSize.width - rootWindow.displayWidth - width
+    }
+
+    property var timeoutHideDss: Timer{
+        interval: 2000
+        onTriggered: {
+            rootWindow.hidePanel(true)
+        }
     }
 
     function dsTr(s){
@@ -49,30 +70,6 @@ Item {
             }
         }
         return -1
-    }
-
-    PanelWindow {
-        id: rootWindow
-    }
-
-    TipWindow {
-        id: trayIconTip
-        x: screenSize.x + screenSize.width - rootWindow.displayWidth - width
-    }
-
-    Component.onCompleted: {
-        rootWindow.show()
-        dbusXMouseArea.RegisterFullScreen()
-    }
-
-    Timer{
-        id: timeoutHideDss
-        repeat: false
-        running: false
-        interval: 2000
-        onTriggered: {
-            rootWindow.hidePanel(true)
-        }
     }
 
     function showModule(modulesId){
@@ -129,5 +126,4 @@ Item {
             return false
         }
     }
-
 }

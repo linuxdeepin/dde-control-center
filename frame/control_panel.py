@@ -29,8 +29,8 @@ from PyQt5 import QtGui
 from PyQt5 import QtDBus
 from PyQt5 import QtWidgets
 from PyQt5 import QtQuick
+from PyQt5 import QtQml
 
-from display_monitor import connect_to_primary_changed
 from constants import ROOT_LOCATION, PANEL_WIDTH
 from constants import APP_DBUS_NAME
 from modules_info import ModulesId
@@ -71,61 +71,49 @@ class DssDbusAdptor(QtDBus.QDBusAbstractAdaptor):
     def HideImmediately(self):
         self.parent().view_object.hideDssImmediately()
 
-class ControlPanel(QtQuick.QQuickView):
+class ControlPanel(QtCore.QObject):
 
     moduleFileChanged = QtCore.pyqtSignal(str)
     focusLosed = QtCore.pyqtSignal()
 
     def __init__(self):
-        QtQuick.QQuickView.__init__(self)
+        QtCore.QObject.__init__(self)
 
-        surface_format = QtGui.QSurfaceFormat()
-        surface_format.setAlphaBufferSize(8)
+        self.engine = QtQml.QQmlEngine()
 
-        self.setColor(QtGui.QColor(0, 0, 0, 0))
-        self.setFlags(
-                QtCore.Qt.Tool
-                | QtCore.Qt.FramelessWindowHint
-                | QtCore.Qt.WindowStaysOnTopHint
-                | QtCore.Qt.X11BypassWindowManagerHint
-                )
-        self.setResizeMode(QtQuick.QQuickView.SizeRootObjectToView)
-        self.setFormat(surface_format)
+        # set context
+        self.rootContext = QtQml.QQmlContext(self.engine, self)
         self.set_all_contexts()
-        self.setSource(QtCore.QUrl.fromLocalFile(os.path.join(
-            ROOT_LOCATION, 'frame', 'views', 'Main.qml')))
-        self.connect_all_object_function()
 
-        self.engine_obj = self.engine()
-        connect_to_primary_changed(self.display_primary_changed)
+        self.component = QtQml.QQmlComponent(self.engine, self)
+        QtQuick.QQuickWindow.setDefaultAlphaBuffer(True)
+
+        self.component.loadUrl(QtCore.QUrl.fromLocalFile(
+            os.path.join(ROOT_LOCATION, 'frame', 'views', 'Main.qml')))
+
+        self.view_object = self.component.beginCreate(self.rootContext)
+        if self.component.isReady():
+            self.component.completeCreate()
+        else:
+            print self.component.errorString()
+            sys.exit(1)
 
         self._dbus_adptor = DssDbusAdptor(self)
         QtWidgets.qApp.focusWindowChanged.connect(self.onFocusWindowChanged)
 
     def onFocusWindowChanged(self, win):
         if win is None:
-            #print "focusLosed"
             self.focusLosed.emit()
         else:
             pass
-            #print "Focus Window:", win.__class__.__name__
 
     def set_all_contexts(self):
-        self.qml_context = self.rootContext()
         self.modulesId = ModulesId()
         self.qtGettext = QtGettext()
         self.message_view = MessageDialog()
-        self.qml_context.setContextProperty("windowView", self)
-        self.qml_context.setContextProperty("modulesId", self.modulesId)
-        self.qml_context.setContextProperty("messageView", self.message_view)
-
-    def connect_all_object_function(self):
-        self.view_object = self.rootObject()
-
-    def set_geometry(self, rect):
-        x, y, width, height = rect
-        self.setGeometry(x + width, y,
-                PANEL_WIDTH, height)
+        self.rootContext.setContextProperty("windowView", self)
+        self.rootContext.setContextProperty("modulesId", self.modulesId)
+        self.rootContext.setContextProperty("messageView", self.message_view)
 
     @QtCore.pyqtSlot(str)
     def setCustomCursor(self, path):
@@ -155,18 +143,9 @@ class ControlPanel(QtQuick.QQuickView):
     def getHomeDir(self):
         return os.path.expanduser("~")
 
-    @QtCore.pyqtSlot(int)
-    def show(self, seconds):
-        self.view_object.showDss(seconds)
-
     @QtCore.pyqtProperty(int)
     def panelWith(self):
         return PANEL_WIDTH
-
-    @QtCore.pyqtSlot(QtDBus.QDBusMessage)
-    def display_primary_changed(self, message):
-        rect = QtDBus.QDBusReply(message).value()
-        self.set_geometry(rect)
 
     @QtCore.pyqtSlot(result=QtCore.QVariant)
     def getCursorPos(self):

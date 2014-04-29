@@ -8,10 +8,7 @@ Window {
     flags: Qt.Popup | Qt.WindowStaysOnTopHint
     color: Qt.rgba(0, 0, 0, 0)
 
-    property var cursorPos
-
     function showTip(s){
-        cursorPos = windowView.getCursorPos()
         tipText.text = s
         timeoutShow.restart()
         freshBackground.restart()
@@ -52,9 +49,8 @@ Window {
         running: false
         repeat: false
         onTriggered: {
-            var pos = toolTip.cursorPos
-            toolTip.x = pos[0] + 10
-            toolTip.y = pos[1] + 10
+            toolTip.x = cursorPosition.x + 10
+            toolTip.y = cursorPosition.y + 10
             if (toolTip.x + toolTip.width > screenSize.width){
                 toolTip.x = screenSize.width - toolTip.width
             }

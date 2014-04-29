@@ -61,7 +61,7 @@ def main():
     os.chdir(root_dir)
 
     panel = ControlPanel()
-    panel.engine_obj.quit.connect(app.quit)
+    panel.engine.quit.connect(app.quit)
 
     if len(sys.argv) > 1:
         if sys.argv[1].endswith("/"):
