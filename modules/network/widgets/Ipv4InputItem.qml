@@ -23,8 +23,6 @@ FocusScope {
     signal toStart
     signal toEnd
 
-    signal textChanged
-
     function setPositionToStart(){
         text_input.cursorPosition = 0
     }
@@ -70,7 +68,6 @@ FocusScope {
                 if(text != ""){
                     text = parseInt(text)
                 }
-                root.textChanged()
             }
 
             onAccepted: {
