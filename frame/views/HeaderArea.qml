@@ -3,7 +3,7 @@ import QtQuick.Window 2.1
 import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Accounts 1.0
-import DGui 1.0
+import DBus.Com.Deepin.SessionManager 1.0
 
 Column {
     id: headerArea
@@ -14,8 +14,9 @@ Column {
 
     property int sideWidth: 10
 
+    property var dbusSessionManager: SessionManager {}
     property var accountId: Accounts {}
-    property var currentUserObj: User { path: accountId.userList[0] }
+    property var currentUserObj: User { path: accountId.FindUserById(dbusSessionManager.currentUid) }
 
     function setAvatar(){
         avatarImage.imageSource = currentUserObj.iconFile
