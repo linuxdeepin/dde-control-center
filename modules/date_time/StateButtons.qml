@@ -9,7 +9,7 @@ Item {
     height: parent.height
 
     property string completeLabel: dsTr("Done")
-    property string addLabel: dsTr("Add")
+    property string addLabel: dsTr("Close")
     property string currentActionStateName: ""
     property alias deleteButton: deleteButton
     property alias addButton: addButton

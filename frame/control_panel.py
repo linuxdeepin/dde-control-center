@@ -186,6 +186,11 @@ class ControlPanel(QtCore.QObject):
             data.reverse()
         return data
 
+    @QtCore.pyqtSlot(QtCore.QVariant, result=QtCore.QVariant)
+    def sortSearchResult(self, data):
+        data.sort(key=lambda d: d[1])
+        return data
+
     @QtCore.pyqtSlot(str, result=QtCore.QVariant)
     def getLunarDay(self, value):
         dt = datetime.strptime(value, "%Y-%m-%d")

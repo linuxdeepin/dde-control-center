@@ -38,7 +38,14 @@ Column {
         return false
     }
 
+    onUserTimezoneListChanged: {
+        if(userTimezoneList.length == 1 && titleLine.rightLoader.item){
+            titleLine.rightLoader.item.currentActionStateName = ""
+        }
+    }
+
     DBaseLine {
+        id: titleLine
         leftLoader.sourceComponent: DssH2 {
             text: dsTr("Time zone")
         }
@@ -46,6 +53,7 @@ Column {
         rightLoader.sourceComponent: StateButtons {
             deleteButton.visible: userTimezoneList.length > 1
             onCurrentActionStateNameChanged: {
+                // before changed
                 if(timezoneArea.currentActionStateName == "addButton"){
                     for(var key in addTimezoneListView.selectedItemDict){
                         if(addTimezoneListView.selectedItemDict[key]){
@@ -53,9 +61,12 @@ Column {
                         }
                     }
                 }
+
                 timezoneArea.currentActionStateName = currentActionStateName
+                // after changed
                 if(timezoneArea.currentActionStateName == "addButton"){
                     searchInput.text = ""
+                    addTimezoneListView.fillModel("")
                 }
             }
         }
@@ -98,7 +109,6 @@ Column {
                     gDate.DeleteTimezoneList(itemId)
                 }
                 onSelectAction: {
-                    print(itemId)
                     gDate.SetTimeZone(itemId)
                 }
             }
@@ -145,20 +155,26 @@ Column {
             property var selectedItemDict: new Object()
 
             function fillModel(s){
-                model.clear()
                 selectedItemDict = new Object()
-                if(s != ""){
-                    model.clear()
-                    var searchResult = searchId.SearchKeys(s, searchMd5)
-                    for(var i=0; i<searchResult.length; i++){
-                        var timezoneValue = searchResult[i]
-                        if(!isInUserTimezoneList(timezoneValue)){
-                            model.append({
-                                "value": timezoneValue,
-                                "label": timezoneCityDict[timezoneValue]
-                            })
-                        }
+                var searchResult = searchId.SearchKeys(s, searchMd5)
+                var toSortResult = new Array()
+                for(var i=0; i<searchResult.length; i++){
+                    var timezoneValue = searchResult[i]
+                    if(!isInUserTimezoneList(timezoneValue)){
+                        var tmp = new Array()
+                        tmp.push(timezoneValue)
+                        tmp.push(timezoneCityDict[timezoneValue])
+                        toSortResult.push(tmp)
                     }
+                }
+                toSortResult = windowView.sortSearchResult(toSortResult)
+                model.clear()
+                for(var i=0; i<toSortResult.length; i++){
+                    var d = toSortResult[i]
+                    model.append({
+                        "value": d[0],
+                        "label": d[1]
+                    })
                 }
             }
 
@@ -166,6 +182,18 @@ Column {
             delegate: AddTimezoneItem{
                 onSelectAction: {
                     addTimezoneListView.selectedItemDict[itemValue] = selected
+                    var length = 0
+                    for(var key in addTimezoneListView.selectedItemDict){
+                        if(addTimezoneListView.selectedItemDict[key]){
+                            length += 1
+                        }
+                    }
+                    if(length > 0){
+                        titleLine.rightLoader.item.addLabel = dsTr("Add")
+                    }
+                    else{
+                        titleLine.rightLoader.item.addLabel = dsTr("Close")
+                    }
                 }
             }
 

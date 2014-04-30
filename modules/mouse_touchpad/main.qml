@@ -48,8 +48,8 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
                 initializeIndex: dbusMouse.leftHanded ? 1 : 0
                 buttonModel: [
-                    {"buttonId": "right_hand", "buttonLabel": dsTr("Left-handed")},
-                    {"buttonId": "left_hand", "buttonLabel": dsTr("Left")}
+                    {"buttonId": "right_hand", "buttonLabel": dsTr("Left")},
+                    {"buttonId": "left_hand", "buttonLabel": dsTr("Left-handed")}
                 ]
 
                 onItemSelected: {

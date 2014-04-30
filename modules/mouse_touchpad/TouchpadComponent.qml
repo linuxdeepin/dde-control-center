@@ -63,8 +63,8 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
                 initializeIndex: dbusTouchpad.leftHanded ? 1 : 0
                 buttonModel: [
-                    {"buttonId": "right_hand", "buttonLabel": dsTr("Left-handed")},
-                    {"buttonId": "left_hand", "buttonLabel": dsTr("Left")}
+                    {"buttonId": "right_hand", "buttonLabel": dsTr("Left")},
+                    {"buttonId": "left_hand", "buttonLabel": dsTr("Left-handed")}
                 ]
 
                 onItemSelected: {
@@ -160,7 +160,7 @@ Item {
 
                 min: 1
                 max: 10
-                init: dbusTouchpad.dragThres
+                init: dbusTouchpad.dragThreshold
                 valueDisplayVisible: false
 
                 onValueConfirmed:{
