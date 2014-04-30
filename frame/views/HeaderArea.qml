@@ -23,8 +23,7 @@ Column {
     }
 
     function setUserName(){
-        userName.text = currentUserObj.userName.substring(0, 1).toUpperCase()
-            + currentUserObj.userName.substring(1)
+        userName.text = currentUserObj.userName
     }
 
     Connections {

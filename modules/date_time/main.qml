@@ -46,6 +46,7 @@ Item {
         DSeparatorHorizontal {}
 
         TimeBox {
+            id: timeBox
             use24Hour: twentyFourHourSetBox.active
             editable: !gDate.autoSetTime
         }
@@ -60,6 +61,9 @@ Item {
 
             onClicked: {
                 gDate.autoSetTime = active
+                if(active && timeBox.inEdit){
+                    timeBox.showTimeNormal()
+                }
             }
         }
 

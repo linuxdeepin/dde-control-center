@@ -276,7 +276,7 @@ Rectangle {
         GridView {
             id: moduleIconList
             width: !isSiderNavigate ? itemSize * 3 : itemSize
-            height: Math.min(iconsArea.height, childrenRect.height)
+            height: parent.height
             anchors.horizontalCenter: parent.horizontalCenter
             cellHeight: itemSize
             cellWidth: itemSize

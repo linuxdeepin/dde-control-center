@@ -11,6 +11,7 @@ Rectangle {
 
     property bool use24Hour: false
     property bool editable: true
+    property bool inEdit: false
 
     function showTip(){
         dayText.opacity = 0
@@ -24,11 +25,13 @@ Rectangle {
         showTimeEditAnimation.start()
         timeEdit.init()
         timeBox.height += buttonArea.height
+        inEdit = true
     }
 
     function showTimeNormal(){
         showTimeNormalAnimation.start()
         timeBox.height -= buttonArea.height
+        inEdit = false
     }
 
     Behavior on height{
