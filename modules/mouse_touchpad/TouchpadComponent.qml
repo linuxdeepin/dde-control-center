@@ -84,11 +84,11 @@ Item {
 
                 min: 0.5
                 max: 5
-                init: dbusTouchpad.motionAccel
+                init: dbusTouchpad.motionAcceleration
                 valueDisplayVisible: false
 
                 onValueConfirmed:{
-                    dbusTouchpad.motionAccel = value
+                    dbusTouchpad.motionAcceleration = value
                 }
 
                 Component.onCompleted: {
@@ -109,11 +109,11 @@ Item {
 
                 min: 1
                 max: 20
-                init: dbusTouchpad.motionThres
+                init: dbusTouchpad.motionThreshold
                 valueDisplayVisible: false
 
                 onValueConfirmed:{
-                    dbusTouchpad.motionThres = value
+                    dbusTouchpad.motionThreshold = value
                 }
 
                 Component.onCompleted: {

@@ -69,11 +69,11 @@ Item {
 
                 min: 0.5
                 max: 5
-                init: dbusMouse.motionAccel
+                init: dbusMouse.motionAcceleration
                 valueDisplayVisible: false
 
                 onValueConfirmed:{
-                    dbusMouse.motionAccel = value
+                    dbusMouse.motionAcceleration = value
                 }
 
                 Component.onCompleted: {
@@ -95,11 +95,11 @@ Item {
 
                 min: 1
                 max: 20
-                init: dbusMouse.motionThres
+                init: dbusMouse.motionThreshold
                 valueDisplayVisible: false
 
                 onValueConfirmed:{
-                    dbusMouse.motionThres = value
+                    dbusMouse.motionThreshold = value
                 }
 
                 Component.onCompleted: {
