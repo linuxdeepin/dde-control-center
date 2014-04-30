@@ -16,7 +16,7 @@ Column {
 
     property var dbusSessionManager: SessionManager {}
     property var accountId: Accounts {}
-    property var currentUserObj: User { path: accountId.FindUserById(dbusSessionManager.currentUid) }
+    property var currentUserObj: User {}
 
     function setAvatar(){
         avatarImage.imageSource = currentUserObj.iconFile
@@ -75,8 +75,15 @@ Column {
         interval: 100
         running: true
         onTriggered: {
-            setAvatar()
-            setUserName()
+            currentUserObj.path = accountId.FindUserById(dbusSessionManager.currentUid) }
+            if(currentUserObj.path){
+                setAvatar()
+                setUserName()
+            }
+            else{
+                avatarImage.imageSource = "/var/lib/AccountsService/icons/guest.jpg"
+                userName.text = dsTr("Guest")
+            }
         }
     }
 }
