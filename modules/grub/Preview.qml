@@ -111,18 +111,12 @@ Item {
 
     Rectangle {
         id: tooltip
-        width: txt.implicitWidth + 16
+        width: parent.width + 2 * radius
         height: txt.implicitHeight + 16
-        opacity: 0.0
         radius: 5
         color: Qt.rgba(0.1, 0.1, 0.1, 0.5)
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
-        anchors.bottomMargin: 15
-
-        Behavior on opacity {
-            SmoothedAnimation { duration: 200 }
-        }
 
         Text {
             id: txt
@@ -130,19 +124,6 @@ Item {
             text: dsTr("Drag and drop an image to change background.")
 
             anchors.centerIn: parent
-        }
-    }
-
-    MouseArea {
-        hoverEnabled: true
-        anchors.fill: parent
-
-        onEntered: {
-            tooltip.opacity = 1.0
-        }
-
-        onExited: {
-            tooltip.opacity = 0.0
         }
     }
 }
