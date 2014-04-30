@@ -83,10 +83,21 @@ BaseEditSection {
             key: "identity"
             text: dsTr("Username")
         }
+        EditLineComboBox {
+            id: linePasswordFlags
+            key: "password-flags"
+            text: dsTr("Ask for Pwd")
+            alwaysUpdate: true
+        }
         EditLinePasswordInput {
             id: linePassword
             key: "password"
             text: dsTr("Password")
+        }
+        EditLineComboBox {
+            id: linePrivateKeyPasswordFlags
+            key: "private-key-password-flags"
+            text: dsTr("Ask for Pwd")
         }
         EditLinePasswordInput {
             id: linePrivateKeyPassword

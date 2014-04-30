@@ -30,7 +30,7 @@ BaseEditSection {
         EditLineComboBox {
             id: linePasswordFlags
             key: "password-flags"
-            text: dsTr("Ask For Pwd")
+            text: dsTr("Ask for Pwd")
         }
         EditLinePasswordInput {
             id: linePassword
@@ -51,6 +51,11 @@ BaseEditSection {
             id: lineKey
             key: "key"
             text: dsTr("Private Key")
+        }
+        EditLineComboBox {
+            id: lineCertPassFlags
+            key: "cert-pass-flags"
+            text: dsTr("Ask for Pwd")
         }
         EditLinePasswordInput {
             id: lineCertPass

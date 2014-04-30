@@ -22,6 +22,11 @@ BaseEditSection {
             key: "user"
             text: dsTr("Username")
         }
+        EditLineComboBox {
+            id: linePasswordFlags
+            key: "password-flags"
+            text: dsTr("Ask for Pwd")
+        }
         EditLinePasswordInput {
             id: linePassword
             key: "password"

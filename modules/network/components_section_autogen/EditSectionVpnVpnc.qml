@@ -25,7 +25,7 @@ BaseEditSection {
         EditLineComboBox {
             id: lineXauthPasswordFlags
             key: "Xauth password-flags"
-            text: dsTr("Ask For Pwd")
+            text: dsTr("Ask for Pwd")
         }
         EditLinePasswordInput {
             id: lineXauthPassword
@@ -40,7 +40,7 @@ BaseEditSection {
         EditLineComboBox {
             id: lineIpsecSecretFlags
             key: "IPSec secret-flags"
-            text: dsTr("Ask For Pwd")
+            text: dsTr("Ask for Pwd")
         }
         EditLinePasswordInput {
             id: lineIpsecSecret

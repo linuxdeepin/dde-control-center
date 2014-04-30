@@ -12,5 +12,50 @@ BaseEditSection {
     }
 
     content.sourceComponent: Column { 
+        EditLineTextInput {
+            id: lineSsid
+            key: "ssid"
+            text: dsTr("SSID")
+        }
+        EditLineComboBox {
+            id: lineMode
+            key: "mode"
+            text: dsTr("Mode")
+        }
+        EditLineComboBox {
+            id: lineBand
+            key: "band"
+            text: dsTr("Band")
+        }
+        EditLineSwitchButton {
+            id: lineVkChannel
+            key: "vk-channel"
+            text: dsTr("Custom Channel")
+        }
+        EditLineSpinner {
+            id: lineChannel
+            key: "channel"
+            text: dsTr("Channel")
+        }
+        EditLineInputComboBox {
+            id: lineMacAddress
+            key: "mac-address"
+            text: dsTr("Device MAC Addr")
+        }
+        EditLineTextInput {
+            id: lineClonedMacAddress
+            key: "cloned-mac-address"
+            text: dsTr("Cloned MAC Addr")
+        }
+        EditLineSwitchButton {
+            id: lineVkMtu
+            key: "vk-mtu"
+            text: dsTr("Custom MTU")
+        }
+        EditLineSpinner {
+            id: lineMtu
+            key: "mtu"
+            text: dsTr("MTU")
+        }
     }
 }

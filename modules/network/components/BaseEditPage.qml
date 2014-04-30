@@ -14,7 +14,7 @@ Column{
     property string type
 
     property int activeExpandIndex: -1
-    property int valueWidth: 160
+    property int valueWidth: 170
     property int contentLeftMargin: 18
     property var connectionSessionObject: {
         if (create) {

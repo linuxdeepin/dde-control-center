@@ -15,7 +15,7 @@ BaseEditSection {
         EditLineConnectionId {
             id: lineId
             key: "id"
-            text: dsTr("Connection Name")
+            text: dsTr("Name")
         }
         EditLineSwitchButton {
             id: lineAutoconnect
