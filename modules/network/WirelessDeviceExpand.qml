@@ -101,14 +101,14 @@ DBaseExpand {
         onDeviceStateChanged: {
             if(arg0 == devicePath){
                 wirelessDevicesExpand.deviceStatus = arg1
-                if(arg1 == 100){
+                if(arg1 == 100){ // TODo
                     wirelessDevicesExpand.inConnectingApPath = "/"
                 }
             }
         }
     }
 
-    expanded: deviceStatus != 20
+    expanded: deviceStatus != 20 // TODO
     header.sourceComponent: DBaseLine{
 
         leftLoader.sourceComponent: DssH2 {

@@ -45,6 +45,7 @@ Column{
             }
 
             onClicked: {
+                // TODO
                 if (wiredDevicesSignal == 100){
                     goToEditConnection()
                 }
