@@ -145,6 +145,9 @@ Rectangle {
         if(isSiderNavigate){
             trayIconTip.visible = true
         }
+        else{
+            trayIconTip.visible = false
+        }
     }
 
     Timer {

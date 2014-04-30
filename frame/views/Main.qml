@@ -48,7 +48,7 @@ QtObject {
 
     property var rootWindow: PanelWindow {}
 
-    property var trayIconTip: TipWindow {
+    property var trayIconTip: IconTip{
         x: screenSize.x + screenSize.width - rootWindow.displayWidth - width
     }
 

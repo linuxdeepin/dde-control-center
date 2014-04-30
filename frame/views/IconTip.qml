@@ -51,18 +51,6 @@ Window {
 
     }
 
-    //RectWithCorner {
-        //id: trayIconTipArrowRect
-        //x: 0
-        //y: 0
-        //cornerDirection: "right"
-        //rectWidth: parent.width
-        //rectHeight: parent.height
-        //cornerPos: rectHeight/2
-        //cornerWidth: 16
-        //cornerHeight: 8
-    //}
-
     Text {
         id: trayIconTipText
         anchors.verticalCenter: trayIconTipArrowRect.verticalCenter

@@ -59,6 +59,7 @@ Window {
             }
             toolTip.show()
             toolTip.visible = true
+            toolTip.raise()
             timeoutHide.restart()
         }
     }
