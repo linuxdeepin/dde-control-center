@@ -57,9 +57,8 @@ Item {
                 }
             }
             onClicked: {
-                // TODO
-                // dbusNetwork.DeactivateConnection(uuid)
-                dbusNetwork.DeleteConnection(uuid)
+                // disconnect connection
+                dbusNetwork.DisconnectDevice(wirelessItem.devicePath)
             }
         }
 
