@@ -115,6 +115,8 @@ DBaseLine {
                 return values[i].Text
             }
         }
+        print("==> [WARNING] getAvailableValuesTextByValue():", values, section, key, value) //TODO test
+        return ""
     }
     
     function getAvailableValuesIndex() {
@@ -127,6 +129,8 @@ DBaseLine {
                 return i
             }
         }
+        print("==> [WARNING] getAvailableValuesIndex():", values, section, key, value) //TODO test
+        return 0
     }
     
     function checkKey() {

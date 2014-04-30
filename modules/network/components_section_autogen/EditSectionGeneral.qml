@@ -12,7 +12,7 @@ BaseEditSection {
     }
 
     content.sourceComponent: Column { 
-        EditLineTextInput {
+        EditLineConnectionId {
             id: lineId
             key: "id"
             text: dsTr("Connection Name")
