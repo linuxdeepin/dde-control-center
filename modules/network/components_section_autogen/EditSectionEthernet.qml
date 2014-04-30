@@ -12,5 +12,25 @@ BaseEditSection {
     }
 
     content.sourceComponent: Column { 
+        EditLineInputComboBox {
+            id: lineMacAddress
+            key: "mac-address"
+            text: dsTr("Device MAC Addr")
+        }
+        EditLineTextInput {
+            id: lineClonedMacAddress
+            key: "cloned-mac-address"
+            text: dsTr("Cloned MAC Addr")
+        }
+        EditLineSwitchButton {
+            id: lineVkMtu
+            key: "vk-mtu"
+            text: dsTr("Custom MTU")
+        }
+        EditLineSpinner {
+            id: lineMtu
+            key: "mtu"
+            text: dsTr("MTU")
+        }
     }
 }
