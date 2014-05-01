@@ -75,7 +75,7 @@ Column {
         interval: 100
         running: true
         onTriggered: {
-            currentUserObj.path = accountId.FindUserById(dbusSessionManager.currentUid) }
+            currentUserObj.path = accountId.FindUserById(dbusSessionManager.currentUuid)
             if(currentUserObj.path){
                 setAvatar()
                 setUserName()
