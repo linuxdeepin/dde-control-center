@@ -9,27 +9,15 @@ BaseEditLine {
         anchors.left: parent.left
         anchors.leftMargin: -3
         width: valueWidth
-        // TODO
-        // Binding on text {
-        //     when: root.value != undefined
-        //     value: getAvailableValuesTextByValue()
-        // }
-        // text: root.value ? getAvailableValuesTextByValue() : ""
-        text: {
-            if (root.visible) {
-                return getAvailableValuesTextByValue()
-            } else {
-                return ""
-            }
-        }
-        
         property var menuLabels
+        
         Connections {
             target: root
-            onVisibleChanged: {
-                if (root.visible) {
-                    menuLabels = getAvailableValuesText()
-                }
+            onWidgetShown: {
+                text = getAvailableValuesTextByValue()
+            }
+            onValueChanged: {
+                text = getAvailableValuesTextByValue()
             }
         }
 
@@ -40,7 +28,7 @@ BaseEditLine {
 
         onClicked: {
             if(!rootMenu.visible){
-                menuLabels = getAvailableValuesText() // update menu labels
+                menuLabels = getAvailableValuesText() // update avaialbel values
                 var pos = mapToItem(null, 0, 0)
                 rootMenu.labels = comboBox.menuLabels
                 rootMenu.requestMenuItem = comboBox

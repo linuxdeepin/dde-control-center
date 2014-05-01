@@ -12,6 +12,8 @@ DBaseLine {
     // update value even if other key changed
     property bool alwaysUpdate: false
     
+    signal widgetShown
+    
     visible: false
     Binding on visible {
         value: isKeyAvailable()
@@ -25,9 +27,16 @@ DBaseLine {
                 // get value only when undefined
                 updateValue()
             }
+            widgetShown()
         }
         // TODO test
         print("BaseEditLine.onVisibleChanged", visible ? "(show)" : "(hide)", section, key, value)
+    }
+    Component.onCompleted: {
+        if (visible) {
+            // send widgetShown() signal is need here
+            widgetShown()
+        }
     }
     
     // colors
@@ -42,7 +51,7 @@ DBaseLine {
     Connections {
         target: rightLoader.item
         onActiveFocusChanged: {
-            print("->", rightLoader.item.activeFocus)
+            print("-> onActiveFocusChanged", rightLoader.item.activeFocus) //TODO test
             if (!rightLoader.item.activeFocus) {
                 showErrorConditon = true
             }
@@ -74,6 +83,7 @@ DBaseLine {
     
     function updateValue() {
         value = getKey()
+        print("-> updateValue()", section, key, value)
     }
     
     function isKeyAvailable() {
@@ -107,7 +117,7 @@ DBaseLine {
         if (values == null) {
             // values is null here so this function should
             // not be called in this case
-            print("==> [WARNING]", values, section, key, value) //TODO test
+            print("==> [WARNING] getAvailableValuesTextByValue", values, section, key, value) //TODO test
             return
         }
         for (var i=0; i<values.length; i++) {

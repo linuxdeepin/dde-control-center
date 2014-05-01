@@ -22,10 +22,16 @@ BaseEditSection {
             key: "wep-key0"
             text: dsTr("Key")
         }
+        EditLinePasswordToggle {
+            targetTextInput: lineWepKey0
+        }
         EditLinePasswordInput {
             id: linePsk
             key: "psk"
             text: dsTr("Password")
+        }
+        EditLinePasswordToggle {
+            targetTextInput: linePsk
         }
         EditLineSwitchButton {
             id: lineVkEnable
@@ -94,6 +100,9 @@ BaseEditSection {
             key: "password"
             text: dsTr("Password")
         }
+        EditLinePasswordToggle {
+            targetTextInput: linePassword
+        }
         EditLineComboBox {
             id: linePrivateKeyPasswordFlags
             key: "private-key-password-flags"
@@ -103,6 +112,9 @@ BaseEditSection {
             id: linePrivateKeyPassword
             key: "private-key-password"
             text: dsTr("Private Pwd")
+        }
+        EditLinePasswordToggle {
+            targetTextInput: linePrivateKeyPassword
         }
     }
 }

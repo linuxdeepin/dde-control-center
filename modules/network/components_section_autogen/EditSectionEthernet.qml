@@ -23,8 +23,8 @@ BaseEditSection {
             text: dsTr("Cloned MAC Addr")
         }
         EditLineSwitchButton {
-            id: lineVkMtu
-            key: "vk-mtu"
+            id: lineVkEnableMtu
+            key: "vk-enable-mtu"
             text: dsTr("Custom MTU")
         }
         EditLineSpinner {

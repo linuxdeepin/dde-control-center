@@ -26,16 +26,13 @@ BaseEditSection {
             id: lineBand
             key: "band"
             text: dsTr("Band")
+            alwaysUpdate: true
         }
-        EditLineSwitchButton {
-            id: lineVkChannel
-            key: "vk-channel"
-            text: dsTr("Custom Channel")
-        }
-        EditLineSpinner {
+        EditLineComboBox {
             id: lineChannel
             key: "channel"
             text: dsTr("Channel")
+            alwaysUpdate: true
         }
         EditLineInputComboBox {
             id: lineMacAddress
@@ -48,8 +45,8 @@ BaseEditSection {
             text: dsTr("Cloned MAC Addr")
         }
         EditLineSwitchButton {
-            id: lineVkMtu
-            key: "vk-mtu"
+            id: lineVkEnableMtu
+            key: "vk-enable-mtu"
             text: dsTr("Custom MTU")
         }
         EditLineSpinner {

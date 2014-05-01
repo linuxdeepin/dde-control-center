@@ -13,11 +13,8 @@ DBaseLine {
 
         DSwitchButton{
             id: showPasswordButton
+            checked: false
             onCheckedChanged: {
-                targetTextInput.echoMode = checked ? TextInput.Normal : TextInput.Password
-            }
-            Component.onCompleted: {
-                checked = false
                 targetTextInput.echoMode = checked ? TextInput.Normal : TextInput.Password
             }
         }

@@ -42,5 +42,8 @@ BaseEditSection {
             key: "http-proxy-password"
             text: dsTr("Password")
         }
+        EditLinePasswordToggle {
+            targetTextInput: lineHttpProxyPassword
+        }
     }
 }

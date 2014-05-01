@@ -4,12 +4,16 @@ import Deepin.Widgets 1.0
 BaseEditLine {
     id: root
     
-    property int echoMode
+    property var echoMode
     
     rightLoader.sourceComponent: DTextInput{
+        id: textInput
         width: valueWidth
-        // echoMode: root.echoMode
         echoMode: TextInput.Password
+        Binding on echoMode {
+            target: root
+            value: root.echoMode
+        }
         // TODO fix property loop binding
         Binding on text {
             when: root.value != undefined

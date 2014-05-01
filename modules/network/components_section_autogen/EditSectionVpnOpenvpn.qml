@@ -37,6 +37,9 @@ BaseEditSection {
             key: "password"
             text: dsTr("Password")
         }
+        EditLinePasswordToggle {
+            targetTextInput: linePassword
+        }
         EditLineFileChooser {
             id: lineCert
             key: "cert"
@@ -61,6 +64,9 @@ BaseEditSection {
             id: lineCertPass
             key: "cert-pass"
             text: dsTr("Private Pwd")
+        }
+        EditLinePasswordToggle {
+            targetTextInput: lineCertPass
         }
         EditLineFileChooser {
             id: lineStaticKey

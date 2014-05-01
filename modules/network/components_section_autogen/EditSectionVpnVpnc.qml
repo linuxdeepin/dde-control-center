@@ -32,6 +32,9 @@ BaseEditSection {
             key: "Xauth password"
             text: dsTr("User Pwd")
         }
+        EditLinePasswordToggle {
+            targetTextInput: lineXauthPassword
+        }
         EditLineTextInput {
             id: lineIpsecId
             key: "IPSec ID"
@@ -46,6 +49,9 @@ BaseEditSection {
             id: lineIpsecSecret
             key: "IPSec secret"
             text: dsTr("Group Pwd")
+        }
+        EditLinePasswordToggle {
+            targetTextInput: lineIpsecSecret
         }
         EditLineSwitchButton {
             id: lineVkHybridAuthmode
