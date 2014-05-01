@@ -170,7 +170,7 @@ Item {
                         init: currentSink.volume
 
                         onValueChanged:{
-                            currentSink.volume = value
+                            currentSink.SetSinkVolume(value)
                         }
 
                         Component.onCompleted: {

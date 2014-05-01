@@ -121,7 +121,7 @@ DockApplet{
 
                         onValueChanged: {
                             if(pressed){
-                                defaultSink.volume = value
+                                defaultSink.SetSinkVolume(value)
                             }
                         }
 

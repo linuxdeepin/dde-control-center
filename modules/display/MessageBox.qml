@@ -107,7 +107,7 @@ Window {
             DTransparentButton {
                 text: dsTr("Keep changes")
                 onClicked: {
-                    displayId.SaveChanged()
+                    displayId.SaveChanges()
                     hideDialog()
                 }
             }
@@ -115,7 +115,7 @@ Window {
             DTransparentButton {
                 text: dsTr("Revert")
                 onClicked: {
-                    displayId.ResetChanged()
+                    displayId.ResetChanges()
                     hideDialog()
                 }
             }
