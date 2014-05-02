@@ -12,7 +12,7 @@ BaseEditSection {
     }
 
     content.sourceComponent: Column { 
-        EditLineInputComboBox {
+        EditLineEditComboBox {
             id: lineMacAddress
             key: "mac-address"
             text: dsTr("Device MAC Addr")

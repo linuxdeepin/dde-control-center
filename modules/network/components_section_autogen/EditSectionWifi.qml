@@ -34,7 +34,7 @@ BaseEditSection {
             text: dsTr("Channel")
             alwaysUpdate: true
         }
-        EditLineInputComboBox {
+        EditLineEditComboBox {
             id: lineMacAddress
             key: "mac-address"
             text: dsTr("Device MAC Addr")
