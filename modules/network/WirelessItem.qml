@@ -10,13 +10,17 @@ Item {
     height: childrenRect.height
 
     property string devicePath: "/"
-    property string uuid: dbusNetwork.GetConnectionUuidByAccessPoint(apPath)
+    property string uuid: dbusNetwork.GetConnectionUuidByAccessPoint(apPath) // TODO remove GetConnectionUuidByAccessPoint()
     property bool apConnected: getIndexFromArray(uuid, activeConnections) != -1
 
     Behavior on height {
         PropertyAnimation { duration: 100 }
     }
 
+    // onWirelessConnectionsChanged: {
+    //     print(wirelessConnections)
+    // }
+    
     function requestUuid(){
         // TODO get uuid each time to fix connection issue temporary
         var uuid = dbusNetwork.GetConnectionUuidByAccessPoint(apPath)
@@ -206,7 +210,8 @@ Item {
             target: networkModule
             onNeedSecretsEmit: {
                 if (wirelessItem.uuid != ""){
-                    passwordArea.path = dbusNetwork.GetConnectionByUuid(wirelessItem.uuid)
+                    // TODO remove GetConnectionPathByUuid()
+                    passwordArea.path = dbusNetwork.GetConnectionPathByUuid(wirelessItem.uuid)
                     print(passwordArea.path)
                     if(passwordArea.path == path){
                         passwordArea.showArea(encryptionName)

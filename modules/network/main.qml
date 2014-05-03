@@ -11,20 +11,20 @@ Column{
     anchors.fill: parent
 
     // device type
-    readonly property var nmDeviceTypeUnknown: 0
-    readonly property var nmDeviceTypeEthernet: 1
-    readonly property var nmDeviceTypeWifi: 2
-    readonly property var nmDeviceTypeUnused1: 3
-    readonly property var nmDeviceTypeUnused2: 4
-    readonly property var nmDeviceTypeBt: 5
-    readonly property var nmDeviceTypeOlpcMesh: 6
-    readonly property var nmDeviceTypeWimax: 7
-    readonly property var nmDeviceTypeModem: 8
-    readonly property var nmDeviceTypeInfiniband: 9
-    readonly property var nmDeviceTypeBond: 10
-    readonly property var nmDeviceTypeVlan: 11
-    readonly property var nmDeviceTypeAdsl: 12
-    readonly property var nmDeviceTypeBridge: 13
+    readonly property var nmDeviceTypeUnknown: "unknown"
+    readonly property var nmDeviceTypeEthernet: "wired"
+    readonly property var nmDeviceTypeWifi: "wireless"
+    readonly property var nmDeviceTypeUnused1: "unused1"
+    readonly property var nmDeviceTypeUnused2: "unused2"
+    readonly property var nmDeviceTypeBt: "bt"
+    readonly property var nmDeviceTypeOlpcMesh: "olpc-mesh"
+    readonly property var nmDeviceTypeWimax: "wimax"
+    readonly property var nmDeviceTypeModem: "modem"
+    readonly property var nmDeviceTypeInfiniband: "infiniband"
+    readonly property var nmDeviceTypeBond: "bond"
+    readonly property var nmDeviceTypeVlan: "vlan"
+    readonly property var nmDeviceTypeAdsl: "adsl"
+    readonly property var nmDeviceTypeBridge: "bridge"
 
     // device state
     readonly property var nmDeviceStateUnknown: 0
@@ -41,8 +41,29 @@ Column{
     readonly property var nmDeviceStateDeactivating: 110
     readonly property var nmDeviceStateFailed: 120
 
+    // network state
+    readonly property var nmStateUnknown: 0
+    readonly property var nmStateAsleep: 10
+    readonly property var nmStateDisconnected: 20
+    readonly property var nmStateDisconnecting: 30
+    readonly property var nmStateConnecting: 40
+    readonly property var nmStateConnectedLocal: 50
+    readonly property var nmStateConnectedSite: 60
+    readonly property var nmStateConnectedGlobal: 70
+    
+    // connection type
+    readonly property var nmConnectionTypeWired: "wired"
+    readonly property var nmConnectionTypeWireless: "wireless"
+    readonly property var nmConnectionTypeWirelessAdhoc: "wireless-adhoc"
+    readonly property var nmConnectionTypeWirelessHotspot: "wireless-hotspot"
+    readonly property var nmConnectionTypePppoe: "pppoe"
+    readonly property var nmConnectionTypeMobile: "mobile"
+    readonly property var nmConnectionTypeVpn: "vpn"
+ 
     property var dbusNetwork: NetworkManager{}
     property var activeConnections: dbusNetwork.activeConnections
+    property var devices: unmarshalJSON(dbusNetwork.devices)
+    property var connections: unmarshalJSON(dbusNetwork.connections)
 
     signal needSecretsEmit(string path, string encryptionName, string accessPointName)
 
@@ -68,12 +89,10 @@ Column{
 
     function marshalJSON(value){
         var valueJSON = JSON.stringify(value);
-        // print("==> unmarshalJSON:", value, valueJSON) // TODO test
         return valueJSON
     }
     
     function unmarshalJSON(valueJSON){
-        // print("==> unmarshalJSON:", valueJSON) // TODO test
         var value = JSON.parse(valueJSON)
         return value
     }

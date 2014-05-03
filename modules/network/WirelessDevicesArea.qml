@@ -7,6 +7,12 @@ Item {
     height: wirelessDevicesList.height + 2
     property int wirelessDevicesNumber: dbusNetwork.wirelessDevices.length
     property int wirelessAreaMaxHeight: 0
+    property var wirelessConnections: connections[nmConnectionTypeWireless]
+    // TODO test
+    onWirelessConnectionsChanged: {
+        print(wirelessConnections)
+    }
+
 
     ListView{
         id: wirelessDevicesList
@@ -15,6 +21,7 @@ Item {
         model: wirelessDevicesNumber
         clip: true
         delegate: WirelessDeviceExpand {
+            // TODO fix issue when remove a wireless device
             devicePath: dbusNetwork.wirelessDevices[index][0]
         }
         onModelChanged: {
