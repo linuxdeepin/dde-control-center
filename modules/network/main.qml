@@ -10,6 +10,37 @@ Column{
     id: networkModule
     anchors.fill: parent
 
+    // device type
+    readonly property var nmDeviceTypeUnknown: 0
+    readonly property var nmDeviceTypeEthernet: 1
+    readonly property var nmDeviceTypeWifi: 2
+    readonly property var nmDeviceTypeUnused1: 3
+    readonly property var nmDeviceTypeUnused2: 4
+    readonly property var nmDeviceTypeBt: 5
+    readonly property var nmDeviceTypeOlpcMesh: 6
+    readonly property var nmDeviceTypeWimax: 7
+    readonly property var nmDeviceTypeModem: 8
+    readonly property var nmDeviceTypeInfiniband: 9
+    readonly property var nmDeviceTypeBond: 10
+    readonly property var nmDeviceTypeVlan: 11
+    readonly property var nmDeviceTypeAdsl: 12
+    readonly property var nmDeviceTypeBridge: 13
+
+    // device state
+    readonly property var nmDeviceStateUnknown: 0
+    readonly property var nmDeviceStateUnmanaged: 10
+    readonly property var nmDeviceStateUnavailable: 20
+    readonly property var nmDeviceStateDisconnected: 30
+    readonly property var nmDeviceStatePrepare: 40
+    readonly property var nmDeviceStateConfig: 50
+    readonly property var nmDeviceStateNeedAuth: 60
+    readonly property var nmDeviceStateIpConfig: 70
+    readonly property var nmDeviceStateIpCheck: 80
+    readonly property var nmDeviceStateSecondaries: 90
+    readonly property var nmDeviceStateActivated: 100
+    readonly property var nmDeviceStateDeactivating: 110
+    readonly property var nmDeviceStateFailed: 120
+
     property var dbusNetwork: NetworkManager{}
     property var activeConnections: dbusNetwork.activeConnections
 
