@@ -38,20 +38,6 @@ Column{
         return unmarshalJSON(connectionSessionObject.GetKey(section, key))
     }
 
-    function marshalJSON(value){
-        var valueJSON = JSON.stringify(value);
-        // TODO test
-        // print("==> unmarshalJSON:", value, valueJSON)
-        return valueJSON
-    }
-    
-    function unmarshalJSON(valueJSON){
-        // TODO test
-        // print("==> unmarshalJSON:", valueJSON)
-        var value = JSON.parse(valueJSON)
-        return value
-    }
-    
     function checkAllKeys() {
         print("check all keys")
         for (var i=0; i<children.length; i++) {

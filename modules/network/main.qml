@@ -35,6 +35,18 @@ Column{
         }
     }
 
+    function marshalJSON(value){
+        var valueJSON = JSON.stringify(value);
+        // print("==> unmarshalJSON:", value, valueJSON) // TODO test
+        return valueJSON
+    }
+    
+    function unmarshalJSON(valueJSON){
+        // print("==> unmarshalJSON:", valueJSON) // TODO test
+        var value = JSON.parse(valueJSON)
+        return value
+    }
+    
     Connections{
         target: rootWindow
 

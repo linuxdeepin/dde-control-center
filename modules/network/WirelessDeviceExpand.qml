@@ -37,11 +37,12 @@ DBaseExpand {
             return -1
         }
 
+        // TODO apObj
         function getInsertPosition(apProperty){
             var position = count
             for(var i; i<count; i++){
                 var obj = get(i)
-                if(apProperty[3] != obj.apPath && apProperty[2] >= obj.apSignal){
+                if(apProperty.Path != obj.apPath && apProperty.Strength >= obj.apSignal){
                     position = i
                     break
                 }
@@ -54,16 +55,16 @@ DBaseExpand {
         target: dbusNetwork
         onAccessPointAdded:{
             if(arg0 == devicePath){
-                var apProperty = dbusNetwork.GetAccessPointProperty(arg1)
-                var index = accessPointsModel.getIndexByApPath(arg1)
+                var apObj = unmarshalJSON(arg1)
+                var index = accessPointsModel.getIndexByApPath(apObj.Path)
                 if(index == -1){
-                    var insertPosition = accessPointsModel.getInsertPosition(apProperty)
+                    var insertPosition = accessPointsModel.getInsertPosition(apObj)
                     accessPointsModel.insert(insertPosition, {
-                        "apName": apProperty[0],
-                        "apSecured": apProperty[1],
-                        "apSecuredInEap": apProperty[2],
-                        "apSignal": apProperty[3],
-                        "apPath": apProperty[4]
+                        "apName": apObj.Ssid,
+                        "apSecured": apObj.Secured,
+                        "apSecuredInEap": apObj.SecuredInEap,
+                        "apSignal": apObj.Strength,
+                        "apPath": apObj.Path
                     })
                 }
             }
@@ -71,7 +72,8 @@ DBaseExpand {
 
         onAccessPointRemoved:{
             if(arg0 == devicePath){
-                var index = accessPointsModel.getIndexByApPath(arg1)
+                var apObj = unmarshalJSON(arg1)
+                var index = accessPointsModel.getIndexByApPath(apObj.Path)
                 if(index != -1){
                     accessPointsModel.remove(index, 1)
                 }
@@ -80,18 +82,19 @@ DBaseExpand {
 
         onAccessPointPropertiesChanged: {
             if(arg0 == devicePath){
-                var newApProperty = dbusNetwork.GetAccessPointProperty(arg1)
-                var index = accessPointsModel.getIndexByApPath(arg1)
-                var apPropertyObject = accessPointsModel.get(index)
-                for(var i in newApProperty){
-                    apPropertyObject.apName = newApProperty[0]
-                    apPropertyObject.apSecured = newApProperty[1]
-                    apPropertyObject.apSecuredInEap = newApProperty[2]
-                    apPropertyObject.apSignal = newApProperty[3]
-                    apPropertyObject.apPath = newApProperty[4]
-                }
+                var apObj = unmarshalJSON(arg1)
+                var index = accessPointsModel.getIndexByApPath(apObj.Path)
+                var apModelObj = accessPointsModel.get(index)
+                // TODO why use loop here?
+                // for(var i in apObj){
+                    apModelObj.apName = apObj.Ssid
+                    apModelObj.apSecured = apObj.Secured
+                    apModelObj.apSecuredInEap = apObj.SecuredInEap
+                    apModelObj.apSignal = apObj.Strength
+                    apModelObj.apPath = apObj.Path
+                // }
 
-                var insertPosition = accessPointsModel.getInsertPosition(newApProperty)
+                var insertPosition = accessPointsModel.getInsertPosition(apObj)
                 if(insertPosition != index){
                     accessPointsModel.move(index, position, 1)
                 }
@@ -181,18 +184,19 @@ DBaseExpand {
         id: scanTimer
         interval: 100
         onTriggered: {
-            var accessPoints = dbusNetwork.GetAccessPoints(devicePath)
+            var accessPoints = unmarshalJSON(dbusNetwork.GetAccessPoints(devicePath))
             wirelessDevicesExpand.inConnectingApPath = "/"
             accessPointsModel.clear()
 
             for(var i in accessPoints){
-                var ap = dbusNetwork.GetAccessPointProperty(accessPoints[i])
+                // TODO ap
+                var apObj = accessPoints[i]
                 accessPointsModel.append({
-                    "apName": ap[0],
-                    "apSecured": ap[1],
-                    "apSecuredInEap": ap[2],
-                    "apSignal": ap[3],
-                    "apPath": ap[4]
+                    "apName": apObj.Ssid,
+                    "apSecured": apObj.Secured,
+                    "apSecuredInEap": apObj.SecuredInEap,
+                    "apSignal": apObj.Strength,
+                    "apPath": apObj.Path
                 })
             }
             wirelessDevicesExpand.sortModel()
