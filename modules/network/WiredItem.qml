@@ -11,14 +11,14 @@ Column{
     property int wiredDevicesSignal: dbusNetwork.wiredDevices[index][1]
 
     function activateThisConnection(){
-        dbusNetwork.ActivateConnection(dbusNetwork.wiredConnections[index], dbusNetwork.wiredDevices[index][0])
+        dbusNetwork.ActivateConnection(dbusNetwork.GetWiredConnectionUuid(dbusNetwork.wiredDevices[index][0]), dbusNetwork.wiredDevices[index][0])
     }
 
     function goToEditConnection(){
-        // print("wired device path", dbusNetwork.wiredDevices[index][0])
+        // print("wired device path", dbusNetwork.wiredDevices[index][0]) // TODO test
         stackView.push({
             "item": stackViewPages["connectionPropertiesPage"],
-            "properties": { "uuid": dbusNetwork.wiredConnections[index], "devicePath": dbusNetwork.wiredDevices[index][0]},
+            "properties": { "uuid": dbusNetwork.GetWiredConnectionUuid(dbusNetwork.wiredDevices[index][0]), "devicePath": dbusNetwork.wiredDevices[index][0]},
             "destroyOnPop": true
         })
         stackView.currentItemId = "connectionPropertiesPage"
