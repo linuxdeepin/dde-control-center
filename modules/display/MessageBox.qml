@@ -45,7 +45,7 @@ Window {
                 totalTime = totalTime - 1
             }
             else{
-                displayId.ResetChanged()
+                displayId.ResetChanges()
                 hideDialog()
             }
         }
