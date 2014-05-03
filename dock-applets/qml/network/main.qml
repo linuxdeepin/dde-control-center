@@ -11,6 +11,16 @@ DockApplet{
     property url iconPath: "images/icon.png"
     property var dconstants: DConstants {}
 
+    function marshalJSON(value){
+        var valueJSON = JSON.stringify(value);
+        return valueJSON
+    }
+    
+    function unmarshalJSON(valueJSON){
+        var value = JSON.parse(valueJSON)
+        return value
+    }
+    
     function showNetwork(){
         dbusControlCenter.ShowModule("network")
     }

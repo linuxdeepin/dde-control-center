@@ -37,12 +37,11 @@ DBaseExpand {
             return -1
         }
 
-        // TODO apObj
-        function getInsertPosition(apProperty){
+        function getInsertPosition(apObj){
             var position = count
             for(var i; i<count; i++){
                 var obj = get(i)
-                if(apProperty.Path != obj.apPath && apProperty.Strength >= obj.apSignal){
+                if(apObj.Path != obj.apPath && apObj.Strength >= obj.apSignal){
                     position = i
                     break
                 }

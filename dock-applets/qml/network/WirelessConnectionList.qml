@@ -52,11 +52,11 @@ Column {
             return -1
         }
 
-        function getInsertPosition(apProperty){
+        function getInsertPosition(apObj){
             var position = count
             for(var i; i<count; i++){
                 var obj = get(i)
-                if(apProperty[3] != obj.apPath && apProperty[2] >= obj.apSignal){
+                if(apObj.Path != obj.apPath && apObj.Strength >= obj.apSignal){
                     position = i
                     break
                 }
@@ -70,18 +70,19 @@ Column {
         interval: 100
         running: true
         onTriggered: {
-            var accessPoints = dbusNetwork.GetAccessPoints(wirelessDevicePath)
+            var accessPoints = unmarshalJSON(dbusNetwork.GetAccessPoints(devicePath))
             inConnectingApPath = "/"
             accessPointsModel.clear()
 
             for(var i in accessPoints){
-                var ap = dbusNetwork.GetAccessPointProperty(accessPoints[i])
+                // TODO ap
+                var apObj = accessPoints[i]
                 accessPointsModel.append({
-                    "apName": ap[0],
-                    "apSecured": ap[1],
-                    "apSecuredInEap": ap[2],
-                    "apSignal": ap[3],
-                    "apPath": ap[4]
+                    "apName": apObj.Ssid,
+                    "apSecured": apObj.Secured,
+                    "apSecuredInEap": apObj.SecuredInEap,
+                    "apSignal": apObj.Strength,
+                    "apPath": apObj.Path
                 })
             }
             sortModel()
