@@ -15,11 +15,17 @@ DBaseExpand {
     property string inConnectingApPath: "/"
 
     Component.onCompleted: {
-        for(var i in dbusNetwork.wirelessDevices){
-            if(dbusNetwork.wirelessDevices[i][0] == wirelessDevicesExpand.devicePath){
-                wirelessDevicesExpand.deviceStatus = dbusNetwork.wirelessDevices[i][1]
+        for(var i in wirelessDevices){
+            if(wirelessDevices[i].Path == wirelessDevicesExpand.devicePath){
+                wirelessDevicesExpand.deviceStatus = wirelessDevices[i].State
             }
         }
+        // TODO remove
+        // for(var i in dbusNetwork.wirelessDevices){
+        //     if(dbusNetwork.wirelessDevices[i][0] == wirelessDevicesExpand.devicePath){
+        //         wirelessDevicesExpand.deviceStatus = dbusNetwork.wirelessDevices[i][1]
+        //     }
+        // }
         if(!scanTimer.running){
             scanTimer.start()
         }
@@ -114,11 +120,11 @@ DBaseExpand {
         leftLoader.sourceComponent: DssH2 {
             anchors.verticalCenter: parent.verticalCenter
             text: {
-                if(dbusNetwork.wirelessDevices.length < 2){
+                if(wirelessDevices.length < 2){
                     return dsTr("Wireless Device: %1").arg(deviceStatus)
                 }
                 else{
-                    return dsTr("Wireless Device %1").arg(index + 1)
+                    return dsTr("Wireless Device %1 %2").arg(index + 1).arg(deviceStatus)
                 }
             }
             MouseArea {

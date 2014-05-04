@@ -11,48 +11,43 @@ Item {
 
     property string devicePath: "/"
     property string deviceHwAddr
-    // property string uuid: dbusNetwork.GetConnectionUuidByAccessPoint(apPath) // TODO remove GetConnectionUuidByAccessPoint()
-    property string uuid: getWirelessConnectionUuid()
-    property bool apConnected: isActiveConnection(devicePath, uuid)
+    property string connectionPath
+    property string uuid
+    property bool apConnected: isActiveConnection(devicePath, uuid) && deviceStatus == nmDeviceStateActivated
 
     Behavior on height {
         PropertyAnimation { duration: 100 }
     }
 
-    function getWirelessConnectionUuid() {
+    Connections {
+        target: dbusNetwork
+        onConnectionsChanged: {
+            updateWirelessConnectionInfo()
+        }
+    }
+    Component.onCompleted: {
+        updateWirelessConnectionInfo()
+    }
+    
+    function updateWirelessConnectionInfo() {
         var wirelessConnections = nmConnections[nmConnectionTypeWireless]
+        var connectionPath = ""
         var uuid = ""
         for (var i in wirelessConnections) {
             if (apName == wirelessConnections[i].Ssid) {
                 if (wirelessConnections[i].HwAddr == "" || wirelessConnections[i].HwAddr == deviceHwAddr) {
+                    connectionPath = wirelessConnections[i].Path
                     uuid = wirelessConnections[i].Uuid
-                    print("update uuid:", wirelessConnections[i].Ssid, uuid, deviceHwAddr) // TODO test
+                    print("update connection:", wirelessConnections[i].Ssid, uuid, connectionPath, deviceHwAddr) // TODO test
                     break
                 }
             }
         }
-        return uuid
+        wirelessItem.connectionPath = connectionPath
+        wirelessItem.uuid = uuid
     }
     
-    // TODO remove
-    // function requestUuid(){
-    //     // TODO get uuid each time to fix connection issue temporary
-    //     var uuid = dbusNetwork.GetConnectionUuidByAccessPoint(apPath)
-    //     print("uuid=",uuid, uuid=="") // TODO test
-    //     if(uuid == ""){
-    //         uuid = dbusNetwork.CreateConnectionForAccessPoint(apPath)
-    //         print("create connection, uuid=",uuid)
-    //     }
-    //     if(uuid != ""){
-    //         wirelessItem.uuid = uuid
-    //     }
-    //     if(wirelessItem.uuid == ""){
-    //         wirelessItem.uuid = dbusNetwork.CreateConnectionForAccessPoint(apPath)
-    //     }
-    // }
-
     function activateThisConnection(){
-        print(devicePath, deviceHwAddr)                 //TODO test
         if (apSecuredInEap && uuid == "") {
             // if security in eap, go to edit connection
             print("secured in eap") // TODO debug
@@ -240,9 +235,8 @@ Item {
             target: networkModule
             onNeedSecretsEmit: {
                 if (wirelessItem.uuid != ""){
-                    // TODO remove GetConnectionPathByUuid()
-                    passwordArea.path = dbusNetwork.GetConnectionPathByUuid(wirelessItem.uuid)
-                    print(passwordArea.path)
+                    passwordArea.path = wirelessItem.connectionPath
+                    print("onNeedSecretsEmit:", passwordArea.path, path) // TODO test
                     if(passwordArea.path == path){
                         passwordArea.showArea(encryptionName)
                     }

@@ -41,6 +41,13 @@ Column{
     readonly property var nmDeviceStateDeactivating: 110
     readonly property var nmDeviceStateFailed: 120
 
+    // active connection state
+    readonly property var nmActiveConnectionStateUnknown: 0
+    readonly property var nmActiveConnectionStateActivating: 1
+    readonly property var nmActiveConnectionStateActivated: 2
+    readonly property var nmActiveConnectionStateDeactivating: 3
+    readonly property var nmActiveConnectionStateDeactivate: 4
+
     // networking state
     readonly property var nmStateUnknown: 0
     readonly property var nmStateAsleep: 10
@@ -102,7 +109,10 @@ Column{
     
     function isActiveConnection(devPath, uuid) {
         for (var i in nmActiveConnections) {
-            if (getIndexFromArray(devPath, nmActiveConnections[i].Devices) != -1 && nmActiveConnections[i].Uuid == uuid) {
+            if (getIndexFromArray(devPath, nmActiveConnections[i].Devices) != -1 &&
+            nmActiveConnections[i].Uuid == uuid) {
+                // TODO fix active state issue
+            // nmActiveConnections[i].State == nmActiveConnectionStateActivated) {
                 return true
             }
         }
