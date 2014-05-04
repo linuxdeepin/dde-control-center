@@ -61,7 +61,7 @@ Column{
     readonly property var nmConnectionTypeVpn: "vpn"
  
     property var dbusNetwork: NetworkManager{}
-    property var activeConnections: dbusNetwork.activeConnections
+    property var activeConnections: unmarshalJSON(dbusNetwork.activeConnections)
     property var devices: unmarshalJSON(dbusNetwork.devices)
     property var connections: unmarshalJSON(dbusNetwork.connections)
 
@@ -81,20 +81,29 @@ Column{
         // "wiredPropertiesPage": Qt.resolvedUrl("WiredProperties.qml")
     }
 
-    function resetConnectionSession(){
+    function resetConnectionSession() {
         if(stackView.currentItemId == "connectionPropertiesPage"){
             stackView.currentItem.connectionSessionObject.Close()
         }
     }
 
-    function marshalJSON(value){
+    function marshalJSON(value) {
         var valueJSON = JSON.stringify(value);
         return valueJSON
     }
     
-    function unmarshalJSON(valueJSON){
+    function unmarshalJSON(valueJSON) {
         var value = JSON.parse(valueJSON)
         return value
+    }
+    
+    function isActiveConnection(devPath, uuid) {
+        for (var i in activeConnections) {
+            if (getIndexFromArray(devPath, activeConnections[i].Devices) != -1 && activeConnections[i].Uuid == uuid) {
+                return true
+            }
+        }
+        return false
     }
     
     Connections{

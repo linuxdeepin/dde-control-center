@@ -11,7 +11,7 @@ Item {
 
     property string devicePath: "/"
     property string uuid: dbusNetwork.GetConnectionUuidByAccessPoint(apPath) // TODO remove GetConnectionUuidByAccessPoint()
-    property bool apConnected: getIndexFromArray(uuid, activeConnections) != -1
+    property bool apConnected: isActiveConnection(wirelessItem.devicePath, uuid)
 
     Behavior on height {
         PropertyAnimation { duration: 100 }
