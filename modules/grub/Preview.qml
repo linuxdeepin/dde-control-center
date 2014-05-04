@@ -112,7 +112,7 @@ Item {
     Rectangle {
         id: tooltip
         width: parent.width + 2 * radius
-        height: txt.implicitHeight + 16
+        height: txt.implicitHeight + 6
         radius: 5
         color: Qt.rgba(0.1, 0.1, 0.1, 0.5)
         anchors.horizontalCenter: parent.horizontalCenter
