@@ -20,13 +20,6 @@ DockApplet {
 
     property url iconPath: getIconPath()
 
-    Connections{
-        target: dbusPower
-        onBatteryPercentageChanged: {
-            root.iconPath = getIconPath()
-        }
-    }
-
     function showPower(){
         dbusControlCenter.ShowModule("power")
     }
