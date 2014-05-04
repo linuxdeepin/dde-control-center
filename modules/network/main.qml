@@ -41,7 +41,7 @@ Column{
     readonly property var nmDeviceStateDeactivating: 110
     readonly property var nmDeviceStateFailed: 120
 
-    // network state
+    // networking state
     readonly property var nmStateUnknown: 0
     readonly property var nmStateAsleep: 10
     readonly property var nmStateDisconnected: 20
@@ -61,9 +61,9 @@ Column{
     readonly property var nmConnectionTypeVpn: "vpn"
  
     property var dbusNetwork: NetworkManager{}
-    property var activeConnections: unmarshalJSON(dbusNetwork.activeConnections)
-    property var devices: unmarshalJSON(dbusNetwork.devices)
-    property var connections: unmarshalJSON(dbusNetwork.connections)
+    property var nmActiveConnections: unmarshalJSON(dbusNetwork.activeConnections)
+    property var nmDevices: unmarshalJSON(dbusNetwork.devices)
+    property var nmConnections: unmarshalJSON(dbusNetwork.connections)
 
     signal needSecretsEmit(string path, string encryptionName, string accessPointName)
 
@@ -93,13 +93,16 @@ Column{
     }
     
     function unmarshalJSON(valueJSON) {
+        if (!valueJSON) {
+            print("==> [ERROR] unmarshalJSON", valueJSON)
+        }
         var value = JSON.parse(valueJSON)
         return value
     }
     
     function isActiveConnection(devPath, uuid) {
-        for (var i in activeConnections) {
-            if (getIndexFromArray(devPath, activeConnections[i].Devices) != -1 && activeConnections[i].Uuid == uuid) {
+        for (var i in nmActiveConnections) {
+            if (getIndexFromArray(devPath, nmActiveConnections[i].Devices) != -1 && nmActiveConnections[i].Uuid == uuid) {
                 return true
             }
         }

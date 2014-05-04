@@ -10,40 +10,68 @@ Item {
     height: childrenRect.height
 
     property string devicePath: "/"
-    property string uuid: dbusNetwork.GetConnectionUuidByAccessPoint(apPath) // TODO remove GetConnectionUuidByAccessPoint()
-    property bool apConnected: isActiveConnection(wirelessItem.devicePath, uuid)
+    property string deviceHwAddr
+    // property string uuid: dbusNetwork.GetConnectionUuidByAccessPoint(apPath) // TODO remove GetConnectionUuidByAccessPoint()
+    property string uuid: getWirelessConnectionUuid()
+    property bool apConnected: isActiveConnection(devicePath, uuid)
 
     Behavior on height {
         PropertyAnimation { duration: 100 }
     }
 
-    // onWirelessConnectionsChanged: {
-    //     print(wirelessConnections)
-    // }
-    
-    function requestUuid(){
-        // TODO get uuid each time to fix connection issue temporary
-        var uuid = dbusNetwork.GetConnectionUuidByAccessPoint(apPath)
-        print("uuid=",uuid, uuid=="")
-        if(uuid == ""){
-            uuid = dbusNetwork.CreateConnectionForAccessPoint(apPath)
-            print("create connection, uuid=",uuid)
+    function getWirelessConnectionUuid() {
+        var wirelessConnections = nmConnections[nmConnectionTypeWireless]
+        var uuid = ""
+        for (var i in wirelessConnections) {
+            if (apName == wirelessConnections[i].Ssid) {
+                if (wirelessConnections[i].HwAddr == "" || wirelessConnections[i].HwAddr == deviceHwAddr) {
+                    uuid = wirelessConnections[i].Uuid
+                    print("update uuid:", wirelessConnections[i].Ssid, uuid, deviceHwAddr) // TODO test
+                    break
+                }
+            }
         }
-        if(uuid != ""){
-            wirelessItem.uuid = uuid
-        }
-        if(wirelessItem.uuid == ""){
-            wirelessItem.uuid = dbusNetwork.CreateConnectionForAccessPoint(apPath)
-        }
+        return uuid
     }
+    
+    // TODO remove
+    // function requestUuid(){
+    //     // TODO get uuid each time to fix connection issue temporary
+    //     var uuid = dbusNetwork.GetConnectionUuidByAccessPoint(apPath)
+    //     print("uuid=",uuid, uuid=="") // TODO test
+    //     if(uuid == ""){
+    //         uuid = dbusNetwork.CreateConnectionForAccessPoint(apPath)
+    //         print("create connection, uuid=",uuid)
+    //     }
+    //     if(uuid != ""){
+    //         wirelessItem.uuid = uuid
+    //     }
+    //     if(wirelessItem.uuid == ""){
+    //         wirelessItem.uuid = dbusNetwork.CreateConnectionForAccessPoint(apPath)
+    //     }
+    // }
 
     function activateThisConnection(){
-        wirelessItem.uuid = dbusNetwork.ActivateConnectionForAccessPoint(apPath, wirelessItem.devicePath)
-        wirelessDevicesExpand.inConnectingApPath = apPath
+        print(devicePath, deviceHwAddr)                 //TODO test
+        if (apSecuredInEap && uuid == "") {
+            // if security in eap, go to edit connection
+            print("secured in eap") // TODO debug
+            goToEditConnection()
+        } else {
+            dbusNetwork.ActivateConnectionForAccessPoint(apPath, wirelessItem.devicePath)
+            wirelessDevicesExpand.inConnectingApPath = apPath
+        }
     }
 
     function goToEditConnection(){
-        wirelessItem.requestUuid()
+        if (uuid != "") {
+            doGoToEditConnection()
+        } else {
+            doGoToCreateConnection()
+        }
+    }
+
+    function doGoToEditConnection(){
         stackView.push({
             "item": stackViewPages["connectionPropertiesPage"],
             "properties": { "uuid": wirelessItem.uuid, "devicePath": wirelessItem.devicePath },
@@ -52,6 +80,15 @@ Item {
         stackView.currentItemId = "connectionPropertiesPage"
     }
 
+    function doGoToCreateConnection(){
+        stackView.push({
+            "item": stackViewPages["connectionPropertiesPage"],
+            "properties": { "create": true, "type":  nmConnectionTypeWireless},
+            "destroyOnPop": true
+        })
+        stackView.currentItemId = "connectionPropertiesPage"
+    }
+    
     DBaseLine {
         id: wirelessLine
 
@@ -74,15 +111,8 @@ Item {
 
             onClicked: {
                 if(!apConnected){
-                    if(apSecuredInEap) {
-                        // if security in eap, go to edit connection always
-                        print("secured in eap") // TODO debug
-                        goToEditConnection()
-                    }
-                    else{
-                        print("activate connection") // TODO debug
-                        activateThisConnection()
-                    }
+                    print("activate connection") // TODO debug
+                    activateThisConnection()
                 }
                 else{
                     print("edit connection") // TODO debug
