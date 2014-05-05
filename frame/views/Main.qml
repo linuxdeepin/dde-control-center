@@ -4,6 +4,7 @@ import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Display 1.0
 import DBus.Com.Deepin.Api.XMouseArea 1.0
+import DBus.Com.Deepin.Daemon.Network 1.0
 
 QtObject {
     id: root
@@ -44,6 +45,19 @@ QtObject {
     property var dsslocale: DLocale {
         domain: "deepin-system-settings"
         dirname: "../../locale"
+    }
+
+    property var dbusNetwork: NetworkManager {
+        onNeedSecrets:{
+            print("NeedSectets Emit in dss Frame:", arg0, arg1, arg2)
+            if(getNetworkCanShowPassword()){
+                rootWindow.panelContent.rightBoxLoader.item.needSecretsEmit(arg0, arg1, arg2)
+            }
+        }
+    }
+
+    function getNetworkCanShowPassword() {
+        return (rootWindow.displayWidth !=0 && rootWindow.panelContent.currentContentId == "network" && rootWindow.panelContent.rightBoxLoader.item.inAllConnectionPage)
     }
 
     property var rootWindow: PanelWindow {}

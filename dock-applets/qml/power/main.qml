@@ -11,7 +11,7 @@ DockApplet {
             return parseInt(dbusPower.batteryPercentage) + "%"
         }
         else{
-            return "%1% On Changing...".arg(parseInt(dbusPower.batteryPercentage))
+            return "%1% ".arg(dbusPower.batteryPercentage) + dsTr("Charging")
         }
     }
     appid: "AppletPower"
@@ -42,7 +42,7 @@ DockApplet {
     function getIconPath(){
         var percentage = parseInt(dbusPower.batteryPercentage)
         if (!dbusPower.onBattery){
-            return "images/power_100_full.png"
+            return "images/power_on_100.png"
         }
         else if(percentage <= 10){
             return "images/power_0.png"

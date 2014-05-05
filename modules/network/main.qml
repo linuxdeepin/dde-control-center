@@ -66,6 +66,11 @@ Column{
     readonly property var nmConnectionTypePppoe: "pppoe"
     readonly property var nmConnectionTypeMobile: "mobile"
     readonly property var nmConnectionTypeVpn: "vpn"
+    readonly property var nmConnectionTypeVpnL2tp: "vpn-l2tp"
+	readonly property var nmConnectionTypeVpnPptp: "vpn-pptp"
+	readonly property var nmConnectionTypeVpnVpnc: "vpn-vpnc"
+	readonly property var nmConnectionTypeVpnOpenvpn: "vpn-openvpn"
+	readonly property var nmConnectionTypeVpnOpenconnect: "vpn-openconnect"
  
     property var dbusNetwork: NetworkManager{}
     property var nmActiveConnections: unmarshalJSON(dbusNetwork.activeConnections)

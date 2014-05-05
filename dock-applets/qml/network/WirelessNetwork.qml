@@ -2,25 +2,31 @@ import QtQuick 2.0
 import Deepin.Widgets 1.0
 
 Column {
+    id: rootWirelessNetwork
     width: parent.width
     height: childrenRect.height
+    property int deviceStatus: wirelessDevices[index].State
+    property string devicePath: wirelessDevices[index].Path
+    property string deviceHwAddr: wirelessDevices[index].HwAddr
+    property string inConnectingApPath: "/"
 
     DBaseExpand {
         width: parent.width
         height: childrenRect.height
-        expanded: dbusNetwork.wirelessEnabled
-
         headerRect.color: "transparent"
         contentRect.color: "transparent"
         separator.visible: false
 
+        expanded: dbusNetwork.wirelessEnabled
+
+        //expanded: deviceStatus != 20 // TODO
         header.sourceComponent: Item {
             width: parent.width
             height: 30
             DssH2{
-                text: wirelessDeviceList.length > 1 ? dsTr("Wireless Network %1").arg(index + 1) : dsTr("Wireless Network")
+                text: wirelessDevicesNumber > 1 ? dsTr("Wireless Network %1").arg(index + 1) : dsTr("Wireless Network")
                 anchors.left: parent.left
-                anchors.leftMargin: 28
+                anchors.leftMargin: 24
                 anchors.verticalCenter: parent.verticalCenter
             }
 
@@ -45,9 +51,6 @@ Column {
             }
         }
 
-        content.sourceComponent: WirelessConnectionList {
-            width: parent.width
-            wirelessDevicePath: modelData
-        }
+        content.sourceComponent: WirelessApList {}
     }
 }

@@ -90,16 +90,18 @@ DBaseExpand {
             if(arg0 == devicePath){
                 var apObj = unmarshalJSON(arg1)
                 var index = accessPointsModel.getIndexByApPath(apObj.Path)
-                var apModelObj = accessPointsModel.get(index)
-                apModelObj.apName = apObj.Ssid
-                apModelObj.apSecured = apObj.Secured
-                apModelObj.apSecuredInEap = apObj.SecuredInEap
-                apModelObj.apSignal = apObj.Strength
-                apModelObj.apPath = apObj.Path
+                if (index != -1){
+                    var apModelObj = accessPointsModel.get(index)
+                    apModelObj.apName = apObj.Ssid
+                    apModelObj.apSecured = apObj.Secured
+                    apModelObj.apSecuredInEap = apObj.SecuredInEap
+                    apModelObj.apSignal = apObj.Strength
+                    apModelObj.apPath = apObj.Path
 
-                var insertPosition = accessPointsModel.getInsertPosition(apObj)
-                if(insertPosition != index){
-                    accessPointsModel.move(index, position, 1)
+                    var insertPosition = accessPointsModel.getInsertPosition(apObj)
+                    if(insertPosition != index){
+                        accessPointsModel.move(index, position, 1)
+                    }
                 }
             }
         }

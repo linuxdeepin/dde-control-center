@@ -84,9 +84,9 @@ Item {
             content.sourceComponent: DSliderEnhanced {
                 width: sliderWidth
 
-                min: 100
-                max: 2000
-                init: dbusKeyboard.repeatDelay
+                min: 20
+                max: 600
+                init: parseInt(dbusKeyboard.repeatDelay)
                 valueDisplayVisible: false
 
                 onValueConfirmed:{
@@ -94,8 +94,9 @@ Item {
                 }
 
                 Component.onCompleted: {
-                    addRuler(100, dsTr("Short"))
-                    addRuler(2000, dsTr("Long"))
+                    print(dbusKeyboard.repeatDelay)
+                    addRuler(20, dsTr("Short"))
+                    addRuler(600, dsTr("Long"))
                 }
             }
         }
@@ -109,18 +110,20 @@ Item {
             content.sourceComponent: DSliderEnhanced {
                 width: sliderWidth
 
-                min: 2000
-                max: 30
+                min: 1000
+                max: 200
                 init: dbusKeyboard.repeatInterval
                 valueDisplayVisible: false
 
                 onValueConfirmed:{
                     dbusKeyboard.repeatInterval = value
+                    print(dbusKeyboard.repeatInterval)
                 }
 
                 Component.onCompleted: {
-                    addRuler(30, dsTr("Fast"))
-                    addRuler(2000, dsTr("Slow"))
+                    print(dbusKeyboard.repeatInterval)
+                    addRuler(200, dsTr("Fast"))
+                    addRuler(1000, dsTr("Slow"))
                 }
             }
         }

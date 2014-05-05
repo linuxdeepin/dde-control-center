@@ -9,8 +9,7 @@ import "../widgets/"
 DockApplet{
     title: "DSS"
     appid: "AppletDss"
-    icon: iconPath
-    property url iconPath: "images/icon.png"
+    icon: "preferences-system"
 
     // display
     property var dbusDisplay: Display{}

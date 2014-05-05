@@ -8,17 +8,12 @@ DockApplet{
     title: "DSS"
     appid: "AppletNetwork"
     icon: iconPath
-    property url iconPath: "images/icon.png"
+    property url iconPath: "images/network_on.png"
     property var dconstants: DConstants {}
 
     function marshalJSON(value){
         var valueJSON = JSON.stringify(value);
         return valueJSON
-    }
-    
-    function unmarshalJSON(valueJSON){
-        var value = JSON.parse(valueJSON)
-        return value
     }
     
     function showNetwork(){
@@ -40,17 +35,17 @@ DockApplet{
         }
     }
 
-    property var activeConnections: dbusNetwork.activeConnections
-
-    function getWiredDeviceList(){
-        var r = new Array()
-        var devices = dbusNetwork.wiredDevices
-        for(var i in devices){
-            r.push(devices[i][0])
+    property var nmActiveConnections: unmarshalJSON(dbusNetwork.activeConnections)
+    function isActiveConnection(devPath, uuid) {
+        for (var i in nmActiveConnections) {
+            if (getIndexFromArray(devPath, nmActiveConnections[i].Devices) != -1 &&
+            nmActiveConnections[i].Uuid == uuid) {
+                return true
+            }
         }
-        return r
+        return false
     }
-    property var wiredDeviceList: getWiredDeviceList()
+    property var nmConnections: unmarshalJSON(dbusNetwork.connections)
 
     window: DockQuickWindow {
         id: root
@@ -64,12 +59,12 @@ DockApplet{
 
             Repeater{
                 id: wirelessNetworkRepeater
-                model: wirelessDeviceList
+                model: wirelessDevicesNumber
                 delegate: Loader {
                     id: wirelessNetworkArea
                     width: parent.width
                     height: childrenRect.height
-                    source: "WirelessConnection.qml"
+                    source: "WirelessNetwork.qml"
                 }
             }
         }

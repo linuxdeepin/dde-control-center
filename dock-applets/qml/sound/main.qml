@@ -28,7 +28,7 @@ DockApplet{
         else{
             step = 100
         }
-        return "images/sound-%1.png".arg(step)
+        return "images/sound_%1.png".arg(step)
     }
 
     onActivate:{
@@ -116,7 +116,7 @@ DockApplet{
                         anchors.rightMargin: xEdgePadding
                         anchors.verticalCenter: parent.verticalCenter
                         minimumValue: 0
-                        maximumValue: 150
+                        maximumValue: 100
                         stepSize: 1
 
                         onValueChanged: {

@@ -59,6 +59,10 @@ class DssDbusAdptor(QtDBus.QDBusAbstractAdaptor):
     def ShowModule(self, moduleName):
         self.parent().view_object.showModule(moduleName)
 
+    @QtCore.pyqtSlot(result=bool)
+    def isNetworkCanShowPassword(self):
+        return self.parent().view_object.getNetworkCanShowPassword()
+
     @QtCore.pyqtSlot()
     def ShowImmediately(self):
         self.parent().view_object.showDssImmediately()

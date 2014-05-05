@@ -5,24 +5,70 @@ Column {
     id: wirelessDeviceList
     width: parent.width
 
-    property string wirelessDevicePath: "/"
-    property string inConnectingApPath: "/"
+    Connections {
+        target: dbusNetwork
+        onAccessPointAdded:{
+            if(arg0 == devicePath){
+                var apObj = unmarshalJSON(arg1)
+                var index = accessPointsModel.getIndexByApPath(apObj.Path)
+                if(index == -1){
+                    var insertPosition = accessPointsModel.getInsertPosition(apObj)
+                    accessPointsModel.insert(insertPosition, {
+                        "apName": apObj.Ssid,
+                        "apSecured": apObj.Secured,
+                        "apSecuredInEap": apObj.SecuredInEap,
+                        "apSignal": apObj.Strength,
+                        "apPath": apObj.Path
+                    })
+                }
+            }
+        }
 
-    Rectangle {
-        width: parent.width - 10
-        height: 1
-        color: Qt.rgba(1, 1, 1, 0.1)
-        anchors.horizontalCenter: parent.horizontalCenter
+        onAccessPointRemoved: {
+            if(arg0 == devicePath){
+                var apObj = unmarshalJSON(arg1)
+                var index = accessPointsModel.getIndexByApPath(apObj.Path)
+                if(index != -1){
+                    accessPointsModel.remove(index, 1)
+                }
+            }
+        }
+
+        onAccessPointPropertiesChanged: {
+            if(arg0 == devicePath){
+                var apObj = unmarshalJSON(arg1)
+                var index = accessPointsModel.getIndexByApPath(apObj.Path)
+                if (index != -1){
+                    var apModelObj = accessPointsModel.get(index)
+                    apModelObj.apName = apObj.Ssid
+                    apModelObj.apSecured = apObj.Secured
+                    apModelObj.apSecuredInEap = apObj.SecuredInEap
+                    apModelObj.apSignal = apObj.Strength
+                    apModelObj.apPath = apObj.Path
+
+                    var insertPosition = accessPointsModel.getInsertPosition(apObj)
+                    if(insertPosition != index){
+                        accessPointsModel.move(index, position, 1)
+                    }
+                }
+            }
+        }
+
+        onDeviceStateChanged: {
+            if(arg0 == devicePath){
+                deviceStatus = arg1
+                if(arg1 == 100){ // TODO
+                    inConnectingApPath = "/"
+                }
+            }
+        }
     }
 
     ListView {
         width: parent.width
         height: Math.min(childrenRect.height, 255)
         model: accessPointsModel
-        delegate: WirelessConnectionItem{
-            devicePath: wirelessDevicePath
-            inConnectingApPath: wirelessDeviceList.inConnectingApPath
-        }
+        delegate: WirelessApItem {}
         visible: accessPointsModel.count > 0
 
         DScrollBar {

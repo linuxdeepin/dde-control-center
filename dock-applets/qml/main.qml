@@ -27,8 +27,10 @@ QtObject {
     property var appletListModel: ListModel {}
 
     // start init dbus backend
+    // ControlCenter
     property var dbusControlCenter: ControlCenter{}
 
+    // DiskMount
     property var dbusDiskMount: DiskMount {}
     property var mountDiskList: {
         var diskList = dbusDiskMount.diskList
@@ -46,31 +48,50 @@ QtObject {
         update_applet_list("disk_mount", add)
     }
 
+    // Power
     property var dbusPower: Power{
         onBatteryIsPresentChanged:{
             update_applet_list("power", batteryIsPresent)
         }
     }
-    property var dbusNetwork: NetworkManager{
-        onWirelessDevicesChanged: {
-            wirelessDeviceList = getWirelessDeviceList()
+
+    // NetworkManager
+    property var dbusNetwork: NetworkManager {
+        onNeedSecrets:{
+            print("NeedSectets Emit in dss Frame:", arg0, arg1, arg2)
+            if(!dbusControlCenter.isNetworkCanShowPassword()){
+                passwordWindow.accessPointObj = arg0
+                passwordWindow.accessPointEncryption = arg1
+                passwordWindow.accessPointName = arg2
+                passwordWindow.showDialog()
+            }
         }
     }
-    function getWirelessDeviceList(){
-        var r = new Array()
-        var devices = dbusNetwork.wirelessDevices
-        for(var i in devices){
-            r.push(devices[i][0])
+    property var wirelessDevices: unmarshalJSON(dbusNetwork.devices)["wireless"]
+    property var wirelessDevicesNumber: {
+        if(wirelessDevices){
+            return wirelessDevices.length
         }
-        return r
+        else{
+            return 0
+        }
     }
 
-    property var wirelessDeviceList: getWirelessDeviceList()
-
-    onWirelessDeviceListChanged: {
-        var add = wirelessDeviceList.length > 0
+    onWirelessDevicesNumberChanged: {
+        var add = wirelessDevicesNumber > 0
         update_applet_list("network", add)
     }
+
+    function unmarshalJSON(valueJSON) {
+        if (!valueJSON) {
+            print("==> [ERROR] unmarshalJSON", valueJSON)
+        }
+        var value = JSON.parse(valueJSON)
+        return value
+    }
+
+    property var passwordWindow: WifiPasswordWindow {}
+
     // finish init dbus backend
 
     property var dssLocale: DLocale{
@@ -192,4 +213,5 @@ QtObject {
             }
         }
     }
+
 }

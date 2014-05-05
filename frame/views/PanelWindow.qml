@@ -21,6 +21,7 @@ DOverrideWindow {
     property var dconstants: DConstants {}
     property var listModelComponent: DListModelComponent {}
     property bool clickedToHide: true
+    property alias panelContent: panelContent
 
     function showModule(moduleId){
         panelContent.moduleIconList.iconClickAction(moduleId)

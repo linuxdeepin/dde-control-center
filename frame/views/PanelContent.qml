@@ -5,7 +5,6 @@ import Deepin.Widgets 1.0
 import DBus.Com.Deepin.SessionManager 1.0
 import DBus.Com.Deepin.Daemon.Accounts 1.0
 import DBus.Com.Deepin.Daemon.InputDevices 1.0
-import DBus.Com.Deepin.Daemon.Network 1.0
 
 Rectangle {
     id: panelContent
@@ -14,6 +13,7 @@ Rectangle {
     property alias moduleLoaderItem: rightBoxLoaderItem
     property alias moduleBox: rightBox
     property alias moduleIconList: moduleIconList
+    property alias rightBoxLoader: rightBoxLoader
 
     property var inputDevicesId: InputDevices {}
     property bool isTouchpadExist: {
@@ -28,23 +28,6 @@ Rectangle {
 
     property bool isSiderNavigate: false
     property string currentContentId: ""
-
-    property var passwordWindow: WifiPasswordWindow {}
-    property var dbusNetwork: NetworkManager{
-        onNeedSecrets:{
-            print("NeedSectets Emit in dss Frame:", arg0, arg1, arg2)
-            if(currentContentId == "network"
-            && rightBoxLoader.item.inAllConnectionPage){
-                rightBoxLoader.item.needSecretsEmit(arg0, arg1, arg2)
-            }
-            else{
-                passwordWindow.accessPointObj = arg0
-                passwordWindow.accessPointEncryption = arg1
-                passwordWindow.accessPointName = arg2
-                passwordWindow.showDialog()
-            }
-        }
-    }
 
     property var iconIdToIndex
     property color tuhaoColor: "#faca57"
