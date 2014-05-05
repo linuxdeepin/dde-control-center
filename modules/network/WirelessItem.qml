@@ -48,25 +48,29 @@ Item {
     }
     
     function activateThisConnection(){
-        if (apSecuredInEap && uuid == "") {
-            // if security in eap, go to edit connection
-            print("secured in eap") // TODO debug
-            goToEditConnection()
+        if (uuid == "" && apSecuredInEap) {
+            // if access point under the security eap and there is
+            // no valid connection for it, go to connection
+            // property page and create connection session through
+            // CreateConnectionForAccessPoint()
+            goToCreateConnection()
         } else {
-            dbusNetwork.ActivateConnectionForAccessPoint(apPath, wirelessItem.devicePath)
+            // connection for current access point exists, just activate it
+            dbusNetwork.ActivateAccessPoint(apPath, wirelessItem.devicePath)
             wirelessDevicesExpand.inConnectingApPath = apPath
         }
     }
 
-    function goToEditConnection(){
+    function editThisConnection(){
         if (uuid != "") {
-            doGoToEditConnection()
+            print("goToEditConnection", uuid)
+            goToEditConnection()
         } else {
-            doGoToCreateConnection()
+            print("goToCreateConnection")
+            goToCreateConnection()
         }
     }
-
-    function doGoToEditConnection(){
+    function goToEditConnection(){
         stackView.push({
             "item": stackViewPages["connectionPropertiesPage"],
             "properties": { "uuid": wirelessItem.uuid, "devicePath": wirelessItem.devicePath },
@@ -74,11 +78,10 @@ Item {
         })
         stackView.currentItemId = "connectionPropertiesPage"
     }
-
-    function doGoToCreateConnection(){
+    function goToCreateConnection(){
         stackView.push({
             "item": stackViewPages["connectionPropertiesPage"],
-            "properties": { "create": true, "type":  nmConnectionTypeWireless},
+            "properties": { "createForAp": true, "apPath": apPath, "devPath": wirelessItem.devicePath},
             "destroyOnPop": true
         })
         stackView.currentItemId = "connectionPropertiesPage"
@@ -111,7 +114,7 @@ Item {
                 }
                 else{
                     print("edit connection") // TODO debug
-                    goToEditConnection()
+                    editThisConnection()
                 }
             }
         }
@@ -191,7 +194,7 @@ Item {
 
             DArrowButton {
                 onClicked: {
-                    goToEditConnection()
+                    editThisConnection()
                 }
             }
         }

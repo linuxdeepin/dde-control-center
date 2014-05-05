@@ -8,17 +8,25 @@ Column{
     // edit connection
     property var uuid
     property var devicePath
-    
+
     // create connection
     property bool create: false
     property string type
+    property string devPath: "/"
+
+    // create connection for access point
+    property bool createForAp: false
+    property var apPath
 
     property int activeExpandIndex: -1
     property int valueWidth: 170
     property int contentLeftMargin: 18
     property var connectionSessionObject: {
         if (create) {
-            var connectionPath = dbusNetwork.CreateConnection(type, "/")
+            var connectionPath = dbusNetwork.CreateConnection(type, devPath)
+            return connectionSession.createObject(properiesPage, { path: connectionPath })
+        } else if (createForAp) {
+            var connectionPath = dbusNetwork.CreateConnectionForAccessPoint(apPath, devPath)
             return connectionSession.createObject(properiesPage, { path: connectionPath })
         } else {
             var connectionPath = dbusNetwork.EditConnection(uuid, devicePath)
@@ -47,7 +55,7 @@ Column{
             }
         }
     }
-    
+
     // TODO
     Component.onCompleted: {
         print("BaseEditPage.availableSections:", availableSections)
