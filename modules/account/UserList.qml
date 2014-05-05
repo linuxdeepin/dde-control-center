@@ -58,7 +58,7 @@ ListView {
 
             Timer {
                 id: to_edit_timer
-                interval: 300
+                interval: 200
                 onTriggered: {
                     component_bg.state = "edit_dialog"
                 }

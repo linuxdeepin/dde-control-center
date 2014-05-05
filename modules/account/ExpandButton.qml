@@ -10,7 +10,7 @@ DImageButton {
         id: rotation_animation
         target: root
         property: "rotation"
-        to: root.rotation + 180
+        to: up ? root.rotation - 180 : root.rotation + 180
         duration: 200
     }
     
