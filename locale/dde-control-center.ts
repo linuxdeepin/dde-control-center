@@ -2444,6 +2444,8 @@
     <message>
         <location filename="../modules/power/main.qml" line="252"/>
         <location filename="../modules/power/main.qml" line="425"/>
+        <location filename="../modules/shortcuts/main.qml" line="31"/>
+        <location filename="../modules/shortcuts/main.qml" line="205"/>
         <source>Custom</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2472,12 +2474,6 @@
     <message>
         <location filename="../modules/shortcuts/main.qml" line="30"/>
         <source>Workspace</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/shortcuts/main.qml" line="31"/>
-        <location filename="../modules/shortcuts/main.qml" line="205"/>
-        <source>Custom Shortcuts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

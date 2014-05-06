@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-06 15:06+0800\n"
+"POT-Creation-Date: 2014-05-06 15:26+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1118,6 +1118,7 @@ msgid "Wireless Device: %1"
 msgstr "无线设备 %1"
 
 #: ../modules/network/WirelessDeviceExpand.qml:129
+#, fuzzy, qt-format
 msgid "Wireless Device %1 %2"
 msgstr "无线设备 %1"
 
@@ -1126,6 +1127,7 @@ msgid "Password: "
 msgstr "密码: "
 
 #: ../dock-applets/qml/network/WirelessNetwork.qml:27
+#, qt-format
 msgid "Wireless Network %1"
 msgstr "无线网络 %1"
 
@@ -1463,6 +1465,7 @@ msgid "High performance"
 msgstr "高性能"
 
 #: ../modules/power/main.qml:252 ../modules/power/main.qml:425
+#: ../modules/shortcuts/main.qml:31 ../modules/shortcuts/main.qml:205
 msgid "Custom"
 msgstr "自定义"
 
@@ -1485,10 +1488,6 @@ msgstr "窗口"
 #: ../modules/shortcuts/main.qml:30
 msgid "Workspace"
 msgstr "工作区"
-
-#: ../modules/shortcuts/main.qml:31 ../modules/shortcuts/main.qml:205
-msgid "Custom Shortcuts"
-msgstr "自定义快捷键"
 
 #: ../modules/shortcuts/main.qml:91
 msgid "Shortcuts"
@@ -1577,6 +1576,9 @@ msgstr "内存"
 #: ../modules/system_info/main.qml:102
 msgid "Disk"
 msgstr "磁盘"
+
+#~ msgid "Custom Shortcuts"
+#~ msgstr "自定义快捷键"
 
 #, fuzzy
 #~ msgid "Notification"

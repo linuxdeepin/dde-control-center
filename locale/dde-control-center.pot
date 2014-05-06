@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-06 15:06+0800\n"
+"POT-Creation-Date: 2014-05-06 15:26+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1437,6 +1437,7 @@ msgid "High performance"
 msgstr ""
 
 #: ../modules/power/main.qml:252 ../modules/power/main.qml:425
+#: ../modules/shortcuts/main.qml:31 ../modules/shortcuts/main.qml:205
 msgid "Custom"
 msgstr ""
 
@@ -1458,10 +1459,6 @@ msgstr ""
 
 #: ../modules/shortcuts/main.qml:30
 msgid "Workspace"
-msgstr ""
-
-#: ../modules/shortcuts/main.qml:31 ../modules/shortcuts/main.qml:205
-msgid "Custom Shortcuts"
 msgstr ""
 
 #: ../modules/shortcuts/main.qml:91

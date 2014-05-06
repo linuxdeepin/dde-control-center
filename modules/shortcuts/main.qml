@@ -28,7 +28,7 @@ Item {
         //"mediaList": dsTr("Sound and Media"), TODO: the backend is not available
         "windowList": dsTr("Window"),
         "workSpaceList": dsTr("Workspace"),
-        "customList": dsTr("Custom Shortcuts")
+        "customList": dsTr("Custom")
     }
 
     property string searchMd5
@@ -202,7 +202,7 @@ Item {
 
                 CustomKeybinding {
                     id: customItem
-                    property string name: dsTr("Custom Shortcuts")
+                    property string name: dsTr("Custom")
                     property var keyBindings: bindManagerId.customList
                     listMaxHeight: shortcutsModule.height - keybindingTitleColumn.height - keybindingListColumn.height
                 }
