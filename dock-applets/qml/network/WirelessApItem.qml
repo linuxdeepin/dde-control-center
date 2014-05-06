@@ -141,7 +141,7 @@ Item {
             print("secured in eap") // TODO debug
             //goToEditConnection()
         } else {
-            dbusNetwork.ActivateConnectionForAccessPoint(apPath, devicePath)
+            dbusNetwork.ActivateAccessPoint(apPath, devicePath)
             inConnectingApPath = apPath
         }
     }
