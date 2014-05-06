@@ -9,14 +9,15 @@ Rectangle {
     property string title
     property string value
     property int fontSize: 12
-    property int leftWidth: 80
+    property int leftWidth: systemInfoModule.leftWidth
+    property alias titleWidth: titleArea.contentWidth
 
     property bool valueWrapped: false
 
     Component.onCompleted: {
         if (dsslocale.lang == "en") {
-            fontSize = 11
-            leftWidth = 100
+            //fontSize = 11
+            print(leftWidth)
         }
     }
 

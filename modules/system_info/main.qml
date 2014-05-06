@@ -5,10 +5,12 @@ import QtQuick.Controls.Styles 1.0
 import Deepin.Widgets 1.0
 
 Item {
+    id: systemInfoModule
     anchors.fill: parent
 
     property var dconstants: DConstants {}
     property var systemInfoDbus: SystemInfo {}
+    property var leftWidth: Math.max(versionItem.titleWidth, typeItem.titleWidth, cpuItem.titleWidth, memoryItem.titleWidth, distItem.titleWidth) + 8
 
     function bitToHuman(b, factor){
         if (b < factor) {
