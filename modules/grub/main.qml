@@ -99,7 +99,7 @@ Rectangle {
                 id: default_entry_expand
 
                 header.sourceComponent: DDownArrowHeader {
-                    text: dsTr("Default Entry")
+                    text: dsTr("Boot priority")
                     onClicked: {
                         default_entry_expand.expanded = !default_entry_expand.expanded
                     }
@@ -156,7 +156,7 @@ Rectangle {
             DBaseExpand {
                 id: delay_expand
                 header.sourceComponent: DDownArrowHeader {
-                    text: dsTr("Timeout")
+                    text: dsTr("Boot delay")
                     onClicked: {
                         delay_expand.expanded = !delay_expand.expanded
                     }
@@ -195,7 +195,7 @@ Rectangle {
                 id: normal_item_expand
 
                 header.sourceComponent: DDownArrowHeader {
-                    text: dsTr("Item Color")
+                    text: dsTr("Text Color")
                     onClicked: {
                         normal_item_expand.expanded = !normal_item_expand.expanded
                     }
@@ -229,7 +229,7 @@ Rectangle {
                 id: selected_item_expand
 
                 header.sourceComponent: DDownArrowHeader {
-                    text: dsTr("Selected Item Color")
+                    text: dsTr("Selected Text Color")
                     onClicked: {
                         selected_item_expand.expanded = !selected_item_expand.expanded
                     }

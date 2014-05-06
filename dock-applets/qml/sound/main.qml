@@ -80,7 +80,7 @@ DockApplet{
                         id: allSoundLabel
                         anchors.left: parent.left
                         anchors.leftMargin: xEdgePadding
-                        text: dsTr("全局音量")
+                        text: dsTr("Device")
                         anchors.verticalCenter: parent.verticalCenter
                     }
 
@@ -138,18 +138,20 @@ DockApplet{
                 Item {
                     height: 10
                     width: parent.width
+                    visible: false
                 }
 
                 Item {
                     id: appSoundTitleBox
                     height: 30
                     width: parent.width
+                    visible: false
 
                     DssH2 {
                         id: appLabel
                         anchors.left: parent.left
                         anchors.leftMargin: xEdgePadding
-                        text: dsTr("应用程序")
+                        text: dsTr("Applications")
                         anchors.verticalCenter: parent.verticalCenter
                     }
 
@@ -166,6 +168,7 @@ DockApplet{
                 Item {
                     width: parent.width
                     height: childrenRect.height
+                    visible: false
 
                     ListView {
                         width: parent.width
