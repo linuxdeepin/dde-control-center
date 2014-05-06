@@ -35,7 +35,7 @@ Rectangle {
         anchors.leftMargin: 5
         anchors.verticalCenter: parent.verticalCenter
         font.pixelSize: fontSize
-        width: parent.width - leftWidth
+        width: parent.width - leftWidth - 8
         text: value
 
         Component.onCompleted: {
