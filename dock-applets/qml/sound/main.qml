@@ -14,6 +14,7 @@ DockApplet{
     property int xEdgePadding: 0
     property int titleSpacing: 10
     property int rootWidth: 250
+    property int wheelStep: 5
 
     property var audioId: Audio {}
     property var defaultSink: AudioSink{ path: audioId.GetDefaultSink() }
@@ -33,6 +34,25 @@ DockApplet{
 
     onActivate:{
         showSound()
+    }
+
+    onMousewheel: {
+        if (angleDelta > 0){
+            if(defaultSink.volume <= (100 - wheelStep)){
+                defaultSink.SetSinkVolume(defaultSink.volume + wheelStep)
+            }
+            else{
+                defaultSink.SetSinkVolume(100)
+            }
+        }
+        else if(angleDelta < 0){
+            if(defaultSink.volume >= wheelStep){
+                defaultSink.SetSinkVolume(defaultSink.volume - wheelStep)
+            }
+            else{
+                defaultSink.SetSinkVolume(0)
+            }
+        }
     }
 
     function showSound(){
@@ -59,7 +79,7 @@ DockApplet{
         Connections{
             target: defaultSink
             onVolumeChanged: {
-                if(!soundSlider.pressed){
+                if(!soundSlider.pressed && !soundSlider.hovered){
                     soundSlider.value = defaultSink.volume
                 }
             }
@@ -120,7 +140,7 @@ DockApplet{
                         stepSize: 1
 
                         onValueChanged: {
-                            if(pressed){
+                            if(pressed || hovered){
                                 defaultSink.SetSinkVolume(value)
                             }
                         }
@@ -129,7 +149,9 @@ DockApplet{
                             running: true
                             interval: 200
                             onTriggered: {
-                                soundSlider.value = defaultSink.volume
+                                if(!pressed && !hovered){
+                                    soundSlider.value = defaultSink.volume
+                                }
                             }
                         }
                     }
