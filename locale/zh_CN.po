@@ -35,16 +35,15 @@ msgstr "请选择一张图片作为您的头像"
 
 #: ../modules/account/AvatarView.qml:18
 msgid "Recently Used"
-msgstr ""
+msgstr "最近使用"
 
 #: ../modules/account/AvatarView.qml:19
-#, fuzzy
 msgid "Default"
-msgstr "正常模式"
+msgstr "默认"
 
 #: ../modules/account/AvatarView.qml:20
 msgid "Webcam"
-msgstr ""
+msgstr "拍照"
 
 #: ../modules/date_time/Calendar.qml:102
 msgid "Today"
@@ -124,7 +123,7 @@ msgstr "删除用户文件"
 #: ../modules/account/DeleteUserDialog.qml:46
 #: ../modules/account/PasswordDialog.qml:204
 msgid "Confirm"
-msgstr ""
+msgstr "确认"
 
 #: ../dock-applets/qml/disk_mount/DiskItem.qml:57
 msgid "Unmount failed!"
