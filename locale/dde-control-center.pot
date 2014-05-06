@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-06 10:05+0800\n"
+"POT-Creation-Date: 2014-05-06 12:47+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,16 +18,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../modules/account/AddUserDialog.qml:89
-#: ../modules/account/AddUserDialog.qml:234
-#: ../modules/account/UserList.qml:177
-msgid "Administrator"
-msgstr ""
-
-#: ../modules/account/AddUserDialog.qml:89
 #: ../modules/account/AddUserDialog.qml:233
 #: ../modules/display/MonitorProperties.qml:24
 #: ../modules/account/UserList.qml:177
 msgid "Standard"
+msgstr ""
+
+#: ../modules/account/AddUserDialog.qml:89
+#: ../modules/account/AddUserDialog.qml:234
+#: ../modules/account/UserList.qml:177
+msgid "Administrator"
 msgstr ""
 
 #: ../modules/account/AvatarPickDialog.qml:5
@@ -357,10 +357,6 @@ msgstr ""
 msgid "PPPoE"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionPppoe.qml:23
-msgid "Service"
-msgstr ""
-
 #: ../modules/network/components_section_autogen/EditSectionPppoe.qml:18
 #: ../modules/network/components_section_autogen/EditSectionSecurity.qml:90
 #: ../modules/network/components_section_autogen/EditSectionVpnL2tp.qml:23
@@ -368,42 +364,13 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
+#: ../modules/network/components_section_autogen/EditSectionPppoe.qml:23
+msgid "Service"
+msgstr ""
+
 #: ../modules/network/components_section_autogen/EditSectionSecurity.qml:11
 #: ../modules/network/components_section_autogen/EditSectionSecurity.qml:18
 msgid "Security"
-msgstr ""
-
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:44
-msgid "EAP Auth"
-msgstr ""
-
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:69
-msgid "PAC file"
-msgstr ""
-
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:59
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:23
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:51
-msgid "CA Cert"
-msgstr ""
-
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:54
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:46
-msgid "User Cert"
-msgstr ""
-
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:85
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:48
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:56
-msgid "Private Key"
-msgstr ""
-
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:74
-msgid "PEAP Version"
-msgstr ""
-
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:79
-msgid "Inner Auth"
 msgstr ""
 
 #: ../modules/network/components_section_autogen/EditSectionSecurity.qml:23
@@ -414,12 +381,45 @@ msgstr ""
 msgid "Use security"
 msgstr ""
 
+#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:44
+msgid "EAP Auth"
+msgstr ""
+
 #: ../modules/network/components_section_autogen/EditSectionSecurity.qml:49
 msgid "Anon Identity"
 msgstr ""
 
+#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:54
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:46
+msgid "User Cert"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:59
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:23
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:51
+msgid "CA Cert"
+msgstr ""
+
 #: ../modules/network/components_section_autogen/EditSectionSecurity.qml:64
 msgid "Provisioning"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:69
+msgid "PAC file"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:74
+msgid "PEAP Version"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:79
+msgid "Inner Auth"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:85
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:48
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:56
+msgid "Private Key"
 msgstr ""
 
 #: ../modules/network/components_section_autogen/EditSectionSecurity.qml:114
@@ -805,13 +805,13 @@ msgstr ""
 msgid "Power Options"
 msgstr ""
 
+#: ../frame/views/ModulesData.qml:11 ../frame/modules_info.py:36
+msgid "More Settings"
+msgstr ""
+
 #: ../frame/views/ModulesData.qml:12 ../frame/views/PanelContent.qml:354
 #: ../dock-applets/qml/main.qml:18
 msgid "Power"
-msgstr ""
-
-#: ../frame/views/ModulesData.qml:11 ../frame/modules_info.py:36
-msgid "More Settings"
 msgstr ""
 
 #: ../frame/views/ModulesData.qml:13 ../modules/display/main.qml:81
@@ -831,6 +831,11 @@ msgstr ""
 msgid "Keyboard Shortcuts"
 msgstr ""
 
+#: ../frame/views/ModulesData.qml:17 ../modules/keyboard/main.qml:71
+#: ../frame/modules_info.py:43
+msgid "Keyboard"
+msgstr ""
+
 #: ../frame/views/ModulesData.qml:18
 msgid "Mouse and Touchpad"
 msgstr ""
@@ -844,19 +849,6 @@ msgstr ""
 msgid "User Accounts"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:23
-msgid "Boot Menu"
-msgstr ""
-
-#: ../frame/views/ModulesData.qml:24
-msgid "Home"
-msgstr ""
-
-#: ../frame/views/ModulesData.qml:17 ../modules/keyboard/main.qml:71
-#: ../frame/modules_info.py:43
-msgid "Keyboard"
-msgstr ""
-
 #: ../frame/views/ModulesData.qml:21
 #: ../modules/default_applications/main.qml:22
 #: ../modules/default_applications/main.qml:36 ../frame/modules_info.py:48
@@ -866,6 +858,14 @@ msgstr ""
 #: ../frame/views/ModulesData.qml:22 ../modules/system_info/main.qml:47
 #: ../frame/modules_info.py:49
 msgid "System Information"
+msgstr ""
+
+#: ../frame/views/ModulesData.qml:23
+msgid "Boot Menu"
+msgstr ""
+
+#: ../frame/views/ModulesData.qml:24
+msgid "Home"
 msgstr ""
 
 #: ../modules/display/MonitorComponent.qml:211
@@ -974,6 +974,31 @@ msgstr ""
 msgid "Time zone"
 msgstr ""
 
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:28
+#: ../frame/modules_info.py:46
+msgid "Touchpad"
+msgstr ""
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:58
+#: ../modules/mouse_touchpad/main.qml:44
+msgid "Primary Button"
+msgstr ""
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:66
+#: ../modules/mouse_touchpad/main.qml:51 ../modules/sound/main.qml:226
+msgid "Left"
+msgstr ""
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:67
+#: ../modules/mouse_touchpad/main.qml:52
+msgid "Left-handed"
+msgstr ""
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:80
+#: ../modules/mouse_touchpad/main.qml:65
+msgid "Pointer Speed"
+msgstr ""
+
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:95
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:145
 #: ../modules/keyboard/main.qml:126 ../modules/keyboard/main.qml:152
@@ -990,6 +1015,11 @@ msgstr ""
 msgid "Fast"
 msgstr ""
 
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:105
+#: ../modules/mouse_touchpad/main.qml:91
+msgid "Pointer Precision"
+msgstr ""
+
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:120
 #: ../modules/mouse_touchpad/main.qml:106
 msgid "Low"
@@ -998,36 +1028,6 @@ msgstr ""
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:121
 #: ../modules/mouse_touchpad/main.qml:107
 msgid "High"
-msgstr ""
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:28
-#: ../frame/modules_info.py:46
-msgid "Touchpad"
-msgstr ""
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:58
-#: ../modules/mouse_touchpad/main.qml:44
-msgid "Primary Button"
-msgstr ""
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:67
-#: ../modules/mouse_touchpad/main.qml:52
-msgid "Left-handed"
-msgstr ""
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:66
-#: ../modules/mouse_touchpad/main.qml:51 ../modules/sound/main.qml:226
-msgid "Left"
-msgstr ""
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:80
-#: ../modules/mouse_touchpad/main.qml:65
-msgid "Pointer Speed"
-msgstr ""
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:105
-#: ../modules/mouse_touchpad/main.qml:91
-msgid "Pointer Precision"
 msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:130
@@ -1162,6 +1162,54 @@ msgstr ""
 msgid "December"
 msgstr ""
 
+#: ../dock-applets/qml/main.qml:15
+msgid "Control Center"
+msgstr ""
+
+#: ../dock-applets/qml/power/main.qml:14
+msgid "On Charging"
+msgstr ""
+
+#: ../dock-applets/qml/sound/main.qml:83
+msgid "Device"
+msgstr ""
+
+#: ../dock-applets/qml/sound/main.qml:154
+msgid "Applications"
+msgstr ""
+
+#: ../modules/account/main.qml:38 ../frame/modules_info.py:47
+msgid "Account"
+msgstr ""
+
+#: ../modules/account/main.qml:47
+msgid "User List"
+msgstr ""
+
+#: ../modules/bluetooth/main.qml:17
+msgid "ON/OFF"
+msgstr ""
+
+#: ../modules/bluetooth/main.qml:35
+msgid "Visible"
+msgstr ""
+
+#: ../modules/bluetooth/main.qml:36
+msgid "Invisible"
+msgstr ""
+
+#: ../modules/bluetooth/main.qml:47
+msgid "Device name"
+msgstr ""
+
+#: ../modules/bluetooth/main.qml:59
+msgid "Devices nearby"
+msgstr ""
+
+#: ../modules/bluetooth/main.qml:72
+msgid "Recently connected devices"
+msgstr ""
+
 #: ../modules/date_time/main.qml:58
 msgid "Automatic date and time"
 msgstr ""
@@ -1176,34 +1224,6 @@ msgstr ""
 
 #: ../modules/date_time/main.qml:108
 msgid "Set Date"
-msgstr ""
-
-#: ../modules/system_info/main.qml:70
-msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
-msgstr ""
-
-#: ../modules/system_info/main.qml:76
-msgid "Deepin Edition"
-msgstr ""
-
-#: ../modules/system_info/main.qml:83
-msgid "-bit"
-msgstr ""
-
-#: ../modules/system_info/main.qml:88
-msgid "Processor"
-msgstr ""
-
-#: ../modules/system_info/main.qml:82
-msgid "System Type"
-msgstr ""
-
-#: ../modules/system_info/main.qml:94
-msgid "Memory"
-msgstr ""
-
-#: ../modules/system_info/main.qml:100
-msgid "Disk"
 msgstr ""
 
 #: ../modules/default_applications/main.qml:48
@@ -1230,12 +1250,12 @@ msgstr ""
 msgid "Picture"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:256
-msgid "AutoPlay"
-msgstr ""
-
 #: ../modules/default_applications/main.qml:159
 msgid "Terminal"
+msgstr ""
+
+#: ../modules/default_applications/main.qml:256
+msgid "AutoPlay"
 msgstr ""
 
 #: ../modules/default_applications/main.qml:271
@@ -1258,6 +1278,38 @@ msgstr ""
 msgid "Software"
 msgstr ""
 
+#: ../modules/display/main.qml:94
+msgid "Main Display: "
+msgstr ""
+
+#: ../modules/display/main.qml:125
+msgid "Monitor"
+msgstr ""
+
+#: ../modules/display/main.qml:177
+msgid "Apply"
+msgstr ""
+
+#: ../modules/grub/main.qml:62
+msgid "Startup Screen"
+msgstr ""
+
+#: ../modules/grub/main.qml:102
+msgid "Boot priority"
+msgstr ""
+
+#: ../modules/grub/main.qml:159
+msgid "Boot delay"
+msgstr ""
+
+#: ../modules/grub/main.qml:198
+msgid "Text Color"
+msgstr ""
+
+#: ../modules/grub/main.qml:232
+msgid "Selected Text Color"
+msgstr ""
+
 #: ../modules/keyboard/main.qml:83
 msgid "Repeat Delay"
 msgstr ""
@@ -1274,61 +1326,40 @@ msgstr ""
 msgid "Test Area"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:376
-msgid "No result"
-msgstr ""
-
 #: ../modules/keyboard/main.qml:191
 msgid "Keyboard Layout"
 msgstr ""
 
-#: ../modules/power/main.qml:252 ../modules/power/main.qml:425
-msgid "Custom"
+#: ../modules/keyboard/main.qml:376
+msgid "No result"
 msgstr ""
 
-#: ../dock-applets/qml/main.qml:15
-msgid "Control Center"
+#: ../modules/network/main.qml:148
+msgid "Network Settings"
 msgstr ""
 
-#: ../modules/power/main.qml:132
-msgid "Ask"
+#: ../modules/personalization/main.qml:67
+msgid "Theme"
 msgstr ""
 
-#: ../modules/power/main.qml:154
-msgid "When I close the lid"
+#: ../modules/personalization/main.qml:74
+msgid "Window appearance"
 msgstr ""
 
-#: ../modules/power/main.qml:219
-msgid "Power Adapter"
+#: ../modules/personalization/main.qml:81
+msgid "Icon"
 msgstr ""
 
-#: ../modules/sound/main.qml:206
-msgid "Balance"
+#: ../modules/personalization/main.qml:88
+msgid "Cursor"
 msgstr ""
 
-#: ../modules/power/main.qml:240 ../modules/power/main.qml:413
-msgid "Power saver"
+#: ../modules/personalization/main.qml:95
+msgid "Wallpaper"
 msgstr ""
 
-#: ../modules/power/main.qml:246 ../modules/power/main.qml:419
-msgid "High performance"
-msgstr ""
-
-#: ../modules/power/main.qml:297 ../modules/power/main.qml:471
-msgid "Custom Options"
-msgstr ""
-
-#: ../modules/power/main.qml:392
-msgid "Battery"
-msgstr ""
-
-#: ../modules/power/main.qml:127 ../modules/power/main.qml:173
-#: ../modules/power/main.qml:237 ../modules/power/main.qml:243
-#: ../modules/power/main.qml:249 ../modules/power/main.qml:255
-#: ../modules/power/main.qml:342 ../modules/power/main.qml:410
-#: ../modules/power/main.qml:416 ../modules/power/main.qml:422
-#: ../modules/power/main.qml:428 ../modules/power/main.qml:516
-msgid "Suspend"
+#: ../modules/personalization/main.qml:102
+msgid "Fonts"
 msgstr ""
 
 #: ../modules/power/main.qml:59
@@ -1368,8 +1399,33 @@ msgstr ""
 msgid "Shutdown"
 msgstr ""
 
+#: ../modules/power/main.qml:127 ../modules/power/main.qml:173
+#: ../modules/power/main.qml:237 ../modules/power/main.qml:243
+#: ../modules/power/main.qml:249 ../modules/power/main.qml:255
+#: ../modules/power/main.qml:342 ../modules/power/main.qml:410
+#: ../modules/power/main.qml:416 ../modules/power/main.qml:422
+#: ../modules/power/main.qml:428 ../modules/power/main.qml:516
+msgid "Suspend"
+msgstr ""
+
+#: ../modules/power/main.qml:132
+msgid "Ask"
+msgstr ""
+
+#: ../modules/power/main.qml:154
+msgid "When I close the lid"
+msgstr ""
+
+#: ../modules/power/main.qml:178
+msgid "Nothing"
+msgstr ""
+
 #: ../modules/power/main.qml:197
 msgid "Require password when computer wakes"
+msgstr ""
+
+#: ../modules/power/main.qml:219
+msgid "Power Adapter"
 msgstr ""
 
 #: ../modules/power/main.qml:234 ../modules/power/main.qml:407
@@ -1384,92 +1440,32 @@ msgstr ""
 msgid "Turn off the display"
 msgstr ""
 
-#: ../modules/account/main.qml:38 ../frame/modules_info.py:47
-msgid "Account"
+#: ../modules/power/main.qml:240 ../modules/power/main.qml:413
+msgid "Power saver"
 msgstr ""
 
-#: ../modules/account/main.qml:47
-msgid "User List"
+#: ../modules/power/main.qml:246 ../modules/power/main.qml:419
+msgid "High performance"
 msgstr ""
 
-#: ../modules/bluetooth/main.qml:17
-msgid "ON/OFF"
+#: ../modules/power/main.qml:252 ../modules/power/main.qml:425
+msgid "Custom"
 msgstr ""
 
-#: ../modules/bluetooth/main.qml:35
-msgid "Visible"
+#: ../modules/power/main.qml:297 ../modules/power/main.qml:471
+msgid "Custom Options"
 msgstr ""
 
-#: ../modules/bluetooth/main.qml:36
-msgid "Invisible"
-msgstr ""
-
-#: ../modules/bluetooth/main.qml:47
-msgid "Device name"
-msgstr ""
-
-#: ../modules/bluetooth/main.qml:59
-msgid "Devices nearby"
-msgstr ""
-
-#: ../modules/bluetooth/main.qml:72
-msgid "Recently connected devices"
-msgstr ""
-
-#: ../modules/power/main.qml:178
-msgid "Nothing"
-msgstr ""
-
-#: ../modules/display/main.qml:94
-msgid "Main Display: "
-msgstr ""
-
-#: ../modules/display/main.qml:125
-msgid "Monitor"
-msgstr ""
-
-#: ../modules/display/main.qml:177
-msgid "Apply"
-msgstr ""
-
-#: ../modules/shortcuts/main.qml:29
-msgid "Window"
-msgstr ""
-
-#: ../modules/personalization/main.qml:67
-msgid "Theme"
-msgstr ""
-
-#: ../modules/personalization/main.qml:74
-msgid "Window appearance"
-msgstr ""
-
-#: ../modules/personalization/main.qml:81
-msgid "Icon"
-msgstr ""
-
-#: ../modules/personalization/main.qml:88
-msgid "Cursor"
-msgstr ""
-
-#: ../modules/personalization/main.qml:95
-msgid "Wallpaper"
-msgstr ""
-
-#: ../modules/personalization/main.qml:102
-msgid "Fonts"
-msgstr ""
-
-#: ../modules/network/main.qml:148
-msgid "Network Settings"
-msgstr ""
-
-#: ../modules/shortcuts/main.qml:91 ../frame/modules_info.py:42
-msgid "Shortcuts"
+#: ../modules/power/main.qml:392
+msgid "Battery"
 msgstr ""
 
 #: ../modules/shortcuts/main.qml:27
 msgid "System"
+msgstr ""
+
+#: ../modules/shortcuts/main.qml:29
+msgid "Window"
 msgstr ""
 
 #: ../modules/shortcuts/main.qml:30
@@ -1480,16 +1476,20 @@ msgstr ""
 msgid "Custom Shortcuts"
 msgstr ""
 
+#: ../modules/shortcuts/main.qml:91 ../frame/modules_info.py:42
+msgid "Shortcuts"
+msgstr ""
+
 #: ../modules/sound/main.qml:132
 msgid "Speaker"
 msgstr ""
 
-#: ../modules/sound/main.qml:370
-msgid "Output Port"
-msgstr ""
-
 #: ../modules/sound/main.qml:162
 msgid "Output Volume"
+msgstr ""
+
+#: ../modules/sound/main.qml:206
+msgid "Balance"
 msgstr ""
 
 #: ../modules/sound/main.qml:228
@@ -1500,8 +1500,16 @@ msgstr ""
 msgid "Microphone"
 msgstr ""
 
+#: ../modules/sound/main.qml:290
+msgid "Input Volume"
+msgstr ""
+
 #: ../modules/sound/main.qml:334
 msgid "Input Feedback"
+msgstr ""
+
+#: ../modules/sound/main.qml:370
+msgid "Output Port"
 msgstr ""
 
 #: ../modules/sound/main.qml:387 ../modules/sound/main.qml:494
@@ -1528,40 +1536,32 @@ msgstr ""
 msgid "Show Advanced..."
 msgstr ""
 
-#: ../modules/sound/main.qml:290
-msgid "Input Volume"
+#: ../modules/system_info/main.qml:70
+msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
 msgstr ""
 
-#: ../modules/grub/main.qml:62
-msgid "Startup Screen"
+#: ../modules/system_info/main.qml:76
+msgid "Deepin Edition"
 msgstr ""
 
-#: ../modules/grub/main.qml:102
-msgid "Boot priority"
+#: ../modules/system_info/main.qml:82
+msgid "System Type"
 msgstr ""
 
-#: ../modules/grub/main.qml:159
-msgid "Boot delay"
+#: ../modules/system_info/main.qml:83
+msgid "-bit"
 msgstr ""
 
-#: ../modules/grub/main.qml:198
-msgid "Text Color"
+#: ../modules/system_info/main.qml:88
+msgid "Processor"
 msgstr ""
 
-#: ../modules/grub/main.qml:232
-msgid "Selected Text Color"
+#: ../modules/system_info/main.qml:94
+msgid "Memory"
 msgstr ""
 
-#: ../dock-applets/qml/power/main.qml:14
-msgid "On Charging"
-msgstr ""
-
-#: ../dock-applets/qml/sound/main.qml:83
-msgid "The device volume"
-msgstr ""
-
-#: ../dock-applets/qml/sound/main.qml:154
-msgid "Applications"
+#: ../modules/system_info/main.qml:100
+msgid "Disk"
 msgstr ""
 
 #: ../frame/modules_info.py:38

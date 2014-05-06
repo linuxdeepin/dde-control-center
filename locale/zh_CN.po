@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-06 10:05+0800\n"
+"POT-Creation-Date: 2014-05-06 12:47+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,17 +17,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../modules/account/AddUserDialog.qml:89
-#: ../modules/account/AddUserDialog.qml:234
-#: ../modules/account/UserList.qml:177
-msgid "Administrator"
-msgstr "管理员"
-
-#: ../modules/account/AddUserDialog.qml:89
 #: ../modules/account/AddUserDialog.qml:233
 #: ../modules/display/MonitorProperties.qml:24
 #: ../modules/account/UserList.qml:177
 msgid "Standard"
 msgstr "标准"
+
+#: ../modules/account/AddUserDialog.qml:89
+#: ../modules/account/AddUserDialog.qml:234
+#: ../modules/account/UserList.qml:177
+msgid "Administrator"
+msgstr "管理员"
 
 #: ../modules/account/AvatarPickDialog.qml:5
 msgid "Choose a new picture for your account"
@@ -370,10 +370,6 @@ msgstr ""
 msgid "PPPoE"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionPppoe.qml:23
-msgid "Service"
-msgstr ""
-
 #: ../modules/network/components_section_autogen/EditSectionPppoe.qml:18
 #: ../modules/network/components_section_autogen/EditSectionSecurity.qml:90
 #: ../modules/network/components_section_autogen/EditSectionVpnL2tp.qml:23
@@ -381,24 +377,32 @@ msgstr ""
 msgid "Username"
 msgstr "用户"
 
+#: ../modules/network/components_section_autogen/EditSectionPppoe.qml:23
+msgid "Service"
+msgstr ""
+
 #: ../modules/network/components_section_autogen/EditSectionSecurity.qml:11
 #: ../modules/network/components_section_autogen/EditSectionSecurity.qml:18
 msgid "Security"
+msgstr "安全"
+
+#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:23
+msgid "Key"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:39
+#, fuzzy
+msgid "Use security"
 msgstr "安全"
 
 #: ../modules/network/components_section_autogen/EditSectionSecurity.qml:44
 msgid "EAP Auth"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:69
-msgid "PAC file"
-msgstr ""
-
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:59
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:23
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:51
-msgid "CA Cert"
-msgstr ""
+#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:49
+#, fuzzy
+msgid "Anon Identity"
+msgstr "识别"
 
 #: ../modules/network/components_section_autogen/EditSectionSecurity.qml:54
 #: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:46
@@ -406,10 +410,18 @@ msgstr ""
 msgid "User Cert"
 msgstr "用户列表"
 
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:85
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:48
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:56
-msgid "Private Key"
+#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:59
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:23
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:51
+msgid "CA Cert"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:64
+msgid "Provisioning"
+msgstr ""
+
+#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:69
+msgid "PAC file"
 msgstr ""
 
 #: ../modules/network/components_section_autogen/EditSectionSecurity.qml:74
@@ -421,22 +433,10 @@ msgstr "系统版本"
 msgid "Inner Auth"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:23
-msgid "Key"
-msgstr ""
-
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:39
-#, fuzzy
-msgid "Use security"
-msgstr "安全"
-
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:49
-#, fuzzy
-msgid "Anon Identity"
-msgstr "识别"
-
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:64
-msgid "Provisioning"
+#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:85
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:48
+#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:56
+msgid "Private Key"
 msgstr ""
 
 #: ../modules/network/components_section_autogen/EditSectionSecurity.qml:114
@@ -837,14 +837,14 @@ msgstr "声音"
 msgid "Power Options"
 msgstr "电源选项"
 
+#: ../frame/views/ModulesData.qml:11 ../frame/modules_info.py:36
+msgid "More Settings"
+msgstr "更多设置"
+
 #: ../frame/views/ModulesData.qml:12 ../frame/views/PanelContent.qml:354
 #: ../dock-applets/qml/main.qml:18
 msgid "Power"
 msgstr "电源"
-
-#: ../frame/views/ModulesData.qml:11 ../frame/modules_info.py:36
-msgid "More Settings"
-msgstr "更多设置"
 
 #: ../frame/views/ModulesData.qml:13 ../modules/display/main.qml:81
 #: ../frame/modules_info.py:39
@@ -863,6 +863,11 @@ msgstr "个性化"
 msgid "Keyboard Shortcuts"
 msgstr "快捷键"
 
+#: ../frame/views/ModulesData.qml:17 ../modules/keyboard/main.qml:71
+#: ../frame/modules_info.py:43
+msgid "Keyboard"
+msgstr "键盘"
+
 #: ../frame/views/ModulesData.qml:18
 msgid "Mouse and Touchpad"
 msgstr "鼠标和触摸板"
@@ -876,19 +881,6 @@ msgstr "鼠标"
 msgid "User Accounts"
 msgstr "账户"
 
-#: ../frame/views/ModulesData.qml:23
-msgid "Boot Menu"
-msgstr "启动菜单"
-
-#: ../frame/views/ModulesData.qml:24
-msgid "Home"
-msgstr "回到主页"
-
-#: ../frame/views/ModulesData.qml:17 ../modules/keyboard/main.qml:71
-#: ../frame/modules_info.py:43
-msgid "Keyboard"
-msgstr "键盘"
-
 #: ../frame/views/ModulesData.qml:21
 #: ../modules/default_applications/main.qml:22
 #: ../modules/default_applications/main.qml:36 ../frame/modules_info.py:48
@@ -899,6 +891,14 @@ msgstr "默认程序"
 #: ../frame/modules_info.py:49
 msgid "System Information"
 msgstr "系统信息"
+
+#: ../frame/views/ModulesData.qml:23
+msgid "Boot Menu"
+msgstr "启动菜单"
+
+#: ../frame/views/ModulesData.qml:24
+msgid "Home"
+msgstr "回到主页"
 
 #: ../modules/display/MonitorComponent.qml:211
 msgid "Set as primary display"
@@ -1008,6 +1008,31 @@ msgstr "保存"
 msgid "Time zone"
 msgstr "时区"
 
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:28
+#: ../frame/modules_info.py:46
+msgid "Touchpad"
+msgstr "触摸板"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:58
+#: ../modules/mouse_touchpad/main.qml:44
+msgid "Primary Button"
+msgstr "主按键"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:66
+#: ../modules/mouse_touchpad/main.qml:51 ../modules/sound/main.qml:226
+msgid "Left"
+msgstr "左键"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:67
+#: ../modules/mouse_touchpad/main.qml:52
+msgid "Left-handed"
+msgstr "右键"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:80
+#: ../modules/mouse_touchpad/main.qml:65
+msgid "Pointer Speed"
+msgstr "指针移动速度"
+
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:95
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:145
 #: ../modules/keyboard/main.qml:126 ../modules/keyboard/main.qml:152
@@ -1024,6 +1049,11 @@ msgstr "慢"
 msgid "Fast"
 msgstr "快"
 
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:105
+#: ../modules/mouse_touchpad/main.qml:91
+msgid "Pointer Precision"
+msgstr "指针精确度"
+
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:120
 #: ../modules/mouse_touchpad/main.qml:106
 msgid "Low"
@@ -1033,36 +1063,6 @@ msgstr "低"
 #: ../modules/mouse_touchpad/main.qml:107
 msgid "High"
 msgstr "高"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:28
-#: ../frame/modules_info.py:46
-msgid "Touchpad"
-msgstr "触摸板"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:58
-#: ../modules/mouse_touchpad/main.qml:44
-msgid "Primary Button"
-msgstr "主按键"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:67
-#: ../modules/mouse_touchpad/main.qml:52
-msgid "Left-handed"
-msgstr "右键"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:66
-#: ../modules/mouse_touchpad/main.qml:51 ../modules/sound/main.qml:226
-msgid "Left"
-msgstr "左键"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:80
-#: ../modules/mouse_touchpad/main.qml:65
-msgid "Pointer Speed"
-msgstr "指针移动速度"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:105
-#: ../modules/mouse_touchpad/main.qml:91
-msgid "Pointer Precision"
-msgstr "指针精确度"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:130
 #: ../modules/mouse_touchpad/main.qml:117
@@ -1197,6 +1197,54 @@ msgstr "十一月"
 msgid "December"
 msgstr "十二月"
 
+#: ../dock-applets/qml/main.qml:15
+msgid "Control Center"
+msgstr ""
+
+#: ../dock-applets/qml/power/main.qml:14
+msgid "On Charging"
+msgstr "正在充电"
+
+#: ../dock-applets/qml/sound/main.qml:83
+msgid "Device"
+msgstr "设备"
+
+#: ../dock-applets/qml/sound/main.qml:154
+msgid "Applications"
+msgstr "程序"
+
+#: ../modules/account/main.qml:38 ../frame/modules_info.py:47
+msgid "Account"
+msgstr "账户"
+
+#: ../modules/account/main.qml:47
+msgid "User List"
+msgstr "用户列表"
+
+#: ../modules/bluetooth/main.qml:17
+msgid "ON/OFF"
+msgstr ""
+
+#: ../modules/bluetooth/main.qml:35
+msgid "Visible"
+msgstr "一直隐藏"
+
+#: ../modules/bluetooth/main.qml:36
+msgid "Invisible"
+msgstr "一直隐藏"
+
+#: ../modules/bluetooth/main.qml:47
+msgid "Device name"
+msgstr "设备名称"
+
+#: ../modules/bluetooth/main.qml:59
+msgid "Devices nearby"
+msgstr "附近的设备"
+
+#: ../modules/bluetooth/main.qml:72
+msgid "Recently connected devices"
+msgstr "最近连接的设备"
+
 #: ../modules/date_time/main.qml:58
 msgid "Automatic date and time"
 msgstr "自动同步时间"
@@ -1212,34 +1260,6 @@ msgstr "日期"
 #: ../modules/date_time/main.qml:108
 msgid "Set Date"
 msgstr "更改日期"
-
-#: ../modules/system_info/main.qml:70
-msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
-msgstr "Copyright (c) 2011-2014 武汉深之度科技有限公司 版权所有"
-
-#: ../modules/system_info/main.qml:76
-msgid "Deepin Edition"
-msgstr "系统版本"
-
-#: ../modules/system_info/main.qml:83
-msgid "-bit"
-msgstr "位"
-
-#: ../modules/system_info/main.qml:88
-msgid "Processor"
-msgstr "处理器"
-
-#: ../modules/system_info/main.qml:82
-msgid "System Type"
-msgstr "系统类型"
-
-#: ../modules/system_info/main.qml:94
-msgid "Memory"
-msgstr "内存"
-
-#: ../modules/system_info/main.qml:100
-msgid "Disk"
-msgstr "磁盘"
 
 #: ../modules/default_applications/main.qml:48
 msgid "Browser"
@@ -1265,13 +1285,13 @@ msgstr "视频"
 msgid "Picture"
 msgstr "图片"
 
-#: ../modules/default_applications/main.qml:256
-msgid "AutoPlay"
-msgstr "自动播放"
-
 #: ../modules/default_applications/main.qml:159
 msgid "Terminal"
 msgstr "终端"
+
+#: ../modules/default_applications/main.qml:256
+msgid "AutoPlay"
+msgstr "自动播放"
 
 #: ../modules/default_applications/main.qml:271
 msgid "CD Audio"
@@ -1293,6 +1313,38 @@ msgstr "照片"
 msgid "Software"
 msgstr "软件"
 
+#: ../modules/display/main.qml:94
+msgid "Main Display: "
+msgstr "主显示器："
+
+#: ../modules/display/main.qml:125
+msgid "Monitor"
+msgstr "显示器"
+
+#: ../modules/display/main.qml:177
+msgid "Apply"
+msgstr "应用"
+
+#: ../modules/grub/main.qml:62
+msgid "Startup Screen"
+msgstr "开机画面"
+
+#: ../modules/grub/main.qml:102
+msgid "Boot priority"
+msgstr "启动顺序"
+
+#: ../modules/grub/main.qml:159
+msgid "Boot delay"
+msgstr "启动延时"
+
+#: ../modules/grub/main.qml:198
+msgid "Text Color"
+msgstr "文字颜色"
+
+#: ../modules/grub/main.qml:232
+msgid "Selected Text Color"
+msgstr "选中文字颜色"
+
 #: ../modules/keyboard/main.qml:83
 msgid "Repeat Delay"
 msgstr "重复延迟"
@@ -1309,62 +1361,41 @@ msgstr "光标闪烁频率"
 msgid "Test Area"
 msgstr "测试区"
 
-#: ../modules/keyboard/main.qml:376
-msgid "No result"
-msgstr "无结果"
-
 #: ../modules/keyboard/main.qml:191
 msgid "Keyboard Layout"
 msgstr "键盘布局"
 
-#: ../modules/power/main.qml:252 ../modules/power/main.qml:425
-msgid "Custom"
-msgstr "自定义"
+#: ../modules/keyboard/main.qml:376
+msgid "No result"
+msgstr "无结果"
 
-#: ../dock-applets/qml/main.qml:15
-msgid "Control Center"
-msgstr ""
+#: ../modules/network/main.qml:148
+msgid "Network Settings"
+msgstr "网络设置"
 
-#: ../modules/power/main.qml:132
-msgid "Ask"
-msgstr "询问"
+#: ../modules/personalization/main.qml:67
+msgid "Theme"
+msgstr "主题"
 
-#: ../modules/power/main.qml:154
-msgid "When I close the lid"
-msgstr "合上笔记本盖子"
+#: ../modules/personalization/main.qml:74
+msgid "Window appearance"
+msgstr "GTK窗口"
 
-#: ../modules/power/main.qml:219
-msgid "Power Adapter"
-msgstr "电源适配器"
+#: ../modules/personalization/main.qml:81
+msgid "Icon"
+msgstr "图标"
 
-#: ../modules/sound/main.qml:206
-msgid "Balance"
-msgstr "均衡"
+#: ../modules/personalization/main.qml:88
+msgid "Cursor"
+msgstr "光标"
 
-#: ../modules/power/main.qml:240 ../modules/power/main.qml:413
-msgid "Power saver"
-msgstr "节能"
+#: ../modules/personalization/main.qml:95
+msgid "Wallpaper"
+msgstr "壁纸"
 
-#: ../modules/power/main.qml:246 ../modules/power/main.qml:419
-msgid "High performance"
-msgstr "高性能"
-
-#: ../modules/power/main.qml:297 ../modules/power/main.qml:471
-msgid "Custom Options"
-msgstr "自定义选项"
-
-#: ../modules/power/main.qml:392
-msgid "Battery"
-msgstr "电池"
-
-#: ../modules/power/main.qml:127 ../modules/power/main.qml:173
-#: ../modules/power/main.qml:237 ../modules/power/main.qml:243
-#: ../modules/power/main.qml:249 ../modules/power/main.qml:255
-#: ../modules/power/main.qml:342 ../modules/power/main.qml:410
-#: ../modules/power/main.qml:416 ../modules/power/main.qml:422
-#: ../modules/power/main.qml:428 ../modules/power/main.qml:516
-msgid "Suspend"
-msgstr "待机"
+#: ../modules/personalization/main.qml:102
+msgid "Fonts"
+msgstr "字体"
 
 #: ../modules/power/main.qml:59
 msgid "1 minute"
@@ -1404,9 +1435,34 @@ msgstr "按下电源按钮"
 msgid "Shutdown"
 msgstr "关机"
 
+#: ../modules/power/main.qml:127 ../modules/power/main.qml:173
+#: ../modules/power/main.qml:237 ../modules/power/main.qml:243
+#: ../modules/power/main.qml:249 ../modules/power/main.qml:255
+#: ../modules/power/main.qml:342 ../modules/power/main.qml:410
+#: ../modules/power/main.qml:416 ../modules/power/main.qml:422
+#: ../modules/power/main.qml:428 ../modules/power/main.qml:516
+msgid "Suspend"
+msgstr "待机"
+
+#: ../modules/power/main.qml:132
+msgid "Ask"
+msgstr "询问"
+
+#: ../modules/power/main.qml:154
+msgid "When I close the lid"
+msgstr "合上笔记本盖子"
+
+#: ../modules/power/main.qml:178
+msgid "Nothing"
+msgstr "无"
+
 #: ../modules/power/main.qml:197
 msgid "Require password when computer wakes"
 msgstr "唤醒需要密码"
+
+#: ../modules/power/main.qml:219
+msgid "Power Adapter"
+msgstr "电源适配器"
 
 #: ../modules/power/main.qml:234 ../modules/power/main.qml:407
 msgid "Balanced"
@@ -1420,93 +1476,33 @@ msgstr "均衡"
 msgid "Turn off the display"
 msgstr "关闭显示器"
 
-#: ../modules/account/main.qml:38 ../frame/modules_info.py:47
-msgid "Account"
-msgstr "账户"
+#: ../modules/power/main.qml:240 ../modules/power/main.qml:413
+msgid "Power saver"
+msgstr "节能"
 
-#: ../modules/account/main.qml:47
-msgid "User List"
-msgstr "用户列表"
+#: ../modules/power/main.qml:246 ../modules/power/main.qml:419
+msgid "High performance"
+msgstr "高性能"
 
-#: ../modules/bluetooth/main.qml:17
-msgid "ON/OFF"
-msgstr ""
+#: ../modules/power/main.qml:252 ../modules/power/main.qml:425
+msgid "Custom"
+msgstr "自定义"
 
-#: ../modules/bluetooth/main.qml:35
-msgid "Visible"
-msgstr "一直隐藏"
+#: ../modules/power/main.qml:297 ../modules/power/main.qml:471
+msgid "Custom Options"
+msgstr "自定义选项"
 
-#: ../modules/bluetooth/main.qml:36
-msgid "Invisible"
-msgstr "一直隐藏"
-
-#: ../modules/bluetooth/main.qml:47
-msgid "Device name"
-msgstr "设备名称"
-
-#: ../modules/bluetooth/main.qml:59
-msgid "Devices nearby"
-msgstr "附近的设备"
-
-#: ../modules/bluetooth/main.qml:72
-msgid "Recently connected devices"
-msgstr "最近连接的设备"
-
-#: ../modules/power/main.qml:178
-msgid "Nothing"
-msgstr "无"
-
-#: ../modules/display/main.qml:94
-msgid "Main Display: "
-msgstr "主显示器："
-
-#: ../modules/display/main.qml:125
-msgid "Monitor"
-msgstr "显示器"
-
-#: ../modules/display/main.qml:177
-msgid "Apply"
-msgstr "应用"
-
-#: ../modules/shortcuts/main.qml:29
-msgid "Window"
-msgstr "窗口"
-
-#: ../modules/personalization/main.qml:67
-msgid "Theme"
-msgstr "主题"
-
-#: ../modules/personalization/main.qml:74
-msgid "Window appearance"
-msgstr "GTK窗口"
-
-#: ../modules/personalization/main.qml:81
-msgid "Icon"
-msgstr "图标"
-
-#: ../modules/personalization/main.qml:88
-msgid "Cursor"
-msgstr "光标"
-
-#: ../modules/personalization/main.qml:95
-msgid "Wallpaper"
-msgstr "壁纸"
-
-#: ../modules/personalization/main.qml:102
-msgid "Fonts"
-msgstr "字体"
-
-#: ../modules/network/main.qml:148
-msgid "Network Settings"
-msgstr "网络设置"
-
-#: ../modules/shortcuts/main.qml:91 ../frame/modules_info.py:42
-msgid "Shortcuts"
-msgstr "快捷键"
+#: ../modules/power/main.qml:392
+msgid "Battery"
+msgstr "电池"
 
 #: ../modules/shortcuts/main.qml:27
 msgid "System"
 msgstr "系统"
+
+#: ../modules/shortcuts/main.qml:29
+msgid "Window"
+msgstr "窗口"
 
 #: ../modules/shortcuts/main.qml:30
 msgid "Workspace"
@@ -1516,17 +1512,21 @@ msgstr "工作区"
 msgid "Custom Shortcuts"
 msgstr "自定义快捷键"
 
+#: ../modules/shortcuts/main.qml:91 ../frame/modules_info.py:42
+msgid "Shortcuts"
+msgstr "快捷键"
+
 #: ../modules/sound/main.qml:132
 msgid "Speaker"
 msgstr "扬声器"
 
-#: ../modules/sound/main.qml:370
-msgid "Output Port"
-msgstr "输出端口"
-
 #: ../modules/sound/main.qml:162
 msgid "Output Volume"
 msgstr "输出音量"
+
+#: ../modules/sound/main.qml:206
+msgid "Balance"
+msgstr "均衡"
 
 #: ../modules/sound/main.qml:228
 msgid "Right"
@@ -1536,9 +1536,17 @@ msgstr "右"
 msgid "Microphone"
 msgstr "麦克风"
 
+#: ../modules/sound/main.qml:290
+msgid "Input Volume"
+msgstr "输入音量"
+
 #: ../modules/sound/main.qml:334
 msgid "Input Feedback"
 msgstr "输入反馈"
+
+#: ../modules/sound/main.qml:370
+msgid "Output Port"
+msgstr "输出端口"
 
 #: ../modules/sound/main.qml:387 ../modules/sound/main.qml:494
 msgid "No port exist in this device."
@@ -1564,41 +1572,33 @@ msgstr "隐藏高级设置..."
 msgid "Show Advanced..."
 msgstr "显示高级设置..."
 
-#: ../modules/sound/main.qml:290
-msgid "Input Volume"
-msgstr "输入音量"
+#: ../modules/system_info/main.qml:70
+msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
+msgstr "Copyright (c) 2011-2014 武汉深之度科技有限公司"
 
-#: ../modules/grub/main.qml:62
-msgid "Startup Screen"
-msgstr "开机画面"
+#: ../modules/system_info/main.qml:76
+msgid "Deepin Edition"
+msgstr "系统版本"
 
-#: ../modules/grub/main.qml:102
-msgid "Boot priority"
-msgstr "启动顺序"
+#: ../modules/system_info/main.qml:82
+msgid "System Type"
+msgstr "系统类型"
 
-#: ../modules/grub/main.qml:159
-msgid "Boot delay"
-msgstr "启动延时"
+#: ../modules/system_info/main.qml:83
+msgid "-bit"
+msgstr "位"
 
-#: ../modules/grub/main.qml:198
-msgid "Text Color"
-msgstr "文字颜色"
+#: ../modules/system_info/main.qml:88
+msgid "Processor"
+msgstr "处理器"
 
-#: ../modules/grub/main.qml:232
-msgid "Selected Text Color"
-msgstr "选中文字颜色"
+#: ../modules/system_info/main.qml:94
+msgid "Memory"
+msgstr "内存"
 
-#: ../dock-applets/qml/power/main.qml:14
-msgid "On Charging"
-msgstr "正在充电"
-
-#: ../dock-applets/qml/sound/main.qml:83
-msgid "Device"
-msgstr "设备"
-
-#: ../dock-applets/qml/sound/main.qml:154
-msgid "Applications"
-msgstr "程序"
+#: ../modules/system_info/main.qml:100
+msgid "Disk"
+msgstr "磁盘"
 
 #: ../frame/modules_info.py:38
 #, fuzzy

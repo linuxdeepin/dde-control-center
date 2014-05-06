@@ -8,3 +8,4 @@ dtk.egg-info
 *.po~
 *.swp
 *.user
+*.old

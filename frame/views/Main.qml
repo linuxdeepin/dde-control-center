@@ -43,8 +43,7 @@ QtObject {
     }
 
     property var dsslocale: DLocale {
-        domain: "deepin-system-settings"
-        dirname: "../../locale"
+        domain: "dde-control-center"
     }
 
     property var dbusNetwork: NetworkManager {

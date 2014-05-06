@@ -98,8 +98,7 @@ QtObject {
     // finish init dbus backend
 
     property var dssLocale: DLocale{
-        domain: "deepin-system-settings"
-        dirname: "../locale"
+        domain: "dde-control-center"
     }
 
     function dsTr(s){
