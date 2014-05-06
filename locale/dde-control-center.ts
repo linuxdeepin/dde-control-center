@@ -1467,22 +1467,22 @@
     <name>MonitorProperties</name>
     <message>
         <location filename="../modules/display/MonitorProperties.qml" line="24"/>
-        <source>Standard</source>
+        <source>Normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/display/MonitorProperties.qml" line="25"/>
-        <source>90°</source>
+        <source>Rotate right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/display/MonitorProperties.qml" line="26"/>
-        <source>180°</source>
+        <source>Upside down</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/display/MonitorProperties.qml" line="27"/>
-        <source>270°</source>
+        <source>Rotate left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1970,12 +1970,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/sound/main.qml" line="83"/>
+        <location filename="../dock-applets/qml/sound/main.qml" line="103"/>
         <source>Device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/sound/main.qml" line="154"/>
+        <location filename="../dock-applets/qml/sound/main.qml" line="176"/>
         <source>Applications</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2557,42 +2557,42 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/main.qml" line="47"/>
+        <location filename="../modules/system_info/main.qml" line="49"/>
         <source>System Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/main.qml" line="70"/>
+        <location filename="../modules/system_info/main.qml" line="72"/>
         <source>Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/main.qml" line="76"/>
+        <location filename="../modules/system_info/main.qml" line="78"/>
         <source>Deepin Edition</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/main.qml" line="82"/>
+        <location filename="../modules/system_info/main.qml" line="84"/>
         <source>System Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/main.qml" line="83"/>
+        <location filename="../modules/system_info/main.qml" line="85"/>
         <source>-bit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/main.qml" line="88"/>
+        <location filename="../modules/system_info/main.qml" line="90"/>
         <source>Processor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/main.qml" line="94"/>
+        <location filename="../modules/system_info/main.qml" line="96"/>
         <source>Memory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/main.qml" line="100"/>
+        <location filename="../modules/system_info/main.qml" line="102"/>
         <source>Disk</source>
         <translation type="unfinished"></translation>
     </message>

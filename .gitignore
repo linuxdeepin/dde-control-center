@@ -9,3 +9,4 @@ dtk.egg-info
 *.swp
 *.user
 *.old
+*.mo

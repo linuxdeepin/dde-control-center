@@ -46,4 +46,12 @@ if __name__ == "__main__":
                 os.path.join(locale_dir, "%s.po" % (lang))),
             shell=True
             )
+
+    for lang in langs:
+        subprocess.call(
+            "sudo cp -r %s %s" % (
+                os.path.join(locale_dir, "%s" % lang),
+                "/usr/share/locale/"),
+            shell=True
+            )
     

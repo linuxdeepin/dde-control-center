@@ -33,8 +33,6 @@ from PyQt5 import QtQml
 
 from constants import ROOT_LOCATION, PANEL_WIDTH
 from constants import APP_DBUS_NAME
-from modules_info import ModulesId
-from nls import QtGettext
 from ChineseLunar import ChineseCalendar150
 import utils
 import ip_utils
@@ -111,10 +109,7 @@ class ControlPanel(QtCore.QObject):
             pass
 
     def set_all_contexts(self):
-        self.modulesId = ModulesId()
-        self.qtGettext = QtGettext()
         self.rootContext.setContextProperty("windowView", self)
-        self.rootContext.setContextProperty("modulesId", self.modulesId)
 
     @QtCore.pyqtSlot(str)
     def setCustomCursor(self, path):

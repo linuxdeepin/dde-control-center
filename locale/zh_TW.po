@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-06 12:55+0800\n"
+"POT-Creation-Date: 2014-05-06 15:06+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,6 @@ msgstr ""
 
 #: ../modules/account/AddUserDialog.qml:89
 #: ../modules/account/AddUserDialog.qml:233
-#: ../modules/display/MonitorProperties.qml:24
 #: ../modules/account/UserList.qml:177
 msgid "Standard"
 msgstr ""
@@ -816,37 +815,32 @@ msgid "Revert"
 msgstr ""
 
 #: ../frame/views/ModulesData.qml:5 ../modules/date_time/main.qml:44
-#: ../frame/modules_info.py:30
 msgid "Date and Time"
 msgstr "日期時間"
 
 #: ../frame/views/ModulesData.qml:6 ../dock-applets/qml/main.qml:16
-#: ../frame/modules_info.py:31
 msgid "Network"
 msgstr "網路"
 
 #: ../frame/views/ModulesData.qml:7 ../dock-applets/qml/main.qml:19
-#: ../frame/modules_info.py:32
 msgid "Disk Mount"
 msgstr "磁碟掛載"
 
 #: ../frame/views/ModulesData.qml:8 ../modules/bluetooth/main.qml:9
-#: ../frame/modules_info.py:33
 msgid "Bluetooth"
 msgstr "藍牙"
 
 #: ../frame/views/ModulesData.qml:9 ../dock-applets/qml/main.qml:17
-#: ../modules/sound/main.qml:97 ../frame/modules_info.py:34
+#: ../modules/sound/main.qml:97
 msgid "Sound"
 msgstr "音效"
 
 #: ../frame/views/ModulesData.qml:10 ../modules/power/main.qml:86
-#: ../frame/modules_info.py:35
 #, fuzzy
 msgid "Power Options"
 msgstr "電源計畫"
 
-#: ../frame/views/ModulesData.qml:11 ../frame/modules_info.py:36
+#: ../frame/views/ModulesData.qml:11
 msgid "More Settings"
 msgstr "更多設定"
 
@@ -856,11 +850,10 @@ msgid "Power"
 msgstr "電源"
 
 #: ../frame/views/ModulesData.qml:13 ../modules/display/main.qml:81
-#: ../frame/modules_info.py:39
 msgid "Display"
 msgstr "顯示"
 
-#: ../frame/views/ModulesData.qml:14 ../frame/modules_info.py:40
+#: ../frame/views/ModulesData.qml:14
 msgid "Desktop"
 msgstr "桌面"
 
@@ -873,7 +866,6 @@ msgid "Keyboard Shortcuts"
 msgstr "鍵盤快捷鍵"
 
 #: ../frame/views/ModulesData.qml:17 ../modules/keyboard/main.qml:71
-#: ../frame/modules_info.py:43
 msgid "Keyboard"
 msgstr "鍵盤"
 
@@ -882,7 +874,6 @@ msgid "Mouse and Touchpad"
 msgstr "滑鼠與觸控板"
 
 #: ../frame/views/ModulesData.qml:19 ../modules/mouse_touchpad/main.qml:27
-#: ../frame/modules_info.py:44
 msgid "Mouse"
 msgstr "滑鼠"
 
@@ -892,12 +883,11 @@ msgstr "使用者帳戶"
 
 #: ../frame/views/ModulesData.qml:21
 #: ../modules/default_applications/main.qml:22
-#: ../modules/default_applications/main.qml:36 ../frame/modules_info.py:48
+#: ../modules/default_applications/main.qml:36
 msgid "Default Applications"
 msgstr "預設應用程式"
 
-#: ../frame/views/ModulesData.qml:22 ../modules/system_info/main.qml:47
-#: ../frame/modules_info.py:49
+#: ../frame/views/ModulesData.qml:22 ../modules/system_info/main.qml:49
 msgid "System Information"
 msgstr "系統資訊"
 
@@ -921,17 +911,23 @@ msgstr "識別"
 msgid "Edit"
 msgstr "編輯"
 
-#: ../modules/display/MonitorProperties.qml:25
-msgid "90°"
+#: ../modules/display/MonitorProperties.qml:24
+msgid "Normal"
 msgstr ""
 
+#: ../modules/display/MonitorProperties.qml:25
+#, fuzzy
+msgid "Rotate right"
+msgstr "右下"
+
 #: ../modules/display/MonitorProperties.qml:26
-msgid "180°"
+msgid "Upside down"
 msgstr ""
 
 #: ../modules/display/MonitorProperties.qml:27
-msgid "270°"
-msgstr ""
+#, fuzzy
+msgid "Rotate left"
+msgstr "左上"
 
 #: ../modules/display/MonitorProperties.qml:89
 msgid "Resolution"
@@ -1022,7 +1018,6 @@ msgid "Time zone"
 msgstr "時區"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:28
-#: ../frame/modules_info.py:46
 msgid "Touchpad"
 msgstr "觸控板"
 
@@ -1223,17 +1218,17 @@ msgstr ""
 msgid "On Charging"
 msgstr ""
 
-#: ../dock-applets/qml/sound/main.qml:83
+#: ../dock-applets/qml/sound/main.qml:103
 #, fuzzy
 msgid "Device"
 msgstr "裝置類型"
 
-#: ../dock-applets/qml/sound/main.qml:154
+#: ../dock-applets/qml/sound/main.qml:176
 #, fuzzy
 msgid "Applications"
 msgstr "預設應用程式"
 
-#: ../modules/account/main.qml:38 ../frame/modules_info.py:47
+#: ../modules/account/main.qml:38
 msgid "Account"
 msgstr "帳戶"
 
@@ -1457,7 +1452,6 @@ msgid "When I press the power button"
 msgstr "當我按下電源按鈕"
 
 #: ../modules/power/main.qml:122 ../modules/power/main.qml:168
-#: ../frame/modules_info.py:37
 msgid "Shutdown"
 msgstr "關機"
 
@@ -1539,7 +1533,7 @@ msgstr "工作區"
 msgid "Custom Shortcuts"
 msgstr "自訂捷徑"
 
-#: ../modules/shortcuts/main.qml:91 ../frame/modules_info.py:42
+#: ../modules/shortcuts/main.qml:91
 msgid "Shortcuts"
 msgstr "捷徑"
 
@@ -1600,41 +1594,39 @@ msgstr "隱藏進階..."
 msgid "Show Advanced..."
 msgstr "顯示進階..."
 
-#: ../modules/system_info/main.qml:70
+#: ../modules/system_info/main.qml:72
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
 msgstr "版權所有 (c) 2011-2014 武漢深之度科技有限公司"
 
-#: ../modules/system_info/main.qml:76
+#: ../modules/system_info/main.qml:78
 msgid "Deepin Edition"
 msgstr ""
 
-#: ../modules/system_info/main.qml:82
+#: ../modules/system_info/main.qml:84
 msgid "System Type"
 msgstr "系統類型"
 
-#: ../modules/system_info/main.qml:83
+#: ../modules/system_info/main.qml:85
 msgid "-bit"
 msgstr ""
 
-#: ../modules/system_info/main.qml:88
+#: ../modules/system_info/main.qml:90
 msgid "Processor"
 msgstr ""
 
-#: ../modules/system_info/main.qml:94
+#: ../modules/system_info/main.qml:96
 msgid "Memory"
 msgstr "記憶體"
 
-#: ../modules/system_info/main.qml:100
+#: ../modules/system_info/main.qml:102
 msgid "Disk"
 msgstr "硬碟"
 
-#: ../frame/modules_info.py:38
-msgid "Notification"
-msgstr "通知"
+#~ msgid "Notification"
+#~ msgstr "通知"
 
-#: ../frame/modules_info.py:41
-msgid "Individuation"
-msgstr "個性化"
+#~ msgid "Individuation"
+#~ msgstr "個性化"
 
 #, fuzzy
 #~ msgid "Startup delay"
@@ -1724,14 +1716,6 @@ msgstr "個性化"
 
 #~ msgid "Select as Main Monitor"
 #~ msgstr "設為預設顯示器"
-
-#, fuzzy
-#~ msgid "Rotate Right"
-#~ msgstr "右下"
-
-#, fuzzy
-#~ msgid "Rotate Left"
-#~ msgstr "左上"
 
 #~ msgid "无效的快捷键\"%1\"，请重新输入！"
 #~ msgstr "無效的快捷鍵\"%1\"，請重新輸入"

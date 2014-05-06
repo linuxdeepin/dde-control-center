@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-06 12:55+0800\n"
+"POT-Creation-Date: 2014-05-06 15:06+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,6 @@ msgstr ""
 
 #: ../modules/account/AddUserDialog.qml:89
 #: ../modules/account/AddUserDialog.qml:233
-#: ../modules/display/MonitorProperties.qml:24
 #: ../modules/account/UserList.qml:177
 msgid "Standard"
 msgstr "标准"
@@ -38,9 +37,8 @@ msgid "Recently Used"
 msgstr ""
 
 #: ../modules/account/AvatarView.qml:19
-#, fuzzy
 msgid "Default"
-msgstr "正常模式"
+msgstr "默认"
 
 #: ../modules/account/AvatarView.qml:20
 msgid "Webcam"
@@ -217,7 +215,6 @@ msgstr ""
 #: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnProxies.qml:43
 #: ../modules/network/components_section_autogen/EditSectionVpnPptp.qml:33
 #: ../modules/account/PasswordDialog.qml:60
-#, fuzzy
 msgid "Password"
 msgstr "密码"
 
@@ -726,12 +723,10 @@ msgid "Auto-login"
 msgstr ""
 
 #: ../modules/account/EditUserDialog.qml:86
-#, fuzzy
 msgid "Enable User"
 msgstr "启用"
 
 #: ../modules/account/EditUserDialog.qml:119
-#, fuzzy
 msgid "User Group"
 msgstr "用户列表"
 
@@ -808,36 +803,31 @@ msgid "Revert"
 msgstr "还原"
 
 #: ../frame/views/ModulesData.qml:5 ../modules/date_time/main.qml:44
-#: ../frame/modules_info.py:30
 msgid "Date and Time"
 msgstr "日期和时间"
 
 #: ../frame/views/ModulesData.qml:6 ../dock-applets/qml/main.qml:16
-#: ../frame/modules_info.py:31
 msgid "Network"
 msgstr "网络"
 
 #: ../frame/views/ModulesData.qml:7 ../dock-applets/qml/main.qml:19
-#: ../frame/modules_info.py:32
 msgid "Disk Mount"
 msgstr "磁盘挂载"
 
 #: ../frame/views/ModulesData.qml:8 ../modules/bluetooth/main.qml:9
-#: ../frame/modules_info.py:33
 msgid "Bluetooth"
 msgstr "蓝牙"
 
 #: ../frame/views/ModulesData.qml:9 ../dock-applets/qml/main.qml:17
-#: ../modules/sound/main.qml:97 ../frame/modules_info.py:34
+#: ../modules/sound/main.qml:97
 msgid "Sound"
 msgstr "声音"
 
 #: ../frame/views/ModulesData.qml:10 ../modules/power/main.qml:86
-#: ../frame/modules_info.py:35
 msgid "Power Options"
 msgstr "电源选项"
 
-#: ../frame/views/ModulesData.qml:11 ../frame/modules_info.py:36
+#: ../frame/views/ModulesData.qml:11
 msgid "More Settings"
 msgstr "更多设置"
 
@@ -847,11 +837,10 @@ msgid "Power"
 msgstr "电源"
 
 #: ../frame/views/ModulesData.qml:13 ../modules/display/main.qml:81
-#: ../frame/modules_info.py:39
 msgid "Display"
 msgstr "显示"
 
-#: ../frame/views/ModulesData.qml:14 ../frame/modules_info.py:40
+#: ../frame/views/ModulesData.qml:14
 msgid "Desktop"
 msgstr "桌面"
 
@@ -864,7 +853,6 @@ msgid "Keyboard Shortcuts"
 msgstr "快捷键"
 
 #: ../frame/views/ModulesData.qml:17 ../modules/keyboard/main.qml:71
-#: ../frame/modules_info.py:43
 msgid "Keyboard"
 msgstr "键盘"
 
@@ -873,7 +861,6 @@ msgid "Mouse and Touchpad"
 msgstr "鼠标和触摸板"
 
 #: ../frame/views/ModulesData.qml:19 ../modules/mouse_touchpad/main.qml:27
-#: ../frame/modules_info.py:44
 msgid "Mouse"
 msgstr "鼠标"
 
@@ -883,12 +870,11 @@ msgstr "账户"
 
 #: ../frame/views/ModulesData.qml:21
 #: ../modules/default_applications/main.qml:22
-#: ../modules/default_applications/main.qml:36 ../frame/modules_info.py:48
+#: ../modules/default_applications/main.qml:36
 msgid "Default Applications"
 msgstr "默认程序"
 
-#: ../frame/views/ModulesData.qml:22 ../modules/system_info/main.qml:47
-#: ../frame/modules_info.py:49
+#: ../frame/views/ModulesData.qml:22 ../modules/system_info/main.qml:49
 msgid "System Information"
 msgstr "系统信息"
 
@@ -912,17 +898,21 @@ msgstr "识别"
 msgid "Edit"
 msgstr "编辑"
 
+#: ../modules/display/MonitorProperties.qml:24
+msgid "Normal"
+msgstr "正常"
+
 #: ../modules/display/MonitorProperties.qml:25
-msgid "90°"
-msgstr ""
+msgid "Rotate right"
+msgstr "向右旋转"
 
 #: ../modules/display/MonitorProperties.qml:26
-msgid "180°"
-msgstr ""
+msgid "Upside down"
+msgstr "上下翻转"
 
 #: ../modules/display/MonitorProperties.qml:27
-msgid "270°"
-msgstr ""
+msgid "Rotate left"
+msgstr "向左旋转"
 
 #: ../modules/display/MonitorProperties.qml:89
 msgid "Resolution"
@@ -933,14 +923,12 @@ msgid "Rotation"
 msgstr "旋转"
 
 #: ../modules/account/PasswordDialog.qml:102
-#, fuzzy
 msgid "New Password"
-msgstr "显示密码"
+msgstr "新密码"
 
 #: ../modules/account/PasswordDialog.qml:131
-#, fuzzy
 msgid "Repeat"
-msgstr "重复速度"
+msgstr "重复"
 
 #: ../modules/account/PasswordDialog.qml:157
 #: ../dock-applets/qml/WifiPasswordWindow.qml:138
@@ -1009,7 +997,6 @@ msgid "Time zone"
 msgstr "时区"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:28
-#: ../frame/modules_info.py:46
 msgid "Touchpad"
 msgstr "触摸板"
 
@@ -1131,7 +1118,6 @@ msgid "Wireless Device: %1"
 msgstr "无线设备 %1"
 
 #: ../modules/network/WirelessDeviceExpand.qml:129
-#, fuzzy, qt-format
 msgid "Wireless Device %1 %2"
 msgstr "无线设备 %1"
 
@@ -1140,14 +1126,12 @@ msgid "Password: "
 msgstr "密码: "
 
 #: ../dock-applets/qml/network/WirelessNetwork.qml:27
-#, fuzzy, qt-format
 msgid "Wireless Network %1"
-msgstr "无线设备 %1"
+msgstr "无线网络 %1"
 
 #: ../dock-applets/qml/network/WirelessNetwork.qml:27
-#, fuzzy
 msgid "Wireless Network"
-msgstr "网络"
+msgstr "无线网络"
 
 #: ../modules/date_time/calendar_core.js:6
 msgid "January"
@@ -1205,15 +1189,15 @@ msgstr ""
 msgid "On Charging"
 msgstr "正在充电"
 
-#: ../dock-applets/qml/sound/main.qml:83
+#: ../dock-applets/qml/sound/main.qml:103
 msgid "Device"
 msgstr "设备"
 
-#: ../dock-applets/qml/sound/main.qml:154
+#: ../dock-applets/qml/sound/main.qml:176
 msgid "Applications"
 msgstr "程序"
 
-#: ../modules/account/main.qml:38 ../frame/modules_info.py:47
+#: ../modules/account/main.qml:38
 msgid "Account"
 msgstr "账户"
 
@@ -1426,8 +1410,6 @@ msgid "When I press the power button"
 msgstr "按下电源按钮"
 
 #: ../modules/power/main.qml:122 ../modules/power/main.qml:168
-#: ../frame/modules_info.py:37
-#, fuzzy
 msgid "Shutdown"
 msgstr "关机"
 
@@ -1508,7 +1490,7 @@ msgstr "工作区"
 msgid "Custom Shortcuts"
 msgstr "自定义快捷键"
 
-#: ../modules/shortcuts/main.qml:91 ../frame/modules_info.py:42
+#: ../modules/shortcuts/main.qml:91
 msgid "Shortcuts"
 msgstr "快捷键"
 
@@ -1568,42 +1550,37 @@ msgstr "隐藏高级设置..."
 msgid "Show Advanced..."
 msgstr "显示高级设置..."
 
-#: ../modules/system_info/main.qml:70
+#: ../modules/system_info/main.qml:72
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
 msgstr "Copyright (c) 2011-2014 武汉深之度科技有限公司"
 
-#: ../modules/system_info/main.qml:76
+#: ../modules/system_info/main.qml:78
 msgid "Deepin Edition"
 msgstr "系统版本"
 
-#: ../modules/system_info/main.qml:82
+#: ../modules/system_info/main.qml:84
 msgid "System Type"
 msgstr "系统类型"
 
-#: ../modules/system_info/main.qml:83
+#: ../modules/system_info/main.qml:85
 msgid "-bit"
 msgstr "位"
 
-#: ../modules/system_info/main.qml:88
+#: ../modules/system_info/main.qml:90
 msgid "Processor"
 msgstr "处理器"
 
-#: ../modules/system_info/main.qml:94
+#: ../modules/system_info/main.qml:96
 msgid "Memory"
 msgstr "内存"
 
-#: ../modules/system_info/main.qml:100
+#: ../modules/system_info/main.qml:102
 msgid "Disk"
 msgstr "磁盘"
 
-#: ../frame/modules_info.py:38
 #, fuzzy
-msgid "Notification"
-msgstr "旋转"
-
-#: ../frame/modules_info.py:41
-msgid "Individuation"
-msgstr ""
+#~ msgid "Notification"
+#~ msgstr "旋转"
 
 #~ msgid "Window appearance"
 #~ msgstr "GTK窗口"
@@ -1661,9 +1638,6 @@ msgstr ""
 
 #~ msgid "Top Left"
 #~ msgstr "左上角"
-
-#~ msgid "Bottom Right"
-#~ msgstr "右下角"
 
 #~ msgid "Internal Devices"
 #~ msgstr "内部设备"
