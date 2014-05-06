@@ -32,8 +32,5 @@ BaseEditSection {
             key: "ipsec-psk"
             text: dsTr("Password")
         }
-        EditLinePasswordToggle {
-            targetTextInput: lineIpsecPsk
-        }
     }
 }

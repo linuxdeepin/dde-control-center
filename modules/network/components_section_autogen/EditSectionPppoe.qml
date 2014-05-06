@@ -27,8 +27,5 @@ BaseEditSection {
             key: "password"
             text: dsTr("Password")
         }
-        EditLinePasswordToggle {
-            targetTextInput: linePassword
-        }
     }
 }

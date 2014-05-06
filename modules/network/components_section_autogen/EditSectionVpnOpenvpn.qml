@@ -25,7 +25,7 @@ BaseEditSection {
         EditLineTextInput {
             id: lineUsername
             key: "username"
-            text: dsTr("User Name")
+            text: dsTr("Username")
         }
         EditLineComboBox {
             id: linePasswordFlags
@@ -36,9 +36,6 @@ BaseEditSection {
             id: linePassword
             key: "password"
             text: dsTr("Password")
-        }
-        EditLinePasswordToggle {
-            targetTextInput: linePassword
         }
         EditLineFileChooser {
             id: lineCert
@@ -64,9 +61,6 @@ BaseEditSection {
             id: lineCertPass
             key: "cert-pass"
             text: dsTr("Private Pwd")
-        }
-        EditLinePasswordToggle {
-            targetTextInput: lineCertPass
         }
         EditLineFileChooser {
             id: lineStaticKey

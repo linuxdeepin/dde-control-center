@@ -20,7 +20,7 @@ BaseEditSection {
         EditLineTextInput {
             id: lineXauthUsername
             key: "Xauth username"
-            text: dsTr("User Name")
+            text: dsTr("Username")
         }
         EditLineComboBox {
             id: lineXauthPasswordFlags
@@ -31,9 +31,6 @@ BaseEditSection {
             id: lineXauthPassword
             key: "Xauth password"
             text: dsTr("User Pwd")
-        }
-        EditLinePasswordToggle {
-            targetTextInput: lineXauthPassword
         }
         EditLineTextInput {
             id: lineIpsecId
@@ -49,9 +46,6 @@ BaseEditSection {
             id: lineIpsecSecret
             key: "IPSec secret"
             text: dsTr("Group Pwd")
-        }
-        EditLinePasswordToggle {
-            targetTextInput: lineIpsecSecret
         }
         EditLineSwitchButton {
             id: lineVkHybridAuthmode

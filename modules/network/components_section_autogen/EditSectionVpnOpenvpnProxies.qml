@@ -35,15 +35,12 @@ BaseEditSection {
         EditLineTextInput {
             id: lineHttpProxyUsername
             key: "http-proxy-username"
-            text: dsTr("User Name")
+            text: dsTr("Username")
         }
         EditLinePasswordInput {
             id: lineHttpProxyPassword
             key: "http-proxy-password"
             text: dsTr("Password")
-        }
-        EditLinePasswordToggle {
-            targetTextInput: lineHttpProxyPassword
         }
     }
 }

@@ -22,142 +22,149 @@ BaseEditPage {
         activeExpandIndex: root.activeExpandIndex
     }
     
-    EditSectionSeparator {relatedSection: sectionGsm}
-    EditSectionGsm {
+    EditSectionSeparator {relatedSection: sectionMobile}
+    EditSectionMobile {
         myIndex: 2
-        id: sectionGsm
+        id: sectionMobile
+        activeExpandIndex: root.activeExpandIndex
+    }
+    
+    EditSectionSeparator {relatedSection: sectionMobileCdma}
+    EditSectionMobileCdma {
+        myIndex: 3
+        id: sectionMobileCdma
         activeExpandIndex: root.activeExpandIndex
     }
     
     EditSectionSeparator {relatedSection: sectionWifi}
     EditSectionWifi {
-        myIndex: 3
+        myIndex: 4
         id: sectionWifi
         activeExpandIndex: root.activeExpandIndex
     }
     
     EditSectionSeparator {relatedSection: sectionSecurity}
     EditSectionSecurity {
-        myIndex: 4
+        myIndex: 5
         id: sectionSecurity
         activeExpandIndex: root.activeExpandIndex
     }
     
     EditSectionSeparator {relatedSection: sectionPppoe}
     EditSectionPppoe {
-        myIndex: 5
+        myIndex: 6
         id: sectionPppoe
         activeExpandIndex: root.activeExpandIndex
     }
     
     EditSectionSeparator {relatedSection: sectionPpp}
     EditSectionPpp {
-        myIndex: 6
+        myIndex: 7
         id: sectionPpp
         activeExpandIndex: root.activeExpandIndex
     }
     
     EditSectionSeparator {relatedSection: sectionVpnL2tp}
     EditSectionVpnL2tp {
-        myIndex: 7
+        myIndex: 8
         id: sectionVpnL2tp
         activeExpandIndex: root.activeExpandIndex
     }
     
     EditSectionSeparator {relatedSection: sectionVpnL2tpIpsec}
     EditSectionVpnL2tpIpsec {
-        myIndex: 8
+        myIndex: 9
         id: sectionVpnL2tpIpsec
         activeExpandIndex: root.activeExpandIndex
     }
     
     EditSectionSeparator {relatedSection: sectionVpnL2tpPpp}
     EditSectionVpnL2tpPpp {
-        myIndex: 9
+        myIndex: 10
         id: sectionVpnL2tpPpp
         activeExpandIndex: root.activeExpandIndex
     }
     
     EditSectionSeparator {relatedSection: sectionVpnOpenconnect}
     EditSectionVpnOpenconnect {
-        myIndex: 10
+        myIndex: 11
         id: sectionVpnOpenconnect
         activeExpandIndex: root.activeExpandIndex
     }
     
     EditSectionSeparator {relatedSection: sectionVpnOpenvpn}
     EditSectionVpnOpenvpn {
-        myIndex: 11
+        myIndex: 12
         id: sectionVpnOpenvpn
         activeExpandIndex: root.activeExpandIndex
     }
     
     EditSectionSeparator {relatedSection: sectionVpnOpenvpnSecurity}
     EditSectionVpnOpenvpnSecurity {
-        myIndex: 12
+        myIndex: 13
         id: sectionVpnOpenvpnSecurity
         activeExpandIndex: root.activeExpandIndex
     }
     
     EditSectionSeparator {relatedSection: sectionVpnOpenvpnTlsauth}
     EditSectionVpnOpenvpnTlsauth {
-        myIndex: 13
+        myIndex: 14
         id: sectionVpnOpenvpnTlsauth
         activeExpandIndex: root.activeExpandIndex
     }
     
     EditSectionSeparator {relatedSection: sectionVpnOpenvpnProxies}
     EditSectionVpnOpenvpnProxies {
-        myIndex: 14
+        myIndex: 15
         id: sectionVpnOpenvpnProxies
         activeExpandIndex: root.activeExpandIndex
     }
     
     EditSectionSeparator {relatedSection: sectionVpnOpenvpnAdvanced}
     EditSectionVpnOpenvpnAdvanced {
-        myIndex: 15
+        myIndex: 16
         id: sectionVpnOpenvpnAdvanced
         activeExpandIndex: root.activeExpandIndex
     }
     
     EditSectionSeparator {relatedSection: sectionVpnPptp}
     EditSectionVpnPptp {
-        myIndex: 16
+        myIndex: 17
         id: sectionVpnPptp
         activeExpandIndex: root.activeExpandIndex
     }
     
     EditSectionSeparator {relatedSection: sectionVpnPptpPpp}
     EditSectionVpnPptpPpp {
-        myIndex: 17
+        myIndex: 18
         id: sectionVpnPptpPpp
         activeExpandIndex: root.activeExpandIndex
     }
     
     EditSectionSeparator {relatedSection: sectionVpnVpnc}
     EditSectionVpnVpnc {
-        myIndex: 18
+        myIndex: 19
         id: sectionVpnVpnc
         activeExpandIndex: root.activeExpandIndex
     }
     
     EditSectionSeparator {relatedSection: sectionVpnVpncAdvanced}
     EditSectionVpnVpncAdvanced {
-        myIndex: 19
+        myIndex: 20
         id: sectionVpnVpncAdvanced
         activeExpandIndex: root.activeExpandIndex
     }
     
     EditSectionSeparator {relatedSection: sectionIpv4}
     EditSectionIpv4 {
-        myIndex: 20
+        myIndex: 21
         id: sectionIpv4
         activeExpandIndex: root.activeExpandIndex
     }
     
     EditSectionSeparator {relatedSection: sectionIpv6}
     EditSectionIpv6 {
-        myIndex: 21
+        myIndex: 22
         id: sectionIpv6
         activeExpandIndex: root.activeExpandIndex
     }
