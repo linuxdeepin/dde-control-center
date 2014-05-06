@@ -28,7 +28,7 @@ DockApplet{
         else{
             step = 100
         }
-        return "images/sound_%1.png".arg(step)
+        return getIconUrl("sound/sound_%1.png".arg(step))
     }
 
     onActivate:{

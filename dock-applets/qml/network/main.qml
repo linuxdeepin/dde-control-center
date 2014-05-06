@@ -8,7 +8,7 @@ DockApplet{
     title: "DSS"
     appid: "AppletNetwork"
     icon: iconPath
-    property url iconPath: "images/network_on.png"
+    property url iconPath: getIconUrl("network/network_on.png")
     property var dconstants: DConstants {}
 
     function marshalJSON(value){

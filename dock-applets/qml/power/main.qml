@@ -11,7 +11,7 @@ DockApplet {
             return parseInt(dbusPower.batteryPercentage) + "%"
         }
         else{
-            return "%1% ".arg(dbusPower.batteryPercentage) + dsTr("Charging")
+            return "%1% ".arg(dbusPower.batteryPercentage) + dsTr("On Charging")
         }
     }
     appid: "AppletPower"
@@ -42,25 +42,25 @@ DockApplet {
     function getIconPath(){
         var percentage = parseInt(dbusPower.batteryPercentage)
         if (!dbusPower.onBattery){
-            return "images/power_on_100.png"
+            return getIconUrl("power/power_on_100.png")
         }
         else if(percentage <= 10){
-            return "images/power_0.png"
+            return getIconUrl("power/power_0.png")
         }
         else if(percentage <= 30){
-            return "images/power_20.png"
+            return getIconUrl("power/power_20.png")
         }
         else if(percentage <= 50){
-            return "images/power_40.png"
+            return getIconUrl("power/power_40.png")
         }
         else if(percentage <= 70){
-            return "images/power_60.png"
+            return getIconUrl("power/power_60.png")
         }
         else if(percentage <= 90){
-            return "images/power_80.png"
+            return getIconUrl("power/power_80.png")
         }
         else if(percentage <= 100){
-            return "images/power_100.png"
+            return getIconUrl("power/power_100.png")
         }
     }
 }

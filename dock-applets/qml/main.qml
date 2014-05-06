@@ -5,6 +5,7 @@ import DBus.Com.Deepin.Dde.ControlCenter 1.0
 import DBus.Com.Deepin.Daemon.DiskMount 1.0
 import DBus.Com.Deepin.Daemon.Power 1.0
 import DBus.Com.Deepin.Daemon.Network 1.0
+import Resource 1.0
 
 QtObject {
     id: root
@@ -17,6 +18,8 @@ QtObject {
         "power": dsTr("Power"),
         "disk_mount": dsTr("Disk Mount")
     }
+
+
 
     Component.onCompleted: {
         init_applet_list_model()
@@ -101,6 +104,11 @@ QtObject {
 
     function dsTr(s){
         return dssLocale.dsTr(s)
+    }
+
+    property var iconResource: IconResource {}
+    function getIconUrl(path){
+        return iconResource.getIconUrl(path)
     }
 
     function getIndexFromArray(s, a){
