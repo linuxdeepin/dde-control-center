@@ -2298,11 +2298,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/main.qml" line="74"/>
-        <source>Window appearance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../modules/personalization/main.qml" line="81"/>
         <source>Icon</source>
         <translation type="unfinished"></translation>
@@ -2469,6 +2464,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../modules/personalization/main.qml" line="74"/>
         <location filename="../modules/shortcuts/main.qml" line="29"/>
         <source>Window</source>
         <translation type="unfinished"></translation>

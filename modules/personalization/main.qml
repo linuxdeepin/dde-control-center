@@ -71,7 +71,7 @@ Item {
 
         WindowThemeExpand {
             myIndex: 1
-            title: dsTr("Window appearance")
+            title: dsTr("Window")
         }
 
         DSeparatorHorizontal {}

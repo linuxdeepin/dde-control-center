@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-06 12:47+0800\n"
+"POT-Creation-Date: 2014-05-06 12:55+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1342,10 +1342,6 @@ msgstr ""
 msgid "Theme"
 msgstr ""
 
-#: ../modules/personalization/main.qml:74
-msgid "Window appearance"
-msgstr ""
-
 #: ../modules/personalization/main.qml:81
 msgid "Icon"
 msgstr ""
@@ -1464,7 +1460,7 @@ msgstr ""
 msgid "System"
 msgstr ""
 
-#: ../modules/shortcuts/main.qml:29
+#: ../modules/personalization/main.qml:74 ../modules/shortcuts/main.qml:29
 msgid "Window"
 msgstr ""
 

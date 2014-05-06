@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-06 12:47+0800\n"
+"POT-Creation-Date: 2014-05-06 12:55+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1377,10 +1377,6 @@ msgstr "网络设置"
 msgid "Theme"
 msgstr "主题"
 
-#: ../modules/personalization/main.qml:74
-msgid "Window appearance"
-msgstr "GTK窗口"
-
 #: ../modules/personalization/main.qml:81
 msgid "Icon"
 msgstr "图标"
@@ -1500,7 +1496,7 @@ msgstr "电池"
 msgid "System"
 msgstr "系统"
 
-#: ../modules/shortcuts/main.qml:29
+#: ../modules/personalization/main.qml:74 ../modules/shortcuts/main.qml:29
 msgid "Window"
 msgstr "窗口"
 
@@ -1608,6 +1604,9 @@ msgstr "旋转"
 #: ../frame/modules_info.py:41
 msgid "Individuation"
 msgstr ""
+
+#~ msgid "Window appearance"
+#~ msgstr "GTK窗口"
 
 #, fuzzy
 #~ msgid "Startup delay"
