@@ -720,7 +720,7 @@ msgstr ""
 
 #: ../modules/account/EditUserDialog.qml:52
 msgid "Auto-login"
-msgstr ""
+msgstr "自动登录"
 
 #: ../modules/account/EditUserDialog.qml:86
 msgid "Enable User"
