@@ -27,6 +27,7 @@ Item {
         NumberAnimation on opacity { duration: 150 }
 
         onClicked: {
+            parent.clicked()
             parent.inSuccessState = true
             showButtonTimer.start()
         }
