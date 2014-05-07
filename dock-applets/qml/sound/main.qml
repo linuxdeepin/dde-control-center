@@ -149,9 +149,7 @@ DockApplet{
                             running: true
                             interval: 200
                             onTriggered: {
-                                if(!pressed && !hovered){
-                                    soundSlider.value = defaultSink.volume
-                                }
+                                soundSlider.value = defaultSink.volume
                             }
                         }
                     }
