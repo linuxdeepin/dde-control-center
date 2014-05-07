@@ -19,9 +19,11 @@ Item {
     ListView{
         id: wirelessDevicesList
         width: parent.width
-        height: Math.min(childrenRect.height, parent.wirelessAreaMaxHeight - 2)
-        model: wirelessDevicesNumber
+        height: childrenRect.height
+        boundsBehavior: Flickable.StopAtBounds
         clip: true
+
+        model: wirelessDevicesNumber
         delegate: WirelessDeviceExpand {
             // TODO fix refresh issue when remove a wireless device
             // devicePath: dbusNetwork.wirelessDevices[index][0] // TODO remove

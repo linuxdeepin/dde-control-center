@@ -25,6 +25,7 @@ Item {
             updateWirelessConnectionInfo()
         }
     }
+
     Component.onCompleted: {
         updateWirelessConnectionInfo()
     }
@@ -38,7 +39,6 @@ Item {
                 if (wirelessConnections[i].HwAddr == "" || wirelessConnections[i].HwAddr == deviceHwAddr) {
                     connectionPath = wirelessConnections[i].Path
                     uuid = wirelessConnections[i].Uuid
-                    print("update connection:", wirelessConnections[i].Ssid, uuid, connectionPath, deviceHwAddr) // TODO test
                     break
                 }
             }
@@ -70,6 +70,7 @@ Item {
             goToCreateConnection()
         }
     }
+
     function goToEditConnection(){
         stackView.push({
             "item": stackViewPages["connectionPropertiesPage"],
@@ -78,6 +79,7 @@ Item {
         })
         stackView.currentItemId = "connectionPropertiesPage"
     }
+
     function goToCreateConnection(){
         stackView.push({
             "item": stackViewPages["connectionPropertiesPage"],
@@ -93,8 +95,8 @@ Item {
         property bool hovered: false
         property bool selected: false
 
-        MouseArea{
-            z:-1
+        MouseArea {
+            z: -1
             anchors.fill:parent
             hoverEnabled: true
             visible: !networkModule.inPasswordInputting
@@ -315,11 +317,5 @@ Item {
                 }
             }
         }
-    }
-
-    DSeparatorHorizontal{
-        anchors.top: wirelessLine.bottom
-        anchors.topMargin: passwordArea.height == 0 ? 0 : passwordArea.height - arrowRectBackground.arrowHeight
-        visible: index != parent.ListView.view.count - 1
     }
 }

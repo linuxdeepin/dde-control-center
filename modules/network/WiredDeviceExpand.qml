@@ -5,13 +5,16 @@ DBaseExpand {
     id: wiredDeviceExpand
     width: parent.width
 
+    property var wiredDevices: nmDevices[nmDeviceTypeEthernet]
+    property int wiredDevicesNumber: wiredDevices.length
+
     expanded: dbusNetwork.wiredEnabled
 
     header.sourceComponent: DBaseLine{
         id: wiredDeviceHeader
         leftLoader.sourceComponent: DssH2 {
             anchors.verticalCenter: parent.verticalCenter
-            text: dsTr("Wired Connetions")
+            text: dsTr("Wired Network")
         }
 
         rightLoader.sourceComponent: DSwitchButton{
@@ -29,7 +32,8 @@ DBaseExpand {
         ListView {
             width: parent.width
             height: childrenRect.height
-            model: dbusNetwork.wiredDevices
+            boundsBehavior: Flickable.StopAtBounds
+            model: wiredDevicesNumber
             delegate: WiredItem {}
         }
 

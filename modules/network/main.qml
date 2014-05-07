@@ -6,7 +6,7 @@ import DBus.Com.Deepin.Daemon.Network 1.0
 import Deepin.Widgets 1.0
 import DGui 1.0
 
-Column{
+Item {
     id: networkModule
     anchors.fill: parent
 
@@ -68,27 +68,32 @@ Column{
     readonly property var nmConnectionTypeMobileCdma: "mobile-cdma"
     readonly property var nmConnectionTypeVpn: "vpn"
     readonly property var nmConnectionTypeVpnL2tp: "vpn-l2tp"
-	readonly property var nmConnectionTypeVpnPptp: "vpn-pptp"
-	readonly property var nmConnectionTypeVpnVpnc: "vpn-vpnc"
-	readonly property var nmConnectionTypeVpnOpenvpn: "vpn-openvpn"
-	readonly property var nmConnectionTypeVpnOpenconnect: "vpn-openconnect"
- 
+    readonly property var nmConnectionTypeVpnPptp: "vpn-pptp"
+    readonly property var nmConnectionTypeVpnVpnc: "vpn-vpnc"
+    readonly property var nmConnectionTypeVpnOpenvpn: "vpn-openvpn"
+    readonly property var nmConnectionTypeVpnOpenconnect: "vpn-openconnect"
+
     property var dbusNetwork: NetworkManager{}
     property var nmActiveConnections: unmarshalJSON(dbusNetwork.activeConnections)
     property var nmDevices: unmarshalJSON(dbusNetwork.devices)
     property var nmConnections: unmarshalJSON(dbusNetwork.connections)
 
     signal needSecretsEmit(string path, string encryptionName, string accessPointName)
+    signal toNetworkIndexPage
 
     property bool inPasswordInputting: false
 
-    property bool inAllConnectionPage: stackView.depth == 1
+    //property bool inAllConnectionPage: stackView.depth == 1
+    property bool inAllConnectionPage: true
     property var allConnectionPage: ListConnections {}
 
     property var stackViewPages: {
         "allConnectionPage": Qt.resolvedUrl("ListConnections.qml"),
         "infoPage": Qt.resolvedUrl("Info.qml"),
         "connectionPropertiesPage": Qt.resolvedUrl("ConnectionProperties.qml"),
+        "addPageIndex": Qt.resolvedUrl("AddPageIndex.qml"),
+        "newDslPage": Qt.resolvedUrl("NewDslPage.qml"),
+        "newVpnPage": Qt.resolvedUrl("NewVpnPage.qml"),
         // TODO remove
         // "wirelessPropertiesPage": Qt.resolvedUrl("WirelessProperties.qml"),
         // "wiredPropertiesPage": Qt.resolvedUrl("WiredProperties.qml")
@@ -144,9 +149,13 @@ Column{
     }
 
     DssTitle {
-        id:header
-        height: 48
+        id: header
         text: dsTr("Network Settings")
+
+        onTitleClicked: {
+            stackView.reset()
+        }
+
         rightLoader.sourceComponent: Row {
             height: header.height
             spacing: 4
@@ -154,23 +163,16 @@ Column{
             DssAddButton{
                 id: addButton
                 anchors.verticalCenter: parent.verticalCenter
-                // TODO temporary scheme
+                //visible: stackView.currentItemId == "allConnectionPage"
+                //onClicked: {
+                    //stackView.push(stackViewPages["addPageIndex"])
+                    //stackView.currentItemId = "addPageIndex"
+                //}
+
                 property var menuLabels
                 function menuSelect(i){
                     print("create connection", menuLabels[i])
                     goToCreateConnection(getSupportedConnectionTypesInfo()[i].Value)
-                }
-                onClicked: {
-                    if(!rootMenu.visible){
-                        menuLabels = getSupportedConnectionTypesText() // update menu labels
-                        var pos = mapToItem(null, 0, 0)
-                        rootMenu.labels = addButton.menuLabels
-                        rootMenu.requestMenuItem = addButton
-                        rootMenu.innerWidth = 250
-                        rootMenu.posX = pos.x - rootMenu.innerWidth + width
-                        rootMenu.posY = pos.y + height
-                    }
-                    rootMenu.visible = !rootMenu.visible
                 }
                 function getSupportedConnectionTypesInfo() {
                     return JSON.parse(dbusNetwork.GetSupportedConnectionTypes())
@@ -194,8 +196,9 @@ Column{
             }
 
             DTextButton {
-                text: "Info"
+                text: "i"
                 anchors.verticalCenter: parent.verticalCenter
+                //visible: stackView.currentItemId == "allConnectionPage"
                 onClicked: {
                     stackView.push(stackViewPages["infoPage"])
                     stackView.currentItemId = "infoPage"
@@ -204,22 +207,44 @@ Column{
         }
     }
 
-    DSeparatorHorizontal{}
+    DSeparatorHorizontal{
+        anchors.top: header.bottom
+        anchors.left: parent.left
+        width: parent.width
+    }
 
-    StackView {
-        id:stackView
+    Flickable {
+        id: flickableBox
+        z: -1
+        anchors.top: header.bottom
+        anchors.topMargin: 2
         width: parent.width
         height: parent.height - header.height - 2
-        property string currentItemId: ""
 
-        function reset(){
-            stackView.pop(null)
-            stackView.currentItemId = "allConnectionPage"
-        }
+        contentWidth: parent.width
+        contentHeight: stackView.height
 
-        Component.onCompleted: {
-            stackView.push(stackViewPages["allConnectionPage"])
-            stackView.currentItemId = "allConnectionPage"
+        StackView {
+            id:stackView
+            width: parent.width
+            height: currentItem.realHeight
+            clip: true
+
+            initialItem: {
+                "item": stackViewPages["allConnectionPage"],
+                "properties": { "width": parent.width }
+            }
+
+            property string currentItemId: ""
+
+            function reset(){
+                stackView.pop(null)
+                stackView.currentItemId = "allConnectionPage"
+            }
+
+            Component.onCompleted: {
+                stackView.currentItemId = "allConnectionPage"
+            }
         }
     }
 }

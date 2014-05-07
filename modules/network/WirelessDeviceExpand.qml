@@ -20,12 +20,6 @@ DBaseExpand {
                 wirelessDevicesExpand.deviceStatus = wirelessDevices[i].State
             }
         }
-        // TODO remove
-        // for(var i in dbusNetwork.wirelessDevices){
-        //     if(dbusNetwork.wirelessDevices[i][0] == wirelessDevicesExpand.devicePath){
-        //         wirelessDevicesExpand.deviceStatus = dbusNetwork.wirelessDevices[i][1]
-        //     }
-        // }
         if(!scanTimer.running){
             scanTimer.start()
         }
@@ -123,10 +117,10 @@ DBaseExpand {
             anchors.verticalCenter: parent.verticalCenter
             text: {
                 if(wirelessDevices.length < 2){
-                    return dsTr("Wireless Device: %1").arg(deviceStatus)
+                    return dsTr("Wireless Network")
                 }
                 else{
-                    return dsTr("Wireless Device %1 %2").arg(index + 1).arg(deviceStatus)
+                    return dsTr("Wireless Network %1").arg(index + 1).arg(deviceStatus)
                 }
             }
             MouseArea {
@@ -144,14 +138,13 @@ DBaseExpand {
         }
     }
 
-    content.sourceComponent: Item {
+    content.sourceComponent: Column {
         width: parent.width
-        height: childrenRect.height
 
         ListView {
-            visible: accessPointsModel.count > 0 ? true: false
             width: parent.width
             height: childrenRect.height
+            boundsBehavior: Flickable.StopAtBounds
             model: accessPointsModel
             delegate: WirelessItem {
                 devicePath: wirelessDevicesExpand.devicePath
@@ -159,13 +152,67 @@ DBaseExpand {
             }
         }
 
-        DBaseLine{
-            visible: accessPointsModel.count > 0 ? false: true
+        DBaseLine {
+            id: hiddenNetworkLine
             color: dconstants.contentBgColor
-            leftMargin: 24
-            leftLoader.sourceComponent: DssH2{
+
+            property bool hovered: false
+
+            function goToConnectHiddenAP(){
+            }
+
+            leftLoader.sourceComponent: DssH2 {
+                anchors.left: parent.left
+                anchors.leftMargin: 24
+                anchors.verticalCenter: parent.verticalCenter
+                text: dsTr("Connect Hidden Access Point")
                 font.pixelSize: 12
-                text: dsTr("Scanning...")
+                color: hiddenNetworkLine.hovered ? dconstants.hoverColor : dconstants.fgColor
+            }
+            rightLoader.sourceComponent: DArrowButton {
+                onClicked: goToConnectHiddenAP()
+            }
+
+            MouseArea {
+                z: -1
+                anchors.fill:parent
+                hoverEnabled: true
+                onEntered: parent.hovered = true
+                onExited: parent.hovered = false
+                onClicked: goToConnectHiddenAP()
+            }
+        }
+
+        DSeparatorHorizontal {}
+
+        DBaseLine {
+            id: createApLine
+            color: dconstants.contentBgColor
+
+            property bool hovered: false
+
+            function goToCreateAP(){
+            }
+
+            leftLoader.sourceComponent: DssH2 {
+                anchors.left: parent.left
+                anchors.leftMargin: 24
+                anchors.verticalCenter: parent.verticalCenter
+                text: dsTr("Create Access Point")
+                font.pixelSize: 12
+                color: createApLine.hovered ? dconstants.hoverColor : dconstants.fgColor
+            }
+            rightLoader.sourceComponent: DArrowButton {
+                onClicked: goToCreateAP()
+            }
+
+            MouseArea {
+                z: -1
+                anchors.fill:parent
+                hoverEnabled: true
+                onEntered: parent.hovered = true
+                onExited: parent.hovered = false
+                onClicked: goToCreateAP()
             }
         }
     }
