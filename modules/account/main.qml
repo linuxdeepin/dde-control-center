@@ -45,6 +45,7 @@ Rectangle {
 
                 DImageCheckButton {
                     id: delete_check_button
+                    visible: dbus_accounts.userList.length != 1
 
                     inactivatedNomralImage: "images/delete_normal.png"
                     inactivatedHoverImage: "images/delete_normal.png"
