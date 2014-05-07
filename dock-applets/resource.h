@@ -2,6 +2,7 @@
 #define RESOURCE_H
 
 #include <QObject>
+#include <QDebug>
 
 class IconResource : public QObject
 {
@@ -14,7 +15,9 @@ public:
 
     Q_INVOKABLE QString getIconUrl(QString path)
     {
-        return "file:///usr/share/dde-control-center/dock-applets/icons/" + path;
+        QString iconPath = "file://"DOCKAPPLETSDIR"/icons/" + path;
+        qDebug() << iconPath;
+        return iconPath;
     }
 };
 
