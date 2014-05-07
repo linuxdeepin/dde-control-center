@@ -94,7 +94,6 @@ Item {
                 }
 
                 Component.onCompleted: {
-                    print(dbusKeyboard.repeatDelay)
                     addRuler(20, dsTr("Short"))
                     addRuler(600, dsTr("Long"))
                 }
@@ -117,11 +116,9 @@ Item {
 
                 onValueConfirmed:{
                     dbusKeyboard.repeatInterval = value
-                    print(dbusKeyboard.repeatInterval)
                 }
 
                 Component.onCompleted: {
-                    print(dbusKeyboard.repeatInterval)
                     addRuler(200, dsTr("Fast"))
                     addRuler(1000, dsTr("Slow"))
                 }

@@ -214,8 +214,7 @@ Item {
                         init: currentSink.balance
                         completeColorVisible: false
                         floatNumber: 2
-
-                        handler.source: "images/balance.png"
+                        isBalance: true
 
                         onValueChanged:{
                             // currentSink.balance = value
