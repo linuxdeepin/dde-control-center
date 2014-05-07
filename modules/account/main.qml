@@ -36,18 +36,12 @@ Rectangle {
         DssTitle {
             id: module_title
             text: dsTr("Account")
-        }
-
-        DSeparatorHorizontal{ visible: title.visible }
-
-        DBaseLine {
-            id:title
-
-            leftLoader.sourceComponent: DssH2 {
-                text: dsTr("User List")
-            }
-            rightLoader.sourceComponent: Row {
+            
+            Row {
                 spacing: 10
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.right: parent.right
+                anchors.rightMargin: 15
 
                 DImageCheckButton {
                     id: delete_check_button
@@ -99,7 +93,7 @@ Rectangle {
                         }
                     }
                 }
-            }
+            }            
         }
 
         DSeparatorHorizontal{}
@@ -163,12 +157,10 @@ Rectangle {
 
                 onHideAllPrivate: {
                     guest_user.visible = false
-                    title.visible = false
                 }
 
                 onShowAllPrivate: {
                     guest_user.visible = true
-                    title.visible = true
                 }
             }
 
@@ -176,10 +168,6 @@ Rectangle {
                 State {
                     name: "normal"
 
-                    PropertyChanges {
-                        target: title
-                        visible: true
-                    }
                     PropertyChanges {
                         target: user_list
                         visible: true
@@ -196,10 +184,6 @@ Rectangle {
                 State {
                     name: "add_dialog"
 
-                    PropertyChanges {
-                        target: title
-                        visible: false
-                    }
                     PropertyChanges {
                         target: user_list
                         visible: false
@@ -221,7 +205,6 @@ Rectangle {
             width: parent.width
 
             onExpandedChanged: {
-                title.visible = !expanded
                 user_list.visible = !expanded
             }
 
