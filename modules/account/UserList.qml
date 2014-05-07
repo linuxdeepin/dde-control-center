@@ -201,11 +201,11 @@ ListView {
                         visible: delete_line.deleteUserDialogVisible
 
                         onCancel: {
-                            component_bg.state = "action"
-                            delete_line.expand()
+                            root.allNormal()
                         }
                         onConfirm: {
                             var right = dbus_accounts.DeleteUser(userName, deleteFiles)
+                            root.allNormal()
                         }
 
                         anchors.left: round_image.right

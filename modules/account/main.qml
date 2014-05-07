@@ -163,6 +163,8 @@ Rectangle {
                 onShowAllPrivate: {
                     guest_user.visible = true
                 }
+                
+                onAllNormal: delete_check_button.active = false
             }
 
             states: [
