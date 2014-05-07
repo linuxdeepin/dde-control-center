@@ -19,6 +19,7 @@ ListView {
     signal showAllPrivate ()
     signal allNormal ()
     signal allAction ()
+    signal actionButtonClicked ()
 
     function showCurrentUserDetail () {
         fromPanelAvatar = true
@@ -115,6 +116,7 @@ ListView {
                 onAction: {
                     component_bg.state = "delete_dialog"
                     delete_line.shrink()
+                    root.actionButtonClicked()
                 }
 
                 states: [

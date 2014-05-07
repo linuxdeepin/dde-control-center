@@ -27,6 +27,16 @@ Rectangle {
     function currentUserIsAdmin() {
         return current_user.accountType == 1
     }
+    
+    function showAddDeleteButton() {
+        add_check_button.visible = true
+        delete_check_button.visible = Qt.binding(function () { return dbus_accounts.userList.length != 1 })
+    }
+    
+    function hideAddDeleteButton() {
+        add_check_button.visible = false
+        delete_check_button.visible = false
+    }
 
     Column {
         id: title_column
@@ -54,6 +64,10 @@ Rectangle {
                     activatedNomralImage: "images/delete_press.png"
                     activatedHoverImage: "images/delete_press.png"
                     activatedPressImage: "images/delete_press.png"
+                    
+                    Behavior on opacity {
+                        SmoothedAnimation { duration: 300 }
+                    }
 
                     onClicked: {
                         if (active) {
@@ -74,10 +88,15 @@ Rectangle {
                     activatedNomralImage: "images/add_press.png"
                     activatedHoverImage: "images/add_press.png"
                     activatedPressImage: "images/add_press.png"
+                    
+                    Behavior on opacity {
+                        SmoothedAnimation { duration: 300 }
+                    }                    
 
                     onClicked: {
                         if (active) {
                             main_column.state = "add_dialog"
+                            root.hideAddDeleteButton()
                         } else {
                             main_column.state = "normal"
                         }
@@ -118,10 +137,12 @@ Rectangle {
 
                 onCancelled: {
                     main_column.state = "normal"
+                    root.showAddDeleteButton()
                     add_user_dialog.reset()
                 }
 
                 onConfirmed: {
+                    root.showAddDeleteButton()                    
                     var result = dbus_accounts.CreateUser(userInfo.userName, userInfo.userName, userInfo.userAccountType)
                     var new_user = result[0]
                     var right = result[1]
@@ -164,7 +185,12 @@ Rectangle {
                     guest_user.visible = true
                 }
                 
-                onAllNormal: delete_check_button.active = false
+                onAllNormal: {
+                    delete_check_button.active = false
+                    root.showAddDeleteButton()
+                }
+                
+                onActionButtonClicked: root.hideAddDeleteButton()
             }
 
             states: [
