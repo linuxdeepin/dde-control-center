@@ -13,6 +13,7 @@ Column {
     DSeparatorHorizontal {}
 
     DBaseLine {
+        height: 38
         leftLoader.sourceComponent: DssH2 {
             text: dsTr("ON/OFF")
         }
@@ -24,6 +25,7 @@ Column {
     DSeparatorHorizontal {}
 
     DBaseLine {
+        height: 38
         leftLoader.sourceComponent: TextWithHint {
             text: "ShowDevice"
             hint: "120s"
@@ -43,6 +45,7 @@ Column {
     DSeparatorHorizontal {}
 
     DBaseLine {
+        height: 38
         leftLoader.sourceComponent: DssH2 {
             text: dsTr("Device name")
         }
