@@ -8,17 +8,19 @@ Column{
     width: parent.width
     height: childrenRect.height
 
-    property int wiredDevicesSignal: dbusNetwork.wiredDevices[index][1]
+    property int wiredDeviceSignal: wiredDevices[index]["State"]
+    property string wiredDevicePath: wiredDevices[index]["Path"]
+    property string uuid: dbusNetwork.GetWiredConnectionUuid(wiredDevicePath)
 
     function activateThisConnection(){
-        dbusNetwork.ActivateConnection(dbusNetwork.GetWiredConnectionUuid(dbusNetwork.wiredDevices[index][0]), dbusNetwork.wiredDevices[index][0])
+        dbusNetwork.ActivateConnection(uuid, wiredDevicePath)
     }
 
     function goToEditConnection(){
         // print("wired device path", dbusNetwork.wiredDevices[index][0]) // TODO test
         stackView.push({
             "item": stackViewPages["connectionPropertiesPage"],
-            "properties": { "uuid": dbusNetwork.GetWiredConnectionUuid(dbusNetwork.wiredDevices[index][0]), "devicePath": dbusNetwork.wiredDevices[index][0]},
+            "properties": { "uuid": uuid, "devicePath": wiredDevicePath },
             "destroyOnPop": true
         })
         stackView.currentItemId = "connectionPropertiesPage"
@@ -46,7 +48,7 @@ Column{
 
             onClicked: {
                 // TODO
-                if (wiredDevicesSignal == 100){
+                if (wiredDeviceSignal == 100){
                     goToEditConnection()
                 }
                 else{
@@ -55,28 +57,23 @@ Column{
             }
         }
 
-        leftLoader.sourceComponent: Row{
+        leftLoader.sourceComponent: Item {
+            width: parent.width
             height: parent.height
-            spacing: 8
 
             DImageButton {
                 anchors.verticalCenter: parent.verticalCenter
                 normal_image: "img/check_1.png"
                 hover_image: "img/check_2.png"
-                visible: wiredDevicesSignal == 100
+                visible: wiredDeviceSignal == 100
                 onClicked: {
-                    dbusNetwork.DeactivateConnection(dbusNetwork.wiredDevices[index][0])
-                }
-
-                Connections{
-                    target: wiredDevicesItem
-                    onWiredDevicesSignalChanged:{
-                        parent.visible = (wiredDevicesSignal == 100)
-                    }
+                    dbusNetwork.DisconnectDevice(wiredDevicePath)
                 }
             }
 
             DLabel {
+                anchors.left: parent.left
+                anchors.leftMargin: 24
                 anchors.verticalCenter: parent.verticalCenter
                 text: dsTr("Wired Conection %1").arg(index+1)
                 font.pixelSize: 12
