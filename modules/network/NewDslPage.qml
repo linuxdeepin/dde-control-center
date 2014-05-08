@@ -4,6 +4,7 @@ import "../shared"
 
 Column {
     width: parent.width
+    property int realHeight: childrenRect.height
 
     DBaseLine {
         leftLoader.sourceComponent: DssH2 {

@@ -158,9 +158,6 @@ DBaseExpand {
 
             property bool hovered: false
 
-            function goToConnectHiddenAP(){
-            }
-
             leftLoader.sourceComponent: DssH2 {
                 anchors.left: parent.left
                 anchors.leftMargin: 24
@@ -191,9 +188,6 @@ DBaseExpand {
 
             property bool hovered: false
 
-            function goToCreateAP(){
-            }
-
             leftLoader.sourceComponent: DssH2 {
                 anchors.left: parent.left
                 anchors.leftMargin: 24
@@ -215,6 +209,12 @@ DBaseExpand {
                 onClicked: goToCreateAP()
             }
         }
+    }
+
+    function goToConnectHiddenAP(){
+    }
+
+    function goToCreateAP(){
     }
 
     function sortModel()

@@ -4,6 +4,7 @@ import "../shared"
 
 Column {
     width: parent.width
+    property int realHeight: childrenRect.height
     property int itemLabelLeftMargin: 22
 
     DBaseLine {

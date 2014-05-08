@@ -4,6 +4,7 @@ import Deepin.Widgets 1.0
 Column{
     id: properiesPage
     width: parent.width
+    property int realHeight: childrenRect.height
 
     // edit connection
     property var uuid

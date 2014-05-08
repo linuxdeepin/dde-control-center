@@ -83,8 +83,7 @@ Item {
 
     property bool inPasswordInputting: false
 
-    //property bool inAllConnectionPage: stackView.depth == 1
-    property bool inAllConnectionPage: true
+    property bool inAllConnectionPage: stackView.depth == 1
     property var allConnectionPage: ListConnections {}
 
     property var stackViewPages: {
@@ -163,42 +162,42 @@ Item {
             DssAddButton{
                 id: addButton
                 anchors.verticalCenter: parent.verticalCenter
-                //visible: stackView.currentItemId == "allConnectionPage"
-                //onClicked: {
-                    //stackView.push(stackViewPages["addPageIndex"])
-                    //stackView.currentItemId = "addPageIndex"
-                //}
+                visible: stackView.currentItemId == "allConnectionPage"
+                onClicked: {
+                    stackView.push(stackViewPages["addPageIndex"])
+                    stackView.currentItemId = "addPageIndex"
+                }
 
-                property var menuLabels
-                function menuSelect(i){
-                    print("create connection", menuLabels[i])
-                    goToCreateConnection(getSupportedConnectionTypesInfo()[i].Value)
-                }
-                function getSupportedConnectionTypesInfo() {
-                    return JSON.parse(dbusNetwork.GetSupportedConnectionTypes())
-                }
-                function getSupportedConnectionTypesText() {
-                    var connTypesText = []
-                    var connTypesInfo = getSupportedConnectionTypesInfo()
-                    for (var i=0; i<connTypesInfo.length; i++) {
-                        connTypesText.push(connTypesInfo[i].Text)
-                    }
-                    return connTypesText
-                }
-                function goToCreateConnection(type){
-                    stackView.push({
-                        "item": stackViewPages["connectionPropertiesPage"],
-                        "properties": { "create": true, "type":  type},
-                        "destroyOnPop": true
-                    })
-                    stackView.currentItemId = "connectionPropertiesPage"
-                }
+                //property var menuLabels
+                //function menuSelect(i){
+                    //print("create connection", menuLabels[i])
+                    //goToCreateConnection(getSupportedConnectionTypesInfo()[i].Value)
+                //}
+                //function getSupportedConnectionTypesInfo() {
+                    //return JSON.parse(dbusNetwork.GetSupportedConnectionTypes())
+                //}
+                //function getSupportedConnectionTypesText() {
+                    //var connTypesText = []
+                    //var connTypesInfo = getSupportedConnectionTypesInfo()
+                    //for (var i=0; i<connTypesInfo.length; i++) {
+                        //connTypesText.push(connTypesInfo[i].Text)
+                    //}
+                    //return connTypesText
+                //}
+                //function goToCreateConnection(type){
+                    //stackView.push({
+                        //"item": stackViewPages["connectionPropertiesPage"],
+                        //"properties": { "create": true, "type":  type},
+                        //"destroyOnPop": true
+                    //})
+                    //stackView.currentItemId = "connectionPropertiesPage"
+                //}
             }
 
             DTextButton {
                 text: "i"
                 anchors.verticalCenter: parent.verticalCenter
-                //visible: stackView.currentItemId == "allConnectionPage"
+                visible: stackView.currentItemId == "allConnectionPage"
                 onClicked: {
                     stackView.push(stackViewPages["infoPage"])
                     stackView.currentItemId = "infoPage"
@@ -228,12 +227,6 @@ Item {
             id:stackView
             width: parent.width
             height: currentItem.realHeight
-            clip: true
-
-            initialItem: {
-                "item": stackViewPages["allConnectionPage"],
-                "properties": { "width": parent.width }
-            }
 
             property string currentItemId: ""
 
@@ -243,6 +236,10 @@ Item {
             }
 
             Component.onCompleted: {
+                stackView.push({
+                    "item": stackViewPages["allConnectionPage"],
+                    "properties": { "width": parent.width }
+                })
                 stackView.currentItemId = "allConnectionPage"
             }
         }
