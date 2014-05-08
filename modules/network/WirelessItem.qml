@@ -259,52 +259,44 @@ Item {
             arrowPosition: 0.15
         }
 
-        Row{
+        Item {
             id: passwordInputArea
             anchors.top: parent.top
             anchors.topMargin: arrowRectBackground.arrowHeight + 18
-            anchors.left: parent.left
-            anchors.leftMargin: 30
-            height: childrenRect.height
-            spacing: 10
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: parent.width - 48
+            height: 38
 
             DssH2 {
+                id: passwordLabel
+                anchors.verticalCenter: parent.verticalCenter
                 text: dsTr("Password: ")
             }
 
-            Column{
-                DTextInput{
-                    id: passwordInput
-                    textInput.color: dconstants.fgColor
-                    echoMode: showPasswordButton.checked ? TextInput.Normal : TextInput.Password
-                    onAccepted: {
-                        passwordArea.connectAction()
-                    }
-                }
-                Row{
-                    spacing: 6
-
-                    DSwitchButton{
-                        id: showPasswordButton
-                    }
-
-                    DssH3{
-                        text: dsTr("Show password")
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
+            DTextInput{
+                id: passwordInput
+                width: parent.width - passwordLabel.width - 10
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                textInput.color: dconstants.fgColor
+                echoMode: TextInput.Password
+                onAccepted: {
+                    passwordArea.connectAction()
                 }
             }
         }
 
         Row{
             anchors.top: passwordInputArea.bottom
+            anchors.topMargin: 6
             anchors.right: parent.right
             anchors.rightMargin: 15
-            height: childrenRect.height
+            height: 38
             spacing: 10
 
             DTextButton{
                 text: dsTr("Cancel")
+                anchors.verticalCenter: parent.verticalCenter
                 onClicked: {
                     passwordArea.cancelAction()
                 }
@@ -312,6 +304,7 @@ Item {
 
             DTextButton{
                 text: dsTr("Connect")
+                anchors.verticalCenter: parent.verticalCenter
                 onClicked: {
                     passwordArea.connectAction()
                 }

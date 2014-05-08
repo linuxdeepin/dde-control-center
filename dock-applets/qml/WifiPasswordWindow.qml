@@ -118,28 +118,10 @@ Window {
                     anchors.topMargin: 2
                 }
 
-                Column{
-                    DTextInput{
-                        id: passwordInput
-                        width: 250
-                        echoMode: showPasswordButton.checked ? TextInput.Normal : TextInput.Password
-                    }
-
-                    Row{
-                        width: parent.width
-                        spacing: 10
-
-                        DSwitchButton{
-                            id: showPasswordButton
-                            anchors.verticalCenter: parent.verticalCenter
-                        }
-
-                        DssH3{
-                            text: dsTr("Show Password")
-                            anchors.verticalCenter: parent.verticalCenter
-                        }
-
-                    }
+                DTextInput{
+                    id: passwordInput
+                    width: 250
+                    echoMode: TextInput.Password
                 }
             }
 
