@@ -179,10 +179,12 @@ Rectangle {
 
                 onHideAllPrivate: {
                     guest_user.visible = false
+                    hideAddDeleteButton()
                 }
 
                 onShowAllPrivate: {
                     guest_user.visible = true
+                    showAddDeleteButton()
                 }
                 
                 onAllNormal: {
