@@ -16,7 +16,6 @@ public:
     Q_INVOKABLE QString getIconUrl(QString path)
     {
         QString iconPath = "file://"DOCKAPPLETSDIR"/icons/" + path;
-        qDebug() << iconPath;
         return iconPath;
     }
 };

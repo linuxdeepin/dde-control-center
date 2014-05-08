@@ -12,6 +12,10 @@ Item {
     property var systemInfoDbus: SystemInfo {}
     property var leftWidth: Math.max(versionItem.titleWidth, typeItem.titleWidth, cpuItem.titleWidth, memoryItem.titleWidth, distItem.titleWidth) + 8
 
+    property string lang: "en"
+
+    Component.onCompleted: lang = dsslocale.lang
+
     function bitToHuman(b, factor){
         if (b < factor) {
             return b + " B"
@@ -124,29 +128,47 @@ Item {
                 gplExpand.expanded = !gplExpand.expanded
             }
         }
-        content.sourceComponent: TextArea {
-            style: TextAreaStyle {
-                textColor: dconstants.fgDarkColor
-                backgroundColor: dconstants.contentBgColor
-                handle: Item {}
-                frame: Item {}
-                corner: Item {}
-                decrementControl: Item {}
-                incrementControl: Item {}
-                scrollBarBackground: Item {}
-            }
-            frameVisible: false
-            width: parent.width - 8
+        content.sourceComponent: DFlickable {
+            width: parent.width
             height: systemInfoModule.height - infoColumn.height - 34
-            anchors.horizontalCenter: parent.horizontalCenter
-            wrapMode: Text.WordWrap
-            selectByMouse: false
-            horizontalAlignment: Text.AlignHCenter
-            font.pixelSize: 11
-            text: windowView.getGplText(dsslocale.lang)
-            textFormat: Text.PlainText
-            readOnly: true
+            contentWidth: parent.width
+            contentHeight: gplTextEdit.height
+
+            TextEdit {
+                id: gplTextEdit
+                width: parent.width
+                color: dconstants.fgDarkColor
+                font.pixelSize: 11
+                text: windowView.getGplText(lang)
+                textMargin: 6
+                wrapMode: TextEdit.WordWrap
+                horizontalAlignment: TextEdit.AlignHCenter
+                readOnly: true
+            }
         }
+        //content.sourceComponent: TextArea {
+            //style: TextAreaStyle {
+                //textColor: dconstants.fgDarkColor
+                //backgroundColor: dconstants.contentBgColor
+                //handle: Item {}
+                //frame: Item {}
+                //corner: Item {}
+                //decrementControl: Item {}
+                //incrementControl: Item {}
+                //scrollBarBackground: Item {}
+            //}
+            //frameVisible: false
+            //width: parent.width - 8
+            //height: systemInfoModule.height - infoColumn.height - 34
+            //anchors.horizontalCenter: parent.horizontalCenter
+            //wrapMode: Text.WordWrap
+            //selectByMouse: false
+            //horizontalAlignment: Text.AlignHCenter
+            //font.pixelSize: 11
+            //text: windowView.getGplText(lang)
+            //textFormat: Text.PlainText
+            //readOnly: true
+        //}
     }
 
     SepratorHorizontal {

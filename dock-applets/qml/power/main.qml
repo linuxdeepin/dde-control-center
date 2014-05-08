@@ -15,10 +15,8 @@ DockApplet {
         }
     }
     appid: "AppletPower"
-    icon: iconPath
+    icon: getIcon()
     width: 260; height: 30
-
-    property url iconPath: getIconPath()
 
     function showPower(){
         dbusControlCenter.ShowModule("power")
@@ -39,28 +37,32 @@ DockApplet {
         }
     }
 
-    function getIconPath(){
+    function getIcon(){
+        if (dbusPower.onBattery){
+            var path = "battery-%1"
+        }
+        else{
+            var path = "battery-charge-%1"
+        }
+
         var percentage = parseInt(dbusPower.batteryPercentage)
-        if (!dbusPower.onBattery){
-            return getIconUrl("power/power_on_100.png")
+        if(percentage <= 5){
+            return path.arg(0)
         }
         else if(percentage <= 10){
-            return getIconUrl("power/power_0.png")
+            return path.arg(10)
         }
-        else if(percentage <= 30){
-            return getIconUrl("power/power_20.png")
+        else if(percentage <= 25){
+            return path.arg(25)
         }
         else if(percentage <= 50){
-            return getIconUrl("power/power_40.png")
+            return path.arg(50)
         }
-        else if(percentage <= 70){
-            return getIconUrl("power/power_60.png")
-        }
-        else if(percentage <= 90){
-            return getIconUrl("power/power_80.png")
+        else if(percentage <= 75){
+            return path.arg(75)
         }
         else if(percentage <= 100){
-            return getIconUrl("power/power_100.png")
+            return path.arg(100)
         }
     }
 }

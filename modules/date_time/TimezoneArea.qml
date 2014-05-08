@@ -114,7 +114,7 @@ Column {
             }
 
             DScrollBar {
-                flickable: parent
+                flickable: userTimezoneListView
             }
         }
     }
@@ -198,7 +198,7 @@ Column {
             }
 
             DScrollBar {
-                flickable: parent
+                flickable: addTimezoneListView
             }
         }
     }
