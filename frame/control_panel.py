@@ -111,6 +111,15 @@ class ControlPanel(QtCore.QObject):
     def set_all_contexts(self):
         self.rootContext.setContextProperty("windowView", self)
 
+    @QtCore.pyqtSlot(str, result=str)
+    def getGplText(self, lang):
+        path = os.path.join(ROOT_LOCATION, "frame", "gpl-3.0-%s.txt" % lang)
+        if not os.path.exists(path):
+            path = os.path.join(ROOT_LOCATION, "frame", "gpl-3.0.txt")
+
+        with open(path) as fp:
+            return fp.read()
+
     @QtCore.pyqtSlot(str)
     def setCustomCursor(self, path):
         pixmap = QtGui.QPixmap(path.split("//")[1])

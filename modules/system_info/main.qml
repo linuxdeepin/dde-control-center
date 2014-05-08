@@ -1,7 +1,7 @@
 import DBus.Com.Deepin.Daemon.SystemInfo 1.0
 import QtQuick 2.0
-import QtQuick.Controls 1.0
-import QtQuick.Controls.Styles 1.0
+import QtQuick.Controls 1.1
+import QtQuick.Controls.Styles 1.1
 import Deepin.Widgets 1.0
 
 Item {
@@ -43,6 +43,7 @@ Item {
     }
 
     Column {
+        id: infoColumn
         anchors.top: parent.top
         width: parent.width
 
@@ -110,6 +111,47 @@ Item {
         }
 
         SepratorHorizontal {}
+
+    }
+
+    DBaseExpand {
+        id: gplExpand
+        anchors.top: infoColumn.bottom
+        width: parent.width
+        header.sourceComponent: DDownArrowHeader {
+            text: dsTr("GNU GENERAL PUBLIC LICENSE")
+            onClicked: {
+                gplExpand.expanded = !gplExpand.expanded
+            }
+        }
+        content.sourceComponent: TextArea {
+            style: TextAreaStyle {
+                textColor: dconstants.fgDarkColor
+                backgroundColor: dconstants.contentBgColor
+                handle: Item {}
+                frame: Item {}
+                corner: Item {}
+                decrementControl: Item {}
+                incrementControl: Item {}
+                scrollBarBackground: Item {}
+            }
+            frameVisible: false
+            width: parent.width - 8
+            height: systemInfoModule.height - infoColumn.height - 34
+            anchors.horizontalCenter: parent.horizontalCenter
+            wrapMode: Text.WordWrap
+            selectByMouse: false
+            horizontalAlignment: Text.AlignHCenter
+            font.pixelSize: 11
+            text: windowView.getGplText(dsslocale.lang)
+            textFormat: Text.PlainText
+            readOnly: true
+        }
+    }
+
+    SepratorHorizontal {
+        anchors.top: gplExpand.bottom
+        width: parent.width
     }
 }
 
