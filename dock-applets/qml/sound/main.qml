@@ -13,7 +13,7 @@ DockApplet{
 
     property int xEdgePadding: 0
     property int titleSpacing: 10
-    property int rootWidth: 250
+    property int rootWidth: 224
     property int wheelStep: 5
 
     property var audioId: Audio {}
@@ -105,7 +105,7 @@ DockApplet{
                     }
 
                     Rectangle {
-                        height: 2
+                        height: 1
                         width: parent.width - allSoundLabel.width - xEdgePadding * 2 - titleSpacing
                         anchors.right: parent.right
                         anchors.rightMargin: xEdgePadding
@@ -176,7 +176,7 @@ DockApplet{
                     }
 
                     Rectangle {
-                        height: 2
+                        height: 1
                         width: parent.width - appLabel.width - xEdgePadding * 2 - titleSpacing
                         anchors.right: parent.right
                         anchors.rightMargin: xEdgePadding

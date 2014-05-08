@@ -9,7 +9,7 @@ DockApplet{
     icon: iconPath
 
     property url iconPath: "images/icon.png"
-    property int windowWidth: 300
+    property int windowWidth: 224
     property int xEdgePadding: 0
 
     onActivate:{

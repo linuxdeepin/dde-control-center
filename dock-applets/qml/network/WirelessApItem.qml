@@ -30,7 +30,7 @@ Item {
 
     Item {
         height: parent.height
-        width: childrenRect.width
+        width: parent.width
 
         DImageButton {
             anchors.right: nameLabel.left
@@ -66,6 +66,8 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             verticalAlignment: Text.AlignVCenter
             text: apName
+            elide: Text.ElideRight
+            width: parent.width - anchors.leftMargin - signalImage.width - signalImage.anchors.rightMargin
             font.pixelSize: 12
             color: {
                 if(selected){
@@ -82,6 +84,7 @@ Item {
     }
 
     Image {
+        id: signalImage
         anchors.right: parent.right
         anchors.rightMargin: 15
         anchors.verticalCenter: parent.verticalCenter

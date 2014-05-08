@@ -41,7 +41,7 @@ DockApplet{
 
     window: DockQuickWindow {
         id: root
-        width: buttonRow.width + xEdgePadding * 2
+        width: 224
         height: contentColumn.height + xEdgePadding * 2
         color: "transparent"
 

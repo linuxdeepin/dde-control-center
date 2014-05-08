@@ -49,7 +49,7 @@ DockApplet{
 
     window: DockQuickWindow {
         id: root
-        width: 280
+        width: 224
         height: content.height
         color: "transparent"
 
