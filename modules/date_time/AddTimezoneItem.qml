@@ -16,9 +16,6 @@ Item {
 
     signal selectAction(string itemValue, bool selected)
 
-    Component.onCompleted: {
-    }
-
     DssH3 {
         id: nameText
         anchors.verticalCenter: parent.verticalCenter
@@ -26,9 +23,12 @@ Item {
         text: itemLabel
         color: dconstants.fgColor
         font.pixelSize: 12
+        elide: Text.ElideRight
+        width: parent.width - checkButton.width - 36
     }
 
     DssMultiAddCheckButton {
+        id: checkButton
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
         onClicked: {
