@@ -50,7 +50,7 @@ Rectangle {
             case 3: return "15m"; break
             case 4: return "30m"; break
             case 5: return "1h"; break
-            case 6: return "Never"
+            case 6: return dsTr("Never")
         }
     }
 
