@@ -44,6 +44,8 @@ QtObject {
 
     property var dsslocale: DLocale {
         domain: "dde-control-center"
+
+        Component.onCompleted: print("==> [info] Language:", dsslocale.lang)
     }
 
     property var dbusNetwork: NetworkManager {
