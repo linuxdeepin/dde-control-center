@@ -23,10 +23,18 @@ GridView {
         }
     }
 
-    AvatarPickDialog {
+    //AvatarPickDialog {
+        //id: avatar_pick_dialog
+        //folder: windowView.getHomeDir()
+        //onAccepted: {
+            //avatarSet(fileUrl)
+        //}
+    //}
+
+    DFileChooseDialog {
         id: avatar_pick_dialog
-        folder: windowView.getHomeDir()
-        onAccepted: {
+        currentFolder: windowView.getHomeDir()
+        onSelectAction: {
             avatarSet(fileUrl)
         }
     }
@@ -85,7 +93,7 @@ GridView {
                         avatar_icon_view.forceActiveFocus()
                         avatar_icon_view.avatarSet(round_image.imageSource)
                     } else {
-                        avatar_pick_dialog.open()
+                        avatar_pick_dialog.showWindow()
                     }
                 }
 
