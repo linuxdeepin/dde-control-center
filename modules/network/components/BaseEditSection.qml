@@ -41,6 +41,7 @@ DBaseExpand{
     function checkKeys() {
         for (var i=0; i<content.item.children.length; i++) {
             var objLine = content.item.children[i]
+            print(objLine)
             if (objLine.objectName == "BaseEditLine" && objLine.visible) {
                 objLine.checkKey()
             }

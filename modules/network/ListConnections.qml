@@ -15,4 +15,6 @@ Column {
     WirelessDevicesArea{
         id: wirelessArea
     }
+
+    VpnExpand {}
 }

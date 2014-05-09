@@ -11,6 +11,15 @@ Column{
 
     property var infos: vpnConnections[index]
 
+    function goToEditConnection(){
+        stackView.push({
+            "item": stackViewPages["connectionPropertiesPage"],
+            "properties": { "uuid": infos["Uuid"], "connectionPath": infos.Path, "devicePath": "/" },
+            "destroyOnPop": true
+        })
+        stackView.currentItemId = "connectionPropertiesPage"
+    }
+
     DBaseLine {
         id: lineBox
 
@@ -73,6 +82,4 @@ Column{
             }
         }
     }
-    
-    DSeparatorHorizontal{}
 }

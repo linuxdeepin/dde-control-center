@@ -212,7 +212,7 @@ Item {
         width: parent.width
     }
 
-    Flickable {
+    DFlickable {
         id: flickableBox
         z: -1
         anchors.top: header.bottom

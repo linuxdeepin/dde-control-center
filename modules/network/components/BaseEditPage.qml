@@ -9,6 +9,7 @@ Column{
     // edit connection
     property var uuid
     property var devicePath
+    property string connectionPath
 
     // create connection
     property bool create: false
@@ -23,14 +24,18 @@ Column{
     property int valueWidth: 170
     property int contentLeftMargin: 18
     property var connectionSessionObject: {
+        //if (connectionPath){
+            //return connectionSession.createObject(properiesPage, { path: connectionPath })
+        //}else if (create) {
+
         if (create) {
-            var connectionPath = dbusNetwork.CreateConnection(type, devPath)
+            connectionPath = dbusNetwork.CreateConnection(type, devPath)
             return connectionSession.createObject(properiesPage, { path: connectionPath })
         } else if (createForAp) {
-            var connectionPath = dbusNetwork.CreateConnectionForAccessPoint(apPath, devPath)
+            connectionPath = dbusNetwork.CreateConnectionForAccessPoint(apPath, devPath)
             return connectionSession.createObject(properiesPage, { path: connectionPath })
         } else {
-            var connectionPath = dbusNetwork.EditConnection(uuid, devicePath)
+            connectionPath = dbusNetwork.EditConnection(uuid, devicePath)
             return connectionSession.createObject(properiesPage, { path: connectionPath })
         }
     }
