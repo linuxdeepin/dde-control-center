@@ -17,7 +17,7 @@ Item {
         }
     }
     property var dconstants: DConstants {}
-    property string lang: 'en'
+    property string lang: 'en_US'
     property var locale: Qt.locale()
 
     property var globalDate: new Date()

@@ -117,7 +117,7 @@ Rectangle {
                 visible: false
 
                 Component.onCompleted: {
-                    if(dsslocale.lang == "zh"){
+                    if(dsslocale.lang == "zh_CN"){
                         lunarDayLabel.visible = true
                     }
                 }
