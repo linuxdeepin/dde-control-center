@@ -65,6 +65,7 @@ Item {
     readonly property var nmConnectionTypeWirelessHotspot: "wireless-hotspot"
     readonly property var nmConnectionTypePppoe: "pppoe"
     readonly property var nmConnectionTypeMobile: "mobile"
+    readonly property var nmConnectionTypeMobileGsm: "mobile-gsm"
     readonly property var nmConnectionTypeMobileCdma: "mobile-cdma"
     readonly property var nmConnectionTypeVpn: "vpn"
     readonly property var nmConnectionTypeVpnL2tp: "vpn-l2tp"
