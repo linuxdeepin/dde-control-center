@@ -6,22 +6,58 @@ import DBus.Com.Deepin.Daemon.Audio 1.0
 import "../widgets"
 
 DockApplet{
+    id: soundApplet
     title: "Sound"
     appid: "AppletSound"
     icon: iconPath
     property url iconPath: getIconPath()
+
+    onIconPathChanged: {
+        print("iconPath:", iconPath)
+    }
 
     property int xEdgePadding: 0
     property int titleSpacing: 10
     property int rootWidth: 224
     property int wheelStep: 5
 
-    property var audioId: Audio {}
-    property var defaultSink: AudioSink{ path: audioId.GetDefaultSink() }
+    property var dbusAudio: Audio {}
+    property var defaultSink: {
+        var sinks = dbusAudio.sinks
+        for(var i=0; i<sinks.length; i++){
+            var obj = sinkComponent.createObject(soundApplet, { path: sinks[i] })
+            if(obj.name == dbusAudio.defaultSink){
+                return obj
+            }
+        }
+    }
+    property var sinkInputs: dbusAudio.sinkInputs
+
+    onSinkInputsChanged: {
+        appVolumeControlList.updateModel()
+    }
+
+    Component {
+        id: sinkComponent
+        AudioSink {}
+    }
+
+    Component {
+        id: sinkInputComponent
+        AudioSinkInput {}
+    }
+
+    function getVolume(){
+        return defaultSink.volume * 100
+    }
+
+    function setVolume(vol){
+        defaultSink.SetVolume(vol/100)
+    }
 
     function getIconPath(){
         if(typeof(defaultSink.volume) != "undefined"){
-            var step = parseInt(defaultSink.volume/10) * 10
+            var step = parseInt(getVolume()/10) * 10
             if(step >= 100){
                 step = 100
             }
@@ -36,23 +72,37 @@ DockApplet{
         showSound()
     }
 
+    Timer{
+        id: onMousewheelTimer
+        property bool isOnWheel: false
+        interval: 300
+        onTriggered: {
+            if(isOnWheel){
+                isOnWheel = true
+            }
+        }
+    }
+
     onMousewheel: {
+        onMousewheelTimer.isOnWheel = true
+        var currentVolume = getVolume()
         if (angleDelta > 0){
-            if(defaultSink.volume <= (100 - wheelStep)){
-                defaultSink.SetSinkVolume(defaultSink.volume + wheelStep)
+            if(currentVolume <= (100 - wheelStep)){
+                setVolume(currentVolume + wheelStep)
             }
             else{
-                defaultSink.SetSinkVolume(100)
+                setVolume(100)
             }
         }
         else if(angleDelta < 0){
-            if(defaultSink.volume >= wheelStep){
-                defaultSink.SetSinkVolume(defaultSink.volume - wheelStep)
+            if(currentVolume >= wheelStep){
+                setVolume(currentVolume - wheelStep)
             }
             else{
-                defaultSink.SetSinkVolume(0)
+                setVolume(0)
             }
         }
+        onMousewheelTimer.restart()
     }
 
     function showSound(){
@@ -65,8 +115,8 @@ DockApplet{
 
     menu: Menu{
         Component.onCompleted: {
-            addItem("_Run", showSound);
-            addItem("_Undock", hideSound);
+            addItem(dsTr("_Run"), showSound);
+            addItem(dsTr("_Undock"), hideSound);
         }
     }
 
@@ -80,7 +130,7 @@ DockApplet{
             target: defaultSink
             onVolumeChanged: {
                 if(!soundSlider.pressed && !soundSlider.hovered){
-                    soundSlider.value = defaultSink.volume
+                    soundSlider.value = getVolume()
                 }
             }
         }
@@ -141,7 +191,7 @@ DockApplet{
 
                         onValueChanged: {
                             if(pressed || hovered){
-                                defaultSink.SetSinkVolume(value)
+                                setVolume(value)
                             }
                         }
 
@@ -149,7 +199,7 @@ DockApplet{
                             running: true
                             interval: 200
                             onTriggered: {
-                                soundSlider.value = defaultSink.volume
+                                soundSlider.value = getVolume()
                             }
                         }
                     }
@@ -158,14 +208,14 @@ DockApplet{
                 Item {
                     height: 10
                     width: parent.width
-                    visible: false
+                    visible: sinkInputs.length > 0
                 }
 
                 Item {
                     id: appSoundTitleBox
                     height: 30
                     width: parent.width
-                    visible: false
+                    visible: sinkInputs.length > 0
 
                     DssH2 {
                         id: appLabel
@@ -188,15 +238,31 @@ DockApplet{
                 Item {
                     width: parent.width
                     height: childrenRect.height
-                    visible: false
+                    visible: sinkInputs.length > 0
 
                     ListView {
+                        id: appVolumeControlList
                         width: parent.width
                         height: childrenRect.height
-                        model: 2
+
+                        function updateModel(){
+                            if(sinkInputs.length>0){
+                                model.clear()
+                                for(var i=0; i<sinkInputs.length; i++){
+                                    model.append({
+                                        "sinkInputPath": sinkInputs[i]
+                                    })
+                                }
+                            }
+                        }
+
+                        model: ListModel {}
                         delegate: Item {
+                            id: appVolumeControlItem
                             height: 32
                             width: ListView.view.width
+
+                            property var sinkInputObject: sinkInputComponent.createObject(appVolumeControlItem, { path: sinkInputPath })
 
                             Item {
                                 height: 20
@@ -205,14 +271,15 @@ DockApplet{
 
                                 Item {
                                     id: appIconBox
-                                    width: 60
+                                    width: 46
                                     height: parent.height
-                                    Image {
+                                    DIcon {
                                         height: parent.height
                                         width: parent.height
                                         anchors.left: parent.left
                                         anchors.leftMargin: 16
-                                        source: "images/app.png"
+                                        theme: "Deepin"
+                                        icon: sinkInputObject.name
                                     }
                                 }
 
@@ -232,12 +299,37 @@ DockApplet{
                                     anchors.left: soundIndicator.right
                                     anchors.leftMargin: 10
                                     minimumValue: 0
-                                    maximumValue: 150
-                                    stepSize: 1
+                                    maximumValue: 1.0
+                                    stepSize: 0.01
+
+                                    onValueChanged: {
+                                        if(pressed || hovered){
+                                            sinkInputObject.SetVolume(value)
+                                        }
+                                    }
+
+                                    Connections{
+                                        target: sinkInputObject
+                                        onVolumeChanged: {
+                                            appSlider.value = sinkInputObject.volume
+                                        }
+                                    }
+
+                                    Timer{
+                                        running: true
+                                        interval: 200
+                                        onTriggered: {
+                                            appSlider.value = sinkInputObject.volume
+                                        }
+                                    }
+
                                 }
 
                             }
                         }
+
+                        Component.onCompleted: updateModel()
+
                     }
                 }
             }
