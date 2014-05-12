@@ -86,6 +86,11 @@ QtObject {
         update_applet_list("network", add)
     }
 
+    function marshalJSON(value){
+        var valueJSON = JSON.stringify(value);
+        return valueJSON
+    }
+
     function unmarshalJSON(valueJSON) {
         if (!valueJSON) {
             print("==> [ERROR] unmarshalJSON", valueJSON)

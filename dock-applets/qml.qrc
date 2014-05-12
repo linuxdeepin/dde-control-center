@@ -4,7 +4,6 @@
     <file>qml/AppletLoader.qml</file>
     <file>qml/WifiPasswordWindow.qml</file>
     <file>qml/sound/main.qml</file>
-    <file>qml/sound/.main.qml.swp</file>
     <file>qml/sound/images/volume-66.png</file>
     <file>qml/sound/images/volume-100.png</file>
     <file>qml/sound/images/volume-mute.png</file>

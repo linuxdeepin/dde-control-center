@@ -10,7 +10,7 @@ Item {
 
     property string connectionPath
     property string uuid
-    property bool apConnected: isActiveConnection(devicePath, uuid) && deviceStatus == 100
+    property bool apConnected: apPath == activeAp && deviceStatus == 100
 
     property bool hovered: false
     property bool selected: false
@@ -38,16 +38,8 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             normal_image: "images/check_1.png"
             hover_image: "images/check_2.png"
-            visible: {
-                if(inConnectingApPath != "/"){
-                    return false
-                }
-                else{
-                    return apConnected
-                }
-            }
+            visible: apConnected
             onClicked: {
-                // disconnect connection
                 dbusNetwork.DisconnectDevice(wirelessItem.devicePath)
             }
         }
@@ -56,7 +48,7 @@ Item {
             anchors.right: nameLabel.left
             anchors.rightMargin: 4
             anchors.verticalCenter: parent.verticalCenter
-            on: inConnectingApPath == apPath
+            on: apPath == activeAp && deviceStatus != 100
         }
 
         DLabel {
@@ -128,7 +120,6 @@ Item {
                     if (wirelessConnections[i].HwAddr == "" || wirelessConnections[i].HwAddr == deviceHwAddr) {
                         connectionPath = wirelessConnections[i].Path
                         uuid = wirelessConnections[i].Uuid
-                        print("update connection:", wirelessConnections[i].Ssid, uuid, connectionPath, deviceHwAddr) // TODO test
                         break
                     }
                 }
@@ -140,12 +131,9 @@ Item {
     
     function activateThisConnection(){
         if (apSecuredInEap && uuid == "") {
-            // if security in eap, go to edit connection
             print("secured in eap") // TODO debug
-            //goToEditConnection()
         } else {
             dbusNetwork.ActivateAccessPoint(apPath, devicePath)
-            inConnectingApPath = apPath
         }
     }
 

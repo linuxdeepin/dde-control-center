@@ -8,7 +8,7 @@ Column {
     property int deviceStatus: wirelessDevices[index].State
     property string devicePath: wirelessDevices[index].Path
     property string deviceHwAddr: wirelessDevices[index].HwAddr
-    property string inConnectingApPath: "/"
+    property string activeAp: wirelessDevices[index].ActiveAp
 
     DBaseExpand {
         width: parent.width

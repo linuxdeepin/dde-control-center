@@ -8,14 +8,54 @@ DockApplet{
     title: "DSS"
     appid: "AppletNetwork"
     icon: iconPath
-    property url iconPath: getIconUrl("network/network_on.png")
-    property var dconstants: DConstants {}
 
-    function marshalJSON(value){
-        var valueJSON = JSON.stringify(value);
-        return valueJSON
+    onIconChanged: print(icon)
+
+    property var dconstants: DConstants {}
+    property var nmConnections: unmarshalJSON(dbusNetwork.connections)
+    property var activeDevice: getActiveDevice()
+
+    property url iconPath: {
+        if(activeDevice){
+            var accessPoints = unmarshalJSON(dbusNetwork.GetAccessPoints(activeDevice.Path))
+            for(var i in accessPoints){
+                var apObj = accessPoints[i]
+                if(apObj.Path == activeDevice.ActiveAp){
+                    var power = apObj.Strength
+                    var step = 100
+                    if(power <= 5){
+                        step = 0
+                    }
+                    else if(power <= 25){
+                        step = 25
+                    }
+                    else if(power <= 50){
+                        step = 50
+                    }
+                    else if(power <= 75){
+                        step = 75
+                    }
+                    else if(power <= 100){
+                        step = 100
+                    }
+                    return getIconUrl("network/wifi-%1.png".arg(step))
+                }
+            }
+        }
+
+        return getIconUrl("network/wifi-0.png")
     }
-    
+
+    function getActiveDevice(){
+        for(var i in wirelessDevices){
+            var info = wirelessDevices[i]
+            if(info.ActiveAp != "/" && info.State == 100){
+                return info
+            }
+        }
+        return null
+    }
+
     function showNetwork(){
         dbusControlCenter.ShowModule("network")
     }
@@ -28,24 +68,12 @@ DockApplet{
         showNetwork()
     }
 
-    menu: Menu{
+    menu: Menu {
         Component.onCompleted: {
             addItem("_Run", showNetwork);
             addItem("_Undock", hideNetwork);
         }
     }
-
-    property var nmActiveConnections: unmarshalJSON(dbusNetwork.activeConnections)
-    function isActiveConnection(devPath, uuid) {
-        for (var i in nmActiveConnections) {
-            if (getIndexFromArray(devPath, nmActiveConnections[i].Devices) != -1 &&
-            nmActiveConnections[i].Uuid == uuid) {
-                return true
-            }
-        }
-        return false
-    }
-    property var nmConnections: unmarshalJSON(dbusNetwork.connections)
 
     window: DockQuickWindow {
         id: root
@@ -57,7 +85,7 @@ DockApplet{
             id: content
             width: parent.width
 
-            Repeater{
+            Repeater {
                 id: wirelessNetworkRepeater
                 model: wirelessDevicesNumber
                 delegate: Loader {

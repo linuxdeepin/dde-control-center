@@ -8,6 +8,7 @@ Column {
     Connections {
         target: dbusNetwork
         onAccessPointAdded:{
+            print("onAccessPointAdded:", arg0, arg1)
             if(arg0 == devicePath){
                 var apObj = unmarshalJSON(arg1)
                 var index = accessPointsModel.getIndexByApPath(apObj.Path)
@@ -25,6 +26,7 @@ Column {
         }
 
         onAccessPointRemoved: {
+            print("onAccessPointRemoved:", arg0, arg1)
             if(arg0 == devicePath){
                 var apObj = unmarshalJSON(arg1)
                 var index = accessPointsModel.getIndexByApPath(apObj.Path)
@@ -50,15 +52,6 @@ Column {
                     if(insertPosition != index){
                         accessPointsModel.move(index, position, 1)
                     }
-                }
-            }
-        }
-
-        onDeviceStateChanged: {
-            if(arg0 == devicePath){
-                deviceStatus = arg1
-                if(arg1 == 100){ // TODO
-                    inConnectingApPath = "/"
                 }
             }
         }
@@ -117,7 +110,6 @@ Column {
         running: true
         onTriggered: {
             var accessPoints = unmarshalJSON(dbusNetwork.GetAccessPoints(devicePath))
-            inConnectingApPath = "/"
             accessPointsModel.clear()
 
             for(var i in accessPoints){
