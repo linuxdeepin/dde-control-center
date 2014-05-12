@@ -290,7 +290,8 @@ Rectangle {
                         toSiderNavigateAnimation.start()
                     }
                     else{
-                        if(!rightBoxLoaderItem.iconId == currentContentId){
+                        print(rightBoxLoaderItem.iconId, currentContentId)
+                        if(rightBoxLoaderItem.iconId != currentContentId){
                             rightBoxLoaderItem.iconId = currentContentId
                         }
                         else{
