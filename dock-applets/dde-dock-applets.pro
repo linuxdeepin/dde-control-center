@@ -1,12 +1,14 @@
 TEMPLATE = app
 
-QT += quick qml core
+QT += quick qml core dbus
 
 SOURCES += \
-    main.cpp
+    main.cpp \
+    qmlloader.cpp
 
 HEADERS += \
-    resource.h
+    resource.h \
+    qmlloader.h
 
 RESOURCES += \
     qml.qrc \

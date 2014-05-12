@@ -8,7 +8,7 @@ DockApplet{
     appid: "AppletDiskMount"
     icon: iconPath
 
-    property url iconPath: "images/icon.png"
+    property url iconPath: getIconUrl("disk_mount/icon.png")
     property int windowWidth: 224
     property int xEdgePadding: 0
 
