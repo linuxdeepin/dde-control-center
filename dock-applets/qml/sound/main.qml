@@ -65,7 +65,12 @@ DockApplet{
         else{
             step = 100
         }
-        return getIconUrl("sound/sound_%1.png".arg(step))
+        if(defaultSink.mute){
+            return getIconUrl("sound/sound_mute_%1.png".arg(step))
+        }
+        else{
+            return getIconUrl("sound/sound_%1.png".arg(step))
+        }
     }
 
     onActivate:{
@@ -174,8 +179,36 @@ DockApplet{
                         height: 24
                         anchors.left: parent.left
                         anchors.leftMargin: 16
-                        source: "images/sound-indicator.png"
                         anchors.verticalCenter: parent.verticalCenter
+                        source: {
+                            if (defaultSink.mute){
+                                return "images/volume-mute.png"
+                            }
+                            else{
+                                var step = 100
+                                var volume = getVolume()
+                                if(volume == 0){
+                                    step = 0
+                                }
+                                else if(volume < 33){
+                                    step = 33
+                                }
+                                else if(volume < 66){
+                                    step = 66
+                                }
+                                else(
+                                    step = 100
+                                )
+                                return "images/volume-%1.png".arg(step)
+                            }
+                        }
+
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                defaultSink.SetMute(!defaultSink.mute)
+                            }
+                        }
                     }
 
 
@@ -280,6 +313,9 @@ DockApplet{
                                         anchors.leftMargin: 16
                                         theme: "Deepin"
                                         icon: sinkInputObject.name
+                                        onIconChanged: {
+                                            print("iconChanged:", icon)
+                                        }
                                     }
                                 }
 
@@ -310,7 +346,9 @@ DockApplet{
                                         running: true
                                         interval: 200
                                         onTriggered: {
-                                            appSlider.value = sinkInputObject.volume
+                                            if(sinkInputObject.volume){
+                                                appSlider.value = sinkInputObject.volume
+                                            }
                                         }
                                     }
 
