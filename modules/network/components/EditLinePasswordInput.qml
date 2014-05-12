@@ -14,18 +14,15 @@ BaseEditLine {
             target: root
             value: root.echoMode
         }
-        // TODO fix property loop binding
-        Binding on text {
-            when: root.value != undefined
-            value: root.value
+        Connections {
+            target: root
+            onWidgetShown: {
+                text = root.value
+            }
+            onValueChanged: {
+                text = root.value
+            }
         }
-        // text: {
-        //     if (root.value) {
-        //         return root.value
-        //     } else {
-        //         return ""
-        //     }
-        // }
         onTextChanged: {
             root.value = text
             setKey()

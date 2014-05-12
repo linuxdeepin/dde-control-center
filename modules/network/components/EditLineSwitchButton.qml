@@ -4,18 +4,15 @@ import Deepin.Widgets 1.0
 BaseEditLine {
     id: root
     rightLoader.sourceComponent: DSwitchButtonHeader{
-        Binding on active {
-            when: root.value != undefined
-            value: root.value
+        Connections {
+            target: root
+            onWidgetShown: {
+                active = root.value
+            }
+            onValueChanged: {
+                active = root.value
+            }
         }
-        // TODO
-        // active: {
-        //     if (root.value) {
-        //         return root.value
-        //     } else {
-        //         return false
-        //     }
-        // }
         onActiveChanged: {
             root.value = active
             setKey()

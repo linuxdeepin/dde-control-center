@@ -4,8 +4,8 @@ import Deepin.Widgets 1.0
 import "../components"
 
 BaseEditSection {
-    id: sectionMobile
-    section: "mobile"
+    id: sectionMobileGsm
+    section: "mobile-gsm"
     
     header.sourceComponent: EditDownArrowHeader{
         text: dsTr("Mobile")

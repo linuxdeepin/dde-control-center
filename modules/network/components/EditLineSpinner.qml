@@ -5,17 +5,26 @@ BaseEditLine {
     id: root
     
     // TODO
-    property int min
-    property int max
+    property int min: rightLoader.item.min
+    property int max: rightLoader.item.max
     
     rightLoader.sourceComponent: DSpinner {
-        // Binding on active {
-        //     when: root.value != undefined
-        //     value: root.value
-        // }
-        // onActiveChanged: {
-        //     root.value = active
-        //     setKey()
-        // }
+        id: spinner
+        width: valueWidth / 1.5
+        Connections {
+            target: root
+            onWidgetShown: {
+                text = String(root.value)
+            }
+            onValueChanged: {
+                text = String(root.value)
+            }
+        }
+        onTextChanged: {
+            if (text != "") {
+                root.value = parseInt(text)
+                setKey()
+            }
+        }
     }
 }

@@ -8,18 +8,20 @@ BaseEditLine {
     DTextInput {
         width: valueWidth
         visible: connectionSessionObject.connectionType != "wired"
+        // TODO
+        // Connections {
+        //     target: root
+        //     onWidgetShown: {
+        //         text = root.value
+        //     }
+        //     onValueChanged: {
+        //         text = root.value
+        //     }
+        // }
         Binding on text {
             when: root.value != undefined
             value: root.value
         }
-        // TODO
-        // text: {
-        //     if (root.value) {
-        //         return root.value
-        //     } else {
-        //         return ""
-        //     }
-        // }
         onTextChanged: {
             root.value = text
             setKey()
@@ -35,14 +37,6 @@ BaseEditLine {
             when: root.value != undefined
             value: root.value
         }
-        // TODO
-        // text: {
-        //     if (root.value) {
-        //         return root.value
-        //     } else {
-        //         return ""
-        //     }
-        // }
     }
     }
 }

@@ -22,12 +22,12 @@ BaseEditPage {
     }
     EditSectionSeparator {relatedSection: sectionEthernet}
     
-    EditSectionMobile {
+    EditSectionMobileGsm {
         myIndex: 2
-        id: sectionMobile
+        id: sectionMobileGsm
         activeExpandIndex: root.activeExpandIndex
     }
-    EditSectionSeparator {relatedSection: sectionMobile}
+    EditSectionSeparator {relatedSection: sectionMobileGsm}
     
     EditSectionMobileCdma {
         myIndex: 3

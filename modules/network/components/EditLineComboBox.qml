@@ -28,7 +28,7 @@ BaseEditLine {
 
         onClicked: {
             if(!rootMenu.visible){
-                menuLabels = getAvailableValuesText() // update avaialbel values
+                menuLabels = getAvailableValuesText() // update availabel values
                 var pos = mapToItem(null, 0, 0)
                 rootMenu.labels = comboBox.menuLabels
                 rootMenu.requestMenuItem = comboBox

@@ -20,7 +20,7 @@ DBaseLine {
     }
     onVisibleChanged: {
         if (visible) {
-            if (value) {
+            if (value !== undefined) {
                 // reset key if value already defined
                 setKey()
             } else {

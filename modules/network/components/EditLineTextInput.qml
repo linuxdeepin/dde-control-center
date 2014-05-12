@@ -6,18 +6,15 @@ BaseEditLine {
     
     rightLoader.sourceComponent: DTextInput{
         width: valueWidth
-        Binding on text {
-            when: root.value != undefined
-            value: root.value
+        Connections {
+            target: root
+            onWidgetShown: {
+                text = root.value
+            }
+            onValueChanged: {
+                text = root.value
+            }
         }
-        // TODO
-        // text: {
-        //     if (root.value) {
-        //         return root.value
-        //     } else {
-        //         return ""
-        //     }
-        // }
         onTextChanged: {
             root.value = text
             setKey()
