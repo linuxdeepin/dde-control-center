@@ -17,7 +17,7 @@ Column {
         DRoundImage {
             id: round_image
             roundRadius: 30
-            imageSource: "/var/lib/AccountsService/icons/guest.jpg"
+            imageSource: "/var/lib/AccountsService/icons/guest.png"
 
             anchors.left: parent.left
             anchors.leftMargin: root.leftPadding + 40 - roundRadius
