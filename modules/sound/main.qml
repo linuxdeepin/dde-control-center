@@ -20,8 +20,7 @@ Item {
     property int currrentStreamIndex
 
     property var audioId: Audio {}
-    /* property var testId: SourceOutputTest {} */
-    property var testId: Item {}
+    property var meterSourceId: AudioMeter { path: currentSource.GetMeter() }
     property var listModelComponent: DListModelComponent {}
 
     Component {
@@ -80,7 +79,7 @@ Item {
         id: tick_timer
         interval: 1000
         onTriggered: {
-            testId.Tick()
+            meterSourceId.Tick()
         }
     }
 
@@ -333,8 +332,8 @@ Item {
 
                         min: 0
                         max: 1
-                        init: testId.value * 100
-                        value: testId.value
+                        init: 0
+                        value: meterSourceId.volume
                         handlerVisible: false
                         valueDisplayVisible: false
                         showPulseGradient: true
