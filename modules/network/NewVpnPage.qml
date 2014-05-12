@@ -230,12 +230,7 @@ Column {
             anchors.verticalCenter: parent.verticalCenter
             onClicked: {
                 if(checkValid()){
-                    if(createVpn()){
-                        stackView.reset()
-                    }
-                    else{
-                        print("Error happened...")
-                    }
+                    createVpn()
                 }
             }
         }
@@ -268,11 +263,17 @@ Column {
             var pageName = sessionObject.availablePages[i]
             ok = !sessionObject.errors[pageName] && ok
         }
-        if(ok){
-            sessionObject.Save()
+        if(!sessionObject.Save()){
+            for(var i in sessionObject.availablePages){
+                var pageName = sessionObject.availablePages[i]
+                var error_info = sessionObject.errors[pageName]
+                for(var key in error_info){
+                    print("Error:", pageName, key, error_info[key])
+                }
+            }
+        }else{
+            stackView.reset()
         }
-        sessionObject.Close()
-        return ok
     }
 
     function goToCreateConnection(type){

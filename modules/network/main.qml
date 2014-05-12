@@ -148,10 +148,11 @@ Item {
         }
 
         onPanelHided: {
-            resetConnectionSession()
-            stackView.reset()
+            //resetConnectionSession()
+            //stackView.reset()
         }
         onModuleIconClicked: {
+            resetConnectionSession()
             stackView.reset()
         }
     }
@@ -166,6 +167,7 @@ Item {
         text: dsTr("Network Settings")
 
         onTitleClicked: {
+            resetConnectionSession()
             stackView.reset()
         }
 

@@ -24,6 +24,7 @@ Column{
     }
 
     function activateThisConnection(){
+        dbusNetwork.ActivateConnection(infos.Uuid, "/")
     }
 
     DBaseLine {
@@ -91,6 +92,7 @@ Column{
 
         rightLoader.sourceComponent: DArrowButton {
             onClicked: {
+                goToEditConnection()
             }
         }
     }
