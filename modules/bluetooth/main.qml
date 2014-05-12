@@ -1,24 +1,49 @@
 import QtQuick 2.1
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Bluetooth 1.0
+import "../shared/"
 
 Column {
     id: bluetooth
     anchors.fill: parent
 
-    property var dbusBluetooth: Bluetooth{}
-    property var adapters: unmarshalJSON(dbusBluetooth.Adapters)
-    property var devices: unmarshalJSON(dbusBluetooth.Devices)[dbusBluetooth.PrimaryAdapter]
-
-    // TODO just for testing
-    onAdaptersChanged: {
-        for (var i in adapters) {
-            print(adapters[i].Path, adapters[i].Alias, adapters[i].Powered)
+    Bluetooth { id: dbus_bluetooth }
+    property var adapters: unmarshalJSON(dbus_bluetooth.adapters)
+    property var devices: unmarshalJSON(dbus_bluetooth.devices)
+    property var connectedDevice: {
+        for (var i = 0; i< devices.length; i++) {
+            if (devices[i].Connected == true) {
+                return devices[i]
+            }
         }
     }
+
+    Timer {
+        id: discoverable_timer
+        repeat: true
+        interval: 1000
+
+        property int count: 0
+
+        onTriggered: {
+            if (count != 120) {
+                count += 1
+                discoverable_line.timeHint = (120 - count) + "s"
+            } else {
+                dbus_bluetooth.discoverable = false
+                discoverable_timer.stop()
+            }
+        }
+    }
+
+    // TODO just for testing
     onDevicesChanged: {
-        for (var i in devices) {
-            print(devices[i].Path, devices[i].Alias)
+        nearby_devices_list.model.clear()
+        for(var i=0; i<devices.length; i++){
+            nearby_devices_list.model.append({
+                                           "item_id": devices[i].Path,
+                                           "item_name": devices[i].Alias
+                                       })
         }
     }
 
@@ -48,17 +73,20 @@ Column {
             text: dsTr("ON/OFF")
         }
         rightLoader.sourceComponent: DSwitchButton {
-
+            checked: dbus_bluetooth.powered
+            onClicked: dbus_bluetooth.powered == checked
         }
     }
 
     DSeparatorHorizontal {}
 
     DBaseLine {
+        id: discoverable_line
         height: 38
+        property string timeHint: ""
         leftLoader.sourceComponent: TextWithHint {
             text: "ShowDevice"
-            hint: "120s"
+            hint: discoverable_line.timeHint
             textColor: dconstants.fgColor
             hintColor: dconstants.fgDarkColor
         }
@@ -68,7 +96,15 @@ Column {
                 {"buttonId": "invisible", "buttonLabel": dsTr("Invisible")},
             ]
 
-            initializeIndex: 0
+            initializeIndex: dbus_bluetooth.discoverable ? 0 : 1
+
+            onItemSelected: {
+                if (idx == 0) {
+                    dbus_bluetooth.discoverable = true
+                    dbus_bluetooth.discoverableTimeout = 120
+                    discoverable_timer.restart()
+                }
+            }
         }
     }
 
@@ -80,7 +116,11 @@ Column {
             text: dsTr("Device name")
         }
         rightLoader.sourceComponent: DTextInput {
-            text: "Toshiba"
+            text: dbus_bluetooth.alias
+
+            onTextChanged: {
+                dbus_bluetooth.alias = text
+            }
         }
     }
 
@@ -96,11 +136,35 @@ Column {
         }
     }
 
+    Rectangle {
+        width: parent.width
+        height: childrenRect.height
+        color: dconstants.contentBgColor
+
+        ListView{
+            id: nearby_devices_list
+            width: parent.width
+            height: childrenRect.height
+
+            model: ListModel {}
+
+            delegate: SelectItem{
+                labelLeftMargin: 15
+                totalItemNumber: bluetooth.devices.length
+                selectItemId: bluetooth.connectedDevice.Path
+
+                onSelectAction: {
+                    dbus_bluetooth.ConnectDeivce(itemId)
+                }
+            }
+        }
+    }
+
     DSeparatorHorizontal {}
 
     DBaseExpand {
         id: recently_expand
-        
+
         header.sourceComponent: DDownArrowHeader {
             text: dsTr("Recently connected devices")
             onActiveChanged: recently_expand.expanded = active
