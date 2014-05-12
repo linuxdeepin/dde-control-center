@@ -322,8 +322,8 @@ Item {
                 id: addLayoutList
                 height: {
                     var listHeight = addLayoutList.model.count * 28
-                    if(listHeight > keyboardModule.height - 278){
-                        return keyboardModule.height - 278
+                    if(listHeight > keyboardModule.height - 278 - 64){
+                        return keyboardModule.height - 278 - 64
                     }
                     else{
                         return listHeight
@@ -375,6 +375,22 @@ Item {
             }
         } // End of addLayoutArea
 
+        DSeparatorHorizontal {}
+
+        DBaseLine {}
+        DSeparatorHorizontal {}
+        DBaseLine {
+            leftLoader.sourceComponent: DssH2 { text: dsTr("Caps-Lock key press tip") }
+            rightLoader.sourceComponent: DSwitchButton {
+                checked: dbusKeyboard.capslockToggle
+
+                onClicked: {
+                    if(pressed){
+                        dbusKeyboard.capslockToggle = checked
+                    }
+                }
+            }
+        }
         DSeparatorHorizontal {}
     }
 }
