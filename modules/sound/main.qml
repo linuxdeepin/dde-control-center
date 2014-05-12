@@ -20,6 +20,8 @@ Item {
     property int currrentStreamIndex
 
     property var audioId: Audio {}
+    /* property var testId: SourceOutputTest {} */
+    property var testId: Item {}
     property var listModelComponent: DListModelComponent {}
 
     Component {
@@ -30,11 +32,6 @@ Item {
     Component {
         id: sourceComponent
         AudioSource {}
-    }
-
-    Component {
-        id: applicationComponent
-        AudioApplication {}
     }
 
     property var allSources: {
@@ -57,34 +54,34 @@ Item {
         return sinkList
     }
 
-    property var currentSink: allSinks[audioId.defaultSink]
-    property var currentSource: allSources[audioId.defaultSource]
-    property var currentStream: {
-        var result = null
-
-        while(!result) {
-            var allApplications = currentSource.GetSourceOutputs()
-            for (var i = 0; i < allApplications.length; i++) {
-                var _app = applicationComponent.createObject(soundModule, {path: allApplications[i]})
-                if (_app.name == 'dde daemon audio stream') {
-                    result = _app
-                    currrentStreamIndex = _app.index
-                }
+    property var currentSink: {
+        for (var i = 0; i < allSinks.length; i++) {
+            if (allSinks[i].name == audioId.defaultSink) {
+                return allSinks[i]
             }
-            currentSource.CreateStream()
         }
-
-        return result
     }
-
+    
+    property var currentSource: {
+        for (var i = 0; i < allSources.length; i++) {
+            if (allSources[i].name == audioId.defaultSource) {
+                return allSources[i]
+            }
+        }
+    }
+    
     Component.onCompleted: {
         if (dsslocale.lang == "zh") {
             leftWidth = 80
         }
     }
-
-    Component.onDestruction: {
-        audioId.KillSourceOutput(currrentStreamIndex)
+    
+    Timer {
+        id: tick_timer
+        interval: 1000
+        onTriggered: {
+            testId.Tick()
+        }
     }
 
     Column {
@@ -137,7 +134,7 @@ Item {
                     DSwitchButton {
                         checked: !currentSink.mute
                         onClicked: {
-                            currentSink.mute = !checked
+                            currentSink.setMute(!checked)
                         }
                     }
                 }
@@ -170,7 +167,7 @@ Item {
                         init: currentSink.volume
 
                         onValueChanged:{
-                            currentSink.SetSinkVolume(value)
+                            currentSink.SetVolume(value / 100)
                         }
 
                         Component.onCompleted: {
@@ -184,7 +181,7 @@ Item {
 
                             onVolumeChanged: {
                                 if (!output_volume_slider.pressedFlag) {
-                                    output_volume_slider.setValue(currentSink.volume)
+                                    output_volume_slider.setValue(currentSink.volume * 100)
                                 }
                             }
                         }
@@ -193,7 +190,7 @@ Item {
                             target: soundModule
 
                             onCurrentSinkChanged: {
-                                output_volume_slider.setValue(currentSink.volume)
+                                output_volume_slider.setValue(currentSink.volume * 100)
                             }
                         }
                     }
@@ -217,8 +214,7 @@ Item {
                         isBalance: true
 
                         onValueChanged:{
-                            // currentSink.balance = value
-                            currentSink.SetSinkBalance(value)
+                            currentSink.SetBalance(value)
                         }
 
                         Component.onCompleted: {
@@ -264,7 +260,7 @@ Item {
                     DSwitchButton {
                         checked: !currentSource.mute
                         onClicked: {
-                            currentSource.mute = !checked
+                            currentSource.SetMute(!checked)
                         }
                     }
                 }
@@ -297,7 +293,7 @@ Item {
                         init: currentSource.volume
 
                         onValueChanged:{
-                            currentSource.volume = value
+                            currentSource.SetVolume(value / 100)
                         }
 
                         Component.onCompleted: {
@@ -311,7 +307,7 @@ Item {
 
                             onVolumeChanged: {
                                 if (!input_volume_slider.pressedFlag) {
-                                    input_volume_slider.setValue(currentSource.volume)
+                                    input_volume_slider.setValue(currentSource.volume * 100)
                                 }
                             }
                         }
@@ -320,7 +316,7 @@ Item {
                             target: soundModule
 
                             onCurrentSourceChanged: {
-                                input_volume_slider.setValue(currentSource.volume)
+                                input_volume_slider.setValue(currentSource.volume * 100)
                             }
                         }
                     }
@@ -337,8 +333,8 @@ Item {
 
                         min: 0
                         max: 1
-                        init: currentStream.inputLevel
-                        value: currentStream.inputLevel
+                        init: testId.value
+                        value: testId.value
                         handlerVisible: false
                         valueDisplayVisible: false
                         showPulseGradient: true
@@ -393,15 +389,15 @@ Item {
                     height: childrenRect.height
                     visible: count != 0
 
-                    property int selectItemId: currentSink.activePort
+                    property string selectItemId: currentSink.activePort
 
                     model: {
                         var outputPortListModel = listModelComponent.createObject(outputPortList, {})
                         var ports = currentSink.ports
                         for(var i=0; i<ports.length; i++){
                             outputPortListModel.append({
-                                                           "item_id": i,
-                                                           "item_name": ports[i][1]
+                                                           "item_id": ports[i],
+                                                           "item_name": ports[i]
                                                        })
                         }
                         return outputPortListModel
@@ -413,7 +409,7 @@ Item {
                         selectItemId: String(outputPortList.selectItemId)
 
                         onSelectAction: {
-                            currentSink.SetSinkPort(itemId)
+                            currentSink.SetPort(itemId)
                         }
                     }
                 } // End of outputPortList
@@ -441,13 +437,13 @@ Item {
                     width: parent.width
                     height: count * 28
 
-                    property int selectItemId: audioId.defaultSink
+                    property string selectItemId: audioId.defaultSink
 
                     model: {
                         var outputDeviceListModel = listModelComponent.createObject(outputDeviceList, {})
                         for(var i=0; i<allSinks.length; i++){
                             outputDeviceListModel.append({
-                                                             "item_id": i,
+                                                             "item_id": allSinks[i].name,
                                                              "item_name": allSinks[i].description
                                                          })
                         }
@@ -460,7 +456,7 @@ Item {
                         selectItemId: String(outputDeviceList.selectItemId)
 
                         onSelectAction: {
-                            audioId.defaultSink = itemId
+                            audioId.setDefaultSink(itemId)
                         }
                     }
                 } // End of inputDeviceList
@@ -500,15 +496,15 @@ Item {
                     height: childrenRect.height
                     visible: count != 0
 
-                    property int selectItemId: currentSource.activePort
+                    property string selectItemId: currentSource.activePort
 
                     model: {
                         var inputPortListModel = listModelComponent.createObject(inputPortList, {})
                         var ports = currentSource.ports
                         for(var i=0; i<ports.length; i++){
                             inputPortListModel.append({
-                                                          "item_id": i,
-                                                          "item_name": ports[i][1]
+                                                          "item_id": ports[i],
+                                                          "item_name": ports[i]
                                                       })
                         }
                         return inputPortListModel
@@ -520,7 +516,7 @@ Item {
                         selectItemId: String(inputPortList.selectItemId)
 
                         onSelectAction: {
-                            currentSource.SetSourcePort(itemId)
+                            currentSource.SetPort(itemId)
                         }
                     }
                 } // End of outputPortList
@@ -547,13 +543,13 @@ Item {
                     width: parent.width
                     height: childrenRect.height
 
-                    property int selectItemId: audioId.defaultSource
+                    property string selectItemId: audioId.defaultSource
 
                     model: {
                         var inputDeviceListModel = listModelComponent.createObject(inputDeviceList, {})
                         for(var i=0; i<allSources.length; i++){
                             inputDeviceListModel.append({
-                                                            "item_id": i,
+                                                            "item_id": allSources[i].name,
                                                             "item_name": allSources[i].description
                                                         })
                         }
@@ -566,7 +562,7 @@ Item {
                         selectItemId: String(inputDeviceList.selectItemId)
 
                         onSelectAction: {
-                            audioId.defaultSource = itemId
+                            audioId.setDefaultSource(itemId)
                         }
                     }
                 }
