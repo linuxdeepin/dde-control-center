@@ -26,13 +26,13 @@ Column {
             height: childrenRect.height
             visible: count != 0
 
-            property string selectItemId: "dsl"
+            property string selectItemId: "pppoe"
             model: ListModel {}
 
             Component.onCompleted: {
                 model.append({
-                    "item_id": "dsl",
-                    "item_name": dsTr("DSL")
+                    "item_id": "pppoe",
+                    "item_name": dsTr("PPPOE")
                 })
                 model.append({
                     "item_id": "vpn",
@@ -63,16 +63,24 @@ Column {
         DTextButton {
             text: dsTr("Cancel")
             anchors.verticalCenter: parent.verticalCenter
-            onClicked: stackView.reset()
+            onClicked: {
+                stackView.reset()
+            }
         }
 
         DTextButton {
             text: dsTr("Next")
             anchors.verticalCenter: parent.verticalCenter
             onClicked: {
-                if(typeList.selectItemId == "dsl"){
+                if(typeList.selectItemId == "pppoe"){
                     stackView.push(stackViewPages["newDslPage"])
                     stackView.currentItemId = "newDslPage"
+                    //stackView.push({
+                        //"item": stackViewPages["connectionPropertiesPage"],
+                        //"properties": { "create": true, "type":  nmConnectionTypePppoe},
+                        //"destroyOnPop": true
+                    //})
+                    //stackView.currentItemId = "connectionPropertiesPage"
                 }
                 else if(typeList.selectItemId == "vpn"){
                     stackView.push(stackViewPages["newVpnPage"])

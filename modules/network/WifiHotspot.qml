@@ -6,44 +6,56 @@ import "widgets"
 Column {
     id: rootPage
     width: parent.width
+
+    property var hotspotInfo
+    property string devicePath: "/"
+
     property int realHeight: childrenRect.height
+    property int itemLabelLeftMargin: 22
 
-    property var connectionPath: dbusNetwork.CreateConnection(nmConnectionTypePppoe, "/")
-    property var connectionSessionObject: connectionSession.createObject(rootPage, { path: connectionPath })
-
+    property var connectionSessionObject: {
+        if(hotspotInfo){
+            var connectionPath = dbusNetwork.EditConnection(hotspotInfo.Uuid, devicePath)
+        }
+        else{
+            var connectionPath = dbusNetwork.CreateConnection(nmConnectionTypeWirelessAdhoc, "/")
+        }
+        return connectionSession.createObject(rootPage, { path: connectionPath })
+    }
 
     DBaseLine {
         leftLoader.sourceComponent: DssH2 {
-            text: dsTr("New PPPOE Connection")
+            text: rootPage.hotspotInfo ? dsTr("Edit Wifi Hotspot") :dsTr("Create Wifi Hotspot")
         }
     }
 
     DSeparatorHorizontal {}
 
     Column {
-        id: addDslBox
+        id: settingBox
         width: parent.width
 
         property int edgePadding: 24
         property int leftWidth: edgePadding
-        property int rightWidth: addDslBox.width - leftWidth - edgePadding
+        property int rightWidth: settingBox.width - leftWidth - edgePadding
 
         function updateLeftWidth(newWidth){
-            if(newWidth + edgePadding > addDslBox.leftWidth){
-                addDslBox.leftWidth = newWidth + edgePadding
+            if(newWidth + edgePadding > settingBox.leftWidth){
+                settingBox.leftWidth = newWidth + edgePadding
             }
         }
 
         PropertyLine {
-            id: dslName
-            title.text: dsTr("Name")
-            section: "general"
-            key: "id"
-            content.sourceComponent: DTextInput{
+            id: apSsid
+            title.text: dsTr("SSID")
+            section: "wifi"
+            key: "ssid"
+            content.sourceComponent: DTextInput {
                 activeFocusOnTab: true
-                width: addDslBox.rightWidth
+                width: settingBox.rightWidth
+
                 Component.onCompleted: {
-                    text = unmarshalJSON(connectionSessionObject.GetKey(dslName.section, dslName.key))
+                    text = getKey(apSsid.section, apSsid.key)
                 }
             }
 
@@ -61,48 +73,35 @@ Column {
         }
 
         PropertyLine {
-            id: dslUserName
-            title.text: dsTr("Username")
-            section: "pppoe"
-            key: "username"
-            content.sourceComponent: DTextInput{
-                activeFocusOnTab: true
-                width: addDslBox.rightWidth
-            }
-            function getValue(){
-                return content.item.text
-            }
-
-            function checkKey(){
-                var valid = content.item.text != ""
-                if(!valid){
-                    content.item.state = "warning"
-                }
-                return valid
-            }
-        }
-
-        PropertyLine {
-            id: dslPassword
+            id: apPassword
             title.text: dsTr("Password")
-            section: "pppoe"
-            key: "password"
+            section: "security"
+            key: "wep-key0"
+
             content.sourceComponent: DTextInput{
                 activeFocusOnTab: true
-                width: addDslBox.rightWidth
+                width: settingBox.rightWidth
                 echoMode: TextInput.Password
+                Component.onCompleted: {
+                    text = getKey(apPassword.section, apPassword.key)
+                }
             }
+
             function getValue(){
                 return content.item.text
             }
 
             function checkKey(){
-                return true
+                // WEP password
+                var valid = content.item.text.length >= 8
+                if(!valid){
+                    content.item.state = "warning"
+                }
+                return valid
             }
         }
-    }
 
-    DSeparatorHorizontal {}
+    }
 
     Row {
         height: 38
@@ -120,11 +119,11 @@ Column {
         }
 
         DTextButton {
-            text: dsTr("Add")
+            text: hotspotInfo ? dsTr("Save") : dsTr("Create") 
             anchors.verticalCenter: parent.verticalCenter
             onClicked: {
                 if(checkValid()){
-                    createDslConnection()
+                    createWifiHotspot()
                 }
             }
         }
@@ -132,8 +131,8 @@ Column {
 
     function checkValid(){
         var valid = true
-        for(var i=0; i<addDslBox.children.length; i++){
-            var objLine = addDslBox.children[i]
+        for(var i=0; i<settingBox.children.length; i++){
+            var objLine = settingBox.children[i]
             if(objLine.objectName == "PropertyLine" && objLine.visible){
                 valid = objLine.checkKey() && valid
             }
@@ -141,15 +140,18 @@ Column {
         return valid
     }
 
-    function createDslConnection(){
-        for(var i=0; i<addDslBox.children.length; i++){
-            var objLine = addDslBox.children[i]
+    function createWifiHotspot(){
+        setValue("general", "id", apSsid.getValue())
+        setValue("security", "vk-key-mgmt", "wep")
+        for(var i=0; i<settingBox.children.length; i++){
+            var objLine = settingBox.children[i]
             if(objLine.objectName == "PropertyLine" && objLine.visible){
                 setValue(objLine.section, objLine.key, objLine.getValue())
             }
         }
         if(!connectionSessionObject.Save()){
-            print("Create dsl connection error:", connectionSessionObject.errors)
+            print("create Wifi hotspot error:", connectionSessionObject.errors)
+            connectionSessionObject.Close()
         }
         stackView.reset()
     }
@@ -157,5 +159,8 @@ Column {
     function setValue(section, key, value){
         connectionSessionObject.SetKey(section, key, marshalJSON(value))
     }
-
+    function getKey(section, key){
+        var value = connectionSessionObject.GetKey(section, key)
+        return unmarshalJSON(value)
+    }
 }

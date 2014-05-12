@@ -62,6 +62,7 @@ Column{
                 hover_image: "../images/disconnect.png"
                 visible: isConnected
                 onClicked: {
+                    dbusNetwork.DeactivateConnection(infos.Uuid)
                 }
             }
 

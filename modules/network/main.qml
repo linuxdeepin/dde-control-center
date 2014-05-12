@@ -95,6 +95,7 @@ Item {
         "newDslPage": Qt.resolvedUrl("NewDslPage.qml"),
         "newVpnPage": Qt.resolvedUrl("vpn/NewVpnPage.qml"),
         "hiddenAp": Qt.resolvedUrl("HiddenAp.qml"),
+        "wifiHotspot": Qt.resolvedUrl("WifiHotspot.qml"),
         // TODO remove
         // "wirelessPropertiesPage": Qt.resolvedUrl("WirelessProperties.qml"),
         // "wiredPropertiesPage": Qt.resolvedUrl("WiredProperties.qml")
@@ -184,22 +185,6 @@ Item {
                     stackView.currentItemId = "addPageIndex"
                 }
 
-                //property var menuLabels
-                //function menuSelect(i){
-                    //print("create connection", menuLabels[i])
-                    //goToCreateConnection(getSupportedConnectionTypesInfo()[i].Value)
-                //}
-                //function getSupportedConnectionTypesInfo() {
-                    //return JSON.parse(dbusNetwork.GetSupportedConnectionTypes())
-                //}
-                //function getSupportedConnectionTypesText() {
-                    //var connTypesText = []
-                    //var connTypesInfo = getSupportedConnectionTypesInfo()
-                    //for (var i=0; i<connTypesInfo.length; i++) {
-                        //connTypesText.push(connTypesInfo[i].Text)
-                    //}
-                    //return connTypesText
-                //}
                 //function goToCreateConnection(type){
                     //stackView.push({
                         //"item": stackViewPages["connectionPropertiesPage"],

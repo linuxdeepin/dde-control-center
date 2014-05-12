@@ -170,8 +170,18 @@ DBaseExpand {
         DSeparatorHorizontal {}
 
         DBaseLine {
-            id: createApLine
+            id: wifiHotspotLine
             color: dconstants.contentBgColor
+
+            property var hotspotInfo: {
+                var infos = nmConnections[nmConnectionTypeWirelessAdhoc]
+                if(infos){
+                    return infos[0]
+                }
+                else{
+                    return null
+                }
+            }
 
             property bool hovered: false
 
@@ -179,12 +189,12 @@ DBaseExpand {
                 anchors.left: parent.left
                 anchors.leftMargin: 24
                 anchors.verticalCenter: parent.verticalCenter
-                text: dsTr("Create Access Point")
+                text: wifiHotspotLine.hotspotInfo ? dsTr("Hotspot ") + wifiHotspotLine.hotspotInfo.Id : dsTr("Create Access Point")
                 font.pixelSize: 12
-                color: createApLine.hovered ? dconstants.hoverColor : dconstants.fgColor
+                color: wifiHotspotLine.hovered ? dconstants.hoverColor : dconstants.fgColor
             }
             rightLoader.sourceComponent: DArrowButton {
-                onClicked: goToCreateAP()
+                onClicked: goToCreateAP(wifiHotspotLine.hotspotInfo)
             }
 
             MouseArea {
@@ -193,7 +203,14 @@ DBaseExpand {
                 hoverEnabled: true
                 onEntered: parent.hovered = true
                 onExited: parent.hovered = false
-                onClicked: goToCreateAP()
+                onClicked: {
+                    if(wifiHotspotLine.hotspotInfo){
+                        dbusNetwork.ActivateConnection(wifiHotspotLine.hotspotInfo.Uuid, devicePath)
+                    }
+                    else{
+                        goToCreateAP(wifiHotspotLine.hotspotInfo)
+                    }
+                }
             }
         }
     }
@@ -203,7 +220,13 @@ DBaseExpand {
         stackView.currentItemId = "hiddenAp"
     }
 
-    function goToCreateAP(){
+    function goToCreateAP(hotspotInfo){
+        stackView.push({
+            "item": stackViewPages["wifiHotspot"],
+            "properties": { "hotspotInfo": hotspotInfo, "devicePath": devicePath},
+            "destroyOnPop": true
+        })
+        stackView.currentItemId = "wifiHotspot"
     }
 
     function sortModel()

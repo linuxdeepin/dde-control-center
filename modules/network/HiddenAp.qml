@@ -185,6 +185,7 @@ Column {
         setValue("general", "id", apSsid.getValue())
         if(!connectionSessionObject.Save()){
             print("Connect to hidden AP error:", connectionSessionObject.errors)
+            connectionSessionObject.Close()
         }
         stackView.reset()
     }
