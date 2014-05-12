@@ -271,7 +271,7 @@ DockApplet{
 
                                 Item {
                                     id: appIconBox
-                                    width: 46
+                                    width: 40
                                     height: parent.height
                                     DIcon {
                                         height: parent.height
@@ -283,20 +283,11 @@ DockApplet{
                                     }
                                 }
 
-                                Image {
-                                    id: soundIndicator
-                                    height: parent.height
-                                    width: parent.height
-                                    anchors.left: appIconBox.right
-                                    source: "images/sound-indicator.png"
-                                }
-
-
                                 WhiteSlider{
                                     id: appSlider
-                                    width: parent.width - appIconBox.width - soundIndicator.width - anchors.leftMargin
+                                    width: parent.width - appIconBox.width - anchors.leftMargin
                                     anchors.verticalCenter: parent.verticalCenter
-                                    anchors.left: soundIndicator.right
+                                    anchors.left: appIconBox.right
                                     anchors.leftMargin: 10
                                     minimumValue: 0
                                     maximumValue: 1.0

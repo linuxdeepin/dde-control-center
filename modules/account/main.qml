@@ -57,11 +57,11 @@ Rectangle {
                     id: delete_check_button
                     visible: dbus_accounts.userList.length != 1
 
-                    inactivatedNomralImage: "images/delete_normal.png"
+                    inactivatedNormalImage: "images/delete_normal.png"
                     inactivatedHoverImage: "images/delete_normal.png"
                     inactivatedPressImage: "images/delete_normal.png"
 
-                    activatedNomralImage: "images/delete_press.png"
+                    activatedNormalImage: "images/delete_press.png"
                     activatedHoverImage: "images/delete_press.png"
                     activatedPressImage: "images/delete_press.png"
                     
@@ -81,11 +81,11 @@ Rectangle {
                 DImageCheckButton {
                     id: add_check_button
 
-                    inactivatedNomralImage: "images/add_normal.png"
+                    inactivatedNormalImage: "images/add_normal.png"
                     inactivatedHoverImage: "images/add_normal.png"
                     inactivatedPressImage: "images/add_normal.png"
 
-                    activatedNomralImage: "images/add_press.png"
+                    activatedNormalImage: "images/add_press.png"
                     activatedHoverImage: "images/add_press.png"
                     activatedPressImage: "images/add_press.png"
                     

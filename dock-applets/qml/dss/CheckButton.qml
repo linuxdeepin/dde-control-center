@@ -6,11 +6,11 @@ DImageCheckButton{
     property url offImage: ""
 
     anchors.verticalCenter: parent.verticalCenter
-    inactivatedNomralImage: offImage
-    inactivatedHoverImage: inactivatedNomralImage
-    inactivatedPressImage: inactivatedNomralImage
+    inactivatedNormalImage: offImage
+    inactivatedHoverImage: inactivatedNormalImage
+    inactivatedPressImage: inactivatedNormalImage
 
-    activatedNomralImage: onImage
-    activatedHoverImage: activatedNomralImage
-    activatedPressImage: activatedNomralImage
+    activatedNormalImage: onImage
+    activatedHoverImage: activatedNormalImage
+    activatedPressImage: activatedNormalImage
 }
