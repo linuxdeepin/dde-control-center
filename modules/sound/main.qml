@@ -134,7 +134,7 @@ Item {
                     DSwitchButton {
                         checked: !currentSink.mute
                         onClicked: {
-                            currentSink.setMute(!checked)
+                            currentSink.SetMute(!checked)
                         }
                     }
                 }
@@ -456,7 +456,7 @@ Item {
                         selectItemId: String(outputDeviceList.selectItemId)
 
                         onSelectAction: {
-                            audioId.setDefaultSink(itemId)
+                            audioId.SetDefaultSink(itemId)
                         }
                     }
                 } // End of inputDeviceList
