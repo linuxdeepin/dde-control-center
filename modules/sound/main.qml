@@ -164,7 +164,7 @@ Item {
 
                         min: 0
                         max: 150
-                        init: currentSink.volume
+                        init: currentSink.volume * 100
 
                         onValueChanged:{
                             currentSink.SetVolume(value / 100)
@@ -290,10 +290,10 @@ Item {
 
                         min: 0
                         max: 150
-                        init: currentSource.volume
+                        init: currentSource.volume * 100
 
                         onValueChanged:{
-                            currentSource.SetVolume(value / 100)
+							currentSource.SetVolume(value / 100)
                         }
 
                         Component.onCompleted: {
@@ -333,7 +333,7 @@ Item {
 
                         min: 0
                         max: 1
-                        init: testId.value
+                        init: testId.value * 100
                         value: testId.value
                         handlerVisible: false
                         valueDisplayVisible: false
