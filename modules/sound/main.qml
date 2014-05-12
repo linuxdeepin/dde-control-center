@@ -561,7 +561,7 @@ Item {
                         selectItemId: String(inputDeviceList.selectItemId)
 
                         onSelectAction: {
-                            audioId.setDefaultSource(itemId)
+                            audioId.SetDefaultSource(itemId)
                         }
                     }
                 }
