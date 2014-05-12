@@ -16,6 +16,7 @@ DOverrideWindow {
 
     signal moduleStartChange(string nextModuleName)
     signal panelHided
+    signal moduleIconClicked(string iconId)
 
     property var dconstants: DConstants {}
     property var listModelComponent: DListModelComponent {}

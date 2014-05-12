@@ -94,13 +94,14 @@ Item {
         "addPageIndex": Qt.resolvedUrl("AddPageIndex.qml"),
         "newDslPage": Qt.resolvedUrl("NewDslPage.qml"),
         "newVpnPage": Qt.resolvedUrl("NewVpnPage.qml"),
+        "hiddenAp": Qt.resolvedUrl("HiddenAp.qml"),
         // TODO remove
         // "wirelessPropertiesPage": Qt.resolvedUrl("WirelessProperties.qml"),
         // "wiredPropertiesPage": Qt.resolvedUrl("WiredProperties.qml")
     }
 
     function resetConnectionSession() {
-        if(stackView.currentItemId == "connectionPropertiesPage"){
+        if(stackView.currentItemId == "connectionPropertiesPage" || stackView.currentItem == "hiddenAp"){
             stackView.currentItem.connectionSessionObject.Close()
         }
     }
@@ -116,6 +117,15 @@ Item {
         }
         var value = JSON.parse(valueJSON)
         return value
+    }
+
+    function getActiveConnectionInfo(uuid){
+        for (var i in nmActiveConnections) {
+            if(nmActiveConnections[i].Uuid == uuid){
+                return nmActiveConnections[i]
+            }
+        }
+        return null
     }
     
     function isActiveConnection(devPath, uuid) {
@@ -139,6 +149,9 @@ Item {
 
         onPanelHided: {
             resetConnectionSession()
+            stackView.reset()
+        }
+        onModuleIconClicked: {
             stackView.reset()
         }
     }

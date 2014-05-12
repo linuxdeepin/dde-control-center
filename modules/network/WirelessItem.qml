@@ -10,10 +10,12 @@ Item {
     height: childrenRect.height
 
     property string devicePath: "/"
-    property string deviceHwAddr
+    property string deviceHwAddr: ""
+    property string activeAp: "/"
+    property int deviceStatus: 0
     property string connectionPath
     property string uuid
-    property bool apConnected: isActiveConnection(devicePath, uuid) && deviceStatus == nmDeviceStateActivated
+    property bool apConnected: activeAp == apPath && deviceStatus == 100
 
     Behavior on height {
         PropertyAnimation { duration: 100 }
@@ -131,16 +133,8 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
                 normal_image: "img/check_1.png"
                 hover_image: "img/check_2.png"
-                visible: {
-                    if(wirelessDevicesExpand.inConnectingApPath != "/"){
-                        return false
-                    }
-                    else{
-                        return apConnected
-                    }
-                }
+                visible: apConnected
                 onClicked: {
-                    // disconnect connection
                     dbusNetwork.DisconnectDevice(wirelessItem.devicePath)
                 }
             }
@@ -148,7 +142,7 @@ Item {
             WaitingImage {
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
-                on: wirelessDevicesExpand.inConnectingApPath == apPath
+                on: activeAp == apPath && deviceStatus != nmDeviceStateActivated
             }
 
             DLabel {

@@ -46,18 +46,18 @@ Column {
                     "item_id": nmConnectionTypeVpnPptp,
                     "item_name": dsTr("PPTP")
                 });
-                model.append({
-                    "item_id": nmConnectionTypeVpnVpnc,
-                    "item_name": dsTr("VPNC")
-                });
-                model.append({
-                    "item_id": nmConnectionTypeVpnOpenvpn,
-                    "item_name": dsTr("OPENVPN")
-                });
-                model.append({
-                    "item_id": nmConnectionTypeVpnOpenconnect,
-                    "item_name": dsTr("OpenVPNConnect")
-                });
+                //model.append({
+                    //"item_id": nmConnectionTypeVpnVpnc,
+                    //"item_name": dsTr("VPNC")
+                //});
+                //model.append({
+                    //"item_id": nmConnectionTypeVpnOpenvpn,
+                    //"item_name": dsTr("OPENVPN")
+                //});
+                //model.append({
+                    //"item_id": nmConnectionTypeVpnOpenconnect,
+                    //"item_name": dsTr("OpenVPNConnect")
+                //});
             }
 
             delegate: SelectItem {

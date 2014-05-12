@@ -290,7 +290,12 @@ Rectangle {
                         toSiderNavigateAnimation.start()
                     }
                     else{
-                        rightBoxLoaderItem.iconId = currentContentId
+                        if(!rightBoxLoaderItem.iconId == currentContentId){
+                            rightBoxLoaderItem.iconId = currentContentId
+                        }
+                        else{
+                            rootWindow.moduleIconClicked(currentContentId)
+                        }
                     }
                 }
             }

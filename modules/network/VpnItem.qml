@@ -10,14 +10,20 @@ Column{
     property int connectionStatus: 100
 
     property var infos: vpnConnections[index]
+    property var activeConnectionInfo: getActiveConnectionInfo(infos.Uuid)
+
+    property bool isConnected: activeConnectionInfo && activeConnectionInfo.Vpn && activeConnectionInfo.State == nmActiveConnectionStateActivated
 
     function goToEditConnection(){
         stackView.push({
             "item": stackViewPages["connectionPropertiesPage"],
-            "properties": { "uuid": infos["Uuid"], "connectionPath": infos.Path, "devicePath": "/" },
+            "properties": { "uuid": infos.Uuid, "connectionPath": infos.Path, "devicePath": "/" },
             "destroyOnPop": true
         })
         stackView.currentItemId = "connectionPropertiesPage"
+    }
+
+    function activateThisConnection(){
     }
 
     DBaseLine {
@@ -35,7 +41,7 @@ Column{
             onExited: parent.hovered = false
 
             onClicked: {
-                if (connectionStatus == 100){
+                if (isConnected){
                     goToEditConnection()
                 }
                 else{
@@ -52,16 +58,22 @@ Column{
                 anchors.verticalCenter: parent.verticalCenter
                 normal_image: "img/check_1.png"
                 hover_image: "img/check_2.png"
-                visible: connectionStatus == 100
+                visible: isConnected
                 onClicked: {
                 }
+            }
+
+            WaitingImage {
+                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
+                on: activeConnectionInfo && activeConnectionInfo.Uuid == infos.Uuid && activeConnectionInfo.Vpn && activeConnectionInfo.State == nmActiveConnectionStateActivating
             }
 
             DLabel {
                 anchors.left: parent.left
                 anchors.leftMargin: 24
                 anchors.verticalCenter: parent.verticalCenter
-                text: infos["Id"]
+                text: infos.Id
                 font.pixelSize: 12
                 color: {
                     if(lineBox.selected){

@@ -5,7 +5,6 @@ Item {
     id: wirelessDevicesArea
     width: parent.width
     height: wirelessDevicesList.height + 2
-    // property int wirelessDevicesNumber: dbusNetwork.wirelessDevices.length // TODO remove
     property var wirelessDevices: nmDevices[nmDeviceTypeWifi]
     property int wirelessDevicesNumber: {
         if (wirelessDevices) {
@@ -25,13 +24,10 @@ Item {
 
         model: wirelessDevicesNumber
         delegate: WirelessDeviceExpand {
-            // TODO fix refresh issue when remove a wireless device
-            // devicePath: dbusNetwork.wirelessDevices[index][0] // TODO remove
             devicePath: wirelessDevices[index].Path
             deviceHwAddr: wirelessDevices[index].HwAddr
-        }
-        onModelChanged: {
-            //print("Repeater changed", dbusNetwork.wirelessDevices)
+            activeAp: wirelessDevices[index].ActiveAp
+            deviceStatus: wirelessDevices[index].State
         }
     }
     

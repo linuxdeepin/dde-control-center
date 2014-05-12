@@ -10,16 +10,10 @@ DBaseExpand {
 
     property string devicePath: "/"
     property string deviceHwAddr
+    property string activeAp: "/"
     property int deviceStatus: 0
 
-    property string inConnectingApPath: "/"
-
     Component.onCompleted: {
-        for(var i in wirelessDevices){
-            if(wirelessDevices[i].Path == wirelessDevicesExpand.devicePath){
-                wirelessDevicesExpand.deviceStatus = wirelessDevices[i].State
-            }
-        }
         if(!scanTimer.running){
             scanTimer.start()
         }
@@ -99,15 +93,6 @@ DBaseExpand {
                 }
             }
         }
-
-        onDeviceStateChanged: {
-            if(arg0 == devicePath){
-                wirelessDevicesExpand.deviceStatus = arg1
-                if(arg1 == 100){ // TODO
-                    wirelessDevicesExpand.inConnectingApPath = "/"
-                }
-            }
-        }
     }
 
     expanded: deviceStatus != 20 // TODO
@@ -149,6 +134,8 @@ DBaseExpand {
             delegate: WirelessItem {
                 devicePath: wirelessDevicesExpand.devicePath
                 deviceHwAddr: wirelessDevicesExpand.deviceHwAddr
+                activeAp: wirelessDevicesExpand.activeAp
+                deviceStatus: wirelessDevicesExpand.deviceStatus
             }
         }
 
@@ -212,6 +199,8 @@ DBaseExpand {
     }
 
     function goToConnectHiddenAP(){
+        stackView.push(stackViewPages["hiddenAp"])
+        stackView.currentItemId = "hiddenAp"
     }
 
     function goToCreateAP(){
@@ -238,7 +227,6 @@ DBaseExpand {
         interval: 100
         onTriggered: {
             var accessPoints = unmarshalJSON(dbusNetwork.GetAccessPoints(devicePath))
-            wirelessDevicesExpand.inConnectingApPath = "/"
             accessPointsModel.clear()
 
             for(var i in accessPoints){
