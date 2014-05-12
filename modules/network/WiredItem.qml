@@ -1,7 +1,8 @@
-import QtQuick 2.0
+import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
 import Deepin.Widgets 1.0
+import "widgets"
 
 Column{
     id: wiredDevicesItem
@@ -11,6 +12,9 @@ Column{
     property int wiredDeviceSignal: wiredDevices[index]["State"]
     property string wiredDevicePath: wiredDevices[index]["Path"]
     property string uuid: dbusNetwork.GetWiredConnectionUuid(wiredDevicePath)
+
+    property var activeConnectionInfo: getActiveConnectionInfo(uuid)
+    property bool isConnected: activeConnectionInfo && !activeConnectionInfo.Vpn && activeConnectionInfo.State == nmActiveConnectionStateActivated
 
     function activateThisConnection(){
         dbusNetwork.ActivateConnection(uuid, wiredDevicePath)
@@ -37,18 +41,12 @@ Column{
             z:-1
             anchors.fill:parent
             hoverEnabled: true
-
-            onEntered: {
-                parent.hovered = true
-            }
-
-            onExited: {
-                parent.hovered = false
-            }
+            onEntered: parent.hovered = true
+            onExited: parent.hovered = false
 
             onClicked: {
                 // TODO
-                if (wiredDeviceSignal == 100){
+                if (isConnected){
                     goToEditConnection()
                 }
                 else{
@@ -63,19 +61,25 @@ Column{
 
             DImageButton {
                 anchors.verticalCenter: parent.verticalCenter
-                normal_image: "img/check_1.png"
-                hover_image: "img/check_2.png"
-                visible: wiredDeviceSignal == 100
+                normal_image: "images/connected.png"
+                hover_image: "images/disconnect.png"
+                visible: isConnected
                 onClicked: {
                     dbusNetwork.DisconnectDevice(wiredDevicePath)
                 }
+            }
+
+            WaitingImage {
+                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
+                on: activeConnectionInfo && activeConnectionInfo.Uuid == uuid && !activeConnectionInfo.Vpn && activeConnectionInfo.State == nmActiveConnectionStateActivating
             }
 
             DLabel {
                 anchors.left: parent.left
                 anchors.leftMargin: 24
                 anchors.verticalCenter: parent.verticalCenter
-                text: dsTr("Wired Conection %1").arg(index+1)
+                text: dsTr("Wired Connection %1").arg(index+1)
                 font.pixelSize: 12
                 color: {
                     if(wiredLine.selected){

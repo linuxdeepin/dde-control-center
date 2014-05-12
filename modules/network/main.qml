@@ -93,7 +93,7 @@ Item {
         "connectionPropertiesPage": Qt.resolvedUrl("ConnectionProperties.qml"),
         "addPageIndex": Qt.resolvedUrl("AddPageIndex.qml"),
         "newDslPage": Qt.resolvedUrl("NewDslPage.qml"),
-        "newVpnPage": Qt.resolvedUrl("NewVpnPage.qml"),
+        "newVpnPage": Qt.resolvedUrl("vpn/NewVpnPage.qml"),
         "hiddenAp": Qt.resolvedUrl("HiddenAp.qml"),
         // TODO remove
         // "wirelessPropertiesPage": Qt.resolvedUrl("WirelessProperties.qml"),

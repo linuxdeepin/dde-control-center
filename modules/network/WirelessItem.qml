@@ -1,8 +1,9 @@
-import QtQuick 2.0
+import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
 import Deepin.Widgets 1.0
 import "../shared/"
+import "widgets"
 
 Item {
     id: wirelessItem
@@ -59,7 +60,6 @@ Item {
         } else {
             // connection for current access point exists, just activate it
             dbusNetwork.ActivateAccessPoint(apPath, wirelessItem.devicePath)
-            wirelessDevicesExpand.inConnectingApPath = apPath
         }
     }
 
@@ -131,8 +131,8 @@ Item {
             DImageButton {
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
-                normal_image: "img/check_1.png"
-                hover_image: "img/check_2.png"
+                normal_image: "images/connected.png"
+                hover_image: "images/disconnect.png"
                 visible: apConnected
                 onClicked: {
                     dbusNetwork.DisconnectDevice(wirelessItem.devicePath)
@@ -175,16 +175,25 @@ Item {
                 source: {
                     var power = apSignal
                     var secure = apSecured ? "-secure": ""
-                    if (power <= 5)
-                        return "img/ap-signal-0" + secure + ".svg"
-                    else if (power <= 25)
-                        return "img/ap-signal-25" + secure + ".svg"
-                    else if (power <= 50)
-                        return "img/ap-signal-50" + secure + ".svg"
-                    else if (power <= 75)
-                        return "img/ap-signal-75" + secure + ".svg"
-                    else if (power <= 100)
-                        return "img/ap-signal-100" + secure + ".svg"
+                    var imageNumber = 100
+
+                    if (power <= 5){
+                        imageNumber = 0
+                    }
+                    else if (power <= 25) {
+                        imageNumber = 25
+                    }
+                    else if (power <= 50) {
+                        imageNumber = 50
+                    }
+                    else if (power <= 75) {
+                        imageNumber = 75
+                    }
+                    else if (power <= 100) {
+                        imageNumber = 100
+                    }
+
+                    return "images/wifi-signal-" + imageNumber + secure + ".svg"
                 }
             }
 
