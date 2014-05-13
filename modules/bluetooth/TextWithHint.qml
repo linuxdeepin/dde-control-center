@@ -16,7 +16,7 @@ Row {
     }
     
     Text {
-        text: "(" + _root_.hint + ")"
+        text: _root_.hint ? "(" + _root_.hint + "s)" : ""
         color: _root_.hintColor
         font.pixelSize: _root_.hintSize
     }

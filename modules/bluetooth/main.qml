@@ -28,7 +28,7 @@ Column {
         onTriggered: {
             if (count != 120) {
                 count += 1
-                discoverable_line.timeHint = (120 - count) + "s"
+                discoverable_line.timeHint = (120 - count)
             } else {
                 dbus_bluetooth.discoverable = false
                 discoverable_timer.stop()
@@ -59,7 +59,7 @@ Column {
         var value = JSON.parse(valueJSON)
         return value
     }
-
+    
     DssTitle {
         text: dsTr("Bluetooth")
         width: parent.width
@@ -83,6 +83,7 @@ Column {
     DBaseLine {
         id: discoverable_line
         height: 38
+        visible: dbus_bluetooth.powered
         property string timeHint: ""
         leftLoader.sourceComponent: TextWithHint {
             text: "ShowDevice"
@@ -105,13 +106,16 @@ Column {
                     discoverable_timer.restart()
                 }
             }
+            
+            Component.onCompleted: dbus_bluetooth.discoverable = false
         }
     }
 
-    DSeparatorHorizontal {}
+    DSeparatorHorizontal { visible: dbus_bluetooth.powered }
 
     DBaseLine {
         height: 38
+        visible: dbus_bluetooth.powered        
         leftLoader.sourceComponent: DssH2 {
             text: dsTr("Device name")
         }
@@ -124,9 +128,10 @@ Column {
         }
     }
 
-    DSeparatorHorizontal {}
+    DSeparatorHorizontal { visible: dbus_bluetooth.powered }
 
     DBaseExpand {
+        visible: dbus_bluetooth.powered        
         header.sourceComponent: DBaseLine {
             leftLoader.sourceComponent: DssH2 {
                 text: dsTr("Devices nearby")
@@ -135,10 +140,13 @@ Column {
             }
         }
     }
+    
+    DSeparatorHorizontal { visible: dbus_bluetooth.powered }    
 
     Rectangle {
         width: parent.width
-        height: childrenRect.height
+        height: nearby_devices_list.height
+        visible: dbus_bluetooth.powered        
         color: dconstants.contentBgColor
 
         ListView{
@@ -149,27 +157,28 @@ Column {
             model: ListModel {}
 
             delegate: SelectItem{
+                showTip: false
                 labelLeftMargin: 15
                 totalItemNumber: bluetooth.devices.length
                 selectItemId: bluetooth.connectedDevice.Path
 
                 onSelectAction: {
-                    dbus_bluetooth.ConnectDeivce(itemId)
+                    dbus_bluetooth.ConnectDevice(itemId)
                 }
             }
         }
     }
 
-    DSeparatorHorizontal {}
+    DSeparatorHorizontal { visible: dbus_bluetooth.powered }
 
-    DBaseExpand {
-        id: recently_expand
+    /* DBaseExpand { */
+    /*     id: recently_expand */
 
-        header.sourceComponent: DDownArrowHeader {
-            text: dsTr("Recently connected devices")
-            onActiveChanged: recently_expand.expanded = active
-        }
-    }
+    /*     header.sourceComponent: DDownArrowHeader { */
+    /*         text: dsTr("Recently connected devices") */
+    /*         onActiveChanged: recently_expand.expanded = active */
+    /*     } */
+    /* } */
 
-    DSeparatorHorizontal {}
+    /* DSeparatorHorizontal {} */
 }

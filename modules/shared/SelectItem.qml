@@ -10,6 +10,8 @@ Item {
     property int labelLeftMargin: 18
     property bool selected: selectItemId == itemId
     property bool hovered: false
+    
+    property bool showTip: true
 
     // info from model
     property string itemId: item_id
@@ -92,7 +94,7 @@ Item {
         visible: !inDeleteAction
         
         onEntered: {
-            toolTip.showTip(itemName)
+            if (selectItem.showTip) toolTip.showTip(itemName)
             hovered = true
         }
 
