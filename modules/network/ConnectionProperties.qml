@@ -38,7 +38,7 @@ BaseConnectionProperties {
 
     Column {
         width: parent.width
-        visible: isActiveConnection(devicePath, uuid)
+        visible: uuid != ""
         DBaseLine {
             id: deleteSettingLine
             color: dconstants.contentBgColor
