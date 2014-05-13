@@ -6,6 +6,7 @@ import "../widgets"
 Column {
     id: rootPage
     width: parent.width
+
     property int realHeight: childrenRect.height
     property int itemLabelLeftMargin: 22
 
@@ -35,7 +36,7 @@ Column {
             height: childrenRect.height
             visible: count != 0
 
-            property string selectItemId: nmConnectionTypeVpnL2tp
+            property string selectVpnType: nmConnectionTypeVpnL2tp
             model: ListModel {}
 
             Component.onCompleted: {
@@ -64,10 +65,10 @@ Column {
             delegate: SelectItem {
                 labelLeftMargin: itemLabelLeftMargin
                 totalItemNumber: typeList.count
-                selectItemId: typeList.selectItemId
+                selectItemId: typeList.selectVpnType
 
                 onSelectAction: {
-                    typeList.selectItemId = itemId
+                    typeList.selectVpnType = itemId
                 }
             }
         } // End of typeList
@@ -83,132 +84,26 @@ Column {
     DSeparatorHorizontal {}
 
     Column {
-        id: addVpnBox
+        id: vpnSettingBox
         width: parent.width
-        property string selectVpnType: typeList.selectItemId
 
-        property int edgePadding: 24
-        property int leftWidth: edgePadding
-        property int rightWidth: addVpnBox.width - leftWidth - edgePadding
-
-        function updateLeftWidth(newWidth){
-            if(newWidth + edgePadding > addVpnBox.leftWidth){
-                addVpnBox.leftWidth = newWidth + edgePadding
-            }
-        }
-
-        PropertyLine {
-            id: vpnName
-            title.text: dsTr("Name")
-            section: "general"
-            key: "id"
-            content.sourceComponent: DTextInput {
-                activeFocusOnTab: true
-                width: addVpnBox.rightWidth
-            }
-
-            function getValue(){
-                return content.item.text
-            }
-
-            function checkKey(){
-                var valid = content.item.text != ""
-                if(!valid){
-                    content.item.state = "warning"
-                }
-                return valid
-            }
-        }
-
-        PropertyLine {
-            id: vpnServer
-            title.text: dsTr("Server")
-            section: typeList.selectItemId
-            key: "gateway"
-            content.sourceComponent: DTextInput{
-                activeFocusOnTab: true
-                width: addVpnBox.rightWidth
-            }
-
-            function getValue(){
-                return content.item.text
-            }
-
-            function checkKey(){
-                var valid = content.item.text != ""
-                if(!valid){
-                    content.item.state = "warning"
-                }
-                return valid
-            }
-        }
-
-        PropertyLine {
-            id: vpnUserName
-            title.text: dsTr("Account")
-            section: typeList.selectItemId
-            key: "user"
-            visibleType: [nmConnectionTypeVpnL2tp, nmConnectionTypeVpnPptp, nmConnectionTypeVpnVpnc]
-            content.sourceComponent: DTextInput{
-                activeFocusOnTab: true
-                width: addVpnBox.rightWidth
-            }
-
-            function getValue(){
-                return content.item.text
-            }
-
-            function checkKey(){
-                var valid = content.item.text != ""
-                if(!valid){
-                    content.item.state = "warning"
-                }
-                return valid
-            }
-        }
-
-        PropertyLine {
-            id: rsaSecurID
-            title.text: dsTr("RSA SecurID")
-            visibleType: [nmConnectionTypeVpnL2tp, nmConnectionTypeVpnPptp]
-
-            property bool active: false
-            content.sourceComponent: Item {
-                width: addVpnBox.rightWidth
-                height: childrenRect.height
-                DSwitchButton{
-                    anchors.right: parent.right
-                    onClicked: rsaSecurID.active = checked
+        function getSelectedBox(){
+            for(var i=0; i<vpnSettingBox.children.length; i++){
+                var box = vpnSettingBox.children[i]
+                if(box.visible){
+                    return box
                 }
             }
-            Component.onCompleted: {
-                addVpnBox.updateLeftWidth(title.contentWidth)
-            }
-            function checkKey(){
-                return true
-            }
         }
 
-        PropertyLine {
-            id: vpnPassword
-            title.text: dsTr("Password")
-            section: typeList.selectItemId
-            key: "password"
-            visible: !rsaSecurID.active
+        SimplePptp {
+            id: pptpBox
+            visible: typeList.selectVpnType == vpnType
+        }
 
-            content.sourceComponent: DTextInput{
-                activeFocusOnTab: true
-                width: addVpnBox.rightWidth
-                echoMode: TextInput.Password
-            }
-
-            function getValue(){
-                return content.item.text
-            }
-
-            function checkKey(){
-                return true
-            }
+        SimpleL2tp {
+            id: l2tpBox
+            visible: typeList.selectVpnType == vpnType
         }
     }
 
@@ -230,17 +125,18 @@ Column {
             text: dsTr("Add")
             anchors.verticalCenter: parent.verticalCenter
             onClicked: {
-                if(checkValid()){
-                    createVpn()
+                var box = vpnSettingBox.getSelectedBox()
+                if(checkValid(box)){
+                    createVpn(box)
                 }
             }
         }
     }
 
-    function checkValid(){
+    function checkValid(box){
         var valid = true
-        for(var i=0; i<addVpnBox.children.length; i++){
-            var objLine = addVpnBox.children[i]
+        for(var i=0; i<box.children.length; i++){
+            var objLine = box.children[i]
             if(objLine.objectName == "PropertyLine" && objLine.visible){
                 valid = objLine.checkKey() && valid
             }
@@ -248,11 +144,11 @@ Column {
         return valid
     }
 
-    function createVpn(){
-        var connectionPath = dbusNetwork.CreateConnection(typeList.selectItemId, "/")
+    function createVpn(box){
+        var connectionPath = dbusNetwork.CreateConnection(typeList.selectVpnType, "/")
         var sessionObject = connectionSession.createObject(rootPage, { path: connectionPath })
-        for(var i=0; i<addVpnBox.children.length; i++){
-            var objLine = addVpnBox.children[i]
+        for(var i=0; i<box.children.length; i++){
+            var objLine = box.children[i]
             if(objLine.objectName == "PropertyLine" && objLine.visible){
                 if(objLine.key){
                     sessionObject.SetKey(objLine.section, objLine.key, marshalJSON(objLine.getValue()))
@@ -272,18 +168,9 @@ Column {
                     print("Error:", pageName, key, error_info[key])
                 }
             }
-        }else{
-            stackView.reset()
+            //sessionObject.Close()
         }
-    }
-
-    function goToCreateConnection(type){
-        stackView.push({
-            "item": stackViewPages["connectionPropertiesPage"],
-            "properties": { "create": true, "type":  type},
-            "destroyOnPop": true
-        })
-        stackView.currentItemId = "connectionPropertiesPage"
+        stackView.reset()
     }
 
 }
