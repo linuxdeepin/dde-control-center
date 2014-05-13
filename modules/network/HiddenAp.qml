@@ -80,6 +80,7 @@ Column {
                 }
             }
 
+            property int selectIndex: 2
 
             content.sourceComponent: DComboBox {
                 id: securityCombobox
@@ -87,14 +88,12 @@ Column {
 
                 Component.onCompleted: {
                     apSecure.initSecurity()
-                    text = apSecure.availableValues[selectIndex]
+                    text = apSecure.availableValues[apSecure.selectIndex]
                 }
 
-                property int selectIndex: 1
-
                 function menuSelect(i){
-                    selectIndex = i
-                    text = apSecure.availableValues[selectIndex]
+                    apSecure.selectIndex = i
+                    text = apSecure.availableValues[apSecure.selectIndex]
                 }
 
                 onClicked: {
@@ -102,7 +101,7 @@ Column {
                         var pos = mapToItem(null, 0, 0)
                         rootMenu.labels = apSecure.availableValues
                         rootMenu.requestMenuItem = securityCombobox
-                        rootMenu.currentIndex = selectIndex
+                        rootMenu.currentIndex = apSecure.selectIndex
                         rootMenu.posX = pos.x
                         rootMenu.posY = pos.y + height
                         rootMenu.innerWidth = width
@@ -112,7 +111,7 @@ Column {
             }
 
             function getValue(){
-                return apSecure.availableKeys[content.item.selectIndex]
+                return apSecure.availableKeys[apSecure.selectIndex]
             }
 
             function checkKey(){
@@ -125,7 +124,7 @@ Column {
             title.text: dsTr("Password")
             section: "security"
             key: "psk"
-            visible: apSecure.getValue() != 0
+            visible: apSecure.selectIndex != 0
 
             content.sourceComponent: DTextInput{
                 activeFocusOnTab: true

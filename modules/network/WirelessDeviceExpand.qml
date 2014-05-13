@@ -167,11 +167,14 @@ DBaseExpand {
             }
         }
 
-        DSeparatorHorizontal {}
+        DSeparatorHorizontal {
+            visible: false
+        }
 
         DBaseLine {
             id: wifiHotspotLine
             color: dconstants.contentBgColor
+            visible: false
 
             property var hotspotInfo: {
                 var infos = nmConnections[nmConnectionTypeWirelessAdhoc]

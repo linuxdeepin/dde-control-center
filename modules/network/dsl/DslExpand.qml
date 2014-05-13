@@ -6,7 +6,7 @@ Column {
     visible: dslConnectionNumber > 0
 
     property var dslConnections: nmConnections[nmConnectionTypePppoe]
-    property int dslConnectionNumber: dslConnections.length
+    property int dslConnectionNumber: dslConnections ? dslConnections.length : 0
 
     DBaseExpand {
         id: dslExpand

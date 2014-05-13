@@ -133,6 +133,7 @@ Item {
         if (apSecuredInEap && uuid == "") {
             print("secured in eap") // TODO debug
         } else {
+            print("activateAPConnection:", apPath, devicePath)
             dbusNetwork.ActivateAccessPoint(apPath, devicePath)
         }
     }

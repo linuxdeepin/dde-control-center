@@ -6,7 +6,7 @@ Column {
     visible: vpnConnectionNumber > 0
 
     property var vpnConnections: nmConnections[nmConnectionTypeVpn]
-    property int vpnConnectionNumber: vpnConnections.length
+    property int vpnConnectionNumber: vpnConnections ? vpnConnections.length : 0
 
     DBaseExpand {
         id: vpnExpand
