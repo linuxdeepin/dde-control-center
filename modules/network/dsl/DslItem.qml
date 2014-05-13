@@ -14,9 +14,19 @@ Item {
     property int connectionStatus: 100
 
     property var infos: dslConnections[index]
-    property var activeConnectionInfo: getActiveConnectionInfo(infos.Uuid)
 
-    property bool isConnected: activeConnectionInfo && activeConnectionInfo.dsl && activeConnectionInfo.State == nmActiveConnectionStateActivated
+    /// TODO: activeConnectionInfo is always null
+    property var activeConnectionInfo: getActiveConnectionInfo(infos.Uuid)
+    property bool isConnected: activeConnectionInfo && getBool(activeConnectionInfo.dsl) && activeConnectionInfo.State == nmActiveConnectionStateActivated
+
+    function getBool(s){
+        if(typeof(s) == "undefined"){
+            return false
+        }
+        else{
+            return s
+        }
+    }
 
     function goToEditConnection(){
         stackView.push({
@@ -27,8 +37,33 @@ Item {
         stackView.currentItemId = "connectionPropertiesPage"
     }
 
+    function getDevicePath(){
+        var wiredDevices = nmDevices[nmConnectionTypeWired]
+        var wirelessDevices = nmDevices[nmConnectionTypeWireless]
+        if(wiredDevices){
+            for(var i in wiredDevices){
+                if(wiredDevices[i].State == nmDeviceStateActivated){
+                    return wiredDevices[i].Path
+                }
+            }
+            return wiredDevices[0].Path
+        }
+        else if(wirelessDevices){
+            for(var i in wirelessDevices){
+                if(wirelessDevices[i].State == nmDeviceStateActivated){
+                    return wirelessDevices[i].Path
+                }
+            }
+            return wirelessDevices[0].Path
+        }
+
+        return "/"
+    }
+
     function activateThisConnection(){
-        dbusNetwork.ActivateConnection(infos.Uuid, "/")
+        var devicePath = getDevicePath()
+        print("DSL Device Path:", devicePath) 
+        dbusNetwork.ActivateConnection(infos.Uuid, devicePath)
     }
 
     DBaseLine {
@@ -71,7 +106,7 @@ Item {
             WaitingImage {
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
-                on: activeConnectionInfo && activeConnectionInfo.Uuid == infos.Uuid && activeConnectionInfo.dsl && activeConnectionInfo.State == nmActiveConnectionStateActivating
+                on: activeConnectionInfo && activeConnectionInfo.Uuid == infos.Uuid && getBool(activeConnectionInfo.dsl) && activeConnectionInfo.State == nmActiveConnectionStateActivating
             }
 
             DLabel {
