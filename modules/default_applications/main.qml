@@ -134,6 +134,7 @@ Item {
                         "video/x-theora",
                         "video/quicktime",
                         "video/x-ms-asf",
+			"application/vnd.rn-realmedia",
                         "video/x-ms-wmv"
                     ]
                 },
