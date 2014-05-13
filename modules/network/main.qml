@@ -92,7 +92,7 @@ Item {
         "infoPage": Qt.resolvedUrl("Info.qml"),
         "connectionPropertiesPage": Qt.resolvedUrl("ConnectionProperties.qml"),
         "addPageIndex": Qt.resolvedUrl("AddPageIndex.qml"),
-        "newDslPage": Qt.resolvedUrl("NewDslPage.qml"),
+        "newDslPage": Qt.resolvedUrl("dsl/NewDslPage.qml"),
         "newVpnPage": Qt.resolvedUrl("vpn/NewVpnPage.qml"),
         "hiddenAp": Qt.resolvedUrl("HiddenAp.qml"),
         "wifiHotspot": Qt.resolvedUrl("WifiHotspot.qml"),

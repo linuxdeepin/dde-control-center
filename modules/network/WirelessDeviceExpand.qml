@@ -216,7 +216,11 @@ DBaseExpand {
     }
 
     function goToConnectHiddenAP(){
-        stackView.push(stackViewPages["hiddenAp"])
+        stackView.push({
+            "item": stackViewPages["hiddenAp"],
+            "properties": { "devicePath": devicePath},
+            "destroyOnPop": true
+        })
         stackView.currentItemId = "hiddenAp"
     }
 

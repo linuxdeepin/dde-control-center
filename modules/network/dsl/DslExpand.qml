@@ -3,27 +3,27 @@ import Deepin.Widgets 1.0
 
 Column {
     width: parent.width
-    visible: vpnConnectionNumber > 0
+    visible: dslConnectionNumber > 0
 
-    property var vpnConnections: nmConnections[nmConnectionTypeVpn]
-    property int vpnConnectionNumber: vpnConnections.length
+    property var dslConnections: nmConnections[nmConnectionTypePppoe]
+    property int dslConnectionNumber: dslConnections.length
 
     DBaseExpand {
-        id: vpnExpand
+        id: dslExpand
 
         expanded: true
-        header.sourceComponent: DBaseLine{
+        header.sourceComponent: DBaseLine {
             id: wiredDeviceHeader
             leftLoader.sourceComponent: DssH2 {
                 anchors.verticalCenter: parent.verticalCenter
-                text: dsTr("VPN Connections")
+                text: dsTr("PPPOE Connections")
             }
 
             rightLoader.sourceComponent: DSwitchButton{
-                checked: vpnExpand.expanded
+                checked: dslExpand.expanded
                 onClicked: {
-                    //dbusNetwork.vPNEnabled = checked
-                    vpnExpand.expanded = !vpnExpand.expanded
+                    dslExpand.expanded = !dslExpand.expanded
+                    //dbusNetwork.dslEnabled = checked
                 }
             }
         }
@@ -35,8 +35,8 @@ Column {
                 width: parent.width
                 height: childrenRect.height
                 boundsBehavior: Flickable.StopAtBounds
-                model: vpnConnectionNumber
-                delegate: VpnItem {}
+                model: dslConnectionNumber
+                delegate: DslItem {}
             }
         }
     }

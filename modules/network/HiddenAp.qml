@@ -6,11 +6,13 @@ import "widgets"
 Column {
     id: rootPage
     width: parent.width
+
+    property var devicePath
     property int realHeight: childrenRect.height
     property int itemLabelLeftMargin: 22
 
     property var connectionSessionObject: {
-        var connectionPath = dbusNetwork.CreateConnection(nmConnectionTypeWireless, "/")
+        var connectionPath = dbusNetwork.CreateConnection(nmConnectionTypeWireless, devicePath)
         return connectionSession.createObject(rootPage, { path: connectionPath })
     }
 
