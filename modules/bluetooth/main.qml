@@ -74,7 +74,7 @@ Column {
         }
         rightLoader.sourceComponent: DSwitchButton {
             checked: dbus_bluetooth.powered
-            onClicked: dbus_bluetooth.powered == checked
+            onClicked: dbus_bluetooth.powered = checked
         }
     }
 
