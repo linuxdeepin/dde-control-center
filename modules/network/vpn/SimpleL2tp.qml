@@ -13,6 +13,12 @@ Column {
     property int leftWidth: edgePadding
     property int rightWidth: settingBox.width - leftWidth - edgePadding
 
+    function setDefaultKeys(sessionObject){
+        if(vpnSecretKey.getValue()){
+            sessionObject.SetKey("vpn-l2tp-ipsec", "ipsec-enabled", marshalJSON(true))
+        }
+    }
+
     function updateLeftWidth(newWidth){
         if(newWidth + edgePadding > settingBox.leftWidth){
             settingBox.leftWidth = newWidth + edgePadding
@@ -160,4 +166,26 @@ Column {
             return true
         }
     }
+
+    PropertyLine {
+        id: vpnSecretKey
+        title.text: dsTr("Secret key")
+        section: "vpn-l2tp-ipsec"
+        key: "ipsec-psk"
+
+        content.sourceComponent: DTextInput{
+            activeFocusOnTab: true
+            width: settingBox.rightWidth
+            echoMode: TextInput.Password
+        }
+
+        function getValue(){
+            return content.item.text
+        }
+
+        function checkKey(){
+            return true
+        }
+    }
+
 }

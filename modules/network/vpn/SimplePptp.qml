@@ -13,6 +13,9 @@ Column {
     property int leftWidth: edgePadding
     property int rightWidth: settingBox.width - leftWidth - edgePadding
 
+    function setDefaultKeys(sessionObject){
+    }
+
     function updateLeftWidth(newWidth){
         if(newWidth + edgePadding > settingBox.leftWidth){
             settingBox.leftWidth = newWidth + edgePadding

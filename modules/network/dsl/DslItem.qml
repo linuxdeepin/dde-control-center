@@ -4,9 +4,12 @@ import QtQuick.Layouts 1.0
 import Deepin.Widgets 1.0
 import "../widgets"
 
-Column{
+Item {
     width: parent.width
     height: childrenRect.height
+    Behavior on height {
+        PropertyAnimation { duration: 100 }
+    }
 
     property int connectionStatus: 100
 
@@ -30,7 +33,6 @@ Column{
 
     DBaseLine {
         id: lineBox
-
         property bool hovered: false
         property bool selected: false
         color: dconstants.contentBgColor
@@ -97,5 +99,13 @@ Column{
                 goToEditConnection()
             }
         }
+    }
+
+    PasswordBox {
+        id: passwordArea
+        anchors.top: lineBox.bottom
+        anchors.topMargin: 0 - arrowHeight
+        uuid: infos.Uuid
+        path: infos.Path
     }
 }

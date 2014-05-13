@@ -83,9 +83,15 @@ Column {
     }
     DSeparatorHorizontal {}
 
-    Column {
+    Item {
         id: vpnSettingBox
         width: parent.width
+        height: Math.max(pptpBox.displayHeight, l2tpBox.displayHeight)
+        clip: true
+
+        Behavior on height{
+            PropertyAnimation { duration: 150 }
+        }
 
         function getSelectedBox(){
             for(var i=0; i<vpnSettingBox.children.length; i++){
@@ -99,11 +105,13 @@ Column {
         SimplePptp {
             id: pptpBox
             visible: typeList.selectVpnType == vpnType
+            property int displayHeight: visible ? height : 0
         }
 
         SimpleL2tp {
             id: l2tpBox
             visible: typeList.selectVpnType == vpnType
+            property int displayHeight: visible ? height : 0
         }
     }
 
@@ -147,6 +155,7 @@ Column {
     function createVpn(box){
         var connectionPath = dbusNetwork.CreateConnection(typeList.selectVpnType, "/")
         var sessionObject = connectionSession.createObject(rootPage, { path: connectionPath })
+        box.setDefaultKeys(sessionObject)
         for(var i=0; i<box.children.length; i++){
             var objLine = box.children[i]
             if(objLine.objectName == "PropertyLine" && objLine.visible){
