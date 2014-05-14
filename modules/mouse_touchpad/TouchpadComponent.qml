@@ -98,30 +98,30 @@ Item {
             }
         }
 
-        DCenterLine {
-            height: contentHeight
-            leftWidth: mouseModule.leftWidth
-            centerPadding: mouseModule.centerPadding
-            title.text: dsTr("Pointer Precision")
+        //DCenterLine {
+            //height: contentHeight
+            //leftWidth: mouseModule.leftWidth
+            //centerPadding: mouseModule.centerPadding
+            //title.text: dsTr("Pointer Precision")
 
-            content.sourceComponent: DSliderEnhanced {
-                width: sliderWidth
+            //content.sourceComponent: DSliderEnhanced {
+                //width: sliderWidth
 
-                min: 1
-                max: 20
-                init: dbusTouchpad.motionThreshold
-                valueDisplayVisible: false
+                //min: 1
+                //max: 20
+                //init: dbusTouchpad.motionThreshold
+                //valueDisplayVisible: false
 
-                onValueConfirmed:{
-                    dbusTouchpad.motionThreshold = value
-                }
+                //onValueConfirmed:{
+                    //dbusTouchpad.motionThreshold = value
+                //}
 
-                Component.onCompleted: {
-                    addRuler(1, dsTr("Low"))
-                    addRuler(20, dsTr("High"))
-                }
-            }
-        }
+                //Component.onCompleted: {
+                    //addRuler(1, dsTr("Low"))
+                    //addRuler(20, dsTr("High"))
+                //}
+            //}
+        //}
 
         DCenterLine {
             height: contentHeight
