@@ -3,7 +3,6 @@ import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
 import Deepin.Widgets 1.0
 
-
 DBaseExpand {
     id: wirelessDevicesExpand
     width: parent.width
@@ -23,7 +22,7 @@ DBaseExpand {
         id: accessPointsModel
 
         function getIndexByApPath(path){
-            for(var i; i<count; i++){
+            for(var i=0; i<count; i++){
                 var obj = get(i)
                 if(obj.apPath == path){
                     return i
@@ -33,15 +32,13 @@ DBaseExpand {
         }
 
         function getInsertPosition(apObj){
-            var position = count
-            for(var i; i<count; i++){
+            for(var i=0; i<count; i++){
                 var obj = get(i)
                 if(apObj.Path != obj.apPath && apObj.Strength >= obj.apSignal){
-                    position = i
-                    break
+                    return i
                 }
             }
-            return position
+            return count
         }
     }
 
@@ -49,6 +46,7 @@ DBaseExpand {
         target: dbusNetwork
         onAccessPointAdded:{
             if(arg0 == devicePath){
+                print("onAccessPointAdded:", arg0, arg1)
                 var apObj = unmarshalJSON(arg1)
                 var index = accessPointsModel.getIndexByApPath(apObj.Path)
                 if(index == -1){
@@ -66,6 +64,7 @@ DBaseExpand {
 
         onAccessPointRemoved:{
             if(arg0 == devicePath){
+                print("onAccessPointRemoved:", arg0, arg1)
                 var apObj = unmarshalJSON(arg1)
                 var index = accessPointsModel.getIndexByApPath(apObj.Path)
                 if(index != -1){
@@ -85,11 +84,6 @@ DBaseExpand {
                     apModelObj.apSecuredInEap = apObj.SecuredInEap
                     apModelObj.apSignal = apObj.Strength
                     apModelObj.apPath = apObj.Path
-
-                    var insertPosition = accessPointsModel.getInsertPosition(apObj)
-                    if(insertPosition != index){
-                        accessPointsModel.move(index, position, 1)
-                    }
                 }
             }
         }
@@ -218,6 +212,38 @@ DBaseExpand {
         }
     }
 
+    Timer {
+        id: sortModelTimer
+        interval: 1000
+        repeat: true
+        onTriggered: {
+            wirelessDevicesExpand.sortModel()
+        }
+    }
+
+    Timer {
+        id: scanTimer
+        interval: 100
+        onTriggered: {
+            var accessPoints = unmarshalJSON(dbusNetwork.GetAccessPoints(devicePath))
+            accessPointsModel.clear()
+
+            for(var i in accessPoints){
+                // TODO ap
+                var apObj = accessPoints[i]
+                accessPointsModel.append({
+                    "apName": apObj.Ssid,
+                    "apSecured": apObj.Secured,
+                    "apSecuredInEap": apObj.SecuredInEap,
+                    "apSignal": apObj.Strength,
+                    "apPath": apObj.Path
+                })
+            }
+            wirelessDevicesExpand.sortModel()
+            sortModelTimer.start()
+        }
+    }
+
     function goToConnectHiddenAP(){
         stackView.push({
             "item": stackViewPages["hiddenAp"],
@@ -249,28 +275,6 @@ DBaseExpand {
                     n=0; // Repeat at start since I can't swap items i and n
                 }
             }
-        }
-    }
-
-    Timer {
-        id: scanTimer
-        interval: 100
-        onTriggered: {
-            var accessPoints = unmarshalJSON(dbusNetwork.GetAccessPoints(devicePath))
-            accessPointsModel.clear()
-
-            for(var i in accessPoints){
-                // TODO ap
-                var apObj = accessPoints[i]
-                accessPointsModel.append({
-                    "apName": apObj.Ssid,
-                    "apSecured": apObj.Secured,
-                    "apSecuredInEap": apObj.SecuredInEap,
-                    "apSignal": apObj.Strength,
-                    "apPath": apObj.Path
-                })
-            }
-            wirelessDevicesExpand.sortModel()
         }
     }
 }

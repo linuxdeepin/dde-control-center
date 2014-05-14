@@ -8,8 +8,8 @@ Column {
     Connections {
         target: dbusNetwork
         onAccessPointAdded:{
-            print("onAccessPointAdded:", arg0, arg1)
             if(arg0 == devicePath){
+                print("onAccessPointAdded:", arg0, arg1)
                 var apObj = unmarshalJSON(arg1)
                 var index = accessPointsModel.getIndexByApPath(apObj.Path)
                 if(index == -1){
@@ -26,8 +26,8 @@ Column {
         }
 
         onAccessPointRemoved: {
-            print("onAccessPointRemoved:", arg0, arg1)
             if(arg0 == devicePath){
+                print("onAccessPointRemoved:", arg0, arg1)
                 var apObj = unmarshalJSON(arg1)
                 var index = accessPointsModel.getIndexByApPath(apObj.Path)
                 if(index != -1){
@@ -47,11 +47,6 @@ Column {
                     apModelObj.apSecuredInEap = apObj.SecuredInEap
                     apModelObj.apSignal = apObj.Strength
                     apModelObj.apPath = apObj.Path
-
-                    var insertPosition = accessPointsModel.getInsertPosition(apObj)
-                    if(insertPosition != index){
-                        accessPointsModel.move(index, position, 1)
-                    }
                 }
             }
         }
@@ -82,7 +77,7 @@ Column {
         id: accessPointsModel
 
         function getIndexByApPath(path){
-            for(var i; i<count; i++){
+            for(var i=0; i<count; i++){
                 var obj = get(i)
                 if(obj.apPath == path){
                     return i
@@ -92,15 +87,13 @@ Column {
         }
 
         function getInsertPosition(apObj){
-            var position = count
-            for(var i; i<count; i++){
+            for(var i=0; i<count; i++){
                 var obj = get(i)
                 if(apObj.Path != obj.apPath && apObj.Strength >= obj.apSignal){
-                    position = i
-                    break
+                    return i
                 }
             }
-            return position
+            return count
         }
     }
 
@@ -124,6 +117,16 @@ Column {
                 })
             }
             sortModel()
+            sortModelTimer.start()
+        }
+    }
+
+    Timer {
+        id: sortModelTimer
+        interval: 1000
+        repeat: true
+        onTriggered: {
+            sortModel()
         }
     }
 
@@ -131,11 +134,9 @@ Column {
     {
         var n;
         var i;
-        for (n=0; n < accessPointsModel.count; n++){
-            for (i=n+1; i < accessPointsModel.count; i++)
-            {
-                if (accessPointsModel.get(n).apSignal < accessPointsModel.get(i).apSignal)
-                {
+        for(n=0; n < accessPointsModel.count; n++){
+            for(i=n+1; i < accessPointsModel.count; i++){
+                if (accessPointsModel.get(n).apSignal < accessPointsModel.get(i).apSignal){
                     accessPointsModel.move(i, n, 1);
                     n=0; // Repeat at start since I can't swap items i and n
                 }
