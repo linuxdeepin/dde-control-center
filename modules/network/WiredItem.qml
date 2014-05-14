@@ -14,7 +14,8 @@ Column{
     property string uuid: dbusNetwork.GetWiredConnectionUuid(wiredDevicePath)
 
     property var activeConnectionInfo: getActiveConnectionInfo(uuid)
-    property bool isConnected: activeConnectionInfo && !activeConnectionInfo.Vpn && activeConnectionInfo.State == nmActiveConnectionStateActivated
+    // property bool isConnected: activeConnectionInfo && !activeConnectionInfo.Vpn && activeConnectionInfo.State == nmActiveConnectionStateActivated
+    property bool isConnected: wiredDevices[index].State == nmDeviceStateActivated
 
     function activateThisConnection(){
         dbusNetwork.ActivateConnection(uuid, wiredDevicePath)
@@ -72,7 +73,8 @@ Column{
             WaitingImage {
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
-                on: activeConnectionInfo && activeConnectionInfo.Uuid == uuid && !activeConnectionInfo.Vpn && activeConnectionInfo.State == nmActiveConnectionStateActivating
+                on: wiredDevices[index].State != nmDeviceStateActivated
+                // on: activeConnectionInfo && activeConnectionInfo.Uuid == uuid && !activeConnectionInfo.Vpn && activeConnectionInfo.State == nmActiveConnectionStateActivating
             }
 
             DLabel {

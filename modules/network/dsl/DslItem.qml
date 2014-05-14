@@ -17,8 +17,13 @@ Item {
 
     /// TODO: activeConnectionInfo is always null
     property var activeConnectionInfo: getActiveConnectionInfo(infos.Uuid)
-    property bool isConnected: activeConnectionInfo && getBool(activeConnectionInfo.dsl) && activeConnectionInfo.State == nmActiveConnectionStateActivated
+    // property bool isConnected: activeConnectionInfo && getBool(activeConnectionInfo.dsl) && activeConnectionInfo.State == nmActiveConnectionStateActivated
+    property bool isConnected: activeConnectionInfo && activeConnectionInfo.State == nmActiveConnectionStateActivated
 
+    // Component.onCompleted: {
+        // print(activeConnectionInfo)
+    // }
+    
     function getBool(s){
         if(typeof(s) == "undefined"){
             return false
@@ -106,7 +111,8 @@ Item {
             WaitingImage {
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
-                on: activeConnectionInfo && activeConnectionInfo.Uuid == infos.Uuid && getBool(activeConnectionInfo.dsl) && activeConnectionInfo.State == nmActiveConnectionStateActivating
+                // on: activeConnectionInfo && activeConnectionInfo.Uuid == infos.Uuid && getBool(activeConnectionInfo.dsl) && activeConnectionInfo.State == nmActiveConnectionStateActivating
+                on: activeConnectionInfo && activeConnectionInfo.Uuid == infos.Uuid && activeConnectionInfo.State == nmActiveConnectionStateActivating
             }
 
             DLabel {
