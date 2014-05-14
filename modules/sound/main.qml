@@ -77,6 +77,8 @@ Item {
     
     Timer {
         id: tick_timer
+        running: true
+        repeat: true
         interval: 1000
         onTriggered: {
             meterSourceId.Tick()
