@@ -5,9 +5,12 @@ import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.DateAndTime 1.0
 import "calendar_core.js" as CalendarCore
 
-Item {
+DFlickable {
     id: dateTimeModule
     anchors.fill: parent
+
+    contentWidth: width
+    contentHeight: height < 768 ? 768 : height
 
     FontLoader { id: fixedFont; source: "MavenProLight-200.otf" }
     property var gDate: DateAndTime {
