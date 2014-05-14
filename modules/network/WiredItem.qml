@@ -73,7 +73,7 @@ Column{
             WaitingImage {
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
-                on: wiredDevices[index].State != nmDeviceStateActivated
+                on: wiredDevices[index].State >= nmDeviceStatePrepare && wiredDevices[index].State <= nmDeviceStateSecondaries
                 // on: activeConnectionInfo && activeConnectionInfo.Uuid == uuid && !activeConnectionInfo.Vpn && activeConnectionInfo.State == nmActiveConnectionStateActivating
             }
 
