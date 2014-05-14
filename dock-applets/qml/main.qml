@@ -99,6 +99,15 @@ QtObject {
         return value
     }
 
+    function getBool(s){
+        if(typeof(s) == "undefined"){
+            return false
+        }
+        else{
+            return s
+        }
+    }
+
     property var passwordWindow: WifiPasswordWindow {}
 
     // finish init dbus backend

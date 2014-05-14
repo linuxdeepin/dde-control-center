@@ -4,6 +4,7 @@ import Deepin.DockApplet 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Display 1.0
 import DBus.Com.Deepin.Daemon.Network 1.0
+import DBus.Com.Deepin.Daemon.Bluetooth 1.0
 import "../widgets/"
 
 DockApplet{
@@ -15,8 +16,13 @@ DockApplet{
     property var dbusDisplay: Display{}
     property string monitorName: dbusDisplay.primary
 
-    // network
-    property var dbusNetwork: NetworkManager{}
+    // vpn
+    property var nmConnections: unmarshalJSON(dbusNetwork.connections)
+    property var vpnConnections: nmConnections["vpn"]
+
+    // bluetooth
+    property var dbusBluetooth: Bluetooth {}
+    property var adapters: unmarshalJSON(dbusBluetooth.adapters)
 
     property int xEdgePadding: 0
 
@@ -44,8 +50,6 @@ DockApplet{
         width: 224
         height: contentColumn.height + xEdgePadding * 2
         color: "transparent"
-
-        //Component.onCompleted: show()
 
         Item {
             anchors.centerIn: parent
@@ -117,24 +121,135 @@ DockApplet{
                         }
                     }
 
-                    CheckButton{
-                        onImage: "images/3g_on.png"
-                        offImage: "images/3g_off.png"
-                    }
+                    //CheckButton{
+                        //onImage: "images/3g_on.png"
+                        //offImage: "images/3g_off.png"
+                    //}
 
                     CheckButton{
+                        id: vpnButton
+                        visible: getBool(vpnConnections)
                         onImage: "images/vpn_on.png"
                         offImage: "images/vpn_off.png"
+                        property var activeConnections: dbusNetwork.ActiveConnections
+                        property bool vpnActive: getVpnActivated() != -1
+
+                        onVpnActiveChanged: {
+                            if(!vpnButton.pressed){
+                                vpnButton.active = vpnActive
+                            }
+                        }
+
+                        function getVpnActivated(){
+                            for(var i in activeConnections){
+                                if(activeConnections[i].Vpn){
+                                    return i
+                                }
+                            }
+                            return -1
+                        }
+
+                        function deactiveVpn(){
+                            var index = getVpnActivated()
+                            if(index != -1){
+                                var uuid = activeConnections[i].Uuid
+                                dbusNetwork.DeactivateConnection(uuid)
+                            }
+                        }
+
+                        onClicked: {
+                            deactiveVpn()
+                        }
+
+                        Timer{
+                            running: true
+                            interval: 100
+                            onTriggered: {
+                                parent.active = parent.vpnActive
+                            }
+                        }
                     }
 
                     CheckButton{
+                        id: bluetoothButton
+                        visible: adapters.length > 0
                         onImage: "images/bluetooth_on.png"
                         offImage: "images/bluetooth_off.png"
+
+                        onClicked: {
+                            dbusBluetooth.powered = active
+                        }
+
+                        Connections{
+                            target: dbusBluetooth
+                            onPoweredChanged:{
+                                if(!bluetoothButton.pressed){
+                                    bluetoothButton.active = dbusBluetooth.powered
+                                }
+                            }
+                        }
+
+                        Timer{
+                            running: true
+                            interval: 100
+                            onTriggered: {
+                                parent.active = dbusBluetooth.powered
+                            }
+                        }
                     }
 
                     CheckButton {
+                        id: airplaneModeButton
                         onImage: "images/airplane_mode_on.png"
                         offImage: "images/airplane_mode_off.png"
+                        property bool airplaneModeActive: getActive()
+
+                        onAirplaneModeActiveChanged: {
+                            if(!airplaneModeButton.pressed){
+                                airplaneModeButton.active = airplaneModeButton.airplaneModeActive
+                            }
+                        }
+
+                        function getActive(){
+                            if(dbusNetwork.networkingEnabled || dbusBluetooth.powered){
+                                return false
+                            }
+                            else{
+                                return true
+                            }
+                        }
+
+                        function setActive(){
+                            dbusNetwork.networkingEnabled = true
+                            dbusNetwork.wiredEnabled = true
+                            dbusNetwork.wirelessEnabled = true
+                            dbusBluetooth.powered = true
+                        }
+
+                        function setDeactive(){
+                            dbusNetwork.wiredEnabled = false
+                            dbusNetwork.wirelessEnabled = false
+                            dbusNetwork.networkingEnabled = false
+                            dbusBluetooth.powered = false
+                        }
+
+                        onClicked: {
+                            if(active){
+                                setDeactive()
+                            }
+                            else{
+                                setActive()
+                            }
+                        }
+
+                        Timer{
+                            running: true
+                            interval: 100
+                            onTriggered: {
+                                parent.active = parent.airplaneModeActive
+                            }
+                        }
+
                     }
                 }
 
