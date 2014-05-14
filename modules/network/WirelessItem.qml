@@ -143,7 +143,7 @@ Item {
             WaitingImage {
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
-                on: activeAp == apPath && deviceStatus != nmDeviceStateActivated
+                on: activeAp == apPath && deviceStatus >= nmDeviceStatePrepare && deviceStatus <= nmDeviceStateSecondaries
             }
 
             DLabel {
