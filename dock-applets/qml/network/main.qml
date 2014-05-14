@@ -9,8 +9,6 @@ DockApplet{
     appid: "AppletNetwork"
     icon: iconPath
 
-    onIconChanged: print(icon)
-
     property var dconstants: DConstants {}
     property var nmConnections: unmarshalJSON(dbusNetwork.connections)
     property var activeDevice: getActiveDevice()

@@ -12,10 +12,6 @@ DockApplet{
     icon: iconPath
     property url iconPath: getIconPath()
 
-    onIconPathChanged: {
-        print("iconPath:", iconPath)
-    }
-
     property int xEdgePadding: 0
     property int titleSpacing: 10
     property int rootWidth: 224
@@ -313,9 +309,6 @@ DockApplet{
                                         anchors.leftMargin: 16
                                         theme: "Deepin"
                                         icon: sinkInputObject.name
-                                        onIconChanged: {
-                                            print("iconChanged:", icon)
-                                        }
                                     }
                                 }
 
@@ -348,6 +341,7 @@ DockApplet{
                                         onTriggered: {
                                             if(sinkInputObject.volume){
                                                 appSlider.value = sinkInputObject.volume
+                                                print("New SinkInput init:", sinkInputObject.name)
                                             }
                                         }
                                     }

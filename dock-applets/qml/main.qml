@@ -23,7 +23,9 @@ QtObject {
 
     Component.onCompleted: {
         init_applet_list_model()
-        print(dbusControlCenter.isNetworkCanShowPassword())
+
+        // just start dde control center
+        dbusControlCenter.isNetworkCanShowPassword()
     }
 
     signal appletInfosChanged

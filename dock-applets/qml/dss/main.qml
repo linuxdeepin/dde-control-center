@@ -31,7 +31,7 @@ DockApplet{
 
     // bluetooth
     property var dbusBluetooth: Bluetooth {}
-    property var adapters: unmarshalJSON(dbusBluetooth.adapters)
+    property var adapters: dbusBluetooth.adapters ? unmarshalJSON(dbusBluetooth.adapters) : ""
 
     property int xEdgePadding: 0
 
@@ -203,7 +203,8 @@ DockApplet{
                             running: true
                             interval: 100
                             onTriggered: {
-                                parent.active = dbusBluetooth.powered
+                                if(dbusBluetooth.powered)
+                                    parent.active = dbusBluetooth.powered
                             }
                         }
                     }
