@@ -20,6 +20,15 @@ DockApplet{
     property var nmConnections: unmarshalJSON(dbusNetwork.connections)
     property var vpnConnections: nmConnections["vpn"]
 
+    onVpnConnectionsChanged: {
+        if(vpnConnections){
+            print("VPN number:",vpnConnections.length)
+        }
+        else{
+            print("No VPN Connections...")
+        }
+    }
+
     // bluetooth
     property var dbusBluetooth: Bluetooth {}
     property var adapters: unmarshalJSON(dbusBluetooth.adapters)
@@ -64,6 +73,7 @@ DockApplet{
                 Row {
                     id: buttonRow
                     spacing: 16
+                    anchors.horizontalCenter: parent.horizontalCenter
 
                     CheckButton{
                         id: wiredCheckButton
@@ -128,7 +138,7 @@ DockApplet{
 
                     CheckButton{
                         id: vpnButton
-                        visible: getBool(vpnConnections)
+                        visible: vpnConnections ? vpnConnections.length > 0 : false
                         onImage: "images/vpn_on.png"
                         offImage: "images/vpn_off.png"
                         property var activeConnections: dbusNetwork.ActiveConnections
