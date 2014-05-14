@@ -390,15 +390,13 @@ Item {
                     height: childrenRect.height
                     visible: count != 0
 
-                    property string selectItemId: currentSink.activePort
-
                     model: {
                         var outputPortListModel = listModelComponent.createObject(outputPortList, {})
                         var ports = currentSink.ports
                         for(var i=0; i<ports.length; i++){
                             outputPortListModel.append({
-                                                           "item_id": ports[i],
-                                                           "item_name": ports[i]
+                                                           "item_id": ports[i][0],
+                                                           "item_name": ports[i][1]
                                                        })
                         }
                         return outputPortListModel
@@ -407,7 +405,7 @@ Item {
                     delegate: SelectItem {
                         labelLeftMargin: itemLabelLeftMargin
                         totalItemNumber: outputPortList.count
-                        selectItemId: String(outputPortList.selectItemId)
+                        selectItemId: currentSink.activePort[0]
 
                         onSelectAction: {
                             currentSink.SetPort(itemId)
@@ -497,15 +495,13 @@ Item {
                     height: childrenRect.height
                     visible: count != 0
 
-                    property string selectItemId: currentSource.activePort
-
                     model: {
                         var inputPortListModel = listModelComponent.createObject(inputPortList, {})
                         var ports = currentSource.ports
                         for(var i=0; i<ports.length; i++){
                             inputPortListModel.append({
-                                                          "item_id": ports[i],
-                                                          "item_name": ports[i]
+                                                          "item_id": ports[i][0],
+                                                          "item_name": ports[i][1]
                                                       })
                         }
                         return inputPortListModel
@@ -514,7 +510,7 @@ Item {
                     delegate: SelectItem {
                         labelLeftMargin: itemLabelLeftMargin
                         totalItemNumber: inputPortList.count
-                        selectItemId: String(inputPortList.selectItemId)
+                        selectItemId: currentSource.activePort[0]
 
                         onSelectAction: {
                             currentSource.SetPort(itemId)
