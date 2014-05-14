@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-13 15:09+0800\n"
+"POT-Creation-Date: 2014-05-14 16:00+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,14 +40,13 @@ msgstr ""
 #: ../modules/account/DeleteUserDialog.qml:33
 #: ../modules/network/HiddenAp.qml:153
 #: ../modules/network/dsl/NewDslPage.qml:114
-#: ../modules/network/vpn/NewVpnPage.qml:119
+#: ../modules/network/vpn/NewVpnPage.qml:127
+#: ../modules/network/widgets/PasswordBox.qml:100
 #: ../modules/account/PasswordDialog.qml:190
 #: ../modules/shortcuts/ShortcutInput.qml:298
-#: ../modules/date_time/TimeBox.qml:189 ../modules/network/vpn/VpnItem.qml:201
-#: ../modules/network/WifiHotspot.qml:113
+#: ../modules/date_time/TimeBox.qml:189 ../modules/network/WifiHotspot.qml:113
 #: ../dock-applets/qml/WifiPasswordWindow.qml:138
-#: ../frame/views/WifiPasswordWindow.qml:147
-#: ../modules/network/WirelessItem.qml:301 ../modules/display/main.qml:201
+#: ../frame/views/WifiPasswordWindow.qml:147 ../modules/display/main.qml:201
 msgid "Cancel"
 msgstr "取消"
 
@@ -141,8 +140,8 @@ msgstr "删除"
 #: ../modules/shortcuts/CustomKeybinding.qml:95
 #: ../modules/network/components_section_autogen/EditSectionGeneral.qml:18
 #: ../modules/network/dsl/NewDslPage.qml:39
-#: ../modules/network/vpn/SimpleL2tp.qml:24
-#: ../modules/network/vpn/SimplePptp.qml:24
+#: ../modules/network/vpn/SimpleL2tp.qml:30
+#: ../modules/network/vpn/SimplePptp.qml:27
 msgid "Name"
 msgstr "名称"
 
@@ -152,7 +151,7 @@ msgstr "命令"
 
 #: ../modules/shortcuts/CustomKeybinding.qml:124
 #: ../modules/network/dsl/NewDslPage.qml:123
-#: ../modules/network/vpn/NewVpnPage.qml:125
+#: ../modules/network/vpn/NewVpnPage.qml:133
 #: ../modules/date_time/TimezoneArea.qml:192
 msgid "Add"
 msgstr "添加"
@@ -297,8 +296,8 @@ msgstr "用户"
 #: ../modules/network/HiddenAp.qml:124
 #: ../modules/network/dsl/NewDslPage.qml:87
 #: ../modules/account/PasswordDialog.qml:60
-#: ../modules/network/vpn/SimpleL2tp.qml:114
-#: ../modules/network/vpn/SimplePptp.qml:114
+#: ../modules/network/vpn/SimpleL2tp.qml:120
+#: ../modules/network/vpn/SimplePptp.qml:117
 #: ../modules/network/WifiHotspot.qml:77
 msgid "Password"
 msgstr "密码"
@@ -788,10 +787,10 @@ msgstr "启用"
 msgid "Connect to hidden access point"
 msgstr "连接到隐藏网络"
 
-#: ../modules/network/HiddenAp.qml:159 ../modules/network/vpn/VpnItem.qml:209
+#: ../modules/network/HiddenAp.qml:159
+#: ../modules/network/widgets/PasswordBox.qml:108
 #: ../dock-applets/qml/WifiPasswordWindow.qml:145
 #: ../frame/views/WifiPasswordWindow.qml:154
-#: ../modules/network/WirelessItem.qml:309
 msgid "Connect"
 msgstr "连接"
 
@@ -867,7 +866,7 @@ msgid "Bluetooth"
 msgstr "蓝牙"
 
 #: ../frame/views/ModulesData.qml:9 ../dock-applets/qml/main.qml:17
-#: ../modules/sound/main.qml:93
+#: ../modules/sound/main.qml:95
 msgid "Sound"
 msgstr "声音"
 
@@ -997,6 +996,10 @@ msgstr ""
 msgid "Basic Information"
 msgstr "基本信息"
 
+#: ../modules/network/widgets/PasswordBox.qml:75
+msgid "Password: "
+msgstr "密码: "
+
 #: ../modules/account/PasswordDialog.qml:102
 msgid "New Password"
 msgstr "新密码"
@@ -1052,26 +1055,30 @@ msgstr "替换"
 msgid "Preview theme"
 msgstr "预览主题"
 
-#: ../modules/network/vpn/SimpleL2tp.qml:47
-#: ../modules/network/vpn/SimplePptp.qml:47
+#: ../modules/network/vpn/SimpleL2tp.qml:53
+#: ../modules/network/vpn/SimplePptp.qml:50
 msgid "Server"
 msgstr "服务器"
 
-#: ../modules/network/vpn/SimpleL2tp.qml:70
-#: ../modules/network/vpn/SimplePptp.qml:70 ../modules/account/main.qml:48
+#: ../modules/network/vpn/SimpleL2tp.qml:76
+#: ../modules/network/vpn/SimplePptp.qml:73 ../modules/account/main.qml:48
 msgid "Account"
 msgstr "账户"
 
-#: ../modules/network/vpn/SimpleL2tp.qml:93
-#: ../modules/network/vpn/SimplePptp.qml:93
+#: ../modules/network/vpn/SimpleL2tp.qml:99
+#: ../modules/network/vpn/SimplePptp.qml:96
 msgid "RSA SecurID"
 msgstr ""
 
-#: ../modules/network/vpn/SimpleL2tp.qml:136
-#: ../modules/network/vpn/SimplePptp.qml:136
+#: ../modules/network/vpn/SimpleL2tp.qml:142
+#: ../modules/network/vpn/SimplePptp.qml:139
 #, fuzzy
 msgid "Enable MPPE"
 msgstr "启用"
+
+#: ../modules/network/vpn/SimpleL2tp.qml:172
+msgid "Secret key"
+msgstr ""
 
 #: ../modules/date_time/StateButtons.qml:11
 #: ../modules/keyboard/StateButtons.qml:11
@@ -1100,16 +1107,6 @@ msgstr "触摸板"
 msgid "Primary Button"
 msgstr "主按键"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:66
-#: ../modules/mouse_touchpad/main.qml:51 ../modules/sound/main.qml:220
-msgid "Left"
-msgstr "左"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:67
-#: ../modules/mouse_touchpad/main.qml:52
-msgid "Left-handed"
-msgstr "右键"
-
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:80
 #: ../modules/mouse_touchpad/main.qml:65
 msgid "Pointer Speed"
@@ -1131,20 +1128,15 @@ msgstr "慢"
 msgid "Fast"
 msgstr "快"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:105
-#: ../modules/mouse_touchpad/main.qml:91
-msgid "Pointer Precision"
-msgstr "指针精确度"
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:66
+#: ../modules/mouse_touchpad/main.qml:51
+msgid "Left Button"
+msgstr "左键"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:120
-#: ../modules/mouse_touchpad/main.qml:106
-msgid "Low"
-msgstr "低"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:121
-#: ../modules/mouse_touchpad/main.qml:107
-msgid "High"
-msgstr "高"
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:67
+#: ../modules/mouse_touchpad/main.qml:52
+msgid "Right Button"
+msgstr "右键"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:130
 #: ../modules/mouse_touchpad/main.qml:117
@@ -1168,11 +1160,6 @@ msgstr "长"
 #: ../modules/network/vpn/VpnExpand.qml:19
 msgid "VPN Connections"
 msgstr "VPN 连接"
-
-#: ../modules/network/vpn/VpnItem.qml:176
-#: ../modules/network/WirelessItem.qml:276
-msgid "Password: "
-msgstr "密码: "
 
 #: ../modules/account/WebCam.qml:174
 msgid "No camera found."
@@ -1212,7 +1199,7 @@ msgstr "密码："
 msgid "Wired Network"
 msgstr "有线网络"
 
-#: ../modules/network/WiredItem.qml:82
+#: ../modules/network/WiredItem.qml:84
 #, fuzzy, qt-format
 msgid "Wired Connection %1"
 msgstr "有线连接 %1"
@@ -1300,19 +1287,19 @@ msgstr "控制中心"
 msgid "On Charging"
 msgstr "正在充电"
 
-#: ../dock-applets/qml/sound/main.qml:123
+#: ../dock-applets/qml/sound/main.qml:119
 msgid "_Run"
 msgstr ""
 
-#: ../dock-applets/qml/sound/main.qml:124
+#: ../dock-applets/qml/sound/main.qml:120
 msgid "_Undock"
 msgstr ""
 
-#: ../dock-applets/qml/sound/main.qml:158
+#: ../dock-applets/qml/sound/main.qml:154
 msgid "Device"
 msgstr "设备"
 
-#: ../dock-applets/qml/sound/main.qml:257
+#: ../dock-applets/qml/sound/main.qml:253
 msgid "Applications"
 msgstr "程序"
 
@@ -1372,35 +1359,35 @@ msgstr "音乐"
 msgid "Video"
 msgstr "视频"
 
-#: ../modules/default_applications/main.qml:141
+#: ../modules/default_applications/main.qml:142
 msgid "Picture"
 msgstr "图片"
 
-#: ../modules/default_applications/main.qml:159
+#: ../modules/default_applications/main.qml:160
 msgid "Terminal"
 msgstr "终端"
 
-#: ../modules/default_applications/main.qml:256
+#: ../modules/default_applications/main.qml:257
 msgid "AutoPlay"
 msgstr "自动播放"
 
-#: ../modules/default_applications/main.qml:271
+#: ../modules/default_applications/main.qml:272
 msgid "CD Audio"
 msgstr "CD音频"
 
-#: ../modules/default_applications/main.qml:276
+#: ../modules/default_applications/main.qml:277
 msgid "DVD Video"
 msgstr "DVD视频"
 
-#: ../modules/default_applications/main.qml:281
+#: ../modules/default_applications/main.qml:282
 msgid "Music Player"
 msgstr "音乐"
 
-#: ../modules/default_applications/main.qml:286
+#: ../modules/default_applications/main.qml:287
 msgid "Camera"
 msgstr "照片"
 
-#: ../modules/default_applications/main.qml:291
+#: ../modules/default_applications/main.qml:292
 msgid "Software"
 msgstr "软件"
 
@@ -1462,7 +1449,11 @@ msgstr "无结果"
 
 #: ../modules/keyboard/main.qml:383
 msgid "Caps-Lock key press tip"
-msgstr ""
+msgstr "大写键按键提示"
+
+#: ../modules/sound/main.qml:222
+msgid "Left"
+msgstr "左"
 
 #: ../modules/network/main.qml:168
 msgid "Network Settings"
@@ -1602,39 +1593,39 @@ msgstr "工作区"
 msgid "Shortcuts"
 msgstr "快捷键"
 
-#: ../modules/sound/main.qml:128
+#: ../modules/sound/main.qml:130
 msgid "Speaker"
 msgstr "扬声器"
 
-#: ../modules/sound/main.qml:158
+#: ../modules/sound/main.qml:160
 msgid "Output Volume"
 msgstr "输出音量"
 
-#: ../modules/sound/main.qml:202
+#: ../modules/sound/main.qml:204
 msgid "Balance"
 msgstr "均衡"
 
-#: ../modules/sound/main.qml:222
+#: ../modules/sound/main.qml:224
 msgid "Right"
 msgstr "右"
 
-#: ../modules/sound/main.qml:254
+#: ../modules/sound/main.qml:256
 msgid "Microphone"
 msgstr "麦克风"
 
-#: ../modules/sound/main.qml:284
+#: ../modules/sound/main.qml:286
 msgid "Input Volume"
 msgstr "输入音量"
 
-#: ../modules/sound/main.qml:328
+#: ../modules/sound/main.qml:330
 msgid "Input Feedback"
 msgstr "输入反馈"
 
-#: ../modules/sound/main.qml:364
+#: ../modules/sound/main.qml:366
 msgid "Output Port"
 msgstr "输出端口"
 
-#: ../modules/sound/main.qml:381 ../modules/sound/main.qml:488
+#: ../modules/sound/main.qml:383 ../modules/sound/main.qml:488
 msgid "No port exist in this device."
 msgstr "这个设备没有端口"
 
@@ -1646,15 +1637,15 @@ msgstr "输出设备"
 msgid "Input Port"
 msgstr "输入端口"
 
-#: ../modules/sound/main.qml:529
+#: ../modules/sound/main.qml:527
 msgid "Input device"
 msgstr "输入设备"
 
-#: ../modules/sound/main.qml:583
+#: ../modules/sound/main.qml:581
 msgid "Hide Advanced..."
 msgstr "隐藏高级设置..."
 
-#: ../modules/sound/main.qml:583
+#: ../modules/sound/main.qml:581
 msgid "Show Advanced..."
 msgstr "显示高级设置..."
 
@@ -1689,6 +1680,18 @@ msgstr "磁盘"
 #: ../modules/system_info/main.qml:126
 msgid "GNU GENERAL PUBLIC LICENSE"
 msgstr "GNU通用公共许可协议"
+
+#~ msgid "Left-handed"
+#~ msgstr "右键"
+
+#~ msgid "Pointer Precision"
+#~ msgstr "指针精确度"
+
+#~ msgid "Low"
+#~ msgstr "低"
+
+#~ msgid "High"
+#~ msgstr "高"
 
 #~ msgid "Show password"
 #~ msgstr "显示密码"

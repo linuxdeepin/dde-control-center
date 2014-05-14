@@ -63,8 +63,8 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
                 initializeIndex: dbusTouchpad.leftHanded ? 1 : 0
                 buttonModel: [
-                    {"buttonId": "right_hand", "buttonLabel": dsTr("Left")},
-                    {"buttonId": "left_hand", "buttonLabel": dsTr("Left-handed")}
+                    {"buttonId": "right_hand", "buttonLabel": dsTr("Left Button")},
+                    {"buttonId": "left_hand", "buttonLabel": dsTr("Right Button")}
                 ]
 
                 onItemSelected: {
@@ -132,8 +132,8 @@ Item {
             content.sourceComponent: DSliderEnhanced {
                 width: sliderWidth
 
-                min: 100
-                max: 1000
+                min: 1000
+                max: 100
                 init: dbusTouchpad.doubleClick
                 valueDisplayVisible: false
 
@@ -142,8 +142,8 @@ Item {
                 }
 
                 Component.onCompleted: {
-                    addRuler(100, dsTr("Slow"))
-                    addRuler(1000, dsTr("Fast"))
+                    addRuler(1000, dsTr("Slow"))
+                    addRuler(100, dsTr("Fast"))
                 }
             }
 

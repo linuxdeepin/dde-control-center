@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-13 15:09+0800\n"
+"POT-Creation-Date: 2014-05-14 16:00+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,14 +40,13 @@ msgstr ""
 #: ../modules/account/DeleteUserDialog.qml:33
 #: ../modules/network/HiddenAp.qml:153
 #: ../modules/network/dsl/NewDslPage.qml:114
-#: ../modules/network/vpn/NewVpnPage.qml:119
+#: ../modules/network/vpn/NewVpnPage.qml:127
+#: ../modules/network/widgets/PasswordBox.qml:100
 #: ../modules/account/PasswordDialog.qml:190
 #: ../modules/shortcuts/ShortcutInput.qml:298
-#: ../modules/date_time/TimeBox.qml:189 ../modules/network/vpn/VpnItem.qml:201
-#: ../modules/network/WifiHotspot.qml:113
+#: ../modules/date_time/TimeBox.qml:189 ../modules/network/WifiHotspot.qml:113
 #: ../dock-applets/qml/WifiPasswordWindow.qml:138
-#: ../frame/views/WifiPasswordWindow.qml:147
-#: ../modules/network/WirelessItem.qml:301 ../modules/display/main.qml:201
+#: ../frame/views/WifiPasswordWindow.qml:147 ../modules/display/main.qml:201
 msgid "Cancel"
 msgstr "取消"
 
@@ -145,8 +144,8 @@ msgstr ""
 #: ../modules/shortcuts/CustomKeybinding.qml:95
 #: ../modules/network/components_section_autogen/EditSectionGeneral.qml:18
 #: ../modules/network/dsl/NewDslPage.qml:39
-#: ../modules/network/vpn/SimpleL2tp.qml:24
-#: ../modules/network/vpn/SimplePptp.qml:24
+#: ../modules/network/vpn/SimpleL2tp.qml:30
+#: ../modules/network/vpn/SimplePptp.qml:27
 msgid "Name"
 msgstr "名稱"
 
@@ -156,7 +155,7 @@ msgstr "命令"
 
 #: ../modules/shortcuts/CustomKeybinding.qml:124
 #: ../modules/network/dsl/NewDslPage.qml:123
-#: ../modules/network/vpn/NewVpnPage.qml:125
+#: ../modules/network/vpn/NewVpnPage.qml:133
 #: ../modules/date_time/TimezoneArea.qml:192
 msgid "Add"
 msgstr "新增"
@@ -307,8 +306,8 @@ msgstr "使用者"
 #: ../modules/network/HiddenAp.qml:124
 #: ../modules/network/dsl/NewDslPage.qml:87
 #: ../modules/account/PasswordDialog.qml:60
-#: ../modules/network/vpn/SimpleL2tp.qml:114
-#: ../modules/network/vpn/SimplePptp.qml:114
+#: ../modules/network/vpn/SimpleL2tp.qml:120
+#: ../modules/network/vpn/SimplePptp.qml:117
 #: ../modules/network/WifiHotspot.qml:77
 #, fuzzy
 msgid "Password"
@@ -807,10 +806,10 @@ msgstr "啟用"
 msgid "Connect to hidden access point"
 msgstr "無線網路存取點"
 
-#: ../modules/network/HiddenAp.qml:159 ../modules/network/vpn/VpnItem.qml:209
+#: ../modules/network/HiddenAp.qml:159
+#: ../modules/network/widgets/PasswordBox.qml:108
 #: ../dock-applets/qml/WifiPasswordWindow.qml:145
 #: ../frame/views/WifiPasswordWindow.qml:154
-#: ../modules/network/WirelessItem.qml:309
 msgid "Connect"
 msgstr "連線"
 
@@ -887,7 +886,7 @@ msgid "Bluetooth"
 msgstr "藍牙"
 
 #: ../frame/views/ModulesData.qml:9 ../dock-applets/qml/main.qml:17
-#: ../modules/sound/main.qml:93
+#: ../modules/sound/main.qml:95
 msgid "Sound"
 msgstr "音效"
 
@@ -1021,6 +1020,10 @@ msgstr ""
 msgid "Basic Information"
 msgstr "系統資訊"
 
+#: ../modules/network/widgets/PasswordBox.qml:75
+msgid "Password: "
+msgstr "密碼: "
+
 #: ../modules/account/PasswordDialog.qml:102
 #, fuzzy
 msgid "New Password"
@@ -1080,27 +1083,31 @@ msgstr "取代"
 msgid "Preview theme"
 msgstr ""
 
-#: ../modules/network/vpn/SimpleL2tp.qml:47
-#: ../modules/network/vpn/SimplePptp.qml:47
+#: ../modules/network/vpn/SimpleL2tp.qml:53
+#: ../modules/network/vpn/SimplePptp.qml:50
 #, fuzzy
 msgid "Server"
 msgstr "DNS伺服器"
 
-#: ../modules/network/vpn/SimpleL2tp.qml:70
-#: ../modules/network/vpn/SimplePptp.qml:70 ../modules/account/main.qml:48
+#: ../modules/network/vpn/SimpleL2tp.qml:76
+#: ../modules/network/vpn/SimplePptp.qml:73 ../modules/account/main.qml:48
 msgid "Account"
 msgstr "帳戶"
 
-#: ../modules/network/vpn/SimpleL2tp.qml:93
-#: ../modules/network/vpn/SimplePptp.qml:93
+#: ../modules/network/vpn/SimpleL2tp.qml:99
+#: ../modules/network/vpn/SimplePptp.qml:96
 msgid "RSA SecurID"
 msgstr ""
 
-#: ../modules/network/vpn/SimpleL2tp.qml:136
-#: ../modules/network/vpn/SimplePptp.qml:136
+#: ../modules/network/vpn/SimpleL2tp.qml:142
+#: ../modules/network/vpn/SimplePptp.qml:139
 #, fuzzy
 msgid "Enable MPPE"
 msgstr "啟用使用者"
+
+#: ../modules/network/vpn/SimpleL2tp.qml:172
+msgid "Secret key"
+msgstr ""
 
 #: ../modules/date_time/StateButtons.qml:11
 #: ../modules/keyboard/StateButtons.qml:11
@@ -1131,18 +1138,6 @@ msgstr "觸控板"
 msgid "Primary Button"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:66
-#: ../modules/mouse_touchpad/main.qml:51 ../modules/sound/main.qml:220
-#, fuzzy
-msgid "Left"
-msgstr "左上"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:67
-#: ../modules/mouse_touchpad/main.qml:52
-#, fuzzy
-msgid "Left-handed"
-msgstr "左手"
-
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:80
 #: ../modules/mouse_touchpad/main.qml:65
 #, fuzzy
@@ -1165,21 +1160,16 @@ msgstr "慢"
 msgid "Fast"
 msgstr "快"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:105
-#: ../modules/mouse_touchpad/main.qml:91
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:66
+#: ../modules/mouse_touchpad/main.qml:51
+msgid "Left Button"
+msgstr ""
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:67
+#: ../modules/mouse_touchpad/main.qml:52
 #, fuzzy
-msgid "Pointer Precision"
-msgstr "游標精確度"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:120
-#: ../modules/mouse_touchpad/main.qml:106
-msgid "Low"
-msgstr "低"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:121
-#: ../modules/mouse_touchpad/main.qml:107
-msgid "High"
-msgstr "高"
+msgid "Right Button"
+msgstr "右手"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:130
 #: ../modules/mouse_touchpad/main.qml:117
@@ -1204,11 +1194,6 @@ msgstr "長"
 #: ../modules/network/vpn/VpnExpand.qml:19
 msgid "VPN Connections"
 msgstr "VPN連線"
-
-#: ../modules/network/vpn/VpnItem.qml:176
-#: ../modules/network/WirelessItem.qml:276
-msgid "Password: "
-msgstr "密碼: "
 
 #: ../modules/account/WebCam.qml:174
 msgid "No camera found."
@@ -1249,7 +1234,7 @@ msgstr "密碼:"
 msgid "Wired Network"
 msgstr "網路"
 
-#: ../modules/network/WiredItem.qml:82
+#: ../modules/network/WiredItem.qml:84
 #, fuzzy, qt-format
 msgid "Wired Connection %1"
 msgstr "有線連線 %1"
@@ -1340,20 +1325,20 @@ msgstr ""
 msgid "On Charging"
 msgstr ""
 
-#: ../dock-applets/qml/sound/main.qml:123
+#: ../dock-applets/qml/sound/main.qml:119
 msgid "_Run"
 msgstr ""
 
-#: ../dock-applets/qml/sound/main.qml:124
+#: ../dock-applets/qml/sound/main.qml:120
 msgid "_Undock"
 msgstr ""
 
-#: ../dock-applets/qml/sound/main.qml:158
+#: ../dock-applets/qml/sound/main.qml:154
 #, fuzzy
 msgid "Device"
 msgstr "裝置類型"
 
-#: ../dock-applets/qml/sound/main.qml:257
+#: ../dock-applets/qml/sound/main.qml:253
 #, fuzzy
 msgid "Applications"
 msgstr "預設應用程式"
@@ -1416,37 +1401,37 @@ msgstr "音樂"
 msgid "Video"
 msgstr "影片"
 
-#: ../modules/default_applications/main.qml:141
+#: ../modules/default_applications/main.qml:142
 #, fuzzy
 msgid "Picture"
 msgstr "圖片檢視器"
 
-#: ../modules/default_applications/main.qml:159
+#: ../modules/default_applications/main.qml:160
 msgid "Terminal"
 msgstr "終端機"
 
-#: ../modules/default_applications/main.qml:256
+#: ../modules/default_applications/main.qml:257
 #, fuzzy
 msgid "AutoPlay"
 msgstr "自動撥放"
 
-#: ../modules/default_applications/main.qml:271
+#: ../modules/default_applications/main.qml:272
 msgid "CD Audio"
 msgstr "音樂CD"
 
-#: ../modules/default_applications/main.qml:276
+#: ../modules/default_applications/main.qml:277
 msgid "DVD Video"
 msgstr "DVD影片"
 
-#: ../modules/default_applications/main.qml:281
+#: ../modules/default_applications/main.qml:282
 msgid "Music Player"
 msgstr "音樂撥放器"
 
-#: ../modules/default_applications/main.qml:286
+#: ../modules/default_applications/main.qml:287
 msgid "Camera"
 msgstr "照相機"
 
-#: ../modules/default_applications/main.qml:291
+#: ../modules/default_applications/main.qml:292
 msgid "Software"
 msgstr "軟體"
 
@@ -1515,6 +1500,11 @@ msgstr "沒有結果"
 #: ../modules/keyboard/main.qml:383
 msgid "Caps-Lock key press tip"
 msgstr ""
+
+#: ../modules/sound/main.qml:222
+#, fuzzy
+msgid "Left"
+msgstr "左上"
 
 #: ../modules/network/main.qml:168
 msgid "Network Settings"
@@ -1656,40 +1646,40 @@ msgstr "工作區"
 msgid "Shortcuts"
 msgstr "捷徑"
 
-#: ../modules/sound/main.qml:128
+#: ../modules/sound/main.qml:130
 msgid "Speaker"
 msgstr "揚聲器"
 
-#: ../modules/sound/main.qml:158
+#: ../modules/sound/main.qml:160
 msgid "Output Volume"
 msgstr "輸出音量"
 
-#: ../modules/sound/main.qml:202
+#: ../modules/sound/main.qml:204
 msgid "Balance"
 msgstr "平衡"
 
-#: ../modules/sound/main.qml:222
+#: ../modules/sound/main.qml:224
 #, fuzzy
 msgid "Right"
 msgstr "右手"
 
-#: ../modules/sound/main.qml:254
+#: ../modules/sound/main.qml:256
 msgid "Microphone"
 msgstr "麥克風"
 
-#: ../modules/sound/main.qml:284
+#: ../modules/sound/main.qml:286
 msgid "Input Volume"
 msgstr "輸入音量"
 
-#: ../modules/sound/main.qml:328
+#: ../modules/sound/main.qml:330
 msgid "Input Feedback"
 msgstr "輸入回音"
 
-#: ../modules/sound/main.qml:364
+#: ../modules/sound/main.qml:366
 msgid "Output Port"
 msgstr "輸出連接埠"
 
-#: ../modules/sound/main.qml:381 ../modules/sound/main.qml:488
+#: ../modules/sound/main.qml:383 ../modules/sound/main.qml:488
 msgid "No port exist in this device."
 msgstr "在這個裝置中沒有可用的連接埠."
 
@@ -1701,15 +1691,15 @@ msgstr "輸出裝置"
 msgid "Input Port"
 msgstr "輸入連接埠"
 
-#: ../modules/sound/main.qml:529
+#: ../modules/sound/main.qml:527
 msgid "Input device"
 msgstr "輸入裝置"
 
-#: ../modules/sound/main.qml:583
+#: ../modules/sound/main.qml:581
 msgid "Hide Advanced..."
 msgstr "隱藏進階..."
 
-#: ../modules/sound/main.qml:583
+#: ../modules/sound/main.qml:581
 msgid "Show Advanced..."
 msgstr "顯示進階..."
 
@@ -1744,6 +1734,20 @@ msgstr "硬碟"
 #: ../modules/system_info/main.qml:126
 msgid "GNU GENERAL PUBLIC LICENSE"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Left-handed"
+#~ msgstr "左手"
+
+#, fuzzy
+#~ msgid "Pointer Precision"
+#~ msgstr "游標精確度"
+
+#~ msgid "Low"
+#~ msgstr "低"
+
+#~ msgid "High"
+#~ msgstr "高"
 
 #~ msgid "Show password"
 #~ msgstr "顯示密碼"
@@ -1885,9 +1889,6 @@ msgstr ""
 
 #~ msgid "Button Order"
 #~ msgstr "按鍵順序"
-
-#~ msgid "Right Hand"
-#~ msgstr "右手"
 
 #~ msgid "Date & Time"
 #~ msgstr "日期與時間"

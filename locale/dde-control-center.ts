@@ -1648,7 +1648,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/vpn/NewVpnPage.qml" line="125"/>
+        <location filename="../modules/network/vpn/NewVpnPage.qml" line="133"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1663,7 +1663,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/vpn/NewVpnPage.qml" line="119"/>
+        <location filename="../modules/network/vpn/NewVpnPage.qml" line="127"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1673,6 +1673,24 @@
     <message>
         <location filename="../frame/views/PanelContent.qml" line="360"/>
         <source>Power</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PasswordBox</name>
+    <message>
+        <location filename="../modules/network/widgets/PasswordBox.qml" line="75"/>
+        <source>Password: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/widgets/PasswordBox.qml" line="100"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/widgets/PasswordBox.qml" line="108"/>
+        <source>Connect</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1779,65 +1797,70 @@
 <context>
     <name>SimpleL2tp</name>
     <message>
-        <location filename="../modules/network/vpn/SimpleL2tp.qml" line="24"/>
+        <location filename="../modules/network/vpn/SimpleL2tp.qml" line="30"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/vpn/SimpleL2tp.qml" line="47"/>
+        <location filename="../modules/network/vpn/SimpleL2tp.qml" line="53"/>
         <source>Server</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/vpn/SimpleL2tp.qml" line="70"/>
+        <location filename="../modules/network/vpn/SimpleL2tp.qml" line="76"/>
         <source>Account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/vpn/SimpleL2tp.qml" line="93"/>
+        <location filename="../modules/network/vpn/SimpleL2tp.qml" line="99"/>
         <source>RSA SecurID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/vpn/SimpleL2tp.qml" line="114"/>
+        <location filename="../modules/network/vpn/SimpleL2tp.qml" line="120"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/vpn/SimpleL2tp.qml" line="136"/>
+        <location filename="../modules/network/vpn/SimpleL2tp.qml" line="142"/>
         <source>Enable MPPE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/vpn/SimpleL2tp.qml" line="172"/>
+        <source>Secret key</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SimplePptp</name>
     <message>
-        <location filename="../modules/network/vpn/SimplePptp.qml" line="24"/>
+        <location filename="../modules/network/vpn/SimplePptp.qml" line="27"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/vpn/SimplePptp.qml" line="47"/>
+        <location filename="../modules/network/vpn/SimplePptp.qml" line="50"/>
         <source>Server</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/vpn/SimplePptp.qml" line="70"/>
+        <location filename="../modules/network/vpn/SimplePptp.qml" line="73"/>
         <source>Account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/vpn/SimplePptp.qml" line="93"/>
+        <location filename="../modules/network/vpn/SimplePptp.qml" line="96"/>
         <source>RSA SecurID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/vpn/SimplePptp.qml" line="114"/>
+        <location filename="../modules/network/vpn/SimplePptp.qml" line="117"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/vpn/SimplePptp.qml" line="136"/>
+        <location filename="../modules/network/vpn/SimplePptp.qml" line="139"/>
         <source>Enable MPPE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1906,16 +1929,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse_touchpad/TouchpadComponent.qml" line="66"/>
-        <source>Left</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse_touchpad/TouchpadComponent.qml" line="67"/>
-        <source>Left-handed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../modules/mouse_touchpad/TouchpadComponent.qml" line="80"/>
         <source>Pointer Speed</source>
         <translation type="unfinished"></translation>
@@ -1933,18 +1946,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse_touchpad/TouchpadComponent.qml" line="105"/>
-        <source>Pointer Precision</source>
+        <location filename="../modules/mouse_touchpad/TouchpadComponent.qml" line="66"/>
+        <source>Left Button</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse_touchpad/TouchpadComponent.qml" line="120"/>
-        <source>Low</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse_touchpad/TouchpadComponent.qml" line="121"/>
-        <source>High</source>
+        <location filename="../modules/mouse_touchpad/TouchpadComponent.qml" line="67"/>
+        <source>Right Button</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1986,24 +1994,6 @@
     <message>
         <location filename="../modules/network/vpn/VpnExpand.qml" line="19"/>
         <source>VPN Connections</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>VpnItem</name>
-    <message>
-        <location filename="../modules/network/vpn/VpnItem.qml" line="176"/>
-        <source>Password: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/vpn/VpnItem.qml" line="201"/>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/vpn/VpnItem.qml" line="209"/>
-        <source>Connect</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2102,7 +2092,7 @@
 <context>
     <name>WiredItem</name>
     <message>
-        <location filename="../modules/network/WiredItem.qml" line="82"/>
+        <location filename="../modules/network/WiredItem.qml" line="84"/>
         <source>Wired Connection %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2140,24 +2130,6 @@
     <message>
         <location filename="../modules/network/WirelessDeviceExpand.qml" line="195"/>
         <source>Hotspot </source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>WirelessItem</name>
-    <message>
-        <location filename="../modules/network/WirelessItem.qml" line="276"/>
-        <source>Password: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/WirelessItem.qml" line="301"/>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/WirelessItem.qml" line="309"/>
-        <source>Connect</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2251,7 +2223,7 @@
     </message>
     <message>
         <location filename="../dock-applets/qml/main.qml" line="17"/>
-        <location filename="../modules/sound/main.qml" line="93"/>
+        <location filename="../modules/sound/main.qml" line="95"/>
         <source>Sound</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2271,22 +2243,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/sound/main.qml" line="123"/>
+        <location filename="../dock-applets/qml/sound/main.qml" line="119"/>
         <source>_Run</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/sound/main.qml" line="124"/>
+        <location filename="../dock-applets/qml/sound/main.qml" line="120"/>
         <source>_Undock</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/sound/main.qml" line="158"/>
+        <location filename="../dock-applets/qml/sound/main.qml" line="154"/>
         <source>Device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/sound/main.qml" line="257"/>
+        <location filename="../dock-applets/qml/sound/main.qml" line="253"/>
         <source>Applications</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2382,42 +2354,42 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/main.qml" line="141"/>
+        <location filename="../modules/default_applications/main.qml" line="142"/>
         <source>Picture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/main.qml" line="159"/>
+        <location filename="../modules/default_applications/main.qml" line="160"/>
         <source>Terminal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/main.qml" line="256"/>
+        <location filename="../modules/default_applications/main.qml" line="257"/>
         <source>AutoPlay</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/main.qml" line="271"/>
+        <location filename="../modules/default_applications/main.qml" line="272"/>
         <source>CD Audio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/main.qml" line="276"/>
+        <location filename="../modules/default_applications/main.qml" line="277"/>
         <source>DVD Video</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/main.qml" line="281"/>
+        <location filename="../modules/default_applications/main.qml" line="282"/>
         <source>Music Player</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/main.qml" line="286"/>
+        <location filename="../modules/default_applications/main.qml" line="287"/>
         <source>Camera</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/main.qml" line="291"/>
+        <location filename="../modules/default_applications/main.qml" line="292"/>
         <source>Software</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2554,33 +2526,22 @@
     </message>
     <message>
         <location filename="../modules/mouse_touchpad/main.qml" line="51"/>
-        <location filename="../modules/sound/main.qml" line="220"/>
-        <source>Left</source>
+        <source>Left Button</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/mouse_touchpad/main.qml" line="52"/>
-        <source>Left-handed</source>
+        <source>Right Button</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/main.qml" line="222"/>
+        <source>Left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/mouse_touchpad/main.qml" line="65"/>
         <source>Pointer Speed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse_touchpad/main.qml" line="91"/>
-        <source>Pointer Precision</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse_touchpad/main.qml" line="106"/>
-        <source>Low</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse_touchpad/main.qml" line="107"/>
-        <source>High</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2789,47 +2750,47 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="128"/>
+        <location filename="../modules/sound/main.qml" line="130"/>
         <source>Speaker</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="158"/>
+        <location filename="../modules/sound/main.qml" line="160"/>
         <source>Output Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="202"/>
+        <location filename="../modules/sound/main.qml" line="204"/>
         <source>Balance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="222"/>
+        <location filename="../modules/sound/main.qml" line="224"/>
         <source>Right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="254"/>
+        <location filename="../modules/sound/main.qml" line="256"/>
         <source>Microphone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="284"/>
+        <location filename="../modules/sound/main.qml" line="286"/>
         <source>Input Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="328"/>
+        <location filename="../modules/sound/main.qml" line="330"/>
         <source>Input Feedback</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="364"/>
+        <location filename="../modules/sound/main.qml" line="366"/>
         <source>Output Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="381"/>
+        <location filename="../modules/sound/main.qml" line="383"/>
         <location filename="../modules/sound/main.qml" line="488"/>
         <source>No port exist in this device.</source>
         <translation type="unfinished"></translation>
@@ -2845,17 +2806,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="529"/>
+        <location filename="../modules/sound/main.qml" line="527"/>
         <source>Input device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="583"/>
+        <location filename="../modules/sound/main.qml" line="581"/>
         <source>Hide Advanced...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="583"/>
+        <location filename="../modules/sound/main.qml" line="581"/>
         <source>Show Advanced...</source>
         <translation type="unfinished"></translation>
     </message>
