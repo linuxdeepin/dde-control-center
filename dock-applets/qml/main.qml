@@ -5,7 +5,7 @@ import DBus.Com.Deepin.Dde.ControlCenter 1.0
 import DBus.Com.Deepin.Daemon.DiskMount 1.0
 import DBus.Com.Deepin.Daemon.Power 1.0
 import DBus.Com.Deepin.Daemon.Network 1.0
-import Resource 1.0
+import Helper 1.0
 
 QtObject {
     id: root
@@ -122,9 +122,9 @@ QtObject {
         return dssLocale.dsTr(s)
     }
 
-    property var iconResource: IconResource {}
+    property var externalObject: ExternalObject {}
     function getIconUrl(path){
-        return iconResource.getIconUrl(path)
+        return externalObject.getIconUrl(path)
     }
 
     function getIndexFromArray(s, a){

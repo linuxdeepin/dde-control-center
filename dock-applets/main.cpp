@@ -3,7 +3,7 @@
 #include <QCoreApplication>
 #include <QDBusConnection>
 
-#include "resource.h"
+#include "helper.h"
 #include "qmlloader.h"
 
 int main(int argc, char* argv[])
@@ -12,9 +12,10 @@ int main(int argc, char* argv[])
     QGuiApplication app(argc, argv);
 
     if(QDBusConnection::sessionBus().registerService("dde.dock.entry.AppletManager")){
-        qmlRegisterType<IconResource>("Resource", 1,0, "IconResource");
+        qmlRegisterType<ExternalObject>("Helper", 1,0, "ExternalObject");
 
         QmlLoader* qmlLoader = new QmlLoader();
+        qmlLoader->rootContext->setContextProperty("mainObject", qmlLoader);
         qmlLoader->load(QUrl("qrc:///qml/main.qml"));
 
         return app.exec();

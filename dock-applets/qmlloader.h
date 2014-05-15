@@ -2,8 +2,9 @@
 #define QMLLOADER_H
 
 #include <QObject>
-#include <QtQml/QQmlEngine>
-#include <QtQml/QQmlComponent>
+#include <QQmlEngine>
+#include <QQmlComponent>
+#include <QQmlContext>
 #include <QDBusAbstractAdaptor>
 
 class QmlLoader;
@@ -19,8 +20,10 @@ public:
 
     QQmlEngine* engine;
     QQmlComponent* component;
+    QQmlContext * rootContext;
 
     void load(QUrl url);
+    Q_INVOKABLE void xdgOpen(QString path);
 private:
     AppletDBus * m_dbus_proxyer;
 };

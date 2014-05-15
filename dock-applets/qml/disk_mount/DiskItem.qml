@@ -29,7 +29,9 @@ Item {
                 MouseArea{
                     anchors.fill: parent
                     hoverEnabled: true
-                    onClicked: mainObject.xdgOpen("file:///media/")
+                    onClicked: {
+                        externalObject.xdgOpen(diskInfo[8])
+                    }
                     onEntered: cursorShape = Qt.PointingHandCursor
                     onExited: cursorShape = Qt.ArrowCursor
                 }

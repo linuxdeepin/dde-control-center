@@ -4,11 +4,12 @@ QT += quick qml core dbus
 
 SOURCES += \
     main.cpp \
-    qmlloader.cpp
+    qmlloader.cpp \
+    helper.cpp
 
 HEADERS += \
-    resource.h \
-    qmlloader.h
+    qmlloader.h \
+    helper.h
 
 RESOURCES += \
     qml.qrc \
