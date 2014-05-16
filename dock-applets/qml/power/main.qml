@@ -7,16 +7,17 @@ import "../widgets"
 DockApplet {
     id: root
     title: {
-        if (dbusPower.onBattery || dbusPower.batteryPercentage == 100){
-            return parseInt(dbusPower.batteryPercentage) + "%"
+        if (!dbusPower.onBattery && dbusPower.batteryState == 1){
+            return "%1% ".arg(dbusPower.batteryPercentage) + dsTr("On Charging")
         }
         else{
-            return "%1% ".arg(dbusPower.batteryPercentage) + dsTr("On Charging")
+            return "%1%".arg(dbusPower.batteryPercentage)
         }
     }
     appid: "AppletPower"
     icon: getIcon()
-    width: 260; height: 30
+    width: 260;
+    height: 30
 
     function showPower(){
         dbusControlCenter.ShowModule("power")
@@ -49,16 +50,16 @@ DockApplet {
         if(percentage <= 5){
             return path.arg(0)
         }
-        else if(percentage <= 10){
+        else if(percentage <= 18){
             return path.arg(10)
         }
-        else if(percentage <= 25){
+        else if(percentage <= 38){
             return path.arg(25)
         }
-        else if(percentage <= 50){
+        else if(percentage <= 62){
             return path.arg(50)
         }
-        else if(percentage <= 75){
+        else if(percentage <= 88){
             return path.arg(75)
         }
         else if(percentage <= 100){
