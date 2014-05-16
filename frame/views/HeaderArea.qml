@@ -81,7 +81,7 @@ Column {
                 setUserName()
             }
             else{
-                avatarImage.imageSource = "/var/lib/AccountsService/icons/guest.jpg"
+                avatarImage.imageSource = "/var/lib/AccountsService/icons/guest_96.png"
                 userName.text = dsTr("Guest")
             }
         }
