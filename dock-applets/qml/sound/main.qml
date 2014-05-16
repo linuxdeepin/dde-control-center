@@ -44,7 +44,7 @@ DockApplet{
     }
 
     function getVolume(){
-        return defaultSink.volume * 100
+        return parseInt(defaultSink.volume * 100)
     }
 
     function setVolume(vol){
@@ -53,9 +53,19 @@ DockApplet{
 
     function getIconPath(){
         if(typeof(defaultSink.volume) != "undefined"){
-            var step = parseInt(getVolume()/10) * 10
-            if(step >= 100){
+            var vol = getVolume()
+            var step = 100
+            if(vol < 1){
+                step = 0
+            }
+            else if(vol < 10){
+                step = 10
+            }
+            else if(vol > 100){
                 step = 100
+            }
+            else{
+                step = parseInt(getVolume()/10) * 10
             }
         }
         else{
