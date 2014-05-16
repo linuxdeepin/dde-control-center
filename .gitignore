@@ -10,3 +10,5 @@ dtk.egg-info
 *.user
 *.old
 *.mo
+dss.sublime-project
+dss.sublime-workspace
