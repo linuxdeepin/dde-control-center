@@ -15,11 +15,12 @@ Slider {
         groove: Rectangle {
             implicitWidth: grooveWidth + handleWidth
             implicitHeight: 2
-            color: Qt.rgba(1, 1, 1, 0.1)
+            color: Qt.rgba(1, 1, 1, 0.3)
 
             Rectangle {
                 width: slider.value/(slider.maximumValue - slider.minimumValue) * parent.width
                 height: parent.height
+                color: Qt.rgba(1, 1, 1, 0.5)
             }
 
         }

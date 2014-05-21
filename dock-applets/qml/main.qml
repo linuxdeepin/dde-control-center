@@ -12,7 +12,7 @@ QtObject {
 
     property var appletList: new Array()
     property var appletNames: {
-        "dss": dsTr("Control Center"),
+        //"dss": dsTr("Control Center"),
         "network": dsTr("Network"),
         "sound": dsTr("Sound"),
         "power": dsTr("Power"),
@@ -146,9 +146,9 @@ QtObject {
     }
 
     function init_applet_list_model(){
-        appletListModel.append({
-            "applet_id": "dss"
-        })
+        //appletListModel.append({
+            //"applet_id": "dss"
+        //})
 
         //if (dbusNetwork.wirelessDevices){
             //appletListModel.append({

@@ -304,7 +304,7 @@ DockApplet{
                             property var sinkInputObject: sinkInputComponent.createObject(appVolumeControlItem, { path: sinkInputPath })
 
                             Item {
-                                height: 20
+                                height: 24
                                 width: parent.width
                                 anchors.verticalCenter: parent.verticalCenter
 
@@ -312,6 +312,7 @@ DockApplet{
                                     id: appIconBox
                                     width: 40
                                     height: parent.height
+
                                     DIcon {
                                         height: parent.height
                                         width: parent.height
