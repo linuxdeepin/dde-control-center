@@ -174,6 +174,29 @@ Item {
             }
         }
 
+        DCenterLine {
+            height: contentHeight
+            leftWidth: mouseModule.leftWidth
+            centerPadding: mouseModule.centerPadding
+            title.text: dsTr("Natural Scrolling")
+
+            content.sourceComponent: Item {
+                width: sliderWidth
+                height: parent.height
+
+                DSwitchButton {
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                    checked: dbusTouchpad.naturalScroll
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: dbusTouchpad.naturalScroll = !dbusTouchpad.naturalScroll
+                    }
+                }
+            }
+        }
+
         DSeparatorHorizontal {}
     }
 }
