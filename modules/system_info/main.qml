@@ -132,43 +132,37 @@ Item {
             width: parent.width
             height: systemInfoModule.height - infoColumn.height - 34
             contentWidth: parent.width
-            contentHeight: gplTextEdit.height
+            contentHeight: gplContent.height
 
-            TextEdit {
-                id: gplTextEdit
+            Column {
+                id: gplContent
                 width: parent.width
-                color: dconstants.fgDarkColor
-                font.pixelSize: 11
-                text: windowView.getGplText(lang)
-                textMargin: 6
-                wrapMode: TextEdit.WordWrap
-                horizontalAlignment: TextEdit.AlignHCenter
-                readOnly: true
+
+                TextEdit {
+                    id: gplTextEditTitle
+                    width: parent.width
+                    color: dconstants.fgDarkColor
+                    font.pixelSize: 11
+                    text: windowView.getGplTextTitle(lang)
+                    textMargin: 6
+                    wrapMode: TextEdit.WordWrap
+                    horizontalAlignment: TextEdit.AlignHCenter
+                    readOnly: true
+                }
+
+                TextEdit {
+                    id: gplTextEdit
+                    width: parent.width
+                    color: dconstants.fgDarkColor
+                    font.pixelSize: 11
+                    text: windowView.getGplText(lang)
+                    textMargin: 6
+                    wrapMode: TextEdit.WordWrap
+                    readOnly: true
+                }
+
             }
         }
-        //content.sourceComponent: TextArea {
-            //style: TextAreaStyle {
-                //textColor: dconstants.fgDarkColor
-                //backgroundColor: dconstants.contentBgColor
-                //handle: Item {}
-                //frame: Item {}
-                //corner: Item {}
-                //decrementControl: Item {}
-                //incrementControl: Item {}
-                //scrollBarBackground: Item {}
-            //}
-            //frameVisible: false
-            //width: parent.width - 8
-            //height: systemInfoModule.height - infoColumn.height - 34
-            //anchors.horizontalCenter: parent.horizontalCenter
-            //wrapMode: Text.WordWrap
-            //selectByMouse: false
-            //horizontalAlignment: Text.AlignHCenter
-            //font.pixelSize: 11
-            //text: windowView.getGplText(lang)
-            //textFormat: Text.PlainText
-            //readOnly: true
-        //}
     }
 
     SepratorHorizontal {

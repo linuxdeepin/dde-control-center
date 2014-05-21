@@ -113,9 +113,18 @@ class ControlPanel(QtCore.QObject):
 
     @QtCore.pyqtSlot(str, result=str)
     def getGplText(self, lang):
-        path = os.path.join(ROOT_LOCATION, "frame", "gpl-3.0-%s.txt" % lang)
+        path = os.path.join(ROOT_LOCATION, "frame", "gpl", "gpl-3.0-%s.txt" % lang)
         if not os.path.exists(path):
-            path = os.path.join(ROOT_LOCATION, "frame", "gpl-3.0.txt")
+            path = os.path.join(ROOT_LOCATION, "frame", "gpl", "gpl-3.0.txt")
+
+        with open(path) as fp:
+            return fp.read()
+
+    @QtCore.pyqtSlot(str, result=str)
+    def getGplTextTitle(self, lang):
+        path = os.path.join(ROOT_LOCATION, "frame", "gpl", "gpl-3.0-%s-title.txt" % lang)
+        if not os.path.exists(path):
+            path = os.path.join(ROOT_LOCATION, "frame", "gpl", "gpl-3.0-title.txt")
 
         with open(path) as fp:
             return fp.read()
