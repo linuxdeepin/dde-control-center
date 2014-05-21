@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-14 16:00+0800\n"
+"POT-Creation-Date: 2014-05-21 12:54+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -175,7 +175,7 @@ msgstr "刪除使用者檔案"
 msgid "Confirm"
 msgstr ""
 
-#: ../dock-applets/qml/disk_mount/DiskItem.qml:57
+#: ../dock-applets/qml/disk_mount/DiskItem.qml:59
 msgid "Unmount failed!"
 msgstr ""
 
@@ -869,7 +869,7 @@ msgstr "儲存更改"
 msgid "Revert"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:5 ../modules/date_time/main.qml:44
+#: ../frame/views/ModulesData.qml:5 ../modules/date_time/main.qml:47
 msgid "Date and Time"
 msgstr "日期時間"
 
@@ -1191,6 +1191,10 @@ msgstr "短"
 msgid "Long"
 msgstr "長"
 
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:181
+msgid "Natural Scrolling"
+msgstr ""
+
 #: ../modules/network/vpn/VpnExpand.qml:19
 msgid "VPN Connections"
 msgstr "VPN連線"
@@ -1239,33 +1243,33 @@ msgstr "網路"
 msgid "Wired Connection %1"
 msgstr "有線連線 %1"
 
-#: ../dock-applets/qml/network/WirelessApList.qml:77
+#: ../dock-applets/qml/network/WirelessApList.qml:72
 msgid "Scanning..."
 msgstr "掃描中..."
 
-#: ../modules/network/WirelessDeviceExpand.qml:105
+#: ../modules/network/WirelessDeviceExpand.qml:99
 #: ../dock-applets/qml/network/WirelessNetwork.qml:27
 #, fuzzy
 msgid "Wireless Network"
 msgstr "網路"
 
-#: ../modules/network/WirelessDeviceExpand.qml:108
+#: ../modules/network/WirelessDeviceExpand.qml:102
 #: ../dock-applets/qml/network/WirelessNetwork.qml:27
 #, fuzzy, qt-format
 msgid "Wireless Network %1"
 msgstr "無線裝置: %1"
 
-#: ../modules/network/WirelessDeviceExpand.qml:152
+#: ../modules/network/WirelessDeviceExpand.qml:146
 #, fuzzy
 msgid "Connect Hidden Access Point"
 msgstr "無線網路存取點"
 
-#: ../modules/network/WirelessDeviceExpand.qml:195
+#: ../modules/network/WirelessDeviceExpand.qml:189
 #, fuzzy
 msgid "Create Access Point"
 msgstr "無線網路存取點"
 
-#: ../modules/network/WirelessDeviceExpand.qml:195
+#: ../modules/network/WirelessDeviceExpand.qml:189
 msgid "Hotspot "
 msgstr ""
 
@@ -1317,28 +1321,24 @@ msgstr "十一月"
 msgid "December"
 msgstr "十二月"
 
-#: ../dock-applets/qml/main.qml:15
-msgid "Control Center"
-msgstr ""
-
-#: ../dock-applets/qml/power/main.qml:14
+#: ../dock-applets/qml/power/main.qml:11
 msgid "On Charging"
 msgstr ""
 
-#: ../dock-applets/qml/sound/main.qml:119
+#: ../dock-applets/qml/sound/main.qml:129
 msgid "_Run"
 msgstr ""
 
-#: ../dock-applets/qml/sound/main.qml:120
+#: ../dock-applets/qml/sound/main.qml:130
 msgid "_Undock"
 msgstr ""
 
-#: ../dock-applets/qml/sound/main.qml:154
+#: ../dock-applets/qml/sound/main.qml:164
 #, fuzzy
 msgid "Device"
 msgstr "裝置類型"
 
-#: ../dock-applets/qml/sound/main.qml:253
+#: ../dock-applets/qml/sound/main.qml:263
 #, fuzzy
 msgid "Applications"
 msgstr "預設應用程式"
@@ -1363,20 +1363,20 @@ msgstr "裝置名稱"
 msgid "Devices nearby"
 msgstr "附近的裝置"
 
-#: ../modules/date_time/main.qml:58
+#: ../modules/date_time/main.qml:61
 #, fuzzy
 msgid "Automatic date and time"
 msgstr "自動同步日期時間"
 
-#: ../modules/date_time/main.qml:74
+#: ../modules/date_time/main.qml:77
 msgid "Use 24-hour clock"
 msgstr ""
 
-#: ../modules/date_time/main.qml:104
+#: ../modules/date_time/main.qml:107
 msgid "Date"
 msgstr "日期"
 
-#: ../modules/date_time/main.qml:108
+#: ../modules/date_time/main.qml:111
 #, fuzzy
 msgid "Set Date"
 msgstr "日期"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-14 16:00+0800\n"
+"POT-Creation-Date: 2014-05-21 12:54+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -169,7 +169,7 @@ msgstr "删除用户文件"
 msgid "Confirm"
 msgstr "确认"
 
-#: ../dock-applets/qml/disk_mount/DiskItem.qml:57
+#: ../dock-applets/qml/disk_mount/DiskItem.qml:59
 msgid "Unmount failed!"
 msgstr "卸载失败"
 
@@ -849,7 +849,7 @@ msgstr "保留更改"
 msgid "Revert"
 msgstr "还原"
 
-#: ../frame/views/ModulesData.qml:5 ../modules/date_time/main.qml:44
+#: ../frame/views/ModulesData.qml:5 ../modules/date_time/main.qml:47
 msgid "Date and Time"
 msgstr "日期和时间"
 
@@ -1157,6 +1157,10 @@ msgstr "短"
 msgid "Long"
 msgstr "长"
 
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:181
+msgid "Natural Scrolling"
+msgstr "自然滚动"
+
 #: ../modules/network/vpn/VpnExpand.qml:19
 msgid "VPN Connections"
 msgstr "VPN 连接"
@@ -1204,30 +1208,30 @@ msgstr "有线网络"
 msgid "Wired Connection %1"
 msgstr "有线连接 %1"
 
-#: ../dock-applets/qml/network/WirelessApList.qml:77
+#: ../dock-applets/qml/network/WirelessApList.qml:72
 msgid "Scanning..."
 msgstr "扫描中..."
 
-#: ../modules/network/WirelessDeviceExpand.qml:105
+#: ../modules/network/WirelessDeviceExpand.qml:99
 #: ../dock-applets/qml/network/WirelessNetwork.qml:27
 msgid "Wireless Network"
 msgstr "无线网络"
 
-#: ../modules/network/WirelessDeviceExpand.qml:108
+#: ../modules/network/WirelessDeviceExpand.qml:102
 #: ../dock-applets/qml/network/WirelessNetwork.qml:27
 #, qt-format
 msgid "Wireless Network %1"
 msgstr "无线网络 %1"
 
-#: ../modules/network/WirelessDeviceExpand.qml:152
+#: ../modules/network/WirelessDeviceExpand.qml:146
 msgid "Connect Hidden Access Point"
 msgstr "连接到隐藏网络"
 
-#: ../modules/network/WirelessDeviceExpand.qml:195
+#: ../modules/network/WirelessDeviceExpand.qml:189
 msgid "Create Access Point"
 msgstr "创建无线热点"
 
-#: ../modules/network/WirelessDeviceExpand.qml:195
+#: ../modules/network/WirelessDeviceExpand.qml:189
 msgid "Hotspot "
 msgstr ""
 
@@ -1279,27 +1283,23 @@ msgstr "十一月"
 msgid "December"
 msgstr "十二月"
 
-#: ../dock-applets/qml/main.qml:15
-msgid "Control Center"
-msgstr "控制中心"
-
-#: ../dock-applets/qml/power/main.qml:14
+#: ../dock-applets/qml/power/main.qml:11
 msgid "On Charging"
 msgstr "正在充电"
 
-#: ../dock-applets/qml/sound/main.qml:119
+#: ../dock-applets/qml/sound/main.qml:129
 msgid "_Run"
 msgstr ""
 
-#: ../dock-applets/qml/sound/main.qml:120
+#: ../dock-applets/qml/sound/main.qml:130
 msgid "_Undock"
 msgstr ""
 
-#: ../dock-applets/qml/sound/main.qml:154
+#: ../dock-applets/qml/sound/main.qml:164
 msgid "Device"
 msgstr "设备"
 
-#: ../dock-applets/qml/sound/main.qml:253
+#: ../dock-applets/qml/sound/main.qml:263
 msgid "Applications"
 msgstr "程序"
 
@@ -1323,19 +1323,19 @@ msgstr "设备名称"
 msgid "Devices nearby"
 msgstr "附近的设备"
 
-#: ../modules/date_time/main.qml:58
+#: ../modules/date_time/main.qml:61
 msgid "Automatic date and time"
 msgstr "自动同步时间"
 
-#: ../modules/date_time/main.qml:74
+#: ../modules/date_time/main.qml:77
 msgid "Use 24-hour clock"
 msgstr "24小时制"
 
-#: ../modules/date_time/main.qml:104
+#: ../modules/date_time/main.qml:107
 msgid "Date"
 msgstr "日期"
 
-#: ../modules/date_time/main.qml:108
+#: ../modules/date_time/main.qml:111
 msgid "Set Date"
 msgstr "更改日期"
 
@@ -1680,6 +1680,9 @@ msgstr "磁盘"
 #: ../modules/system_info/main.qml:126
 msgid "GNU GENERAL PUBLIC LICENSE"
 msgstr "GNU通用公共许可协议"
+
+#~ msgid "Control Center"
+#~ msgstr "控制中心"
 
 #~ msgid "Left-handed"
 #~ msgstr "右键"

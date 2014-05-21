@@ -198,7 +198,7 @@
 <context>
     <name>DiskItem</name>
     <message>
-        <location filename="../dock-applets/qml/disk_mount/DiskItem.qml" line="57"/>
+        <location filename="../dock-applets/qml/disk_mount/DiskItem.qml" line="59"/>
         <source>Unmount failed!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1975,6 +1975,11 @@
         <source>Long</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../modules/mouse_touchpad/TouchpadComponent.qml" line="181"/>
+        <source>Natural Scrolling</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UserList</name>
@@ -2100,7 +2105,7 @@
 <context>
     <name>WirelessApList</name>
     <message>
-        <location filename="../dock-applets/qml/network/WirelessApList.qml" line="77"/>
+        <location filename="../dock-applets/qml/network/WirelessApList.qml" line="72"/>
         <source>Scanning...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2108,27 +2113,27 @@
 <context>
     <name>WirelessDeviceExpand</name>
     <message>
-        <location filename="../modules/network/WirelessDeviceExpand.qml" line="105"/>
+        <location filename="../modules/network/WirelessDeviceExpand.qml" line="99"/>
         <source>Wireless Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/WirelessDeviceExpand.qml" line="108"/>
+        <location filename="../modules/network/WirelessDeviceExpand.qml" line="102"/>
         <source>Wireless Network %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/WirelessDeviceExpand.qml" line="152"/>
+        <location filename="../modules/network/WirelessDeviceExpand.qml" line="146"/>
         <source>Connect Hidden Access Point</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/WirelessDeviceExpand.qml" line="195"/>
+        <location filename="../modules/network/WirelessDeviceExpand.qml" line="189"/>
         <source>Create Access Point</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/WirelessDeviceExpand.qml" line="195"/>
+        <location filename="../modules/network/WirelessDeviceExpand.qml" line="189"/>
         <source>Hotspot </source>
         <translation type="unfinished"></translation>
     </message>
@@ -2212,11 +2217,6 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../dock-applets/qml/main.qml" line="15"/>
-        <source>Control Center</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../dock-applets/qml/main.qml" line="16"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
@@ -2238,27 +2238,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/power/main.qml" line="14"/>
+        <location filename="../dock-applets/qml/power/main.qml" line="11"/>
         <source>On Charging</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/sound/main.qml" line="119"/>
+        <location filename="../dock-applets/qml/sound/main.qml" line="129"/>
         <source>_Run</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/sound/main.qml" line="120"/>
+        <location filename="../dock-applets/qml/sound/main.qml" line="130"/>
         <source>_Undock</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/sound/main.qml" line="154"/>
+        <location filename="../dock-applets/qml/sound/main.qml" line="164"/>
         <source>Device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/sound/main.qml" line="253"/>
+        <location filename="../dock-applets/qml/sound/main.qml" line="263"/>
         <source>Applications</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2298,27 +2298,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="44"/>
+        <location filename="../modules/date_time/main.qml" line="47"/>
         <source>Date and Time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="58"/>
+        <location filename="../modules/date_time/main.qml" line="61"/>
         <source>Automatic date and time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="74"/>
+        <location filename="../modules/date_time/main.qml" line="77"/>
         <source>Use 24-hour clock</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="104"/>
+        <location filename="../modules/date_time/main.qml" line="107"/>
         <source>Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="108"/>
+        <location filename="../modules/date_time/main.qml" line="111"/>
         <source>Set Date</source>
         <translation type="unfinished"></translation>
     </message>
