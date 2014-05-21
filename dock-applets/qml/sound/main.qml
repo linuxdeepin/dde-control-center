@@ -313,13 +313,30 @@ DockApplet{
                                     width: 40
                                     height: parent.height
 
-                                    DIcon {
+                                    Item {
                                         height: parent.height
                                         width: parent.height
                                         anchors.left: parent.left
                                         anchors.leftMargin: 16
-                                        theme: "Deepin"
-                                        icon: sinkInputObject.name
+
+                                        DIcon {
+                                            anchors.fill: parent
+                                            theme: "Deepin"
+                                            icon: sinkInputObject.name
+                                        }
+
+                                        Image {
+                                            anchors.fill: parent
+                                            source: "images/app-mute.png"
+                                            visible: sinkInputObject.mute
+                                        }
+
+                                        MouseArea {
+                                            anchors.fill: parent
+                                            onClicked: {
+                                                sinkInputObject.SetMute(!sinkInputObject.mute)
+                                            }
+                                        }
                                     }
                                 }
 
