@@ -25,7 +25,7 @@ Item {
         model: wirelessDevicesNumber
         delegate: WirelessDeviceExpand {
             devicePath: wirelessDevices[index].Path
-            deviceHwAddr: wirelessDevices[index].HwAddr
+            deviceHwAddress: wirelessDevices[index].HwAddress
             activeAp: wirelessDevices[index].ActiveAp
             deviceStatus: wirelessDevices[index].State
         }

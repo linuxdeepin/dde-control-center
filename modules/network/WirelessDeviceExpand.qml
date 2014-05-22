@@ -8,7 +8,7 @@ DBaseExpand {
     width: parent.width
 
     property string devicePath: "/"
-    property string deviceHwAddr
+    property string deviceHwAddress
     property string activeAp: "/"
     property int deviceStatus: 0
 
@@ -127,7 +127,7 @@ DBaseExpand {
             model: accessPointsModel
             delegate: WirelessItem {
                 devicePath: wirelessDevicesExpand.devicePath
-                deviceHwAddr: wirelessDevicesExpand.deviceHwAddr
+                deviceHwAddress: wirelessDevicesExpand.deviceHwAddress
                 activeAp: wirelessDevicesExpand.activeAp
                 deviceStatus: wirelessDevicesExpand.deviceStatus
             }

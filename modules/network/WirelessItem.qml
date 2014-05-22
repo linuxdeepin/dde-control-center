@@ -11,7 +11,7 @@ Item {
     height: childrenRect.height
 
     property string devicePath: "/"
-    property string deviceHwAddr: ""
+    property string deviceHwAddress: ""
     property string activeAp: "/"
     property int deviceStatus: 0
     property string connectionPath
@@ -39,7 +39,7 @@ Item {
         var uuid = ""
         for (var i in wirelessConnections) {
             if (apName == wirelessConnections[i].Ssid) {
-                if (wirelessConnections[i].HwAddr == "" || wirelessConnections[i].HwAddr == deviceHwAddr) {
+                if (wirelessConnections[i].HwAddress == "" || wirelessConnections[i].HwAddress == deviceHwAddress) {
                     connectionPath = wirelessConnections[i].Path
                     uuid = wirelessConnections[i].Uuid
                     break
