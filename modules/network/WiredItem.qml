@@ -22,7 +22,6 @@ Column{
     }
 
     function goToEditConnection(){
-        // print("wired device path", dbusNetwork.wiredDevices[index][0]) // TODO test
         stackView.push({
             "item": stackViewPages["connectionPropertiesPage"],
             "properties": { "uuid": uuid, "devicePath": wiredDevicePath },

@@ -22,7 +22,7 @@ Column {
             rightLoader.sourceComponent: DSwitchButton{
                 checked: vpnExpand.expanded
                 onClicked: {
-                    //dbusNetwork.vPNEnabled = checked
+                    //dbusNetwork.vpnEnabled = checked
                     vpnExpand.expanded = !vpnExpand.expanded
                 }
             }
