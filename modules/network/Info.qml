@@ -13,53 +13,38 @@ Column {
     }
     DSeparatorHorizontal{}
 
-    function filterConnection(devs) {
+    function filterConnection() {
         var conns = []
-        for (var i=0; i<devs.length; i++) {
-            var c = dbusNetwork.GetActiveConnectionInfo(devs[i][0])
-            if (c && c[0]) {
+        doFilterConnection(conns, nmDevices[nmDeviceTypeEthernet])
+        doFilterConnection(conns, nmDevices[nmDeviceTypeWifi])
+        return conns
+    }
+    function doFilterConnection(conns, devs) {
+        for (var i in devs) {
+            var c = getActiveConnectionInfo(devs[i].Path)
+            if (c) {
                 conns.push(c)
             }
         }
         return conns
     }
-
-    Repeater {
-        model: filterConnection(dbusNetwork.wiredDevices)
-        DBaseExpand {
-            width: root.width
-            expanded: header.item.active
-            header.sourceComponent: DDownArrowHeader {
-                active: true
-                text: modelData[0]
-            }
-            content.sourceComponent: DBaseLine {
-                height: leftLoader.item.height
-                color: dconstants.contentBgColor
-                leftLoader.sourceComponent: GridLayout {
-                    width: root.width
-                    columns: 2
-                    Layout.preferredWidth: root.width
-                    DssH2 { text: dsTr("DeviceType") }         DssH2 { text: dsTr("wired") }
-                    DssH2 { text: dsTr("DeviceAddr")}      DssH2 { text: modelData[1] }
-                    DssH2 { text: dsTr("IpAddress")}        DssH2 { text: modelData[2] }
-                    DssH2 { text: dsTr("SubnetMask")}      DssH2 { text: modelData[3] }
-                    DssH2 { text: dsTr("RouteAddr")}      DssH2 { text: modelData[4] }
-                    DssH2 { text: dsTr("DeviceSpeed")}      DssH2 { text: modelData[5] + "Mb/s" }
-                }
-            }
+    function getActiveConnectionInfo(devPath) {
+        var c
+        var connJSON = dbusNetwork.GetActiveConnectionInfo(devPath)
+        if (connJSON != "") {
+            c = unmarshalJSON(connJSON)
         }
+        return c
     }
 
     Repeater {
-        model: filterConnection(dbusNetwork.wirelessDevices)
+        model: filterConnection()
         DBaseExpand {
-            visible: true
             width: root.width
             expanded: header.item.active
             header.sourceComponent: DDownArrowHeader {
                 active: true
-                text: modelData[0]
+                text: modelData.Interface
             }
             content.sourceComponent: DBaseLine {
                 height: leftLoader.item.height
@@ -68,12 +53,14 @@ Column {
                     width: root.width
                     columns: 2
                     Layout.preferredWidth: root.width
-                    DssH2 { text: dsTr("DeviceType") }         DssH2 { text: dsTr("wireless") }
-                    DssH2 { text: dsTr("DeviceAddr")}      DssH2 { text: modelData[1] }
-                    DssH2 { text: dsTr("IpAddress")}        DssH2 { text: modelData[2] }
-                    DssH2 { text: dsTr("SubnetMask")}      DssH2 { text: modelData[3] }
-                    DssH2 { text: dsTr("RouteAddr")}      DssH2 { text: modelData[4] }
-                    DssH2 { text: dsTr("DeviceSpeed")}      DssH2 { text: modelData[5] + "Mb/s" }
+                    DssH2 { text: dsTr("DeviceType") }  DssH2 { text: getDeviceName(modelData.DeviceType) }
+                    DssH2 { text: dsTr("DeviceAddr")}   DssH2 { text: modelData.HwAddress }
+                    DssH2 { text: dsTr("IpAddress")}    DssH2 { text: modelData.IpAddress }
+                    DssH2 { text: dsTr("SubnetMask")}   DssH2 { text: modelData.SubnetMask }
+                    DssH2 { text: dsTr("RouteAddr")}    DssH2 { text: modelData.RouteAddress }
+                    DssH2 { text: dsTr("Primary DNS")}  DssH2 { text: modelData.Dns1 }
+                    DssH2 { text: dsTr("Addtional DNS"); visible: modelData.Dns2 != ""}  DssH2 { text: modelData.Dns2 ; visible: modelData.Dns2 != ""}
+                    DssH2 { text: dsTr("DeviceSpeed")}  DssH2 { text: modelData.Speed + " Mb/s" }
                 }
             }
         }

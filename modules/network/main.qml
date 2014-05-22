@@ -120,7 +120,41 @@ Item {
         return value
     }
 
-    function getActiveConnectionInfo(uuid){
+    function getDeviceName(devType) {
+        switch(devType) {
+        case nmDeviceTypeUnknown:
+            return dsTr("unknown");
+        case nmDeviceTypeEthernet:
+            return dsTr("wired");
+        case nmDeviceTypeWifi:
+            return dsTr("wireless");
+        case nmDeviceTypeUnused1:
+            return dsTr("unused1");
+        case nmDeviceTypeUnused2:
+            return dsTr("unused2");
+        case nmDeviceTypeBt:
+            return dsTr("bluetooth");
+        case nmDeviceTypeOlpcMesh:
+            return dsTr("olpc mesh");
+        case nmDeviceTypeWimax:
+            return dsTr("wimax");
+        case nmDeviceTypeModem:
+            return dsTr("modem");
+        case nmDeviceTypeInfiniband:
+            return dsTr("infiniband");
+        case nmDeviceTypeBond:
+            return dsTr("bond");
+        case nmDeviceTypeVlan:
+            return dsTr("vlan");
+        case nmDeviceTypeAdsl:
+            return dsTr("adsl");
+        case nmDeviceTypeBridge:
+            return dsTr("bridge");
+        }
+        return dsTr("unknown");
+    }
+    
+    function getActiveConnectionInfo(uuid) {
         for (var i in nmActiveConnections) {
             if(nmActiveConnections[i].Uuid == uuid){
                 return nmActiveConnections[i]
