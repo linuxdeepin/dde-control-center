@@ -19,8 +19,6 @@ QtObject {
         "disk_mount": dsTr("Disk Mount")
     }
 
-
-
     Component.onCompleted: {
         init_applet_list_model()
 
@@ -146,22 +144,6 @@ QtObject {
     }
 
     function init_applet_list_model(){
-        //appletListModel.append({
-            //"applet_id": "dss"
-        //})
-
-        //if (dbusNetwork.wirelessDevices){
-            //appletListModel.append({
-                //"applet_id": "network"
-            //})
-        //}
-
-        //if (mountDiskList.length > 0) {
-            //appletListModel.append({
-                //"applet_id": "disk_mount"
-            //})
-        //}
-
         appletListModel.append({
             "applet_id": "sound"
         })

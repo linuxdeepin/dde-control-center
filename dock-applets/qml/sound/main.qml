@@ -12,7 +12,7 @@ DockApplet{
     icon: iconPath
     property url iconPath: getIconPath()
 
-    property int xEdgePadding: 0
+    property int xEdgePadding: 18
     property int titleSpacing: 10
     property int rootWidth: 224
     property int wheelStep: 5
@@ -134,7 +134,7 @@ DockApplet{
     window: DockQuickWindow {
         id: root
         width: rootWidth
-        height: content.height
+        height: content.height + xEdgePadding * 2
         color: "transparent"
 
         Connections{
@@ -147,29 +147,28 @@ DockApplet{
         }
 
         Item {
-            width: parent.width
+            width: parent.width - xEdgePadding*2
             height: content.height
+            anchors.centerIn: parent
 
             Column {
                 id: content
                 width: parent.width
+
                 Item {
                     height: 30
                     width: parent.width
 
                     DssH2 {
                         id: allSoundLabel
-                        anchors.left: parent.left
-                        anchors.leftMargin: xEdgePadding
-                        text: dsTr("Device")
                         anchors.verticalCenter: parent.verticalCenter
+                        text: dsTr("Device")
                     }
 
                     Rectangle {
                         height: 1
-                        width: parent.width - allSoundLabel.width - xEdgePadding * 2 - titleSpacing
+                        width: parent.width - allSoundLabel.width - titleSpacing
                         anchors.right: parent.right
-                        anchors.rightMargin: xEdgePadding
                         anchors.verticalCenter: parent.verticalCenter
                         opacity: 0.1
                     }
@@ -184,7 +183,7 @@ DockApplet{
                         width: 24
                         height: 24
                         anchors.left: parent.left
-                        anchors.leftMargin: 16
+                        anchors.leftMargin: 10
                         anchors.verticalCenter: parent.verticalCenter
                         source: {
                             if (defaultSink.mute){
@@ -220,9 +219,8 @@ DockApplet{
 
                     WhiteSlider{
                         id: soundSlider
-                        width: parent.width - soundImage.width - 16 - xEdgePadding * 2 - titleSpacing
+                        width: parent.width - soundImage.width - soundImage.anchors.leftMargin - titleSpacing
                         anchors.right: parent.right
-                        anchors.rightMargin: xEdgePadding
                         anchors.verticalCenter: parent.verticalCenter
                         minimumValue: 0
                         maximumValue: 100
@@ -258,17 +256,14 @@ DockApplet{
 
                     DssH2 {
                         id: appLabel
-                        anchors.left: parent.left
-                        anchors.leftMargin: xEdgePadding
                         text: dsTr("Applications")
                         anchors.verticalCenter: parent.verticalCenter
                     }
 
                     Rectangle {
                         height: 1
-                        width: parent.width - appLabel.width - xEdgePadding * 2 - titleSpacing
+                        width: parent.width - appLabel.width - titleSpacing
                         anchors.right: parent.right
-                        anchors.rightMargin: xEdgePadding
                         anchors.verticalCenter: parent.verticalCenter
                         opacity: 0.1
                     }
@@ -317,7 +312,7 @@ DockApplet{
                                         height: parent.height
                                         width: parent.height
                                         anchors.left: parent.left
-                                        anchors.leftMargin: 16
+                                        anchors.leftMargin: 10
 
                                         DIcon {
                                             anchors.fill: parent

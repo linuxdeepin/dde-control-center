@@ -7,7 +7,7 @@ import DBus.Com.Deepin.Daemon.Bluetooth 1.0
 import "../widgets/"
 
 DockApplet{
-    title: "DSS"
+    title: "Network"
     appid: "AppletNetwork"
     icon: iconPath
 
@@ -31,7 +31,7 @@ DockApplet{
     property var dbusBluetooth: Bluetooth {}
     property var adapters: dbusBluetooth.adapters ? unmarshalJSON(dbusBluetooth.adapters) : ""
 
-    property int xEdgePadding: 0
+    property int xEdgePadding: 18
 
 
     property url iconPath: {

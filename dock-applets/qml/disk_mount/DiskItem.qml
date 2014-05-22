@@ -4,22 +4,27 @@ import Deepin.Widgets 1.0
 Item {
     id: diskItem
     width: 240
-    height: lastItem ? childrenRect.height : childrenRect.height + 6
+    height: 68
 
     property var diskInfo: mountDiskList[index]
     property bool lastItem: index == mountDiskList.length - 1
 
-    Column {
-        width: parent.width
-        spacing: 4
+    Item {
+        width: parent.width - xEdgePadding * 2
+        height: parent.height
+        anchors.horizontalCenter: parent.horizontalCenter
 
         DssH2{
+            id: title
             text: diskInfo[0]
         }
 
-        Row {
-            height: 50
-            spacing: 10
+        Item {
+            id: content
+            height: diskItem.height - title.height - 5
+            width: parent.width
+            anchors.top: title.bottom
+            anchors.topMargin: 2
 
             Image {
                 id: diskIcon
@@ -38,8 +43,10 @@ Item {
             }
 
             Column {
+                id: rightInfo
+                anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
-                width: diskItem.width - diskIcon.width - 10
+                width: parent.width - diskIcon.width - 10
                 spacing: 6
 
                 Item {
@@ -98,11 +105,12 @@ Item {
         }
 
         Rectangle {
-            width: parent.width * 0.96
+            anchors.top: content.bottom
+            anchors.topMargin: 2
+            width: parent.width
             height: 1
             color: Qt.rgba(1, 1, 1, 0.1)
             visible: !lastItem
-            anchors.horizontalCenter: parent.horizontalCenter
         }
 
     }

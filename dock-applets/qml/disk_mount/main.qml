@@ -10,7 +10,7 @@ DockApplet{
 
     property url iconPath: getIconUrl("disk_mount/icon.png")
     property int windowWidth: 224
-    property int xEdgePadding: 0
+    property int xEdgePadding: 12
 
     onActivate:{
         showDiskMount()
@@ -65,17 +65,25 @@ DockApplet{
 
     window: DockQuickWindow {
         id: root
-        width: windowWidth + xEdgePadding * 2
+        width: windowWidth
         height: diskListView.height + xEdgePadding * 2
         color: "transparent"
 
         ListView {
             id: diskListView
-            width: parent.width
-            height: childrenRect.height
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: parent.top
+            anchors.topMargin: xEdgePadding
+            width: windowWidth
+            height: Math.min(68 * mountDiskList.length, 300)
             model: mountDiskList
+            clip: true
             delegate: DiskItem {
-                width: root.width
+                width: windowWidth
+            }
+
+            DScrollBar {
+                flickable: parent
             }
         }
     }
