@@ -13,7 +13,10 @@ Rectangle {
     property bool grey: isGrey
     property bool isClicked: false
     property var curDate: new Date(dateValue)
-    property var lunarDay: windowView.getLunarDay(dateValue)
+    property var dateValueArray: dateValue.split("-")
+
+    property var lunarDayInfo: dbusLunarCalendar.GetLunarInfoBySolar(parseInt(dateValueArray[0]), parseInt(dateValueArray[1]), parseInt(dateValueArray[2]))
+    property var hasFestival: lunarDayInfo[1] && (lunarDayInfo[0][8] || lunarDayInfo[0][9])
 
     // Start border
     Rectangle{
@@ -105,7 +108,7 @@ Rectangle {
 
                 font.pixelSize: 10
                 color: {
-                    if(lunarDay[2]){
+                    if(hasFestival){
                         return "#00BDFF"
                     }
                     else if(grey){
@@ -113,7 +116,7 @@ Rectangle {
                     }
                     return dconstants.fgColor
                 }
-                text: lunarDay[2] ? lunarDay[2] : lunarDay[0]
+                text: lunarDayInfo[0][4]
                 visible: false
 
                 Component.onCompleted: {
@@ -152,8 +155,17 @@ Rectangle {
         }
         onEntered: {
             var tipStr = ""
-            if(dsslocale.lang == "zh"){
-                tipStr = lunarDay[1]
+            if(dsslocale.lang == "zh_CN"){
+                if(lunarDayInfo[1]){
+                    var info = lunarDayInfo[0]
+                    tipStr = info[3] + info[4]
+                    if(info[8]){
+                        tipStr += "\n" + info[8]
+                    }
+                    if(info[9]){
+                        tipStr += "\n" + info[9]
+                    }
+                }
             }
             else{
                 tipStr = dateValue
