@@ -111,8 +111,8 @@ BaseConnectionProperties {
                 anchors.verticalCenter: parent.verticalCenter
                 text: dsTr("Close")
                 onClicked: {
-                    connectionSessionObject.Close()
                     stackView.reset()
+                    connectionSessionObject.Close()
                 }
             }
 
