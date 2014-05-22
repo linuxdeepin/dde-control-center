@@ -117,7 +117,7 @@ Item {
             var uuid = ""
             for (var i in wirelessConnections) {
                 if (apName == wirelessConnections[i].Ssid) {
-                    if (wirelessConnections[i].HwAddr == "" || wirelessConnections[i].HwAddr == deviceHwAddr) {
+                    if (wirelessConnections[i].HwAddress == "" || wirelessConnections[i].HwAddress == deviceHwAddress) {
                         connectionPath = wirelessConnections[i].Path
                         uuid = wirelessConnections[i].Uuid
                         break

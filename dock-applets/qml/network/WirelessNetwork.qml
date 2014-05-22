@@ -7,7 +7,7 @@ Column {
     height: childrenRect.height
     property int deviceStatus: wirelessDevices[index].State
     property string devicePath: wirelessDevices[index].Path
-    property string deviceHwAddr: wirelessDevices[index].HwAddr
+    property string deviceHwAddress: wirelessDevices[index].HwAddress
     property string activeAp: wirelessDevices[index].ActiveAp
 
     DBaseExpand {
