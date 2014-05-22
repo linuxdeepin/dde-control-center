@@ -13,52 +13,49 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineSwitchButton {
-            id: lineRefuseEap
-            key: "refuse-eap"
-            text: dsTr("Refuse EAP Authentication")
-        }
-        EditLineSwitchButton {
-            id: lineRefusePap
-            key: "refuse-pap"
-            text: dsTr("Refuse PAP Authentication")
-        }
-        EditLineSwitchButton {
-            id: lineRefuseChap
-            key: "refuse-chap"
-            text: dsTr("Refuse CHAP Authentication")
-        }
-        EditLineSwitchButton {
-            id: lineRefuseMschap
-            key: "refuse-mschap"
-            text: dsTr("Refuse MSCHAP Authentication")
-        }
-        EditLineSwitchButton {
-            id: lineRefuseMschapv2
-            key: "refuse-mschapv2"
-            text: dsTr("Refuse MSCHAPv2 Authentication")
-        }
-        EditLineSwitchButton {
-            id: lineRequireMppe
-            key: "require-mppe"
+            id: lineVkRequireMppe
+            key: "vk-require-mppe"
             text: dsTr("Use MPPE")
-            alwaysUpdate: true
         }
-        EditLineSwitchButton {
-            id: lineRequireMppe40
-            key: "require-mppe-40"
-            text: dsTr("40-bit MPPE")
-            alwaysUpdate: true
-        }
-        EditLineSwitchButton {
-            id: lineRequireMppe128
-            key: "require-mppe-128"
-            text: dsTr("128-bit MPPE")
-            alwaysUpdate: true
+        EditLineComboBox {
+            id: lineVkMppeSecurity
+            key: "vk-mppe-security"
+            text: dsTr("Security")
         }
         EditLineSwitchButton {
             id: lineMppeStateful
             key: "mppe-stateful"
             text: dsTr("Stateful MPPE")
+        }
+        EditLineSwitchButton {
+            id: lineRefuseEap
+            key: "refuse-eap"
+            text: dsTr("Refuse EAP Authentication")
+            alwaysUpdate: true
+        }
+        EditLineSwitchButton {
+            id: lineRefusePap
+            key: "refuse-pap"
+            text: dsTr("Refuse PAP Authentication")
+            alwaysUpdate: true
+        }
+        EditLineSwitchButton {
+            id: lineRefuseChap
+            key: "refuse-chap"
+            text: dsTr("Refuse CHAP Authentication")
+            alwaysUpdate: true
+        }
+        EditLineSwitchButton {
+            id: lineRefuseMschap
+            key: "refuse-mschap"
+            text: dsTr("Refuse MSCHAP Authentication")
+            alwaysUpdate: true
+        }
+        EditLineSwitchButton {
+            id: lineRefuseMschapv2
+            key: "refuse-mschapv2"
+            text: dsTr("Refuse MSCHAPv2 Authentication")
+            alwaysUpdate: true
         }
         EditLineSwitchButton {
             id: lineNobsdcomp

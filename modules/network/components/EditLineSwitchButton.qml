@@ -4,6 +4,9 @@ import Deepin.Widgets 1.0
 BaseEditLine {
     id: root
     rightLoader.sourceComponent: DSwitchButtonHeader{
+        // TODO
+        // anchors.left: parent.left
+        // anchors.leftMargin: 100
         Connections {
             target: root
             onWidgetShown: {

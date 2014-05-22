@@ -51,7 +51,7 @@ DBaseLine {
     Connections {
         target: rightLoader.item
         onActiveFocusChanged: {
-            print("-> onActiveFocusChanged", rightLoader.item.activeFocus) //TODO test
+            print("onActiveFocusChanged", rightLoader.item.activeFocus) //TODO test
             if (!rightLoader.item.activeFocus) {
                 showErrorConditon = true
             }
