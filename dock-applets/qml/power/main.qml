@@ -8,7 +8,7 @@ DockApplet {
     id: root
     title: {
         if (!dbusPower.onBattery && dbusPower.batteryState == 1){
-            return "%1% ".arg(dbusPower.batteryPercentage) + dsTr("On Charging")
+            return dsTr("On Charging") + " %1%".arg(dbusPower.batteryPercentage)
         }
         else{
             return "%1%".arg(dbusPower.batteryPercentage)
