@@ -48,7 +48,7 @@ DockApplet{
     }
 
     function setVolume(vol){
-        defaultSink.SetVolume(vol/100)
+        defaultSink.SetVolume(vol/100, false)
     }
 
     function getIconPath(){
@@ -347,7 +347,7 @@ DockApplet{
 
                                     onValueChanged: {
                                         if(pressed || hovered){
-                                            sinkInputObject.SetVolume(value)
+                                            sinkInputObject.SetVolume(value, false)
                                         }
                                     }
 
