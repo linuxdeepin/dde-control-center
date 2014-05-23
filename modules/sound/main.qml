@@ -166,9 +166,13 @@ Item {
                         min: 0
                         max: 150
                         init: currentSink.volume * 100
-
+                        
                         onValueChanged:{
-                            currentSink.SetVolume(value / 100)
+                            currentSink.SetVolume(value / 100, false)
+                        }
+                        
+                        onValueConfirmed: {
+                            currentSink.SetVolume(value / 100, true)
                         }
 
                         Component.onCompleted: {
@@ -215,7 +219,11 @@ Item {
                         isBalance: true
 
                         onValueChanged:{
-                            currentSink.SetBalance(value)
+                            currentSink.SetBalance(value, false)
+                        }
+                        
+                        onValueConfirmed: {
+                            currentSink.SetBalance(value, true)
                         }
 
                         Component.onCompleted: {
@@ -294,7 +302,7 @@ Item {
                         init: currentSource.volume * 100
 
                         onValueChanged:{
-							currentSource.SetVolume(value / 100)
+							currentSource.SetVolume(value / 100, false)
                         }
 
                         Component.onCompleted: {
