@@ -50,7 +50,7 @@ class DssDbusAdptor(QtDBus.QDBusAbstractAdaptor):
 
     @QtCore.pyqtSlot()
     def Show(self):
-        self.parent().show(0)
+        self.parent().view_object.showDss(0)
 
     @QtCore.pyqtSlot(str)
     def ShowModule(self, moduleName):

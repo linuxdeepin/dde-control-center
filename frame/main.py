@@ -52,7 +52,9 @@ def main():
         if len(sys.argv) == 2:
             iface = QtDBus.QDBusInterface(APP_DBUS_NAME, APP_OBJECT_PATH, "", session_bus)
             if sys.argv[1] == "show":
-                iface.call("Show", 0)
+                iface.call("Show")
+            elif sys.argv[1] == "toggle":
+                iface.call("Toggle")
             else:
                 iface.call("ShowModule", sys.argv[1])
         sys.exit(0)
