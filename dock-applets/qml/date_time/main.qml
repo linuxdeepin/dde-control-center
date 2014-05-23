@@ -1,0 +1,157 @@
+import QtQuick 2.0
+import QtQuick.Window 2.1
+import Deepin.DockApplet 1.0
+import Deepin.Widgets 1.0
+import DBus.Com.Deepin.Daemon.DateAndTime 1.0
+import DBus.Com.Deepin.Api.LunarCalendar 1.0
+import "../widgets"
+import "calendar_core.js" as CalendarCore
+
+DockApplet{
+    id: datetimeApplet
+    title: "Date and Time"
+    appid: "AppletDateTime"
+    //icon: "digital" // analog
+    icon: "vcalendar" // analog
+
+    Component.onCompleted: setData("clockType", "digital")
+
+    property int xEdgePadding: 18
+    property int rootWidth: 260
+
+    property var locale: Qt.locale()
+    property var globalDate: new Date()
+    property var dbusDateAndTime: DateAndTime {
+        onCurrentTimezoneChanged: {
+            Date.timeZoneUpdated()
+            globalDate = new Date()
+        }
+    }
+    property var dbusLunarCalendar: LunarCalendar {}
+
+    onActivate: {
+        showDateTime()
+    }
+
+    function showDateTime(){
+        dbusControlCenter.ShowModule("date_time")
+    }
+
+    function hideDateTime(){
+        set_hide_applet("date_time")
+    }
+
+    menu: Menu{
+        Component.onCompleted: {
+            addItem(dsTr("_Run"), showDateTime);
+            addItem(dsTr("_Undock"), hideDateTime);
+        }
+    }
+
+    property int itemWidth: 36
+    property int itemHeight: 36
+    property int weekTitleHeight: 21
+
+    window: DockQuickWindow {
+        id: root
+        width: rootWidth
+        height: contentColumn.height
+        color: "transparent"
+
+        Column {
+            id: contentColumn
+            width: itemWidth * 7 - 1
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            Item {
+                id: topTitle
+                width: parent.width
+                height: 38
+
+                DssH2 {
+                    text: globalDate.toLocaleDateString(locale)
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+
+                DssH2 {
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                    color: dconstants.tuhaoColor
+                    visible: false
+                    text: {
+                        var info = dbusLunarCalendar.GetLunarInfoBySolar(
+                            globalDate.getFullYear(),
+                            globalDate.getMonth() + 1,
+                            globalDate.getDate()
+                        )
+                        return "农历" + info[0][3] + info[0][4]
+                    }
+                    Component.onCompleted: {
+                        if(dssLocale.lang == "zh_CN"){
+                            visible = true
+                        }
+                    }
+                }
+            }
+
+            Rectangle {
+                width: parent.width
+                height: 1
+                color: Qt.rgba(1, 1, 1, 0.2)
+            }
+
+
+            GridView {
+                id: weekTitleGridView
+                width: itemWidth * 7
+                height: weekTitleHeight
+                cellWidth: itemWidth
+                cellHeight: weekTitleHeight
+                model: ListModel {id: weekTitleModel}
+                delegate: WeekTitleItem{}
+                currentIndex: globalDate.getDay()
+
+                Component.onCompleted: {
+                    weekTitleModel.append({"dayText": dsTr("Sun")})
+                    weekTitleModel.append({"dayText": dsTr("Mon")})
+                    weekTitleModel.append({"dayText": dsTr("Tue")})
+                    weekTitleModel.append({"dayText": dsTr("Wed")})
+                    weekTitleModel.append({"dayText": dsTr("Thu")})
+                    weekTitleModel.append({"dayText": dsTr("Fri")})
+                    weekTitleModel.append({"dayText": dsTr("Sat")})
+                    currentIndex = globalDate.getDay()
+                }
+            }
+
+            GridView {
+                id: datesGridView
+                width: itemWidth * 7
+                height: itemHeight * 6
+                cellWidth: itemWidth
+                cellHeight: itemHeight
+                model: ListModel { id: datesModel }
+                delegate: DateItem {}
+                focus: true
+
+                function initDates(date_str) {
+                    var dates = CalendarCore.getDates(date_str);
+                    datesModel.clear()
+                    for (var i=0; i < dates.length; i++){
+                        datesModel.append(dates[i])
+                        if (dates[i].dateValue == date_str) {
+                            datesGridView.currentIndex = i
+                        }
+                    }
+                }
+
+                Component.onCompleted: {
+                    var date_str = CalendarCore.dateToString(globalDate)
+                    initDates(date_str)
+                }
+
+            }
+
+        }
+        
+    }
+}

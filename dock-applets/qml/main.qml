@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import Deepin.Widgets 1.0
 import QtQuick.Window 2.1
 import Deepin.Locale 1.0
 import DBus.Com.Deepin.Dde.ControlCenter 1.0
@@ -10,13 +11,15 @@ import Helper 1.0
 QtObject {
     id: root
 
+    property var dconstants: DConstants {}
     property var appletList: new Array()
     property var appletNames: {
         //"dss": dsTr("Control Center"),
         "network": dsTr("Network"),
         "sound": dsTr("Sound"),
         "power": dsTr("Power"),
-        "disk_mount": dsTr("Disk Mount")
+        "disk_mount": dsTr("Disk Mount"),
+        "date_time": dsTr("Date and Time")
     }
 
     Component.onCompleted: {
@@ -71,20 +74,8 @@ QtObject {
             }
         }
     }
-    property var wirelessDevices: unmarshalJSON(dbusNetwork.devices)["wireless"]
-    property var wirelessDevicesNumber: {
-        if(wirelessDevices){
-            return wirelessDevices.length
-        }
-        else{
-            return 0
-        }
-    }
-
-    onWirelessDevicesNumberChanged: {
-        var add = wirelessDevicesNumber > 0
-        update_applet_list("network", add)
-    }
+    property var nmDevices: unmarshalJSON(dbusNetwork.devices)
+    property var wirelessDevices: nmDevices["wireless"]
 
     function marshalJSON(value){
         var valueJSON = JSON.stringify(value);
@@ -145,7 +136,15 @@ QtObject {
 
     function init_applet_list_model(){
         appletListModel.append({
+            "applet_id": "network"
+        })
+
+        appletListModel.append({
             "applet_id": "sound"
+        })
+
+        appletListModel.append({
+            "applet_id": "date_time"
         })
 
         if (dbusPower.batteryIsPresent){

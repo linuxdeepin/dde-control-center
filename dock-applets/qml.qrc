@@ -19,6 +19,10 @@
     <file>qml/disk_mount/images/unmount_button.png</file>
     <file>qml/disk_mount/images/usb_disk.png</file>
     <file>qml/power/main.qml</file>
+    <file>qml/date_time/main.qml</file>
+    <file>qml/date_time/WeekTitleItem.qml</file>
+    <file>qml/date_time/DateItem.qml</file>
+    <file>qml/date_time/calendar_core.js</file>
     <file>qml/network/main.qml</file>
     <file>qml/network/CheckButton.qml</file>
     <file>qml/network/WirelessApList.qml</file>

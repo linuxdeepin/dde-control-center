@@ -119,7 +119,7 @@ DockApplet{
                         id: wiredCheckButton
                         onImage: "images/wire_on.png"
                         offImage: "images/wire_off.png"
-                        visible: dbusNetwork.wiredDevices.length > 0
+                        visible: nmDevices["wired"].length > 0
 
                         onClicked: {
                             dbusNetwork.wiredEnabled = active
@@ -147,7 +147,7 @@ DockApplet{
                         id: wirelessCheckButton
                         onImage: "images/wifi_on.png"
                         offImage: "images/wifi_off.png"
-                        visible: dbusNetwork.wirelessDevices.length > 0
+                        visible: nmDevices["wireless"].length > 0
 
                         onClicked: {
                             dbusNetwork.wirelessEnabled = active
