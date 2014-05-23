@@ -28,6 +28,9 @@ QtObject {
             cursorPosition.x = arg0
             cursorPosition.y = arg1
         }
+        onCancelAllArea: {
+            RegisterFullScreen()
+        }
     }
     property var toolTip: ToolTip {}
 
