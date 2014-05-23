@@ -23,8 +23,8 @@ Item {
             anchors.fill: parent
             visible: dateItem.GridView.view.currentIndex == index
             gradient: Gradient {
-                GradientStop { position: 0.0; color: Qt.rgba(10/255, 50/255, 89/255, 0.8) }
-                GradientStop { position: 1.0; color: Qt.rgba(26/255, 97/255, 182/255, 0.8) }
+                GradientStop { position: 0.0; color: Qt.rgba(5/255, 112/255, 252/255, 0.2) }
+                GradientStop { position: 1.0; color: Qt.rgba(36/255, 131/255, 1, 0.7) }
             } 
         }
 
@@ -35,7 +35,7 @@ Item {
             anchors.horizontalCenter: parent.horizontalCenter
             font.pixelSize: 12
             text: dayText
-            color: isGrey ? dconstants.fgDarkColor: dconstants.fgColor
+            color: isGrey ? "#4f4f4f": "#fff"
         }
 
         DssH3 {
@@ -44,7 +44,7 @@ Item {
             anchors.horizontalCenter: parent.horizontalCenter
 
             font.pixelSize: 10
-            color: isGrey ? dconstants.fgDarkColor: dconstants.tuhaoColor
+            color: isGrey ? "#4a3801": "#94771f"
             text: lunarDayInfo[0][4]
             visible: false
 

@@ -76,7 +76,7 @@ DockApplet{
                 DssH2 {
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
-                    color: dconstants.tuhaoColor
+                    color: "#fcdd51"
                     visible: false
                     text: {
                         var info = dbusLunarCalendar.GetLunarInfoBySolar(
