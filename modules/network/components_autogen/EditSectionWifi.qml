@@ -53,6 +53,8 @@ BaseEditSection {
             id: lineMtu
             key: "mtu"
             text: dsTr("MTU")
+            max: 10000
+            min: 0
         }
     }
 }

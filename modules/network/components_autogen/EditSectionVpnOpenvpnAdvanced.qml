@@ -21,6 +21,8 @@ BaseEditSection {
             id: linePort
             key: "port"
             text: dsTr("Gateway Port")
+            max: 65535
+            min: 0
         }
         EditLineSwitchButton {
             id: lineVkEnableRenegSeconds
@@ -31,6 +33,8 @@ BaseEditSection {
             id: lineRenegSeconds
             key: "reneg-seconds"
             text: dsTr("Renegotiation Interval")
+            max: 604800
+            min: 0
         }
         EditLineSwitchButton {
             id: lineCompLzo
@@ -56,6 +60,8 @@ BaseEditSection {
             id: lineTunnelMtu
             key: "tunnel-mtu"
             text: dsTr("MTU")
+            max: 65535
+            min: 0
         }
         EditLineSwitchButton {
             id: lineVkEnableFragmentSize
@@ -66,6 +72,8 @@ BaseEditSection {
             id: lineFragmentSize
             key: "fragment-size"
             text: dsTr("UDP Fragment Size")
+            max: 65535
+            min: 0
         }
         EditLineSwitchButton {
             id: lineMssfix

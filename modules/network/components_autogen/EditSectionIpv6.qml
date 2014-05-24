@@ -26,6 +26,8 @@ BaseEditSection {
             id: lineVkAddressesPrefix
             key: "vk-addresses-prefix"
             text: dsTr("Prefix")
+            max: 128
+            min: 0
         }
         EditLineTextInput {
             id: lineVkAddressesGateway

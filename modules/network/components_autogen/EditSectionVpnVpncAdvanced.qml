@@ -51,6 +51,8 @@ BaseEditSection {
             id: lineLocalPort
             key: "Local Port"
             text: dsTr("Local Port")
+            max: 65535
+            min: 0
         }
         EditLineSwitchButton {
             id: lineVkDisableDpd

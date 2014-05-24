@@ -26,6 +26,8 @@ BaseEditSection {
             id: lineProxyPort
             key: "proxy-port"
             text: dsTr("Port")
+            max: 65535
+            min: 0
         }
         EditLineSwitchButton {
             id: lineProxyRetry
