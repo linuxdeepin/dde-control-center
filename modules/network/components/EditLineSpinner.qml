@@ -4,13 +4,14 @@ import Deepin.Widgets 1.0
 BaseEditLine {
     id: root
     
-    // TODO
-    property int min: rightLoader.item.min
-    property int max: rightLoader.item.max
+    property int min: 0
+    property int max: 65535
     
     rightLoader.sourceComponent: DSpinner {
         id: spinner
         width: valueWidth / 1.5
+        min: root.min
+        max: root.max
         Connections {
             target: root
             onWidgetShown: {
