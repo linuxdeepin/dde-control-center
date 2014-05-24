@@ -7,7 +7,6 @@ BaseEditLine {
     rightLoader.sourceComponent: DComboBox{
         id: comboBox
         anchors.left: parent.left
-        anchors.leftMargin: -3
         width: valueWidth
         property var menuLabels
         

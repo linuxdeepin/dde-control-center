@@ -4,43 +4,22 @@ import Deepin.Widgets 1.0
 BaseEditLine {
     id: root
     
-    // TODO custom widget editable combo box
-    // rightLoader.sourceComponent: DTextInput{
-    //     width: valueWidth
-    //     Binding on text {
-    //         when: root.value != undefined
-    //         value: root.value
-    //     }
-    //     // TODO
-    //     // text: {
-    //     //     if (root.value) {
-    //     //         return root.value
-    //     //     } else {
-    //     //         return ""
-    //     //     }
-    //     // }
-    //     onTextChanged: {
-    //         root.value = text
-    //         setKey()
-    //     }
-    // }
-    rightLoader.sourceComponent: DComboBox{
+    rightLoader.sourceComponent: DEditComboBox {
         id: comboBox
-        anchors.left: parent.left
-        anchors.leftMargin: -3
         width: valueWidth
-        // TODO
-        // Binding on text {
-        //     when: root.value != undefined
-        //     value: getAvailableValuesTextByValue()
-        // }
-        // text: root.value ? getAvailableValuesTextByValue() : ""
-        text: {
-            if (root.visible) {
-                return getAvailableValuesTextByValue()
-            } else {
-                return ""
+        anchors.left: parent.left
+        Connections {
+            target: root
+            onWidgetShown: {
+                text = root.value
             }
+            onValueChanged: {
+                text = root.value
+            }
+        }
+        onTextChanged: {
+            root.value = text
+            setKey()
         }
         
         property var menuLabels
