@@ -7,6 +7,7 @@ BaseEditLine {
         // TODO
         // anchors.left: parent.left
         // anchors.leftMargin: 100
+        // leftMargin: 50
         Connections {
             target: root
             onWidgetShown: {

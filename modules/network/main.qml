@@ -108,6 +108,10 @@ Item {
     }
 
     function marshalJSON(value) {
+        // TODO
+        // if (value === undefined) {
+        //     value = null
+        // }
         var valueJSON = JSON.stringify(value);
         return valueJSON
     }
@@ -117,6 +121,10 @@ Item {
             print("==> [ERROR] unmarshalJSON", valueJSON)
         }
         var value = JSON.parse(valueJSON)
+        // TODO
+        // if (value === null) {
+        //     value = undefined
+        // }
         return value
     }
 

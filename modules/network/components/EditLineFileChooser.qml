@@ -4,48 +4,34 @@ import Deepin.Widgets 1.0
 BaseEditLine{
     id: root
     
-    property var nameFilters
-    // property alias nameFilters: fileDialog.nameFilters
+    property var filter         // TODO
     
-    rightLoader.sourceComponent: Row{
+    rightLoader.sourceComponent: DFileChooseInput {
         width: valueWidth
-        spacing: 6
-        
-        DTextInput{
-            id: fileText
-            width: valueWidth * 0.65 // TODO layout and width
-            // TODO
-            Binding on text {
-                when: root.value != undefined
-                value: root.value
+        Connections {
+            target: root
+            onWidgetShown: {
+                text = root.value
             }
-            // text: {
-            //     if (root.value) {
-            //         return root.value
-            //     } else {
-            //         return ""
-            //     }
-            // }
-            onTextChanged: {
-                root.value = text
-                setKey()
+            onValueChanged: {
+                text = root.value
             }
         }
-        
-        // TODO
-        DTextButton{
-            text: dsTr("...")
-            onClicked: {
-                // fileDialog.open()
-            }
+        onTextChanged: {
+            root.value = text
+            setKey()
         }
-        
-        // FileDialog{
-        //     id: fileDialog
-        //     onAccepted: {
-        //         fileText = fileUrl
-        //     }
-        // }
+        onFileChooseClicked: {
+            fileChooseDialog.showWindow()
+        }
+    }
+    
+    DFileChooseDialog {
+        id: fileChooseDialog
+        currentFolder: windowView.getHomeDir()
+        onSelectAction: {
+            root.rightLoader.item.text = fileUrl
+        }
     }
 }
 
