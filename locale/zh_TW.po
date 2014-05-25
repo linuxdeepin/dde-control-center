@@ -23,7 +23,7 @@ msgstr "網路"
 
 #: ../modules/network/AddPageIndex.qml:35
 msgid "PPPOE"
-msgstr ""
+msgstr "PPPoE"
 
 #: ../modules/network/AddPageIndex.qml:39
 #: ../modules/network/components_section_autogen/EditSectionVpnL2tp.qml:11
@@ -32,7 +32,7 @@ msgstr ""
 #: ../modules/network/components_section_autogen/EditSectionVpnPptp.qml:11
 #: ../modules/network/components_section_autogen/EditSectionVpnVpnc.qml:11
 msgid "VPN"
-msgstr ""
+msgstr "VPN"
 
 #: ../modules/network/AddPageIndex.qml:64
 #: ../modules/network/ConnectionProperties.qml:145
@@ -52,13 +52,13 @@ msgstr "取消"
 
 #: ../modules/network/AddPageIndex.qml:72
 msgid "Next"
-msgstr ""
+msgstr "下一步"
 
 #: ../modules/account/AddUserDialog.qml:89
 #: ../modules/account/AddUserDialog.qml:233
 #: ../modules/account/UserList.qml:179
 msgid "Standard"
-msgstr ""
+msgstr "標準"
 
 #: ../modules/account/AddUserDialog.qml:89
 #: ../modules/account/AddUserDialog.qml:234
@@ -68,11 +68,11 @@ msgstr "系統管理員"
 
 #: ../modules/account/AvatarPickDialog.qml:5
 msgid "Choose a new picture for your account"
-msgstr ""
+msgstr "為您的帳號選擇一張新圖片  "
 
 #: ../modules/account/AvatarView.qml:18
 msgid "Recently Used"
-msgstr ""
+msgstr "最近使用的"
 
 #: ../modules/account/AvatarView.qml:19
 #, fuzzy
@@ -81,7 +81,7 @@ msgstr "預設風格"
 
 #: ../modules/account/AvatarView.qml:20
 msgid "Webcam"
-msgstr ""
+msgstr "Webcam"
 
 #: ../modules/date_time/Calendar.qml:102
 #, fuzzy
@@ -139,7 +139,7 @@ msgstr "關閉"
 
 #: ../modules/network/ConnectionProperties.qml:133
 msgid "Delete"
-msgstr ""
+msgstr "刪除"
 
 #: ../modules/shortcuts/CustomKeybinding.qml:95
 #: ../modules/network/components_section_autogen/EditSectionGeneral.qml:18
@@ -173,16 +173,16 @@ msgstr "刪除使用者檔案"
 #: ../modules/account/DeleteUserDialog.qml:46
 #: ../modules/account/PasswordDialog.qml:204
 msgid "Confirm"
-msgstr ""
+msgstr "確定"
 
 #: ../dock-applets/qml/disk_mount/DiskItem.qml:59
 msgid "Unmount failed!"
-msgstr ""
+msgstr "卸載失敗!"
 
 #: ../modules/network/dsl/DslExpand.qml:19
 #, fuzzy
 msgid "PPPOE Connections"
-msgstr "VPN連線"
+msgstr "PPPoE連線"
 
 #: ../modules/network/components/EditLineFileChooser.qml:37
 msgid "..."
@@ -190,24 +190,24 @@ msgstr ""
 
 #: ../modules/network/components_section_autogen/EditSectionEthernet.qml:11
 msgid "Ethernet"
-msgstr ""
+msgstr "乙太網路"
 
 #: ../modules/network/components_section_autogen/EditSectionEthernet.qml:18
 #: ../modules/network/components_section_autogen/EditSectionWifi.qml:40
 #, fuzzy
 msgid "Device MAC Addr"
-msgstr "裝置位址"
+msgstr "裝置的MAC位址"
 
 #: ../modules/network/components_section_autogen/EditSectionEthernet.qml:23
 #: ../modules/network/components_section_autogen/EditSectionWifi.qml:45
 msgid "Cloned MAC Addr"
-msgstr ""
+msgstr "複製MAC位址"
 
 #: ../modules/network/components_section_autogen/EditSectionEthernet.qml:28
 #: ../modules/network/components_section_autogen/EditSectionWifi.qml:50
 #, fuzzy
 msgid "Custom MTU"
-msgstr "自訂"
+msgstr "自定MTU"
 
 #: ../modules/network/components_section_autogen/EditSectionEthernet.qml:33
 #: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:58
@@ -225,7 +225,7 @@ msgstr "自動連線"
 
 #: ../modules/network/components_section_autogen/EditSectionGeneral.qml:28
 msgid "All Users Could Connect"
-msgstr ""
+msgstr "所有用戶均可連線至此網路"
 
 #: ../modules/network/components_section_autogen/EditSectionIpv4.qml:11
 msgid "IPv4"
@@ -243,7 +243,7 @@ msgstr "IP位址"
 
 #: ../modules/network/components_section_autogen/EditSectionIpv4.qml:29
 msgid "Netmask"
-msgstr "網路遮罩(Netmask)"
+msgstr "網路遮罩"
 
 #: ../modules/network/components_section_autogen/EditSectionIpv4.qml:37
 #: ../modules/network/components_section_autogen/EditSectionIpv6.qml:33
