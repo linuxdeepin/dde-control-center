@@ -96,11 +96,28 @@ Item {
         "newVpnPage": Qt.resolvedUrl("vpn/NewVpnPage.qml"),
         "hiddenAp": Qt.resolvedUrl("HiddenAp.qml"),
         "wifiHotspot": Qt.resolvedUrl("WifiHotspot.qml"),
-        // TODO remove
-        // "wirelessPropertiesPage": Qt.resolvedUrl("WirelessProperties.qml"),
-        // "wiredPropertiesPage": Qt.resolvedUrl("WiredProperties.qml")
     }
 
+    Component {
+        id: connectionSession
+        ConnectionSession {}
+    }
+    
+    function createConnection(type, devicePath) {
+        var connectionPath = dbusNetwork.CreateConnection(type, devicePath)
+        return connectionSession.createObject(properiesPage, { path: connectionPath })
+    }
+    
+    function createConnectionForAccessPoint(apPath, devicePath) {
+        var connectionPath = dbusNetwork.CreateConnectionForAccessPoint(apPath, devicePath)
+        return connectionSession.createObject(properiesPage, { path: connectionPath })
+    }
+    
+    function editConnection(uuid, devicePath) {
+        var connectionPath = dbusNetwork.EditConnection(uuid, devicePath)
+        return connectionSession.createObject(properiesPage, { path: connectionPath })
+    }
+    
     function resetConnectionSession() {
         if(stackView.currentItemId == "connectionPropertiesPage" || stackView.currentItem == "hiddenAp"){
             stackView.currentItem.connectionSessionObject.Close()
@@ -200,11 +217,6 @@ Item {
         }
     }
 
-    Component {
-        id: connectionSession
-        ConnectionSession {}
-    }
-
     DssTitle {
         id: header
         text: dsTr("Network Settings")
@@ -227,6 +239,7 @@ Item {
                     stackView.currentItemId = "addPageIndex"
                 }
 
+                // TODO remove
                 //function goToCreateConnection(type){
                     //stackView.push({
                         //"item": stackViewPages["connectionPropertiesPage"],

@@ -8,13 +8,13 @@ Column{
 
     // edit connection
     property var uuid
-    property var devicePath
+    property var devicePath: "/"
     property string connectionPath
 
     // create connection
     property bool create: false
     property string type
-    property string devPath: "/"
+    // property string devicePath: "/"
 
     // create connection for access point
     property bool createForAp: false
@@ -24,15 +24,11 @@ Column{
     property int valueWidth: 170
     property int contentLeftMargin: 18
     property var connectionSessionObject: {
-        //if (connectionPath){
-            //return connectionSession.createObject(properiesPage, { path: connectionPath })
-        //}else if (create) {
-
         if (create) {
-            connectionPath = dbusNetwork.CreateConnection(type, devPath)
+            connectionPath = dbusNetwork.CreateConnection(type, devicePath)
             return connectionSession.createObject(properiesPage, { path: connectionPath })
         } else if (createForAp) {
-            connectionPath = dbusNetwork.CreateConnectionForAccessPoint(apPath, devPath)
+            connectionPath = dbusNetwork.CreateConnectionForAccessPoint(apPath, devicePath)
             return connectionSession.createObject(properiesPage, { path: connectionPath })
         } else {
             connectionPath = dbusNetwork.EditConnection(uuid, devicePath)
@@ -46,9 +42,6 @@ Column{
     }
 
     function generalGetKey(section, key){
-        // print("--> generalGetKey", section, key) // TODO test
-        // var value = unmarshalJSON(connectionSessionObject.GetKey(section, key))
-        // print("--| generalGetKey", section, key, value)
         return unmarshalJSON(connectionSessionObject.GetKey(section, key))
     }
 
@@ -60,10 +53,5 @@ Column{
                 objSection.checkKeys()
             }
         }
-    }
-
-    // TODO
-    Component.onCompleted: {
-        print("BaseEditPage.availableSections:", availableSections)
     }
 }

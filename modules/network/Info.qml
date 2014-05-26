@@ -28,9 +28,9 @@ Column {
         }
         return conns
     }
-    function getActiveConnectionInfo(devPath) {
+    function getActiveConnectionInfo(devicePath) {
         var c
-        var connJSON = dbusNetwork.GetActiveConnectionInfo(devPath)
+        var connJSON = dbusNetwork.GetActiveConnectionInfo(devicePath)
         if (connJSON != "") {
             c = unmarshalJSON(connJSON)
         }

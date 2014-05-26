@@ -86,7 +86,7 @@ Item {
     function goToCreateConnection(){
         stackView.push({
             "item": stackViewPages["connectionPropertiesPage"],
-            "properties": { "createForAp": true, "apPath": apPath, "devPath": wirelessItem.devicePath},
+            "properties": { "createForAp": true, "apPath": apPath, "devicePath": wirelessItem.devicePath},
             "destroyOnPop": true
         })
         stackView.currentItemId = "connectionPropertiesPage"
