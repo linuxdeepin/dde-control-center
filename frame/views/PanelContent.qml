@@ -290,7 +290,6 @@ Rectangle {
                         toSiderNavigateAnimation.start()
                     }
                     else{
-                        print(rightBoxLoaderItem.iconId, currentContentId)
                         if(rightBoxLoaderItem.iconId != currentContentId){
                             rightBoxLoaderItem.iconId = currentContentId
                         }
@@ -391,6 +390,8 @@ Rectangle {
                 rightBoxLoaderItem.visible = iconId != ''
                 rightBoxLoader.iconId = iconId
                 rightBoxLoader.source = (iconId == ''? '' : '../../modules/' + iconId + '/main.qml')
+                if(iconId)
+                    print("==> [info] load module:", iconId)
             }
 
             DSeparatorVertical {}

@@ -184,16 +184,17 @@ Item {
 
                     rightLoader.sourceComponent: DSliderEnhanced {
                         id: oneBrightnessSlider
-                        property var outputName: monitorNames[0]
+                        property string outputName: monitorNames ? monitorNames[0] : ""
                         width: sliderWidth
                         height: 28
                         min: 0
                         max: 1.0
-                        init: brightnessValues[outputName]
+                        init: outputName ? brightnessValues[outputName] : max
                         valueDisplayVisible: false
 
                         onValueChanged:{
-                            displayId.SetBrightness(outputName, value)
+                            if(outputName)
+                                displayId.SetBrightness(outputName, value)
                         }
                         visible: monitorNames.length == 1
 
@@ -205,7 +206,7 @@ Item {
                         Connections {
                             target: monitorProperties
                             onBrightnessValuesChanged: {
-                                if (!oneBrightnessSlider.pressedFlag) {
+                                if(!oneBrightnessSlider.pressedFlag && oneBrightnessSlider.outputName != "") {
                                     oneBrightnessSlider.setValue(brightnessValues[oneBrightnessSlider.outputName])
                                 }
                             }
