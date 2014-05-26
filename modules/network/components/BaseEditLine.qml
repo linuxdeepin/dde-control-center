@@ -98,7 +98,7 @@ DBaseLine {
     }
     
     function getAvailableValues() {
-        var valuesJSON = connectionSessionObject.GetAvailableValues(section, key);
+        var valuesJSON = connectionSession.GetAvailableValues(section, key);
         var values = unmarshalJSON(valuesJSON)
         return values
     }

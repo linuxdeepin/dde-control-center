@@ -8,8 +8,8 @@ DBaseExpand{
     property int activeExpandIndex
     property int myIndex
     
-    property var availableKeys: connectionSessionObject.availableKeys[section]
-    property var errors: connectionSessionObject.errors[section]
+    property var availableKeys: connectionSession.availableKeys[section]
+    property var errors: connectionSession.errors[section]
     onErrorsChanged: {
         for(var key in errors){
             print("==> [error] %1: %2".arg(key).arg(errors[key]))

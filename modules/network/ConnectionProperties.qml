@@ -101,7 +101,7 @@ BaseConnectionProperties {
                 text: dsTr("Save")
                 onClicked: {
                     checkAllKeys()
-                    if (connectionSessionObject.Save()) {
+                    if (connectionSession.Save()) {
                         stackView.reset()
                     }
                 }
@@ -112,7 +112,7 @@ BaseConnectionProperties {
                 text: dsTr("Close")
                 onClicked: {
                     stackView.reset()
-                    connectionSessionObject.Close()
+                    connectionSession.Close()
                 }
             }
 
@@ -135,7 +135,7 @@ BaseConnectionProperties {
                     if(uuid){
                         dbusNetwork.DeleteConnection(uuid)
                     }
-                    connectionSessionObject.Close()
+                    connectionSession.Close()
                     stackView.reset()
                 }
             }
@@ -144,7 +144,7 @@ BaseConnectionProperties {
                 anchors.verticalCenter: parent.verticalCenter
                 text: dsTr("Cancel")
                 onClicked: {
-                    //connectionSessionObject.Close()
+                    //connectionSession.Close()
                     //stackView.reset()
                     cancelDelete.restart()
                     deleteSettingLine.inDeleteSetting = false

@@ -9,7 +9,7 @@ Column {
     property int realHeight: childrenRect.height
 
     property var connectionPath: dbusNetwork.CreateConnection(nmConnectionTypePppoe, "/")
-    property var connectionSessionObject: connectionSession.createObject(rootPage, { path: connectionPath })
+    property var connectionSession: connectionSessionBuilder.createObject(rootPage, { path: connectionPath })
 
 
     DBaseLine {
@@ -43,7 +43,7 @@ Column {
                 activeFocusOnTab: true
                 width: addDslBox.rightWidth
                 Component.onCompleted: {
-                    text = unmarshalJSON(connectionSessionObject.GetKey(dslName.section, dslName.key))
+                    text = unmarshalJSON(connectionSession.GetKey(dslName.section, dslName.key))
                 }
             }
 
@@ -114,7 +114,7 @@ Column {
             text: dsTr("Cancel")
             anchors.verticalCenter: parent.verticalCenter
             onClicked: {
-                connectionSessionObject.Close()
+                connectionSession.Close()
                 stackView.reset()
             }
         }
@@ -148,14 +148,14 @@ Column {
                 setValue(objLine.section, objLine.key, objLine.getValue())
             }
         }
-        if(!connectionSessionObject.Save()){
-            print("Create dsl connection error:", connectionSessionObject.errors)
+        if(!connectionSession.Save()){
+            print("Create dsl connection error:", connectionSession.errors)
         }
         stackView.reset()
     }
 
     function setValue(section, key, value){
-        connectionSessionObject.SetKey(section, key, marshalJSON(value))
+        connectionSession.SetKey(section, key, marshalJSON(value))
     }
 
 }

@@ -11,9 +11,9 @@ Column {
     property int realHeight: childrenRect.height
     property int itemLabelLeftMargin: 22
 
-    property var connectionSessionObject: {
+    property var connectionSession: {
         var connectionPath = dbusNetwork.CreateConnection(nmConnectionTypeWireless, devicePath)
-        return connectionSession.createObject(rootPage, { path: connectionPath })
+        return connectionSessionBuilder.createObject(rootPage, { path: connectionPath })
     }
 
     DBaseLine {
@@ -71,7 +71,7 @@ Column {
             property var availableValues: new Array()
 
             function initSecurity(){
-                var d = unmarshalJSON(connectionSessionObject.GetAvailableValues(section, key))
+                var d = unmarshalJSON(connectionSession.GetAvailableValues(section, key))
                 for(var i in d){
                     if(d[i].Value != "wpa-eap"){
                         availableKeys.push(d[i].Value)
@@ -185,15 +185,15 @@ Column {
             }
         }
         setValue("general", "id", apSsid.getValue())
-        if(!connectionSessionObject.Save()){
-            print("Connect to hidden AP error:", connectionSessionObject.errors)
-            connectionSessionObject.Close()
+        if(!connectionSession.Save()){
+            print("Connect to hidden AP error:", connectionSession.errors)
+            connectionSession.Close()
         }
         stackView.reset()
     }
 
     function setValue(section, key, value){
-        connectionSessionObject.SetKey(section, key, marshalJSON(value))
+        connectionSession.SetKey(section, key, marshalJSON(value))
     }
 
 }

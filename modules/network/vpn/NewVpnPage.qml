@@ -154,7 +154,7 @@ Column {
 
     function createVpn(box){
         var connectionPath = dbusNetwork.CreateConnection(typeList.selectVpnType, "/")
-        var sessionObject = connectionSession.createObject(rootPage, { path: connectionPath })
+        var sessionObject = connectionSessionBuilder.createObject(rootPage, { path: connectionPath })
         box.setDefaultKeys(sessionObject)
         for(var i=0; i<box.children.length; i++){
             var objLine = box.children[i]

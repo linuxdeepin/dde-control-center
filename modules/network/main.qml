@@ -99,28 +99,28 @@ Item {
     }
 
     Component {
-        id: connectionSession
+        id: connectionSessionBuilder
         ConnectionSession {}
     }
     
     function createConnection(type, devicePath) {
         var connectionPath = dbusNetwork.CreateConnection(type, devicePath)
-        return connectionSession.createObject(properiesPage, { path: connectionPath })
+        return connectionSessionBuilder.createObject(properiesPage, { path: connectionPath })
     }
     
     function createConnectionForAccessPoint(apPath, devicePath) {
         var connectionPath = dbusNetwork.CreateConnectionForAccessPoint(apPath, devicePath)
-        return connectionSession.createObject(properiesPage, { path: connectionPath })
+        return connectionSessionBuilder.createObject(properiesPage, { path: connectionPath })
     }
     
     function editConnection(uuid, devicePath) {
         var connectionPath = dbusNetwork.EditConnection(uuid, devicePath)
-        return connectionSession.createObject(properiesPage, { path: connectionPath })
+        return connectionSessionBuilder.createObject(properiesPage, { path: connectionPath })
     }
     
     function resetConnectionSession() {
         if(stackView.currentItemId == "connectionPropertiesPage" || stackView.currentItem == "hiddenAp"){
-            stackView.currentItem.connectionSessionObject.Close()
+            stackView.currentItem.connectionSession.Close()
         }
     }
 
