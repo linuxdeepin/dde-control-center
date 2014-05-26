@@ -72,7 +72,7 @@ DBaseLine {
     }
     
     function setKey() {
-        print("BaseEditLine.setKey", section, key, value) // TODO test
+        print("-> BaseEditLine.setKey()", section, key, value) // TODO test
         generalSetKey(section, key, value)
         updateKeysAlways()
     }
@@ -83,7 +83,7 @@ DBaseLine {
     
     function updateValue() {
         value = getKey()
-        print("-> updateValue()", section, key, value)
+        print("-> updateValue()", section, key, value) // TODO test
     }
     
     function isKeyAvailable() {

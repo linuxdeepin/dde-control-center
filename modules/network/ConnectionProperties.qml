@@ -38,7 +38,7 @@ BaseConnectionProperties {
 
     Column {
         width: parent.width
-        visible: uuid != ""
+        visible: connectionPath !== undefined
         DBaseLine {
             id: deleteSettingLine
             color: dconstants.contentBgColor
@@ -132,11 +132,11 @@ BaseConnectionProperties {
                 anchors.verticalCenter: parent.verticalCenter
                 text: dsTr("Delete")
                 onClicked: {
-                    if(uuid){
+                    stackView.reset()
+                    connectionSession.Close()
+                    if (connectionPath) {
                         dbusNetwork.DeleteConnection(uuid)
                     }
-                    connectionSession.Close()
-                    stackView.reset()
                 }
             }
 

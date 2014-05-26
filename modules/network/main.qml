@@ -105,17 +105,17 @@ Item {
     
     function createConnection(type, devicePath) {
         var connectionPath = dbusNetwork.CreateConnection(type, devicePath)
-        return connectionSessionBuilder.createObject(properiesPage, { path: connectionPath })
+        return connectionSessionBuilder.createObject(null, { path: connectionPath })
     }
     
     function createConnectionForAccessPoint(apPath, devicePath) {
         var connectionPath = dbusNetwork.CreateConnectionForAccessPoint(apPath, devicePath)
-        return connectionSessionBuilder.createObject(properiesPage, { path: connectionPath })
+        return connectionSessionBuilder.createObject(null, { path: connectionPath })
     }
     
     function editConnection(uuid, devicePath) {
         var connectionPath = dbusNetwork.EditConnection(uuid, devicePath)
-        return connectionSessionBuilder.createObject(properiesPage, { path: connectionPath })
+        return connectionSessionBuilder.createObject(null, { path: connectionPath })
     }
     
     function resetConnectionSession() {
@@ -238,16 +238,6 @@ Item {
                     stackView.push(stackViewPages["addPageIndex"])
                     stackView.currentItemId = "addPageIndex"
                 }
-
-                // TODO remove
-                //function goToCreateConnection(type){
-                    //stackView.push({
-                        //"item": stackViewPages["connectionPropertiesPage"],
-                        //"properties": { "create": true, "type":  type},
-                        //"destroyOnPop": true
-                    //})
-                    //stackView.currentItemId = "connectionPropertiesPage"
-                //}
             }
 
             DTextButton {

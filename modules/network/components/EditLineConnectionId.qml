@@ -30,7 +30,7 @@ BaseEditLine {
     DLabel {
         width: valueWidth
         visible: {
-            print("->", connectionSession.connectionType)
+            print("-> connection type:", connectionSession.type)
             return connectionSession.connectionType == "wired"
         }
         Binding on text {

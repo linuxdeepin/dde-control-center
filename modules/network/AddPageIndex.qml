@@ -75,9 +75,10 @@ Column {
                 if(typeList.selectItemId == "pppoe"){
                     stackView.push(stackViewPages["newDslPage"])
                     stackView.currentItemId = "newDslPage"
+                    // TODO
                     //stackView.push({
                         //"item": stackViewPages["connectionPropertiesPage"],
-                        //"properties": { "create": true, "type":  nmConnectionTypePppoe},
+                        //"properties": { "connectionSession": createaConnection(nmConnectionTypePppoe, "/")},
                         //"destroyOnPop": true
                     //})
                     //stackView.currentItemId = "connectionPropertiesPage"
