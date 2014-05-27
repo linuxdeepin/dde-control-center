@@ -31,4 +31,8 @@ Column {
             }
         }
     }
+
+    Component.onCompleted: {
+        print("==> connection type:", connectionSession.type)
+    }
 }
