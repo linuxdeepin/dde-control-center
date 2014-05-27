@@ -44,6 +44,10 @@ Column {
         }
     }
 
+    function reset(){
+        titleLine.rightLoader.item.currentActionStateName = ""
+    }
+
     DBaseLine {
         id: titleLine
         leftLoader.sourceComponent: DssH2 {
@@ -61,13 +65,16 @@ Column {
                         }
                     }
                 }
+                // before changed
 
                 timezoneArea.currentActionStateName = currentActionStateName
+
                 // after changed
                 if(timezoneArea.currentActionStateName == "addButton"){
                     searchInput.text = ""
                     addTimezoneListView.fillModel("")
                 }
+                // after changed
             }
         }
 

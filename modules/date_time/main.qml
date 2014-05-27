@@ -91,12 +91,35 @@ DFlickable {
     TimezoneArea {
         id: timeZoneArea
         anchors.top: beforeTimeZoneArea.bottom
-        listAreaMaxHeight: parent.height - beforeTimeZoneArea.height - afterTimeZoneArea.height - 32
+        listAreaMaxHeight: parent.height - beforeTimeZoneArea.height - afterTimeZoneArea.height - 64
+        onCurrentActionStateNameChanged: {
+            if(currentActionStateName != ""){
+                localeArea.expanded = false
+            }
+        }
+    }
+
+    Column {
+        id: localeAreaColumn
+        anchors.top: timeZoneArea.bottom
+        width: parent.width
+
+        DSeparatorHorizontal {}
+
+        LocaleArea {
+            id: localeArea
+            listAreaMaxHeight: timeZoneArea.listAreaMaxHeight - 30
+            onExpandedChanged: {
+                if(expanded){
+                    timeZoneArea.reset()
+                }
+            }
+        }
     }
 
     Column {
         id: afterTimeZoneArea
-        anchors.top: timeZoneArea.bottom
+        anchors.top: localeAreaColumn.bottom
 
         DSeparatorHorizontal {}
 
