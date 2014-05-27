@@ -128,8 +128,8 @@ Rectangle {
                     id: user_type_radio
 
                     buttonModel: [
-                        {"buttonId": "user", "buttonLabel": "User"},
-                        {"buttonId": "administrator", "buttonLabel": "Administrator"},
+                        {"buttonId": "user", "buttonLabel": dsTr("Standard")},
+                        {"buttonId": "administrator", "buttonLabel": dsTr("Administrator")},
                     ]
                     initializeIndex: edit_dialog.this_user.accountType
                     onItemSelected: {
