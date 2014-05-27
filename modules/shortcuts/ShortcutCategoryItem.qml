@@ -7,7 +7,7 @@ Column {
 
     property string categoryName: name
     property int myIndex: index
-    property var categoryKeyBindings: bindManagerId[propertyName]
+    property var categoryKeyBindings: dbusKeyBinding[propertyName]
 
     DBaseExpand {
         id: expand

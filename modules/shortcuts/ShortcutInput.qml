@@ -44,7 +44,7 @@ Item {
             scale: 0.9
 
             onClicked: {
-                bindManagerId.DeleteCustomBind(shortcutId)
+                dbusKeyBinding.DeleteCustomShortcut(shortcutId)
             }
 
             Behavior on anchors.leftMargin {
@@ -115,17 +115,17 @@ Item {
         }
 
         Connections {
-            target: grabManagerId
+            target: dbusKeyBinding
             onKeyReleaseEvent: {
                 if (currentShortcutId == shortcutId){
                     grabFlag = false
                     if(arg0 == 'escape' | arg0 == ""){
                     }
                     else if( arg0=="backspace" ){
-                        bindManagerId.ChangeShortcut(currentShortcutId, "")
+                        dbusKeyBinding.ModifyShortcut(currentShortcutId, "")
                     }
                     else {
-                        var result = bindManagerId.CheckShortcut(arg0)
+                        var result = dbusKeyBinding.CheckShortcutConflict(arg0)
                         print("Release:", arg0, result)
                         switch(result[0]){
                             case "Invalid":
@@ -136,7 +136,7 @@ Item {
                                 conflictInfoArea.showConfictArea(arg0, result[1]);
                                 break;
                             case "Valid":
-                                bindManagerId.ChangeShortcut(currentShortcutId, arg0);
+                                dbusKeyBinding.ModifyShortcut(currentShortcutId, arg0);
                                 break;
                             default:
                                 print("==> [ERROR]", arg0)
@@ -164,7 +164,7 @@ Item {
                 if(showDelete) return;
                 grabFlag = true
                 currentShortcutId = shortcutId
-                grabManagerId.GrabKeyboard()
+                dbusKeyBinding.GrabKbdAndMouse()
             }
         }
     }
@@ -288,9 +288,9 @@ Item {
                         stopSetKeyBinding = false
                         inConfictDealing = false
                         for(var i in conflictKeyIds){
-                            bindManagerId.ChangeShortcut(conflictKeyIds[i], "")
+                            dbusKeyBinding.ModifyShortcut(conflictKeyIds[i], "")
                         }
-                        bindManagerId.ChangeShortcut(currentShortcutId, grabKeys)
+                        dbusKeyBinding.ModifyShortcut(currentShortcutId, grabKeys)
                     }
                 }
 

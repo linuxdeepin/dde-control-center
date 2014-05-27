@@ -124,7 +124,7 @@ Column {
                         text: dsTr("Add")
                         onClicked: {
                             customTitleLine.rightLoader.item.currentActionStateName = ""
-                            bindManagerId.AddKeyBind(newShortcutName.content.item.text, newShortcutCommand.content.item.text, "")
+                            dbusKeyBinding.AddCustomShortcut(newShortcutName.content.item.text, newShortcutCommand.content.item.text, "")
                         }
                     }
                 }

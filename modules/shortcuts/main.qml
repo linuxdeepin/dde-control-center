@@ -14,8 +14,7 @@ Item {
     property int contentLeftMargin: 22
     property var listModelComponent: DListModelComponent {}
 
-    property var grabManagerId: GrabKey {}
-    property var bindManagerId: KeyBinding {}
+    property var dbusKeyBinding: KeyBinding {}
     property var searchId: Search {}
 
     property int currentShortcutId: -1
@@ -27,7 +26,7 @@ Item {
         "systemList": dsTr("System"),
         //"mediaList": dsTr("Sound and Media"), TODO: the backend is not available
         "windowList": dsTr("Window"),
-        "workSpaceList": dsTr("Workspace"),
+        "workspaceList": dsTr("Workspace"),
         "customList": dsTr("Custom")
     }
 
@@ -38,15 +37,15 @@ Item {
         var allKeybindings = {}
         for(var key in categoryObjects){
             if(key=="customList") continue;
-            for(var i in bindManagerId[key]){
-                var temp_list = bindManagerId[key][i]
+            for(var i in dbusKeyBinding[key]){
+                var temp_list = dbusKeyBinding[key][i]
                 keywords[temp_list[0]] = temp_list[1] + ", " + windowView.toHumanShortcutLabel(temp_list[2])
                 temp_list.push(key)
                 allKeybindings[temp_list[0]] = temp_list
             }
         }
-        for(var i in bindManagerId.customList){
-            var temp_list = bindManagerId.customList[i]
+        for(var i in dbusKeyBinding.customList){
+            var temp_list = dbusKeyBinding.customList[i]
             keywords[temp_list[0]] = temp_list[1]
         }
         shortcutsModule.searchMd5 = searchId.NewTrieWithString(keywords, "deepin-system-settings.shortcuts")
@@ -55,8 +54,8 @@ Item {
 
     property var customKeyBindingsList: {
         var b = []
-        for(var i in bindManagerId.customList){
-            var temp_list = bindManagerId.customList[i]
+        for(var i in dbusKeyBinding.customList){
+            var temp_list = dbusKeyBinding.customList[i]
             temp_list.push("customList")
             b.push(temp_list)
         }
@@ -91,7 +90,7 @@ Item {
             text: dsTr("Shortcuts")
             rightLoader.sourceComponent: ResetButton {
                 onClicked: {
-                    bindManagerId.Reset()
+                    dbusKeyBinding.Reset()
                 }
             }
             rightLoader.visible: searchResultListView.keyword == ""
@@ -203,7 +202,7 @@ Item {
                 CustomKeybinding {
                     id: customItem
                     property string name: dsTr("Custom")
-                    property var keyBindings: bindManagerId.customList
+                    property var keyBindings: dbusKeyBinding.customList
                     listMaxHeight: shortcutsModule.height - keybindingTitleColumn.height - keybindingListColumn.height
                 }
             }
