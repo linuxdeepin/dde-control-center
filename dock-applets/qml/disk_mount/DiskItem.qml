@@ -3,11 +3,15 @@ import Deepin.Widgets 1.0
 
 Item {
     id: diskItem
-    width: 240
+    width: 280
     height: 68
 
     property var diskInfo: mountDiskList[index]
     property bool lastItem: index == mountDiskList.length - 1
+
+    //Component.onCompleted: {
+        //print(JSON.stringify(diskInfo))
+    //}
 
     Item {
         width: parent.width - xEdgePadding * 2
@@ -26,10 +30,13 @@ Item {
             anchors.top: title.bottom
             anchors.topMargin: 2
 
-            Image {
+            DIcon {
                 id: diskIcon
-                source: "images/usb_disk.png" 
+                width: 48
+                height: 48
                 anchors.verticalCenter: parent.verticalCenter
+                theme: "Deepin"
+                icon: diskInfo[9]
 
                 MouseArea{
                     anchors.fill: parent
@@ -55,6 +62,7 @@ Item {
 
                     DssH2 {
                         text: "%1/%2".arg(bitToHuman(parseInt(diskInfo[4]))).arg(bitToHuman(parseInt(diskInfo[5])))
+                        font.pixelSize: 11
                     }
 
                     DssH2 {
