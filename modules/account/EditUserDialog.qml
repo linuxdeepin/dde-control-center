@@ -152,9 +152,7 @@ Rectangle {
 
                 onPasswordSet: {
                     var right = edit_dialog.this_user.SetPassword(password)
-                    if (!right) {
-                        password_dialog.reset()
-                    }
+                    password_dialog.reset()
                 }
 
                 onCancelled: {

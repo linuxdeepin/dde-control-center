@@ -10,10 +10,9 @@ Item {
     signal cancelled
 
     function reset() {
-        state = "brief"
         new_password_input.text = ""
         repeat_input.text = ""
-        edit_show_password_switch.checked = false
+        state = "brief"
     }
 
     states: [
@@ -85,7 +84,7 @@ Item {
     Column {
         id: detail_view
         width: parent.width
-        height: (38 + 2) * 4
+        height: (38 + 2) * 3
 
         property int echoMode: TextInput.Password
 
@@ -139,38 +138,6 @@ Item {
             DTextInput {
                 id: repeat_input
                 echoMode: detail_view.echoMode
-
-                anchors.right: parent.right
-                anchors.rightMargin: 15
-                anchors.verticalCenter: parent.verticalCenter
-            }
-        }
-
-        DSeparatorHorizontal {}
-
-        Rectangle {
-            width: parent.width
-            height: 38
-            color: "transparent"
-
-            DLabel {
-                text: dsTr("Show Password")
-                font.pixelSize: 12
-
-                anchors.left: parent.left
-                anchors.leftMargin: 15
-                anchors.verticalCenter: parent.verticalCenter
-            }
-
-            DSwitchButton {
-                id: edit_show_password_switch
-                onClicked: {
-                    if(checked) {
-                        detail_view.echoMode = TextInput.Normal
-                    } else {
-                        detail_view.echoMode = TextInput.Password
-                    }
-                }
 
                 anchors.right: parent.right
                 anchors.rightMargin: 15
