@@ -80,7 +80,7 @@ DockApplet{
     }
 
     onActivate:{
-        showSound()
+        showSound(0)
     }
 
     Timer{
@@ -116,11 +116,11 @@ DockApplet{
         onMousewheelTimer.restart()
     }
 
-    function showSound(){
+    function showSound(id){
         dbusControlCenter.ShowModule("sound")
     }
 
-    function hideSound(){
+    function hideSound(id){
         set_hide_applet("sound")
     }
 

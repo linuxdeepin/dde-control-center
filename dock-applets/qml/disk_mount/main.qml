@@ -13,14 +13,14 @@ DockApplet{
     property int xEdgePadding: 12
 
     onActivate:{
-        showDiskMount()
+        showDiskMount(0)
     }
 
-    function showDiskMount(){
+    function showDiskMount(id){
         dbusControlCenter.ShowModule("default_applications")
     }
 
-    function hideDiskMount(){
+    function hideDiskMount(id){
         set_hide_applet("disk_mount")
     }
 

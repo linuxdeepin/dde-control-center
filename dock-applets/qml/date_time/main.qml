@@ -30,14 +30,14 @@ DockApplet{
     property var dbusLunarCalendar: LunarCalendar {}
 
     onActivate: {
-        showDateTime()
+        showDateTime(0)
     }
 
-    function showDateTime(){
+    function showDateTime(id){
         dbusControlCenter.ShowModule("date_time")
     }
 
-    function hideDateTime(){
+    function hideDateTime(id){
         set_hide_applet("date_time")
     }
 

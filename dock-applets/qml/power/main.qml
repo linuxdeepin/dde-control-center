@@ -19,21 +19,33 @@ DockApplet {
     width: 260;
     height: 30
 
-    function showPower(){
+    function showPower(id){
         dbusControlCenter.ShowModule("power")
     }
 
-    function hidePower(){
+    function hidePower(id){
         set_hide_applet("power")
     }
 
     onActivate: {
-        showPower()
+        showPower(0)
+    }
+
+    function do_nothing(id){
+    }
+
+    function changePowerPlan(id){
+        print(id)
     }
 
     menu: Menu{
         Component.onCompleted: {
             addItem("_Run", showPower);
+            addItem("", do_nothing);
+            addCheckboxItem("power_plan", dsTr("Balanced"), changePowerPlan);
+            addCheckboxItem("power_plan", dsTr("Power saver"), changePowerPlan);
+            addCheckboxItem("power_plan", dsTr("High performance"), changePowerPlan);
+            addItem("", do_nothing);
             addItem("_Undock", hidePower);
         }
     }

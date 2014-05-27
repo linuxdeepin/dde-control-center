@@ -5,7 +5,7 @@ DockMenu {
     content: JSON.stringify(menuContent)
     onActivate: {
         if(actionDict[id]){
-            actionDict[id]();
+            actionDict[id](id);
         }
     }
 
@@ -16,6 +16,40 @@ DockMenu {
 
     function generateId(){
         return Object.keys(actionDict).length
+    }
+
+    function addCheckboxItem(groupName, name, callback){
+        if(name != ""){
+            var item_id = generateId();
+            actionDict[item_id] = callback;
+        }
+        else{
+            item_id = "-1";
+        }
+        var menuItem = {
+            "itemText": name,
+            "itemId": groupName + ":radio:" + item_id,
+            "isCheckable": true,
+            "checked": false,
+            "itemIcon": "",
+            "itemIconHover": "",
+            "isActive": true,
+            "itemIconInactive": "",
+            "showCheckmark": true,
+            "itemSubMenu": {
+                "checkableMenu": false,
+                "singleCheck": false,
+                "items": [
+                ]
+            }
+        };
+        menuItems.push(menuItem);
+        menuContent = {
+            "checkableMenu": false,
+            "singleCheck": false,
+            "items": menuItems
+        }
+        return item_id
     }
 
     function addItem(name, callback){
@@ -49,5 +83,6 @@ DockMenu {
             "singleCheck": false,
             "items": menuItems
         }
+        return item_id
     }
 }

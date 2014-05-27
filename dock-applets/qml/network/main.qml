@@ -75,16 +75,16 @@ DockApplet{
         return null
     }
 
-    function showNetwork(){
+    function showNetwork(id){
         dbusControlCenter.ShowModule("network")
     }
 
-    function hideNetwork(){
+    function hideNetwork(id){
         set_hide_applet("network")
     }
 
     onActivate: {
-        showNetwork()
+        showNetwork(0)
     }
 
     menu: Menu {
