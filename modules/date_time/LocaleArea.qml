@@ -31,6 +31,7 @@ DBaseExpand {
             width: parent.width
             height: parent.height
             model: ListModel {}
+            maximumFlickVelocity: 1000
             delegate: SelectItem {
                 totalItemNumber: ListView.view.count
                 selectItemId: localeExpand.currentLocale
@@ -41,10 +42,19 @@ DBaseExpand {
             }
 
             Component.onCompleted: {
+                var toSortResult = new Array()
                 for(var i in localeExpand.localeToLanguage){
+                    var tmp = new Array()
+                    tmp.push(i)
+                    tmp.push(localeExpand.localeToLanguage[i] + " (" + i + ")")
+                    toSortResult.push(tmp)
+                }
+                toSortResult = windowView.sortSearchResult(toSortResult)
+
+                for(var i in toSortResult){
                     model.append({
-                        "item_id": i,
-                        "item_name": localeExpand.localeToLanguage[i] + " (" + i + ")"
+                        "item_id": toSortResult[i][0],
+                        "item_name": toSortResult[i][1]
                     })
                 }
             }
