@@ -116,7 +116,7 @@ Rectangle {
                 visible: !userIsCurrentUser(edit_dialog.this_user) && currentUserIsAdmin()
 
                 DLabel {
-                    text: dsTr("User Group")
+                    text: dsTr("Account Type")
                     font.pixelSize: 12
 
                     anchors.left: parent.left

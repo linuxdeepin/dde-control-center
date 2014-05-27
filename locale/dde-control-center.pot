@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-21 12:54+0800\n"
+"POT-Creation-Date: 2014-05-27 10:29+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,1638 +17,1143 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../modules/network/AddPageIndex.qml:12
 msgid "New Network"
 msgstr ""
 
-#: ../modules/network/AddPageIndex.qml:35
 msgid "PPPOE"
 msgstr ""
 
-#: ../modules/network/AddPageIndex.qml:39
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tp.qml:11
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:11
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:11
-#: ../modules/network/components_section_autogen/EditSectionVpnPptp.qml:11
-#: ../modules/network/components_section_autogen/EditSectionVpnVpnc.qml:11
 msgid "VPN"
 msgstr ""
 
-#: ../modules/network/AddPageIndex.qml:64
-#: ../modules/network/ConnectionProperties.qml:145
-#: ../modules/shortcuts/CustomKeybinding.qml:118
-#: ../modules/account/DeleteUserDialog.qml:33
-#: ../modules/network/HiddenAp.qml:153
-#: ../modules/network/dsl/NewDslPage.qml:114
-#: ../modules/network/vpn/NewVpnPage.qml:127
-#: ../modules/network/widgets/PasswordBox.qml:100
-#: ../modules/account/PasswordDialog.qml:190
-#: ../modules/shortcuts/ShortcutInput.qml:298
-#: ../modules/date_time/TimeBox.qml:189 ../modules/network/WifiHotspot.qml:113
-#: ../dock-applets/qml/WifiPasswordWindow.qml:138
-#: ../frame/views/WifiPasswordWindow.qml:147 ../modules/display/main.qml:201
 msgid "Cancel"
 msgstr ""
 
-#: ../modules/network/AddPageIndex.qml:72
 msgid "Next"
 msgstr ""
 
-#: ../modules/account/AddUserDialog.qml:89
-#: ../modules/account/AddUserDialog.qml:233
-#: ../modules/account/UserList.qml:179
 msgid "Standard"
 msgstr ""
 
-#: ../modules/account/AddUserDialog.qml:89
-#: ../modules/account/AddUserDialog.qml:234
-#: ../modules/account/UserList.qml:179
 msgid "Administrator"
 msgstr ""
 
-#: ../modules/account/AvatarPickDialog.qml:5
 msgid "Choose a new picture for your account"
 msgstr ""
 
-#: ../modules/account/AvatarView.qml:18
 msgid "Recently Used"
 msgstr ""
 
-#: ../modules/account/AvatarView.qml:19
 msgid "Default"
 msgstr ""
 
-#: ../modules/account/AvatarView.qml:20
 msgid "Webcam"
 msgstr ""
 
-#: ../modules/date_time/Calendar.qml:102
 msgid "Today"
 msgstr ""
 
-#: ../modules/date_time/CalendarComponent.qml:56
 msgid "Sun"
 msgstr ""
 
-#: ../modules/date_time/CalendarComponent.qml:57
 msgid "Mon"
 msgstr ""
 
-#: ../modules/date_time/CalendarComponent.qml:58
 msgid "Tue"
 msgstr ""
 
-#: ../modules/date_time/CalendarComponent.qml:59
 msgid "Wed"
 msgstr ""
 
-#: ../modules/date_time/CalendarComponent.qml:60
 msgid "Thu"
 msgstr ""
 
-#: ../modules/date_time/CalendarComponent.qml:61
 msgid "Fri"
 msgstr ""
 
-#: ../modules/date_time/CalendarComponent.qml:62
 msgid "Sat"
 msgstr ""
 
-#: ../modules/network/ConnectionProperties.qml:51
-msgid "Delete this network"
-msgstr ""
-
-#: ../modules/network/ConnectionProperties.qml:51
 msgid "Are you sure to delete this network?"
 msgstr ""
 
-#: ../modules/network/ConnectionProperties.qml:101
-#: ../modules/network/WifiHotspot.qml:122
+msgid "Delete this network"
+msgstr ""
+
 msgid "Save"
 msgstr ""
 
-#: ../modules/network/ConnectionProperties.qml:112
-#: ../modules/date_time/StateButtons.qml:12
-#: ../modules/date_time/TimezoneArea.qml:195
 msgid "Close"
 msgstr ""
 
-#: ../modules/network/ConnectionProperties.qml:133
 msgid "Delete"
 msgstr ""
 
-#: ../modules/shortcuts/CustomKeybinding.qml:95
-#: ../modules/network/components_section_autogen/EditSectionGeneral.qml:18
-#: ../modules/network/dsl/NewDslPage.qml:39
-#: ../modules/network/vpn/SimpleL2tp.qml:30
-#: ../modules/network/vpn/SimplePptp.qml:27
 msgid "Name"
 msgstr ""
 
-#: ../modules/shortcuts/CustomKeybinding.qml:105
 msgid "Command"
 msgstr ""
 
-#: ../modules/shortcuts/CustomKeybinding.qml:124
-#: ../modules/network/dsl/NewDslPage.qml:123
-#: ../modules/network/vpn/NewVpnPage.qml:133
-#: ../modules/date_time/TimezoneArea.qml:192
 msgid "Add"
 msgstr ""
 
-#: ../modules/account/DeleteUserDialog.qml:19
 msgid "Keep user's files"
 msgstr ""
 
-#: ../modules/account/DeleteUserDialog.qml:20
 msgid "Delete user's files"
 msgstr ""
 
-#: ../modules/account/DeleteUserDialog.qml:46
-#: ../modules/account/PasswordDialog.qml:204
 msgid "Confirm"
 msgstr ""
 
-#: ../dock-applets/qml/disk_mount/DiskItem.qml:59
 msgid "Unmount failed!"
 msgstr ""
 
-#: ../modules/network/dsl/DslExpand.qml:19
 msgid "PPPOE Connections"
 msgstr ""
 
-#: ../modules/network/components/EditLineFileChooser.qml:37
-msgid "..."
-msgstr ""
-
-#: ../modules/network/components_section_autogen/EditSectionEthernet.qml:11
 msgid "Ethernet"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionEthernet.qml:18
-#: ../modules/network/components_section_autogen/EditSectionWifi.qml:40
 msgid "Device MAC Addr"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionEthernet.qml:23
-#: ../modules/network/components_section_autogen/EditSectionWifi.qml:45
 msgid "Cloned MAC Addr"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionEthernet.qml:28
-#: ../modules/network/components_section_autogen/EditSectionWifi.qml:50
 msgid "Custom MTU"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionEthernet.qml:33
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:58
-#: ../modules/network/components_section_autogen/EditSectionWifi.qml:55
 msgid "MTU"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionGeneral.qml:11
 msgid "General"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionGeneral.qml:23
 msgid "Automatically connect"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionGeneral.qml:28
 msgid "All Users Could Connect"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionIpv4.qml:11
 msgid "IPv4"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionIpv4.qml:18
-#: ../modules/network/components_section_autogen/EditSectionIpv6.qml:18
 msgid "Method"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionIpv4.qml:23
-#: ../modules/network/components_section_autogen/EditSectionIpv6.qml:23
 msgid "IP Address"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionIpv4.qml:29
 msgid "Netmask"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionIpv4.qml:37
-#: ../modules/network/components_section_autogen/EditSectionIpv6.qml:33
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tp.qml:18
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:18
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:18
-#: ../modules/network/components_section_autogen/EditSectionVpnPptp.qml:18
-#: ../modules/network/components_section_autogen/EditSectionVpnVpnc.qml:18
 msgid "Gateway"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionIpv4.qml:44
-#: ../modules/network/components_section_autogen/EditSectionIpv6.qml:38
 msgid "DNS Server"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionIpv6.qml:11
 msgid "IPv6"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionIpv6.qml:28
 msgid "Prefix"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionMobileCdma.qml:11
-#: ../modules/network/components_section_autogen/EditSectionMobileGsm.qml:11
 msgid "Mobile"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionMobileCdma.qml:18
-#: ../modules/network/components_section_autogen/EditSectionMobileGsm.qml:18
 msgid "Number"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionMobileCdma.qml:23
-#: ../modules/network/components_section_autogen/EditSectionMobileGsm.qml:23
-#: ../modules/network/components_section_autogen/EditSectionPppoe.qml:18
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:84
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tp.qml:23
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:28
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnProxies.qml:38
-#: ../modules/network/components_section_autogen/EditSectionVpnPptp.qml:23
-#: ../modules/network/components_section_autogen/EditSectionVpnVpnc.qml:23
-#: ../modules/network/dsl/NewDslPage.qml:65
 msgid "Username"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionMobileCdma.qml:28
-#: ../modules/network/components_section_autogen/EditSectionMobileGsm.qml:33
-#: ../modules/network/components_section_autogen/EditSectionPppoe.qml:28
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:28
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:95
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tp.qml:33
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tpIpsec.qml:33
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:38
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnProxies.qml:43
-#: ../modules/network/components_section_autogen/EditSectionVpnPptp.qml:33
-#: ../modules/network/HiddenAp.qml:124
-#: ../modules/network/dsl/NewDslPage.qml:87
-#: ../modules/account/PasswordDialog.qml:60
-#: ../modules/network/vpn/SimpleL2tp.qml:120
-#: ../modules/network/vpn/SimplePptp.qml:117
-#: ../modules/network/WifiHotspot.qml:77
 msgid "Password"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionMobileGsm.qml:28
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:89
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:100
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tp.qml:28
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:33
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:58
-#: ../modules/network/components_section_autogen/EditSectionVpnPptp.qml:28
-#: ../modules/network/components_section_autogen/EditSectionVpnVpnc.qml:28
-#: ../modules/network/components_section_autogen/EditSectionVpnVpnc.qml:43
 msgid "Ask for Pwd"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionMobileGsm.qml:38
 msgid "APN"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionMobileGsm.qml:43
 msgid "Network ID"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionMobileGsm.qml:48
 msgid "Type"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionMobileGsm.qml:53
 msgid "Home Network Only"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionMobileGsm.qml:58
 msgid "PIN"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionPpp.qml:11
 msgid "PPP"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionPpp.qml:18
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:18
-#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:18
 msgid "Refuse EAP Authentication"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionPpp.qml:23
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:23
-#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:23
 msgid "Refuse PAP Authentication"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionPpp.qml:28
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:28
-#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:28
 msgid "Refuse CHAP Authentication"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionPpp.qml:33
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:33
-#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:33
 msgid "Refuse MSCHAP Authentication"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionPpp.qml:38
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:38
-#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:38
 msgid "Refuse MSCHAPv2 Authentication"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionPpp.qml:43
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:43
-#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:43
 msgid "Use MPPE"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionPpp.qml:49
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:55
-#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:55
 msgid "128-bit MPPE"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionPpp.qml:55
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:61
-#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:61
 msgid "Stateful MPPE"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionPpp.qml:60
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:66
-#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:66
 msgid "No BSD Data Compression"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionPpp.qml:65
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:71
-#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:71
 msgid "No Deflate Data Compression"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionPpp.qml:70
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:76
-#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:76
 msgid "No TCP Header Compression"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionPpp.qml:75
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:91
-#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:81
 msgid "Send PPP Echo Packets"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionPppoe.qml:11
 msgid "PPPoE"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionPppoe.qml:23
 msgid "Service"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:11
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:18
-#: ../modules/network/HiddenAp.qml:66
 msgid "Security"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:23
 msgid "Key"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:33
 msgid "Use security"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:38
 msgid "EAP Auth"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:43
 msgid "Anon Identity"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:48
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:43
 msgid "User Cert"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:53
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:23
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:48
 msgid "CA Cert"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:58
 msgid "Provisioning"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:63
 msgid "PAC file"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:68
 msgid "PEAP Version"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:73
 msgid "Inner Auth"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:79
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:48
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:53
 msgid "Private Key"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionSecurity.qml:105
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:63
 msgid "Private Pwd"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tp.qml:38
-#: ../modules/network/components_section_autogen/EditSectionVpnPptp.qml:38
-#: ../modules/network/components_section_autogen/EditSectionVpnVpncAdvanced.qml:18
 msgid "Domain"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tpIpsec.qml:11
 msgid "VPN IPsec"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tpIpsec.qml:18
 msgid "Enable IPsec"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tpIpsec.qml:23
-#: ../modules/network/components_section_autogen/EditSectionVpnVpnc.qml:38
 msgid "Group Name"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tpIpsec.qml:28
 msgid "Group ID"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:11
-#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:11
 msgid "VPN PPP"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:49
-#: ../modules/network/components_section_autogen/EditSectionVpnPptpPpp.qml:49
-msgid "40-bit MPPE"
-msgstr ""
-
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:81
 msgid "No Protocol Field Compression"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnL2tpPpp.qml:86
 msgid "No Address/Control Compression"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:28
 msgid "Proxy"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:33
 msgid "Allow Cisco Secure Desktop Trojan"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:38
 msgid "CSD Wrapper"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:43
 msgid "Uesr Cert"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenconnect.qml:53
 msgid "User FSID For Key Passphrase"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:23
 msgid "Auth Type"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:68
 msgid "Static Key"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:73
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnTlsauth.qml:33
 msgid "Use Key Direction"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:78
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnTlsauth.qml:38
 msgid "Key Direction"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:83
 msgid "Remote IP"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpn.qml:88
 msgid "Local IP"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:11
-#: ../modules/network/components_section_autogen/EditSectionVpnVpncAdvanced.qml:11
 msgid "VPN Advanced"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:18
 msgid "Use Custom Gateway Port"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:23
 msgid "Gateway Port"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:28
 msgid "Use Custom Renegotiation Interval"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:33
 msgid "Renegotiation Interval"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:38
 msgid "Use LZO data compression"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:43
 msgid "Use a TCP connection"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:48
 msgid "Use a TAP device"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:53
 msgid "Use Custom Tunnel MTU"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:63
 msgid "Use Custom UDP Fragment Size"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:68
 msgid "UDP Fragment Size"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:73
 msgid "Restrict Tunnel TCP MSS"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnAdvanced.qml:78
 msgid "Randomize Remote Hosts"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnProxies.qml:11
 msgid "VPN Proxies"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnProxies.qml:18
 msgid "Proxy Type"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnProxies.qml:23
 msgid "Server IP"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnProxies.qml:28
 msgid "Port"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnProxies.qml:33
 msgid "Retry Indefinitely When Failed"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnSecurity.qml:11
 msgid "VPN Security"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnSecurity.qml:18
 msgid "Cipher"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnSecurity.qml:23
 msgid "HMAC Auth"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnTlsauth.qml:11
 msgid "VPN TLS Authentication"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnTlsauth.qml:18
 msgid "Subject Match"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnTlsauth.qml:23
 msgid "Remote Cert"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnOpenvpnTlsauth.qml:28
 msgid "Key File"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnVpnc.qml:33
 msgid "User Pwd"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnVpnc.qml:48
 msgid "Group Pwd"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnVpnc.qml:53
 msgid "Use Hybrid Authentication"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnVpnc.qml:58
 msgid "CA File"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnVpncAdvanced.qml:23
 msgid "Vendor"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnVpncAdvanced.qml:28
 msgid "Version"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnVpncAdvanced.qml:33
 msgid "Encryption Method"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnVpncAdvanced.qml:38
 msgid "NAT Traversal"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnVpncAdvanced.qml:43
 msgid "IKE DH Group"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnVpncAdvanced.qml:48
 msgid "Perfect Forward Secrecy"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnVpncAdvanced.qml:53
 msgid "Local Port"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionVpnVpncAdvanced.qml:58
 msgid "Disable Dead Peer Detection"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionWifi.qml:11
 msgid "Wi-Fi"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionWifi.qml:18
-#: ../modules/network/HiddenAp.qml:43 ../modules/network/WifiHotspot.qml:50
 msgid "SSID"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionWifi.qml:23
 msgid "Mode"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionWifi.qml:28
 msgid "Band"
 msgstr ""
 
-#: ../modules/network/components_section_autogen/EditSectionWifi.qml:34
 msgid "Channel"
 msgstr ""
 
-#: ../modules/account/EditUserDialog.qml:52
 msgid "Auto-login"
 msgstr ""
 
-#: ../modules/account/EditUserDialog.qml:86
 msgid "Enable User"
 msgstr ""
 
-#: ../modules/account/EditUserDialog.qml:119
-msgid "User Group"
+msgid "Account Type"
 msgstr ""
 
-#: ../modules/personalization/components/FontSettingsExpand.qml:13
 msgid "Size"
 msgstr ""
 
-#: ../modules/account/GuestUser.qml:32 ../frame/views/HeaderArea.qml:85
 msgid "Guest"
 msgstr ""
 
-#: ../modules/account/GuestUser.qml:93
-#: ../modules/display/MonitorProperties.qml:57
 msgid "Enabled"
 msgstr ""
 
-#: ../modules/network/HiddenAp.qml:21
 msgid "Connect to hidden access point"
 msgstr ""
 
-#: ../modules/network/HiddenAp.qml:159
-#: ../modules/network/widgets/PasswordBox.qml:108
-#: ../dock-applets/qml/WifiPasswordWindow.qml:145
-#: ../frame/views/WifiPasswordWindow.qml:154
 msgid "Connect"
 msgstr ""
 
-#: ../modules/network/Info.qml:11
 msgid "Actived Connections"
 msgstr ""
 
-#: ../modules/network/Info.qml:43 ../modules/network/Info.qml:71
 msgid "DeviceType"
 msgstr ""
 
-#: ../modules/network/Info.qml:43
-msgid "wired"
-msgstr ""
-
-#: ../modules/network/Info.qml:44 ../modules/network/Info.qml:72
 msgid "DeviceAddr"
 msgstr ""
 
-#: ../modules/network/Info.qml:45 ../modules/network/Info.qml:73
 msgid "IpAddress"
 msgstr ""
 
-#: ../modules/network/Info.qml:46 ../modules/network/Info.qml:74
 msgid "SubnetMask"
 msgstr ""
 
-#: ../modules/network/Info.qml:47 ../modules/network/Info.qml:75
 msgid "RouteAddr"
 msgstr ""
 
-#: ../modules/network/Info.qml:48 ../modules/network/Info.qml:76
+msgid "Primary DNS"
+msgstr ""
+
+msgid "Addtional DNS"
+msgstr ""
+
 msgid "DeviceSpeed"
 msgstr ""
 
-#: ../modules/network/Info.qml:71
-msgid "wireless"
-msgstr ""
-
-#: ../modules/display/MessageBox.qml:86
 msgid "Do you want to keep these display settings?"
 msgstr ""
 
-#: ../modules/display/MessageBox.qml:96
 #, qt-format
 msgid ""
 "Reverting to previous display settings in <font color='#F48914'>%1</font> "
 "seconds."
 msgstr ""
 
-#: ../modules/display/MessageBox.qml:108
 msgid "Keep changes"
 msgstr ""
 
-#: ../modules/display/MessageBox.qml:116
 msgid "Revert"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:5 ../modules/date_time/main.qml:47
 msgid "Date and Time"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:6 ../dock-applets/qml/main.qml:16
 msgid "Network"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:7 ../dock-applets/qml/main.qml:19
 msgid "Disk Mount"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:8 ../modules/bluetooth/main.qml:64
 msgid "Bluetooth"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:9 ../dock-applets/qml/main.qml:17
-#: ../modules/sound/main.qml:95
 msgid "Sound"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:10 ../modules/power/main.qml:88
 msgid "Power Options"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:11
 msgid "More Settings"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:12 ../frame/views/PanelContent.qml:360
-#: ../dock-applets/qml/main.qml:18
 msgid "Power"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:13 ../modules/display/main.qml:81
 msgid "Display"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:14
 msgid "Desktop"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:15 ../modules/personalization/main.qml:60
 msgid "Personalization"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:16
 msgid "Keyboard Shortcuts"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:17 ../modules/keyboard/main.qml:71
 msgid "Keyboard"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:18
 msgid "Mouse and Touchpad"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:19 ../modules/mouse_touchpad/main.qml:27
 msgid "Mouse"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:20
 msgid "User Accounts"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:21
-#: ../modules/default_applications/main.qml:22
-#: ../modules/default_applications/main.qml:36
 msgid "Default Applications"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:22 ../modules/system_info/main.qml:54
 msgid "System Information"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:23
 msgid "Boot Menu"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:24
 msgid "Home"
 msgstr ""
 
-#: ../modules/display/MonitorComponent.qml:211
 msgid "Set as primary display"
 msgstr ""
 
-#: ../modules/display/MonitorDragArea.qml:423
 msgid "Identify"
 msgstr ""
 
-#: ../modules/display/MonitorDragArea.qml:440
 msgid "Edit"
 msgstr ""
 
-#: ../modules/display/MonitorProperties.qml:24
 msgid "Normal"
 msgstr ""
 
-#: ../modules/display/MonitorProperties.qml:25
 msgid "Rotate right"
 msgstr ""
 
-#: ../modules/display/MonitorProperties.qml:26
 msgid "Upside down"
 msgstr ""
 
-#: ../modules/display/MonitorProperties.qml:27
 msgid "Rotate left"
 msgstr ""
 
-#: ../modules/display/MonitorProperties.qml:89
 msgid "Resolution"
 msgstr ""
 
-#: ../modules/display/MonitorProperties.qml:141
 msgid "Rotation"
 msgstr ""
 
-#: ../modules/network/dsl/NewDslPage.qml:17
 msgid "New PPPOE Connection"
 msgstr ""
 
-#: ../modules/network/vpn/NewVpnPage.qml:15
 msgid "New VPN connection"
 msgstr ""
 
-#: ../modules/network/vpn/NewVpnPage.qml:23
 msgid "VPN type"
 msgstr ""
 
-#: ../modules/network/vpn/NewVpnPage.qml:49
-msgid "PPTP"
-msgstr ""
-
-#: ../modules/network/vpn/NewVpnPage.qml:45
 msgid "L2TP"
 msgstr ""
 
-#: ../modules/network/vpn/NewVpnPage.qml:81
+msgid "PPTP"
+msgstr ""
+
 msgid "Basic Information"
 msgstr ""
 
-#: ../modules/network/widgets/PasswordBox.qml:75
 msgid "Password: "
 msgstr ""
 
-#: ../modules/account/PasswordDialog.qml:102
 msgid "New Password"
 msgstr ""
 
-#: ../modules/account/PasswordDialog.qml:131
 msgid "Repeat"
 msgstr ""
 
-#: ../modules/account/PasswordDialog.qml:157
-#: ../frame/views/WifiPasswordWindow.qml:129
-msgid "Show Password"
-msgstr ""
-
-#: ../modules/grub/Preview.qml:124
 msgid "Drag and drop an image to change background."
 msgstr ""
 
-#: ../modules/shared/ResetButton.qml:16
 msgid "Reset the success"
 msgstr ""
 
-#: ../modules/shared/ResetButton.qml:24 ../modules/display/main.qml:198
 msgid "Reset"
 msgstr ""
 
-#: ../modules/shortcuts/ShortcutInput.qml:103
 msgid "Please input new shortcut"
 msgstr ""
 
-#: ../modules/shortcuts/ShortcutInput.qml:181
 #, qt-format
 msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
 msgstr ""
 
-#: ../modules/shortcuts/ShortcutInput.qml:219
 msgid "The shortcut you set "
 msgstr ""
 
-#: ../modules/shortcuts/ShortcutInput.qml:222
 #, qt-format
 msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
 msgstr ""
 
-#: ../modules/shortcuts/ShortcutInput.qml:224
 msgid "Do you want to replace it?"
 msgstr ""
 
-#: ../modules/shortcuts/ShortcutInput.qml:282
 msgid "Replace"
 msgstr ""
 
-#: ../modules/personalization/widgets/ShowPreviewButton.qml:30
 msgid "Preview theme"
 msgstr ""
 
-#: ../modules/network/vpn/SimpleL2tp.qml:53
-#: ../modules/network/vpn/SimplePptp.qml:50
 msgid "Server"
 msgstr ""
 
-#: ../modules/network/vpn/SimpleL2tp.qml:76
-#: ../modules/network/vpn/SimplePptp.qml:73 ../modules/account/main.qml:48
 msgid "Account"
 msgstr ""
 
-#: ../modules/network/vpn/SimpleL2tp.qml:99
-#: ../modules/network/vpn/SimplePptp.qml:96
 msgid "RSA SecurID"
 msgstr ""
 
-#: ../modules/network/vpn/SimpleL2tp.qml:142
-#: ../modules/network/vpn/SimplePptp.qml:139
 msgid "Enable MPPE"
 msgstr ""
 
-#: ../modules/network/vpn/SimpleL2tp.qml:172
 msgid "Secret key"
 msgstr ""
 
-#: ../modules/date_time/StateButtons.qml:11
-#: ../modules/keyboard/StateButtons.qml:11
-#: ../modules/shortcuts/StateButtons.qml:15
 msgid "Done"
 msgstr ""
 
-#: ../modules/date_time/TimeBox.qml:138
 msgid "Double-click the above digits to change your time."
 msgstr ""
 
-#: ../modules/date_time/TimeBox.qml:173
 msgid "Set"
 msgstr ""
 
-#: ../modules/date_time/TimezoneArea.qml:50
 msgid "Time zone"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:28
 msgid "Touchpad"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:58
-#: ../modules/mouse_touchpad/main.qml:44
 msgid "Primary Button"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:80
-#: ../modules/mouse_touchpad/main.qml:65
-msgid "Pointer Speed"
-msgstr ""
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:95
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:145
-#: ../modules/keyboard/main.qml:123 ../modules/keyboard/main.qml:149
-#: ../modules/mouse_touchpad/main.qml:80
-#: ../modules/mouse_touchpad/main.qml:132
-msgid "Slow"
-msgstr ""
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:96
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:146
-#: ../modules/keyboard/main.qml:122 ../modules/keyboard/main.qml:148
-#: ../modules/mouse_touchpad/main.qml:81
-#: ../modules/mouse_touchpad/main.qml:133
-msgid "Fast"
-msgstr ""
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:66
-#: ../modules/mouse_touchpad/main.qml:51
 msgid "Left Button"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:67
-#: ../modules/mouse_touchpad/main.qml:52
 msgid "Right Button"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:130
-#: ../modules/mouse_touchpad/main.qml:117
+msgid "Pointer Speed"
+msgstr ""
+
+msgid "Slow"
+msgstr ""
+
+msgid "Fast"
+msgstr ""
+
 msgid "Double-click Speed"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:156
 msgid "Drag Threshold"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:171
-#: ../modules/keyboard/main.qml:97
 msgid "Short"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:172
-#: ../modules/keyboard/main.qml:98
 msgid "Long"
 msgstr ""
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:181
 msgid "Natural Scrolling"
 msgstr ""
 
-#: ../modules/network/vpn/VpnExpand.qml:19
 msgid "VPN Connections"
 msgstr ""
 
-#: ../modules/account/WebCam.qml:174
 msgid "No camera found."
 msgstr ""
 
-#: ../modules/network/WifiHotspot.qml:28
 msgid "Edit Wifi Hotspot"
 msgstr ""
 
-#: ../modules/network/WifiHotspot.qml:28
 msgid "Create Wifi Hotspot"
 msgstr ""
 
-#: ../modules/network/WifiHotspot.qml:122
 msgid "Create"
 msgstr ""
 
-#: ../dock-applets/qml/WifiPasswordWindow.qml:94
-#: ../frame/views/WifiPasswordWindow.qml:85
 msgid "Authentication required by Wi-Fi network"
 msgstr ""
 
-#: ../dock-applets/qml/WifiPasswordWindow.qml:102
-#: ../frame/views/WifiPasswordWindow.qml:93
 #, qt-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network <font "
 "color=\"#0ff\">%1</font>"
 msgstr ""
 
-#: ../dock-applets/qml/WifiPasswordWindow.qml:116
-#: ../frame/views/WifiPasswordWindow.qml:107
 msgid "Password:"
 msgstr ""
 
-#: ../modules/network/WiredDeviceExpand.qml:17
+msgid "Show Password"
+msgstr ""
+
 msgid "Wired Network"
 msgstr ""
 
-#: ../modules/network/WiredItem.qml:84
 #, qt-format
 msgid "Wired Connection %1"
 msgstr ""
 
-#: ../dock-applets/qml/network/WirelessApList.qml:72
 msgid "Scanning..."
 msgstr ""
 
-#: ../modules/network/WirelessDeviceExpand.qml:99
-#: ../dock-applets/qml/network/WirelessNetwork.qml:27
 msgid "Wireless Network"
 msgstr ""
 
-#: ../modules/network/WirelessDeviceExpand.qml:102
-#: ../dock-applets/qml/network/WirelessNetwork.qml:27
 #, qt-format
 msgid "Wireless Network %1"
 msgstr ""
 
-#: ../modules/network/WirelessDeviceExpand.qml:146
 msgid "Connect Hidden Access Point"
 msgstr ""
 
-#: ../modules/network/WirelessDeviceExpand.qml:189
-msgid "Create Access Point"
-msgstr ""
-
-#: ../modules/network/WirelessDeviceExpand.qml:189
 msgid "Hotspot "
 msgstr ""
 
-#: ../modules/date_time/calendar_core.js:6
+msgid "Create Access Point"
+msgstr ""
+
 msgid "January"
 msgstr ""
 
-#: ../modules/date_time/calendar_core.js:6
 msgid "February"
 msgstr ""
 
-#: ../modules/date_time/calendar_core.js:6
 msgid "March"
 msgstr ""
 
-#: ../modules/date_time/calendar_core.js:6
 msgid "April"
 msgstr ""
 
-#: ../modules/date_time/calendar_core.js:6
 msgid "May"
 msgstr ""
 
-#: ../modules/date_time/calendar_core.js:6
 msgid "June"
 msgstr ""
 
-#: ../modules/date_time/calendar_core.js:6
 msgid "July"
 msgstr ""
 
-#: ../modules/date_time/calendar_core.js:7
 msgid "August"
 msgstr ""
 
-#: ../modules/date_time/calendar_core.js:7
 msgid "September"
 msgstr ""
 
-#: ../modules/date_time/calendar_core.js:7
 msgid "October"
 msgstr ""
 
-#: ../modules/date_time/calendar_core.js:7
 msgid "November"
 msgstr ""
 
-#: ../modules/date_time/calendar_core.js:7
 msgid "December"
 msgstr ""
 
-#: ../dock-applets/qml/power/main.qml:11
-msgid "On Charging"
-msgstr ""
-
-#: ../dock-applets/qml/sound/main.qml:129
 msgid "_Run"
 msgstr ""
 
-#: ../dock-applets/qml/sound/main.qml:130
 msgid "_Undock"
 msgstr ""
 
-#: ../dock-applets/qml/sound/main.qml:164
+msgid "On Charging"
+msgstr ""
+
 msgid "Device"
 msgstr ""
 
-#: ../dock-applets/qml/sound/main.qml:263
 msgid "Applications"
 msgstr ""
 
-#: ../modules/bluetooth/main.qml:73
 msgid "ON/OFF"
 msgstr ""
 
-#: ../modules/bluetooth/main.qml:96
 msgid "Visible"
 msgstr ""
 
-#: ../modules/bluetooth/main.qml:97
 msgid "Invisible"
 msgstr ""
 
-#: ../modules/bluetooth/main.qml:120
 msgid "Device name"
 msgstr ""
 
-#: ../modules/bluetooth/main.qml:137
 msgid "Devices nearby"
 msgstr ""
 
-#: ../modules/date_time/main.qml:61
 msgid "Automatic date and time"
 msgstr ""
 
-#: ../modules/date_time/main.qml:77
 msgid "Use 24-hour clock"
 msgstr ""
 
-#: ../modules/date_time/main.qml:107
 msgid "Date"
 msgstr ""
 
-#: ../modules/date_time/main.qml:111
 msgid "Set Date"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:48
 msgid "Browser"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:62
 msgid "Mail"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:73
 msgid "Text"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:79
 msgid "Music"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:110
 msgid "Video"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:142
 msgid "Picture"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:160
 msgid "Terminal"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:257
 msgid "AutoPlay"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:272
 msgid "CD Audio"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:277
 msgid "DVD Video"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:282
 msgid "Music Player"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:287
 msgid "Camera"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:292
 msgid "Software"
 msgstr ""
 
-#: ../modules/display/main.qml:94
 msgid "Main Display: "
 msgstr ""
 
-#: ../modules/display/main.qml:125
 msgid "Monitor"
 msgstr ""
 
-#: ../modules/display/main.qml:177
 msgid "Apply"
 msgstr ""
 
-#: ../modules/grub/main.qml:62
 msgid "Startup Screen"
 msgstr ""
 
-#: ../modules/grub/main.qml:102
 msgid "Boot priority"
 msgstr ""
 
-#: ../modules/grub/main.qml:159
 msgid "Boot delay"
 msgstr ""
 
-#: ../modules/grub/main.qml:198
 msgid "Text Color"
 msgstr ""
 
-#: ../modules/grub/main.qml:232
 msgid "Selected Text Color"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:83
 msgid "Repeat Delay"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:107
 msgid "Repeat Rate"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:132
 msgid "Cursor Blink Rate"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:158
 msgid "Test Area"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:188
 msgid "Keyboard Layout"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:373
 msgid "No result"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:383
 msgid "Caps-Lock key press tip"
 msgstr ""
 
-#: ../modules/sound/main.qml:222
-msgid "Left"
+msgid "unknown"
 msgstr ""
 
-#: ../modules/network/main.qml:168
+msgid "wired"
+msgstr ""
+
+msgid "wireless"
+msgstr ""
+
+msgid "unused1"
+msgstr ""
+
+msgid "unused2"
+msgstr ""
+
+msgid "bluetooth"
+msgstr ""
+
+msgid "olpc mesh"
+msgstr ""
+
+msgid "wimax"
+msgstr ""
+
+msgid "modem"
+msgstr ""
+
+msgid "infiniband"
+msgstr ""
+
+msgid "bond"
+msgstr ""
+
+msgid "vlan"
+msgstr ""
+
+msgid "adsl"
+msgstr ""
+
+msgid "bridge"
+msgstr ""
+
 msgid "Network Settings"
 msgstr ""
 
-#: ../modules/personalization/main.qml:67
 msgid "Theme"
 msgstr ""
 
-#: ../modules/personalization/main.qml:81
-msgid "Icon"
-msgstr ""
-
-#: ../modules/personalization/main.qml:88
-msgid "Cursor"
-msgstr ""
-
-#: ../modules/personalization/main.qml:95
-msgid "Wallpaper"
-msgstr ""
-
-#: ../modules/personalization/main.qml:102
-msgid "Fonts"
-msgstr ""
-
-#: ../modules/power/main.qml:59
-msgid "1 minute"
-msgstr ""
-
-#: ../modules/power/main.qml:60
-msgid "5 minutes"
-msgstr ""
-
-#: ../modules/power/main.qml:61
-msgid "10 minutes"
-msgstr ""
-
-#: ../modules/power/main.qml:62
-msgid "15 minutes"
-msgstr ""
-
-#: ../modules/power/main.qml:63
-msgid "30 minutes"
-msgstr ""
-
-#: ../modules/power/main.qml:64
-msgid "1 hour"
-msgstr ""
-
-#: ../modules/power/main.qml:53 ../modules/power/main.qml:65
-msgid "Never"
-msgstr ""
-
-#: ../modules/power/main.qml:124
-msgid "When I press the power button"
-msgstr ""
-
-#: ../modules/power/main.qml:138 ../modules/power/main.qml:184
-msgid "Shutdown"
-msgstr ""
-
-#: ../modules/power/main.qml:143 ../modules/power/main.qml:189
-#: ../modules/power/main.qml:253 ../modules/power/main.qml:259
-#: ../modules/power/main.qml:265 ../modules/power/main.qml:271
-#: ../modules/power/main.qml:358 ../modules/power/main.qml:426
-#: ../modules/power/main.qml:432 ../modules/power/main.qml:438
-#: ../modules/power/main.qml:444 ../modules/power/main.qml:532
-msgid "Suspend"
-msgstr ""
-
-#: ../modules/power/main.qml:148
-msgid "Ask"
-msgstr ""
-
-#: ../modules/power/main.qml:170
-msgid "When I close the lid"
-msgstr ""
-
-#: ../modules/power/main.qml:194
-msgid "Nothing"
-msgstr ""
-
-#: ../modules/power/main.qml:213
-msgid "Require password when computer wakes"
-msgstr ""
-
-#: ../modules/power/main.qml:235
-msgid "Power Adapter"
-msgstr ""
-
-#: ../modules/power/main.qml:250 ../modules/power/main.qml:423
-msgid "Balanced"
-msgstr ""
-
-#: ../modules/power/main.qml:252 ../modules/power/main.qml:258
-#: ../modules/power/main.qml:264 ../modules/power/main.qml:270
-#: ../modules/power/main.qml:318 ../modules/power/main.qml:425
-#: ../modules/power/main.qml:431 ../modules/power/main.qml:437
-#: ../modules/power/main.qml:443 ../modules/power/main.qml:492
-msgid "Turn off the display"
-msgstr ""
-
-#: ../modules/power/main.qml:256 ../modules/power/main.qml:429
-msgid "Power saver"
-msgstr ""
-
-#: ../modules/power/main.qml:262 ../modules/power/main.qml:435
-msgid "High performance"
-msgstr ""
-
-#: ../modules/power/main.qml:268 ../modules/power/main.qml:441
-#: ../modules/shortcuts/main.qml:31 ../modules/shortcuts/main.qml:205
-msgid "Custom"
-msgstr ""
-
-#: ../modules/power/main.qml:313 ../modules/power/main.qml:487
-msgid "Custom Options"
-msgstr ""
-
-#: ../modules/power/main.qml:408
-msgid "Battery"
-msgstr ""
-
-#: ../modules/shortcuts/main.qml:27
-msgid "System"
-msgstr ""
-
-#: ../modules/personalization/main.qml:74 ../modules/shortcuts/main.qml:29
 msgid "Window"
 msgstr ""
 
-#: ../modules/shortcuts/main.qml:30
+msgid "Icon"
+msgstr ""
+
+msgid "Cursor"
+msgstr ""
+
+msgid "Wallpaper"
+msgstr ""
+
+msgid "Fonts"
+msgstr ""
+
+msgid "Never"
+msgstr ""
+
+msgid "1 minute"
+msgstr ""
+
+msgid "5 minutes"
+msgstr ""
+
+msgid "10 minutes"
+msgstr ""
+
+msgid "15 minutes"
+msgstr ""
+
+msgid "30 minutes"
+msgstr ""
+
+msgid "1 hour"
+msgstr ""
+
+msgid "When I press the power button"
+msgstr ""
+
+msgid "Shutdown"
+msgstr ""
+
+msgid "Suspend"
+msgstr ""
+
+msgid "Ask"
+msgstr ""
+
+msgid "When I close the lid"
+msgstr ""
+
+msgid "Nothing"
+msgstr ""
+
+msgid "Require password when computer wakes"
+msgstr ""
+
+msgid "Power Adapter"
+msgstr ""
+
+msgid "Balanced"
+msgstr ""
+
+msgid "Turn off the display"
+msgstr ""
+
+msgid "Power saver"
+msgstr ""
+
+msgid "High performance"
+msgstr ""
+
+msgid "Custom"
+msgstr ""
+
+msgid "Custom Options"
+msgstr ""
+
+msgid "Battery"
+msgstr ""
+
+msgid "System"
+msgstr ""
+
 msgid "Workspace"
 msgstr ""
 
-#: ../modules/shortcuts/main.qml:91
 msgid "Shortcuts"
 msgstr ""
 
-#: ../modules/sound/main.qml:130
 msgid "Speaker"
 msgstr ""
 
-#: ../modules/sound/main.qml:160
 msgid "Output Volume"
 msgstr ""
 
-#: ../modules/sound/main.qml:204
 msgid "Balance"
 msgstr ""
 
-#: ../modules/sound/main.qml:224
+msgid "Left"
+msgstr ""
+
 msgid "Right"
 msgstr ""
 
-#: ../modules/sound/main.qml:256
 msgid "Microphone"
 msgstr ""
 
-#: ../modules/sound/main.qml:286
 msgid "Input Volume"
 msgstr ""
 
-#: ../modules/sound/main.qml:330
 msgid "Input Feedback"
 msgstr ""
 
-#: ../modules/sound/main.qml:366
 msgid "Output Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:383 ../modules/sound/main.qml:488
 msgid "No port exist in this device."
 msgstr ""
 
-#: ../modules/sound/main.qml:422
 msgid "Output device"
 msgstr ""
 
-#: ../modules/sound/main.qml:471
 msgid "Input Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:527
 msgid "Input device"
 msgstr ""
 
-#: ../modules/sound/main.qml:581
 msgid "Hide Advanced..."
 msgstr ""
 
-#: ../modules/sound/main.qml:581
 msgid "Show Advanced..."
 msgstr ""
 
-#: ../modules/system_info/main.qml:77
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
 msgstr ""
 
-#: ../modules/system_info/main.qml:83
 msgid "Deepin Edition"
 msgstr ""
 
-#: ../modules/system_info/main.qml:89
 msgid "System Type"
 msgstr ""
 
-#: ../modules/system_info/main.qml:90
 msgid "-bit"
 msgstr ""
 
-#: ../modules/system_info/main.qml:95
 msgid "Processor"
 msgstr ""
 
-#: ../modules/system_info/main.qml:101
 msgid "Memory"
 msgstr ""
 
-#: ../modules/system_info/main.qml:107
 msgid "Disk"
 msgstr ""
 
-#: ../modules/system_info/main.qml:126
 msgid "GNU GENERAL PUBLIC LICENSE"
 msgstr ""
