@@ -58,6 +58,11 @@ Item {
                 sourceComponent: null
                 visible: false
             }
+            PropertyChanges {
+                target: default_scrollbar
+                flickable: avatar_recently_used_view
+                visible: true
+            }            
         },
         State {
             name: "default"
@@ -81,6 +86,11 @@ Item {
                 sourceComponent: null
                 visible: false
             }
+            PropertyChanges {
+                target: default_scrollbar
+                flickable: avatar_default_view
+                visible: true
+            }            
         },
         State {
             name: "webcam"
@@ -104,6 +114,11 @@ Item {
                 sourceComponent: avatar_webcam_view
                 visible: true
             }
+            PropertyChanges {
+                target: default_scrollbar
+                flickable: avatar_default_view
+                visible: false
+            }            
         }
     ]
 
@@ -143,11 +158,6 @@ Item {
 
         anchors.top: radio_button.bottom
         anchors.topMargin: root_view.verticalPadding * 2
-    }
-
-    DScrollBar {
-        id: recently_used_scrollbar
-        flickable: avatar_recently_used_view
     }
 
     AvatarIconView {
