@@ -85,12 +85,12 @@ Item {
     property bool inPasswordInputting: false
 
     property bool inAllConnectionPage: stackView.depth == 1
-    property var allConnectionPage: ListConnections {}
+    property var allConnectionPage: ConnectionList {}
 
     property var stackViewPages: {
-        "allConnectionPage": Qt.resolvedUrl("ListConnections.qml"),
+        "allConnectionPage": Qt.resolvedUrl("ConnectionList.qml"),
         "infoPage": Qt.resolvedUrl("Info.qml"),
-        "connectionPropertiesPage": Qt.resolvedUrl("ConnectionProperties.qml"),
+        "connectionEditPage": Qt.resolvedUrl("ConnectionEdit.qml"),
         "addPageIndex": Qt.resolvedUrl("AddPageIndex.qml"),
         "newDslPage": Qt.resolvedUrl("dsl/NewDslPage.qml"),
         "newVpnPage": Qt.resolvedUrl("vpn/NewVpnPage.qml"),
@@ -119,7 +119,7 @@ Item {
     }
     
     function resetConnectionSession() {
-        if(stackView.currentItemId == "connectionPropertiesPage" || stackView.currentItem == "hiddenAp"){
+        if(stackView.currentItemId == "connectionEditPage" || stackView.currentItem == "hiddenAp"){
             stackView.currentItem.connectionSession.Close()
         }
     }

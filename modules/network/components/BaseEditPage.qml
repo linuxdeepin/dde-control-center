@@ -10,20 +10,20 @@ Column {
     property int contentLeftMargin: 18
 
     property var connectionSession
-    property var availableSections: connectionSession.availablePages
-    property var uuid: connectionSession.uuid
     property var connectionPath: connectionSession.connectionPath
+    property var uuid: connectionSession.uuid
+    property var availableSections: connectionSession.availablePages
 
-    function generalSetKey(section, key, value){
+    function generalSetKey(section, key, value) {
         connectionSession.SetKey(section, key, marshalJSON(value))
     }
 
-    function generalGetKey(section, key){
+    function generalGetKey(section, key) {
         return unmarshalJSON(connectionSession.GetKey(section, key))
     }
 
     function checkAllKeys() {
-        print("check all keys")
+        print("==> check all keys")
         for (var i=0; i<children.length; i++) {
             var objSection = children[i]
             if (objSection.objectName == "BaseEditSection" && objSection.visible) {

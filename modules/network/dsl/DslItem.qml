@@ -35,13 +35,13 @@ Item {
 
     function goToEditConnection(){
         stackView.push({
-            "item": stackViewPages["connectionPropertiesPage"],
+            "item": stackViewPages["connectionEditPage"],
             // TODO remove
             // "properties": { "uuid": infos.Uuid, "connectionPath": infos.Path, "devicePath": "/" },
             "properties": { "connectionSession": editConnection(infos.Uuid, "/")},
             "destroyOnPop": true
         })
-        stackView.currentItemId = "connectionPropertiesPage"
+        stackView.currentItemId = "connectionEditPage"
     }
 
     function getDevicePath(){

@@ -2,7 +2,7 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 import "components_autogen"
 
-BaseConnectionProperties {
+BaseConnectionEdit {
 
     ParallelAnimation {
         id: showDelete
@@ -144,8 +144,6 @@ BaseConnectionProperties {
                 anchors.verticalCenter: parent.verticalCenter
                 text: dsTr("Cancel")
                 onClicked: {
-                    //connectionSession.Close()
-                    //stackView.reset()
                     cancelDelete.restart()
                     deleteSettingLine.inDeleteSetting = false
                 }

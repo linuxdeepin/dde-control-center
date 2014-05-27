@@ -77,11 +77,11 @@ Column {
                     stackView.currentItemId = "newDslPage"
                     // TODO
                     //stackView.push({
-                        //"item": stackViewPages["connectionPropertiesPage"],
+                        //"item": stackViewPages["connectionEditPage"],
                         //"properties": { "connectionSession": createaConnection(nmConnectionTypePppoe, "/")},
                         //"destroyOnPop": true
                     //})
-                    //stackView.currentItemId = "connectionPropertiesPage"
+                    //stackView.currentItemId = "connectionEditPage"
                 }
                 else if(typeList.selectItemId == "vpn"){
                     stackView.push(stackViewPages["newVpnPage"])
