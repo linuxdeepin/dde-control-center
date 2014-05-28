@@ -107,6 +107,7 @@ DockApplet{
                 height: weekTitleHeight
                 cellWidth: itemWidth
                 cellHeight: weekTitleHeight
+                boundsBehavior: Flickable.StopAtBounds
                 model: ListModel {id: weekTitleModel}
                 delegate: WeekTitleItem{}
                 currentIndex: globalDate.getDay()
@@ -131,6 +132,7 @@ DockApplet{
                 cellHeight: itemHeight
                 model: ListModel { id: datesModel }
                 delegate: DateItem {}
+                boundsBehavior: Flickable.StopAtBounds
                 focus: true
 
                 function initDates(date_str) {
