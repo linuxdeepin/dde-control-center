@@ -26,7 +26,7 @@ QtObject {
         init_applet_list_model()
 
         // just start dde control center
-        dbusControlCenter.isNetworkCanShowPassword()
+        // dbusControlCenter.isNetworkCanShowPassword()
     }
 
     signal appletInfosChanged

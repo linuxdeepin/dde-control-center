@@ -19,6 +19,18 @@ DockApplet {
     width: 260;
     height: 30
 
+    property var planNames: {
+        0: dsTr("Custom"),
+        1: dsTr("Power saver"),
+        2: dsTr("Balanced"),
+        3: dsTr("High performance")
+    }
+    property int currentPlan: dbusPower.onBattery ? dbusPower.batteryPlan : dbusPower.linePowerPlan
+
+    onCurrentPlanChanged: {
+        menu.updateMenu()
+    }
+
     function showPower(id){
         dbusControlCenter.ShowModule("power")
     }
@@ -38,15 +50,31 @@ DockApplet {
         print(id)
     }
 
-    menu: Menu{
+    menu: Menu {
+        property var menuIds: new Array()
+
+        function updateMenu(){
+            for(var i in menuIds){
+                var checked = false
+                if(currentPlan == i){
+                    checked = true
+                }
+                var content_obj = unmarshalJSON(content)
+                content_obj.items[menuIds[i]].checked = checked
+                content = marshalJSON(content_obj)
+            }
+        }
+
         Component.onCompleted: {
-            addItem("_Run", showPower);
+            addItem(dsTr("_Run"), showPower);
             addItem("", do_nothing);
-            addCheckboxItem("power_plan", dsTr("Balanced"), changePowerPlan);
-            addCheckboxItem("power_plan", dsTr("Power saver"), changePowerPlan);
-            addCheckboxItem("power_plan", dsTr("High performance"), changePowerPlan);
+            for(var i in planNames){
+                var menuId = addCheckboxItem("power_plan", planNames[i], changePowerPlan);
+                menuIds.push(menuId);
+            }
             addItem("", do_nothing);
-            addItem("_Undock", hidePower);
+            addItem(dsTr("_Undock"), hidePower);
+            updateMenu()
         }
     }
 

@@ -2,30 +2,48 @@ import QtQuick 2.0
 import Deepin.DockApplet 1.0
 
 DockMenu {
-    content: JSON.stringify(menuContent)
+    content: getMenuContent()
     onActivate: {
         if(actionDict[id]){
             actionDict[id](id);
         }
     }
 
-    property var menuContent: new Object()
+    function marshalJSON(value) {
+        var valueJSON = JSON.stringify(value);
+        return valueJSON
+    }
+    
+    function unmarshalJSON(valueJSON) {
+        var value = JSON.parse(valueJSON)
+        return value
+    }
 
-    property var menuItems: new Array()
+    property string menuItems: getMenuItems()
     property var actionDict: new Object()
+
+    function getMenuItems(){
+        var a = new Array()
+        return marshalJSON(a)
+    }
+
+    function getMenuContent(){
+        var menuContent = {
+            "checkableMenu": false,
+            "singleCheck": false,
+            "items": unmarshalJSON(menuItems)
+        }
+        return marshalJSON(menuContent)
+    }
 
     function generateId(){
         return Object.keys(actionDict).length
     }
 
     function addCheckboxItem(groupName, name, callback){
-        if(name != ""){
-            var item_id = generateId();
-            actionDict[item_id] = callback;
-        }
-        else{
-            item_id = "-1";
-        }
+        var item_id = generateId();
+        actionDict[item_id] = callback;
+
         var menuItem = {
             "itemText": name,
             "itemId": groupName + ":radio:" + item_id,
@@ -43,23 +61,16 @@ DockMenu {
                 ]
             }
         };
-        menuItems.push(menuItem);
-        menuContent = {
-            "checkableMenu": false,
-            "singleCheck": false,
-            "items": menuItems
-        }
+        var menuItems_obj = unmarshalJSON(menuItems)
+        menuItems_obj.push(menuItem);
+        menuItems = marshalJSON(menuItems_obj)
         return item_id
     }
 
     function addItem(name, callback){
-        if(name != ""){
-            var item_id = generateId();
-            actionDict[item_id] = callback;
-        }
-        else{
-            item_id = "-1";
-        }
+        var item_id = generateId();
+        actionDict[item_id] = callback;
+
         var menuItem = {
             "itemText": name,
             "itemId": item_id,
@@ -77,12 +88,9 @@ DockMenu {
                 ]
             }
         };
-        menuItems.push(menuItem);
-        menuContent = {
-            "checkableMenu": false,
-            "singleCheck": false,
-            "items": menuItems
-        }
+        var menuItems_obj = unmarshalJSON(menuItems)
+        menuItems_obj.push(menuItem)
+        menuItems = marshalJSON(menuItems_obj)
         return item_id
     }
 }

@@ -14,7 +14,12 @@ DockApplet{
     //icon: "digital" // analog
     icon: "vcalendar" // analog
 
-    Component.onCompleted: setData("clockType", "digital")
+    Component.onCompleted: setData("clockType", currentClockType)
+
+    property string currentClockType: "digital"
+    onCurrentClockTypeChanged: {
+        setData("clockType", currentClockType)
+    }
 
     property int xEdgePadding: 18
     property int rootWidth: 260
@@ -33,6 +38,11 @@ DockApplet{
         showDateTime(0)
     }
 
+    property var typeNames: {
+        "digital": dsTr("_Switch to analog"),
+        "analog": dsTr("_Switch to digital")
+    }
+
     function showDateTime(id){
         dbusControlCenter.ShowModule("date_time")
     }
@@ -41,10 +51,23 @@ DockApplet{
         set_hide_applet("date_time")
     }
 
+    function switchClockType(id){
+        if(currentClockType == "digital"){
+            currentClockType = "analog"
+        }
+        else{
+            currentClockType = "digital"
+        }
+        var content_obj = unmarshalJSON(menu.content)
+        content_obj.menuItems[id].itemText = typeNames[currentClockType]
+        menu.content = marshalJSON(content_obj)
+        print(id, currentClockType)
+    }
+
     menu: Menu{
         Component.onCompleted: {
             addItem(dsTr("_Run"), showDateTime);
-            addItem(dsTr("_Undock"), hideDateTime);
+            addItem(typeNames[currentClockType], switchClockType);
         }
     }
 
