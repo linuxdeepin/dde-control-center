@@ -3,7 +3,7 @@ import Deepin.Widgets 1.0
 
 Item {
     id: diskItem
-    width: 280
+    width: 224
     height: 68
 
     property var diskInfo: mountDiskList[index]
@@ -12,6 +12,30 @@ Item {
     //Component.onCompleted: {
         //print(JSON.stringify(diskInfo))
     //}
+
+    Connections {
+        target: dbusDiskMount
+        onError: {
+            if(arg0 == diskInfo[7]){
+                showError()
+            }
+        }
+    }
+
+    function showError(){
+        unmountFailedInfo.visible = true
+        sizeInfo.visible = false
+        hideErrorTimer.restart()
+    }
+
+    Timer {
+        id: hideErrorTimer
+        interval: 1000
+        onTriggered: {
+            unmountFailedInfo.visible = false
+            sizeInfo.visible = true
+        }
+    }
 
     Item {
         width: parent.width - xEdgePadding * 2
@@ -61,6 +85,7 @@ Item {
                     height: childrenRect.height
 
                     DssH2 {
+                        id: sizeInfo
                         text: "%1/%2".arg(bitToHuman(parseInt(diskInfo[4]))).arg(bitToHuman(parseInt(diskInfo[5])))
                         font.pixelSize: 11
                     }
@@ -73,15 +98,6 @@ Item {
                         color: dconstants.tuhaoColor
                         text: dsTr("Unmount failed!")
                         visible: false
-
-                        Connections {
-                            target: dbusDiskMount
-                            onError: {
-                                if(arg0 == diskInfo[7]){
-                                    unmountFailedInfo.visible = true
-                                }
-                            }
-                        }
                     }
 
                     DOpacityImageButton {

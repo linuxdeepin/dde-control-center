@@ -14,8 +14,6 @@ DockApplet{
     //icon: "digital" // analog
     icon: "vcalendar" // analog
 
-    Component.onCompleted: setData("clockType", currentClockType)
-
     property string currentClockType: "digital"
     onCurrentClockTypeChanged: {
         setData("clockType", currentClockType)
@@ -33,6 +31,13 @@ DockApplet{
         }
     }
     property var dbusLunarCalendar: LunarCalendar {}
+
+    Component.onCompleted: {
+        setData("clockType", currentClockType)
+        //var info = dbusLunarCalendar.GetLunarMonthCalendar(2014, 6, 2)
+        //print(JSON.stringify(info))
+        //print(info[0][2].length)
+    }
 
     onActivate: {
         showDateTime(0)

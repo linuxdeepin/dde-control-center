@@ -4,26 +4,108 @@ import Deepin.DockApplet 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Network 1.0
 import DBus.Com.Deepin.Daemon.Bluetooth 1.0
+import DBus.Com.Deepin.Api.Graphic 1.0
 import "../widgets/"
 
 DockApplet{
     title: "Network"
     appid: "AppletNetwork"
-    icon: iconPath
+    icon: getIcon()
 
     property var dconstants: DConstants {}
+    property var activeConnections: unmarshalJSON(dbusNetwork.activeConnections)
+
+    // Graphic
+    property var dbusGraphic: Graphic {}
+    property string iconBgDataUri: {
+        if(dbusNetwork.state == 70){
+            var path = "network/network_on.png"
+        }
+        else{
+            var path = "network/network_off.png"
+        }
+        return getIconDataUri(path)
+    }
+    property var subImageList: ListModel{
+        function getTypeIndex(type){
+            for(var i=0; i<subImageList.count; i++){
+                var imageInfo = subImageList.get(i)
+                if(imageInfo.type == type){
+                    return i
+                }
+            }
+            return -1
+
+        }
+    }
+
+    function getIcon(){
+        var iconDataUri = iconBgDataUri
+        for(var i=0; i<subImageList.count; i++){
+            var imageInfo = subImageList.get(i)
+            iconDataUri = dbusGraphic.CompositeImageUri(
+                iconDataUri, 
+                getIconDataUri(imageInfo.imagePath),
+                imageInfo.x,
+                imageInfo.y,
+                "png"
+            )
+        }
+        print("==> [info] network icon update...")
+        return iconDataUri
+    }
+
+    function getIconDataUri(path){
+        return dbusGraphic.ConvertImageToDataUri(getIconUrl(path).split("://")[1])
+    }
 
     // vpn
     property var nmConnections: unmarshalJSON(dbusNetwork.connections)
     property var vpnConnections: nmConnections["vpn"]
     property var activeDevice: getActiveDevice()
+    property int activeVpnIndex: {
+        for(var i in activeConnections){
+            if(activeConnections[i].Vpn){
+                return i
+            }
+        }
+        return -1
+    }
 
+    onActiveVpnIndexChanged: {
+        updateVpnState()
+    }
     onVpnConnectionsChanged: {
+        updateVpnState()
+    }
+
+    function updateVpnState(){
+        var vpnTypeIndex = subImageList.getTypeIndex("vpn")
         if(vpnConnections){
-            print("VPN number:",vpnConnections.length)
+            var vpnImagePath = "network/vpn_"
+            if(activeVpnIndex != -1){
+                vpnImagePath += "on.png"
+            }
+            else{
+                vpnImagePath += "off.png"
+            }
+            if(vpnTypeIndex == -1){
+                subImageList.append({
+                    "type": "vpn",
+                    "imagePath": vpnImagePath,
+                    "x": 6,
+                    "y": 6
+                })
+            }
+            else{
+                var vpnImageInfo = subImageList.get(vpnTypeIndex)
+                vpnImageInfo.imagePath = vpnImagePath
+            }
         }
         else{
-            print("No VPN Connections...")
+            if(vpnTypeIndex != -1){
+                subImageList.remove(vpnTypeIndex)
+            }
         }
     }
 
@@ -31,39 +113,7 @@ DockApplet{
     property var dbusBluetooth: Bluetooth {}
     property var adapters: dbusBluetooth.adapters ? unmarshalJSON(dbusBluetooth.adapters) : ""
 
-    property int xEdgePadding: 18
-
-
-    property url iconPath: {
-        if(activeDevice){
-            var accessPoints = unmarshalJSON(dbusNetwork.GetAccessPoints(activeDevice.Path))
-            for(var i in accessPoints){
-                var apObj = accessPoints[i]
-                if(apObj.Path == activeDevice.ActiveAp){
-                    var power = apObj.Strength
-                    var step = 100
-                    if(power <= 5){
-                        step = 0
-                    }
-                    else if(power <= 25){
-                        step = 25
-                    }
-                    else if(power <= 50){
-                        step = 50
-                    }
-                    else if(power <= 75){
-                        step = 75
-                    }
-                    else if(power <= 100){
-                        step = 100
-                    }
-                    return getIconUrl("network/wifi-%1.png".arg(step))
-                }
-            }
-        }
-
-        return getIconUrl("network/wifi-0.png")
-    }
+    property int xEdgePadding: 10
 
     function getActiveDevice(){
         for(var i in wirelessDevices){
@@ -181,8 +231,7 @@ DockApplet{
                         visible: vpnConnections ? vpnConnections.length > 0 : false
                         onImage: "images/vpn_on.png"
                         offImage: "images/vpn_off.png"
-                        property var activeConnections: dbusNetwork.ActiveConnections
-                        property bool vpnActive: getVpnActivated() != -1
+                        property bool vpnActive: activeVpnIndex != -1
 
                         onVpnActiveChanged: {
                             if(!vpnButton.pressed){
@@ -190,19 +239,9 @@ DockApplet{
                             }
                         }
 
-                        function getVpnActivated(){
-                            for(var i in activeConnections){
-                                if(activeConnections[i].Vpn){
-                                    return i
-                                }
-                            }
-                            return -1
-                        }
-
                         function deactiveVpn(){
-                            var index = getVpnActivated()
-                            if(index != -1){
-                                var uuid = activeConnections[i].Uuid
+                            if(activeVpnIndex != -1){
+                                var uuid = activeConnections[activeVpnIndex].Uuid
                                 dbusNetwork.DeactivateConnection(uuid)
                             }
                         }

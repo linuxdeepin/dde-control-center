@@ -13,6 +13,9 @@ Item {
 
     property var lunarDayInfo: dbusLunarCalendar.GetLunarInfoBySolar(parseInt(dateValueArray[0]), parseInt(dateValueArray[1]), parseInt(dateValueArray[2]))
     property var hasFestival: lunarDayInfo[1] && (lunarDayInfo[0][8] || lunarDayInfo[0][9])
+    Component.onCompleted: {
+        //print(JSON.stringify(lunarDayInfo[0]))
+    }
 
     Item {
         id: content
@@ -45,7 +48,18 @@ Item {
 
             font.pixelSize: 10
             color: isGrey ? "#4a3801": "#94771f"
-            text: lunarDayInfo[0][4]
+            text: {
+                var info = lunarDayInfo[0]
+                if(info[7]){
+                    return info[7]
+                }
+                else if(info[4] == "初一"){
+                    return info[3]
+                }
+                else{
+                    return info[4]
+                }
+            }
             visible: false
 
             Component.onCompleted: {
