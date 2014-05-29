@@ -11,7 +11,6 @@ DockApplet{
     id: datetimeApplet
     title: "Date and Time"
     appid: "AppletDateTime"
-    //icon: "digital" // analog
     icon: "vcalendar" // analog
 
     property string currentClockType: "digital"
@@ -34,9 +33,6 @@ DockApplet{
 
     Component.onCompleted: {
         setData("clockType", currentClockType)
-        //var info = dbusLunarCalendar.GetLunarMonthCalendar(2014, 6, 2)
-        //print(JSON.stringify(info))
-        //print(info[0][2].length)
     }
 
     onActivate: {
@@ -104,7 +100,6 @@ DockApplet{
                 DssH2 {
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
-                    color: "#fcdd51"
                     visible: false
                     text: {
                         var info = dbusLunarCalendar.GetLunarInfoBySolar(
@@ -179,6 +174,11 @@ DockApplet{
                     initDates(date_str)
                 }
 
+            }
+
+            Item {
+                width: parent.width
+                height: (rootWidth - parent.width)/2
             }
 
         }

@@ -38,7 +38,7 @@ Item {
             anchors.horizontalCenter: parent.horizontalCenter
             font.pixelSize: 12
             text: dayText
-            color: isGrey ? "#4f4f4f": "#fff"
+            color: isGrey ? "#4f4f4f": dconstants.fgColor
         }
 
         DssH3 {
@@ -47,7 +47,7 @@ Item {
             anchors.horizontalCenter: parent.horizontalCenter
 
             font.pixelSize: 10
-            color: isGrey ? "#4a3801": "#94771f"
+            color: isGrey ? "#4f4f4f": dconstants.fgColor
             text: {
                 var info = lunarDayInfo[0]
                 if(info[7]){
