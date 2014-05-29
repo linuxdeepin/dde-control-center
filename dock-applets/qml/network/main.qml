@@ -81,7 +81,8 @@ DockApplet{
 
     function updateVpnState(){
         var vpnTypeIndex = subImageList.getTypeIndex("vpn")
-        if(vpnConnections){
+        print("VPN number:", vpnConnections.length)
+        if(vpnConnections.length > 0){
             var vpnImagePath = "network/vpn_"
             if(activeVpnIndex != -1){
                 vpnImagePath += "on.png"
