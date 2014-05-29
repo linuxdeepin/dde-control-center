@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-27 10:29+0800\n"
+"POT-Creation-Date: 2014-05-29 18:11+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -565,6 +565,9 @@ msgstr ""
 msgid "DeviceSpeed"
 msgstr "裝置速度"
 
+msgid "Language"
+msgstr ""
+
 msgid "Do you want to keep these display settings?"
 msgstr ""
 
@@ -926,15 +929,6 @@ msgstr "預設應用程式"
 msgid "ON/OFF"
 msgstr "開/關"
 
-msgid "Visible"
-msgstr "可見"
-
-msgid "Invisible"
-msgstr "不可見"
-
-msgid "Device name"
-msgstr "裝置名稱"
-
 msgid "Devices nearby"
 msgstr "附近的裝置"
 
@@ -1255,6 +1249,21 @@ msgstr "硬碟"
 
 msgid "GNU GENERAL PUBLIC LICENSE"
 msgstr ""
+
+msgid "_Switch to analog"
+msgstr ""
+
+msgid "_Switch to digital"
+msgstr ""
+
+#~ msgid "Visible"
+#~ msgstr "可見"
+
+#~ msgid "Invisible"
+#~ msgstr "不可見"
+
+#~ msgid "Device name"
+#~ msgstr "裝置名稱"
 
 #, fuzzy
 #~ msgid "User Group"

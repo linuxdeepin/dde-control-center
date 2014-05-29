@@ -96,7 +96,7 @@
     </message>
 </context>
 <context>
-    <name>ConnectionProperties</name>
+    <name>ConnectionEdit</name>
     <message>
         <source>Are you sure to delete this network?</source>
         <translation type="unfinished"></translation>
@@ -1138,6 +1138,13 @@
     </message>
 </context>
 <context>
+    <name>LocaleArea</name>
+    <message>
+        <source>Language</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MessageBox</name>
     <message>
         <source>Do you want to keep these display settings?</source>
@@ -1897,18 +1904,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Visible</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Invisible</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Device name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Devices nearby</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2386,6 +2381,14 @@
     </message>
     <message>
         <source>GNU GENERAL PUBLIC LICENSE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>_Switch to analog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>_Switch to digital</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

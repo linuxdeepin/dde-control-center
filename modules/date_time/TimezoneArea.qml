@@ -1,6 +1,5 @@
 import QtQuick 2.1
 import Deepin.Widgets 1.0
-import DBus.Com.Deepin.Api.Search 1.0
 import "../shared/"
 
 Column {
@@ -24,8 +23,7 @@ Column {
 
     property var timezoneCityDict: gDate.TimezoneCityList()
     property var userTimezoneList: gDate.userTimezoneList
-    property var searchId: Search {}
-    property string searchMd5: searchId.NewTrieWithString(timezoneCityDict, "deepin-system-settings-timezone")
+    property string searchMd5: dbusSearch.NewTrieWithString(timezoneCityDict, "deepin-system-settings-timezone")
 
     property int listAreaMaxHeight
 
@@ -137,7 +135,7 @@ Column {
             id: searchBox
             width: parent.width
             height: 28
-            color: dconstants.bgColor
+            color: dconstants.contentBgColor
 
             DSearchInput {
                 id: searchInput
@@ -163,7 +161,7 @@ Column {
 
             function fillModel(s){
                 selectedItemDict = new Object()
-                var searchResult = searchId.SearchKeys(s, searchMd5)
+                var searchResult = dbusSearch.SearchKeys(s, searchMd5)
                 var toSortResult = new Array()
                 for(var i=0; i<searchResult.length; i++){
                     var timezoneValue = searchResult[i]
