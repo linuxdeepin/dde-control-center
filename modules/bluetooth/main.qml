@@ -80,64 +80,63 @@ Column {
 
     DSeparatorHorizontal {}
 
-    DBaseLine {
-        id: discoverable_line
-        height: 38
-        visible: dbus_bluetooth.powered
-        property string timeHint: ""
-        leftLoader.sourceComponent: TextWithHint {
-            text: "ShowDevice"
-            hint: discoverable_line.timeHint
-            textColor: dconstants.fgColor
-            hintColor: dconstants.fgDarkColor
-        }
-        rightLoader.sourceComponent: DRadioButton {
-            buttonModel: [
-                {"buttonId": "visible", "buttonLabel": dsTr("Visible")},
-                {"buttonId": "invisible", "buttonLabel": dsTr("Invisible")},
-            ]
+    /* DBaseLine { */
+    /*     id: discoverable_line */
+    /*     height: 38 */
+    /*     visible: dbus_bluetooth.powered */
+    /*     property string timeHint: "" */
+    /*     leftLoader.sourceComponent: TextWithHint { */
+    /*         text: "ShowDevice" */
+    /*         hint: discoverable_line.timeHint */
+    /*         textColor: dconstants.fgColor */
+    /*         hintColor: dconstants.fgDarkColor */
+    /*     } */
+    /*     rightLoader.sourceComponent: DRadioButton { */
+    /*         buttonModel: [ */
+    /*             {"buttonId": "visible", "buttonLabel": dsTr("Visible")}, */
+    /*             {"buttonId": "invisible", "buttonLabel": dsTr("Invisible")}, */
+    /*         ] */
 
-            initializeIndex: dbus_bluetooth.discoverable ? 0 : 1
+    /*         initializeIndex: dbus_bluetooth.discoverable ? 0 : 1 */
 
-            onItemSelected: {
-                if (idx == 0) {
-                    dbus_bluetooth.discoverable = true
-                    dbus_bluetooth.discoverableTimeout = 120
-                    discoverable_timer.restart()
-                }
-            }
+    /*         onItemSelected: { */
+    /*             if (idx == 0) { */
+    /*                 dbus_bluetooth.discoverable = true */
+    /*                 dbus_bluetooth.discoverableTimeout = 120 */
+    /*                 discoverable_timer.restart() */
+    /*             } */
+    /*         } */
             
-            Component.onCompleted: dbus_bluetooth.discoverable = false
-        }
-    }
+    /*         Component.onCompleted: dbus_bluetooth.discoverable = false */
+    /*     } */
+    /* } */
 
-    DSeparatorHorizontal { visible: dbus_bluetooth.powered }
+    /* DSeparatorHorizontal { visible: dbus_bluetooth.powered } */
 
-    DBaseLine {
-        height: 38
-        visible: dbus_bluetooth.powered        
-        leftLoader.sourceComponent: DssH2 {
-            text: dsTr("Device name")
-        }
-        rightLoader.sourceComponent: DTextInput {
-            text: dbus_bluetooth.alias
+    /* DBaseLine { */
+    /*     height: 38 */
+    /*     visible: dbus_bluetooth.powered         */
+    /*     leftLoader.sourceComponent: DssH2 { */
+    /*         text: dsTr("Device name") */
+    /*     } */
+    /*     rightLoader.sourceComponent: DTextInput { */
+    /*         text: dbus_bluetooth.alias */
 
-            onTextChanged: {
-                dbus_bluetooth.alias = text
-            }
-        }
-    }
+    /*         onTextChanged: { */
+    /*             dbus_bluetooth.alias = text */
+    /*         } */
+    /*     } */
+    /* } */
 
-    DSeparatorHorizontal { visible: dbus_bluetooth.powered }
+    /* DSeparatorHorizontal { visible: dbus_bluetooth.powered } */
 
     DBaseExpand {
-        visible: dbus_bluetooth.powered        
+       visible: dbus_bluetooth.powered        
         header.sourceComponent: DBaseLine {
             leftLoader.sourceComponent: DssH2 {
                 text: dsTr("Devices nearby")
             }
-            rightLoader.sourceComponent: RefreshButton {
-            }
+            rightLoader.sourceComponent: RefreshButton {}
         }
     }
     
@@ -170,15 +169,4 @@ Column {
     }
 
     DSeparatorHorizontal { visible: dbus_bluetooth.powered }
-
-    /* DBaseExpand { */
-    /*     id: recently_expand */
-
-    /*     header.sourceComponent: DDownArrowHeader { */
-    /*         text: dsTr("Recently connected devices") */
-    /*         onActiveChanged: recently_expand.expanded = active */
-    /*     } */
-    /* } */
-
-    /* DSeparatorHorizontal {} */
 }

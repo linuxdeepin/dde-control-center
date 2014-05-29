@@ -85,25 +85,42 @@ Item {
     property bool inPasswordInputting: false
 
     property bool inAllConnectionPage: stackView.depth == 1
-    property var allConnectionPage: ListConnections {}
+    property var allConnectionPage: ConnectionList {}
 
     property var stackViewPages: {
-        "allConnectionPage": Qt.resolvedUrl("ListConnections.qml"),
+        "allConnectionPage": Qt.resolvedUrl("ConnectionList.qml"),
         "infoPage": Qt.resolvedUrl("Info.qml"),
-        "connectionPropertiesPage": Qt.resolvedUrl("ConnectionProperties.qml"),
+        "connectionEditPage": Qt.resolvedUrl("ConnectionEdit.qml"),
         "addPageIndex": Qt.resolvedUrl("AddPageIndex.qml"),
         "newDslPage": Qt.resolvedUrl("dsl/NewDslPage.qml"),
         "newVpnPage": Qt.resolvedUrl("vpn/NewVpnPage.qml"),
         "hiddenAp": Qt.resolvedUrl("HiddenAp.qml"),
         "wifiHotspot": Qt.resolvedUrl("WifiHotspot.qml"),
-        // TODO remove
-        // "wirelessPropertiesPage": Qt.resolvedUrl("WirelessProperties.qml"),
-        // "wiredPropertiesPage": Qt.resolvedUrl("WiredProperties.qml")
     }
 
+    Component {
+        id: connectionSessionBuilder
+        ConnectionSession {}
+    }
+    
+    function createConnection(type, devicePath) {
+        var connectionPath = dbusNetwork.CreateConnection(type, devicePath)
+        return connectionSessionBuilder.createObject(null, { path: connectionPath })
+    }
+    
+    function createConnectionForAccessPoint(apPath, devicePath) {
+        var connectionPath = dbusNetwork.CreateConnectionForAccessPoint(apPath, devicePath)
+        return connectionSessionBuilder.createObject(null, { path: connectionPath })
+    }
+    
+    function editConnection(uuid, devicePath) {
+        var connectionPath = dbusNetwork.EditConnection(uuid, devicePath)
+        return connectionSessionBuilder.createObject(null, { path: connectionPath })
+    }
+    
     function resetConnectionSession() {
-        if(stackView.currentItemId == "connectionPropertiesPage" || stackView.currentItem == "hiddenAp"){
-            stackView.currentItem.connectionSessionObject.Close()
+        if(stackView.currentItemId == "connectionEditPage" || stackView.currentItem == "hiddenAp"){
+            stackView.currentItem.connectionSession.Close()
         }
     }
 
@@ -200,11 +217,6 @@ Item {
         }
     }
 
-    Component {
-        id: connectionSession
-        ConnectionSession {}
-    }
-
     DssTitle {
         id: header
         text: dsTr("Network Settings")
@@ -226,15 +238,6 @@ Item {
                     stackView.push(stackViewPages["addPageIndex"])
                     stackView.currentItemId = "addPageIndex"
                 }
-
-                //function goToCreateConnection(type){
-                    //stackView.push({
-                        //"item": stackViewPages["connectionPropertiesPage"],
-                        //"properties": { "create": true, "type":  type},
-                        //"destroyOnPop": true
-                    //})
-                    //stackView.currentItemId = "connectionPropertiesPage"
-                //}
             }
 
             DTextButton {

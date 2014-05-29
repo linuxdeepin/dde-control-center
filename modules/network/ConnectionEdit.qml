@@ -1,8 +1,8 @@
 import QtQuick 2.1
 import Deepin.Widgets 1.0
-import "components_autogen"
+import "edit_autogen"
 
-BaseConnectionProperties {
+BaseConnectionEdit {
 
     ParallelAnimation {
         id: showDelete
@@ -38,7 +38,7 @@ BaseConnectionProperties {
 
     Column {
         width: parent.width
-        visible: uuid != ""
+        visible: connectionPath !== undefined
         DBaseLine {
             id: deleteSettingLine
             color: dconstants.contentBgColor
@@ -101,7 +101,7 @@ BaseConnectionProperties {
                 text: dsTr("Save")
                 onClicked: {
                     checkAllKeys()
-                    if (connectionSessionObject.Save()) {
+                    if (connectionSession.Save()) {
                         stackView.reset()
                     }
                 }
@@ -112,7 +112,7 @@ BaseConnectionProperties {
                 text: dsTr("Close")
                 onClicked: {
                     stackView.reset()
-                    connectionSessionObject.Close()
+                    connectionSession.Close()
                 }
             }
 
@@ -132,11 +132,11 @@ BaseConnectionProperties {
                 anchors.verticalCenter: parent.verticalCenter
                 text: dsTr("Delete")
                 onClicked: {
-                    if(uuid){
+                    stackView.reset()
+                    connectionSession.Close()
+                    if (connectionPath) {
                         dbusNetwork.DeleteConnection(uuid)
                     }
-                    connectionSessionObject.Close()
-                    stackView.reset()
                 }
             }
 
@@ -144,8 +144,6 @@ BaseConnectionProperties {
                 anchors.verticalCenter: parent.verticalCenter
                 text: dsTr("Cancel")
                 onClicked: {
-                    //connectionSessionObject.Close()
-                    //stackView.reset()
                     cancelDelete.restart()
                     deleteSettingLine.inDeleteSetting = false
                 }

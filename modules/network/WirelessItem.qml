@@ -76,20 +76,20 @@ Item {
 
     function goToEditConnection(){
         stackView.push({
-            "item": stackViewPages["connectionPropertiesPage"],
-            "properties": { "uuid": wirelessItem.uuid, "devicePath": wirelessItem.devicePath },
+            "item": stackViewPages["connectionEditPage"],
+            "properties": { "connectionSession": editConnection(uuid, wirelessItem.devicePath)},
             "destroyOnPop": true
         })
-        stackView.currentItemId = "connectionPropertiesPage"
+        stackView.currentItemId = "connectionEditPage"
     }
 
     function goToCreateConnection(){
         stackView.push({
-            "item": stackViewPages["connectionPropertiesPage"],
-            "properties": { "createForAp": true, "apPath": apPath, "devPath": wirelessItem.devicePath},
+            "item": stackViewPages["connectionEditPage"],
+            "properties": { "connectionSession": createConnectionForAccessPoint(apPath, wirelessItem.devicePath)},
             "destroyOnPop": true
         })
-        stackView.currentItemId = "connectionPropertiesPage"
+        stackView.currentItemId = "connectionEditPage"
     }
     
     DBaseLine {

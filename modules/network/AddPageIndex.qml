@@ -75,12 +75,13 @@ Column {
                 if(typeList.selectItemId == "pppoe"){
                     stackView.push(stackViewPages["newDslPage"])
                     stackView.currentItemId = "newDslPage"
+                    // TODO
                     //stackView.push({
-                        //"item": stackViewPages["connectionPropertiesPage"],
-                        //"properties": { "create": true, "type":  nmConnectionTypePppoe},
+                        //"item": stackViewPages["connectionEditPage"],
+                        //"properties": { "connectionSession": createaConnection(nmConnectionTypePppoe, "/")},
                         //"destroyOnPop": true
                     //})
-                    //stackView.currentItemId = "connectionPropertiesPage"
+                    //stackView.currentItemId = "connectionEditPage"
                 }
                 else if(typeList.selectItemId == "vpn"){
                     stackView.push(stackViewPages["newVpnPage"])

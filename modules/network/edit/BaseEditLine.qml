@@ -72,7 +72,7 @@ DBaseLine {
     }
     
     function setKey() {
-        print("BaseEditLine.setKey", section, key, value) // TODO test
+        print("-> BaseEditLine.setKey()", section, key, value) // TODO test
         generalSetKey(section, key, value)
         updateKeysAlways()
     }
@@ -83,7 +83,7 @@ DBaseLine {
     
     function updateValue() {
         value = getKey()
-        print("-> updateValue()", section, key, value)
+        print("-> updateValue()", section, key, value) // TODO test
     }
     
     function isKeyAvailable() {
@@ -98,7 +98,7 @@ DBaseLine {
     }
     
     function getAvailableValues() {
-        var valuesJSON = connectionSessionObject.GetAvailableValues(section, key);
+        var valuesJSON = connectionSession.GetAvailableValues(section, key);
         var values = unmarshalJSON(valuesJSON)
         return values
     }

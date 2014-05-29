@@ -154,7 +154,7 @@ Column {
 
     function createVpn(box){
         var connectionPath = dbusNetwork.CreateConnection(typeList.selectVpnType, "/")
-        var sessionObject = connectionSession.createObject(rootPage, { path: connectionPath })
+        var sessionObject = connectionSessionBuilder.createObject(rootPage, { path: connectionPath })
         box.setDefaultKeys(sessionObject)
         for(var i=0; i<box.children.length; i++){
             var objLine = box.children[i]
@@ -165,13 +165,13 @@ Column {
             }
         }
         var ok = true
-        for(var i in sessionObject.availablePages){
-            var pageName = sessionObject.availablePages[i]
+        for(var i in sessionObject.availableSections){
+            var pageName = sessionObject.availableSections[i]
             ok = !sessionObject.errors[pageName] && ok
         }
         if(!sessionObject.Save()){
-            for(var i in sessionObject.availablePages){
-                var pageName = sessionObject.availablePages[i]
+            for(var i in sessionObject.availableSections){
+                var pageName = sessionObject.availableSections[i]
                 var error_info = sessionObject.errors[pageName]
                 for(var key in error_info){
                     print("Error:", pageName, key, error_info[key])

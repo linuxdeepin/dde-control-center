@@ -7,7 +7,7 @@ BaseEditLine {
     rightLoader.sourceComponent: Row {
     DTextInput {
         width: valueWidth
-        visible: connectionSessionObject.connectionType != "wired"
+        visible: connectionSession.type != "wired"
         // TODO
         // Connections {
         //     target: root
@@ -29,10 +29,7 @@ BaseEditLine {
     }
     DLabel {
         width: valueWidth
-        visible: {
-            print("->", connectionSessionObject.connectionType)
-            return connectionSessionObject.connectionType == "wired"
-        }
+        visible: connectionSession.type == "wired"
         Binding on text {
             when: root.value != undefined
             value: root.value

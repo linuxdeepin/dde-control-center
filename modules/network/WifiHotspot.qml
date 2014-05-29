@@ -13,14 +13,14 @@ Column {
     property int realHeight: childrenRect.height
     property int itemLabelLeftMargin: 22
 
-    property var connectionSessionObject: {
+    property var connectionSession: {
         if(hotspotInfo){
             var connectionPath = dbusNetwork.EditConnection(hotspotInfo.Uuid, devicePath)
         }
         else{
             var connectionPath = dbusNetwork.CreateConnection(nmConnectionTypeWirelessAdhoc, "/")
         }
-        return connectionSession.createObject(rootPage, { path: connectionPath })
+        return connectionSessionBuilder.createObject(rootPage, { path: connectionPath })
     }
 
     DBaseLine {
@@ -113,7 +113,7 @@ Column {
             text: dsTr("Cancel")
             anchors.verticalCenter: parent.verticalCenter
             onClicked: {
-                connectionSessionObject.Close()
+                connectionSession.Close()
                 stackView.reset()
             }
         }
@@ -149,18 +149,18 @@ Column {
                 setValue(objLine.section, objLine.key, objLine.getValue())
             }
         }
-        if(!connectionSessionObject.Save()){
-            print("create Wifi hotspot error:", connectionSessionObject.errors)
-            connectionSessionObject.Close()
+        if(!connectionSession.Save()){
+            print("create Wifi hotspot error:", connectionSession.errors)
+            connectionSession.Close()
         }
         stackView.reset()
     }
 
     function setValue(section, key, value){
-        connectionSessionObject.SetKey(section, key, marshalJSON(value))
+        connectionSession.SetKey(section, key, marshalJSON(value))
     }
     function getKey(section, key){
-        var value = connectionSessionObject.GetKey(section, key)
+        var value = connectionSession.GetKey(section, key)
         return unmarshalJSON(value)
     }
 }

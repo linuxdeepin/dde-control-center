@@ -5,29 +5,28 @@ import Deepin.Widgets 1.0
 import "widgets"
 
 Column{
-    id: wiredDevicesItem
+    id: wiredItem
     width: parent.width
     height: childrenRect.height
 
-    property int wiredDeviceSignal: wiredDevices[index]["State"]
-    property string wiredDevicePath: wiredDevices[index]["Path"]
-    property string uuid: dbusNetwork.GetWiredConnectionUuid(wiredDevicePath)
+    property int deviceState: wiredDevices[index]["State"] // TODO
+    property string devicePath: wiredDevices[index]["Path"]
+    property string uuid: dbusNetwork.GetWiredConnectionUuid(devicePath)
 
     property var activeConnectionInfo: getActiveConnectionInfo(uuid)
-    // property bool isConnected: activeConnectionInfo && !activeConnectionInfo.Vpn && activeConnectionInfo.State == nmActiveConnectionStateActivated
     property bool isConnected: wiredDevices[index].State == nmDeviceStateActivated
 
     function activateThisConnection(){
-        dbusNetwork.ActivateConnection(uuid, wiredDevicePath)
+        dbusNetwork.ActivateConnection(uuid, devicePath)
     }
 
     function goToEditConnection(){
         stackView.push({
-            "item": stackViewPages["connectionPropertiesPage"],
-            "properties": { "uuid": uuid, "devicePath": wiredDevicePath },
+            "item": stackViewPages["connectionEditPage"],
+            "properties": { "connectionSession": editConnection(uuid, wiredItem.devicePath)},
             "destroyOnPop": true
         })
-        stackView.currentItemId = "connectionPropertiesPage"
+        stackView.currentItemId = "connectionEditPage"
     }
 
     DBaseLine {
@@ -65,7 +64,7 @@ Column{
                 hover_image: "images/disconnect.png"
                 visible: isConnected
                 onClicked: {
-                    dbusNetwork.DisconnectDevice(wiredDevicePath)
+                    dbusNetwork.DisconnectDevice(devicePath)
                 }
             }
 
@@ -73,7 +72,6 @@ Column{
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
                 on: wiredDevices[index].State >= nmDeviceStatePrepare && wiredDevices[index].State <= nmDeviceStateSecondaries
-                // on: activeConnectionInfo && activeConnectionInfo.Uuid == uuid && !activeConnectionInfo.Vpn && activeConnectionInfo.State == nmActiveConnectionStateActivating
             }
 
             DLabel {

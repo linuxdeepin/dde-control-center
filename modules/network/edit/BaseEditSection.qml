@@ -8,8 +8,8 @@ DBaseExpand{
     property int activeExpandIndex
     property int myIndex
     
-    property var availableKeys: connectionSessionObject.availableKeys[section]
-    property var errors: connectionSessionObject.errors[section]
+    property var availableKeys: connectionSession.availableKeys[section]
+    property var errors: connectionSession.errors[section]
     onErrorsChanged: {
         for(var key in errors){
             print("==> [error] %1: %2".arg(key).arg(errors[key]))
@@ -41,7 +41,7 @@ DBaseExpand{
     function checkKeys() {
         for (var i=0; i<content.item.children.length; i++) {
             var objLine = content.item.children[i]
-            print(objLine)
+            print("==>", objLine) // TODO test
             if (objLine.objectName == "BaseEditLine" && objLine.visible) {
                 objLine.checkKey()
             }

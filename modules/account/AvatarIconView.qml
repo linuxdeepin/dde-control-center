@@ -89,6 +89,7 @@ GridView {
 
                 onClicked: {
                     if (checkSupport) {
+                        state = "checked"
                         avatar_icon_view.currentIndex = index
                         avatar_icon_view.forceActiveFocus()
                         avatar_icon_view.avatarSet(round_image.imageSource)
