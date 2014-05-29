@@ -6,7 +6,6 @@ import "../edit"
 BaseEditPage {
     id: root
     activeExpandIndex: 0
-
     
     EditSectionGeneral {
         myIndex: 0

@@ -12,7 +12,7 @@ Column {
     property var connectionSession
     property var connectionPath: connectionSession.connectionPath
     property var uuid: connectionSession.uuid
-    property var availableSections: connectionSession.availablePages
+    property var availableSections: connectionSession.availableSections
 
     function generalSetKey(section, key, value) {
         connectionSession.SetKey(section, key, marshalJSON(value))

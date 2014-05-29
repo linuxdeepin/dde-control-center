@@ -13,6 +13,23 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineSwitchButton {
+            id: lineRequireMppe
+            key: "require-mppe"
+            text: dsTr("Use MPPE")
+            alwaysUpdate: true
+        }
+        EditLineSwitchButton {
+            id: lineRequireMppe128
+            key: "require-mppe-128"
+            text: dsTr("128-bit MPPE")
+            alwaysUpdate: true
+        }
+        EditLineSwitchButton {
+            id: lineMppeStateful
+            key: "mppe-stateful"
+            text: dsTr("Stateful MPPE")
+        }
+        EditLineSwitchButton {
             id: lineRefuseEap
             key: "refuse-eap"
             text: dsTr("Refuse EAP Authentication")
@@ -36,23 +53,6 @@ BaseEditSection {
             id: lineRefuseMschapv2
             key: "refuse-mschapv2"
             text: dsTr("Refuse MSCHAPv2 Authentication")
-        }
-        EditLineSwitchButton {
-            id: lineRequireMppe
-            key: "require-mppe"
-            text: dsTr("Use MPPE")
-            alwaysUpdate: true
-        }
-        EditLineSwitchButton {
-            id: lineRequireMppe128
-            key: "require-mppe-128"
-            text: dsTr("128-bit MPPE")
-            alwaysUpdate: true
-        }
-        EditLineSwitchButton {
-            id: lineMppeStateful
-            key: "mppe-stateful"
-            text: dsTr("Stateful MPPE")
         }
         EditLineSwitchButton {
             id: lineNobsdcomp
