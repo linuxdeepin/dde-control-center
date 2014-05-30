@@ -11,7 +11,7 @@ Item {
     property bool selected: selectItemId == itemId
     property bool hovered: false
     
-    property bool showTip: true
+    property bool showTip: nameText.isElide
 
     // info from model
     property string itemId: item_id
@@ -74,7 +74,10 @@ Item {
         anchors.leftMargin: labelLeftMargin
         anchors.verticalCenter: parent.verticalCenter
         text: itemName
-        elide: Text.ElideRight
+        //elide: Text.ElideRight
+
+        property bool isElide: false
+
         color: {
             if(selected){
                 return dconstants.activeColor
@@ -86,6 +89,13 @@ Item {
             }
         }
         font.pixelSize: 12
+
+        Component.onCompleted: {
+            if(width < contentWidth){
+                elide = Text.ElideRight
+                isElide = true
+            }
+        }
     }
     
     MouseArea {
