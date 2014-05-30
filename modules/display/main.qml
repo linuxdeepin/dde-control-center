@@ -78,7 +78,7 @@ Column {
 
                 DssH1 {
                     id: moduleName
-                    text: dsTr("Display")
+                    text: modulesId.moduleLocaleNames["display"]
                     color: "white"
                     font.bold: true
 

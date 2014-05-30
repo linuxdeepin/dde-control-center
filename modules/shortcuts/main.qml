@@ -87,7 +87,7 @@ Item {
         height: childrenRect.height
 
         DssTitle {
-            text: dsTr("Shortcuts")
+            text: modulesId.moduleLocaleNames["shortcuts"]
             rightLoader.sourceComponent: ResetButton {
                 onClicked: {
                     dbusKeyBinding.Reset()

@@ -57,7 +57,7 @@ Item {
 
         DssTitle {
             id: personalizationTitle
-            text: dsTr("Personalization")
+            text: modulesId.moduleLocaleNames["personalization"]
         }
 
         DSeparatorHorizontal {}

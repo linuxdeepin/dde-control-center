@@ -51,7 +51,9 @@ Item {
         anchors.top: parent.top
         width: parent.width
 
-        DssTitle { text: dsTr("System Information") }
+        DssTitle {
+            text: modulesId.moduleLocaleNames["system_info"]
+        }
 
         SepratorHorizontal {}
 

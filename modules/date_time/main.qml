@@ -50,7 +50,9 @@ DFlickable {
         width: parent.width
         height: childrenRect.height
 
-        DssTitle { text: dsTr("Date and Time") }
+        DssTitle {
+            text: modulesId.moduleLocaleNames["date_time"]
+        }
 
         DSeparatorHorizontal {}
 

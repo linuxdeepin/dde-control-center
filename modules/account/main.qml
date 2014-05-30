@@ -45,7 +45,7 @@ Rectangle {
 
         DssTitle {
             id: module_title
-            text: dsTr("Account")
+            text: modulesId.moduleLocaleNames["account"]
             
             Row {
                 spacing: 10

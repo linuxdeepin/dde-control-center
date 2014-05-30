@@ -92,7 +92,7 @@ Item {
         z: 1
 
         DssTitle {
-            text: dsTr("Sound")
+            text: modulesId.moduleLocaleNames["sound"]
 
             rightLoader.sourceComponent: ResetButton {
                 onClicked: audioId.Reset()

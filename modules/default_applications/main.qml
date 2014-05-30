@@ -21,7 +21,7 @@ Item {
         width: parent.width
 
         DssTitle {
-            text: dsTr("Default Applications")
+            text: modulesId.moduleLocaleNames["default_applications"]
 
             rightLoader.sourceComponent: ResetButton {
                 onClicked: {

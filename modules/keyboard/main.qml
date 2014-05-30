@@ -68,7 +68,7 @@ Item {
         height: childrenRect.height
 
         DssTitle {
-            text:dsTr("Keyboard")
+            text: modulesId.moduleLocaleNames["keyboard"]
             rightLoader.sourceComponent: ResetButton {
                 onClicked: dbusKeyboard.Reset()
             }

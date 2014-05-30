@@ -61,7 +61,7 @@ Column {
     }
     
     DssTitle {
-        text: dsTr("Bluetooth")
+        text: modulesId.moduleLocaleNames["bluetooth"]
         width: parent.width
     }
 

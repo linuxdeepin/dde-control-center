@@ -59,7 +59,7 @@ Rectangle {
 
         DssTitle {
             id: title
-            text: dsTr("Startup Screen")
+            text: modulesId.moduleLocaleNames["grub"]
         }
 
         ResetButton {

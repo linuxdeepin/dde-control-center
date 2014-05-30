@@ -219,7 +219,7 @@ Item {
 
     DssTitle {
         id: header
-        text: dsTr("Network Settings")
+        text: modulesId.moduleLocaleNames["network"]
 
         onTitleClicked: {
             resetConnectionSession()

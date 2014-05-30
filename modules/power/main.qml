@@ -85,7 +85,7 @@ Rectangle {
 
             PowerTitle {
                 id: title
-                text: dsTr("Power Options")
+                text: modulesId.moduleLocaleNames["power"]
                 hint: power.getBatteryPercentage()
                 showHyphen: dbus_power.batteryIsPresent
                 breath: dbus_power.batteryState == 1
