@@ -59,6 +59,43 @@ DockApplet{
         return dbusGraphic.ConvertImageToDataUri(getIconUrl(path).split("://")[1])
     }
 
+    property var positions: {
+        "vpn": [6, 6],
+        "bluetooth": [6, 19],
+        "3g": [19, 6],
+        "wifi": [19, 19]
+    }
+
+    function updateState(type, show, enabled){
+        var index = subImageList.getTypeIndex(type)
+        if(show){
+            var imagePath = "network/" + type + "_"
+            if(enabled){
+                imagePath += "on.png"
+            }
+            else{
+                imagePath += "off.png"
+            }
+            if(index == -1){
+                subImageList.append({
+                    "type": type,
+                    "imagePath": imagePath,
+                    "x": positions[type][0],
+                    "y": positions[type][1]
+                })
+            }
+            else{
+                var info = subImageList.get(index)
+                info.imagePath = imagePath
+            }
+        }
+        else{
+            if(index != -1){
+                subImageList.remove(index)
+            }
+        }
+    }
+
     // vpn
     property var nmConnections: unmarshalJSON(dbusNetwork.connections)
     property var vpnConnections: nmConnections["vpn"]
@@ -73,46 +110,25 @@ DockApplet{
     }
 
     onActiveVpnIndexChanged: {
-        updateVpnState()
+        var vpnShow = vpnConnections ? vpnConnections.length > 0 : false
+        var vpnEnabled = activeVpnIndex != -1
+        updateState("vpn", vpnShow, vpnEnabled)
     }
     onVpnConnectionsChanged: {
-        updateVpnState()
-    }
-
-    function updateVpnState(){
-        var vpnTypeIndex = subImageList.getTypeIndex("vpn")
-        print("VPN number:", vpnConnections.length)
-        if(vpnConnections.length > 0){
-            var vpnImagePath = "network/vpn_"
-            if(activeVpnIndex != -1){
-                vpnImagePath += "on.png"
-            }
-            else{
-                vpnImagePath += "off.png"
-            }
-            if(vpnTypeIndex == -1){
-                subImageList.append({
-                    "type": "vpn",
-                    "imagePath": vpnImagePath,
-                    "x": 6,
-                    "y": 6
-                })
-            }
-            else{
-                var vpnImageInfo = subImageList.get(vpnTypeIndex)
-                vpnImageInfo.imagePath = vpnImagePath
-            }
-        }
-        else{
-            if(vpnTypeIndex != -1){
-                subImageList.remove(vpnTypeIndex)
-            }
-        }
+        var vpnShow = vpnConnections ? vpnConnections.length > 0 : false
+        var vpnEnabled = activeVpnIndex != -1
+        updateState("vpn", vpnShow, vpnEnabled)
     }
 
     // bluetooth
     property var dbusBluetooth: Bluetooth {}
     property var adapters: dbusBluetooth.adapters ? unmarshalJSON(dbusBluetooth.adapters) : ""
+
+    onAdaptersChanged: {
+        var show = adapters.length > 0
+        var enabled = dbusBluetooth.powered ? dbusBluetooth.powered : false
+        updateState("bluetooth", show, enabled)
+    }
 
     property int xEdgePadding: 10
 
@@ -276,6 +292,9 @@ DockApplet{
                                 if(!bluetoothButton.pressed){
                                     bluetoothButton.active = dbusBluetooth.powered
                                 }
+                                var show = adapters.length > 0
+                                var enabled = dbusBluetooth.powered
+                                updateState("bluetooth", show, enabled)
                             }
                         }
 
