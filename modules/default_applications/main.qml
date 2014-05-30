@@ -14,6 +14,8 @@ Item {
     property var defaultAppsId: DefaultApps {}
     property var mediaMountId: MediaMount {}
 
+    signal resetEmit
+
     Column {
         anchors.top: parent.top
         width: parent.width
@@ -25,6 +27,7 @@ Item {
                 onClicked: {
                     defaultAppsId.Reset()
                     mediaMountId.Reset()
+                    default_applications.resetEmit()
                 }
             }
         }
@@ -173,6 +176,13 @@ Item {
                     property string defaultDesktopName: defaultAppsId.DefaultAppViaType(componentData.defaultGetType)[0]
                     property var setTypeGroup: componentData.setTypeGroup
 
+                    Connections {
+                        target: default_applications
+                        onResetEmit: {
+                            defaultDesktopName = defaultAppsId.DefaultAppViaType(componentData.defaultGetType)[0]
+                        }
+                    }
+
                     model: ListModel {}
                     delegate: Item {
                         width: parent.width
@@ -302,6 +312,13 @@ Item {
                         width: parent.width
 
                         property string defaultDesktopName: mediaMountId.DefaultMediaAppByMime(componentData.contentType)[0]
+
+                        Connections {
+                            target: default_applications
+                            onResetEmit: {
+                                defaultDesktopName = mediaMountId.DefaultMediaAppByMime(componentData.contentType)[0]
+                            }
+                        }
 
                         model: ListModel {id: autoPlayModel}
                         delegate: Item {

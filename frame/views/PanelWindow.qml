@@ -78,7 +78,7 @@ DOverrideWindow {
         id: timeoutQuit
         running: false
         repeat: false
-        interval: 1000 * 60 * 10 // 10 minutes to quit
+        interval: 1000 * 60 * 5 // 10 minutes to quit
         onTriggered: {
             Qt.quit()
         }
