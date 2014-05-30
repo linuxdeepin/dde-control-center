@@ -61,9 +61,9 @@ DockApplet{
 
     property var positions: {
         "vpn": [6, 6],
-        "bluetooth": [6, 19],
-        "3g": [19, 6],
-        "wifi": [19, 19]
+        "bluetooth": [6, 25],
+        "3g": [25, 6],
+        "wifi": [25, 25]
     }
 
     function updateState(type, show, enabled){
