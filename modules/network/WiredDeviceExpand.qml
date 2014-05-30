@@ -4,6 +4,7 @@ import Deepin.Widgets 1.0
 DBaseExpand {
     id: wiredDeviceExpand
     width: parent.width
+    visible: wiredDevicesNumber == 0
 
     property var wiredDevices: nmDevices[nmDeviceTypeEthernet]
     property int wiredDevicesNumber: wiredDevices.length
