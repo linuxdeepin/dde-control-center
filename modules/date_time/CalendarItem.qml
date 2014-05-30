@@ -116,7 +116,18 @@ Rectangle {
                     }
                     return dconstants.fgColor
                 }
-                text: lunarDayInfo[0][4]
+                text: {
+                    var info = lunarDayInfo[0]
+                    if(info[7]){
+                        return info[7]
+                    }
+                    else if(info[4] == "初一"){
+                        return info[3]
+                    }
+                    else{
+                        return info[4]
+                    }
+                }
                 visible: false
 
                 Component.onCompleted: {
