@@ -136,8 +136,38 @@ Item {
 
         }
 
-        DSeparatorHorizontal {}
+        DCenterLine {
+            id: autoDisableTouchpad
+            height: Math.max(contentHeight, title.height + 6)
+            leftWidth: mouseModule.leftWidth
+            centerPadding: mouseModule.centerPadding
+            title.text: dsTr("Disable the touchpad when insert the mouse")
+            visible: isTouchpadExist
 
+            property bool enabled: {
+                if(content.item){
+                    return content.item.enabled
+                }
+                else{
+                    return false
+                }
+            }
+
+            content.sourceComponent: Item {
+                width: sliderWidth
+                height: parent.height
+                property alias enabled: disableTouch.checked
+
+                DSwitchButton {
+                    id: disableTouch
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+            }
+
+        }
+
+        DSeparatorHorizontal {}
 
         DBaseLine{ height: 26 }
         Item {

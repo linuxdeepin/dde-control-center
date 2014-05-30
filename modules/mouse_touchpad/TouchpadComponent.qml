@@ -27,6 +27,7 @@ Item {
                 font.bold: true
                 text: dsTr("Touchpad")
             }
+            rightLoader.visible: !autoDisableTouchpad.enabled
             rightLoader.sourceComponent: DSwitchButton{
                 checked: dbusTouchpad.tPadEnable
                 onClicked: {

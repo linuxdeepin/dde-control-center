@@ -2391,5 +2391,9 @@
         <source>_Switch to digital</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Disable the touchpad when insert the mouse</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
