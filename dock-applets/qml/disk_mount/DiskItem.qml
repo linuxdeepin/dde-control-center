@@ -54,13 +54,12 @@ Item {
             anchors.top: title.bottom
             anchors.topMargin: 2
 
-            DIcon {
+            Image {
                 id: diskIcon
                 width: 48
                 height: 48
                 anchors.verticalCenter: parent.verticalCenter
-                theme: "Deepin"
-                icon: diskInfo[9]
+                source: getIconUrl("disk_mount/%1.png".arg(diskInfo[9]))
 
                 MouseArea{
                     anchors.fill: parent
