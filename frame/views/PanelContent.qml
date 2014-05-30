@@ -5,6 +5,7 @@ import Deepin.Widgets 1.0
 import DBus.Com.Deepin.SessionManager 1.0
 import DBus.Com.Deepin.Daemon.Accounts 1.0
 import DBus.Com.Deepin.Daemon.InputDevices 1.0
+import DBus.Com.Deepin.Daemon.Bluetooth 1.0
 
 Rectangle {
     id: panelContent
@@ -26,6 +27,31 @@ Rectangle {
         return false
     }
 
+    // bluetooth
+    property var dbusBluetooth: Bluetooth {}
+    property var isBluetoothExist: dbusBluetooth.adapters ? JSON.parse(dbusBluetooth.adapters).length > 0 : false
+
+    onIsBluetoothExistChanged: {
+        var index = navigateIconModel.getIndex("moduleId", "bluetooth")
+        if(isBluetoothExist){
+            if(index == -1){
+                var i = navigateIconModel.getIndex("moduleId", "sound")
+                if(i != -1){
+                    var localeName = modulesId.moduleLocaleNames["bluetooth"]
+                    navigateIconModel.insert(i, {
+                        "moduleId": "bluetooth",
+                        "moduleLocaleName": localeName
+                    })
+                }
+            }
+        }
+        else{
+            if(index != -1){
+                navigateIconModel.remove(index)
+            }
+        }
+    }
+
     property bool isSiderNavigate: false
     property string currentContentId: ""
 
@@ -36,7 +62,18 @@ Rectangle {
     property var modulesId: ModulesData {}
 
     property bool inDssHome: true
-    property var navigateIconModel: ListModel {}
+    property var navigateIconModel: ListModel {
+        function getIndex(key, value){
+            for(var i=0; i<count; i++){
+                var obj = get(i)
+                if(obj[key] == value){
+                    return i
+                }
+            }
+            return -1
+
+        }
+    }
     property real trayIconHeight: {
         if(navigateIconModel.count==0){
             return trayWidth
@@ -52,19 +89,25 @@ Rectangle {
         var modules_id_array = modulesId.allIds
         moduleIconList.currentIndex = -1
         navigateIconModel.clear()
+
         for(var i in modules_id_array){
             var module_id = modules_id_array[i]
             if(module_id == "mouse_touchpad" && !isTouchpadExist){
                 var localeName = modulesId.moduleLocaleNames["mouse"]
             }
+            else if(module_id == "bluetooth" && !isBluetoothExist){
+                continue
+            }
             else{
                 var localeName = modulesId.moduleLocaleNames[module_id]
             }
+
             navigateIconModel.append({
                 "moduleId": module_id,
                 "moduleLocaleName": localeName
             })
         }
+
         iconIdToIndex = new Object()
         for(var i=0; i<navigateIconModel.count; i++){
             iconIdToIndex[navigateIconModel.get(i).moduleId] = i
