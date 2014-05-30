@@ -1603,6 +1603,10 @@
         <source>Natural Scrolling</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Tap to click</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UserList</name>

@@ -198,6 +198,29 @@ Item {
             }
         }
 
+        DCenterLine {
+            height: contentHeight
+            leftWidth: mouseModule.leftWidth
+            centerPadding: mouseModule.centerPadding
+            title.text: dsTr("Tap to click")
+
+            content.sourceComponent: Item {
+                width: sliderWidth
+                height: parent.height
+
+                DSwitchButton {
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                    checked: dbusTouchpad.tapClick
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: dbusTouchpad.tapClick = !dbusTouchpad.tapClick
+                    }
+                }
+            }
+        }
+
         DSeparatorHorizontal {}
     }
 }

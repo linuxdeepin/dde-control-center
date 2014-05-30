@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-30 09:50+0800\n"
+"POT-Creation-Date: 2014-05-30 10:14+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -773,6 +773,9 @@ msgstr "长"
 
 msgid "Natural Scrolling"
 msgstr "自然滚动"
+
+msgid "Tap to click"
+msgstr "轻触表示点击"
 
 msgid "VPN Connections"
 msgstr "VPN 连接"
