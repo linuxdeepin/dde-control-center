@@ -197,7 +197,7 @@ Item {
                                 id: nameText
                                 anchors.verticalCenter: parent.verticalCenter
                                 text: label 
-                                color: defaultAppListview.defaultDesktopName == desktopName ? "#009EFF" : "#fff"
+                                color: defaultAppListview.defaultDesktopName == desktopName ? dconstants.activeColor : dconstants.fgColor
                                 font.pixelSize: 12
                             }
                         }
@@ -327,7 +327,7 @@ Item {
                                     id: nameText
                                     anchors.verticalCenter: parent.verticalCenter
                                     text: label 
-                                    color: autoPlayAppListView.defaultDesktopName == desktopName ? "#009EFF" : "#fff"
+                                    color: autoPlayAppListView.defaultDesktopName == desktopName ? dconstants.activeColor : dconstants.fgColor
                                     font.pixelSize: 12
                                 }
                             }
