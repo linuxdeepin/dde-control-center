@@ -7,7 +7,7 @@ Item {
             "disk_mount": dsTr("Disk Mount"),
             "bluetooth": dsTr("Bluetooth"),
             "sound": dsTr("Sound"),
-            "power": dsTr("Power Options"),
+            "power": dsTr("Power Management"),
             "dss": dsTr("More Settings"),
             "shutdown": dsTr("Power"),
             "display": dsTr("Display"),

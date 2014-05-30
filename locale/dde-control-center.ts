@@ -1186,10 +1186,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Power Options</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>More Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1243,6 +1239,10 @@
     </message>
     <message>
         <source>Home</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Power Management</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

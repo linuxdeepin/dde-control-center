@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-30 09:16+0800\n"
+"POT-Creation-Date: 2014-05-30 09:50+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -599,10 +599,6 @@ msgstr "藍牙"
 msgid "Sound"
 msgstr "音效"
 
-#, fuzzy
-msgid "Power Options"
-msgstr "電源計畫"
-
 msgid "More Settings"
 msgstr "更多設定"
 
@@ -644,6 +640,9 @@ msgstr "開機選單"
 
 msgid "Home"
 msgstr "加目錄"
+
+msgid "Power Management"
+msgstr ""
 
 msgid "Set as primary display"
 msgstr ""
@@ -1123,6 +1122,10 @@ msgstr ""
 
 msgid "1 hour"
 msgstr ""
+
+#, fuzzy
+msgid "Power Options"
+msgstr "電源計畫"
 
 msgid "When I press the power button"
 msgstr "當我按下電源按鈕"

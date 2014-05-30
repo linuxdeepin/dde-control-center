@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-30 09:16+0800\n"
+"POT-Creation-Date: 2014-05-30 09:50+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -576,9 +576,6 @@ msgstr "蓝牙"
 msgid "Sound"
 msgstr "声音"
 
-msgid "Power Options"
-msgstr "电源选项"
-
 msgid "More Settings"
 msgstr "更多设置"
 
@@ -620,6 +617,9 @@ msgstr "启动菜单"
 
 msgid "Home"
 msgstr "回到主页"
+
+msgid "Power Management"
+msgstr "电源管理"
 
 msgid "Set as primary display"
 msgstr "设置为主显示器"
@@ -1068,6 +1068,9 @@ msgstr "30分钟"
 msgid "1 hour"
 msgstr "1小时"
 
+msgid "Power Options"
+msgstr "电源选项"
+
 msgid "When I press the power button"
 msgstr "按下电源按钮"
 
@@ -1323,9 +1326,6 @@ msgstr "插入鼠标时禁用  触摸板"
 
 #~ msgid "Requires a password"
 #~ msgstr "需要密码"
-
-#~ msgid "Power plan"
-#~ msgstr "电源"
 
 #~ msgid "Sound and Media"
 #~ msgstr "声音和媒体"
