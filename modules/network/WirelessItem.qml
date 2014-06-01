@@ -212,5 +212,6 @@ Item {
         anchors.topMargin: 0 - arrowHeight
         uuid: wirelessItem.uuid
         path: wirelessItem.connectionPath
+        prefixCondition: activeAp == apPath
     }
 }

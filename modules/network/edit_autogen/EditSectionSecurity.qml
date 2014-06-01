@@ -43,14 +43,14 @@ BaseEditSection {
             text: dsTr("Anon Identity")
         }
         EditLineFileChooser {
-            id: lineVkClientCert
-            key: "vk-client-cert"
-            text: dsTr("User Cert")
-        }
-        EditLineFileChooser {
             id: lineVkCaCert
             key: "vk-ca-cert"
             text: dsTr("CA Cert")
+        }
+        EditLineFileChooser {
+            id: lineVkClientCert
+            key: "vk-client-cert"
+            text: dsTr("User Cert")
         }
         EditLineComboBox {
             id: linePhase1FastProvisioning

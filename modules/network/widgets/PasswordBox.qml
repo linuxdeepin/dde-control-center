@@ -12,6 +12,7 @@ Item {
 
     property string uuid: ""
     property string path: ""
+    property bool prefixCondition: true
 
     property alias arrowHeight: arrowRectBackground.arrowHeight
     property int realHeight: childrenRect.height
@@ -43,7 +44,7 @@ Item {
         target: networkModule
         onNeedSecretsEmit: {
             if (uuid){
-                if(passwordArea.path == path){
+                if(passwordArea.path == path && prefixCondition){
                     print("onNeedSecretsEmit:", passwordArea.path, path) // TODO test
                     passwordArea.showArea(encryptionName)
                 }

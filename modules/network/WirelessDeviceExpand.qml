@@ -46,7 +46,7 @@ DBaseExpand {
         target: dbusNetwork
         onAccessPointAdded:{
             if(arg0 == devicePath){
-                print("onAccessPointAdded:", arg0, arg1)
+                // print("onAccessPointAdded:", arg0, arg1) // TODO test
                 var apObj = unmarshalJSON(arg1)
                 var index = accessPointsModel.getIndexByApPath(apObj.Path)
                 if(index == -1){
@@ -64,7 +64,7 @@ DBaseExpand {
 
         onAccessPointRemoved:{
             if(arg0 == devicePath){
-                print("onAccessPointRemoved:", arg0, arg1)
+                // print("onAccessPointRemoved:", arg0, arg1) // TODO test
                 var apObj = unmarshalJSON(arg1)
                 var index = accessPointsModel.getIndexByApPath(apObj.Path)
                 if(index != -1){
