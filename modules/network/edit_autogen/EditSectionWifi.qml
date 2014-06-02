@@ -14,21 +14,33 @@ BaseEditSection {
     content.sourceComponent: Column { 
         EditLineTextInput {
             id: line80211WirelessSsid
-            // connectionSession: sectionWifi.connectionSession
+            connectionSession: sectionWifi.connectionSession
+            data: sectionWifi.data
+            availableSections: sectionWifi.availableSections
+            availableKeys: sectionWifi.availableKeys
+            errors: sectionWifi.errors
             section: "802-11-wireless"
             key: "ssid"
             text: dsTr("SSID")
         }
         EditLineComboBox {
             id: line80211WirelessMode
-            // connectionSession: sectionWifi.connectionSession
+            connectionSession: sectionWifi.connectionSession
+            data: sectionWifi.data
+            availableSections: sectionWifi.availableSections
+            availableKeys: sectionWifi.availableKeys
+            errors: sectionWifi.errors
             section: "802-11-wireless"
             key: "mode"
             text: dsTr("Mode")
         }
         EditLineComboBox {
             id: line80211WirelessBand
-            // connectionSession: sectionWifi.connectionSession
+            connectionSession: sectionWifi.connectionSession
+            data: sectionWifi.data
+            availableSections: sectionWifi.availableSections
+            availableKeys: sectionWifi.availableKeys
+            errors: sectionWifi.errors
             section: "802-11-wireless"
             key: "band"
             text: dsTr("Band")
@@ -36,7 +48,11 @@ BaseEditSection {
         }
         EditLineComboBox {
             id: line80211WirelessChannel
-            // connectionSession: sectionWifi.connectionSession
+            connectionSession: sectionWifi.connectionSession
+            data: sectionWifi.data
+            availableSections: sectionWifi.availableSections
+            availableKeys: sectionWifi.availableKeys
+            errors: sectionWifi.errors
             section: "802-11-wireless"
             key: "channel"
             text: dsTr("Channel")
@@ -44,28 +60,44 @@ BaseEditSection {
         }
         EditLineEditComboBox {
             id: line80211WirelessMacAddress
-            // connectionSession: sectionWifi.connectionSession
+            connectionSession: sectionWifi.connectionSession
+            data: sectionWifi.data
+            availableSections: sectionWifi.availableSections
+            availableKeys: sectionWifi.availableKeys
+            errors: sectionWifi.errors
             section: "802-11-wireless"
             key: "mac-address"
             text: dsTr("Device MAC Addr")
         }
         EditLineTextInput {
             id: line80211WirelessClonedMacAddress
-            // connectionSession: sectionWifi.connectionSession
+            connectionSession: sectionWifi.connectionSession
+            data: sectionWifi.data
+            availableSections: sectionWifi.availableSections
+            availableKeys: sectionWifi.availableKeys
+            errors: sectionWifi.errors
             section: "802-11-wireless"
             key: "cloned-mac-address"
             text: dsTr("Cloned MAC Addr")
         }
         EditLineSwitchButton {
             id: line80211WirelessVkEnableMtu
-            // connectionSession: sectionWifi.connectionSession
+            connectionSession: sectionWifi.connectionSession
+            data: sectionWifi.data
+            availableSections: sectionWifi.availableSections
+            availableKeys: sectionWifi.availableKeys
+            errors: sectionWifi.errors
             section: "802-11-wireless"
             key: "vk-enable-mtu"
             text: dsTr("Custom MTU")
         }
         EditLineSpinner {
             id: line80211WirelessMtu
-            // connectionSession: sectionWifi.connectionSession
+            connectionSession: sectionWifi.connectionSession
+            data: sectionWifi.data
+            availableSections: sectionWifi.availableSections
+            availableKeys: sectionWifi.availableKeys
+            errors: sectionWifi.errors
             section: "802-11-wireless"
             key: "mtu"
             text: dsTr("MTU")

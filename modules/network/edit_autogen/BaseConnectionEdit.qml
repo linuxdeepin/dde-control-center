@@ -11,7 +11,11 @@ BaseEditPage {
         myIndex: 0
         id: sectionGeneral
         activeExpandIndex: editPage.activeExpandIndex
-        // connectionSession: editPage.connectionSession
+        connectionSession: editPage.connectionSession
+        data: editPage.data
+        errors: editPage.errors
+        availableSections: editPage.availableSections
+        availableKeys: editPage.availableKeys
     }
     EditSectionSeparator {relatedSection: sectionGeneral}
     
@@ -19,7 +23,11 @@ BaseEditPage {
         myIndex: 1
         id: sectionEthernet
         activeExpandIndex: editPage.activeExpandIndex
-        // connectionSession: editPage.connectionSession
+        connectionSession: editPage.connectionSession
+        data: editPage.data
+        errors: editPage.errors
+        availableSections: editPage.availableSections
+        availableKeys: editPage.availableKeys
     }
     EditSectionSeparator {relatedSection: sectionEthernet}
     
@@ -27,7 +35,11 @@ BaseEditPage {
         myIndex: 3
         id: sectionMobileGsm
         activeExpandIndex: editPage.activeExpandIndex
-        // connectionSession: editPage.connectionSession
+        connectionSession: editPage.connectionSession
+        data: editPage.data
+        errors: editPage.errors
+        availableSections: editPage.availableSections
+        availableKeys: editPage.availableKeys
     }
     EditSectionSeparator {relatedSection: sectionMobileGsm}
     
@@ -35,7 +47,11 @@ BaseEditPage {
         myIndex: 4
         id: sectionMobileCdma
         activeExpandIndex: editPage.activeExpandIndex
-        // connectionSession: editPage.connectionSession
+        connectionSession: editPage.connectionSession
+        data: editPage.data
+        errors: editPage.errors
+        availableSections: editPage.availableSections
+        availableKeys: editPage.availableKeys
     }
     EditSectionSeparator {relatedSection: sectionMobileCdma}
     
@@ -43,7 +59,11 @@ BaseEditPage {
         myIndex: 5
         id: sectionWifi
         activeExpandIndex: editPage.activeExpandIndex
-        // connectionSession: editPage.connectionSession
+        connectionSession: editPage.connectionSession
+        data: editPage.data
+        errors: editPage.errors
+        availableSections: editPage.availableSections
+        availableKeys: editPage.availableKeys
     }
     EditSectionSeparator {relatedSection: sectionWifi}
     
@@ -51,7 +71,11 @@ BaseEditPage {
         myIndex: 6
         id: sectionSecurity
         activeExpandIndex: editPage.activeExpandIndex
-        // connectionSession: editPage.connectionSession
+        connectionSession: editPage.connectionSession
+        data: editPage.data
+        errors: editPage.errors
+        availableSections: editPage.availableSections
+        availableKeys: editPage.availableKeys
     }
     EditSectionSeparator {relatedSection: sectionSecurity}
     
@@ -59,7 +83,11 @@ BaseEditPage {
         myIndex: 7
         id: sectionPppoe
         activeExpandIndex: editPage.activeExpandIndex
-        // connectionSession: editPage.connectionSession
+        connectionSession: editPage.connectionSession
+        data: editPage.data
+        errors: editPage.errors
+        availableSections: editPage.availableSections
+        availableKeys: editPage.availableKeys
     }
     EditSectionSeparator {relatedSection: sectionPppoe}
     
@@ -67,7 +95,11 @@ BaseEditPage {
         myIndex: 8
         id: sectionPpp
         activeExpandIndex: editPage.activeExpandIndex
-        // connectionSession: editPage.connectionSession
+        connectionSession: editPage.connectionSession
+        data: editPage.data
+        errors: editPage.errors
+        availableSections: editPage.availableSections
+        availableKeys: editPage.availableKeys
     }
     EditSectionSeparator {relatedSection: sectionPpp}
     
@@ -75,7 +107,11 @@ BaseEditPage {
         myIndex: 10
         id: sectionVpnL2tp
         activeExpandIndex: editPage.activeExpandIndex
-        // connectionSession: editPage.connectionSession
+        connectionSession: editPage.connectionSession
+        data: editPage.data
+        errors: editPage.errors
+        availableSections: editPage.availableSections
+        availableKeys: editPage.availableKeys
     }
     EditSectionSeparator {relatedSection: sectionVpnL2tp}
     
@@ -83,7 +119,11 @@ BaseEditPage {
         myIndex: 11
         id: sectionVpnL2tpIpsec
         activeExpandIndex: editPage.activeExpandIndex
-        // connectionSession: editPage.connectionSession
+        connectionSession: editPage.connectionSession
+        data: editPage.data
+        errors: editPage.errors
+        availableSections: editPage.availableSections
+        availableKeys: editPage.availableKeys
     }
     EditSectionSeparator {relatedSection: sectionVpnL2tpIpsec}
     
@@ -91,7 +131,11 @@ BaseEditPage {
         myIndex: 12
         id: sectionVpnL2tpPpp
         activeExpandIndex: editPage.activeExpandIndex
-        // connectionSession: editPage.connectionSession
+        connectionSession: editPage.connectionSession
+        data: editPage.data
+        errors: editPage.errors
+        availableSections: editPage.availableSections
+        availableKeys: editPage.availableKeys
     }
     EditSectionSeparator {relatedSection: sectionVpnL2tpPpp}
     
@@ -99,7 +143,11 @@ BaseEditPage {
         myIndex: 13
         id: sectionVpnOpenconnect
         activeExpandIndex: editPage.activeExpandIndex
-        // connectionSession: editPage.connectionSession
+        connectionSession: editPage.connectionSession
+        data: editPage.data
+        errors: editPage.errors
+        availableSections: editPage.availableSections
+        availableKeys: editPage.availableKeys
     }
     EditSectionSeparator {relatedSection: sectionVpnOpenconnect}
     
@@ -107,7 +155,11 @@ BaseEditPage {
         myIndex: 14
         id: sectionVpnOpenvpn
         activeExpandIndex: editPage.activeExpandIndex
-        // connectionSession: editPage.connectionSession
+        connectionSession: editPage.connectionSession
+        data: editPage.data
+        errors: editPage.errors
+        availableSections: editPage.availableSections
+        availableKeys: editPage.availableKeys
     }
     EditSectionSeparator {relatedSection: sectionVpnOpenvpn}
     
@@ -115,7 +167,11 @@ BaseEditPage {
         myIndex: 15
         id: sectionVpnOpenvpnSecurity
         activeExpandIndex: editPage.activeExpandIndex
-        // connectionSession: editPage.connectionSession
+        connectionSession: editPage.connectionSession
+        data: editPage.data
+        errors: editPage.errors
+        availableSections: editPage.availableSections
+        availableKeys: editPage.availableKeys
     }
     EditSectionSeparator {relatedSection: sectionVpnOpenvpnSecurity}
     
@@ -123,7 +179,11 @@ BaseEditPage {
         myIndex: 16
         id: sectionVpnOpenvpnTlsauth
         activeExpandIndex: editPage.activeExpandIndex
-        // connectionSession: editPage.connectionSession
+        connectionSession: editPage.connectionSession
+        data: editPage.data
+        errors: editPage.errors
+        availableSections: editPage.availableSections
+        availableKeys: editPage.availableKeys
     }
     EditSectionSeparator {relatedSection: sectionVpnOpenvpnTlsauth}
     
@@ -131,7 +191,11 @@ BaseEditPage {
         myIndex: 17
         id: sectionVpnOpenvpnProxies
         activeExpandIndex: editPage.activeExpandIndex
-        // connectionSession: editPage.connectionSession
+        connectionSession: editPage.connectionSession
+        data: editPage.data
+        errors: editPage.errors
+        availableSections: editPage.availableSections
+        availableKeys: editPage.availableKeys
     }
     EditSectionSeparator {relatedSection: sectionVpnOpenvpnProxies}
     
@@ -139,7 +203,11 @@ BaseEditPage {
         myIndex: 18
         id: sectionVpnOpenvpnAdvanced
         activeExpandIndex: editPage.activeExpandIndex
-        // connectionSession: editPage.connectionSession
+        connectionSession: editPage.connectionSession
+        data: editPage.data
+        errors: editPage.errors
+        availableSections: editPage.availableSections
+        availableKeys: editPage.availableKeys
     }
     EditSectionSeparator {relatedSection: sectionVpnOpenvpnAdvanced}
     
@@ -147,7 +215,11 @@ BaseEditPage {
         myIndex: 19
         id: sectionVpnPptp
         activeExpandIndex: editPage.activeExpandIndex
-        // connectionSession: editPage.connectionSession
+        connectionSession: editPage.connectionSession
+        data: editPage.data
+        errors: editPage.errors
+        availableSections: editPage.availableSections
+        availableKeys: editPage.availableKeys
     }
     EditSectionSeparator {relatedSection: sectionVpnPptp}
     
@@ -155,7 +227,11 @@ BaseEditPage {
         myIndex: 20
         id: sectionVpnPptpPpp
         activeExpandIndex: editPage.activeExpandIndex
-        // connectionSession: editPage.connectionSession
+        connectionSession: editPage.connectionSession
+        data: editPage.data
+        errors: editPage.errors
+        availableSections: editPage.availableSections
+        availableKeys: editPage.availableKeys
     }
     EditSectionSeparator {relatedSection: sectionVpnPptpPpp}
     
@@ -163,7 +239,11 @@ BaseEditPage {
         myIndex: 21
         id: sectionVpnVpnc
         activeExpandIndex: editPage.activeExpandIndex
-        // connectionSession: editPage.connectionSession
+        connectionSession: editPage.connectionSession
+        data: editPage.data
+        errors: editPage.errors
+        availableSections: editPage.availableSections
+        availableKeys: editPage.availableKeys
     }
     EditSectionSeparator {relatedSection: sectionVpnVpnc}
     
@@ -171,7 +251,11 @@ BaseEditPage {
         myIndex: 22
         id: sectionVpnVpncAdvanced
         activeExpandIndex: editPage.activeExpandIndex
-        // connectionSession: editPage.connectionSession
+        connectionSession: editPage.connectionSession
+        data: editPage.data
+        errors: editPage.errors
+        availableSections: editPage.availableSections
+        availableKeys: editPage.availableKeys
     }
     EditSectionSeparator {relatedSection: sectionVpnVpncAdvanced}
     
@@ -179,7 +263,11 @@ BaseEditPage {
         myIndex: 23
         id: sectionIpv4
         activeExpandIndex: editPage.activeExpandIndex
-        // connectionSession: editPage.connectionSession
+        connectionSession: editPage.connectionSession
+        data: editPage.data
+        errors: editPage.errors
+        availableSections: editPage.availableSections
+        availableKeys: editPage.availableKeys
     }
     EditSectionSeparator {relatedSection: sectionIpv4}
     
@@ -187,7 +275,11 @@ BaseEditPage {
         myIndex: 24
         id: sectionIpv6
         activeExpandIndex: editPage.activeExpandIndex
-        // connectionSession: editPage.connectionSession
+        connectionSession: editPage.connectionSession
+        data: editPage.data
+        errors: editPage.errors
+        availableSections: editPage.availableSections
+        availableKeys: editPage.availableKeys
     }
     EditSectionSeparator {relatedSection: sectionIpv6}
     

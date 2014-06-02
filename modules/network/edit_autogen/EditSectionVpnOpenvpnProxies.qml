@@ -14,21 +14,33 @@ BaseEditSection {
     content.sourceComponent: Column { 
         EditLineComboBox {
             id: lineAliasVpnOpenvpnProxiesProxyType
-            // connectionSession: sectionVpnOpenvpnProxies.connectionSession
+            connectionSession: sectionVpnOpenvpnProxies.connectionSession
+            data: sectionVpnOpenvpnProxies.data
+            availableSections: sectionVpnOpenvpnProxies.availableSections
+            availableKeys: sectionVpnOpenvpnProxies.availableKeys
+            errors: sectionVpnOpenvpnProxies.errors
             section: "alias-vpn-openvpn-proxies"
             key: "proxy-type"
             text: dsTr("Proxy Type")
         }
         EditLineTextInput {
             id: lineAliasVpnOpenvpnProxiesProxyServer
-            // connectionSession: sectionVpnOpenvpnProxies.connectionSession
+            connectionSession: sectionVpnOpenvpnProxies.connectionSession
+            data: sectionVpnOpenvpnProxies.data
+            availableSections: sectionVpnOpenvpnProxies.availableSections
+            availableKeys: sectionVpnOpenvpnProxies.availableKeys
+            errors: sectionVpnOpenvpnProxies.errors
             section: "alias-vpn-openvpn-proxies"
             key: "proxy-server"
             text: dsTr("Server IP")
         }
         EditLineSpinner {
             id: lineAliasVpnOpenvpnProxiesProxyPort
-            // connectionSession: sectionVpnOpenvpnProxies.connectionSession
+            connectionSession: sectionVpnOpenvpnProxies.connectionSession
+            data: sectionVpnOpenvpnProxies.data
+            availableSections: sectionVpnOpenvpnProxies.availableSections
+            availableKeys: sectionVpnOpenvpnProxies.availableKeys
+            errors: sectionVpnOpenvpnProxies.errors
             section: "alias-vpn-openvpn-proxies"
             key: "proxy-port"
             text: dsTr("Port")
@@ -37,21 +49,33 @@ BaseEditSection {
         }
         EditLineSwitchButton {
             id: lineAliasVpnOpenvpnProxiesProxyRetry
-            // connectionSession: sectionVpnOpenvpnProxies.connectionSession
+            connectionSession: sectionVpnOpenvpnProxies.connectionSession
+            data: sectionVpnOpenvpnProxies.data
+            availableSections: sectionVpnOpenvpnProxies.availableSections
+            availableKeys: sectionVpnOpenvpnProxies.availableKeys
+            errors: sectionVpnOpenvpnProxies.errors
             section: "alias-vpn-openvpn-proxies"
             key: "proxy-retry"
             text: dsTr("Retry Indefinitely When Failed")
         }
         EditLineTextInput {
             id: lineAliasVpnOpenvpnProxiesHttpProxyUsername
-            // connectionSession: sectionVpnOpenvpnProxies.connectionSession
+            connectionSession: sectionVpnOpenvpnProxies.connectionSession
+            data: sectionVpnOpenvpnProxies.data
+            availableSections: sectionVpnOpenvpnProxies.availableSections
+            availableKeys: sectionVpnOpenvpnProxies.availableKeys
+            errors: sectionVpnOpenvpnProxies.errors
             section: "alias-vpn-openvpn-proxies"
             key: "http-proxy-username"
             text: dsTr("Username")
         }
         EditLinePasswordInput {
             id: lineAliasVpnOpenvpnProxiesHttpProxyPassword
-            // connectionSession: sectionVpnOpenvpnProxies.connectionSession
+            connectionSession: sectionVpnOpenvpnProxies.connectionSession
+            data: sectionVpnOpenvpnProxies.data
+            availableSections: sectionVpnOpenvpnProxies.availableSections
+            availableKeys: sectionVpnOpenvpnProxies.availableKeys
+            errors: sectionVpnOpenvpnProxies.errors
             section: "alias-vpn-openvpn-proxies"
             key: "http-proxy-password"
             text: dsTr("Password")

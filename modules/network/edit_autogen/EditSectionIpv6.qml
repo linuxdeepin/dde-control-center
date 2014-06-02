@@ -14,21 +14,33 @@ BaseEditSection {
     content.sourceComponent: Column { 
         EditLineComboBox {
             id: lineIpv6Method
-            // connectionSession: sectionIpv6.connectionSession
+            connectionSession: sectionIpv6.connectionSession
+            data: sectionIpv6.data
+            availableSections: sectionIpv6.availableSections
+            availableKeys: sectionIpv6.availableKeys
+            errors: sectionIpv6.errors
             section: "ipv6"
             key: "method"
             text: dsTr("Method")
         }
         EditLineTextInput {
             id: lineIpv6VkAddressesAddress
-            // connectionSession: sectionIpv6.connectionSession
+            connectionSession: sectionIpv6.connectionSession
+            data: sectionIpv6.data
+            availableSections: sectionIpv6.availableSections
+            availableKeys: sectionIpv6.availableKeys
+            errors: sectionIpv6.errors
             section: "ipv6"
             key: "vk-addresses-address"
             text: dsTr("IP Address")
         }
         EditLineSpinner {
             id: lineIpv6VkAddressesPrefix
-            // connectionSession: sectionIpv6.connectionSession
+            connectionSession: sectionIpv6.connectionSession
+            data: sectionIpv6.data
+            availableSections: sectionIpv6.availableSections
+            availableKeys: sectionIpv6.availableKeys
+            errors: sectionIpv6.errors
             section: "ipv6"
             key: "vk-addresses-prefix"
             text: dsTr("Prefix")
@@ -37,14 +49,22 @@ BaseEditSection {
         }
         EditLineTextInput {
             id: lineIpv6VkAddressesGateway
-            // connectionSession: sectionIpv6.connectionSession
+            connectionSession: sectionIpv6.connectionSession
+            data: sectionIpv6.data
+            availableSections: sectionIpv6.availableSections
+            availableKeys: sectionIpv6.availableKeys
+            errors: sectionIpv6.errors
             section: "ipv6"
             key: "vk-addresses-gateway"
             text: dsTr("Gateway")
         }
         EditLineTextInput {
             id: lineIpv6VkDns
-            // connectionSession: sectionIpv6.connectionSession
+            connectionSession: sectionIpv6.connectionSession
+            data: sectionIpv6.data
+            availableSections: sectionIpv6.availableSections
+            availableKeys: sectionIpv6.availableKeys
+            errors: sectionIpv6.errors
             section: "ipv6"
             key: "vk-dns"
             text: dsTr("DNS Server")

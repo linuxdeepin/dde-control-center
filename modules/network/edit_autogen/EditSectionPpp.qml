@@ -14,7 +14,11 @@ BaseEditSection {
     content.sourceComponent: Column { 
         EditLineSwitchButton {
             id: linePppRequireMppe
-            // connectionSession: sectionPpp.connectionSession
+            connectionSession: sectionPpp.connectionSession
+            data: sectionPpp.data
+            availableSections: sectionPpp.availableSections
+            availableKeys: sectionPpp.availableKeys
+            errors: sectionPpp.errors
             section: "ppp"
             key: "require-mppe"
             text: dsTr("Use MPPE")
@@ -22,7 +26,11 @@ BaseEditSection {
         }
         EditLineSwitchButton {
             id: linePppRequireMppe128
-            // connectionSession: sectionPpp.connectionSession
+            connectionSession: sectionPpp.connectionSession
+            data: sectionPpp.data
+            availableSections: sectionPpp.availableSections
+            availableKeys: sectionPpp.availableKeys
+            errors: sectionPpp.errors
             section: "ppp"
             key: "require-mppe-128"
             text: dsTr("128-bit MPPE")
@@ -30,70 +38,110 @@ BaseEditSection {
         }
         EditLineSwitchButton {
             id: linePppMppeStateful
-            // connectionSession: sectionPpp.connectionSession
+            connectionSession: sectionPpp.connectionSession
+            data: sectionPpp.data
+            availableSections: sectionPpp.availableSections
+            availableKeys: sectionPpp.availableKeys
+            errors: sectionPpp.errors
             section: "ppp"
             key: "mppe-stateful"
             text: dsTr("Stateful MPPE")
         }
         EditLineSwitchButton {
             id: linePppRefuseEap
-            // connectionSession: sectionPpp.connectionSession
+            connectionSession: sectionPpp.connectionSession
+            data: sectionPpp.data
+            availableSections: sectionPpp.availableSections
+            availableKeys: sectionPpp.availableKeys
+            errors: sectionPpp.errors
             section: "ppp"
             key: "refuse-eap"
             text: dsTr("Refuse EAP Authentication")
         }
         EditLineSwitchButton {
             id: linePppRefusePap
-            // connectionSession: sectionPpp.connectionSession
+            connectionSession: sectionPpp.connectionSession
+            data: sectionPpp.data
+            availableSections: sectionPpp.availableSections
+            availableKeys: sectionPpp.availableKeys
+            errors: sectionPpp.errors
             section: "ppp"
             key: "refuse-pap"
             text: dsTr("Refuse PAP Authentication")
         }
         EditLineSwitchButton {
             id: linePppRefuseChap
-            // connectionSession: sectionPpp.connectionSession
+            connectionSession: sectionPpp.connectionSession
+            data: sectionPpp.data
+            availableSections: sectionPpp.availableSections
+            availableKeys: sectionPpp.availableKeys
+            errors: sectionPpp.errors
             section: "ppp"
             key: "refuse-chap"
             text: dsTr("Refuse CHAP Authentication")
         }
         EditLineSwitchButton {
             id: linePppRefuseMschap
-            // connectionSession: sectionPpp.connectionSession
+            connectionSession: sectionPpp.connectionSession
+            data: sectionPpp.data
+            availableSections: sectionPpp.availableSections
+            availableKeys: sectionPpp.availableKeys
+            errors: sectionPpp.errors
             section: "ppp"
             key: "refuse-mschap"
             text: dsTr("Refuse MSCHAP Authentication")
         }
         EditLineSwitchButton {
             id: linePppRefuseMschapv2
-            // connectionSession: sectionPpp.connectionSession
+            connectionSession: sectionPpp.connectionSession
+            data: sectionPpp.data
+            availableSections: sectionPpp.availableSections
+            availableKeys: sectionPpp.availableKeys
+            errors: sectionPpp.errors
             section: "ppp"
             key: "refuse-mschapv2"
             text: dsTr("Refuse MSCHAPv2 Authentication")
         }
         EditLineSwitchButton {
             id: linePppNobsdcomp
-            // connectionSession: sectionPpp.connectionSession
+            connectionSession: sectionPpp.connectionSession
+            data: sectionPpp.data
+            availableSections: sectionPpp.availableSections
+            availableKeys: sectionPpp.availableKeys
+            errors: sectionPpp.errors
             section: "ppp"
             key: "nobsdcomp"
             text: dsTr("No BSD Data Compression")
         }
         EditLineSwitchButton {
             id: linePppNodeflate
-            // connectionSession: sectionPpp.connectionSession
+            connectionSession: sectionPpp.connectionSession
+            data: sectionPpp.data
+            availableSections: sectionPpp.availableSections
+            availableKeys: sectionPpp.availableKeys
+            errors: sectionPpp.errors
             section: "ppp"
             key: "nodeflate"
             text: dsTr("No Deflate Data Compression")
         }
         EditLineSwitchButton {
             id: linePppNoVjComp
-            // connectionSession: sectionPpp.connectionSession
+            connectionSession: sectionPpp.connectionSession
+            data: sectionPpp.data
+            availableSections: sectionPpp.availableSections
+            availableKeys: sectionPpp.availableKeys
+            errors: sectionPpp.errors
             section: "ppp"
             key: "no-vj-comp"
             text: dsTr("No TCP Header Compression")
         }
         EditLineSwitchButton {
             id: linePppVkEnableLcpEcho
-            // connectionSession: sectionPpp.connectionSession
+            connectionSession: sectionPpp.connectionSession
+            data: sectionPpp.data
+            availableSections: sectionPpp.availableSections
+            availableKeys: sectionPpp.availableKeys
+            errors: sectionPpp.errors
             section: "ppp"
             key: "vk-enable-lcp-echo"
             text: dsTr("Send PPP Echo Packets")

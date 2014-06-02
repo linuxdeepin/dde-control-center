@@ -14,35 +14,55 @@ BaseEditSection {
     content.sourceComponent: Column { 
         EditLineTextInput {
             id: lineAliasVpnOpenvpnTlsauthTlsRemote
-            // connectionSession: sectionVpnOpenvpnTlsauth.connectionSession
+            connectionSession: sectionVpnOpenvpnTlsauth.connectionSession
+            data: sectionVpnOpenvpnTlsauth.data
+            availableSections: sectionVpnOpenvpnTlsauth.availableSections
+            availableKeys: sectionVpnOpenvpnTlsauth.availableKeys
+            errors: sectionVpnOpenvpnTlsauth.errors
             section: "alias-vpn-openvpn-tlsauth"
             key: "tls-remote"
             text: dsTr("Subject Match")
         }
         EditLineComboBox {
             id: lineAliasVpnOpenvpnTlsauthRemoteCertTls
-            // connectionSession: sectionVpnOpenvpnTlsauth.connectionSession
+            connectionSession: sectionVpnOpenvpnTlsauth.connectionSession
+            data: sectionVpnOpenvpnTlsauth.data
+            availableSections: sectionVpnOpenvpnTlsauth.availableSections
+            availableKeys: sectionVpnOpenvpnTlsauth.availableKeys
+            errors: sectionVpnOpenvpnTlsauth.errors
             section: "alias-vpn-openvpn-tlsauth"
             key: "remote-cert-tls"
             text: dsTr("Remote Cert")
         }
         EditLineFileChooser {
             id: lineAliasVpnOpenvpnTlsauthTa
-            // connectionSession: sectionVpnOpenvpnTlsauth.connectionSession
+            connectionSession: sectionVpnOpenvpnTlsauth.connectionSession
+            data: sectionVpnOpenvpnTlsauth.data
+            availableSections: sectionVpnOpenvpnTlsauth.availableSections
+            availableKeys: sectionVpnOpenvpnTlsauth.availableKeys
+            errors: sectionVpnOpenvpnTlsauth.errors
             section: "alias-vpn-openvpn-tlsauth"
             key: "ta"
             text: dsTr("Key File")
         }
         EditLineSwitchButton {
             id: lineAliasVpnOpenvpnTlsauthVkTaDir
-            // connectionSession: sectionVpnOpenvpnTlsauth.connectionSession
+            connectionSession: sectionVpnOpenvpnTlsauth.connectionSession
+            data: sectionVpnOpenvpnTlsauth.data
+            availableSections: sectionVpnOpenvpnTlsauth.availableSections
+            availableKeys: sectionVpnOpenvpnTlsauth.availableKeys
+            errors: sectionVpnOpenvpnTlsauth.errors
             section: "alias-vpn-openvpn-tlsauth"
             key: "vk-ta-dir"
             text: dsTr("Use Key Direction")
         }
         EditLineComboBox {
             id: lineAliasVpnOpenvpnTlsauthTaDir
-            // connectionSession: sectionVpnOpenvpnTlsauth.connectionSession
+            connectionSession: sectionVpnOpenvpnTlsauth.connectionSession
+            data: sectionVpnOpenvpnTlsauth.data
+            availableSections: sectionVpnOpenvpnTlsauth.availableSections
+            availableKeys: sectionVpnOpenvpnTlsauth.availableKeys
+            errors: sectionVpnOpenvpnTlsauth.errors
             section: "alias-vpn-openvpn-tlsauth"
             key: "ta-dir"
             text: dsTr("Key Direction")

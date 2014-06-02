@@ -14,14 +14,22 @@ BaseEditSection {
     content.sourceComponent: Column { 
         EditLineComboBox {
             id: lineIpv4Method
-            // connectionSession: sectionIpv4.connectionSession
+            connectionSession: sectionIpv4.connectionSession
+            data: sectionIpv4.data
+            availableSections: sectionIpv4.availableSections
+            availableKeys: sectionIpv4.availableKeys
+            errors: sectionIpv4.errors
             section: "ipv4"
             key: "method"
             text: dsTr("Method")
         }
         EditLineIpv4Input {
             id: lineIpv4VkAddressesAddress
-            // connectionSession: sectionIpv4.connectionSession
+            connectionSession: sectionIpv4.connectionSession
+            data: sectionIpv4.data
+            availableSections: sectionIpv4.availableSections
+            availableKeys: sectionIpv4.availableKeys
+            errors: sectionIpv4.errors
             section: "ipv4"
             key: "vk-addresses-address"
             text: dsTr("IP Address")
@@ -29,7 +37,11 @@ BaseEditSection {
         }
         EditLineIpv4Input {
             id: lineIpv4VkAddressesMask
-            // connectionSession: sectionIpv4.connectionSession
+            connectionSession: sectionIpv4.connectionSession
+            data: sectionIpv4.data
+            availableSections: sectionIpv4.availableSections
+            availableKeys: sectionIpv4.availableKeys
+            errors: sectionIpv4.errors
             section: "ipv4"
             key: "vk-addresses-mask"
             text: dsTr("Netmask")
@@ -39,7 +51,11 @@ BaseEditSection {
         }
         EditLineIpv4Input {
             id: lineIpv4VkAddressesGateway
-            // connectionSession: sectionIpv4.connectionSession
+            connectionSession: sectionIpv4.connectionSession
+            data: sectionIpv4.data
+            availableSections: sectionIpv4.availableSections
+            availableKeys: sectionIpv4.availableKeys
+            errors: sectionIpv4.errors
             section: "ipv4"
             key: "vk-addresses-gateway"
             text: dsTr("Gateway")
@@ -48,7 +64,11 @@ BaseEditSection {
         }
         EditLineIpv4Input {
             id: lineIpv4VkDns
-            // connectionSession: sectionIpv4.connectionSession
+            connectionSession: sectionIpv4.connectionSession
+            data: sectionIpv4.data
+            availableSections: sectionIpv4.availableSections
+            availableKeys: sectionIpv4.availableKeys
+            errors: sectionIpv4.errors
             section: "ipv4"
             key: "vk-dns"
             text: dsTr("DNS Server")

@@ -14,56 +14,88 @@ BaseEditSection {
     content.sourceComponent: Column { 
         EditLineTextInput {
             id: lineAliasVpnOpenconnectGateway
-            // connectionSession: sectionVpnOpenconnect.connectionSession
+            connectionSession: sectionVpnOpenconnect.connectionSession
+            data: sectionVpnOpenconnect.data
+            availableSections: sectionVpnOpenconnect.availableSections
+            availableKeys: sectionVpnOpenconnect.availableKeys
+            errors: sectionVpnOpenconnect.errors
             section: "alias-vpn-openconnect"
             key: "gateway"
             text: dsTr("Gateway")
         }
         EditLineFileChooser {
             id: lineAliasVpnOpenconnectCacert
-            // connectionSession: sectionVpnOpenconnect.connectionSession
+            connectionSession: sectionVpnOpenconnect.connectionSession
+            data: sectionVpnOpenconnect.data
+            availableSections: sectionVpnOpenconnect.availableSections
+            availableKeys: sectionVpnOpenconnect.availableKeys
+            errors: sectionVpnOpenconnect.errors
             section: "alias-vpn-openconnect"
             key: "cacert"
             text: dsTr("CA Cert")
         }
         EditLineTextInput {
             id: lineAliasVpnOpenconnectProxy
-            // connectionSession: sectionVpnOpenconnect.connectionSession
+            connectionSession: sectionVpnOpenconnect.connectionSession
+            data: sectionVpnOpenconnect.data
+            availableSections: sectionVpnOpenconnect.availableSections
+            availableKeys: sectionVpnOpenconnect.availableKeys
+            errors: sectionVpnOpenconnect.errors
             section: "alias-vpn-openconnect"
             key: "proxy"
             text: dsTr("Proxy")
         }
         EditLineSwitchButton {
             id: lineAliasVpnOpenconnectEnableCsdTrojan
-            // connectionSession: sectionVpnOpenconnect.connectionSession
+            connectionSession: sectionVpnOpenconnect.connectionSession
+            data: sectionVpnOpenconnect.data
+            availableSections: sectionVpnOpenconnect.availableSections
+            availableKeys: sectionVpnOpenconnect.availableKeys
+            errors: sectionVpnOpenconnect.errors
             section: "alias-vpn-openconnect"
             key: "enable_csd_trojan"
             text: dsTr("Allow Cisco Secure Desktop Trojan")
         }
         EditLineTextInput {
             id: lineAliasVpnOpenconnectCsdWrapper
-            // connectionSession: sectionVpnOpenconnect.connectionSession
+            connectionSession: sectionVpnOpenconnect.connectionSession
+            data: sectionVpnOpenconnect.data
+            availableSections: sectionVpnOpenconnect.availableSections
+            availableKeys: sectionVpnOpenconnect.availableKeys
+            errors: sectionVpnOpenconnect.errors
             section: "alias-vpn-openconnect"
             key: "csd_wrapper"
             text: dsTr("CSD Wrapper")
         }
         EditLineFileChooser {
             id: lineAliasVpnOpenconnectUsercert
-            // connectionSession: sectionVpnOpenconnect.connectionSession
+            connectionSession: sectionVpnOpenconnect.connectionSession
+            data: sectionVpnOpenconnect.data
+            availableSections: sectionVpnOpenconnect.availableSections
+            availableKeys: sectionVpnOpenconnect.availableKeys
+            errors: sectionVpnOpenconnect.errors
             section: "alias-vpn-openconnect"
             key: "usercert"
             text: dsTr("Uesr Cert")
         }
         EditLineFileChooser {
             id: lineAliasVpnOpenconnectUserkey
-            // connectionSession: sectionVpnOpenconnect.connectionSession
+            connectionSession: sectionVpnOpenconnect.connectionSession
+            data: sectionVpnOpenconnect.data
+            availableSections: sectionVpnOpenconnect.availableSections
+            availableKeys: sectionVpnOpenconnect.availableKeys
+            errors: sectionVpnOpenconnect.errors
             section: "alias-vpn-openconnect"
             key: "userkey"
             text: dsTr("Private Key")
         }
         EditLineSwitchButton {
             id: lineAliasVpnOpenconnectPemPassphraseFsid
-            // connectionSession: sectionVpnOpenconnect.connectionSession
+            connectionSession: sectionVpnOpenconnect.connectionSession
+            data: sectionVpnOpenconnect.data
+            availableSections: sectionVpnOpenconnect.availableSections
+            availableKeys: sectionVpnOpenconnect.availableKeys
+            errors: sectionVpnOpenconnect.errors
             section: "alias-vpn-openconnect"
             key: "pem_passphrase_fsid"
             text: dsTr("User FSID For Key Passphrase")

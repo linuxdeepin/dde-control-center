@@ -5,9 +5,11 @@ DBaseLine {
     id: editLine
     objectName: "BaseEditLine"
     
-    // TODO
-    // property var connectionSession
-    property var connectionData: connectionSession.data
+    property var connectionSession
+    property var data
+    property var errors
+    property var availableSections
+    property var availableKeys
     property string section
     property string key
     property string text
@@ -15,7 +17,7 @@ DBaseLine {
     
     // update value even if other key changed
     property bool alwaysUpdate: false
-    onConnectionDataChanged: {
+    onDataChanged: {
         function updateKeysAlways() {
             if (visible && alwaysUpdate) {
                 updateValue()
@@ -23,22 +25,9 @@ DBaseLine {
         }
     }
     
-    // TODO remove
-    // Connections: {
-    //     target: connectionSession
-    //     onDataChanged: {
-    //         function updateKeysAlways() {
-    //             if (visible && alwaysUpdate) {
-    //                 updateValue()
-    //             }
-    //         }
-    //     }
-    // }
-    
-    property var errors: connectionSession.errors[section] // TODO: what if missing error section
     onErrorsChanged: {
         if (isValueError()) {
-            print("-> [error] %1[%2]: %3".arg(section).arg(key).arg(errors[key]))
+            print("-> [error] %1[%2]: %3".arg(section).arg(key).arg(errors[section][key]))
         }
     }
     
@@ -91,8 +80,15 @@ DBaseLine {
         // border.color = showError ? errorColor : normalBorderColor
         leftLoader.item.color = showError ? errorColor : normalColor
         if (showError) {
-            if (parent.objectName == "BaseEditSection") {
-                parent.expandSection()
+            for (var p = parent;; p = p.parent) {
+                if (p) {
+                    if (p.objectName == "BaseEditSection") {
+                        p.expandSection()
+                        break
+                    }
+                } else {
+                    break
+                }
             }
         }
     }
@@ -117,16 +113,14 @@ DBaseLine {
     }
     
     function isKeyAvailable() {
-        var availableSections = connectionSession.availableSections
-        var availableKeys = connectionSession.availableKeys[section]
-        return getIndexFromArray(section, availableSections) != -1 && getIndexFromArray(key, availableKeys) != -1
+        return getIndexFromArray(section, availableSections) != -1 && getIndexFromArray(key, availableKeys[section]) != -1
     }
     
     function isValueError() {
         if (editLine.value == undefined) {
             return false
         }
-        return errors[editLine.key] ? true : false
+        return errors[section][editLine.key] ? true : false
     }
     
     function getAvailableValues() {

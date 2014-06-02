@@ -14,21 +14,33 @@ BaseEditSection {
     content.sourceComponent: Column { 
         EditLineTextInput {
             id: lineCdmaNumber
-            // connectionSession: sectionMobileCdma.connectionSession
+            connectionSession: sectionMobileCdma.connectionSession
+            data: sectionMobileCdma.data
+            availableSections: sectionMobileCdma.availableSections
+            availableKeys: sectionMobileCdma.availableKeys
+            errors: sectionMobileCdma.errors
             section: "cdma"
             key: "number"
             text: dsTr("Number")
         }
         EditLineTextInput {
             id: lineCdmaUsername
-            // connectionSession: sectionMobileCdma.connectionSession
+            connectionSession: sectionMobileCdma.connectionSession
+            data: sectionMobileCdma.data
+            availableSections: sectionMobileCdma.availableSections
+            availableKeys: sectionMobileCdma.availableKeys
+            errors: sectionMobileCdma.errors
             section: "cdma"
             key: "username"
             text: dsTr("Username")
         }
         EditLinePasswordInput {
             id: lineCdmaPassword
-            // connectionSession: sectionMobileCdma.connectionSession
+            connectionSession: sectionMobileCdma.connectionSession
+            data: sectionMobileCdma.data
+            availableSections: sectionMobileCdma.availableSections
+            availableKeys: sectionMobileCdma.availableKeys
+            errors: sectionMobileCdma.errors
             section: "cdma"
             key: "password"
             text: dsTr("Password")

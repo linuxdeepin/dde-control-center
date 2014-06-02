@@ -14,21 +14,33 @@ BaseEditSection {
     content.sourceComponent: Column { 
         EditLineTextInput {
             id: linePppoeUsername
-            // connectionSession: sectionPppoe.connectionSession
+            connectionSession: sectionPppoe.connectionSession
+            data: sectionPppoe.data
+            availableSections: sectionPppoe.availableSections
+            availableKeys: sectionPppoe.availableKeys
+            errors: sectionPppoe.errors
             section: "pppoe"
             key: "username"
             text: dsTr("Username")
         }
         EditLineTextInput {
             id: linePppoeService
-            // connectionSession: sectionPppoe.connectionSession
+            connectionSession: sectionPppoe.connectionSession
+            data: sectionPppoe.data
+            availableSections: sectionPppoe.availableSections
+            availableKeys: sectionPppoe.availableKeys
+            errors: sectionPppoe.errors
             section: "pppoe"
             key: "service"
             text: dsTr("Service")
         }
         EditLinePasswordInput {
             id: linePppoePassword
-            // connectionSession: sectionPppoe.connectionSession
+            connectionSession: sectionPppoe.connectionSession
+            data: sectionPppoe.data
+            availableSections: sectionPppoe.availableSections
+            availableKeys: sectionPppoe.availableKeys
+            errors: sectionPppoe.errors
             section: "pppoe"
             key: "password"
             text: dsTr("Password")

@@ -14,14 +14,22 @@ BaseEditSection {
     content.sourceComponent: Column { 
         EditLineComboBox {
             id: lineAliasVpnOpenvpnSecurityCipher
-            // connectionSession: sectionVpnOpenvpnSecurity.connectionSession
+            connectionSession: sectionVpnOpenvpnSecurity.connectionSession
+            data: sectionVpnOpenvpnSecurity.data
+            availableSections: sectionVpnOpenvpnSecurity.availableSections
+            availableKeys: sectionVpnOpenvpnSecurity.availableKeys
+            errors: sectionVpnOpenvpnSecurity.errors
             section: "alias-vpn-openvpn-security"
             key: "cipher"
             text: dsTr("Cipher")
         }
         EditLineComboBox {
             id: lineAliasVpnOpenvpnSecurityAuth
-            // connectionSession: sectionVpnOpenvpnSecurity.connectionSession
+            connectionSession: sectionVpnOpenvpnSecurity.connectionSession
+            data: sectionVpnOpenvpnSecurity.data
+            availableSections: sectionVpnOpenvpnSecurity.availableSections
+            availableKeys: sectionVpnOpenvpnSecurity.availableKeys
+            errors: sectionVpnOpenvpnSecurity.errors
             section: "alias-vpn-openvpn-security"
             key: "auth"
             text: dsTr("HMAC Auth")

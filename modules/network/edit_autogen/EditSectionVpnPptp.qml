@@ -14,35 +14,55 @@ BaseEditSection {
     content.sourceComponent: Column { 
         EditLineTextInput {
             id: lineAliasVpnPptpGateway
-            // connectionSession: sectionVpnPptp.connectionSession
+            connectionSession: sectionVpnPptp.connectionSession
+            data: sectionVpnPptp.data
+            availableSections: sectionVpnPptp.availableSections
+            availableKeys: sectionVpnPptp.availableKeys
+            errors: sectionVpnPptp.errors
             section: "alias-vpn-pptp"
             key: "gateway"
             text: dsTr("Gateway")
         }
         EditLineTextInput {
             id: lineAliasVpnPptpUser
-            // connectionSession: sectionVpnPptp.connectionSession
+            connectionSession: sectionVpnPptp.connectionSession
+            data: sectionVpnPptp.data
+            availableSections: sectionVpnPptp.availableSections
+            availableKeys: sectionVpnPptp.availableKeys
+            errors: sectionVpnPptp.errors
             section: "alias-vpn-pptp"
             key: "user"
             text: dsTr("Username")
         }
         EditLineComboBox {
             id: lineAliasVpnPptpPasswordFlags
-            // connectionSession: sectionVpnPptp.connectionSession
+            connectionSession: sectionVpnPptp.connectionSession
+            data: sectionVpnPptp.data
+            availableSections: sectionVpnPptp.availableSections
+            availableKeys: sectionVpnPptp.availableKeys
+            errors: sectionVpnPptp.errors
             section: "alias-vpn-pptp"
             key: "password-flags"
             text: dsTr("Ask for Pwd")
         }
         EditLinePasswordInput {
             id: lineAliasVpnPptpPassword
-            // connectionSession: sectionVpnPptp.connectionSession
+            connectionSession: sectionVpnPptp.connectionSession
+            data: sectionVpnPptp.data
+            availableSections: sectionVpnPptp.availableSections
+            availableKeys: sectionVpnPptp.availableKeys
+            errors: sectionVpnPptp.errors
             section: "alias-vpn-pptp"
             key: "password"
             text: dsTr("Password")
         }
         EditLineTextInput {
             id: lineAliasVpnPptpDomain
-            // connectionSession: sectionVpnPptp.connectionSession
+            connectionSession: sectionVpnPptp.connectionSession
+            data: sectionVpnPptp.data
+            availableSections: sectionVpnPptp.availableSections
+            availableKeys: sectionVpnPptp.availableKeys
+            errors: sectionVpnPptp.errors
             section: "alias-vpn-pptp"
             key: "domain"
             text: dsTr("Domain")

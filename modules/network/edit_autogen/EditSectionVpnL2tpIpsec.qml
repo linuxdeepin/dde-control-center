@@ -14,28 +14,44 @@ BaseEditSection {
     content.sourceComponent: Column { 
         EditLineSwitchButton {
             id: lineAliasVpnL2tpIpsecIpsecEnabled
-            // connectionSession: sectionVpnL2tpIpsec.connectionSession
+            connectionSession: sectionVpnL2tpIpsec.connectionSession
+            data: sectionVpnL2tpIpsec.data
+            availableSections: sectionVpnL2tpIpsec.availableSections
+            availableKeys: sectionVpnL2tpIpsec.availableKeys
+            errors: sectionVpnL2tpIpsec.errors
             section: "alias-vpn-l2tp-ipsec"
             key: "ipsec-enabled"
             text: dsTr("Enable IPsec")
         }
         EditLineTextInput {
             id: lineAliasVpnL2tpIpsecIpsecGroupName
-            // connectionSession: sectionVpnL2tpIpsec.connectionSession
+            connectionSession: sectionVpnL2tpIpsec.connectionSession
+            data: sectionVpnL2tpIpsec.data
+            availableSections: sectionVpnL2tpIpsec.availableSections
+            availableKeys: sectionVpnL2tpIpsec.availableKeys
+            errors: sectionVpnL2tpIpsec.errors
             section: "alias-vpn-l2tp-ipsec"
             key: "ipsec-group-name"
             text: dsTr("Group Name")
         }
         EditLineTextInput {
             id: lineAliasVpnL2tpIpsecIpsecGatewayId
-            // connectionSession: sectionVpnL2tpIpsec.connectionSession
+            connectionSession: sectionVpnL2tpIpsec.connectionSession
+            data: sectionVpnL2tpIpsec.data
+            availableSections: sectionVpnL2tpIpsec.availableSections
+            availableKeys: sectionVpnL2tpIpsec.availableKeys
+            errors: sectionVpnL2tpIpsec.errors
             section: "alias-vpn-l2tp-ipsec"
             key: "ipsec-gateway-id"
             text: dsTr("Group ID")
         }
         EditLinePasswordInput {
             id: lineAliasVpnL2tpIpsecIpsecPsk
-            // connectionSession: sectionVpnL2tpIpsec.connectionSession
+            connectionSession: sectionVpnL2tpIpsec.connectionSession
+            data: sectionVpnL2tpIpsec.data
+            availableSections: sectionVpnL2tpIpsec.availableSections
+            availableKeys: sectionVpnL2tpIpsec.availableKeys
+            errors: sectionVpnL2tpIpsec.errors
             section: "alias-vpn-l2tp-ipsec"
             key: "ipsec-psk"
             text: dsTr("Password")

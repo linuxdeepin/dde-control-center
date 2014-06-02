@@ -14,28 +14,44 @@ BaseEditSection {
     content.sourceComponent: Column { 
         EditLineSwitchButton {
             id: lineAliasVpnPptpPppVkRequireMppe
-            // connectionSession: sectionVpnPptpPpp.connectionSession
+            connectionSession: sectionVpnPptpPpp.connectionSession
+            data: sectionVpnPptpPpp.data
+            availableSections: sectionVpnPptpPpp.availableSections
+            availableKeys: sectionVpnPptpPpp.availableKeys
+            errors: sectionVpnPptpPpp.errors
             section: "alias-vpn-pptp-ppp"
             key: "vk-require-mppe"
             text: dsTr("Use MPPE")
         }
         EditLineComboBox {
             id: lineAliasVpnPptpPppVkMppeSecurity
-            // connectionSession: sectionVpnPptpPpp.connectionSession
+            connectionSession: sectionVpnPptpPpp.connectionSession
+            data: sectionVpnPptpPpp.data
+            availableSections: sectionVpnPptpPpp.availableSections
+            availableKeys: sectionVpnPptpPpp.availableKeys
+            errors: sectionVpnPptpPpp.errors
             section: "alias-vpn-pptp-ppp"
             key: "vk-mppe-security"
             text: dsTr("Security")
         }
         EditLineSwitchButton {
             id: lineAliasVpnPptpPppMppeStateful
-            // connectionSession: sectionVpnPptpPpp.connectionSession
+            connectionSession: sectionVpnPptpPpp.connectionSession
+            data: sectionVpnPptpPpp.data
+            availableSections: sectionVpnPptpPpp.availableSections
+            availableKeys: sectionVpnPptpPpp.availableKeys
+            errors: sectionVpnPptpPpp.errors
             section: "alias-vpn-pptp-ppp"
             key: "mppe-stateful"
             text: dsTr("Stateful MPPE")
         }
         EditLineSwitchButton {
             id: lineAliasVpnPptpPppRefuseEap
-            // connectionSession: sectionVpnPptpPpp.connectionSession
+            connectionSession: sectionVpnPptpPpp.connectionSession
+            data: sectionVpnPptpPpp.data
+            availableSections: sectionVpnPptpPpp.availableSections
+            availableKeys: sectionVpnPptpPpp.availableKeys
+            errors: sectionVpnPptpPpp.errors
             section: "alias-vpn-pptp-ppp"
             key: "refuse-eap"
             text: dsTr("Refuse EAP Authentication")
@@ -43,7 +59,11 @@ BaseEditSection {
         }
         EditLineSwitchButton {
             id: lineAliasVpnPptpPppRefusePap
-            // connectionSession: sectionVpnPptpPpp.connectionSession
+            connectionSession: sectionVpnPptpPpp.connectionSession
+            data: sectionVpnPptpPpp.data
+            availableSections: sectionVpnPptpPpp.availableSections
+            availableKeys: sectionVpnPptpPpp.availableKeys
+            errors: sectionVpnPptpPpp.errors
             section: "alias-vpn-pptp-ppp"
             key: "refuse-pap"
             text: dsTr("Refuse PAP Authentication")
@@ -51,7 +71,11 @@ BaseEditSection {
         }
         EditLineSwitchButton {
             id: lineAliasVpnPptpPppRefuseChap
-            // connectionSession: sectionVpnPptpPpp.connectionSession
+            connectionSession: sectionVpnPptpPpp.connectionSession
+            data: sectionVpnPptpPpp.data
+            availableSections: sectionVpnPptpPpp.availableSections
+            availableKeys: sectionVpnPptpPpp.availableKeys
+            errors: sectionVpnPptpPpp.errors
             section: "alias-vpn-pptp-ppp"
             key: "refuse-chap"
             text: dsTr("Refuse CHAP Authentication")
@@ -59,7 +83,11 @@ BaseEditSection {
         }
         EditLineSwitchButton {
             id: lineAliasVpnPptpPppRefuseMschap
-            // connectionSession: sectionVpnPptpPpp.connectionSession
+            connectionSession: sectionVpnPptpPpp.connectionSession
+            data: sectionVpnPptpPpp.data
+            availableSections: sectionVpnPptpPpp.availableSections
+            availableKeys: sectionVpnPptpPpp.availableKeys
+            errors: sectionVpnPptpPpp.errors
             section: "alias-vpn-pptp-ppp"
             key: "refuse-mschap"
             text: dsTr("Refuse MSCHAP Authentication")
@@ -67,35 +95,55 @@ BaseEditSection {
         }
         EditLineSwitchButton {
             id: lineAliasVpnPptpPppRefuseMschapv2
-            // connectionSession: sectionVpnPptpPpp.connectionSession
+            connectionSession: sectionVpnPptpPpp.connectionSession
+            data: sectionVpnPptpPpp.data
+            availableSections: sectionVpnPptpPpp.availableSections
+            availableKeys: sectionVpnPptpPpp.availableKeys
+            errors: sectionVpnPptpPpp.errors
             section: "alias-vpn-pptp-ppp"
             key: "refuse-mschapv2"
             text: dsTr("Refuse MSCHAPv2 Authentication")
         }
         EditLineSwitchButton {
             id: lineAliasVpnPptpPppNobsdcomp
-            // connectionSession: sectionVpnPptpPpp.connectionSession
+            connectionSession: sectionVpnPptpPpp.connectionSession
+            data: sectionVpnPptpPpp.data
+            availableSections: sectionVpnPptpPpp.availableSections
+            availableKeys: sectionVpnPptpPpp.availableKeys
+            errors: sectionVpnPptpPpp.errors
             section: "alias-vpn-pptp-ppp"
             key: "nobsdcomp"
             text: dsTr("No BSD Data Compression")
         }
         EditLineSwitchButton {
             id: lineAliasVpnPptpPppNodeflate
-            // connectionSession: sectionVpnPptpPpp.connectionSession
+            connectionSession: sectionVpnPptpPpp.connectionSession
+            data: sectionVpnPptpPpp.data
+            availableSections: sectionVpnPptpPpp.availableSections
+            availableKeys: sectionVpnPptpPpp.availableKeys
+            errors: sectionVpnPptpPpp.errors
             section: "alias-vpn-pptp-ppp"
             key: "nodeflate"
             text: dsTr("No Deflate Data Compression")
         }
         EditLineSwitchButton {
             id: lineAliasVpnPptpPppNoVjComp
-            // connectionSession: sectionVpnPptpPpp.connectionSession
+            connectionSession: sectionVpnPptpPpp.connectionSession
+            data: sectionVpnPptpPpp.data
+            availableSections: sectionVpnPptpPpp.availableSections
+            availableKeys: sectionVpnPptpPpp.availableKeys
+            errors: sectionVpnPptpPpp.errors
             section: "alias-vpn-pptp-ppp"
             key: "no-vj-comp"
             text: dsTr("No TCP Header Compression")
         }
         EditLineSwitchButton {
             id: lineAliasVpnPptpPppVkEnableLcpEcho
-            // connectionSession: sectionVpnPptpPpp.connectionSession
+            connectionSession: sectionVpnPptpPpp.connectionSession
+            data: sectionVpnPptpPpp.data
+            availableSections: sectionVpnPptpPpp.availableSections
+            availableKeys: sectionVpnPptpPpp.availableKeys
+            errors: sectionVpnPptpPpp.errors
             section: "alias-vpn-pptp-ppp"
             key: "vk-enable-lcp-echo"
             text: dsTr("Send PPP Echo Packets")

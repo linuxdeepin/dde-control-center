@@ -14,14 +14,22 @@ BaseEditSection {
     content.sourceComponent: Column { 
         EditLineSwitchButton {
             id: lineAliasVpnOpenvpnAdvancedVkEnablePort
-            // connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            data: sectionVpnOpenvpnAdvanced.data
+            availableSections: sectionVpnOpenvpnAdvanced.availableSections
+            availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
+            errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "vk-enable-port"
             text: dsTr("Use Custom Gateway Port")
         }
         EditLineSpinner {
             id: lineAliasVpnOpenvpnAdvancedPort
-            // connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            data: sectionVpnOpenvpnAdvanced.data
+            availableSections: sectionVpnOpenvpnAdvanced.availableSections
+            availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
+            errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "port"
             text: dsTr("Gateway Port")
@@ -30,14 +38,22 @@ BaseEditSection {
         }
         EditLineSwitchButton {
             id: lineAliasVpnOpenvpnAdvancedVkEnableRenegSeconds
-            // connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            data: sectionVpnOpenvpnAdvanced.data
+            availableSections: sectionVpnOpenvpnAdvanced.availableSections
+            availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
+            errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "vk-enable-reneg-seconds"
             text: dsTr("Use Custom Renegotiation Interval")
         }
         EditLineSpinner {
             id: lineAliasVpnOpenvpnAdvancedRenegSeconds
-            // connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            data: sectionVpnOpenvpnAdvanced.data
+            availableSections: sectionVpnOpenvpnAdvanced.availableSections
+            availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
+            errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "reneg-seconds"
             text: dsTr("Renegotiation Interval")
@@ -46,35 +62,55 @@ BaseEditSection {
         }
         EditLineSwitchButton {
             id: lineAliasVpnOpenvpnAdvancedCompLzo
-            // connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            data: sectionVpnOpenvpnAdvanced.data
+            availableSections: sectionVpnOpenvpnAdvanced.availableSections
+            availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
+            errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "comp-lzo"
             text: dsTr("Use LZO data compression")
         }
         EditLineSwitchButton {
             id: lineAliasVpnOpenvpnAdvancedProtoTcp
-            // connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            data: sectionVpnOpenvpnAdvanced.data
+            availableSections: sectionVpnOpenvpnAdvanced.availableSections
+            availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
+            errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "proto-tcp"
             text: dsTr("Use a TCP connection")
         }
         EditLineSwitchButton {
             id: lineAliasVpnOpenvpnAdvancedTapDev
-            // connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            data: sectionVpnOpenvpnAdvanced.data
+            availableSections: sectionVpnOpenvpnAdvanced.availableSections
+            availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
+            errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "tap-dev"
             text: dsTr("Use a TAP device")
         }
         EditLineSwitchButton {
             id: lineAliasVpnOpenvpnAdvancedVkEnableTunnelMtu
-            // connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            data: sectionVpnOpenvpnAdvanced.data
+            availableSections: sectionVpnOpenvpnAdvanced.availableSections
+            availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
+            errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "vk-enable-tunnel-mtu"
             text: dsTr("Use Custom Tunnel MTU")
         }
         EditLineSpinner {
             id: lineAliasVpnOpenvpnAdvancedTunnelMtu
-            // connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            data: sectionVpnOpenvpnAdvanced.data
+            availableSections: sectionVpnOpenvpnAdvanced.availableSections
+            availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
+            errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "tunnel-mtu"
             text: dsTr("MTU")
@@ -83,14 +119,22 @@ BaseEditSection {
         }
         EditLineSwitchButton {
             id: lineAliasVpnOpenvpnAdvancedVkEnableFragmentSize
-            // connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            data: sectionVpnOpenvpnAdvanced.data
+            availableSections: sectionVpnOpenvpnAdvanced.availableSections
+            availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
+            errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "vk-enable-fragment-size"
             text: dsTr("Use Custom UDP Fragment Size")
         }
         EditLineSpinner {
             id: lineAliasVpnOpenvpnAdvancedFragmentSize
-            // connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            data: sectionVpnOpenvpnAdvanced.data
+            availableSections: sectionVpnOpenvpnAdvanced.availableSections
+            availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
+            errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "fragment-size"
             text: dsTr("UDP Fragment Size")
@@ -99,14 +143,22 @@ BaseEditSection {
         }
         EditLineSwitchButton {
             id: lineAliasVpnOpenvpnAdvancedMssfix
-            // connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            data: sectionVpnOpenvpnAdvanced.data
+            availableSections: sectionVpnOpenvpnAdvanced.availableSections
+            availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
+            errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "mssfix"
             text: dsTr("Restrict Tunnel TCP MSS")
         }
         EditLineSwitchButton {
             id: lineAliasVpnOpenvpnAdvancedRemoteRandom
-            // connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            data: sectionVpnOpenvpnAdvanced.data
+            availableSections: sectionVpnOpenvpnAdvanced.availableSections
+            availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
+            errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "remote-random"
             text: dsTr("Randomize Remote Hosts")

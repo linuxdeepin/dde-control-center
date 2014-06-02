@@ -14,21 +14,33 @@ BaseEditSection {
     content.sourceComponent: Column { 
         EditLineConnectionId {
             id: lineConnectionId
-            // connectionSession: sectionGeneral.connectionSession
+            connectionSession: sectionGeneral.connectionSession
+            data: sectionGeneral.data
+            availableSections: sectionGeneral.availableSections
+            availableKeys: sectionGeneral.availableKeys
+            errors: sectionGeneral.errors
             section: "connection"
             key: "id"
             text: dsTr("Name")
         }
         EditLineSwitchButton {
             id: lineConnectionAutoconnect
-            // connectionSession: sectionGeneral.connectionSession
+            connectionSession: sectionGeneral.connectionSession
+            data: sectionGeneral.data
+            availableSections: sectionGeneral.availableSections
+            availableKeys: sectionGeneral.availableKeys
+            errors: sectionGeneral.errors
             section: "connection"
             key: "autoconnect"
             text: dsTr("Automatically connect")
         }
         EditLineSwitchButton {
             id: lineConnectionVkNoPermission
-            // connectionSession: sectionGeneral.connectionSession
+            connectionSession: sectionGeneral.connectionSession
+            data: sectionGeneral.data
+            availableSections: sectionGeneral.availableSections
+            availableKeys: sectionGeneral.availableKeys
+            errors: sectionGeneral.errors
             section: "connection"
             key: "vk-no-permission"
             text: dsTr("All Users Could Connect")

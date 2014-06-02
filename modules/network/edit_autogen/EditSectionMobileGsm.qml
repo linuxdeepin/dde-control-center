@@ -14,63 +14,99 @@ BaseEditSection {
     content.sourceComponent: Column { 
         EditLineEditComboBox {
             id: lineGsmNumber
-            // connectionSession: sectionMobileGsm.connectionSession
+            connectionSession: sectionMobileGsm.connectionSession
+            data: sectionMobileGsm.data
+            availableSections: sectionMobileGsm.availableSections
+            availableKeys: sectionMobileGsm.availableKeys
+            errors: sectionMobileGsm.errors
             section: "gsm"
             key: "number"
             text: dsTr("Number")
         }
         EditLineTextInput {
             id: lineGsmUsername
-            // connectionSession: sectionMobileGsm.connectionSession
+            connectionSession: sectionMobileGsm.connectionSession
+            data: sectionMobileGsm.data
+            availableSections: sectionMobileGsm.availableSections
+            availableKeys: sectionMobileGsm.availableKeys
+            errors: sectionMobileGsm.errors
             section: "gsm"
             key: "username"
             text: dsTr("Username")
         }
         EditLineComboBox {
             id: lineGsmPasswordFlags
-            // connectionSession: sectionMobileGsm.connectionSession
+            connectionSession: sectionMobileGsm.connectionSession
+            data: sectionMobileGsm.data
+            availableSections: sectionMobileGsm.availableSections
+            availableKeys: sectionMobileGsm.availableKeys
+            errors: sectionMobileGsm.errors
             section: "gsm"
             key: "password-flags"
             text: dsTr("Ask for Pwd")
         }
         EditLinePasswordInput {
             id: lineGsmPassword
-            // connectionSession: sectionMobileGsm.connectionSession
+            connectionSession: sectionMobileGsm.connectionSession
+            data: sectionMobileGsm.data
+            availableSections: sectionMobileGsm.availableSections
+            availableKeys: sectionMobileGsm.availableKeys
+            errors: sectionMobileGsm.errors
             section: "gsm"
             key: "password"
             text: dsTr("Password")
         }
         EditLineEditComboBox {
             id: lineGsmApn
-            // connectionSession: sectionMobileGsm.connectionSession
+            connectionSession: sectionMobileGsm.connectionSession
+            data: sectionMobileGsm.data
+            availableSections: sectionMobileGsm.availableSections
+            availableKeys: sectionMobileGsm.availableKeys
+            errors: sectionMobileGsm.errors
             section: "gsm"
             key: "apn"
             text: dsTr("APN")
         }
         EditLineTextInput {
             id: lineGsmNetworkId
-            // connectionSession: sectionMobileGsm.connectionSession
+            connectionSession: sectionMobileGsm.connectionSession
+            data: sectionMobileGsm.data
+            availableSections: sectionMobileGsm.availableSections
+            availableKeys: sectionMobileGsm.availableKeys
+            errors: sectionMobileGsm.errors
             section: "gsm"
             key: "network-id"
             text: dsTr("Network ID")
         }
         EditLineComboBox {
             id: lineGsmNetworkType
-            // connectionSession: sectionMobileGsm.connectionSession
+            connectionSession: sectionMobileGsm.connectionSession
+            data: sectionMobileGsm.data
+            availableSections: sectionMobileGsm.availableSections
+            availableKeys: sectionMobileGsm.availableKeys
+            errors: sectionMobileGsm.errors
             section: "gsm"
             key: "network-type"
             text: dsTr("Type")
         }
         EditLineSwitchButton {
             id: lineGsmHomeOnly
-            // connectionSession: sectionMobileGsm.connectionSession
+            connectionSession: sectionMobileGsm.connectionSession
+            data: sectionMobileGsm.data
+            availableSections: sectionMobileGsm.availableSections
+            availableKeys: sectionMobileGsm.availableKeys
+            errors: sectionMobileGsm.errors
             section: "gsm"
             key: "home-only"
             text: dsTr("Home Network Only")
         }
         EditLinePasswordInput {
             id: lineGsmPin
-            // connectionSession: sectionMobileGsm.connectionSession
+            connectionSession: sectionMobileGsm.connectionSession
+            data: sectionMobileGsm.data
+            availableSections: sectionMobileGsm.availableSections
+            availableKeys: sectionMobileGsm.availableKeys
+            errors: sectionMobileGsm.errors
             section: "gsm"
             key: "pin"
             text: dsTr("PIN")

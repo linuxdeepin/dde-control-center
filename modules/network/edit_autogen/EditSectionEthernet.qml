@@ -14,28 +14,44 @@ BaseEditSection {
     content.sourceComponent: Column { 
         EditLineEditComboBox {
             id: line8023EthernetMacAddress
-            // connectionSession: sectionEthernet.connectionSession
+            connectionSession: sectionEthernet.connectionSession
+            data: sectionEthernet.data
+            availableSections: sectionEthernet.availableSections
+            availableKeys: sectionEthernet.availableKeys
+            errors: sectionEthernet.errors
             section: "802-3-ethernet"
             key: "mac-address"
             text: dsTr("Device MAC Addr")
         }
         EditLineTextInput {
             id: line8023EthernetClonedMacAddress
-            // connectionSession: sectionEthernet.connectionSession
+            connectionSession: sectionEthernet.connectionSession
+            data: sectionEthernet.data
+            availableSections: sectionEthernet.availableSections
+            availableKeys: sectionEthernet.availableKeys
+            errors: sectionEthernet.errors
             section: "802-3-ethernet"
             key: "cloned-mac-address"
             text: dsTr("Cloned MAC Addr")
         }
         EditLineSwitchButton {
             id: line8023EthernetVkEnableMtu
-            // connectionSession: sectionEthernet.connectionSession
+            connectionSession: sectionEthernet.connectionSession
+            data: sectionEthernet.data
+            availableSections: sectionEthernet.availableSections
+            availableKeys: sectionEthernet.availableKeys
+            errors: sectionEthernet.errors
             section: "802-3-ethernet"
             key: "vk-enable-mtu"
             text: dsTr("Custom MTU")
         }
         EditLineSpinner {
             id: line8023EthernetMtu
-            // connectionSession: sectionEthernet.connectionSession
+            connectionSession: sectionEthernet.connectionSession
+            data: sectionEthernet.data
+            availableSections: sectionEthernet.availableSections
+            availableKeys: sectionEthernet.availableKeys
+            errors: sectionEthernet.errors
             section: "802-3-ethernet"
             key: "mtu"
             text: dsTr("MTU")
