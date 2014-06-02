@@ -100,7 +100,7 @@ BaseConnectionEdit {
                 anchors.verticalCenter: parent.verticalCenter
                 text: dsTr("Save")
                 onClicked: {
-                    checkAllKeys()
+                    checkKeysInPage()
                     if (connectionSession.Save()) {
                         stackView.reset()
                     }

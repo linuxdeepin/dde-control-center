@@ -2,18 +2,35 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 
 DBaseLine {
-    id: root
+    id: editLine
     objectName: "BaseEditLine"
     
+    property string section
     property string key
     property string text
     property var value // mid-value between ConnectionSession and widget
     
     // update value even if other key changed
     property bool alwaysUpdate: false
+    Connections: {
+        target: connectionSession
+        onDataChanged: {
+            function updateKeysAlways() {
+                if (visible && alwaysUpdate) {
+                    updateValue()
+                }
+            }
+        }
+    }
+    
+    property var errors: connectionSession.errors[section] // TODO: what if missing error section
+    onErrorsChanged: {
+        if isValueError() {
+            print("-> [error] %1[%2]: %3".arg(section).arg(key).arg(errors[key]))
+        }
+    }
     
     signal widgetShown
-    
     visible: false
     Binding on visible {
         value: isKeyAvailable()
@@ -30,7 +47,7 @@ DBaseLine {
             widgetShown()
         }
         // TODO test
-        print("BaseEditLine.onVisibleChanged", visible ? "(show)" : "(hide)", section, key, value)
+        print("-> BaseEditLine.onVisibleChanged", visible ? "(show)" : "(hide)", section, key, value)
     }
     Component.onCompleted: {
         if (visible) {
@@ -46,12 +63,12 @@ DBaseLine {
     property color errorColor: "#F48914"
     
     // error state
-    property bool showErrorConditon
+    property bool showErrorConditon: false // will be true when widget focus changed or save button pressed
     property bool showError: showErrorConditon && isValueError()
     Connections {
         target: rightLoader.item
         onActiveFocusChanged: {
-            print("onActiveFocusChanged", rightLoader.item.activeFocus) //TODO test
+            print("-> onActiveFocusChanged", rightLoader.item.activeFocus) // TODO test
             if (!rightLoader.item.activeFocus) {
                 showErrorConditon = true
             }
@@ -62,19 +79,20 @@ DBaseLine {
         // border.color = showError ? errorColor : normalBorderColor
         leftLoader.item.color = showError ? errorColor : normalColor
         if (showError) {
-            expandSection()
+            if (parent.objectName == "BaseEditSection") {
+                parent.expandSection()
+            }
         }
     }
     
     leftMargin: contentLeftMargin
     leftLoader.sourceComponent: DssH2{
-        text: root.text
+        text: editLine.text
     }
     
     function setKey() {
         print("-> BaseEditLine.setKey()", section, key, value) // TODO test
         generalSetKey(section, key, value)
-        updateKeysAlways()
     }
 
     function getKey() {
@@ -87,14 +105,16 @@ DBaseLine {
     }
     
     function isKeyAvailable() {
-        return getIndexFromArray(key, availableKeys) != -1
+        var avialableSections = connectionSession.availableSections
+        var availableKeys = connectionSession.availableKeys[section]
+        return getIndexFromArray(section, availableSections) != -1 && getIndexFromArray(key, availableKeys) != -1
     }
     
     function isValueError() {
-        if (root.value == undefined) {
+        if (editLine.value == undefined) {
             return false
         }
-        return errors[root.key] ? true : false
+        return errors[editLine.key] ? true : false
     }
     
     function getAvailableValues() {
@@ -117,7 +137,7 @@ DBaseLine {
         if (values == null) {
             // values is null here so this function should
             // not be called in this case
-            print("==> [WARNING] getAvailableValuesTextByValue", values, section, key, value) //TODO test
+            print("-> [WARNING] getAvailableValuesTextByValue", values, section, key, value) //TODO test
             return
         }
         for (var i=0; i<values.length; i++) {
@@ -125,7 +145,7 @@ DBaseLine {
                 return values[i].Text
             }
         }
-        print("==> [WARNING] getAvailableValuesTextByValue():", values, section, key, value) //TODO test
+        print("-> [WARNING] getAvailableValuesTextByValue():", values, section, key, value) //TODO test
         return ""
     }
     
@@ -139,12 +159,12 @@ DBaseLine {
                 return i
             }
         }
-        print("==> [WARNING] getAvailableValuesIndex():", values, section, key, value) //TODO test
+        print("-> [WARNING] getAvailableValuesIndex():", values, section, key, value) //TODO test
         return 0
     }
     
     function checkKey() {
-        print("check key", section, key, value) // TODO test
+        print("-> check key", section, key, value) // TODO test
         showErrorConditon = true
     }
 }
