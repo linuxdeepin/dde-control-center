@@ -15,9 +15,9 @@ BaseEditSection {
         EditLineTextInput {
             id: line80211WirelessSsid
             connectionSession: sectionWifi.connectionSession
-            data: sectionWifi.data
             availableSections: sectionWifi.availableSections
             availableKeys: sectionWifi.availableKeys
+            connectionData: sectionWifi.connectionData
             errors: sectionWifi.errors
             section: "802-11-wireless"
             key: "ssid"
@@ -26,9 +26,9 @@ BaseEditSection {
         EditLineComboBox {
             id: line80211WirelessMode
             connectionSession: sectionWifi.connectionSession
-            data: sectionWifi.data
             availableSections: sectionWifi.availableSections
             availableKeys: sectionWifi.availableKeys
+            connectionData: sectionWifi.connectionData
             errors: sectionWifi.errors
             section: "802-11-wireless"
             key: "mode"
@@ -37,9 +37,9 @@ BaseEditSection {
         EditLineComboBox {
             id: line80211WirelessBand
             connectionSession: sectionWifi.connectionSession
-            data: sectionWifi.data
             availableSections: sectionWifi.availableSections
             availableKeys: sectionWifi.availableKeys
+            connectionData: sectionWifi.connectionData
             errors: sectionWifi.errors
             section: "802-11-wireless"
             key: "band"
@@ -49,9 +49,9 @@ BaseEditSection {
         EditLineComboBox {
             id: line80211WirelessChannel
             connectionSession: sectionWifi.connectionSession
-            data: sectionWifi.data
             availableSections: sectionWifi.availableSections
             availableKeys: sectionWifi.availableKeys
+            connectionData: sectionWifi.connectionData
             errors: sectionWifi.errors
             section: "802-11-wireless"
             key: "channel"
@@ -61,9 +61,9 @@ BaseEditSection {
         EditLineEditComboBox {
             id: line80211WirelessMacAddress
             connectionSession: sectionWifi.connectionSession
-            data: sectionWifi.data
             availableSections: sectionWifi.availableSections
             availableKeys: sectionWifi.availableKeys
+            connectionData: sectionWifi.connectionData
             errors: sectionWifi.errors
             section: "802-11-wireless"
             key: "mac-address"
@@ -72,9 +72,9 @@ BaseEditSection {
         EditLineTextInput {
             id: line80211WirelessClonedMacAddress
             connectionSession: sectionWifi.connectionSession
-            data: sectionWifi.data
             availableSections: sectionWifi.availableSections
             availableKeys: sectionWifi.availableKeys
+            connectionData: sectionWifi.connectionData
             errors: sectionWifi.errors
             section: "802-11-wireless"
             key: "cloned-mac-address"
@@ -83,9 +83,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: line80211WirelessVkEnableMtu
             connectionSession: sectionWifi.connectionSession
-            data: sectionWifi.data
             availableSections: sectionWifi.availableSections
             availableKeys: sectionWifi.availableKeys
+            connectionData: sectionWifi.connectionData
             errors: sectionWifi.errors
             section: "802-11-wireless"
             key: "vk-enable-mtu"
@@ -94,9 +94,9 @@ BaseEditSection {
         EditLineSpinner {
             id: line80211WirelessMtu
             connectionSession: sectionWifi.connectionSession
-            data: sectionWifi.data
             availableSections: sectionWifi.availableSections
             availableKeys: sectionWifi.availableKeys
+            connectionData: sectionWifi.connectionData
             errors: sectionWifi.errors
             section: "802-11-wireless"
             key: "mtu"

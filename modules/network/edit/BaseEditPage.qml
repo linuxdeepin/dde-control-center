@@ -10,10 +10,10 @@ Column {
     property int contentLeftMargin: 18
 
     property var connectionSession
-    property var data: connectionSession.data
-    property var errors: connectionSession.errors
     property var availableSections: connectionSession.availableSections
     property var availableKeys:  connectionSession.availableKeys
+    property var connectionData: connectionSession.data
+    property var errors: connectionSession.errors
     property var connectionPath: connectionSession.connectionPath
     property var uuid: connectionSession.uuid
 

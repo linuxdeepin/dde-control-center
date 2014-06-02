@@ -15,9 +15,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineAliasVpnVpncIpsecGateway
             connectionSession: sectionVpnVpnc.connectionSession
-            data: sectionVpnVpnc.data
             availableSections: sectionVpnVpnc.availableSections
             availableKeys: sectionVpnVpnc.availableKeys
+            connectionData: sectionVpnVpnc.connectionData
             errors: sectionVpnVpnc.errors
             section: "alias-vpn-vpnc"
             key: "IPSec gateway"
@@ -26,9 +26,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineAliasVpnVpncXauthUsername
             connectionSession: sectionVpnVpnc.connectionSession
-            data: sectionVpnVpnc.data
             availableSections: sectionVpnVpnc.availableSections
             availableKeys: sectionVpnVpnc.availableKeys
+            connectionData: sectionVpnVpnc.connectionData
             errors: sectionVpnVpnc.errors
             section: "alias-vpn-vpnc"
             key: "Xauth username"
@@ -37,9 +37,9 @@ BaseEditSection {
         EditLineComboBox {
             id: lineAliasVpnVpncXauthPasswordFlags
             connectionSession: sectionVpnVpnc.connectionSession
-            data: sectionVpnVpnc.data
             availableSections: sectionVpnVpnc.availableSections
             availableKeys: sectionVpnVpnc.availableKeys
+            connectionData: sectionVpnVpnc.connectionData
             errors: sectionVpnVpnc.errors
             section: "alias-vpn-vpnc"
             key: "Xauth password-flags"
@@ -48,9 +48,9 @@ BaseEditSection {
         EditLinePasswordInput {
             id: lineAliasVpnVpncXauthPassword
             connectionSession: sectionVpnVpnc.connectionSession
-            data: sectionVpnVpnc.data
             availableSections: sectionVpnVpnc.availableSections
             availableKeys: sectionVpnVpnc.availableKeys
+            connectionData: sectionVpnVpnc.connectionData
             errors: sectionVpnVpnc.errors
             section: "alias-vpn-vpnc"
             key: "Xauth password"
@@ -59,9 +59,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineAliasVpnVpncIpsecId
             connectionSession: sectionVpnVpnc.connectionSession
-            data: sectionVpnVpnc.data
             availableSections: sectionVpnVpnc.availableSections
             availableKeys: sectionVpnVpnc.availableKeys
+            connectionData: sectionVpnVpnc.connectionData
             errors: sectionVpnVpnc.errors
             section: "alias-vpn-vpnc"
             key: "IPSec ID"
@@ -70,9 +70,9 @@ BaseEditSection {
         EditLineComboBox {
             id: lineAliasVpnVpncIpsecSecretFlags
             connectionSession: sectionVpnVpnc.connectionSession
-            data: sectionVpnVpnc.data
             availableSections: sectionVpnVpnc.availableSections
             availableKeys: sectionVpnVpnc.availableKeys
+            connectionData: sectionVpnVpnc.connectionData
             errors: sectionVpnVpnc.errors
             section: "alias-vpn-vpnc"
             key: "IPSec secret-flags"
@@ -81,9 +81,9 @@ BaseEditSection {
         EditLinePasswordInput {
             id: lineAliasVpnVpncIpsecSecret
             connectionSession: sectionVpnVpnc.connectionSession
-            data: sectionVpnVpnc.data
             availableSections: sectionVpnVpnc.availableSections
             availableKeys: sectionVpnVpnc.availableKeys
+            connectionData: sectionVpnVpnc.connectionData
             errors: sectionVpnVpnc.errors
             section: "alias-vpn-vpnc"
             key: "IPSec secret"
@@ -92,9 +92,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnVpncVkHybridAuthmode
             connectionSession: sectionVpnVpnc.connectionSession
-            data: sectionVpnVpnc.data
             availableSections: sectionVpnVpnc.availableSections
             availableKeys: sectionVpnVpnc.availableKeys
+            connectionData: sectionVpnVpnc.connectionData
             errors: sectionVpnVpnc.errors
             section: "alias-vpn-vpnc"
             key: "vk-hybrid-authmode"
@@ -103,9 +103,9 @@ BaseEditSection {
         EditLineFileChooser {
             id: lineAliasVpnVpncCaFile
             connectionSession: sectionVpnVpnc.connectionSession
-            data: sectionVpnVpnc.data
             availableSections: sectionVpnVpnc.availableSections
             availableKeys: sectionVpnVpnc.availableKeys
+            connectionData: sectionVpnVpnc.connectionData
             errors: sectionVpnVpnc.errors
             section: "alias-vpn-vpnc"
             key: "CA-File"

@@ -15,9 +15,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnOpenvpnAdvancedVkEnablePort
             connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
-            data: sectionVpnOpenvpnAdvanced.data
             availableSections: sectionVpnOpenvpnAdvanced.availableSections
             availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
+            connectionData: sectionVpnOpenvpnAdvanced.connectionData
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "vk-enable-port"
@@ -26,9 +26,9 @@ BaseEditSection {
         EditLineSpinner {
             id: lineAliasVpnOpenvpnAdvancedPort
             connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
-            data: sectionVpnOpenvpnAdvanced.data
             availableSections: sectionVpnOpenvpnAdvanced.availableSections
             availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
+            connectionData: sectionVpnOpenvpnAdvanced.connectionData
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "port"
@@ -39,9 +39,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnOpenvpnAdvancedVkEnableRenegSeconds
             connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
-            data: sectionVpnOpenvpnAdvanced.data
             availableSections: sectionVpnOpenvpnAdvanced.availableSections
             availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
+            connectionData: sectionVpnOpenvpnAdvanced.connectionData
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "vk-enable-reneg-seconds"
@@ -50,9 +50,9 @@ BaseEditSection {
         EditLineSpinner {
             id: lineAliasVpnOpenvpnAdvancedRenegSeconds
             connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
-            data: sectionVpnOpenvpnAdvanced.data
             availableSections: sectionVpnOpenvpnAdvanced.availableSections
             availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
+            connectionData: sectionVpnOpenvpnAdvanced.connectionData
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "reneg-seconds"
@@ -63,9 +63,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnOpenvpnAdvancedCompLzo
             connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
-            data: sectionVpnOpenvpnAdvanced.data
             availableSections: sectionVpnOpenvpnAdvanced.availableSections
             availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
+            connectionData: sectionVpnOpenvpnAdvanced.connectionData
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "comp-lzo"
@@ -74,9 +74,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnOpenvpnAdvancedProtoTcp
             connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
-            data: sectionVpnOpenvpnAdvanced.data
             availableSections: sectionVpnOpenvpnAdvanced.availableSections
             availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
+            connectionData: sectionVpnOpenvpnAdvanced.connectionData
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "proto-tcp"
@@ -85,9 +85,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnOpenvpnAdvancedTapDev
             connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
-            data: sectionVpnOpenvpnAdvanced.data
             availableSections: sectionVpnOpenvpnAdvanced.availableSections
             availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
+            connectionData: sectionVpnOpenvpnAdvanced.connectionData
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "tap-dev"
@@ -96,9 +96,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnOpenvpnAdvancedVkEnableTunnelMtu
             connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
-            data: sectionVpnOpenvpnAdvanced.data
             availableSections: sectionVpnOpenvpnAdvanced.availableSections
             availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
+            connectionData: sectionVpnOpenvpnAdvanced.connectionData
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "vk-enable-tunnel-mtu"
@@ -107,9 +107,9 @@ BaseEditSection {
         EditLineSpinner {
             id: lineAliasVpnOpenvpnAdvancedTunnelMtu
             connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
-            data: sectionVpnOpenvpnAdvanced.data
             availableSections: sectionVpnOpenvpnAdvanced.availableSections
             availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
+            connectionData: sectionVpnOpenvpnAdvanced.connectionData
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "tunnel-mtu"
@@ -120,9 +120,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnOpenvpnAdvancedVkEnableFragmentSize
             connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
-            data: sectionVpnOpenvpnAdvanced.data
             availableSections: sectionVpnOpenvpnAdvanced.availableSections
             availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
+            connectionData: sectionVpnOpenvpnAdvanced.connectionData
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "vk-enable-fragment-size"
@@ -131,9 +131,9 @@ BaseEditSection {
         EditLineSpinner {
             id: lineAliasVpnOpenvpnAdvancedFragmentSize
             connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
-            data: sectionVpnOpenvpnAdvanced.data
             availableSections: sectionVpnOpenvpnAdvanced.availableSections
             availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
+            connectionData: sectionVpnOpenvpnAdvanced.connectionData
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "fragment-size"
@@ -144,9 +144,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnOpenvpnAdvancedMssfix
             connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
-            data: sectionVpnOpenvpnAdvanced.data
             availableSections: sectionVpnOpenvpnAdvanced.availableSections
             availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
+            connectionData: sectionVpnOpenvpnAdvanced.connectionData
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "mssfix"
@@ -155,9 +155,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnOpenvpnAdvancedRemoteRandom
             connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
-            data: sectionVpnOpenvpnAdvanced.data
             availableSections: sectionVpnOpenvpnAdvanced.availableSections
             availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
+            connectionData: sectionVpnOpenvpnAdvanced.connectionData
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "remote-random"

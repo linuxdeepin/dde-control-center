@@ -15,9 +15,9 @@ BaseEditSection {
         EditLineEditComboBox {
             id: lineGsmNumber
             connectionSession: sectionMobileGsm.connectionSession
-            data: sectionMobileGsm.data
             availableSections: sectionMobileGsm.availableSections
             availableKeys: sectionMobileGsm.availableKeys
+            connectionData: sectionMobileGsm.connectionData
             errors: sectionMobileGsm.errors
             section: "gsm"
             key: "number"
@@ -26,9 +26,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineGsmUsername
             connectionSession: sectionMobileGsm.connectionSession
-            data: sectionMobileGsm.data
             availableSections: sectionMobileGsm.availableSections
             availableKeys: sectionMobileGsm.availableKeys
+            connectionData: sectionMobileGsm.connectionData
             errors: sectionMobileGsm.errors
             section: "gsm"
             key: "username"
@@ -37,9 +37,9 @@ BaseEditSection {
         EditLineComboBox {
             id: lineGsmPasswordFlags
             connectionSession: sectionMobileGsm.connectionSession
-            data: sectionMobileGsm.data
             availableSections: sectionMobileGsm.availableSections
             availableKeys: sectionMobileGsm.availableKeys
+            connectionData: sectionMobileGsm.connectionData
             errors: sectionMobileGsm.errors
             section: "gsm"
             key: "password-flags"
@@ -48,9 +48,9 @@ BaseEditSection {
         EditLinePasswordInput {
             id: lineGsmPassword
             connectionSession: sectionMobileGsm.connectionSession
-            data: sectionMobileGsm.data
             availableSections: sectionMobileGsm.availableSections
             availableKeys: sectionMobileGsm.availableKeys
+            connectionData: sectionMobileGsm.connectionData
             errors: sectionMobileGsm.errors
             section: "gsm"
             key: "password"
@@ -59,9 +59,9 @@ BaseEditSection {
         EditLineEditComboBox {
             id: lineGsmApn
             connectionSession: sectionMobileGsm.connectionSession
-            data: sectionMobileGsm.data
             availableSections: sectionMobileGsm.availableSections
             availableKeys: sectionMobileGsm.availableKeys
+            connectionData: sectionMobileGsm.connectionData
             errors: sectionMobileGsm.errors
             section: "gsm"
             key: "apn"
@@ -70,9 +70,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineGsmNetworkId
             connectionSession: sectionMobileGsm.connectionSession
-            data: sectionMobileGsm.data
             availableSections: sectionMobileGsm.availableSections
             availableKeys: sectionMobileGsm.availableKeys
+            connectionData: sectionMobileGsm.connectionData
             errors: sectionMobileGsm.errors
             section: "gsm"
             key: "network-id"
@@ -81,9 +81,9 @@ BaseEditSection {
         EditLineComboBox {
             id: lineGsmNetworkType
             connectionSession: sectionMobileGsm.connectionSession
-            data: sectionMobileGsm.data
             availableSections: sectionMobileGsm.availableSections
             availableKeys: sectionMobileGsm.availableKeys
+            connectionData: sectionMobileGsm.connectionData
             errors: sectionMobileGsm.errors
             section: "gsm"
             key: "network-type"
@@ -92,9 +92,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineGsmHomeOnly
             connectionSession: sectionMobileGsm.connectionSession
-            data: sectionMobileGsm.data
             availableSections: sectionMobileGsm.availableSections
             availableKeys: sectionMobileGsm.availableKeys
+            connectionData: sectionMobileGsm.connectionData
             errors: sectionMobileGsm.errors
             section: "gsm"
             key: "home-only"
@@ -103,9 +103,9 @@ BaseEditSection {
         EditLinePasswordInput {
             id: lineGsmPin
             connectionSession: sectionMobileGsm.connectionSession
-            data: sectionMobileGsm.data
             availableSections: sectionMobileGsm.availableSections
             availableKeys: sectionMobileGsm.availableKeys
+            connectionData: sectionMobileGsm.connectionData
             errors: sectionMobileGsm.errors
             section: "gsm"
             key: "pin"

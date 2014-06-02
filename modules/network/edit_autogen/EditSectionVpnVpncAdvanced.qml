@@ -15,9 +15,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineAliasVpnVpncAdvancedDomain
             connectionSession: sectionVpnVpncAdvanced.connectionSession
-            data: sectionVpnVpncAdvanced.data
             availableSections: sectionVpnVpncAdvanced.availableSections
             availableKeys: sectionVpnVpncAdvanced.availableKeys
+            connectionData: sectionVpnVpncAdvanced.connectionData
             errors: sectionVpnVpncAdvanced.errors
             section: "alias-vpn-vpnc-advanced"
             key: "Domain"
@@ -26,9 +26,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineAliasVpnVpncAdvancedVendor
             connectionSession: sectionVpnVpncAdvanced.connectionSession
-            data: sectionVpnVpncAdvanced.data
             availableSections: sectionVpnVpncAdvanced.availableSections
             availableKeys: sectionVpnVpncAdvanced.availableKeys
+            connectionData: sectionVpnVpncAdvanced.connectionData
             errors: sectionVpnVpncAdvanced.errors
             section: "alias-vpn-vpnc-advanced"
             key: "Vendor"
@@ -37,9 +37,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineAliasVpnVpncAdvancedApplicationVersion
             connectionSession: sectionVpnVpncAdvanced.connectionSession
-            data: sectionVpnVpncAdvanced.data
             availableSections: sectionVpnVpncAdvanced.availableSections
             availableKeys: sectionVpnVpncAdvanced.availableKeys
+            connectionData: sectionVpnVpncAdvanced.connectionData
             errors: sectionVpnVpncAdvanced.errors
             section: "alias-vpn-vpnc-advanced"
             key: "Application Version"
@@ -48,9 +48,9 @@ BaseEditSection {
         EditLineComboBox {
             id: lineAliasVpnVpncAdvancedVkEncryptionMethod
             connectionSession: sectionVpnVpncAdvanced.connectionSession
-            data: sectionVpnVpncAdvanced.data
             availableSections: sectionVpnVpncAdvanced.availableSections
             availableKeys: sectionVpnVpncAdvanced.availableKeys
+            connectionData: sectionVpnVpncAdvanced.connectionData
             errors: sectionVpnVpncAdvanced.errors
             section: "alias-vpn-vpnc-advanced"
             key: "vk-encryption-method"
@@ -59,9 +59,9 @@ BaseEditSection {
         EditLineComboBox {
             id: lineAliasVpnVpncAdvancedNatTraversalMode
             connectionSession: sectionVpnVpncAdvanced.connectionSession
-            data: sectionVpnVpncAdvanced.data
             availableSections: sectionVpnVpncAdvanced.availableSections
             availableKeys: sectionVpnVpncAdvanced.availableKeys
+            connectionData: sectionVpnVpncAdvanced.connectionData
             errors: sectionVpnVpncAdvanced.errors
             section: "alias-vpn-vpnc-advanced"
             key: "NAT Traversal Mode"
@@ -70,9 +70,9 @@ BaseEditSection {
         EditLineComboBox {
             id: lineAliasVpnVpncAdvancedIkeDhGroup
             connectionSession: sectionVpnVpncAdvanced.connectionSession
-            data: sectionVpnVpncAdvanced.data
             availableSections: sectionVpnVpncAdvanced.availableSections
             availableKeys: sectionVpnVpncAdvanced.availableKeys
+            connectionData: sectionVpnVpncAdvanced.connectionData
             errors: sectionVpnVpncAdvanced.errors
             section: "alias-vpn-vpnc-advanced"
             key: "IKE DH Group"
@@ -81,9 +81,9 @@ BaseEditSection {
         EditLineComboBox {
             id: lineAliasVpnVpncAdvancedPerfectForwardSecrecy
             connectionSession: sectionVpnVpncAdvanced.connectionSession
-            data: sectionVpnVpncAdvanced.data
             availableSections: sectionVpnVpncAdvanced.availableSections
             availableKeys: sectionVpnVpncAdvanced.availableKeys
+            connectionData: sectionVpnVpncAdvanced.connectionData
             errors: sectionVpnVpncAdvanced.errors
             section: "alias-vpn-vpnc-advanced"
             key: "Perfect Forward Secrecy"
@@ -92,9 +92,9 @@ BaseEditSection {
         EditLineSpinner {
             id: lineAliasVpnVpncAdvancedLocalPort
             connectionSession: sectionVpnVpncAdvanced.connectionSession
-            data: sectionVpnVpncAdvanced.data
             availableSections: sectionVpnVpncAdvanced.availableSections
             availableKeys: sectionVpnVpncAdvanced.availableKeys
+            connectionData: sectionVpnVpncAdvanced.connectionData
             errors: sectionVpnVpncAdvanced.errors
             section: "alias-vpn-vpnc-advanced"
             key: "Local Port"
@@ -105,9 +105,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnVpncAdvancedVkDisableDpd
             connectionSession: sectionVpnVpncAdvanced.connectionSession
-            data: sectionVpnVpncAdvanced.data
             availableSections: sectionVpnVpncAdvanced.availableSections
             availableKeys: sectionVpnVpncAdvanced.availableKeys
+            connectionData: sectionVpnVpncAdvanced.connectionData
             errors: sectionVpnVpncAdvanced.errors
             section: "alias-vpn-vpnc-advanced"
             key: "vk-disable-dpd"

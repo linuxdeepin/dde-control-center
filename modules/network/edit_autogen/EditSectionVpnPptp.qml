@@ -15,9 +15,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineAliasVpnPptpGateway
             connectionSession: sectionVpnPptp.connectionSession
-            data: sectionVpnPptp.data
             availableSections: sectionVpnPptp.availableSections
             availableKeys: sectionVpnPptp.availableKeys
+            connectionData: sectionVpnPptp.connectionData
             errors: sectionVpnPptp.errors
             section: "alias-vpn-pptp"
             key: "gateway"
@@ -26,9 +26,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineAliasVpnPptpUser
             connectionSession: sectionVpnPptp.connectionSession
-            data: sectionVpnPptp.data
             availableSections: sectionVpnPptp.availableSections
             availableKeys: sectionVpnPptp.availableKeys
+            connectionData: sectionVpnPptp.connectionData
             errors: sectionVpnPptp.errors
             section: "alias-vpn-pptp"
             key: "user"
@@ -37,9 +37,9 @@ BaseEditSection {
         EditLineComboBox {
             id: lineAliasVpnPptpPasswordFlags
             connectionSession: sectionVpnPptp.connectionSession
-            data: sectionVpnPptp.data
             availableSections: sectionVpnPptp.availableSections
             availableKeys: sectionVpnPptp.availableKeys
+            connectionData: sectionVpnPptp.connectionData
             errors: sectionVpnPptp.errors
             section: "alias-vpn-pptp"
             key: "password-flags"
@@ -48,9 +48,9 @@ BaseEditSection {
         EditLinePasswordInput {
             id: lineAliasVpnPptpPassword
             connectionSession: sectionVpnPptp.connectionSession
-            data: sectionVpnPptp.data
             availableSections: sectionVpnPptp.availableSections
             availableKeys: sectionVpnPptp.availableKeys
+            connectionData: sectionVpnPptp.connectionData
             errors: sectionVpnPptp.errors
             section: "alias-vpn-pptp"
             key: "password"
@@ -59,9 +59,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineAliasVpnPptpDomain
             connectionSession: sectionVpnPptp.connectionSession
-            data: sectionVpnPptp.data
             availableSections: sectionVpnPptp.availableSections
             availableKeys: sectionVpnPptp.availableKeys
+            connectionData: sectionVpnPptp.connectionData
             errors: sectionVpnPptp.errors
             section: "alias-vpn-pptp"
             key: "domain"

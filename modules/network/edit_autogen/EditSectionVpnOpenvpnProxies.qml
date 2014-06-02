@@ -15,9 +15,9 @@ BaseEditSection {
         EditLineComboBox {
             id: lineAliasVpnOpenvpnProxiesProxyType
             connectionSession: sectionVpnOpenvpnProxies.connectionSession
-            data: sectionVpnOpenvpnProxies.data
             availableSections: sectionVpnOpenvpnProxies.availableSections
             availableKeys: sectionVpnOpenvpnProxies.availableKeys
+            connectionData: sectionVpnOpenvpnProxies.connectionData
             errors: sectionVpnOpenvpnProxies.errors
             section: "alias-vpn-openvpn-proxies"
             key: "proxy-type"
@@ -26,9 +26,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineAliasVpnOpenvpnProxiesProxyServer
             connectionSession: sectionVpnOpenvpnProxies.connectionSession
-            data: sectionVpnOpenvpnProxies.data
             availableSections: sectionVpnOpenvpnProxies.availableSections
             availableKeys: sectionVpnOpenvpnProxies.availableKeys
+            connectionData: sectionVpnOpenvpnProxies.connectionData
             errors: sectionVpnOpenvpnProxies.errors
             section: "alias-vpn-openvpn-proxies"
             key: "proxy-server"
@@ -37,9 +37,9 @@ BaseEditSection {
         EditLineSpinner {
             id: lineAliasVpnOpenvpnProxiesProxyPort
             connectionSession: sectionVpnOpenvpnProxies.connectionSession
-            data: sectionVpnOpenvpnProxies.data
             availableSections: sectionVpnOpenvpnProxies.availableSections
             availableKeys: sectionVpnOpenvpnProxies.availableKeys
+            connectionData: sectionVpnOpenvpnProxies.connectionData
             errors: sectionVpnOpenvpnProxies.errors
             section: "alias-vpn-openvpn-proxies"
             key: "proxy-port"
@@ -50,9 +50,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnOpenvpnProxiesProxyRetry
             connectionSession: sectionVpnOpenvpnProxies.connectionSession
-            data: sectionVpnOpenvpnProxies.data
             availableSections: sectionVpnOpenvpnProxies.availableSections
             availableKeys: sectionVpnOpenvpnProxies.availableKeys
+            connectionData: sectionVpnOpenvpnProxies.connectionData
             errors: sectionVpnOpenvpnProxies.errors
             section: "alias-vpn-openvpn-proxies"
             key: "proxy-retry"
@@ -61,9 +61,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineAliasVpnOpenvpnProxiesHttpProxyUsername
             connectionSession: sectionVpnOpenvpnProxies.connectionSession
-            data: sectionVpnOpenvpnProxies.data
             availableSections: sectionVpnOpenvpnProxies.availableSections
             availableKeys: sectionVpnOpenvpnProxies.availableKeys
+            connectionData: sectionVpnOpenvpnProxies.connectionData
             errors: sectionVpnOpenvpnProxies.errors
             section: "alias-vpn-openvpn-proxies"
             key: "http-proxy-username"
@@ -72,9 +72,9 @@ BaseEditSection {
         EditLinePasswordInput {
             id: lineAliasVpnOpenvpnProxiesHttpProxyPassword
             connectionSession: sectionVpnOpenvpnProxies.connectionSession
-            data: sectionVpnOpenvpnProxies.data
             availableSections: sectionVpnOpenvpnProxies.availableSections
             availableKeys: sectionVpnOpenvpnProxies.availableKeys
+            connectionData: sectionVpnOpenvpnProxies.connectionData
             errors: sectionVpnOpenvpnProxies.errors
             section: "alias-vpn-openvpn-proxies"
             key: "http-proxy-password"

@@ -15,9 +15,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineAliasVpnOpenvpnRemote
             connectionSession: sectionVpnOpenvpn.connectionSession
-            data: sectionVpnOpenvpn.data
             availableSections: sectionVpnOpenvpn.availableSections
             availableKeys: sectionVpnOpenvpn.availableKeys
+            connectionData: sectionVpnOpenvpn.connectionData
             errors: sectionVpnOpenvpn.errors
             section: "alias-vpn-openvpn"
             key: "remote"
@@ -26,9 +26,9 @@ BaseEditSection {
         EditLineComboBox {
             id: lineAliasVpnOpenvpnConnectionType
             connectionSession: sectionVpnOpenvpn.connectionSession
-            data: sectionVpnOpenvpn.data
             availableSections: sectionVpnOpenvpn.availableSections
             availableKeys: sectionVpnOpenvpn.availableKeys
+            connectionData: sectionVpnOpenvpn.connectionData
             errors: sectionVpnOpenvpn.errors
             section: "alias-vpn-openvpn"
             key: "connection-type"
@@ -37,9 +37,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineAliasVpnOpenvpnUsername
             connectionSession: sectionVpnOpenvpn.connectionSession
-            data: sectionVpnOpenvpn.data
             availableSections: sectionVpnOpenvpn.availableSections
             availableKeys: sectionVpnOpenvpn.availableKeys
+            connectionData: sectionVpnOpenvpn.connectionData
             errors: sectionVpnOpenvpn.errors
             section: "alias-vpn-openvpn"
             key: "username"
@@ -48,9 +48,9 @@ BaseEditSection {
         EditLineComboBox {
             id: lineAliasVpnOpenvpnPasswordFlags
             connectionSession: sectionVpnOpenvpn.connectionSession
-            data: sectionVpnOpenvpn.data
             availableSections: sectionVpnOpenvpn.availableSections
             availableKeys: sectionVpnOpenvpn.availableKeys
+            connectionData: sectionVpnOpenvpn.connectionData
             errors: sectionVpnOpenvpn.errors
             section: "alias-vpn-openvpn"
             key: "password-flags"
@@ -59,9 +59,9 @@ BaseEditSection {
         EditLinePasswordInput {
             id: lineAliasVpnOpenvpnPassword
             connectionSession: sectionVpnOpenvpn.connectionSession
-            data: sectionVpnOpenvpn.data
             availableSections: sectionVpnOpenvpn.availableSections
             availableKeys: sectionVpnOpenvpn.availableKeys
+            connectionData: sectionVpnOpenvpn.connectionData
             errors: sectionVpnOpenvpn.errors
             section: "alias-vpn-openvpn"
             key: "password"
@@ -70,9 +70,9 @@ BaseEditSection {
         EditLineFileChooser {
             id: lineAliasVpnOpenvpnCert
             connectionSession: sectionVpnOpenvpn.connectionSession
-            data: sectionVpnOpenvpn.data
             availableSections: sectionVpnOpenvpn.availableSections
             availableKeys: sectionVpnOpenvpn.availableKeys
+            connectionData: sectionVpnOpenvpn.connectionData
             errors: sectionVpnOpenvpn.errors
             section: "alias-vpn-openvpn"
             key: "cert"
@@ -81,9 +81,9 @@ BaseEditSection {
         EditLineFileChooser {
             id: lineAliasVpnOpenvpnCa
             connectionSession: sectionVpnOpenvpn.connectionSession
-            data: sectionVpnOpenvpn.data
             availableSections: sectionVpnOpenvpn.availableSections
             availableKeys: sectionVpnOpenvpn.availableKeys
+            connectionData: sectionVpnOpenvpn.connectionData
             errors: sectionVpnOpenvpn.errors
             section: "alias-vpn-openvpn"
             key: "ca"
@@ -92,9 +92,9 @@ BaseEditSection {
         EditLineFileChooser {
             id: lineAliasVpnOpenvpnKey
             connectionSession: sectionVpnOpenvpn.connectionSession
-            data: sectionVpnOpenvpn.data
             availableSections: sectionVpnOpenvpn.availableSections
             availableKeys: sectionVpnOpenvpn.availableKeys
+            connectionData: sectionVpnOpenvpn.connectionData
             errors: sectionVpnOpenvpn.errors
             section: "alias-vpn-openvpn"
             key: "key"
@@ -103,9 +103,9 @@ BaseEditSection {
         EditLineComboBox {
             id: lineAliasVpnOpenvpnCertPassFlags
             connectionSession: sectionVpnOpenvpn.connectionSession
-            data: sectionVpnOpenvpn.data
             availableSections: sectionVpnOpenvpn.availableSections
             availableKeys: sectionVpnOpenvpn.availableKeys
+            connectionData: sectionVpnOpenvpn.connectionData
             errors: sectionVpnOpenvpn.errors
             section: "alias-vpn-openvpn"
             key: "cert-pass-flags"
@@ -114,9 +114,9 @@ BaseEditSection {
         EditLinePasswordInput {
             id: lineAliasVpnOpenvpnCertPass
             connectionSession: sectionVpnOpenvpn.connectionSession
-            data: sectionVpnOpenvpn.data
             availableSections: sectionVpnOpenvpn.availableSections
             availableKeys: sectionVpnOpenvpn.availableKeys
+            connectionData: sectionVpnOpenvpn.connectionData
             errors: sectionVpnOpenvpn.errors
             section: "alias-vpn-openvpn"
             key: "cert-pass"
@@ -125,9 +125,9 @@ BaseEditSection {
         EditLineFileChooser {
             id: lineAliasVpnOpenvpnStaticKey
             connectionSession: sectionVpnOpenvpn.connectionSession
-            data: sectionVpnOpenvpn.data
             availableSections: sectionVpnOpenvpn.availableSections
             availableKeys: sectionVpnOpenvpn.availableKeys
+            connectionData: sectionVpnOpenvpn.connectionData
             errors: sectionVpnOpenvpn.errors
             section: "alias-vpn-openvpn"
             key: "static-key"
@@ -136,9 +136,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnOpenvpnVkStaticKeyDirection
             connectionSession: sectionVpnOpenvpn.connectionSession
-            data: sectionVpnOpenvpn.data
             availableSections: sectionVpnOpenvpn.availableSections
             availableKeys: sectionVpnOpenvpn.availableKeys
+            connectionData: sectionVpnOpenvpn.connectionData
             errors: sectionVpnOpenvpn.errors
             section: "alias-vpn-openvpn"
             key: "vk-static-key-direction"
@@ -147,9 +147,9 @@ BaseEditSection {
         EditLineComboBox {
             id: lineAliasVpnOpenvpnStaticKeyDirection
             connectionSession: sectionVpnOpenvpn.connectionSession
-            data: sectionVpnOpenvpn.data
             availableSections: sectionVpnOpenvpn.availableSections
             availableKeys: sectionVpnOpenvpn.availableKeys
+            connectionData: sectionVpnOpenvpn.connectionData
             errors: sectionVpnOpenvpn.errors
             section: "alias-vpn-openvpn"
             key: "static-key-direction"
@@ -158,9 +158,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineAliasVpnOpenvpnRemoteIp
             connectionSession: sectionVpnOpenvpn.connectionSession
-            data: sectionVpnOpenvpn.data
             availableSections: sectionVpnOpenvpn.availableSections
             availableKeys: sectionVpnOpenvpn.availableKeys
+            connectionData: sectionVpnOpenvpn.connectionData
             errors: sectionVpnOpenvpn.errors
             section: "alias-vpn-openvpn"
             key: "remote-ip"
@@ -169,9 +169,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineAliasVpnOpenvpnLocalIp
             connectionSession: sectionVpnOpenvpn.connectionSession
-            data: sectionVpnOpenvpn.data
             availableSections: sectionVpnOpenvpn.availableSections
             availableKeys: sectionVpnOpenvpn.availableKeys
+            connectionData: sectionVpnOpenvpn.connectionData
             errors: sectionVpnOpenvpn.errors
             section: "alias-vpn-openvpn"
             key: "local-ip"

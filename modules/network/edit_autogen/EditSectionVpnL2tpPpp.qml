@@ -15,9 +15,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnL2tpPppVkRequireMppe
             connectionSession: sectionVpnL2tpPpp.connectionSession
-            data: sectionVpnL2tpPpp.data
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
+            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "vk-require-mppe"
@@ -26,9 +26,9 @@ BaseEditSection {
         EditLineComboBox {
             id: lineAliasVpnL2tpPppVkMppeSecurity
             connectionSession: sectionVpnL2tpPpp.connectionSession
-            data: sectionVpnL2tpPpp.data
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
+            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "vk-mppe-security"
@@ -37,9 +37,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnL2tpPppMppeStateful
             connectionSession: sectionVpnL2tpPpp.connectionSession
-            data: sectionVpnL2tpPpp.data
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
+            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "mppe-stateful"
@@ -48,9 +48,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnL2tpPppRefuseEap
             connectionSession: sectionVpnL2tpPpp.connectionSession
-            data: sectionVpnL2tpPpp.data
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
+            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "refuse-eap"
@@ -60,9 +60,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnL2tpPppRefusePap
             connectionSession: sectionVpnL2tpPpp.connectionSession
-            data: sectionVpnL2tpPpp.data
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
+            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "refuse-pap"
@@ -72,9 +72,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnL2tpPppRefuseChap
             connectionSession: sectionVpnL2tpPpp.connectionSession
-            data: sectionVpnL2tpPpp.data
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
+            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "refuse-chap"
@@ -84,9 +84,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnL2tpPppRefuseMschap
             connectionSession: sectionVpnL2tpPpp.connectionSession
-            data: sectionVpnL2tpPpp.data
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
+            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "refuse-mschap"
@@ -96,9 +96,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnL2tpPppRefuseMschapv2
             connectionSession: sectionVpnL2tpPpp.connectionSession
-            data: sectionVpnL2tpPpp.data
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
+            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "refuse-mschapv2"
@@ -108,9 +108,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnL2tpPppNobsdcomp
             connectionSession: sectionVpnL2tpPpp.connectionSession
-            data: sectionVpnL2tpPpp.data
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
+            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "nobsdcomp"
@@ -119,9 +119,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnL2tpPppNodeflate
             connectionSession: sectionVpnL2tpPpp.connectionSession
-            data: sectionVpnL2tpPpp.data
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
+            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "nodeflate"
@@ -130,9 +130,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnL2tpPppNoVjComp
             connectionSession: sectionVpnL2tpPpp.connectionSession
-            data: sectionVpnL2tpPpp.data
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
+            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "no-vj-comp"
@@ -141,9 +141,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnL2tpPppNopcomp
             connectionSession: sectionVpnL2tpPpp.connectionSession
-            data: sectionVpnL2tpPpp.data
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
+            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "nopcomp"
@@ -152,9 +152,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnL2tpPppNoaccomp
             connectionSession: sectionVpnL2tpPpp.connectionSession
-            data: sectionVpnL2tpPpp.data
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
+            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "noaccomp"
@@ -163,9 +163,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnL2tpPppVkEnableLcpEcho
             connectionSession: sectionVpnL2tpPpp.connectionSession
-            data: sectionVpnL2tpPpp.data
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
+            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "vk-enable-lcp-echo"

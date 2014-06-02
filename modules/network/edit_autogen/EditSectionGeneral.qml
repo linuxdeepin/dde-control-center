@@ -15,9 +15,9 @@ BaseEditSection {
         EditLineConnectionId {
             id: lineConnectionId
             connectionSession: sectionGeneral.connectionSession
-            data: sectionGeneral.data
             availableSections: sectionGeneral.availableSections
             availableKeys: sectionGeneral.availableKeys
+            connectionData: sectionGeneral.connectionData
             errors: sectionGeneral.errors
             section: "connection"
             key: "id"
@@ -26,9 +26,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineConnectionAutoconnect
             connectionSession: sectionGeneral.connectionSession
-            data: sectionGeneral.data
             availableSections: sectionGeneral.availableSections
             availableKeys: sectionGeneral.availableKeys
+            connectionData: sectionGeneral.connectionData
             errors: sectionGeneral.errors
             section: "connection"
             key: "autoconnect"
@@ -37,9 +37,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineConnectionVkNoPermission
             connectionSession: sectionGeneral.connectionSession
-            data: sectionGeneral.data
             availableSections: sectionGeneral.availableSections
             availableKeys: sectionGeneral.availableKeys
+            connectionData: sectionGeneral.connectionData
             errors: sectionGeneral.errors
             section: "connection"
             key: "vk-no-permission"

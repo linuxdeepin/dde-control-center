@@ -15,9 +15,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineAliasVpnOpenconnectGateway
             connectionSession: sectionVpnOpenconnect.connectionSession
-            data: sectionVpnOpenconnect.data
             availableSections: sectionVpnOpenconnect.availableSections
             availableKeys: sectionVpnOpenconnect.availableKeys
+            connectionData: sectionVpnOpenconnect.connectionData
             errors: sectionVpnOpenconnect.errors
             section: "alias-vpn-openconnect"
             key: "gateway"
@@ -26,9 +26,9 @@ BaseEditSection {
         EditLineFileChooser {
             id: lineAliasVpnOpenconnectCacert
             connectionSession: sectionVpnOpenconnect.connectionSession
-            data: sectionVpnOpenconnect.data
             availableSections: sectionVpnOpenconnect.availableSections
             availableKeys: sectionVpnOpenconnect.availableKeys
+            connectionData: sectionVpnOpenconnect.connectionData
             errors: sectionVpnOpenconnect.errors
             section: "alias-vpn-openconnect"
             key: "cacert"
@@ -37,9 +37,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineAliasVpnOpenconnectProxy
             connectionSession: sectionVpnOpenconnect.connectionSession
-            data: sectionVpnOpenconnect.data
             availableSections: sectionVpnOpenconnect.availableSections
             availableKeys: sectionVpnOpenconnect.availableKeys
+            connectionData: sectionVpnOpenconnect.connectionData
             errors: sectionVpnOpenconnect.errors
             section: "alias-vpn-openconnect"
             key: "proxy"
@@ -48,9 +48,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnOpenconnectEnableCsdTrojan
             connectionSession: sectionVpnOpenconnect.connectionSession
-            data: sectionVpnOpenconnect.data
             availableSections: sectionVpnOpenconnect.availableSections
             availableKeys: sectionVpnOpenconnect.availableKeys
+            connectionData: sectionVpnOpenconnect.connectionData
             errors: sectionVpnOpenconnect.errors
             section: "alias-vpn-openconnect"
             key: "enable_csd_trojan"
@@ -59,9 +59,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineAliasVpnOpenconnectCsdWrapper
             connectionSession: sectionVpnOpenconnect.connectionSession
-            data: sectionVpnOpenconnect.data
             availableSections: sectionVpnOpenconnect.availableSections
             availableKeys: sectionVpnOpenconnect.availableKeys
+            connectionData: sectionVpnOpenconnect.connectionData
             errors: sectionVpnOpenconnect.errors
             section: "alias-vpn-openconnect"
             key: "csd_wrapper"
@@ -70,9 +70,9 @@ BaseEditSection {
         EditLineFileChooser {
             id: lineAliasVpnOpenconnectUsercert
             connectionSession: sectionVpnOpenconnect.connectionSession
-            data: sectionVpnOpenconnect.data
             availableSections: sectionVpnOpenconnect.availableSections
             availableKeys: sectionVpnOpenconnect.availableKeys
+            connectionData: sectionVpnOpenconnect.connectionData
             errors: sectionVpnOpenconnect.errors
             section: "alias-vpn-openconnect"
             key: "usercert"
@@ -81,9 +81,9 @@ BaseEditSection {
         EditLineFileChooser {
             id: lineAliasVpnOpenconnectUserkey
             connectionSession: sectionVpnOpenconnect.connectionSession
-            data: sectionVpnOpenconnect.data
             availableSections: sectionVpnOpenconnect.availableSections
             availableKeys: sectionVpnOpenconnect.availableKeys
+            connectionData: sectionVpnOpenconnect.connectionData
             errors: sectionVpnOpenconnect.errors
             section: "alias-vpn-openconnect"
             key: "userkey"
@@ -92,9 +92,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnOpenconnectPemPassphraseFsid
             connectionSession: sectionVpnOpenconnect.connectionSession
-            data: sectionVpnOpenconnect.data
             availableSections: sectionVpnOpenconnect.availableSections
             availableKeys: sectionVpnOpenconnect.availableKeys
+            connectionData: sectionVpnOpenconnect.connectionData
             errors: sectionVpnOpenconnect.errors
             section: "alias-vpn-openconnect"
             key: "pem_passphrase_fsid"

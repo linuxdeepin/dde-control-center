@@ -15,9 +15,9 @@ BaseEditSection {
         EditLineComboBox {
             id: lineAliasVpnOpenvpnSecurityCipher
             connectionSession: sectionVpnOpenvpnSecurity.connectionSession
-            data: sectionVpnOpenvpnSecurity.data
             availableSections: sectionVpnOpenvpnSecurity.availableSections
             availableKeys: sectionVpnOpenvpnSecurity.availableKeys
+            connectionData: sectionVpnOpenvpnSecurity.connectionData
             errors: sectionVpnOpenvpnSecurity.errors
             section: "alias-vpn-openvpn-security"
             key: "cipher"
@@ -26,9 +26,9 @@ BaseEditSection {
         EditLineComboBox {
             id: lineAliasVpnOpenvpnSecurityAuth
             connectionSession: sectionVpnOpenvpnSecurity.connectionSession
-            data: sectionVpnOpenvpnSecurity.data
             availableSections: sectionVpnOpenvpnSecurity.availableSections
             availableKeys: sectionVpnOpenvpnSecurity.availableKeys
+            connectionData: sectionVpnOpenvpnSecurity.connectionData
             errors: sectionVpnOpenvpnSecurity.errors
             section: "alias-vpn-openvpn-security"
             key: "auth"

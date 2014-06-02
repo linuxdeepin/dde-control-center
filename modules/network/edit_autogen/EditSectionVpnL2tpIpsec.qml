@@ -15,9 +15,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnL2tpIpsecIpsecEnabled
             connectionSession: sectionVpnL2tpIpsec.connectionSession
-            data: sectionVpnL2tpIpsec.data
             availableSections: sectionVpnL2tpIpsec.availableSections
             availableKeys: sectionVpnL2tpIpsec.availableKeys
+            connectionData: sectionVpnL2tpIpsec.connectionData
             errors: sectionVpnL2tpIpsec.errors
             section: "alias-vpn-l2tp-ipsec"
             key: "ipsec-enabled"
@@ -26,9 +26,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineAliasVpnL2tpIpsecIpsecGroupName
             connectionSession: sectionVpnL2tpIpsec.connectionSession
-            data: sectionVpnL2tpIpsec.data
             availableSections: sectionVpnL2tpIpsec.availableSections
             availableKeys: sectionVpnL2tpIpsec.availableKeys
+            connectionData: sectionVpnL2tpIpsec.connectionData
             errors: sectionVpnL2tpIpsec.errors
             section: "alias-vpn-l2tp-ipsec"
             key: "ipsec-group-name"
@@ -37,9 +37,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineAliasVpnL2tpIpsecIpsecGatewayId
             connectionSession: sectionVpnL2tpIpsec.connectionSession
-            data: sectionVpnL2tpIpsec.data
             availableSections: sectionVpnL2tpIpsec.availableSections
             availableKeys: sectionVpnL2tpIpsec.availableKeys
+            connectionData: sectionVpnL2tpIpsec.connectionData
             errors: sectionVpnL2tpIpsec.errors
             section: "alias-vpn-l2tp-ipsec"
             key: "ipsec-gateway-id"
@@ -48,9 +48,9 @@ BaseEditSection {
         EditLinePasswordInput {
             id: lineAliasVpnL2tpIpsecIpsecPsk
             connectionSession: sectionVpnL2tpIpsec.connectionSession
-            data: sectionVpnL2tpIpsec.data
             availableSections: sectionVpnL2tpIpsec.availableSections
             availableKeys: sectionVpnL2tpIpsec.availableKeys
+            connectionData: sectionVpnL2tpIpsec.connectionData
             errors: sectionVpnL2tpIpsec.errors
             section: "alias-vpn-l2tp-ipsec"
             key: "ipsec-psk"

@@ -15,9 +15,9 @@ BaseEditSection {
         EditLineComboBox {
             id: lineIpv6Method
             connectionSession: sectionIpv6.connectionSession
-            data: sectionIpv6.data
             availableSections: sectionIpv6.availableSections
             availableKeys: sectionIpv6.availableKeys
+            connectionData: sectionIpv6.connectionData
             errors: sectionIpv6.errors
             section: "ipv6"
             key: "method"
@@ -26,9 +26,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineIpv6VkAddressesAddress
             connectionSession: sectionIpv6.connectionSession
-            data: sectionIpv6.data
             availableSections: sectionIpv6.availableSections
             availableKeys: sectionIpv6.availableKeys
+            connectionData: sectionIpv6.connectionData
             errors: sectionIpv6.errors
             section: "ipv6"
             key: "vk-addresses-address"
@@ -37,9 +37,9 @@ BaseEditSection {
         EditLineSpinner {
             id: lineIpv6VkAddressesPrefix
             connectionSession: sectionIpv6.connectionSession
-            data: sectionIpv6.data
             availableSections: sectionIpv6.availableSections
             availableKeys: sectionIpv6.availableKeys
+            connectionData: sectionIpv6.connectionData
             errors: sectionIpv6.errors
             section: "ipv6"
             key: "vk-addresses-prefix"
@@ -50,9 +50,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineIpv6VkAddressesGateway
             connectionSession: sectionIpv6.connectionSession
-            data: sectionIpv6.data
             availableSections: sectionIpv6.availableSections
             availableKeys: sectionIpv6.availableKeys
+            connectionData: sectionIpv6.connectionData
             errors: sectionIpv6.errors
             section: "ipv6"
             key: "vk-addresses-gateway"
@@ -61,9 +61,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineIpv6VkDns
             connectionSession: sectionIpv6.connectionSession
-            data: sectionIpv6.data
             availableSections: sectionIpv6.availableSections
             availableKeys: sectionIpv6.availableKeys
+            connectionData: sectionIpv6.connectionData
             errors: sectionIpv6.errors
             section: "ipv6"
             key: "vk-dns"

@@ -15,9 +15,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineCdmaNumber
             connectionSession: sectionMobileCdma.connectionSession
-            data: sectionMobileCdma.data
             availableSections: sectionMobileCdma.availableSections
             availableKeys: sectionMobileCdma.availableKeys
+            connectionData: sectionMobileCdma.connectionData
             errors: sectionMobileCdma.errors
             section: "cdma"
             key: "number"
@@ -26,9 +26,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineCdmaUsername
             connectionSession: sectionMobileCdma.connectionSession
-            data: sectionMobileCdma.data
             availableSections: sectionMobileCdma.availableSections
             availableKeys: sectionMobileCdma.availableKeys
+            connectionData: sectionMobileCdma.connectionData
             errors: sectionMobileCdma.errors
             section: "cdma"
             key: "username"
@@ -37,9 +37,9 @@ BaseEditSection {
         EditLinePasswordInput {
             id: lineCdmaPassword
             connectionSession: sectionMobileCdma.connectionSession
-            data: sectionMobileCdma.data
             availableSections: sectionMobileCdma.availableSections
             availableKeys: sectionMobileCdma.availableKeys
+            connectionData: sectionMobileCdma.connectionData
             errors: sectionMobileCdma.errors
             section: "cdma"
             key: "password"

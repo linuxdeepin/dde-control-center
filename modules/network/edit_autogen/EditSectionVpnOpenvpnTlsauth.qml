@@ -15,9 +15,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineAliasVpnOpenvpnTlsauthTlsRemote
             connectionSession: sectionVpnOpenvpnTlsauth.connectionSession
-            data: sectionVpnOpenvpnTlsauth.data
             availableSections: sectionVpnOpenvpnTlsauth.availableSections
             availableKeys: sectionVpnOpenvpnTlsauth.availableKeys
+            connectionData: sectionVpnOpenvpnTlsauth.connectionData
             errors: sectionVpnOpenvpnTlsauth.errors
             section: "alias-vpn-openvpn-tlsauth"
             key: "tls-remote"
@@ -26,9 +26,9 @@ BaseEditSection {
         EditLineComboBox {
             id: lineAliasVpnOpenvpnTlsauthRemoteCertTls
             connectionSession: sectionVpnOpenvpnTlsauth.connectionSession
-            data: sectionVpnOpenvpnTlsauth.data
             availableSections: sectionVpnOpenvpnTlsauth.availableSections
             availableKeys: sectionVpnOpenvpnTlsauth.availableKeys
+            connectionData: sectionVpnOpenvpnTlsauth.connectionData
             errors: sectionVpnOpenvpnTlsauth.errors
             section: "alias-vpn-openvpn-tlsauth"
             key: "remote-cert-tls"
@@ -37,9 +37,9 @@ BaseEditSection {
         EditLineFileChooser {
             id: lineAliasVpnOpenvpnTlsauthTa
             connectionSession: sectionVpnOpenvpnTlsauth.connectionSession
-            data: sectionVpnOpenvpnTlsauth.data
             availableSections: sectionVpnOpenvpnTlsauth.availableSections
             availableKeys: sectionVpnOpenvpnTlsauth.availableKeys
+            connectionData: sectionVpnOpenvpnTlsauth.connectionData
             errors: sectionVpnOpenvpnTlsauth.errors
             section: "alias-vpn-openvpn-tlsauth"
             key: "ta"
@@ -48,9 +48,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: lineAliasVpnOpenvpnTlsauthVkTaDir
             connectionSession: sectionVpnOpenvpnTlsauth.connectionSession
-            data: sectionVpnOpenvpnTlsauth.data
             availableSections: sectionVpnOpenvpnTlsauth.availableSections
             availableKeys: sectionVpnOpenvpnTlsauth.availableKeys
+            connectionData: sectionVpnOpenvpnTlsauth.connectionData
             errors: sectionVpnOpenvpnTlsauth.errors
             section: "alias-vpn-openvpn-tlsauth"
             key: "vk-ta-dir"
@@ -59,9 +59,9 @@ BaseEditSection {
         EditLineComboBox {
             id: lineAliasVpnOpenvpnTlsauthTaDir
             connectionSession: sectionVpnOpenvpnTlsauth.connectionSession
-            data: sectionVpnOpenvpnTlsauth.data
             availableSections: sectionVpnOpenvpnTlsauth.availableSections
             availableKeys: sectionVpnOpenvpnTlsauth.availableKeys
+            connectionData: sectionVpnOpenvpnTlsauth.connectionData
             errors: sectionVpnOpenvpnTlsauth.errors
             section: "alias-vpn-openvpn-tlsauth"
             key: "ta-dir"

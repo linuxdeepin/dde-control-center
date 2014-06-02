@@ -6,10 +6,10 @@ DBaseExpand{
     objectName: "BaseEditSection"
     
     property var connectionSession
-    property var data
-    property var errors
     property var availableSections
     property var availableKeys
+    property var connectionData
+    property var errors
     property string virtualSection
     property var availableVirtualSections: connectionSession.availableVirtualSections
     visible: getIndexFromArray(virtualSection, availableVirtualSections) != -1

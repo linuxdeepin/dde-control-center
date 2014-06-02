@@ -15,9 +15,9 @@ BaseEditSection {
         EditLineComboBox {
             id: line80211WirelessSecurityVkKeyMgmt
             connectionSession: sectionSecurity.connectionSession
-            data: sectionSecurity.data
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
+            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-11-wireless-security"
             key: "vk-key-mgmt"
@@ -26,9 +26,9 @@ BaseEditSection {
         EditLinePasswordInput {
             id: line80211WirelessSecurityWepKey0
             connectionSession: sectionSecurity.connectionSession
-            data: sectionSecurity.data
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
+            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-11-wireless-security"
             key: "wep-key0"
@@ -37,9 +37,9 @@ BaseEditSection {
         EditLinePasswordInput {
             id: line80211WirelessSecurityPsk
             connectionSession: sectionSecurity.connectionSession
-            data: sectionSecurity.data
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
+            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-11-wireless-security"
             key: "psk"
@@ -48,9 +48,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: line8021xVkEnable
             connectionSession: sectionSecurity.connectionSession
-            data: sectionSecurity.data
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
+            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "vk-enable"
@@ -59,9 +59,9 @@ BaseEditSection {
         EditLineComboBox {
             id: line8021xVkEap
             connectionSession: sectionSecurity.connectionSession
-            data: sectionSecurity.data
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
+            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "vk-eap"
@@ -70,9 +70,9 @@ BaseEditSection {
         EditLineTextInput {
             id: line8021xAnonymousIdentity
             connectionSession: sectionSecurity.connectionSession
-            data: sectionSecurity.data
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
+            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "anonymous-identity"
@@ -81,9 +81,9 @@ BaseEditSection {
         EditLineFileChooser {
             id: line8021xVkCaCert
             connectionSession: sectionSecurity.connectionSession
-            data: sectionSecurity.data
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
+            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "vk-ca-cert"
@@ -92,9 +92,9 @@ BaseEditSection {
         EditLineFileChooser {
             id: line8021xVkClientCert
             connectionSession: sectionSecurity.connectionSession
-            data: sectionSecurity.data
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
+            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "vk-client-cert"
@@ -103,9 +103,9 @@ BaseEditSection {
         EditLineComboBox {
             id: line8021xPhase1FastProvisioning
             connectionSession: sectionSecurity.connectionSession
-            data: sectionSecurity.data
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
+            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "phase1-fast-provisioning"
@@ -114,9 +114,9 @@ BaseEditSection {
         EditLineFileChooser {
             id: line8021xVkPacFile
             connectionSession: sectionSecurity.connectionSession
-            data: sectionSecurity.data
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
+            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "vk-pac-file"
@@ -125,9 +125,9 @@ BaseEditSection {
         EditLineComboBox {
             id: line8021xPhase1Peapver
             connectionSession: sectionSecurity.connectionSession
-            data: sectionSecurity.data
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
+            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "phase1-peapver"
@@ -136,9 +136,9 @@ BaseEditSection {
         EditLineComboBox {
             id: line8021xPhase2Auth
             connectionSession: sectionSecurity.connectionSession
-            data: sectionSecurity.data
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
+            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "phase2-auth"
@@ -148,9 +148,9 @@ BaseEditSection {
         EditLineFileChooser {
             id: line8021xVkPrivateKey
             connectionSession: sectionSecurity.connectionSession
-            data: sectionSecurity.data
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
+            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "vk-private-key"
@@ -159,9 +159,9 @@ BaseEditSection {
         EditLineTextInput {
             id: line8021xIdentity
             connectionSession: sectionSecurity.connectionSession
-            data: sectionSecurity.data
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
+            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "identity"
@@ -170,9 +170,9 @@ BaseEditSection {
         EditLineComboBox {
             id: line8021xPasswordFlags
             connectionSession: sectionSecurity.connectionSession
-            data: sectionSecurity.data
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
+            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "password-flags"
@@ -182,9 +182,9 @@ BaseEditSection {
         EditLinePasswordInput {
             id: line8021xPassword
             connectionSession: sectionSecurity.connectionSession
-            data: sectionSecurity.data
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
+            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "password"
@@ -193,9 +193,9 @@ BaseEditSection {
         EditLineComboBox {
             id: line8021xPrivateKeyPasswordFlags
             connectionSession: sectionSecurity.connectionSession
-            data: sectionSecurity.data
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
+            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "private-key-password-flags"
@@ -204,9 +204,9 @@ BaseEditSection {
         EditLinePasswordInput {
             id: line8021xPrivateKeyPassword
             connectionSession: sectionSecurity.connectionSession
-            data: sectionSecurity.data
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
+            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "private-key-password"

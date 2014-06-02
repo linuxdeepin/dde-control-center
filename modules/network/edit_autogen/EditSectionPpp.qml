@@ -15,9 +15,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: linePppRequireMppe
             connectionSession: sectionPpp.connectionSession
-            data: sectionPpp.data
             availableSections: sectionPpp.availableSections
             availableKeys: sectionPpp.availableKeys
+            connectionData: sectionPpp.connectionData
             errors: sectionPpp.errors
             section: "ppp"
             key: "require-mppe"
@@ -27,9 +27,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: linePppRequireMppe128
             connectionSession: sectionPpp.connectionSession
-            data: sectionPpp.data
             availableSections: sectionPpp.availableSections
             availableKeys: sectionPpp.availableKeys
+            connectionData: sectionPpp.connectionData
             errors: sectionPpp.errors
             section: "ppp"
             key: "require-mppe-128"
@@ -39,9 +39,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: linePppMppeStateful
             connectionSession: sectionPpp.connectionSession
-            data: sectionPpp.data
             availableSections: sectionPpp.availableSections
             availableKeys: sectionPpp.availableKeys
+            connectionData: sectionPpp.connectionData
             errors: sectionPpp.errors
             section: "ppp"
             key: "mppe-stateful"
@@ -50,9 +50,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: linePppRefuseEap
             connectionSession: sectionPpp.connectionSession
-            data: sectionPpp.data
             availableSections: sectionPpp.availableSections
             availableKeys: sectionPpp.availableKeys
+            connectionData: sectionPpp.connectionData
             errors: sectionPpp.errors
             section: "ppp"
             key: "refuse-eap"
@@ -61,9 +61,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: linePppRefusePap
             connectionSession: sectionPpp.connectionSession
-            data: sectionPpp.data
             availableSections: sectionPpp.availableSections
             availableKeys: sectionPpp.availableKeys
+            connectionData: sectionPpp.connectionData
             errors: sectionPpp.errors
             section: "ppp"
             key: "refuse-pap"
@@ -72,9 +72,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: linePppRefuseChap
             connectionSession: sectionPpp.connectionSession
-            data: sectionPpp.data
             availableSections: sectionPpp.availableSections
             availableKeys: sectionPpp.availableKeys
+            connectionData: sectionPpp.connectionData
             errors: sectionPpp.errors
             section: "ppp"
             key: "refuse-chap"
@@ -83,9 +83,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: linePppRefuseMschap
             connectionSession: sectionPpp.connectionSession
-            data: sectionPpp.data
             availableSections: sectionPpp.availableSections
             availableKeys: sectionPpp.availableKeys
+            connectionData: sectionPpp.connectionData
             errors: sectionPpp.errors
             section: "ppp"
             key: "refuse-mschap"
@@ -94,9 +94,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: linePppRefuseMschapv2
             connectionSession: sectionPpp.connectionSession
-            data: sectionPpp.data
             availableSections: sectionPpp.availableSections
             availableKeys: sectionPpp.availableKeys
+            connectionData: sectionPpp.connectionData
             errors: sectionPpp.errors
             section: "ppp"
             key: "refuse-mschapv2"
@@ -105,9 +105,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: linePppNobsdcomp
             connectionSession: sectionPpp.connectionSession
-            data: sectionPpp.data
             availableSections: sectionPpp.availableSections
             availableKeys: sectionPpp.availableKeys
+            connectionData: sectionPpp.connectionData
             errors: sectionPpp.errors
             section: "ppp"
             key: "nobsdcomp"
@@ -116,9 +116,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: linePppNodeflate
             connectionSession: sectionPpp.connectionSession
-            data: sectionPpp.data
             availableSections: sectionPpp.availableSections
             availableKeys: sectionPpp.availableKeys
+            connectionData: sectionPpp.connectionData
             errors: sectionPpp.errors
             section: "ppp"
             key: "nodeflate"
@@ -127,9 +127,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: linePppNoVjComp
             connectionSession: sectionPpp.connectionSession
-            data: sectionPpp.data
             availableSections: sectionPpp.availableSections
             availableKeys: sectionPpp.availableKeys
+            connectionData: sectionPpp.connectionData
             errors: sectionPpp.errors
             section: "ppp"
             key: "no-vj-comp"
@@ -138,9 +138,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: linePppVkEnableLcpEcho
             connectionSession: sectionPpp.connectionSession
-            data: sectionPpp.data
             availableSections: sectionPpp.availableSections
             availableKeys: sectionPpp.availableKeys
+            connectionData: sectionPpp.connectionData
             errors: sectionPpp.errors
             section: "ppp"
             key: "vk-enable-lcp-echo"

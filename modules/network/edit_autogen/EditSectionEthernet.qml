@@ -15,9 +15,9 @@ BaseEditSection {
         EditLineEditComboBox {
             id: line8023EthernetMacAddress
             connectionSession: sectionEthernet.connectionSession
-            data: sectionEthernet.data
             availableSections: sectionEthernet.availableSections
             availableKeys: sectionEthernet.availableKeys
+            connectionData: sectionEthernet.connectionData
             errors: sectionEthernet.errors
             section: "802-3-ethernet"
             key: "mac-address"
@@ -26,9 +26,9 @@ BaseEditSection {
         EditLineTextInput {
             id: line8023EthernetClonedMacAddress
             connectionSession: sectionEthernet.connectionSession
-            data: sectionEthernet.data
             availableSections: sectionEthernet.availableSections
             availableKeys: sectionEthernet.availableKeys
+            connectionData: sectionEthernet.connectionData
             errors: sectionEthernet.errors
             section: "802-3-ethernet"
             key: "cloned-mac-address"
@@ -37,9 +37,9 @@ BaseEditSection {
         EditLineSwitchButton {
             id: line8023EthernetVkEnableMtu
             connectionSession: sectionEthernet.connectionSession
-            data: sectionEthernet.data
             availableSections: sectionEthernet.availableSections
             availableKeys: sectionEthernet.availableKeys
+            connectionData: sectionEthernet.connectionData
             errors: sectionEthernet.errors
             section: "802-3-ethernet"
             key: "vk-enable-mtu"
@@ -48,9 +48,9 @@ BaseEditSection {
         EditLineSpinner {
             id: line8023EthernetMtu
             connectionSession: sectionEthernet.connectionSession
-            data: sectionEthernet.data
             availableSections: sectionEthernet.availableSections
             availableKeys: sectionEthernet.availableKeys
+            connectionData: sectionEthernet.connectionData
             errors: sectionEthernet.errors
             section: "802-3-ethernet"
             key: "mtu"

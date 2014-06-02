@@ -6,30 +6,14 @@ DBaseLine {
     objectName: "BaseEditLine"
     
     property var connectionSession
-    property var data
-    property var errors
     property var availableSections
     property var availableKeys
+    property var connectionData
+    property var errors
     property string section
     property string key
     property string text
     property var value // mid-value between ConnectionSession and widget
-    
-    // update value even if other key changed
-    property bool alwaysUpdate: false
-    onDataChanged: {
-        function updateKeysAlways() {
-            if (visible && alwaysUpdate) {
-                updateValue()
-            }
-        }
-    }
-    
-    onErrorsChanged: {
-        if (isValueError()) {
-            print("-> [error] %1[%2]: %3".arg(section).arg(key).arg(errors[section][key]))
-        }
-    }
     
     signal widgetShown
     visible: false
@@ -63,6 +47,16 @@ DBaseLine {
     property color normalColor: dconstants.fgColor
     property color errorColor: "#F48914"
     
+    // update value even if other key changed
+    property bool alwaysUpdate: false
+    onConnectionDataChanged: {
+        function updateKeysAlways() {
+            if (visible && alwaysUpdate) {
+                updateValue()
+            }
+        }
+    }
+    
     // error state
     property bool showErrorConditon: false // will be true when widget focus changed or save button pressed
     property bool showError: showErrorConditon && isValueError()
@@ -73,6 +67,11 @@ DBaseLine {
             if (!rightLoader.item.activeFocus) {
                 showErrorConditon = true
             }
+        }
+    }
+    onErrorsChanged: {
+        if (isValueError()) {
+            print("-> [error] %1[%2]: %3".arg(section).arg(key).arg(errors[section][key]))
         }
     }
     onShowErrorChanged: {

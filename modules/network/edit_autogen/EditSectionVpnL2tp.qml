@@ -15,9 +15,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineAliasVpnL2tpGateway
             connectionSession: sectionVpnL2tp.connectionSession
-            data: sectionVpnL2tp.data
             availableSections: sectionVpnL2tp.availableSections
             availableKeys: sectionVpnL2tp.availableKeys
+            connectionData: sectionVpnL2tp.connectionData
             errors: sectionVpnL2tp.errors
             section: "alias-vpn-l2tp"
             key: "gateway"
@@ -26,9 +26,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineAliasVpnL2tpUser
             connectionSession: sectionVpnL2tp.connectionSession
-            data: sectionVpnL2tp.data
             availableSections: sectionVpnL2tp.availableSections
             availableKeys: sectionVpnL2tp.availableKeys
+            connectionData: sectionVpnL2tp.connectionData
             errors: sectionVpnL2tp.errors
             section: "alias-vpn-l2tp"
             key: "user"
@@ -37,9 +37,9 @@ BaseEditSection {
         EditLineComboBox {
             id: lineAliasVpnL2tpPasswordFlags
             connectionSession: sectionVpnL2tp.connectionSession
-            data: sectionVpnL2tp.data
             availableSections: sectionVpnL2tp.availableSections
             availableKeys: sectionVpnL2tp.availableKeys
+            connectionData: sectionVpnL2tp.connectionData
             errors: sectionVpnL2tp.errors
             section: "alias-vpn-l2tp"
             key: "password-flags"
@@ -48,9 +48,9 @@ BaseEditSection {
         EditLinePasswordInput {
             id: lineAliasVpnL2tpPassword
             connectionSession: sectionVpnL2tp.connectionSession
-            data: sectionVpnL2tp.data
             availableSections: sectionVpnL2tp.availableSections
             availableKeys: sectionVpnL2tp.availableKeys
+            connectionData: sectionVpnL2tp.connectionData
             errors: sectionVpnL2tp.errors
             section: "alias-vpn-l2tp"
             key: "password"
@@ -59,9 +59,9 @@ BaseEditSection {
         EditLineTextInput {
             id: lineAliasVpnL2tpDomain
             connectionSession: sectionVpnL2tp.connectionSession
-            data: sectionVpnL2tp.data
             availableSections: sectionVpnL2tp.availableSections
             availableKeys: sectionVpnL2tp.availableKeys
+            connectionData: sectionVpnL2tp.connectionData
             errors: sectionVpnL2tp.errors
             section: "alias-vpn-l2tp"
             key: "domain"
