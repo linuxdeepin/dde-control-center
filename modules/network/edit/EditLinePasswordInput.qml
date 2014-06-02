@@ -4,7 +4,7 @@ import Deepin.Widgets 1.0
 BaseEditLine {
     id: root
     
-    property var echoMode
+    property var echoMode       // TODO remove
     
     rightLoader.sourceComponent: DTextInput{
         id: textInput

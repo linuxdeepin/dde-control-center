@@ -14,7 +14,7 @@ BaseEditLine {
         // isError: root.showError // TODO
         
         onIsFocusChanged: {
-            if(!isFocus){
+            if (!isFocus) {
                 root.showErrorConditon = true
             }
         }
@@ -32,12 +32,12 @@ BaseEditLine {
         onToNext: {
             if (nextIpv4Input && nextIpv4Input.visible) {
                 var ipAddress = getValue()
-                if(ipAddress){
+                if (ipAddress) {
                     if (nextIpv4Input.netmaskMode) {
                         // TODO fix netmask
                         // var netmask = windowView.getDefaultMask(ipAddress)
                         var netmask = "255.255.255.0"
-                        if (netmask) {
+                        if (netmask != "") {
                             nextIpv4Input.rightLoader.item.setValue(netmask)
                         }
                     }

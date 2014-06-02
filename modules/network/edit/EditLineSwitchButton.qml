@@ -3,6 +3,7 @@ import Deepin.Widgets 1.0
 
 BaseEditLine {
     id: root
+    
     rightLoader.sourceComponent: DSwitchButtonHeader{
         anchors.right: parent.right
         rightMargin: 0

@@ -5,6 +5,7 @@ DBaseLine {
     id: editLine
     objectName: "BaseEditLine"
     
+    property var connectionSession
     property string section
     property string key
     property string text
@@ -92,11 +93,11 @@ DBaseLine {
     
     function setKey() {
         print("-> BaseEditLine.setKey()", section, key, value) // TODO test
-        generalSetKey(section, key, value)
+        connectionSession.SetKey(section, key, marshalJSON(value))
     }
 
     function getKey() {
-        return generalGetKey(section, key)
+        return unmarshalJSON(connectionSession.GetKey(section, key))
     }
     
     function updateValue() {
