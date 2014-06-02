@@ -3,9 +3,9 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 import "../edit"
 
-BaseEditSection {
+BaseEditSection { 
     id: sectionVpnOpenvpnSecurity
-    section: "vpn-openvpn-security"
+    virtualSection: "vs-vpn-openvpn-security"
     
     header.sourceComponent: EditDownArrowHeader{
         text: dsTr("VPN Security")
@@ -13,12 +13,16 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineComboBox {
-            id: lineCipher
+            id: lineAliasVpnOpenvpnSecurityCipher
+            // connectionSession: sectionVpnOpenvpnSecurity.connectionSession
+            section: "alias-vpn-openvpn-security"
             key: "cipher"
             text: dsTr("Cipher")
         }
         EditLineComboBox {
-            id: lineAuth
+            id: lineAliasVpnOpenvpnSecurityAuth
+            // connectionSession: sectionVpnOpenvpnSecurity.connectionSession
+            section: "alias-vpn-openvpn-security"
             key: "auth"
             text: dsTr("HMAC Auth")
         }

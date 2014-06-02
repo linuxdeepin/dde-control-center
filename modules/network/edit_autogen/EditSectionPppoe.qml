@@ -3,9 +3,9 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 import "../edit"
 
-BaseEditSection {
+BaseEditSection { 
     id: sectionPppoe
-    section: "pppoe"
+    virtualSection: "vs-pppoe"
     
     header.sourceComponent: EditDownArrowHeader{
         text: dsTr("PPPoE")
@@ -13,17 +13,23 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineTextInput {
-            id: lineUsername
+            id: linePppoeUsername
+            // connectionSession: sectionPppoe.connectionSession
+            section: "pppoe"
             key: "username"
             text: dsTr("Username")
         }
         EditLineTextInput {
-            id: lineService
+            id: linePppoeService
+            // connectionSession: sectionPppoe.connectionSession
+            section: "pppoe"
             key: "service"
             text: dsTr("Service")
         }
         EditLinePasswordInput {
-            id: linePassword
+            id: linePppoePassword
+            // connectionSession: sectionPppoe.connectionSession
+            section: "pppoe"
             key: "password"
             text: dsTr("Password")
         }

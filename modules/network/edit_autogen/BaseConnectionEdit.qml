@@ -4,167 +4,190 @@ import Deepin.Widgets 1.0
 import "../edit"
 
 BaseEditPage {
-    id: root
+    id: editPage
     activeExpandIndex: 0
     
     EditSectionGeneral {
         myIndex: 0
         id: sectionGeneral
-        activeExpandIndex: root.activeExpandIndex
+        activeExpandIndex: editPage.activeExpandIndex
+        // connectionSession: editPage.connectionSession
     }
     EditSectionSeparator {relatedSection: sectionGeneral}
     
     EditSectionEthernet {
         myIndex: 1
         id: sectionEthernet
-        activeExpandIndex: root.activeExpandIndex
+        activeExpandIndex: editPage.activeExpandIndex
+        // connectionSession: editPage.connectionSession
     }
     EditSectionSeparator {relatedSection: sectionEthernet}
     
     EditSectionMobileGsm {
-        myIndex: 2
+        myIndex: 3
         id: sectionMobileGsm
-        activeExpandIndex: root.activeExpandIndex
+        activeExpandIndex: editPage.activeExpandIndex
+        // connectionSession: editPage.connectionSession
     }
     EditSectionSeparator {relatedSection: sectionMobileGsm}
     
     EditSectionMobileCdma {
-        myIndex: 3
+        myIndex: 4
         id: sectionMobileCdma
-        activeExpandIndex: root.activeExpandIndex
+        activeExpandIndex: editPage.activeExpandIndex
+        // connectionSession: editPage.connectionSession
     }
     EditSectionSeparator {relatedSection: sectionMobileCdma}
     
     EditSectionWifi {
-        myIndex: 4
+        myIndex: 5
         id: sectionWifi
-        activeExpandIndex: root.activeExpandIndex
+        activeExpandIndex: editPage.activeExpandIndex
+        // connectionSession: editPage.connectionSession
     }
     EditSectionSeparator {relatedSection: sectionWifi}
     
     EditSectionSecurity {
-        myIndex: 5
+        myIndex: 6
         id: sectionSecurity
-        activeExpandIndex: root.activeExpandIndex
+        activeExpandIndex: editPage.activeExpandIndex
+        // connectionSession: editPage.connectionSession
     }
     EditSectionSeparator {relatedSection: sectionSecurity}
     
     EditSectionPppoe {
-        myIndex: 6
+        myIndex: 7
         id: sectionPppoe
-        activeExpandIndex: root.activeExpandIndex
+        activeExpandIndex: editPage.activeExpandIndex
+        // connectionSession: editPage.connectionSession
     }
     EditSectionSeparator {relatedSection: sectionPppoe}
     
     EditSectionPpp {
-        myIndex: 7
+        myIndex: 8
         id: sectionPpp
-        activeExpandIndex: root.activeExpandIndex
+        activeExpandIndex: editPage.activeExpandIndex
+        // connectionSession: editPage.connectionSession
     }
     EditSectionSeparator {relatedSection: sectionPpp}
     
     EditSectionVpnL2tp {
-        myIndex: 8
+        myIndex: 10
         id: sectionVpnL2tp
-        activeExpandIndex: root.activeExpandIndex
+        activeExpandIndex: editPage.activeExpandIndex
+        // connectionSession: editPage.connectionSession
     }
     EditSectionSeparator {relatedSection: sectionVpnL2tp}
     
     EditSectionVpnL2tpIpsec {
-        myIndex: 9
+        myIndex: 11
         id: sectionVpnL2tpIpsec
-        activeExpandIndex: root.activeExpandIndex
+        activeExpandIndex: editPage.activeExpandIndex
+        // connectionSession: editPage.connectionSession
     }
     EditSectionSeparator {relatedSection: sectionVpnL2tpIpsec}
     
     EditSectionVpnL2tpPpp {
-        myIndex: 10
+        myIndex: 12
         id: sectionVpnL2tpPpp
-        activeExpandIndex: root.activeExpandIndex
+        activeExpandIndex: editPage.activeExpandIndex
+        // connectionSession: editPage.connectionSession
     }
     EditSectionSeparator {relatedSection: sectionVpnL2tpPpp}
     
     EditSectionVpnOpenconnect {
-        myIndex: 11
+        myIndex: 13
         id: sectionVpnOpenconnect
-        activeExpandIndex: root.activeExpandIndex
+        activeExpandIndex: editPage.activeExpandIndex
+        // connectionSession: editPage.connectionSession
     }
     EditSectionSeparator {relatedSection: sectionVpnOpenconnect}
     
     EditSectionVpnOpenvpn {
-        myIndex: 12
+        myIndex: 14
         id: sectionVpnOpenvpn
-        activeExpandIndex: root.activeExpandIndex
+        activeExpandIndex: editPage.activeExpandIndex
+        // connectionSession: editPage.connectionSession
     }
     EditSectionSeparator {relatedSection: sectionVpnOpenvpn}
     
     EditSectionVpnOpenvpnSecurity {
-        myIndex: 13
+        myIndex: 15
         id: sectionVpnOpenvpnSecurity
-        activeExpandIndex: root.activeExpandIndex
+        activeExpandIndex: editPage.activeExpandIndex
+        // connectionSession: editPage.connectionSession
     }
     EditSectionSeparator {relatedSection: sectionVpnOpenvpnSecurity}
     
     EditSectionVpnOpenvpnTlsauth {
-        myIndex: 14
+        myIndex: 16
         id: sectionVpnOpenvpnTlsauth
-        activeExpandIndex: root.activeExpandIndex
+        activeExpandIndex: editPage.activeExpandIndex
+        // connectionSession: editPage.connectionSession
     }
     EditSectionSeparator {relatedSection: sectionVpnOpenvpnTlsauth}
     
     EditSectionVpnOpenvpnProxies {
-        myIndex: 15
+        myIndex: 17
         id: sectionVpnOpenvpnProxies
-        activeExpandIndex: root.activeExpandIndex
+        activeExpandIndex: editPage.activeExpandIndex
+        // connectionSession: editPage.connectionSession
     }
     EditSectionSeparator {relatedSection: sectionVpnOpenvpnProxies}
     
     EditSectionVpnOpenvpnAdvanced {
-        myIndex: 16
+        myIndex: 18
         id: sectionVpnOpenvpnAdvanced
-        activeExpandIndex: root.activeExpandIndex
+        activeExpandIndex: editPage.activeExpandIndex
+        // connectionSession: editPage.connectionSession
     }
     EditSectionSeparator {relatedSection: sectionVpnOpenvpnAdvanced}
     
     EditSectionVpnPptp {
-        myIndex: 17
+        myIndex: 19
         id: sectionVpnPptp
-        activeExpandIndex: root.activeExpandIndex
+        activeExpandIndex: editPage.activeExpandIndex
+        // connectionSession: editPage.connectionSession
     }
     EditSectionSeparator {relatedSection: sectionVpnPptp}
     
     EditSectionVpnPptpPpp {
-        myIndex: 18
+        myIndex: 20
         id: sectionVpnPptpPpp
-        activeExpandIndex: root.activeExpandIndex
+        activeExpandIndex: editPage.activeExpandIndex
+        // connectionSession: editPage.connectionSession
     }
     EditSectionSeparator {relatedSection: sectionVpnPptpPpp}
     
     EditSectionVpnVpnc {
-        myIndex: 19
+        myIndex: 21
         id: sectionVpnVpnc
-        activeExpandIndex: root.activeExpandIndex
+        activeExpandIndex: editPage.activeExpandIndex
+        // connectionSession: editPage.connectionSession
     }
     EditSectionSeparator {relatedSection: sectionVpnVpnc}
     
     EditSectionVpnVpncAdvanced {
-        myIndex: 20
+        myIndex: 22
         id: sectionVpnVpncAdvanced
-        activeExpandIndex: root.activeExpandIndex
+        activeExpandIndex: editPage.activeExpandIndex
+        // connectionSession: editPage.connectionSession
     }
     EditSectionSeparator {relatedSection: sectionVpnVpncAdvanced}
     
     EditSectionIpv4 {
-        myIndex: 21
+        myIndex: 23
         id: sectionIpv4
-        activeExpandIndex: root.activeExpandIndex
+        activeExpandIndex: editPage.activeExpandIndex
+        // connectionSession: editPage.connectionSession
     }
     EditSectionSeparator {relatedSection: sectionIpv4}
     
     EditSectionIpv6 {
-        myIndex: 22
+        myIndex: 24
         id: sectionIpv6
-        activeExpandIndex: root.activeExpandIndex
+        activeExpandIndex: editPage.activeExpandIndex
+        // connectionSession: editPage.connectionSession
     }
     EditSectionSeparator {relatedSection: sectionIpv6}
     

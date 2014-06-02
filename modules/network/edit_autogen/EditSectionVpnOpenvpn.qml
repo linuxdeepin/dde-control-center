@@ -3,9 +3,9 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 import "../edit"
 
-BaseEditSection {
+BaseEditSection { 
     id: sectionVpnOpenvpn
-    section: "vpn-openvpn"
+    virtualSection: "vs-vpn-openvpn"
     
     header.sourceComponent: EditDownArrowHeader{
         text: dsTr("VPN")
@@ -13,77 +13,107 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineTextInput {
-            id: lineRemote
+            id: lineAliasVpnOpenvpnRemote
+            // connectionSession: sectionVpnOpenvpn.connectionSession
+            section: "alias-vpn-openvpn"
             key: "remote"
             text: dsTr("Gateway")
         }
         EditLineComboBox {
-            id: lineConnectionType
+            id: lineAliasVpnOpenvpnConnectionType
+            // connectionSession: sectionVpnOpenvpn.connectionSession
+            section: "alias-vpn-openvpn"
             key: "connection-type"
             text: dsTr("Auth Type")
         }
         EditLineTextInput {
-            id: lineUsername
+            id: lineAliasVpnOpenvpnUsername
+            // connectionSession: sectionVpnOpenvpn.connectionSession
+            section: "alias-vpn-openvpn"
             key: "username"
             text: dsTr("Username")
         }
         EditLineComboBox {
-            id: linePasswordFlags
+            id: lineAliasVpnOpenvpnPasswordFlags
+            // connectionSession: sectionVpnOpenvpn.connectionSession
+            section: "alias-vpn-openvpn"
             key: "password-flags"
             text: dsTr("Ask for Pwd")
         }
         EditLinePasswordInput {
-            id: linePassword
+            id: lineAliasVpnOpenvpnPassword
+            // connectionSession: sectionVpnOpenvpn.connectionSession
+            section: "alias-vpn-openvpn"
             key: "password"
             text: dsTr("Password")
         }
         EditLineFileChooser {
-            id: lineCert
+            id: lineAliasVpnOpenvpnCert
+            // connectionSession: sectionVpnOpenvpn.connectionSession
+            section: "alias-vpn-openvpn"
             key: "cert"
             text: dsTr("User Cert")
         }
         EditLineFileChooser {
-            id: lineCa
+            id: lineAliasVpnOpenvpnCa
+            // connectionSession: sectionVpnOpenvpn.connectionSession
+            section: "alias-vpn-openvpn"
             key: "ca"
             text: dsTr("CA Cert")
         }
         EditLineFileChooser {
-            id: lineKey
+            id: lineAliasVpnOpenvpnKey
+            // connectionSession: sectionVpnOpenvpn.connectionSession
+            section: "alias-vpn-openvpn"
             key: "key"
             text: dsTr("Private Key")
         }
         EditLineComboBox {
-            id: lineCertPassFlags
+            id: lineAliasVpnOpenvpnCertPassFlags
+            // connectionSession: sectionVpnOpenvpn.connectionSession
+            section: "alias-vpn-openvpn"
             key: "cert-pass-flags"
             text: dsTr("Ask for Pwd")
         }
         EditLinePasswordInput {
-            id: lineCertPass
+            id: lineAliasVpnOpenvpnCertPass
+            // connectionSession: sectionVpnOpenvpn.connectionSession
+            section: "alias-vpn-openvpn"
             key: "cert-pass"
             text: dsTr("Private Pwd")
         }
         EditLineFileChooser {
-            id: lineStaticKey
+            id: lineAliasVpnOpenvpnStaticKey
+            // connectionSession: sectionVpnOpenvpn.connectionSession
+            section: "alias-vpn-openvpn"
             key: "static-key"
             text: dsTr("Static Key")
         }
         EditLineSwitchButton {
-            id: lineVkStaticKeyDirection
+            id: lineAliasVpnOpenvpnVkStaticKeyDirection
+            // connectionSession: sectionVpnOpenvpn.connectionSession
+            section: "alias-vpn-openvpn"
             key: "vk-static-key-direction"
             text: dsTr("Use Key Direction")
         }
         EditLineComboBox {
-            id: lineStaticKeyDirection
+            id: lineAliasVpnOpenvpnStaticKeyDirection
+            // connectionSession: sectionVpnOpenvpn.connectionSession
+            section: "alias-vpn-openvpn"
             key: "static-key-direction"
             text: dsTr("Key Direction")
         }
         EditLineTextInput {
-            id: lineRemoteIp
+            id: lineAliasVpnOpenvpnRemoteIp
+            // connectionSession: sectionVpnOpenvpn.connectionSession
+            section: "alias-vpn-openvpn"
             key: "remote-ip"
             text: dsTr("Remote IP")
         }
         EditLineTextInput {
-            id: lineLocalIp
+            id: lineAliasVpnOpenvpnLocalIp
+            // connectionSession: sectionVpnOpenvpn.connectionSession
+            section: "alias-vpn-openvpn"
             key: "local-ip"
             text: dsTr("Local IP")
         }

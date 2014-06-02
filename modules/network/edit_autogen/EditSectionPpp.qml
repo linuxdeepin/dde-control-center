@@ -3,9 +3,9 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 import "../edit"
 
-BaseEditSection {
+BaseEditSection { 
     id: sectionPpp
-    section: "ppp"
+    virtualSection: "vs-ppp"
     
     header.sourceComponent: EditDownArrowHeader{
         text: dsTr("PPP")
@@ -13,64 +13,88 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineSwitchButton {
-            id: lineRequireMppe
+            id: linePppRequireMppe
+            // connectionSession: sectionPpp.connectionSession
+            section: "ppp"
             key: "require-mppe"
             text: dsTr("Use MPPE")
             alwaysUpdate: true
         }
         EditLineSwitchButton {
-            id: lineRequireMppe128
+            id: linePppRequireMppe128
+            // connectionSession: sectionPpp.connectionSession
+            section: "ppp"
             key: "require-mppe-128"
             text: dsTr("128-bit MPPE")
             alwaysUpdate: true
         }
         EditLineSwitchButton {
-            id: lineMppeStateful
+            id: linePppMppeStateful
+            // connectionSession: sectionPpp.connectionSession
+            section: "ppp"
             key: "mppe-stateful"
             text: dsTr("Stateful MPPE")
         }
         EditLineSwitchButton {
-            id: lineRefuseEap
+            id: linePppRefuseEap
+            // connectionSession: sectionPpp.connectionSession
+            section: "ppp"
             key: "refuse-eap"
             text: dsTr("Refuse EAP Authentication")
         }
         EditLineSwitchButton {
-            id: lineRefusePap
+            id: linePppRefusePap
+            // connectionSession: sectionPpp.connectionSession
+            section: "ppp"
             key: "refuse-pap"
             text: dsTr("Refuse PAP Authentication")
         }
         EditLineSwitchButton {
-            id: lineRefuseChap
+            id: linePppRefuseChap
+            // connectionSession: sectionPpp.connectionSession
+            section: "ppp"
             key: "refuse-chap"
             text: dsTr("Refuse CHAP Authentication")
         }
         EditLineSwitchButton {
-            id: lineRefuseMschap
+            id: linePppRefuseMschap
+            // connectionSession: sectionPpp.connectionSession
+            section: "ppp"
             key: "refuse-mschap"
             text: dsTr("Refuse MSCHAP Authentication")
         }
         EditLineSwitchButton {
-            id: lineRefuseMschapv2
+            id: linePppRefuseMschapv2
+            // connectionSession: sectionPpp.connectionSession
+            section: "ppp"
             key: "refuse-mschapv2"
             text: dsTr("Refuse MSCHAPv2 Authentication")
         }
         EditLineSwitchButton {
-            id: lineNobsdcomp
+            id: linePppNobsdcomp
+            // connectionSession: sectionPpp.connectionSession
+            section: "ppp"
             key: "nobsdcomp"
             text: dsTr("No BSD Data Compression")
         }
         EditLineSwitchButton {
-            id: lineNodeflate
+            id: linePppNodeflate
+            // connectionSession: sectionPpp.connectionSession
+            section: "ppp"
             key: "nodeflate"
             text: dsTr("No Deflate Data Compression")
         }
         EditLineSwitchButton {
-            id: lineNoVjComp
+            id: linePppNoVjComp
+            // connectionSession: sectionPpp.connectionSession
+            section: "ppp"
             key: "no-vj-comp"
             text: dsTr("No TCP Header Compression")
         }
         EditLineSwitchButton {
-            id: lineVkEnableLcpEcho
+            id: linePppVkEnableLcpEcho
+            // connectionSession: sectionPpp.connectionSession
+            section: "ppp"
             key: "vk-enable-lcp-echo"
             text: dsTr("Send PPP Echo Packets")
         }

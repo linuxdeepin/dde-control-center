@@ -3,9 +3,9 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 import "../edit"
 
-BaseEditSection {
+BaseEditSection { 
     id: sectionIpv4
-    section: "ipv4"
+    virtualSection: "vs-ipv4"
     
     header.sourceComponent: EditDownArrowHeader{
         text: dsTr("IPv4")
@@ -13,36 +13,46 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineComboBox {
-            id: lineMethod
+            id: lineIpv4Method
+            // connectionSession: sectionIpv4.connectionSession
+            section: "ipv4"
             key: "method"
             text: dsTr("Method")
         }
         EditLineIpv4Input {
-            id: lineVkAddressesAddress
+            id: lineIpv4VkAddressesAddress
+            // connectionSession: sectionIpv4.connectionSession
+            section: "ipv4"
             key: "vk-addresses-address"
             text: dsTr("IP Address")
-            nextIpv4Input: lineVkAddressesMask
+            nextIpv4Input: lineIpv4VkAddressesMask
         }
         EditLineIpv4Input {
-            id: lineVkAddressesMask
+            id: lineIpv4VkAddressesMask
+            // connectionSession: sectionIpv4.connectionSession
+            section: "ipv4"
             key: "vk-addresses-mask"
             text: dsTr("Netmask")
             netmaskMode: true
-            nextIpv4Input: lineVkAddressesGateway
-            previousIpv4Input: lineVkAddressesAddress
+            nextIpv4Input: lineIpv4VkAddressesGateway
+            previousIpv4Input: lineIpv4VkAddressesAddress
         }
         EditLineIpv4Input {
-            id: lineVkAddressesGateway
+            id: lineIpv4VkAddressesGateway
+            // connectionSession: sectionIpv4.connectionSession
+            section: "ipv4"
             key: "vk-addresses-gateway"
             text: dsTr("Gateway")
-            nextIpv4Input: lineVkDns
-            previousIpv4Input: lineVkAddressesMask
+            nextIpv4Input: lineIpv4VkDns
+            previousIpv4Input: lineIpv4VkAddressesMask
         }
         EditLineIpv4Input {
-            id: lineVkDns
+            id: lineIpv4VkDns
+            // connectionSession: sectionIpv4.connectionSession
+            section: "ipv4"
             key: "vk-dns"
             text: dsTr("DNS Server")
-            previousIpv4Input: lineVkAddressesGateway
+            previousIpv4Input: lineIpv4VkAddressesGateway
         }
     }
 }

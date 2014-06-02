@@ -7,7 +7,7 @@ Column {
     property int realHeight: childrenRect.height
     property int activeExpandIndex: -1
     property int valueWidth: 170
-    property int editSection.contentLeftMargin: 18
+    property int contentLeftMargin: 18
 
     property var connectionSession
     property var connectionPath: connectionSession.connectionPath

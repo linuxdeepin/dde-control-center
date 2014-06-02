@@ -5,7 +5,9 @@ DBaseLine {
     id: editLine
     objectName: "BaseEditLine"
     
-    property var connectionSession
+    // TODO
+    // property var connectionSession
+    property var connectionData: connectionSession.data
     property string section
     property string key
     property string text
@@ -13,20 +15,29 @@ DBaseLine {
     
     // update value even if other key changed
     property bool alwaysUpdate: false
-    Connections: {
-        target: connectionSession
-        onDataChanged: {
-            function updateKeysAlways() {
-                if (visible && alwaysUpdate) {
-                    updateValue()
-                }
+    onConnectionDataChanged: {
+        function updateKeysAlways() {
+            if (visible && alwaysUpdate) {
+                updateValue()
             }
         }
     }
     
+    // TODO remove
+    // Connections: {
+    //     target: connectionSession
+    //     onDataChanged: {
+    //         function updateKeysAlways() {
+    //             if (visible && alwaysUpdate) {
+    //                 updateValue()
+    //             }
+    //         }
+    //     }
+    // }
+    
     property var errors: connectionSession.errors[section] // TODO: what if missing error section
     onErrorsChanged: {
-        if isValueError() {
+        if (isValueError()) {
             print("-> [error] %1[%2]: %3".arg(section).arg(key).arg(errors[key]))
         }
     }
@@ -106,7 +117,7 @@ DBaseLine {
     }
     
     function isKeyAvailable() {
-        var avialableSections = connectionSession.availableSections
+        var availableSections = connectionSession.availableSections
         var availableKeys = connectionSession.availableKeys[section]
         return getIndexFromArray(section, availableSections) != -1 && getIndexFromArray(key, availableKeys) != -1
     }

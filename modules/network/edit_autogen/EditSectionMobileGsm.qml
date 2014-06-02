@@ -3,9 +3,9 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 import "../edit"
 
-BaseEditSection {
+BaseEditSection { 
     id: sectionMobileGsm
-    section: "mobile-gsm"
+    virtualSection: "vs-mobile-gsm"
     
     header.sourceComponent: EditDownArrowHeader{
         text: dsTr("Mobile")
@@ -13,47 +13,65 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineEditComboBox {
-            id: lineNumber
+            id: lineGsmNumber
+            // connectionSession: sectionMobileGsm.connectionSession
+            section: "gsm"
             key: "number"
             text: dsTr("Number")
         }
         EditLineTextInput {
-            id: lineUsername
+            id: lineGsmUsername
+            // connectionSession: sectionMobileGsm.connectionSession
+            section: "gsm"
             key: "username"
             text: dsTr("Username")
         }
         EditLineComboBox {
-            id: linePasswordFlags
+            id: lineGsmPasswordFlags
+            // connectionSession: sectionMobileGsm.connectionSession
+            section: "gsm"
             key: "password-flags"
             text: dsTr("Ask for Pwd")
         }
         EditLinePasswordInput {
-            id: linePassword
+            id: lineGsmPassword
+            // connectionSession: sectionMobileGsm.connectionSession
+            section: "gsm"
             key: "password"
             text: dsTr("Password")
         }
         EditLineEditComboBox {
-            id: lineApn
+            id: lineGsmApn
+            // connectionSession: sectionMobileGsm.connectionSession
+            section: "gsm"
             key: "apn"
             text: dsTr("APN")
         }
         EditLineTextInput {
-            id: lineNetworkId
+            id: lineGsmNetworkId
+            // connectionSession: sectionMobileGsm.connectionSession
+            section: "gsm"
             key: "network-id"
             text: dsTr("Network ID")
         }
         EditLineComboBox {
-            id: lineNetworkType
+            id: lineGsmNetworkType
+            // connectionSession: sectionMobileGsm.connectionSession
+            section: "gsm"
             key: "network-type"
             text: dsTr("Type")
         }
         EditLineSwitchButton {
-            id: lineHomeOnly
+            id: lineGsmHomeOnly
+            // connectionSession: sectionMobileGsm.connectionSession
+            section: "gsm"
             key: "home-only"
             text: dsTr("Home Network Only")
         }
         EditLinePasswordInput {
-            id: linePin
+            id: lineGsmPin
+            // connectionSession: sectionMobileGsm.connectionSession
+            section: "gsm"
             key: "pin"
             text: dsTr("PIN")
         }

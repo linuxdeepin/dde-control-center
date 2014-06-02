@@ -3,9 +3,9 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 import "../edit"
 
-BaseEditSection {
+BaseEditSection { 
     id: sectionVpnL2tpPpp
-    section: "vpn-l2tp-ppp"
+    virtualSection: "vs-vpn-l2tp-ppp"
     
     header.sourceComponent: EditDownArrowHeader{
         text: dsTr("VPN PPP")
@@ -13,77 +13,105 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineSwitchButton {
-            id: lineVkRequireMppe
+            id: lineAliasVpnL2tpPppVkRequireMppe
+            // connectionSession: sectionVpnL2tpPpp.connectionSession
+            section: "alias-vpn-l2tp-ppp"
             key: "vk-require-mppe"
             text: dsTr("Use MPPE")
         }
         EditLineComboBox {
-            id: lineVkMppeSecurity
+            id: lineAliasVpnL2tpPppVkMppeSecurity
+            // connectionSession: sectionVpnL2tpPpp.connectionSession
+            section: "alias-vpn-l2tp-ppp"
             key: "vk-mppe-security"
             text: dsTr("Security")
         }
         EditLineSwitchButton {
-            id: lineMppeStateful
+            id: lineAliasVpnL2tpPppMppeStateful
+            // connectionSession: sectionVpnL2tpPpp.connectionSession
+            section: "alias-vpn-l2tp-ppp"
             key: "mppe-stateful"
             text: dsTr("Stateful MPPE")
         }
         EditLineSwitchButton {
-            id: lineRefuseEap
+            id: lineAliasVpnL2tpPppRefuseEap
+            // connectionSession: sectionVpnL2tpPpp.connectionSession
+            section: "alias-vpn-l2tp-ppp"
             key: "refuse-eap"
             text: dsTr("Refuse EAP Authentication")
             alwaysUpdate: true
         }
         EditLineSwitchButton {
-            id: lineRefusePap
+            id: lineAliasVpnL2tpPppRefusePap
+            // connectionSession: sectionVpnL2tpPpp.connectionSession
+            section: "alias-vpn-l2tp-ppp"
             key: "refuse-pap"
             text: dsTr("Refuse PAP Authentication")
             alwaysUpdate: true
         }
         EditLineSwitchButton {
-            id: lineRefuseChap
+            id: lineAliasVpnL2tpPppRefuseChap
+            // connectionSession: sectionVpnL2tpPpp.connectionSession
+            section: "alias-vpn-l2tp-ppp"
             key: "refuse-chap"
             text: dsTr("Refuse CHAP Authentication")
             alwaysUpdate: true
         }
         EditLineSwitchButton {
-            id: lineRefuseMschap
+            id: lineAliasVpnL2tpPppRefuseMschap
+            // connectionSession: sectionVpnL2tpPpp.connectionSession
+            section: "alias-vpn-l2tp-ppp"
             key: "refuse-mschap"
             text: dsTr("Refuse MSCHAP Authentication")
             alwaysUpdate: true
         }
         EditLineSwitchButton {
-            id: lineRefuseMschapv2
+            id: lineAliasVpnL2tpPppRefuseMschapv2
+            // connectionSession: sectionVpnL2tpPpp.connectionSession
+            section: "alias-vpn-l2tp-ppp"
             key: "refuse-mschapv2"
             text: dsTr("Refuse MSCHAPv2 Authentication")
             alwaysUpdate: true
         }
         EditLineSwitchButton {
-            id: lineNobsdcomp
+            id: lineAliasVpnL2tpPppNobsdcomp
+            // connectionSession: sectionVpnL2tpPpp.connectionSession
+            section: "alias-vpn-l2tp-ppp"
             key: "nobsdcomp"
             text: dsTr("No BSD Data Compression")
         }
         EditLineSwitchButton {
-            id: lineNodeflate
+            id: lineAliasVpnL2tpPppNodeflate
+            // connectionSession: sectionVpnL2tpPpp.connectionSession
+            section: "alias-vpn-l2tp-ppp"
             key: "nodeflate"
             text: dsTr("No Deflate Data Compression")
         }
         EditLineSwitchButton {
-            id: lineNoVjComp
+            id: lineAliasVpnL2tpPppNoVjComp
+            // connectionSession: sectionVpnL2tpPpp.connectionSession
+            section: "alias-vpn-l2tp-ppp"
             key: "no-vj-comp"
             text: dsTr("No TCP Header Compression")
         }
         EditLineSwitchButton {
-            id: lineNopcomp
+            id: lineAliasVpnL2tpPppNopcomp
+            // connectionSession: sectionVpnL2tpPpp.connectionSession
+            section: "alias-vpn-l2tp-ppp"
             key: "nopcomp"
             text: dsTr("No Protocol Field Compression")
         }
         EditLineSwitchButton {
-            id: lineNoaccomp
+            id: lineAliasVpnL2tpPppNoaccomp
+            // connectionSession: sectionVpnL2tpPpp.connectionSession
+            section: "alias-vpn-l2tp-ppp"
             key: "noaccomp"
             text: dsTr("No Address/Control Compression")
         }
         EditLineSwitchButton {
-            id: lineVkEnableLcpEcho
+            id: lineAliasVpnL2tpPppVkEnableLcpEcho
+            // connectionSession: sectionVpnL2tpPpp.connectionSession
+            section: "alias-vpn-l2tp-ppp"
             key: "vk-enable-lcp-echo"
             text: dsTr("Send PPP Echo Packets")
         }

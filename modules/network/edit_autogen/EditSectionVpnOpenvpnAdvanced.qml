@@ -3,9 +3,9 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 import "../edit"
 
-BaseEditSection {
+BaseEditSection { 
     id: sectionVpnOpenvpnAdvanced
-    section: "vpn-openvpn-advanced"
+    virtualSection: "vs-vpn-openvpn-advanced"
     
     header.sourceComponent: EditDownArrowHeader{
         text: dsTr("VPN Advanced")
@@ -13,75 +13,101 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineSwitchButton {
-            id: lineVkEnablePort
+            id: lineAliasVpnOpenvpnAdvancedVkEnablePort
+            // connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            section: "alias-vpn-openvpn-advanced"
             key: "vk-enable-port"
             text: dsTr("Use Custom Gateway Port")
         }
         EditLineSpinner {
-            id: linePort
+            id: lineAliasVpnOpenvpnAdvancedPort
+            // connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            section: "alias-vpn-openvpn-advanced"
             key: "port"
             text: dsTr("Gateway Port")
             max: 65535
             min: 0
         }
         EditLineSwitchButton {
-            id: lineVkEnableRenegSeconds
+            id: lineAliasVpnOpenvpnAdvancedVkEnableRenegSeconds
+            // connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            section: "alias-vpn-openvpn-advanced"
             key: "vk-enable-reneg-seconds"
             text: dsTr("Use Custom Renegotiation Interval")
         }
         EditLineSpinner {
-            id: lineRenegSeconds
+            id: lineAliasVpnOpenvpnAdvancedRenegSeconds
+            // connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            section: "alias-vpn-openvpn-advanced"
             key: "reneg-seconds"
             text: dsTr("Renegotiation Interval")
             max: 604800
             min: 0
         }
         EditLineSwitchButton {
-            id: lineCompLzo
+            id: lineAliasVpnOpenvpnAdvancedCompLzo
+            // connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            section: "alias-vpn-openvpn-advanced"
             key: "comp-lzo"
             text: dsTr("Use LZO data compression")
         }
         EditLineSwitchButton {
-            id: lineProtoTcp
+            id: lineAliasVpnOpenvpnAdvancedProtoTcp
+            // connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            section: "alias-vpn-openvpn-advanced"
             key: "proto-tcp"
             text: dsTr("Use a TCP connection")
         }
         EditLineSwitchButton {
-            id: lineTapDev
+            id: lineAliasVpnOpenvpnAdvancedTapDev
+            // connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            section: "alias-vpn-openvpn-advanced"
             key: "tap-dev"
             text: dsTr("Use a TAP device")
         }
         EditLineSwitchButton {
-            id: lineVkEnableTunnelMtu
+            id: lineAliasVpnOpenvpnAdvancedVkEnableTunnelMtu
+            // connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            section: "alias-vpn-openvpn-advanced"
             key: "vk-enable-tunnel-mtu"
             text: dsTr("Use Custom Tunnel MTU")
         }
         EditLineSpinner {
-            id: lineTunnelMtu
+            id: lineAliasVpnOpenvpnAdvancedTunnelMtu
+            // connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            section: "alias-vpn-openvpn-advanced"
             key: "tunnel-mtu"
             text: dsTr("MTU")
             max: 65535
             min: 0
         }
         EditLineSwitchButton {
-            id: lineVkEnableFragmentSize
+            id: lineAliasVpnOpenvpnAdvancedVkEnableFragmentSize
+            // connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            section: "alias-vpn-openvpn-advanced"
             key: "vk-enable-fragment-size"
             text: dsTr("Use Custom UDP Fragment Size")
         }
         EditLineSpinner {
-            id: lineFragmentSize
+            id: lineAliasVpnOpenvpnAdvancedFragmentSize
+            // connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            section: "alias-vpn-openvpn-advanced"
             key: "fragment-size"
             text: dsTr("UDP Fragment Size")
             max: 65535
             min: 0
         }
         EditLineSwitchButton {
-            id: lineMssfix
+            id: lineAliasVpnOpenvpnAdvancedMssfix
+            // connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            section: "alias-vpn-openvpn-advanced"
             key: "mssfix"
             text: dsTr("Restrict Tunnel TCP MSS")
         }
         EditLineSwitchButton {
-            id: lineRemoteRandom
+            id: lineAliasVpnOpenvpnAdvancedRemoteRandom
+            // connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
+            section: "alias-vpn-openvpn-advanced"
             key: "remote-random"
             text: dsTr("Randomize Remote Hosts")
         }

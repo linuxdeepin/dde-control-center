@@ -3,9 +3,9 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 import "../edit"
 
-BaseEditSection {
+BaseEditSection { 
     id: sectionVpnL2tpIpsec
-    section: "vpn-l2tp-ipsec"
+    virtualSection: "vs-vpn-l2tp-ipsec"
     
     header.sourceComponent: EditDownArrowHeader{
         text: dsTr("VPN IPsec")
@@ -13,22 +13,30 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineSwitchButton {
-            id: lineIpsecEnabled
+            id: lineAliasVpnL2tpIpsecIpsecEnabled
+            // connectionSession: sectionVpnL2tpIpsec.connectionSession
+            section: "alias-vpn-l2tp-ipsec"
             key: "ipsec-enabled"
             text: dsTr("Enable IPsec")
         }
         EditLineTextInput {
-            id: lineIpsecGroupName
+            id: lineAliasVpnL2tpIpsecIpsecGroupName
+            // connectionSession: sectionVpnL2tpIpsec.connectionSession
+            section: "alias-vpn-l2tp-ipsec"
             key: "ipsec-group-name"
             text: dsTr("Group Name")
         }
         EditLineTextInput {
-            id: lineIpsecGatewayId
+            id: lineAliasVpnL2tpIpsecIpsecGatewayId
+            // connectionSession: sectionVpnL2tpIpsec.connectionSession
+            section: "alias-vpn-l2tp-ipsec"
             key: "ipsec-gateway-id"
             text: dsTr("Group ID")
         }
         EditLinePasswordInput {
-            id: lineIpsecPsk
+            id: lineAliasVpnL2tpIpsecIpsecPsk
+            // connectionSession: sectionVpnL2tpIpsec.connectionSession
+            section: "alias-vpn-l2tp-ipsec"
             key: "ipsec-psk"
             text: dsTr("Password")
         }

@@ -3,9 +3,9 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 import "../edit"
 
-BaseEditSection {
+BaseEditSection { 
     id: sectionVpnOpenvpnTlsauth
-    section: "vpn-openvpn-tlsauth"
+    virtualSection: "vs-vpn-openvpn-tlsauth"
     
     header.sourceComponent: EditDownArrowHeader{
         text: dsTr("VPN TLS Authentication")
@@ -13,27 +13,37 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineTextInput {
-            id: lineTlsRemote
+            id: lineAliasVpnOpenvpnTlsauthTlsRemote
+            // connectionSession: sectionVpnOpenvpnTlsauth.connectionSession
+            section: "alias-vpn-openvpn-tlsauth"
             key: "tls-remote"
             text: dsTr("Subject Match")
         }
         EditLineComboBox {
-            id: lineRemoteCertTls
+            id: lineAliasVpnOpenvpnTlsauthRemoteCertTls
+            // connectionSession: sectionVpnOpenvpnTlsauth.connectionSession
+            section: "alias-vpn-openvpn-tlsauth"
             key: "remote-cert-tls"
             text: dsTr("Remote Cert")
         }
         EditLineFileChooser {
-            id: lineTa
+            id: lineAliasVpnOpenvpnTlsauthTa
+            // connectionSession: sectionVpnOpenvpnTlsauth.connectionSession
+            section: "alias-vpn-openvpn-tlsauth"
             key: "ta"
             text: dsTr("Key File")
         }
         EditLineSwitchButton {
-            id: lineVkTaDir
+            id: lineAliasVpnOpenvpnTlsauthVkTaDir
+            // connectionSession: sectionVpnOpenvpnTlsauth.connectionSession
+            section: "alias-vpn-openvpn-tlsauth"
             key: "vk-ta-dir"
             text: dsTr("Use Key Direction")
         }
         EditLineComboBox {
-            id: lineTaDir
+            id: lineAliasVpnOpenvpnTlsauthTaDir
+            // connectionSession: sectionVpnOpenvpnTlsauth.connectionSession
+            section: "alias-vpn-openvpn-tlsauth"
             key: "ta-dir"
             text: dsTr("Key Direction")
         }

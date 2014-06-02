@@ -3,9 +3,9 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 import "../edit"
 
-BaseEditSection {
+BaseEditSection { 
     id: sectionGeneral
-    section: "general"
+    virtualSection: "vs-general"
     
     header.sourceComponent: EditDownArrowHeader{
         text: dsTr("General")
@@ -13,17 +13,23 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineConnectionId {
-            id: lineId
+            id: lineConnectionId
+            // connectionSession: sectionGeneral.connectionSession
+            section: "connection"
             key: "id"
             text: dsTr("Name")
         }
         EditLineSwitchButton {
-            id: lineAutoconnect
+            id: lineConnectionAutoconnect
+            // connectionSession: sectionGeneral.connectionSession
+            section: "connection"
             key: "autoconnect"
             text: dsTr("Automatically connect")
         }
         EditLineSwitchButton {
-            id: lineVkNoPermission
+            id: lineConnectionVkNoPermission
+            // connectionSession: sectionGeneral.connectionSession
+            section: "connection"
             key: "vk-no-permission"
             text: dsTr("All Users Could Connect")
         }

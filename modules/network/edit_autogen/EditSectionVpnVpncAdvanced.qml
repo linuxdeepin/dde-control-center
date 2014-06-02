@@ -3,9 +3,9 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 import "../edit"
 
-BaseEditSection {
+BaseEditSection { 
     id: sectionVpnVpncAdvanced
-    section: "vpn-vpnc-advanced"
+    virtualSection: "vs-vpn-vpnc-advanced"
     
     header.sourceComponent: EditDownArrowHeader{
         text: dsTr("VPN Advanced")
@@ -13,49 +13,67 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineTextInput {
-            id: lineDomain
+            id: lineAliasVpnVpncAdvancedDomain
+            // connectionSession: sectionVpnVpncAdvanced.connectionSession
+            section: "alias-vpn-vpnc-advanced"
             key: "Domain"
             text: dsTr("Domain")
         }
         EditLineTextInput {
-            id: lineVendor
+            id: lineAliasVpnVpncAdvancedVendor
+            // connectionSession: sectionVpnVpncAdvanced.connectionSession
+            section: "alias-vpn-vpnc-advanced"
             key: "Vendor"
             text: dsTr("Vendor")
         }
         EditLineTextInput {
-            id: lineApplicationVersion
+            id: lineAliasVpnVpncAdvancedApplicationVersion
+            // connectionSession: sectionVpnVpncAdvanced.connectionSession
+            section: "alias-vpn-vpnc-advanced"
             key: "Application Version"
             text: dsTr("Version")
         }
         EditLineComboBox {
-            id: lineVkEncryptionMethod
+            id: lineAliasVpnVpncAdvancedVkEncryptionMethod
+            // connectionSession: sectionVpnVpncAdvanced.connectionSession
+            section: "alias-vpn-vpnc-advanced"
             key: "vk-encryption-method"
             text: dsTr("Encryption Method")
         }
         EditLineComboBox {
-            id: lineNatTraversalMode
+            id: lineAliasVpnVpncAdvancedNatTraversalMode
+            // connectionSession: sectionVpnVpncAdvanced.connectionSession
+            section: "alias-vpn-vpnc-advanced"
             key: "NAT Traversal Mode"
             text: dsTr("NAT Traversal")
         }
         EditLineComboBox {
-            id: lineIkeDhGroup
+            id: lineAliasVpnVpncAdvancedIkeDhGroup
+            // connectionSession: sectionVpnVpncAdvanced.connectionSession
+            section: "alias-vpn-vpnc-advanced"
             key: "IKE DH Group"
             text: dsTr("IKE DH Group")
         }
         EditLineComboBox {
-            id: linePerfectForwardSecrecy
+            id: lineAliasVpnVpncAdvancedPerfectForwardSecrecy
+            // connectionSession: sectionVpnVpncAdvanced.connectionSession
+            section: "alias-vpn-vpnc-advanced"
             key: "Perfect Forward Secrecy"
             text: dsTr("Perfect Forward Secrecy")
         }
         EditLineSpinner {
-            id: lineLocalPort
+            id: lineAliasVpnVpncAdvancedLocalPort
+            // connectionSession: sectionVpnVpncAdvanced.connectionSession
+            section: "alias-vpn-vpnc-advanced"
             key: "Local Port"
             text: dsTr("Local Port")
             max: 65535
             min: 0
         }
         EditLineSwitchButton {
-            id: lineVkDisableDpd
+            id: lineAliasVpnVpncAdvancedVkDisableDpd
+            // connectionSession: sectionVpnVpncAdvanced.connectionSession
+            section: "alias-vpn-vpnc-advanced"
             key: "vk-disable-dpd"
             text: dsTr("Disable Dead Peer Detection")
         }

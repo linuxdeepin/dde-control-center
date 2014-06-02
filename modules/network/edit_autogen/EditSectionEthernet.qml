@@ -3,9 +3,9 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 import "../edit"
 
-BaseEditSection {
+BaseEditSection { 
     id: sectionEthernet
-    section: "ethernet"
+    virtualSection: "vs-ethernet"
     
     header.sourceComponent: EditDownArrowHeader{
         text: dsTr("Ethernet")
@@ -13,22 +13,30 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineEditComboBox {
-            id: lineMacAddress
+            id: line8023EthernetMacAddress
+            // connectionSession: sectionEthernet.connectionSession
+            section: "802-3-ethernet"
             key: "mac-address"
             text: dsTr("Device MAC Addr")
         }
         EditLineTextInput {
-            id: lineClonedMacAddress
+            id: line8023EthernetClonedMacAddress
+            // connectionSession: sectionEthernet.connectionSession
+            section: "802-3-ethernet"
             key: "cloned-mac-address"
             text: dsTr("Cloned MAC Addr")
         }
         EditLineSwitchButton {
-            id: lineVkEnableMtu
+            id: line8023EthernetVkEnableMtu
+            // connectionSession: sectionEthernet.connectionSession
+            section: "802-3-ethernet"
             key: "vk-enable-mtu"
             text: dsTr("Custom MTU")
         }
         EditLineSpinner {
-            id: lineMtu
+            id: line8023EthernetMtu
+            // connectionSession: sectionEthernet.connectionSession
+            section: "802-3-ethernet"
             key: "mtu"
             text: dsTr("MTU")
             max: 10000

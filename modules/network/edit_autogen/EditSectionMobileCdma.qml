@@ -3,9 +3,9 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 import "../edit"
 
-BaseEditSection {
+BaseEditSection { 
     id: sectionMobileCdma
-    section: "mobile-cdma"
+    virtualSection: "vs-mobile-cdma"
     
     header.sourceComponent: EditDownArrowHeader{
         text: dsTr("Mobile")
@@ -13,17 +13,23 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineTextInput {
-            id: lineNumber
+            id: lineCdmaNumber
+            // connectionSession: sectionMobileCdma.connectionSession
+            section: "cdma"
             key: "number"
             text: dsTr("Number")
         }
         EditLineTextInput {
-            id: lineUsername
+            id: lineCdmaUsername
+            // connectionSession: sectionMobileCdma.connectionSession
+            section: "cdma"
             key: "username"
             text: dsTr("Username")
         }
         EditLinePasswordInput {
-            id: linePassword
+            id: lineCdmaPassword
+            // connectionSession: sectionMobileCdma.connectionSession
+            section: "cdma"
             key: "password"
             text: dsTr("Password")
         }

@@ -3,9 +3,9 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 import "../edit"
 
-BaseEditSection {
+BaseEditSection { 
     id: sectionVpnOpenvpnProxies
-    section: "vpn-openvpn-proxies"
+    virtualSection: "vs-vpn-openvpn-proxies"
     
     header.sourceComponent: EditDownArrowHeader{
         text: dsTr("VPN Proxies")
@@ -13,34 +13,46 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineComboBox {
-            id: lineProxyType
+            id: lineAliasVpnOpenvpnProxiesProxyType
+            // connectionSession: sectionVpnOpenvpnProxies.connectionSession
+            section: "alias-vpn-openvpn-proxies"
             key: "proxy-type"
             text: dsTr("Proxy Type")
         }
         EditLineTextInput {
-            id: lineProxyServer
+            id: lineAliasVpnOpenvpnProxiesProxyServer
+            // connectionSession: sectionVpnOpenvpnProxies.connectionSession
+            section: "alias-vpn-openvpn-proxies"
             key: "proxy-server"
             text: dsTr("Server IP")
         }
         EditLineSpinner {
-            id: lineProxyPort
+            id: lineAliasVpnOpenvpnProxiesProxyPort
+            // connectionSession: sectionVpnOpenvpnProxies.connectionSession
+            section: "alias-vpn-openvpn-proxies"
             key: "proxy-port"
             text: dsTr("Port")
             max: 65535
             min: 0
         }
         EditLineSwitchButton {
-            id: lineProxyRetry
+            id: lineAliasVpnOpenvpnProxiesProxyRetry
+            // connectionSession: sectionVpnOpenvpnProxies.connectionSession
+            section: "alias-vpn-openvpn-proxies"
             key: "proxy-retry"
             text: dsTr("Retry Indefinitely When Failed")
         }
         EditLineTextInput {
-            id: lineHttpProxyUsername
+            id: lineAliasVpnOpenvpnProxiesHttpProxyUsername
+            // connectionSession: sectionVpnOpenvpnProxies.connectionSession
+            section: "alias-vpn-openvpn-proxies"
             key: "http-proxy-username"
             text: dsTr("Username")
         }
         EditLinePasswordInput {
-            id: lineHttpProxyPassword
+            id: lineAliasVpnOpenvpnProxiesHttpProxyPassword
+            // connectionSession: sectionVpnOpenvpnProxies.connectionSession
+            section: "alias-vpn-openvpn-proxies"
             key: "http-proxy-password"
             text: dsTr("Password")
         }

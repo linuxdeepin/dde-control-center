@@ -3,9 +3,9 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 import "../edit"
 
-BaseEditSection {
+BaseEditSection { 
     id: sectionSecurity
-    section: "security"
+    virtualSection: "vs-security"
     
     header.sourceComponent: EditDownArrowHeader{
         text: dsTr("Security")
@@ -13,94 +13,130 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineComboBox {
-            id: lineVkKeyMgmt
+            id: line80211WirelessSecurityVkKeyMgmt
+            // connectionSession: sectionSecurity.connectionSession
+            section: "802-11-wireless-security"
             key: "vk-key-mgmt"
             text: dsTr("Security")
         }
         EditLinePasswordInput {
-            id: lineWepKey0
+            id: line80211WirelessSecurityWepKey0
+            // connectionSession: sectionSecurity.connectionSession
+            section: "802-11-wireless-security"
             key: "wep-key0"
             text: dsTr("Key")
         }
         EditLinePasswordInput {
-            id: linePsk
+            id: line80211WirelessSecurityPsk
+            // connectionSession: sectionSecurity.connectionSession
+            section: "802-11-wireless-security"
             key: "psk"
             text: dsTr("Password")
         }
         EditLineSwitchButton {
-            id: lineVkEnable
+            id: line8021xVkEnable
+            // connectionSession: sectionSecurity.connectionSession
+            section: "802-1x"
             key: "vk-enable"
             text: dsTr("Use security")
         }
         EditLineComboBox {
-            id: lineVkEap
+            id: line8021xVkEap
+            // connectionSession: sectionSecurity.connectionSession
+            section: "802-1x"
             key: "vk-eap"
             text: dsTr("EAP Auth")
         }
         EditLineTextInput {
-            id: lineAnonymousIdentity
+            id: line8021xAnonymousIdentity
+            // connectionSession: sectionSecurity.connectionSession
+            section: "802-1x"
             key: "anonymous-identity"
             text: dsTr("Anon Identity")
         }
         EditLineFileChooser {
-            id: lineVkCaCert
+            id: line8021xVkCaCert
+            // connectionSession: sectionSecurity.connectionSession
+            section: "802-1x"
             key: "vk-ca-cert"
             text: dsTr("CA Cert")
         }
         EditLineFileChooser {
-            id: lineVkClientCert
+            id: line8021xVkClientCert
+            // connectionSession: sectionSecurity.connectionSession
+            section: "802-1x"
             key: "vk-client-cert"
             text: dsTr("User Cert")
         }
         EditLineComboBox {
-            id: linePhase1FastProvisioning
+            id: line8021xPhase1FastProvisioning
+            // connectionSession: sectionSecurity.connectionSession
+            section: "802-1x"
             key: "phase1-fast-provisioning"
             text: dsTr("Provisioning")
         }
         EditLineFileChooser {
-            id: lineVkPacFile
+            id: line8021xVkPacFile
+            // connectionSession: sectionSecurity.connectionSession
+            section: "802-1x"
             key: "vk-pac-file"
             text: dsTr("PAC file")
         }
         EditLineComboBox {
-            id: linePhase1Peapver
+            id: line8021xPhase1Peapver
+            // connectionSession: sectionSecurity.connectionSession
+            section: "802-1x"
             key: "phase1-peapver"
             text: dsTr("PEAP Version")
         }
         EditLineComboBox {
-            id: linePhase2Auth
+            id: line8021xPhase2Auth
+            // connectionSession: sectionSecurity.connectionSession
+            section: "802-1x"
             key: "phase2-auth"
             text: dsTr("Inner Auth")
             alwaysUpdate: true
         }
         EditLineFileChooser {
-            id: lineVkPrivateKey
+            id: line8021xVkPrivateKey
+            // connectionSession: sectionSecurity.connectionSession
+            section: "802-1x"
             key: "vk-private-key"
             text: dsTr("Private Key")
         }
         EditLineTextInput {
-            id: lineIdentity
+            id: line8021xIdentity
+            // connectionSession: sectionSecurity.connectionSession
+            section: "802-1x"
             key: "identity"
             text: dsTr("Username")
         }
         EditLineComboBox {
-            id: linePasswordFlags
+            id: line8021xPasswordFlags
+            // connectionSession: sectionSecurity.connectionSession
+            section: "802-1x"
             key: "password-flags"
             text: dsTr("Ask for Pwd")
             alwaysUpdate: true
         }
         EditLinePasswordInput {
-            id: linePassword
+            id: line8021xPassword
+            // connectionSession: sectionSecurity.connectionSession
+            section: "802-1x"
             key: "password"
             text: dsTr("Password")
         }
         EditLineComboBox {
-            id: linePrivateKeyPasswordFlags
+            id: line8021xPrivateKeyPasswordFlags
+            // connectionSession: sectionSecurity.connectionSession
+            section: "802-1x"
             key: "private-key-password-flags"
             text: dsTr("Ask for Pwd")
         }
         EditLinePasswordInput {
-            id: linePrivateKeyPassword
+            id: line8021xPrivateKeyPassword
+            // connectionSession: sectionSecurity.connectionSession
+            section: "802-1x"
             key: "private-key-password"
             text: dsTr("Private Pwd")
         }

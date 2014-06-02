@@ -3,9 +3,9 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 import "../edit"
 
-BaseEditSection {
+BaseEditSection { 
     id: sectionVpnVpnc
-    section: "vpn-vpnc"
+    virtualSection: "vs-vpn-vpnc"
     
     header.sourceComponent: EditDownArrowHeader{
         text: dsTr("VPN")
@@ -13,47 +13,65 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineTextInput {
-            id: lineIpsecGateway
+            id: lineAliasVpnVpncIpsecGateway
+            // connectionSession: sectionVpnVpnc.connectionSession
+            section: "alias-vpn-vpnc"
             key: "IPSec gateway"
             text: dsTr("Gateway")
         }
         EditLineTextInput {
-            id: lineXauthUsername
+            id: lineAliasVpnVpncXauthUsername
+            // connectionSession: sectionVpnVpnc.connectionSession
+            section: "alias-vpn-vpnc"
             key: "Xauth username"
             text: dsTr("Username")
         }
         EditLineComboBox {
-            id: lineXauthPasswordFlags
+            id: lineAliasVpnVpncXauthPasswordFlags
+            // connectionSession: sectionVpnVpnc.connectionSession
+            section: "alias-vpn-vpnc"
             key: "Xauth password-flags"
             text: dsTr("Ask for Pwd")
         }
         EditLinePasswordInput {
-            id: lineXauthPassword
+            id: lineAliasVpnVpncXauthPassword
+            // connectionSession: sectionVpnVpnc.connectionSession
+            section: "alias-vpn-vpnc"
             key: "Xauth password"
             text: dsTr("User Pwd")
         }
         EditLineTextInput {
-            id: lineIpsecId
+            id: lineAliasVpnVpncIpsecId
+            // connectionSession: sectionVpnVpnc.connectionSession
+            section: "alias-vpn-vpnc"
             key: "IPSec ID"
             text: dsTr("Group Name")
         }
         EditLineComboBox {
-            id: lineIpsecSecretFlags
+            id: lineAliasVpnVpncIpsecSecretFlags
+            // connectionSession: sectionVpnVpnc.connectionSession
+            section: "alias-vpn-vpnc"
             key: "IPSec secret-flags"
             text: dsTr("Ask for Pwd")
         }
         EditLinePasswordInput {
-            id: lineIpsecSecret
+            id: lineAliasVpnVpncIpsecSecret
+            // connectionSession: sectionVpnVpnc.connectionSession
+            section: "alias-vpn-vpnc"
             key: "IPSec secret"
             text: dsTr("Group Pwd")
         }
         EditLineSwitchButton {
-            id: lineVkHybridAuthmode
+            id: lineAliasVpnVpncVkHybridAuthmode
+            // connectionSession: sectionVpnVpnc.connectionSession
+            section: "alias-vpn-vpnc"
             key: "vk-hybrid-authmode"
             text: dsTr("Use Hybrid Authentication")
         }
         EditLineFileChooser {
-            id: lineCaFile
+            id: lineAliasVpnVpncCaFile
+            // connectionSession: sectionVpnVpnc.connectionSession
+            section: "alias-vpn-vpnc"
             key: "CA-File"
             text: dsTr("CA File")
         }

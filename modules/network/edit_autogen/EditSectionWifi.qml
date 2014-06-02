@@ -3,9 +3,9 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 import "../edit"
 
-BaseEditSection {
+BaseEditSection { 
     id: sectionWifi
-    section: "wifi"
+    virtualSection: "vs-wifi"
     
     header.sourceComponent: EditDownArrowHeader{
         text: dsTr("Wi-Fi")
@@ -13,44 +13,60 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineTextInput {
-            id: lineSsid
+            id: line80211WirelessSsid
+            // connectionSession: sectionWifi.connectionSession
+            section: "802-11-wireless"
             key: "ssid"
             text: dsTr("SSID")
         }
         EditLineComboBox {
-            id: lineMode
+            id: line80211WirelessMode
+            // connectionSession: sectionWifi.connectionSession
+            section: "802-11-wireless"
             key: "mode"
             text: dsTr("Mode")
         }
         EditLineComboBox {
-            id: lineBand
+            id: line80211WirelessBand
+            // connectionSession: sectionWifi.connectionSession
+            section: "802-11-wireless"
             key: "band"
             text: dsTr("Band")
             alwaysUpdate: true
         }
         EditLineComboBox {
-            id: lineChannel
+            id: line80211WirelessChannel
+            // connectionSession: sectionWifi.connectionSession
+            section: "802-11-wireless"
             key: "channel"
             text: dsTr("Channel")
             alwaysUpdate: true
         }
         EditLineEditComboBox {
-            id: lineMacAddress
+            id: line80211WirelessMacAddress
+            // connectionSession: sectionWifi.connectionSession
+            section: "802-11-wireless"
             key: "mac-address"
             text: dsTr("Device MAC Addr")
         }
         EditLineTextInput {
-            id: lineClonedMacAddress
+            id: line80211WirelessClonedMacAddress
+            // connectionSession: sectionWifi.connectionSession
+            section: "802-11-wireless"
             key: "cloned-mac-address"
             text: dsTr("Cloned MAC Addr")
         }
         EditLineSwitchButton {
-            id: lineVkEnableMtu
+            id: line80211WirelessVkEnableMtu
+            // connectionSession: sectionWifi.connectionSession
+            section: "802-11-wireless"
             key: "vk-enable-mtu"
             text: dsTr("Custom MTU")
         }
         EditLineSpinner {
-            id: lineMtu
+            id: line80211WirelessMtu
+            // connectionSession: sectionWifi.connectionSession
+            section: "802-11-wireless"
             key: "mtu"
             text: dsTr("MTU")
             max: 10000

@@ -3,9 +3,9 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 import "../edit"
 
-BaseEditSection {
+BaseEditSection { 
     id: sectionVpnPptp
-    section: "vpn-pptp"
+    virtualSection: "vs-vpn-pptp"
     
     header.sourceComponent: EditDownArrowHeader{
         text: dsTr("VPN")
@@ -13,27 +13,37 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineTextInput {
-            id: lineGateway
+            id: lineAliasVpnPptpGateway
+            // connectionSession: sectionVpnPptp.connectionSession
+            section: "alias-vpn-pptp"
             key: "gateway"
             text: dsTr("Gateway")
         }
         EditLineTextInput {
-            id: lineUser
+            id: lineAliasVpnPptpUser
+            // connectionSession: sectionVpnPptp.connectionSession
+            section: "alias-vpn-pptp"
             key: "user"
             text: dsTr("Username")
         }
         EditLineComboBox {
-            id: linePasswordFlags
+            id: lineAliasVpnPptpPasswordFlags
+            // connectionSession: sectionVpnPptp.connectionSession
+            section: "alias-vpn-pptp"
             key: "password-flags"
             text: dsTr("Ask for Pwd")
         }
         EditLinePasswordInput {
-            id: linePassword
+            id: lineAliasVpnPptpPassword
+            // connectionSession: sectionVpnPptp.connectionSession
+            section: "alias-vpn-pptp"
             key: "password"
             text: dsTr("Password")
         }
         EditLineTextInput {
-            id: lineDomain
+            id: lineAliasVpnPptpDomain
+            // connectionSession: sectionVpnPptp.connectionSession
+            section: "alias-vpn-pptp"
             key: "domain"
             text: dsTr("Domain")
         }
