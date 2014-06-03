@@ -113,7 +113,7 @@ DFlickable {
 
         LocaleArea {
             id: localeArea
-            listAreaMaxHeight: timeZoneArea.listAreaMaxHeight - 30
+            listAreaMaxHeight: timeZoneArea.listAreaMaxHeight - 60
             onExpandedChanged: {
                 if(expanded){
                     timeZoneArea.reset()

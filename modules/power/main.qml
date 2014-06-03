@@ -103,7 +103,7 @@ Rectangle {
         DSeparatorHorizontal {}
     }
 
-    Flickable {
+    DFlickable {
         anchors.top: title_column.bottom
         anchors.left: parent.left
         anchors.right: parent.right
