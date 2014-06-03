@@ -22,11 +22,11 @@ Column{
 
     function goToEditConnection(){
         stackView.push({
-            "item": stackViewPages["connectionEditPage"],
+            "item": stackViewPages["editPage"],
             "properties": { "connectionSession": editConnection(uuid, wiredItem.devicePath)},
             "destroyOnPop": true
         })
-        stackView.currentItemId = "connectionEditPage"
+        stackView.currentItemId = "editPage"
     }
 
     DBaseLine {

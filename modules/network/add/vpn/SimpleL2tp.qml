@@ -1,19 +1,22 @@
 import QtQuick 2.1
 import Deepin.Widgets 1.0
-import "../../shared"
-import "../widgets"
+import "../../../shared"
+import "../../widgets"
 
 Column {
     id: settingBox
     width: parent.width
 
-    property string vpnType: nmConnectionTypeVpnPptp
+    property string vpnType: nmConnectionTypeVpnL2tp
 
     property int edgePadding: 24
     property int leftWidth: edgePadding
     property int rightWidth: settingBox.width - leftWidth - edgePadding
 
     function setDefaultKeys(sessionObject){
+        if(vpnSecretKey.getValue()){
+            sessionObject.SetKey("vpn-l2tp-ipsec", "ipsec-enabled", marshalJSON(true))
+        }
     }
 
     function updateLeftWidth(newWidth){
@@ -25,7 +28,7 @@ Column {
     PropertyLine {
         id: vpnName
         title.text: dsTr("Name")
-        section: "general"
+        section: "connection"
         key: "id"
         content.sourceComponent: DTextInput {
             activeFocusOnTab: true
@@ -48,7 +51,7 @@ Column {
     PropertyLine {
         id: vpnServer
         title.text: dsTr("Server")
-        section: "vpn-pptp"
+        section: "alias-vpn-l2tp"
         key: "gateway"
         content.sourceComponent: DTextInput{
             activeFocusOnTab: true
@@ -71,7 +74,7 @@ Column {
     PropertyLine {
         id: vpnUserName
         title.text: dsTr("Account")
-        section: "vpn-pptp"
+        section: "alias-vpn-l2tp"
         key: "user"
         content.sourceComponent: DTextInput{
             activeFocusOnTab: true
@@ -115,7 +118,7 @@ Column {
     PropertyLine {
         id: vpnPassword
         title.text: dsTr("Password")
-        section: "vpn-pptp"
+        section: "alias-vpn-l2tp"
         key: "password"
         visible: !rsaSecurID.active
 
@@ -137,7 +140,7 @@ Column {
     PropertyLine {
         id: requireMppeLine
         title.text: dsTr("Enable MPPE")
-        section: "vpn-pptp-ppp"
+        section: "vpn-l2tp-ppp"
         key: "require-mppe"
 
         property bool active: true
@@ -163,4 +166,26 @@ Column {
             return true
         }
     }
+
+    PropertyLine {
+        id: vpnSecretKey
+        title.text: dsTr("Secret key")
+        section: "vpn-l2tp-ipsec"
+        key: "ipsec-psk"
+
+        content.sourceComponent: DTextInput{
+            activeFocusOnTab: true
+            width: settingBox.rightWidth
+            echoMode: TextInput.Password
+        }
+
+        function getValue(){
+            return content.item.text
+        }
+
+        function checkKey(){
+            return true
+        }
+    }
+
 }

@@ -2,8 +2,8 @@ import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
 import Deepin.Widgets 1.0
-import "vpn"
-import "dsl"
+import "add/vpn"
+import "add/dsl"
 
 Column {
     id:body

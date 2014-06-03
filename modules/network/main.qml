@@ -85,15 +85,15 @@ Item {
     property bool inPasswordInputting: false
 
     property bool inAllConnectionPage: stackView.depth == 1
-    property var allConnectionPage: ConnectionList {}
+    property var indexPage: ConnectionList {}
 
     property var stackViewPages: {
-        "allConnectionPage": Qt.resolvedUrl("ConnectionList.qml"),
+        "indexPage": Qt.resolvedUrl("ConnectionList.qml"),
         "infoPage": Qt.resolvedUrl("Info.qml"),
-        "connectionEditPage": Qt.resolvedUrl("ConnectionEdit.qml"),
-        "addPageIndex": Qt.resolvedUrl("AddPageIndex.qml"),
-        "newDslPage": Qt.resolvedUrl("dsl/NewDslPage.qml"),
-        "newVpnPage": Qt.resolvedUrl("vpn/NewVpnPage.qml"),
+        "editPage": Qt.resolvedUrl("ConnectionEdit.qml"),
+        "indexAddPage": Qt.resolvedUrl("ConnectionAdd.qml"),
+        "newDslPage": Qt.resolvedUrl("add/dsl/NewDslPage.qml"),
+        "newVpnPage": Qt.resolvedUrl("add/vpn/NewVpnPage.qml"),
         "hiddenAp": Qt.resolvedUrl("HiddenAp.qml"),
         "wifiHotspot": Qt.resolvedUrl("WifiHotspot.qml"),
     }
@@ -119,7 +119,7 @@ Item {
     }
     
     function resetConnectionSession() {
-        if(stackView.currentItemId == "connectionEditPage" || stackView.currentItem == "hiddenAp"){
+        if(stackView.currentItemId == "editPage" || stackView.currentItem == "hiddenAp"){
             stackView.currentItem.connectionSession.Close()
         }
     }
@@ -233,17 +233,17 @@ Item {
             DssAddButton{
                 id: addButton
                 anchors.verticalCenter: parent.verticalCenter
-                visible: stackView.currentItemId == "allConnectionPage"
+                visible: stackView.currentItemId == "indexPage"
                 onClicked: {
-                    stackView.push(stackViewPages["addPageIndex"])
-                    stackView.currentItemId = "addPageIndex"
+                    stackView.push(stackViewPages["indexAddPage"])
+                    stackView.currentItemId = "indexAddPage"
                 }
             }
 
             DTextButton {
                 text: "i"
                 anchors.verticalCenter: parent.verticalCenter
-                visible: stackView.currentItemId == "allConnectionPage"
+                visible: stackView.currentItemId == "indexPage"
                 onClicked: {
                     stackView.push(stackViewPages["infoPage"])
                     stackView.currentItemId = "infoPage"
@@ -278,15 +278,15 @@ Item {
 
             function reset(){
                 stackView.pop(null)
-                stackView.currentItemId = "allConnectionPage"
+                stackView.currentItemId = "indexPage"
             }
 
             Component.onCompleted: {
                 stackView.push({
-                    "item": stackViewPages["allConnectionPage"],
+                    "item": stackViewPages["indexPage"],
                     "properties": { "width": parent.width }
                 })
-                stackView.currentItemId = "allConnectionPage"
+                stackView.currentItemId = "indexPage"
             }
         }
     }
