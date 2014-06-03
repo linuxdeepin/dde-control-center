@@ -115,95 +115,93 @@ Item {
         DSeparatorHorizontal {}
     }
 
-    Column {
-        id: keybindingListColumn
+    DFlickable {
         anchors.top: keybindingTitleColumn.bottom
         width: parent.width
-        height: childrenRect.height
+        height: parent.height - keybindingTitleColumn.height
+        clip: true
 
-        Rectangle {
-            id: searchResultListBox
-            height: childrenRect.height
+        contentWidth: width
+        contentHeight: keybindingListColumn.height
+
+        Column {
+            id: keybindingListColumn
             width: parent.width
-            color: dconstants.contentBgColor
+            height: childrenRect.height
+            clip: true
 
-            ListView {
-                id: searchResultListView
+            Rectangle {
+                id: searchResultListBox
+                height: childrenRect.height
                 width: parent.width
-                height: {
-                    if(shortcutsModule.height - keybindingTitleColumn.height - 2 < searchResultListView.count * 30){
-                        return shortcutsModule.height - keybindingTitleColumn.height - 2
-                    }
-                    return searchResultListView.count * 30
-                }
-                focus: true
-                clip: true
+                color: dconstants.contentBgColor
 
-                Behavior on height {
-                    NumberAnimation {duration: 100}
-                }
+                ListView {
+                    id: searchResultListView
+                    width: parent.width
+                    height: searchResultListView.count * 30
+                    focus: true
+                    clip: true
+                    boundsBehavior: Flickable.StopAtBounds
 
-                property string keyword: ""
-                property var keyData: {
-                    var resultKeyBindings = new Array()
-                    if(keyword){
-                        var results = searchId.SearchKeys(keyword, searchMd5)
-                        for(var i in results){
-                            resultKeyBindings.push(getKeyBindingInfo(results[i]))
+                    property string keyword: ""
+                    property var keyData: {
+                        var resultKeyBindings = new Array()
+                        if(keyword){
+                            var results = searchId.SearchKeys(keyword, searchMd5)
+                            for(var i in results){
+                                resultKeyBindings.push(getKeyBindingInfo(results[i]))
+                            }
                         }
+                        return resultKeyBindings
                     }
-                    return resultKeyBindings
-                }
 
-                model: keyData.length
-                delegate: ShortcutInput {
-                    info: searchResultListView.keyData[index]
+                    model: keyData.length
+                    delegate: ShortcutInput {
+                        info: searchResultListView.keyData[index]
+                    }
                 }
             }
 
-            DScrollBar {
-                flickable: searchResultListView
+            DSeparatorHorizontal {
+                visible: searchResultListView.count != 0
             }
-        }
 
-        DSeparatorHorizontal {
-            visible: searchResultListView.count != 0
-        }
-
-        Rectangle {
-            id: systemCategoriesArea
-            width: parent.width
-            height: childrenRect.height
-            color: dconstants.bgColor
-            visible: searchResultListView.keyword == ""
-
-            Column {
+            Rectangle {
+                id: systemCategoriesArea
                 width: parent.width
                 height: childrenRect.height
+                color: dconstants.bgColor
+                visible: searchResultListView.keyword == ""
 
-                Repeater {
-                    id: systemShortcutCategoryList
+                Column {
                     width: parent.width
                     height: childrenRect.height
-                    model: {
-                        var myModel = listModelComponent.createObject(systemShortcutCategoryList, {})
-                        for(var key in categoryObjects){
-                            if(key=="customList") continue;
-                            myModel.append({
-                                "name": categoryObjects[key],
-                                "propertyName": key
-                            })
-                        }
-                        return myModel
-                    }
-                    delegate: ShortcutCategoryItem{}
-                }
 
-                CustomKeybinding {
-                    id: customItem
-                    property string name: dsTr("Custom")
-                    property var keyBindings: dbusKeyBinding.customList
-                    listMaxHeight: shortcutsModule.height - keybindingTitleColumn.height - keybindingListColumn.height
+                    Repeater {
+                        id: systemShortcutCategoryList
+                        width: parent.width
+                        height: childrenRect.height
+                        model: {
+                            var myModel = listModelComponent.createObject(systemShortcutCategoryList, {})
+                            for(var key in categoryObjects){
+                                if(key=="customList") continue;
+                                myModel.append({
+                                    "name": categoryObjects[key],
+                                    "propertyName": key
+                                })
+                            }
+                            return myModel
+                        }
+                        delegate: ShortcutCategoryItem{}
+                    }
+
+                    CustomKeybinding {
+                        id: customItem
+                        property string name: dsTr("Custom")
+                        property var keyBindings: dbusKeyBinding.customList
+                        listMaxHeight: shortcutsModule.height - keybindingTitleColumn.height - keybindingListColumn.height
+                    }
                 }
             }
         }
