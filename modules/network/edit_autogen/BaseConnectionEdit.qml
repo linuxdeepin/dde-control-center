@@ -31,9 +31,9 @@ BaseEditPage {
     }
     EditSectionSeparator {relatedSection: sectionEthernet}
     
-    EditSectionMobileGsm {
-        myIndex: 3
-        id: sectionMobileGsm
+    EditSectionMobile {
+        myIndex: 2
+        id: sectionMobile
         activeExpandIndex: editPage.activeExpandIndex
         connectionSession: editPage.connectionSession
         availableSections: editPage.availableSections
@@ -41,34 +41,10 @@ BaseEditPage {
         connectionData: editPage.connectionData
         errors: editPage.errors
     }
-    EditSectionSeparator {relatedSection: sectionMobileGsm}
-    
-    EditSectionMobileCdma {
-        myIndex: 4
-        id: sectionMobileCdma
-        activeExpandIndex: editPage.activeExpandIndex
-        connectionSession: editPage.connectionSession
-        availableSections: editPage.availableSections
-        availableKeys: editPage.availableKeys
-        connectionData: editPage.connectionData
-        errors: editPage.errors
-    }
-    EditSectionSeparator {relatedSection: sectionMobileCdma}
-    
-    EditSectionWifi {
-        myIndex: 5
-        id: sectionWifi
-        activeExpandIndex: editPage.activeExpandIndex
-        connectionSession: editPage.connectionSession
-        availableSections: editPage.availableSections
-        availableKeys: editPage.availableKeys
-        connectionData: editPage.connectionData
-        errors: editPage.errors
-    }
-    EditSectionSeparator {relatedSection: sectionWifi}
+    EditSectionSeparator {relatedSection: sectionMobile}
     
     EditSectionSecurity {
-        myIndex: 6
+        myIndex: 5
         id: sectionSecurity
         activeExpandIndex: editPage.activeExpandIndex
         connectionSession: editPage.connectionSession
@@ -78,6 +54,18 @@ BaseEditPage {
         errors: editPage.errors
     }
     EditSectionSeparator {relatedSection: sectionSecurity}
+    
+    EditSectionWifi {
+        myIndex: 6
+        id: sectionWifi
+        activeExpandIndex: editPage.activeExpandIndex
+        connectionSession: editPage.connectionSession
+        availableSections: editPage.availableSections
+        availableKeys: editPage.availableKeys
+        connectionData: editPage.connectionData
+        errors: editPage.errors
+    }
+    EditSectionSeparator {relatedSection: sectionWifi}
     
     EditSectionPppoe {
         myIndex: 7
@@ -103,9 +91,9 @@ BaseEditPage {
     }
     EditSectionSeparator {relatedSection: sectionPpp}
     
-    EditSectionVpnL2tp {
-        myIndex: 10
-        id: sectionVpnL2tp
+    EditSectionVpn {
+        myIndex: 9
+        id: sectionVpn
         activeExpandIndex: editPage.activeExpandIndex
         connectionSession: editPage.connectionSession
         availableSections: editPage.availableSections
@@ -113,7 +101,7 @@ BaseEditPage {
         connectionData: editPage.connectionData
         errors: editPage.errors
     }
-    EditSectionSeparator {relatedSection: sectionVpnL2tp}
+    EditSectionSeparator {relatedSection: sectionVpn}
     
     EditSectionVpnL2tpIpsec {
         myIndex: 11
@@ -138,30 +126,6 @@ BaseEditPage {
         errors: editPage.errors
     }
     EditSectionSeparator {relatedSection: sectionVpnL2tpPpp}
-    
-    EditSectionVpnOpenconnect {
-        myIndex: 13
-        id: sectionVpnOpenconnect
-        activeExpandIndex: editPage.activeExpandIndex
-        connectionSession: editPage.connectionSession
-        availableSections: editPage.availableSections
-        availableKeys: editPage.availableKeys
-        connectionData: editPage.connectionData
-        errors: editPage.errors
-    }
-    EditSectionSeparator {relatedSection: sectionVpnOpenconnect}
-    
-    EditSectionVpnOpenvpn {
-        myIndex: 14
-        id: sectionVpnOpenvpn
-        activeExpandIndex: editPage.activeExpandIndex
-        connectionSession: editPage.connectionSession
-        availableSections: editPage.availableSections
-        availableKeys: editPage.availableKeys
-        connectionData: editPage.connectionData
-        errors: editPage.errors
-    }
-    EditSectionSeparator {relatedSection: sectionVpnOpenvpn}
     
     EditSectionVpnOpenvpnSecurity {
         myIndex: 15
@@ -211,18 +175,6 @@ BaseEditPage {
     }
     EditSectionSeparator {relatedSection: sectionVpnOpenvpnAdvanced}
     
-    EditSectionVpnPptp {
-        myIndex: 19
-        id: sectionVpnPptp
-        activeExpandIndex: editPage.activeExpandIndex
-        connectionSession: editPage.connectionSession
-        availableSections: editPage.availableSections
-        availableKeys: editPage.availableKeys
-        connectionData: editPage.connectionData
-        errors: editPage.errors
-    }
-    EditSectionSeparator {relatedSection: sectionVpnPptp}
-    
     EditSectionVpnPptpPpp {
         myIndex: 20
         id: sectionVpnPptpPpp
@@ -234,18 +186,6 @@ BaseEditPage {
         errors: editPage.errors
     }
     EditSectionSeparator {relatedSection: sectionVpnPptpPpp}
-    
-    EditSectionVpnVpnc {
-        myIndex: 21
-        id: sectionVpnVpnc
-        activeExpandIndex: editPage.activeExpandIndex
-        connectionSession: editPage.connectionSession
-        availableSections: editPage.availableSections
-        availableKeys: editPage.availableKeys
-        connectionData: editPage.connectionData
-        errors: editPage.errors
-    }
-    EditSectionSeparator {relatedSection: sectionVpnVpnc}
     
     EditSectionVpnVpncAdvanced {
         myIndex: 22
