@@ -53,14 +53,14 @@ Column {
                     width: root.width
                     columns: 2
                     Layout.preferredWidth: root.width
-                    DssH2 { text: dsTr("DeviceType") }  DssH2 { text: getDeviceName(modelData.DeviceType) }
-                    DssH2 { text: dsTr("DeviceAddr")}   DssH2 { text: modelData.HwAddress }
-                    DssH2 { text: dsTr("IpAddress")}    DssH2 { text: modelData.IpAddress }
-                    DssH2 { text: dsTr("SubnetMask")}   DssH2 { text: modelData.SubnetMask }
-                    DssH2 { text: dsTr("RouteAddr")}    DssH2 { text: modelData.RouteAddress }
-                    DssH2 { text: dsTr("Primary DNS")}  DssH2 { text: modelData.Dns1 }
-                    DssH2 { text: dsTr("Addtional DNS"); visible: modelData.Dns2 != ""}  DssH2 { text: modelData.Dns2 ; visible: modelData.Dns2 != ""}
-                    DssH2 { text: dsTr("DeviceSpeed")}  DssH2 { text: modelData.Speed + " Mb/s" }
+                    InfoItem { text: dsTr("DeviceType") }  InfoItem { text: getDeviceName(modelData.DeviceType) }
+                    InfoItem { text: dsTr("DeviceAddr")}   InfoItem { text: modelData.HwAddress }
+                    InfoItem { text: dsTr("IpAddress")}    InfoItem { text: modelData.IpAddress }
+                    InfoItem { text: dsTr("SubnetMask")}   InfoItem { text: modelData.SubnetMask }
+                    InfoItem { text: dsTr("RouteAddr")}    InfoItem { text: modelData.RouteAddress }
+                    InfoItem { text: dsTr("Primary DNS")}  InfoItem { text: modelData.Dns1 }
+                    InfoItem { text: dsTr("Addtional DNS"); visible: modelData.Dns2 != ""}  InfoItem { text: modelData.Dns2 ; visible: modelData.Dns2 != ""}
+                    InfoItem { text: dsTr("DeviceSpeed")}  InfoItem { text: modelData.Speed + " Mb/s" }
                 }
             }
         }
