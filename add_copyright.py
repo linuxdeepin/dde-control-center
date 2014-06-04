@@ -1,3 +1,9 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import os
+
+copyright_str = """\
 /****************************************************************************
 **
 **  Copyright (C) 2011~2014 Deepin, Inc.
@@ -21,24 +27,28 @@
 **
 ****************************************************************************/
 
-import QtQuick 2.0
+"""
 
-Item {
-    property alias model: view.model
-    property alias delegate: view.delegate
-    property alias currentIndex: view.currentIndex
+exts = [".cpp", ".h", ".qml"]
 
-    property real itemWidth: 30
-    property real itemHeight: 30
-    property alias view: view
+def scan(root_folder):
+    for (root, folders, files) in os.walk(root_folder):
+        for f in files:
+            path = os.path.join(root, f)
+            ext = os.path.splitext(path)[1]
+            if ext in exts:
+                f = open(path)
+                old_content = f.read()
+                if copyright_str in old_content:
+                    f.close()
+                    continue
+                new_content = copyright_str + old_content
+                f.close()
+                f = open(path, "w")
+                f.write(new_content)
+                f.close()
 
-    PathView {
-        id: view
-        anchors.fill: parent
-        path: Path {
-            startX: view.x + itemWidth/2
-            startY: view.y + view.height/2
-            PathLine { relativeX: view.width; relativeY: 0 }
-        }
-    }
-}
+if __name__ == "__main__":
+    import sys
+    scan(sys.argv[1])
+
