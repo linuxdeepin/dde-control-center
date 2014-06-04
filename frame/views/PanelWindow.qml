@@ -51,6 +51,7 @@ DOverrideWindow {
         rootWindow.width = panelWidth + 16
         rootWindow.show()
         rootWindow.raise()
+        rootWindow.requestActivate()
         rootWindow.displayWidth = panelWidth
     }
 
@@ -115,6 +116,7 @@ DOverrideWindow {
             rootWindow.width = panelWidth + 16
             rootWindow.show()
             rootWindow.raise()
+            rootWindow.requestActivate()
             if(timeoutQuit.running){
                 timeoutQuit.stop()
             }
