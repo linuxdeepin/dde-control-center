@@ -2,29 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
-    <name>AddPageIndex</name>
-    <message>
-        <source>New Network</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>PPPOE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>VPN</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Next</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>AddUserDialog</name>
     <message>
         <source>Standard</source>
@@ -92,6 +69,29 @@
     </message>
     <message>
         <source>Sat</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ConnectionAdd</name>
+    <message>
+        <source>New Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PPPOE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>VPN</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Next</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -271,26 +271,7 @@
     </message>
 </context>
 <context>
-    <name>EditSectionMobileCdma</name>
-    <message>
-        <source>Mobile</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Number</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>EditSectionMobileGsm</name>
+    <name>EditSectionMobile</name>
     <message>
         <source>Mobile</source>
         <translation type="unfinished"></translation>
@@ -474,7 +455,7 @@
     </message>
 </context>
 <context>
-    <name>EditSectionVpnL2tp</name>
+    <name>EditSectionVpn</name>
     <message>
         <source>VPN</source>
         <translation type="unfinished"></translation>
@@ -497,6 +478,86 @@
     </message>
     <message>
         <source>Domain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Proxy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow Cisco Secure Desktop Trojan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>CSD Wrapper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uesr Cert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User FSID For Key Passphrase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auth Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Private Pwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Static Key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use Key Direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Key Direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remote IP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Local IP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Pwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Group Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Group Pwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use Hybrid Authentication</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>CA File</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -583,108 +644,6 @@
     </message>
     <message>
         <source>Send PPP Echo Packets</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>EditSectionVpnOpenconnect</name>
-    <message>
-        <source>VPN</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>CA Cert</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Proxy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>CSD Wrapper</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Uesr Cert</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Private Key</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>User FSID For Key Passphrase</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>EditSectionVpnOpenvpn</name>
-    <message>
-        <source>VPN</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Auth Type</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ask for Pwd</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>User Cert</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>CA Cert</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Private Key</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Private Pwd</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Static Key</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use Key Direction</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Key Direction</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Remote IP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Local IP</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -821,33 +780,6 @@
     </message>
 </context>
 <context>
-    <name>EditSectionVpnPptp</name>
-    <message>
-        <source>VPN</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ask for Pwd</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Domain</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>EditSectionVpnPptpPpp</name>
     <message>
         <source>VPN PPP</source>
@@ -899,45 +831,6 @@
     </message>
     <message>
         <source>Send PPP Echo Packets</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>EditSectionVpnVpnc</name>
-    <message>
-        <source>VPN</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ask for Pwd</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>User Pwd</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Group Name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Group Pwd</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Use Hybrid Authentication</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>CA File</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1896,14 +1789,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Account</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Bluetooth</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>ON/OFF</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1984,10 +1869,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Display</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Main Display: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -2008,10 +1889,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Startup Screen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Boot priority</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2025,10 +1902,6 @@
     </message>
     <message>
         <source>Selected Text Color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Keyboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2156,14 +2029,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Network Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Personalization</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Theme</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2213,10 +2078,6 @@
     </message>
     <message>
         <source>1 hour</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Power Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2288,10 +2149,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Shortcuts</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Speaker</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2349,10 +2206,6 @@
     </message>
     <message>
         <source>Show Advanced...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>System Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

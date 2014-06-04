@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-30 10:14+0800\n"
+"POT-Creation-Date: 2014-06-04 16:09+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,21 +16,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-msgid "New Network"
-msgstr ""
-
-msgid "PPPOE"
-msgstr ""
-
-msgid "VPN"
-msgstr ""
-
-msgid "Cancel"
-msgstr ""
-
-msgid "Next"
-msgstr ""
 
 msgid "Standard"
 msgstr ""
@@ -72,6 +57,21 @@ msgid "Fri"
 msgstr ""
 
 msgid "Sat"
+msgstr ""
+
+msgid "New Network"
+msgstr ""
+
+msgid "PPPOE"
+msgstr ""
+
+msgid "VPN"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Next"
 msgstr ""
 
 msgid "Are you sure to delete this network?"
@@ -170,10 +170,10 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-msgid "Password"
+msgid "Ask for Pwd"
 msgstr ""
 
-msgid "Ask for Pwd"
+msgid "Password"
 msgstr ""
 
 msgid "APN"
@@ -278,27 +278,6 @@ msgstr ""
 msgid "Domain"
 msgstr ""
 
-msgid "VPN IPsec"
-msgstr ""
-
-msgid "Enable IPsec"
-msgstr ""
-
-msgid "Group Name"
-msgstr ""
-
-msgid "Group ID"
-msgstr ""
-
-msgid "VPN PPP"
-msgstr ""
-
-msgid "No Protocol Field Compression"
-msgstr ""
-
-msgid "No Address/Control Compression"
-msgstr ""
-
 msgid "Proxy"
 msgstr ""
 
@@ -330,6 +309,39 @@ msgid "Remote IP"
 msgstr ""
 
 msgid "Local IP"
+msgstr ""
+
+msgid "User Pwd"
+msgstr ""
+
+msgid "Group Name"
+msgstr ""
+
+msgid "Group Pwd"
+msgstr ""
+
+msgid "Use Hybrid Authentication"
+msgstr ""
+
+msgid "CA File"
+msgstr ""
+
+msgid "VPN IPsec"
+msgstr ""
+
+msgid "Enable IPsec"
+msgstr ""
+
+msgid "Group ID"
+msgstr ""
+
+msgid "VPN PPP"
+msgstr ""
+
+msgid "No Protocol Field Compression"
+msgstr ""
+
+msgid "No Address/Control Compression"
 msgstr ""
 
 msgid "VPN Advanced"
@@ -405,18 +417,6 @@ msgid "Remote Cert"
 msgstr ""
 
 msgid "Key File"
-msgstr ""
-
-msgid "User Pwd"
-msgstr ""
-
-msgid "Group Pwd"
-msgstr ""
-
-msgid "Use Hybrid Authentication"
-msgstr ""
-
-msgid "CA File"
 msgstr ""
 
 msgid "Vendor"
@@ -912,9 +912,6 @@ msgstr ""
 msgid "Apply"
 msgstr ""
 
-msgid "Startup Screen"
-msgstr ""
-
 msgid "Boot priority"
 msgstr ""
 
@@ -990,9 +987,6 @@ msgstr ""
 msgid "bridge"
 msgstr ""
 
-msgid "Network Settings"
-msgstr ""
-
 msgid "Theme"
 msgstr ""
 
@@ -1030,9 +1024,6 @@ msgid "30 minutes"
 msgstr ""
 
 msgid "1 hour"
-msgstr ""
-
-msgid "Power Options"
 msgstr ""
 
 msgid "When I press the power button"
@@ -1084,9 +1075,6 @@ msgid "System"
 msgstr ""
 
 msgid "Workspace"
-msgstr ""
-
-msgid "Shortcuts"
 msgstr ""
 
 msgid "Speaker"

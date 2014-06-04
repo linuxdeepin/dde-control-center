@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-30 10:14+0800\n"
+"POT-Creation-Date: 2014-06-04 16:09+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,22 +15,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#, fuzzy
-msgid "New Network"
-msgstr "網路"
-
-msgid "PPPOE"
-msgstr "PPPoE"
-
-msgid "VPN"
-msgstr "VPN"
-
-msgid "Cancel"
-msgstr "取消"
-
-msgid "Next"
-msgstr "下一步"
 
 msgid "Standard"
 msgstr "標準"
@@ -75,6 +59,22 @@ msgstr "五"
 
 msgid "Sat"
 msgstr "六"
+
+#, fuzzy
+msgid "New Network"
+msgstr "網路"
+
+msgid "PPPOE"
+msgstr "PPPoE"
+
+msgid "VPN"
+msgstr "VPN"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Next"
+msgstr "下一步"
 
 #, fuzzy
 msgid "Are you sure to delete this network?"
@@ -182,12 +182,12 @@ msgid "Username"
 msgstr "使用者"
 
 #, fuzzy
-msgid "Password"
-msgstr "密碼:"
-
-#, fuzzy
 msgid "Ask for Pwd"
 msgstr "使用者"
+
+#, fuzzy
+msgid "Password"
+msgstr "密碼:"
 
 #, fuzzy
 msgid "APN"
@@ -311,29 +311,6 @@ msgstr "密碼:"
 msgid "Domain"
 msgstr ""
 
-msgid "VPN IPsec"
-msgstr ""
-
-#, fuzzy
-msgid "Enable IPsec"
-msgstr "啟用使用者"
-
-#, fuzzy
-msgid "Group Name"
-msgstr "使用者"
-
-msgid "Group ID"
-msgstr ""
-
-msgid "VPN PPP"
-msgstr ""
-
-msgid "No Protocol Field Compression"
-msgstr ""
-
-msgid "No Address/Control Compression"
-msgstr ""
-
 msgid "Proxy"
 msgstr ""
 
@@ -368,6 +345,43 @@ msgid "Remote IP"
 msgstr "使用者清單"
 
 msgid "Local IP"
+msgstr ""
+
+#, fuzzy
+msgid "User Pwd"
+msgstr "使用者"
+
+#, fuzzy
+msgid "Group Name"
+msgstr "使用者"
+
+msgid "Group Pwd"
+msgstr ""
+
+#, fuzzy
+msgid "Use Hybrid Authentication"
+msgstr "通知"
+
+msgid "CA File"
+msgstr ""
+
+msgid "VPN IPsec"
+msgstr ""
+
+#, fuzzy
+msgid "Enable IPsec"
+msgstr "啟用使用者"
+
+msgid "Group ID"
+msgstr ""
+
+msgid "VPN PPP"
+msgstr ""
+
+msgid "No Protocol Field Compression"
+msgstr ""
+
+msgid "No Address/Control Compression"
 msgstr ""
 
 #, fuzzy
@@ -455,20 +469,6 @@ msgid "Remote Cert"
 msgstr "使用者清單"
 
 msgid "Key File"
-msgstr ""
-
-#, fuzzy
-msgid "User Pwd"
-msgstr "使用者"
-
-msgid "Group Pwd"
-msgstr ""
-
-#, fuzzy
-msgid "Use Hybrid Authentication"
-msgstr "通知"
-
-msgid "CA File"
 msgstr ""
 
 msgid "Vendor"
@@ -998,9 +998,6 @@ msgstr "顯示器"
 msgid "Apply"
 msgstr "套用"
 
-msgid "Startup Screen"
-msgstr "啟動畫面"
-
 #, fuzzy
 msgid "Boot priority"
 msgstr "啟動畫面"
@@ -1083,9 +1080,6 @@ msgstr ""
 msgid "bridge"
 msgstr ""
 
-msgid "Network Settings"
-msgstr "網路設定"
-
 msgid "Theme"
 msgstr "主題"
 
@@ -1125,10 +1119,6 @@ msgstr ""
 
 msgid "1 hour"
 msgstr ""
-
-#, fuzzy
-msgid "Power Options"
-msgstr "電源計畫"
 
 msgid "When I press the power button"
 msgstr "當我按下電源按鈕"
@@ -1181,9 +1171,6 @@ msgstr "系統"
 
 msgid "Workspace"
 msgstr "工作區"
-
-msgid "Shortcuts"
-msgstr "捷徑"
 
 msgid "Speaker"
 msgstr "揚聲器"
@@ -1264,6 +1251,19 @@ msgstr ""
 
 msgid "Disable the touchpad when insert the mouse"
 msgstr ""
+
+#~ msgid "Startup Screen"
+#~ msgstr "啟動畫面"
+
+#~ msgid "Network Settings"
+#~ msgstr "網路設定"
+
+#, fuzzy
+#~ msgid "Power Options"
+#~ msgstr "電源計畫"
+
+#~ msgid "Shortcuts"
+#~ msgstr "捷徑"
 
 #~ msgid "Visible"
 #~ msgstr "可見"
