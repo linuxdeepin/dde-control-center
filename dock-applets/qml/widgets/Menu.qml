@@ -4,7 +4,6 @@ import Deepin.DockApplet 1.0
 DockMenu {
     content: getMenuContent()
     onActivate: {
-        print("==> [info] Menu clicked:", id)
         if(actionDict[id]){
             actionDict[id](id);
         }
@@ -43,11 +42,12 @@ DockMenu {
 
     function addCheckboxItem(groupName, name, callback){
         var item_id = generateId();
-        actionDict[item_id] = callback;
+        var realItemId = groupName + ":radio:" + item_id
+        actionDict[realItemId] = callback;
 
         var menuItem = {
             "itemText": name,
-            "itemId": groupName + ":radio:" + item_id,
+            "itemId": realItemId,
             "isCheckable": true,
             "checked": false,
             "itemIcon": "",

@@ -34,11 +34,6 @@ void QmlLoader::load(QUrl url)
         qWarning() << component->errorString();
 }
 
-void QmlLoader::xdgOpen(QString path)
-{
-    QProcess::execute("xdg-open " + path);
-}
-
 AppletDBus::AppletDBus(QmlLoader *parent):
     QDBusAbstractAdaptor(parent),
     m_parent(parent)

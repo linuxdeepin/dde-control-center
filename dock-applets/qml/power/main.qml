@@ -47,7 +47,14 @@ DockApplet {
     }
 
     function changePowerPlan(id){
-        print(id)
+        var id_index = id.split(":")[2]
+        var planIndex = menu.menuIds.indexOf(id_index)
+        if(dbusPower.onBattery){
+            dbusPower.batteryPlan = planIndex
+        }
+        else{
+            dbusPower.linePowerPlan = planIndex
+        }
     }
 
     menu: Menu {

@@ -23,7 +23,6 @@ public:
     QQmlContext * rootContext;
 
     void load(QUrl url);
-    Q_INVOKABLE void xdgOpen(QString path);
 private:
     AppletDBus * m_dbus_proxyer;
 };
