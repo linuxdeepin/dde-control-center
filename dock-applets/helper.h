@@ -35,6 +35,7 @@ public:
 
     Q_INVOKABLE QString getIconUrl(QString path);
     Q_INVOKABLE void xdgOpen(QString path);
+    Q_INVOKABLE bool isPathExist(QString path);
 };
 
 #endif // RESOURCE_H

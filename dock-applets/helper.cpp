@@ -24,6 +24,7 @@
 #include "helper.h"
 
 #include <QProcess>
+#include <QFile>
 
 ExternalObject::ExternalObject(QObject *parent)
     :QObject(parent)
@@ -40,4 +41,12 @@ QString ExternalObject::getIconUrl(QString path)
 void ExternalObject::xdgOpen(QString path)
 {
     QProcess::execute("xdg-open " + path);
+}
+
+bool ExternalObject::isPathExist(QString path)
+{
+    if(path.startsWith("file://")){
+        path = path.replace("file://", "");
+    }
+    return QFile::exists(path);
 }

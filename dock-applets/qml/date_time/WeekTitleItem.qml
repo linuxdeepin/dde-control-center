@@ -49,14 +49,14 @@ Item {
         }
     }
 
-    Rectangle {
-        id: rightBorder
-        anchors.left: content.right
-        width: 1
-        height: parent.height
-        color: borderColor
-        visible: (index + 1) % 7 != 0
-    }
+    //Rectangle {
+        //id: rightBorder
+        //anchors.left: content.right
+        //width: 1
+        //height: parent.height
+        //color: borderColor
+        //visible: (index + 1) % 7 != 0
+    //}
 
     Rectangle {
         id: bottomBorder

@@ -95,7 +95,7 @@ DockApplet{
         }
     }
 
-    property int itemWidth: 36
+    property int itemWidth: 37
     property int itemHeight: 36
     property int weekTitleHeight: 21
 
