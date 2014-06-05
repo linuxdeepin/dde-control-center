@@ -50,10 +50,8 @@ DBaseLine {
     // update value even if other key changed
     property bool alwaysUpdate: false
     onConnectionDataChanged: {
-        function updateKeysAlways() {
-            if (visible && alwaysUpdate) {
-                updateValue()
-            }
+        if (visible && alwaysUpdate) {
+            updateValue()
         }
     }
     
