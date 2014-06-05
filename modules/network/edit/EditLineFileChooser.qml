@@ -6,17 +6,32 @@ BaseEditLine{
     
     property var filter         // TODO
     
-    rightLoader.sourceComponent: EditKeyFileChooser {
+    rightLoader.sourceComponent: DFileChooseInput {
         width: valueWidth
-        filter: root.filter
-        connectionSession: root.connectionSession
-        availableSections: root.availableSections
-        availableKeys: root.availableKeys
-        connectionData: root.connectionData
-        errors: root.errors
-        section: root.section
-        key: root.key
-        alwaysUpdate: root.alwaysUpdate
+        Connections {
+            target: root
+            onWidgetShown: {
+                text = root.cacheValue
+            }
+            onCacheValueChanged: {
+                text = root.cacheValue
+            }
+        }
+        onTextChanged: {
+            root.cacheValue = text
+            setKey()
+        }
+        onFileChooseClicked: {
+            fileChooseDialog.showWindow()
+        }
+    }
+    
+    DFileChooseDialog {
+        id: fileChooseDialog
+        currentFolder: windowView.getHomeDir()
+        onSelectAction: {
+            root.rightLoader.item.text = fileUrl
+        }
     }
 }
 
