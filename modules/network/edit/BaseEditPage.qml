@@ -19,26 +19,17 @@ Column {
 
     function checkKeysInPage() {
         print("==> check all keys in page")
-        for (var i=0; i<children.length; i++) {
-            var childItem = children[i]
-            if (childItem.visible) {
-                if (childItem.objectName == "BaseEditSection") {
-                    checkKeysInSection(childItem)
-                } else if (childItem.objectName == "BaseEditLine") {
-                    childItem.checkKey()
-                }
+        doCheckKeysInPage(editPage)
+    }
+    function doCheckKeysInPage(parentItem) {
+        if (parentItem.visible) {
+            if (parentItem.objectName == "BaseEditLine") {
+                parentItem.checkKey()
             }
         }
-    }
-    function checkKeysInSection(editSection) {
-        print("==> check all keys in section", editSection.virtualSection)
-        var childItems = editSection.content.item.children
-        for (var i=0; i<childItems.length; i++) {
-            var editLine = childItems[i]
-            print("==>", editLine) // TODO test
-            if (editLine.objectName == "BaseEditLine" && editLine.visible) {
-                editLine.checkKey()
-            }
+        for (var i=0; i<parentItem.children.length; i++) {
+            var childItem = parentItem.children[i]
+            doCheckKeysInPage(childItem)
         }
     }
     
