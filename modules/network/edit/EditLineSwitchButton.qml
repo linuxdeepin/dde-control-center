@@ -3,22 +3,14 @@ import Deepin.Widgets 1.0
 
 BaseEditLine {
     id: root
-    
-    rightLoader.sourceComponent: DSwitchButtonHeader{
-        anchors.right: parent.right
-        rightMargin: 0
-        Connections {
-            target: root
-            onWidgetShown: {
-                active = root.cacheValue
-            }
-            onCacheValueChanged: {
-                active = root.cacheValue
-            }
-        }
-        onActiveChanged: {
-            root.cacheValue = active
-            setKey()
-        }
+    rightLoader.sourceComponent: EditKeySwitchButton {
+        connectionSession: root.connectionSession
+        availableSections: root.availableSections
+        availableKeys: root.availableKeys
+        connectionData: root.connectionData
+        errors: root.errors
+        section: root.section
+        key: root.key
+        alwaysUpdate: root.alwaysUpdate
     }
 }

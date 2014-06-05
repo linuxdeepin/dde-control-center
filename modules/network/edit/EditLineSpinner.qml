@@ -7,25 +7,17 @@ BaseEditLine {
     property int min: 0
     property int max: 65535
     
-    rightLoader.sourceComponent: DSpinner {
-        id: spinner
-        width: valueWidth / 1.5
+    rightLoader.sourceComponent: EditKeySpinner {
+        width: valueWidth
         min: root.min
         max: root.max
-        Connections {
-            target: root
-            onWidgetShown: {
-                text = String(root.cacheValue)
-            }
-            onCacheValueChanged: {
-                text = String(root.cacheValue)
-            }
-        }
-        onTextChanged: {
-            if (text != "") {
-                root.cacheValue = parseInt(text)
-                setKey()
-            }
-        }
+        connectionSession: root.connectionSession
+        availableSections: root.availableSections
+        availableKeys: root.availableKeys
+        connectionData: root.connectionData
+        errors: root.errors
+        section: root.section
+        key: root.key
+        alwaysUpdate: root.alwaysUpdate
     }
 }

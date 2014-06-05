@@ -23,7 +23,7 @@ Column {
     }
     function doCheckKeysInPage(parentItem) {
         if (parentItem.visible) {
-            if (parentItem.objectName == "BaseEditLine") {
+            if (parentItem.objectName == "BaseEditKey") {
                 parentItem.checkKey()
             }
         }

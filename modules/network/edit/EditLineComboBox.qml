@@ -3,40 +3,15 @@ import Deepin.Widgets 1.0
 
 BaseEditLine {
     id: root
-    
-    rightLoader.sourceComponent: DComboBox{
-        id: comboBox
-        anchors.left: parent.left
+    rightLoader.sourceComponent: EditKeyComboBox {
         width: valueWidth
-        property var menuLabels
-        
-        Connections {
-            target: root
-            onWidgetShown: {
-                text = getAvailableValuesTextByValue()
-            }
-            onCacheValueChanged: {
-                text = getAvailableValuesTextByValue()
-            }
-        }
-
-        function menuSelect(i){
-            root.cacheValue = getAvailableValues()[i].Value
-            setKey()
-        }
-
-        onClicked: {
-            if(!rootMenu.visible){
-                menuLabels = getAvailableValuesText() // update availabel values
-                var pos = mapToItem(null, 0, 0)
-                rootMenu.labels = comboBox.menuLabels
-                rootMenu.requestMenuItem = comboBox
-                rootMenu.currentIndex=getAvailableValuesIndex() // TODO
-                rootMenu.posX = pos.x
-                rootMenu.posY = pos.y + height
-                rootMenu.innerWidth = width
-            }
-            rootMenu.visible = !rootMenu.visible
-        }
+        connectionSession: root.connectionSession
+        availableSections: root.availableSections
+        availableKeys: root.availableKeys
+        connectionData: root.connectionData
+        errors: root.errors
+        section: root.section
+        key: root.key
+        alwaysUpdate: root.alwaysUpdate
     }
 }

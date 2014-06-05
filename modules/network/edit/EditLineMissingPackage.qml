@@ -16,16 +16,16 @@ BaseEditLine {
         }
     }
     
-    rightLoader.sourceComponent: DssH2 {
-        Connections {
-            target: root
-            onWidgetShown: {
-                text = root.cacheValue
-            }
-            onCacheValueChanged: {
-                text = root.cacheValue
-            }
-        }
+    rightLoader.sourceComponent: EditKeyMissingPackage {
+        width: valueWidth
+        connectionSession: root.connectionSession
+        availableSections: root.availableSections
+        availableKeys: root.availableKeys
+        connectionData: root.connectionData
+        errors: root.errors
+        section: root.section
+        key: root.key
+        alwaysUpdate: root.alwaysUpdate
     }
 }    
 

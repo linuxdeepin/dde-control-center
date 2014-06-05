@@ -3,22 +3,16 @@ import Deepin.Widgets 1.0
 
 BaseEditLine {
     id: root
-    
-    rightLoader.sourceComponent: DTextInput{
+    rightLoader.sourceComponent: EditKeyTextInput {
         width: valueWidth
-        Connections {
-            target: root
-            onWidgetShown: {
-                text = root.cacheValue
-            }
-            onCacheValueChanged: {
-                text = root.cacheValue
-            }
-        }
-        onTextChanged: {
-            root.cacheValue = text
-            setKey()
-        }
+        connectionSession: root.connectionSession
+        availableSections: root.availableSections
+        availableKeys: root.availableKeys
+        connectionData: root.connectionData
+        errors: root.errors
+        section: root.section
+        key: root.key
+        alwaysUpdate: root.alwaysUpdate
     }
 }
 
