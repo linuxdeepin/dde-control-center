@@ -23,6 +23,17 @@ BaseEditSection {
             key: "vk-vpn-type"
             text: dsTr("VPN Type")
         }
+        EditLineMissingPackage {
+            id: lineVsVpnVkVpnMissingPlugin
+            connectionSession: sectionVpn.connectionSession
+            availableSections: sectionVpn.availableSections
+            availableKeys: sectionVpn.availableKeys
+            connectionData: sectionVpn.connectionData
+            errors: sectionVpn.errors
+            section: "vs-vpn"
+            key: "vk-vpn-missing-plugin"
+            text: dsTr("Need VPN Plugin")
+        }
         EditLineTextInput {
             id: lineAliasVpnL2tpGateway
             connectionSession: sectionVpn.connectionSession

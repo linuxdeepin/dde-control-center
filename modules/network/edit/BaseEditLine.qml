@@ -114,10 +114,10 @@ DBaseLine {
     }
     
     function isValueError() {
-        if (editLine.value == undefined) {
+        if (!visible || value == undefined) {
             return false
         }
-        return errors[section][editLine.key] ? true : false
+        return errors[section][key] ? true : false
     }
     
     function getAvailableValues() {

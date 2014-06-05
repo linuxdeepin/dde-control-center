@@ -12,6 +12,17 @@ BaseEditSection {
     }
 
     content.sourceComponent: Column { 
+        EditLineSwitchButton {
+            id: lineVsSecurityVkEnable8021x
+            connectionSession: sectionSecurity.connectionSession
+            availableSections: sectionSecurity.availableSections
+            availableKeys: sectionSecurity.availableKeys
+            connectionData: sectionSecurity.connectionData
+            errors: sectionSecurity.errors
+            section: "vs-security"
+            key: "vk-enable-8021x"
+            text: dsTr("Use security")
+        }
         EditLineComboBox {
             id: line80211WirelessSecurityVkKeyMgmt
             connectionSession: sectionSecurity.connectionSession
@@ -44,17 +55,6 @@ BaseEditSection {
             section: "802-11-wireless-security"
             key: "psk"
             text: dsTr("Password")
-        }
-        EditLineSwitchButton {
-            id: line8021xVkEnable
-            connectionSession: sectionSecurity.connectionSession
-            availableSections: sectionSecurity.availableSections
-            availableKeys: sectionSecurity.availableKeys
-            connectionData: sectionSecurity.connectionData
-            errors: sectionSecurity.errors
-            section: "802-1x"
-            key: "vk-enable"
-            text: dsTr("Use security")
         }
         EditLineComboBox {
             id: line8021xVkEap
