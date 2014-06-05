@@ -12,18 +12,18 @@ BaseEditLine {
         // Connections {
         //     target: root
         //     onWidgetShown: {
-        //         text = root.value
+        //         text = root.cacheValue
         //     }
-        //     onValueChanged: {
-        //         text = root.value
+        //     onCacheValueChanged: {
+        //         text = root.cacheValue
         //     }
         // }
         Binding on text {
-            when: root.value != undefined
-            value: root.value
+            when: root.cacheValue != undefined
+            value: root.cacheValue
         }
         onTextChanged: {
-            root.value = text
+            root.cacheValue = text
             setKey()
         }
     }
@@ -31,8 +31,8 @@ BaseEditLine {
         width: valueWidth
         visible: connectionSession.type == "wired"
         Binding on text {
-            when: root.value != undefined
-            value: root.value
+            when: root.cacheValue != undefined
+            value: root.cacheValue
         }
     }
     }

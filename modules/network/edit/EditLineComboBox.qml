@@ -15,13 +15,13 @@ BaseEditLine {
             onWidgetShown: {
                 text = getAvailableValuesTextByValue()
             }
-            onValueChanged: {
+            onCacheValueChanged: {
                 text = getAvailableValuesTextByValue()
             }
         }
 
         function menuSelect(i){
-            root.value = getAvailableValues()[i].Value
+            root.cacheValue = getAvailableValues()[i].Value
             setKey()
         }
 

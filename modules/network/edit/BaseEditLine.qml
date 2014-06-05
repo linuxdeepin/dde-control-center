@@ -13,7 +13,7 @@ DBaseLine {
     property string section
     property string key
     property string text
-    property var value // mid-value between ConnectionSession and widget
+    property var cacheValue // mid-value between ConnectionSession and widget
     
     signal widgetShown
     visible: false
@@ -22,17 +22,17 @@ DBaseLine {
     }
     onVisibleChanged: {
         if (visible) {
-            if (value !== undefined) {
-                // reset key if value already defined
+            if (cacheValue !== undefined) {
+                // reset key if cacheValue already defined
                 setKey()
             } else {
-                // get value only when undefined
-                updateValue()
+                // get cacheValue only when undefined
+                updateCacheValue()
             }
             widgetShown()
         }
         // TODO test
-        print("-> BaseEditLine.onVisibleChanged", visible ? "(show)" : "(hide)", section, key, value)
+        print("-> BaseEditLine.onVisibleChanged", visible ? "(show)" : "(hide)", section, key, cacheValue)
     }
     Component.onCompleted: {
         if (visible) {
@@ -47,11 +47,11 @@ DBaseLine {
     property color normalColor: dconstants.fgColor
     property color errorColor: "#F48914"
     
-    // update value even if other key changed
+    // update cacheValue even if other key changed
     property bool alwaysUpdate: false
     onConnectionDataChanged: {
         if (visible && alwaysUpdate) {
-            updateValue()
+            updateCacheValue()
         }
     }
     
@@ -96,17 +96,17 @@ DBaseLine {
     }
     
     function setKey() {
-        print("-> BaseEditLine.setKey()", section, key, value) // TODO test
-        connectionSession.SetKey(section, key, marshalJSON(value))
+        print("-> BaseEditLine.setKey()", section, key, cacheValue) // TODO test
+        connectionSession.SetKey(section, key, marshalJSON(cacheValue))
     }
 
     function getKey() {
         return unmarshalJSON(connectionSession.GetKey(section, key))
     }
     
-    function updateValue() {
-        value = getKey()
-        print("-> updateValue()", section, key, value) // TODO test
+    function updateCacheValue() {
+        cacheValue = getKey()
+        print("-> updateCacheValue()", section, key, cacheValue) // TODO test
     }
     
     function isKeyAvailable() {
@@ -114,7 +114,7 @@ DBaseLine {
     }
     
     function isValueError() {
-        if (!visible || value == undefined) {
+        if (!visible || cacheValue == undefined) {
             return false
         }
         return errors[section][key] ? true : false
@@ -140,15 +140,15 @@ DBaseLine {
         if (values == null) {
             // values is null here so this function should
             // not be called in this case
-            print("-> [WARNING] getAvailableValuesTextByValue", values, section, key, value) //TODO test
+            print("-> [WARNING] getAvailableValuesTextByValue", values, section, key, cacheValue) //TODO test
             return
         }
         for (var i=0; i<values.length; i++) {
-            if (values[i].Value === value) {
+            if (values[i].Value === cacheValue) {
                 return values[i].Text
             }
         }
-        print("-> [WARNING] getAvailableValuesTextByValue():", values, section, key, value) //TODO test
+        print("-> [WARNING] getAvailableValuesTextByValue():", values, section, key, cacheValue) //TODO test
         return ""
     }
     
@@ -158,16 +158,16 @@ DBaseLine {
             return 0
         }
         for (var i=0; i<values.length; i++) {
-            if (values[i].Value === value) {
+            if (values[i].Value === cacheValue) {
                 return i
             }
         }
-        print("-> [WARNING] getAvailableValuesIndex():", values, section, key, value) //TODO test
+        print("-> [WARNING] getAvailableValuesIndex():", values, section, key, cacheValue) //TODO test
         return 0
     }
     
     function checkKey() {
-        print("-> check key", section, key, value) // TODO test
+        print("-> check key", section, key, cacheValue) // TODO test
         showErrorConditon = true
     }
 }

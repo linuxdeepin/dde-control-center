@@ -17,14 +17,14 @@ BaseEditLine {
         Connections {
             target: root
             onWidgetShown: {
-                text = root.value
+                text = root.cacheValue
             }
-            onValueChanged: {
-                text = root.value
+            onCacheValueChanged: {
+                text = root.cacheValue
             }
         }
         onTextChanged: {
-            root.value = text
+            root.cacheValue = text
             setKey()
         }
     }

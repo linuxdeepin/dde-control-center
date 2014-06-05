@@ -20,7 +20,7 @@ BaseEditLine {
         }
         
         onTextChanged: {
-            root.value = getValue()
+            root.cacheValue = getValue()
             setKey()
         }
         
@@ -49,13 +49,13 @@ BaseEditLine {
         Connections {
             target: root
             onWidgetShown: {
-                if (root.visible && root.value) {
-                    setValue(root.value)
+                if (root.visible && root.cacheValue) {
+                    setValue(root.cacheValue)
                 }
             }
-            onValueChanged: {
-                if (root.visible && root.value) {
-                    setValue(root.value)
+            onCacheValueChanged: {
+                if (root.visible && root.cacheValue) {
+                    setValue(root.cacheValue)
                 }
             }
         }
@@ -63,7 +63,7 @@ BaseEditLine {
     
     function saveKey() {
         print("ipv4 save key", section, key, value) // TODO test
-        root.value = root.rightLoader.item.getValue()
+        root.cacheValue = root.rightLoader.item.getValue()
         setKey()
     }
 }

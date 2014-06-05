@@ -10,14 +10,14 @@ BaseEditLine {
         Connections {
             target: root
             onWidgetShown: {
-                active = root.value
+                active = root.cacheValue
             }
-            onValueChanged: {
-                active = root.value
+            onCacheValueChanged: {
+                active = root.cacheValue
             }
         }
         onActiveChanged: {
-            root.value = active
+            root.cacheValue = active
             setKey()
         }
     }

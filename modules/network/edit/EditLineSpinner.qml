@@ -15,15 +15,15 @@ BaseEditLine {
         Connections {
             target: root
             onWidgetShown: {
-                text = String(root.value)
+                text = String(root.cacheValue)
             }
-            onValueChanged: {
-                text = String(root.value)
+            onCacheValueChanged: {
+                text = String(root.cacheValue)
             }
         }
         onTextChanged: {
             if (text != "") {
-                root.value = parseInt(text)
+                root.cacheValue = parseInt(text)
                 setKey()
             }
         }
