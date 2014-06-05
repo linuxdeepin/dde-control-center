@@ -6,6 +6,18 @@ import "../edit"
 BaseEditPage {
     id: editPage
     activeExpandIndex: 0
+
+    EditLineConnectionId {
+        id: lineConnectionId
+        connectionSession: editPage.connectionSession
+        availableSections: editPage.availableSections
+        availableKeys: editPage.availableKeys
+        connectionData: editPage.connectionData
+        errors: editPage.errors
+        section: "connection"
+        key: "id"
+        text: dsTr("Name")
+    }
     
     EditSectionGeneral {
         myIndex: 0

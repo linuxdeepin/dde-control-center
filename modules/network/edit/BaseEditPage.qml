@@ -20,9 +20,13 @@ Column {
     function checkKeysInPage() {
         print("==> check all keys in page")
         for (var i=0; i<children.length; i++) {
-            var editSection = children[i]
-            if (editSection.objectName == "BaseEditSection" && editSection.visible) {
-                checkKeysInSection(editSection)
+            var childItem = children[i]
+            if (childItem.visible) {
+                if (childItem.objectName == "BaseEditSection") {
+                    checkKeysInSection(childItem)
+                } else if (childItem.objectName == "BaseEditLine") {
+                    childItem.checkKey()
+                }
             }
         }
     }

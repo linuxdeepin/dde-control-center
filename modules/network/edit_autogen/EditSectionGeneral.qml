@@ -12,17 +12,6 @@ BaseEditSection {
     }
 
     content.sourceComponent: Column { 
-        EditLineConnectionId {
-            id: lineConnectionId
-            connectionSession: sectionGeneral.connectionSession
-            availableSections: sectionGeneral.availableSections
-            availableKeys: sectionGeneral.availableKeys
-            connectionData: sectionGeneral.connectionData
-            errors: sectionGeneral.errors
-            section: "connection"
-            key: "id"
-            text: dsTr("Name")
-        }
         EditLineSwitchButton {
             id: lineConnectionAutoconnect
             connectionSession: sectionGeneral.connectionSession

@@ -31,8 +31,7 @@ DBaseLine {
             }
             widgetShown()
         }
-        // TODO test
-        print("-> BaseEditLine.onVisibleChanged", visible ? "(show)" : "(hide)", section, key, cacheValue)
+        print("-> BaseEditLine.onVisibleChanged", visible ? "(show)" : "(hide)", section, key, cacheValue) // TODO test
     }
     Component.onCompleted: {
         if (visible) {
@@ -61,7 +60,7 @@ DBaseLine {
     Connections {
         target: rightLoader.item
         onActiveFocusChanged: {
-            print("-> onActiveFocusChanged", rightLoader.item.activeFocus) // TODO test
+            print("-> onActiveFocusChanged", section, key, rightLoader.item.activeFocus) // TODO test
             if (!rightLoader.item.activeFocus) {
                 showErrorConditon = true
             }
@@ -69,7 +68,7 @@ DBaseLine {
     }
     onErrorsChanged: {
         if (isValueError()) {
-            print("-> [error] %1[%2]: %3".arg(section).arg(key).arg(errors[section][key]))
+            // print("-> [error] %1[%2]: %3".arg(section).arg(key).arg(errors[section][key])) // TODO test
         }
     }
     onShowErrorChanged: {
@@ -96,7 +95,7 @@ DBaseLine {
     }
     
     function setKey() {
-        print("-> BaseEditLine.setKey()", section, key, cacheValue) // TODO test
+        // print("-> BaseEditLine.setKey()", section, key, cacheValue) // TODO test
         connectionSession.SetKey(section, key, marshalJSON(cacheValue))
     }
 
@@ -106,7 +105,7 @@ DBaseLine {
     
     function updateCacheValue() {
         cacheValue = getKey()
-        print("-> updateCacheValue()", section, key, cacheValue) // TODO test
+        // print("-> updateCacheValue()", section, key, cacheValue) // TODO test
     }
     
     function isKeyAvailable() {

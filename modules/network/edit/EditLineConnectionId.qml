@@ -7,7 +7,7 @@ BaseEditLine {
     rightLoader.sourceComponent: Row {
     DTextInput {
         width: valueWidth
-        visible: connectionSession.type != "wired"
+        visible: connectionSession.type != nmConnectionTypeWired
         // TODO
         // Connections {
         //     target: root
@@ -29,7 +29,7 @@ BaseEditLine {
     }
     DLabel {
         width: valueWidth
-        visible: connectionSession.type == "wired"
+        visible: connectionSession.type == nmConnectionTypeWired
         Binding on text {
             when: root.cacheValue != undefined
             value: root.cacheValue
