@@ -2,7 +2,7 @@ import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
 import Deepin.Widgets 1.0
-import "../../widgets"
+import "../widgets"
 
 Item {
     width: parent.width
@@ -102,8 +102,8 @@ Item {
 
             DImageButton {
                 anchors.verticalCenter: parent.verticalCenter
-                normal_image: "../../images/connected.png"
-                hover_image: "../../images/disconnect.png"
+                normal_image: "../images/connected.png"
+                hover_image: "../images/disconnect.png"
                 visible: isConnected
                 onClicked: {
                     dbusNetwork.DeactivateConnection(infos.Uuid)

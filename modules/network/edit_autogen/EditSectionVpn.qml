@@ -87,7 +87,7 @@ BaseEditSection {
             errors: sectionVpn.errors
             section: "alias-vpn-l2tp"
             key: "domain"
-            text: dsTr("Domain")
+            text: dsTr("NT Domain")
         }
         EditLineTextInput {
             id: lineAliasVpnOpenconnectGateway
@@ -395,7 +395,7 @@ BaseEditSection {
             errors: sectionVpn.errors
             section: "alias-vpn-pptp"
             key: "domain"
-            text: dsTr("Domain")
+            text: dsTr("NT Domain")
         }
         EditLineTextInput {
             id: lineAliasVpnVpncIpsecGateway

@@ -83,7 +83,7 @@ Item {
         stackView.currentItemId = "editPage"
     }
 
-    function goToCreateConnection(){
+    function goToCreateConnection() {
         stackView.push({
             "item": stackViewPages["editPage"],
             "properties": { "connectionSession": createConnectionForAccessPoint(apPath, wirelessItem.devicePath)},

@@ -13,7 +13,7 @@ DBaseLine {
     property string section
     property string key
     property string text
-    property var cacheValue // mid-value between ConnectionSession and widget
+    property var cacheValue // cache value between ConnectionSession and widget
     
     signal widgetShown
     visible: false

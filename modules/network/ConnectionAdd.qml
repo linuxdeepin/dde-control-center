@@ -32,7 +32,7 @@ Column {
             Component.onCompleted: {
                 model.append({
                     "item_id": "pppoe",
-                    "item_name": dsTr("PPPOE")
+                    "item_name": dsTr("PPPoE")
                 })
                 model.append({
                     "item_id": "vpn",
@@ -73,22 +73,21 @@ Column {
             anchors.verticalCenter: parent.verticalCenter
             onClicked: {
                 if(typeList.selectItemId == "pppoe"){
-                    stackView.push(stackViewPages["newDslPage"])
-                    stackView.currentItemId = "newDslPage"
-                    // TODO
-                    //stackView.push({
-                        //"item": stackViewPages["editPage"],
-                        //"properties": { "connectionSession": createaConnection(nmConnectionTypePppoe, "/")},
-                        //"destroyOnPop": true
-                    //})
-                    //stackView.currentItemId = "editPage"
+                    goToCreateConnection("newDslPage", nmConnectionTypePppoe)
                 }
                 else if(typeList.selectItemId == "vpn"){
-                    stackView.push(stackViewPages["newVpnPage"])
-                    stackView.currentItemId = "newVpnPage"
+                    goToCreateConnection("newVpnPage", nmConnectionTypeVpn)
                 }
             }
         }
     }
 
+    function goToCreateConnection(page, type) {
+        stackView.push({
+            "item": stackViewPages[page],
+            "properties": {"connectionSession": createConnection(type, "/")},
+            "destroyOnPop": true
+        })
+        stackView.currentItemId = page
+    }
 }

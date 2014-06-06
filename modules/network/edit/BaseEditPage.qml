@@ -17,6 +17,15 @@ Column {
     property var connectionPath: connectionSession.connectionPath
     property var uuid: connectionSession.uuid
 
+    function generalSetKey(section, key, value) {
+        print("==> generalSetKey()", section, key, value) // TODO test
+        connectionSession.SetKey(section, key, marshalJSON(value))
+    }
+
+    function generalGetKey(section, key) {
+        return unmarshalJSON(connectionSession.GetKey(section, key))
+    }
+
     function checkKeysInPage() {
         print("==> check all keys in page")
         doCheckKeysInPage(editPage)

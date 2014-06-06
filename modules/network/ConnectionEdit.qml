@@ -106,7 +106,6 @@ BaseConnectionEdit {
                     }
                 }
             }
-
             DTextButton {
                 anchors.verticalCenter: parent.verticalCenter
                 text: dsTr("Close")
