@@ -56,7 +56,7 @@ Item {
             // no valid connection for it, go to connection
             // property page and create connection session through
             // CreateConnectionForAccessPoint()
-            goToCreateConnection()
+            gotoCreateWirelessConnection()
         } else {
             // connection for current access point exists, just activate it
             print("connectionPath", connectionPath)
@@ -66,24 +66,19 @@ Item {
 
     function editThisConnection(){
         if (uuid != "") {
-            print("goToEditConnection", uuid)
-            goToEditConnection()
+            print("gotoEditWirelessConnection", uuid)
+            gotoEditWirelessConnection()
         } else {
-            print("goToCreateConnection")
-            goToCreateConnection()
+            print("gotoCreateWirelessConnection")
+            gotoCreateWirelessConnection()
         }
     }
 
-    function goToEditConnection(){
-        stackView.push({
-            "item": stackViewPages["editPage"],
-            "properties": { "connectionSession": editConnection(uuid, wirelessItem.devicePath)},
-            "destroyOnPop": true
-        })
-        stackView.currentItemId = "editPage"
+    function gotoEditWirelessConnection() {
+        gotoEditWirelessConnection("editPage", uuid, wirelessItem.devicePath)
     }
 
-    function goToCreateConnection() {
+    function gotoCreateWirelessConnection() {
         stackView.push({
             "item": stackViewPages["editPage"],
             "properties": { "connectionSession": createConnectionForAccessPoint(apPath, wirelessItem.devicePath)},

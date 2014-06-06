@@ -148,7 +148,7 @@ DBaseExpand {
                 color: hiddenNetworkLine.hovered ? dconstants.hoverColor : dconstants.fgColor
             }
             rightLoader.sourceComponent: DArrowButton {
-                onClicked: goToConnectHiddenAP()
+                onClicked: gotoConnectHiddenAP()
             }
 
             MouseArea {
@@ -157,7 +157,7 @@ DBaseExpand {
                 hoverEnabled: true
                 onEntered: parent.hovered = true
                 onExited: parent.hovered = false
-                onClicked: goToConnectHiddenAP()
+                onClicked: gotoConnectHiddenAP()
             }
         }
 
@@ -191,7 +191,7 @@ DBaseExpand {
                 color: wifiHotspotLine.hovered ? dconstants.hoverColor : dconstants.fgColor
             }
             rightLoader.sourceComponent: DArrowButton {
-                onClicked: goToCreateAP(wifiHotspotLine.hotspotInfo)
+                onClicked: gotoCreateAP(wifiHotspotLine.hotspotInfo)
             }
 
             MouseArea {
@@ -205,7 +205,7 @@ DBaseExpand {
                         dbusNetwork.ActivateConnection(wifiHotspotLine.hotspotInfo.Uuid, devicePath)
                     }
                     else{
-                        goToCreateAP(wifiHotspotLine.hotspotInfo)
+                        gotoCreateAP(wifiHotspotLine.hotspotInfo)
                     }
                 }
             }
@@ -244,7 +244,7 @@ DBaseExpand {
         }
     }
 
-    function goToConnectHiddenAP(){
+    function gotoConnectHiddenAP(){
         stackView.push({
             "item": stackViewPages["hiddenAp"],
             "properties": { "devicePath": devicePath},
@@ -253,7 +253,7 @@ DBaseExpand {
         stackView.currentItemId = "hiddenAp"
     }
 
-    function goToCreateAP(hotspotInfo){
+    function gotoCreateAP(hotspotInfo){
         stackView.push({
             "item": stackViewPages["wifiHotspot"],
             "properties": { "hotspotInfo": hotspotInfo, "devicePath": devicePath},

@@ -73,21 +73,12 @@ Column {
             anchors.verticalCenter: parent.verticalCenter
             onClicked: {
                 if(typeList.selectItemId == "pppoe"){
-                    goToCreateConnection("newDslPage", nmConnectionTypePppoe)
+                    gotoCreateConnection("newDslPage", nmConnectionTypePppoe, "/")
                 }
                 else if(typeList.selectItemId == "vpn"){
-                    goToCreateConnection("newVpnPage", nmConnectionTypeVpn)
+                    gotoCreateConnection("newVpnPage", nmConnectionTypeVpn, "/")
                 }
             }
         }
-    }
-
-    function goToCreateConnection(page, type) {
-        stackView.push({
-            "item": stackViewPages[page],
-            "properties": {"connectionSession": createConnection(type, "/")},
-            "destroyOnPop": true
-        })
-        stackView.currentItemId = page
     }
 }

@@ -20,13 +20,8 @@ Column{
         dbusNetwork.ActivateConnection(uuid, devicePath)
     }
 
-    function goToEditConnection(){
-        stackView.push({
-            "item": stackViewPages["editPage"],
-            "properties": { "connectionSession": editConnection(uuid, wiredItem.devicePath)},
-            "destroyOnPop": true
-        })
-        stackView.currentItemId = "editPage"
+    function gotoEditWiredConnection(){
+        gotoEditConnection("editPage", uuid, wiredItem.devicePath)
     }
 
     DBaseLine {
@@ -46,7 +41,7 @@ Column{
             onClicked: {
                 // TODO
                 if (isConnected){
-                    goToEditConnection()
+                    gotoEditWiredConnection()
                 }
                 else{
                     activateThisConnection()
@@ -96,7 +91,7 @@ Column{
 
         rightLoader.sourceComponent: DArrowButton {
             onClicked: {
-                goToEditConnection()
+                gotoEditWiredConnection()
             }
         }
     }

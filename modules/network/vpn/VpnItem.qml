@@ -21,15 +21,8 @@ Item {
 
     property bool isConnected: activeConnectionInfo && activeConnectionInfo.Vpn && activeConnectionInfo.State == nmActiveConnectionStateActivated
 
-    function goToEditConnection(){
-        stackView.push({
-            "item": stackViewPages["editPage"],
-            // TODO remove
-            // "properties": { "uuid": infos.Uuid, "connectionPath": infos.Path, "devicePath": "/" },
-            "properties": { "connectionSession": editConnection(infos.Uuid, "/")},
-            "destroyOnPop": true
-        })
-        stackView.currentItemId = "editPage"
+    function gotoEditVpnConnection(){
+        gotoEditConnection("editPage", infos.Uuid, "/")
     }
 
     function activateThisConnection(){
@@ -52,7 +45,7 @@ Item {
 
             onClicked: {
                 if (isConnected){
-                    goToEditConnection()
+                    gotoEditVpnConnection()
                 }
                 else{
                     activateThisConnection()
@@ -102,7 +95,7 @@ Item {
 
         rightLoader.sourceComponent: DArrowButton {
             onClicked: {
-                goToEditConnection()
+                gotoEditVpnConnection()
             }
         }
     }

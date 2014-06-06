@@ -107,23 +107,38 @@ Item {
         var connectionPath = dbusNetwork.CreateConnection(type, devicePath)
         return connectionSessionBuilder.createObject(null, { path: connectionPath })
     }
-    
     function createConnectionForAccessPoint(apPath, devicePath) {
         var connectionPath = dbusNetwork.CreateConnectionForAccessPoint(apPath, devicePath)
         return connectionSessionBuilder.createObject(null, { path: connectionPath })
     }
-    
     function editConnection(uuid, devicePath) {
         var connectionPath = dbusNetwork.EditConnection(uuid, devicePath)
         return connectionSessionBuilder.createObject(null, { path: connectionPath })
     }
-    
     function resetConnectionSession() {
         if(stackView.currentItemId == "editPage" || stackView.currentItem == "hiddenAp"){
             stackView.currentItem.connectionSession.Close()
         }
     }
 
+
+    function gotoCreateConnection(page, type, devicePath) {
+        stackView.push({
+            "item": stackViewPages[page],
+            "properties": {"connectionSession": createConnection(type, devicePath)},
+            "destroyOnPop": true
+        })
+        stackView.currentItemId = page
+    }
+    function gotoEditConnection(page, uuid, devicePath) {
+        stackView.push({
+            "item": stackViewPages[page],
+            "properties": { "connectionSession": editConnection(uuid, devicePath)},
+            "destroyOnPop": true
+        })
+        stackView.currentItemId = page
+    }
+    
     function marshalJSON(value) {
         // TODO
         // if (value === undefined) {
@@ -188,9 +203,9 @@ Item {
         return null
     }
     
-    function isActiveConnection(devPath, uuid) {
+    function isActiveConnection(devicePath, uuid) {
         for (var i in nmActiveConnections) {
-            if (getIndexFromArray(devPath, nmActiveConnections[i].Devices) != -1 &&
+            if (getIndexFromArray(devicePath, nmActiveConnections[i].Devices) != -1 &&
             nmActiveConnections[i].Uuid == uuid) {
                 // TODO fix active state issue
             // nmActiveConnections[i].State == nmActiveConnectionStateActivated) {
