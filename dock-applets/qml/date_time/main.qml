@@ -46,6 +46,10 @@ DockApplet{
 
     property var locale: Qt.locale()
     property var globalDate: new Date()
+    onGlobalDateChanged: {
+        weekTitleGridView.currentIndex = globalDate.getDay()
+        datesGridView.currentDateStr = CalendarCore.dateToString(globalDate)
+    }
     property var dbusDateAndTime: DateAndTime {
         onCurrentTimezoneChanged: {
             Date.timeZoneUpdated()
@@ -53,6 +57,16 @@ DockApplet{
         }
     }
     property var dbusLunarCalendar: LunarCalendar {}
+
+    Timer {
+        id: timeTicker
+        running: true
+        repeat: true
+        interval: 1000
+        onTriggered: {
+            globalDate = new Date()
+        }
+    }
 
     Component.onCompleted: {
         setData("clockType", currentClockType)
@@ -156,7 +170,6 @@ DockApplet{
                 boundsBehavior: Flickable.StopAtBounds
                 model: ListModel {id: weekTitleModel}
                 delegate: WeekTitleItem{}
-                currentIndex: globalDate.getDay()
 
                 Component.onCompleted: {
                     weekTitleModel.append({"dayText": dsTr("Sun")})
@@ -180,6 +193,7 @@ DockApplet{
                 delegate: DateItem {}
                 boundsBehavior: Flickable.StopAtBounds
                 focus: true
+                property var currentDateStr: ""
 
                 function initDates(date_str) {
                     var dates = CalendarCore.getDates(date_str);
@@ -193,8 +207,8 @@ DockApplet{
                 }
 
                 Component.onCompleted: {
-                    var date_str = CalendarCore.dateToString(globalDate)
-                    initDates(date_str)
+                    currentDateStr = CalendarCore.dateToString(globalDate)
+                    initDates(currentDateStr)
                 }
 
             }
