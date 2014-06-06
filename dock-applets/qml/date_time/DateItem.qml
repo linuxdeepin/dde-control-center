@@ -36,9 +36,6 @@ Item {
 
     property var lunarDayInfo: dbusLunarCalendar.GetLunarInfoBySolar(parseInt(dateValueArray[0]), parseInt(dateValueArray[1]), parseInt(dateValueArray[2]))
     property var hasFestival: lunarDayInfo[1] && (lunarDayInfo[0][8] || lunarDayInfo[0][9])
-    Component.onCompleted: {
-        //print(JSON.stringify(lunarDayInfo[0]))
-    }
 
     Item {
         id: content
@@ -47,7 +44,7 @@ Item {
 
         Rectangle {
             anchors.fill: parent
-            visible: dateItem.GridView.view.currentIndex == index
+            visible: dateItem.GridView.view.currentDateStr == dateValue
             gradient: Gradient {
                 GradientStop { position: 0.0; color: Qt.rgba(5/255, 112/255, 252/255, 0.2) }
                 GradientStop { position: 1.0; color: Qt.rgba(36/255, 131/255, 1, 0.7) }

@@ -154,7 +154,7 @@ DBaseLine {
     function getAvailableValuesIndex() {
         var values = getAvailableValues()
         if (values == null) {
-            return 0
+            return -1
         }
         for (var i=0; i<values.length; i++) {
             if (values[i].Value === cacheValue) {
@@ -162,7 +162,7 @@ DBaseLine {
             }
         }
         print("-> [WARNING] getAvailableValuesIndex():", values, section, key, cacheValue) //TODO test
-        return 0
+        return -1
     }
     
     function checkKey() {
