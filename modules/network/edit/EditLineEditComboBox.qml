@@ -8,6 +8,10 @@ BaseEditLine {
         id: comboBox
         width: valueWidth
         anchors.left: parent.left
+        menu.labels: getAvailableValuesText()
+        selectIndex: getAvailableValuesIndex()
+        parentWindow: rootWindow
+
         Connections {
             target: root
             onWidgetShown: {
@@ -17,38 +21,25 @@ BaseEditLine {
                 text = root.value
             }
         }
+
         onTextChanged: {
             root.value = text
             setKey()
         }
         
-        property var menuLabels
         Connections {
             target: root
             onVisibleChanged: {
                 if (root.visible) {
-                    menuLabels = getAvailableValuesText()
+                    comboBox.menu.labels = getAvailableValuesText()
                 }
             }
         }
 
-        function menuSelect(i){
-            root.value = getAvailableValues()[i].Value
+        onMenuSelect: {
+            root.value = getAvailableValues()[index].Value
             setKey()
         }
 
-        onClicked: {
-            if(!rootMenu.visible){
-                menuLabels = getAvailableValuesText() // update menu labels
-                var pos = mapToItem(null, 0, 0)
-                rootMenu.labels = comboBox.menuLabels
-                rootMenu.requestMenuItem = comboBox
-                rootMenu.currentIndex=getAvailableValuesIndex() // TODO
-                rootMenu.posX = pos.x
-                rootMenu.posY = pos.y + height
-                rootMenu.innerWidth = width
-            }
-            rootMenu.visible = !rootMenu.visible
-        }
     }
 }
