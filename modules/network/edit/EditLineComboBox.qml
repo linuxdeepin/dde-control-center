@@ -8,17 +8,20 @@ BaseEditLine {
         id: comboBox
         anchors.left: parent.left
         width: valueWidth
-        menu.labels: getAvailableValuesText()
-        selectIndex: getAvailableValuesIndex()
+        selectIndex: -1
         parentWindow: rootWindow
         
         Connections {
             target: root
             onWidgetShown: {
-                text = getAvailableValuesTextByValue()
+                text = root.getAvailableValuesTextByValue()
+                labels = root.getAvailableValuesText()
+                selectIndex = root.getAvailableValuesIndex()
             }
             onCacheValueChanged: {
-                text = getAvailableValuesTextByValue()
+                text = root.getAvailableValuesTextByValue()
+                labels = root.getAvailableValuesText()
+                selectIndex = root.getAvailableValuesIndex()
             }
         }
 

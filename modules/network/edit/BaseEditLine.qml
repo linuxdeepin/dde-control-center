@@ -125,6 +125,15 @@ DBaseLine {
         return values
     }
     
+    function getAvailableValuesValue() {
+        var values = getAvailableValues()
+        var valuesValue = []
+        for (var i=0; i<values.length; i++) {
+            valuesValue.push(values[i].Value)
+        }
+        return valuesValue
+    }
+    
     function getAvailableValuesText() {
         var values = getAvailableValues()
         var valuesText = []
@@ -161,7 +170,6 @@ DBaseLine {
                 return i
             }
         }
-        print("-> [WARNING] getAvailableValuesIndex():", values, section, key, cacheValue) //TODO test
         return -1
     }
     

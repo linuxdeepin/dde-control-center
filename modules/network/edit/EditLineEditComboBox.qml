@@ -8,17 +8,22 @@ BaseEditLine {
         id: comboBox
         width: valueWidth
         anchors.left: parent.left
-        menu.labels: getAvailableValuesText()
-        selectIndex: getAvailableValuesIndex()
+        selectIndex: -1
         parentWindow: rootWindow
 
         Connections {
             target: root
             onWidgetShown: {
                 text = root.cacheValue
+                labels = root.getAvailableValuesText()
+                values = root.getAvailableValuesValue()
+                selectIndex = root.getAvailableValuesIndex()
             }
             onCacheValueChanged: {
                 text = root.cacheValue
+                labels = root.getAvailableValuesText()
+                values = root.getAvailableValuesValue()
+                selectIndex = root.getAvailableValuesIndex()
             }
         }
 
@@ -26,20 +31,5 @@ BaseEditLine {
             root.cacheValue = text
             setKey()
         }
-        
-        Connections {
-            target: root
-            onVisibleChanged: {
-                if (root.visible) {
-                    comboBox.menu.labels = getAvailableValuesText()
-                }
-            }
-        }
-
-        onMenuSelect: {
-            root.cacheValue = getAvailableValues()[index].Value
-            setKey()
-        }
-
     }
 }
