@@ -32,7 +32,7 @@ BaseEditSection {
             errors: sectionGeneral.errors
             section: "connection"
             key: "vk-no-permission"
-            text: dsTr("All Users Could Connect")
+            text: dsTr("For All Users")
         }
     }
 }

@@ -26,6 +26,14 @@ Column {
         return unmarshalJSON(connectionSession.GetKey(section, key))
     }
 
+    function showErrors() {
+        for (var section in errors) {
+            for (var key in errors[section]) {
+                print("==> errors[%1][%2]: %3, value: %4".arg(section).arg(key).arg(errors[section][key]).arg(generalGetKey(section, key)))
+            }
+        }
+    }
+    
     function checkKeysInPage() {
         print("==> check all keys in page")
         doCheckKeysInPage(editPage)

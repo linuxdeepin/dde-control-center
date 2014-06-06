@@ -3,7 +3,7 @@ import Deepin.Widgets 1.0
 import "edit_autogen"
 
 BaseConnectionEdit {
-
+    id: editPage
     ParallelAnimation {
         id: showDelete
         NumberAnimation {
@@ -38,7 +38,7 @@ BaseConnectionEdit {
 
     Column {
         width: parent.width
-        visible: connectionPath !== undefined
+        visible: editPage.connectionPath !== undefined
         DBaseLine {
             id: deleteSettingLine
             color: dconstants.contentBgColor
@@ -100,9 +100,11 @@ BaseConnectionEdit {
                 anchors.verticalCenter: parent.verticalCenter
                 text: dsTr("Save")
                 onClicked: {
-                    checkKeysInPage()
+                    editPage.checkKeysInPage()
                     if (connectionSession.Save()) {
                         stackView.reset()
+                    } else {
+                        editPage.showErrors()
                     }
                 }
             }
@@ -133,7 +135,7 @@ BaseConnectionEdit {
                 onClicked: {
                     stackView.reset()
                     connectionSession.Close()
-                    if (connectionPath) {
+                    if (editPage.connectionPath) {
                         dbusNetwork.DeleteConnection(uuid)
                     }
                 }

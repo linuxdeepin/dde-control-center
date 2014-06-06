@@ -21,7 +21,7 @@ BaseEditSection {
             errors: sectionSecurity.errors
             section: "vs-security"
             key: "vk-enable-8021x"
-            text: dsTr("Use security")
+            text: dsTr("Security Required")
         }
         EditLineComboBox {
             id: line80211WirelessSecurityVkKeyMgmt
@@ -68,6 +68,17 @@ BaseEditSection {
             text: dsTr("EAP Auth")
         }
         EditLineTextInput {
+            id: line8021xIdentity
+            connectionSession: sectionSecurity.connectionSession
+            availableSections: sectionSecurity.availableSections
+            availableKeys: sectionSecurity.availableKeys
+            connectionData: sectionSecurity.connectionData
+            errors: sectionSecurity.errors
+            section: "802-1x"
+            key: "identity"
+            text: dsTr("Identity")
+        }
+        EditLineTextInput {
             id: line8021xAnonymousIdentity
             connectionSession: sectionSecurity.connectionSession
             availableSections: sectionSecurity.availableSections
@@ -76,7 +87,7 @@ BaseEditSection {
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "anonymous-identity"
-            text: dsTr("Anon Identity")
+            text: dsTr("Anonymous ID")
         }
         EditLineFileChooser {
             id: line8021xVkCaCert
@@ -155,17 +166,6 @@ BaseEditSection {
             section: "802-1x"
             key: "vk-private-key"
             text: dsTr("Private Key")
-        }
-        EditLineTextInput {
-            id: line8021xIdentity
-            connectionSession: sectionSecurity.connectionSession
-            availableSections: sectionSecurity.availableSections
-            availableKeys: sectionSecurity.availableKeys
-            connectionData: sectionSecurity.connectionData
-            errors: sectionSecurity.errors
-            section: "802-1x"
-            key: "identity"
-            text: dsTr("Username")
         }
         EditLineComboBox {
             id: line8021xPasswordFlags
