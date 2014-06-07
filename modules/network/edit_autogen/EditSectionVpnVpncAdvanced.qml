@@ -23,7 +23,7 @@ BaseEditSection {
             key: "Domain"
             text: dsTr("Domain")
         }
-        EditLineTextInput {
+        EditLineComboBox {
             id: lineAliasVpnVpncAdvancedVendor
             connectionSession: sectionVpnVpncAdvanced.connectionSession
             availableSections: sectionVpnVpncAdvanced.availableSections
@@ -54,7 +54,7 @@ BaseEditSection {
             errors: sectionVpnVpncAdvanced.errors
             section: "alias-vpn-vpnc-advanced"
             key: "vk-encryption-method"
-            text: dsTr("Encryption Method")
+            text: dsTr("Encryption")
         }
         EditLineComboBox {
             id: lineAliasVpnVpncAdvancedNatTraversalMode
@@ -87,7 +87,7 @@ BaseEditSection {
             errors: sectionVpnVpncAdvanced.errors
             section: "alias-vpn-vpnc-advanced"
             key: "Perfect Forward Secrecy"
-            text: dsTr("Perfect Forward Secrecy")
+            text: dsTr("Forward Secrecy")
         }
         EditLineSpinner {
             id: lineAliasVpnVpncAdvancedLocalPort

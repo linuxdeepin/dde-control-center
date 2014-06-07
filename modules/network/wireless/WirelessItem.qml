@@ -59,17 +59,17 @@ Item {
             gotoCreateWirelessConnection()
         } else {
             // connection for current access point exists, just activate it
-            print("connectionPath", connectionPath)
+            print("==> connectionPath", connectionPath)
             dbusNetwork.ActivateAccessPoint(apPath, wirelessItem.devicePath)
         }
     }
 
     function editThisConnection(){
         if (uuid != "") {
-            print("gotoEditWirelessConnection", uuid)
+            print("==> gotoEditWirelessConnection", uuid)
             gotoEditWirelessConnection()
         } else {
-            print("gotoCreateWirelessConnection")
+            print("==> gotoCreateWirelessConnection")
             gotoCreateWirelessConnection()
         }
     }
@@ -109,11 +109,11 @@ Item {
 
             onClicked: {
                 if(!apConnected){
-                    print("activate connection") // TODO debug
+                    print("==> activate connection") // TODO debug
                     activateThisConnection()
                 }
                 else{
-                    print("edit connection") // TODO debug
+                    print("==> edit connection") // TODO debug
                     editThisConnection()
                 }
             }

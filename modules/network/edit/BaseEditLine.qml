@@ -32,7 +32,6 @@ DBaseLine {
                 // reset key if cacheValue already defined
                 setKey(cacheValue)
             }
-            
             widgetShown()
         }
         print("-> BaseEditLine.onVisibleChanged", visible ? "(show)" : "(hide)", section, key, cacheValue) // TODO test

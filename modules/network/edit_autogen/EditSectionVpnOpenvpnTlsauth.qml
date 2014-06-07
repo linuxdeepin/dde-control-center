@@ -32,7 +32,7 @@ BaseEditSection {
             errors: sectionVpnOpenvpnTlsauth.errors
             section: "alias-vpn-openvpn-tlsauth"
             key: "remote-cert-tls"
-            text: dsTr("Remote Cert")
+            text: dsTr("Remote Cert Type")
         }
         EditLineFileChooser {
             id: lineAliasVpnOpenvpnTlsauthTa
