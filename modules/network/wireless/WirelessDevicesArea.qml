@@ -27,7 +27,7 @@ Item {
             devicePath: wirelessDevices[index].Path
             deviceHwAddress: wirelessDevices[index].HwAddress
             activeAp: wirelessDevices[index].ActiveAp
-            deviceStatus: wirelessDevices[index].State
+            deviceState: wirelessDevices[index].State
         }
     }
     

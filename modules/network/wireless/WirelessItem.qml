@@ -13,10 +13,10 @@ Item {
     property string devicePath: "/"
     property string deviceHwAddress: ""
     property string activeAp: "/"
-    property int deviceStatus: 0
+    property int deviceState: nmDeviceStateUnknown
     property string connectionPath
     property string uuid
-    property bool apConnected: activeAp == apPath && deviceStatus == 100
+    property bool apConnected: activeAp == apPath && deviceState == nmDeviceStateActivated
 
     Behavior on height {
         PropertyAnimation { duration: 100 }
@@ -138,7 +138,7 @@ Item {
             WaitingImage {
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
-                on: activeAp == apPath && deviceStatus >= nmDeviceStatePrepare && deviceStatus <= nmDeviceStateSecondaries
+                on: activeAp == apPath && deviceState >= nmDeviceStatePrepare && deviceState <= nmDeviceStateSecondaries
             }
 
             DLabel {

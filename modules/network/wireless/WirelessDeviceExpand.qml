@@ -10,7 +10,7 @@ DBaseExpand {
     property string devicePath: "/"
     property string deviceHwAddress
     property string activeAp: "/"
-    property int deviceStatus: 0
+    property int deviceState: nmDeviceStateUnknown
 
     Component.onCompleted: {
         if(!scanTimer.running){
@@ -89,7 +89,7 @@ DBaseExpand {
         }
     }
 
-    expanded: deviceStatus != 20 // TODO
+    expanded: deviceState != nmDeviceStateUnavailable
     header.sourceComponent: DBaseLine{
 
         leftLoader.sourceComponent: DssH2 {
@@ -99,7 +99,7 @@ DBaseExpand {
                     return dsTr("Wireless Network")
                 }
                 else{
-                    return dsTr("Wireless Network %1").arg(index + 1).arg(deviceStatus)
+                    return dsTr("Wireless Network %1").arg(index + 1).arg(deviceState)
                 }
             }
             MouseArea {
@@ -129,7 +129,7 @@ DBaseExpand {
                 devicePath: wirelessDevicesExpand.devicePath
                 deviceHwAddress: wirelessDevicesExpand.deviceHwAddress
                 activeAp: wirelessDevicesExpand.activeAp
-                deviceStatus: wirelessDevicesExpand.deviceStatus
+                deviceState: wirelessDevicesExpand.deviceState
             }
         }
 
