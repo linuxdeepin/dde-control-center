@@ -89,6 +89,7 @@ DBaseLine {
         }
     }
     
+    rightLoader.focus: true     // TODO fix active focus issue
     leftMargin: contentLeftMargin
     leftLoader.sourceComponent: DssH2{
         text: editLine.text

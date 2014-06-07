@@ -1,7 +1,7 @@
 import QtQuick 2.1
 import Deepin.Widgets 1.0
-import "../shared"
-import "widgets"
+import "../../shared"
+import "../widgets"
 
 Column {
     id: rootPage
@@ -91,6 +91,7 @@ Column {
                     text = apSecure.availableValues[apSecure.selectIndex]
                 }
 
+                // TODO FIXME
                 function menuSelect(i){
                     apSecure.selectIndex = i
                     text = apSecure.availableValues[apSecure.selectIndex]

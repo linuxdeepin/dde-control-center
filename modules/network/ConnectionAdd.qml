@@ -73,10 +73,10 @@ Column {
             anchors.verticalCenter: parent.verticalCenter
             onClicked: {
                 if(typeList.selectItemId == "pppoe"){
-                    gotoCreateConnection("newDslPage", nmConnectionTypePppoe, "/")
+                    gotoCreateConnection("addDslPage", nmConnectionTypePppoe, "/")
                 }
                 else if(typeList.selectItemId == "vpn"){
-                    gotoCreateConnection("newVpnPage", nmConnectionTypeVpn, "/")
+                    gotoCreateConnection("addVpnPage", nmConnectionTypeVpn, "/")
                 }
             }
         }

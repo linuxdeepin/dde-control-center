@@ -2,8 +2,8 @@ import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
 import Deepin.Widgets 1.0
-import "../shared/"
-import "widgets"
+import "../../shared/"
+import "../widgets"
 
 Item {
     id: wirelessItem
@@ -75,7 +75,7 @@ Item {
     }
 
     function gotoEditWirelessConnection() {
-        gotoEditWirelessConnection("editPage", uuid, wirelessItem.devicePath)
+        gotoEditConnection("editPage", uuid, wirelessItem.devicePath)
     }
 
     function gotoCreateWirelessConnection() {
@@ -127,8 +127,8 @@ Item {
             DImageButton {
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
-                normal_image: "images/connected.png"
-                hover_image: "images/disconnect.png"
+                normal_image: "../images/connected.png"
+                hover_image: "../images/disconnect.png"
                 visible: apConnected
                 onClicked: {
                     dbusNetwork.DisconnectDevice(wirelessItem.devicePath)
@@ -189,7 +189,7 @@ Item {
                         imageNumber = 100
                     }
 
-                    return "images/wifi-signal-" + imageNumber + secure + ".svg"
+                    return "../images/wifi-signal-" + imageNumber + secure + ".svg"
                 }
             }
 

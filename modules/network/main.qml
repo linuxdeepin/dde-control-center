@@ -91,11 +91,11 @@ Item {
         "indexPage": Qt.resolvedUrl("ConnectionList.qml"),
         "infoPage": Qt.resolvedUrl("Info.qml"),
         "editPage": Qt.resolvedUrl("ConnectionEdit.qml"),
-        "indexAddPage": Qt.resolvedUrl("ConnectionAdd.qml"),
-        "newDslPage": Qt.resolvedUrl("add/AddDsl.qml"),
-        "newVpnPage": Qt.resolvedUrl("add/AddVpn.qml"),
-        "hiddenAp": Qt.resolvedUrl("HiddenAp.qml"),
-        "wifiHotspot": Qt.resolvedUrl("WifiHotspot.qml"),
+        "addPage": Qt.resolvedUrl("ConnectionAdd.qml"),
+        "addDslPage": Qt.resolvedUrl("add/AddDsl.qml"),
+        "addVpnPage": Qt.resolvedUrl("add/AddVpn.qml"),
+        "hiddenAp": Qt.resolvedUrl("wireless/HiddenAp.qml"),
+        "wifiHotspot": Qt.resolvedUrl("wireless/WifiHotspot.qml"),
     }
 
     Component {
@@ -250,8 +250,8 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
                 visible: stackView.currentItemId == "indexPage"
                 onClicked: {
-                    stackView.push(stackViewPages["indexAddPage"])
-                    stackView.currentItemId = "indexAddPage"
+                    stackView.push(stackViewPages["addPage"])
+                    stackView.currentItemId = "addPage"
                 }
             }
 
