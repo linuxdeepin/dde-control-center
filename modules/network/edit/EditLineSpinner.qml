@@ -23,8 +23,7 @@ BaseEditLine {
         }
         onTextChanged: {
             if (text != "") {
-                root.cacheValue = parseInt(text)
-                setKey()
+                setKey(parseInt(text))
             }
         }
     }

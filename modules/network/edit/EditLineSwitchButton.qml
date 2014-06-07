@@ -17,8 +17,7 @@ BaseEditLine {
             }
         }
         onActiveChanged: {
-            root.cacheValue = active
-            setKey()
+            setKey(active)
         }
     }
 }

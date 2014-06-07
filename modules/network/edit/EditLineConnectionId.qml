@@ -23,8 +23,7 @@ BaseEditLine {
             value: root.cacheValue
         }
         onTextChanged: {
-            root.cacheValue = text
-            setKey()
+            setKey(text)
         }
     }
     DLabel {

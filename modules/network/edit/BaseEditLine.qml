@@ -24,9 +24,9 @@ DBaseLine {
         if (visible) {
             if (cacheValue !== undefined) {
                 // reset key if cacheValue already defined
-                setKey()
+                setKey(cacheValue)
             } else {
-                // get cacheValue only when undefined
+                // get cacheValue only when it undefined
                 updateCacheValue()
             }
             widgetShown()
@@ -95,9 +95,12 @@ DBaseLine {
         text: editLine.text
     }
     
-    function setKey() {
-        // print("-> BaseEditLine.setKey()", section, key, cacheValue) // TODO test
-        connectionSession.SetKey(section, key, marshalJSON(cacheValue))
+    function setKey(v) {
+        cacheValue = v
+        if (cacheValue !== getKey()) {
+            // print("-> BaseEditLine.setKey()", section, key, cacheValue) // TODO test
+            connectionSession.SetKey(section, key, marshalJSON(cacheValue))
+        }
     }
 
     function getKey() {

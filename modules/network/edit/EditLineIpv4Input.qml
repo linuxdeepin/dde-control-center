@@ -20,8 +20,7 @@ BaseEditLine {
         }
         
         onTextChanged: {
-            root.cacheValue = getValue()
-            setKey()
+            setKey(getValue())
         }
         
         onToPrevious: {
@@ -59,11 +58,5 @@ BaseEditLine {
                 }
             }
         }
-    }
-    
-    function saveKey() {
-        print("ipv4 save key", section, key, value) // TODO test
-        root.cacheValue = root.rightLoader.item.getValue()
-        setKey()
     }
 }

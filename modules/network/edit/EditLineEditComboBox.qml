@@ -28,8 +28,7 @@ BaseEditLine {
         }
 
         onTextChanged: {
-            root.cacheValue = text
-            setKey()
+            setKey(text)
         }
     }
 }

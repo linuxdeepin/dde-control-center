@@ -26,8 +26,7 @@ BaseEditLine {
         }
 
         onMenuSelect: {
-            root.cacheValue = getAvailableValues()[index].Value
-            setKey()
+            setKey(getAvailableValues()[index].Value)
         }
     }
 }
