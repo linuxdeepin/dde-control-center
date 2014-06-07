@@ -94,7 +94,7 @@ Item {
         "addPage": Qt.resolvedUrl("ConnectionAdd.qml"),
         "addDslPage": Qt.resolvedUrl("add/AddDsl.qml"),
         "addVpnPage": Qt.resolvedUrl("add/AddVpn.qml"),
-        "hiddenAp": Qt.resolvedUrl("wireless/HiddenAp.qml"),
+        "addHiddenAp": Qt.resolvedUrl("wireless/AddHiddenAp.qml"),
         "wifiHotspot": Qt.resolvedUrl("wireless/WifiHotspot.qml"),
     }
 
@@ -116,7 +116,7 @@ Item {
         return connectionSessionBuilder.createObject(null, { path: connectionPath })
     }
     function resetConnectionSession() {
-        if(stackView.currentItemId == "editPage" || stackView.currentItem == "hiddenAp"){
+        if (stackView.currentItem.objectName == "BaseEditPage") {
             stackView.currentItem.connectionSession.Close()
         }
     }

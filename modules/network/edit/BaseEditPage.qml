@@ -3,6 +3,7 @@ import Deepin.Widgets 1.0
 
 Column {
     id: editPage
+    objectName: "BaseEditPage"
     width: parent.width
     property int realHeight: childrenRect.height
     property int activeExpandIndex: -1
