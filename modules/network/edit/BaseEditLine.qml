@@ -22,13 +22,17 @@ DBaseLine {
     }
     onVisibleChanged: {
         if (visible) {
-            if (cacheValue !== undefined) {
+            if (cacheValue === undefined) {
+                // get cacheValue when it is undefined
+                updateCacheValue()
+            } else if (alwaysUpdate) {
+                // get cacheValue if property "alwaysUpdate" is true
+                updateCacheValue()
+            } else {
                 // reset key if cacheValue already defined
                 setKey(cacheValue)
-            } else {
-                // get cacheValue only when it undefined
-                updateCacheValue()
             }
+            
             widgetShown()
         }
         print("-> BaseEditLine.onVisibleChanged", visible ? "(show)" : "(hide)", section, key, cacheValue) // TODO test
@@ -150,17 +154,17 @@ DBaseLine {
     function getAvailableValuesTextByValue() {
         var values = getAvailableValues()
         if (values == null) {
-            // values is null here so this function should
-            // not be called in this case
-            print("-> [WARNING] getAvailableValuesTextByValue", values, section, key, cacheValue) //TODO test
-            return
+            // values is null here so this function should not be
+            // called in this case
+            print("-> [WARNING] getAvailableValuesTextByValue: values is null,", values, section, key, cacheValue) //TODO test
+            return ""
         }
         for (var i=0; i<values.length; i++) {
             if (values[i].Value === cacheValue) {
                 return values[i].Text
             }
         }
-        print("-> [WARNING] getAvailableValuesTextByValue():", values, section, key, cacheValue) //TODO test
+        print("-> [WARNING] getAvailableValuesTextByValue:", values, section, key, cacheValue) //TODO test
         return ""
     }
     
