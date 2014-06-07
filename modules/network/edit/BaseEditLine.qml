@@ -45,8 +45,8 @@ DBaseLine {
     
     // colors
     color: dconstants.contentBgColor
-    property color normalBorderColor: dconstants.contentBgColor
     property color normalColor: dconstants.fgColor
+    property color normalBorderColor: dconstants.contentBgColor
     property color errorColor: "#F48914"
     
     // update cacheValue even if other key changed
@@ -75,9 +75,6 @@ DBaseLine {
         }
     }
     onShowErrorChanged: {
-        // TODO border color or text color
-        // border.color = showError ? errorColor : normalBorderColor
-        leftLoader.item.color = showError ? errorColor : normalColor
         if (showError) {
             for (var p = parent;; p = p.parent) {
                 if (p) {

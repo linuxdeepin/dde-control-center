@@ -11,6 +11,7 @@ BaseEditLine {
         id: spinner
         activeFocusOnTab: true
         width: valueWidth / 1.5
+        state: root.showError ? "warning" : "normal"
         min: root.min
         max: root.max
         Connections {
@@ -26,6 +27,12 @@ BaseEditLine {
             if (text != "") {
                 setKey(parseInt(text))
             }
+        }
+        Rectangle {
+            radius: 3
+            color: "transparent"
+            border.color: root.showError ? errorColor : normalBorderColor
+            anchors.fill: spinner
         }
     }
 }

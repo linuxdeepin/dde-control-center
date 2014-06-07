@@ -5,8 +5,10 @@ BaseEditLine {
     id: root
     
     rightLoader.sourceComponent: DTextInput{
+        id: textInput
         activeFocusOnTab: true
         width: valueWidth
+        state: root.showError ? "warning" : "normal"
         Connections {
             target: root
             onWidgetShown: {
@@ -18,6 +20,12 @@ BaseEditLine {
         }
         onTextChanged: {
             setKey(text)
+        }
+        Rectangle {
+            radius: 3
+            color: "transparent"
+            border.color: root.showError ? errorColor : normalBorderColor
+            anchors.fill: textInput
         }
     }
 }

@@ -7,8 +7,10 @@ BaseEditLine{
     property var filter         // TODO
     
     rightLoader.sourceComponent: DFileChooseInput {
+        id: fileChooseInput
         activeFocusOnTab: true
         width: valueWidth
+        state: root.showError ? "warning" : "normal"
         Connections {
             target: root
             onWidgetShown: {
@@ -23,6 +25,12 @@ BaseEditLine{
         }
         onFileChooseClicked: {
             fileChooseDialog.showWindow()
+        }
+        Rectangle {
+            radius: 3
+            color: "transparent"
+            border.color: root.showError ? errorColor : normalBorderColor
+            anchors.fill: fileChooseInput
         }
     }
     

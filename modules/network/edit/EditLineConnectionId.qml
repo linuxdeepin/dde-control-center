@@ -5,6 +5,7 @@ BaseEditLine {
     id: root
     rightLoader.sourceComponent: Row {
         DTextInput {
+            id: textInput
             activeFocusOnTab: true
             width: valueWidth
             visible: connectionSession.type != nmConnectionTypeWired
@@ -14,6 +15,12 @@ BaseEditLine {
             }
             onTextChanged: {
                 setKey(text)
+            }
+            Rectangle {
+                radius: 3
+                color: "transparent"
+                border.color: root.showError ? errorColor : normalBorderColor
+                anchors.fill: textInput
             }
         }
         DLabel {

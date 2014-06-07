@@ -10,6 +10,7 @@ BaseEditLine {
         id: textInput
         activeFocusOnTab: true
         width: valueWidth
+        state: root.showError ? "warning" : "normal"
         echoMode: TextInput.Password
         Binding on echoMode {
             target: root
@@ -26,6 +27,12 @@ BaseEditLine {
         }
         onTextChanged: {
             setKey(text)
+        }
+        Rectangle {
+            radius: 3
+            color: "transparent"
+            border.color: root.showError ? errorColor : normalBorderColor
+            anchors.fill: textInput
         }
     }
     

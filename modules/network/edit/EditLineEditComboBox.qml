@@ -8,6 +8,7 @@ BaseEditLine {
         id: comboBox
         activeFocusOnTab: true
         width: valueWidth
+        state: root.showError ? "warning" : "normal"
         anchors.left: parent.left
         selectIndex: -1
         parentWindow: rootWindow
@@ -30,6 +31,13 @@ BaseEditLine {
 
         onTextChanged: {
             setKey(text)
+        }
+        
+        Rectangle {
+            radius: 3
+            color: "transparent"
+            border.color: root.showError ? errorColor : normalBorderColor
+            anchors.fill: comboBox
         }
     }
 }
