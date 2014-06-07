@@ -245,14 +245,10 @@ DBaseExpand {
     }
 
     function gotoConnectHiddenAP(){
-        stackView.push({
-            "item": stackViewPages["hiddenAp"],
-            "properties": { "devicePath": devicePath},
-            "destroyOnPop": true
-        })
-        stackView.currentItemId = "hiddenAp"
+        gotoCreateConnection("addHiddenAp", nmConnectionTypeWireless, devicePath)
     }
 
+    // TODO
     function gotoCreateAP(hotspotInfo){
         stackView.push({
             "item": stackViewPages["wifiHotspot"],
