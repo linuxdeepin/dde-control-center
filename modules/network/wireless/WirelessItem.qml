@@ -60,7 +60,7 @@ Item {
         } else {
             // connection for current access point exists, just activate it
             print("==> connectionPath", connectionPath)
-            dbusNetwork.ActivateAccessPoint(apPath, wirelessItem.devicePath)
+            dbusNetwork.ActivateAccessPoint(uuid, apPath, wirelessItem.devicePath)
         }
     }
 
