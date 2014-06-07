@@ -3,37 +3,27 @@ import Deepin.Widgets 1.0
 
 BaseEditLine {
     id: root
-    
     rightLoader.sourceComponent: Row {
-    DTextInput {
-        width: valueWidth
-        visible: connectionSession.type != nmConnectionTypeWired
-        // TODO
-        // Connections {
-        //     target: root
-        //     onWidgetShown: {
-        //         text = root.cacheValue
-        //     }
-        //     onCacheValueChanged: {
-        //         text = root.cacheValue
-        //     }
-        // }
-        Binding on text {
-            when: root.cacheValue != undefined
-            value: root.cacheValue
+        DTextInput {
+            activeFocusOnTab: true
+            width: valueWidth
+            visible: connectionSession.type != nmConnectionTypeWired
+            Binding on text {
+                when: root.cacheValue != undefined
+                value: root.cacheValue
+            }
+            onTextChanged: {
+                setKey(text)
+            }
         }
-        onTextChanged: {
-            setKey(text)
+        DLabel {
+            width: valueWidth
+            visible: connectionSession.type == nmConnectionTypeWired
+            Binding on text {
+                when: root.cacheValue != undefined
+                value: root.cacheValue
+            }
         }
-    }
-    DLabel {
-        width: valueWidth
-        visible: connectionSession.type == nmConnectionTypeWired
-        Binding on text {
-            when: root.cacheValue != undefined
-            value: root.cacheValue
-        }
-    }
     }
 }
 

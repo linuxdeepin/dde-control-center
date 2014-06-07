@@ -9,9 +9,10 @@ BaseEditLine {
     property BaseEditLine nextIpv4Input
     property bool netmaskMode: false
     
-    rightLoader.sourceComponent: Ipv4Input{
+    rightLoader.sourceComponent: Ipv4Input {
+        // activeFocusOnTab: true  // TODO
         width: valueWidth
-        // isError: root.showError // TODO
+        isError: root.showError
         
         onIsFocusChanged: {
             if (!isFocus) {

@@ -5,6 +5,7 @@ BaseEditLine {
     id: root
     
     rightLoader.sourceComponent: DTextInput{
+        activeFocusOnTab: true
         width: valueWidth
         Connections {
             target: root

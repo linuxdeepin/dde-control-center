@@ -6,6 +6,7 @@ BaseEditLine {
     
     rightLoader.sourceComponent: DEditComboBox {
         id: comboBox
+        activeFocusOnTab: true
         width: valueWidth
         anchors.left: parent.left
         selectIndex: -1

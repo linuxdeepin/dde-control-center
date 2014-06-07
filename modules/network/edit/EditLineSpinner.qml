@@ -9,6 +9,7 @@ BaseEditLine {
     
     rightLoader.sourceComponent: DSpinner {
         id: spinner
+        activeFocusOnTab: true
         width: valueWidth / 1.5
         min: root.min
         max: root.max

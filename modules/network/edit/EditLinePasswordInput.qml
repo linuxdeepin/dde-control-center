@@ -8,6 +8,7 @@ BaseEditLine {
     
     rightLoader.sourceComponent: DTextInput{
         id: textInput
+        activeFocusOnTab: true
         width: valueWidth
         echoMode: TextInput.Password
         Binding on echoMode {

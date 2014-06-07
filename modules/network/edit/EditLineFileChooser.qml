@@ -7,6 +7,7 @@ BaseEditLine{
     property var filter         // TODO
     
     rightLoader.sourceComponent: DFileChooseInput {
+        activeFocusOnTab: true
         width: valueWidth
         Connections {
             target: root

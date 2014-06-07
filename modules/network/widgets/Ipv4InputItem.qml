@@ -42,6 +42,7 @@ FocusScope {
         TextInput {
             id: text_input
 
+            activeFocusOnTab: true
             focus: true
             verticalAlignment: TextInput.AlignVCenter
             horizontalAlignment: TextInput.AlignHCenter
