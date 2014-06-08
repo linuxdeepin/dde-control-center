@@ -34,20 +34,20 @@ Item {
     }
     
     function updateWirelessConnectionInfo() {
-        var wirelessConnections = nmConnections[nmConnectionTypeWireless]
-        var connectionPath = ""
-        var uuid = ""
-        for (var i in wirelessConnections) {
-            if (apInfo.Ssid == wirelessConnections[i].Ssid) {
-                if (wirelessConnections[i].HwAddress == "" || wirelessConnections[i].HwAddress == deviceHwAddress) {
-                    connectionPath = wirelessConnections[i].Path
-                    uuid = wirelessConnections[i].Uuid
+        var conns = nmConnections[nmConnectionTypeWireless]
+        var tmpPath = ""
+        var tmpUuid = ""
+        for (var i in conns) {
+            if (apInfo.Ssid == conns[i].Ssid) {
+                if (conns[i].HwAddress == "" || conns[i].HwAddress == deviceHwAddress) {
+                    tmpPath = conns[i].Path
+                    tmpUuid = conns[i].Uuid
                     break
                 }
             }
         }
-        wirelessItem.connectionPath = connectionPath
-        wirelessItem.uuid = uuid
+        connectionPath = tmpPath
+        uuid = tmpUuid
     }
     
     function activateWirelessConnection(){
@@ -60,7 +60,7 @@ Item {
         } else {
             // connection for current access point exists, just activate it
             print("==> connectionPath", connectionPath)
-            dbusNetwork.ActivateAccessPoint(uuid, apInfo.Path, wirelessItem.devicePath)
+            dbusNetwork.ActivateAccessPoint(uuid, apInfo.Path, devicePath)
         }
     }
 
@@ -75,7 +75,7 @@ Item {
     }
 
     function gotoEditWirelessConnection() {
-        gotoEditConnection("editPage", uuid, wirelessItem.devicePath)
+        gotoEditConnection("editPage", uuid, devicePath)
     }
     function gotoAddWirelessConnection() {
         doGotoAddWirelessConnection("editPage")
@@ -86,7 +86,7 @@ Item {
     function doGotoAddWirelessConnection(page) {
         stackView.push({
             "item": stackViewPages[page],
-            "properties": { "connectionSession": createConnectionForAccessPoint(apInfo.Path, wirelessItem.devicePath)},
+            "properties": { "connectionSession": createConnectionForAccessPoint(apInfo.Path, devicePath)},
             "destroyOnPop": true
         })
         stackView.currentItemId = page
@@ -136,7 +136,7 @@ Item {
                 hover_image: "../images/disconnect.png"
                 visible: apConnected
                 onClicked: {
-                    dbusNetwork.DisconnectDevice(wirelessItem.devicePath)
+                    dbusNetwork.DisconnectDevice(devicePath)
                 }
             }
 

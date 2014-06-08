@@ -44,8 +44,8 @@ Item {
         target: networkModule
         onNeedSecretsEmit: {
             if (uuid){
-                if(passwordArea.path == path && prefixCondition){
-                    print("onNeedSecretsEmit:", passwordArea.path, path) // TODO test
+                if(path == passwordArea.path && prefixCondition){
+                    print("==> onNeedSecretsEmit:", passwordArea.path, path) // TODO test
                     passwordArea.showArea(encryptionName)
                 }
             }
