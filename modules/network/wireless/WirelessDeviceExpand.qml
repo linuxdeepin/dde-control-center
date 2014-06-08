@@ -111,20 +111,20 @@ DBaseExpand {
         }
 
         rightLoader.sourceComponent: DSwitchButton{
-            property var lastActivedUuid
+            property var lastActiveUuid
             checked: wirelessDevicesExpand.expanded
             onClicked: {
                 if (checked) {
                     // enable device
                     deviceEnabled = true
                     dbusNetwork.wirelessEnabled = true
-                    if (lastActivedUuid) {
-                        dbusNetwork.ActivateConnection(lastActivedUuid, devicePath)
+                    if (lastActiveUuid) {
+                        dbusNetwork.ActivateConnection(lastActiveUuid, devicePath)
                     }
                 } else {
                     // disable device
                     deviceEnabled = false
-                    lastActivedUuid = getDeviceActiveConnection(devicePath)
+                    lastActiveUuid = getDeviceActiveConnection(devicePath)
                     if (deviceState > nmDeviceStateDisconnected && deviceState <= nmDeviceStateActivated) {
                         dbusNetwork.DisconnectDevice(devicePath)
                     }

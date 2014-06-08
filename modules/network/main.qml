@@ -196,13 +196,12 @@ Item {
     }
     
     function getDeviceActiveConnection(devicePath) {
-        var uuid = ""
         for (var i in nmActiveConnections) {
             if (getIndexFromArray(devicePath, nmActiveConnections[i].Devices) != -1) {
-                uuid = nmActiveConnections[i].Uuid
+                return nmActiveConnections[i].Uuid
             }
         }
-        return uuid
+        return ""
     }
     function isActiveConnection(devicePath, uuid) {
         for (var i in nmActiveConnections) {
