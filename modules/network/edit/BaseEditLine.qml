@@ -69,11 +69,6 @@ DBaseLine {
             }
         }
     }
-    onErrorsChanged: {
-        if (isValueError()) {
-            // print("-> [error] %1[%2]: %3".arg(section).arg(key).arg(errors[section][key])) // TODO test
-        }
-    }
     onShowErrorChanged: {
         if (showError) {
             for (var p = parent;; p = p.parent) {
@@ -117,11 +112,10 @@ DBaseLine {
     }
     
     function isValueError() {
-        if (!visible || cacheValue == undefined) {
-            return false
+        if (errors[section] && errors[section][key]) {
+            return true
         }
-        // TODO Type Error: Cannot read property 'number' of undefined
-        return errors[section][key] ? true : false
+        return false
     }
     
     function getAvailableValues() {
