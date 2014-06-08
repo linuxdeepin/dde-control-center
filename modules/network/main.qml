@@ -195,12 +195,18 @@ Item {
         return null
     }
     
+    function getDeviceActiveConnection(devicePath) {
+        var uuid = ""
+        for (var i in nmActiveConnections) {
+            if (getIndexFromArray(devicePath, nmActiveConnections[i].Devices) != -1) {
+                uuid = nmActiveConnections[i].Uuid
+            }
+        }
+        return uuid
+    }
     function isActiveConnection(devicePath, uuid) {
         for (var i in nmActiveConnections) {
-            if (getIndexFromArray(devicePath, nmActiveConnections[i].Devices) != -1 &&
-            nmActiveConnections[i].Uuid == uuid) {
-                // TODO fix active state issue
-            // nmActiveConnections[i].State == nmActiveConnectionStateActivated) {
+            if (getIndexFromArray(devicePath, nmActiveConnections[i].Devices) != -1 && nmActiveConnections[i].Uuid == uuid) {
                 return true
             }
         }

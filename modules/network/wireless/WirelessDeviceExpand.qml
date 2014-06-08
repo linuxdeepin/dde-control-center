@@ -11,8 +11,11 @@ DBaseExpand {
     property string deviceHwAddress
     property string activeAp: "/"
     property int deviceState: nmDeviceStateUnknown
+    property bool deviceEnabled: false
+    expanded: deviceEnabled
 
     Component.onCompleted: {
+        deviceEnabled = deviceState > nmDeviceStateDisconnected
         if(!scanTimer.running){
             scanTimer.start()
         }
@@ -89,7 +92,6 @@ DBaseExpand {
         }
     }
 
-    expanded: deviceState != nmDeviceStateUnavailable
     header.sourceComponent: DBaseLine{
 
         leftLoader.sourceComponent: DssH2 {
@@ -109,10 +111,24 @@ DBaseExpand {
         }
 
         rightLoader.sourceComponent: DSwitchButton{
+            property var lastActivedUuid
             checked: wirelessDevicesExpand.expanded
             onClicked: {
-                dbusNetwork.wirelessEnabled = checked
-                accessPointsModel.clear()
+                if (checked) {
+                    // enable device
+                    deviceEnabled = true
+                    dbusNetwork.wirelessEnabled = true
+                    if (lastActivedUuid) {
+                        dbusNetwork.ActivateConnection(lastActivedUuid, devicePath)
+                    }
+                } else {
+                    // disable device
+                    deviceEnabled = false
+                    lastActivedUuid = getDeviceActiveConnection(devicePath)
+                    if (deviceState > nmDeviceStateDisconnected && deviceState <= nmDeviceStateActivated) {
+                        dbusNetwork.DisconnectDevice(devicePath)
+                    }
+                }
             }
         }
     }
@@ -214,6 +230,7 @@ DBaseExpand {
         }
     }
 
+    // TODO timer should be removed
     Timer {
         id: sortModelTimer
         interval: 1000
@@ -223,6 +240,7 @@ DBaseExpand {
         }
     }
 
+    // TODO timer should be removed
     Timer {
         id: scanTimer
         interval: 100
