@@ -95,8 +95,8 @@ Item {
         "addDslPage": Qt.resolvedUrl("add/AddDsl.qml"),
         "addMobilePage": Qt.resolvedUrl("add/AddMobile.qml"),
         "addVpnPage": Qt.resolvedUrl("add/AddVpn.qml"),
-        "addWireless": Qt.resolvedUrl("wireless/AddWireless.qml"),
-        "wifiHotspot": Qt.resolvedUrl("wireless/WifiHotspot.qml"),
+        "addWirelessPage": Qt.resolvedUrl("wireless/AddWireless.qml"),
+        "wifiHotspotPage": Qt.resolvedUrl("wireless/WifiHotspot.qml"),
     }
 
     Component {

@@ -81,7 +81,7 @@ Item {
         doGotoAddWirelessConnection("editPage")
     }
     function gotoAddWirelessConnectionWizard() {
-        doGotoAddWirelessConnection("addWireless")
+        doGotoAddWirelessConnection("addWirelessPage")
     }
     function doGotoAddWirelessConnection(page) {
         stackView.push({
