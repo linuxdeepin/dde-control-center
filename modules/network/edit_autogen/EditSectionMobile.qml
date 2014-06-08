@@ -24,6 +24,17 @@ BaseEditSection {
             text: dsTr("Service Type")
         }
         EditLineEditComboBox {
+            id: lineGsmApn
+            connectionSession: sectionMobile.connectionSession
+            availableSections: sectionMobile.availableSections
+            availableKeys: sectionMobile.availableKeys
+            connectionData: sectionMobile.connectionData
+            errors: sectionMobile.errors
+            section: "gsm"
+            key: "apn"
+            text: dsTr("APN")
+        }
+        EditLineTextInput {
             id: lineGsmNumber
             connectionSession: sectionMobile.connectionSession
             availableSections: sectionMobile.availableSections
@@ -45,17 +56,6 @@ BaseEditSection {
             key: "username"
             text: dsTr("Username")
         }
-        EditLineComboBox {
-            id: lineGsmPasswordFlags
-            connectionSession: sectionMobile.connectionSession
-            availableSections: sectionMobile.availableSections
-            availableKeys: sectionMobile.availableKeys
-            connectionData: sectionMobile.connectionData
-            errors: sectionMobile.errors
-            section: "gsm"
-            key: "password-flags"
-            text: dsTr("Ask for Pwd")
-        }
         EditLinePasswordInput {
             id: lineGsmPassword
             connectionSession: sectionMobile.connectionSession
@@ -66,17 +66,6 @@ BaseEditSection {
             section: "gsm"
             key: "password"
             text: dsTr("Password")
-        }
-        EditLineEditComboBox {
-            id: lineGsmApn
-            connectionSession: sectionMobile.connectionSession
-            availableSections: sectionMobile.availableSections
-            availableKeys: sectionMobile.availableKeys
-            connectionData: sectionMobile.connectionData
-            errors: sectionMobile.errors
-            section: "gsm"
-            key: "apn"
-            text: dsTr("APN")
         }
         EditLineTextInput {
             id: lineGsmNetworkId

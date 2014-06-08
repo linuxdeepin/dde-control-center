@@ -120,6 +120,7 @@ DBaseLine {
         if (!visible || cacheValue == undefined) {
             return false
         }
+        // TODO Type Error: Cannot read property 'number' of undefined
         return errors[section][key] ? true : false
     }
     

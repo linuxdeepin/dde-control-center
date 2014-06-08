@@ -35,6 +35,10 @@ Column {
                     "item_name": dsTr("PPPoE")
                 })
                 model.append({
+                    "item_id": "mobile",
+                    "item_name": dsTr("Mobile 2G/3G/4G-LTE")
+                })
+                model.append({
                     "item_id": "vpn",
                     "item_name": dsTr("VPN")
                 })
@@ -74,6 +78,9 @@ Column {
             onClicked: {
                 if(typeList.selectItemId == "pppoe"){
                     gotoAddConnection("addDslPage", nmConnectionTypePppoe, "/")
+                }
+                else if(typeList.selectItemId == "mobile"){
+                    gotoAddConnection("addMobilePage", nmConnectionTypeMobile, "/")
                 }
                 else if(typeList.selectItemId == "vpn"){
                     gotoAddConnection("addVpnPage", nmConnectionTypeVpn, "/")

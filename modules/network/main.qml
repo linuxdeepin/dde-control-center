@@ -93,6 +93,7 @@ Item {
         "editPage": Qt.resolvedUrl("ConnectionEdit.qml"),
         "addPage": Qt.resolvedUrl("ConnectionAdd.qml"),
         "addDslPage": Qt.resolvedUrl("add/AddDsl.qml"),
+        "addMobilePage": Qt.resolvedUrl("add/AddMobile.qml"),
         "addVpnPage": Qt.resolvedUrl("add/AddVpn.qml"),
         "addWireless": Qt.resolvedUrl("wireless/AddWireless.qml"),
         "wifiHotspot": Qt.resolvedUrl("wireless/WifiHotspot.qml"),
