@@ -112,6 +112,9 @@ DBaseLine {
     }
     
     function isValueError() {
+        if (!errors) {
+            return false
+        }
         if (errors[section] && errors[section][key]) {
             return true
         }
