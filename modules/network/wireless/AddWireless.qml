@@ -6,6 +6,7 @@ BaseEditPage {
     id: rootPage
     width: parent.width
     property string title: dsTr("Connect to wireless")
+    
     Component.onCompleted: {
         if (line80211WirelessSecurityVkKeyMgmt.getKey() == "none") {
             line80211WirelessSecurityVkKeyMgmt.setKey("wpa-psk")

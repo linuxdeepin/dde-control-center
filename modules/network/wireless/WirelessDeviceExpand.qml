@@ -99,7 +99,7 @@ DBaseExpand {
                     return dsTr("Wireless Network")
                 }
                 else{
-                    return dsTr("Wireless Network %1").arg(index + 1).arg(deviceState)
+                    return dsTr("Wireless Network %1").arg(index + 1)
                 }
             }
             MouseArea {
@@ -168,16 +168,18 @@ DBaseExpand {
         DBaseLine {
             id: wifiHotspotLine
             color: dconstants.contentBgColor
-            visible: false
+            visible: true
 
             property var hotspotInfo: {
-                var infos = nmConnections[nmConnectionTypeWirelessAdhoc]
-                if(infos){
-                    return infos[0]
+                var info = null
+                var infos = nmConnections[nmConnectionTypeWirelessHotspot]
+                for (var i in infos) {
+                    if (infos[i].HwAddress == "" || infos[i].HwAddress == deviceHwAddress) {
+                        info = infos[i]
+                        break
+                    }
                 }
-                else{
-                    return null
-                }
+                return info
             }
 
             property bool hovered: false
@@ -254,7 +256,7 @@ DBaseExpand {
         stackView.currentItemId = page
     }
 
-    // TODO gotoEnableHotspot
+    // TODO gotoAddHotspot, gotoEditHotspot
     function gotoCreateAP(hotspotInfo){
         stackView.push({
             "item": stackViewPages["wifiHotspot"],
