@@ -95,121 +95,14 @@ BaseEditPage {
             text: hotspotInfo ? dsTr("Save") : dsTr("Create") 
             anchors.verticalCenter: parent.verticalCenter
             onClicked: {
-                generalSetKey("connection", "id", line80211WirelessSsid.getKey())
-                checkKeysInPage()
+                rootPage.generalSetKey("connection", "id", line80211WirelessSsid.getKey())
+                rootPage.checkKeysInPage()
                 if (connectionSession.Save()) {
                     stackView.reset()
+                } else {
+                    rootPage.showErrors()
                 }
             }
         }
     }
-
-    // TODO remove
-    // Column {
-    //     id: settingBox
-    //     width: parent.width
-
-    //     property int edgePadding: 24
-    //     property int leftWidth: edgePadding
-    //     property int rightWidth: settingBox.width - leftWidth - edgePadding
-
-    //     function updateLeftWidth(newWidth){
-    //         if(newWidth + edgePadding > settingBox.leftWidth){
-    //             settingBox.leftWidth = newWidth + edgePadding
-    //         }
-    //     }
-
-    //     PropertyLine {
-    //         id: apSsid
-    //         title.text: dsTr("SSID")
-    //         section: "wifi"
-    //         key: "ssid"
-    //         content.sourceComponent: DTextInput {
-    //             activeFocusOnTab: true
-    //             width: settingBox.rightWidth
-
-    //             Component.onCompleted: {
-    //                 text = getKey(apSsid.section, apSsid.key)
-    //             }
-    //         }
-
-    //         function getValue(){
-    //             return content.item.text
-    //         }
-
-    //         function checkKey(){
-    //             var valid = content.item.text != ""
-    //             if(!valid){
-    //                 content.item.state = "warning"
-    //             }
-    //             return valid
-    //         }
-    //     }
-
-    //     PropertyLine {
-    //         id: apPassword
-    //         title.text: dsTr("Password")
-    //         section: "security"
-    //         key: "wep-key0"
-
-    //         content.sourceComponent: DTextInput{
-    //             activeFocusOnTab: true
-    //             width: settingBox.rightWidth
-    //             echoMode: TextInput.Password
-    //             Component.onCompleted: {
-    //                 text = getKey(apPassword.section, apPassword.key)
-    //             }
-    //         }
-
-    //         function getValue(){
-    //             return content.item.text
-    //         }
-
-    //         function checkKey(){
-    //             // WEP password
-    //             var valid = content.item.text.length >= 8
-    //             if(!valid){
-    //                 content.item.state = "warning"
-    //             }
-    //             return valid
-    //         }
-    //     }
-
-    // }
-
-
-    // function checkValid(){
-    //     var valid = true
-    //     for(var i=0; i<settingBox.children.length; i++){
-    //         var objLine = settingBox.children[i]
-    //         if(objLine.objectName == "PropertyLine" && objLine.visible){
-    //             valid = objLine.checkKey() && valid
-    //         }
-    //     }
-    //     return valid
-    // }
-
-    // function createWifiHotspot(){
-    //     setValue("general", "id", apSsid.getValue())
-    //     setValue("security", "vk-key-mgmt", "wep")
-    //     for(var i=0; i<settingBox.children.length; i++){
-    //         var objLine = settingBox.children[i]
-    //         if(objLine.objectName == "PropertyLine" && objLine.visible){
-    //             setValue(objLine.section, objLine.key, objLine.getValue())
-    //         }
-    //     }
-    //     if(!connectionSession.Save()){
-    //         print("create Wifi hotspot error:", connectionSession.errors)
-    //         connectionSession.Close()
-    //     }
-    //     stackView.reset()
-    // }
-
-    // function setValue(section, key, value){
-    //     connectionSession.SetKey(section, key, marshalJSON(value))
-    // }
-    // function getKey(section, key){
-    //     var value = connectionSession.GetKey(section, key)
-    //     return unmarshalJSON(value)
-    // }
 }
