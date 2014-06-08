@@ -15,10 +15,13 @@ DBaseExpand {
     expanded: deviceEnabled
 
     Component.onCompleted: {
-        deviceEnabled = deviceState > nmDeviceStateDisconnected
+        deviceEnabled = deviceState >= nmDeviceStateDisconnected
         if(!scanTimer.running){
             scanTimer.start()
         }
+    }
+    onDeviceStateChanged: {
+        deviceEnabled = deviceState >= nmDeviceStateDisconnected
     }
 
     ListModel {
@@ -107,9 +110,12 @@ DBaseExpand {
                 if (checked) {
                     // enable device
                     deviceEnabled = true
-                    dbusNetwork.wirelessEnabled = true
-                    if (lastActiveUuid) {
-                        dbusNetwork.ActivateConnection(lastActiveUuid, devicePath)
+                    if (!dbusNetwork.wirelessEnabled) {
+                        dbusNetwork.wirelessEnabled = true
+                    } else {
+                        if (lastActiveUuid) {
+                            dbusNetwork.ActivateConnection(lastActiveUuid, devicePath)
+                        }
                     }
                 } else {
                     // disable device
