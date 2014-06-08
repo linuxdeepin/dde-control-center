@@ -5,14 +5,16 @@ import "../edit"
 BaseEditPage {
     id: addPage
     width: parent.width
-
+    property string title: dsTr("Connect to wireless")
     Component.onCompleted: {
-        line80211WirelessSecurityVkKeyMgmt.setKey("wpa-psk")
+        if (line80211WirelessSecurityVkKeyMgmt.getKey() == "none") {
+            line80211WirelessSecurityVkKeyMgmt.setKey("wpa-psk")
+        }
     }
     
     DBaseLine {
         leftLoader.sourceComponent: DssH2 {
-            text: dsTr("Connect to hidden access point")
+            text: title
         }
     }
     DSeparatorHorizontal {}

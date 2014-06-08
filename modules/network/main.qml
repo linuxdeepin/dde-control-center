@@ -94,7 +94,7 @@ Item {
         "addPage": Qt.resolvedUrl("ConnectionAdd.qml"),
         "addDslPage": Qt.resolvedUrl("add/AddDsl.qml"),
         "addVpnPage": Qt.resolvedUrl("add/AddVpn.qml"),
-        "addHiddenAp": Qt.resolvedUrl("wireless/AddHiddenAp.qml"),
+        "addWireless": Qt.resolvedUrl("wireless/AddWireless.qml"),
         "wifiHotspot": Qt.resolvedUrl("wireless/WifiHotspot.qml"),
     }
 
@@ -121,8 +121,7 @@ Item {
         }
     }
 
-
-    function gotoCreateConnection(page, type, devicePath) {
+    function gotoAddConnection(page, type, devicePath) {
         stackView.push({
             "item": stackViewPages[page],
             "properties": {"connectionSession": createConnection(type, devicePath)},
@@ -140,10 +139,6 @@ Item {
     }
     
     function marshalJSON(value) {
-        // TODO
-        // if (value === undefined) {
-        //     value = null
-        // }
         var valueJSON = JSON.stringify(value);
         return valueJSON
     }
@@ -153,10 +148,6 @@ Item {
             print("==> [ERROR] unmarshalJSON", valueJSON)
         }
         var value = JSON.parse(valueJSON)
-        // TODO
-        // if (value === null) {
-        //     value = undefined
-        // }
         return value
     }
 

@@ -50,13 +50,13 @@ Item {
         wirelessItem.uuid = uuid
     }
     
-    function activateThisConnection(){
+    function activateWirelessConnection(){
         if (uuid == "" && apSecuredInEap) {
             // if access point under the security eap and there is
             // no valid connection for it, go to connection
             // property page and create connection session through
             // CreateConnectionForAccessPoint()
-            gotoCreateWirelessConnection()
+            gotoAddWirelessConnectionWizard()
         } else {
             // connection for current access point exists, just activate it
             print("==> connectionPath", connectionPath)
@@ -64,27 +64,32 @@ Item {
         }
     }
 
-    function editThisConnection(){
+    function editWirelessConnection(){
         if (uuid != "") {
             print("==> gotoEditWirelessConnection", uuid)
             gotoEditWirelessConnection()
         } else {
-            print("==> gotoCreateWirelessConnection")
-            gotoCreateWirelessConnection()
+            print("==> gotoAddWirelessConnection")
+            gotoAddWirelessConnection()
         }
     }
 
     function gotoEditWirelessConnection() {
         gotoEditConnection("editPage", uuid, wirelessItem.devicePath)
     }
-
-    function gotoCreateWirelessConnection() {
+    function gotoAddWirelessConnection() {
+        doGotoAddWirelessConnection("editPage")
+    }
+    function gotoAddWirelessConnectionWizard() {
+        doGotoAddWirelessConnection("addWireless")
+    }
+    function doGotoAddWirelessConnection(page) {
         stackView.push({
-            "item": stackViewPages["editPage"],
+            "item": stackViewPages[page],
             "properties": { "connectionSession": createConnectionForAccessPoint(apPath, wirelessItem.devicePath)},
             "destroyOnPop": true
         })
-        stackView.currentItemId = "editPage"
+        stackView.currentItemId = page
     }
     
     DBaseLine {
@@ -109,12 +114,12 @@ Item {
 
             onClicked: {
                 if(!apConnected){
-                    print("==> activate connection") // TODO debug
-                    activateThisConnection()
+                    print("==> activate connection", apPath)
+                    activateWirelessConnection()
                 }
                 else{
-                    print("==> edit connection") // TODO debug
-                    editThisConnection()
+                    print("==> edit connection", uuid)
+                    editWirelessConnection()
                 }
             }
         }
@@ -195,7 +200,7 @@ Item {
 
             DArrowButton {
                 onClicked: {
-                    editThisConnection()
+                    editWirelessConnection()
                 }
             }
         }
