@@ -3,7 +3,7 @@ import Deepin.Widgets 1.0
 import "../edit"
 
 BaseEditPage {
-    id: addPage
+    id: rootPage
     width: parent.width
 
     DBaseLine {
@@ -15,11 +15,11 @@ BaseEditPage {
 
     EditLineTextInput {
         id: lineConnectionId
-        connectionSession: addPage.connectionSession
-        availableSections: addPage.availableSections
-        availableKeys: addPage.availableKeys
-        connectionData: addPage.connectionData
-        errors: addPage.errors
+        connectionSession: rootPage.connectionSession
+        availableSections: rootPage.availableSections
+        availableKeys: rootPage.availableKeys
+        connectionData: rootPage.connectionData
+        errors: rootPage.errors
         section: "connection"
         key: "id"
         text: dsTr("Name")
@@ -28,33 +28,33 @@ BaseEditPage {
     // copy from ../edit_autogen/EditSectionPppoe.qml
     EditLineTextInput {
         id: linePppoeUsername
-        connectionSession: addPage.connectionSession
-        availableSections: addPage.availableSections
-        availableKeys: addPage.availableKeys
-        connectionData: addPage.connectionData
-        errors: addPage.errors
+        connectionSession: rootPage.connectionSession
+        availableSections: rootPage.availableSections
+        availableKeys: rootPage.availableKeys
+        connectionData: rootPage.connectionData
+        errors: rootPage.errors
         section: "pppoe"
         key: "username"
         text: dsTr("Username")
     }
     EditLineTextInput {
         id: linePppoeService
-        connectionSession: addPage.connectionSession
-        availableSections: addPage.availableSections
-        availableKeys: addPage.availableKeys
-        connectionData: addPage.connectionData
-        errors: addPage.errors
+        connectionSession: rootPage.connectionSession
+        availableSections: rootPage.availableSections
+        availableKeys: rootPage.availableKeys
+        connectionData: rootPage.connectionData
+        errors: rootPage.errors
         section: "pppoe"
         key: "service"
         text: dsTr("Service")
     }
     EditLinePasswordInput {
         id: linePppoePassword
-        connectionSession: addPage.connectionSession
-        availableSections: addPage.availableSections
-        availableKeys: addPage.availableKeys
-        connectionData: addPage.connectionData
-        errors: addPage.errors
+        connectionSession: rootPage.connectionSession
+        availableSections: rootPage.availableSections
+        availableKeys: rootPage.availableKeys
+        connectionData: rootPage.connectionData
+        errors: rootPage.errors
         section: "pppoe"
         key: "password"
         text: dsTr("Password")

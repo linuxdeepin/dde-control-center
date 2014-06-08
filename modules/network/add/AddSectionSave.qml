@@ -8,6 +8,15 @@ Row {
     anchors.rightMargin: 15
 
     DTextButton {
+        text: dsTr("Cancel")
+        anchors.verticalCenter: parent.verticalCenter
+        onClicked: {
+            stackView.reset()
+            connectionSession.Close()
+        }
+    }
+    
+    DTextButton {
         text: dsTr("Add")
         anchors.verticalCenter: parent.verticalCenter
         onClicked: {
@@ -15,14 +24,6 @@ Row {
             if (connectionSession.Save()) {
                 stackView.reset()
             }
-        }
-    }
-    DTextButton {
-        text: dsTr("Cancel")
-        anchors.verticalCenter: parent.verticalCenter
-        onClicked: {
-            stackView.reset()
-            connectionSession.Close()
         }
     }
 }
