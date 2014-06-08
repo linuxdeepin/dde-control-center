@@ -16,7 +16,7 @@ Item {
     property int deviceState: nmDeviceStateUnknown
     property string connectionPath
     property string uuid
-    property bool apConnected: activeAp == apPath && deviceState == nmDeviceStateActivated
+    property bool apConnected: activeAp == apInfo.Path && deviceState == nmDeviceStateActivated
 
     Behavior on height {
         PropertyAnimation { duration: 100 }
@@ -38,7 +38,7 @@ Item {
         var connectionPath = ""
         var uuid = ""
         for (var i in wirelessConnections) {
-            if (apName == wirelessConnections[i].Ssid) {
+            if (apInfo.Ssid == wirelessConnections[i].Ssid) {
                 if (wirelessConnections[i].HwAddress == "" || wirelessConnections[i].HwAddress == deviceHwAddress) {
                     connectionPath = wirelessConnections[i].Path
                     uuid = wirelessConnections[i].Uuid
@@ -51,7 +51,7 @@ Item {
     }
     
     function activateWirelessConnection(){
-        if (uuid == "" && apSecuredInEap) {
+        if (uuid == "" && apInfo.SecuredInEap) {
             // if access point under the security eap and there is
             // no valid connection for it, go to connection
             // property page and create connection session through
@@ -60,7 +60,7 @@ Item {
         } else {
             // connection for current access point exists, just activate it
             print("==> connectionPath", connectionPath)
-            dbusNetwork.ActivateAccessPoint(uuid, apPath, wirelessItem.devicePath)
+            dbusNetwork.ActivateAccessPoint(uuid, apInfo.Path, wirelessItem.devicePath)
         }
     }
 
@@ -86,7 +86,7 @@ Item {
     function doGotoAddWirelessConnection(page) {
         stackView.push({
             "item": stackViewPages[page],
-            "properties": { "connectionSession": createConnectionForAccessPoint(apPath, wirelessItem.devicePath)},
+            "properties": { "connectionSession": createConnectionForAccessPoint(apInfo.Path, wirelessItem.devicePath)},
             "destroyOnPop": true
         })
         stackView.currentItemId = page
@@ -114,7 +114,7 @@ Item {
 
             onClicked: {
                 if(!apConnected){
-                    print("==> activate connection", apPath)
+                    print("==> activate connection", apInfo.Path)
                     activateWirelessConnection()
                 }
                 else{
@@ -143,7 +143,7 @@ Item {
             WaitingImage {
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
-                on: activeAp == apPath && deviceState >= nmDeviceStatePrepare && deviceState <= nmDeviceStateSecondaries
+                on: activeAp == apInfo.Path && deviceState >= nmDeviceStatePrepare && deviceState <= nmDeviceStateSecondaries
             }
 
             DLabel {
@@ -151,7 +151,7 @@ Item {
                 anchors.leftMargin: 24
                 anchors.verticalCenter: parent.verticalCenter
                 verticalAlignment: Text.AlignVCenter
-                text: apName
+                text: apInfo.Ssid
                 font.pixelSize: 12
                 color: {
                     if(wirelessLine.selected){
@@ -174,8 +174,8 @@ Item {
 
             Image {
                 source: {
-                    var power = apSignal
-                    var secure = apSecured ? "-secure": ""
+                    var power = apInfo.Strength
+                    var secure = apInfo.Secured ? "-secure": ""
                     var imageNumber = 100
 
                     if (power <= 5){
@@ -212,6 +212,6 @@ Item {
         anchors.topMargin: 0 - arrowHeight
         uuid: wirelessItem.uuid
         path: wirelessItem.connectionPath
-        prefixCondition: activeAp == apPath
+        prefixCondition: activeAp == apInfo.Path
     }
 }

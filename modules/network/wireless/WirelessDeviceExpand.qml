@@ -27,17 +27,17 @@ DBaseExpand {
         function getIndexByApPath(path){
             for(var i=0; i<count; i++){
                 var obj = get(i)
-                if(obj.apPath == path){
+                if(obj.apInfo.Path == path){
                     return i
                 }
             }
             return -1
         }
 
-        function getInsertPosition(apObj){
+        function getInsertPosition(apInfo){
             for(var i=0; i<count; i++){
                 var obj = get(i)
-                if(apObj.Path != obj.apPath && apObj.Strength >= obj.apSignal){
+                if(apInfo.Path != obj.apInfo.Path && apInfo.Strength >= obj.apInfo.Strength){
                     return i
                 }
             }
@@ -50,17 +50,11 @@ DBaseExpand {
         onAccessPointAdded:{
             if(arg0 == devicePath){
                 // print("onAccessPointAdded:", arg0, arg1) // TODO test
-                var apObj = unmarshalJSON(arg1)
-                var index = accessPointsModel.getIndexByApPath(apObj.Path)
+                var apInfo = unmarshalJSON(arg1)
+                var index = accessPointsModel.getIndexByApPath(apInfo.Path)
                 if(index == -1){
-                    var insertPosition = accessPointsModel.getInsertPosition(apObj)
-                    accessPointsModel.insert(insertPosition, {
-                        "apName": apObj.Ssid,
-                        "apSecured": apObj.Secured,
-                        "apSecuredInEap": apObj.SecuredInEap,
-                        "apSignal": apObj.Strength,
-                        "apPath": apObj.Path
-                    })
+                    var insertPosition = accessPointsModel.getInsertPosition(apInfo)
+                    accessPointsModel.insert(insertPosition, {"apInfo": apInfo})
                 }
             }
         }
@@ -68,8 +62,8 @@ DBaseExpand {
         onAccessPointRemoved:{
             if(arg0 == devicePath){
                 // print("onAccessPointRemoved:", arg0, arg1) // TODO test
-                var apObj = unmarshalJSON(arg1)
-                var index = accessPointsModel.getIndexByApPath(apObj.Path)
+                var apInfo = unmarshalJSON(arg1)
+                var index = accessPointsModel.getIndexByApPath(apInfo.Path)
                 if(index != -1){
                     accessPointsModel.remove(index, 1)
                 }
@@ -78,15 +72,11 @@ DBaseExpand {
 
         onAccessPointPropertiesChanged: {
             if(arg0 == devicePath){
-                var apObj = unmarshalJSON(arg1)
-                var index = accessPointsModel.getIndexByApPath(apObj.Path)
+                var apInfo = unmarshalJSON(arg1)
+                var index = accessPointsModel.getIndexByApPath(apInfo.Path)
                 if (index != -1){
                     var apModelObj = accessPointsModel.get(index)
-                    apModelObj.apName = apObj.Ssid
-                    apModelObj.apSecured = apObj.Secured
-                    apModelObj.apSecuredInEap = apObj.SecuredInEap
-                    apModelObj.apSignal = apObj.Strength
-                    apModelObj.apPath = apObj.Path
+                    apModelObj.apInfo = apInfo
                 }
             }
         }
@@ -250,14 +240,8 @@ DBaseExpand {
 
             for(var i in accessPoints){
                 // TODO ap
-                var apObj = accessPoints[i]
-                accessPointsModel.append({
-                    "apName": apObj.Ssid,
-                    "apSecured": apObj.Secured,
-                    "apSecuredInEap": apObj.SecuredInEap,
-                    "apSignal": apObj.Strength,
-                    "apPath": apObj.Path
-                })
+                var apInfo = accessPoints[i]
+                accessPointsModel.append({"apInfo": apInfo})
             }
             wirelessDevicesExpand.sortModel()
             sortModelTimer.start()
@@ -291,7 +275,7 @@ DBaseExpand {
         for (n=0; n < accessPointsModel.count; n++){
             for (i=n+1; i < accessPointsModel.count; i++)
             {
-                if (accessPointsModel.get(n).apSignal < accessPointsModel.get(i).apSignal)
+                if (accessPointsModel.get(n).apInfo.Strength < accessPointsModel.get(i).apSignal)
                 {
                     accessPointsModel.move(i, n, 1);
                     n=0; // Repeat at start since I can't swap items i and n
