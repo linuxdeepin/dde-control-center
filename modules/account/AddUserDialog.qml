@@ -54,7 +54,7 @@ Rectangle {
 
         DBaseLine {
             leftLoader.sourceComponent: DssH1 {
-                text: "Add User"
+                text: dsTr("Add User")
                 color: "#19A9F9"
             }
         }
@@ -82,7 +82,7 @@ Rectangle {
                 id: name_column
 
                 DssH2 {
-                    text: user_name_input.text || "new user"
+                    text: user_name_input.text || dsTr("New User")
                 }
 
                 DssH3 {
@@ -103,7 +103,7 @@ Rectangle {
             color: "transparent"
 
             DLabel {
-                text: "User name"
+                text: dsTr("User Name")
                 font.pixelSize: 12
 
                 anchors.left: parent.left
@@ -130,7 +130,7 @@ Rectangle {
             color: "transparent"
 
             DLabel {
-                text: "Password"
+                text: dsTr("Password")
                 font.pixelSize: 12
 
                 anchors.left: parent.left
@@ -158,7 +158,7 @@ Rectangle {
             color: "transparent"
 
             DLabel {
-                text: "Repeat Password"
+                text: dsTr("Repeat Password")
                 font.pixelSize: 12
 
                 anchors.left: parent.left
@@ -184,7 +184,7 @@ Rectangle {
             color: "transparent"
 
             DLabel {
-                text: "Show Password"
+                text: dsTr("Show Password")
                 font.pixelSize: 12
 
                 anchors.left: parent.left
@@ -218,7 +218,7 @@ Rectangle {
             color: "transparent"
 
             DLabel {
-                text: "User Group"
+                text: dsTr("Account Type")
                 font.pixelSize: 12
 
                 anchors.left: parent.left
@@ -250,7 +250,7 @@ Rectangle {
             color: "transparent"
 
             DLabel {
-                text: "Auto-login"
+                text: dsTr("Auto-login")
                 font.pixelSize: 12
 
                 anchors.left: parent.left
@@ -301,7 +301,7 @@ Rectangle {
 
             DTextButton {
                 id: cancel_button
-                text: "Cancel"
+                text: dsTr("Cancel")
 
                 anchors.right: confirm_button.left
                 anchors.rightMargin: 5
@@ -314,7 +314,7 @@ Rectangle {
 
             DTextButton {
                 id: confirm_button
-                text: "Confirm"
+                text: dsTr("Confirm")
 
                 anchors.right: parent.right
                 anchors.rightMargin: 15
