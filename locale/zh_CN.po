@@ -19,9 +19,8 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: ../modules/network/add/AddDsl.qml:11
-#, fuzzy
 msgid "New PPPoE Connection"
-msgstr "新PPPOE 连接"
+msgstr "新建 PPPOE 连接"
 
 #: ../modules/network/add/AddDsl.qml:25
 #: ../modules/network/add/AddMobile.qml:34
@@ -76,15 +75,13 @@ msgid "Password"
 msgstr "密码"
 
 #: ../modules/network/add/AddMobile.qml:20
-#, fuzzy
 msgid "New Mobile Connection"
-msgstr "新PPPOE 连接"
+msgstr ""
 
 #: ../modules/network/add/AddMobile.qml:47
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:24
-#, fuzzy
 msgid "Service Type"
-msgstr "设备类型"
+msgstr "服务类型"
 
 #: ../modules/network/add/AddMobile.qml:58
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:35
@@ -193,9 +190,8 @@ msgid "OpenVPN"
 msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:57
-#, fuzzy
 msgid "OpenConnect"
-msgstr "连接"
+msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:61
 msgid "VPNC"
@@ -370,9 +366,8 @@ msgid "Use MPPE"
 msgstr "使用微软点到点加密"
 
 #: ../modules/network/wireless/AddWireless.qml:8
-#, fuzzy
 msgid "Connect to wireless"
-msgstr "连接到隐藏网络"
+msgstr "连接到无线网络"
 
 #: ../modules/network/wireless/AddWireless.qml:33
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:24
@@ -1278,7 +1273,7 @@ msgstr " Wi-Fi网络所需的授权"
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network <font "
 "color=\"#0ff\">%1</font>"
-msgstr "连接Wi-Fi网络所需的密码或秘钥 <字体颜色=\"#0ff\">%1</字体>"
+msgstr "连接Wi-Fi网络所需的密码或秘钥 <font color=\"#0ff\">%1</font>"
 
 #: ../dock-applets/qml/WifiPasswordWindow.qml:139
 #: ../frame/views/WifiPasswordWindow.qml:130
