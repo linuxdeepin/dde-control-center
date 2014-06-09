@@ -21,7 +21,11 @@ DBaseExpand {
         }
     }
     onDeviceStateChanged: {
-        deviceEnabled = deviceState >= nmDeviceStateDisconnected
+        if (deviceState <= nmDeviceStateUnavailable) {
+            deviceEnabled = false
+        } else if (deviceState >= nmDeviceStatePrepare) {
+            deviceEnabled = true
+        }
     }
 
     ListModel {
@@ -186,7 +190,15 @@ DBaseExpand {
 
         rightLoader.sourceComponent: DSwitchButton{
             property var lastActiveUuid
-            checked: wirelessDevicesExpand.expanded
+            Connections {
+                target: wirelessDevicesExpand
+                onDeviceEnabledChanged: {
+                    checked = wirelessDevicesExpand.deviceEnabled
+                }
+            }
+            Component.onCompleted: {
+                checked = wirelessDevicesExpand.deviceEnabled
+            }
             onClicked: {
                 if (checked) {
                     // enable device
