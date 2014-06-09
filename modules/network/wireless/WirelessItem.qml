@@ -14,24 +14,32 @@ Item {
     property string deviceHwAddress: ""
     property int deviceState: nmDeviceStateUnknown
     property string activeAp: "/"
-    property bool apConnected: activeAp == masterApInfo.Path && deviceState == nmDeviceStateActivated
+    property bool apConnected: activeAp == masterApPath && deviceState == nmDeviceStateActivated
     property string connectionPath
     property string uuid
+    property string masterApSsid: masterApInfo.Ssid
+    property string masterApPath: masterApInfo.Path
+    property string masterApSecured: masterApInfo.Secured
+    property string masterApSecuredInEap: masterApInfo.SecuredInEap
+    property string masterApStrength: masterApInfo.Strength
 
     function updateMasterApInfoWhenActivatingAp() {
-        if (apInfos.count == 0) {
-            print("-> [warning] ap item apInfos is empty", masterApInfo.Uuid, masterApInfo.Path)
+        if (!apInfos) {
+            // wireless item is removed
             return
         }
-        var apInfo = apInfos.get(0)
+        if (apInfos.count == 0) {
+            print("-> [warning] wireless item apInfos is empty", masterApInfo.Uuid, masterApInfo.Path)
+            return
+        }
         for(var i=0; i<apInfos.count; i++){
             // use the actived child ap as master ap
             if(apInfos.get(i).Path == activeAp){
-                apInfo = apInfos.get(i)
-                break
+                print("-> updateMasterApInfoWhenActivatingAp", activeAp, apInfos.get(i).Ssid, true)
+                masterApInfo = apInfos.get(i)
+                return
             }
         }
-        masterApInfo = apInfo
     }
     
     Behavior on height {
@@ -58,7 +66,7 @@ Item {
         var tmpPath = ""
         var tmpUuid = ""
         for (var i in conns) {
-            if (masterApInfo.Ssid == conns[i].Ssid) {
+            if (masterApSsid == conns[i].Ssid) {
                 if (conns[i].HwAddress == "" || conns[i].HwAddress == deviceHwAddress) {
                     tmpPath = conns[i].Path
                     tmpUuid = conns[i].Uuid
@@ -71,7 +79,7 @@ Item {
     }
     
     function activateWirelessConnection(){
-        if (uuid == "" && masterApInfo.SecuredInEap) {
+        if (uuid == "" && masterApSecuredInEap) {
             // if access point under the security eap and there is
             // no valid connection for it, go to connection
             // property page and create connection session through
@@ -80,7 +88,7 @@ Item {
         } else {
             // connection for current access point exists, just activate it
             print("==> connectionPath", connectionPath)
-            dbusNetwork.ActivateAccessPoint(uuid, masterApInfo.Path, devicePath)
+            dbusNetwork.ActivateAccessPoint(uuid, masterApPath, devicePath)
         }
     }
 
@@ -106,7 +114,7 @@ Item {
     function doGotoAddWirelessConnection(page) {
         stackView.push({
             "item": stackViewPages[page],
-            "properties": { "connectionSession": createConnectionForAccessPoint(masterApInfo.Path, devicePath)},
+            "properties": { "connectionSession": createConnectionForAccessPoint(masterApPath, devicePath)},
             "destroyOnPop": true
         })
         stackView.currentItemId = page
@@ -134,7 +142,7 @@ Item {
 
             onClicked: {
                 if(!apConnected){
-                    print("==> activate connection", masterApInfo.Path)
+                    print("==> activate connection", masterApPath)
                     activateWirelessConnection()
                     // TODO show waiting image imediately
                     // wirelessLine.leftLoader.item.waitingImageOn = true
@@ -166,7 +174,7 @@ Item {
                 id: waitingImage
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
-                on: activeAp == masterApInfo.Path && deviceState >= nmDeviceStatePrepare && deviceState <= nmDeviceStateSecondaries
+                on: activeAp == masterApPath && deviceState >= nmDeviceStatePrepare && deviceState <= nmDeviceStateSecondaries
             }
 
             DLabel {
@@ -174,7 +182,7 @@ Item {
                 anchors.leftMargin: 24
                 anchors.verticalCenter: parent.verticalCenter
                 verticalAlignment: Text.AlignVCenter
-                text: masterApInfo.Ssid
+                text: masterApSsid
                 font.pixelSize: 12
                 color: {
                     if(wirelessLine.selected){
@@ -197,8 +205,8 @@ Item {
 
             Image {
                 source: {
-                    var power = masterApInfo.Strength
-                    var secure = masterApInfo.Secured ? "-secure": ""
+                    var power = masterApStrength
+                    var secure = masterApSecured ? "-secure": ""
                     var imageNumber = 100
 
                     if (power <= 5){
@@ -235,6 +243,6 @@ Item {
         anchors.topMargin: 0 - arrowHeight
         uuid: wirelessItem.uuid
         path: wirelessItem.connectionPath
-        prefixCondition: activeAp == masterApInfo.Path
+        prefixCondition: activeAp == masterApPath
     }
 }

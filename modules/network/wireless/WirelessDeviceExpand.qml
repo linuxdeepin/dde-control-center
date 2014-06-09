@@ -100,7 +100,7 @@ DBaseExpand {
         }
 
         function removeApItem(index, apInfo) {
-            // print("-> removeApItem", index, apInfo.Ssid, apInfo.Path) // TODO test
+            print("-> removeApItem", index, apInfo.Ssid, apInfo.Path) // TODO test
             var item = get(index)
             for(var i=0; i<item.apInfos.count; i++){
                 if(item.apInfos.get(i).Path == apInfo.Path){
@@ -128,7 +128,7 @@ DBaseExpand {
                     apInfo = item.apInfos.get(i)
                     break
                 }
-                // or use the strengthest signal ap
+                // or use the ap with strengthest signal
                 if(item.apInfos.get(i).Strength > apInfo.Strength){
                     apInfo = item.apInfos.get(i)
                 }
