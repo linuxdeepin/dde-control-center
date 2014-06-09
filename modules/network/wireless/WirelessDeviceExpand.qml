@@ -27,11 +27,13 @@ DBaseExpand {
     ListModel {
         id: accessPointsModel
 
-        function getIndexByApPath(path){
+        function getIndexByPath(path){
             for(var i=0; i<count; i++){
-                var obj = get(i)
-                if(obj.apInfo.Path == path){
-                    return i
+                var item = get(i)
+                for(var j in item.apInfos){
+                    if(item.apInfos[j].Path == path){
+                        return i
+                    }
                 }
             }
             return -1
@@ -39,12 +41,78 @@ DBaseExpand {
 
         function getInsertPosition(apInfo){
             for(var i=0; i<count; i++){
-                var obj = get(i)
-                if(apInfo.Path != obj.apInfo.Path && apInfo.Strength >= obj.apInfo.Strength){
+                var item = get(i)
+                if(apInfo.Strength >= item.masterApInfo.Strength) {
                     return i
                 }
             }
             return count
+        }
+
+        function addOrUpdateApItem(apInfo){
+            var index = getIndexByPath(apInfo.Path)
+            if(index == -1){
+                addApItem(apInfo)
+            }
+            else{
+                updateApItem(index, apInfo)
+            }
+        }
+
+        function addApItem(apInfo){
+            print("-> addApItem", apInfo.Ssid, apInfo.Path)
+            var insertPosition = getInsertPosition(apInfo)
+            var apInfos = []
+            apInfos.push(apInfo)
+            // insert(insertPosition, {"apInfos": [apInfo]}) // TODO
+            insert(insertPosition, {"apInfos": apInfos}) // TODO
+            updateItemMasterApInfo(insertPosition)
+        }
+
+        function updateApItem(index, apInfo){
+            print("-> updateApItem", apInfo.Ssid, apInfo.Path)
+            var item = get(index)
+            for(var i in item.apInfos){
+                if(item.apInfos[i].Path == apInfo.Path){
+                    item.apInfos[i] = apInfo
+                }
+            }
+            updateItemMasterApInfo(index)
+        }
+
+        function removeApItem(index, apInfo) {
+            print("-> removeApItem", apInfo.Ssid, apInfo.Path)
+            var item = get(index)
+            for(var i in item.apInfos){
+                if(item.apInfos[i].Path == apInfo.Path){
+                    // TODO
+                    item.apInfos.splice(i, 1)
+                    break
+                }
+            }
+            if(item.apInfos.length == 0){
+                remove(index, 1)
+            } else {
+                updateItemMasterApInfo(index)
+            }
+        }
+
+        function updateItemMasterApInfo(index) {
+            var item = get(index)
+            var apInfo = item.apInfos[0]
+            for (var i in item.apInfos) {
+                // TODO test
+                // print("<<<<", item.apInfos[i].Ssid, item.apInfos[i].Path)
+                print("<<<<", i, item, item.apInfos, item.apInfos.length)
+                if (item.apInfos[i].Path == activeAp) {
+                    apInfo = item.apInfos[i]
+                    break
+                }
+                if (item.apInfos[i].Strength > apInfo.Strength) {
+                    apInfo = item.apInfos[i]
+                }
+            }
+            item.masterApInfo = apInfo
         }
     }
 
@@ -54,11 +122,7 @@ DBaseExpand {
             if(arg0 == devicePath){
                 // print("onAccessPointAdded:", arg0, arg1) // TODO test
                 var apInfo = unmarshalJSON(arg1)
-                var index = accessPointsModel.getIndexByApPath(apInfo.Path)
-                if(index == -1){
-                    var insertPosition = accessPointsModel.getInsertPosition(apInfo)
-                    accessPointsModel.insert(insertPosition, {"apInfo": apInfo})
-                }
+                accessPointsModel.addOrUpdateApItem(apInfo)
             }
         }
 
@@ -66,9 +130,9 @@ DBaseExpand {
             if(arg0 == devicePath){
                 // print("onAccessPointRemoved:", arg0, arg1) // TODO test
                 var apInfo = unmarshalJSON(arg1)
-                var index = accessPointsModel.getIndexByApPath(apInfo.Path)
+                var index = accessPointsModel.getIndexByPath(apInfo.Path)
                 if(index != -1){
-                    accessPointsModel.remove(index, 1)
+                    accessPointsModel.removeApItem(index, apInfo)
                 }
             }
         }
@@ -76,11 +140,7 @@ DBaseExpand {
         onAccessPointPropertiesChanged: {
             if(arg0 == devicePath){
                 var apInfo = unmarshalJSON(arg1)
-                var index = accessPointsModel.getIndexByApPath(apInfo.Path)
-                if (index != -1){
-                    var apModelObj = accessPointsModel.get(index)
-                    apModelObj.apInfo = apInfo
-                }
+                accessPointsModel.addOrUpdateApItem(apInfo)
             }
         }
     }
@@ -245,9 +305,8 @@ DBaseExpand {
             accessPointsModel.clear()
 
             for(var i in accessPoints){
-                // TODO ap
                 var apInfo = accessPoints[i]
-                accessPointsModel.append({"apInfo": apInfo})
+                accessPointsModel.addOrUpdateApItem(apInfo)
             }
             wirelessDevicesExpand.sortModel()
             sortModelTimer.start()
@@ -274,6 +333,7 @@ DBaseExpand {
         stackView.currentItemId = page
     }
 
+    // TODO remove
     function sortModel()
     {
         var n;
@@ -281,7 +341,7 @@ DBaseExpand {
         for (n=0; n < accessPointsModel.count; n++){
             for (i=n+1; i < accessPointsModel.count; i++)
             {
-                if (accessPointsModel.get(n).apInfo.Strength < accessPointsModel.get(i).apSignal)
+                if (accessPointsModel.get(n).masterApInfo.Strength < accessPointsModel.get(i).masterApInfo.Strength)
                 {
                     accessPointsModel.move(i, n, 1);
                     n=0; // Repeat at start since I can't swap items i and n
