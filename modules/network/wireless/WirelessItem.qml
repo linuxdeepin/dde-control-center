@@ -18,34 +18,21 @@ Item {
     property string connectionPath
     property string uuid
 
-    // property var masterApInfo: masterApInfo
-    property var masterApInfo
-    function updateApInfos() {
-        var apInfo = apInfos[0]
-        for (var i in apInfos) {
-            if (apInfos[i].Path == activeAp) {
-                apInfo = apInfos[i]
+    function updateMasterApInfoWhenActivatingAp() {
+        if (apInfos.count == 0) {
+            print("-> [warning] ap item apInfos is empty", masterApInfo.Uuid, masterApInfo.Path)
+            return
+        }
+        var apInfo = apInfos.get(0)
+        for(var i=0; i<apInfos.count; i++){
+            // use the actived child ap as master ap
+            if(apInfos.get(i).Path == activeAp){
+                apInfo = apInfos.get(i)
                 break
-            }
-            if (apInfos[i].Strength > apInfo.Strength) {
-                apInfo = apInfos[i]
             }
         }
         masterApInfo = apInfo
     }
-    // property var masterApInfo: {
-        // var apInfo = apInfos[0]
-        // for (var i in apInfos) {
-        //     if (apInfos[i].Path == activeAp) {
-        //         apInfo = apInfos[i]
-        //         break
-        //     }
-        //     if (apInfos[i].Strength > apInfo.Strength) {
-        //         apInfo = apInfos[i]
-        //     }
-        // }
-        // return apInfo
-    // }
     
     Behavior on height {
         PropertyAnimation { duration: 100 }
@@ -60,6 +47,10 @@ Item {
 
     Component.onCompleted: {
         updateWirelessConnectionInfo()
+    }
+    
+    onActiveApChanged: {
+        updateMasterApInfoWhenActivatingAp()
     }
     
     function updateWirelessConnectionInfo() {
@@ -145,6 +136,8 @@ Item {
                 if(!apConnected){
                     print("==> activate connection", masterApInfo.Path)
                     activateWirelessConnection()
+                    // TODO show waiting image imediately
+                    // wirelessLine.leftLoader.item.waitingImageOn = true
                 }
                 else{
                     print("==> edit connection", uuid)
@@ -157,7 +150,7 @@ Item {
         leftLoader.sourceComponent: Item {
             height: parent.height
             width: childrenRect.width
-
+            property alias waitingImageOn: waitingImage.on
             DImageButton {
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
@@ -170,6 +163,7 @@ Item {
             }
 
             WaitingImage {
+                id: waitingImage
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
                 on: activeAp == masterApInfo.Path && deviceState >= nmDeviceStatePrepare && deviceState <= nmDeviceStateSecondaries

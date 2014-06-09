@@ -26,12 +26,22 @@ DBaseExpand {
 
     ListModel {
         id: accessPointsModel
-
+        
+        function getIndexBySsid(ssid){
+            for(var i=0; i<count; i++){
+                var item = get(i)
+                if(item.masterApInfo.Ssid == ssid){
+                    return i
+                }
+            }
+            return -1
+        }
+        
         function getIndexByPath(path){
             for(var i=0; i<count; i++){
                 var item = get(i)
-                for(var j in item.apInfos){
-                    if(item.apInfos[j].Path == path){
+                for(var j=0; j<item.apInfos.count; j++){
+                    if(item.apInfos.get(j).Path == path){
                         return i
                     }
                 }
@@ -40,9 +50,11 @@ DBaseExpand {
         }
 
         function getInsertPosition(apInfo){
+            // check if access point with same ssid already exists
+            var index = getIndexBySsid(apInfo.Ssid)
             for(var i=0; i<count; i++){
                 var item = get(i)
-                if(apInfo.Strength >= item.masterApInfo.Strength) {
+                if(apInfo.Strength >= item.masterApInfo.Strength){
                     return i
                 }
             }
@@ -50,7 +62,8 @@ DBaseExpand {
         }
 
         function addOrUpdateApItem(apInfo){
-            var index = getIndexByPath(apInfo.Path)
+            // print("-> addOrUpdateApItem", apInfo.Ssid, apInfo.Path) // TODO test
+            var index = getIndexBySsid(apInfo.Ssid)
             if(index == -1){
                 addApItem(apInfo)
             }
@@ -60,37 +73,42 @@ DBaseExpand {
         }
 
         function addApItem(apInfo){
-            print("-> addApItem", apInfo.Ssid, apInfo.Path)
             var insertPosition = getInsertPosition(apInfo)
-            var apInfos = []
-            apInfos.push(apInfo)
-            // insert(insertPosition, {"apInfos": [apInfo]}) // TODO
-            insert(insertPosition, {"apInfos": apInfos}) // TODO
-            updateItemMasterApInfo(insertPosition)
+            // print("-> addApItem", insertPosition, apInfo.Ssid, apInfo.Path) // TODO test
+            insert(insertPosition, {"masterApInfo": apInfo, "apInfos": [apInfo]})
         }
 
         function updateApItem(index, apInfo){
-            print("-> updateApItem", apInfo.Ssid, apInfo.Path)
+            // print("-> updateApItem", index, apInfo.Ssid, apInfo.Path) // TODO test
+            
+            // check if ap already exists as a child, if is just
+            // update it, or append it to apInfos
             var item = get(index)
-            for(var i in item.apInfos){
-                if(item.apInfos[i].Path == apInfo.Path){
-                    item.apInfos[i] = apInfo
+            var childApIndex = -1
+            for(var i=0; i<item.apInfos.count; i++){
+                if(item.apInfos.get(i).Path == apInfo.Path){
+                    childApIndex = i
+                    break
                 }
+            }
+            if (childApIndex != -1) {
+                item.apInfos.set(i, apInfo)
+            } else {
+                item.apInfos.append(apInfo)
             }
             updateItemMasterApInfo(index)
         }
 
         function removeApItem(index, apInfo) {
-            print("-> removeApItem", apInfo.Ssid, apInfo.Path)
+            // print("-> removeApItem", index, apInfo.Ssid, apInfo.Path) // TODO test
             var item = get(index)
-            for(var i in item.apInfos){
-                if(item.apInfos[i].Path == apInfo.Path){
-                    // TODO
-                    item.apInfos.splice(i, 1)
+            for(var i=0; i<item.apInfos.count; i++){
+                if(item.apInfos.get(i).Path == apInfo.Path){
+                    item.apInfos.remove(i, 1)
                     break
                 }
             }
-            if(item.apInfos.length == 0){
+            if(item.apInfos.count == 0){
                 remove(index, 1)
             } else {
                 updateItemMasterApInfo(index)
@@ -99,17 +117,20 @@ DBaseExpand {
 
         function updateItemMasterApInfo(index) {
             var item = get(index)
-            var apInfo = item.apInfos[0]
-            for (var i in item.apInfos) {
-                // TODO test
-                // print("<<<<", item.apInfos[i].Ssid, item.apInfos[i].Path)
-                print("<<<<", i, item, item.apInfos, item.apInfos.length)
-                if (item.apInfos[i].Path == activeAp) {
-                    apInfo = item.apInfos[i]
+            if (item.apInfos.count == 0) {
+                print("-> [warning] ap item apInfos is empty when update index", index)
+                return
+            }
+            var apInfo = item.apInfos.get(0)
+            for(var i=0; i<item.apInfos.count; i++){
+                // use the actived child ap as master ap
+                if(item.apInfos.get(i).Path == activeAp){
+                    apInfo = item.apInfos.get(i)
                     break
                 }
-                if (item.apInfos[i].Strength > apInfo.Strength) {
-                    apInfo = item.apInfos[i]
+                // or use the strengthest signal ap
+                if(item.apInfos.get(i).Strength > apInfo.Strength){
+                    apInfo = item.apInfos.get(i)
                 }
             }
             item.masterApInfo = apInfo
@@ -286,7 +307,7 @@ DBaseExpand {
         }
     }
 
-    // TODO timer should be removed
+    // TODO
     Timer {
         id: sortModelTimer
         interval: 1000
@@ -296,17 +317,15 @@ DBaseExpand {
         }
     }
 
-    // TODO timer should be removed
+    // TODO
     Timer {
         id: scanTimer
         interval: 100
         onTriggered: {
             var accessPoints = unmarshalJSON(dbusNetwork.GetAccessPoints(devicePath))
             accessPointsModel.clear()
-
             for(var i in accessPoints){
-                var apInfo = accessPoints[i]
-                accessPointsModel.addOrUpdateApItem(apInfo)
+                accessPointsModel.addOrUpdateApItem(accessPoints[i])
             }
             wirelessDevicesExpand.sortModel()
             sortModelTimer.start()
@@ -333,7 +352,6 @@ DBaseExpand {
         stackView.currentItemId = page
     }
 
-    // TODO remove
     function sortModel()
     {
         var n;
@@ -341,7 +359,7 @@ DBaseExpand {
         for (n=0; n < accessPointsModel.count; n++){
             for (i=n+1; i < accessPointsModel.count; i++)
             {
-                if (accessPointsModel.get(n).masterApInfo.Strength < accessPointsModel.get(i).masterApInfo.Strength)
+                if (accessPointsModel.get(n).masterApInfo.Strength + 5 < accessPointsModel.get(i).masterApInfo.Strength)
                 {
                     accessPointsModel.move(i, n, 1);
                     n=0; // Repeat at start since I can't swap items i and n
