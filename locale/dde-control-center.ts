@@ -2,6 +2,71 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>AddDsl</name>
+    <message>
+        <source>New PPPoE Connection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Service</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AddMobile</name>
+    <message>
+        <source>New Mobile Connection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Service Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>APN</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AddSectionSave</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AddUserDialog</name>
     <message>
         <source>Standard</source>
@@ -9,6 +74,276 @@
     </message>
     <message>
         <source>Administrator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add User</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New User</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Repeat Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Account Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto-login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AddVpn</name>
+    <message>
+        <source>New VPN connection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>VPN type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>L2TP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PPTP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>OpenVPN</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>OpenConnect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>VPNC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Basic Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Need VPN Plugin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ask for Pwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Proxy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Allow Cisco Secure Desktop Trojan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>CSD Wrapper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uesr Cert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User FSID For Key Passphrase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auth Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Private Pwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Static Key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use Key Direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Key Direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remote IP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Local IP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Pwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Group Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Group Pwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use Hybrid Authentication</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>CA File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable IPsec</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Group ID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use MPPE</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AddWireless</name>
+    <message>
+        <source>Connect to wireless</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SSID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>EAP Auth</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Identity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anonymous ID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Provisioning</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PAC file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PEAP Version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Inner Auth</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ask for Pwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Private Pwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connect</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -31,6 +366,13 @@
     </message>
     <message>
         <source>Webcam</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>BaseConnectionEdit</name>
+    <message>
+        <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -79,10 +421,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>PPPOE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>VPN</source>
         <translation type="unfinished"></translation>
     </message>
@@ -92,6 +430,14 @@
     </message>
     <message>
         <source>Next</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PPPoE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mobile 2G/3G/4G-LTE</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -175,6 +521,13 @@
     </message>
 </context>
 <context>
+    <name>EditLineMissingPackage</name>
+    <message>
+        <source>Missing Pacakge</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>EditSectionEthernet</name>
     <message>
         <source>Ethernet</source>
@@ -204,15 +557,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Automatically connect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>All Users Could Connect</source>
+        <source>For All Users</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -285,10 +634,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Ask for Pwd</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
@@ -310,6 +655,10 @@
     </message>
     <message>
         <source>PIN</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Service Type</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -402,15 +751,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Use security</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>EAP Auth</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Anon Identity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -442,15 +783,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Username</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Ask for Pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Private Pwd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Security Required</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Identity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Anonymous ID</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -474,10 +823,6 @@
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Domain</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -558,6 +903,18 @@
     </message>
     <message>
         <source>CA File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>VPN Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Need VPN Plugin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>NT Domain</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -763,10 +1120,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Remote Cert</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Key File</source>
         <translation type="unfinished"></translation>
     </message>
@@ -776,6 +1129,10 @@
     </message>
     <message>
         <source>Key Direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remote Cert Type</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -853,10 +1210,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Encryption Method</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>NAT Traversal</source>
         <translation type="unfinished"></translation>
     </message>
@@ -865,15 +1218,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Perfect Forward Secrecy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Local Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Disable Dead Peer Detection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Encryption</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Forward Secrecy</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -961,33 +1318,6 @@
     <name>HeaderArea</name>
     <message>
         <source>Guest</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>HiddenAp</name>
-    <message>
-        <source>Connect to hidden access point</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>SSID</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Security</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Connect</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1189,64 +1519,6 @@
     </message>
 </context>
 <context>
-    <name>NewDslPage</name>
-    <message>
-        <source>New PPPOE Connection</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>NewVpnPage</name>
-    <message>
-        <source>New VPN connection</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>VPN type</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>L2TP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>PPTP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Basic Information</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>PanelContent</name>
     <message>
         <source>Power</source>
@@ -1344,64 +1616,6 @@
     <name>ShowPreviewButton</name>
     <message>
         <source>Preview theme</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SimpleL2tp</name>
-    <message>
-        <source>Name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Server</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Account</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>RSA SecurID</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enable MPPE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Secret key</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>SimplePptp</name>
-    <message>
-        <source>Name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Server</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Account</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>RSA SecurID</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Enable MPPE</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1556,6 +1770,14 @@
         <source>Create</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Security</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WifiPasswordWindow</name>
@@ -1625,6 +1847,10 @@
     </message>
     <message>
         <source>Create Access Point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connect to hidden access point</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

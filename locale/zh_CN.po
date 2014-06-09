@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-04 16:09+0800\n"
+"POT-Creation-Date: 2014-06-09 12:37+0800\n"
 "PO-Revision-Date: 2014-06-04 15:34+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Deepin <che>\n"
@@ -18,11 +18,212 @@ msgstr ""
 "X-Generator: Poedit 1.6.5\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
+#, fuzzy
+msgid "New PPPoE Connection"
+msgstr "新PPPOE 连接"
+
+msgid "Name"
+msgstr "名称"
+
+msgid "Username"
+msgstr "用户"
+
+msgid "Service"
+msgstr "服务"
+
+msgid "Password"
+msgstr "密码"
+
+#, fuzzy
+msgid "New Mobile Connection"
+msgstr "新PPPOE 连接"
+
+#, fuzzy
+msgid "Service Type"
+msgstr "设备类型"
+
+msgid "APN"
+msgstr ""
+
+msgid "Number"
+msgstr "数字"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Add"
+msgstr "添加"
+
 msgid "Standard"
 msgstr "标准"
 
 msgid "Administrator"
 msgstr "管理员"
+
+msgid "Add User"
+msgstr "新建用户"
+
+msgid "New User"
+msgstr "新用户"
+
+msgid "User Name"
+msgstr "用户名"
+
+msgid "Repeat Password"
+msgstr "重复密码"
+
+msgid "Show Password"
+msgstr "显示密码"
+
+msgid "Account Type"
+msgstr "账户类型"
+
+msgid "Auto-login"
+msgstr "自动登录"
+
+msgid "Confirm"
+msgstr "确认"
+
+msgid "New VPN connection"
+msgstr "新VPN 连接"
+
+msgid "VPN type"
+msgstr "VPN类型"
+
+msgid "L2TP"
+msgstr ""
+
+msgid "PPTP"
+msgstr ""
+
+msgid "OpenVPN"
+msgstr ""
+
+#, fuzzy
+msgid "OpenConnect"
+msgstr "连接"
+
+msgid "VPNC"
+msgstr ""
+
+msgid "Basic Information"
+msgstr "基本信息"
+
+msgid "Need VPN Plugin"
+msgstr ""
+
+msgid "Gateway"
+msgstr "网关"
+
+msgid "Ask for Pwd"
+msgstr "询问密码"
+
+msgid "CA Cert"
+msgstr "认证授权Cert"
+
+msgid "Proxy"
+msgstr "代理"
+
+msgid "Allow Cisco Secure Desktop Trojan"
+msgstr "允许齐思科安全桌面木马"
+
+msgid "CSD Wrapper"
+msgstr "电路切换数据通话外包"
+
+msgid "Uesr Cert"
+msgstr "用户Cert"
+
+msgid "Private Key"
+msgstr "秘钥"
+
+msgid "User FSID For Key Passphrase"
+msgstr "用户FSID私钥密语"
+
+msgid "Auth Type"
+msgstr "授权类型"
+
+msgid "User Cert"
+msgstr "用户Cert"
+
+msgid "Private Pwd"
+msgstr "密码"
+
+msgid "Static Key"
+msgstr "静态密码"
+
+msgid "Use Key Direction"
+msgstr "使用方向键"
+
+msgid "Key Direction"
+msgstr "方向键"
+
+msgid "Remote IP"
+msgstr "远程IP"
+
+msgid "Local IP"
+msgstr "本地IP"
+
+msgid "User Pwd"
+msgstr "用户密码"
+
+msgid "Group Name"
+msgstr "组名"
+
+msgid "Group Pwd"
+msgstr "公共密码"
+
+msgid "Use Hybrid Authentication"
+msgstr "用户混合授权"
+
+msgid "CA File"
+msgstr "认证授权文件"
+
+msgid "Enable IPsec"
+msgstr "启用IPsec"
+
+msgid "Group ID"
+msgstr "公用账号"
+
+msgid "Use MPPE"
+msgstr "使用微软点到点加密"
+
+#, fuzzy
+msgid "Connect to wireless"
+msgstr "连接到隐藏网络"
+
+msgid "SSID"
+msgstr ""
+
+msgid "Security"
+msgstr "安全"
+
+msgid "Key"
+msgstr "密码"
+
+msgid "EAP Auth"
+msgstr "EAP授权"
+
+#, fuzzy
+msgid "Identity"
+msgstr "识别"
+
+msgid "Anonymous ID"
+msgstr ""
+
+msgid "Provisioning"
+msgstr "设置"
+
+msgid "PAC file"
+msgstr "PAC文件"
+
+msgid "PEAP Version"
+msgstr "PEAP版本"
+
+msgid "Inner Auth"
+msgstr "内部授权"
+
+msgid "Connect"
+msgstr "连接"
 
 msgid "Choose a new picture for your account"
 msgstr "请选择一张图片作为您的头像"
@@ -63,17 +264,17 @@ msgstr "六"
 msgid "New Network"
 msgstr "新建网络"
 
-msgid "PPPOE"
-msgstr "拨号"
-
 msgid "VPN"
 msgstr ""
 
-msgid "Cancel"
-msgstr "取消"
-
 msgid "Next"
 msgstr "下一步"
+
+msgid "PPPoE"
+msgstr "拨号"
+
+msgid "Mobile 2G/3G/4G-LTE"
+msgstr ""
 
 msgid "Are you sure to delete this network?"
 msgstr "您确认要删除此网络吗？"
@@ -90,14 +291,8 @@ msgstr "关闭"
 msgid "Delete"
 msgstr "删除"
 
-msgid "Name"
-msgstr "名称"
-
 msgid "Command"
 msgstr "命令"
-
-msgid "Add"
-msgstr "添加"
 
 msgid "Keep user's files"
 msgstr "保留用户文件"
@@ -105,14 +300,14 @@ msgstr "保留用户文件"
 msgid "Delete user's files"
 msgstr "删除用户文件"
 
-msgid "Confirm"
-msgstr "确认"
-
 msgid "Unmount failed!"
 msgstr "卸载失败"
 
 msgid "PPPOE Connections"
 msgstr "拨号连接"
+
+msgid "Missing Pacakge"
+msgstr ""
 
 msgid "Ethernet"
 msgstr "本地连接"
@@ -135,8 +330,8 @@ msgstr "通用"
 msgid "Automatically connect"
 msgstr "自动连接"
 
-msgid "All Users Could Connect"
-msgstr "所有用户可以连接到此网络"
+msgid "For All Users"
+msgstr ""
 
 msgid "IPv4"
 msgstr "IPv4"
@@ -150,9 +345,6 @@ msgstr "IP 地址"
 msgid "Netmask"
 msgstr "子网掩码"
 
-msgid "Gateway"
-msgstr "网关"
-
 msgid "DNS Server"
 msgstr "DNS 服务器"
 
@@ -163,21 +355,6 @@ msgid "Prefix"
 msgstr ""
 
 msgid "Mobile"
-msgstr ""
-
-msgid "Number"
-msgstr "数字"
-
-msgid "Username"
-msgstr "用户"
-
-msgid "Ask for Pwd"
-msgstr "询问密码"
-
-msgid "Password"
-msgstr "密码"
-
-msgid "APN"
 msgstr ""
 
 msgid "Network ID"
@@ -210,9 +387,6 @@ msgstr "拒绝MSCHAP授权"
 msgid "Refuse MSCHAPv2 Authentication"
 msgstr "拒绝MSCHAPv2授权"
 
-msgid "Use MPPE"
-msgstr "使用微软点到点加密"
-
 msgid "128-bit MPPE"
 msgstr ""
 
@@ -231,110 +405,20 @@ msgstr "无TCP报头压缩"
 msgid "Send PPP Echo Packets"
 msgstr "发送PPP Echo数据包"
 
-msgid "PPPoE"
-msgstr "拨号"
-
-msgid "Service"
-msgstr "服务"
-
-msgid "Security"
+#, fuzzy
+msgid "Security Required"
 msgstr "安全"
 
-msgid "Key"
-msgstr "密码"
+#, fuzzy
+msgid "VPN Type"
+msgstr "VPN类型"
 
-msgid "Use security"
-msgstr "使用安全"
-
-msgid "EAP Auth"
-msgstr "EAP授权"
-
-msgid "Anon Identity"
-msgstr "立刻识别"
-
-msgid "User Cert"
-msgstr "用户Cert"
-
-msgid "CA Cert"
-msgstr "认证授权Cert"
-
-msgid "Provisioning"
-msgstr "设置"
-
-msgid "PAC file"
-msgstr "PAC文件"
-
-msgid "PEAP Version"
-msgstr "PEAP版本"
-
-msgid "Inner Auth"
-msgstr "内部授权"
-
-msgid "Private Key"
-msgstr "秘钥"
-
-msgid "Private Pwd"
-msgstr "密码"
-
-msgid "Domain"
+#, fuzzy
+msgid "NT Domain"
 msgstr "域名"
-
-msgid "Proxy"
-msgstr "代理"
-
-msgid "Allow Cisco Secure Desktop Trojan"
-msgstr "允许齐思科安全桌面木马"
-
-msgid "CSD Wrapper"
-msgstr "电路切换数据通话外包"
-
-msgid "Uesr Cert"
-msgstr "用户Cert"
-
-msgid "User FSID For Key Passphrase"
-msgstr "用户FSID私钥密语"
-
-msgid "Auth Type"
-msgstr "授权类型"
-
-msgid "Static Key"
-msgstr "静态密码"
-
-msgid "Use Key Direction"
-msgstr "使用方向键"
-
-msgid "Key Direction"
-msgstr "方向键"
-
-msgid "Remote IP"
-msgstr "远程IP"
-
-msgid "Local IP"
-msgstr "本地IP"
-
-msgid "User Pwd"
-msgstr "用户密码"
-
-msgid "Group Name"
-msgstr "组名"
-
-msgid "Group Pwd"
-msgstr "公共密码"
-
-msgid "Use Hybrid Authentication"
-msgstr "用户混合授权"
-
-msgid "CA File"
-msgstr "认证授权文件"
 
 msgid "VPN IPsec"
 msgstr ""
-
-msgid "Enable IPsec"
-msgstr "启用IPsec"
-
-msgid "Group ID"
-msgstr "公用账号"
 
 msgid "VPN PPP"
 msgstr ""
@@ -414,11 +498,15 @@ msgstr "VPN TLS 授权"
 msgid "Subject Match"
 msgstr "主题匹配"
 
-msgid "Remote Cert"
-msgstr "远程Cert"
-
 msgid "Key File"
 msgstr "秘钥文件"
+
+#, fuzzy
+msgid "Remote Cert Type"
+msgstr "远程Cert"
+
+msgid "Domain"
+msgstr "域名"
 
 msgid "Vendor"
 msgstr "供应商"
@@ -426,17 +514,11 @@ msgstr "供应商"
 msgid "Version"
 msgstr "系统版本"
 
-msgid "Encryption Method"
-msgstr "加密方法"
-
 msgid "NAT Traversal"
 msgstr "NAT穿越"
 
 msgid "IKE DH Group"
 msgstr "IKE DH组"
-
-msgid "Perfect Forward Secrecy"
-msgstr "完全正向保密"
 
 msgid "Local Port"
 msgstr "本地端口"
@@ -444,10 +526,15 @@ msgstr "本地端口"
 msgid "Disable Dead Peer Detection"
 msgstr ""
 
-msgid "Wi-Fi"
-msgstr ""
+#, fuzzy
+msgid "Encryption"
+msgstr "加密方法"
 
-msgid "SSID"
+#, fuzzy
+msgid "Forward Secrecy"
+msgstr "完全正向保密"
+
+msgid "Wi-Fi"
 msgstr ""
 
 msgid "Mode"
@@ -459,14 +546,8 @@ msgstr "波段"
 msgid "Channel"
 msgstr "通道"
 
-msgid "Auto-login"
-msgstr "自动登录"
-
 msgid "Enable User"
 msgstr "启用"
-
-msgid "Account Type"
-msgstr "账户类型"
 
 msgid "Size"
 msgstr "大小"
@@ -476,12 +557,6 @@ msgstr "来宾"
 
 msgid "Enabled"
 msgstr "启用"
-
-msgid "Connect to hidden access point"
-msgstr "连接到隐藏网络"
-
-msgid "Connect"
-msgstr "连接"
 
 msgid "Actived Connections"
 msgstr "激活的连接"
@@ -615,24 +690,6 @@ msgstr "分辨率"
 msgid "Rotation"
 msgstr "旋转"
 
-msgid "New PPPOE Connection"
-msgstr "新PPPOE 连接"
-
-msgid "New VPN connection"
-msgstr "新VPN 连接"
-
-msgid "VPN type"
-msgstr "VPN类型"
-
-msgid "L2TP"
-msgstr ""
-
-msgid "PPTP"
-msgstr ""
-
-msgid "Basic Information"
-msgstr "基本信息"
-
 msgid "Password: "
 msgstr "密码: "
 
@@ -673,21 +730,6 @@ msgstr "替换"
 
 msgid "Preview theme"
 msgstr "预览主题"
-
-msgid "Server"
-msgstr "服务器"
-
-msgid "Account"
-msgstr "账户"
-
-msgid "RSA SecurID"
-msgstr ""
-
-msgid "Enable MPPE"
-msgstr "启用MPPE"
-
-msgid "Secret key"
-msgstr "秘钥"
 
 msgid "Done"
 msgstr "完成"
@@ -767,9 +809,6 @@ msgstr "连接Wi-Fi网络所需的密码或秘钥 <字体颜色=\"#0ff\">%1</字
 msgid "Password:"
 msgstr "密码："
 
-msgid "Show Password"
-msgstr "显示密码"
-
 msgid "Wired Network"
 msgstr "有线网络"
 
@@ -795,6 +834,9 @@ msgstr "无线热点"
 
 msgid "Create Access Point"
 msgstr "创建无线热点"
+
+msgid "Connect to hidden access point"
+msgstr "连接到隐藏网络"
 
 msgid "January"
 msgstr "一月"
@@ -1156,6 +1198,30 @@ msgstr "_数字开关"
 msgid "Disable the touchpad when insert the mouse"
 msgstr "插入鼠标时禁用触摸板"
 
+#~ msgid "PPPOE"
+#~ msgstr "拨号"
+
+#~ msgid "All Users Could Connect"
+#~ msgstr "所有用户可以连接到此网络"
+
+#~ msgid "Use security"
+#~ msgstr "使用安全"
+
+#~ msgid "Anon Identity"
+#~ msgstr "立刻识别"
+
+#~ msgid "Server"
+#~ msgstr "服务器"
+
+#~ msgid "Account"
+#~ msgstr "账户"
+
+#~ msgid "Enable MPPE"
+#~ msgstr "启用MPPE"
+
+#~ msgid "Secret key"
+#~ msgstr "秘钥"
+
 #~ msgid "Startup Screen"
 #~ msgstr "开机画面"
 
@@ -1237,10 +1303,6 @@ msgstr "插入鼠标时禁用触摸板"
 
 #~ msgid "Security:"
 #~ msgstr "安全："
-
-#, fuzzy
-#~ msgid "Identity"
-#~ msgstr "识别"
 
 #, fuzzy
 #~ msgid "Private Password"

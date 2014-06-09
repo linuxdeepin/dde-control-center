@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-04 16:09+0800\n"
+"POT-Creation-Date: 2014-06-09 12:37+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,10 +17,205 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "New PPPoE Connection"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "Service"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "New Mobile Connection"
+msgstr ""
+
+msgid "Service Type"
+msgstr ""
+
+msgid "APN"
+msgstr ""
+
+msgid "Number"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Add"
+msgstr ""
+
 msgid "Standard"
 msgstr ""
 
 msgid "Administrator"
+msgstr ""
+
+msgid "Add User"
+msgstr ""
+
+msgid "New User"
+msgstr ""
+
+msgid "User Name"
+msgstr ""
+
+msgid "Repeat Password"
+msgstr ""
+
+msgid "Show Password"
+msgstr ""
+
+msgid "Account Type"
+msgstr ""
+
+msgid "Auto-login"
+msgstr ""
+
+msgid "Confirm"
+msgstr ""
+
+msgid "New VPN connection"
+msgstr ""
+
+msgid "VPN type"
+msgstr ""
+
+msgid "L2TP"
+msgstr ""
+
+msgid "PPTP"
+msgstr ""
+
+msgid "OpenVPN"
+msgstr ""
+
+msgid "OpenConnect"
+msgstr ""
+
+msgid "VPNC"
+msgstr ""
+
+msgid "Basic Information"
+msgstr ""
+
+msgid "Need VPN Plugin"
+msgstr ""
+
+msgid "Gateway"
+msgstr ""
+
+msgid "Ask for Pwd"
+msgstr ""
+
+msgid "CA Cert"
+msgstr ""
+
+msgid "Proxy"
+msgstr ""
+
+msgid "Allow Cisco Secure Desktop Trojan"
+msgstr ""
+
+msgid "CSD Wrapper"
+msgstr ""
+
+msgid "Uesr Cert"
+msgstr ""
+
+msgid "Private Key"
+msgstr ""
+
+msgid "User FSID For Key Passphrase"
+msgstr ""
+
+msgid "Auth Type"
+msgstr ""
+
+msgid "User Cert"
+msgstr ""
+
+msgid "Private Pwd"
+msgstr ""
+
+msgid "Static Key"
+msgstr ""
+
+msgid "Use Key Direction"
+msgstr ""
+
+msgid "Key Direction"
+msgstr ""
+
+msgid "Remote IP"
+msgstr ""
+
+msgid "Local IP"
+msgstr ""
+
+msgid "User Pwd"
+msgstr ""
+
+msgid "Group Name"
+msgstr ""
+
+msgid "Group Pwd"
+msgstr ""
+
+msgid "Use Hybrid Authentication"
+msgstr ""
+
+msgid "CA File"
+msgstr ""
+
+msgid "Enable IPsec"
+msgstr ""
+
+msgid "Group ID"
+msgstr ""
+
+msgid "Use MPPE"
+msgstr ""
+
+msgid "Connect to wireless"
+msgstr ""
+
+msgid "SSID"
+msgstr ""
+
+msgid "Security"
+msgstr ""
+
+msgid "Key"
+msgstr ""
+
+msgid "EAP Auth"
+msgstr ""
+
+msgid "Identity"
+msgstr ""
+
+msgid "Anonymous ID"
+msgstr ""
+
+msgid "Provisioning"
+msgstr ""
+
+msgid "PAC file"
+msgstr ""
+
+msgid "PEAP Version"
+msgstr ""
+
+msgid "Inner Auth"
+msgstr ""
+
+msgid "Connect"
 msgstr ""
 
 msgid "Choose a new picture for your account"
@@ -62,16 +257,16 @@ msgstr ""
 msgid "New Network"
 msgstr ""
 
-msgid "PPPOE"
-msgstr ""
-
 msgid "VPN"
 msgstr ""
 
-msgid "Cancel"
+msgid "Next"
 msgstr ""
 
-msgid "Next"
+msgid "PPPoE"
+msgstr ""
+
+msgid "Mobile 2G/3G/4G-LTE"
 msgstr ""
 
 msgid "Are you sure to delete this network?"
@@ -89,13 +284,7 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-msgid "Name"
-msgstr ""
-
 msgid "Command"
-msgstr ""
-
-msgid "Add"
 msgstr ""
 
 msgid "Keep user's files"
@@ -104,13 +293,13 @@ msgstr ""
 msgid "Delete user's files"
 msgstr ""
 
-msgid "Confirm"
-msgstr ""
-
 msgid "Unmount failed!"
 msgstr ""
 
 msgid "PPPOE Connections"
+msgstr ""
+
+msgid "Missing Pacakge"
 msgstr ""
 
 msgid "Ethernet"
@@ -134,7 +323,7 @@ msgstr ""
 msgid "Automatically connect"
 msgstr ""
 
-msgid "All Users Could Connect"
+msgid "For All Users"
 msgstr ""
 
 msgid "IPv4"
@@ -149,9 +338,6 @@ msgstr ""
 msgid "Netmask"
 msgstr ""
 
-msgid "Gateway"
-msgstr ""
-
 msgid "DNS Server"
 msgstr ""
 
@@ -162,21 +348,6 @@ msgid "Prefix"
 msgstr ""
 
 msgid "Mobile"
-msgstr ""
-
-msgid "Number"
-msgstr ""
-
-msgid "Username"
-msgstr ""
-
-msgid "Ask for Pwd"
-msgstr ""
-
-msgid "Password"
-msgstr ""
-
-msgid "APN"
 msgstr ""
 
 msgid "Network ID"
@@ -209,9 +380,6 @@ msgstr ""
 msgid "Refuse MSCHAPv2 Authentication"
 msgstr ""
 
-msgid "Use MPPE"
-msgstr ""
-
 msgid "128-bit MPPE"
 msgstr ""
 
@@ -230,109 +398,16 @@ msgstr ""
 msgid "Send PPP Echo Packets"
 msgstr ""
 
-msgid "PPPoE"
+msgid "Security Required"
 msgstr ""
 
-msgid "Service"
+msgid "VPN Type"
 msgstr ""
 
-msgid "Security"
-msgstr ""
-
-msgid "Key"
-msgstr ""
-
-msgid "Use security"
-msgstr ""
-
-msgid "EAP Auth"
-msgstr ""
-
-msgid "Anon Identity"
-msgstr ""
-
-msgid "User Cert"
-msgstr ""
-
-msgid "CA Cert"
-msgstr ""
-
-msgid "Provisioning"
-msgstr ""
-
-msgid "PAC file"
-msgstr ""
-
-msgid "PEAP Version"
-msgstr ""
-
-msgid "Inner Auth"
-msgstr ""
-
-msgid "Private Key"
-msgstr ""
-
-msgid "Private Pwd"
-msgstr ""
-
-msgid "Domain"
-msgstr ""
-
-msgid "Proxy"
-msgstr ""
-
-msgid "Allow Cisco Secure Desktop Trojan"
-msgstr ""
-
-msgid "CSD Wrapper"
-msgstr ""
-
-msgid "Uesr Cert"
-msgstr ""
-
-msgid "User FSID For Key Passphrase"
-msgstr ""
-
-msgid "Auth Type"
-msgstr ""
-
-msgid "Static Key"
-msgstr ""
-
-msgid "Use Key Direction"
-msgstr ""
-
-msgid "Key Direction"
-msgstr ""
-
-msgid "Remote IP"
-msgstr ""
-
-msgid "Local IP"
-msgstr ""
-
-msgid "User Pwd"
-msgstr ""
-
-msgid "Group Name"
-msgstr ""
-
-msgid "Group Pwd"
-msgstr ""
-
-msgid "Use Hybrid Authentication"
-msgstr ""
-
-msgid "CA File"
+msgid "NT Domain"
 msgstr ""
 
 msgid "VPN IPsec"
-msgstr ""
-
-msgid "Enable IPsec"
-msgstr ""
-
-msgid "Group ID"
 msgstr ""
 
 msgid "VPN PPP"
@@ -413,10 +488,13 @@ msgstr ""
 msgid "Subject Match"
 msgstr ""
 
-msgid "Remote Cert"
+msgid "Key File"
 msgstr ""
 
-msgid "Key File"
+msgid "Remote Cert Type"
+msgstr ""
+
+msgid "Domain"
 msgstr ""
 
 msgid "Vendor"
@@ -425,16 +503,10 @@ msgstr ""
 msgid "Version"
 msgstr ""
 
-msgid "Encryption Method"
-msgstr ""
-
 msgid "NAT Traversal"
 msgstr ""
 
 msgid "IKE DH Group"
-msgstr ""
-
-msgid "Perfect Forward Secrecy"
 msgstr ""
 
 msgid "Local Port"
@@ -443,10 +515,13 @@ msgstr ""
 msgid "Disable Dead Peer Detection"
 msgstr ""
 
-msgid "Wi-Fi"
+msgid "Encryption"
 msgstr ""
 
-msgid "SSID"
+msgid "Forward Secrecy"
+msgstr ""
+
+msgid "Wi-Fi"
 msgstr ""
 
 msgid "Mode"
@@ -458,13 +533,7 @@ msgstr ""
 msgid "Channel"
 msgstr ""
 
-msgid "Auto-login"
-msgstr ""
-
 msgid "Enable User"
-msgstr ""
-
-msgid "Account Type"
 msgstr ""
 
 msgid "Size"
@@ -474,12 +543,6 @@ msgid "Guest"
 msgstr ""
 
 msgid "Enabled"
-msgstr ""
-
-msgid "Connect to hidden access point"
-msgstr ""
-
-msgid "Connect"
 msgstr ""
 
 msgid "Actived Connections"
@@ -614,24 +677,6 @@ msgstr ""
 msgid "Rotation"
 msgstr ""
 
-msgid "New PPPOE Connection"
-msgstr ""
-
-msgid "New VPN connection"
-msgstr ""
-
-msgid "VPN type"
-msgstr ""
-
-msgid "L2TP"
-msgstr ""
-
-msgid "PPTP"
-msgstr ""
-
-msgid "Basic Information"
-msgstr ""
-
 msgid "Password: "
 msgstr ""
 
@@ -671,21 +716,6 @@ msgid "Replace"
 msgstr ""
 
 msgid "Preview theme"
-msgstr ""
-
-msgid "Server"
-msgstr ""
-
-msgid "Account"
-msgstr ""
-
-msgid "RSA SecurID"
-msgstr ""
-
-msgid "Enable MPPE"
-msgstr ""
-
-msgid "Secret key"
 msgstr ""
 
 msgid "Done"
@@ -766,9 +796,6 @@ msgstr ""
 msgid "Password:"
 msgstr ""
 
-msgid "Show Password"
-msgstr ""
-
 msgid "Wired Network"
 msgstr ""
 
@@ -793,6 +820,9 @@ msgid "Hotspot "
 msgstr ""
 
 msgid "Create Access Point"
+msgstr ""
+
+msgid "Connect to hidden access point"
 msgstr ""
 
 msgid "January"
