@@ -1370,17 +1370,17 @@ msgstr "十二月"
 
 #: ../dock-applets/qml/date_time/main.qml:80
 msgid "_Switch to analog"
-msgstr "_模拟开关"
+msgstr "切换到模拟时钟(_S)"
 
 #: ../dock-applets/qml/date_time/main.qml:81
 msgid "_Switch to digital"
-msgstr "_数字开关"
+msgstr "切换到数字时间(_S)"
 
 #: ../dock-applets/qml/date_time/main.qml:107
 #: ../dock-applets/qml/power/main.qml:99
 #: ../dock-applets/qml/sound/main.qml:152
 msgid "_Run"
-msgstr "­_运行"
+msgstr "­运行(_R)"
 
 #: ../dock-applets/qml/power/main.qml:34
 msgid "On Charging"
@@ -1410,7 +1410,7 @@ msgstr "高性能"
 #: ../dock-applets/qml/power/main.qml:106
 #: ../dock-applets/qml/sound/main.qml:153
 msgid "_Undock"
-msgstr "_断开"
+msgstr "移除(_U)"
 
 #: ../dock-applets/qml/sound/main.qml:188
 msgid "Device"

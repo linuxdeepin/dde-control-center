@@ -179,8 +179,8 @@ DockApplet{
 
     menu: Menu {
         Component.onCompleted: {
-            addItem("_Run", showNetwork);
-            addItem("_Undock", hideNetwork);
+            addItem(dsTr("_Run"), showNetwork);
+            addItem(dsTr("_Undock"), hideNetwork);
         }
     }
 
