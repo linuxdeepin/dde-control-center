@@ -15,7 +15,7 @@ DBaseExpand {
     expanded: deviceEnabled
 
     Component.onCompleted: {
-        deviceEnabled = deviceState >= nmDeviceStateDisconnected
+        deviceEnabled = deviceState > nmDeviceStateDisconnected
         if(!scanTimer.running){
             scanTimer.start()
         }
