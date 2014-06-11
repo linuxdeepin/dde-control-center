@@ -114,11 +114,7 @@ Item {
         Column {
             id: normalSettings
             width: parent.width
-            height: myRealHeight
             x: 0
-            /* y: link_button_column.isAdvanced ? titleColumn.height - myRealHeight : titleColumn.height */
-            property int myRealHeight: childrenRect.height
-            clip: true
 
             Behavior on y{
                 PropertyAnimation {duration: 200}
@@ -145,7 +141,7 @@ Item {
                 id: outputColumn
                 width: parent.width
                 height: currentSink.mute ? 0 : childrenRect.height
-                clip: true
+                visible: height != 0
 
                 Behavior on height {
                     NumberAnimation { duration: 100 }
@@ -281,11 +277,11 @@ Item {
                 id: inputColumn
                 width: parent.width
                 height: currentSource.mute ? 0 : childrenRect.height
+                visible: height != 0
 
                 Behavior on height {
                     NumberAnimation { duration: 100 }
                 }
-
 
                 DBaseLine {
                     height: contentHeight
