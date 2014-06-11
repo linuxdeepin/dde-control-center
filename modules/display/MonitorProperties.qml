@@ -202,7 +202,7 @@ Item {
 
                 DBaseLine {
                     leftLoader.sourceComponent: DssH2 {
-                        text: "Brightness"
+                        text: dsTr("Brightness")
                     }
 
                     rightLoader.sourceComponent: DSliderEnhanced {

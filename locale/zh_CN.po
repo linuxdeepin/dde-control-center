@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-09 14:43+0800\n"
+"POT-Creation-Date: 2014-06-11 10:23+0800\n"
 "PO-Revision-Date: 2014-06-04 15:34+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Deepin <che>\n"
@@ -1103,6 +1103,10 @@ msgstr "分辨率"
 msgid "Rotation"
 msgstr "旋转"
 
+#: ../modules/display/MonitorProperties.qml:205
+msgid "Brightness"
+msgstr "亮度"
+
 #: ../modules/network/widgets/PasswordBox.qml:76
 msgid "Password: "
 msgstr "密码: "
@@ -1377,6 +1381,8 @@ msgid "_Switch to digital"
 msgstr "切换到数字时间(_S)"
 
 #: ../dock-applets/qml/date_time/main.qml:107
+#: ../dock-applets/qml/disk_mount/main.qml:52
+#: ../dock-applets/qml/network/main.qml:182
 #: ../dock-applets/qml/power/main.qml:99
 #: ../dock-applets/qml/sound/main.qml:152
 msgid "_Run"
@@ -1407,6 +1413,8 @@ msgstr "均衡"
 msgid "High performance"
 msgstr "高性能"
 
+#: ../dock-applets/qml/disk_mount/main.qml:53
+#: ../dock-applets/qml/network/main.qml:183
 #: ../dock-applets/qml/power/main.qml:106
 #: ../dock-applets/qml/sound/main.qml:153
 msgid "_Undock"

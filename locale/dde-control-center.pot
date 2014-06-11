@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-09 14:43+0800\n"
+"POT-Creation-Date: 2014-06-11 10:23+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1095,6 +1095,10 @@ msgstr ""
 msgid "Rotation"
 msgstr ""
 
+#: ../modules/display/MonitorProperties.qml:205
+msgid "Brightness"
+msgstr ""
+
 #: ../modules/network/widgets/PasswordBox.qml:76
 msgid "Password: "
 msgstr ""
@@ -1369,6 +1373,8 @@ msgid "_Switch to digital"
 msgstr ""
 
 #: ../dock-applets/qml/date_time/main.qml:107
+#: ../dock-applets/qml/disk_mount/main.qml:52
+#: ../dock-applets/qml/network/main.qml:182
 #: ../dock-applets/qml/power/main.qml:99
 #: ../dock-applets/qml/sound/main.qml:152
 msgid "_Run"
@@ -1399,6 +1405,8 @@ msgstr ""
 msgid "High performance"
 msgstr ""
 
+#: ../dock-applets/qml/disk_mount/main.qml:53
+#: ../dock-applets/qml/network/main.qml:183
 #: ../dock-applets/qml/power/main.qml:106
 #: ../dock-applets/qml/sound/main.qml:153
 msgid "_Undock"

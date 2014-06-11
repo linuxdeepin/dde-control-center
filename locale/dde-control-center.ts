@@ -1910,6 +1910,11 @@
         <source>Rotation</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../modules/display/MonitorProperties.qml" line="205"/>
+        <source>Brightness</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PanelContent</name>
@@ -2450,6 +2455,8 @@
     </message>
     <message>
         <location filename="../dock-applets/qml/date_time/main.qml" line="107"/>
+        <location filename="../dock-applets/qml/disk_mount/main.qml" line="52"/>
+        <location filename="../dock-applets/qml/network/main.qml" line="182"/>
         <location filename="../dock-applets/qml/power/main.qml" line="99"/>
         <location filename="../dock-applets/qml/sound/main.qml" line="152"/>
         <source>_Run</source>
@@ -2551,6 +2558,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../dock-applets/qml/disk_mount/main.qml" line="53"/>
+        <location filename="../dock-applets/qml/network/main.qml" line="183"/>
         <location filename="../dock-applets/qml/power/main.qml" line="106"/>
         <location filename="../dock-applets/qml/sound/main.qml" line="153"/>
         <source>_Undock</source>
