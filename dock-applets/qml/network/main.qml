@@ -89,16 +89,9 @@ DockApplet{
         "wifi": [25, 25]
     }
 
-    function updateState(type, show, enabled){
+    function updateState(type, show, imagePath){
         var index = subImageList.getTypeIndex(type)
         if(show){
-            var imagePath = "network/" + type + "_"
-            if(enabled){
-                imagePath += "on.png"
-            }
-            else{
-                imagePath += "off.png"
-            }
             if(index == -1){
                 subImageList.append({
                     "type": type,
@@ -119,10 +112,69 @@ DockApplet{
         }
     }
 
-    // vpn
     property var nmConnections: unmarshalJSON(dbusNetwork.connections)
+
+    // wifi
+    property var activeWirelessDevice: getActiveWirelessDevice()
+    onActiveWirelessDeviceChanged: {
+        if(activeWirelessDevice){
+            var allAp = JSON.parse(dbusNetwork.GetAccessPoints(activeWirelessDevice.Path))
+            for(var i in allAp){
+                var apInfo = allAp[i]
+                if(apInfo.Path == activeWirelessDevice.ActiveAp){
+                    updateWifiState(true, apInfo)
+                }
+            }
+        }
+        else{
+            if(!dbusNetwork.wirelessEnabled){
+                updateWifiState(false, null)
+            }
+            else {
+                updateWifiState(true, null)
+            }
+        }
+    }
+
+    Connections{
+        target: dbusNetwork
+        onAccessPointPropertiesChanged: {
+            if(arg0 == activeWirelessDevice.Path){
+                var apInfo = unmarshalJSON(arg1)
+                if(apInfo.Path == activeWirelessDevice.ActiveAp){
+                    updateWifiState(true, apInfo)
+                }
+            }
+        }
+    }
+
+    function updateWifiState(show, apInfo){
+        var image_id = 0
+        if(show){
+            if(!apInfo){
+                image_id = 0
+            }
+            else{
+                if(apInfo.Strength <= 25){
+                    image_id = 25
+                }
+                else if(apInfo.Strength <= 50){
+                    image_id = 50
+                }
+                else if(apInfo.Strength <= 75){
+                    image_id = 75
+                }
+                else if(apInfo.Strength <= 100){
+                    image_id = 100
+                }
+            }
+        }
+        var imagePath = "network/wifi_%1.png".arg(image_id)
+        updateState("wifi", show, imagePath)
+    }
+
+    // vpn
     property var vpnConnections: nmConnections["vpn"]
-    property var activeDevice: getActiveDevice()
     property int activeVpnIndex: {
         for(var i in activeConnections){
             if(activeConnections[i].Vpn){
@@ -135,12 +187,26 @@ DockApplet{
     onActiveVpnIndexChanged: {
         var vpnShow = vpnConnections ? vpnConnections.length > 0 : false
         var vpnEnabled = activeVpnIndex != -1
-        updateState("vpn", vpnShow, vpnEnabled)
+        var imagePath = "network/vpn_"
+        if(vpnEnabled){
+            imagePath += "on.png"
+        }
+        else{
+            imagePath += "off.png"
+        }
+        updateState("vpn", vpnShow, imagePath)
     }
     onVpnConnectionsChanged: {
         var vpnShow = vpnConnections ? vpnConnections.length > 0 : false
         var vpnEnabled = activeVpnIndex != -1
-        updateState("vpn", vpnShow, vpnEnabled)
+        var imagePath = "network/vpn_"
+        if(vpnEnabled){
+            imagePath += "on.png"
+        }
+        else{
+            imagePath += "off.png"
+        }
+        updateState("vpn", vpnShow, imagePath)
     }
 
     // bluetooth
@@ -150,12 +216,20 @@ DockApplet{
     onAdaptersChanged: {
         var show = adapters.length > 0
         var enabled = dbusBluetooth.powered ? dbusBluetooth.powered : false
-        updateState("bluetooth", show, enabled)
+        var imagePath = "network/bluetooth_"
+        if(enabled){
+            imagePath += "on.png"
+        }
+        else{
+            imagePath += "off.png"
+        }
+        updateState("bluetooth", show, imagePath)
     }
+
 
     property int xEdgePadding: 10
 
-    function getActiveDevice(){
+    function getActiveWirelessDevice(){
         for(var i in wirelessDevices){
             var info = wirelessDevices[i]
             if(info.ActiveAp != "/" && info.State == 100){
@@ -317,7 +391,14 @@ DockApplet{
                                 }
                                 var show = adapters.length > 0
                                 var enabled = dbusBluetooth.powered
-                                updateState("bluetooth", show, enabled)
+                                var imagePath = "network/bluetooth_"
+                                if(enabled){
+                                    imagePath += "on.png"
+                                }
+                                else{
+                                    imagePath += "off.png"
+                                }
+                                updateState("bluetooth", show, imagePath)
                             }
                         }
 
