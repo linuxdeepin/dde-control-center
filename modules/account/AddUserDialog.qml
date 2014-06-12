@@ -119,6 +119,11 @@ Rectangle {
                 anchors.right: parent.right
                 anchors.rightMargin: 15
                 anchors.verticalCenter: parent.verticalCenter
+                onTextChanged: {
+                    if(state=="warning"){
+                        state = "normal"
+                    }
+                }
             }
         }
 
@@ -147,6 +152,11 @@ Rectangle {
                 anchors.right: parent.right
                 anchors.rightMargin: 15
                 anchors.verticalCenter: parent.verticalCenter
+                onTextChanged: {
+                    if(state=="warning"){
+                        state = "normal"
+                    }
+                }
             }
         }
 
@@ -173,6 +183,11 @@ Rectangle {
                 anchors.right: parent.right
                 anchors.rightMargin: 15
                 anchors.verticalCenter: parent.verticalCenter
+                onTextChanged: {
+                    if(state=="warning"){
+                        state = "normal"
+                    }
+                }
             }
         }
 

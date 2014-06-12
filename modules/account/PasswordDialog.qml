@@ -116,6 +116,11 @@ Item {
                 anchors.right: parent.right
                 anchors.rightMargin: 15
                 anchors.verticalCenter: parent.verticalCenter
+                onTextChanged: {
+                    if(state=="warning"){
+                        state = "normal"
+                    }
+                }
             }
         }
 
@@ -133,6 +138,11 @@ Item {
                 anchors.left: parent.left
                 anchors.leftMargin: 15
                 anchors.verticalCenter: parent.verticalCenter
+                onTextChanged: {
+                    if(state=="warning"){
+                        state = "normal"
+                    }
+                }
             }
 
             DTextInput {
@@ -142,6 +152,11 @@ Item {
                 anchors.right: parent.right
                 anchors.rightMargin: 15
                 anchors.verticalCenter: parent.verticalCenter
+                onTextChanged: {
+                    if(state=="warning"){
+                        state = "normal"
+                    }
+                }
             }
         }
 

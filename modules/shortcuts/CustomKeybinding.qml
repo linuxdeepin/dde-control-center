@@ -120,6 +120,11 @@ Column {
                 content.sourceComponent: DTextInput{
                     activeFocusOnTab: true
                     width: addCustomShortcutBox.rightWidth
+                    onTextChanged: {
+                        if(state == "warning"){
+                            state = "normal"
+                        }
+                    }
                 }
             }
 
@@ -130,6 +135,11 @@ Column {
                 content.sourceComponent: DTextInput{
                     activeFocusOnTab: true
                     width: addCustomShortcutBox.rightWidth
+                    onTextChanged: {
+                        if(state == "warning"){
+                            state = "normal"
+                        }
+                    }
                 }
             }
 
@@ -146,8 +156,19 @@ Column {
                     DTextButton {
                         text: dsTr("Add")
                         onClicked: {
-                            customTitleLine.rightLoader.item.currentActionStateName = ""
-                            dbusKeyBinding.AddCustomShortcut(newShortcutName.content.item.text, newShortcutCommand.content.item.text, "")
+                            var ok = true
+                            if(newShortcutName.content.item.text == ""){
+                                newShortcutName.content.item.state = "warning"
+                                ok = false
+                            }
+                            if(newShortcutCommand.content.item.text == ""){
+                                newShortcutCommand.content.item.state = "warning"
+                                ok = false
+                            }
+                            if(ok){
+                                customTitleLine.rightLoader.item.currentActionStateName = ""
+                                dbusKeyBinding.AddCustomShortcut(newShortcutName.content.item.text, newShortcutCommand.content.item.text, "")
+                            }
                         }
                     }
                 }
