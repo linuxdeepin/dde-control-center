@@ -26,12 +26,6 @@ BaseEditLine{
         onFileChooseClicked: {
             fileChooseDialog.showWindow()
         }
-        Rectangle {
-            radius: 3
-            color: "transparent"
-            border.color: root.showError ? errorColor : normalBorderColor
-            anchors.fill: fileChooseInput
-        }
     }
     
     DFileChooseDialog {

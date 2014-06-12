@@ -16,12 +16,6 @@ BaseEditLine {
             onTextChanged: {
                 setKey(text)
             }
-            Rectangle {
-                radius: 3
-                color: "transparent"
-                border.color: root.showError ? errorColor : normalBorderColor
-                anchors.fill: textInput
-            }
         }
         DLabel {
             width: valueWidth

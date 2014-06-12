@@ -28,11 +28,5 @@ BaseEditLine {
                 setKey(parseInt(text))
             }
         }
-        Rectangle {
-            radius: 3
-            color: "transparent"
-            border.color: root.showError ? errorColor : normalBorderColor
-            anchors.fill: spinner
-        }
     }
 }
