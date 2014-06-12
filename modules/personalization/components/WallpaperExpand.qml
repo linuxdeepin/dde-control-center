@@ -41,13 +41,25 @@ MyBaseExpand {
             cellWidth: personalizationModule.cellWidth
             cellHeight: personalizationModule.cellHeight - 14
 
-            property string currentItemName: currentThemeObject.backgroundFile
+            property string currentItemName: currentThemeObject.background
 
             function selectItem(itemValue){
-                dbusThemeManager.SetBackgroundFile(itemValue)
+                dbusThemeManager.Set("background", "", itemValue)
             }
 
-            model: dbusThemeManager.backgroundList
+            model: {
+                //dbusThemeManager.backgroundList
+                var myModel = listModelComponent.createObject(wallpapperView, {})
+                var lists = dbusThemeManager.backgroundList
+                for(var i in lists){
+                    var name = lists[i]
+                    myModel.append({
+                        "item_img_url": dbusThemeManager.GetThumbnail("background", name),
+                        "item_value": name
+                    })
+                }
+                return myModel
+            }
 
             delegate: WallpapperItem {
                 width: cellWidth

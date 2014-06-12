@@ -41,7 +41,7 @@ MyBaseExpand {
             property string currentItemName: currentThemeObject.iconTheme
 
             function selectItem(itemValue){
-                dbusThemeManager.SetIconTheme(itemValue)
+                dbusThemeManager.Set("icon", "", itemValue)
             }
 
             model: {
@@ -50,7 +50,7 @@ MyBaseExpand {
                 for(var i in themes){
                     var theme_id = themes[i]
                     myModel.append({
-                        "item_img_url": dbusThumbPath.IconPath(theme_id),
+                        "item_img_url": dbusThemeManager.GetThumbnail("icon", theme_id),
                         "item_name": windowView.toHumanThemeName(theme_id),
                         "item_value": theme_id
                     })

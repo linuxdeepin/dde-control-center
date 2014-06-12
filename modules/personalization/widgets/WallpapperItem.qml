@@ -28,7 +28,7 @@ Item {
     id: themeItem
 
     property string selectedItemValue: ""
-    property string itemValue: dbusThemeManager.backgroundList[index]
+    property string itemValue: item_value
 
     property bool hovered: false
     property bool selected: selectedItemValue == itemValue
@@ -70,7 +70,7 @@ Item {
         Image {
             id: itemThumbnailImage
             anchors.centerIn: parent
-            source: itemValue
+            source: item_img_url
             width: parent.width - 2
             height: parent.height - 2
         }

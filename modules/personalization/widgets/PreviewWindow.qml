@@ -54,37 +54,7 @@ Window {
     }
 
     function getPreviewPictures() {
-        var pics = new Array()
-
-        if (themeObject.name == "Custom"){
-            var currentThemePreviewPath = themeObject.backgroundFile
-        }
-        else{
-            var currentThemePreviewPath = themeObject.previewPath
-        }
-        if(currentThemePreviewPath){
-            pics.push(currentThemePreviewPath)
-        }
-
-        var currenGtkTheme = themeObject.gtkTheme
-        var currenGtkThemePreviewPath = dbusPreviewPath.GtkPath(currenGtkTheme)
-        if(currenGtkThemePreviewPath){
-            pics.push(currenGtkThemePreviewPath)
-        }
-
-        var currentIconTheme = themeObject.iconTheme
-        var currentIconThemePreviewPath = dbusPreviewPath.IconPath(currentIconTheme)
-        if(currentIconThemePreviewPath){
-            pics.push(currentIconThemePreviewPath)
-        }
-
-        var currentCursorTheme = themeObject.cursorTheme
-        var currentCursorThemePreviewPath = dbusPreviewPath.CursorPath(currentCursorTheme)
-        if(currentCursorThemePreviewPath){
-            pics.push(currentCursorThemePreviewPath)
-        }
-
-        return pics
+        return themeObject.preview
     }
 
     function showWindow(themeObject){

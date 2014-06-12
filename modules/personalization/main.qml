@@ -23,7 +23,7 @@
 
 import QtQuick 2.1
 import Deepin.Widgets 1.0
-import DBus.Com.Deepin.Daemon.Themes 1.0
+import DBus.Com.Deepin.Daemon.ThemeManager 1.0
 import "components"
 import "widgets"
 
@@ -52,12 +52,23 @@ Item {
     property int activeExpandIndex: 0
 
     property var dbusThemeManager: ThemeManager{}
-    property var dbusThumbPath: ThumbPath{ path: "/com/deepin/daemon/ThemeManager" }
-    property var dbusPreviewPath: PreviewPath{ path: "/com/deepin/daemon/ThemeManager" }
+    property var themeObjectList: {
+        var themes = new Array()
+        var themeList = dbusThemeManager.themeList
+        for(var i in themeList){
+            var themeObj = themeComponent.createObject(personalizationModule, { path: themeList[i] })
+            themes.push(themeObj)
+        }
+        return themes
+    }
     property var currentThemeObject: {
-        var path = dbusThemeManager.GetThemeByName(dbusThemeManager.currentTheme)
-        var obj = themeComponent.createObject(personalizationModule, { path: path[0] })
-        return obj
+        for(var i in themeObjectList){
+            var obj = themeObjectList[i]
+            if(obj.name == dbusThemeManager.currentTheme){
+                return obj
+            }
+        }
+        return themeObjectList[0]
     }
 
     property var previewsWindow: PreviewWindow {

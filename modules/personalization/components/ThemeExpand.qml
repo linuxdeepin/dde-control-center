@@ -44,7 +44,7 @@ MyBaseExpand {
             property string currentItemName: dbusThemeManager.currentTheme
 
             function selectItem(itemValue){
-                dbusThemeManager.SetCurrentTheme(itemValue)
+                dbusThemeManager.Set("gtk", "", itemValue)
             }
 
             Connections{
@@ -55,20 +55,12 @@ MyBaseExpand {
             }
 
             function load_theme_list(){
-                var themeList = dbusThemeManager.themeList
                 themeView.model.clear()
-                for(var i in themeList){
-                    var themeObj = themeComponent.createObject(personalizationModule, { path: themeList[i] })
-
-                    if(themeObj.name == "Custom"){
-                        var thumbnailPath = themeObj.backgroundFile
-                    }
-                    else{
-                        var thumbnailPath = themeObj.thumbnailPath
-                    }
+                for(var i in themeObjectList){
+                    var themeObj = themeObjectList[i]
 
                     themeView.model.append({
-                        "item_img_url": thumbnailPath,
+                        "item_img_url": dbusThemeManager.GetThumbnail("theme", themeObj.name),
                         "item_name": themeObj.name,
                         "item_value": themeObj.name,
                         "themeObj": themeObj
