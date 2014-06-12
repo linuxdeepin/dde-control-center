@@ -102,7 +102,9 @@ DockApplet{
             }
             else{
                 var info = subImageList.get(index)
-                info.imagePath = imagePath
+                if(info.imagePath != imagePath){
+                    info.imagePath = imagePath
+                }
             }
         }
         else{

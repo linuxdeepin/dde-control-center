@@ -138,12 +138,11 @@ DockApplet{
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
                     visible: false
+                    property int fullYear: globalDate.getFullYear()
+                    property int month: globalDate.getMonth() + 1
+                    property int dateNumber: globalDate.getDate()
                     text: {
-                        var info = dbusLunarCalendar.GetLunarInfoBySolar(
-                            globalDate.getFullYear(),
-                            globalDate.getMonth() + 1,
-                            globalDate.getDate()
-                        )
+                        var info = dbusLunarCalendar.GetLunarInfoBySolar(fullYear, month, dateNumber)
                         return "农历" + info[0][3] + info[0][4]
                     }
                     Component.onCompleted: {
@@ -193,7 +192,16 @@ DockApplet{
                 delegate: DateItem {}
                 boundsBehavior: Flickable.StopAtBounds
                 focus: true
-                property var currentDateStr: ""
+                property var currentDateStr: CalendarCore.dateToString(globalDate)
+
+                property var lastCurrentDateStr: ""
+
+                onCurrentDateStrChanged: {
+                    if(lastCurrentDateStr != currentDateStr){
+                        lastCurrentDateStr = currentDateStr
+                        initDates(lastCurrentDateStr)
+                    }
+                }
 
                 function initDates(date_str) {
                     var dates = CalendarCore.getDates(date_str);
@@ -205,12 +213,6 @@ DockApplet{
                         }
                     }
                 }
-
-                Component.onCompleted: {
-                    currentDateStr = CalendarCore.dateToString(globalDate)
-                    initDates(currentDateStr)
-                }
-
             }
 
             Item {
