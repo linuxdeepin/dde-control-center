@@ -216,7 +216,6 @@ Rectangle {
                     Connections {
                         target: dbus_grub2_theme
                         onItemColorChanged: {
-                            print("changed..." + dbus_grub2_theme.itemColor)
                             normal_picker.selectColor(dbus_grub2_theme.itemColor)
                         }
                     }
@@ -250,7 +249,6 @@ Rectangle {
                     Connections {
                         target: dbus_grub2_theme
                         onItemColorChanged: {
-                            print("changed..." + dbus_grub2_theme.selectedItemColor)
                             selected_picker.selectColor(dbus_grub2_theme.selectedItemColor)
                         }
                     }

@@ -1,6 +1,7 @@
 import QtQuick 2.1
 import DBus.Com.Deepin.Daemon.Grub2 1.0
 import DBus.Com.Deepin.Daemon.Display 1.0
+import Deepin.Widgets 1.0
 
 Item {
     id: root
@@ -118,12 +119,22 @@ Item {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
 
-        Text {
+        DssH2{
             id: txt
-            color: "white"
-            text: dsTr("Drag and drop an image to change background.")
-
             anchors.centerIn: parent
+            color: "white"
+            text: normalText
+            property string normalText: dsTr("Drag and drop an image to change background.")
+            property string changingText: dsTr("Background is changing, please reboot later...")
+            property string changedText: dsTr("Successfully changed, reboot to view.")
+
+            Timer{
+                id: finishChangeTimer
+                interval: 3000
+                onTriggered: {
+                    txt.text = txt.normalText
+                }
+            }
         }
     }
 }
