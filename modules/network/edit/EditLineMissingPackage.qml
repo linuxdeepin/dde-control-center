@@ -3,64 +3,34 @@ import Deepin.Widgets 1.0
 
 BaseEditLine {
     id: root
+    height: 60
+
+    property string missingTypeName: ""
     
     // TODO clickable pacakge text, and jump to software center
     
-    // leftLoader.sourceComponent: Row {
-    //     spacing: 8
-    //     DssH2 {
-    //         // color: errorColor
-    //         text: dsTr("Missing Pacakge")
-    //     }
-    
-    //     DssH2 {
-    //         id: parent
-    //         color: errorColor
-    //         font.underline: true
-    //         Connections {
-    //             target: root
-    //             onWidgetShown: {
-    //                 text = root.cacheValue
-    //             }
-    //             onCacheValueChanged: {
-    //                 text = root.cacheValue
-    //             }
-    //         }
-    //         MouseArea {
-    //             z: -1
-    //             anchors.fill: parent
-    //             cursorShape: Qt.PointingHandCursor
-    //             onClicked: {
-    //                 print("-> link", root.cacheValue)
-    //             }
-    //         }
-    //     }
-    // }
-    
-    leftLoader.sourceComponent: DssH2 {
-        // color: errorColor
-        text: dsTr("Missing Pacakge")
-    }
-    
-    rightLoader.sourceComponent: DssH2 {
-        id: parent
-        color: errorColor
-        font.underline: true
-        Connections {
-            target: root
-            onWidgetShown: {
-                text = root.cacheValue
-            }
-            onCacheValueChanged: {
-                text = root.cacheValue
-            }
+    //leftLoader.sourceComponent: DssH2 {
+        //// color: errorColor
+        //text: dsTr("Missing Pacakge")
+    //}
+    leftLoader.sourceComponent: Column {
+        width: root.width - root.leftMargin - root.rightMargin
+        spacing: 2
+
+        DssH3 {
+            text: dsTr("Current system lacks component for %1").arg(root.missingTypeName)
+            width: parent.width
+            wrapMode: Text.WordWrap
+            font.pixelSize: 12
         }
-        MouseArea {
-            z: -1
-            anchors.fill: parent
-            cursorShape: Qt.PointingHandCursor
+
+        DTextAction {
+            text: dsTr("Click to install")
+            hasUnderline: true
+            label.color: errorColor
+            width: label.width
             onClicked: {
-                print("-> link", root.cacheValue)
+                windowView.installPackage(root.cacheValue)
             }
         }
     }

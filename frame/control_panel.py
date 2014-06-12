@@ -111,6 +111,11 @@ class ControlPanel(QtCore.QObject):
     def set_all_contexts(self):
         self.rootContext.setContextProperty("windowView", self)
 
+    @QtCore.pyqtSlot(str)
+    def installPackage(self, pkg_name):
+        import software_center
+        software_center.install(pkg_name)
+
     @QtCore.pyqtSlot(str, result=str)
     def getGplText(self, lang):
         path = os.path.join(ROOT_LOCATION, "frame", "gpl", "gpl-3.0-%s.txt" % lang)
