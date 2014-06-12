@@ -122,13 +122,25 @@ Item {
         DssH2{
             id: txt
             anchors.centerIn: parent
-            color: "white"
-            text: normalText
+            color: updating ? "#F48914" : "white"
+            text: updating ? changingText : normalText
+
             property string normalText: dsTr("Drag and drop an image to change background.")
             property string changingText: dsTr("Background is changing, please reboot later...")
             property string changedText: dsTr("Successfully changed, reboot to view.")
 
-            Timer{
+            property bool updating: dbus_grub2.updating || dbus_grub2_theme.updating
+            onUpdatingChanged: {
+                if(updating){
+                    text = changingText
+                }
+                else{
+                    text = changedText
+                    finishChangeTimer.restart()
+                }
+            }
+
+            Timer {
                 id: finishChangeTimer
                 interval: 3000
                 onTriggered: {
