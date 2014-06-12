@@ -48,7 +48,7 @@ BaseConnectionEdit {
             property bool pressed: false
 
             leftLoader.sourceComponent: DssH2 {
-                text: deleteSettingLine.inDeleteSetting ? dsTr("Are you sure to delete this network?") : dsTr("Delete this network")
+                text: deleteSettingLine.inDeleteSetting ? dsTr("Are you sure you want to delete this network?") : dsTr("Delete this network")
                 color: {
                     if(deleteSettingLine.inDeleteSetting){
                         return dconstants.tuhaoColor

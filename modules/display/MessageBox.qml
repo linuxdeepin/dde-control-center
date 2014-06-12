@@ -128,7 +128,7 @@ Window {
             spacing: 6
 
             DTransparentButton {
-                text: dsTr("Keep changes")
+                text: dsTr("Keep Changes")
                 onClicked: {
                     displayId.SaveChanges()
                     hideDialog()

@@ -20,7 +20,7 @@ BaseEditPage {
 
     DBaseLine {
         leftLoader.sourceComponent: DssH2 {
-            text: rootPage.hotspotInfo ? dsTr("Edit Wifi Hotspot") :dsTr("Create Wifi Hotspot")
+            text: rootPage.hotspotInfo ? dsTr("Edit Wi-Fi Hotspot") :dsTr("Create Wi-Fi Hotspot")
         }
     }
     DSeparatorHorizontal {}

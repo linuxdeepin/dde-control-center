@@ -8,7 +8,7 @@ Column {
     property int realHeight: childrenRect.height
     DBaseLine {
         leftLoader.sourceComponent: DssH1 {
-            text: dsTr("Actived Connections")
+            text: dsTr("Activated Connections")
         }
     }
     DSeparatorHorizontal{}
@@ -53,14 +53,14 @@ Column {
                     width: root.width
                     columns: 2
                     Layout.preferredWidth: root.width
-                    InfoItem { text: dsTr("DeviceType") }  InfoItem { text: getDeviceName(modelData.DeviceType) }
-                    InfoItem { text: dsTr("DeviceAddr")}   InfoItem { text: modelData.HwAddress }
-                    InfoItem { text: dsTr("IpAddress")}    InfoItem { text: modelData.IpAddress }
-                    InfoItem { text: dsTr("SubnetMask")}   InfoItem { text: modelData.SubnetMask }
-                    InfoItem { text: dsTr("RouteAddr")}    InfoItem { text: modelData.RouteAddress }
+                    InfoItem { text: dsTr("Device Type") }  InfoItem { text: getDeviceName(modelData.DeviceType) }
+                    InfoItem { text: dsTr("Device Addr")}   InfoItem { text: modelData.HwAddress }
+                    InfoItem { text: dsTr("Ip Address")}    InfoItem { text: modelData.IpAddress }
+                    InfoItem { text: dsTr("Subnet Mask")}   InfoItem { text: modelData.SubnetMask }
+                    InfoItem { text: dsTr("Route Addr")}    InfoItem { text: modelData.RouteAddress }
                     InfoItem { text: dsTr("Primary DNS")}  InfoItem { text: modelData.Dns1 }
                     InfoItem { text: dsTr("Addtional DNS"); visible: modelData.Dns2 != ""}  InfoItem { text: modelData.Dns2 ; visible: modelData.Dns2 != ""}
-                    InfoItem { text: dsTr("DeviceSpeed")}  InfoItem { text: modelData.Speed + " Mb/s" }
+                    InfoItem { text: dsTr("Device Speed")}  InfoItem { text: modelData.Speed + " Mb/s" }
                 }
             }
         }

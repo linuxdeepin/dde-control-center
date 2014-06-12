@@ -293,7 +293,7 @@ DBaseExpand {
                 anchors.left: parent.left
                 anchors.leftMargin: 24
                 anchors.verticalCenter: parent.verticalCenter
-                text: wifiHotspotLine.hotspotInfo ? dsTr("Hotspot ") + wifiHotspotLine.hotspotInfo.Id : dsTr("Create Access Point")
+                text: wifiHotspotLine.hotspotInfo ? dsTr("Hotspot") + wifiHotspotLine.hotspotInfo.Id : dsTr("Create Access Point")
                 font.pixelSize: 12
                 color: wifiHotspotLine.hovered ? dconstants.hoverColor : dconstants.fgColor
             }

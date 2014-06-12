@@ -36,7 +36,7 @@ Item {
         id: successLabel
         font.pixelSize: 12
         color: dconstants.activeColor
-        text: dsTr("Reset the success")
+        text: dsTr("Reset successfully")
         visible: opacity > 0
         opacity: inSuccessState ? 1 : 0
         NumberAnimation on opacity { duration: 150 }

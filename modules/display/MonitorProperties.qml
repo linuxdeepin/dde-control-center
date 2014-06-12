@@ -45,9 +45,9 @@ Item {
 
     property var rotationNames: {
         1: dsTr("Normal"),
-        2: dsTr("Rotate right"),
-        4: dsTr("Upside down"),
-        8: dsTr("Rotate left"),
+        2: dsTr("Rotate Right"),
+        4: dsTr("Upside Down"),
+        8: dsTr("Rotate Left"),
     }
 
     property var monitorNames: outputObj.outputs

@@ -12,7 +12,7 @@ BaseEditPage {
 
     DBaseLine {
         leftLoader.sourceComponent: DssH2{
-            text: dsTr("VPN type")
+            text: dsTr("VPN Type")
         }
     }
     DSeparatorHorizontal {}

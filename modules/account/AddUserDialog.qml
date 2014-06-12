@@ -103,7 +103,7 @@ Rectangle {
             color: "transparent"
 
             DLabel {
-                text: dsTr("User Name")
+                text: dsTr("Username")
                 font.pixelSize: 12
 
                 anchors.left: parent.left

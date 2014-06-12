@@ -2,7 +2,7 @@ import QtQuick 2.1
 import QtQuick.Dialogs 1.0
 
 FileDialog {
-    title: dsTr("Choose a new picture for your account")
+    title: dsTr("Choose a new picture for your image")
     selectExisting: true
     selectFolder: false
     selectMultiple: false

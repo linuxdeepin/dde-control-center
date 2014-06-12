@@ -16,7 +16,7 @@ Column {
             id: wiredDeviceHeader
             leftLoader.sourceComponent: DssH2 {
                 anchors.verticalCenter: parent.verticalCenter
-                text: dsTr("PPPOE Connections")
+                text: dsTr("PPPoE Connections")
             }
 
             rightLoader.sourceComponent: DSwitchButton{

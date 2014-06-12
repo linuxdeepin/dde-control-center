@@ -164,7 +164,7 @@ Item {
             height: Math.max(contentHeight, title.height + 6)
             leftWidth: mouseModule.leftWidth
             centerPadding: mouseModule.centerPadding
-            title.text: dsTr("Disable the touchpad when insert the mouse")
+            title.text: dsTr("Disable the touchpad when inserting the mouse")
             visible: isTouchpadExist
 
             property bool enabled: {

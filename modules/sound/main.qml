@@ -384,7 +384,7 @@ Item {
                     color: dconstants.contentBgColor
                     leftMargin: itemLabelLeftMargin
                     leftLoader.sourceComponent: DssH3{
-                        text: dsTr("No port exist in this device.")
+                        text: dsTr("No port exists in this device.")
                     }
                 }
 
@@ -489,7 +489,7 @@ Item {
                     color: dconstants.contentBgColor
                     leftMargin: itemLabelLeftMargin
                     leftLoader.sourceComponent: DssH3{
-                        text: dsTr("No port exist in this device.")
+                        text: dsTr("No port exists in this device.")
                     }
                 }
 

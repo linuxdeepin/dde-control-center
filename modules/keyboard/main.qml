@@ -403,7 +403,7 @@ Item {
         DBaseLine {}
         DSeparatorHorizontal {}
         DBaseLine {
-            leftLoader.sourceComponent: DssH2 { text: dsTr("Caps-Lock key press tip") }
+            leftLoader.sourceComponent: DssH2 { text: dsTr("Caps-Lock key pressing tip") }
             rightLoader.sourceComponent: DSwitchButton {
                 checked: dbusKeyboard.capslockToggle
 
