@@ -408,9 +408,7 @@ Item {
                 checked: dbusKeyboard.capslockToggle
 
                 onClicked: {
-                    if(pressed){
-                        dbusKeyboard.capslockToggle = checked
-                    }
+                    dbusKeyboard.capslockToggle = checked
                 }
             }
         }
