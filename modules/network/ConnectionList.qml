@@ -6,6 +6,7 @@ import "wired"
 import "wireless"
 import "dsl"
 import "vpn"
+import "proxy"
 
 Column {
     id:body
@@ -23,4 +24,6 @@ Column {
     VpnExpand {}
 
     DslExpand {}
+
+    ProxyExpand {}
 }
