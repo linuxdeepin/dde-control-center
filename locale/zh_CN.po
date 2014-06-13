@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-13 15:28+0800\n"
+"POT-Creation-Date: 2014-06-13 17:46+0800\n"
 "PO-Revision-Date: 2014-06-04 15:34+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Deepin <che>\n"
@@ -25,7 +25,7 @@ msgstr "新建PPPoE连接"
 #: ../modules/network/add/AddDsl.qml:25
 #: ../modules/network/add/AddMobile.qml:34
 #: ../modules/network/add/AddVpn.qml:105
-#: ../modules/network/edit_autogen/BaseConnectionEdit.qml:19
+#: ../modules/network/edit_autogen/BaseConnectionEdit.qml:34
 #: ../modules/shortcuts/CustomKeybinding.qml:118
 msgid "Name"
 msgstr "名称"
@@ -99,7 +99,7 @@ msgstr "数字"
 #: ../modules/network/add/AddSectionSave.qml:11
 #: ../modules/account/AddUserDialog.qml:319
 #: ../modules/network/wireless/AddWireless.qml:234
-#: ../modules/network/ConnectionAdd.qml:68
+#: ../modules/network/ConnectionAdd.qml:70
 #: ../modules/network/ConnectionEdit.qml:146
 #: ../modules/shortcuts/CustomKeybinding.qml:151
 #: ../modules/account/DeleteUserDialog.qml:33
@@ -438,6 +438,11 @@ msgstr "默认"
 msgid "Webcam"
 msgstr "拍照"
 
+#: ../modules/network/edit_autogen/BaseConnectionEdit.qml:45
+#: ../modules/network/edit_autogen/EditSectionGeneral.qml:24
+msgid "Automatically connect"
+msgstr "自动连接"
+
 #: ../modules/date_time/Calendar.qml:125
 msgid "Today"
 msgstr "返回今天"
@@ -493,16 +498,12 @@ msgstr "新建网络"
 msgid "PPPoE"
 msgstr "拨号"
 
-#: ../modules/network/ConnectionAdd.qml:39
-msgid "Mobile 2G/3G/4G-LTE"
-msgstr "移动网络 2G/3G/4G-LTE"
-
-#: ../modules/network/ConnectionAdd.qml:43
+#: ../modules/network/ConnectionAdd.qml:45
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:11
 msgid "VPN"
 msgstr "VPN"
 
-#: ../modules/network/ConnectionAdd.qml:76
+#: ../modules/network/ConnectionAdd.qml:78
 msgid "Next"
 msgstr "下一步"
 
@@ -586,10 +587,6 @@ msgstr "MTU"
 #: ../modules/network/edit_autogen/EditSectionGeneral.qml:11
 msgid "General"
 msgstr "通用"
-
-#: ../modules/network/edit_autogen/EditSectionGeneral.qml:24
-msgid "Automatically connect"
-msgstr "自动连接"
 
 #: ../modules/network/edit_autogen/EditSectionGeneral.qml:35
 msgid "For All Users"
@@ -876,7 +873,7 @@ msgstr "本地端口"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:114
 msgid "Disable Dead Peer Detection"
-msgstr "Disable Dead Peer Detection"
+msgstr "禁用死端检测"
 
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:11
 msgid "Wi-Fi"
@@ -1110,11 +1107,11 @@ msgstr "拖拽图片到此以更换背景"
 
 #: ../modules/grub/Preview.qml:122
 msgid "Background is changing, please reboot later..."
-msgstr "背景图标正在被后端应用，请稍后重启..."
+msgstr "背景图片正在被应用，重启请稍后..."
 
 #: ../modules/grub/Preview.qml:123
 msgid "Successfully changed, reboot to view."
-msgstr "更换背景图片成功，重启后可以查看。"
+msgstr "更换背景图片成功，重启可查看。"
 
 #: ../modules/network/proxy/ProxyContent.qml:40
 msgid "None"
@@ -1304,13 +1301,19 @@ msgstr "创建"
 msgid "Authentication required by Wi-Fi network"
 msgstr "Wi-Fi网络所需的授权"
 
-#: ../dock-applets/qml/WifiPasswordWindow.qml:135
 #: ../frame/views/WifiPasswordWindow.qml:116
 #, qt-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network <font "
 "color=\"#0ff\">%1</font>"
-msgstr "连接Wi-Fi网络所需的密码或密匙<font color=\"#0ff\">%1</font>"
+msgstr "连接Wi-Fi网络所需的密码或密钥 <font color=\"#0ff\">%1</font>"
+
+#: ../dock-applets/qml/WifiPasswordWindow.qml:135
+#, qt-format
+msgid ""
+"Passwords or encryption keys are required to access the Wi-Fi network <font "
+"color=\"#faca57\">%1</font>"
+msgstr "连接Wi-Fi网络所需的密码或密钥 <font color=\"#faca57\">%1</font>"
 
 #: ../dock-applets/qml/WifiPasswordWindow.qml:149
 #: ../frame/views/WifiPasswordWindow.qml:130
@@ -1345,15 +1348,7 @@ msgstr "无线网络 %1"
 msgid "Connect Hidden Access Point"
 msgstr "连接到隐藏网络"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:296
-msgid "Create Access Point"
-msgstr "创建无线热点"
-
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:296
-msgid "Hotspot"
-msgstr "无线热点"
-
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:351
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:353
 msgid "Connect to hidden access point"
 msgstr "连接到隐藏网络"
 
@@ -1415,7 +1410,7 @@ msgstr "切换为数字时钟(_S)"
 
 #: ../dock-applets/qml/date_time/main.qml:107
 #: ../dock-applets/qml/disk_mount/main.qml:52
-#: ../dock-applets/qml/network/main.qml:258
+#: ../dock-applets/qml/network/main.qml:279
 #: ../dock-applets/qml/power/main.qml:99
 #: ../dock-applets/qml/sound/main.qml:152
 msgid "_Run"
@@ -1447,7 +1442,7 @@ msgid "High performance"
 msgstr "高性能"
 
 #: ../dock-applets/qml/disk_mount/main.qml:53
-#: ../dock-applets/qml/network/main.qml:259
+#: ../dock-applets/qml/network/main.qml:280
 #: ../dock-applets/qml/power/main.qml:106
 #: ../dock-applets/qml/sound/main.qml:153
 msgid "_Undock"
@@ -1828,7 +1823,7 @@ msgstr "OLPC网"
 
 #: ../modules/network/main.qml:172
 msgid "WiMax"
-msgstr ""
+msgstr "WiMax"
 
 #: ../modules/network/main.qml:174
 msgid "Modem"
@@ -1840,7 +1835,7 @@ msgstr "InfiniBand"
 
 #: ../modules/network/main.qml:178
 msgid "Bond"
-msgstr ""
+msgstr "绑定"
 
 #: ../modules/network/main.qml:180
 msgid "VLAN"
@@ -1853,3 +1848,16 @@ msgstr "ADSL"
 #: ../modules/network/main.qml:184
 msgid "Bridge"
 msgstr "桥接"
+
+#~ msgid ""
+#~ "Passwords or encryption keys are required to access the Wi-Fi network %1"
+#~ msgstr "连接Wi-Fi网络所需的密码或密钥 %1"
+
+#~ msgid "Mobile 2G/3G/4G-LTE"
+#~ msgstr "移动网络 2G/3G/4G-LTE"
+
+#~ msgid "Create Access Point"
+#~ msgstr "创建无线热点"
+
+#~ msgid "Hotspot"
+#~ msgstr "无线热点"

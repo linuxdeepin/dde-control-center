@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-13 15:28+0800\n"
+"POT-Creation-Date: 2014-06-13 17:46+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,7 +24,7 @@ msgstr "VPN連線"
 #: ../modules/network/add/AddDsl.qml:25
 #: ../modules/network/add/AddMobile.qml:34
 #: ../modules/network/add/AddVpn.qml:105
-#: ../modules/network/edit_autogen/BaseConnectionEdit.qml:19
+#: ../modules/network/edit_autogen/BaseConnectionEdit.qml:34
 #: ../modules/shortcuts/CustomKeybinding.qml:118
 msgid "Name"
 msgstr "名稱"
@@ -105,7 +105,7 @@ msgstr "十一月"
 #: ../modules/network/add/AddSectionSave.qml:11
 #: ../modules/account/AddUserDialog.qml:319
 #: ../modules/network/wireless/AddWireless.qml:234
-#: ../modules/network/ConnectionAdd.qml:68
+#: ../modules/network/ConnectionAdd.qml:70
 #: ../modules/network/ConnectionEdit.qml:146
 #: ../modules/shortcuts/CustomKeybinding.qml:151
 #: ../modules/account/DeleteUserDialog.qml:33
@@ -467,6 +467,11 @@ msgstr "預設風格"
 msgid "Webcam"
 msgstr "Webcam"
 
+#: ../modules/network/edit_autogen/BaseConnectionEdit.qml:45
+#: ../modules/network/edit_autogen/EditSectionGeneral.qml:24
+msgid "Automatically connect"
+msgstr "自動連線"
+
 #: ../modules/date_time/Calendar.qml:125
 #, fuzzy
 msgid "Today"
@@ -524,16 +529,12 @@ msgstr "網路"
 msgid "PPPoE"
 msgstr ""
 
-#: ../modules/network/ConnectionAdd.qml:39
-msgid "Mobile 2G/3G/4G-LTE"
-msgstr ""
-
-#: ../modules/network/ConnectionAdd.qml:43
+#: ../modules/network/ConnectionAdd.qml:45
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:11
 msgid "VPN"
 msgstr "VPN"
 
-#: ../modules/network/ConnectionAdd.qml:76
+#: ../modules/network/ConnectionAdd.qml:78
 msgid "Next"
 msgstr "下一步"
 
@@ -624,10 +625,6 @@ msgstr ""
 #: ../modules/network/edit_autogen/EditSectionGeneral.qml:11
 msgid "General"
 msgstr "一般"
-
-#: ../modules/network/edit_autogen/EditSectionGeneral.qml:24
-msgid "Automatically connect"
-msgstr "自動連線"
 
 #: ../modules/network/edit_autogen/EditSectionGeneral.qml:35
 msgid "For All Users"
@@ -1390,12 +1387,18 @@ msgstr ""
 msgid "Authentication required by Wi-Fi network"
 msgstr "Wi-Fi網路需要驗證"
 
-#: ../dock-applets/qml/WifiPasswordWindow.qml:135
 #: ../frame/views/WifiPasswordWindow.qml:116
 #, qt-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network <font "
 "color=\"#0ff\">%1</font>"
+msgstr "Wi-Fi網路 <font color=\"#0ff\">%1</font>需要驗證密碼或是金鑰驗證"
+
+#: ../dock-applets/qml/WifiPasswordWindow.qml:135
+#, fuzzy, qt-format
+msgid ""
+"Passwords or encryption keys are required to access the Wi-Fi network <font "
+"color=\"#faca57\">%1</font>"
 msgstr "Wi-Fi網路 <font color=\"#0ff\">%1</font>需要驗證密碼或是金鑰驗證"
 
 #: ../dock-applets/qml/WifiPasswordWindow.qml:149
@@ -1434,16 +1437,7 @@ msgstr "無線裝置: %1"
 msgid "Connect Hidden Access Point"
 msgstr "無線網路存取點"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:296
-#, fuzzy
-msgid "Create Access Point"
-msgstr "無線網路存取點"
-
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:296
-msgid "Hotspot"
-msgstr ""
-
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:351
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:353
 #, fuzzy
 msgid "Connect to hidden access point"
 msgstr "無線網路存取點"
@@ -1506,7 +1500,7 @@ msgstr ""
 
 #: ../dock-applets/qml/date_time/main.qml:107
 #: ../dock-applets/qml/disk_mount/main.qml:52
-#: ../dock-applets/qml/network/main.qml:258
+#: ../dock-applets/qml/network/main.qml:279
 #: ../dock-applets/qml/power/main.qml:99
 #: ../dock-applets/qml/sound/main.qml:152
 msgid "_Run"
@@ -1539,7 +1533,7 @@ msgid "High performance"
 msgstr "高效能"
 
 #: ../dock-applets/qml/disk_mount/main.qml:53
-#: ../dock-applets/qml/network/main.qml:259
+#: ../dock-applets/qml/network/main.qml:280
 #: ../dock-applets/qml/power/main.qml:106
 #: ../dock-applets/qml/sound/main.qml:153
 msgid "_Undock"
@@ -1963,6 +1957,15 @@ msgstr ""
 #: ../modules/network/main.qml:184
 msgid "Bridge"
 msgstr ""
+
+#, fuzzy
+#~ msgid ""
+#~ "Passwords or encryption keys are required to access the Wi-Fi network %1"
+#~ msgstr "Wi-Fi網路 <font color=\"#0ff\">%1</font>需要驗證密碼或是金鑰驗證"
+
+#, fuzzy
+#~ msgid "Create Access Point"
+#~ msgstr "無線網路存取點"
 
 #, fuzzy
 #~ msgid "Uesr Cert"

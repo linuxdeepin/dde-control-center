@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-13 15:28+0800\n"
+"POT-Creation-Date: 2014-06-13 17:46+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,7 +24,7 @@ msgstr ""
 #: ../modules/network/add/AddDsl.qml:25
 #: ../modules/network/add/AddMobile.qml:34
 #: ../modules/network/add/AddVpn.qml:105
-#: ../modules/network/edit_autogen/BaseConnectionEdit.qml:19
+#: ../modules/network/edit_autogen/BaseConnectionEdit.qml:34
 #: ../modules/shortcuts/CustomKeybinding.qml:118
 msgid "Name"
 msgstr ""
@@ -98,7 +98,7 @@ msgstr ""
 #: ../modules/network/add/AddSectionSave.qml:11
 #: ../modules/account/AddUserDialog.qml:319
 #: ../modules/network/wireless/AddWireless.qml:234
-#: ../modules/network/ConnectionAdd.qml:68
+#: ../modules/network/ConnectionAdd.qml:70
 #: ../modules/network/ConnectionEdit.qml:146
 #: ../modules/shortcuts/CustomKeybinding.qml:151
 #: ../modules/account/DeleteUserDialog.qml:33
@@ -437,6 +437,11 @@ msgstr ""
 msgid "Webcam"
 msgstr ""
 
+#: ../modules/network/edit_autogen/BaseConnectionEdit.qml:45
+#: ../modules/network/edit_autogen/EditSectionGeneral.qml:24
+msgid "Automatically connect"
+msgstr ""
+
 #: ../modules/date_time/Calendar.qml:125
 msgid "Today"
 msgstr ""
@@ -492,16 +497,12 @@ msgstr ""
 msgid "PPPoE"
 msgstr ""
 
-#: ../modules/network/ConnectionAdd.qml:39
-msgid "Mobile 2G/3G/4G-LTE"
-msgstr ""
-
-#: ../modules/network/ConnectionAdd.qml:43
+#: ../modules/network/ConnectionAdd.qml:45
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:11
 msgid "VPN"
 msgstr ""
 
-#: ../modules/network/ConnectionAdd.qml:76
+#: ../modules/network/ConnectionAdd.qml:78
 msgid "Next"
 msgstr ""
 
@@ -584,10 +585,6 @@ msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionGeneral.qml:11
 msgid "General"
-msgstr ""
-
-#: ../modules/network/edit_autogen/EditSectionGeneral.qml:24
-msgid "Automatically connect"
 msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionGeneral.qml:35
@@ -1303,12 +1300,18 @@ msgstr ""
 msgid "Authentication required by Wi-Fi network"
 msgstr ""
 
-#: ../dock-applets/qml/WifiPasswordWindow.qml:135
 #: ../frame/views/WifiPasswordWindow.qml:116
 #, qt-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network <font "
 "color=\"#0ff\">%1</font>"
+msgstr ""
+
+#: ../dock-applets/qml/WifiPasswordWindow.qml:135
+#, qt-format
+msgid ""
+"Passwords or encryption keys are required to access the Wi-Fi network <font "
+"color=\"#faca57\">%1</font>"
 msgstr ""
 
 #: ../dock-applets/qml/WifiPasswordWindow.qml:149
@@ -1344,15 +1347,7 @@ msgstr ""
 msgid "Connect Hidden Access Point"
 msgstr ""
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:296
-msgid "Create Access Point"
-msgstr ""
-
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:296
-msgid "Hotspot"
-msgstr ""
-
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:351
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:353
 msgid "Connect to hidden access point"
 msgstr ""
 
@@ -1414,7 +1409,7 @@ msgstr ""
 
 #: ../dock-applets/qml/date_time/main.qml:107
 #: ../dock-applets/qml/disk_mount/main.qml:52
-#: ../dock-applets/qml/network/main.qml:258
+#: ../dock-applets/qml/network/main.qml:279
 #: ../dock-applets/qml/power/main.qml:99
 #: ../dock-applets/qml/sound/main.qml:152
 msgid "_Run"
@@ -1446,7 +1441,7 @@ msgid "High performance"
 msgstr ""
 
 #: ../dock-applets/qml/disk_mount/main.qml:53
-#: ../dock-applets/qml/network/main.qml:259
+#: ../dock-applets/qml/network/main.qml:280
 #: ../dock-applets/qml/power/main.qml:106
 #: ../dock-applets/qml/sound/main.qml:153
 msgid "_Undock"

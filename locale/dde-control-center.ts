@@ -475,8 +475,13 @@
 <context>
     <name>BaseConnectionEdit</name>
     <message>
-        <location filename="../modules/network/edit_autogen/BaseConnectionEdit.qml" line="19"/>
+        <location filename="../modules/network/edit_autogen/BaseConnectionEdit.qml" line="34"/>
         <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/edit_autogen/BaseConnectionEdit.qml" line="45"/>
+        <source>Automatically connect</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -539,22 +544,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/ConnectionAdd.qml" line="39"/>
-        <source>Mobile 2G/3G/4G-LTE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/ConnectionAdd.qml" line="43"/>
+        <location filename="../modules/network/ConnectionAdd.qml" line="45"/>
         <source>VPN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/ConnectionAdd.qml" line="68"/>
+        <location filename="../modules/network/ConnectionAdd.qml" line="70"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/ConnectionAdd.qml" line="76"/>
+        <location filename="../modules/network/ConnectionAdd.qml" line="78"/>
         <source>Next</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2310,9 +2310,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/WifiPasswordWindow.qml" line="135"/>
         <location filename="../frame/views/WifiPasswordWindow.qml" line="116"/>
         <source>Passwords or encryption keys are required to access the Wi-Fi network &lt;font color=&quot;#0ff&quot;&gt;%1&lt;/font&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../dock-applets/qml/WifiPasswordWindow.qml" line="135"/>
+        <source>Passwords or encryption keys are required to access the Wi-Fi network &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2381,17 +2385,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="296"/>
-        <source>Create Access Point</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="296"/>
-        <source>Hotspot</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="351"/>
+        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="353"/>
         <source>Connect to hidden access point</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2522,7 +2516,7 @@
     <message>
         <location filename="../dock-applets/qml/date_time/main.qml" line="107"/>
         <location filename="../dock-applets/qml/disk_mount/main.qml" line="52"/>
-        <location filename="../dock-applets/qml/network/main.qml" line="258"/>
+        <location filename="../dock-applets/qml/network/main.qml" line="279"/>
         <location filename="../dock-applets/qml/power/main.qml" line="99"/>
         <location filename="../dock-applets/qml/sound/main.qml" line="152"/>
         <source>_Run</source>
@@ -2625,7 +2619,7 @@
     </message>
     <message>
         <location filename="../dock-applets/qml/disk_mount/main.qml" line="53"/>
-        <location filename="../dock-applets/qml/network/main.qml" line="259"/>
+        <location filename="../dock-applets/qml/network/main.qml" line="280"/>
         <location filename="../dock-applets/qml/power/main.qml" line="106"/>
         <location filename="../dock-applets/qml/sound/main.qml" line="153"/>
         <source>_Undock</source>

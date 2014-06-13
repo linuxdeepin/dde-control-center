@@ -132,7 +132,7 @@ Window {
                 id: message
                 anchors.top: title.bottom
                 anchors.topMargin: 6
-                text: dsTr('Passwords or encryption keys are required to access the Wi-Fi network <font color="#0ff">%1</font>').arg(accessPointName)
+                text: dsTr('Passwords or encryption keys are required to access the Wi-Fi network <font color="#faca57">%1</font>').arg(accessPointName)
                 width: parent.width
                 wrapMode: Text.WordWrap
             }
