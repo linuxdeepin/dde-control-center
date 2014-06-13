@@ -1973,17 +1973,17 @@
 <context>
     <name>Preview</name>
     <message>
-        <location filename="../modules/grub/Preview.qml" line="128"/>
+        <location filename="../modules/grub/Preview.qml" line="121"/>
         <source>Drag and drop an image to change background.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/Preview.qml" line="129"/>
+        <location filename="../modules/grub/Preview.qml" line="122"/>
         <source>Background is changing, please reboot later...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/Preview.qml" line="130"/>
+        <location filename="../modules/grub/Preview.qml" line="123"/>
         <source>Successfully changed, reboot to view.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1991,37 +1991,37 @@
 <context>
     <name>ProxyContent</name>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="17"/>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="28"/>
         <source>Method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="49"/>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="61"/>
         <source>HTTP Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="60"/>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="73"/>
         <source>HTTPS Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="71"/>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="85"/>
         <source>FTP Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="82"/>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="97"/>
         <source>Socks Host</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="98"/>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="114"/>
         <source>Configuration URL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="108"/>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="130"/>
         <source>Apply system wide</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2029,7 +2029,7 @@
 <context>
     <name>ProxyExpand</name>
     <message>
-        <location filename="../modules/network/proxy/ProxyExpand.qml" line="39"/>
+        <location filename="../modules/network/proxy/ProxyExpand.qml" line="37"/>
         <source>System Proxy</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2037,7 +2037,7 @@
 <context>
     <name>ProxyLine</name>
     <message>
-        <location filename="../modules/network/proxy/ProxyLine.qml" line="13"/>
+        <location filename="../modules/network/proxy/ProxyLine.qml" line="39"/>
         <source>Port</source>
         <translation type="unfinished"></translation>
     </message>

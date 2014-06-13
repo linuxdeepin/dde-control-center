@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-12 18:42+0800\n"
+"POT-Creation-Date: 2014-06-13 12:17+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -644,7 +644,7 @@ msgstr "IPv4"
 
 #: ../modules/network/edit_autogen/EditSectionIpv4.qml:24
 #: ../modules/network/edit_autogen/EditSectionIpv6.qml:24
-#: ../modules/network/proxy/ProxyContent.qml:17
+#: ../modules/network/proxy/ProxyContent.qml:28
 msgid "Method"
 msgstr "方法"
 
@@ -870,7 +870,7 @@ msgid "Server IP"
 msgstr "DNS伺服器"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:46
-#: ../modules/network/proxy/ProxyLine.qml:13
+#: ../modules/network/proxy/ProxyLine.qml:39
 msgid "Port"
 msgstr ""
 
@@ -1184,44 +1184,44 @@ msgstr "顯示密碼:"
 msgid "Repeat"
 msgstr "重複延遲"
 
-#: ../modules/grub/Preview.qml:128
+#: ../modules/grub/Preview.qml:121
 #, fuzzy
 msgid "Drag and drop an image to change background."
 msgstr "將一張圖片拖曳至此以設為背景"
 
-#: ../modules/grub/Preview.qml:129
+#: ../modules/grub/Preview.qml:122
 msgid "Background is changing, please reboot later..."
 msgstr ""
 
-#: ../modules/grub/Preview.qml:130
+#: ../modules/grub/Preview.qml:123
 msgid "Successfully changed, reboot to view."
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:49
+#: ../modules/network/proxy/ProxyContent.qml:61
 msgid "HTTP Proxy"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:60
+#: ../modules/network/proxy/ProxyContent.qml:73
 msgid "HTTPS Proxy"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:71
+#: ../modules/network/proxy/ProxyContent.qml:85
 msgid "FTP Proxy"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:82
+#: ../modules/network/proxy/ProxyContent.qml:97
 msgid "Socks Host"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:98
+#: ../modules/network/proxy/ProxyContent.qml:114
 msgid "Configuration URL"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:108
+#: ../modules/network/proxy/ProxyContent.qml:130
 msgid "Apply system wide"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyExpand.qml:39
+#: ../modules/network/proxy/ProxyExpand.qml:37
 #, fuzzy
 msgid "System Proxy"
 msgstr "系統類型"

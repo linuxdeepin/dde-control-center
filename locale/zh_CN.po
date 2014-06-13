@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-12 18:43+0800\n"
+"POT-Creation-Date: 2014-06-13 12:17+0800\n"
 "PO-Revision-Date: 2014-06-04 15:34+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Deepin <che>\n"
@@ -76,17 +76,14 @@ msgstr "服务器"
 msgid "Password"
 msgstr "密码"
 
-# "New PPPoE Connection"
 #: ../modules/network/add/AddMobile.qml:20
 msgid "New Mobile Connection"
-msgstr "新建PPPoE连接"
+msgstr "新建移动网络连接"
 
-# "Device Type"
 #: ../modules/network/add/AddMobile.qml:47
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:24
-#, fuzzy
 msgid "Service Type"
-msgstr "设备类型"
+msgstr "服务类型"
 
 #: ../modules/network/add/AddMobile.qml:58
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:35
@@ -614,7 +611,7 @@ msgstr "IPv4"
 
 #: ../modules/network/edit_autogen/EditSectionIpv4.qml:24
 #: ../modules/network/edit_autogen/EditSectionIpv6.qml:24
-#: ../modules/network/proxy/ProxyContent.qml:17
+#: ../modules/network/proxy/ProxyContent.qml:28
 msgid "Method"
 msgstr "方法"
 
@@ -824,7 +821,7 @@ msgid "Server IP"
 msgstr "服务器IP"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:46
-#: ../modules/network/proxy/ProxyLine.qml:13
+#: ../modules/network/proxy/ProxyLine.qml:39
 msgid "Port"
 msgstr "端口"
 
@@ -1123,43 +1120,43 @@ msgstr "新密码"
 msgid "Repeat"
 msgstr "重复"
 
-#: ../modules/grub/Preview.qml:128
+#: ../modules/grub/Preview.qml:121
 msgid "Drag and drop an image to change background."
 msgstr "拖拽图片到此以更换背景"
 
-#: ../modules/grub/Preview.qml:129
+#: ../modules/grub/Preview.qml:122
 msgid "Background is changing, please reboot later..."
 msgstr ""
 
-#: ../modules/grub/Preview.qml:130
+#: ../modules/grub/Preview.qml:123
 msgid "Successfully changed, reboot to view."
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:49
+#: ../modules/network/proxy/ProxyContent.qml:61
 msgid "HTTP Proxy"
 msgstr "HTTP代理"
 
-#: ../modules/network/proxy/ProxyContent.qml:60
+#: ../modules/network/proxy/ProxyContent.qml:73
 msgid "HTTPS Proxy"
 msgstr "HTTPS代理"
 
-#: ../modules/network/proxy/ProxyContent.qml:71
+#: ../modules/network/proxy/ProxyContent.qml:85
 msgid "FTP Proxy"
 msgstr "FTP代理"
 
-#: ../modules/network/proxy/ProxyContent.qml:82
+#: ../modules/network/proxy/ProxyContent.qml:97
 msgid "Socks Host"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:98
+#: ../modules/network/proxy/ProxyContent.qml:114
 msgid "Configuration URL"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:108
+#: ../modules/network/proxy/ProxyContent.qml:130
 msgid "Apply system wide"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyExpand.qml:39
+#: ../modules/network/proxy/ProxyExpand.qml:37
 msgid "System Proxy"
 msgstr "系统代理"
 
@@ -1449,7 +1446,6 @@ msgstr "节能"
 msgid "Balanced"
 msgstr "均衡"
 
-# "High Performance"
 #: ../dock-applets/qml/power/main.qml:49 ../modules/power/main.qml:262
 #: ../modules/power/main.qml:435
 msgid "High performance"
@@ -1474,7 +1470,6 @@ msgstr "程序"
 msgid "ON/OFF"
 msgstr "开启/关闭"
 
-# "Devices Nearby"
 #: ../modules/bluetooth/main.qml:137
 msgid "Devices nearby"
 msgstr "附近的设备"
@@ -1559,12 +1554,10 @@ msgstr "显示器"
 msgid "Apply"
 msgstr "应用"
 
-# "Boot Priority"
 #: ../modules/grub/main.qml:102
 msgid "Boot priority"
 msgstr "启动顺序"
 
-# "Boot Delay"
 #: ../modules/grub/main.qml:159
 msgid "Boot delay"
 msgstr "启动延时"
