@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-13 12:17+0800\n"
+"POT-Creation-Date: 2014-06-13 15:28+0800\n"
 "PO-Revision-Date: 2014-06-04 15:34+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Deepin <che>\n"
@@ -108,7 +108,7 @@ msgstr "数字"
 #: ../modules/shortcuts/ShortcutInput.qml:321
 #: ../modules/date_time/TimeBox.qml:212
 #: ../modules/network/wireless/WifiHotspot.qml:86
-#: ../dock-applets/qml/WifiPasswordWindow.qml:161
+#: ../dock-applets/qml/WifiPasswordWindow.qml:171
 #: ../frame/views/WifiPasswordWindow.qml:170 ../modules/display/main.qml:224
 msgid "Cancel"
 msgstr "取消"
@@ -121,7 +121,7 @@ msgstr "添加"
 
 #: ../modules/account/AddUserDialog.qml:57
 msgid "Add User"
-msgstr ""
+msgstr "添加用户"
 
 #: ../modules/account/AddUserDialog.qml:85
 msgid "New User"
@@ -181,7 +181,7 @@ msgstr "PPTP"
 
 #: ../modules/network/add/AddVpn.qml:38
 msgid "OpenVPN"
-msgstr ""
+msgstr "OpenVPN"
 
 #: ../modules/network/add/AddVpn.qml:39
 msgid "OpenConnect"
@@ -198,7 +198,7 @@ msgstr "基本信息"
 #: ../modules/network/add/AddVpn.qml:84
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:35
 msgid "Need VPN Plugin"
-msgstr ""
+msgstr "需要VPN插件"
 
 #: ../modules/network/add/AddVpn.qml:118 ../modules/network/add/AddVpn.qml:162
 #: ../modules/network/add/AddVpn.qml:250 ../modules/network/add/AddVpn.qml:415
@@ -252,11 +252,6 @@ msgstr "允许齐思科安全桌面木马"
 msgid "CSD Wrapper"
 msgstr "电路切换数据通话外包"
 
-#: ../modules/network/add/AddVpn.qml:217
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:156
-msgid "Uesr Cert"
-msgstr "用户Cert"
-
 #: ../modules/network/add/AddVpn.qml:228 ../modules/network/add/AddVpn.qml:327
 #: ../modules/network/wireless/AddWireless.qml:179
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:168
@@ -275,9 +270,10 @@ msgstr "用户FSID私钥密语"
 msgid "Auth Type"
 msgstr "授权类型"
 
-#: ../modules/network/add/AddVpn.qml:305
+#: ../modules/network/add/AddVpn.qml:217 ../modules/network/add/AddVpn.qml:305
 #: ../modules/network/wireless/AddWireless.qml:123
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:112
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:156
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:244
 msgid "User Cert"
 msgstr "用户Cert"
@@ -397,7 +393,7 @@ msgstr "识别"
 #: ../modules/network/wireless/AddWireless.qml:101
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:90
 msgid "Anonymous ID"
-msgstr ""
+msgstr "匿名ID"
 
 #: ../modules/network/wireless/AddWireless.qml:134
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:123
@@ -421,7 +417,7 @@ msgstr "内部授权"
 
 #: ../modules/network/wireless/AddWireless.qml:242
 #: ../modules/network/widgets/PasswordBox.qml:109
-#: ../dock-applets/qml/WifiPasswordWindow.qml:168
+#: ../dock-applets/qml/WifiPasswordWindow.qml:178
 #: ../frame/views/WifiPasswordWindow.qml:177
 msgid "Connect"
 msgstr "连接"
@@ -499,12 +495,12 @@ msgstr "拨号"
 
 #: ../modules/network/ConnectionAdd.qml:39
 msgid "Mobile 2G/3G/4G-LTE"
-msgstr ""
+msgstr "移动网络 2G/3G/4G-LTE"
 
 #: ../modules/network/ConnectionAdd.qml:43
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:11
 msgid "VPN"
-msgstr ""
+msgstr "VPN"
 
 #: ../modules/network/ConnectionAdd.qml:76
 msgid "Next"
@@ -556,11 +552,11 @@ msgstr "拨号连接"
 #: ../modules/network/edit/EditLineMissingPackage.qml:21
 #, qt-format
 msgid "Current system lacks component for %1"
-msgstr ""
+msgstr "当前系统缺少 %1 类型的VPN组件"
 
 #: ../modules/network/edit/EditLineMissingPackage.qml:28
 msgid "Click to install"
-msgstr ""
+msgstr "点击安装"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:11
 msgid "Ethernet"
@@ -597,7 +593,7 @@ msgstr "自动连接"
 
 #: ../modules/network/edit_autogen/EditSectionGeneral.qml:35
 msgid "For All Users"
-msgstr ""
+msgstr "适用于所有用户"
 
 #: ../modules/network/edit_autogen/EditSectionIpv4.qml:11
 msgid "IPv4"
@@ -605,7 +601,6 @@ msgstr "IPv4"
 
 #: ../modules/network/edit_autogen/EditSectionIpv4.qml:24
 #: ../modules/network/edit_autogen/EditSectionIpv6.qml:24
-#: ../modules/network/proxy/ProxyContent.qml:28
 msgid "Method"
 msgstr "方法"
 
@@ -720,7 +715,6 @@ msgid "Send PPP Echo Packets"
 msgstr "发送PPP Echo数据包"
 
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:24
-#, fuzzy
 msgid "Security Required"
 msgstr "安全"
 
@@ -782,10 +776,6 @@ msgstr "使用TAP设备"
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:105
 msgid "Use Custom Tunnel MTU"
 msgstr "使用自定义最大传输单元(MTU)"
-
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:116
-msgid "MTU"
-msgstr "MTU"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
 msgid "Use Custom UDP Fragment Size"
@@ -877,7 +867,6 @@ msgid "IKE DH Group"
 msgstr "IKE DH组"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:90
-#, fuzzy
 msgid "Forward Secrecy"
 msgstr "完全正向保密"
 
@@ -993,7 +982,7 @@ msgstr "网络"
 msgid "Disk Mount"
 msgstr "磁盘挂载"
 
-#: ../frame/views/ModulesData.qml:31
+#: ../frame/views/ModulesData.qml:31 ../modules/network/main.qml:168
 msgid "Bluetooth"
 msgstr "蓝牙"
 
@@ -1121,35 +1110,47 @@ msgstr "拖拽图片到此以更换背景"
 
 #: ../modules/grub/Preview.qml:122
 msgid "Background is changing, please reboot later..."
-msgstr ""
+msgstr "背景图标正在被后端应用，请稍后重启..."
 
 #: ../modules/grub/Preview.qml:123
 msgid "Successfully changed, reboot to view."
-msgstr ""
+msgstr "更换背景图片成功，重启后可以查看。"
 
-#: ../modules/network/proxy/ProxyContent.qml:61
+#: ../modules/network/proxy/ProxyContent.qml:40
+msgid "None"
+msgstr "无"
+
+#: ../modules/network/proxy/ProxyContent.qml:45
+msgid "Manual"
+msgstr "手动"
+
+#: ../modules/network/proxy/ProxyContent.qml:50
+msgid "Auto"
+msgstr "自动"
+
+#: ../modules/network/proxy/ProxyContent.qml:85
 msgid "HTTP Proxy"
 msgstr "HTTP代理"
 
-#: ../modules/network/proxy/ProxyContent.qml:73
+#: ../modules/network/proxy/ProxyContent.qml:97
 msgid "HTTPS Proxy"
 msgstr "HTTPS代理"
 
-#: ../modules/network/proxy/ProxyContent.qml:85
+#: ../modules/network/proxy/ProxyContent.qml:109
 msgid "FTP Proxy"
 msgstr "FTP代理"
 
-#: ../modules/network/proxy/ProxyContent.qml:97
+#: ../modules/network/proxy/ProxyContent.qml:121
 msgid "Socks Host"
-msgstr ""
+msgstr "Socks代理"
 
-#: ../modules/network/proxy/ProxyContent.qml:114
+#: ../modules/network/proxy/ProxyContent.qml:146
 msgid "Configuration URL"
-msgstr ""
+msgstr "配置URL"
 
-#: ../modules/network/proxy/ProxyContent.qml:130
+#: ../modules/network/proxy/ProxyContent.qml:163
 msgid "Apply system wide"
-msgstr ""
+msgstr "应用到整个系统"
 
 #: ../modules/network/proxy/ProxyExpand.qml:37
 msgid "System Proxy"
@@ -1298,18 +1299,20 @@ msgstr "创建无线热点"
 msgid "Create"
 msgstr "创建"
 
-#: ../dock-applets/qml/WifiPasswordWindow.qml:117
+#: ../dock-applets/qml/WifiPasswordWindow.qml:127
 #: ../frame/views/WifiPasswordWindow.qml:108
 msgid "Authentication required by Wi-Fi network"
 msgstr "Wi-Fi网络所需的授权"
 
-#: ../dock-applets/qml/WifiPasswordWindow.qml:125
+#: ../dock-applets/qml/WifiPasswordWindow.qml:135
 #: ../frame/views/WifiPasswordWindow.qml:116
 #, qt-format
-msgid "Passwords or encryption keys are required to access the Wi-Fi network <font color=\"#0ff\">%1</font>"
+msgid ""
+"Passwords or encryption keys are required to access the Wi-Fi network <font "
+"color=\"#0ff\">%1</font>"
 msgstr "连接Wi-Fi网络所需的密码或密匙<font color=\"#0ff\">%1</font>"
 
-#: ../dock-applets/qml/WifiPasswordWindow.qml:139
+#: ../dock-applets/qml/WifiPasswordWindow.qml:149
 #: ../frame/views/WifiPasswordWindow.qml:130
 msgid "Password:"
 msgstr "密码："
@@ -1594,62 +1597,6 @@ msgstr "大写键按键提示"
 msgid "Disable the touchpad when inserting the mouse"
 msgstr "插入鼠标时禁用触摸板"
 
-#: ../modules/network/main.qml:158 ../modules/network/main.qml:186
-msgid "Unknown"
-msgstr "未知的"
-
-#: ../modules/network/main.qml:160
-msgid "Wired"
-msgstr "有线"
-
-#: ../modules/network/main.qml:162
-msgid "Wireless"
-msgstr "无线"
-
-#: ../modules/network/main.qml:164
-msgid "Unused1"
-msgstr "未使用1"
-
-#: ../modules/network/main.qml:166
-msgid "Unused2"
-msgstr "未使用2"
-
-#: ../modules/network/main.qml:168
-msgid "Bluetooth"
-msgstr "蓝牙"
-
-#: ../modules/network/main.qml:170
-msgid "OLPC mesh"
-msgstr "OLPC网"
-
-#: ../modules/network/main.qml:172
-msgid "WiMAX"
-msgstr "WiMAX"
-
-#: ../modules/network/main.qml:174
-msgid "Modem"
-msgstr "调制解调器"
-
-#: ../modules/network/main.qml:176
-msgid "InfiniBand"
-msgstr "InfiniBand"
-
-#: ../modules/network/main.qml:178
-msgid "bond"
-msgstr "绑定"
-
-#: ../modules/network/main.qml:180
-msgid "VLAN"
-msgstr "VLAN"
-
-#: ../modules/network/main.qml:182
-msgid "ADSL"
-msgstr "ADSL"
-
-#: ../modules/network/main.qml:184
-msgid "bridge"
-msgstr "桥接"
-
 #: ../modules/personalization/main.qml:101
 msgid "Theme"
 msgstr "主题"
@@ -1854,3 +1801,55 @@ msgstr "磁盘"
 #: ../modules/system_info/main.qml:151
 msgid "GNU GENERAL PUBLIC LICENSE"
 msgstr "GNU通用公共许可协议"
+
+#: ../modules/network/main.qml:158 ../modules/network/main.qml:186
+msgid "Unknown"
+msgstr "未知的"
+
+#: ../modules/network/main.qml:160
+msgid "Wired"
+msgstr "有线"
+
+#: ../modules/network/main.qml:162
+msgid "Wireless"
+msgstr "无线"
+
+#: ../modules/network/main.qml:164
+msgid "Unused1"
+msgstr "未使用1"
+
+#: ../modules/network/main.qml:166
+msgid "Unused2"
+msgstr "未使用2"
+
+#: ../modules/network/main.qml:170
+msgid "OLPC mesh"
+msgstr "OLPC网"
+
+#: ../modules/network/main.qml:172
+msgid "WiMax"
+msgstr ""
+
+#: ../modules/network/main.qml:174
+msgid "Modem"
+msgstr "调制解调器"
+
+#: ../modules/network/main.qml:176
+msgid "InfiniBand"
+msgstr "InfiniBand"
+
+#: ../modules/network/main.qml:178
+msgid "Bond"
+msgstr ""
+
+#: ../modules/network/main.qml:180
+msgid "VLAN"
+msgstr "VLAN"
+
+#: ../modules/network/main.qml:182
+msgid "ADSL"
+msgstr "ADSL"
+
+#: ../modules/network/main.qml:184
+msgid "Bridge"
+msgstr "桥接"

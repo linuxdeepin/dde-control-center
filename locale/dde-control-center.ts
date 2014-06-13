@@ -252,11 +252,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="217"/>
-        <source>Uesr Cert</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../modules/network/add/AddVpn.qml" line="228"/>
         <location filename="../modules/network/add/AddVpn.qml" line="327"/>
         <source>Private Key</source>
@@ -273,6 +268,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../modules/network/add/AddVpn.qml" line="217"/>
         <location filename="../modules/network/add/AddVpn.qml" line="305"/>
         <source>User Cert</source>
         <translation type="unfinished"></translation>
@@ -1095,11 +1091,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="156"/>
-        <source>Uesr Cert</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="167"/>
         <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="266"/>
         <source>Private Key</source>
@@ -1116,6 +1107,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="156"/>
         <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="244"/>
         <source>User Cert</source>
         <translation type="unfinished"></translation>
@@ -1316,12 +1308,12 @@
     </message>
     <message>
         <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="83"/>
-        <source>Use a TCP connection</source>
+        <source>Use TCP connection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="94"/>
-        <source>Use a TAP device</source>
+        <source>Use TAP device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1991,37 +1983,47 @@
 <context>
     <name>ProxyContent</name>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="28"/>
-        <source>Method</source>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="40"/>
+        <source>None</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="61"/>
-        <source>HTTP Proxy</source>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="45"/>
+        <source>Manual</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="73"/>
-        <source>HTTPS Proxy</source>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="50"/>
+        <source>Auto</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/network/proxy/ProxyContent.qml" line="85"/>
-        <source>FTP Proxy</source>
+        <source>HTTP Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/network/proxy/ProxyContent.qml" line="97"/>
+        <source>HTTPS Proxy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="109"/>
+        <source>FTP Proxy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="121"/>
         <source>Socks Host</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="114"/>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="146"/>
         <source>Configuration URL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="130"/>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="163"/>
         <source>Apply system wide</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2302,31 +2304,31 @@
 <context>
     <name>WifiPasswordWindow</name>
     <message>
-        <location filename="../dock-applets/qml/WifiPasswordWindow.qml" line="117"/>
+        <location filename="../dock-applets/qml/WifiPasswordWindow.qml" line="127"/>
         <location filename="../frame/views/WifiPasswordWindow.qml" line="108"/>
         <source>Authentication required by Wi-Fi network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/WifiPasswordWindow.qml" line="125"/>
+        <location filename="../dock-applets/qml/WifiPasswordWindow.qml" line="135"/>
         <location filename="../frame/views/WifiPasswordWindow.qml" line="116"/>
         <source>Passwords or encryption keys are required to access the Wi-Fi network &lt;font color=&quot;#0ff&quot;&gt;%1&lt;/font&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/WifiPasswordWindow.qml" line="139"/>
+        <location filename="../dock-applets/qml/WifiPasswordWindow.qml" line="149"/>
         <location filename="../frame/views/WifiPasswordWindow.qml" line="130"/>
         <source>Password:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/WifiPasswordWindow.qml" line="161"/>
+        <location filename="../dock-applets/qml/WifiPasswordWindow.qml" line="171"/>
         <location filename="../frame/views/WifiPasswordWindow.qml" line="170"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/WifiPasswordWindow.qml" line="168"/>
+        <location filename="../dock-applets/qml/WifiPasswordWindow.qml" line="178"/>
         <location filename="../frame/views/WifiPasswordWindow.qml" line="177"/>
         <source>Connect</source>
         <translation type="unfinished"></translation>
@@ -2881,77 +2883,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="158"/>
-        <location filename="../modules/network/main.qml" line="186"/>
-        <source>unknown</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/main.qml" line="160"/>
-        <source>wired</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/main.qml" line="162"/>
-        <source>wireless</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/main.qml" line="164"/>
-        <source>unused1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/main.qml" line="166"/>
-        <source>unused2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/main.qml" line="168"/>
-        <source>bluetooth</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/main.qml" line="170"/>
-        <source>olpc mesh</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/main.qml" line="172"/>
-        <source>wimax</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/main.qml" line="174"/>
-        <source>modem</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/main.qml" line="176"/>
-        <source>infiniband</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/main.qml" line="178"/>
-        <source>bond</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/main.qml" line="180"/>
-        <source>vlan</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/main.qml" line="182"/>
-        <source>adsl</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/main.qml" line="184"/>
-        <source>bridge</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../modules/personalization/main.qml" line="101"/>
         <source>Theme</source>
         <translation type="unfinished"></translation>
@@ -3219,6 +3150,77 @@
     <message>
         <location filename="../modules/system_info/main.qml" line="151"/>
         <source>GNU GENERAL PUBLIC LICENSE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="158"/>
+        <location filename="../modules/network/main.qml" line="186"/>
+        <source>Unknown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="160"/>
+        <source>Wired</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="162"/>
+        <source>Wireless</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="164"/>
+        <source>Unused1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="166"/>
+        <source>Unused2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="168"/>
+        <source>Bluetooth</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="170"/>
+        <source>OLPC mesh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="172"/>
+        <source>WiMax</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="174"/>
+        <source>Modem</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="176"/>
+        <source>InfiniBand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="178"/>
+        <source>Bond</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="180"/>
+        <source>VLAN</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="182"/>
+        <source>ADSL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="184"/>
+        <source>Bridge</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

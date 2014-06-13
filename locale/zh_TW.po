@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-13 12:17+0800\n"
+"POT-Creation-Date: 2014-06-13 15:28+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -114,7 +114,7 @@ msgstr "十一月"
 #: ../modules/shortcuts/ShortcutInput.qml:321
 #: ../modules/date_time/TimeBox.qml:212
 #: ../modules/network/wireless/WifiHotspot.qml:86
-#: ../dock-applets/qml/WifiPasswordWindow.qml:161
+#: ../dock-applets/qml/WifiPasswordWindow.qml:171
 #: ../frame/views/WifiPasswordWindow.qml:170 ../modules/display/main.qml:224
 msgid "Cancel"
 msgstr "取消"
@@ -266,12 +266,6 @@ msgstr ""
 msgid "CSD Wrapper"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:217
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:156
-#, fuzzy
-msgid "Uesr Cert"
-msgstr "使用者清單"
-
 #: ../modules/network/add/AddVpn.qml:228 ../modules/network/add/AddVpn.qml:327
 #: ../modules/network/wireless/AddWireless.qml:179
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:168
@@ -292,9 +286,10 @@ msgstr ""
 msgid "Auth Type"
 msgstr "系統類型"
 
-#: ../modules/network/add/AddVpn.qml:305
+#: ../modules/network/add/AddVpn.qml:217 ../modules/network/add/AddVpn.qml:305
 #: ../modules/network/wireless/AddWireless.qml:123
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:112
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:156
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:244
 #, fuzzy
 msgid "User Cert"
@@ -449,7 +444,7 @@ msgstr ""
 
 #: ../modules/network/wireless/AddWireless.qml:242
 #: ../modules/network/widgets/PasswordBox.qml:109
-#: ../dock-applets/qml/WifiPasswordWindow.qml:168
+#: ../dock-applets/qml/WifiPasswordWindow.qml:178
 #: ../frame/views/WifiPasswordWindow.qml:177
 msgid "Connect"
 msgstr "連線"
@@ -644,7 +639,6 @@ msgstr "IPv4"
 
 #: ../modules/network/edit_autogen/EditSectionIpv4.qml:24
 #: ../modules/network/edit_autogen/EditSectionIpv6.qml:24
-#: ../modules/network/proxy/ProxyContent.qml:28
 msgid "Method"
 msgstr "方法"
 
@@ -827,12 +821,12 @@ msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:83
 #, fuzzy
-msgid "Use a TCP connection"
+msgid "Use TCP connection"
 msgstr "建立連線"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:94
 #, fuzzy
-msgid "Use a TAP device"
+msgid "Use TAP device"
 msgstr "建立連線"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:105
@@ -1058,7 +1052,7 @@ msgstr "網路"
 msgid "Disk Mount"
 msgstr "磁碟掛載"
 
-#: ../frame/views/ModulesData.qml:31
+#: ../frame/views/ModulesData.qml:31 ../modules/network/main.qml:168
 msgid "Bluetooth"
 msgstr "藍牙"
 
@@ -1197,27 +1191,41 @@ msgstr ""
 msgid "Successfully changed, reboot to view."
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:61
+#: ../modules/network/proxy/ProxyContent.qml:40
+msgid "None"
+msgstr ""
+
+#: ../modules/network/proxy/ProxyContent.qml:45
+#, fuzzy
+msgid "Manual"
+msgstr "一月"
+
+#: ../modules/network/proxy/ProxyContent.qml:50
+#, fuzzy
+msgid "Auto"
+msgstr "自動撥放"
+
+#: ../modules/network/proxy/ProxyContent.qml:85
 msgid "HTTP Proxy"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:73
+#: ../modules/network/proxy/ProxyContent.qml:97
 msgid "HTTPS Proxy"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:85
+#: ../modules/network/proxy/ProxyContent.qml:109
 msgid "FTP Proxy"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:97
+#: ../modules/network/proxy/ProxyContent.qml:121
 msgid "Socks Host"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:114
+#: ../modules/network/proxy/ProxyContent.qml:146
 msgid "Configuration URL"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:130
+#: ../modules/network/proxy/ProxyContent.qml:163
 msgid "Apply system wide"
 msgstr ""
 
@@ -1377,12 +1385,12 @@ msgstr ""
 msgid "Create"
 msgstr ""
 
-#: ../dock-applets/qml/WifiPasswordWindow.qml:117
+#: ../dock-applets/qml/WifiPasswordWindow.qml:127
 #: ../frame/views/WifiPasswordWindow.qml:108
 msgid "Authentication required by Wi-Fi network"
 msgstr "Wi-Fi網路需要驗證"
 
-#: ../dock-applets/qml/WifiPasswordWindow.qml:125
+#: ../dock-applets/qml/WifiPasswordWindow.qml:135
 #: ../frame/views/WifiPasswordWindow.qml:116
 #, qt-format
 msgid ""
@@ -1390,7 +1398,7 @@ msgid ""
 "color=\"#0ff\">%1</font>"
 msgstr "Wi-Fi網路 <font color=\"#0ff\">%1</font>需要驗證密碼或是金鑰驗證"
 
-#: ../dock-applets/qml/WifiPasswordWindow.qml:139
+#: ../dock-applets/qml/WifiPasswordWindow.qml:149
 #: ../frame/views/WifiPasswordWindow.qml:130
 msgid "Password:"
 msgstr "密碼:"
@@ -1693,63 +1701,6 @@ msgstr ""
 msgid "Disable the touchpad when inserting the mouse"
 msgstr ""
 
-#: ../modules/network/main.qml:158 ../modules/network/main.qml:186
-msgid "unknown"
-msgstr ""
-
-#: ../modules/network/main.qml:160
-msgid "wired"
-msgstr "有線"
-
-#: ../modules/network/main.qml:162
-msgid "wireless"
-msgstr "無線"
-
-#: ../modules/network/main.qml:164
-msgid "unused1"
-msgstr ""
-
-#: ../modules/network/main.qml:166
-msgid "unused2"
-msgstr ""
-
-#: ../modules/network/main.qml:168
-#, fuzzy
-msgid "bluetooth"
-msgstr "藍牙"
-
-#: ../modules/network/main.qml:170
-msgid "olpc mesh"
-msgstr ""
-
-#: ../modules/network/main.qml:172
-msgid "wimax"
-msgstr ""
-
-#: ../modules/network/main.qml:174
-msgid "modem"
-msgstr ""
-
-#: ../modules/network/main.qml:176
-msgid "infiniband"
-msgstr ""
-
-#: ../modules/network/main.qml:178
-msgid "bond"
-msgstr ""
-
-#: ../modules/network/main.qml:180
-msgid "vlan"
-msgstr ""
-
-#: ../modules/network/main.qml:182
-msgid "adsl"
-msgstr ""
-
-#: ../modules/network/main.qml:184
-msgid "bridge"
-msgstr ""
-
 #: ../modules/personalization/main.qml:101
 msgid "Theme"
 msgstr "主題"
@@ -1958,6 +1909,68 @@ msgstr "硬碟"
 #: ../modules/system_info/main.qml:151
 msgid "GNU GENERAL PUBLIC LICENSE"
 msgstr ""
+
+#: ../modules/network/main.qml:158 ../modules/network/main.qml:186
+msgid "Unknown"
+msgstr ""
+
+#: ../modules/network/main.qml:160
+#, fuzzy
+msgid "Wired"
+msgstr "有線"
+
+#: ../modules/network/main.qml:162
+#, fuzzy
+msgid "Wireless"
+msgstr "無線"
+
+#: ../modules/network/main.qml:164
+msgid "Unused1"
+msgstr ""
+
+#: ../modules/network/main.qml:166
+msgid "Unused2"
+msgstr ""
+
+#: ../modules/network/main.qml:170
+msgid "OLPC mesh"
+msgstr ""
+
+#: ../modules/network/main.qml:172
+msgid "WiMax"
+msgstr ""
+
+#: ../modules/network/main.qml:174
+msgid "Modem"
+msgstr ""
+
+#: ../modules/network/main.qml:176
+msgid "InfiniBand"
+msgstr ""
+
+#: ../modules/network/main.qml:178
+msgid "Bond"
+msgstr ""
+
+#: ../modules/network/main.qml:180
+msgid "VLAN"
+msgstr ""
+
+#: ../modules/network/main.qml:182
+msgid "ADSL"
+msgstr ""
+
+#: ../modules/network/main.qml:184
+msgid "Bridge"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Uesr Cert"
+#~ msgstr "使用者清單"
+
+#, fuzzy
+#~ msgid "bluetooth"
+#~ msgstr "藍牙"
 
 #, fuzzy
 #~ msgid "User Name"
