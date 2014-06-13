@@ -63,16 +63,21 @@ DockApplet{
     }
 
     function getIcon(){
-        var iconDataUri = iconBgDataUri
-        for(var i=0; i<subImageList.count; i++){
-            var imageInfo = subImageList.get(i)
-            iconDataUri = dbusGraphic.CompositeImageUri(
-                iconDataUri, 
-                getIconDataUri(imageInfo.imagePath),
-                imageInfo.x,
-                imageInfo.y,
-                "png"
-            )
+        if(airplaneModeButton.airplaneModeActive){
+            var iconDataUri = getIconDataUri("network/airplane_mode.png")
+        }
+        else{
+            var iconDataUri = iconBgDataUri
+            for(var i=0; i<subImageList.count; i++){
+                var imageInfo = subImageList.get(i)
+                iconDataUri = dbusGraphic.CompositeImageUri(
+                    iconDataUri, 
+                    getIconDataUri(imageInfo.imagePath),
+                    imageInfo.x,
+                    imageInfo.y,
+                    "png"
+                )
+            }
         }
         print("==> [info] network icon update...")
         return iconDataUri
@@ -404,7 +409,7 @@ DockApplet{
                         Connections{
                             target: dbusBluetooth
                             onPoweredChanged:{
-                                if(!bluetoothButton.pressed){
+                                if(!bluetoothButton.pressed && dbusBluetooth.powered){
                                     bluetoothButton.active = dbusBluetooth.powered
                                 }
                                 var show = adapters.length > 0
@@ -434,20 +439,18 @@ DockApplet{
                         id: airplaneModeButton
                         onImage: "images/airplane_mode_on.png"
                         offImage: "images/airplane_mode_off.png"
-                        property bool airplaneModeActive: getActive()
-
-                        onAirplaneModeActiveChanged: {
-                            if(!airplaneModeButton.pressed){
-                                airplaneModeButton.active = airplaneModeButton.airplaneModeActive
-                            }
-                        }
-
-                        function getActive(){
-                            if(dbusNetwork.networkingEnabled || dbusBluetooth.powered){
+                        property bool airplaneModeActive: {
+                            if(dbusNetwork.wiredEnabled || dbusNetwork.wirelessEnabled || dbusBluetooth.powered){
                                 return false
                             }
                             else{
                                 return true
+                            }
+                        }
+
+                        onAirplaneModeActiveChanged: {
+                            if(!airplaneModeButton.pressed){
+                                airplaneModeButton.active = airplaneModeButton.airplaneModeActive
                             }
                         }
 
