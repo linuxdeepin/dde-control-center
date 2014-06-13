@@ -47,7 +47,7 @@ MyBaseExpand {
                 onPressedChanged: {
                     if(!pressed){
                         if(currentThemeObject.fontSize != parseInt(slider.value)){
-                            dbusThemeManager.Set("fontsize", "", parseInt(slider.value))
+                            dbusThemeManager.Set("fontsize", parseInt(slider.value))
                         }
                     }
                 }

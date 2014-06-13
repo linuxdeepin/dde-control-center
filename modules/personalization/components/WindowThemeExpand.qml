@@ -41,7 +41,7 @@ MyBaseExpand {
             property string currentItemName: currentThemeObject.gtkTheme
 
             function selectItem(itemValue){
-                dbusThemeManager.Set("gtk", "", itemValue)
+                dbusThemeManager.Set("gtk", itemValue)
             }
 
             model: {

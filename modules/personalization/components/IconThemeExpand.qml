@@ -41,7 +41,7 @@ MyBaseExpand {
             property string currentItemName: currentThemeObject.iconTheme
 
             function selectItem(itemValue){
-                dbusThemeManager.Set("icon", "", itemValue)
+                dbusThemeManager.Set("icon", itemValue)
             }
 
             model: {

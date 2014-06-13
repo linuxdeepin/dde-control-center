@@ -44,7 +44,7 @@ MyBaseExpand {
             property string currentItemName: currentThemeObject.background
 
             function selectItem(itemValue){
-                dbusThemeManager.Set("background", "", itemValue)
+                dbusThemeManager.Set("background", itemValue)
             }
 
             model: {

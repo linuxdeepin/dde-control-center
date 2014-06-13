@@ -44,7 +44,7 @@ MyBaseExpand {
             property string currentItemName: dbusThemeManager.currentTheme
 
             function selectItem(itemValue){
-                dbusThemeManager.Set("gtk", "", itemValue)
+                dbusThemeManager.Set("gtk", itemValue)
             }
 
             Connections{
