@@ -26,6 +26,7 @@ import QtQuick.Window 2.1
 import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Display 1.0
+import Deepin.Locale 1.0
 import "widgets"
 
 Window {
@@ -47,11 +48,20 @@ Window {
     property string accessPointName: "linuxdepin-1"
     property string accessPointEncryption: ""
     property var accessPointObj: undefined
+
     signal connect(string password)
     signal cancel()
 
+    property var dssLocale: DLocale{
+        domain: "dde-control-center"
+    }
+
+    function dsTr(s){
+        return dssLocale.dsTr(s)
+    }
+
     width: 480
-    height: 210
+    height: 180
 
     function showDialog(){
         messageBox.show()

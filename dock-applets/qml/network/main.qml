@@ -141,7 +141,7 @@ DockApplet{
     Connections{
         target: dbusNetwork
         onAccessPointPropertiesChanged: {
-            if(arg0 == activeWirelessDevice.Path){
+            if(activeWirelessDevice && arg0 == activeWirelessDevice.Path){
                 var apInfo = unmarshalJSON(arg1)
                 if(apInfo.Path == activeWirelessDevice.ActiveAp){
                     updateWifiState(true, apInfo)

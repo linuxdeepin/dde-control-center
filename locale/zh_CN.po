@@ -1106,7 +1106,7 @@ msgstr "旋转"
 
 #: ../modules/display/MonitorProperties.qml:205
 msgid "Brightness"
-msgstr ""
+msgstr "亮度"
 
 #: ../modules/network/widgets/PasswordBox.qml:76
 msgid "Password: "
@@ -1311,9 +1311,7 @@ msgstr "Wi-Fi网络所需的授权"
 #: ../dock-applets/qml/WifiPasswordWindow.qml:125
 #: ../frame/views/WifiPasswordWindow.qml:116
 #, qt-format
-msgid ""
-"Passwords or encryption keys are required to access the Wi-Fi network <font "
-"color=\"#0ff\">%1</font>"
+msgid "Passwords or encryption keys are required to access the Wi-Fi network <font color=\"#0ff\">%1</font>"
 msgstr "连接Wi-Fi网络所需的密码或密匙<font color=\"#0ff\">%1</font>"
 
 #: ../dock-applets/qml/WifiPasswordWindow.qml:139
