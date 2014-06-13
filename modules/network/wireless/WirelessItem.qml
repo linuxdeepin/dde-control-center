@@ -16,12 +16,12 @@ Item {
     property string activeAp: "/"
     property bool apConnected: activeAp == masterApPath && deviceState == nmDeviceStateActivated
     property string connectionPath
-    property string uuid
+    property string uuid: ""
     property string masterApSsid: masterApInfo.Ssid
     property string masterApPath: masterApInfo.Path
-    property string masterApSecured: masterApInfo.Secured
-    property string masterApSecuredInEap: masterApInfo.SecuredInEap
-    property string masterApStrength: masterApInfo.Strength
+    property bool masterApSecured: masterApInfo.Secured
+    property bool masterApSecuredInEap: masterApInfo.SecuredInEap
+    property int masterApStrength: masterApInfo.Strength
 
     function updateMasterApInfoWhenActivatingAp() {
         if (!apInfos) {
@@ -29,7 +29,7 @@ Item {
             return
         }
         if (apInfos.count == 0) {
-            print("-> [warning] wireless item apInfos is empty", masterApInfo.Uuid, masterApInfo.Path)
+            print("-> [warning] wireless item apInfos is empty", masterApInfo.Ssid, masterApInfo.Path)
             return
         }
         for(var i=0; i<apInfos.count; i++){
