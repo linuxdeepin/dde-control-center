@@ -115,6 +115,14 @@ DockApplet{
     }
 
     property var nmConnections: unmarshalJSON(dbusNetwork.connections)
+    property bool hasWiredDevices: {
+        if(nmDevices["wired"] && nmDevices["wired"].length > 0){
+            return true
+        }
+        else{
+            return false
+        }
+    }
 
     // wifi
     property bool hasWirelessDevices: {
@@ -293,7 +301,7 @@ DockApplet{
                         id: wiredCheckButton
                         onImage: "images/wire_on.png"
                         offImage: "images/wire_off.png"
-                        visible: nmDevices["wired"].length > 0
+                        visible: hasWiredDevices
 
                         onClicked: {
                             dbusNetwork.wiredEnabled = active
@@ -321,7 +329,7 @@ DockApplet{
                         id: wirelessCheckButton
                         onImage: "images/wifi_on.png"
                         offImage: "images/wifi_off.png"
-                        visible: nmDevices["wireless"].length > 0
+                        visible: hasWirelessDevices
 
                         onClicked: {
                             dbusNetwork.wirelessEnabled = active
