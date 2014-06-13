@@ -20,14 +20,6 @@ Item {
 
         property real scaleRatio: width / sourceSize.width
 
-        Connections {
-            target: dbus_grub2_theme
-            onBackgroundChanged: {
-                background.source = ""
-                background.source = dbus_grub2_theme.background
-            }
-        }
-
         DropArea {
             anchors.fill: parent
 
@@ -129,7 +121,7 @@ Item {
             property string changingText: dsTr("Background is changing, please reboot later...")
             property string changedText: dsTr("Successfully changed, reboot to view.")
 
-            property bool updating: dbus_grub2.updating || dbus_grub2_theme.updating
+            property bool updating: dbus_grub2_theme.updating
             onUpdatingChanged: {
                 if(updating){
                     text = changingText
