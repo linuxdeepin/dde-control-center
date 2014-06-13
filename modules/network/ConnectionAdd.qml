@@ -34,10 +34,12 @@ Column {
                     "item_id": "pppoe",
                     "item_name": dsTr("PPPoE")
                 })
+                /***
                 model.append({
                     "item_id": "mobile",
                     "item_name": dsTr("Mobile 2G/3G/4G-LTE")
                 })
+                ***/
                 model.append({
                     "item_id": "vpn",
                     "item_name": dsTr("VPN")

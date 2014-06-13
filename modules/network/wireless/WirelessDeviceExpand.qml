@@ -270,6 +270,7 @@ DBaseExpand {
             visible: false
         }
 
+        /************
         DBaseLine {
             id: wifiHotspotLine
             color: dconstants.contentBgColor
@@ -317,6 +318,7 @@ DBaseExpand {
                 }
             }
         }
+        ************/
     }
 
     // TODO
