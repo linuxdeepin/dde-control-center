@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Deepin.Widgets 1.0
+import "../../shared"
 
 Column {
     width: parent.width
@@ -7,6 +8,7 @@ Column {
     property int centerPadding: 20
     property int titleWidth: 80
     property int sliderWidth: 198
+    property var listModelComponent: DListModelComponent {}
 
     property var proxyMethods: ["none", "manual", "auto"]
     property var currentIndex: {
@@ -19,31 +21,47 @@ Column {
         return 0
     }
 
-    DCenterLine {
+    Item {
         id: methodLine
-        color: "transparent"
-        height: contentHeight
-        centerPadding: centerPadding
-        leftWidth: titleWidth
-        title.text: dsTr("Method")
-        property int methodId: {
-            if(content.item){
-                return content.item.selectIndex
+        height: 30
+        width: parent.width
+
+        GridView{
+            id: methodView
+            width: parent.width
+            height: 30
+
+            cellWidth: width/3
+            cellHeight: 30
+
+            model: {
+                var model = listModelComponent.createObject(methodView, {})
+                model.append({
+                    "item_label": dsTr("None"),
+                    "item_value": 0,
+                    "item_tooltip": ""
+                });
+                model.append({
+                    "item_label": dsTr("Manual"),
+                    "item_value": 1,
+                    "item_tooltip": ""
+                });
+                model.append({
+                    "item_label": dsTr("Auto"),
+                    "item_value": 2,
+                    "item_tooltip": ""
+                });
+                return model
             }
-            else{
-                return 0
-            }
-        }
-        content.sourceComponent: DComboBox{
-            width: sliderWidth
-            parentWindow: rootWindow
-            selectIndex: currentIndex
-            menu.labels: {
-                var arr = new Array()
-                arr.push("None")
-                arr.push("Manual")
-                arr.push("Automatic")
-                return arr
+
+            delegate: PropertyItem {
+                currentValue: currentIndex
+                onSelectAction: {
+                    currentIndex = itemValue
+                    if(currentIndex == 0){
+                        dbusNetwork.SetProxyMethod(proxyMethods[0])
+                    }
+                }
             }
         }
     }
@@ -51,7 +69,13 @@ Column {
     Column {
         id: manualProxyColumn
         width: parent.width
-        visible: methodLine.methodId == 1
+        visible: currentIndex == 1
+
+        DSeparatorHorizontal {}
+        Item {
+            width: parent.width
+            height: 6
+        }
 
         DCenterLine {
             color: "transparent"
@@ -105,7 +129,15 @@ Column {
 
     Column {
         width: parent.width
-        visible: methodLine.methodId == 2
+        visible: currentIndex == 2
+
+        DSeparatorHorizontal {}
+
+        Item {
+            width: parent.width
+            height: 6
+        }
+
         DCenterLine {
             color: "transparent"
             height: contentHeight
@@ -125,11 +157,12 @@ Column {
     }
 
     DBaseLine {
+        visible: currentIndex != 0
         color: "transparent"
         rightLoader.sourceComponent: DTextButton {
             text: dsTr("Apply system wide")
             onClicked: {
-                dbusNetwork.SetProxyMethod(proxyMethods[methodLine.methodId])
+                dbusNetwork.SetProxyMethod(proxyMethods[currentIndex])
             }
         }
     }
