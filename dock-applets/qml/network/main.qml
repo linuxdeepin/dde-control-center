@@ -117,6 +117,14 @@ DockApplet{
     property var nmConnections: unmarshalJSON(dbusNetwork.connections)
 
     // wifi
+    property bool hasWirelessDevices: {
+        if(nmDevices["wireless"] && nmDevices["wireless"].length > 0){
+            return true
+        }
+        else{
+            return false
+        }
+    }
     property var activeWirelessDevice: getActiveWirelessDevice()
     onActiveWirelessDeviceChanged: {
         if(activeWirelessDevice){
@@ -129,11 +137,11 @@ DockApplet{
             }
         }
         else{
-            if(!dbusNetwork.wirelessEnabled){
-                updateWifiState(false, null)
+            if(hasWirelessDevices){
+                updateWifiState(true, null)
             }
             else {
-                updateWifiState(true, null)
+                updateWifiState(false, null)
             }
         }
     }
