@@ -80,7 +80,7 @@ BaseEditSection {
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "proto-tcp"
-            text: dsTr("Use a TCP connection")
+            text: dsTr("Use TCP connection")
         }
         EditLineSwitchButton {
             id: lineAliasVpnOpenvpnAdvancedTapDev
@@ -91,7 +91,7 @@ BaseEditSection {
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "tap-dev"
-            text: dsTr("Use a TAP device")
+            text: dsTr("Use TAP device")
         }
         EditLineSwitchButton {
             id: lineAliasVpnOpenvpnAdvancedVkEnableTunnelMtu

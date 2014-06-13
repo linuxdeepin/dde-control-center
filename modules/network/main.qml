@@ -155,35 +155,35 @@ Item {
     function getDeviceName(devType) {
         switch(devType) {
         case nmDeviceTypeUnknown:
-            return dsTr("unknown");
+            return dsTr("Unknown");
         case nmDeviceTypeEthernet:
-            return dsTr("wired");
+            return dsTr("Wired");
         case nmDeviceTypeWifi:
-            return dsTr("wireless");
+            return dsTr("Wireless");
         case nmDeviceTypeUnused1:
-            return dsTr("unused1");
+            return dsTr("Unused1");
         case nmDeviceTypeUnused2:
-            return dsTr("unused2");
+            return dsTr("Unused2");
         case nmDeviceTypeBt:
-            return dsTr("bluetooth");
+            return dsTr("Bluetooth");
         case nmDeviceTypeOlpcMesh:
-            return dsTr("olpc mesh");
+            return dsTr("OLPC mesh");
         case nmDeviceTypeWimax:
-            return dsTr("wimax");
+            return dsTr("WiMax");
         case nmDeviceTypeModem:
-            return dsTr("modem");
+            return dsTr("Modem");
         case nmDeviceTypeInfiniband:
-            return dsTr("infiniband");
+            return dsTr("InfiniBand");
         case nmDeviceTypeBond:
-            return dsTr("bond");
+            return dsTr("Bond");
         case nmDeviceTypeVlan:
-            return dsTr("vlan");
+            return dsTr("VLAN");
         case nmDeviceTypeAdsl:
-            return dsTr("adsl");
+            return dsTr("ADSL");
         case nmDeviceTypeBridge:
-            return dsTr("bridge");
+            return dsTr("Bridge");
         }
-        return dsTr("unknown");
+        return dsTr("Unknown");
     }
     
     function getActiveConnectionInfo(uuid) {

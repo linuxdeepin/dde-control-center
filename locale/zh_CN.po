@@ -47,11 +47,10 @@ msgstr "名称"
 msgid "Username"
 msgstr "用户名"
 
-# "Server"
 #: ../modules/network/add/AddDsl.qml:49
 #: ../modules/network/edit_autogen/EditSectionPppoe.qml:35
 msgid "Service"
-msgstr "服务器"
+msgstr "服务"
 
 #: ../modules/network/add/AddDsl.qml:60
 #: ../modules/network/add/AddMobile.qml:91
@@ -253,7 +252,6 @@ msgstr "允许齐思科安全桌面木马"
 msgid "CSD Wrapper"
 msgstr "电路切换数据通话外包"
 
-# "User Cert"
 #: ../modules/network/add/AddVpn.qml:217
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:156
 msgid "Uesr Cert"
@@ -296,19 +294,17 @@ msgstr "密码"
 msgid "Static Key"
 msgstr "静态密码"
 
-# "Use direction key"
 #: ../modules/network/add/AddVpn.qml:371
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:310
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:57
 msgid "Use Key Direction"
-msgstr "使用方向键"
+msgstr "自定义密钥方向"
 
-# "Direction Key"
 #: ../modules/network/add/AddVpn.qml:382
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:321
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:68
 msgid "Key Direction"
-msgstr "方向键"
+msgstr "密钥方向"
 
 #: ../modules/network/add/AddVpn.qml:393
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:332
@@ -408,7 +404,6 @@ msgstr ""
 msgid "Provisioning"
 msgstr "设置"
 
-# "PAC File"
 #: ../modules/network/wireless/AddWireless.qml:145
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:134
 msgid "PAC file"
@@ -596,7 +591,6 @@ msgstr "MTU"
 msgid "General"
 msgstr "通用"
 
-# "Automatically Connect"
 #: ../modules/network/edit_autogen/EditSectionGeneral.qml:24
 msgid "Automatically connect"
 msgstr "自动连接"
@@ -777,32 +771,33 @@ msgstr "重新协商间隔时间"
 msgid "Use LZO data compression"
 msgstr "使用LZO数据压缩"
 
-# "Use TCP connection"
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:83
-msgid "Use a TCP connection"
+msgid "Use TCP connection"
 msgstr "使用TCP连接"
 
-# "Use TAP device"
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:94
-msgid "Use a TAP device"
+msgid "Use TAP device"
 msgstr "使用TAP设备"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:105
 msgid "Use Custom Tunnel MTU"
-msgstr "使用自定义通道MTU"
+msgstr "使用自定义最大传输单元(MTU)"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:116
+msgid "MTU"
+msgstr "MTU"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
 msgid "Use Custom UDP Fragment Size"
-msgstr "使用自定义UDP碎片大小"
+msgstr "使用自定义UDP数据报长度"
 
-# "UDP fragment size"
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:140
 msgid "UDP Fragment Size"
-msgstr "UDP碎片大小"
+msgstr "UDP数据报长度"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:153
 msgid "Restrict Tunnel TCP MSS"
-msgstr "限制通道TCP MSS"
+msgstr "限制隧道TCP MSS"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:164
 msgid "Randomize Remote Hosts"
@@ -1433,7 +1428,6 @@ msgstr "正在充电"
 msgid "Custom"
 msgstr "自定义"
 
-# "Power Saver"
 #: ../dock-applets/qml/power/main.qml:47 ../modules/power/main.qml:256
 #: ../modules/power/main.qml:429
 msgid "Power saver"
@@ -1601,58 +1595,55 @@ msgid "Disable the touchpad when inserting the mouse"
 msgstr "插入鼠标时禁用触摸板"
 
 #: ../modules/network/main.qml:158 ../modules/network/main.qml:186
-msgid "unknown"
+msgid "Unknown"
 msgstr "未知的"
 
 #: ../modules/network/main.qml:160
-msgid "wired"
+msgid "Wired"
 msgstr "有线"
 
 #: ../modules/network/main.qml:162
-msgid "wireless"
+msgid "Wireless"
 msgstr "无线"
 
 #: ../modules/network/main.qml:164
-msgid "unused1"
+msgid "Unused1"
 msgstr "未使用1"
 
 #: ../modules/network/main.qml:166
-msgid "unused2"
+msgid "Unused2"
 msgstr "未使用2"
 
 #: ../modules/network/main.qml:168
-msgid "bluetooth"
+msgid "Bluetooth"
 msgstr "蓝牙"
 
-# "OLPC Mesh"
 #: ../modules/network/main.qml:170
-msgid "olpc mesh"
+msgid "OLPC mesh"
 msgstr "OLPC网"
 
 #: ../modules/network/main.qml:172
-msgid "wimax"
-msgstr "全球微波接入互操作性网络 "
+msgid "WiMAX"
+msgstr "WiMAX"
 
 #: ../modules/network/main.qml:174
-msgid "modem"
+msgid "Modem"
 msgstr "调制解调器"
 
 #: ../modules/network/main.qml:176
-msgid "infiniband"
-msgstr "无限带宽"
+msgid "InfiniBand"
+msgstr "InfiniBand"
 
 #: ../modules/network/main.qml:178
 msgid "bond"
-msgstr "bond!!!!"
+msgstr "绑定"
 
-# "VLAN"
 #: ../modules/network/main.qml:180
-msgid "vlan"
+msgid "VLAN"
 msgstr "VLAN"
 
-# "ADSL"
 #: ../modules/network/main.qml:182
-msgid "adsl"
+msgid "ADSL"
 msgstr "ADSL"
 
 #: ../modules/network/main.qml:184

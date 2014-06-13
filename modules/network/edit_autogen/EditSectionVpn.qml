@@ -153,7 +153,7 @@ BaseEditSection {
             errors: sectionVpn.errors
             section: "alias-vpn-openconnect"
             key: "usercert"
-            text: dsTr("Uesr Cert")
+            text: dsTr("User Cert")
         }
         EditLineFileChooser {
             id: lineAliasVpnOpenconnectUserkey
