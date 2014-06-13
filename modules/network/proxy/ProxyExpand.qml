@@ -33,17 +33,10 @@ Column {
 
         expanded: false
         
-        header.sourceComponent: DBaseLine{
-            leftLoader.sourceComponent: DssH2 {
-                anchors.verticalCenter: parent.verticalCenter
-                text: dsTr("System Proxy")
-            }
-
-            rightLoader.sourceComponent: DSwitchButton{
-                checked: rootExpand.expanded
-                onClicked: {
-                    rootExpand.expanded = !rootExpand.expanded
-                }
+        header.sourceComponent: DDownArrowHeader{
+            text: dsTr("System Proxy")
+            onClicked: {
+                rootExpand.expanded = active
             }
         }
 
