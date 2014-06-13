@@ -17,6 +17,7 @@ Item {
         asynchronous: true
         source: dbus_grub2_theme.background
         anchors.fill: parent
+        cache: false
 
         property real scaleRatio: width / sourceSize.width
 
