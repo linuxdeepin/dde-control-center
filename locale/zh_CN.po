@@ -1454,7 +1454,7 @@ msgstr "高性能"
 #: ../dock-applets/qml/power/main.qml:106
 #: ../dock-applets/qml/sound/main.qml:153
 msgid "_Undock"
-msgstr "移除(_U)"
+msgstr "移除驻留(_U)"
 
 #: ../dock-applets/qml/sound/main.qml:188
 msgid "Device"
