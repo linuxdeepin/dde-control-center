@@ -115,13 +115,14 @@ Item {
 
     Item {
         id: zoomButtonBox
-        visible: parent.hovered
+        visible: parent.hovered && previewExists
         anchors.top: itemThumbnailBox.top
         anchors.topMargin: 3
         anchors.right: itemThumbnailBox.right
         anchors.rightMargin: 3
         width: zoomButton.width 
         height: zoomButton.height
+        property bool previewExists: themeObj.preview ? themeObj.preview.length != 0 : false
 
         ShowPreviewButton {
             id: zoomButton
