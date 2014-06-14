@@ -135,12 +135,14 @@ Column {
     /* DSeparatorHorizontal { visible: dbus_bluetooth.powered } */
 
     DBaseExpand {
-       visible: dbus_bluetooth.powered        
+        visible: dbus_bluetooth.powered
         header.sourceComponent: DBaseLine {
             leftLoader.sourceComponent: DssH2 {
                 text: dsTr("Devices nearby")
             }
-            rightLoader.sourceComponent: RefreshButton {}
+            rightLoader.sourceComponent: RefreshButton {
+                // TODO
+            }
         }
     }
     
@@ -184,23 +186,23 @@ Column {
                     })
                 }
                 function updateDevice(devInfo) {
-                    var i = getIndex(devInfo)
+                    var i = getDeviceIndex(devInfo)
                     get(i).devInfo = devInfo
                     sortModel()
                 }
                 function removeDevice(devInfo) {
                     if (isDeviceExists(devInfo)) {
-                        var i = getIndex(devInfo)
+                        var i = getDeviceIndex(devInfo)
                         remove(i, 1)
                     }
                 }
                 function isDeviceExists(devInfo) {
-                    if (getIndex(devInfo) != -1) {
+                    if (getDeviceIndex(devInfo) != -1) {
                         return true
                     }
                     return false
                 }
-                function getIndex(devInfo) {
+                function getDeviceIndex(devInfo) {
                     for (var i=0; i<count; i++) {
                         if (get(i).devInfo.Path == devInfo.Path) {
                             return i
@@ -243,6 +245,17 @@ Column {
                 }
                 onSelectAction: {
                     dbus_bluetooth.ConnectDevice(itemId)
+                }
+                Connections {
+                    target: bluetooth
+                    onDevicesChanged: {
+                        for (var i=0; i<bluetooth.devices.length; i++) {
+                            if (devInfo.Path == bluetooth.devices[i].Path) {
+                                // print("-> update device properties", bluetooth.devices[i].Alias) // TODO test
+                                itemName = bluetooth.devices[i].Alias
+                            }
+                        }
+                    }
                 }
             }
             
