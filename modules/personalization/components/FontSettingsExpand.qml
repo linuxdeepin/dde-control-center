@@ -62,7 +62,7 @@ MyBaseExpand {
                     }
                     return new_value
                 }
-                text: "Font %1".arg(fontSize)
+                text: dsTr("Font %1").arg(fontSize)
                 font.pixelSize: fontSize
             }
         }

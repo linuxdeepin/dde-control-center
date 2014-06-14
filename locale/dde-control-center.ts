@@ -1640,6 +1640,11 @@
         <source>Size</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../modules/personalization/components/FontSettingsExpand.qml" line="65"/>
+        <source>Font %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>GuestUser</name>
@@ -2059,6 +2064,11 @@
 </context>
 <context>
     <name>ShortcutInput</name>
+    <message>
+        <location filename="../modules/shortcuts/ShortcutInput.qml" line="108"/>
+        <source>Disable</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <location filename="../modules/shortcuts/ShortcutInput.qml" line="126"/>
         <source>Please input new shortcut</source>
@@ -2514,7 +2524,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/date_time/main.qml" line="107"/>
         <location filename="../dock-applets/qml/disk_mount/main.qml" line="52"/>
         <location filename="../dock-applets/qml/network/main.qml" line="279"/>
         <location filename="../dock-applets/qml/power/main.qml" line="99"/>
@@ -2636,12 +2645,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/main.qml" line="73"/>
+        <location filename="../modules/bluetooth/main.qml" line="76"/>
         <source>ON/OFF</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/main.qml" line="137"/>
+        <location filename="../modules/bluetooth/main.qml" line="141"/>
         <source>Devices nearby</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2890,11 +2899,6 @@
     <message>
         <location filename="../modules/personalization/main.qml" line="115"/>
         <source>Icon</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/personalization/main.qml" line="122"/>
-        <source>Cursor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

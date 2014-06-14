@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-13 17:46+0800\n"
+"POT-Creation-Date: 2014-06-14 16:57+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -898,6 +898,11 @@ msgstr ""
 msgid "Size"
 msgstr ""
 
+#: ../modules/personalization/components/FontSettingsExpand.qml:65
+#, qt-format
+msgid "Font %1"
+msgstr ""
+
 #: ../modules/account/GuestUser.qml:32 ../frame/views/HeaderArea.qml:108
 msgid "Guest"
 msgstr ""
@@ -1160,6 +1165,10 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
+#: ../modules/shortcuts/ShortcutInput.qml:108
+msgid "Disable"
+msgstr ""
+
 #: ../modules/shortcuts/ShortcutInput.qml:126
 msgid "Please input new shortcut"
 msgstr ""
@@ -1407,7 +1416,6 @@ msgstr ""
 msgid "_Switch to digital"
 msgstr ""
 
-#: ../dock-applets/qml/date_time/main.qml:107
 #: ../dock-applets/qml/disk_mount/main.qml:52
 #: ../dock-applets/qml/network/main.qml:279
 #: ../dock-applets/qml/power/main.qml:99
@@ -1455,11 +1463,11 @@ msgstr ""
 msgid "Applications"
 msgstr ""
 
-#: ../modules/bluetooth/main.qml:73
+#: ../modules/bluetooth/main.qml:76
 msgid "ON/OFF"
 msgstr ""
 
-#: ../modules/bluetooth/main.qml:137
+#: ../modules/bluetooth/main.qml:141
 msgid "Devices nearby"
 msgstr ""
 
@@ -1601,10 +1609,6 @@ msgstr ""
 
 #: ../modules/personalization/main.qml:115
 msgid "Icon"
-msgstr ""
-
-#: ../modules/personalization/main.qml:122
-msgid "Cursor"
 msgstr ""
 
 #: ../modules/personalization/main.qml:129

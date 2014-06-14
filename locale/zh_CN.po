@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-13 17:46+0800\n"
+"POT-Creation-Date: 2014-06-14 16:57+0800\n"
 "PO-Revision-Date: 2014-06-04 15:34+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Deepin <che>\n"
@@ -899,6 +899,11 @@ msgstr "启用"
 msgid "Size"
 msgstr "大小"
 
+#: ../modules/personalization/components/FontSettingsExpand.qml:65
+#, qt-format
+msgid "Font %1"
+msgstr "字体 %1"
+
 #: ../modules/account/GuestUser.qml:32 ../frame/views/HeaderArea.qml:108
 msgid "Guest"
 msgstr "来宾"
@@ -1161,6 +1166,10 @@ msgstr "重置成功"
 msgid "Reset"
 msgstr "重置"
 
+#: ../modules/shortcuts/ShortcutInput.qml:108
+msgid "Disable"
+msgstr ""
+
 #: ../modules/shortcuts/ShortcutInput.qml:126
 msgid "Please input new shortcut"
 msgstr "请输入新的快捷键"
@@ -1408,7 +1417,6 @@ msgstr "切换为模拟时钟(_S)"
 msgid "_Switch to digital"
 msgstr "切换为数字时钟(_S)"
 
-#: ../dock-applets/qml/date_time/main.qml:107
 #: ../dock-applets/qml/disk_mount/main.qml:52
 #: ../dock-applets/qml/network/main.qml:279
 #: ../dock-applets/qml/power/main.qml:99
@@ -1456,11 +1464,11 @@ msgstr "设备"
 msgid "Applications"
 msgstr "程序"
 
-#: ../modules/bluetooth/main.qml:73
+#: ../modules/bluetooth/main.qml:76
 msgid "ON/OFF"
 msgstr "开启/关闭"
 
-#: ../modules/bluetooth/main.qml:137
+#: ../modules/bluetooth/main.qml:141
 msgid "Devices nearby"
 msgstr "附近的设备"
 
@@ -1603,10 +1611,6 @@ msgstr "窗口"
 #: ../modules/personalization/main.qml:115
 msgid "Icon"
 msgstr "图标"
-
-#: ../modules/personalization/main.qml:122
-msgid "Cursor"
-msgstr "光标"
 
 #: ../modules/personalization/main.qml:129
 msgid "Wallpaper"
@@ -1848,6 +1852,9 @@ msgstr "ADSL"
 #: ../modules/network/main.qml:184
 msgid "Bridge"
 msgstr "桥接"
+
+#~ msgid "Cursor"
+#~ msgstr "光标"
 
 #~ msgid ""
 #~ "Passwords or encryption keys are required to access the Wi-Fi network %1"

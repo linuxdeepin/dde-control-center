@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-13 17:46+0800\n"
+"POT-Creation-Date: 2014-06-14 16:57+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -962,6 +962,11 @@ msgstr "啟用使用者"
 msgid "Size"
 msgstr "大小"
 
+#: ../modules/personalization/components/FontSettingsExpand.qml:65
+#, fuzzy, qt-format
+msgid "Font %1"
+msgstr "字型"
+
 #: ../modules/account/GuestUser.qml:32 ../frame/views/HeaderArea.qml:108
 msgid "Guest"
 msgstr "訪客"
@@ -1239,6 +1244,10 @@ msgstr ""
 msgid "Reset"
 msgstr "重設"
 
+#: ../modules/shortcuts/ShortcutInput.qml:108
+msgid "Disable"
+msgstr ""
+
 #: ../modules/shortcuts/ShortcutInput.qml:126
 #, fuzzy
 msgid "Please input new shortcut"
@@ -1498,7 +1507,6 @@ msgstr ""
 msgid "_Switch to digital"
 msgstr ""
 
-#: ../dock-applets/qml/date_time/main.qml:107
 #: ../dock-applets/qml/disk_mount/main.qml:52
 #: ../dock-applets/qml/network/main.qml:279
 #: ../dock-applets/qml/power/main.qml:99
@@ -1549,11 +1557,11 @@ msgstr "裝置類型"
 msgid "Applications"
 msgstr "預設應用程式"
 
-#: ../modules/bluetooth/main.qml:73
+#: ../modules/bluetooth/main.qml:76
 msgid "ON/OFF"
 msgstr "開/關"
 
-#: ../modules/bluetooth/main.qml:137
+#: ../modules/bluetooth/main.qml:141
 msgid "Devices nearby"
 msgstr "附近的裝置"
 
@@ -1706,10 +1714,6 @@ msgstr "視窗"
 #: ../modules/personalization/main.qml:115
 msgid "Icon"
 msgstr "圖示"
-
-#: ../modules/personalization/main.qml:122
-msgid "Cursor"
-msgstr "游標"
 
 #: ../modules/personalization/main.qml:129
 msgid "Wallpaper"
@@ -1957,6 +1961,9 @@ msgstr ""
 #: ../modules/network/main.qml:184
 msgid "Bridge"
 msgstr ""
+
+#~ msgid "Cursor"
+#~ msgstr "游標"
 
 #, fuzzy
 #~ msgid ""
