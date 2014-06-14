@@ -87,7 +87,7 @@ Item {
         width: parent.width
         height: parent.height
 
-        property int maxConetentHeight: height - personalizationTitle.height -  32 * 6 - 2
+        property int maxConetentHeight: height - personalizationTitle.height -  32 * 5 - 2
 
         DssTitle {
             id: personalizationTitle
@@ -117,12 +117,12 @@ Item {
 
         DSeparatorHorizontal {}
 
-        CursorThemeExpand {
-            myIndex: 2
-            title: dsTr("Cursor")
-        }
+        //CursorThemeExpand {
+            //myIndex: 2
+            //title: dsTr("Cursor")
+        //}
 
-        DSeparatorHorizontal {}
+        //DSeparatorHorizontal {}
 
         WallpaperExpand {
             myIndex: 3
