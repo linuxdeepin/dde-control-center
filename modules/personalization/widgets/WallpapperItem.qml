@@ -97,7 +97,7 @@ Item {
 
     DImageButton {
         id: deleteButton
-        visible: isDeletable && parent.hoverHightlight
+        visible: isDeletable && parent.hoverHightlight && !selected
         anchors.right: parent.right
         normal_image: "images/delete_normal.png"
         hover_image: "images/delete_hover.png"
