@@ -58,9 +58,14 @@ MyBaseExpand {
                 themeView.model.clear()
                 for(var i in themeObjectList){
                     var themeObj = themeObjectList[i]
+                    var thumbnail = dbusThemeManager.GetThumbnail("theme", themeObj.name)
+
+                    if(!thumbnail){
+                        continue
+                    }
 
                     themeView.model.append({
-                        "item_img_url": dbusThemeManager.GetThumbnail("theme", themeObj.name),
+                        "item_img_url": thumbnail,
                         "item_name": themeObj.name,
                         "item_value": themeObj.name,
                         "themeObj": themeObj

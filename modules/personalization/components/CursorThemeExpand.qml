@@ -49,8 +49,14 @@ MyBaseExpand {
                 var themes = dbusThemeManager.cursorThemeList
                 for(var i in themes){
                     var theme_id = themes[i]
+                    var thumbnail = dbusThemeManager.GetThumbnail("cursor", theme_id)
+
+                    if(!thumbnail){
+                        continue
+                    }
+
                     myModel.append({
-                        "item_img_url": dbusThemeManager.GetThumbnail("cursor", theme_id),
+                        "item_img_url": thumbnail,
                         "item_name": windowView.toHumanThemeName(theme_id),
                         "item_value": theme_id
                     })

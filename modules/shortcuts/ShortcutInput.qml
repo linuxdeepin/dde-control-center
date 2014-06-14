@@ -105,7 +105,7 @@ Item {
             verticalAlignment: Text.AlignVCenter
             font.pixelSize: 11
             color: hovered ? dconstants.hoverColor :  dconstants.fgColor
-            text: shortcutName? shortcutName : "Disable"
+            text: shortcutName? shortcutName : dsTr("Disable")
             visible: {
                 if(grabFlag | inConfictDealing){
                     return false

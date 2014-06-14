@@ -53,8 +53,13 @@ MyBaseExpand {
                 var lists = dbusThemeManager.backgroundList
                 for(var i in lists){
                     var name = lists[i]
+                    var thumbnail = dbusThemeManager.GetThumbnail("background", name)
+
+                    if(!thumbnail){
+                        continue
+                    }
                     myModel.append({
-                        "item_img_url": dbusThemeManager.GetThumbnail("background", name),
+                        "item_img_url": thumbnail,
                         "item_value": name
                     })
                 }
