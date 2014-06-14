@@ -309,6 +309,9 @@ DockApplet{
                         visible: hasWiredDevices
 
                         onClicked: {
+                            if(active){
+                                dbusNetwork.networkingEnabled = true
+                            }
                             dbusNetwork.wiredEnabled = active
                         }
 
@@ -337,6 +340,9 @@ DockApplet{
                         visible: hasWirelessDevices
 
                         onClicked: {
+                            if(active){
+                                dbusNetwork.networkingEnabled = true
+                            }
                             dbusNetwork.wirelessEnabled = active
                         }
 
@@ -462,9 +468,9 @@ DockApplet{
                         }
 
                         function setDeactive(){
+                            dbusNetwork.networkingEnabled = false
                             dbusNetwork.wiredEnabled = false
                             dbusNetwork.wirelessEnabled = false
-                            dbusNetwork.networkingEnabled = false
                             dbusBluetooth.powered = false
                         }
 
