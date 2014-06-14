@@ -102,12 +102,12 @@ DockApplet{
         print(id, currentClockType)
     }
 
-    menu: Menu{
-        Component.onCompleted: {
-            addItem(dsTr("_Run"), showDateTime);
-            addItem(typeNames[currentClockType], switchClockType);
-        }
-    }
+    //menu: Menu{
+        //Component.onCompleted: {
+            //addItem(dsTr("_Run"), showDateTime);
+            //addItem(typeNames[currentClockType], switchClockType);
+        //}
+    //}
 
     property int itemWidth: 37
     property int itemHeight: 36
