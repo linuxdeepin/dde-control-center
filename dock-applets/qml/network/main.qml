@@ -409,7 +409,7 @@ DockApplet{
                         Connections{
                             target: dbusBluetooth
                             onPoweredChanged:{
-                                if(!bluetoothButton.pressed && dbusBluetooth.powered){
+                                if(!bluetoothButton.pressed && typeof(dbusBluetooth.powered) != "undefined"){
                                     bluetoothButton.active = dbusBluetooth.powered
                                 }
                                 var show = adapters.length > 0
