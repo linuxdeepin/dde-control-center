@@ -73,6 +73,7 @@ Item {
             source: item_img_url
             width: parent.width - 2
             height: parent.height - 2
+            cache: false
         }
     }
 
