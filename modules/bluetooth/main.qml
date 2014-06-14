@@ -10,12 +10,14 @@ Column {
     Bluetooth { id: dbus_bluetooth }
     property var adapters: unmarshalJSON(dbus_bluetooth.adapters)
     property var devices: unmarshalJSON(dbus_bluetooth.devices)
-    property var connectedDevice: {
+    property var connectedDevicePaths: {
+        var paths = []
         for (var i = 0; i< devices.length; i++) {
             if (devices[i].Connected == true) {
-                return devices[i]
+                paths.push(devices[i].Path)
             }
         }
+        return paths
     }
 
     Timer {
@@ -37,15 +39,15 @@ Column {
     }
 
     // TODO just for testing
-    onDevicesChanged: {
-        nearby_devices_list.model.clear()
-        for(var i=0; i<devices.length; i++){
-            nearby_devices_list.model.append({
-                                           "item_id": devices[i].Path,
-                                           "item_name": devices[i].Alias
-                                       })
-        }
-    }
+    // onDevicesChanged: {
+    //     nearby_devices_list.model.clear()
+    //     for(var i=0; i<devices.length; i++){
+    //         nearby_devices_list.model.append({
+    //                                        "item_id": devices[i].Path,
+    //                                        "item_name": devices[i].Alias
+    //                                    })
+    //     }
+    // }
 
     // helper functions
     function marshalJSON(value) {
@@ -68,6 +70,7 @@ Column {
     DSeparatorHorizontal {}
 
     DBaseLine {
+        // TODO
         height: 38
         leftLoader.sourceComponent: DssH2 {
             text: dsTr("ON/OFF")
@@ -80,6 +83,7 @@ Column {
 
     DSeparatorHorizontal {}
 
+    // TODO
     /* DBaseLine { */
     /*     id: discoverable_line */
     /*     height: 38 */
@@ -153,16 +157,106 @@ Column {
             width: parent.width
             height: childrenRect.height
 
-            model: ListModel {}
+            model: ListModel {
+                id: deviceModel
+                Component.onCompleted: {
+                    var devInfos = unmarshalJSON(dbus_bluetooth.GetDevices())
+                    clear()
+                    for(var i in devInfos){
+                        addOrUpdateDevice(devInfos[i])
+                    }
+                }
+                function addOrUpdateDevice(devInfo) {
+                    print("-> addOrUpdateDevice", marshalJSON(devInfo)) // TODO
+                    if (isDeviceExists(devInfo)) {
+                        updateDevice(devInfo)
+                    } else {
+                        addDevice(devInfo)
+                    }
+                }
+                function addDevice(devInfo) {
+                    var insertIndex = getInsertIndex(devInfo)
+                    print("-> addDevice", insertIndex)
+                    insert(insertIndex, {
+                        "devInfo": devInfo,
+                        "item_id": devInfo.Path,
+                        "item_name": devInfo.Alias,
+                    })
+                }
+                function updateDevice(devInfo) {
+                    var i = getIndex(devInfo)
+                    get(i).devInfo = devInfo
+                    sortModel()
+                }
+                function removeDevice(devInfo) {
+                    if (isDeviceExists(devInfo)) {
+                        var i = getIndex(devInfo)
+                        remove(i, 1)
+                    }
+                }
+                function isDeviceExists(devInfo) {
+                    if (getIndex(devInfo) != -1) {
+                        return true
+                    }
+                    return false
+                }
+                function getIndex(devInfo) {
+                    for (var i=0; i<count; i++) {
+                        if (get(i).devInfo.Path == devInfo.Path) {
+                            return i
+                        }
+                    }
+                    return -1
+                }
+                function getInsertIndex(devInfo) {
+                    for (var i=0; i<count; i++) {
+                        if (devInfo.RSSI >= get(i).devInfo.RSSI) {
+                            return i
+                        }
+                    }
+                    return count
+                }
+                function sortModel() {
+                    var n;
+                    var i;
+                    for (n=0; n<count; n++) {
+                        for (i=n+1; i<count; i++) {
+                            if (get(n).devInfo.RSSI+5 < get(i).devInfo.RSSI) {
+                                move(i, n, 1);
+                                n=0; // Repeat at start since I can't swap items i and n
+                            }
+                        }
+                    }
+                }
+            }
 
             delegate: SelectItem{
                 showTip: false
                 labelLeftMargin: 15
                 totalItemNumber: bluetooth.devices.length
-                selectItemId: bluetooth.connectedDevice.Path
-
+                selected: {
+                    if (devInfo) {
+                        return getIndexFromArray(devInfo.Path, connectedDevicePaths) != -1
+                    } else {
+                        return false
+                    }
+                }
                 onSelectAction: {
                     dbus_bluetooth.ConnectDevice(itemId)
+                }
+            }
+            
+            Connections {
+                target: dbus_bluetooth
+                onDeviceAdded: {
+                    print("-> onDeviceAdded", arg0)
+                    var devInfo = unmarshalJSON(arg0)
+                    deviceModel.addOrUpdateDevice(devInfo)
+                }
+                onDeviceRemoved: {
+                    print("-> onDeviceRemoved", arg0)
+                    var devInfo = unmarshalJSON(arg0)
+                    deviceModel.removeDevice(devInfo)
                 }
             }
         }
