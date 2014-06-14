@@ -38,31 +38,9 @@ MyBaseExpand {
             width: parent.width - 22
             height: Math.min(childrenRect.height, contentArea.maxConetentHeight)
 
-            property string currentItemName: currentThemeObject.iconTheme
-
-            function selectItem(itemValue){
-                dbusThemeManager.Set("icon", itemValue)
-            }
-
-            model: {
-                var myModel = listModelComponent.createObject(iconList, {})
-                var themes = dbusThemeManager.iconThemeList
-                for(var i in themes){
-                    var theme_id = themes[i]
-                    var thumbnail = dbusThemeManager.GetThumbnail("icon", theme_id)
-
-                    if(!thumbnail){
-                        continue
-                    }
-
-                    myModel.append({
-                        "item_img_url": thumbnail,
-                        "item_name": windowView.toHumanThemeName(theme_id),
-                        "item_value": theme_id
-                    })
-                }
-                return myModel
-            }
+            currentItemName: currentThemeObject.iconTheme
+            itemList: dbusThemeManager.iconThemeList
+            themeType: "icon"
         }
 
     }

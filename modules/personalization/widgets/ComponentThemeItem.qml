@@ -32,8 +32,11 @@ Item {
 
     property bool hovered: false
     property bool selected: selectedItemValue == itemValue
+    property bool isDeletable: typeof(is_deletable) != "undefined" ? is_deletable : false
+    property bool hoverHightlight: hovered || deleteButton.state != ""
 
     signal selectAction(string itemValue)
+    signal deleteAction(string itemValue)
 
     Rectangle{
         id: selectedBackground
@@ -58,7 +61,7 @@ Item {
             if(parent.selected){
                 return dconstants.activeColor
             }
-            else if(parent.hovered){
+            else if(parent.hoverHightlight){
                 return dconstants.hoverColor
             }
             else{
@@ -86,7 +89,7 @@ Item {
             if(parent.selected){
                 return dconstants.activeColor
             }
-            else if(hovered){
+            else if(hoverHightlight){
                 return dconstants.hoverColor
             }
             else{
@@ -110,6 +113,24 @@ Item {
         onExited: {
             parent.hovered = false
         }
+    }
+
+    DImageButton {
+        id: deleteButton
+        visible: isDeletable && parent.hoverHightlight
+        anchors.right: parent.right
+        normal_image: "images/delete_normal.png"
+        hover_image: "images/delete_hover.png"
+        press_image: "images/delete_press.png"
+        onStateChanged: {
+            if(state){
+                mouseArea.cursorShape = Qt.PointingHandCursor
+            }
+            else{
+                mouseArea.cursorShape = Qt.ArrowCursor
+            }
+        }
+        onClicked: deleteAction(itemValue)
     }
 
 }

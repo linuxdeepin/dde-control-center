@@ -32,7 +32,7 @@ MyBaseExpand {
         width: personalizationModule.width
         height: childrenRect.height
 
-        GridView {
+        ComponentThemeView {
             id: wallpapperView
             anchors.horizontalCenter: parent.horizontalCenter
             width: parent.width - 22
@@ -41,30 +41,9 @@ MyBaseExpand {
             cellWidth: personalizationModule.cellWidth
             cellHeight: personalizationModule.cellHeight - 14
 
-            property string currentItemName: currentThemeObject.background
-
-            function selectItem(itemValue){
-                dbusThemeManager.Set("background", itemValue)
-            }
-
-            model: {
-                //dbusThemeManager.backgroundList
-                var myModel = listModelComponent.createObject(wallpapperView, {})
-                var lists = dbusThemeManager.backgroundList
-                for(var i in lists){
-                    var name = lists[i]
-                    var thumbnail = dbusThemeManager.GetThumbnail("background", name)
-
-                    if(!thumbnail){
-                        continue
-                    }
-                    myModel.append({
-                        "item_img_url": thumbnail,
-                        "item_value": name
-                    })
-                }
-                return myModel
-            }
+            currentItemName: currentThemeObject.background
+            itemList: dbusThemeManager.backgroundList
+            themeType: "background"
 
             delegate: WallpapperItem {
                 width: cellWidth
@@ -75,6 +54,9 @@ MyBaseExpand {
                     wallpapperView.selectItem(itemValue)
                 }
 
+                onDeleteAction: {
+                    wallpapperView.deleteAction(itemValue)
+                }
             }
         }
     }

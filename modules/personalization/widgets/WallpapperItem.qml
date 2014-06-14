@@ -32,9 +32,11 @@ Item {
 
     property bool hovered: false
     property bool selected: selectedItemValue == itemValue
+    property bool isDeletable: typeof(is_deletable) != "undefined" ? is_deletable : false
+    property bool hoverHightlight: hovered || deleteButton.state != ""
 
     signal selectAction(string itemValue)
-    signal previewAction(string itemValue)
+    signal deleteAction(string itemValue)
 
     Rectangle{
         id: selectedBackground
@@ -59,7 +61,7 @@ Item {
             if(parent.selected){
                 return dconstants.activeColor
             }
-            else if(parent.hovered){
+            else if(parent.hoverHightlight){
                 return dconstants.hoverColor
             }
             else{
@@ -75,27 +77,6 @@ Item {
             height: parent.height - 2
         }
     }
-
-    /***
-    DssH2 {
-        id: itemNameArea
-        anchors.top: itemThumbnailBox.bottom
-        anchors.topMargin: 6
-        anchors.horizontalCenter: parent.horizontalCenter
-        text: item_name
-        color: {
-            if(parent.selected){
-                return dconstants.activeColor
-            }
-            else if(hovered){
-                return dconstants.hoverColor
-            }
-            else{
-                return dconstants.fgColor
-            }
-        }
-    }
-    ***/
 
     MouseArea {
         anchors.fill: parent
@@ -114,26 +95,21 @@ Item {
         }
     }
 
-    /***
-    Rectangle{
-        id: zoomButtonBox
-        anchors.top: itemThumbnailBox.top
-        anchors.topMargin: 3
-        anchors.right: itemThumbnailBox.right
-        anchors.rightMargin: 3
-        width: zoomButton.width + 16
-        height: zoomButton.height + 4
-        radius: height/2
-        color: Qt.rgba(1, 1, 1, 0.5)
-        border.color: Qt.rgba(0, 0, 0, 0.5)
-        border.width: 1
-
-        DOpacityImageButton{
-            id: zoomButton
-            source: "images/zoom.gif"
-            anchors.centerIn: parent
-            onClicked: previewAction(itemValue)
+    DImageButton {
+        id: deleteButton
+        visible: isDeletable && parent.hoverHightlight
+        anchors.right: parent.right
+        normal_image: "images/delete_normal.png"
+        hover_image: "images/delete_hover.png"
+        press_image: "images/delete_press.png"
+        onStateChanged: {
+            if(state){
+                mouseArea.cursorShape = Qt.PointingHandCursor
+            }
+            else{
+                mouseArea.cursorShape = Qt.ArrowCursor
+            }
         }
+        onClicked: deleteAction(itemValue)
     }
-    ***/
 }

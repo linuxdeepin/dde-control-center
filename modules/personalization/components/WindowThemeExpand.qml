@@ -38,31 +38,9 @@ MyBaseExpand {
             width: parent.width - 22
             height: Math.min(childrenRect.height, contentArea.maxConetentHeight)
 
-            property string currentItemName: currentThemeObject.gtkTheme
-
-            function selectItem(itemValue){
-                dbusThemeManager.Set("gtk", itemValue)
-            }
-
-            model: {
-                var myModel = listModelComponent.createObject(gtkList, {})
-                var themes = dbusThemeManager.gtkThemeList
-                for(var i in themes){
-                    var theme_id = themes[i]
-                    var thumbnail = dbusThemeManager.GetThumbnail("gtk", theme_id)
-
-                    if(!thumbnail){
-                        continue
-                    }
-
-                    myModel.append({
-                        "item_img_url": thumbnail,
-                        "item_name": windowView.toHumanThemeName(theme_id),
-                        "item_value": theme_id
-                    })
-                }
-                return myModel
-            }
+            currentItemName: currentThemeObject.gtkTheme
+            itemList: dbusThemeManager.gtkThemeList
+            themeType: "gtk"
         }
         
     }

@@ -123,6 +123,7 @@ Item {
         width: zoomButton.width 
         height: zoomButton.height
         property bool previewExists: themeObj.preview ? themeObj.preview.length != 0 : false
+        //property bool previewExists: true
 
         ShowPreviewButton {
             id: zoomButton

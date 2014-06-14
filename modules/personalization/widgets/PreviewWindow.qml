@@ -54,7 +54,12 @@ Window {
     }
 
     function getPreviewPictures() {
-        return themeObject.preview
+        if(themeObject.preview){
+            return themeObject.preview
+        }
+        else{
+            return new Array()
+        }
     }
 
     function showWindow(themeObject){
