@@ -138,7 +138,8 @@ Rectangle {
                         Connections {
                             target: dbus_grub2
                             onDefaultEntryChanged: {
-                                if (entries_list.model.get(entries_list.currentIndex).name != dbus_grub2.defaultEntry) {
+                                var selectedItem = entries_list.model.get(entries_list.currentIndex)
+                                if (typeof(selectedItem) != "undefined" && selectedItem.name != dbus_grub2.defaultEntry) {
                                     for (var i = 0; i < entries_list.count; i++) {
                                         if (dbus_grub2.defaultEntry == entries_list.model.get(i).name) {
                                             entries_list.currentIndex = i
@@ -180,7 +181,7 @@ Rectangle {
                         return model
                     }
 
-                    delegate: PropertyItem {
+                    delegate: SystemItem {
                         currentValue: dbus_grub2.timeout
                         onSelectAction: {
                             dbus_grub2.timeout = itemValue

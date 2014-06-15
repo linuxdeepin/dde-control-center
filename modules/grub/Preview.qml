@@ -21,6 +21,11 @@ Item {
 
         property real scaleRatio: width / sourceSize.width
 
+        function reload(){
+            source = ""
+            source = dbus_grub2_theme.background
+        }
+
         DropArea {
             anchors.fill: parent
 
@@ -128,6 +133,7 @@ Item {
                     text = changingText
                 }
                 else{
+                    background.reload()
                     text = changedText
                     finishChangeTimer.restart()
                 }
