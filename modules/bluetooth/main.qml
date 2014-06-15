@@ -235,7 +235,7 @@ Column {
             delegate: SelectItem{
                 showTip: false
                 labelLeftMargin: 15
-                totalItemNumber: bluetooth.devices.length
+                totalItemNumber: 2
                 selected: {
                     if (devInfo) {
                         return getIndexFromArray(devInfo.Path, connectedDevicePaths) != -1
