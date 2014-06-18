@@ -1,4 +1,5 @@
 import QtQuick 2.1
+import QtGraphicalEffects 1.0
 import Deepin.Widgets 1.0
 
 Column {
@@ -7,7 +8,7 @@ Column {
     property int rightPadding
     property int nameLeftPadding
     property bool expanded: expand_button.up
-    
+
     Rectangle {
         id: guest_user
         color: dconstants.contentBgColor
@@ -22,6 +23,13 @@ Column {
             anchors.left: parent.left
             anchors.leftMargin: root.leftPadding + 40 - roundRadius
             anchors.verticalCenter: parent.verticalCenter
+        }
+
+        Desaturate {
+            anchors.fill: round_image
+            source: round_image
+            desaturation: 1.0
+            visible: !dbus_accounts.allowGuest
         }
 
         Column {

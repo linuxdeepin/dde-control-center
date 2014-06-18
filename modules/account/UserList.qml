@@ -1,4 +1,5 @@
 import QtQuick 2.1
+import QtGraphicalEffects 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Accounts 1.0
 
@@ -36,11 +37,11 @@ ListView {
                                 "userStatus": user_status,
                                 "userDBusPath": path})
     }
-    
+
     function deleteUser(path) {
         for (var i = 0; i < user_list_model.count; i++) {
             if (user_list_model.get(i).userDBusPath == path) {
-                user_list_model.remove(i, 1)                
+                user_list_model.remove(i, 1)
             }
         }
     }
@@ -162,6 +163,13 @@ ListView {
                         anchors.left: parent.left
                         anchors.leftMargin: root.leftPadding + 40 - roundRadius
                         anchors.verticalCenter: parent.verticalCenter
+                    }
+
+                    Desaturate {
+                        anchors.fill: round_image
+                        source: round_image
+                        desaturation: 1.0
+                        visible: this_user.locked
                     }
 
                     Column {
