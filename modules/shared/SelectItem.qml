@@ -28,9 +28,7 @@ Item {
     id: selectItem
     width: parent.width
     height: 28
-    anchors.left: parent.left
-    anchors.leftMargin: 18
-    property int labelLeftMargin: 18
+    property int labelLeftMargin: 40
     property bool selected: selectItemId == itemId
     property bool hovered: false
     
@@ -50,8 +48,21 @@ Item {
     signal deleteAction(string itemId)
     signal selectAction(string itemId)
 
+    Rectangle {
+        visible: selected && totalItemNumber != 1
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.leftMargin: 10
+        anchors.rightMargin: 10
+        height: 28
+        color: "#0D0D0D"
+        radius: 4
+    }
+
     Image {
         id: nameImage
+        anchors.left: parent.left
+        anchors.leftMargin: 18
         width: deleteButton.width
         fillMode: Image.PreserveAspectFit
         anchors.verticalCenter: parent.verticalCenter

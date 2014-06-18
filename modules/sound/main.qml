@@ -407,7 +407,6 @@ Item {
                     }
 
                     delegate: SelectItem {
-                        labelLeftMargin: itemLabelLeftMargin
                         totalItemNumber: outputPortList.count
                         selectItemId: currentSink.activePort[0]
 
@@ -454,7 +453,6 @@ Item {
                     }
 
                     delegate: SelectItem{
-                        labelLeftMargin: itemLabelLeftMargin
                         totalItemNumber: outputDeviceList.count
                         selectItemId: String(outputDeviceList.selectItemId)
 
@@ -512,7 +510,6 @@ Item {
                     }
 
                     delegate: SelectItem {
-                        labelLeftMargin: itemLabelLeftMargin
                         totalItemNumber: inputPortList.count
                         selectItemId: currentSource.activePort[0]
 
@@ -558,7 +555,6 @@ Item {
                     }
 
                     delegate: SelectItem{
-                        labelLeftMargin: itemLabelLeftMargin
                         totalItemNumber: inputDeviceList.count
                         selectItemId: String(inputDeviceList.selectItemId)
 
