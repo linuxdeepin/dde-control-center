@@ -118,7 +118,15 @@ Item {
         InfoItem { 
             id: cpuItem
             title: dsTr("Processor")
-            value: systemInfoDbus.processor
+            value: wrapCpuInfo(systemInfoDbus.processor)
+
+            function wrapCpuInfo(s){
+                var index = s.indexOf("@")
+                if(index != -1){
+                    s = s.replace("@", "\n@")
+                }
+                return s
+            }
         }
         
         InfoItem { 
