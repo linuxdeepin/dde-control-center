@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-14 16:57+0800\n"
+"POT-Creation-Date: 2014-06-18 17:01+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -108,7 +108,7 @@ msgstr ""
 #: ../modules/date_time/TimeBox.qml:212
 #: ../modules/network/wireless/WifiHotspot.qml:86
 #: ../dock-applets/qml/WifiPasswordWindow.qml:171
-#: ../frame/views/WifiPasswordWindow.qml:170 ../modules/display/main.qml:224
+#: ../modules/display/main.qml:224
 msgid "Cancel"
 msgstr ""
 
@@ -145,7 +145,6 @@ msgid "Repeat Password"
 msgstr ""
 
 #: ../modules/account/AddUserDialog.qml:202
-#: ../frame/views/WifiPasswordWindow.qml:152
 msgid "Show Password"
 msgstr ""
 
@@ -417,7 +416,6 @@ msgstr ""
 #: ../modules/network/wireless/AddWireless.qml:242
 #: ../modules/network/widgets/PasswordBox.qml:109
 #: ../dock-applets/qml/WifiPasswordWindow.qml:178
-#: ../frame/views/WifiPasswordWindow.qml:177
 msgid "Connect"
 msgstr ""
 
@@ -519,7 +517,7 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: ../modules/network/ConnectionEdit.qml:113
+#: ../modules/network/ConnectionEdit.qml:113 ../modules/network/Info.qml:73
 #: ../modules/date_time/StateButtons.qml:35
 #: ../modules/date_time/TimezoneArea.qml:223
 msgid "Close"
@@ -1105,15 +1103,15 @@ msgstr ""
 msgid "Repeat"
 msgstr ""
 
-#: ../modules/grub/Preview.qml:121
+#: ../modules/grub/Preview.qml:126
 msgid "Drag and drop an image to change background."
 msgstr ""
 
-#: ../modules/grub/Preview.qml:122
+#: ../modules/grub/Preview.qml:127
 msgid "Background is changing, please reboot later..."
 msgstr ""
 
-#: ../modules/grub/Preview.qml:123
+#: ../modules/grub/Preview.qml:128
 msgid "Successfully changed, reboot to view."
 msgstr ""
 
@@ -1305,15 +1303,7 @@ msgid "Create"
 msgstr ""
 
 #: ../dock-applets/qml/WifiPasswordWindow.qml:127
-#: ../frame/views/WifiPasswordWindow.qml:108
 msgid "Authentication required by Wi-Fi network"
-msgstr ""
-
-#: ../frame/views/WifiPasswordWindow.qml:116
-#, qt-format
-msgid ""
-"Passwords or encryption keys are required to access the Wi-Fi network <font "
-"color=\"#0ff\">%1</font>"
 msgstr ""
 
 #: ../dock-applets/qml/WifiPasswordWindow.qml:135
@@ -1324,7 +1314,6 @@ msgid ""
 msgstr ""
 
 #: ../dock-applets/qml/WifiPasswordWindow.qml:149
-#: ../frame/views/WifiPasswordWindow.qml:130
 msgid "Password:"
 msgstr ""
 
@@ -1515,27 +1504,27 @@ msgstr ""
 msgid "Terminal"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:290
+#: ../modules/default_applications/main.qml:245
 msgid "AutoPlay"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:305
+#: ../modules/default_applications/main.qml:260
 msgid "CD Audio"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:310
+#: ../modules/default_applications/main.qml:265
 msgid "DVD Video"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:315
+#: ../modules/default_applications/main.qml:270
 msgid "Music Player"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:320
+#: ../modules/default_applications/main.qml:275
 msgid "Camera"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:325
+#: ../modules/default_applications/main.qml:280
 msgid "Software"
 msgstr ""
 
@@ -1555,15 +1544,15 @@ msgstr ""
 msgid "Boot priority"
 msgstr ""
 
-#: ../modules/grub/main.qml:159
+#: ../modules/grub/main.qml:160
 msgid "Boot delay"
 msgstr ""
 
-#: ../modules/grub/main.qml:198
+#: ../modules/grub/main.qml:199
 msgid "Text Color"
 msgstr ""
 
-#: ../modules/grub/main.qml:231
+#: ../modules/grub/main.qml:232
 msgid "Selected Text Color"
 msgstr ""
 
@@ -1744,27 +1733,27 @@ msgstr ""
 msgid "Output Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:387 ../modules/sound/main.qml:492
+#: ../modules/sound/main.qml:387 ../modules/sound/main.qml:490
 msgid "No port exists in this device."
 msgstr ""
 
-#: ../modules/sound/main.qml:426
+#: ../modules/sound/main.qml:425
 msgid "Output device"
 msgstr ""
 
-#: ../modules/sound/main.qml:475
+#: ../modules/sound/main.qml:473
 msgid "Input Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:531
+#: ../modules/sound/main.qml:528
 msgid "Input device"
 msgstr ""
 
-#: ../modules/sound/main.qml:585
+#: ../modules/sound/main.qml:581
 msgid "Hide Advanced..."
 msgstr ""
 
-#: ../modules/sound/main.qml:585
+#: ../modules/sound/main.qml:581
 msgid "Show Advanced..."
 msgstr ""
 
@@ -1788,15 +1777,15 @@ msgstr ""
 msgid "Processor"
 msgstr ""
 
-#: ../modules/system_info/main.qml:126
+#: ../modules/system_info/main.qml:134
 msgid "Memory"
 msgstr ""
 
-#: ../modules/system_info/main.qml:132
+#: ../modules/system_info/main.qml:140
 msgid "Disk"
 msgstr ""
 
-#: ../modules/system_info/main.qml:151
+#: ../modules/system_info/main.qml:159
 msgid "GNU GENERAL PUBLIC LICENSE"
 msgstr ""
 

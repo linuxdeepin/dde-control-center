@@ -1714,6 +1714,11 @@
         <source>Device Speed</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../modules/network/Info.qml" line="73"/>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LocaleArea</name>
@@ -1970,17 +1975,17 @@
 <context>
     <name>Preview</name>
     <message>
-        <location filename="../modules/grub/Preview.qml" line="121"/>
+        <location filename="../modules/grub/Preview.qml" line="126"/>
         <source>Drag and drop an image to change background.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/Preview.qml" line="122"/>
+        <location filename="../modules/grub/Preview.qml" line="127"/>
         <source>Background is changing, please reboot later...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/Preview.qml" line="123"/>
+        <location filename="../modules/grub/Preview.qml" line="128"/>
         <source>Successfully changed, reboot to view.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2315,13 +2320,7 @@
     <name>WifiPasswordWindow</name>
     <message>
         <location filename="../dock-applets/qml/WifiPasswordWindow.qml" line="127"/>
-        <location filename="../frame/views/WifiPasswordWindow.qml" line="108"/>
         <source>Authentication required by Wi-Fi network</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../frame/views/WifiPasswordWindow.qml" line="116"/>
-        <source>Passwords or encryption keys are required to access the Wi-Fi network &lt;font color=&quot;#0ff&quot;&gt;%1&lt;/font&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2331,25 +2330,17 @@
     </message>
     <message>
         <location filename="../dock-applets/qml/WifiPasswordWindow.qml" line="149"/>
-        <location filename="../frame/views/WifiPasswordWindow.qml" line="130"/>
         <source>Password:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../dock-applets/qml/WifiPasswordWindow.qml" line="171"/>
-        <location filename="../frame/views/WifiPasswordWindow.qml" line="170"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../dock-applets/qml/WifiPasswordWindow.qml" line="178"/>
-        <location filename="../frame/views/WifiPasswordWindow.qml" line="177"/>
         <source>Connect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../frame/views/WifiPasswordWindow.qml" line="152"/>
-        <source>Show Password</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2715,32 +2706,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/main.qml" line="290"/>
+        <location filename="../modules/default_applications/main.qml" line="245"/>
         <source>AutoPlay</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/main.qml" line="305"/>
+        <location filename="../modules/default_applications/main.qml" line="260"/>
         <source>CD Audio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/main.qml" line="310"/>
+        <location filename="../modules/default_applications/main.qml" line="265"/>
         <source>DVD Video</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/main.qml" line="315"/>
+        <location filename="../modules/default_applications/main.qml" line="270"/>
         <source>Music Player</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/main.qml" line="320"/>
+        <location filename="../modules/default_applications/main.qml" line="275"/>
         <source>Camera</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/main.qml" line="325"/>
+        <location filename="../modules/default_applications/main.qml" line="280"/>
         <source>Software</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2775,17 +2766,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/main.qml" line="159"/>
+        <location filename="../modules/grub/main.qml" line="160"/>
         <source>Boot delay</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/main.qml" line="198"/>
+        <location filename="../modules/grub/main.qml" line="199"/>
         <source>Text Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/main.qml" line="231"/>
+        <location filename="../modules/grub/main.qml" line="232"/>
         <source>Selected Text Color</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3081,32 +3072,32 @@
     </message>
     <message>
         <location filename="../modules/sound/main.qml" line="387"/>
-        <location filename="../modules/sound/main.qml" line="492"/>
+        <location filename="../modules/sound/main.qml" line="490"/>
         <source>No port exists in this device.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="426"/>
+        <location filename="../modules/sound/main.qml" line="425"/>
         <source>Output device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="475"/>
+        <location filename="../modules/sound/main.qml" line="473"/>
         <source>Input Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="531"/>
+        <location filename="../modules/sound/main.qml" line="528"/>
         <source>Input device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="585"/>
+        <location filename="../modules/sound/main.qml" line="581"/>
         <source>Hide Advanced...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="585"/>
+        <location filename="../modules/sound/main.qml" line="581"/>
         <source>Show Advanced...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3136,17 +3127,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/main.qml" line="126"/>
+        <location filename="../modules/system_info/main.qml" line="134"/>
         <source>Memory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/main.qml" line="132"/>
+        <location filename="../modules/system_info/main.qml" line="140"/>
         <source>Disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/main.qml" line="151"/>
+        <location filename="../modules/system_info/main.qml" line="159"/>
         <source>GNU GENERAL PUBLIC LICENSE</source>
         <translation type="unfinished"></translation>
     </message>

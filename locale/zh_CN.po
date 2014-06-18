@@ -6,10 +6,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-14 16:57+0800\n"
+"POT-Creation-Date: 2014-06-18 16:59+0800\n"
 "PO-Revision-Date: 2014-06-04 15:34+0800\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Deepin <che>\n"
+"Last-Translator: iceleaf916 <iceleaf916@gmail.com>\n"
+"Language-Team: Deepin <yekaisheng@linuxdeepin.com>\n"
 "Language: zh_Hans_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -109,7 +109,7 @@ msgstr "数字"
 #: ../modules/date_time/TimeBox.qml:212
 #: ../modules/network/wireless/WifiHotspot.qml:86
 #: ../dock-applets/qml/WifiPasswordWindow.qml:171
-#: ../frame/views/WifiPasswordWindow.qml:170 ../modules/display/main.qml:224
+#: ../modules/display/main.qml:224
 msgid "Cancel"
 msgstr "取消"
 
@@ -146,7 +146,6 @@ msgid "Repeat Password"
 msgstr "重复密码"
 
 #: ../modules/account/AddUserDialog.qml:202
-#: ../frame/views/WifiPasswordWindow.qml:152
 msgid "Show Password"
 msgstr "显示密码"
 
@@ -418,7 +417,6 @@ msgstr "内部授权"
 #: ../modules/network/wireless/AddWireless.qml:242
 #: ../modules/network/widgets/PasswordBox.qml:109
 #: ../dock-applets/qml/WifiPasswordWindow.qml:178
-#: ../frame/views/WifiPasswordWindow.qml:177
 msgid "Connect"
 msgstr "连接"
 
@@ -520,7 +518,7 @@ msgstr "您确认要删除此网络吗？"
 msgid "Save"
 msgstr "保存"
 
-#: ../modules/network/ConnectionEdit.qml:113
+#: ../modules/network/ConnectionEdit.qml:113 ../modules/network/Info.qml:73
 #: ../modules/date_time/StateButtons.qml:35
 #: ../modules/date_time/TimezoneArea.qml:223
 msgid "Close"
@@ -1106,15 +1104,15 @@ msgstr "新密码"
 msgid "Repeat"
 msgstr "重复"
 
-#: ../modules/grub/Preview.qml:121
+#: ../modules/grub/Preview.qml:126
 msgid "Drag and drop an image to change background."
 msgstr "拖拽图片到此以更换背景"
 
-#: ../modules/grub/Preview.qml:122
+#: ../modules/grub/Preview.qml:127
 msgid "Background is changing, please reboot later..."
 msgstr "背景图片正在被应用，重启请稍后..."
 
-#: ../modules/grub/Preview.qml:123
+#: ../modules/grub/Preview.qml:128
 msgid "Successfully changed, reboot to view."
 msgstr "更换背景图片成功，重启可查看。"
 
@@ -1306,16 +1304,8 @@ msgid "Create"
 msgstr "创建"
 
 #: ../dock-applets/qml/WifiPasswordWindow.qml:127
-#: ../frame/views/WifiPasswordWindow.qml:108
 msgid "Authentication required by Wi-Fi network"
 msgstr "Wi-Fi网络所需的授权"
-
-#: ../frame/views/WifiPasswordWindow.qml:116
-#, qt-format
-msgid ""
-"Passwords or encryption keys are required to access the Wi-Fi network <font "
-"color=\"#0ff\">%1</font>"
-msgstr "连接Wi-Fi网络所需的密码或密钥 <font color=\"#0ff\">%1</font>"
 
 #: ../dock-applets/qml/WifiPasswordWindow.qml:135
 #, qt-format
@@ -1325,7 +1315,6 @@ msgid ""
 msgstr "连接Wi-Fi网络所需的密码或密钥 <font color=\"#faca57\">%1</font>"
 
 #: ../dock-applets/qml/WifiPasswordWindow.qml:149
-#: ../frame/views/WifiPasswordWindow.qml:130
 msgid "Password:"
 msgstr "密码："
 
@@ -1516,27 +1505,27 @@ msgstr "图片"
 msgid "Terminal"
 msgstr "终端"
 
-#: ../modules/default_applications/main.qml:290
+#: ../modules/default_applications/main.qml:245
 msgid "AutoPlay"
 msgstr "自动播放"
 
-#: ../modules/default_applications/main.qml:305
+#: ../modules/default_applications/main.qml:260
 msgid "CD Audio"
 msgstr "CD音频"
 
-#: ../modules/default_applications/main.qml:310
+#: ../modules/default_applications/main.qml:265
 msgid "DVD Video"
 msgstr "DVD视频"
 
-#: ../modules/default_applications/main.qml:315
+#: ../modules/default_applications/main.qml:270
 msgid "Music Player"
 msgstr "音乐播放器"
 
-#: ../modules/default_applications/main.qml:320
+#: ../modules/default_applications/main.qml:275
 msgid "Camera"
 msgstr "照相机"
 
-#: ../modules/default_applications/main.qml:325
+#: ../modules/default_applications/main.qml:280
 msgid "Software"
 msgstr "软件"
 
@@ -1556,15 +1545,15 @@ msgstr "应用"
 msgid "Boot priority"
 msgstr "启动顺序"
 
-#: ../modules/grub/main.qml:159
+#: ../modules/grub/main.qml:160
 msgid "Boot delay"
 msgstr "启动延时"
 
-#: ../modules/grub/main.qml:198
+#: ../modules/grub/main.qml:199
 msgid "Text Color"
 msgstr "文字颜色"
 
-#: ../modules/grub/main.qml:231
+#: ../modules/grub/main.qml:232
 msgid "Selected Text Color"
 msgstr "选中文字颜色"
 
@@ -1745,27 +1734,27 @@ msgstr "输入反馈"
 msgid "Output Port"
 msgstr "输出端口"
 
-#: ../modules/sound/main.qml:387 ../modules/sound/main.qml:492
+#: ../modules/sound/main.qml:387 ../modules/sound/main.qml:490
 msgid "No port exists in this device."
 msgstr "这个设备没有端口"
 
-#: ../modules/sound/main.qml:426
+#: ../modules/sound/main.qml:425
 msgid "Output device"
 msgstr "输出设备"
 
-#: ../modules/sound/main.qml:475
+#: ../modules/sound/main.qml:473
 msgid "Input Port"
 msgstr "输入端口"
 
-#: ../modules/sound/main.qml:531
+#: ../modules/sound/main.qml:528
 msgid "Input device"
 msgstr "输入设备"
 
-#: ../modules/sound/main.qml:585
+#: ../modules/sound/main.qml:581
 msgid "Hide Advanced..."
 msgstr "隐藏高级设置..."
 
-#: ../modules/sound/main.qml:585
+#: ../modules/sound/main.qml:581
 msgid "Show Advanced..."
 msgstr "显示高级设置..."
 
@@ -1789,15 +1778,15 @@ msgstr "-位"
 msgid "Processor"
 msgstr "处理器"
 
-#: ../modules/system_info/main.qml:126
+#: ../modules/system_info/main.qml:134
 msgid "Memory"
 msgstr "内存"
 
-#: ../modules/system_info/main.qml:132
+#: ../modules/system_info/main.qml:140
 msgid "Disk"
 msgstr "磁盘"
 
-#: ../modules/system_info/main.qml:151
+#: ../modules/system_info/main.qml:159
 msgid "GNU GENERAL PUBLIC LICENSE"
 msgstr "GNU通用公共许可协议"
 

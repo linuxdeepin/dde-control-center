@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-14 16:57+0800\n"
+"POT-Creation-Date: 2014-06-18 16:59+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -115,7 +115,7 @@ msgstr "十一月"
 #: ../modules/date_time/TimeBox.qml:212
 #: ../modules/network/wireless/WifiHotspot.qml:86
 #: ../dock-applets/qml/WifiPasswordWindow.qml:171
-#: ../frame/views/WifiPasswordWindow.qml:170 ../modules/display/main.qml:224
+#: ../modules/display/main.qml:224
 msgid "Cancel"
 msgstr "取消"
 
@@ -154,7 +154,6 @@ msgid "Repeat Password"
 msgstr "顯示密碼:"
 
 #: ../modules/account/AddUserDialog.qml:202
-#: ../frame/views/WifiPasswordWindow.qml:152
 msgid "Show Password"
 msgstr "顯示密碼:"
 
@@ -445,7 +444,6 @@ msgstr ""
 #: ../modules/network/wireless/AddWireless.qml:242
 #: ../modules/network/widgets/PasswordBox.qml:109
 #: ../dock-applets/qml/WifiPasswordWindow.qml:178
-#: ../frame/views/WifiPasswordWindow.qml:177
 msgid "Connect"
 msgstr "連線"
 
@@ -553,7 +551,7 @@ msgstr "網路"
 msgid "Save"
 msgstr "儲存"
 
-#: ../modules/network/ConnectionEdit.qml:113
+#: ../modules/network/ConnectionEdit.qml:113 ../modules/network/Info.qml:73
 #: ../modules/date_time/StateButtons.qml:35
 #: ../modules/date_time/TimezoneArea.qml:223
 msgid "Close"
@@ -1180,16 +1178,16 @@ msgstr "顯示密碼:"
 msgid "Repeat"
 msgstr "重複延遲"
 
-#: ../modules/grub/Preview.qml:121
+#: ../modules/grub/Preview.qml:126
 #, fuzzy
 msgid "Drag and drop an image to change background."
 msgstr "將一張圖片拖曳至此以設為背景"
 
-#: ../modules/grub/Preview.qml:122
+#: ../modules/grub/Preview.qml:127
 msgid "Background is changing, please reboot later..."
 msgstr ""
 
-#: ../modules/grub/Preview.qml:123
+#: ../modules/grub/Preview.qml:128
 msgid "Successfully changed, reboot to view."
 msgstr ""
 
@@ -1392,16 +1390,8 @@ msgid "Create"
 msgstr ""
 
 #: ../dock-applets/qml/WifiPasswordWindow.qml:127
-#: ../frame/views/WifiPasswordWindow.qml:108
 msgid "Authentication required by Wi-Fi network"
 msgstr "Wi-Fi網路需要驗證"
-
-#: ../frame/views/WifiPasswordWindow.qml:116
-#, qt-format
-msgid ""
-"Passwords or encryption keys are required to access the Wi-Fi network <font "
-"color=\"#0ff\">%1</font>"
-msgstr "Wi-Fi網路 <font color=\"#0ff\">%1</font>需要驗證密碼或是金鑰驗證"
 
 #: ../dock-applets/qml/WifiPasswordWindow.qml:135
 #, fuzzy, qt-format
@@ -1411,7 +1401,6 @@ msgid ""
 msgstr "Wi-Fi網路 <font color=\"#0ff\">%1</font>需要驗證密碼或是金鑰驗證"
 
 #: ../dock-applets/qml/WifiPasswordWindow.qml:149
-#: ../frame/views/WifiPasswordWindow.qml:130
 msgid "Password:"
 msgstr "密碼:"
 
@@ -1612,28 +1601,28 @@ msgstr "圖片檢視器"
 msgid "Terminal"
 msgstr "終端機"
 
-#: ../modules/default_applications/main.qml:290
+#: ../modules/default_applications/main.qml:245
 #, fuzzy
 msgid "AutoPlay"
 msgstr "自動撥放"
 
-#: ../modules/default_applications/main.qml:305
+#: ../modules/default_applications/main.qml:260
 msgid "CD Audio"
 msgstr "音樂CD"
 
-#: ../modules/default_applications/main.qml:310
+#: ../modules/default_applications/main.qml:265
 msgid "DVD Video"
 msgstr "DVD影片"
 
-#: ../modules/default_applications/main.qml:315
+#: ../modules/default_applications/main.qml:270
 msgid "Music Player"
 msgstr "音樂撥放器"
 
-#: ../modules/default_applications/main.qml:320
+#: ../modules/default_applications/main.qml:275
 msgid "Camera"
 msgstr "照相機"
 
-#: ../modules/default_applications/main.qml:325
+#: ../modules/default_applications/main.qml:280
 msgid "Software"
 msgstr "軟體"
 
@@ -1654,17 +1643,17 @@ msgstr "套用"
 msgid "Boot priority"
 msgstr "啟動畫面"
 
-#: ../modules/grub/main.qml:159
+#: ../modules/grub/main.qml:160
 #, fuzzy
 msgid "Boot delay"
 msgstr "開機選單"
 
-#: ../modules/grub/main.qml:198
+#: ../modules/grub/main.qml:199
 #, fuzzy
 msgid "Text Color"
 msgstr "項目顏色"
 
-#: ../modules/grub/main.qml:231
+#: ../modules/grub/main.qml:232
 #, fuzzy
 msgid "Selected Text Color"
 msgstr "選擇項目顏色"
@@ -1851,28 +1840,28 @@ msgstr "輸入回音"
 msgid "Output Port"
 msgstr "輸出連接埠"
 
-#: ../modules/sound/main.qml:387 ../modules/sound/main.qml:492
+#: ../modules/sound/main.qml:387 ../modules/sound/main.qml:490
 #, fuzzy
 msgid "No port exists in this device."
 msgstr "在這個裝置中沒有可用的連接埠."
 
-#: ../modules/sound/main.qml:426
+#: ../modules/sound/main.qml:425
 msgid "Output device"
 msgstr "輸出裝置"
 
-#: ../modules/sound/main.qml:475
+#: ../modules/sound/main.qml:473
 msgid "Input Port"
 msgstr "輸入連接埠"
 
-#: ../modules/sound/main.qml:531
+#: ../modules/sound/main.qml:528
 msgid "Input device"
 msgstr "輸入裝置"
 
-#: ../modules/sound/main.qml:585
+#: ../modules/sound/main.qml:581
 msgid "Hide Advanced..."
 msgstr "隱藏進階..."
 
-#: ../modules/sound/main.qml:585
+#: ../modules/sound/main.qml:581
 msgid "Show Advanced..."
 msgstr "顯示進階..."
 
@@ -1896,15 +1885,15 @@ msgstr ""
 msgid "Processor"
 msgstr ""
 
-#: ../modules/system_info/main.qml:126
+#: ../modules/system_info/main.qml:134
 msgid "Memory"
 msgstr "記憶體"
 
-#: ../modules/system_info/main.qml:132
+#: ../modules/system_info/main.qml:140
 msgid "Disk"
 msgstr "硬碟"
 
-#: ../modules/system_info/main.qml:151
+#: ../modules/system_info/main.qml:159
 msgid "GNU GENERAL PUBLIC LICENSE"
 msgstr ""
 
@@ -1961,6 +1950,11 @@ msgstr ""
 #: ../modules/network/main.qml:184
 msgid "Bridge"
 msgstr ""
+
+#~ msgid ""
+#~ "Passwords or encryption keys are required to access the Wi-Fi network "
+#~ "<font color=\"#0ff\">%1</font>"
+#~ msgstr "Wi-Fi網路 <font color=\"#0ff\">%1</font>需要驗證密碼或是金鑰驗證"
 
 #~ msgid "Cursor"
 #~ msgstr "游標"
