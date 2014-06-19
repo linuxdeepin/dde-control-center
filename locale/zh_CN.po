@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-18 16:59+0800\n"
+"POT-Creation-Date: 2014-06-19 16:18+0800\n"
 "PO-Revision-Date: 2014-06-04 15:34+0800\n"
 "Last-Translator: iceleaf916 <iceleaf916@gmail.com>\n"
 "Language-Team: Deepin <yekaisheng@linuxdeepin.com>\n"
@@ -130,14 +130,14 @@ msgstr "新建用户"
 #: ../modules/account/AddUserDialog.qml:89
 #: ../modules/account/AddUserDialog.qml:248
 #: ../modules/account/EditUserDialog.qml:131
-#: ../modules/account/UserList.qml:179
+#: ../modules/account/UserList.qml:187
 msgid "Standard"
 msgstr "标准"
 
 #: ../modules/account/AddUserDialog.qml:89
 #: ../modules/account/AddUserDialog.qml:249
 #: ../modules/account/EditUserDialog.qml:132
-#: ../modules/account/UserList.qml:179
+#: ../modules/account/UserList.qml:187
 msgid "Administrator"
 msgstr "管理员"
 
@@ -244,7 +244,7 @@ msgstr "代理"
 #: ../modules/network/add/AddVpn.qml:195
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:134
 msgid "Allow Cisco Secure Desktop Trojan"
-msgstr "允许齐思科安全桌面木马"
+msgstr "允许思科安全桌面木马"
 
 #: ../modules/network/add/AddVpn.qml:206
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:145
@@ -293,7 +293,7 @@ msgstr "静态密码"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:310
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:57
 msgid "Use Key Direction"
-msgstr "自定义密钥方向"
+msgstr "密钥方向"
 
 #: ../modules/network/add/AddVpn.qml:382
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:321
@@ -447,43 +447,43 @@ msgstr "返回今天"
 
 #: ../modules/date_time/CalendarComponent.qml:79
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:174
+#: ../dock-applets/qml/date_time/main.qml:168
 msgid "Sun"
 msgstr "日"
 
 #: ../modules/date_time/CalendarComponent.qml:80
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:175
+#: ../dock-applets/qml/date_time/main.qml:169
 msgid "Mon"
 msgstr "一"
 
 #: ../modules/date_time/CalendarComponent.qml:81
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:176
+#: ../dock-applets/qml/date_time/main.qml:170
 msgid "Tue"
 msgstr "二"
 
 #: ../modules/date_time/CalendarComponent.qml:82
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:177
+#: ../dock-applets/qml/date_time/main.qml:171
 msgid "Wed"
 msgstr "三"
 
 #: ../modules/date_time/CalendarComponent.qml:83
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:178
+#: ../dock-applets/qml/date_time/main.qml:172
 msgid "Thu"
 msgstr "四"
 
 #: ../modules/date_time/CalendarComponent.qml:84
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:179
+#: ../dock-applets/qml/date_time/main.qml:173
 msgid "Fri"
 msgstr "五"
 
 #: ../modules/date_time/CalendarComponent.qml:85
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:180
+#: ../dock-applets/qml/date_time/main.qml:174
 msgid "Sat"
 msgstr "六"
 
@@ -559,12 +559,12 @@ msgstr "点击安装"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:11
 msgid "Ethernet"
-msgstr "本地连接"
+msgstr "以太网"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:24
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:70
 msgid "Device MAC Addr"
-msgstr "设备Mac地址"
+msgstr "设备MAC地址"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:35
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:81
@@ -601,6 +601,7 @@ msgstr "方法"
 
 #: ../modules/network/edit_autogen/EditSectionIpv4.qml:35
 #: ../modules/network/edit_autogen/EditSectionIpv6.qml:35
+#: ../modules/network/Info.qml:58
 msgid "IP Address"
 msgstr "IP地址"
 
@@ -774,11 +775,11 @@ msgstr "使用自定义最大传输单元(MTU)"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
 msgid "Use Custom UDP Fragment Size"
-msgstr "使用自定义UDP数据报长度"
+msgstr "使用自定义UDP数据报段长度"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:140
 msgid "UDP Fragment Size"
-msgstr "UDP数据报长度"
+msgstr "UDP数据报段长度"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:153
 msgid "Restrict Tunnel TCP MSS"
@@ -807,7 +808,7 @@ msgstr "端口"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:59
 msgid "Retry Indefinitely When Failed"
-msgstr "失败时无限期重试"
+msgstr "失败时重试"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:11
 msgid "VPN Security"
@@ -890,7 +891,7 @@ msgid "Channel"
 msgstr "通道"
 
 #: ../modules/account/EditUserDialog.qml:86
-msgid "Enable User"
+msgid "Enable"
 msgstr "启用"
 
 #: ../modules/personalization/components/FontSettingsExpand.qml:36
@@ -902,11 +903,11 @@ msgstr "大小"
 msgid "Font %1"
 msgstr "字体 %1"
 
-#: ../modules/account/GuestUser.qml:32 ../frame/views/HeaderArea.qml:108
+#: ../modules/account/GuestUser.qml:40 ../frame/views/HeaderArea.qml:108
 msgid "Guest"
 msgstr "来宾"
 
-#: ../modules/account/GuestUser.qml:93
+#: ../modules/account/GuestUser.qml:101
 #: ../modules/display/MonitorProperties.qml:80
 msgid "Enabled"
 msgstr "启用"
@@ -921,11 +922,7 @@ msgstr "设备类型"
 
 #: ../modules/network/Info.qml:57
 msgid "Device Addr"
-msgstr "设备Mac地址"
-
-#: ../modules/network/Info.qml:58
-msgid "Ip Address"
-msgstr "IP地址"
+msgstr "设备地址"
 
 #: ../modules/network/Info.qml:59
 msgid "Subnet Mask"
@@ -1116,39 +1113,39 @@ msgstr "背景图片正在被应用，重启请稍后..."
 msgid "Successfully changed, reboot to view."
 msgstr "更换背景图片成功，重启可查看。"
 
-#: ../modules/network/proxy/ProxyContent.qml:40
+#: ../modules/network/proxy/ProxyContent.qml:42
 msgid "None"
 msgstr "无"
 
-#: ../modules/network/proxy/ProxyContent.qml:45
+#: ../modules/network/proxy/ProxyContent.qml:47
 msgid "Manual"
 msgstr "手动"
 
-#: ../modules/network/proxy/ProxyContent.qml:50
+#: ../modules/network/proxy/ProxyContent.qml:52
 msgid "Auto"
 msgstr "自动"
 
-#: ../modules/network/proxy/ProxyContent.qml:85
+#: ../modules/network/proxy/ProxyContent.qml:87
 msgid "HTTP Proxy"
 msgstr "HTTP代理"
 
-#: ../modules/network/proxy/ProxyContent.qml:97
+#: ../modules/network/proxy/ProxyContent.qml:99
 msgid "HTTPS Proxy"
 msgstr "HTTPS代理"
 
-#: ../modules/network/proxy/ProxyContent.qml:109
+#: ../modules/network/proxy/ProxyContent.qml:111
 msgid "FTP Proxy"
 msgstr "FTP代理"
 
-#: ../modules/network/proxy/ProxyContent.qml:121
+#: ../modules/network/proxy/ProxyContent.qml:123
 msgid "Socks Host"
 msgstr "Socks代理"
 
-#: ../modules/network/proxy/ProxyContent.qml:146
+#: ../modules/network/proxy/ProxyContent.qml:148
 msgid "Configuration URL"
 msgstr "配置URL"
 
-#: ../modules/network/proxy/ProxyContent.qml:163
+#: ../modules/network/proxy/ProxyContent.qml:165
 msgid "Apply system wide"
 msgstr "应用到整个系统"
 
@@ -1166,7 +1163,7 @@ msgstr "重置"
 
 #: ../modules/shortcuts/ShortcutInput.qml:108
 msgid "Disable"
-msgstr ""
+msgstr "禁用"
 
 #: ../modules/shortcuts/ShortcutInput.qml:126
 msgid "Please input new shortcut"
@@ -1285,7 +1282,7 @@ msgstr "轻触以点击"
 
 #: ../modules/network/vpn/VpnExpand.qml:48
 msgid "VPN Connections"
-msgstr "VPN 连接"
+msgstr "VPN连接"
 
 #: ../modules/account/WebCam.qml:174
 msgid "No camera found."
@@ -1343,9 +1340,6 @@ msgid "Wireless Network %1"
 msgstr "无线网络 %1"
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:251
-msgid "Connect Hidden Access Point"
-msgstr "连接到隐藏网络"
-
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:353
 msgid "Connect to hidden access point"
 msgstr "连接到隐藏网络"
@@ -1530,7 +1524,7 @@ msgid "Software"
 msgstr "软件"
 
 #: ../modules/display/main.qml:117
-msgid "Main Display: "
+msgid "Main Monitor: "
 msgstr "主显示器："
 
 #: ../modules/display/main.qml:148
@@ -1545,15 +1539,15 @@ msgstr "应用"
 msgid "Boot priority"
 msgstr "启动顺序"
 
-#: ../modules/grub/main.qml:160
+#: ../modules/grub/main.qml:157
 msgid "Boot delay"
 msgstr "启动延时"
 
-#: ../modules/grub/main.qml:199
+#: ../modules/grub/main.qml:196
 msgid "Text Color"
 msgstr "文字颜色"
 
-#: ../modules/grub/main.qml:232
+#: ../modules/grub/main.qml:229
 msgid "Selected Text Color"
 msgstr "选中文字颜色"
 
@@ -1581,7 +1575,7 @@ msgstr "键盘布局"
 msgid "No result"
 msgstr "无结果"
 
-#: ../modules/keyboard/main.qml:406
+#: ../modules/keyboard/main.qml:405
 msgid "Caps Lock prompt"
 msgstr "大写键提示"
 
@@ -1652,7 +1646,7 @@ msgstr "关机"
 #: ../modules/power/main.qml:432 ../modules/power/main.qml:438
 #: ../modules/power/main.qml:444 ../modules/power/main.qml:532
 msgid "Suspend"
-msgstr "待机"
+msgstr "休眠"
 
 #: ../modules/power/main.qml:148
 msgid "Ask"

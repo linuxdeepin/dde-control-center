@@ -1614,7 +1614,7 @@
     </message>
     <message>
         <location filename="../modules/account/EditUserDialog.qml" line="86"/>
-        <source>Enable User</source>
+        <source>Enable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1649,12 +1649,12 @@
 <context>
     <name>GuestUser</name>
     <message>
-        <location filename="../modules/account/GuestUser.qml" line="32"/>
+        <location filename="../modules/account/GuestUser.qml" line="40"/>
         <source>Guest</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/GuestUser.qml" line="93"/>
+        <location filename="../modules/account/GuestUser.qml" line="101"/>
         <source>Enabled</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1686,7 +1686,7 @@
     </message>
     <message>
         <location filename="../modules/network/Info.qml" line="58"/>
-        <source>Ip Address</source>
+        <source>IP Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1993,47 +1993,47 @@
 <context>
     <name>ProxyContent</name>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="40"/>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="42"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="45"/>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="47"/>
         <source>Manual</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="50"/>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="52"/>
         <source>Auto</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="85"/>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="87"/>
         <source>HTTP Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="97"/>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="99"/>
         <source>HTTPS Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="109"/>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="111"/>
         <source>FTP Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="121"/>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="123"/>
         <source>Socks Host</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="146"/>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="148"/>
         <source>Configuration URL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="163"/>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="165"/>
         <source>Apply system wide</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2242,12 +2242,12 @@
 <context>
     <name>UserList</name>
     <message>
-        <location filename="../modules/account/UserList.qml" line="179"/>
+        <location filename="../modules/account/UserList.qml" line="187"/>
         <source>Standard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/UserList.qml" line="179"/>
+        <location filename="../modules/account/UserList.qml" line="187"/>
         <source>Administrator</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2382,10 +2382,6 @@
     </message>
     <message>
         <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="251"/>
-        <source>Connect Hidden Access Point</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="353"/>
         <source>Connect to hidden access point</source>
         <translation type="unfinished"></translation>
@@ -2523,37 +2519,37 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/date_time/main.qml" line="174"/>
+        <location filename="../dock-applets/qml/date_time/main.qml" line="168"/>
         <source>Sun</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/date_time/main.qml" line="175"/>
+        <location filename="../dock-applets/qml/date_time/main.qml" line="169"/>
         <source>Mon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/date_time/main.qml" line="176"/>
+        <location filename="../dock-applets/qml/date_time/main.qml" line="170"/>
         <source>Tue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/date_time/main.qml" line="177"/>
+        <location filename="../dock-applets/qml/date_time/main.qml" line="171"/>
         <source>Wed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/date_time/main.qml" line="178"/>
+        <location filename="../dock-applets/qml/date_time/main.qml" line="172"/>
         <source>Thu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/date_time/main.qml" line="179"/>
+        <location filename="../dock-applets/qml/date_time/main.qml" line="173"/>
         <source>Fri</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/date_time/main.qml" line="180"/>
+        <location filename="../dock-applets/qml/date_time/main.qml" line="174"/>
         <source>Sat</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2737,7 +2733,7 @@
     </message>
     <message>
         <location filename="../modules/display/main.qml" line="117"/>
-        <source>Main Display: </source>
+        <source>Main Monitor: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2766,17 +2762,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/main.qml" line="160"/>
+        <location filename="../modules/grub/main.qml" line="157"/>
         <source>Boot delay</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/main.qml" line="199"/>
+        <location filename="../modules/grub/main.qml" line="196"/>
         <source>Text Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/main.qml" line="232"/>
+        <location filename="../modules/grub/main.qml" line="229"/>
         <source>Selected Text Color</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2837,8 +2833,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="406"/>
-        <source>Caps-Lock key pressing tip</source>
+        <location filename="../modules/keyboard/main.qml" line="405"/>
+        <source>Caps Lock prompt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3118,7 +3114,7 @@
     </message>
     <message>
         <location filename="../modules/system_info/main.qml" line="115"/>
-        <source>-bit</source>
+        <source>bit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

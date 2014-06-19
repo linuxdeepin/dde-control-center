@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-18 17:01+0800\n"
+"POT-Creation-Date: 2014-06-19 16:18+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -129,14 +129,14 @@ msgstr ""
 #: ../modules/account/AddUserDialog.qml:89
 #: ../modules/account/AddUserDialog.qml:248
 #: ../modules/account/EditUserDialog.qml:131
-#: ../modules/account/UserList.qml:179
+#: ../modules/account/UserList.qml:187
 msgid "Standard"
 msgstr ""
 
 #: ../modules/account/AddUserDialog.qml:89
 #: ../modules/account/AddUserDialog.qml:249
 #: ../modules/account/EditUserDialog.qml:132
-#: ../modules/account/UserList.qml:179
+#: ../modules/account/UserList.qml:187
 msgid "Administrator"
 msgstr ""
 
@@ -446,43 +446,43 @@ msgstr ""
 
 #: ../modules/date_time/CalendarComponent.qml:79
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:174
+#: ../dock-applets/qml/date_time/main.qml:168
 msgid "Sun"
 msgstr ""
 
 #: ../modules/date_time/CalendarComponent.qml:80
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:175
+#: ../dock-applets/qml/date_time/main.qml:169
 msgid "Mon"
 msgstr ""
 
 #: ../modules/date_time/CalendarComponent.qml:81
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:176
+#: ../dock-applets/qml/date_time/main.qml:170
 msgid "Tue"
 msgstr ""
 
 #: ../modules/date_time/CalendarComponent.qml:82
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:177
+#: ../dock-applets/qml/date_time/main.qml:171
 msgid "Wed"
 msgstr ""
 
 #: ../modules/date_time/CalendarComponent.qml:83
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:178
+#: ../dock-applets/qml/date_time/main.qml:172
 msgid "Thu"
 msgstr ""
 
 #: ../modules/date_time/CalendarComponent.qml:84
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:179
+#: ../dock-applets/qml/date_time/main.qml:173
 msgid "Fri"
 msgstr ""
 
 #: ../modules/date_time/CalendarComponent.qml:85
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:180
+#: ../dock-applets/qml/date_time/main.qml:174
 msgid "Sat"
 msgstr ""
 
@@ -600,6 +600,7 @@ msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionIpv4.qml:35
 #: ../modules/network/edit_autogen/EditSectionIpv6.qml:35
+#: ../modules/network/Info.qml:58
 msgid "IP Address"
 msgstr ""
 
@@ -889,7 +890,7 @@ msgid "Channel"
 msgstr ""
 
 #: ../modules/account/EditUserDialog.qml:86
-msgid "Enable User"
+msgid "Enable"
 msgstr ""
 
 #: ../modules/personalization/components/FontSettingsExpand.qml:36
@@ -901,11 +902,11 @@ msgstr ""
 msgid "Font %1"
 msgstr ""
 
-#: ../modules/account/GuestUser.qml:32 ../frame/views/HeaderArea.qml:108
+#: ../modules/account/GuestUser.qml:40 ../frame/views/HeaderArea.qml:108
 msgid "Guest"
 msgstr ""
 
-#: ../modules/account/GuestUser.qml:93
+#: ../modules/account/GuestUser.qml:101
 #: ../modules/display/MonitorProperties.qml:80
 msgid "Enabled"
 msgstr ""
@@ -920,10 +921,6 @@ msgstr ""
 
 #: ../modules/network/Info.qml:57
 msgid "Device Addr"
-msgstr ""
-
-#: ../modules/network/Info.qml:58
-msgid "Ip Address"
 msgstr ""
 
 #: ../modules/network/Info.qml:59
@@ -1115,39 +1112,39 @@ msgstr ""
 msgid "Successfully changed, reboot to view."
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:40
+#: ../modules/network/proxy/ProxyContent.qml:42
 msgid "None"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:45
+#: ../modules/network/proxy/ProxyContent.qml:47
 msgid "Manual"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:50
+#: ../modules/network/proxy/ProxyContent.qml:52
 msgid "Auto"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:85
+#: ../modules/network/proxy/ProxyContent.qml:87
 msgid "HTTP Proxy"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:97
+#: ../modules/network/proxy/ProxyContent.qml:99
 msgid "HTTPS Proxy"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:109
+#: ../modules/network/proxy/ProxyContent.qml:111
 msgid "FTP Proxy"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:121
+#: ../modules/network/proxy/ProxyContent.qml:123
 msgid "Socks Host"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:146
+#: ../modules/network/proxy/ProxyContent.qml:148
 msgid "Configuration URL"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:163
+#: ../modules/network/proxy/ProxyContent.qml:165
 msgid "Apply system wide"
 msgstr ""
 
@@ -1342,9 +1339,6 @@ msgid "Wireless Network %1"
 msgstr ""
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:251
-msgid "Connect Hidden Access Point"
-msgstr ""
-
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:353
 msgid "Connect to hidden access point"
 msgstr ""
@@ -1529,7 +1523,7 @@ msgid "Software"
 msgstr ""
 
 #: ../modules/display/main.qml:117
-msgid "Main Display: "
+msgid "Main Monitor: "
 msgstr ""
 
 #: ../modules/display/main.qml:148
@@ -1544,15 +1538,15 @@ msgstr ""
 msgid "Boot priority"
 msgstr ""
 
-#: ../modules/grub/main.qml:160
+#: ../modules/grub/main.qml:157
 msgid "Boot delay"
 msgstr ""
 
-#: ../modules/grub/main.qml:199
+#: ../modules/grub/main.qml:196
 msgid "Text Color"
 msgstr ""
 
-#: ../modules/grub/main.qml:232
+#: ../modules/grub/main.qml:229
 msgid "Selected Text Color"
 msgstr ""
 
@@ -1580,8 +1574,8 @@ msgstr ""
 msgid "No result"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:406
-msgid "Caps-Lock key pressing tip"
+#: ../modules/keyboard/main.qml:405
+msgid "Caps Lock prompt"
 msgstr ""
 
 #: ../modules/mouse_touchpad/main.qml:167
@@ -1770,7 +1764,7 @@ msgid "System Type"
 msgstr ""
 
 #: ../modules/system_info/main.qml:115
-msgid "-bit"
+msgid "bit"
 msgstr ""
 
 #: ../modules/system_info/main.qml:120

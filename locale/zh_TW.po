@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-18 16:59+0800\n"
+"POT-Creation-Date: 2014-06-19 16:18+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -137,14 +137,14 @@ msgstr "啟用使用者"
 #: ../modules/account/AddUserDialog.qml:89
 #: ../modules/account/AddUserDialog.qml:248
 #: ../modules/account/EditUserDialog.qml:131
-#: ../modules/account/UserList.qml:179
+#: ../modules/account/UserList.qml:187
 msgid "Standard"
 msgstr "標準"
 
 #: ../modules/account/AddUserDialog.qml:89
 #: ../modules/account/AddUserDialog.qml:249
 #: ../modules/account/EditUserDialog.qml:132
-#: ../modules/account/UserList.qml:179
+#: ../modules/account/UserList.qml:187
 msgid "Administrator"
 msgstr "系統管理員"
 
@@ -477,43 +477,43 @@ msgstr "顯示今天"
 
 #: ../modules/date_time/CalendarComponent.qml:79
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:174
+#: ../dock-applets/qml/date_time/main.qml:168
 msgid "Sun"
 msgstr "日"
 
 #: ../modules/date_time/CalendarComponent.qml:80
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:175
+#: ../dock-applets/qml/date_time/main.qml:169
 msgid "Mon"
 msgstr "一"
 
 #: ../modules/date_time/CalendarComponent.qml:81
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:176
+#: ../dock-applets/qml/date_time/main.qml:170
 msgid "Tue"
 msgstr "二"
 
 #: ../modules/date_time/CalendarComponent.qml:82
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:177
+#: ../dock-applets/qml/date_time/main.qml:171
 msgid "Wed"
 msgstr "三"
 
 #: ../modules/date_time/CalendarComponent.qml:83
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:178
+#: ../dock-applets/qml/date_time/main.qml:172
 msgid "Thu"
 msgstr "四"
 
 #: ../modules/date_time/CalendarComponent.qml:84
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:179
+#: ../dock-applets/qml/date_time/main.qml:173
 msgid "Fri"
 msgstr "五"
 
 #: ../modules/date_time/CalendarComponent.qml:85
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:180
+#: ../dock-applets/qml/date_time/main.qml:174
 msgid "Sat"
 msgstr "六"
 
@@ -639,6 +639,7 @@ msgstr "方法"
 
 #: ../modules/network/edit_autogen/EditSectionIpv4.qml:35
 #: ../modules/network/edit_autogen/EditSectionIpv6.qml:35
+#: ../modules/network/Info.qml:58
 msgid "IP Address"
 msgstr "IP位址"
 
@@ -953,8 +954,9 @@ msgid "Channel"
 msgstr "更改"
 
 #: ../modules/account/EditUserDialog.qml:86
-msgid "Enable User"
-msgstr "啟用使用者"
+#, fuzzy
+msgid "Enable"
+msgstr "啟用"
 
 #: ../modules/personalization/components/FontSettingsExpand.qml:36
 msgid "Size"
@@ -965,11 +967,11 @@ msgstr "大小"
 msgid "Font %1"
 msgstr "字型"
 
-#: ../modules/account/GuestUser.qml:32 ../frame/views/HeaderArea.qml:108
+#: ../modules/account/GuestUser.qml:40 ../frame/views/HeaderArea.qml:108
 msgid "Guest"
 msgstr "訪客"
 
-#: ../modules/account/GuestUser.qml:93
+#: ../modules/account/GuestUser.qml:101
 #: ../modules/display/MonitorProperties.qml:80
 msgid "Enabled"
 msgstr "啟用"
@@ -988,11 +990,6 @@ msgstr "裝置類型"
 #, fuzzy
 msgid "Device Addr"
 msgstr "裝置位址"
-
-#: ../modules/network/Info.qml:58
-#, fuzzy
-msgid "Ip Address"
-msgstr "IP位址"
 
 #: ../modules/network/Info.qml:59
 #, fuzzy
@@ -1191,41 +1188,41 @@ msgstr ""
 msgid "Successfully changed, reboot to view."
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:40
+#: ../modules/network/proxy/ProxyContent.qml:42
 msgid "None"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:45
+#: ../modules/network/proxy/ProxyContent.qml:47
 #, fuzzy
 msgid "Manual"
 msgstr "一月"
 
-#: ../modules/network/proxy/ProxyContent.qml:50
+#: ../modules/network/proxy/ProxyContent.qml:52
 #, fuzzy
 msgid "Auto"
 msgstr "自動撥放"
 
-#: ../modules/network/proxy/ProxyContent.qml:85
+#: ../modules/network/proxy/ProxyContent.qml:87
 msgid "HTTP Proxy"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:97
+#: ../modules/network/proxy/ProxyContent.qml:99
 msgid "HTTPS Proxy"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:109
+#: ../modules/network/proxy/ProxyContent.qml:111
 msgid "FTP Proxy"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:121
+#: ../modules/network/proxy/ProxyContent.qml:123
 msgid "Socks Host"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:146
+#: ../modules/network/proxy/ProxyContent.qml:148
 msgid "Configuration URL"
 msgstr ""
 
-#: ../modules/network/proxy/ProxyContent.qml:163
+#: ../modules/network/proxy/ProxyContent.qml:165
 msgid "Apply system wide"
 msgstr ""
 
@@ -1431,10 +1428,6 @@ msgid "Wireless Network %1"
 msgstr "無線裝置: %1"
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:251
-#, fuzzy
-msgid "Connect Hidden Access Point"
-msgstr "無線網路存取點"
-
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:353
 #, fuzzy
 msgid "Connect to hidden access point"
@@ -1627,8 +1620,9 @@ msgid "Software"
 msgstr "軟體"
 
 #: ../modules/display/main.qml:117
-msgid "Main Display: "
-msgstr "主要顯示: "
+#, fuzzy
+msgid "Main Monitor: "
+msgstr "設為預設顯示器"
 
 #: ../modules/display/main.qml:148
 msgid "Monitor"
@@ -1643,17 +1637,17 @@ msgstr "套用"
 msgid "Boot priority"
 msgstr "啟動畫面"
 
-#: ../modules/grub/main.qml:160
+#: ../modules/grub/main.qml:157
 #, fuzzy
 msgid "Boot delay"
 msgstr "開機選單"
 
-#: ../modules/grub/main.qml:199
+#: ../modules/grub/main.qml:196
 #, fuzzy
 msgid "Text Color"
 msgstr "項目顏色"
 
-#: ../modules/grub/main.qml:232
+#: ../modules/grub/main.qml:229
 #, fuzzy
 msgid "Selected Text Color"
 msgstr "選擇項目顏色"
@@ -1684,8 +1678,8 @@ msgstr "鍵盤配置"
 msgid "No result"
 msgstr "沒有結果"
 
-#: ../modules/keyboard/main.qml:406
-msgid "Caps-Lock key pressing tip"
+#: ../modules/keyboard/main.qml:405
+msgid "Caps Lock prompt"
 msgstr ""
 
 #: ../modules/mouse_touchpad/main.qml:167
@@ -1878,8 +1872,9 @@ msgid "System Type"
 msgstr "系統類型"
 
 #: ../modules/system_info/main.qml:115
-msgid "-bit"
-msgstr ""
+#, fuzzy
+msgid "bit"
+msgstr "位元"
 
 #: ../modules/system_info/main.qml:120
 msgid "Processor"
@@ -1950,6 +1945,20 @@ msgstr ""
 #: ../modules/network/main.qml:184
 msgid "Bridge"
 msgstr ""
+
+#~ msgid "Enable User"
+#~ msgstr "啟用使用者"
+
+#~ msgid "Main Display: "
+#~ msgstr "主要顯示: "
+
+#, fuzzy
+#~ msgid "Ip Address"
+#~ msgstr "IP位址"
+
+#, fuzzy
+#~ msgid "Connect Hidden Access Point"
+#~ msgstr "無線網路存取點"
 
 #~ msgid ""
 #~ "Passwords or encryption keys are required to access the Wi-Fi network "
@@ -2162,9 +2171,6 @@ msgstr ""
 #~ msgid "Restore"
 #~ msgstr "還原"
 
-#~ msgid "Select as Main Monitor"
-#~ msgstr "設為預設顯示器"
-
 #~ msgid "无效的快捷键\"%1\"，请重新输入！"
 #~ msgstr "無效的快捷鍵\"%1\"，請重新輸入"
 
@@ -2200,9 +2206,6 @@ msgstr ""
 
 #~ msgid "System Version"
 #~ msgstr "系統版本"
-
-#~ msgid "Bit"
-#~ msgstr "位元"
 
 #~ msgid "CPU"
 #~ msgstr "處理器"

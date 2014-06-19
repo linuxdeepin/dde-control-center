@@ -248,7 +248,7 @@ DBaseExpand {
                 anchors.left: parent.left
                 anchors.leftMargin: 24
                 anchors.verticalCenter: parent.verticalCenter
-                text: dsTr("Connect Hidden Access Point")
+                text: dsTr("Connect to hidden access point")
                 font.pixelSize: 12
                 color: hiddenNetworkLine.hovered ? dconstants.hoverColor : dconstants.fgColor
             }
