@@ -43,12 +43,14 @@ Item {
         height: itemHeight - 1
 
         Rectangle {
-            anchors.fill: parent
+            anchors.centerIn: parent
+            width: diameter
+            height: diameter
+            radius: diameter/2
+            color: "#0064fa"
             visible: dateItem.GridView.view.currentDateStr == dateValue
-            gradient: Gradient {
-                GradientStop { position: 0.0; color: Qt.rgba(5/255, 112/255, 252/255, 0.2) }
-                GradientStop { position: 1.0; color: Qt.rgba(36/255, 131/255, 1, 0.7) }
-            } 
+
+            property int diameter: parent.height
         }
 
         DssH2 {
@@ -56,7 +58,7 @@ Item {
             anchors.top: parent.top
             anchors.topMargin: lunarDayLabel.visible ? 2 : (parent.height - height)/2
             anchors.horizontalCenter: parent.horizontalCenter
-            font.pixelSize: 12
+            font.pixelSize: 14
             text: dayText
             color: isGrey ? "#4f4f4f": dconstants.fgColor
         }
@@ -66,7 +68,7 @@ Item {
             anchors.top: inText.bottom
             anchors.horizontalCenter: parent.horizontalCenter
 
-            font.pixelSize: 10
+            font.pixelSize: 9
             color: isGrey ? "#4f4f4f": dconstants.fgColor
             text: {
                 var info = lunarDayInfo[0]
@@ -91,20 +93,20 @@ Item {
 
     }
 
-    Rectangle {
-        id: rightBorder
-        anchors.left: content.right
-        width: 1
-        height: parent.height
-        color: borderColor
-        visible: (index + 1) % 7 != 0
-    }
+    //Rectangle {
+        //id: rightBorder
+        //anchors.left: content.right
+        //width: 1
+        //height: parent.height
+        //color: borderColor
+        //visible: (index + 1) % 7 != 0
+    //}
 
-    Rectangle {
-        id: bottomBorder
-        anchors.top: content.bottom
-        width: parent.width
-        height: 1
-        color: borderColor
-    }
+    //Rectangle {
+        //id: bottomBorder
+        //anchors.top: content.bottom
+        //width: parent.width
+        //height: 1
+        //color: borderColor
+    //}
 }

@@ -126,7 +126,8 @@ DockApplet{
 
             Item {
                 id: topTitle
-                width: parent.width
+                width: parent.width - 16
+                anchors.horizontalCenter: parent.horizontalCenter
                 height: 38
 
                 DssH2 {
@@ -152,13 +153,6 @@ DockApplet{
                     }
                 }
             }
-
-            Rectangle {
-                width: parent.width
-                height: 1
-                color: Qt.rgba(1, 1, 1, 0.2)
-            }
-
 
             GridView {
                 id: weekTitleGridView
