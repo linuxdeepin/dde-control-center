@@ -27,7 +27,7 @@ import QtQuick.Controls.Styles 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.DateAndTime 1.0
 import DBus.Com.Deepin.Api.LunarCalendar 1.0
-import DBus.Com.Deepin.Api.Search 1.0
+import DBus.Com.Deepin.Daemon.Search 1.0
 import "calendar_core.js" as CalendarCore
 
 DFlickable {

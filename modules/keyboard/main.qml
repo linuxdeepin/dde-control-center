@@ -27,7 +27,7 @@ import QtQuick.Controls.Styles 1.0
 import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.InputDevices 1.0
-import DBus.Com.Deepin.Api.Search 1.0
+import DBus.Com.Deepin.Daemon.Search 1.0
 import "../shared/"
 
 Item {
