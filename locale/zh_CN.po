@@ -1582,8 +1582,8 @@ msgid "No result"
 msgstr "无结果"
 
 #: ../modules/keyboard/main.qml:406
-msgid "Caps-Lock key pressing tip"
-msgstr "大写键按键提示"
+msgid "Caps Lock prompt"
+msgstr "大写键提示"
 
 #: ../modules/mouse_touchpad/main.qml:167
 msgid "Disable the touchpad when inserting the mouse"

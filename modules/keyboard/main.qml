@@ -401,9 +401,8 @@ Item {
         DSeparatorHorizontal {}
 
         DBaseLine {}
-        DSeparatorHorizontal {}
         DBaseLine {
-            leftLoader.sourceComponent: DssH2 { text: dsTr("Caps-Lock key pressing tip") }
+            leftLoader.sourceComponent: DssH2 { text: dsTr("Caps Lock prompt") }
             rightLoader.sourceComponent: DSwitchButton {
                 checked: dbusKeyboard.capslockToggle
 
