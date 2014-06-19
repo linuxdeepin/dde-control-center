@@ -216,14 +216,7 @@ Column {
             }
 
             DTextButton {
-                text: { 
-                    if(displayId.hasChanged){
-                        return dsTr("Reset")
-                    }
-                    else{
-                        return dsTr("Cancel")
-                    }
-                }
+                text: dsTr("Cancel") 
 
                 visible: { 
                     if (monitorDragArea.editable || displayId.hasChanged){
