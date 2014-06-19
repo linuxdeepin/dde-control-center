@@ -138,8 +138,6 @@ Column {
 
     }
 
-    DSeparatorHorizontal {}
-
     Rectangle {
         id: calendarSlideBox
         width: parent.width
