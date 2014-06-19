@@ -112,7 +112,7 @@ Item {
         InfoItem { 
             id: typeItem
             title: dsTr("System Type")
-            value: systemInfoDbus.systemType + dsTr("-bit")
+            value: systemInfoDbus.systemType + dsTr("bit")
         }
 
         InfoItem { 

@@ -1771,8 +1771,8 @@ msgid "System Type"
 msgstr "系统类型"
 
 #: ../modules/system_info/main.qml:115
-msgid "-bit"
-msgstr "-位"
+msgid "bit"
+msgstr "位"
 
 #: ../modules/system_info/main.qml:120
 msgid "Processor"
