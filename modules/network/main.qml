@@ -252,8 +252,10 @@ Item {
                 }
             }
 
-            DTextButton {
-                text: "i"
+            DImageButton {
+                normal_image: "images/info_normal.png"
+                hover_image: "images/info_hover.png"
+                press_image: "images/info_press.png"
                 anchors.verticalCenter: parent.verticalCenter
                 visible: stackView.currentItemId == "indexPage"
                 onClicked: {
