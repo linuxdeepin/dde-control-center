@@ -50,7 +50,7 @@ if __name__ == "__main__":
     
     # Generate pot file.
     subprocess.call(
-        "lconvert -i %s -o %s" % (ts_filepath, pot_filepath),
+        "lconvert -i %s -if ts -o %s -of po" % (ts_filepath, pot_filepath),
         shell=True)
 
     clean_str = ""

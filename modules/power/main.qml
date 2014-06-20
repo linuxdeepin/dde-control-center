@@ -210,7 +210,7 @@ Rectangle {
             DBaseLine {
                 id: wake_require_password_expand
                 leftLoader.sourceComponent: DssH2 {
-                    text: dsTr("Require password when computer wakes")
+                    text: dsTr("Password required to wake up")
                 }
 
                 rightLoader.sourceComponent: Component{

@@ -2747,12 +2747,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/main.qml" line="221"/>
-        <source>Reset</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/display/main.qml" line="224"/>
+        <location filename="../modules/display/main.qml" line="219"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2978,7 +2973,7 @@
     </message>
     <message>
         <location filename="../modules/power/main.qml" line="213"/>
-        <source>Require password when computer wakes</source>
+        <source>Password required to wake up</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

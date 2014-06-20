@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-19 16:18+0800\n"
+"POT-Creation-Date: 2014-06-20 10:20+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -108,7 +108,7 @@ msgstr ""
 #: ../modules/date_time/TimeBox.qml:212
 #: ../modules/network/wireless/WifiHotspot.qml:86
 #: ../dock-applets/qml/WifiPasswordWindow.qml:171
-#: ../modules/display/main.qml:224
+#: ../modules/display/main.qml:219
 msgid "Cancel"
 msgstr ""
 
@@ -1156,7 +1156,7 @@ msgstr ""
 msgid "Reset successfully"
 msgstr ""
 
-#: ../modules/shared/ResetButton.qml:47 ../modules/display/main.qml:221
+#: ../modules/shared/ResetButton.qml:47
 msgid "Reset"
 msgstr ""
 
@@ -1660,7 +1660,7 @@ msgid "Nothing"
 msgstr ""
 
 #: ../modules/power/main.qml:213
-msgid "Require password when computer wakes"
+msgid "Password required to wake up"
 msgstr ""
 
 #: ../modules/power/main.qml:235

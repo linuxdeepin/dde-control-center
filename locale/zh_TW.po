@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-19 16:18+0800\n"
+"POT-Creation-Date: 2014-06-20 10:20+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -115,7 +115,7 @@ msgstr "十一月"
 #: ../modules/date_time/TimeBox.qml:212
 #: ../modules/network/wireless/WifiHotspot.qml:86
 #: ../dock-applets/qml/WifiPasswordWindow.qml:171
-#: ../modules/display/main.qml:224
+#: ../modules/display/main.qml:219
 msgid "Cancel"
 msgstr "取消"
 
@@ -1235,7 +1235,7 @@ msgstr "系統類型"
 msgid "Reset successfully"
 msgstr ""
 
-#: ../modules/shared/ResetButton.qml:47 ../modules/display/main.qml:221
+#: ../modules/shared/ResetButton.qml:47
 msgid "Reset"
 msgstr "重設"
 
@@ -1765,8 +1765,8 @@ msgid "Nothing"
 msgstr "無"
 
 #: ../modules/power/main.qml:213
-msgid "Require password when computer wakes"
-msgstr "當喚醒電腦時需要輸入密碼"
+msgid "Password required to wake up"
+msgstr ""
 
 #: ../modules/power/main.qml:235
 msgid "Power Adapter"
@@ -1945,6 +1945,9 @@ msgstr ""
 #: ../modules/network/main.qml:184
 msgid "Bridge"
 msgstr ""
+
+#~ msgid "Require password when computer wakes"
+#~ msgstr "當喚醒電腦時需要輸入密碼"
 
 #~ msgid "Enable User"
 #~ msgstr "啟用使用者"
