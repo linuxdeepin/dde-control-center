@@ -4,7 +4,6 @@ import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
 import DBus.Com.Deepin.Daemon.Network 1.0
 import Deepin.Widgets 1.0
-import DGui 1.0
 
 Item {
     id: networkModule

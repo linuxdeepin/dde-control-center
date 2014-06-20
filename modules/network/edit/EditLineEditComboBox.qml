@@ -4,28 +4,47 @@ import Deepin.Widgets 1.0
 BaseEditLine {
     id: root
     
-    rightLoader.sourceComponent: DEditComboBox {
+    rightLoader.sourceComponent: DEditComboBoxSimple {
         id: comboBox
         activeFocusOnTab: true
         width: valueWidth
         state: root.showError ? "warning" : "normal"
         anchors.left: parent.left
-        selectIndex: -1
-        parentWindow: rootWindow
+
+        property var labels: new Array()
+        property var values: new Array()
+        property int selectIndex: -1
+
+        onShowRequested: {
+            if(!rootMenu.visible){
+                rootMenu.labels = comboBox.labels
+                rootMenu.requestMenuItem = comboBox
+                rootMenu.currentIndex = selectIndex
+                rootMenu.posX = x
+                rootMenu.posY = y
+                rootMenu.innerWidth = width
+            }
+            rootMenu.visible = !rootMenu.visible
+        }
+
+        function menuSelect(i){
+            if(i != -1)
+                comboBox.text = values[i]
+        }
 
         Connections {
             target: root
             onWidgetShown: {
-                text = root.cacheValue
-                labels = root.getAvailableValuesText()
-                values = root.getAvailableValuesValue()
-                selectIndex = root.getAvailableValuesIndex()
+                comboBox.text = root.cacheValue
+                comboBox.labels = root.getAvailableValuesText()
+                comboBox.values = root.getAvailableValuesValue()
+                comboBox.selectIndex = root.getAvailableValuesIndex()
             }
             onCacheValueChanged: {
-                text = root.cacheValue
-                labels = root.getAvailableValuesText()
-                values = root.getAvailableValuesValue()
-                selectIndex = root.getAvailableValuesIndex()
+                comboBox.text = root.cacheValue
+                comboBox.labels = root.getAvailableValuesText()
+                comboBox.values = root.getAvailableValuesValue()
+                comboBox.selectIndex = root.getAvailableValuesIndex()
             }
         }
 

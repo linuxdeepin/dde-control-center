@@ -39,12 +39,6 @@ from constants import APP_DBUS_NAME, APP_OBJECT_PATH
 from PyQt5 import QtDBus
 session_bus = QtDBus.QDBusConnection.sessionBus()
 
-from PyQt5 import QtQml
-from popup import PopupItem
-
-QtQml.qmlRegisterType(PopupItem, "DGui", 1, 0, "PopupItem")
-
-
 def main():
     success = session_bus.registerService(APP_DBUS_NAME)
     if not success:

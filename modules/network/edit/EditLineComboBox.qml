@@ -4,29 +4,42 @@ import Deepin.Widgets 1.0
 BaseEditLine {
     id: root
     
-    rightLoader.sourceComponent: DComboBox{
+    rightLoader.sourceComponent: DComboBoxSimple {
         id: comboBox
         anchors.left: parent.left
         width: valueWidth
-        selectIndex: -1
-        parentWindow: rootWindow
+
+        property var labels: new Array()
+        property int selectIndex: -1
+        
+        onShowRequested: {
+            if(!rootMenu.visible){
+                rootMenu.labels = comboBox.labels
+                rootMenu.requestMenuItem = comboBox
+                rootMenu.currentIndex = selectIndex
+                rootMenu.posX = x
+                rootMenu.posY = y
+                rootMenu.innerWidth = width
+            }
+            rootMenu.visible = !rootMenu.visible
+        }
+
+        function menuSelect(i){
+            setKey(getAvailableValues()[i].Value)
+        }
         
         Connections {
             target: root
             onWidgetShown: {
-                text = root.getAvailableValuesTextByValue()
-                labels = root.getAvailableValuesText()
-                selectIndex = root.getAvailableValuesIndex()
+                comboBox.text = root.getAvailableValuesTextByValue()
+                comboBox.labels = root.getAvailableValuesText()
+                comboBox.selectIndex = root.getAvailableValuesIndex()
             }
             onCacheValueChanged: {
-                text = root.getAvailableValuesTextByValue()
-                labels = root.getAvailableValuesText()
-                selectIndex = root.getAvailableValuesIndex()
+                comboBox.text = root.getAvailableValuesTextByValue()
+                comboBox.labels = root.getAvailableValuesText()
+                comboBox.selectIndex = root.getAvailableValuesIndex()
             }
-        }
-
-        onMenuSelect: {
-            setKey(getAvailableValues()[index].Value)
         }
     }
 }
