@@ -51,9 +51,12 @@ DBaseLine {
     
     // update cacheValue even if other key changed
     property bool alwaysUpdate: false
-    onConnectionDataChanged: {
-        if (visible && alwaysUpdate) {
-            updateCacheValue()
+    Connections {
+        target: connectionSession
+        onConnectionDataChanged: {
+            if (visible && alwaysUpdate) {
+                updateCacheValue()
+            }
         }
     }
     
@@ -93,7 +96,7 @@ DBaseLine {
     function setKey(v) {
         cacheValue = v
         if (cacheValue !== getKey()) {
-            // print("-> BaseEditLine.setKey()", section, key, cacheValue) // TODO test
+            print("-> BaseEditLine.setKey()", section, key, cacheValue) // TODO test
             connectionSession.SetKey(section, key, marshalJSON(cacheValue))
         }
     }

@@ -12,17 +12,6 @@ BaseEditSection {
     }
 
     content.sourceComponent: Column { 
-        EditLineComboBox {
-            id: lineVsVpnVkVpnType
-            connectionSession: sectionVpn.connectionSession
-            availableSections: sectionVpn.availableSections
-            availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
-            errors: sectionVpn.errors
-            section: "vs-vpn"
-            key: "vk-vpn-type"
-            text: dsTr("VPN Type")
-        }
         EditLineMissingPackage {
             id: lineVsVpnVkVpnMissingPlugin
             connectionSession: sectionVpn.connectionSession
