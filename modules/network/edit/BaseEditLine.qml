@@ -15,6 +15,9 @@ DBaseLine {
     property string text
     property var cacheValue // cache value between ConnectionSession and widget
     
+    // if true, don't compare cache value with backend when setting key
+    property bool setKeyAlways: false 
+    
     signal widgetShown
     visible: false
     Binding on visible {
@@ -95,10 +98,11 @@ DBaseLine {
     
     function setKey(v) {
         cacheValue = v
-        if (cacheValue !== getKey()) {
-            print("-> BaseEditLine.setKey()", section, key, cacheValue) // TODO test
-            connectionSession.SetKey(section, key, marshalJSON(cacheValue))
+        if (cacheValue === getKey() && !setKeyAlways) {
+            return
         }
+        print("-> BaseEditLine.setKey()", section, key, cacheValue) // TODO test
+        connectionSession.SetKey(section, key, marshalJSON(cacheValue))
     }
 
     function getKey() {

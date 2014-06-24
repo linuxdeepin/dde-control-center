@@ -4,6 +4,7 @@ import "../widgets"
 
 BaseEditLine {
     id: root
+    setKeyAlways: true
     
     property BaseEditLine previousIpv4Input
     property BaseEditLine nextIpv4Input
