@@ -7,12 +7,6 @@ BaseEditLine {
 
     property string missingTypeName: ""
     
-    // TODO clickable pacakge text, and jump to software center
-    
-    //leftLoader.sourceComponent: DssH2 {
-        //// color: errorColor
-        //text: dsTr("Missing Pacakge")
-    //}
     leftLoader.sourceComponent: Column {
         width: root.width - root.leftMargin - root.rightMargin
         spacing: 2
