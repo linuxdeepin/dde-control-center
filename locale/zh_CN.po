@@ -551,7 +551,7 @@ msgstr "拨号连接"
 #: ../modules/network/edit/EditLineMissingPackage.qml:21
 #, qt-format
 msgid "Current system lacks component for %1"
-msgstr "当前系统缺少 %1 类型的VPN组件"
+msgstr "当前系统缺少 %1 组件"
 
 #: ../modules/network/edit/EditLineMissingPackage.qml:28
 msgid "Click to install"
