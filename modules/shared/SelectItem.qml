@@ -35,8 +35,8 @@ Item {
     property bool showTip: nameText.isElide
 
     // info from model
-    property string itemId: item_id
-    property string itemName: item_name
+    property string itemId: typeof(item_id) == "undefined" ? "" : item_id
+    property string itemName: typeof(item_name) == "undefined" ? "" : item_name
     // info from model
 
     // Need binding variable

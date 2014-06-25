@@ -23,7 +23,5 @@ Column {
 
     VpnExpand {}
 
-    DslExpand {}
-
     ProxyExpand {}
 }
