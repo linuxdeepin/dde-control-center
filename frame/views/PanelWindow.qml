@@ -52,7 +52,7 @@ DOverrideWindow {
 
     function showPanel() {
         if(clickedToHide){
-            if(!showAll.running && rootWindow.width != panelWidth){
+            if(!showAll.running && rootWindow.width != panelWidth && !hideAll.running){
                 showAll.start()
             }
         }
@@ -60,10 +60,7 @@ DOverrideWindow {
 
     function hidePanel(quit) {
         if(clickedToHide){
-            if(!hideAll.running){
-                if(showAll.running){
-                    showAll.stop()
-                }
+            if(!hideAll.running && !showAll.running){
                 hideAll.quit = quit
                 hideAll.start()
             }

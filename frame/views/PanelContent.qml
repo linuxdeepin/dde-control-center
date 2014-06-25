@@ -344,14 +344,10 @@ Rectangle {
                 else if(iconId == "home"){
                     trayIconTip.visible = false
                     toGridNavigateAnimation.start()
-                    if (frame.x != rootWindow.width - panelWidth){
-                        showAll.restart()
-                    }
+                    showPanel()
                 }
                 else{
-                    if (frame.x != rootWindow.width - panelWidth){
-                        showAll.restart()
-                    }
+                    showPanel()
                     if(!panelContent.isSiderNavigate){
                         toSiderNavigateAnimation.start()
                     }
