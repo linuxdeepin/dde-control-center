@@ -44,8 +44,16 @@ public:
     QQmlEngine* engine;
     QQmlComponent* component;
     QQmlContext * rootContext;
+    QObject * rootObject;
 
     void load(QUrl url);
+    QString getAppletInfoListFromQml();
+    Q_INVOKABLE QString getAppletVisibleFromConfig();
+    Q_INVOKABLE void setAppletVisibleToConfig(QString info);
+
+public slots:
+    void appletInfosChangedSlot();
+
 private:
     AppletDBus * m_dbus_proxyer;
 };
@@ -53,10 +61,19 @@ private:
 class AppletDBus : public QDBusAbstractAdaptor {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "dde.dock.entry.AppletManager")
+    Q_PROPERTY(QString appletInfoList READ appletInfoList NOTIFY appletInfosChanged)
 
 public:
     AppletDBus(QmlLoader* parent);
     ~AppletDBus();
+
+    QString appletInfoList() {
+        return m_parent->getAppletInfoListFromQml();
+    }
+    Q_SIGNAL void appletInfosChanged();
+
+    Q_SLOT void ShowApplet(QString id);
+    Q_SLOT void HideApplet(QString id);
 
 private:
     QmlLoader* m_parent;

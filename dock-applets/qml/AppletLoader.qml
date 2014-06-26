@@ -34,8 +34,4 @@ Loader {
     function hide(){
         source = ""
     }
-
-    Component.onCompleted: {
-        show()
-    }
 }

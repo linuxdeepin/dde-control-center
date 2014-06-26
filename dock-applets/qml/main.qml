@@ -175,6 +175,22 @@ QtObject {
                 "applet_id": "power"
             })
         }
+
+        var infos = mainObject.getAppletVisibleFromConfig()
+        if(infos == "[]"){
+            set_show_applet("Network")
+            set_show_applet("sound")
+            set_show_applet("date_time")
+            set_show_applet("power")
+        }
+        else{
+            var infos = unmarshalJSON(infos)
+            for(var i in infos){
+                if(infos[i][2]){
+                    set_show_applet(infos[i][0])
+                }
+            }
+        }
     }
 
     function update_applet_list(name, add){
@@ -205,6 +221,7 @@ QtObject {
         else{
             print("Unknown applet name: " + name)
         }
+        mainObject.setAppletVisibleToConfig(get_applet_infos())
     }
 
     function set_show_applet(name){
@@ -217,6 +234,7 @@ QtObject {
         else{
             print("Unknown applet name: " + name)
         }
+        mainObject.setAppletVisibleToConfig(get_applet_infos())
     }
 
     function get_applet_infos(){
@@ -224,12 +242,15 @@ QtObject {
         for(var i=0; i<appletListModel.count; i++){
             var info = new Array()
             var id = appletListModel.get(i).applet_id
+            if(id=="date_time" || id=="disk_mount"){
+                continue
+            }
             info.push(id)
             info.push(appletNames[id])
             info.push(repeater.itemAt(i).source != "")
             applet_infos.push(info)
         }
-        return applet_infos
+        return marshalJSON(applet_infos)
     }
 
     property var applets: Item {
