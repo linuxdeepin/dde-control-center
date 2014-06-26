@@ -232,7 +232,7 @@ Rectangle {
                 expanded: true
                 header.sourceComponent: DBaseLine {
                     leftLoader.sourceComponent: DssH2 {
-                        text: dsTr("Power Adapter")
+                        text: dsTr("Plugged in")
                     }
                 }
                 content.sourceComponent: Column {
@@ -407,7 +407,7 @@ Rectangle {
                 expanded: true
                 header.sourceComponent: DBaseLine {
                     leftLoader.sourceComponent: DssH2 {
-                        text: dsTr("Battery")
+                        text: dsTr("On battery")
                     }
                 }
                 content.sourceComponent: Column {

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-20 10:20+0800\n"
+"POT-Creation-Date: 2014-06-26 12:40+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,10 +38,10 @@ msgstr "名稱"
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:57
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:134
 #: ../modules/network/edit_autogen/EditSectionPppoe.qml:24
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:57
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:211
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:365
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:420
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:47
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:201
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:355
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:410
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:70
 #, fuzzy
 msgid "Username"
@@ -66,9 +66,9 @@ msgstr "DNS伺服器"
 #: ../modules/network/edit_autogen/EditSectionPppoe.qml:46
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:57
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:191
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:79
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:233
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:387
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:69
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:223
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:377
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:57
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:81
 #: ../modules/account/PasswordDialog.qml:59
@@ -105,7 +105,7 @@ msgstr "十一月"
 #: ../modules/network/add/AddSectionSave.qml:11
 #: ../modules/account/AddUserDialog.qml:319
 #: ../modules/network/wireless/AddWireless.qml:234
-#: ../modules/network/ConnectionAdd.qml:70
+#: ../modules/network/ConnectionAdd.qml:69
 #: ../modules/network/ConnectionEdit.qml:146
 #: ../modules/shortcuts/CustomKeybinding.qml:151
 #: ../modules/account/DeleteUserDialog.qml:33
@@ -121,7 +121,7 @@ msgstr "取消"
 
 #: ../modules/network/add/AddSectionSave.qml:20
 #: ../modules/shortcuts/CustomKeybinding.qml:157
-#: ../modules/date_time/TimezoneArea.qml:220
+#: ../modules/date_time/TimezoneArea.qml:227
 msgid "Add"
 msgstr "新增"
 
@@ -175,7 +175,6 @@ msgid "Confirm"
 msgstr "確定"
 
 #: ../modules/network/add/AddVpn.qml:15
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:24
 #, fuzzy
 msgid "VPN Type"
 msgstr "安全性"
@@ -207,7 +206,7 @@ msgid "Basic Information"
 msgstr "系統資訊"
 
 #: ../modules/network/add/AddVpn.qml:84
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:35
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:24
 msgid "Need VPN Plugin"
 msgstr ""
 
@@ -216,11 +215,11 @@ msgstr ""
 #: ../modules/network/add/AddVpn.qml:459
 #: ../modules/network/edit_autogen/EditSectionIpv4.qml:61
 #: ../modules/network/edit_autogen/EditSectionIpv6.qml:59
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:46
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:101
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:189
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:354
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:409
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:36
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:91
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:179
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:344
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:399
 msgid "Gateway"
 msgstr "閘道器(Gateway)"
 
@@ -231,65 +230,65 @@ msgstr "閘道器(Gateway)"
 #: ../modules/network/wireless/AddWireless.qml:213
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:179
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:202
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:68
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:222
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:277
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:376
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:431
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:464
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:58
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:212
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:267
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:366
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:421
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:454
 #, fuzzy
 msgid "Ask for Pwd"
 msgstr "使用者"
 
-#: ../modules/network/add/AddVpn.qml:173 ../modules/network/add/AddVpn.qml:316
+#: ../modules/network/add/AddVpn.qml:173 ../modules/network/add/AddVpn.qml:305
 #: ../modules/network/wireless/AddWireless.qml:112
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:101
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:112
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:255
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:102
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:234
 #, fuzzy
 msgid "CA Cert"
 msgstr "使用者清單"
 
 #: ../modules/network/add/AddVpn.qml:184
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:123
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:113
 msgid "Proxy"
 msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:195
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:134
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:124
 msgid "Allow Cisco Secure Desktop Trojan"
 msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:206
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:145
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:135
 msgid "CSD Wrapper"
 msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:228 ../modules/network/add/AddVpn.qml:327
 #: ../modules/network/wireless/AddWireless.qml:179
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:168
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:167
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:266
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:157
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:256
 #, fuzzy
 msgid "Private Key"
 msgstr "密碼:"
 
 #: ../modules/network/add/AddVpn.qml:239
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:178
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:168
 msgid "User FSID For Key Passphrase"
 msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:261
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:200
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:190
 #, fuzzy
 msgid "Auth Type"
 msgstr "系統類型"
 
-#: ../modules/network/add/AddVpn.qml:217 ../modules/network/add/AddVpn.qml:305
+#: ../modules/network/add/AddVpn.qml:217 ../modules/network/add/AddVpn.qml:316
 #: ../modules/network/wireless/AddWireless.qml:123
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:112
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:156
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:244
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:146
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:245
 #, fuzzy
 msgid "User Cert"
 msgstr "使用者清單"
@@ -297,65 +296,65 @@ msgstr "使用者清單"
 #: ../modules/network/add/AddVpn.qml:349
 #: ../modules/network/wireless/AddWireless.qml:224
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:213
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:288
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:278
 #, fuzzy
 msgid "Private Pwd"
 msgstr "密碼:"
 
 #: ../modules/network/add/AddVpn.qml:360
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:299
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:289
 msgid "Static Key"
 msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:371
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:310
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:300
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:57
 msgid "Use Key Direction"
 msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:382
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:321
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:311
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:68
 msgid "Key Direction"
 msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:393
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:332
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:322
 #, fuzzy
 msgid "Remote IP"
 msgstr "使用者清單"
 
 #: ../modules/network/add/AddVpn.qml:404
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:343
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:333
 msgid "Local IP"
 msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:492
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:442
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:432
 #, fuzzy
 msgid "User Pwd"
 msgstr "使用者"
 
 #: ../modules/network/add/AddVpn.qml:503 ../modules/network/add/AddVpn.qml:571
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:453
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:443
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:35
 #, fuzzy
 msgid "Group Name"
 msgstr "使用者"
 
 #: ../modules/network/add/AddVpn.qml:525
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:475
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:465
 msgid "Group Pwd"
 msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:536
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:486
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:476
 #, fuzzy
 msgid "Use Hybrid Authentication"
 msgstr "通知"
 
 #: ../modules/network/add/AddVpn.qml:547
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:497
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:487
 msgid "CA File"
 msgstr ""
 
@@ -532,7 +531,7 @@ msgstr ""
 msgid "VPN"
 msgstr "VPN"
 
-#: ../modules/network/ConnectionAdd.qml:78
+#: ../modules/network/ConnectionAdd.qml:77
 msgid "Next"
 msgstr "下一步"
 
@@ -553,7 +552,7 @@ msgstr "儲存"
 
 #: ../modules/network/ConnectionEdit.qml:113 ../modules/network/Info.qml:73
 #: ../modules/date_time/StateButtons.qml:35
-#: ../modules/date_time/TimezoneArea.qml:223
+#: ../modules/date_time/TimezoneArea.qml:230
 msgid "Close"
 msgstr "關閉"
 
@@ -584,12 +583,12 @@ msgstr "卸載失敗!"
 msgid "PPPoE Connections"
 msgstr "PPPoE連線"
 
-#: ../modules/network/edit/EditLineMissingPackage.qml:21
+#: ../modules/network/edit/EditLineMissingPackage.qml:15
 #, qt-format
 msgid "Current system lacks component for %1"
 msgstr ""
 
-#: ../modules/network/edit/EditLineMissingPackage.qml:28
+#: ../modules/network/edit/EditLineMissingPackage.qml:22
 msgid "Click to install"
 msgstr ""
 
@@ -763,8 +762,8 @@ msgstr ""
 msgid "Security Required"
 msgstr "安全性"
 
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:90
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:398
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:80
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:388
 msgid "NT Domain"
 msgstr ""
 
@@ -1049,7 +1048,7 @@ msgstr "網路"
 msgid "Disk Mount"
 msgstr "磁碟掛載"
 
-#: ../frame/views/ModulesData.qml:31 ../modules/network/main.qml:168
+#: ../frame/views/ModulesData.qml:31 ../modules/network/main.qml:167
 msgid "Bluetooth"
 msgstr "藍牙"
 
@@ -1065,7 +1064,7 @@ msgstr ""
 msgid "More Settings"
 msgstr "更多設定"
 
-#: ../frame/views/ModulesData.qml:35 ../frame/views/PanelContent.qml:425
+#: ../frame/views/ModulesData.qml:35 ../frame/views/PanelContent.qml:421
 #: ../dock-applets/qml/main.qml:43
 msgid "Power"
 msgstr "電源"
@@ -1160,6 +1159,12 @@ msgstr "旋轉"
 #: ../modules/display/MonitorProperties.qml:205
 msgid "Brightness"
 msgstr ""
+
+#: ../modules/network/wired/NewItem.qml:36
+#: ../modules/network/wired/WiredItem.qml:76
+#, fuzzy, qt-format
+msgid "Wired Connection %1"
+msgstr "有線連線 %1"
 
 #: ../modules/network/widgets/PasswordBox.qml:76
 msgid "Password: "
@@ -1280,6 +1285,13 @@ msgstr ""
 msgid "Done"
 msgstr ""
 
+#: ../modules/personalization/widgets/ThemeItem.qml:107
+#: ../dock-applets/qml/power/main.qml:46 ../modules/power/main.qml:268
+#: ../modules/power/main.qml:443 ../modules/shortcuts/main.qml:53
+#: ../modules/shortcuts/main.qml:224
+msgid "Custom"
+msgstr "自訂"
+
 #: ../modules/date_time/TimeBox.qml:161
 msgid "Double-click the above digits to change your time."
 msgstr ""
@@ -1289,7 +1301,7 @@ msgstr ""
 msgid "Set"
 msgstr "六"
 
-#: ../modules/date_time/TimezoneArea.qml:75
+#: ../modules/date_time/TimezoneArea.qml:82
 #, fuzzy
 msgid "Time zone"
 msgstr "時區"
@@ -1401,15 +1413,10 @@ msgstr "Wi-Fi網路 <font color=\"#0ff\">%1</font>需要驗證密碼或是金鑰
 msgid "Password:"
 msgstr "密碼:"
 
-#: ../modules/network/wired/WiredDeviceExpand.qml:18
+#: ../modules/network/wired/WiredDeviceExpand.qml:37
 #, fuzzy
 msgid "Wired Network"
 msgstr "網路"
-
-#: ../modules/network/wired/WiredItem.qml:76
-#, fuzzy, qt-format
-msgid "Wired Connection %1"
-msgstr "有線連線 %1"
 
 #: ../dock-applets/qml/network/WirelessApList.qml:95
 msgid "Scanning..."
@@ -1500,25 +1507,19 @@ msgstr ""
 msgid "On Charging"
 msgstr ""
 
-#: ../dock-applets/qml/power/main.qml:46 ../modules/power/main.qml:268
-#: ../modules/power/main.qml:441 ../modules/shortcuts/main.qml:53
-#: ../modules/shortcuts/main.qml:224
-msgid "Custom"
-msgstr "自訂"
-
 #: ../dock-applets/qml/power/main.qml:47 ../modules/power/main.qml:256
-#: ../modules/power/main.qml:429
+#: ../modules/power/main.qml:431
 msgid "Power saver"
 msgstr "省電"
 
 #: ../dock-applets/qml/power/main.qml:48 ../modules/power/main.qml:250
-#: ../modules/power/main.qml:423
+#: ../modules/power/main.qml:425
 #, fuzzy
 msgid "Balanced"
 msgstr "平衡"
 
 #: ../dock-applets/qml/power/main.qml:49 ../modules/power/main.qml:262
-#: ../modules/power/main.qml:435
+#: ../modules/power/main.qml:437
 msgid "High performance"
 msgstr "高效能"
 
@@ -1702,7 +1703,7 @@ msgstr "圖示"
 msgid "Wallpaper"
 msgstr "桌布"
 
-#: ../modules/personalization/main.qml:136
+#: ../modules/personalization/main.qml:143
 #, fuzzy
 msgid "Fonts"
 msgstr "字型"
@@ -1746,9 +1747,9 @@ msgstr "關機"
 #: ../modules/power/main.qml:143 ../modules/power/main.qml:189
 #: ../modules/power/main.qml:253 ../modules/power/main.qml:259
 #: ../modules/power/main.qml:265 ../modules/power/main.qml:271
-#: ../modules/power/main.qml:358 ../modules/power/main.qml:426
-#: ../modules/power/main.qml:432 ../modules/power/main.qml:438
-#: ../modules/power/main.qml:444 ../modules/power/main.qml:532
+#: ../modules/power/main.qml:358 ../modules/power/main.qml:428
+#: ../modules/power/main.qml:434 ../modules/power/main.qml:440
+#: ../modules/power/main.qml:446 ../modules/power/main.qml:534
 msgid "Suspend"
 msgstr "休眠"
 
@@ -1769,24 +1770,25 @@ msgid "Password required to wake up"
 msgstr ""
 
 #: ../modules/power/main.qml:235
-msgid "Power Adapter"
-msgstr "變壓器"
+msgid "Plugged in"
+msgstr ""
+
+#: ../modules/power/main.qml:410
+#, fuzzy
+msgid "On battery"
+msgstr "電池"
 
 #: ../modules/power/main.qml:252 ../modules/power/main.qml:258
 #: ../modules/power/main.qml:264 ../modules/power/main.qml:270
-#: ../modules/power/main.qml:318 ../modules/power/main.qml:425
-#: ../modules/power/main.qml:431 ../modules/power/main.qml:437
-#: ../modules/power/main.qml:443 ../modules/power/main.qml:492
+#: ../modules/power/main.qml:318 ../modules/power/main.qml:427
+#: ../modules/power/main.qml:433 ../modules/power/main.qml:439
+#: ../modules/power/main.qml:445 ../modules/power/main.qml:494
 msgid "Turn off the display"
 msgstr ""
 
-#: ../modules/power/main.qml:313 ../modules/power/main.qml:487
+#: ../modules/power/main.qml:313 ../modules/power/main.qml:489
 msgid "Custom Options"
 msgstr "自訂選項"
-
-#: ../modules/power/main.qml:408
-msgid "Battery"
-msgstr "電池"
 
 #: ../modules/shortcuts/main.qml:49
 msgid "System"
@@ -1892,59 +1894,62 @@ msgstr "硬碟"
 msgid "GNU GENERAL PUBLIC LICENSE"
 msgstr ""
 
-#: ../modules/network/main.qml:158 ../modules/network/main.qml:186
+#: ../modules/network/main.qml:157 ../modules/network/main.qml:185
 msgid "Unknown"
 msgstr ""
 
-#: ../modules/network/main.qml:160
+#: ../modules/network/main.qml:159
 #, fuzzy
 msgid "Wired"
 msgstr "有線"
 
-#: ../modules/network/main.qml:162
+#: ../modules/network/main.qml:161
 #, fuzzy
 msgid "Wireless"
 msgstr "無線"
 
-#: ../modules/network/main.qml:164
+#: ../modules/network/main.qml:163
 msgid "Unused1"
 msgstr ""
 
-#: ../modules/network/main.qml:166
+#: ../modules/network/main.qml:165
 msgid "Unused2"
 msgstr ""
 
-#: ../modules/network/main.qml:170
+#: ../modules/network/main.qml:169
 msgid "OLPC mesh"
 msgstr ""
 
-#: ../modules/network/main.qml:172
+#: ../modules/network/main.qml:171
 msgid "WiMax"
 msgstr ""
 
-#: ../modules/network/main.qml:174
+#: ../modules/network/main.qml:173
 msgid "Modem"
 msgstr ""
 
-#: ../modules/network/main.qml:176
+#: ../modules/network/main.qml:175
 msgid "InfiniBand"
 msgstr ""
 
-#: ../modules/network/main.qml:178
+#: ../modules/network/main.qml:177
 msgid "Bond"
 msgstr ""
 
-#: ../modules/network/main.qml:180
+#: ../modules/network/main.qml:179
 msgid "VLAN"
 msgstr ""
 
-#: ../modules/network/main.qml:182
+#: ../modules/network/main.qml:181
 msgid "ADSL"
 msgstr ""
 
-#: ../modules/network/main.qml:184
+#: ../modules/network/main.qml:183
 msgid "Bridge"
 msgstr ""
+
+#~ msgid "Power Adapter"
+#~ msgstr "變壓器"
 
 #~ msgid "Require password when computer wakes"
 #~ msgstr "當喚醒電腦時需要輸入密碼"
