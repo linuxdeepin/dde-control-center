@@ -44,7 +44,14 @@ Column {
     property string currentActionStateName: ""
     property var listModelComponent: DListModelComponent {}
 
-    property var timezoneCityDict: gDate.TimezoneCityList()
+    property var timezoneCityDict: {
+        var d = new Object()
+        var timezoneList = gDate.TimezoneCityList()
+        for(var i in timezoneList){
+            d[timezoneList[i][0]] = timezoneList[i][1]
+        }
+        return d
+    }
     property var userTimezoneList: gDate.userTimezoneList
     property string searchMd5: dbusSearch.NewTrieWithString(timezoneCityDict, "deepin-system-settings-timezone")
 
