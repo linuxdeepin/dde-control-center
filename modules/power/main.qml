@@ -395,7 +395,9 @@ Rectangle {
                     }
                 }
             }
-            DSeparatorHorizontal{visible: power_plan_battery_rect.visible}
+            DSeparatorHorizontal{
+                visible: power_plan_battery_rect.visible
+            }
 
 
             DBaseLine{visible: power_plan_battery_rect.visible}
@@ -566,8 +568,10 @@ Rectangle {
                             }
                         }
                     }
+
                 }
             }
+            DSeparatorHorizontal {}
         }
     }
 }

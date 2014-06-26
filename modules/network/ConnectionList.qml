@@ -13,7 +13,7 @@ Column {
 
     property int realHeight: childrenRect.height
 
-    WiredDeviceExpand {
+    WiredDeviceArea{
         id: wiredArea
     }
 
