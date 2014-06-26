@@ -58,12 +58,12 @@ Rectangle {
                     visible: dbus_accounts.userList.length != 1
 
                     inactivatedNormalImage: "images/delete_normal.png"
-                    inactivatedHoverImage: "images/delete_normal.png"
-                    inactivatedPressImage: "images/delete_normal.png"
+                    inactivatedHoverImage: "images/delete_hover.png"
+                    inactivatedPressImage: "images/delete_press.png"
 
-                    activatedNormalImage: "images/delete_press.png"
-                    activatedHoverImage: "images/delete_press.png"
-                    activatedPressImage: "images/delete_press.png"
+                    activatedNormalImage: "images/delete_active.png"
+                    activatedHoverImage: "images/delete_active.png"
+                    activatedPressImage: "images/delete_active.png"
                     
                     Behavior on opacity {
                         SmoothedAnimation { duration: 300 }
@@ -82,12 +82,12 @@ Rectangle {
                     id: add_check_button
 
                     inactivatedNormalImage: "images/add_normal.png"
-                    inactivatedHoverImage: "images/add_normal.png"
-                    inactivatedPressImage: "images/add_normal.png"
+                    inactivatedHoverImage: "images/add_hover.png"
+                    inactivatedPressImage: "images/add_press.png"
 
-                    activatedNormalImage: "images/add_press.png"
-                    activatedHoverImage: "images/add_press.png"
-                    activatedPressImage: "images/add_press.png"
+                    activatedNormalImage: "images/add_active.png"
+                    activatedHoverImage: "images/add_active.png"
+                    activatedPressImage: "images/add_active.png"
                     
                     Behavior on opacity {
                         SmoothedAnimation { duration: 300 }
