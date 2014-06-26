@@ -50,7 +50,6 @@ DockApplet{
     menu: Menu{
         Component.onCompleted: {
             addItem(dsTr("_Run"), showDiskMount);
-            addItem(dsTr("_Undock"), hideDiskMount);
         }
     }
 

@@ -52,10 +52,7 @@ DOverrideWindow {
 
     function showPanel() {
         if(clickedToHide){
-            if(!showAll.running && rootWindow.width != panelWidth){
-                if(hideAll.running){
-                    hideAll.stop()
-                }
+            if(!showAll.running && rootWindow.width != panelWidth && !hideAll.running){
                 showAll.start()
             }
         }
