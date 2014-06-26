@@ -111,28 +111,35 @@ Item {
         DSeparatorHorizontal {}
 
         IconThemeExpand {
-            myIndex: 4
+            myIndex: 2
             title: dsTr("Icon")
         }
 
         DSeparatorHorizontal {}
 
         //CursorThemeExpand {
-            //myIndex: 2
+            //myIndex: 3
             //title: dsTr("Cursor")
         //}
 
         //DSeparatorHorizontal {}
 
         WallpaperExpand {
-            myIndex: 3
+            myIndex: 4
             title: dsTr("Wallpaper")
         }
 
         DSeparatorHorizontal {}
 
+        //GreeterThemeExpand{
+            //myIndex: 5
+            //title: dsTr("Greeter")
+        //}
+
+        //DSeparatorHorizontal {}
+
         FontSettingsExpand {
-            myIndex: 5
+            myIndex: 6
             title: dsTr("Fonts")
         }
 
