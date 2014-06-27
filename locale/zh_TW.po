@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-26 12:40+0800\n"
+"POT-Creation-Date: 2014-06-27 09:56+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr "名稱"
 #: ../modules/network/add/AddDsl.qml:38
 #: ../modules/network/add/AddMobile.qml:80
 #: ../modules/network/add/AddMobile.qml:113
-#: ../modules/account/AddUserDialog.qml:106
+#: ../modules/account/AddUserDialog.qml:105
 #: ../modules/network/add/AddVpn.qml:129 ../modules/network/add/AddVpn.qml:272
 #: ../modules/network/add/AddVpn.qml:426 ../modules/network/add/AddVpn.qml:470
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:57
@@ -56,7 +56,7 @@ msgstr "DNS伺服器"
 #: ../modules/network/add/AddDsl.qml:60
 #: ../modules/network/add/AddMobile.qml:91
 #: ../modules/network/add/AddMobile.qml:124
-#: ../modules/account/AddUserDialog.qml:138
+#: ../modules/account/AddUserDialog.qml:137
 #: ../modules/network/add/AddVpn.qml:151 ../modules/network/add/AddVpn.qml:294
 #: ../modules/network/add/AddVpn.qml:448 ../modules/network/add/AddVpn.qml:593
 #: ../modules/network/wireless/AddWireless.qml:68
@@ -103,7 +103,7 @@ msgid "Number"
 msgstr "十一月"
 
 #: ../modules/network/add/AddSectionSave.qml:11
-#: ../modules/account/AddUserDialog.qml:319
+#: ../modules/account/AddUserDialog.qml:284
 #: ../modules/network/wireless/AddWireless.qml:234
 #: ../modules/network/ConnectionAdd.qml:69
 #: ../modules/network/ConnectionEdit.qml:146
@@ -125,50 +125,46 @@ msgstr "取消"
 msgid "Add"
 msgstr "新增"
 
-#: ../modules/account/AddUserDialog.qml:57
+#: ../modules/account/AddUserDialog.qml:56
 msgid "Add User"
 msgstr ""
 
-#: ../modules/account/AddUserDialog.qml:85
+#: ../modules/account/AddUserDialog.qml:84
 #, fuzzy
 msgid "New User"
 msgstr "啟用使用者"
 
-#: ../modules/account/AddUserDialog.qml:89
-#: ../modules/account/AddUserDialog.qml:248
+#: ../modules/account/AddUserDialog.qml:88
+#: ../modules/account/AddUserDialog.qml:213
 #: ../modules/account/EditUserDialog.qml:131
 #: ../modules/account/UserList.qml:187
 msgid "Standard"
 msgstr "標準"
 
-#: ../modules/account/AddUserDialog.qml:89
-#: ../modules/account/AddUserDialog.qml:249
+#: ../modules/account/AddUserDialog.qml:88
+#: ../modules/account/AddUserDialog.qml:214
 #: ../modules/account/EditUserDialog.qml:132
 #: ../modules/account/UserList.qml:187
 msgid "Administrator"
 msgstr "系統管理員"
 
-#: ../modules/account/AddUserDialog.qml:171
+#: ../modules/account/AddUserDialog.qml:170
 #, fuzzy
 msgid "Repeat Password"
 msgstr "顯示密碼:"
 
-#: ../modules/account/AddUserDialog.qml:202
-msgid "Show Password"
-msgstr "顯示密碼:"
-
-#: ../modules/account/AddUserDialog.qml:236
+#: ../modules/account/AddUserDialog.qml:201
 #: ../modules/account/EditUserDialog.qml:119
 #, fuzzy
 msgid "Account Type"
 msgstr "系統類型"
 
-#: ../modules/account/AddUserDialog.qml:268
+#: ../modules/account/AddUserDialog.qml:233
 #: ../modules/account/EditUserDialog.qml:52
 msgid "Auto-login"
 msgstr ""
 
-#: ../modules/account/AddUserDialog.qml:332
+#: ../modules/account/AddUserDialog.qml:297
 #: ../modules/account/DeleteUserDialog.qml:46
 #: ../modules/account/PasswordDialog.qml:186
 msgid "Confirm"
@@ -1496,7 +1492,6 @@ msgstr ""
 msgid "_Switch to digital"
 msgstr ""
 
-#: ../dock-applets/qml/disk_mount/main.qml:52
 #: ../dock-applets/qml/network/main.qml:279
 #: ../dock-applets/qml/power/main.qml:99
 #: ../dock-applets/qml/sound/main.qml:152
@@ -1523,7 +1518,6 @@ msgstr "平衡"
 msgid "High performance"
 msgstr "高效能"
 
-#: ../dock-applets/qml/disk_mount/main.qml:53
 #: ../dock-applets/qml/network/main.qml:280
 #: ../dock-applets/qml/power/main.qml:106
 #: ../dock-applets/qml/sound/main.qml:153
@@ -1635,8 +1629,8 @@ msgstr "套用"
 
 #: ../modules/grub/main.qml:102
 #, fuzzy
-msgid "Boot priority"
-msgstr "啟動畫面"
+msgid "Default Startup"
+msgstr "預設風格"
 
 #: ../modules/grub/main.qml:157
 #, fuzzy
@@ -1948,6 +1942,13 @@ msgstr ""
 msgid "Bridge"
 msgstr ""
 
+#~ msgid "Show Password"
+#~ msgstr "顯示密碼:"
+
+#, fuzzy
+#~ msgid "Boot priority"
+#~ msgstr "啟動畫面"
+
 #~ msgid "Power Adapter"
 #~ msgstr "變壓器"
 
@@ -2131,9 +2132,6 @@ msgstr ""
 
 #~ msgid "Dock Display"
 #~ msgstr "Dock托盤顯示"
-
-#~ msgid "Default Style"
-#~ msgstr "預設風格"
 
 #~ msgid "Auto Hide"
 #~ msgstr "自動隱藏"

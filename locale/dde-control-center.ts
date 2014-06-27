@@ -86,64 +86,59 @@
 <context>
     <name>AddUserDialog</name>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="57"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="56"/>
         <source>Add User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="85"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="84"/>
         <source>New User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="89"/>
-        <location filename="../modules/account/AddUserDialog.qml" line="248"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="88"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="213"/>
         <source>Standard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="89"/>
-        <location filename="../modules/account/AddUserDialog.qml" line="249"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="88"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="214"/>
         <source>Administrator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="106"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="105"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="138"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="137"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="171"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="170"/>
         <source>Repeat Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="202"/>
-        <source>Show Password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="236"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="201"/>
         <source>Account Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="268"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="233"/>
         <source>Auto-login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="319"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="284"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="332"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="297"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2522,7 +2517,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/disk_mount/main.qml" line="52"/>
         <location filename="../dock-applets/qml/network/main.qml" line="279"/>
         <location filename="../dock-applets/qml/power/main.qml" line="99"/>
         <location filename="../dock-applets/qml/sound/main.qml" line="152"/>
@@ -2625,7 +2619,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/disk_mount/main.qml" line="53"/>
         <location filename="../dock-applets/qml/network/main.qml" line="280"/>
         <location filename="../dock-applets/qml/power/main.qml" line="106"/>
         <location filename="../dock-applets/qml/sound/main.qml" line="153"/>
@@ -2764,7 +2757,7 @@
     </message>
     <message>
         <location filename="../modules/grub/main.qml" line="102"/>
-        <source>Boot priority</source>
+        <source>Default Startup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
