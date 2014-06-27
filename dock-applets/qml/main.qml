@@ -176,6 +176,7 @@ QtObject {
             })
         }
 
+        set_show_applet("date_time")
         var infos = mainObject.getAppletVisibleFromConfig()
         if(infos == "[]" || infos == ""){
             set_show_applet("network")
