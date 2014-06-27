@@ -45,11 +45,18 @@ QtObject {
         "date_time": dsTr("Date and Time")
     }
 
+    property var undockableApplet: {
+        var a = new Array()
+        a.push("network")
+        a.push("sound")
+        a.push("power")
+        return a
+    }
+
+    property var lastStateInfos: mainObject.getAppletVisibleFromConfig()
+
     Component.onCompleted: {
         init_applet_list_model()
-
-        // just start dde control center
-        // dbusControlCenter.isNetworkCanShowPassword()
     }
 
     signal appletInfosChanged
@@ -175,23 +182,6 @@ QtObject {
                 "applet_id": "power"
             })
         }
-
-        set_show_applet("date_time")
-        var infos = mainObject.getAppletVisibleFromConfig()
-        if(infos == "[]" || infos == ""){
-            set_show_applet("network")
-            set_show_applet("sound")
-            set_show_applet("date_time")
-            set_show_applet("power")
-        }
-        else{
-            var infos = unmarshalJSON(infos)
-            for(var i in infos){
-                if(infos[i][2]){
-                    set_show_applet(infos[i][0])
-                }
-            }
-        }
     }
 
     function update_applet_list(name, add){
@@ -236,6 +226,13 @@ QtObject {
             print("Unknown applet name: " + name)
         }
         mainObject.setAppletVisibleToConfig(get_applet_infos())
+    }
+
+    function show_all_applet(){
+        for(var i=1;i<appletListModel.count;i++){
+            repeater.itemAt(i).show()
+            root.appletInfosChanged()
+        }
     }
 
     function get_applet_infos(){

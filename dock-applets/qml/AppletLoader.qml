@@ -34,4 +34,19 @@ Loader {
     function hide(){
         source = ""
     }
+
+    Component.onCompleted: {
+        if(lastStateInfos == "[]" || lastStateInfos == "" || applet_id == "date_time"){
+            show()
+        }
+        else{
+            var infos = unmarshalJSON(lastStateInfos)
+            for(var i in infos){
+                var info = infos[i]
+                if(info[0] == applet_id && info[2]){
+                    show()
+                }
+            }
+        }
+    }
 }
