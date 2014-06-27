@@ -36,7 +36,7 @@ DockApplet{
     property int xEdgePadding: 12
 
     onActivate:{
-        showDiskMount(0)
+        //showDiskMount(0)
     }
 
     function showDiskMount(id){
@@ -47,11 +47,11 @@ DockApplet{
         set_hide_applet("disk_mount")
     }
 
-    menu: Menu{
-        Component.onCompleted: {
-            addItem(dsTr("_Run"), showDiskMount);
-        }
-    }
+    //menu: Menu{
+        //Component.onCompleted: {
+            //addItem(dsTr("_Run"), showDiskMount);
+        //}
+    //}
 
     function bitToHuman(b){
         b = b*1000
