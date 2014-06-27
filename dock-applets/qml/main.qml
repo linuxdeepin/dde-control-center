@@ -177,8 +177,8 @@ QtObject {
         }
 
         var infos = mainObject.getAppletVisibleFromConfig()
-        if(infos == "[]"){
-            set_show_applet("Network")
+        if(infos == "[]" || infos == ""){
+            set_show_applet("network")
             set_show_applet("sound")
             set_show_applet("date_time")
             set_show_applet("power")
