@@ -10,18 +10,18 @@ Column {
     property int vpnConnectionNumber: vpnConnections ? vpnConnections.length : 0
     property bool vpnEnabled: false
     
-    Component.onCompleted: {
-        vpnEnabled = isVpnEnabled()
-    }
+    // Component.onCompleted: {
+    //     vpnEnabled = isVpnEnabled()
+    // }
     
-    function isVpnEnabled() {
-        for (var i in nmActiveConnections) {
-            if(nmActiveConnections[i].Vpn){
-                return true
-            }
-        }
-        return false
-    }
+    // function isVpnEnabled() {
+    //     for (var i in nmActiveConnections) {
+    //         if(nmActiveConnections[i].Vpn){
+    //             return true
+    //         }
+    //     }
+    //     return false
+    // }
     
     function getActiveVpnConnections() {
         var uuids = []
@@ -39,7 +39,7 @@ Column {
     DBaseExpand {
         id: vpnExpand
 
-        expanded: vpnEnabled
+        expanded: dbusNetwork.vpnEnabled
         
         header.sourceComponent: DBaseLine{
             id: wiredDeviceHeader
@@ -49,23 +49,16 @@ Column {
             }
 
             rightLoader.sourceComponent: DSwitchButton{
-                property var lastActiveUuids
                 checked: vpnExpand.expanded
-                onClicked: {
-                    if (checked) {
-                        // enable vpn
-                        vpnEnabled = true
-                        for (var i in lastActiveUuids) {
-                            dbusNetwork.ActivateConnection(lastActiveUuids[i], "/")
-                        }
-                    } else {
-                        // disable vpn
-                        vpnEnabled = false
-                        lastActiveUuids = getActiveVpnConnections()
-                        for (var i in lastActiveUuids) {
-                            dbusNetwork.DeactivateConnection(lastActiveUuids[i])
-                        }
+                Connections {
+                    // TODO still need connections block here, but why?
+                    target: vpnExpand
+                    onExpandedChanged: {
+                        checked = vpnExpand.expanded
                     }
+                }
+                onClicked: {
+                    dbusNetwork.vpnEnabled = checked
                 }
             }
         }

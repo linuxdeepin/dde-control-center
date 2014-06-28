@@ -24,6 +24,7 @@ DBaseExpand {
         target: dbusNetwork
         onDeviceEnabled:{
             if(arg0 == devicePath){
+                print("onDeviceEnabled:", arg0, arg1) // TODO test
                 wirelessDeviceExpand.expanded = arg1
             }
         }
