@@ -76,19 +76,23 @@ Column{
             gotoEditConnection("editPage", uuid, wiredItem.devicePath)
         }
         else if(itemType == "dsl"){
-            gotoEditConnection("editPage", dslInfo.Uuid, "/")
+            // gotoEditConnection("editPage", dslInfo.Uuid, "/") // TODO
+            gotoEditConnection("editPage", dslInfo.Uuid, wiredItem.devicePath)
         }
     }
 
     function disconnectAction(){
-        if(itemType == "wired"){
-            print_info("disconnect wired connection: " + devicePath)
-            dbusNetwork.DisconnectDevice(devicePath)
-        }
-        else if(itemType == "dsl"){
-            print_info("disconnect dsl connection: " + devicePath)
-            dbusNetwork.DeactivateConnection(dslInfo.Uuid)
-        }
+        print_info("disconnect wired connection: " + devicePath)
+        dbusNetwork.DisconnectDevice(devicePath)
+        // TODO
+        // if(itemType == "wired"){
+        //     print_info("disconnect wired connection: " + devicePath)
+        //     dbusNetwork.DisconnectDevice(devicePath)
+        // }
+        // else if(itemType == "dsl"){
+        //     print_info("disconnect dsl connection: " + devicePath)
+        //     dbusNetwork.DeactivateConnection(dslInfo.Uuid)
+        // }
     }
 
     DBaseLine {
