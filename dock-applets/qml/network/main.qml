@@ -369,6 +369,7 @@ DockApplet{
                         //offImage: "images/3g_off.png"
                     //}
 
+                    // TODO
                     CheckButton{
                         id: vpnButton
                         visible: vpnConnections ? vpnConnections.length > 0 : false
@@ -446,7 +447,7 @@ DockApplet{
                         onImage: "images/airplane_mode_on.png"
                         offImage: "images/airplane_mode_off.png"
                         property bool airplaneModeActive: {
-                            if(dbusNetwork.wiredEnabled || dbusNetwork.wirelessEnabled || dbusBluetooth.powered){
+                            if(dbusNetwork.networkingEnabled || dbusBluetooth.powered){
                                 return false
                             }
                             else{
@@ -462,15 +463,11 @@ DockApplet{
 
                         function setActive(){
                             dbusNetwork.networkingEnabled = true
-                            dbusNetwork.wiredEnabled = true
-                            dbusNetwork.wirelessEnabled = true
                             dbusBluetooth.powered = true
                         }
 
                         function setDeactive(){
                             dbusNetwork.networkingEnabled = false
-                            dbusNetwork.wiredEnabled = false
-                            dbusNetwork.wirelessEnabled = false
                             dbusBluetooth.powered = false
                         }
 
