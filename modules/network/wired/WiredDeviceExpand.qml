@@ -39,6 +39,13 @@ DBaseExpand {
 
         rightLoader.sourceComponent: DSwitchButton{
             checked: wiredDeviceExpand.expanded
+            Connections {
+                // TODO still need connections block here, but why?
+                target: wiredDeviceExpand
+                onExpandedChanged: {
+                    checked = wiredDeviceExpand.expanded
+                }
+            }
             onClicked: {
                 dbusNetwork.wiredEnabled = checked
             }
