@@ -394,7 +394,7 @@ DockApplet{
 
                         Connections{
                             target: dbusNetwork
-                            onWirelessEnabledChanged:{
+                            onVpnEnabledChanged:{
                                 if(!vpnButton.pressed){
                                     vpnButton.active = dbusNetwork.vpnEnabled
                                 }
