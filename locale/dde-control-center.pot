@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-27 09:56+0800\n"
+"POT-Creation-Date: 2014-06-30 17:03+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -104,7 +104,7 @@ msgstr ""
 #: ../modules/account/DeleteUserDialog.qml:33
 #: ../modules/network/widgets/PasswordBox.qml:101
 #: ../modules/account/PasswordDialog.qml:172
-#: ../modules/shortcuts/ShortcutInput.qml:321
+#: ../modules/shortcuts/ShortcutInput.qml:341
 #: ../modules/date_time/TimeBox.qml:212
 #: ../modules/network/wireless/WifiHotspot.qml:86
 #: ../dock-applets/qml/WifiPasswordWindow.qml:171
@@ -414,6 +414,12 @@ msgstr ""
 msgid "Connect"
 msgstr ""
 
+#: ../modules/network/AppletSwitchArea.qml:28
+#: ../modules/power/AppletSwitchArea.qml:28
+#: ../modules/sound/AppletSwitchArea.qml:28
+msgid "Dock Applet Enabled"
+msgstr ""
+
 #: ../modules/account/AvatarPickDialog.qml:5
 msgid "Choose a new picture for your image"
 msgstr ""
@@ -439,43 +445,43 @@ msgstr ""
 msgid "Today"
 msgstr ""
 
-#: ../modules/date_time/CalendarComponent.qml:79
+#: ../modules/date_time/CalendarComponent.qml:80
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:168
 msgid "Sun"
 msgstr ""
 
-#: ../modules/date_time/CalendarComponent.qml:80
+#: ../modules/date_time/CalendarComponent.qml:81
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:169
 msgid "Mon"
 msgstr ""
 
-#: ../modules/date_time/CalendarComponent.qml:81
+#: ../modules/date_time/CalendarComponent.qml:82
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:170
 msgid "Tue"
 msgstr ""
 
-#: ../modules/date_time/CalendarComponent.qml:82
+#: ../modules/date_time/CalendarComponent.qml:83
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:171
 msgid "Wed"
 msgstr ""
 
-#: ../modules/date_time/CalendarComponent.qml:83
+#: ../modules/date_time/CalendarComponent.qml:84
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:172
 msgid "Thu"
 msgstr ""
 
-#: ../modules/date_time/CalendarComponent.qml:84
+#: ../modules/date_time/CalendarComponent.qml:85
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:173
 msgid "Fri"
 msgstr ""
 
-#: ../modules/date_time/CalendarComponent.qml:85
+#: ../modules/date_time/CalendarComponent.qml:86
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:174
 msgid "Sat"
@@ -938,7 +944,7 @@ msgstr ""
 msgid "Device Speed"
 msgstr ""
 
-#: ../modules/date_time/LocaleArea.qml:60
+#: ../modules/date_time/LocaleArea.qml:78
 msgid "Language"
 msgstr ""
 
@@ -1083,8 +1089,8 @@ msgstr ""
 msgid "Brightness"
 msgstr ""
 
-#: ../modules/network/wired/NewItem.qml:36
-#: ../modules/network/wired/WiredItem.qml:76
+#: ../modules/network/wired/NewItem.qml:41
+#: ../modules/network/wired/WiredItem.qml:80
 #, qt-format
 msgid "Wired Connection %1"
 msgstr ""
@@ -1169,25 +1175,25 @@ msgstr ""
 msgid "Please input new shortcut"
 msgstr ""
 
-#: ../modules/shortcuts/ShortcutInput.qml:204
+#: ../modules/shortcuts/ShortcutInput.qml:224
 #, qt-format
 msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
 msgstr ""
 
-#: ../modules/shortcuts/ShortcutInput.qml:242
+#: ../modules/shortcuts/ShortcutInput.qml:262
 msgid "The shortcut you set "
 msgstr ""
 
-#: ../modules/shortcuts/ShortcutInput.qml:245
+#: ../modules/shortcuts/ShortcutInput.qml:265
 #, qt-format
 msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
 msgstr ""
 
-#: ../modules/shortcuts/ShortcutInput.qml:247
+#: ../modules/shortcuts/ShortcutInput.qml:267
 msgid "Do you want to replace it?"
 msgstr ""
 
-#: ../modules/shortcuts/ShortcutInput.qml:305
+#: ../modules/shortcuts/ShortcutInput.qml:325
 msgid "Replace"
 msgstr ""
 
@@ -1330,19 +1336,19 @@ msgstr ""
 msgid "Scanning..."
 msgstr ""
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:179
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:62
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 msgid "Wireless Network"
 msgstr ""
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:182
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:65
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 #, qt-format
 msgid "Wireless Network %1"
 msgstr ""
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:251
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:353
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:115
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:331
 msgid "Connect to hidden access point"
 msgstr ""
 
@@ -1457,11 +1463,11 @@ msgstr ""
 msgid "Use 24-hour clock"
 msgstr ""
 
-#: ../modules/date_time/main.qml:161
+#: ../modules/date_time/main.qml:165
 msgid "Date"
 msgstr ""
 
-#: ../modules/date_time/main.qml:165
+#: ../modules/date_time/main.qml:169
 msgid "Set Date"
 msgstr ""
 

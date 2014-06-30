@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-27 09:56+0800\n"
+"POT-Creation-Date: 2014-06-30 17:03+0800\n"
 "PO-Revision-Date: 2014-06-04 15:34+0800\n"
 "Last-Translator: iceleaf916 <iceleaf916@gmail.com>\n"
 "Language-Team: Deepin <yekaisheng@linuxdeepin.com>\n"
@@ -105,7 +105,7 @@ msgstr "数字"
 #: ../modules/account/DeleteUserDialog.qml:33
 #: ../modules/network/widgets/PasswordBox.qml:101
 #: ../modules/account/PasswordDialog.qml:172
-#: ../modules/shortcuts/ShortcutInput.qml:321
+#: ../modules/shortcuts/ShortcutInput.qml:341
 #: ../modules/date_time/TimeBox.qml:212
 #: ../modules/network/wireless/WifiHotspot.qml:86
 #: ../dock-applets/qml/WifiPasswordWindow.qml:171
@@ -415,6 +415,12 @@ msgstr "内部授权"
 msgid "Connect"
 msgstr "连接"
 
+#: ../modules/network/AppletSwitchArea.qml:28
+#: ../modules/power/AppletSwitchArea.qml:28
+#: ../modules/sound/AppletSwitchArea.qml:28
+msgid "Dock Applet Enabled"
+msgstr "Dock插件开启"
+
 #: ../modules/account/AvatarPickDialog.qml:5
 msgid "Choose a new picture for your image"
 msgstr "请选择一张图片作为您的头像"
@@ -440,43 +446,43 @@ msgstr "自动连接"
 msgid "Today"
 msgstr "返回今天"
 
-#: ../modules/date_time/CalendarComponent.qml:79
+#: ../modules/date_time/CalendarComponent.qml:80
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:168
 msgid "Sun"
 msgstr "日"
 
-#: ../modules/date_time/CalendarComponent.qml:80
+#: ../modules/date_time/CalendarComponent.qml:81
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:169
 msgid "Mon"
 msgstr "一"
 
-#: ../modules/date_time/CalendarComponent.qml:81
+#: ../modules/date_time/CalendarComponent.qml:82
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:170
 msgid "Tue"
 msgstr "二"
 
-#: ../modules/date_time/CalendarComponent.qml:82
+#: ../modules/date_time/CalendarComponent.qml:83
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:171
 msgid "Wed"
 msgstr "三"
 
-#: ../modules/date_time/CalendarComponent.qml:83
+#: ../modules/date_time/CalendarComponent.qml:84
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:172
 msgid "Thu"
 msgstr "四"
 
-#: ../modules/date_time/CalendarComponent.qml:84
+#: ../modules/date_time/CalendarComponent.qml:85
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:173
 msgid "Fri"
 msgstr "五"
 
-#: ../modules/date_time/CalendarComponent.qml:85
+#: ../modules/date_time/CalendarComponent.qml:86
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:174
 msgid "Sat"
@@ -939,7 +945,7 @@ msgstr "附加域名系统"
 msgid "Device Speed"
 msgstr "设备速度"
 
-#: ../modules/date_time/LocaleArea.qml:60
+#: ../modules/date_time/LocaleArea.qml:78
 msgid "Language"
 msgstr "语言"
 
@@ -1084,8 +1090,8 @@ msgstr "旋转"
 msgid "Brightness"
 msgstr "亮度"
 
-#: ../modules/network/wired/NewItem.qml:36
-#: ../modules/network/wired/WiredItem.qml:76
+#: ../modules/network/wired/NewItem.qml:41
+#: ../modules/network/wired/WiredItem.qml:80
 #, qt-format
 msgid "Wired Connection %1"
 msgstr "有线连接 %1"
@@ -1170,25 +1176,25 @@ msgstr "禁用"
 msgid "Please input new shortcut"
 msgstr "请输入新的快捷键"
 
-#: ../modules/shortcuts/ShortcutInput.qml:204
+#: ../modules/shortcuts/ShortcutInput.qml:224
 #, qt-format
 msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
 msgstr "无效的快捷键\"%1\"，请重新输入。"
 
-#: ../modules/shortcuts/ShortcutInput.qml:242
+#: ../modules/shortcuts/ShortcutInput.qml:262
 msgid "The shortcut you set "
 msgstr "您设置的快捷键"
 
-#: ../modules/shortcuts/ShortcutInput.qml:245
+#: ../modules/shortcuts/ShortcutInput.qml:265
 #, qt-format
 msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
 msgstr "与\"%1\"类别下的\"%2\"的快捷键冲突。"
 
-#: ../modules/shortcuts/ShortcutInput.qml:247
+#: ../modules/shortcuts/ShortcutInput.qml:267
 msgid "Do you want to replace it?"
 msgstr "是否进行替换？"
 
-#: ../modules/shortcuts/ShortcutInput.qml:305
+#: ../modules/shortcuts/ShortcutInput.qml:325
 msgid "Replace"
 msgstr "替换"
 
@@ -1331,19 +1337,19 @@ msgstr "有线网络"
 msgid "Scanning..."
 msgstr "扫描中..."
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:179
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:62
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 msgid "Wireless Network"
 msgstr "无线网络"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:182
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:65
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 #, qt-format
 msgid "Wireless Network %1"
 msgstr "无线网络 %1"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:251
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:353
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:115
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:331
 msgid "Connect to hidden access point"
 msgstr "连接到隐藏网络"
 
@@ -1458,11 +1464,11 @@ msgstr "自动同步时间"
 msgid "Use 24-hour clock"
 msgstr "24小时制"
 
-#: ../modules/date_time/main.qml:161
+#: ../modules/date_time/main.qml:165
 msgid "Date"
 msgstr "日期"
 
-#: ../modules/date_time/main.qml:165
+#: ../modules/date_time/main.qml:169
 msgid "Set Date"
 msgstr "设置日期"
 

@@ -442,6 +442,16 @@
     </message>
 </context>
 <context>
+    <name>AppletSwitchArea</name>
+    <message>
+        <location filename="../modules/network/AppletSwitchArea.qml" line="28"/>
+        <location filename="../modules/power/AppletSwitchArea.qml" line="28"/>
+        <location filename="../modules/sound/AppletSwitchArea.qml" line="28"/>
+        <source>Dock Applet Enabled</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AvatarPickDialog</name>
     <message>
         <location filename="../modules/account/AvatarPickDialog.qml" line="5"/>
@@ -491,37 +501,37 @@
 <context>
     <name>CalendarComponent</name>
     <message>
-        <location filename="../modules/date_time/CalendarComponent.qml" line="79"/>
+        <location filename="../modules/date_time/CalendarComponent.qml" line="80"/>
         <source>Sun</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/CalendarComponent.qml" line="80"/>
+        <location filename="../modules/date_time/CalendarComponent.qml" line="81"/>
         <source>Mon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/CalendarComponent.qml" line="81"/>
+        <location filename="../modules/date_time/CalendarComponent.qml" line="82"/>
         <source>Tue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/CalendarComponent.qml" line="82"/>
+        <location filename="../modules/date_time/CalendarComponent.qml" line="83"/>
         <source>Wed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/CalendarComponent.qml" line="83"/>
+        <location filename="../modules/date_time/CalendarComponent.qml" line="84"/>
         <source>Thu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/CalendarComponent.qml" line="84"/>
+        <location filename="../modules/date_time/CalendarComponent.qml" line="85"/>
         <source>Fri</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/CalendarComponent.qml" line="85"/>
+        <location filename="../modules/date_time/CalendarComponent.qml" line="86"/>
         <source>Sat</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1713,7 +1723,7 @@
 <context>
     <name>LocaleArea</name>
     <message>
-        <location filename="../modules/date_time/LocaleArea.qml" line="60"/>
+        <location filename="../modules/date_time/LocaleArea.qml" line="78"/>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1911,7 +1921,7 @@
 <context>
     <name>NewItem</name>
     <message>
-        <location filename="../modules/network/wired/NewItem.qml" line="36"/>
+        <location filename="../modules/network/wired/NewItem.qml" line="41"/>
         <source>Wired Connection %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2078,32 +2088,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/ShortcutInput.qml" line="204"/>
+        <location filename="../modules/shortcuts/ShortcutInput.qml" line="224"/>
         <source>Shortcut &quot;%1&quot; is invalid, please retype new shortcut.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/ShortcutInput.qml" line="242"/>
+        <location filename="../modules/shortcuts/ShortcutInput.qml" line="262"/>
         <source>The shortcut you set </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/ShortcutInput.qml" line="245"/>
+        <location filename="../modules/shortcuts/ShortcutInput.qml" line="265"/>
         <source>conflicts with the one used for &quot;%2&quot; in the &quot;%1&quot; category.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/ShortcutInput.qml" line="247"/>
+        <location filename="../modules/shortcuts/ShortcutInput.qml" line="267"/>
         <source>Do you want to replace it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/ShortcutInput.qml" line="305"/>
+        <location filename="../modules/shortcuts/ShortcutInput.qml" line="325"/>
         <source>Replace</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/ShortcutInput.qml" line="321"/>
+        <location filename="../modules/shortcuts/ShortcutInput.qml" line="341"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2361,7 +2371,7 @@
 <context>
     <name>WiredItem</name>
     <message>
-        <location filename="../modules/network/wired/WiredItem.qml" line="76"/>
+        <location filename="../modules/network/wired/WiredItem.qml" line="80"/>
         <source>Wired Connection %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2377,18 +2387,18 @@
 <context>
     <name>WirelessDeviceExpand</name>
     <message>
-        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="179"/>
+        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="62"/>
         <source>Wireless Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="182"/>
+        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="65"/>
         <source>Wireless Network %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="251"/>
-        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="353"/>
+        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="115"/>
+        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="331"/>
         <source>Connect to hidden access point</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2656,12 +2666,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="161"/>
+        <location filename="../modules/date_time/main.qml" line="165"/>
         <source>Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="165"/>
+        <location filename="../modules/date_time/main.qml" line="169"/>
         <source>Set Date</source>
         <translation type="unfinished"></translation>
     </message>
