@@ -1647,7 +1647,7 @@ msgstr "关机"
 #: ../modules/power/main.qml:434 ../modules/power/main.qml:440
 #: ../modules/power/main.qml:446 ../modules/power/main.qml:534
 msgid "Suspend"
-msgstr "休眠"
+msgstr "待机"
 
 #: ../modules/power/main.qml:148
 msgid "Ask"
