@@ -572,6 +572,7 @@ Rectangle {
                 }
             }
             DSeparatorHorizontal {}
+            AppletSwitchArea {}
         }
     }
 }
