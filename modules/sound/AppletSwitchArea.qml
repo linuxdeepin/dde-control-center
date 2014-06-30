@@ -5,10 +5,16 @@ import DBus.Dde.Dock.Entry.AppletManager 1.0
 Column {
     width: parent.width
 
-    property var dbusAppletManager: AppletManager {}
-    property var appletInfos: JSON.parse(dbusAppletManager.appletInfoList)
+    property var dbusAppletManager: AppletManager {
+        onAppletInfosChanged: {
+            appletDisplay = getAppletDisplay()
+        }
+    }
     property string appletId: "sound"
-    property bool appletDisplay: {
+    property bool appletDisplay: getAppletDisplay()
+
+    function getAppletDisplay(){
+        var appletInfos = JSON.parse(dbusAppletManager.appletInfoList)
         for(var i in appletInfos){
             var info = appletInfos[i]
             if(info[0] == appletId){

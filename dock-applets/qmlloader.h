@@ -75,6 +75,8 @@ public:
     Q_SLOT void ShowApplet(QString id);
     Q_SLOT void HideApplet(QString id);
 
+    Q_SLOT void ToggleApplet(QString id);
+
 private:
     QmlLoader* m_parent;
 };

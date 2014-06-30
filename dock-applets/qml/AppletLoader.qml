@@ -25,7 +25,8 @@ import QtQuick 2.0
 import QtQuick.Window 2.1
 
 Loader {
-    property url qmlPath: ""
+    property url qmlPath: "%1/main.qml".arg(applet_id)
+    property string appletId: applet_id
 
     function show(){
         source = qmlPath
@@ -35,11 +36,20 @@ Loader {
         source = ""
     }
 
-    Component.onCompleted: {
-        if(lastStateInfos == "[]" || lastStateInfos == "" || applet_id == "date_time"){
-            show()
+    function toggle(){
+        if(source == ""){
+            source = qmlPath
         }
         else{
+            source = ""
+        }
+    }
+
+    Component.onCompleted: {
+        if(lastStateInfos == "[]" || lastStateInfos == "" || applet_id == "date_time" || applet_id == "disk_mount"){
+            show()
+        }
+        else {
             var infos = unmarshalJSON(lastStateInfos)
             for(var i in infos){
                 var info = infos[i]

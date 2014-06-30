@@ -228,11 +228,15 @@ QtObject {
         mainObject.setAppletVisibleToConfig(get_applet_infos())
     }
 
-    function show_all_applet(){
-        for(var i=1;i<appletListModel.count;i++){
-            repeater.itemAt(i).show()
-            root.appletInfosChanged()
+    function toggle_applet(applet_id){
+        for(var i=0; i<appletListModel.count; i++){
+            var id = appletListModel.get(i).applet_id
+            if(id == applet_id){
+                repeater.itemAt(i).toggle()
+                root.appletInfosChanged()
+            }
         }
+        mainObject.setAppletVisibleToConfig(get_applet_infos())
     }
 
     function get_applet_infos(){
@@ -256,7 +260,6 @@ QtObject {
             id: repeater
             model: appletListModel
             delegate: AppletLoader {
-                qmlPath: "%1/main.qml".arg(applet_id)
             }
         }
     }

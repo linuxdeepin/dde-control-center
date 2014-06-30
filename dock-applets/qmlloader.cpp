@@ -132,3 +132,12 @@ void AppletDBus::HideApplet(QString id)
                 Q_ARG(QVariant, QVariant::fromValue(id))
                 );
 }
+
+void AppletDBus::ToggleApplet(QString id)
+{
+    QMetaObject::invokeMethod(
+                m_parent->rootObject,
+                "toggle_applet",
+                Q_ARG(QVariant, QVariant::fromValue(id))
+                );
+}
