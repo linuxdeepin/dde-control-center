@@ -30,8 +30,26 @@ DBaseExpand {
 
     property int listAreaMaxHeight: 100
 
-    property string currentLocale: gDate.currentLocale
-    property var localeToLanguage: gDate.localeListMap
+    property string currentLocale: {
+        var s = gDate.currentLocale
+        var ends = [".utf-8", ".UTF-8"]
+        for(var i in ends){
+            var end = ends[i]
+            if(s.indexOf(end) != -1){
+                s = s.split(end)[0]
+            }
+        }
+        return s
+    }
+    property var localeToLanguage: {
+        var allLocaleList = gDate.GetLocaleList()
+        var r = new Object()
+        for(var i in allLocaleList){
+            var info = allLocaleList[i]
+            r[info[0]] = info[1]
+        }
+        return r
+    }
     property var allLocales: getAllLocales(false)
     property var allSearchLocales: getAllLocales(true)
     property string searchMd5: dbusSearch.NewTrieWithString(allSearchLocales, "deepin-system-settings-locales")
@@ -40,7 +58,7 @@ DBaseExpand {
         if(returnDict){
             var toSortResult = new Object()
             for(var key in localeToLanguage) {
-                toSortResult[key]= localeToLanguage[key] + " (" + key + ")"
+                toSortResult[key]= localeToLanguage[key]
             }
             return toSortResult
         }
@@ -49,7 +67,7 @@ DBaseExpand {
             for(var key in localeExpand.localeToLanguage) {
                 var tmp = new Array()
                 tmp.push(key)
-                tmp.push(localeExpand.localeToLanguage[key] + " (" + key + ")")
+                tmp.push(localeExpand.localeToLanguage[key])
                 toSortResult.push(tmp)
             }
             return windowView.sortSearchResult(toSortResult)
@@ -160,8 +178,16 @@ DBaseExpand {
                 }
             }
 
+            Timer {
+                id: initLocaleListTimer
+                interval: 200
+                onTriggered: {
+                    localeListView.updateModel(allLocales)
+                }
+            }
+
             Component.onCompleted: {
-                updateModel(allLocales)
+                initLocaleListTimer.start()
             }
 
             DScrollBar {
@@ -169,5 +195,6 @@ DBaseExpand {
             }
         }
     }
+
 }
 

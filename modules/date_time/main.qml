@@ -116,6 +116,10 @@ DFlickable {
         DSeparatorHorizontal {}
     }
 
+    //Item {
+        //id: timeZoneArea
+    //}
+
     TimezoneArea {
         id: timeZoneArea
         anchors.top: beforeTimeZoneArea.bottom
