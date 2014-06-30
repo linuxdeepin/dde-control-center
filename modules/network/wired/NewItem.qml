@@ -15,9 +15,12 @@ Column{
     property var dslIndex: dsl_index
 
     /** dynamic variable after initialized **/
+    // TODO
     property bool isConnected: {
         if(itemType == "wired"){
-            return deviceState == nmDeviceStateActivated
+            var activeWiredConnectionInfo = getActiveConnectionInfo(wiredItem.uuid)
+            return activeWiredConnectionInfo && activeWiredConnectionInfo.State == nmActiveConnectionStateActivated
+            // return deviceState == nmDeviceStateActivated
         }
         else{
             return activeDslConnetionInfo && activeDslConnetionInfo.State == nmActiveConnectionStateActivated
@@ -25,7 +28,9 @@ Column{
     }
     property bool isWaiting: {
         if(itemType == "wired"){
-            return deviceState >= nmDeviceStatePrepare && deviceState <= nmDeviceStateSecondaries
+            var activeWiredConnectionInfo = getActiveConnectionInfo(wiredItem.uuid)
+            // return deviceState >= nmDeviceStatePrepare && deviceState <= nmDeviceStateSecondaries
+            return activeWiredConnectionInfo && activeWiredConnectionInfo.State == nmActiveConnectionStateActivating
         }
         else{
             return activeDslConnetionInfo && activeDslConnetionInfo.State == nmActiveConnectionStateActivating

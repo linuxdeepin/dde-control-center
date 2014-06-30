@@ -210,6 +210,15 @@ Item {
         }
         return false
     }
+    // function isActivatingConnection(devicePath, uuid) {
+    //     for (var i in nmActiveConnections) {
+    //         if (getIndexFromArray(devicePath, nmActiveConnections[i].Devices) != -1 && nmActiveConnections[i].Uuid == uuid) {
+    //             return true
+    //         }
+    //     }
+    //     return false
+    // }
+    
     
     Connections{
         target: rootWindow
