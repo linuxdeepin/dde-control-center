@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-01 09:10+0800\n"
+"POT-Creation-Date: 2014-07-01 17:57+0800\n"
 "PO-Revision-Date: 2014-06-04 15:34+0800\n"
 "Last-Translator: iceleaf916 <iceleaf916@gmail.com>\n"
 "Language-Team: Deepin <yekaisheng@linuxdeepin.com>\n"
@@ -115,7 +115,7 @@ msgstr "取消"
 
 #: ../modules/network/add/AddSectionSave.qml:20
 #: ../modules/shortcuts/CustomKeybinding.qml:157
-#: ../modules/date_time/TimezoneArea.qml:227
+#: ../modules/date_time/TimezoneArea.qml:231
 msgid "Add"
 msgstr "添加"
 
@@ -157,7 +157,7 @@ msgstr "自动登录"
 
 #: ../modules/account/AddUserDialog.qml:297
 #: ../modules/account/DeleteUserDialog.qml:46
-#: ../modules/account/PasswordDialog.qml:186
+#: ../modules/account/PasswordDialog.qml:186 ../modules/account/WebCam.qml:148
 msgid "Confirm"
 msgstr "确认"
 
@@ -415,9 +415,9 @@ msgstr "内部授权"
 msgid "Connect"
 msgstr "连接"
 
-#: ../modules/network/AppletSwitchArea.qml:28
-#: ../modules/power/AppletSwitchArea.qml:28
-#: ../modules/sound/AppletSwitchArea.qml:28
+#: ../modules/network/AppletSwitchArea.qml:40
+#: ../modules/power/AppletSwitchArea.qml:40
+#: ../modules/sound/AppletSwitchArea.qml:40
 msgid "Dock Applet Enabled"
 msgstr "Dock插件开启"
 
@@ -521,7 +521,7 @@ msgstr "保存"
 
 #: ../modules/network/ConnectionEdit.qml:113 ../modules/network/Info.qml:73
 #: ../modules/date_time/StateButtons.qml:35
-#: ../modules/date_time/TimezoneArea.qml:230
+#: ../modules/date_time/TimezoneArea.qml:234
 msgid "Close"
 msgstr "关闭"
 
@@ -1223,7 +1223,7 @@ msgstr "双击上面的数字以更改时间。"
 msgid "Set"
 msgstr "保存"
 
-#: ../modules/date_time/TimezoneArea.qml:82
+#: ../modules/date_time/TimezoneArea.qml:86
 msgid "Time zone"
 msgstr "时区"
 
@@ -1298,7 +1298,15 @@ msgstr "轻触以点击"
 msgid "VPN Connections"
 msgstr "VPN连接"
 
-#: ../modules/account/WebCam.qml:174
+#: ../modules/account/WebCam.qml:125 ../modules/account/WebCam.qml:140
+msgid "Snapshot"
+msgstr "拍照"
+
+#: ../modules/account/WebCam.qml:136
+msgid "Resnapshot"
+msgstr "重拍"
+
+#: ../modules/account/WebCam.qml:172
 msgid "No camera found."
 msgstr "未找到相机设备"
 
@@ -1600,10 +1608,6 @@ msgstr "图标"
 msgid "Wallpaper"
 msgstr "壁纸"
 
-#: ../modules/personalization/main.qml:136
-msgid "Lock Screen"
-msgstr "锁屏"
-
 #: ../modules/personalization/main.qml:143
 msgid "Fonts"
 msgstr "字体"
@@ -1840,6 +1844,9 @@ msgstr "ADSL"
 #: ../modules/network/main.qml:183
 msgid "Bridge"
 msgstr "桥接"
+
+#~ msgid "Lock Screen"
+#~ msgstr "锁屏"
 
 #~ msgid "Show Password"
 #~ msgstr "显示密码"

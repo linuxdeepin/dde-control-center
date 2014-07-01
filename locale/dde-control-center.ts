@@ -444,9 +444,9 @@
 <context>
     <name>AppletSwitchArea</name>
     <message>
-        <location filename="../modules/network/AppletSwitchArea.qml" line="28"/>
-        <location filename="../modules/power/AppletSwitchArea.qml" line="28"/>
-        <location filename="../modules/sound/AppletSwitchArea.qml" line="28"/>
+        <location filename="../modules/network/AppletSwitchArea.qml" line="40"/>
+        <location filename="../modules/power/AppletSwitchArea.qml" line="40"/>
+        <location filename="../modules/sound/AppletSwitchArea.qml" line="40"/>
         <source>Dock Applet Enabled</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2170,17 +2170,17 @@
 <context>
     <name>TimezoneArea</name>
     <message>
-        <location filename="../modules/date_time/TimezoneArea.qml" line="82"/>
+        <location filename="../modules/date_time/TimezoneArea.qml" line="86"/>
         <source>Time zone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneArea.qml" line="227"/>
+        <location filename="../modules/date_time/TimezoneArea.qml" line="231"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneArea.qml" line="230"/>
+        <location filename="../modules/date_time/TimezoneArea.qml" line="234"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2279,7 +2279,23 @@
 <context>
     <name>WebCam</name>
     <message>
-        <location filename="../modules/account/WebCam.qml" line="174"/>
+        <location filename="../modules/account/WebCam.qml" line="125"/>
+        <location filename="../modules/account/WebCam.qml" line="140"/>
+        <source>Snapshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/account/WebCam.qml" line="136"/>
+        <source>Resnapshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/account/WebCam.qml" line="148"/>
+        <source>Confirm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/account/WebCam.qml" line="172"/>
         <source>No camera found.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2900,11 +2916,6 @@
     <message>
         <location filename="../modules/personalization/main.qml" line="129"/>
         <source>Wallpaper</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/personalization/main.qml" line="136"/>
-        <source>Lock Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-01 09:10+0800\n"
+"POT-Creation-Date: 2014-07-01 17:57+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -121,7 +121,7 @@ msgstr "取消"
 
 #: ../modules/network/add/AddSectionSave.qml:20
 #: ../modules/shortcuts/CustomKeybinding.qml:157
-#: ../modules/date_time/TimezoneArea.qml:227
+#: ../modules/date_time/TimezoneArea.qml:231
 msgid "Add"
 msgstr "新增"
 
@@ -166,7 +166,7 @@ msgstr ""
 
 #: ../modules/account/AddUserDialog.qml:297
 #: ../modules/account/DeleteUserDialog.qml:46
-#: ../modules/account/PasswordDialog.qml:186
+#: ../modules/account/PasswordDialog.qml:186 ../modules/account/WebCam.qml:148
 msgid "Confirm"
 msgstr "確定"
 
@@ -442,9 +442,9 @@ msgstr ""
 msgid "Connect"
 msgstr "連線"
 
-#: ../modules/network/AppletSwitchArea.qml:28
-#: ../modules/power/AppletSwitchArea.qml:28
-#: ../modules/sound/AppletSwitchArea.qml:28
+#: ../modules/network/AppletSwitchArea.qml:40
+#: ../modules/power/AppletSwitchArea.qml:40
+#: ../modules/sound/AppletSwitchArea.qml:40
 msgid "Dock Applet Enabled"
 msgstr ""
 
@@ -554,7 +554,7 @@ msgstr "儲存"
 
 #: ../modules/network/ConnectionEdit.qml:113 ../modules/network/Info.qml:73
 #: ../modules/date_time/StateButtons.qml:35
-#: ../modules/date_time/TimezoneArea.qml:230
+#: ../modules/date_time/TimezoneArea.qml:234
 msgid "Close"
 msgstr "關閉"
 
@@ -1303,7 +1303,7 @@ msgstr ""
 msgid "Set"
 msgstr "六"
 
-#: ../modules/date_time/TimezoneArea.qml:82
+#: ../modules/date_time/TimezoneArea.qml:86
 #, fuzzy
 msgid "Time zone"
 msgstr "時區"
@@ -1384,7 +1384,15 @@ msgstr ""
 msgid "VPN Connections"
 msgstr "VPN連線"
 
-#: ../modules/account/WebCam.qml:174
+#: ../modules/account/WebCam.qml:125 ../modules/account/WebCam.qml:140
+msgid "Snapshot"
+msgstr ""
+
+#: ../modules/account/WebCam.qml:136
+msgid "Resnapshot"
+msgstr ""
+
+#: ../modules/account/WebCam.qml:172
 msgid "No camera found."
 msgstr "找不到攝影機"
 
@@ -1702,10 +1710,6 @@ msgstr "圖示"
 #: ../modules/personalization/main.qml:129
 msgid "Wallpaper"
 msgstr "桌布"
-
-#: ../modules/personalization/main.qml:136
-msgid "Lock Screen"
-msgstr ""
 
 #: ../modules/personalization/main.qml:143
 #, fuzzy
