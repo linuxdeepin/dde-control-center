@@ -23,7 +23,8 @@ Column {
 
     VpnExpand {}
 
-    AppletSwitchArea {}
-
     ProxyExpand {}
+
+    DBaseLine {}
+    AppletSwitchArea {}
 }

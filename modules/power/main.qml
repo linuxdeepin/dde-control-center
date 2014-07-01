@@ -572,7 +572,10 @@ Rectangle {
                 }
             }
             DSeparatorHorizontal {}
-            AppletSwitchArea {}
+            DBaseLine {}
+            AppletSwitchArea {
+                visible: dbus_power.batteryIsPresent
+            }
         }
     }
 }

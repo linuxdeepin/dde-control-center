@@ -48,7 +48,11 @@ Column {
         var d = new Object()
         var timezoneList = gDate.TimezoneCityList()
         for(var i in timezoneList){
-            d[timezoneList[i][0]] = timezoneList[i][1]
+            var info = timezoneList[i]
+            if (typeof(d[info[0]]) != "undefined") {
+                print(info[0], "repeat")
+            }
+            d[info[0]] = info[1]
         }
         return d
     }
