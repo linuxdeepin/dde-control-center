@@ -185,6 +185,10 @@ Item {
                     id: disableTouch
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
+                    checked: dbusMouse.disableTpad
+                    onClicked: {
+                        dbusMouse.disableTpad = checked
+                    }
                 }
             }
 
