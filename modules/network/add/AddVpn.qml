@@ -51,7 +51,6 @@ BaseEditPage {
             }
 
             delegate: SelectItem {
-                labelLeftMargin: itemLabelLeftMargin
                 totalItemNumber: typeList.count
                 selectItemId: typeList.selectVpnType
 

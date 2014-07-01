@@ -131,12 +131,12 @@ Item {
 
         DSeparatorHorizontal {}
 
-        //GreeterThemeExpand{
-            //myIndex: 5
-            //title: dsTr("Greeter")
-        //}
+        GreeterThemeExpand{
+            myIndex: 5
+            title: dsTr("Lock Screen")
+        }
 
-        //DSeparatorHorizontal {}
+        DSeparatorHorizontal {}
 
         FontSettingsExpand {
             myIndex: 6

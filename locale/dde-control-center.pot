@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-30 17:03+0800\n"
+"POT-Creation-Date: 2014-07-01 09:10+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: ../modules/network/add/AddDsl.qml:25
 #: ../modules/network/add/AddMobile.qml:34
-#: ../modules/network/add/AddVpn.qml:105
+#: ../modules/network/add/AddVpn.qml:104
 #: ../modules/network/edit_autogen/BaseConnectionEdit.qml:34
 #: ../modules/shortcuts/CustomKeybinding.qml:118
 msgid "Name"
@@ -33,8 +33,8 @@ msgstr ""
 #: ../modules/network/add/AddMobile.qml:80
 #: ../modules/network/add/AddMobile.qml:113
 #: ../modules/account/AddUserDialog.qml:105
-#: ../modules/network/add/AddVpn.qml:129 ../modules/network/add/AddVpn.qml:272
-#: ../modules/network/add/AddVpn.qml:426 ../modules/network/add/AddVpn.qml:470
+#: ../modules/network/add/AddVpn.qml:128 ../modules/network/add/AddVpn.qml:271
+#: ../modules/network/add/AddVpn.qml:425 ../modules/network/add/AddVpn.qml:469
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:57
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:134
 #: ../modules/network/edit_autogen/EditSectionPppoe.qml:24
@@ -55,8 +55,8 @@ msgstr ""
 #: ../modules/network/add/AddMobile.qml:91
 #: ../modules/network/add/AddMobile.qml:124
 #: ../modules/account/AddUserDialog.qml:137
-#: ../modules/network/add/AddVpn.qml:151 ../modules/network/add/AddVpn.qml:294
-#: ../modules/network/add/AddVpn.qml:448 ../modules/network/add/AddVpn.qml:593
+#: ../modules/network/add/AddVpn.qml:150 ../modules/network/add/AddVpn.qml:293
+#: ../modules/network/add/AddVpn.qml:447 ../modules/network/add/AddVpn.qml:592
 #: ../modules/network/wireless/AddWireless.qml:68
 #: ../modules/network/wireless/AddWireless.qml:202
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:68
@@ -184,18 +184,18 @@ msgstr ""
 msgid "VPNC"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:70
+#: ../modules/network/add/AddVpn.qml:69
 msgid "Basic Information"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:84
+#: ../modules/network/add/AddVpn.qml:83
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:24
 msgid "Need VPN Plugin"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:118 ../modules/network/add/AddVpn.qml:162
-#: ../modules/network/add/AddVpn.qml:250 ../modules/network/add/AddVpn.qml:415
-#: ../modules/network/add/AddVpn.qml:459
+#: ../modules/network/add/AddVpn.qml:117 ../modules/network/add/AddVpn.qml:161
+#: ../modules/network/add/AddVpn.qml:249 ../modules/network/add/AddVpn.qml:414
+#: ../modules/network/add/AddVpn.qml:458
 #: ../modules/network/edit_autogen/EditSectionIpv4.qml:61
 #: ../modules/network/edit_autogen/EditSectionIpv6.qml:59
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:36
@@ -206,9 +206,9 @@ msgstr ""
 msgid "Gateway"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:140 ../modules/network/add/AddVpn.qml:283
-#: ../modules/network/add/AddVpn.qml:338 ../modules/network/add/AddVpn.qml:437
-#: ../modules/network/add/AddVpn.qml:481 ../modules/network/add/AddVpn.qml:514
+#: ../modules/network/add/AddVpn.qml:139 ../modules/network/add/AddVpn.qml:282
+#: ../modules/network/add/AddVpn.qml:337 ../modules/network/add/AddVpn.qml:436
+#: ../modules/network/add/AddVpn.qml:480 ../modules/network/add/AddVpn.qml:513
 #: ../modules/network/wireless/AddWireless.qml:190
 #: ../modules/network/wireless/AddWireless.qml:213
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:179
@@ -222,7 +222,7 @@ msgstr ""
 msgid "Ask for Pwd"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:173 ../modules/network/add/AddVpn.qml:305
+#: ../modules/network/add/AddVpn.qml:172 ../modules/network/add/AddVpn.qml:304
 #: ../modules/network/wireless/AddWireless.qml:112
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:101
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:102
@@ -230,22 +230,22 @@ msgstr ""
 msgid "CA Cert"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:184
+#: ../modules/network/add/AddVpn.qml:183
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:113
 msgid "Proxy"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:195
+#: ../modules/network/add/AddVpn.qml:194
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:124
 msgid "Allow Cisco Secure Desktop Trojan"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:206
+#: ../modules/network/add/AddVpn.qml:205
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:135
 msgid "CSD Wrapper"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:228 ../modules/network/add/AddVpn.qml:327
+#: ../modules/network/add/AddVpn.qml:227 ../modules/network/add/AddVpn.qml:326
 #: ../modules/network/wireless/AddWireless.qml:179
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:168
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:157
@@ -253,17 +253,17 @@ msgstr ""
 msgid "Private Key"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:239
+#: ../modules/network/add/AddVpn.qml:238
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:168
 msgid "User FSID For Key Passphrase"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:261
+#: ../modules/network/add/AddVpn.qml:260
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:190
 msgid "Auth Type"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:217 ../modules/network/add/AddVpn.qml:316
+#: ../modules/network/add/AddVpn.qml:216 ../modules/network/add/AddVpn.qml:315
 #: ../modules/network/wireless/AddWireless.qml:123
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:112
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:146
@@ -271,77 +271,77 @@ msgstr ""
 msgid "User Cert"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:349
+#: ../modules/network/add/AddVpn.qml:348
 #: ../modules/network/wireless/AddWireless.qml:224
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:213
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:278
 msgid "Private Pwd"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:360
+#: ../modules/network/add/AddVpn.qml:359
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:289
 msgid "Static Key"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:371
+#: ../modules/network/add/AddVpn.qml:370
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:300
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:57
 msgid "Use Key Direction"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:382
+#: ../modules/network/add/AddVpn.qml:381
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:311
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:68
 msgid "Key Direction"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:393
+#: ../modules/network/add/AddVpn.qml:392
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:322
 msgid "Remote IP"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:404
+#: ../modules/network/add/AddVpn.qml:403
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:333
 msgid "Local IP"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:492
+#: ../modules/network/add/AddVpn.qml:491
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:432
 msgid "User Pwd"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:503 ../modules/network/add/AddVpn.qml:571
+#: ../modules/network/add/AddVpn.qml:502 ../modules/network/add/AddVpn.qml:570
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:443
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:35
 msgid "Group Name"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:525
+#: ../modules/network/add/AddVpn.qml:524
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:465
 msgid "Group Pwd"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:536
+#: ../modules/network/add/AddVpn.qml:535
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:476
 msgid "Use Hybrid Authentication"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:547
+#: ../modules/network/add/AddVpn.qml:546
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:487
 msgid "CA File"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:560
+#: ../modules/network/add/AddVpn.qml:559
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:24
 msgid "Enable IPsec"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:582
+#: ../modules/network/add/AddVpn.qml:581
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:46
 msgid "Group ID"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:606 ../modules/network/add/AddVpn.qml:619
+#: ../modules/network/add/AddVpn.qml:605 ../modules/network/add/AddVpn.qml:618
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:24
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:24
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:24
@@ -1597,6 +1597,10 @@ msgstr ""
 
 #: ../modules/personalization/main.qml:129
 msgid "Wallpaper"
+msgstr ""
+
+#: ../modules/personalization/main.qml:136
+msgid "Lock Screen"
 msgstr ""
 
 #: ../modules/personalization/main.qml:143
