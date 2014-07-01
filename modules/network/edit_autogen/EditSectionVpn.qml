@@ -12,17 +12,6 @@ BaseEditSection {
     }
 
     content.sourceComponent: Column { 
-        EditLineComboBox {
-            id: lineVsVpnVkVpnType
-            connectionSession: sectionVpn.connectionSession
-            availableSections: sectionVpn.availableSections
-            availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
-            errors: sectionVpn.errors
-            section: "vs-vpn"
-            key: "vk-vpn-type"
-            text: dsTr("VPN Type")
-        }
         EditLineMissingPackage {
             id: lineVsVpnVkVpnMissingPlugin
             connectionSession: sectionVpn.connectionSession
@@ -33,6 +22,7 @@ BaseEditSection {
             section: "vs-vpn"
             key: "vk-vpn-missing-plugin"
             text: dsTr("Need VPN Plugin")
+            missingTypeName: "VPN"
         }
         EditLineTextInput {
             id: lineAliasVpnL2tpGateway
@@ -233,17 +223,6 @@ BaseEditSection {
             text: dsTr("Password")
         }
         EditLineFileChooser {
-            id: lineAliasVpnOpenvpnCert
-            connectionSession: sectionVpn.connectionSession
-            availableSections: sectionVpn.availableSections
-            availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
-            errors: sectionVpn.errors
-            section: "alias-vpn-openvpn"
-            key: "cert"
-            text: dsTr("User Cert")
-        }
-        EditLineFileChooser {
             id: lineAliasVpnOpenvpnCa
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
@@ -253,6 +232,17 @@ BaseEditSection {
             section: "alias-vpn-openvpn"
             key: "ca"
             text: dsTr("CA Cert")
+        }
+        EditLineFileChooser {
+            id: lineAliasVpnOpenvpnCert
+            connectionSession: sectionVpn.connectionSession
+            availableSections: sectionVpn.availableSections
+            availableKeys: sectionVpn.availableKeys
+            connectionData: sectionVpn.connectionData
+            errors: sectionVpn.errors
+            section: "alias-vpn-openvpn"
+            key: "cert"
+            text: dsTr("User Cert")
         }
         EditLineFileChooser {
             id: lineAliasVpnOpenvpnKey

@@ -344,14 +344,10 @@ Rectangle {
                 else if(iconId == "home"){
                     trayIconTip.visible = false
                     toGridNavigateAnimation.start()
-                    if (frame.x != rootWindow.width - panelWidth){
-                        showAll.restart()
-                    }
+                    showPanel()
                 }
                 else{
-                    if (frame.x != rootWindow.width - panelWidth){
-                        showAll.restart()
-                    }
+                    showPanel()
                     if(!panelContent.isSiderNavigate){
                         toSiderNavigateAnimation.start()
                     }
@@ -493,5 +489,32 @@ Rectangle {
 
     Menu {
         id: rootMenu
+    }
+
+    function isInRect(pos, rect){
+        if(pos.x > rect.x && pos.x < rect.x + rect.width && pos.y > rect.y && pos.y < rect.y + rect.height){
+            return true
+        }
+        else{
+            return false
+        }
+    }
+
+    Connections {
+        target: rootWindow
+        onWindowFocusChanged: {
+            if(!window && rootMenu.visible){
+                rootMenu.visible = false
+            }
+        }
+
+        onMousePressed: {
+            var pos = rootWindow.getCursorPos()
+            pos.x = pos.x - rootWindow.x
+            pos.y = pos.y - rootWindow.y
+            if(!isInRect(pos, rootMenu)){
+                rootMenu.visible = false
+            }
+        }
     }
 }

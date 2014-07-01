@@ -55,7 +55,7 @@ MyBaseExpand {
                 }
 
                 onDeleteAction: {
-                    wallpapperView.deleteAction(itemValue)
+                    wallpapperView.deleteItem(itemValue)
                 }
             }
         }

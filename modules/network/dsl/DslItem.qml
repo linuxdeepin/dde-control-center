@@ -34,7 +34,7 @@ Item {
     }
 
     function gotoEditDslConnection(){
-        gotoEditConnection("editPage", infos.Uuid, "/")
+        gotoEditConnection("editPage", infos.Uuid, getDevicePath())
     }
 
     function getDevicePath(){
@@ -99,7 +99,8 @@ Item {
                 hover_image: "../images/disconnect.png"
                 visible: isConnected
                 onClicked: {
-                    dbusNetwork.DeactivateConnection(infos.Uuid)
+                    // dbusNetwork.DeactivateConnection(infos.Uuid) // TODO
+                    dbusNetwork.DisconnectDevice(getDevicePath())
                 }
             }
 

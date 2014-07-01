@@ -52,7 +52,7 @@ DOverrideWindow {
 
     function showPanel() {
         if(clickedToHide){
-            if(!showAll.running && rootWindow.width != panelWidth){
+            if(!showAll.running && rootWindow.width != panelWidth && !hideAll.running){
                 showAll.start()
             }
         }
@@ -60,10 +60,7 @@ DOverrideWindow {
 
     function hidePanel(quit) {
         if(clickedToHide){
-            if(!hideAll.running){
-                if(showAll.running){
-                    showAll.stop()
-                }
+            if(!hideAll.running && !showAll.running){
                 hideAll.quit = quit
                 hideAll.start()
             }
@@ -110,10 +107,11 @@ DOverrideWindow {
 
     PropertyAnimation {
         id: hideAll
-        duration: 150
+        duration: 300
         target: rootWindow
         properties: "displayWidth"
         to: 0
+        easing.type: Easing.OutQuart
 
         property bool quit: false
 
@@ -130,10 +128,11 @@ DOverrideWindow {
 
     SmoothedAnimation {
         id: showAll
-        duration: 150
+        duration: 300
         target: rootWindow
         properties: "displayWidth"
         to: panelWidth
+        easing.type: Easing.OutQuart
 
         onStarted: {
             rootWindow.width = panelWidth + 16

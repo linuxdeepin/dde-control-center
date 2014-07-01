@@ -99,7 +99,7 @@ Rectangle {
                 id: default_entry_expand
 
                 header.sourceComponent: DDownArrowHeader {
-                    text: dsTr("Boot priority")
+                    text: dsTr("Default Startup")
                     onClicked: {
                         default_entry_expand.expanded = !default_entry_expand.expanded
                     }
@@ -116,7 +116,6 @@ Rectangle {
                         height: childrenRect.height
                         model: ListModel {}
                         delegate: SelectItem{
-                            labelLeftMargin: 6
                             totalItemNumber: dbus_grub2.GetSimpleEntryTitles().length
                             selectItemId: dbus_grub2.defaultEntry
 
@@ -124,8 +123,6 @@ Rectangle {
                                 dbus_grub2.defaultEntry = itemName
                             }
                         }
-                        anchors.left: parent.left
-                        anchors.leftMargin: 10
 
                         Component.onCompleted: {
                             var entries = dbus_grub2.GetSimpleEntryTitles();

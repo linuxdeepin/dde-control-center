@@ -51,7 +51,6 @@ BaseEditPage {
             }
 
             delegate: SelectItem {
-                labelLeftMargin: itemLabelLeftMargin
                 totalItemNumber: typeList.count
                 selectItemId: typeList.selectVpnType
 
@@ -294,17 +293,6 @@ BaseEditPage {
             text: dsTr("Password")
         }
         EditLineFileChooser {
-            id: lineAliasVpnOpenvpnCert
-            connectionSession: rootPage.connectionSession
-            availableSections: rootPage.availableSections
-            availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
-            errors: rootPage.errors
-            section: "alias-vpn-openvpn"
-            key: "cert"
-            text: dsTr("User Cert")
-        }
-        EditLineFileChooser {
             id: lineAliasVpnOpenvpnCa
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
@@ -314,6 +302,17 @@ BaseEditPage {
             section: "alias-vpn-openvpn"
             key: "ca"
             text: dsTr("CA Cert")
+        }
+        EditLineFileChooser {
+            id: lineAliasVpnOpenvpnCert
+            connectionSession: rootPage.connectionSession
+            availableSections: rootPage.availableSections
+            availableKeys: rootPage.availableKeys
+            connectionData: rootPage.connectionData
+            errors: rootPage.errors
+            section: "alias-vpn-openvpn"
+            key: "cert"
+            text: dsTr("User Cert")
         }
         EditLineFileChooser {
             id: lineAliasVpnOpenvpnKey

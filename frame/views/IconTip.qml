@@ -77,6 +77,7 @@ Window {
     Text {
         id: trayIconTipText
         anchors.verticalCenter: trayIconTipArrowRect.verticalCenter
+        anchors.verticalCenterOffset: 1
         anchors.horizontalCenter: trayIconTipArrowRect.horizontalCenter
         anchors.horizontalCenterOffset: - 4
         font.pixelSize: 13

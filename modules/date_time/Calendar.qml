@@ -138,26 +138,22 @@ Column {
 
     }
 
-    DSeparatorHorizontal {}
-
     Rectangle {
         id: calendarSlideBox
         width: parent.width
         height: cur_calendar.height
         property var component: Qt.createComponent("CalendarComponent.qml")
-
-        Component.onCompleted: {
+        
+        function initCalendar(){
             var cur_d = clickedDateObject
             cur_calendar = createCanlendar(cur_d, '');
 
             pre_calendar = cur_calendar
             next_calendar = cur_calendar
+        }
 
-            //var pre_d = CalendarCore.getDateWidthMonthStep(cur_calendar.clickedDateObject, -1)
-            //pre_calendar = createCanlendar(pre_d, "previous")
-
-            //var next_d = CalendarCore.getDateWidthMonthStep(cur_calendar.clickedDateObject, 1)
-            //next_calendar = createCanlendar(next_d, "next")
+        Component.onCompleted: {
+            initCalendar()
         }
 
         function createCanlendar(d_obj, position){

@@ -4,7 +4,6 @@ import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
 import DBus.Com.Deepin.Daemon.Network 1.0
 import Deepin.Widgets 1.0
-import DGui 1.0
 
 Item {
     id: networkModule
@@ -211,6 +210,15 @@ Item {
         }
         return false
     }
+    // function isActivatingConnection(devicePath, uuid) {
+    //     for (var i in nmActiveConnections) {
+    //         if (getIndexFromArray(devicePath, nmActiveConnections[i].Devices) != -1 && nmActiveConnections[i].Uuid == uuid) {
+    //             return true
+    //         }
+    //     }
+    //     return false
+    // }
+    
     
     Connections{
         target: rootWindow
@@ -252,8 +260,10 @@ Item {
                 }
             }
 
-            DTextButton {
-                text: "i"
+            DImageButton {
+                normal_image: "images/info_normal.png"
+                hover_image: "images/info_hover.png"
+                press_image: "images/info_press.png"
                 anchors.verticalCenter: parent.verticalCenter
                 visible: stackView.currentItemId == "indexPage"
                 onClicked: {

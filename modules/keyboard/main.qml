@@ -27,7 +27,7 @@ import QtQuick.Controls.Styles 1.0
 import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.InputDevices 1.0
-import DBus.Com.Deepin.Api.Search 1.0
+import DBus.Com.Deepin.Daemon.Search 1.0
 import "../shared/"
 
 Item {
@@ -401,9 +401,8 @@ Item {
         DSeparatorHorizontal {}
 
         DBaseLine {}
-        DSeparatorHorizontal {}
         DBaseLine {
-            leftLoader.sourceComponent: DssH2 { text: dsTr("Caps-Lock key pressing tip") }
+            leftLoader.sourceComponent: DssH2 { text: dsTr("Caps Lock prompt") }
             rightLoader.sourceComponent: DSwitchButton {
                 checked: dbusKeyboard.capslockToggle
 

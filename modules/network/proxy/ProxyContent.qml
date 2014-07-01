@@ -34,6 +34,8 @@ Column {
             cellWidth: width/3
             cellHeight: 30
 
+            boundsBehavior: Flickable.StopAtBounds
+
             model: {
                 var model = listModelComponent.createObject(methodView, {})
                 model.append({

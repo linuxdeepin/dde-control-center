@@ -210,7 +210,7 @@ Rectangle {
             DBaseLine {
                 id: wake_require_password_expand
                 leftLoader.sourceComponent: DssH2 {
-                    text: dsTr("Require password when computer wakes")
+                    text: dsTr("Password required to wake up")
                 }
 
                 rightLoader.sourceComponent: Component{
@@ -232,7 +232,7 @@ Rectangle {
                 expanded: true
                 header.sourceComponent: DBaseLine {
                     leftLoader.sourceComponent: DssH2 {
-                        text: dsTr("Power Adapter")
+                        text: dsTr("Plugged in")
                     }
                 }
                 content.sourceComponent: Column {
@@ -395,7 +395,9 @@ Rectangle {
                     }
                 }
             }
-            DSeparatorHorizontal{visible: power_plan_battery_rect.visible}
+            DSeparatorHorizontal{
+                visible: power_plan_battery_rect.visible
+            }
 
 
             DBaseLine{visible: power_plan_battery_rect.visible}
@@ -405,7 +407,7 @@ Rectangle {
                 expanded: true
                 header.sourceComponent: DBaseLine {
                     leftLoader.sourceComponent: DssH2 {
-                        text: dsTr("Battery")
+                        text: dsTr("On battery")
                     }
                 }
                 content.sourceComponent: Column {
@@ -566,7 +568,13 @@ Rectangle {
                             }
                         }
                     }
+
                 }
+            }
+            DSeparatorHorizontal {}
+            DBaseLine {}
+            AppletSwitchArea {
+                visible: dbus_power.batteryIsPresent
             }
         }
     }

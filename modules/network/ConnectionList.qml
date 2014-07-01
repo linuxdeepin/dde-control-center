@@ -13,7 +13,7 @@ Column {
 
     property int realHeight: childrenRect.height
 
-    WiredDeviceExpand {
+    WiredDeviceArea{
         id: wiredArea
     }
 
@@ -23,7 +23,8 @@ Column {
 
     VpnExpand {}
 
-    DslExpand {}
-
     ProxyExpand {}
+
+    DBaseLine {}
+    AppletSwitchArea {}
 }

@@ -74,6 +74,7 @@ Rectangle {
         delegate: CalendarTitleItem {}
         model: ListModel {id: weekTitleModel}
         orientation: ListView.Horizontal
+        boundsBehavior: Flickable.StopAtBounds
 
         Component.onCompleted: {
             weekTitleModel.append({"dayText": dsTr("Sun"), "isHighlight": false})
@@ -102,6 +103,7 @@ Rectangle {
         }
         focus: true
         currentIndex: -1
+        boundsBehavior: Flickable.StopAtBounds
 
         Component.onCompleted: { 
             initDates(CalendarCore.dateToString(clickedDateObject))

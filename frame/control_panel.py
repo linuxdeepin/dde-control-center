@@ -187,6 +187,11 @@ class ControlPanel(QtCore.QObject):
     def toHumanShortcutLabel(self, sequence):
         sequence = sequence.replace("<", "").replace(">", "+")
         keys = sequence.split("-")
+        for key in keys:
+            if key.endswith("_l"):
+                key = key[:-2]
+            if key.endswith("_r"):
+                key = key[:-2]
         return "+".join(keys).title()
 
     @QtCore.pyqtSlot(str, result=str)

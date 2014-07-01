@@ -34,7 +34,7 @@ Item {
     clip: true
 
     property var dconstants: DConstants {}
-    property int grabKeyAreaWidth: field.width + 6
+    property int grabKeyAreaWidth: tipInfoText.width + 6
 
     property var info
     property int shortcutId: info[0]
@@ -117,14 +117,21 @@ Item {
         }
 
         Text {
-            id: field
+            id: tipInfoText
             anchors.right: parent.right
             anchors.rightMargin: 15
             anchors.verticalCenter: parent.verticalCenter
             font.pixelSize: 11
             color: dconstants.fgDarkColor
-            text: dsTr("Please input new shortcut")
+            text: keyPressed ? keyPressInfo : dsTr("Please input new shortcut")
             visible: grabFlag
+            property bool keyPressed: false
+            property string keyPressInfo: ""
+            onKeyPressedChanged: {
+                if(!keyPressed){
+                    keyPressInfo = ""
+                }
+            }
         }
 
         Text {
@@ -142,7 +149,7 @@ Item {
             onKeyReleaseEvent: {
                 if (currentShortcutId == shortcutId){
                     grabFlag = false
-                    if(arg0 == 'escape' | arg0 == ""){
+                    if(arg0 == 'escape' || arg0 == ""){
                     }
                     else if( arg0=="backspace" ){
                         dbusKeyBinding.ModifyShortcut(currentShortcutId, "")
@@ -164,6 +171,19 @@ Item {
                             default:
                                 print("==> [ERROR]", arg0)
                         }
+                    }
+                    tipInfoText.keyPressed = false
+                }
+            }
+            onKeyPressEvent: {
+                if (currentShortcutId == shortcutId && grabFlag){
+                    if(arg0 == 'escape' || arg0 == "" || arg0 == "backspace"){
+                    }
+                    else {
+                        if(!tipInfoText.keyPressed){
+                            tipInfoText.keyPressed = true
+                        }
+                        tipInfoText.keyPressInfo = windowView.toHumanShortcutLabel(arg0)
                     }
                 }
             }

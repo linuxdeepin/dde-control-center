@@ -28,17 +28,15 @@ Item {
     id: selectItem
     width: parent.width
     height: 28
-    anchors.left: parent.left
-    anchors.leftMargin: 18
-    property int labelLeftMargin: 18
+    property int labelLeftMargin: 40
     property bool selected: selectItemId == itemId
     property bool hovered: false
     
     property bool showTip: nameText.isElide
 
     // info from model
-    property string itemId: item_id
-    property string itemName: item_name
+    property string itemId: typeof(item_id) == "undefined" ? "" : item_id
+    property string itemName: typeof(item_name) == "undefined" ? "" : item_name
     // info from model
 
     // Need binding variable
@@ -50,8 +48,21 @@ Item {
     signal deleteAction(string itemId)
     signal selectAction(string itemId)
 
+    Rectangle {
+        visible: selected && totalItemNumber != 1
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.leftMargin: 10
+        anchors.rightMargin: 10
+        height: 28
+        color: "#0D0D0D"
+        radius: 4
+    }
+
     Image {
         id: nameImage
+        anchors.left: parent.left
+        anchors.leftMargin: 18
         width: deleteButton.width
         fillMode: Image.PreserveAspectFit
         anchors.verticalCenter: parent.verticalCenter

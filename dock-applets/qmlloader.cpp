@@ -27,6 +27,8 @@
 #include <QDBusConnection>
 #include <QProcess>
 #include <QDebug>
+#include <QDir>
+#include <QSettings>
 
 #include "qmlloader.h"
 
@@ -50,11 +52,55 @@ QmlLoader::~QmlLoader()
 
 void QmlLoader::load(QUrl url)
 {
-    component->loadUrl(url);
-    if ( component->isReady() )
-        component->create();
-    else
-        qWarning() << component->errorString();
+    this->component->loadUrl(url);
+    this->rootObject = this->component->beginCreate(this->rootContext);
+    if ( this->component->isReady() ){
+        this->component->completeCreate();
+        QObject::connect(rootObject, SIGNAL(appletInfosChanged()), this, SLOT(appletInfosChangedSlot()));
+    }
+    else{
+        qWarning() << this->component->errorString();
+    }
+}
+
+QString QmlLoader::getAppletInfoListFromQml()
+{
+    QVariant returnedValue;
+    QMetaObject::invokeMethod(
+                rootObject,
+                "get_applet_infos",
+                Q_RETURN_ARG(QVariant, returnedValue)
+                );
+    return returnedValue.toString();
+}
+
+void QmlLoader::setAppletVisibleToConfig(QString info)
+{
+    QString filePath = QDir::homePath() + "/.dde-dock-applets.ini";
+    QSettings sysConfig(filePath, QSettings::IniFormat, 0);
+    sysConfig.beginWriteArray("applet");
+    sysConfig.setValue("info", info);
+    sysConfig.endArray();
+}
+
+QString QmlLoader::getAppletVisibleFromConfig()
+{
+    QString filePath = QDir::homePath() + "/.dde-dock-applets.ini";
+    QString strRst;
+    if(QFile::exists(filePath)){
+        QSettings sysConfig(filePath, QSettings::IniFormat, 0);
+        strRst = sysConfig.value("/applet/info", "").toString();
+    }
+    else{
+        strRst = "";
+    }
+
+    return strRst;
+}
+
+void QmlLoader::appletInfosChangedSlot()
+{
+    Q_EMIT m_dbus_proxyer->appletInfosChanged();
 }
 
 AppletDBus::AppletDBus(QmlLoader *parent):
@@ -67,4 +113,31 @@ AppletDBus::AppletDBus(QmlLoader *parent):
 AppletDBus::~AppletDBus()
 {
 
+}
+
+void AppletDBus::ShowApplet(QString id)
+{
+    QMetaObject::invokeMethod(
+                m_parent->rootObject,
+                "set_show_applet",
+                Q_ARG(QVariant, QVariant::fromValue(id))
+                );
+}
+
+void AppletDBus::HideApplet(QString id)
+{
+    QMetaObject::invokeMethod(
+                m_parent->rootObject,
+                "set_hide_applet",
+                Q_ARG(QVariant, QVariant::fromValue(id))
+                );
+}
+
+void AppletDBus::ToggleApplet(QString id)
+{
+    QMetaObject::invokeMethod(
+                m_parent->rootObject,
+                "toggle_applet",
+                Q_ARG(QVariant, QVariant::fromValue(id))
+                );
 }

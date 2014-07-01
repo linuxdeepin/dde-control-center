@@ -309,9 +309,6 @@ DockApplet{
                         visible: hasWiredDevices
 
                         onClicked: {
-                            if(active){
-                                dbusNetwork.networkingEnabled = true
-                            }
                             dbusNetwork.wiredEnabled = active
                         }
 
@@ -340,9 +337,6 @@ DockApplet{
                         visible: hasWirelessDevices
 
                         onClicked: {
-                            if(active){
-                                dbusNetwork.networkingEnabled = true
-                            }
                             dbusNetwork.wirelessEnabled = active
                         }
 
@@ -369,6 +363,7 @@ DockApplet{
                         //offImage: "images/3g_off.png"
                     //}
 
+                    // TODO
                     CheckButton{
                         id: vpnButton
                         visible: vpnConnections ? vpnConnections.length > 0 : false
@@ -376,28 +371,42 @@ DockApplet{
                         offImage: "images/vpn_off.png"
                         property bool vpnActive: activeVpnIndex != -1
 
-                        onVpnActiveChanged: {
-                            if(!vpnButton.pressed){
-                                vpnButton.active = vpnActive
-                            }
-                        }
+                        // onVpnActiveChanged: {
+                        //     if(!vpnButton.pressed){
+                        //         vpnButton.active = vpnActive
+                        //     }
+                        // }
 
-                        function deactiveVpn(){
-                            if(activeVpnIndex != -1){
-                                var uuid = activeConnections[activeVpnIndex].Uuid
-                                dbusNetwork.DeactivateConnection(uuid)
-                            }
-                        }
+                        // function deactiveVpn(){
+                        //     if(activeVpnIndex != -1){
+                        //         var uuid = activeConnections[activeVpnIndex].Uuid
+                        //         dbusNetwork.DeactivateConnection(uuid)
+                        //     }
+                        // }
+
+                        // onClicked: {
+                        //     deactiveVpn()
+                        // }
 
                         onClicked: {
-                            deactiveVpn()
+                            dbusNetwork.vpnEnabled = active
                         }
 
+                        Connections{
+                            target: dbusNetwork
+                            onVpnEnabledChanged:{
+                                if(!vpnButton.pressed){
+                                    vpnButton.active = dbusNetwork.vpnEnabled
+                                }
+                            }
+                        }
+                        
                         Timer{
                             running: true
                             interval: 100
                             onTriggered: {
-                                parent.active = parent.vpnActive
+                                // parent.active = parent.vpnActive
+                                parent.active = dbusNetwork.vpnEnabled
                             }
                         }
                     }
@@ -446,7 +455,7 @@ DockApplet{
                         onImage: "images/airplane_mode_on.png"
                         offImage: "images/airplane_mode_off.png"
                         property bool airplaneModeActive: {
-                            if(dbusNetwork.wiredEnabled || dbusNetwork.wirelessEnabled || dbusBluetooth.powered){
+                            if(dbusNetwork.networkingEnabled || dbusBluetooth.powered){
                                 return false
                             }
                             else{
@@ -462,15 +471,11 @@ DockApplet{
 
                         function setActive(){
                             dbusNetwork.networkingEnabled = true
-                            dbusNetwork.wiredEnabled = true
-                            dbusNetwork.wirelessEnabled = true
                             dbusBluetooth.powered = true
                         }
 
                         function setDeactive(){
                             dbusNetwork.networkingEnabled = false
-                            dbusNetwork.wiredEnabled = false
-                            dbusNetwork.wirelessEnabled = false
                             dbusBluetooth.powered = false
                         }
 

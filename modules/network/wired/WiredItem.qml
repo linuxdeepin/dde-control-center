@@ -17,10 +17,14 @@ Column{
     property bool isConnected: wiredDevices[index].State == nmDeviceStateActivated
 
     function activateThisConnection(){
+        // TODO
+        uuid = dbusNetwork.GetWiredConnectionUuid(devicePath)
         dbusNetwork.ActivateConnection(uuid, devicePath)
     }
 
     function gotoEditWiredConnection(){
+        // TODO
+        uuid = dbusNetwork.GetWiredConnectionUuid(devicePath)
         gotoEditConnection("editPage", uuid, wiredItem.devicePath)
     }
 

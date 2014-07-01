@@ -26,7 +26,6 @@ Rectangle {
         password_input.text = ""
         repeat_password_input.text = ""
         auto_login_switch.checked = false
-        show_password_switch.checked = false
         user_group_radio.selectItem(0)
     }
     
@@ -192,40 +191,6 @@ Rectangle {
         }
 
         DSeparatorHorizontal {}
-
-        Rectangle {
-            width: parent.width
-            height: 38
-            color: "transparent"
-
-            DLabel {
-                text: dsTr("Show Password")
-                font.pixelSize: 12
-
-                anchors.left: parent.left
-                anchors.leftMargin: 15
-                anchors.verticalCenter: parent.verticalCenter
-            }
-
-            DSwitchButton {
-                id: show_password_switch
-                onClicked: {
-                    if(checked) {
-                        password_input.echoMode = TextInput.Normal
-                        repeat_password_input.echoMode = TextInput.Normal
-                    } else {
-                        password_input.echoMode = TextInput.Password
-                        repeat_password_input.echoMode = TextInput.Password
-                    }
-                }
-
-                anchors.right: parent.right
-                anchors.rightMargin: 15
-                anchors.verticalCenter: parent.verticalCenter
-            }
-        }
-
-        DSeparatorHorizontal{}
 
         Rectangle {
             width: parent.width

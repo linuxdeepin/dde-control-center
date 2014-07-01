@@ -45,11 +45,18 @@ QtObject {
         "date_time": dsTr("Date and Time")
     }
 
+    property var undockableApplet: {
+        var a = new Array()
+        a.push("network")
+        a.push("sound")
+        a.push("power")
+        return a
+    }
+
+    property var lastStateInfos: mainObject.getAppletVisibleFromConfig()
+
     Component.onCompleted: {
         init_applet_list_model()
-
-        // just start dde control center
-        // dbusControlCenter.isNetworkCanShowPassword()
     }
 
     signal appletInfosChanged
@@ -205,6 +212,7 @@ QtObject {
         else{
             print("Unknown applet name: " + name)
         }
+        mainObject.setAppletVisibleToConfig(get_applet_infos())
     }
 
     function set_show_applet(name){
@@ -217,6 +225,18 @@ QtObject {
         else{
             print("Unknown applet name: " + name)
         }
+        mainObject.setAppletVisibleToConfig(get_applet_infos())
+    }
+
+    function toggle_applet(applet_id){
+        for(var i=0; i<appletListModel.count; i++){
+            var id = appletListModel.get(i).applet_id
+            if(id == applet_id){
+                repeater.itemAt(i).toggle()
+                root.appletInfosChanged()
+            }
+        }
+        mainObject.setAppletVisibleToConfig(get_applet_infos())
     }
 
     function get_applet_infos(){
@@ -224,12 +244,15 @@ QtObject {
         for(var i=0; i<appletListModel.count; i++){
             var info = new Array()
             var id = appletListModel.get(i).applet_id
+            if(id=="date_time" || id=="disk_mount"){
+                continue
+            }
             info.push(id)
             info.push(appletNames[id])
             info.push(repeater.itemAt(i).source != "")
             applet_infos.push(info)
         }
-        return applet_infos
+        return marshalJSON(applet_infos)
     }
 
     property var applets: Item {
@@ -237,7 +260,6 @@ QtObject {
             id: repeater
             model: appletListModel
             delegate: AppletLoader {
-                qmlPath: "%1/main.qml".arg(applet_id)
             }
         }
     }

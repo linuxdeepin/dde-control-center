@@ -114,7 +114,7 @@ Column {
                 DssH3 {
                     visible: openedMonitors.length > 1
                     anchors.bottom: moduleName.bottom
-                    text: "(" + dsTr("Main Display: ") + displayId.primary + ")"
+                    text: "(" + dsTr("Main Monitor: ") + displayId.primary + ")"
                     color: "white"
                 }
             }
@@ -216,14 +216,7 @@ Column {
             }
 
             DTextButton {
-                text: { 
-                    if(displayId.hasChanged){
-                        return dsTr("Reset")
-                    }
-                    else{
-                        return dsTr("Cancel")
-                    }
-                }
+                text: dsTr("Cancel") 
 
                 visible: { 
                     if (monitorDragArea.editable || displayId.hasChanged){

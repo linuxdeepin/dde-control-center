@@ -24,7 +24,6 @@
 import QtQuick 2.1
 import QtQuick.Window 2.1
 import Deepin.Widgets 1.0
-import DGui 1.0
 
 DWindowFrame{
     id: popupWindow
@@ -46,13 +45,7 @@ DWindowFrame{
     property var labels: []
     property Item requestMenuItem: popupWindow
 
-    function menuSelect(i){}
-
-    PopupItem {
-        anchors.fill: parent
-        windowObject: windowView
-        rootWindowObject: rootWindow
-        parentObject: popupWindow
+    function menuSelect(i){
     }
 
     Item {
@@ -70,13 +63,11 @@ DWindowFrame{
                 text: labels[index]
                 onSelectAction:{
                     popupWindow.visible = false
-                    if(popupWindow.requestMenuItem){
-                        popupWindow.requestMenuItem.menuSelect(index)
-                    }
+                    popupWindow.requestMenuItem.menuSelect(index)
                 }
             }
             clip: true
-            interactive: false
+            interactive: true
         }
     }
 

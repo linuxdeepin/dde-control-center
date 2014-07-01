@@ -24,6 +24,7 @@
 import QtQuick 2.1
 import QtGraphicalEffects 1.0
 import "calendar_core.js" as CalendarCore
+import Deepin.Widgets 1.0
 
 Rectangle {
     id: calendarItem
@@ -40,42 +41,6 @@ Rectangle {
 
     property var lunarDayInfo: dbusLunarCalendar.GetLunarInfoBySolar(parseInt(dateValueArray[0]), parseInt(dateValueArray[1]), parseInt(dateValueArray[2]))
     property var hasFestival: lunarDayInfo[1] && (lunarDayInfo[0][8] || lunarDayInfo[0][9])
-
-    // Start border
-    Rectangle{
-        // left
-        anchors.top: parent.top
-        anchors.left: parent.left
-        width: 1
-        height: parent.height
-        color: "#303132"
-    }
-    Rectangle{
-        // top
-        anchors.top: parent.top
-        anchors.left: parent.left
-        width: parent.width
-        height: 1
-        color: "#303132"
-    }
-    Rectangle{
-        // right
-        anchors.top: parent.top
-        anchors.right: parent.right
-        width: 1
-        height: parent.height
-        color: "#120f10"
-    }
-    Rectangle{
-        // bottom
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
-        width: parent.width
-        height: 1
-        color: "#120f10"
-    }
-    // End of border
-
 
     Item{
         id: contentFrame
@@ -99,14 +64,20 @@ Rectangle {
             horizontalOffset: 0
             verticalOffset: -3
             spread: 0.5
-            visible: isCurrentDate
+            //visible: isCurrentDate
+            visible: false
         }
 
         Rectangle {
             id: clickedDateBackground
-            anchors.fill: parent
-            color: "#003A5F"
+            width: diameter
+            height: diameter
+            anchors.centerIn: parent
+            color: "#0064fa"
             visible: index == calendarItem.GridView.view.currentIndex ? true : false
+            radius: diameter/2
+
+            property int diameter: parent.height
         }
 
         Item {
@@ -118,12 +89,12 @@ Rectangle {
                 anchors.topMargin: lunarDayLabel.visible ? 2 : (parent.height - height)/2
                 anchors.horizontalCenter: parent.horizontalCenter
 
-                font.pixelSize: 16
-                color: grey ? "#444" : dconstants.fgColor
+                font.pixelSize: 15
+                color: grey ? "#444" : "white"
                 text: curDate.getDate()
             }
 
-            Text {
+            DssH3 {
                 id: lunarDayLabel
                 anchors.top: inText.bottom
                 //anchors.topMargin: 2

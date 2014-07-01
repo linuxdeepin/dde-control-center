@@ -55,7 +55,7 @@ Column {
                     Layout.preferredWidth: root.width
                     InfoItem { text: dsTr("Device Type") }  InfoItem { text: getDeviceName(modelData.DeviceType) }
                     InfoItem { text: dsTr("Device Addr")}   InfoItem { text: modelData.HwAddress }
-                    InfoItem { text: dsTr("Ip Address")}    InfoItem { text: modelData.IpAddress }
+                    InfoItem { text: dsTr("IP Address")}    InfoItem { text: modelData.IpAddress }
                     InfoItem { text: dsTr("Subnet Mask")}   InfoItem { text: modelData.SubnetMask }
                     InfoItem { text: dsTr("Route Addr")}    InfoItem { text: modelData.RouteAddress }
                     InfoItem { text: dsTr("Primary DNS")}  InfoItem { text: modelData.Dns1 }
@@ -70,7 +70,7 @@ Column {
 
     DBaseLine{
         rightLoader.sourceComponent: DTextButton{
-            text: "Close"
+            text: dsTr("Close")
             onClicked: {
                 stackView.reset()
             }

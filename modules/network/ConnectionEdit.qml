@@ -38,7 +38,7 @@ BaseConnectionEdit {
 
     Column {
         width: parent.width
-        visible: editPage.connectionPath !== undefined
+        visible: editPage.connectionPath !== undefined && connectionSession.type != nmConnectionTypeWired
         DBaseLine {
             id: deleteSettingLine
             color: dconstants.contentBgColor

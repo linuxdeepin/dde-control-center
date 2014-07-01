@@ -207,62 +207,17 @@ Item {
                     }
 
                     model: ListModel {}
-                    delegate: Item {
-                        width: parent.width
-                        height: 28
-                        anchors.left: parent.left
-                        anchors.leftMargin: 25
+                    delegate: SelectItem {
+                        selectItemId: defaultAppListview.defaultDesktopName
+                        totalItemNumber: defaultAppListview.count
 
-                        property string desktopName: desktop_name
-                        
-                        Row {
-                            spacing: 5
-                            anchors.verticalCenter: parent.verticalCenter
-                            
-                            Image {
-                                id: nameImage
-                                anchors.verticalCenter: parent.verticalCenter
-                                source: "images/select.png"
-                                opacity: defaultAppListview.defaultDesktopName == desktopName ? 1 : 0
-                            }
-                            
-                            DssH3 {
-                                id: nameText
-                                anchors.verticalCenter: parent.verticalCenter
-                                text: label 
-                                color: defaultAppListview.defaultDesktopName == desktopName ? dconstants.activeColor : dconstants.fgColor
-                                font.pixelSize: 12
-                            }
-                        }
-                        
-                        MouseArea {
-                            anchors.fill: parent
-                            hoverEnabled: true
-                            
-                            onEntered: {
-                                defaultAppListview.currentIndex = index
-                            }
-                            
-                            onClicked: {
-                                defaultAppListview.defaultDesktopName = desktopName
-                                for(var i=0;i<setTypeGroup.length;i++){
-                                    defaultAppsId.SetDefaultAppViaType(setTypeGroup[i], desktopName)
-                                }
+                        onSelectAction: {
+                            defaultAppListview.defaultDesktopName = itemId
+                            for(var i=0;i<setTypeGroup.length;i++){
+                                defaultAppsId.SetDefaultAppViaType(setTypeGroup[i], itemId)
                             }
                         }
                     }
-
-                    highlight: Rectangle {
-                        width: parent.width
-                        anchors.left: parent.left
-                        anchors.right: parent.right
-                        anchors.leftMargin: 5
-                        anchors.rightMargin: 5
-                        height: 28
-                        color: "#0D0D0D"
-                        radius: 4
-                    }
-                    highlightMoveDuration: 200
                     focus: true
                     interactive: true
 
@@ -271,8 +226,8 @@ Item {
                         height = datas.length * 28
                         for (var i=0;i<datas.length;i++){
                             model.append({
-                                "label": datas[i][1],
-                                "desktop_name": datas[i][0]
+                                "item_name": datas[i][1],
+                                "item_id": datas[i][0]
                             })
                         }
                     }
@@ -344,60 +299,15 @@ Item {
                         }
 
                         model: ListModel {id: autoPlayModel}
-                        delegate: Item {
-                            width: parent.width
-                            height: 28
-                            anchors.left: parent.left
-                            anchors.leftMargin: 25
+                        delegate: SelectItem {
+                            selectItemId: autoPlayAppListView.defaultDesktopName
+                            totalItemNumber: autoPlayAppListView.count
 
-                            property string desktopName: desktop_name
-                            
-                            Row {
-                                spacing: 5
-                                anchors.verticalCenter: parent.verticalCenter
-                                
-                                Image {
-                                    id: nameImage
-                                    anchors.verticalCenter: parent.verticalCenter
-                                    source: "images/select.png"
-                                    opacity: autoPlayAppListView.defaultDesktopName == desktopName ? 1 : 0
-                                }
-                                
-                                DssH3 {
-                                    id: nameText
-                                    anchors.verticalCenter: parent.verticalCenter
-                                    text: label 
-                                    color: autoPlayAppListView.defaultDesktopName == desktopName ? dconstants.activeColor : dconstants.fgColor
-                                    font.pixelSize: 12
-                                }
-                            }
-                            
-                            MouseArea {
-                                anchors.fill: parent
-                                hoverEnabled: true
-                                
-                                onEntered: {
-                                    autoPlayAppListView.currentIndex = index
-                                }
-                                
-                                onClicked: {
-                                    autoPlayAppListView.defaultDesktopName = desktopName
-                                    mediaMountId.SetMediaAppByMime(componentData.contentType, desktopName)
-                                }
+                            onSelectAction: {
+                                autoPlayAppListView.defaultDesktopName = itemId
+                                mediaMountId.SetMediaAppByMime(componentData.contentType, itemId)
                             }
                         }
-
-                        highlight: Rectangle {
-                            width: parent.width
-                            anchors.left: parent.left
-                            anchors.right: parent.right
-                            anchors.leftMargin: 5
-                            anchors.rightMargin: 5
-                            height: 28
-                            color: "#0D0D0D"
-                            radius: 4
-                        }
-                        highlightMoveDuration: 200
                         focus: true
                         interactive: true
 
@@ -405,8 +315,8 @@ Item {
                             var datas = mediaMountId.MediaAppListByMime(componentData.contentType)
                             for (var i=0;i<datas.length;i++){
                                 autoPlayModel.append({
-                                    "label": datas[i][1],
-                                    "desktop_name": datas[i][0]
+                                    "item_name": datas[i][1],
+                                    "item_id": datas[i][0]
                                 })
                             }
                             height = autoPlayModel.count * 28

@@ -74,6 +74,28 @@ Item {
             width: parent.width - 2
             height: parent.height - 2
             cache: false
+
+            Connections {
+                target: themeObj
+                onBackgroundChanged: {
+                    print("changed:", itemValue)
+                    if(itemValue == "Custom"){
+                        updateThumbnailDelay.restart()
+                    }
+                }
+            }
+            
+            Timer{
+                id: updateThumbnailDelay
+                interval: 1000
+                onTriggered: {
+                    //print("get thumbnail:", itemValue)
+                    //print(themeObj.background)
+                    //item_img_url = dbusThemeManager.GetThumbnail("theme", itemValue)
+                    item_img_url = dbusThemeManager.GetThumbnail("background", themeObj.background)
+                    //print(item_img_url)
+                }
+            }
         }
     }
 
@@ -82,7 +104,7 @@ Item {
         anchors.top: itemThumbnailBox.bottom
         anchors.topMargin: 6
         anchors.horizontalCenter: parent.horizontalCenter
-        text: item_name
+        text: item_name == "Custom" ? dsTr("Custom") : item_name
         color: {
             if(parent.selected){
                 return dconstants.activeColor

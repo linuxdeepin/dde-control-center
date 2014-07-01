@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.0
 import Deepin.Widgets 1.0
 
 DBaseExpand {
-    id: wirelessDevicesExpand
+    id: wirelessDeviceExpand
     width: parent.width
 
     property string devicePath: "/"
@@ -12,20 +12,178 @@ DBaseExpand {
     property string activeAp: "/"
     property int deviceState: nmDeviceStateUnknown
     property bool deviceEnabled: false
-    expanded: deviceEnabled
+    expanded: dbusNetwork.IsDeviceEnabled(devicePath)
 
     Component.onCompleted: {
-        deviceEnabled = deviceState > nmDeviceStateDisconnected
         if(!scanTimer.running){
             scanTimer.start()
         }
     }
-    onDeviceStateChanged: {
-        if (deviceState <= nmDeviceStateUnavailable) {
-            deviceEnabled = false
-        } else if (deviceState >= nmDeviceStatePrepare) {
-            deviceEnabled = true
+
+    Connections{
+        target: dbusNetwork
+        onDeviceEnabled:{
+            if(arg0 == devicePath){
+                print("onDeviceEnabled:", arg0, arg1) // TODO test
+                wirelessDeviceExpand.expanded = arg1
+            }
         }
+        onAccessPointAdded:{
+            if(arg0 == devicePath){
+                // print("onAccessPointAdded:", arg0, arg1) // TODO test
+                var apInfo = unmarshalJSON(arg1)
+                accessPointsModel.addOrUpdateApItem(apInfo)
+            }
+        }
+        onAccessPointRemoved:{
+            if(arg0 == devicePath){
+                // print("onAccessPointRemoved:", arg0, arg1) // TODO test
+                var apInfo = unmarshalJSON(arg1)
+                var index = accessPointsModel.getIndexByPath(apInfo.Path)
+                if(index != -1){
+                    accessPointsModel.removeApItem(index, apInfo)
+                }
+            }
+        }
+        onAccessPointPropertiesChanged: {
+            if(arg0 == devicePath){
+                var apInfo = unmarshalJSON(arg1)
+                accessPointsModel.addOrUpdateApItem(apInfo)
+            }
+        }
+    }
+
+    header.sourceComponent: DBaseLine{
+
+        leftLoader.sourceComponent: DssH2 {
+            anchors.verticalCenter: parent.verticalCenter
+            text: {
+                if(wirelessDevices.length < 2){
+                    return dsTr("Wireless Network")
+                }
+                else{
+                    return dsTr("Wireless Network %1").arg(index + 1)
+                }
+            }
+            MouseArea {
+                anchors.fill: parent
+                onClicked: scanTimer.restart()
+            }
+        }
+
+        rightLoader.sourceComponent: DSwitchButton{
+            checked: wirelessDeviceExpand.expanded
+            Connections {
+                // TODO still need connections block here, but why?
+                target: wirelessDeviceExpand
+                onExpandedChanged: {
+                    checked = wirelessDeviceExpand.expanded
+                }
+            }
+            onClicked: {
+                dbusNetwork.EnableDevice(devicePath, checked)
+            }
+        }
+    }
+
+    content.sourceComponent: Column {
+        width: parent.width
+
+        ListView {
+            width: parent.width
+            height: childrenRect.height
+            boundsBehavior: Flickable.StopAtBounds
+            model: accessPointsModel
+            delegate: WirelessItem {
+                devicePath: wirelessDeviceExpand.devicePath
+                deviceHwAddress: wirelessDeviceExpand.deviceHwAddress
+                activeAp: wirelessDeviceExpand.activeAp
+                deviceState: wirelessDeviceExpand.deviceState
+            }
+        }
+
+        DBaseLine {
+            id: hiddenNetworkLine
+            color: dconstants.contentBgColor
+
+            property bool hovered: false
+
+            leftLoader.sourceComponent: DssH2 {
+                anchors.left: parent.left
+                anchors.leftMargin: 24
+                anchors.verticalCenter: parent.verticalCenter
+                text: dsTr("Connect to hidden access point")
+                font.pixelSize: 12
+                color: hiddenNetworkLine.hovered ? dconstants.hoverColor : dconstants.fgColor
+            }
+            rightLoader.sourceComponent: DArrowButton {
+                onClicked: gotoConnectHiddenAP()
+            }
+
+            MouseArea {
+                z: -1
+                anchors.fill:parent
+                hoverEnabled: true
+                onEntered: parent.hovered = true
+                onExited: parent.hovered = false
+                onClicked: gotoConnectHiddenAP()
+            }
+        }
+
+        DSeparatorHorizontal {
+            visible: false
+        }
+
+        // TODO
+        /************
+        DBaseLine {
+            id: wifiHotspotLine
+            color: dconstants.contentBgColor
+            visible: true
+
+            property var hotspotInfo: {
+                var info = null
+                var infos = nmConnections[nmConnectionTypeWirelessHotspot]
+                for (var i in infos) {
+                    if (infos[i].HwAddress == "" || infos[i].HwAddress == deviceHwAddress) {
+                        info = infos[i]
+                        break
+                    }
+                }
+                return info
+            }
+
+            property bool hovered: false
+
+            leftLoader.sourceComponent: DssH2 {
+                anchors.left: parent.left
+                anchors.leftMargin: 24
+                anchors.verticalCenter: parent.verticalCenter
+                text: wifiHotspotLine.hotspotInfo ? dsTr("Hotspot") + wifiHotspotLine.hotspotInfo.Id : dsTr("Create Access Point")
+                font.pixelSize: 12
+                color: wifiHotspotLine.hovered ? dconstants.hoverColor : dconstants.fgColor
+            }
+            rightLoader.sourceComponent: DArrowButton {
+                onClicked: gotoCreateAP(wifiHotspotLine.hotspotInfo)
+            }
+
+            MouseArea {
+                z: -1
+                anchors.fill:parent
+                hoverEnabled: true
+                onEntered: parent.hovered = true
+                onExited: parent.hovered = false
+                onClicked: {
+                    if(wifiHotspotLine.hotspotInfo){
+                        dbusNetwork.ActivateConnection(wifiHotspotLine.hotspotInfo.Uuid, devicePath)
+                    }
+                    else{
+                        gotoCreateAP(wifiHotspotLine.hotspotInfo)
+                    }
+                }
+            }
+        }
+        ************/
     }
 
     ListModel {
@@ -104,7 +262,7 @@ DBaseExpand {
         }
 
         function removeApItem(index, apInfo) {
-            print("-> removeApItem", index, apInfo.Ssid, apInfo.Path) // TODO test
+            // print("-> removeApItem", index, apInfo.Ssid, apInfo.Path) // TODO test
             var item = get(index)
             for(var i=0; i<item.apInfos.count; i++){
                 if(item.apInfos.get(i).Path == apInfo.Path){
@@ -141,193 +299,13 @@ DBaseExpand {
         }
     }
 
-    Connections{
-        target: dbusNetwork
-        onAccessPointAdded:{
-            if(arg0 == devicePath){
-                // print("onAccessPointAdded:", arg0, arg1) // TODO test
-                var apInfo = unmarshalJSON(arg1)
-                accessPointsModel.addOrUpdateApItem(apInfo)
-            }
-        }
-
-        onAccessPointRemoved:{
-            if(arg0 == devicePath){
-                // print("onAccessPointRemoved:", arg0, arg1) // TODO test
-                var apInfo = unmarshalJSON(arg1)
-                var index = accessPointsModel.getIndexByPath(apInfo.Path)
-                if(index != -1){
-                    accessPointsModel.removeApItem(index, apInfo)
-                }
-            }
-        }
-
-        onAccessPointPropertiesChanged: {
-            if(arg0 == devicePath){
-                var apInfo = unmarshalJSON(arg1)
-                accessPointsModel.addOrUpdateApItem(apInfo)
-            }
-        }
-    }
-
-    header.sourceComponent: DBaseLine{
-
-        leftLoader.sourceComponent: DssH2 {
-            anchors.verticalCenter: parent.verticalCenter
-            text: {
-                if(wirelessDevices.length < 2){
-                    return dsTr("Wireless Network")
-                }
-                else{
-                    return dsTr("Wireless Network %1").arg(index + 1)
-                }
-            }
-            MouseArea {
-                anchors.fill: parent
-                onClicked: scanTimer.restart()
-            }
-        }
-
-        rightLoader.sourceComponent: DSwitchButton{
-            property var lastActiveUuid
-            Connections {
-                target: wirelessDevicesExpand
-                onDeviceEnabledChanged: {
-                    checked = wirelessDevicesExpand.deviceEnabled
-                }
-            }
-            Component.onCompleted: {
-                checked = wirelessDevicesExpand.deviceEnabled
-            }
-            onClicked: {
-                if (checked) {
-                    // enable device
-                    deviceEnabled = true
-                    if (!dbusNetwork.wirelessEnabled) {
-                        dbusNetwork.wirelessEnabled = true
-                    } else {
-                        if (lastActiveUuid) {
-                            dbusNetwork.ActivateConnection(lastActiveUuid, devicePath)
-                        }
-                    }
-                } else {
-                    // disable device
-                    deviceEnabled = false
-                    lastActiveUuid = getDeviceActiveConnection(devicePath)
-                    if (deviceState > nmDeviceStateDisconnected && deviceState <= nmDeviceStateActivated) {
-                        dbusNetwork.DisconnectDevice(devicePath)
-                    }
-                }
-            }
-        }
-    }
-
-    content.sourceComponent: Column {
-        width: parent.width
-
-        ListView {
-            width: parent.width
-            height: childrenRect.height
-            boundsBehavior: Flickable.StopAtBounds
-            model: accessPointsModel
-            delegate: WirelessItem {
-                devicePath: wirelessDevicesExpand.devicePath
-                deviceHwAddress: wirelessDevicesExpand.deviceHwAddress
-                activeAp: wirelessDevicesExpand.activeAp
-                deviceState: wirelessDevicesExpand.deviceState
-            }
-        }
-
-        DBaseLine {
-            id: hiddenNetworkLine
-            color: dconstants.contentBgColor
-
-            property bool hovered: false
-
-            leftLoader.sourceComponent: DssH2 {
-                anchors.left: parent.left
-                anchors.leftMargin: 24
-                anchors.verticalCenter: parent.verticalCenter
-                text: dsTr("Connect Hidden Access Point")
-                font.pixelSize: 12
-                color: hiddenNetworkLine.hovered ? dconstants.hoverColor : dconstants.fgColor
-            }
-            rightLoader.sourceComponent: DArrowButton {
-                onClicked: gotoConnectHiddenAP()
-            }
-
-            MouseArea {
-                z: -1
-                anchors.fill:parent
-                hoverEnabled: true
-                onEntered: parent.hovered = true
-                onExited: parent.hovered = false
-                onClicked: gotoConnectHiddenAP()
-            }
-        }
-
-        DSeparatorHorizontal {
-            visible: false
-        }
-
-        /************
-        DBaseLine {
-            id: wifiHotspotLine
-            color: dconstants.contentBgColor
-            visible: true
-
-            property var hotspotInfo: {
-                var info = null
-                var infos = nmConnections[nmConnectionTypeWirelessHotspot]
-                for (var i in infos) {
-                    if (infos[i].HwAddress == "" || infos[i].HwAddress == deviceHwAddress) {
-                        info = infos[i]
-                        break
-                    }
-                }
-                return info
-            }
-
-            property bool hovered: false
-
-            leftLoader.sourceComponent: DssH2 {
-                anchors.left: parent.left
-                anchors.leftMargin: 24
-                anchors.verticalCenter: parent.verticalCenter
-                text: wifiHotspotLine.hotspotInfo ? dsTr("Hotspot") + wifiHotspotLine.hotspotInfo.Id : dsTr("Create Access Point")
-                font.pixelSize: 12
-                color: wifiHotspotLine.hovered ? dconstants.hoverColor : dconstants.fgColor
-            }
-            rightLoader.sourceComponent: DArrowButton {
-                onClicked: gotoCreateAP(wifiHotspotLine.hotspotInfo)
-            }
-
-            MouseArea {
-                z: -1
-                anchors.fill:parent
-                hoverEnabled: true
-                onEntered: parent.hovered = true
-                onExited: parent.hovered = false
-                onClicked: {
-                    if(wifiHotspotLine.hotspotInfo){
-                        dbusNetwork.ActivateConnection(wifiHotspotLine.hotspotInfo.Uuid, devicePath)
-                    }
-                    else{
-                        gotoCreateAP(wifiHotspotLine.hotspotInfo)
-                    }
-                }
-            }
-        }
-        ************/
-    }
-
     // TODO
     Timer {
         id: sortModelTimer
         interval: 1000
         repeat: true
         onTriggered: {
-            wirelessDevicesExpand.sortModel()
+            wirelessDeviceExpand.sortModel()
         }
     }
 
@@ -341,7 +319,7 @@ DBaseExpand {
             for(var i in accessPoints){
                 accessPointsModel.addOrUpdateApItem(accessPoints[i])
             }
-            wirelessDevicesExpand.sortModel()
+            wirelessDeviceExpand.sortModel()
             sortModelTimer.start()
         }
     }

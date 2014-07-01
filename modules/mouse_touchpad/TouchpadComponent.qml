@@ -188,7 +188,7 @@ Item {
                 valueDisplayVisible: false
 
                 onValueConfirmed:{
-                    dbusTouchpad.dragThres = value
+                    dbusTouchpad.dragThreshold = value
                 }
 
                 Component.onCompleted: {
