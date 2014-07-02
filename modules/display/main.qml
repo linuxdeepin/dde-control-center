@@ -181,6 +181,14 @@ Column {
                     }
                     return myModel
                 }
+                Component.onCompleted:{
+                    for(var i=0; i<buttonModel.length; i++){
+                        if(buttonModel[i]["buttonId"].opened){
+                            currentIndex = i
+                            break
+                        }
+                    }
+                }
             }
         }
 
