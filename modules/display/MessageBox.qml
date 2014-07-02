@@ -53,11 +53,11 @@ Window {
 
     Timer {
         id: countdown
-        property int totalTime: 10
+        property int totalTime: 30
 
         function reset(){
             countdown.stop()
-            totalTime = 10
+            totalTime = 30
         }
 
         running: false
