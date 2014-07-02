@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-02 09:36+0800\n"
+"POT-Creation-Date: 2014-07-02 15:38+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -108,7 +108,7 @@ msgstr ""
 #: ../modules/date_time/TimeBox.qml:212
 #: ../modules/network/wireless/WifiHotspot.qml:86
 #: ../dock-applets/qml/WifiPasswordWindow.qml:171
-#: ../modules/display/main.qml:219
+#: ../modules/display/main.qml:227
 msgid "Cancel"
 msgstr ""
 
@@ -1081,11 +1081,11 @@ msgstr ""
 msgid "Resolution"
 msgstr ""
 
-#: ../modules/display/MonitorProperties.qml:164
+#: ../modules/display/MonitorProperties.qml:165
 msgid "Rotation"
 msgstr ""
 
-#: ../modules/display/MonitorProperties.qml:205
+#: ../modules/display/MonitorProperties.qml:206
 msgid "Brightness"
 msgstr ""
 
@@ -1532,14 +1532,14 @@ msgid "Software"
 msgstr ""
 
 #: ../modules/display/main.qml:117
-msgid "Main Monitor: "
+msgid "Primary Monitor: "
 msgstr ""
 
 #: ../modules/display/main.qml:148
 msgid "Monitor"
 msgstr ""
 
-#: ../modules/display/main.qml:200
+#: ../modules/display/main.qml:208
 msgid "Apply"
 msgstr ""
 

@@ -114,7 +114,7 @@ Column {
                 DssH3 {
                     visible: openedMonitors.length > 1
                     anchors.bottom: moduleName.bottom
-                    text: "(" + dsTr("Main Monitor: ") + displayId.primary + ")"
+                    text: "(" + dsTr("Primary Monitor: ") + displayId.primary + ")"
                     color: "white"
                 }
             }

@@ -1908,12 +1908,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/MonitorProperties.qml" line="164"/>
+        <location filename="../modules/display/MonitorProperties.qml" line="165"/>
         <source>Rotation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/MonitorProperties.qml" line="205"/>
+        <location filename="../modules/display/MonitorProperties.qml" line="206"/>
         <source>Brightness</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2763,7 +2763,7 @@
     </message>
     <message>
         <location filename="../modules/display/main.qml" line="117"/>
-        <source>Main Monitor: </source>
+        <source>Primary Monitor: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2772,12 +2772,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/main.qml" line="200"/>
+        <location filename="../modules/display/main.qml" line="208"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/main.qml" line="219"/>
+        <location filename="../modules/display/main.qml" line="227"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>

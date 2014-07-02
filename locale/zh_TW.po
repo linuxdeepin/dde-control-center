@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-02 09:36+0800\n"
+"POT-Creation-Date: 2014-07-02 15:38+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -115,7 +115,7 @@ msgstr "十一月"
 #: ../modules/date_time/TimeBox.qml:212
 #: ../modules/network/wireless/WifiHotspot.qml:86
 #: ../dock-applets/qml/WifiPasswordWindow.qml:171
-#: ../modules/display/main.qml:219
+#: ../modules/display/main.qml:227
 msgid "Cancel"
 msgstr "取消"
 
@@ -1154,11 +1154,11 @@ msgstr "左上"
 msgid "Resolution"
 msgstr "解析度"
 
-#: ../modules/display/MonitorProperties.qml:164
+#: ../modules/display/MonitorProperties.qml:165
 msgid "Rotation"
 msgstr "旋轉"
 
-#: ../modules/display/MonitorProperties.qml:205
+#: ../modules/display/MonitorProperties.qml:206
 msgid "Brightness"
 msgstr ""
 
@@ -1630,14 +1630,14 @@ msgstr "軟體"
 
 #: ../modules/display/main.qml:117
 #, fuzzy
-msgid "Main Monitor: "
+msgid "Primary Monitor: "
 msgstr "設為預設顯示器"
 
 #: ../modules/display/main.qml:148
 msgid "Monitor"
 msgstr "顯示器"
 
-#: ../modules/display/main.qml:200
+#: ../modules/display/main.qml:208
 msgid "Apply"
 msgstr "套用"
 
