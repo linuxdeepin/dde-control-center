@@ -2286,7 +2286,7 @@
     </message>
     <message>
         <location filename="../modules/account/WebCam.qml" line="136"/>
-        <source>Resnapshot</source>
+        <source>Again</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

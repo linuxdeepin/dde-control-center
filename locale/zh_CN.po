@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-01 17:57+0800\n"
+"POT-Creation-Date: 2014-07-02 09:36+0800\n"
 "PO-Revision-Date: 2014-06-04 15:34+0800\n"
 "Last-Translator: iceleaf916 <iceleaf916@gmail.com>\n"
 "Language-Team: Deepin <yekaisheng@linuxdeepin.com>\n"
@@ -1303,7 +1303,7 @@ msgid "Snapshot"
 msgstr "拍照"
 
 #: ../modules/account/WebCam.qml:136
-msgid "Resnapshot"
+msgid "Again"
 msgstr "重拍"
 
 #: ../modules/account/WebCam.qml:172
@@ -1844,6 +1844,9 @@ msgstr "ADSL"
 #: ../modules/network/main.qml:183
 msgid "Bridge"
 msgstr "桥接"
+
+#~ msgid "Resnapshot"
+#~ msgstr "重拍"
 
 #~ msgid "Lock Screen"
 #~ msgstr "锁屏"

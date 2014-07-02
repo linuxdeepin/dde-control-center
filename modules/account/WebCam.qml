@@ -133,7 +133,7 @@ Item {
         onClicked: {
             if (textIsSnapshotFlag) {
                 camera.snapshot()
-                text = dsTr("Resnapshot")
+                text = dsTr("Again")
                 textIsSnapshotFlag = false
             } else {
                 avatar_preview.visible = false
