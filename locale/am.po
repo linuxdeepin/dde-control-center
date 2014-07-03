@@ -1,0 +1,1846 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# samson <sambelet@yahoo.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: dde-control-center\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-07-02 15:38+0800\n"
+"PO-Revision-Date: 2014-07-02 08:41+0000\n"
+"Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
+"Language-Team: Amharic (http://www.transifex.com/projects/p/dde-control-center/language/am/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: am\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../modules/network/add/AddDsl.qml:11
+msgid "New PPPoE Connection"
+msgstr "አዲስ የ PPPoE ግንኙነት"
+
+#: ../modules/network/add/AddDsl.qml:25
+#: ../modules/network/add/AddMobile.qml:34
+#: ../modules/network/add/AddVpn.qml:104
+#: ../modules/network/edit_autogen/BaseConnectionEdit.qml:34
+#: ../modules/shortcuts/CustomKeybinding.qml:118
+msgid "Name"
+msgstr "ስም"
+
+#: ../modules/network/add/AddDsl.qml:38
+#: ../modules/network/add/AddMobile.qml:80
+#: ../modules/network/add/AddMobile.qml:113
+#: ../modules/account/AddUserDialog.qml:105
+#: ../modules/network/add/AddVpn.qml:128 ../modules/network/add/AddVpn.qml:271
+#: ../modules/network/add/AddVpn.qml:425 ../modules/network/add/AddVpn.qml:469
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:57
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:134
+#: ../modules/network/edit_autogen/EditSectionPppoe.qml:24
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:47
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:201
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:355
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:410
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:70
+msgid "Username"
+msgstr "የተጠቃሚ ስም"
+
+#: ../modules/network/add/AddDsl.qml:49
+#: ../modules/network/edit_autogen/EditSectionPppoe.qml:35
+msgid "Service"
+msgstr "ግልጋሎት"
+
+#: ../modules/network/add/AddDsl.qml:60
+#: ../modules/network/add/AddMobile.qml:91
+#: ../modules/network/add/AddMobile.qml:124
+#: ../modules/account/AddUserDialog.qml:137
+#: ../modules/network/add/AddVpn.qml:150 ../modules/network/add/AddVpn.qml:293
+#: ../modules/network/add/AddVpn.qml:447 ../modules/network/add/AddVpn.qml:592
+#: ../modules/network/wireless/AddWireless.qml:68
+#: ../modules/network/wireless/AddWireless.qml:202
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:68
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:145
+#: ../modules/network/edit_autogen/EditSectionPppoe.qml:46
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:57
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:191
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:69
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:223
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:377
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:57
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:81
+#: ../modules/account/PasswordDialog.qml:59
+#: ../modules/network/wireless/WifiHotspot.qml:73
+msgid "Password"
+msgstr "የመግቢያ ቃል"
+
+#: ../modules/network/add/AddMobile.qml:20
+msgid "New Mobile Connection"
+msgstr "አዲስ ተንቀሳቃሽ ግንኙነት"
+
+#: ../modules/network/add/AddMobile.qml:47
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:24
+msgid "Service Type"
+msgstr "የ ግልጋሎት አይነት"
+
+#: ../modules/network/add/AddMobile.qml:58
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:35
+msgid "APN"
+msgstr "APN"
+
+#: ../modules/network/add/AddMobile.qml:69
+#: ../modules/network/add/AddMobile.qml:102
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:46
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:123
+msgid "Number"
+msgstr "ቁጥር"
+
+#: ../modules/network/add/AddSectionSave.qml:11
+#: ../modules/account/AddUserDialog.qml:284
+#: ../modules/network/wireless/AddWireless.qml:234
+#: ../modules/network/ConnectionAdd.qml:69
+#: ../modules/network/ConnectionEdit.qml:146
+#: ../modules/shortcuts/CustomKeybinding.qml:151
+#: ../modules/account/DeleteUserDialog.qml:33
+#: ../modules/network/widgets/PasswordBox.qml:101
+#: ../modules/account/PasswordDialog.qml:172
+#: ../modules/shortcuts/ShortcutInput.qml:341
+#: ../modules/date_time/TimeBox.qml:212
+#: ../modules/network/wireless/WifiHotspot.qml:86
+#: ../dock-applets/qml/WifiPasswordWindow.qml:171
+#: ../modules/display/main.qml:227
+msgid "Cancel"
+msgstr "መሰረዣ"
+
+#: ../modules/network/add/AddSectionSave.qml:20
+#: ../modules/shortcuts/CustomKeybinding.qml:157
+#: ../modules/date_time/TimezoneArea.qml:231
+msgid "Add"
+msgstr "መጨመሪያ"
+
+#: ../modules/account/AddUserDialog.qml:56
+msgid "Add User"
+msgstr "ተጠቃሚ መጨመሪያ"
+
+#: ../modules/account/AddUserDialog.qml:84
+msgid "New User"
+msgstr "አዲስ ተጠቃሚ"
+
+#: ../modules/account/AddUserDialog.qml:88
+#: ../modules/account/AddUserDialog.qml:213
+#: ../modules/account/EditUserDialog.qml:131
+#: ../modules/account/UserList.qml:187
+msgid "Standard"
+msgstr "መደበኛ"
+
+#: ../modules/account/AddUserDialog.qml:88
+#: ../modules/account/AddUserDialog.qml:214
+#: ../modules/account/EditUserDialog.qml:132
+#: ../modules/account/UserList.qml:187
+msgid "Administrator"
+msgstr "አስተዳዳሪ"
+
+#: ../modules/account/AddUserDialog.qml:170
+msgid "Repeat Password"
+msgstr "የመግቢያ ቃሉን እንደገና ይጻፉ"
+
+#: ../modules/account/AddUserDialog.qml:201
+#: ../modules/account/EditUserDialog.qml:119
+msgid "Account Type"
+msgstr "የመግለጫ አይነት"
+
+#: ../modules/account/AddUserDialog.qml:233
+#: ../modules/account/EditUserDialog.qml:52
+msgid "Auto-login"
+msgstr "በራሱ-መግቢያ"
+
+#: ../modules/account/AddUserDialog.qml:297
+#: ../modules/account/DeleteUserDialog.qml:46
+#: ../modules/account/PasswordDialog.qml:186 ../modules/account/WebCam.qml:148
+msgid "Confirm"
+msgstr "ማረጋገጫ"
+
+#: ../modules/network/add/AddVpn.qml:15
+msgid "VPN Type"
+msgstr "VPN Type"
+
+#: ../modules/network/add/AddVpn.qml:36
+msgid "L2TP"
+msgstr "L2TP"
+
+#: ../modules/network/add/AddVpn.qml:37
+msgid "PPTP"
+msgstr "PPTP"
+
+#: ../modules/network/add/AddVpn.qml:38
+msgid "OpenVPN"
+msgstr "OpenVPN"
+
+#: ../modules/network/add/AddVpn.qml:39
+msgid "OpenConnect"
+msgstr "መገናኛ መክፈቻ"
+
+#: ../modules/network/add/AddVpn.qml:40
+msgid "VPNC"
+msgstr "VPNC"
+
+#: ../modules/network/add/AddVpn.qml:69
+msgid "Basic Information"
+msgstr "መሰረታዊ መረጃ"
+
+#: ../modules/network/add/AddVpn.qml:83
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:24
+msgid "Need VPN Plugin"
+msgstr ""
+
+#: ../modules/network/add/AddVpn.qml:117 ../modules/network/add/AddVpn.qml:161
+#: ../modules/network/add/AddVpn.qml:249 ../modules/network/add/AddVpn.qml:414
+#: ../modules/network/add/AddVpn.qml:458
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:61
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:59
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:36
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:91
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:179
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:344
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:399
+msgid "Gateway"
+msgstr "Gateway"
+
+#: ../modules/network/add/AddVpn.qml:139 ../modules/network/add/AddVpn.qml:282
+#: ../modules/network/add/AddVpn.qml:337 ../modules/network/add/AddVpn.qml:436
+#: ../modules/network/add/AddVpn.qml:480 ../modules/network/add/AddVpn.qml:513
+#: ../modules/network/wireless/AddWireless.qml:190
+#: ../modules/network/wireless/AddWireless.qml:213
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:179
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:202
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:58
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:212
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:267
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:366
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:421
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:454
+msgid "Ask for Pwd"
+msgstr "የመግቢያ ቃል ጠይቅ"
+
+#: ../modules/network/add/AddVpn.qml:172 ../modules/network/add/AddVpn.qml:304
+#: ../modules/network/wireless/AddWireless.qml:112
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:101
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:102
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:234
+msgid "CA Cert"
+msgstr "CA Cert"
+
+#: ../modules/network/add/AddVpn.qml:183
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:113
+msgid "Proxy"
+msgstr "ወኪል"
+
+#: ../modules/network/add/AddVpn.qml:194
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:124
+msgid "Allow Cisco Secure Desktop Trojan"
+msgstr ""
+
+#: ../modules/network/add/AddVpn.qml:205
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:135
+msgid "CSD Wrapper"
+msgstr "CSD Wrapper"
+
+#: ../modules/network/add/AddVpn.qml:227 ../modules/network/add/AddVpn.qml:326
+#: ../modules/network/wireless/AddWireless.qml:179
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:168
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:157
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:256
+msgid "Private Key"
+msgstr "የ ግል ቁልፍ"
+
+#: ../modules/network/add/AddVpn.qml:238
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:168
+msgid "User FSID For Key Passphrase"
+msgstr ""
+
+#: ../modules/network/add/AddVpn.qml:260
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:190
+msgid "Auth Type"
+msgstr ""
+
+#: ../modules/network/add/AddVpn.qml:216 ../modules/network/add/AddVpn.qml:315
+#: ../modules/network/wireless/AddWireless.qml:123
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:112
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:146
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:245
+msgid "User Cert"
+msgstr ""
+
+#: ../modules/network/add/AddVpn.qml:348
+#: ../modules/network/wireless/AddWireless.qml:224
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:213
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:278
+msgid "Private Pwd"
+msgstr ""
+
+#: ../modules/network/add/AddVpn.qml:359
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:289
+msgid "Static Key"
+msgstr ""
+
+#: ../modules/network/add/AddVpn.qml:370
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:300
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:57
+msgid "Use Key Direction"
+msgstr "የቁልፍ አቅጣጫ ይጠቀሙ"
+
+#: ../modules/network/add/AddVpn.qml:381
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:311
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:68
+msgid "Key Direction"
+msgstr "የቁልፍ አቅጣጫ"
+
+#: ../modules/network/add/AddVpn.qml:392
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:322
+msgid "Remote IP"
+msgstr ""
+
+#: ../modules/network/add/AddVpn.qml:403
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:333
+msgid "Local IP"
+msgstr ""
+
+#: ../modules/network/add/AddVpn.qml:491
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:432
+msgid "User Pwd"
+msgstr "የተጠቃሚ መግቢያ ቃል "
+
+#: ../modules/network/add/AddVpn.qml:502 ../modules/network/add/AddVpn.qml:570
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:443
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:35
+msgid "Group Name"
+msgstr "የቡድን ስም"
+
+#: ../modules/network/add/AddVpn.qml:524
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:465
+msgid "Group Pwd"
+msgstr "የቡድን መግቢያ ቃል"
+
+#: ../modules/network/add/AddVpn.qml:535
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:476
+msgid "Use Hybrid Authentication"
+msgstr ""
+
+#: ../modules/network/add/AddVpn.qml:546
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:487
+msgid "CA File"
+msgstr "CA File"
+
+#: ../modules/network/add/AddVpn.qml:559
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:24
+msgid "Enable IPsec"
+msgstr ""
+
+#: ../modules/network/add/AddVpn.qml:581
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:46
+msgid "Group ID"
+msgstr ""
+
+#: ../modules/network/add/AddVpn.qml:605 ../modules/network/add/AddVpn.qml:618
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:24
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:24
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:24
+msgid "Use MPPE"
+msgstr "Use MPPE"
+
+#: ../modules/network/wireless/AddWireless.qml:8
+msgid "Connect to wireless"
+msgstr "ወደ ሽቦ አልባ መገናኛ"
+
+#: ../modules/network/wireless/AddWireless.qml:33
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:24
+#: ../modules/network/wireless/WifiHotspot.qml:38
+msgid "SSID"
+msgstr "SSID"
+
+#: ../modules/network/wireless/AddWireless.qml:46
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:11
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:35
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:35
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:35
+#: ../modules/network/wireless/WifiHotspot.qml:51
+msgid "Security"
+msgstr "ደህንነት"
+
+#: ../modules/network/wireless/AddWireless.qml:57
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:46
+#: ../modules/network/wireless/WifiHotspot.qml:62
+msgid "Key"
+msgstr "ቁልፍ"
+
+#: ../modules/network/wireless/AddWireless.qml:79
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:68
+msgid "EAP Auth"
+msgstr "EAP Auth"
+
+#: ../modules/network/wireless/AddWireless.qml:90
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:79
+msgid "Identity"
+msgstr "መለያ"
+
+#: ../modules/network/wireless/AddWireless.qml:101
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:90
+msgid "Anonymous ID"
+msgstr "ያልታወቀ ID"
+
+#: ../modules/network/wireless/AddWireless.qml:134
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:123
+msgid "Provisioning"
+msgstr ""
+
+#: ../modules/network/wireless/AddWireless.qml:145
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:134
+msgid "PAC file"
+msgstr ""
+
+#: ../modules/network/wireless/AddWireless.qml:156
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:145
+msgid "PEAP Version"
+msgstr ""
+
+#: ../modules/network/wireless/AddWireless.qml:167
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:156
+msgid "Inner Auth"
+msgstr ""
+
+#: ../modules/network/wireless/AddWireless.qml:242
+#: ../modules/network/widgets/PasswordBox.qml:109
+#: ../dock-applets/qml/WifiPasswordWindow.qml:178
+msgid "Connect"
+msgstr "መገናኛ"
+
+#: ../modules/network/AppletSwitchArea.qml:40
+#: ../modules/power/AppletSwitchArea.qml:40
+#: ../modules/sound/AppletSwitchArea.qml:40
+msgid "Dock Applet Enabled"
+msgstr ""
+
+#: ../modules/account/AvatarPickDialog.qml:5
+msgid "Choose a new picture for your image"
+msgstr "ለእርስዎ ምስል አዲስ ስእል ይምረጡ"
+
+#: ../modules/account/AvatarView.qml:18
+msgid "Recently Used"
+msgstr "በቅርብ የተጠቀሙት"
+
+#: ../modules/account/AvatarView.qml:19
+msgid "Default"
+msgstr "ነባር"
+
+#: ../modules/account/AvatarView.qml:20
+msgid "Webcam"
+msgstr "ዌብ ካሜራ"
+
+#: ../modules/network/edit_autogen/BaseConnectionEdit.qml:45
+#: ../modules/network/edit_autogen/EditSectionGeneral.qml:24
+msgid "Automatically connect"
+msgstr "ራሱ በራሱ መገናኛ"
+
+#: ../modules/date_time/Calendar.qml:125
+msgid "Today"
+msgstr "ዛሬ"
+
+#: ../modules/date_time/CalendarComponent.qml:80
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:168
+msgid "Sun"
+msgstr "እሑድ"
+
+#: ../modules/date_time/CalendarComponent.qml:81
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:169
+msgid "Mon"
+msgstr "ሰኞ"
+
+#: ../modules/date_time/CalendarComponent.qml:82
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:170
+msgid "Tue"
+msgstr "ማክሰ"
+
+#: ../modules/date_time/CalendarComponent.qml:83
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:171
+msgid "Wed"
+msgstr "ረቡዕ"
+
+#: ../modules/date_time/CalendarComponent.qml:84
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:172
+msgid "Thu"
+msgstr "ሐሙስ"
+
+#: ../modules/date_time/CalendarComponent.qml:85
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:173
+msgid "Fri"
+msgstr "አርብ"
+
+#: ../modules/date_time/CalendarComponent.qml:86
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:174
+msgid "Sat"
+msgstr "ቅዳሜ"
+
+#: ../modules/network/ConnectionAdd.qml:12
+msgid "New Network"
+msgstr "አዲስ ኔትዎርክ"
+
+#: ../modules/network/ConnectionAdd.qml:35
+#: ../modules/network/edit_autogen/EditSectionPppoe.qml:11
+msgid "PPPoE"
+msgstr "PPPoE"
+
+#: ../modules/network/ConnectionAdd.qml:45
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:11
+msgid "VPN"
+msgstr "VPN"
+
+#: ../modules/network/ConnectionAdd.qml:77
+msgid "Next"
+msgstr "ይቀጥሉ"
+
+#: ../modules/network/ConnectionEdit.qml:51
+msgid "Delete this network"
+msgstr "ይህን ኔትዎርክ ማጥፊያ"
+
+#: ../modules/network/ConnectionEdit.qml:51
+msgid "Are you sure you want to delete this network?"
+msgstr "በእርግጥ ይህን ኔትዎርክ ማጥፋት ይፈልጋሉ?"
+
+#: ../modules/network/ConnectionEdit.qml:101
+#: ../modules/network/wireless/WifiHotspot.qml:95
+msgid "Save"
+msgstr "ማስቀመጫ"
+
+#: ../modules/network/ConnectionEdit.qml:113 ../modules/network/Info.qml:73
+#: ../modules/date_time/StateButtons.qml:35
+#: ../modules/date_time/TimezoneArea.qml:234
+msgid "Close"
+msgstr "መዝጊያ"
+
+#: ../modules/network/ConnectionEdit.qml:134
+msgid "Delete"
+msgstr "ማጥፊያ"
+
+#: ../modules/shortcuts/CustomKeybinding.qml:133
+msgid "Command"
+msgstr "ትእዛዝ"
+
+#: ../modules/account/DeleteUserDialog.qml:19
+msgid "Keep user's files"
+msgstr "የተጠቃሚዎችን ፋይሎች መጠበቂያ"
+
+#: ../modules/account/DeleteUserDialog.qml:20
+msgid "Delete user's files"
+msgstr "የተጠቃሚዎችን ፋይሎች ማጥፊያ"
+
+#: ../dock-applets/qml/disk_mount/DiskItem.qml:124
+msgid "Unmount failed!"
+msgstr "ማውረድ አልተቻለም!"
+
+#: ../modules/network/dsl/DslExpand.qml:19
+msgid "PPPoE Connections"
+msgstr "PPPoE ግንኙነቶች"
+
+#: ../modules/network/edit/EditLineMissingPackage.qml:15
+#, qt-format
+msgid "Current system lacks component for %1"
+msgstr "ይህ ስርአት ይህ አካል ይጎድለዋል ለ %1"
+
+#: ../modules/network/edit/EditLineMissingPackage.qml:22
+msgid "Click to install"
+msgstr "ለመግጠም ይጫኑ"
+
+#: ../modules/network/edit_autogen/EditSectionEthernet.qml:11
+msgid "Ethernet"
+msgstr "ኢተርኔት"
+
+#: ../modules/network/edit_autogen/EditSectionEthernet.qml:24
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:70
+msgid "Device MAC Addr"
+msgstr "Device MAC Addr"
+
+#: ../modules/network/edit_autogen/EditSectionEthernet.qml:35
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:81
+msgid "Cloned MAC Addr"
+msgstr "Cloned MAC Addr"
+
+#: ../modules/network/edit_autogen/EditSectionEthernet.qml:46
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:92
+msgid "Custom MTU"
+msgstr "Custom MTU"
+
+#: ../modules/network/edit_autogen/EditSectionEthernet.qml:57
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:116
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:103
+msgid "MTU"
+msgstr "MTU"
+
+#: ../modules/network/edit_autogen/EditSectionGeneral.qml:11
+msgid "General"
+msgstr "ባጠቃላይ"
+
+#: ../modules/network/edit_autogen/EditSectionGeneral.qml:35
+msgid "For All Users"
+msgstr "ለሁሉም ተጠቃሚዎች"
+
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:11
+msgid "IPv4"
+msgstr "IPv4"
+
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:24
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:24
+msgid "Method"
+msgstr "ዘዴ"
+
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:35
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:35
+#: ../modules/network/Info.qml:58
+msgid "IP Address"
+msgstr "IP Address"
+
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:47
+msgid "Netmask"
+msgstr "Netmask"
+
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:74
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:70
+msgid "DNS Server"
+msgstr "DNS Server"
+
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:11
+msgid "IPv6"
+msgstr "IPv6"
+
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:46
+msgid "Prefix"
+msgstr "መነሻ"
+
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:11
+msgid "Mobile"
+msgstr "ተንቀሳቃሽ"
+
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:79
+msgid "Network ID"
+msgstr "የ ኔትዎርክ ID"
+
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:90
+msgid "Type"
+msgstr "አይነት"
+
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:101
+msgid "Home Network Only"
+msgstr "የቤት ኔትዎርክ ብቻ"
+
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:112
+msgid "PIN"
+msgstr "PIN"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:11
+msgid "PPP"
+msgstr "PPP"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:36
+msgid "128-bit MPPE"
+msgstr "128-bit MPPE"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:48
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:46
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:46
+msgid "Stateful MPPE"
+msgstr "Stateful MPPE"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:59
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:57
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:57
+msgid "Refuse EAP Authentication"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:70
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:69
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:69
+msgid "Refuse PAP Authentication"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:81
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:81
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:81
+msgid "Refuse CHAP Authentication"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:92
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:93
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:93
+msgid "Refuse MSCHAP Authentication"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:103
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:105
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:105
+msgid "Refuse MSCHAPv2 Authentication"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:114
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:117
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:116
+msgid "No BSD Data Compression"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:125
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:128
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:127
+msgid "No Deflate Data Compression"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:136
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:139
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:138
+msgid "No TCP Header Compression"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:147
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:172
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:149
+msgid "Send PPP Echo Packets"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:24
+msgid "Security Required"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:80
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:388
+msgid "NT Domain"
+msgstr "NT Domain"
+
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:11
+msgid "VPN IPsec"
+msgstr "VPN IPsec"
+
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:11
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:11
+msgid "VPN PPP"
+msgstr "VPN PPP"
+
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:150
+msgid "No Protocol Field Compression"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:161
+msgid "No Address/Control Compression"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:11
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:11
+msgid "VPN Advanced"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:24
+msgid "Use Custom Gateway Port"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:35
+msgid "Gateway Port"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:48
+msgid "Use Custom Renegotiation Interval"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:59
+msgid "Renegotiation Interval"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:72
+msgid "Use LZO data compression"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:83
+msgid "Use TCP connection"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:94
+msgid "Use TAP device"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:105
+msgid "Use Custom Tunnel MTU"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
+msgid "Use Custom UDP Fragment Size"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:140
+msgid "UDP Fragment Size"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:153
+msgid "Restrict Tunnel TCP MSS"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:164
+msgid "Randomize Remote Hosts"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:11
+msgid "VPN Proxies"
+msgstr "VPN Proxies"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:24
+msgid "Proxy Type"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:35
+msgid "Server IP"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:46
+#: ../modules/network/proxy/ProxyLine.qml:39
+msgid "Port"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:59
+msgid "Retry Indefinitely When Failed"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:11
+msgid "VPN Security"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:24
+msgid "Cipher"
+msgstr "Cipher"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:35
+msgid "HMAC Auth"
+msgstr "HMAC Auth"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:11
+msgid "VPN TLS Authentication"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:24
+msgid "Subject Match"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:35
+msgid "Remote Cert Type"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:46
+msgid "Key File"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:24
+msgid "Domain"
+msgstr "ግዛት"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:35
+msgid "Vendor"
+msgstr "ሻጭ"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:46
+msgid "Version"
+msgstr "እትም"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:57
+msgid "Encryption"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:68
+msgid "NAT Traversal"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:79
+msgid "IKE DH Group"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:90
+msgid "Forward Secrecy"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:101
+msgid "Local Port"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:114
+msgid "Disable Dead Peer Detection"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:11
+msgid "Wi-Fi"
+msgstr "ዋይ-ፋይ"
+
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:35
+msgid "Mode"
+msgstr "ዘዴ"
+
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:46
+msgid "Band"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:58
+msgid "Channel"
+msgstr "ጣቢያ"
+
+#: ../modules/account/EditUserDialog.qml:86
+msgid "Enable"
+msgstr "ማስቻያ"
+
+#: ../modules/personalization/components/FontSettingsExpand.qml:36
+msgid "Size"
+msgstr "መጠን"
+
+#: ../modules/personalization/components/FontSettingsExpand.qml:65
+#, qt-format
+msgid "Font %1"
+msgstr "ፊደል %1"
+
+#: ../modules/account/GuestUser.qml:40 ../frame/views/HeaderArea.qml:108
+msgid "Guest"
+msgstr "እንግዳ"
+
+#: ../modules/account/GuestUser.qml:101
+#: ../modules/display/MonitorProperties.qml:80
+msgid "Enabled"
+msgstr "ተችሏል"
+
+#: ../modules/network/Info.qml:11
+msgid "Activated Connections"
+msgstr "ግንኙነቶች ማስነሻ"
+
+#: ../modules/network/Info.qml:56
+msgid "Device Type"
+msgstr "የ አካሉ አይነት"
+
+#: ../modules/network/Info.qml:57
+msgid "Device Addr"
+msgstr ""
+
+#: ../modules/network/Info.qml:59
+msgid "Subnet Mask"
+msgstr ""
+
+#: ../modules/network/Info.qml:60
+msgid "Route Addr"
+msgstr ""
+
+#: ../modules/network/Info.qml:61
+msgid "Primary DNS"
+msgstr ""
+
+#: ../modules/network/Info.qml:62
+msgid "Addtional DNS"
+msgstr ""
+
+#: ../modules/network/Info.qml:63
+msgid "Device Speed"
+msgstr ""
+
+#: ../modules/date_time/LocaleArea.qml:78
+msgid "Language"
+msgstr "ቋንቋ"
+
+#: ../modules/display/MessageBox.qml:109
+msgid "Do you want to keep these display settings?"
+msgstr "ይህን የማሳያ ማሰናጃ መጠበቅ ይፈልጋሉ?"
+
+#: ../modules/display/MessageBox.qml:119
+#, qt-format
+msgid ""
+"Reverting to previous display settings in <font color='#F48914'>%1</font> "
+"seconds."
+msgstr ""
+
+#: ../modules/display/MessageBox.qml:131
+msgid "Keep Changes"
+msgstr "ለውጦቹን ማስቀመጫ"
+
+#: ../modules/display/MessageBox.qml:139
+msgid "Revert"
+msgstr "ወደ ነበረበት መመለሻ"
+
+#: ../frame/views/ModulesData.qml:28 ../dock-applets/qml/main.qml:45
+msgid "Date and Time"
+msgstr "ቀን እና ሰአት"
+
+#: ../frame/views/ModulesData.qml:29 ../dock-applets/qml/main.qml:41
+msgid "Network"
+msgstr "ኔትዎርክ"
+
+#: ../frame/views/ModulesData.qml:30 ../dock-applets/qml/main.qml:44
+msgid "Disk Mount"
+msgstr "ዲስክ መጫኛ"
+
+#: ../frame/views/ModulesData.qml:31 ../modules/network/main.qml:167
+msgid "Bluetooth"
+msgstr "ብሉቱዝ"
+
+#: ../frame/views/ModulesData.qml:32 ../dock-applets/qml/main.qml:42
+msgid "Sound"
+msgstr "ድምፅ"
+
+#: ../frame/views/ModulesData.qml:33
+msgid "Power Management"
+msgstr "የ ሐይል አስተዳዳሪ"
+
+#: ../frame/views/ModulesData.qml:34
+msgid "More Settings"
+msgstr "ተጨማሪ ማሰናጃዎች"
+
+#: ../frame/views/ModulesData.qml:35 ../frame/views/PanelContent.qml:421
+#: ../dock-applets/qml/main.qml:43
+msgid "Power"
+msgstr "ሐይል"
+
+#: ../frame/views/ModulesData.qml:36
+msgid "Display"
+msgstr "ማሳያ"
+
+#: ../frame/views/ModulesData.qml:37
+msgid "Desktop"
+msgstr "ዴስክቶፕ"
+
+#: ../frame/views/ModulesData.qml:38
+msgid "Personalization"
+msgstr "የግል ማድረጊያ"
+
+#: ../frame/views/ModulesData.qml:39
+msgid "Keyboard Shortcuts"
+msgstr "የፊደል ገበታ አቋራጮች"
+
+#: ../frame/views/ModulesData.qml:40
+msgid "Keyboard"
+msgstr "የፊደል ገበታ"
+
+#: ../frame/views/ModulesData.qml:41
+msgid "Mouse and Touchpad"
+msgstr "አይጥ እና ተችፓድ"
+
+#: ../frame/views/ModulesData.qml:42 ../modules/mouse_touchpad/main.qml:50
+msgid "Mouse"
+msgstr "አይጥ"
+
+#: ../frame/views/ModulesData.qml:43
+msgid "User Accounts"
+msgstr "የተጠቃሚ መግለጫዎች"
+
+#: ../frame/views/ModulesData.qml:44
+#: ../modules/default_applications/main.qml:62
+msgid "Default Applications"
+msgstr "ነባር መተግበሪያዎች"
+
+#: ../frame/views/ModulesData.qml:45
+msgid "System Information"
+msgstr "የ ስርአት መረጃ"
+
+#: ../frame/views/ModulesData.qml:46
+msgid "Boot Menu"
+msgstr ""
+
+#: ../frame/views/ModulesData.qml:47
+msgid "Home"
+msgstr "ቤት"
+
+#: ../modules/display/MonitorComponent.qml:234
+msgid "Set as primary display"
+msgstr "እንደ ቀዳሚ ማሳያ ማሰናጃ "
+
+#: ../modules/display/MonitorDragArea.qml:446
+msgid "Identify"
+msgstr "መለያ"
+
+#: ../modules/display/MonitorDragArea.qml:463
+msgid "Edit"
+msgstr "ማረሚያ"
+
+#: ../modules/display/MonitorProperties.qml:47
+msgid "Normal"
+msgstr "መደበኛ"
+
+#: ../modules/display/MonitorProperties.qml:48
+msgid "Rotate Right"
+msgstr "ወደ ቀኝ ማዞሪያ"
+
+#: ../modules/display/MonitorProperties.qml:49
+msgid "Upside Down"
+msgstr "መገልበጫ"
+
+#: ../modules/display/MonitorProperties.qml:50
+msgid "Rotate Left"
+msgstr "ወደ ግራ ማዞሪያ"
+
+#: ../modules/display/MonitorProperties.qml:112
+msgid "Resolution"
+msgstr "ሪዞሊሽን"
+
+#: ../modules/display/MonitorProperties.qml:165
+msgid "Rotation"
+msgstr "ማዞሪያ"
+
+#: ../modules/display/MonitorProperties.qml:206
+msgid "Brightness"
+msgstr "ብሩህነት"
+
+#: ../modules/network/wired/NewItem.qml:41
+#: ../modules/network/wired/WiredItem.qml:80
+#, qt-format
+msgid "Wired Connection %1"
+msgstr "በሽቦ የተገናኘ ግንኙነት %1"
+
+#: ../modules/network/widgets/PasswordBox.qml:76
+msgid "Password: "
+msgstr "የመግቢያ ቃል:"
+
+#: ../modules/account/PasswordDialog.qml:101
+msgid "New Password"
+msgstr "አዲስ የመግቢያ ቃል"
+
+#: ../modules/account/PasswordDialog.qml:135
+msgid "Repeat"
+msgstr "መድገሚያ"
+
+#: ../modules/grub/Preview.qml:126
+msgid "Drag and drop an image to change background."
+msgstr "መደቡን ለመቀየር ምስሉን ይጎትቱ እና ይጣሉ"
+
+#: ../modules/grub/Preview.qml:127
+msgid "Background is changing, please reboot later..."
+msgstr ""
+
+#: ../modules/grub/Preview.qml:128
+msgid "Successfully changed, reboot to view."
+msgstr ""
+
+#: ../modules/network/proxy/ProxyContent.qml:42
+msgid "None"
+msgstr "ምንም"
+
+#: ../modules/network/proxy/ProxyContent.qml:47
+msgid "Manual"
+msgstr "በእጅ"
+
+#: ../modules/network/proxy/ProxyContent.qml:52
+msgid "Auto"
+msgstr "በራሱ"
+
+#: ../modules/network/proxy/ProxyContent.qml:87
+msgid "HTTP Proxy"
+msgstr "HTTP Proxy"
+
+#: ../modules/network/proxy/ProxyContent.qml:99
+msgid "HTTPS Proxy"
+msgstr "HTTPS Proxy"
+
+#: ../modules/network/proxy/ProxyContent.qml:111
+msgid "FTP Proxy"
+msgstr "FTP Proxy"
+
+#: ../modules/network/proxy/ProxyContent.qml:123
+msgid "Socks Host"
+msgstr ""
+
+#: ../modules/network/proxy/ProxyContent.qml:148
+msgid "Configuration URL"
+msgstr ""
+
+#: ../modules/network/proxy/ProxyContent.qml:165
+msgid "Apply system wide"
+msgstr "በስርአቱ ሙሉ መፈጸሚያ"
+
+#: ../modules/network/proxy/ProxyExpand.qml:37
+msgid "System Proxy"
+msgstr ""
+
+#: ../modules/shared/ResetButton.qml:39
+msgid "Reset successfully"
+msgstr "እንደ ነበር ተሳክቶ ተመልሷል"
+
+#: ../modules/shared/ResetButton.qml:47
+msgid "Reset"
+msgstr "እንደ ነበር መመለሻ"
+
+#: ../modules/shortcuts/ShortcutInput.qml:108
+msgid "Disable"
+msgstr "ማሰናከያ"
+
+#: ../modules/shortcuts/ShortcutInput.qml:126
+msgid "Please input new shortcut"
+msgstr "እባክዎን አዲስ አቋራጭ ያስገቡ"
+
+#: ../modules/shortcuts/ShortcutInput.qml:224
+#, qt-format
+msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
+msgstr "አቋራጩ \"%1\" ዋጋ የሌለው ነው እባክዎን አቋራጭ እንደገና ይጻፉ"
+
+#: ../modules/shortcuts/ShortcutInput.qml:262
+msgid "The shortcut you set "
+msgstr "እርስዎ ያሰናዱት አቋራጭ"
+
+#: ../modules/shortcuts/ShortcutInput.qml:265
+#, qt-format
+msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
+msgstr ""
+
+#: ../modules/shortcuts/ShortcutInput.qml:267
+msgid "Do you want to replace it?"
+msgstr "መቀየር ይፈልጋሉ?"
+
+#: ../modules/shortcuts/ShortcutInput.qml:325
+msgid "Replace"
+msgstr "መቀየሪያ"
+
+#: ../modules/personalization/widgets/ShowPreviewButton.qml:53
+msgid "Preview Theme"
+msgstr "የገጽታ ቅድመ እይታ"
+
+#: ../modules/date_time/StateButtons.qml:34
+#: ../modules/keyboard/StateButtons.qml:34
+#: ../modules/shortcuts/StateButtons.qml:38
+msgid "Done"
+msgstr "ተፈጽሟል"
+
+#: ../modules/personalization/widgets/ThemeItem.qml:107
+#: ../dock-applets/qml/power/main.qml:46 ../modules/power/main.qml:268
+#: ../modules/power/main.qml:443 ../modules/shortcuts/main.qml:53
+#: ../modules/shortcuts/main.qml:224
+msgid "Custom"
+msgstr ""
+
+#: ../modules/date_time/TimeBox.qml:161
+msgid "Double-click the above digits to change your time."
+msgstr ""
+
+#: ../modules/date_time/TimeBox.qml:196
+msgid "Set"
+msgstr "ማሰናጃ"
+
+#: ../modules/date_time/TimezoneArea.qml:86
+msgid "Time zone"
+msgstr "የሰአት ክልል"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:51
+msgid "Touchpad"
+msgstr "ተችፓድ"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:82
+#: ../modules/mouse_touchpad/main.qml:67
+msgid "Primary Button"
+msgstr "ቀዳሚ ቁልፍ"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:90
+#: ../modules/mouse_touchpad/main.qml:74
+msgid "Left Button"
+msgstr "የ ግራ ቁልፍ"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:91
+#: ../modules/mouse_touchpad/main.qml:75
+msgid "Right Button"
+msgstr "የ ቀኝ ቁልፍ"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:104
+#: ../modules/mouse_touchpad/main.qml:88
+msgid "Pointer Speed"
+msgstr "የመጠቆሚያው ፍጥነት"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:119
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:169
+#: ../modules/keyboard/main.qml:146 ../modules/keyboard/main.qml:172
+#: ../modules/mouse_touchpad/main.qml:103
+#: ../modules/mouse_touchpad/main.qml:155
+msgid "Slow"
+msgstr "በዝግታ"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:120
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:170
+#: ../modules/keyboard/main.qml:145 ../modules/keyboard/main.qml:171
+#: ../modules/mouse_touchpad/main.qml:104
+#: ../modules/mouse_touchpad/main.qml:156
+msgid "Fast"
+msgstr "በፍጥነት"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:154
+#: ../modules/mouse_touchpad/main.qml:140
+msgid "Double-click Speed"
+msgstr "የ ሁለት ጊዜ-መጫኛ ፍጥነት "
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:180
+msgid "Drag Threshold"
+msgstr ""
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:195
+#: ../modules/keyboard/main.qml:120
+msgid "Short"
+msgstr "አጭር"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:196
+#: ../modules/keyboard/main.qml:121
+msgid "Long"
+msgstr "ረጅም"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:205
+msgid "Natural Scrolling"
+msgstr ""
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:228
+msgid "Tap to click"
+msgstr ""
+
+#: ../modules/network/vpn/VpnExpand.qml:48
+msgid "VPN Connections"
+msgstr ""
+
+#: ../modules/account/WebCam.qml:125 ../modules/account/WebCam.qml:140
+msgid "Snapshot"
+msgstr ""
+
+#: ../modules/account/WebCam.qml:136
+msgid "Again"
+msgstr ""
+
+#: ../modules/account/WebCam.qml:172
+msgid "No camera found."
+msgstr "ካሜራ አልተገኘም"
+
+#: ../modules/network/wireless/WifiHotspot.qml:23
+msgid "Edit Wi-Fi Hotspot"
+msgstr ""
+
+#: ../modules/network/wireless/WifiHotspot.qml:23
+msgid "Create Wi-Fi Hotspot"
+msgstr ""
+
+#: ../modules/network/wireless/WifiHotspot.qml:95
+msgid "Create"
+msgstr "መፍጠሪያ"
+
+#: ../dock-applets/qml/WifiPasswordWindow.qml:127
+msgid "Authentication required by Wi-Fi network"
+msgstr ""
+
+#: ../dock-applets/qml/WifiPasswordWindow.qml:135
+#, qt-format
+msgid ""
+"Passwords or encryption keys are required to access the Wi-Fi network <font "
+"color=\"#faca57\">%1</font>"
+msgstr ""
+
+#: ../dock-applets/qml/WifiPasswordWindow.qml:149
+msgid "Password:"
+msgstr "የመግቢያ ቃል:"
+
+#: ../modules/network/wired/WiredDeviceExpand.qml:37
+msgid "Wired Network"
+msgstr "በሽቦ የተገናኘ ኔትዎርክ "
+
+#: ../dock-applets/qml/network/WirelessApList.qml:95
+msgid "Scanning..."
+msgstr "በማሰስ ላይ..."
+
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:62
+#: ../dock-applets/qml/network/WirelessNetwork.qml:50
+msgid "Wireless Network"
+msgstr "ሽቦ አልባ ኔትዎርክ"
+
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:65
+#: ../dock-applets/qml/network/WirelessNetwork.qml:50
+#, qt-format
+msgid "Wireless Network %1"
+msgstr "ሽቦ አልባ ኔትዎርክ %1"
+
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:115
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:331
+msgid "Connect to hidden access point"
+msgstr ""
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "January"
+msgstr "ጥር"
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "February"
+msgstr "የካቲት"
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "March"
+msgstr "መጋቢት"
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "April"
+msgstr "ሚያዚያ"
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "May"
+msgstr "ግንቦ"
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "June"
+msgstr "ሰኔ"
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "July"
+msgstr "ሐምሌ"
+
+#: ../modules/date_time/calendar_core.js:7
+msgid "August"
+msgstr "ነሐሴ/ጳጉሜ"
+
+#: ../modules/date_time/calendar_core.js:7
+msgid "September"
+msgstr "መስከረም"
+
+#: ../modules/date_time/calendar_core.js:7
+msgid "October"
+msgstr "ጥቅምት"
+
+#: ../modules/date_time/calendar_core.js:7
+msgid "November"
+msgstr "ኅዳር"
+
+#: ../modules/date_time/calendar_core.js:7
+msgid "December"
+msgstr "ታሕሳስ"
+
+#: ../dock-applets/qml/date_time/main.qml:80
+msgid "_Switch to analog"
+msgstr ""
+
+#: ../dock-applets/qml/date_time/main.qml:81
+msgid "_Switch to digital"
+msgstr ""
+
+#: ../dock-applets/qml/network/main.qml:279
+#: ../dock-applets/qml/power/main.qml:99
+#: ../dock-applets/qml/sound/main.qml:152
+msgid "_Run"
+msgstr "_ማስኬጃ"
+
+#: ../dock-applets/qml/power/main.qml:34
+msgid "On Charging"
+msgstr ""
+
+#: ../dock-applets/qml/power/main.qml:47 ../modules/power/main.qml:256
+#: ../modules/power/main.qml:431
+msgid "Power saver"
+msgstr "ሐይል ማዳኛ"
+
+#: ../dock-applets/qml/power/main.qml:48 ../modules/power/main.qml:250
+#: ../modules/power/main.qml:425
+msgid "Balanced"
+msgstr ""
+
+#: ../dock-applets/qml/power/main.qml:49 ../modules/power/main.qml:262
+#: ../modules/power/main.qml:437
+msgid "High performance"
+msgstr ""
+
+#: ../dock-applets/qml/network/main.qml:280
+#: ../dock-applets/qml/power/main.qml:106
+#: ../dock-applets/qml/sound/main.qml:153
+msgid "_Undock"
+msgstr ""
+
+#: ../dock-applets/qml/sound/main.qml:188
+msgid "Device"
+msgstr "አካል"
+
+#: ../dock-applets/qml/sound/main.qml:282
+msgid "Applications"
+msgstr "መተግበሪያዎች"
+
+#: ../modules/bluetooth/main.qml:76
+msgid "ON/OFF"
+msgstr "ማብሪያ/ማጥፊያ"
+
+#: ../modules/bluetooth/main.qml:141
+msgid "Devices nearby"
+msgstr "በቅርብ ያለ አካል"
+
+#: ../modules/date_time/main.qml:92
+msgid "Automatic date and time"
+msgstr "ቀን እና ሰአት ራሱ በራሱ "
+
+#: ../modules/date_time/main.qml:108
+msgid "Use 24-hour clock"
+msgstr "የ 24-ሰአት አቆጣጠር ይጠቀሙ"
+
+#: ../modules/date_time/main.qml:165
+msgid "Date"
+msgstr "ቀን"
+
+#: ../modules/date_time/main.qml:169
+msgid "Set Date"
+msgstr "ቀን ማሰናጃ"
+
+#: ../modules/default_applications/main.qml:74
+msgid "Browser"
+msgstr "መቃኛ"
+
+#: ../modules/default_applications/main.qml:88
+msgid "Mail"
+msgstr "ደብዳቤ"
+
+#: ../modules/default_applications/main.qml:99
+msgid "Text"
+msgstr "ጽሁፍ"
+
+#: ../modules/default_applications/main.qml:105
+msgid "Music"
+msgstr "ሙዚቃ"
+
+#: ../modules/default_applications/main.qml:136
+msgid "Video"
+msgstr "ቪዲዮ"
+
+#: ../modules/default_applications/main.qml:168
+msgid "Picture"
+msgstr "ስእል"
+
+#: ../modules/default_applications/main.qml:186
+msgid "Terminal"
+msgstr "ተርሚናል"
+
+#: ../modules/default_applications/main.qml:245
+msgid "AutoPlay"
+msgstr "በራሱ ማጫወቻ"
+
+#: ../modules/default_applications/main.qml:260
+msgid "CD Audio"
+msgstr "የድምፅ ሲዲ"
+
+#: ../modules/default_applications/main.qml:265
+msgid "DVD Video"
+msgstr "ዲቪዲ ቪዲዮ"
+
+#: ../modules/default_applications/main.qml:270
+msgid "Music Player"
+msgstr "ሙዚቃ ማጫወቻ"
+
+#: ../modules/default_applications/main.qml:275
+msgid "Camera"
+msgstr "ካሜራ"
+
+#: ../modules/default_applications/main.qml:280
+msgid "Software"
+msgstr "ሶፍትዌር"
+
+#: ../modules/display/main.qml:117
+msgid "Primary Monitor: "
+msgstr ""
+
+#: ../modules/display/main.qml:148
+msgid "Monitor"
+msgstr ""
+
+#: ../modules/display/main.qml:208
+msgid "Apply"
+msgstr "መፈጸሚያ"
+
+#: ../modules/grub/main.qml:102
+msgid "Default Startup"
+msgstr "ነባር ማስጀመሪያ"
+
+#: ../modules/grub/main.qml:157
+msgid "Boot delay"
+msgstr ""
+
+#: ../modules/grub/main.qml:196
+msgid "Text Color"
+msgstr "የጽሁፍ ቀለም"
+
+#: ../modules/grub/main.qml:229
+msgid "Selected Text Color"
+msgstr "የተመረጠው የጽሁፍ ቀለም"
+
+#: ../modules/keyboard/main.qml:106
+msgid "Repeat Delay"
+msgstr "ማዘግያውን መድገሚያ"
+
+#: ../modules/keyboard/main.qml:130
+msgid "Repeat Rate"
+msgstr "መጠን መድገሚያ"
+
+#: ../modules/keyboard/main.qml:155
+msgid "Cursor Blink Rate"
+msgstr "የመጠቆሚያው ብልጭ ድርግም ባይ መጠን"
+
+#: ../modules/keyboard/main.qml:181
+msgid "Test Area"
+msgstr "መሞከሪያ ቦታ"
+
+#: ../modules/keyboard/main.qml:211
+msgid "Keyboard Layout"
+msgstr "የፊደል ገበታ አቀራረብ"
+
+#: ../modules/keyboard/main.qml:396
+msgid "No result"
+msgstr "ውጤት የለም"
+
+#: ../modules/keyboard/main.qml:405
+msgid "Caps Lock prompt"
+msgstr ""
+
+#: ../modules/mouse_touchpad/main.qml:167
+msgid "Disable the touchpad when inserting the mouse"
+msgstr ""
+
+#: ../modules/personalization/main.qml:101
+msgid "Theme"
+msgstr "ገጽታ"
+
+#: ../modules/personalization/main.qml:108 ../modules/shortcuts/main.qml:51
+msgid "Window"
+msgstr "መስኮት"
+
+#: ../modules/personalization/main.qml:115
+msgid "Icon"
+msgstr "ምልክት"
+
+#: ../modules/personalization/main.qml:129
+msgid "Wallpaper"
+msgstr "የግድግዳ ወረቀት"
+
+#: ../modules/personalization/main.qml:143
+msgid "Fonts"
+msgstr "ፊደሎች"
+
+#: ../modules/power/main.qml:53 ../modules/power/main.qml:65
+msgid "Never"
+msgstr "በፍጹም"
+
+#: ../modules/power/main.qml:59
+msgid "1 minute"
+msgstr "1 ደቂቃ"
+
+#: ../modules/power/main.qml:60
+msgid "5 minutes"
+msgstr "5 ደቂቃዎች"
+
+#: ../modules/power/main.qml:61
+msgid "10 minutes"
+msgstr "10 ደቂቃዎች"
+
+#: ../modules/power/main.qml:62
+msgid "15 minutes"
+msgstr "15 ደቂቃዎች"
+
+#: ../modules/power/main.qml:63
+msgid "30 minutes"
+msgstr "30 ደቂቃዎች"
+
+#: ../modules/power/main.qml:64
+msgid "1 hour"
+msgstr "1 ሰአት"
+
+#: ../modules/power/main.qml:124
+msgid "When I press the power button"
+msgstr "የሐይል ቁልፍ በምጫን ጊዜ"
+
+#: ../modules/power/main.qml:138 ../modules/power/main.qml:184
+msgid "Shutdown"
+msgstr "ማጥፊያ"
+
+#: ../modules/power/main.qml:143 ../modules/power/main.qml:189
+#: ../modules/power/main.qml:253 ../modules/power/main.qml:259
+#: ../modules/power/main.qml:265 ../modules/power/main.qml:271
+#: ../modules/power/main.qml:358 ../modules/power/main.qml:428
+#: ../modules/power/main.qml:434 ../modules/power/main.qml:440
+#: ../modules/power/main.qml:446 ../modules/power/main.qml:534
+msgid "Suspend"
+msgstr "ማገጃ"
+
+#: ../modules/power/main.qml:148
+msgid "Ask"
+msgstr "ጠይቀኝ"
+
+#: ../modules/power/main.qml:170
+msgid "When I close the lid"
+msgstr ""
+
+#: ../modules/power/main.qml:194
+msgid "Nothing"
+msgstr "ምንም"
+
+#: ../modules/power/main.qml:213
+msgid "Password required to wake up"
+msgstr "ለማስነሳት የመግቢያ ቃል ያስፈልጋል"
+
+#: ../modules/power/main.qml:235
+msgid "Plugged in"
+msgstr "ተሰክቷል"
+
+#: ../modules/power/main.qml:410
+msgid "On battery"
+msgstr "በ ባትሪ"
+
+#: ../modules/power/main.qml:252 ../modules/power/main.qml:258
+#: ../modules/power/main.qml:264 ../modules/power/main.qml:270
+#: ../modules/power/main.qml:318 ../modules/power/main.qml:427
+#: ../modules/power/main.qml:433 ../modules/power/main.qml:439
+#: ../modules/power/main.qml:445 ../modules/power/main.qml:494
+msgid "Turn off the display"
+msgstr ""
+
+#: ../modules/power/main.qml:313 ../modules/power/main.qml:489
+msgid "Custom Options"
+msgstr ""
+
+#: ../modules/shortcuts/main.qml:49
+msgid "System"
+msgstr "ስርአት"
+
+#: ../modules/shortcuts/main.qml:52
+msgid "Workspace"
+msgstr "የስራ ቦታ"
+
+#: ../modules/sound/main.qml:126
+msgid "Speaker"
+msgstr "ስፒከር"
+
+#: ../modules/sound/main.qml:156
+msgid "Output Volume"
+msgstr "የ መጠን ውጤት"
+
+#: ../modules/sound/main.qml:204
+msgid "Balance"
+msgstr ""
+
+#: ../modules/sound/main.qml:226
+msgid "Left"
+msgstr "የ ግራ"
+
+#: ../modules/sound/main.qml:228
+msgid "Right"
+msgstr "የ ቀኝ"
+
+#: ../modules/sound/main.qml:260
+msgid "Microphone"
+msgstr "ማይክሮፎን"
+
+#: ../modules/sound/main.qml:290
+msgid "Input Volume"
+msgstr "የ መጠን ማሳገቢያ"
+
+#: ../modules/sound/main.qml:334
+msgid "Input Feedback"
+msgstr ""
+
+#: ../modules/sound/main.qml:370
+msgid "Output Port"
+msgstr ""
+
+#: ../modules/sound/main.qml:387 ../modules/sound/main.qml:490
+msgid "No port exists in this device."
+msgstr ""
+
+#: ../modules/sound/main.qml:425
+msgid "Output device"
+msgstr ""
+
+#: ../modules/sound/main.qml:473
+msgid "Input Port"
+msgstr ""
+
+#: ../modules/sound/main.qml:528
+msgid "Input device"
+msgstr ""
+
+#: ../modules/sound/main.qml:581
+msgid "Hide Advanced..."
+msgstr ""
+
+#: ../modules/sound/main.qml:581
+msgid "Show Advanced..."
+msgstr ""
+
+#: ../modules/system_info/main.qml:102
+msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
+msgstr "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
+
+#: ../modules/system_info/main.qml:108
+msgid "Deepin Edition"
+msgstr ""
+
+#: ../modules/system_info/main.qml:114
+msgid "System Type"
+msgstr "የስርአቱ አይነት"
+
+#: ../modules/system_info/main.qml:115
+msgid "bit"
+msgstr ""
+
+#: ../modules/system_info/main.qml:120
+msgid "Processor"
+msgstr ""
+
+#: ../modules/system_info/main.qml:134
+msgid "Memory"
+msgstr ""
+
+#: ../modules/system_info/main.qml:140
+msgid "Disk"
+msgstr "ዲስክ"
+
+#: ../modules/system_info/main.qml:159
+msgid "GNU GENERAL PUBLIC LICENSE"
+msgstr "GNU GENERAL PUBLIC LICENSE"
+
+#: ../modules/network/main.qml:157 ../modules/network/main.qml:185
+msgid "Unknown"
+msgstr "ያልታወቀ"
+
+#: ../modules/network/main.qml:159
+msgid "Wired"
+msgstr "በሽቦ የተገናኘ"
+
+#: ../modules/network/main.qml:161
+msgid "Wireless"
+msgstr "ሽቦ አልባ"
+
+#: ../modules/network/main.qml:163
+msgid "Unused1"
+msgstr "ያልተጠቀሙት1"
+
+#: ../modules/network/main.qml:165
+msgid "Unused2"
+msgstr "ያልተጠቀሙት2"
+
+#: ../modules/network/main.qml:169
+msgid "OLPC mesh"
+msgstr "OLPC mesh"
+
+#: ../modules/network/main.qml:171
+msgid "WiMax"
+msgstr "WiMax"
+
+#: ../modules/network/main.qml:173
+msgid "Modem"
+msgstr "ሞደም"
+
+#: ../modules/network/main.qml:175
+msgid "InfiniBand"
+msgstr ""
+
+#: ../modules/network/main.qml:177
+msgid "Bond"
+msgstr ""
+
+#: ../modules/network/main.qml:179
+msgid "VLAN"
+msgstr "VLAN"
+
+#: ../modules/network/main.qml:181
+msgid "ADSL"
+msgstr "ADSL"
+
+#: ../modules/network/main.qml:183
+msgid "Bridge"
+msgstr ""

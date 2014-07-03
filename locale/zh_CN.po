@@ -1,26 +1,881 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Free Software Foundation, Inc.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 #
+# Translators:
+# Paris Qian Sen <qiansen1386@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-02 15:38+0800\n"
-"PO-Revision-Date: 2014-06-04 15:34+0800\n"
-"Last-Translator: iceleaf916 <iceleaf916@gmail.com>\n"
-"Language-Team: Deepin <yekaisheng@linuxdeepin.com>\n"
-"Language: zh_Hans_CN\n"
+"POT-Creation-Date: 2014-07-03 11:52+0800\n"
+"PO-Revision-Date: 2014-07-03 03:50+0000\n"
+"Last-Translator: electricface <songwentai@linuxdeepin.com>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/dde-"
+"control-center/language/zh_CN/)\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.6.5\n"
-"X-Poedit-SourceCharset: UTF-8\n"
 
-#: ../modules/network/add/AddDsl.qml:11
-msgid "New PPPoE Connection"
-msgstr "新建PPPoE连接"
+#: ../modules/power/main.qml:64
+msgid "1 hour"
+msgstr "1小时"
+
+#: ../modules/power/main.qml:59
+msgid "1 minute"
+msgstr "1分钟"
+
+#: ../modules/power/main.qml:61
+msgid "10 minutes"
+msgstr "10分钟"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:36
+msgid "128-bit MPPE"
+msgstr "128位微软点对点加密"
+
+#: ../modules/power/main.qml:62
+msgid "15 minutes"
+msgstr "15分钟"
+
+#: ../modules/power/main.qml:63
+msgid "30 minutes"
+msgstr "30分钟"
+
+#: ../modules/power/main.qml:60
+msgid "5 minutes"
+msgstr "5分钟"
+
+#: ../modules/network/main.qml:181
+msgid "ADSL"
+msgstr "ADSL"
+
+#: ../modules/network/add/AddMobile.qml:58
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:35
+msgid "APN"
+msgstr "APN"
+
+#: ../modules/account/AddUserDialog.qml:201
+#: ../modules/account/EditUserDialog.qml:119
+msgid "Account Type"
+msgstr "账户类型"
+
+#: ../modules/network/Info.qml:11
+msgid "Activated Connections"
+msgstr "激活的连接"
+
+#: ../modules/network/add/AddSectionSave.qml:20
+#: ../modules/shortcuts/CustomKeybinding.qml:157
+#: ../modules/date_time/TimezoneArea.qml:231
+msgid "Add"
+msgstr "添加"
+
+#: ../modules/account/AddUserDialog.qml:56
+msgid "Add User"
+msgstr "添加用户"
+
+#: ../modules/network/Info.qml:62
+msgid "Addtional DNS"
+msgstr "附加域名系统"
+
+#: ../modules/account/AddUserDialog.qml:88
+#: ../modules/account/AddUserDialog.qml:214
+#: ../modules/account/EditUserDialog.qml:132
+#: ../modules/account/UserList.qml:187
+msgid "Administrator"
+msgstr "管理员"
+
+#: ../modules/account/WebCam.qml:136
+msgid "Again"
+msgstr "重拍"
+
+#: ../modules/network/add/AddVpn.qml:194
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:124
+msgid "Allow Cisco Secure Desktop Trojan"
+msgstr "允许思科安全桌面木马"
+
+#: ../modules/network/wireless/AddWireless.qml:101
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:90
+msgid "Anonymous ID"
+msgstr "匿名ID"
+
+#: ../dock-applets/qml/sound/main.qml:282
+msgid "Applications"
+msgstr "程序"
+
+#: ../modules/display/main.qml:208
+msgid "Apply"
+msgstr "应用"
+
+#: ../modules/network/proxy/ProxyContent.qml:165
+msgid "Apply system wide"
+msgstr "应用到整个系统"
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "April"
+msgstr "四月"
+
+#: ../modules/network/ConnectionEdit.qml:51
+msgid "Are you sure you want to delete this network?"
+msgstr "您确认要删除此网络吗？"
+
+#: ../modules/power/main.qml:148
+msgid "Ask"
+msgstr "询问"
+
+#: ../modules/network/add/AddVpn.qml:139 ../modules/network/add/AddVpn.qml:282
+#: ../modules/network/add/AddVpn.qml:337 ../modules/network/add/AddVpn.qml:436
+#: ../modules/network/add/AddVpn.qml:480 ../modules/network/add/AddVpn.qml:513
+#: ../modules/network/wireless/AddWireless.qml:190
+#: ../modules/network/wireless/AddWireless.qml:213
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:179
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:202
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:58
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:212
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:267
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:366
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:421
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:454
+msgid "Ask for Pwd"
+msgstr "询问密码"
+
+#: ../modules/date_time/calendar_core.js:7
+msgid "August"
+msgstr "八月"
+
+#: ../modules/network/add/AddVpn.qml:260
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:190
+msgid "Auth Type"
+msgstr "授权类型"
+
+#: ../dock-applets/qml/WifiPasswordWindow.qml:127
+msgid "Authentication required by Wi-Fi network"
+msgstr "Wi-Fi网络所需的授权"
+
+#: ../modules/network/proxy/ProxyContent.qml:52
+msgid "Auto"
+msgstr "自动"
+
+#: ../modules/account/AddUserDialog.qml:233
+#: ../modules/account/EditUserDialog.qml:52
+msgid "Auto-login"
+msgstr "自动登录"
+
+#: ../modules/default_applications/main.qml:245
+msgid "AutoPlay"
+msgstr "自动播放"
+
+#: ../modules/date_time/main.qml:92
+msgid "Automatic date and time"
+msgstr "自动同步时间"
+
+#: ../modules/network/edit_autogen/BaseConnectionEdit.qml:45
+#: ../modules/network/edit_autogen/EditSectionGeneral.qml:24
+msgid "Automatically connect"
+msgstr "自动连接"
+
+#: ../modules/grub/Preview.qml:127
+msgid "Background is changing, please reboot later..."
+msgstr "背景图片正在被应用，重启请稍后..."
+
+#: ../modules/sound/main.qml:204
+msgid "Balance"
+msgstr "均衡"
+
+#: ../dock-applets/qml/power/main.qml:48 ../modules/power/main.qml:250
+#: ../modules/power/main.qml:425
+msgid "Balanced"
+msgstr "均衡"
+
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:46
+msgid "Band"
+msgstr "波段"
+
+#: ../modules/network/add/AddVpn.qml:69
+msgid "Basic Information"
+msgstr "基本信息"
+
+#: ../frame/views/ModulesData.qml:31 ../modules/network/main.qml:167
+msgid "Bluetooth"
+msgstr "蓝牙"
+
+#: ../modules/network/main.qml:177
+msgid "Bond"
+msgstr "绑定"
+
+#: ../frame/views/ModulesData.qml:46
+msgid "Boot Menu"
+msgstr "启动菜单"
+
+#: ../modules/grub/main.qml:157
+msgid "Boot delay"
+msgstr "启动延时"
+
+#: ../modules/network/main.qml:183
+msgid "Bridge"
+msgstr "桥接"
+
+#: ../modules/display/MonitorProperties.qml:206
+msgid "Brightness"
+msgstr "亮度"
+
+#: ../modules/default_applications/main.qml:74
+msgid "Browser"
+msgstr "浏览器"
+
+#: ../modules/network/add/AddVpn.qml:172 ../modules/network/add/AddVpn.qml:304
+#: ../modules/network/wireless/AddWireless.qml:112
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:101
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:102
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:234
+msgid "CA Cert"
+msgstr "认证授权Cert"
+
+#: ../modules/network/add/AddVpn.qml:546
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:487
+msgid "CA File"
+msgstr "认证授权文件"
+
+#: ../modules/default_applications/main.qml:260
+msgid "CD Audio"
+msgstr "CD音频"
+
+#: ../modules/network/add/AddVpn.qml:205
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:135
+msgid "CSD Wrapper"
+msgstr "电路切换数据通话外包"
+
+#: ../modules/default_applications/main.qml:275
+msgid "Camera"
+msgstr "照相机"
+
+#: ../modules/network/add/AddSectionSave.qml:11
+#: ../modules/account/AddUserDialog.qml:284
+#: ../modules/network/wireless/AddWireless.qml:234
+#: ../modules/network/ConnectionAdd.qml:69
+#: ../modules/network/ConnectionEdit.qml:146
+#: ../modules/shortcuts/CustomKeybinding.qml:151
+#: ../modules/account/DeleteUserDialog.qml:33
+#: ../modules/network/widgets/PasswordBox.qml:101
+#: ../modules/account/PasswordDialog.qml:172
+#: ../modules/shortcuts/ShortcutInput.qml:341
+#: ../modules/date_time/TimeBox.qml:212
+#: ../modules/network/wireless/WifiHotspot.qml:86
+#: ../dock-applets/qml/WifiPasswordWindow.qml:171
+#: ../modules/display/main.qml:227
+msgid "Cancel"
+msgstr "取消"
+
+#: ../modules/keyboard/main.qml:405
+msgid "Caps Lock prompt"
+msgstr "大写键提示"
+
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:58
+msgid "Channel"
+msgstr "通道"
+
+#: ../modules/account/AvatarPickDialog.qml:5
+msgid "Choose a new picture for your image"
+msgstr "请选择一张图片作为您的头像"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:24
+msgid "Cipher"
+msgstr "密码"
+
+#: ../modules/network/edit/EditLineMissingPackage.qml:22
+msgid "Click to install"
+msgstr "点击安装"
+
+#: ../modules/network/edit_autogen/EditSectionEthernet.qml:35
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:81
+msgid "Cloned MAC Addr"
+msgstr "克隆MAC地址"
+
+#: ../modules/network/ConnectionEdit.qml:113 ../modules/network/Info.qml:73
+#: ../modules/date_time/StateButtons.qml:35
+#: ../modules/date_time/TimezoneArea.qml:234
+msgid "Close"
+msgstr "关闭"
+
+#: ../modules/shortcuts/CustomKeybinding.qml:133
+msgid "Command"
+msgstr "命令"
+
+#: ../modules/network/proxy/ProxyContent.qml:148
+msgid "Configuration URL"
+msgstr "配置URL"
+
+#: ../modules/account/AddUserDialog.qml:297
+#: ../modules/account/DeleteUserDialog.qml:46
+#: ../modules/account/PasswordDialog.qml:186 ../modules/account/WebCam.qml:148
+msgid "Confirm"
+msgstr "确认"
+
+#: ../modules/network/wireless/AddWireless.qml:242
+#: ../modules/network/widgets/PasswordBox.qml:109
+#: ../dock-applets/qml/WifiPasswordWindow.qml:178
+msgid "Connect"
+msgstr "连接"
+
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:115
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:331
+msgid "Connect to hidden access point"
+msgstr "连接到隐藏网络"
+
+#: ../modules/network/wireless/AddWireless.qml:8
+msgid "Connect to wireless"
+msgstr "连接到无线网络"
+
+#: ../modules/system_info/main.qml:102
+msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
+msgstr "Copyright (c) 2011-2014 武汉深之度科技有限公司"
+
+#: ../modules/network/wireless/WifiHotspot.qml:95
+msgid "Create"
+msgstr "创建"
+
+#: ../modules/network/wireless/WifiHotspot.qml:23
+msgid "Create Wi-Fi Hotspot"
+msgstr "创建无线热点"
+
+#: ../modules/network/edit/EditLineMissingPackage.qml:15
+#, qt-format
+msgid "Current system lacks component for %1"
+msgstr "当前系统缺少 %1 组件"
+
+#: ../modules/keyboard/main.qml:155
+msgid "Cursor Blink Rate"
+msgstr "光标闪烁频率"
+
+#: ../modules/personalization/widgets/ThemeItem.qml:107
+#: ../dock-applets/qml/power/main.qml:46 ../modules/power/main.qml:268
+#: ../modules/power/main.qml:443 ../modules/shortcuts/main.qml:53
+#: ../modules/shortcuts/main.qml:224
+msgid "Custom"
+msgstr "自定义"
+
+#: ../modules/network/edit_autogen/EditSectionEthernet.qml:46
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:92
+msgid "Custom MTU"
+msgstr "自定义MTU"
+
+#: ../modules/power/main.qml:313 ../modules/power/main.qml:489
+msgid "Custom Options"
+msgstr "自定义选项"
+
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:74
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:70
+msgid "DNS Server"
+msgstr "DNS 服务器"
+
+#: ../modules/default_applications/main.qml:265
+msgid "DVD Video"
+msgstr "DVD视频"
+
+#: ../modules/date_time/main.qml:165
+msgid "Date"
+msgstr "日期"
+
+#: ../frame/views/ModulesData.qml:28 ../dock-applets/qml/main.qml:45
+msgid "Date and Time"
+msgstr "日期和时间"
+
+#: ../modules/date_time/calendar_core.js:7
+msgid "December"
+msgstr "十二月"
+
+#: ../modules/system_info/main.qml:108
+msgid "Deepin Edition"
+msgstr "系统版本"
+
+#: ../modules/account/AvatarView.qml:19
+msgid "Default"
+msgstr "默认"
+
+#: ../frame/views/ModulesData.qml:44
+#: ../modules/default_applications/main.qml:62
+msgid "Default Applications"
+msgstr "默认程序"
+
+#: ../modules/grub/main.qml:102
+msgid "Default Startup"
+msgstr "默认启动"
+
+#: ../modules/network/ConnectionEdit.qml:134
+msgid "Delete"
+msgstr "删除"
+
+#: ../modules/network/ConnectionEdit.qml:51
+msgid "Delete this network"
+msgstr "删除此网络"
+
+#: ../modules/account/DeleteUserDialog.qml:20
+msgid "Delete user's files"
+msgstr "删除用户文件"
+
+#: ../frame/views/ModulesData.qml:37
+msgid "Desktop"
+msgstr "桌面"
+
+#: ../dock-applets/qml/sound/main.qml:188
+msgid "Device"
+msgstr "设备"
+
+#: ../modules/network/Info.qml:57
+msgid "Device Addr"
+msgstr "设备地址"
+
+#: ../modules/network/edit_autogen/EditSectionEthernet.qml:24
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:70
+msgid "Device MAC Addr"
+msgstr "设备MAC地址"
+
+#: ../modules/network/Info.qml:63
+msgid "Device Speed"
+msgstr "设备速度"
+
+#: ../modules/network/Info.qml:56
+msgid "Device Type"
+msgstr "设备类型"
+
+#: ../modules/bluetooth/main.qml:141
+msgid "Devices nearby"
+msgstr "附近的设备"
+
+#: ../modules/shortcuts/ShortcutInput.qml:108
+msgid "Disable"
+msgstr "禁用"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:114
+msgid "Disable Dead Peer Detection"
+msgstr "禁用死端检测"
+
+#: ../modules/mouse_touchpad/main.qml:167
+msgid "Disable the touchpad when inserting the mouse"
+msgstr "插入鼠标时禁用触摸板"
+
+#: ../modules/system_info/main.qml:140
+msgid "Disk"
+msgstr "磁盘"
+
+#: ../frame/views/ModulesData.qml:30 ../dock-applets/qml/main.qml:44
+msgid "Disk Mount"
+msgstr "磁盘挂载"
+
+#: ../frame/views/ModulesData.qml:36
+msgid "Display"
+msgstr "显示"
+
+#: ../modules/display/MessageBox.qml:94
+msgid "Do you want to keep these display settings?"
+msgstr "是否要保留这些显示设置？"
+
+#: ../modules/shortcuts/ShortcutInput.qml:267
+msgid "Do you want to replace it?"
+msgstr "是否进行替换？"
+
+#: ../modules/network/AppletSwitchArea.qml:40
+#: ../modules/power/AppletSwitchArea.qml:40
+#: ../modules/sound/AppletSwitchArea.qml:40
+msgid "Dock Applet Enabled"
+msgstr "Dock插件开启"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:24
+msgid "Domain"
+msgstr "域名"
+
+#: ../modules/date_time/StateButtons.qml:34
+#: ../modules/keyboard/StateButtons.qml:34
+#: ../modules/shortcuts/StateButtons.qml:38
+msgid "Done"
+msgstr "完成"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:154
+#: ../modules/mouse_touchpad/main.qml:140
+msgid "Double-click Speed"
+msgstr "双击速度"
+
+#: ../modules/date_time/TimeBox.qml:161
+msgid "Double-click the above digits to change your time."
+msgstr "双击上面的数字以更改时间。"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:180
+msgid "Drag Threshold"
+msgstr "拖动阀值"
+
+#: ../modules/grub/Preview.qml:126
+msgid "Drag and drop an image to change background."
+msgstr "拖拽图片到此以更换背景"
+
+#: ../modules/network/wireless/AddWireless.qml:79
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:68
+msgid "EAP Auth"
+msgstr "EAP授权"
+
+#: ../modules/display/MonitorDragArea.qml:463
+msgid "Edit"
+msgstr "编辑"
+
+#: ../modules/network/wireless/WifiHotspot.qml:23
+msgid "Edit Wi-Fi Hotspot"
+msgstr "编辑无线热点"
+
+#: ../modules/account/EditUserDialog.qml:86
+msgid "Enable"
+msgstr "启用"
+
+#: ../modules/network/add/AddVpn.qml:559
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:24
+msgid "Enable IPsec"
+msgstr "启用IPsec"
+
+#: ../modules/account/GuestUser.qml:101
+#: ../modules/display/MonitorProperties.qml:80
+msgid "Enabled"
+msgstr "启用"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:57
+msgid "Encryption"
+msgstr "加密"
+
+#: ../modules/network/edit_autogen/EditSectionEthernet.qml:11
+msgid "Ethernet"
+msgstr "以太网"
+
+#: ../modules/network/proxy/ProxyContent.qml:111
+msgid "FTP Proxy"
+msgstr "FTP代理"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:120
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:170
+#: ../modules/keyboard/main.qml:145 ../modules/keyboard/main.qml:171
+#: ../modules/mouse_touchpad/main.qml:104
+#: ../modules/mouse_touchpad/main.qml:156
+msgid "Fast"
+msgstr "快"
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "February"
+msgstr "二月"
+
+#: ../modules/personalization/components/FontSettingsExpand.qml:65
+#, qt-format
+msgid "Font %1"
+msgstr "字体 %1"
+
+#: ../modules/personalization/main.qml:143
+msgid "Fonts"
+msgstr "字体"
+
+#: ../modules/network/edit_autogen/EditSectionGeneral.qml:35
+msgid "For All Users"
+msgstr "适用于所有用户"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:90
+msgid "Forward Secrecy"
+msgstr "完全正向保密"
+
+#: ../modules/date_time/CalendarComponent.qml:85
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:173
+msgid "Fri"
+msgstr "五"
+
+#: ../modules/system_info/main.qml:159
+msgid "GNU GENERAL PUBLIC LICENSE"
+msgstr "GNU通用公共许可协议"
+
+#: ../modules/network/add/AddVpn.qml:117 ../modules/network/add/AddVpn.qml:161
+#: ../modules/network/add/AddVpn.qml:249 ../modules/network/add/AddVpn.qml:414
+#: ../modules/network/add/AddVpn.qml:458
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:61
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:59
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:36
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:91
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:179
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:344
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:399
+msgid "Gateway"
+msgstr "网关"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:35
+msgid "Gateway Port"
+msgstr "网关"
+
+#: ../modules/network/edit_autogen/EditSectionGeneral.qml:11
+msgid "General"
+msgstr "通用"
+
+#: ../modules/network/add/AddVpn.qml:581
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:46
+msgid "Group ID"
+msgstr "组ID"
+
+#: ../modules/network/add/AddVpn.qml:502 ../modules/network/add/AddVpn.qml:570
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:443
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:35
+msgid "Group Name"
+msgstr "组名"
+
+#: ../modules/network/add/AddVpn.qml:524
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:465
+msgid "Group Pwd"
+msgstr "公共密码"
+
+#: ../modules/account/GuestUser.qml:40 ../frame/views/HeaderArea.qml:108
+msgid "Guest"
+msgstr "来宾"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:35
+msgid "HMAC Auth"
+msgstr "HMAC授权"
+
+#: ../modules/network/proxy/ProxyContent.qml:87
+msgid "HTTP Proxy"
+msgstr "HTTP代理"
+
+#: ../modules/network/proxy/ProxyContent.qml:99
+msgid "HTTPS Proxy"
+msgstr "HTTPS代理"
+
+#: ../modules/sound/main.qml:581
+msgid "Hide Advanced..."
+msgstr "隐藏高级设置..."
+
+#: ../dock-applets/qml/power/main.qml:49 ../modules/power/main.qml:262
+#: ../modules/power/main.qml:437
+msgid "High performance"
+msgstr "高性能"
+
+#: ../frame/views/ModulesData.qml:47
+msgid "Home"
+msgstr "回到主页"
+
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:101
+msgid "Home Network Only"
+msgstr "仅用于家庭网络"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:79
+msgid "IKE DH Group"
+msgstr "IKE DH组"
+
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:35
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:35
+#: ../modules/network/Info.qml:58
+msgid "IP Address"
+msgstr "IP地址"
+
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:11
+msgid "IPv4"
+msgstr "IPv4"
+
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:11
+msgid "IPv6"
+msgstr "IPv6"
+
+#: ../modules/personalization/main.qml:115
+msgid "Icon"
+msgstr "图标"
+
+#: ../modules/display/MonitorDragArea.qml:446
+msgid "Identify"
+msgstr "识别"
+
+#: ../modules/network/wireless/AddWireless.qml:90
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:79
+msgid "Identity"
+msgstr "识别"
+
+#: ../modules/network/main.qml:175
+msgid "InfiniBand"
+msgstr "InfiniBand"
+
+#: ../modules/network/wireless/AddWireless.qml:167
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:156
+msgid "Inner Auth"
+msgstr "内部授权"
+
+#: ../modules/sound/main.qml:334
+msgid "Input Feedback"
+msgstr "输入反馈"
+
+#: ../modules/sound/main.qml:473
+msgid "Input Port"
+msgstr "输入端口"
+
+#: ../modules/sound/main.qml:290
+msgid "Input Volume"
+msgstr "输入音量"
+
+#: ../modules/sound/main.qml:528
+msgid "Input device"
+msgstr "输入设备"
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "January"
+msgstr "一月"
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "July"
+msgstr "七月"
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "June"
+msgstr "六月"
+
+#: ../modules/display/MessageBox.qml:116
+msgid "Keep Changes"
+msgstr "保留更改"
+
+#: ../modules/account/DeleteUserDialog.qml:19
+msgid "Keep user's files"
+msgstr "保留用户文件"
+
+#: ../modules/network/wireless/AddWireless.qml:57
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:46
+#: ../modules/network/wireless/WifiHotspot.qml:62
+msgid "Key"
+msgstr "密码"
+
+#: ../modules/network/add/AddVpn.qml:381
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:311
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:68
+msgid "Key Direction"
+msgstr "密钥方向"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:46
+msgid "Key File"
+msgstr "密钥文件"
+
+#: ../frame/views/ModulesData.qml:40
+msgid "Keyboard"
+msgstr "键盘"
+
+#: ../modules/keyboard/main.qml:211
+msgid "Keyboard Layout"
+msgstr "键盘布局"
+
+#: ../frame/views/ModulesData.qml:39
+msgid "Keyboard Shortcuts"
+msgstr "快捷键"
+
+#: ../modules/network/add/AddVpn.qml:36
+msgid "L2TP"
+msgstr "L2TP"
+
+#: ../modules/date_time/LocaleArea.qml:68
+msgid "Language"
+msgstr "语言"
+
+#: ../modules/sound/main.qml:226
+msgid "Left"
+msgstr "左"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:90
+#: ../modules/mouse_touchpad/main.qml:74
+msgid "Left Button"
+msgstr "左键"
+
+#: ../modules/network/add/AddVpn.qml:403
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:333
+msgid "Local IP"
+msgstr "本地IP"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:101
+msgid "Local Port"
+msgstr "本地端口"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:196
+#: ../modules/keyboard/main.qml:121
+msgid "Long"
+msgstr "长"
+
+#: ../modules/network/edit_autogen/EditSectionEthernet.qml:57
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:116
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:103
+msgid "MTU"
+msgstr "MTU"
+
+#: ../modules/default_applications/main.qml:88
+msgid "Mail"
+msgstr "邮件"
+
+#: ../modules/network/proxy/ProxyContent.qml:47
+msgid "Manual"
+msgstr "手动"
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "March"
+msgstr "三月"
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "May"
+msgstr "五月"
+
+#: ../modules/system_info/main.qml:134
+msgid "Memory"
+msgstr "内存"
+
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:24
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:24
+msgid "Method"
+msgstr "方法"
+
+#: ../modules/sound/main.qml:260
+msgid "Microphone"
+msgstr "麦克风"
+
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:11
+msgid "Mobile"
+msgstr "移动"
+
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:35
+msgid "Mode"
+msgstr "模式"
+
+#: ../modules/network/main.qml:173
+msgid "Modem"
+msgstr "调制解调器"
+
+#: ../modules/date_time/CalendarComponent.qml:81
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:169
+msgid "Mon"
+msgstr "一"
+
+#: ../modules/display/main.qml:148
+msgid "Monitor"
+msgstr "显示器"
+
+#: ../frame/views/ModulesData.qml:34
+msgid "More Settings"
+msgstr "更多设置"
+
+#: ../frame/views/ModulesData.qml:42 ../modules/mouse_touchpad/main.qml:50
+msgid "Mouse"
+msgstr "鼠标"
+
+#: ../frame/views/ModulesData.qml:41
+msgid "Mouse and Touchpad"
+msgstr "鼠标和触摸板"
+
+#: ../modules/default_applications/main.qml:105
+msgid "Music"
+msgstr "音乐"
+
+#: ../modules/default_applications/main.qml:270
+msgid "Music Player"
+msgstr "音乐播放器"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:68
+msgid "NAT Traversal"
+msgstr "NAT穿越"
+
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:80
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:388
+msgid "NT Domain"
+msgstr "NT域名"
 
 #: ../modules/network/add/AddDsl.qml:25
 #: ../modules/network/add/AddMobile.qml:34
@@ -30,27 +885,186 @@ msgstr "新建PPPoE连接"
 msgid "Name"
 msgstr "名称"
 
-#: ../modules/network/add/AddDsl.qml:38
-#: ../modules/network/add/AddMobile.qml:80
-#: ../modules/network/add/AddMobile.qml:113
-#: ../modules/account/AddUserDialog.qml:105
-#: ../modules/network/add/AddVpn.qml:128 ../modules/network/add/AddVpn.qml:271
-#: ../modules/network/add/AddVpn.qml:425 ../modules/network/add/AddVpn.qml:469
-#: ../modules/network/edit_autogen/EditSectionMobile.qml:57
-#: ../modules/network/edit_autogen/EditSectionMobile.qml:134
-#: ../modules/network/edit_autogen/EditSectionPppoe.qml:24
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:47
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:201
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:355
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:410
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:70
-msgid "Username"
-msgstr "用户名"
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:205
+msgid "Natural Scrolling"
+msgstr "自然滚动"
 
-#: ../modules/network/add/AddDsl.qml:49
-#: ../modules/network/edit_autogen/EditSectionPppoe.qml:35
-msgid "Service"
-msgstr "服务"
+#: ../modules/network/add/AddVpn.qml:83
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:24
+msgid "Need VPN Plugin"
+msgstr "需要VPN插件"
+
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:47
+msgid "Netmask"
+msgstr "子网掩码"
+
+#: ../frame/views/ModulesData.qml:29 ../dock-applets/qml/main.qml:41
+msgid "Network"
+msgstr "网络"
+
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:79
+msgid "Network ID"
+msgstr "网络ID"
+
+#: ../modules/power/main.qml:53 ../modules/power/main.qml:65
+msgid "Never"
+msgstr "从不"
+
+#: ../modules/network/add/AddMobile.qml:20
+msgid "New Mobile Connection"
+msgstr "新建移动网络连接"
+
+#: ../modules/network/ConnectionAdd.qml:12
+msgid "New Network"
+msgstr "新建网络"
+
+#: ../modules/network/add/AddDsl.qml:11
+msgid "New PPPoE Connection"
+msgstr "新建PPPoE连接"
+
+#: ../modules/account/PasswordDialog.qml:101
+msgid "New Password"
+msgstr "新密码"
+
+#: ../modules/account/AddUserDialog.qml:84
+msgid "New User"
+msgstr "新建用户"
+
+#: ../modules/network/ConnectionAdd.qml:77
+msgid "Next"
+msgstr "下一步"
+
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:161
+msgid "No Address/Control Compression"
+msgstr "无地址/控制压缩"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:114
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:117
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:116
+msgid "No BSD Data Compression"
+msgstr "无BSD数据压缩"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:125
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:128
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:127
+msgid "No Deflate Data Compression"
+msgstr "无Deflate数据压缩"
+
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:150
+msgid "No Protocol Field Compression"
+msgstr "无协议项目压缩"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:136
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:139
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:138
+msgid "No TCP Header Compression"
+msgstr "无TCP报头压缩"
+
+#: ../modules/account/WebCam.qml:172
+msgid "No camera found."
+msgstr "未找到相机设备"
+
+#: ../modules/sound/main.qml:387 ../modules/sound/main.qml:490
+msgid "No port exists in this device."
+msgstr "这个设备没有端口"
+
+#: ../modules/keyboard/main.qml:396
+msgid "No result"
+msgstr "无结果"
+
+#: ../modules/network/proxy/ProxyContent.qml:42
+msgid "None"
+msgstr "无"
+
+#: ../modules/display/MonitorProperties.qml:47
+msgid "Normal"
+msgstr "正常"
+
+#: ../modules/power/main.qml:194
+msgid "Nothing"
+msgstr "无"
+
+#: ../modules/date_time/calendar_core.js:7
+msgid "November"
+msgstr "十一月"
+
+#: ../modules/network/add/AddMobile.qml:69
+#: ../modules/network/add/AddMobile.qml:102
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:46
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:123
+msgid "Number"
+msgstr "数字"
+
+#: ../modules/network/main.qml:169
+msgid "OLPC mesh"
+msgstr "OLPC网"
+
+#: ../modules/bluetooth/main.qml:76
+msgid "ON/OFF"
+msgstr "开启/关闭"
+
+#: ../modules/date_time/calendar_core.js:7
+msgid "October"
+msgstr "十月"
+
+#: ../dock-applets/qml/power/main.qml:34
+msgid "On Charging"
+msgstr "正在充电"
+
+#: ../modules/power/main.qml:410
+msgid "On battery"
+msgstr "使用电池"
+
+#: ../modules/network/add/AddVpn.qml:39
+msgid "OpenConnect"
+msgstr "OpenConnect"
+
+#: ../modules/network/add/AddVpn.qml:38
+msgid "OpenVPN"
+msgstr "OpenVPN"
+
+#: ../modules/sound/main.qml:370
+msgid "Output Port"
+msgstr "输出端口"
+
+#: ../modules/sound/main.qml:156
+msgid "Output Volume"
+msgstr "输出音量"
+
+#: ../modules/sound/main.qml:425
+msgid "Output device"
+msgstr "输出设备"
+
+#: ../modules/network/wireless/AddWireless.qml:145
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:134
+msgid "PAC file"
+msgstr "PAC文件"
+
+#: ../modules/network/wireless/AddWireless.qml:156
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:145
+msgid "PEAP Version"
+msgstr "PEAP版本"
+
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:112
+msgid "PIN"
+msgstr "PIN"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:11
+msgid "PPP"
+msgstr "PPP"
+
+#: ../modules/network/ConnectionAdd.qml:35
+#: ../modules/network/edit_autogen/EditSectionPppoe.qml:11
+msgid "PPPoE"
+msgstr "拨号"
+
+#: ../modules/network/dsl/DslExpand.qml:19
+msgid "PPPoE Connections"
+msgstr "拨号连接"
+
+#: ../modules/network/add/AddVpn.qml:37
+msgid "PPTP"
+msgstr "PPTP"
 
 #: ../modules/network/add/AddDsl.qml:60
 #: ../modules/network/add/AddMobile.qml:91
@@ -75,176 +1089,85 @@ msgstr "服务"
 msgid "Password"
 msgstr "密码"
 
-#: ../modules/network/add/AddMobile.qml:20
-msgid "New Mobile Connection"
-msgstr "新建移动网络连接"
+#: ../modules/power/main.qml:213
+msgid "Password required to wake up"
+msgstr "唤醒需要密码"
 
-#: ../modules/network/add/AddMobile.qml:47
-#: ../modules/network/edit_autogen/EditSectionMobile.qml:24
-msgid "Service Type"
-msgstr "服务类型"
+#: ../dock-applets/qml/WifiPasswordWindow.qml:149
+msgid "Password:"
+msgstr "密码："
 
-#: ../modules/network/add/AddMobile.qml:58
-#: ../modules/network/edit_autogen/EditSectionMobile.qml:35
-msgid "APN"
-msgstr "APN"
+#: ../modules/network/widgets/PasswordBox.qml:76
+msgid "Password: "
+msgstr "密码: "
 
-#: ../modules/network/add/AddMobile.qml:69
-#: ../modules/network/add/AddMobile.qml:102
-#: ../modules/network/edit_autogen/EditSectionMobile.qml:46
-#: ../modules/network/edit_autogen/EditSectionMobile.qml:123
-msgid "Number"
-msgstr "数字"
+#: ../dock-applets/qml/WifiPasswordWindow.qml:135
+#, qt-format
+msgid ""
+"Passwords or encryption keys are required to access the Wi-Fi network <font "
+"color=\"#faca57\">%1</font>"
+msgstr "连接Wi-Fi网络所需的密码或密钥 <font color=\"#faca57\">%1</font>"
 
-#: ../modules/network/add/AddSectionSave.qml:11
-#: ../modules/account/AddUserDialog.qml:284
-#: ../modules/network/wireless/AddWireless.qml:234
-#: ../modules/network/ConnectionAdd.qml:69
-#: ../modules/network/ConnectionEdit.qml:146
-#: ../modules/shortcuts/CustomKeybinding.qml:151
-#: ../modules/account/DeleteUserDialog.qml:33
-#: ../modules/network/widgets/PasswordBox.qml:101
-#: ../modules/account/PasswordDialog.qml:172
-#: ../modules/shortcuts/ShortcutInput.qml:341
-#: ../modules/date_time/TimeBox.qml:212
-#: ../modules/network/wireless/WifiHotspot.qml:86
-#: ../dock-applets/qml/WifiPasswordWindow.qml:171
-#: ../modules/display/main.qml:227
-msgid "Cancel"
-msgstr "取消"
+#: ../frame/views/ModulesData.qml:38
+msgid "Personalization"
+msgstr "个性化"
 
-#: ../modules/network/add/AddSectionSave.qml:20
-#: ../modules/shortcuts/CustomKeybinding.qml:157
-#: ../modules/date_time/TimezoneArea.qml:231
-msgid "Add"
-msgstr "添加"
+#: ../modules/default_applications/main.qml:168
+msgid "Picture"
+msgstr "图片"
 
-#: ../modules/account/AddUserDialog.qml:56
-msgid "Add User"
-msgstr "添加用户"
+#: ../modules/shortcuts/ShortcutInput.qml:126
+msgid "Please input new shortcut"
+msgstr "请输入新的快捷键"
 
-#: ../modules/account/AddUserDialog.qml:84
-msgid "New User"
-msgstr "新建用户"
+#: ../modules/power/main.qml:235
+msgid "Plugged in"
+msgstr "接通电源"
 
-#: ../modules/account/AddUserDialog.qml:88
-#: ../modules/account/AddUserDialog.qml:213
-#: ../modules/account/EditUserDialog.qml:131
-#: ../modules/account/UserList.qml:187
-msgid "Standard"
-msgstr "标准"
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:104
+#: ../modules/mouse_touchpad/main.qml:88
+msgid "Pointer Speed"
+msgstr "指针移动速度"
 
-#: ../modules/account/AddUserDialog.qml:88
-#: ../modules/account/AddUserDialog.qml:214
-#: ../modules/account/EditUserDialog.qml:132
-#: ../modules/account/UserList.qml:187
-msgid "Administrator"
-msgstr "管理员"
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:46
+#: ../modules/network/proxy/ProxyLine.qml:39
+msgid "Port"
+msgstr "端口"
 
-#: ../modules/account/AddUserDialog.qml:170
-msgid "Repeat Password"
-msgstr "重复密码"
+#: ../frame/views/ModulesData.qml:35 ../frame/views/PanelContent.qml:421
+#: ../dock-applets/qml/main.qml:43
+msgid "Power"
+msgstr "电源"
 
-#: ../modules/account/AddUserDialog.qml:201
-#: ../modules/account/EditUserDialog.qml:119
-msgid "Account Type"
-msgstr "账户类型"
+#: ../frame/views/ModulesData.qml:33
+msgid "Power Management"
+msgstr "电源管理"
 
-#: ../modules/account/AddUserDialog.qml:233
-#: ../modules/account/EditUserDialog.qml:52
-msgid "Auto-login"
-msgstr "自动登录"
+#: ../dock-applets/qml/power/main.qml:47 ../modules/power/main.qml:256
+#: ../modules/power/main.qml:431
+msgid "Power saver"
+msgstr "节能"
 
-#: ../modules/account/AddUserDialog.qml:297
-#: ../modules/account/DeleteUserDialog.qml:46
-#: ../modules/account/PasswordDialog.qml:186 ../modules/account/WebCam.qml:148
-msgid "Confirm"
-msgstr "确认"
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:46
+msgid "Prefix"
+msgstr "前缀"
 
-#: ../modules/network/add/AddVpn.qml:15
-msgid "VPN Type"
-msgstr "VPN类型"
+#: ../modules/personalization/widgets/ShowPreviewButton.qml:53
+msgid "Preview Theme"
+msgstr "预览主题"
 
-#: ../modules/network/add/AddVpn.qml:36
-msgid "L2TP"
-msgstr "L2TP"
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:82
+#: ../modules/mouse_touchpad/main.qml:67
+msgid "Primary Button"
+msgstr "主按键"
 
-#: ../modules/network/add/AddVpn.qml:37
-msgid "PPTP"
-msgstr "PPTP"
+#: ../modules/network/Info.qml:61
+msgid "Primary DNS"
+msgstr "首选DNS"
 
-#: ../modules/network/add/AddVpn.qml:38
-msgid "OpenVPN"
-msgstr "OpenVPN"
-
-#: ../modules/network/add/AddVpn.qml:39
-msgid "OpenConnect"
-msgstr "OpenConnect"
-
-#: ../modules/network/add/AddVpn.qml:40
-msgid "VPNC"
-msgstr "VPNC"
-
-#: ../modules/network/add/AddVpn.qml:69
-msgid "Basic Information"
-msgstr "基本信息"
-
-#: ../modules/network/add/AddVpn.qml:83
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:24
-msgid "Need VPN Plugin"
-msgstr "需要VPN插件"
-
-#: ../modules/network/add/AddVpn.qml:117 ../modules/network/add/AddVpn.qml:161
-#: ../modules/network/add/AddVpn.qml:249 ../modules/network/add/AddVpn.qml:414
-#: ../modules/network/add/AddVpn.qml:458
-#: ../modules/network/edit_autogen/EditSectionIpv4.qml:61
-#: ../modules/network/edit_autogen/EditSectionIpv6.qml:59
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:36
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:91
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:179
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:344
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:399
-msgid "Gateway"
-msgstr "网关"
-
-#: ../modules/network/add/AddVpn.qml:139 ../modules/network/add/AddVpn.qml:282
-#: ../modules/network/add/AddVpn.qml:337 ../modules/network/add/AddVpn.qml:436
-#: ../modules/network/add/AddVpn.qml:480 ../modules/network/add/AddVpn.qml:513
-#: ../modules/network/wireless/AddWireless.qml:190
-#: ../modules/network/wireless/AddWireless.qml:213
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:179
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:202
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:58
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:212
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:267
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:366
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:421
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:454
-msgid "Ask for Pwd"
-msgstr "询问密码"
-
-#: ../modules/network/add/AddVpn.qml:172 ../modules/network/add/AddVpn.qml:304
-#: ../modules/network/wireless/AddWireless.qml:112
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:101
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:102
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:234
-msgid "CA Cert"
-msgstr "认证授权Cert"
-
-#: ../modules/network/add/AddVpn.qml:183
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:113
-msgid "Proxy"
-msgstr "代理"
-
-#: ../modules/network/add/AddVpn.qml:194
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:124
-msgid "Allow Cisco Secure Desktop Trojan"
-msgstr "允许思科安全桌面木马"
-
-#: ../modules/network/add/AddVpn.qml:205
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:135
-msgid "CSD Wrapper"
-msgstr "电路切换数据通话外包"
+#: ../modules/display/main.qml:117
+msgid "Primary Monitor: "
+msgstr "主显示器："
 
 #: ../modules/network/add/AddVpn.qml:227 ../modules/network/add/AddVpn.qml:326
 #: ../modules/network/wireless/AddWireless.qml:179
@@ -254,24 +1177,6 @@ msgstr "电路切换数据通话外包"
 msgid "Private Key"
 msgstr "密钥"
 
-#: ../modules/network/add/AddVpn.qml:238
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:168
-msgid "User FSID For Key Passphrase"
-msgstr "用户FSID私钥密语"
-
-#: ../modules/network/add/AddVpn.qml:260
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:190
-msgid "Auth Type"
-msgstr "授权类型"
-
-#: ../modules/network/add/AddVpn.qml:216 ../modules/network/add/AddVpn.qml:315
-#: ../modules/network/wireless/AddWireless.qml:123
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:112
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:146
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:245
-msgid "User Cert"
-msgstr "用户Cert"
-
 #: ../modules/network/add/AddVpn.qml:348
 #: ../modules/network/wireless/AddWireless.qml:224
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:213
@@ -279,401 +1184,43 @@ msgstr "用户Cert"
 msgid "Private Pwd"
 msgstr "密码"
 
-#: ../modules/network/add/AddVpn.qml:359
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:289
-msgid "Static Key"
-msgstr "静态密码"
-
-#: ../modules/network/add/AddVpn.qml:370
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:300
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:57
-msgid "Use Key Direction"
-msgstr "密钥方向"
-
-#: ../modules/network/add/AddVpn.qml:381
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:311
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:68
-msgid "Key Direction"
-msgstr "密钥方向"
-
-#: ../modules/network/add/AddVpn.qml:392
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:322
-msgid "Remote IP"
-msgstr "远程IP"
-
-#: ../modules/network/add/AddVpn.qml:403
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:333
-msgid "Local IP"
-msgstr "本地IP"
-
-#: ../modules/network/add/AddVpn.qml:491
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:432
-msgid "User Pwd"
-msgstr "用户密码"
-
-#: ../modules/network/add/AddVpn.qml:502 ../modules/network/add/AddVpn.qml:570
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:443
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:35
-msgid "Group Name"
-msgstr "组名"
-
-#: ../modules/network/add/AddVpn.qml:524
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:465
-msgid "Group Pwd"
-msgstr "公共密码"
-
-#: ../modules/network/add/AddVpn.qml:535
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:476
-msgid "Use Hybrid Authentication"
-msgstr "用户混合授权"
-
-#: ../modules/network/add/AddVpn.qml:546
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:487
-msgid "CA File"
-msgstr "认证授权文件"
-
-#: ../modules/network/add/AddVpn.qml:559
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:24
-msgid "Enable IPsec"
-msgstr "启用IPsec"
-
-#: ../modules/network/add/AddVpn.qml:581
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:46
-msgid "Group ID"
-msgstr "组ID"
-
-#: ../modules/network/add/AddVpn.qml:605 ../modules/network/add/AddVpn.qml:618
-#: ../modules/network/edit_autogen/EditSectionPpp.qml:24
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:24
-#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:24
-msgid "Use MPPE"
-msgstr "使用微软点到点加密"
-
-#: ../modules/network/wireless/AddWireless.qml:8
-msgid "Connect to wireless"
-msgstr "连接到无线网络"
-
-#: ../modules/network/wireless/AddWireless.qml:33
-#: ../modules/network/edit_autogen/EditSectionWifi.qml:24
-#: ../modules/network/wireless/WifiHotspot.qml:38
-msgid "SSID"
-msgstr "SSID"
-
-#: ../modules/network/wireless/AddWireless.qml:46
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:11
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:35
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:35
-#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:35
-#: ../modules/network/wireless/WifiHotspot.qml:51
-msgid "Security"
-msgstr "安全"
-
-#: ../modules/network/wireless/AddWireless.qml:57
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:46
-#: ../modules/network/wireless/WifiHotspot.qml:62
-msgid "Key"
-msgstr "密码"
-
-#: ../modules/network/wireless/AddWireless.qml:79
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:68
-msgid "EAP Auth"
-msgstr "EAP授权"
-
-#: ../modules/network/wireless/AddWireless.qml:90
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:79
-msgid "Identity"
-msgstr "识别"
-
-#: ../modules/network/wireless/AddWireless.qml:101
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:90
-msgid "Anonymous ID"
-msgstr "匿名ID"
+#: ../modules/system_info/main.qml:120
+msgid "Processor"
+msgstr "处理器"
 
 #: ../modules/network/wireless/AddWireless.qml:134
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:123
 msgid "Provisioning"
 msgstr "设置"
 
-#: ../modules/network/wireless/AddWireless.qml:145
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:134
-msgid "PAC file"
-msgstr "PAC文件"
+#: ../modules/network/add/AddVpn.qml:183
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:113
+msgid "Proxy"
+msgstr "代理"
 
-#: ../modules/network/wireless/AddWireless.qml:156
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:145
-msgid "PEAP Version"
-msgstr "PEAP版本"
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:24
+msgid "Proxy Type"
+msgstr "代理类型"
 
-#: ../modules/network/wireless/AddWireless.qml:167
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:156
-msgid "Inner Auth"
-msgstr "内部授权"
-
-#: ../modules/network/wireless/AddWireless.qml:242
-#: ../modules/network/widgets/PasswordBox.qml:109
-#: ../dock-applets/qml/WifiPasswordWindow.qml:178
-msgid "Connect"
-msgstr "连接"
-
-#: ../modules/network/AppletSwitchArea.qml:40
-#: ../modules/power/AppletSwitchArea.qml:40
-#: ../modules/sound/AppletSwitchArea.qml:40
-msgid "Dock Applet Enabled"
-msgstr "Dock插件开启"
-
-#: ../modules/account/AvatarPickDialog.qml:5
-msgid "Choose a new picture for your image"
-msgstr "请选择一张图片作为您的头像"
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:164
+msgid "Randomize Remote Hosts"
+msgstr "随机远程主机"
 
 #: ../modules/account/AvatarView.qml:18
 msgid "Recently Used"
 msgstr "最近使用"
-
-#: ../modules/account/AvatarView.qml:19
-msgid "Default"
-msgstr "默认"
-
-#: ../modules/account/AvatarView.qml:20
-msgid "Webcam"
-msgstr "拍照"
-
-#: ../modules/network/edit_autogen/BaseConnectionEdit.qml:45
-#: ../modules/network/edit_autogen/EditSectionGeneral.qml:24
-msgid "Automatically connect"
-msgstr "自动连接"
-
-#: ../modules/date_time/Calendar.qml:125
-msgid "Today"
-msgstr "返回今天"
-
-#: ../modules/date_time/CalendarComponent.qml:80
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:168
-msgid "Sun"
-msgstr "日"
-
-#: ../modules/date_time/CalendarComponent.qml:81
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:169
-msgid "Mon"
-msgstr "一"
-
-#: ../modules/date_time/CalendarComponent.qml:82
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:170
-msgid "Tue"
-msgstr "二"
-
-#: ../modules/date_time/CalendarComponent.qml:83
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:171
-msgid "Wed"
-msgstr "三"
-
-#: ../modules/date_time/CalendarComponent.qml:84
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:172
-msgid "Thu"
-msgstr "四"
-
-#: ../modules/date_time/CalendarComponent.qml:85
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:173
-msgid "Fri"
-msgstr "五"
-
-#: ../modules/date_time/CalendarComponent.qml:86
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:174
-msgid "Sat"
-msgstr "六"
-
-#: ../modules/network/ConnectionAdd.qml:12
-msgid "New Network"
-msgstr "新建网络"
-
-#: ../modules/network/ConnectionAdd.qml:35
-#: ../modules/network/edit_autogen/EditSectionPppoe.qml:11
-msgid "PPPoE"
-msgstr "拨号"
-
-#: ../modules/network/ConnectionAdd.qml:45
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:11
-msgid "VPN"
-msgstr "VPN"
-
-#: ../modules/network/ConnectionAdd.qml:77
-msgid "Next"
-msgstr "下一步"
-
-#: ../modules/network/ConnectionEdit.qml:51
-msgid "Delete this network"
-msgstr "删除此网络"
-
-#: ../modules/network/ConnectionEdit.qml:51
-msgid "Are you sure you want to delete this network?"
-msgstr "您确认要删除此网络吗？"
-
-#: ../modules/network/ConnectionEdit.qml:101
-#: ../modules/network/wireless/WifiHotspot.qml:95
-msgid "Save"
-msgstr "保存"
-
-#: ../modules/network/ConnectionEdit.qml:113 ../modules/network/Info.qml:73
-#: ../modules/date_time/StateButtons.qml:35
-#: ../modules/date_time/TimezoneArea.qml:234
-msgid "Close"
-msgstr "关闭"
-
-#: ../modules/network/ConnectionEdit.qml:134
-msgid "Delete"
-msgstr "删除"
-
-#: ../modules/shortcuts/CustomKeybinding.qml:133
-msgid "Command"
-msgstr "命令"
-
-#: ../modules/account/DeleteUserDialog.qml:19
-msgid "Keep user's files"
-msgstr "保留用户文件"
-
-#: ../modules/account/DeleteUserDialog.qml:20
-msgid "Delete user's files"
-msgstr "删除用户文件"
-
-#: ../dock-applets/qml/disk_mount/DiskItem.qml:124
-msgid "Unmount failed!"
-msgstr "卸载失败"
-
-#: ../modules/network/dsl/DslExpand.qml:19
-msgid "PPPoE Connections"
-msgstr "拨号连接"
-
-#: ../modules/network/edit/EditLineMissingPackage.qml:15
-#, qt-format
-msgid "Current system lacks component for %1"
-msgstr "当前系统缺少 %1 组件"
-
-#: ../modules/network/edit/EditLineMissingPackage.qml:22
-msgid "Click to install"
-msgstr "点击安装"
-
-#: ../modules/network/edit_autogen/EditSectionEthernet.qml:11
-msgid "Ethernet"
-msgstr "以太网"
-
-#: ../modules/network/edit_autogen/EditSectionEthernet.qml:24
-#: ../modules/network/edit_autogen/EditSectionWifi.qml:70
-msgid "Device MAC Addr"
-msgstr "设备MAC地址"
-
-#: ../modules/network/edit_autogen/EditSectionEthernet.qml:35
-#: ../modules/network/edit_autogen/EditSectionWifi.qml:81
-msgid "Cloned MAC Addr"
-msgstr "克隆MAC地址"
-
-#: ../modules/network/edit_autogen/EditSectionEthernet.qml:46
-#: ../modules/network/edit_autogen/EditSectionWifi.qml:92
-msgid "Custom MTU"
-msgstr "自定义MTU"
-
-#: ../modules/network/edit_autogen/EditSectionEthernet.qml:57
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:116
-#: ../modules/network/edit_autogen/EditSectionWifi.qml:103
-msgid "MTU"
-msgstr "MTU"
-
-#: ../modules/network/edit_autogen/EditSectionGeneral.qml:11
-msgid "General"
-msgstr "通用"
-
-#: ../modules/network/edit_autogen/EditSectionGeneral.qml:35
-msgid "For All Users"
-msgstr "适用于所有用户"
-
-#: ../modules/network/edit_autogen/EditSectionIpv4.qml:11
-msgid "IPv4"
-msgstr "IPv4"
-
-#: ../modules/network/edit_autogen/EditSectionIpv4.qml:24
-#: ../modules/network/edit_autogen/EditSectionIpv6.qml:24
-msgid "Method"
-msgstr "方法"
-
-#: ../modules/network/edit_autogen/EditSectionIpv4.qml:35
-#: ../modules/network/edit_autogen/EditSectionIpv6.qml:35
-#: ../modules/network/Info.qml:58
-msgid "IP Address"
-msgstr "IP地址"
-
-#: ../modules/network/edit_autogen/EditSectionIpv4.qml:47
-msgid "Netmask"
-msgstr "子网掩码"
-
-#: ../modules/network/edit_autogen/EditSectionIpv4.qml:74
-#: ../modules/network/edit_autogen/EditSectionIpv6.qml:70
-msgid "DNS Server"
-msgstr "DNS 服务器"
-
-#: ../modules/network/edit_autogen/EditSectionIpv6.qml:11
-msgid "IPv6"
-msgstr "IPv6"
-
-#: ../modules/network/edit_autogen/EditSectionIpv6.qml:46
-msgid "Prefix"
-msgstr "前缀"
-
-#: ../modules/network/edit_autogen/EditSectionMobile.qml:11
-msgid "Mobile"
-msgstr "移动"
-
-#: ../modules/network/edit_autogen/EditSectionMobile.qml:79
-msgid "Network ID"
-msgstr "网络ID"
-
-#: ../modules/network/edit_autogen/EditSectionMobile.qml:90
-msgid "Type"
-msgstr "类型"
-
-#: ../modules/network/edit_autogen/EditSectionMobile.qml:101
-msgid "Home Network Only"
-msgstr "仅用于家庭网络"
-
-#: ../modules/network/edit_autogen/EditSectionMobile.qml:112
-msgid "PIN"
-msgstr "PIN"
-
-#: ../modules/network/edit_autogen/EditSectionPpp.qml:11
-msgid "PPP"
-msgstr "PPP"
-
-#: ../modules/network/edit_autogen/EditSectionPpp.qml:36
-msgid "128-bit MPPE"
-msgstr "128位微软点对点加密"
-
-#: ../modules/network/edit_autogen/EditSectionPpp.qml:48
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:46
-#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:46
-msgid "Stateful MPPE"
-msgstr "微软点对点加密状态"
-
-#: ../modules/network/edit_autogen/EditSectionPpp.qml:59
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:57
-#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:57
-msgid "Refuse EAP Authentication"
-msgstr "拒绝EAP授权"
-
-#: ../modules/network/edit_autogen/EditSectionPpp.qml:70
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:69
-#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:69
-msgid "Refuse PAP Authentication"
-msgstr "拒绝PAP授权"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:81
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:81
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:81
 msgid "Refuse CHAP Authentication"
 msgstr "拒绝CHAP授权"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:59
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:57
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:57
+msgid "Refuse EAP Authentication"
+msgstr "拒绝EAP授权"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:92
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:93
@@ -687,23 +1234,138 @@ msgstr "拒绝MSCHAP授权"
 msgid "Refuse MSCHAPv2 Authentication"
 msgstr "拒绝MSCHAPv2授权"
 
-#: ../modules/network/edit_autogen/EditSectionPpp.qml:114
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:117
-#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:116
-msgid "No BSD Data Compression"
-msgstr "无BSD数据压缩"
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:70
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:69
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:69
+msgid "Refuse PAP Authentication"
+msgstr "拒绝PAP授权"
 
-#: ../modules/network/edit_autogen/EditSectionPpp.qml:125
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:128
-#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:127
-msgid "No Deflate Data Compression"
-msgstr "无Deflate数据压缩"
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:35
+msgid "Remote Cert Type"
+msgstr "远程Cert类型"
 
-#: ../modules/network/edit_autogen/EditSectionPpp.qml:136
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:139
-#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:138
-msgid "No TCP Header Compression"
-msgstr "无TCP报头压缩"
+#: ../modules/network/add/AddVpn.qml:392
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:322
+msgid "Remote IP"
+msgstr "远程IP"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:59
+msgid "Renegotiation Interval"
+msgstr "重新协商间隔时间"
+
+#: ../modules/account/PasswordDialog.qml:135
+msgid "Repeat"
+msgstr "重复"
+
+#: ../modules/keyboard/main.qml:106
+msgid "Repeat Delay"
+msgstr "重复延迟"
+
+#: ../modules/account/AddUserDialog.qml:170
+msgid "Repeat Password"
+msgstr "重复密码"
+
+#: ../modules/keyboard/main.qml:130
+msgid "Repeat Rate"
+msgstr "重复速度"
+
+#: ../modules/shortcuts/ShortcutInput.qml:325
+msgid "Replace"
+msgstr "替换"
+
+#: ../modules/shared/ResetButton.qml:47
+msgid "Reset"
+msgstr "重置"
+
+#: ../modules/shared/ResetButton.qml:39
+msgid "Reset successfully"
+msgstr "重置成功"
+
+#: ../modules/display/MonitorProperties.qml:112
+msgid "Resolution"
+msgstr "分辨率"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:153
+msgid "Restrict Tunnel TCP MSS"
+msgstr "限制隧道TCP MSS"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:59
+msgid "Retry Indefinitely When Failed"
+msgstr "失败时重试"
+
+#: ../modules/display/MessageBox.qml:124
+msgid "Revert"
+msgstr "还原"
+
+#: ../modules/display/MessageBox.qml:104
+#, qt-format
+msgid ""
+"Reverting to previous display settings in <font color='#F48914'>%1</font> "
+"seconds."
+msgstr "<font color='#F48914'>%1</font>秒后恢复之前的显示设置。"
+
+#: ../modules/sound/main.qml:228
+msgid "Right"
+msgstr "右"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:91
+#: ../modules/mouse_touchpad/main.qml:75
+msgid "Right Button"
+msgstr "右键"
+
+#: ../modules/display/MonitorProperties.qml:50
+msgid "Rotate Left"
+msgstr "向左旋转"
+
+#: ../modules/display/MonitorProperties.qml:48
+msgid "Rotate Right"
+msgstr "向右旋转"
+
+#: ../modules/display/MonitorProperties.qml:165
+msgid "Rotation"
+msgstr "旋转"
+
+#: ../modules/network/Info.qml:60
+msgid "Route Addr"
+msgstr "网关地址"
+
+#: ../modules/network/wireless/AddWireless.qml:33
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:24
+#: ../modules/network/wireless/WifiHotspot.qml:38
+msgid "SSID"
+msgstr "SSID"
+
+#: ../modules/date_time/CalendarComponent.qml:86
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:174
+msgid "Sat"
+msgstr "六"
+
+#: ../modules/network/ConnectionEdit.qml:101
+#: ../modules/network/wireless/WifiHotspot.qml:95
+msgid "Save"
+msgstr "保存"
+
+#: ../dock-applets/qml/network/WirelessApList.qml:95
+msgid "Scanning..."
+msgstr "扫描中..."
+
+#: ../modules/network/wireless/AddWireless.qml:46
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:11
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:35
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:35
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:35
+#: ../modules/network/wireless/WifiHotspot.qml:51
+msgid "Security"
+msgstr "安全"
+
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:24
+msgid "Security Required"
+msgstr "安全"
+
+#: ../modules/grub/main.qml:229
+msgid "Selected Text Color"
+msgstr "选中文字颜色"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:147
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:172
@@ -711,14 +1373,341 @@ msgstr "无TCP报头压缩"
 msgid "Send PPP Echo Packets"
 msgstr "发送PPP Echo数据包"
 
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:24
-msgid "Security Required"
-msgstr "安全"
+#: ../modules/date_time/calendar_core.js:7
+msgid "September"
+msgstr "九月"
 
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:80
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:388
-msgid "NT Domain"
-msgstr "NT域名"
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:35
+msgid "Server IP"
+msgstr "服务器IP"
+
+#: ../modules/network/add/AddDsl.qml:49
+#: ../modules/network/edit_autogen/EditSectionPppoe.qml:35
+msgid "Service"
+msgstr "服务"
+
+#: ../modules/network/add/AddMobile.qml:47
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:24
+msgid "Service Type"
+msgstr "服务类型"
+
+#: ../modules/date_time/TimeBox.qml:196
+msgid "Set"
+msgstr "保存"
+
+#: ../modules/date_time/main.qml:169
+msgid "Set Date"
+msgstr "设置日期"
+
+#: ../modules/display/MonitorComponent.qml:234
+msgid "Set as primary display"
+msgstr "设置为主显示器"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:195
+#: ../modules/keyboard/main.qml:120
+msgid "Short"
+msgstr "短"
+
+#: ../modules/shortcuts/ShortcutInput.qml:224
+#, qt-format
+msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
+msgstr "无效的快捷键\"%1\"，请重新输入。"
+
+#: ../modules/sound/main.qml:581
+msgid "Show Advanced..."
+msgstr "显示高级设置..."
+
+#: ../modules/power/main.qml:138 ../modules/power/main.qml:184
+msgid "Shutdown"
+msgstr "关机"
+
+#: ../modules/personalization/components/FontSettingsExpand.qml:36
+msgid "Size"
+msgstr "大小"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:119
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:169
+#: ../modules/keyboard/main.qml:146 ../modules/keyboard/main.qml:172
+#: ../modules/mouse_touchpad/main.qml:103
+#: ../modules/mouse_touchpad/main.qml:155
+msgid "Slow"
+msgstr "慢"
+
+#: ../modules/account/WebCam.qml:125 ../modules/account/WebCam.qml:140
+msgid "Snapshot"
+msgstr "拍照"
+
+#: ../modules/network/proxy/ProxyContent.qml:123
+msgid "Socks Host"
+msgstr "Socks代理"
+
+#: ../modules/default_applications/main.qml:280
+msgid "Software"
+msgstr "软件"
+
+#: ../frame/views/ModulesData.qml:32 ../dock-applets/qml/main.qml:42
+msgid "Sound"
+msgstr "声音"
+
+#: ../modules/sound/main.qml:126
+msgid "Speaker"
+msgstr "扬声器"
+
+#: ../modules/account/AddUserDialog.qml:88
+#: ../modules/account/AddUserDialog.qml:213
+#: ../modules/account/EditUserDialog.qml:131
+#: ../modules/account/UserList.qml:187
+msgid "Standard"
+msgstr "标准"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:48
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:46
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:46
+msgid "Stateful MPPE"
+msgstr "微软点对点加密状态"
+
+#: ../modules/network/add/AddVpn.qml:359
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:289
+msgid "Static Key"
+msgstr "静态密码"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:24
+msgid "Subject Match"
+msgstr "主题匹配"
+
+#: ../modules/network/Info.qml:59
+msgid "Subnet Mask"
+msgstr "子网掩码"
+
+#: ../modules/grub/Preview.qml:128
+msgid "Successfully changed, reboot to view."
+msgstr "更换背景图片成功，重启可查看。"
+
+#: ../modules/date_time/CalendarComponent.qml:80
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:168
+msgid "Sun"
+msgstr "日"
+
+#: ../modules/power/main.qml:143 ../modules/power/main.qml:189
+#: ../modules/power/main.qml:253 ../modules/power/main.qml:259
+#: ../modules/power/main.qml:265 ../modules/power/main.qml:271
+#: ../modules/power/main.qml:358 ../modules/power/main.qml:428
+#: ../modules/power/main.qml:434 ../modules/power/main.qml:440
+#: ../modules/power/main.qml:446 ../modules/power/main.qml:534
+msgid "Suspend"
+msgstr "待机"
+
+#: ../modules/shortcuts/main.qml:49
+msgid "System"
+msgstr "系统"
+
+#: ../frame/views/ModulesData.qml:45
+msgid "System Information"
+msgstr "系统信息"
+
+#: ../modules/network/proxy/ProxyExpand.qml:37
+msgid "System Proxy"
+msgstr "系统代理"
+
+#: ../modules/system_info/main.qml:114
+msgid "System Type"
+msgstr "系统类型"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:228
+msgid "Tap to click"
+msgstr "轻触以点击"
+
+#: ../modules/default_applications/main.qml:186
+msgid "Terminal"
+msgstr "终端"
+
+#: ../modules/keyboard/main.qml:181
+msgid "Test Area"
+msgstr "测试区"
+
+#: ../modules/default_applications/main.qml:99
+msgid "Text"
+msgstr "文本"
+
+#: ../modules/grub/main.qml:196
+msgid "Text Color"
+msgstr "文字颜色"
+
+#: ../modules/shortcuts/ShortcutInput.qml:262
+msgid "The shortcut you set "
+msgstr "您设置的快捷键"
+
+#: ../modules/personalization/main.qml:101
+msgid "Theme"
+msgstr "主题"
+
+#: ../modules/date_time/CalendarComponent.qml:84
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:172
+msgid "Thu"
+msgstr "四"
+
+#: ../modules/date_time/TimezoneArea.qml:86
+msgid "Time zone"
+msgstr "时区"
+
+#: ../modules/date_time/Calendar.qml:125
+msgid "Today"
+msgstr "返回今天"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:51
+msgid "Touchpad"
+msgstr "触摸板"
+
+#: ../modules/date_time/CalendarComponent.qml:82
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:170
+msgid "Tue"
+msgstr "二"
+
+#: ../modules/power/main.qml:252 ../modules/power/main.qml:258
+#: ../modules/power/main.qml:264 ../modules/power/main.qml:270
+#: ../modules/power/main.qml:318 ../modules/power/main.qml:427
+#: ../modules/power/main.qml:433 ../modules/power/main.qml:439
+#: ../modules/power/main.qml:445 ../modules/power/main.qml:494
+msgid "Turn off the display"
+msgstr "关闭显示器"
+
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:90
+msgid "Type"
+msgstr "类型"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:140
+msgid "UDP Fragment Size"
+msgstr "UDP数据报段长度"
+
+#: ../modules/network/main.qml:157 ../modules/network/main.qml:185
+msgid "Unknown"
+msgstr "未知的"
+
+#: ../dock-applets/qml/disk_mount/DiskItem.qml:124
+msgid "Unmount failed!"
+msgstr "卸载失败"
+
+#: ../modules/network/main.qml:163
+msgid "Unused1"
+msgstr "未使用1"
+
+#: ../modules/network/main.qml:165
+msgid "Unused2"
+msgstr "未使用2"
+
+#: ../modules/display/MonitorProperties.qml:49
+msgid "Upside Down"
+msgstr "上下翻转"
+
+#: ../modules/date_time/main.qml:108
+msgid "Use 24-hour clock"
+msgstr "24小时制"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:24
+msgid "Use Custom Gateway Port"
+msgstr "用户自定义网关"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:48
+msgid "Use Custom Renegotiation Interval"
+msgstr "使用自定义重新协商间隔时间"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:105
+msgid "Use Custom Tunnel MTU"
+msgstr "使用自定义最大传输单元(MTU)"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
+msgid "Use Custom UDP Fragment Size"
+msgstr "使用自定义UDP数据报段长度"
+
+#: ../modules/network/add/AddVpn.qml:535
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:476
+msgid "Use Hybrid Authentication"
+msgstr "用户混合授权"
+
+#: ../modules/network/add/AddVpn.qml:370
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:300
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:57
+msgid "Use Key Direction"
+msgstr "密钥方向"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:72
+msgid "Use LZO data compression"
+msgstr "使用LZO数据压缩"
+
+#: ../modules/network/add/AddVpn.qml:605 ../modules/network/add/AddVpn.qml:618
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:24
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:24
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:24
+msgid "Use MPPE"
+msgstr "使用微软点到点加密"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:94
+msgid "Use TAP device"
+msgstr "使用TAP设备"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:83
+msgid "Use TCP connection"
+msgstr "使用TCP连接"
+
+#: ../frame/views/ModulesData.qml:43
+msgid "User Accounts"
+msgstr "账户"
+
+#: ../modules/network/add/AddVpn.qml:216 ../modules/network/add/AddVpn.qml:315
+#: ../modules/network/wireless/AddWireless.qml:123
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:112
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:146
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:245
+msgid "User Cert"
+msgstr "用户Cert"
+
+#: ../modules/network/add/AddVpn.qml:238
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:168
+msgid "User FSID For Key Passphrase"
+msgstr "用户FSID私钥密语"
+
+#: ../modules/network/add/AddVpn.qml:491
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:432
+msgid "User Pwd"
+msgstr "用户密码"
+
+#: ../modules/network/add/AddDsl.qml:38
+#: ../modules/network/add/AddMobile.qml:80
+#: ../modules/network/add/AddMobile.qml:113
+#: ../modules/account/AddUserDialog.qml:105
+#: ../modules/network/add/AddVpn.qml:128 ../modules/network/add/AddVpn.qml:271
+#: ../modules/network/add/AddVpn.qml:425 ../modules/network/add/AddVpn.qml:469
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:57
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:134
+#: ../modules/network/edit_autogen/EditSectionPppoe.qml:24
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:47
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:201
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:355
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:410
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:70
+msgid "Username"
+msgstr "用户名"
+
+#: ../modules/network/main.qml:179
+msgid "VLAN"
+msgstr "VLAN"
+
+#: ../modules/network/ConnectionAdd.qml:45
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:11
+msgid "VPN"
+msgstr "VPN"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:11
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:11
+msgid "VPN Advanced"
+msgstr "高级VPN"
+
+#: ../modules/network/vpn/VpnExpand.qml:48
+msgid "VPN Connections"
+msgstr "VPN连接"
 
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:11
 msgid "VPN IPsec"
@@ -729,119 +1718,25 @@ msgstr "VPN IPsec"
 msgid "VPN PPP"
 msgstr "VPN PPP"
 
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:150
-msgid "No Protocol Field Compression"
-msgstr "无协议项目压缩"
-
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:161
-msgid "No Address/Control Compression"
-msgstr "无地址/控制压缩"
-
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:11
-#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:11
-msgid "VPN Advanced"
-msgstr "高级VPN"
-
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:24
-msgid "Use Custom Gateway Port"
-msgstr "用户自定义网关"
-
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:35
-msgid "Gateway Port"
-msgstr "网关"
-
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:48
-msgid "Use Custom Renegotiation Interval"
-msgstr "使用自定义重新协商间隔时间"
-
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:59
-msgid "Renegotiation Interval"
-msgstr "重新协商间隔时间"
-
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:72
-msgid "Use LZO data compression"
-msgstr "使用LZO数据压缩"
-
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:83
-msgid "Use TCP connection"
-msgstr "使用TCP连接"
-
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:94
-msgid "Use TAP device"
-msgstr "使用TAP设备"
-
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:105
-msgid "Use Custom Tunnel MTU"
-msgstr "使用自定义最大传输单元(MTU)"
-
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
-msgid "Use Custom UDP Fragment Size"
-msgstr "使用自定义UDP数据报段长度"
-
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:140
-msgid "UDP Fragment Size"
-msgstr "UDP数据报段长度"
-
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:153
-msgid "Restrict Tunnel TCP MSS"
-msgstr "限制隧道TCP MSS"
-
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:164
-msgid "Randomize Remote Hosts"
-msgstr "随机远程主机"
-
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:11
 msgid "VPN Proxies"
 msgstr "VPN代理"
-
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:24
-msgid "Proxy Type"
-msgstr "代理类型"
-
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:35
-msgid "Server IP"
-msgstr "服务器IP"
-
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:46
-#: ../modules/network/proxy/ProxyLine.qml:39
-msgid "Port"
-msgstr "端口"
-
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:59
-msgid "Retry Indefinitely When Failed"
-msgstr "失败时重试"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:11
 msgid "VPN Security"
 msgstr "VPN安全"
 
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:24
-msgid "Cipher"
-msgstr "密码"
-
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:35
-msgid "HMAC Auth"
-msgstr "HMAC授权"
-
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:11
 msgid "VPN TLS Authentication"
 msgstr "VPN TLS 授权"
 
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:24
-msgid "Subject Match"
-msgstr "主题匹配"
+#: ../modules/network/add/AddVpn.qml:15
+msgid "VPN Type"
+msgstr "VPN类型"
 
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:35
-msgid "Remote Cert Type"
-msgstr "远程Cert类型"
-
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:46
-msgid "Key File"
-msgstr "密钥文件"
-
-#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:24
-msgid "Domain"
-msgstr "域名"
+#: ../modules/network/add/AddVpn.qml:40
+msgid "VPNC"
+msgstr "VPNC"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:35
 msgid "Vendor"
@@ -851,244 +1746,47 @@ msgstr "供应商"
 msgid "Version"
 msgstr "系统版本"
 
-#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:57
-msgid "Encryption"
-msgstr "加密"
+#: ../modules/default_applications/main.qml:136
+msgid "Video"
+msgstr "视频"
 
-#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:68
-msgid "NAT Traversal"
-msgstr "NAT穿越"
+#: ../modules/personalization/main.qml:129
+msgid "Wallpaper"
+msgstr "壁纸"
 
-#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:79
-msgid "IKE DH Group"
-msgstr "IKE DH组"
+#: ../modules/account/AvatarView.qml:20
+msgid "Webcam"
+msgstr "拍照"
 
-#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:90
-msgid "Forward Secrecy"
-msgstr "完全正向保密"
+#: ../modules/date_time/CalendarComponent.qml:83
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:171
+msgid "Wed"
+msgstr "三"
 
-#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:101
-msgid "Local Port"
-msgstr "本地端口"
+#: ../modules/power/main.qml:170
+msgid "When I close the lid"
+msgstr "合上笔记本盖子"
 
-#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:114
-msgid "Disable Dead Peer Detection"
-msgstr "禁用死端检测"
+#: ../modules/power/main.qml:124
+msgid "When I press the power button"
+msgstr "按下电源按钮"
 
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:11
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
 
-#: ../modules/network/edit_autogen/EditSectionWifi.qml:35
-msgid "Mode"
-msgstr "模式"
+#: ../modules/network/main.qml:171
+msgid "WiMax"
+msgstr "WiMax"
 
-#: ../modules/network/edit_autogen/EditSectionWifi.qml:46
-msgid "Band"
-msgstr "波段"
+#: ../modules/personalization/main.qml:108 ../modules/shortcuts/main.qml:51
+msgid "Window"
+msgstr "窗口"
 
-#: ../modules/network/edit_autogen/EditSectionWifi.qml:58
-msgid "Channel"
-msgstr "通道"
-
-#: ../modules/account/EditUserDialog.qml:86
-msgid "Enable"
-msgstr "启用"
-
-#: ../modules/personalization/components/FontSettingsExpand.qml:36
-msgid "Size"
-msgstr "大小"
-
-#: ../modules/personalization/components/FontSettingsExpand.qml:65
-#, qt-format
-msgid "Font %1"
-msgstr "字体 %1"
-
-#: ../modules/account/GuestUser.qml:40 ../frame/views/HeaderArea.qml:108
-msgid "Guest"
-msgstr "来宾"
-
-#: ../modules/account/GuestUser.qml:101
-#: ../modules/display/MonitorProperties.qml:80
-msgid "Enabled"
-msgstr "启用"
-
-#: ../modules/network/Info.qml:11
-msgid "Activated Connections"
-msgstr "激活的连接"
-
-#: ../modules/network/Info.qml:56
-msgid "Device Type"
-msgstr "设备类型"
-
-#: ../modules/network/Info.qml:57
-msgid "Device Addr"
-msgstr "设备地址"
-
-#: ../modules/network/Info.qml:59
-msgid "Subnet Mask"
-msgstr "子网掩码"
-
-#: ../modules/network/Info.qml:60
-msgid "Route Addr"
-msgstr "网关地址"
-
-#: ../modules/network/Info.qml:61
-msgid "Primary DNS"
-msgstr "首选DNS"
-
-#: ../modules/network/Info.qml:62
-msgid "Addtional DNS"
-msgstr "附加域名系统"
-
-#: ../modules/network/Info.qml:63
-msgid "Device Speed"
-msgstr "设备速度"
-
-#: ../modules/date_time/LocaleArea.qml:78
-msgid "Language"
-msgstr "语言"
-
-#: ../modules/display/MessageBox.qml:109
-msgid "Do you want to keep these display settings?"
-msgstr "是否要保留这些显示设置？"
-
-#: ../modules/display/MessageBox.qml:119
-#, qt-format
-msgid ""
-"Reverting to previous display settings in <font color='#F48914'>%1</font> "
-"seconds."
-msgstr "<font color='#F48914'>%1</font>秒后恢复之前的显示设置。"
-
-#: ../modules/display/MessageBox.qml:131
-msgid "Keep Changes"
-msgstr "保留更改"
-
-#: ../modules/display/MessageBox.qml:139
-msgid "Revert"
-msgstr "还原"
-
-#: ../frame/views/ModulesData.qml:28 ../dock-applets/qml/main.qml:45
-msgid "Date and Time"
-msgstr "日期和时间"
-
-#: ../frame/views/ModulesData.qml:29 ../dock-applets/qml/main.qml:41
-msgid "Network"
-msgstr "网络"
-
-#: ../frame/views/ModulesData.qml:30 ../dock-applets/qml/main.qml:44
-msgid "Disk Mount"
-msgstr "磁盘挂载"
-
-#: ../frame/views/ModulesData.qml:31 ../modules/network/main.qml:167
-msgid "Bluetooth"
-msgstr "蓝牙"
-
-#: ../frame/views/ModulesData.qml:32 ../dock-applets/qml/main.qml:42
-msgid "Sound"
-msgstr "声音"
-
-#: ../frame/views/ModulesData.qml:33
-msgid "Power Management"
-msgstr "电源管理"
-
-#: ../frame/views/ModulesData.qml:34
-msgid "More Settings"
-msgstr "更多设置"
-
-#: ../frame/views/ModulesData.qml:35 ../frame/views/PanelContent.qml:421
-#: ../dock-applets/qml/main.qml:43
-msgid "Power"
-msgstr "电源"
-
-#: ../frame/views/ModulesData.qml:36
-msgid "Display"
-msgstr "显示"
-
-#: ../frame/views/ModulesData.qml:37
-msgid "Desktop"
-msgstr "桌面"
-
-#: ../frame/views/ModulesData.qml:38
-msgid "Personalization"
-msgstr "个性化"
-
-#: ../frame/views/ModulesData.qml:39
-msgid "Keyboard Shortcuts"
-msgstr "快捷键"
-
-#: ../frame/views/ModulesData.qml:40
-msgid "Keyboard"
-msgstr "键盘"
-
-#: ../frame/views/ModulesData.qml:41
-msgid "Mouse and Touchpad"
-msgstr "鼠标和触摸板"
-
-#: ../frame/views/ModulesData.qml:42 ../modules/mouse_touchpad/main.qml:50
-msgid "Mouse"
-msgstr "鼠标"
-
-#: ../frame/views/ModulesData.qml:43
-msgid "User Accounts"
-msgstr "账户"
-
-#: ../frame/views/ModulesData.qml:44
-#: ../modules/default_applications/main.qml:62
-msgid "Default Applications"
-msgstr "默认程序"
-
-#: ../frame/views/ModulesData.qml:45
-msgid "System Information"
-msgstr "系统信息"
-
-#: ../frame/views/ModulesData.qml:46
-msgid "Boot Menu"
-msgstr "启动菜单"
-
-#: ../frame/views/ModulesData.qml:47
-msgid "Home"
-msgstr "回到主页"
-
-#: ../modules/display/MonitorComponent.qml:234
-msgid "Set as primary display"
-msgstr "设置为主显示器"
-
-#: ../modules/display/MonitorDragArea.qml:446
-msgid "Identify"
-msgstr "识别"
-
-#: ../modules/display/MonitorDragArea.qml:463
-msgid "Edit"
-msgstr "编辑"
-
-#: ../modules/display/MonitorProperties.qml:47
-msgid "Normal"
-msgstr "正常"
-
-#: ../modules/display/MonitorProperties.qml:48
-msgid "Rotate Right"
-msgstr "向右旋转"
-
-#: ../modules/display/MonitorProperties.qml:49
-msgid "Upside Down"
-msgstr "上下翻转"
-
-#: ../modules/display/MonitorProperties.qml:50
-msgid "Rotate Left"
-msgstr "向左旋转"
-
-#: ../modules/display/MonitorProperties.qml:112
-msgid "Resolution"
-msgstr "分辨率"
-
-#: ../modules/display/MonitorProperties.qml:165
-msgid "Rotation"
-msgstr "旋转"
-
-#: ../modules/display/MonitorProperties.qml:206
-msgid "Brightness"
-msgstr "亮度"
+#: ../modules/network/main.qml:159
+msgid "Wired"
+msgstr "有线"
 
 #: ../modules/network/wired/NewItem.qml:41
 #: ../modules/network/wired/WiredItem.qml:80
@@ -1096,254 +1794,13 @@ msgstr "亮度"
 msgid "Wired Connection %1"
 msgstr "有线连接 %1"
 
-#: ../modules/network/widgets/PasswordBox.qml:76
-msgid "Password: "
-msgstr "密码: "
-
-#: ../modules/account/PasswordDialog.qml:101
-msgid "New Password"
-msgstr "新密码"
-
-#: ../modules/account/PasswordDialog.qml:135
-msgid "Repeat"
-msgstr "重复"
-
-#: ../modules/grub/Preview.qml:126
-msgid "Drag and drop an image to change background."
-msgstr "拖拽图片到此以更换背景"
-
-#: ../modules/grub/Preview.qml:127
-msgid "Background is changing, please reboot later..."
-msgstr "背景图片正在被应用，重启请稍后..."
-
-#: ../modules/grub/Preview.qml:128
-msgid "Successfully changed, reboot to view."
-msgstr "更换背景图片成功，重启可查看。"
-
-#: ../modules/network/proxy/ProxyContent.qml:42
-msgid "None"
-msgstr "无"
-
-#: ../modules/network/proxy/ProxyContent.qml:47
-msgid "Manual"
-msgstr "手动"
-
-#: ../modules/network/proxy/ProxyContent.qml:52
-msgid "Auto"
-msgstr "自动"
-
-#: ../modules/network/proxy/ProxyContent.qml:87
-msgid "HTTP Proxy"
-msgstr "HTTP代理"
-
-#: ../modules/network/proxy/ProxyContent.qml:99
-msgid "HTTPS Proxy"
-msgstr "HTTPS代理"
-
-#: ../modules/network/proxy/ProxyContent.qml:111
-msgid "FTP Proxy"
-msgstr "FTP代理"
-
-#: ../modules/network/proxy/ProxyContent.qml:123
-msgid "Socks Host"
-msgstr "Socks代理"
-
-#: ../modules/network/proxy/ProxyContent.qml:148
-msgid "Configuration URL"
-msgstr "配置URL"
-
-#: ../modules/network/proxy/ProxyContent.qml:165
-msgid "Apply system wide"
-msgstr "应用到整个系统"
-
-#: ../modules/network/proxy/ProxyExpand.qml:37
-msgid "System Proxy"
-msgstr "系统代理"
-
-#: ../modules/shared/ResetButton.qml:39
-msgid "Reset successfully"
-msgstr "重置成功"
-
-#: ../modules/shared/ResetButton.qml:47
-msgid "Reset"
-msgstr "重置"
-
-#: ../modules/shortcuts/ShortcutInput.qml:108
-msgid "Disable"
-msgstr "禁用"
-
-#: ../modules/shortcuts/ShortcutInput.qml:126
-msgid "Please input new shortcut"
-msgstr "请输入新的快捷键"
-
-#: ../modules/shortcuts/ShortcutInput.qml:224
-#, qt-format
-msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
-msgstr "无效的快捷键\"%1\"，请重新输入。"
-
-#: ../modules/shortcuts/ShortcutInput.qml:262
-msgid "The shortcut you set "
-msgstr "您设置的快捷键"
-
-#: ../modules/shortcuts/ShortcutInput.qml:265
-#, qt-format
-msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
-msgstr "与\"%1\"类别下的\"%2\"的快捷键冲突。"
-
-#: ../modules/shortcuts/ShortcutInput.qml:267
-msgid "Do you want to replace it?"
-msgstr "是否进行替换？"
-
-#: ../modules/shortcuts/ShortcutInput.qml:325
-msgid "Replace"
-msgstr "替换"
-
-#: ../modules/personalization/widgets/ShowPreviewButton.qml:53
-msgid "Preview Theme"
-msgstr "预览主题"
-
-#: ../modules/date_time/StateButtons.qml:34
-#: ../modules/keyboard/StateButtons.qml:34
-#: ../modules/shortcuts/StateButtons.qml:38
-msgid "Done"
-msgstr "完成"
-
-#: ../modules/personalization/widgets/ThemeItem.qml:107
-#: ../dock-applets/qml/power/main.qml:46 ../modules/power/main.qml:268
-#: ../modules/power/main.qml:443 ../modules/shortcuts/main.qml:53
-#: ../modules/shortcuts/main.qml:224
-msgid "Custom"
-msgstr "自定义"
-
-#: ../modules/date_time/TimeBox.qml:161
-msgid "Double-click the above digits to change your time."
-msgstr "双击上面的数字以更改时间。"
-
-#: ../modules/date_time/TimeBox.qml:196
-msgid "Set"
-msgstr "保存"
-
-#: ../modules/date_time/TimezoneArea.qml:86
-msgid "Time zone"
-msgstr "时区"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:51
-msgid "Touchpad"
-msgstr "触摸板"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:82
-#: ../modules/mouse_touchpad/main.qml:67
-msgid "Primary Button"
-msgstr "主按键"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:90
-#: ../modules/mouse_touchpad/main.qml:74
-msgid "Left Button"
-msgstr "左键"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:91
-#: ../modules/mouse_touchpad/main.qml:75
-msgid "Right Button"
-msgstr "右键"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:104
-#: ../modules/mouse_touchpad/main.qml:88
-msgid "Pointer Speed"
-msgstr "指针移动速度"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:119
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:169
-#: ../modules/keyboard/main.qml:146 ../modules/keyboard/main.qml:172
-#: ../modules/mouse_touchpad/main.qml:103
-#: ../modules/mouse_touchpad/main.qml:155
-msgid "Slow"
-msgstr "慢"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:120
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:170
-#: ../modules/keyboard/main.qml:145 ../modules/keyboard/main.qml:171
-#: ../modules/mouse_touchpad/main.qml:104
-#: ../modules/mouse_touchpad/main.qml:156
-msgid "Fast"
-msgstr "快"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:154
-#: ../modules/mouse_touchpad/main.qml:140
-msgid "Double-click Speed"
-msgstr "双击速度"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:180
-msgid "Drag Threshold"
-msgstr "拖动阀值"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:195
-#: ../modules/keyboard/main.qml:120
-msgid "Short"
-msgstr "短"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:196
-#: ../modules/keyboard/main.qml:121
-msgid "Long"
-msgstr "长"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:205
-msgid "Natural Scrolling"
-msgstr "自然滚动"
-
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:228
-msgid "Tap to click"
-msgstr "轻触以点击"
-
-#: ../modules/network/vpn/VpnExpand.qml:48
-msgid "VPN Connections"
-msgstr "VPN连接"
-
-#: ../modules/account/WebCam.qml:125 ../modules/account/WebCam.qml:140
-msgid "Snapshot"
-msgstr "拍照"
-
-#: ../modules/account/WebCam.qml:136
-msgid "Again"
-msgstr "重拍"
-
-#: ../modules/account/WebCam.qml:172
-msgid "No camera found."
-msgstr "未找到相机设备"
-
-#: ../modules/network/wireless/WifiHotspot.qml:23
-msgid "Edit Wi-Fi Hotspot"
-msgstr "编辑无线热点"
-
-#: ../modules/network/wireless/WifiHotspot.qml:23
-msgid "Create Wi-Fi Hotspot"
-msgstr "创建无线热点"
-
-#: ../modules/network/wireless/WifiHotspot.qml:95
-msgid "Create"
-msgstr "创建"
-
-#: ../dock-applets/qml/WifiPasswordWindow.qml:127
-msgid "Authentication required by Wi-Fi network"
-msgstr "Wi-Fi网络所需的授权"
-
-#: ../dock-applets/qml/WifiPasswordWindow.qml:135
-#, qt-format
-msgid ""
-"Passwords or encryption keys are required to access the Wi-Fi network <font "
-"color=\"#faca57\">%1</font>"
-msgstr "连接Wi-Fi网络所需的密码或密钥 <font color=\"#faca57\">%1</font>"
-
-#: ../dock-applets/qml/WifiPasswordWindow.qml:149
-msgid "Password:"
-msgstr "密码："
-
 #: ../modules/network/wired/WiredDeviceExpand.qml:37
 msgid "Wired Network"
 msgstr "有线网络"
 
-#: ../dock-applets/qml/network/WirelessApList.qml:95
-msgid "Scanning..."
-msgstr "扫描中..."
+#: ../modules/network/main.qml:161
+msgid "Wireless"
+msgstr "无线"
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:62
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
@@ -1356,58 +1813,15 @@ msgstr "无线网络"
 msgid "Wireless Network %1"
 msgstr "无线网络 %1"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:115
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:331
-msgid "Connect to hidden access point"
-msgstr "连接到隐藏网络"
+#: ../modules/shortcuts/main.qml:52
+msgid "Workspace"
+msgstr "工作区"
 
-#: ../modules/date_time/calendar_core.js:6
-msgid "January"
-msgstr "一月"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "February"
-msgstr "二月"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "March"
-msgstr "三月"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "April"
-msgstr "四月"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "May"
-msgstr "五月"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "June"
-msgstr "六月"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "July"
-msgstr "七月"
-
-#: ../modules/date_time/calendar_core.js:7
-msgid "August"
-msgstr "八月"
-
-#: ../modules/date_time/calendar_core.js:7
-msgid "September"
-msgstr "九月"
-
-#: ../modules/date_time/calendar_core.js:7
-msgid "October"
-msgstr "十月"
-
-#: ../modules/date_time/calendar_core.js:7
-msgid "November"
-msgstr "十一月"
-
-#: ../modules/date_time/calendar_core.js:7
-msgid "December"
-msgstr "十二月"
+#: ../dock-applets/qml/network/main.qml:279
+#: ../dock-applets/qml/power/main.qml:99
+#: ../dock-applets/qml/sound/main.qml:152
+msgid "_Run"
+msgstr "运行(_R)"
 
 #: ../dock-applets/qml/date_time/main.qml:80
 msgid "_Switch to analog"
@@ -1417,461 +1831,17 @@ msgstr "切换为模拟时钟(_S)"
 msgid "_Switch to digital"
 msgstr "切换为数字时钟(_S)"
 
-#: ../dock-applets/qml/network/main.qml:279
-#: ../dock-applets/qml/power/main.qml:99
-#: ../dock-applets/qml/sound/main.qml:152
-msgid "_Run"
-msgstr "运行(_R)"
-
-#: ../dock-applets/qml/power/main.qml:34
-msgid "On Charging"
-msgstr "正在充电"
-
-#: ../dock-applets/qml/power/main.qml:47 ../modules/power/main.qml:256
-#: ../modules/power/main.qml:431
-msgid "Power saver"
-msgstr "节能"
-
-#: ../dock-applets/qml/power/main.qml:48 ../modules/power/main.qml:250
-#: ../modules/power/main.qml:425
-msgid "Balanced"
-msgstr "均衡"
-
-#: ../dock-applets/qml/power/main.qml:49 ../modules/power/main.qml:262
-#: ../modules/power/main.qml:437
-msgid "High performance"
-msgstr "高性能"
-
 #: ../dock-applets/qml/network/main.qml:280
 #: ../dock-applets/qml/power/main.qml:106
 #: ../dock-applets/qml/sound/main.qml:153
 msgid "_Undock"
 msgstr "移除驻留(_U)"
 
-#: ../dock-applets/qml/sound/main.qml:188
-msgid "Device"
-msgstr "设备"
-
-#: ../dock-applets/qml/sound/main.qml:282
-msgid "Applications"
-msgstr "程序"
-
-#: ../modules/bluetooth/main.qml:76
-msgid "ON/OFF"
-msgstr "开启/关闭"
-
-#: ../modules/bluetooth/main.qml:141
-msgid "Devices nearby"
-msgstr "附近的设备"
-
-#: ../modules/date_time/main.qml:92
-msgid "Automatic date and time"
-msgstr "自动同步时间"
-
-#: ../modules/date_time/main.qml:108
-msgid "Use 24-hour clock"
-msgstr "24小时制"
-
-#: ../modules/date_time/main.qml:165
-msgid "Date"
-msgstr "日期"
-
-#: ../modules/date_time/main.qml:169
-msgid "Set Date"
-msgstr "设置日期"
-
-#: ../modules/default_applications/main.qml:74
-msgid "Browser"
-msgstr "浏览器"
-
-#: ../modules/default_applications/main.qml:88
-msgid "Mail"
-msgstr "邮件"
-
-#: ../modules/default_applications/main.qml:99
-msgid "Text"
-msgstr "文本"
-
-#: ../modules/default_applications/main.qml:105
-msgid "Music"
-msgstr "音乐"
-
-#: ../modules/default_applications/main.qml:136
-msgid "Video"
-msgstr "视频"
-
-#: ../modules/default_applications/main.qml:168
-msgid "Picture"
-msgstr "图片"
-
-#: ../modules/default_applications/main.qml:186
-msgid "Terminal"
-msgstr "终端"
-
-#: ../modules/default_applications/main.qml:245
-msgid "AutoPlay"
-msgstr "自动播放"
-
-#: ../modules/default_applications/main.qml:260
-msgid "CD Audio"
-msgstr "CD音频"
-
-#: ../modules/default_applications/main.qml:265
-msgid "DVD Video"
-msgstr "DVD视频"
-
-#: ../modules/default_applications/main.qml:270
-msgid "Music Player"
-msgstr "音乐播放器"
-
-#: ../modules/default_applications/main.qml:275
-msgid "Camera"
-msgstr "照相机"
-
-#: ../modules/default_applications/main.qml:280
-msgid "Software"
-msgstr "软件"
-
-#: ../modules/display/main.qml:117
-msgid "Primary Monitor: "
-msgstr "主显示器："
-
-#: ../modules/display/main.qml:148
-msgid "Monitor"
-msgstr "显示器"
-
-#: ../modules/display/main.qml:208
-msgid "Apply"
-msgstr "应用"
-
-#: ../modules/grub/main.qml:102
-msgid "Default Startup"
-msgstr "默认启动"
-
-#: ../modules/grub/main.qml:157
-msgid "Boot delay"
-msgstr "启动延时"
-
-#: ../modules/grub/main.qml:196
-msgid "Text Color"
-msgstr "文字颜色"
-
-#: ../modules/grub/main.qml:229
-msgid "Selected Text Color"
-msgstr "选中文字颜色"
-
-#: ../modules/keyboard/main.qml:106
-msgid "Repeat Delay"
-msgstr "重复延迟"
-
-#: ../modules/keyboard/main.qml:130
-msgid "Repeat Rate"
-msgstr "重复速度"
-
-#: ../modules/keyboard/main.qml:155
-msgid "Cursor Blink Rate"
-msgstr "光标闪烁频率"
-
-#: ../modules/keyboard/main.qml:181
-msgid "Test Area"
-msgstr "测试区"
-
-#: ../modules/keyboard/main.qml:211
-msgid "Keyboard Layout"
-msgstr "键盘布局"
-
-#: ../modules/keyboard/main.qml:396
-msgid "No result"
-msgstr "无结果"
-
-#: ../modules/keyboard/main.qml:405
-msgid "Caps Lock prompt"
-msgstr "大写键提示"
-
-#: ../modules/mouse_touchpad/main.qml:167
-msgid "Disable the touchpad when inserting the mouse"
-msgstr "插入鼠标时禁用触摸板"
-
-#: ../modules/personalization/main.qml:101
-msgid "Theme"
-msgstr "主题"
-
-#: ../modules/personalization/main.qml:108 ../modules/shortcuts/main.qml:51
-msgid "Window"
-msgstr "窗口"
-
-#: ../modules/personalization/main.qml:115
-msgid "Icon"
-msgstr "图标"
-
-#: ../modules/personalization/main.qml:129
-msgid "Wallpaper"
-msgstr "壁纸"
-
-#: ../modules/personalization/main.qml:143
-msgid "Fonts"
-msgstr "字体"
-
-#: ../modules/power/main.qml:53 ../modules/power/main.qml:65
-msgid "Never"
-msgstr "从不"
-
-#: ../modules/power/main.qml:59
-msgid "1 minute"
-msgstr "1分钟"
-
-#: ../modules/power/main.qml:60
-msgid "5 minutes"
-msgstr "5分钟"
-
-#: ../modules/power/main.qml:61
-msgid "10 minutes"
-msgstr "10分钟"
-
-#: ../modules/power/main.qml:62
-msgid "15 minutes"
-msgstr "15分钟"
-
-#: ../modules/power/main.qml:63
-msgid "30 minutes"
-msgstr "30分钟"
-
-#: ../modules/power/main.qml:64
-msgid "1 hour"
-msgstr "1小时"
-
-#: ../modules/power/main.qml:124
-msgid "When I press the power button"
-msgstr "按下电源按钮"
-
-#: ../modules/power/main.qml:138 ../modules/power/main.qml:184
-msgid "Shutdown"
-msgstr "关机"
-
-#: ../modules/power/main.qml:143 ../modules/power/main.qml:189
-#: ../modules/power/main.qml:253 ../modules/power/main.qml:259
-#: ../modules/power/main.qml:265 ../modules/power/main.qml:271
-#: ../modules/power/main.qml:358 ../modules/power/main.qml:428
-#: ../modules/power/main.qml:434 ../modules/power/main.qml:440
-#: ../modules/power/main.qml:446 ../modules/power/main.qml:534
-msgid "Suspend"
-msgstr "待机"
-
-#: ../modules/power/main.qml:148
-msgid "Ask"
-msgstr "询问"
-
-#: ../modules/power/main.qml:170
-msgid "When I close the lid"
-msgstr "合上笔记本盖子"
-
-#: ../modules/power/main.qml:194
-msgid "Nothing"
-msgstr "无"
-
-#: ../modules/power/main.qml:213
-msgid "Password required to wake up"
-msgstr "唤醒需要密码"
-
-#: ../modules/power/main.qml:235
-msgid "Plugged in"
-msgstr "接通电源"
-
-#: ../modules/power/main.qml:410
-msgid "On battery"
-msgstr "使用电池"
-
-#: ../modules/power/main.qml:252 ../modules/power/main.qml:258
-#: ../modules/power/main.qml:264 ../modules/power/main.qml:270
-#: ../modules/power/main.qml:318 ../modules/power/main.qml:427
-#: ../modules/power/main.qml:433 ../modules/power/main.qml:439
-#: ../modules/power/main.qml:445 ../modules/power/main.qml:494
-msgid "Turn off the display"
-msgstr "关闭显示器"
-
-#: ../modules/power/main.qml:313 ../modules/power/main.qml:489
-msgid "Custom Options"
-msgstr "自定义选项"
-
-#: ../modules/shortcuts/main.qml:49
-msgid "System"
-msgstr "系统"
-
-#: ../modules/shortcuts/main.qml:52
-msgid "Workspace"
-msgstr "工作区"
-
-#: ../modules/sound/main.qml:126
-msgid "Speaker"
-msgstr "扬声器"
-
-#: ../modules/sound/main.qml:156
-msgid "Output Volume"
-msgstr "输出音量"
-
-#: ../modules/sound/main.qml:204
-msgid "Balance"
-msgstr "均衡"
-
-#: ../modules/sound/main.qml:226
-msgid "Left"
-msgstr "左"
-
-#: ../modules/sound/main.qml:228
-msgid "Right"
-msgstr "右"
-
-#: ../modules/sound/main.qml:260
-msgid "Microphone"
-msgstr "麦克风"
-
-#: ../modules/sound/main.qml:290
-msgid "Input Volume"
-msgstr "输入音量"
-
-#: ../modules/sound/main.qml:334
-msgid "Input Feedback"
-msgstr "输入反馈"
-
-#: ../modules/sound/main.qml:370
-msgid "Output Port"
-msgstr "输出端口"
-
-#: ../modules/sound/main.qml:387 ../modules/sound/main.qml:490
-msgid "No port exists in this device."
-msgstr "这个设备没有端口"
-
-#: ../modules/sound/main.qml:425
-msgid "Output device"
-msgstr "输出设备"
-
-#: ../modules/sound/main.qml:473
-msgid "Input Port"
-msgstr "输入端口"
-
-#: ../modules/sound/main.qml:528
-msgid "Input device"
-msgstr "输入设备"
-
-#: ../modules/sound/main.qml:581
-msgid "Hide Advanced..."
-msgstr "隐藏高级设置..."
-
-#: ../modules/sound/main.qml:581
-msgid "Show Advanced..."
-msgstr "显示高级设置..."
-
-#: ../modules/system_info/main.qml:102
-msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
-msgstr "Copyright (c) 2011-2014 武汉深之度科技有限公司"
-
-#: ../modules/system_info/main.qml:108
-msgid "Deepin Edition"
-msgstr "系统版本"
-
-#: ../modules/system_info/main.qml:114
-msgid "System Type"
-msgstr "系统类型"
-
 #: ../modules/system_info/main.qml:115
 msgid "bit"
 msgstr "位"
 
-#: ../modules/system_info/main.qml:120
-msgid "Processor"
-msgstr "处理器"
-
-#: ../modules/system_info/main.qml:134
-msgid "Memory"
-msgstr "内存"
-
-#: ../modules/system_info/main.qml:140
-msgid "Disk"
-msgstr "磁盘"
-
-#: ../modules/system_info/main.qml:159
-msgid "GNU GENERAL PUBLIC LICENSE"
-msgstr "GNU通用公共许可协议"
-
-#: ../modules/network/main.qml:157 ../modules/network/main.qml:185
-msgid "Unknown"
-msgstr "未知的"
-
-#: ../modules/network/main.qml:159
-msgid "Wired"
-msgstr "有线"
-
-#: ../modules/network/main.qml:161
-msgid "Wireless"
-msgstr "无线"
-
-#: ../modules/network/main.qml:163
-msgid "Unused1"
-msgstr "未使用1"
-
-#: ../modules/network/main.qml:165
-msgid "Unused2"
-msgstr "未使用2"
-
-#: ../modules/network/main.qml:169
-msgid "OLPC mesh"
-msgstr "OLPC网"
-
-#: ../modules/network/main.qml:171
-msgid "WiMax"
-msgstr "WiMax"
-
-#: ../modules/network/main.qml:173
-msgid "Modem"
-msgstr "调制解调器"
-
-#: ../modules/network/main.qml:175
-msgid "InfiniBand"
-msgstr "InfiniBand"
-
-#: ../modules/network/main.qml:177
-msgid "Bond"
-msgstr "绑定"
-
-#: ../modules/network/main.qml:179
-msgid "VLAN"
-msgstr "VLAN"
-
-#: ../modules/network/main.qml:181
-msgid "ADSL"
-msgstr "ADSL"
-
-#: ../modules/network/main.qml:183
-msgid "Bridge"
-msgstr "桥接"
-
-#~ msgid "Resnapshot"
-#~ msgstr "重拍"
-
-#~ msgid "Lock Screen"
-#~ msgstr "锁屏"
-
-#~ msgid "Show Password"
-#~ msgstr "显示密码"
-
-#~ msgid "Boot priority"
-#~ msgstr "启动顺序"
-
-#~ msgid "Power Adapter"
-#~ msgstr "电源适配器"
-
-#~ msgid "Cursor"
-#~ msgstr "光标"
-
-#~ msgid ""
-#~ "Passwords or encryption keys are required to access the Wi-Fi network %1"
-#~ msgstr "连接Wi-Fi网络所需的密码或密钥 %1"
-
-#~ msgid "Mobile 2G/3G/4G-LTE"
-#~ msgstr "移动网络 2G/3G/4G-LTE"
-
-#~ msgid "Create Access Point"
-#~ msgstr "创建无线热点"
-
-#~ msgid "Hotspot"
-#~ msgstr "无线热点"
+#: ../modules/shortcuts/ShortcutInput.qml:265
+#, qt-format
+msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
+msgstr "与\"%1\"类别下的\"%2\"的快捷键冲突。"

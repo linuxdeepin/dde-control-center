@@ -1,0 +1,1848 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Fox909 <ffox909@mail.ru>, 2014
+# jvjey <justVolodya@gmail.com>, 2014
+# Serge Kukharski, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: dde-control-center\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-07-02 15:38+0800\n"
+"PO-Revision-Date: 2014-07-02 20:11+0000\n"
+"Last-Translator: Fox909 <ffox909@mail.ru>\n"
+"Language-Team: Russian (http://www.transifex.com/projects/p/dde-control-center/language/ru/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: ../modules/network/add/AddDsl.qml:11
+msgid "New PPPoE Connection"
+msgstr "Новое PPPoE-соединение"
+
+#: ../modules/network/add/AddDsl.qml:25
+#: ../modules/network/add/AddMobile.qml:34
+#: ../modules/network/add/AddVpn.qml:104
+#: ../modules/network/edit_autogen/BaseConnectionEdit.qml:34
+#: ../modules/shortcuts/CustomKeybinding.qml:118
+msgid "Name"
+msgstr "Имя"
+
+#: ../modules/network/add/AddDsl.qml:38
+#: ../modules/network/add/AddMobile.qml:80
+#: ../modules/network/add/AddMobile.qml:113
+#: ../modules/account/AddUserDialog.qml:105
+#: ../modules/network/add/AddVpn.qml:128 ../modules/network/add/AddVpn.qml:271
+#: ../modules/network/add/AddVpn.qml:425 ../modules/network/add/AddVpn.qml:469
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:57
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:134
+#: ../modules/network/edit_autogen/EditSectionPppoe.qml:24
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:47
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:201
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:355
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:410
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:70
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: ../modules/network/add/AddDsl.qml:49
+#: ../modules/network/edit_autogen/EditSectionPppoe.qml:35
+msgid "Service"
+msgstr "Служба"
+
+#: ../modules/network/add/AddDsl.qml:60
+#: ../modules/network/add/AddMobile.qml:91
+#: ../modules/network/add/AddMobile.qml:124
+#: ../modules/account/AddUserDialog.qml:137
+#: ../modules/network/add/AddVpn.qml:150 ../modules/network/add/AddVpn.qml:293
+#: ../modules/network/add/AddVpn.qml:447 ../modules/network/add/AddVpn.qml:592
+#: ../modules/network/wireless/AddWireless.qml:68
+#: ../modules/network/wireless/AddWireless.qml:202
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:68
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:145
+#: ../modules/network/edit_autogen/EditSectionPppoe.qml:46
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:57
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:191
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:69
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:223
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:377
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:57
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:81
+#: ../modules/account/PasswordDialog.qml:59
+#: ../modules/network/wireless/WifiHotspot.qml:73
+msgid "Password"
+msgstr "Пароль"
+
+#: ../modules/network/add/AddMobile.qml:20
+msgid "New Mobile Connection"
+msgstr "Новое мобильное соединение"
+
+#: ../modules/network/add/AddMobile.qml:47
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:24
+msgid "Service Type"
+msgstr "Тип службы"
+
+#: ../modules/network/add/AddMobile.qml:58
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:35
+msgid "APN"
+msgstr "APN"
+
+#: ../modules/network/add/AddMobile.qml:69
+#: ../modules/network/add/AddMobile.qml:102
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:46
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:123
+msgid "Number"
+msgstr "Номер"
+
+#: ../modules/network/add/AddSectionSave.qml:11
+#: ../modules/account/AddUserDialog.qml:284
+#: ../modules/network/wireless/AddWireless.qml:234
+#: ../modules/network/ConnectionAdd.qml:69
+#: ../modules/network/ConnectionEdit.qml:146
+#: ../modules/shortcuts/CustomKeybinding.qml:151
+#: ../modules/account/DeleteUserDialog.qml:33
+#: ../modules/network/widgets/PasswordBox.qml:101
+#: ../modules/account/PasswordDialog.qml:172
+#: ../modules/shortcuts/ShortcutInput.qml:341
+#: ../modules/date_time/TimeBox.qml:212
+#: ../modules/network/wireless/WifiHotspot.qml:86
+#: ../dock-applets/qml/WifiPasswordWindow.qml:171
+#: ../modules/display/main.qml:227
+msgid "Cancel"
+msgstr "Отмена"
+
+#: ../modules/network/add/AddSectionSave.qml:20
+#: ../modules/shortcuts/CustomKeybinding.qml:157
+#: ../modules/date_time/TimezoneArea.qml:231
+msgid "Add"
+msgstr "Добавить"
+
+#: ../modules/account/AddUserDialog.qml:56
+msgid "Add User"
+msgstr "Добавить пользователя"
+
+#: ../modules/account/AddUserDialog.qml:84
+msgid "New User"
+msgstr "Новый пользователь"
+
+#: ../modules/account/AddUserDialog.qml:88
+#: ../modules/account/AddUserDialog.qml:213
+#: ../modules/account/EditUserDialog.qml:131
+#: ../modules/account/UserList.qml:187
+msgid "Standard"
+msgstr "Стандартный"
+
+#: ../modules/account/AddUserDialog.qml:88
+#: ../modules/account/AddUserDialog.qml:214
+#: ../modules/account/EditUserDialog.qml:132
+#: ../modules/account/UserList.qml:187
+msgid "Administrator"
+msgstr "Администратор"
+
+#: ../modules/account/AddUserDialog.qml:170
+msgid "Repeat Password"
+msgstr "Повтор пароля"
+
+#: ../modules/account/AddUserDialog.qml:201
+#: ../modules/account/EditUserDialog.qml:119
+msgid "Account Type"
+msgstr "Тип аккаунта"
+
+#: ../modules/account/AddUserDialog.qml:233
+#: ../modules/account/EditUserDialog.qml:52
+msgid "Auto-login"
+msgstr "Автовход"
+
+#: ../modules/account/AddUserDialog.qml:297
+#: ../modules/account/DeleteUserDialog.qml:46
+#: ../modules/account/PasswordDialog.qml:186 ../modules/account/WebCam.qml:148
+msgid "Confirm"
+msgstr "Подтвердить"
+
+#: ../modules/network/add/AddVpn.qml:15
+msgid "VPN Type"
+msgstr "Тип VPN"
+
+#: ../modules/network/add/AddVpn.qml:36
+msgid "L2TP"
+msgstr "L2TP"
+
+#: ../modules/network/add/AddVpn.qml:37
+msgid "PPTP"
+msgstr "PPTP"
+
+#: ../modules/network/add/AddVpn.qml:38
+msgid "OpenVPN"
+msgstr "OpenVPN"
+
+#: ../modules/network/add/AddVpn.qml:39
+msgid "OpenConnect"
+msgstr "OpenConnect"
+
+#: ../modules/network/add/AddVpn.qml:40
+msgid "VPNC"
+msgstr "VPNC"
+
+#: ../modules/network/add/AddVpn.qml:69
+msgid "Basic Information"
+msgstr "Основная информация"
+
+#: ../modules/network/add/AddVpn.qml:83
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:24
+msgid "Need VPN Plugin"
+msgstr "Нужен VPN-плагин"
+
+#: ../modules/network/add/AddVpn.qml:117 ../modules/network/add/AddVpn.qml:161
+#: ../modules/network/add/AddVpn.qml:249 ../modules/network/add/AddVpn.qml:414
+#: ../modules/network/add/AddVpn.qml:458
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:61
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:59
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:36
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:91
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:179
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:344
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:399
+msgid "Gateway"
+msgstr "Шлюз"
+
+#: ../modules/network/add/AddVpn.qml:139 ../modules/network/add/AddVpn.qml:282
+#: ../modules/network/add/AddVpn.qml:337 ../modules/network/add/AddVpn.qml:436
+#: ../modules/network/add/AddVpn.qml:480 ../modules/network/add/AddVpn.qml:513
+#: ../modules/network/wireless/AddWireless.qml:190
+#: ../modules/network/wireless/AddWireless.qml:213
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:179
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:202
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:58
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:212
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:267
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:366
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:421
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:454
+msgid "Ask for Pwd"
+msgstr "Запрос пароля"
+
+#: ../modules/network/add/AddVpn.qml:172 ../modules/network/add/AddVpn.qml:304
+#: ../modules/network/wireless/AddWireless.qml:112
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:101
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:102
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:234
+msgid "CA Cert"
+msgstr "CA Сертификат"
+
+#: ../modules/network/add/AddVpn.qml:183
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:113
+msgid "Proxy"
+msgstr "Прокси"
+
+#: ../modules/network/add/AddVpn.qml:194
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:124
+msgid "Allow Cisco Secure Desktop Trojan"
+msgstr "Разрешить троян Cisco Secure Desktop"
+
+#: ../modules/network/add/AddVpn.qml:205
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:135
+msgid "CSD Wrapper"
+msgstr "CSD Wrapper"
+
+#: ../modules/network/add/AddVpn.qml:227 ../modules/network/add/AddVpn.qml:326
+#: ../modules/network/wireless/AddWireless.qml:179
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:168
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:157
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:256
+msgid "Private Key"
+msgstr "Личный ключ"
+
+#: ../modules/network/add/AddVpn.qml:238
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:168
+msgid "User FSID For Key Passphrase"
+msgstr "FSID пользователя для ключевой фразы"
+
+#: ../modules/network/add/AddVpn.qml:260
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:190
+msgid "Auth Type"
+msgstr "Тип аутентификации"
+
+#: ../modules/network/add/AddVpn.qml:216 ../modules/network/add/AddVpn.qml:315
+#: ../modules/network/wireless/AddWireless.qml:123
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:112
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:146
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:245
+msgid "User Cert"
+msgstr "Сертификат пользователя"
+
+#: ../modules/network/add/AddVpn.qml:348
+#: ../modules/network/wireless/AddWireless.qml:224
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:213
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:278
+msgid "Private Pwd"
+msgstr "Личный пароль"
+
+#: ../modules/network/add/AddVpn.qml:359
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:289
+msgid "Static Key"
+msgstr "Статический ключ"
+
+#: ../modules/network/add/AddVpn.qml:370
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:300
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:57
+msgid "Use Key Direction"
+msgstr "Использовать ключевое направление"
+
+#: ../modules/network/add/AddVpn.qml:381
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:311
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:68
+msgid "Key Direction"
+msgstr "Ключевое направление"
+
+#: ../modules/network/add/AddVpn.qml:392
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:322
+msgid "Remote IP"
+msgstr "Удаленный IP"
+
+#: ../modules/network/add/AddVpn.qml:403
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:333
+msgid "Local IP"
+msgstr "Локальный IP"
+
+#: ../modules/network/add/AddVpn.qml:491
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:432
+msgid "User Pwd"
+msgstr "Пароль пользователя"
+
+#: ../modules/network/add/AddVpn.qml:502 ../modules/network/add/AddVpn.qml:570
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:443
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:35
+msgid "Group Name"
+msgstr "Имя группы"
+
+#: ../modules/network/add/AddVpn.qml:524
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:465
+msgid "Group Pwd"
+msgstr "Пароль группы"
+
+#: ../modules/network/add/AddVpn.qml:535
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:476
+msgid "Use Hybrid Authentication"
+msgstr "Использовать гибридную аутентификацию"
+
+#: ../modules/network/add/AddVpn.qml:546
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:487
+msgid "CA File"
+msgstr "Файл сертификата"
+
+#: ../modules/network/add/AddVpn.qml:559
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:24
+msgid "Enable IPsec"
+msgstr "Влючить IPsec"
+
+#: ../modules/network/add/AddVpn.qml:581
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:46
+msgid "Group ID"
+msgstr "ID группы"
+
+#: ../modules/network/add/AddVpn.qml:605 ../modules/network/add/AddVpn.qml:618
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:24
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:24
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:24
+msgid "Use MPPE"
+msgstr "Использовать MPPE"
+
+#: ../modules/network/wireless/AddWireless.qml:8
+msgid "Connect to wireless"
+msgstr "Соединиться беспроводно"
+
+#: ../modules/network/wireless/AddWireless.qml:33
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:24
+#: ../modules/network/wireless/WifiHotspot.qml:38
+msgid "SSID"
+msgstr "SSID"
+
+#: ../modules/network/wireless/AddWireless.qml:46
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:11
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:35
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:35
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:35
+#: ../modules/network/wireless/WifiHotspot.qml:51
+msgid "Security"
+msgstr "Безопасность"
+
+#: ../modules/network/wireless/AddWireless.qml:57
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:46
+#: ../modules/network/wireless/WifiHotspot.qml:62
+msgid "Key"
+msgstr "Ключ"
+
+#: ../modules/network/wireless/AddWireless.qml:79
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:68
+msgid "EAP Auth"
+msgstr "EAP-аутентификация"
+
+#: ../modules/network/wireless/AddWireless.qml:90
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:79
+msgid "Identity"
+msgstr "Подлинность"
+
+#: ../modules/network/wireless/AddWireless.qml:101
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:90
+msgid "Anonymous ID"
+msgstr "Анонимный ID"
+
+#: ../modules/network/wireless/AddWireless.qml:134
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:123
+msgid "Provisioning"
+msgstr "Резервирование"
+
+#: ../modules/network/wireless/AddWireless.qml:145
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:134
+msgid "PAC file"
+msgstr "PAC-файл"
+
+#: ../modules/network/wireless/AddWireless.qml:156
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:145
+msgid "PEAP Version"
+msgstr "Версия PEAP"
+
+#: ../modules/network/wireless/AddWireless.qml:167
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:156
+msgid "Inner Auth"
+msgstr "Внутренняя аутентификация"
+
+#: ../modules/network/wireless/AddWireless.qml:242
+#: ../modules/network/widgets/PasswordBox.qml:109
+#: ../dock-applets/qml/WifiPasswordWindow.qml:178
+msgid "Connect"
+msgstr "Соединение"
+
+#: ../modules/network/AppletSwitchArea.qml:40
+#: ../modules/power/AppletSwitchArea.qml:40
+#: ../modules/sound/AppletSwitchArea.qml:40
+msgid "Dock Applet Enabled"
+msgstr "Док-апплет включён"
+
+#: ../modules/account/AvatarPickDialog.qml:5
+msgid "Choose a new picture for your image"
+msgstr "Выберите новую картинку для себя"
+
+#: ../modules/account/AvatarView.qml:18
+msgid "Recently Used"
+msgstr "Недавно использованные"
+
+#: ../modules/account/AvatarView.qml:19
+msgid "Default"
+msgstr "По умолчанию"
+
+#: ../modules/account/AvatarView.qml:20
+msgid "Webcam"
+msgstr "Веб-камера"
+
+#: ../modules/network/edit_autogen/BaseConnectionEdit.qml:45
+#: ../modules/network/edit_autogen/EditSectionGeneral.qml:24
+msgid "Automatically connect"
+msgstr "Соединятся втоматически"
+
+#: ../modules/date_time/Calendar.qml:125
+msgid "Today"
+msgstr "Сегодня"
+
+#: ../modules/date_time/CalendarComponent.qml:80
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:168
+msgid "Sun"
+msgstr "Вс"
+
+#: ../modules/date_time/CalendarComponent.qml:81
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:169
+msgid "Mon"
+msgstr "Пн"
+
+#: ../modules/date_time/CalendarComponent.qml:82
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:170
+msgid "Tue"
+msgstr "Вт"
+
+#: ../modules/date_time/CalendarComponent.qml:83
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:171
+msgid "Wed"
+msgstr "Ср"
+
+#: ../modules/date_time/CalendarComponent.qml:84
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:172
+msgid "Thu"
+msgstr "Чт"
+
+#: ../modules/date_time/CalendarComponent.qml:85
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:173
+msgid "Fri"
+msgstr "Пт"
+
+#: ../modules/date_time/CalendarComponent.qml:86
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:174
+msgid "Sat"
+msgstr "Сб"
+
+#: ../modules/network/ConnectionAdd.qml:12
+msgid "New Network"
+msgstr "Новая сеть"
+
+#: ../modules/network/ConnectionAdd.qml:35
+#: ../modules/network/edit_autogen/EditSectionPppoe.qml:11
+msgid "PPPoE"
+msgstr "PPPoE"
+
+#: ../modules/network/ConnectionAdd.qml:45
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:11
+msgid "VPN"
+msgstr "VPN"
+
+#: ../modules/network/ConnectionAdd.qml:77
+msgid "Next"
+msgstr "Следующий"
+
+#: ../modules/network/ConnectionEdit.qml:51
+msgid "Delete this network"
+msgstr "Удалить эту сеть"
+
+#: ../modules/network/ConnectionEdit.qml:51
+msgid "Are you sure you want to delete this network?"
+msgstr "Вы действительно желаете удалить эту сеть?"
+
+#: ../modules/network/ConnectionEdit.qml:101
+#: ../modules/network/wireless/WifiHotspot.qml:95
+msgid "Save"
+msgstr "Сохранить"
+
+#: ../modules/network/ConnectionEdit.qml:113 ../modules/network/Info.qml:73
+#: ../modules/date_time/StateButtons.qml:35
+#: ../modules/date_time/TimezoneArea.qml:234
+msgid "Close"
+msgstr "Закрыть"
+
+#: ../modules/network/ConnectionEdit.qml:134
+msgid "Delete"
+msgstr "Удалить"
+
+#: ../modules/shortcuts/CustomKeybinding.qml:133
+msgid "Command"
+msgstr "Команда"
+
+#: ../modules/account/DeleteUserDialog.qml:19
+msgid "Keep user's files"
+msgstr "Оставить файлы пользователя"
+
+#: ../modules/account/DeleteUserDialog.qml:20
+msgid "Delete user's files"
+msgstr "Удалить файлы пользователя"
+
+#: ../dock-applets/qml/disk_mount/DiskItem.qml:124
+msgid "Unmount failed!"
+msgstr "Отмонтирование неудачно!"
+
+#: ../modules/network/dsl/DslExpand.qml:19
+msgid "PPPoE Connections"
+msgstr "PPPoE-соединения"
+
+#: ../modules/network/edit/EditLineMissingPackage.qml:15
+#, qt-format
+msgid "Current system lacks component for %1"
+msgstr "Текущей системе не хватает компонента для %1"
+
+#: ../modules/network/edit/EditLineMissingPackage.qml:22
+msgid "Click to install"
+msgstr "Нажать для установки"
+
+#: ../modules/network/edit_autogen/EditSectionEthernet.qml:11
+msgid "Ethernet"
+msgstr "Ethernet"
+
+#: ../modules/network/edit_autogen/EditSectionEthernet.qml:24
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:70
+msgid "Device MAC Addr"
+msgstr "MAC-адрес устройства"
+
+#: ../modules/network/edit_autogen/EditSectionEthernet.qml:35
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:81
+msgid "Cloned MAC Addr"
+msgstr "Клонированный MAC-адрес"
+
+#: ../modules/network/edit_autogen/EditSectionEthernet.qml:46
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:92
+msgid "Custom MTU"
+msgstr "Пользовательский MTU"
+
+#: ../modules/network/edit_autogen/EditSectionEthernet.qml:57
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:116
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:103
+msgid "MTU"
+msgstr "MTU"
+
+#: ../modules/network/edit_autogen/EditSectionGeneral.qml:11
+msgid "General"
+msgstr "Общие"
+
+#: ../modules/network/edit_autogen/EditSectionGeneral.qml:35
+msgid "For All Users"
+msgstr "Для всех пользователей"
+
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:11
+msgid "IPv4"
+msgstr "IPv4"
+
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:24
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:24
+msgid "Method"
+msgstr "Метод"
+
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:35
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:35
+#: ../modules/network/Info.qml:58
+msgid "IP Address"
+msgstr "IP-адрес"
+
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:47
+msgid "Netmask"
+msgstr "Маска сети"
+
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:74
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:70
+msgid "DNS Server"
+msgstr "DNS-сервер"
+
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:11
+msgid "IPv6"
+msgstr "IPv6"
+
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:46
+msgid "Prefix"
+msgstr "Префикс"
+
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:11
+msgid "Mobile"
+msgstr "Мобильная"
+
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:79
+msgid "Network ID"
+msgstr "ID сети"
+
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:90
+msgid "Type"
+msgstr "Тип"
+
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:101
+msgid "Home Network Only"
+msgstr "Только домашняя сеть"
+
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:112
+msgid "PIN"
+msgstr "PIN"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:11
+msgid "PPP"
+msgstr "PPP"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:36
+msgid "128-bit MPPE"
+msgstr "128-бит. MPPE"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:48
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:46
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:46
+msgid "Stateful MPPE"
+msgstr "MPPE с сохранением"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:59
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:57
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:57
+msgid "Refuse EAP Authentication"
+msgstr "Отвергать аутентификацию EAP"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:70
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:69
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:69
+msgid "Refuse PAP Authentication"
+msgstr "Отвергать аутентификацию PAP"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:81
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:81
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:81
+msgid "Refuse CHAP Authentication"
+msgstr "Отвергать аутентификацию CHAP"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:92
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:93
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:93
+msgid "Refuse MSCHAP Authentication"
+msgstr "Отвергать аутентификацию MSCHAP"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:103
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:105
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:105
+msgid "Refuse MSCHAPv2 Authentication"
+msgstr "Отвергать аутентификацию MSCHAPv2"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:114
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:117
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:116
+msgid "No BSD Data Compression"
+msgstr "Нет сжатия данных BSD"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:125
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:128
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:127
+msgid "No Deflate Data Compression"
+msgstr "Нет сжатия данных Deflate"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:136
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:139
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:138
+msgid "No TCP Header Compression"
+msgstr "Нет сжатия TCP-заголовков"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:147
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:172
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:149
+msgid "Send PPP Echo Packets"
+msgstr "Отправка эхо-пакетов PPP"
+
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:24
+msgid "Security Required"
+msgstr "Требование безопасности"
+
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:80
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:388
+msgid "NT Domain"
+msgstr "NT-домен"
+
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:11
+msgid "VPN IPsec"
+msgstr "VPN IPsec"
+
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:11
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:11
+msgid "VPN PPP"
+msgstr "VPN PPP"
+
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:150
+msgid "No Protocol Field Compression"
+msgstr "Без протокола полевого сжатия"
+
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:161
+msgid "No Address/Control Compression"
+msgstr "Без адреса/Управление сжатием"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:11
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:11
+msgid "VPN Advanced"
+msgstr "Расширенный VPN"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:24
+msgid "Use Custom Gateway Port"
+msgstr "Использовать свой порт шлюза"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:35
+msgid "Gateway Port"
+msgstr "Порт шлюза"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:48
+msgid "Use Custom Renegotiation Interval"
+msgstr "Использовать собственный интервал повторного согласования"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:59
+msgid "Renegotiation Interval"
+msgstr "Интервал повторного согласования"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:72
+msgid "Use LZO data compression"
+msgstr "Использовать LZO-сжатие"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:83
+msgid "Use TCP connection"
+msgstr "Использовать TCP-соединение"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:94
+msgid "Use TAP device"
+msgstr "Использовать TAP-устройство"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:105
+msgid "Use Custom Tunnel MTU"
+msgstr "Использовать свой туннель MTU"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
+msgid "Use Custom UDP Fragment Size"
+msgstr "Использовать свой размер фрагмента UDP"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:140
+msgid "UDP Fragment Size"
+msgstr "Размер фрагмента UDP"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:153
+msgid "Restrict Tunnel TCP MSS"
+msgstr "Ограничить туннель TCP MSS"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:164
+msgid "Randomize Remote Hosts"
+msgstr "Перемешать удаленные хосты"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:11
+msgid "VPN Proxies"
+msgstr "VPN-прокси"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:24
+msgid "Proxy Type"
+msgstr "Тип прокси"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:35
+msgid "Server IP"
+msgstr "IP сервера"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:46
+#: ../modules/network/proxy/ProxyLine.qml:39
+msgid "Port"
+msgstr "Порт"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:59
+msgid "Retry Indefinitely When Failed"
+msgstr "Повторять бесконечно при неудаче"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:11
+msgid "VPN Security"
+msgstr "Безопасность VPN"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:24
+msgid "Cipher"
+msgstr "Шифр"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:35
+msgid "HMAC Auth"
+msgstr "Аутентификация HMAC"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:11
+msgid "VPN TLS Authentication"
+msgstr "Айтентификация VPN TLS"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:24
+msgid "Subject Match"
+msgstr "Тема беседы"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:35
+msgid "Remote Cert Type"
+msgstr "Удаленный тип сертификата"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:46
+msgid "Key File"
+msgstr "Файл ключа"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:24
+msgid "Domain"
+msgstr "Домен"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:35
+msgid "Vendor"
+msgstr "Поставщик"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:46
+msgid "Version"
+msgstr "Версия"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:57
+msgid "Encryption"
+msgstr "Шифрование"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:68
+msgid "NAT Traversal"
+msgstr "NAT-обход"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:79
+msgid "IKE DH Group"
+msgstr "Группа IKE DH"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:90
+msgid "Forward Secrecy"
+msgstr "Прямая секретность"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:101
+msgid "Local Port"
+msgstr "Локальный порт"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:114
+msgid "Disable Dead Peer Detection"
+msgstr "Отключить обнаружение мертвых пиров"
+
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:11
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:35
+msgid "Mode"
+msgstr "Режим"
+
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:46
+msgid "Band"
+msgstr "Диапазон"
+
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:58
+msgid "Channel"
+msgstr "Канал"
+
+#: ../modules/account/EditUserDialog.qml:86
+msgid "Enable"
+msgstr "Включить"
+
+#: ../modules/personalization/components/FontSettingsExpand.qml:36
+msgid "Size"
+msgstr "Размер"
+
+#: ../modules/personalization/components/FontSettingsExpand.qml:65
+#, qt-format
+msgid "Font %1"
+msgstr "Шрифт %1"
+
+#: ../modules/account/GuestUser.qml:40 ../frame/views/HeaderArea.qml:108
+msgid "Guest"
+msgstr "Гость"
+
+#: ../modules/account/GuestUser.qml:101
+#: ../modules/display/MonitorProperties.qml:80
+msgid "Enabled"
+msgstr "Включено"
+
+#: ../modules/network/Info.qml:11
+msgid "Activated Connections"
+msgstr "Доступные подключения"
+
+#: ../modules/network/Info.qml:56
+msgid "Device Type"
+msgstr "Тип устройства"
+
+#: ../modules/network/Info.qml:57
+msgid "Device Addr"
+msgstr "Адрес устройства"
+
+#: ../modules/network/Info.qml:59
+msgid "Subnet Mask"
+msgstr "Маска подсети"
+
+#: ../modules/network/Info.qml:60
+msgid "Route Addr"
+msgstr "Адрес Маршрута"
+
+#: ../modules/network/Info.qml:61
+msgid "Primary DNS"
+msgstr "Основной DNS"
+
+#: ../modules/network/Info.qml:62
+msgid "Addtional DNS"
+msgstr "Дополнительный DNS"
+
+#: ../modules/network/Info.qml:63
+msgid "Device Speed"
+msgstr "Скорость устройства"
+
+#: ../modules/date_time/LocaleArea.qml:78
+msgid "Language"
+msgstr "Язык"
+
+#: ../modules/display/MessageBox.qml:109
+msgid "Do you want to keep these display settings?"
+msgstr "Желаете оставить эти настройки дисплея?"
+
+#: ../modules/display/MessageBox.qml:119
+#, qt-format
+msgid ""
+"Reverting to previous display settings in <font color='#F48914'>%1</font> "
+"seconds."
+msgstr "Возврат к прежним настройкам дисплея через <font color='#F48914'>%1</font> сек."
+
+#: ../modules/display/MessageBox.qml:131
+msgid "Keep Changes"
+msgstr "Оставить изменения"
+
+#: ../modules/display/MessageBox.qml:139
+msgid "Revert"
+msgstr "Вернуться"
+
+#: ../frame/views/ModulesData.qml:28 ../dock-applets/qml/main.qml:45
+msgid "Date and Time"
+msgstr "Дата и время"
+
+#: ../frame/views/ModulesData.qml:29 ../dock-applets/qml/main.qml:41
+msgid "Network"
+msgstr "Сеть"
+
+#: ../frame/views/ModulesData.qml:30 ../dock-applets/qml/main.qml:44
+msgid "Disk Mount"
+msgstr "Монтирование диска"
+
+#: ../frame/views/ModulesData.qml:31 ../modules/network/main.qml:167
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: ../frame/views/ModulesData.qml:32 ../dock-applets/qml/main.qml:42
+msgid "Sound"
+msgstr "Звук"
+
+#: ../frame/views/ModulesData.qml:33
+msgid "Power Management"
+msgstr "Управление питанием"
+
+#: ../frame/views/ModulesData.qml:34
+msgid "More Settings"
+msgstr "Ещё настройки"
+
+#: ../frame/views/ModulesData.qml:35 ../frame/views/PanelContent.qml:421
+#: ../dock-applets/qml/main.qml:43
+msgid "Power"
+msgstr "Питание"
+
+#: ../frame/views/ModulesData.qml:36
+msgid "Display"
+msgstr "Дисплей"
+
+#: ../frame/views/ModulesData.qml:37
+msgid "Desktop"
+msgstr "Рабочий стол"
+
+#: ../frame/views/ModulesData.qml:38
+msgid "Personalization"
+msgstr "Персонализация"
+
+#: ../frame/views/ModulesData.qml:39
+msgid "Keyboard Shortcuts"
+msgstr "Cочетания клавиш"
+
+#: ../frame/views/ModulesData.qml:40
+msgid "Keyboard"
+msgstr "Клавиатура"
+
+#: ../frame/views/ModulesData.qml:41
+msgid "Mouse and Touchpad"
+msgstr "Мышь и Тачпад"
+
+#: ../frame/views/ModulesData.qml:42 ../modules/mouse_touchpad/main.qml:50
+msgid "Mouse"
+msgstr "Мышь"
+
+#: ../frame/views/ModulesData.qml:43
+msgid "User Accounts"
+msgstr "Учетные записи"
+
+#: ../frame/views/ModulesData.qml:44
+#: ../modules/default_applications/main.qml:62
+msgid "Default Applications"
+msgstr "Приложения по умолчанию"
+
+#: ../frame/views/ModulesData.qml:45
+msgid "System Information"
+msgstr "Информация о системе"
+
+#: ../frame/views/ModulesData.qml:46
+msgid "Boot Menu"
+msgstr "Меню загрузки"
+
+#: ../frame/views/ModulesData.qml:47
+msgid "Home"
+msgstr "Домашняя"
+
+#: ../modules/display/MonitorComponent.qml:234
+msgid "Set as primary display"
+msgstr "Установить как главный дисплей"
+
+#: ../modules/display/MonitorDragArea.qml:446
+msgid "Identify"
+msgstr "Идентификация"
+
+#: ../modules/display/MonitorDragArea.qml:463
+msgid "Edit"
+msgstr "Редактировать"
+
+#: ../modules/display/MonitorProperties.qml:47
+msgid "Normal"
+msgstr "Нормальный"
+
+#: ../modules/display/MonitorProperties.qml:48
+msgid "Rotate Right"
+msgstr "Повернуть вправо"
+
+#: ../modules/display/MonitorProperties.qml:49
+msgid "Upside Down"
+msgstr "Перевернуть"
+
+#: ../modules/display/MonitorProperties.qml:50
+msgid "Rotate Left"
+msgstr "Повернуть влево"
+
+#: ../modules/display/MonitorProperties.qml:112
+msgid "Resolution"
+msgstr "Разрешение"
+
+#: ../modules/display/MonitorProperties.qml:165
+msgid "Rotation"
+msgstr "Вращение"
+
+#: ../modules/display/MonitorProperties.qml:206
+msgid "Brightness"
+msgstr "Яркость"
+
+#: ../modules/network/wired/NewItem.qml:41
+#: ../modules/network/wired/WiredItem.qml:80
+#, qt-format
+msgid "Wired Connection %1"
+msgstr "Проводная сеть %1"
+
+#: ../modules/network/widgets/PasswordBox.qml:76
+msgid "Password: "
+msgstr "Пароль:"
+
+#: ../modules/account/PasswordDialog.qml:101
+msgid "New Password"
+msgstr "Новый пароль"
+
+#: ../modules/account/PasswordDialog.qml:135
+msgid "Repeat"
+msgstr "Повторить"
+
+#: ../modules/grub/Preview.qml:126
+msgid "Drag and drop an image to change background."
+msgstr "Перетащите изображение для смены фона"
+
+#: ../modules/grub/Preview.qml:127
+msgid "Background is changing, please reboot later..."
+msgstr "Изменяется фон, перезагрузите позже..."
+
+#: ../modules/grub/Preview.qml:128
+msgid "Successfully changed, reboot to view."
+msgstr "Изменено успешно, перезагрузитесь чтобы увидеть."
+
+#: ../modules/network/proxy/ProxyContent.qml:42
+msgid "None"
+msgstr "Ничего"
+
+#: ../modules/network/proxy/ProxyContent.qml:47
+msgid "Manual"
+msgstr "Руководство"
+
+#: ../modules/network/proxy/ProxyContent.qml:52
+msgid "Auto"
+msgstr "Авто"
+
+#: ../modules/network/proxy/ProxyContent.qml:87
+msgid "HTTP Proxy"
+msgstr "HTTP-прокси"
+
+#: ../modules/network/proxy/ProxyContent.qml:99
+msgid "HTTPS Proxy"
+msgstr "HTTPS-прокси"
+
+#: ../modules/network/proxy/ProxyContent.qml:111
+msgid "FTP Proxy"
+msgstr "FTP-прокси"
+
+#: ../modules/network/proxy/ProxyContent.qml:123
+msgid "Socks Host"
+msgstr "Socks-хост"
+
+#: ../modules/network/proxy/ProxyContent.qml:148
+msgid "Configuration URL"
+msgstr "URL конфигурации"
+
+#: ../modules/network/proxy/ProxyContent.qml:165
+msgid "Apply system wide"
+msgstr "Применить для всей системы"
+
+#: ../modules/network/proxy/ProxyExpand.qml:37
+msgid "System Proxy"
+msgstr "Системный прокси"
+
+#: ../modules/shared/ResetButton.qml:39
+msgid "Reset successfully"
+msgstr "Успешный сброс"
+
+#: ../modules/shared/ResetButton.qml:47
+msgid "Reset"
+msgstr "Сброс"
+
+#: ../modules/shortcuts/ShortcutInput.qml:108
+msgid "Disable"
+msgstr "Отключить"
+
+#: ../modules/shortcuts/ShortcutInput.qml:126
+msgid "Please input new shortcut"
+msgstr "Пожалуйста, введите новые сочетания клавиш"
+
+#: ../modules/shortcuts/ShortcutInput.qml:224
+#, qt-format
+msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
+msgstr "Сочетание «%1» некорректно, попробуйте новое."
+
+#: ../modules/shortcuts/ShortcutInput.qml:262
+msgid "The shortcut you set "
+msgstr "Установленные вами сочетания"
+
+#: ../modules/shortcuts/ShortcutInput.qml:265
+#, qt-format
+msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
+msgstr "конфликты с используемым для \"%2\" в категории \"%1\""
+
+#: ../modules/shortcuts/ShortcutInput.qml:267
+msgid "Do you want to replace it?"
+msgstr "Желаете заменить?"
+
+#: ../modules/shortcuts/ShortcutInput.qml:325
+msgid "Replace"
+msgstr "Заменить"
+
+#: ../modules/personalization/widgets/ShowPreviewButton.qml:53
+msgid "Preview Theme"
+msgstr "Предпросмотр темы"
+
+#: ../modules/date_time/StateButtons.qml:34
+#: ../modules/keyboard/StateButtons.qml:34
+#: ../modules/shortcuts/StateButtons.qml:38
+msgid "Done"
+msgstr "Выполнено"
+
+#: ../modules/personalization/widgets/ThemeItem.qml:107
+#: ../dock-applets/qml/power/main.qml:46 ../modules/power/main.qml:268
+#: ../modules/power/main.qml:443 ../modules/shortcuts/main.qml:53
+#: ../modules/shortcuts/main.qml:224
+msgid "Custom"
+msgstr "Собстенный"
+
+#: ../modules/date_time/TimeBox.qml:161
+msgid "Double-click the above digits to change your time."
+msgstr "Двойной клик по цифрам выше для изменения времени"
+
+#: ../modules/date_time/TimeBox.qml:196
+msgid "Set"
+msgstr "Установить"
+
+#: ../modules/date_time/TimezoneArea.qml:86
+msgid "Time zone"
+msgstr "Часовой пояс"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:51
+msgid "Touchpad"
+msgstr "Тачпад"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:82
+#: ../modules/mouse_touchpad/main.qml:67
+msgid "Primary Button"
+msgstr "Основная кнопка"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:90
+#: ../modules/mouse_touchpad/main.qml:74
+msgid "Left Button"
+msgstr "Левая кнопка"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:91
+#: ../modules/mouse_touchpad/main.qml:75
+msgid "Right Button"
+msgstr "Правая кнопка"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:104
+#: ../modules/mouse_touchpad/main.qml:88
+msgid "Pointer Speed"
+msgstr "Скорость указателя"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:119
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:169
+#: ../modules/keyboard/main.qml:146 ../modules/keyboard/main.qml:172
+#: ../modules/mouse_touchpad/main.qml:103
+#: ../modules/mouse_touchpad/main.qml:155
+msgid "Slow"
+msgstr "Медленнее"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:120
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:170
+#: ../modules/keyboard/main.qml:145 ../modules/keyboard/main.qml:171
+#: ../modules/mouse_touchpad/main.qml:104
+#: ../modules/mouse_touchpad/main.qml:156
+msgid "Fast"
+msgstr "Быстрее"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:154
+#: ../modules/mouse_touchpad/main.qml:140
+msgid "Double-click Speed"
+msgstr "Скорость двойного клика"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:180
+msgid "Drag Threshold"
+msgstr "Порог перетаскивания"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:195
+#: ../modules/keyboard/main.qml:120
+msgid "Short"
+msgstr "Короче"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:196
+#: ../modules/keyboard/main.qml:121
+msgid "Long"
+msgstr "Длиннее"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:205
+msgid "Natural Scrolling"
+msgstr "Натуральная прокрутка"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:228
+msgid "Tap to click"
+msgstr "Коснитесь для клика"
+
+#: ../modules/network/vpn/VpnExpand.qml:48
+msgid "VPN Connections"
+msgstr "VPN-соединения"
+
+#: ../modules/account/WebCam.qml:125 ../modules/account/WebCam.qml:140
+msgid "Snapshot"
+msgstr "Снимок"
+
+#: ../modules/account/WebCam.qml:136
+msgid "Again"
+msgstr "Снова"
+
+#: ../modules/account/WebCam.qml:172
+msgid "No camera found."
+msgstr "Камера не найдена."
+
+#: ../modules/network/wireless/WifiHotspot.qml:23
+msgid "Edit Wi-Fi Hotspot"
+msgstr "Редактировать Wi-Fi хот-спот"
+
+#: ../modules/network/wireless/WifiHotspot.qml:23
+msgid "Create Wi-Fi Hotspot"
+msgstr "Создать Wi-Fi хот-спот"
+
+#: ../modules/network/wireless/WifiHotspot.qml:95
+msgid "Create"
+msgstr "Создать"
+
+#: ../dock-applets/qml/WifiPasswordWindow.qml:127
+msgid "Authentication required by Wi-Fi network"
+msgstr "Требуется аутентификация для Wi-Fi-сети"
+
+#: ../dock-applets/qml/WifiPasswordWindow.qml:135
+#, qt-format
+msgid ""
+"Passwords or encryption keys are required to access the Wi-Fi network <font "
+"color=\"#faca57\">%1</font>"
+msgstr "Для доступа к Wi-Fi-сети <font color=\"#faca57\">%1</font> требуются пароли или ключи шифрования"
+
+#: ../dock-applets/qml/WifiPasswordWindow.qml:149
+msgid "Password:"
+msgstr "Пароль:"
+
+#: ../modules/network/wired/WiredDeviceExpand.qml:37
+msgid "Wired Network"
+msgstr "Проводная сеть"
+
+#: ../dock-applets/qml/network/WirelessApList.qml:95
+msgid "Scanning..."
+msgstr "Сканирование…"
+
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:62
+#: ../dock-applets/qml/network/WirelessNetwork.qml:50
+msgid "Wireless Network"
+msgstr "Беспроводная сеть"
+
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:65
+#: ../dock-applets/qml/network/WirelessNetwork.qml:50
+#, qt-format
+msgid "Wireless Network %1"
+msgstr "Беспроводная сеть %1"
+
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:115
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:331
+msgid "Connect to hidden access point"
+msgstr "Подключение к скрытой точке доступа"
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "January"
+msgstr "Январь"
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "February"
+msgstr "Февраль"
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "March"
+msgstr "Март"
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "April"
+msgstr "Апрель"
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "May"
+msgstr "Май"
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "June"
+msgstr "Июнь"
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "July"
+msgstr "Июль"
+
+#: ../modules/date_time/calendar_core.js:7
+msgid "August"
+msgstr "Август"
+
+#: ../modules/date_time/calendar_core.js:7
+msgid "September"
+msgstr "Сентябрь"
+
+#: ../modules/date_time/calendar_core.js:7
+msgid "October"
+msgstr "Октябрь"
+
+#: ../modules/date_time/calendar_core.js:7
+msgid "November"
+msgstr "Ноябрь"
+
+#: ../modules/date_time/calendar_core.js:7
+msgid "December"
+msgstr "Декабрь"
+
+#: ../dock-applets/qml/date_time/main.qml:80
+msgid "_Switch to analog"
+msgstr "_Переключить на аналоговый"
+
+#: ../dock-applets/qml/date_time/main.qml:81
+msgid "_Switch to digital"
+msgstr "_Переключить на цифровой"
+
+#: ../dock-applets/qml/network/main.qml:279
+#: ../dock-applets/qml/power/main.qml:99
+#: ../dock-applets/qml/sound/main.qml:152
+msgid "_Run"
+msgstr "Запуск"
+
+#: ../dock-applets/qml/power/main.qml:34
+msgid "On Charging"
+msgstr "При зарядке"
+
+#: ../dock-applets/qml/power/main.qml:47 ../modules/power/main.qml:256
+#: ../modules/power/main.qml:431
+msgid "Power saver"
+msgstr "Экономичный"
+
+#: ../dock-applets/qml/power/main.qml:48 ../modules/power/main.qml:250
+#: ../modules/power/main.qml:425
+msgid "Balanced"
+msgstr "Сбалансированный"
+
+#: ../dock-applets/qml/power/main.qml:49 ../modules/power/main.qml:262
+#: ../modules/power/main.qml:437
+msgid "High performance"
+msgstr "Высокая производительность"
+
+#: ../dock-applets/qml/network/main.qml:280
+#: ../dock-applets/qml/power/main.qml:106
+#: ../dock-applets/qml/sound/main.qml:153
+msgid "_Undock"
+msgstr "_Разблокировать"
+
+#: ../dock-applets/qml/sound/main.qml:188
+msgid "Device"
+msgstr "Устройство"
+
+#: ../dock-applets/qml/sound/main.qml:282
+msgid "Applications"
+msgstr "Приложения"
+
+#: ../modules/bluetooth/main.qml:76
+msgid "ON/OFF"
+msgstr "Вкл/Выкл"
+
+#: ../modules/bluetooth/main.qml:141
+msgid "Devices nearby"
+msgstr "Устройства поблизости"
+
+#: ../modules/date_time/main.qml:92
+msgid "Automatic date and time"
+msgstr "Дата и время автоматически"
+
+#: ../modules/date_time/main.qml:108
+msgid "Use 24-hour clock"
+msgstr "24-часовой формат"
+
+#: ../modules/date_time/main.qml:165
+msgid "Date"
+msgstr "Дата"
+
+#: ../modules/date_time/main.qml:169
+msgid "Set Date"
+msgstr "Установить дату"
+
+#: ../modules/default_applications/main.qml:74
+msgid "Browser"
+msgstr "Браузер"
+
+#: ../modules/default_applications/main.qml:88
+msgid "Mail"
+msgstr "Почта"
+
+#: ../modules/default_applications/main.qml:99
+msgid "Text"
+msgstr "Текст"
+
+#: ../modules/default_applications/main.qml:105
+msgid "Music"
+msgstr "Музыка"
+
+#: ../modules/default_applications/main.qml:136
+msgid "Video"
+msgstr "Видео"
+
+#: ../modules/default_applications/main.qml:168
+msgid "Picture"
+msgstr "Изображения"
+
+#: ../modules/default_applications/main.qml:186
+msgid "Terminal"
+msgstr "Терминал"
+
+#: ../modules/default_applications/main.qml:245
+msgid "AutoPlay"
+msgstr "Автозапуск"
+
+#: ../modules/default_applications/main.qml:260
+msgid "CD Audio"
+msgstr "CD-аудио"
+
+#: ../modules/default_applications/main.qml:265
+msgid "DVD Video"
+msgstr "DVD-видео"
+
+#: ../modules/default_applications/main.qml:270
+msgid "Music Player"
+msgstr "Аудиоплеер"
+
+#: ../modules/default_applications/main.qml:275
+msgid "Camera"
+msgstr "Камера"
+
+#: ../modules/default_applications/main.qml:280
+msgid "Software"
+msgstr "Программное обеспечение"
+
+#: ../modules/display/main.qml:117
+msgid "Primary Monitor: "
+msgstr "Главный монитор:"
+
+#: ../modules/display/main.qml:148
+msgid "Monitor"
+msgstr "Монитор"
+
+#: ../modules/display/main.qml:208
+msgid "Apply"
+msgstr "Применить"
+
+#: ../modules/grub/main.qml:102
+msgid "Default Startup"
+msgstr "Запускаемые по умолчанию"
+
+#: ../modules/grub/main.qml:157
+msgid "Boot delay"
+msgstr "Задержка загрузки"
+
+#: ../modules/grub/main.qml:196
+msgid "Text Color"
+msgstr "Цвет текста"
+
+#: ../modules/grub/main.qml:229
+msgid "Selected Text Color"
+msgstr "Выбор цвета текста"
+
+#: ../modules/keyboard/main.qml:106
+msgid "Repeat Delay"
+msgstr "Задержка повторения"
+
+#: ../modules/keyboard/main.qml:130
+msgid "Repeat Rate"
+msgstr "Скорость повтора"
+
+#: ../modules/keyboard/main.qml:155
+msgid "Cursor Blink Rate"
+msgstr "Частота мигания курсора"
+
+#: ../modules/keyboard/main.qml:181
+msgid "Test Area"
+msgstr "Полигон"
+
+#: ../modules/keyboard/main.qml:211
+msgid "Keyboard Layout"
+msgstr "Раскладка клавиатуры"
+
+#: ../modules/keyboard/main.qml:396
+msgid "No result"
+msgstr "Нет результата"
+
+#: ../modules/keyboard/main.qml:405
+msgid "Caps Lock prompt"
+msgstr "Индикатор Caps Lock"
+
+#: ../modules/mouse_touchpad/main.qml:167
+msgid "Disable the touchpad when inserting the mouse"
+msgstr "Отключать тачпад при подключении мыши"
+
+#: ../modules/personalization/main.qml:101
+msgid "Theme"
+msgstr "Тема"
+
+#: ../modules/personalization/main.qml:108 ../modules/shortcuts/main.qml:51
+msgid "Window"
+msgstr "Окно"
+
+#: ../modules/personalization/main.qml:115
+msgid "Icon"
+msgstr "Значёк"
+
+#: ../modules/personalization/main.qml:129
+msgid "Wallpaper"
+msgstr "Обои"
+
+#: ../modules/personalization/main.qml:143
+msgid "Fonts"
+msgstr "Шрифты"
+
+#: ../modules/power/main.qml:53 ../modules/power/main.qml:65
+msgid "Never"
+msgstr "Никогда"
+
+#: ../modules/power/main.qml:59
+msgid "1 minute"
+msgstr "1 минута"
+
+#: ../modules/power/main.qml:60
+msgid "5 minutes"
+msgstr "5 минут"
+
+#: ../modules/power/main.qml:61
+msgid "10 minutes"
+msgstr "10 минут"
+
+#: ../modules/power/main.qml:62
+msgid "15 minutes"
+msgstr "15 минут"
+
+#: ../modules/power/main.qml:63
+msgid "30 minutes"
+msgstr "30 минут"
+
+#: ../modules/power/main.qml:64
+msgid "1 hour"
+msgstr "1 час"
+
+#: ../modules/power/main.qml:124
+msgid "When I press the power button"
+msgstr "При нажатии кнопки питания"
+
+#: ../modules/power/main.qml:138 ../modules/power/main.qml:184
+msgid "Shutdown"
+msgstr "Выключить"
+
+#: ../modules/power/main.qml:143 ../modules/power/main.qml:189
+#: ../modules/power/main.qml:253 ../modules/power/main.qml:259
+#: ../modules/power/main.qml:265 ../modules/power/main.qml:271
+#: ../modules/power/main.qml:358 ../modules/power/main.qml:428
+#: ../modules/power/main.qml:434 ../modules/power/main.qml:440
+#: ../modules/power/main.qml:446 ../modules/power/main.qml:534
+msgid "Suspend"
+msgstr "Остановить"
+
+#: ../modules/power/main.qml:148
+msgid "Ask"
+msgstr "Спросить"
+
+#: ../modules/power/main.qml:170
+msgid "When I close the lid"
+msgstr "При закрытии крышки"
+
+#: ../modules/power/main.qml:194
+msgid "Nothing"
+msgstr "Ничего"
+
+#: ../modules/power/main.qml:213
+msgid "Password required to wake up"
+msgstr "Требовать пароль для пробуждения"
+
+#: ../modules/power/main.qml:235
+msgid "Plugged in"
+msgstr "Подключен"
+
+#: ../modules/power/main.qml:410
+msgid "On battery"
+msgstr "От батареи"
+
+#: ../modules/power/main.qml:252 ../modules/power/main.qml:258
+#: ../modules/power/main.qml:264 ../modules/power/main.qml:270
+#: ../modules/power/main.qml:318 ../modules/power/main.qml:427
+#: ../modules/power/main.qml:433 ../modules/power/main.qml:439
+#: ../modules/power/main.qml:445 ../modules/power/main.qml:494
+msgid "Turn off the display"
+msgstr "Выключить дисплей"
+
+#: ../modules/power/main.qml:313 ../modules/power/main.qml:489
+msgid "Custom Options"
+msgstr "Пользовательские параметры"
+
+#: ../modules/shortcuts/main.qml:49
+msgid "System"
+msgstr "Система"
+
+#: ../modules/shortcuts/main.qml:52
+msgid "Workspace"
+msgstr "Рабочий стол"
+
+#: ../modules/sound/main.qml:126
+msgid "Speaker"
+msgstr "Динамик"
+
+#: ../modules/sound/main.qml:156
+msgid "Output Volume"
+msgstr "Выходной уровень"
+
+#: ../modules/sound/main.qml:204
+msgid "Balance"
+msgstr "Баланс"
+
+#: ../modules/sound/main.qml:226
+msgid "Left"
+msgstr "Левый"
+
+#: ../modules/sound/main.qml:228
+msgid "Right"
+msgstr "Правый"
+
+#: ../modules/sound/main.qml:260
+msgid "Microphone"
+msgstr "Микрофон"
+
+#: ../modules/sound/main.qml:290
+msgid "Input Volume"
+msgstr "Входной уровень"
+
+#: ../modules/sound/main.qml:334
+msgid "Input Feedback"
+msgstr "Обратная связь входа"
+
+#: ../modules/sound/main.qml:370
+msgid "Output Port"
+msgstr "Выходной порт"
+
+#: ../modules/sound/main.qml:387 ../modules/sound/main.qml:490
+msgid "No port exists in this device."
+msgstr "Порт не существует на этом устройстве."
+
+#: ../modules/sound/main.qml:425
+msgid "Output device"
+msgstr "Устройство вывода"
+
+#: ../modules/sound/main.qml:473
+msgid "Input Port"
+msgstr "Входной порт"
+
+#: ../modules/sound/main.qml:528
+msgid "Input device"
+msgstr "Устройство ввода"
+
+#: ../modules/sound/main.qml:581
+msgid "Hide Advanced..."
+msgstr "Скрыть экспертные…"
+
+#: ../modules/sound/main.qml:581
+msgid "Show Advanced..."
+msgstr "Показать экспертные…"
+
+#: ../modules/system_info/main.qml:102
+msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
+msgstr "Правообладатель © 2011-2014 Wuhan Deepin Technology Co,Ltd."
+
+#: ../modules/system_info/main.qml:108
+msgid "Deepin Edition"
+msgstr "Deepin-редакция"
+
+#: ../modules/system_info/main.qml:114
+msgid "System Type"
+msgstr "Тип системы"
+
+#: ../modules/system_info/main.qml:115
+msgid "bit"
+msgstr "бит"
+
+#: ../modules/system_info/main.qml:120
+msgid "Processor"
+msgstr "Процессор"
+
+#: ../modules/system_info/main.qml:134
+msgid "Memory"
+msgstr "Память"
+
+#: ../modules/system_info/main.qml:140
+msgid "Disk"
+msgstr "Диск"
+
+#: ../modules/system_info/main.qml:159
+msgid "GNU GENERAL PUBLIC LICENSE"
+msgstr "GNU GENERAL PUBLIC LICENSE"
+
+#: ../modules/network/main.qml:157 ../modules/network/main.qml:185
+msgid "Unknown"
+msgstr "Неизвестный"
+
+#: ../modules/network/main.qml:159
+msgid "Wired"
+msgstr "Проводной"
+
+#: ../modules/network/main.qml:161
+msgid "Wireless"
+msgstr "Беспроводной"
+
+#: ../modules/network/main.qml:163
+msgid "Unused1"
+msgstr "Неиспольз.1"
+
+#: ../modules/network/main.qml:165
+msgid "Unused2"
+msgstr "Неиспольз.2"
+
+#: ../modules/network/main.qml:169
+msgid "OLPC mesh"
+msgstr "OLPC mesh"
+
+#: ../modules/network/main.qml:171
+msgid "WiMax"
+msgstr "WiMax"
+
+#: ../modules/network/main.qml:173
+msgid "Modem"
+msgstr "Модем"
+
+#: ../modules/network/main.qml:175
+msgid "InfiniBand"
+msgstr "InfiniBand"
+
+#: ../modules/network/main.qml:177
+msgid "Bond"
+msgstr "Связь"
+
+#: ../modules/network/main.qml:179
+msgid "VLAN"
+msgstr "VLAN"
+
+#: ../modules/network/main.qml:181
+msgid "ADSL"
+msgstr "ADSL"
+
+#: ../modules/network/main.qml:183
+msgid "Bridge"
+msgstr "Мост"

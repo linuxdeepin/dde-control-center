@@ -1723,7 +1723,7 @@
 <context>
     <name>LocaleArea</name>
     <message>
-        <location filename="../modules/date_time/LocaleArea.qml" line="78"/>
+        <location filename="../modules/date_time/LocaleArea.qml" line="68"/>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1731,22 +1731,22 @@
 <context>
     <name>MessageBox</name>
     <message>
-        <location filename="../modules/display/MessageBox.qml" line="109"/>
+        <location filename="../modules/display/MessageBox.qml" line="94"/>
         <source>Do you want to keep these display settings?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/MessageBox.qml" line="119"/>
+        <location filename="../modules/display/MessageBox.qml" line="104"/>
         <source>Reverting to previous display settings in &lt;font color=&apos;#F48914&apos;&gt;%1&lt;/font&gt; seconds.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/MessageBox.qml" line="131"/>
+        <location filename="../modules/display/MessageBox.qml" line="116"/>
         <source>Keep Changes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/MessageBox.qml" line="139"/>
+        <location filename="../modules/display/MessageBox.qml" line="124"/>
         <source>Revert</source>
         <translation type="unfinished"></translation>
     </message>
