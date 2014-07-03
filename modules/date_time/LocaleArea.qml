@@ -30,17 +30,7 @@ DBaseExpand {
 
     property int listAreaMaxHeight: 100
 
-    property string currentLocale: {
-        var s = gDate.currentLocale
-        var ends = [".utf-8", ".UTF-8"]
-        for(var i in ends){
-            var end = ends[i]
-            if(s.indexOf(end) != -1){
-                s = s.split(end)[0]
-            }
-        }
-        return s
-    }
+    property string currentLocale: gDate.currentLocale
     property var localeToLanguage: {
         var allLocaleList = gDate.GetLocaleList()
         var r = new Object()

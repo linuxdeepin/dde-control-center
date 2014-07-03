@@ -11,7 +11,7 @@ Column {
         }
     }
     property string appletId: "network"
-    property bool appletDisplay: getAppletDisplay()
+    property bool appletDisplay: false
 
     function getAppletDisplay(){
         var appletInfos = JSON.parse(dbusAppletManager.appletInfoList)
@@ -22,6 +22,18 @@ Column {
             }
         }
         return False
+    }
+
+    Timer{
+        id: delayGetAppletDisplay
+        interval: 500
+        onTriggered: {
+            appletDisplay = getAppletDisplay()
+        }
+    }
+
+    Component.onCompleted: {
+        delayGetAppletDisplay.start()
     }
 
     DSwitchButtonHeader {

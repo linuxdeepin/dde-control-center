@@ -1,0 +1,1848 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Cristian Garde Zarza <cristian.garde@gmail.com>, 2014
+# child <comendador@gmail.com>, 2014
+# Cristian Garde Zarza <cristian.garde@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: dde-control-center\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-07-02 15:38+0800\n"
+"PO-Revision-Date: 2014-07-02 08:41+0000\n"
+"Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
+"Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/dde-control-center/language/es_ES/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../modules/network/add/AddDsl.qml:11
+msgid "New PPPoE Connection"
+msgstr "Nueva Conexión PPPoE"
+
+#: ../modules/network/add/AddDsl.qml:25
+#: ../modules/network/add/AddMobile.qml:34
+#: ../modules/network/add/AddVpn.qml:104
+#: ../modules/network/edit_autogen/BaseConnectionEdit.qml:34
+#: ../modules/shortcuts/CustomKeybinding.qml:118
+msgid "Name"
+msgstr "Nombre"
+
+#: ../modules/network/add/AddDsl.qml:38
+#: ../modules/network/add/AddMobile.qml:80
+#: ../modules/network/add/AddMobile.qml:113
+#: ../modules/account/AddUserDialog.qml:105
+#: ../modules/network/add/AddVpn.qml:128 ../modules/network/add/AddVpn.qml:271
+#: ../modules/network/add/AddVpn.qml:425 ../modules/network/add/AddVpn.qml:469
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:57
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:134
+#: ../modules/network/edit_autogen/EditSectionPppoe.qml:24
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:47
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:201
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:355
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:410
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:70
+msgid "Username"
+msgstr "Nombre de Usuario"
+
+#: ../modules/network/add/AddDsl.qml:49
+#: ../modules/network/edit_autogen/EditSectionPppoe.qml:35
+msgid "Service"
+msgstr "Servicio"
+
+#: ../modules/network/add/AddDsl.qml:60
+#: ../modules/network/add/AddMobile.qml:91
+#: ../modules/network/add/AddMobile.qml:124
+#: ../modules/account/AddUserDialog.qml:137
+#: ../modules/network/add/AddVpn.qml:150 ../modules/network/add/AddVpn.qml:293
+#: ../modules/network/add/AddVpn.qml:447 ../modules/network/add/AddVpn.qml:592
+#: ../modules/network/wireless/AddWireless.qml:68
+#: ../modules/network/wireless/AddWireless.qml:202
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:68
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:145
+#: ../modules/network/edit_autogen/EditSectionPppoe.qml:46
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:57
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:191
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:69
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:223
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:377
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:57
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:81
+#: ../modules/account/PasswordDialog.qml:59
+#: ../modules/network/wireless/WifiHotspot.qml:73
+msgid "Password"
+msgstr "Contraseña"
+
+#: ../modules/network/add/AddMobile.qml:20
+msgid "New Mobile Connection"
+msgstr "Nueva Conexión Móvil"
+
+#: ../modules/network/add/AddMobile.qml:47
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:24
+msgid "Service Type"
+msgstr "Tipo de Servicio"
+
+#: ../modules/network/add/AddMobile.qml:58
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:35
+msgid "APN"
+msgstr "APN"
+
+#: ../modules/network/add/AddMobile.qml:69
+#: ../modules/network/add/AddMobile.qml:102
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:46
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:123
+msgid "Number"
+msgstr "Número"
+
+#: ../modules/network/add/AddSectionSave.qml:11
+#: ../modules/account/AddUserDialog.qml:284
+#: ../modules/network/wireless/AddWireless.qml:234
+#: ../modules/network/ConnectionAdd.qml:69
+#: ../modules/network/ConnectionEdit.qml:146
+#: ../modules/shortcuts/CustomKeybinding.qml:151
+#: ../modules/account/DeleteUserDialog.qml:33
+#: ../modules/network/widgets/PasswordBox.qml:101
+#: ../modules/account/PasswordDialog.qml:172
+#: ../modules/shortcuts/ShortcutInput.qml:341
+#: ../modules/date_time/TimeBox.qml:212
+#: ../modules/network/wireless/WifiHotspot.qml:86
+#: ../dock-applets/qml/WifiPasswordWindow.qml:171
+#: ../modules/display/main.qml:227
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: ../modules/network/add/AddSectionSave.qml:20
+#: ../modules/shortcuts/CustomKeybinding.qml:157
+#: ../modules/date_time/TimezoneArea.qml:231
+msgid "Add"
+msgstr "Añadir"
+
+#: ../modules/account/AddUserDialog.qml:56
+msgid "Add User"
+msgstr "Añadir Usuario"
+
+#: ../modules/account/AddUserDialog.qml:84
+msgid "New User"
+msgstr "Nuevo Usuario"
+
+#: ../modules/account/AddUserDialog.qml:88
+#: ../modules/account/AddUserDialog.qml:213
+#: ../modules/account/EditUserDialog.qml:131
+#: ../modules/account/UserList.qml:187
+msgid "Standard"
+msgstr "Estandar"
+
+#: ../modules/account/AddUserDialog.qml:88
+#: ../modules/account/AddUserDialog.qml:214
+#: ../modules/account/EditUserDialog.qml:132
+#: ../modules/account/UserList.qml:187
+msgid "Administrator"
+msgstr "Administrador"
+
+#: ../modules/account/AddUserDialog.qml:170
+msgid "Repeat Password"
+msgstr "Repetir Contraseña"
+
+#: ../modules/account/AddUserDialog.qml:201
+#: ../modules/account/EditUserDialog.qml:119
+msgid "Account Type"
+msgstr "Tipo de Cuenta"
+
+#: ../modules/account/AddUserDialog.qml:233
+#: ../modules/account/EditUserDialog.qml:52
+msgid "Auto-login"
+msgstr "Inicio Automático"
+
+#: ../modules/account/AddUserDialog.qml:297
+#: ../modules/account/DeleteUserDialog.qml:46
+#: ../modules/account/PasswordDialog.qml:186 ../modules/account/WebCam.qml:148
+msgid "Confirm"
+msgstr "Confirmar"
+
+#: ../modules/network/add/AddVpn.qml:15
+msgid "VPN Type"
+msgstr "Tipo VPN"
+
+#: ../modules/network/add/AddVpn.qml:36
+msgid "L2TP"
+msgstr "L2TP"
+
+#: ../modules/network/add/AddVpn.qml:37
+msgid "PPTP"
+msgstr "PPTP"
+
+#: ../modules/network/add/AddVpn.qml:38
+msgid "OpenVPN"
+msgstr "OpenVPN"
+
+#: ../modules/network/add/AddVpn.qml:39
+msgid "OpenConnect"
+msgstr "OpenConnect"
+
+#: ../modules/network/add/AddVpn.qml:40
+msgid "VPNC"
+msgstr "VPNC"
+
+#: ../modules/network/add/AddVpn.qml:69
+msgid "Basic Information"
+msgstr "Información Básica"
+
+#: ../modules/network/add/AddVpn.qml:83
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:24
+msgid "Need VPN Plugin"
+msgstr "Necesita Plugin VPN"
+
+#: ../modules/network/add/AddVpn.qml:117 ../modules/network/add/AddVpn.qml:161
+#: ../modules/network/add/AddVpn.qml:249 ../modules/network/add/AddVpn.qml:414
+#: ../modules/network/add/AddVpn.qml:458
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:61
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:59
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:36
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:91
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:179
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:344
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:399
+msgid "Gateway"
+msgstr "Puerta de Enlace"
+
+#: ../modules/network/add/AddVpn.qml:139 ../modules/network/add/AddVpn.qml:282
+#: ../modules/network/add/AddVpn.qml:337 ../modules/network/add/AddVpn.qml:436
+#: ../modules/network/add/AddVpn.qml:480 ../modules/network/add/AddVpn.qml:513
+#: ../modules/network/wireless/AddWireless.qml:190
+#: ../modules/network/wireless/AddWireless.qml:213
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:179
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:202
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:58
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:212
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:267
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:366
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:421
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:454
+msgid "Ask for Pwd"
+msgstr "Pedir Contraseña"
+
+#: ../modules/network/add/AddVpn.qml:172 ../modules/network/add/AddVpn.qml:304
+#: ../modules/network/wireless/AddWireless.qml:112
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:101
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:102
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:234
+msgid "CA Cert"
+msgstr "Certificado CA"
+
+#: ../modules/network/add/AddVpn.qml:183
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:113
+msgid "Proxy"
+msgstr "Proxy"
+
+#: ../modules/network/add/AddVpn.qml:194
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:124
+msgid "Allow Cisco Secure Desktop Trojan"
+msgstr "Permitir el Troyano de Cisco Secure Desktop"
+
+#: ../modules/network/add/AddVpn.qml:205
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:135
+msgid "CSD Wrapper"
+msgstr "Contenedor CSD"
+
+#: ../modules/network/add/AddVpn.qml:227 ../modules/network/add/AddVpn.qml:326
+#: ../modules/network/wireless/AddWireless.qml:179
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:168
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:157
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:256
+msgid "Private Key"
+msgstr "Clave Privada"
+
+#: ../modules/network/add/AddVpn.qml:238
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:168
+msgid "User FSID For Key Passphrase"
+msgstr "Frase Clave para el Usuario FSID"
+
+#: ../modules/network/add/AddVpn.qml:260
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:190
+msgid "Auth Type"
+msgstr "Tipo de Autenticación"
+
+#: ../modules/network/add/AddVpn.qml:216 ../modules/network/add/AddVpn.qml:315
+#: ../modules/network/wireless/AddWireless.qml:123
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:112
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:146
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:245
+msgid "User Cert"
+msgstr "Certificado de Usuario"
+
+#: ../modules/network/add/AddVpn.qml:348
+#: ../modules/network/wireless/AddWireless.qml:224
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:213
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:278
+msgid "Private Pwd"
+msgstr "Contraseña Privada"
+
+#: ../modules/network/add/AddVpn.qml:359
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:289
+msgid "Static Key"
+msgstr "Clave Estática"
+
+#: ../modules/network/add/AddVpn.qml:370
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:300
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:57
+msgid "Use Key Direction"
+msgstr "Usar una Tecla de Dirección"
+
+#: ../modules/network/add/AddVpn.qml:381
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:311
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:68
+msgid "Key Direction"
+msgstr "Tecla de Dirección"
+
+#: ../modules/network/add/AddVpn.qml:392
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:322
+msgid "Remote IP"
+msgstr "IP Remota"
+
+#: ../modules/network/add/AddVpn.qml:403
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:333
+msgid "Local IP"
+msgstr "IP Local"
+
+#: ../modules/network/add/AddVpn.qml:491
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:432
+msgid "User Pwd"
+msgstr "Contraseña de Usuario"
+
+#: ../modules/network/add/AddVpn.qml:502 ../modules/network/add/AddVpn.qml:570
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:443
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:35
+msgid "Group Name"
+msgstr "Nombre de Grupo"
+
+#: ../modules/network/add/AddVpn.qml:524
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:465
+msgid "Group Pwd"
+msgstr "Contraseña de Grupo"
+
+#: ../modules/network/add/AddVpn.qml:535
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:476
+msgid "Use Hybrid Authentication"
+msgstr "Usar Autenticación Hibrida"
+
+#: ../modules/network/add/AddVpn.qml:546
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:487
+msgid "CA File"
+msgstr "Archivo CA"
+
+#: ../modules/network/add/AddVpn.qml:559
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:24
+msgid "Enable IPsec"
+msgstr "Habilitar IPsec"
+
+#: ../modules/network/add/AddVpn.qml:581
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:46
+msgid "Group ID"
+msgstr "ID de Grupo"
+
+#: ../modules/network/add/AddVpn.qml:605 ../modules/network/add/AddVpn.qml:618
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:24
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:24
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:24
+msgid "Use MPPE"
+msgstr "Usar MPPE"
+
+#: ../modules/network/wireless/AddWireless.qml:8
+msgid "Connect to wireless"
+msgstr "Conectar a una Red Inalámbrica"
+
+#: ../modules/network/wireless/AddWireless.qml:33
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:24
+#: ../modules/network/wireless/WifiHotspot.qml:38
+msgid "SSID"
+msgstr "SSID"
+
+#: ../modules/network/wireless/AddWireless.qml:46
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:11
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:35
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:35
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:35
+#: ../modules/network/wireless/WifiHotspot.qml:51
+msgid "Security"
+msgstr "Seguridad"
+
+#: ../modules/network/wireless/AddWireless.qml:57
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:46
+#: ../modules/network/wireless/WifiHotspot.qml:62
+msgid "Key"
+msgstr "Clave"
+
+#: ../modules/network/wireless/AddWireless.qml:79
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:68
+msgid "EAP Auth"
+msgstr "Autentificación EAP"
+
+#: ../modules/network/wireless/AddWireless.qml:90
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:79
+msgid "Identity"
+msgstr "Identidad"
+
+#: ../modules/network/wireless/AddWireless.qml:101
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:90
+msgid "Anonymous ID"
+msgstr "ID Anónima"
+
+#: ../modules/network/wireless/AddWireless.qml:134
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:123
+msgid "Provisioning"
+msgstr "Suministrando"
+
+#: ../modules/network/wireless/AddWireless.qml:145
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:134
+msgid "PAC file"
+msgstr "Archivo PAC"
+
+#: ../modules/network/wireless/AddWireless.qml:156
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:145
+msgid "PEAP Version"
+msgstr "Versión PEAP"
+
+#: ../modules/network/wireless/AddWireless.qml:167
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:156
+msgid "Inner Auth"
+msgstr "Autenticación Interna"
+
+#: ../modules/network/wireless/AddWireless.qml:242
+#: ../modules/network/widgets/PasswordBox.qml:109
+#: ../dock-applets/qml/WifiPasswordWindow.qml:178
+msgid "Connect"
+msgstr "Conectar"
+
+#: ../modules/network/AppletSwitchArea.qml:40
+#: ../modules/power/AppletSwitchArea.qml:40
+#: ../modules/sound/AppletSwitchArea.qml:40
+msgid "Dock Applet Enabled"
+msgstr ""
+
+#: ../modules/account/AvatarPickDialog.qml:5
+msgid "Choose a new picture for your image"
+msgstr "Elige una  nueva foto para tu imagen"
+
+#: ../modules/account/AvatarView.qml:18
+msgid "Recently Used"
+msgstr "Usado Recientemente"
+
+#: ../modules/account/AvatarView.qml:19
+msgid "Default"
+msgstr "Predeterminado"
+
+#: ../modules/account/AvatarView.qml:20
+msgid "Webcam"
+msgstr "Webcam"
+
+#: ../modules/network/edit_autogen/BaseConnectionEdit.qml:45
+#: ../modules/network/edit_autogen/EditSectionGeneral.qml:24
+msgid "Automatically connect"
+msgstr "Conexión Automática"
+
+#: ../modules/date_time/Calendar.qml:125
+msgid "Today"
+msgstr "Hoy"
+
+#: ../modules/date_time/CalendarComponent.qml:80
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:168
+msgid "Sun"
+msgstr "Dom"
+
+#: ../modules/date_time/CalendarComponent.qml:81
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:169
+msgid "Mon"
+msgstr "Lun"
+
+#: ../modules/date_time/CalendarComponent.qml:82
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:170
+msgid "Tue"
+msgstr "Mar"
+
+#: ../modules/date_time/CalendarComponent.qml:83
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:171
+msgid "Wed"
+msgstr "Mié"
+
+#: ../modules/date_time/CalendarComponent.qml:84
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:172
+msgid "Thu"
+msgstr "Jue"
+
+#: ../modules/date_time/CalendarComponent.qml:85
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:173
+msgid "Fri"
+msgstr "Vie"
+
+#: ../modules/date_time/CalendarComponent.qml:86
+#: ../dock-applets/qml/date_time/calendar_core.js:4
+#: ../dock-applets/qml/date_time/main.qml:174
+msgid "Sat"
+msgstr "Sáb"
+
+#: ../modules/network/ConnectionAdd.qml:12
+msgid "New Network"
+msgstr "Nueva Red"
+
+#: ../modules/network/ConnectionAdd.qml:35
+#: ../modules/network/edit_autogen/EditSectionPppoe.qml:11
+msgid "PPPoE"
+msgstr "PPPoE"
+
+#: ../modules/network/ConnectionAdd.qml:45
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:11
+msgid "VPN"
+msgstr "VPN"
+
+#: ../modules/network/ConnectionAdd.qml:77
+msgid "Next"
+msgstr "Siguiente"
+
+#: ../modules/network/ConnectionEdit.qml:51
+msgid "Delete this network"
+msgstr "Eliminar esta red"
+
+#: ../modules/network/ConnectionEdit.qml:51
+msgid "Are you sure you want to delete this network?"
+msgstr "¿Esta seguro de borrar esta red?"
+
+#: ../modules/network/ConnectionEdit.qml:101
+#: ../modules/network/wireless/WifiHotspot.qml:95
+msgid "Save"
+msgstr "Guardar"
+
+#: ../modules/network/ConnectionEdit.qml:113 ../modules/network/Info.qml:73
+#: ../modules/date_time/StateButtons.qml:35
+#: ../modules/date_time/TimezoneArea.qml:234
+msgid "Close"
+msgstr "Cerrar"
+
+#: ../modules/network/ConnectionEdit.qml:134
+msgid "Delete"
+msgstr "Borrar"
+
+#: ../modules/shortcuts/CustomKeybinding.qml:133
+msgid "Command"
+msgstr "Comando"
+
+#: ../modules/account/DeleteUserDialog.qml:19
+msgid "Keep user's files"
+msgstr "Conservar archivos de usuario"
+
+#: ../modules/account/DeleteUserDialog.qml:20
+msgid "Delete user's files"
+msgstr "Eliminar archivos de usuario"
+
+#: ../dock-applets/qml/disk_mount/DiskItem.qml:124
+msgid "Unmount failed!"
+msgstr "¡Desmontaje ha fallado!"
+
+#: ../modules/network/dsl/DslExpand.qml:19
+msgid "PPPoE Connections"
+msgstr "Conexiones PPPoE"
+
+#: ../modules/network/edit/EditLineMissingPackage.qml:15
+#, qt-format
+msgid "Current system lacks component for %1"
+msgstr "El sistema carece del componente %1"
+
+#: ../modules/network/edit/EditLineMissingPackage.qml:22
+msgid "Click to install"
+msgstr "Click para instalar"
+
+#: ../modules/network/edit_autogen/EditSectionEthernet.qml:11
+msgid "Ethernet"
+msgstr "Ethernet"
+
+#: ../modules/network/edit_autogen/EditSectionEthernet.qml:24
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:70
+msgid "Device MAC Addr"
+msgstr "Dirección MAC del Dispositivo"
+
+#: ../modules/network/edit_autogen/EditSectionEthernet.qml:35
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:81
+msgid "Cloned MAC Addr"
+msgstr "Dirección MAC Clonada"
+
+#: ../modules/network/edit_autogen/EditSectionEthernet.qml:46
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:92
+msgid "Custom MTU"
+msgstr "MTU Personalizada"
+
+#: ../modules/network/edit_autogen/EditSectionEthernet.qml:57
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:116
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:103
+msgid "MTU"
+msgstr "MTU"
+
+#: ../modules/network/edit_autogen/EditSectionGeneral.qml:11
+msgid "General"
+msgstr "General"
+
+#: ../modules/network/edit_autogen/EditSectionGeneral.qml:35
+msgid "For All Users"
+msgstr "Para todos los Usuarios"
+
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:11
+msgid "IPv4"
+msgstr "IPv4"
+
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:24
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:24
+msgid "Method"
+msgstr "Método"
+
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:35
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:35
+#: ../modules/network/Info.qml:58
+msgid "IP Address"
+msgstr "Dirección IP"
+
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:47
+msgid "Netmask"
+msgstr "Máscara de Red"
+
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:74
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:70
+msgid "DNS Server"
+msgstr "Servidor DNS"
+
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:11
+msgid "IPv6"
+msgstr "IPv6"
+
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:46
+msgid "Prefix"
+msgstr "Prefijo"
+
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:11
+msgid "Mobile"
+msgstr "Móvil"
+
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:79
+msgid "Network ID"
+msgstr "ID de Red"
+
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:90
+msgid "Type"
+msgstr "Tipo"
+
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:101
+msgid "Home Network Only"
+msgstr "Sólo Red Local"
+
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:112
+msgid "PIN"
+msgstr "PIN"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:11
+msgid "PPP"
+msgstr "PPP"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:36
+msgid "128-bit MPPE"
+msgstr "128-bit MPPE"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:48
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:46
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:46
+msgid "Stateful MPPE"
+msgstr "Cortafuegos MPPE"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:59
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:57
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:57
+msgid "Refuse EAP Authentication"
+msgstr "Denegar Autenticación EAP"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:70
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:69
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:69
+msgid "Refuse PAP Authentication"
+msgstr "Denegar Autenticación PAP"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:81
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:81
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:81
+msgid "Refuse CHAP Authentication"
+msgstr "Denegar Autenticación CHAP"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:92
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:93
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:93
+msgid "Refuse MSCHAP Authentication"
+msgstr "Denegar Autenticación MSCHAP"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:103
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:105
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:105
+msgid "Refuse MSCHAPv2 Authentication"
+msgstr "Denegar Autenticación MSCHAPv2"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:114
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:117
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:116
+msgid "No BSD Data Compression"
+msgstr "Sin Compresión de Datos BSD"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:125
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:128
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:127
+msgid "No Deflate Data Compression"
+msgstr "Sin Compresión de Datos Deflate"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:136
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:139
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:138
+msgid "No TCP Header Compression"
+msgstr "Sin Compresión de Encabezado TCP"
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:147
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:172
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:149
+msgid "Send PPP Echo Packets"
+msgstr "Enviar Eco de Paquetes PPP"
+
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:24
+msgid "Security Required"
+msgstr "Seguridad Requerida"
+
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:80
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:388
+msgid "NT Domain"
+msgstr "Dominio NT"
+
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:11
+msgid "VPN IPsec"
+msgstr "VPN IPsec"
+
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:11
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:11
+msgid "VPN PPP"
+msgstr "VPN PPP"
+
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:150
+msgid "No Protocol Field Compression"
+msgstr "Sin Compresión de Protocolo de Campo"
+
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:161
+msgid "No Address/Control Compression"
+msgstr "Sin Compresión de Control/Dirección"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:11
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:11
+msgid "VPN Advanced"
+msgstr "VPN Avanzada"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:24
+msgid "Use Custom Gateway Port"
+msgstr "Usar un Puerto de Puerta de Enlace Personalizado"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:35
+msgid "Gateway Port"
+msgstr "Puerto de Puerta de Enlace"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:48
+msgid "Use Custom Renegotiation Interval"
+msgstr "Usar Intervalo de Re-negociación Personalizado"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:59
+msgid "Renegotiation Interval"
+msgstr "Intervalo de Re-negociación"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:72
+msgid "Use LZO data compression"
+msgstr "Usar Compresión de Datos LZO"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:83
+msgid "Use TCP connection"
+msgstr "Usar conexión TCP"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:94
+msgid "Use TAP device"
+msgstr "Usar dispositivo TAP"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:105
+msgid "Use Custom Tunnel MTU"
+msgstr "Usar Túnel MTU Personalizado"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
+msgid "Use Custom UDP Fragment Size"
+msgstr "Usar Tamaño de Fragmento UDP Personalizado"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:140
+msgid "UDP Fragment Size"
+msgstr "Tamaño de Fragmento UDP"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:153
+msgid "Restrict Tunnel TCP MSS"
+msgstr "Restringir Túnel TCP MSS"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:164
+msgid "Randomize Remote Hosts"
+msgstr "Servidores Remotos Aleatorios"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:11
+msgid "VPN Proxies"
+msgstr " Proxies VPN"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:24
+msgid "Proxy Type"
+msgstr "Tipo de Proxy"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:35
+msgid "Server IP"
+msgstr "IP del Servidor"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:46
+#: ../modules/network/proxy/ProxyLine.qml:39
+msgid "Port"
+msgstr "Puerto"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:59
+msgid "Retry Indefinitely When Failed"
+msgstr "Cuando Falle, Reintentar Indefinidamente"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:11
+msgid "VPN Security"
+msgstr "Seguridad VPN"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:24
+msgid "Cipher"
+msgstr "Cifrar"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:35
+msgid "HMAC Auth"
+msgstr "Autentificación HMAC"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:11
+msgid "VPN TLS Authentication"
+msgstr "Autenticación VPN TLS"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:24
+msgid "Subject Match"
+msgstr "Combinar Temas"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:35
+msgid "Remote Cert Type"
+msgstr "Tipo de Certificado Remoto"
+
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:46
+msgid "Key File"
+msgstr "Archivo de Clave"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:24
+msgid "Domain"
+msgstr "Dominio"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:35
+msgid "Vendor"
+msgstr "Vendedor"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:46
+msgid "Version"
+msgstr "Versión"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:57
+msgid "Encryption"
+msgstr "Encripción"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:68
+msgid "NAT Traversal"
+msgstr "Recorrer a través de NAT"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:79
+msgid "IKE DH Group"
+msgstr "Grupo IKE DH"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:90
+msgid "Forward Secrecy"
+msgstr "Avanzar con Discreción"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:101
+msgid "Local Port"
+msgstr "Puerto Local"
+
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:114
+msgid "Disable Dead Peer Detection"
+msgstr "Desactivar Detección de Punto Muerto"
+
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:11
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:35
+msgid "Mode"
+msgstr "Modo"
+
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:46
+msgid "Band"
+msgstr "Banda"
+
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:58
+msgid "Channel"
+msgstr "Canal"
+
+#: ../modules/account/EditUserDialog.qml:86
+msgid "Enable"
+msgstr "Habilitar"
+
+#: ../modules/personalization/components/FontSettingsExpand.qml:36
+msgid "Size"
+msgstr "Tamaño"
+
+#: ../modules/personalization/components/FontSettingsExpand.qml:65
+#, qt-format
+msgid "Font %1"
+msgstr "Fuente %1"
+
+#: ../modules/account/GuestUser.qml:40 ../frame/views/HeaderArea.qml:108
+msgid "Guest"
+msgstr "Invitado"
+
+#: ../modules/account/GuestUser.qml:101
+#: ../modules/display/MonitorProperties.qml:80
+msgid "Enabled"
+msgstr "Habilitado"
+
+#: ../modules/network/Info.qml:11
+msgid "Activated Connections"
+msgstr "Conexiones Activas"
+
+#: ../modules/network/Info.qml:56
+msgid "Device Type"
+msgstr "Tipo de Dispositivo"
+
+#: ../modules/network/Info.qml:57
+msgid "Device Addr"
+msgstr "Dirección del Dispositivo"
+
+#: ../modules/network/Info.qml:59
+msgid "Subnet Mask"
+msgstr "Máscara de Subred"
+
+#: ../modules/network/Info.qml:60
+msgid "Route Addr"
+msgstr "Dirección de Ruta"
+
+#: ../modules/network/Info.qml:61
+msgid "Primary DNS"
+msgstr "DNS Primaria"
+
+#: ../modules/network/Info.qml:62
+msgid "Addtional DNS"
+msgstr "DNS Adicional"
+
+#: ../modules/network/Info.qml:63
+msgid "Device Speed"
+msgstr "Velocidad del Dispositivo"
+
+#: ../modules/date_time/LocaleArea.qml:78
+msgid "Language"
+msgstr "Idioma"
+
+#: ../modules/display/MessageBox.qml:109
+msgid "Do you want to keep these display settings?"
+msgstr "¿Quiere mantener estos ajustes de la pantalla?"
+
+#: ../modules/display/MessageBox.qml:119
+#, qt-format
+msgid ""
+"Reverting to previous display settings in <font color='#F48914'>%1</font> "
+"seconds."
+msgstr "Regresando a la configuración de pantalla anteriores en <font color='#F48914'>%1</font> segundos."
+
+#: ../modules/display/MessageBox.qml:131
+msgid "Keep Changes"
+msgstr "Guardar Cambios"
+
+#: ../modules/display/MessageBox.qml:139
+msgid "Revert"
+msgstr "Revertir"
+
+#: ../frame/views/ModulesData.qml:28 ../dock-applets/qml/main.qml:45
+msgid "Date and Time"
+msgstr "Fecha y Hora"
+
+#: ../frame/views/ModulesData.qml:29 ../dock-applets/qml/main.qml:41
+msgid "Network"
+msgstr "Red"
+
+#: ../frame/views/ModulesData.qml:30 ../dock-applets/qml/main.qml:44
+msgid "Disk Mount"
+msgstr "Montar Disco"
+
+#: ../frame/views/ModulesData.qml:31 ../modules/network/main.qml:167
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: ../frame/views/ModulesData.qml:32 ../dock-applets/qml/main.qml:42
+msgid "Sound"
+msgstr "Sonido"
+
+#: ../frame/views/ModulesData.qml:33
+msgid "Power Management"
+msgstr "Gestión de Energía"
+
+#: ../frame/views/ModulesData.qml:34
+msgid "More Settings"
+msgstr "Más Opciones"
+
+#: ../frame/views/ModulesData.qml:35 ../frame/views/PanelContent.qml:421
+#: ../dock-applets/qml/main.qml:43
+msgid "Power"
+msgstr "Energía"
+
+#: ../frame/views/ModulesData.qml:36
+msgid "Display"
+msgstr "Pantalla"
+
+#: ../frame/views/ModulesData.qml:37
+msgid "Desktop"
+msgstr "Escritorio"
+
+#: ../frame/views/ModulesData.qml:38
+msgid "Personalization"
+msgstr "Personalización"
+
+#: ../frame/views/ModulesData.qml:39
+msgid "Keyboard Shortcuts"
+msgstr "Atajos de Teclado"
+
+#: ../frame/views/ModulesData.qml:40
+msgid "Keyboard"
+msgstr "Teclado"
+
+#: ../frame/views/ModulesData.qml:41
+msgid "Mouse and Touchpad"
+msgstr "Ratón y Touchpad"
+
+#: ../frame/views/ModulesData.qml:42 ../modules/mouse_touchpad/main.qml:50
+msgid "Mouse"
+msgstr "Ratón"
+
+#: ../frame/views/ModulesData.qml:43
+msgid "User Accounts"
+msgstr "Cuentas de Usuario"
+
+#: ../frame/views/ModulesData.qml:44
+#: ../modules/default_applications/main.qml:62
+msgid "Default Applications"
+msgstr "Aplicaciones por defecto"
+
+#: ../frame/views/ModulesData.qml:45
+msgid "System Information"
+msgstr "Información del Sistema"
+
+#: ../frame/views/ModulesData.qml:46
+msgid "Boot Menu"
+msgstr "Menu de Inicio"
+
+#: ../frame/views/ModulesData.qml:47
+msgid "Home"
+msgstr "Home"
+
+#: ../modules/display/MonitorComponent.qml:234
+msgid "Set as primary display"
+msgstr "Establecer como pantalla principal"
+
+#: ../modules/display/MonitorDragArea.qml:446
+msgid "Identify"
+msgstr "Identificar"
+
+#: ../modules/display/MonitorDragArea.qml:463
+msgid "Edit"
+msgstr "Editar"
+
+#: ../modules/display/MonitorProperties.qml:47
+msgid "Normal"
+msgstr "Normal"
+
+#: ../modules/display/MonitorProperties.qml:48
+msgid "Rotate Right"
+msgstr "Girar a la Derecha"
+
+#: ../modules/display/MonitorProperties.qml:49
+msgid "Upside Down"
+msgstr "Dar la vuelta"
+
+#: ../modules/display/MonitorProperties.qml:50
+msgid "Rotate Left"
+msgstr "Girar a la Izquierda"
+
+#: ../modules/display/MonitorProperties.qml:112
+msgid "Resolution"
+msgstr "Resolución"
+
+#: ../modules/display/MonitorProperties.qml:165
+msgid "Rotation"
+msgstr "Rotación"
+
+#: ../modules/display/MonitorProperties.qml:206
+msgid "Brightness"
+msgstr "Brillo"
+
+#: ../modules/network/wired/NewItem.qml:41
+#: ../modules/network/wired/WiredItem.qml:80
+#, qt-format
+msgid "Wired Connection %1"
+msgstr "Red Cableada %1"
+
+#: ../modules/network/widgets/PasswordBox.qml:76
+msgid "Password: "
+msgstr "Contraseña:"
+
+#: ../modules/account/PasswordDialog.qml:101
+msgid "New Password"
+msgstr "Nueva Contraseña"
+
+#: ../modules/account/PasswordDialog.qml:135
+msgid "Repeat"
+msgstr "Repita"
+
+#: ../modules/grub/Preview.qml:126
+msgid "Drag and drop an image to change background."
+msgstr "Arrastre y suelte una imagen para cambiar el fondo."
+
+#: ../modules/grub/Preview.qml:127
+msgid "Background is changing, please reboot later..."
+msgstr "Cambiando fondo, por favor reincie luego... "
+
+#: ../modules/grub/Preview.qml:128
+msgid "Successfully changed, reboot to view."
+msgstr "Cambiado satisfactoriamente, reinice para verlo."
+
+#: ../modules/network/proxy/ProxyContent.qml:42
+msgid "None"
+msgstr "Ninguno"
+
+#: ../modules/network/proxy/ProxyContent.qml:47
+msgid "Manual"
+msgstr "Manual"
+
+#: ../modules/network/proxy/ProxyContent.qml:52
+msgid "Auto"
+msgstr "Automático"
+
+#: ../modules/network/proxy/ProxyContent.qml:87
+msgid "HTTP Proxy"
+msgstr "HTTP Proxy"
+
+#: ../modules/network/proxy/ProxyContent.qml:99
+msgid "HTTPS Proxy"
+msgstr "HTTPS Proxy"
+
+#: ../modules/network/proxy/ProxyContent.qml:111
+msgid "FTP Proxy"
+msgstr "FTP Proxy"
+
+#: ../modules/network/proxy/ProxyContent.qml:123
+msgid "Socks Host"
+msgstr "Servidor de Sockets"
+
+#: ../modules/network/proxy/ProxyContent.qml:148
+msgid "Configuration URL"
+msgstr "Configuración de URL"
+
+#: ../modules/network/proxy/ProxyContent.qml:165
+msgid "Apply system wide"
+msgstr "Aplicar a todo el sistema"
+
+#: ../modules/network/proxy/ProxyExpand.qml:37
+msgid "System Proxy"
+msgstr "Proxy del Sistema"
+
+#: ../modules/shared/ResetButton.qml:39
+msgid "Reset successfully"
+msgstr "Restauración satisfactoria"
+
+#: ../modules/shared/ResetButton.qml:47
+msgid "Reset"
+msgstr "Reinicio"
+
+#: ../modules/shortcuts/ShortcutInput.qml:108
+msgid "Disable"
+msgstr "Desactivar"
+
+#: ../modules/shortcuts/ShortcutInput.qml:126
+msgid "Please input new shortcut"
+msgstr "Introduzca nueva atajo"
+
+#: ../modules/shortcuts/ShortcutInput.qml:224
+#, qt-format
+msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
+msgstr "El atajo \"%1\" es invalido, por favor escriba un nuevo atajo."
+
+#: ../modules/shortcuts/ShortcutInput.qml:262
+msgid "The shortcut you set "
+msgstr "El atajo que estableció"
+
+#: ../modules/shortcuts/ShortcutInput.qml:265
+#, qt-format
+msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
+msgstr "entra en conflicto con el utilizado para \"%2\" en la categoría \"%1\"."
+
+#: ../modules/shortcuts/ShortcutInput.qml:267
+msgid "Do you want to replace it?"
+msgstr "¿Quiere reemplazarlo?"
+
+#: ../modules/shortcuts/ShortcutInput.qml:325
+msgid "Replace"
+msgstr "Reemplazar"
+
+#: ../modules/personalization/widgets/ShowPreviewButton.qml:53
+msgid "Preview Theme"
+msgstr "Vista Previa del Tema"
+
+#: ../modules/date_time/StateButtons.qml:34
+#: ../modules/keyboard/StateButtons.qml:34
+#: ../modules/shortcuts/StateButtons.qml:38
+msgid "Done"
+msgstr "Hecho"
+
+#: ../modules/personalization/widgets/ThemeItem.qml:107
+#: ../dock-applets/qml/power/main.qml:46 ../modules/power/main.qml:268
+#: ../modules/power/main.qml:443 ../modules/shortcuts/main.qml:53
+#: ../modules/shortcuts/main.qml:224
+msgid "Custom"
+msgstr "Personalizar"
+
+#: ../modules/date_time/TimeBox.qml:161
+msgid "Double-click the above digits to change your time."
+msgstr "Haga Doble-click sobre los dígitos para cambiar la hora."
+
+#: ../modules/date_time/TimeBox.qml:196
+msgid "Set"
+msgstr "Fijar"
+
+#: ../modules/date_time/TimezoneArea.qml:86
+msgid "Time zone"
+msgstr "Zona horaria"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:51
+msgid "Touchpad"
+msgstr "Touchpad"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:82
+#: ../modules/mouse_touchpad/main.qml:67
+msgid "Primary Button"
+msgstr "Botón Primario"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:90
+#: ../modules/mouse_touchpad/main.qml:74
+msgid "Left Button"
+msgstr "Botón Izquierdo"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:91
+#: ../modules/mouse_touchpad/main.qml:75
+msgid "Right Button"
+msgstr "Botón Derecho"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:104
+#: ../modules/mouse_touchpad/main.qml:88
+msgid "Pointer Speed"
+msgstr "Velocidad del Puntero"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:119
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:169
+#: ../modules/keyboard/main.qml:146 ../modules/keyboard/main.qml:172
+#: ../modules/mouse_touchpad/main.qml:103
+#: ../modules/mouse_touchpad/main.qml:155
+msgid "Slow"
+msgstr "Lento"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:120
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:170
+#: ../modules/keyboard/main.qml:145 ../modules/keyboard/main.qml:171
+#: ../modules/mouse_touchpad/main.qml:104
+#: ../modules/mouse_touchpad/main.qml:156
+msgid "Fast"
+msgstr "Rápido"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:154
+#: ../modules/mouse_touchpad/main.qml:140
+msgid "Double-click Speed"
+msgstr "Velocidad del Doble-click"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:180
+msgid "Drag Threshold"
+msgstr "Ajustar el umbral"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:195
+#: ../modules/keyboard/main.qml:120
+msgid "Short"
+msgstr "Corto"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:196
+#: ../modules/keyboard/main.qml:121
+msgid "Long"
+msgstr "Largo"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:205
+msgid "Natural Scrolling"
+msgstr "Desplazamiento Natural"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:228
+msgid "Tap to click"
+msgstr "Dar un toque para hacer click"
+
+#: ../modules/network/vpn/VpnExpand.qml:48
+msgid "VPN Connections"
+msgstr "Conexiones VPN"
+
+#: ../modules/account/WebCam.qml:125 ../modules/account/WebCam.qml:140
+msgid "Snapshot"
+msgstr ""
+
+#: ../modules/account/WebCam.qml:136
+msgid "Again"
+msgstr ""
+
+#: ../modules/account/WebCam.qml:172
+msgid "No camera found."
+msgstr "Cámara no encontrada"
+
+#: ../modules/network/wireless/WifiHotspot.qml:23
+msgid "Edit Wi-Fi Hotspot"
+msgstr "Editar Zonas Wi-Fi"
+
+#: ../modules/network/wireless/WifiHotspot.qml:23
+msgid "Create Wi-Fi Hotspot"
+msgstr "Crear Zonas Wi-Fi"
+
+#: ../modules/network/wireless/WifiHotspot.qml:95
+msgid "Create"
+msgstr "Crear"
+
+#: ../dock-applets/qml/WifiPasswordWindow.qml:127
+msgid "Authentication required by Wi-Fi network"
+msgstr "Autentificación requerida para la red Wi-Fi"
+
+#: ../dock-applets/qml/WifiPasswordWindow.qml:135
+#, qt-format
+msgid ""
+"Passwords or encryption keys are required to access the Wi-Fi network <font "
+"color=\"#faca57\">%1</font>"
+msgstr "Se requiere de contraseña o clave encriptada para acceder a la red Wi-Fi <font color=\"#faca57\">%1</font>"
+
+#: ../dock-applets/qml/WifiPasswordWindow.qml:149
+msgid "Password:"
+msgstr "Contraseña:"
+
+#: ../modules/network/wired/WiredDeviceExpand.qml:37
+msgid "Wired Network"
+msgstr "Red Cableada"
+
+#: ../dock-applets/qml/network/WirelessApList.qml:95
+msgid "Scanning..."
+msgstr "Escaneando..."
+
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:62
+#: ../dock-applets/qml/network/WirelessNetwork.qml:50
+msgid "Wireless Network"
+msgstr "Red Inalámbrica"
+
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:65
+#: ../dock-applets/qml/network/WirelessNetwork.qml:50
+#, qt-format
+msgid "Wireless Network %1"
+msgstr "Red Inalámbrica %1"
+
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:115
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:331
+msgid "Connect to hidden access point"
+msgstr "Conectar a un punto de acceso oculto"
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "January"
+msgstr "Enero"
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "February"
+msgstr "Febrero"
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "March"
+msgstr "Marzo"
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "April"
+msgstr "Abril"
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "May"
+msgstr "Mayo"
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "June"
+msgstr "Junio"
+
+#: ../modules/date_time/calendar_core.js:6
+msgid "July"
+msgstr "Julio"
+
+#: ../modules/date_time/calendar_core.js:7
+msgid "August"
+msgstr "Agosto"
+
+#: ../modules/date_time/calendar_core.js:7
+msgid "September"
+msgstr "Septiembre"
+
+#: ../modules/date_time/calendar_core.js:7
+msgid "October"
+msgstr "Octubre"
+
+#: ../modules/date_time/calendar_core.js:7
+msgid "November"
+msgstr "Noviembre"
+
+#: ../modules/date_time/calendar_core.js:7
+msgid "December"
+msgstr "Diciembre"
+
+#: ../dock-applets/qml/date_time/main.qml:80
+msgid "_Switch to analog"
+msgstr "_Cambiar a analógico"
+
+#: ../dock-applets/qml/date_time/main.qml:81
+msgid "_Switch to digital"
+msgstr "_Cambiar a digital"
+
+#: ../dock-applets/qml/network/main.qml:279
+#: ../dock-applets/qml/power/main.qml:99
+#: ../dock-applets/qml/sound/main.qml:152
+msgid "_Run"
+msgstr "_Ejecutar"
+
+#: ../dock-applets/qml/power/main.qml:34
+msgid "On Charging"
+msgstr "Cargando"
+
+#: ../dock-applets/qml/power/main.qml:47 ../modules/power/main.qml:256
+#: ../modules/power/main.qml:431
+msgid "Power saver"
+msgstr "Ahorro de energía"
+
+#: ../dock-applets/qml/power/main.qml:48 ../modules/power/main.qml:250
+#: ../modules/power/main.qml:425
+msgid "Balanced"
+msgstr "Balanceado"
+
+#: ../dock-applets/qml/power/main.qml:49 ../modules/power/main.qml:262
+#: ../modules/power/main.qml:437
+msgid "High performance"
+msgstr "Alto rendimiento"
+
+#: ../dock-applets/qml/network/main.qml:280
+#: ../dock-applets/qml/power/main.qml:106
+#: ../dock-applets/qml/sound/main.qml:153
+msgid "_Undock"
+msgstr "_Desbloquear"
+
+#: ../dock-applets/qml/sound/main.qml:188
+msgid "Device"
+msgstr "Dispositivo"
+
+#: ../dock-applets/qml/sound/main.qml:282
+msgid "Applications"
+msgstr "Aplicaciones"
+
+#: ../modules/bluetooth/main.qml:76
+msgid "ON/OFF"
+msgstr "Encendido/Apagado"
+
+#: ../modules/bluetooth/main.qml:141
+msgid "Devices nearby"
+msgstr "Dispositivos cercanos"
+
+#: ../modules/date_time/main.qml:92
+msgid "Automatic date and time"
+msgstr "Fecha y hora automática"
+
+#: ../modules/date_time/main.qml:108
+msgid "Use 24-hour clock"
+msgstr "Usar reloj 24 horas"
+
+#: ../modules/date_time/main.qml:165
+msgid "Date"
+msgstr "Fecha"
+
+#: ../modules/date_time/main.qml:169
+msgid "Set Date"
+msgstr "Fijar Fecha"
+
+#: ../modules/default_applications/main.qml:74
+msgid "Browser"
+msgstr "Navegador"
+
+#: ../modules/default_applications/main.qml:88
+msgid "Mail"
+msgstr "Correo"
+
+#: ../modules/default_applications/main.qml:99
+msgid "Text"
+msgstr "Texto"
+
+#: ../modules/default_applications/main.qml:105
+msgid "Music"
+msgstr "Música"
+
+#: ../modules/default_applications/main.qml:136
+msgid "Video"
+msgstr "Vídeo"
+
+#: ../modules/default_applications/main.qml:168
+msgid "Picture"
+msgstr "Imágen"
+
+#: ../modules/default_applications/main.qml:186
+msgid "Terminal"
+msgstr "Terminal"
+
+#: ../modules/default_applications/main.qml:245
+msgid "AutoPlay"
+msgstr "Reproducción Automática"
+
+#: ../modules/default_applications/main.qml:260
+msgid "CD Audio"
+msgstr "Audio CD"
+
+#: ../modules/default_applications/main.qml:265
+msgid "DVD Video"
+msgstr "Vídeo DVD"
+
+#: ../modules/default_applications/main.qml:270
+msgid "Music Player"
+msgstr "Reproductor de Música"
+
+#: ../modules/default_applications/main.qml:275
+msgid "Camera"
+msgstr "Cámara"
+
+#: ../modules/default_applications/main.qml:280
+msgid "Software"
+msgstr "Software"
+
+#: ../modules/display/main.qml:117
+msgid "Primary Monitor: "
+msgstr ""
+
+#: ../modules/display/main.qml:148
+msgid "Monitor"
+msgstr "Monitor"
+
+#: ../modules/display/main.qml:208
+msgid "Apply"
+msgstr "Aplicar"
+
+#: ../modules/grub/main.qml:102
+msgid "Default Startup"
+msgstr "Arranque Predeterminado"
+
+#: ../modules/grub/main.qml:157
+msgid "Boot delay"
+msgstr "Retraso de arranque"
+
+#: ../modules/grub/main.qml:196
+msgid "Text Color"
+msgstr "Color de Texto"
+
+#: ../modules/grub/main.qml:229
+msgid "Selected Text Color"
+msgstr "Color de Texto Seleccionado"
+
+#: ../modules/keyboard/main.qml:106
+msgid "Repeat Delay"
+msgstr "Retraso al repetir"
+
+#: ../modules/keyboard/main.qml:130
+msgid "Repeat Rate"
+msgstr "Indice de Repeticiones"
+
+#: ../modules/keyboard/main.qml:155
+msgid "Cursor Blink Rate"
+msgstr "Indice de Parpadeos del Cursor"
+
+#: ../modules/keyboard/main.qml:181
+msgid "Test Area"
+msgstr "Área de pruebas"
+
+#: ../modules/keyboard/main.qml:211
+msgid "Keyboard Layout"
+msgstr "Distribución del Teclado"
+
+#: ../modules/keyboard/main.qml:396
+msgid "No result"
+msgstr "Sin resultados"
+
+#: ../modules/keyboard/main.qml:405
+msgid "Caps Lock prompt"
+msgstr "Indicador de Bloq Mayús"
+
+#: ../modules/mouse_touchpad/main.qml:167
+msgid "Disable the touchpad when inserting the mouse"
+msgstr "Desactivar el touchpad cuando inserte el ratón"
+
+#: ../modules/personalization/main.qml:101
+msgid "Theme"
+msgstr "Tema"
+
+#: ../modules/personalization/main.qml:108 ../modules/shortcuts/main.qml:51
+msgid "Window"
+msgstr "Ventana"
+
+#: ../modules/personalization/main.qml:115
+msgid "Icon"
+msgstr "Icono"
+
+#: ../modules/personalization/main.qml:129
+msgid "Wallpaper"
+msgstr "Fondo de escritorio"
+
+#: ../modules/personalization/main.qml:143
+msgid "Fonts"
+msgstr "Fuentes"
+
+#: ../modules/power/main.qml:53 ../modules/power/main.qml:65
+msgid "Never"
+msgstr "Nunca"
+
+#: ../modules/power/main.qml:59
+msgid "1 minute"
+msgstr "1 minuto"
+
+#: ../modules/power/main.qml:60
+msgid "5 minutes"
+msgstr "5 minutos"
+
+#: ../modules/power/main.qml:61
+msgid "10 minutes"
+msgstr "10 minutos"
+
+#: ../modules/power/main.qml:62
+msgid "15 minutes"
+msgstr "15 minutos"
+
+#: ../modules/power/main.qml:63
+msgid "30 minutes"
+msgstr "30 minutos"
+
+#: ../modules/power/main.qml:64
+msgid "1 hour"
+msgstr "1 hora"
+
+#: ../modules/power/main.qml:124
+msgid "When I press the power button"
+msgstr "Cuando presione el botón de encendido"
+
+#: ../modules/power/main.qml:138 ../modules/power/main.qml:184
+msgid "Shutdown"
+msgstr "Apagar"
+
+#: ../modules/power/main.qml:143 ../modules/power/main.qml:189
+#: ../modules/power/main.qml:253 ../modules/power/main.qml:259
+#: ../modules/power/main.qml:265 ../modules/power/main.qml:271
+#: ../modules/power/main.qml:358 ../modules/power/main.qml:428
+#: ../modules/power/main.qml:434 ../modules/power/main.qml:440
+#: ../modules/power/main.qml:446 ../modules/power/main.qml:534
+msgid "Suspend"
+msgstr "Suspender"
+
+#: ../modules/power/main.qml:148
+msgid "Ask"
+msgstr "Preguntar"
+
+#: ../modules/power/main.qml:170
+msgid "When I close the lid"
+msgstr "Cuando cierro la tapa"
+
+#: ../modules/power/main.qml:194
+msgid "Nothing"
+msgstr "Nada"
+
+#: ../modules/power/main.qml:213
+msgid "Password required to wake up"
+msgstr "Contraseña requerida para reanudar"
+
+#: ../modules/power/main.qml:235
+msgid "Plugged in"
+msgstr "Conectado"
+
+#: ../modules/power/main.qml:410
+msgid "On battery"
+msgstr "Batería"
+
+#: ../modules/power/main.qml:252 ../modules/power/main.qml:258
+#: ../modules/power/main.qml:264 ../modules/power/main.qml:270
+#: ../modules/power/main.qml:318 ../modules/power/main.qml:427
+#: ../modules/power/main.qml:433 ../modules/power/main.qml:439
+#: ../modules/power/main.qml:445 ../modules/power/main.qml:494
+msgid "Turn off the display"
+msgstr "Apagar la pantalla"
+
+#: ../modules/power/main.qml:313 ../modules/power/main.qml:489
+msgid "Custom Options"
+msgstr "Opcioners Personalizadas"
+
+#: ../modules/shortcuts/main.qml:49
+msgid "System"
+msgstr "Sistema"
+
+#: ../modules/shortcuts/main.qml:52
+msgid "Workspace"
+msgstr "Espacio de trabajo"
+
+#: ../modules/sound/main.qml:126
+msgid "Speaker"
+msgstr "Altavoz"
+
+#: ../modules/sound/main.qml:156
+msgid "Output Volume"
+msgstr "Volumen de salida"
+
+#: ../modules/sound/main.qml:204
+msgid "Balance"
+msgstr "Balance"
+
+#: ../modules/sound/main.qml:226
+msgid "Left"
+msgstr "Izquierda"
+
+#: ../modules/sound/main.qml:228
+msgid "Right"
+msgstr "Derecha"
+
+#: ../modules/sound/main.qml:260
+msgid "Microphone"
+msgstr "Micrófono"
+
+#: ../modules/sound/main.qml:290
+msgid "Input Volume"
+msgstr "Volumen de entrada"
+
+#: ../modules/sound/main.qml:334
+msgid "Input Feedback"
+msgstr "Añadir Comentario"
+
+#: ../modules/sound/main.qml:370
+msgid "Output Port"
+msgstr "Puerto de salida"
+
+#: ../modules/sound/main.qml:387 ../modules/sound/main.qml:490
+msgid "No port exists in this device."
+msgstr "No existen purtos en este dispositivo."
+
+#: ../modules/sound/main.qml:425
+msgid "Output device"
+msgstr "Dispositivo de salida"
+
+#: ../modules/sound/main.qml:473
+msgid "Input Port"
+msgstr "Puerto de entrada"
+
+#: ../modules/sound/main.qml:528
+msgid "Input device"
+msgstr "Dispositivo de entrada"
+
+#: ../modules/sound/main.qml:581
+msgid "Hide Advanced..."
+msgstr "Ocultar Avanzado..."
+
+#: ../modules/sound/main.qml:581
+msgid "Show Advanced..."
+msgstr "Mostrar Avanzado..."
+
+#: ../modules/system_info/main.qml:102
+msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
+msgstr "Todos los derechos reservados 2011-2014 Wuhan Deepin Technology."
+
+#: ../modules/system_info/main.qml:108
+msgid "Deepin Edition"
+msgstr "Edición Deepin"
+
+#: ../modules/system_info/main.qml:114
+msgid "System Type"
+msgstr "Tipo de Sistema"
+
+#: ../modules/system_info/main.qml:115
+msgid "bit"
+msgstr "bit"
+
+#: ../modules/system_info/main.qml:120
+msgid "Processor"
+msgstr "Procesador"
+
+#: ../modules/system_info/main.qml:134
+msgid "Memory"
+msgstr "Memoria"
+
+#: ../modules/system_info/main.qml:140
+msgid "Disk"
+msgstr "Disco"
+
+#: ../modules/system_info/main.qml:159
+msgid "GNU GENERAL PUBLIC LICENSE"
+msgstr "GNU GENERAL PUBLIC LICENSE"
+
+#: ../modules/network/main.qml:157 ../modules/network/main.qml:185
+msgid "Unknown"
+msgstr "Desconocido"
+
+#: ../modules/network/main.qml:159
+msgid "Wired"
+msgstr "Cableada"
+
+#: ../modules/network/main.qml:161
+msgid "Wireless"
+msgstr "WiFi"
+
+#: ../modules/network/main.qml:163
+msgid "Unused1"
+msgstr "No usado 1"
+
+#: ../modules/network/main.qml:165
+msgid "Unused2"
+msgstr "No usado 2"
+
+#: ../modules/network/main.qml:169
+msgid "OLPC mesh"
+msgstr "Red OLPC"
+
+#: ../modules/network/main.qml:171
+msgid "WiMax"
+msgstr "WiMax"
+
+#: ../modules/network/main.qml:173
+msgid "Modem"
+msgstr "Modem"
+
+#: ../modules/network/main.qml:175
+msgid "InfiniBand"
+msgstr "InfiniBand"
+
+#: ../modules/network/main.qml:177
+msgid "Bond"
+msgstr "Unir"
+
+#: ../modules/network/main.qml:179
+msgid "VLAN"
+msgstr "VLAN"
+
+#: ../modules/network/main.qml:181
+msgid "ADSL"
+msgstr "ADSL"
+
+#: ../modules/network/main.qml:183
+msgid "Bridge"
+msgstr "Bridge"

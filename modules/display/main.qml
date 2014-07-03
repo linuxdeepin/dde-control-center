@@ -114,7 +114,7 @@ Column {
                 DssH3 {
                     visible: openedMonitors.length > 1
                     anchors.bottom: moduleName.bottom
-                    text: "(" + dsTr("Main Monitor: ") + displayId.primary + ")"
+                    text: "(" + dsTr("Primary Monitor: ") + displayId.primary + ")"
                     color: "white"
                 }
             }
@@ -180,6 +180,14 @@ Column {
                         })
                     }
                     return myModel
+                }
+                Component.onCompleted:{
+                    for(var i=0; i<buttonModel.length; i++){
+                        if(buttonModel[i]["buttonId"].opened){
+                            currentIndex = i
+                            break
+                        }
+                    }
                 }
             }
         }

@@ -126,6 +126,8 @@ Item {
 
                         function loadResolutionModel(){
                             var modes = outputObj.ListModes()
+                            modesView.model.clear()
+                            valueDict = new Object()
                             for(var i=0; i<modes.length; i++){
                                 var resolution = getResolutionFromMode(modes[i])
                                 if(!valueDict[resolution]){
@@ -134,7 +136,6 @@ Item {
                                 valueDict[resolution].push(modes[i][0])
                             }
 
-                            modesView.model.clear()
                             for(var key in valueDict){
                                 modesView.model.append({
                                     "item_label": key,
@@ -216,8 +217,9 @@ Item {
                         valueDisplayVisible: false
 
                         onValueChanged:{
-                            if(outputName)
+                            if(outputName && value >= 0 && value <= 1){
                                 displayId.SetBrightness(outputName, value)
+                            }
                         }
                         visible: monitorNames.length == 1
 
@@ -262,7 +264,9 @@ Item {
                             valueDisplayVisible: false
 
                             onValueChanged:{
-                                displayId.SetBrightness(outputName, value)
+                                if(outputName && value >= 0 && value <= 1){
+                                    displayId.SetBrightness(outputName, value)
+                                }
                             }
 
                             onOutputNameChanged:{

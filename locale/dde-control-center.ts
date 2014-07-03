@@ -444,9 +444,9 @@
 <context>
     <name>AppletSwitchArea</name>
     <message>
-        <location filename="../modules/network/AppletSwitchArea.qml" line="28"/>
-        <location filename="../modules/power/AppletSwitchArea.qml" line="28"/>
-        <location filename="../modules/sound/AppletSwitchArea.qml" line="28"/>
+        <location filename="../modules/network/AppletSwitchArea.qml" line="40"/>
+        <location filename="../modules/power/AppletSwitchArea.qml" line="40"/>
+        <location filename="../modules/sound/AppletSwitchArea.qml" line="40"/>
         <source>Dock Applet Enabled</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1723,7 +1723,7 @@
 <context>
     <name>LocaleArea</name>
     <message>
-        <location filename="../modules/date_time/LocaleArea.qml" line="78"/>
+        <location filename="../modules/date_time/LocaleArea.qml" line="68"/>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1731,22 +1731,22 @@
 <context>
     <name>MessageBox</name>
     <message>
-        <location filename="../modules/display/MessageBox.qml" line="109"/>
+        <location filename="../modules/display/MessageBox.qml" line="94"/>
         <source>Do you want to keep these display settings?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/MessageBox.qml" line="119"/>
+        <location filename="../modules/display/MessageBox.qml" line="104"/>
         <source>Reverting to previous display settings in &lt;font color=&apos;#F48914&apos;&gt;%1&lt;/font&gt; seconds.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/MessageBox.qml" line="131"/>
+        <location filename="../modules/display/MessageBox.qml" line="116"/>
         <source>Keep Changes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/MessageBox.qml" line="139"/>
+        <location filename="../modules/display/MessageBox.qml" line="124"/>
         <source>Revert</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1908,12 +1908,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/MonitorProperties.qml" line="164"/>
+        <location filename="../modules/display/MonitorProperties.qml" line="165"/>
         <source>Rotation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/MonitorProperties.qml" line="205"/>
+        <location filename="../modules/display/MonitorProperties.qml" line="206"/>
         <source>Brightness</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2170,17 +2170,17 @@
 <context>
     <name>TimezoneArea</name>
     <message>
-        <location filename="../modules/date_time/TimezoneArea.qml" line="82"/>
+        <location filename="../modules/date_time/TimezoneArea.qml" line="86"/>
         <source>Time zone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneArea.qml" line="227"/>
+        <location filename="../modules/date_time/TimezoneArea.qml" line="231"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneArea.qml" line="230"/>
+        <location filename="../modules/date_time/TimezoneArea.qml" line="234"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2279,7 +2279,23 @@
 <context>
     <name>WebCam</name>
     <message>
-        <location filename="../modules/account/WebCam.qml" line="174"/>
+        <location filename="../modules/account/WebCam.qml" line="125"/>
+        <location filename="../modules/account/WebCam.qml" line="140"/>
+        <source>Snapshot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/account/WebCam.qml" line="136"/>
+        <source>Again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/account/WebCam.qml" line="148"/>
+        <source>Confirm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/account/WebCam.qml" line="172"/>
         <source>No camera found.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2747,7 +2763,7 @@
     </message>
     <message>
         <location filename="../modules/display/main.qml" line="117"/>
-        <source>Main Monitor: </source>
+        <source>Primary Monitor: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2756,12 +2772,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/main.qml" line="200"/>
+        <location filename="../modules/display/main.qml" line="208"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/main.qml" line="219"/>
+        <location filename="../modules/display/main.qml" line="227"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2900,11 +2916,6 @@
     <message>
         <location filename="../modules/personalization/main.qml" line="129"/>
         <source>Wallpaper</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/personalization/main.qml" line="136"/>
-        <source>Lock Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

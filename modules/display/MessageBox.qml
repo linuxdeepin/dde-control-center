@@ -28,7 +28,7 @@ import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Display 1.0
 import "../shared"
 
-Window {
+DWindow {
     id: messageBox
     color: "transparent"
     flags: Qt.Tool | Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint
@@ -53,11 +53,11 @@ Window {
 
     Timer {
         id: countdown
-        property int totalTime: 10
+        property int totalTime: 30
 
         function reset(){
             countdown.stop()
-            totalTime = 10
+            totalTime = 30
         }
 
         running: false
@@ -79,24 +79,9 @@ Window {
         anchors.fill: parent
         radius: 5
 
-        MouseArea {
+        DDragableArea{
             anchors.fill: parent
-
-            property int startX
-            property int startY
-            property bool holdFlag
-            onPressed: {
-                startX = mouse.x;
-                startY = mouse.y;
-                holdFlag = true;
-            }
-            onReleased: holdFlag = false;
-            onPositionChanged: {
-                if (holdFlag) {
-                    messageBox.setX(messageBox.x + mouse.x - startX)
-                    messageBox.setY(messageBox.y + mouse.y - startY)
-                }
-            }
+            window: messageBox
         }
 
         DssH1{

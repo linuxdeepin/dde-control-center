@@ -122,8 +122,7 @@ Item {
 
     DTextButton {
         id: snapshot_button
-        /* text: dsTr("Snapshot") */
-        text: "Snapshot"
+        text: dsTr("Snapshot")
         property bool textIsSnapshotFlag: true
 
         anchors.top: slider.bottom
@@ -134,11 +133,11 @@ Item {
         onClicked: {
             if (textIsSnapshotFlag) {
                 camera.snapshot()
-                text = "Resnapshot"
+                text = dsTr("Again")
                 textIsSnapshotFlag = false
             } else {
                 avatar_preview.visible = false
-                text = "Snapthot"
+                text = dsTr("Snapshot")
                 textIsSnapshotFlag = true
             }
         }
@@ -146,8 +145,7 @@ Item {
 
     DTextButton {
         id: confirm_button
-        /* text: dsTr("Confirm") */
-        text: "Confirm"
+        text: dsTr("Confirm")
 
         anchors.right: parent.right
         anchors.rightMargin: root.verticalPadding
