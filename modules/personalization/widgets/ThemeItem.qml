@@ -73,29 +73,17 @@ Item {
             source: item_img_url
             width: parent.width - 2
             height: parent.height - 2
-            cache: false
 
             Connections {
                 target: themeObj
                 onBackgroundChanged: {
                     print("changed:", itemValue)
                     if(itemValue == "Custom"){
-                        updateThumbnailDelay.restart()
+                        itemThumbnailImage.source = dbusThemeManager.GetThumbnail("background", themeObj.background)
                     }
                 }
             }
             
-            Timer{
-                id: updateThumbnailDelay
-                interval: 1000
-                onTriggered: {
-                    //print("get thumbnail:", itemValue)
-                    //print(themeObj.background)
-                    //item_img_url = dbusThemeManager.GetThumbnail("theme", itemValue)
-                    item_img_url = dbusThemeManager.GetThumbnail("background", themeObj.background)
-                    //print(item_img_url)
-                }
-            }
         }
     }
 
