@@ -616,6 +616,10 @@ msgstr ""
 msgid "Group Name"
 msgstr ""
 
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:57
+msgid "Pre-Shared Key"
+msgstr ""
+
 #: ../modules/network/add/AddVpn.qml:524
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:465
 msgid "Group Pwd"
@@ -1080,7 +1084,6 @@ msgstr ""
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:69
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:223
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:377
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:57
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:81
 #: ../modules/account/PasswordDialog.qml:59
 #: ../modules/network/wireless/WifiHotspot.qml:73

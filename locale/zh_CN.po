@@ -618,6 +618,10 @@ msgstr "组ID"
 msgid "Group Name"
 msgstr "组名"
 
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:57
+msgid "Pre-Shared Key"
+msgstr "预共享密钥"
+
 #: ../modules/network/add/AddVpn.qml:524
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:465
 msgid "Group Pwd"
@@ -1082,7 +1086,6 @@ msgstr "PPTP"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:69
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:223
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:377
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:57
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:81
 #: ../modules/account/PasswordDialog.qml:59
 #: ../modules/network/wireless/WifiHotspot.qml:73
