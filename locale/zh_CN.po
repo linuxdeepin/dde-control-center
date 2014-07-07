@@ -33,7 +33,7 @@ msgstr "10分钟"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:36
 msgid "128-bit MPPE"
-msgstr "128位微软点对点加密"
+msgstr "使用128位MPPE"
 
 #: ../modules/power/main.qml:62
 msgid "15 minutes"
@@ -98,7 +98,7 @@ msgstr "允许思科安全桌面木马"
 #: ../modules/network/wireless/AddWireless.qml:101
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:90
 msgid "Anonymous ID"
-msgstr "匿名ID"
+msgstr "匿名身份"
 
 #: ../dock-applets/qml/sound/main.qml:282
 msgid "Applications"
@@ -147,7 +147,7 @@ msgstr "八月"
 #: ../modules/network/add/AddVpn.qml:260
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:190
 msgid "Auth Type"
-msgstr "授权类型"
+msgstr "认证类型"
 
 #: ../dock-applets/qml/WifiPasswordWindow.qml:127
 msgid "Authentication required by Wi-Fi network"
@@ -230,12 +230,12 @@ msgstr "浏览器"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:102
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:234
 msgid "CA Cert"
-msgstr "认证授权Cert"
+msgstr "CA证书"
 
 #: ../modules/network/add/AddVpn.qml:546
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:487
 msgid "CA File"
-msgstr "认证授权文件"
+msgstr "CA文件"
 
 #: ../modules/default_applications/main.qml:260
 msgid "CD Audio"
@@ -281,7 +281,7 @@ msgstr "请选择一张图片作为您的头像"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:24
 msgid "Cipher"
-msgstr "密码"
+msgstr "加密"
 
 #: ../modules/network/edit/EditLineMissingPackage.qml:22
 msgid "Click to install"
@@ -483,7 +483,7 @@ msgstr "Dock插件开启"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:24
 msgid "Domain"
-msgstr "域名"
+msgstr "域"
 
 #: ../modules/date_time/StateButtons.qml:34
 #: ../modules/keyboard/StateButtons.qml:34
@@ -511,7 +511,7 @@ msgstr "拖拽图片到此以更换背景"
 #: ../modules/network/wireless/AddWireless.qml:79
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:68
 msgid "EAP Auth"
-msgstr "EAP授权"
+msgstr "EAP认证"
 
 #: ../modules/display/MonitorDragArea.qml:463
 msgid "Edit"
@@ -601,7 +601,7 @@ msgstr "网关"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:35
 msgid "Gateway Port"
-msgstr "网关"
+msgstr "网关端口"
 
 #: ../modules/network/edit_autogen/EditSectionGeneral.qml:11
 msgid "General"
@@ -621,7 +621,7 @@ msgstr "组名"
 #: ../modules/network/add/AddVpn.qml:524
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:465
 msgid "Group Pwd"
-msgstr "公共密码"
+msgstr "组密码"
 
 #: ../modules/account/GuestUser.qml:40 ../frame/views/HeaderArea.qml:108
 msgid "Guest"
@@ -629,7 +629,7 @@ msgstr "来宾"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:35
 msgid "HMAC Auth"
-msgstr "HMAC授权"
+msgstr "HMAC认证"
 
 #: ../modules/network/proxy/ProxyContent.qml:87
 msgid "HTTP Proxy"
@@ -658,7 +658,7 @@ msgstr "仅用于家庭网络"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:79
 msgid "IKE DH Group"
-msgstr "IKE DH组"
+msgstr "IKE DH 组"
 
 #: ../modules/network/edit_autogen/EditSectionIpv4.qml:35
 #: ../modules/network/edit_autogen/EditSectionIpv6.qml:35
@@ -685,7 +685,7 @@ msgstr "识别"
 #: ../modules/network/wireless/AddWireless.qml:90
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:79
 msgid "Identity"
-msgstr "识别"
+msgstr "身份"
 
 #: ../modules/network/main.qml:175
 msgid "InfiniBand"
@@ -694,7 +694,7 @@ msgstr "InfiniBand"
 #: ../modules/network/wireless/AddWireless.qml:167
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:156
 msgid "Inner Auth"
-msgstr "内部授权"
+msgstr "内部认证"
 
 #: ../modules/sound/main.qml:334
 msgid "Input Feedback"
@@ -870,12 +870,12 @@ msgstr "音乐播放器"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:68
 msgid "NAT Traversal"
-msgstr "NAT穿越"
+msgstr "NAT遍历"
 
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:80
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:388
 msgid "NT Domain"
-msgstr "NT域名"
+msgstr "NT域"
 
 #: ../modules/network/add/AddDsl.qml:25
 #: ../modules/network/add/AddMobile.qml:34
@@ -952,13 +952,13 @@ msgstr "无Deflate数据压缩"
 
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:150
 msgid "No Protocol Field Compression"
-msgstr "无协议项目压缩"
+msgstr "无协议字段压缩"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:136
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:139
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:138
 msgid "No TCP Header Compression"
-msgstr "无TCP报头压缩"
+msgstr "无TCP头压缩"
 
 #: ../modules/account/WebCam.qml:172
 msgid "No camera found."
@@ -1191,7 +1191,7 @@ msgstr "处理器"
 #: ../modules/network/wireless/AddWireless.qml:134
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:123
 msgid "Provisioning"
-msgstr "设置"
+msgstr "自动PAC配置"
 
 #: ../modules/network/add/AddVpn.qml:183
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:113
@@ -1214,35 +1214,35 @@ msgstr "最近使用"
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:81
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:81
 msgid "Refuse CHAP Authentication"
-msgstr "拒绝CHAP授权"
+msgstr "拒绝CHAP认证"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:59
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:57
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:57
 msgid "Refuse EAP Authentication"
-msgstr "拒绝EAP授权"
+msgstr "拒绝EAP认证"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:92
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:93
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:93
 msgid "Refuse MSCHAP Authentication"
-msgstr "拒绝MSCHAP授权"
+msgstr "拒绝MSCHAP认证"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:103
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:105
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:105
 msgid "Refuse MSCHAPv2 Authentication"
-msgstr "拒绝MSCHAPv2授权"
+msgstr "拒绝MSCHAPv2认证"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:70
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:69
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:69
 msgid "Refuse PAP Authentication"
-msgstr "拒绝PAP授权"
+msgstr "拒绝PAP认证"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:35
 msgid "Remote Cert Type"
-msgstr "远程Cert类型"
+msgstr "远程证书类型"
 
 #: ../modules/network/add/AddVpn.qml:392
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:322
@@ -1251,7 +1251,7 @@ msgstr "远程IP"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:59
 msgid "Renegotiation Interval"
-msgstr "重新协商间隔时间"
+msgstr "重新协商间隔"
 
 #: ../modules/account/PasswordDialog.qml:135
 msgid "Repeat"
@@ -1287,7 +1287,7 @@ msgstr "分辨率"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:153
 msgid "Restrict Tunnel TCP MSS"
-msgstr "限制隧道TCP MSS"
+msgstr "限制隧道TCP最大段长度(MSS)"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:59
 msgid "Retry Indefinitely When Failed"
@@ -1371,7 +1371,7 @@ msgstr "选中文字颜色"
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:172
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:149
 msgid "Send PPP Echo Packets"
-msgstr "发送PPP Echo数据包"
+msgstr "发送PPP回响包"
 
 #: ../modules/date_time/calendar_core.js:7
 msgid "September"
@@ -1379,7 +1379,7 @@ msgstr "九月"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:35
 msgid "Server IP"
-msgstr "服务器IP"
+msgstr "服务器地址"
 
 #: ../modules/network/add/AddDsl.qml:49
 #: ../modules/network/edit_autogen/EditSectionPppoe.qml:35
@@ -1464,12 +1464,12 @@ msgstr "标准"
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:46
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:46
 msgid "Stateful MPPE"
-msgstr "微软点对点加密状态"
+msgstr "使用带状态的MPPE"
 
 #: ../modules/network/add/AddVpn.qml:359
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:289
 msgid "Static Key"
-msgstr "静态密码"
+msgstr "静态密钥"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:24
 msgid "Subject Match"
@@ -1608,41 +1608,41 @@ msgstr "24小时制"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:24
 msgid "Use Custom Gateway Port"
-msgstr "用户自定义网关"
+msgstr "自定义网关端口"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:48
 msgid "Use Custom Renegotiation Interval"
-msgstr "使用自定义重新协商间隔时间"
+msgstr "自定义重新协商间隔"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:105
 msgid "Use Custom Tunnel MTU"
-msgstr "使用自定义最大传输单元(MTU)"
+msgstr "自定义最大传输单元(MTU)"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
 msgid "Use Custom UDP Fragment Size"
-msgstr "使用自定义UDP数据报段长度"
+msgstr "自定义UDP数据报段长度"
 
 #: ../modules/network/add/AddVpn.qml:535
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:476
 msgid "Use Hybrid Authentication"
-msgstr "用户混合授权"
+msgstr "使用混合认证"
 
 #: ../modules/network/add/AddVpn.qml:370
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:300
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:57
 msgid "Use Key Direction"
-msgstr "密钥方向"
+msgstr "自定义密钥方向"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:72
 msgid "Use LZO data compression"
-msgstr "使用LZO数据压缩"
+msgstr "使用LZO压缩"
 
 #: ../modules/network/add/AddVpn.qml:605 ../modules/network/add/AddVpn.qml:618
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:24
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:24
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:24
 msgid "Use MPPE"
-msgstr "使用微软点到点加密"
+msgstr "使用MPPE点到点加密"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:94
 msgid "Use TAP device"
@@ -1662,12 +1662,12 @@ msgstr "账户"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:146
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:245
 msgid "User Cert"
-msgstr "用户Cert"
+msgstr "用户证书"
 
 #: ../modules/network/add/AddVpn.qml:238
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:168
 msgid "User FSID For Key Passphrase"
-msgstr "用户FSID私钥密语"
+msgstr "为密钥口令句使用FSID"
 
 #: ../modules/network/add/AddVpn.qml:491
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:432
@@ -1703,7 +1703,7 @@ msgstr "VPN"
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:11
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:11
 msgid "VPN Advanced"
-msgstr "高级VPN"
+msgstr "VPN高级选项"
 
 #: ../modules/network/vpn/VpnExpand.qml:48
 msgid "VPN Connections"
@@ -1728,7 +1728,7 @@ msgstr "VPN安全"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:11
 msgid "VPN TLS Authentication"
-msgstr "VPN TLS 授权"
+msgstr "VPN TLS 认证"
 
 #: ../modules/network/add/AddVpn.qml:15
 msgid "VPN Type"
@@ -1744,7 +1744,7 @@ msgstr "供应商"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:46
 msgid "Version"
-msgstr "系统版本"
+msgstr "版本"
 
 #: ../modules/default_applications/main.qml:136
 msgid "Video"

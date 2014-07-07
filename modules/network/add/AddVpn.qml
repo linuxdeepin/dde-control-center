@@ -589,7 +589,7 @@ BaseEditPage {
             errors: rootPage.errors
             section: "alias-vpn-l2tp-ipsec"
             key: "ipsec-psk"
-            text: dsTr("Password")
+            text: dsTr("Pre-Shared Key")
         }
         
         // copy from ../edit_autogen/EditSectionVpnL2tpPpp.qml

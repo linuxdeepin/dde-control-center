@@ -54,7 +54,7 @@ BaseEditSection {
             errors: sectionVpnL2tpIpsec.errors
             section: "alias-vpn-l2tp-ipsec"
             key: "ipsec-psk"
-            text: dsTr("Password")
+            text: dsTr("Pre-Shared Key")
         }
     }
 }
