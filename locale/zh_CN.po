@@ -77,7 +77,7 @@ msgstr "添加用户"
 
 #: ../modules/network/Info.qml:62
 msgid "Addtional DNS"
-msgstr "附加域名系统"
+msgstr "附加DNS"
 
 #: ../modules/account/AddUserDialog.qml:88
 #: ../modules/account/AddUserDialog.qml:214
