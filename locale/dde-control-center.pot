@@ -434,7 +434,7 @@ msgid "Device Speed"
 msgstr ""
 
 #: ../modules/network/Info.qml:56
-msgid "Device Type"
+msgid "Interface"
 msgstr ""
 
 #: ../modules/bluetooth/main.qml:141

@@ -436,8 +436,8 @@ msgid "Device Speed"
 msgstr "设备速度"
 
 #: ../modules/network/Info.qml:56
-msgid "Device Type"
-msgstr "设备类型"
+msgid "Interface"
+msgstr "接口"
 
 #: ../modules/bluetooth/main.qml:141
 msgid "Devices nearby"
