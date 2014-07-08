@@ -42,7 +42,11 @@ DBaseExpand {
     }
     property var allLocales: getAllLocales(false)
     property var allSearchLocales: getAllLocales(true)
-    property string searchMd5: dbusSearch.NewTrieWithString(allSearchLocales, "deepin-system-settings-locales")
+    property string searchMd5: {
+        var retList = dbusSearch.NewSearchWithDict(allSearchLocales)
+        print(retList[0])
+        return retList[0]
+    }
 
     function getAllLocales(returnDict){
         if(returnDict){
@@ -115,7 +119,7 @@ DBaseExpand {
                         localeListView.updateModel(allLocales)
                     }
                     else{
-                        var searchResult = dbusSearch.SearchKeys(text, searchMd5)
+                        var searchResult = dbusSearch.SearchString(text, searchMd5)
                         var localeList = new Array()
                         for(var i in searchResult){
                             var tmp = new Array()

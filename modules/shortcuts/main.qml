@@ -71,7 +71,8 @@ Item {
             var temp_list = dbusKeyBinding.customList[i]
             keywords[temp_list[0]] = temp_list[1]
         }
-        shortcutsModule.searchMd5 = searchId.NewTrieWithString(keywords, "deepin-system-settings.shortcuts")
+        var retList = searchId.NewSearchWithDict(keywords)
+        shortcutsModule.searchMd5 = retList[0]
         return allKeybindings
     }
 
@@ -171,7 +172,7 @@ Item {
                     property var keyData: {
                         var resultKeyBindings = new Array()
                         if(keyword){
-                            var results = searchId.SearchKeys(keyword, searchMd5)
+                            var results = searchId.SearchString(keyword, searchMd5)
                             for(var i in results){
                                 resultKeyBindings.push(getKeyBindingInfo(results[i]))
                             }

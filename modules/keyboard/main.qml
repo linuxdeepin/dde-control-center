@@ -67,8 +67,9 @@ Item {
 
     Component.onCompleted:{
         keyboardModule.allLayoutMapL10n = getAllLayoutMapL10n()
-        keyboardModule.searchMd5 = searchId.NewTrieWithString(
-            keyboardModule.allLayoutMapL10n, "deepin-system-settings-keyboard-layouts")
+        var retList = searchId.NewSearchWithDict(
+            keyboardModule.allLayoutMapL10n)
+        keyboardModule.searchMd5 = retList[0]
         layoutList.reloadLayout()
     }
 
@@ -369,7 +370,7 @@ Item {
                 function rebuildModel(selectedIndex){
                     addLayoutList.model.clear()
                     if(keyboardModule.searchMd5 && selectedIndex){
-                        var search_result = searchId.SearchKeysByFirstLetter(selectedIndex, keyboardModule.searchMd5)
+                        var search_result = searchId.SearchStartWithString(selectedIndex, keyboardModule.searchMd5)
                         for (var i=0; i<search_result.length; i++){
                             var id = search_result[i]
                             if(!keyboardModule.isInUserLayouts(id)){

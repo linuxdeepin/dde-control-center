@@ -57,7 +57,11 @@ Column {
         return d
     }
     property var userTimezoneList: gDate.userTimezoneList
-    property string searchMd5: dbusSearch.NewTrieWithString(timezoneCityDict, "deepin-system-settings-timezone")
+    property string searchMd5: {
+        var retList = dbusSearch.NewSearchWithDict(timezoneCityDict)
+        print("New Search Timezone Ret", retList[0])
+        return retList[0]
+    }
 
     property int listAreaMaxHeight
 
@@ -195,7 +199,7 @@ Column {
 
             function fillModel(s){
                 selectedItemDict = new Object()
-                var searchResult = dbusSearch.SearchKeys(s, searchMd5)
+                var searchResult = dbusSearch.SearchString(s, searchMd5)
                 var toSortResult = new Array()
                 for(var i=0; i<searchResult.length; i++){
                     var timezoneValue = searchResult[i]
