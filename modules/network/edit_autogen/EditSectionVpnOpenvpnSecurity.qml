@@ -17,7 +17,6 @@ BaseEditSection {
             connectionSession: sectionVpnOpenvpnSecurity.connectionSession
             availableSections: sectionVpnOpenvpnSecurity.availableSections
             availableKeys: sectionVpnOpenvpnSecurity.availableKeys
-            connectionData: sectionVpnOpenvpnSecurity.connectionData
             errors: sectionVpnOpenvpnSecurity.errors
             section: "alias-vpn-openvpn-security"
             key: "cipher"
@@ -28,7 +27,6 @@ BaseEditSection {
             connectionSession: sectionVpnOpenvpnSecurity.connectionSession
             availableSections: sectionVpnOpenvpnSecurity.availableSections
             availableKeys: sectionVpnOpenvpnSecurity.availableKeys
-            connectionData: sectionVpnOpenvpnSecurity.connectionData
             errors: sectionVpnOpenvpnSecurity.errors
             section: "alias-vpn-openvpn-security"
             key: "auth"

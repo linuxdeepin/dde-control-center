@@ -17,7 +17,6 @@ BaseEditSection {
             connectionSession: sectionVpnOpenvpnTlsauth.connectionSession
             availableSections: sectionVpnOpenvpnTlsauth.availableSections
             availableKeys: sectionVpnOpenvpnTlsauth.availableKeys
-            connectionData: sectionVpnOpenvpnTlsauth.connectionData
             errors: sectionVpnOpenvpnTlsauth.errors
             section: "alias-vpn-openvpn-tlsauth"
             key: "tls-remote"
@@ -28,7 +27,6 @@ BaseEditSection {
             connectionSession: sectionVpnOpenvpnTlsauth.connectionSession
             availableSections: sectionVpnOpenvpnTlsauth.availableSections
             availableKeys: sectionVpnOpenvpnTlsauth.availableKeys
-            connectionData: sectionVpnOpenvpnTlsauth.connectionData
             errors: sectionVpnOpenvpnTlsauth.errors
             section: "alias-vpn-openvpn-tlsauth"
             key: "remote-cert-tls"
@@ -39,7 +37,6 @@ BaseEditSection {
             connectionSession: sectionVpnOpenvpnTlsauth.connectionSession
             availableSections: sectionVpnOpenvpnTlsauth.availableSections
             availableKeys: sectionVpnOpenvpnTlsauth.availableKeys
-            connectionData: sectionVpnOpenvpnTlsauth.connectionData
             errors: sectionVpnOpenvpnTlsauth.errors
             section: "alias-vpn-openvpn-tlsauth"
             key: "ta"
@@ -50,7 +47,6 @@ BaseEditSection {
             connectionSession: sectionVpnOpenvpnTlsauth.connectionSession
             availableSections: sectionVpnOpenvpnTlsauth.availableSections
             availableKeys: sectionVpnOpenvpnTlsauth.availableKeys
-            connectionData: sectionVpnOpenvpnTlsauth.connectionData
             errors: sectionVpnOpenvpnTlsauth.errors
             section: "alias-vpn-openvpn-tlsauth"
             key: "vk-ta-dir"
@@ -61,7 +57,6 @@ BaseEditSection {
             connectionSession: sectionVpnOpenvpnTlsauth.connectionSession
             availableSections: sectionVpnOpenvpnTlsauth.availableSections
             availableKeys: sectionVpnOpenvpnTlsauth.availableKeys
-            connectionData: sectionVpnOpenvpnTlsauth.connectionData
             errors: sectionVpnOpenvpnTlsauth.errors
             section: "alias-vpn-openvpn-tlsauth"
             key: "ta-dir"

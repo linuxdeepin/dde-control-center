@@ -17,7 +17,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "vs-vpn"
             key: "vk-vpn-missing-plugin"
@@ -29,7 +28,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-l2tp"
             key: "gateway"
@@ -40,7 +38,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-l2tp"
             key: "user"
@@ -51,7 +48,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-l2tp"
             key: "password-flags"
@@ -62,7 +58,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-l2tp"
             key: "password"
@@ -73,7 +68,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-l2tp"
             key: "domain"
@@ -84,7 +78,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-openconnect"
             key: "gateway"
@@ -95,7 +88,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-openconnect"
             key: "cacert"
@@ -106,7 +98,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-openconnect"
             key: "proxy"
@@ -117,7 +108,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-openconnect"
             key: "enable_csd_trojan"
@@ -128,7 +118,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-openconnect"
             key: "csd_wrapper"
@@ -139,7 +128,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-openconnect"
             key: "usercert"
@@ -150,7 +138,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-openconnect"
             key: "userkey"
@@ -161,7 +148,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-openconnect"
             key: "pem_passphrase_fsid"
@@ -172,7 +158,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-openvpn"
             key: "remote"
@@ -183,7 +168,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-openvpn"
             key: "connection-type"
@@ -194,7 +178,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-openvpn"
             key: "username"
@@ -205,7 +188,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-openvpn"
             key: "password-flags"
@@ -216,7 +198,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-openvpn"
             key: "password"
@@ -227,7 +208,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-openvpn"
             key: "ca"
@@ -238,7 +218,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-openvpn"
             key: "cert"
@@ -249,7 +228,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-openvpn"
             key: "key"
@@ -260,7 +238,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-openvpn"
             key: "cert-pass-flags"
@@ -271,7 +248,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-openvpn"
             key: "cert-pass"
@@ -282,7 +258,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-openvpn"
             key: "static-key"
@@ -293,7 +268,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-openvpn"
             key: "vk-static-key-direction"
@@ -304,7 +278,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-openvpn"
             key: "static-key-direction"
@@ -315,7 +288,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-openvpn"
             key: "remote-ip"
@@ -326,7 +298,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-openvpn"
             key: "local-ip"
@@ -337,7 +308,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-pptp"
             key: "gateway"
@@ -348,7 +318,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-pptp"
             key: "user"
@@ -359,7 +328,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-pptp"
             key: "password-flags"
@@ -370,7 +338,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-pptp"
             key: "password"
@@ -381,7 +348,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-pptp"
             key: "domain"
@@ -392,7 +358,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-vpnc"
             key: "IPSec gateway"
@@ -403,7 +368,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-vpnc"
             key: "Xauth username"
@@ -414,7 +378,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-vpnc"
             key: "Xauth password-flags"
@@ -425,7 +388,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-vpnc"
             key: "Xauth password"
@@ -436,7 +398,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-vpnc"
             key: "IPSec ID"
@@ -447,7 +408,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-vpnc"
             key: "IPSec secret-flags"
@@ -458,7 +418,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-vpnc"
             key: "IPSec secret"
@@ -469,7 +428,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-vpnc"
             key: "vk-hybrid-authmode"
@@ -480,7 +438,6 @@ BaseEditSection {
             connectionSession: sectionVpn.connectionSession
             availableSections: sectionVpn.availableSections
             availableKeys: sectionVpn.availableKeys
-            connectionData: sectionVpn.connectionData
             errors: sectionVpn.errors
             section: "alias-vpn-vpnc"
             key: "CA-File"

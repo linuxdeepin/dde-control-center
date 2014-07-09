@@ -17,7 +17,6 @@ BaseEditSection {
             connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
             availableSections: sectionVpnOpenvpnAdvanced.availableSections
             availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
-            connectionData: sectionVpnOpenvpnAdvanced.connectionData
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "vk-enable-port"
@@ -28,7 +27,6 @@ BaseEditSection {
             connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
             availableSections: sectionVpnOpenvpnAdvanced.availableSections
             availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
-            connectionData: sectionVpnOpenvpnAdvanced.connectionData
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "port"
@@ -41,7 +39,6 @@ BaseEditSection {
             connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
             availableSections: sectionVpnOpenvpnAdvanced.availableSections
             availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
-            connectionData: sectionVpnOpenvpnAdvanced.connectionData
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "vk-enable-reneg-seconds"
@@ -52,7 +49,6 @@ BaseEditSection {
             connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
             availableSections: sectionVpnOpenvpnAdvanced.availableSections
             availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
-            connectionData: sectionVpnOpenvpnAdvanced.connectionData
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "reneg-seconds"
@@ -65,7 +61,6 @@ BaseEditSection {
             connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
             availableSections: sectionVpnOpenvpnAdvanced.availableSections
             availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
-            connectionData: sectionVpnOpenvpnAdvanced.connectionData
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "comp-lzo"
@@ -76,7 +71,6 @@ BaseEditSection {
             connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
             availableSections: sectionVpnOpenvpnAdvanced.availableSections
             availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
-            connectionData: sectionVpnOpenvpnAdvanced.connectionData
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "proto-tcp"
@@ -87,7 +81,6 @@ BaseEditSection {
             connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
             availableSections: sectionVpnOpenvpnAdvanced.availableSections
             availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
-            connectionData: sectionVpnOpenvpnAdvanced.connectionData
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "tap-dev"
@@ -98,7 +91,6 @@ BaseEditSection {
             connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
             availableSections: sectionVpnOpenvpnAdvanced.availableSections
             availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
-            connectionData: sectionVpnOpenvpnAdvanced.connectionData
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "vk-enable-tunnel-mtu"
@@ -109,7 +101,6 @@ BaseEditSection {
             connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
             availableSections: sectionVpnOpenvpnAdvanced.availableSections
             availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
-            connectionData: sectionVpnOpenvpnAdvanced.connectionData
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "tunnel-mtu"
@@ -122,7 +113,6 @@ BaseEditSection {
             connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
             availableSections: sectionVpnOpenvpnAdvanced.availableSections
             availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
-            connectionData: sectionVpnOpenvpnAdvanced.connectionData
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "vk-enable-fragment-size"
@@ -133,7 +123,6 @@ BaseEditSection {
             connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
             availableSections: sectionVpnOpenvpnAdvanced.availableSections
             availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
-            connectionData: sectionVpnOpenvpnAdvanced.connectionData
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "fragment-size"
@@ -146,7 +135,6 @@ BaseEditSection {
             connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
             availableSections: sectionVpnOpenvpnAdvanced.availableSections
             availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
-            connectionData: sectionVpnOpenvpnAdvanced.connectionData
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "mssfix"
@@ -157,7 +145,6 @@ BaseEditSection {
             connectionSession: sectionVpnOpenvpnAdvanced.connectionSession
             availableSections: sectionVpnOpenvpnAdvanced.availableSections
             availableKeys: sectionVpnOpenvpnAdvanced.availableKeys
-            connectionData: sectionVpnOpenvpnAdvanced.connectionData
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "remote-random"

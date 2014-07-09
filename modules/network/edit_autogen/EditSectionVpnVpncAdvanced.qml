@@ -17,7 +17,6 @@ BaseEditSection {
             connectionSession: sectionVpnVpncAdvanced.connectionSession
             availableSections: sectionVpnVpncAdvanced.availableSections
             availableKeys: sectionVpnVpncAdvanced.availableKeys
-            connectionData: sectionVpnVpncAdvanced.connectionData
             errors: sectionVpnVpncAdvanced.errors
             section: "alias-vpn-vpnc-advanced"
             key: "Domain"
@@ -28,7 +27,6 @@ BaseEditSection {
             connectionSession: sectionVpnVpncAdvanced.connectionSession
             availableSections: sectionVpnVpncAdvanced.availableSections
             availableKeys: sectionVpnVpncAdvanced.availableKeys
-            connectionData: sectionVpnVpncAdvanced.connectionData
             errors: sectionVpnVpncAdvanced.errors
             section: "alias-vpn-vpnc-advanced"
             key: "Vendor"
@@ -39,7 +37,6 @@ BaseEditSection {
             connectionSession: sectionVpnVpncAdvanced.connectionSession
             availableSections: sectionVpnVpncAdvanced.availableSections
             availableKeys: sectionVpnVpncAdvanced.availableKeys
-            connectionData: sectionVpnVpncAdvanced.connectionData
             errors: sectionVpnVpncAdvanced.errors
             section: "alias-vpn-vpnc-advanced"
             key: "Application Version"
@@ -50,7 +47,6 @@ BaseEditSection {
             connectionSession: sectionVpnVpncAdvanced.connectionSession
             availableSections: sectionVpnVpncAdvanced.availableSections
             availableKeys: sectionVpnVpncAdvanced.availableKeys
-            connectionData: sectionVpnVpncAdvanced.connectionData
             errors: sectionVpnVpncAdvanced.errors
             section: "alias-vpn-vpnc-advanced"
             key: "vk-encryption-method"
@@ -61,7 +57,6 @@ BaseEditSection {
             connectionSession: sectionVpnVpncAdvanced.connectionSession
             availableSections: sectionVpnVpncAdvanced.availableSections
             availableKeys: sectionVpnVpncAdvanced.availableKeys
-            connectionData: sectionVpnVpncAdvanced.connectionData
             errors: sectionVpnVpncAdvanced.errors
             section: "alias-vpn-vpnc-advanced"
             key: "NAT Traversal Mode"
@@ -72,7 +67,6 @@ BaseEditSection {
             connectionSession: sectionVpnVpncAdvanced.connectionSession
             availableSections: sectionVpnVpncAdvanced.availableSections
             availableKeys: sectionVpnVpncAdvanced.availableKeys
-            connectionData: sectionVpnVpncAdvanced.connectionData
             errors: sectionVpnVpncAdvanced.errors
             section: "alias-vpn-vpnc-advanced"
             key: "IKE DH Group"
@@ -83,7 +77,6 @@ BaseEditSection {
             connectionSession: sectionVpnVpncAdvanced.connectionSession
             availableSections: sectionVpnVpncAdvanced.availableSections
             availableKeys: sectionVpnVpncAdvanced.availableKeys
-            connectionData: sectionVpnVpncAdvanced.connectionData
             errors: sectionVpnVpncAdvanced.errors
             section: "alias-vpn-vpnc-advanced"
             key: "Perfect Forward Secrecy"
@@ -94,7 +87,6 @@ BaseEditSection {
             connectionSession: sectionVpnVpncAdvanced.connectionSession
             availableSections: sectionVpnVpncAdvanced.availableSections
             availableKeys: sectionVpnVpncAdvanced.availableKeys
-            connectionData: sectionVpnVpncAdvanced.connectionData
             errors: sectionVpnVpncAdvanced.errors
             section: "alias-vpn-vpnc-advanced"
             key: "Local Port"
@@ -107,7 +99,6 @@ BaseEditSection {
             connectionSession: sectionVpnVpncAdvanced.connectionSession
             availableSections: sectionVpnVpncAdvanced.availableSections
             availableKeys: sectionVpnVpncAdvanced.availableKeys
-            connectionData: sectionVpnVpncAdvanced.connectionData
             errors: sectionVpnVpncAdvanced.errors
             section: "alias-vpn-vpnc-advanced"
             key: "vk-disable-dpd"

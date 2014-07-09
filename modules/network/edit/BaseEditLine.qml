@@ -8,7 +8,6 @@ DBaseLine {
     property var connectionSession
     property var availableSections
     property var availableKeys
-    property var connectionData
     property var errors
     property string section
     property string key
@@ -22,6 +21,12 @@ DBaseLine {
     visible: false
     Binding on visible {
         value: isKeyAvailable()
+    }
+    Component.onCompleted: {
+        if (visible) {
+            // send widgetShown() signal is need here
+            widgetShown()
+        }
     }
     onVisibleChanged: {
         if (visible) {
@@ -38,12 +43,6 @@ DBaseLine {
             widgetShown()
         }
         print("-> BaseEditLine.onVisibleChanged", visible ? "(show)" : "(hide)", section, key, cacheValue) // TODO test
-    }
-    Component.onCompleted: {
-        if (visible) {
-            // send widgetShown() signal is need here
-            widgetShown()
-        }
     }
     
     // colors
@@ -106,7 +105,9 @@ DBaseLine {
     }
 
     function getKey() {
-        return unmarshalJSON(connectionSession.GetKey(section, key))
+        var value = unmarshalJSON(connectionSession.GetKey(section, key))
+        print("-> BaseEditLine.getKey()", section, key, value) // TODO test
+        return value
     }
     
     function updateCacheValue() {
@@ -115,7 +116,8 @@ DBaseLine {
     }
     
     function isKeyAvailable() {
-        return getIndexFromArray(section, availableSections) != -1 && getIndexFromArray(key, availableKeys[section]) != -1
+        var ok = getIndexFromArray(section, availableSections) != -1 && getIndexFromArray(key, availableKeys[section]) != -1
+        return ok
     }
     
     function isValueError() {

@@ -17,7 +17,6 @@ BaseEditSection {
             connectionSession: sectionPppoe.connectionSession
             availableSections: sectionPppoe.availableSections
             availableKeys: sectionPppoe.availableKeys
-            connectionData: sectionPppoe.connectionData
             errors: sectionPppoe.errors
             section: "pppoe"
             key: "username"
@@ -28,7 +27,6 @@ BaseEditSection {
             connectionSession: sectionPppoe.connectionSession
             availableSections: sectionPppoe.availableSections
             availableKeys: sectionPppoe.availableKeys
-            connectionData: sectionPppoe.connectionData
             errors: sectionPppoe.errors
             section: "pppoe"
             key: "service"
@@ -39,7 +37,6 @@ BaseEditSection {
             connectionSession: sectionPppoe.connectionSession
             availableSections: sectionPppoe.availableSections
             availableKeys: sectionPppoe.availableKeys
-            connectionData: sectionPppoe.connectionData
             errors: sectionPppoe.errors
             section: "pppoe"
             key: "password"

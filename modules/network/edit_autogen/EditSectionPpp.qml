@@ -17,7 +17,6 @@ BaseEditSection {
             connectionSession: sectionPpp.connectionSession
             availableSections: sectionPpp.availableSections
             availableKeys: sectionPpp.availableKeys
-            connectionData: sectionPpp.connectionData
             errors: sectionPpp.errors
             section: "ppp"
             key: "require-mppe"
@@ -29,7 +28,6 @@ BaseEditSection {
             connectionSession: sectionPpp.connectionSession
             availableSections: sectionPpp.availableSections
             availableKeys: sectionPpp.availableKeys
-            connectionData: sectionPpp.connectionData
             errors: sectionPpp.errors
             section: "ppp"
             key: "require-mppe-128"
@@ -41,7 +39,6 @@ BaseEditSection {
             connectionSession: sectionPpp.connectionSession
             availableSections: sectionPpp.availableSections
             availableKeys: sectionPpp.availableKeys
-            connectionData: sectionPpp.connectionData
             errors: sectionPpp.errors
             section: "ppp"
             key: "mppe-stateful"
@@ -52,7 +49,6 @@ BaseEditSection {
             connectionSession: sectionPpp.connectionSession
             availableSections: sectionPpp.availableSections
             availableKeys: sectionPpp.availableKeys
-            connectionData: sectionPpp.connectionData
             errors: sectionPpp.errors
             section: "ppp"
             key: "refuse-eap"
@@ -63,7 +59,6 @@ BaseEditSection {
             connectionSession: sectionPpp.connectionSession
             availableSections: sectionPpp.availableSections
             availableKeys: sectionPpp.availableKeys
-            connectionData: sectionPpp.connectionData
             errors: sectionPpp.errors
             section: "ppp"
             key: "refuse-pap"
@@ -74,7 +69,6 @@ BaseEditSection {
             connectionSession: sectionPpp.connectionSession
             availableSections: sectionPpp.availableSections
             availableKeys: sectionPpp.availableKeys
-            connectionData: sectionPpp.connectionData
             errors: sectionPpp.errors
             section: "ppp"
             key: "refuse-chap"
@@ -85,7 +79,6 @@ BaseEditSection {
             connectionSession: sectionPpp.connectionSession
             availableSections: sectionPpp.availableSections
             availableKeys: sectionPpp.availableKeys
-            connectionData: sectionPpp.connectionData
             errors: sectionPpp.errors
             section: "ppp"
             key: "refuse-mschap"
@@ -96,7 +89,6 @@ BaseEditSection {
             connectionSession: sectionPpp.connectionSession
             availableSections: sectionPpp.availableSections
             availableKeys: sectionPpp.availableKeys
-            connectionData: sectionPpp.connectionData
             errors: sectionPpp.errors
             section: "ppp"
             key: "refuse-mschapv2"
@@ -107,7 +99,6 @@ BaseEditSection {
             connectionSession: sectionPpp.connectionSession
             availableSections: sectionPpp.availableSections
             availableKeys: sectionPpp.availableKeys
-            connectionData: sectionPpp.connectionData
             errors: sectionPpp.errors
             section: "ppp"
             key: "nobsdcomp"
@@ -118,7 +109,6 @@ BaseEditSection {
             connectionSession: sectionPpp.connectionSession
             availableSections: sectionPpp.availableSections
             availableKeys: sectionPpp.availableKeys
-            connectionData: sectionPpp.connectionData
             errors: sectionPpp.errors
             section: "ppp"
             key: "nodeflate"
@@ -129,7 +119,6 @@ BaseEditSection {
             connectionSession: sectionPpp.connectionSession
             availableSections: sectionPpp.availableSections
             availableKeys: sectionPpp.availableKeys
-            connectionData: sectionPpp.connectionData
             errors: sectionPpp.errors
             section: "ppp"
             key: "no-vj-comp"
@@ -140,7 +129,6 @@ BaseEditSection {
             connectionSession: sectionPpp.connectionSession
             availableSections: sectionPpp.availableSections
             availableKeys: sectionPpp.availableKeys
-            connectionData: sectionPpp.connectionData
             errors: sectionPpp.errors
             section: "ppp"
             key: "vk-enable-lcp-echo"

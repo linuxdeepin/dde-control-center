@@ -17,7 +17,6 @@ BaseEditSection {
             connectionSession: sectionVpnOpenvpnProxies.connectionSession
             availableSections: sectionVpnOpenvpnProxies.availableSections
             availableKeys: sectionVpnOpenvpnProxies.availableKeys
-            connectionData: sectionVpnOpenvpnProxies.connectionData
             errors: sectionVpnOpenvpnProxies.errors
             section: "alias-vpn-openvpn-proxies"
             key: "proxy-type"
@@ -28,7 +27,6 @@ BaseEditSection {
             connectionSession: sectionVpnOpenvpnProxies.connectionSession
             availableSections: sectionVpnOpenvpnProxies.availableSections
             availableKeys: sectionVpnOpenvpnProxies.availableKeys
-            connectionData: sectionVpnOpenvpnProxies.connectionData
             errors: sectionVpnOpenvpnProxies.errors
             section: "alias-vpn-openvpn-proxies"
             key: "proxy-server"
@@ -39,7 +37,6 @@ BaseEditSection {
             connectionSession: sectionVpnOpenvpnProxies.connectionSession
             availableSections: sectionVpnOpenvpnProxies.availableSections
             availableKeys: sectionVpnOpenvpnProxies.availableKeys
-            connectionData: sectionVpnOpenvpnProxies.connectionData
             errors: sectionVpnOpenvpnProxies.errors
             section: "alias-vpn-openvpn-proxies"
             key: "proxy-port"
@@ -52,7 +49,6 @@ BaseEditSection {
             connectionSession: sectionVpnOpenvpnProxies.connectionSession
             availableSections: sectionVpnOpenvpnProxies.availableSections
             availableKeys: sectionVpnOpenvpnProxies.availableKeys
-            connectionData: sectionVpnOpenvpnProxies.connectionData
             errors: sectionVpnOpenvpnProxies.errors
             section: "alias-vpn-openvpn-proxies"
             key: "proxy-retry"
@@ -63,7 +59,6 @@ BaseEditSection {
             connectionSession: sectionVpnOpenvpnProxies.connectionSession
             availableSections: sectionVpnOpenvpnProxies.availableSections
             availableKeys: sectionVpnOpenvpnProxies.availableKeys
-            connectionData: sectionVpnOpenvpnProxies.connectionData
             errors: sectionVpnOpenvpnProxies.errors
             section: "alias-vpn-openvpn-proxies"
             key: "http-proxy-username"
@@ -74,7 +69,6 @@ BaseEditSection {
             connectionSession: sectionVpnOpenvpnProxies.connectionSession
             availableSections: sectionVpnOpenvpnProxies.availableSections
             availableKeys: sectionVpnOpenvpnProxies.availableKeys
-            connectionData: sectionVpnOpenvpnProxies.connectionData
             errors: sectionVpnOpenvpnProxies.errors
             section: "alias-vpn-openvpn-proxies"
             key: "http-proxy-password"

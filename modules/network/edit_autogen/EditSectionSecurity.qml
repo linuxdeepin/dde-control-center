@@ -17,7 +17,6 @@ BaseEditSection {
             connectionSession: sectionSecurity.connectionSession
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
-            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "vs-security"
             key: "vk-enable-8021x"
@@ -28,7 +27,6 @@ BaseEditSection {
             connectionSession: sectionSecurity.connectionSession
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
-            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-11-wireless-security"
             key: "vk-key-mgmt"
@@ -39,7 +37,6 @@ BaseEditSection {
             connectionSession: sectionSecurity.connectionSession
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
-            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-11-wireless-security"
             key: "wep-key0"
@@ -50,7 +47,6 @@ BaseEditSection {
             connectionSession: sectionSecurity.connectionSession
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
-            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-11-wireless-security"
             key: "psk"
@@ -61,7 +57,6 @@ BaseEditSection {
             connectionSession: sectionSecurity.connectionSession
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
-            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "vk-eap"
@@ -72,7 +67,6 @@ BaseEditSection {
             connectionSession: sectionSecurity.connectionSession
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
-            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "identity"
@@ -83,7 +77,6 @@ BaseEditSection {
             connectionSession: sectionSecurity.connectionSession
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
-            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "anonymous-identity"
@@ -94,7 +87,6 @@ BaseEditSection {
             connectionSession: sectionSecurity.connectionSession
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
-            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "vk-ca-cert"
@@ -105,7 +97,6 @@ BaseEditSection {
             connectionSession: sectionSecurity.connectionSession
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
-            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "vk-client-cert"
@@ -116,7 +107,6 @@ BaseEditSection {
             connectionSession: sectionSecurity.connectionSession
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
-            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "phase1-fast-provisioning"
@@ -127,7 +117,6 @@ BaseEditSection {
             connectionSession: sectionSecurity.connectionSession
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
-            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "vk-pac-file"
@@ -138,7 +127,6 @@ BaseEditSection {
             connectionSession: sectionSecurity.connectionSession
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
-            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "phase1-peapver"
@@ -149,7 +137,6 @@ BaseEditSection {
             connectionSession: sectionSecurity.connectionSession
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
-            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "phase2-auth"
@@ -161,7 +148,6 @@ BaseEditSection {
             connectionSession: sectionSecurity.connectionSession
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
-            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "vk-private-key"
@@ -172,7 +158,6 @@ BaseEditSection {
             connectionSession: sectionSecurity.connectionSession
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
-            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "password-flags"
@@ -184,7 +169,6 @@ BaseEditSection {
             connectionSession: sectionSecurity.connectionSession
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
-            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "password"
@@ -195,7 +179,6 @@ BaseEditSection {
             connectionSession: sectionSecurity.connectionSession
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
-            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "private-key-password-flags"
@@ -206,7 +189,6 @@ BaseEditSection {
             connectionSession: sectionSecurity.connectionSession
             availableSections: sectionSecurity.availableSections
             availableKeys: sectionSecurity.availableKeys
-            connectionData: sectionSecurity.connectionData
             errors: sectionSecurity.errors
             section: "802-1x"
             key: "private-key-password"

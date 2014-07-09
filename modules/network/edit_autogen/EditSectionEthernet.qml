@@ -17,7 +17,6 @@ BaseEditSection {
             connectionSession: sectionEthernet.connectionSession
             availableSections: sectionEthernet.availableSections
             availableKeys: sectionEthernet.availableKeys
-            connectionData: sectionEthernet.connectionData
             errors: sectionEthernet.errors
             section: "802-3-ethernet"
             key: "mac-address"
@@ -28,7 +27,6 @@ BaseEditSection {
             connectionSession: sectionEthernet.connectionSession
             availableSections: sectionEthernet.availableSections
             availableKeys: sectionEthernet.availableKeys
-            connectionData: sectionEthernet.connectionData
             errors: sectionEthernet.errors
             section: "802-3-ethernet"
             key: "cloned-mac-address"
@@ -39,7 +37,6 @@ BaseEditSection {
             connectionSession: sectionEthernet.connectionSession
             availableSections: sectionEthernet.availableSections
             availableKeys: sectionEthernet.availableKeys
-            connectionData: sectionEthernet.connectionData
             errors: sectionEthernet.errors
             section: "802-3-ethernet"
             key: "vk-enable-mtu"
@@ -50,7 +47,6 @@ BaseEditSection {
             connectionSession: sectionEthernet.connectionSession
             availableSections: sectionEthernet.availableSections
             availableKeys: sectionEthernet.availableKeys
-            connectionData: sectionEthernet.connectionData
             errors: sectionEthernet.errors
             section: "802-3-ethernet"
             key: "mtu"

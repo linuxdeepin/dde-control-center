@@ -17,7 +17,6 @@ BaseEditSection {
             connectionSession: sectionWifi.connectionSession
             availableSections: sectionWifi.availableSections
             availableKeys: sectionWifi.availableKeys
-            connectionData: sectionWifi.connectionData
             errors: sectionWifi.errors
             section: "802-11-wireless"
             key: "ssid"
@@ -28,7 +27,6 @@ BaseEditSection {
             connectionSession: sectionWifi.connectionSession
             availableSections: sectionWifi.availableSections
             availableKeys: sectionWifi.availableKeys
-            connectionData: sectionWifi.connectionData
             errors: sectionWifi.errors
             section: "802-11-wireless"
             key: "mode"
@@ -39,7 +37,6 @@ BaseEditSection {
             connectionSession: sectionWifi.connectionSession
             availableSections: sectionWifi.availableSections
             availableKeys: sectionWifi.availableKeys
-            connectionData: sectionWifi.connectionData
             errors: sectionWifi.errors
             section: "802-11-wireless"
             key: "band"
@@ -51,7 +48,6 @@ BaseEditSection {
             connectionSession: sectionWifi.connectionSession
             availableSections: sectionWifi.availableSections
             availableKeys: sectionWifi.availableKeys
-            connectionData: sectionWifi.connectionData
             errors: sectionWifi.errors
             section: "802-11-wireless"
             key: "channel"
@@ -63,7 +59,6 @@ BaseEditSection {
             connectionSession: sectionWifi.connectionSession
             availableSections: sectionWifi.availableSections
             availableKeys: sectionWifi.availableKeys
-            connectionData: sectionWifi.connectionData
             errors: sectionWifi.errors
             section: "802-11-wireless"
             key: "mac-address"
@@ -74,7 +69,6 @@ BaseEditSection {
             connectionSession: sectionWifi.connectionSession
             availableSections: sectionWifi.availableSections
             availableKeys: sectionWifi.availableKeys
-            connectionData: sectionWifi.connectionData
             errors: sectionWifi.errors
             section: "802-11-wireless"
             key: "cloned-mac-address"
@@ -85,7 +79,6 @@ BaseEditSection {
             connectionSession: sectionWifi.connectionSession
             availableSections: sectionWifi.availableSections
             availableKeys: sectionWifi.availableKeys
-            connectionData: sectionWifi.connectionData
             errors: sectionWifi.errors
             section: "802-11-wireless"
             key: "vk-enable-mtu"
@@ -96,7 +89,6 @@ BaseEditSection {
             connectionSession: sectionWifi.connectionSession
             availableSections: sectionWifi.availableSections
             availableKeys: sectionWifi.availableKeys
-            connectionData: sectionWifi.connectionData
             errors: sectionWifi.errors
             section: "802-11-wireless"
             key: "mtu"

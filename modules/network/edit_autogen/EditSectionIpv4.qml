@@ -17,7 +17,6 @@ BaseEditSection {
             connectionSession: sectionIpv4.connectionSession
             availableSections: sectionIpv4.availableSections
             availableKeys: sectionIpv4.availableKeys
-            connectionData: sectionIpv4.connectionData
             errors: sectionIpv4.errors
             section: "ipv4"
             key: "method"
@@ -28,7 +27,6 @@ BaseEditSection {
             connectionSession: sectionIpv4.connectionSession
             availableSections: sectionIpv4.availableSections
             availableKeys: sectionIpv4.availableKeys
-            connectionData: sectionIpv4.connectionData
             errors: sectionIpv4.errors
             section: "ipv4"
             key: "vk-addresses-address"
@@ -40,7 +38,6 @@ BaseEditSection {
             connectionSession: sectionIpv4.connectionSession
             availableSections: sectionIpv4.availableSections
             availableKeys: sectionIpv4.availableKeys
-            connectionData: sectionIpv4.connectionData
             errors: sectionIpv4.errors
             section: "ipv4"
             key: "vk-addresses-mask"
@@ -54,7 +51,6 @@ BaseEditSection {
             connectionSession: sectionIpv4.connectionSession
             availableSections: sectionIpv4.availableSections
             availableKeys: sectionIpv4.availableKeys
-            connectionData: sectionIpv4.connectionData
             errors: sectionIpv4.errors
             section: "ipv4"
             key: "vk-addresses-gateway"
@@ -67,7 +63,6 @@ BaseEditSection {
             connectionSession: sectionIpv4.connectionSession
             availableSections: sectionIpv4.availableSections
             availableKeys: sectionIpv4.availableKeys
-            connectionData: sectionIpv4.connectionData
             errors: sectionIpv4.errors
             section: "ipv4"
             key: "vk-dns"

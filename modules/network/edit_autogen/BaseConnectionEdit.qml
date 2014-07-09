@@ -27,7 +27,6 @@ BaseEditPage {
         connectionSession: editPage.connectionSession
         availableSections: editPage.availableSections
         availableKeys: editPage.availableKeys
-        connectionData: editPage.connectionData
         errors: editPage.errors
         section: "connection"
         key: "id"
@@ -38,7 +37,6 @@ BaseEditPage {
         connectionSession: editPage.connectionSession
         availableSections: editPage.availableSections
         availableKeys: editPage.availableKeys
-        connectionData: editPage.connectionData
         errors: editPage.errors
         section: "connection"
         key: "autoconnect"
@@ -52,7 +50,6 @@ BaseEditPage {
         connectionSession: editPage.connectionSession
         availableSections: editPage.availableSections
         availableKeys: editPage.availableKeys
-        connectionData: editPage.connectionData
         errors: editPage.errors
     }
     EditSectionSeparator {relatedSection: sectionEthernet}
@@ -64,7 +61,6 @@ BaseEditPage {
         connectionSession: editPage.connectionSession
         availableSections: editPage.availableSections
         availableKeys: editPage.availableKeys
-        connectionData: editPage.connectionData
         errors: editPage.errors
     }
     EditSectionSeparator {relatedSection: sectionMobile}
@@ -76,7 +72,6 @@ BaseEditPage {
         connectionSession: editPage.connectionSession
         availableSections: editPage.availableSections
         availableKeys: editPage.availableKeys
-        connectionData: editPage.connectionData
         errors: editPage.errors
     }
     EditSectionSeparator {relatedSection: sectionSecurity}
@@ -88,7 +83,6 @@ BaseEditPage {
         connectionSession: editPage.connectionSession
         availableSections: editPage.availableSections
         availableKeys: editPage.availableKeys
-        connectionData: editPage.connectionData
         errors: editPage.errors
     }
     EditSectionSeparator {relatedSection: sectionWifi}
@@ -100,7 +94,6 @@ BaseEditPage {
         connectionSession: editPage.connectionSession
         availableSections: editPage.availableSections
         availableKeys: editPage.availableKeys
-        connectionData: editPage.connectionData
         errors: editPage.errors
     }
     EditSectionSeparator {relatedSection: sectionPppoe}
@@ -112,7 +105,6 @@ BaseEditPage {
         connectionSession: editPage.connectionSession
         availableSections: editPage.availableSections
         availableKeys: editPage.availableKeys
-        connectionData: editPage.connectionData
         errors: editPage.errors
     }
     EditSectionSeparator {relatedSection: sectionPpp}
@@ -124,7 +116,6 @@ BaseEditPage {
         connectionSession: editPage.connectionSession
         availableSections: editPage.availableSections
         availableKeys: editPage.availableKeys
-        connectionData: editPage.connectionData
         errors: editPage.errors
     }
     EditSectionSeparator {relatedSection: sectionVpn}
@@ -136,7 +127,6 @@ BaseEditPage {
         connectionSession: editPage.connectionSession
         availableSections: editPage.availableSections
         availableKeys: editPage.availableKeys
-        connectionData: editPage.connectionData
         errors: editPage.errors
     }
     EditSectionSeparator {relatedSection: sectionVpnL2tpIpsec}
@@ -148,7 +138,6 @@ BaseEditPage {
         connectionSession: editPage.connectionSession
         availableSections: editPage.availableSections
         availableKeys: editPage.availableKeys
-        connectionData: editPage.connectionData
         errors: editPage.errors
     }
     EditSectionSeparator {relatedSection: sectionVpnL2tpPpp}
@@ -160,7 +149,6 @@ BaseEditPage {
         connectionSession: editPage.connectionSession
         availableSections: editPage.availableSections
         availableKeys: editPage.availableKeys
-        connectionData: editPage.connectionData
         errors: editPage.errors
     }
     EditSectionSeparator {relatedSection: sectionVpnOpenvpnSecurity}
@@ -172,7 +160,6 @@ BaseEditPage {
         connectionSession: editPage.connectionSession
         availableSections: editPage.availableSections
         availableKeys: editPage.availableKeys
-        connectionData: editPage.connectionData
         errors: editPage.errors
     }
     EditSectionSeparator {relatedSection: sectionVpnOpenvpnTlsauth}
@@ -184,7 +171,6 @@ BaseEditPage {
         connectionSession: editPage.connectionSession
         availableSections: editPage.availableSections
         availableKeys: editPage.availableKeys
-        connectionData: editPage.connectionData
         errors: editPage.errors
     }
     EditSectionSeparator {relatedSection: sectionVpnOpenvpnProxies}
@@ -196,7 +182,6 @@ BaseEditPage {
         connectionSession: editPage.connectionSession
         availableSections: editPage.availableSections
         availableKeys: editPage.availableKeys
-        connectionData: editPage.connectionData
         errors: editPage.errors
     }
     EditSectionSeparator {relatedSection: sectionVpnOpenvpnAdvanced}
@@ -208,7 +193,6 @@ BaseEditPage {
         connectionSession: editPage.connectionSession
         availableSections: editPage.availableSections
         availableKeys: editPage.availableKeys
-        connectionData: editPage.connectionData
         errors: editPage.errors
     }
     EditSectionSeparator {relatedSection: sectionVpnPptpPpp}
@@ -220,7 +204,6 @@ BaseEditPage {
         connectionSession: editPage.connectionSession
         availableSections: editPage.availableSections
         availableKeys: editPage.availableKeys
-        connectionData: editPage.connectionData
         errors: editPage.errors
     }
     EditSectionSeparator {relatedSection: sectionVpnVpncAdvanced}
@@ -232,7 +215,6 @@ BaseEditPage {
         connectionSession: editPage.connectionSession
         availableSections: editPage.availableSections
         availableKeys: editPage.availableKeys
-        connectionData: editPage.connectionData
         errors: editPage.errors
     }
     EditSectionSeparator {relatedSection: sectionIpv4}
@@ -244,7 +226,6 @@ BaseEditPage {
         connectionSession: editPage.connectionSession
         availableSections: editPage.availableSections
         availableKeys: editPage.availableKeys
-        connectionData: editPage.connectionData
         errors: editPage.errors
     }
     EditSectionSeparator {relatedSection: sectionIpv6}

@@ -17,7 +17,6 @@ BaseEditSection {
             connectionSession: sectionVpnL2tpPpp.connectionSession
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
-            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "vk-require-mppe"
@@ -28,7 +27,6 @@ BaseEditSection {
             connectionSession: sectionVpnL2tpPpp.connectionSession
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
-            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "vk-mppe-security"
@@ -39,7 +37,6 @@ BaseEditSection {
             connectionSession: sectionVpnL2tpPpp.connectionSession
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
-            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "mppe-stateful"
@@ -50,7 +47,6 @@ BaseEditSection {
             connectionSession: sectionVpnL2tpPpp.connectionSession
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
-            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "refuse-eap"
@@ -62,7 +58,6 @@ BaseEditSection {
             connectionSession: sectionVpnL2tpPpp.connectionSession
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
-            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "refuse-pap"
@@ -74,7 +69,6 @@ BaseEditSection {
             connectionSession: sectionVpnL2tpPpp.connectionSession
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
-            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "refuse-chap"
@@ -86,7 +80,6 @@ BaseEditSection {
             connectionSession: sectionVpnL2tpPpp.connectionSession
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
-            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "refuse-mschap"
@@ -98,7 +91,6 @@ BaseEditSection {
             connectionSession: sectionVpnL2tpPpp.connectionSession
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
-            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "refuse-mschapv2"
@@ -110,7 +102,6 @@ BaseEditSection {
             connectionSession: sectionVpnL2tpPpp.connectionSession
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
-            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "nobsdcomp"
@@ -121,7 +112,6 @@ BaseEditSection {
             connectionSession: sectionVpnL2tpPpp.connectionSession
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
-            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "nodeflate"
@@ -132,7 +122,6 @@ BaseEditSection {
             connectionSession: sectionVpnL2tpPpp.connectionSession
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
-            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "no-vj-comp"
@@ -143,7 +132,6 @@ BaseEditSection {
             connectionSession: sectionVpnL2tpPpp.connectionSession
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
-            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "nopcomp"
@@ -154,7 +142,6 @@ BaseEditSection {
             connectionSession: sectionVpnL2tpPpp.connectionSession
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
-            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "noaccomp"
@@ -165,7 +152,6 @@ BaseEditSection {
             connectionSession: sectionVpnL2tpPpp.connectionSession
             availableSections: sectionVpnL2tpPpp.availableSections
             availableKeys: sectionVpnL2tpPpp.availableKeys
-            connectionData: sectionVpnL2tpPpp.connectionData
             errors: sectionVpnL2tpPpp.errors
             section: "alias-vpn-l2tp-ppp"
             key: "vk-enable-lcp-echo"

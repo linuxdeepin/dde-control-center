@@ -17,7 +17,6 @@ BaseEditSection {
             connectionSession: sectionIpv6.connectionSession
             availableSections: sectionIpv6.availableSections
             availableKeys: sectionIpv6.availableKeys
-            connectionData: sectionIpv6.connectionData
             errors: sectionIpv6.errors
             section: "ipv6"
             key: "method"
@@ -28,7 +27,6 @@ BaseEditSection {
             connectionSession: sectionIpv6.connectionSession
             availableSections: sectionIpv6.availableSections
             availableKeys: sectionIpv6.availableKeys
-            connectionData: sectionIpv6.connectionData
             errors: sectionIpv6.errors
             section: "ipv6"
             key: "vk-addresses-address"
@@ -39,7 +37,6 @@ BaseEditSection {
             connectionSession: sectionIpv6.connectionSession
             availableSections: sectionIpv6.availableSections
             availableKeys: sectionIpv6.availableKeys
-            connectionData: sectionIpv6.connectionData
             errors: sectionIpv6.errors
             section: "ipv6"
             key: "vk-addresses-prefix"
@@ -52,7 +49,6 @@ BaseEditSection {
             connectionSession: sectionIpv6.connectionSession
             availableSections: sectionIpv6.availableSections
             availableKeys: sectionIpv6.availableKeys
-            connectionData: sectionIpv6.connectionData
             errors: sectionIpv6.errors
             section: "ipv6"
             key: "vk-addresses-gateway"
@@ -63,7 +59,6 @@ BaseEditSection {
             connectionSession: sectionIpv6.connectionSession
             availableSections: sectionIpv6.availableSections
             availableKeys: sectionIpv6.availableKeys
-            connectionData: sectionIpv6.connectionData
             errors: sectionIpv6.errors
             section: "ipv6"
             key: "vk-dns"

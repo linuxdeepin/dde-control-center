@@ -17,7 +17,6 @@ BaseEditSection {
             connectionSession: sectionVpnL2tpIpsec.connectionSession
             availableSections: sectionVpnL2tpIpsec.availableSections
             availableKeys: sectionVpnL2tpIpsec.availableKeys
-            connectionData: sectionVpnL2tpIpsec.connectionData
             errors: sectionVpnL2tpIpsec.errors
             section: "alias-vpn-l2tp-ipsec"
             key: "ipsec-enabled"
@@ -28,7 +27,6 @@ BaseEditSection {
             connectionSession: sectionVpnL2tpIpsec.connectionSession
             availableSections: sectionVpnL2tpIpsec.availableSections
             availableKeys: sectionVpnL2tpIpsec.availableKeys
-            connectionData: sectionVpnL2tpIpsec.connectionData
             errors: sectionVpnL2tpIpsec.errors
             section: "alias-vpn-l2tp-ipsec"
             key: "ipsec-group-name"
@@ -39,7 +37,6 @@ BaseEditSection {
             connectionSession: sectionVpnL2tpIpsec.connectionSession
             availableSections: sectionVpnL2tpIpsec.availableSections
             availableKeys: sectionVpnL2tpIpsec.availableKeys
-            connectionData: sectionVpnL2tpIpsec.connectionData
             errors: sectionVpnL2tpIpsec.errors
             section: "alias-vpn-l2tp-ipsec"
             key: "ipsec-gateway-id"
@@ -50,7 +47,6 @@ BaseEditSection {
             connectionSession: sectionVpnL2tpIpsec.connectionSession
             availableSections: sectionVpnL2tpIpsec.availableSections
             availableKeys: sectionVpnL2tpIpsec.availableKeys
-            connectionData: sectionVpnL2tpIpsec.connectionData
             errors: sectionVpnL2tpIpsec.errors
             section: "alias-vpn-l2tp-ipsec"
             key: "ipsec-psk"

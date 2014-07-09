@@ -17,7 +17,6 @@ BaseEditSection {
             connectionSession: sectionMobile.connectionSession
             availableSections: sectionMobile.availableSections
             availableKeys: sectionMobile.availableKeys
-            connectionData: sectionMobile.connectionData
             errors: sectionMobile.errors
             section: "vs-mobile"
             key: "vk-mobile-service-type"
@@ -28,7 +27,6 @@ BaseEditSection {
             connectionSession: sectionMobile.connectionSession
             availableSections: sectionMobile.availableSections
             availableKeys: sectionMobile.availableKeys
-            connectionData: sectionMobile.connectionData
             errors: sectionMobile.errors
             section: "gsm"
             key: "apn"
@@ -39,7 +37,6 @@ BaseEditSection {
             connectionSession: sectionMobile.connectionSession
             availableSections: sectionMobile.availableSections
             availableKeys: sectionMobile.availableKeys
-            connectionData: sectionMobile.connectionData
             errors: sectionMobile.errors
             section: "gsm"
             key: "number"
@@ -50,7 +47,6 @@ BaseEditSection {
             connectionSession: sectionMobile.connectionSession
             availableSections: sectionMobile.availableSections
             availableKeys: sectionMobile.availableKeys
-            connectionData: sectionMobile.connectionData
             errors: sectionMobile.errors
             section: "gsm"
             key: "username"
@@ -61,7 +57,6 @@ BaseEditSection {
             connectionSession: sectionMobile.connectionSession
             availableSections: sectionMobile.availableSections
             availableKeys: sectionMobile.availableKeys
-            connectionData: sectionMobile.connectionData
             errors: sectionMobile.errors
             section: "gsm"
             key: "password"
@@ -72,7 +67,6 @@ BaseEditSection {
             connectionSession: sectionMobile.connectionSession
             availableSections: sectionMobile.availableSections
             availableKeys: sectionMobile.availableKeys
-            connectionData: sectionMobile.connectionData
             errors: sectionMobile.errors
             section: "gsm"
             key: "network-id"
@@ -83,7 +77,6 @@ BaseEditSection {
             connectionSession: sectionMobile.connectionSession
             availableSections: sectionMobile.availableSections
             availableKeys: sectionMobile.availableKeys
-            connectionData: sectionMobile.connectionData
             errors: sectionMobile.errors
             section: "gsm"
             key: "network-type"
@@ -94,7 +87,6 @@ BaseEditSection {
             connectionSession: sectionMobile.connectionSession
             availableSections: sectionMobile.availableSections
             availableKeys: sectionMobile.availableKeys
-            connectionData: sectionMobile.connectionData
             errors: sectionMobile.errors
             section: "gsm"
             key: "home-only"
@@ -105,7 +97,6 @@ BaseEditSection {
             connectionSession: sectionMobile.connectionSession
             availableSections: sectionMobile.availableSections
             availableKeys: sectionMobile.availableKeys
-            connectionData: sectionMobile.connectionData
             errors: sectionMobile.errors
             section: "gsm"
             key: "pin"
@@ -116,7 +107,6 @@ BaseEditSection {
             connectionSession: sectionMobile.connectionSession
             availableSections: sectionMobile.availableSections
             availableKeys: sectionMobile.availableKeys
-            connectionData: sectionMobile.connectionData
             errors: sectionMobile.errors
             section: "cdma"
             key: "number"
@@ -127,7 +117,6 @@ BaseEditSection {
             connectionSession: sectionMobile.connectionSession
             availableSections: sectionMobile.availableSections
             availableKeys: sectionMobile.availableKeys
-            connectionData: sectionMobile.connectionData
             errors: sectionMobile.errors
             section: "cdma"
             key: "username"
@@ -138,7 +127,6 @@ BaseEditSection {
             connectionSession: sectionMobile.connectionSession
             availableSections: sectionMobile.availableSections
             availableKeys: sectionMobile.availableKeys
-            connectionData: sectionMobile.connectionData
             errors: sectionMobile.errors
             section: "cdma"
             key: "password"

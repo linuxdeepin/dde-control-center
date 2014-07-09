@@ -8,7 +8,6 @@ DBaseExpand {
     property var connectionSession
     property var availableSections
     property var availableKeys
-    property var connectionData
     property var errors
     property string virtualSection
     property var availableVirtualSections: connectionSession.availableVirtualSections
