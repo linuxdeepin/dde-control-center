@@ -221,7 +221,6 @@
         <location filename="../modules/network/add/AddVpn.qml" line="150"/>
         <location filename="../modules/network/add/AddVpn.qml" line="293"/>
         <location filename="../modules/network/add/AddVpn.qml" line="447"/>
-        <location filename="../modules/network/add/AddVpn.qml" line="592"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
@@ -332,6 +331,11 @@
     <message>
         <location filename="../modules/network/add/AddVpn.qml" line="581"/>
         <source>Group ID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/add/AddVpn.qml" line="592"/>
+        <source>Pre-Shared Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1192,7 +1196,7 @@
     </message>
     <message>
         <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml" line="57"/>
-        <source>Password</source>
+        <source>Pre-Shared Key</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1670,52 +1674,72 @@
 <context>
     <name>Info</name>
     <message>
-        <location filename="../modules/network/Info.qml" line="11"/>
+        <location filename="../modules/network/Info.qml" line="13"/>
         <source>Activated Connections</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/Info.qml" line="56"/>
-        <source>Device Type</source>
+        <location filename="../modules/network/Info.qml" line="15"/>
+        <source>None Activated Connection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/Info.qml" line="57"/>
+        <location filename="../modules/network/Info.qml" line="39"/>
+        <source>(default)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/Info.qml" line="50"/>
+        <source>Interface</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/Info.qml" line="53"/>
+        <source>Security</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/Info.qml" line="54"/>
         <source>Device Addr</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/Info.qml" line="58"/>
+        <location filename="../modules/network/Info.qml" line="55"/>
         <source>IP Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/Info.qml" line="59"/>
+        <location filename="../modules/network/Info.qml" line="56"/>
         <source>Subnet Mask</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/Info.qml" line="60"/>
+        <location filename="../modules/network/Info.qml" line="57"/>
         <source>Route Addr</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/Info.qml" line="61"/>
+        <location filename="../modules/network/Info.qml" line="58"/>
         <source>Primary DNS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/Info.qml" line="62"/>
-        <source>Addtional DNS</source>
+        <location filename="../modules/network/Info.qml" line="59"/>
+        <source>Secondary DNS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/Info.qml" line="63"/>
+        <location filename="../modules/network/Info.qml" line="60"/>
+        <source>Ternary DNS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/Info.qml" line="69"/>
         <source>Device Speed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/Info.qml" line="73"/>
+        <location filename="../modules/network/Info.qml" line="79"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1723,7 +1747,7 @@
 <context>
     <name>LocaleArea</name>
     <message>
-        <location filename="../modules/date_time/LocaleArea.qml" line="68"/>
+        <location filename="../modules/date_time/LocaleArea.qml" line="82"/>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2144,7 +2168,7 @@
 <context>
     <name>ThemeItem</name>
     <message>
-        <location filename="../modules/personalization/widgets/ThemeItem.qml" line="107"/>
+        <location filename="../modules/personalization/widgets/ThemeItem.qml" line="95"/>
         <source>Custom</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2170,17 +2194,17 @@
 <context>
     <name>TimezoneArea</name>
     <message>
-        <location filename="../modules/date_time/TimezoneArea.qml" line="86"/>
+        <location filename="../modules/date_time/TimezoneArea.qml" line="101"/>
         <source>Time zone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneArea.qml" line="231"/>
+        <location filename="../modules/date_time/TimezoneArea.qml" line="254"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/TimezoneArea.qml" line="234"/>
+        <location filename="../modules/date_time/TimezoneArea.qml" line="257"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2619,7 +2643,7 @@
         <location filename="../modules/power/main.qml" line="268"/>
         <location filename="../modules/power/main.qml" line="443"/>
         <location filename="../modules/shortcuts/main.qml" line="53"/>
-        <location filename="../modules/shortcuts/main.qml" line="224"/>
+        <location filename="../modules/shortcuts/main.qml" line="225"/>
         <source>Custom</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2802,63 +2826,63 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="106"/>
+        <location filename="../modules/keyboard/main.qml" line="107"/>
         <source>Repeat Delay</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="120"/>
+        <location filename="../modules/keyboard/main.qml" line="121"/>
         <source>Short</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="121"/>
+        <location filename="../modules/keyboard/main.qml" line="122"/>
         <source>Long</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="130"/>
+        <location filename="../modules/keyboard/main.qml" line="131"/>
         <source>Repeat Rate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="145"/>
-        <location filename="../modules/keyboard/main.qml" line="171"/>
+        <location filename="../modules/keyboard/main.qml" line="146"/>
+        <location filename="../modules/keyboard/main.qml" line="172"/>
         <location filename="../modules/mouse_touchpad/main.qml" line="104"/>
         <location filename="../modules/mouse_touchpad/main.qml" line="156"/>
         <source>Fast</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="146"/>
-        <location filename="../modules/keyboard/main.qml" line="172"/>
+        <location filename="../modules/keyboard/main.qml" line="147"/>
+        <location filename="../modules/keyboard/main.qml" line="173"/>
         <location filename="../modules/mouse_touchpad/main.qml" line="103"/>
         <location filename="../modules/mouse_touchpad/main.qml" line="155"/>
         <source>Slow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="155"/>
+        <location filename="../modules/keyboard/main.qml" line="156"/>
         <source>Cursor Blink Rate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="181"/>
+        <location filename="../modules/keyboard/main.qml" line="182"/>
         <source>Test Area</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="211"/>
+        <location filename="../modules/keyboard/main.qml" line="212"/>
         <source>Keyboard Layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="396"/>
+        <location filename="../modules/keyboard/main.qml" line="419"/>
         <source>No result</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="405"/>
+        <location filename="../modules/keyboard/main.qml" line="428"/>
         <source>Caps Lock prompt</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3231,6 +3255,76 @@
     <message>
         <location filename="../modules/network/main.qml" line="183"/>
         <source>Bridge</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="191"/>
+        <source>Ethernet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="193"/>
+        <source>802.11 WiFi</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="195"/>
+        <source>802.11 WiFi AdHoc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="197"/>
+        <source>802.11 WiFi Hotspot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="199"/>
+        <source>PPPoE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="201"/>
+        <source>Mobile</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="203"/>
+        <source>Mobile GSM</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="205"/>
+        <source>Mobile CDMA</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="207"/>
+        <source>VPN</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="209"/>
+        <source>VPN L2TP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="211"/>
+        <source>VPN PPTP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="213"/>
+        <source>VPN VPNC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="215"/>
+        <source>VPN OpenVPN</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/main.qml" line="217"/>
+        <source>VPN OpenConnect</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

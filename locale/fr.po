@@ -1,21 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # trid <tristan.denni@viacesi.fr>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-02 15:38+0800\n"
+"POT-Creation-Date: 2014-07-09 20:43+0800\n"
 "PO-Revision-Date: 2014-07-02 08:41+0000\n"
 "Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
-"Language-Team: French (http://www.transifex.com/projects/p/dde-control-center/language/fr/)\n"
+"Language-Team: French (http://www.transifex.com/projects/p/dde-control-"
+"center/language/fr/)\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../modules/network/add/AddDsl.qml:11
@@ -57,7 +58,7 @@ msgstr "Service"
 #: ../modules/network/add/AddMobile.qml:124
 #: ../modules/account/AddUserDialog.qml:137
 #: ../modules/network/add/AddVpn.qml:150 ../modules/network/add/AddVpn.qml:293
-#: ../modules/network/add/AddVpn.qml:447 ../modules/network/add/AddVpn.qml:592
+#: ../modules/network/add/AddVpn.qml:447
 #: ../modules/network/wireless/AddWireless.qml:68
 #: ../modules/network/wireless/AddWireless.qml:202
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:68
@@ -68,7 +69,6 @@ msgstr "Service"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:69
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:223
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:377
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:57
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:81
 #: ../modules/account/PasswordDialog.qml:59
 #: ../modules/network/wireless/WifiHotspot.qml:73
@@ -115,7 +115,7 @@ msgstr "Annuler"
 
 #: ../modules/network/add/AddSectionSave.qml:20
 #: ../modules/shortcuts/CustomKeybinding.qml:157
-#: ../modules/date_time/TimezoneArea.qml:231
+#: ../modules/date_time/TimezoneArea.qml:254
 msgid "Add"
 msgstr "Ajouter"
 
@@ -342,6 +342,12 @@ msgstr "Activer IPsec"
 msgid "Group ID"
 msgstr "Identifiant du groupe"
 
+#: ../modules/network/add/AddVpn.qml:592
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:57
+#, fuzzy
+msgid "Pre-Shared Key"
+msgstr "Clé privée"
+
 #: ../modules/network/add/AddVpn.qml:605 ../modules/network/add/AddVpn.qml:618
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:24
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:24
@@ -364,6 +370,7 @@ msgstr "SSID"
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:35
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:35
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:35
+#: ../modules/network/Info.qml:53
 #: ../modules/network/wireless/WifiHotspot.qml:51
 msgid "Security"
 msgstr "Sécurité"
@@ -494,11 +501,13 @@ msgstr "Nouveau réseau"
 
 #: ../modules/network/ConnectionAdd.qml:35
 #: ../modules/network/edit_autogen/EditSectionPppoe.qml:11
+#: ../modules/network/main.qml:199
 msgid "PPPoE"
 msgstr "PPPoE"
 
 #: ../modules/network/ConnectionAdd.qml:45
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:11
+#: ../modules/network/main.qml:207
 msgid "VPN"
 msgstr "VPN"
 
@@ -519,9 +528,9 @@ msgstr "Êtes vous sûr de vouloir supprimer ce réseau ?"
 msgid "Save"
 msgstr "Sauvegarder"
 
-#: ../modules/network/ConnectionEdit.qml:113 ../modules/network/Info.qml:73
+#: ../modules/network/ConnectionEdit.qml:113 ../modules/network/Info.qml:79
 #: ../modules/date_time/StateButtons.qml:35
-#: ../modules/date_time/TimezoneArea.qml:234
+#: ../modules/date_time/TimezoneArea.qml:257
 msgid "Close"
 msgstr "Fermer"
 
@@ -559,6 +568,7 @@ msgid "Click to install"
 msgstr "Cliquer pour installer"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:11
+#: ../modules/network/main.qml:191
 msgid "Ethernet"
 msgstr "Ethernet"
 
@@ -602,7 +612,7 @@ msgstr "Méthode"
 
 #: ../modules/network/edit_autogen/EditSectionIpv4.qml:35
 #: ../modules/network/edit_autogen/EditSectionIpv6.qml:35
-#: ../modules/network/Info.qml:58
+#: ../modules/network/Info.qml:55
 msgid "IP Address"
 msgstr "Adresse IP"
 
@@ -624,6 +634,7 @@ msgid "Prefix"
 msgstr "Préfixe"
 
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:11
+#: ../modules/network/main.qml:201
 msgid "Mobile"
 msgstr "Mobile"
 
@@ -913,58 +924,75 @@ msgstr "Invité"
 msgid "Enabled"
 msgstr "Activé"
 
-#: ../modules/network/Info.qml:11
+#: ../modules/network/Info.qml:13
 msgid "Activated Connections"
 msgstr "Connexions activées"
 
-#: ../modules/network/Info.qml:56
-msgid "Device Type"
-msgstr "Type de périphérique"
+#: ../modules/network/Info.qml:15
+#, fuzzy
+msgid "None Activated Connection"
+msgstr "Connexions activées"
 
-#: ../modules/network/Info.qml:57
+#: ../modules/network/Info.qml:39
+#, fuzzy
+msgid "(default)"
+msgstr "Par défaut"
+
+#: ../modules/network/Info.qml:50
+msgid "Interface"
+msgstr ""
+
+#: ../modules/network/Info.qml:54
 msgid "Device Addr"
 msgstr "Adresse du périphérique"
 
-#: ../modules/network/Info.qml:59
+#: ../modules/network/Info.qml:56
 msgid "Subnet Mask"
 msgstr "Masque de sous-réseau"
 
-#: ../modules/network/Info.qml:60
+#: ../modules/network/Info.qml:57
 msgid "Route Addr"
 msgstr "Adresse de la route"
 
-#: ../modules/network/Info.qml:61
+#: ../modules/network/Info.qml:58
 msgid "Primary DNS"
 msgstr "DNS primaire"
 
-#: ../modules/network/Info.qml:62
-msgid "Addtional DNS"
-msgstr "DNS additionnel"
+#: ../modules/network/Info.qml:59
+msgid "Secondary DNS"
+msgstr ""
 
-#: ../modules/network/Info.qml:63
+#: ../modules/network/Info.qml:60
+#, fuzzy
+msgid "Ternary DNS"
+msgstr "DNS primaire"
+
+#: ../modules/network/Info.qml:69
 msgid "Device Speed"
 msgstr "Vitesse du périphérique"
 
-#: ../modules/date_time/LocaleArea.qml:78
+#: ../modules/date_time/LocaleArea.qml:82
 msgid "Language"
 msgstr "Langage"
 
-#: ../modules/display/MessageBox.qml:109
+#: ../modules/display/MessageBox.qml:94
 msgid "Do you want to keep these display settings?"
 msgstr "Voulez vous conserver ce paramétrage de l'affichage ?"
 
-#: ../modules/display/MessageBox.qml:119
+#: ../modules/display/MessageBox.qml:104
 #, qt-format
 msgid ""
 "Reverting to previous display settings in <font color='#F48914'>%1</font> "
 "seconds."
-msgstr "Retour aux paramètres d'affichage précédent dans <font color='#F48914'>%1</font> secondes."
+msgstr ""
+"Retour aux paramètres d'affichage précédent dans <font color='#F48914'>%1</"
+"font> secondes."
 
-#: ../modules/display/MessageBox.qml:131
+#: ../modules/display/MessageBox.qml:116
 msgid "Keep Changes"
 msgstr "Conserver les changements"
 
-#: ../modules/display/MessageBox.qml:139
+#: ../modules/display/MessageBox.qml:124
 msgid "Revert"
 msgstr "Rétablir"
 
@@ -1114,7 +1142,8 @@ msgstr "Glisser et déposer une image pour changer de fond d'écran."
 
 #: ../modules/grub/Preview.qml:127
 msgid "Background is changing, please reboot later..."
-msgstr "Le fond d'écran est entrain de changer, veuillez redémarrer plus tard ..."
+msgstr ""
+"Le fond d'écran est entrain de changer, veuillez redémarrer plus tard ..."
 
 #: ../modules/grub/Preview.qml:128
 msgid "Successfully changed, reboot to view."
@@ -1179,7 +1208,8 @@ msgstr "Veuillez renseigner le nouveau raccourci"
 #: ../modules/shortcuts/ShortcutInput.qml:224
 #, qt-format
 msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
-msgstr "Le raccourci \"%1\" est invalide, veuillez ressaisir un nouveau raccourci."
+msgstr ""
+"Le raccourci \"%1\" est invalide, veuillez ressaisir un nouveau raccourci."
 
 #: ../modules/shortcuts/ShortcutInput.qml:262
 msgid "The shortcut you set "
@@ -1208,10 +1238,10 @@ msgstr "Prévisualiser le thème"
 msgid "Done"
 msgstr "Fait"
 
-#: ../modules/personalization/widgets/ThemeItem.qml:107
+#: ../modules/personalization/widgets/ThemeItem.qml:95
 #: ../dock-applets/qml/power/main.qml:46 ../modules/power/main.qml:268
 #: ../modules/power/main.qml:443 ../modules/shortcuts/main.qml:53
-#: ../modules/shortcuts/main.qml:224
+#: ../modules/shortcuts/main.qml:225
 msgid "Custom"
 msgstr "Personnalisé"
 
@@ -1223,7 +1253,7 @@ msgstr "Double cliquer sur les nombres ci-dessus pour changer l'heure."
 msgid "Set"
 msgstr "Paramétrer"
 
-#: ../modules/date_time/TimezoneArea.qml:86
+#: ../modules/date_time/TimezoneArea.qml:101
 msgid "Time zone"
 msgstr "Zone de temps"
 
@@ -1253,7 +1283,7 @@ msgstr "Vitesse du pointeur"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:119
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:169
-#: ../modules/keyboard/main.qml:146 ../modules/keyboard/main.qml:172
+#: ../modules/keyboard/main.qml:147 ../modules/keyboard/main.qml:173
 #: ../modules/mouse_touchpad/main.qml:103
 #: ../modules/mouse_touchpad/main.qml:155
 msgid "Slow"
@@ -1261,7 +1291,7 @@ msgstr "Lent"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:120
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:170
-#: ../modules/keyboard/main.qml:145 ../modules/keyboard/main.qml:171
+#: ../modules/keyboard/main.qml:146 ../modules/keyboard/main.qml:172
 #: ../modules/mouse_touchpad/main.qml:104
 #: ../modules/mouse_touchpad/main.qml:156
 msgid "Fast"
@@ -1277,12 +1307,12 @@ msgid "Drag Threshold"
 msgstr "Glisser le seuil"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:195
-#: ../modules/keyboard/main.qml:120
+#: ../modules/keyboard/main.qml:121
 msgid "Short"
 msgstr "Court"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:196
-#: ../modules/keyboard/main.qml:121
+#: ../modules/keyboard/main.qml:122
 msgid "Long"
 msgstr "Long"
 
@@ -1331,7 +1361,9 @@ msgstr "Authentification requise pour le réseau Wi-Fi"
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network <font "
 "color=\"#faca57\">%1</font>"
-msgstr "Les mots de passe ou clés de chiffrement sont requis pour accéder au réseau Wi-Fi <font color=\"#faca57\">%1</font>"
+msgstr ""
+"Les mots de passe ou clés de chiffrement sont requis pour accéder au réseau "
+"Wi-Fi <font color=\"#faca57\">%1</font>"
 
 #: ../dock-applets/qml/WifiPasswordWindow.qml:149
 msgid "Password:"
@@ -1560,31 +1592,31 @@ msgstr "Couleur du texte"
 msgid "Selected Text Color"
 msgstr "Couleur de texte sélectionnée"
 
-#: ../modules/keyboard/main.qml:106
+#: ../modules/keyboard/main.qml:107
 msgid "Repeat Delay"
 msgstr "Délai de répétition "
 
-#: ../modules/keyboard/main.qml:130
+#: ../modules/keyboard/main.qml:131
 msgid "Repeat Rate"
 msgstr "Taux de répétition"
 
-#: ../modules/keyboard/main.qml:155
+#: ../modules/keyboard/main.qml:156
 msgid "Cursor Blink Rate"
 msgstr "Taux de clignotement du curseur"
 
-#: ../modules/keyboard/main.qml:181
+#: ../modules/keyboard/main.qml:182
 msgid "Test Area"
 msgstr "Zone de test"
 
-#: ../modules/keyboard/main.qml:211
+#: ../modules/keyboard/main.qml:212
 msgid "Keyboard Layout"
 msgstr "Disposition du clavier"
 
-#: ../modules/keyboard/main.qml:396
+#: ../modules/keyboard/main.qml:419
 msgid "No result"
 msgstr "Pas de résultat"
 
-#: ../modules/keyboard/main.qml:405
+#: ../modules/keyboard/main.qml:428
 msgid "Caps Lock prompt"
 msgstr "Caps Lock vérrouillé"
 
@@ -1844,3 +1876,57 @@ msgstr "ADSL"
 #: ../modules/network/main.qml:183
 msgid "Bridge"
 msgstr "Pont"
+
+#: ../modules/network/main.qml:193
+msgid "802.11 WiFi"
+msgstr ""
+
+#: ../modules/network/main.qml:195
+msgid "802.11 WiFi AdHoc"
+msgstr ""
+
+#: ../modules/network/main.qml:197
+#, fuzzy
+msgid "802.11 WiFi Hotspot"
+msgstr "Modifier le Hotspot Wi-Fi"
+
+#: ../modules/network/main.qml:203
+#, fuzzy
+msgid "Mobile GSM"
+msgstr "Mobile"
+
+#: ../modules/network/main.qml:205
+#, fuzzy
+msgid "Mobile CDMA"
+msgstr "Mobile"
+
+#: ../modules/network/main.qml:209
+#, fuzzy
+msgid "VPN L2TP"
+msgstr "L2TP"
+
+#: ../modules/network/main.qml:211
+#, fuzzy
+msgid "VPN PPTP"
+msgstr "VPN PPP"
+
+#: ../modules/network/main.qml:213
+#, fuzzy
+msgid "VPN VPNC"
+msgstr "VPNC"
+
+#: ../modules/network/main.qml:215
+#, fuzzy
+msgid "VPN OpenVPN"
+msgstr "OpenVPN"
+
+#: ../modules/network/main.qml:217
+#, fuzzy
+msgid "VPN OpenConnect"
+msgstr "OpenConnect"
+
+#~ msgid "Device Type"
+#~ msgstr "Type de périphérique"
+
+#~ msgid "Addtional DNS"
+#~ msgstr "DNS additionnel"
