@@ -67,7 +67,7 @@ Item {
 
     Component.onCompleted:{
         keyboardModule.allLayoutMapL10n = getAllLayoutMapL10n()
-        var retList = searchId.NewSearchWithDict(
+        var retList = searchId.NewSearchWithStrDict(
             keyboardModule.allLayoutMapL10n)
         keyboardModule.searchMd5 = retList[0]
         layoutList.reloadLayout()

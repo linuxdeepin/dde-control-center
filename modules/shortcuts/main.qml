@@ -71,7 +71,7 @@ Item {
             var temp_list = dbusKeyBinding.customList[i]
             keywords[temp_list[0]] = temp_list[1]
         }
-        var retList = searchId.NewSearchWithDict(keywords)
+        var retList = searchId.NewSearchWithStrDict(keywords)
         shortcutsModule.searchMd5 = retList[0]
         return allKeybindings
     }

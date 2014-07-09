@@ -58,7 +58,7 @@ Column {
     }
     property var userTimezoneList: gDate.userTimezoneList
     property string searchMd5: {
-        var retList = dbusSearch.NewSearchWithDict(timezoneCityDict)
+        var retList = dbusSearch.NewSearchWithStrDict(timezoneCityDict)
         print("New Search Timezone Ret", retList[0])
         return retList[0]
     }

@@ -43,7 +43,7 @@ DBaseExpand {
     property var allLocales: getAllLocales(false)
     property var allSearchLocales: getAllLocales(true)
     property string searchMd5: {
-        var retList = dbusSearch.NewSearchWithDict(allSearchLocales)
+        var retList = dbusSearch.NewSearchWithStrDict(allSearchLocales)
         print(retList[0])
         return retList[0]
     }
