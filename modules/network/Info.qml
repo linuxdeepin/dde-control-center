@@ -34,23 +34,39 @@ Column {
             expanded: header.item.active
             header.sourceComponent: DDownArrowHeader {
                 active: true
-                text: modelData.Interface
+                text: {
+                    if (modelData.IsPrimaryConnection) {
+                        return modelData.ConnectionName + dsTr("(default)")
+                    }
+                    return modelData.ConnectionName
+                }
             }
             content.sourceComponent: DBaseLine {
                 height: leftLoader.item.height
                 color: dconstants.contentBgColor
-                leftLoader.sourceComponent: GridLayout {
+                leftLoader.sourceComponent: Column {
                     width: root.width
-                    columns: 2
-                    Layout.preferredWidth: root.width
-                    InfoItem { text: dsTr("Device Type") }  InfoItem { text: getDeviceName(modelData.DeviceType) }
-                    InfoItem { text: dsTr("Device Addr") }  InfoItem { text: modelData.HwAddress }
-                    InfoItem { text: dsTr("IP Address") }   InfoItem { text: modelData.Ip4.Address }
-                    InfoItem { text: dsTr("Subnet Mask") }  InfoItem { text: modelData.Ip4.Mask }
-                    InfoItem { text: dsTr("Route Addr") }   InfoItem { text: modelData.Ip4.Router }
-                    InfoItem { text: dsTr("Primary DNS") }  InfoItem { text: modelData.Ip4.Dns1 }
-                    InfoItem { text: dsTr("Addtional DNS"); visible: modelData.Ip4.Dns2 != "" }  InfoItem { text: modelData.Ip4.Dns2 ; visible: modelData.Ip4.Dns2 != ""}
-                    InfoItem { text: dsTr("Device Speed") } InfoItem { text: modelData.Speed + " Mb/s" }
+                    InfoItem {
+                        label: dsTr("Interface");
+                        value: getConnectionDisplayName(modelData.ConnectionType) + " (" + modelData.DeviceInterface + ")"
+                    }
+                    InfoItem {label: dsTr("Security");       value: modelData.Security}
+                    InfoItem {label: dsTr("Device Addr");    value: modelData.HwAddress}
+                    InfoItem {label: dsTr("IP Address");     value: modelData.Ip4.Address}
+                    InfoItem {label: dsTr("Subnet Mask");    value: modelData.Ip4.Mask}
+                    InfoItem {label: dsTr("Route Addr");     value: modelData.Ip4.Route}
+                    InfoItem {label: dsTr("Primary DNS");    value: modelData.Ip4.Dns1}
+                    InfoItem {label: dsTr("Secondary DNS");  value: modelData.Ip4.Dns2}
+                    InfoItem {label: dsTr("Ternary DNS");    value: modelData.Ip4.Dns3}
+                    
+                    // TODO
+                    // InfoItem {label: dsTr("IPv6 Address");     value: modelData.Ip6.Address}
+                    // InfoItem {label: dsTr("IPv6 Route Addr");     value: modelData.Ip6.Route}
+                    // InfoItem {label: dsTr("IPv6 Primary DNS");    value: modelData.Ip6.Dns1}
+                    // InfoItem {label: dsTr("IPv6 Secondary DNS");  value: modelData.Ip6.Dns2}
+                    // InfoItem {label: dsTr("IPv6 Ternary DNS");    value: modelData.Ip6.Dns3}
+                    
+                    InfoItem {label: dsTr("Device Speed");   value: modelData.Speed + " Mb/s"}
                 }
             }
         }

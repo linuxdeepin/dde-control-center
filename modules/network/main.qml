@@ -151,7 +151,7 @@ Item {
         return value
     }
 
-    function getDeviceName(devType) {
+    function getDeviceDisplayName(devType) {
         switch(devType) {
         case nmDeviceTypeUnknown:
             return dsTr("Unknown");
@@ -185,6 +185,39 @@ Item {
         return dsTr("Unknown");
     }
     
+    function getConnectionDisplayName(connType) {
+        switch (connType) {
+        case nmConnectionTypeWired:
+            return dsTr("Ethernet");
+        case nmConnectionTypeWireless:
+            return dsTr("802.11 WiFi");
+        case nmConnectionTypeWirelessAdhoc:
+            return dsTr("802.11 WiFi AdHoc");
+        case nmConnectionTypeWirelessHotspot:
+            return dsTr("802.11 WiFi Hotspot");
+        case nmConnectionTypePppoe:
+            return dsTr("PPPoE");
+        case nmConnectionTypeMobile:
+            return dsTr("Mobile");
+        case nmConnectionTypeMobileGsm:
+            return dsTr("Mobile GSM");
+        case nmConnectionTypeMobileCdma:
+            return dsTr("Mobile CDMA");
+        case nmConnectionTypeVpn:
+            return dsTr("VPN");
+        case nmConnectionTypeVpnL2tp:
+            return dsTr("VPN L2TP");
+        case nmConnectionTypeVpnPptp:
+            return dsTr("VPN PPTP");
+        case nmConnectionTypeVpnVpnc:
+            return dsTr("VPN VPNC");
+        case nmConnectionTypeVpnOpenvpn:
+            return dsTr("VPN OpenVPN");
+        case nmConnectionTypeVpnOpenconnect:
+            return dsTr("VPN OpenConnect");
+        }
+    }
+
     function getActiveConnectionInfo(uuid) {
         for (var i in nmActiveConnections) {
             if(nmActiveConnections[i].Uuid == uuid){
