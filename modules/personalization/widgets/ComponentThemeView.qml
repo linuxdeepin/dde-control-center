@@ -71,7 +71,7 @@ GridView {
     Timer {
         id: delayInitTimer
         running: true
-        interval: 200
+        interval: 500
         onTriggered: {
             reloadModel()
         }
