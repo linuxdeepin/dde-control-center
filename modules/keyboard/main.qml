@@ -225,7 +225,7 @@ Item {
                     keyboardLayoutArea.currentActionStateName = currentActionStateName
 
                     if(currentActionStateName == "addButton"){
-                        addLayoutIndex.currentSelectedIndex = "A"
+                        indexLetterListView.currentIndex = 0
                     }
                 }
             }
@@ -297,44 +297,58 @@ Item {
                 height: 28
                 width: parent.width
                 color: dconstants.bgColor
-                property string currentSelectedIndex: ""
 
-                onCurrentSelectedIndexChanged: {
-                    addLayoutList.rebuildModel(currentSelectedIndex)
+                property var searchIndexResult: null
+
+                Component.onCompleted: {
+                    searchIndexResult = new Object()
+                    var alphabet = ["A", "B", "C", "D", "E", "F", "G",
+                                    "H", "I", "J", "K", "L", "M", "N",
+                                    "O", "P", "Q", "R", "S", "T",
+                                    "U", "V", "W", "X", "Y", "Z"
+                                ]
+                    for(var i=0;i<alphabet.length;i++){
+                        var indexLetter = alphabet[i]
+                        var search_result = searchId.SearchStartWithString(indexLetter, keyboardModule.searchMd5)
+                        if(search_result.length > 0){
+                            indexLetterListView.model.append({
+                                "indexLetter": indexLetter,
+                            })
+                            searchIndexResult[indexLetter] = search_result
+                        }
+                    }
                 }
 
-                Row{
-                    spacing: 3
-                    anchors.verticalCenter: parent.verticalCenter
+                ListView {
+                    id: indexLetterListView
+                    width: childrenRect.width
+                    height: parent.height
+                    orientation: ListView.Horizontal
+                    boundsBehavior: Flickable.StopAtBounds
                     anchors.horizontalCenter: parent.horizontalCenter
-                    Repeater{
-                        model: ["A", "B", "C", "D", "E", "F", "G",
-                            "H", "I", "J", "K", "L", "M", "N",
-                            "O", "P", "Q", "R", "S", "T",
-                            "U", "V", "W", "X", "Y", "Z"
-                        ]
-
-                        DLabel{
-                            anchors.verticalCenter: parent.verticalCenter
-                            text: modelData
-                            font.pixelSize: addLayoutIndex.currentSelectedIndex == modelData ? 18 : 13
-                            color: {
-                                if (addLayoutIndex.currentSelectedIndex == modelData | hovered){
-                                    return dconstants.activeColor
-                                }
-                                return dconstants.fgColor
+                    model: ListModel{}
+                    currentIndex: -1
+                    delegate: DLabel{
+                        anchors.verticalCenter: parent.verticalCenter
+                        width: contentWidth + 4
+                        text: indexLetter
+                        font.pixelSize: ListView.isCurrentItem ? 18 : 13
+                        color: {
+                            if (ListView.isCurrentItem | hovered){
+                                return dconstants.activeColor
                             }
+                            return dconstants.fgColor
+                        }
 
-                            property bool hovered: false
+                        property bool hovered: false
 
-                            MouseArea {
-                                anchors.fill: parent
-                                hoverEnabled: true
-                                onEntered: parent.hovered = true
-                                onExited: parent.hovered = false
-                                onReleased: containsMouse ? parent.hovered = true : parent.hovered = false
-                                onClicked: addLayoutIndex.currentSelectedIndex = modelData
-                            }
+                        MouseArea {
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            onEntered: parent.hovered = true
+                            onExited: parent.hovered = false
+                            onReleased: containsMouse ? parent.hovered = true : parent.hovered = false
+                            onClicked: parent.ListView.view.currentIndex = index
                         }
                     }
                 }
@@ -356,6 +370,17 @@ Item {
                 width: parent.width
                 clip: true
 
+                Connections {
+                    target: indexLetterListView
+                    onCurrentIndexChanged: {
+                        if(indexLetterListView.currentIndex != -1){
+                            var dataObject = indexLetterListView.model.get(indexLetterListView.currentIndex)
+                            var indexLetter = dataObject.indexLetter
+                            addLayoutList.rebuildModel(addLayoutIndex.searchIndexResult[indexLetter])
+                        }
+                    }
+                }
+
                 function getSelectedKeys(){
                     var selectedKeys = []
                     var allChildren = contentItem.children
@@ -367,18 +392,15 @@ Item {
                     return selectedKeys
                 }
 
-                function rebuildModel(selectedIndex){
+                function rebuildModel(search_result){
                     addLayoutList.model.clear()
-                    if(keyboardModule.searchMd5 && selectedIndex){
-                        var search_result = searchId.SearchStartWithString(selectedIndex, keyboardModule.searchMd5)
-                        for (var i=0; i<search_result.length; i++){
-                            var id = search_result[i]
-                            if(!keyboardModule.isInUserLayouts(id)){
-                                addLayoutList.model.append({
-                                    "label": allLayoutMapL10n[id],
-                                    "item_id": id
-                                })
-                            }
+                    for (var i=0; i<search_result.length; i++){
+                        var id = search_result[i]
+                        if(!keyboardModule.isInUserLayouts(id)){
+                            addLayoutList.model.append({
+                                "label": allLayoutMapL10n[id],
+                                "item_id": id
+                            })
                         }
                     }
                 }
