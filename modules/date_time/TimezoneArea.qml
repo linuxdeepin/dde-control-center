@@ -44,6 +44,18 @@ Column {
     property string currentActionStateName: ""
     property var listModelComponent: DListModelComponent {}
 
+    property var timezoneInformation: {
+        var codeList = new Array()
+        var cityList = new Array()
+        var timezoneList = gDate.TimezoneCityList()
+        for(var i in timezoneList){
+            var info = timezoneList[i]
+            codeList.push(info[0])
+            cityList.push(info[1])
+        }
+        return {"code": codeList, "city": cityList}
+    }
+
     property var timezoneCityDict: {
         var d = new Object()
         var timezoneList = gDate.TimezoneCityList()
@@ -58,8 +70,7 @@ Column {
     }
     property var userTimezoneList: gDate.userTimezoneList
     property string searchMd5: {
-        var retList = dbusSearch.NewSearchWithStrDict(timezoneCityDict)
-        print("New Search Timezone Ret", retList[0])
+        var retList = dbusSearch.NewSearchWithStrList(timezoneInformation.city)
         return retList[0]
     }
 
@@ -198,26 +209,34 @@ Column {
             property var selectedItemDict: new Object()
 
             function fillModel(s){
+                model.clear()
                 selectedItemDict = new Object()
-                var searchResult = dbusSearch.SearchString(s, searchMd5)
-                var toSortResult = new Array()
-                for(var i=0; i<searchResult.length; i++){
-                    var timezoneValue = searchResult[i]
-                    if(!isInUserTimezoneList(timezoneValue)){
-                        var tmp = new Array()
-                        tmp.push(timezoneValue)
-                        tmp.push(timezoneCityDict[timezoneValue])
-                        toSortResult.push(tmp)
+
+                if(s == ""){
+                    for(var i=0;i<timezoneInformation["code"].length;i++){
+                        var code = timezoneInformation["code"][i]
+                        var city = timezoneInformation["city"][i]
+                        if (getIndexFromArray(code, userTimezoneList) != -1) continue
+                        model.append({
+                            "value": code,
+                            "label": city
+                        })
                     }
                 }
-                toSortResult = windowView.sortSearchResult(toSortResult)
-                model.clear()
-                for(var i=0; i<toSortResult.length; i++){
-                    var d = toSortResult[i]
-                    model.append({
-                        "value": d[0],
-                        "label": d[1]
-                    })
+                else{
+                    var searchResult = dbusSearch.SearchString(s, searchMd5)
+                    for(var i=0; i<searchResult.length; i++){
+                        var city = searchResult[i]
+                        var index = getIndexFromArray(city, timezoneInformation["city"])
+                        if(index != -1){
+                            var code = timezoneInformation["code"][index]
+                            if (getIndexFromArray(code, userTimezoneList) != -1) continue
+                            model.append({
+                                "value": code,
+                                "label": city
+                            })
+                        }
+                    }
                 }
             }
 

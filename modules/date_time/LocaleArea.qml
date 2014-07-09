@@ -42,9 +42,19 @@ DBaseExpand {
     }
     property var allLocales: getAllLocales(false)
     property var allSearchLocales: getAllLocales(true)
+    property var localeInformation: {
+        var codeList = new Array()
+        var labelList = new Array()
+        var allLocaleList = gDate.GetLocaleList()
+        for(var i in allLocaleList){
+            var info = allLocaleList[i]
+            codeList.push(info[0])
+            labelList.push(info[1])
+        }
+        return {"codeList": codeList, "labelList": labelList}
+    }
     property string searchMd5: {
-        var retList = dbusSearch.NewSearchWithStrDict(allSearchLocales)
-        print(retList[0])
+        var retList = dbusSearch.NewSearchWithStrList(localeInformation.labelList)
         return retList[0]
     }
 
@@ -122,12 +132,13 @@ DBaseExpand {
                         var searchResult = dbusSearch.SearchString(text, searchMd5)
                         var localeList = new Array()
                         for(var i in searchResult){
-                            var tmp = new Array()
-                            tmp.push(searchResult[i])
-                            tmp.push(allSearchLocales[searchResult[i]])
-                            localeList.push(tmp)
+                            var label = searchResult[i]
+                            var index = getIndexFromArray(searchResult[i], localeInformation.labelList)
+                            if(index == -1) continue
+                            var code = localeInformation.codeList[index]
+                            localeList.push([code, label])
                         }
-                        localeListView.updateModel(windowView.sortSearchResult(localeList))
+                        localeListView.updateModel(localeList)
                     }
                 }
             }
@@ -174,7 +185,7 @@ DBaseExpand {
 
             Timer {
                 id: initLocaleListTimer
-                interval: 200
+                interval: 500
                 onTriggered: {
                     localeListView.updateModel(allLocales)
                 }
