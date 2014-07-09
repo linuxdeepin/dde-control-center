@@ -22,7 +22,6 @@
 
 import os
 import sys
-from datetime import datetime
 
 from PyQt5 import QtCore
 from PyQt5 import QtGui
@@ -33,7 +32,6 @@ from PyQt5 import QtQml
 
 from constants import ROOT_LOCATION, PANEL_WIDTH
 from constants import APP_DBUS_NAME
-from ChineseLunar import ChineseCalendar150
 import utils
 import ip_utils
 
@@ -154,10 +152,6 @@ class ControlPanel(QtCore.QObject):
     def getDefaultMask(self, ip_addr):
         return ip_utils.getDefaultMask(ip_addr)
 
-    @QtCore.pyqtSlot(result=int)
-    def getPid(self):
-        return os.getpid()
-        
     @QtCore.pyqtSlot(result=str)
     def getHomeDir(self):
         return os.path.expanduser("~")
@@ -165,11 +159,6 @@ class ControlPanel(QtCore.QObject):
     @QtCore.pyqtProperty(int)
     def panelWith(self):
         return PANEL_WIDTH
-
-    @QtCore.pyqtSlot(result=QtCore.QVariant)
-    def getCursorPos(self):
-        qpoint = self.cursor().pos()
-        return [qpoint.x(), qpoint.y()]
 
     @QtCore.pyqtSlot(str, result=str)
     def stripString(self, s):
@@ -199,10 +188,6 @@ class ControlPanel(QtCore.QObject):
         keys = sequence.split("-")
         return " ".join(keys).title()
 
-    @QtCore.pyqtSlot(result=QtCore.QVariant)
-    def argv(self):
-        return sys.argv[1:]
-
     @QtCore.pyqtSlot(QtCore.QVariant, bool, result=QtCore.QVariant)
     def sortArray(self, data, reverse=False):
         utils.quicksort(data)
@@ -214,9 +199,3 @@ class ControlPanel(QtCore.QObject):
     def sortSearchResult(self, data):
         data.sort(key=lambda d: d[1])
         return data
-
-    @QtCore.pyqtSlot(str, result=QtCore.QVariant)
-    def getLunarDay(self, value):
-        dt = datetime.strptime(value, "%Y-%m-%d")
-        cc150 = ChineseCalendar150(dt)
-        return [cc150.get_lunar_day(), cc150.GetFullGanzhiDate1(), cc150.GetJieQi()]
