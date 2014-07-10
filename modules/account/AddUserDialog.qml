@@ -43,6 +43,16 @@ Rectangle {
                 user_name_input.state = "warning"
             }
             
+            if (password_input.text == "") {
+                result = false
+                password_input.state = "warning"
+            }
+            
+            if (repeat_password_input.text == "") {
+                result = false
+                repeat_password_input.state = "warning"
+            }            
+            
             if (password_input.text != repeat_password_input.text) {
                 result = false
                 repeat_password_input.state = "warning"
