@@ -356,8 +356,16 @@ Item {
 
             DSeparatorHorizontal {}
 
+            Rectangle {
+                id: addLayoutListBox
+                color: dconstants.contentBgColor
+                width: parent.width
+                height: childrenRect.height
+            }
+
             ListView {
                 id: addLayoutList
+                parent: addLayoutListBox
                 height: {
                     var listHeight = addLayoutList.model.count * 28
                     if(listHeight > keyboardModule.height - 278 - 64){
