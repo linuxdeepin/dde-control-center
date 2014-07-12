@@ -51,6 +51,16 @@ Rectangle {
         }
     }
 
+    function marshalJSON(value) {
+        var valueJSON = JSON.stringify(value);
+        return valueJSON
+    }
+
+    function unmarshalJSON(valueJSON) {
+        var value = JSON.parse(valueJSON)
+        return value
+    }
+
     Item {
         id: title_row
         z: 3
@@ -254,6 +264,109 @@ Rectangle {
             }
 
             DSeparatorHorizontal{}
+
+            DBaseExpand {
+                id: advanced_expand
+
+                header.sourceComponent: DDownArrowHeader {
+                    text: dsTr("Advanced")
+                    onClicked: {
+                        advanced_expand.expanded = !advanced_expand.expanded
+                    }
+                }
+                content.sourceComponent: Column{
+                    width: grub.width
+                    DSwitchButtonHeader{
+                        anchors.right: parent.right
+                        text: dsTr("Fix Settings Always")
+                        active: dbus_grub2.fixSettingsAlways
+                        onActiveChanged: {
+                            dbus_grub2.fixSettingsAlways = active
+                        }
+                    }
+                    DSwitchButtonHeader{
+                        anchors.right: parent.right
+                        text: dsTr("Enable Grub Theme")
+                        active: dbus_grub2.enableTheme
+                        onActiveChanged: {
+                            dbus_grub2.enableTheme = active
+                        }
+                    }
+                    DBaseLine {
+                        leftLoader.sourceComponent: DssH2{
+                            text: dsTr("Custom Resolution")
+                        }
+                        rightLoader.sourceComponent: DEditComboBoxSimple {
+                            id: resolutionEditBox
+                            activeFocusOnTab: true
+                            anchors.left: parent.left
+                            width: 120
+
+                            property var labels: new Array()
+                            property var values: new Array()
+                            property int selectIndex: -1
+
+                            text: dbus_grub2.resolution
+                            onTextChanged: {
+                                dbus_grub2.resolution = text
+                            }
+
+                            onShowRequested: {
+                                resolutionEditBox.labels = getLabels()
+                                resolutionEditBox.values = getValues()
+                                resolutionEditBox.selectIndex = getSelectedIndex()
+                                if(!rootMenu.visible){
+                                    rootMenu.labels = resolutionEditBox.labels
+                                    rootMenu.requestMenuItem = resolutionEditBox
+                                    rootMenu.currentIndex = selectIndex
+                                    rootMenu.posX = x
+                                    rootMenu.posY = y
+                                    rootMenu.innerWidth = width
+                                }
+                                rootMenu.visible = !rootMenu.visible
+                            }
+
+                            function getLabels() {
+                                var values = unmarshalJSON(dbus_grub2.GetAvailableResolutions())
+                                var valuesText = []
+                                for (var i=0; i<values.length; i++) {
+                                    valuesText.push(values[i].Text)
+                                }
+                                return valuesText
+                            }
+                            function getValues() {
+                                var values = unmarshalJSON(dbus_grub2.GetAvailableResolutions())
+                                var valuesValue = []
+                                for (var i=0; i<values.length; i++) {
+                                    valuesValue.push(values[i].Value)
+                                }
+                                return valuesValue
+                            }
+                            function getSelectedIndex() {
+                                var values = unmarshalJSON(dbus_grub2.GetAvailableResolutions())
+                                if (values == null) {
+                                    return -1
+                                }
+                                for (var i=0; i<values.length; i++) {
+                                    if (values[i].Value === resolutionEditBox.text) {
+                                        return i
+                                    }
+                                }
+                                return -1
+                            }
+
+                            function menuSelect(i){
+                                if (i != -1) {
+                                    resolutionEditBox.text = values[i]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            DSeparatorHorizontal{}
+
         }
     }
 }
