@@ -26,6 +26,14 @@ Item {
             source = dbus_grub2_theme.background
         }
 
+        Connections {
+            target: dbus_grub2_theme
+            onBackgroundChanged: {
+                print("onBackgroundChanged", dbus_grub2_theme.background)
+                background.reload()
+            }
+        }
+
         DropArea {
             anchors.fill: parent
 
@@ -97,6 +105,7 @@ Item {
             }
         }
 
+        // TODO
         /* Text { */
         /*     color: "#A34545" */
         /*     font.pixelSize: 7 */
@@ -121,26 +130,25 @@ Item {
             id: txt
             anchors.centerIn: parent
             color: updating ? "#F48914" : "white"
-            text: updating ? changingText : normalText
+            text: updating ? updatingText : normalText
 
             property string normalText: dsTr("Drag and drop an image to change background.")
-            property string changingText: dsTr("Background is changing, please reboot later...")
-            property string changedText: dsTr("Successfully changed, reboot to view.")
+            property string updatingText: dsTr("Updating...")
+            property string updatedText: dsTr("Successfully updated, reboot to view.")
 
-            property bool updating: dbus_grub2_theme.updating
+            property bool updating: dbus_grub2.updating || dbus_grub2_theme.updating
             onUpdatingChanged: {
                 if(updating){
-                    text = changingText
+                    text = updatingText
                 }
                 else{
-                    background.reload()
-                    text = changedText
-                    finishChangeTimer.restart()
+                    text = updatedText
+                    finishUpdatingTimer.restart()
                 }
             }
 
             Timer {
-                id: finishChangeTimer
+                id: finishUpdatingTimer
                 interval: 3000
                 onTriggered: {
                     txt.text = txt.normalText
