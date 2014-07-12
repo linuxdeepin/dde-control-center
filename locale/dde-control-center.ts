@@ -86,59 +86,59 @@
 <context>
     <name>AddUserDialog</name>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="56"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="66"/>
         <source>Add User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="84"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="94"/>
         <source>New User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="88"/>
-        <location filename="../modules/account/AddUserDialog.qml" line="213"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="98"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="223"/>
         <source>Standard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="88"/>
-        <location filename="../modules/account/AddUserDialog.qml" line="214"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="98"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="224"/>
         <source>Administrator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="105"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="115"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="137"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="147"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="170"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="180"/>
         <source>Repeat Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="201"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="211"/>
         <source>Account Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="233"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="243"/>
         <source>Auto-login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="284"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="294"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="297"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="307"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
@@ -484,12 +484,12 @@
 <context>
     <name>BaseConnectionEdit</name>
     <message>
-        <location filename="../modules/network/edit_autogen/BaseConnectionEdit.qml" line="34"/>
+        <location filename="../modules/network/edit_autogen/BaseConnectionEdit.qml" line="33"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/BaseConnectionEdit.qml" line="45"/>
+        <location filename="../modules/network/edit_autogen/BaseConnectionEdit.qml" line="43"/>
         <source>Automatically connect</source>
         <translation type="unfinished"></translation>
     </message>
@@ -684,22 +684,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionEthernet.qml" line="24"/>
+        <location filename="../modules/network/edit_autogen/EditSectionEthernet.qml" line="23"/>
         <source>Device MAC Addr</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionEthernet.qml" line="35"/>
+        <location filename="../modules/network/edit_autogen/EditSectionEthernet.qml" line="33"/>
         <source>Cloned MAC Addr</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionEthernet.qml" line="46"/>
+        <location filename="../modules/network/edit_autogen/EditSectionEthernet.qml" line="43"/>
         <source>Custom MTU</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionEthernet.qml" line="57"/>
+        <location filename="../modules/network/edit_autogen/EditSectionEthernet.qml" line="53"/>
         <source>MTU</source>
         <translation type="unfinished"></translation>
     </message>
@@ -730,27 +730,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionIpv4.qml" line="24"/>
+        <location filename="../modules/network/edit_autogen/EditSectionIpv4.qml" line="23"/>
         <source>Method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionIpv4.qml" line="35"/>
+        <location filename="../modules/network/edit_autogen/EditSectionIpv4.qml" line="33"/>
         <source>IP Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionIpv4.qml" line="47"/>
+        <location filename="../modules/network/edit_autogen/EditSectionIpv4.qml" line="44"/>
         <source>Netmask</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionIpv4.qml" line="61"/>
+        <location filename="../modules/network/edit_autogen/EditSectionIpv4.qml" line="57"/>
         <source>Gateway</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionIpv4.qml" line="74"/>
+        <location filename="../modules/network/edit_autogen/EditSectionIpv4.qml" line="69"/>
         <source>DNS Server</source>
         <translation type="unfinished"></translation>
     </message>
@@ -763,27 +763,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionIpv6.qml" line="24"/>
+        <location filename="../modules/network/edit_autogen/EditSectionIpv6.qml" line="23"/>
         <source>Method</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionIpv6.qml" line="35"/>
+        <location filename="../modules/network/edit_autogen/EditSectionIpv6.qml" line="33"/>
         <source>IP Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionIpv6.qml" line="46"/>
+        <location filename="../modules/network/edit_autogen/EditSectionIpv6.qml" line="43"/>
         <source>Prefix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionIpv6.qml" line="59"/>
+        <location filename="../modules/network/edit_autogen/EditSectionIpv6.qml" line="55"/>
         <source>Gateway</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionIpv6.qml" line="70"/>
+        <location filename="../modules/network/edit_autogen/EditSectionIpv6.qml" line="65"/>
         <source>DNS Server</source>
         <translation type="unfinished"></translation>
     </message>
@@ -796,50 +796,50 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionMobile.qml" line="24"/>
+        <location filename="../modules/network/edit_autogen/EditSectionMobile.qml" line="23"/>
         <source>Service Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionMobile.qml" line="35"/>
+        <location filename="../modules/network/edit_autogen/EditSectionMobile.qml" line="33"/>
         <source>APN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionMobile.qml" line="46"/>
-        <location filename="../modules/network/edit_autogen/EditSectionMobile.qml" line="123"/>
+        <location filename="../modules/network/edit_autogen/EditSectionMobile.qml" line="43"/>
+        <location filename="../modules/network/edit_autogen/EditSectionMobile.qml" line="113"/>
         <source>Number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionMobile.qml" line="57"/>
-        <location filename="../modules/network/edit_autogen/EditSectionMobile.qml" line="134"/>
+        <location filename="../modules/network/edit_autogen/EditSectionMobile.qml" line="53"/>
+        <location filename="../modules/network/edit_autogen/EditSectionMobile.qml" line="123"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionMobile.qml" line="68"/>
-        <location filename="../modules/network/edit_autogen/EditSectionMobile.qml" line="145"/>
+        <location filename="../modules/network/edit_autogen/EditSectionMobile.qml" line="63"/>
+        <location filename="../modules/network/edit_autogen/EditSectionMobile.qml" line="133"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionMobile.qml" line="79"/>
+        <location filename="../modules/network/edit_autogen/EditSectionMobile.qml" line="73"/>
         <source>Network ID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionMobile.qml" line="90"/>
+        <location filename="../modules/network/edit_autogen/EditSectionMobile.qml" line="83"/>
         <source>Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionMobile.qml" line="101"/>
+        <location filename="../modules/network/edit_autogen/EditSectionMobile.qml" line="93"/>
         <source>Home Network Only</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionMobile.qml" line="112"/>
+        <location filename="../modules/network/edit_autogen/EditSectionMobile.qml" line="103"/>
         <source>PIN</source>
         <translation type="unfinished"></translation>
     </message>
@@ -852,62 +852,62 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionPpp.qml" line="24"/>
+        <location filename="../modules/network/edit_autogen/EditSectionPpp.qml" line="23"/>
         <source>Use MPPE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionPpp.qml" line="36"/>
+        <location filename="../modules/network/edit_autogen/EditSectionPpp.qml" line="34"/>
         <source>128-bit MPPE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionPpp.qml" line="48"/>
+        <location filename="../modules/network/edit_autogen/EditSectionPpp.qml" line="45"/>
         <source>Stateful MPPE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionPpp.qml" line="59"/>
+        <location filename="../modules/network/edit_autogen/EditSectionPpp.qml" line="55"/>
         <source>Refuse EAP Authentication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionPpp.qml" line="70"/>
+        <location filename="../modules/network/edit_autogen/EditSectionPpp.qml" line="65"/>
         <source>Refuse PAP Authentication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionPpp.qml" line="81"/>
+        <location filename="../modules/network/edit_autogen/EditSectionPpp.qml" line="75"/>
         <source>Refuse CHAP Authentication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionPpp.qml" line="92"/>
+        <location filename="../modules/network/edit_autogen/EditSectionPpp.qml" line="85"/>
         <source>Refuse MSCHAP Authentication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionPpp.qml" line="103"/>
+        <location filename="../modules/network/edit_autogen/EditSectionPpp.qml" line="95"/>
         <source>Refuse MSCHAPv2 Authentication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionPpp.qml" line="114"/>
+        <location filename="../modules/network/edit_autogen/EditSectionPpp.qml" line="105"/>
         <source>No BSD Data Compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionPpp.qml" line="125"/>
+        <location filename="../modules/network/edit_autogen/EditSectionPpp.qml" line="115"/>
         <source>No Deflate Data Compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionPpp.qml" line="136"/>
+        <location filename="../modules/network/edit_autogen/EditSectionPpp.qml" line="125"/>
         <source>No TCP Header Compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionPpp.qml" line="147"/>
+        <location filename="../modules/network/edit_autogen/EditSectionPpp.qml" line="135"/>
         <source>Send PPP Echo Packets</source>
         <translation type="unfinished"></translation>
     </message>
@@ -920,17 +920,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionPppoe.qml" line="24"/>
+        <location filename="../modules/network/edit_autogen/EditSectionPppoe.qml" line="23"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionPppoe.qml" line="35"/>
+        <location filename="../modules/network/edit_autogen/EditSectionPppoe.qml" line="33"/>
         <source>Service</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionPppoe.qml" line="46"/>
+        <location filename="../modules/network/edit_autogen/EditSectionPppoe.qml" line="43"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
@@ -939,84 +939,84 @@
     <name>EditSectionSecurity</name>
     <message>
         <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="11"/>
-        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="35"/>
+        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="33"/>
         <source>Security</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="24"/>
+        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="23"/>
         <source>Security Required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="46"/>
+        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="43"/>
         <source>Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="57"/>
-        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="191"/>
+        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="53"/>
+        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="175"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="68"/>
+        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="63"/>
         <source>EAP Auth</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="79"/>
+        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="73"/>
         <source>Identity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="90"/>
+        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="83"/>
         <source>Anonymous ID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="101"/>
+        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="93"/>
         <source>CA Cert</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="112"/>
+        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="103"/>
         <source>User Cert</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="123"/>
+        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="113"/>
         <source>Provisioning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="134"/>
+        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="123"/>
         <source>PAC file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="145"/>
+        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="133"/>
         <source>PEAP Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="156"/>
+        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="143"/>
         <source>Inner Auth</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="168"/>
+        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="154"/>
         <source>Private Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="179"/>
-        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="202"/>
+        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="164"/>
+        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="185"/>
         <source>Ask for Pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="213"/>
+        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="195"/>
         <source>Private Pwd</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1029,145 +1029,145 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="24"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="23"/>
         <source>Need VPN Plugin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="36"/>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="91"/>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="179"/>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="344"/>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="399"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="34"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="84"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="164"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="314"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="364"/>
         <source>Gateway</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="47"/>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="201"/>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="355"/>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="410"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="44"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="184"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="324"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="374"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="58"/>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="212"/>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="267"/>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="366"/>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="421"/>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="454"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="54"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="194"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="244"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="334"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="384"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="414"/>
         <source>Ask for Pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="69"/>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="223"/>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="377"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="64"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="204"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="344"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="80"/>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="388"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="74"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="354"/>
         <source>NT Domain</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="102"/>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="234"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="94"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="214"/>
         <source>CA Cert</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="113"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="104"/>
         <source>Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="124"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="114"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="135"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="124"/>
         <source>CSD Wrapper</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="157"/>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="256"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="144"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="234"/>
         <source>Private Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="168"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="154"/>
         <source>User FSID For Key Passphrase</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="190"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="174"/>
         <source>Auth Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="146"/>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="245"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="134"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="224"/>
         <source>User Cert</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="278"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="254"/>
         <source>Private Pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="289"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="264"/>
         <source>Static Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="300"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="274"/>
         <source>Use Key Direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="311"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="284"/>
         <source>Key Direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="322"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="294"/>
         <source>Remote IP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="333"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="304"/>
         <source>Local IP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="432"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="394"/>
         <source>User Pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="443"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="404"/>
         <source>Group Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="465"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="424"/>
         <source>Group Pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="476"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="434"/>
         <source>Use Hybrid Authentication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="487"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="444"/>
         <source>CA File</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1180,22 +1180,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml" line="24"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml" line="23"/>
         <source>Enable IPsec</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml" line="35"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml" line="33"/>
         <source>Group Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml" line="46"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml" line="43"/>
         <source>Group ID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml" line="57"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml" line="53"/>
         <source>Pre-Shared Key</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1208,72 +1208,72 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="24"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="23"/>
         <source>Use MPPE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="35"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="33"/>
         <source>Security</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="46"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="43"/>
         <source>Stateful MPPE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="57"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="53"/>
         <source>Refuse EAP Authentication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="69"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="64"/>
         <source>Refuse PAP Authentication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="81"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="75"/>
         <source>Refuse CHAP Authentication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="93"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="86"/>
         <source>Refuse MSCHAP Authentication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="105"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="97"/>
         <source>Refuse MSCHAPv2 Authentication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="117"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="108"/>
         <source>No BSD Data Compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="128"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="118"/>
         <source>No Deflate Data Compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="139"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="128"/>
         <source>No TCP Header Compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="150"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="138"/>
         <source>No Protocol Field Compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="161"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="148"/>
         <source>No Address/Control Compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="172"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="158"/>
         <source>Send PPP Echo Packets</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1286,67 +1286,67 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="24"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="23"/>
         <source>Use Custom Gateway Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="35"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="33"/>
         <source>Gateway Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="48"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="45"/>
         <source>Use Custom Renegotiation Interval</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="59"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="55"/>
         <source>Renegotiation Interval</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="72"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="67"/>
         <source>Use LZO data compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="83"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="77"/>
         <source>Use TCP connection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="94"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="87"/>
         <source>Use TAP device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="105"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="97"/>
         <source>Use Custom Tunnel MTU</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="116"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="107"/>
         <source>MTU</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="129"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="119"/>
         <source>Use Custom UDP Fragment Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="140"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="129"/>
         <source>UDP Fragment Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="153"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="141"/>
         <source>Restrict Tunnel TCP MSS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="164"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="151"/>
         <source>Randomize Remote Hosts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1359,32 +1359,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml" line="24"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml" line="23"/>
         <source>Proxy Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml" line="35"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml" line="33"/>
         <source>Server IP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml" line="46"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml" line="43"/>
         <source>Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml" line="59"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml" line="55"/>
         <source>Retry Indefinitely When Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml" line="70"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml" line="65"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml" line="81"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml" line="75"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1397,12 +1397,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml" line="24"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml" line="23"/>
         <source>Cipher</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml" line="35"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml" line="33"/>
         <source>HMAC Auth</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1415,27 +1415,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml" line="24"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml" line="23"/>
         <source>Subject Match</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml" line="35"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml" line="33"/>
         <source>Remote Cert Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml" line="46"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml" line="43"/>
         <source>Key File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml" line="57"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml" line="53"/>
         <source>Use Key Direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml" line="68"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml" line="63"/>
         <source>Key Direction</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1448,62 +1448,62 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml" line="24"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml" line="23"/>
         <source>Use MPPE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml" line="35"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml" line="33"/>
         <source>Security</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml" line="46"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml" line="43"/>
         <source>Stateful MPPE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml" line="57"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml" line="53"/>
         <source>Refuse EAP Authentication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml" line="69"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml" line="64"/>
         <source>Refuse PAP Authentication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml" line="81"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml" line="75"/>
         <source>Refuse CHAP Authentication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml" line="93"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml" line="86"/>
         <source>Refuse MSCHAP Authentication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml" line="105"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml" line="97"/>
         <source>Refuse MSCHAPv2 Authentication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml" line="116"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml" line="107"/>
         <source>No BSD Data Compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml" line="127"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml" line="117"/>
         <source>No Deflate Data Compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml" line="138"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml" line="127"/>
         <source>No TCP Header Compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml" line="149"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml" line="137"/>
         <source>Send PPP Echo Packets</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1516,47 +1516,47 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml" line="24"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml" line="23"/>
         <source>Domain</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml" line="35"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml" line="33"/>
         <source>Vendor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml" line="46"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml" line="43"/>
         <source>Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml" line="57"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml" line="53"/>
         <source>Encryption</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml" line="68"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml" line="63"/>
         <source>NAT Traversal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml" line="79"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml" line="73"/>
         <source>IKE DH Group</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml" line="90"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml" line="83"/>
         <source>Forward Secrecy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml" line="101"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml" line="93"/>
         <source>Local Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml" line="114"/>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml" line="105"/>
         <source>Disable Dead Peer Detection</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1569,42 +1569,42 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionWifi.qml" line="24"/>
+        <location filename="../modules/network/edit_autogen/EditSectionWifi.qml" line="23"/>
         <source>SSID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionWifi.qml" line="35"/>
+        <location filename="../modules/network/edit_autogen/EditSectionWifi.qml" line="33"/>
         <source>Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionWifi.qml" line="46"/>
+        <location filename="../modules/network/edit_autogen/EditSectionWifi.qml" line="43"/>
         <source>Band</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionWifi.qml" line="58"/>
+        <location filename="../modules/network/edit_autogen/EditSectionWifi.qml" line="54"/>
         <source>Channel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionWifi.qml" line="70"/>
+        <location filename="../modules/network/edit_autogen/EditSectionWifi.qml" line="65"/>
         <source>Device MAC Addr</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionWifi.qml" line="81"/>
+        <location filename="../modules/network/edit_autogen/EditSectionWifi.qml" line="75"/>
         <source>Cloned MAC Addr</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionWifi.qml" line="92"/>
+        <location filename="../modules/network/edit_autogen/EditSectionWifi.qml" line="85"/>
         <source>Custom MTU</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionWifi.qml" line="103"/>
+        <location filename="../modules/network/edit_autogen/EditSectionWifi.qml" line="95"/>
         <source>MTU</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2007,18 +2007,18 @@
 <context>
     <name>Preview</name>
     <message>
-        <location filename="../modules/grub/Preview.qml" line="126"/>
+        <location filename="../modules/grub/Preview.qml" line="124"/>
         <source>Drag and drop an image to change background.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/Preview.qml" line="127"/>
-        <source>Background is changing, please reboot later...</source>
+        <location filename="../modules/grub/Preview.qml" line="125"/>
+        <source>Updating...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/Preview.qml" line="128"/>
-        <source>Successfully changed, reboot to view.</source>
+        <location filename="../modules/grub/Preview.qml" line="126"/>
+        <source>Successfully updated, reboot to view.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2806,23 +2806,43 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/main.qml" line="102"/>
+        <location filename="../modules/grub/main.qml" line="112"/>
         <source>Default Startup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/main.qml" line="157"/>
+        <location filename="../modules/grub/main.qml" line="167"/>
         <source>Boot delay</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/main.qml" line="196"/>
+        <location filename="../modules/grub/main.qml" line="206"/>
         <source>Text Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/main.qml" line="229"/>
+        <location filename="../modules/grub/main.qml" line="239"/>
         <source>Selected Text Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/grub/main.qml" line="272"/>
+        <source>Advanced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/grub/main.qml" line="281"/>
+        <source>Fix Settings Always</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/grub/main.qml" line="289"/>
+        <source>Enable Grub Theme</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/grub/main.qml" line="297"/>
+        <source>Custom Resolution</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2877,12 +2897,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="419"/>
+        <location filename="../modules/keyboard/main.qml" line="427"/>
         <source>No result</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="428"/>
+        <location filename="../modules/keyboard/main.qml" line="436"/>
         <source>Caps Lock prompt</source>
         <translation type="unfinished"></translation>
     </message>

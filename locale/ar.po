@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-09 20:43+0800\n"
+"POT-Creation-Date: 2014-07-12 22:09+0800\n"
 "PO-Revision-Date: 2014-07-02 08:41+0000\n"
 "Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/dde-control-"
@@ -27,7 +27,7 @@ msgstr "اتصال PPPoE جديد "
 #: ../modules/network/add/AddDsl.qml:25
 #: ../modules/network/add/AddMobile.qml:34
 #: ../modules/network/add/AddVpn.qml:104
-#: ../modules/network/edit_autogen/BaseConnectionEdit.qml:34
+#: ../modules/network/edit_autogen/BaseConnectionEdit.qml:33
 #: ../modules/shortcuts/CustomKeybinding.qml:118
 msgid "Name"
 msgstr "أسم"
@@ -35,42 +35,42 @@ msgstr "أسم"
 #: ../modules/network/add/AddDsl.qml:38
 #: ../modules/network/add/AddMobile.qml:80
 #: ../modules/network/add/AddMobile.qml:113
-#: ../modules/account/AddUserDialog.qml:105
+#: ../modules/account/AddUserDialog.qml:115
 #: ../modules/network/add/AddVpn.qml:128 ../modules/network/add/AddVpn.qml:271
 #: ../modules/network/add/AddVpn.qml:425 ../modules/network/add/AddVpn.qml:469
-#: ../modules/network/edit_autogen/EditSectionMobile.qml:57
-#: ../modules/network/edit_autogen/EditSectionMobile.qml:134
-#: ../modules/network/edit_autogen/EditSectionPppoe.qml:24
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:47
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:201
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:355
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:410
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:70
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:53
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:123
+#: ../modules/network/edit_autogen/EditSectionPppoe.qml:23
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:44
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:184
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:324
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:374
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:65
 msgid "Username"
 msgstr "اسم مستخدم"
 
 #: ../modules/network/add/AddDsl.qml:49
-#: ../modules/network/edit_autogen/EditSectionPppoe.qml:35
+#: ../modules/network/edit_autogen/EditSectionPppoe.qml:33
 msgid "Service"
 msgstr "خدمة"
 
 #: ../modules/network/add/AddDsl.qml:60
 #: ../modules/network/add/AddMobile.qml:91
 #: ../modules/network/add/AddMobile.qml:124
-#: ../modules/account/AddUserDialog.qml:137
+#: ../modules/account/AddUserDialog.qml:147
 #: ../modules/network/add/AddVpn.qml:150 ../modules/network/add/AddVpn.qml:293
 #: ../modules/network/add/AddVpn.qml:447
 #: ../modules/network/wireless/AddWireless.qml:68
 #: ../modules/network/wireless/AddWireless.qml:202
-#: ../modules/network/edit_autogen/EditSectionMobile.qml:68
-#: ../modules/network/edit_autogen/EditSectionMobile.qml:145
-#: ../modules/network/edit_autogen/EditSectionPppoe.qml:46
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:57
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:191
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:69
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:223
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:377
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:81
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:63
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:133
+#: ../modules/network/edit_autogen/EditSectionPppoe.qml:43
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:53
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:175
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:64
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:204
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:344
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:75
 #: ../modules/account/PasswordDialog.qml:59
 #: ../modules/network/wireless/WifiHotspot.qml:73
 msgid "Password"
@@ -81,24 +81,24 @@ msgid "New Mobile Connection"
 msgstr "اتصال جوال جديد"
 
 #: ../modules/network/add/AddMobile.qml:47
-#: ../modules/network/edit_autogen/EditSectionMobile.qml:24
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:23
 msgid "Service Type"
 msgstr "شكل الخدمة"
 
 #: ../modules/network/add/AddMobile.qml:58
-#: ../modules/network/edit_autogen/EditSectionMobile.qml:35
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:33
 msgid "APN"
 msgstr ""
 
 #: ../modules/network/add/AddMobile.qml:69
 #: ../modules/network/add/AddMobile.qml:102
-#: ../modules/network/edit_autogen/EditSectionMobile.qml:46
-#: ../modules/network/edit_autogen/EditSectionMobile.qml:123
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:43
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:113
 msgid "Number"
 msgstr "رقم"
 
 #: ../modules/network/add/AddSectionSave.qml:11
-#: ../modules/account/AddUserDialog.qml:284
+#: ../modules/account/AddUserDialog.qml:294
 #: ../modules/network/wireless/AddWireless.qml:234
 #: ../modules/network/ConnectionAdd.qml:69
 #: ../modules/network/ConnectionEdit.qml:146
@@ -120,43 +120,43 @@ msgstr "إلغاء"
 msgid "Add"
 msgstr "أضف"
 
-#: ../modules/account/AddUserDialog.qml:56
+#: ../modules/account/AddUserDialog.qml:66
 msgid "Add User"
 msgstr "أضف مستخدم"
 
-#: ../modules/account/AddUserDialog.qml:84
+#: ../modules/account/AddUserDialog.qml:94
 msgid "New User"
 msgstr "مستخدم جديد"
 
-#: ../modules/account/AddUserDialog.qml:88
-#: ../modules/account/AddUserDialog.qml:213
+#: ../modules/account/AddUserDialog.qml:98
+#: ../modules/account/AddUserDialog.qml:223
 #: ../modules/account/EditUserDialog.qml:131
 #: ../modules/account/UserList.qml:187
 msgid "Standard"
 msgstr "قياسي"
 
-#: ../modules/account/AddUserDialog.qml:88
-#: ../modules/account/AddUserDialog.qml:214
+#: ../modules/account/AddUserDialog.qml:98
+#: ../modules/account/AddUserDialog.qml:224
 #: ../modules/account/EditUserDialog.qml:132
 #: ../modules/account/UserList.qml:187
 msgid "Administrator"
 msgstr "مسؤول"
 
-#: ../modules/account/AddUserDialog.qml:170
+#: ../modules/account/AddUserDialog.qml:180
 msgid "Repeat Password"
 msgstr "أعد كلمة السر"
 
-#: ../modules/account/AddUserDialog.qml:201
+#: ../modules/account/AddUserDialog.qml:211
 #: ../modules/account/EditUserDialog.qml:119
 msgid "Account Type"
 msgstr "شكل الحساب"
 
-#: ../modules/account/AddUserDialog.qml:233
+#: ../modules/account/AddUserDialog.qml:243
 #: ../modules/account/EditUserDialog.qml:52
 msgid "Auto-login"
 msgstr "دخول تلقائي"
 
-#: ../modules/account/AddUserDialog.qml:297
+#: ../modules/account/AddUserDialog.qml:307
 #: ../modules/account/DeleteUserDialog.qml:46
 #: ../modules/account/PasswordDialog.qml:186 ../modules/account/WebCam.qml:148
 msgid "Confirm"
@@ -191,20 +191,20 @@ msgid "Basic Information"
 msgstr "معلومات أساسية"
 
 #: ../modules/network/add/AddVpn.qml:83
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:24
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:23
 msgid "Need VPN Plugin"
 msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:117 ../modules/network/add/AddVpn.qml:161
 #: ../modules/network/add/AddVpn.qml:249 ../modules/network/add/AddVpn.qml:414
 #: ../modules/network/add/AddVpn.qml:458
-#: ../modules/network/edit_autogen/EditSectionIpv4.qml:61
-#: ../modules/network/edit_autogen/EditSectionIpv6.qml:59
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:36
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:91
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:179
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:344
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:399
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:57
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:55
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:34
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:84
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:164
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:314
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:364
 msgid "Gateway"
 msgstr "بوابة"
 
@@ -213,146 +213,146 @@ msgstr "بوابة"
 #: ../modules/network/add/AddVpn.qml:480 ../modules/network/add/AddVpn.qml:513
 #: ../modules/network/wireless/AddWireless.qml:190
 #: ../modules/network/wireless/AddWireless.qml:213
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:179
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:202
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:58
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:212
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:267
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:366
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:421
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:454
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:164
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:185
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:54
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:194
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:244
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:334
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:384
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:414
 msgid "Ask for Pwd"
 msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:172 ../modules/network/add/AddVpn.qml:304
 #: ../modules/network/wireless/AddWireless.qml:112
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:101
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:102
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:234
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:93
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:94
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:214
 msgid "CA Cert"
 msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:183
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:113
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:104
 msgid "Proxy"
 msgstr "الوكيل"
 
 #: ../modules/network/add/AddVpn.qml:194
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:124
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:114
 msgid "Allow Cisco Secure Desktop Trojan"
 msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:205
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:135
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:124
 msgid "CSD Wrapper"
 msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:227 ../modules/network/add/AddVpn.qml:326
 #: ../modules/network/wireless/AddWireless.qml:179
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:168
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:157
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:256
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:154
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:144
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:234
 msgid "Private Key"
 msgstr "مفتاح خاص"
 
 #: ../modules/network/add/AddVpn.qml:238
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:168
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:154
 msgid "User FSID For Key Passphrase"
 msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:260
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:190
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:174
 msgid "Auth Type"
 msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:216 ../modules/network/add/AddVpn.qml:315
 #: ../modules/network/wireless/AddWireless.qml:123
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:112
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:146
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:245
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:103
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:134
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:224
 msgid "User Cert"
 msgstr "رخصة المستخدم"
 
 #: ../modules/network/add/AddVpn.qml:348
 #: ../modules/network/wireless/AddWireless.qml:224
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:213
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:278
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:195
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:254
 msgid "Private Pwd"
 msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:359
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:289
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:264
 msgid "Static Key"
 msgstr "مفتاح ثابت"
 
 #: ../modules/network/add/AddVpn.qml:370
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:300
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:57
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:274
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
 msgid "Use Key Direction"
 msgstr "استخدم اتجاه المفتاح"
 
 #: ../modules/network/add/AddVpn.qml:381
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:311
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:68
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:284
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:63
 msgid "Key Direction"
 msgstr "اتجاه المفتاح"
 
 #: ../modules/network/add/AddVpn.qml:392
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:322
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:294
 msgid "Remote IP"
 msgstr "IP بعيد"
 
 #: ../modules/network/add/AddVpn.qml:403
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:333
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:304
 msgid "Local IP"
 msgstr "IP محلي"
 
 #: ../modules/network/add/AddVpn.qml:491
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:432
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:394
 msgid "User Pwd"
 msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:502 ../modules/network/add/AddVpn.qml:570
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:443
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:35
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:404
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:33
 msgid "Group Name"
 msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:524
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:465
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:424
 msgid "Group Pwd"
 msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:535
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:476
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:434
 msgid "Use Hybrid Authentication"
 msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:546
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:487
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:444
 msgid "CA File"
 msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:559
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:24
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:23
 msgid "Enable IPsec"
 msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:581
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:46
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:43
 msgid "Group ID"
 msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:592
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:57
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:53
 #, fuzzy
 msgid "Pre-Shared Key"
 msgstr "مفتاح خاص"
 
 #: ../modules/network/add/AddVpn.qml:605 ../modules/network/add/AddVpn.qml:618
-#: ../modules/network/edit_autogen/EditSectionPpp.qml:24
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:24
-#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:24
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:23
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:23
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:23
 msgid "Use MPPE"
 msgstr ""
 
@@ -361,59 +361,59 @@ msgid "Connect to wireless"
 msgstr "اتصل بالشبكة اللاسلكية"
 
 #: ../modules/network/wireless/AddWireless.qml:33
-#: ../modules/network/edit_autogen/EditSectionWifi.qml:24
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:23
 #: ../modules/network/wireless/WifiHotspot.qml:38
 msgid "SSID"
 msgstr ""
 
 #: ../modules/network/wireless/AddWireless.qml:46
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:11
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:35
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:35
-#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:35
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:33
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:33
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:33
 #: ../modules/network/Info.qml:53
 #: ../modules/network/wireless/WifiHotspot.qml:51
 msgid "Security"
 msgstr "الأمان"
 
 #: ../modules/network/wireless/AddWireless.qml:57
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:46
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:43
 #: ../modules/network/wireless/WifiHotspot.qml:62
 msgid "Key"
 msgstr "المفتاح"
 
 #: ../modules/network/wireless/AddWireless.qml:79
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:68
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:63
 msgid "EAP Auth"
 msgstr ""
 
 #: ../modules/network/wireless/AddWireless.qml:90
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:79
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:73
 msgid "Identity"
 msgstr "التحقق"
 
 #: ../modules/network/wireless/AddWireless.qml:101
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:90
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:83
 msgid "Anonymous ID"
 msgstr ""
 
 #: ../modules/network/wireless/AddWireless.qml:134
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:123
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:113
 msgid "Provisioning"
 msgstr ""
 
 #: ../modules/network/wireless/AddWireless.qml:145
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:134
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:123
 msgid "PAC file"
 msgstr ""
 
 #: ../modules/network/wireless/AddWireless.qml:156
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:145
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:133
 msgid "PEAP Version"
 msgstr ""
 
 #: ../modules/network/wireless/AddWireless.qml:167
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:156
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:143
 msgid "Inner Auth"
 msgstr ""
 
@@ -445,7 +445,7 @@ msgstr "الأفتراضي"
 msgid "Webcam"
 msgstr "كامرا النت"
 
-#: ../modules/network/edit_autogen/BaseConnectionEdit.qml:45
+#: ../modules/network/edit_autogen/BaseConnectionEdit.qml:43
 #: ../modules/network/edit_autogen/EditSectionGeneral.qml:24
 msgid "Automatically connect"
 msgstr "اتصال تلقائي"
@@ -573,24 +573,24 @@ msgstr "اضغط للتنصيب"
 msgid "Ethernet"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionEthernet.qml:24
-#: ../modules/network/edit_autogen/EditSectionWifi.qml:70
+#: ../modules/network/edit_autogen/EditSectionEthernet.qml:23
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:65
 msgid "Device MAC Addr"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionEthernet.qml:35
-#: ../modules/network/edit_autogen/EditSectionWifi.qml:81
+#: ../modules/network/edit_autogen/EditSectionEthernet.qml:33
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:75
 msgid "Cloned MAC Addr"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionEthernet.qml:46
-#: ../modules/network/edit_autogen/EditSectionWifi.qml:92
+#: ../modules/network/edit_autogen/EditSectionEthernet.qml:43
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:85
 msgid "Custom MTU"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionEthernet.qml:57
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:116
-#: ../modules/network/edit_autogen/EditSectionWifi.qml:103
+#: ../modules/network/edit_autogen/EditSectionEthernet.qml:53
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:107
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:95
 msgid "MTU"
 msgstr ""
 
@@ -606,23 +606,23 @@ msgstr "لكل المستخدمين"
 msgid "IPv4"
 msgstr "IPv4"
 
-#: ../modules/network/edit_autogen/EditSectionIpv4.qml:24
-#: ../modules/network/edit_autogen/EditSectionIpv6.qml:24
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:23
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:23
 msgid "Method"
 msgstr "طريقة"
 
-#: ../modules/network/edit_autogen/EditSectionIpv4.qml:35
-#: ../modules/network/edit_autogen/EditSectionIpv6.qml:35
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:33
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:33
 #: ../modules/network/Info.qml:55
 msgid "IP Address"
 msgstr "عنوان أب"
 
-#: ../modules/network/edit_autogen/EditSectionIpv4.qml:47
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:44
 msgid "Netmask"
 msgstr "قناع الشبكة"
 
-#: ../modules/network/edit_autogen/EditSectionIpv4.qml:74
-#: ../modules/network/edit_autogen/EditSectionIpv6.qml:70
+#: ../modules/network/edit_autogen/EditSectionIpv4.qml:69
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:65
 msgid "DNS Server"
 msgstr ""
 
@@ -630,7 +630,7 @@ msgstr ""
 msgid "IPv6"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionIpv6.qml:46
+#: ../modules/network/edit_autogen/EditSectionIpv6.qml:43
 msgid "Prefix"
 msgstr "سابقة"
 
@@ -639,19 +639,19 @@ msgstr "سابقة"
 msgid "Mobile"
 msgstr "جوال"
 
-#: ../modules/network/edit_autogen/EditSectionMobile.qml:79
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:73
 msgid "Network ID"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionMobile.qml:90
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:83
 msgid "Type"
 msgstr "النوع"
 
-#: ../modules/network/edit_autogen/EditSectionMobile.qml:101
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:93
 msgid "Home Network Only"
 msgstr "شبات المنزل فقط"
 
-#: ../modules/network/edit_autogen/EditSectionMobile.qml:112
+#: ../modules/network/edit_autogen/EditSectionMobile.qml:103
 msgid "PIN"
 msgstr ""
 
@@ -659,76 +659,76 @@ msgstr ""
 msgid "PPP"
 msgstr "البروتوكول التناظري"
 
-#: ../modules/network/edit_autogen/EditSectionPpp.qml:36
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:34
 msgid "128-bit MPPE"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionPpp.qml:48
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:46
-#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:46
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:45
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:43
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:43
 msgid "Stateful MPPE"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionPpp.qml:59
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:57
-#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:57
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:55
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:53
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:53
 msgid "Refuse EAP Authentication"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionPpp.qml:70
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:69
-#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:69
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:65
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:64
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:64
 msgid "Refuse PAP Authentication"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionPpp.qml:81
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:81
-#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:81
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:75
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:75
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:75
 msgid "Refuse CHAP Authentication"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionPpp.qml:92
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:93
-#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:93
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:85
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:86
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:86
 msgid "Refuse MSCHAP Authentication"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionPpp.qml:103
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:105
-#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:105
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:95
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:97
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:97
 msgid "Refuse MSCHAPv2 Authentication"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionPpp.qml:114
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:117
-#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:116
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:105
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:108
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:107
 msgid "No BSD Data Compression"
+msgstr ""
+
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:115
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:118
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:117
+msgid "No Deflate Data Compression"
 msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:125
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:128
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:127
-msgid "No Deflate Data Compression"
-msgstr ""
-
-#: ../modules/network/edit_autogen/EditSectionPpp.qml:136
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:139
-#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:138
 msgid "No TCP Header Compression"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionPpp.qml:147
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:172
-#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:149
+#: ../modules/network/edit_autogen/EditSectionPpp.qml:135
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:158
+#: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:137
 msgid "Send PPP Echo Packets"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionSecurity.qml:24
+#: ../modules/network/edit_autogen/EditSectionSecurity.qml:23
 msgid "Security Required"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:80
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:388
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:74
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:354
 msgid "NT Domain"
 msgstr ""
 
@@ -741,11 +741,11 @@ msgstr ""
 msgid "VPN PPP"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:150
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:138
 msgid "No Protocol Field Compression"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:161
+#: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:148
 msgid "No Address/Control Compression"
 msgstr ""
 
@@ -754,51 +754,51 @@ msgstr ""
 msgid "VPN Advanced"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:24
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:23
 msgid "Use Custom Gateway Port"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:35
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:33
 msgid "Gateway Port"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:48
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:45
 msgid "Use Custom Renegotiation Interval"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:59
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:55
 msgid "Renegotiation Interval"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:72
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:67
 msgid "Use LZO data compression"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:83
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:77
 msgid "Use TCP connection"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:94
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:87
 msgid "Use TAP device"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:105
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:97
 msgid "Use Custom Tunnel MTU"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:119
 msgid "Use Custom UDP Fragment Size"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:140
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
 msgid "UDP Fragment Size"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:153
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:141
 msgid "Restrict Tunnel TCP MSS"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:164
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:151
 msgid "Randomize Remote Hosts"
 msgstr ""
 
@@ -806,20 +806,20 @@ msgstr ""
 msgid "VPN Proxies"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:24
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:23
 msgid "Proxy Type"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:35
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:33
 msgid "Server IP"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:46
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:43
 #: ../modules/network/proxy/ProxyLine.qml:39
 msgid "Port"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:59
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:55
 msgid "Retry Indefinitely When Failed"
 msgstr ""
 
@@ -827,11 +827,11 @@ msgstr ""
 msgid "VPN Security"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:24
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:23
 msgid "Cipher"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:35
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:33
 msgid "HMAC Auth"
 msgstr ""
 
@@ -839,51 +839,51 @@ msgstr ""
 msgid "VPN TLS Authentication"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:24
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:23
 msgid "Subject Match"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:35
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:33
 msgid "Remote Cert Type"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:46
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:43
 msgid "Key File"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:24
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:23
 msgid "Domain"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:35
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:33
 msgid "Vendor"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:46
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:43
 msgid "Version"
 msgstr "الإصدار"
 
-#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:57
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:53
 msgid "Encryption"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:68
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:63
 msgid "NAT Traversal"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:79
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:73
 msgid "IKE DH Group"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:90
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:83
 msgid "Forward Secrecy"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:101
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:93
 msgid "Local Port"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:114
+#: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:105
 msgid "Disable Dead Peer Detection"
 msgstr ""
 
@@ -891,15 +891,15 @@ msgstr ""
 msgid "Wi-Fi"
 msgstr "وايفاي"
 
-#: ../modules/network/edit_autogen/EditSectionWifi.qml:35
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:33
 msgid "Mode"
 msgstr "نمط"
 
-#: ../modules/network/edit_autogen/EditSectionWifi.qml:46
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:43
 msgid "Band"
 msgstr "حزمة"
 
-#: ../modules/network/edit_autogen/EditSectionWifi.qml:58
+#: ../modules/network/edit_autogen/EditSectionWifi.qml:54
 msgid "Channel"
 msgstr "قناة"
 
@@ -1134,16 +1134,17 @@ msgstr "كلمة سر جديدة"
 msgid "Repeat"
 msgstr "تجديد"
 
-#: ../modules/grub/Preview.qml:126
+#: ../modules/grub/Preview.qml:124
 msgid "Drag and drop an image to change background."
 msgstr ""
 
-#: ../modules/grub/Preview.qml:127
-msgid "Background is changing, please reboot later..."
+#: ../modules/grub/Preview.qml:125
+msgid "Updating..."
 msgstr ""
 
-#: ../modules/grub/Preview.qml:128
-msgid "Successfully changed, reboot to view."
+#: ../modules/grub/Preview.qml:126
+#, fuzzy
+msgid "Successfully updated, reboot to view."
 msgstr "تم التغيير بنجاح, أعد التشغيل لتراها"
 
 #: ../modules/network/proxy/ProxyContent.qml:42
@@ -1570,21 +1571,39 @@ msgstr "الشاشة"
 msgid "Apply"
 msgstr "تطبيق"
 
-#: ../modules/grub/main.qml:102
+#: ../modules/grub/main.qml:112
 msgid "Default Startup"
 msgstr ""
 
-#: ../modules/grub/main.qml:157
+#: ../modules/grub/main.qml:167
 msgid "Boot delay"
 msgstr ""
 
-#: ../modules/grub/main.qml:196
+#: ../modules/grub/main.qml:206
 msgid "Text Color"
 msgstr "لون الخط"
 
-#: ../modules/grub/main.qml:229
+#: ../modules/grub/main.qml:239
 msgid "Selected Text Color"
 msgstr ""
+
+#: ../modules/grub/main.qml:272
+#, fuzzy
+msgid "Advanced"
+msgstr "متوازن"
+
+#: ../modules/grub/main.qml:281
+msgid "Fix Settings Always"
+msgstr ""
+
+#: ../modules/grub/main.qml:289
+msgid "Enable Grub Theme"
+msgstr ""
+
+#: ../modules/grub/main.qml:297
+#, fuzzy
+msgid "Custom Resolution"
+msgstr "الدقة"
 
 #: ../modules/keyboard/main.qml:107
 msgid "Repeat Delay"
@@ -1606,11 +1625,11 @@ msgstr ""
 msgid "Keyboard Layout"
 msgstr "تصميم لوحة المفاتيح"
 
-#: ../modules/keyboard/main.qml:419
+#: ../modules/keyboard/main.qml:427
 msgid "No result"
 msgstr "لانتائج"
 
-#: ../modules/keyboard/main.qml:428
+#: ../modules/keyboard/main.qml:436
 msgid "Caps Lock prompt"
 msgstr ""
 
