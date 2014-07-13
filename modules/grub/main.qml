@@ -277,38 +277,37 @@ Rectangle {
                 content.sourceComponent: Column{
                     width: grub.width
                     DSwitchButtonHeader{
+                        id: fix_settings
                         anchors.right: parent.right
                         text: dsTr("Fix Settings Always")
-                        // FIXME switch state not changed when resetted
                         Component.onCompleted: {
-                            active = dbus_grub2.fixSettingsAlways
+                            fix_settings.active = dbus_grub2.fixSettingsAlways
                         }
                         Connections {
                             target: dbus_grub2
                             onFixSettingsAlwaysChanged: {
-                                active = dbus_grub2.fixSettingsAlways
+                                fix_settings.active = dbus_grub2.fixSettingsAlways
                             }
                         }
                         onClicked: {
-                            // onActiveChanged: { // TODO
-                            dbus_grub2.fixSettingsAlways = active
+                            dbus_grub2.fixSettingsAlways = fix_settings.active
                         }
                     }
-                    DSwitchButtonHeader{
+                    DSwitchButtonHeader {
+                        id: enable_theme
                         anchors.right: parent.right
                         text: dsTr("Enable Grub Theme")
                         Component.onCompleted: {
-                            active = dbus_grub2.enableTheme
+                            enable_theme.active = dbus_grub2.enableTheme
                         }
                         Connections {
                             target: dbus_grub2
                             onEnableThemeChanged: {
-                                active = dbus_grub2.enableTheme
+                                enable_theme.active = dbus_grub2.enableTheme
                             }
                         }
                         onClicked: {
-                            // onActiveChanged: { // TODO
-                            dbus_grub2.enableTheme = active
+                            dbus_grub2.enableTheme = enable_theme.active
                         }
                         onVisibleChanged: {
                             print("visible:", visible)
@@ -328,7 +327,6 @@ Rectangle {
                             property var values: new Array()
                             property int selectIndex: -1
 
-                            text: dbus_grub2.resolution
                             Component.onCompleted: {
                                 text = dbus_grub2.resolution
                             }
