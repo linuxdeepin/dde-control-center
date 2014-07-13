@@ -279,17 +279,39 @@ Rectangle {
                     DSwitchButtonHeader{
                         anchors.right: parent.right
                         text: dsTr("Fix Settings Always")
-                        active: dbus_grub2.fixSettingsAlways
-                        onActiveChanged: {
+                        // FIXME switch state not changed when resetted
+                        Component.onCompleted: {
+                            active = dbus_grub2.fixSettingsAlways
+                        }
+                        Connections {
+                            target: dbus_grub2
+                            onFixSettingsAlwaysChanged: {
+                                active = dbus_grub2.fixSettingsAlways
+                            }
+                        }
+                        onClicked: {
+                            // onActiveChanged: { // TODO
                             dbus_grub2.fixSettingsAlways = active
                         }
                     }
                     DSwitchButtonHeader{
                         anchors.right: parent.right
                         text: dsTr("Enable Grub Theme")
-                        active: dbus_grub2.enableTheme
-                        onActiveChanged: {
+                        Component.onCompleted: {
+                            active = dbus_grub2.enableTheme
+                        }
+                        Connections {
+                            target: dbus_grub2
+                            onEnableThemeChanged: {
+                                active = dbus_grub2.enableTheme
+                            }
+                        }
+                        onClicked: {
+                            // onActiveChanged: { // TODO
                             dbus_grub2.enableTheme = active
+                        }
+                        onVisibleChanged: {
+                            print("visible:", visible)
                         }
                     }
                     DBaseLine {
@@ -307,7 +329,17 @@ Rectangle {
                             property int selectIndex: -1
 
                             text: dbus_grub2.resolution
+                            Component.onCompleted: {
+                                text = dbus_grub2.resolution
+                            }
+                            Connections {
+                                target: dbus_grub2
+                                onResolutionChanged: {
+                                    text = dbus_grub2.resolution
+                                }
+                            }
                             onTextChanged: {
+                                print("grub resoluton:", text)
                                 dbus_grub2.resolution = text
                             }
 
@@ -324,6 +356,11 @@ Rectangle {
                                     rootMenu.innerWidth = width
                                 }
                                 rootMenu.visible = !rootMenu.visible
+                            }
+                            function menuSelect(i){
+                                if (i != -1) {
+                                    resolutionEditBox.text = values[i]
+                                }
                             }
 
                             function getLabels() {
@@ -353,12 +390,6 @@ Rectangle {
                                     }
                                 }
                                 return -1
-                            }
-
-                            function menuSelect(i){
-                                if (i != -1) {
-                                    resolutionEditBox.text = values[i]
-                                }
                             }
                         }
                     }
