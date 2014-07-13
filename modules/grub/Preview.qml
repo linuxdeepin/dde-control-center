@@ -39,7 +39,11 @@ Item {
 
             onDropped: {
                 if (drop.hasUrls) {
-                    dbus_grub2_theme.SetBackgroundSourceFile(drop.urls[0].substring(6))
+                    var ok = dbus_grub2_theme.SetBackgroundSourceFile(drop.urls[0].substring(6))
+                    if (!ok) {
+                        tooltip.showText(tooltip.textImageNotSupport)
+                        finishUpdatingTimer.restart()
+                    }
                 }
             }
         }
@@ -115,34 +119,48 @@ Item {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
 
+        property string textNormal: dsTr("Drag and drop an image to change background.")
+        property string textImageNotSupport: dsTr("Image format is not supported.")
+        property string textUpdating: dsTr("Updating...")
+        property string textUpdated: dsTr("Successfully updated, reboot to view.")
+
+        property color colorNotice: "#F48914"
+        property color colorNormal: "white"
+        property bool updating: dbus_grub2.updating || dbus_grub2_theme.updating
+        onUpdatingChanged: {
+            if(updating){
+                showText(textUpdating)
+            }
+            else{
+                showText(textUpdated)
+                finishUpdatingTimer.restart()
+            }
+        }
+        Component.onCompleted: {
+            if (txt.text == "") {
+                showText(textNormal)
+            }
+        }
+
+        function showText(text) {
+            if (text == textNormal) {
+                txt.color = colorNormal
+            } else {
+                txt.color = colorNotice
+            }
+            txt.text = text
+        }
+
         DssH2{
             id: txt
             anchors.centerIn: parent
-            color: updating ? "#F48914" : "white"
-            text: updating ? updatingText : normalText
-
-            property string normalText: dsTr("Drag and drop an image to change background.")
-            property string updatingText: dsTr("Updating...")
-            property string updatedText: dsTr("Successfully updated, reboot to view.")
-
-            property bool updating: dbus_grub2.updating || dbus_grub2_theme.updating
-            onUpdatingChanged: {
-                if(updating){
-                    text = updatingText
-                }
-                else{
-                    text = updatedText
-                    finishUpdatingTimer.restart()
-                }
-            }
-
-            Timer {
-                id: finishUpdatingTimer
-                interval: 3000
-                onTriggered: {
-                    txt.text = txt.normalText
-                }
-            }
+        }
+    }
+    Timer {
+        id: finishUpdatingTimer
+        interval: 3000
+        onTriggered: {
+            tooltip.showText(tooltip.textNormal)
         }
     }
 }
