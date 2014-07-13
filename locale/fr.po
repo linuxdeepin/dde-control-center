@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-12 22:09+0800\n"
+"POT-Creation-Date: 2014-07-13 22:59+0800\n"
 "PO-Revision-Date: 2014-07-02 08:41+0000\n"
 "Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dde-control-"
@@ -1136,16 +1136,20 @@ msgstr "Nouveau mot de passe"
 msgid "Repeat"
 msgstr "Répéter"
 
-#: ../modules/grub/Preview.qml:124
+#: ../modules/grub/Preview.qml:122
 msgid "Drag and drop an image to change background."
 msgstr "Glisser et déposer une image pour changer de fond d'écran."
 
-#: ../modules/grub/Preview.qml:125
+#: ../modules/grub/Preview.qml:123
+msgid "Image format is not supported."
+msgstr ""
+
+#: ../modules/grub/Preview.qml:124
 #, fuzzy
 msgid "Updating..."
 msgstr "Recherche ..."
 
-#: ../modules/grub/Preview.qml:126
+#: ../modules/grub/Preview.qml:125
 #, fuzzy
 msgid "Successfully updated, reboot to view."
 msgstr "Changement effectué avec succès, redémarrer pour appliquer."
@@ -1598,15 +1602,15 @@ msgstr "Couleur de texte sélectionnée"
 msgid "Advanced"
 msgstr "VPN avancé"
 
-#: ../modules/grub/main.qml:281
+#: ../modules/grub/main.qml:282
 msgid "Fix Settings Always"
 msgstr ""
 
-#: ../modules/grub/main.qml:289
+#: ../modules/grub/main.qml:299
 msgid "Enable Grub Theme"
 msgstr ""
 
-#: ../modules/grub/main.qml:297
+#: ../modules/grub/main.qml:318
 #, fuzzy
 msgid "Custom Resolution"
 msgstr "Résolution"

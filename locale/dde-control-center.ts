@@ -2007,17 +2007,22 @@
 <context>
     <name>Preview</name>
     <message>
-        <location filename="../modules/grub/Preview.qml" line="124"/>
+        <location filename="../modules/grub/Preview.qml" line="122"/>
         <source>Drag and drop an image to change background.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/Preview.qml" line="125"/>
+        <location filename="../modules/grub/Preview.qml" line="123"/>
+        <source>Image format is not supported.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/grub/Preview.qml" line="124"/>
         <source>Updating...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/Preview.qml" line="126"/>
+        <location filename="../modules/grub/Preview.qml" line="125"/>
         <source>Successfully updated, reboot to view.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2831,17 +2836,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/main.qml" line="281"/>
+        <location filename="../modules/grub/main.qml" line="282"/>
         <source>Fix Settings Always</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/main.qml" line="289"/>
+        <location filename="../modules/grub/main.qml" line="299"/>
         <source>Enable Grub Theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/main.qml" line="297"/>
+        <location filename="../modules/grub/main.qml" line="318"/>
         <source>Custom Resolution</source>
         <translation type="unfinished"></translation>
     </message>

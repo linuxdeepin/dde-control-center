@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-12 22:09+0800\n"
+"POT-Creation-Date: 2014-07-13 22:59+0800\n"
 "PO-Revision-Date: 2014-07-02 20:32+0000\n"
 "Last-Translator: Laszlo Espadas <kw@kardiweb.org>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/dde-control-"
@@ -1135,15 +1135,19 @@ msgstr "Új jelszó"
 msgid "Repeat"
 msgstr "Ismétlés"
 
-#: ../modules/grub/Preview.qml:124
+#: ../modules/grub/Preview.qml:122
 msgid "Drag and drop an image to change background."
 msgstr ""
 
-#: ../modules/grub/Preview.qml:125
+#: ../modules/grub/Preview.qml:123
+msgid "Image format is not supported."
+msgstr ""
+
+#: ../modules/grub/Preview.qml:124
 msgid "Updating..."
 msgstr ""
 
-#: ../modules/grub/Preview.qml:126
+#: ../modules/grub/Preview.qml:125
 msgid "Successfully updated, reboot to view."
 msgstr ""
 
@@ -1591,15 +1595,15 @@ msgstr "Kiválasztott szöveg szín"
 msgid "Advanced"
 msgstr ""
 
-#: ../modules/grub/main.qml:281
+#: ../modules/grub/main.qml:282
 msgid "Fix Settings Always"
 msgstr ""
 
-#: ../modules/grub/main.qml:289
+#: ../modules/grub/main.qml:299
 msgid "Enable Grub Theme"
 msgstr ""
 
-#: ../modules/grub/main.qml:297
+#: ../modules/grub/main.qml:318
 #, fuzzy
 msgid "Custom Resolution"
 msgstr "Felbontás"

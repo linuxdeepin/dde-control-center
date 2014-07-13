@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-12 22:09+0800\n"
+"POT-Creation-Date: 2014-07-13 22:59+0800\n"
 "PO-Revision-Date: 2014-07-03 03:50+0000\n"
 "Last-Translator: electricface <songwentai@linuxdeepin.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/dde-"
@@ -1130,15 +1130,19 @@ msgstr "新密码"
 msgid "Repeat"
 msgstr "重复"
 
-#: ../modules/grub/Preview.qml:124
+#: ../modules/grub/Preview.qml:122
 msgid "Drag and drop an image to change background."
 msgstr "拖拽图片到此以更换背景"
 
-#: ../modules/grub/Preview.qml:125
+#: ../modules/grub/Preview.qml:123
+msgid "Image format is not supported."
+msgstr "不支持的图片格式"
+
+#: ../modules/grub/Preview.qml:124
 msgid "Updating..."
 msgstr "正在更新..."
 
-#: ../modules/grub/Preview.qml:126
+#: ../modules/grub/Preview.qml:125
 msgid "Successfully updated, reboot to view."
 msgstr "更新成功，重启可查看。"
 
@@ -1586,15 +1590,15 @@ msgstr "选中文字颜色"
 msgid "Advanced"
 msgstr "高级选项"
 
-#: ../modules/grub/main.qml:281
+#: ../modules/grub/main.qml:282
 msgid "Fix Settings Always"
 msgstr "总是尝试修正配置信息"
 
-#: ../modules/grub/main.qml:289
+#: ../modules/grub/main.qml:299
 msgid "Enable Grub Theme"
 msgstr "启用Grub主题"
 
-#: ../modules/grub/main.qml:297
+#: ../modules/grub/main.qml:318
 msgid "Custom Resolution"
 msgstr "自定义分辨率"
 
