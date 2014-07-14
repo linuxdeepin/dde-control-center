@@ -18,7 +18,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "connection"
         key: "id"
@@ -31,7 +30,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "pppoe"
         key: "username"
@@ -42,7 +40,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "pppoe"
         key: "service"
@@ -53,7 +50,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "pppoe"
         key: "password"

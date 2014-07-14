@@ -76,7 +76,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "vs-vpn"
         key: "vk-vpn-missing-plugin"
@@ -97,7 +96,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "connection"
             key: "id"
@@ -110,7 +108,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-l2tp"
             key: "gateway"
@@ -121,7 +118,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-l2tp"
             key: "user"
@@ -132,7 +128,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-l2tp"
             key: "password-flags"
@@ -143,7 +138,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-l2tp"
             key: "password"
@@ -154,7 +148,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-openconnect"
             key: "gateway"
@@ -165,7 +158,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-openconnect"
             key: "cacert"
@@ -176,7 +168,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-openconnect"
             key: "proxy"
@@ -187,7 +178,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-openconnect"
             key: "enable_csd_trojan"
@@ -198,7 +188,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-openconnect"
             key: "csd_wrapper"
@@ -209,7 +198,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-openconnect"
             key: "usercert"
@@ -220,7 +208,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-openconnect"
             key: "userkey"
@@ -231,7 +218,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-openconnect"
             key: "pem_passphrase_fsid"
@@ -242,7 +228,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-openvpn"
             key: "remote"
@@ -253,7 +238,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-openvpn"
             key: "connection-type"
@@ -264,7 +248,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-openvpn"
             key: "username"
@@ -275,7 +258,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-openvpn"
             key: "password-flags"
@@ -286,7 +268,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-openvpn"
             key: "password"
@@ -297,7 +278,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-openvpn"
             key: "ca"
@@ -308,7 +288,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-openvpn"
             key: "cert"
@@ -319,7 +298,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-openvpn"
             key: "key"
@@ -330,7 +308,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-openvpn"
             key: "cert-pass-flags"
@@ -341,7 +318,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-openvpn"
             key: "cert-pass"
@@ -352,7 +328,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-openvpn"
             key: "static-key"
@@ -363,7 +338,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-openvpn"
             key: "vk-static-key-direction"
@@ -374,7 +348,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-openvpn"
             key: "static-key-direction"
@@ -385,7 +358,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-openvpn"
             key: "remote-ip"
@@ -396,7 +368,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-openvpn"
             key: "local-ip"
@@ -407,7 +378,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-pptp"
             key: "gateway"
@@ -418,7 +388,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-pptp"
             key: "user"
@@ -429,7 +398,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-pptp"
             key: "password-flags"
@@ -440,7 +408,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-pptp"
             key: "password"
@@ -451,7 +418,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-vpnc"
             key: "IPSec gateway"
@@ -462,7 +428,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-vpnc"
             key: "Xauth username"
@@ -473,7 +438,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-vpnc"
             key: "Xauth password-flags"
@@ -484,7 +448,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-vpnc"
             key: "Xauth password"
@@ -495,7 +458,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-vpnc"
             key: "IPSec ID"
@@ -506,7 +468,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-vpnc"
             key: "IPSec secret-flags"
@@ -517,7 +478,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-vpnc"
             key: "IPSec secret"
@@ -528,7 +488,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-vpnc"
             key: "vk-hybrid-authmode"
@@ -539,7 +498,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-vpnc"
             key: "CA-File"
@@ -552,7 +510,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-l2tp-ipsec"
             key: "ipsec-enabled"
@@ -563,7 +520,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-l2tp-ipsec"
             key: "ipsec-group-name"
@@ -574,7 +530,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-l2tp-ipsec"
             key: "ipsec-gateway-id"
@@ -585,7 +540,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-l2tp-ipsec"
             key: "ipsec-psk"
@@ -598,7 +552,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-l2tp-ppp"
             key: "vk-require-mppe"
@@ -611,7 +564,6 @@ BaseEditPage {
             connectionSession: rootPage.connectionSession
             availableSections: rootPage.availableSections
             availableKeys: rootPage.availableKeys
-            connectionData: rootPage.connectionData
             errors: rootPage.errors
             section: "alias-vpn-pptp-ppp"
             key: "vk-require-mppe"

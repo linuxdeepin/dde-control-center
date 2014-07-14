@@ -31,7 +31,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "802-11-wireless"
         key: "ssid"
@@ -44,7 +43,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "802-11-wireless-security"
         key: "vk-key-mgmt"
@@ -55,7 +53,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "802-11-wireless-security"
         key: "wep-key0"
@@ -66,7 +63,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "802-11-wireless-security"
         key: "psk"

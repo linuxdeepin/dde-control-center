@@ -27,7 +27,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "connection"
         key: "id"
@@ -40,7 +39,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "vs-mobile"
         key: "vk-mobile-service-type"
@@ -51,7 +49,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "gsm"
         key: "apn"
@@ -62,7 +59,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "gsm"
         key: "number"
@@ -73,7 +69,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "gsm"
         key: "username"
@@ -84,7 +79,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "gsm"
         key: "password"
@@ -95,7 +89,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "cdma"
         key: "number"
@@ -106,7 +99,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "cdma"
         key: "username"
@@ -117,7 +109,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "cdma"
         key: "password"

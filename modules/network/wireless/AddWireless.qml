@@ -26,7 +26,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "802-11-wireless"
         key: "ssid"
@@ -39,7 +38,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "802-11-wireless-security"
         key: "vk-key-mgmt"
@@ -50,7 +48,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "802-11-wireless-security"
         key: "wep-key0"
@@ -61,7 +58,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "802-11-wireless-security"
         key: "psk"
@@ -72,7 +68,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "802-1x"
         key: "vk-eap"
@@ -83,7 +78,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "802-1x"
         key: "identity"
@@ -94,7 +88,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "802-1x"
         key: "anonymous-identity"
@@ -105,7 +98,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "802-1x"
         key: "vk-ca-cert"
@@ -116,7 +108,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "802-1x"
         key: "vk-client-cert"
@@ -127,7 +118,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "802-1x"
         key: "phase1-fast-provisioning"
@@ -138,7 +128,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "802-1x"
         key: "vk-pac-file"
@@ -149,7 +138,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "802-1x"
         key: "phase1-peapver"
@@ -160,7 +148,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "802-1x"
         key: "phase2-auth"
@@ -172,7 +159,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "802-1x"
         key: "vk-private-key"
@@ -183,7 +169,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "802-1x"
         key: "password-flags"
@@ -195,7 +180,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "802-1x"
         key: "password"
@@ -206,7 +190,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "802-1x"
         key: "private-key-password-flags"
@@ -217,7 +200,6 @@ BaseEditPage {
         connectionSession: rootPage.connectionSession
         availableSections: rootPage.availableSections
         availableKeys: rootPage.availableKeys
-        connectionData: rootPage.connectionData
         errors: rootPage.errors
         section: "802-1x"
         key: "private-key-password"
