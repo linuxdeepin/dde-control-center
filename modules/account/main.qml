@@ -120,6 +120,7 @@ Rectangle {
     }
 
     Flickable {
+        id: flickable
         anchors.top: title_column.bottom
         anchors.left: parent.left
         anchors.right: parent.right
@@ -236,13 +237,11 @@ Rectangle {
             width: parent.width
 
             onExpandedChanged: {
-                user_list.visible = !expanded
+                user_list.visible = !expanded                
+                // prevent guest_user from flicking away while showing 
+                expanded ? flickable.contentY = 0 : 
+                           flickable.contentY = flickable.contentHeight - flickable.height
             }
-
-            Behavior on anchors.top {
-                NumberAnimation { duration: 100 }
-            }
-
             anchors.top: main_column.bottom
 
             leftPadding: user_list.leftPadding
