@@ -30,8 +30,11 @@
 #include <QQmlContext>
 #include <QDBusAbstractAdaptor>
 
+#define DBUS_NAME "com.deepin.dde.ControlCenter"
+#define DBUS_PATH "/com/deepin/dde/ControlCenter"
+
 class QmlLoader;
-class AppletDBus;
+class QmlLoaderDBus;
 
 class QmlLoader: public QObject{
     Q_OBJECT
@@ -47,35 +50,34 @@ public:
     QObject * rootObject;
 
     void load(QUrl url);
-    QString getAppletInfoListFromQml();
-    Q_INVOKABLE QString getAppletVisibleFromConfig();
-    Q_INVOKABLE void setAppletVisibleToConfig(QString info);
 
-public slots:
-    void appletInfosChangedSlot();
+    void toggle();
+    void show();
+    void showModule(QString name);
+    void showImmediately();
+    void hide();
+    void hideImmediately();
+    bool isNetworkCanShowPassword();
 
 private:
-    AppletDBus * m_dbus_proxyer;
+    QmlLoaderDBus * m_dbus_proxyer;
 };
 
-class AppletDBus : public QDBusAbstractAdaptor {
+class QmlLoaderDBus : public QDBusAbstractAdaptor {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "com.deepin.dde.ControlCenter")
-    Q_PROPERTY(QString appletInfoList READ appletInfoList NOTIFY appletInfosChanged)
+    Q_CLASSINFO("D-Bus Interface", DBUS_NAME)
 
 public:
-    AppletDBus(QmlLoader* parent);
-    ~AppletDBus();
+    QmlLoaderDBus(QmlLoader* parent);
+    ~QmlLoaderDBus();
 
-    QString appletInfoList() {
-        return m_parent->getAppletInfoListFromQml();
-    }
-    Q_SIGNAL void appletInfosChanged();
-
-    Q_SLOT void ShowApplet(QString id);
-    Q_SLOT void HideApplet(QString id);
-
-    Q_SLOT void ToggleApplet(QString id);
+    Q_SLOT void Toggle();
+    Q_SLOT void Show();
+    Q_SLOT void ShowModule(QString name);
+    Q_SLOT void ShowImmediately();
+    Q_SLOT void Hide();
+    Q_SLOT void HideImmediately();
+    Q_SLOT bool isNetworkCanShowPassword();
 
 private:
     QmlLoader* m_parent;

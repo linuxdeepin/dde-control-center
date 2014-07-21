@@ -38,7 +38,7 @@ QmlLoader::QmlLoader(QObject *parent)
     engine = new QQmlEngine(this);
     component = new QQmlComponent(engine, this);
     rootContext = new QQmlContext(engine, this);
-    this->m_dbus_proxyer = new AppletDBus(this);
+    this->m_dbus_proxyer = new QmlLoaderDBus(this);
 }
 
 QmlLoader::~QmlLoader()
@@ -56,88 +56,119 @@ void QmlLoader::load(QUrl url)
     this->rootObject = this->component->beginCreate(this->rootContext);
     if ( this->component->isReady() ){
         this->component->completeCreate();
-        QObject::connect(rootObject, SIGNAL(appletInfosChanged()), this, SLOT(appletInfosChangedSlot()));
+        //QObject::connect(rootObject, SIGNAL(appletInfosChanged()), this, SLOT(appletInfosChangedSlot()));
     }
     else{
         qWarning() << this->component->errorString();
     }
 }
 
-QString QmlLoader::getAppletInfoListFromQml()
+void QmlLoader::toggle()
 {
-    QVariant returnedValue;
     QMetaObject::invokeMethod(
-                rootObject,
-                "get_applet_infos",
-                Q_RETURN_ARG(QVariant, returnedValue)
+                this->rootObject,
+                "togglePanel"
                 );
-    return returnedValue.toString();
 }
 
-void QmlLoader::setAppletVisibleToConfig(QString info)
+void QmlLoader::show()
 {
-    QString filePath = QDir::homePath() + "/.dde-dock-applets.ini";
-    QSettings sysConfig(filePath, QSettings::IniFormat, 0);
-    sysConfig.beginWriteArray("applet");
-    sysConfig.setValue("info", info);
-    sysConfig.endArray();
+    QVariant second = QVariant(0);
+    QMetaObject::invokeMethod(
+                this->rootObject,
+                "showDss",
+                Q_ARG(QVariant, second)
+                );
 }
 
-QString QmlLoader::getAppletVisibleFromConfig()
+void QmlLoader::showModule(QString name)
 {
-    QString filePath = QDir::homePath() + "/.dde-dock-applets.ini";
-    QString strRst;
-    if(QFile::exists(filePath)){
-        QSettings sysConfig(filePath, QSettings::IniFormat, 0);
-        strRst = sysConfig.value("/applet/info", "").toString();
-    }
-    else{
-        strRst = "";
-    }
-
-    return strRst;
+    QVariant moduleName = QVariant(name);
+    QMetaObject::invokeMethod(
+                this->rootObject,
+                "showModule",
+                Q_ARG(QVariant, moduleName)
+                );
 }
 
-void QmlLoader::appletInfosChangedSlot()
+void QmlLoader::showImmediately()
 {
-    Q_EMIT m_dbus_proxyer->appletInfosChanged();
+    QMetaObject::invokeMethod(
+                this->rootObject,
+                "showDssImmediately"
+                );
 }
 
-AppletDBus::AppletDBus(QmlLoader *parent):
+void QmlLoader::hide()
+{
+    QMetaObject::invokeMethod(
+                this->rootObject,
+                "hideDss"
+                );
+}
+
+void QmlLoader::hideImmediately()
+{
+    QMetaObject::invokeMethod(
+                this->rootObject,
+                "hideDssImmediately"
+                );
+}
+
+bool QmlLoader::isNetworkCanShowPassword()
+{
+    QVariant returnValue;
+    QMetaObject::invokeMethod(
+                this->rootObject,
+                "getNetworkCanShowPassword",
+                Q_RETURN_ARG(QVariant, returnValue)
+                );
+    return returnValue.toBool();
+}
+
+QmlLoaderDBus::QmlLoaderDBus(QmlLoader *parent):
     QDBusAbstractAdaptor(parent),
     m_parent(parent)
 {
-    QDBusConnection::sessionBus().registerObject("/com/deepin/dde/ControlCenter", parent);
+    QDBusConnection::sessionBus().registerObject(DBUS_PATH, parent);
 }
 
-AppletDBus::~AppletDBus()
+QmlLoaderDBus::~QmlLoaderDBus()
 {
 
 }
 
-void AppletDBus::ShowApplet(QString id)
+void QmlLoaderDBus::Toggle()
 {
-    QMetaObject::invokeMethod(
-                m_parent->rootObject,
-                "set_show_applet",
-                Q_ARG(QVariant, QVariant::fromValue(id))
-                );
+    m_parent->toggle();
 }
 
-void AppletDBus::HideApplet(QString id)
+void QmlLoaderDBus::Show()
 {
-    QMetaObject::invokeMethod(
-                m_parent->rootObject,
-                "set_hide_applet",
-                Q_ARG(QVariant, QVariant::fromValue(id))
-                );
+    m_parent->show();
 }
 
-void AppletDBus::ToggleApplet(QString id)
+void QmlLoaderDBus::ShowModule(QString name)
 {
-    QMetaObject::invokeMethod(
-                m_parent->rootObject,
-                "toggle_applet",
-                Q_ARG(QVariant, QVariant::fromValue(id))
-                );
+    m_parent->showModule(name);
+}
+
+void QmlLoaderDBus::ShowImmediately()
+{
+    m_parent->showImmediately();
+}
+
+void QmlLoaderDBus::Hide()
+{
+    m_parent->hide();
+}
+
+void QmlLoaderDBus::HideImmediately()
+{
+    m_parent->hideImmediately();
+}
+
+bool QmlLoaderDBus::isNetworkCanShowPassword()
+{
+    return m_parent->isNetworkCanShowPassword();
 }

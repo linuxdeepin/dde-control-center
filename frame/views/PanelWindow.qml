@@ -92,6 +92,7 @@ DOverrideWindow {
 
     function hideWindow(){
         rootWindow.hide()
+        trayIconTip.visible = false
         timeoutQuit.restart()
     }
 

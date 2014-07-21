@@ -171,9 +171,7 @@ Rectangle {
     }
 
     function shutdownButtonClicked(){
-        rootWindow.width = 0
-        rootWindow.displayWidth = 0
-        rootWindow.hide()
+        rootWindow.hideAllImmediately()
         sessionManager.PowerOffChoose()
     }
 
@@ -451,7 +449,7 @@ Rectangle {
                 rootWindow.moduleStartChange(iconId)
                 rightBoxLoaderItem.visible = iconId != ''
                 rightBoxLoader.iconId = iconId
-                rightBoxLoader.source = (iconId == ''? '' : '../../modules/' + iconId + '/main.qml')
+                rightBoxLoader.source = (iconId == ''? '' : '/modules/' + iconId + '/main.qml')
                 if(iconId)
                     print("==> [info] load module:", iconId)
             }

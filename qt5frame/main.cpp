@@ -34,15 +34,28 @@ int main(int argc, char* argv[])
     QCoreApplication::setAttribute(Qt::AA_X11InitThreads, true);
     QGuiApplication app(argc, argv);
 
-    if(QDBusConnection::sessionBus().registerService("com.deepin.dde.ControlCenter")){
+    if(QDBusConnection::sessionBus().registerService(DBUS_NAME)){
 
         QmlLoader* qmlLoader = new QmlLoader();
         qmlLoader->rootContext->setContextProperty("mainObject", qmlLoader);
         qmlLoader->load(QUrl("qrc:///views/Main.qml"));
 
+        if(argc == 2){
+            QString order = argv[1];
+            if(order == "show"){
+                qmlLoader->show();
+            }
+            else if(order == "toggle"){
+                qmlLoader->toggle();
+            }
+            else {
+                qmlLoader->showModule(order);
+            }
+        }
+
         return app.exec();
     } else {
-        qWarning() << "is running...";
+        qWarning() << "dde control center is running...";
         return 0;
     }
 }
