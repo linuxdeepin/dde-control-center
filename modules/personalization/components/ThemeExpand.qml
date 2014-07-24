@@ -66,7 +66,7 @@ MyBaseExpand {
 
                     themeView.model.append({
                         "item_img_url": thumbnail,
-                        "item_name": themeObj.name,
+                        "item_name": themeObj.displayName,
                         "item_value": themeObj.name,
                         "themeObj": themeObj
                     })
