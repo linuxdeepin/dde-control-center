@@ -30,8 +30,7 @@ Window {
     id: trayIconTip
     width: trayIconTipArrowRect.width
     height: trayIconTipArrowRect.height
-    flags: Qt.Popup
-    visible: false
+    flags: Qt.Tool | Qt.FramelessWindowHint
 
     property alias text: trayIconTipText.text
     property alias timeOutHide: hide
