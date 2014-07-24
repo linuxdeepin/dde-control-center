@@ -71,10 +71,6 @@ class DssDbusAdptor(QtDBus.QDBusAbstractAdaptor):
         self.parent().view_object.hideDssImmediately()
 
 class ControlPanel(QtCore.QObject):
-
-    moduleFileChanged = QtCore.pyqtSignal(str)
-    focusLosed = QtCore.pyqtSignal()
-
     def __init__(self):
         QtCore.QObject.__init__(self)
 
@@ -98,13 +94,6 @@ class ControlPanel(QtCore.QObject):
             sys.exit(1)
 
         self._dbus_adptor = DssDbusAdptor(self)
-        QtWidgets.qApp.focusWindowChanged.connect(self.onFocusWindowChanged)
-
-    def onFocusWindowChanged(self, win):
-        if win is None:
-            self.focusLosed.emit()
-        else:
-            pass
 
     def set_all_contexts(self):
         self.rootContext.setContextProperty("windowView", self)

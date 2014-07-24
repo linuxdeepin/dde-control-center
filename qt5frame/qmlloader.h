@@ -43,7 +43,6 @@ public:
     QmlLoader(QObject* parent = 0);
     ~QmlLoader();
 
-
     QQmlEngine* engine;
     QQmlComponent* component;
     QQmlContext * rootContext;
@@ -58,6 +57,15 @@ public:
     void hide();
     void hideImmediately();
     bool isNetworkCanShowPassword();
+
+public slots:
+    void installPackage(QString packageName);
+
+    QString getGplText(QString language, QString type);
+
+    void setCustomCursor(QString path);
+    void clearCustomCursor();
+    void setCursorFlashTime(int time);
 
 private:
     QmlLoaderDBus * m_dbus_proxyer;

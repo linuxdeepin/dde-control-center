@@ -176,7 +176,7 @@ Item {
                     width: parent.width
                     color: dconstants.fgDarkColor
                     font.pixelSize: 11
-                    text: windowView.getGplTextTitle(lang)
+                    text: mainObject.getGplText(lang, "title")
                     textMargin: 6
                     wrapMode: TextEdit.WordWrap
                     horizontalAlignment: TextEdit.AlignHCenter
@@ -188,7 +188,7 @@ Item {
                     width: parent.width
                     color: dconstants.fgDarkColor
                     font.pixelSize: 11
-                    text: windowView.getGplText(lang)
+                    text: mainObject.getGplText(lang, "body")
                     textMargin: 6
                     wrapMode: TextEdit.WordWrap
                     readOnly: true

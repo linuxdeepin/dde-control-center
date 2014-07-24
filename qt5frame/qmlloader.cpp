@@ -29,8 +29,13 @@
 #include <QDebug>
 #include <QDir>
 #include <QSettings>
+#include <QGuiApplication>
+#include <QPixmap>
+#include <QCursor>
+#include <QApplication>
 
 #include "qmlloader.h"
+#include "python_module.h"
 
 QmlLoader::QmlLoader(QObject *parent)
     :QObject(parent)
@@ -39,6 +44,7 @@ QmlLoader::QmlLoader(QObject *parent)
     component = new QQmlComponent(engine, this);
     rootContext = new QQmlContext(engine, this);
     this->m_dbus_proxyer = new QmlLoaderDBus(this);
+    PythonModule* pythonModule = new PythonModule(this);
 }
 
 QmlLoader::~QmlLoader()
@@ -124,6 +130,36 @@ bool QmlLoader::isNetworkCanShowPassword()
                 Q_RETURN_ARG(QVariant, returnValue)
                 );
     return returnValue.toBool();
+}
+
+void QmlLoader::installPackage(QString packageName)
+{
+
+}
+
+QString QmlLoader::getGplText(QString language, QString type)
+{
+    return "";
+}
+
+void QmlLoader::setCustomCursor(QString path)
+{
+    path = path.split("//")[1];
+    QPixmap pixmap = QPixmap(path);
+    QCursor cursor = QCursor(pixmap, -1, -1);
+    QGuiApplication::restoreOverrideCursor();
+    QGuiApplication::setOverrideCursor(cursor);
+    QGuiApplication::changeOverrideCursor(cursor);
+}
+
+void QmlLoader::clearCustomCursor()
+{
+    QGuiApplication::restoreOverrideCursor();
+}
+
+void QmlLoader::setCursorFlashTime(int time)
+{
+    QApplication::setCursorFlashTime(time);
 }
 
 QmlLoaderDBus::QmlLoaderDBus(QmlLoader *parent):
