@@ -340,7 +340,7 @@ DockApplet{
                                         DIcon {
                                             anchors.fill: parent
                                             theme: "Deepin"
-                                            icon: sinkInputObject.name
+                                            icon: sinkInputObject.icon
                                         }
 
                                         Image {
