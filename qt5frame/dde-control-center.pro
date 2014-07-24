@@ -23,8 +23,5 @@ DEFINES += APPSHAREDIR=\\\"$$APPSHAREDIR\\\"
 data.files = ../data/*
 data.path = $$APPSHAREDIR/data
 
-scripts.files = ../scripts/*
-scripts.path = $$APPSHAREDIR/scripts
-
 target.path = $$BINDIR
-INSTALLS += target data scripts
+INSTALLS += target data

@@ -148,7 +148,23 @@ void QmlLoader::installPackage(QString packageName)
 
 QString QmlLoader::getGplText(QString language, QString type)
 {
-    return "";
+    if (!(language == "zh_CN" || language == "zh_TW")){
+        language = "en";
+    }
+    QString gpl_path = APPSHAREDIR"/data/gpl/gpl-3.0-" + language + "-" + type + ".txt";
+
+    QString resultText = "";
+    QFile file(gpl_path);
+
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return resultText;
+
+    QTextStream in(&file);
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        resultText += line + "\n";
+    }
+    return resultText;
 }
 
 void QmlLoader::setCustomCursor(QString path)
