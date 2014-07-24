@@ -62,7 +62,7 @@ Item {
             if(key=="customList") continue;
             for(var i in dbusKeyBinding[key]){
                 var temp_list = dbusKeyBinding[key][i]
-                keywords[temp_list[0]] = temp_list[1] + ", " + windowView.toHumanShortcutLabel(temp_list[2])
+                keywords[temp_list[0]] = temp_list[1] + ", " + mainObject.toHumanShortcutLabel(temp_list[2])
                 temp_list.push(key)
                 allKeybindings[temp_list[0]] = temp_list
             }

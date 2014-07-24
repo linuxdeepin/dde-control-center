@@ -33,9 +33,9 @@
 #include <QPixmap>
 #include <QCursor>
 #include <QApplication>
+#include <QDir>
 
 #include "qmlloader.h"
-#include "python_module.h"
 
 QmlLoader::QmlLoader(QObject *parent)
     :QObject(parent)
@@ -44,7 +44,6 @@ QmlLoader::QmlLoader(QObject *parent)
     component = new QQmlComponent(engine, this);
     rootContext = new QQmlContext(engine, this);
     this->m_dbus_proxyer = new QmlLoaderDBus(this);
-    PythonModule* pythonModule = new PythonModule(this);
 }
 
 QmlLoader::~QmlLoader()
@@ -132,6 +131,16 @@ bool QmlLoader::isNetworkCanShowPassword()
     return returnValue.toBool();
 }
 
+QString QmlLoader::toHumanShortcutLabel(QString sequence)
+{
+    return sequence.replace("<", "").replace(">", "+").replace("-", "+");
+}
+
+QString QmlLoader::toHumanThemeName(QString name)
+{
+    return name;
+}
+
 void QmlLoader::installPackage(QString packageName)
 {
 
@@ -160,6 +169,16 @@ void QmlLoader::clearCustomCursor()
 void QmlLoader::setCursorFlashTime(int time)
 {
     QApplication::setCursorFlashTime(time);
+}
+
+QString QmlLoader::getDefaultMask(QString ipAddress)
+{
+    return "255.255.255.0";
+}
+
+QString QmlLoader::getHomeDir()
+{
+    return QDir::homePath();
 }
 
 QmlLoaderDBus::QmlLoaderDBus(QmlLoader *parent):

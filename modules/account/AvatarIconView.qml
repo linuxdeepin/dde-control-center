@@ -25,7 +25,7 @@ GridView {
 
     //AvatarPickDialog {
         //id: avatar_pick_dialog
-        //folder: windowView.getHomeDir()
+        //folder: mainObject.getHomeDir()
         //onAccepted: {
             //avatarSet(fileUrl)
         //}
@@ -33,7 +33,7 @@ GridView {
 
     DFileChooseDialog {
         id: avatar_pick_dialog
-        currentFolder: windowView.getHomeDir()
+        currentFolder: mainObject.getHomeDir()
         onSelectAction: {
             avatarSet(fileUrl)
         }
@@ -84,7 +84,11 @@ GridView {
                 roundRadius: 30
                 borderWidth: 2
                 glowRadius: 2
-                imageSource: avatarPath
+                imageSource: {
+                    if(avatarPath.indexOf("image") != 0)
+                        return "file://" + avatarPath
+                    return avatarPath
+                }
                 checkSupport: !(withAddButton && index == (count - 1))
 
                 onClicked: {

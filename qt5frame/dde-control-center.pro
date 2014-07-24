@@ -3,12 +3,10 @@ TEMPLATE = app
 QT += quick qml core widgets dbus
 
 SOURCES += main.cpp \
-    qmlloader.cpp \
-    python_module.cpp
+    qmlloader.cpp
 
 HEADERS += \
-    qmlloader.h \
-    python_module.h
+    qmlloader.h
 
 RESOURCES += \
     views.qrc \
@@ -30,6 +28,3 @@ scripts.path = $$APPSHAREDIR/scripts
 
 target.path = $$BINDIR
 INSTALLS += target data scripts
-
-CONFIG += link_pkgconfig
-PKGCONFIG += python2

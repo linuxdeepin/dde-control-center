@@ -156,7 +156,7 @@ Column {
 
             delegate: SelectItem {
                 totalItemNumber: userTimezoneListView.count
-                selectItemId: windowView.stripString(gDate.currentTimezone)
+                selectItemId: gDate.currentTimezone
                 inDeleteAction: timezoneArea.currentActionStateName == "deleteButton"
 
                 onDeleteAction: {

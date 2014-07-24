@@ -70,7 +70,7 @@ Item {
         Image {
             id: itemThumbnailImage
             anchors.centerIn: parent
-            source: item_img_url
+            source: "file://" + item_img_url
             width: parent.width - 2
             height: parent.height - 2
 
@@ -79,7 +79,7 @@ Item {
                 onBackgroundChanged: {
                     print("changed:", itemValue)
                     if(itemValue == "Custom"){
-                        itemThumbnailImage.source = dbusThemeManager.GetThumbnail("background", themeObj.background)
+                        itemThumbnailImage.source = "file://" + dbusThemeManager.GetThumbnail("background", themeObj.background)
                     }
                 }
             }

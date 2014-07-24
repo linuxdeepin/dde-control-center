@@ -66,8 +66,8 @@ Item {
             parent.clicked(index, "left")
         }
 
-        onEntered: windowView.setCustomCursor(leftCursor)
-        onExited: windowView.clearCustomCursor()
+        onEntered: mainObject.setCustomCursor(leftCursor)
+        onExited: mainObject.clearCustomCursor()
     }
 
     MouseArea{
@@ -79,7 +79,7 @@ Item {
         onClicked: {
             parent.clicked(index, "right")
         }
-        onEntered: windowView.setCustomCursor(rightCursor)
-        onExited: windowView.clearCustomCursor()
+        onEntered: mainObject.setCustomCursor(rightCursor)
+        onExited: mainObject.clearCustomCursor()
     }
 }

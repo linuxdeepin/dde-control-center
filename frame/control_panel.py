@@ -71,6 +71,10 @@ class DssDbusAdptor(QtDBus.QDBusAbstractAdaptor):
         self.parent().view_object.hideDssImmediately()
 
 class ControlPanel(QtCore.QObject):
+
+    moduleFileChanged = QtCore.pyqtSignal(str)
+    focusLosed = QtCore.pyqtSignal()
+
     def __init__(self):
         QtCore.QObject.__init__(self)
 
@@ -94,6 +98,13 @@ class ControlPanel(QtCore.QObject):
             sys.exit(1)
 
         self._dbus_adptor = DssDbusAdptor(self)
+        QtWidgets.qApp.focusWindowChanged.connect(self.onFocusWindowChanged)
+
+    def onFocusWindowChanged(self, win):
+        if win is None:
+            self.focusLosed.emit()
+        else:
+            pass
 
     def set_all_contexts(self):
         self.rootContext.setContextProperty("windowView", self)
@@ -144,22 +155,6 @@ class ControlPanel(QtCore.QObject):
     @QtCore.pyqtSlot(result=str)
     def getHomeDir(self):
         return os.path.expanduser("~")
-
-    @QtCore.pyqtProperty(int)
-    def panelWith(self):
-        return PANEL_WIDTH
-
-    @QtCore.pyqtSlot(str, result=str)
-    def stripString(self, s):
-        return s.strip()
-
-    @QtCore.pyqtSlot(QtCore.QVariant, str, result=str)
-    def joinString(self, s_list, key):
-        return key.join(s_list)
-
-    @QtCore.pyqtSlot(str, result=bool)
-    def isIconPluginExist(self, module_id):
-        return os.path.exists(os.path.join(ROOT_LOCATION, "modules", module_id, "iconPlugin.qml"))
 
     @QtCore.pyqtSlot(str, result=str)
     def toHumanShortcutLabel(self, sequence):

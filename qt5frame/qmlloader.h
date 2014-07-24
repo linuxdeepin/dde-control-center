@@ -66,6 +66,11 @@ public slots:
     void setCustomCursor(QString path);
     void clearCustomCursor();
     void setCursorFlashTime(int time);
+    QString getDefaultMask(QString ipAddress);
+    QString getHomeDir();
+
+    QString toHumanShortcutLabel(QString sequence);
+    QString toHumanThemeName(QString name);
 
 private:
     QmlLoaderDBus * m_dbus_proxyer;

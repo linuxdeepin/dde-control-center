@@ -30,7 +30,7 @@ BaseEditLine{
     
     DFileChooseDialog {
         id: fileChooseDialog
-        currentFolder: windowView.getHomeDir()
+        currentFolder: mainObject.getHomeDir()
         onSelectAction: {
             root.rightLoader.item.text = fileUrl
         }

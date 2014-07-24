@@ -60,7 +60,7 @@ GridView {
 
             model.append({
                 "item_img_url": thumbnail,
-                "item_name": windowView.toHumanThemeName(item_name),
+                "item_name": mainObject.toHumanThemeName(item_name),
                 "item_value": item_name,
                 "is_deletable": is_deletable
             })

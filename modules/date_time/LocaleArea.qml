@@ -74,7 +74,8 @@ DBaseExpand {
                 tmp.push(localeExpand.localeToLanguage[key])
                 toSortResult.push(tmp)
             }
-            return windowView.sortSearchResult(toSortResult)
+            //return mainObject.sortSearchResult(toSortResult)
+            return toSortResult
         }
     }
 
