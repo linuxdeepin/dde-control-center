@@ -1,8 +1,8 @@
-#!/usr/bin/env python
+#! /usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# Copyright (C) 2012~2013 Deepin, Inc.
-#               2012~2013 Kaisheng Ye
+
+# Copyright (C) 2011~2013 Deepin, Inc.
+#               2011~2013 Kaisheng Ye
 #
 # Author:     Kaisheng Ye <kaisheng.ye@gmail.com>
 # Maintainer: Kaisheng Ye <kaisheng.ye@gmail.com>
@@ -20,19 +20,23 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt5.QtDBus import QDBusConnection
+def quicksort(data, low = 0, high = None):
+    if high == None:
+        high = len(data) - 1
+    if low < high:
+        s, i, j = data[low], low, high
+        while i < j:
+            while i < j and data[j] >= s:
+                j = j - 1
+            if i < j:
+                data[i] = data[j]
+                i = i + 1
+            while i < j and data[i] <= s:
+                i = i + 1
+            if i < j:
+                data[j] = data[i]
+                j = j - 1
+        data[i] = s
+        quicksort(data, low, i - 1)
+        quicksort(data, i + 1, high)
 
-DISPLAY_DBUS_SERVICE = "com.deepin.daemon.Display"
-DISPLAY_DBUS_PATH = "/com/deepin/daemon/Display"
-DISPLAY_DBUS_INTERFACE = DISPLAY_DBUS_SERVICE
-
-session_bus = QDBusConnection.sessionBus()
-
-def connect_to_primary_changed(method):
-    session_bus.connect(
-            DISPLAY_DBUS_SERVICE,
-            DISPLAY_DBUS_PATH,
-            DISPLAY_DBUS_INTERFACE,
-            "PrimaryChanged",
-            method
-    )

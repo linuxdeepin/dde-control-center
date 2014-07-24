@@ -48,7 +48,8 @@ Rectangle {
     property string itemLabel: moduleLocaleName
     property string iconPathHeader: isSiderNavigate ? "small_icons/" + moduleId : "icons/" + moduleId
     property bool hover: false
-    property url iconPath: windowView.isIconPluginExist(moduleId) ? '../../modules/' + moduleId + '/iconPlugin.qml' : ''
+    //property url iconPath: windowView.isIconPluginExist(moduleId) ? '../../modules/' + moduleId + '/iconPlugin.qml' : ''
+    property url iconPath: ""
 
     QtObject {
         id: defaultIcon

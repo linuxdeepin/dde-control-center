@@ -58,6 +58,23 @@ Rectangle {
         return wins
     }
 
+    function mintue(a, b){
+        return a - b
+    }
+
+    function mintueReverse(a, b){
+        return b - a
+    }
+
+    function sortArray(a, reverse){
+        if(reverse){
+            return a.sort(mintueReverse)
+        }
+        else{
+            return a.sort(mintue)
+        }
+    }
+
     function getScaleFactorAndPadding(objs){
         var xPositionLeft = new Array()
         var xPositionRight = new Array()
@@ -70,10 +87,10 @@ Rectangle {
             yPositionUp.push(obj.y)
             yPositionDown.push(obj.y + obj.height)
         }
-        var x1 = windowView.sortArray(xPositionLeft, false)[0]
-        var x2 = windowView.sortArray(xPositionRight, true)[0]
-        var y1 = windowView.sortArray(yPositionUp, false)[0]
-        var y2 = windowView.sortArray(yPositionDown, true)[0]
+        var x1 = sortArray(xPositionLeft, false)[0]
+        var x2 = sortArray(xPositionRight, true)[0]
+        var y1 = sortArray(yPositionUp, false)[0]
+        var y2 = sortArray(yPositionDown, true)[0]
         var real_width = x2 - x1
         var real_height = y2 - y1
         if(real_height/real_width < validArea.height/validArea.width){

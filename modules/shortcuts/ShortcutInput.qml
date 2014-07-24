@@ -39,7 +39,7 @@ Item {
     property var info
     property int shortcutId: info[0]
     property string displayName: info[1]
-    property string shortcutName: windowView.toHumanShortcutLabel(info[2])
+    property string shortcutName: mainObject.toHumanShortcutLabel(info[2])
 
     property bool grabFlag: false
     property bool showDelete: false
@@ -183,7 +183,7 @@ Item {
                         if(!tipInfoText.keyPressed){
                             tipInfoText.keyPressed = true
                         }
-                        tipInfoText.keyPressInfo = windowView.toHumanShortcutLabel(arg0)
+                        tipInfoText.keyPressInfo = mainObject.toHumanShortcutLabel(arg0)
                     }
                 }
             }
@@ -221,7 +221,7 @@ Item {
         clip: true
 
         function showInvalidInfo(shortcutName){
-            invalidInfo.text = dsTr('Shortcut \"%1\" is invalid, please retype new shortcut.').arg(windowView.toHumanShortcutLabel(shortcutName))
+            invalidInfo.text = dsTr('Shortcut \"%1\" is invalid, please retype new shortcut.').arg(mainObject.toHumanShortcutLabel(shortcutName))
             invalidInfoArea.height = conflictInfo.height + 8
             hideInvalidInfoArea.restart()
         }
@@ -258,7 +258,7 @@ Item {
         function showConfictArea(shortcutName, conflictIds){
             replaceButton.conflictKeyIds = conflictIds
             replaceButton.grabKeys = shortcutName
-            confictText.text = windowView.toHumanShortcutLabel(shortcutName)
+            confictText.text = mainObject.toHumanShortcutLabel(shortcutName)
             var info = dsTr('The shortcut you set ')
             for(var i in conflictIds){
                 var keyBindingInfo = getKeyBindingInfo(conflictIds[i])

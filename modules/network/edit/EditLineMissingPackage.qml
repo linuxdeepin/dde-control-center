@@ -24,7 +24,7 @@ BaseEditLine {
             label.color: errorColor
             width: label.width
             onClicked: {
-                windowView.installPackage(root.cacheValue)
+                mainObject.installPackage(root.cacheValue)
             }
         }
     }

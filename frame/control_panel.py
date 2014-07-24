@@ -156,22 +156,6 @@ class ControlPanel(QtCore.QObject):
     def getHomeDir(self):
         return os.path.expanduser("~")
 
-    @QtCore.pyqtProperty(int)
-    def panelWith(self):
-        return PANEL_WIDTH
-
-    @QtCore.pyqtSlot(str, result=str)
-    def stripString(self, s):
-        return s.strip()
-
-    @QtCore.pyqtSlot(QtCore.QVariant, str, result=str)
-    def joinString(self, s_list, key):
-        return key.join(s_list)
-
-    @QtCore.pyqtSlot(str, result=bool)
-    def isIconPluginExist(self, module_id):
-        return os.path.exists(os.path.join(ROOT_LOCATION, "modules", module_id, "iconPlugin.qml"))
-
     @QtCore.pyqtSlot(str, result=str)
     def toHumanShortcutLabel(self, sequence):
         sequence = sequence.replace("<", "").replace(">", "+")

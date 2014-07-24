@@ -1,16 +1,27 @@
 TEMPLATE = app
 
-QT += quick qml core widgets
+QT += quick qml core widgets dbus
+
 SOURCES += main.cpp \
-    popup.c \
-    dwindow.cpp
+    qmlloader.cpp
+
+HEADERS += \
+    qmlloader.h
+
 RESOURCES += \
     views.qrc \
     modules.qrc
 
-target.path = /usr/bin
-INSTALLS += target
+isEmpty(PREFIX){
+    PREFIX = /usr
+}
 
-HEADERS += \
-    popup.h \
-    dwindow.h
+BINDIR = $$PREFIX/bin
+APPSHAREDIR = $$PREFIX/share/dde-control-center
+DEFINES += APPSHAREDIR=\\\"$$APPSHAREDIR\\\"
+
+data.files = ../data/*
+data.path = $$APPSHAREDIR/data
+
+target.path = $$BINDIR
+INSTALLS += target data

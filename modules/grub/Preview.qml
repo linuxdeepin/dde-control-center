@@ -15,7 +15,7 @@ Item {
     Image {
         id: background
         asynchronous: true
-        source: dbus_grub2_theme.background
+        source: "file://" + dbus_grub2_theme.background
         anchors.fill: parent
         cache: false
 
@@ -23,7 +23,7 @@ Item {
 
         function reload(){
             source = ""
-            source = dbus_grub2_theme.background
+            source = "file://" + dbus_grub2_theme.background
         }
 
         Connections {

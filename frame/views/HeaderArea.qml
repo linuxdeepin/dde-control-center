@@ -43,7 +43,7 @@ Column {
     property var currentUserObj: User { path: userObjectPath }
 
     function setAvatar(){
-        avatarImage.imageSource = currentUserObj.iconFile
+        avatarImage.imageSource = "file://" + currentUserObj.iconFile
     }
 
     function setUserName(){

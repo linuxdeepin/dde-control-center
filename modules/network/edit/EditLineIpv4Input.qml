@@ -36,7 +36,7 @@ BaseEditLine {
                 if (ipAddress) {
                     if (nextIpv4Input.netmaskMode) {
                         // TODO fix netmask
-                        // var netmask = windowView.getDefaultMask(ipAddress)
+                        // var netmask = mainObject.getDefaultMask(ipAddress)
                         var netmask = "255.255.255.0"
                         if (netmask != "") {
                             nextIpv4Input.rightLoader.item.setValue(netmask)
