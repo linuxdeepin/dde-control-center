@@ -276,23 +276,6 @@ Rectangle {
                 }
                 content.sourceComponent: Column{
                     width: grub.width
-                    DSwitchButtonHeader{
-                        id: fix_settings
-                        anchors.right: parent.right
-                        text: dsTr("Fix Settings Always")
-                        Component.onCompleted: {
-                            fix_settings.active = dbus_grub2.fixSettingsAlways
-                        }
-                        Connections {
-                            target: dbus_grub2
-                            onFixSettingsAlwaysChanged: {
-                                fix_settings.active = dbus_grub2.fixSettingsAlways
-                            }
-                        }
-                        onClicked: {
-                            dbus_grub2.fixSettingsAlways = fix_settings.active
-                        }
-                    }
                     DSwitchButtonHeader {
                         id: enable_theme
                         anchors.right: parent.right
