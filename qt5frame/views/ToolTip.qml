@@ -26,13 +26,17 @@ import QtQuick.Window 2.1
 
 Window {
     id: toolTip
-    width: tipText.width + 10
-    height: tipText.height + 10
+    width: background.width
+    height: background.height
     flags: Qt.Popup | Qt.WindowStaysOnTopHint
     color: Qt.rgba(0, 0, 0, 0)
 
     function showTip(s){
         tipText.text = s
+        tipText.width = 280     // reset tooltip width to max size
+        tipText.width = (tipText.contentWidth <= 280) ? tipText.contentWidth : 280 // fix tooltip width
+        tipText.height = tipText.contentHeight
+
         timeoutShow.restart()
         freshBackground.restart()
     }
@@ -99,15 +103,13 @@ Window {
 
     Rectangle {
         id: background
-        width: parent.width
-        height: parent.height
+        width: tipText.width + 10
+        height: tipText.height + 10
         color: Qt.rgba(0, 0, 0, 0.9)
         radius: 4
 
         Text {
             id: tipText
-            width: contentWidth <= 280 ? contentWidth : 280
-            height: contentHeight
             wrapMode: Text.Wrap
             anchors.centerIn: parent
             font.pixelSize: 12
