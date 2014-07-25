@@ -44,7 +44,6 @@ Item {
     property var dconstants: DConstants {}
     property var dbusKeyboard: Keyboard {}
     property var searchId: Search {}
-    property var xkeyboardLocale: DLocale { domain: "xkeyboard-config" }
 
     property var allLayoutMapL10n: new Object()
 
@@ -57,8 +56,10 @@ Item {
     }
 
     function isInUserLayouts(key){
-        for(var i=0; i<dbusKeyboard.userLayoutList.length; i++){
-            if(dbusKeyboard.userLayoutList[i] == key){
+        var userLayoutList = dbusKeyboard.userLayoutList
+        for(var i=0; i<userLayoutList.length; i++){
+            if(userLayoutList[i] == key){
+                print("User Layout:", key)
                 return true
             }
         }
@@ -404,6 +405,7 @@ Item {
                     addLayoutList.model.clear()
                     for (var i=0; i<search_result.length; i++){
                         var id = search_result[i]
+                        print(id)
                         if(!keyboardModule.isInUserLayouts(id)){
                             addLayoutList.model.append({
                                 "label": allLayoutMapL10n[id],
