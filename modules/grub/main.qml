@@ -276,26 +276,6 @@ Rectangle {
                 }
                 content.sourceComponent: Column{
                     width: grub.width
-                    DSwitchButtonHeader {
-                        id: enable_theme
-                        anchors.right: parent.right
-                        text: dsTr("Enable Grub Theme")
-                        Component.onCompleted: {
-                            enable_theme.active = dbus_grub2.enableTheme
-                        }
-                        Connections {
-                            target: dbus_grub2
-                            onEnableThemeChanged: {
-                                enable_theme.active = dbus_grub2.enableTheme
-                            }
-                        }
-                        onClicked: {
-                            dbus_grub2.enableTheme = enable_theme.active
-                        }
-                        onVisibleChanged: {
-                            print("visible:", visible)
-                        }
-                    }
                     DBaseLine {
                         leftLoader.sourceComponent: DssH2{
                             text: dsTr("Custom Resolution")
