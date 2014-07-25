@@ -91,7 +91,7 @@ Window {
         id: timeoutHide
         interval: 3000
         running: false
-        repeat: false 
+        repeat: false
         onTriggered: {
             toolTip.hideTip()
         }
@@ -106,6 +106,9 @@ Window {
 
         Text {
             id: tipText
+            width: contentWidth <= 280 ? contentWidth : 280
+            height: contentHeight
+            wrapMode: Text.Wrap
             anchors.centerIn: parent
             font.pixelSize: 12
             color: "#faca57"
