@@ -37,6 +37,16 @@ Rectangle {
         add_check_button.visible = false
         delete_check_button.visible = false
     }
+    
+    property int lastContentY: 0
+    function scrollToTop() {
+        lastContentY = flickable.contentY
+        flickable.contentY = 0
+    }
+    
+    function scrollToLastPosition() {
+        flickable.contentY = lastContentY
+    }
 
     Column {
         id: title_column
@@ -96,9 +106,11 @@ Rectangle {
                     onClicked: {
                         if (active) {
                             main_column.state = "add_dialog"
+                            root.scrollToTop()
                             root.hideAddDeleteButton()
                         } else {
                             main_column.state = "normal"
+                            root.scrollToLastPosition()
                         }
                     }
 
@@ -140,6 +152,8 @@ Rectangle {
                     main_column.state = "normal"
                     root.showAddDeleteButton()
                     add_user_dialog.reset()
+                    
+                    root.scrollToLastPosition()
                 }
 
                 onConfirmed: {
@@ -162,6 +176,8 @@ Rectangle {
                         main_column.state = "normal"
                         add_user_dialog.reset()
                     }
+                    
+                    root.scrollToLastPosition()
                 }
             }
 
@@ -239,8 +255,7 @@ Rectangle {
             onExpandedChanged: {
                 user_list.visible = !expanded                
                 // prevent guest_user from flicking away while showing 
-                expanded ? flickable.contentY = 0 : 
-                           flickable.contentY = flickable.contentHeight - flickable.height
+                expanded ? root.scrollToTop() : root.scrollToLastPosition()
             }
             anchors.top: main_column.bottom
 
