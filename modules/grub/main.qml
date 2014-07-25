@@ -352,6 +352,20 @@ Rectangle {
                                 }
                                 return -1
                             }
+                            MouseArea {
+                                acceptedButtons: Qt.NoButton
+                                anchors.fill: parent
+                                hoverEnabled: true
+                                property string tooltipText: dsTr("Please enter Grub boot interface, switch to command line mode by clicking on 'c', and enter 'videoinfo' to get resolutions supported by the current motherboard.")
+                                onEntered: {
+                                    if (tooltipText && tooltipText != "") {
+                                        toolTip.showTip(tooltipText)
+                                    }
+                                }
+                                onExited: {
+                                    toolTip.hideTip()
+                                }
+                            }
                         }
                     }
                 }
