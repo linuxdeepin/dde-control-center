@@ -78,7 +78,7 @@ Rectangle {
             DRoundImage {
                 id: round_image
                 roundRadius: 25
-                imageSource: dbus_accounts.RandUserIcon()[0]
+                imageSource: "file://" + dbus_accounts.RandUserIcon()[0]
 
                 property bool toggleFlag: false
 
