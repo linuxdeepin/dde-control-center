@@ -20,7 +20,7 @@ Rectangle {
     }
     
     function reset() {
-        round_image.imageSource = dbus_accounts.RandUserIcon()[0]
+        round_image.imageSource = "file://" + dbus_accounts.RandUserIcon()[0]
         user_name_input.focus = true
         user_name_input.text = ""
         password_input.text = ""
