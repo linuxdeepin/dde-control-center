@@ -9,22 +9,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddDsl.qml" line="25"/>
+        <location filename="../modules/network/add/AddDsl.qml" line="24"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddDsl.qml" line="38"/>
+        <location filename="../modules/network/add/AddDsl.qml" line="36"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddDsl.qml" line="49"/>
+        <location filename="../modules/network/add/AddDsl.qml" line="46"/>
         <source>Service</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddDsl.qml" line="60"/>
+        <location filename="../modules/network/add/AddDsl.qml" line="56"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
@@ -37,35 +37,35 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddMobile.qml" line="34"/>
+        <location filename="../modules/network/add/AddMobile.qml" line="33"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddMobile.qml" line="47"/>
+        <location filename="../modules/network/add/AddMobile.qml" line="45"/>
         <source>Service Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddMobile.qml" line="58"/>
+        <location filename="../modules/network/add/AddMobile.qml" line="55"/>
         <source>APN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddMobile.qml" line="69"/>
-        <location filename="../modules/network/add/AddMobile.qml" line="102"/>
+        <location filename="../modules/network/add/AddMobile.qml" line="65"/>
+        <location filename="../modules/network/add/AddMobile.qml" line="95"/>
         <source>Number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddMobile.qml" line="80"/>
-        <location filename="../modules/network/add/AddMobile.qml" line="113"/>
+        <location filename="../modules/network/add/AddMobile.qml" line="75"/>
+        <location filename="../modules/network/add/AddMobile.qml" line="105"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddMobile.qml" line="91"/>
-        <location filename="../modules/network/add/AddMobile.qml" line="124"/>
+        <location filename="../modules/network/add/AddMobile.qml" line="85"/>
+        <location filename="../modules/network/add/AddMobile.qml" line="115"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
@@ -181,166 +181,166 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="83"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="82"/>
         <source>Need VPN Plugin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="104"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="102"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="117"/>
-        <location filename="../modules/network/add/AddVpn.qml" line="161"/>
-        <location filename="../modules/network/add/AddVpn.qml" line="249"/>
-        <location filename="../modules/network/add/AddVpn.qml" line="414"/>
-        <location filename="../modules/network/add/AddVpn.qml" line="458"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="114"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="154"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="234"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="384"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="424"/>
         <source>Gateway</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="128"/>
-        <location filename="../modules/network/add/AddVpn.qml" line="271"/>
-        <location filename="../modules/network/add/AddVpn.qml" line="425"/>
-        <location filename="../modules/network/add/AddVpn.qml" line="469"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="124"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="254"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="394"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="434"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="139"/>
-        <location filename="../modules/network/add/AddVpn.qml" line="282"/>
-        <location filename="../modules/network/add/AddVpn.qml" line="337"/>
-        <location filename="../modules/network/add/AddVpn.qml" line="436"/>
-        <location filename="../modules/network/add/AddVpn.qml" line="480"/>
-        <location filename="../modules/network/add/AddVpn.qml" line="513"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="134"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="264"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="314"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="404"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="444"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="474"/>
         <source>Ask for Pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="150"/>
-        <location filename="../modules/network/add/AddVpn.qml" line="293"/>
-        <location filename="../modules/network/add/AddVpn.qml" line="447"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="144"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="274"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="414"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="172"/>
-        <location filename="../modules/network/add/AddVpn.qml" line="304"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="164"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="284"/>
         <source>CA Cert</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="183"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="174"/>
         <source>Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="194"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="184"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="205"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="194"/>
         <source>CSD Wrapper</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="227"/>
-        <location filename="../modules/network/add/AddVpn.qml" line="326"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="214"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="304"/>
         <source>Private Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="238"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="224"/>
         <source>User FSID For Key Passphrase</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="260"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="244"/>
         <source>Auth Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="216"/>
-        <location filename="../modules/network/add/AddVpn.qml" line="315"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="204"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="294"/>
         <source>User Cert</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="348"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="324"/>
         <source>Private Pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="359"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="334"/>
         <source>Static Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="370"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="344"/>
         <source>Use Key Direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="381"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="354"/>
         <source>Key Direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="392"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="364"/>
         <source>Remote IP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="403"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="374"/>
         <source>Local IP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="491"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="454"/>
         <source>User Pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="502"/>
-        <location filename="../modules/network/add/AddVpn.qml" line="570"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="464"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="526"/>
         <source>Group Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="524"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="484"/>
         <source>Group Pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="535"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="494"/>
         <source>Use Hybrid Authentication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="546"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="504"/>
         <source>CA File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="559"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="516"/>
         <source>Enable IPsec</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="581"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="536"/>
         <source>Group ID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="592"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="546"/>
         <source>Pre-Shared Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="605"/>
-        <location filename="../modules/network/add/AddVpn.qml" line="618"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="558"/>
+        <location filename="../modules/network/add/AddVpn.qml" line="570"/>
         <source>Use MPPE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -353,94 +353,94 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/AddWireless.qml" line="33"/>
+        <location filename="../modules/network/wireless/AddWireless.qml" line="32"/>
         <source>SSID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/AddWireless.qml" line="46"/>
+        <location filename="../modules/network/wireless/AddWireless.qml" line="44"/>
         <source>Security</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/AddWireless.qml" line="57"/>
+        <location filename="../modules/network/wireless/AddWireless.qml" line="54"/>
         <source>Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/AddWireless.qml" line="68"/>
-        <location filename="../modules/network/wireless/AddWireless.qml" line="202"/>
+        <location filename="../modules/network/wireless/AddWireless.qml" line="64"/>
+        <location filename="../modules/network/wireless/AddWireless.qml" line="186"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/AddWireless.qml" line="79"/>
+        <location filename="../modules/network/wireless/AddWireless.qml" line="74"/>
         <source>EAP Auth</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/AddWireless.qml" line="90"/>
+        <location filename="../modules/network/wireless/AddWireless.qml" line="84"/>
         <source>Identity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/AddWireless.qml" line="101"/>
+        <location filename="../modules/network/wireless/AddWireless.qml" line="94"/>
         <source>Anonymous ID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/AddWireless.qml" line="112"/>
+        <location filename="../modules/network/wireless/AddWireless.qml" line="104"/>
         <source>CA Cert</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/AddWireless.qml" line="123"/>
+        <location filename="../modules/network/wireless/AddWireless.qml" line="114"/>
         <source>User Cert</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/AddWireless.qml" line="134"/>
+        <location filename="../modules/network/wireless/AddWireless.qml" line="124"/>
         <source>Provisioning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/AddWireless.qml" line="145"/>
+        <location filename="../modules/network/wireless/AddWireless.qml" line="134"/>
         <source>PAC file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/AddWireless.qml" line="156"/>
+        <location filename="../modules/network/wireless/AddWireless.qml" line="144"/>
         <source>PEAP Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/AddWireless.qml" line="167"/>
+        <location filename="../modules/network/wireless/AddWireless.qml" line="154"/>
         <source>Inner Auth</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/AddWireless.qml" line="179"/>
+        <location filename="../modules/network/wireless/AddWireless.qml" line="165"/>
         <source>Private Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/AddWireless.qml" line="190"/>
-        <location filename="../modules/network/wireless/AddWireless.qml" line="213"/>
+        <location filename="../modules/network/wireless/AddWireless.qml" line="175"/>
+        <location filename="../modules/network/wireless/AddWireless.qml" line="196"/>
         <source>Ask for Pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/AddWireless.qml" line="224"/>
+        <location filename="../modules/network/wireless/AddWireless.qml" line="206"/>
         <source>Private Pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/AddWireless.qml" line="234"/>
+        <location filename="../modules/network/wireless/AddWireless.qml" line="216"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/AddWireless.qml" line="242"/>
+        <location filename="../modules/network/wireless/AddWireless.qml" line="224"/>
         <source>Connect</source>
         <translation type="unfinished"></translation>
     </message>
@@ -701,24 +701,6 @@
     <message>
         <location filename="../modules/network/edit_autogen/EditSectionEthernet.qml" line="53"/>
         <source>MTU</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>EditSectionGeneral</name>
-    <message>
-        <location filename="../modules/network/edit_autogen/EditSectionGeneral.qml" line="11"/>
-        <source>General</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/edit_autogen/EditSectionGeneral.qml" line="24"/>
-        <source>Automatically connect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/edit_autogen/EditSectionGeneral.qml" line="35"/>
-        <source>For All Users</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1747,7 +1729,7 @@
 <context>
     <name>LocaleArea</name>
     <message>
-        <location filename="../modules/date_time/LocaleArea.qml" line="82"/>
+        <location filename="../modules/date_time/LocaleArea.qml" line="83"/>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1889,12 +1871,12 @@
 <context>
     <name>MonitorDragArea</name>
     <message>
-        <location filename="../modules/display/MonitorDragArea.qml" line="446"/>
+        <location filename="../modules/display/MonitorDragArea.qml" line="463"/>
         <source>Identify</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/MonitorDragArea.qml" line="463"/>
+        <location filename="../modules/display/MonitorDragArea.qml" line="480"/>
         <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1953,7 +1935,7 @@
 <context>
     <name>PanelContent</name>
     <message>
-        <location filename="../frame/views/PanelContent.qml" line="421"/>
+        <location filename="../frame/views/PanelContent.qml" line="419"/>
         <source>Power</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2324,7 +2306,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/WebCam.qml" line="172"/>
+        <location filename="../modules/account/WebCam.qml" line="175"/>
         <source>No camera found.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2342,37 +2324,37 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/WifiHotspot.qml" line="38"/>
+        <location filename="../modules/network/wireless/WifiHotspot.qml" line="37"/>
         <source>SSID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/WifiHotspot.qml" line="51"/>
+        <location filename="../modules/network/wireless/WifiHotspot.qml" line="49"/>
         <source>Security</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/WifiHotspot.qml" line="62"/>
+        <location filename="../modules/network/wireless/WifiHotspot.qml" line="59"/>
         <source>Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/WifiHotspot.qml" line="73"/>
+        <location filename="../modules/network/wireless/WifiHotspot.qml" line="69"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/WifiHotspot.qml" line="86"/>
+        <location filename="../modules/network/wireless/WifiHotspot.qml" line="82"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/WifiHotspot.qml" line="95"/>
+        <location filename="../modules/network/wireless/WifiHotspot.qml" line="91"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/WifiHotspot.qml" line="95"/>
+        <location filename="../modules/network/wireless/WifiHotspot.qml" line="91"/>
         <source>Create</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2836,17 +2818,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/main.qml" line="282"/>
-        <source>Fix Settings Always</source>
+        <location filename="../modules/grub/main.qml" line="360"/>
+        <source>Please enter Grub boot interface, switch to command line mode by clicking on &apos;c&apos;, and enter &apos;videoinfo&apos; to get resolutions supported by the current motherboard.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/main.qml" line="299"/>
-        <source>Enable Grub Theme</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/grub/main.qml" line="318"/>
+        <location filename="../modules/grub/main.qml" line="281"/>
         <source>Custom Resolution</source>
         <translation type="unfinished"></translation>
     </message>
