@@ -39,6 +39,7 @@ int main(int argc, char* argv[])
         QmlLoader* qmlLoader = new QmlLoader();
         qmlLoader->rootContext->setContextProperty("mainObject", qmlLoader);
         qmlLoader->load(QUrl("qrc:///views/Main.qml"));
+        QObject::connect(qmlLoader->engine, SIGNAL(quit()), QCoreApplication::instance(), SLOT(quit()));
 
         if(argc == 2){
             QString order = argv[1];
