@@ -64,7 +64,7 @@ Item {
 
         width: 120
         height: 120
-        clip: true     
+        clip: true
 
         transform: Rotation {
             origin.x: 61
@@ -155,15 +155,15 @@ Item {
             var imagePath = urlToPath(camera.imageSavedPath)
             var imageSize = dbus_graphic.GetImageSize(imagePath)
             var destSize = [imageSize[0] * 120 / imageSize[1], 120]
-            dbus_graphic.ResizeImage(imagePath, imagePath, destSize[0], destSize[1], "jpeg")            
-            var scaledSize = [Math.floor(video_output.scale * destSize[0]), 
+            dbus_graphic.ResizeImage(imagePath, imagePath, destSize[0], destSize[1], "jpeg")
+            var scaledSize = [Math.floor(video_output.scale * destSize[0]),
                               Math.floor(video_output.scale * destSize[1])]
-            dbus_graphic.ResizeImage(imagePath, imagePath, scaledSize[0], scaledSize[1], "jpeg")            
+            dbus_graphic.ResizeImage(imagePath, imagePath, scaledSize[0], scaledSize[1], "jpeg")
             dbus_graphic.FlipImageHorizontal(imagePath, imagePath, "jpeg")
             var horiMargin = Math.floor((scaledSize[0] - 120) / 2)
             var vertMargin = Math.floor((scaledSize[1] - 120) / 2)
-            dbus_graphic.ClipImage(imagePath, imagePath, horiMargin, vertMargin, 
-                                   horiMargin + 120, vertMargin + 120, "jpeg")
+            dbus_graphic.ClipImage(imagePath, imagePath, horiMargin, vertMargin,
+                                   120, 120, "jpeg")
             dbus_graphic.ResizeImage(imagePath, imagePath, 150, 150, "jpeg")
             root.avatarPictured(camera.imageSavedPath)
         }
