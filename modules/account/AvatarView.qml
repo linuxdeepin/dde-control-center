@@ -122,6 +122,11 @@ Item {
         }
     ]
 
+    function doCheck(iconFile) {
+        avatar_recently_used_view.doCheck(iconFile)
+        avatar_default_view.doCheck(iconFile)
+    }
+
     AvatarIconView {
         id: avatar_recently_used_view
         currentIndex: -1
