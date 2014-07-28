@@ -187,6 +187,13 @@ Item {
         onAvatarSet: {
             root_view.avatarSet(path)
         }        
+        
+        Connections {
+            target: dbus_user
+            onIconListChanged: {
+                avatar_recently_used_view.setContent()
+            }
+        }        
 
         anchors.top: radio_button.bottom
         anchors.topMargin: root_view.verticalPadding * 2
