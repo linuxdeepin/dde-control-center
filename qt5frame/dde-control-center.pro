@@ -25,3 +25,5 @@ data.path = $$APPSHAREDIR/data
 
 target.path = $$BINDIR
 INSTALLS += target data
+
+OTHER_FILES +=

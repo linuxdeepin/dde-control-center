@@ -25,6 +25,7 @@
 #include <QtQml/QQmlEngine>
 #include <QCoreApplication>
 #include <QDBusConnection>
+#include <QDBusInterface>
 #include <qdebug.h>
 
 #include "qmlloader.h"
@@ -57,6 +58,20 @@ int main(int argc, char* argv[])
         return app.exec();
     } else {
         qWarning() << "dde control center is running...";
+        if(argc == 2){
+            QDBusInterface *iface;
+            iface = new QDBusInterface(DBUS_NAME, DBUS_PATH, DBUS_NAME, QDBusConnection::sessionBus());
+            QString order = argv[1];
+            if(order == "show"){
+                iface->call("Show");
+            }
+            else if(order == "toggle"){
+                iface->call("Toggle");
+            }
+            else {
+                iface->call("ShowModule", order);
+            }
+        }
         return 0;
     }
 }
