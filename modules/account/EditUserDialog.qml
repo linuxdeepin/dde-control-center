@@ -23,7 +23,7 @@ Rectangle {
             this_user: edit_dialog.this_user
 
             onAvatarSet: {
-                var iconFile = path.toString().replace("file:\/\/", "")
+                var iconFile = path.toString().replace("qrc:\/\/", "")
                 var right = edit_dialog.this_user.SetIconFile(iconFile)
                 if (!right) {
                     doCheck(edit_dialog.this_user.iconFile)
@@ -31,7 +31,7 @@ Rectangle {
             }
 
             onAvatarPictured: {
-                var iconFile = path.toString().replace("file:\/\/", "")
+                var iconFile = path.toString().replace("qrc:\/\/", "")
                 var right = edit_dialog.this_user.SetIconFile(iconFile)
                 if (!right) {
                     doCheck(edit_dialog.this_user.iconFile)
