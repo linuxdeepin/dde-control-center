@@ -133,7 +133,13 @@ bool QmlLoader::isNetworkCanShowPassword()
 
 QString QmlLoader::toHumanShortcutLabel(QString sequence)
 {
-    return sequence.replace("<", "").replace(">", "+").replace("-", "+");
+    QStringList sequenceList = sequence.split("-");
+    for(int i=0;i<sequenceList.length();i++){
+        QString tmpStr = sequenceList[i];
+        int tmpStrSize = tmpStr.size();
+        sequenceList[i] = tmpStr.left(1).toUpper() + tmpStr.right(tmpStrSize - 1);
+    }
+    return sequenceList.join("+");
 }
 
 QString QmlLoader::toHumanThemeName(QString name)
