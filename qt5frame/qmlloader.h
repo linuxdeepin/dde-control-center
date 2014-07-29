@@ -70,7 +70,6 @@ public slots:
     QString getHomeDir();
 
     QString toHumanShortcutLabel(QString sequence);
-    QString toHumanThemeName(QString name);
 
 private:
     QmlLoaderDBus * m_dbus_proxyer;

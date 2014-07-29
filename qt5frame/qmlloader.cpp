@@ -25,6 +25,7 @@
 #include <QQmlEngine>
 #include <QQmlComponent>
 #include <QDBusConnection>
+#include <QDBusInterface>
 #include <QProcess>
 #include <QDebug>
 #include <QDir>
@@ -142,14 +143,15 @@ QString QmlLoader::toHumanShortcutLabel(QString sequence)
     return sequenceList.join("+");
 }
 
-QString QmlLoader::toHumanThemeName(QString name)
-{
-    return name;
-}
-
 void QmlLoader::installPackage(QString packageName)
 {
-
+    QString dbus_name = "com.linuxdeepin.softwarecenter_frontend";
+    QString dbus_path = "/com/linuxdeepin/softwarecenter_frontend";
+    QDBusInterface *iface;
+    iface = new QDBusInterface(dbus_name, dbus_path, dbus_name, QDBusConnection::sessionBus());
+    iface->call("install_pkgs", QStringList() << packageName);
+    iface->call("raise_to_top");
+    iface->call("show_page", "install");
 }
 
 QString QmlLoader::getGplText(QString language, QString type)
