@@ -59,7 +59,6 @@ Item {
         var userLayoutList = dbusKeyboard.userLayoutList
         for(var i=0; i<userLayoutList.length; i++){
             if(userLayoutList[i] == key){
-                print("User Layout:", key)
                 return true
             }
         }
@@ -227,6 +226,7 @@ Item {
 
                     if(currentActionStateName == "addButton"){
                         indexLetterListView.currentIndex = 0
+                        addLayoutList.rebuildModel(addLayoutIndex.searchIndexResult["A"])
                     }
                 }
             }
@@ -405,7 +405,6 @@ Item {
                     addLayoutList.model.clear()
                     for (var i=0; i<search_result.length; i++){
                         var id = search_result[i]
-                        print(id)
                         if(!keyboardModule.isInUserLayouts(id)){
                             addLayoutList.model.append({
                                 "label": allLayoutMapL10n[id],
