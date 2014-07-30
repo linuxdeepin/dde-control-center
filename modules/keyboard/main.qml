@@ -43,16 +43,21 @@ Item {
 
     property var dconstants: DConstants {}
     property var dbusKeyboard: Keyboard {}
-    property var searchId: Search {}
+    property var dbusSearch: Search {}
 
     property var allLayoutMapL10n: new Object()
 
     property string searchMd5: ""
 
-    function getAllLayoutMapL10n(){
+    property var layoutValueToKey: null
+
+    function initSearchSequence() {
         var layoutMap = dbusKeyboard.LayoutList()
-        layoutMap[";"] = layoutMap["us;"]
-        return layoutMap
+        layoutValueToKey = new Object()
+        for(var key in layoutMap){
+            var value = layoutMap[key]
+            layoutValueToKey[value] = key
+        }
     }
 
     function isInUserLayouts(key){
@@ -66,9 +71,11 @@ Item {
     }
 
     Component.onCompleted:{
-        keyboardModule.allLayoutMapL10n = getAllLayoutMapL10n()
-        var retList = searchId.NewSearchWithStrDict(
-            keyboardModule.allLayoutMapL10n)
+        initSearchSequence()
+        keyboardModule.allLayoutMapL10n = dbusKeyboard.LayoutList()
+
+        var valueList = Object.keys(layoutValueToKey).sort()
+        var retList = dbusSearch.NewSearchWithStrList(valueList)
         keyboardModule.searchMd5 = retList[0]
         layoutList.reloadLayout()
     }
@@ -310,7 +317,7 @@ Item {
                                 ]
                     for(var i=0;i<alphabet.length;i++){
                         var indexLetter = alphabet[i]
-                        var search_result = searchId.SearchStartWithString(indexLetter, keyboardModule.searchMd5)
+                        var search_result = dbusSearch.SearchStartWithString(indexLetter, keyboardModule.searchMd5)
                         if(search_result.length > 0){
                             indexLetterListView.model.append({
                                 "indexLetter": indexLetter,
@@ -404,7 +411,7 @@ Item {
                 function rebuildModel(search_result){
                     addLayoutList.model.clear()
                     for (var i=0; i<search_result.length; i++){
-                        var id = search_result[i]
+                        var id = layoutValueToKey[search_result[i]]
                         if(!keyboardModule.isInUserLayouts(id)){
                             addLayoutList.model.append({
                                 "label": allLayoutMapL10n[id],
