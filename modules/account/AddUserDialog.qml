@@ -36,14 +36,12 @@ Rectangle {
         function validate() {
             var result = true
             
-            /* user name validation */
-            var linux_username_regex = /^[a-z_][a-z0-9_-]{0,30}$/i
-            if (!linux_username_regex.test(user_name_input.text)) {
+            if(!dbus_accounts.IsUsernameValid(user_name_input.text)) {
                 result = false
                 user_name_input.state = "warning"
             }
             
-            if (password_input.text == "") {
+            if (password_input.text == "" || !dbus_accounts.IsPasswordValid(password_input.text)) {
                 result = false
                 password_input.state = "warning"
             }

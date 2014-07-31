@@ -161,9 +161,7 @@ Rectangle {
                     var result = dbus_accounts.CreateUser(userInfo.userName, userInfo.userName, userInfo.userAccountType)
                     var new_user = result[0]
                     var right = result[1]
-                    if (!right) {
-                        add_user_dialog.warnUserName()
-                    } else {
+                    if (right) {
                         dbus_user.path = new_user
                         /* dbus_user.passwordMode = 2 // i think this nonsense too, but the fact is this help a lot >_< */
                         /* // The user should be in a group named "nopasswdlogin" before we set his password, */

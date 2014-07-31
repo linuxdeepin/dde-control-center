@@ -89,7 +89,19 @@ Item {
         property int echoMode: TextInput.Password
 
         function validate() {
-            return new_password_input.text == repeat_input.text
+            var result = true
+
+            if (new_password_input.text == "" || !dbus_accounts.IsPasswordValid(new_password_input.text)) {
+                result = false
+                new_password_input.state = "warning"
+            }
+
+            if (repeat_input.text != new_password_input.text) {
+                result = false
+                repeat_input.state = "warning"
+            }
+
+            return result
         }
 
         Rectangle {
@@ -193,9 +205,6 @@ Item {
                     if (detail_view.validate()) {
                         root.passwordSet(new_password_input.text)
                         root.state = "brief"
-                    } else {
-                        new_password_input.state = "warning"
-                        repeat_input.state = "warning"
                     }
                 }
             }
