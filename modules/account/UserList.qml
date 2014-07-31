@@ -29,13 +29,14 @@ ListView {
     function addUser(path) {
         dbus_user.path = path
 
-        var user_status = dbus_user.locked ? "inactiveUser" : dbus_user.loginTime != 0 ? "currentUser" : "otherUser"
-        user_list_model.append({"userAvatar": dbus_user.iconFile,
-                                "userId": dbus_user.uid,
-                                "userName": dbus_user.userName,
-                                "userType": dbus_user.accountType,
-                                "userStatus": user_status,
-                                "userDBusPath": path})
+        var user_status = dbus_user.locked ? "inactiveUser" : userIsCurrentUser(dbus_user) ? "currentUser" : "otherUser"
+        var user_dict = {"userAvatar": dbus_user.iconFile,
+                         "userId": dbus_user.uid,
+                         "userName": dbus_user.userName,
+                         "userType": dbus_user.accountType,
+                         "userStatus": user_status,
+                         "userDBusPath": path}
+        user_status == "currentUser" ? user_list_model.insert(0, user_dict) : user_list_model.append(user_dict)
     }
 
     function deleteUser(path) {
