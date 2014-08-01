@@ -4,13 +4,16 @@ import Deepin.Widgets 1.0
 GridView {
     id: avatar_icon_view
     clip: true
+    width: 290
+    height: Math.min(cellHeight * Math.ceil(count /3), maxHeight)
 
     cellWidth: 96
     cellHeight: 93
 
     property bool itemCanbeDeleted: false
     property bool withAddButton: false
-
+    property int maxHeight: 10
+    
     signal initialize
     signal avatarSet (url path)
     signal checkPrivate (int idx)
@@ -138,8 +141,5 @@ GridView {
         if (withAddButton) {
             avatar_icon_view_model.append({"avatarPath": "images/avatar_add.png"})
         }
-
-        width = 290
-        height = cellHeight * Math.min(3, Math.ceil(count /3))
     }
 }

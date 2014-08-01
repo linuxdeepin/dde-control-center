@@ -8,6 +8,7 @@ Rectangle {
     color: dconstants.contentBgColor
 
     property var this_user: null
+    property int maxHeight: 10
 
     function reset() {
         password_dialog.reset()
@@ -19,8 +20,9 @@ Rectangle {
         AvatarView {
             id: avatar_view
             width: 310
-            height: 326
+            /* height: 326 */
             this_user: edit_dialog.this_user
+            maxHeight: edit_dialog.maxHeight - edit_entries.height
 
             onAvatarSet: {
                 var iconFile = path.toString().replace("qrc:\/\/", "")

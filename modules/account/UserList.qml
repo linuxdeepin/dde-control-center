@@ -262,6 +262,7 @@ ListView {
 
             EditUserDialog {
                 id: edit_user_dialog
+                maxHeight: frame.height - title_column.height - delete_line.height
                 visible: delete_line.editUserDialogVisible
                 this_user: User { path: userDBusPath}
                 anchors.top: component_sep.bottom

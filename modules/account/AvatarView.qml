@@ -7,6 +7,7 @@ Item {
 
     property int verticalPadding: 8
     property var this_user: null
+    property int maxHeight: 10
 
     signal avatarSet (url path)
     signal avatarPictured (url path)
@@ -131,6 +132,7 @@ Item {
         id: avatar_recently_used_view
         currentIndex: -1
         itemCanbeDeleted: true
+        maxHeight: root_view.maxHeight - root_view.verticalPadding * 3 - radio_button.height
 
         function setContent() {
             avatar_recently_used_view.model.clear()
@@ -168,9 +170,9 @@ Item {
     AvatarIconView {
         id: avatar_default_view
         currentIndex: -1
-
         withAddButton: true
-
+        maxHeight: root_view.maxHeight - root_view.verticalPadding * 3 - radio_button.height
+        
         function setContent() {
             avatar_recently_used_view.model.clear()
             var allIcons = root_view.this_user.iconList

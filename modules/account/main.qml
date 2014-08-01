@@ -194,11 +194,13 @@ Rectangle {
 
                 onHideAllPrivate: {
                     guest_user.visible = false
+                    guest_user.height = 0
                     hideAddDeleteButton()
                 }
 
                 onShowAllPrivate: {
                     guest_user.visible = true
+                    guest_user.height = guest_user.childrenRect.height
                     showAddDeleteButton()
                 }
                 
