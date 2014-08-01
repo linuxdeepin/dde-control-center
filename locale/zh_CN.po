@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-25 14:43+0800\n"
+"POT-Creation-Date: 2014-08-01 16:08+0800\n"
 "PO-Revision-Date: 2014-07-03 03:50+0000\n"
 "Last-Translator: electricface <songwentai@linuxdeepin.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/dde-"
@@ -34,7 +34,7 @@ msgstr "名称"
 #: ../modules/network/add/AddDsl.qml:36
 #: ../modules/network/add/AddMobile.qml:75
 #: ../modules/network/add/AddMobile.qml:105
-#: ../modules/account/AddUserDialog.qml:115
+#: ../modules/account/AddUserDialog.qml:113
 #: ../modules/network/add/AddVpn.qml:124 ../modules/network/add/AddVpn.qml:254
 #: ../modules/network/add/AddVpn.qml:394 ../modules/network/add/AddVpn.qml:434
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:53
@@ -56,7 +56,7 @@ msgstr "服务"
 #: ../modules/network/add/AddDsl.qml:56
 #: ../modules/network/add/AddMobile.qml:85
 #: ../modules/network/add/AddMobile.qml:115
-#: ../modules/account/AddUserDialog.qml:147
+#: ../modules/account/AddUserDialog.qml:145
 #: ../modules/network/add/AddVpn.qml:144 ../modules/network/add/AddVpn.qml:274
 #: ../modules/network/add/AddVpn.qml:414
 #: ../modules/network/wireless/AddWireless.qml:64
@@ -97,14 +97,14 @@ msgid "Number"
 msgstr "数字"
 
 #: ../modules/network/add/AddSectionSave.qml:11
-#: ../modules/account/AddUserDialog.qml:294
+#: ../modules/account/AddUserDialog.qml:292
 #: ../modules/network/wireless/AddWireless.qml:216
 #: ../modules/network/ConnectionAdd.qml:69
 #: ../modules/network/ConnectionEdit.qml:146
 #: ../modules/shortcuts/CustomKeybinding.qml:151
 #: ../modules/account/DeleteUserDialog.qml:33
 #: ../modules/network/widgets/PasswordBox.qml:101
-#: ../modules/account/PasswordDialog.qml:172
+#: ../modules/account/PasswordDialog.qml:184
 #: ../modules/shortcuts/ShortcutInput.qml:341
 #: ../modules/date_time/TimeBox.qml:212
 #: ../modules/network/wireless/WifiHotspot.qml:82
@@ -119,45 +119,45 @@ msgstr "取消"
 msgid "Add"
 msgstr "添加"
 
-#: ../modules/account/AddUserDialog.qml:66
+#: ../modules/account/AddUserDialog.qml:64
 msgid "Add User"
 msgstr "添加用户"
 
-#: ../modules/account/AddUserDialog.qml:94
+#: ../modules/account/AddUserDialog.qml:92
 msgid "New User"
 msgstr "新建用户"
 
-#: ../modules/account/AddUserDialog.qml:98
-#: ../modules/account/AddUserDialog.qml:223
-#: ../modules/account/EditUserDialog.qml:131
-#: ../modules/account/UserList.qml:187
+#: ../modules/account/AddUserDialog.qml:96
+#: ../modules/account/AddUserDialog.qml:221
+#: ../modules/account/EditUserDialog.qml:135
+#: ../modules/account/UserList.qml:188
 msgid "Standard"
 msgstr "标准"
 
-#: ../modules/account/AddUserDialog.qml:98
-#: ../modules/account/AddUserDialog.qml:224
-#: ../modules/account/EditUserDialog.qml:132
-#: ../modules/account/UserList.qml:187
+#: ../modules/account/AddUserDialog.qml:96
+#: ../modules/account/AddUserDialog.qml:222
+#: ../modules/account/EditUserDialog.qml:136
+#: ../modules/account/UserList.qml:188
 msgid "Administrator"
 msgstr "管理员"
 
-#: ../modules/account/AddUserDialog.qml:180
+#: ../modules/account/AddUserDialog.qml:178
 msgid "Repeat Password"
 msgstr "重复密码"
 
-#: ../modules/account/AddUserDialog.qml:211
-#: ../modules/account/EditUserDialog.qml:119
+#: ../modules/account/AddUserDialog.qml:209
+#: ../modules/account/EditUserDialog.qml:123
 msgid "Account Type"
 msgstr "账户类型"
 
-#: ../modules/account/AddUserDialog.qml:243
-#: ../modules/account/EditUserDialog.qml:52
+#: ../modules/account/AddUserDialog.qml:241
+#: ../modules/account/EditUserDialog.qml:56
 msgid "Auto-login"
 msgstr "自动登录"
 
-#: ../modules/account/AddUserDialog.qml:307
+#: ../modules/account/AddUserDialog.qml:305
 #: ../modules/account/DeleteUserDialog.qml:46
-#: ../modules/account/PasswordDialog.qml:186 ../modules/account/WebCam.qml:148
+#: ../modules/account/PasswordDialog.qml:198 ../modules/account/WebCam.qml:148
 msgid "Confirm"
 msgstr "确认"
 
@@ -431,15 +431,15 @@ msgstr "Dock插件开启"
 msgid "Choose a new picture for your image"
 msgstr "请选择一张图片作为您的头像"
 
-#: ../modules/account/AvatarView.qml:18
+#: ../modules/account/AvatarView.qml:19
 msgid "Recently Used"
 msgstr "最近使用"
 
-#: ../modules/account/AvatarView.qml:19
-msgid "Default"
-msgstr "默认"
-
 #: ../modules/account/AvatarView.qml:20
+msgid "Avatar"
+msgstr ""
+
+#: ../modules/account/AvatarView.qml:21
 msgid "Webcam"
 msgstr "拍照"
 
@@ -892,7 +892,7 @@ msgstr "波段"
 msgid "Channel"
 msgstr "通道"
 
-#: ../modules/account/EditUserDialog.qml:86
+#: ../modules/account/EditUserDialog.qml:90
 msgid "Enable"
 msgstr "启用"
 
@@ -905,7 +905,7 @@ msgstr "大小"
 msgid "Font %1"
 msgstr "字体 %1"
 
-#: ../modules/account/GuestUser.qml:40 ../frame/views/HeaderArea.qml:108
+#: ../modules/account/GuestUser.qml:40 ../qt5frame/views/HeaderArea.qml:108
 msgid "Guest"
 msgstr "来宾"
 
@@ -981,85 +981,85 @@ msgstr "保留更改"
 msgid "Revert"
 msgstr "还原"
 
-#: ../frame/views/ModulesData.qml:28 ../dock-applets/qml/main.qml:45
+#: ../qt5frame/views/ModulesData.qml:28 ../dock-applets/qml/main.qml:45
 msgid "Date and Time"
 msgstr "日期和时间"
 
-#: ../frame/views/ModulesData.qml:29 ../dock-applets/qml/main.qml:41
+#: ../qt5frame/views/ModulesData.qml:29 ../dock-applets/qml/main.qml:41
 msgid "Network"
 msgstr "网络"
 
-#: ../frame/views/ModulesData.qml:30 ../dock-applets/qml/main.qml:44
+#: ../qt5frame/views/ModulesData.qml:30 ../dock-applets/qml/main.qml:44
 msgid "Disk Mount"
 msgstr "磁盘挂载"
 
-#: ../frame/views/ModulesData.qml:31 ../modules/network/main.qml:167
+#: ../qt5frame/views/ModulesData.qml:31 ../modules/network/main.qml:167
 msgid "Bluetooth"
 msgstr "蓝牙"
 
-#: ../frame/views/ModulesData.qml:32 ../dock-applets/qml/main.qml:42
+#: ../qt5frame/views/ModulesData.qml:32 ../dock-applets/qml/main.qml:42
 msgid "Sound"
 msgstr "声音"
 
-#: ../frame/views/ModulesData.qml:33
+#: ../qt5frame/views/ModulesData.qml:33
 msgid "Power Management"
 msgstr "电源管理"
 
-#: ../frame/views/ModulesData.qml:34
+#: ../qt5frame/views/ModulesData.qml:34
 msgid "More Settings"
 msgstr "更多设置"
 
-#: ../frame/views/ModulesData.qml:35 ../frame/views/PanelContent.qml:419
+#: ../qt5frame/views/ModulesData.qml:35 ../qt5frame/views/PanelContent.qml:419
 #: ../dock-applets/qml/main.qml:43
 msgid "Power"
 msgstr "电源"
 
-#: ../frame/views/ModulesData.qml:36
+#: ../qt5frame/views/ModulesData.qml:36
 msgid "Display"
 msgstr "显示"
 
-#: ../frame/views/ModulesData.qml:37
+#: ../qt5frame/views/ModulesData.qml:37
 msgid "Desktop"
 msgstr "桌面"
 
-#: ../frame/views/ModulesData.qml:38
+#: ../qt5frame/views/ModulesData.qml:38
 msgid "Personalization"
 msgstr "个性化"
 
-#: ../frame/views/ModulesData.qml:39
+#: ../qt5frame/views/ModulesData.qml:39
 msgid "Keyboard Shortcuts"
 msgstr "快捷键"
 
-#: ../frame/views/ModulesData.qml:40
+#: ../qt5frame/views/ModulesData.qml:40
 msgid "Keyboard"
 msgstr "键盘"
 
-#: ../frame/views/ModulesData.qml:41
+#: ../qt5frame/views/ModulesData.qml:41
 msgid "Mouse and Touchpad"
 msgstr "鼠标和触摸板"
 
-#: ../frame/views/ModulesData.qml:42 ../modules/mouse_touchpad/main.qml:50
+#: ../qt5frame/views/ModulesData.qml:42 ../modules/mouse_touchpad/main.qml:50
 msgid "Mouse"
 msgstr "鼠标"
 
-#: ../frame/views/ModulesData.qml:43
+#: ../qt5frame/views/ModulesData.qml:43
 msgid "User Accounts"
 msgstr "账户"
 
-#: ../frame/views/ModulesData.qml:44
+#: ../qt5frame/views/ModulesData.qml:44
 #: ../modules/default_applications/main.qml:62
 msgid "Default Applications"
 msgstr "默认程序"
 
-#: ../frame/views/ModulesData.qml:45
+#: ../qt5frame/views/ModulesData.qml:45
 msgid "System Information"
 msgstr "系统信息"
 
-#: ../frame/views/ModulesData.qml:46
+#: ../qt5frame/views/ModulesData.qml:46
 msgid "Boot Menu"
 msgstr "启动菜单"
 
-#: ../frame/views/ModulesData.qml:47
+#: ../qt5frame/views/ModulesData.qml:47
 msgid "Home"
 msgstr "回到主页"
 
@@ -1113,11 +1113,11 @@ msgstr "有线连接 %1"
 msgid "Password: "
 msgstr "密码: "
 
-#: ../modules/account/PasswordDialog.qml:101
+#: ../modules/account/PasswordDialog.qml:113
 msgid "New Password"
 msgstr "新密码"
 
-#: ../modules/account/PasswordDialog.qml:135
+#: ../modules/account/PasswordDialog.qml:147
 msgid "Repeat"
 msgstr "重复"
 
@@ -1270,7 +1270,7 @@ msgstr "指针移动速度"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:119
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:169
-#: ../modules/keyboard/main.qml:147 ../modules/keyboard/main.qml:173
+#: ../modules/keyboard/main.qml:154 ../modules/keyboard/main.qml:180
 #: ../modules/mouse_touchpad/main.qml:103
 #: ../modules/mouse_touchpad/main.qml:155
 msgid "Slow"
@@ -1278,7 +1278,7 @@ msgstr "慢"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:120
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:170
-#: ../modules/keyboard/main.qml:146 ../modules/keyboard/main.qml:172
+#: ../modules/keyboard/main.qml:153 ../modules/keyboard/main.qml:179
 #: ../modules/mouse_touchpad/main.qml:104
 #: ../modules/mouse_touchpad/main.qml:156
 msgid "Fast"
@@ -1294,12 +1294,12 @@ msgid "Drag Threshold"
 msgstr "拖动阀值"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:195
-#: ../modules/keyboard/main.qml:121
+#: ../modules/keyboard/main.qml:128
 msgid "Short"
 msgstr "短"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:196
-#: ../modules/keyboard/main.qml:122
+#: ../modules/keyboard/main.qml:129
 msgid "Long"
 msgstr "长"
 
@@ -1581,42 +1581,44 @@ msgstr "选中文字颜色"
 msgid "Advanced"
 msgstr "高级选项"
 
-#: ../modules/grub/main.qml:360
+#: ../modules/grub/main.qml:359
 msgid ""
 "Please enter Grub boot interface, switch to command line mode by clicking on "
 "'c', and enter 'videoinfo' to get resolutions supported by the current "
 "motherboard."
-msgstr "请进入Grub启动界面，单击‘c’切换至命令行模式，输入‘videoinfo’以获取当前主板所支持的分辨率"
+msgstr ""
+"请进入Grub启动界面，单击‘c’切换至命令行模式，输入‘videoinfo’以获取当前主板所"
+"支持的分辨率"
 
 #: ../modules/grub/main.qml:281
 msgid "Custom Resolution"
 msgstr "自定义分辨率"
 
-#: ../modules/keyboard/main.qml:107
+#: ../modules/keyboard/main.qml:114
 msgid "Repeat Delay"
 msgstr "重复延迟"
 
-#: ../modules/keyboard/main.qml:131
+#: ../modules/keyboard/main.qml:138
 msgid "Repeat Rate"
 msgstr "重复速度"
 
-#: ../modules/keyboard/main.qml:156
+#: ../modules/keyboard/main.qml:163
 msgid "Cursor Blink Rate"
 msgstr "光标闪烁频率"
 
-#: ../modules/keyboard/main.qml:182
+#: ../modules/keyboard/main.qml:189
 msgid "Test Area"
 msgstr "测试区"
 
-#: ../modules/keyboard/main.qml:212
+#: ../modules/keyboard/main.qml:219
 msgid "Keyboard Layout"
 msgstr "键盘布局"
 
-#: ../modules/keyboard/main.qml:427
+#: ../modules/keyboard/main.qml:435
 msgid "No result"
 msgstr "无结果"
 
-#: ../modules/keyboard/main.qml:436
+#: ../modules/keyboard/main.qml:444
 msgid "Caps Lock prompt"
 msgstr "大写键提示"
 
@@ -1916,6 +1918,9 @@ msgstr "VPN OpenVPN"
 #: ../modules/network/main.qml:217
 msgid "VPN OpenConnect"
 msgstr "VPN OpenConnect"
+
+#~ msgid "Default"
+#~ msgstr "默认"
 
 #~ msgid "General"
 #~ msgstr "通用"

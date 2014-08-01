@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-25 14:43+0800\n"
+"POT-Creation-Date: 2014-08-01 16:08+0800\n"
 "PO-Revision-Date: 2014-07-02 20:11+0000\n"
 "Last-Translator: Fox909 <ffox909@mail.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/dde-control-"
@@ -37,7 +37,7 @@ msgstr "Имя"
 #: ../modules/network/add/AddDsl.qml:36
 #: ../modules/network/add/AddMobile.qml:75
 #: ../modules/network/add/AddMobile.qml:105
-#: ../modules/account/AddUserDialog.qml:115
+#: ../modules/account/AddUserDialog.qml:113
 #: ../modules/network/add/AddVpn.qml:124 ../modules/network/add/AddVpn.qml:254
 #: ../modules/network/add/AddVpn.qml:394 ../modules/network/add/AddVpn.qml:434
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:53
@@ -59,7 +59,7 @@ msgstr "Служба"
 #: ../modules/network/add/AddDsl.qml:56
 #: ../modules/network/add/AddMobile.qml:85
 #: ../modules/network/add/AddMobile.qml:115
-#: ../modules/account/AddUserDialog.qml:147
+#: ../modules/account/AddUserDialog.qml:145
 #: ../modules/network/add/AddVpn.qml:144 ../modules/network/add/AddVpn.qml:274
 #: ../modules/network/add/AddVpn.qml:414
 #: ../modules/network/wireless/AddWireless.qml:64
@@ -100,14 +100,14 @@ msgid "Number"
 msgstr "Номер"
 
 #: ../modules/network/add/AddSectionSave.qml:11
-#: ../modules/account/AddUserDialog.qml:294
+#: ../modules/account/AddUserDialog.qml:292
 #: ../modules/network/wireless/AddWireless.qml:216
 #: ../modules/network/ConnectionAdd.qml:69
 #: ../modules/network/ConnectionEdit.qml:146
 #: ../modules/shortcuts/CustomKeybinding.qml:151
 #: ../modules/account/DeleteUserDialog.qml:33
 #: ../modules/network/widgets/PasswordBox.qml:101
-#: ../modules/account/PasswordDialog.qml:172
+#: ../modules/account/PasswordDialog.qml:184
 #: ../modules/shortcuts/ShortcutInput.qml:341
 #: ../modules/date_time/TimeBox.qml:212
 #: ../modules/network/wireless/WifiHotspot.qml:82
@@ -122,45 +122,45 @@ msgstr "Отмена"
 msgid "Add"
 msgstr "Добавить"
 
-#: ../modules/account/AddUserDialog.qml:66
+#: ../modules/account/AddUserDialog.qml:64
 msgid "Add User"
 msgstr "Добавить пользователя"
 
-#: ../modules/account/AddUserDialog.qml:94
+#: ../modules/account/AddUserDialog.qml:92
 msgid "New User"
 msgstr "Новый пользователь"
 
-#: ../modules/account/AddUserDialog.qml:98
-#: ../modules/account/AddUserDialog.qml:223
-#: ../modules/account/EditUserDialog.qml:131
-#: ../modules/account/UserList.qml:187
+#: ../modules/account/AddUserDialog.qml:96
+#: ../modules/account/AddUserDialog.qml:221
+#: ../modules/account/EditUserDialog.qml:135
+#: ../modules/account/UserList.qml:188
 msgid "Standard"
 msgstr "Стандартный"
 
-#: ../modules/account/AddUserDialog.qml:98
-#: ../modules/account/AddUserDialog.qml:224
-#: ../modules/account/EditUserDialog.qml:132
-#: ../modules/account/UserList.qml:187
+#: ../modules/account/AddUserDialog.qml:96
+#: ../modules/account/AddUserDialog.qml:222
+#: ../modules/account/EditUserDialog.qml:136
+#: ../modules/account/UserList.qml:188
 msgid "Administrator"
 msgstr "Администратор"
 
-#: ../modules/account/AddUserDialog.qml:180
+#: ../modules/account/AddUserDialog.qml:178
 msgid "Repeat Password"
 msgstr "Повтор пароля"
 
-#: ../modules/account/AddUserDialog.qml:211
-#: ../modules/account/EditUserDialog.qml:119
+#: ../modules/account/AddUserDialog.qml:209
+#: ../modules/account/EditUserDialog.qml:123
 msgid "Account Type"
 msgstr "Тип аккаунта"
 
-#: ../modules/account/AddUserDialog.qml:243
-#: ../modules/account/EditUserDialog.qml:52
+#: ../modules/account/AddUserDialog.qml:241
+#: ../modules/account/EditUserDialog.qml:56
 msgid "Auto-login"
 msgstr "Автовход"
 
-#: ../modules/account/AddUserDialog.qml:307
+#: ../modules/account/AddUserDialog.qml:305
 #: ../modules/account/DeleteUserDialog.qml:46
-#: ../modules/account/PasswordDialog.qml:186 ../modules/account/WebCam.qml:148
+#: ../modules/account/PasswordDialog.qml:198 ../modules/account/WebCam.qml:148
 msgid "Confirm"
 msgstr "Подтвердить"
 
@@ -435,15 +435,15 @@ msgstr "Док-апплет включён"
 msgid "Choose a new picture for your image"
 msgstr "Выберите новую картинку для себя"
 
-#: ../modules/account/AvatarView.qml:18
+#: ../modules/account/AvatarView.qml:19
 msgid "Recently Used"
 msgstr "Недавно использованные"
 
-#: ../modules/account/AvatarView.qml:19
-msgid "Default"
-msgstr "По умолчанию"
-
 #: ../modules/account/AvatarView.qml:20
+msgid "Avatar"
+msgstr ""
+
+#: ../modules/account/AvatarView.qml:21
 msgid "Webcam"
 msgstr "Веб-камера"
 
@@ -896,7 +896,7 @@ msgstr "Диапазон"
 msgid "Channel"
 msgstr "Канал"
 
-#: ../modules/account/EditUserDialog.qml:86
+#: ../modules/account/EditUserDialog.qml:90
 msgid "Enable"
 msgstr "Включить"
 
@@ -909,7 +909,7 @@ msgstr "Размер"
 msgid "Font %1"
 msgstr "Шрифт %1"
 
-#: ../modules/account/GuestUser.qml:40 ../frame/views/HeaderArea.qml:108
+#: ../modules/account/GuestUser.qml:40 ../qt5frame/views/HeaderArea.qml:108
 msgid "Guest"
 msgstr "Гость"
 
@@ -990,85 +990,85 @@ msgstr "Оставить изменения"
 msgid "Revert"
 msgstr "Вернуться"
 
-#: ../frame/views/ModulesData.qml:28 ../dock-applets/qml/main.qml:45
+#: ../qt5frame/views/ModulesData.qml:28 ../dock-applets/qml/main.qml:45
 msgid "Date and Time"
 msgstr "Дата и время"
 
-#: ../frame/views/ModulesData.qml:29 ../dock-applets/qml/main.qml:41
+#: ../qt5frame/views/ModulesData.qml:29 ../dock-applets/qml/main.qml:41
 msgid "Network"
 msgstr "Сеть"
 
-#: ../frame/views/ModulesData.qml:30 ../dock-applets/qml/main.qml:44
+#: ../qt5frame/views/ModulesData.qml:30 ../dock-applets/qml/main.qml:44
 msgid "Disk Mount"
 msgstr "Монтирование диска"
 
-#: ../frame/views/ModulesData.qml:31 ../modules/network/main.qml:167
+#: ../qt5frame/views/ModulesData.qml:31 ../modules/network/main.qml:167
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: ../frame/views/ModulesData.qml:32 ../dock-applets/qml/main.qml:42
+#: ../qt5frame/views/ModulesData.qml:32 ../dock-applets/qml/main.qml:42
 msgid "Sound"
 msgstr "Звук"
 
-#: ../frame/views/ModulesData.qml:33
+#: ../qt5frame/views/ModulesData.qml:33
 msgid "Power Management"
 msgstr "Управление питанием"
 
-#: ../frame/views/ModulesData.qml:34
+#: ../qt5frame/views/ModulesData.qml:34
 msgid "More Settings"
 msgstr "Ещё настройки"
 
-#: ../frame/views/ModulesData.qml:35 ../frame/views/PanelContent.qml:419
+#: ../qt5frame/views/ModulesData.qml:35 ../qt5frame/views/PanelContent.qml:419
 #: ../dock-applets/qml/main.qml:43
 msgid "Power"
 msgstr "Питание"
 
-#: ../frame/views/ModulesData.qml:36
+#: ../qt5frame/views/ModulesData.qml:36
 msgid "Display"
 msgstr "Дисплей"
 
-#: ../frame/views/ModulesData.qml:37
+#: ../qt5frame/views/ModulesData.qml:37
 msgid "Desktop"
 msgstr "Рабочий стол"
 
-#: ../frame/views/ModulesData.qml:38
+#: ../qt5frame/views/ModulesData.qml:38
 msgid "Personalization"
 msgstr "Персонализация"
 
-#: ../frame/views/ModulesData.qml:39
+#: ../qt5frame/views/ModulesData.qml:39
 msgid "Keyboard Shortcuts"
 msgstr "Cочетания клавиш"
 
-#: ../frame/views/ModulesData.qml:40
+#: ../qt5frame/views/ModulesData.qml:40
 msgid "Keyboard"
 msgstr "Клавиатура"
 
-#: ../frame/views/ModulesData.qml:41
+#: ../qt5frame/views/ModulesData.qml:41
 msgid "Mouse and Touchpad"
 msgstr "Мышь и Тачпад"
 
-#: ../frame/views/ModulesData.qml:42 ../modules/mouse_touchpad/main.qml:50
+#: ../qt5frame/views/ModulesData.qml:42 ../modules/mouse_touchpad/main.qml:50
 msgid "Mouse"
 msgstr "Мышь"
 
-#: ../frame/views/ModulesData.qml:43
+#: ../qt5frame/views/ModulesData.qml:43
 msgid "User Accounts"
 msgstr "Учетные записи"
 
-#: ../frame/views/ModulesData.qml:44
+#: ../qt5frame/views/ModulesData.qml:44
 #: ../modules/default_applications/main.qml:62
 msgid "Default Applications"
 msgstr "Приложения по умолчанию"
 
-#: ../frame/views/ModulesData.qml:45
+#: ../qt5frame/views/ModulesData.qml:45
 msgid "System Information"
 msgstr "Информация о системе"
 
-#: ../frame/views/ModulesData.qml:46
+#: ../qt5frame/views/ModulesData.qml:46
 msgid "Boot Menu"
 msgstr "Меню загрузки"
 
-#: ../frame/views/ModulesData.qml:47
+#: ../qt5frame/views/ModulesData.qml:47
 msgid "Home"
 msgstr "Домашняя"
 
@@ -1122,11 +1122,11 @@ msgstr "Проводная сеть %1"
 msgid "Password: "
 msgstr "Пароль:"
 
-#: ../modules/account/PasswordDialog.qml:101
+#: ../modules/account/PasswordDialog.qml:113
 msgid "New Password"
 msgstr "Новый пароль"
 
-#: ../modules/account/PasswordDialog.qml:135
+#: ../modules/account/PasswordDialog.qml:147
 msgid "Repeat"
 msgstr "Повторить"
 
@@ -1281,7 +1281,7 @@ msgstr "Скорость указателя"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:119
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:169
-#: ../modules/keyboard/main.qml:147 ../modules/keyboard/main.qml:173
+#: ../modules/keyboard/main.qml:154 ../modules/keyboard/main.qml:180
 #: ../modules/mouse_touchpad/main.qml:103
 #: ../modules/mouse_touchpad/main.qml:155
 msgid "Slow"
@@ -1289,7 +1289,7 @@ msgstr "Медленнее"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:120
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:170
-#: ../modules/keyboard/main.qml:146 ../modules/keyboard/main.qml:172
+#: ../modules/keyboard/main.qml:153 ../modules/keyboard/main.qml:179
 #: ../modules/mouse_touchpad/main.qml:104
 #: ../modules/mouse_touchpad/main.qml:156
 msgid "Fast"
@@ -1305,12 +1305,12 @@ msgid "Drag Threshold"
 msgstr "Порог перетаскивания"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:195
-#: ../modules/keyboard/main.qml:121
+#: ../modules/keyboard/main.qml:128
 msgid "Short"
 msgstr "Короче"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:196
-#: ../modules/keyboard/main.qml:122
+#: ../modules/keyboard/main.qml:129
 msgid "Long"
 msgstr "Длиннее"
 
@@ -1595,7 +1595,7 @@ msgstr "Выбор цвета текста"
 msgid "Advanced"
 msgstr "Расширенный VPN"
 
-#: ../modules/grub/main.qml:360
+#: ../modules/grub/main.qml:359
 msgid ""
 "Please enter Grub boot interface, switch to command line mode by clicking on "
 "'c', and enter 'videoinfo' to get resolutions supported by the current "
@@ -1607,31 +1607,31 @@ msgstr ""
 msgid "Custom Resolution"
 msgstr "Разрешение"
 
-#: ../modules/keyboard/main.qml:107
+#: ../modules/keyboard/main.qml:114
 msgid "Repeat Delay"
 msgstr "Задержка повторения"
 
-#: ../modules/keyboard/main.qml:131
+#: ../modules/keyboard/main.qml:138
 msgid "Repeat Rate"
 msgstr "Скорость повтора"
 
-#: ../modules/keyboard/main.qml:156
+#: ../modules/keyboard/main.qml:163
 msgid "Cursor Blink Rate"
 msgstr "Частота мигания курсора"
 
-#: ../modules/keyboard/main.qml:182
+#: ../modules/keyboard/main.qml:189
 msgid "Test Area"
 msgstr "Полигон"
 
-#: ../modules/keyboard/main.qml:212
+#: ../modules/keyboard/main.qml:219
 msgid "Keyboard Layout"
 msgstr "Раскладка клавиатуры"
 
-#: ../modules/keyboard/main.qml:427
+#: ../modules/keyboard/main.qml:435
 msgid "No result"
 msgstr "Нет результата"
 
-#: ../modules/keyboard/main.qml:436
+#: ../modules/keyboard/main.qml:444
 msgid "Caps Lock prompt"
 msgstr "Индикатор Caps Lock"
 
@@ -1939,6 +1939,9 @@ msgstr "OpenVPN"
 #, fuzzy
 msgid "VPN OpenConnect"
 msgstr "OpenConnect"
+
+#~ msgid "Default"
+#~ msgstr "По умолчанию"
 
 #~ msgid "General"
 #~ msgstr "Общие"

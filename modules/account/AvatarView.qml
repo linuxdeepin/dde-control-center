@@ -17,7 +17,7 @@ Item {
 
         buttonModel: [
             {"buttonId": "recently_used", "buttonLabel": dsTr("Recently Used")},
-            {"buttonId": "default", "buttonLabel": dsTr("Default")},
+            {"buttonId": "default", "buttonLabel": dsTr("Avatar")},
             {"buttonId": "webcam", "buttonLabel": dsTr("Webcam")},
         ]
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-25 14:43+0800\n"
+"POT-Creation-Date: 2014-08-01 16:08+0800\n"
 "PO-Revision-Date: 2014-07-02 08:41+0000\n"
 "Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/dde-control-"
@@ -35,7 +35,7 @@ msgstr "أسم"
 #: ../modules/network/add/AddDsl.qml:36
 #: ../modules/network/add/AddMobile.qml:75
 #: ../modules/network/add/AddMobile.qml:105
-#: ../modules/account/AddUserDialog.qml:115
+#: ../modules/account/AddUserDialog.qml:113
 #: ../modules/network/add/AddVpn.qml:124 ../modules/network/add/AddVpn.qml:254
 #: ../modules/network/add/AddVpn.qml:394 ../modules/network/add/AddVpn.qml:434
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:53
@@ -57,7 +57,7 @@ msgstr "خدمة"
 #: ../modules/network/add/AddDsl.qml:56
 #: ../modules/network/add/AddMobile.qml:85
 #: ../modules/network/add/AddMobile.qml:115
-#: ../modules/account/AddUserDialog.qml:147
+#: ../modules/account/AddUserDialog.qml:145
 #: ../modules/network/add/AddVpn.qml:144 ../modules/network/add/AddVpn.qml:274
 #: ../modules/network/add/AddVpn.qml:414
 #: ../modules/network/wireless/AddWireless.qml:64
@@ -98,14 +98,14 @@ msgid "Number"
 msgstr "رقم"
 
 #: ../modules/network/add/AddSectionSave.qml:11
-#: ../modules/account/AddUserDialog.qml:294
+#: ../modules/account/AddUserDialog.qml:292
 #: ../modules/network/wireless/AddWireless.qml:216
 #: ../modules/network/ConnectionAdd.qml:69
 #: ../modules/network/ConnectionEdit.qml:146
 #: ../modules/shortcuts/CustomKeybinding.qml:151
 #: ../modules/account/DeleteUserDialog.qml:33
 #: ../modules/network/widgets/PasswordBox.qml:101
-#: ../modules/account/PasswordDialog.qml:172
+#: ../modules/account/PasswordDialog.qml:184
 #: ../modules/shortcuts/ShortcutInput.qml:341
 #: ../modules/date_time/TimeBox.qml:212
 #: ../modules/network/wireless/WifiHotspot.qml:82
@@ -120,45 +120,45 @@ msgstr "إلغاء"
 msgid "Add"
 msgstr "أضف"
 
-#: ../modules/account/AddUserDialog.qml:66
+#: ../modules/account/AddUserDialog.qml:64
 msgid "Add User"
 msgstr "أضف مستخدم"
 
-#: ../modules/account/AddUserDialog.qml:94
+#: ../modules/account/AddUserDialog.qml:92
 msgid "New User"
 msgstr "مستخدم جديد"
 
-#: ../modules/account/AddUserDialog.qml:98
-#: ../modules/account/AddUserDialog.qml:223
-#: ../modules/account/EditUserDialog.qml:131
-#: ../modules/account/UserList.qml:187
+#: ../modules/account/AddUserDialog.qml:96
+#: ../modules/account/AddUserDialog.qml:221
+#: ../modules/account/EditUserDialog.qml:135
+#: ../modules/account/UserList.qml:188
 msgid "Standard"
 msgstr "قياسي"
 
-#: ../modules/account/AddUserDialog.qml:98
-#: ../modules/account/AddUserDialog.qml:224
-#: ../modules/account/EditUserDialog.qml:132
-#: ../modules/account/UserList.qml:187
+#: ../modules/account/AddUserDialog.qml:96
+#: ../modules/account/AddUserDialog.qml:222
+#: ../modules/account/EditUserDialog.qml:136
+#: ../modules/account/UserList.qml:188
 msgid "Administrator"
 msgstr "مسؤول"
 
-#: ../modules/account/AddUserDialog.qml:180
+#: ../modules/account/AddUserDialog.qml:178
 msgid "Repeat Password"
 msgstr "أعد كلمة السر"
 
-#: ../modules/account/AddUserDialog.qml:211
-#: ../modules/account/EditUserDialog.qml:119
+#: ../modules/account/AddUserDialog.qml:209
+#: ../modules/account/EditUserDialog.qml:123
 msgid "Account Type"
 msgstr "شكل الحساب"
 
-#: ../modules/account/AddUserDialog.qml:243
-#: ../modules/account/EditUserDialog.qml:52
+#: ../modules/account/AddUserDialog.qml:241
+#: ../modules/account/EditUserDialog.qml:56
 msgid "Auto-login"
 msgstr "دخول تلقائي"
 
-#: ../modules/account/AddUserDialog.qml:307
+#: ../modules/account/AddUserDialog.qml:305
 #: ../modules/account/DeleteUserDialog.qml:46
-#: ../modules/account/PasswordDialog.qml:186 ../modules/account/WebCam.qml:148
+#: ../modules/account/PasswordDialog.qml:198 ../modules/account/WebCam.qml:148
 msgid "Confirm"
 msgstr "تأكيد"
 
@@ -433,15 +433,15 @@ msgstr ""
 msgid "Choose a new picture for your image"
 msgstr ""
 
-#: ../modules/account/AvatarView.qml:18
+#: ../modules/account/AvatarView.qml:19
 msgid "Recently Used"
 msgstr "استخدمت حديثا"
 
-#: ../modules/account/AvatarView.qml:19
-msgid "Default"
-msgstr "الأفتراضي"
-
 #: ../modules/account/AvatarView.qml:20
+msgid "Avatar"
+msgstr ""
+
+#: ../modules/account/AvatarView.qml:21
 msgid "Webcam"
 msgstr "كامرا النت"
 
@@ -894,7 +894,7 @@ msgstr "حزمة"
 msgid "Channel"
 msgstr "قناة"
 
-#: ../modules/account/EditUserDialog.qml:86
+#: ../modules/account/EditUserDialog.qml:90
 msgid "Enable"
 msgstr "تمكين"
 
@@ -907,7 +907,7 @@ msgstr "الحجم"
 msgid "Font %1"
 msgstr "الخط 1%"
 
-#: ../modules/account/GuestUser.qml:40 ../frame/views/HeaderArea.qml:108
+#: ../modules/account/GuestUser.qml:40 ../qt5frame/views/HeaderArea.qml:108
 msgid "Guest"
 msgstr "ضيف"
 
@@ -985,85 +985,85 @@ msgstr "احتفظ بالتغييرات"
 msgid "Revert"
 msgstr "اعكس"
 
-#: ../frame/views/ModulesData.qml:28 ../dock-applets/qml/main.qml:45
+#: ../qt5frame/views/ModulesData.qml:28 ../dock-applets/qml/main.qml:45
 msgid "Date and Time"
 msgstr "التاريخ والوقت"
 
-#: ../frame/views/ModulesData.qml:29 ../dock-applets/qml/main.qml:41
+#: ../qt5frame/views/ModulesData.qml:29 ../dock-applets/qml/main.qml:41
 msgid "Network"
 msgstr "الشبكة"
 
-#: ../frame/views/ModulesData.qml:30 ../dock-applets/qml/main.qml:44
+#: ../qt5frame/views/ModulesData.qml:30 ../dock-applets/qml/main.qml:44
 msgid "Disk Mount"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:31 ../modules/network/main.qml:167
+#: ../qt5frame/views/ModulesData.qml:31 ../modules/network/main.qml:167
 msgid "Bluetooth"
 msgstr "البلوتوث"
 
-#: ../frame/views/ModulesData.qml:32 ../dock-applets/qml/main.qml:42
+#: ../qt5frame/views/ModulesData.qml:32 ../dock-applets/qml/main.qml:42
 msgid "Sound"
 msgstr "الصوت"
 
-#: ../frame/views/ModulesData.qml:33
+#: ../qt5frame/views/ModulesData.qml:33
 msgid "Power Management"
 msgstr ""
 
-#: ../frame/views/ModulesData.qml:34
+#: ../qt5frame/views/ModulesData.qml:34
 msgid "More Settings"
 msgstr "إعدادات أكثر"
 
-#: ../frame/views/ModulesData.qml:35 ../frame/views/PanelContent.qml:419
+#: ../qt5frame/views/ModulesData.qml:35 ../qt5frame/views/PanelContent.qml:419
 #: ../dock-applets/qml/main.qml:43
 msgid "Power"
 msgstr "الطاقة"
 
-#: ../frame/views/ModulesData.qml:36
+#: ../qt5frame/views/ModulesData.qml:36
 msgid "Display"
 msgstr "العرض"
 
-#: ../frame/views/ModulesData.qml:37
+#: ../qt5frame/views/ModulesData.qml:37
 msgid "Desktop"
 msgstr "سطح المكتب"
 
-#: ../frame/views/ModulesData.qml:38
+#: ../qt5frame/views/ModulesData.qml:38
 msgid "Personalization"
 msgstr "التخصيص"
 
-#: ../frame/views/ModulesData.qml:39
+#: ../qt5frame/views/ModulesData.qml:39
 msgid "Keyboard Shortcuts"
 msgstr "اختصارات لوحة المفاتيح"
 
-#: ../frame/views/ModulesData.qml:40
+#: ../qt5frame/views/ModulesData.qml:40
 msgid "Keyboard"
 msgstr "لوحة المفاتيح"
 
-#: ../frame/views/ModulesData.qml:41
+#: ../qt5frame/views/ModulesData.qml:41
 msgid "Mouse and Touchpad"
 msgstr "الفأرة ولوح اللمس"
 
-#: ../frame/views/ModulesData.qml:42 ../modules/mouse_touchpad/main.qml:50
+#: ../qt5frame/views/ModulesData.qml:42 ../modules/mouse_touchpad/main.qml:50
 msgid "Mouse"
 msgstr "الفأرة"
 
-#: ../frame/views/ModulesData.qml:43
+#: ../qt5frame/views/ModulesData.qml:43
 msgid "User Accounts"
 msgstr "حسابات المستخدمين"
 
-#: ../frame/views/ModulesData.qml:44
+#: ../qt5frame/views/ModulesData.qml:44
 #: ../modules/default_applications/main.qml:62
 msgid "Default Applications"
 msgstr "التطبيقات الأفتراضية"
 
-#: ../frame/views/ModulesData.qml:45
+#: ../qt5frame/views/ModulesData.qml:45
 msgid "System Information"
 msgstr "معلومات النظام"
 
-#: ../frame/views/ModulesData.qml:46
+#: ../qt5frame/views/ModulesData.qml:46
 msgid "Boot Menu"
 msgstr "قائمة الإقلاع"
 
-#: ../frame/views/ModulesData.qml:47
+#: ../qt5frame/views/ModulesData.qml:47
 msgid "Home"
 msgstr "المنزل"
 
@@ -1117,11 +1117,11 @@ msgstr ""
 msgid "Password: "
 msgstr "كلمة المرور :"
 
-#: ../modules/account/PasswordDialog.qml:101
+#: ../modules/account/PasswordDialog.qml:113
 msgid "New Password"
 msgstr "كلمة سر جديدة"
 
-#: ../modules/account/PasswordDialog.qml:135
+#: ../modules/account/PasswordDialog.qml:147
 msgid "Repeat"
 msgstr "تجديد"
 
@@ -1275,7 +1275,7 @@ msgstr "سرعة المؤشر"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:119
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:169
-#: ../modules/keyboard/main.qml:147 ../modules/keyboard/main.qml:173
+#: ../modules/keyboard/main.qml:154 ../modules/keyboard/main.qml:180
 #: ../modules/mouse_touchpad/main.qml:103
 #: ../modules/mouse_touchpad/main.qml:155
 msgid "Slow"
@@ -1283,7 +1283,7 @@ msgstr "بطيء"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:120
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:170
-#: ../modules/keyboard/main.qml:146 ../modules/keyboard/main.qml:172
+#: ../modules/keyboard/main.qml:153 ../modules/keyboard/main.qml:179
 #: ../modules/mouse_touchpad/main.qml:104
 #: ../modules/mouse_touchpad/main.qml:156
 msgid "Fast"
@@ -1299,12 +1299,12 @@ msgid "Drag Threshold"
 msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:195
-#: ../modules/keyboard/main.qml:121
+#: ../modules/keyboard/main.qml:128
 msgid "Short"
 msgstr "قصير"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:196
-#: ../modules/keyboard/main.qml:122
+#: ../modules/keyboard/main.qml:129
 msgid "Long"
 msgstr "طويل"
 
@@ -1587,7 +1587,7 @@ msgstr ""
 msgid "Advanced"
 msgstr "متوازن"
 
-#: ../modules/grub/main.qml:360
+#: ../modules/grub/main.qml:359
 msgid ""
 "Please enter Grub boot interface, switch to command line mode by clicking on "
 "'c', and enter 'videoinfo' to get resolutions supported by the current "
@@ -1599,31 +1599,31 @@ msgstr ""
 msgid "Custom Resolution"
 msgstr "الدقة"
 
-#: ../modules/keyboard/main.qml:107
+#: ../modules/keyboard/main.qml:114
 msgid "Repeat Delay"
 msgstr "تأخر الإعادة"
 
-#: ../modules/keyboard/main.qml:131
+#: ../modules/keyboard/main.qml:138
 msgid "Repeat Rate"
 msgstr "معدل الإعادة"
 
-#: ../modules/keyboard/main.qml:156
+#: ../modules/keyboard/main.qml:163
 msgid "Cursor Blink Rate"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:182
+#: ../modules/keyboard/main.qml:189
 msgid "Test Area"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:212
+#: ../modules/keyboard/main.qml:219
 msgid "Keyboard Layout"
 msgstr "تصميم لوحة المفاتيح"
 
-#: ../modules/keyboard/main.qml:427
+#: ../modules/keyboard/main.qml:435
 msgid "No result"
 msgstr "لانتائج"
 
-#: ../modules/keyboard/main.qml:436
+#: ../modules/keyboard/main.qml:444
 msgid "Caps Lock prompt"
 msgstr ""
 
@@ -1929,6 +1929,9 @@ msgstr "نمط VPN"
 #, fuzzy
 msgid "VPN OpenConnect"
 msgstr "اتصال مفتوح"
+
+#~ msgid "Default"
+#~ msgstr "الأفتراضي"
 
 #~ msgid "General"
 #~ msgstr "عام"

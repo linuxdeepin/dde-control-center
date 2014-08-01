@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-25 14:43+0800\n"
+"POT-Creation-Date: 2014-08-01 16:08+0800\n"
 "PO-Revision-Date: 2014-07-02 12:31+0000\n"
 "Last-Translator: yakup <mutouk@yandex.ru>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/dde-control-"
@@ -34,7 +34,7 @@ msgstr "İsim"
 #: ../modules/network/add/AddDsl.qml:36
 #: ../modules/network/add/AddMobile.qml:75
 #: ../modules/network/add/AddMobile.qml:105
-#: ../modules/account/AddUserDialog.qml:115
+#: ../modules/account/AddUserDialog.qml:113
 #: ../modules/network/add/AddVpn.qml:124 ../modules/network/add/AddVpn.qml:254
 #: ../modules/network/add/AddVpn.qml:394 ../modules/network/add/AddVpn.qml:434
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:53
@@ -56,7 +56,7 @@ msgstr "Servis"
 #: ../modules/network/add/AddDsl.qml:56
 #: ../modules/network/add/AddMobile.qml:85
 #: ../modules/network/add/AddMobile.qml:115
-#: ../modules/account/AddUserDialog.qml:147
+#: ../modules/account/AddUserDialog.qml:145
 #: ../modules/network/add/AddVpn.qml:144 ../modules/network/add/AddVpn.qml:274
 #: ../modules/network/add/AddVpn.qml:414
 #: ../modules/network/wireless/AddWireless.qml:64
@@ -97,14 +97,14 @@ msgid "Number"
 msgstr "Numara"
 
 #: ../modules/network/add/AddSectionSave.qml:11
-#: ../modules/account/AddUserDialog.qml:294
+#: ../modules/account/AddUserDialog.qml:292
 #: ../modules/network/wireless/AddWireless.qml:216
 #: ../modules/network/ConnectionAdd.qml:69
 #: ../modules/network/ConnectionEdit.qml:146
 #: ../modules/shortcuts/CustomKeybinding.qml:151
 #: ../modules/account/DeleteUserDialog.qml:33
 #: ../modules/network/widgets/PasswordBox.qml:101
-#: ../modules/account/PasswordDialog.qml:172
+#: ../modules/account/PasswordDialog.qml:184
 #: ../modules/shortcuts/ShortcutInput.qml:341
 #: ../modules/date_time/TimeBox.qml:212
 #: ../modules/network/wireless/WifiHotspot.qml:82
@@ -119,45 +119,45 @@ msgstr "Vazgeç"
 msgid "Add"
 msgstr "Ekle"
 
-#: ../modules/account/AddUserDialog.qml:66
+#: ../modules/account/AddUserDialog.qml:64
 msgid "Add User"
 msgstr "Kullanıcı Ekle"
 
-#: ../modules/account/AddUserDialog.qml:94
+#: ../modules/account/AddUserDialog.qml:92
 msgid "New User"
 msgstr "Yeni Kullanıcı"
 
-#: ../modules/account/AddUserDialog.qml:98
-#: ../modules/account/AddUserDialog.qml:223
-#: ../modules/account/EditUserDialog.qml:131
-#: ../modules/account/UserList.qml:187
+#: ../modules/account/AddUserDialog.qml:96
+#: ../modules/account/AddUserDialog.qml:221
+#: ../modules/account/EditUserDialog.qml:135
+#: ../modules/account/UserList.qml:188
 msgid "Standard"
 msgstr "Standart"
 
-#: ../modules/account/AddUserDialog.qml:98
-#: ../modules/account/AddUserDialog.qml:224
-#: ../modules/account/EditUserDialog.qml:132
-#: ../modules/account/UserList.qml:187
+#: ../modules/account/AddUserDialog.qml:96
+#: ../modules/account/AddUserDialog.qml:222
+#: ../modules/account/EditUserDialog.qml:136
+#: ../modules/account/UserList.qml:188
 msgid "Administrator"
 msgstr "Yönetici"
 
-#: ../modules/account/AddUserDialog.qml:180
+#: ../modules/account/AddUserDialog.qml:178
 msgid "Repeat Password"
 msgstr "Şifreyi Tekrarla"
 
-#: ../modules/account/AddUserDialog.qml:211
-#: ../modules/account/EditUserDialog.qml:119
+#: ../modules/account/AddUserDialog.qml:209
+#: ../modules/account/EditUserDialog.qml:123
 msgid "Account Type"
 msgstr "Hesap Tipi"
 
-#: ../modules/account/AddUserDialog.qml:243
-#: ../modules/account/EditUserDialog.qml:52
+#: ../modules/account/AddUserDialog.qml:241
+#: ../modules/account/EditUserDialog.qml:56
 msgid "Auto-login"
 msgstr "Otomatik giriş"
 
-#: ../modules/account/AddUserDialog.qml:307
+#: ../modules/account/AddUserDialog.qml:305
 #: ../modules/account/DeleteUserDialog.qml:46
-#: ../modules/account/PasswordDialog.qml:186 ../modules/account/WebCam.qml:148
+#: ../modules/account/PasswordDialog.qml:198 ../modules/account/WebCam.qml:148
 msgid "Confirm"
 msgstr "Onayla"
 
@@ -432,15 +432,15 @@ msgstr "Panel Uygulaması Etkin"
 msgid "Choose a new picture for your image"
 msgstr "Choose a new picture for your image"
 
-#: ../modules/account/AvatarView.qml:18
+#: ../modules/account/AvatarView.qml:19
 msgid "Recently Used"
 msgstr "Geçmişte Kullanılan"
 
-#: ../modules/account/AvatarView.qml:19
-msgid "Default"
-msgstr "Varsayılan"
-
 #: ../modules/account/AvatarView.qml:20
+msgid "Avatar"
+msgstr ""
+
+#: ../modules/account/AvatarView.qml:21
 msgid "Webcam"
 msgstr "Webcam"
 
@@ -893,7 +893,7 @@ msgstr "Bant:"
 msgid "Channel"
 msgstr "Kanal"
 
-#: ../modules/account/EditUserDialog.qml:86
+#: ../modules/account/EditUserDialog.qml:90
 msgid "Enable"
 msgstr "Etkinleştir"
 
@@ -906,7 +906,7 @@ msgstr "Boyut"
 msgid "Font %1"
 msgstr "Yazı tipi %1"
 
-#: ../modules/account/GuestUser.qml:40 ../frame/views/HeaderArea.qml:108
+#: ../modules/account/GuestUser.qml:40 ../qt5frame/views/HeaderArea.qml:108
 msgid "Guest"
 msgstr "Misafir"
 
@@ -987,85 +987,85 @@ msgstr "Değişiklikleri Tut"
 msgid "Revert"
 msgstr "Eski haline döndür"
 
-#: ../frame/views/ModulesData.qml:28 ../dock-applets/qml/main.qml:45
+#: ../qt5frame/views/ModulesData.qml:28 ../dock-applets/qml/main.qml:45
 msgid "Date and Time"
 msgstr "Tarih ve Saat"
 
-#: ../frame/views/ModulesData.qml:29 ../dock-applets/qml/main.qml:41
+#: ../qt5frame/views/ModulesData.qml:29 ../dock-applets/qml/main.qml:41
 msgid "Network"
 msgstr "Ağ"
 
-#: ../frame/views/ModulesData.qml:30 ../dock-applets/qml/main.qml:44
+#: ../qt5frame/views/ModulesData.qml:30 ../dock-applets/qml/main.qml:44
 msgid "Disk Mount"
 msgstr "Disk Bağla"
 
-#: ../frame/views/ModulesData.qml:31 ../modules/network/main.qml:167
+#: ../qt5frame/views/ModulesData.qml:31 ../modules/network/main.qml:167
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: ../frame/views/ModulesData.qml:32 ../dock-applets/qml/main.qml:42
+#: ../qt5frame/views/ModulesData.qml:32 ../dock-applets/qml/main.qml:42
 msgid "Sound"
 msgstr "Ses"
 
-#: ../frame/views/ModulesData.qml:33
+#: ../qt5frame/views/ModulesData.qml:33
 msgid "Power Management"
 msgstr "Güç Yönetimi"
 
-#: ../frame/views/ModulesData.qml:34
+#: ../qt5frame/views/ModulesData.qml:34
 msgid "More Settings"
 msgstr "Daha fazla Ayar"
 
-#: ../frame/views/ModulesData.qml:35 ../frame/views/PanelContent.qml:419
+#: ../qt5frame/views/ModulesData.qml:35 ../qt5frame/views/PanelContent.qml:419
 #: ../dock-applets/qml/main.qml:43
 msgid "Power"
 msgstr "Güç"
 
-#: ../frame/views/ModulesData.qml:36
+#: ../qt5frame/views/ModulesData.qml:36
 msgid "Display"
 msgstr "Ekran"
 
-#: ../frame/views/ModulesData.qml:37
+#: ../qt5frame/views/ModulesData.qml:37
 msgid "Desktop"
 msgstr "Masaüstü"
 
-#: ../frame/views/ModulesData.qml:38
+#: ../qt5frame/views/ModulesData.qml:38
 msgid "Personalization"
 msgstr "Kişiselleştirme"
 
-#: ../frame/views/ModulesData.qml:39
+#: ../qt5frame/views/ModulesData.qml:39
 msgid "Keyboard Shortcuts"
 msgstr "Klavye Kısayolları"
 
-#: ../frame/views/ModulesData.qml:40
+#: ../qt5frame/views/ModulesData.qml:40
 msgid "Keyboard"
 msgstr "Klavye"
 
-#: ../frame/views/ModulesData.qml:41
+#: ../qt5frame/views/ModulesData.qml:41
 msgid "Mouse and Touchpad"
 msgstr "Fare ve Dokunmatik yüzey"
 
-#: ../frame/views/ModulesData.qml:42 ../modules/mouse_touchpad/main.qml:50
+#: ../qt5frame/views/ModulesData.qml:42 ../modules/mouse_touchpad/main.qml:50
 msgid "Mouse"
 msgstr "Fare"
 
-#: ../frame/views/ModulesData.qml:43
+#: ../qt5frame/views/ModulesData.qml:43
 msgid "User Accounts"
 msgstr "Kullanıcı Hesapları"
 
-#: ../frame/views/ModulesData.qml:44
+#: ../qt5frame/views/ModulesData.qml:44
 #: ../modules/default_applications/main.qml:62
 msgid "Default Applications"
 msgstr "Varsayılan Uygulamalar"
 
-#: ../frame/views/ModulesData.qml:45
+#: ../qt5frame/views/ModulesData.qml:45
 msgid "System Information"
 msgstr "Sistem Bilgileri"
 
-#: ../frame/views/ModulesData.qml:46
+#: ../qt5frame/views/ModulesData.qml:46
 msgid "Boot Menu"
 msgstr "Önyükleme Menüsü"
 
-#: ../frame/views/ModulesData.qml:47
+#: ../qt5frame/views/ModulesData.qml:47
 msgid "Home"
 msgstr "Ev"
 
@@ -1119,11 +1119,11 @@ msgstr "Kablolu Bağlantı %1"
 msgid "Password: "
 msgstr "Şifre:"
 
-#: ../modules/account/PasswordDialog.qml:101
+#: ../modules/account/PasswordDialog.qml:113
 msgid "New Password"
 msgstr "Yeni Şifre"
 
-#: ../modules/account/PasswordDialog.qml:135
+#: ../modules/account/PasswordDialog.qml:147
 msgid "Repeat"
 msgstr "Tekrar"
 
@@ -1278,7 +1278,7 @@ msgstr "İşaretçi Hızı"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:119
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:169
-#: ../modules/keyboard/main.qml:147 ../modules/keyboard/main.qml:173
+#: ../modules/keyboard/main.qml:154 ../modules/keyboard/main.qml:180
 #: ../modules/mouse_touchpad/main.qml:103
 #: ../modules/mouse_touchpad/main.qml:155
 msgid "Slow"
@@ -1286,7 +1286,7 @@ msgstr "Yavaş"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:120
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:170
-#: ../modules/keyboard/main.qml:146 ../modules/keyboard/main.qml:172
+#: ../modules/keyboard/main.qml:153 ../modules/keyboard/main.qml:179
 #: ../modules/mouse_touchpad/main.qml:104
 #: ../modules/mouse_touchpad/main.qml:156
 msgid "Fast"
@@ -1302,12 +1302,12 @@ msgid "Drag Threshold"
 msgstr "Eşiğe Sürükleme"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:195
-#: ../modules/keyboard/main.qml:121
+#: ../modules/keyboard/main.qml:128
 msgid "Short"
 msgstr "Kısa"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:196
-#: ../modules/keyboard/main.qml:122
+#: ../modules/keyboard/main.qml:129
 msgid "Long"
 msgstr "Uzun"
 
@@ -1592,7 +1592,7 @@ msgstr "Seçilen Yazı Rengi"
 msgid "Advanced"
 msgstr "VPN Advanced"
 
-#: ../modules/grub/main.qml:360
+#: ../modules/grub/main.qml:359
 msgid ""
 "Please enter Grub boot interface, switch to command line mode by clicking on "
 "'c', and enter 'videoinfo' to get resolutions supported by the current "
@@ -1604,31 +1604,31 @@ msgstr ""
 msgid "Custom Resolution"
 msgstr "Çözünürlük"
 
-#: ../modules/keyboard/main.qml:107
+#: ../modules/keyboard/main.qml:114
 msgid "Repeat Delay"
 msgstr "Tekrar Gecikmesi"
 
-#: ../modules/keyboard/main.qml:131
+#: ../modules/keyboard/main.qml:138
 msgid "Repeat Rate"
 msgstr "Tekrarlama Oranı"
 
-#: ../modules/keyboard/main.qml:156
+#: ../modules/keyboard/main.qml:163
 msgid "Cursor Blink Rate"
 msgstr "İmleç Yanıp Sönme Oranı"
 
-#: ../modules/keyboard/main.qml:182
+#: ../modules/keyboard/main.qml:189
 msgid "Test Area"
 msgstr "Deneme Alanı"
 
-#: ../modules/keyboard/main.qml:212
+#: ../modules/keyboard/main.qml:219
 msgid "Keyboard Layout"
 msgstr "Klavye Düzeni"
 
-#: ../modules/keyboard/main.qml:427
+#: ../modules/keyboard/main.qml:435
 msgid "No result"
 msgstr "Sonuç yok"
 
-#: ../modules/keyboard/main.qml:436
+#: ../modules/keyboard/main.qml:444
 msgid "Caps Lock prompt"
 msgstr "Caps Lock istemi"
 
@@ -1936,6 +1936,9 @@ msgstr "OpenVPN"
 #, fuzzy
 msgid "VPN OpenConnect"
 msgstr "OpenConnect"
+
+#~ msgid "Default"
+#~ msgstr "Varsayılan"
 
 #~ msgid "General"
 #~ msgstr "Genel"
