@@ -437,7 +437,7 @@ msgstr "最近使用"
 
 #: ../modules/account/AvatarView.qml:20
 msgid "Avatar"
-msgstr ""
+msgstr "头像"
 
 #: ../modules/account/AvatarView.qml:21
 msgid "Webcam"
