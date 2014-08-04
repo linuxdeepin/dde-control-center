@@ -39,7 +39,7 @@ Item {
 
             onDropped: {
                 if (drop.hasUrls) {
-                    var ok = dbus_grub2_theme.SetBackgroundSourceFile(drop.urls[0].substring(6))
+                    var ok = dbus_grub2_theme.SetBackgroundSourceFile(drop.urls[0])
                     if (!ok) {
                         tooltip.showText(tooltip.textImageNotSupport)
                         finishUpdatingTimer.restart()
