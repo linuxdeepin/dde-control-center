@@ -157,7 +157,7 @@ Item {
         }
 
         Connections {
-            target: dbus_user
+            target: root_view.this_user
             onHistoryIconsChanged: {
                 avatar_recently_used_view.setContent()
             }
@@ -174,7 +174,7 @@ Item {
         maxHeight: root_view.maxHeight - root_view.verticalPadding * 3 - radio_button.height
         
         function setContent() {
-            avatar_recently_used_view.model.clear()
+            avatar_default_view.model.clear()
             var allIcons = root_view.this_user.iconList
             for (var i = 0; i < allIcons.length; i++) {
                 avatar_default_view.model.append({"avatarPath": allIcons[i]})
@@ -191,9 +191,9 @@ Item {
         }        
         
         Connections {
-            target: dbus_user
+            target: root_view.this_user
             onIconListChanged: {
-                avatar_recently_used_view.setContent()
+                avatar_default_view.setContent()
             }
         }        
 
