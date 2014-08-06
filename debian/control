@@ -1,0 +1,45 @@
+Source: dde-control-center
+Section: admin
+Priority: optional
+Maintainer:  Li Longyu (Ai Kotoba) <leaeasy@gmail.com>
+Build-Depends: debhelper (>= 8.0.0),
+ python (>= 2.6.3~),
+ golang,
+ go-dlib,
+ dde-go-dbus-factory,
+ pkg-config,
+ libglib2.0-dev,
+ libx11-dev,
+ libgtk-3-dev,
+ libxtst-dev,
+ qt5-qmake,
+ qt5-default,
+ qtdeclarative5-dev,
+ libqt5webkit5-dev,
+Standards-Version: 3.9.2
+Homepage: http://github.com/linuxdeepin/dss.git
+
+Package: dde-control-center
+Architecture: any
+Conflicts: dss
+Replaces: dss
+Depends: ${shlibs:Depends},
+ ${misc:Depends},
+ dde-account-faces,
+ dde-daemon (>= 0.0.1+20140731174758),
+ dde-go-dbus-factory (>= 0.0.2+20140723102903),
+ dde-qml-dbus-factory,
+ dde-qml-gettext-plugin,
+ deepin-artwork-themes,
+ deepin-artwork-themes,
+ deepin-qml-widgets (>= 0.0.2+20140723165854),
+ go-dlib,
+ python,
+ python-pyqt5,
+ python-sip,
+ python-xpyb,
+ qml-dde-dock-applet,
+ qt5-extra,
+ xkb-data-i18n,
+Description: New control center for linux deepin
+ New control center for linux deepin

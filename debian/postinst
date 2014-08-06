@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e 
+
+
+if [ "$1" = "configure" ];then
+    [ -e /etc/xdg/autostart/dss.desktop ] && rm -f /etc/xdg/autostart/dss.desktop || true
+    [ -e /etc/xdg/autostart/dss-daemon.desktop ] && rm -f /etc/xdg/autostart/dss-daemon.desktop || true
+fi
+
+#DEBHELPER#

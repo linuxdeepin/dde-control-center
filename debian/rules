@@ -1,0 +1,22 @@
+#!/usr/bin/make -f
+export DH_VERBOSE=1
+
+%:
+	dh ${@} --with python2
+
+override_dh_auto_build:
+	cd dock-applets && qmake 
+	cd dock-applets && make
+	cd qt5frame && qmake 
+	cd qt5frame && make
+	cd locale && sh $(CURDIR)/debian/generate_mo.sh
+
+override_dh_auto_install:
+	cd dock-applets && make INSTALL_ROOT=$(CURDIR)/debian/dde-control-center install
+	cd qt5frame && make INSTALL_ROOT=$(CURDIR)/debian/dde-control-center install
+	dh_auto_install
+
+override_dh_clean:
+	dh_clean
+	rm -rf locale/mo
+

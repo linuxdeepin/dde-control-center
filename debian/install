@@ -1,0 +1,5 @@
+locale/mo/* /usr/share/locale/
+#dock-applets /usr/share/dde-control-center
+dde-control-center.desktop /usr/share/applications/
+dde-dock-applets-autostart.desktop /etc/xdg/autostart/
+*.service /usr/share/dbus-1/services/

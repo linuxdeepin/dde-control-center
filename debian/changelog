@@ -1,0 +1,1380 @@
+dde-control-center (0.0.3+20140805002804~67a293c762) trusty; urgency=low
+
+  * Build from git 67a293c762048e94fd2fc20baf51da13777253fc
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 05 Aug 2014 00:28:05 +0800
+
+dde-control-center (0.0.3+20140801170406~c6a4ee75fa) trusty; urgency=low
+
+  * Build from git c6a4ee75fa0c097e2505981df55dbb4eddff5469
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 01 Aug 2014 17:04:06 +0800
+
+dde-control-center (0.0.3+20140801161324~fb8d77c821) trusty; urgency=low
+
+  * Build from git fb8d77c8211e011bfde35f402b206a67bb8aed5b
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 01 Aug 2014 16:13:25 +0800
+
+dde-control-center (0.0.3+20140731171914~9d78de6c32) trusty; urgency=low
+
+  * Build from git 9d78de6c322ab5addaef69705a5ca3e82f886849
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 31 Jul 2014 17:19:15 +0800
+
+dde-control-center (0.0.3+20140731165359~67c46fbfb1) trusty; urgency=low
+
+  * Build from git 67c46fbfb11e053c0f20664d57f70e048bd56f06
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 31 Jul 2014 16:53:59 +0800
+
+dde-control-center (0.0.3+20140730105204~c3f2210885) trusty; urgency=low
+
+  * Build from git c3f221088554f0a8f8e36043a898a6cb11762c22
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 30 Jul 2014 10:52:05 +0800
+
+dde-control-center (0.0.3+20140729125322~6681dba2fb) trusty; urgency=low
+
+  * Build from git 6681dba2fbd7c0d53d78e4c421a77e47d60b329e
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 29 Jul 2014 12:53:22 +0800
+
+dde-control-center (0.0.3+20140728001903~0bcf7ccb8a) trusty; urgency=low
+
+  * Build from git 0bcf7ccb8a9c470a5bf05f9503d18f924aeec5cb
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 28 Jul 2014 00:19:04 +0800
+
+dde-control-center (0.0.3+20140727102242~48e0161bc2) trusty; urgency=low
+
+  * Build from git 48e0161bc289c75f3b296d9f8ba187e462db6c22
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Sun, 27 Jul 2014 10:22:43 +0800
+
+dde-control-center (0.0.3+20140727004431~48e0161bc2) trusty; urgency=low
+
+  * Build from git 48e0161bc289c75f3b296d9f8ba187e462db6c22
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Sun, 27 Jul 2014 00:44:31 +0800
+
+dde-control-center (0.0.3+20140725150550~e3f0500104) trusty; urgency=low
+
+  * Build from git e3f05001045bf31a7188009e73876db9790f85b6
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 25 Jul 2014 15:05:50 +0800
+
+dde-control-center (0.0.3+20140725110950~569ee221b0) trusty; urgency=low
+
+  * Build from git 569ee221b0b95426b892e09a79121fee724330b7
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 25 Jul 2014 11:09:50 +0800
+
+dde-control-center (0.0.3+20140725102158~bc8b03827a) trusty; urgency=low
+
+  * Build from git bc8b03827a595ef4b6fb3ab012fbd1a1e5680abc
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 25 Jul 2014 10:21:58 +0800
+
+dde-control-center (0.0.3+20140725101236~b3ca5cd9d3) trusty; urgency=low
+
+  * Build from git b3ca5cd9d3edb820bf4f50d6b32a89f2a83ff023
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 25 Jul 2014 10:12:36 +0800
+
+dde-control-center (0.0.3+20140724175215~f2f53e012d) trusty; urgency=low
+
+  * Build from git f2f53e012d02ed6d06ee241756b25f008a6a2682
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 24 Jul 2014 17:52:16 +0800
+
+dde-control-center (0.0.3+20140724174344~1a975e93a9) trusty; urgency=low
+
+  * Build from git 1a975e93a91619f9f3245c55b00d74f58facbbb7
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 24 Jul 2014 17:43:44 +0800
+
+dde-control-center (0.0.3+20140724113236~41c8338416) trusty; urgency=low
+
+  * Build from git 41c8338416c3479c9bea6e59f9bb8d0fb218fd95
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 24 Jul 2014 11:32:36 +0800
+
+dde-control-center (0.0.3+20140717102846~aa16199a40) trusty; urgency=low
+
+  * Build from git aa16199a40cbb925711ccf26ce9a1eb42663cfb0
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 17 Jul 2014 10:28:46 +0800
+
+dde-control-center (0.0.3+20140716170547~8f33657a17) trusty; urgency=low
+
+  * Build from git 8f33657a17c1343ff04cd31e0f13a617b43a528b
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 16 Jul 2014 17:05:47 +0800
+
+dde-control-center (0.0.3+20140714152956~6c2296c8c6) trusty; urgency=low
+
+  * Build from git 6c2296c8c6b29acca896006426fd7460401667cc
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 14 Jul 2014 15:29:56 +0800
+
+dde-control-center (0.0.3+20140713230235~6f2291a7f9) trusty; urgency=low
+
+  * Build from git 6f2291a7f91a21770a17e0ef8a0ffe8fafb5e5ea
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Sun, 13 Jul 2014 23:02:36 +0800
+
+dde-control-center (0.0.3+20140713001416~b24c4bbf80) trusty; urgency=low
+
+  * Build from git b24c4bbf8016e59b7916dfbe91dd6f77a90d8eac
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Sun, 13 Jul 2014 00:14:17 +0800
+
+dde-control-center (0.0.3+20140711111358~9200ff240c) trusty; urgency=low
+
+  * Build from git 9200ff240cc84af20e06eb62f92451015ba66b96
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 11 Jul 2014 11:13:58 +0800
+
+dde-control-center (0.0.3+20140709170036~a549e0b94a) trusty; urgency=low
+
+  * Build from git a549e0b94ae7f819e300da1668cb2332dd3ff20e
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 09 Jul 2014 17:00:37 +0800
+
+dde-control-center (0.0.3+20140709165222~2e677eb2ad) trusty; urgency=low
+
+  * Build from git 2e677eb2adb26efb062397c5ddd2ec813d76f409
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 09 Jul 2014 16:52:23 +0800
+
+dde-control-center (0.0.3+20140703172829~331a282bad) trusty; urgency=low
+
+  * Build from git 331a282bad046efe836b12261bafd1b74c713a5c
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 03 Jul 2014 17:28:29 +0800
+
+dde-control-center (0.0.3+20140703161948~7c628b731a) trusty; urgency=low
+
+  * Build from git 7c628b731a4d361137bd084611aa928fd12c307f
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 03 Jul 2014 16:19:49 +0800
+
+dde-control-center (0.0.3+20140702174843~925e45089e) trusty; urgency=low
+
+  * Build from git 925e45089e7ea3c6e28e95514a046339d167ad4c
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 02 Jul 2014 17:48:44 +0800
+
+dde-control-center (0.0.3+20140702173025~3ea3a10234) trusty; urgency=low
+
+  * Build from git 3ea3a10234d1a056c67c8d8b7af14043a6e2d425
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 02 Jul 2014 17:30:26 +0800
+
+dde-control-center (0.0.3+20140702172226~047763fadd) trusty; urgency=low
+
+  * Build from git 047763fadd4ffb0867d8f2f26657f77e70d35874
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 02 Jul 2014 17:22:26 +0800
+
+dde-control-center (0.0.3-20140702093850~83cc8958ef) trusty; urgency=low
+
+  * Build from git 83cc8958efbe32b68e7987e6363e30746735c69a
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 02 Jul 2014 09:38:51 +0800
+
+dde-control-center (0.0.3-20140701153233~f6e3ab502d) trusty; urgency=low
+
+  * Build from git f6e3ab502d1c3b8b805e1145f83bb946cc2a8bfd
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 01 Jul 2014 15:32:33 +0800
+
+dde-control-center (0.0.3-20140701132102~1e34f820db) trusty; urgency=low
+
+  * Build from git 1e34f820dbd7604aa76ce87e559dfa59c3f995db
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 01 Jul 2014 13:21:02 +0800
+
+dde-control-center (0.0.3-20140701100425~fee8b6ff19) trusty; urgency=low
+
+  * Build from git fee8b6ff19c9f4ed33c2393dca091907ef5cfff1
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 01 Jul 2014 10:04:25 +0800
+
+dde-control-center (0.0.3-20140701091157~f599804de8) trusty; urgency=low
+
+  * Build from git f599804de8aa49267cff18580a349270f91e1e30
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 01 Jul 2014 09:11:58 +0800
+
+dde-control-center (0.0.3-20140630170445~2fab23dd0f) trusty; urgency=low
+
+  * Build from git 2fab23dd0f14e14df9f4853acb894ea5516df177
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 30 Jun 2014 17:04:46 +0800
+
+dde-control-center (0.0.3-20140630161603~a87e305225) trusty; urgency=low
+
+  * Build from git a87e30522576efd7d1111eb65f5062e827680d25
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 30 Jun 2014 16:16:03 +0800
+
+dde-control-center (0.0.3-20140630150049~17812b1f1c) trusty; urgency=low
+
+  * Build from git 17812b1f1c24bcba46792b9bca07506d7180b84f
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 30 Jun 2014 15:00:49 +0800
+
+dde-control-center (0.0.3-20140630095210~727b4ee13f) trusty; urgency=low
+
+  * Build from git 727b4ee13fb5d34b91c9cf76f4d9e1419795abdd
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 30 Jun 2014 09:52:10 +0800
+
+dde-control-center (0.0.3-20140630090118~d3b35cd2fe) trusty; urgency=low
+
+  * Build from git d3b35cd2fe6939ec2c0c691d431441ae5cb3432f
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 30 Jun 2014 09:01:18 +0800
+
+dde-control-center (0.0.3-20140630002929~d3b35cd2fe) trusty; urgency=low
+
+  * Build from git d3b35cd2fe6939ec2c0c691d431441ae5cb3432f
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 30 Jun 2014 00:29:30 +0800
+
+dde-control-center (0.0.3-20140630000229~e628b7f5f2) trusty; urgency=low
+
+  * Build from git e628b7f5f255e7153799697694c0dc5257ef3bf9
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 30 Jun 2014 00:02:30 +0800
+
+dde-control-center (0.0.3-20140629201012~39a36170ef) trusty; urgency=low
+
+  * Build from git 39a36170efbf6d6c5a2b4e61ee58267385b5faca
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Sun, 29 Jun 2014 20:10:13 +0800
+
+dde-control-center (0.0.3-20140627170100~5da86d3aaa) trusty; urgency=low
+
+  * Build from git 5da86d3aaa7b51766266d83fdfb1fe0830929a4e
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 27 Jun 2014 17:01:00 +0800
+
+dde-control-center (0.0.3-20140627100337~c8716548ae) trusty; urgency=low
+
+  * Build from git c8716548ae1d332e75408a640de623659e3b4742
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 27 Jun 2014 10:03:38 +0800
+
+dde-control-center (0.0.3-20140627095937~d83123d4aa) trusty; urgency=low
+
+  * Build from git d83123d4aaec6d7381aa6b85dd1322f8564fbc25
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 27 Jun 2014 09:59:38 +0800
+
+dde-control-center (0.0.3-20140627093609~6999377c82) trusty; urgency=low
+
+  * Build from git 6999377c82053903d4b3b7cab5103689e01ef432
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 27 Jun 2014 09:36:10 +0800
+
+dde-control-center (0.0.3-20140626180453~6999377c82) trusty; urgency=low
+
+  * Build from git 6999377c82053903d4b3b7cab5103689e01ef432
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 26 Jun 2014 18:04:53 +0800
+
+dde-control-center (0.0.3-20140626153530~f04257eb4e) trusty; urgency=low
+
+  * Build from git f04257eb4ec68f4f0bf9149971fa4f4054dc571b
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 26 Jun 2014 15:35:31 +0800
+
+dde-control-center (0.0.3-20140626152914~966421c5f7) trusty; urgency=low
+
+  * Build from git 966421c5f7411bf92a1270010bbb227ca3203c6c
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 26 Jun 2014 15:29:14 +0800
+
+dde-control-center (0.0.3-20140626150007~b3d12f6ecd) trusty; urgency=low
+
+  * Build from git b3d12f6ecd805b328ff8bcdd7cd3f41dab69be22
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 26 Jun 2014 15:00:08 +0800
+
+dde-control-center (0.0.3-20140626143642~b3d12f6ecd) trusty; urgency=low
+
+  * Build from git b3d12f6ecd805b328ff8bcdd7cd3f41dab69be22
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 26 Jun 2014 14:36:43 +0800
+
+dde-control-center (0.0.3-20140626123055~c2b7d008e0) trusty; urgency=low
+
+  * Build from git c2b7d008e0c55e4d2d81295441289c4518e3b9ff
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 26 Jun 2014 12:30:56 +0800
+
+dde-control-center (0.0.3-20140626110237~f48b617d1b) trusty; urgency=low
+
+  * Build from git f48b617d1bd04ea32123d53566250b964ded72e0
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 26 Jun 2014 11:02:38 +0800
+
+dde-control-center (0.0.3-20140626101238~f53ea8de3e) trusty; urgency=low
+
+  * Build from git f53ea8de3ee23c72e5b4803cea295dccaf34f9b1
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 26 Jun 2014 10:12:39 +0800
+
+dde-control-center (0.0.3-20140626095146~83c891332a) trusty; urgency=low
+
+  * Build from git 83c891332ab4abf76f5be9f431eefdf988ef2a81
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 26 Jun 2014 09:51:47 +0800
+
+dde-control-center (0.0.3-20140625111328~75f22bbf54) trusty; urgency=low
+
+  * Build from git 75f22bbf54bd73a72d50c6fb8f4f715d43cdde98
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 25 Jun 2014 11:13:29 +0800
+
+dde-control-center (0.0.3-20140620154924~b6584e54b2) trusty; urgency=low
+
+  * Build from git b6584e54b287c84343f8b9f49f5cc2c5fa40ca4f
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 20 Jun 2014 15:49:25 +0800
+
+dde-control-center (0.0.3-20140620153724~f419d0aa83) trusty; urgency=low
+
+  * Build from git f419d0aa8343a1b3c536254704a2fefb1dd05f1b
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 20 Jun 2014 15:37:25 +0800
+
+dde-control-center (0.0.3-20140620102337~cb1adb27c5) trusty; urgency=low
+
+  * Build from git cb1adb27c595e14228ccebe971f1d8dde8f46116
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 20 Jun 2014 10:23:38 +0800
+
+dde-control-center (0.0.3-20140620095335~ab3ed63910) trusty; urgency=low
+
+  * Build from git ab3ed63910234360055570822cda4a5a0cfe9f9f
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 20 Jun 2014 09:53:35 +0800
+
+dde-control-center (0.0.3-20140619162748~a804b68d6b) trusty; urgency=low
+
+  * Build from git a804b68d6baedbd352630c67cb26047b0890655f
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 19 Jun 2014 16:27:49 +0800
+
+dde-control-center (0.0.3-20140619125055~5488faba3e) trusty; urgency=low
+
+  * Build from git 5488faba3e2cb3aa32b30188444a431444b30f51
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 19 Jun 2014 12:50:56 +0800
+
+dde-control-center (0.0.3-20140619123935~ed7af6e0fe) trusty; urgency=low
+
+  * Build from git ed7af6e0fec9c5151276205533077f91a5a9b342
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 19 Jun 2014 12:39:36 +0800
+
+dde-control-center (0.0.3-20140619122152~2893f9616e) trusty; urgency=low
+
+  * Build from git 2893f9616e312c1696a1d7651f95c454a0f22f83
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 19 Jun 2014 12:21:53 +0800
+
+dde-control-center (0.0.3-20140619111945~90f11cd26b) trusty; urgency=low
+
+  * Build from git 90f11cd26b75ba62457c39b860a116c3a4cca660
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 19 Jun 2014 11:19:46 +0800
+
+dde-control-center (0.0.3-20140618172837~460e81f660) trusty; urgency=low
+
+  * Build from git 460e81f66005674d67f79be93e312fb04b7c43ef
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 18 Jun 2014 17:28:38 +0800
+
+dde-control-center (0.0.3-20140618164851~0ef4627a64) trusty; urgency=low
+
+  * Build from git 0ef4627a6408c0b60eb725e6d4b79b3a4269e245
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 18 Jun 2014 16:48:52 +0800
+
+dde-control-center (0.0.3-20140618150605~0ef4627a64) trusty; urgency=low
+
+  * Build from git 0ef4627a6408c0b60eb725e6d4b79b3a4269e245
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 18 Jun 2014 15:06:06 +0800
+
+dde-control-center (0.0.3-20140615100318~aaa4d96dde) trusty; urgency=low
+
+  * Build from git aaa4d96ddeaf7066ff12bb35b35d3c838bc9dee4
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Sun, 15 Jun 2014 10:03:19 +0800
+
+dde-control-center (0.0.3-20140615095432~aaa4d96dde) trusty; urgency=low
+
+  * Build from git aaa4d96ddeaf7066ff12bb35b35d3c838bc9dee4
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Sun, 15 Jun 2014 09:54:33 +0800
+
+dde-control-center (0.0.3-20140615094739~aaa4d96dde) trusty; urgency=low
+
+  * Build from git aaa4d96ddeaf7066ff12bb35b35d3c838bc9dee4
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Sun, 15 Jun 2014 09:47:40 +0800
+
+dde-control-center (0.0.3-20140615091131~fcffcd7535) trusty; urgency=low
+
+  * Build from git fcffcd753545381a9417773587d7c587cf52c3cc
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Sun, 15 Jun 2014 09:11:32 +0800
+
+dde-control-center (0.0.3-20140614181918~284ff94c46) trusty; urgency=low
+
+  * Build from git 284ff94c4618e1890a6daf4acac8c3baa06b6efc
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Sat, 14 Jun 2014 18:19:19 +0800
+
+dde-control-center (0.0.3-20140614170853~7cbe5b4f45) trusty; urgency=low
+
+  * Build from git 7cbe5b4f4572a366b687bb046edf7dd8daac6d38
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Sat, 14 Jun 2014 17:08:53 +0800
+
+dde-control-center (0.0.3-20140614170050~3520d09232) trusty; urgency=low
+
+  * Build from git 3520d0923291df959bb027edaab241e3fa4016d2
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Sat, 14 Jun 2014 17:00:50 +0800
+
+dde-control-center (0.0.3-20140614163326~9caa19dd19) trusty; urgency=low
+
+  * Build from git 9caa19dd19f46ecc68226d7256b1d6897c6778b2
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Sat, 14 Jun 2014 16:33:27 +0800
+
+dde-control-center (0.0.3-20140614162730~d6f1927073) trusty; urgency=low
+
+  * Build from git d6f1927073657a0ffc6967f7f0bae8130aa1c6b5
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Sat, 14 Jun 2014 16:27:30 +0800
+
+dde-control-center (0.0.3-20140614154613~7f7b92c8ad) trusty; urgency=low
+
+  * Build from git 7f7b92c8ad9361d489ccd4abf316c0ae19f73812
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Sat, 14 Jun 2014 15:46:13 +0800
+
+dde-control-center (0.0.3-20140614123548~3e670ab1ce) trusty; urgency=low
+
+  * Build from git 3e670ab1ce34ca24207f06a4f0d4b1ec8261744a
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Sat, 14 Jun 2014 12:35:49 +0800
+
+dde-control-center (0.0.3-20140614104546~3e670ab1ce) trusty; urgency=low
+
+  * Build from git 3e670ab1ce34ca24207f06a4f0d4b1ec8261744a
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Sat, 14 Jun 2014 10:45:47 +0800
+
+dde-control-center (0.0.3-20140614092753~f7a302aabb) trusty; urgency=low
+
+  * Build from git f7a302aabb19244d1e053b24b0ba266cad0b41fd
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Sat, 14 Jun 2014 09:27:53 +0800
+
+dde-control-center (0.0.3-20140614092214~dbbe6fd9e5) trusty; urgency=low
+
+  * Build from git dbbe6fd9e5573cdf58b5478e6b01473ff9547ebf
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Sat, 14 Jun 2014 09:22:15 +0800
+
+dde-control-center (0.0.3-20140614080228~c33dbe973b) trusty; urgency=low
+
+  * Build from git c33dbe973bbaf8b74dc7f2bfa9a33e572e9b9bed
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Sat, 14 Jun 2014 08:02:28 +0800
+
+dde-control-center (0.0.3-20140613165446~a5f6eb70bb) trusty; urgency=low
+
+  * Build from git a5f6eb70bbbd71283d67cf94db42dfbcc5a79f24
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 13 Jun 2014 16:54:47 +0800
+
+dde-control-center (0.0.3-20140613154414~679ab22f5d) trusty; urgency=low
+
+  * Build from git 679ab22f5d6b6e5928b6ee36eb60329a289048d1
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 13 Jun 2014 15:44:15 +0800
+
+dde-control-center (0.0.3-20140613153049~59fd0761ec) trusty; urgency=low
+
+  * Build from git 59fd0761ec7f033dd96efc7e424d30288b65ae8c
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 13 Jun 2014 15:30:50 +0800
+
+dde-control-center (0.0.3-20140613141843~8ad26245a9) trusty; urgency=low
+
+  * Build from git 8ad26245a943946ca6c31378ce32c832d1436d94
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 13 Jun 2014 14:18:43 +0800
+
+dde-control-center (0.0.3-20140613103520~257b95c2e0) trusty; urgency=low
+
+  * Build from git 257b95c2e06998f43e68427d0a5d48fc57b1f075
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 13 Jun 2014 10:35:20 +0800
+
+dde-control-center (0.0.3-20140612162716~77cae91b06) trusty; urgency=low
+
+  * Build from git 77cae91b06b84eb39251186c7cfd1c8c6c42633f
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 12 Jun 2014 16:27:17 +0800
+
+dde-control-center (0.0.3-20140612143444~b2638099b0) trusty; urgency=low
+
+  * Build from git b2638099b08079b3dbc166a0af940c1cd3190688
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 12 Jun 2014 14:34:45 +0800
+
+dde-control-center (0.0.3-20140612135656~9689891725) trusty; urgency=low
+
+  * Build from git 968989172561671492be5b29f11f8f855516689c
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 12 Jun 2014 13:56:57 +0800
+
+dde-control-center (0.0.3-20140611152536~f712f99348) trusty; urgency=low
+
+  * Build from git f712f9934821c1b5d7ba5fda87c85f09f03974dc
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 11 Jun 2014 15:25:37 +0800
+
+dde-control-center (0.0.3-20140611152314~194665eaf5) trusty; urgency=low
+
+  * Build from git 194665eaf55d9cd4c9a0082a6c945e3064cd17c8
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 11 Jun 2014 15:23:14 +0800
+
+dde-control-center (0.0.3-20140611093253~1470fba268) trusty; urgency=low
+
+  * Build from git 1470fba26857dc3aa3079b3b94c07effd93b421c
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 11 Jun 2014 09:32:54 +0800
+
+dde-control-center (0.0.3-20140610161321~4a4c4995f0) trusty; urgency=low
+
+  * Build from git 4a4c4995f003959d9df6537ec027aee99e33866f
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 10 Jun 2014 16:13:22 +0800
+
+dde-control-center (0.0.3-20140610143548~c12d08fe8f) trusty; urgency=low
+
+  * Build from git c12d08fe8f6492e403da207c6edb87b92b828d3f
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 10 Jun 2014 14:35:48 +0800
+
+dde-control-center (0.0.3-20140610114301~729a1aa2b7) trusty; urgency=low
+
+  * Build from git 729a1aa2b72048187cfb269f55b2496cd93016f1
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 10 Jun 2014 11:43:02 +0800
+
+dde-control-center (0.0.3-20140609180219~729a1aa2b7) trusty; urgency=low
+
+  * Build from git 729a1aa2b72048187cfb269f55b2496cd93016f1
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 09 Jun 2014 18:02:20 +0800
+
+dde-control-center (0.0.3-20140609124107~72691adfeb) trusty; urgency=low
+
+  * Build from git 72691adfeb0bf91fb6ccd0172167e6ed1dccb282
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 09 Jun 2014 12:41:07 +0800
+
+dde-control-center (0.0.3-20140609123738~06a167a76c) trusty; urgency=low
+
+  * Build from git 06a167a76c7180914fc81c882cabafe2ca583759
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 09 Jun 2014 12:37:39 +0800
+
+dde-control-center (0.0.3-20140609092539~f913d6b036) trusty; urgency=low
+
+  * Build from git f913d6b0367dec7b5a9cc1894f4d48dba9f51e25
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 09 Jun 2014 09:25:39 +0800
+
+dde-control-center (0.0.3-20140608214608~da675f2696) trusty; urgency=low
+
+  * Build from git da675f2696d224ec4473a74c00bfe6f33eceeb18
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Sun, 08 Jun 2014 21:46:08 +0800
+
+dde-control-center (0.0.3-20140607195706~ae9c1677c8) trusty; urgency=low
+
+  * Build from git ae9c1677c828f55277fcde0d18d056a0c1e402df
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Sat, 07 Jun 2014 19:57:06 +0800
+
+dde-control-center (0.0.3-20140606172112~0378348bdf) trusty; urgency=low
+
+  * Build from git 0378348bdfc551a16c86ca8cf860eb02f7a3be37
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 06 Jun 2014 17:21:12 +0800
+
+dde-control-center (0.0.3-20140604144719~b6eb3b14db) trusty; urgency=low
+
+  * Build from git b6eb3b14dbffbf46fdb74bc027890cd06d5a3b22
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 04 Jun 2014 14:47:20 +0800
+
+dde-control-center (0.0.3-20140604143734~66f458d6f6) trusty; urgency=low
+
+  * Build from git 66f458d6f6c3448dcfee2c057e259000dee8c31e
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 04 Jun 2014 14:37:35 +0800
+
+dde-control-center (0.0.3-20140604134221~589358885e) trusty; urgency=low
+
+  * Build from git 589358885e9eafbe5826b69e880534ba18b5cc79
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 04 Jun 2014 13:42:22 +0800
+
+dde-control-center (0.0.3-20140603162542~b2b601b1b5) trusty; urgency=low
+
+  * Build from git b2b601b1b589932a7eab4b9efee5599baddf7e3f
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 03 Jun 2014 16:25:43 +0800
+
+dde-control-center (0.0.3-20140530174606~184822daa2) trusty; urgency=low
+
+  * Build from git 184822daa261986bed688f050a4e59b107cbe7f9
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 30 May 2014 17:46:07 +0800
+
+dde-control-center (0.0.3-20140530171504~fb1a39fb71) trusty; urgency=low
+
+  * Build from git fb1a39fb71fa5df9c235a78d43078be4974b4909
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 30 May 2014 17:15:05 +0800
+
+dde-control-center (0.0.3-20140530161901~938bde2361) trusty; urgency=low
+
+  * Build from git 938bde2361bdcc6af3827727387e53f0b48eb05c
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 30 May 2014 16:19:02 +0800
+
+dde-control-center (0.0.3-20140530142723~8cbbf8493e) trusty; urgency=low
+
+  * Build from git 8cbbf8493e6b9d91aea01bfb3129c783e8d66304
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 30 May 2014 14:27:24 +0800
+
+dde-control-center (0.0.3-20140530134010~2870e923e2) trusty; urgency=low
+
+  * Build from git 2870e923e27555640e2043cad243224dafd74b2a
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 30 May 2014 13:40:11 +0800
+
+dde-control-center (0.0.3-20140530101742~2870e923e2) trusty; urgency=low
+
+  * Build from git 2870e923e27555640e2043cad243224dafd74b2a
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 30 May 2014 10:17:43 +0800
+
+dde-control-center (0.0.3-20140530093337~f2579313c5) trusty; urgency=low
+
+  * Build from git f2579313c558288c23a9da3265edc19f7aa7da74
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 30 May 2014 09:33:38 +0800
+
+dde-control-center (0.0.3-20140529181429~22ba769164) trusty; urgency=low
+
+  * Build from git 22ba769164f716aa1afc3fd7e126172e3f726568
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 29 May 2014 18:14:29 +0800
+
+dde-control-center (0.0.3-20140529161035~4c6ee0dcbc) trusty; urgency=low
+
+  * Build from git 4c6ee0dcbccde9f0d85236fee97a0c8222c4143e
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 29 May 2014 16:10:36 +0800
+
+dde-control-center (0.0.3-20140529140133~a8e1131e28) trusty; urgency=low
+
+  * Build from git a8e1131e28e8510d981bc1f237e143e7d8560a86
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 29 May 2014 14:01:33 +0800
+
+dde-control-center (0.0.3-20140529103344~03723275df) trusty; urgency=low
+
+  * Build from git 03723275df9a1fecad253ff8a7e4dc8adc259f31
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 29 May 2014 10:33:44 +0800
+
+dde-control-center (0.0.3-20140528162046~feaf4b3227) trusty; urgency=low
+
+  * Build from git feaf4b32278e936ed704a9936e5938ac3392abaf
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 28 May 2014 16:20:47 +0800
+
+dde-control-center (0.0.3-20140528131325~994a951591) trusty; urgency=low
+
+  * Build from git 994a951591c93309317b9e73ba5f3a0c1c03c27b
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 28 May 2014 13:13:25 +0800
+
+dde-control-center (0.0.3-20140527142800~c21d7009be) trusty; urgency=low
+
+  * Build from git c21d7009be490af4c5fb6ec89588f37790fbcde6
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 27 May 2014 14:28:00 +0800
+
+dde-control-center (0.0.3-20140527142414~102eb812ad) trusty; urgency=low
+
+  * Build from git 102eb812add611243da636febba33a32bae47836
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 27 May 2014 14:24:14 +0800
+
+dde-control-center (0.0.3-20140527103323~923ed9ac4e) trusty; urgency=low
+
+  * Build from git 923ed9ac4e7bbacb6495763dd75f5c8fe2414d67
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 27 May 2014 10:33:23 +0800
+
+dde-control-center (0.0.3-20140527102507~1a014770f8) trusty; urgency=low
+
+  * Build from git 1a014770f83793cc513b2d4bd61deb0627d30872
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 27 May 2014 10:25:08 +0800
+
+dde-control-center (0.0.3-20140527101757~cd0378017a) trusty; urgency=low
+
+  * Build from git cd0378017aea61ce53f0117b7d8022ad30333eb1
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 27 May 2014 10:17:57 +0800
+
+dde-control-center (0.0.3-20140526105945~87c10cb285) trusty; urgency=low
+
+  * Build from git 87c10cb285f7b1e64b4c3a3eb551cd30d576246b
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 26 May 2014 10:59:46 +0800
+
+dde-control-center (0.0.3-20140526090606~aa24616ccb) trusty; urgency=low
+
+  * Build from git aa24616ccb97500608de7d3cb3a23cd6f82ac2b8
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 26 May 2014 09:06:07 +0800
+
+dde-control-center (0.0.3-20140523152635~30a9ff4b46) trusty; urgency=low
+
+  * Build from git 30a9ff4b467f3ecf7c893f009fd4198539dbfb8e
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 23 May 2014 15:26:36 +0800
+
+dde-control-center (0.0.3-20140523135322~d7caa368ac) trusty; urgency=low
+
+  * Build from git d7caa368ac717010d0ac7b5c1a6ecb5a60cf62bf
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 23 May 2014 13:53:23 +0800
+
+dde-control-center (0.0.3-20140523085727~a519878d62) trusty; urgency=low
+
+  * Build from git a519878d62eaca79b339077d30f67c88cff815fd
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 23 May 2014 08:57:28 +0800
+
+dde-control-center (0.0.3-20140522145101~11b84c70ea) trusty; urgency=low
+
+  * Build from git 11b84c70ea403b5c0f783a5a610084db54d53cda
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 22 May 2014 14:51:01 +0800
+
+dde-control-center (0.0.3-20140522140251~7ea7611e79) trusty; urgency=low
+
+  * Build from git 7ea7611e7940fe77459b03177f42643295305bca
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 22 May 2014 14:02:51 +0800
+
+dde-control-center (0.0.3-20140522140039~7ea7611e79) trusty; urgency=low
+
+  * Build from git 7ea7611e7940fe77459b03177f42643295305bca
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 22 May 2014 14:00:40 +0800
+
+dde-control-center (0.0.3-20140521112106~1748977284) trusty; urgency=low
+
+  * Build from git 17489772846cada39b727761b8815c446047a4f8
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 21 May 2014 11:21:07 +0800
+
+dde-control-center (0.0.3-20140521111454~7f0158759b) trusty; urgency=low
+
+  * Build from git 7f0158759bd76492578ca584e2356536fe58b198
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 21 May 2014 11:14:54 +0800
+
+dde-control-center (0.0.3-20140516095905~d9a48098b5) trusty; urgency=low
+
+  * Build from git d9a48098b506977998ec0d61379c61a4916503b3
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 16 May 2014 09:59:06 +0800
+
+dde-control-center (0.0.3-20140516085550~8bd9d3e3e1) trusty; urgency=low
+
+  * Build from git 8bd9d3e3e18c75c4556b6850d7fa0762a9a705e5
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 16 May 2014 08:55:51 +0800
+
+dde-control-center (0.0.3-20140516082551~8bd9d3e3e1) trusty; urgency=low
+
+  * Build from git 8bd9d3e3e18c75c4556b6850d7fa0762a9a705e5
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 16 May 2014 08:25:52 +0800
+
+dde-control-center (0.0.3-20140516082246~8bd9d3e3e1) trusty; urgency=low
+
+  * Build from git 8bd9d3e3e18c75c4556b6850d7fa0762a9a705e5
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 16 May 2014 08:22:47 +0800
+
+dde-control-center (0.0.3-20140515181916~8bd9d3e3e1) trusty; urgency=low
+
+  * Build from git 8bd9d3e3e18c75c4556b6850d7fa0762a9a705e5
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 15 May 2014 18:19:17 +0800
+
+dde-control-center (0.0.3-20140515173534~8bd9d3e3e1) trusty; urgency=low
+
+  * Build from git 8bd9d3e3e18c75c4556b6850d7fa0762a9a705e5
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 15 May 2014 17:35:35 +0800
+
+dde-control-center (0.0.3-20140514105807~1d04fe01cd) trusty; urgency=low
+
+  * Build from git 1d04fe01cd8d4b189e62b0cd501d81580bf8ab65
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 14 May 2014 10:58:08 +0800
+
+dde-control-center (0.0.3-20140514101244~72e2312856) trusty; urgency=low
+
+  * Build from git 72e23128563e9703bb485c2f25f1218a8bb83541
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 14 May 2014 10:12:45 +0800
+
+dde-control-center (0.0.3-20140514090202~3f24548509) trusty; urgency=low
+
+  * Build from git 3f24548509bced4527fc31cfcc1c10bbd1c3053b
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 14 May 2014 09:02:02 +0800
+
+dde-control-center (0.0.3-20140513175040~f79dae9bc0) trusty; urgency=low
+
+  * Build from git f79dae9bc08e78e09f6709f870954dc2c1a4b03e
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 13 May 2014 17:50:41 +0800
+
+dde-control-center (0.0.3-20140513173744~213e7eac8f) trusty; urgency=low
+
+  * Build from git 213e7eac8f31acc87220535d6cbca54b797e3a53
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 13 May 2014 17:37:45 +0800
+
+dde-control-center (0.0.3-20140513154230~80af770a8b) trusty; urgency=low
+
+  * Build from git 80af770a8b38deb71a28d95d40b025dd77aee30c
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 13 May 2014 15:42:30 +0800
+
+dde-control-center (0.0.3-20140513153134~80af770a8b) trusty; urgency=low
+
+  * Build from git 80af770a8b38deb71a28d95d40b025dd77aee30c
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 13 May 2014 15:31:35 +0800
+
+dde-control-center (0.0.3-20140513151453~138d278d61) trusty; urgency=low
+
+  * Build from git 138d278d617e2647272ca9d0d7a41a1120bde45e
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 13 May 2014 15:14:53 +0800
+
+dde-control-center (0.0.3-20140513142153~1086f7e38b) trusty; urgency=low
+
+  * Build from git 1086f7e38bec052f472ab0582ebb1b055de49814
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 13 May 2014 14:21:54 +0800
+
+dde-control-center (0.0.3-20140513131802~f267b10323) trusty; urgency=low
+
+  * Build from git f267b10323ffc6a49783e83798ecb9f12c432406
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 13 May 2014 13:18:02 +0800
+
+dde-control-center (0.0.3-20140513091332~d6bf6cfbf5) trusty; urgency=low
+
+  * Build from git d6bf6cfbf5c2965f6502e0fccaae53b7a2eb9bab
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Tue, 13 May 2014 09:13:33 +0800
+
+dde-control-center (0.0.3-20140512231649~1396e01fde) trusty; urgency=low
+
+  * Build from git 1396e01fde638eb39f4974d22b5ffc13affa0583
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 12 May 2014 23:16:49 +0800
+
+dde-control-center (0.0.3-20140512174812~083ce7f35e) trusty; urgency=low
+
+  * Build from git 083ce7f35eeddc454f21f4af889925249efb0373
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 12 May 2014 17:48:12 +0800
+
+dde-control-center (0.0.3-20140512165337~6257f058fa) trusty; urgency=low
+
+  * Build from git 6257f058fae163641a476890cc7ff262d50c32ce
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 12 May 2014 16:53:38 +0800
+
+dde-control-center (0.0.3-20140512154724~b6739e8eb6) trusty; urgency=low
+
+  * Build from git b6739e8eb6cd691bda220dc50f4677948e7d3b97
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 12 May 2014 15:47:25 +0800
+
+dde-control-center (0.0.3-20140512111521~614dc38dba) trusty; urgency=low
+
+  * Build from git 614dc38dba0540e65f6119d57bea25d06cabf83c
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 12 May 2014 11:15:22 +0800
+
+dde-control-center (0.0.3-20140512110117~27018970bd) trusty; urgency=low
+
+  * Build from git 27018970bdf86eeb011101a7c4f5e65dfb608d28
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 12 May 2014 11:01:18 +0800
+
+dde-control-center (0.0.3-20140512094129~70893783a4) trusty; urgency=low
+
+  * Build from git 70893783a406ae76d750e9f455009470dc08fbfc
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 12 May 2014 09:41:29 +0800
+
+dde-control-center (0.0.3-20140512093651~413dbddc07) trusty; urgency=low
+
+  * Build from git 413dbddc0758ea4c9ce803edab0529e21dca440a
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 12 May 2014 09:36:52 +0800
+
+dde-control-center (0.0.3-20140512090240~4aaac3278a) trusty; urgency=low
+
+  * Build from git 4aaac3278af0a30cf900559a56dd59f14c97d124
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 12 May 2014 09:02:41 +0800
+
+dde-control-center (0.0.3-20140509174426~80c6c2b468) trusty; urgency=low
+
+  * Build from git 80c6c2b468f6bb6301b0d99d71ab26ee9638099b
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 09 May 2014 17:44:26 +0800
+
+dde-control-center (0.0.3-20140509173934~4bcbb5560e) trusty; urgency=low
+
+  * Build from git 4bcbb5560efc94fe6774e36eb664a0a0faf91bfd
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 09 May 2014 17:39:34 +0800
+
+dde-control-center (0.0.3-20140509152241~bc8bdcaacb) trusty; urgency=low
+
+  * Build from git bc8bdcaacb4d52f14cf887a11b59b90bc91a0b56
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 09 May 2014 15:22:42 +0800
+
+dde-control-center (0.0.3-20140509095431~e09a5a4213) trusty; urgency=low
+
+  * Build from git e09a5a4213f5eeddc30bd34e8fc89a1baee68718
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 09 May 2014 09:54:31 +0800
+
+dde-control-center (0.0.3-20140509091510~abeffa459f) trusty; urgency=low
+
+  * Build from git abeffa459f8fb0c84cf3f036d77a03a4b9e33396
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 09 May 2014 09:15:11 +0800
+
+dde-control-center (0.0.3-20140508122048~f20e87ee4c) trusty; urgency=low
+
+  * Build from git f20e87ee4ca0dc048ee5cdf39471bf5ba02f2e5c
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 08 May 2014 12:20:49 +0800
+
+dde-control-center (0.0.3-20140508104754~f20e87ee4c) trusty; urgency=low
+
+  * Build from git f20e87ee4ca0dc048ee5cdf39471bf5ba02f2e5c
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 08 May 2014 10:47:55 +0800
+
+dde-control-center (0.0.3-20140508103537~e812ab01c1) trusty; urgency=low
+
+  * Build from git e812ab01c1f880a7017d6deaae90886400de3ca5
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 08 May 2014 10:35:38 +0800
+
+dde-control-center (0.0.3-20140508103351~44bd1f2eba) trusty; urgency=low
+
+  * Build from git 44bd1f2eba8c0daf68c3faa401e8e7443b428839
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 08 May 2014 10:33:52 +0800
+
+dde-control-center (0.0.3-20140507181159~863136ad03) trusty; urgency=low
+
+  * Build from git 863136ad03bd6588f79da63179f36580280edadf
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 07 May 2014 18:12:00 +0800
+
+dde-control-center (0.0.2+git20140507144444~3b97ceb6ea) trusty; urgency=low
+
+  * Build from git revision 3b97ceb6eaad7194ee7ebed6fadc3bc480adb651
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Wed, 07 May 2014 14:44:44 +0800
+
+dde-control-center (0.0.2+git20140507143310~06929bee91) trusty; urgency=low
+
+  * Build from git revision 06929bee9132b64eb8c536a8452151d0ad6ef5f5
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Wed, 07 May 2014 14:33:10 +0800
+
+dde-control-center (0.0.2+git20140507101605~cb422eec8b) trusty; urgency=low
+
+  * Build from git revision cb422eec8b7fc1bf018aa0cb7ec88e2de83d0edf
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Wed, 07 May 2014 10:16:05 +0800
+
+dde-control-center (0.0.2+git20140506231721~15dbaa8f20) trusty; urgency=low
+
+  * Build from git revision 15dbaa8f203f8b639d338dbe3180afc310bae190
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 06 May 2014 23:17:22 +0800
+
+dde-control-center (0.0.2+git20140506153112~ad3bbb9cf4) trusty; urgency=low
+
+  * Build from git revision ad3bbb9cf46bfc98b7afdc2a34a7f2b493ac02c8
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 06 May 2014 15:31:12 +0800
+
+dde-control-center (0.0.2+git20140506131112~05741f5611) trusty; urgency=low
+
+  * Build from git revision 05741f561135c429549bf6e12e74d34df62eedab
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 06 May 2014 13:11:12 +0800
+
+dde-control-center (0.0.2+git20140506104053~25aae83c7f) trusty; urgency=low
+
+  * Build from git revision 25aae83c7f8960b7d7c8b6495cc6bbc2e965d5cc
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 06 May 2014 10:40:53 +0800
+
+dde-control-center (0.0.2+git20140506104029~25aae83c7f) trusty; urgency=low
+
+  * Build from git revision 25aae83c7f8960b7d7c8b6495cc6bbc2e965d5cc
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 06 May 2014 10:40:29 +0800
+
+dde-control-center (0.0.2+git20140506103257~25aae83c7f) trusty; urgency=low
+
+  * Build from git revision 25aae83c7f8960b7d7c8b6495cc6bbc2e965d5cc
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 06 May 2014 10:32:57 +0800
+
+dde-control-center (0.0.2+git20140506102052~25aae83c7f) trusty; urgency=low
+
+  * Build from git revision 25aae83c7f8960b7d7c8b6495cc6bbc2e965d5cc
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 06 May 2014 10:20:52 +0800
+
+dde-control-center (0.0.2+git20140506095824~77695ea816) trusty; urgency=low
+
+  * Build from git revision 77695ea8166b91f9483461c14eab7d8ce66ba50b
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 06 May 2014 09:58:24 +0800
+
+dde-control-center (0.0.2+git20140505202455~9bb43a40d2) trusty; urgency=low
+
+  * Build from git revision 9bb43a40d291a1f56344b35b8511883a84ef27a4
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Mon, 05 May 2014 20:24:55 +0800
+
+dde-control-center (0.0.2+git20140505180005~c1be9cb1aa) trusty; urgency=low
+
+  * Build from git revision c1be9cb1aa71934be904925c017459207b07e4c1
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Mon, 05 May 2014 18:00:05 +0800
+
+dde-control-center (0.0.2+git20140505125625~7d912a4227) trusty; urgency=low
+
+  * Build from git revision 7d912a422781a884dc0fb927124349fef715541d
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Mon, 05 May 2014 12:56:25 +0800
+
+dde-control-center (0.0.2+git20140505084649~d841aaadf9) trusty; urgency=low
+
+  * Build from git revision d841aaadf964d8275445ebd41c6712588058589f
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Mon, 05 May 2014 08:46:49 +0800
+
+dde-control-center (0.0.2+git20140504155854~d523761299) trusty; urgency=low
+
+  * Build from git revision d523761299a2d2f8819333dbcab4ebaf637f604f
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Sun, 04 May 2014 15:58:54 +0800
+
+dde-control-center (0.0.2+git20140504101058~b1f0157908) trusty; urgency=low
+
+  * Build from git revision b1f01579083fbddd90c0bc3b485493060a42d4bc
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Sun, 04 May 2014 10:10:58 +0800
+
+dde-control-center (0.0.2+git20140503232943~bb04417885) trusty; urgency=low
+
+  * Build from git revision bb0441788568c1348bdf212747a1d2aae71a97d0
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Sat, 03 May 2014 23:29:43 +0800
+
+dde-control-center (0.0.2+git20140501160227~0b276fcf58) trusty; urgency=low
+
+  * Build from git revision 0b276fcf5808d313eb581548f41e0a0a3d51ea15
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 01 May 2014 16:02:27 +0800
+
+dde-control-center (0.0.2+git20140430163043~ac895ebf97) trusty; urgency=low
+
+  * Build from git revision ac895ebf977e0e535ac28190704cf3ededa045d0
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Wed, 30 Apr 2014 16:30:43 +0800
+
+dde-control-center (0.0.2+git20140430152512~b9b82bbaee) trusty; urgency=low
+
+  * Build from git revision b9b82bbaee1866b63893769730a2dadcf01e3f84
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Wed, 30 Apr 2014 15:25:12 +0800
+
+dde-control-center (0.0.2+git20140430150418~523a874d4e) trusty; urgency=low
+
+  * Build from git revision 523a874d4e72c8d605584f7be7e6e21bd5772815
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Wed, 30 Apr 2014 15:04:18 +0800
+
+dde-control-center (0.0.2+git20140430145905~523a874d4e) trusty; urgency=low
+
+  * Build from git revision 523a874d4e72c8d605584f7be7e6e21bd5772815
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Wed, 30 Apr 2014 14:59:05 +0800
+
+dde-control-center (0.0.2+git20140430140032~6549d1234e) trusty; urgency=low
+
+  * Build from git revision 6549d1234e5047c8f85deb4e6eb2793085b901d8
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Wed, 30 Apr 2014 14:00:33 +0800
+
+dde-control-center (0.0.2+git20140430094657~2b524a20a5) trusty; urgency=low
+
+  * Build from git revision 2b524a20a511501c4bf403a702ed192e6d76f508
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Wed, 30 Apr 2014 09:46:58 +0800
+
+dde-control-center (0.0.2+git20140430092819~3a988ffe13) trusty; urgency=low
+
+  * Build from git revision 3a988ffe13755dde264ee8d02ce7f61d33fe4cbd
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Wed, 30 Apr 2014 09:28:20 +0800
+
+dde-control-center (0.0.2+git20140429163459~e1e6af11f6) trusty; urgency=low
+
+  * Build from git revision e1e6af11f641ca295e0257412af5cf2b38d8fedf
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 29 Apr 2014 16:34:59 +0800
+
+dde-control-center (0.0.2+git20140429092119~6c84234bc9) trusty; urgency=low
+
+  * Build from git revision 6c84234bc9a8837e9527730b6b3ba54a0b05e824
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 29 Apr 2014 09:21:20 +0800
+
+dde-control-center (0.0.2+git20140428094425~7c6ec618f7) trusty; urgency=low
+
+  * Build from git revision 7c6ec618f71c93a4354798b2da549b6221f4951c
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Mon, 28 Apr 2014 09:44:25 +0800
+
+dde-control-center (0.0.2+git20140425173007~b50e3133e3) trusty; urgency=low
+
+  * Build from git revision b50e3133e3776aa01545e15eb0d54b9046a90417
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Fri, 25 Apr 2014 17:30:07 +0800
+
+dde-control-center (0.0.2+git20140425123222~0f48173e1b) trusty; urgency=low
+
+  * Build from git revision 0f48173e1b05d16d7fa02172ce3eed0f9d83fa46
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Fri, 25 Apr 2014 12:32:22 +0800
+
+dde-control-center (0.0.2+git20140425100905~66205e8bfd) trusty; urgency=low
+
+  * Build from git revision 66205e8bfd94c03d4ae257b13d9511b99785d315
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Fri, 25 Apr 2014 10:09:06 +0800
+
+dde-control-center (0.0.2+git20140424100240~db0c02b32e) trusty; urgency=low
+
+  * Build from git revision db0c02b32e19ed90bc7a9846aabd5d657c027acc
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 24 Apr 2014 10:02:40 +0800
+
+dde-control-center (0.0.2+git20140424090940~eed2359b4f) trusty; urgency=low
+
+  * Build from git revision eed2359b4f7fd47bc407d2f4f72cc308a896893a
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 24 Apr 2014 09:09:40 +0800
+
+dde-control-center (0.0.2+git20140424090714~eed2359b4f) trusty; urgency=low
+
+  * Build from git revision eed2359b4f7fd47bc407d2f4f72cc308a896893a
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 24 Apr 2014 09:07:15 +0800
+
+dde-control-center (0.0.2+git20140423112140~ccfc38f774) trusty; urgency=low
+
+  * Build from git revision ccfc38f774b4711fc52ec1625d5c36cf705facd4
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Wed, 23 Apr 2014 11:21:40 +0800
+
+dde-control-center (0.0.2+git20140422170337~67447eecc2) trusty; urgency=low
+
+  * Build from git revision 67447eecc27e0c2cd47b32c91da9ee91e5c6bd66
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 22 Apr 2014 17:03:37 +0800
+
+dde-control-center (0.0.2+git20140422155623~9bc7d1e0df) trusty; urgency=low
+
+  * Build from git revision 9bc7d1e0dfc2222f7be7af06fbddae46fb4b4cca
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 22 Apr 2014 15:56:24 +0800
+
+dde-control-center (0.0.2+git20140422110105~c6272a8b1a) trusty; urgency=low
+
+  * Build from git revision c6272a8b1a805185eb3660a76b1d801e4c05c937
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 22 Apr 2014 11:01:06 +0800
+
+dde-control-center (0.0.2+git20140421155652~15940fb7c9) trusty; urgency=low
+
+  * Build from git revision 15940fb7c9dcc3f10125b8de7c253f8f7b1c3187
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Mon, 21 Apr 2014 15:56:53 +0800
+
+dde-control-center (0.0.2+git20140421102506~3ac61e4c85) trusty; urgency=low
+
+  * Build from git revision 3ac61e4c85627412e5387d7ee8645f509433c90c
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Mon, 21 Apr 2014 10:25:06 +0800
+
+dde-control-center (0.0.2+git20140418135701~41388e5217) trusty; urgency=low
+
+  * Build from git revision 41388e5217f879c37e53e49ac82f60981d679763
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Fri, 18 Apr 2014 13:57:01 +0800
+
+dde-control-center (0.0.2+git20140417180507~095300be10) trusty; urgency=low
+
+  * Build from git revision 095300be105fc8fa754c13e2c1a35790be6188a1
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 17 Apr 2014 18:05:08 +0800
+
+dde-control-center (0.0.2+git20140417173643~7f86d17d91) trusty; urgency=low
+
+  * Build from git revision 7f86d17d91ec266d3ac8c40f275e5fe6750bfeac
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 17 Apr 2014 17:36:44 +0800
+
+dde-control-center (0.0.2+git20140416222041~3841ae336e) trusty; urgency=low
+
+  * Build from git revision 3841ae336e2b242a933a4207ea858930e0406b55
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Wed, 16 Apr 2014 22:20:41 +0800
+
+dde-control-center (0.0.2+git20140416103851~5bb43471e8) trusty; urgency=low
+
+  * Build from git revision 5bb43471e8b1d07a792b7a31d60f1b4dfbd36c07
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Wed, 16 Apr 2014 10:38:52 +0800
+
+dde-control-center (0.0.2+git20140415105632~cfd4754f7c) trusty; urgency=low
+
+  * Build from git revision cfd4754f7c8a7dff4b74cad6b8f082c0f4b240a4
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 15 Apr 2014 10:56:33 +0800
+
+dde-control-center (0.0.2+git20140414184153~f22b456e7d) trusty; urgency=low
+
+  * Build from git revision f22b456e7ded17ad67a586eeb684eef4a7ab0105
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Mon, 14 Apr 2014 18:41:54 +0800
+
+dde-control-center (0.0.2+git20140414140530~95358d7ef1) trusty; urgency=low
+
+  * Build from git revision 95358d7ef134f2fc3eb15204a66da8cbeffba664
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Mon, 14 Apr 2014 14:05:31 +0800
+
+dde-control-center (0.0.2+git20140414111918~0c55178914) trusty; urgency=low
+
+  * Build from git revision 0c5517891407433b2cda9043b01ff61e3eeb6462
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Mon, 14 Apr 2014 11:19:18 +0800
+
+dde-control-center (0.0.2+git20140414095121~baec73971b) trusty; urgency=low
+
+  * Build from git revision baec73971b70a06a99d6675a5235a4c63629a269
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Mon, 14 Apr 2014 09:51:22 +0800
+
+dde-control-center (0.0.2+git20140411170747~113ae3223a) trusty; urgency=low
+
+  * Build from git revision 113ae3223ab676b03fdff501a593728b6c107922
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Fri, 11 Apr 2014 17:07:47 +0800
+
+dde-control-center (0.0.2+git20140411150810~eee8892eed) trusty; urgency=low
+
+  * Build from git revision eee8892eedd4990b9712518328e84d3899bc3683
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Fri, 11 Apr 2014 15:08:11 +0800
+
+dde-control-center (0.0.2+git20140411130711~945522a61d) trusty; urgency=low
+
+  * Build from git revision 945522a61dab934854060c9e017b8d9ea10f68e7
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Fri, 11 Apr 2014 13:07:12 +0800
+
+dde-control-center (0.0.2+git20140411125700~945522a61d) trusty; urgency=low
+
+  * Build from git revision 945522a61dab934854060c9e017b8d9ea10f68e7
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Fri, 11 Apr 2014 12:57:01 +0800
+
+dde-control-center (0.0.2+git20140411122355~90a4b80d3e) trusty; urgency=low
+
+  * Build from git revision 90a4b80d3eba5b9ca56d8ee2e619e3b466c5b014
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Fri, 11 Apr 2014 12:23:55 +0800
+
+dde-control-center (0.0.2+git20140411122150~764fb4f958) trusty; urgency=low
+
+  * Build from git revision 764fb4f95838784b3e7fd6e99e0d25ba6300daa2
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Fri, 11 Apr 2014 12:21:51 +0800
+
