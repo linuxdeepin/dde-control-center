@@ -10,11 +10,11 @@ GridView {
     cellWidth: 96
     cellHeight: 93
 
-    property bool itemCanbeDeleted: false
     property bool withAddButton: false
     property int maxHeight: 10
     
     signal initialize
+    signal deleteButtonClicked (string path)
     signal avatarSet (url path)
     signal checkPrivate (int idx)
     
@@ -105,9 +105,7 @@ GridView {
                     }
                 }
 
-                onEntered: { delete_icon_button.visible = (avatar_icon_view.itemCanbeDeleted
-                                                           && avatarPath != this_user.iconFile
-                                                           && true)}
+                onEntered: { delete_icon_button.visible = this_user.IsIconDeletable(avatarPath) }
                 onExited: { delete_icon_button.visible = false}
 
                 anchors.centerIn: parent
@@ -126,7 +124,7 @@ GridView {
                 MouseArea {
                     anchors.fill: parent
 
-                    onClicked: this_user.DeleteHistoryIcon(avatarPath)
+                    onClicked: avatar_icon_view.deleteButtonClicked(avatarPath)
                 }
             }
         }
@@ -137,9 +135,5 @@ GridView {
 
     Component.onCompleted: {
         avatar_icon_view.initialize()
-
-        if (withAddButton) {
-            avatar_icon_view_model.append({"avatarPath": "images/avatar_add.png"})
-        }
     }
 }

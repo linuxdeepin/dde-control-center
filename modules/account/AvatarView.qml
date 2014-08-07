@@ -131,7 +131,6 @@ Item {
     AvatarIconView {
         id: avatar_recently_used_view
         currentIndex: -1
-        itemCanbeDeleted: true
         maxHeight: root_view.maxHeight - root_view.verticalPadding * 3 - radio_button.height
 
         function setContent() {
@@ -155,6 +154,8 @@ Item {
         onAvatarSet: {
             root_view.avatarSet(path)
         }
+        
+        onDeleteButtonClicked: root_view.this_user.DeleteHistoryIcon(path)
 
         Connections {
             target: root_view.this_user
@@ -182,6 +183,7 @@ Item {
                     avatar_recently_used_view.currentIndex = i
                 }
             }
+            avatar_default_view.model.append({"avatarPath": "images/avatar_add.png"})
         }
 
         onInitialize: setContent()
@@ -189,6 +191,8 @@ Item {
         onAvatarSet: {
             root_view.avatarSet(path)
         }        
+        
+        onDeleteButtonClicked: root_view.this_user.DeleteIconFile(path)        
         
         Connections {
             target: root_view.this_user
