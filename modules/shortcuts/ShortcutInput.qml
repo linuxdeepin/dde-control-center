@@ -149,9 +149,10 @@ Item {
             onKeyReleaseEvent: {
                 if (currentShortcutId == shortcutId){
                     grabFlag = false
-                    if(arg0 == 'escape' || arg0 == ""){
+                    var arg0_lower_case = arg0.toLowerCase()
+                    if(arg0_lower_case == 'escape' || arg0 == ""){
                     }
-                    else if( arg0=="backspace" ){
+                    else if( arg0_lower_case =="backspace" ){
                         dbusKeyBinding.ModifyShortcut(currentShortcutId, "")
                     }
                     else {
@@ -177,7 +178,8 @@ Item {
             }
             onKeyPressEvent: {
                 if (currentShortcutId == shortcutId && grabFlag){
-                    if(arg0 == 'escape' || arg0 == "" || arg0 == "backspace"){
+                    var arg0_lower_case = arg0.toLowerCase()
+                    if(arg0_lower_case == 'escape' || arg0_lower_case == "" || arg0 == "backspace"){
                     }
                     else {
                         if(!tipInfoText.keyPressed){
