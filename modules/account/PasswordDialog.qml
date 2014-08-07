@@ -1,5 +1,6 @@
 import QtQuick 2.1
 import Deepin.Widgets 1.0
+import "../shared"
 
 Item {
     id: root
@@ -13,6 +14,9 @@ Item {
         new_password_input.text = ""
         repeat_input.text = ""
         state = "brief"
+        
+        new_password_input.warningState = false
+        repeat_input.warningState = false
     }
 
     states: [
@@ -89,19 +93,17 @@ Item {
         property int echoMode: TextInput.Password
 
         function validate() {
-            var result = true
-
             if (new_password_input.text == "" || !dbus_accounts.IsPasswordValid(new_password_input.text)) {
-                result = false
-                new_password_input.state = "warning"
+                new_password_input.showWarning(dsTr("Wrong password"))
+                return false
             }
 
             if (repeat_input.text != new_password_input.text) {
-                result = false
-                repeat_input.state = "warning"
+                repeat_input.showWarning(dsTr("Different password"))
+                return false
             }
 
-            return result
+            return true
         }
 
         Rectangle {
@@ -122,17 +124,28 @@ Item {
                 id: new_password_input
                 focus: true
                 echoMode: detail_view.echoMode
+                
+                property bool warningState: false
 
                 KeyNavigation.tab: repeat_input
 
                 anchors.right: parent.right
                 anchors.rightMargin: 15
                 anchors.verticalCenter: parent.verticalCenter
+                
                 onTextChanged: {
-                    if(state=="warning"){
-                        state = "normal"
-                    }
+                    warningState = false
                 }
+                
+                function showWarning(msg) {
+                    var input_coord = new_password_input.mapToItem(root, 0, 0)
+                    
+                    warning_arrow_rect.x = input_coord.x
+                    warning_arrow_rect.y = input_coord.y + new_password_input.height
+                    warning_arrow_rect_text.text = msg
+                    
+                    warningState = true
+                }                
             }
         }
 
@@ -160,15 +173,26 @@ Item {
             DTextInput {
                 id: repeat_input
                 echoMode: detail_view.echoMode
+                
+                property bool warningState: false
 
                 anchors.right: parent.right
                 anchors.rightMargin: 15
                 anchors.verticalCenter: parent.verticalCenter
+
                 onTextChanged: {
-                    if(state=="warning"){
-                        state = "normal"
-                    }
+                    warningState = false
                 }
+                
+                function showWarning(msg) {
+                    var input_coord = repeat_input.mapToItem(root, 0, 0)
+                    
+                    warning_arrow_rect.x = input_coord.x
+                    warning_arrow_rect.y = input_coord.y + repeat_input.height
+                    warning_arrow_rect_text.text = msg
+                    
+                    warningState = true
+                }                
             }
         }
 
@@ -214,4 +238,22 @@ Item {
 
         anchors.right: parent.right
     }
+    
+    ArrowRect {
+        id: warning_arrow_rect
+        visible: new_password_input.warningState || repeat_input.warningState
+        width: new_password_input.width
+        height: 30
+        
+        fillStyle: Qt.rgba(0, 0, 0, 0.7)
+        arrowPosition: 0.25
+
+        Text {
+            id: warning_arrow_rect_text
+            color: "white"
+            
+            x: 5
+            y: warning_arrow_rect.arrowHeight + 3
+        }
+    }    
 }

@@ -1,5 +1,6 @@
 import QtQuick 2.1
 import Deepin.Widgets 1.0
+import "../shared"
 
 Rectangle {
     id: root
@@ -11,14 +12,14 @@ Rectangle {
     property int leftPadding: 15
     property int rightPadding: 15
     property int avatarNamePadding: 30
-    
+
     signal confirmed (var userInfo)
     signal cancelled
-    
+
     function warnUserName() {
         user_name_input.state = "warning"
     }
-    
+
     function reset() {
         round_image.imageSource = "file://" + dbus_accounts.RandUserIcon()[0]
         user_name_input.focus = true
@@ -27,36 +28,39 @@ Rectangle {
         repeat_password_input.text = ""
         auto_login_switch.checked = false
         user_group_radio.selectItem(0)
+        
+        user_name_input.warningState = false
+        password_input.warningState = false
+        repeat_password_input.warningState = false
     }
-    
+
     Column {
         id: column
         width: 310
 
         function validate() {
-            var result = true
-            
-            if(!dbus_accounts.IsUsernameValid(user_name_input.text)) {
-                result = false
-                user_name_input.state = "warning"
+            var user_name_check_result = dbus_accounts.IsUsernameValid(user_name_input.text)
+            if(!user_name_check_result[0]) {
+                user_name_input.showWarning(user_name_check_result[1])
+                return false
             }
-            
+
             if (password_input.text == "" || !dbus_accounts.IsPasswordValid(password_input.text)) {
-                result = false
-                password_input.state = "warning"
+                password_input.showWarning(dsTr("Wrong password"))
+                return false                
             }
-            
+
             if (repeat_password_input.text == "") {
-                result = false
-                repeat_password_input.state = "warning"
-            }            
-            
+                repeat_password_input.showWarning(dsTr("Nothing input"))
+                return false                
+            }
+
             if (password_input.text != repeat_password_input.text) {
-                result = false
-                repeat_password_input.state = "warning"
+                repeat_password_input.showWarning(dsTr("Different password"))
+                return false                
             }
             
-            return result
+            return true
         }
 
         DBaseLine {
@@ -121,15 +125,25 @@ Rectangle {
             DTextInput {
                 id: user_name_input
                 
+                property bool warningState: false
+
                 KeyNavigation.tab: password_input
 
                 anchors.right: parent.right
                 anchors.rightMargin: 15
                 anchors.verticalCenter: parent.verticalCenter
                 onTextChanged: {
-                    if(state=="warning"){
-                        state = "normal"
-                    }
+                    warningState = false
+                }
+                
+                function showWarning(msg) {
+                    var input_coord = user_name_input.mapToItem(root, 0, 0)
+                    
+                    warning_arrow_rect.x = input_coord.x 
+                    warning_arrow_rect.y = input_coord.y + user_name_input.height
+                    warning_arrow_rect_text.text = msg
+                    
+                    warningState = true
                 }
             }
         }
@@ -154,16 +168,26 @@ Rectangle {
                 id: password_input
                 echoMode: TextInput.Password
                 
+                property bool warningState: false
+
                 KeyNavigation.tab: repeat_password_input
 
                 anchors.right: parent.right
                 anchors.rightMargin: 15
                 anchors.verticalCenter: parent.verticalCenter
                 onTextChanged: {
-                    if(state=="warning"){
-                        state = "normal"
-                    }
+                    warningState = false
                 }
+                
+                function showWarning(msg) {
+                    var input_coord = password_input.mapToItem(root, 0, 0)
+                    
+                    warning_arrow_rect.x = input_coord.x 
+                    warning_arrow_rect.y = input_coord.y + password_input.height
+                    warning_arrow_rect_text.text = msg
+                    
+                    warningState = true
+                }                
             }
         }
 
@@ -186,15 +210,25 @@ Rectangle {
             DTextInput {
                 id: repeat_password_input
                 echoMode: TextInput.Password
+                
+                property bool warningState: false
 
                 anchors.right: parent.right
                 anchors.rightMargin: 15
                 anchors.verticalCenter: parent.verticalCenter
                 onTextChanged: {
-                    if(state=="warning"){
-                        state = "normal"
-                    }
+                    warningState = false
                 }
+                
+                function showWarning(msg) {
+                    var input_coord = repeat_password_input.mapToItem(root, 0, 0)
+                    
+                    warning_arrow_rect.x = input_coord.x 
+                    warning_arrow_rect.y = input_coord.y + repeat_password_input.height
+                    warning_arrow_rect_text.text = msg
+                    
+                    warningState = true
+                }                
             }
         }
 
@@ -221,9 +255,9 @@ Rectangle {
                     {"buttonId": "user", "buttonLabel": dsTr("Standard")},
                     {"buttonId": "administrator", "buttonLabel": dsTr("Administrator")},
                 ]
-                
+
                 initializeIndex: 0
-                
+
                 anchors.right: parent.right
                 anchors.rightMargin: 15
                 anchors.verticalCenter: parent.verticalCenter
@@ -248,7 +282,7 @@ Rectangle {
 
             DSwitchButton {
                 id: auto_login_switch
-                
+
                 anchors.right: parent.right
                 anchors.rightMargin: 15
                 anchors.verticalCenter: parent.verticalCenter
@@ -273,7 +307,7 @@ Rectangle {
 
         /*     DSwitchButton { */
         /*         id: face_recognition_switch */
-                
+
         /*         anchors.right: parent.right */
         /*         anchors.rightMargin: 15 */
         /*         anchors.verticalCenter: parent.verticalCenter */
@@ -316,12 +350,30 @@ Rectangle {
                                         userAccountType: user_group_radio.currentIndex,
                                         userAutoLogin: auto_login_switch.checked,
                                         userIconFile: round_image.imageSource.toString().substring(7),
-                                        /* userFaceRecognition: face_recognition_switch.checked */ })
+                                       /* userFaceRecognition: face_recognition_switch.checked */ })
                     }
                 }
             }
         }
-        
+
         DSeparatorHorizontal {}
+    }
+
+    ArrowRect {
+        id: warning_arrow_rect
+        visible: user_name_input.warningState || password_input.warningState || repeat_password_input.warningState
+        width: user_name_input.width
+        height: 30
+        
+        fillStyle: Qt.rgba(0, 0, 0, 0.7)
+        arrowPosition: 0.25
+
+        Text {
+            id: warning_arrow_rect_text
+            color: "white"
+            
+            x: 5
+            y: warning_arrow_rect.arrowHeight + 3
+        }
     }
 }
