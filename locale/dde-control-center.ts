@@ -86,59 +86,74 @@
 <context>
     <name>AddUserDialog</name>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="64"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="49"/>
+        <source>Wrong password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/account/AddUserDialog.qml" line="54"/>
+        <source>Nothing input</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/account/AddUserDialog.qml" line="59"/>
+        <source>Different password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/account/AddUserDialog.qml" line="68"/>
         <source>Add User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="92"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="96"/>
         <source>New User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="96"/>
-        <location filename="../modules/account/AddUserDialog.qml" line="221"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="100"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="255"/>
         <source>Standard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="96"/>
-        <location filename="../modules/account/AddUserDialog.qml" line="222"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="100"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="256"/>
         <source>Administrator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="113"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="117"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="145"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="159"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="178"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="202"/>
         <source>Repeat Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="209"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="243"/>
         <source>Account Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="241"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="275"/>
         <source>Auto-login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="292"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="326"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="305"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="339"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1961,27 +1976,37 @@
 <context>
     <name>PasswordDialog</name>
     <message>
-        <location filename="../modules/account/PasswordDialog.qml" line="59"/>
+        <location filename="../modules/account/PasswordDialog.qml" line="63"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/PasswordDialog.qml" line="113"/>
+        <location filename="../modules/account/PasswordDialog.qml" line="97"/>
+        <source>Wrong password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/account/PasswordDialog.qml" line="102"/>
+        <source>Different password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/account/PasswordDialog.qml" line="115"/>
         <source>New Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/PasswordDialog.qml" line="147"/>
+        <location filename="../modules/account/PasswordDialog.qml" line="160"/>
         <source>Repeat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/PasswordDialog.qml" line="184"/>
+        <location filename="../modules/account/PasswordDialog.qml" line="208"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/PasswordDialog.qml" line="198"/>
+        <location filename="../modules/account/PasswordDialog.qml" line="222"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-01 16:08+0800\n"
+"POT-Creation-Date: 2014-08-07 10:27+0800\n"
 "PO-Revision-Date: 2014-07-02 22:41+0000\n"
 "Last-Translator: jose manuel <josemdance@outlook.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/dde-control-"
@@ -35,7 +35,7 @@ msgstr "Nombre"
 #: ../modules/network/add/AddDsl.qml:36
 #: ../modules/network/add/AddMobile.qml:75
 #: ../modules/network/add/AddMobile.qml:105
-#: ../modules/account/AddUserDialog.qml:113
+#: ../modules/account/AddUserDialog.qml:117
 #: ../modules/network/add/AddVpn.qml:124 ../modules/network/add/AddVpn.qml:254
 #: ../modules/network/add/AddVpn.qml:394 ../modules/network/add/AddVpn.qml:434
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:53
@@ -57,7 +57,7 @@ msgstr "Servicio"
 #: ../modules/network/add/AddDsl.qml:56
 #: ../modules/network/add/AddMobile.qml:85
 #: ../modules/network/add/AddMobile.qml:115
-#: ../modules/account/AddUserDialog.qml:145
+#: ../modules/account/AddUserDialog.qml:159
 #: ../modules/network/add/AddVpn.qml:144 ../modules/network/add/AddVpn.qml:274
 #: ../modules/network/add/AddVpn.qml:414
 #: ../modules/network/wireless/AddWireless.qml:64
@@ -71,7 +71,7 @@ msgstr "Servicio"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:204
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:344
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:75
-#: ../modules/account/PasswordDialog.qml:59
+#: ../modules/account/PasswordDialog.qml:63
 #: ../modules/network/wireless/WifiHotspot.qml:69
 msgid "Password"
 msgstr "Contraseña:"
@@ -98,14 +98,14 @@ msgid "Number"
 msgstr "Número"
 
 #: ../modules/network/add/AddSectionSave.qml:11
-#: ../modules/account/AddUserDialog.qml:292
+#: ../modules/account/AddUserDialog.qml:326
 #: ../modules/network/wireless/AddWireless.qml:216
 #: ../modules/network/ConnectionAdd.qml:69
 #: ../modules/network/ConnectionEdit.qml:146
 #: ../modules/shortcuts/CustomKeybinding.qml:151
 #: ../modules/account/DeleteUserDialog.qml:33
 #: ../modules/network/widgets/PasswordBox.qml:101
-#: ../modules/account/PasswordDialog.qml:184
+#: ../modules/account/PasswordDialog.qml:208
 #: ../modules/shortcuts/ShortcutInput.qml:341
 #: ../modules/date_time/TimeBox.qml:212
 #: ../modules/network/wireless/WifiHotspot.qml:82
@@ -120,45 +120,62 @@ msgstr "cancelar"
 msgid "Add"
 msgstr "Añadir"
 
-#: ../modules/account/AddUserDialog.qml:64
+#: ../modules/account/AddUserDialog.qml:49
+#: ../modules/account/PasswordDialog.qml:97
+#, fuzzy
+msgid "Wrong password"
+msgstr "Contraseña:"
+
+#: ../modules/account/AddUserDialog.qml:54
+#, fuzzy
+msgid "Nothing input"
+msgstr "Nada"
+
+#: ../modules/account/AddUserDialog.qml:59
+#: ../modules/account/PasswordDialog.qml:102
+#, fuzzy
+msgid "Different password"
+msgstr "Repetir Contraseña"
+
+#: ../modules/account/AddUserDialog.qml:68
 msgid "Add User"
 msgstr "Añadir Usuario"
 
-#: ../modules/account/AddUserDialog.qml:92
+#: ../modules/account/AddUserDialog.qml:96
 msgid "New User"
 msgstr "Nuevo Usuario"
 
-#: ../modules/account/AddUserDialog.qml:96
-#: ../modules/account/AddUserDialog.qml:221
+#: ../modules/account/AddUserDialog.qml:100
+#: ../modules/account/AddUserDialog.qml:255
 #: ../modules/account/EditUserDialog.qml:135
 #: ../modules/account/UserList.qml:188
 msgid "Standard"
 msgstr "Estandard"
 
-#: ../modules/account/AddUserDialog.qml:96
-#: ../modules/account/AddUserDialog.qml:222
+#: ../modules/account/AddUserDialog.qml:100
+#: ../modules/account/AddUserDialog.qml:256
 #: ../modules/account/EditUserDialog.qml:136
 #: ../modules/account/UserList.qml:188
 msgid "Administrator"
 msgstr "Administrador"
 
-#: ../modules/account/AddUserDialog.qml:178
+#: ../modules/account/AddUserDialog.qml:202
 msgid "Repeat Password"
 msgstr "Repetir Contraseña"
 
-#: ../modules/account/AddUserDialog.qml:209
+#: ../modules/account/AddUserDialog.qml:243
 #: ../modules/account/EditUserDialog.qml:123
 msgid "Account Type"
 msgstr "Tipo de Cuenta"
 
-#: ../modules/account/AddUserDialog.qml:241
+#: ../modules/account/AddUserDialog.qml:275
 #: ../modules/account/EditUserDialog.qml:56
 msgid "Auto-login"
 msgstr "Inicio Automático"
 
-#: ../modules/account/AddUserDialog.qml:305
+#: ../modules/account/AddUserDialog.qml:339
 #: ../modules/account/DeleteUserDialog.qml:46
-#: ../modules/account/PasswordDialog.qml:198 ../modules/account/WebCam.qml:148
+#: ../modules/account/PasswordDialog.qml:222 ../modules/account/WebCam.qml:148
 msgid "Confirm"
 msgstr "Confirmar"
 
@@ -1117,11 +1134,11 @@ msgstr ""
 msgid "Password: "
 msgstr "Contraseña:"
 
-#: ../modules/account/PasswordDialog.qml:113
+#: ../modules/account/PasswordDialog.qml:115
 msgid "New Password"
 msgstr ""
 
-#: ../modules/account/PasswordDialog.qml:147
+#: ../modules/account/PasswordDialog.qml:160
 msgid "Repeat"
 msgstr "Repetir"
 
