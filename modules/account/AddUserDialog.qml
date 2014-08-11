@@ -1,6 +1,5 @@
 import QtQuick 2.1
 import Deepin.Widgets 1.0
-import "../shared"
 
 Rectangle {
     id: root
@@ -139,9 +138,9 @@ Rectangle {
                 function showWarning(msg) {
                     var input_coord = user_name_input.mapToItem(root, 0, 0)
                     
-                    warning_arrow_rect.x = input_coord.x 
-                    warning_arrow_rect.y = input_coord.y + user_name_input.height
-                    warning_arrow_rect_text.text = msg
+                    warning_arrow_rect.x = input_coord.x - warning_arrow_rect.shadowWidth
+                    warning_arrow_rect.y = input_coord.y + user_name_input.height - 4
+                    warning_arrow_rect.warningText = msg
                     
                     warningState = true
                 }
@@ -182,9 +181,9 @@ Rectangle {
                 function showWarning(msg) {
                     var input_coord = password_input.mapToItem(root, 0, 0)
                     
-                    warning_arrow_rect.x = input_coord.x 
-                    warning_arrow_rect.y = input_coord.y + password_input.height
-                    warning_arrow_rect_text.text = msg
+                    warning_arrow_rect.x = input_coord.x - warning_arrow_rect.shadowWidth
+                    warning_arrow_rect.y = input_coord.y + password_input.height - 4
+                    warning_arrow_rect.warningText = msg
                     
                     warningState = true
                 }                
@@ -223,9 +222,9 @@ Rectangle {
                 function showWarning(msg) {
                     var input_coord = repeat_password_input.mapToItem(root, 0, 0)
                     
-                    warning_arrow_rect.x = input_coord.x 
-                    warning_arrow_rect.y = input_coord.y + repeat_password_input.height
-                    warning_arrow_rect_text.text = msg
+                    warning_arrow_rect.x = input_coord.x - warning_arrow_rect.shadowWidth
+                    warning_arrow_rect.y = input_coord.y + repeat_password_input.height - 4
+                    warning_arrow_rect.warningText = msg
                     
                     warningState = true
                 }                
@@ -359,21 +358,9 @@ Rectangle {
         DSeparatorHorizontal {}
     }
 
-    ArrowRect {
+    WarningArrowRect {
         id: warning_arrow_rect
         visible: user_name_input.warningState || password_input.warningState || repeat_password_input.warningState
-        width: user_name_input.width
-        height: 30
-        
-        fillStyle: Qt.rgba(0, 0, 0, 0.7)
-        arrowPosition: 0.25
-
-        Text {
-            id: warning_arrow_rect_text
-            color: "white"
-            
-            x: 5
-            y: warning_arrow_rect.arrowHeight + 3
-        }
+        width: user_name_input.width + shadowWidth * 2
     }
 }

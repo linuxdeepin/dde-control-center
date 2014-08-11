@@ -60,6 +60,7 @@
     <file>modules/account/ExpandButton.qml</file>
     <file>modules/account/DeleteUserButton.qml</file>
     <file>modules/account/main.qml</file>
+    <file>modules/account/WarningArrowRect.qml</file>
     <file>modules/account/AvatarIconView.qml</file>
     <file>modules/account/AvatarPickDialog.qml</file>
     <file>modules/account/AvatarView.qml</file>
