@@ -74,7 +74,7 @@ DWindow {
         }
     }
 
-    DialogBox {
+    DDialogBox {
         id: window
         anchors.fill: parent
         radius: 5
