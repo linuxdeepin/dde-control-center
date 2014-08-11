@@ -83,6 +83,7 @@ Canvas {
         // draw top left corner
         ctx.arcTo(rectx,recty,rectx+radius,recty,radius);
         ctx.closePath();
+        ctx.clip()
         if (canvas.fill)
             ctx.fill();
         if (canvas.stroke)
