@@ -39,6 +39,8 @@ DWindow {
     width: 300
     height: 120
 
+    shadowWidth: 15
+
     function showDialog(){
         rootWindow.clickedToHide = false
         countdown.restart()
