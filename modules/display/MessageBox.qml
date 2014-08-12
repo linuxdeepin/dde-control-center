@@ -36,8 +36,8 @@ DWindow {
     x: screenSize.x + (screenSize.width - width)/2
     y: screenSize.y + (screenSize.height - height)/2
 
-    width: 300
-    height: 120
+    width: 330
+    height: 150
 
     shadowWidth: 15
 

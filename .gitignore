@@ -17,4 +17,4 @@ qt5frame/moc_*
 qt5frame/qrc_*
 qt5frame/Makefile
 qt5frame/dde-control-center
-
+.gitreview
