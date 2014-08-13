@@ -36,7 +36,7 @@ DWindow {
     x: screenSize.x + (screenSize.width - width)/2
     y: screenSize.y + (screenSize.height - height)/2
 
-    width: 330
+    width: messageColumn.width + 30
     height: 150
 
     shadowWidth: 15
@@ -86,25 +86,29 @@ DWindow {
             window: messageBox
         }
 
-        DssH1{
-            id: messageLabel
+        Column {
+            id: messageColumn
             anchors.top: parent.top
             anchors.topMargin: 20
-            anchors.left: parent.left
-            anchors.leftMargin: 20
-            color: "white"
-            text: dsTr("Do you want to keep these display settings?")
-            font.pixelSize: 14
-        }
+            width: Math.max(300, messageLabel.contentWidth, messageWarning.contentWidth) + 40
 
-        DssH3{
-            anchors.top: messageLabel.bottom
-            anchors.topMargin: 6
-            anchors.left: messageLabel.left
+            DssH1{
+                id: messageLabel
+                anchors.left: parent.left
+                anchors.leftMargin: 20
+                color: "white"
+                text: dsTr("Do you want to keep these display settings?")
+                font.pixelSize: 14
+            }
 
-            color: dconstants.fgColor
-            text: dsTr("Reverting to previous display settings in <font color='#F48914'>%1</font> seconds.").arg(countdown.totalTime)
-            font.pixelSize: 12
+            DssH3{
+                id: messageWarning
+                anchors.left: parent.left
+                anchors.leftMargin: 20
+                color: dconstants.fgColor
+                text: dsTr("Reverting to previous display settings in <font color='#F48914'>%1</font> seconds.").arg(countdown.totalTime)
+                font.pixelSize: 12
+            }
         }
 
         Row {
