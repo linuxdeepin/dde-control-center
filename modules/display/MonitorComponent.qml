@@ -96,7 +96,7 @@ Rectangle{
         text: displayName
         font.bold: true
         font.pixelSize: parent.width/12
-        visible: !monitorObject.isComposited && !inEditMode
+        visible: !(monitorObject.isComposited && inEditMode)
     }
 
     Item {
@@ -157,12 +157,14 @@ Rectangle{
             if(inEditMode){
                 parent.pressed = true
                 pressedAction(monitorIndex)
+                rootWindow.setPanelHidable(false)
             }
         }
         onReleased: {
             if(inEditMode){
                 parent.pressed = false
                 releasedAction(monitorIndex)
+                rootWindow.setPanelHidable(true)
             }
         }
         onPositionChanged: {
