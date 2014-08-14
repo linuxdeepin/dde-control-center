@@ -38,8 +38,8 @@ Column {
     property int sideWidth: 10
 
     property var dbusSessionManager: SessionManager {}
-    property var accountId: Accounts {}
-    property string userObjectPath: accountId.FindUserById(dbusSessionManager.currentUid)
+    property var dbusAccount: Accounts {}
+    property string userObjectPath: dbusAccount.FindUserById(dbusSessionManager.currentUid)
     property var currentUserObj: User { path: userObjectPath }
 
     function setAvatar(){
@@ -104,7 +104,7 @@ Column {
                 setUserName()
             }
             else{
-                avatarImage.imageSource = "/var/lib/AccountsService/icons/guest_96.png"
+                avatarImage.imageSource = "file://" + dbusAccount.guestIcon
                 userName.text = dsTr("Guest")
             }
         }
