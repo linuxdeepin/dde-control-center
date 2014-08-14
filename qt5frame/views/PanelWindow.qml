@@ -96,6 +96,25 @@ DOverrideWindow {
         timeoutQuit.restart()
     }
 
+    function setPanelHidable(canHide){
+        if(canHide){
+            timerPanelCanHide.restart()
+        }
+        else{
+            clickedToHide = false
+        }
+    }
+
+    Timer {
+        id: timerPanelCanHide
+        running: false
+        repeat: false
+        interval: 800
+        onTriggered: {
+            clickedToHide = true
+        }
+    }
+
     Timer {
         id: timeoutQuit
         running: false

@@ -33,7 +33,7 @@ DWindow {
     color: "transparent"
     flags: Qt.Tool | Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint
 
-    x: screenSize.x + (screenSize.width - width)/2
+    x: Math.min(screenSize.x + (screenSize.width - width)/2, rootWindow.x - width)
     y: screenSize.y + (screenSize.height - height)/2
 
     width: messageColumn.width + 30
@@ -42,7 +42,7 @@ DWindow {
     shadowWidth: 15
 
     function showDialog(){
-        rootWindow.clickedToHide = false
+        setPanelHidable(false)
         countdown.restart()
         messageBox.show()
     }
@@ -50,7 +50,7 @@ DWindow {
     function hideDialog(){
         messageBox.hide()
         countdown.reset()
-        rootWindow.clickedToHide = true
+        setPanelHidable(true)
     }
 
     Timer {

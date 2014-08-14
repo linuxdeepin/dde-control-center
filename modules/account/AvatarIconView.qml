@@ -40,6 +40,9 @@ GridView {
         onSelectAction: {
             avatarSet(fileUrl)
         }
+        onIsVisibleChanged: {
+            rootWindow.setPanelHidable(!isVisible)
+        }
     }
 
     MouseArea {

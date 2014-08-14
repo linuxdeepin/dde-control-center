@@ -34,6 +34,9 @@ BaseEditLine{
         onSelectAction: {
             root.rightLoader.item.text = fileUrl
         }
+        onIsVisibleChanged: {
+            rootWindow.setPanelHidable(!isVisible)
+        }
     }
 }
 
