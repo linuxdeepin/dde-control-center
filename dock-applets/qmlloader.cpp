@@ -22,6 +22,7 @@
 ****************************************************************************/
 
 
+#include <QtGui/QGuiApplication>
 #include <QQmlEngine>
 #include <QQmlComponent>
 #include <QDBusConnection>
@@ -47,6 +48,11 @@ QmlLoader::~QmlLoader()
     delete this->rootContext;
     delete this->component;
     delete this->engine;
+}
+
+void QmlLoader::restartDockApplet() {
+    QProcess::startDetached(QCoreApplication::applicationFilePath());
+    QCoreApplication::exit(0);
 }
 
 

@@ -51,6 +51,10 @@ public:
     Q_INVOKABLE QString getAppletVisibleFromConfig();
     Q_INVOKABLE void setAppletVisibleToConfig(QString info);
 
+    //Bugfix: qt5 double screen switch case screen distory
+    //if you do not patch Qt, only restart DockApplet is OK
+    Q_INVOKABLE void restartDockApplet();
+
 public slots:
     void appletInfosChangedSlot();
 
