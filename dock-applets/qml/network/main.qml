@@ -274,6 +274,17 @@ DockApplet{
         showNetwork(0)
     }
 
+
+    onNativeWindowDestroyed: {
+        toggle_applet("network")
+        toggle_applet("network")
+    }
+
+    onQt5ScreenDestroyed: {
+        console.log("Recive onQt5ScreenDestroyed")
+        mainObject.restartDockApplet()
+    }
+
     menu: Menu {
         Component.onCompleted: {
             addItem(dsTr("_Run"), showNetwork);

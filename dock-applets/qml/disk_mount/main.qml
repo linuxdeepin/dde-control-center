@@ -39,6 +39,16 @@ DockApplet{
         //showDiskMount(0)
     }
 
+    onNativeWindowDestroyed: {
+        toggle_applet("disk_mount")
+        toggle_applet("disk_mount")
+    }
+
+    onQt5ScreenDestroyed: {
+        console.log("Recive onQt5ScreenDestroyed")
+        mainObject.restartDockApplet()
+    }
+
     function showDiskMount(id){
         dbusControlCenter.ShowModule("default_applications")
     }

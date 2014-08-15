@@ -106,6 +106,16 @@ DockApplet{
         showSound(0)
     }
 
+    onNativeWindowDestroyed: {
+        toggle_applet("sound")
+        toggle_applet("sound")
+    }
+
+    onQt5ScreenDestroyed: {
+        console.log("Recive onQt5ScreenDestroyed")
+        mainObject.restartDockApplet()
+    }
+
     Timer{
         id: onMousewheelTimer
         property bool isOnWheel: false
