@@ -86,74 +86,74 @@
 <context>
     <name>AddUserDialog</name>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="49"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="48"/>
         <source>Wrong password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="54"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="53"/>
         <source>Nothing input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="59"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="58"/>
         <source>Different password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="68"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="67"/>
         <source>Add User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="96"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="95"/>
         <source>New User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="100"/>
-        <location filename="../modules/account/AddUserDialog.qml" line="255"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="99"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="254"/>
         <source>Standard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="100"/>
-        <location filename="../modules/account/AddUserDialog.qml" line="256"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="99"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="255"/>
         <source>Administrator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="117"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="116"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="159"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="158"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="202"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="201"/>
         <source>Repeat Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="243"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="242"/>
         <source>Account Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="275"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="274"/>
         <source>Auto-login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="326"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="325"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="339"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="338"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1752,22 +1752,22 @@
 <context>
     <name>MessageBox</name>
     <message>
-        <location filename="../modules/display/MessageBox.qml" line="94"/>
+        <location filename="../modules/display/MessageBox.qml" line="102"/>
         <source>Do you want to keep these display settings?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/MessageBox.qml" line="104"/>
+        <location filename="../modules/display/MessageBox.qml" line="111"/>
         <source>Reverting to previous display settings in &lt;font color=&apos;#F48914&apos;&gt;%1&lt;/font&gt; seconds.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/MessageBox.qml" line="116"/>
+        <location filename="../modules/display/MessageBox.qml" line="124"/>
         <source>Keep Changes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/MessageBox.qml" line="124"/>
+        <location filename="../modules/display/MessageBox.qml" line="137"/>
         <source>Revert</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1878,7 +1878,12 @@
 <context>
     <name>MonitorComponent</name>
     <message>
-        <location filename="../modules/display/MonitorComponent.qml" line="234"/>
+        <location filename="../modules/display/MonitorComponent.qml" line="185"/>
+        <source>Split</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/display/MonitorComponent.qml" line="236"/>
         <source>Set as primary display</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1976,37 +1981,37 @@
 <context>
     <name>PasswordDialog</name>
     <message>
-        <location filename="../modules/account/PasswordDialog.qml" line="63"/>
+        <location filename="../modules/account/PasswordDialog.qml" line="62"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/PasswordDialog.qml" line="97"/>
+        <location filename="../modules/account/PasswordDialog.qml" line="96"/>
         <source>Wrong password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/PasswordDialog.qml" line="102"/>
+        <location filename="../modules/account/PasswordDialog.qml" line="101"/>
         <source>Different password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/PasswordDialog.qml" line="115"/>
+        <location filename="../modules/account/PasswordDialog.qml" line="114"/>
         <source>New Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/PasswordDialog.qml" line="160"/>
+        <location filename="../modules/account/PasswordDialog.qml" line="159"/>
         <source>Repeat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/PasswordDialog.qml" line="208"/>
+        <location filename="../modules/account/PasswordDialog.qml" line="207"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/PasswordDialog.qml" line="222"/>
+        <location filename="../modules/account/PasswordDialog.qml" line="221"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2124,32 +2129,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/ShortcutInput.qml" line="224"/>
+        <location filename="../modules/shortcuts/ShortcutInput.qml" line="226"/>
         <source>Shortcut &quot;%1&quot; is invalid, please retype new shortcut.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/ShortcutInput.qml" line="262"/>
+        <location filename="../modules/shortcuts/ShortcutInput.qml" line="264"/>
         <source>The shortcut you set </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/ShortcutInput.qml" line="265"/>
+        <location filename="../modules/shortcuts/ShortcutInput.qml" line="267"/>
         <source>conflicts with the one used for &quot;%2&quot; in the &quot;%1&quot; category.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/ShortcutInput.qml" line="267"/>
+        <location filename="../modules/shortcuts/ShortcutInput.qml" line="269"/>
         <source>Do you want to replace it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/ShortcutInput.qml" line="325"/>
+        <location filename="../modules/shortcuts/ShortcutInput.qml" line="327"/>
         <source>Replace</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/ShortcutInput.qml" line="341"/>
+        <location filename="../modules/shortcuts/ShortcutInput.qml" line="343"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2835,21 +2840,6 @@
     <message>
         <location filename="../modules/grub/main.qml" line="239"/>
         <source>Selected Text Color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/grub/main.qml" line="272"/>
-        <source>Advanced</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/grub/main.qml" line="359"/>
-        <source>Please enter Grub boot interface, switch to command line mode by clicking on &apos;c&apos;, and enter &apos;videoinfo&apos; to get resolutions supported by the current motherboard.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/grub/main.qml" line="281"/>
-        <source>Custom Resolution</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

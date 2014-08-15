@@ -182,7 +182,7 @@ Rectangle{
 
     DTextAction{
         anchors.right: parent.right
-        text: "Split"
+        text: dsTr("Split")
         onClicked: {
             displayId.SplitMonitor(monitorObject.name)
         }

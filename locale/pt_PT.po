@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-07 10:27+0800\n"
+"POT-Creation-Date: 2014-08-15 18:09+0800\n"
 "PO-Revision-Date: 2014-07-02 09:33+0000\n"
 "Last-Translator: Jesse Wayde Brandao <www.jwb@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/"
@@ -35,7 +35,7 @@ msgstr "Nome"
 #: ../modules/network/add/AddDsl.qml:36
 #: ../modules/network/add/AddMobile.qml:75
 #: ../modules/network/add/AddMobile.qml:105
-#: ../modules/account/AddUserDialog.qml:117
+#: ../modules/account/AddUserDialog.qml:116
 #: ../modules/network/add/AddVpn.qml:124 ../modules/network/add/AddVpn.qml:254
 #: ../modules/network/add/AddVpn.qml:394 ../modules/network/add/AddVpn.qml:434
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:53
@@ -57,7 +57,7 @@ msgstr "Serviço"
 #: ../modules/network/add/AddDsl.qml:56
 #: ../modules/network/add/AddMobile.qml:85
 #: ../modules/network/add/AddMobile.qml:115
-#: ../modules/account/AddUserDialog.qml:159
+#: ../modules/account/AddUserDialog.qml:158
 #: ../modules/network/add/AddVpn.qml:144 ../modules/network/add/AddVpn.qml:274
 #: ../modules/network/add/AddVpn.qml:414
 #: ../modules/network/wireless/AddWireless.qml:64
@@ -71,7 +71,7 @@ msgstr "Serviço"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:204
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:344
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:75
-#: ../modules/account/PasswordDialog.qml:63
+#: ../modules/account/PasswordDialog.qml:62
 #: ../modules/network/wireless/WifiHotspot.qml:69
 msgid "Password"
 msgstr "Palavra-passe"
@@ -98,15 +98,15 @@ msgid "Number"
 msgstr "Número"
 
 #: ../modules/network/add/AddSectionSave.qml:11
-#: ../modules/account/AddUserDialog.qml:326
+#: ../modules/account/AddUserDialog.qml:325
 #: ../modules/network/wireless/AddWireless.qml:216
 #: ../modules/network/ConnectionAdd.qml:69
 #: ../modules/network/ConnectionEdit.qml:146
 #: ../modules/shortcuts/CustomKeybinding.qml:151
 #: ../modules/account/DeleteUserDialog.qml:33
 #: ../modules/network/widgets/PasswordBox.qml:101
-#: ../modules/account/PasswordDialog.qml:208
-#: ../modules/shortcuts/ShortcutInput.qml:341
+#: ../modules/account/PasswordDialog.qml:207
+#: ../modules/shortcuts/ShortcutInput.qml:343
 #: ../modules/date_time/TimeBox.qml:212
 #: ../modules/network/wireless/WifiHotspot.qml:82
 #: ../dock-applets/qml/WifiPasswordWindow.qml:171
@@ -120,62 +120,62 @@ msgstr "Cancelar"
 msgid "Add"
 msgstr "Adicionar"
 
-#: ../modules/account/AddUserDialog.qml:49
-#: ../modules/account/PasswordDialog.qml:97
+#: ../modules/account/AddUserDialog.qml:48
+#: ../modules/account/PasswordDialog.qml:96
 #, fuzzy
 msgid "Wrong password"
 msgstr "Palavra-passe"
 
-#: ../modules/account/AddUserDialog.qml:54
+#: ../modules/account/AddUserDialog.qml:53
 #, fuzzy
 msgid "Nothing input"
 msgstr "Nada"
 
-#: ../modules/account/AddUserDialog.qml:59
-#: ../modules/account/PasswordDialog.qml:102
+#: ../modules/account/AddUserDialog.qml:58
+#: ../modules/account/PasswordDialog.qml:101
 #, fuzzy
 msgid "Different password"
 msgstr "Repita a Palavra-passe"
 
-#: ../modules/account/AddUserDialog.qml:68
+#: ../modules/account/AddUserDialog.qml:67
 msgid "Add User"
 msgstr "Adicionar Utilizador"
 
-#: ../modules/account/AddUserDialog.qml:96
+#: ../modules/account/AddUserDialog.qml:95
 msgid "New User"
 msgstr "Novo Utilizador"
 
-#: ../modules/account/AddUserDialog.qml:100
-#: ../modules/account/AddUserDialog.qml:255
+#: ../modules/account/AddUserDialog.qml:99
+#: ../modules/account/AddUserDialog.qml:254
 #: ../modules/account/EditUserDialog.qml:135
 #: ../modules/account/UserList.qml:188
 msgid "Standard"
 msgstr "Padrão"
 
-#: ../modules/account/AddUserDialog.qml:100
-#: ../modules/account/AddUserDialog.qml:256
+#: ../modules/account/AddUserDialog.qml:99
+#: ../modules/account/AddUserDialog.qml:255
 #: ../modules/account/EditUserDialog.qml:136
 #: ../modules/account/UserList.qml:188
 msgid "Administrator"
 msgstr "Administrador"
 
-#: ../modules/account/AddUserDialog.qml:202
+#: ../modules/account/AddUserDialog.qml:201
 msgid "Repeat Password"
 msgstr "Repita a Palavra-passe"
 
-#: ../modules/account/AddUserDialog.qml:243
+#: ../modules/account/AddUserDialog.qml:242
 #: ../modules/account/EditUserDialog.qml:123
 msgid "Account Type"
 msgstr "Tipo de Conta"
 
-#: ../modules/account/AddUserDialog.qml:275
+#: ../modules/account/AddUserDialog.qml:274
 #: ../modules/account/EditUserDialog.qml:56
 msgid "Auto-login"
 msgstr "Iníciar sessão automaticamente"
 
-#: ../modules/account/AddUserDialog.qml:339
+#: ../modules/account/AddUserDialog.qml:338
 #: ../modules/account/DeleteUserDialog.qml:46
-#: ../modules/account/PasswordDialog.qml:222 ../modules/account/WebCam.qml:148
+#: ../modules/account/PasswordDialog.qml:221 ../modules/account/WebCam.qml:148
 msgid "Confirm"
 msgstr "Confirmar"
 
@@ -983,22 +983,22 @@ msgstr ""
 msgid "Language"
 msgstr "Idioma"
 
-#: ../modules/display/MessageBox.qml:94
+#: ../modules/display/MessageBox.qml:102
 msgid "Do you want to keep these display settings?"
 msgstr ""
 
-#: ../modules/display/MessageBox.qml:104
+#: ../modules/display/MessageBox.qml:111
 #, qt-format
 msgid ""
 "Reverting to previous display settings in <font color='#F48914'>%1</font> "
 "seconds."
 msgstr ""
 
-#: ../modules/display/MessageBox.qml:116
+#: ../modules/display/MessageBox.qml:124
 msgid "Keep Changes"
 msgstr ""
 
-#: ../modules/display/MessageBox.qml:124
+#: ../modules/display/MessageBox.qml:137
 msgid "Revert"
 msgstr ""
 
@@ -1084,7 +1084,11 @@ msgstr "Menu de Arranque"
 msgid "Home"
 msgstr "Página Principal"
 
-#: ../modules/display/MonitorComponent.qml:234
+#: ../modules/display/MonitorComponent.qml:185
+msgid "Split"
+msgstr ""
+
+#: ../modules/display/MonitorComponent.qml:236
 msgid "Set as primary display"
 msgstr ""
 
@@ -1134,11 +1138,11 @@ msgstr ""
 msgid "Password: "
 msgstr "Palavra-passe:"
 
-#: ../modules/account/PasswordDialog.qml:115
+#: ../modules/account/PasswordDialog.qml:114
 msgid "New Password"
 msgstr "Nova Palavra-passe"
 
-#: ../modules/account/PasswordDialog.qml:160
+#: ../modules/account/PasswordDialog.qml:159
 msgid "Repeat"
 msgstr "Repetir"
 
@@ -1214,25 +1218,25 @@ msgstr ""
 msgid "Please input new shortcut"
 msgstr ""
 
-#: ../modules/shortcuts/ShortcutInput.qml:224
+#: ../modules/shortcuts/ShortcutInput.qml:226
 #, qt-format
 msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
 msgstr ""
 
-#: ../modules/shortcuts/ShortcutInput.qml:262
+#: ../modules/shortcuts/ShortcutInput.qml:264
 msgid "The shortcut you set "
 msgstr ""
 
-#: ../modules/shortcuts/ShortcutInput.qml:265
+#: ../modules/shortcuts/ShortcutInput.qml:267
 #, qt-format
 msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
 msgstr ""
 
-#: ../modules/shortcuts/ShortcutInput.qml:267
+#: ../modules/shortcuts/ShortcutInput.qml:269
 msgid "Do you want to replace it?"
 msgstr "Deseja substituir?"
 
-#: ../modules/shortcuts/ShortcutInput.qml:325
+#: ../modules/shortcuts/ShortcutInput.qml:327
 msgid "Replace"
 msgstr "Substituir"
 
@@ -1598,23 +1602,6 @@ msgstr "Cor de Texto"
 msgid "Selected Text Color"
 msgstr "Selecionar Cor de Texto"
 
-#: ../modules/grub/main.qml:272
-#, fuzzy
-msgid "Advanced"
-msgstr "Equilibrado"
-
-#: ../modules/grub/main.qml:359
-msgid ""
-"Please enter Grub boot interface, switch to command line mode by clicking on "
-"'c', and enter 'videoinfo' to get resolutions supported by the current "
-"motherboard."
-msgstr ""
-
-#: ../modules/grub/main.qml:281
-#, fuzzy
-msgid "Custom Resolution"
-msgstr "Resolução"
-
 #: ../modules/keyboard/main.qml:114
 msgid "Repeat Delay"
 msgstr "Atraso de Repetição"
@@ -1944,6 +1931,14 @@ msgstr "OpenVPN"
 #, fuzzy
 msgid "VPN OpenConnect"
 msgstr "OpenConnect"
+
+#, fuzzy
+#~ msgid "Advanced"
+#~ msgstr "Equilibrado"
+
+#, fuzzy
+#~ msgid "Custom Resolution"
+#~ msgstr "Resolução"
 
 #~ msgid "Default"
 #~ msgstr "Predefinido"
