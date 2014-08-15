@@ -45,6 +45,8 @@ DWindow {
         setPanelHidable(false)
         countdown.restart()
         messageBox.show()
+        messageBox.raise()
+        revertButton.forceActiveFocus()
     }
 
     function hideDialog(){
@@ -120,15 +122,24 @@ DWindow {
 
             DTransparentButton {
                 text: dsTr("Keep Changes")
-                onClicked: {
+                activeFocusOnTab: true
+                Keys.onReturnPressed: activate()
+                onClicked: activate()
+
+                function activate(){
                     displayId.SaveChanges()
                     hideDialog()
                 }
             }
 
             DTransparentButton {
+                id: revertButton
                 text: dsTr("Revert")
-                onClicked: {
+                activeFocusOnTab: true
+                Keys.onReturnPressed: activate()
+                onClicked: activate()
+
+                function activate(){
                     displayId.ResetChanges()
                     hideDialog()
                 }
