@@ -17,7 +17,7 @@ Rectangle {
 
     function indexToLabel(idx) {
         switch (idx) {
-            case 0: return "0s"; break
+            case 0: return "1s"; break
             case 1: return "5s"; break
             case 2: return "10s"; break
             case 3: return "15s"; break
@@ -41,7 +41,7 @@ Rectangle {
 
     function indexToTimeout(idx) {
         switch (idx) {
-            case 0: return 0; break
+            case 0: return 1; break
             case 1: return 5; break
             case 2: return 10; break
             case 3: return 15; break
