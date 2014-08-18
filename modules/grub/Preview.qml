@@ -6,7 +6,7 @@ import Deepin.Widgets 1.0
 Item {
     id: root
     width: 310
-    height: dbus_display.screenHeight / dbus_display.screenWidth * width
+    height: background.sourceSize.height / background.sourceSize.width * width
 
     Display { id: dbus_display }
     Grub2 { id: dbus_grub2 }
