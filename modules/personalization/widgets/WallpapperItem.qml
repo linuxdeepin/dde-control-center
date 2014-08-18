@@ -47,14 +47,15 @@ Item {
         radius: 3
         visible: parent.selected
     }
-    
+
     Rectangle {
         id: itemThumbnailBox
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
         anchors.topMargin: 8
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 8
         width: 130
-        height: 74
         color: "transparent"
         border.width: 1
         border.color: {
