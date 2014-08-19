@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-19 11:51+0800\n"
+"POT-Creation-Date: 2014-08-19 15:32+0800\n"
 "PO-Revision-Date: 2014-07-03 03:50+0000\n"
 "Last-Translator: electricface <songwentai@linuxdeepin.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/dde-"
@@ -121,7 +121,7 @@ msgstr "添加"
 
 #: ../modules/account/AddUserDialog.qml:48
 #: ../modules/account/PasswordDialog.qml:96
-msgid "Wrong password"
+msgid "Invalid password"
 msgstr "密码不合法"
 
 #: ../modules/account/AddUserDialog.qml:53
@@ -442,7 +442,7 @@ msgid "Dock Applet Enabled"
 msgstr "Dock插件开启"
 
 #: ../modules/account/AvatarPickDialog.qml:5
-msgid "Choose a new picture for your image"
+msgid "Choose a new picture for your Avatar"
 msgstr "请选择一张图片作为您的头像"
 
 #: ../modules/account/AvatarView.qml:19
@@ -972,7 +972,7 @@ msgstr "第三DNS"
 msgid "Device Speed"
 msgstr "设备速度"
 
-#: ../modules/date_time/LocaleArea.qml:83
+#: ../modules/keyboard/LocaleArea.qml:86
 msgid "Language"
 msgstr "语言"
 
@@ -995,15 +995,15 @@ msgstr "保留更改"
 msgid "Revert"
 msgstr "还原"
 
-#: ../qt5frame/views/ModulesData.qml:28 ../dock-applets/qml/main.qml:45
+#: ../qt5frame/views/ModulesData.qml:28 ../dock-applets/qml/main.qml:54
 msgid "Date and Time"
 msgstr "日期和时间"
 
-#: ../qt5frame/views/ModulesData.qml:29 ../dock-applets/qml/main.qml:41
+#: ../qt5frame/views/ModulesData.qml:29 ../dock-applets/qml/main.qml:50
 msgid "Network"
 msgstr "网络"
 
-#: ../qt5frame/views/ModulesData.qml:30 ../dock-applets/qml/main.qml:44
+#: ../qt5frame/views/ModulesData.qml:30 ../dock-applets/qml/main.qml:53
 msgid "Disk Mount"
 msgstr "磁盘挂载"
 
@@ -1011,7 +1011,7 @@ msgstr "磁盘挂载"
 msgid "Bluetooth"
 msgstr "蓝牙"
 
-#: ../qt5frame/views/ModulesData.qml:32 ../dock-applets/qml/main.qml:42
+#: ../qt5frame/views/ModulesData.qml:32 ../dock-applets/qml/main.qml:51
 msgid "Sound"
 msgstr "声音"
 
@@ -1024,7 +1024,7 @@ msgid "More Settings"
 msgstr "更多设置"
 
 #: ../qt5frame/views/ModulesData.qml:35 ../qt5frame/views/PanelContent.qml:419
-#: ../dock-applets/qml/main.qml:43
+#: ../dock-applets/qml/main.qml:52
 msgid "Power"
 msgstr "电源"
 
@@ -1045,8 +1045,8 @@ msgid "Keyboard Shortcuts"
 msgstr "快捷键"
 
 #: ../qt5frame/views/ModulesData.qml:40
-msgid "Keyboard"
-msgstr "键盘"
+msgid "Keyboard and Language"
+msgstr "键盘和语言"
 
 #: ../qt5frame/views/ModulesData.qml:41
 msgid "Mouse and Touchpad"
@@ -1456,9 +1456,9 @@ msgstr "切换为模拟时钟(_S)"
 msgid "_Switch to digital"
 msgstr "切换为数字时钟(_S)"
 
-#: ../dock-applets/qml/network/main.qml:290
+#: ../dock-applets/qml/network/main.qml:319
 #: ../dock-applets/qml/power/main.qml:99
-#: ../dock-applets/qml/sound/main.qml:162
+#: ../dock-applets/qml/sound/main.qml:183
 msgid "_Run"
 msgstr "运行(_R)"
 
@@ -1481,17 +1481,17 @@ msgstr "均衡"
 msgid "High performance"
 msgstr "高性能"
 
-#: ../dock-applets/qml/network/main.qml:291
+#: ../dock-applets/qml/network/main.qml:320
 #: ../dock-applets/qml/power/main.qml:106
-#: ../dock-applets/qml/sound/main.qml:163
+#: ../dock-applets/qml/sound/main.qml:184
 msgid "_Undock"
 msgstr "移除驻留(_U)"
 
-#: ../dock-applets/qml/sound/main.qml:198
+#: ../dock-applets/qml/sound/main.qml:219
 msgid "Device"
 msgstr "设备"
 
-#: ../dock-applets/qml/sound/main.qml:292
+#: ../dock-applets/qml/sound/main.qml:313
 msgid "Applications"
 msgstr "程序"
 
@@ -1511,11 +1511,11 @@ msgstr "自动同步时间"
 msgid "Use 24-hour clock"
 msgstr "24小时制"
 
-#: ../modules/date_time/main.qml:165
+#: ../modules/date_time/main.qml:138
 msgid "Date"
 msgstr "日期"
 
-#: ../modules/date_time/main.qml:169
+#: ../modules/date_time/main.qml:142
 msgid "Set Date"
 msgstr "设置日期"
 
@@ -1615,15 +1615,15 @@ msgstr "光标闪烁频率"
 msgid "Test Area"
 msgstr "测试区"
 
-#: ../modules/keyboard/main.qml:219
+#: ../modules/keyboard/main.qml:236
 msgid "Keyboard Layout"
 msgstr "键盘布局"
 
-#: ../modules/keyboard/main.qml:435
+#: ../modules/keyboard/main.qml:447
 msgid "No result"
 msgstr "无结果"
 
-#: ../modules/keyboard/main.qml:444
+#: ../modules/keyboard/main.qml:208
 msgid "Caps Lock prompt"
 msgstr "大写键提示"
 
@@ -1923,6 +1923,9 @@ msgstr "VPN OpenVPN"
 #: ../modules/network/main.qml:222
 msgid "VPN OpenConnect"
 msgstr "VPN OpenConnect"
+
+#~ msgid "Keyboard"
+#~ msgstr "键盘"
 
 #~ msgid "Advanced"
 #~ msgstr "高级选项"

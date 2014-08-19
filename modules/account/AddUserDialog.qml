@@ -27,7 +27,7 @@ Rectangle {
         repeat_password_input.text = ""
         auto_login_switch.checked = false
         user_group_radio.selectItem(0)
-        
+
         user_name_input.warningState = false
         password_input.warningState = false
         repeat_password_input.warningState = false
@@ -45,20 +45,20 @@ Rectangle {
             }
 
             if (password_input.text == "" || !dbus_accounts.IsPasswordValid(password_input.text)) {
-                password_input.showWarning(dsTr("Wrong password"))
-                return false                
+                password_input.showWarning(dsTr("Invalid password"))
+                return false
             }
 
             if (repeat_password_input.text == "") {
                 repeat_password_input.showWarning(dsTr("Nothing input"))
-                return false                
+                return false
             }
 
             if (password_input.text != repeat_password_input.text) {
                 repeat_password_input.showWarning(dsTr("Different password"))
-                return false                
+                return false
             }
-            
+
             return true
         }
 
@@ -123,7 +123,7 @@ Rectangle {
 
             DTextInput {
                 id: user_name_input
-                
+
                 property bool warningState: false
 
                 KeyNavigation.tab: password_input
@@ -134,14 +134,14 @@ Rectangle {
                 onTextChanged: {
                     warningState = false
                 }
-                
+
                 function showWarning(msg) {
                     var input_coord = user_name_input.mapToItem(root, 0, 0)
-                    
+
                     warning_arrow_rect.x = input_coord.x - warning_arrow_rect.shadowWidth
                     warning_arrow_rect.y = input_coord.y + user_name_input.height - 4
                     warning_arrow_rect.warningText = msg
-                    
+
                     warningState = true
                 }
             }
@@ -166,7 +166,7 @@ Rectangle {
             DTextInput {
                 id: password_input
                 echoMode: TextInput.Password
-                
+
                 property bool warningState: false
 
                 KeyNavigation.tab: repeat_password_input
@@ -177,16 +177,16 @@ Rectangle {
                 onTextChanged: {
                     warningState = false
                 }
-                
+
                 function showWarning(msg) {
                     var input_coord = password_input.mapToItem(root, 0, 0)
-                    
+
                     warning_arrow_rect.x = input_coord.x - warning_arrow_rect.shadowWidth
                     warning_arrow_rect.y = input_coord.y + password_input.height - 4
                     warning_arrow_rect.warningText = msg
-                    
+
                     warningState = true
-                }                
+                }
             }
         }
 
@@ -209,7 +209,7 @@ Rectangle {
             DTextInput {
                 id: repeat_password_input
                 echoMode: TextInput.Password
-                
+
                 property bool warningState: false
 
                 anchors.right: parent.right
@@ -218,16 +218,16 @@ Rectangle {
                 onTextChanged: {
                     warningState = false
                 }
-                
+
                 function showWarning(msg) {
                     var input_coord = repeat_password_input.mapToItem(root, 0, 0)
-                    
+
                     warning_arrow_rect.x = input_coord.x - warning_arrow_rect.shadowWidth
                     warning_arrow_rect.y = input_coord.y + repeat_password_input.height - 4
                     warning_arrow_rect.warningText = msg
-                    
+
                     warningState = true
-                }                
+                }
             }
         }
 

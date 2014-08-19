@@ -87,7 +87,7 @@
     <name>AddUserDialog</name>
     <message>
         <location filename="../modules/account/AddUserDialog.qml" line="48"/>
-        <source>Wrong password</source>
+        <source>Invalid password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -474,7 +474,7 @@
     <name>AvatarPickDialog</name>
     <message>
         <location filename="../modules/account/AvatarPickDialog.qml" line="5"/>
-        <source>Choose a new picture for your image</source>
+        <source>Choose a new picture for your Avatar</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1744,7 +1744,7 @@
 <context>
     <name>LocaleArea</name>
     <message>
-        <location filename="../modules/date_time/LocaleArea.qml" line="83"/>
+        <location filename="../modules/keyboard/LocaleArea.qml" line="86"/>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1836,7 +1836,7 @@
     </message>
     <message>
         <location filename="../qt5frame/views/ModulesData.qml" line="40"/>
-        <source>Keyboard</source>
+        <source>Keyboard and Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1987,7 +1987,7 @@
     </message>
     <message>
         <location filename="../modules/account/PasswordDialog.qml" line="96"/>
-        <source>Wrong password</source>
+        <source>Invalid password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2589,9 +2589,9 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/network/main.qml" line="290"/>
+        <location filename="../dock-applets/qml/network/main.qml" line="319"/>
         <location filename="../dock-applets/qml/power/main.qml" line="99"/>
-        <location filename="../dock-applets/qml/sound/main.qml" line="162"/>
+        <location filename="../dock-applets/qml/sound/main.qml" line="183"/>
         <source>_Run</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2631,27 +2631,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/main.qml" line="41"/>
+        <location filename="../dock-applets/qml/main.qml" line="50"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/main.qml" line="42"/>
+        <location filename="../dock-applets/qml/main.qml" line="51"/>
         <source>Sound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/main.qml" line="43"/>
+        <location filename="../dock-applets/qml/main.qml" line="52"/>
         <source>Power</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/main.qml" line="44"/>
+        <location filename="../dock-applets/qml/main.qml" line="53"/>
         <source>Disk Mount</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/main.qml" line="45"/>
+        <location filename="../dock-applets/qml/main.qml" line="54"/>
         <source>Date and Time</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2691,19 +2691,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/network/main.qml" line="291"/>
+        <location filename="../dock-applets/qml/network/main.qml" line="320"/>
         <location filename="../dock-applets/qml/power/main.qml" line="106"/>
-        <location filename="../dock-applets/qml/sound/main.qml" line="163"/>
+        <location filename="../dock-applets/qml/sound/main.qml" line="184"/>
         <source>_Undock</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/sound/main.qml" line="198"/>
+        <location filename="../dock-applets/qml/sound/main.qml" line="219"/>
         <source>Device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/sound/main.qml" line="292"/>
+        <location filename="../dock-applets/qml/sound/main.qml" line="313"/>
         <source>Applications</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2728,12 +2728,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="165"/>
+        <location filename="../modules/date_time/main.qml" line="138"/>
         <source>Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="169"/>
+        <location filename="../modules/date_time/main.qml" line="142"/>
         <source>Set Date</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2894,17 +2894,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="219"/>
+        <location filename="../modules/keyboard/main.qml" line="236"/>
         <source>Keyboard Layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="435"/>
+        <location filename="../modules/keyboard/main.qml" line="447"/>
         <source>No result</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="444"/>
+        <location filename="../modules/keyboard/main.qml" line="208"/>
         <source>Caps Lock prompt</source>
         <translation type="unfinished"></translation>
     </message>

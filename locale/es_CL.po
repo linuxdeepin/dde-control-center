@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-19 11:51+0800\n"
+"POT-Creation-Date: 2014-08-19 15:32+0800\n"
 "PO-Revision-Date: 2014-07-02 08:41+0000\n"
 "Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
 "Language-Team: Spanish (Chile) (http://www.transifex.com/projects/p/dde-"
@@ -124,7 +124,7 @@ msgstr "Añadir"
 #: ../modules/account/AddUserDialog.qml:48
 #: ../modules/account/PasswordDialog.qml:96
 #, fuzzy
-msgid "Wrong password"
+msgid "Invalid password"
 msgstr "Contraseña"
 
 #: ../modules/account/AddUserDialog.qml:53
@@ -448,7 +448,8 @@ msgid "Dock Applet Enabled"
 msgstr "Applet Dock Activado"
 
 #: ../modules/account/AvatarPickDialog.qml:5
-msgid "Choose a new picture for your image"
+#, fuzzy
+msgid "Choose a new picture for your Avatar"
 msgstr "Elija una nueva foto para su imagen"
 
 #: ../modules/account/AvatarView.qml:19
@@ -981,7 +982,7 @@ msgstr "DNS primaria"
 msgid "Device Speed"
 msgstr "Velocidad del dispositivo"
 
-#: ../modules/date_time/LocaleArea.qml:83
+#: ../modules/keyboard/LocaleArea.qml:86
 msgid "Language"
 msgstr "Idioma"
 
@@ -1005,15 +1006,15 @@ msgstr "Guardar los cambios"
 msgid "Revert"
 msgstr "Volver"
 
-#: ../qt5frame/views/ModulesData.qml:28 ../dock-applets/qml/main.qml:45
+#: ../qt5frame/views/ModulesData.qml:28 ../dock-applets/qml/main.qml:54
 msgid "Date and Time"
 msgstr "Fecha y hora"
 
-#: ../qt5frame/views/ModulesData.qml:29 ../dock-applets/qml/main.qml:41
+#: ../qt5frame/views/ModulesData.qml:29 ../dock-applets/qml/main.qml:50
 msgid "Network"
 msgstr "Redes"
 
-#: ../qt5frame/views/ModulesData.qml:30 ../dock-applets/qml/main.qml:44
+#: ../qt5frame/views/ModulesData.qml:30 ../dock-applets/qml/main.qml:53
 msgid "Disk Mount"
 msgstr "Montar disco"
 
@@ -1021,7 +1022,7 @@ msgstr "Montar disco"
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: ../qt5frame/views/ModulesData.qml:32 ../dock-applets/qml/main.qml:42
+#: ../qt5frame/views/ModulesData.qml:32 ../dock-applets/qml/main.qml:51
 msgid "Sound"
 msgstr "Sonido"
 
@@ -1034,7 +1035,7 @@ msgid "More Settings"
 msgstr "Más ajustes"
 
 #: ../qt5frame/views/ModulesData.qml:35 ../qt5frame/views/PanelContent.qml:419
-#: ../dock-applets/qml/main.qml:43
+#: ../dock-applets/qml/main.qml:52
 msgid "Power"
 msgstr "Energía"
 
@@ -1055,8 +1056,9 @@ msgid "Keyboard Shortcuts"
 msgstr "Atajos del teclado"
 
 #: ../qt5frame/views/ModulesData.qml:40
-msgid "Keyboard"
-msgstr "Teclado"
+#, fuzzy
+msgid "Keyboard and Language"
+msgstr "Apariencia del teclado"
 
 #: ../qt5frame/views/ModulesData.qml:41
 msgid "Mouse and Touchpad"
@@ -1470,9 +1472,9 @@ msgstr "Cambiar a  análogo"
 msgid "_Switch to digital"
 msgstr "Cambiar a digital"
 
-#: ../dock-applets/qml/network/main.qml:290
+#: ../dock-applets/qml/network/main.qml:319
 #: ../dock-applets/qml/power/main.qml:99
-#: ../dock-applets/qml/sound/main.qml:162
+#: ../dock-applets/qml/sound/main.qml:183
 msgid "_Run"
 msgstr "_Ejecutar"
 
@@ -1495,17 +1497,17 @@ msgstr "Equilibrada"
 msgid "High performance"
 msgstr "Alto desempeño"
 
-#: ../dock-applets/qml/network/main.qml:291
+#: ../dock-applets/qml/network/main.qml:320
 #: ../dock-applets/qml/power/main.qml:106
-#: ../dock-applets/qml/sound/main.qml:163
+#: ../dock-applets/qml/sound/main.qml:184
 msgid "_Undock"
 msgstr "_Desanclar"
 
-#: ../dock-applets/qml/sound/main.qml:198
+#: ../dock-applets/qml/sound/main.qml:219
 msgid "Device"
 msgstr "Unidad"
 
-#: ../dock-applets/qml/sound/main.qml:292
+#: ../dock-applets/qml/sound/main.qml:313
 msgid "Applications"
 msgstr "Aplicaciones"
 
@@ -1525,11 +1527,11 @@ msgstr "Fijar fecha y hora en forma automática"
 msgid "Use 24-hour clock"
 msgstr "Usar reloj de 24 horas"
 
-#: ../modules/date_time/main.qml:165
+#: ../modules/date_time/main.qml:138
 msgid "Date"
 msgstr "Fecha"
 
-#: ../modules/date_time/main.qml:169
+#: ../modules/date_time/main.qml:142
 msgid "Set Date"
 msgstr "Establecer Fecha"
 
@@ -1629,15 +1631,15 @@ msgstr "tiempo de parpadeo"
 msgid "Test Area"
 msgstr "Zona de pruebas"
 
-#: ../modules/keyboard/main.qml:219
+#: ../modules/keyboard/main.qml:236
 msgid "Keyboard Layout"
 msgstr "Apariencia del teclado"
 
-#: ../modules/keyboard/main.qml:435
+#: ../modules/keyboard/main.qml:447
 msgid "No result"
 msgstr "Sin resultados"
 
-#: ../modules/keyboard/main.qml:444
+#: ../modules/keyboard/main.qml:208
 msgid "Caps Lock prompt"
 msgstr "Indicador de letras mayúsculas"
 
@@ -1947,6 +1949,9 @@ msgstr "OpenVPN"
 #, fuzzy
 msgid "VPN OpenConnect"
 msgstr "OpenConnect"
+
+#~ msgid "Keyboard"
+#~ msgstr "Teclado"
 
 #, fuzzy
 #~ msgid "Advanced"

@@ -37,7 +37,7 @@ Item {
             "desktop": dsTr("Desktop"),
             "personalization": dsTr("Personalization"),
             "shortcuts": dsTr("Keyboard Shortcuts"),
-            "keyboard": dsTr("Keyboard"),
+            "keyboard": dsTr("Keyboard and Language"),
             "mouse_touchpad": dsTr("Mouse and Touchpad"),
             "mouse": dsTr("Mouse"),
             "account": dsTr("User Accounts"),

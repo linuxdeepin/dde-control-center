@@ -93,7 +93,7 @@ Item {
 
         function validate() {
             if (new_password_input.text == "" || !dbus_accounts.IsPasswordValid(new_password_input.text)) {
-                new_password_input.showWarning(dsTr("Wrong password"))
+                new_password_input.showWarning(dsTr("Invalid password"))
                 return false
             }
 
