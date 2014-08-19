@@ -9,6 +9,11 @@ Item {
     id: networkModule
     anchors.fill: parent
 
+    // colors
+    property color normalColor: dconstants.fgColor
+    property color normalBorderColor: dconstants.contentBgColor
+    property color errorColor: "#F48914"
+
     // device type
     readonly property var nmDeviceTypeUnknown: "unknown"
     readonly property var nmDeviceTypeEthernet: "wired"
@@ -56,7 +61,7 @@ Item {
     readonly property var nmStateConnectedLocal: 50
     readonly property var nmStateConnectedSite: 60
     readonly property var nmStateConnectedGlobal: 70
-    
+
     // connection type
     readonly property var nmConnectionTypeWired: "wired"
     readonly property var nmConnectionTypeWireless: "wireless"
@@ -102,7 +107,7 @@ Item {
         id: connectionSessionBuilder
         ConnectionSession {}
     }
-    
+
     function createConnection(type, devicePath) {
         var connectionPath = dbusNetwork.CreateConnection(type, devicePath)
         return connectionSessionBuilder.createObject(null, { path: connectionPath })
@@ -137,12 +142,12 @@ Item {
         })
         stackView.currentItemId = page
     }
-    
+
     function marshalJSON(value) {
         var valueJSON = JSON.stringify(value);
         return valueJSON
     }
-    
+
     function unmarshalJSON(valueJSON) {
         if (!valueJSON) {
             print("==> [ERROR] unmarshalJSON", valueJSON)
@@ -184,7 +189,7 @@ Item {
         }
         return dsTr("Unknown");
     }
-    
+
     function getConnectionDisplayName(connType) {
         switch (connType) {
         case nmConnectionTypeWired:
@@ -226,7 +231,7 @@ Item {
         }
         return null
     }
-    
+
     function getDeviceActiveConnection(devicePath) {
         for (var i in nmActiveConnections) {
             if (getIndexFromArray(devicePath, nmActiveConnections[i].Devices) != -1) {
@@ -251,8 +256,8 @@ Item {
     //     }
     //     return false
     // }
-    
-    
+
+
     Connections{
         target: rootWindow
 

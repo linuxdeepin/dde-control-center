@@ -4,7 +4,7 @@ import Deepin.Widgets 1.0
 DBaseLine {
     id: editLine
     objectName: "BaseEditLine"
-    
+
     property var connectionSession
     property var availableSections
     property var availableKeys
@@ -13,10 +13,12 @@ DBaseLine {
     property string key
     property string text
     property var cacheValue // cache value between ConnectionSession and widget
-    
+
     // if true, don't compare cache value with backend when setting key
-    property bool setKeyAlways: false 
-    
+    property bool setKeyAlways: false
+
+    color: dconstants.contentBgColor
+
     signal widgetShown
     visible: false
     Binding on visible {
@@ -44,13 +46,7 @@ DBaseLine {
         }
         print("-> BaseEditLine.onVisibleChanged", visible ? "(show)" : "(hide)", section, key, cacheValue) // TODO test
     }
-    
-    // colors
-    color: dconstants.contentBgColor
-    property color normalColor: dconstants.fgColor
-    property color normalBorderColor: dconstants.contentBgColor
-    property color errorColor: "#F48914"
-    
+
     // update cacheValue even if other key changed
     property bool alwaysUpdate: false
     Connections {
@@ -61,7 +57,7 @@ DBaseLine {
             }
         }
     }
-    
+
     // error state
     property bool showErrorConditon: false // will be true when widget focus changed or save button pressed
     property bool showError: showErrorConditon && isValueError()
@@ -88,13 +84,13 @@ DBaseLine {
             }
         }
     }
-    
+
     rightLoader.focus: true     // TODO fix active focus issue
     leftMargin: contentLeftMargin
     leftLoader.sourceComponent: DssH2{
         text: editLine.text
     }
-    
+
     function setKey(v) {
         cacheValue = v
         if (cacheValue === getKey() && !setKeyAlways) {
@@ -109,17 +105,17 @@ DBaseLine {
         print("-> BaseEditLine.getKey()", section, key, value) // TODO test
         return value
     }
-    
+
     function updateCacheValue() {
         cacheValue = getKey()
         // print("-> updateCacheValue()", section, key, cacheValue) // TODO test
     }
-    
+
     function isKeyAvailable() {
         var ok = getIndexFromArray(section, availableSections) != -1 && getIndexFromArray(key, availableKeys[section]) != -1
         return ok
     }
-    
+
     function isValueError() {
         if (!errors) {
             return false
@@ -129,13 +125,13 @@ DBaseLine {
         }
         return false
     }
-    
+
     function getAvailableValues() {
         var valuesJSON = connectionSession.GetAvailableValues(section, key);
         var values = unmarshalJSON(valuesJSON)
         return values
     }
-    
+
     function getAvailableValuesValue() {
         var values = getAvailableValues()
         var valuesValue = []
@@ -144,7 +140,7 @@ DBaseLine {
         }
         return valuesValue
     }
-    
+
     function getAvailableValuesText() {
         var values = getAvailableValues()
         var valuesText = []
@@ -153,7 +149,7 @@ DBaseLine {
         }
         return valuesText
     }
-    
+
     function getAvailableValuesTextByValue() {
         var values = getAvailableValues()
         if (values == null) {
@@ -170,7 +166,7 @@ DBaseLine {
         print("-> [WARNING] getAvailableValuesTextByValue:", values, section, key, cacheValue) //TODO test
         return ""
     }
-    
+
     function getAvailableValuesIndex() {
         var values = getAvailableValues()
         if (values == null) {
@@ -183,7 +179,7 @@ DBaseLine {
         }
         return -1
     }
-    
+
     function checkKey() {
         print("-> check key", section, key, cacheValue) // TODO test
         showErrorConditon = true

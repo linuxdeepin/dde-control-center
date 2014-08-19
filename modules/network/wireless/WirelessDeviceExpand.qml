@@ -9,10 +9,11 @@ DBaseExpand {
 
     property string devicePath: "/"
     property string deviceHwAddress
-    property string activeAp: "/"
     property int deviceState: nmDeviceStateUnknown
-    property bool deviceEnabled: false
-    expanded: dbusNetwork.IsDeviceEnabled(devicePath)
+    property bool deviceManaged: true
+    property string activeAp: "/"
+
+    expanded: deviceManaged && dbusNetwork.IsDeviceEnabled(devicePath)
 
     Component.onCompleted: {
         if(!scanTimer.running){
@@ -24,7 +25,7 @@ DBaseExpand {
         target: dbusNetwork
         onDeviceEnabled:{
             if(arg0 == devicePath){
-                print("onDeviceEnabled:", arg0, arg1) // TODO test
+                // print("onDeviceEnabled:", arg0, arg1) // TODO test
                 wirelessDeviceExpand.expanded = arg1
             }
         }
@@ -71,17 +72,25 @@ DBaseExpand {
             }
         }
 
-        rightLoader.sourceComponent: DSwitchButton{
-            checked: wirelessDeviceExpand.expanded
-            Connections {
-                // TODO still need connections block here, but why?
-                target: wirelessDeviceExpand
-                onExpandedChanged: {
-                    checked = wirelessDeviceExpand.expanded
+        rightLoader.sourceComponent: Column {
+            DSwitchButton{
+                id: switchButton
+                visible: wirelessDeviceExpand.deviceManaged
+                checked: wirelessDeviceExpand.expanded
+                Connections {
+                    target: wirelessDeviceExpand
+                    onExpandedChanged: {
+                        switchButton.checked = wirelessDeviceExpand.expanded
+                    }
+                }
+                onClicked: {
+                    dbusNetwork.EnableDevice(wirelessDeviceExpand.devicePath, switchButton.checked)
                 }
             }
-            onClicked: {
-                dbusNetwork.EnableDevice(devicePath, checked)
+            DssH2{
+                visible: !deviceManaged
+                text: dsTr("not managed")
+                color: errorColor
             }
         }
     }
@@ -188,7 +197,7 @@ DBaseExpand {
 
     ListModel {
         id: accessPointsModel
-        
+
         function getIndexBySsid(ssid){
             for(var i=0; i<count; i++){
                 var item = get(i)
@@ -198,7 +207,7 @@ DBaseExpand {
             }
             return -1
         }
-        
+
         function getIndexByPath(path){
             for(var i=0; i<count; i++){
                 var item = get(i)
@@ -242,7 +251,7 @@ DBaseExpand {
 
         function updateApItem(index, apInfo){
             // print("-> updateApItem", index, apInfo.Ssid, apInfo.Path) // TODO test
-            
+
             // check if ap already exists as a child, if is just
             // update it, or append it to apInfos
             var item = get(index)

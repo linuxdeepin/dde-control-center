@@ -26,11 +26,12 @@ Item {
         delegate: WirelessDeviceExpand {
             devicePath: wirelessDevices[index].Path
             deviceHwAddress: wirelessDevices[index].HwAddress
-            activeAp: wirelessDevices[index].ActiveAp
             deviceState: wirelessDevices[index].State
+            deviceManaged: wirelessDevices[index].Managed
+            activeAp: wirelessDevices[index].ActiveAp
         }
     }
-    
+
     DSeparatorHorizontal {
         anchors.bottom: parent.bottom
         visible: wirelessDevicesNumber > 0
