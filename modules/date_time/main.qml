@@ -42,6 +42,7 @@ DFlickable {
         onCurrentTimezoneChanged: {
             Date.timeZoneUpdated()
             globalDate = new Date()
+            calendarObj.currentSelectedDateValue = calendarObj.currentDateValue
         }
     }
     property var dconstants: DConstants {}
@@ -148,7 +149,7 @@ DFlickable {
                 }
 
                 onClicked: {
-                    gDate.SetDate(CalendarCore.dateToString(calendarObj.clickedDateObject))
+                    gDate.SetDate(calendarObj.currentSelectedDateValue)
                 }
             }
         }

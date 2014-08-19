@@ -30,6 +30,8 @@ Rectangle {
     height: calendarItemCellHeight * 6 + weekTitle.height
     color: "#1a1b1b"
 
+    property string yearMonth: ""
+
     property alias weekTitleModel: weekTitleModel
     property alias datesGridView: datesGridView
     property alias datesModel: datesModel
@@ -37,28 +39,29 @@ Rectangle {
     property int calendarItemCellWidth: 44
     property int calendarItemCellHeight: 38
 
-    property var clickedDateObject: new Date()
-    property var currentDateString: CalendarCore.dateToString(globalDate)
-
-    onClickedDateObjectChanged: {
-        updateSelectedIndex(CalendarCore.dateToString(clickedDateObject))
+    Connections {
+        target: calendarWidget
+        onCurrentSelectedDateValueChanged: {
+            updateSelectedIndex(calendarWidget.currentSelectedDateValue)
+        }
     }
 
-    function updateSelectedIndex(date_str){
+    function updateSelectedIndex(dateValue){
+        datesGridView.currentIndex = -1
         for(var i=0; i < datesModel.count; i++){
-            if(datesModel.get(i)["dateValue"] == date_str){
+            if(datesModel.get(i)["dateValue"] == dateValue){
                 datesGridView.currentIndex = i
                 return
             }
         }
     }
-    
+
     function initDates(date_str) {
         var dates = CalendarCore.getDates(date_str);
         datesModel.clear()
         for (var i=0; i < dates.length; i++){
             datesModel.append(dates[i])
-            if (dates[i].dateValue == date_str) {
+            if (dates[i].dateValue == calendarWidget.currentSelectedDateValue) {
                 datesGridView.currentIndex = i
             }
         }
@@ -99,14 +102,14 @@ Rectangle {
         delegate: CalendarItem {
             width: calendarItemCellWidth
             height: calendarItemCellHeight
-            currentDateString: calendarComponent.currentDateString
+            componentMonth: yearMonth
         }
         focus: true
         currentIndex: -1
         boundsBehavior: Flickable.StopAtBounds
 
-        Component.onCompleted: { 
-            initDates(CalendarCore.dateToString(clickedDateObject))
+        Component.onCompleted: {
+            initDates(yearMonth + "-01")
         }
 
         function getDelegateInstanceAt(index) {

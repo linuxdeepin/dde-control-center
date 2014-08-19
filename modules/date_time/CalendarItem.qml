@@ -29,15 +29,11 @@ import Deepin.Widgets 1.0
 Rectangle {
     id: calendarItem
     color: "#1a1b1b"
-    
-    property string currentDateString: ""
 
-    property bool isCurrentDate: currentDateString == dateValue
     property alias inText: inText
     property bool grey: isGrey
-    property bool isClicked: false
-    property var curDate: new Date(dateValue)
     property var dateValueArray: dateValue.split("-")
+    property string componentMonth: ""
 
     property var lunarDayInfo: dbusLunarCalendar.GetLunarInfoBySolar(parseInt(dateValueArray[0]), parseInt(dateValueArray[1]), parseInt(dateValueArray[2]))
     property var hasFestival: lunarDayInfo[1] && (lunarDayInfo[0][8] || lunarDayInfo[0][9])
@@ -49,32 +45,12 @@ Rectangle {
         height: parent.height - 2
 
         Rectangle {
-            id: currentDateBackground
-            anchors.fill: parent
-            color: "#1a1b1b"
-            visible: false
-        }
-
-        InnerShadow {
-            source: currentDateBackground
-            anchors.fill: currentDateBackground
-            radius: 4
-            samples: 10
-            color: "#003A5F"
-            horizontalOffset: 0
-            verticalOffset: -3
-            spread: 0.5
-            //visible: isCurrentDate
-            visible: false
-        }
-
-        Rectangle {
             id: clickedDateBackground
             width: diameter
             height: diameter
             anchors.centerIn: parent
             color: "#0064fa"
-            visible: index == calendarItem.GridView.view.currentIndex ? true : false
+            visible: index == calendarItem.GridView.view.currentIndex && slideStop ? true : false
             radius: diameter/2
 
             property int diameter: parent.height
@@ -91,7 +67,7 @@ Rectangle {
 
                 font.pixelSize: 15
                 color: grey ? "#444" : "white"
-                text: curDate.getDate()
+                text: dateValueArray[2]
             }
 
             DssH3 {
@@ -138,25 +114,15 @@ Rectangle {
         hoverEnabled: true
         onWheel: {
             if (wheel.angleDelta.y < 0){
-                var new_date = CalendarCore.getDateWidthMonthStep(curDate, 1)
+                var new_date_str = CalendarCore.getNextMonthDateValue(componentMonth + "-01")
             }
             else {
-                var new_date = CalendarCore.getDateWidthMonthStep(curDate, -1)
+                var new_date_str = CalendarCore.getPreviousMonthDateValue(componentMonth + "-01")
             }
-            new_date = CalendarCore.setDateOne(new_date)
-            var new_date_str = CalendarCore.dateToString(new_date)
-            calendarWidget.monthChange(new_date_str)
+            calendarWidget.currentSelectedDateValue = new_date_str
         }
         onClicked: {
-            if (grey){
-                calendarWidget.monthChange(dateValue);
-            }
-            else{
-                //calendarItem.GridView.view.currentIndex = index
-                var myDate = new Date(dateValue)
-                calendarWidget.clickedDateObject = myDate
-                calendarWidget.cur_calendar.clickedDateObject = myDate
-            }
+            calendarWidget.currentSelectedDateValue = dateValue
         }
         onEntered: {
             var tipStr = ""
