@@ -32,8 +32,7 @@ DockApplet{
     id: soundApplet
     title: "Sound"
     appid: "AppletSound"
-    icon: iconPath
-    property url iconPath: getIconPath()
+    icon: getIcon()
 
     property int xEdgePadding: 18
     property int titleSpacing: 10
@@ -74,10 +73,11 @@ DockApplet{
         defaultSink.SetVolume(vol/100, false)
     }
 
-    function getIconPath(){
+    function getIcon(){
+        var step = 100
+        var winStep = 100
         if(typeof(defaultSink.volume) != "undefined"){
             var vol = getVolume()
-            var step = 100
             if(vol < 1){
                 step = 0
             }
@@ -90,15 +90,36 @@ DockApplet{
             else{
                 step = parseInt(getVolume()/10) * 10
             }
+
+            if(vol < 1){
+                winStep = 0
+            }
+            else if(vol < 33){
+                winStep = 33
+            }
+            else if(vol < 66){
+                winStep = 66
+            }
+            else{
+                winStep = 100
+            }
         }
-        else{
-            step = 100
-        }
+
         if(defaultSink.mute){
-            return getIconUrl("sound/sound_mute_%1.png".arg(step))
+            if(dockDisplayMode == 0){
+                return getIconUrl("sound/normal/sound_mute_%1.png".arg(step))
+            }
+            else {
+                return getIconUrl("sound/small/sound_mute.png")
+            }
         }
         else{
-            return getIconUrl("sound/sound_%1.png".arg(step))
+            if(dockDisplayMode == 0){
+                return getIconUrl("sound/normal/sound_%1.png".arg(step))
+            }
+            else{
+                return getIconUrl("sound/small/sound_%1.png".arg(winStep))
+            }
         }
     }
 

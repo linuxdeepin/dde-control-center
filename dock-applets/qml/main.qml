@@ -29,15 +29,24 @@ import DBus.Com.Deepin.Dde.ControlCenter 1.0
 import DBus.Com.Deepin.Daemon.DiskMount 1.0
 import DBus.Com.Deepin.Daemon.Power 1.0
 import DBus.Com.Deepin.Daemon.Network 1.0
+import DBus.Com.Deepin.Daemon.Dock 1.0
 import Helper 1.0
 
 QtObject {
     id: root
 
     property var dconstants: DConstants {}
+    property var dbusDockSetting: DockSetting {
+        path: "/dde/dock/DockSetting"
+        onDisplayModeChanged: {
+            root.dockDisplayMode = arg0
+        }
+    }
+    property int dockDisplayMode: dbusDockSetting.GetDisplayMode()
+
     property var appletList: new Array()
+
     property var appletNames: {
-        //"dss": dsTr("Control Center"),
         "network": dsTr("Network"),
         "sound": dsTr("Sound"),
         "power": dsTr("Power"),
@@ -105,7 +114,8 @@ QtObject {
         }
     }
     property var nmDevices: unmarshalJSON(dbusNetwork.devices)
-    property var wirelessDevices: nmDevices["wireless"]
+    property var wiredDevices: nmDevices["wired"] == undefined ? [] : nmDevices["wired"]
+    property var wirelessDevices: nmDevices["wireless"] == undefined ? [] : nmDevices["wireless"]
 
     function marshalJSON(value){
         var valueJSON = JSON.stringify(value);

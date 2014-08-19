@@ -109,31 +109,59 @@ DockApplet {
     }
 
     function getIcon(){
-        if (dbusPower.onBattery){
-            var path = "battery-%1"
+        var percentage = parseInt(dbusPower.batteryPercentage)
+        if(dockDisplayMode == 0){
+            if (dbusPower.onBattery){
+                var path = "power/normal/battery_%1.png"
+            }
+            else{
+                var path = "power/normal/battery-charge_%1.png"
+            }
+
+            if(percentage <= 5){
+                return getIconUrl(path.arg(0))
+            }
+            else if(percentage <= 18){
+                return getIconUrl(path.arg(10))
+            }
+            else if(percentage <= 38){
+                return getIconUrl(path.arg(25))
+            }
+            else if(percentage <= 62){
+                return getIconUrl(path.arg(50))
+            }
+            else if(percentage <= 88){
+                return getIconUrl(path.arg(75))
+            }
+            else{
+                return getIconUrl(path.arg(100))
+            }
         }
         else{
-            var path = "battery-charge-%1"
-        }
-
-        var percentage = parseInt(dbusPower.batteryPercentage)
-        if(percentage <= 5){
-            return path.arg(0)
-        }
-        else if(percentage <= 18){
-            return path.arg(10)
-        }
-        else if(percentage <= 38){
-            return path.arg(25)
-        }
-        else if(percentage <= 62){
-            return path.arg(50)
-        }
-        else if(percentage <= 88){
-            return path.arg(75)
-        }
-        else if(percentage <= 100){
-            return path.arg(100)
+            if (!dbusPower.onBattery){
+                return getIconUrl("power/small/battery-charge.png")
+            }
+            else {
+                var winPath = "power/small/battery_%1.png"
+                if(percentage <= 5){
+                    return getIconUrl(winPath.arg(0))
+                }
+                else if(percentage <= 15){
+                    return getIconUrl(winPath.arg(10))
+                }
+                else if(percentage <= 30){
+                    return getIconUrl(winPath.arg(25))
+                }
+                else if(percentage <= 55){
+                    return getIconUrl(winPath.arg(50))
+                }
+                else if(percentage <= 80){
+                    return getIconUrl(winPath.arg(75))
+                }
+                else{
+                    return getIconUrl(winPath.arg(100))
+                }
+            }
         }
     }
 }
