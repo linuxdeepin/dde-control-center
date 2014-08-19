@@ -33,19 +33,22 @@ import "../widgets/"
 DockApplet{
     title: "Network"
     appid: "AppletNetwork"
-    icon: getIcon()
+    icon: dockDisplayMode == 0 ? macIconUri : winIconUri
 
     property var dconstants: DConstants {}
     property var activeConnections: unmarshalJSON(dbusNetwork.activeConnections)
+
+    property string macIconUri: getIcon()
+    property string winIconUri: getIconUrl("network/small/wired_on.png")
 
     // Graphic
     property var dbusGraphic: Graphic {}
     property string iconBgDataUri: {
         if(dbusNetwork.state == 70){
-            var path = "network/network_on.png"
+            var path = "network/normal/network_on.png"
         }
         else{
-            var path = "network/network_off.png"
+            var path = "network/normal/network_off.png"
         }
         return getIconDataUri(path)
     }
@@ -64,19 +67,32 @@ DockApplet{
 
     function getIcon(){
         if(airplaneModeButton.airplaneModeActive){
-            var iconDataUri = getIconDataUri("network/airplane_mode.png")
+            var iconDataUri = getIconDataUri("network/normal/airplane_mode.png")
+            winIconUri = getIconUrl("network/small/airplane.png")
         }
         else{
             var iconDataUri = iconBgDataUri
             for(var i=0; i<subImageList.count; i++){
                 var imageInfo = subImageList.get(i)
                 iconDataUri = dbusGraphic.CompositeImageUri(
-                    iconDataUri, 
+                    iconDataUri,
                     getIconDataUri(imageInfo.imagePath),
                     imageInfo.x,
                     imageInfo.y,
                     "png"
                 )
+            }
+
+            if(activeWiredDevice){
+                winIconUri = getIconUrl("network/small/wired_on.png")
+            }
+            else{
+                if(activeWirelessDevice) {
+                    winIconUri = getIconUrl(wifiStateDict.imagePath)
+                }
+                else{
+                    winIconUri = getIconUrl("network/small/wired_off.png")
+                }
             }
         }
         print("==> [info] network icon update...")
@@ -119,7 +135,9 @@ DockApplet{
         }
     }
 
+    // wired
     property var nmConnections: unmarshalJSON(dbusNetwork.connections)
+    property var activeWiredDevice: getActiveWiredDevice()
     property bool hasWiredDevices: {
         if(nmDevices["wired"] && nmDevices["wired"].length > 0){
             return true
@@ -138,6 +156,7 @@ DockApplet{
             return false
         }
     }
+    property var wifiStateDict: { "show": true, "imagePath": "" }
     property var activeWirelessDevice: getActiveWirelessDevice()
     onActiveWirelessDeviceChanged: {
         if(activeWirelessDevice){
@@ -192,7 +211,9 @@ DockApplet{
                 }
             }
         }
-        var imagePath = "network/wifi_%1.png".arg(image_id)
+        wifiStateDict.show = show
+        wifiStateDict.imagePath = "network/small/wifi_%1.png".arg(image_id)
+        var imagePath = "network/normal/wifi_%1.png".arg(image_id)
         updateState("wifi", show, imagePath)
     }
 
@@ -210,7 +231,7 @@ DockApplet{
     onActiveVpnIndexChanged: {
         var vpnShow = vpnConnections ? vpnConnections.length > 0 : false
         var vpnEnabled = activeVpnIndex != -1
-        var imagePath = "network/vpn_"
+        var imagePath = "network/normal/vpn_"
         if(vpnEnabled){
             imagePath += "on.png"
         }
@@ -222,7 +243,7 @@ DockApplet{
     onVpnConnectionsChanged: {
         var vpnShow = vpnConnections ? vpnConnections.length > 0 : false
         var vpnEnabled = activeVpnIndex != -1
-        var imagePath = "network/vpn_"
+        var imagePath = "network/normal/vpn_"
         if(vpnEnabled){
             imagePath += "on.png"
         }
@@ -239,7 +260,7 @@ DockApplet{
     onAdaptersChanged: {
         var show = adapters.length > 0
         var enabled = dbusBluetooth.powered ? dbusBluetooth.powered : false
-        var imagePath = "network/bluetooth_"
+        var imagePath = "network/normal/bluetooth_"
         if(enabled){
             imagePath += "on.png"
         }
@@ -261,6 +282,15 @@ DockApplet{
         }
         return null
     }
+    function getActiveWiredDevice(){
+        for(var i in wiredDevices){
+            var info = wiredDevices[i]
+            if(info.State == 100){
+                return info
+            }
+        }
+        return null
+    }
 
     function showNetwork(id){
         dbusControlCenter.ShowModule("network")
@@ -273,7 +303,6 @@ DockApplet{
     onActivate: {
         showNetwork(0)
     }
-
 
     onNativeWindowDestroyed: {
         toggle_applet("network")
@@ -440,7 +469,7 @@ DockApplet{
                                 }
                                 var show = adapters.length > 0
                                 var enabled = dbusBluetooth.powered
-                                var imagePath = "network/bluetooth_"
+                                var imagePath = "network/normal/bluetooth_"
                                 if(enabled){
                                     imagePath += "on.png"
                                 }

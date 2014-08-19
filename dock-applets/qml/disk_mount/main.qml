@@ -29,9 +29,7 @@ import "../widgets"
 DockApplet{
     title: "Disk Mount"
     appid: "AppletDiskMount"
-    icon: iconPath
-
-    property url iconPath: getIconUrl("disk_mount/icon.png")
+    icon: dockDisplayMode == 0 ? getIconUrl("disk_mount/icon.png") : getIconUrl("disk_mount/icon_16.png")
     property int windowWidth: 224
     property int xEdgePadding: 12
 
