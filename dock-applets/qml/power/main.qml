@@ -146,17 +146,17 @@ DockApplet {
                 if(percentage <= 5){
                     return getIconUrl(winPath.arg(0))
                 }
-                else if(percentage <= 15){
-                    return getIconUrl(winPath.arg(10))
+                else if(percentage <= 20){
+                    return getIconUrl(winPath.arg(20))
                 }
-                else if(percentage <= 30){
-                    return getIconUrl(winPath.arg(25))
+                else if(percentage <= 40){
+                    return getIconUrl(winPath.arg(40))
                 }
-                else if(percentage <= 55){
-                    return getIconUrl(winPath.arg(50))
+                else if(percentage <= 60){
+                    return getIconUrl(winPath.arg(60))
                 }
                 else if(percentage <= 80){
-                    return getIconUrl(winPath.arg(75))
+                    return getIconUrl(winPath.arg(80))
                 }
                 else{
                     return getIconUrl(winPath.arg(100))
