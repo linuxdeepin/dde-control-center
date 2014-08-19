@@ -60,7 +60,6 @@
     <file>modules/account/ExpandButton.qml</file>
     <file>modules/account/DeleteUserButton.qml</file>
     <file>modules/account/main.qml</file>
-    <file>modules/account/WarningArrowRect.qml</file>
     <file>modules/account/AvatarIconView.qml</file>
     <file>modules/account/AvatarPickDialog.qml</file>
     <file>modules/account/AvatarView.qml</file>
@@ -71,6 +70,7 @@
     <file>modules/account/PasswordDialog.qml</file>
     <file>modules/account/DeleteUserDialog.qml</file>
     <file>modules/account/UserList.qml</file>
+    <file>modules/account/WarningArrowRect.qml</file>
     <file>modules/account/WebCam.qml</file>
     <file>modules/account/SliderWithButtons.qml</file>
     <file>modules/account/DeleteLine.qml</file>
@@ -136,6 +136,7 @@
     <file>modules/keyboard/AddLayoutItem.qml</file>
     <file>modules/keyboard/main.qml</file>
     <file>modules/keyboard/TestInput.qml</file>
+    <file>modules/keyboard/LocaleArea.qml</file>
     <file>modules/keyboard/images/keyboard_inactive_normal.svg</file>
     <file>modules/keyboard/images/keyboard_inactive_hover.svg</file>
     <file>modules/keyboard/images/keyboard_white.svg</file>
@@ -183,7 +184,6 @@
     <file>modules/date_time/CalendarComponent.qml</file>
     <file>modules/date_time/TimeEdit.qml</file>
     <file>modules/date_time/calendar_core.js</file>
-    <file>modules/date_time/LocaleArea.qml</file>
     <file>modules/date_time/AddTimezoneItem.qml</file>
     <file>modules/date_time/TimezoneArea.qml</file>
     <file>modules/date_time/images/arrow_left_white.png</file>

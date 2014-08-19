@@ -23,12 +23,15 @@
 
 import QtQuick 2.2
 import Deepin.Widgets 1.0
+import DBus.Com.Deepin.Daemon.DateAndTime 1.0
 import "../shared"
 
 DBaseExpand {
     id: localeExpand
 
     property int listAreaMaxHeight: 100
+
+    property var gDate: DateAndTime {}
 
     property string currentLocale: gDate.currentLocale
     property var localeToLanguage: {

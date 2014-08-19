@@ -203,6 +203,19 @@ Item {
         }
 
         DSeparatorHorizontal {}
+
+        DBaseLine {
+            leftLoader.sourceComponent: DssH2 { text: dsTr("Caps Lock prompt") }
+            rightLoader.sourceComponent: DSwitchButton {
+                checked: dbusKeyboard.capslockToggle
+
+                onClicked: {
+                    dbusKeyboard.capslockToggle = checked
+                }
+            }
+        }
+
+        DSeparatorHorizontal {}
     }
 
     Column {
@@ -215,6 +228,10 @@ Item {
         property string currentActionStateName: ""
 
         DBaseLine {
+            id: keyboardLayoutAreaTitleLine
+            function reset(){
+                rightLoader.item.currentActionStateName = ""
+            }
             leftLoader.sourceComponent: DssH2 {
                 text: dsTr("Keyboard Layout")
             }
@@ -376,12 +393,7 @@ Item {
                 parent: addLayoutListBox
                 height: {
                     var listHeight = addLayoutList.model.count * 28
-                    if(listHeight > keyboardModule.height - 278 - 64){
-                        return keyboardModule.height - 278 - 64
-                    }
-                    else{
-                        return listHeight
-                    }
+                    return Math.min(keyboardModule.height - 278 - 64, listHeight)
                 }
                 width: parent.width
                 clip: true
@@ -439,17 +451,24 @@ Item {
 
         DSeparatorHorizontal {}
 
-        DBaseLine {}
-        DBaseLine {
-            leftLoader.sourceComponent: DssH2 { text: dsTr("Caps Lock prompt") }
-            rightLoader.sourceComponent: DSwitchButton {
-                checked: dbusKeyboard.capslockToggle
-
-                onClicked: {
-                    dbusKeyboard.capslockToggle = checked
+        LocaleArea {
+            id: localeArea
+            listAreaMaxHeight: keyboardModule.height - 278 - 94
+            onExpandedChanged: {
+                if(expanded){
+                    keyboardLayoutAreaTitleLine.reset()
+                }
+            }
+            Connections{
+                target: keyboardLayoutArea
+                onCurrentActionStateNameChanged: {
+                    if(keyboardLayoutArea.currentActionStateName != ""){
+                        localeArea.expanded = false
+                    }
                 }
             }
         }
         DSeparatorHorizontal {}
+
     }
 }
