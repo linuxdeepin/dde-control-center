@@ -53,7 +53,7 @@ DFlickable {
     property var dbusSearch: Search {}
 
     property var globalDate: new Date()
-    
+
     Component.onCompleted: {
         lang = dsslocale.lang
     }
@@ -62,7 +62,7 @@ DFlickable {
         running: true
         repeat: true
         interval: 500
-        onTriggered: { 
+        onTriggered: {
             dateTimeModule.globalDate= new Date()
         }
     }
@@ -116,42 +116,15 @@ DFlickable {
         DSeparatorHorizontal {}
     }
 
-    //Item {
-        //id: timeZoneArea
-    //}
-
     TimezoneArea {
         id: timeZoneArea
         anchors.top: beforeTimeZoneArea.bottom
-        listAreaMaxHeight: parent.height - beforeTimeZoneArea.height - afterTimeZoneArea.height - 64
-        onCurrentActionStateNameChanged: {
-            if(currentActionStateName != ""){
-                localeArea.expanded = false
-            }
-        }
-    }
-
-    Column {
-        id: localeAreaColumn
-        anchors.top: timeZoneArea.bottom
-        width: parent.width
-
-        DSeparatorHorizontal {}
-
-        LocaleArea {
-            id: localeArea
-            listAreaMaxHeight: timeZoneArea.listAreaMaxHeight - 60
-            onExpandedChanged: {
-                if(expanded){
-                    timeZoneArea.reset()
-                }
-            }
-        }
+        listAreaMaxHeight: parent.height - beforeTimeZoneArea.height - afterTimeZoneArea.height - 34
     }
 
     Column {
         id: afterTimeZoneArea
-        anchors.top: localeAreaColumn.bottom
+        anchors.top: timeZoneArea.bottom
 
         DSeparatorHorizontal {}
 
@@ -182,8 +155,8 @@ DFlickable {
 
         DSeparatorHorizontal {}
 
-        Calendar { 
-            id: calendarObj 
+        Calendar {
+            id: calendarObj
         }
 
         DSeparatorHorizontal {}
