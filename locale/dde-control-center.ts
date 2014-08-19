@@ -2444,18 +2444,23 @@
 <context>
     <name>WirelessDeviceExpand</name>
     <message>
-        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="62"/>
+        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="63"/>
         <source>Wireless Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="65"/>
+        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="66"/>
         <source>Wireless Network %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="115"/>
-        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="331"/>
+        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="92"/>
+        <source>not managed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="124"/>
+        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="340"/>
         <source>Connect to hidden access point</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2574,54 +2579,54 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../dock-applets/qml/date_time/main.qml" line="80"/>
+        <location filename="../dock-applets/qml/date_time/main.qml" line="90"/>
         <source>_Switch to analog</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/date_time/main.qml" line="81"/>
+        <location filename="../dock-applets/qml/date_time/main.qml" line="91"/>
         <source>_Switch to digital</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/network/main.qml" line="279"/>
+        <location filename="../dock-applets/qml/network/main.qml" line="290"/>
         <location filename="../dock-applets/qml/power/main.qml" line="99"/>
-        <location filename="../dock-applets/qml/sound/main.qml" line="152"/>
+        <location filename="../dock-applets/qml/sound/main.qml" line="162"/>
         <source>_Run</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/date_time/main.qml" line="168"/>
+        <location filename="../dock-applets/qml/date_time/main.qml" line="178"/>
         <source>Sun</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/date_time/main.qml" line="169"/>
+        <location filename="../dock-applets/qml/date_time/main.qml" line="179"/>
         <source>Mon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/date_time/main.qml" line="170"/>
+        <location filename="../dock-applets/qml/date_time/main.qml" line="180"/>
         <source>Tue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/date_time/main.qml" line="171"/>
+        <location filename="../dock-applets/qml/date_time/main.qml" line="181"/>
         <source>Wed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/date_time/main.qml" line="172"/>
+        <location filename="../dock-applets/qml/date_time/main.qml" line="182"/>
         <source>Thu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/date_time/main.qml" line="173"/>
+        <location filename="../dock-applets/qml/date_time/main.qml" line="183"/>
         <source>Fri</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/date_time/main.qml" line="174"/>
+        <location filename="../dock-applets/qml/date_time/main.qml" line="184"/>
         <source>Sat</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2686,19 +2691,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/network/main.qml" line="280"/>
+        <location filename="../dock-applets/qml/network/main.qml" line="291"/>
         <location filename="../dock-applets/qml/power/main.qml" line="106"/>
-        <location filename="../dock-applets/qml/sound/main.qml" line="153"/>
+        <location filename="../dock-applets/qml/sound/main.qml" line="163"/>
         <source>_Undock</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/sound/main.qml" line="188"/>
+        <location filename="../dock-applets/qml/sound/main.qml" line="198"/>
         <source>Device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/qml/sound/main.qml" line="282"/>
+        <location filename="../dock-applets/qml/sound/main.qml" line="292"/>
         <source>Applications</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3204,143 +3209,143 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="157"/>
-        <location filename="../modules/network/main.qml" line="185"/>
+        <location filename="../modules/network/main.qml" line="162"/>
+        <location filename="../modules/network/main.qml" line="190"/>
         <source>Unknown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="159"/>
+        <location filename="../modules/network/main.qml" line="164"/>
         <source>Wired</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="161"/>
+        <location filename="../modules/network/main.qml" line="166"/>
         <source>Wireless</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="163"/>
+        <location filename="../modules/network/main.qml" line="168"/>
         <source>Unused1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="165"/>
+        <location filename="../modules/network/main.qml" line="170"/>
         <source>Unused2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="167"/>
+        <location filename="../modules/network/main.qml" line="172"/>
         <source>Bluetooth</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="169"/>
+        <location filename="../modules/network/main.qml" line="174"/>
         <source>OLPC mesh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="171"/>
+        <location filename="../modules/network/main.qml" line="176"/>
         <source>WiMax</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="173"/>
+        <location filename="../modules/network/main.qml" line="178"/>
         <source>Modem</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="175"/>
+        <location filename="../modules/network/main.qml" line="180"/>
         <source>InfiniBand</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="177"/>
+        <location filename="../modules/network/main.qml" line="182"/>
         <source>Bond</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="179"/>
+        <location filename="../modules/network/main.qml" line="184"/>
         <source>VLAN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="181"/>
+        <location filename="../modules/network/main.qml" line="186"/>
         <source>ADSL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="183"/>
+        <location filename="../modules/network/main.qml" line="188"/>
         <source>Bridge</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="191"/>
+        <location filename="../modules/network/main.qml" line="196"/>
         <source>Ethernet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="193"/>
+        <location filename="../modules/network/main.qml" line="198"/>
         <source>802.11 WiFi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="195"/>
+        <location filename="../modules/network/main.qml" line="200"/>
         <source>802.11 WiFi AdHoc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="197"/>
+        <location filename="../modules/network/main.qml" line="202"/>
         <source>802.11 WiFi Hotspot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="199"/>
+        <location filename="../modules/network/main.qml" line="204"/>
         <source>PPPoE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="201"/>
+        <location filename="../modules/network/main.qml" line="206"/>
         <source>Mobile</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="203"/>
+        <location filename="../modules/network/main.qml" line="208"/>
         <source>Mobile GSM</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="205"/>
+        <location filename="../modules/network/main.qml" line="210"/>
         <source>Mobile CDMA</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="207"/>
+        <location filename="../modules/network/main.qml" line="212"/>
         <source>VPN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="209"/>
+        <location filename="../modules/network/main.qml" line="214"/>
         <source>VPN L2TP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="211"/>
+        <location filename="../modules/network/main.qml" line="216"/>
         <source>VPN PPTP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="213"/>
+        <location filename="../modules/network/main.qml" line="218"/>
         <source>VPN VPNC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="215"/>
+        <location filename="../modules/network/main.qml" line="220"/>
         <source>VPN OpenVPN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="217"/>
+        <location filename="../modules/network/main.qml" line="222"/>
         <source>VPN OpenConnect</source>
         <translation type="unfinished"></translation>
     </message>

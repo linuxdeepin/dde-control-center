@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-15 18:09+0800\n"
+"POT-Creation-Date: 2014-08-19 11:51+0800\n"
 "PO-Revision-Date: 2014-07-02 18:11+0000\n"
 "Last-Translator: webcrush <chris.plescher@yahoo.de>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/dde-"
@@ -473,43 +473,43 @@ msgstr "Heute"
 
 #: ../modules/date_time/CalendarComponent.qml:80
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:168
+#: ../dock-applets/qml/date_time/main.qml:178
 msgid "Sun"
 msgstr "Son"
 
 #: ../modules/date_time/CalendarComponent.qml:81
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:169
+#: ../dock-applets/qml/date_time/main.qml:179
 msgid "Mon"
 msgstr "Mon"
 
 #: ../modules/date_time/CalendarComponent.qml:82
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:170
+#: ../dock-applets/qml/date_time/main.qml:180
 msgid "Tue"
 msgstr "Die"
 
 #: ../modules/date_time/CalendarComponent.qml:83
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:171
+#: ../dock-applets/qml/date_time/main.qml:181
 msgid "Wed"
 msgstr "Mit"
 
 #: ../modules/date_time/CalendarComponent.qml:84
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:172
+#: ../dock-applets/qml/date_time/main.qml:182
 msgid "Thu"
 msgstr "Don"
 
 #: ../modules/date_time/CalendarComponent.qml:85
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:173
+#: ../dock-applets/qml/date_time/main.qml:183
 msgid "Fri"
 msgstr "Fre"
 
 #: ../modules/date_time/CalendarComponent.qml:86
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:174
+#: ../dock-applets/qml/date_time/main.qml:184
 msgid "Sat"
 msgstr "Sam"
 
@@ -519,13 +519,13 @@ msgstr "Neues Netzwerk"
 
 #: ../modules/network/ConnectionAdd.qml:35
 #: ../modules/network/edit_autogen/EditSectionPppoe.qml:11
-#: ../modules/network/main.qml:199
+#: ../modules/network/main.qml:204
 msgid "PPPoE"
 msgstr "PPPoE"
 
 #: ../modules/network/ConnectionAdd.qml:45
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:11
-#: ../modules/network/main.qml:207
+#: ../modules/network/main.qml:212
 msgid "VPN"
 msgstr "VPN"
 
@@ -586,7 +586,7 @@ msgid "Click to install"
 msgstr "Zum Installieren klicken"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:11
-#: ../modules/network/main.qml:191
+#: ../modules/network/main.qml:196
 msgid "Ethernet"
 msgstr "Ethernet"
 
@@ -644,7 +644,7 @@ msgid "Prefix"
 msgstr "Prefix"
 
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:11
-#: ../modules/network/main.qml:201
+#: ../modules/network/main.qml:206
 msgid "Mobile"
 msgstr "Mobil"
 
@@ -1018,7 +1018,7 @@ msgstr "Netzwerk"
 msgid "Disk Mount"
 msgstr "Eingehängter Speicher"
 
-#: ../qt5frame/views/ModulesData.qml:31 ../modules/network/main.qml:167
+#: ../qt5frame/views/ModulesData.qml:31 ../modules/network/main.qml:172
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
@@ -1400,19 +1400,23 @@ msgstr "Kabelnetzwerk"
 msgid "Scanning..."
 msgstr "Suchen..."
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:62
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:63
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 msgid "Wireless Network"
 msgstr "Kabelloses Netzwerk"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:65
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:66
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 #, qt-format
 msgid "Wireless Network %1"
 msgstr "Kabelloses Netzwerk %1"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:115
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:331
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:92
+msgid "not managed"
+msgstr ""
+
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:124
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:340
 msgid "Connect to hidden access point"
 msgstr "Mit verstecktem Access Point verbinden"
 
@@ -1464,17 +1468,17 @@ msgstr "November"
 msgid "December"
 msgstr "Dezember"
 
-#: ../dock-applets/qml/date_time/main.qml:80
+#: ../dock-applets/qml/date_time/main.qml:90
 msgid "_Switch to analog"
 msgstr "_Zu Analog wechseln"
 
-#: ../dock-applets/qml/date_time/main.qml:81
+#: ../dock-applets/qml/date_time/main.qml:91
 msgid "_Switch to digital"
 msgstr "_Zu Digital wechseln"
 
-#: ../dock-applets/qml/network/main.qml:279
+#: ../dock-applets/qml/network/main.qml:290
 #: ../dock-applets/qml/power/main.qml:99
-#: ../dock-applets/qml/sound/main.qml:152
+#: ../dock-applets/qml/sound/main.qml:162
 msgid "_Run"
 msgstr "_Ausführen"
 
@@ -1497,17 +1501,17 @@ msgstr "Ausgeglichen"
 msgid "High performance"
 msgstr "Hohe Leistung"
 
-#: ../dock-applets/qml/network/main.qml:280
+#: ../dock-applets/qml/network/main.qml:291
 #: ../dock-applets/qml/power/main.qml:106
-#: ../dock-applets/qml/sound/main.qml:153
+#: ../dock-applets/qml/sound/main.qml:163
 msgid "_Undock"
 msgstr "_Undocken"
 
-#: ../dock-applets/qml/sound/main.qml:188
+#: ../dock-applets/qml/sound/main.qml:198
 msgid "Device"
 msgstr "Gerät"
 
-#: ../dock-applets/qml/sound/main.qml:282
+#: ../dock-applets/qml/sound/main.qml:292
 msgid "Applications"
 msgstr "Anwendungen"
 
@@ -1848,102 +1852,102 @@ msgstr "Festplatte"
 msgid "GNU GENERAL PUBLIC LICENSE"
 msgstr "GNU GENERAL PUBLIC LICENSE"
 
-#: ../modules/network/main.qml:157 ../modules/network/main.qml:185
+#: ../modules/network/main.qml:162 ../modules/network/main.qml:190
 msgid "Unknown"
 msgstr "Unbekannt"
 
-#: ../modules/network/main.qml:159
+#: ../modules/network/main.qml:164
 msgid "Wired"
 msgstr "Verkabelt"
 
-#: ../modules/network/main.qml:161
+#: ../modules/network/main.qml:166
 msgid "Wireless"
 msgstr "Kabellos"
 
-#: ../modules/network/main.qml:163
+#: ../modules/network/main.qml:168
 msgid "Unused1"
 msgstr "Unbenutzt1"
 
-#: ../modules/network/main.qml:165
+#: ../modules/network/main.qml:170
 msgid "Unused2"
 msgstr "Unbenutzt2"
 
-#: ../modules/network/main.qml:169
+#: ../modules/network/main.qml:174
 msgid "OLPC mesh"
 msgstr "OLPC Netz"
 
-#: ../modules/network/main.qml:171
+#: ../modules/network/main.qml:176
 msgid "WiMax"
 msgstr "WiMax"
 
-#: ../modules/network/main.qml:173
+#: ../modules/network/main.qml:178
 msgid "Modem"
 msgstr "Modem"
 
-#: ../modules/network/main.qml:175
+#: ../modules/network/main.qml:180
 msgid "InfiniBand"
 msgstr "InfiniBand"
 
-#: ../modules/network/main.qml:177
+#: ../modules/network/main.qml:182
 msgid "Bond"
 msgstr "Bindung"
 
-#: ../modules/network/main.qml:179
+#: ../modules/network/main.qml:184
 msgid "VLAN"
 msgstr "VLAN"
 
-#: ../modules/network/main.qml:181
+#: ../modules/network/main.qml:186
 msgid "ADSL"
 msgstr "ADSL"
 
-#: ../modules/network/main.qml:183
+#: ../modules/network/main.qml:188
 msgid "Bridge"
 msgstr "Bridge"
 
-#: ../modules/network/main.qml:193
+#: ../modules/network/main.qml:198
 msgid "802.11 WiFi"
 msgstr ""
 
-#: ../modules/network/main.qml:195
+#: ../modules/network/main.qml:200
 msgid "802.11 WiFi AdHoc"
 msgstr ""
 
-#: ../modules/network/main.qml:197
+#: ../modules/network/main.qml:202
 #, fuzzy
 msgid "802.11 WiFi Hotspot"
 msgstr "Wi-Fi Hotspot bearbeiten"
 
-#: ../modules/network/main.qml:203
+#: ../modules/network/main.qml:208
 #, fuzzy
 msgid "Mobile GSM"
 msgstr "Mobil"
 
-#: ../modules/network/main.qml:205
+#: ../modules/network/main.qml:210
 #, fuzzy
 msgid "Mobile CDMA"
 msgstr "Mobil"
 
-#: ../modules/network/main.qml:209
+#: ../modules/network/main.qml:214
 #, fuzzy
 msgid "VPN L2TP"
 msgstr "L2TP"
 
-#: ../modules/network/main.qml:211
+#: ../modules/network/main.qml:216
 #, fuzzy
 msgid "VPN PPTP"
 msgstr "VPN PPP"
 
-#: ../modules/network/main.qml:213
+#: ../modules/network/main.qml:218
 #, fuzzy
 msgid "VPN VPNC"
 msgstr "VPNC"
 
-#: ../modules/network/main.qml:215
+#: ../modules/network/main.qml:220
 #, fuzzy
 msgid "VPN OpenVPN"
 msgstr "OpenVPN"
 
-#: ../modules/network/main.qml:217
+#: ../modules/network/main.qml:222
 #, fuzzy
 msgid "VPN OpenConnect"
 msgstr "OpenConnect"

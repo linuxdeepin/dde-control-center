@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-15 18:09+0800\n"
+"POT-Creation-Date: 2014-08-19 11:51+0800\n"
 "PO-Revision-Date: 2014-07-03 03:50+0000\n"
 "Last-Translator: electricface <songwentai@linuxdeepin.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/dde-"
@@ -471,43 +471,43 @@ msgstr "返回今天"
 
 #: ../modules/date_time/CalendarComponent.qml:80
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:168
+#: ../dock-applets/qml/date_time/main.qml:178
 msgid "Sun"
 msgstr "日"
 
 #: ../modules/date_time/CalendarComponent.qml:81
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:169
+#: ../dock-applets/qml/date_time/main.qml:179
 msgid "Mon"
 msgstr "一"
 
 #: ../modules/date_time/CalendarComponent.qml:82
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:170
+#: ../dock-applets/qml/date_time/main.qml:180
 msgid "Tue"
 msgstr "二"
 
 #: ../modules/date_time/CalendarComponent.qml:83
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:171
+#: ../dock-applets/qml/date_time/main.qml:181
 msgid "Wed"
 msgstr "三"
 
 #: ../modules/date_time/CalendarComponent.qml:84
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:172
+#: ../dock-applets/qml/date_time/main.qml:182
 msgid "Thu"
 msgstr "四"
 
 #: ../modules/date_time/CalendarComponent.qml:85
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:173
+#: ../dock-applets/qml/date_time/main.qml:183
 msgid "Fri"
 msgstr "五"
 
 #: ../modules/date_time/CalendarComponent.qml:86
 #: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:174
+#: ../dock-applets/qml/date_time/main.qml:184
 msgid "Sat"
 msgstr "六"
 
@@ -517,13 +517,13 @@ msgstr "新建網絡"
 
 #: ../modules/network/ConnectionAdd.qml:35
 #: ../modules/network/edit_autogen/EditSectionPppoe.qml:11
-#: ../modules/network/main.qml:199
+#: ../modules/network/main.qml:204
 msgid "PPPoE"
 msgstr "撥號"
 
 #: ../modules/network/ConnectionAdd.qml:45
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:11
-#: ../modules/network/main.qml:207
+#: ../modules/network/main.qml:212
 msgid "VPN"
 msgstr "VPN"
 
@@ -584,7 +584,7 @@ msgid "Click to install"
 msgstr "點擊安裝"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:11
-#: ../modules/network/main.qml:191
+#: ../modules/network/main.qml:196
 msgid "Ethernet"
 msgstr "以太網"
 
@@ -642,7 +642,7 @@ msgid "Prefix"
 msgstr "前綴"
 
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:11
-#: ../modules/network/main.qml:201
+#: ../modules/network/main.qml:206
 msgid "Mobile"
 msgstr "移動"
 
@@ -1014,7 +1014,7 @@ msgstr "網絡"
 msgid "Disk Mount"
 msgstr "磁盤掛載"
 
-#: ../qt5frame/views/ModulesData.qml:31 ../modules/network/main.qml:167
+#: ../qt5frame/views/ModulesData.qml:31 ../modules/network/main.qml:172
 msgid "Bluetooth"
 msgstr "藍牙"
 
@@ -1389,19 +1389,23 @@ msgstr "有線網絡"
 msgid "Scanning..."
 msgstr "掃描中..."
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:62
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:63
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 msgid "Wireless Network"
 msgstr "無線網絡"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:65
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:66
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 #, qt-format
 msgid "Wireless Network %1"
 msgstr "無線網絡 %1"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:115
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:331
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:92
+msgid "not managed"
+msgstr ""
+
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:124
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:340
 msgid "Connect to hidden access point"
 msgstr "連接到隱藏網絡"
 
@@ -1453,17 +1457,17 @@ msgstr "十一月"
 msgid "December"
 msgstr "十二月"
 
-#: ../dock-applets/qml/date_time/main.qml:80
+#: ../dock-applets/qml/date_time/main.qml:90
 msgid "_Switch to analog"
 msgstr "切換為模擬時鐘(_S)"
 
-#: ../dock-applets/qml/date_time/main.qml:81
+#: ../dock-applets/qml/date_time/main.qml:91
 msgid "_Switch to digital"
 msgstr "切換為數字時鐘(_S)"
 
-#: ../dock-applets/qml/network/main.qml:279
+#: ../dock-applets/qml/network/main.qml:290
 #: ../dock-applets/qml/power/main.qml:99
-#: ../dock-applets/qml/sound/main.qml:152
+#: ../dock-applets/qml/sound/main.qml:162
 msgid "_Run"
 msgstr "運行(_R)"
 
@@ -1486,17 +1490,17 @@ msgstr "均衡"
 msgid "High performance"
 msgstr "高性能"
 
-#: ../dock-applets/qml/network/main.qml:280
+#: ../dock-applets/qml/network/main.qml:291
 #: ../dock-applets/qml/power/main.qml:106
-#: ../dock-applets/qml/sound/main.qml:153
+#: ../dock-applets/qml/sound/main.qml:163
 msgid "_Undock"
 msgstr "移除駐留(_U)"
 
-#: ../dock-applets/qml/sound/main.qml:188
+#: ../dock-applets/qml/sound/main.qml:198
 msgid "Device"
 msgstr "設備"
 
-#: ../dock-applets/qml/sound/main.qml:282
+#: ../dock-applets/qml/sound/main.qml:292
 msgid "Applications"
 msgstr "程序"
 
@@ -1837,102 +1841,102 @@ msgstr "磁盤"
 msgid "GNU GENERAL PUBLIC LICENSE"
 msgstr "GNU通用公共許可協議"
 
-#: ../modules/network/main.qml:157 ../modules/network/main.qml:185
+#: ../modules/network/main.qml:162 ../modules/network/main.qml:190
 msgid "Unknown"
 msgstr "未知的"
 
-#: ../modules/network/main.qml:159
+#: ../modules/network/main.qml:164
 msgid "Wired"
 msgstr "有線"
 
-#: ../modules/network/main.qml:161
+#: ../modules/network/main.qml:166
 msgid "Wireless"
 msgstr "無線"
 
-#: ../modules/network/main.qml:163
+#: ../modules/network/main.qml:168
 msgid "Unused1"
 msgstr "未使用1"
 
-#: ../modules/network/main.qml:165
+#: ../modules/network/main.qml:170
 msgid "Unused2"
 msgstr "未使用2"
 
-#: ../modules/network/main.qml:169
+#: ../modules/network/main.qml:174
 msgid "OLPC mesh"
 msgstr "OLPC網"
 
-#: ../modules/network/main.qml:171
+#: ../modules/network/main.qml:176
 msgid "WiMax"
 msgstr "WiMax"
 
-#: ../modules/network/main.qml:173
+#: ../modules/network/main.qml:178
 msgid "Modem"
 msgstr "調製解調器"
 
-#: ../modules/network/main.qml:175
+#: ../modules/network/main.qml:180
 msgid "InfiniBand"
 msgstr "InfiniBand"
 
-#: ../modules/network/main.qml:177
+#: ../modules/network/main.qml:182
 msgid "Bond"
 msgstr "綁定"
 
-#: ../modules/network/main.qml:179
+#: ../modules/network/main.qml:184
 msgid "VLAN"
 msgstr "VLAN"
 
-#: ../modules/network/main.qml:181
+#: ../modules/network/main.qml:186
 msgid "ADSL"
 msgstr "ADSL"
 
-#: ../modules/network/main.qml:183
+#: ../modules/network/main.qml:188
 msgid "Bridge"
 msgstr "橋接"
 
-#: ../modules/network/main.qml:193
+#: ../modules/network/main.qml:198
 msgid "802.11 WiFi"
 msgstr ""
 
-#: ../modules/network/main.qml:195
+#: ../modules/network/main.qml:200
 msgid "802.11 WiFi AdHoc"
 msgstr ""
 
-#: ../modules/network/main.qml:197
+#: ../modules/network/main.qml:202
 #, fuzzy
 msgid "802.11 WiFi Hotspot"
 msgstr "編輯無線熱點"
 
-#: ../modules/network/main.qml:203
+#: ../modules/network/main.qml:208
 #, fuzzy
 msgid "Mobile GSM"
 msgstr "移動"
 
-#: ../modules/network/main.qml:205
+#: ../modules/network/main.qml:210
 #, fuzzy
 msgid "Mobile CDMA"
 msgstr "移動"
 
-#: ../modules/network/main.qml:209
+#: ../modules/network/main.qml:214
 #, fuzzy
 msgid "VPN L2TP"
 msgstr "L2TP"
 
-#: ../modules/network/main.qml:211
+#: ../modules/network/main.qml:216
 #, fuzzy
 msgid "VPN PPTP"
 msgstr "VPN PPP"
 
-#: ../modules/network/main.qml:213
+#: ../modules/network/main.qml:218
 #, fuzzy
 msgid "VPN VPNC"
 msgstr "VPN PPP"
 
-#: ../modules/network/main.qml:215
+#: ../modules/network/main.qml:220
 #, fuzzy
 msgid "VPN OpenVPN"
 msgstr "OpenVPN"
 
-#: ../modules/network/main.qml:217
+#: ../modules/network/main.qml:222
 #, fuzzy
 msgid "VPN OpenConnect"
 msgstr "OpenConnect"
