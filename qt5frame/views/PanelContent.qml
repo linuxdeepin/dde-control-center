@@ -82,7 +82,6 @@ Rectangle {
     property color tuhaoColor: "#faca57"
 
     property var sessionManager: SessionManager {}
-    property var modulesId: ModulesData {}
 
     property bool inDssHome: true
     property var navigateIconModel: ListModel {

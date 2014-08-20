@@ -26,46 +26,16 @@ import QtQuick.Window 2.1
 import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
 
-Window {
+Item {
     id: trayIconTip
     width: trayIconTipArrowRect.width
     height: trayIconTipArrowRect.height
-    flags: Qt.Popup | Qt.WindowStaysOnTopHint
+    visible: false
+    z: 100
 
     property alias text: trayIconTipText.text
     property alias timeOutHide: hide
     property bool isHover: false
-
-    color: Qt.rgba(0, 0, 0, 0)
-
-    onVisibleChanged: {
-        if(visible){
-            freshBackground.restart()
-        }
-    }
-
-    Timer{
-        id: freshBackground
-        interval: 100
-        repeat: true
-        property int repeatCount: 0
-
-        onTriggered: {
-            if(repeatCount > 10){
-                freshBackground.stop()
-                freshBackground.repeat = false
-            }
-            else{
-                repeatCount += 1
-                if (trayIconTip.color == Qt.rgba(0, 0, 0, 0)){
-                    trayIconTip.color = Qt.rgba(0, 0, 0, 0.01)
-                }
-                else{
-                    trayIconTip.color = Qt.rgba(0, 0, 0, 0)
-                }
-            }
-        }
-    }
 
     Timer {
         id: hide

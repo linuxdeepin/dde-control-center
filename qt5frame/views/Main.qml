@@ -89,10 +89,6 @@ QtObject {
 
     property var rootWindow: PanelWindow {}
 
-    property var trayIconTip: IconTip{
-        x: screenSize.x + screenSize.width - rootWindow.displayWidth - width - 8
-    }
-
     property var timeoutHideDss: Timer{
         interval: 2000
         onTriggered: {

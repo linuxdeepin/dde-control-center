@@ -24,6 +24,30 @@
 import QtQuick 2.1
 
 Item {
+    id: moduleData
+
+    function getMaxModuleNameWidth(){
+        var max = 0
+        for(var i in allIds){
+            var t = moduleLocaleNames[allIds[i]]
+            var tmpText = iconTipTextComponent.createObject(moduleData, { text: t})
+            var width = Math.ceil(tmpText.width)
+            if (max < width){
+                max = width
+            }
+        }
+        return max + 60
+    }
+
+    Component {
+        id: iconTipTextComponent
+        Text{
+            font.pixelSize: 13
+            color: "white"
+            visible: false
+        }
+    }
+
     property var moduleLocaleNames: {
             "date_time": dsTr("Date and Time"),
             "network": dsTr("Network"),

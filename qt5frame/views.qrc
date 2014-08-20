@@ -5,10 +5,10 @@
     <file>views/HeaderArea.qml</file>
     <file>views/Main.qml</file>
     <file>views/CloseButton.qml</file>
-    <file>views/IconTip.qml</file>
     <file>views/ModulesData.qml</file>
     <file>views/RectWithCorner.qml</file>
     <file>views/PanelContent.qml</file>
+    <file>views/InnerIconTip.qml</file>
     <file>views/Menu.qml</file>
     <file>views/ScrollWidget.qml</file>
     <file>views/NumberTipText.qml</file>

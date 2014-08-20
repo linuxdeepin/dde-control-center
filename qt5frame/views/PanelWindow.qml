@@ -27,13 +27,16 @@ import Deepin.Widgets 1.0
 
 DOverrideWindow {
     id: rootWindow
-    color: "transparent"
+    color: Qt.rgba(0, 0, 0, 0)
     flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.X11BypassWindowManagerHint
 
     x: screenSize.x + screenSize.width - width
     y: screenSize.y
-    width: 0
+    width: validWidth ? panelWidth + moduleNameMaxWidth : 0
     height: screenSize.height
+
+    property bool validWidth: false
+    property int moduleNameMaxWidth: modulesId.getMaxModuleNameWidth()
 
     property int displayWidth: 0
 
@@ -45,6 +48,7 @@ DOverrideWindow {
     property var listModelComponent: DListModelComponent {}
     property bool clickedToHide: true
     property alias panelContent: panelContent
+    property var modulesId: ModulesData {}
 
     function showModule(moduleId){
         panelContent.moduleIconList.iconClickAction(moduleId)
@@ -68,7 +72,7 @@ DOverrideWindow {
     }
 
     function showAllImmediately(){
-        rootWindow.width = panelWidth + 16
+        rootWindow.validWidth = true
         rootWindow.show()
         rootWindow.raise()
         rootWindow.requestActivate()
@@ -76,7 +80,7 @@ DOverrideWindow {
     }
 
     function hideAllImmediately(){
-        rootWindow.width = 0
+        rootWindow.validWidth = false
         rootWindow.hideWindow()
         rootWindow.displayWidth = 0
     }
@@ -136,7 +140,7 @@ DOverrideWindow {
         property bool quit: false
 
         onStopped: {
-            rootWindow.width = 0
+            validWidth = false
             rootWindow.hideWindow()
             timeoutQuit.restart()
             if(quit){
@@ -155,7 +159,7 @@ DOverrideWindow {
         easing.type: Easing.OutQuart
 
         onStarted: {
-            rootWindow.width = panelWidth + 16
+            validWidth = true
             rootWindow.show()
             rootWindow.raise()
             rootWindow.requestActivate()
@@ -186,4 +190,10 @@ DOverrideWindow {
         height: parent.height
         source: "images/shadow.png"
     }
+
+    InnerIconTip {
+        id: trayIconTip
+        x: rootWindow.width - rootWindow.displayWidth - width - 6
+    }
+
 }
