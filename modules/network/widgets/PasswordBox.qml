@@ -52,7 +52,7 @@ Item {
         }
     }
 
-    ArrowRect{
+    ArrowRect {
         id: arrowRectBackground
         anchors.fill: parent
         fillStyle: dconstants.bgColor

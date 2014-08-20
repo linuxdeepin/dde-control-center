@@ -268,6 +268,7 @@
     <file>modules/network/edit/EditLinePasswordInput.qml</file>
     <file>modules/network/edit/EditLineConnectionId.qml</file>
     <file>modules/network/widgets/Ipv4InputItem.qml</file>
+    <file>modules/network/widgets/NotManagedSection.qml</file>
     <file>modules/network/widgets/PasswordBox.qml</file>
     <file>modules/network/widgets/Ipv4Dot.qml</file>
     <file>modules/network/widgets/Ipv4Input.qml</file>
@@ -281,6 +282,7 @@
     <file>modules/network/add/AddDsl.qml</file>
     <file>modules/network/data/serviceproviders.xml</file>
     <file>modules/network/images/info_normal.png</file>
+    <file>modules/network/images/ico_warning.png</file>
     <file>modules/network/images/wired_status_receive.svg</file>
     <file>modules/network/images/wired_status_idle.svg</file>
     <file>modules/network/images/wifi-signal-50-secure.svg</file>
