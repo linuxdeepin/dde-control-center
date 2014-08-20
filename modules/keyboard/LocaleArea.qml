@@ -31,60 +31,27 @@ DBaseExpand {
 
     property int listAreaMaxHeight: 100
 
-    property var gDate: DateAndTime {}
+    property var dbusDateAndTime: DateAndTime {}
+    property var listModelComponent: DListModelComponent {}
+    property string currentLocale: dbusDateAndTime.currentLocale
 
-    property string currentLocale: gDate.currentLocale
+    property var allLocaleInformation: dbusDateAndTime.GetLocaleList()
     property var localeToLanguage: {
-        var allLocaleList = gDate.GetLocaleList()
-        var r = new Object()
-        for(var i in allLocaleList){
-            var info = allLocaleList[i]
-            r[info[0]] = info[1]
+        var tmp = new Object()
+        for(var i in allLocaleInformation){
+            var info = allLocaleInformation[i]
+            tmp[info[0]] = info[1]
         }
-        return r
-    }
-    property var allLocales: getAllLocales(false)
-    property var allSearchLocales: getAllLocales(true)
-    property var localeInformation: {
-        var codeList = new Array()
-        var labelList = new Array()
-        var allLocaleList = gDate.GetLocaleList()
-        for(var i in allLocaleList){
-            var info = allLocaleList[i]
-            codeList.push(info[0])
-            labelList.push(info[1])
-        }
-        return {"codeList": codeList, "labelList": labelList}
-    }
-    property string searchMd5: {
-        var retList = dbusSearch.NewSearchWithStrList(localeInformation.labelList)
-        return retList[0]
+        return tmp
     }
 
-    function getAllLocales(returnDict){
-        if(returnDict){
-            var toSortResult = new Object()
-            for(var key in localeToLanguage) {
-                toSortResult[key]= localeToLanguage[key]
-            }
-            return toSortResult
-        }
-        else{
-            var toSortResult = new Array()
-            for(var key in localeExpand.localeToLanguage) {
-                var tmp = new Array()
-                tmp.push(key)
-                tmp.push(localeExpand.localeToLanguage[key])
-                toSortResult.push(tmp)
-            }
-            //return mainObject.sortSearchResult(toSortResult)
-            return toSortResult
-        }
-    }
+    property string searchMd5: ""
+    property var languageList: null
+    property var languageToLocale: null
 
     header.sourceComponent: DDownArrowHeader {
         text: dsTr("Language")
-        hintText: " (" + localeExpand.localeToLanguage[localeExpand.currentLocale]+ ")"
+        hintText: " (" + localeToLanguage[currentLocale]+ ")"
         width: 310
         anchors.leftMargin: 2
         anchors.rightMargin: 10
@@ -128,21 +95,18 @@ DBaseExpand {
                 anchors.centerIn: parent
 
                 onTextChanged: {
-                    //addTimezoneListView.fillModel(text)
                     if(text == ""){
-                        localeListView.updateModel(allLocales)
+                        localeListView.localeList = allLocaleInformation
                     }
                     else{
                         var searchResult = dbusSearch.SearchString(text, searchMd5)
                         var localeList = new Array()
                         for(var i in searchResult){
                             var label = searchResult[i]
-                            var index = getIndexFromArray(searchResult[i], localeInformation.labelList)
-                            if(index == -1) continue
-                            var code = localeInformation.codeList[index]
+                            var code = languageToLocale[label]
                             localeList.push([code, label])
                         }
-                        localeListView.updateModel(localeList)
+                        localeListView.localeList = localeList
                     }
                 }
             }
@@ -153,11 +117,12 @@ DBaseExpand {
             anchors.top: searchInputBox.bottom
             width: parent.width
             height: parent.height - searchInputBox.height
-            model: ListModel {}
-            maximumFlickVelocity: 1000
+            model: getModel(localeList)
             clip: true
 
             property int seletedIndex: -1
+
+            property var localeList: new Array()
 
             delegate: SelectItem {
                 totalItemNumber: 2
@@ -170,40 +135,52 @@ DBaseExpand {
                 }
 
                 onSelectAction: {
-                    gDate.SetLocale(itemId)
+                    dbusDateAndTime.SetLocale(itemId)
                 }
             }
 
-            function updateModel(localeList){
-                model.clear()
+            function getModel(localeList){
+                var newModel = listModelComponent.createObject(localeListView, {})
                 for(var i in localeList){
                     if(localeList[i][0] == localeExpand.currentLocale){
                         localeListView.seletedIndex = i
                     }
-                    model.append({
+                    newModel.append({
                         "item_id": localeList[i][0],
                         "item_name": localeList[i][1]
                     })
                 }
-            }
-
-            Timer {
-                id: initLocaleListTimer
-                interval: 500
-                onTriggered: {
-                    localeListView.updateModel(allLocales)
-                }
-            }
-
-            Component.onCompleted: {
-                initLocaleListTimer.start()
+                return newModel
             }
 
             DScrollBar {
                 flickable: localeListView
             }
+
+            function initSearchLocaleData(){
+                languageList = new Array()
+                languageToLocale = new Object()
+                for(var i in allLocaleInformation){
+                    var info = allLocaleInformation[i]
+                    languageList.push(info[1])
+                    languageToLocale[info[1]] = info[0]
+                }
+                searchMd5 = dbusSearch.NewSearchWithStrList(languageList)[0]
+                localeListView.localeList = allLocaleInformation
+            }
+
+            Timer {
+                id: initSearchLocaleDataTimer
+                interval: 1000
+                onTriggered: {
+                    localeListView.initSearchLocaleData()
+                }
+            }
+
+            Component.onCompleted: {
+                initSearchLocaleDataTimer.start()
+            }
         }
     }
-
 }
 
