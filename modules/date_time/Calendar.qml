@@ -30,30 +30,34 @@ Column {
     width: 308
     height: childrenRect.height
 
-    property var clickedDateObject: globalDate
+    property string currentDateValue: CalendarCore.dateToString(globalDate)
+    property string currentSelectedDateValue: currentDateValue
+
     property bool slideStop: true
-    property bool isToday: CalendarCore.dateToString(clickedDateObject) == CalendarCore.dateToString(globalDate)
+    property bool isToday: currentDateValue == currentSelectedDateValue
     property var cur_calendar;
     property var pre_calendar;
     property var next_calendar;
 
+    onCurrentSelectedDateValueChanged: {
+        monthChange(currentSelectedDateValue)
+    }
+
     function monthChange(dateValue){
-        var d = new Date(dateValue)
-        if (d > cur_calendar.clickedDateObject && slideStop){
-            next_calendar = calendarSlideBox.createCanlendar(d, "next")
+        var tmpYearMonth = CalendarCore.getYearMonth(dateValue)
+        if (CalendarCore.compareYearMonth(tmpYearMonth, cur_calendar.yearMonth) == 1 && slideStop){
+            next_calendar = calendarSlideBox.createCanlendar(tmpYearMonth, "next")
             next_calendar.visible = true
             if (!toNextMonth.running && !toPreviousMonth.running){
                 toNextMonth.restart()
             }
-            clickedDateObject = d
         }
-        else if (d < cur_calendar.clickedDateObject && slideStop){
-            pre_calendar = calendarSlideBox.createCanlendar(d, "previous")
+        else if (CalendarCore.compareYearMonth(tmpYearMonth, cur_calendar.yearMonth) == -1 && slideStop){
+            pre_calendar = calendarSlideBox.createCanlendar(tmpYearMonth, "previous")
             pre_calendar.visible = true
             if (!toNextMonth.running && !toPreviousMonth.running){
                 toPreviousMonth.restart()
             }
-            clickedDateObject = d
         }
     }
 
@@ -66,14 +70,14 @@ Column {
             target: cur_calendar
             properties: "x"
             to: calendarSlideBox.x - calendarSlideBox.width
-            easing.type: Easing.InOutQuad 
+            easing.type: Easing.InOutQuad
             duration: 300
         }
         PropertyAnimation {
             target: next_calendar
             properties: "x"
             to: calendarSlideBox.x
-            easing.type: Easing.InOutQuad 
+            easing.type: Easing.InOutQuad
             duration: 300
         }
         onStopped: {
@@ -92,14 +96,14 @@ Column {
             target: pre_calendar
             properties: "x"
             to: calendarSlideBox.x
-            easing.type: Easing.InOutQuad 
+            easing.type: Easing.InOutQuad
             duration: 300
         }
         PropertyAnimation {
             target: cur_calendar
             properties: "x"
             to: calendarSlideBox.x + calendarSlideBox.width
-            easing.type: Easing.InOutQuad 
+            easing.type: Easing.InOutQuad
             duration: 300
         }
         onStopped: {
@@ -116,8 +120,8 @@ Column {
 
         leftLoader.sourceComponent: YearMonthAdjustor {
             height: dateBoxAdjustment.height
-            currentDateObject: calendarWidget.clickedDateObject
-            onMonthChanged: calendarWidget.monthChange(newDateString)
+            dateValue: calendarWidget.currentSelectedDateValue
+            onMonthChanged: calendarWidget.currentSelectedDateValue = newDateString
         }
 
         rightLoader.sourceComponent: DTextAction {
@@ -126,12 +130,11 @@ Column {
             visible: opacity != 0
             opacity: isToday ? 0 : 1
             onClicked: {
-                if(CalendarCore.isSameMonth(globalDate, calendarWidget.clickedDateObject)){
-                    calendarWidget.clickedDateObject = globalDate
-                    calendarWidget.cur_calendar.clickedDateObject = globalDate
+                if(CalendarCore.compareYearMonth(currentDateValue, calendarWidget.currentSelectedDateValue) == 0){
+                    calendarWidget.currentSelectedDateValue = currentDateValue
                 }
                 else{
-                    calendarWidget.monthChange(CalendarCore.dateToString(globalDate))
+                    calendarWidget.currentSelectedDateValue = currentDateValue
                 }
             }
         }
@@ -143,10 +146,10 @@ Column {
         width: parent.width
         height: cur_calendar.height
         property var component: Qt.createComponent("CalendarComponent.qml")
-        
+
         function initCalendar(){
-            var cur_d = clickedDateObject
-            cur_calendar = createCanlendar(cur_d, '');
+            var yearMonth = CalendarCore.getYearMonth(currentSelectedDateValue)
+            cur_calendar = createCanlendar(yearMonth, '');
 
             pre_calendar = cur_calendar
             next_calendar = cur_calendar
@@ -154,11 +157,12 @@ Column {
 
         Component.onCompleted: {
             initCalendar()
+            calendarWidget.currentSelectedDateValue = CalendarCore.dateToString(globalDate)
         }
 
-        function createCanlendar(d_obj, position){
+        function createCanlendar(yearMonth, position){
             var calendar = calendarSlideBox.component.createObject(calendarSlideBox, {
-                "clickedDateObject": d_obj
+                "yearMonth": yearMonth
             })
 
             if (position == 'previous'){
@@ -169,7 +173,7 @@ Column {
                 calendar.x = calendarSlideBox.x + calendarSlideBox.width;
                 calendar.visible = false
             }
-            else{
+            else {
                 calendar.x = calendarSlideBox.x
             }
             return calendar

@@ -1,27 +1,5 @@
 var CONST = {
-    days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", 
-        "Saturday", "Sunday"],
-    daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-    daysMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
-    months: [dsTr("January"), dsTr("February"), dsTr("March"), dsTr("April"), dsTr("May"), dsTr("June"), dsTr("July"), 
-        dsTr("August"), dsTr("September"), dsTr("October"), dsTr("November"), dsTr("December")],
-    monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", 
-        "Sep", "Oct", "Nov", "Dec"],
     monthsDates: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
-}
-
-function isSameMonth(d_obj_1, d_obj_2){
-    if(d_obj_1.getFullYear() != d_obj_2.getFullYear()){
-        return false
-    }
-    else{
-        if(d_obj_1.getMonth() != d_obj_2.getMonth()){
-            return false
-        }
-        else{
-            return true
-        }
-    }
 }
 
 function isLeapYear(year){
@@ -54,41 +32,92 @@ function dateToString(d){
     }
     return d.getFullYear() + "-" + month_str + "-" + day_str;
 }
-function setDateOne(d){
-    var year = d.getFullYear();
-    var month = d.getMonth() + 1;
-    if(month<10){
-        month = "0" + month;
+
+function getNextMonthDateValue(dateValue){
+    var dateValueArray = dateValue.split("-");
+    dateValueArray[2] = "01";
+    if(dateValueArray[1] == "12"){
+        dateValueArray[1] = "01";
+        var tmpYear = Math.round(dateValueArray[0]);
+        tmpYear += 1;
+        dateValueArray[0] = String(tmpYear);
     }
-    return new Date(year+"-"+month+"-0"+1)
+    else{
+        var tmpMonth = Math.round(dateValueArray[1]);
+        tmpMonth += 1;
+        if(tmpMonth < 10){
+            dateValueArray[1] = "0" + String(tmpMonth);
+        }
+        else{
+            dateValueArray[1] = String(tmpMonth);
+        }
+    }
+    return dateValueArray.join("-");
+}
+function getPreviousMonthDateValue(dateValue){
+    var dateValueArray = dateValue.split("-");
+    dateValueArray[2] = "01";
+    if(dateValueArray[1] == "01"){
+        dateValueArray[1] = "12";
+        var tmpYear = Math.round(dateValueArray[0]);
+        tmpYear -= 1;
+        dateValueArray[0] = String(tmpYear);
+    }
+    else{
+        var tmpMonth = Math.round(dateValueArray[1]);
+        tmpMonth -= 1;
+        if(tmpMonth < 10){
+            dateValueArray[1] = "0" + String(tmpMonth);
+        }
+        else{
+            dateValueArray[1] = String(tmpMonth);
+        }
+    }
+    return dateValueArray.join("-");
 }
 
-function getDateWidthMonthStep(d, step){
-    var new_d = new Date(dateToString(d));
-    var new_month = d.getMonth() + step;
-    if (new_month > 11) {
-        new_month = new_month - 12
+function getYearMonth(dateValue){
+    var a = dateValue.split("-");
+    return a[0] + "-" + a[1];
+}
+
+function compareYearMonth(yearMonthA, yearMonthB){
+    if (yearMonthA == yearMonthB){
+        return 0;
     }
-    else if (new_month < 0){
-        new_month = 12 + new_month
+
+    var a = yearMonthA.split("-");
+    var b = yearMonthB.split("-");
+    if(Math.round(a[0]) > Math.round(b[0])){
+        return 1;
     }
-    new_d.setMonth(d.getMonth() + step)
-    return new_d
+    else if(Math.round(a[0]) < Math.round(b[0])){
+        return -1;
+    }
+    else{
+        if(Math.round(a[1]) > Math.round(b[1])){
+            return 1;
+        }
+        else if(Math.round(a[1]) < Math.round(b[1])){
+            return -1;
+        }
+        else{
+            return 0;
+        }
+    }
 }
 
 function getDates(dateStr){
     var results = new Array();
-    var d = new Date(dateStr);
+    var d = new Date(dateStr.split("-").join(" "));
     var cur_year = d.getFullYear();
     var cur_month = d.getMonth() + 1;
     var feb_dates = isLeapYear(d.getFullYear())?29:28;
 
-    var cur_d = new Date();
-
     if (cur_month == 1){
         var dates_arr = [31, 31, feb_dates];
     }
-    else if (cur_month == 2) { 
+    else if (cur_month == 2) {
         var dates_arr = [31, feb_dates, 31];
     }
     else if (cur_month == 3) {
@@ -113,7 +142,7 @@ function getDates(dateStr){
         }
         var dateValue = cur_year + "-" + cur_month_str + "-" + i_str;
         results.push({
-            "dayText": String(i), "isGrey": false, 
+            "dayText": String(i), "isGrey": false,
             "dateValue": dateValue
         });
     }
@@ -134,7 +163,7 @@ function getDates(dateStr){
             }
             var dateValue = pre_year + "-" + pre_month_str + "-" + i_str;
             results.splice(0, 0, {
-                "dayText": String(day), "isGrey": true, 
+                "dayText": String(day), "isGrey": true,
                 "dateValue": dateValue
             });
         }
@@ -148,7 +177,7 @@ function getDates(dateStr){
                 }
                 var dateValue = pre_year + "-" + pre_month_str + "-" + i_str;
                 results.splice(0, 0, {
-                    "dayText": String(day), "isGrey": true, 
+                    "dayText": String(day), "isGrey": true,
                     "dateValue": dateValue
                 });
             }
@@ -165,7 +194,7 @@ function getDates(dateStr){
                 }
                 var dateValue = pre_year + "-" + pre_month_str + "-" + i_str;
                 results.splice(0, 0, {
-                    "dayText": String(day), "isGrey": true, 
+                    "dayText": String(day), "isGrey": true,
                     "dateValue": dateValue
                 });
             }
@@ -179,7 +208,7 @@ function getDates(dateStr){
                 }
                 var dateValue = pre_year + "-" + pre_month_str + "-" + i_str;
                 results.splice(0, 0, {
-                    "dayText": String(day), "isGrey": true, 
+                    "dayText": String(day), "isGrey": true,
                     "dateValue": dateValue
                 });
             }
