@@ -27,23 +27,23 @@ Rectangle {
     function currentUserIsAdmin() {
         return current_user.accountType == 1
     }
-    
+
     function showAddDeleteButton() {
         add_check_button.visible = true
         delete_check_button.visible = Qt.binding(function () { return dbus_accounts.userList.length != 1 })
     }
-    
+
     function hideAddDeleteButton() {
         add_check_button.visible = false
         delete_check_button.visible = false
     }
-    
+
     property int lastContentY: 0
     function scrollToTop() {
         lastContentY = flickable.contentY
         flickable.contentY = 0
     }
-    
+
     function scrollToLastPosition() {
         flickable.contentY = lastContentY
     }
@@ -56,7 +56,7 @@ Rectangle {
         DssTitle {
             id: module_title
             text: modulesId.moduleLocaleNames["account"]
-            
+
             Row {
                 spacing: 10
                 anchors.verticalCenter: parent.verticalCenter
@@ -74,7 +74,7 @@ Rectangle {
                     activatedNormalImage: "images/delete_active.png"
                     activatedHoverImage: "images/delete_active.png"
                     activatedPressImage: "images/delete_active.png"
-                    
+
                     Behavior on opacity {
                         SmoothedAnimation { duration: 300 }
                     }
@@ -98,10 +98,10 @@ Rectangle {
                     activatedNormalImage: "images/add_active.png"
                     activatedHoverImage: "images/add_active.png"
                     activatedPressImage: "images/add_active.png"
-                    
+
                     Behavior on opacity {
                         SmoothedAnimation { duration: 300 }
-                    }                    
+                    }
 
                     onClicked: {
                         if (active) {
@@ -125,7 +125,7 @@ Rectangle {
                         }
                     }
                 }
-            }            
+            }
         }
 
         DSeparatorHorizontal{}
@@ -152,12 +152,11 @@ Rectangle {
                     main_column.state = "normal"
                     root.showAddDeleteButton()
                     add_user_dialog.reset()
-                    
+
                     root.scrollToLastPosition()
                 }
 
                 onConfirmed: {
-                    root.showAddDeleteButton()                    
                     var result = dbus_accounts.CreateUser(userInfo.userName, userInfo.userName, userInfo.userAccountType)
                     var new_user = result[0]
                     var right = result[1]
@@ -171,10 +170,11 @@ Rectangle {
                         dbus_user.SetAccountType(userInfo.userAccountType)
                         dbus_user.SetAutomaticLogin(userInfo.userAutoLogin)
 
+                        root.showAddDeleteButton()
                         main_column.state = "normal"
                         add_user_dialog.reset()
                     }
-                    
+
                     root.scrollToLastPosition()
                 }
             }
@@ -203,12 +203,12 @@ Rectangle {
                     guest_user.height = guest_user.childrenRect.height
                     showAddDeleteButton()
                 }
-                
+
                 onAllNormal: {
                     delete_check_button.active = false
                     root.showAddDeleteButton()
                 }
-                
+
                 onActionButtonClicked: root.hideAddDeleteButton()
             }
 
@@ -253,8 +253,8 @@ Rectangle {
             width: parent.width
 
             onExpandedChanged: {
-                user_list.visible = !expanded                
-                // prevent guest_user from flicking away while showing 
+                user_list.visible = !expanded
+                // prevent guest_user from flicking away while showing
                 expanded ? root.scrollToTop() : root.scrollToLastPosition()
             }
             anchors.top: main_column.bottom
