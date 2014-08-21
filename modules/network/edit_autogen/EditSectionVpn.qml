@@ -121,7 +121,7 @@ BaseEditSection {
             errors: sectionVpn.errors
             section: "alias-vpn-openconnect"
             key: "csd_wrapper"
-            text: dsTr("CSD Wrapper")
+            text: dsTr("CSD Script")
         }
         EditLineFileChooser {
             id: lineAliasVpnOpenconnectUsercert
@@ -151,7 +151,7 @@ BaseEditSection {
             errors: sectionVpn.errors
             section: "alias-vpn-openconnect"
             key: "pem_passphrase_fsid"
-            text: dsTr("User FSID For Key Passphrase")
+            text: dsTr("Use FSID for Key Passphrase")
         }
         EditLineTextInput {
             id: lineAliasVpnOpenvpnRemote
@@ -271,7 +271,7 @@ BaseEditSection {
             errors: sectionVpn.errors
             section: "alias-vpn-openvpn"
             key: "vk-static-key-direction"
-            text: dsTr("Use Key Direction")
+            text: dsTr("Customize Key Direction")
         }
         EditLineComboBox {
             id: lineAliasVpnOpenvpnStaticKeyDirection

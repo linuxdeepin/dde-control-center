@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-21 14:01+0800\n"
+"POT-Creation-Date: 2014-08-21 15:58+0800\n"
 "PO-Revision-Date: 2014-07-02 08:41+0000\n"
 "Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/dde-control-center/"
@@ -260,10 +260,12 @@ msgstr "Proxy"
 msgid "Allow Cisco Secure Desktop Trojan"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:194
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:124
-msgid "CSD Wrapper"
-msgstr "Obal CSD"
+#: ../modules/network/add/AddVpn.qml:344
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:274
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
+#, fuzzy
+msgid "Customize Key Direction"
+msgstr "Rozlišení"
 
 #: ../modules/network/add/AddVpn.qml:214 ../modules/network/add/AddVpn.qml:304
 #: ../modules/network/wireless/AddWireless.qml:165
@@ -272,11 +274,6 @@ msgstr "Obal CSD"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:234
 msgid "Private Key"
 msgstr "Soukromý klíč"
-
-#: ../modules/network/add/AddVpn.qml:224
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:154
-msgid "User FSID For Key Passphrase"
-msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:244
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:174
@@ -291,6 +288,16 @@ msgstr "Typ ověření"
 msgid "User Cert"
 msgstr "Uživatelský certifikát"
 
+#: ../modules/network/add/AddVpn.qml:194
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:124
+msgid "CSD Script"
+msgstr ""
+
+#: ../modules/network/add/AddVpn.qml:224
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:154
+msgid "Use FSID for Key Passphrase"
+msgstr ""
+
 #: ../modules/network/add/AddVpn.qml:324
 #: ../modules/network/wireless/AddWireless.qml:206
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:195
@@ -302,12 +309,6 @@ msgstr "Soukromé heslo"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:264
 msgid "Static Key"
 msgstr "Statický klíč"
-
-#: ../modules/network/add/AddVpn.qml:344
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:274
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
-msgid "Use Key Direction"
-msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:354
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:284
@@ -603,7 +604,8 @@ msgstr "Klonovaná adresa MAC"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:43
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:85
-msgid "Custom MTU"
+#, fuzzy
+msgid "Customize MTU"
 msgstr "Vlastní MTU"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:53
@@ -764,16 +766,17 @@ msgstr ""
 msgid "VPN Advanced"
 msgstr "VPN Pokročilé"
 
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:23
-msgid "Use Custom Gateway Port"
-msgstr "Použít vlastní přípojku (port) brány"
-
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:33
 msgid "Gateway Port"
 msgstr "Přípojka (port) brány"
 
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:23
+#, fuzzy
+msgid "Customize Gateway Port"
+msgstr "Použít vlastní přípojku (port) brány"
+
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:45
-msgid "Use Custom Renegotiation Interval"
+msgid "Customize Renegotiation Interval"
 msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:55
@@ -793,11 +796,13 @@ msgid "Use TAP device"
 msgstr "Použít zařízení TAP"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:97
-msgid "Use Custom Tunnel MTU"
+#, fuzzy
+msgid "Customize Tunnel MTU"
 msgstr "Použít vlastní tunel MTU"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:119
-msgid "Use Custom UDP Fragment Size"
+#, fuzzy
+msgid "Customize UDP Fragment Size"
 msgstr "Použít vlastní velikost fragmentu UDP"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
@@ -1167,7 +1172,7 @@ msgid "Drag and drop an image to change background."
 msgstr "Táhněte a pusťte obrázek pro změnu pozadí."
 
 #: ../modules/grub/Preview.qml:123
-msgid "Image format is not supported."
+msgid "Image format not supported."
 msgstr ""
 
 #: ../modules/grub/Preview.qml:124
@@ -1917,6 +1922,9 @@ msgstr "OpenVPN"
 msgid "VPN OpenConnect"
 msgstr "OpenConnect"
 
+#~ msgid "CSD Wrapper"
+#~ msgstr "Obal CSD"
+
 #~ msgid "January"
 #~ msgstr "leden"
 
@@ -1959,10 +1967,6 @@ msgstr "OpenConnect"
 #, fuzzy
 #~ msgid "Advanced"
 #~ msgstr "VPN Pokročilé"
-
-#, fuzzy
-#~ msgid "Custom Resolution"
-#~ msgstr "Rozlišení"
 
 #~ msgid "Default"
 #~ msgstr "Výchozí"

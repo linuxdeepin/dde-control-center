@@ -120,7 +120,7 @@ Item {
         anchors.bottom: parent.bottom
 
         property string textNormal: dsTr("Drag and drop an image to change background.")
-        property string textImageNotSupport: dsTr("Image format is not supported.")
+        property string textImageNotSupport: dsTr("Image format not supported.")
         property string textUpdating: dsTr("Updating...")
         property string textUpdated: dsTr("Successfully updated, reboot to view.")
 

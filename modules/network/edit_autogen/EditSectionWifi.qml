@@ -82,7 +82,7 @@ BaseEditSection {
             errors: sectionWifi.errors
             section: "802-11-wireless"
             key: "vk-enable-mtu"
-            text: dsTr("Custom MTU")
+            text: dsTr("Customize MTU")
         }
         EditLineSpinner {
             id: line80211WirelessMtu

@@ -20,7 +20,7 @@ BaseEditSection {
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "vk-enable-port"
-            text: dsTr("Use Custom Gateway Port")
+            text: dsTr("Customize Gateway Port")
         }
         EditLineSpinner {
             id: lineAliasVpnOpenvpnAdvancedPort
@@ -42,7 +42,7 @@ BaseEditSection {
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "vk-enable-reneg-seconds"
-            text: dsTr("Use Custom Renegotiation Interval")
+            text: dsTr("Customize Renegotiation Interval")
         }
         EditLineSpinner {
             id: lineAliasVpnOpenvpnAdvancedRenegSeconds
@@ -94,7 +94,7 @@ BaseEditSection {
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "vk-enable-tunnel-mtu"
-            text: dsTr("Use Custom Tunnel MTU")
+            text: dsTr("Customize Tunnel MTU")
         }
         EditLineSpinner {
             id: lineAliasVpnOpenvpnAdvancedTunnelMtu
@@ -116,7 +116,7 @@ BaseEditSection {
             errors: sectionVpnOpenvpnAdvanced.errors
             section: "alias-vpn-openvpn-advanced"
             key: "vk-enable-fragment-size"
-            text: dsTr("Use Custom UDP Fragment Size")
+            text: dsTr("Customize UDP Fragment Size")
         }
         EditLineSpinner {
             id: lineAliasVpnOpenvpnAdvancedFragmentSize

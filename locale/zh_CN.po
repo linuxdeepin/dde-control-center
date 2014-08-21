@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-21 14:01+0800\n"
+"POT-Creation-Date: 2014-08-21 15:58+0800\n"
 "PO-Revision-Date: 2014-07-03 03:50+0000\n"
 "Last-Translator: electricface <songwentai@linuxdeepin.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/dde-"
@@ -255,10 +255,11 @@ msgstr "代理"
 msgid "Allow Cisco Secure Desktop Trojan"
 msgstr "允许思科安全桌面木马"
 
-#: ../modules/network/add/AddVpn.qml:194
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:124
-msgid "CSD Wrapper"
-msgstr "电路切换数据通话外包"
+#: ../modules/network/add/AddVpn.qml:344
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:274
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
+msgid "Customize Key Direction"
+msgstr "自定义密钥方向"
 
 #: ../modules/network/add/AddVpn.qml:214 ../modules/network/add/AddVpn.qml:304
 #: ../modules/network/wireless/AddWireless.qml:165
@@ -267,11 +268,6 @@ msgstr "电路切换数据通话外包"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:234
 msgid "Private Key"
 msgstr "密钥"
-
-#: ../modules/network/add/AddVpn.qml:224
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:154
-msgid "User FSID For Key Passphrase"
-msgstr "为密钥口令句使用FSID"
 
 #: ../modules/network/add/AddVpn.qml:244
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:174
@@ -286,6 +282,16 @@ msgstr "认证类型"
 msgid "User Cert"
 msgstr "用户证书"
 
+#: ../modules/network/add/AddVpn.qml:194
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:124
+msgid "CSD Script"
+msgstr "CSD 脚本"
+
+#: ../modules/network/add/AddVpn.qml:224
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:154
+msgid "Use FSID for Key Passphrase"
+msgstr "为密钥口令句使用FSID"
+
 #: ../modules/network/add/AddVpn.qml:324
 #: ../modules/network/wireless/AddWireless.qml:206
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:195
@@ -297,12 +303,6 @@ msgstr "密码"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:264
 msgid "Static Key"
 msgstr "静态密钥"
-
-#: ../modules/network/add/AddVpn.qml:344
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:274
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
-msgid "Use Key Direction"
-msgstr "自定义密钥方向"
 
 #: ../modules/network/add/AddVpn.qml:354
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:284
@@ -596,7 +596,7 @@ msgstr "克隆MAC地址"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:43
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:85
-msgid "Custom MTU"
+msgid "Customize MTU"
 msgstr "自定义MTU"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:53
@@ -757,16 +757,16 @@ msgstr "无地址/控制压缩"
 msgid "VPN Advanced"
 msgstr "VPN高级选项"
 
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:23
-msgid "Use Custom Gateway Port"
-msgstr "自定义网关端口"
-
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:33
 msgid "Gateway Port"
 msgstr "网关端口"
 
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:23
+msgid "Customize Gateway Port"
+msgstr "自定义网关端口"
+
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:45
-msgid "Use Custom Renegotiation Interval"
+msgid "Customize Renegotiation Interval"
 msgstr "自定义重新协商间隔"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:55
@@ -786,11 +786,11 @@ msgid "Use TAP device"
 msgstr "使用TAP设备"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:97
-msgid "Use Custom Tunnel MTU"
+msgid "Customize Tunnel MTU"
 msgstr "自定义最大传输单元(MTU)"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:119
-msgid "Use Custom UDP Fragment Size"
+msgid "Customize UDP Fragment Size"
 msgstr "自定义UDP数据报段长度"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
@@ -1153,7 +1153,7 @@ msgid "Drag and drop an image to change background."
 msgstr "拖拽图片到此以更换背景"
 
 #: ../modules/grub/Preview.qml:123
-msgid "Image format is not supported."
+msgid "Image format not supported."
 msgstr "不支持的图片格式"
 
 #: ../modules/grub/Preview.qml:124

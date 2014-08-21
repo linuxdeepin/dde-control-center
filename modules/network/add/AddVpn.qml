@@ -70,7 +70,7 @@ BaseEditPage {
         }
     }
     DSeparatorHorizontal {}
-    
+
     EditLineMissingPackage {
         id: lineVsVpnVkVpnMissingPlugin
         connectionSession: rootPage.connectionSession
@@ -101,7 +101,7 @@ BaseEditPage {
             key: "id"
             text: dsTr("Name")
         }
-        
+
         // copy from ../edit_autogen/EditSectionVpn.qml
         EditLineTextInput {
             id: lineAliasVpnL2tpGateway
@@ -191,7 +191,7 @@ BaseEditPage {
             errors: rootPage.errors
             section: "alias-vpn-openconnect"
             key: "csd_wrapper"
-            text: dsTr("CSD Wrapper")
+            text: dsTr("CSD Script")
         }
         EditLineFileChooser {
             id: lineAliasVpnOpenconnectUsercert
@@ -221,7 +221,7 @@ BaseEditPage {
             errors: rootPage.errors
             section: "alias-vpn-openconnect"
             key: "pem_passphrase_fsid"
-            text: dsTr("User FSID For Key Passphrase")
+            text: dsTr("Use FSID for Key Passphrase")
         }
         EditLineTextInput {
             id: lineAliasVpnOpenvpnRemote
@@ -341,7 +341,7 @@ BaseEditPage {
             errors: rootPage.errors
             section: "alias-vpn-openvpn"
             key: "vk-static-key-direction"
-            text: dsTr("Use Key Direction")
+            text: dsTr("Customize Key Direction")
         }
         EditLineComboBox {
             id: lineAliasVpnOpenvpnStaticKeyDirection
@@ -503,7 +503,7 @@ BaseEditPage {
             key: "CA-File"
             text: dsTr("CA File")
         }
-        
+
         // copy from ../edit_autogen/EditSectionVpnL2tpIpsec.qml
         EditLineSwitchButton {
             id: lineAliasVpnL2tpIpsecIpsecEnabled
@@ -545,7 +545,7 @@ BaseEditPage {
             key: "ipsec-psk"
             text: dsTr("Pre-Shared Key")
         }
-        
+
         // copy from ../edit_autogen/EditSectionVpnL2tpPpp.qml
         EditLineSwitchButton {
             id: lineAliasVpnL2tpPppVkRequireMppe
@@ -557,7 +557,7 @@ BaseEditPage {
             key: "vk-require-mppe"
             text: dsTr("Use MPPE")
         }
-        
+
         // copy from ../edit_autogen/EditSectionVpnPptpPpp.qml
         EditLineSwitchButton {
             id: lineAliasVpnPptpPppVkRequireMppe
@@ -569,7 +569,7 @@ BaseEditPage {
             key: "vk-require-mppe"
             text: dsTr("Use MPPE")
         }
-        
+
         DSeparatorHorizontal {}
 
         AddSectionSave {}

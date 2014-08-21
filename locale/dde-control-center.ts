@@ -256,19 +256,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="194"/>
-        <source>CSD Wrapper</source>
+        <location filename="../modules/network/add/AddVpn.qml" line="344"/>
+        <source>Customize Key Direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/network/add/AddVpn.qml" line="214"/>
         <location filename="../modules/network/add/AddVpn.qml" line="304"/>
         <source>Private Key</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="224"/>
-        <source>User FSID For Key Passphrase</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -283,6 +278,16 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../modules/network/add/AddVpn.qml" line="194"/>
+        <source>CSD Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/add/AddVpn.qml" line="224"/>
+        <source>Use FSID for Key Passphrase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../modules/network/add/AddVpn.qml" line="324"/>
         <source>Private Pwd</source>
         <translation type="unfinished"></translation>
@@ -290,11 +295,6 @@
     <message>
         <location filename="../modules/network/add/AddVpn.qml" line="334"/>
         <source>Static Key</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="344"/>
-        <source>Use Key Direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -710,7 +710,7 @@
     </message>
     <message>
         <location filename="../modules/network/edit_autogen/EditSectionEthernet.qml" line="43"/>
-        <source>Custom MTU</source>
+        <source>Customize MTU</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1087,19 +1087,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="124"/>
-        <source>CSD Wrapper</source>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="274"/>
+        <source>Customize Key Direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="144"/>
         <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="234"/>
         <source>Private Key</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="154"/>
-        <source>User FSID For Key Passphrase</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1114,6 +1109,16 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="124"/>
+        <source>CSD Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="154"/>
+        <source>Use FSID for Key Passphrase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="254"/>
         <source>Private Pwd</source>
         <translation type="unfinished"></translation>
@@ -1121,11 +1126,6 @@
     <message>
         <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="264"/>
         <source>Static Key</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="274"/>
-        <source>Use Key Direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1283,18 +1283,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="23"/>
-        <source>Use Custom Gateway Port</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="33"/>
         <source>Gateway Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="23"/>
+        <source>Customize Gateway Port</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="45"/>
-        <source>Use Custom Renegotiation Interval</source>
+        <source>Customize Renegotiation Interval</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1319,17 +1319,17 @@
     </message>
     <message>
         <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="97"/>
-        <source>Use Custom Tunnel MTU</source>
+        <source>Customize Tunnel MTU</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="119"/>
+        <source>Customize UDP Fragment Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="107"/>
         <source>MTU</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="119"/>
-        <source>Use Custom UDP Fragment Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1428,7 +1428,7 @@
     </message>
     <message>
         <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml" line="53"/>
-        <source>Use Key Direction</source>
+        <source>Customize Key Direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1597,7 +1597,7 @@
     </message>
     <message>
         <location filename="../modules/network/edit_autogen/EditSectionWifi.qml" line="85"/>
-        <source>Custom MTU</source>
+        <source>Customize MTU</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2038,7 +2038,7 @@
     </message>
     <message>
         <location filename="../modules/grub/Preview.qml" line="123"/>
-        <source>Image format is not supported.</source>
+        <source>Image format not supported.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

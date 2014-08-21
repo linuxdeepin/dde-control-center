@@ -40,7 +40,7 @@ BaseEditSection {
             errors: sectionEthernet.errors
             section: "802-3-ethernet"
             key: "vk-enable-mtu"
-            text: dsTr("Custom MTU")
+            text: dsTr("Customize MTU")
         }
         EditLineSpinner {
             id: line8023EthernetMtu

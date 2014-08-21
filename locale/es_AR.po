@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-21 14:01+0800\n"
+"POT-Creation-Date: 2014-08-21 15:58+0800\n"
 "PO-Revision-Date: 2014-07-02 08:41+0000\n"
 "Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
 "Language-Team: Spanish (Argentina) (http://www.transifex.com/projects/p/dde-"
@@ -258,10 +258,12 @@ msgstr ""
 msgid "Allow Cisco Secure Desktop Trojan"
 msgstr ""
 
-#: ../modules/network/add/AddVpn.qml:194
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:124
-msgid "CSD Wrapper"
-msgstr ""
+#: ../modules/network/add/AddVpn.qml:344
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:274
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
+#, fuzzy
+msgid "Customize Key Direction"
+msgstr "Resolución"
 
 #: ../modules/network/add/AddVpn.qml:214 ../modules/network/add/AddVpn.qml:304
 #: ../modules/network/wireless/AddWireless.qml:165
@@ -269,11 +271,6 @@ msgstr ""
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:144
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:234
 msgid "Private Key"
-msgstr ""
-
-#: ../modules/network/add/AddVpn.qml:224
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:154
-msgid "User FSID For Key Passphrase"
 msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:244
@@ -289,6 +286,16 @@ msgstr ""
 msgid "User Cert"
 msgstr ""
 
+#: ../modules/network/add/AddVpn.qml:194
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:124
+msgid "CSD Script"
+msgstr ""
+
+#: ../modules/network/add/AddVpn.qml:224
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:154
+msgid "Use FSID for Key Passphrase"
+msgstr ""
+
 #: ../modules/network/add/AddVpn.qml:324
 #: ../modules/network/wireless/AddWireless.qml:206
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:195
@@ -299,12 +306,6 @@ msgstr ""
 #: ../modules/network/add/AddVpn.qml:334
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:264
 msgid "Static Key"
-msgstr ""
-
-#: ../modules/network/add/AddVpn.qml:344
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:274
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
-msgid "Use Key Direction"
 msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:354
@@ -599,8 +600,9 @@ msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:43
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:85
-msgid "Custom MTU"
-msgstr ""
+#, fuzzy
+msgid "Customize MTU"
+msgstr "Personalizado"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:53
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:107
@@ -760,16 +762,16 @@ msgstr ""
 msgid "VPN Advanced"
 msgstr ""
 
-#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:23
-msgid "Use Custom Gateway Port"
-msgstr ""
-
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:33
 msgid "Gateway Port"
 msgstr ""
 
+#: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:23
+msgid "Customize Gateway Port"
+msgstr ""
+
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:45
-msgid "Use Custom Renegotiation Interval"
+msgid "Customize Renegotiation Interval"
 msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:55
@@ -789,11 +791,11 @@ msgid "Use TAP device"
 msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:97
-msgid "Use Custom Tunnel MTU"
+msgid "Customize Tunnel MTU"
 msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:119
-msgid "Use Custom UDP Fragment Size"
+msgid "Customize UDP Fragment Size"
 msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
@@ -1160,7 +1162,7 @@ msgid "Drag and drop an image to change background."
 msgstr ""
 
 #: ../modules/grub/Preview.qml:123
-msgid "Image format is not supported."
+msgid "Image format not supported."
 msgstr ""
 
 #: ../modules/grub/Preview.qml:124
@@ -1944,10 +1946,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Advanced"
 #~ msgstr "Balanceado"
-
-#, fuzzy
-#~ msgid "Custom Resolution"
-#~ msgstr "Resolución"
 
 #~ msgid "Default"
 #~ msgstr "Por defecto"

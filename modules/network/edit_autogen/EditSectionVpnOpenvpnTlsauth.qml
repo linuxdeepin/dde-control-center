@@ -50,7 +50,7 @@ BaseEditSection {
             errors: sectionVpnOpenvpnTlsauth.errors
             section: "alias-vpn-openvpn-tlsauth"
             key: "vk-ta-dir"
-            text: dsTr("Use Key Direction")
+            text: dsTr("Customize Key Direction")
         }
         EditLineComboBox {
             id: lineAliasVpnOpenvpnTlsauthTaDir
