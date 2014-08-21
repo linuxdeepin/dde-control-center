@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-21 09:19+0800\n"
+"POT-Creation-Date: 2014-08-21 14:01+0800\n"
 "PO-Revision-Date: 2014-07-02 08:41+0000\n"
 "Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/dde-"
@@ -1134,13 +1134,19 @@ msgstr "Rotação"
 msgid "Brightness"
 msgstr "Brilho"
 
-#: ../modules/network/wired/NewItem.qml:41
-#: ../modules/network/wired/WiredItem.qml:80
+#: ../modules/network/wired/NewItem.qml:45
+#: ../modules/network/wired/WiredItem.qml:88
 #, qt-format
 msgid "Wired Connection %1"
 msgstr "Conexão Cabeada %1"
 
-#: ../modules/network/widgets/NotManagedSection.qml:24
+#: ../modules/network/wired/NewItem.qml:47
+#: ../modules/network/wired/WiredItem.qml:90
+#, fuzzy
+msgid "Wired Connection"
+msgstr "Conexão Cabeada %1"
+
+#: ../modules/network/widgets/NotManagedSection.qml:25
 msgid "not managed"
 msgstr ""
 
@@ -1174,39 +1180,39 @@ msgstr "Escaneando..."
 msgid "Successfully updated, reboot to view."
 msgstr "Alterado com sucesso, reinicie para visualizar."
 
-#: ../modules/network/proxy/ProxyContent.qml:42
+#: ../modules/network/proxy/ProxyContent.qml:43
 msgid "None"
 msgstr "Nenhum"
 
-#: ../modules/network/proxy/ProxyContent.qml:47
+#: ../modules/network/proxy/ProxyContent.qml:48
 msgid "Manual"
 msgstr "Manual"
 
-#: ../modules/network/proxy/ProxyContent.qml:52
+#: ../modules/network/proxy/ProxyContent.qml:53
 msgid "Auto"
 msgstr "Auto"
 
-#: ../modules/network/proxy/ProxyContent.qml:87
+#: ../modules/network/proxy/ProxyContent.qml:88
 msgid "HTTP Proxy"
 msgstr "Proxy HTTP"
 
-#: ../modules/network/proxy/ProxyContent.qml:99
+#: ../modules/network/proxy/ProxyContent.qml:100
 msgid "HTTPS Proxy"
 msgstr "Proxy HTTPS"
 
-#: ../modules/network/proxy/ProxyContent.qml:111
+#: ../modules/network/proxy/ProxyContent.qml:112
 msgid "FTP Proxy"
 msgstr "Proxy FTP"
 
-#: ../modules/network/proxy/ProxyContent.qml:123
+#: ../modules/network/proxy/ProxyContent.qml:124
 msgid "Socks Host"
 msgstr "Socks Host"
 
-#: ../modules/network/proxy/ProxyContent.qml:148
+#: ../modules/network/proxy/ProxyContent.qml:149
 msgid "Configuration URL"
 msgstr "Configurações de URL"
 
-#: ../modules/network/proxy/ProxyContent.qml:165
+#: ../modules/network/proxy/ProxyContent.qml:166
 msgid "Apply system wide"
 msgstr "Aplicar para todo o sistema"
 
@@ -1401,20 +1407,18 @@ msgstr "Conexão Cabeada"
 msgid "Scanning..."
 msgstr "Escaneando..."
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:24
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:84
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:28
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 msgid "Wireless Network"
 msgstr "Rede Wireless"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:27
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:87
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:26
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 #, qt-format
 msgid "Wireless Network %1"
 msgstr "Rede Wireless %1"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:30
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:35
 msgid ""
 "Wireless network is unable to be connected maybe due to the following "
 "reasons:\n"
@@ -1424,8 +1428,8 @@ msgid ""
 "3. Incorrect driver of network hardware"
 msgstr ""
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:138
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:353
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:137
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:352
 msgid "Connect to hidden access point"
 msgstr "Conectar ao ponto de acesso oculto"
 

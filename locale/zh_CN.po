@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-21 09:19+0800\n"
+"POT-Creation-Date: 2014-08-21 14:01+0800\n"
 "PO-Revision-Date: 2014-07-03 03:50+0000\n"
 "Last-Translator: electricface <songwentai@linuxdeepin.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/dde-"
@@ -1121,13 +1121,18 @@ msgstr "旋转"
 msgid "Brightness"
 msgstr "亮度"
 
-#: ../modules/network/wired/NewItem.qml:41
-#: ../modules/network/wired/WiredItem.qml:80
+#: ../modules/network/wired/NewItem.qml:45
+#: ../modules/network/wired/WiredItem.qml:88
 #, qt-format
 msgid "Wired Connection %1"
 msgstr "有线连接 %1"
 
-#: ../modules/network/widgets/NotManagedSection.qml:24
+#: ../modules/network/wired/NewItem.qml:47
+#: ../modules/network/wired/WiredItem.qml:90
+msgid "Wired Connection"
+msgstr "有线连接"
+
+#: ../modules/network/widgets/NotManagedSection.qml:25
 msgid "not managed"
 msgstr "未托管"
 
@@ -1159,39 +1164,39 @@ msgstr "正在更新..."
 msgid "Successfully updated, reboot to view."
 msgstr "更新成功，重启可查看。"
 
-#: ../modules/network/proxy/ProxyContent.qml:42
+#: ../modules/network/proxy/ProxyContent.qml:43
 msgid "None"
 msgstr "无"
 
-#: ../modules/network/proxy/ProxyContent.qml:47
+#: ../modules/network/proxy/ProxyContent.qml:48
 msgid "Manual"
 msgstr "手动"
 
-#: ../modules/network/proxy/ProxyContent.qml:52
+#: ../modules/network/proxy/ProxyContent.qml:53
 msgid "Auto"
 msgstr "自动"
 
-#: ../modules/network/proxy/ProxyContent.qml:87
+#: ../modules/network/proxy/ProxyContent.qml:88
 msgid "HTTP Proxy"
 msgstr "HTTP代理"
 
-#: ../modules/network/proxy/ProxyContent.qml:99
+#: ../modules/network/proxy/ProxyContent.qml:100
 msgid "HTTPS Proxy"
 msgstr "HTTPS代理"
 
-#: ../modules/network/proxy/ProxyContent.qml:111
+#: ../modules/network/proxy/ProxyContent.qml:112
 msgid "FTP Proxy"
 msgstr "FTP代理"
 
-#: ../modules/network/proxy/ProxyContent.qml:123
+#: ../modules/network/proxy/ProxyContent.qml:124
 msgid "Socks Host"
 msgstr "Socks代理"
 
-#: ../modules/network/proxy/ProxyContent.qml:148
+#: ../modules/network/proxy/ProxyContent.qml:149
 msgid "Configuration URL"
 msgstr "配置URL"
 
-#: ../modules/network/proxy/ProxyContent.qml:165
+#: ../modules/network/proxy/ProxyContent.qml:166
 msgid "Apply system wide"
 msgstr "应用到整个系统"
 
@@ -1384,20 +1389,18 @@ msgstr "有线网络"
 msgid "Scanning..."
 msgstr "扫描中..."
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:24
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:84
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:28
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 msgid "Wireless Network"
 msgstr "无线网络"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:27
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:87
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:26
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 #, qt-format
 msgid "Wireless Network %1"
 msgstr "无线网络 %1"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:30
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:35
 msgid ""
 "Wireless network is unable to be connected maybe due to the following "
 "reasons:\n"
@@ -1412,8 +1415,8 @@ msgstr ""
 "2. 您的网络配置 /etc/network/interface 不正确\n"
 "3. 您的网络硬件没有被正确驱动"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:138
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:353
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:137
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:352
 msgid "Connect to hidden access point"
 msgstr "连接到隐藏网络"
 

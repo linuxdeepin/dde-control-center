@@ -1947,15 +1947,20 @@
 <context>
     <name>NewItem</name>
     <message>
-        <location filename="../modules/network/wired/NewItem.qml" line="41"/>
+        <location filename="../modules/network/wired/NewItem.qml" line="45"/>
         <source>Wired Connection %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/wired/NewItem.qml" line="47"/>
+        <source>Wired Connection</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>NotManagedSection</name>
     <message>
-        <location filename="../modules/network/widgets/NotManagedSection.qml" line="24"/>
+        <location filename="../modules/network/widgets/NotManagedSection.qml" line="25"/>
         <source>not managed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2050,47 +2055,47 @@
 <context>
     <name>ProxyContent</name>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="42"/>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="43"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="47"/>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="48"/>
         <source>Manual</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="52"/>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="53"/>
         <source>Auto</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="87"/>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="88"/>
         <source>HTTP Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="99"/>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="100"/>
         <source>HTTPS Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="111"/>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="112"/>
         <source>FTP Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="123"/>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="124"/>
         <source>Socks Host</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="148"/>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="149"/>
         <source>Configuration URL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="165"/>
+        <location filename="../modules/network/proxy/ProxyContent.qml" line="166"/>
         <source>Apply system wide</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2436,8 +2441,13 @@
 <context>
     <name>WiredItem</name>
     <message>
-        <location filename="../modules/network/wired/WiredItem.qml" line="80"/>
+        <location filename="../modules/network/wired/WiredItem.qml" line="88"/>
         <source>Wired Connection %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/wired/WiredItem.qml" line="90"/>
+        <source>Wired Connection</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2452,19 +2462,17 @@
 <context>
     <name>WirelessDeviceExpand</name>
     <message>
-        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="24"/>
-        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="84"/>
+        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="28"/>
         <source>Wireless Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="27"/>
-        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="87"/>
+        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="26"/>
         <source>Wireless Network %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="30"/>
+        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="35"/>
         <source>Wireless network is unable to be connected maybe due to the following reasons:
 
 1. The hardware switch of wireless network card is off
@@ -2473,8 +2481,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="138"/>
-        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="353"/>
+        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="137"/>
+        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="352"/>
         <source>Connect to hidden access point</source>
         <translation type="unfinished"></translation>
     </message>
