@@ -109,7 +109,7 @@ Item {
 
         DCenterLine {
             height: contentHeight
-            centerPadding: centerPadding
+            centerPadding: keyboardModule.centerPadding
             leftWidth: titleWidth
             title.text: dsTr("Repeat Delay")
             content.sourceComponent: DSliderEnhanced {
@@ -133,7 +133,7 @@ Item {
 
         DCenterLine {
             height: contentHeight
-            centerPadding: centerPadding
+            centerPadding: keyboardModule.centerPadding
             leftWidth: titleWidth
             title.text: dsTr("Repeat Rate")
 
@@ -158,7 +158,7 @@ Item {
 
         DCenterLine {
             height: contentHeight
-            centerPadding: centerPadding
+            centerPadding: keyboardModule.centerPadding
             leftWidth: titleWidth
             title.text: dsTr("Cursor Blink Rate")
 
@@ -184,7 +184,7 @@ Item {
 
         DCenterLine {
             height: contentHeight
-            centerPadding: centerPadding
+            centerPadding: keyboardModule.centerPadding
             leftWidth: titleWidth
             title.text: dsTr("Test Area")
 

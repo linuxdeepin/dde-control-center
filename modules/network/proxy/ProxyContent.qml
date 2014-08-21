@@ -3,6 +3,7 @@ import Deepin.Widgets 1.0
 import "../../shared"
 
 Column {
+    id: proxyContent
     width: parent.width
     property int contentHeight: 30
     property int centerPadding: 20
@@ -82,7 +83,7 @@ Column {
         DCenterLine {
             color: "transparent"
             height: contentHeight
-            centerPadding: centerPadding
+            centerPadding: proxyContent.centerPadding
             leftWidth: titleWidth
             title.text: dsTr("HTTP Proxy")
             content.sourceComponent: ProxyLine{
@@ -94,7 +95,7 @@ Column {
         DCenterLine {
             color: "transparent"
             height: contentHeight
-            centerPadding: centerPadding
+            centerPadding: proxyContent.centerPadding
             leftWidth: titleWidth
             title.text: dsTr("HTTPS Proxy")
             content.sourceComponent: ProxyLine {
@@ -106,7 +107,7 @@ Column {
         DCenterLine {
             color: "transparent"
             height: contentHeight
-            centerPadding: centerPadding
+            centerPadding: proxyContent.centerPadding
             leftWidth: titleWidth
             title.text: dsTr("FTP Proxy")
             content.sourceComponent: ProxyLine {
@@ -118,7 +119,7 @@ Column {
         DCenterLine {
             color: "transparent"
             height: contentHeight
-            centerPadding: centerPadding
+            centerPadding: proxyContent.centerPadding
             leftWidth: titleWidth
             title.text: dsTr("Socks Host")
             content.sourceComponent: ProxyLine {
@@ -143,7 +144,7 @@ Column {
         DCenterLine {
             color: "transparent"
             height: contentHeight
-            centerPadding: centerPadding
+            centerPadding: proxyContent.centerPadding
             leftWidth: titleWidth
             title.text: dsTr("Configuration URL")
             content.sourceComponent: DTextInput {
