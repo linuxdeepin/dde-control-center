@@ -196,4 +196,31 @@ DOverrideWindow {
         x: rootWindow.width - rootWindow.displayWidth - width - 6
     }
 
+    Menu {
+        id: rootMenu
+    }
+
+    function isInRect(pos, rect){
+        if(pos.x > rect.x && pos.x < rect.x + rect.width && pos.y > rect.y && pos.y < rect.y + rect.height){
+            return true
+        }
+        else{
+            return false
+        }
+    }
+
+    onWindowFocusChanged: {
+        if(!window && rootMenu.visible){
+            rootMenu.visible = false
+        }
+    }
+
+    onMousePressed: {
+        var pos = rootWindow.getCursorPos()
+        pos.x = pos.x - rootWindow.x
+        pos.y = pos.y - rootWindow.y
+        if(!isInRect(pos, rootMenu)){
+            rootMenu.visible = false
+        }
+    }
 }

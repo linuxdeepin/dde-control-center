@@ -27,18 +27,20 @@ import Deepin.Widgets 1.0
 
 DWindowFrame{
     id: popupWindow
-    z: 99
+    clip: true
+    z: 90
 
     property int innerWidth: 50
     property real posX: 0
     property real posY: 0
+    property int shadowOffset: 12
 
     property alias currentIndex: completeView.currentIndex
 
-    x: posX - 28
-    y: posY - 12
+    x: posX - shadowOffset
+    y: posY - shadowOffset
 
-    width: innerWidth + 24
+    width: innerWidth + shadowOffset * 2
     height: completeViewBox.height + 32
     visible: false
 
@@ -52,7 +54,8 @@ DWindowFrame{
         id: completeViewBox
         anchors.centerIn: parent
         width: parent.width - 6
-        height: childrenRect.height
+        height: completeView.height
+        clip: true
 
         ListView {
             id: completeView
@@ -70,5 +73,4 @@ DWindowFrame{
             interactive: true
         }
     }
-
 }
