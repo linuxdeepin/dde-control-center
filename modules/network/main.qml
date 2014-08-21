@@ -240,22 +240,22 @@ Item {
         }
         return ""
     }
-    function isActiveConnection(devicePath, uuid) {
+    function isActivedConnection(devicePath, uuid) {
         for (var i in nmActiveConnections) {
-            if (getIndexFromArray(devicePath, nmActiveConnections[i].Devices) != -1 && nmActiveConnections[i].Uuid == uuid) {
+            if (nmActiveConnections[i].Uuid == uuid && getIndexFromArray(devicePath, nmActiveConnections[i].Devices) != -1 && nmActiveConnections[i].State == nmActiveConnectionStateActivated) {
                 return true
             }
         }
         return false
     }
-    // function isActivatingConnection(devicePath, uuid) {
-    //     for (var i in nmActiveConnections) {
-    //         if (getIndexFromArray(devicePath, nmActiveConnections[i].Devices) != -1 && nmActiveConnections[i].Uuid == uuid) {
-    //             return true
-    //         }
-    //     }
-    //     return false
-    // }
+    function isActivatingConnection(devicePath, uuid) {
+        for (var i in nmActiveConnections) {
+            if (nmActiveConnections[i].Uuid == uuid && getIndexFromArray(devicePath, nmActiveConnections[i].Devices) != -1 && nmActiveConnections[i].State == nmActiveConnectionStateActivating) {
+                return true
+            }
+        }
+        return false
+    }
 
 
     Connections{

@@ -23,7 +23,7 @@ Column{
             // return deviceState == nmDeviceStateActivated
         }
         else{
-            return activeDslConnetionInfo && activeDslConnetionInfo.State == nmActiveConnectionStateActivated
+            return isActivedConnection(devicePath, dslInfo.Uuid)
         }
     }
     property bool isWaiting: {
@@ -33,7 +33,7 @@ Column{
             return activeWiredConnectionInfo && activeWiredConnectionInfo.State == nmActiveConnectionStateActivating
         }
         else{
-            return activeDslConnetionInfo && activeDslConnetionInfo.State == nmActiveConnectionStateActivating
+            return isActivatingConnection(devicePath, dslInfo.Uuid)
         }
     }
     property string lableName: {
@@ -61,12 +61,6 @@ Column{
 
     // for DSL
     property var dslInfo: dslIndex == -1 ? null : dslConnections[dslIndex]
-    property var activeDslConnetionInfo: {
-        if(dslInfo){
-            return getActiveConnectionInfo(dslInfo.Uuid)
-        }
-        return null
-    }
 
     // functions
     function print_info(s){
