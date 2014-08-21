@@ -28,6 +28,8 @@ Item {
             deviceHwAddress: wirelessDevices[index].HwAddress
             deviceState: wirelessDevices[index].State
             deviceManaged: wirelessDevices[index].Managed
+            deviceVendor: wirelessDevices[index].Vendor
+            isUsbDevice: wirelessDevices[index].UsbDevice
             activeAp: wirelessDevices[index].ActiveAp
         }
     }

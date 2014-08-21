@@ -17,6 +17,7 @@ Item {
         id: title
         leftLoader.sourceComponent: DssH2 {
             anchors.verticalCenter: parent.verticalCenter
+            elide: Text.ElideRight
             text: notManagedArea.titleText
         }
         rightLoader.sourceComponent: DssH2{

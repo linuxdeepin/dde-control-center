@@ -11,6 +11,8 @@ Column{
 
     property int deviceState: wiredDevices[index]["State"] // TODO
     property string devicePath: wiredDevices[index]["Path"]
+    property string deviceVendor: wiredDevices[index]["Vendor"]
+    property bool isUsbDevice: wiredDevices[index]["UsbDevice"]
     property string uuid: dbusNetwork.GetWiredConnectionUuid(devicePath)
 
     property var activeConnectionInfo: getActiveConnectionInfo(uuid)
@@ -77,7 +79,16 @@ Column{
                 anchors.left: parent.left
                 anchors.leftMargin: 24
                 anchors.verticalCenter: parent.verticalCenter
-                text: dsTr("Wired Connection %1").arg(index+1)
+                elide: Text.ElideRight
+                text: {
+                    if (isUsbDevice && deviceVendor) {
+                        return deviceVendor
+                    }
+                    if (index > 0) {
+                        return dsTr("Wired Connection %1").arg(index + 1)
+                    }
+                    return dsTr("Wired Connection")
+                }
                 font.pixelSize: 12
                 color: {
                     if(wiredLine.selected){
@@ -99,6 +110,6 @@ Column{
             }
         }
     }
-    
+
     DSeparatorHorizontal{}
 }

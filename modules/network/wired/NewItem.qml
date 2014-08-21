@@ -38,7 +38,13 @@ Column{
     }
     property string lableName: {
         if(itemType == "wired"){
-            return dsTr("Wired Connection %1").arg(connIndex+1)
+            if (isUsbDevice && deviceVendor) {
+                return deviceVendor
+            }
+            if (index > 0) {
+                return dsTr("Wired Connection %1").arg(index + 1)
+            }
+            return dsTr("Wired Connection")
         }
         else{
             return dslInfo.Id
@@ -49,6 +55,8 @@ Column{
     property var currentDeviceInfo: wiredDevices[connIndex]
     property int deviceState: currentDeviceInfo.State
     property string devicePath: currentDeviceInfo.Path
+    property string deviceVendor: currentDeviceInfo.Vendor
+    property bool isUsbDevice: currentDeviceInfo.UsbDevice
     property string uuid: dbusNetwork.GetWiredConnectionUuid(devicePath)
 
     // for DSL
@@ -170,6 +178,6 @@ Column{
             }
         }
     }
-    
+
     //DSeparatorHorizontal{}
 }

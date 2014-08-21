@@ -14,19 +14,24 @@ Item {
     property string deviceHwAddress
     property int deviceState: nmDeviceStateUnknown
     property bool deviceManaged: true
+    property string deviceVendor
+    property bool isUsbDevice: false
     property string activeAp: "/"
+
+    function getDeviceTitle() {
+        if (isUsbDevice && deviceVendor) {
+            return deviceVendor
+        }
+        if (index > 0) {
+            return dsTr("Wireless Network %1").arg(index + 1)
+        }
+        return dsTr("Wireless Network")
+    }
 
     NetworkWidgets.NotManagedSection {
         id: notManagedArea
         visible: !deviceManaged
-        titleText: {
-            if(wirelessDevices.length < 2){
-                return dsTr("Wireless Network")
-            }
-            else{
-                return dsTr("Wireless Network %1").arg(index + 1)
-            }
-        }
+        titleText: getDeviceTitle()
         contentText: dsTr("Wireless network is unable to be connected maybe due to the following reasons:\n\n1. The hardware switch of wireless network card is off\n2. Incorrect network configuration in /etc/network/interface\n3. Incorrect driver of network hardware")
     }
 
@@ -79,14 +84,8 @@ Item {
         header.sourceComponent: DBaseLine{
             leftLoader.sourceComponent: DssH2 {
                 anchors.verticalCenter: parent.verticalCenter
-                text: {
-                    if(wirelessDevices.length < 2){
-                        return dsTr("Wireless Network")
-                    }
-                    else{
-                        return dsTr("Wireless Network %1").arg(index + 1)
-                    }
-                }
+                elide: Text.ElideRight
+                text: getDeviceTitle()
                 MouseArea {
                     anchors.fill: parent
                     onClicked: scanTimer.restart()
