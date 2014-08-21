@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-19 15:32+0800\n"
+"POT-Creation-Date: 2014-08-21 09:19+0800\n"
 "PO-Revision-Date: 2014-07-03 03:50+0000\n"
 "Last-Translator: electricface <songwentai@linuxdeepin.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/dde-"
@@ -466,47 +466,47 @@ msgstr "拍照"
 msgid "Automatically connect"
 msgstr "自動連接"
 
-#: ../modules/date_time/Calendar.qml:125
+#: ../modules/date_time/Calendar.qml:129
 msgid "Today"
 msgstr "返回今天"
 
-#: ../modules/date_time/CalendarComponent.qml:80
+#: ../modules/date_time/CalendarComponent.qml:83
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:178
 msgid "Sun"
 msgstr "日"
 
-#: ../modules/date_time/CalendarComponent.qml:81
+#: ../modules/date_time/CalendarComponent.qml:84
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:179
 msgid "Mon"
 msgstr "一"
 
-#: ../modules/date_time/CalendarComponent.qml:82
+#: ../modules/date_time/CalendarComponent.qml:85
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:180
 msgid "Tue"
 msgstr "二"
 
-#: ../modules/date_time/CalendarComponent.qml:83
+#: ../modules/date_time/CalendarComponent.qml:86
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:181
 msgid "Wed"
 msgstr "三"
 
-#: ../modules/date_time/CalendarComponent.qml:84
+#: ../modules/date_time/CalendarComponent.qml:87
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:182
 msgid "Thu"
 msgstr "四"
 
-#: ../modules/date_time/CalendarComponent.qml:85
+#: ../modules/date_time/CalendarComponent.qml:88
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:183
 msgid "Fri"
 msgstr "五"
 
-#: ../modules/date_time/CalendarComponent.qml:86
+#: ../modules/date_time/CalendarComponent.qml:89
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:184
 msgid "Sat"
@@ -980,7 +980,7 @@ msgstr "首選DNS"
 msgid "Device Speed"
 msgstr "設備速度"
 
-#: ../modules/keyboard/LocaleArea.qml:86
+#: ../modules/keyboard/LocaleArea.qml:53
 msgid "Language"
 msgstr "語言"
 
@@ -1003,86 +1003,86 @@ msgstr "保留更改"
 msgid "Revert"
 msgstr "還原"
 
-#: ../qt5frame/views/ModulesData.qml:28 ../dock-applets/qml/main.qml:54
+#: ../qt5frame/views/ModulesData.qml:52 ../dock-applets/qml/main.qml:54
 msgid "Date and Time"
 msgstr "日期和時間"
 
-#: ../qt5frame/views/ModulesData.qml:29 ../dock-applets/qml/main.qml:50
+#: ../qt5frame/views/ModulesData.qml:53 ../dock-applets/qml/main.qml:50
 msgid "Network"
 msgstr "網絡"
 
-#: ../qt5frame/views/ModulesData.qml:30 ../dock-applets/qml/main.qml:53
+#: ../qt5frame/views/ModulesData.qml:54 ../dock-applets/qml/main.qml:53
 msgid "Disk Mount"
 msgstr "磁盤掛載"
 
-#: ../qt5frame/views/ModulesData.qml:31 ../modules/network/main.qml:172
+#: ../qt5frame/views/ModulesData.qml:55 ../modules/network/main.qml:172
 msgid "Bluetooth"
 msgstr "藍牙"
 
-#: ../qt5frame/views/ModulesData.qml:32 ../dock-applets/qml/main.qml:51
+#: ../qt5frame/views/ModulesData.qml:56 ../dock-applets/qml/main.qml:51
 msgid "Sound"
 msgstr "聲音"
 
-#: ../qt5frame/views/ModulesData.qml:33
+#: ../qt5frame/views/ModulesData.qml:57
 msgid "Power Management"
 msgstr "電源管理"
 
-#: ../qt5frame/views/ModulesData.qml:34
+#: ../qt5frame/views/ModulesData.qml:58
 msgid "More Settings"
 msgstr "更多設置"
 
-#: ../qt5frame/views/ModulesData.qml:35 ../qt5frame/views/PanelContent.qml:419
+#: ../qt5frame/views/ModulesData.qml:59 ../qt5frame/views/PanelContent.qml:418
 #: ../dock-applets/qml/main.qml:52
 msgid "Power"
 msgstr "電源"
 
-#: ../qt5frame/views/ModulesData.qml:36
+#: ../qt5frame/views/ModulesData.qml:60
 msgid "Display"
 msgstr "顯示"
 
-#: ../qt5frame/views/ModulesData.qml:37
+#: ../qt5frame/views/ModulesData.qml:61
 msgid "Desktop"
 msgstr "桌面"
 
-#: ../qt5frame/views/ModulesData.qml:38
+#: ../qt5frame/views/ModulesData.qml:62
 msgid "Personalization"
 msgstr "個性化"
 
-#: ../qt5frame/views/ModulesData.qml:39
+#: ../qt5frame/views/ModulesData.qml:63
 msgid "Keyboard Shortcuts"
 msgstr "快捷鍵"
 
-#: ../qt5frame/views/ModulesData.qml:40
+#: ../qt5frame/views/ModulesData.qml:64
 #, fuzzy
 msgid "Keyboard and Language"
 msgstr "鍵盤佈局"
 
-#: ../qt5frame/views/ModulesData.qml:41
+#: ../qt5frame/views/ModulesData.qml:65
 msgid "Mouse and Touchpad"
 msgstr "鼠標和触摸板"
 
-#: ../qt5frame/views/ModulesData.qml:42 ../modules/mouse_touchpad/main.qml:50
+#: ../qt5frame/views/ModulesData.qml:66 ../modules/mouse_touchpad/main.qml:50
 msgid "Mouse"
 msgstr "鼠標"
 
-#: ../qt5frame/views/ModulesData.qml:43
+#: ../qt5frame/views/ModulesData.qml:67
 msgid "User Accounts"
 msgstr "賬戶"
 
-#: ../qt5frame/views/ModulesData.qml:44
+#: ../qt5frame/views/ModulesData.qml:68
 #: ../modules/default_applications/main.qml:62
 msgid "Default Applications"
 msgstr "默認程序"
 
-#: ../qt5frame/views/ModulesData.qml:45
+#: ../qt5frame/views/ModulesData.qml:69
 msgid "System Information"
 msgstr "系統信息"
 
-#: ../qt5frame/views/ModulesData.qml:46
+#: ../qt5frame/views/ModulesData.qml:70
 msgid "Boot Menu"
 msgstr "啟動菜單"
 
-#: ../qt5frame/views/ModulesData.qml:47
+#: ../qt5frame/views/ModulesData.qml:71
 msgid "Home"
 msgstr "回到主頁"
 
@@ -1135,6 +1135,10 @@ msgstr "亮度"
 #, qt-format
 msgid "Wired Connection %1"
 msgstr "有線連接 %1"
+
+#: ../modules/network/widgets/NotManagedSection.qml:24
+msgid "not managed"
+msgstr ""
 
 #: ../modules/network/widgets/PasswordBox.qml:76
 msgid "Password: "
@@ -1391,73 +1395,33 @@ msgstr "有線網絡"
 msgid "Scanning..."
 msgstr "掃描中..."
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:63
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:24
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:84
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 msgid "Wireless Network"
 msgstr "無線網絡"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:66
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:27
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:87
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 #, qt-format
 msgid "Wireless Network %1"
 msgstr "無線網絡 %1"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:92
-msgid "not managed"
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:30
+msgid ""
+"Wireless network is unable to be connected maybe due to the following "
+"reasons:\n"
+"\n"
+"1. The hardware switch of wireless network card is off\n"
+"2. Incorrect network configuration in /etc/network/interface\n"
+"3. Incorrect driver of network hardware"
 msgstr ""
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:124
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:340
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:138
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:353
 msgid "Connect to hidden access point"
 msgstr "連接到隱藏網絡"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "January"
-msgstr "一月"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "February"
-msgstr "二月"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "March"
-msgstr "三月"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "April"
-msgstr "四月"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "May"
-msgstr "五月"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "June"
-msgstr "六月"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "July"
-msgstr "七月"
-
-#: ../modules/date_time/calendar_core.js:7
-msgid "August"
-msgstr "八月"
-
-#: ../modules/date_time/calendar_core.js:7
-msgid "September"
-msgstr "九月"
-
-#: ../modules/date_time/calendar_core.js:7
-msgid "October"
-msgstr "十月"
-
-#: ../modules/date_time/calendar_core.js:7
-msgid "November"
-msgstr "十一月"
-
-#: ../modules/date_time/calendar_core.js:7
-msgid "December"
-msgstr "十二月"
 
 #: ../dock-applets/qml/date_time/main.qml:90
 msgid "_Switch to analog"
@@ -1514,19 +1478,19 @@ msgstr "開啟/關閉"
 msgid "Devices nearby"
 msgstr "附近的設備"
 
-#: ../modules/date_time/main.qml:92
+#: ../modules/date_time/main.qml:93
 msgid "Automatic date and time"
 msgstr "自動同步時間"
 
-#: ../modules/date_time/main.qml:108
+#: ../modules/date_time/main.qml:109
 msgid "Use 24-hour clock"
 msgstr "24小時制"
 
-#: ../modules/date_time/main.qml:138
+#: ../modules/date_time/main.qml:139
 msgid "Date"
 msgstr "日期"
 
-#: ../modules/date_time/main.qml:142
+#: ../modules/date_time/main.qml:143
 msgid "Set Date"
 msgstr "設置日期"
 
@@ -1942,6 +1906,42 @@ msgstr "OpenVPN"
 #, fuzzy
 msgid "VPN OpenConnect"
 msgstr "OpenConnect"
+
+#~ msgid "January"
+#~ msgstr "一月"
+
+#~ msgid "February"
+#~ msgstr "二月"
+
+#~ msgid "March"
+#~ msgstr "三月"
+
+#~ msgid "April"
+#~ msgstr "四月"
+
+#~ msgid "May"
+#~ msgstr "五月"
+
+#~ msgid "June"
+#~ msgstr "六月"
+
+#~ msgid "July"
+#~ msgstr "七月"
+
+#~ msgid "August"
+#~ msgstr "八月"
+
+#~ msgid "September"
+#~ msgstr "九月"
+
+#~ msgid "October"
+#~ msgstr "十月"
+
+#~ msgid "November"
+#~ msgstr "十一月"
+
+#~ msgid "December"
+#~ msgstr "十二月"
 
 #~ msgid "Keyboard"
 #~ msgstr "鍵盤"

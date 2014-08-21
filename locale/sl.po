@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-19 15:32+0800\n"
+"POT-Creation-Date: 2014-08-21 09:19+0800\n"
 "PO-Revision-Date: 2014-07-02 11:40+0000\n"
 "Last-Translator: andrej55 <andrej.marsetic@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/dde-control-"
@@ -467,47 +467,47 @@ msgstr "Spletna kamera"
 msgid "Automatically connect"
 msgstr "Samodejna povezava"
 
-#: ../modules/date_time/Calendar.qml:125
+#: ../modules/date_time/Calendar.qml:129
 msgid "Today"
 msgstr "Danes"
 
-#: ../modules/date_time/CalendarComponent.qml:80
+#: ../modules/date_time/CalendarComponent.qml:83
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:178
 msgid "Sun"
 msgstr "Ned"
 
-#: ../modules/date_time/CalendarComponent.qml:81
+#: ../modules/date_time/CalendarComponent.qml:84
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:179
 msgid "Mon"
 msgstr "Pon"
 
-#: ../modules/date_time/CalendarComponent.qml:82
+#: ../modules/date_time/CalendarComponent.qml:85
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:180
 msgid "Tue"
 msgstr "Tor"
 
-#: ../modules/date_time/CalendarComponent.qml:83
+#: ../modules/date_time/CalendarComponent.qml:86
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:181
 msgid "Wed"
 msgstr "Sre"
 
-#: ../modules/date_time/CalendarComponent.qml:84
+#: ../modules/date_time/CalendarComponent.qml:87
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:182
 msgid "Thu"
 msgstr "Čet"
 
-#: ../modules/date_time/CalendarComponent.qml:85
+#: ../modules/date_time/CalendarComponent.qml:88
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:183
 msgid "Fri"
 msgstr "Pet"
 
-#: ../modules/date_time/CalendarComponent.qml:86
+#: ../modules/date_time/CalendarComponent.qml:89
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:184
 msgid "Sat"
@@ -981,7 +981,7 @@ msgstr "Prednostni DNS"
 msgid "Device Speed"
 msgstr "Hitrost naprave"
 
-#: ../modules/keyboard/LocaleArea.qml:86
+#: ../modules/keyboard/LocaleArea.qml:53
 msgid "Language"
 msgstr "Jezik"
 
@@ -1006,86 +1006,86 @@ msgstr "Obdrži spremenbe"
 msgid "Revert"
 msgstr "Povrni"
 
-#: ../qt5frame/views/ModulesData.qml:28 ../dock-applets/qml/main.qml:54
+#: ../qt5frame/views/ModulesData.qml:52 ../dock-applets/qml/main.qml:54
 msgid "Date and Time"
 msgstr "Datum in čas"
 
-#: ../qt5frame/views/ModulesData.qml:29 ../dock-applets/qml/main.qml:50
+#: ../qt5frame/views/ModulesData.qml:53 ../dock-applets/qml/main.qml:50
 msgid "Network"
 msgstr "Omrežje"
 
-#: ../qt5frame/views/ModulesData.qml:30 ../dock-applets/qml/main.qml:53
+#: ../qt5frame/views/ModulesData.qml:54 ../dock-applets/qml/main.qml:53
 msgid "Disk Mount"
 msgstr ""
 
-#: ../qt5frame/views/ModulesData.qml:31 ../modules/network/main.qml:172
+#: ../qt5frame/views/ModulesData.qml:55 ../modules/network/main.qml:172
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: ../qt5frame/views/ModulesData.qml:32 ../dock-applets/qml/main.qml:51
+#: ../qt5frame/views/ModulesData.qml:56 ../dock-applets/qml/main.qml:51
 msgid "Sound"
 msgstr "Zvok"
 
-#: ../qt5frame/views/ModulesData.qml:33
+#: ../qt5frame/views/ModulesData.qml:57
 msgid "Power Management"
 msgstr ""
 
-#: ../qt5frame/views/ModulesData.qml:34
+#: ../qt5frame/views/ModulesData.qml:58
 msgid "More Settings"
 msgstr "Več nastavitev"
 
-#: ../qt5frame/views/ModulesData.qml:35 ../qt5frame/views/PanelContent.qml:419
+#: ../qt5frame/views/ModulesData.qml:59 ../qt5frame/views/PanelContent.qml:418
 #: ../dock-applets/qml/main.qml:52
 msgid "Power"
 msgstr "Napajanje"
 
-#: ../qt5frame/views/ModulesData.qml:36
+#: ../qt5frame/views/ModulesData.qml:60
 msgid "Display"
 msgstr "Zaslon"
 
-#: ../qt5frame/views/ModulesData.qml:37
+#: ../qt5frame/views/ModulesData.qml:61
 msgid "Desktop"
 msgstr "Namizje"
 
-#: ../qt5frame/views/ModulesData.qml:38
+#: ../qt5frame/views/ModulesData.qml:62
 msgid "Personalization"
 msgstr "Prilagoditev"
 
-#: ../qt5frame/views/ModulesData.qml:39
+#: ../qt5frame/views/ModulesData.qml:63
 msgid "Keyboard Shortcuts"
 msgstr "Bližnjice na tipkovnici "
 
-#: ../qt5frame/views/ModulesData.qml:40
+#: ../qt5frame/views/ModulesData.qml:64
 #, fuzzy
 msgid "Keyboard and Language"
 msgstr "Tipkovnični razpored"
 
-#: ../qt5frame/views/ModulesData.qml:41
+#: ../qt5frame/views/ModulesData.qml:65
 msgid "Mouse and Touchpad"
 msgstr "Miška in Touchpad"
 
-#: ../qt5frame/views/ModulesData.qml:42 ../modules/mouse_touchpad/main.qml:50
+#: ../qt5frame/views/ModulesData.qml:66 ../modules/mouse_touchpad/main.qml:50
 msgid "Mouse"
 msgstr "Miška"
 
-#: ../qt5frame/views/ModulesData.qml:43
+#: ../qt5frame/views/ModulesData.qml:67
 msgid "User Accounts"
 msgstr "Uporabniški računi"
 
-#: ../qt5frame/views/ModulesData.qml:44
+#: ../qt5frame/views/ModulesData.qml:68
 #: ../modules/default_applications/main.qml:62
 msgid "Default Applications"
 msgstr "Privzete aplikacije"
 
-#: ../qt5frame/views/ModulesData.qml:45
+#: ../qt5frame/views/ModulesData.qml:69
 msgid "System Information"
 msgstr "Sistemske informacije"
 
-#: ../qt5frame/views/ModulesData.qml:46
+#: ../qt5frame/views/ModulesData.qml:70
 msgid "Boot Menu"
 msgstr "Boot meni"
 
-#: ../qt5frame/views/ModulesData.qml:47
+#: ../qt5frame/views/ModulesData.qml:71
 msgid "Home"
 msgstr "Dom"
 
@@ -1138,6 +1138,10 @@ msgstr "Svetlost"
 #, qt-format
 msgid "Wired Connection %1"
 msgstr "Žična povezava %1"
+
+#: ../modules/network/widgets/NotManagedSection.qml:24
+msgid "not managed"
+msgstr ""
 
 #: ../modules/network/widgets/PasswordBox.qml:76
 msgid "Password: "
@@ -1393,73 +1397,33 @@ msgstr "Žično omrežje"
 msgid "Scanning..."
 msgstr "Skeniranje..."
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:63
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:24
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:84
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 msgid "Wireless Network"
 msgstr "Brezžično omrežje"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:66
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:27
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:87
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 #, qt-format
 msgid "Wireless Network %1"
 msgstr "Brezžično omrežje %1"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:92
-msgid "not managed"
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:30
+msgid ""
+"Wireless network is unable to be connected maybe due to the following "
+"reasons:\n"
+"\n"
+"1. The hardware switch of wireless network card is off\n"
+"2. Incorrect network configuration in /etc/network/interface\n"
+"3. Incorrect driver of network hardware"
 msgstr ""
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:124
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:340
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:138
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:353
 msgid "Connect to hidden access point"
 msgstr "Povežite se s skrito dostopno točko"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "January"
-msgstr "Januar"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "February"
-msgstr "Februar "
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "March"
-msgstr "Marec"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "April"
-msgstr "April"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "May"
-msgstr "Maj"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "June"
-msgstr "Junij"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "July"
-msgstr "Julij"
-
-#: ../modules/date_time/calendar_core.js:7
-msgid "August"
-msgstr "August"
-
-#: ../modules/date_time/calendar_core.js:7
-msgid "September"
-msgstr "September"
-
-#: ../modules/date_time/calendar_core.js:7
-msgid "October"
-msgstr "Oktober"
-
-#: ../modules/date_time/calendar_core.js:7
-msgid "November"
-msgstr "November"
-
-#: ../modules/date_time/calendar_core.js:7
-msgid "December"
-msgstr "December"
 
 #: ../dock-applets/qml/date_time/main.qml:90
 msgid "_Switch to analog"
@@ -1516,19 +1480,19 @@ msgstr "Vklop/Izklop"
 msgid "Devices nearby"
 msgstr "Naprave v bližini"
 
-#: ../modules/date_time/main.qml:92
+#: ../modules/date_time/main.qml:93
 msgid "Automatic date and time"
 msgstr "Avtomatski datum in čas"
 
-#: ../modules/date_time/main.qml:108
+#: ../modules/date_time/main.qml:109
 msgid "Use 24-hour clock"
 msgstr "Uporabi 24-urni zapis"
 
-#: ../modules/date_time/main.qml:138
+#: ../modules/date_time/main.qml:139
 msgid "Date"
 msgstr "Datum"
 
-#: ../modules/date_time/main.qml:142
+#: ../modules/date_time/main.qml:143
 msgid "Set Date"
 msgstr "Nastavi datum"
 
@@ -1944,6 +1908,42 @@ msgstr "OdprtiVPN"
 #, fuzzy
 msgid "VPN OpenConnect"
 msgstr "OpenConnect"
+
+#~ msgid "January"
+#~ msgstr "Januar"
+
+#~ msgid "February"
+#~ msgstr "Februar "
+
+#~ msgid "March"
+#~ msgstr "Marec"
+
+#~ msgid "April"
+#~ msgstr "April"
+
+#~ msgid "May"
+#~ msgstr "Maj"
+
+#~ msgid "June"
+#~ msgstr "Junij"
+
+#~ msgid "July"
+#~ msgstr "Julij"
+
+#~ msgid "August"
+#~ msgstr "August"
+
+#~ msgid "September"
+#~ msgstr "September"
+
+#~ msgid "October"
+#~ msgstr "Oktober"
+
+#~ msgid "November"
+#~ msgstr "November"
+
+#~ msgid "December"
+#~ msgstr "December"
 
 #~ msgid "Keyboard"
 #~ msgstr "Tipkovnica"

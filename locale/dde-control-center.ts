@@ -512,7 +512,7 @@
 <context>
     <name>Calendar</name>
     <message>
-        <location filename="../modules/date_time/Calendar.qml" line="125"/>
+        <location filename="../modules/date_time/Calendar.qml" line="129"/>
         <source>Today</source>
         <translation type="unfinished"></translation>
     </message>
@@ -520,37 +520,37 @@
 <context>
     <name>CalendarComponent</name>
     <message>
-        <location filename="../modules/date_time/CalendarComponent.qml" line="80"/>
+        <location filename="../modules/date_time/CalendarComponent.qml" line="83"/>
         <source>Sun</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/CalendarComponent.qml" line="81"/>
+        <location filename="../modules/date_time/CalendarComponent.qml" line="84"/>
         <source>Mon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/CalendarComponent.qml" line="82"/>
+        <location filename="../modules/date_time/CalendarComponent.qml" line="85"/>
         <source>Tue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/CalendarComponent.qml" line="83"/>
+        <location filename="../modules/date_time/CalendarComponent.qml" line="86"/>
         <source>Wed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/CalendarComponent.qml" line="84"/>
+        <location filename="../modules/date_time/CalendarComponent.qml" line="87"/>
         <source>Thu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/CalendarComponent.qml" line="85"/>
+        <location filename="../modules/date_time/CalendarComponent.qml" line="88"/>
         <source>Fri</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/CalendarComponent.qml" line="86"/>
+        <location filename="../modules/date_time/CalendarComponent.qml" line="89"/>
         <source>Sat</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1744,7 +1744,7 @@
 <context>
     <name>LocaleArea</name>
     <message>
-        <location filename="../modules/keyboard/LocaleArea.qml" line="86"/>
+        <location filename="../modules/keyboard/LocaleArea.qml" line="53"/>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1775,102 +1775,102 @@
 <context>
     <name>ModulesData</name>
     <message>
-        <location filename="../qt5frame/views/ModulesData.qml" line="28"/>
+        <location filename="../qt5frame/views/ModulesData.qml" line="52"/>
         <source>Date and Time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt5frame/views/ModulesData.qml" line="29"/>
+        <location filename="../qt5frame/views/ModulesData.qml" line="53"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt5frame/views/ModulesData.qml" line="30"/>
+        <location filename="../qt5frame/views/ModulesData.qml" line="54"/>
         <source>Disk Mount</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt5frame/views/ModulesData.qml" line="31"/>
+        <location filename="../qt5frame/views/ModulesData.qml" line="55"/>
         <source>Bluetooth</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt5frame/views/ModulesData.qml" line="32"/>
+        <location filename="../qt5frame/views/ModulesData.qml" line="56"/>
         <source>Sound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt5frame/views/ModulesData.qml" line="33"/>
+        <location filename="../qt5frame/views/ModulesData.qml" line="57"/>
         <source>Power Management</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt5frame/views/ModulesData.qml" line="34"/>
+        <location filename="../qt5frame/views/ModulesData.qml" line="58"/>
         <source>More Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt5frame/views/ModulesData.qml" line="35"/>
+        <location filename="../qt5frame/views/ModulesData.qml" line="59"/>
         <source>Power</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt5frame/views/ModulesData.qml" line="36"/>
+        <location filename="../qt5frame/views/ModulesData.qml" line="60"/>
         <source>Display</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt5frame/views/ModulesData.qml" line="37"/>
+        <location filename="../qt5frame/views/ModulesData.qml" line="61"/>
         <source>Desktop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt5frame/views/ModulesData.qml" line="38"/>
+        <location filename="../qt5frame/views/ModulesData.qml" line="62"/>
         <source>Personalization</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt5frame/views/ModulesData.qml" line="39"/>
+        <location filename="../qt5frame/views/ModulesData.qml" line="63"/>
         <source>Keyboard Shortcuts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt5frame/views/ModulesData.qml" line="40"/>
+        <location filename="../qt5frame/views/ModulesData.qml" line="64"/>
         <source>Keyboard and Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt5frame/views/ModulesData.qml" line="41"/>
+        <location filename="../qt5frame/views/ModulesData.qml" line="65"/>
         <source>Mouse and Touchpad</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt5frame/views/ModulesData.qml" line="42"/>
+        <location filename="../qt5frame/views/ModulesData.qml" line="66"/>
         <source>Mouse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt5frame/views/ModulesData.qml" line="43"/>
+        <location filename="../qt5frame/views/ModulesData.qml" line="67"/>
         <source>User Accounts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt5frame/views/ModulesData.qml" line="44"/>
+        <location filename="../qt5frame/views/ModulesData.qml" line="68"/>
         <source>Default Applications</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt5frame/views/ModulesData.qml" line="45"/>
+        <location filename="../qt5frame/views/ModulesData.qml" line="69"/>
         <source>System Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt5frame/views/ModulesData.qml" line="46"/>
+        <location filename="../qt5frame/views/ModulesData.qml" line="70"/>
         <source>Boot Menu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qt5frame/views/ModulesData.qml" line="47"/>
+        <location filename="../qt5frame/views/ModulesData.qml" line="71"/>
         <source>Home</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1953,9 +1953,17 @@
     </message>
 </context>
 <context>
+    <name>NotManagedSection</name>
+    <message>
+        <location filename="../modules/network/widgets/NotManagedSection.qml" line="24"/>
+        <source>not managed</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>PanelContent</name>
     <message>
-        <location filename="../qt5frame/views/PanelContent.qml" line="419"/>
+        <location filename="../qt5frame/views/PanelContent.qml" line="418"/>
         <source>Power</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2444,23 +2452,29 @@
 <context>
     <name>WirelessDeviceExpand</name>
     <message>
-        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="63"/>
+        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="24"/>
+        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="84"/>
         <source>Wireless Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="66"/>
+        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="27"/>
+        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="87"/>
         <source>Wireless Network %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="92"/>
-        <source>not managed</source>
+        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="30"/>
+        <source>Wireless network is unable to be connected maybe due to the following reasons:
+
+1. The hardware switch of wireless network card is off
+2. Incorrect network configuration in /etc/network/interface
+3. Incorrect driver of network hardware</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="124"/>
-        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="340"/>
+        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="138"/>
+        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="353"/>
         <source>Connect to hidden access point</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2513,66 +2527,6 @@
     <message>
         <location filename="../dock-applets/qml/date_time/calendar_core.js" line="4"/>
         <source>Sat</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/calendar_core.js" line="6"/>
-        <source>January</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/calendar_core.js" line="6"/>
-        <source>February</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/calendar_core.js" line="6"/>
-        <source>March</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/calendar_core.js" line="6"/>
-        <source>April</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/calendar_core.js" line="6"/>
-        <source>May</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/calendar_core.js" line="6"/>
-        <source>June</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/calendar_core.js" line="6"/>
-        <source>July</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/calendar_core.js" line="7"/>
-        <source>August</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/calendar_core.js" line="7"/>
-        <source>September</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/calendar_core.js" line="7"/>
-        <source>October</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/calendar_core.js" line="7"/>
-        <source>November</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/date_time/calendar_core.js" line="7"/>
-        <source>December</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2718,22 +2672,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="92"/>
+        <location filename="../modules/date_time/main.qml" line="93"/>
         <source>Automatic date and time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="108"/>
+        <location filename="../modules/date_time/main.qml" line="109"/>
         <source>Use 24-hour clock</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="138"/>
+        <location filename="../modules/date_time/main.qml" line="139"/>
         <source>Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="142"/>
+        <location filename="../modules/date_time/main.qml" line="143"/>
         <source>Set Date</source>
         <translation type="unfinished"></translation>
     </message>

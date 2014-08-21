@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-19 15:32+0800\n"
+"POT-Creation-Date: 2014-08-21 09:19+0800\n"
 "PO-Revision-Date: 2014-07-03 01:50+0000\n"
 "Last-Translator: Gioacchino Nigrelli <gioacchino.nigrelli@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/dde-control-"
@@ -467,47 +467,47 @@ msgstr "Webcam"
 msgid "Automatically connect"
 msgstr "Connessione automatica"
 
-#: ../modules/date_time/Calendar.qml:125
+#: ../modules/date_time/Calendar.qml:129
 msgid "Today"
 msgstr "Oggi"
 
-#: ../modules/date_time/CalendarComponent.qml:80
+#: ../modules/date_time/CalendarComponent.qml:83
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:178
 msgid "Sun"
 msgstr "Dom"
 
-#: ../modules/date_time/CalendarComponent.qml:81
+#: ../modules/date_time/CalendarComponent.qml:84
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:179
 msgid "Mon"
 msgstr "Lun"
 
-#: ../modules/date_time/CalendarComponent.qml:82
+#: ../modules/date_time/CalendarComponent.qml:85
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:180
 msgid "Tue"
 msgstr "Mar"
 
-#: ../modules/date_time/CalendarComponent.qml:83
+#: ../modules/date_time/CalendarComponent.qml:86
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:181
 msgid "Wed"
 msgstr "Mer"
 
-#: ../modules/date_time/CalendarComponent.qml:84
+#: ../modules/date_time/CalendarComponent.qml:87
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:182
 msgid "Thu"
 msgstr "Gio"
 
-#: ../modules/date_time/CalendarComponent.qml:85
+#: ../modules/date_time/CalendarComponent.qml:88
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:183
 msgid "Fri"
 msgstr "Ven"
 
-#: ../modules/date_time/CalendarComponent.qml:86
+#: ../modules/date_time/CalendarComponent.qml:89
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:184
 msgid "Sat"
@@ -981,7 +981,7 @@ msgstr "DNS Primario"
 msgid "Device Speed"
 msgstr "Velocità dispositivo"
 
-#: ../modules/keyboard/LocaleArea.qml:86
+#: ../modules/keyboard/LocaleArea.qml:53
 msgid "Language"
 msgstr "Lingua"
 
@@ -1006,86 +1006,86 @@ msgstr "Mantieni modifiche"
 msgid "Revert"
 msgstr "Inverti"
 
-#: ../qt5frame/views/ModulesData.qml:28 ../dock-applets/qml/main.qml:54
+#: ../qt5frame/views/ModulesData.qml:52 ../dock-applets/qml/main.qml:54
 msgid "Date and Time"
 msgstr "Data e Ora"
 
-#: ../qt5frame/views/ModulesData.qml:29 ../dock-applets/qml/main.qml:50
+#: ../qt5frame/views/ModulesData.qml:53 ../dock-applets/qml/main.qml:50
 msgid "Network"
 msgstr "Rete"
 
-#: ../qt5frame/views/ModulesData.qml:30 ../dock-applets/qml/main.qml:53
+#: ../qt5frame/views/ModulesData.qml:54 ../dock-applets/qml/main.qml:53
 msgid "Disk Mount"
 msgstr "Monta disco"
 
-#: ../qt5frame/views/ModulesData.qml:31 ../modules/network/main.qml:172
+#: ../qt5frame/views/ModulesData.qml:55 ../modules/network/main.qml:172
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: ../qt5frame/views/ModulesData.qml:32 ../dock-applets/qml/main.qml:51
+#: ../qt5frame/views/ModulesData.qml:56 ../dock-applets/qml/main.qml:51
 msgid "Sound"
 msgstr "Suono"
 
-#: ../qt5frame/views/ModulesData.qml:33
+#: ../qt5frame/views/ModulesData.qml:57
 msgid "Power Management"
 msgstr "Gestione alimentazione"
 
-#: ../qt5frame/views/ModulesData.qml:34
+#: ../qt5frame/views/ModulesData.qml:58
 msgid "More Settings"
 msgstr "Altre impostazioni"
 
-#: ../qt5frame/views/ModulesData.qml:35 ../qt5frame/views/PanelContent.qml:419
+#: ../qt5frame/views/ModulesData.qml:59 ../qt5frame/views/PanelContent.qml:418
 #: ../dock-applets/qml/main.qml:52
 msgid "Power"
 msgstr "Alimentazione"
 
-#: ../qt5frame/views/ModulesData.qml:36
+#: ../qt5frame/views/ModulesData.qml:60
 msgid "Display"
 msgstr "Display"
 
-#: ../qt5frame/views/ModulesData.qml:37
+#: ../qt5frame/views/ModulesData.qml:61
 msgid "Desktop"
 msgstr "Desktop"
 
-#: ../qt5frame/views/ModulesData.qml:38
+#: ../qt5frame/views/ModulesData.qml:62
 msgid "Personalization"
 msgstr "Personalizzazione"
 
-#: ../qt5frame/views/ModulesData.qml:39
+#: ../qt5frame/views/ModulesData.qml:63
 msgid "Keyboard Shortcuts"
 msgstr "Scorciatoie tastiera"
 
-#: ../qt5frame/views/ModulesData.qml:40
+#: ../qt5frame/views/ModulesData.qml:64
 #, fuzzy
 msgid "Keyboard and Language"
 msgstr "Layout della tastiera"
 
-#: ../qt5frame/views/ModulesData.qml:41
+#: ../qt5frame/views/ModulesData.qml:65
 msgid "Mouse and Touchpad"
 msgstr "Mouse e Touchpad"
 
-#: ../qt5frame/views/ModulesData.qml:42 ../modules/mouse_touchpad/main.qml:50
+#: ../qt5frame/views/ModulesData.qml:66 ../modules/mouse_touchpad/main.qml:50
 msgid "Mouse"
 msgstr "Mouse"
 
-#: ../qt5frame/views/ModulesData.qml:43
+#: ../qt5frame/views/ModulesData.qml:67
 msgid "User Accounts"
 msgstr "Account utente"
 
-#: ../qt5frame/views/ModulesData.qml:44
+#: ../qt5frame/views/ModulesData.qml:68
 #: ../modules/default_applications/main.qml:62
 msgid "Default Applications"
 msgstr "Applicazioni predefinite"
 
-#: ../qt5frame/views/ModulesData.qml:45
+#: ../qt5frame/views/ModulesData.qml:69
 msgid "System Information"
 msgstr "Informazioni di sistema"
 
-#: ../qt5frame/views/ModulesData.qml:46
+#: ../qt5frame/views/ModulesData.qml:70
 msgid "Boot Menu"
 msgstr "Menu Boot"
 
-#: ../qt5frame/views/ModulesData.qml:47
+#: ../qt5frame/views/ModulesData.qml:71
 msgid "Home"
 msgstr "Home"
 
@@ -1138,6 +1138,10 @@ msgstr "Luminosità"
 #, qt-format
 msgid "Wired Connection %1"
 msgstr "Connessione cablata %1"
+
+#: ../modules/network/widgets/NotManagedSection.qml:24
+msgid "not managed"
+msgstr ""
 
 #: ../modules/network/widgets/PasswordBox.qml:76
 msgid "Password: "
@@ -1396,73 +1400,33 @@ msgstr "Connessione cablata"
 msgid "Scanning..."
 msgstr "Ricerca..."
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:63
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:24
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:84
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 msgid "Wireless Network"
 msgstr "Connessione Wireless"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:66
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:27
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:87
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 #, qt-format
 msgid "Wireless Network %1"
 msgstr "Connessione Wireless %1"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:92
-msgid "not managed"
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:30
+msgid ""
+"Wireless network is unable to be connected maybe due to the following "
+"reasons:\n"
+"\n"
+"1. The hardware switch of wireless network card is off\n"
+"2. Incorrect network configuration in /etc/network/interface\n"
+"3. Incorrect driver of network hardware"
 msgstr ""
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:124
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:340
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:138
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:353
 msgid "Connect to hidden access point"
 msgstr "Connetti ad una rete nascosta"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "January"
-msgstr "Gennaio"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "February"
-msgstr "Febbraio"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "March"
-msgstr "Marzo"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "April"
-msgstr "Aprile"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "May"
-msgstr "Mag"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "June"
-msgstr "Giugno"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "July"
-msgstr "Luglio"
-
-#: ../modules/date_time/calendar_core.js:7
-msgid "August"
-msgstr "Agosto"
-
-#: ../modules/date_time/calendar_core.js:7
-msgid "September"
-msgstr "Settembre"
-
-#: ../modules/date_time/calendar_core.js:7
-msgid "October"
-msgstr "Ottobre"
-
-#: ../modules/date_time/calendar_core.js:7
-msgid "November"
-msgstr "Novembre"
-
-#: ../modules/date_time/calendar_core.js:7
-msgid "December"
-msgstr "Dicembre"
 
 #: ../dock-applets/qml/date_time/main.qml:90
 msgid "_Switch to analog"
@@ -1519,19 +1483,19 @@ msgstr "ON/OFF"
 msgid "Devices nearby"
 msgstr "Dispositivi nei paraggi"
 
-#: ../modules/date_time/main.qml:92
+#: ../modules/date_time/main.qml:93
 msgid "Automatic date and time"
 msgstr "Data ed ora automatica"
 
-#: ../modules/date_time/main.qml:108
+#: ../modules/date_time/main.qml:109
 msgid "Use 24-hour clock"
 msgstr "Usa orologio 24 ore"
 
-#: ../modules/date_time/main.qml:138
+#: ../modules/date_time/main.qml:139
 msgid "Date"
 msgstr "Data"
 
-#: ../modules/date_time/main.qml:142
+#: ../modules/date_time/main.qml:143
 msgid "Set Date"
 msgstr "Imposta data"
 
@@ -1947,6 +1911,42 @@ msgstr "OpenVPN"
 #, fuzzy
 msgid "VPN OpenConnect"
 msgstr "OpenConnect"
+
+#~ msgid "January"
+#~ msgstr "Gennaio"
+
+#~ msgid "February"
+#~ msgstr "Febbraio"
+
+#~ msgid "March"
+#~ msgstr "Marzo"
+
+#~ msgid "April"
+#~ msgstr "Aprile"
+
+#~ msgid "May"
+#~ msgstr "Mag"
+
+#~ msgid "June"
+#~ msgstr "Giugno"
+
+#~ msgid "July"
+#~ msgstr "Luglio"
+
+#~ msgid "August"
+#~ msgstr "Agosto"
+
+#~ msgid "September"
+#~ msgstr "Settembre"
+
+#~ msgid "October"
+#~ msgstr "Ottobre"
+
+#~ msgid "November"
+#~ msgstr "Novembre"
+
+#~ msgid "December"
+#~ msgstr "Dicembre"
 
 #~ msgid "Keyboard"
 #~ msgstr "Tastiera"

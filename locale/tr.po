@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-19 15:32+0800\n"
+"POT-Creation-Date: 2014-08-21 09:19+0800\n"
 "PO-Revision-Date: 2014-07-02 12:31+0000\n"
 "Last-Translator: yakup <mutouk@yandex.ru>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/dde-control-"
@@ -466,47 +466,47 @@ msgstr "Webcam"
 msgid "Automatically connect"
 msgstr "Otomatik bağlan"
 
-#: ../modules/date_time/Calendar.qml:125
+#: ../modules/date_time/Calendar.qml:129
 msgid "Today"
 msgstr "Bugün"
 
-#: ../modules/date_time/CalendarComponent.qml:80
+#: ../modules/date_time/CalendarComponent.qml:83
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:178
 msgid "Sun"
 msgstr "Paz"
 
-#: ../modules/date_time/CalendarComponent.qml:81
+#: ../modules/date_time/CalendarComponent.qml:84
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:179
 msgid "Mon"
 msgstr "Pzt"
 
-#: ../modules/date_time/CalendarComponent.qml:82
+#: ../modules/date_time/CalendarComponent.qml:85
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:180
 msgid "Tue"
 msgstr "Sal"
 
-#: ../modules/date_time/CalendarComponent.qml:83
+#: ../modules/date_time/CalendarComponent.qml:86
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:181
 msgid "Wed"
 msgstr "Çrş"
 
-#: ../modules/date_time/CalendarComponent.qml:84
+#: ../modules/date_time/CalendarComponent.qml:87
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:182
 msgid "Thu"
 msgstr "Prş"
 
-#: ../modules/date_time/CalendarComponent.qml:85
+#: ../modules/date_time/CalendarComponent.qml:88
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:183
 msgid "Fri"
 msgstr "Cum"
 
-#: ../modules/date_time/CalendarComponent.qml:86
+#: ../modules/date_time/CalendarComponent.qml:89
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:184
 msgid "Sat"
@@ -980,7 +980,7 @@ msgstr "Birincil DNS"
 msgid "Device Speed"
 msgstr "Cihaz Hızı"
 
-#: ../modules/keyboard/LocaleArea.qml:86
+#: ../modules/keyboard/LocaleArea.qml:53
 msgid "Language"
 msgstr "Dil"
 
@@ -1005,86 +1005,86 @@ msgstr "Değişiklikleri Tut"
 msgid "Revert"
 msgstr "Eski haline döndür"
 
-#: ../qt5frame/views/ModulesData.qml:28 ../dock-applets/qml/main.qml:54
+#: ../qt5frame/views/ModulesData.qml:52 ../dock-applets/qml/main.qml:54
 msgid "Date and Time"
 msgstr "Tarih ve Saat"
 
-#: ../qt5frame/views/ModulesData.qml:29 ../dock-applets/qml/main.qml:50
+#: ../qt5frame/views/ModulesData.qml:53 ../dock-applets/qml/main.qml:50
 msgid "Network"
 msgstr "Ağ"
 
-#: ../qt5frame/views/ModulesData.qml:30 ../dock-applets/qml/main.qml:53
+#: ../qt5frame/views/ModulesData.qml:54 ../dock-applets/qml/main.qml:53
 msgid "Disk Mount"
 msgstr "Disk Bağla"
 
-#: ../qt5frame/views/ModulesData.qml:31 ../modules/network/main.qml:172
+#: ../qt5frame/views/ModulesData.qml:55 ../modules/network/main.qml:172
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: ../qt5frame/views/ModulesData.qml:32 ../dock-applets/qml/main.qml:51
+#: ../qt5frame/views/ModulesData.qml:56 ../dock-applets/qml/main.qml:51
 msgid "Sound"
 msgstr "Ses"
 
-#: ../qt5frame/views/ModulesData.qml:33
+#: ../qt5frame/views/ModulesData.qml:57
 msgid "Power Management"
 msgstr "Güç Yönetimi"
 
-#: ../qt5frame/views/ModulesData.qml:34
+#: ../qt5frame/views/ModulesData.qml:58
 msgid "More Settings"
 msgstr "Daha fazla Ayar"
 
-#: ../qt5frame/views/ModulesData.qml:35 ../qt5frame/views/PanelContent.qml:419
+#: ../qt5frame/views/ModulesData.qml:59 ../qt5frame/views/PanelContent.qml:418
 #: ../dock-applets/qml/main.qml:52
 msgid "Power"
 msgstr "Güç"
 
-#: ../qt5frame/views/ModulesData.qml:36
+#: ../qt5frame/views/ModulesData.qml:60
 msgid "Display"
 msgstr "Ekran"
 
-#: ../qt5frame/views/ModulesData.qml:37
+#: ../qt5frame/views/ModulesData.qml:61
 msgid "Desktop"
 msgstr "Masaüstü"
 
-#: ../qt5frame/views/ModulesData.qml:38
+#: ../qt5frame/views/ModulesData.qml:62
 msgid "Personalization"
 msgstr "Kişiselleştirme"
 
-#: ../qt5frame/views/ModulesData.qml:39
+#: ../qt5frame/views/ModulesData.qml:63
 msgid "Keyboard Shortcuts"
 msgstr "Klavye Kısayolları"
 
-#: ../qt5frame/views/ModulesData.qml:40
+#: ../qt5frame/views/ModulesData.qml:64
 #, fuzzy
 msgid "Keyboard and Language"
 msgstr "Klavye Düzeni"
 
-#: ../qt5frame/views/ModulesData.qml:41
+#: ../qt5frame/views/ModulesData.qml:65
 msgid "Mouse and Touchpad"
 msgstr "Fare ve Dokunmatik yüzey"
 
-#: ../qt5frame/views/ModulesData.qml:42 ../modules/mouse_touchpad/main.qml:50
+#: ../qt5frame/views/ModulesData.qml:66 ../modules/mouse_touchpad/main.qml:50
 msgid "Mouse"
 msgstr "Fare"
 
-#: ../qt5frame/views/ModulesData.qml:43
+#: ../qt5frame/views/ModulesData.qml:67
 msgid "User Accounts"
 msgstr "Kullanıcı Hesapları"
 
-#: ../qt5frame/views/ModulesData.qml:44
+#: ../qt5frame/views/ModulesData.qml:68
 #: ../modules/default_applications/main.qml:62
 msgid "Default Applications"
 msgstr "Varsayılan Uygulamalar"
 
-#: ../qt5frame/views/ModulesData.qml:45
+#: ../qt5frame/views/ModulesData.qml:69
 msgid "System Information"
 msgstr "Sistem Bilgileri"
 
-#: ../qt5frame/views/ModulesData.qml:46
+#: ../qt5frame/views/ModulesData.qml:70
 msgid "Boot Menu"
 msgstr "Önyükleme Menüsü"
 
-#: ../qt5frame/views/ModulesData.qml:47
+#: ../qt5frame/views/ModulesData.qml:71
 msgid "Home"
 msgstr "Ev"
 
@@ -1137,6 +1137,10 @@ msgstr "Parlaklık"
 #, qt-format
 msgid "Wired Connection %1"
 msgstr "Kablolu Bağlantı %1"
+
+#: ../modules/network/widgets/NotManagedSection.qml:24
+msgid "not managed"
+msgstr ""
 
 #: ../modules/network/widgets/PasswordBox.qml:76
 msgid "Password: "
@@ -1395,73 +1399,33 @@ msgstr "Kablolu Ağ"
 msgid "Scanning..."
 msgstr "Taranıyor..."
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:63
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:24
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:84
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 msgid "Wireless Network"
 msgstr "Wireless  Ağ"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:66
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:27
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:87
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 #, qt-format
 msgid "Wireless Network %1"
 msgstr "Wireless Ağ %1"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:92
-msgid "not managed"
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:30
+msgid ""
+"Wireless network is unable to be connected maybe due to the following "
+"reasons:\n"
+"\n"
+"1. The hardware switch of wireless network card is off\n"
+"2. Incorrect network configuration in /etc/network/interface\n"
+"3. Incorrect driver of network hardware"
 msgstr ""
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:124
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:340
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:138
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:353
 msgid "Connect to hidden access point"
 msgstr "Gizli erişim noktasına bağlan"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "January"
-msgstr "Ocak"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "February"
-msgstr "Şubat"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "March"
-msgstr "Mart"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "April"
-msgstr "Nisan"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "May"
-msgstr "May"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "June"
-msgstr "Haziran"
-
-#: ../modules/date_time/calendar_core.js:6
-msgid "July"
-msgstr "Temmuz"
-
-#: ../modules/date_time/calendar_core.js:7
-msgid "August"
-msgstr "Ağustos"
-
-#: ../modules/date_time/calendar_core.js:7
-msgid "September"
-msgstr "Eylül"
-
-#: ../modules/date_time/calendar_core.js:7
-msgid "October"
-msgstr "Ekim"
-
-#: ../modules/date_time/calendar_core.js:7
-msgid "November"
-msgstr "Kasım"
-
-#: ../modules/date_time/calendar_core.js:7
-msgid "December"
-msgstr "Aralık"
 
 #: ../dock-applets/qml/date_time/main.qml:90
 msgid "_Switch to analog"
@@ -1518,19 +1482,19 @@ msgstr "AÇ/KAPAT"
 msgid "Devices nearby"
 msgstr "Yakın cihazlar"
 
-#: ../modules/date_time/main.qml:92
+#: ../modules/date_time/main.qml:93
 msgid "Automatic date and time"
 msgstr "Otomatik tarih ve zaman"
 
-#: ../modules/date_time/main.qml:108
+#: ../modules/date_time/main.qml:109
 msgid "Use 24-hour clock"
 msgstr "24-saat formatını kullan"
 
-#: ../modules/date_time/main.qml:138
+#: ../modules/date_time/main.qml:139
 msgid "Date"
 msgstr "Tarih"
 
-#: ../modules/date_time/main.qml:142
+#: ../modules/date_time/main.qml:143
 msgid "Set Date"
 msgstr "Tarihi Ayarla"
 
@@ -1946,6 +1910,42 @@ msgstr "OpenVPN"
 #, fuzzy
 msgid "VPN OpenConnect"
 msgstr "OpenConnect"
+
+#~ msgid "January"
+#~ msgstr "Ocak"
+
+#~ msgid "February"
+#~ msgstr "Şubat"
+
+#~ msgid "March"
+#~ msgstr "Mart"
+
+#~ msgid "April"
+#~ msgstr "Nisan"
+
+#~ msgid "May"
+#~ msgstr "May"
+
+#~ msgid "June"
+#~ msgstr "Haziran"
+
+#~ msgid "July"
+#~ msgstr "Temmuz"
+
+#~ msgid "August"
+#~ msgstr "Ağustos"
+
+#~ msgid "September"
+#~ msgstr "Eylül"
+
+#~ msgid "October"
+#~ msgstr "Ekim"
+
+#~ msgid "November"
+#~ msgstr "Kasım"
+
+#~ msgid "December"
+#~ msgstr "Aralık"
 
 #~ msgid "Keyboard"
 #~ msgstr "Klavye"
