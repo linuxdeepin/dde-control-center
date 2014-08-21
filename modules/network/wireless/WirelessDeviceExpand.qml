@@ -117,10 +117,10 @@ Item {
                 boundsBehavior: Flickable.StopAtBounds
                 model: accessPointsModel
                 delegate: WirelessItem {
-                    devicePath: devicePath
-                    deviceHwAddress: deviceHwAddress
-                    activeAp: activeAp
-                    deviceState: deviceState
+                    devicePath: wirelessDeviceBox.devicePath
+                    deviceHwAddress: wirelessDeviceBox.deviceHwAddress
+                    activeAp: wirelessDeviceBox.activeAp
+                    deviceState: wirelessDeviceBox.deviceState
                 }
             }
 

@@ -41,7 +41,7 @@ Item {
             }
         }
     }
-    
+
     Behavior on height {
         PropertyAnimation { duration: 100 }
     }
@@ -56,11 +56,11 @@ Item {
     Component.onCompleted: {
         updateWirelessConnectionInfo()
     }
-    
+
     onActiveApChanged: {
         updateMasterApInfoWhenActivatingAp()
     }
-    
+
     function updateWirelessConnectionInfo() {
         var conns = nmConnections[nmConnectionTypeWireless]
         var tmpPath = ""
@@ -77,7 +77,7 @@ Item {
         connectionPath = tmpPath
         uuid = tmpUuid
     }
-    
+
     function activateWirelessConnection(){
         if (uuid == "" && masterApSecuredInEap) {
             // if access point under the security eap and there is
@@ -87,7 +87,6 @@ Item {
             gotoAddWirelessConnectionWizard()
         } else {
             // connection for current access point exists, just activate it
-            print("==> connectionPath", connectionPath)
             dbusNetwork.ActivateAccessPoint(uuid, masterApPath, devicePath)
         }
     }
@@ -119,7 +118,7 @@ Item {
         })
         stackView.currentItemId = page
     }
-    
+
     DBaseLine {
         id: wirelessLine
 
@@ -142,7 +141,7 @@ Item {
 
             onClicked: {
                 if(!apConnected){
-                    print("==> activate connection", masterApPath)
+                    print("==> ActivateAccessPoint", uuid, masterApPath, devicePath)
                     activateWirelessConnection()
                     // TODO show waiting image imediately
                     // wirelessLine.leftLoader.item.waitingImageOn = true
