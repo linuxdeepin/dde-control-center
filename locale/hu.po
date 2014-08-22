@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-21 15:58+0800\n"
+"POT-Creation-Date: 2014-08-22 10:39+0800\n"
 "PO-Revision-Date: 2014-07-02 20:32+0000\n"
 "Last-Translator: Laszlo Espadas <kw@kardiweb.org>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/dde-control-"
@@ -977,7 +977,7 @@ msgstr ""
 
 #: ../modules/network/Info.qml:60
 #, fuzzy
-msgid "Ternary DNS"
+msgid "Third DNS"
 msgstr "Elsődleges DNS"
 
 #: ../modules/network/Info.qml:69
@@ -1202,8 +1202,9 @@ msgid "FTP Proxy"
 msgstr "FTP Proxy"
 
 #: ../modules/network/proxy/ProxyContent.qml:124
-msgid "Socks Host"
-msgstr ""
+#, fuzzy
+msgid "Socks Proxy"
+msgstr "Rendszer proxy"
 
 #: ../modules/network/proxy/ProxyContent.qml:149
 msgid "Configuration URL"
@@ -1911,6 +1912,10 @@ msgstr "OpenVPN"
 #, fuzzy
 msgid "VPN OpenConnect"
 msgstr "OpenConnect"
+
+#, fuzzy
+#~ msgid "Ternary DNS"
+#~ msgstr "Elsődleges DNS"
 
 #~ msgid "CSD Wrapper"
 #~ msgstr "CSD Háttér"

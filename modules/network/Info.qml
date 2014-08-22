@@ -57,15 +57,15 @@ Column {
                     InfoItem {label: dsTr("Route Addr");     value: modelData.Ip4.Route}
                     InfoItem {label: dsTr("Primary DNS");    value: modelData.Ip4.Dns1}
                     InfoItem {label: dsTr("Secondary DNS");  value: modelData.Ip4.Dns2}
-                    InfoItem {label: dsTr("Ternary DNS");    value: modelData.Ip4.Dns3}
-                    
+                    InfoItem {label: dsTr("Third DNS");      value: modelData.Ip4.Dns3}
+
                     // TODO
                     // InfoItem {label: dsTr("IPv6 Address");     value: modelData.Ip6.Address}
                     // InfoItem {label: dsTr("IPv6 Route Addr");     value: modelData.Ip6.Route}
                     // InfoItem {label: dsTr("IPv6 Primary DNS");    value: modelData.Ip6.Dns1}
                     // InfoItem {label: dsTr("IPv6 Secondary DNS");  value: modelData.Ip6.Dns2}
                     // InfoItem {label: dsTr("IPv6 Ternary DNS");    value: modelData.Ip6.Dns3}
-                    
+
                     InfoItem {label: dsTr("Device Speed");   value: modelData.Speed + " Mb/s"}
                 }
             }

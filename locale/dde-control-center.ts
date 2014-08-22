@@ -1727,7 +1727,7 @@
     </message>
     <message>
         <location filename="../modules/network/Info.qml" line="60"/>
-        <source>Ternary DNS</source>
+        <source>Third DNS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2086,7 +2086,7 @@
     </message>
     <message>
         <location filename="../modules/network/proxy/ProxyContent.qml" line="124"/>
-        <source>Socks Host</source>
+        <source>Socks Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

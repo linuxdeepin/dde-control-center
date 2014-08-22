@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-21 15:58+0800\n"
+"POT-Creation-Date: 2014-08-22 10:39+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -963,7 +963,7 @@ msgid "Secondary DNS"
 msgstr ""
 
 #: ../modules/network/Info.qml:60
-msgid "Ternary DNS"
+msgid "Third DNS"
 msgstr ""
 
 #: ../modules/network/Info.qml:69
@@ -1187,7 +1187,7 @@ msgid "FTP Proxy"
 msgstr ""
 
 #: ../modules/network/proxy/ProxyContent.qml:124
-msgid "Socks Host"
+msgid "Socks Proxy"
 msgstr ""
 
 #: ../modules/network/proxy/ProxyContent.qml:149

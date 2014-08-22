@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-21 15:58+0800\n"
+"POT-Creation-Date: 2014-08-22 10:39+0800\n"
 "PO-Revision-Date: 2014-07-02 20:11+0000\n"
 "Last-Translator: Fox909 <ffox909@mail.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/dde-control-"
@@ -983,7 +983,7 @@ msgstr ""
 
 #: ../modules/network/Info.qml:60
 #, fuzzy
-msgid "Ternary DNS"
+msgid "Third DNS"
 msgstr "Основной DNS"
 
 #: ../modules/network/Info.qml:69
@@ -1213,8 +1213,9 @@ msgid "FTP Proxy"
 msgstr "FTP-прокси"
 
 #: ../modules/network/proxy/ProxyContent.qml:124
-msgid "Socks Host"
-msgstr "Socks-хост"
+#, fuzzy
+msgid "Socks Proxy"
+msgstr "Системный прокси"
 
 #: ../modules/network/proxy/ProxyContent.qml:149
 msgid "Configuration URL"
@@ -1924,6 +1925,13 @@ msgstr "OpenVPN"
 #, fuzzy
 msgid "VPN OpenConnect"
 msgstr "OpenConnect"
+
+#, fuzzy
+#~ msgid "Ternary DNS"
+#~ msgstr "Основной DNS"
+
+#~ msgid "Socks Host"
+#~ msgstr "Socks-хост"
 
 #~ msgid "CSD Wrapper"
 #~ msgstr "CSD Wrapper"

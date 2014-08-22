@@ -965,7 +965,7 @@ msgid "Secondary DNS"
 msgstr "第二DNS"
 
 #: ../modules/network/Info.qml:60
-msgid "Ternary DNS"
+msgid "Third DNS"
 msgstr "第三DNS"
 
 #: ../modules/network/Info.qml:69
@@ -1189,7 +1189,7 @@ msgid "FTP Proxy"
 msgstr "FTP代理"
 
 #: ../modules/network/proxy/ProxyContent.qml:124
-msgid "Socks Host"
+msgid "Socks Proxy"
 msgstr "Socks代理"
 
 #: ../modules/network/proxy/ProxyContent.qml:149

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-21 15:58+0800\n"
+"POT-Creation-Date: 2014-08-22 10:39+0800\n"
 "PO-Revision-Date: 2014-07-02 11:40+0000\n"
 "Last-Translator: andrej55 <andrej.marsetic@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/projects/p/dde-control-"
@@ -977,7 +977,7 @@ msgstr ""
 
 #: ../modules/network/Info.qml:60
 #, fuzzy
-msgid "Ternary DNS"
+msgid "Third DNS"
 msgstr "Prednostni DNS"
 
 #: ../modules/network/Info.qml:69
@@ -1206,8 +1206,9 @@ msgid "FTP Proxy"
 msgstr "Proxy FTP"
 
 #: ../modules/network/proxy/ProxyContent.qml:124
-msgid "Socks Host"
-msgstr ""
+#, fuzzy
+msgid "Socks Proxy"
+msgstr "HTTPS Proxy"
 
 #: ../modules/network/proxy/ProxyContent.qml:149
 msgid "Configuration URL"
@@ -1915,6 +1916,10 @@ msgstr "OdprtiVPN"
 #, fuzzy
 msgid "VPN OpenConnect"
 msgstr "OpenConnect"
+
+#, fuzzy
+#~ msgid "Ternary DNS"
+#~ msgstr "Prednostni DNS"
 
 #~ msgid "January"
 #~ msgstr "Januar"

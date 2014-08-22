@@ -121,7 +121,7 @@ Column {
             height: contentHeight
             centerPadding: proxyContent.centerPadding
             leftWidth: titleWidth
-            title.text: dsTr("Socks Host")
+            title.text: dsTr("Socks Proxy")
             content.sourceComponent: ProxyLine {
                 width: sliderWidth
                 height: contentHeight

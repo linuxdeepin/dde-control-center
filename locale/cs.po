@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-21 15:58+0800\n"
+"POT-Creation-Date: 2014-08-22 10:39+0800\n"
 "PO-Revision-Date: 2014-07-02 08:41+0000\n"
 "Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/dde-control-center/"
@@ -980,7 +980,7 @@ msgstr ""
 
 #: ../modules/network/Info.qml:60
 #, fuzzy
-msgid "Ternary DNS"
+msgid "Third DNS"
 msgstr "Hlavní DNSgroup"
 
 #: ../modules/network/Info.qml:69
@@ -1210,8 +1210,9 @@ msgid "FTP Proxy"
 msgstr "Proxy FTP"
 
 #: ../modules/network/proxy/ProxyContent.qml:124
-msgid "Socks Host"
-msgstr "Hostitel socketu"
+#, fuzzy
+msgid "Socks Proxy"
+msgstr "Systémová proxy"
 
 #: ../modules/network/proxy/ProxyContent.qml:149
 msgid "Configuration URL"
@@ -1921,6 +1922,13 @@ msgstr "OpenVPN"
 #, fuzzy
 msgid "VPN OpenConnect"
 msgstr "OpenConnect"
+
+#, fuzzy
+#~ msgid "Ternary DNS"
+#~ msgstr "Hlavní DNSgroup"
+
+#~ msgid "Socks Host"
+#~ msgstr "Hostitel socketu"
 
 #~ msgid "CSD Wrapper"
 #~ msgstr "Obal CSD"

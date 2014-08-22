@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-21 15:58+0800\n"
+"POT-Creation-Date: 2014-08-22 10:39+0800\n"
 "PO-Revision-Date: 2014-07-02 09:33+0000\n"
 "Last-Translator: Jesse Wayde Brandao <www.jwb@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/"
@@ -975,7 +975,7 @@ msgid "Secondary DNS"
 msgstr ""
 
 #: ../modules/network/Info.qml:60
-msgid "Ternary DNS"
+msgid "Third DNS"
 msgstr ""
 
 #: ../modules/network/Info.qml:69
@@ -1201,8 +1201,9 @@ msgid "FTP Proxy"
 msgstr ""
 
 #: ../modules/network/proxy/ProxyContent.qml:124
-msgid "Socks Host"
-msgstr ""
+#, fuzzy
+msgid "Socks Proxy"
+msgstr "Proxy"
 
 #: ../modules/network/proxy/ProxyContent.qml:149
 msgid "Configuration URL"
