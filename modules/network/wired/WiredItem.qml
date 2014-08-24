@@ -76,6 +76,7 @@ Column{
             }
 
             DLabel {
+                width: 220      // TODO need a preferred value
                 anchors.left: parent.left
                 anchors.leftMargin: 24
                 anchors.verticalCenter: parent.verticalCenter

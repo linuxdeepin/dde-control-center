@@ -147,11 +147,13 @@ Column{
             }
 
             DLabel {
+                width: 220      // TODO need a preferred value
                 anchors.left: parent.left
                 anchors.leftMargin: 24
                 anchors.verticalCenter: parent.verticalCenter
                 text: lableName
                 font.pixelSize: 12
+                elide: Text.ElideRight
                 color: {
                     if(wiredLine.selected){
                         return dconstants.activeColor

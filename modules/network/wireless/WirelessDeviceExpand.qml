@@ -83,6 +83,7 @@ Item {
 
         header.sourceComponent: DBaseLine{
             leftLoader.sourceComponent: DssH2 {
+                width: 220      // TODO need a preferred value
                 anchors.verticalCenter: parent.verticalCenter
                 elide: Text.ElideRight
                 text: getDeviceTitle()
