@@ -1,22 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Paris Qian Sen <qiansen1386@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-21 15:58+0800\n"
-"PO-Revision-Date: 2014-07-03 03:50+0000\n"
-"Last-Translator: electricface <songwentai@linuxdeepin.com>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/dde-"
-"control-center/language/zh_CN/)\n"
-"Language: zh_CN\n"
+"POT-Creation-Date: 2014-08-22 10:39+0800\n"
+"PO-Revision-Date: 2014-08-22 07:02+0000\n"
+"Last-Translator: Catherinelin <linhongxia@linuxdeepin.com>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/dde-control-center/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../modules/network/add/AddDsl.qml:11
@@ -1402,18 +1401,12 @@ msgstr "无线网络 %1"
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:35
 msgid ""
-"Wireless network is unable to be connected maybe due to the following "
-"reasons:\n"
+"Wireless network is unable to be connected maybe due to the following reasons:\n"
 "\n"
 "1. The hardware switch of wireless network card is off\n"
 "2. Incorrect network configuration in /etc/network/interface\n"
 "3. Incorrect driver of network hardware"
-msgstr ""
-"无法连接到无线网络，有可能是以下原因造成：\n"
-"\n"
-"1. 您的无线网卡的硬件开关是关闭的\n"
-"2. 您的网络配置 /etc/network/interface 不正确\n"
-"3. 您的网络硬件没有被正确驱动"
+msgstr "无法连接到无线网络，有可能是以下原因造成：\n\n1. 您的无线网卡的硬件开关是关闭的\n2. 您的网络配置 /etc/network/interface 不正确\n3. 您的网络硬件没有被正确驱动"
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:137
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:352
@@ -1895,77 +1888,3 @@ msgstr "VPN OpenVPN"
 #: ../modules/network/main.qml:222
 msgid "VPN OpenConnect"
 msgstr "VPN OpenConnect"
-
-#~ msgid "January"
-#~ msgstr "一月"
-
-#~ msgid "February"
-#~ msgstr "二月"
-
-#~ msgid "March"
-#~ msgstr "三月"
-
-#~ msgid "April"
-#~ msgstr "四月"
-
-#~ msgid "May"
-#~ msgstr "五月"
-
-#~ msgid "June"
-#~ msgstr "六月"
-
-#~ msgid "July"
-#~ msgstr "七月"
-
-#~ msgid "August"
-#~ msgstr "八月"
-
-#~ msgid "September"
-#~ msgstr "九月"
-
-#~ msgid "October"
-#~ msgstr "十月"
-
-#~ msgid "November"
-#~ msgstr "十一月"
-
-#~ msgid "December"
-#~ msgstr "十二月"
-
-#~ msgid "Keyboard"
-#~ msgstr "键盘"
-
-#~ msgid "Advanced"
-#~ msgstr "高级选项"
-
-#~ msgid ""
-#~ "Please enter Grub boot interface, switch to command line mode by clicking "
-#~ "on 'c', and enter 'videoinfo' to get resolutions supported by the current "
-#~ "motherboard."
-#~ msgstr ""
-#~ "请进入Grub启动界面，单击‘c’切换至命令行模式，输入‘videoinfo’以获取当前主板"
-#~ "所支持的分辨率"
-
-#~ msgid "Custom Resolution"
-#~ msgstr "自定义分辨率"
-
-#~ msgid "Default"
-#~ msgstr "默认"
-
-#~ msgid "General"
-#~ msgstr "通用"
-
-#~ msgid "For All Users"
-#~ msgstr "适用于所有用户"
-
-#~ msgid "Fix Settings Always"
-#~ msgstr "总是尝试修正配置信息"
-
-#~ msgid "Enable Grub Theme"
-#~ msgstr "启用Grub主题"
-
-#~ msgid "Background is changing, please reboot later..."
-#~ msgstr "背景图片正在被应用，重启请稍后..."
-
-#~ msgid "Addtional DNS"
-#~ msgstr "附加DNS"

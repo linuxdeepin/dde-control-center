@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # yakup <mutouk@yandex.ru>, 2014
 msgid ""
@@ -9,14 +9,13 @@ msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-22 10:39+0800\n"
-"PO-Revision-Date: 2014-07-02 12:31+0000\n"
+"PO-Revision-Date: 2014-08-22 20:50+0000\n"
 "Last-Translator: yakup <mutouk@yandex.ru>\n"
-"Language-Team: Turkish (http://www.transifex.com/projects/p/dde-control-"
-"center/language/tr/)\n"
-"Language: tr\n"
+"Language-Team: Turkish (http://www.transifex.com/projects/p/dde-control-center/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../modules/network/add/AddDsl.qml:11
@@ -121,20 +120,17 @@ msgstr "Ekle"
 
 #: ../modules/account/AddUserDialog.qml:48
 #: ../modules/account/PasswordDialog.qml:96
-#, fuzzy
 msgid "Invalid password"
-msgstr "Şifre"
+msgstr "Yanlış Şifre"
 
 #: ../modules/account/AddUserDialog.qml:53
-#, fuzzy
 msgid "Nothing input"
-msgstr "Hiçbir şey"
+msgstr "Giriş yapılmadı"
 
 #: ../modules/account/AddUserDialog.qml:58
 #: ../modules/account/PasswordDialog.qml:101
-#, fuzzy
 msgid "Different password"
-msgstr "Şifreyi Tekrarla"
+msgstr "Farklı şifre"
 
 #: ../modules/account/AddUserDialog.qml:67
 msgid "Add User"
@@ -204,7 +200,7 @@ msgstr "VPNC"
 
 #: ../modules/network/add/AddVpn.qml:69
 msgid "Basic Information"
-msgstr "Basic Information"
+msgstr "Temel Bilgiler"
 
 #: ../modules/network/add/AddVpn.qml:82
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:23
@@ -261,9 +257,8 @@ msgstr "Cisco Güvenli Masaüstü Trojan izni"
 #: ../modules/network/add/AddVpn.qml:344
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:274
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
-#, fuzzy
 msgid "Customize Key Direction"
-msgstr "Anahtar Yönetimi Kullan"
+msgstr "Özelleştirilmiş Anahtar Yönetimi"
 
 #: ../modules/network/add/AddVpn.qml:214 ../modules/network/add/AddVpn.qml:304
 #: ../modules/network/wireless/AddWireless.qml:165
@@ -289,13 +284,12 @@ msgstr "Kullanıcı Sertifika"
 #: ../modules/network/add/AddVpn.qml:194
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:124
 msgid "CSD Script"
-msgstr ""
+msgstr "CSD Komut dosyası"
 
 #: ../modules/network/add/AddVpn.qml:224
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:154
-#, fuzzy
 msgid "Use FSID for Key Passphrase"
-msgstr "Kullanıcı FSID anahtar için Passphrase"
+msgstr "Anahtar geçişi için FSID kullan"
 
 #: ../modules/network/add/AddVpn.qml:324
 #: ../modules/network/wireless/AddWireless.qml:206
@@ -363,9 +357,8 @@ msgstr "Grup ID"
 
 #: ../modules/network/add/AddVpn.qml:546
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:53
-#, fuzzy
 msgid "Pre-Shared Key"
-msgstr "Özel Anahtar"
+msgstr "Ön Paylaşımlı Anahtar"
 
 #: ../modules/network/add/AddVpn.qml:558 ../modules/network/add/AddVpn.qml:570
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:23
@@ -448,9 +441,8 @@ msgid "Dock Applet Enabled"
 msgstr "Panel Uygulaması Etkin"
 
 #: ../modules/account/AvatarPickDialog.qml:5
-#, fuzzy
 msgid "Choose a new picture for your Avatar"
-msgstr "Choose a new picture for your image"
+msgstr "Hesabın için yeni resim seç"
 
 #: ../modules/account/AvatarView.qml:19
 msgid "Recently Used"
@@ -458,7 +450,7 @@ msgstr "Geçmişte Kullanılan"
 
 #: ../modules/account/AvatarView.qml:20
 msgid "Avatar"
-msgstr ""
+msgstr "Avatar"
 
 #: ../modules/account/AvatarView.qml:21
 msgid "Webcam"
@@ -603,7 +595,6 @@ msgstr "Klonlu MAC Addr"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:43
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:85
-#, fuzzy
 msgid "Customize MTU"
 msgstr "Özel MTU"
 
@@ -741,7 +732,7 @@ msgstr "Güvenlik Gerekli"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:74
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:354
 msgid "NT Domain"
-msgstr "NT Domain"
+msgstr "NT Etki alanı"
 
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:11
 msgid "VPN IPsec"
@@ -767,15 +758,13 @@ msgstr "VPN Advanced"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:33
 msgid "Gateway Port"
-msgstr "Gateway Port"
+msgstr "Geçit Port"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:23
-#, fuzzy
 msgid "Customize Gateway Port"
-msgstr "Özel Gateway Port kullan"
+msgstr "Özel Geçit Port kullan"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:45
-#, fuzzy
 msgid "Customize Renegotiation Interval"
 msgstr "Özel Yenilenmesi Aralığı kullanın"
 
@@ -796,14 +785,12 @@ msgid "Use TAP device"
 msgstr "TAP cihazı kullan"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:97
-#, fuzzy
 msgid "Customize Tunnel MTU"
-msgstr "Use Custom Tunnel MTU"
+msgstr "Customize Tunnel MTU"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:119
-#, fuzzy
 msgid "Customize UDP Fragment Size"
-msgstr "Use Custom UDP Fragment Size"
+msgstr "Özel UDP Pencere Boyutu"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
 msgid "UDP Fragment Size"
@@ -856,7 +843,7 @@ msgstr "VPN TLS Authentication"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:23
 msgid "Subject Match"
-msgstr "Subject Match"
+msgstr "Müsabaka Konusu"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:33
 msgid "Remote Cert Type"
@@ -868,11 +855,11 @@ msgstr "Anahtar Dosyası"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:23
 msgid "Domain"
-msgstr "Domain"
+msgstr "Etki alanı"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:33
 msgid "Vendor"
-msgstr "Vendor"
+msgstr "Yayıncı"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:43
 msgid "Version"
@@ -884,11 +871,11 @@ msgstr "Şifreleme"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:63
 msgid "NAT Traversal"
-msgstr "NAT Traversal"
+msgstr "NAT Geçişi"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:73
 msgid "IKE DH Group"
-msgstr "IKE DH Group"
+msgstr "IKE DH Grup"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:83
 msgid "Forward Secrecy"
@@ -900,7 +887,7 @@ msgstr "Yerel Port"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:105
 msgid "Disable Dead Peer Detection"
-msgstr "Dead Peer algılama devre dışı"
+msgstr "Ölü Eşleme Algılama Devre dışı"
 
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:11
 msgid "Wi-Fi"
@@ -945,18 +932,16 @@ msgid "Activated Connections"
 msgstr "Aktif Bağlantılar"
 
 #: ../modules/network/Info.qml:15
-#, fuzzy
 msgid "None Activated Connection"
-msgstr "Aktif Bağlantılar"
+msgstr "Aktif Edilmemiş Bağlantı"
 
 #: ../modules/network/Info.qml:39
-#, fuzzy
 msgid "(default)"
-msgstr "Varsayılan"
+msgstr "(varsayılan)"
 
 #: ../modules/network/Info.qml:50
 msgid "Interface"
-msgstr ""
+msgstr "Arayüz"
 
 #: ../modules/network/Info.qml:54
 msgid "Device Addr"
@@ -976,12 +961,11 @@ msgstr "Birincil DNS"
 
 #: ../modules/network/Info.qml:59
 msgid "Secondary DNS"
-msgstr ""
+msgstr "İkincil DNS"
 
 #: ../modules/network/Info.qml:60
-#, fuzzy
 msgid "Third DNS"
-msgstr "Birincil DNS"
+msgstr "Üçüncü DNS"
 
 #: ../modules/network/Info.qml:69
 msgid "Device Speed"
@@ -1000,9 +984,7 @@ msgstr "Ekran ayarlarını tutmak istiyor musunuz?"
 msgid ""
 "Reverting to previous display settings in <font color='#F48914'>%1</font> "
 "seconds."
-msgstr ""
-"<font color='#F48914'>%1</font> saniye içinde önceki ekran ayarlarına "
-"dönecek."
+msgstr "<font color='#F48914'>%1</font> saniye içinde önceki ekran ayarlarına dönecek."
 
 #: ../modules/display/MessageBox.qml:124
 msgid "Keep Changes"
@@ -1062,9 +1044,8 @@ msgid "Keyboard Shortcuts"
 msgstr "Klavye Kısayolları"
 
 #: ../qt5frame/views/ModulesData.qml:64
-#, fuzzy
 msgid "Keyboard and Language"
-msgstr "Klavye Düzeni"
+msgstr "Klavye ve Dil"
 
 #: ../qt5frame/views/ModulesData.qml:65
 msgid "Mouse and Touchpad"
@@ -1097,7 +1078,7 @@ msgstr "Ev"
 
 #: ../modules/display/MonitorComponent.qml:185
 msgid "Split"
-msgstr ""
+msgstr "Bölme"
 
 #: ../modules/display/MonitorComponent.qml:236
 msgid "Set as primary display"
@@ -1121,7 +1102,7 @@ msgstr "Sağa Çevir"
 
 #: ../modules/display/MonitorProperties.qml:49
 msgid "Upside Down"
-msgstr "Başaşağı"
+msgstr "Başaşağı Çevir"
 
 #: ../modules/display/MonitorProperties.qml:50
 msgid "Rotate Left"
@@ -1147,13 +1128,12 @@ msgstr "Kablolu Bağlantı %1"
 
 #: ../modules/network/wired/NewItem.qml:47
 #: ../modules/network/wired/WiredItem.qml:90
-#, fuzzy
 msgid "Wired Connection"
-msgstr "Kablolu Bağlantı %1"
+msgstr "Kablolu Bağlantı"
 
 #: ../modules/network/widgets/NotManagedSection.qml:25
 msgid "not managed"
-msgstr ""
+msgstr "yönetilmez"
 
 #: ../modules/network/widgets/PasswordBox.qml:76
 msgid "Password: "
@@ -1173,17 +1153,15 @@ msgstr "Resimi sürükle bırakarak arkaplanı değiştirin."
 
 #: ../modules/grub/Preview.qml:123
 msgid "Image format not supported."
-msgstr ""
+msgstr "Resim formatı desteklenmiyor."
 
 #: ../modules/grub/Preview.qml:124
-#, fuzzy
 msgid "Updating..."
-msgstr "Taranıyor..."
+msgstr "Güncelleştiriliyor..."
 
 #: ../modules/grub/Preview.qml:125
-#, fuzzy
 msgid "Successfully updated, reboot to view."
-msgstr "Değişiklik başarılı, görmek için tekrar başlat."
+msgstr "Güncelleme başarılı, görmek için tekrar başlat."
 
 #: ../modules/network/proxy/ProxyContent.qml:43
 msgid "None"
@@ -1210,9 +1188,8 @@ msgid "FTP Proxy"
 msgstr "FTP Proxy"
 
 #: ../modules/network/proxy/ProxyContent.qml:124
-#, fuzzy
 msgid "Socks Proxy"
-msgstr "System Proxy"
+msgstr "Socks Proxy"
 
 #: ../modules/network/proxy/ProxyContent.qml:149
 msgid "Configuration URL"
@@ -1397,9 +1374,7 @@ msgstr "Wi-Fi ağ için kimlik doğrulama gerekli"
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network <font "
 "color=\"#faca57\">%1</font>"
-msgstr ""
-"Wi-Fi ağına erişmek için şifre veya şifreleme anahtarı gereklidir <font "
-"color=\"#faca57\">%1</font>"
+msgstr "Wi-Fi ağına erişmek için şifre veya şifreleme anahtarı gereklidir <font color=\"#faca57\">%1</font>"
 
 #: ../dock-applets/qml/WifiPasswordWindow.qml:149
 msgid "Password:"
@@ -1416,23 +1391,22 @@ msgstr "Taranıyor..."
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:28
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 msgid "Wireless Network"
-msgstr "Wireless  Ağ"
+msgstr "Kablosuz  Ağ"
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:26
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 #, qt-format
 msgid "Wireless Network %1"
-msgstr "Wireless Ağ %1"
+msgstr "Kablosuz Ağ %1"
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:35
 msgid ""
-"Wireless network is unable to be connected maybe due to the following "
-"reasons:\n"
+"Wireless network is unable to be connected maybe due to the following reasons:\n"
 "\n"
 "1. The hardware switch of wireless network card is off\n"
 "2. Incorrect network configuration in /etc/network/interface\n"
 "3. Incorrect driver of network hardware"
-msgstr ""
+msgstr "Kablosuz ağ aşşağıdaki sebeplerden dolayı bağlanamıyor olabilir:\n\n1. Donanım kablosuz ağ kartı kapalı olabilir\n2. /etc/network/interface de hatalı ağ yapılandırılması olmuş olabilir\n3. hatalı ağ donanım sürücüsü yüklenmiş olabilir"
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:137
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:352
@@ -1620,7 +1594,7 @@ msgstr "Caps Lock istemi"
 
 #: ../modules/mouse_touchpad/main.qml:167
 msgid "Disable the touchpad when inserting the mouse"
-msgstr "Fareyi takarken touchpadi devre dışı bırak"
+msgstr "Fareyi takarken dokunmatik yüzeyi devre dışı bırak"
 
 #: ../modules/personalization/main.qml:101
 msgid "Theme"
@@ -1793,7 +1767,7 @@ msgstr "Gelişmişi Görüntüle..."
 
 #: ../modules/system_info/main.qml:102
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
-msgstr "Telif hakkı (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
+msgstr "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
 
 #: ../modules/system_info/main.qml:108
 msgid "Deepin Edition"
@@ -1877,123 +1851,40 @@ msgstr "Köprü"
 
 #: ../modules/network/main.qml:198
 msgid "802.11 WiFi"
-msgstr ""
+msgstr "802.11 WiFi"
 
 #: ../modules/network/main.qml:200
 msgid "802.11 WiFi AdHoc"
-msgstr ""
+msgstr "802.11 WiFi AdHoc"
 
 #: ../modules/network/main.qml:202
-#, fuzzy
 msgid "802.11 WiFi Hotspot"
-msgstr "Wi-Fi Bağlantı noktasını düzenle"
+msgstr "802.11 WiFi  Bağlantı Noktası"
 
 #: ../modules/network/main.qml:208
-#, fuzzy
 msgid "Mobile GSM"
-msgstr "Mobil"
+msgstr "Mobil GSM"
 
 #: ../modules/network/main.qml:210
-#, fuzzy
 msgid "Mobile CDMA"
-msgstr "Mobil"
+msgstr "Mobil CDMA"
 
 #: ../modules/network/main.qml:214
-#, fuzzy
 msgid "VPN L2TP"
-msgstr "L2TP"
+msgstr "VPN L2TP"
 
 #: ../modules/network/main.qml:216
-#, fuzzy
 msgid "VPN PPTP"
-msgstr "VPN PPP"
+msgstr "VPN PPTP"
 
 #: ../modules/network/main.qml:218
-#, fuzzy
 msgid "VPN VPNC"
-msgstr "VPNC"
+msgstr "VPN VPNC"
 
 #: ../modules/network/main.qml:220
-#, fuzzy
 msgid "VPN OpenVPN"
-msgstr "OpenVPN"
+msgstr "VPN OpenVPN"
 
 #: ../modules/network/main.qml:222
-#, fuzzy
 msgid "VPN OpenConnect"
-msgstr "OpenConnect"
-
-#, fuzzy
-#~ msgid "Ternary DNS"
-#~ msgstr "Birincil DNS"
-
-#~ msgid "Socks Host"
-#~ msgstr "Socks Host"
-
-#~ msgid "CSD Wrapper"
-#~ msgstr "CSD Sarmalayıcı"
-
-#~ msgid "January"
-#~ msgstr "Ocak"
-
-#~ msgid "February"
-#~ msgstr "Şubat"
-
-#~ msgid "March"
-#~ msgstr "Mart"
-
-#~ msgid "April"
-#~ msgstr "Nisan"
-
-#~ msgid "May"
-#~ msgstr "May"
-
-#~ msgid "June"
-#~ msgstr "Haziran"
-
-#~ msgid "July"
-#~ msgstr "Temmuz"
-
-#~ msgid "August"
-#~ msgstr "Ağustos"
-
-#~ msgid "September"
-#~ msgstr "Eylül"
-
-#~ msgid "October"
-#~ msgstr "Ekim"
-
-#~ msgid "November"
-#~ msgstr "Kasım"
-
-#~ msgid "December"
-#~ msgstr "Aralık"
-
-#~ msgid "Keyboard"
-#~ msgstr "Klavye"
-
-#, fuzzy
-#~ msgid "Advanced"
-#~ msgstr "VPN Advanced"
-
-#, fuzzy
-#~ msgid "Custom Resolution"
-#~ msgstr "Çözünürlük"
-
-#~ msgid "Default"
-#~ msgstr "Varsayılan"
-
-#~ msgid "General"
-#~ msgstr "Genel"
-
-#~ msgid "For All Users"
-#~ msgstr "Tüm Kullanıcılar İçin"
-
-#~ msgid "Background is changing, please reboot later..."
-#~ msgstr "Arkaplan değişiyor, lütfen sonra tekrar başlatın..."
-
-#~ msgid "Device Type"
-#~ msgstr "Cihaz Tipi"
-
-#~ msgid "Addtional DNS"
-#~ msgstr "Ek DNS"
+msgstr "VPN OpenConnect"

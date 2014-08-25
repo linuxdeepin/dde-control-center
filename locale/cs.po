@@ -1,24 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # forstjiri <forstjiri@gmail.com>, 2014
 # op6464 <op64@seznam.cz>, 2014
+# fri, 2014
 # fri, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-22 10:39+0800\n"
-"PO-Revision-Date: 2014-07-02 08:41+0000\n"
-"Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
-"Language-Team: Czech (http://www.transifex.com/projects/p/dde-control-center/"
-"language/cs/)\n"
-"Language: cs\n"
+"PO-Revision-Date: 2014-08-22 11:21+0000\n"
+"Last-Translator: fri\n"
+"Language-Team: Czech (http://www.transifex.com/projects/p/dde-control-center/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: ../modules/network/add/AddDsl.qml:11
@@ -123,20 +123,17 @@ msgstr "Přidat"
 
 #: ../modules/account/AddUserDialog.qml:48
 #: ../modules/account/PasswordDialog.qml:96
-#, fuzzy
 msgid "Invalid password"
-msgstr "Heslo"
+msgstr "Neplatné heslo"
 
 #: ../modules/account/AddUserDialog.qml:53
-#, fuzzy
 msgid "Nothing input"
-msgstr "Nic"
+msgstr "Nic vloženo"
 
 #: ../modules/account/AddUserDialog.qml:58
 #: ../modules/account/PasswordDialog.qml:101
-#, fuzzy
 msgid "Different password"
-msgstr "Zadejte heslo znovu"
+msgstr "Odlišné heslo"
 
 #: ../modules/account/AddUserDialog.qml:67
 msgid "Add User"
@@ -258,14 +255,13 @@ msgstr "Proxy"
 #: ../modules/network/add/AddVpn.qml:184
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:114
 msgid "Allow Cisco Secure Desktop Trojan"
-msgstr ""
+msgstr "Povolit Cisco Secure Desktop Trojan"
 
 #: ../modules/network/add/AddVpn.qml:344
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:274
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
-#, fuzzy
 msgid "Customize Key Direction"
-msgstr "Rozlišení"
+msgstr "Přizpůsobit směr klíče"
 
 #: ../modules/network/add/AddVpn.qml:214 ../modules/network/add/AddVpn.qml:304
 #: ../modules/network/wireless/AddWireless.qml:165
@@ -291,12 +287,12 @@ msgstr "Uživatelský certifikát"
 #: ../modules/network/add/AddVpn.qml:194
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:124
 msgid "CSD Script"
-msgstr ""
+msgstr "Skript CSD"
 
 #: ../modules/network/add/AddVpn.qml:224
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:154
 msgid "Use FSID for Key Passphrase"
-msgstr ""
+msgstr "Použít FSID pro klíčové heslo"
 
 #: ../modules/network/add/AddVpn.qml:324
 #: ../modules/network/wireless/AddWireless.qml:206
@@ -314,7 +310,7 @@ msgstr "Statický klíč"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:284
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:63
 msgid "Key Direction"
-msgstr ""
+msgstr "Směr klíče"
 
 #: ../modules/network/add/AddVpn.qml:364
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:294
@@ -340,12 +336,12 @@ msgstr "Název skupiny"
 #: ../modules/network/add/AddVpn.qml:484
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:424
 msgid "Group Pwd"
-msgstr ""
+msgstr "Heslo skupiny"
 
 #: ../modules/network/add/AddVpn.qml:494
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:434
 msgid "Use Hybrid Authentication"
-msgstr ""
+msgstr "Použít hybridní ověření"
 
 #: ../modules/network/add/AddVpn.qml:504
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:444
@@ -364,9 +360,8 @@ msgstr "ID skupiny"
 
 #: ../modules/network/add/AddVpn.qml:546
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:53
-#, fuzzy
 msgid "Pre-Shared Key"
-msgstr "Soukromý klíč"
+msgstr "Předsdílený klíč"
 
 #: ../modules/network/add/AddVpn.qml:558 ../modules/network/add/AddVpn.qml:570
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:23
@@ -446,12 +441,11 @@ msgstr "Připojit"
 #: ../modules/power/AppletSwitchArea.qml:40
 #: ../modules/sound/AppletSwitchArea.qml:40
 msgid "Dock Applet Enabled"
-msgstr ""
+msgstr "Povolen doplněk panelu"
 
 #: ../modules/account/AvatarPickDialog.qml:5
-#, fuzzy
 msgid "Choose a new picture for your Avatar"
-msgstr "Vyberte nové zobrazení pro svůj obrázek "
+msgstr "Vyberte nový obrázek pro své zosobnění"
 
 #: ../modules/account/AvatarView.qml:19
 msgid "Recently Used"
@@ -459,7 +453,7 @@ msgstr "Nedávno použité"
 
 #: ../modules/account/AvatarView.qml:20
 msgid "Avatar"
-msgstr ""
+msgstr "Zosobnění"
 
 #: ../modules/account/AvatarView.qml:21
 msgid "Webcam"
@@ -604,9 +598,8 @@ msgstr "Klonovaná adresa MAC"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:43
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:85
-#, fuzzy
 msgid "Customize MTU"
-msgstr "Vlastní MTU"
+msgstr "Přizpůsobit MTU"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:53
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:107
@@ -661,7 +654,7 @@ msgstr "Typ"
 
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:93
 msgid "Home Network Only"
-msgstr ""
+msgstr "Pouze domácí síť"
 
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:103
 msgid "PIN"
@@ -679,7 +672,7 @@ msgstr "128-bit MPPE"
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:43
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:43
 msgid "Stateful MPPE"
-msgstr ""
+msgstr "Stavový MPPE"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:55
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:53
@@ -733,7 +726,7 @@ msgstr "Žádná komprese dat TCP"
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:158
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:137
 msgid "Send PPP Echo Packets"
-msgstr ""
+msgstr "Poslat echo pakety PPP"
 
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:23
 msgid "Security Required"
@@ -755,11 +748,11 @@ msgstr "VPN PPP"
 
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:138
 msgid "No Protocol Field Compression"
-msgstr ""
+msgstr "Žádná komprese pole protokolu"
 
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:148
 msgid "No Address/Control Compression"
-msgstr ""
+msgstr "Žádná adresní/kontrolní komprese"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:11
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:11
@@ -771,17 +764,16 @@ msgid "Gateway Port"
 msgstr "Přípojka (port) brány"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:23
-#, fuzzy
 msgid "Customize Gateway Port"
-msgstr "Použít vlastní přípojku (port) brány"
+msgstr "Přizpůsobit přípojku brány"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:45
 msgid "Customize Renegotiation Interval"
-msgstr ""
+msgstr "Přizpůsobit interval pro nové projednání"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:55
 msgid "Renegotiation Interval"
-msgstr ""
+msgstr "Interval pro nové projednání"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:67
 msgid "Use LZO data compression"
@@ -796,14 +788,12 @@ msgid "Use TAP device"
 msgstr "Použít zařízení TAP"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:97
-#, fuzzy
 msgid "Customize Tunnel MTU"
-msgstr "Použít vlastní tunel MTU"
+msgstr "Přizpůsobit tunel MTU"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:119
-#, fuzzy
 msgid "Customize UDP Fragment Size"
-msgstr "Použít vlastní velikost fragmentu UDP"
+msgstr "Přizpůsobit velikost fragmentu UDP"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
 msgid "UDP Fragment Size"
@@ -836,7 +826,7 @@ msgstr "Port"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:55
 msgid "Retry Indefinitely When Failed"
-msgstr ""
+msgstr "V případě neúspěchu zkoušet zas a znovu pořád dokola"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:11
 msgid "VPN Security"
@@ -856,7 +846,7 @@ msgstr "Ověření VPN TLS"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:23
 msgid "Subject Match"
-msgstr ""
+msgstr "Shoda předmětu"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:33
 msgid "Remote Cert Type"
@@ -884,7 +874,7 @@ msgstr "Zakódování"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:63
 msgid "NAT Traversal"
-msgstr ""
+msgstr "Přecházení NAT"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:73
 msgid "IKE DH Group"
@@ -892,7 +882,7 @@ msgstr "Skupina IKE DH"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:83
 msgid "Forward Secrecy"
-msgstr ""
+msgstr "Mlčenlivost předat dál"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:93
 msgid "Local Port"
@@ -900,7 +890,7 @@ msgstr "Místní přípojka (port)"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:105
 msgid "Disable Dead Peer Detection"
-msgstr ""
+msgstr "Vypnout zjišťování nečinného protějšku"
 
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:11
 msgid "Wi-Fi"
@@ -945,18 +935,16 @@ msgid "Activated Connections"
 msgstr "Zapnutá připojení"
 
 #: ../modules/network/Info.qml:15
-#, fuzzy
 msgid "None Activated Connection"
-msgstr "Zapnutá připojení"
+msgstr "Žádná zapnutá připojení"
 
 #: ../modules/network/Info.qml:39
-#, fuzzy
 msgid "(default)"
-msgstr "Výchozí"
+msgstr "(výchozí)"
 
 #: ../modules/network/Info.qml:50
 msgid "Interface"
-msgstr ""
+msgstr "Rozhraní"
 
 #: ../modules/network/Info.qml:54
 msgid "Device Addr"
@@ -972,16 +960,15 @@ msgstr "Adresa cesty"
 
 #: ../modules/network/Info.qml:58
 msgid "Primary DNS"
-msgstr "Hlavní DNSgroup"
+msgstr "Hlavní DNS"
 
 #: ../modules/network/Info.qml:59
 msgid "Secondary DNS"
-msgstr ""
+msgstr "Sekundární DNS"
 
 #: ../modules/network/Info.qml:60
-#, fuzzy
 msgid "Third DNS"
-msgstr "Hlavní DNSgroup"
+msgstr "Terciální DNS"
 
 #: ../modules/network/Info.qml:69
 msgid "Device Speed"
@@ -1000,9 +987,7 @@ msgstr "Chcete ponechat tato nastavení obrazovky?"
 msgid ""
 "Reverting to previous display settings in <font color='#F48914'>%1</font> "
 "seconds."
-msgstr ""
-"Návrat k předchozímu nastavení obrazovky za <font color='#F48914'>%1</font> "
-"sekund."
+msgstr "Návrat k předchozímu nastavení obrazovky za <font color='#F48914'>%1</font> sekund."
 
 #: ../modules/display/MessageBox.qml:124
 msgid "Keep Changes"
@@ -1062,9 +1047,8 @@ msgid "Keyboard Shortcuts"
 msgstr "Klávesové zkratky"
 
 #: ../qt5frame/views/ModulesData.qml:64
-#, fuzzy
 msgid "Keyboard and Language"
-msgstr "Rozvržení klávesnice"
+msgstr "Klávesnice a jazyk"
 
 #: ../qt5frame/views/ModulesData.qml:65
 msgid "Mouse and Touchpad"
@@ -1097,7 +1081,7 @@ msgstr "Domovská složka"
 
 #: ../modules/display/MonitorComponent.qml:185
 msgid "Split"
-msgstr ""
+msgstr "Rozdělit"
 
 #: ../modules/display/MonitorComponent.qml:236
 msgid "Set as primary display"
@@ -1147,13 +1131,12 @@ msgstr "Drátové připojení %1"
 
 #: ../modules/network/wired/NewItem.qml:47
 #: ../modules/network/wired/WiredItem.qml:90
-#, fuzzy
 msgid "Wired Connection"
-msgstr "Drátové připojení %1"
+msgstr "Drátové připojení"
 
 #: ../modules/network/widgets/NotManagedSection.qml:25
 msgid "not managed"
-msgstr ""
+msgstr "nespravováno"
 
 #: ../modules/network/widgets/PasswordBox.qml:76
 msgid "Password: "
@@ -1173,17 +1156,15 @@ msgstr "Táhněte a pusťte obrázek pro změnu pozadí."
 
 #: ../modules/grub/Preview.qml:123
 msgid "Image format not supported."
-msgstr ""
+msgstr "Formát obrázku není podporován."
 
 #: ../modules/grub/Preview.qml:124
-#, fuzzy
 msgid "Updating..."
-msgstr "Prohledává se..."
+msgstr "Obnovuje se..."
 
 #: ../modules/grub/Preview.qml:125
-#, fuzzy
 msgid "Successfully updated, reboot to view."
-msgstr "Úspěšně změněno. Restartujte."
+msgstr "Úspěšně aktualizováno. Restartujte."
 
 #: ../modules/network/proxy/ProxyContent.qml:43
 msgid "None"
@@ -1210,9 +1191,8 @@ msgid "FTP Proxy"
 msgstr "Proxy FTP"
 
 #: ../modules/network/proxy/ProxyContent.qml:124
-#, fuzzy
 msgid "Socks Proxy"
-msgstr "Systémová proxy"
+msgstr "Proxy SOCKS"
 
 #: ../modules/network/proxy/ProxyContent.qml:149
 msgid "Configuration URL"
@@ -1366,11 +1346,11 @@ msgstr "Spojení VPN"
 
 #: ../modules/account/WebCam.qml:125 ../modules/account/WebCam.qml:140
 msgid "Snapshot"
-msgstr ""
+msgstr "Snímek obrazovky"
 
 #: ../modules/account/WebCam.qml:136
 msgid "Again"
-msgstr ""
+msgstr "Znovu"
 
 #: ../modules/account/WebCam.qml:175
 msgid "No camera found."
@@ -1397,9 +1377,7 @@ msgstr "Ověření požadováno sítí Wi-Fi"
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network <font "
 "color=\"#faca57\">%1</font>"
-msgstr ""
-"pro přístup k síti Wi-Fi je požadováno heslo nebo šifrovací klíč <font color="
-"\"#faca57\">%1</font>"
+msgstr "pro přístup k síti Wi-Fi je požadováno heslo nebo šifrovací klíč <font color=\"#faca57\">%1</font>"
 
 #: ../dock-applets/qml/WifiPasswordWindow.qml:149
 msgid "Password:"
@@ -1426,13 +1404,12 @@ msgstr "Bezdrátová síť %1"
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:35
 msgid ""
-"Wireless network is unable to be connected maybe due to the following "
-"reasons:\n"
+"Wireless network is unable to be connected maybe due to the following reasons:\n"
 "\n"
 "1. The hardware switch of wireless network card is off\n"
 "2. Incorrect network configuration in /etc/network/interface\n"
 "3. Incorrect driver of network hardware"
-msgstr ""
+msgstr "Bezdrátovou síť možná nelze připojit z následujících důvodů:\n\n1. Přepínač na kartě pro bezdrátovou síť je vypnutý\n2. Nesprávné nastavení sítě v /etc/network/interface\n3. Nesprávný ovladač pro síťové technické vybavení"
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:137
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:352
@@ -1564,7 +1541,7 @@ msgstr "Programy"
 
 #: ../modules/display/main.qml:117
 msgid "Primary Monitor: "
-msgstr ""
+msgstr "Hlavní obrazovka: "
 
 #: ../modules/display/main.qml:148
 msgid "Monitor"
@@ -1576,7 +1553,7 @@ msgstr "Použít"
 
 #: ../modules/grub/main.qml:112
 msgid "Default Startup"
-msgstr ""
+msgstr "Výchozí spuštění"
 
 #: ../modules/grub/main.qml:167
 msgid "Boot delay"
@@ -1701,15 +1678,15 @@ msgstr "Nic"
 
 #: ../modules/power/main.qml:213
 msgid "Password required to wake up"
-msgstr ""
+msgstr "Pro probuzení požadováno heslo"
 
 #: ../modules/power/main.qml:235
 msgid "Plugged in"
-msgstr ""
+msgstr "Zastrčeno"
 
 #: ../modules/power/main.qml:410
 msgid "On battery"
-msgstr ""
+msgstr "Na baterii"
 
 #: ../modules/power/main.qml:252 ../modules/power/main.qml:258
 #: ../modules/power/main.qml:264 ../modules/power/main.qml:270
@@ -1877,119 +1854,40 @@ msgstr "Most"
 
 #: ../modules/network/main.qml:198
 msgid "802.11 WiFi"
-msgstr ""
+msgstr "802.11 WiFi"
 
 #: ../modules/network/main.qml:200
 msgid "802.11 WiFi AdHoc"
-msgstr ""
+msgstr "802.11 WiFi AdHoc"
 
 #: ../modules/network/main.qml:202
-#, fuzzy
 msgid "802.11 WiFi Hotspot"
-msgstr "Upravit přijímací bod Wi-Fi"
+msgstr "Přijímací bod Wi-Fi 802.11"
 
 #: ../modules/network/main.qml:208
-#, fuzzy
 msgid "Mobile GSM"
-msgstr "Mobilní"
+msgstr "Mobilní GSM"
 
 #: ../modules/network/main.qml:210
-#, fuzzy
 msgid "Mobile CDMA"
-msgstr "Mobilní"
+msgstr "Mobilní CDMA"
 
 #: ../modules/network/main.qml:214
-#, fuzzy
 msgid "VPN L2TP"
-msgstr "L2TP"
+msgstr "VPN L2TP"
 
 #: ../modules/network/main.qml:216
-#, fuzzy
 msgid "VPN PPTP"
-msgstr "VPN PPP"
+msgstr "VPN PPTP"
 
 #: ../modules/network/main.qml:218
-#, fuzzy
 msgid "VPN VPNC"
-msgstr "VPNC"
+msgstr "VPN VPNC"
 
 #: ../modules/network/main.qml:220
-#, fuzzy
 msgid "VPN OpenVPN"
-msgstr "OpenVPN"
+msgstr "VPN OpenVPN"
 
 #: ../modules/network/main.qml:222
-#, fuzzy
 msgid "VPN OpenConnect"
-msgstr "OpenConnect"
-
-#, fuzzy
-#~ msgid "Ternary DNS"
-#~ msgstr "Hlavní DNSgroup"
-
-#~ msgid "Socks Host"
-#~ msgstr "Hostitel socketu"
-
-#~ msgid "CSD Wrapper"
-#~ msgstr "Obal CSD"
-
-#~ msgid "January"
-#~ msgstr "leden"
-
-#~ msgid "February"
-#~ msgstr "únor"
-
-#~ msgid "March"
-#~ msgstr "březen"
-
-#~ msgid "April"
-#~ msgstr "duben"
-
-#~ msgid "May"
-#~ msgstr "květen"
-
-#~ msgid "June"
-#~ msgstr "červen"
-
-#~ msgid "July"
-#~ msgstr "červenec"
-
-#~ msgid "August"
-#~ msgstr "srpen"
-
-#~ msgid "September"
-#~ msgstr "září"
-
-#~ msgid "October"
-#~ msgstr "říjen"
-
-#~ msgid "November"
-#~ msgstr "listopad"
-
-#~ msgid "December"
-#~ msgstr "prosinec"
-
-#~ msgid "Keyboard"
-#~ msgstr "Klávesnice"
-
-#, fuzzy
-#~ msgid "Advanced"
-#~ msgstr "VPN Pokročilé"
-
-#~ msgid "Default"
-#~ msgstr "Výchozí"
-
-#~ msgid "General"
-#~ msgstr "Obecné"
-
-#~ msgid "For All Users"
-#~ msgstr "Pro všechny uživatele"
-
-#~ msgid "Background is changing, please reboot later..."
-#~ msgstr "Mění se pozadí. Restartujte, prosím, později..."
-
-#~ msgid "Device Type"
-#~ msgstr "Typ zařízení"
-
-#~ msgid "Addtional DNS"
-#~ msgstr "Další DNS"
+msgstr "VPN OpenConnect"

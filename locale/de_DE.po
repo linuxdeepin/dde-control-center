@@ -1,24 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # webcrush <chris.plescher@yahoo.de>, 2014
 # Eduard Gotwig <eduardgotwig@gmail.com>, 2014
+# Ettore Atalan <atalanttore@googlemail.com>, 2014
+# jonnius <jonatan_zeidler@gmx.de>, 2014
 # xzh159357 <xiaozihanluhua@qq.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-22 10:39+0800\n"
-"PO-Revision-Date: 2014-07-02 18:11+0000\n"
-"Last-Translator: webcrush <chris.plescher@yahoo.de>\n"
-"Language-Team: German (Germany) (http://www.transifex.com/projects/p/dde-"
-"control-center/language/de_DE/)\n"
-"Language: de_DE\n"
+"PO-Revision-Date: 2014-08-22 17:13+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"Language-Team: German (Germany) (http://www.transifex.com/projects/p/dde-control-center/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../modules/network/add/AddDsl.qml:11
@@ -123,20 +124,17 @@ msgstr "Hinzufügen"
 
 #: ../modules/account/AddUserDialog.qml:48
 #: ../modules/account/PasswordDialog.qml:96
-#, fuzzy
 msgid "Invalid password"
-msgstr "Passwort"
+msgstr "Ungültiges Passwort"
 
 #: ../modules/account/AddUserDialog.qml:53
-#, fuzzy
 msgid "Nothing input"
-msgstr "Nichts"
+msgstr "Kein Eingang"
 
 #: ../modules/account/AddUserDialog.qml:58
 #: ../modules/account/PasswordDialog.qml:101
-#, fuzzy
 msgid "Different password"
-msgstr "Passwort wiederholen"
+msgstr "unterschiedliches Passwort"
 
 #: ../modules/account/AddUserDialog.qml:67
 msgid "Add User"
@@ -263,9 +261,8 @@ msgstr "Cisco Secure Desktop Trojan erlauben"
 #: ../modules/network/add/AddVpn.qml:344
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:274
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
-#, fuzzy
 msgid "Customize Key Direction"
-msgstr "Schlüssel Richtung benutzen"
+msgstr "Schlüsselrichtung anpassen"
 
 #: ../modules/network/add/AddVpn.qml:214 ../modules/network/add/AddVpn.qml:304
 #: ../modules/network/wireless/AddWireless.qml:165
@@ -291,13 +288,12 @@ msgstr "User Cert"
 #: ../modules/network/add/AddVpn.qml:194
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:124
 msgid "CSD Script"
-msgstr ""
+msgstr "CSD-Skript"
 
 #: ../modules/network/add/AddVpn.qml:224
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:154
-#, fuzzy
 msgid "Use FSID for Key Passphrase"
-msgstr "Benutzer FSID für Schlüssel Passwortfolge"
+msgstr "FSID für Schlüsselpassphrase verwenden"
 
 #: ../modules/network/add/AddVpn.qml:324
 #: ../modules/network/wireless/AddWireless.qml:206
@@ -365,9 +361,8 @@ msgstr "Gruppen ID"
 
 #: ../modules/network/add/AddVpn.qml:546
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:53
-#, fuzzy
 msgid "Pre-Shared Key"
-msgstr "Privater Schlüssel"
+msgstr "vorher vereinbarter Schlüssel"
 
 #: ../modules/network/add/AddVpn.qml:558 ../modules/network/add/AddVpn.qml:570
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:23
@@ -450,9 +445,8 @@ msgid "Dock Applet Enabled"
 msgstr "Dock-Applet aktiviert"
 
 #: ../modules/account/AvatarPickDialog.qml:5
-#, fuzzy
 msgid "Choose a new picture for your Avatar"
-msgstr "Wählen Sie ein neues Foto als Ihr Bild"
+msgstr "Wählen Sie ein neues Bild für Ihren Avatar"
 
 #: ../modules/account/AvatarView.qml:19
 msgid "Recently Used"
@@ -460,7 +454,7 @@ msgstr "Kürzlich verwendet"
 
 #: ../modules/account/AvatarView.qml:20
 msgid "Avatar"
-msgstr ""
+msgstr "Avatar"
 
 #: ../modules/account/AvatarView.qml:21
 msgid "Webcam"
@@ -605,9 +599,8 @@ msgstr "Geklonte MAC Addr"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:43
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:85
-#, fuzzy
 msgid "Customize MTU"
-msgstr "Angepasste MTU"
+msgstr "MTU anpassen"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:53
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:107
@@ -772,14 +765,12 @@ msgid "Gateway Port"
 msgstr "Gateway Port"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:23
-#, fuzzy
 msgid "Customize Gateway Port"
-msgstr "Angepassten Gateway Port nutzen"
+msgstr "Gateway-Port anpassen"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:45
-#, fuzzy
 msgid "Customize Renegotiation Interval"
-msgstr "Angepasstes Intervall zur Neuverhandlung nutzen"
+msgstr "Neuverhandlungsintervall anpassen"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:55
 msgid "Renegotiation Interval"
@@ -798,14 +789,12 @@ msgid "Use TAP device"
 msgstr "TAP Gerät nutzen"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:97
-#, fuzzy
 msgid "Customize Tunnel MTU"
-msgstr "Angepasste Tunnel MTU nutzen"
+msgstr "Tunnel-MTU anpassen"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:119
-#, fuzzy
 msgid "Customize UDP Fragment Size"
-msgstr "Angepasste UDP Fragment Größe nutzen"
+msgstr "UDP-Fragmentgröße anpassen"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
 msgid "UDP Fragment Size"
@@ -947,18 +936,16 @@ msgid "Activated Connections"
 msgstr "Aktivierte Verbindungen"
 
 #: ../modules/network/Info.qml:15
-#, fuzzy
 msgid "None Activated Connection"
-msgstr "Aktivierte Verbindungen"
+msgstr "Keine aktivierte Verbindung"
 
 #: ../modules/network/Info.qml:39
-#, fuzzy
 msgid "(default)"
-msgstr "Standard"
+msgstr "(Standard)"
 
 #: ../modules/network/Info.qml:50
 msgid "Interface"
-msgstr ""
+msgstr "Schnittstelle"
 
 #: ../modules/network/Info.qml:54
 msgid "Device Addr"
@@ -978,12 +965,11 @@ msgstr "Primärer DNS"
 
 #: ../modules/network/Info.qml:59
 msgid "Secondary DNS"
-msgstr ""
+msgstr "Sekundärer DNS"
 
 #: ../modules/network/Info.qml:60
-#, fuzzy
 msgid "Third DNS"
-msgstr "Primärer DNS"
+msgstr "Dritter DNS"
 
 #: ../modules/network/Info.qml:69
 msgid "Device Speed"
@@ -1002,9 +988,7 @@ msgstr "Möchten Sie die Bildschirmeinstellungen beibehalten?"
 msgid ""
 "Reverting to previous display settings in <font color='#F48914'>%1</font> "
 "seconds."
-msgstr ""
-"Zurücksetzen zu den zuletzt genutzten Bildschirmeinstellungen in <font "
-"color='#F48914'>%1</font> Sekunden."
+msgstr "Zurücksetzen zu den zuletzt genutzten Bildschirmeinstellungen in <font color='#F48914'>%1</font> Sekunden."
 
 #: ../modules/display/MessageBox.qml:124
 msgid "Keep Changes"
@@ -1064,9 +1048,8 @@ msgid "Keyboard Shortcuts"
 msgstr "Tastenkürzel"
 
 #: ../qt5frame/views/ModulesData.qml:64
-#, fuzzy
 msgid "Keyboard and Language"
-msgstr "Tastaturlayout"
+msgstr "Tastatur und Sprache"
 
 #: ../qt5frame/views/ModulesData.qml:65
 msgid "Mouse and Touchpad"
@@ -1099,7 +1082,7 @@ msgstr "Heimat"
 
 #: ../modules/display/MonitorComponent.qml:185
 msgid "Split"
-msgstr ""
+msgstr "Aufteilung"
 
 #: ../modules/display/MonitorComponent.qml:236
 msgid "Set as primary display"
@@ -1149,13 +1132,12 @@ msgstr "Kabelnetzwerk %1"
 
 #: ../modules/network/wired/NewItem.qml:47
 #: ../modules/network/wired/WiredItem.qml:90
-#, fuzzy
 msgid "Wired Connection"
-msgstr "Kabelnetzwerk %1"
+msgstr "Kabelgebundene Verbindung"
 
 #: ../modules/network/widgets/NotManagedSection.qml:25
 msgid "not managed"
-msgstr ""
+msgstr "nicht verwaltet"
 
 #: ../modules/network/widgets/PasswordBox.qml:76
 msgid "Password: "
@@ -1175,17 +1157,15 @@ msgstr "Halten und ziehen Sie ein Bild herein um den Hintergrund zu ändern"
 
 #: ../modules/grub/Preview.qml:123
 msgid "Image format not supported."
-msgstr ""
+msgstr "Abbildformat wird nicht unterstützt."
 
 #: ../modules/grub/Preview.qml:124
-#, fuzzy
 msgid "Updating..."
-msgstr "Suchen..."
+msgstr "Aktualisierung..."
 
 #: ../modules/grub/Preview.qml:125
-#, fuzzy
 msgid "Successfully updated, reboot to view."
-msgstr "Erfolgreich geändert, Neustart zum Betrachten der Änderungen"
+msgstr "Erfolgreich aktualisiert, neu starten um die Änderung zu sehen."
 
 #: ../modules/network/proxy/ProxyContent.qml:43
 msgid "None"
@@ -1212,9 +1192,8 @@ msgid "FTP Proxy"
 msgstr "FTP Proxy"
 
 #: ../modules/network/proxy/ProxyContent.qml:124
-#, fuzzy
 msgid "Socks Proxy"
-msgstr "System Proxy"
+msgstr "Socks Proxy"
 
 #: ../modules/network/proxy/ProxyContent.qml:149
 msgid "Configuration URL"
@@ -1247,8 +1226,7 @@ msgstr "Bitte neues Kürzel eingeben"
 #: ../modules/shortcuts/ShortcutInput.qml:226
 #, qt-format
 msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
-msgstr ""
-"Tastenkürzel \"%1\" ist ungültig, bitte geben Sie ein neues Kürzel ein."
+msgstr "Tastenkürzel \"%1\" ist ungültig, bitte geben Sie ein neues Kürzel ein."
 
 #: ../modules/shortcuts/ShortcutInput.qml:264
 msgid "The shortcut you set "
@@ -1257,9 +1235,7 @@ msgstr "Das festgelegte Kürzel"
 #: ../modules/shortcuts/ShortcutInput.qml:267
 #, qt-format
 msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
-msgstr ""
-"steht im Konflikt mit dem das für \"%2\" in der Kategorie \"%1\" genutzt "
-"wird."
+msgstr "steht im Konflikt mit dem das für \"%2\" in der Kategorie \"%1\" genutzt wird."
 
 #: ../modules/shortcuts/ShortcutInput.qml:269
 msgid "Do you want to replace it?"
@@ -1288,9 +1264,7 @@ msgstr "Benutzerdefiniert"
 
 #: ../modules/date_time/TimeBox.qml:161
 msgid "Double-click the above digits to change your time."
-msgstr ""
-"Führen Sie einen Doppelklick auf die oberen Ziffern aus um die Zeit zu "
-"ändern."
+msgstr "Führen Sie einen Doppelklick auf die oberen Ziffern aus um die Zeit zu ändern."
 
 #: ../modules/date_time/TimeBox.qml:196
 msgid "Set"
@@ -1404,9 +1378,7 @@ msgstr "Authentikation erforderlich für Wi-Fi Netzwerk"
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network <font "
 "color=\"#faca57\">%1</font>"
-msgstr ""
-"Passwörter oder Schlüssel zu Verschlüsselungen werden benötigt um auf das Wi-"
-"Fi Netzwerk <font color=\"#faca57\">%1</font> zuzugreifen."
+msgstr "Passwörter oder Schlüssel zu Verschlüsselungen werden benötigt um auf das Wi-Fi Netzwerk <font color=\"#faca57\">%1</font> zuzugreifen."
 
 #: ../dock-applets/qml/WifiPasswordWindow.qml:149
 msgid "Password:"
@@ -1433,8 +1405,7 @@ msgstr "Kabelloses Netzwerk %1"
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:35
 msgid ""
-"Wireless network is unable to be connected maybe due to the following "
-"reasons:\n"
+"Wireless network is unable to be connected maybe due to the following reasons:\n"
 "\n"
 "1. The hardware switch of wireless network card is off\n"
 "2. Incorrect network configuration in /etc/network/interface\n"
@@ -1583,7 +1554,7 @@ msgstr "Übernehmen"
 
 #: ../modules/grub/main.qml:112
 msgid "Default Startup"
-msgstr " По умолчанию  startup "
+msgstr "Standard Starteintrag"
 
 #: ../modules/grub/main.qml:167
 msgid "Boot delay"
@@ -1708,15 +1679,15 @@ msgstr "Nichts"
 
 #: ../modules/power/main.qml:213
 msgid "Password required to wake up"
-msgstr " пароль  required  to  wake up "
+msgstr "Passwort zum Aufwachen erforderlich"
 
 #: ../modules/power/main.qml:235
 msgid "Plugged in"
-msgstr " Plugged  in "
+msgstr "Angeschlossen"
 
 #: ../modules/power/main.qml:410
 msgid "On battery"
-msgstr " On  battery "
+msgstr "Bei Akkubetrieb"
 
 #: ../modules/power/main.qml:252 ../modules/power/main.qml:258
 #: ../modules/power/main.qml:264 ../modules/power/main.qml:270
@@ -1884,123 +1855,40 @@ msgstr "Bridge"
 
 #: ../modules/network/main.qml:198
 msgid "802.11 WiFi"
-msgstr ""
+msgstr "802.11 WiFi"
 
 #: ../modules/network/main.qml:200
 msgid "802.11 WiFi AdHoc"
-msgstr ""
+msgstr "802.11 WiFi AdHoc"
 
 #: ../modules/network/main.qml:202
-#, fuzzy
 msgid "802.11 WiFi Hotspot"
-msgstr "Wi-Fi Hotspot bearbeiten"
+msgstr "802.11 WiFi Hotspot"
 
 #: ../modules/network/main.qml:208
-#, fuzzy
 msgid "Mobile GSM"
-msgstr "Mobil"
+msgstr "Mobile GSM"
 
 #: ../modules/network/main.qml:210
-#, fuzzy
 msgid "Mobile CDMA"
-msgstr "Mobil"
+msgstr "Mobile CDMA"
 
 #: ../modules/network/main.qml:214
-#, fuzzy
 msgid "VPN L2TP"
-msgstr "L2TP"
+msgstr "VPN L2TP"
 
 #: ../modules/network/main.qml:216
-#, fuzzy
 msgid "VPN PPTP"
-msgstr "VPN PPP"
+msgstr "VPN PPTP"
 
 #: ../modules/network/main.qml:218
-#, fuzzy
 msgid "VPN VPNC"
-msgstr "VPNC"
+msgstr "VPN VPNC"
 
 #: ../modules/network/main.qml:220
-#, fuzzy
 msgid "VPN OpenVPN"
-msgstr "OpenVPN"
+msgstr "VPN OpenVPN"
 
 #: ../modules/network/main.qml:222
-#, fuzzy
 msgid "VPN OpenConnect"
-msgstr "OpenConnect"
-
-#, fuzzy
-#~ msgid "Ternary DNS"
-#~ msgstr "Primärer DNS"
-
-#~ msgid "Socks Host"
-#~ msgstr "Socks Host"
-
-#~ msgid "CSD Wrapper"
-#~ msgstr "CSD Wrapper"
-
-#~ msgid "January"
-#~ msgstr "Januar"
-
-#~ msgid "February"
-#~ msgstr "Februar"
-
-#~ msgid "March"
-#~ msgstr "März"
-
-#~ msgid "April"
-#~ msgstr "April"
-
-#~ msgid "May"
-#~ msgstr "Mai"
-
-#~ msgid "June"
-#~ msgstr "Juni"
-
-#~ msgid "July"
-#~ msgstr "Juli"
-
-#~ msgid "August"
-#~ msgstr "August"
-
-#~ msgid "September"
-#~ msgstr "September"
-
-#~ msgid "October"
-#~ msgstr "Oktober"
-
-#~ msgid "November"
-#~ msgstr "November"
-
-#~ msgid "December"
-#~ msgstr "Dezember"
-
-#~ msgid "Keyboard"
-#~ msgstr "Tastatur"
-
-#, fuzzy
-#~ msgid "Advanced"
-#~ msgstr "Erweitertes VPN"
-
-#, fuzzy
-#~ msgid "Custom Resolution"
-#~ msgstr "Auflösung"
-
-#~ msgid "Default"
-#~ msgstr "Standard"
-
-#~ msgid "General"
-#~ msgstr "Allgemein"
-
-#~ msgid "For All Users"
-#~ msgstr "Für alle Benutzer"
-
-#~ msgid "Background is changing, please reboot later..."
-#~ msgstr "Hintergrund wird gewechselt, bitte später neustarten..."
-
-#~ msgid "Device Type"
-#~ msgstr "Gerätetyp"
-
-#~ msgid "Addtional DNS"
-#~ msgstr "Zusätzlicher DNS"
+msgstr "VPN OpenConnect"

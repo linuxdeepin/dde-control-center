@@ -1,8 +1,10 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
+# tejeskifly <batta.daniel91@gmail.com>, 2014
+# kdavid97 <kdavid97@gmail.hu>, 2014
 # Laszlo Espadas <kw@kardiweb.org>, 2014
 # vmarci21 <vmarci21@msn.com>, 2014
 msgid ""
@@ -10,14 +12,13 @@ msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-22 10:39+0800\n"
-"PO-Revision-Date: 2014-07-02 20:32+0000\n"
-"Last-Translator: Laszlo Espadas <kw@kardiweb.org>\n"
-"Language-Team: Hungarian (http://www.transifex.com/projects/p/dde-control-"
-"center/language/hu/)\n"
-"Language: hu\n"
+"PO-Revision-Date: 2014-08-22 07:11+0000\n"
+"Last-Translator: Catherinelin <linhongxia@linuxdeepin.com>\n"
+"Language-Team: Hungarian (http://www.transifex.com/projects/p/dde-control-center/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../modules/network/add/AddDsl.qml:11
@@ -122,9 +123,8 @@ msgstr "Hozzáad"
 
 #: ../modules/account/AddUserDialog.qml:48
 #: ../modules/account/PasswordDialog.qml:96
-#, fuzzy
 msgid "Invalid password"
-msgstr "Jelszó"
+msgstr ""
 
 #: ../modules/account/AddUserDialog.qml:53
 msgid "Nothing input"
@@ -132,9 +132,8 @@ msgstr ""
 
 #: ../modules/account/AddUserDialog.qml:58
 #: ../modules/account/PasswordDialog.qml:101
-#, fuzzy
 msgid "Different password"
-msgstr "Jelszó ismét"
+msgstr "Különböző jelszó"
 
 #: ../modules/account/AddUserDialog.qml:67
 msgid "Add User"
@@ -238,7 +237,7 @@ msgstr "Átjáró"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:384
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:414
 msgid "Ask for Pwd"
-msgstr ""
+msgstr "Megkérdezni a jelszót"
 
 #: ../modules/network/add/AddVpn.qml:164 ../modules/network/add/AddVpn.qml:284
 #: ../modules/network/wireless/AddWireless.qml:104
@@ -256,14 +255,13 @@ msgstr "Proxy"
 #: ../modules/network/add/AddVpn.qml:184
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:114
 msgid "Allow Cisco Secure Desktop Trojan"
-msgstr ""
+msgstr "Cisco trójai védelem engedélyezése"
 
 #: ../modules/network/add/AddVpn.qml:344
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:274
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
-#, fuzzy
 msgid "Customize Key Direction"
-msgstr "Felbontás"
+msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:214 ../modules/network/add/AddVpn.qml:304
 #: ../modules/network/wireless/AddWireless.qml:165
@@ -284,7 +282,7 @@ msgstr "Hitelesítés típusa"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:134
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:224
 msgid "User Cert"
-msgstr ""
+msgstr "Felhasználói tanúsítvány"
 
 #: ../modules/network/add/AddVpn.qml:194
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:124
@@ -312,7 +310,7 @@ msgstr "Statikus kulcs"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:284
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:63
 msgid "Key Direction"
-msgstr ""
+msgstr "Fő irány"
 
 #: ../modules/network/add/AddVpn.qml:364
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:294
@@ -327,7 +325,7 @@ msgstr "Helyi IP"
 #: ../modules/network/add/AddVpn.qml:454
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:394
 msgid "User Pwd"
-msgstr ""
+msgstr "Felhasználói jelszó "
 
 #: ../modules/network/add/AddVpn.qml:464 ../modules/network/add/AddVpn.qml:526
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:404
@@ -338,7 +336,7 @@ msgstr "Csoportnév"
 #: ../modules/network/add/AddVpn.qml:484
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:424
 msgid "Group Pwd"
-msgstr ""
+msgstr "Csoport jelszó"
 
 #: ../modules/network/add/AddVpn.qml:494
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:434
@@ -362,9 +360,8 @@ msgstr "Csoport ID"
 
 #: ../modules/network/add/AddVpn.qml:546
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:53
-#, fuzzy
 msgid "Pre-Shared Key"
-msgstr "Privát kulcs"
+msgstr "Előbb megosztott kulcs "
 
 #: ../modules/network/add/AddVpn.qml:558 ../modules/network/add/AddVpn.qml:570
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:23
@@ -402,7 +399,7 @@ msgstr "Kulcs"
 #: ../modules/network/wireless/AddWireless.qml:74
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:63
 msgid "EAP Auth"
-msgstr ""
+msgstr "Kulcs"
 
 #: ../modules/network/wireless/AddWireless.qml:84
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:73
@@ -417,7 +414,7 @@ msgstr "Névtelen ID"
 #: ../modules/network/wireless/AddWireless.qml:124
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:113
 msgid "Provisioning"
-msgstr ""
+msgstr "Készenlét"
 
 #: ../modules/network/wireless/AddWireless.qml:134
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:123
@@ -432,7 +429,7 @@ msgstr "PEAP verzió"
 #: ../modules/network/wireless/AddWireless.qml:154
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:143
 msgid "Inner Auth"
-msgstr ""
+msgstr "Belső hitelesítés"
 
 #: ../modules/network/wireless/AddWireless.qml:224
 #: ../modules/network/widgets/PasswordBox.qml:109
@@ -444,12 +441,11 @@ msgstr "Csatlakozás"
 #: ../modules/power/AppletSwitchArea.qml:40
 #: ../modules/sound/AppletSwitchArea.qml:40
 msgid "Dock Applet Enabled"
-msgstr ""
+msgstr "Dokk kisalkalmazás engedélyezve"
 
 #: ../modules/account/AvatarPickDialog.qml:5
-#, fuzzy
 msgid "Choose a new picture for your Avatar"
-msgstr "Válassz egy új képet saját képeid közül"
+msgstr ""
 
 #: ../modules/account/AvatarView.qml:19
 msgid "Recently Used"
@@ -457,7 +453,7 @@ msgstr "Legutóbb használt"
 
 #: ../modules/account/AvatarView.qml:20
 msgid "Avatar"
-msgstr ""
+msgstr "Profilkép"
 
 #: ../modules/account/AvatarView.qml:21
 msgid "Webcam"
@@ -602,9 +598,8 @@ msgstr "MAC cím klónozva"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:43
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:85
-#, fuzzy
 msgid "Customize MTU"
-msgstr "Egyéni MTU"
+msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:53
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:107
@@ -677,65 +672,65 @@ msgstr "128 bites MPPE"
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:43
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:43
 msgid "Stateful MPPE"
-msgstr ""
+msgstr "Állapotfüggő MPPE"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:55
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:53
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:53
 msgid "Refuse EAP Authentication"
-msgstr ""
+msgstr "EAP hitelesítés visszautasítása"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:65
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:64
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:64
 msgid "Refuse PAP Authentication"
-msgstr ""
+msgstr "PAP hitelesítés visszautasítása"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:75
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:75
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:75
 msgid "Refuse CHAP Authentication"
-msgstr ""
+msgstr "CHAP hitelesítés visszautasítása"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:85
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:86
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:86
 msgid "Refuse MSCHAP Authentication"
-msgstr ""
+msgstr "MSCHAP hitelesítés visszautasítása"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:95
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:97
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:97
 msgid "Refuse MSCHAPv2 Authentication"
-msgstr ""
+msgstr "MSCHAPv2 hitelesítés visszautasítása"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:105
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:108
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:107
 msgid "No BSD Data Compression"
-msgstr ""
+msgstr "Nincs BSD Adattömörítés"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:115
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:118
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:117
 msgid "No Deflate Data Compression"
-msgstr ""
+msgstr "Nincs Delflate adattömörítés "
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:125
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:128
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:127
 msgid "No TCP Header Compression"
-msgstr ""
+msgstr "Nincs TCP fejléc tömörítés"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:135
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:158
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:137
 msgid "Send PPP Echo Packets"
-msgstr ""
+msgstr "PPP Echo csomagok küldése"
 
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:23
 msgid "Security Required"
-msgstr ""
+msgstr "Szükséges biztonság"
 
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:74
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:354
@@ -744,34 +739,33 @@ msgstr "NT Domain"
 
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:11
 msgid "VPN IPsec"
-msgstr ""
+msgstr "VPN IPsec"
 
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:11
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:11
 msgid "VPN PPP"
-msgstr ""
+msgstr "VPN PPP"
 
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:138
 msgid "No Protocol Field Compression"
-msgstr ""
+msgstr "Nincs protokoll mező tömörítés"
 
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:148
 msgid "No Address/Control Compression"
-msgstr ""
+msgstr "Nincs cím/vezérlés tömörítés"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:11
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:11
 msgid "VPN Advanced"
-msgstr ""
+msgstr "Bövitett VPN"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:33
 msgid "Gateway Port"
 msgstr "Átjáró port"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:23
-#, fuzzy
 msgid "Customize Gateway Port"
-msgstr "Átjáró port"
+msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:45
 msgid "Customize Renegotiation Interval"
@@ -779,24 +773,23 @@ msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:55
 msgid "Renegotiation Interval"
-msgstr ""
+msgstr "Újratárgyalási idő"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:67
 msgid "Use LZO data compression"
-msgstr ""
+msgstr "LZO adat tömörítés használata"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:77
 msgid "Use TCP connection"
-msgstr ""
+msgstr "Használja a TCP szolgáltatást"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:87
 msgid "Use TAP device"
-msgstr ""
+msgstr "TAP eszköz használata"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:97
-#, fuzzy
 msgid "Customize Tunnel MTU"
-msgstr "Egyéni MTU"
+msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:119
 msgid "Customize UDP Fragment Size"
@@ -804,64 +797,64 @@ msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
 msgid "UDP Fragment Size"
-msgstr ""
+msgstr "UDP töredék mérete"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:141
 msgid "Restrict Tunnel TCP MSS"
-msgstr ""
+msgstr "Korlátozza a TCP MSS tunnelt "
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:151
 msgid "Randomize Remote Hosts"
-msgstr ""
+msgstr "Hotsok véletlenszerű eltávolítása "
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:11
 msgid "VPN Proxies"
-msgstr ""
+msgstr "VPN Proxik"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:23
 msgid "Proxy Type"
-msgstr ""
+msgstr "Proxy típus "
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:33
 msgid "Server IP"
-msgstr ""
+msgstr "Szerver IP"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:43
 #: ../modules/network/proxy/ProxyLine.qml:39
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:55
 msgid "Retry Indefinitely When Failed"
-msgstr ""
+msgstr "Sikertelen próbálkozásoknál újra próbálkozás"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:11
 msgid "VPN Security"
-msgstr ""
+msgstr "VPN biztonság"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:23
 msgid "Cipher"
-msgstr ""
+msgstr "Titkosírás"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:33
 msgid "HMAC Auth"
-msgstr ""
+msgstr "HMAC Hitelesítés"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:11
 msgid "VPN TLS Authentication"
-msgstr ""
+msgstr "VPN TLS jitelesítés"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:23
 msgid "Subject Match"
-msgstr ""
+msgstr "Téma Helyezések"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:33
 msgid "Remote Cert Type"
-msgstr ""
+msgstr "Távoli tanúsítvány típusa"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:43
 msgid "Key File"
-msgstr ""
+msgstr "Kulcs fájl"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:23
 msgid "Domain"
@@ -869,7 +862,7 @@ msgstr "Domain"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:33
 msgid "Vendor"
-msgstr ""
+msgstr "Előálltó"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:43
 msgid "Version"
@@ -881,23 +874,23 @@ msgstr "Titkosítás"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:63
 msgid "NAT Traversal"
-msgstr ""
+msgstr "NAT kikerülés"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:73
 msgid "IKE DH Group"
-msgstr ""
+msgstr "IKE DH csoport"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:83
 msgid "Forward Secrecy"
-msgstr ""
+msgstr "Elő titkosítás"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:93
 msgid "Local Port"
-msgstr ""
+msgstr "Lokális port"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:105
 msgid "Disable Dead Peer Detection"
-msgstr ""
+msgstr "Halott peer észlelés letiltása"
 
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:11
 msgid "Wi-Fi"
@@ -909,7 +902,7 @@ msgstr "Mód"
 
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:43
 msgid "Band"
-msgstr ""
+msgstr "Banda"
 
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:54
 msgid "Channel"
@@ -942,18 +935,16 @@ msgid "Activated Connections"
 msgstr "Aktivált kapcsolatok"
 
 #: ../modules/network/Info.qml:15
-#, fuzzy
 msgid "None Activated Connection"
-msgstr "Aktivált kapcsolatok"
+msgstr "Nincs aktív kapcsolat"
 
 #: ../modules/network/Info.qml:39
-#, fuzzy
 msgid "(default)"
-msgstr "Alapértelmezett"
+msgstr "(alapértelmezett)"
 
 #: ../modules/network/Info.qml:50
 msgid "Interface"
-msgstr ""
+msgstr "Felület"
 
 #: ../modules/network/Info.qml:54
 msgid "Device Addr"
@@ -965,7 +956,7 @@ msgstr "Alhálózati maszk"
 
 #: ../modules/network/Info.qml:57
 msgid "Route Addr"
-msgstr ""
+msgstr "Útvonal cím"
 
 #: ../modules/network/Info.qml:58
 msgid "Primary DNS"
@@ -973,12 +964,11 @@ msgstr "Elsődleges DNS"
 
 #: ../modules/network/Info.qml:59
 msgid "Secondary DNS"
-msgstr ""
+msgstr "Másodlagos DNS"
 
 #: ../modules/network/Info.qml:60
-#, fuzzy
 msgid "Third DNS"
-msgstr "Elsődleges DNS"
+msgstr ""
 
 #: ../modules/network/Info.qml:69
 msgid "Device Speed"
@@ -990,22 +980,22 @@ msgstr "Nyelv"
 
 #: ../modules/display/MessageBox.qml:102
 msgid "Do you want to keep these display settings?"
-msgstr ""
+msgstr "Megszeretné tartani a kijelző beállításokat"
 
 #: ../modules/display/MessageBox.qml:111
 #, qt-format
 msgid ""
 "Reverting to previous display settings in <font color='#F48914'>%1</font> "
 "seconds."
-msgstr ""
+msgstr "A kijelző vissza állítása <font color='#F48914'>%1</font> másodpercekre."
 
 #: ../modules/display/MessageBox.qml:124
 msgid "Keep Changes"
-msgstr ""
+msgstr "Beállítások megtartása"
 
 #: ../modules/display/MessageBox.qml:137
 msgid "Revert"
-msgstr ""
+msgstr "visszaállítás  "
 
 #: ../qt5frame/views/ModulesData.qml:52 ../dock-applets/qml/main.qml:54
 msgid "Date and Time"
@@ -1029,7 +1019,7 @@ msgstr "Hang"
 
 #: ../qt5frame/views/ModulesData.qml:57
 msgid "Power Management"
-msgstr ""
+msgstr "Energiagazdálkodás"
 
 #: ../qt5frame/views/ModulesData.qml:58
 msgid "More Settings"
@@ -1038,7 +1028,7 @@ msgstr "Egyéb beállítások"
 #: ../qt5frame/views/ModulesData.qml:59 ../qt5frame/views/PanelContent.qml:418
 #: ../dock-applets/qml/main.qml:52
 msgid "Power"
-msgstr ""
+msgstr "Energia"
 
 #: ../qt5frame/views/ModulesData.qml:60
 msgid "Display"
@@ -1095,11 +1085,11 @@ msgstr ""
 
 #: ../modules/display/MonitorComponent.qml:236
 msgid "Set as primary display"
-msgstr ""
+msgstr "Beállítás elsődleges kijelzőként"
 
 #: ../modules/display/MonitorDragArea.qml:463
 msgid "Identify"
-msgstr ""
+msgstr "Azonosítás "
 
 #: ../modules/display/MonitorDragArea.qml:480
 msgid "Edit"
@@ -1111,15 +1101,15 @@ msgstr "Normál"
 
 #: ../modules/display/MonitorProperties.qml:48
 msgid "Rotate Right"
-msgstr ""
+msgstr "Jobbra forgatni"
 
 #: ../modules/display/MonitorProperties.qml:49
 msgid "Upside Down"
-msgstr ""
+msgstr "Forgatni"
 
 #: ../modules/display/MonitorProperties.qml:50
 msgid "Rotate Left"
-msgstr ""
+msgstr "balra forgatni"
 
 #: ../modules/display/MonitorProperties.qml:112
 msgid "Resolution"
@@ -1127,23 +1117,22 @@ msgstr "Felbontás"
 
 #: ../modules/display/MonitorProperties.qml:165
 msgid "Rotation"
-msgstr ""
+msgstr "rotáció"
 
 #: ../modules/display/MonitorProperties.qml:206
 msgid "Brightness"
-msgstr ""
+msgstr "Fényerősség"
 
 #: ../modules/network/wired/NewItem.qml:45
 #: ../modules/network/wired/WiredItem.qml:88
 #, qt-format
 msgid "Wired Connection %1"
-msgstr ""
+msgstr "Vezetékes hálózat %1"
 
 #: ../modules/network/wired/NewItem.qml:47
 #: ../modules/network/wired/WiredItem.qml:90
-#, fuzzy
 msgid "Wired Connection"
-msgstr "Aktivált kapcsolatok"
+msgstr "Vezetékes kapcsolat"
 
 #: ../modules/network/widgets/NotManagedSection.qml:25
 msgid "not managed"
@@ -1163,7 +1152,7 @@ msgstr "Ismétlés"
 
 #: ../modules/grub/Preview.qml:122
 msgid "Drag and drop an image to change background."
-msgstr ""
+msgstr "Fogd és vidd a képet ide, hogy beállítsad a háttérképet"
 
 #: ../modules/grub/Preview.qml:123
 msgid "Image format not supported."
@@ -1171,11 +1160,11 @@ msgstr ""
 
 #: ../modules/grub/Preview.qml:124
 msgid "Updating..."
-msgstr ""
+msgstr "Frissítés..."
 
 #: ../modules/grub/Preview.qml:125
 msgid "Successfully updated, reboot to view."
-msgstr ""
+msgstr "Sikeres frissítés, újraindítás a megtekintéshez"
 
 #: ../modules/network/proxy/ProxyContent.qml:43
 msgid "None"
@@ -1202,9 +1191,8 @@ msgid "FTP Proxy"
 msgstr "FTP Proxy"
 
 #: ../modules/network/proxy/ProxyContent.qml:124
-#, fuzzy
 msgid "Socks Proxy"
-msgstr "Rendszer proxy"
+msgstr ""
 
 #: ../modules/network/proxy/ProxyContent.qml:149
 msgid "Configuration URL"
@@ -1212,7 +1200,7 @@ msgstr "Beállítások hivatkozás"
 
 #: ../modules/network/proxy/ProxyContent.qml:166
 msgid "Apply system wide"
-msgstr ""
+msgstr "Rendszerszintű alkalmazás"
 
 #: ../modules/network/proxy/ProxyExpand.qml:37
 msgid "System Proxy"
@@ -1220,7 +1208,7 @@ msgstr "Rendszer proxy"
 
 #: ../modules/shared/ResetButton.qml:39
 msgid "Reset successfully"
-msgstr ""
+msgstr "Sikeresen visszaállítva "
 
 #: ../modules/shared/ResetButton.qml:47
 msgid "Reset"
@@ -1232,25 +1220,25 @@ msgstr "Letíltás"
 
 #: ../modules/shortcuts/ShortcutInput.qml:126
 msgid "Please input new shortcut"
-msgstr ""
+msgstr "Kérem adjon meg egy új parancsikont"
 
 #: ../modules/shortcuts/ShortcutInput.qml:226
 #, qt-format
 msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
-msgstr ""
+msgstr "A gyors billentyű \"%1\" érvénytelen kérem adjon meg egy újat."
 
 #: ../modules/shortcuts/ShortcutInput.qml:264
 msgid "The shortcut you set "
-msgstr ""
+msgstr "A beállított parancsikon"
 
 #: ../modules/shortcuts/ShortcutInput.qml:267
 #, qt-format
 msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
-msgstr ""
+msgstr "Konfliktusba áll a \"%2 a \"%1\"-vel a kategóriában"
 
 #: ../modules/shortcuts/ShortcutInput.qml:269
 msgid "Do you want to replace it?"
-msgstr ""
+msgstr "Le szeretné cserélni?"
 
 #: ../modules/shortcuts/ShortcutInput.qml:327
 msgid "Replace"
@@ -1275,7 +1263,7 @@ msgstr "Egyéni"
 
 #: ../modules/date_time/TimeBox.qml:161
 msgid "Double-click the above digits to change your time."
-msgstr ""
+msgstr "Végezzen el egy dupla kattintást a fenti számokra arra, hogy megváltoztassa az időt."
 
 #: ../modules/date_time/TimeBox.qml:196
 msgid "Set"
@@ -1332,7 +1320,7 @@ msgstr "Dupla-klikk sebesség"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:180
 msgid "Drag Threshold"
-msgstr ""
+msgstr "Húzza a küszöbre"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:195
 #: ../modules/keyboard/main.qml:128
@@ -1350,7 +1338,7 @@ msgstr "Természetes görgetés"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:228
 msgid "Tap to click"
-msgstr ""
+msgstr "A kattintás érintse meg "
 
 #: ../modules/network/vpn/VpnExpand.qml:48
 msgid "VPN Connections"
@@ -1358,11 +1346,11 @@ msgstr "VPN kapcsolatok"
 
 #: ../modules/account/WebCam.qml:125 ../modules/account/WebCam.qml:140
 msgid "Snapshot"
-msgstr ""
+msgstr "Pillanatkép"
 
 #: ../modules/account/WebCam.qml:136
 msgid "Again"
-msgstr ""
+msgstr "ismét"
 
 #: ../modules/account/WebCam.qml:175
 msgid "No camera found."
@@ -1389,7 +1377,7 @@ msgstr "Hitelesítés szükséges a WI-FI hálózathoz"
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network <font "
 "color=\"#faca57\">%1</font>"
-msgstr ""
+msgstr "Jelszó vagy  titkosítási kulcs szükséges ahhoz, hogy  hozzáférjen a color=\"#faca57\">%1</font> WI-FI hálózathoz."
 
 #: ../dock-applets/qml/WifiPasswordWindow.qml:149
 msgid "Password:"
@@ -1397,27 +1385,26 @@ msgstr "Jelszó:"
 
 #: ../modules/network/wired/WiredDeviceExpand.qml:37
 msgid "Wired Network"
-msgstr ""
+msgstr "Vezetékes hálózat "
 
 #: ../dock-applets/qml/network/WirelessApList.qml:95
 msgid "Scanning..."
-msgstr ""
+msgstr "Keresés..."
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:28
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 msgid "Wireless Network"
-msgstr ""
+msgstr "Vezeték nélküli hálózat"
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:26
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 #, qt-format
 msgid "Wireless Network %1"
-msgstr ""
+msgstr "Vezeték nélküli internet %1"
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:35
 msgid ""
-"Wireless network is unable to be connected maybe due to the following "
-"reasons:\n"
+"Wireless network is unable to be connected maybe due to the following reasons:\n"
 "\n"
 "1. The hardware switch of wireless network card is off\n"
 "2. Incorrect network configuration in /etc/network/interface\n"
@@ -1427,15 +1414,15 @@ msgstr ""
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:137
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:352
 msgid "Connect to hidden access point"
-msgstr ""
+msgstr "Csatlakozás a rejtett hozzáférési ponthoz"
 
 #: ../dock-applets/qml/date_time/main.qml:90
 msgid "_Switch to analog"
-msgstr ""
+msgstr "_ Váltás analóghoz "
 
 #: ../dock-applets/qml/date_time/main.qml:91
 msgid "_Switch to digital"
-msgstr ""
+msgstr "_Váltás digitálishoz"
 
 #: ../dock-applets/qml/network/main.qml:319
 #: ../dock-applets/qml/power/main.qml:99
@@ -1445,52 +1432,52 @@ msgstr "_Indítás"
 
 #: ../dock-applets/qml/power/main.qml:34
 msgid "On Charging"
-msgstr ""
+msgstr "Töltödik"
 
 #: ../dock-applets/qml/power/main.qml:47 ../modules/power/main.qml:256
 #: ../modules/power/main.qml:431
 msgid "Power saver"
-msgstr ""
+msgstr "Energiatakarékos mód"
 
 #: ../dock-applets/qml/power/main.qml:48 ../modules/power/main.qml:250
 #: ../modules/power/main.qml:425
 msgid "Balanced"
-msgstr ""
+msgstr "Kiegyensúlyozott"
 
 #: ../dock-applets/qml/power/main.qml:49 ../modules/power/main.qml:262
 #: ../modules/power/main.qml:437
 msgid "High performance"
-msgstr ""
+msgstr "Magas teljesítmény "
 
 #: ../dock-applets/qml/network/main.qml:320
 #: ../dock-applets/qml/power/main.qml:106
 #: ../dock-applets/qml/sound/main.qml:184
 msgid "_Undock"
-msgstr ""
+msgstr "_Rögzítés feloldása"
 
 #: ../dock-applets/qml/sound/main.qml:219
 msgid "Device"
-msgstr ""
+msgstr "Eszköz"
 
 #: ../dock-applets/qml/sound/main.qml:313
 msgid "Applications"
-msgstr ""
+msgstr "Alkalmazások"
 
 #: ../modules/bluetooth/main.qml:76
 msgid "ON/OFF"
-msgstr ""
+msgstr "BE/KI"
 
 #: ../modules/bluetooth/main.qml:141
 msgid "Devices nearby"
-msgstr ""
+msgstr "Eszközök a közelben"
 
 #: ../modules/date_time/main.qml:93
 msgid "Automatic date and time"
-msgstr ""
+msgstr "Automatikus idő és dátum"
 
 #: ../modules/date_time/main.qml:109
 msgid "Use 24-hour clock"
-msgstr ""
+msgstr "24 órás formátum"
 
 #: ../modules/date_time/main.qml:139
 msgid "Date"
@@ -1498,19 +1485,19 @@ msgstr "Dátum"
 
 #: ../modules/date_time/main.qml:143
 msgid "Set Date"
-msgstr ""
+msgstr "Dátum beállítása"
 
 #: ../modules/default_applications/main.qml:74
 msgid "Browser"
-msgstr ""
+msgstr "Böngésző"
 
 #: ../modules/default_applications/main.qml:88
 msgid "Mail"
-msgstr ""
+msgstr "email"
 
 #: ../modules/default_applications/main.qml:99
 msgid "Text"
-msgstr ""
+msgstr "szöveg"
 
 #: ../modules/default_applications/main.qml:105
 msgid "Music"
@@ -1518,43 +1505,43 @@ msgstr "Zene"
 
 #: ../modules/default_applications/main.qml:136
 msgid "Video"
-msgstr ""
+msgstr "Videó"
 
 #: ../modules/default_applications/main.qml:168
 msgid "Picture"
-msgstr ""
+msgstr "fénykép"
 
 #: ../modules/default_applications/main.qml:186
 msgid "Terminal"
-msgstr ""
+msgstr "Terminál"
 
 #: ../modules/default_applications/main.qml:245
 msgid "AutoPlay"
-msgstr ""
+msgstr "automatikus lejátszás"
 
 #: ../modules/default_applications/main.qml:260
 msgid "CD Audio"
-msgstr ""
+msgstr "audió CD"
 
 #: ../modules/default_applications/main.qml:265
 msgid "DVD Video"
-msgstr ""
+msgstr "DVD videó"
 
 #: ../modules/default_applications/main.qml:270
 msgid "Music Player"
-msgstr ""
+msgstr "Zenelejátszó"
 
 #: ../modules/default_applications/main.qml:275
 msgid "Camera"
-msgstr ""
+msgstr "kamera"
 
 #: ../modules/default_applications/main.qml:280
 msgid "Software"
-msgstr ""
+msgstr "szoftver"
 
 #: ../modules/display/main.qml:117
 msgid "Primary Monitor: "
-msgstr ""
+msgstr "Elsődleges Monitor:"
 
 #: ../modules/display/main.qml:148
 msgid "Monitor"
@@ -1566,11 +1553,11 @@ msgstr "Alkalmaz"
 
 #: ../modules/grub/main.qml:112
 msgid "Default Startup"
-msgstr ""
+msgstr "Alapértelmezett indítás"
 
 #: ../modules/grub/main.qml:167
 msgid "Boot delay"
-msgstr ""
+msgstr "indítás késleltetése"
 
 #: ../modules/grub/main.qml:206
 msgid "Text Color"
@@ -1582,39 +1569,39 @@ msgstr "Kiválasztott szöveg szín"
 
 #: ../modules/keyboard/main.qml:114
 msgid "Repeat Delay"
-msgstr ""
+msgstr "Ismétlés késleltetése"
 
 #: ../modules/keyboard/main.qml:138
 msgid "Repeat Rate"
-msgstr ""
+msgstr "visszajátszási arány"
 
 #: ../modules/keyboard/main.qml:163
 msgid "Cursor Blink Rate"
-msgstr ""
+msgstr "kursor villogási arány"
 
 #: ../modules/keyboard/main.qml:189
 msgid "Test Area"
-msgstr ""
+msgstr "Teszt mező"
 
 #: ../modules/keyboard/main.qml:236
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "Szövegbevitel"
 
 #: ../modules/keyboard/main.qml:447
 msgid "No result"
-msgstr ""
+msgstr "nincs találat"
 
 #: ../modules/keyboard/main.qml:208
 msgid "Caps Lock prompt"
-msgstr ""
+msgstr "Caps Lock figyelmeztető "
 
 #: ../modules/mouse_touchpad/main.qml:167
 msgid "Disable the touchpad when inserting the mouse"
-msgstr ""
+msgstr "Az egér használatánál érintőpad kikapcsolása"
 
 #: ../modules/personalization/main.qml:101
 msgid "Theme"
-msgstr ""
+msgstr "Téma"
 
 #: ../modules/personalization/main.qml:108 ../modules/shortcuts/main.qml:51
 msgid "Window"
@@ -1622,51 +1609,51 @@ msgstr "Ablak"
 
 #: ../modules/personalization/main.qml:115
 msgid "Icon"
-msgstr ""
+msgstr "ikon"
 
 #: ../modules/personalization/main.qml:129
 msgid "Wallpaper"
-msgstr ""
+msgstr "háttérkép"
 
 #: ../modules/personalization/main.qml:143
 msgid "Fonts"
-msgstr ""
+msgstr "Betűtípusok"
 
 #: ../modules/power/main.qml:53 ../modules/power/main.qml:65
 msgid "Never"
-msgstr ""
+msgstr "Soha"
 
 #: ../modules/power/main.qml:59
 msgid "1 minute"
-msgstr ""
+msgstr "1 perc"
 
 #: ../modules/power/main.qml:60
 msgid "5 minutes"
-msgstr ""
+msgstr "5 perc"
 
 #: ../modules/power/main.qml:61
 msgid "10 minutes"
-msgstr ""
+msgstr "10 perc"
 
 #: ../modules/power/main.qml:62
 msgid "15 minutes"
-msgstr ""
+msgstr "15 perc"
 
 #: ../modules/power/main.qml:63
 msgid "30 minutes"
-msgstr ""
+msgstr "30 perc"
 
 #: ../modules/power/main.qml:64
 msgid "1 hour"
-msgstr ""
+msgstr "1 óra"
 
 #: ../modules/power/main.qml:124
 msgid "When I press the power button"
-msgstr ""
+msgstr "Mikor a bekapcsoló gombot megnyomom"
 
 #: ../modules/power/main.qml:138 ../modules/power/main.qml:184
 msgid "Shutdown"
-msgstr ""
+msgstr "kikapcsolás"
 
 #: ../modules/power/main.qml:143 ../modules/power/main.qml:189
 #: ../modules/power/main.qml:253 ../modules/power/main.qml:259
@@ -1683,23 +1670,23 @@ msgstr "Kérdés"
 
 #: ../modules/power/main.qml:170
 msgid "When I close the lid"
-msgstr ""
+msgstr "Amikor bezárom a fedőt"
 
 #: ../modules/power/main.qml:194
 msgid "Nothing"
-msgstr ""
+msgstr "Semmi"
 
 #: ../modules/power/main.qml:213
 msgid "Password required to wake up"
-msgstr ""
+msgstr "Jelszó szükséges a felébresztéshez"
 
 #: ../modules/power/main.qml:235
 msgid "Plugged in"
-msgstr ""
+msgstr "Csatlakoztatva"
 
 #: ../modules/power/main.qml:410
 msgid "On battery"
-msgstr ""
+msgstr "Akkumulátoron"
 
 #: ../modules/power/main.qml:252 ../modules/power/main.qml:258
 #: ../modules/power/main.qml:264 ../modules/power/main.qml:270
@@ -1707,31 +1694,31 @@ msgstr ""
 #: ../modules/power/main.qml:433 ../modules/power/main.qml:439
 #: ../modules/power/main.qml:445 ../modules/power/main.qml:494
 msgid "Turn off the display"
-msgstr ""
+msgstr "Kijelző kikapcsolása "
 
 #: ../modules/power/main.qml:313 ../modules/power/main.qml:489
 msgid "Custom Options"
-msgstr ""
+msgstr "Egyéni beállítások"
 
 #: ../modules/shortcuts/main.qml:49
 msgid "System"
-msgstr ""
+msgstr "Rendszer"
 
 #: ../modules/shortcuts/main.qml:52
 msgid "Workspace"
-msgstr ""
+msgstr "Munkaterület"
 
 #: ../modules/sound/main.qml:126
 msgid "Speaker"
-msgstr ""
+msgstr "Hangerő"
 
 #: ../modules/sound/main.qml:156
 msgid "Output Volume"
-msgstr ""
+msgstr "kimeneti eszköz"
 
 #: ../modules/sound/main.qml:204
 msgid "Balance"
-msgstr ""
+msgstr "Kiegyensúlyozott "
 
 #: ../modules/sound/main.qml:226
 msgid "Left"
@@ -1743,59 +1730,59 @@ msgstr "Jobbra"
 
 #: ../modules/sound/main.qml:260
 msgid "Microphone"
-msgstr ""
+msgstr "Mikrofon"
 
 #: ../modules/sound/main.qml:290
 msgid "Input Volume"
-msgstr ""
+msgstr "Bemeneti hang"
 
 #: ../modules/sound/main.qml:334
 msgid "Input Feedback"
-msgstr ""
+msgstr "Bemeneti visszajelzés"
 
 #: ../modules/sound/main.qml:370
 msgid "Output Port"
-msgstr ""
+msgstr "Kiadási port"
 
 #: ../modules/sound/main.qml:387 ../modules/sound/main.qml:490
 msgid "No port exists in this device."
-msgstr ""
+msgstr "Nincs csatlakozási lehetöség ehhez az eszközhöz"
 
 #: ../modules/sound/main.qml:425
 msgid "Output device"
-msgstr ""
+msgstr "Eszköz leválasztása"
 
 #: ../modules/sound/main.qml:473
 msgid "Input Port"
-msgstr ""
+msgstr "bemeneti port"
 
 #: ../modules/sound/main.qml:528
 msgid "Input device"
-msgstr ""
+msgstr "bemeneti eszköz"
 
 #: ../modules/sound/main.qml:581
 msgid "Hide Advanced..."
-msgstr ""
+msgstr "További opciók mutatása..."
 
 #: ../modules/sound/main.qml:581
 msgid "Show Advanced..."
-msgstr ""
+msgstr "További opciók elrejtése..."
 
 #: ../modules/system_info/main.qml:102
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
-msgstr ""
+msgstr "Minden jog fenntartva  (c) 2011-2014 Wuhan Deepin Technologia Co.,Ltd."
 
 #: ../modules/system_info/main.qml:108
 msgid "Deepin Edition"
-msgstr ""
+msgstr "Deepin verzió"
 
 #: ../modules/system_info/main.qml:114
 msgid "System Type"
-msgstr ""
+msgstr "rendszer típus "
 
 #: ../modules/system_info/main.qml:115
 msgid "bit"
-msgstr ""
+msgstr "bit"
 
 #: ../modules/system_info/main.qml:120
 msgid "Processor"
@@ -1851,7 +1838,7 @@ msgstr "InfiniBand"
 
 #: ../modules/network/main.qml:182
 msgid "Bond"
-msgstr ""
+msgstr "kapcsolat"
 
 #: ../modules/network/main.qml:184
 msgid "VLAN"
@@ -1867,109 +1854,40 @@ msgstr "Híd"
 
 #: ../modules/network/main.qml:198
 msgid "802.11 WiFi"
-msgstr ""
+msgstr "802.11 WiFi"
 
 #: ../modules/network/main.qml:200
 msgid "802.11 WiFi AdHoc"
-msgstr ""
+msgstr "802.11 WiFi AdHoc"
 
 #: ../modules/network/main.qml:202
-#, fuzzy
 msgid "802.11 WiFi Hotspot"
-msgstr "WI-FI pont szerkesztés"
+msgstr "802.11 WiFi Hotspot"
 
 #: ../modules/network/main.qml:208
-#, fuzzy
 msgid "Mobile GSM"
-msgstr "Mobil"
+msgstr "Mobil GSM"
 
 #: ../modules/network/main.qml:210
-#, fuzzy
 msgid "Mobile CDMA"
-msgstr "Mobil"
+msgstr "Mobil CDMA"
 
 #: ../modules/network/main.qml:214
-#, fuzzy
 msgid "VPN L2TP"
-msgstr "L2TP"
+msgstr "VPN L2TP"
 
 #: ../modules/network/main.qml:216
-#, fuzzy
 msgid "VPN PPTP"
-msgstr "PPTP"
+msgstr "VPN PPTP"
 
 #: ../modules/network/main.qml:218
-#, fuzzy
 msgid "VPN VPNC"
-msgstr "VPNC"
+msgstr "VPN VPNC"
 
 #: ../modules/network/main.qml:220
-#, fuzzy
 msgid "VPN OpenVPN"
-msgstr "OpenVPN"
+msgstr "VPN Nyílt VPN"
 
 #: ../modules/network/main.qml:222
-#, fuzzy
 msgid "VPN OpenConnect"
-msgstr "OpenConnect"
-
-#, fuzzy
-#~ msgid "Ternary DNS"
-#~ msgstr "Elsődleges DNS"
-
-#~ msgid "CSD Wrapper"
-#~ msgstr "CSD Háttér"
-
-#~ msgid "January"
-#~ msgstr "Január"
-
-#~ msgid "February"
-#~ msgstr "Február"
-
-#~ msgid "March"
-#~ msgstr "Március"
-
-#~ msgid "April"
-#~ msgstr "Április"
-
-#~ msgid "May"
-#~ msgstr "május"
-
-#~ msgid "June"
-#~ msgstr "Június"
-
-#~ msgid "July"
-#~ msgstr "Július"
-
-#~ msgid "August"
-#~ msgstr "Augusztus"
-
-#~ msgid "September"
-#~ msgstr "Szeptember"
-
-#~ msgid "October"
-#~ msgstr "Október"
-
-#~ msgid "November"
-#~ msgstr "November"
-
-#~ msgid "December"
-#~ msgstr "December"
-
-#~ msgid "Keyboard"
-#~ msgstr "Billentyűzet"
-
-#~ msgid "Default"
-#~ msgstr "Alapértelmezett"
-
-#~ msgid "General"
-#~ msgstr "Általános"
-
-#~ msgid "For All Users"
-#~ msgstr "Az összes felhasználó számára"
-
-#~ msgid "Device Type"
-#~ msgstr "Eszköz típus"
-
-#~ msgid "Addtional DNS"
-#~ msgstr "Kibővített DNS"
+msgstr "VPN nyílt kapcsolat "

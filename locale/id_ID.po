@@ -1,10 +1,10 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Aril Apria Susanto <awriel@gmail.com>, 2014
-# arvernester <dedy.yugo.purwanto@gmail.com>, 2014
+# Yugo Purwanto <dedy.yugo.purwanto@gmail.com>, 2014
 # Muhamad Mashudi Ardi Winata <muhamadmashudiardiwinata@gmail.com>, 2014
 # Sucipto <show.cheap@gmail.com>, 2014
 # Sucipto <show.cheap@gmail.com>, 2014
@@ -13,14 +13,13 @@ msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-22 10:39+0800\n"
-"PO-Revision-Date: 2014-07-02 08:41+0000\n"
-"Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
-"Language-Team: Indonesian (Indonesia) (http://www.transifex.com/projects/p/"
-"dde-control-center/language/id_ID/)\n"
-"Language: id_ID\n"
+"PO-Revision-Date: 2014-08-22 07:11+0000\n"
+"Last-Translator: Catherinelin <linhongxia@linuxdeepin.com>\n"
+"Language-Team: Indonesian (Indonesia) (http://www.transifex.com/projects/p/dde-control-center/language/id_ID/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: id_ID\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../modules/network/add/AddDsl.qml:11
@@ -125,20 +124,17 @@ msgstr "Tambah"
 
 #: ../modules/account/AddUserDialog.qml:48
 #: ../modules/account/PasswordDialog.qml:96
-#, fuzzy
 msgid "Invalid password"
-msgstr "Kata Sandi"
+msgstr "Kata kunci Salah"
 
 #: ../modules/account/AddUserDialog.qml:53
-#, fuzzy
 msgid "Nothing input"
-msgstr "Tidak ada apa-apa"
+msgstr ""
 
 #: ../modules/account/AddUserDialog.qml:58
 #: ../modules/account/PasswordDialog.qml:101
-#, fuzzy
 msgid "Different password"
-msgstr "Tulis kembali Kata Sandi"
+msgstr "Kata kunci berbeda"
 
 #: ../modules/account/AddUserDialog.qml:67
 msgid "Add User"
@@ -174,7 +170,7 @@ msgstr "Tipe Akun"
 #: ../modules/account/AddUserDialog.qml:274
 #: ../modules/account/EditUserDialog.qml:56
 msgid "Auto-login"
-msgstr "Login Otomatis"
+msgstr "Masuk-Otomatis"
 
 #: ../modules/account/AddUserDialog.qml:338
 #: ../modules/account/DeleteUserDialog.qml:46
@@ -265,9 +261,8 @@ msgstr "Allow Cisco Secure Desktop Trojan"
 #: ../modules/network/add/AddVpn.qml:344
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:274
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
-#, fuzzy
 msgid "Customize Key Direction"
-msgstr "Resolusi"
+msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:214 ../modules/network/add/AddVpn.qml:304
 #: ../modules/network/wireless/AddWireless.qml:165
@@ -297,9 +292,8 @@ msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:224
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:154
-#, fuzzy
 msgid "Use FSID for Key Passphrase"
-msgstr "Uer FSID For Key Passphrase"
+msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:324
 #: ../modules/network/wireless/AddWireless.qml:206
@@ -317,12 +311,12 @@ msgstr "Kunci Statis"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:284
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:63
 msgid "Key Direction"
-msgstr ""
+msgstr "Key Direction"
 
 #: ../modules/network/add/AddVpn.qml:364
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:294
 msgid "Remote IP"
-msgstr "IP Jarak Jauh"
+msgstr "IP Remote"
 
 #: ../modules/network/add/AddVpn.qml:374
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:304
@@ -367,9 +361,8 @@ msgstr "ID Grup"
 
 #: ../modules/network/add/AddVpn.qml:546
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:53
-#, fuzzy
 msgid "Pre-Shared Key"
-msgstr "Private Key"
+msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:558 ../modules/network/add/AddVpn.qml:570
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:23
@@ -417,27 +410,27 @@ msgstr "Identitas"
 #: ../modules/network/wireless/AddWireless.qml:94
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:83
 msgid "Anonymous ID"
-msgstr ""
+msgstr "ID Anonim"
 
 #: ../modules/network/wireless/AddWireless.qml:124
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:113
 msgid "Provisioning"
-msgstr ""
+msgstr "Provisioning"
 
 #: ../modules/network/wireless/AddWireless.qml:134
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:123
 msgid "PAC file"
-msgstr ""
+msgstr "Berkas PAC"
 
 #: ../modules/network/wireless/AddWireless.qml:144
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:133
 msgid "PEAP Version"
-msgstr ""
+msgstr "Versi PEAP"
 
 #: ../modules/network/wireless/AddWireless.qml:154
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:143
 msgid "Inner Auth"
-msgstr ""
+msgstr "Inner Auth"
 
 #: ../modules/network/wireless/AddWireless.qml:224
 #: ../modules/network/widgets/PasswordBox.qml:109
@@ -449,10 +442,9 @@ msgstr "Sambungkan"
 #: ../modules/power/AppletSwitchArea.qml:40
 #: ../modules/sound/AppletSwitchArea.qml:40
 msgid "Dock Applet Enabled"
-msgstr ""
+msgstr "Dock Applet diaktifkan"
 
 #: ../modules/account/AvatarPickDialog.qml:5
-#, fuzzy
 msgid "Choose a new picture for your Avatar"
 msgstr "Pilih gambar baru anda"
 
@@ -462,7 +454,7 @@ msgstr "Sering digunakan"
 
 #: ../modules/account/AvatarView.qml:20
 msgid "Avatar"
-msgstr ""
+msgstr "Avatar"
 
 #: ../modules/account/AvatarView.qml:21
 msgid "Webcam"
@@ -555,7 +547,7 @@ msgstr "Simpan"
 #: ../modules/date_time/StateButtons.qml:35
 #: ../modules/date_time/TimezoneArea.qml:257
 msgid "Close"
-msgstr "Keluar"
+msgstr "Tutup"
 
 #: ../modules/network/ConnectionEdit.qml:134
 msgid "Delete"
@@ -575,7 +567,7 @@ msgstr "Hapus berkas pengguna"
 
 #: ../dock-applets/qml/disk_mount/DiskItem.qml:124
 msgid "Unmount failed!"
-msgstr ""
+msgstr "Gagal melepaskan kait!"
 
 #: ../modules/network/dsl/DslExpand.qml:19
 msgid "PPPoE Connections"
@@ -584,7 +576,7 @@ msgstr "Koneksi PPoE"
 #: ../modules/network/edit/EditLineMissingPackage.qml:15
 #, qt-format
 msgid "Current system lacks component for %1"
-msgstr ""
+msgstr "Sistem sekarang tidak mempunyai komponen untuk %1"
 
 #: ../modules/network/edit/EditLineMissingPackage.qml:22
 msgid "Click to install"
@@ -593,7 +585,7 @@ msgstr "Klik untuk memasang"
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:11
 #: ../modules/network/main.qml:196
 msgid "Ethernet"
-msgstr "Eternet"
+msgstr "Ethernet"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:23
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:65
@@ -607,9 +599,8 @@ msgstr "Alamat MAC Tergandakan"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:43
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:85
-#, fuzzy
 msgid "Customize MTU"
-msgstr "MTU Kustom"
+msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:53
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:107
@@ -774,14 +765,12 @@ msgid "Gateway Port"
 msgstr "Port Gateway"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:23
-#, fuzzy
 msgid "Customize Gateway Port"
-msgstr "Gunakan Port Gateway Kustom"
+msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:45
-#, fuzzy
 msgid "Customize Renegotiation Interval"
-msgstr "Gunakan Renegosiasi Interval Kustom"
+msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:55
 msgid "Renegotiation Interval"
@@ -800,9 +789,8 @@ msgid "Use TAP device"
 msgstr "Gunakan Piranti TAP"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:97
-#, fuzzy
 msgid "Customize Tunnel MTU"
-msgstr "MTU Kustom"
+msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:119
 msgid "Customize UDP Fragment Size"
@@ -810,7 +798,7 @@ msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
 msgid "UDP Fragment Size"
-msgstr ""
+msgstr "UDP Fragment Size"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:141
 msgid "Restrict Tunnel TCP MSS"
@@ -818,7 +806,7 @@ msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:151
 msgid "Randomize Remote Hosts"
-msgstr ""
+msgstr "Host Remote Acak"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:11
 msgid "VPN Proxies"
@@ -847,19 +835,19 @@ msgstr "Keamanan VPN"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:23
 msgid "Cipher"
-msgstr ""
+msgstr "Chiper"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:33
 msgid "HMAC Auth"
-msgstr ""
+msgstr "HMAC Auth"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:11
 msgid "VPN TLS Authentication"
-msgstr ""
+msgstr "Otentikasi VPN TLS"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:23
 msgid "Subject Match"
-msgstr ""
+msgstr "Subyek Cocok"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:33
 msgid "Remote Cert Type"
@@ -867,15 +855,15 @@ msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:43
 msgid "Key File"
-msgstr ""
+msgstr "Berkas Kunci"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:23
 msgid "Domain"
-msgstr ""
+msgstr "Domain"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:33
 msgid "Vendor"
-msgstr ""
+msgstr "Vendor"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:43
 msgid "Version"
@@ -887,11 +875,11 @@ msgstr "Enkripsi"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:63
 msgid "NAT Traversal"
-msgstr ""
+msgstr "NAT Traversal"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:73
 msgid "IKE DH Group"
-msgstr ""
+msgstr "ID DH Group"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:83
 msgid "Forward Secrecy"
@@ -907,23 +895,23 @@ msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:11
 msgid "Wi-Fi"
-msgstr ""
+msgstr "Wi-Fi"
 
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:33
 msgid "Mode"
-msgstr ""
+msgstr "Mode"
 
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:43
 msgid "Band"
-msgstr ""
+msgstr "Pita"
 
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:54
 msgid "Channel"
-msgstr ""
+msgstr "Kanal"
 
 #: ../modules/account/EditUserDialog.qml:90
 msgid "Enable"
-msgstr ""
+msgstr "Aktifkan"
 
 #: ../modules/personalization/components/FontSettingsExpand.qml:36
 msgid "Size"
@@ -932,7 +920,7 @@ msgstr "Ukuran"
 #: ../modules/personalization/components/FontSettingsExpand.qml:65
 #, qt-format
 msgid "Font %1"
-msgstr ""
+msgstr "Fonta %1"
 
 #: ../modules/account/GuestUser.qml:40 ../qt5frame/views/HeaderArea.qml:108
 msgid "Guest"
@@ -941,45 +929,43 @@ msgstr "Tamu"
 #: ../modules/account/GuestUser.qml:101
 #: ../modules/display/MonitorProperties.qml:80
 msgid "Enabled"
-msgstr ""
+msgstr "diaktifkan"
 
 #: ../modules/network/Info.qml:13
 msgid "Activated Connections"
-msgstr ""
+msgstr "Koneksi diaktifkan"
 
 #: ../modules/network/Info.qml:15
-#, fuzzy
 msgid "None Activated Connection"
-msgstr "Koneksi Mobile baru"
+msgstr ""
 
 #: ../modules/network/Info.qml:39
-#, fuzzy
 msgid "(default)"
-msgstr "Bawaan"
+msgstr "(baku)"
 
 #: ../modules/network/Info.qml:50
 msgid "Interface"
-msgstr ""
+msgstr "Antarmuka"
 
 #: ../modules/network/Info.qml:54
 msgid "Device Addr"
-msgstr ""
+msgstr "Alamat Perangkat"
 
 #: ../modules/network/Info.qml:56
 msgid "Subnet Mask"
-msgstr ""
+msgstr "Subnet Mask"
 
 #: ../modules/network/Info.qml:57
 msgid "Route Addr"
-msgstr ""
+msgstr "Alamat Route"
 
 #: ../modules/network/Info.qml:58
 msgid "Primary DNS"
-msgstr ""
+msgstr "DNS Primer"
 
 #: ../modules/network/Info.qml:59
 msgid "Secondary DNS"
-msgstr ""
+msgstr "DNS Kedua"
 
 #: ../modules/network/Info.qml:60
 msgid "Third DNS"
@@ -987,7 +973,7 @@ msgstr ""
 
 #: ../modules/network/Info.qml:69
 msgid "Device Speed"
-msgstr ""
+msgstr "Kecepatan Perangkat"
 
 #: ../modules/keyboard/LocaleArea.qml:53
 msgid "Language"
@@ -995,22 +981,22 @@ msgstr "Bahasa"
 
 #: ../modules/display/MessageBox.qml:102
 msgid "Do you want to keep these display settings?"
-msgstr ""
+msgstr "Apakah Anda ingin menyimpan pengaturan tampilan ini?"
 
 #: ../modules/display/MessageBox.qml:111
 #, qt-format
 msgid ""
 "Reverting to previous display settings in <font color='#F48914'>%1</font> "
 "seconds."
-msgstr ""
+msgstr "Kembali ke pengaturan tampilan sebelumnya dalam <font color='#F48914'>%1</font> detik."
 
 #: ../modules/display/MessageBox.qml:124
 msgid "Keep Changes"
-msgstr ""
+msgstr "Tetapkan Perubahan"
 
 #: ../modules/display/MessageBox.qml:137
 msgid "Revert"
-msgstr ""
+msgstr "Pulihkan"
 
 #: ../qt5frame/views/ModulesData.qml:52 ../dock-applets/qml/main.qml:54
 msgid "Date and Time"
@@ -1059,7 +1045,7 @@ msgstr "Personalisasi"
 
 #: ../qt5frame/views/ModulesData.qml:63
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Jalan pintas"
 
 #: ../qt5frame/views/ModulesData.qml:64
 msgid "Keyboard and Language"
@@ -1067,11 +1053,11 @@ msgstr ""
 
 #: ../qt5frame/views/ModulesData.qml:65
 msgid "Mouse and Touchpad"
-msgstr ""
+msgstr "Tetikus dan Touchpad"
 
 #: ../qt5frame/views/ModulesData.qml:66 ../modules/mouse_touchpad/main.qml:50
 msgid "Mouse"
-msgstr "Mouse"
+msgstr "Tetikus"
 
 #: ../qt5frame/views/ModulesData.qml:67
 msgid "User Accounts"
@@ -1100,11 +1086,11 @@ msgstr ""
 
 #: ../modules/display/MonitorComponent.qml:236
 msgid "Set as primary display"
-msgstr ""
+msgstr "Atur sebagai tampilan utama"
 
 #: ../modules/display/MonitorDragArea.qml:463
 msgid "Identify"
-msgstr ""
+msgstr "Identifikasi"
 
 #: ../modules/display/MonitorDragArea.qml:480
 msgid "Edit"
@@ -1116,7 +1102,7 @@ msgstr "Normal"
 
 #: ../modules/display/MonitorProperties.qml:48
 msgid "Rotate Right"
-msgstr ""
+msgstr "Putar Kanan"
 
 #: ../modules/display/MonitorProperties.qml:49
 msgid "Upside Down"
@@ -1124,7 +1110,7 @@ msgstr ""
 
 #: ../modules/display/MonitorProperties.qml:50
 msgid "Rotate Left"
-msgstr ""
+msgstr "Putar kiri"
 
 #: ../modules/display/MonitorProperties.qml:112
 msgid "Resolution"
@@ -1142,13 +1128,12 @@ msgstr "Kecerahan"
 #: ../modules/network/wired/WiredItem.qml:88
 #, qt-format
 msgid "Wired Connection %1"
-msgstr ""
+msgstr "Koneksi Kabel %1"
 
 #: ../modules/network/wired/NewItem.qml:47
 #: ../modules/network/wired/WiredItem.qml:90
-#, fuzzy
 msgid "Wired Connection"
-msgstr "Gunakan Koneksi TCP"
+msgstr "Koneksi Kabel"
 
 #: ../modules/network/widgets/NotManagedSection.qml:25
 msgid "not managed"
@@ -1176,12 +1161,11 @@ msgstr ""
 
 #: ../modules/grub/Preview.qml:124
 msgid "Updating..."
-msgstr ""
+msgstr "memutakhirkan ..."
 
 #: ../modules/grub/Preview.qml:125
-#, fuzzy
 msgid "Successfully updated, reboot to view."
-msgstr "Berhasil dirubah, boot ulang untuk melihat"
+msgstr "Pemutakhiran berhasil, nyalakan ulang untuk melihat perubahannya."
 
 #: ../modules/network/proxy/ProxyContent.qml:43
 msgid "None"
@@ -1197,36 +1181,35 @@ msgstr "Otomatis"
 
 #: ../modules/network/proxy/ProxyContent.qml:88
 msgid "HTTP Proxy"
-msgstr ""
+msgstr "Proxy HTTP"
 
 #: ../modules/network/proxy/ProxyContent.qml:100
 msgid "HTTPS Proxy"
-msgstr ""
+msgstr "Proxy HTTPS"
 
 #: ../modules/network/proxy/ProxyContent.qml:112
 msgid "FTP Proxy"
-msgstr ""
+msgstr "Proxy FTP"
 
 #: ../modules/network/proxy/ProxyContent.qml:124
-#, fuzzy
 msgid "Socks Proxy"
-msgstr "Proxy"
+msgstr ""
 
 #: ../modules/network/proxy/ProxyContent.qml:149
 msgid "Configuration URL"
-msgstr ""
+msgstr "Konfigurasi URL"
 
 #: ../modules/network/proxy/ProxyContent.qml:166
 msgid "Apply system wide"
-msgstr ""
+msgstr "Terapkan untuk keseluruhan Sistem"
 
 #: ../modules/network/proxy/ProxyExpand.qml:37
 msgid "System Proxy"
-msgstr ""
+msgstr "Proxy Sistem"
 
 #: ../modules/shared/ResetButton.qml:39
 msgid "Reset successfully"
-msgstr ""
+msgstr "Atur Ulang berhasil"
 
 #: ../modules/shared/ResetButton.qml:47
 msgid "Reset"
@@ -1234,20 +1217,20 @@ msgstr "Atur ulang"
 
 #: ../modules/shortcuts/ShortcutInput.qml:108
 msgid "Disable"
-msgstr ""
+msgstr "Non-aktifkan"
 
 #: ../modules/shortcuts/ShortcutInput.qml:126
 msgid "Please input new shortcut"
-msgstr ""
+msgstr "Silakan masukkan jalan pintas"
 
 #: ../modules/shortcuts/ShortcutInput.qml:226
 #, qt-format
 msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
-msgstr ""
+msgstr "Jalan pintas \"%1\" tidak valid, silakan masukkan jalan pintas baru."
 
 #: ../modules/shortcuts/ShortcutInput.qml:264
 msgid "The shortcut you set "
-msgstr ""
+msgstr "Jalan pintas yang Anda atur"
 
 #: ../modules/shortcuts/ShortcutInput.qml:267
 #, qt-format
@@ -1264,7 +1247,7 @@ msgstr "Ganti"
 
 #: ../modules/personalization/widgets/ShowPreviewButton.qml:53
 msgid "Preview Theme"
-msgstr ""
+msgstr "Pratampil Tema"
 
 #: ../modules/date_time/StateButtons.qml:34
 #: ../modules/keyboard/StateButtons.qml:34
@@ -1281,7 +1264,7 @@ msgstr "Kustom"
 
 #: ../modules/date_time/TimeBox.qml:161
 msgid "Double-click the above digits to change your time."
-msgstr ""
+msgstr "Double klik diantara angka untuk mengganti waktu"
 
 #: ../modules/date_time/TimeBox.qml:196
 msgid "Set"
@@ -1289,31 +1272,31 @@ msgstr "Atur"
 
 #: ../modules/date_time/TimezoneArea.qml:101
 msgid "Time zone"
-msgstr ""
+msgstr "Zona Waktu"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:51
 msgid "Touchpad"
-msgstr ""
+msgstr "Bantalan sentuh"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:82
 #: ../modules/mouse_touchpad/main.qml:67
 msgid "Primary Button"
-msgstr ""
+msgstr "Tombol Utama"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:90
 #: ../modules/mouse_touchpad/main.qml:74
 msgid "Left Button"
-msgstr ""
+msgstr "Tombol Kiri"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:91
 #: ../modules/mouse_touchpad/main.qml:75
 msgid "Right Button"
-msgstr ""
+msgstr "Tombol Kanan"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:104
 #: ../modules/mouse_touchpad/main.qml:88
 msgid "Pointer Speed"
-msgstr ""
+msgstr "Kecepatan Pointer"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:119
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:169
@@ -1321,7 +1304,7 @@ msgstr ""
 #: ../modules/mouse_touchpad/main.qml:103
 #: ../modules/mouse_touchpad/main.qml:155
 msgid "Slow"
-msgstr ""
+msgstr "Lambat"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:120
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:170
@@ -1329,12 +1312,12 @@ msgstr ""
 #: ../modules/mouse_touchpad/main.qml:104
 #: ../modules/mouse_touchpad/main.qml:156
 msgid "Fast"
-msgstr ""
+msgstr "Cepat"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:154
 #: ../modules/mouse_touchpad/main.qml:140
 msgid "Double-click Speed"
-msgstr ""
+msgstr "Kecepatan Klik-ganda"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:180
 msgid "Drag Threshold"
@@ -1343,87 +1326,86 @@ msgstr ""
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:195
 #: ../modules/keyboard/main.qml:128
 msgid "Short"
-msgstr ""
+msgstr "Pendek"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:196
 #: ../modules/keyboard/main.qml:129
 msgid "Long"
-msgstr ""
+msgstr "Panjang"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:205
 msgid "Natural Scrolling"
-msgstr ""
+msgstr "Menggulung Alami"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:228
 msgid "Tap to click"
-msgstr ""
+msgstr "Ketuk untuk mengklik"
 
 #: ../modules/network/vpn/VpnExpand.qml:48
 msgid "VPN Connections"
-msgstr ""
+msgstr "Koneksi VPN"
 
 #: ../modules/account/WebCam.qml:125 ../modules/account/WebCam.qml:140
 msgid "Snapshot"
-msgstr ""
+msgstr "Potret"
 
 #: ../modules/account/WebCam.qml:136
 msgid "Again"
-msgstr ""
+msgstr "Lagi"
 
 #: ../modules/account/WebCam.qml:175
 msgid "No camera found."
-msgstr ""
+msgstr "Tidak ditemukan kamera"
 
 #: ../modules/network/wireless/WifiHotspot.qml:23
 msgid "Edit Wi-Fi Hotspot"
-msgstr ""
+msgstr "Edit Hotspot Wi-Fi"
 
 #: ../modules/network/wireless/WifiHotspot.qml:23
 msgid "Create Wi-Fi Hotspot"
-msgstr ""
+msgstr "Buat Hotspot Wi-Fi"
 
 #: ../modules/network/wireless/WifiHotspot.qml:91
 msgid "Create"
-msgstr ""
+msgstr "Buat"
 
 #: ../dock-applets/qml/WifiPasswordWindow.qml:127
 msgid "Authentication required by Wi-Fi network"
-msgstr ""
+msgstr "Autentikasi dibutuhkan oleh jaringan Wi-Fi"
 
 #: ../dock-applets/qml/WifiPasswordWindow.qml:135
 #, qt-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network <font "
 "color=\"#faca57\">%1</font>"
-msgstr ""
+msgstr "Kata sandi atau kunci enkripsi dibutuhkan untuk untuk mengakses jaringan Wi-Fi <font color=\"#faca57\">%1</font>"
 
 #: ../dock-applets/qml/WifiPasswordWindow.qml:149
 msgid "Password:"
-msgstr ""
+msgstr "Kata sandi:"
 
 #: ../modules/network/wired/WiredDeviceExpand.qml:37
 msgid "Wired Network"
-msgstr ""
+msgstr "Koneksi Kabel"
 
 #: ../dock-applets/qml/network/WirelessApList.qml:95
 msgid "Scanning..."
-msgstr ""
+msgstr "Pindai..."
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:28
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 msgid "Wireless Network"
-msgstr ""
+msgstr "Koneksi Nirkabel"
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:26
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 #, qt-format
 msgid "Wireless Network %1"
-msgstr ""
+msgstr "Koneksi Nirkabel %1"
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:35
 msgid ""
-"Wireless network is unable to be connected maybe due to the following "
-"reasons:\n"
+"Wireless network is unable to be connected maybe due to the following reasons:\n"
 "\n"
 "1. The hardware switch of wireless network card is off\n"
 "2. Incorrect network configuration in /etc/network/interface\n"
@@ -1433,15 +1415,15 @@ msgstr ""
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:137
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:352
 msgid "Connect to hidden access point"
-msgstr ""
+msgstr "Sambungkan ke akses point tersembunyi"
 
 #: ../dock-applets/qml/date_time/main.qml:90
 msgid "_Switch to analog"
-msgstr ""
+msgstr "_Ubah ke analog"
 
 #: ../dock-applets/qml/date_time/main.qml:91
 msgid "_Switch to digital"
-msgstr ""
+msgstr "_Ubah ke digital"
 
 #: ../dock-applets/qml/network/main.qml:319
 #: ../dock-applets/qml/power/main.qml:99
@@ -1451,22 +1433,22 @@ msgstr "_Jalankan"
 
 #: ../dock-applets/qml/power/main.qml:34
 msgid "On Charging"
-msgstr ""
+msgstr "Sedang mengisi"
 
 #: ../dock-applets/qml/power/main.qml:47 ../modules/power/main.qml:256
 #: ../modules/power/main.qml:431
 msgid "Power saver"
-msgstr ""
+msgstr "Penghemat daya"
 
 #: ../dock-applets/qml/power/main.qml:48 ../modules/power/main.qml:250
 #: ../modules/power/main.qml:425
 msgid "Balanced"
-msgstr ""
+msgstr "Seimbang"
 
 #: ../dock-applets/qml/power/main.qml:49 ../modules/power/main.qml:262
 #: ../modules/power/main.qml:437
 msgid "High performance"
-msgstr ""
+msgstr "Kinerja tinggi"
 
 #: ../dock-applets/qml/network/main.qml:320
 #: ../dock-applets/qml/power/main.qml:106
@@ -1480,23 +1462,23 @@ msgstr "Perangkat"
 
 #: ../dock-applets/qml/sound/main.qml:313
 msgid "Applications"
-msgstr ""
+msgstr "Aplikasi"
 
 #: ../modules/bluetooth/main.qml:76
 msgid "ON/OFF"
-msgstr ""
+msgstr "NYALA/MATi"
 
 #: ../modules/bluetooth/main.qml:141
 msgid "Devices nearby"
-msgstr ""
+msgstr "Perangkat terdekat"
 
 #: ../modules/date_time/main.qml:93
 msgid "Automatic date and time"
-msgstr ""
+msgstr "Tanggal dan waktu otomatis"
 
 #: ../modules/date_time/main.qml:109
 msgid "Use 24-hour clock"
-msgstr ""
+msgstr "Gunakan format 24-jam"
 
 #: ../modules/date_time/main.qml:139
 msgid "Date"
@@ -1504,7 +1486,7 @@ msgstr "Tanggal"
 
 #: ../modules/date_time/main.qml:143
 msgid "Set Date"
-msgstr ""
+msgstr "Atur Tanggal"
 
 #: ../modules/default_applications/main.qml:74
 msgid "Browser"
@@ -1512,11 +1494,11 @@ msgstr "Peramban"
 
 #: ../modules/default_applications/main.qml:88
 msgid "Mail"
-msgstr ""
+msgstr "Surat"
 
 #: ../modules/default_applications/main.qml:99
 msgid "Text"
-msgstr ""
+msgstr "Teks"
 
 #: ../modules/default_applications/main.qml:105
 msgid "Music"
@@ -1524,11 +1506,11 @@ msgstr "Musik"
 
 #: ../modules/default_applications/main.qml:136
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: ../modules/default_applications/main.qml:168
 msgid "Picture"
-msgstr ""
+msgstr "Gambar"
 
 #: ../modules/default_applications/main.qml:186
 msgid "Terminal"
@@ -1536,31 +1518,31 @@ msgstr "Terminal"
 
 #: ../modules/default_applications/main.qml:245
 msgid "AutoPlay"
-msgstr ""
+msgstr "AutoPlay"
 
 #: ../modules/default_applications/main.qml:260
 msgid "CD Audio"
-msgstr ""
+msgstr "CD Audio"
 
 #: ../modules/default_applications/main.qml:265
 msgid "DVD Video"
-msgstr ""
+msgstr "DVD Video"
 
 #: ../modules/default_applications/main.qml:270
 msgid "Music Player"
-msgstr ""
+msgstr "Pemutar Musik"
 
 #: ../modules/default_applications/main.qml:275
 msgid "Camera"
-msgstr ""
+msgstr "Kamera"
 
 #: ../modules/default_applications/main.qml:280
 msgid "Software"
-msgstr ""
+msgstr "Perangkat lunak"
 
 #: ../modules/display/main.qml:117
 msgid "Primary Monitor: "
-msgstr ""
+msgstr "Monitor Primer:"
 
 #: ../modules/display/main.qml:148
 msgid "Monitor"
@@ -1568,47 +1550,47 @@ msgstr "Monitor"
 
 #: ../modules/display/main.qml:208
 msgid "Apply"
-msgstr ""
+msgstr "Terapkan"
 
 #: ../modules/grub/main.qml:112
 msgid "Default Startup"
-msgstr ""
+msgstr "Startup Bawaan"
 
 #: ../modules/grub/main.qml:167
 msgid "Boot delay"
-msgstr ""
+msgstr "Jeda boot"
 
 #: ../modules/grub/main.qml:206
 msgid "Text Color"
-msgstr ""
+msgstr "Warna Teks"
 
 #: ../modules/grub/main.qml:239
 msgid "Selected Text Color"
-msgstr ""
+msgstr "Warna Teks yang dipilih"
 
 #: ../modules/keyboard/main.qml:114
 msgid "Repeat Delay"
-msgstr ""
+msgstr "Ulangi Delay"
 
 #: ../modules/keyboard/main.qml:138
 msgid "Repeat Rate"
-msgstr ""
+msgstr "Ulangi Rating"
 
 #: ../modules/keyboard/main.qml:163
 msgid "Cursor Blink Rate"
-msgstr ""
+msgstr "Tingkat kedip kursor"
 
 #: ../modules/keyboard/main.qml:189
 msgid "Test Area"
-msgstr ""
+msgstr "Area Tes"
 
 #: ../modules/keyboard/main.qml:236
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "Tata letak Papan Ketik"
 
 #: ../modules/keyboard/main.qml:447
 msgid "No result"
-msgstr ""
+msgstr "Tidak ada hasil"
 
 #: ../modules/keyboard/main.qml:208
 msgid "Caps Lock prompt"
@@ -1616,11 +1598,11 @@ msgstr ""
 
 #: ../modules/mouse_touchpad/main.qml:167
 msgid "Disable the touchpad when inserting the mouse"
-msgstr ""
+msgstr "Non-aktifkan touchpad ketika tetikus terpasang"
 
 #: ../modules/personalization/main.qml:101
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 #: ../modules/personalization/main.qml:108 ../modules/shortcuts/main.qml:51
 msgid "Window"
@@ -1628,51 +1610,51 @@ msgstr "Jendela"
 
 #: ../modules/personalization/main.qml:115
 msgid "Icon"
-msgstr ""
+msgstr "Ikon"
 
 #: ../modules/personalization/main.qml:129
 msgid "Wallpaper"
-msgstr ""
+msgstr "Wallpaper"
 
 #: ../modules/personalization/main.qml:143
 msgid "Fonts"
-msgstr ""
+msgstr "Fonta"
 
 #: ../modules/power/main.qml:53 ../modules/power/main.qml:65
 msgid "Never"
-msgstr ""
+msgstr "Tidak pernah"
 
 #: ../modules/power/main.qml:59
 msgid "1 minute"
-msgstr ""
+msgstr "1 menit"
 
 #: ../modules/power/main.qml:60
 msgid "5 minutes"
-msgstr ""
+msgstr "5 menit"
 
 #: ../modules/power/main.qml:61
 msgid "10 minutes"
-msgstr ""
+msgstr "10 menit"
 
 #: ../modules/power/main.qml:62
 msgid "15 minutes"
-msgstr ""
+msgstr "15 menit"
 
 #: ../modules/power/main.qml:63
 msgid "30 minutes"
-msgstr ""
+msgstr "30 menit"
 
 #: ../modules/power/main.qml:64
 msgid "1 hour"
-msgstr ""
+msgstr "1 jam"
 
 #: ../modules/power/main.qml:124
 msgid "When I press the power button"
-msgstr ""
+msgstr "Ketika ditekan tombol power"
 
 #: ../modules/power/main.qml:138 ../modules/power/main.qml:184
 msgid "Shutdown"
-msgstr ""
+msgstr "Matikan"
 
 #: ../modules/power/main.qml:143 ../modules/power/main.qml:189
 #: ../modules/power/main.qml:253 ../modules/power/main.qml:259
@@ -1681,7 +1663,7 @@ msgstr ""
 #: ../modules/power/main.qml:434 ../modules/power/main.qml:440
 #: ../modules/power/main.qml:446 ../modules/power/main.qml:534
 msgid "Suspend"
-msgstr ""
+msgstr "Tangguhkan"
 
 #: ../modules/power/main.qml:148
 msgid "Ask"
@@ -1689,7 +1671,7 @@ msgstr "Tanya"
 
 #: ../modules/power/main.qml:170
 msgid "When I close the lid"
-msgstr ""
+msgstr "Ketika Saya menutup lid"
 
 #: ../modules/power/main.qml:194
 msgid "Nothing"
@@ -1697,15 +1679,15 @@ msgstr "Tidak ada apa-apa"
 
 #: ../modules/power/main.qml:213
 msgid "Password required to wake up"
-msgstr ""
+msgstr "Kata sandi dibutuhkan untung membangunkan"
 
 #: ../modules/power/main.qml:235
 msgid "Plugged in"
-msgstr ""
+msgstr "Plugged in"
 
 #: ../modules/power/main.qml:410
 msgid "On battery"
-msgstr ""
+msgstr "Pada baterai"
 
 #: ../modules/power/main.qml:252 ../modules/power/main.qml:258
 #: ../modules/power/main.qml:264 ../modules/power/main.qml:270
@@ -1713,11 +1695,11 @@ msgstr ""
 #: ../modules/power/main.qml:433 ../modules/power/main.qml:439
 #: ../modules/power/main.qml:445 ../modules/power/main.qml:494
 msgid "Turn off the display"
-msgstr ""
+msgstr "Matikan layar"
 
 #: ../modules/power/main.qml:313 ../modules/power/main.qml:489
 msgid "Custom Options"
-msgstr ""
+msgstr "Opsi Kustom"
 
 #: ../modules/shortcuts/main.qml:49
 msgid "System"
@@ -1729,15 +1711,15 @@ msgstr "Ruang kerja"
 
 #: ../modules/sound/main.qml:126
 msgid "Speaker"
-msgstr ""
+msgstr "Speaker"
 
 #: ../modules/sound/main.qml:156
 msgid "Output Volume"
-msgstr ""
+msgstr "Volume Keluaran"
 
 #: ../modules/sound/main.qml:204
 msgid "Balance"
-msgstr ""
+msgstr "Seimbang"
 
 #: ../modules/sound/main.qml:226
 msgid "Left"
@@ -1745,71 +1727,71 @@ msgstr "Kiri"
 
 #: ../modules/sound/main.qml:228
 msgid "Right"
-msgstr "Rata kanan kiri"
+msgstr "Kanan"
 
 #: ../modules/sound/main.qml:260
 msgid "Microphone"
-msgstr ""
+msgstr "Mikropon"
 
 #: ../modules/sound/main.qml:290
 msgid "Input Volume"
-msgstr ""
+msgstr "Volume Masukan"
 
 #: ../modules/sound/main.qml:334
 msgid "Input Feedback"
-msgstr ""
+msgstr "Masukkan Umpan Balik"
 
 #: ../modules/sound/main.qml:370
 msgid "Output Port"
-msgstr ""
+msgstr "Port Keluaran"
 
 #: ../modules/sound/main.qml:387 ../modules/sound/main.qml:490
 msgid "No port exists in this device."
-msgstr ""
+msgstr "Tidak ada port tersedia pada perangkat ini."
 
 #: ../modules/sound/main.qml:425
 msgid "Output device"
-msgstr ""
+msgstr "Perangkat keluaran"
 
 #: ../modules/sound/main.qml:473
 msgid "Input Port"
-msgstr ""
+msgstr "Port masukan"
 
 #: ../modules/sound/main.qml:528
 msgid "Input device"
-msgstr ""
+msgstr "Perangkat masukan"
 
 #: ../modules/sound/main.qml:581
 msgid "Hide Advanced..."
-msgstr ""
+msgstr "Sembunyikan lanjutan ..."
 
 #: ../modules/sound/main.qml:581
 msgid "Show Advanced..."
-msgstr ""
+msgstr "Tampilkan Lanjutan ..."
 
 #: ../modules/system_info/main.qml:102
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
-msgstr ""
+msgstr "Hak cipta (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
 
 #: ../modules/system_info/main.qml:108
 msgid "Deepin Edition"
-msgstr ""
+msgstr "Edisi Deepin"
 
 #: ../modules/system_info/main.qml:114
 msgid "System Type"
-msgstr ""
+msgstr "Tipe Sistem"
 
 #: ../modules/system_info/main.qml:115
 msgid "bit"
-msgstr ""
+msgstr "bit"
 
 #: ../modules/system_info/main.qml:120
 msgid "Processor"
-msgstr ""
+msgstr "Prosesor"
 
 #: ../modules/system_info/main.qml:134
 msgid "Memory"
-msgstr ""
+msgstr "Memori"
 
 #: ../modules/system_info/main.qml:140
 msgid "Disk"
@@ -1817,7 +1799,7 @@ msgstr "Diska"
 
 #: ../modules/system_info/main.qml:159
 msgid "GNU GENERAL PUBLIC LICENSE"
-msgstr ""
+msgstr "LISENSI GNU GENERAL PUBLIC"
 
 #: ../modules/network/main.qml:162 ../modules/network/main.qml:190
 msgid "Unknown"
@@ -1825,123 +1807,88 @@ msgstr "Tidak diketahui"
 
 #: ../modules/network/main.qml:164
 msgid "Wired"
-msgstr ""
+msgstr "Kabel"
 
 #: ../modules/network/main.qml:166
 msgid "Wireless"
-msgstr ""
+msgstr "Nirkabel"
 
 #: ../modules/network/main.qml:168
 msgid "Unused1"
-msgstr ""
+msgstr "Tidak digunakan 1"
 
 #: ../modules/network/main.qml:170
 msgid "Unused2"
-msgstr ""
+msgstr "Tidak digunakan 2"
 
 #: ../modules/network/main.qml:174
 msgid "OLPC mesh"
-msgstr ""
+msgstr "OLPC mesh"
 
 #: ../modules/network/main.qml:176
 msgid "WiMax"
-msgstr ""
+msgstr "WiMax"
 
 #: ../modules/network/main.qml:178
 msgid "Modem"
-msgstr ""
+msgstr "Modem"
 
 #: ../modules/network/main.qml:180
 msgid "InfiniBand"
-msgstr ""
+msgstr "InfiniBand"
 
 #: ../modules/network/main.qml:182
 msgid "Bond"
-msgstr ""
+msgstr "Bond"
 
 #: ../modules/network/main.qml:184
 msgid "VLAN"
-msgstr ""
+msgstr "VLAN"
 
 #: ../modules/network/main.qml:186
 msgid "ADSL"
-msgstr ""
+msgstr "ADSL"
 
 #: ../modules/network/main.qml:188
 msgid "Bridge"
-msgstr ""
+msgstr "Bridge"
 
 #: ../modules/network/main.qml:198
 msgid "802.11 WiFi"
-msgstr ""
+msgstr "802.11 WiFi"
 
 #: ../modules/network/main.qml:200
 msgid "802.11 WiFi AdHoc"
-msgstr ""
+msgstr "802.11 WiFi AdHoc"
 
 #: ../modules/network/main.qml:202
 msgid "802.11 WiFi Hotspot"
-msgstr ""
+msgstr "802.11 WiFi Hotspot"
 
 #: ../modules/network/main.qml:208
-#, fuzzy
 msgid "Mobile GSM"
-msgstr "Mobile"
+msgstr "Mobile GSM"
 
 #: ../modules/network/main.qml:210
-#, fuzzy
 msgid "Mobile CDMA"
-msgstr "Mobile"
+msgstr "Mobile CDMA"
 
 #: ../modules/network/main.qml:214
-#, fuzzy
 msgid "VPN L2TP"
-msgstr "L2TP"
+msgstr "VPN L2TP"
 
 #: ../modules/network/main.qml:216
-#, fuzzy
 msgid "VPN PPTP"
-msgstr "VPN PPP"
+msgstr "VPN PPTP"
 
 #: ../modules/network/main.qml:218
-#, fuzzy
 msgid "VPN VPNC"
-msgstr "VPNC"
+msgstr "VPN VPNC"
 
 #: ../modules/network/main.qml:220
-#, fuzzy
 msgid "VPN OpenVPN"
-msgstr "OpenVPN"
+msgstr "VPN OpenVPN"
 
 #: ../modules/network/main.qml:222
-#, fuzzy
 msgid "VPN OpenConnect"
-msgstr "OpenConnect"
-
-#~ msgid "CSD Wrapper"
-#~ msgstr "CSD Wrapper"
-
-#~ msgid "May"
-#~ msgstr "Mei"
-
-#~ msgid "Keyboard"
-#~ msgstr "Papan Ketik"
-
-#, fuzzy
-#~ msgid "Advanced"
-#~ msgstr "VPN Lanjutan"
-
-#~ msgid "Default"
-#~ msgstr "Bawaan"
-
-#~ msgid "General"
-#~ msgstr "Umum"
-
-#~ msgid "For All Users"
-#~ msgstr "Untuk Semua Pengguna"
-
-#~ msgid "Background is changing, please reboot later..."
-#~ msgstr "Gambar latar berubah, silahkan boot ulang kemudian.."
-
-#~ msgid "Device Type"
-#~ msgstr "Jenis Piranti"
+msgstr "VPN OpenConnect"
