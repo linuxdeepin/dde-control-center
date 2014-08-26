@@ -40,6 +40,6 @@ Depends: ${shlibs:Depends},
  python-xpyb,
  qml-dde-dock-applet,
  qt5-extra,
- xkb-data-i18n,
+ xkb-data-i18n | xkb-data,
 Description: New control center for linux deepin
  New control center for linux deepin
