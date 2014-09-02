@@ -34,8 +34,8 @@ Window {
 
     property var monitorObject
 
-    x: monitorObject.x + (monitorObject.width - identifyWindow.width)/2
-    y: monitorObject.y + (monitorObject.height - identifyWindow.height)/2
+    x: 100
+    y: 100
 
     function showWindow(){
         identifyWindow.showNormal()
@@ -45,11 +45,11 @@ Window {
     DLabel {
         id: monitorName
         anchors.centerIn: parent
-        text: monitorObject.name
-        font.pixelSize: monitorObject.width/8
+        text: "Name"
+        font.pixelSize: 1000/8
         font.bold: true
         color: "white"
-        style: Text.Outline; 
+        style: Text.Outline;
         styleColor: "black"
         opacity: 0.8
     }

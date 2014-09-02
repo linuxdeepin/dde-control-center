@@ -28,6 +28,26 @@ Item {
         return dsTr("Wireless Network")
     }
 
+    function gotoConnectHiddenAP(){
+        var page = "addWirelessPage"
+        stackView.push({
+            "item": stackViewPages[page],
+            "properties": {"connectionSession": createConnection(nmConnectionTypeWireless, devicePath), "title": dsTr("Connect to hidden access point")},
+            "destroyOnPop": true
+        })
+        stackView.currentItemId = page
+    }
+
+    function gotoCreateAP(hotspotInfo){
+        var page = "wifiHotspotPage"
+        stackView.push({
+            "item": stackViewPages[page],
+            "properties": { "hotspotInfo": hotspotInfo, "devicePath": devicePath},
+            "destroyOnPop": true
+        })
+        stackView.currentItemId = page
+    }
+
     NetworkWidgets.NotManagedSection {
         id: notManagedArea
         visible: !deviceManaged
@@ -344,26 +364,6 @@ Item {
                 wirelessDeviceExpand.sortModel()
                 sortModelTimer.start()
             }
-        }
-
-        function gotoConnectHiddenAP(){
-            var page = "addWirelessPage"
-            stackView.push({
-                "item": stackViewPages[page],
-                "properties": {"connectionSession": createConnection(nmConnectionTypeWireless, devicePath), "title": dsTr("Connect to hidden access point")},
-                "destroyOnPop": true
-            })
-            stackView.currentItemId = page
-        }
-
-        function gotoCreateAP(hotspotInfo){
-            var page = "wifiHotspotPage"
-            stackView.push({
-                "item": stackViewPages[page],
-                "properties": { "hotspotInfo": hotspotInfo, "devicePath": devicePath},
-                "destroyOnPop": true
-            })
-            stackView.currentItemId = page
         }
 
         function sortModel(){
