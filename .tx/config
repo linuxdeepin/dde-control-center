@@ -6,5 +6,10 @@ mode = developer
 [dde-control-center.dde-control-center-2014-06-27]
 file_filter = locale/<lang>.po
 source_lang = en
+source_file = locale/dde-control-center.pot
 type = PO
 
+[dde-control-center.desktop]
+source_file = dde-control-center.desktop
+source_lang = en
+type = DESKTOP
