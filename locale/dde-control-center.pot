@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-22 10:39+0800\n"
+"POT-Creation-Date: 2014-09-04 16:00+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1120,13 +1120,13 @@ msgid "Brightness"
 msgstr ""
 
 #: ../modules/network/wired/NewItem.qml:45
-#: ../modules/network/wired/WiredItem.qml:88
+#: ../modules/network/wired/WiredItem.qml:89
 #, qt-format
 msgid "Wired Connection %1"
 msgstr ""
 
 #: ../modules/network/wired/NewItem.qml:47
-#: ../modules/network/wired/WiredItem.qml:90
+#: ../modules/network/wired/WiredItem.qml:91
 msgid "Wired Connection"
 msgstr ""
 
@@ -1398,7 +1398,7 @@ msgstr ""
 msgid "Wireless Network %1"
 msgstr ""
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:35
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:55
 msgid ""
 "Wireless network is unable to be connected maybe due to the following "
 "reasons:\n"
@@ -1408,8 +1408,8 @@ msgid ""
 "3. Incorrect driver of network hardware"
 msgstr ""
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:137
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:352
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:35
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:158
 msgid "Connect to hidden access point"
 msgstr ""
 

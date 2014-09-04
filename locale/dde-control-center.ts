@@ -2441,12 +2441,12 @@
 <context>
     <name>WiredItem</name>
     <message>
-        <location filename="../modules/network/wired/WiredItem.qml" line="88"/>
+        <location filename="../modules/network/wired/WiredItem.qml" line="89"/>
         <source>Wired Connection %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wired/WiredItem.qml" line="90"/>
+        <location filename="../modules/network/wired/WiredItem.qml" line="91"/>
         <source>Wired Connection</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2472,7 +2472,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="35"/>
+        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="55"/>
         <source>Wireless network is unable to be connected maybe due to the following reasons:
 
 1. The hardware switch of wireless network card is off
@@ -2481,8 +2481,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="137"/>
-        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="352"/>
+        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="35"/>
+        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="158"/>
         <source>Connect to hidden access point</source>
         <translation type="unfinished"></translation>
     </message>
