@@ -102,7 +102,7 @@ Item {
         DSeparatorHorizontal{}
     }
 
-    Flickable {
+    DFlickable {
         anchors.top: titleColumn.bottom
         anchors.left: parent.left
         anchors.right: parent.right
@@ -197,59 +197,20 @@ Item {
                     }
                 }
 
-                DBaseLine {
-                    height: contentHeight
-                    leftMargin: contentLeftMargin
-                    leftLoader.sourceComponent: LeftTitle {
-                        text: dsTr("Balance")
-                    }
-                    rightLoader.sourceComponent: DSliderEnhanced {
-                        id: output_balance_slider
-                        width: sliderWidth
-
-                        min: -1
-                        max: 1
-                        init: currentSink.balance
-                        completeColorVisible: false
-                        floatNumber: 2
-                        isBalance: true
-
-                        onValueChanged:{
-                            currentSink.SetBalance(value, false)
-                        }
-                        
-                        onValueConfirmed: {
-                            currentSink.SetBalance(value, true)
-                        }
-
-                        Component.onCompleted: {
-                            addRuler(-1, dsTr("Left"))
-                            addRuler(0, "")
-                            addRuler(1, dsTr("Right"))
-                        }
-
-                        Connections {
-                            target: currentSink
-
-                            onBalanceChanged: {
-                                if (currentSink.balance.toFixed(output_balance_slider.floatNumber) == 
-                                    output_balance_slider.value.toFixed(output_balance_slider.floatNumber))
-                                    return
-                                if (!output_balance_slider.pressedFlag) {
-                                    output_balance_slider.setValue(currentSink.balance)
-                                }
-                            }
-                        }
-
-                        Connections {
-                            target: soundModule
-
-                            onCurrentSinkChanged: {
-                                output_balance_slider.setValue(currentSink.balance)
-                            }
-                        }
-                    }
+                Loader {
+                    width: parent.width
+                    height: currentSink.supportBalance ? childrenRect.height : 0
+                    source: currentSink.supportBalance ? "BalanceLine.qml" : ""
+                    visible: currentSink.supportBalance
                 }
+
+                Loader {
+                    width: parent.width
+                    height: currentSink.supportFade ? childrenRect.height : 0
+                    source: currentSink.supportFade ? "FadeLine.qml" : ""
+                    visible: currentSink.supportFade
+                }
+
             }
 
             DSeparatorHorizontal {}

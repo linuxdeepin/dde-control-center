@@ -4,17 +4,17 @@ import os
 import argparse
 import sys
 
-def scan(direc): 
+def scan(direc):
     """
     Scan tree starting from direc
     """
     resources = []
     for path, dirs, files in os.walk(direc):
         for f in files:
-            #if f.endswith(".qml"):
-            resources.append(os.path.join(path,f))
+            if not f.startswith("."):
+                resources.append(os.path.join(path,f))
     write_to_qrc(resources)
-        
+
 def write_to_qrc(resources):
     """
     Write to the qrc file under the prefix specified
@@ -24,7 +24,7 @@ def write_to_qrc(resources):
         for r in resources:
             f.write('    <file>%s</file>\n'%r)
         f.write('  </qresource>\n</RCC>\n')
-        
+
 def valid_path(string):
     """
     check if the path entered is a valid one
@@ -33,11 +33,11 @@ def valid_path(string):
         msg = "%s is not a valid directory"%string
         raise argparse.ArgumentTypeError(msg)
     return string
-    
+
 if __name__=="__main__":
     parser = argparse.ArgumentParser(description='Generates a qrc (Qt resource file) from all files on a directory tree.',
         epilog='A directory.qrc file will be generated in the current directory')
-    parser.add_argument('directory',metavar='directory', 
+    parser.add_argument('directory',metavar='directory',
         type=valid_path,
         help='A valid path, full or local.')
     parser.add_argument('prefix',metavar='prefix',

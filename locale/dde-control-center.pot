@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-04 16:00+0800\n"
+"POT-Creation-Date: 2014-09-10 10:33+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -453,6 +453,18 @@ msgstr ""
 
 #: ../modules/account/AvatarView.qml:21
 msgid "Webcam"
+msgstr ""
+
+#: ../modules/sound/BalanceLine.qml:31
+msgid "Left/Right Balance"
+msgstr ""
+
+#: ../modules/sound/BalanceLine.qml:53
+msgid "Left"
+msgstr ""
+
+#: ../modules/sound/BalanceLine.qml:55
+msgid "Right"
 msgstr ""
 
 #: ../modules/network/edit_autogen/BaseConnectionEdit.qml:43
@@ -906,6 +918,18 @@ msgstr ""
 
 #: ../modules/account/EditUserDialog.qml:90
 msgid "Enable"
+msgstr ""
+
+#: ../modules/sound/FadeLine.qml:31
+msgid "Front/Rear Balance"
+msgstr ""
+
+#: ../modules/sound/FadeLine.qml:53
+msgid "Front"
+msgstr ""
+
+#: ../modules/sound/FadeLine.qml:55
+msgid "Rear"
 msgstr ""
 
 #: ../modules/personalization/components/FontSettingsExpand.qml:36
@@ -1713,55 +1737,43 @@ msgstr ""
 msgid "Output Volume"
 msgstr ""
 
-#: ../modules/sound/main.qml:204
-msgid "Balance"
-msgstr ""
-
-#: ../modules/sound/main.qml:226
-msgid "Left"
-msgstr ""
-
-#: ../modules/sound/main.qml:228
-msgid "Right"
-msgstr ""
-
-#: ../modules/sound/main.qml:260
+#: ../modules/sound/main.qml:221
 msgid "Microphone"
 msgstr ""
 
-#: ../modules/sound/main.qml:290
+#: ../modules/sound/main.qml:251
 msgid "Input Volume"
 msgstr ""
 
-#: ../modules/sound/main.qml:334
+#: ../modules/sound/main.qml:295
 msgid "Input Feedback"
 msgstr ""
 
-#: ../modules/sound/main.qml:370
+#: ../modules/sound/main.qml:331
 msgid "Output Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:387 ../modules/sound/main.qml:490
+#: ../modules/sound/main.qml:348 ../modules/sound/main.qml:451
 msgid "No port exists in this device."
 msgstr ""
 
-#: ../modules/sound/main.qml:425
+#: ../modules/sound/main.qml:386
 msgid "Output device"
 msgstr ""
 
-#: ../modules/sound/main.qml:473
+#: ../modules/sound/main.qml:434
 msgid "Input Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:528
+#: ../modules/sound/main.qml:489
 msgid "Input device"
 msgstr ""
 
-#: ../modules/sound/main.qml:581
+#: ../modules/sound/main.qml:542
 msgid "Hide Advanced..."
 msgstr ""
 
-#: ../modules/sound/main.qml:581
+#: ../modules/sound/main.qml:542
 msgid "Show Advanced..."
 msgstr ""
 

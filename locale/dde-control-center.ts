@@ -497,6 +497,24 @@
     </message>
 </context>
 <context>
+    <name>BalanceLine</name>
+    <message>
+        <location filename="../modules/sound/BalanceLine.qml" line="31"/>
+        <source>Left/Right Balance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/BalanceLine.qml" line="53"/>
+        <source>Left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/BalanceLine.qml" line="55"/>
+        <source>Right</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>BaseConnectionEdit</name>
     <message>
         <location filename="../modules/network/edit_autogen/BaseConnectionEdit.qml" line="33"/>
@@ -1631,6 +1649,24 @@
     <message>
         <location filename="../modules/account/EditUserDialog.qml" line="136"/>
         <source>Administrator</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FadeLine</name>
+    <message>
+        <location filename="../modules/sound/FadeLine.qml" line="31"/>
+        <source>Front/Rear Balance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/FadeLine.qml" line="53"/>
+        <source>Front</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/FadeLine.qml" line="55"/>
+        <source>Rear</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3065,68 +3101,53 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="204"/>
-        <source>Balance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/main.qml" line="226"/>
-        <source>Left</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/main.qml" line="228"/>
-        <source>Right</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/main.qml" line="260"/>
+        <location filename="../modules/sound/main.qml" line="221"/>
         <source>Microphone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="290"/>
+        <location filename="../modules/sound/main.qml" line="251"/>
         <source>Input Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="334"/>
+        <location filename="../modules/sound/main.qml" line="295"/>
         <source>Input Feedback</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="370"/>
+        <location filename="../modules/sound/main.qml" line="331"/>
         <source>Output Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="387"/>
-        <location filename="../modules/sound/main.qml" line="490"/>
+        <location filename="../modules/sound/main.qml" line="348"/>
+        <location filename="../modules/sound/main.qml" line="451"/>
         <source>No port exists in this device.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="425"/>
+        <location filename="../modules/sound/main.qml" line="386"/>
         <source>Output device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="473"/>
+        <location filename="../modules/sound/main.qml" line="434"/>
         <source>Input Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="528"/>
+        <location filename="../modules/sound/main.qml" line="489"/>
         <source>Input device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="581"/>
+        <location filename="../modules/sound/main.qml" line="542"/>
         <source>Hide Advanced...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="581"/>
+        <location filename="../modules/sound/main.qml" line="542"/>
         <source>Show Advanced...</source>
         <translation type="unfinished"></translation>
     </message>

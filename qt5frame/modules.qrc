@@ -47,6 +47,8 @@
     <file>modules/sound/SliderBg.qml</file>
     <file>modules/sound/DSlider.qml</file>
     <file>modules/sound/AppletSwitchArea.qml</file>
+    <file>modules/sound/BalanceLine.qml</file>
+    <file>modules/sound/FadeLine.qml</file>
     <file>modules/sound/LeftTitle.qml</file>
     <file>modules/sound/images/slider_handle.svg</file>
     <file>modules/sound/images/select.png</file>
