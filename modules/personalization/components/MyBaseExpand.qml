@@ -30,6 +30,8 @@ DBaseExpand {
     property int myIndex: 0
     property string title: ""
 
+    default property var realContent: null
+
     expanded: activeExpandIndex == myIndex
     onExpandedChanged: {
         if(header.item){
@@ -49,4 +51,17 @@ DBaseExpand {
         }
     }
 
+    content.sourceComponent: DFlickable {
+        width: personalizationModule.width
+        height: Math.min(childrenRect.height, contentArea.maxConetentHeight)
+        contentWidth: width
+        contentHeight: realContent.height
+
+        Component.onCompleted: {
+            if(realContent){
+                realContent.parent = contentItem
+            }
+        }
+    }
 }
+

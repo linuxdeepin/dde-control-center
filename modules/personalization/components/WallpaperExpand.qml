@@ -28,36 +28,32 @@ import "../widgets"
 MyBaseExpand {
     id: wallpaper_themes_expand
 
-    content.sourceComponent: Item {
-        width: personalizationModule.width
+    ComponentThemeView {
+        id: wallpapperView
+        anchors.horizontalCenter: parent.horizontalCenter
+        width: parent.width - 22
         height: childrenRect.height
 
-        ComponentThemeView {
-            id: wallpapperView
-            anchors.horizontalCenter: parent.horizontalCenter
-            width: parent.width - 22
-            height: Math.min(childrenRect.height, contentArea.maxConetentHeight)
+        cellWidth: personalizationModule.cellWidth
+        cellHeight: personalizationModule.cellHeight - 14
 
-            cellWidth: personalizationModule.cellWidth
-            cellHeight: personalizationModule.cellHeight - 14
+        currentItemName: currentThemeObject.background
+        itemList: dbusThemeManager.backgroundList
+        themeType: "background"
 
-            currentItemName: currentThemeObject.background
-            itemList: dbusThemeManager.backgroundList
-            themeType: "background"
+        delegate: WallpapperItem {
+            width: cellWidth
+            height: cellHeight - 14
+            selectedItemValue: wallpapperView.currentItemName
 
-            delegate: WallpapperItem {
-                width: cellWidth
-                height: cellHeight - 14
-                selectedItemValue: wallpapperView.currentItemName
+            onSelectAction: {
+                wallpapperView.selectItem(itemValue)
+            }
 
-                onSelectAction: {
-                    wallpapperView.selectItem(itemValue)
-                }
-
-                onDeleteAction: {
-                    wallpapperView.deleteItem(itemValue)
-                }
+            onDeleteAction: {
+                wallpapperView.deleteItem(itemValue)
             }
         }
     }
+
 }

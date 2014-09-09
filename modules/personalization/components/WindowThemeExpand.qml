@@ -28,20 +28,15 @@ import "../widgets"
 MyBaseExpand {
     id: window_themes_expand
 
-    content.sourceComponent: Item {
-        width: personalizationModule.width
+    ComponentThemeView {
+        id: gtkList
+        anchors.horizontalCenter: parent.horizontalCenter
+        width: parent.width - 22
+        //height: Math.min(childrenRect.height, contentArea.maxConetentHeight)
         height: childrenRect.height
 
-        ComponentThemeView {
-            id: gtkList
-            anchors.horizontalCenter: parent.horizontalCenter
-            width: parent.width - 22
-            height: Math.min(childrenRect.height, contentArea.maxConetentHeight)
-
-            currentItemName: currentThemeObject.gtkTheme
-            itemList: dbusThemeManager.gtkThemeList
-            themeType: "gtk"
-        }
-        
+        currentItemName: currentThemeObject.gtkTheme
+        itemList: dbusThemeManager.gtkThemeList
+        themeType: "gtk"
     }
 }

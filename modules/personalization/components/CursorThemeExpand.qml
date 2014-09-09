@@ -28,20 +28,16 @@ import "../widgets"
 MyBaseExpand {
     id: cursor_themes_expand
 
-    content.sourceComponent: Item {
-        width: personalizationModule.width
+    ComponentThemeView {
+        id: cursorList
+        anchors.horizontalCenter: parent.horizontalCenter
+        width: parent.width - 22
+        //height: Math.min(childrenRect.height, contentArea.maxConetentHeight)
         height: childrenRect.height
 
-        ComponentThemeView {
-            id: cursorList
-            anchors.horizontalCenter: parent.horizontalCenter
-            width: parent.width - 22
-            height: Math.min(childrenRect.height, contentArea.maxConetentHeight)
-
-            currentItemName: currentThemeObject.cursorTheme
-            itemList: dbusThemeManager.cursorThemeList
-            themeType: "cursor"
-        }
-        
+        currentItemName: currentThemeObject.cursorTheme
+        itemList: dbusThemeManager.cursorThemeList
+        themeType: "cursor"
     }
+
 }

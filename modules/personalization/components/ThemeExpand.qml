@@ -28,73 +28,69 @@ import "../widgets"
 MyBaseExpand {
     id: themes_expand
 
-    content.sourceComponent: Item {
-        width: personalizationModule.width
-        height: themeView.height
+    GridView {
+        id: themeView
+        anchors.horizontalCenter: parent.horizontalCenter
+        width: parent.width - 22
+        //height: Math.min(childrenRect.height, contentArea.maxConetentHeight)
+        height: childrenRect.height
 
-        GridView {
-            id: themeView
-            anchors.horizontalCenter: parent.horizontalCenter
-            width: parent.width - 22
-            height: Math.min(childrenRect.height, contentArea.maxConetentHeight)
+        cellWidth: personalizationModule.cellWidth
+        cellHeight: personalizationModule.cellHeight
 
-            cellWidth: personalizationModule.cellWidth
-            cellHeight: personalizationModule.cellHeight
+        property string currentItemName: dbusThemeManager.currentTheme
 
-            property string currentItemName: dbusThemeManager.currentTheme
+        function selectItem(itemValue){
+            dbusThemeManager.Set("theme", itemValue)
+        }
 
-            function selectItem(itemValue){
-                dbusThemeManager.Set("theme", itemValue)
+        Connections{
+            target: dbusThemeManager
+            onThemeListChanged: {
+                themeView.load_theme_list()
             }
+        }
 
-            Connections{
-                target: dbusThemeManager
-                onThemeListChanged: {
-                    themeView.load_theme_list()
-                }
-            }
+        function load_theme_list(){
+            themeView.model.clear()
+            for(var i in themeObjectList){
+                var themeObj = themeObjectList[i]
+                var thumbnail = dbusThemeManager.GetThumbnail("theme", themeObj.name)
 
-            function load_theme_list(){
-                themeView.model.clear()
-                for(var i in themeObjectList){
-                    var themeObj = themeObjectList[i]
-                    var thumbnail = dbusThemeManager.GetThumbnail("theme", themeObj.name)
-
-                    if(!thumbnail){
-                        continue
-                    }
-
-                    themeView.model.append({
-                        "item_img_url": thumbnail,
-                        "item_name": themeObj.displayName,
-                        "item_value": themeObj.name,
-                        "themeObj": themeObj
-                    })
-                }
-            }
-
-            Component.onCompleted: load_theme_list()
-
-            model: ListModel{}
-
-            delegate: ThemeItem {
-                width: cellWidth
-                height: cellHeight
-                selectedItemValue: themeView.currentItemName
-
-                onSelectAction: {
-                    themeView.selectItem(itemValue)
+                if(!thumbnail){
+                    continue
                 }
 
-                onPreviewAction:{
-                    if (previewsWindow.isVisible && previewsWindow.themeObject == themeObj){
-                        previewsWindow.hideWindow()
-                    }
-                    else{
-                        previewsWindow.showWindow(themeObj)
-                    }
+                themeView.model.append({
+                    "item_img_url": thumbnail,
+                    "item_name": themeObj.displayName,
+                    "item_value": themeObj.name,
+                    "themeObj": themeObj
+                })
+            }
+        }
+
+        Component.onCompleted: load_theme_list()
+
+        model: ListModel{}
+
+        delegate: ThemeItem {
+            width: cellWidth
+            height: cellHeight
+            selectedItemValue: themeView.currentItemName
+
+            onSelectAction: {
+                themeView.selectItem(itemValue)
+            }
+
+            onPreviewAction:{
+                if (previewsWindow.isVisible && previewsWindow.themeObject == themeObj){
+                    previewsWindow.hideWindow()
+                }
+                else{
+                    previewsWindow.showWindow(themeObj)
                 }
             }
-        } // end of GridView
-    }
+        }
+    } // end of GridView
 }

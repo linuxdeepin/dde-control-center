@@ -26,21 +26,17 @@ import Deepin.Widgets 1.0
 import "../widgets"
 
 MyBaseExpand {
-    content.sourceComponent: Item {
-        width: personalizationModule.width
+
+    ComponentThemeView {
+        id: greeterList
+        anchors.horizontalCenter: parent.horizontalCenter
+        width: parent.width - 22
+        //height: Math.min(childrenRect.height, contentArea.maxConetentHeight)
         height: childrenRect.height
-        
-        ComponentThemeView {
-            id: greeterList
-            anchors.horizontalCenter: parent.horizontalCenter
-            width: parent.width - 22
-            height: Math.min(childrenRect.height, contentArea.maxConetentHeight)
 
-            currentItemName: dbusThemeManager.greeterTheme
-            itemList: dbusThemeManager.greeterThemeList
-            themeType: "greeter"
-        }
-
+        currentItemName: dbusThemeManager.greeterTheme
+        itemList: dbusThemeManager.greeterThemeList
+        themeType: "greeter"
     }
 }
 
