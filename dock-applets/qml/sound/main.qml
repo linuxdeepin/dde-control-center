@@ -69,8 +69,8 @@ DockApplet{
         return parseInt(defaultSink.volume * 100)
     }
 
-    function setVolume(vol){
-        defaultSink.SetVolume(vol/100, false)
+    function setVolume(vol, sound){
+        defaultSink.SetVolume(vol/100, sound)
     }
 
     function getIcon(){
@@ -153,18 +153,18 @@ DockApplet{
         var currentVolume = getVolume()
         if (angleDelta > 0){
             if(currentVolume <= (100 - wheelStep)){
-                setVolume(currentVolume + wheelStep)
+                setVolume(currentVolume + wheelStep, true)
             }
             else{
-                setVolume(100)
+                setVolume(100, true)
             }
         }
         else if(angleDelta < 0){
             if(currentVolume >= wheelStep){
-                setVolume(currentVolume - wheelStep)
+                setVolume(currentVolume - wheelStep, true)
             }
             else{
-                setVolume(0)
+                setVolume(0, true)
             }
         }
         onMousewheelTimer.restart()
@@ -282,7 +282,13 @@ DockApplet{
 
                         onValueChanged: {
                             if(pressed || hovered){
-                                setVolume(value)
+                                setVolume(value, false)
+                            }
+                        }
+
+                        onPressedChanged: {
+                            if(!pressed){
+                                setVolume(value, true)
                             }
                         }
 
