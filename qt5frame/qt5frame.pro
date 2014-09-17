@@ -1,4 +1,5 @@
 TEMPLATE = app
+TARGET = dde-control-center
 
 QT += quick qml core widgets dbus
 

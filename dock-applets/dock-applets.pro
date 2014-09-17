@@ -1,4 +1,5 @@
 TEMPLATE = app
+TARGET = dde-dock-applets
 
 QT += quick qml core dbus
 
