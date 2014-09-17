@@ -25,7 +25,6 @@ import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import Deepin.Widgets 1.0
-import DBus.Com.Deepin.Daemon.InputDevices 1.0
 
 Item {
     id: keyboardModule
@@ -36,7 +35,7 @@ Item {
     property int contentHeight: 48
     property int sliderWidth: 180
 
-    property var dbusTouchpad: TouchPad {}
+    visible: dbusTouchpad.exist
 
     Column {
         id: touchpadTitleColumn
@@ -56,6 +55,7 @@ Item {
                 onClicked: {
                     dbusTouchpad.tPadEnable = checked
                 }
+                visible: dbusMouse.exist
             }
         }
 
@@ -81,6 +81,7 @@ Item {
             centerPadding: mouseModule.centerPadding
             title.text: dsTr("Primary Button")
             content.sourceComponent: DRadioButton {
+                id: leftHandedSelectButton
                 width: 180
                 anchors.left: parent.left
                 anchors.leftMargin: 2
@@ -94,6 +95,18 @@ Item {
                 onItemSelected: {
                     dbusTouchpad.leftHanded = (idx == 1)
                 }
+
+                Connections {
+                    target: dbusTouchpad
+                    onLeftHandedChanged: {
+                        if(dbusTouchpad.leftHanded && leftHandedSelectButton.currentIndex == 0){
+                            leftHandedSelectButton.selectItem(1)
+                        }
+                        else if(!dbusTouchpad.leftHanded && leftHandedSelectButton.currentIndex == 1){
+                            leftHandedSelectButton.selectItem(0)
+                        }
+                    }
+                }
             }
         }
 
@@ -104,10 +117,12 @@ Item {
             title.text: dsTr("Pointer Speed")
 
             content.sourceComponent: DSliderEnhanced {
+                id: pointerSpeedSlider
+
                 width: sliderWidth
 
-                min: 0.5
-                max: 5
+                min: 3
+                max: 0.2
                 init: dbusTouchpad.motionAcceleration
                 valueDisplayVisible: false
 
@@ -116,36 +131,21 @@ Item {
                 }
 
                 Component.onCompleted: {
-                    addRuler(0.5, dsTr("Slow"))
-                    addRuler(5, dsTr("Fast"))
+                    addRuler(min, dsTr("Slow"))
+                    addRuler(max, dsTr("Fast"))
                 }
+
+                Connections {
+                    target: dbusTouchpad
+                    onMotionAccelerationChanged: {
+                        if(!equal(dbusTouchpad.motionAcceleration, pointerSpeedSlider.value, 0.01)){
+                            pointerSpeedSlider.setValue(dbusTouchpad.motionAcceleration, false)
+                        }
+                    }
+                }
+
             }
         }
-
-        //DCenterLine {
-            //height: contentHeight
-            //leftWidth: mouseModule.leftWidth
-            //centerPadding: mouseModule.centerPadding
-            //title.text: dsTr("Pointer Precision")
-
-            //content.sourceComponent: DSliderEnhanced {
-                //width: sliderWidth
-
-                //min: 1
-                //max: 20
-                //init: dbusTouchpad.motionThreshold
-                //valueDisplayVisible: false
-
-                //onValueConfirmed:{
-                    //dbusTouchpad.motionThreshold = value
-                //}
-
-                //Component.onCompleted: {
-                    //addRuler(1, dsTr("Low"))
-                    //addRuler(20, dsTr("High"))
-                //}
-            //}
-        //}
 
         DCenterLine {
             height: contentHeight
@@ -154,6 +154,8 @@ Item {
             title.text: dsTr("Double-click Speed")
 
             content.sourceComponent: DSliderEnhanced {
+                id: doubleClickSpeedSlider
+
                 width: sliderWidth
 
                 min: 1000
@@ -169,6 +171,16 @@ Item {
                     addRuler(1000, dsTr("Slow"))
                     addRuler(100, dsTr("Fast"))
                 }
+
+                Connections {
+                    target: dbusTouchpad
+                    onDoubleClickChanged: {
+                        if(!equal(dbusTouchpad.doubleClick, doubleClickSpeedSlider.value, 1)){
+                            doubleClickSpeedSlider.setValue(dbusTouchpad.doubleClick, false)
+                        }
+                    }
+                }
+
             }
 
         }
@@ -180,6 +192,7 @@ Item {
             title.text: dsTr("Drag Threshold")
 
             content.sourceComponent: DSliderEnhanced {
+                id: dragThresholdSlider
                 width: sliderWidth
 
                 min: 1
@@ -195,6 +208,16 @@ Item {
                     addRuler(1, dsTr("Short"))
                     addRuler(10, dsTr("Long"))
                 }
+
+                Connections {
+                    target: dbusTouchpad
+                    onDragThresholdChanged: {
+                        if(!equal(dbusTouchpad.dragThreshold, dragThresholdSlider.value, 0.1)){
+                            dragThresholdSlider.setValue(dbusTouchpad.dragThreshold, false)
+                        }
+                    }
+                }
+
             }
         }
 
@@ -209,6 +232,7 @@ Item {
                 height: parent.height
 
                 DSwitchButton {
+                    id: naturalScrollButton
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
                     checked: dbusTouchpad.naturalScroll
@@ -239,6 +263,52 @@ Item {
                     MouseArea {
                         anchors.fill: parent
                         onClicked: dbusTouchpad.tapClick = !dbusTouchpad.tapClick
+                    }
+                }
+            }
+        }
+
+        DCenterLine {
+            height: contentHeight
+            leftWidth: mouseModule.leftWidth
+            centerPadding: mouseModule.centerPadding
+            title.text: dsTr("Two-finger scrolling")
+
+            content.sourceComponent: Item {
+                width: sliderWidth
+                height: parent.height
+
+                DSwitchButton {
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                    checked: dbusTouchpad.vertScroll
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: dbusTouchpad.vertScroll = !dbusTouchpad.vertScroll
+                    }
+                }
+            }
+        }
+
+        DCenterLine {
+            height: contentHeight
+            leftWidth: mouseModule.leftWidth
+            centerPadding: mouseModule.centerPadding
+            title.text: dsTr("Edge scrolling")
+
+            content.sourceComponent: Item {
+                width: sliderWidth
+                height: parent.height
+
+                DSwitchButton {
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                    checked: dbusTouchpad.edgeScroll
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: dbusTouchpad.edgeScroll = !dbusTouchpad.edgeScroll
                     }
                 }
             }

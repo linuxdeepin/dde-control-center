@@ -40,15 +40,7 @@ Rectangle {
     property alias rightBoxLoader: rightBoxLoader
 
     property var inputDevicesId: InputDevices {}
-    property bool isTouchpadExist: {
-        var devInfoList = inputDevicesId.infos
-        for(var i in devInfoList){
-            if(devInfoList[i][1] == 'touchpad'){
-                return true
-            }
-        }
-        return false
-    }
+    property var dbusTouchpad: TouchPad {}
 
     // bluetooth
     property var dbusBluetooth: Bluetooth {}
@@ -114,7 +106,7 @@ Rectangle {
 
         for(var i in modules_id_array){
             var module_id = modules_id_array[i]
-            if(module_id == "mouse_touchpad" && !isTouchpadExist){
+            if(module_id == "mouse_touchpad" && !dbusTouchpad.exist){
                 var localeName = modulesId.moduleLocaleNames["mouse"]
             }
             else if(module_id == "bluetooth" && !isBluetoothExist){
@@ -181,7 +173,7 @@ Rectangle {
         if (trayIconHeight == trayWidth) {
         }
         trayIconTip.y = tipDisplayHeight
-        if(module_id == "mouse_touchpad" && !isTouchpadExist){
+        if(module_id == "mouse_touchpad" && !dbusTouchpad.exist){
             var localeName = modulesId.moduleLocaleNames["mouse"]
         }
         else{

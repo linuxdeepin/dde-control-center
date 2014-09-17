@@ -39,7 +39,10 @@ Item {
     property int centerPadding: 16
 
     property var dbusMouse: Mouse {}
-    property var touchpadObj
+
+    function equal(a, b, minValue){
+        return Math.abs(a-b) < minValue
+    }
 
     Column {
         id: mouseSettingsColumn
@@ -52,8 +55,8 @@ Item {
             rightLoader.sourceComponent: ResetButton {
                 onClicked: {
                     dbusMouse.Reset()
-                    if (isTouchpadExist){
-                        touchpadObj.dbusTouchpad.Reset()
+                    if (dbusTouchpad.exist){
+                        dbusTouchpad.Reset()
                     }
                 }
             }
@@ -66,6 +69,7 @@ Item {
             centerPadding: mouseModule.centerPadding
             title.text: dsTr("Primary Button")
             content.sourceComponent: DRadioButton {
+                id: leftHandedSelectButton
                 anchors.left: parent.left
                 anchors.leftMargin: 2
                 anchors.verticalCenter: parent.verticalCenter
@@ -78,6 +82,18 @@ Item {
                 onItemSelected: {
                     dbusMouse.leftHanded = idx == 1 ? true : false
                 }
+
+                Connections {
+                    target: dbusMouse
+                    onLeftHandedChanged: {
+                        if(dbusMouse.leftHanded && leftHandedSelectButton.currentIndex == 0){
+                            leftHandedSelectButton.selectItem(1)
+                        }
+                        else if(!dbusMouse.leftHanded && leftHandedSelectButton.currentIndex == 1){
+                            leftHandedSelectButton.selectItem(0)
+                        }
+                    }
+                }
             }
         }
 
@@ -88,10 +104,11 @@ Item {
             title.text: dsTr("Pointer Speed")
 
             content.sourceComponent: DSliderEnhanced {
+                id: pointerSpeedSlider
                 width: sliderWidth
 
-                min: 0.5
-                max: 5
+                min: 3
+                max: 0.2
                 init: dbusMouse.motionAcceleration
                 valueDisplayVisible: false
 
@@ -100,38 +117,21 @@ Item {
                 }
 
                 Component.onCompleted: {
-                    addRuler(0.5, dsTr("Slow"))
-                    addRuler(5, dsTr("Fast"))
+                    addRuler(min, dsTr("Slow"))
+                    addRuler(max, dsTr("Fast"))
+                }
+
+                Connections {
+                    target: dbusMouse
+                    onMotionAccelerationChanged: {
+                        if(!equal(dbusMouse.motionAcceleration, pointerSpeedSlider.value, 0.01)){
+                            pointerSpeedSlider.setValue(dbusMouse.motionAcceleration, false)
+                        }
+                    }
                 }
             }
 
         }
-
-        //DCenterLine {
-            //height: contentHeight
-            //leftWidth: mouseModule.leftWidth
-            //centerPadding: mouseModule.centerPadding
-            //title.text: dsTr("Pointer Precision")
-
-            //content.sourceComponent: DSliderEnhanced {
-                //width: sliderWidth
-
-                //min: 1
-                //max: 20
-                //init: dbusMouse.motionThreshold
-                //valueDisplayVisible: false
-
-                //onValueConfirmed:{
-                    //dbusMouse.motionThreshold = value
-                //}
-
-                //Component.onCompleted: {
-                    //addRuler(1, dsTr("Low"))
-                    //addRuler(20, dsTr("High"))
-                //}
-            //}
-
-        //}
 
         DCenterLine {
             height: contentHeight
@@ -140,6 +140,7 @@ Item {
             title.text: dsTr("Double-click Speed")
 
             content.sourceComponent: DSliderEnhanced {
+                id: doubleClickSpeedSlider
                 width: sliderWidth
 
                 min: 1000
@@ -155,6 +156,15 @@ Item {
                     addRuler(1000, dsTr("Slow"))
                     addRuler(100, dsTr("Fast"))
                 }
+
+                Connections {
+                    target: dbusMouse
+                    onDoubleClickChanged: {
+                        if(!equal(dbusMouse.doubleClick, doubleClickSpeedSlider.value, 1)){
+                            doubleClickSpeedSlider.setValue(dbusMouse.doubleClick, false)
+                        }
+                    }
+                }
             }
 
         }
@@ -165,7 +175,7 @@ Item {
             leftWidth: mouseModule.leftWidth
             centerPadding: mouseModule.centerPadding
             title.text: dsTr("Disable the touchpad when inserting the mouse")
-            visible: isTouchpadExist
+            visible: dbusTouchpad.exist
 
             property bool enabled: {
                 if(content.item){
@@ -186,9 +196,12 @@ Item {
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
                     checked: dbusMouse.disableTpad
-                    onClicked: {
-                        dbusMouse.disableTpad = checked
+
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked: dbusMouse.disableTpad = !dbusMouse.disableTpad
                     }
+
                 }
             }
 
@@ -197,22 +210,7 @@ Item {
         DSeparatorHorizontal {}
 
         DBaseLine{ height: 26 }
-        Item {
-            id: touchpadBox
-            width: parent.width
-            height: childrenRect.height
-            visible: isExist
 
-            property var touchpadComponent: Qt.createComponent("TouchpadComponent.qml")
-            property bool isExist: isTouchpadExist
-
-            Component.onCompleted: {
-                if(isExist){
-                    touchpadObj = touchpadComponent.createObject(touchpadBox, {})
-                    touchpadObj.x = touchpadBox.x
-                    touchpadObj.y = touchpadBox.y
-                }
-            }
-        }
+        TouchpadComponent {}
     }
 }
