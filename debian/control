@@ -2,7 +2,7 @@ Source: dde-control-center
 Section: admin
 Priority: optional
 Maintainer:  Li Longyu (Ai Kotoba) <leaeasy@gmail.com>
-Build-Depends: debhelper (>= 8.0.0),
+Build-Depends: debhelper (>= 9),
  python (>= 2.6.3~),
  pkg-config,
  libx11-dev,
@@ -11,8 +11,8 @@ Build-Depends: debhelper (>= 8.0.0),
  qt5-default,
  qtdeclarative5-dev,
  libqt5webkit5-dev,
-Standards-Version: 3.9.2
-Homepage: http://gitcafe.com/Deepin/dss.git
+Standards-Version: 3.9.5
+Homepage: http://gitcafe.com/Deepin/dde-control-center.git
 
 Package: dde-control-center
 Architecture: any
@@ -24,7 +24,6 @@ Depends: ${shlibs:Depends},
  dde-daemon (>= 0.0.1+20140731174758),
  dde-api,
  dde-qml-dbus-factory,
- dde-qml-gettext-plugin,
  deepin-artwork-themes,
  deepin-qml-widgets (>= 0.0.2+20140723165854),
  python,
