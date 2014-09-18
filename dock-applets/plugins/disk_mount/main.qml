@@ -22,45 +22,31 @@
 ****************************************************************************/
 
 import QtQuick 2.1
+import DBus.Com.Deepin.Daemon.DiskMount 1.0
+import Deepin.AppletWidgets 1.0
 
-Item {
-    id: closeButton
-    anchors.top: parent.top
-    anchors.right: parent.right
-    width: closeImage.width
-    height: closeImage.height
-    
-    signal clicked
-    
-    Rectangle {
-        id: closeBackground
-        anchors.fill: parent
-        anchors.topMargin: 3
-        anchors.rightMargin: 3
-        anchors.bottomMargin: 1
-        anchors.leftMargin: 1
-        color: Qt.rgba(0, 0, 0, 0)
+AppletPlugin {
+    id: appletItem
+
+    managed: false
+    show: mountDiskList.length > 0
+    name: dsTr("Disk Mount")
+
+    // DiskMount
+    property var dbusDiskMount: DiskMount {}
+    property var mountDiskList: {
+        var diskList = dbusDiskMount.diskList
+        var mounts = new Array()
+        for(var i in dbusDiskMount.diskList){
+            if(diskList[i][2]){
+                mounts.push(diskList[i])
+            }
+        }
+        return mounts
     }
-    
-    Image {
-        id: closeImage
-        source: "images/window_close.png"
-    }
-    
-    MouseArea {
-        anchors.fill: parent
-        hoverEnabled: true
-        
-        onEntered: {
-            closeBackground.color = Qt.rgba(1, 1, 1, 0.3)
-        }
-        
-        onExited: {
-            closeBackground.color = Qt.rgba(1, 1, 1, 0)
-        }
-        
-        onClicked: {
-            closeButton.clicked()
-        }
+
+    appletTrayLoader: Loader {
+        sourceComponent: AppletTray{}
+        active: appletItem.show
     }
 }

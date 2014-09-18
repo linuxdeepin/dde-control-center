@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="/">
+    <file>frame/WifiPasswordWindow.qml</file>
+    <file>frame/main.qml</file>
+    <file>frame/CloseButton.qml</file>
+    <file>frame/AppletLoader.qml</file>
+    <file>frame/images/window_close.png</file>
+  </qresource>
+</RCC>

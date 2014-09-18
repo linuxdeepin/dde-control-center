@@ -27,7 +27,6 @@ import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Display 1.0
 import Deepin.Locale 1.0
-import "widgets"
 
 Window {
     id: messageBox
@@ -52,7 +51,7 @@ Window {
     signal connect(string password)
     signal cancel()
 
-    property var dssLocale: DLocale{
+    property var dssLocale: DLocale {
         domain: "dde-control-center"
     }
 
@@ -69,6 +68,19 @@ Window {
 
     function hideDialog(){
         messageBox.hide()
+    }
+
+    Connections {
+        id: dbusNetwork
+        onNeedSecrets:{
+            print("NeedSectets Emit in dss Frame:", arg0, arg1, arg2)
+            if(!dbusControlCenter.isNetworkCanShowPassword()){
+                messageBox.accessPointObj = arg0
+                messageBox.accessPointEncryption = arg1
+                messageBox.accessPointName = arg2
+                messageBox.showDialog()
+            }
+        }
     }
 
     function cancelAction(){

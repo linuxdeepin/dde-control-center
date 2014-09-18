@@ -28,7 +28,7 @@ import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Network 1.0
 import DBus.Com.Deepin.Daemon.Bluetooth 1.0
 import DBus.Com.Deepin.Api.Graphic 1.0
-import "../widgets/"
+import Deepin.AppletWidgets 1.0
 
 DockApplet{
     title: "Network"
@@ -297,7 +297,7 @@ DockApplet{
     }
 
     function hideNetwork(id){
-        set_hide_applet("network")
+        setAppletState(false)
     }
 
     onActivate: {
@@ -305,8 +305,8 @@ DockApplet{
     }
 
     onNativeWindowDestroyed: {
-        toggle_applet("network")
-        toggle_applet("network")
+        toggleAppletState("network")
+        toggleAppletState("network")
     }
 
     onQt5ScreenDestroyed: {
@@ -314,7 +314,7 @@ DockApplet{
         mainObject.restartDockApplet()
     }
 
-    menu: Menu {
+    menu: AppletMenu {
         Component.onCompleted: {
             addItem(dsTr("_Run"), showNetwork);
             addItem(dsTr("_Undock"), hideNetwork);

@@ -24,7 +24,7 @@
 import QtQuick 2.0
 import Deepin.DockApplet 1.0
 import Deepin.Widgets 1.0
-import "../widgets"
+import Deepin.AppletWidgets 1.0
 
 DockApplet{
     title: "Disk Mount"
@@ -38,8 +38,8 @@ DockApplet{
     }
 
     onNativeWindowDestroyed: {
-        toggle_applet("disk_mount")
-        toggle_applet("disk_mount")
+        toggleAppletState("disk_mount")
+        toggleAppletState("disk_mount")
     }
 
     onQt5ScreenDestroyed: {
@@ -52,10 +52,10 @@ DockApplet{
     }
 
     function hideDiskMount(id){
-        set_hide_applet("disk_mount")
+        setAppletState("disk_mount", false)
     }
 
-    //menu: Menu{
+    //menu: AppletMenu{
         //Component.onCompleted: {
             //addItem(dsTr("_Run"), showDiskMount);
         //}

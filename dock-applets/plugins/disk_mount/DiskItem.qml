@@ -83,7 +83,7 @@ Item {
                 height: 48
                 anchors.verticalCenter: parent.verticalCenter
                 theme: "Deepin"
-                icon: externalObject.isPathExist(iconUrl) ? iconUrl : diskInfo[9]
+                icon: mainObject.isPathExist(iconUrl) ? iconUrl : diskInfo[9]
 
                 property url iconUrl: getIconUrl("disk_mount/%1.png".arg(diskInfo[9]))
 
@@ -91,7 +91,7 @@ Item {
                     anchors.fill: parent
                     hoverEnabled: true
                     onClicked: {
-                        externalObject.xdgOpen(diskInfo[8])
+                        mainObject.xdgOpen(diskInfo[8])
                     }
                     onEntered: cursorShape = Qt.PointingHandCursor
                     onExited: cursorShape = Qt.ArrowCursor

@@ -21,32 +21,23 @@
 **
 ****************************************************************************/
 
-#include "helper.h"
+import QtQuick 2.1
+import DBus.Com.Deepin.Daemon.Power 1.0
+import Deepin.AppletWidgets 1.0
 
-#include <QProcess>
-#include <QFile>
+AppletPlugin {
+    id: appletItem
 
-ExternalObject::ExternalObject(QObject *parent)
-    :QObject(parent)
-{
+    managed: dbusPower.batteryIsPresent
+    show: managed && true
+    name: dsTr("Power")
 
-}
+    // Power
+    property var dbusPower: Power{}
 
-QString ExternalObject::getIconUrl(QString path)
-{
-    QString iconPath = "file://"DOCKAPPLETSDIR"/icons/" + path;
-    return iconPath;
-}
-
-void ExternalObject::xdgOpen(QString path)
-{
-    QProcess::execute("xdg-open " + path);
-}
-
-bool ExternalObject::isPathExist(QString path)
-{
-    if(path.startsWith("file://")){
-        path = path.replace("file://", "");
+    appletTrayLoader: Loader {
+        sourceComponent: AppletTray{}
+        active: appletItem.show
     }
-    return QFile::exists(path);
+
 }

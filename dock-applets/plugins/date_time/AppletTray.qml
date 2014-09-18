@@ -27,7 +27,7 @@ import Deepin.DockApplet 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.DateAndTime 1.0
 import DBus.Com.Deepin.Api.LunarCalendar 1.0
-import "../widgets"
+import Deepin.AppletWidgets 1.0
 import "calendar_core.js" as CalendarCore
 
 DockApplet{
@@ -77,8 +77,8 @@ DockApplet{
     }
 
     onNativeWindowDestroyed: {
-        toggle_applet("date_time")
-        toggle_applet("date_time")
+        toggleAppletState("date_time")
+        toggleAppletState("date_time")
     }
 
     onQt5ScreenDestroyed: {
@@ -112,7 +112,7 @@ DockApplet{
         print(id, currentClockType)
     }
 
-    //menu: Menu{
+    //menu: AppletMenu{
         //Component.onCompleted: {
             //addItem(dsTr("_Run"), showDateTime);
             //addItem(typeNames[currentClockType], switchClockType);

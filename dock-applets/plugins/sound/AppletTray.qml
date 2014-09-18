@@ -26,7 +26,7 @@ import QtQuick.Window 2.1
 import Deepin.DockApplet 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Audio 1.0
-import "../widgets"
+import Deepin.AppletWidgets 1.0
 
 DockApplet{
     id: soundApplet
@@ -128,8 +128,8 @@ DockApplet{
     }
 
     onNativeWindowDestroyed: {
-        toggle_applet("sound")
-        toggle_applet("sound")
+        toggleAppletState("sound")
+        toggleAppletState("sound")
     }
 
     onQt5ScreenDestroyed: {
@@ -175,10 +175,10 @@ DockApplet{
     }
 
     function hideSound(id){
-        set_hide_applet("sound")
+        setAppletState(false)
     }
 
-    menu: Menu{
+    menu: AppletMenu{
         Component.onCompleted: {
             addItem(dsTr("_Run"), showSound);
             addItem(dsTr("_Undock"), hideSound);
@@ -271,7 +271,7 @@ DockApplet{
                     }
 
 
-                    WhiteSlider{
+                    AppletWhiteSlider{
                         id: soundSlider
                         width: parent.width - soundImage.width - soundImage.anchors.leftMargin - titleSpacing
                         anchors.right: parent.right
@@ -395,7 +395,7 @@ DockApplet{
                                     }
                                 }
 
-                                WhiteSlider{
+                                AppletWhiteSlider{
                                     id: appSlider
                                     width: parent.width - appIconBox.width - anchors.leftMargin
                                     anchors.verticalCenter: parent.verticalCenter

@@ -25,7 +25,7 @@ import QtQuick 2.0
 import QtQuick.Window 2.1
 import Deepin.DockApplet 1.0
 import Deepin.Widgets 1.0
-import "../widgets"
+import Deepin.AppletWidgets 1.0
 
 DockApplet {
     id: root
@@ -59,7 +59,7 @@ DockApplet {
     }
 
     function hidePower(id){
-        set_hide_applet("power")
+        setAppletState(false)
     }
 
     onActivate: {
@@ -80,7 +80,7 @@ DockApplet {
         }
     }
 
-    menu: Menu {
+    menu: AppletMenu {
         property var menuIds: new Array()
 
         function updateMenu(){

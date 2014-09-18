@@ -21,42 +21,44 @@
 **
 ****************************************************************************/
 
-import QtQuick 2.0
-import QtQuick.Window 2.1
+import QtQuick 2.1
 
-Loader {
-    property url qmlPath: "%1/main.qml".arg(applet_id)
-    property string appletId: applet_id
-
-    function show(){
-        source = qmlPath
+Item {
+    id: closeButton
+    width: closeImage.width
+    height: closeImage.height
+    
+    signal clicked
+    
+    Rectangle {
+        id: closeBackground
+        anchors.fill: parent
+        anchors.topMargin: 3
+        anchors.rightMargin: 3
+        anchors.bottomMargin: 1
+        anchors.leftMargin: 1
+        color: Qt.rgba(0, 0, 0, 0)
     }
-
-    function hide(){
-        source = ""
+    
+    Image {
+        id: closeImage
+        source: "images/window_close.png"
     }
-
-    function toggle(){
-        if(source == ""){
-            source = qmlPath
+    
+    MouseArea {
+        anchors.fill: parent
+        hoverEnabled: true
+        
+        onEntered: {
+            closeBackground.color = Qt.rgba(1, 1, 1, 0.3)
         }
-        else{
-            source = ""
+        
+        onExited: {
+            closeBackground.color = Qt.rgba(1, 1, 1, 0)
         }
-    }
-
-    Component.onCompleted: {
-        if(lastStateInfos == "[]" || lastStateInfos == "" || applet_id == "date_time" || applet_id == "disk_mount"){
-            show()
-        }
-        else {
-            var infos = unmarshalJSON(lastStateInfos)
-            for(var i in infos){
-                var info = infos[i]
-                if(info[0] == applet_id && info[2]){
-                    show()
-                }
-            }
+        
+        onClicked: {
+            closeButton.clicked()
         }
     }
 }

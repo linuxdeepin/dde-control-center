@@ -1,0 +1,4 @@
+module Deepin.AppletWidgets
+AppletPlugin 1.0 AppletPlugin.qml
+AppletMenu 1.0 AppletMenu.qml
+AppletWhiteSlider 1.0 AppletWhiteSlider.qml

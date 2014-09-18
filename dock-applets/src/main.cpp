@@ -25,8 +25,8 @@
 #include <QtQml/QQmlEngine>
 #include <QCoreApplication>
 #include <QDBusConnection>
+#include <QDebug>
 
-#include "helper.h"
 #include "qmlloader.h"
 
 int main(int argc, char* argv[])
@@ -35,15 +35,13 @@ int main(int argc, char* argv[])
     QGuiApplication app(argc, argv);
 
     if(QDBusConnection::sessionBus().registerService("dde.dock.entry.AppletManager")){
-        qmlRegisterType<ExternalObject>("Helper", 1,0, "ExternalObject");
-
         QmlLoader* qmlLoader = new QmlLoader();
         qmlLoader->rootContext->setContextProperty("mainObject", qmlLoader);
-        qmlLoader->load(QUrl("qrc:///qml/main.qml"));
+        qmlLoader->load(QUrl("qrc:///frame/main.qml"));
 
         return app.exec();
     } else {
-        qWarning() << "is running...";
+        qWarning() << "dde-dock-applets is running...";
         return 0;
     }
 }

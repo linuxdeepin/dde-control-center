@@ -48,15 +48,19 @@ public:
 
     void load(QUrl url);
     QString getAppletInfoListFromQml();
-    Q_INVOKABLE QString getAppletVisibleFromConfig();
-    Q_INVOKABLE void setAppletVisibleToConfig(QString info);
+
+    Q_INVOKABLE bool getAppletState(int dockMode, QString appletId);
+    Q_INVOKABLE void setAppletState(int dockMode, QString appletId, bool appletVisible);
+
+    Q_INVOKABLE QString getIconUrl(QString path);
+    Q_INVOKABLE void xdgOpen(QString path);
+    Q_INVOKABLE bool isPathExist(QString path);
+
+    Q_INVOKABLE QStringList scanPlugins();
 
     //Bugfix: qt5 double screen switch case screen distory
     //if you do not patch Qt, only restart DockApplet is OK
     Q_INVOKABLE void restartDockApplet();
-
-public slots:
-    void appletInfosChangedSlot();
 
 private:
     AppletDBus * m_dbus_proxyer;
@@ -71,14 +75,11 @@ public:
     AppletDBus(QmlLoader* parent);
     ~AppletDBus();
 
-    QString appletInfoList() {
-        return m_parent->getAppletInfoListFromQml();
-    }
+    QString appletInfoList();
     Q_SIGNAL void appletInfosChanged();
 
     Q_SLOT void ShowApplet(QString id);
     Q_SLOT void HideApplet(QString id);
-
     Q_SLOT void ToggleApplet(QString id);
 
 private:

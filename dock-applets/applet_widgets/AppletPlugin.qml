@@ -21,21 +21,29 @@
 **
 ****************************************************************************/
 
-#ifndef RESOURCE_H
-#define RESOURCE_H
+import QtQuick 2.1
 
-#include <QObject>
-#include <QDebug>
+Item {
+    id: appletItem
+    width: 1
+    height: 1
 
-class ExternalObject : public QObject
-{
-    Q_OBJECT
-public:
-    ExternalObject(QObject *parent = 0);
+    property bool managed: true
+    property bool show: true
+    property string name: ""
 
-    Q_INVOKABLE QString getIconUrl(QString path);
-    Q_INVOKABLE void xdgOpen(QString path);
-    Q_INVOKABLE bool isPathExist(QString path);
-};
+    function setAppletState(applet_visible) {
+        if(managed){
+            show = applet_visible
+        }
+    }
 
-#endif // RESOURCE_H
+    property var appletTrayLoader: Loader {}
+
+    Component.onCompleted: {
+        if(managed){
+            show = root.getInitAppletSate(appletId)
+            appletInfos.update(appletId, name, show)
+        }
+    }
+}
