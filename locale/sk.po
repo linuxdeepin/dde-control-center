@@ -3,27 +3,24 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Анатолий Валерианович <ffox909@mail.ru>, 2014
-# jvjey <justVolodya@gmail.com>, 2014
-# Serge Kukharski, 2014
-# Анатолий Валерианович <ffox909@mail.ru>, 2014
+# Microtus <hrabosmartin@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-17 11:56+0800\n"
 "PO-Revision-Date: 2014-09-23 10:13+0000\n"
-"Last-Translator: Анатолий Валерианович <ffox909@mail.ru>\n"
-"Language-Team: Russian (http://www.transifex.com/projects/p/dde-control-center/language/ru/)\n"
+"Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
+"Language-Team: Slovak (http://www.transifex.com/projects/p/dde-control-center/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: sk\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: ../modules/network/add/AddDsl.qml:11
 msgid "New PPPoE Connection"
-msgstr "Новое PPPoE-соединение"
+msgstr "Nové PPPoE spojenie"
 
 #: ../modules/network/add/AddDsl.qml:24
 #: ../modules/network/add/AddMobile.qml:33
@@ -31,7 +28,7 @@ msgstr "Новое PPPoE-соединение"
 #: ../modules/network/edit_autogen/BaseConnectionEdit.qml:33
 #: ../modules/shortcuts/CustomKeybinding.qml:118
 msgid "Name"
-msgstr "Имя"
+msgstr "Názov"
 
 #: ../modules/network/add/AddDsl.qml:36
 #: ../modules/network/add/AddMobile.qml:75
@@ -48,12 +45,12 @@ msgstr "Имя"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:374
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:65
 msgid "Username"
-msgstr "Имя пользователя"
+msgstr "Užívateľské meno"
 
 #: ../modules/network/add/AddDsl.qml:46
 #: ../modules/network/edit_autogen/EditSectionPppoe.qml:33
 msgid "Service"
-msgstr "Служба"
+msgstr "Služba"
 
 #: ../modules/network/add/AddDsl.qml:56
 #: ../modules/network/add/AddMobile.qml:85
@@ -75,16 +72,16 @@ msgstr "Служба"
 #: ../modules/account/PasswordDialog.qml:62
 #: ../modules/network/wireless/WifiHotspot.qml:69
 msgid "Password"
-msgstr "Пароль"
+msgstr "Heslo"
 
 #: ../modules/network/add/AddMobile.qml:20
 msgid "New Mobile Connection"
-msgstr "Новое мобильное соединение"
+msgstr "Nové mobilné spojenie"
 
 #: ../modules/network/add/AddMobile.qml:45
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:23
 msgid "Service Type"
-msgstr "Тип службы"
+msgstr "Typ služby"
 
 #: ../modules/network/add/AddMobile.qml:55
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:33
@@ -96,7 +93,7 @@ msgstr "APN"
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:43
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:113
 msgid "Number"
-msgstr "Номер"
+msgstr "Číslo"
 
 #: ../modules/network/add/AddSectionSave.qml:11
 #: ../modules/account/AddUserDialog.qml:325
@@ -113,73 +110,73 @@ msgstr "Номер"
 #: ../dock-applets/qml/WifiPasswordWindow.qml:171
 #: ../modules/display/main.qml:227
 msgid "Cancel"
-msgstr "Отмена"
+msgstr "Zrušiť"
 
 #: ../modules/network/add/AddSectionSave.qml:20
 #: ../modules/shortcuts/CustomKeybinding.qml:157
 #: ../modules/date_time/TimezoneArea.qml:254
 msgid "Add"
-msgstr "Добавить"
+msgstr "Pridať"
 
 #: ../modules/account/AddUserDialog.qml:48
 #: ../modules/account/PasswordDialog.qml:96
 msgid "Invalid password"
-msgstr "Неверный пароль"
+msgstr ""
 
 #: ../modules/account/AddUserDialog.qml:53
 msgid "Nothing input"
-msgstr "Не введено"
+msgstr ""
 
 #: ../modules/account/AddUserDialog.qml:58
 #: ../modules/account/PasswordDialog.qml:101
 msgid "Different password"
-msgstr "Пароли не совпадают"
+msgstr ""
 
 #: ../modules/account/AddUserDialog.qml:67
 msgid "Add User"
-msgstr "Добавить пользователя"
+msgstr "Pridať užívateľa"
 
 #: ../modules/account/AddUserDialog.qml:95
 msgid "New User"
-msgstr "Новый пользователь"
+msgstr "Nový užívateľ"
 
 #: ../modules/account/AddUserDialog.qml:99
 #: ../modules/account/AddUserDialog.qml:254
 #: ../modules/account/EditUserDialog.qml:135
 #: ../modules/account/UserList.qml:188
 msgid "Standard"
-msgstr "Стандартный"
+msgstr "Štandardný"
 
 #: ../modules/account/AddUserDialog.qml:99
 #: ../modules/account/AddUserDialog.qml:255
 #: ../modules/account/EditUserDialog.qml:136
 #: ../modules/account/UserList.qml:188
 msgid "Administrator"
-msgstr "Администратор"
+msgstr "Administrátor"
 
 #: ../modules/account/AddUserDialog.qml:201
 msgid "Repeat Password"
-msgstr "Повтор пароля"
+msgstr "Zopakovať heslo"
 
 #: ../modules/account/AddUserDialog.qml:242
 #: ../modules/account/EditUserDialog.qml:123
 msgid "Account Type"
-msgstr "Тип аккаунта"
+msgstr "Typ účtu"
 
 #: ../modules/account/AddUserDialog.qml:274
 #: ../modules/account/EditUserDialog.qml:56
 msgid "Auto-login"
-msgstr "Автовход"
+msgstr "Automatické prihlásenie"
 
 #: ../modules/account/AddUserDialog.qml:338
 #: ../modules/account/DeleteUserDialog.qml:46
 #: ../modules/account/PasswordDialog.qml:221 ../modules/account/WebCam.qml:148
 msgid "Confirm"
-msgstr "Подтвердить"
+msgstr "Potvrdiť"
 
 #: ../modules/network/add/AddVpn.qml:15
 msgid "VPN Type"
-msgstr "Тип VPN"
+msgstr "VPN typ"
 
 #: ../modules/network/add/AddVpn.qml:36
 msgid "L2TP"
@@ -203,12 +200,12 @@ msgstr "VPNC"
 
 #: ../modules/network/add/AddVpn.qml:69
 msgid "Basic Information"
-msgstr "Основная информация"
+msgstr "Základné informácie"
 
 #: ../modules/network/add/AddVpn.qml:82
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:23
 msgid "Need VPN Plugin"
-msgstr "Нужен VPN-плагин"
+msgstr "Potrebný VPN plugin"
 
 #: ../modules/network/add/AddVpn.qml:114 ../modules/network/add/AddVpn.qml:154
 #: ../modules/network/add/AddVpn.qml:234 ../modules/network/add/AddVpn.qml:384
@@ -221,7 +218,7 @@ msgstr "Нужен VPN-плагин"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:314
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:364
 msgid "Gateway"
-msgstr "Шлюз"
+msgstr "Brána"
 
 #: ../modules/network/add/AddVpn.qml:134 ../modules/network/add/AddVpn.qml:264
 #: ../modules/network/add/AddVpn.qml:314 ../modules/network/add/AddVpn.qml:404
@@ -237,7 +234,7 @@ msgstr "Шлюз"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:384
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:414
 msgid "Ask for Pwd"
-msgstr "Запрос пароля"
+msgstr "Žiadať heslo"
 
 #: ../modules/network/add/AddVpn.qml:164 ../modules/network/add/AddVpn.qml:284
 #: ../modules/network/wireless/AddWireless.qml:104
@@ -245,23 +242,23 @@ msgstr "Запрос пароля"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:94
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:214
 msgid "CA Cert"
-msgstr "CA Сертификат"
+msgstr "CA certifikát"
 
 #: ../modules/network/add/AddVpn.qml:174
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:104
 msgid "Proxy"
-msgstr "Прокси"
+msgstr "Proxy"
 
 #: ../modules/network/add/AddVpn.qml:184
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:114
 msgid "Allow Cisco Secure Desktop Trojan"
-msgstr "Разрешить троян Cisco Secure Desktop"
+msgstr "Povoliť Cisco Secure Desktop Trojan"
 
 #: ../modules/network/add/AddVpn.qml:344
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:274
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
 msgid "Customize Key Direction"
-msgstr "Настроить ключевое направление"
+msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:214 ../modules/network/add/AddVpn.qml:304
 #: ../modules/network/wireless/AddWireless.qml:165
@@ -269,12 +266,12 @@ msgstr "Настроить ключевое направление"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:144
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:234
 msgid "Private Key"
-msgstr "Личный ключ"
+msgstr "Privátny kľúč"
 
 #: ../modules/network/add/AddVpn.qml:244
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:174
 msgid "Auth Type"
-msgstr "Тип аутентификации"
+msgstr "Typ autentizácie"
 
 #: ../modules/network/add/AddVpn.qml:204 ../modules/network/add/AddVpn.qml:294
 #: ../modules/network/wireless/AddWireless.qml:114
@@ -282,97 +279,97 @@ msgstr "Тип аутентификации"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:134
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:224
 msgid "User Cert"
-msgstr "Сертификат пользователя"
+msgstr "Užívateľský certifikát"
 
 #: ../modules/network/add/AddVpn.qml:194
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:124
 msgid "CSD Script"
-msgstr "CSD-скрипт"
+msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:224
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:154
 msgid "Use FSID for Key Passphrase"
-msgstr "Используйте FSID для ключевой фразы"
+msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:324
 #: ../modules/network/wireless/AddWireless.qml:206
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:195
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:254
 msgid "Private Pwd"
-msgstr "Личный пароль"
+msgstr "Private PWD"
 
 #: ../modules/network/add/AddVpn.qml:334
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:264
 msgid "Static Key"
-msgstr "Статический ключ"
+msgstr "Static Key"
 
 #: ../modules/network/add/AddVpn.qml:354
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:284
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:63
 msgid "Key Direction"
-msgstr "Ключевое направление"
+msgstr "Key Direction"
 
 #: ../modules/network/add/AddVpn.qml:364
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:294
 msgid "Remote IP"
-msgstr "Удаленный IP"
+msgstr "Vzdialená IP"
 
 #: ../modules/network/add/AddVpn.qml:374
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:304
 msgid "Local IP"
-msgstr "Локальный IP"
+msgstr "Lokálna IP"
 
 #: ../modules/network/add/AddVpn.qml:454
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:394
 msgid "User Pwd"
-msgstr "Пароль пользователя"
+msgstr "User Pwd"
 
 #: ../modules/network/add/AddVpn.qml:464 ../modules/network/add/AddVpn.qml:526
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:404
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:33
 msgid "Group Name"
-msgstr "Имя группы"
+msgstr "Group Name"
 
 #: ../modules/network/add/AddVpn.qml:484
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:424
 msgid "Group Pwd"
-msgstr "Пароль группы"
+msgstr "Group Pwd"
 
 #: ../modules/network/add/AddVpn.qml:494
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:434
 msgid "Use Hybrid Authentication"
-msgstr "Использовать гибридную аутентификацию"
+msgstr "Použiť Hybrid Authentication"
 
 #: ../modules/network/add/AddVpn.qml:504
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:444
 msgid "CA File"
-msgstr "Файл сертификата"
+msgstr "CA súbor"
 
 #: ../modules/network/add/AddVpn.qml:516
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:23
 msgid "Enable IPsec"
-msgstr "Влючить IPsec"
+msgstr "Povoliť IPsec"
 
 #: ../modules/network/add/AddVpn.qml:536
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:43
 msgid "Group ID"
-msgstr "ID группы"
+msgstr "Group ID"
 
 #: ../modules/network/add/AddVpn.qml:546
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:53
 msgid "Pre-Shared Key"
-msgstr "Pre-Shared ключ"
+msgstr "Pre-Shared Key"
 
 #: ../modules/network/add/AddVpn.qml:558 ../modules/network/add/AddVpn.qml:570
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:23
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:23
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:23
 msgid "Use MPPE"
-msgstr "Использовать MPPE"
+msgstr "Použiť MPPE"
 
 #: ../modules/network/wireless/AddWireless.qml:8
 msgid "Connect to wireless"
-msgstr "Соединиться беспроводно"
+msgstr "Pripojiť bezdrôtovo"
 
 #: ../modules/network/wireless/AddWireless.qml:32
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:23
@@ -388,142 +385,142 @@ msgstr "SSID"
 #: ../modules/network/Info.qml:53
 #: ../modules/network/wireless/WifiHotspot.qml:49
 msgid "Security"
-msgstr "Безопасность"
+msgstr "Bezpečnosť"
 
 #: ../modules/network/wireless/AddWireless.qml:54
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:43
 #: ../modules/network/wireless/WifiHotspot.qml:59
 msgid "Key"
-msgstr "Ключ"
+msgstr "Kľúč"
 
 #: ../modules/network/wireless/AddWireless.qml:74
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:63
 msgid "EAP Auth"
-msgstr "EAP-аутентификация"
+msgstr "EAP autentizácia"
 
 #: ../modules/network/wireless/AddWireless.qml:84
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:73
 msgid "Identity"
-msgstr "Подлинность"
+msgstr "Identita"
 
 #: ../modules/network/wireless/AddWireless.qml:94
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:83
 msgid "Anonymous ID"
-msgstr "Анонимный ID"
+msgstr "Anonymné ID"
 
 #: ../modules/network/wireless/AddWireless.qml:124
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:113
 msgid "Provisioning"
-msgstr "Резервирование"
+msgstr "Provisioning"
 
 #: ../modules/network/wireless/AddWireless.qml:134
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:123
 msgid "PAC file"
-msgstr "PAC-файл"
+msgstr "PAC súbor"
 
 #: ../modules/network/wireless/AddWireless.qml:144
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:133
 msgid "PEAP Version"
-msgstr "Версия PEAP"
+msgstr "PEAP verzia"
 
 #: ../modules/network/wireless/AddWireless.qml:154
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:143
 msgid "Inner Auth"
-msgstr "Внутренняя аутентификация"
+msgstr "Inner autentizácia"
 
 #: ../modules/network/wireless/AddWireless.qml:224
 #: ../modules/network/widgets/PasswordBox.qml:109
 #: ../dock-applets/qml/WifiPasswordWindow.qml:178
 msgid "Connect"
-msgstr "Соединение"
+msgstr "Spojiť"
 
 #: ../modules/network/AppletSwitchArea.qml:40
 #: ../modules/power/AppletSwitchArea.qml:40
 #: ../modules/sound/AppletSwitchArea.qml:40
 msgid "Dock Applet Enabled"
-msgstr "Док-апплет включён"
+msgstr "Povoliť v Dock Applet"
 
 #: ../modules/account/AvatarPickDialog.qml:5
 msgid "Choose a new picture for your Avatar"
-msgstr "Выбирать новый рисунок для аватара"
+msgstr ""
 
 #: ../modules/account/AvatarView.qml:19
 msgid "Recently Used"
-msgstr "Недавно использованные"
+msgstr "Nedávno použité"
 
 #: ../modules/account/AvatarView.qml:20
 msgid "Avatar"
-msgstr "Аватар"
+msgstr ""
 
 #: ../modules/account/AvatarView.qml:21
 msgid "Webcam"
-msgstr "Веб-камера"
+msgstr "Webkamera"
 
 #: ../modules/sound/BalanceLine.qml:31
 msgid "Left/Right Balance"
-msgstr "Баланс Левый/Правый "
+msgstr ""
 
 #: ../modules/sound/BalanceLine.qml:53
 msgid "Left"
-msgstr "Левый"
+msgstr "Vľavo"
 
 #: ../modules/sound/BalanceLine.qml:55
 msgid "Right"
-msgstr "Правый"
+msgstr "Vpravo"
 
 #: ../modules/network/edit_autogen/BaseConnectionEdit.qml:43
 msgid "Automatically connect"
-msgstr "Соединятся втоматически"
+msgstr "Automaticky pripojiť"
 
 #: ../modules/date_time/Calendar.qml:129
 msgid "Today"
-msgstr "Сегодня"
+msgstr "Dnes"
 
 #: ../modules/date_time/CalendarComponent.qml:83
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:178
 msgid "Sun"
-msgstr "Вс"
+msgstr "Ne"
 
 #: ../modules/date_time/CalendarComponent.qml:84
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:179
 msgid "Mon"
-msgstr "Пн"
+msgstr "Po"
 
 #: ../modules/date_time/CalendarComponent.qml:85
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:180
 msgid "Tue"
-msgstr "Вт"
+msgstr "Ut"
 
 #: ../modules/date_time/CalendarComponent.qml:86
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:181
 msgid "Wed"
-msgstr "Ср"
+msgstr "St"
 
 #: ../modules/date_time/CalendarComponent.qml:87
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:182
 msgid "Thu"
-msgstr "Чт"
+msgstr "Št"
 
 #: ../modules/date_time/CalendarComponent.qml:88
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:183
 msgid "Fri"
-msgstr "Пт"
+msgstr "Pi"
 
 #: ../modules/date_time/CalendarComponent.qml:89
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:184
 msgid "Sat"
-msgstr "Сб"
+msgstr "So"
 
 #: ../modules/network/ConnectionAdd.qml:12
 msgid "New Network"
-msgstr "Новая сеть"
+msgstr "Nová sieť"
 
 #: ../modules/network/ConnectionAdd.qml:35
 #: ../modules/network/edit_autogen/EditSectionPppoe.qml:11
@@ -539,59 +536,59 @@ msgstr "VPN"
 
 #: ../modules/network/ConnectionAdd.qml:77
 msgid "Next"
-msgstr "Следующий"
+msgstr "Ďaľšie"
 
 #: ../modules/network/ConnectionEdit.qml:51
 msgid "Delete this network"
-msgstr "Удалить эту сеть"
+msgstr "Odstrániť túto sieť"
 
 #: ../modules/network/ConnectionEdit.qml:51
 msgid "Are you sure you want to delete this network?"
-msgstr "Вы действительно желаете удалить эту сеть?"
+msgstr "Ste si istý, že chcete odstrániť túto sieť?"
 
 #: ../modules/network/ConnectionEdit.qml:101
 #: ../modules/network/wireless/WifiHotspot.qml:91
 msgid "Save"
-msgstr "Сохранить"
+msgstr "Uložiť"
 
 #: ../modules/network/ConnectionEdit.qml:113 ../modules/network/Info.qml:79
 #: ../modules/date_time/StateButtons.qml:35
 #: ../modules/date_time/TimezoneArea.qml:257
 msgid "Close"
-msgstr "Закрыть"
+msgstr "Zavrieť"
 
 #: ../modules/network/ConnectionEdit.qml:134
 msgid "Delete"
-msgstr "Удалить"
+msgstr "Vymazať"
 
 #: ../modules/shortcuts/CustomKeybinding.qml:133
 msgid "Command"
-msgstr "Команда"
+msgstr "Príkaz"
 
 #: ../modules/account/DeleteUserDialog.qml:19
 msgid "Keep user's files"
-msgstr "Оставить файлы пользователя"
+msgstr "Zachovať užívateľove súbory"
 
 #: ../modules/account/DeleteUserDialog.qml:20
 msgid "Delete user's files"
-msgstr "Удалить файлы пользователя"
+msgstr "Vymazať užívateľove súbory"
 
 #: ../dock-applets/qml/disk_mount/DiskItem.qml:124
 msgid "Unmount failed!"
-msgstr "Отмонтирование неудачно!"
+msgstr "Odpojenie zlyhalo!"
 
 #: ../modules/network/dsl/DslExpand.qml:19
 msgid "PPPoE Connections"
-msgstr "PPPoE-соединения"
+msgstr "PPPoE Spojenia"
 
 #: ../modules/network/edit/EditLineMissingPackage.qml:15
 #, qt-format
 msgid "Current system lacks component for %1"
-msgstr "Текущей системе не хватает компонента для %1"
+msgstr "Aktuálny systém potrebuje komponentu pre %1"
 
 #: ../modules/network/edit/EditLineMissingPackage.qml:22
 msgid "Click to install"
-msgstr "Нажать для установки"
+msgstr "Kliknite pre inštaláciu"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:11
 #: ../modules/network/main.qml:196
@@ -601,17 +598,17 @@ msgstr "Ethernet"
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:23
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:65
 msgid "Device MAC Addr"
-msgstr "MAC-адрес устройства"
+msgstr "Device MAC Addr"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:33
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:75
 msgid "Cloned MAC Addr"
-msgstr "Клонированный MAC-адрес"
+msgstr "Cloned MAC Addr"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:43
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:85
 msgid "Customize MTU"
-msgstr "Настроить MTU"
+msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:53
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:107
@@ -626,22 +623,22 @@ msgstr "IPv4"
 #: ../modules/network/edit_autogen/EditSectionIpv4.qml:23
 #: ../modules/network/edit_autogen/EditSectionIpv6.qml:23
 msgid "Method"
-msgstr "Метод"
+msgstr "Metóda"
 
 #: ../modules/network/edit_autogen/EditSectionIpv4.qml:33
 #: ../modules/network/edit_autogen/EditSectionIpv6.qml:33
 #: ../modules/network/Info.qml:55
 msgid "IP Address"
-msgstr "IP-адрес"
+msgstr "IP adresa"
 
 #: ../modules/network/edit_autogen/EditSectionIpv4.qml:44
 msgid "Netmask"
-msgstr "Маска сети"
+msgstr "Maska"
 
 #: ../modules/network/edit_autogen/EditSectionIpv4.qml:69
 #: ../modules/network/edit_autogen/EditSectionIpv6.qml:65
 msgid "DNS Server"
-msgstr "DNS-сервер"
+msgstr "DNS server"
 
 #: ../modules/network/edit_autogen/EditSectionIpv6.qml:11
 msgid "IPv6"
@@ -649,24 +646,24 @@ msgstr "IPv6"
 
 #: ../modules/network/edit_autogen/EditSectionIpv6.qml:43
 msgid "Prefix"
-msgstr "Префикс"
+msgstr "Prefix"
 
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:11
 #: ../modules/network/main.qml:206
 msgid "Mobile"
-msgstr "Мобильная"
+msgstr "Mobilná"
 
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:73
 msgid "Network ID"
-msgstr "ID сети"
+msgstr "Network ID"
 
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:83
 msgid "Type"
-msgstr "Тип"
+msgstr "Typ"
 
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:93
 msgid "Home Network Only"
-msgstr "Только домашняя сеть"
+msgstr "Iba domáca sieť"
 
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:103
 msgid "PIN"
@@ -678,76 +675,76 @@ msgstr "PPP"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:34
 msgid "128-bit MPPE"
-msgstr "128-бит. MPPE"
+msgstr "128-bit MPPE"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:45
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:43
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:43
 msgid "Stateful MPPE"
-msgstr "MPPE с сохранением"
+msgstr "Stateful MPPE"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:55
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:53
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:53
 msgid "Refuse EAP Authentication"
-msgstr "Отвергать аутентификацию EAP"
+msgstr "Odmietnuť EAP Autentizáciu"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:65
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:64
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:64
 msgid "Refuse PAP Authentication"
-msgstr "Отвергать аутентификацию PAP"
+msgstr "Odmietnuť PAP Autentizáciu"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:75
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:75
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:75
 msgid "Refuse CHAP Authentication"
-msgstr "Отвергать аутентификацию CHAP"
+msgstr "Odmietnuť CHAP Autentizáciu"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:85
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:86
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:86
 msgid "Refuse MSCHAP Authentication"
-msgstr "Отвергать аутентификацию MSCHAP"
+msgstr "Odmietnuť MSCHAP Autentizáciu"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:95
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:97
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:97
 msgid "Refuse MSCHAPv2 Authentication"
-msgstr "Отвергать аутентификацию MSCHAPv2"
+msgstr "Odmietnuť MSCHAPv2 Autentizáciu"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:105
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:108
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:107
 msgid "No BSD Data Compression"
-msgstr "Нет сжатия данных BSD"
+msgstr "Žiadna BSD Data kompresia"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:115
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:118
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:117
 msgid "No Deflate Data Compression"
-msgstr "Нет сжатия данных Deflate"
+msgstr "Žiadna Deflate Data kompresia"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:125
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:128
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:127
 msgid "No TCP Header Compression"
-msgstr "Нет сжатия TCP-заголовков"
+msgstr "Žiadna TCP Header kompresia"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:135
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:158
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:137
 msgid "Send PPP Echo Packets"
-msgstr "Отправка эхо-пакетов PPP"
+msgstr "Odoslať PPP Echo pakety"
 
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:23
 msgid "Security Required"
-msgstr "Требование безопасности"
+msgstr "Požadovaná bezpečnosť"
 
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:74
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:354
 msgid "NT Domain"
-msgstr "NT-домен"
+msgstr "NT doména"
 
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:11
 msgid "VPN IPsec"
@@ -760,149 +757,149 @@ msgstr "VPN PPP"
 
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:138
 msgid "No Protocol Field Compression"
-msgstr "Без протокола полевого сжатия"
+msgstr "Žiadna Protocol Field kompresia"
 
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:148
 msgid "No Address/Control Compression"
-msgstr "Без адреса/Управление сжатием"
+msgstr "Žiadna Addres/Control kompresia"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:11
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:11
 msgid "VPN Advanced"
-msgstr "Расширенный VPN"
+msgstr "Pokročilé VPN"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:33
 msgid "Gateway Port"
-msgstr "Порт шлюза"
+msgstr "Port brány"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:23
 msgid "Customize Gateway Port"
-msgstr "Настройка порта шлюза"
+msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:45
 msgid "Customize Renegotiation Interval"
-msgstr "Настроить Интервал Пересмотра"
+msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:55
 msgid "Renegotiation Interval"
-msgstr "Интервал повторного согласования"
+msgstr "Renegotiation interval"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:67
 msgid "Use LZO data compression"
-msgstr "Использовать LZO-сжатие"
+msgstr "Použiť LZO data kompresiu"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:77
 msgid "Use TCP connection"
-msgstr "Использовать TCP-соединение"
+msgstr "Použiť TCP spojenie"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:87
 msgid "Use TAP device"
-msgstr "Использовать TAP-устройство"
+msgstr "Použiť TAP zariadenie"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:97
 msgid "Customize Tunnel MTU"
-msgstr "Настроить туннель MTU"
+msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:119
 msgid "Customize UDP Fragment Size"
-msgstr "Настройте размер фрагмента UDP"
+msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
 msgid "UDP Fragment Size"
-msgstr "Размер фрагмента UDP"
+msgstr "UDP Fragment veľkosť"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:141
 msgid "Restrict Tunnel TCP MSS"
-msgstr "Ограничить туннель TCP MSS"
+msgstr "Restrict Tunnel TCP MSS"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:151
 msgid "Randomize Remote Hosts"
-msgstr "Перемешать удаленные хосты"
+msgstr "Náhodné vzdialené hosty"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:11
 msgid "VPN Proxies"
-msgstr "VPN-прокси"
+msgstr "VPN proxy"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:23
 msgid "Proxy Type"
-msgstr "Тип прокси"
+msgstr "Typ proxy"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:33
 msgid "Server IP"
-msgstr "IP сервера"
+msgstr "Server IP"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:43
 #: ../modules/network/proxy/ProxyLine.qml:39
 msgid "Port"
-msgstr "Порт"
+msgstr "Port"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:55
 msgid "Retry Indefinitely When Failed"
-msgstr "Повторять бесконечно при неудаче"
+msgstr "Skúsiť znovu, ak dôjde k zlyhaniu"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:11
 msgid "VPN Security"
-msgstr "Безопасность VPN"
+msgstr "VPN bezpečnosť"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:23
 msgid "Cipher"
-msgstr "Шифр"
+msgstr "šifra"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:33
 msgid "HMAC Auth"
-msgstr "Аутентификация HMAC"
+msgstr "HMAC autentizácia"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:11
 msgid "VPN TLS Authentication"
-msgstr "Айтентификация VPN TLS"
+msgstr "VPN TLS autentizácia"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:23
 msgid "Subject Match"
-msgstr "Тема беседы"
+msgstr "Subject Match"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:33
 msgid "Remote Cert Type"
-msgstr "Удаленный тип сертификата"
+msgstr "Typ vzdialeného certifikátu"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:43
 msgid "Key File"
-msgstr "Файл ключа"
+msgstr "Súbor s kľúčom"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:23
 msgid "Domain"
-msgstr "Домен"
+msgstr "Doména"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:33
 msgid "Vendor"
-msgstr "Поставщик"
+msgstr "Vendor"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:43
 msgid "Version"
-msgstr "Версия"
+msgstr "Verzia"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:53
 msgid "Encryption"
-msgstr "Шифрование"
+msgstr "Kódovanie"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:63
 msgid "NAT Traversal"
-msgstr "NAT-обход"
+msgstr "NAT Traversal"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:73
 msgid "IKE DH Group"
-msgstr "Группа IKE DH"
+msgstr "IKE DH Group"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:83
 msgid "Forward Secrecy"
-msgstr "Прямая секретность"
+msgstr "Forward Secrecy"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:93
 msgid "Local Port"
-msgstr "Локальный порт"
+msgstr "Lokálny port"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:105
 msgid "Disable Dead Peer Detection"
-msgstr "Отключить обнаружение мертвых пиров"
+msgstr "Zakázať Dead Peer detekciu"
 
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:11
 msgid "Wi-Fi"
@@ -910,128 +907,128 @@ msgstr "Wi-Fi"
 
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:33
 msgid "Mode"
-msgstr "Режим"
+msgstr "Režim"
 
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:43
 msgid "Band"
-msgstr "Диапазон"
+msgstr "Pásmo"
 
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:54
 msgid "Channel"
-msgstr "Канал"
+msgstr "Kanál"
 
 #: ../modules/account/EditUserDialog.qml:90
 msgid "Enable"
-msgstr "Включить"
+msgstr "Povoliť"
 
 #: ../modules/sound/FadeLine.qml:31
 msgid "Front/Rear Balance"
-msgstr "Баланс Передний/Задний"
+msgstr ""
 
 #: ../modules/sound/FadeLine.qml:55
 msgid "Front"
-msgstr "Передний"
+msgstr ""
 
 #: ../modules/sound/FadeLine.qml:53
 msgid "Rear"
-msgstr "Задний"
+msgstr ""
 
 #: ../modules/personalization/components/FontSettingsExpand.qml:36
 msgid "Size"
-msgstr "Размер"
+msgstr "Veľkosť"
 
 #: ../modules/personalization/components/FontSettingsExpand.qml:65
 #, qt-format
 msgid "Font %1"
-msgstr "Шрифт %1"
+msgstr "Font %1"
 
 #: ../modules/account/GuestUser.qml:40 ../qt5frame/views/HeaderArea.qml:108
 msgid "Guest"
-msgstr "Гость"
+msgstr "Hosť"
 
 #: ../modules/account/GuestUser.qml:101
 #: ../modules/display/MonitorProperties.qml:80
 msgid "Enabled"
-msgstr "Включено"
+msgstr "Povolené"
 
 #: ../modules/network/Info.qml:13
 msgid "Activated Connections"
-msgstr "Доступные подключения"
+msgstr "Aktivované spojenia"
 
 #: ../modules/network/Info.qml:15
 msgid "None Activated Connection"
-msgstr "Без активных подключений"
+msgstr "Žiadne aktivované spojenia"
 
 #: ../modules/network/Info.qml:39
 msgid "(default)"
-msgstr "(по умолчанию)"
+msgstr "(predvolené)"
 
 #: ../modules/network/Info.qml:50
 msgid "Interface"
-msgstr "Интерфейс"
+msgstr "Rozhranie"
 
 #: ../modules/network/Info.qml:54
 msgid "Device Addr"
-msgstr "Адрес устройства"
+msgstr "Adresa zariadenia"
 
 #: ../modules/network/Info.qml:56
 msgid "Subnet Mask"
-msgstr "Маска подсети"
+msgstr "Maska podsiete"
 
 #: ../modules/network/Info.qml:57
 msgid "Route Addr"
-msgstr "Адрес Маршрута"
+msgstr "Adresa cesty"
 
 #: ../modules/network/Info.qml:58
 msgid "Primary DNS"
-msgstr "Основной DNS"
+msgstr "Primárny DNS"
 
 #: ../modules/network/Info.qml:59
 msgid "Secondary DNS"
-msgstr "Вторичный DNS"
+msgstr "Sekundárny DNS"
 
 #: ../modules/network/Info.qml:60
 msgid "Third DNS"
-msgstr "Третий DNS"
+msgstr ""
 
 #: ../modules/network/Info.qml:69
 msgid "Device Speed"
-msgstr "Скорость устройства"
+msgstr "Rýchlosť zariadenia"
 
 #: ../modules/keyboard/LocaleArea.qml:53
 msgid "Language"
-msgstr "Язык"
+msgstr "Jazyk"
 
 #: ../modules/display/MessageBox.qml:102
 msgid "Do you want to keep these display settings?"
-msgstr "Желаете оставить эти настройки дисплея?"
+msgstr "Chcete ponechať tieto nastavenia zobrazovania?"
 
 #: ../modules/display/MessageBox.qml:111
 #, qt-format
 msgid ""
 "Reverting to previous display settings in <font color='#F48914'>%1</font> "
 "seconds."
-msgstr "Возврат к прежним настройкам дисплея через <font color='#F48914'>%1</font> сек."
+msgstr "Vrátenie k predošlému nastaveniu zobrazenia za <font color='#F48914'>%1</font> sekúnd."
 
 #: ../modules/display/MessageBox.qml:124
 msgid "Keep Changes"
-msgstr "Оставить изменения"
+msgstr "Ponechať zmeny"
 
 #: ../modules/display/MessageBox.qml:137
 msgid "Revert"
-msgstr "Вернуться"
+msgstr "Vrátiť"
 
 #: ../qt5frame/views/ModulesData.qml:52 ../dock-applets/qml/main.qml:54
 msgid "Date and Time"
-msgstr "Дата и время"
+msgstr "Čas a dátum"
 
 #: ../qt5frame/views/ModulesData.qml:53 ../dock-applets/qml/main.qml:50
 msgid "Network"
-msgstr "Сеть"
+msgstr "Sieť"
 
 #: ../qt5frame/views/ModulesData.qml:54 ../dock-applets/qml/main.qml:53
 msgid "Disk Mount"
-msgstr "Монтирование диска"
+msgstr "Pripojiť disk"
 
 #: ../qt5frame/views/ModulesData.qml:55 ../modules/network/main.qml:172
 msgid "Bluetooth"
@@ -1039,287 +1036,287 @@ msgstr "Bluetooth"
 
 #: ../qt5frame/views/ModulesData.qml:56 ../dock-applets/qml/main.qml:51
 msgid "Sound"
-msgstr "Звук"
+msgstr "Zvuk"
 
 #: ../qt5frame/views/ModulesData.qml:57
 msgid "Power Management"
-msgstr "Управление питанием"
+msgstr "Správa energie"
 
 #: ../qt5frame/views/ModulesData.qml:58
 msgid "More Settings"
-msgstr "Ещё настройки"
+msgstr "Viac nastavení"
 
 #: ../qt5frame/views/ModulesData.qml:59 ../qt5frame/views/PanelContent.qml:410
 #: ../dock-applets/qml/main.qml:52
 msgid "Power"
-msgstr "Питание"
+msgstr "Energia"
 
 #: ../qt5frame/views/ModulesData.qml:60
 msgid "Display"
-msgstr "Дисплей"
+msgstr "Zobraziť"
 
 #: ../qt5frame/views/ModulesData.qml:61
 msgid "Desktop"
-msgstr "Рабочий стол"
+msgstr "Pracovné prostredie"
 
 #: ../qt5frame/views/ModulesData.qml:62
 msgid "Personalization"
-msgstr "Персонализация"
+msgstr "Personalizácia"
 
 #: ../qt5frame/views/ModulesData.qml:63
 msgid "Keyboard Shortcuts"
-msgstr "Cочетания клавиш"
+msgstr "Klávesové skratky"
 
 #: ../qt5frame/views/ModulesData.qml:64
 msgid "Keyboard and Language"
-msgstr "Язык и раскладка"
+msgstr ""
 
 #: ../qt5frame/views/ModulesData.qml:65
 msgid "Mouse and Touchpad"
-msgstr "Мышь и Тачпад"
+msgstr "Myš a Touchpad"
 
 #: ../qt5frame/views/ModulesData.qml:66 ../modules/mouse_touchpad/main.qml:53
 msgid "Mouse"
-msgstr "Мышь"
+msgstr "Myš"
 
 #: ../qt5frame/views/ModulesData.qml:67
 msgid "User Accounts"
-msgstr "Учетные записи"
+msgstr "Používateľské účty"
 
 #: ../qt5frame/views/ModulesData.qml:68
 #: ../modules/default_applications/main.qml:62
 msgid "Default Applications"
-msgstr "Приложения по умолчанию"
+msgstr "Predvolené programy"
 
 #: ../qt5frame/views/ModulesData.qml:69
 msgid "System Information"
-msgstr "Информация о системе"
+msgstr "Informácie o systéme"
 
 #: ../qt5frame/views/ModulesData.qml:70
 msgid "Boot Menu"
-msgstr "Меню загрузки"
+msgstr "Bootovacie menu"
 
 #: ../qt5frame/views/ModulesData.qml:71
 msgid "Home"
-msgstr "Домашняя"
+msgstr "Domov"
 
 #: ../modules/display/MonitorComponent.qml:185
 msgid "Split"
-msgstr "Сплит"
+msgstr ""
 
 #: ../modules/display/MonitorComponent.qml:236
 msgid "Set as primary display"
-msgstr "Установить как главный дисплей"
+msgstr "Nastaviť ako primárny display"
 
 #: ../modules/display/MonitorDragArea.qml:463
 msgid "Identify"
-msgstr "Идентификация"
+msgstr "Identifikovať"
 
 #: ../modules/display/MonitorDragArea.qml:480
 msgid "Edit"
-msgstr "Редактировать"
+msgstr "Upraviť"
 
 #: ../modules/display/MonitorProperties.qml:47
 msgid "Normal"
-msgstr "Нормальный"
+msgstr "Normálny"
 
 #: ../modules/display/MonitorProperties.qml:48
 msgid "Rotate Right"
-msgstr "Повернуть вправо"
+msgstr "Otočiť vpravo"
 
 #: ../modules/display/MonitorProperties.qml:49
 msgid "Upside Down"
-msgstr "Перевернуть"
+msgstr "Hore nohami"
 
 #: ../modules/display/MonitorProperties.qml:50
 msgid "Rotate Left"
-msgstr "Повернуть влево"
+msgstr "Otočiť vľavo"
 
 #: ../modules/display/MonitorProperties.qml:112
 msgid "Resolution"
-msgstr "Разрешение"
+msgstr "Rozlíšenie"
 
 #: ../modules/display/MonitorProperties.qml:165
 msgid "Rotation"
-msgstr "Вращение"
+msgstr "Otočenie"
 
 #: ../modules/display/MonitorProperties.qml:206
 msgid "Brightness"
-msgstr "Яркость"
+msgstr "Jas"
 
 #: ../modules/network/wired/NewItem.qml:45
 #: ../modules/network/wired/WiredItem.qml:89
 #, qt-format
 msgid "Wired Connection %1"
-msgstr "Проводная сеть %1"
+msgstr "Káblové pripojenie %1"
 
 #: ../modules/network/wired/NewItem.qml:47
 #: ../modules/network/wired/WiredItem.qml:91
 msgid "Wired Connection"
-msgstr "Проводное соединение"
+msgstr ""
 
 #: ../modules/network/widgets/NotManagedSection.qml:25
 msgid "not managed"
-msgstr "не управляемый"
+msgstr ""
 
 #: ../modules/network/widgets/PasswordBox.qml:76
 msgid "Password: "
-msgstr "Пароль:"
+msgstr "Heslo:"
 
 #: ../modules/account/PasswordDialog.qml:114
 msgid "New Password"
-msgstr "Новый пароль"
+msgstr "Nové heslo"
 
 #: ../modules/account/PasswordDialog.qml:159
 msgid "Repeat"
-msgstr "Повторить"
+msgstr "Opakovať"
 
 #: ../modules/grub/Preview.qml:122
 msgid "Drag and drop an image to change background."
-msgstr "Перетащите изображение для смены фона"
+msgstr "Uchop a pusti obrázok pre zmenu pozadia"
 
 #: ../modules/grub/Preview.qml:123
 msgid "Image format not supported."
-msgstr "Неподдерживаемый формат изображения."
+msgstr ""
 
 #: ../modules/grub/Preview.qml:124
 msgid "Updating..."
-msgstr "Обновление..."
+msgstr "Obnovuje sa..."
 
 #: ../modules/grub/Preview.qml:125
 msgid "Successfully updated, reboot to view."
-msgstr "Успешное обновление, перезагрузите чтобы увидеть."
+msgstr "Úspešne aktualizované, reštartujte pre zobrazenie."
 
 #: ../modules/network/proxy/ProxyContent.qml:43
 msgid "None"
-msgstr "Ничего"
+msgstr "Žiadne"
 
 #: ../modules/network/proxy/ProxyContent.qml:48
 msgid "Manual"
-msgstr "Руководство"
+msgstr "Ručné"
 
 #: ../modules/network/proxy/ProxyContent.qml:53
 msgid "Auto"
-msgstr "Авто"
+msgstr "Automatické"
 
 #: ../modules/network/proxy/ProxyContent.qml:88
 msgid "HTTP Proxy"
-msgstr "HTTP-прокси"
+msgstr "HTTP Proxy"
 
 #: ../modules/network/proxy/ProxyContent.qml:100
 msgid "HTTPS Proxy"
-msgstr "HTTPS-прокси"
+msgstr "HTTPS Proxy"
 
 #: ../modules/network/proxy/ProxyContent.qml:112
 msgid "FTP Proxy"
-msgstr "FTP-прокси"
+msgstr "Proxy FTP"
 
 #: ../modules/network/proxy/ProxyContent.qml:124
 msgid "Socks Proxy"
-msgstr "Socks прокси"
+msgstr "Proxy SOCKS"
 
 #: ../modules/network/proxy/ProxyContent.qml:149
 msgid "Configuration URL"
-msgstr "URL конфигурации"
+msgstr "Konfigurácia URL"
 
 #: ../modules/network/proxy/ProxyContent.qml:166
 msgid "Apply system wide"
-msgstr "Применить для всей системы"
+msgstr "Aplikovať na celý systém"
 
 #: ../modules/network/proxy/ProxyExpand.qml:37
 msgid "System Proxy"
-msgstr "Системный прокси"
+msgstr "System Proxy"
 
 #: ../modules/shared/ResetButton.qml:39
 msgid "Reset successfully"
-msgstr "Успешный сброс"
+msgstr "Reset succesfully"
 
 #: ../modules/shared/ResetButton.qml:47
 msgid "Reset"
-msgstr "Сброс"
+msgstr "Nastaviť znovu"
 
 #: ../modules/shortcuts/ShortcutInput.qml:108
 msgid "Disable"
-msgstr "Отключить"
+msgstr "Zakázať"
 
 #: ../modules/shortcuts/ShortcutInput.qml:126
 msgid "Please input new shortcut"
-msgstr "Пожалуйста, введите новые сочетания клавиш"
+msgstr "Prosím, vložte novú skratku"
 
 #: ../modules/shortcuts/ShortcutInput.qml:226
 #, qt-format
 msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
-msgstr "Сочетание «%1» некорректно, попробуйте новое."
+msgstr "Skratka \"%1\" je neplatná, prosím vložte novú skratku. "
 
 #: ../modules/shortcuts/ShortcutInput.qml:264
 msgid "The shortcut you set "
-msgstr "Установленные вами сочетания"
+msgstr "Skratka, ktorú ste nastavili"
 
 #: ../modules/shortcuts/ShortcutInput.qml:267
 #, qt-format
 msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
-msgstr "конфликты с используемым для \"%2\" в категории \"%1\""
+msgstr "je v konflikte s použitou \"%2\" v \"%1\" kategórii. "
 
 #: ../modules/shortcuts/ShortcutInput.qml:269
 msgid "Do you want to replace it?"
-msgstr "Желаете заменить?"
+msgstr "Chcete nahradiť?"
 
 #: ../modules/shortcuts/ShortcutInput.qml:327
 msgid "Replace"
-msgstr "Заменить"
+msgstr "Premiestniť"
 
 #: ../modules/personalization/widgets/ShowPreviewButton.qml:53
 msgid "Preview Theme"
-msgstr "Предпросмотр темы"
+msgstr "Ukážka témy"
 
 #: ../modules/date_time/StateButtons.qml:34
 #: ../modules/keyboard/StateButtons.qml:34
 #: ../modules/shortcuts/StateButtons.qml:38
 msgid "Done"
-msgstr "Выполнено"
+msgstr "Hotovo"
 
 #: ../modules/personalization/widgets/ThemeItem.qml:95
 #: ../dock-applets/qml/power/main.qml:46 ../modules/power/main.qml:268
 #: ../modules/power/main.qml:443 ../modules/shortcuts/main.qml:53
 #: ../modules/shortcuts/main.qml:225
 msgid "Custom"
-msgstr "Собстенный"
+msgstr "Vlastný"
 
 #: ../modules/date_time/TimeBox.qml:161
 msgid "Double-click the above digits to change your time."
-msgstr "Двойной клик по цифрам выше для изменения времени"
+msgstr "Dvoj-klik na vyššie uvedené čísla pre zmenu času"
 
 #: ../modules/date_time/TimeBox.qml:196
 msgid "Set"
-msgstr "Установить"
+msgstr "Nastaviť"
 
 #: ../modules/date_time/TimezoneArea.qml:101
 msgid "Time zone"
-msgstr "Часовой пояс"
+msgstr "Časové pásmo"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:50
 msgid "Touchpad"
-msgstr "Тачпад"
+msgstr "Touchpad"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:82
 #: ../modules/mouse_touchpad/main.qml:70
 msgid "Primary Button"
-msgstr "Основная кнопка"
+msgstr "Primárne tlačidlo"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:91
 #: ../modules/mouse_touchpad/main.qml:78
 msgid "Left Button"
-msgstr "Левая кнопка"
+msgstr "Ľavé tlačidlo"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:92
 #: ../modules/mouse_touchpad/main.qml:79
 msgid "Right Button"
-msgstr "Правая кнопка"
+msgstr "Pravé tlačidlo"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:117
 #: ../modules/mouse_touchpad/main.qml:104
 msgid "Pointer Speed"
-msgstr "Скорость указателя"
+msgstr "Rýchlosť kurzora"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:134
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:171
@@ -1327,7 +1324,7 @@ msgstr "Скорость указателя"
 #: ../modules/mouse_touchpad/main.qml:120
 #: ../modules/mouse_touchpad/main.qml:156
 msgid "Slow"
-msgstr "Медленнее"
+msgstr "Pomaly"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:135
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:172
@@ -1335,104 +1332,104 @@ msgstr "Медленнее"
 #: ../modules/mouse_touchpad/main.qml:121
 #: ../modules/mouse_touchpad/main.qml:157
 msgid "Fast"
-msgstr "Быстрее"
+msgstr "Rýchlo"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:154
 #: ../modules/mouse_touchpad/main.qml:140
 msgid "Double-click Speed"
-msgstr "Скорость двойного клика"
+msgstr "Rýchlosť dvoj-kliku"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:192
 msgid "Drag Threshold"
-msgstr "Порог перетаскивания"
+msgstr "Prah ťahania"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:208
 #: ../modules/keyboard/main.qml:128
 msgid "Short"
-msgstr "Короче"
+msgstr "Krátke"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:209
 #: ../modules/keyboard/main.qml:129
 msgid "Long"
-msgstr "Длиннее"
+msgstr "Dlhé"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:228
 msgid "Natural Scrolling"
-msgstr "Натуральная прокрутка"
+msgstr "Prirodzené skrolovanie"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:252
 msgid "Tap to click"
-msgstr "Коснитесь для клика"
+msgstr "Ťuknúť pre kliknutie"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:275
 msgid "Two-finger scrolling"
-msgstr "Прокрутка двумя пальцами"
+msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:298
 msgid "Edge scrolling"
-msgstr "Прокрутка у края"
+msgstr ""
 
 #: ../modules/network/vpn/VpnExpand.qml:48
 msgid "VPN Connections"
-msgstr "VPN-соединения"
+msgstr "VPN spojenia"
 
 #: ../modules/account/WebCam.qml:125 ../modules/account/WebCam.qml:140
 msgid "Snapshot"
-msgstr "Снимок"
+msgstr "Snímka"
 
 #: ../modules/account/WebCam.qml:136
 msgid "Again"
-msgstr "Снова"
+msgstr "Znovu"
 
 #: ../modules/account/WebCam.qml:175
 msgid "No camera found."
-msgstr "Камера не найдена."
+msgstr "Nenájdený žiadny fotoaparát"
 
 #: ../modules/network/wireless/WifiHotspot.qml:23
 msgid "Edit Wi-Fi Hotspot"
-msgstr "Редактировать Wi-Fi хот-спот"
+msgstr "Upraviť Wi-Fi Hotspot"
 
 #: ../modules/network/wireless/WifiHotspot.qml:23
 msgid "Create Wi-Fi Hotspot"
-msgstr "Создать Wi-Fi хот-спот"
+msgstr "Vytvoriť Wi-Fi Hotspot"
 
 #: ../modules/network/wireless/WifiHotspot.qml:91
 msgid "Create"
-msgstr "Создать"
+msgstr "Vytvoriť"
 
 #: ../dock-applets/qml/WifiPasswordWindow.qml:127
 msgid "Authentication required by Wi-Fi network"
-msgstr "Требуется аутентификация для Wi-Fi-сети"
+msgstr "Požadovaná autentizácia sieťou Wi-Fi"
 
 #: ../dock-applets/qml/WifiPasswordWindow.qml:135
 #, qt-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network <font "
 "color=\"#faca57\">%1</font>"
-msgstr "Для доступа к Wi-Fi-сети <font color=\"#faca57\">%1</font> требуются пароли или ключи шифрования"
+msgstr "Heslá alebo kódovacie kľúče sú potrebné na sprístupnenie Wi-Fi siete <font color=\"#faca57\">%1</font>"
 
 #: ../dock-applets/qml/WifiPasswordWindow.qml:149
 msgid "Password:"
-msgstr "Пароль:"
+msgstr "Heslo:"
 
 #: ../modules/network/wired/WiredDeviceExpand.qml:37
 msgid "Wired Network"
-msgstr "Проводная сеть"
+msgstr "Drôtová sieť"
 
 #: ../dock-applets/qml/network/WirelessApList.qml:95
 msgid "Scanning..."
-msgstr "Сканирование…"
+msgstr "Hľadanie..."
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:28
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 msgid "Wireless Network"
-msgstr "Беспроводная сеть"
+msgstr "Bezdrôtová sieť"
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:26
 #: ../dock-applets/qml/network/WirelessNetwork.qml:50
 #, qt-format
 msgid "Wireless Network %1"
-msgstr "Беспроводная сеть %1"
+msgstr "Bezdrôtová sieť %1"
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:55
 msgid ""
@@ -1441,251 +1438,251 @@ msgid ""
 "1. The hardware switch of wireless network card is off\n"
 "2. Incorrect network configuration in /etc/network/interface\n"
 "3. Incorrect driver of network hardware"
-msgstr "Беспроводная сеть не может быть подключена, вероятные причины:\n\n1. Отключён аппаратный ключ беспроводной карты\n2. Неверная конфигурация сети в /etc/network/interface\n3. Некорректный драйвер сетевого оборудования"
+msgstr ""
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:35
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:158
 msgid "Connect to hidden access point"
-msgstr "Подключение к скрытой точке доступа"
+msgstr "Pripojiť k skrytému bodu prístupu"
 
 #: ../dock-applets/qml/date_time/main.qml:90
 msgid "_Switch to analog"
-msgstr "_Переключить на аналоговый"
+msgstr "_Prepnúť na analóg"
 
 #: ../dock-applets/qml/date_time/main.qml:91
 msgid "_Switch to digital"
-msgstr "_Переключить на цифровой"
+msgstr "_Prepnúť na digitál"
 
 #: ../dock-applets/qml/network/main.qml:319
 #: ../dock-applets/qml/power/main.qml:99
 #: ../dock-applets/qml/sound/main.qml:183
 msgid "_Run"
-msgstr "Запуск"
+msgstr "_Spustiť"
 
 #: ../dock-applets/qml/power/main.qml:34
 msgid "On Charging"
-msgstr "При зарядке"
+msgstr "Nabíjanie"
 
 #: ../dock-applets/qml/power/main.qml:47 ../modules/power/main.qml:256
 #: ../modules/power/main.qml:431
 msgid "Power saver"
-msgstr "Экономичный"
+msgstr "Šetrič energie"
 
 #: ../dock-applets/qml/power/main.qml:48 ../modules/power/main.qml:250
 #: ../modules/power/main.qml:425
 msgid "Balanced"
-msgstr "Сбалансированный"
+msgstr "Vyvážený"
 
 #: ../dock-applets/qml/power/main.qml:49 ../modules/power/main.qml:262
 #: ../modules/power/main.qml:437
 msgid "High performance"
-msgstr "Высокая производительность"
+msgstr "Vysoký výkon"
 
 #: ../dock-applets/qml/network/main.qml:320
 #: ../dock-applets/qml/power/main.qml:106
 #: ../dock-applets/qml/sound/main.qml:184
 msgid "_Undock"
-msgstr "_Разблокировать"
+msgstr "_Odstrániť z docku"
 
 #: ../dock-applets/qml/sound/main.qml:219
 msgid "Device"
-msgstr "Устройство"
+msgstr "Zariadenie"
 
 #: ../dock-applets/qml/sound/main.qml:313
 msgid "Applications"
-msgstr "Приложения"
+msgstr "Aplikácie"
 
 #: ../modules/bluetooth/main.qml:76
 msgid "ON/OFF"
-msgstr "Вкл/Выкл"
+msgstr "Zap/Vyp"
 
 #: ../modules/bluetooth/main.qml:141
 msgid "Devices nearby"
-msgstr "Устройства поблизости"
+msgstr "Blízke zariadenia"
 
 #: ../modules/date_time/main.qml:93
 msgid "Automatic date and time"
-msgstr "Дата и время автоматически"
+msgstr "Automatický dátum a čas"
 
 #: ../modules/date_time/main.qml:109
 msgid "Use 24-hour clock"
-msgstr "24-часовой формат"
+msgstr "Použiť 24-hodinový čas"
 
 #: ../modules/date_time/main.qml:139
 msgid "Date"
-msgstr "Дата"
+msgstr "Dátum"
 
 #: ../modules/date_time/main.qml:143
 msgid "Set Date"
-msgstr "Установить дату"
+msgstr "Nastaviť dátum"
 
 #: ../modules/default_applications/main.qml:74
 msgid "Browser"
-msgstr "Браузер"
+msgstr "Prehliadač"
 
 #: ../modules/default_applications/main.qml:88
 msgid "Mail"
-msgstr "Почта"
+msgstr "Pošta"
 
 #: ../modules/default_applications/main.qml:99
 msgid "Text"
-msgstr "Текст"
+msgstr "Text"
 
 #: ../modules/default_applications/main.qml:105
 msgid "Music"
-msgstr "Музыка"
+msgstr "Hudba"
 
 #: ../modules/default_applications/main.qml:136
 msgid "Video"
-msgstr "Видео"
+msgstr "Video"
 
 #: ../modules/default_applications/main.qml:168
 msgid "Picture"
-msgstr "Изображения"
+msgstr "Obrázok"
 
 #: ../modules/default_applications/main.qml:186
 msgid "Terminal"
-msgstr "Терминал"
+msgstr "Terminál"
 
 #: ../modules/default_applications/main.qml:245
 msgid "AutoPlay"
-msgstr "Автозапуск"
+msgstr "Automaticky prehrať"
 
 #: ../modules/default_applications/main.qml:260
 msgid "CD Audio"
-msgstr "CD-аудио"
+msgstr "CD Audio"
 
 #: ../modules/default_applications/main.qml:265
 msgid "DVD Video"
-msgstr "DVD-видео"
+msgstr "DVD Video"
 
 #: ../modules/default_applications/main.qml:270
 msgid "Music Player"
-msgstr "Аудиоплеер"
+msgstr "Hudobný prehrávač"
 
 #: ../modules/default_applications/main.qml:275
 msgid "Camera"
-msgstr "Камера"
+msgstr "Kamera"
 
 #: ../modules/default_applications/main.qml:280
 msgid "Software"
-msgstr "Программное обеспечение"
+msgstr "Softvér"
 
 #: ../modules/display/main.qml:117
 msgid "Primary Monitor: "
-msgstr "Главный монитор:"
+msgstr "Primárna obrazovka:"
 
 #: ../modules/display/main.qml:148
 msgid "Monitor"
-msgstr "Монитор"
+msgstr "Obrazovka"
 
 #: ../modules/display/main.qml:208
 msgid "Apply"
-msgstr "Применить"
+msgstr "Použiť"
 
 #: ../modules/grub/main.qml:112
 msgid "Default Startup"
-msgstr "Запускаемые по умолчанию"
+msgstr "Predvolené spustenie"
 
 #: ../modules/grub/main.qml:167
 msgid "Boot delay"
-msgstr "Задержка загрузки"
+msgstr "Zdržanie bootovania"
 
 #: ../modules/grub/main.qml:206
 msgid "Text Color"
-msgstr "Цвет текста"
+msgstr "Farba textu"
 
 #: ../modules/grub/main.qml:239
 msgid "Selected Text Color"
-msgstr "Выбор цвета текста"
+msgstr "Farba vybratého textu"
 
 #: ../modules/keyboard/main.qml:114
 msgid "Repeat Delay"
-msgstr "Задержка повторения"
+msgstr "Oneskorenie opakovania"
 
 #: ../modules/keyboard/main.qml:138
 msgid "Repeat Rate"
-msgstr "Скорость повтора"
+msgstr "Rýchlosť opakovania"
 
 #: ../modules/keyboard/main.qml:163
 msgid "Cursor Blink Rate"
-msgstr "Частота мигания курсора"
+msgstr "Rýchlosť blikania kurzoru"
 
 #: ../modules/keyboard/main.qml:189
 msgid "Test Area"
-msgstr "Полигон"
+msgstr "Testovacia plocha"
 
 #: ../modules/keyboard/main.qml:236
 msgid "Keyboard Layout"
-msgstr "Раскладка клавиатуры"
+msgstr "Rozloženie klávesnice"
 
 #: ../modules/keyboard/main.qml:447
 msgid "No result"
-msgstr "Нет результата"
+msgstr "Žiadne výsledky"
 
 #: ../modules/keyboard/main.qml:208
 msgid "Caps Lock prompt"
-msgstr "Индикатор Caps Lock"
+msgstr "Caps Lock výzva"
 
 #: ../modules/mouse_touchpad/main.qml:177
 msgid "Disable the touchpad when inserting the mouse"
-msgstr "Отключать тачпад при подключении мыши"
+msgstr "Zakázať touchpad keď sa pripája myš"
 
 #: ../modules/personalization/main.qml:101
 msgid "Theme"
-msgstr "Тема"
+msgstr "Téma"
 
 #: ../modules/personalization/main.qml:108 ../modules/shortcuts/main.qml:51
 msgid "Window"
-msgstr "Окно"
+msgstr "Okno"
 
 #: ../modules/personalization/main.qml:115
 msgid "Icon"
-msgstr "Значёк"
+msgstr "Ikona"
 
 #: ../modules/personalization/main.qml:129
 msgid "Wallpaper"
-msgstr "Обои"
+msgstr "Pozadie"
 
 #: ../modules/personalization/main.qml:143
 msgid "Fonts"
-msgstr "Шрифты"
+msgstr "Fonty"
 
 #: ../modules/power/main.qml:53 ../modules/power/main.qml:65
 msgid "Never"
-msgstr "Никогда"
+msgstr "Nikdy"
 
 #: ../modules/power/main.qml:59
 msgid "1 minute"
-msgstr "1 минута"
+msgstr "1 minúta"
 
 #: ../modules/power/main.qml:60
 msgid "5 minutes"
-msgstr "5 минут"
+msgstr "5 minút"
 
 #: ../modules/power/main.qml:61
 msgid "10 minutes"
-msgstr "10 минут"
+msgstr "10 minút"
 
 #: ../modules/power/main.qml:62
 msgid "15 minutes"
-msgstr "15 минут"
+msgstr "15 minút"
 
 #: ../modules/power/main.qml:63
 msgid "30 minutes"
-msgstr "30 минут"
+msgstr "30 minút"
 
 #: ../modules/power/main.qml:64
 msgid "1 hour"
-msgstr "1 час"
+msgstr "1 hodina"
 
 #: ../modules/power/main.qml:124
 msgid "When I press the power button"
-msgstr "При нажатии кнопки питания"
+msgstr "Pri stlačení tlačítka energie"
 
 #: ../modules/power/main.qml:138 ../modules/power/main.qml:184
 msgid "Shutdown"
-msgstr "Выключить"
+msgstr "Vypnúť"
 
 #: ../modules/power/main.qml:143 ../modules/power/main.qml:189
 #: ../modules/power/main.qml:253 ../modules/power/main.qml:259
@@ -1694,31 +1691,31 @@ msgstr "Выключить"
 #: ../modules/power/main.qml:434 ../modules/power/main.qml:440
 #: ../modules/power/main.qml:446 ../modules/power/main.qml:534
 msgid "Suspend"
-msgstr "Остановить"
+msgstr "Uspať"
 
 #: ../modules/power/main.qml:148
 msgid "Ask"
-msgstr "Спросить"
+msgstr "Pýtať sa"
 
 #: ../modules/power/main.qml:170
 msgid "When I close the lid"
-msgstr "При закрытии крышки"
+msgstr "Pri zatvorení veka"
 
 #: ../modules/power/main.qml:194
 msgid "Nothing"
-msgstr "Ничего"
+msgstr "Nič"
 
 #: ../modules/power/main.qml:213
 msgid "Password required to wake up"
-msgstr "Требовать пароль для пробуждения"
+msgstr "Žiadať heslo pri prebudení"
 
 #: ../modules/power/main.qml:235
 msgid "Plugged in"
-msgstr "Подключен"
+msgstr "Pripojený v sieti"
 
 #: ../modules/power/main.qml:410
 msgid "On battery"
-msgstr "От батареи"
+msgstr "Na batériu"
 
 #: ../modules/power/main.qml:252 ../modules/power/main.qml:258
 #: ../modules/power/main.qml:264 ../modules/power/main.qml:270
@@ -1726,95 +1723,95 @@ msgstr "От батареи"
 #: ../modules/power/main.qml:433 ../modules/power/main.qml:439
 #: ../modules/power/main.qml:445 ../modules/power/main.qml:494
 msgid "Turn off the display"
-msgstr "Выключить дисплей"
+msgstr "Vypnúť display"
 
 #: ../modules/power/main.qml:313 ../modules/power/main.qml:489
 msgid "Custom Options"
-msgstr "Пользовательские параметры"
+msgstr "Vlastné nastavenia"
 
 #: ../modules/shortcuts/main.qml:49
 msgid "System"
-msgstr "Система"
+msgstr "Systém"
 
 #: ../modules/shortcuts/main.qml:52
 msgid "Workspace"
-msgstr "Рабочий стол"
+msgstr "Pracovné prostredie"
 
 #: ../modules/sound/main.qml:126
 msgid "Speaker"
-msgstr "Динамик"
+msgstr "Reproduktor"
 
 #: ../modules/sound/main.qml:156
 msgid "Output Volume"
-msgstr "Выходной уровень"
+msgstr "Výstupná hlasitosť"
 
 #: ../modules/sound/main.qml:221
 msgid "Microphone"
-msgstr "Микрофон"
+msgstr "Mikrofón"
 
 #: ../modules/sound/main.qml:251
 msgid "Input Volume"
-msgstr "Входной уровень"
+msgstr "Vstupná hlasitosť"
 
 #: ../modules/sound/main.qml:295
 msgid "Input Feedback"
-msgstr "Обратная связь входа"
+msgstr "Vstupná väzba"
 
 #: ../modules/sound/main.qml:331
 msgid "Output Port"
-msgstr "Выходной порт"
+msgstr "Výstupná prípojka"
 
 #: ../modules/sound/main.qml:348 ../modules/sound/main.qml:451
 msgid "No port exists in this device."
-msgstr "Порт не существует на этом устройстве."
+msgstr "Žiadna prípojka v zariadení"
 
 #: ../modules/sound/main.qml:386
 msgid "Output device"
-msgstr "Устройство вывода"
+msgstr "Výstupné zariadenie"
 
 #: ../modules/sound/main.qml:434
 msgid "Input Port"
-msgstr "Входной порт"
+msgstr "Vstupná prípojka"
 
 #: ../modules/sound/main.qml:489
 msgid "Input device"
-msgstr "Устройство ввода"
+msgstr "Vstupné zariadenie"
 
 #: ../modules/sound/main.qml:542
 msgid "Hide Advanced..."
-msgstr "Скрыть экспертные…"
+msgstr "Skryť pokročilé..."
 
 #: ../modules/sound/main.qml:542
 msgid "Show Advanced..."
-msgstr "Показать экспертные…"
+msgstr "Ukázať pokročilé"
 
 #: ../modules/system_info/main.qml:102
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
-msgstr "Правообладатель © 2011-2014 Wuhan Deepin Technology Co,Ltd."
+msgstr "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
 
 #: ../modules/system_info/main.qml:108
 msgid "Deepin Edition"
-msgstr "Deepin-редакция"
+msgstr "Deepin vydanie"
 
 #: ../modules/system_info/main.qml:114
 msgid "System Type"
-msgstr "Тип системы"
+msgstr "Typ systému"
 
 #: ../modules/system_info/main.qml:115
 msgid "bit"
-msgstr "бит"
+msgstr "bit"
 
 #: ../modules/system_info/main.qml:120
 msgid "Processor"
-msgstr "Процессор"
+msgstr "Procesor"
 
 #: ../modules/system_info/main.qml:134
 msgid "Memory"
-msgstr "Память"
+msgstr "Pamäť"
 
 #: ../modules/system_info/main.qml:140
 msgid "Disk"
-msgstr "Диск"
+msgstr "Disk"
 
 #: ../modules/system_info/main.qml:159
 msgid "GNU GENERAL PUBLIC LICENSE"
@@ -1822,23 +1819,23 @@ msgstr "GNU GENERAL PUBLIC LICENSE"
 
 #: ../modules/network/main.qml:162 ../modules/network/main.qml:190
 msgid "Unknown"
-msgstr "Неизвестный"
+msgstr "Neznámy"
 
 #: ../modules/network/main.qml:164
 msgid "Wired"
-msgstr "Проводной"
+msgstr "Drôtové "
 
 #: ../modules/network/main.qml:166
 msgid "Wireless"
-msgstr "Беспроводной"
+msgstr "Bezdrôtové"
 
 #: ../modules/network/main.qml:168
 msgid "Unused1"
-msgstr "Неиспольз.1"
+msgstr "Nepoužitý1"
 
 #: ../modules/network/main.qml:170
 msgid "Unused2"
-msgstr "Неиспольз.2"
+msgstr "Nepoužitý2"
 
 #: ../modules/network/main.qml:174
 msgid "OLPC mesh"
@@ -1850,7 +1847,7 @@ msgstr "WiMax"
 
 #: ../modules/network/main.qml:178
 msgid "Modem"
-msgstr "Модем"
+msgstr "Modem"
 
 #: ../modules/network/main.qml:180
 msgid "InfiniBand"
@@ -1858,7 +1855,7 @@ msgstr "InfiniBand"
 
 #: ../modules/network/main.qml:182
 msgid "Bond"
-msgstr "Связь"
+msgstr "Bond"
 
 #: ../modules/network/main.qml:184
 msgid "VLAN"
@@ -1870,7 +1867,7 @@ msgstr "ADSL"
 
 #: ../modules/network/main.qml:188
 msgid "Bridge"
-msgstr "Мост"
+msgstr "Bridge"
 
 #: ../modules/network/main.qml:198
 msgid "802.11 WiFi"
@@ -1882,15 +1879,15 @@ msgstr "802.11 WiFi AdHoc"
 
 #: ../modules/network/main.qml:202
 msgid "802.11 WiFi Hotspot"
-msgstr "802.11 WiFi Хот-спот"
+msgstr "802.11 WiFi Hotspot"
 
 #: ../modules/network/main.qml:208
 msgid "Mobile GSM"
-msgstr "Мобильный GSM"
+msgstr "Mobilná GSM"
 
 #: ../modules/network/main.qml:210
 msgid "Mobile CDMA"
-msgstr "Мобильный CDMA"
+msgstr "Mobilná CDMA"
 
 #: ../modules/network/main.qml:214
 msgid "VPN L2TP"

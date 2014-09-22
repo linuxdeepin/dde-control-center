@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-22 10:39+0800\n"
-"PO-Revision-Date: 2014-08-22 07:11+0000\n"
-"Last-Translator: Catherinelin <linhongxia@linuxdeepin.com>\n"
+"POT-Creation-Date: 2014-09-17 11:56+0800\n"
+"PO-Revision-Date: 2014-09-23 17:04+0000\n"
+"Last-Translator: Carl Andersen <carl@manjaro.dk>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/dde-control-center/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -124,7 +124,7 @@ msgstr "Tilføj"
 #: ../modules/account/AddUserDialog.qml:48
 #: ../modules/account/PasswordDialog.qml:96
 msgid "Invalid password"
-msgstr ""
+msgstr "Ugyldigt kodeord"
 
 #: ../modules/account/AddUserDialog.qml:53
 msgid "Nothing input"
@@ -261,7 +261,7 @@ msgstr "Tillad Cisco Secure Desktop Trojan"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:274
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
 msgid "Customize Key Direction"
-msgstr ""
+msgstr "Tilpas nøglested"
 
 #: ../modules/network/add/AddVpn.qml:214 ../modules/network/add/AddVpn.qml:304
 #: ../modules/network/wireless/AddWireless.qml:165
@@ -287,12 +287,12 @@ msgstr "Brugercertifikat"
 #: ../modules/network/add/AddVpn.qml:194
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:124
 msgid "CSD Script"
-msgstr ""
+msgstr "CSD Script"
 
 #: ../modules/network/add/AddVpn.qml:224
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:154
 msgid "Use FSID for Key Passphrase"
-msgstr ""
+msgstr "Brug FSID for nøgleadgangssætning"
 
 #: ../modules/network/add/AddVpn.qml:324
 #: ../modules/network/wireless/AddWireless.qml:206
@@ -445,7 +445,7 @@ msgstr "Dock Applet Aktiveret"
 
 #: ../modules/account/AvatarPickDialog.qml:5
 msgid "Choose a new picture for your Avatar"
-msgstr ""
+msgstr "Vælg et nyt billede til din avatar"
 
 #: ../modules/account/AvatarView.qml:19
 msgid "Recently Used"
@@ -458,6 +458,18 @@ msgstr "Avatar"
 #: ../modules/account/AvatarView.qml:21
 msgid "Webcam"
 msgstr "Webcam"
+
+#: ../modules/sound/BalanceLine.qml:31
+msgid "Left/Right Balance"
+msgstr "Venstre/højre balance"
+
+#: ../modules/sound/BalanceLine.qml:53
+msgid "Left"
+msgstr "Venstre"
+
+#: ../modules/sound/BalanceLine.qml:55
+msgid "Right"
+msgstr "Højre"
 
 #: ../modules/network/edit_autogen/BaseConnectionEdit.qml:43
 msgid "Automatically connect"
@@ -599,7 +611,7 @@ msgstr "Klonet MAC Adresse"
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:43
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:85
 msgid "Customize MTU"
-msgstr ""
+msgstr "Tilpas MTU"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:53
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:107
@@ -765,11 +777,11 @@ msgstr "Gateway Port"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:23
 msgid "Customize Gateway Port"
-msgstr ""
+msgstr "Tilpas Gateway Port"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:45
 msgid "Customize Renegotiation Interval"
-msgstr ""
+msgstr "Tilpas Renegotiation Interval"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:55
 msgid "Renegotiation Interval"
@@ -789,11 +801,11 @@ msgstr "Brug TAP-enhed"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:97
 msgid "Customize Tunnel MTU"
-msgstr ""
+msgstr "Tilpas MTU tunnel"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:119
 msgid "Customize UDP Fragment Size"
-msgstr ""
+msgstr "Tilpas UDP  Fragment Sørrelse"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
 msgid "UDP Fragment Size"
@@ -912,6 +924,18 @@ msgstr "Kanal"
 msgid "Enable"
 msgstr "Aktiver"
 
+#: ../modules/sound/FadeLine.qml:31
+msgid "Front/Rear Balance"
+msgstr "Front/Bag Balance"
+
+#: ../modules/sound/FadeLine.qml:55
+msgid "Front"
+msgstr "Front"
+
+#: ../modules/sound/FadeLine.qml:53
+msgid "Rear"
+msgstr "Bag"
+
 #: ../modules/personalization/components/FontSettingsExpand.qml:36
 msgid "Size"
 msgstr "Størrelse"
@@ -968,7 +992,7 @@ msgstr "Sekundær DNS"
 
 #: ../modules/network/Info.qml:60
 msgid "Third DNS"
-msgstr ""
+msgstr "Tredje DNS"
 
 #: ../modules/network/Info.qml:69
 msgid "Device Speed"
@@ -1025,7 +1049,7 @@ msgstr "Kontrolhåndtering"
 msgid "More Settings"
 msgstr "Flere indstillinger"
 
-#: ../qt5frame/views/ModulesData.qml:59 ../qt5frame/views/PanelContent.qml:418
+#: ../qt5frame/views/ModulesData.qml:59 ../qt5frame/views/PanelContent.qml:410
 #: ../dock-applets/qml/main.qml:52
 msgid "Power"
 msgstr "Strøm"
@@ -1048,13 +1072,13 @@ msgstr "Tastaur Genveje"
 
 #: ../qt5frame/views/ModulesData.qml:64
 msgid "Keyboard and Language"
-msgstr ""
+msgstr "Tastatur og sprog"
 
 #: ../qt5frame/views/ModulesData.qml:65
 msgid "Mouse and Touchpad"
 msgstr "Mus og Touchpad"
 
-#: ../qt5frame/views/ModulesData.qml:66 ../modules/mouse_touchpad/main.qml:50
+#: ../qt5frame/views/ModulesData.qml:66 ../modules/mouse_touchpad/main.qml:53
 msgid "Mouse"
 msgstr "Mus"
 
@@ -1124,19 +1148,19 @@ msgid "Brightness"
 msgstr "Lysstyrke"
 
 #: ../modules/network/wired/NewItem.qml:45
-#: ../modules/network/wired/WiredItem.qml:88
+#: ../modules/network/wired/WiredItem.qml:89
 #, qt-format
 msgid "Wired Connection %1"
 msgstr "Trådet Forbindelse %1"
 
 #: ../modules/network/wired/NewItem.qml:47
-#: ../modules/network/wired/WiredItem.qml:90
+#: ../modules/network/wired/WiredItem.qml:91
 msgid "Wired Connection"
-msgstr ""
+msgstr "Trådet forbindelse"
 
 #: ../modules/network/widgets/NotManagedSection.qml:25
 msgid "not managed"
-msgstr ""
+msgstr "lykkedes ikke"
 
 #: ../modules/network/widgets/PasswordBox.qml:76
 msgid "Password: "
@@ -1156,7 +1180,7 @@ msgstr "Træk og slip et billede for at ændre baggrunden."
 
 #: ../modules/grub/Preview.qml:123
 msgid "Image format not supported."
-msgstr ""
+msgstr "Billedformat understøttes ikke."
 
 #: ../modules/grub/Preview.qml:124
 msgid "Updating..."
@@ -1273,43 +1297,43 @@ msgstr "Sæt"
 msgid "Time zone"
 msgstr "Tidszone"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:51
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:50
 msgid "Touchpad"
 msgstr "Touchpad"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:82
-#: ../modules/mouse_touchpad/main.qml:67
+#: ../modules/mouse_touchpad/main.qml:70
 msgid "Primary Button"
 msgstr "Primære knap"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:90
-#: ../modules/mouse_touchpad/main.qml:74
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:91
+#: ../modules/mouse_touchpad/main.qml:78
 msgid "Left Button"
 msgstr "Venstre knap"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:91
-#: ../modules/mouse_touchpad/main.qml:75
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:92
+#: ../modules/mouse_touchpad/main.qml:79
 msgid "Right Button"
 msgstr "Højre knap"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:104
-#: ../modules/mouse_touchpad/main.qml:88
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:117
+#: ../modules/mouse_touchpad/main.qml:104
 msgid "Pointer Speed"
 msgstr "Markørhastighed"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:119
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:169
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:134
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:171
 #: ../modules/keyboard/main.qml:154 ../modules/keyboard/main.qml:180
-#: ../modules/mouse_touchpad/main.qml:103
-#: ../modules/mouse_touchpad/main.qml:155
+#: ../modules/mouse_touchpad/main.qml:120
+#: ../modules/mouse_touchpad/main.qml:156
 msgid "Slow"
 msgstr "Langsom"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:120
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:170
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:135
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:172
 #: ../modules/keyboard/main.qml:153 ../modules/keyboard/main.qml:179
-#: ../modules/mouse_touchpad/main.qml:104
-#: ../modules/mouse_touchpad/main.qml:156
+#: ../modules/mouse_touchpad/main.qml:121
+#: ../modules/mouse_touchpad/main.qml:157
 msgid "Fast"
 msgstr "Hurtig"
 
@@ -1318,27 +1342,35 @@ msgstr "Hurtig"
 msgid "Double-click Speed"
 msgstr "Dobbeltklik hastighed"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:180
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:192
 msgid "Drag Threshold"
 msgstr "Træk Terskel"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:195
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:208
 #: ../modules/keyboard/main.qml:128
 msgid "Short"
 msgstr "Kort"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:196
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:209
 #: ../modules/keyboard/main.qml:129
 msgid "Long"
 msgstr "Lang"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:205
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:228
 msgid "Natural Scrolling"
 msgstr "Naturlig rulning"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:228
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:252
 msgid "Tap to click"
 msgstr "Tryk for at klikke"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:275
+msgid "Two-finger scrolling"
+msgstr "Rulning med to fingre"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:298
+msgid "Edge scrolling"
+msgstr "Kantrulning"
 
 #: ../modules/network/vpn/VpnExpand.qml:48
 msgid "VPN Connections"
@@ -1402,17 +1434,17 @@ msgstr "Trådløst netværk"
 msgid "Wireless Network %1"
 msgstr "Trådløst netværk %1"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:35
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:55
 msgid ""
 "Wireless network is unable to be connected maybe due to the following reasons:\n"
 "\n"
 "1. The hardware switch of wireless network card is off\n"
 "2. Incorrect network configuration in /etc/network/interface\n"
 "3. Incorrect driver of network hardware"
-msgstr ""
+msgstr "Trådløse netværk er ikke i stand til at blive tilsluttet måske på grund af følgende årsager:\n\n1. Hardware switch til trådløst netværkskort er slukket\n2. ukorrekt netværkskonfiguration i /etc/network/interface\n3. Forkert driver for netværkshardware"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:137
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:352
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:35
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:158
 msgid "Connect to hidden access point"
 msgstr "Tilslut til skjult access point"
 
@@ -1595,7 +1627,7 @@ msgstr "Intet resultat"
 msgid "Caps Lock prompt"
 msgstr "Caps Lock prompt"
 
-#: ../modules/mouse_touchpad/main.qml:167
+#: ../modules/mouse_touchpad/main.qml:177
 msgid "Disable the touchpad when inserting the mouse"
 msgstr "Deaktiver  touchpad, når du sætter musen i"
 
@@ -1716,55 +1748,43 @@ msgstr "Højtaler"
 msgid "Output Volume"
 msgstr "Output Lydstyrke"
 
-#: ../modules/sound/main.qml:204
-msgid "Balance"
-msgstr "Balance"
-
-#: ../modules/sound/main.qml:226
-msgid "Left"
-msgstr "Venstre"
-
-#: ../modules/sound/main.qml:228
-msgid "Right"
-msgstr "Højre"
-
-#: ../modules/sound/main.qml:260
+#: ../modules/sound/main.qml:221
 msgid "Microphone"
 msgstr "Mikrofon"
 
-#: ../modules/sound/main.qml:290
+#: ../modules/sound/main.qml:251
 msgid "Input Volume"
 msgstr "Input Lydstyrke"
 
-#: ../modules/sound/main.qml:334
+#: ../modules/sound/main.qml:295
 msgid "Input Feedback"
 msgstr "Input Feedback"
 
-#: ../modules/sound/main.qml:370
+#: ../modules/sound/main.qml:331
 msgid "Output Port"
 msgstr "Output Port"
 
-#: ../modules/sound/main.qml:387 ../modules/sound/main.qml:490
+#: ../modules/sound/main.qml:348 ../modules/sound/main.qml:451
 msgid "No port exists in this device."
 msgstr "Der findes ingen port i denne enhed."
 
-#: ../modules/sound/main.qml:425
+#: ../modules/sound/main.qml:386
 msgid "Output device"
 msgstr "Outputenhed"
 
-#: ../modules/sound/main.qml:473
+#: ../modules/sound/main.qml:434
 msgid "Input Port"
 msgstr "Input Port"
 
-#: ../modules/sound/main.qml:528
+#: ../modules/sound/main.qml:489
 msgid "Input device"
 msgstr "inputenhed"
 
-#: ../modules/sound/main.qml:581
+#: ../modules/sound/main.qml:542
 msgid "Hide Advanced..."
 msgstr "Skjul avanceret..."
 
-#: ../modules/sound/main.qml:581
+#: ../modules/sound/main.qml:542
 msgid "Show Advanced..."
 msgstr "Vis avanceret..."
 

@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-22 10:39+0800\n"
-"PO-Revision-Date: 2014-08-22 17:13+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"POT-Creation-Date: 2014-09-17 11:56+0800\n"
+"PO-Revision-Date: 2014-09-24 06:46+0000\n"
+"Last-Translator: webcrush <chris.plescher@yahoo.de>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/dde-control-center/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -459,6 +459,18 @@ msgstr "Avatar"
 #: ../modules/account/AvatarView.qml:21
 msgid "Webcam"
 msgstr "Kamera"
+
+#: ../modules/sound/BalanceLine.qml:31
+msgid "Left/Right Balance"
+msgstr "Links/Rechts-Balance"
+
+#: ../modules/sound/BalanceLine.qml:53
+msgid "Left"
+msgstr "Links"
+
+#: ../modules/sound/BalanceLine.qml:55
+msgid "Right"
+msgstr "Rechts"
 
 #: ../modules/network/edit_autogen/BaseConnectionEdit.qml:43
 msgid "Automatically connect"
@@ -913,6 +925,18 @@ msgstr "Kanal"
 msgid "Enable"
 msgstr "Aktivieren"
 
+#: ../modules/sound/FadeLine.qml:31
+msgid "Front/Rear Balance"
+msgstr "Vorne/Hinten-Balance"
+
+#: ../modules/sound/FadeLine.qml:55
+msgid "Front"
+msgstr "Vorne"
+
+#: ../modules/sound/FadeLine.qml:53
+msgid "Rear"
+msgstr "Hinten"
+
 #: ../modules/personalization/components/FontSettingsExpand.qml:36
 msgid "Size"
 msgstr "Größe"
@@ -1026,7 +1050,7 @@ msgstr "Energieverwaltung"
 msgid "More Settings"
 msgstr "Mehr Einstellungen"
 
-#: ../qt5frame/views/ModulesData.qml:59 ../qt5frame/views/PanelContent.qml:418
+#: ../qt5frame/views/ModulesData.qml:59 ../qt5frame/views/PanelContent.qml:410
 #: ../dock-applets/qml/main.qml:52
 msgid "Power"
 msgstr "Energie"
@@ -1055,7 +1079,7 @@ msgstr "Tastatur und Sprache"
 msgid "Mouse and Touchpad"
 msgstr "Maus und Touchpad"
 
-#: ../qt5frame/views/ModulesData.qml:66 ../modules/mouse_touchpad/main.qml:50
+#: ../qt5frame/views/ModulesData.qml:66 ../modules/mouse_touchpad/main.qml:53
 msgid "Mouse"
 msgstr "Maus"
 
@@ -1125,13 +1149,13 @@ msgid "Brightness"
 msgstr "Helligkeit"
 
 #: ../modules/network/wired/NewItem.qml:45
-#: ../modules/network/wired/WiredItem.qml:88
+#: ../modules/network/wired/WiredItem.qml:89
 #, qt-format
 msgid "Wired Connection %1"
 msgstr "Kabelnetzwerk %1"
 
 #: ../modules/network/wired/NewItem.qml:47
-#: ../modules/network/wired/WiredItem.qml:90
+#: ../modules/network/wired/WiredItem.qml:91
 msgid "Wired Connection"
 msgstr "Kabelgebundene Verbindung"
 
@@ -1274,43 +1298,43 @@ msgstr "Festlegen"
 msgid "Time zone"
 msgstr "Zeitzone"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:51
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:50
 msgid "Touchpad"
 msgstr "Touchpad"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:82
-#: ../modules/mouse_touchpad/main.qml:67
+#: ../modules/mouse_touchpad/main.qml:70
 msgid "Primary Button"
 msgstr "Primärtaste"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:90
-#: ../modules/mouse_touchpad/main.qml:74
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:91
+#: ../modules/mouse_touchpad/main.qml:78
 msgid "Left Button"
 msgstr "Linke Taste"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:91
-#: ../modules/mouse_touchpad/main.qml:75
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:92
+#: ../modules/mouse_touchpad/main.qml:79
 msgid "Right Button"
 msgstr "Rechte Taste"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:104
-#: ../modules/mouse_touchpad/main.qml:88
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:117
+#: ../modules/mouse_touchpad/main.qml:104
 msgid "Pointer Speed"
 msgstr "Zeigergeschwindigkeit"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:119
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:169
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:134
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:171
 #: ../modules/keyboard/main.qml:154 ../modules/keyboard/main.qml:180
-#: ../modules/mouse_touchpad/main.qml:103
-#: ../modules/mouse_touchpad/main.qml:155
+#: ../modules/mouse_touchpad/main.qml:120
+#: ../modules/mouse_touchpad/main.qml:156
 msgid "Slow"
 msgstr "Langsam"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:120
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:170
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:135
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:172
 #: ../modules/keyboard/main.qml:153 ../modules/keyboard/main.qml:179
-#: ../modules/mouse_touchpad/main.qml:104
-#: ../modules/mouse_touchpad/main.qml:156
+#: ../modules/mouse_touchpad/main.qml:121
+#: ../modules/mouse_touchpad/main.qml:157
 msgid "Fast"
 msgstr "Schnell"
 
@@ -1319,27 +1343,35 @@ msgstr "Schnell"
 msgid "Double-click Speed"
 msgstr "Doppelklick Geschwindigkeit"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:180
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:192
 msgid "Drag Threshold"
 msgstr "Zeitfenster zum Ziehen"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:195
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:208
 #: ../modules/keyboard/main.qml:128
 msgid "Short"
 msgstr "Kurze"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:196
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:209
 #: ../modules/keyboard/main.qml:129
 msgid "Long"
 msgstr "lange"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:205
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:228
 msgid "Natural Scrolling"
 msgstr "Natürliches Scrollen"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:228
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:252
 msgid "Tap to click"
 msgstr "Zum Klicken antippen"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:275
+msgid "Two-finger scrolling"
+msgstr "Zwei-Finger-Scrollen"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:298
+msgid "Edge scrolling"
+msgstr "Rand Scrollen"
 
 #: ../modules/network/vpn/VpnExpand.qml:48
 msgid "VPN Connections"
@@ -1403,17 +1435,17 @@ msgstr "Kabelloses Netzwerk"
 msgid "Wireless Network %1"
 msgstr "Kabelloses Netzwerk %1"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:35
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:55
 msgid ""
 "Wireless network is unable to be connected maybe due to the following reasons:\n"
 "\n"
 "1. The hardware switch of wireless network card is off\n"
 "2. Incorrect network configuration in /etc/network/interface\n"
 "3. Incorrect driver of network hardware"
-msgstr ""
+msgstr "Mit dem kabellosen Netzwerk kann sich nicht verbunden werden, möglicherweise aus folgenden Gründen:\n\n1. Der Hardware-Schalter der WLAN-Karte ist aus\n2. Fehlerhafte Netzwerkkonfiguration in /etc/network/interface\n3. Falscher Treiber der Netzwerk-Hardware"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:137
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:352
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:35
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:158
 msgid "Connect to hidden access point"
 msgstr "Mit verstecktem Access Point verbinden"
 
@@ -1596,7 +1628,7 @@ msgstr "Kein Ergebnis"
 msgid "Caps Lock prompt"
 msgstr "Caps Lock Hinweis"
 
-#: ../modules/mouse_touchpad/main.qml:167
+#: ../modules/mouse_touchpad/main.qml:177
 msgid "Disable the touchpad when inserting the mouse"
 msgstr "Beim Nutzen der Maus, Touchpad deaktivieren"
 
@@ -1717,55 +1749,43 @@ msgstr "Lautsprecher"
 msgid "Output Volume"
 msgstr "Output Volume"
 
-#: ../modules/sound/main.qml:204
-msgid "Balance"
-msgstr "Balance"
-
-#: ../modules/sound/main.qml:226
-msgid "Left"
-msgstr "Links"
-
-#: ../modules/sound/main.qml:228
-msgid "Right"
-msgstr "Rechts"
-
-#: ../modules/sound/main.qml:260
+#: ../modules/sound/main.qml:221
 msgid "Microphone"
 msgstr "Mikrofon"
 
-#: ../modules/sound/main.qml:290
+#: ../modules/sound/main.qml:251
 msgid "Input Volume"
 msgstr "Input Volume"
 
-#: ../modules/sound/main.qml:334
+#: ../modules/sound/main.qml:295
 msgid "Input Feedback"
 msgstr "Eingabeunterstützung"
 
-#: ../modules/sound/main.qml:370
+#: ../modules/sound/main.qml:331
 msgid "Output Port"
 msgstr "Ausgabeport"
 
-#: ../modules/sound/main.qml:387 ../modules/sound/main.qml:490
+#: ../modules/sound/main.qml:348 ../modules/sound/main.qml:451
 msgid "No port exists in this device."
 msgstr "Es gibt keinen Anschluss für dieses Gerät."
 
-#: ../modules/sound/main.qml:425
+#: ../modules/sound/main.qml:386
 msgid "Output device"
 msgstr "Ausgabe Gerät"
 
-#: ../modules/sound/main.qml:473
+#: ../modules/sound/main.qml:434
 msgid "Input Port"
 msgstr "Input Port"
 
-#: ../modules/sound/main.qml:528
+#: ../modules/sound/main.qml:489
 msgid "Input device"
 msgstr "Eingabe Gerät"
 
-#: ../modules/sound/main.qml:581
+#: ../modules/sound/main.qml:542
 msgid "Hide Advanced..."
 msgstr "Erweiterte Optionen Anzeigen..."
 
-#: ../modules/sound/main.qml:581
+#: ../modules/sound/main.qml:542
 msgid "Show Advanced..."
 msgstr "Erweiterte Optionen Verstecken..."
 

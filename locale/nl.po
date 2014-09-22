@@ -4,15 +4,16 @@
 # 
 # Translators:
 # Alain Baudrez <a.baudrez@gmail.com>, 2014
+# Heimen Stoffels <motionshot@vivaldi.net>, 2014
 # Anduxor <itachiandu@gmail.com>, 2014
 # closeddoors1559 <mrvnp@msn.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-22 10:39+0800\n"
-"PO-Revision-Date: 2014-08-22 07:11+0000\n"
-"Last-Translator: Catherinelin <linhongxia@linuxdeepin.com>\n"
+"POT-Creation-Date: 2014-09-17 11:56+0800\n"
+"PO-Revision-Date: 2014-09-24 11:39+0000\n"
+"Last-Translator: Heimen Stoffels <motionshot@vivaldi.net>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/dde-control-center/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +23,7 @@ msgstr ""
 
 #: ../modules/network/add/AddDsl.qml:11
 msgid "New PPPoE Connection"
-msgstr "Nieuwe PPPoE verbinding"
+msgstr "Nieuwe PPPoE-verbinding"
 
 #: ../modules/network/add/AddDsl.qml:24
 #: ../modules/network/add/AddMobile.qml:33
@@ -78,7 +79,7 @@ msgstr "Wachtwoord"
 
 #: ../modules/network/add/AddMobile.qml:20
 msgid "New Mobile Connection"
-msgstr "Nieuwe Mobiele Verbinding"
+msgstr "Nieuwe mobiele verbinding"
 
 #: ../modules/network/add/AddMobile.qml:45
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:23
@@ -123,24 +124,24 @@ msgstr "Toevoegen"
 #: ../modules/account/AddUserDialog.qml:48
 #: ../modules/account/PasswordDialog.qml:96
 msgid "Invalid password"
-msgstr ""
+msgstr "Ongeldig wachtwoord"
 
 #: ../modules/account/AddUserDialog.qml:53
 msgid "Nothing input"
-msgstr ""
+msgstr "Geen invoer"
 
 #: ../modules/account/AddUserDialog.qml:58
 #: ../modules/account/PasswordDialog.qml:101
 msgid "Different password"
-msgstr ""
+msgstr "Ander wachtwoord"
 
 #: ../modules/account/AddUserDialog.qml:67
 msgid "Add User"
-msgstr "Gebruiker Toevoegen"
+msgstr "Gebruiker toevoegen"
 
 #: ../modules/account/AddUserDialog.qml:95
 msgid "New User"
-msgstr "Nieuwe Gebruiker"
+msgstr "Nieuwe gebruiker"
 
 #: ../modules/account/AddUserDialog.qml:99
 #: ../modules/account/AddUserDialog.qml:254
@@ -158,7 +159,7 @@ msgstr "Beheerder"
 
 #: ../modules/account/AddUserDialog.qml:201
 msgid "Repeat Password"
-msgstr "Herhaal wachtwoord"
+msgstr "Wachtwoord herhalen"
 
 #: ../modules/account/AddUserDialog.qml:242
 #: ../modules/account/EditUserDialog.qml:123
@@ -236,7 +237,7 @@ msgstr "Gateway"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:384
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:414
 msgid "Ask for Pwd"
-msgstr "Naar Wachtwoord vragen"
+msgstr "Om wachtwoord vragen"
 
 #: ../modules/network/add/AddVpn.qml:164 ../modules/network/add/AddVpn.qml:284
 #: ../modules/network/wireless/AddWireless.qml:104
@@ -244,7 +245,7 @@ msgstr "Naar Wachtwoord vragen"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:94
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:214
 msgid "CA Cert"
-msgstr "CA Cert"
+msgstr "CA-certificaat"
 
 #: ../modules/network/add/AddVpn.qml:174
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:104
@@ -260,7 +261,7 @@ msgstr "Cisco Secure Desktop Trojan toestaan"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:274
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
 msgid "Customize Key Direction"
-msgstr ""
+msgstr "Sleutelrichting aanpassen"
 
 #: ../modules/network/add/AddVpn.qml:214 ../modules/network/add/AddVpn.qml:304
 #: ../modules/network/wireless/AddWireless.qml:165
@@ -273,7 +274,7 @@ msgstr "Privésleutel"
 #: ../modules/network/add/AddVpn.qml:244
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:174
 msgid "Auth Type"
-msgstr "Auth Type"
+msgstr "Authenticatietype"
 
 #: ../modules/network/add/AddVpn.qml:204 ../modules/network/add/AddVpn.qml:294
 #: ../modules/network/wireless/AddWireless.qml:114
@@ -281,17 +282,17 @@ msgstr "Auth Type"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:134
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:224
 msgid "User Cert"
-msgstr "User Cert"
+msgstr "Gebruikerscertificaat"
 
 #: ../modules/network/add/AddVpn.qml:194
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:124
 msgid "CSD Script"
-msgstr ""
+msgstr "CSD-script"
 
 #: ../modules/network/add/AddVpn.qml:224
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:154
 msgid "Use FSID for Key Passphrase"
-msgstr ""
+msgstr "FSID gebruiken voor wachtwoordsleutel"
 
 #: ../modules/network/add/AddVpn.qml:324
 #: ../modules/network/wireless/AddWireless.qml:206
@@ -444,7 +445,7 @@ msgstr "Dock Applet Ingeschakeld"
 
 #: ../modules/account/AvatarPickDialog.qml:5
 msgid "Choose a new picture for your Avatar"
-msgstr ""
+msgstr "Een nieuwe afbeelding kiezen voor uw schermafbeelding"
 
 #: ../modules/account/AvatarView.qml:19
 msgid "Recently Used"
@@ -457,6 +458,18 @@ msgstr "Avatar"
 #: ../modules/account/AvatarView.qml:21
 msgid "Webcam"
 msgstr "Webcam"
+
+#: ../modules/sound/BalanceLine.qml:31
+msgid "Left/Right Balance"
+msgstr "Links/Rechts-balans"
+
+#: ../modules/sound/BalanceLine.qml:53
+msgid "Left"
+msgstr "Links"
+
+#: ../modules/sound/BalanceLine.qml:55
+msgid "Right"
+msgstr "Rechts"
 
 #: ../modules/network/edit_autogen/BaseConnectionEdit.qml:43
 msgid "Automatically connect"
@@ -488,7 +501,7 @@ msgstr "di"
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:181
 msgid "Wed"
-msgstr "wo"
+msgstr "woe"
 
 #: ../modules/date_time/CalendarComponent.qml:87
 #: ../dock-applets/qml/date_time/calendar_core.js:4
@@ -500,7 +513,7 @@ msgstr "do"
 #: ../dock-applets/qml/date_time/calendar_core.js:4
 #: ../dock-applets/qml/date_time/main.qml:183
 msgid "Fri"
-msgstr "fr"
+msgstr "vrij"
 
 #: ../modules/date_time/CalendarComponent.qml:89
 #: ../dock-applets/qml/date_time/calendar_core.js:4
@@ -549,7 +562,7 @@ msgstr "Sluiten"
 
 #: ../modules/network/ConnectionEdit.qml:134
 msgid "Delete"
-msgstr "Verwijder"
+msgstr "Verwijderen"
 
 #: ../modules/shortcuts/CustomKeybinding.qml:133
 msgid "Command"
@@ -598,7 +611,7 @@ msgstr "Gekloonde MAC-adres"
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:43
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:85
 msgid "Customize MTU"
-msgstr ""
+msgstr "MTU aanpassen"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:53
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:107
@@ -764,11 +777,11 @@ msgstr "Gatewaypoort"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:23
 msgid "Customize Gateway Port"
-msgstr ""
+msgstr "Gatewaypoort aanpassen"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:45
 msgid "Customize Renegotiation Interval"
-msgstr ""
+msgstr "Gebruik aangepaste heronderhandeling interval"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:55
 msgid "Renegotiation Interval"
@@ -788,11 +801,11 @@ msgstr "TAP-apparaat gebruiken"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:97
 msgid "Customize Tunnel MTU"
-msgstr ""
+msgstr "Aangepaste Tunnel MTU Gebruiken"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:119
 msgid "Customize UDP Fragment Size"
-msgstr ""
+msgstr "Aangepaste UDP-fragmentgrootte Gebruiken"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
 msgid "UDP Fragment Size"
@@ -911,6 +924,18 @@ msgstr "Kanaal"
 msgid "Enable"
 msgstr "Inschakelen"
 
+#: ../modules/sound/FadeLine.qml:31
+msgid "Front/Rear Balance"
+msgstr "Voor/Achter-balans"
+
+#: ../modules/sound/FadeLine.qml:55
+msgid "Front"
+msgstr "Voor"
+
+#: ../modules/sound/FadeLine.qml:53
+msgid "Rear"
+msgstr "Achter"
+
 #: ../modules/personalization/components/FontSettingsExpand.qml:36
 msgid "Size"
 msgstr "Grootte"
@@ -967,7 +992,7 @@ msgstr "Secondaire DNS"
 
 #: ../modules/network/Info.qml:60
 msgid "Third DNS"
-msgstr ""
+msgstr "Derde DNS"
 
 #: ../modules/network/Info.qml:69
 msgid "Device Speed"
@@ -1024,7 +1049,7 @@ msgstr "Energiebeheer"
 msgid "More Settings"
 msgstr "Meer Instellingen"
 
-#: ../qt5frame/views/ModulesData.qml:59 ../qt5frame/views/PanelContent.qml:418
+#: ../qt5frame/views/ModulesData.qml:59 ../qt5frame/views/PanelContent.qml:410
 #: ../dock-applets/qml/main.qml:52
 msgid "Power"
 msgstr "Energie"
@@ -1047,13 +1072,13 @@ msgstr "Toetsenbordsneltoetsen"
 
 #: ../qt5frame/views/ModulesData.qml:64
 msgid "Keyboard and Language"
-msgstr ""
+msgstr "Toetsenbord en taal"
 
 #: ../qt5frame/views/ModulesData.qml:65
 msgid "Mouse and Touchpad"
 msgstr "Muis en Touchpad"
 
-#: ../qt5frame/views/ModulesData.qml:66 ../modules/mouse_touchpad/main.qml:50
+#: ../qt5frame/views/ModulesData.qml:66 ../modules/mouse_touchpad/main.qml:53
 msgid "Mouse"
 msgstr "Muis"
 
@@ -1080,7 +1105,7 @@ msgstr "Thuis"
 
 #: ../modules/display/MonitorComponent.qml:185
 msgid "Split"
-msgstr ""
+msgstr "Splitsen"
 
 #: ../modules/display/MonitorComponent.qml:236
 msgid "Set as primary display"
@@ -1123,19 +1148,19 @@ msgid "Brightness"
 msgstr "Helderheid"
 
 #: ../modules/network/wired/NewItem.qml:45
-#: ../modules/network/wired/WiredItem.qml:88
+#: ../modules/network/wired/WiredItem.qml:89
 #, qt-format
 msgid "Wired Connection %1"
 msgstr "Bekabeld Netwerk %1"
 
 #: ../modules/network/wired/NewItem.qml:47
-#: ../modules/network/wired/WiredItem.qml:90
+#: ../modules/network/wired/WiredItem.qml:91
 msgid "Wired Connection"
-msgstr ""
+msgstr "Bekabelde verbinding"
 
 #: ../modules/network/widgets/NotManagedSection.qml:25
 msgid "not managed"
-msgstr ""
+msgstr "onbeheer"
 
 #: ../modules/network/widgets/PasswordBox.qml:76
 msgid "Password: "
@@ -1155,7 +1180,7 @@ msgstr "Sleep een afbeelding hierheen om de achtergrond te veranderen."
 
 #: ../modules/grub/Preview.qml:123
 msgid "Image format not supported."
-msgstr ""
+msgstr "Afbeeldingsformaat wordt niet ondersteund."
 
 #: ../modules/grub/Preview.qml:124
 msgid "Updating..."
@@ -1191,7 +1216,7 @@ msgstr "FTP-proxy"
 
 #: ../modules/network/proxy/ProxyContent.qml:124
 msgid "Socks Proxy"
-msgstr ""
+msgstr "Socks-proxy"
 
 #: ../modules/network/proxy/ProxyContent.qml:149
 msgid "Configuration URL"
@@ -1272,43 +1297,43 @@ msgstr "Instellen"
 msgid "Time zone"
 msgstr "Tijdzone"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:51
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:50
 msgid "Touchpad"
 msgstr "Touchpad"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:82
-#: ../modules/mouse_touchpad/main.qml:67
+#: ../modules/mouse_touchpad/main.qml:70
 msgid "Primary Button"
 msgstr "Primaire knop"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:90
-#: ../modules/mouse_touchpad/main.qml:74
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:91
+#: ../modules/mouse_touchpad/main.qml:78
 msgid "Left Button"
 msgstr "Linkerknop"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:91
-#: ../modules/mouse_touchpad/main.qml:75
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:92
+#: ../modules/mouse_touchpad/main.qml:79
 msgid "Right Button"
 msgstr "Rechterknop"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:104
-#: ../modules/mouse_touchpad/main.qml:88
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:117
+#: ../modules/mouse_touchpad/main.qml:104
 msgid "Pointer Speed"
 msgstr "Aanwijzersnelheid"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:119
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:169
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:134
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:171
 #: ../modules/keyboard/main.qml:154 ../modules/keyboard/main.qml:180
-#: ../modules/mouse_touchpad/main.qml:103
-#: ../modules/mouse_touchpad/main.qml:155
+#: ../modules/mouse_touchpad/main.qml:120
+#: ../modules/mouse_touchpad/main.qml:156
 msgid "Slow"
 msgstr "Langzaam"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:120
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:170
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:135
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:172
 #: ../modules/keyboard/main.qml:153 ../modules/keyboard/main.qml:179
-#: ../modules/mouse_touchpad/main.qml:104
-#: ../modules/mouse_touchpad/main.qml:156
+#: ../modules/mouse_touchpad/main.qml:121
+#: ../modules/mouse_touchpad/main.qml:157
 msgid "Fast"
 msgstr "Snel"
 
@@ -1317,27 +1342,35 @@ msgstr "Snel"
 msgid "Double-click Speed"
 msgstr "Dubbelkliksnelheid"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:180
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:192
 msgid "Drag Threshold"
 msgstr "Sleep drempel"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:195
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:208
 #: ../modules/keyboard/main.qml:128
 msgid "Short"
 msgstr "Kort"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:196
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:209
 #: ../modules/keyboard/main.qml:129
 msgid "Long"
 msgstr "Lang"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:205
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:228
 msgid "Natural Scrolling"
 msgstr "Natuurlijk scrollen"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:228
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:252
 msgid "Tap to click"
 msgstr "Tik om te klikken"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:275
+msgid "Two-finger scrolling"
+msgstr "Scrollen met twee vingers"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:298
+msgid "Edge scrolling"
+msgstr "Randscrollen"
 
 #: ../modules/network/vpn/VpnExpand.qml:48
 msgid "VPN Connections"
@@ -1401,17 +1434,17 @@ msgstr "Draadloos Netwerk"
 msgid "Wireless Network %1"
 msgstr "Draadloos Netwerk %1"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:35
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:55
 msgid ""
 "Wireless network is unable to be connected maybe due to the following reasons:\n"
 "\n"
 "1. The hardware switch of wireless network card is off\n"
 "2. Incorrect network configuration in /etc/network/interface\n"
 "3. Incorrect driver of network hardware"
-msgstr ""
+msgstr "Draadloos netwerk is niet in staat te verbinden. Mogelijk komt dit door:\n\n1. De hardwareknop van de draadloze netwerkkaart staat op 'uit'\n2. Incorrecte netwerkconfiguratie in /etc/network/interface\n3. Incorrecte driver of netwerkhardware"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:137
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:352
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:35
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:158
 msgid "Connect to hidden access point"
 msgstr "Verbinden met verborgen toegangspunt"
 
@@ -1594,7 +1627,7 @@ msgstr "Geen resultaten"
 msgid "Caps Lock prompt"
 msgstr "Caps Lock-melding"
 
-#: ../modules/mouse_touchpad/main.qml:167
+#: ../modules/mouse_touchpad/main.qml:177
 msgid "Disable the touchpad when inserting the mouse"
 msgstr "Touchpad uitschakelen wanneer de muis ingekoppeld wordt"
 
@@ -1715,55 +1748,43 @@ msgstr "Luidspreker"
 msgid "Output Volume"
 msgstr "Uitgangsvolume"
 
-#: ../modules/sound/main.qml:204
-msgid "Balance"
-msgstr "Balans"
-
-#: ../modules/sound/main.qml:226
-msgid "Left"
-msgstr "Links"
-
-#: ../modules/sound/main.qml:228
-msgid "Right"
-msgstr "Rechts"
-
-#: ../modules/sound/main.qml:260
+#: ../modules/sound/main.qml:221
 msgid "Microphone"
 msgstr "Microfoon"
 
-#: ../modules/sound/main.qml:290
+#: ../modules/sound/main.qml:251
 msgid "Input Volume"
 msgstr "Ingangsvolume"
 
-#: ../modules/sound/main.qml:334
+#: ../modules/sound/main.qml:295
 msgid "Input Feedback"
 msgstr "Ingangsfeedback"
 
-#: ../modules/sound/main.qml:370
+#: ../modules/sound/main.qml:331
 msgid "Output Port"
 msgstr "Uitgangspoort"
 
-#: ../modules/sound/main.qml:387 ../modules/sound/main.qml:490
+#: ../modules/sound/main.qml:348 ../modules/sound/main.qml:451
 msgid "No port exists in this device."
 msgstr "Er is geen poort beschikbaar voor dit apparaat."
 
-#: ../modules/sound/main.qml:425
+#: ../modules/sound/main.qml:386
 msgid "Output device"
 msgstr "Uitgangsapparaat"
 
-#: ../modules/sound/main.qml:473
+#: ../modules/sound/main.qml:434
 msgid "Input Port"
 msgstr "Ingangspoort"
 
-#: ../modules/sound/main.qml:528
+#: ../modules/sound/main.qml:489
 msgid "Input device"
 msgstr "Ingangsapparaat"
 
-#: ../modules/sound/main.qml:581
+#: ../modules/sound/main.qml:542
 msgid "Hide Advanced..."
 msgstr "Geavanceerde Opties Verbergen..."
 
-#: ../modules/sound/main.qml:581
+#: ../modules/sound/main.qml:542
 msgid "Show Advanced..."
 msgstr "Geavanceerde Opties Weergeven..."
 
