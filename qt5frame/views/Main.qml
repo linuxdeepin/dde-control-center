@@ -47,7 +47,7 @@ QtObject {
                 outerAreaClicked(arg1, arg2)
             }
         }
-        onMotionMove: {
+        onCursorMove: {
             cursorPosition.x = arg0
             cursorPosition.y = arg1
         }
