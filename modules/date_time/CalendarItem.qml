@@ -79,7 +79,12 @@ Rectangle {
                 font.pixelSize: 10
                 color: {
                     if(hasFestival){
-                        return "#00BDFF"
+                        if (clickedDateBackground.visible){
+                            return "#ffffff"
+                        }
+                        else{
+                            return "#00BDFF"
+                        }
                     }
                     else if(grey){
                         return "#444"
