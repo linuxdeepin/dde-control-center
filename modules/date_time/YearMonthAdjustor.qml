@@ -30,6 +30,7 @@ Row {
     width: childrenRect.width
 
     property string dateValue: ""
+    property bool canAdjustMonth: true
     signal monthChanged(var newDateString )
 
     DOpacityImageButton {
@@ -37,6 +38,9 @@ Row {
         source: 'images/arrow_left_white.png'
         anchors.verticalCenter: parent.verticalCenter
         onClicked: {
+            if (!canAdjustMonth)
+                return
+
             var month_str = monthAdjustment.monthNumber;
             if(monthAdjustment.monthNumber < 10){
                 month_str = "0" + month_str
@@ -69,6 +73,9 @@ Row {
         anchors.rightMargin: 6
         source: "images/arrow_right_white.png"
         onClicked: {
+            if (!canAdjustMonth)
+                return
+
             var month_str = monthAdjustment.monthNumber;
             if(monthAdjustment.monthNumber < 10){
                 month_str = "0" + month_str
@@ -86,6 +93,9 @@ Row {
         source: "images/arrow_left_white.png"
 
         onClicked: {
+            if (!canAdjustMonth)
+                return
+
             if (monthAdjustment.monthNumber == 1) {
                 var new_monthNumber = 12
                 var new_yearNumber = yearAdjustment.yearNumber - 1
@@ -127,6 +137,9 @@ Row {
         source: "images/arrow_right_white.png"
 
         onClicked: {
+            if (!canAdjustMonth)
+                return
+
             if (monthAdjustment.monthNumber == 12) {
                 var new_monthNumber = 1
                 var new_yearNumber = yearAdjustment.yearNumber + 1

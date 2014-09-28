@@ -119,6 +119,8 @@ Column {
         color: "#1a1b1b"
 
         leftLoader.sourceComponent: YearMonthAdjustor {
+            id:yearMonthAdjustor
+            canAdjustMonth: slideStop
             height: dateBoxAdjustment.height
             dateValue: calendarWidget.currentSelectedDateValue
             onMonthChanged: calendarWidget.currentSelectedDateValue = newDateString
