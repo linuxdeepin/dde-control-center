@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-17 11:56+0800\n"
-"PO-Revision-Date: 2014-09-24 04:20+0000\n"
-"Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
+"POT-Creation-Date: 2014-10-11 09:34+0800\n"
+"PO-Revision-Date: 2014-10-11 02:21+0000\n"
+"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/dde-control-center/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,7 +36,7 @@ msgstr "Nombre"
 #: ../modules/network/add/AddDsl.qml:36
 #: ../modules/network/add/AddMobile.qml:75
 #: ../modules/network/add/AddMobile.qml:105
-#: ../modules/account/AddUserDialog.qml:116
+#: ../modules/account/AddUserDialog.qml:117
 #: ../modules/network/add/AddVpn.qml:124 ../modules/network/add/AddVpn.qml:254
 #: ../modules/network/add/AddVpn.qml:394 ../modules/network/add/AddVpn.qml:434
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:53
@@ -58,7 +58,7 @@ msgstr "Servicio"
 #: ../modules/network/add/AddDsl.qml:56
 #: ../modules/network/add/AddMobile.qml:85
 #: ../modules/network/add/AddMobile.qml:115
-#: ../modules/account/AddUserDialog.qml:158
+#: ../modules/account/AddUserDialog.qml:160
 #: ../modules/network/add/AddVpn.qml:144 ../modules/network/add/AddVpn.qml:274
 #: ../modules/network/add/AddVpn.qml:414
 #: ../modules/network/wireless/AddWireless.qml:64
@@ -99,7 +99,7 @@ msgid "Number"
 msgstr "Número"
 
 #: ../modules/network/add/AddSectionSave.qml:11
-#: ../modules/account/AddUserDialog.qml:325
+#: ../modules/account/AddUserDialog.qml:327
 #: ../modules/network/wireless/AddWireless.qml:216
 #: ../modules/network/ConnectionAdd.qml:69
 #: ../modules/network/ConnectionEdit.qml:146
@@ -110,7 +110,7 @@ msgstr "Número"
 #: ../modules/shortcuts/ShortcutInput.qml:343
 #: ../modules/date_time/TimeBox.qml:212
 #: ../modules/network/wireless/WifiHotspot.qml:82
-#: ../dock-applets/qml/WifiPasswordWindow.qml:171
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:183
 #: ../modules/display/main.qml:227
 msgid "Cancel"
 msgstr "Cancelar"
@@ -139,39 +139,39 @@ msgstr "Contraseñas diferentes"
 msgid "Add User"
 msgstr "Añadir Usuario"
 
-#: ../modules/account/AddUserDialog.qml:95
+#: ../modules/account/AddUserDialog.qml:96
 msgid "New User"
 msgstr "Nuevo Usuario"
 
-#: ../modules/account/AddUserDialog.qml:99
-#: ../modules/account/AddUserDialog.qml:254
-#: ../modules/account/EditUserDialog.qml:135
-#: ../modules/account/UserList.qml:188
+#: ../modules/account/AddUserDialog.qml:100
+#: ../modules/account/AddUserDialog.qml:256
+#: ../modules/account/EditUserDialog.qml:138
+#: ../modules/account/UserList.qml:222
 msgid "Standard"
 msgstr "Estándar"
 
-#: ../modules/account/AddUserDialog.qml:99
-#: ../modules/account/AddUserDialog.qml:255
-#: ../modules/account/EditUserDialog.qml:136
-#: ../modules/account/UserList.qml:188
+#: ../modules/account/AddUserDialog.qml:100
+#: ../modules/account/AddUserDialog.qml:257
+#: ../modules/account/EditUserDialog.qml:139
+#: ../modules/account/UserList.qml:222
 msgid "Administrator"
 msgstr "Administrador"
 
-#: ../modules/account/AddUserDialog.qml:201
+#: ../modules/account/AddUserDialog.qml:203
 msgid "Repeat Password"
 msgstr "Repetir Contraseña"
 
-#: ../modules/account/AddUserDialog.qml:242
-#: ../modules/account/EditUserDialog.qml:123
+#: ../modules/account/AddUserDialog.qml:244
+#: ../modules/account/EditUserDialog.qml:126
 msgid "Account Type"
 msgstr "Tipo de Cuenta"
 
-#: ../modules/account/AddUserDialog.qml:274
-#: ../modules/account/EditUserDialog.qml:56
+#: ../modules/account/AddUserDialog.qml:276
+#: ../modules/account/EditUserDialog.qml:59
 msgid "Auto-login"
 msgstr "Inicio Automático"
 
-#: ../modules/account/AddUserDialog.qml:338
+#: ../modules/account/AddUserDialog.qml:340
 #: ../modules/account/DeleteUserDialog.qml:46
 #: ../modules/account/PasswordDialog.qml:221 ../modules/account/WebCam.qml:148
 msgid "Confirm"
@@ -433,7 +433,7 @@ msgstr "Autenticación Interna"
 
 #: ../modules/network/wireless/AddWireless.qml:224
 #: ../modules/network/widgets/PasswordBox.qml:109
-#: ../dock-applets/qml/WifiPasswordWindow.qml:178
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:190
 msgid "Connect"
 msgstr "Conectar"
 
@@ -442,6 +442,102 @@ msgstr "Conectar"
 #: ../modules/sound/AppletSwitchArea.qml:40
 msgid "Dock Applet Enabled"
 msgstr "Applet en el Dock Habilitado"
+
+#: ../dock-applets/plugins/date_time/AppletTray.qml:90
+msgid "_Switch to analog"
+msgstr "_cambiar a analógico"
+
+#: ../dock-applets/plugins/date_time/AppletTray.qml:91
+msgid "_Switch to digital"
+msgstr "_cambiar a digital"
+
+#: ../dock-applets/plugins/date_time/AppletTray.qml:178
+#: ../modules/date_time/CalendarComponent.qml:83
+#: ../dock-applets/plugins/date_time/calendar_core.js:4
+msgid "Sun"
+msgstr "Dom"
+
+#: ../dock-applets/plugins/date_time/AppletTray.qml:179
+#: ../modules/date_time/CalendarComponent.qml:84
+#: ../dock-applets/plugins/date_time/calendar_core.js:4
+msgid "Mon"
+msgstr "Lun"
+
+#: ../dock-applets/plugins/date_time/AppletTray.qml:180
+#: ../modules/date_time/CalendarComponent.qml:85
+#: ../dock-applets/plugins/date_time/calendar_core.js:4
+msgid "Tue"
+msgstr "Mar"
+
+#: ../dock-applets/plugins/date_time/AppletTray.qml:181
+#: ../modules/date_time/CalendarComponent.qml:86
+#: ../dock-applets/plugins/date_time/calendar_core.js:4
+msgid "Wed"
+msgstr "Mié"
+
+#: ../dock-applets/plugins/date_time/AppletTray.qml:182
+#: ../modules/date_time/CalendarComponent.qml:87
+#: ../dock-applets/plugins/date_time/calendar_core.js:4
+msgid "Thu"
+msgstr "Jue"
+
+#: ../dock-applets/plugins/date_time/AppletTray.qml:183
+#: ../modules/date_time/CalendarComponent.qml:88
+#: ../dock-applets/plugins/date_time/calendar_core.js:4
+msgid "Fri"
+msgstr "Vie"
+
+#: ../dock-applets/plugins/date_time/AppletTray.qml:184
+#: ../modules/date_time/CalendarComponent.qml:89
+#: ../dock-applets/plugins/date_time/calendar_core.js:4
+msgid "Sat"
+msgstr "Sáb"
+
+#: ../dock-applets/plugins/network/AppletTray.qml:319
+#: ../dock-applets/plugins/power/AppletTray.qml:99
+#: ../dock-applets/plugins/sound/AppletTray.qml:183
+msgid "_Run"
+msgstr "_Ejecutar"
+
+#: ../dock-applets/plugins/network/AppletTray.qml:320
+#: ../dock-applets/plugins/power/AppletTray.qml:106
+#: ../dock-applets/plugins/sound/AppletTray.qml:184
+msgid "_Undock"
+msgstr "_Quitar del dock"
+
+#: ../dock-applets/plugins/power/AppletTray.qml:34
+msgid "On Charging"
+msgstr "Cargando"
+
+#: ../dock-applets/plugins/power/AppletTray.qml:46
+#: ../modules/personalization/widgets/ThemeItem.qml:95
+#: ../modules/power/main.qml:268 ../modules/power/main.qml:443
+#: ../modules/shortcuts/main.qml:53 ../modules/shortcuts/main.qml:225
+msgid "Custom"
+msgstr "Personalizado"
+
+#: ../dock-applets/plugins/power/AppletTray.qml:47
+#: ../modules/power/main.qml:256 ../modules/power/main.qml:431
+msgid "Power saver"
+msgstr "Ahorro de energía"
+
+#: ../dock-applets/plugins/power/AppletTray.qml:48
+#: ../modules/power/main.qml:250 ../modules/power/main.qml:425
+msgid "Balanced"
+msgstr "Balanceado"
+
+#: ../dock-applets/plugins/power/AppletTray.qml:49
+#: ../modules/power/main.qml:262 ../modules/power/main.qml:437
+msgid "High performance"
+msgstr "Alto rendimiento"
+
+#: ../dock-applets/plugins/sound/AppletTray.qml:219
+msgid "Device"
+msgstr "Dispositivo"
+
+#: ../dock-applets/plugins/sound/AppletTray.qml:319
+msgid "Applications"
+msgstr "Aplicaciones "
 
 #: ../modules/account/AvatarPickDialog.qml:5
 msgid "Choose a new picture for your Avatar"
@@ -475,51 +571,9 @@ msgstr "Derecha"
 msgid "Automatically connect"
 msgstr "Conectar automáticamente"
 
-#: ../modules/date_time/Calendar.qml:129
+#: ../modules/date_time/Calendar.qml:131
 msgid "Today"
 msgstr "Hoy"
-
-#: ../modules/date_time/CalendarComponent.qml:83
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:178
-msgid "Sun"
-msgstr "Dom"
-
-#: ../modules/date_time/CalendarComponent.qml:84
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:179
-msgid "Mon"
-msgstr "Lun"
-
-#: ../modules/date_time/CalendarComponent.qml:85
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:180
-msgid "Tue"
-msgstr "Mar"
-
-#: ../modules/date_time/CalendarComponent.qml:86
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:181
-msgid "Wed"
-msgstr "Mié"
-
-#: ../modules/date_time/CalendarComponent.qml:87
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:182
-msgid "Thu"
-msgstr "Jue"
-
-#: ../modules/date_time/CalendarComponent.qml:88
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:183
-msgid "Fri"
-msgstr "Vie"
-
-#: ../modules/date_time/CalendarComponent.qml:89
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:184
-msgid "Sat"
-msgstr "Sáb"
 
 #: ../modules/network/ConnectionAdd.qml:12
 msgid "New Network"
@@ -576,7 +630,7 @@ msgstr "Mantener los archivos de usuario"
 msgid "Delete user's files"
 msgstr "Eliminar archivos de usuario"
 
-#: ../dock-applets/qml/disk_mount/DiskItem.qml:124
+#: ../dock-applets/plugins/disk_mount/DiskItem.qml:124
 msgid "Unmount failed!"
 msgstr "Desmontado fallido!"
 
@@ -920,7 +974,7 @@ msgstr "Banda"
 msgid "Channel"
 msgstr "Canal"
 
-#: ../modules/account/EditUserDialog.qml:90
+#: ../modules/account/EditUserDialog.qml:93
 msgid "Enable"
 msgstr "Habilitar"
 
@@ -945,11 +999,11 @@ msgstr "Tamaño"
 msgid "Font %1"
 msgstr "Fuente %1"
 
-#: ../modules/account/GuestUser.qml:40 ../qt5frame/views/HeaderArea.qml:108
+#: ../modules/account/GuestUser.qml:45 ../qt5frame/views/HeaderArea.qml:108
 msgid "Guest"
 msgstr "Invitado"
 
-#: ../modules/account/GuestUser.qml:101
+#: ../modules/account/GuestUser.qml:106
 #: ../modules/display/MonitorProperties.qml:80
 msgid "Enabled"
 msgstr "Habilitado"
@@ -1021,15 +1075,18 @@ msgstr "Guardar cambios"
 msgid "Revert"
 msgstr "Revertir"
 
-#: ../qt5frame/views/ModulesData.qml:52 ../dock-applets/qml/main.qml:54
+#: ../qt5frame/views/ModulesData.qml:52
+#: ../dock-applets/plugins/date_time/main.qml:32
 msgid "Date and Time"
 msgstr "Fecha y Hora"
 
-#: ../qt5frame/views/ModulesData.qml:53 ../dock-applets/qml/main.qml:50
+#: ../qt5frame/views/ModulesData.qml:53
+#: ../dock-applets/plugins/network/main.qml:32
 msgid "Network"
 msgstr "Redes e Internet"
 
-#: ../qt5frame/views/ModulesData.qml:54 ../dock-applets/qml/main.qml:53
+#: ../qt5frame/views/ModulesData.qml:54
+#: ../dock-applets/plugins/disk_mount/main.qml:33
 msgid "Disk Mount"
 msgstr "Montaje del disco"
 
@@ -1037,7 +1094,8 @@ msgstr "Montaje del disco"
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: ../qt5frame/views/ModulesData.qml:56 ../dock-applets/qml/main.qml:51
+#: ../qt5frame/views/ModulesData.qml:56
+#: ../dock-applets/plugins/sound/main.qml:32
 msgid "Sound"
 msgstr "Sonido"
 
@@ -1050,7 +1108,7 @@ msgid "More Settings"
 msgstr "Más ajustes"
 
 #: ../qt5frame/views/ModulesData.qml:59 ../qt5frame/views/PanelContent.qml:410
-#: ../dock-applets/qml/main.qml:52
+#: ../dock-applets/plugins/power/main.qml:33
 msgid "Power"
 msgstr "Energía"
 
@@ -1178,9 +1236,9 @@ msgstr "Repetir"
 msgid "Drag and drop an image to change background."
 msgstr "Arrastre y suelte una imagen para cambiar el fondo."
 
-#: ../modules/grub/Preview.qml:123
-msgid "Image format not supported."
-msgstr "Formato de imagen no soportado."
+#: ../modules/grub/Preview.qml:123 ../modules/account/UserList.qml:233
+msgid "Image format not supported"
+msgstr ""
 
 #: ../modules/grub/Preview.qml:124
 msgid "Updating..."
@@ -1277,13 +1335,6 @@ msgstr "Vista previa de tema"
 #: ../modules/shortcuts/StateButtons.qml:38
 msgid "Done"
 msgstr "Hecho"
-
-#: ../modules/personalization/widgets/ThemeItem.qml:95
-#: ../dock-applets/qml/power/main.qml:46 ../modules/power/main.qml:268
-#: ../modules/power/main.qml:443 ../modules/shortcuts/main.qml:53
-#: ../modules/shortcuts/main.qml:225
-msgid "Custom"
-msgstr "Personalizado"
 
 #: ../modules/date_time/TimeBox.qml:161
 msgid "Double-click the above digits to change your time."
@@ -1400,18 +1451,18 @@ msgstr "Crear Wi-Fi Hotspot"
 msgid "Create"
 msgstr "Crear"
 
-#: ../dock-applets/qml/WifiPasswordWindow.qml:127
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:139
 msgid "Authentication required by Wi-Fi network"
 msgstr "Autenticación requerida por red Wi-Fi"
 
-#: ../dock-applets/qml/WifiPasswordWindow.qml:135
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:147
 #, qt-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network <font "
 "color=\"#faca57\">%1</font>"
 msgstr "Contraseñas o claves de cifrado están obligadas a acceder a la red Wi-Fi del <font color=\"#faca57\"> %1</font>"
 
-#: ../dock-applets/qml/WifiPasswordWindow.qml:149
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:161
 msgid "Password:"
 msgstr "Contraseña:"
 
@@ -1419,17 +1470,17 @@ msgstr "Contraseña:"
 msgid "Wired Network"
 msgstr "Red cableada"
 
-#: ../dock-applets/qml/network/WirelessApList.qml:95
+#: ../dock-applets/plugins/network/WirelessApList.qml:95
 msgid "Scanning..."
 msgstr "Escaneando..."
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:28
-#: ../dock-applets/qml/network/WirelessNetwork.qml:50
+#: ../dock-applets/plugins/network/WirelessNetwork.qml:50
 msgid "Wireless Network"
 msgstr "Red inalámbrica"
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:26
-#: ../dock-applets/qml/network/WirelessNetwork.qml:50
+#: ../dock-applets/plugins/network/WirelessNetwork.qml:50
 #, qt-format
 msgid "Wireless Network %1"
 msgstr "Red Inalámbrica %1"
@@ -1447,53 +1498,6 @@ msgstr "No es posible conectar a la red inalámbrica quizá debido a las siguien
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:158
 msgid "Connect to hidden access point"
 msgstr "Conectar al punto de acceso oculto"
-
-#: ../dock-applets/qml/date_time/main.qml:90
-msgid "_Switch to analog"
-msgstr "_cambiar a analógico"
-
-#: ../dock-applets/qml/date_time/main.qml:91
-msgid "_Switch to digital"
-msgstr "_cambiar a digital"
-
-#: ../dock-applets/qml/network/main.qml:319
-#: ../dock-applets/qml/power/main.qml:99
-#: ../dock-applets/qml/sound/main.qml:183
-msgid "_Run"
-msgstr "_Ejecutar"
-
-#: ../dock-applets/qml/power/main.qml:34
-msgid "On Charging"
-msgstr "Cargando"
-
-#: ../dock-applets/qml/power/main.qml:47 ../modules/power/main.qml:256
-#: ../modules/power/main.qml:431
-msgid "Power saver"
-msgstr "Ahorro de energía"
-
-#: ../dock-applets/qml/power/main.qml:48 ../modules/power/main.qml:250
-#: ../modules/power/main.qml:425
-msgid "Balanced"
-msgstr "Balanceado"
-
-#: ../dock-applets/qml/power/main.qml:49 ../modules/power/main.qml:262
-#: ../modules/power/main.qml:437
-msgid "High performance"
-msgstr "Alto rendimiento"
-
-#: ../dock-applets/qml/network/main.qml:320
-#: ../dock-applets/qml/power/main.qml:106
-#: ../dock-applets/qml/sound/main.qml:184
-msgid "_Undock"
-msgstr "_Quitar del dock"
-
-#: ../dock-applets/qml/sound/main.qml:219
-msgid "Device"
-msgstr "Dispositivo"
-
-#: ../dock-applets/qml/sound/main.qml:313
-msgid "Applications"
-msgstr "Aplicaciones "
 
 #: ../modules/bluetooth/main.qml:76
 msgid "ON/OFF"
@@ -1911,3 +1915,7 @@ msgstr "VPN OpenVPN"
 #: ../modules/network/main.qml:222
 msgid "VPN OpenConnect"
 msgstr "VPN OpenConnect"
+
+#: ../modules/account/main.qml:132
+msgid "User List"
+msgstr ""

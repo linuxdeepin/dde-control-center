@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-17 11:56+0800\n"
-"PO-Revision-Date: 2014-09-23 10:13+0000\n"
-"Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
+"POT-Creation-Date: 2014-10-11 09:34+0800\n"
+"PO-Revision-Date: 2014-10-11 02:21+0000\n"
+"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/dde-control-center/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +35,7 @@ msgstr "名稱"
 #: ../modules/network/add/AddDsl.qml:36
 #: ../modules/network/add/AddMobile.qml:75
 #: ../modules/network/add/AddMobile.qml:105
-#: ../modules/account/AddUserDialog.qml:116
+#: ../modules/account/AddUserDialog.qml:117
 #: ../modules/network/add/AddVpn.qml:124 ../modules/network/add/AddVpn.qml:254
 #: ../modules/network/add/AddVpn.qml:394 ../modules/network/add/AddVpn.qml:434
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:53
@@ -57,7 +57,7 @@ msgstr "服務"
 #: ../modules/network/add/AddDsl.qml:56
 #: ../modules/network/add/AddMobile.qml:85
 #: ../modules/network/add/AddMobile.qml:115
-#: ../modules/account/AddUserDialog.qml:158
+#: ../modules/account/AddUserDialog.qml:160
 #: ../modules/network/add/AddVpn.qml:144 ../modules/network/add/AddVpn.qml:274
 #: ../modules/network/add/AddVpn.qml:414
 #: ../modules/network/wireless/AddWireless.qml:64
@@ -98,7 +98,7 @@ msgid "Number"
 msgstr "數字"
 
 #: ../modules/network/add/AddSectionSave.qml:11
-#: ../modules/account/AddUserDialog.qml:325
+#: ../modules/account/AddUserDialog.qml:327
 #: ../modules/network/wireless/AddWireless.qml:216
 #: ../modules/network/ConnectionAdd.qml:69
 #: ../modules/network/ConnectionEdit.qml:146
@@ -109,7 +109,7 @@ msgstr "數字"
 #: ../modules/shortcuts/ShortcutInput.qml:343
 #: ../modules/date_time/TimeBox.qml:212
 #: ../modules/network/wireless/WifiHotspot.qml:82
-#: ../dock-applets/qml/WifiPasswordWindow.qml:171
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:183
 #: ../modules/display/main.qml:227
 msgid "Cancel"
 msgstr "取消"
@@ -138,39 +138,39 @@ msgstr "密碼不相同"
 msgid "Add User"
 msgstr "添加用戶"
 
-#: ../modules/account/AddUserDialog.qml:95
+#: ../modules/account/AddUserDialog.qml:96
 msgid "New User"
 msgstr "新建用戶"
 
-#: ../modules/account/AddUserDialog.qml:99
-#: ../modules/account/AddUserDialog.qml:254
-#: ../modules/account/EditUserDialog.qml:135
-#: ../modules/account/UserList.qml:188
+#: ../modules/account/AddUserDialog.qml:100
+#: ../modules/account/AddUserDialog.qml:256
+#: ../modules/account/EditUserDialog.qml:138
+#: ../modules/account/UserList.qml:222
 msgid "Standard"
 msgstr "標準"
 
-#: ../modules/account/AddUserDialog.qml:99
-#: ../modules/account/AddUserDialog.qml:255
-#: ../modules/account/EditUserDialog.qml:136
-#: ../modules/account/UserList.qml:188
+#: ../modules/account/AddUserDialog.qml:100
+#: ../modules/account/AddUserDialog.qml:257
+#: ../modules/account/EditUserDialog.qml:139
+#: ../modules/account/UserList.qml:222
 msgid "Administrator"
 msgstr "管理員"
 
-#: ../modules/account/AddUserDialog.qml:201
+#: ../modules/account/AddUserDialog.qml:203
 msgid "Repeat Password"
 msgstr "重複密碼"
 
-#: ../modules/account/AddUserDialog.qml:242
-#: ../modules/account/EditUserDialog.qml:123
+#: ../modules/account/AddUserDialog.qml:244
+#: ../modules/account/EditUserDialog.qml:126
 msgid "Account Type"
 msgstr "帳號類型"
 
-#: ../modules/account/AddUserDialog.qml:274
-#: ../modules/account/EditUserDialog.qml:56
+#: ../modules/account/AddUserDialog.qml:276
+#: ../modules/account/EditUserDialog.qml:59
 msgid "Auto-login"
 msgstr "自動登入"
 
-#: ../modules/account/AddUserDialog.qml:338
+#: ../modules/account/AddUserDialog.qml:340
 #: ../modules/account/DeleteUserDialog.qml:46
 #: ../modules/account/PasswordDialog.qml:221 ../modules/account/WebCam.qml:148
 msgid "Confirm"
@@ -432,7 +432,7 @@ msgstr "內部授權"
 
 #: ../modules/network/wireless/AddWireless.qml:224
 #: ../modules/network/widgets/PasswordBox.qml:109
-#: ../dock-applets/qml/WifiPasswordWindow.qml:178
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:190
 msgid "Connect"
 msgstr "連線"
 
@@ -441,6 +441,102 @@ msgstr "連線"
 #: ../modules/sound/AppletSwitchArea.qml:40
 msgid "Dock Applet Enabled"
 msgstr "Dock 附加元件開啟"
+
+#: ../dock-applets/plugins/date_time/AppletTray.qml:90
+msgid "_Switch to analog"
+msgstr "切換為類比時鐘(_S)"
+
+#: ../dock-applets/plugins/date_time/AppletTray.qml:91
+msgid "_Switch to digital"
+msgstr "切換為數字時鐘(_S)"
+
+#: ../dock-applets/plugins/date_time/AppletTray.qml:178
+#: ../modules/date_time/CalendarComponent.qml:83
+#: ../dock-applets/plugins/date_time/calendar_core.js:4
+msgid "Sun"
+msgstr "日"
+
+#: ../dock-applets/plugins/date_time/AppletTray.qml:179
+#: ../modules/date_time/CalendarComponent.qml:84
+#: ../dock-applets/plugins/date_time/calendar_core.js:4
+msgid "Mon"
+msgstr "一"
+
+#: ../dock-applets/plugins/date_time/AppletTray.qml:180
+#: ../modules/date_time/CalendarComponent.qml:85
+#: ../dock-applets/plugins/date_time/calendar_core.js:4
+msgid "Tue"
+msgstr "二"
+
+#: ../dock-applets/plugins/date_time/AppletTray.qml:181
+#: ../modules/date_time/CalendarComponent.qml:86
+#: ../dock-applets/plugins/date_time/calendar_core.js:4
+msgid "Wed"
+msgstr "三"
+
+#: ../dock-applets/plugins/date_time/AppletTray.qml:182
+#: ../modules/date_time/CalendarComponent.qml:87
+#: ../dock-applets/plugins/date_time/calendar_core.js:4
+msgid "Thu"
+msgstr "四"
+
+#: ../dock-applets/plugins/date_time/AppletTray.qml:183
+#: ../modules/date_time/CalendarComponent.qml:88
+#: ../dock-applets/plugins/date_time/calendar_core.js:4
+msgid "Fri"
+msgstr "五"
+
+#: ../dock-applets/plugins/date_time/AppletTray.qml:184
+#: ../modules/date_time/CalendarComponent.qml:89
+#: ../dock-applets/plugins/date_time/calendar_core.js:4
+msgid "Sat"
+msgstr "六"
+
+#: ../dock-applets/plugins/network/AppletTray.qml:319
+#: ../dock-applets/plugins/power/AppletTray.qml:99
+#: ../dock-applets/plugins/sound/AppletTray.qml:183
+msgid "_Run"
+msgstr "執行(_R)"
+
+#: ../dock-applets/plugins/network/AppletTray.qml:320
+#: ../dock-applets/plugins/power/AppletTray.qml:106
+#: ../dock-applets/plugins/sound/AppletTray.qml:184
+msgid "_Undock"
+msgstr "移除駐留(_U)"
+
+#: ../dock-applets/plugins/power/AppletTray.qml:34
+msgid "On Charging"
+msgstr "正在充電"
+
+#: ../dock-applets/plugins/power/AppletTray.qml:46
+#: ../modules/personalization/widgets/ThemeItem.qml:95
+#: ../modules/power/main.qml:268 ../modules/power/main.qml:443
+#: ../modules/shortcuts/main.qml:53 ../modules/shortcuts/main.qml:225
+msgid "Custom"
+msgstr "自定"
+
+#: ../dock-applets/plugins/power/AppletTray.qml:47
+#: ../modules/power/main.qml:256 ../modules/power/main.qml:431
+msgid "Power saver"
+msgstr "節能"
+
+#: ../dock-applets/plugins/power/AppletTray.qml:48
+#: ../modules/power/main.qml:250 ../modules/power/main.qml:425
+msgid "Balanced"
+msgstr "均衡"
+
+#: ../dock-applets/plugins/power/AppletTray.qml:49
+#: ../modules/power/main.qml:262 ../modules/power/main.qml:437
+msgid "High performance"
+msgstr "高性能"
+
+#: ../dock-applets/plugins/sound/AppletTray.qml:219
+msgid "Device"
+msgstr "設備"
+
+#: ../dock-applets/plugins/sound/AppletTray.qml:319
+msgid "Applications"
+msgstr "應用程式"
 
 #: ../modules/account/AvatarPickDialog.qml:5
 msgid "Choose a new picture for your Avatar"
@@ -474,51 +570,9 @@ msgstr "右"
 msgid "Automatically connect"
 msgstr "自動連線"
 
-#: ../modules/date_time/Calendar.qml:129
+#: ../modules/date_time/Calendar.qml:131
 msgid "Today"
 msgstr "今日"
-
-#: ../modules/date_time/CalendarComponent.qml:83
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:178
-msgid "Sun"
-msgstr "日"
-
-#: ../modules/date_time/CalendarComponent.qml:84
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:179
-msgid "Mon"
-msgstr "一"
-
-#: ../modules/date_time/CalendarComponent.qml:85
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:180
-msgid "Tue"
-msgstr "二"
-
-#: ../modules/date_time/CalendarComponent.qml:86
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:181
-msgid "Wed"
-msgstr "三"
-
-#: ../modules/date_time/CalendarComponent.qml:87
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:182
-msgid "Thu"
-msgstr "四"
-
-#: ../modules/date_time/CalendarComponent.qml:88
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:183
-msgid "Fri"
-msgstr "五"
-
-#: ../modules/date_time/CalendarComponent.qml:89
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:184
-msgid "Sat"
-msgstr "六"
 
 #: ../modules/network/ConnectionAdd.qml:12
 msgid "New Network"
@@ -575,7 +629,7 @@ msgstr "保留用戶文件"
 msgid "Delete user's files"
 msgstr "刪除用戶文件"
 
-#: ../dock-applets/qml/disk_mount/DiskItem.qml:124
+#: ../dock-applets/plugins/disk_mount/DiskItem.qml:124
 msgid "Unmount failed!"
 msgstr "卸載失敗"
 
@@ -919,7 +973,7 @@ msgstr "波段"
 msgid "Channel"
 msgstr "頻道"
 
-#: ../modules/account/EditUserDialog.qml:90
+#: ../modules/account/EditUserDialog.qml:93
 msgid "Enable"
 msgstr "啟用"
 
@@ -944,11 +998,11 @@ msgstr "大小"
 msgid "Font %1"
 msgstr "字型 %1"
 
-#: ../modules/account/GuestUser.qml:40 ../qt5frame/views/HeaderArea.qml:108
+#: ../modules/account/GuestUser.qml:45 ../qt5frame/views/HeaderArea.qml:108
 msgid "Guest"
 msgstr "來賓"
 
-#: ../modules/account/GuestUser.qml:101
+#: ../modules/account/GuestUser.qml:106
 #: ../modules/display/MonitorProperties.qml:80
 msgid "Enabled"
 msgstr "啟用"
@@ -1020,15 +1074,18 @@ msgstr "保留更改"
 msgid "Revert"
 msgstr "還原"
 
-#: ../qt5frame/views/ModulesData.qml:52 ../dock-applets/qml/main.qml:54
+#: ../qt5frame/views/ModulesData.qml:52
+#: ../dock-applets/plugins/date_time/main.qml:32
 msgid "Date and Time"
 msgstr "日期和時間"
 
-#: ../qt5frame/views/ModulesData.qml:53 ../dock-applets/qml/main.qml:50
+#: ../qt5frame/views/ModulesData.qml:53
+#: ../dock-applets/plugins/network/main.qml:32
 msgid "Network"
 msgstr "網路"
 
-#: ../qt5frame/views/ModulesData.qml:54 ../dock-applets/qml/main.qml:53
+#: ../qt5frame/views/ModulesData.qml:54
+#: ../dock-applets/plugins/disk_mount/main.qml:33
 msgid "Disk Mount"
 msgstr "磁碟機掛載"
 
@@ -1036,7 +1093,8 @@ msgstr "磁碟機掛載"
 msgid "Bluetooth"
 msgstr "藍牙"
 
-#: ../qt5frame/views/ModulesData.qml:56 ../dock-applets/qml/main.qml:51
+#: ../qt5frame/views/ModulesData.qml:56
+#: ../dock-applets/plugins/sound/main.qml:32
 msgid "Sound"
 msgstr "聲音"
 
@@ -1049,7 +1107,7 @@ msgid "More Settings"
 msgstr "更多設定"
 
 #: ../qt5frame/views/ModulesData.qml:59 ../qt5frame/views/PanelContent.qml:410
-#: ../dock-applets/qml/main.qml:52
+#: ../dock-applets/plugins/power/main.qml:33
 msgid "Power"
 msgstr "電源"
 
@@ -1177,9 +1235,9 @@ msgstr "重複密碼"
 msgid "Drag and drop an image to change background."
 msgstr "拖拽圖片到此以更換背景"
 
-#: ../modules/grub/Preview.qml:123
-msgid "Image format not supported."
-msgstr "不支援的圖片格式"
+#: ../modules/grub/Preview.qml:123 ../modules/account/UserList.qml:233
+msgid "Image format not supported"
+msgstr ""
 
 #: ../modules/grub/Preview.qml:124
 msgid "Updating..."
@@ -1276,13 +1334,6 @@ msgstr "預覽主題"
 #: ../modules/shortcuts/StateButtons.qml:38
 msgid "Done"
 msgstr "完成"
-
-#: ../modules/personalization/widgets/ThemeItem.qml:95
-#: ../dock-applets/qml/power/main.qml:46 ../modules/power/main.qml:268
-#: ../modules/power/main.qml:443 ../modules/shortcuts/main.qml:53
-#: ../modules/shortcuts/main.qml:225
-msgid "Custom"
-msgstr "自定"
 
 #: ../modules/date_time/TimeBox.qml:161
 msgid "Double-click the above digits to change your time."
@@ -1399,18 +1450,18 @@ msgstr "建立無線熱點"
 msgid "Create"
 msgstr "建立"
 
-#: ../dock-applets/qml/WifiPasswordWindow.qml:127
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:139
 msgid "Authentication required by Wi-Fi network"
 msgstr "Wi-Fi 網路所需的授權"
 
-#: ../dock-applets/qml/WifiPasswordWindow.qml:135
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:147
 #, qt-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network <font "
 "color=\"#faca57\">%1</font>"
 msgstr "連上Wi-Fi網絡所需的密碼或密鑰<font color=\"#faca57\">%1</font>"
 
-#: ../dock-applets/qml/WifiPasswordWindow.qml:149
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:161
 msgid "Password:"
 msgstr "密碼："
 
@@ -1418,17 +1469,17 @@ msgstr "密碼："
 msgid "Wired Network"
 msgstr "有線網絡"
 
-#: ../dock-applets/qml/network/WirelessApList.qml:95
+#: ../dock-applets/plugins/network/WirelessApList.qml:95
 msgid "Scanning..."
 msgstr "掃描中..."
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:28
-#: ../dock-applets/qml/network/WirelessNetwork.qml:50
+#: ../dock-applets/plugins/network/WirelessNetwork.qml:50
 msgid "Wireless Network"
 msgstr "無線網絡"
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:26
-#: ../dock-applets/qml/network/WirelessNetwork.qml:50
+#: ../dock-applets/plugins/network/WirelessNetwork.qml:50
 #, qt-format
 msgid "Wireless Network %1"
 msgstr "無線網絡 %1"
@@ -1446,53 +1497,6 @@ msgstr ""
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:158
 msgid "Connect to hidden access point"
 msgstr "連接到隱藏網絡"
-
-#: ../dock-applets/qml/date_time/main.qml:90
-msgid "_Switch to analog"
-msgstr "切換為類比時鐘(_S)"
-
-#: ../dock-applets/qml/date_time/main.qml:91
-msgid "_Switch to digital"
-msgstr "切換為數字時鐘(_S)"
-
-#: ../dock-applets/qml/network/main.qml:319
-#: ../dock-applets/qml/power/main.qml:99
-#: ../dock-applets/qml/sound/main.qml:183
-msgid "_Run"
-msgstr "執行(_R)"
-
-#: ../dock-applets/qml/power/main.qml:34
-msgid "On Charging"
-msgstr "正在充電"
-
-#: ../dock-applets/qml/power/main.qml:47 ../modules/power/main.qml:256
-#: ../modules/power/main.qml:431
-msgid "Power saver"
-msgstr "節能"
-
-#: ../dock-applets/qml/power/main.qml:48 ../modules/power/main.qml:250
-#: ../modules/power/main.qml:425
-msgid "Balanced"
-msgstr "均衡"
-
-#: ../dock-applets/qml/power/main.qml:49 ../modules/power/main.qml:262
-#: ../modules/power/main.qml:437
-msgid "High performance"
-msgstr "高性能"
-
-#: ../dock-applets/qml/network/main.qml:320
-#: ../dock-applets/qml/power/main.qml:106
-#: ../dock-applets/qml/sound/main.qml:184
-msgid "_Undock"
-msgstr "移除駐留(_U)"
-
-#: ../dock-applets/qml/sound/main.qml:219
-msgid "Device"
-msgstr "設備"
-
-#: ../dock-applets/qml/sound/main.qml:313
-msgid "Applications"
-msgstr "應用程式"
 
 #: ../modules/bluetooth/main.qml:76
 msgid "ON/OFF"
@@ -1910,3 +1914,7 @@ msgstr "VPN OpenVPN"
 #: ../modules/network/main.qml:222
 msgid "VPN OpenConnect"
 msgstr "VPN OpenConnect"
+
+#: ../modules/account/main.qml:132
+msgid "User List"
+msgstr ""
