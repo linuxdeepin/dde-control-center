@@ -4,35 +4,36 @@ import "edit_autogen"
 
 BaseConnectionEdit {
     id: editPage
+    signal shouldCleanPasswd()
     ParallelAnimation {
         id: showDelete
         NumberAnimation {
-            target: saveBox; 
-            property: "x"; 
-            to: buttonLine.x + buttonLine.width - saveBox.width - deleteBox.width; 
-            duration: 200 
+            target: saveBox;
+            property: "x";
+            to: buttonLine.x + buttonLine.width - saveBox.width - deleteBox.width;
+            duration: 200
         }
         NumberAnimation {
-            target: saveBox; 
-            property: "opacity"; 
-            to: 0; 
-            duration: 200 
+            target: saveBox;
+            property: "opacity";
+            to: 0;
+            duration: 200
         }
     }
 
     ParallelAnimation {
         id: cancelDelete
         NumberAnimation {
-            target: saveBox; 
-            property: "x"; 
-            to: buttonLine.x + buttonLine.width - saveBox.width; 
-            duration: 200 
+            target: saveBox;
+            property: "x";
+            to: buttonLine.x + buttonLine.width - saveBox.width;
+            duration: 200
         }
         NumberAnimation {
-            target: saveBox; 
-            property: "opacity"; 
-            to: 1; 
-            duration: 200 
+            target: saveBox;
+            property: "opacity";
+            to: 1;
+            duration: 200
         }
     }
 
@@ -133,6 +134,9 @@ BaseConnectionEdit {
                 anchors.verticalCenter: parent.verticalCenter
                 text: dsTr("Delete")
                 onClicked: {
+                    //clean passwd signal
+                    editPage.shouldCleanPasswd()
+
                     stackView.reset()
                     connectionSession.Close()
                     if (editPage.connectionPath) {

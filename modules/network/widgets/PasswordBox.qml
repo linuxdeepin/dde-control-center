@@ -2,6 +2,7 @@ import QtQuick 2.1
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
 import Deepin.Widgets 1.0
+import DBus.Com.Deepin.Daemon.Network 1.0
 import "../../shared"
 
 Item {
@@ -16,9 +17,13 @@ Item {
     property alias arrowHeight: arrowRectBackground.arrowHeight
     property int realHeight: childrenRect.height
     property string encryptionName: ""
+    property bool autoconnect: false
+    property bool cacheCheckState: false
 
-    function showArea(encryptionName){
+    function showArea(encryptionName,autoconnect){
         passwordArea.encryptionName = encryptionName
+        passwordArea.autoconnect = autoconnect
+        autoConnectBox.checked = autoconnect
         height = realHeight
         networkModule.inPasswordInputting = true
         passwordInput.forceActiveFocus()
@@ -36,7 +41,12 @@ Item {
 
     function connectAction(){
         hideArea()
-        dbusNetwork.FeedSecret(passwordArea.path, passwordArea.encryptionName, passwordInput.text)
+        print ("==> ConnectAction...",passwordArea.path,passwordArea.encryptionName,passwordInput.text,passwordArea.autoconnect)
+        dbusNetwork.FeedSecret(passwordArea.path, passwordArea.encryptionName, passwordInput.text, passwordArea.autoconnect)
+    }
+
+    function cleanPassword(){
+        passwordInput.text = ""
     }
 
     Connections {
@@ -45,7 +55,7 @@ Item {
             if (path == passwordArea.path) {
                 if(prefixCondition){
                     print("==> onNeedSecretsEmit:", passwordArea.path, passwordArea.prefixCondition)
-                    passwordArea.showArea(encryptionName)
+                    passwordArea.showArea(encryptionName,autoconnect)
                 }
             }
         }
@@ -61,38 +71,46 @@ Item {
         arrowPosition: 0.15
     }
 
-    Item {
-        id: passwordInputArea
+    DTextInput{
+        id: passwordInput
+        width: 250
         anchors.top: parent.top
         anchors.topMargin: arrowRectBackground.arrowHeight + 18
         anchors.horizontalCenter: parent.horizontalCenter
-        width: parent.width - 48
-        height: 38
-
-        DssH2 {
-            id: passwordLabel
-            anchors.verticalCenter: parent.verticalCenter
-            text: dsTr("Password: ")
+        textInput.color: "#b4b4b4"
+        echoMode: TextInput.Password
+        onAccepted: {
+            passwordArea.connectAction()
         }
 
-        DTextInput{
-            id: passwordInput
-            width: parent.width - passwordLabel.width - 10
-            anchors.right: parent.right
-            anchors.verticalCenter: parent.verticalCenter
-            textInput.color: dconstants.fgColor
-            echoMode: TextInput.Password
-            onAccepted: {
-                passwordArea.connectAction()
-            }
+        Text {
+            anchors.left: parent.left
+            anchors.leftMargin: 6
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: parent.width / 2
+            height: parent.height
+            color: "#636363"
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignLeft
+            text: dsTr("Password")
+            visible: passwordInput.text == ""
         }
     }
 
-    Row{
-        anchors.top: passwordInputArea.bottom
+    DCheckBox {
+        id:autoConnectBox
+        text:dsTr("Auto-connect")
+        anchors.top: passwordInput.bottom
         anchors.topMargin: 6
-        anchors.right: parent.right
-        anchors.rightMargin: 15
+        anchors.left: passwordInput.left
+        onCheckedChanged: passwordArea.autoconnect = checked
+    }
+
+    Row{
+        id:buttonRow
+        anchors.top: autoConnectBox.bottom
+        anchors.topMargin: 0
+        anchors.right: passwordInput.right
         height: 38
         spacing: 10
 

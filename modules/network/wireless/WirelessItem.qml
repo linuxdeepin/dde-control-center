@@ -53,6 +53,15 @@ Item {
         }
     }
 
+    Connections {
+        id: stackConnection
+        ignoreUnknownSignals: true
+        target: stackView.currentItem
+        onShouldCleanPasswd: {
+            passwordArea.cleanPassword()
+        }
+    }
+
     Component.onCompleted: {
         updateWirelessConnectionInfo()
     }

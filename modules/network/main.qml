@@ -83,7 +83,7 @@ Item {
     property var nmDevices: unmarshalJSON(dbusNetwork.devices)
     property var nmConnections: unmarshalJSON(dbusNetwork.connections)
 
-    signal needSecretsEmit(string path, string encryptionName, string accessPointName)
+    signal needSecretsEmit(string path, string encryptionName, string accessPointName,bool autoconnect)
     signal toNetworkIndexPage
 
     property bool inPasswordInputting: false

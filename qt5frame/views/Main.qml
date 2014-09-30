@@ -93,9 +93,9 @@ QtObject {
 
     property var dbusNetwork: NetworkManager {
         onNeedSecrets:{
-            print("NeedSectets Emit in dss Frame:", arg0, arg1, arg2)
+            print("NeedSectets Emit in dss Frame:", arg0, arg1, arg2,arg3)
             if(getNetworkCanShowPassword()){
-                rootWindow.panelContent.rightBoxLoader.item.needSecretsEmit(arg0, arg1, arg2)
+                rootWindow.panelContent.rightBoxLoader.item.needSecretsEmit(arg0, arg1, arg2,arg3)
             }
         }
     }

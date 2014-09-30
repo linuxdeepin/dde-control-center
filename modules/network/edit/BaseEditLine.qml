@@ -154,7 +154,7 @@ DBaseLine {
         var values = getAvailableValues()
         if (values == null) {
             // values is null here so this function should not be
-            // called in this case
+            // called in onnectionSession.Save()this case
             print("-> [WARNING] getAvailableValuesTextByValue: values is null,", values, section, key, cacheValue) //TODO test
             return ""
         }

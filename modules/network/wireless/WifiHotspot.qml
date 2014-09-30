@@ -88,7 +88,7 @@ BaseEditPage {
         }
 
         DTextButton {
-            text: hotspotInfo ? dsTr("Save") : dsTr("Create") 
+            text: hotspotInfo ? dsTr("Save") : dsTr("Create")
             anchors.verticalCenter: parent.verticalCenter
             onClicked: {
                 rootPage.generalSetKey("connection", "id", line80211WirelessSsid.getKey())

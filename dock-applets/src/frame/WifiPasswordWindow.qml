@@ -26,6 +26,7 @@ import QtQuick.Window 2.1
 import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Display 1.0
+import DBus.Com.Deepin.Daemon.Network 1.0
 import Deepin.Locale 1.0
 
 Window {
@@ -33,6 +34,9 @@ Window {
     color: "transparent"
     flags: Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint
 
+    width: 380
+    height: 150
+    visible: false
     x: screenSize.x + (screenSize.width - width)/2
     y: screenSize.y + (screenSize.height - height)/2
 
@@ -46,41 +50,64 @@ Window {
 
     property string accessPointName: "linuxdepin-1"
     property string accessPointEncryption: ""
+    property bool autoconnect: false
     property var accessPointObj: undefined
+    property var connectionPath: undefined
 
-    signal connect(string password)
-    signal cancel()
+    property var dbusNetwork: NetworkManager{
+        onNeedSecrets:{
+            print("NeedSectets Emit in dss Frame:", arg0, arg1, arg2,arg3)
+            if(!dbusControlCenter.isNetworkCanShowPassword()){
+                messageBox.accessPointObj = arg0
+                messageBox.accessPointEncryption = arg1
+                messageBox.accessPointName = arg2
+                messageBox.autoconnect = arg3
+
+                autoConnectBox.checked = arg3
+
+                if (!messageBox.visible)
+                {
+                    var connections = JSON.parse(dbusNetwork.connections)
+                    for (var i = connections["wireless"].length - 1; i > 0; i -- )
+                    {
+                        if (connections["wireless"][i].Path === arg0)
+                        {
+                            uuid = connections["wireless"][i].Uuid
+                            devicePath = connections["wireless"][i].Path
+                        }
+                    }
+
+                    messageBox.showDialog()
+                }
+
+            }
+        }
+    }
+
+    property string uuid :""
+    property string devicePath : ""
+    property bool oldCheckState: false
 
     property var dssLocale: DLocale {
         domain: "dde-control-center"
     }
 
+    signal connect(string password)
+    signal cancel()
+
     function dsTr(s){
         return dssLocale.dsTr(s)
     }
 
-    width: 480
-    height: 180
-
     function showDialog(){
+        autoConnectBox.checked = getConnectionSession().GetKey("connection","autoconnect") == "true"?true:false
+        oldCheckState = autoConnectBox.checked
+        messageBox.visible = true
         messageBox.show()
     }
 
     function hideDialog(){
         messageBox.hide()
-    }
-
-    Connections {
-        target: dbusNetwork
-        onNeedSecrets:{
-            print("NeedSectets Emit in dss Frame:", arg0, arg1, arg2)
-            if(!dbusControlCenter.isNetworkCanShowPassword()){
-                messageBox.accessPointObj = arg0
-                messageBox.accessPointEncryption = arg1
-                messageBox.accessPointName = arg2
-                messageBox.showDialog()
-            }
-        }
     }
 
     function cancelAction(){
@@ -90,7 +117,17 @@ Window {
 
     function connectAction(){
         hideDialog()
-        dbusNetwork.FeedSecret(accessPointObj, accessPointEncryption, passwordInput.text)
+        dbusNetwork.FeedSecret(accessPointObj, accessPointEncryption, passwordInput.text, autoconnect)
+    }
+
+
+    Component {
+        id: connectionSessionBuilder
+        ConnectionSession {}
+    }
+    function getConnectionSession() {
+        var connectionPath = dbusNetwork.EditConnection(uuid,devicePath)
+        return connectionSessionBuilder.createObject(null, { path: connectionPath })
     }
 
     DWindowFrame {
@@ -117,66 +154,55 @@ Window {
             }
         }
 
-        CloseButton {
-            id: closeButton
-            anchors.right: parent.right
-            onClicked: {
-                cancelAction()
+
+        DssH2{
+            id: message
+            anchors.left: passwordInput.left
+            anchors.top: parent.top
+            anchors.topMargin: 10
+
+            text: dsTr('Please enter the password of  <font color="#faca57">%1</font>').arg(accessPointName)
+            width: parent.width
+            wrapMode: Text.WordWrap
+        }
+
+        DTextInput{
+            id: passwordInput
+            width: 310
+            echoMode: TextInput.Password
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: message.bottom
+            anchors.topMargin: 9
+
+            Text {
+                anchors.left: parent.left
+                anchors.leftMargin: 6
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: parent.width / 2
+                height: parent.height
+                color: "#636363"
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignLeft
+                text: dsTr("Password")
+                visible: passwordInput.text == ""
             }
         }
 
-        Item{
-            width: parent.width - 30
-            anchors.top: parent.top
-            anchors.topMargin: closeButton.height
-            anchors.left: parent.left
-            anchors.leftMargin: 20
-            anchors.right: parent.right
-            anchors.rightMargin: 20
 
-            DssH1{
-                id: title
-                text: dsTr("Authentication required by Wi-Fi network")
-                font.bold: true
-            }
-
-            DssH2{
-                id: message
-                anchors.top: title.bottom
-                anchors.topMargin: 6
-                text: dsTr('Passwords or encryption keys are required to access the Wi-Fi network <font color="#faca57">%1</font>').arg(accessPointName)
-                width: parent.width
-                wrapMode: Text.WordWrap
-            }
-
-
-            Row {
-                height: 30
-                width: childrenRect.width
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.top: message.bottom
-                anchors.topMargin: 10
-                spacing: 10
-                DssH2{
-                    text: dsTr("Password:")
-                    anchors.top: parent.top
-                    anchors.topMargin: 2
-                }
-
-                DTextInput{
-                    id: passwordInput
-                    width: 250
-                    echoMode: TextInput.Password
-                }
-            }
-
+        DCheckBox {
+            id:autoConnectBox
+            text:dsTr("Auto-connect")
+            anchors.left: passwordInput.left
+            anchors.top: passwordInput.bottom
+            anchors.topMargin: 10
+            onCheckedChanged: messageBox.autoconnect = checked
         }
 
         Row {
-            anchors.right: parent.right
-            anchors.rightMargin: 10
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 10
+            id:buttonRow
+            anchors.right: passwordInput.right
+            anchors.top: autoConnectBox.bottom
+            anchors.topMargin: 0
             spacing: 8
 
             DTextButton {
