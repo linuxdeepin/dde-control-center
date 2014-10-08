@@ -106,29 +106,29 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+28"/>
+        <location line="+29"/>
         <source>New User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+4"/>
-        <location line="+155"/>
+        <location line="+156"/>
         <source>Standard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-155"/>
-        <location line="+156"/>
+        <location line="-156"/>
+        <location line="+157"/>
         <source>Administrator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-139"/>
+        <location line="-140"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+42"/>
+        <location line="+43"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1724,7 +1724,7 @@
 <context>
     <name>EditUserDialog</name>
     <message>
-        <location filename="../modules/account/EditUserDialog.qml" line="+56"/>
+        <location filename="../modules/account/EditUserDialog.qml" line="+59"/>
         <source>Auto-login</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2171,7 +2171,7 @@
     </message>
     <message>
         <location line="+1"/>
-        <source>Image format not supported.</source>
+        <source>Image format not supported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2455,13 +2455,18 @@
 <context>
     <name>UserList</name>
     <message>
-        <location filename="../modules/account/UserList.qml" line="+196"/>
+        <location filename="../modules/account/UserList.qml" line="+222"/>
         <source>Standard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Administrator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Image format not supported</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

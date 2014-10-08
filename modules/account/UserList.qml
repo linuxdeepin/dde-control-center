@@ -43,7 +43,8 @@ ListView {
                          "userName": dbus_user.userName,
                          "userType": dbus_user.accountType,
                          "userStatus": user_status,
-                         "userDBusPath": path}
+                         "userDBusPath": path,
+                         "avatarErrMsgShowed":false}
         user_status == "currentUser" ? user_list_model.insert(0, user_dict) : user_list_model.append(user_dict)
     }
 
@@ -52,6 +53,31 @@ ListView {
             if (user_list_model.get(i).userDBusPath == path) {
                 user_list_model.remove(i, 1)
             }
+        }
+    }
+
+    function showChooseAvatarIconTypeErrMsg(uid,flag){
+        for (var i = 0; i < user_list_model.count; i++) {
+            if (user_list_model.get(i).userId == uid) {
+                user_list_model.setProperty(i,"avatarErrMsgShowed",flag)
+                if (flag){
+                    hideAvatarErrMsgTimer.stop()
+                    hideAvatarErrMsgTimer.uid = uid
+                    hideAvatarErrMsgTimer.start()
+                }
+            }
+        }
+    }
+
+    Timer {
+        id:hideAvatarErrMsgTimer
+        interval: 2000
+        repeat: false
+
+        property string uid:""
+
+        onTriggered: {
+            showChooseAvatarIconTypeErrMsg(uid,false)
         }
     }
 
@@ -203,6 +229,15 @@ ListView {
                         anchors.verticalCenter: parent.verticalCenter
                     }
 
+                    DssH2 {
+                        text: dsTr("Image format not supported")
+                        color: "#FF8C03"
+                        font.pixelSize: 14
+                        visible: avatarErrMsgShowed
+                        anchors.left:name_column.left
+                        anchors.top:name_column.bottom
+                    }
+
                     ExpandButton {
                         id: expand_button
                         up: delete_line.expandButtonUp
@@ -274,6 +309,9 @@ ListView {
                 visible: delete_line.editUserDialogVisible
                 this_user: User { path: userDBusPath}
                 anchors.top: component_sep.bottom
+                onSetAvatarIconError: {
+                    showChooseAvatarIconTypeErrMsg(uid,true)
+                }
             }
 
             states: [

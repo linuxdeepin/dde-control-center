@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-10 09:45+0800\n"
+"POT-Creation-Date: 2014-10-11 09:34+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr ""
 #: ../modules/network/add/AddDsl.qml:36
 #: ../modules/network/add/AddMobile.qml:75
 #: ../modules/network/add/AddMobile.qml:105
-#: ../modules/account/AddUserDialog.qml:116
+#: ../modules/account/AddUserDialog.qml:117
 #: ../modules/network/add/AddVpn.qml:124 ../modules/network/add/AddVpn.qml:254
 #: ../modules/network/add/AddVpn.qml:394 ../modules/network/add/AddVpn.qml:434
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:53
@@ -54,7 +54,7 @@ msgstr ""
 #: ../modules/network/add/AddDsl.qml:56
 #: ../modules/network/add/AddMobile.qml:85
 #: ../modules/network/add/AddMobile.qml:115
-#: ../modules/account/AddUserDialog.qml:158
+#: ../modules/account/AddUserDialog.qml:160
 #: ../modules/network/add/AddVpn.qml:144 ../modules/network/add/AddVpn.qml:274
 #: ../modules/network/add/AddVpn.qml:414
 #: ../modules/network/wireless/AddWireless.qml:64
@@ -95,7 +95,7 @@ msgid "Number"
 msgstr ""
 
 #: ../modules/network/add/AddSectionSave.qml:11
-#: ../modules/account/AddUserDialog.qml:325
+#: ../modules/account/AddUserDialog.qml:327
 #: ../modules/network/wireless/AddWireless.qml:216
 #: ../modules/network/ConnectionAdd.qml:69
 #: ../modules/network/ConnectionEdit.qml:146
@@ -135,39 +135,39 @@ msgstr ""
 msgid "Add User"
 msgstr ""
 
-#: ../modules/account/AddUserDialog.qml:95
+#: ../modules/account/AddUserDialog.qml:96
 msgid "New User"
 msgstr ""
 
-#: ../modules/account/AddUserDialog.qml:99
-#: ../modules/account/AddUserDialog.qml:254
-#: ../modules/account/EditUserDialog.qml:135
-#: ../modules/account/UserList.qml:196
+#: ../modules/account/AddUserDialog.qml:100
+#: ../modules/account/AddUserDialog.qml:256
+#: ../modules/account/EditUserDialog.qml:138
+#: ../modules/account/UserList.qml:222
 msgid "Standard"
 msgstr ""
 
-#: ../modules/account/AddUserDialog.qml:99
-#: ../modules/account/AddUserDialog.qml:255
-#: ../modules/account/EditUserDialog.qml:136
-#: ../modules/account/UserList.qml:196
+#: ../modules/account/AddUserDialog.qml:100
+#: ../modules/account/AddUserDialog.qml:257
+#: ../modules/account/EditUserDialog.qml:139
+#: ../modules/account/UserList.qml:222
 msgid "Administrator"
 msgstr ""
 
-#: ../modules/account/AddUserDialog.qml:201
+#: ../modules/account/AddUserDialog.qml:203
 msgid "Repeat Password"
 msgstr ""
 
-#: ../modules/account/AddUserDialog.qml:242
-#: ../modules/account/EditUserDialog.qml:123
+#: ../modules/account/AddUserDialog.qml:244
+#: ../modules/account/EditUserDialog.qml:126
 msgid "Account Type"
 msgstr ""
 
-#: ../modules/account/AddUserDialog.qml:274
-#: ../modules/account/EditUserDialog.qml:56
+#: ../modules/account/AddUserDialog.qml:276
+#: ../modules/account/EditUserDialog.qml:59
 msgid "Auto-login"
 msgstr ""
 
-#: ../modules/account/AddUserDialog.qml:338
+#: ../modules/account/AddUserDialog.qml:340
 #: ../modules/account/DeleteUserDialog.qml:46
 #: ../modules/account/PasswordDialog.qml:221 ../modules/account/WebCam.qml:148
 msgid "Confirm"
@@ -970,7 +970,7 @@ msgstr ""
 msgid "Channel"
 msgstr ""
 
-#: ../modules/account/EditUserDialog.qml:90
+#: ../modules/account/EditUserDialog.qml:93
 msgid "Enable"
 msgstr ""
 
@@ -1232,8 +1232,8 @@ msgstr ""
 msgid "Drag and drop an image to change background."
 msgstr ""
 
-#: ../modules/grub/Preview.qml:123
-msgid "Image format not supported."
+#: ../modules/grub/Preview.qml:123 ../modules/account/UserList.qml:233
+msgid "Image format not supported"
 msgstr ""
 
 #: ../modules/grub/Preview.qml:124

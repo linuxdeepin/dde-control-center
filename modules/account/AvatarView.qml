@@ -63,7 +63,7 @@ Item {
                 target: default_scrollbar
                 flickable: avatar_recently_used_view
                 visible: true
-            }            
+            }
         },
         State {
             name: "default"
@@ -91,7 +91,7 @@ Item {
                 target: default_scrollbar
                 flickable: avatar_default_view
                 visible: true
-            }            
+            }
         },
         State {
             name: "webcam"
@@ -119,7 +119,7 @@ Item {
                 target: default_scrollbar
                 flickable: avatar_default_view
                 visible: false
-            }            
+            }
         }
     ]
 
@@ -150,11 +150,11 @@ Item {
         onInitialize: {
             avatar_recently_used_view.setContent()
         }
-        
+
         onAvatarSet: {
             root_view.avatarSet(path)
         }
-        
+
         onDeleteButtonClicked: root_view.this_user.DeleteHistoryIcon(path)
 
         Connections {
@@ -173,7 +173,7 @@ Item {
         currentIndex: -1
         withAddButton: true
         maxHeight: root_view.maxHeight - root_view.verticalPadding * 3 - radio_button.height
-        
+
         function setContent() {
             avatar_default_view.model.clear()
             var allIcons = root_view.this_user.iconList
@@ -187,20 +187,19 @@ Item {
         }
 
         onInitialize: setContent()
-        
+
         onAvatarSet: {
             root_view.avatarSet(path)
-        }        
-        
-        onDeleteButtonClicked: root_view.this_user.DeleteIconFile(path)        
-        
+        }
+
+        onDeleteButtonClicked: root_view.this_user.DeleteIconFile(path)
+
         Connections {
             target: root_view.this_user
             onIconListChanged: {
                 avatar_default_view.setContent()
             }
-        }        
-
+        }
         anchors.top: radio_button.bottom
         anchors.topMargin: root_view.verticalPadding * 2
     }
@@ -226,7 +225,7 @@ Item {
 
         WebCam {
             running: rootWindow.displayWidth != 0
-            
+
             onAvatarPictured: {
                 root_view.avatarPictured(path)
             }

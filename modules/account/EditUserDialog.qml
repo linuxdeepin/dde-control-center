@@ -10,6 +10,8 @@ Rectangle {
     property var this_user: null
     property int maxHeight: 10
 
+    signal setAvatarIconError(string uid)
+
     function reset() {
         password_dialog.reset()
     }
@@ -30,6 +32,7 @@ Rectangle {
                 var right = edit_dialog.this_user.SetIconFile(iconFile)
                 if (!right) {
                     doCheck(edit_dialog.this_user.iconFile)
+                    edit_dialog.setAvatarIconError(edit_dialog.this_user.uid)
                 }
             }
 
