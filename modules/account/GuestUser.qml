@@ -9,6 +9,11 @@ Column {
     property int nameLeftPadding
     property bool expanded: expand_button.up
 
+    function setExpanded(flag){
+        expand_button.up = flag
+        guest_settings.visible = expand_button.up
+    }
+
     Rectangle {
         id: guest_user
         color: dconstants.contentBgColor

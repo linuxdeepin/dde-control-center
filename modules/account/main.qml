@@ -126,6 +126,24 @@ Rectangle {
                     }
                 }
             }
+
+            DTextButton {
+                id:user_list_button
+                text:dsTr("User List")
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.right: parent.right
+                anchors.rightMargin: 15
+                visible: add_check_button.visible || (add_user_dialog.visible && !add_check_button.visible)?false:true
+                onClicked: {
+                    user_list.backToNormal()
+
+                    guest_user.setExpanded(false)
+
+                    guest_user.visible = true
+                    guest_user.height = guest_user.childrenRect.height
+                    showAddDeleteButton()
+                }
+            }
         }
 
         DSeparatorHorizontal{}
@@ -254,6 +272,14 @@ Rectangle {
 
             onExpandedChanged: {
                 user_list.visible = !expanded
+
+                //make user list button showed
+                if (expanded)
+                {
+                    add_check_button.visible = false
+                    delete_check_button.visible = false
+                }
+
                 // prevent guest_user from flicking away while showing
                 expanded ? root.scrollToTop() : root.scrollToLastPosition()
             }

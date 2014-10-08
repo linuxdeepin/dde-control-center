@@ -26,6 +26,14 @@ ListView {
         fromPanelAvatar = true
     }
 
+    function backToNormal(){
+        for (var i = 0; i < root.children[0].children.length; i++) {
+            if (root.children[0].children[i].state !== ""){
+                root.children[0].children[i].state = "normal"
+            }
+        }
+    }
+
     function addUser(path) {
         dbus_user.path = path
 
