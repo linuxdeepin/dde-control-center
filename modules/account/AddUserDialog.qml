@@ -38,7 +38,7 @@ Rectangle {
         width: 310
 
         function validate() {
-            var user_name_check_result = dbus_accounts.IsUsernameValid(user_name_input.text)
+            var user_name_check_result = dbus_accounts.IsUsernameValid(user_name_input.text.toLowerCase())
             if(!user_name_check_result[0]) {
                 user_name_input.showWarning(user_name_check_result[1])
                 return false
@@ -92,7 +92,8 @@ Rectangle {
                 id: name_column
 
                 DssH2 {
-                    text: user_name_input.text || dsTr("New User")
+                    font.capitalization: Font.AllLowercase
+                    text: user_name_input.text.toLowerCase() || dsTr("New User")
                 }
 
                 DssH3 {
@@ -131,6 +132,7 @@ Rectangle {
                 anchors.right: parent.right
                 anchors.rightMargin: 15
                 anchors.verticalCenter: parent.verticalCenter
+                textInput.font.capitalization: Font.AllLowercase
                 onTextChanged: {
                     warningState = false
                 }
@@ -344,7 +346,7 @@ Rectangle {
                 onClicked: {
                     focus = true
                     if (column.validate()) {
-                        root.confirmed({userName: user_name_input.text,
+                        root.confirmed({userName: user_name_input.text.toLowerCase(),
                                         userPassword: password_input.text,
                                         userAccountType: user_group_radio.currentIndex,
                                         userAutoLogin: auto_login_switch.checked,
