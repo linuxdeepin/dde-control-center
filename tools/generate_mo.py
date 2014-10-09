@@ -48,12 +48,5 @@ def main():
                 shell=True
                 )
 
-            subprocess.call(
-                "sudo cp -r %s %s" % (
-                    os.path.join(mo_locale_dir, lang),
-                    "/usr/share/locale/"),
-                shell=True
-                )
-
 if __name__ == "__main__":
     main()
