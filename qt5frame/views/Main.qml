@@ -40,11 +40,16 @@ QtObject {
     property int trayWidth: 48
 
     property bool clickedToHide: true
+    property bool gotShowModuleFlag: false
     property var displayId: Display {}
     property var dbusXMouseArea: XMouseArea {
         onButtonRelease: {
             if(arg3 != -1){
-                outerAreaClicked(arg1, arg2)
+                gotShowModuleFlag = false
+
+                delayHideTimer.mousex = arg1
+                delayHideTimer.mousey = arg2
+                delayHideTimer.start()
             }
         }
         onCursorMove: {
@@ -96,6 +101,20 @@ QtObject {
         }
     }
 
+    property var delayHideTimer: Timer {
+        property int mousex: 0
+        property int mousey: 0
+
+        interval: 200
+        repeat: false
+        onTriggered: {
+            if (!gotShowModuleFlag){
+                outerAreaClicked(mousex, mousey)
+            }
+
+        }
+    }
+
     function dsTr(s){
         return dsslocale.dsTr(s)
     }
@@ -110,6 +129,7 @@ QtObject {
     }
 
     function showModule(modulesId){
+        gotShowModuleFlag = true
         rootWindow.showModule(modulesId)
     }
 
