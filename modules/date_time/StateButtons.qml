@@ -45,11 +45,8 @@ Item {
         anchors.right: parent.right
         visible: opacity == 0 ? false : true
 
-        Behavior on opacity {
-            PropertyAnimation { duration:200 }
-        }
-
         onClicked: {
+            addLabel = dsTr("Close")
             stateButtons.currentActionStateName = ""
         }
     }
@@ -61,10 +58,6 @@ Item {
         spacing: 4
         opacity: stateButtons.currentActionStateName == "" ? 1 : 0
         visible: opacity == 0 ? false : true
-
-        Behavior on opacity {
-            PropertyAnimation { duration:200 }
-        }
 
         DssDeleteButton {
             id: deleteButton
