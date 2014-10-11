@@ -101,13 +101,22 @@ Item {
         DssTitle {
             text: modulesId.moduleLocaleNames["keyboard"]
             rightLoader.sourceComponent: ResetButton {
-                onClicked: dbusKeyboard.Reset()
+                onClicked: {
+                    dbusKeyboard.Reset()
+
+                    repeatDelayCL.content.children[0].setValue(dbusKeyboard.repeatDelay,false)
+                    repeatRateCL.content.children[0].setValue(dbusKeyboard.repeatInterval * 10,false)
+                    cursorBlinkRateCL.content.children[0].setValue(dbusKeyboard.cursorBlink,false)
+                    capsLockBL.rightLoader.children[0].checked = dbusKeyboard.capslockToggle
+                    testAreaCL.content.children[0].children[0].text = ""
+                }
             }
         }
 
         DSeparatorHorizontal {}
 
         DCenterLine {
+            id: repeatDelayCL
             height: contentHeight
             centerPadding: keyboardModule.centerPadding
             leftWidth: titleWidth
@@ -132,6 +141,7 @@ Item {
         }
 
         DCenterLine {
+            id:repeatRateCL
             height: contentHeight
             centerPadding: keyboardModule.centerPadding
             leftWidth: titleWidth
@@ -142,11 +152,11 @@ Item {
 
                 min: 1000
                 max: 200
-                init: dbusKeyboard.repeatInterval
+                init: dbusKeyboard.repeatInterval * 10
                 valueDisplayVisible: false
 
                 onValueConfirmed:{
-                    dbusKeyboard.repeatInterval = value
+                    dbusKeyboard.repeatInterval = value / 10
                 }
 
                 Component.onCompleted: {
@@ -157,6 +167,7 @@ Item {
         }
 
         DCenterLine {
+            id: cursorBlinkRateCL
             height: contentHeight
             centerPadding: keyboardModule.centerPadding
             leftWidth: titleWidth
@@ -183,6 +194,7 @@ Item {
         }
 
         DCenterLine {
+            id:testAreaCL
             height: contentHeight
             centerPadding: keyboardModule.centerPadding
             leftWidth: titleWidth
@@ -205,6 +217,7 @@ Item {
         DSeparatorHorizontal {}
 
         DBaseLine {
+            id:capsLockBL
             leftLoader.sourceComponent: DssH2 { text: dsTr("Caps Lock prompt") }
             rightLoader.sourceComponent: DSwitchButton {
                 checked: dbusKeyboard.capslockToggle
