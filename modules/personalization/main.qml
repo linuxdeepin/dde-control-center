@@ -117,12 +117,12 @@ Item {
 
         DSeparatorHorizontal {}
 
-        //CursorThemeExpand {
-            //myIndex: 3
-            //title: dsTr("Cursor")
-        //}
+        CursorThemeExpand {
+            myIndex: 3
+            title: dsTr("Cursor")
+        }
 
-        //DSeparatorHorizontal {}
+        DSeparatorHorizontal {}
 
         WallpaperExpand {
             myIndex: 4

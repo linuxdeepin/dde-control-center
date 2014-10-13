@@ -2324,6 +2324,7 @@
     </message>
     <message>
         <location line="+1"/>
+        <location line="+14"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2992,7 +2993,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+7"/>
+        <source>Cursor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
         <source>Wallpaper</source>
         <translation type="unfinished"></translation>
     </message>
