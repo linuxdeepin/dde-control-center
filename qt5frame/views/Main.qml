@@ -49,11 +49,28 @@ QtObject {
             if(arg3 != -1){
                 gotShowModuleFlag = false
 
+                if (screenSize.width - arg1 > panelWidth && clickedToHide){
+                    clickedToHide = true
+                }
+                else{
+                    clickedToHide = false
+                }
+
                 delayHideTimer.mousex = arg1
                 delayHideTimer.mousey = arg2
                 delayHideTimer.start()
             }
         }
+        onButtonPress: {
+            //it's up to controlcenter direction
+            if (screenSize.width - arg1 > panelWidth){
+                clickedToHide = true
+            }
+            else{
+                clickedToHide = false
+            }
+        }
+
         onCursorMove: {
             cursorPosition.x = arg0
             cursorPosition.y = arg1
