@@ -5,13 +5,14 @@
 # Translators:
 # Gioacchino Nigrelli <gioacchino.nigrelli@gmail.com>, 2014
 # Massimo Antonio Carofano <real.massimo@hotmail.it>, 2014
+# Massimo Antonio Carofano <real.massimo@hotmail.it>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-11 09:34+0800\n"
-"PO-Revision-Date: 2014-10-11 10:51+0000\n"
-"Last-Translator: Massimo Antonio Carofano <real.massimo@hotmail.it>\n"
+"POT-Creation-Date: 2014-10-13 15:23+0800\n"
+"PO-Revision-Date: 2014-10-14 09:13+0000\n"
+"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/dde-control-center/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -608,6 +609,7 @@ msgstr "Salva"
 
 #: ../modules/network/ConnectionEdit.qml:113 ../modules/network/Info.qml:79
 #: ../modules/date_time/StateButtons.qml:35
+#: ../modules/date_time/StateButtons.qml:49
 #: ../modules/date_time/TimezoneArea.qml:257
 msgid "Close"
 msgstr "Chiudi"
@@ -1645,6 +1647,10 @@ msgstr "Finestra"
 msgid "Icon"
 msgstr "Icona"
 
+#: ../modules/personalization/main.qml:122
+msgid "Cursor"
+msgstr ""
+
 #: ../modules/personalization/main.qml:129
 msgid "Wallpaper"
 msgstr "Sfondo"
@@ -1792,7 +1798,7 @@ msgstr "Mostra avanzate..."
 
 #: ../modules/system_info/main.qml:102
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
-msgstr "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd.\nTraduzione a cura di Carofano Massimo Antonio."
+msgstr "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd.\nTraduzione italiana a cura di Carofano Massimo Antonio."
 
 #: ../modules/system_info/main.qml:108
 msgid "Deepin Edition"

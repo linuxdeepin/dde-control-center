@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-11 09:34+0800\n"
-"PO-Revision-Date: 2014-10-11 10:31+0000\n"
-"Last-Translator: Анатолий Валерианович <ffox909@mail.ru>\n"
+"POT-Creation-Date: 2014-10-13 15:23+0800\n"
+"PO-Revision-Date: 2014-10-14 09:13+0000\n"
+"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/dde-control-center/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -610,6 +610,7 @@ msgstr "Сохранить"
 
 #: ../modules/network/ConnectionEdit.qml:113 ../modules/network/Info.qml:79
 #: ../modules/date_time/StateButtons.qml:35
+#: ../modules/date_time/StateButtons.qml:49
 #: ../modules/date_time/TimezoneArea.qml:257
 msgid "Close"
 msgstr "Закрыть"
@@ -1646,6 +1647,10 @@ msgstr "Окно"
 #: ../modules/personalization/main.qml:115
 msgid "Icon"
 msgstr "Значёк"
+
+#: ../modules/personalization/main.qml:122
+msgid "Cursor"
+msgstr ""
 
 #: ../modules/personalization/main.qml:129
 msgid "Wallpaper"

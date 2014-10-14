@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-11 09:34+0800\n"
-"PO-Revision-Date: 2014-10-11 02:21+0000\n"
-"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
+"POT-Creation-Date: 2014-10-13 15:23+0800\n"
+"PO-Revision-Date: 2014-10-14 14:51+0000\n"
+"Last-Translator: kdavid97 <kdavid97@gmail.hu>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/dde-control-center/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -610,6 +610,7 @@ msgstr "mentés"
 
 #: ../modules/network/ConnectionEdit.qml:113 ../modules/network/Info.qml:79
 #: ../modules/date_time/StateButtons.qml:35
+#: ../modules/date_time/StateButtons.qml:49
 #: ../modules/date_time/TimezoneArea.qml:257
 msgid "Close"
 msgstr "Bezárás"
@@ -1238,7 +1239,7 @@ msgstr "Fogd és vidd a képet ide, hogy beállítsad a háttérképet"
 
 #: ../modules/grub/Preview.qml:123 ../modules/account/UserList.qml:233
 msgid "Image format not supported"
-msgstr ""
+msgstr "Kép formátum nem támogatott"
 
 #: ../modules/grub/Preview.qml:124
 msgid "Updating..."
@@ -1647,6 +1648,10 @@ msgstr "Ablak"
 msgid "Icon"
 msgstr "ikon"
 
+#: ../modules/personalization/main.qml:122
+msgid "Cursor"
+msgstr "Kurzor"
+
 #: ../modules/personalization/main.qml:129
 msgid "Wallpaper"
 msgstr "háttérkép"
@@ -1918,4 +1923,4 @@ msgstr "VPN nyílt kapcsolat "
 
 #: ../modules/account/main.qml:132
 msgid "User List"
-msgstr ""
+msgstr "Felhasználói lista"
