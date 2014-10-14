@@ -35,20 +35,31 @@ DOverrideWindow {
     width: validWidth ? panelWidth + moduleNameMaxWidth : 0
     height: screenSize.height
 
-    property bool validWidth: false
-    property int moduleNameMaxWidth: modulesId.getMaxModuleNameWidth()
-
-    property int displayWidth: 0
 
     signal moduleStartChange(string nextModuleName)
     signal panelHided
     signal moduleIconClicked(string iconId)
+    signal windowXChanged(int windowX)
+
+    onDisplayWidthChanged: {
+        rootWindow.windowXChanged(getRealWindowX())
+    }
+
+    property bool validWidth: false
+    property int moduleNameMaxWidth: modulesId.getMaxModuleNameWidth()
+    property int displayWidth: 0
 
     property var dconstants: DConstants {}
     property var listModelComponent: DListModelComponent {}
     property bool clickedToHide: true
     property alias panelContent: panelContent
     property var modulesId: ModulesData {}
+
+    //cause of the animation,rootWindow.x can not changes in timely
+    //if control center can show from left,this func should be change by reality
+    function getRealWindowX() {
+        return screenSize.width - displayWidth;
+    }
 
     function showModule(moduleId){
         panelContent.moduleIconList.iconClickAction(moduleId)

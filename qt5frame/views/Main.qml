@@ -36,6 +36,8 @@ QtObject {
         dbusXMouseArea.RegisterFullScreen()
     }
 
+    signal windowXChanged(int windowX)
+
     property int panelWidth: 360
     property int trayWidth: 48
 
@@ -92,7 +94,15 @@ QtObject {
         return (rootWindow.displayWidth !=0 && rootWindow.panelContent.currentContentId == "network" && rootWindow.panelContent.rightBoxLoader.item.inAllConnectionPage)
     }
 
-    property var rootWindow: PanelWindow {}
+    function getWindowX() {
+        return rootWindow.getRealWindowX()
+    }
+
+    property var rootWindow: PanelWindow {
+        onWindowXChanged: {
+            root.windowXChanged(windowX)
+        }
+    }
 
     property var timeoutHideDss: Timer{
         interval: 2000

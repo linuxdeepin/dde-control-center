@@ -32,6 +32,7 @@
 
 #define DBUS_NAME "com.deepin.dde.ControlCenter"
 #define DBUS_PATH "/com/deepin/dde/ControlCenter"
+#define PROPERTY_IFCE "org.freedesktop.DBus.Properties"
 
 class QmlLoader;
 class QmlLoaderDBus;
@@ -57,6 +58,7 @@ public:
     void hide();
     void hideImmediately();
     bool isNetworkCanShowPassword();
+    int getWindowX();
 
 public slots:
     void installPackage(QString packageName);
@@ -83,6 +85,8 @@ public:
     QmlLoaderDBus(QmlLoader* parent);
     ~QmlLoaderDBus();
 
+    void initConnection();
+
     Q_SLOT void Toggle();
     Q_SLOT void Show();
     Q_SLOT void ShowModule(QString name);
@@ -91,8 +95,14 @@ public:
     Q_SLOT void HideImmediately();
     Q_SLOT bool isNetworkCanShowPassword();
 
+    Q_PROPERTY(int X READ getWindowX)
+
 private:
     QmlLoader* m_parent;
+    int getWindowX();
+
+private slots:
+    void windowXChangedSlot(int);
 };
 
 #endif // QMLLOADER_H

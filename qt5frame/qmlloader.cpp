@@ -63,6 +63,7 @@ void QmlLoader::load(QUrl url)
     if ( this->component->isReady() ){
         this->component->completeCreate();
         //QObject::connect(rootObject, SIGNAL(appletInfosChanged()), this, SLOT(appletInfosChangedSlot()));
+        m_dbus_proxyer->initConnection();
     }
     else{
         qWarning() << this->component->errorString();
@@ -132,6 +133,17 @@ bool QmlLoader::isNetworkCanShowPassword()
     return returnValue.toBool();
 }
 
+int QmlLoader::getWindowX()
+{
+    QVariant returnValue;
+    QMetaObject::invokeMethod(
+                this->rootObject,
+                "getWindowX",
+                Q_RETURN_ARG(QVariant, returnValue)
+                );
+    return returnValue.toInt();
+}
+
 QString QmlLoader::toHumanShortcutLabel(QString sequence)
 {
     QStringList sequenceList = sequence.split("-");
@@ -195,7 +207,7 @@ void QmlLoader::setCursorFlashTime(int time)
     QApplication::setCursorFlashTime(time);
 }
 
-QString QmlLoader::getDefaultMask(QString ipAddress)
+QString QmlLoader::getDefaultMask(QString)
 {
     return "255.255.255.0";
 }
@@ -250,4 +262,25 @@ void QmlLoaderDBus::HideImmediately()
 bool QmlLoaderDBus::isNetworkCanShowPassword()
 {
     return m_parent->isNetworkCanShowPassword();
+}
+
+void QmlLoaderDBus::initConnection()
+{
+    connect(m_parent->rootObject, SIGNAL(windowXChanged(int)), this, SLOT(windowXChangedSlot(int)));
+}
+
+int QmlLoaderDBus::getWindowX()
+{
+    return m_parent->getWindowX();
+}
+
+void QmlLoaderDBus::windowXChangedSlot(int windowX)
+{
+    QDBusMessage message = QDBusMessage::createSignal(DBUS_PATH, PROPERTY_IFCE, "PropertiesChanged");
+    QMap<QString, QVariant> changedProperties;
+    changedProperties["X"] = windowX;
+    QList<QString> invalidatedProperties;
+    message << QVariant(DBUS_NAME) << QVariant(changedProperties) << QVariant(invalidatedProperties);
+
+    QDBusConnection::sessionBus().send(message);
 }
