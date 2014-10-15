@@ -73,6 +73,11 @@ Rectangle {
             toolTip.hideTip()
         }
 
+        onReleased: {
+            parent.hovered = false
+            toolTip.hideTip()
+        }
+
         onClicked: {
             parent.selectAction(parent.itemValue)
         }

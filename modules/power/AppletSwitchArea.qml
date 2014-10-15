@@ -21,7 +21,7 @@ Column {
                 return info[2]
             }
         }
-        return False
+        return false
     }
 
     Timer{

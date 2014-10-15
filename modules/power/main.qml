@@ -99,7 +99,7 @@ Rectangle {
                 anchors.verticalCenter: parent.verticalCenter
             }
         }
-        
+
         DSeparatorHorizontal {}
     }
 
@@ -285,13 +285,15 @@ Rectangle {
 
             Rectangle {
                 width: parent.width
-                height: dbus_power.linePowerPlan == 0 ? ac_custom_column.height + arrow_rect_1.arrowHeight :  0
+                height: dbus_power.linePowerPlan == 0 ? 150 + arrow_rect_1.arrowHeight :  0
                 visible: dbus_power.linePowerPlan == 0
                 color: dconstants.contentBgColor
 
                 Behavior on height {
-                    SmoothedAnimation { duration: 300 }
+                    SmoothedAnimation {duration: 200}
                 }
+
+                onHeightChanged: ac_custom_column.height = height - arrow_rect_1.arrowHeight
 
                 ArrowRect {
                     id: arrow_rect_1
@@ -303,17 +305,22 @@ Rectangle {
 
                     anchors.fill: parent
                 }
+
                 Column {
                     id: ac_custom_column
                     width: parent.width
+                    height: 150
                     anchors.top: parent.top
                     anchors.topMargin: arrow_rect_1.arrowHeight
+                    anchors.bottom: parent.bottom
 
                     TitleSeparator {
+                        height: parent.height / 5
                         text: dsTr("Custom Options")
                     }
 
                     TitleSeparator {
+                        height: parent.height / 5
                         width: parent.width
                         text: dsTr("Turn off the display")
                         color: dconstants.contentBgColor
@@ -321,7 +328,7 @@ Rectangle {
 
                     Rectangle {
                         width: parent.width
-                        height: 30
+                        height: parent.height / 5
                         color: dconstants.contentBgColor
                         GridView{
                             id: ac_turn_off_monitor_view
@@ -354,13 +361,14 @@ Rectangle {
                         }
                     }
                     TitleSeparator {
+                        height: parent.height / 5
                         width: parent.width
                         text: dsTr("Suspend")
                         color: dconstants.contentBgColor
                     }
                     Rectangle {
                         width: parent.width
-                        height: 30
+                        height: parent.height / 5
                         color: dconstants.contentBgColor
                         GridView{
                             id: ac_suspend_view
@@ -394,6 +402,7 @@ Rectangle {
                         }
                     }
                 }
+
             }
             DSeparatorHorizontal{
                 visible: power_plan_battery_rect.visible
