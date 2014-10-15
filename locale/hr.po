@@ -3,30 +3,25 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Aril Apria Susanto <awriel@gmail.com>, 2014
-# Yugo Purwanto <dedy.yugo.purwanto@gmail.com>, 2014
-# eko ikhyar <ikhyar.com@gmail.com>, 2014
-# Herwono W Wijaya <root@linuxcoding.org>, 2014
-# Muhamad Mashudi Ardi Winata <muhamadmashudiardiwinata@gmail.com>, 2014
-# Sucipto <show.cheap@gmail.com>, 2014
-# Sucipto <show.cheap@gmail.com>, 2014
+# Ivica  Kolić <ikoli@yahoo.com>, 2014
+# gogo <trebelnik2@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-13 15:23+0800\n"
-"PO-Revision-Date: 2014-10-17 11:01+0000\n"
-"Last-Translator: Herwono W Wijaya <root@linuxcoding.org>\n"
-"Language-Team: Indonesian (Indonesia) (http://www.transifex.com/projects/p/dde-control-center/language/id_ID/)\n"
+"PO-Revision-Date: 2014-10-23 15:30+0000\n"
+"Last-Translator: Ivica  Kolić <ikoli@yahoo.com>\n"
+"Language-Team: Croatian (http://www.transifex.com/projects/p/dde-control-center/language/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: id_ID\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: hr\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #: ../modules/network/add/AddDsl.qml:11
 msgid "New PPPoE Connection"
-msgstr "Koneksi PPPoE baru"
+msgstr "Novo PPPoE povezivanje"
 
 #: ../modules/network/add/AddDsl.qml:24
 #: ../modules/network/add/AddMobile.qml:33
@@ -34,7 +29,7 @@ msgstr "Koneksi PPPoE baru"
 #: ../modules/network/edit_autogen/BaseConnectionEdit.qml:33
 #: ../modules/shortcuts/CustomKeybinding.qml:118
 msgid "Name"
-msgstr "Nama"
+msgstr "Ime"
 
 #: ../modules/network/add/AddDsl.qml:36
 #: ../modules/network/add/AddMobile.qml:75
@@ -51,12 +46,12 @@ msgstr "Nama"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:374
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:65
 msgid "Username"
-msgstr "Nama pengguna"
+msgstr "Korisničko ime"
 
 #: ../modules/network/add/AddDsl.qml:46
 #: ../modules/network/edit_autogen/EditSectionPppoe.qml:33
 msgid "Service"
-msgstr "Layanan"
+msgstr "Usluga"
 
 #: ../modules/network/add/AddDsl.qml:56
 #: ../modules/network/add/AddMobile.qml:85
@@ -78,16 +73,16 @@ msgstr "Layanan"
 #: ../modules/account/PasswordDialog.qml:62
 #: ../modules/network/wireless/WifiHotspot.qml:69
 msgid "Password"
-msgstr "Kata Sandi"
+msgstr "Lozinka"
 
 #: ../modules/network/add/AddMobile.qml:20
 msgid "New Mobile Connection"
-msgstr "Koneksi Mobile baru"
+msgstr "Nova mobila veza"
 
 #: ../modules/network/add/AddMobile.qml:45
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:23
 msgid "Service Type"
-msgstr "Tipe Layanan"
+msgstr "Vrsta usluge"
 
 #: ../modules/network/add/AddMobile.qml:55
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:33
@@ -99,7 +94,7 @@ msgstr "APN"
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:43
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:113
 msgid "Number"
-msgstr "Nomor"
+msgstr "Broj"
 
 #: ../modules/network/add/AddSectionSave.qml:11
 #: ../modules/account/AddUserDialog.qml:327
@@ -116,42 +111,42 @@ msgstr "Nomor"
 #: ../dock-applets/src/frame/WifiPasswordWindow.qml:183
 #: ../modules/display/main.qml:227
 msgid "Cancel"
-msgstr "Batal"
+msgstr "Poništi"
 
 #: ../modules/network/add/AddSectionSave.qml:20
 #: ../modules/shortcuts/CustomKeybinding.qml:157
 #: ../modules/date_time/TimezoneArea.qml:254
 msgid "Add"
-msgstr "Tambah"
+msgstr "Dodaj"
 
 #: ../modules/account/AddUserDialog.qml:48
 #: ../modules/account/PasswordDialog.qml:96
 msgid "Invalid password"
-msgstr "Kata kunci Salah"
+msgstr "Pogrešna lozinka"
 
 #: ../modules/account/AddUserDialog.qml:53
 msgid "Nothing input"
-msgstr "Tidak ada masukan"
+msgstr ""
 
 #: ../modules/account/AddUserDialog.qml:58
 #: ../modules/account/PasswordDialog.qml:101
 msgid "Different password"
-msgstr "Kata kunci berbeda"
+msgstr "Drugačija lozinka"
 
 #: ../modules/account/AddUserDialog.qml:67
 msgid "Add User"
-msgstr "Tambah Pengguna"
+msgstr "Dodaj korisnika"
 
 #: ../modules/account/AddUserDialog.qml:96
 msgid "New User"
-msgstr "Pengguna Baru"
+msgstr "Novi korisnik"
 
 #: ../modules/account/AddUserDialog.qml:100
 #: ../modules/account/AddUserDialog.qml:256
 #: ../modules/account/EditUserDialog.qml:138
 #: ../modules/account/UserList.qml:222
 msgid "Standard"
-msgstr "Standar"
+msgstr "Standardan"
 
 #: ../modules/account/AddUserDialog.qml:100
 #: ../modules/account/AddUserDialog.qml:257
@@ -162,27 +157,27 @@ msgstr "Administrator"
 
 #: ../modules/account/AddUserDialog.qml:203
 msgid "Repeat Password"
-msgstr "Tulis kembali Kata Sandi"
+msgstr "Ponovite lozinku"
 
 #: ../modules/account/AddUserDialog.qml:244
 #: ../modules/account/EditUserDialog.qml:126
 msgid "Account Type"
-msgstr "Tipe Akun"
+msgstr "Vrsta računa"
 
 #: ../modules/account/AddUserDialog.qml:276
 #: ../modules/account/EditUserDialog.qml:59
 msgid "Auto-login"
-msgstr "Masuk-Otomatis"
+msgstr "Automatska prijava"
 
 #: ../modules/account/AddUserDialog.qml:340
 #: ../modules/account/DeleteUserDialog.qml:46
 #: ../modules/account/PasswordDialog.qml:221 ../modules/account/WebCam.qml:148
 msgid "Confirm"
-msgstr "Konfirmasi"
+msgstr "Potvrdi"
 
 #: ../modules/network/add/AddVpn.qml:15
 msgid "VPN Type"
-msgstr "Tipe VPN"
+msgstr "Vrsta VPN-a"
 
 #: ../modules/network/add/AddVpn.qml:36
 msgid "L2TP"
@@ -206,12 +201,12 @@ msgstr "VPNC"
 
 #: ../modules/network/add/AddVpn.qml:69
 msgid "Basic Information"
-msgstr "Informasi Dasar"
+msgstr "Osnovne informacije"
 
 #: ../modules/network/add/AddVpn.qml:82
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:23
 msgid "Need VPN Plugin"
-msgstr "Memerlukan plugin VPN"
+msgstr "Potreban je VPN dodatak"
 
 #: ../modules/network/add/AddVpn.qml:114 ../modules/network/add/AddVpn.qml:154
 #: ../modules/network/add/AddVpn.qml:234 ../modules/network/add/AddVpn.qml:384
@@ -224,7 +219,7 @@ msgstr "Memerlukan plugin VPN"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:314
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:364
 msgid "Gateway"
-msgstr "Gateway"
+msgstr "Pristupnik"
 
 #: ../modules/network/add/AddVpn.qml:134 ../modules/network/add/AddVpn.qml:264
 #: ../modules/network/add/AddVpn.qml:314 ../modules/network/add/AddVpn.qml:404
@@ -240,7 +235,7 @@ msgstr "Gateway"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:384
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:414
 msgid "Ask for Pwd"
-msgstr "Tanya Password"
+msgstr "Pitaj za lozinku"
 
 #: ../modules/network/add/AddVpn.qml:164 ../modules/network/add/AddVpn.qml:284
 #: ../modules/network/wireless/AddWireless.qml:104
@@ -248,7 +243,7 @@ msgstr "Tanya Password"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:94
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:214
 msgid "CA Cert"
-msgstr "CA Cert"
+msgstr "CA certifikat"
 
 #: ../modules/network/add/AddVpn.qml:174
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:104
@@ -258,13 +253,13 @@ msgstr "Proxy"
 #: ../modules/network/add/AddVpn.qml:184
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:114
 msgid "Allow Cisco Secure Desktop Trojan"
-msgstr "Mengizinkan Cisco Secure Desktop Trojan"
+msgstr "Dopusti Cisco Secure Desktop Trojan"
 
 #: ../modules/network/add/AddVpn.qml:344
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:274
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
 msgid "Customize Key Direction"
-msgstr "Menyesuaikan Arah Kunci"
+msgstr "Prilagodi ključ smjera"
 
 #: ../modules/network/add/AddVpn.qml:214 ../modules/network/add/AddVpn.qml:304
 #: ../modules/network/wireless/AddWireless.qml:165
@@ -272,12 +267,12 @@ msgstr "Menyesuaikan Arah Kunci"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:144
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:234
 msgid "Private Key"
-msgstr "Kunci Privat"
+msgstr "Privatni ključ"
 
 #: ../modules/network/add/AddVpn.qml:244
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:174
 msgid "Auth Type"
-msgstr "Tipe Auth"
+msgstr "Vrsta autentifikacije"
 
 #: ../modules/network/add/AddVpn.qml:204 ../modules/network/add/AddVpn.qml:294
 #: ../modules/network/wireless/AddWireless.qml:114
@@ -285,97 +280,97 @@ msgstr "Tipe Auth"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:134
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:224
 msgid "User Cert"
-msgstr "Cert Pengguna"
+msgstr "Korinički certifikat"
 
 #: ../modules/network/add/AddVpn.qml:194
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:124
 msgid "CSD Script"
-msgstr "Skrip CSD"
+msgstr "CSD skripta"
 
 #: ../modules/network/add/AddVpn.qml:224
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:154
 msgid "Use FSID for Key Passphrase"
-msgstr "Gunakan FSID untuk Frasa Kunci"
+msgstr "Use FSID for Key Passphrase"
 
 #: ../modules/network/add/AddVpn.qml:324
 #: ../modules/network/wireless/AddWireless.qml:206
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:195
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:254
 msgid "Private Pwd"
-msgstr "Privat Pwd"
+msgstr "Privatna lozinka"
 
 #: ../modules/network/add/AddVpn.qml:334
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:264
 msgid "Static Key"
-msgstr "Kunci Statis"
+msgstr "Nepromjenjiv ključ"
 
 #: ../modules/network/add/AddVpn.qml:354
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:284
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:63
 msgid "Key Direction"
-msgstr "Key Pengarah"
+msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:364
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:294
 msgid "Remote IP"
-msgstr "IP Remote"
+msgstr "Udaljeni IP "
 
 #: ../modules/network/add/AddVpn.qml:374
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:304
 msgid "Local IP"
-msgstr "IP Lokal"
+msgstr "Lokalna IP"
 
 #: ../modules/network/add/AddVpn.qml:454
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:394
 msgid "User Pwd"
-msgstr "Sandi Pengguna"
+msgstr "Korinička lozinka"
 
 #: ../modules/network/add/AddVpn.qml:464 ../modules/network/add/AddVpn.qml:526
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:404
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:33
 msgid "Group Name"
-msgstr "Nama Grup"
+msgstr "Naziv grupe"
 
 #: ../modules/network/add/AddVpn.qml:484
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:424
 msgid "Group Pwd"
-msgstr "Sandi Grup"
+msgstr "Lozinka grupe"
 
 #: ../modules/network/add/AddVpn.qml:494
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:434
 msgid "Use Hybrid Authentication"
-msgstr "Gunakan Autentikasi Ganda"
+msgstr "Koristi hibridnu autentičnost"
 
 #: ../modules/network/add/AddVpn.qml:504
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:444
 msgid "CA File"
-msgstr "Berkas CA"
+msgstr "CA datoteka"
 
 #: ../modules/network/add/AddVpn.qml:516
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:23
 msgid "Enable IPsec"
-msgstr "Nyalakan IPsec"
+msgstr "Omogući IPsec"
 
 #: ../modules/network/add/AddVpn.qml:536
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:43
 msgid "Group ID"
-msgstr "ID Grup"
+msgstr "ID grupe"
 
 #: ../modules/network/add/AddVpn.qml:546
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:53
 msgid "Pre-Shared Key"
-msgstr "Pra-Pembagian Kunci"
+msgstr "Pred-dijeljeni ključ"
 
 #: ../modules/network/add/AddVpn.qml:558 ../modules/network/add/AddVpn.qml:570
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:23
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:23
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:23
 msgid "Use MPPE"
-msgstr "Gunakan MPPE"
+msgstr "Koristi MPPE"
 
 #: ../modules/network/wireless/AddWireless.qml:8
 msgid "Connect to wireless"
-msgstr "Sambungkan Ke Nirkabel"
+msgstr "Povezivanje na bežičnu mrežu"
 
 #: ../modules/network/wireless/AddWireless.qml:32
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:23
@@ -391,164 +386,164 @@ msgstr "SSID"
 #: ../modules/network/Info.qml:53
 #: ../modules/network/wireless/WifiHotspot.qml:49
 msgid "Security"
-msgstr "Keamanan"
+msgstr "Sigurnost"
 
 #: ../modules/network/wireless/AddWireless.qml:54
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:43
 #: ../modules/network/wireless/WifiHotspot.qml:59
 msgid "Key"
-msgstr "Kunci"
+msgstr "Ključ"
 
 #: ../modules/network/wireless/AddWireless.qml:74
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:63
 msgid "EAP Auth"
-msgstr "Otentikasi EAP"
+msgstr "EAP autentifikacija"
 
 #: ../modules/network/wireless/AddWireless.qml:84
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:73
 msgid "Identity"
-msgstr "Identitas"
+msgstr "Identitet"
 
 #: ../modules/network/wireless/AddWireless.qml:94
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:83
 msgid "Anonymous ID"
-msgstr "ID Anonim"
+msgstr "Anoniman ID"
 
 #: ../modules/network/wireless/AddWireless.qml:124
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:113
 msgid "Provisioning"
-msgstr "Provisioning"
+msgstr "Dodjeljivanje"
 
 #: ../modules/network/wireless/AddWireless.qml:134
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:123
 msgid "PAC file"
-msgstr "Berkas PAC"
+msgstr "PAC datoteka"
 
 #: ../modules/network/wireless/AddWireless.qml:144
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:133
 msgid "PEAP Version"
-msgstr "Versi PEAP"
+msgstr "PEAP inačica"
 
 #: ../modules/network/wireless/AddWireless.qml:154
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:143
 msgid "Inner Auth"
-msgstr "Inner Auth"
+msgstr "Unutarnja autentifikacija"
 
 #: ../modules/network/wireless/AddWireless.qml:224
 #: ../modules/network/widgets/PasswordBox.qml:109
 #: ../dock-applets/src/frame/WifiPasswordWindow.qml:190
 msgid "Connect"
-msgstr "Sambungkan"
+msgstr "Povezivanje"
 
 #: ../modules/network/AppletSwitchArea.qml:40
 #: ../modules/power/AppletSwitchArea.qml:40
 #: ../modules/sound/AppletSwitchArea.qml:40
 msgid "Dock Applet Enabled"
-msgstr "Dock Applet diaktifkan"
+msgstr "Aplet doka omogućen"
 
 #: ../dock-applets/plugins/date_time/AppletTray.qml:90
 msgid "_Switch to analog"
-msgstr "_Ubah ke analog"
+msgstr "_Prebaci na analogno"
 
 #: ../dock-applets/plugins/date_time/AppletTray.qml:91
 msgid "_Switch to digital"
-msgstr "_Ubah ke digital"
+msgstr "_Prebaci na digitalno"
 
 #: ../dock-applets/plugins/date_time/AppletTray.qml:178
 #: ../modules/date_time/CalendarComponent.qml:83
 #: ../dock-applets/plugins/date_time/calendar_core.js:4
 msgid "Sun"
-msgstr "Ming"
+msgstr "Ned"
 
 #: ../dock-applets/plugins/date_time/AppletTray.qml:179
 #: ../modules/date_time/CalendarComponent.qml:84
 #: ../dock-applets/plugins/date_time/calendar_core.js:4
 msgid "Mon"
-msgstr "Sen"
+msgstr "Pon"
 
 #: ../dock-applets/plugins/date_time/AppletTray.qml:180
 #: ../modules/date_time/CalendarComponent.qml:85
 #: ../dock-applets/plugins/date_time/calendar_core.js:4
 msgid "Tue"
-msgstr "Sel"
+msgstr "Uto"
 
 #: ../dock-applets/plugins/date_time/AppletTray.qml:181
 #: ../modules/date_time/CalendarComponent.qml:86
 #: ../dock-applets/plugins/date_time/calendar_core.js:4
 msgid "Wed"
-msgstr "Rab"
+msgstr "Sri"
 
 #: ../dock-applets/plugins/date_time/AppletTray.qml:182
 #: ../modules/date_time/CalendarComponent.qml:87
 #: ../dock-applets/plugins/date_time/calendar_core.js:4
 msgid "Thu"
-msgstr "Kam"
+msgstr "Čet"
 
 #: ../dock-applets/plugins/date_time/AppletTray.qml:183
 #: ../modules/date_time/CalendarComponent.qml:88
 #: ../dock-applets/plugins/date_time/calendar_core.js:4
 msgid "Fri"
-msgstr "Jum"
+msgstr "Pet"
 
 #: ../dock-applets/plugins/date_time/AppletTray.qml:184
 #: ../modules/date_time/CalendarComponent.qml:89
 #: ../dock-applets/plugins/date_time/calendar_core.js:4
 msgid "Sat"
-msgstr "Sab"
+msgstr "Sub"
 
 #: ../dock-applets/plugins/network/AppletTray.qml:319
 #: ../dock-applets/plugins/power/AppletTray.qml:99
 #: ../dock-applets/plugins/sound/AppletTray.qml:183
 msgid "_Run"
-msgstr "_Jalankan"
+msgstr "_Pokreni"
 
 #: ../dock-applets/plugins/network/AppletTray.qml:320
 #: ../dock-applets/plugins/power/AppletTray.qml:106
 #: ../dock-applets/plugins/sound/AppletTray.qml:184
 msgid "_Undock"
-msgstr "_Undock"
+msgstr "_Ukloni"
 
 #: ../dock-applets/plugins/power/AppletTray.qml:34
 msgid "On Charging"
-msgstr "Sedang mengisi"
+msgstr "Na punjenju"
 
 #: ../dock-applets/plugins/power/AppletTray.qml:46
 #: ../modules/personalization/widgets/ThemeItem.qml:95
 #: ../modules/power/main.qml:268 ../modules/power/main.qml:443
 #: ../modules/shortcuts/main.qml:53 ../modules/shortcuts/main.qml:225
 msgid "Custom"
-msgstr "Kustom"
+msgstr "Prilagođeno"
 
 #: ../dock-applets/plugins/power/AppletTray.qml:47
 #: ../modules/power/main.qml:256 ../modules/power/main.qml:431
 msgid "Power saver"
-msgstr "Penghemat daya"
+msgstr "Štednja energije"
 
 #: ../dock-applets/plugins/power/AppletTray.qml:48
 #: ../modules/power/main.qml:250 ../modules/power/main.qml:425
 msgid "Balanced"
-msgstr "Seimbang"
+msgstr "Uravnoteženo"
 
 #: ../dock-applets/plugins/power/AppletTray.qml:49
 #: ../modules/power/main.qml:262 ../modules/power/main.qml:437
 msgid "High performance"
-msgstr "Kinerja tinggi"
+msgstr ""
 
 #: ../dock-applets/plugins/sound/AppletTray.qml:219
 msgid "Device"
-msgstr "Perangkat"
+msgstr "Uređaj"
 
 #: ../dock-applets/plugins/sound/AppletTray.qml:319
 msgid "Applications"
-msgstr "Aplikasi"
+msgstr "Programi"
 
 #: ../modules/account/AvatarPickDialog.qml:5
 msgid "Choose a new picture for your Avatar"
-msgstr "Pilih gambar baru untuk Avatar anda"
+msgstr "Odaberite novu sliku za vaš avatar"
 
 #: ../modules/account/AvatarView.qml:19
 msgid "Recently Used"
-msgstr "Sering digunakan"
+msgstr "Nedavno korišteno"
 
 #: ../modules/account/AvatarView.qml:20
 msgid "Avatar"
@@ -556,31 +551,31 @@ msgstr "Avatar"
 
 #: ../modules/account/AvatarView.qml:21
 msgid "Webcam"
-msgstr "Webcam"
+msgstr "Web kamera"
 
 #: ../modules/sound/BalanceLine.qml:31
 msgid "Left/Right Balance"
-msgstr "Keseimbangan Kiri/Kanan"
+msgstr "Lijevo/desno ravnoteža"
 
 #: ../modules/sound/BalanceLine.qml:53
 msgid "Left"
-msgstr "Kiri"
+msgstr "Lijevo"
 
 #: ../modules/sound/BalanceLine.qml:55
 msgid "Right"
-msgstr "Kanan"
+msgstr "Desno"
 
 #: ../modules/network/edit_autogen/BaseConnectionEdit.qml:43
 msgid "Automatically connect"
-msgstr "Sambung Otomatis"
+msgstr "Automatsko povezivanje"
 
 #: ../modules/date_time/Calendar.qml:131
 msgid "Today"
-msgstr "Hari ini"
+msgstr "Danas"
 
 #: ../modules/network/ConnectionAdd.qml:12
 msgid "New Network"
-msgstr "Jaringan baru"
+msgstr "Nova mreža"
 
 #: ../modules/network/ConnectionAdd.qml:35
 #: ../modules/network/edit_autogen/EditSectionPppoe.qml:11
@@ -596,80 +591,80 @@ msgstr "VPN"
 
 #: ../modules/network/ConnectionAdd.qml:77
 msgid "Next"
-msgstr "Selanjutnya"
+msgstr "Sljedeće"
 
 #: ../modules/network/ConnectionEdit.qml:51
 msgid "Delete this network"
-msgstr "Hapus jaringan ini"
+msgstr "Obriši ovu mrežu"
 
 #: ../modules/network/ConnectionEdit.qml:51
 msgid "Are you sure you want to delete this network?"
-msgstr "Anda yakin akan menghapus jaringan ini?"
+msgstr "Sigurno želite obrisati ovu mrežu?"
 
 #: ../modules/network/ConnectionEdit.qml:101
 #: ../modules/network/wireless/WifiHotspot.qml:91
 msgid "Save"
-msgstr "Simpan"
+msgstr "Spremi"
 
 #: ../modules/network/ConnectionEdit.qml:113 ../modules/network/Info.qml:79
 #: ../modules/date_time/StateButtons.qml:35
 #: ../modules/date_time/StateButtons.qml:49
 #: ../modules/date_time/TimezoneArea.qml:257
 msgid "Close"
-msgstr "Tutup"
+msgstr "Zatvori"
 
 #: ../modules/network/ConnectionEdit.qml:134
 msgid "Delete"
-msgstr "Hapus"
+msgstr "Obriši"
 
 #: ../modules/shortcuts/CustomKeybinding.qml:133
 msgid "Command"
-msgstr "Perintah"
+msgstr "Naredba"
 
 #: ../modules/account/DeleteUserDialog.qml:19
 msgid "Keep user's files"
-msgstr "Biarkan berkas pengguna"
+msgstr "Zadrži datoteke korisnika"
 
 #: ../modules/account/DeleteUserDialog.qml:20
 msgid "Delete user's files"
-msgstr "Hapus berkas pengguna"
+msgstr "Obriši datoteke korisnika"
 
 #: ../dock-applets/plugins/disk_mount/DiskItem.qml:124
 msgid "Unmount failed!"
-msgstr "Gagal melepaskan kait!"
+msgstr "Neuspješno odmontiranje!"
 
 #: ../modules/network/dsl/DslExpand.qml:19
 msgid "PPPoE Connections"
-msgstr "Koneksi PPoE"
+msgstr "PPPoE povezivanje"
 
 #: ../modules/network/edit/EditLineMissingPackage.qml:15
 #, qt-format
 msgid "Current system lacks component for %1"
-msgstr "Sistem sekarang tidak mempunyai komponen untuk %1"
+msgstr "Trenutnom sustavu nedostaje komponenta za %1"
 
 #: ../modules/network/edit/EditLineMissingPackage.qml:22
 msgid "Click to install"
-msgstr "Klik untuk memasang"
+msgstr "Klikni za instalaciju"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:11
 #: ../modules/network/main.qml:196
 msgid "Ethernet"
-msgstr "Ethernet"
+msgstr "Žičana veza"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:23
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:65
 msgid "Device MAC Addr"
-msgstr "Alamat MAC Perangkat"
+msgstr "MAC adresa uređaja"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:33
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:75
 msgid "Cloned MAC Addr"
-msgstr "Alamat MAC Tergandakan"
+msgstr "Klonirana MAC adresa"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:43
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:85
 msgid "Customize MTU"
-msgstr "Kustom MTU"
+msgstr "Prilagodi MTU"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:53
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:107
@@ -684,22 +679,22 @@ msgstr "IPv4"
 #: ../modules/network/edit_autogen/EditSectionIpv4.qml:23
 #: ../modules/network/edit_autogen/EditSectionIpv6.qml:23
 msgid "Method"
-msgstr "Metode"
+msgstr "Način"
 
 #: ../modules/network/edit_autogen/EditSectionIpv4.qml:33
 #: ../modules/network/edit_autogen/EditSectionIpv6.qml:33
 #: ../modules/network/Info.qml:55
 msgid "IP Address"
-msgstr "Alamat IP"
+msgstr "IP adresa"
 
 #: ../modules/network/edit_autogen/EditSectionIpv4.qml:44
 msgid "Netmask"
-msgstr "Netmask"
+msgstr "Maska podmreže"
 
 #: ../modules/network/edit_autogen/EditSectionIpv4.qml:69
 #: ../modules/network/edit_autogen/EditSectionIpv6.qml:65
 msgid "DNS Server"
-msgstr "Server DNS"
+msgstr "DNS poslužitelj"
 
 #: ../modules/network/edit_autogen/EditSectionIpv6.qml:11
 msgid "IPv6"
@@ -707,24 +702,24 @@ msgstr "IPv6"
 
 #: ../modules/network/edit_autogen/EditSectionIpv6.qml:43
 msgid "Prefix"
-msgstr "Awalan"
+msgstr "Prefiks"
 
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:11
 #: ../modules/network/main.qml:206
 msgid "Mobile"
-msgstr "Mobile"
+msgstr "Mobitel"
 
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:73
 msgid "Network ID"
-msgstr "ID Jaringan"
+msgstr "Mrežni ID"
 
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:83
 msgid "Type"
-msgstr "Tipe"
+msgstr "Vrsta"
 
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:93
 msgid "Home Network Only"
-msgstr "Hanya Jaringan Rumah"
+msgstr "Samo Kućna mreža"
 
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:103
 msgid "PIN"
@@ -736,76 +731,76 @@ msgstr "PPP"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:34
 msgid "128-bit MPPE"
-msgstr "128-bit MPEE"
+msgstr "128-bitni MPPE"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:45
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:43
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:43
 msgid "Stateful MPPE"
-msgstr "Stateful MPPE"
+msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:55
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:53
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:53
 msgid "Refuse EAP Authentication"
-msgstr "Tolak Otentikasi EAP"
+msgstr "Odbaci EAP autentifikaciju"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:65
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:64
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:64
 msgid "Refuse PAP Authentication"
-msgstr "Tolak Otentikasi PAP"
+msgstr "Odbaci PAP autentifikaciju"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:75
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:75
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:75
 msgid "Refuse CHAP Authentication"
-msgstr "Tolak Otentikasi CHAP"
+msgstr "Odbaci CHAP autentifikaciju"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:85
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:86
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:86
 msgid "Refuse MSCHAP Authentication"
-msgstr "Tolak Otentikasi MSCHAP"
+msgstr "Odbaci MSCHAP autentifikaciju"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:95
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:97
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:97
 msgid "Refuse MSCHAPv2 Authentication"
-msgstr "Tolak Otentikasi MSCHAPv2"
+msgstr "Odbaci MSCHAPv2 autentifikaciju"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:105
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:108
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:107
 msgid "No BSD Data Compression"
-msgstr "Tidak ada kompresi data BSD"
+msgstr "Nema BSD kompresije podataka"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:115
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:118
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:117
 msgid "No Deflate Data Compression"
-msgstr "Tidak ada penurunan data kompresi"
+msgstr "Nema umanjene kompresije podataka"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:125
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:128
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:127
 msgid "No TCP Header Compression"
-msgstr "Tidak ada kompresi TCP Header"
+msgstr "Nema TCP kompresije zaglavlja"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:135
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:158
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:137
 msgid "Send PPP Echo Packets"
-msgstr "Kirim Paket PPP Echo"
+msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:23
 msgid "Security Required"
-msgstr "Keamanan Dibutuhkan"
+msgstr "Potrebna sigurnost"
 
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:74
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:354
 msgid "NT Domain"
-msgstr "Domain NT"
+msgstr "NT domena"
 
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:11
 msgid "VPN IPsec"
@@ -818,161 +813,161 @@ msgstr "VPN PPP"
 
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:138
 msgid "No Protocol Field Compression"
-msgstr "Tidak ada kompresi Protokl Field"
+msgstr "Nema protokola kompresije polja"
 
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:148
 msgid "No Address/Control Compression"
-msgstr "Tidak ada Kompresi Alamat/Kontrol"
+msgstr "Nema kompresije Adrese/Kontrole"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:11
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:11
 msgid "VPN Advanced"
-msgstr "VPN Lanjutan"
+msgstr "VPN napredno"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:33
 msgid "Gateway Port"
-msgstr "Port Gateway"
+msgstr "Ulaz pristupnika"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:23
 msgid "Customize Gateway Port"
-msgstr "Kustom Gateway Port"
+msgstr "Prilagođeni ulaz pristupnika"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:45
 msgid "Customize Renegotiation Interval"
-msgstr "Kustom Renegosiasi Interval"
+msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:55
 msgid "Renegotiation Interval"
-msgstr "Renegosiasi Interval"
+msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:67
 msgid "Use LZO data compression"
-msgstr "Gunakan LZO kompresi data"
+msgstr "Koristi LZO kompresiju podataka"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:77
 msgid "Use TCP connection"
-msgstr "Gunakan Koneksi TCP"
+msgstr "Koristi TCP povezivanje"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:87
 msgid "Use TAP device"
-msgstr "Gunakan Piranti TAP"
+msgstr "Koristi TAP uređaj"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:97
 msgid "Customize Tunnel MTU"
-msgstr "Kustom Tunnel MTU"
+msgstr "Prilagodi Tunel MTU"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:119
 msgid "Customize UDP Fragment Size"
-msgstr "Kustom ukuran UDP Fragment"
+msgstr "Prilagodi UDP veličinu fragmenta"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
 msgid "UDP Fragment Size"
-msgstr "Ukuran UDP Fragment"
+msgstr "UDP veličina fragmenta"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:141
 msgid "Restrict Tunnel TCP MSS"
-msgstr "Pembatasan Tunnel TCP MSS"
+msgstr "Ograniči Tunel TCP MSS"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:151
 msgid "Randomize Remote Hosts"
-msgstr "Acak Host Remote"
+msgstr "Naizmjenično odaberi udaljena računala"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:11
 msgid "VPN Proxies"
-msgstr "Proksi VPN"
+msgstr "VPN proksiji"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:23
 msgid "Proxy Type"
-msgstr "Jenis Proksi"
+msgstr "Vrsta proksija"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:33
 msgid "Server IP"
-msgstr "IP Server"
+msgstr "IP poslužitelja"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:43
 #: ../modules/network/proxy/ProxyLine.qml:39
 msgid "Port"
-msgstr "Port"
+msgstr "Ulaz"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:55
 msgid "Retry Indefinitely When Failed"
-msgstr "Ulangi Indefinite Ketika Gagal"
+msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:11
 msgid "VPN Security"
-msgstr "Keamanan VPN"
+msgstr "VPN sigurnost"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:23
 msgid "Cipher"
-msgstr "Chiper"
+msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:33
 msgid "HMAC Auth"
-msgstr "HMAC Auth"
+msgstr "HMAC autentifikacija"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:11
 msgid "VPN TLS Authentication"
-msgstr "Otentikasi VPN TLS"
+msgstr "VPN TLS autentifikacija"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:23
 msgid "Subject Match"
-msgstr "Subyek Cocok"
+msgstr "Podudaranje subjekta"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:33
 msgid "Remote Cert Type"
-msgstr "Tipe Remote Cert"
+msgstr "Vrsta udaljenog certifikata"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:43
 msgid "Key File"
-msgstr "Berkas Kunci"
+msgstr "Datoteka ključa"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:23
 msgid "Domain"
-msgstr "Domain"
+msgstr "Domena"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:33
 msgid "Vendor"
-msgstr "Vendor"
+msgstr "Pružatelj usluge"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:43
 msgid "Version"
-msgstr "Versi"
+msgstr "Inačica"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:53
 msgid "Encryption"
-msgstr "Enkripsi"
+msgstr "Enkripcija"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:63
 msgid "NAT Traversal"
-msgstr "NAT Traversal"
+msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:73
 msgid "IKE DH Group"
-msgstr "ID DH Group"
+msgstr "IKE DH Grupa"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:83
 msgid "Forward Secrecy"
-msgstr "Teruskan Kerahasiaan"
+msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:93
 msgid "Local Port"
-msgstr "Port Lokal"
+msgstr "Lokalan ulaz"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:105
 msgid "Disable Dead Peer Detection"
-msgstr "Nonaktifkan Deteksi Dead Peer "
+msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:11
 msgid "Wi-Fi"
-msgstr "Wi-Fi"
+msgstr "Bežično"
 
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:33
 msgid "Mode"
-msgstr "Mode"
+msgstr "Način"
 
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:43
 msgid "Band"
-msgstr "Pita"
+msgstr "Frekvencija"
 
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:54
 msgid "Channel"
@@ -980,119 +975,119 @@ msgstr "Kanal"
 
 #: ../modules/account/EditUserDialog.qml:93
 msgid "Enable"
-msgstr "Aktifkan"
+msgstr "Omogući"
 
 #: ../modules/sound/FadeLine.qml:31
 msgid "Front/Rear Balance"
-msgstr "Keseimbangan Depan/Belakang"
+msgstr "Sprijeda/straga ravnoteža"
 
 #: ../modules/sound/FadeLine.qml:55
 msgid "Front"
-msgstr "Depan"
+msgstr "Ispred"
 
 #: ../modules/sound/FadeLine.qml:53
 msgid "Rear"
-msgstr "Belakang"
+msgstr "Straga"
 
 #: ../modules/personalization/components/FontSettingsExpand.qml:36
 msgid "Size"
-msgstr "Ukuran"
+msgstr "Veličina"
 
 #: ../modules/personalization/components/FontSettingsExpand.qml:65
 #, qt-format
 msgid "Font %1"
-msgstr "Fonta %1"
+msgstr "Slovo %1"
 
 #: ../modules/account/GuestUser.qml:45 ../qt5frame/views/HeaderArea.qml:108
 msgid "Guest"
-msgstr "Tamu"
+msgstr "Gost"
 
 #: ../modules/account/GuestUser.qml:106
 #: ../modules/display/MonitorProperties.qml:80
 msgid "Enabled"
-msgstr "diaktifkan"
+msgstr "Omogućeno"
 
 #: ../modules/network/Info.qml:13
 msgid "Activated Connections"
-msgstr "Koneksi diaktifkan"
+msgstr "Povezivanje aktivno"
 
 #: ../modules/network/Info.qml:15
 msgid "None Activated Connection"
-msgstr "None Aktifkan Koneksi"
+msgstr "Nema aktivnih povezivanja"
 
 #: ../modules/network/Info.qml:39
 msgid "(default)"
-msgstr "(baku)"
+msgstr "(zadano)"
 
 #: ../modules/network/Info.qml:50
 msgid "Interface"
-msgstr "Antarmuka"
+msgstr "Sučelje"
 
 #: ../modules/network/Info.qml:54
 msgid "Device Addr"
-msgstr "Alamat Perangkat"
+msgstr "Adresa uređaja"
 
 #: ../modules/network/Info.qml:56
 msgid "Subnet Mask"
-msgstr "Subnet Mask"
+msgstr "Maska podmreže"
 
 #: ../modules/network/Info.qml:57
 msgid "Route Addr"
-msgstr "Alamat Route"
+msgstr "Adresa rute"
 
 #: ../modules/network/Info.qml:58
 msgid "Primary DNS"
-msgstr "DNS Primer"
+msgstr "Primaran DNS"
 
 #: ../modules/network/Info.qml:59
 msgid "Secondary DNS"
-msgstr "DNS Kedua"
+msgstr "Sekundarni DNS"
 
 #: ../modules/network/Info.qml:60
 msgid "Third DNS"
-msgstr "DNS Ketiga"
+msgstr "Treći DNS"
 
 #: ../modules/network/Info.qml:69
 msgid "Device Speed"
-msgstr "Kecepatan Perangkat"
+msgstr "Brzina uređaja"
 
 #: ../modules/keyboard/LocaleArea.qml:53
 msgid "Language"
-msgstr "Bahasa"
+msgstr "Jezik"
 
 #: ../modules/display/MessageBox.qml:102
 msgid "Do you want to keep these display settings?"
-msgstr "Apakah Anda ingin menyimpan pengaturan tampilan ini?"
+msgstr "Želite li zadržati ove postavke prikaza?"
 
 #: ../modules/display/MessageBox.qml:111
 #, qt-format
 msgid ""
 "Reverting to previous display settings in <font color='#F48914'>%1</font> "
 "seconds."
-msgstr "Kembali ke pengaturan tampilan sebelumnya dalam <font color='#F48914'>%1</font> detik."
+msgstr "Vraćanje na prijašnje postavke prikaza za <font color='#F48914'>%1</font> sekundi."
 
 #: ../modules/display/MessageBox.qml:124
 msgid "Keep Changes"
-msgstr "Tetapkan Perubahan"
+msgstr "Zadrži promjene"
 
 #: ../modules/display/MessageBox.qml:137
 msgid "Revert"
-msgstr "Pulihkan"
+msgstr "Vrati"
 
 #: ../qt5frame/views/ModulesData.qml:52
 #: ../dock-applets/plugins/date_time/main.qml:32
 msgid "Date and Time"
-msgstr "Tanggal dan Jam"
+msgstr "Datum i Vrijeme"
 
 #: ../qt5frame/views/ModulesData.qml:53
 #: ../dock-applets/plugins/network/main.qml:32
 msgid "Network"
-msgstr "Jaringan"
+msgstr "Mreža"
 
 #: ../qt5frame/views/ModulesData.qml:54
 #: ../dock-applets/plugins/disk_mount/main.qml:33
 msgid "Disk Mount"
-msgstr "Kaitkan Disk"
+msgstr "Montiranje diskova"
 
 #: ../qt5frame/views/ModulesData.qml:55 ../modules/network/main.qml:172
 msgid "Bluetooth"
@@ -1101,180 +1096,180 @@ msgstr "Bluetooth"
 #: ../qt5frame/views/ModulesData.qml:56
 #: ../dock-applets/plugins/sound/main.qml:32
 msgid "Sound"
-msgstr "Suara"
+msgstr "Zvuk"
 
 #: ../qt5frame/views/ModulesData.qml:57
 msgid "Power Management"
-msgstr "Manajemen Daya"
+msgstr "Upravljanje energijom"
 
 #: ../qt5frame/views/ModulesData.qml:58
 msgid "More Settings"
-msgstr "Pengaturan Lainya"
+msgstr "Više postavki"
 
 #: ../qt5frame/views/ModulesData.qml:59 ../qt5frame/views/PanelContent.qml:410
 #: ../dock-applets/plugins/power/main.qml:33
 msgid "Power"
-msgstr "Daya"
+msgstr "Isključivanje"
 
 #: ../qt5frame/views/ModulesData.qml:60
 msgid "Display"
-msgstr "Tampilan"
+msgstr "Zaslon"
 
 #: ../qt5frame/views/ModulesData.qml:61
 msgid "Desktop"
-msgstr "Desktop"
+msgstr "Radna površina"
 
 #: ../qt5frame/views/ModulesData.qml:62
 msgid "Personalization"
-msgstr "Personalisasi"
+msgstr "Izgled"
 
 #: ../qt5frame/views/ModulesData.qml:63
 msgid "Keyboard Shortcuts"
-msgstr "Jalan pintas"
+msgstr "Prečaci tipkovnice"
 
 #: ../qt5frame/views/ModulesData.qml:64
 msgid "Keyboard and Language"
-msgstr "Papan ketik dan Bahasa"
+msgstr "Tipkovnica i Jezik"
 
 #: ../qt5frame/views/ModulesData.qml:65
 msgid "Mouse and Touchpad"
-msgstr "Tetikus dan Touchpad"
+msgstr "Miš i Touchpad"
 
 #: ../qt5frame/views/ModulesData.qml:66 ../modules/mouse_touchpad/main.qml:53
 msgid "Mouse"
-msgstr "Tetikus"
+msgstr "Miš"
 
 #: ../qt5frame/views/ModulesData.qml:67
 msgid "User Accounts"
-msgstr "Akun Pengguna"
+msgstr "Računi korisnika"
 
 #: ../qt5frame/views/ModulesData.qml:68
 #: ../modules/default_applications/main.qml:62
 msgid "Default Applications"
-msgstr "Aplikasi Default"
+msgstr "Uobičajene aplikacije"
 
 #: ../qt5frame/views/ModulesData.qml:69
 msgid "System Information"
-msgstr "Informasi Sistem"
+msgstr "Informacije sustava"
 
 #: ../qt5frame/views/ModulesData.qml:70
 msgid "Boot Menu"
-msgstr "Menu Boot"
+msgstr "Izbornik pokretanja sustava"
 
 #: ../qt5frame/views/ModulesData.qml:71
 msgid "Home"
-msgstr "Rumah"
+msgstr "Početno"
 
 #: ../modules/display/MonitorComponent.qml:185
 msgid "Split"
-msgstr "Membagi"
+msgstr "Podijeli"
 
 #: ../modules/display/MonitorComponent.qml:236
 msgid "Set as primary display"
-msgstr "Atur sebagai tampilan utama"
+msgstr "Postavi kao glavni zaslon"
 
 #: ../modules/display/MonitorDragArea.qml:463
 msgid "Identify"
-msgstr "Identifikasi"
+msgstr "Identificiraj"
 
 #: ../modules/display/MonitorDragArea.qml:480
 msgid "Edit"
-msgstr "Sunting"
+msgstr "Uredi"
 
 #: ../modules/display/MonitorProperties.qml:47
 msgid "Normal"
-msgstr "Normal"
+msgstr "Normalno"
 
 #: ../modules/display/MonitorProperties.qml:48
 msgid "Rotate Right"
-msgstr "Putar Kanan"
+msgstr "Zakreni desno"
 
 #: ../modules/display/MonitorProperties.qml:49
 msgid "Upside Down"
-msgstr "Terbalik"
+msgstr ""
 
 #: ../modules/display/MonitorProperties.qml:50
 msgid "Rotate Left"
-msgstr "Putar kiri"
+msgstr "Rotiraj lijevo"
 
 #: ../modules/display/MonitorProperties.qml:112
 msgid "Resolution"
-msgstr "Resolusi"
+msgstr "Razlučivost"
 
 #: ../modules/display/MonitorProperties.qml:165
 msgid "Rotation"
-msgstr "Rotasi"
+msgstr "Rotacija"
 
 #: ../modules/display/MonitorProperties.qml:206
 msgid "Brightness"
-msgstr "Kecerahan"
+msgstr "Svjetlina"
 
 #: ../modules/network/wired/NewItem.qml:45
 #: ../modules/network/wired/WiredItem.qml:89
 #, qt-format
 msgid "Wired Connection %1"
-msgstr "Koneksi Kabel %1"
+msgstr "Žična veza %1"
 
 #: ../modules/network/wired/NewItem.qml:47
 #: ../modules/network/wired/WiredItem.qml:91
 msgid "Wired Connection"
-msgstr "Koneksi Kabel"
+msgstr "Žičana veza"
 
 #: ../modules/network/widgets/NotManagedSection.qml:25
 msgid "not managed"
-msgstr "tidak dikelola"
+msgstr ""
 
 #: ../modules/network/widgets/PasswordBox.qml:76
 msgid "Password: "
-msgstr "Kata Sandi :"
+msgstr "Lozinka:"
 
 #: ../modules/account/PasswordDialog.qml:114
 msgid "New Password"
-msgstr "Sandi Baru"
+msgstr "Nova lozinka"
 
 #: ../modules/account/PasswordDialog.qml:159
 msgid "Repeat"
-msgstr "Ulangi"
+msgstr "Ponovi"
 
 #: ../modules/grub/Preview.qml:122
 msgid "Drag and drop an image to change background."
-msgstr "Seret dan lepas gambar untuk mengganti gambar latar"
+msgstr "Privuci i ispusti sliku za promjenu pozadine."
 
 #: ../modules/grub/Preview.qml:123 ../modules/account/UserList.qml:233
 msgid "Image format not supported"
-msgstr "format gambar tidak didukung"
+msgstr "Format slike nije podržan"
 
 #: ../modules/grub/Preview.qml:124
 msgid "Updating..."
-msgstr "memutakhirkan ..."
+msgstr "Ažuriranje..."
 
 #: ../modules/grub/Preview.qml:125
 msgid "Successfully updated, reboot to view."
-msgstr "Pemutakhiran berhasil, nyalakan ulang untuk melihat perubahannya."
+msgstr "Uspješno ažurirano, ponovno pokrenite za provjeru."
 
 #: ../modules/network/proxy/ProxyContent.qml:43
 msgid "None"
-msgstr "Tidak Ada"
+msgstr "Nijedan"
 
 #: ../modules/network/proxy/ProxyContent.qml:48
 msgid "Manual"
-msgstr "Manual"
+msgstr "Ručno"
 
 #: ../modules/network/proxy/ProxyContent.qml:53
 msgid "Auto"
-msgstr "Otomatis"
+msgstr "Automatski"
 
 #: ../modules/network/proxy/ProxyContent.qml:88
 msgid "HTTP Proxy"
-msgstr "Proxy HTTP"
+msgstr "HTTP Proxy"
 
 #: ../modules/network/proxy/ProxyContent.qml:100
 msgid "HTTPS Proxy"
-msgstr "Proxy HTTPS"
+msgstr "HTTPS Proxy"
 
 #: ../modules/network/proxy/ProxyContent.qml:112
 msgid "FTP Proxy"
-msgstr "Proxy FTP"
+msgstr "FTP Proxy"
 
 #: ../modules/network/proxy/ProxyContent.qml:124
 msgid "Socks Proxy"
@@ -1282,99 +1277,99 @@ msgstr "Socks Proxy"
 
 #: ../modules/network/proxy/ProxyContent.qml:149
 msgid "Configuration URL"
-msgstr "Konfigurasi URL"
+msgstr "URL podešavanja"
 
 #: ../modules/network/proxy/ProxyContent.qml:166
 msgid "Apply system wide"
-msgstr "Terapkan untuk keseluruhan Sistem"
+msgstr "Primjeni na cijeli sustav"
 
 #: ../modules/network/proxy/ProxyExpand.qml:37
 msgid "System Proxy"
-msgstr "Proxy Sistem"
+msgstr "Proxy sustava"
 
 #: ../modules/shared/ResetButton.qml:39
 msgid "Reset successfully"
-msgstr "Atur Ulang berhasil"
+msgstr ""
 
 #: ../modules/shared/ResetButton.qml:47
 msgid "Reset"
-msgstr "Atur ulang"
+msgstr "Vrati"
 
 #: ../modules/shortcuts/ShortcutInput.qml:108
 msgid "Disable"
-msgstr "Non-aktifkan"
+msgstr "Onemogući"
 
 #: ../modules/shortcuts/ShortcutInput.qml:126
 msgid "Please input new shortcut"
-msgstr "Silakan masukkan jalan pintas"
+msgstr "Molim unesite novi prečac"
 
 #: ../modules/shortcuts/ShortcutInput.qml:226
 #, qt-format
 msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
-msgstr "Jalan pintas \"%1\" tidak valid, silakan masukkan jalan pintas baru."
+msgstr "Prečac \"%1\" je neispravan, olim ponovno utipkajte prečac."
 
 #: ../modules/shortcuts/ShortcutInput.qml:264
 msgid "The shortcut you set "
-msgstr "Jalan pintas yang Anda atur"
+msgstr "Prečac koji ste postavili"
 
 #: ../modules/shortcuts/ShortcutInput.qml:267
 #, qt-format
 msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
-msgstr "konflik dengan salah satu yang digunakan untuk \"%2\" dalam \"%1\" kategori."
+msgstr ""
 
 #: ../modules/shortcuts/ShortcutInput.qml:269
 msgid "Do you want to replace it?"
-msgstr "Anda ingin menggantinya?"
+msgstr "Želite li ga zamijeniti?"
 
 #: ../modules/shortcuts/ShortcutInput.qml:327
 msgid "Replace"
-msgstr "Ganti"
+msgstr "Zamijeni"
 
 #: ../modules/personalization/widgets/ShowPreviewButton.qml:53
 msgid "Preview Theme"
-msgstr "Pratampil Tema"
+msgstr ""
 
 #: ../modules/date_time/StateButtons.qml:34
 #: ../modules/keyboard/StateButtons.qml:34
 #: ../modules/shortcuts/StateButtons.qml:38
 msgid "Done"
-msgstr "Selesai"
+msgstr "Učinjeno"
 
 #: ../modules/date_time/TimeBox.qml:161
 msgid "Double-click the above digits to change your time."
-msgstr "Double klik diantara angka untuk mengganti waktu"
+msgstr "Dvostruki klik na gornje brojeve za promjenu vašega vremena."
 
 #: ../modules/date_time/TimeBox.qml:196
 msgid "Set"
-msgstr "Atur"
+msgstr ""
 
 #: ../modules/date_time/TimezoneArea.qml:101
 msgid "Time zone"
-msgstr "Zona Waktu"
+msgstr "Vremenska zona"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:50
 msgid "Touchpad"
-msgstr "Bantalan sentuh"
+msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:82
 #: ../modules/mouse_touchpad/main.qml:70
 msgid "Primary Button"
-msgstr "Tombol Utama"
+msgstr "Primarno dugme"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:91
 #: ../modules/mouse_touchpad/main.qml:78
 msgid "Left Button"
-msgstr "Tombol Kiri"
+msgstr "Lijevo dugme"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:92
 #: ../modules/mouse_touchpad/main.qml:79
 msgid "Right Button"
-msgstr "Tombol Kanan"
+msgstr "Desno dugme"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:117
 #: ../modules/mouse_touchpad/main.qml:104
 msgid "Pointer Speed"
-msgstr "Kecepatan Pointer"
+msgstr "Brzina pokazivača"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:134
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:171
@@ -1382,7 +1377,7 @@ msgstr "Kecepatan Pointer"
 #: ../modules/mouse_touchpad/main.qml:120
 #: ../modules/mouse_touchpad/main.qml:156
 msgid "Slow"
-msgstr "Lambat"
+msgstr "Sporo"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:135
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:172
@@ -1390,104 +1385,104 @@ msgstr "Lambat"
 #: ../modules/mouse_touchpad/main.qml:121
 #: ../modules/mouse_touchpad/main.qml:157
 msgid "Fast"
-msgstr "Cepat"
+msgstr "Brzo"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:154
 #: ../modules/mouse_touchpad/main.qml:140
 msgid "Double-click Speed"
-msgstr "Kecepatan Klik-ganda"
+msgstr "Brzina dvostrukog klika"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:192
 msgid "Drag Threshold"
-msgstr "Ambang Seret"
+msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:208
 #: ../modules/keyboard/main.qml:128
 msgid "Short"
-msgstr "Pendek"
+msgstr "Kratko"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:209
 #: ../modules/keyboard/main.qml:129
 msgid "Long"
-msgstr "Panjang"
+msgstr "Dugo"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:228
 msgid "Natural Scrolling"
-msgstr "Menggulung Alami"
+msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:252
 msgid "Tap to click"
-msgstr "Ketuk untuk mengklik"
+msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:275
 msgid "Two-finger scrolling"
-msgstr "Gulir dua jari"
+msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:298
 msgid "Edge scrolling"
-msgstr "Gulir tepi"
+msgstr ""
 
 #: ../modules/network/vpn/VpnExpand.qml:48
 msgid "VPN Connections"
-msgstr "Koneksi VPN"
+msgstr "VPN povezivanja"
 
 #: ../modules/account/WebCam.qml:125 ../modules/account/WebCam.qml:140
 msgid "Snapshot"
-msgstr "Potret"
+msgstr ""
 
 #: ../modules/account/WebCam.qml:136
 msgid "Again"
-msgstr "Lagi"
+msgstr "Ponovno"
 
 #: ../modules/account/WebCam.qml:175
 msgid "No camera found."
-msgstr "Tidak ditemukan kamera"
+msgstr "Kamera nije nađena."
 
 #: ../modules/network/wireless/WifiHotspot.qml:23
 msgid "Edit Wi-Fi Hotspot"
-msgstr "Edit Hotspot Wi-Fi"
+msgstr "Uredi Wi-Fi Hotspot"
 
 #: ../modules/network/wireless/WifiHotspot.qml:23
 msgid "Create Wi-Fi Hotspot"
-msgstr "Buat Hotspot Wi-Fi"
+msgstr "Napravi Wi-Fi Hotspot"
 
 #: ../modules/network/wireless/WifiHotspot.qml:91
 msgid "Create"
-msgstr "Buat"
+msgstr "Napravi"
 
 #: ../dock-applets/src/frame/WifiPasswordWindow.qml:139
 msgid "Authentication required by Wi-Fi network"
-msgstr "Autentikasi dibutuhkan oleh jaringan Wi-Fi"
+msgstr ""
 
 #: ../dock-applets/src/frame/WifiPasswordWindow.qml:147
 #, qt-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network <font "
 "color=\"#faca57\">%1</font>"
-msgstr "Kata sandi atau kunci enkripsi dibutuhkan untuk untuk mengakses jaringan Wi-Fi <font color=\"#faca57\">%1</font>"
+msgstr ""
 
 #: ../dock-applets/src/frame/WifiPasswordWindow.qml:161
 msgid "Password:"
-msgstr "Kata sandi:"
+msgstr "Lozinka:"
 
 #: ../modules/network/wired/WiredDeviceExpand.qml:37
 msgid "Wired Network"
-msgstr "Koneksi Kabel"
+msgstr "Žična mreža"
 
 #: ../dock-applets/plugins/network/WirelessApList.qml:95
 msgid "Scanning..."
-msgstr "Pindai..."
+msgstr ""
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:28
 #: ../dock-applets/plugins/network/WirelessNetwork.qml:50
 msgid "Wireless Network"
-msgstr "Koneksi Nirkabel"
+msgstr "Bežična mreža"
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:26
 #: ../dock-applets/plugins/network/WirelessNetwork.qml:50
 #, qt-format
 msgid "Wireless Network %1"
-msgstr "Koneksi Nirkabel %1"
+msgstr "Bežična mreža %1"
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:55
 msgid ""
@@ -1496,52 +1491,52 @@ msgid ""
 "1. The hardware switch of wireless network card is off\n"
 "2. Incorrect network configuration in /etc/network/interface\n"
 "3. Incorrect driver of network hardware"
-msgstr "Jarigan nirkabel tidak dapat dihubungkan mungkin karena alasan berikut:\n\n1. Perangkat keras kartu jaringan nirkabel tidak aktif\n2. Kesalahan konfigurasi jaringan dalam /etc/network/interface\n3. Kesalahan driver perangkat keras jaringan"
+msgstr ""
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:35
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:158
 msgid "Connect to hidden access point"
-msgstr "Sambungkan ke akses point tersembunyi"
+msgstr "Povezivanje na skrivenu pristupnu točku"
 
 #: ../modules/bluetooth/main.qml:76
 msgid "ON/OFF"
-msgstr "NYALA/MATi"
+msgstr "UKLJUČENO/ISKLJUČENO"
 
 #: ../modules/bluetooth/main.qml:141
 msgid "Devices nearby"
-msgstr "Perangkat terdekat"
+msgstr "Obližnji uređaji"
 
 #: ../modules/date_time/main.qml:93
 msgid "Automatic date and time"
-msgstr "Tanggal dan waktu otomatis"
+msgstr "Automatski datum i vrijeme"
 
 #: ../modules/date_time/main.qml:109
 msgid "Use 24-hour clock"
-msgstr "Gunakan format 24-jam"
+msgstr "Koristi 24-satni sat"
 
 #: ../modules/date_time/main.qml:139
 msgid "Date"
-msgstr "Tanggal"
+msgstr "Datum"
 
 #: ../modules/date_time/main.qml:143
 msgid "Set Date"
-msgstr "Atur Tanggal"
+msgstr "Postavi datum"
 
 #: ../modules/default_applications/main.qml:74
 msgid "Browser"
-msgstr "Peramban"
+msgstr "Preglednik"
 
 #: ../modules/default_applications/main.qml:88
 msgid "Mail"
-msgstr "Surat"
+msgstr "Pošta"
 
 #: ../modules/default_applications/main.qml:99
 msgid "Text"
-msgstr "Teks"
+msgstr "Tekst"
 
 #: ../modules/default_applications/main.qml:105
 msgid "Music"
-msgstr "Musik"
+msgstr "Glazba"
 
 #: ../modules/default_applications/main.qml:136
 msgid "Video"
@@ -1549,7 +1544,7 @@ msgstr "Video"
 
 #: ../modules/default_applications/main.qml:168
 msgid "Picture"
-msgstr "Gambar"
+msgstr "Slika"
 
 #: ../modules/default_applications/main.qml:186
 msgid "Terminal"
@@ -1557,7 +1552,7 @@ msgstr "Terminal"
 
 #: ../modules/default_applications/main.qml:245
 msgid "AutoPlay"
-msgstr "AutoPlay"
+msgstr ""
 
 #: ../modules/default_applications/main.qml:260
 msgid "CD Audio"
@@ -1569,7 +1564,7 @@ msgstr "DVD Video"
 
 #: ../modules/default_applications/main.qml:270
 msgid "Music Player"
-msgstr "Pemutar Musik"
+msgstr ""
 
 #: ../modules/default_applications/main.qml:275
 msgid "Camera"
@@ -1577,11 +1572,11 @@ msgstr "Kamera"
 
 #: ../modules/default_applications/main.qml:280
 msgid "Software"
-msgstr "Perangkat lunak"
+msgstr "Software"
 
 #: ../modules/display/main.qml:117
 msgid "Primary Monitor: "
-msgstr "Monitor Primer:"
+msgstr "Primarni monitor:"
 
 #: ../modules/display/main.qml:148
 msgid "Monitor"
@@ -1589,55 +1584,55 @@ msgstr "Monitor"
 
 #: ../modules/display/main.qml:208
 msgid "Apply"
-msgstr "Terapkan"
+msgstr "Primjeni"
 
 #: ../modules/grub/main.qml:112
 msgid "Default Startup"
-msgstr "Startup Bawaan"
+msgstr ""
 
 #: ../modules/grub/main.qml:167
 msgid "Boot delay"
-msgstr "Jeda boot"
+msgstr ""
 
 #: ../modules/grub/main.qml:206
 msgid "Text Color"
-msgstr "Warna Teks"
+msgstr "Boja teksta"
 
 #: ../modules/grub/main.qml:239
 msgid "Selected Text Color"
-msgstr "Warna Teks yang dipilih"
+msgstr "Odaberana boja teksta"
 
 #: ../modules/keyboard/main.qml:114
 msgid "Repeat Delay"
-msgstr "Ulangi Delay"
+msgstr "Odgoda ponavljanja"
 
 #: ../modules/keyboard/main.qml:138
 msgid "Repeat Rate"
-msgstr "Ulangi Rating"
+msgstr ""
 
 #: ../modules/keyboard/main.qml:163
 msgid "Cursor Blink Rate"
-msgstr "Tingkat kedip kursor"
+msgstr ""
 
 #: ../modules/keyboard/main.qml:189
 msgid "Test Area"
-msgstr "Area Tes"
+msgstr "Područje testiranja"
 
 #: ../modules/keyboard/main.qml:236
 msgid "Keyboard Layout"
-msgstr "Tata letak Papan Ketik"
+msgstr "Raspored tipkovnice"
 
 #: ../modules/keyboard/main.qml:447
 msgid "No result"
-msgstr "Tidak ada hasil"
+msgstr "Nema razultata"
 
 #: ../modules/keyboard/main.qml:208
 msgid "Caps Lock prompt"
-msgstr "Konfirmasi Caps Lock"
+msgstr ""
 
 #: ../modules/mouse_touchpad/main.qml:177
 msgid "Disable the touchpad when inserting the mouse"
-msgstr "Non-aktifkan touchpad ketika tetikus terpasang"
+msgstr ""
 
 #: ../modules/personalization/main.qml:101
 msgid "Theme"
@@ -1645,59 +1640,59 @@ msgstr "Tema"
 
 #: ../modules/personalization/main.qml:108 ../modules/shortcuts/main.qml:51
 msgid "Window"
-msgstr "Jendela"
+msgstr "Prozor"
 
 #: ../modules/personalization/main.qml:115
 msgid "Icon"
-msgstr "Ikon"
+msgstr "Ikona"
 
 #: ../modules/personalization/main.qml:122
 msgid "Cursor"
-msgstr "Kursor"
+msgstr "Pokazivač"
 
 #: ../modules/personalization/main.qml:129
 msgid "Wallpaper"
-msgstr "Wallpaper"
+msgstr "Tapeta"
 
 #: ../modules/personalization/main.qml:143
 msgid "Fonts"
-msgstr "Fonta"
+msgstr "Fontovi"
 
 #: ../modules/power/main.qml:53 ../modules/power/main.qml:65
 msgid "Never"
-msgstr "Tidak pernah"
+msgstr "Nikada"
 
 #: ../modules/power/main.qml:59
 msgid "1 minute"
-msgstr "1 menit"
+msgstr "1 minuta"
 
 #: ../modules/power/main.qml:60
 msgid "5 minutes"
-msgstr "5 menit"
+msgstr "5 minuta"
 
 #: ../modules/power/main.qml:61
 msgid "10 minutes"
-msgstr "10 menit"
+msgstr "10 minuta"
 
 #: ../modules/power/main.qml:62
 msgid "15 minutes"
-msgstr "15 menit"
+msgstr "15 minuta"
 
 #: ../modules/power/main.qml:63
 msgid "30 minutes"
-msgstr "30 menit"
+msgstr "30 minuta"
 
 #: ../modules/power/main.qml:64
 msgid "1 hour"
-msgstr "1 jam"
+msgstr "1 sat"
 
 #: ../modules/power/main.qml:124
 msgid "When I press the power button"
-msgstr "Ketika ditekan tombol power"
+msgstr ""
 
 #: ../modules/power/main.qml:138 ../modules/power/main.qml:184
 msgid "Shutdown"
-msgstr "Matikan"
+msgstr "Isključi"
 
 #: ../modules/power/main.qml:143 ../modules/power/main.qml:189
 #: ../modules/power/main.qml:253 ../modules/power/main.qml:259
@@ -1706,31 +1701,31 @@ msgstr "Matikan"
 #: ../modules/power/main.qml:434 ../modules/power/main.qml:440
 #: ../modules/power/main.qml:446 ../modules/power/main.qml:534
 msgid "Suspend"
-msgstr "Tangguhkan"
+msgstr "Suspenzija"
 
 #: ../modules/power/main.qml:148
 msgid "Ask"
-msgstr "Tanya"
+msgstr "Pitaj"
 
 #: ../modules/power/main.qml:170
 msgid "When I close the lid"
-msgstr "Ketika Saya menutup lid"
+msgstr ""
 
 #: ../modules/power/main.qml:194
 msgid "Nothing"
-msgstr "Tidak ada apa-apa"
+msgstr "Ništa"
 
 #: ../modules/power/main.qml:213
 msgid "Password required to wake up"
-msgstr "Kata sandi dibutuhkan untung membangunkan"
+msgstr ""
 
 #: ../modules/power/main.qml:235
 msgid "Plugged in"
-msgstr "Plugged in"
+msgstr "Uključen"
 
 #: ../modules/power/main.qml:410
 msgid "On battery"
-msgstr "Pada baterai"
+msgstr ""
 
 #: ../modules/power/main.qml:252 ../modules/power/main.qml:258
 #: ../modules/power/main.qml:264 ../modules/power/main.qml:270
@@ -1738,127 +1733,127 @@ msgstr "Pada baterai"
 #: ../modules/power/main.qml:433 ../modules/power/main.qml:439
 #: ../modules/power/main.qml:445 ../modules/power/main.qml:494
 msgid "Turn off the display"
-msgstr "Matikan layar"
+msgstr ""
 
 #: ../modules/power/main.qml:313 ../modules/power/main.qml:489
 msgid "Custom Options"
-msgstr "Opsi Kustom"
+msgstr "Prilagođene mogućnosti"
 
 #: ../modules/shortcuts/main.qml:49
 msgid "System"
-msgstr "Sistem"
+msgstr "Sustav"
 
 #: ../modules/shortcuts/main.qml:52
 msgid "Workspace"
-msgstr "Ruang kerja"
+msgstr "Radni prostor"
 
 #: ../modules/sound/main.qml:126
 msgid "Speaker"
-msgstr "Speaker"
+msgstr "Zvučnik"
 
 #: ../modules/sound/main.qml:156
 msgid "Output Volume"
-msgstr "Volume Keluaran"
+msgstr "Izlazna glasnoća"
 
 #: ../modules/sound/main.qml:221
 msgid "Microphone"
-msgstr "Mikropon"
+msgstr "Mikrofon"
 
 #: ../modules/sound/main.qml:251
 msgid "Input Volume"
-msgstr "Volume Masukan"
+msgstr "Ulazna glasnoća"
 
 #: ../modules/sound/main.qml:295
 msgid "Input Feedback"
-msgstr "Masukkan Umpan Balik"
+msgstr ""
 
 #: ../modules/sound/main.qml:331
 msgid "Output Port"
-msgstr "Port Keluaran"
+msgstr "Izlazni port"
 
 #: ../modules/sound/main.qml:348 ../modules/sound/main.qml:451
 msgid "No port exists in this device."
-msgstr "Tidak ada port tersedia pada perangkat ini."
+msgstr "Na ovom uređaju ne postoji port."
 
 #: ../modules/sound/main.qml:386
 msgid "Output device"
-msgstr "Perangkat keluaran"
+msgstr "Izlazni uređaj"
 
 #: ../modules/sound/main.qml:434
 msgid "Input Port"
-msgstr "Port masukan"
+msgstr "Ulazni port"
 
 #: ../modules/sound/main.qml:489
 msgid "Input device"
-msgstr "Perangkat masukan"
+msgstr "Ulazni uređaj"
 
 #: ../modules/sound/main.qml:542
 msgid "Hide Advanced..."
-msgstr "Sembunyikan lanjutan ..."
+msgstr "Sakrij napredno..."
 
 #: ../modules/sound/main.qml:542
 msgid "Show Advanced..."
-msgstr "Tampilkan Lanjutan ..."
+msgstr "Pokaži napredno..."
 
 #: ../modules/system_info/main.qml:102
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
-msgstr "Hak cipta (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
+msgstr "Autorska prava (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
 
 #: ../modules/system_info/main.qml:108
 msgid "Deepin Edition"
-msgstr "Edisi Deepin"
+msgstr "Deepin izdanje"
 
 #: ../modules/system_info/main.qml:114
 msgid "System Type"
-msgstr "Tipe Sistem"
+msgstr "Vrsta sustava"
 
 #: ../modules/system_info/main.qml:115
 msgid "bit"
-msgstr "bit"
+msgstr ""
 
 #: ../modules/system_info/main.qml:120
 msgid "Processor"
-msgstr "Prosesor"
+msgstr "Procesor"
 
 #: ../modules/system_info/main.qml:134
 msgid "Memory"
-msgstr "Memori"
+msgstr "Memorija"
 
 #: ../modules/system_info/main.qml:140
 msgid "Disk"
-msgstr "Diska"
+msgstr "Disk"
 
 #: ../modules/system_info/main.qml:159
 msgid "GNU GENERAL PUBLIC LICENSE"
-msgstr "LISENSI GNU GENERAL PUBLIC"
+msgstr ""
 
 #: ../modules/network/main.qml:162 ../modules/network/main.qml:190
 msgid "Unknown"
-msgstr "Tidak diketahui"
+msgstr "Nepoznato"
 
 #: ../modules/network/main.qml:164
 msgid "Wired"
-msgstr "Kabel"
+msgstr "Žično"
 
 #: ../modules/network/main.qml:166
 msgid "Wireless"
-msgstr "Nirkabel"
+msgstr "Bežično"
 
 #: ../modules/network/main.qml:168
 msgid "Unused1"
-msgstr "Tidak digunakan 1"
+msgstr "Neiskorišten1"
 
 #: ../modules/network/main.qml:170
 msgid "Unused2"
-msgstr "Tidak digunakan 2"
+msgstr "Neiskorišten2"
 
 #: ../modules/network/main.qml:174
 msgid "OLPC mesh"
-msgstr "OLPC mesh"
+msgstr ""
 
 #: ../modules/network/main.qml:176
 msgid "WiMax"
-msgstr "WiMax"
+msgstr ""
 
 #: ../modules/network/main.qml:178
 msgid "Modem"
@@ -1866,11 +1861,11 @@ msgstr "Modem"
 
 #: ../modules/network/main.qml:180
 msgid "InfiniBand"
-msgstr "InfiniBand"
+msgstr ""
 
 #: ../modules/network/main.qml:182
 msgid "Bond"
-msgstr "Bond"
+msgstr ""
 
 #: ../modules/network/main.qml:184
 msgid "VLAN"
@@ -1882,7 +1877,7 @@ msgstr "ADSL"
 
 #: ../modules/network/main.qml:188
 msgid "Bridge"
-msgstr "Bridge"
+msgstr ""
 
 #: ../modules/network/main.qml:198
 msgid "802.11 WiFi"
@@ -1898,11 +1893,11 @@ msgstr "802.11 WiFi Hotspot"
 
 #: ../modules/network/main.qml:208
 msgid "Mobile GSM"
-msgstr "Mobile GSM"
+msgstr ""
 
 #: ../modules/network/main.qml:210
 msgid "Mobile CDMA"
-msgstr "Mobile CDMA"
+msgstr ""
 
 #: ../modules/network/main.qml:214
 msgid "VPN L2TP"
@@ -1918,12 +1913,12 @@ msgstr "VPN VPNC"
 
 #: ../modules/network/main.qml:220
 msgid "VPN OpenVPN"
-msgstr "VPN OpenVPN"
+msgstr "VPN OtvoreniVPN"
 
 #: ../modules/network/main.qml:222
 msgid "VPN OpenConnect"
-msgstr "VPN OpenConnect"
+msgstr ""
 
 #: ../modules/account/main.qml:132
 msgid "User List"
-msgstr "Daftar Pengguna"
+msgstr ""

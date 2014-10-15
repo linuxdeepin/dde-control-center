@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Sinan Eldem, 2014
 # yakup <mutouk@yandex.ru>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-13 15:23+0800\n"
-"PO-Revision-Date: 2014-10-14 09:13+0000\n"
-"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
+"PO-Revision-Date: 2014-10-17 13:21+0000\n"
+"Last-Translator: Sinan Eldem\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/dde-control-center/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -125,7 +126,7 @@ msgstr "Yanlış Şifre"
 
 #: ../modules/account/AddUserDialog.qml:53
 msgid "Nothing input"
-msgstr "Giriş yapılmadı"
+msgstr "Girdi mevcut değil"
 
 #: ../modules/account/AddUserDialog.qml:58
 #: ../modules/account/PasswordDialog.qml:101
@@ -258,7 +259,7 @@ msgstr "Cisco Güvenli Masaüstü Trojan izni"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:274
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
 msgid "Customize Key Direction"
-msgstr "Özelleştirilmiş Anahtar Yönetimi"
+msgstr "Anahtar Yönetimini Özelleştir"
 
 #: ../modules/network/add/AddVpn.qml:214 ../modules/network/add/AddVpn.qml:304
 #: ../modules/network/wireless/AddWireless.qml:165
@@ -554,7 +555,7 @@ msgstr "Webcam"
 
 #: ../modules/sound/BalanceLine.qml:31
 msgid "Left/Right Balance"
-msgstr ""
+msgstr "Sol/Sağ Denge"
 
 #: ../modules/sound/BalanceLine.qml:53
 msgid "Left"
@@ -978,15 +979,15 @@ msgstr "Etkinleştir"
 
 #: ../modules/sound/FadeLine.qml:31
 msgid "Front/Rear Balance"
-msgstr ""
+msgstr "Ön/Arka Denge"
 
 #: ../modules/sound/FadeLine.qml:55
 msgid "Front"
-msgstr ""
+msgstr "Ön"
 
 #: ../modules/sound/FadeLine.qml:53
 msgid "Rear"
-msgstr ""
+msgstr "Arka"
 
 #: ../modules/personalization/components/FontSettingsExpand.qml:36
 msgid "Size"
@@ -1236,7 +1237,7 @@ msgstr "Resimi sürükle bırakarak arkaplanı değiştirin."
 
 #: ../modules/grub/Preview.qml:123 ../modules/account/UserList.qml:233
 msgid "Image format not supported"
-msgstr ""
+msgstr "Görsel biçimi desteklenmedi"
 
 #: ../modules/grub/Preview.qml:124
 msgid "Updating..."
@@ -1415,11 +1416,11 @@ msgstr "Tap to click"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:275
 msgid "Two-finger scrolling"
-msgstr ""
+msgstr "Çift-parmak kaydırma"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:298
 msgid "Edge scrolling"
-msgstr ""
+msgstr "Köşe kaydırma"
 
 #: ../modules/network/vpn/VpnExpand.qml:48
 msgid "VPN Connections"
@@ -1647,7 +1648,7 @@ msgstr "Simge"
 
 #: ../modules/personalization/main.qml:122
 msgid "Cursor"
-msgstr ""
+msgstr "İmleç"
 
 #: ../modules/personalization/main.qml:129
 msgid "Wallpaper"
@@ -1920,4 +1921,4 @@ msgstr "VPN OpenConnect"
 
 #: ../modules/account/main.qml:132
 msgid "User List"
-msgstr ""
+msgstr "Kullanıcı Listesi"
