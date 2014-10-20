@@ -24,6 +24,7 @@
 #include <QtGui/QGuiApplication>
 #include <QtQml/QQmlEngine>
 #include <QCoreApplication>
+#include <QApplication>
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <qdebug.h>
@@ -33,7 +34,7 @@
 int main(int argc, char* argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_X11InitThreads, true);
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
 
     if(QDBusConnection::sessionBus().registerService(DBUS_NAME)){
 

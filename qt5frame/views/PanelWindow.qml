@@ -32,7 +32,7 @@ DOverrideWindow {
 
     x: screenSize.x + screenSize.width - width
     y: screenSize.y
-    width: validWidth ? panelWidth + moduleNameMaxWidth : 0
+    width: validWidth ? panelWidth + shadowImage.width : 0
     height: screenSize.height
 
 
@@ -107,7 +107,7 @@ DOverrideWindow {
 
     function hideWindow(){
         rootWindow.hide()
-        trayIconTip.visible = false
+        panelContent.destroyIconTip()
         timeoutQuit.restart()
     }
 
@@ -196,15 +196,11 @@ DOverrideWindow {
     }
 
     Image {
+        id:shadowImage
         anchors.right: frame.left
         width: 16
         height: parent.height
         source: "images/shadow.png"
-    }
-
-    InnerIconTip {
-        id: trayIconTip
-        x: rootWindow.width - rootWindow.displayWidth - width - 6
     }
 
     Menu {

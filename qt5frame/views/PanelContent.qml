@@ -30,6 +30,8 @@ import DBus.Com.Deepin.Daemon.Accounts 1.0
 import DBus.Com.Deepin.Daemon.InputDevices 1.0
 import DBus.Com.Deepin.Daemon.Bluetooth 1.0
 
+import "IconTipCreator.js" as IconTip
+
 Rectangle {
     id: panelContent
     color: dconstants.bgColor
@@ -166,26 +168,39 @@ Rectangle {
         sessionManager.PowerOffChoose()
     }
 
-    function trayIconHoverHandler(module_id, index) {
+    function trayIconHoverHandler(module_id, index, isHover) {
         var tipDisplayHeight
-        tipDisplayHeight = Math.abs(trayIconHeight - trayIconTip.height)/2 
+        tipDisplayHeight = Math.abs(trayIconHeight - 23)/2
             + trayIconHeight * index
-        if (trayIconHeight == trayWidth) {
-        }
-        trayIconTip.y = tipDisplayHeight
+
         if(module_id == "mouse_touchpad" && !dbusTouchpad.exist){
             var localeName = modulesId.moduleLocaleNames["mouse"]
         }
         else{
             var localeName = modulesId.moduleLocaleNames[module_id]
         }
-        trayIconTip.text = localeName
-        if(isSiderNavigate){
-            trayIconTip.visible = true
+
+        if(isSiderNavigate && isHover){
+            iconTipText.text = localeName
+            IconTip.pageWidth = iconTipText.width + 30
+            IconTip.setAnimationEnable(Math.abs(tipDisplayHeight - IconTip.pageY) > 50 ? false : true)
+            IconTip.pageY = tipDisplayHeight
+            IconTip.pageX = Screen.width -  panelContent.width - IconTip.pageWidth - 10
+            IconTip.toolTip = localeName
+            IconTip.showIconTip()
         }
         else{
-            trayIconTip.visible = false
+            IconTip.destroyiconTip()
         }
+    }
+
+    function destroyIconTip() {
+        IconTip.destroyiconTip()
+    }
+    Text {
+        id:iconTipText
+        visible: false
+        text: qsTr("text")
     }
 
     Timer {
@@ -287,7 +302,7 @@ Rectangle {
             to: 0
             duration: 200
         }
-        
+
         PropertyAnimation {
             target: iconsArea
             property: "opacity"
@@ -331,7 +346,7 @@ Rectangle {
                     shutdownButtonClicked()
                 }
                 else if(iconId == "home"){
-                    trayIconTip.visible = false
+                    IconTip.destroyiconTip()
                     toGridNavigateAnimation.start()
                     showPanel()
                 }

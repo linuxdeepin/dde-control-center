@@ -45,6 +45,7 @@ Column {
         }
     }
 
+
     property var messageBox: MessageBox{}
     property var dconstants: DConstants {}
     property var displayId: Display {}
@@ -77,7 +78,7 @@ Column {
     function getMonitorNames(outputObj){
         return Object.keys(outputObj.brightness)
     }
-    
+
     Component.onCompleted: {
         displayId.SaveChanges()
     }
@@ -143,7 +144,7 @@ Column {
             height: 38
 
             property var currentSelectedMonitor: rightLoader.item.currentItem.delegateId
-            
+
             leftLoader.sourceComponent: DssH2 {
                 text: dsTr("Monitor")
             }
@@ -206,14 +207,14 @@ Column {
             spacing: 6
             DTextButton {
                 text: dsTr("Apply")
-                visible: { 
+                visible: {
                     if (monitorDragArea.editable || displayId.hasChanged){
                         return true
                     }
                     else{
                         return false
                     }
-                } 
+                }
                 onClicked: {
                     if(monitorDragArea.editable){
                         monitorDragArea.applyPostion()
@@ -224,16 +225,16 @@ Column {
             }
 
             DTextButton {
-                text: dsTr("Cancel") 
+                text: dsTr("Cancel")
 
-                visible: { 
+                visible: {
                     if (monitorDragArea.editable || displayId.hasChanged){
                         return true
                     }
                     else{
                         return false
                     }
-                } 
+                }
 
                 onClicked: {
                     if(monitorDragArea.editable){

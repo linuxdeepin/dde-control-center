@@ -27,7 +27,7 @@ import Deepin.Widgets 1.0
 Rectangle {
     id: moduleIconItem
     clip: true
-    
+
     width: GridView.view.itemSize
     height: GridView.view.itemSize
     color: Qt.rgba(1, 1, 1, 0)
@@ -59,7 +59,7 @@ Rectangle {
     }
 
     Loader {
-        id: pluginLoader 
+        id: pluginLoader
         source: iconPath
         property bool showWarning: false
         property int tipNumber: 0
@@ -180,12 +180,6 @@ Rectangle {
     }
 
     onHoverChanged: {
-        trayIconTip.isHover = hover
-        if(trayIconTip.isHover){
-            panelContent.trayIconHoverHandler(moduleId, index)
-        }
-        else {
-            trayIconTip.timeOutHide.restart()
-        }
+        panelContent.trayIconHoverHandler(moduleId, index, hover)
     }
 }
