@@ -1974,6 +1974,11 @@
     </message>
     <message>
         <location line="+1"/>
+        <source>Tablet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
         <source>Mouse and Touchpad</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2101,7 +2106,7 @@
 <context>
     <name>PanelContent</name>
     <message>
-        <location filename="../qt5frame/views/PanelContent.qml" line="+410"/>
+        <location filename="../qt5frame/views/PanelContent.qml" line="+454"/>
         <source>Power</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2716,27 +2721,27 @@
     </message>
     <message>
         <location filename="../modules/power/main.qml" line="+268"/>
-        <location line="+175"/>
+        <location line="+184"/>
         <location filename="../modules/shortcuts/main.qml" line="+53"/>
         <location line="+172"/>
         <source>Custom</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-187"/>
-        <location line="+175"/>
+        <location line="-196"/>
+        <location line="+184"/>
         <source>Power saver</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-181"/>
-        <location line="+175"/>
+        <location line="-190"/>
+        <location line="+184"/>
         <source>Balanced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-163"/>
-        <location line="+175"/>
+        <location line="-172"/>
+        <location line="+184"/>
         <source>High performance</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2881,7 +2886,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="+114"/>
+        <location filename="../modules/keyboard/main.qml" line="+123"/>
         <source>Repeat Delay</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2896,21 +2901,21 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+10"/>
         <source>Repeat Rate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+15"/>
-        <location line="+26"/>
+        <location line="+27"/>
         <location filename="../modules/mouse_touchpad/main.qml" line="+121"/>
         <location line="+36"/>
         <source>Fast</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-25"/>
-        <location line="+26"/>
+        <location line="-26"/>
+        <location line="+27"/>
         <location filename="../modules/mouse_touchpad/main.qml" line="-37"/>
         <location line="+36"/>
         <source>Slow</source>
@@ -2922,12 +2927,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+26"/>
+        <location line="+27"/>
         <source>Test Area</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+47"/>
+        <location line="+48"/>
         <source>Keyboard Layout</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3008,7 +3013,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/main.qml" line="-384"/>
+        <location filename="../modules/power/main.qml" line="-393"/>
         <location line="+12"/>
         <source>Never</source>
         <translation type="unfinished"></translation>
@@ -3061,8 +3066,8 @@
         <location line="+6"/>
         <location line="+6"/>
         <location line="+6"/>
-        <location line="+87"/>
-        <location line="+70"/>
+        <location line="+95"/>
+        <location line="+71"/>
         <location line="+6"/>
         <location line="+6"/>
         <location line="+6"/>
@@ -3071,7 +3076,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-386"/>
+        <location line="-395"/>
         <source>Ask</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3096,17 +3101,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+175"/>
+        <location line="+184"/>
         <source>On battery</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-158"/>
+        <location line="-167"/>
         <location line="+6"/>
         <location line="+6"/>
         <location line="+6"/>
-        <location line="+48"/>
-        <location line="+109"/>
+        <location line="+55"/>
+        <location line="+111"/>
         <location line="+6"/>
         <location line="+6"/>
         <location line="+6"/>
@@ -3115,8 +3120,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-181"/>
-        <location line="+176"/>
+        <location line="-184"/>
+        <location line="+179"/>
         <source>Custom Options</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3375,6 +3380,101 @@
     <message>
         <location filename="../modules/account/main.qml" line="+132"/>
         <source>User List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/wacom/main.qml" line="+14"/>
+        <source>Page Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Page Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Left Click</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Right Click</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Middle Click</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+51"/>
+        <source>Tablet Orientation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Left Hand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Right Hand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>Digital Pen Modes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Pen Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Mouse Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Down Key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+25"/>
+        <source>Up Key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+25"/>
+        <source>Pressure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Soft</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Hard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Double-click Space</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Narrow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Wide</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

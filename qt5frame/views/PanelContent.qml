@@ -44,6 +44,9 @@ Rectangle {
     property var inputDevicesId: InputDevices {}
     property var dbusTouchpad: TouchPad {}
 
+    //wacom
+    property var dbusWacom: Wacom {}
+    property var isWacomExist: dbusWacom.deviceList.length > 0
     // bluetooth
     property var dbusBluetooth: Bluetooth {}
     property var isBluetoothExist: dbusBluetooth.adapters ? JSON.parse(dbusBluetooth.adapters).length > 0 : false
@@ -65,6 +68,44 @@ Rectangle {
         else{
             if(index != -1){
                 navigateIconModel.remove(index)
+
+                //when hardware remove, go back to home
+                if (isSiderNavigate)
+                {
+                    trayIconTip.visible = false
+                    toGridNavigateAnimation.start()
+                    showPanel()
+                }
+            }
+        }
+    }
+
+
+    onIsWacomExistChanged: {
+        var index = navigateIconModel.getIndex("moduleId", "wacom")
+        if(isWacomExist){
+            if(index == -1){
+                var i = navigateIconModel.getIndex("moduleId", "mouse_touchpad")
+                if(i != -1){
+                    var localeName = modulesId.moduleLocaleNames["wacom"]
+                    navigateIconModel.insert(i, {
+                        "moduleId": "wacom",
+                        "moduleLocaleName": localeName
+                    })
+                }
+            }
+        }
+        else{
+            if(index != -1){
+                navigateIconModel.remove(index)
+
+                //when hardware remove, go back to home
+                if (isSiderNavigate)
+                {
+                    trayIconTip.visible = false
+                    toGridNavigateAnimation.start()
+                    showPanel()
+                }
             }
         }
     }
@@ -112,6 +153,9 @@ Rectangle {
                 var localeName = modulesId.moduleLocaleNames["mouse"]
             }
             else if(module_id == "bluetooth" && !isBluetoothExist){
+                continue
+            }
+            else if(module_id == "wacom" && !isWacomExist){
                 continue
             }
             else{
