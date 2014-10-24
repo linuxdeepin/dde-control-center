@@ -20,10 +20,10 @@ def write_to_qrc(resources):
     Write to the qrc file under the prefix specified
     """
     with open('%s.qrc'%resname.strip('/'),'w') as f:
-        f.write('<RCC>\n  <qresource prefix="%s">\n'%prefix)
+        f.write('<RCC>\n    <qresource prefix="%s">\n'%prefix)
         for r in resources:
-            f.write('    <file>%s</file>\n'%r)
-        f.write('  </qresource>\n</RCC>\n')
+            f.write('        <file>%s</file>\n'%r)
+        f.write('    </qresource>\n</RCC>\n')
 
 def valid_path(string):
     """

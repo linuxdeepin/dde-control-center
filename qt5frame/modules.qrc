@@ -22,26 +22,39 @@
         <file>modules/personalization/widgets/SelectViewTest.qml</file>
         <file>modules/personalization/widgets/ShowPreviewButton.qml</file>
         <file>modules/personalization/widgets/ComponentThemeItem.qml</file>
+        <file>modules/personalization/widgets/FontComboBox.qml</file>
         <file>modules/personalization/widgets/FontSlider.qml</file>
         <file>modules/personalization/widgets/ThemeItem.qml</file>
+        <file>modules/personalization/widgets/FontComboBoxMenu.qml</file>
         <file>modules/personalization/widgets/ComponentThemeView.qml</file>
         <file>modules/personalization/widgets/CustomButton.qml</file>
         <file>modules/personalization/widgets/PreviewImage.qml</file>
         <file>modules/personalization/widgets/ThemeView.qml</file>
         <file>modules/personalization/widgets/PreviewWindow.qml</file>
         <file>modules/personalization/widgets/SelectView.qml</file>
+        <file>modules/personalization/widgets/FontComboBoxLine.qml</file>
         <file>modules/personalization/widgets/WallpapperItem.qml</file>
+        <file>modules/personalization/widgets/FontComboBoxMenuItem.qml</file>
         <file>modules/personalization/widgets/Slide.qml</file>
         <file>modules/personalization/widgets/images/close_normal.png</file>
+        <file>modules/personalization/widgets/images/arrow_down_hover.png</file>
+        <file>modules/personalization/widgets/images/button_right_normal.png</file>
         <file>modules/personalization/widgets/images/close_press.png</file>
+        <file>modules/personalization/widgets/images/arrow_down_normal.png</file>
+        <file>modules/personalization/widgets/images/button_center_press.png</file>
         <file>modules/personalization/widgets/images/right_normal.png</file>
         <file>modules/personalization/widgets/images/right_pressed.png</file>
         <file>modules/personalization/widgets/images/preview.png</file>
+        <file>modules/personalization/widgets/images/button_right_press.png</file>
         <file>modules/personalization/widgets/images/left_normal.png</file>
+        <file>modules/personalization/widgets/images/button_left_normal.png</file>
         <file>modules/personalization/widgets/images/left_pressed.png</file>
         <file>modules/personalization/widgets/images/delete_normal.png</file>
         <file>modules/personalization/widgets/images/slider_handle.png</file>
+        <file>modules/personalization/widgets/images/arrow_down_press.png</file>
+        <file>modules/personalization/widgets/images/button_center_normal.png</file>
         <file>modules/personalization/widgets/images/delete_press.png</file>
+        <file>modules/personalization/widgets/images/button_left_press.png</file>
         <file>modules/personalization/widgets/images/delete_hover.png</file>
         <file>modules/sound/main.qml</file>
         <file>modules/sound/SliderBg.qml</file>
@@ -106,6 +119,7 @@
         <file>modules/account/images/delete_press.png</file>
         <file>modules/account/images/inactive_user.png</file>
         <file>modules/account/images/delete_hover.png</file>
+        <file>modules/wacom/main.qml</file>
         <file>modules/display/main.qml</file>
         <file>modules/display/RotationItem.qml</file>
         <file>modules/display/MonitorComponent.qml</file>
@@ -138,6 +152,7 @@
         <file>modules/keyboard/AddLayoutItem.qml</file>
         <file>modules/keyboard/main.qml</file>
         <file>modules/keyboard/TestInput.qml</file>
+        <file>modules/keyboard/LangSelectItem.qml</file>
         <file>modules/keyboard/LocaleArea.qml</file>
         <file>modules/keyboard/images/keyboard_inactive_normal.svg</file>
         <file>modules/keyboard/images/keyboard_inactive_hover.svg</file>
@@ -320,13 +335,5 @@
         <file>modules/network/wired/WiredDeviceExpand.qml</file>
         <file>modules/network/wired/WiredItem.qml</file>
         <file>modules/network/wired/WiredDeviceArea.qml</file>
-        <file>views/small_icons/wacom_hover.png</file>
-        <file>views/small_icons/wacom_normal.png</file>
-        <file>views/small_icons/wacom_press.png</file>
-        <file>views/icons/wacom_hover.png</file>
-        <file>views/icons/wacom_normal.png</file>
-        <file>views/icons/wacom_press.png</file>
-        <file>modules/wacom/main.qml</file>
-        <file>modules/keyboard/LangSelectItem.qml</file>
     </qresource>
 </RCC>

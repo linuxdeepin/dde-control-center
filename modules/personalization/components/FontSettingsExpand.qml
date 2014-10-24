@@ -27,44 +27,91 @@ import "../widgets"
 
 MyBaseExpand {
     id: font_themes_expand
+    property var standardFontList: dbusThemeManager.fontNameList
+    property var monoFontList:dbusThemeManager.fontMonoList
+    property int contenHeight: 35
+    property int contenTitleWidth: 80
+    property int contenCenterPadding: 20
+    property int comboboxWidth: 200
 
-    content.sourceComponent:  DCenterLine {
-        height: 60
-        color: dconstants.contentBgColor
-        centerPadding: 20
-        leftWidth: 60
-        title.text: dsTr("Size")
-        content.sourceComponent: Row {
-            spacing: 10
-            FontSlider{
-                id: slider
-                width: 160
-                maximumValue: 16
-                minimumValue: 9
-                value: currentThemeObject.fontSize
-                stepSize: 1
 
-                onPressedChanged: {
-                    if(!pressed){
-                        if(currentThemeObject.fontSize != parseInt(slider.value)){
-                            dbusThemeManager.Set("fontsize", parseInt(slider.value))
-                        }
-                    }
-                }
-            }
+    Column {
+        height: contenHeight * 3
+        width: parent.width
 
-            DssH3 {
-                anchors.verticalCenter: parent.verticalCenter
-                property int fontSize: {
-                    var new_value = parseInt(slider.value)
-                    if((slider.value - new_value) >= 0.5){
-                        new_value += 1
-                    }
-                    return new_value
-                }
-                text: dsTr("Font %1").arg(fontSize)
-                font.pixelSize: fontSize
+        FontComboBoxLine {
+            parentWindow: rootWindow
+            height: contenHeight
+            menuMaxHeight:rootWindow.height - font_themes_expand.y - 150
+            leftWidth: contenTitleWidth
+            centerPadding: contenCenterPadding
+            title.text: dsTr("Standard")
+            boxWidth: comboboxWidth
+            defaultIndex: standardFontList.indexOf(currentThemeObject.fontName)
+            menuLabels: standardFontList
+
+            onMenuSelect: {
+                if (currentThemeObject.fontName != standardFontList[index])
+                    dbusThemeManager.Set("font-name", standardFontList[index])
             }
         }
+
+
+        FontComboBoxLine {
+            parentWindow: rootWindow
+            height: contenHeight
+            menuMaxHeight:rootWindow.height - font_themes_expand.y -height - 150
+            leftWidth: contenTitleWidth
+            centerPadding: contenCenterPadding
+            title.text: dsTr("Monospaced")
+            boxWidth: comboboxWidth
+            defaultIndex: monoFontList.indexOf(currentThemeObject.fontMono)
+            menuLabels: monoFontList
+
+            onMenuSelect: {
+                if (currentThemeObject.fontMono != monoFontList[index])
+                    dbusThemeManager.Set("font-mono", monoFontList[index])
+            }
+        }
+
+        DCenterLine {
+               height: contenHeight
+               centerPadding: 10
+               leftWidth: 80
+               title.text: dsTr("Size")
+               content.sourceComponent: Item {
+                   FontSlider{
+                       id: slider
+                       anchors {verticalCenter: parent.verticalCenter; left:parent.left;leftMargin: 3}
+                       width: 160
+                       maximumValue: 16
+                       minimumValue: 9
+                       value: currentThemeObject.fontSize
+                       stepSize: 1
+
+                       onPressedChanged: {
+                           if(!pressed){
+                               if(currentThemeObject.fontSize != parseInt(slider.value)){
+                                   dbusThemeManager.Set("font-size", parseInt(slider.value))
+                               }
+                           }
+                       }
+                   }
+
+                   DssH3 {
+                       anchors {verticalCenter: parent.verticalCenter; left: slider.right; leftMargin: 0}
+                       property int fontSize: {
+                           var new_value = parseInt(slider.value)
+                           if((slider.value - new_value) >= 0.5){
+                               new_value += 1
+                           }
+                           return new_value
+                       }
+                       text: dsTr("Font %1").arg(fontSize)
+                       font.pixelSize: fontSize
+                   }
+               }
+           }
     }
+
 }

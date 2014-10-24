@@ -1770,7 +1770,17 @@
 <context>
     <name>FontSettingsExpand</name>
     <message>
-        <location filename="../modules/personalization/components/FontSettingsExpand.qml" line="+36"/>
+        <location filename="../modules/personalization/components/FontSettingsExpand.qml" line="+47"/>
+        <source>Standard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Monospaced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+15"/>
         <source>Size</source>
         <translation type="unfinished"></translation>
     </message>
