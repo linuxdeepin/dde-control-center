@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-13 15:23+0800\n"
-"PO-Revision-Date: 2014-10-23 06:41+0000\n"
+"PO-Revision-Date: 2014-10-26 07:50+0000\n"
 "Last-Translator: Kiril Kirilov <cybercop_montana@abv.bg>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/projects/p/dde-control-center/language/bg/)\n"
 "MIME-Version: 1.0\n"
@@ -778,13 +778,13 @@ msgstr "Няма BSD компресиране на данни"
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:118
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:117
 msgid "No Deflate Data Compression"
-msgstr ""
+msgstr "Липсва компресиране на Deflate данни"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:125
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:128
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:127
 msgid "No TCP Header Compression"
-msgstr ""
+msgstr "Липсва компресиране на TCP Header"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:135
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:158
@@ -812,11 +812,11 @@ msgstr "VPN PPP"
 
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:138
 msgid "No Protocol Field Compression"
-msgstr ""
+msgstr "Липсва компресиране на Protocol Field"
 
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:148
 msgid "No Address/Control Compression"
-msgstr ""
+msgstr "Липсва Адресно/Контролно компресиране"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:11
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:11

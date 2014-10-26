@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-13 15:23+0800\n"
-"PO-Revision-Date: 2014-10-23 15:30+0000\n"
+"PO-Revision-Date: 2014-10-25 07:51+0000\n"
 "Last-Translator: Ivica  Kolić <ikoli@yahoo.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/projects/p/dde-control-center/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -259,7 +259,7 @@ msgstr "Dopusti Cisco Secure Desktop Trojan"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:274
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
 msgid "Customize Key Direction"
-msgstr "Prilagodi ključ smjera"
+msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:214 ../modules/network/add/AddVpn.qml:304
 #: ../modules/network/wireless/AddWireless.qml:165
@@ -290,7 +290,7 @@ msgstr "CSD skripta"
 #: ../modules/network/add/AddVpn.qml:224
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:154
 msgid "Use FSID for Key Passphrase"
-msgstr "Use FSID for Key Passphrase"
+msgstr ""
 
 #: ../modules/network/add/AddVpn.qml:324
 #: ../modules/network/wireless/AddWireless.qml:206
@@ -1289,7 +1289,7 @@ msgstr "Proxy sustava"
 
 #: ../modules/shared/ResetButton.qml:39
 msgid "Reset successfully"
-msgstr ""
+msgstr "Uspješno resetirano"
 
 #: ../modules/shared/ResetButton.qml:47
 msgid "Reset"
@@ -1592,7 +1592,7 @@ msgstr ""
 
 #: ../modules/grub/main.qml:167
 msgid "Boot delay"
-msgstr ""
+msgstr "Boot odgoda"
 
 #: ../modules/grub/main.qml:206
 msgid "Text Color"
@@ -1809,7 +1809,7 @@ msgstr "Vrsta sustava"
 
 #: ../modules/system_info/main.qml:115
 msgid "bit"
-msgstr ""
+msgstr "bit"
 
 #: ../modules/system_info/main.qml:120
 msgid "Processor"
@@ -1853,7 +1853,7 @@ msgstr ""
 
 #: ../modules/network/main.qml:176
 msgid "WiMax"
-msgstr ""
+msgstr "WiMax"
 
 #: ../modules/network/main.qml:178
 msgid "Modem"
@@ -1893,11 +1893,11 @@ msgstr "802.11 WiFi Hotspot"
 
 #: ../modules/network/main.qml:208
 msgid "Mobile GSM"
-msgstr ""
+msgstr "Mobilni GSM"
 
 #: ../modules/network/main.qml:210
 msgid "Mobile CDMA"
-msgstr ""
+msgstr "Mobilni CDMA"
 
 #: ../modules/network/main.qml:214
 msgid "VPN L2TP"
@@ -1917,7 +1917,7 @@ msgstr "VPN OtvoreniVPN"
 
 #: ../modules/network/main.qml:222
 msgid "VPN OpenConnect"
-msgstr ""
+msgstr "VPN otvorena veza"
 
 #: ../modules/account/main.qml:132
 msgid "User List"

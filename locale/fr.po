@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-13 15:23+0800\n"
-"PO-Revision-Date: 2014-10-17 06:02+0000\n"
-"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
+"PO-Revision-Date: 2014-10-24 17:31+0000\n"
+"Last-Translator: lexross <its4moi@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dde-control-center/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -371,7 +371,7 @@ msgstr "Utiliser MPPE"
 
 #: ../modules/network/wireless/AddWireless.qml:8
 msgid "Connect to wireless"
-msgstr "Se connecter sans fil"
+msgstr "Se connecter au réseau sans fil"
 
 #: ../modules/network/wireless/AddWireless.qml:32
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:23
@@ -428,7 +428,7 @@ msgstr "Version PEAP"
 #: ../modules/network/wireless/AddWireless.qml:154
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:143
 msgid "Inner Auth"
-msgstr "Authentification Inner"
+msgstr "Authentification Interne"
 
 #: ../modules/network/wireless/AddWireless.qml:224
 #: ../modules/network/widgets/PasswordBox.qml:109
@@ -448,7 +448,7 @@ msgstr "_Basculer vers l'analogique"
 
 #: ../dock-applets/plugins/date_time/AppletTray.qml:91
 msgid "_Switch to digital"
-msgstr "_Basculer vers le digitale"
+msgstr "_Basculer vers digital"
 
 #: ../dock-applets/plugins/date_time/AppletTray.qml:178
 #: ../modules/date_time/CalendarComponent.qml:83
@@ -523,7 +523,7 @@ msgstr "Économie d'énergie"
 #: ../dock-applets/plugins/power/AppletTray.qml:48
 #: ../modules/power/main.qml:250 ../modules/power/main.qml:425
 msgid "Balanced"
-msgstr "Equilibré"
+msgstr "Équilibré"
 
 #: ../dock-applets/plugins/power/AppletTray.qml:49
 #: ../modules/power/main.qml:262 ../modules/power/main.qml:437
@@ -540,7 +540,7 @@ msgstr "Applications"
 
 #: ../modules/account/AvatarPickDialog.qml:5
 msgid "Choose a new picture for your Avatar"
-msgstr "Sélectionnez une nouvelle image pour votre compte"
+msgstr "Sélectionnez une image pour votre Avatar"
 
 #: ../modules/account/AvatarView.qml:19
 msgid "Recently Used"
@@ -641,7 +641,7 @@ msgstr "Connexions PPPoE"
 #: ../modules/network/edit/EditLineMissingPackage.qml:15
 #, qt-format
 msgid "Current system lacks component for %1"
-msgstr "Le système actuel est en manque du composant %1"
+msgstr "Le système actuel manque de composants pour %1"
 
 #: ../modules/network/edit/EditLineMissingPackage.qml:22
 msgid "Click to install"
@@ -655,7 +655,7 @@ msgstr "Ethernet"
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:23
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:65
 msgid "Device MAC Addr"
-msgstr "Adresse MAC du matériel"
+msgstr "Adresse MAC du périphérique "
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:33
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:75
@@ -871,11 +871,11 @@ msgstr "Restreindre le Tunnel TCP MSS"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:151
 msgid "Randomize Remote Hosts"
-msgstr "Mélanger les hôtes distants"
+msgstr "Hôtes distants aléatoires"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:11
 msgid "VPN Proxies"
-msgstr "Proxies VPN"
+msgstr "Proxys VPN"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:23
 msgid "Proxy Type"
@@ -900,7 +900,7 @@ msgstr "Sécurité du VPN"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:23
 msgid "Cipher"
-msgstr "Secret"
+msgstr "Code secret"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:33
 msgid "HMAC Auth"
@@ -928,7 +928,7 @@ msgstr "Domaine"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:33
 msgid "Vendor"
-msgstr "Vendor"
+msgstr "Vendeur"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:43
 msgid "Version"
@@ -956,7 +956,7 @@ msgstr "Port local"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:105
 msgid "Disable Dead Peer Detection"
-msgstr "Désactiver la détection d'un pair mort"
+msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:11
 msgid "Wi-Fi"
@@ -1034,7 +1034,7 @@ msgstr "Masque de sous-réseau"
 
 #: ../modules/network/Info.qml:57
 msgid "Route Addr"
-msgstr "Adresse de la route"
+msgstr "Adresse routeur"
 
 #: ../modules/network/Info.qml:58
 msgid "Primary DNS"
@@ -1058,7 +1058,7 @@ msgstr "Langage"
 
 #: ../modules/display/MessageBox.qml:102
 msgid "Do you want to keep these display settings?"
-msgstr "Voulez vous conserver ce paramétrage de l'affichage ?"
+msgstr "Voulez vous garder ces paramètres d’affichage ?"
 
 #: ../modules/display/MessageBox.qml:111
 #, qt-format
@@ -1069,7 +1069,7 @@ msgstr "Retour aux paramètres d'affichage précédent dans <font color='#F48914
 
 #: ../modules/display/MessageBox.qml:124
 msgid "Keep Changes"
-msgstr "Conserver les changements"
+msgstr "Garder les changements"
 
 #: ../modules/display/MessageBox.qml:137
 msgid "Revert"
@@ -1142,7 +1142,7 @@ msgstr "Souris"
 
 #: ../qt5frame/views/ModulesData.qml:67
 msgid "User Accounts"
-msgstr "Comptes utilisateur"
+msgstr "Comptes utilisateurs"
 
 #: ../qt5frame/views/ModulesData.qml:68
 #: ../modules/default_applications/main.qml:62
@@ -1209,7 +1209,7 @@ msgstr "Luminosité"
 #: ../modules/network/wired/WiredItem.qml:89
 #, qt-format
 msgid "Wired Connection %1"
-msgstr "Réseau filaire %1"
+msgstr "Connexion filaire %1"
 
 #: ../modules/network/wired/NewItem.qml:47
 #: ../modules/network/wired/WiredItem.qml:91
@@ -1238,7 +1238,7 @@ msgstr "Glisser et déposer une image pour changer de fond d'écran."
 
 #: ../modules/grub/Preview.qml:123 ../modules/account/UserList.qml:233
 msgid "Image format not supported"
-msgstr ""
+msgstr "Format d'image non accepté."
 
 #: ../modules/grub/Preview.qml:124
 msgid "Updating..."
@@ -1246,7 +1246,7 @@ msgstr "Mise à jour..."
 
 #: ../modules/grub/Preview.qml:125
 msgid "Successfully updated, reboot to view."
-msgstr "Mise-à-jour effectué avec succès, redémarrer pour appliquer."
+msgstr "Mise-à-jour effectuée avec succès, redémarrer pour appliquer."
 
 #: ../modules/network/proxy/ProxyContent.qml:43
 msgid "None"
@@ -1302,12 +1302,12 @@ msgstr "Désactiver"
 
 #: ../modules/shortcuts/ShortcutInput.qml:126
 msgid "Please input new shortcut"
-msgstr "Veuillez renseigner le nouveau raccourci"
+msgstr "Nommer le nouveau raccourci"
 
 #: ../modules/shortcuts/ShortcutInput.qml:226
 #, qt-format
 msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
-msgstr "Le raccourci \"%1\" est invalide, veuillez ressaisir un nouveau raccourci."
+msgstr "Le raccourci \"%1\" est invalide, veuillez créer un nouveau raccourci."
 
 #: ../modules/shortcuts/ShortcutInput.qml:264
 msgid "The shortcut you set "
@@ -1346,7 +1346,7 @@ msgstr "Paramétrer"
 
 #: ../modules/date_time/TimezoneArea.qml:101
 msgid "Time zone"
-msgstr "Zone de temps"
+msgstr "Zone horaire"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:50
 msgid "Touchpad"
@@ -1395,7 +1395,7 @@ msgstr "Vitesse du double clic"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:192
 msgid "Drag Threshold"
-msgstr "Glisser le seuil"
+msgstr "Seuil de défilement"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:208
 #: ../modules/keyboard/main.qml:128
@@ -1429,7 +1429,7 @@ msgstr "Connexions VPN"
 
 #: ../modules/account/WebCam.qml:125 ../modules/account/WebCam.qml:140
 msgid "Snapshot"
-msgstr "Snapshot"
+msgstr "Instantané"
 
 #: ../modules/account/WebCam.qml:136
 msgid "Again"
@@ -1437,15 +1437,15 @@ msgstr "Encore"
 
 #: ../modules/account/WebCam.qml:175
 msgid "No camera found."
-msgstr "Aucune caméra trouvée"
+msgstr "Aucune caméra trouvée."
 
 #: ../modules/network/wireless/WifiHotspot.qml:23
 msgid "Edit Wi-Fi Hotspot"
-msgstr "Modifier le Hotspot Wi-Fi"
+msgstr "Modifier le point d’accès Wi-Fi"
 
 #: ../modules/network/wireless/WifiHotspot.qml:23
 msgid "Create Wi-Fi Hotspot"
-msgstr "Créer un Hotspot Wi-Fi"
+msgstr "Créer un point d’accès Wi-Fi"
 
 #: ../modules/network/wireless/WifiHotspot.qml:91
 msgid "Create"
@@ -1569,7 +1569,7 @@ msgstr "Lecteur de musique"
 
 #: ../modules/default_applications/main.qml:275
 msgid "Camera"
-msgstr "Camera"
+msgstr "Photo"
 
 #: ../modules/default_applications/main.qml:280
 msgid "Software"
@@ -1613,7 +1613,7 @@ msgstr "Taux de répétition"
 
 #: ../modules/keyboard/main.qml:163
 msgid "Cursor Blink Rate"
-msgstr "Taux de clignotement du curseur"
+msgstr "Vitesse de clignotement du curseur"
 
 #: ../modules/keyboard/main.qml:189
 msgid "Test Area"
@@ -1629,11 +1629,11 @@ msgstr "Pas de résultat"
 
 #: ../modules/keyboard/main.qml:208
 msgid "Caps Lock prompt"
-msgstr "Caps Lock vérrouillé"
+msgstr "Pavé numérique verrouillé"
 
 #: ../modules/mouse_touchpad/main.qml:177
 msgid "Disable the touchpad when inserting the mouse"
-msgstr "Désactiver le Touchpad lorsqu'une souris est connecté"
+msgstr "Désactiver le pavé tactile lorsqu'une souris est connecté"
 
 #: ../modules/personalization/main.qml:101
 msgid "Theme"
@@ -1649,11 +1649,11 @@ msgstr "Icône"
 
 #: ../modules/personalization/main.qml:122
 msgid "Cursor"
-msgstr ""
+msgstr "Curseur"
 
 #: ../modules/personalization/main.qml:129
 msgid "Wallpaper"
-msgstr "Fond d'ecran "
+msgstr "Fond d’écran "
 
 #: ../modules/personalization/main.qml:143
 msgid "Fonts"
@@ -1689,7 +1689,7 @@ msgstr "1 heure"
 
 #: ../modules/power/main.qml:124
 msgid "When I press the power button"
-msgstr "Quand j'appuie sur le bouton fermeture"
+msgstr "Quand j'appuie sur le bouton d'alimentation"
 
 #: ../modules/power/main.qml:138 ../modules/power/main.qml:184
 msgid "Shutdown"
@@ -1702,7 +1702,7 @@ msgstr "Arrêter"
 #: ../modules/power/main.qml:434 ../modules/power/main.qml:440
 #: ../modules/power/main.qml:446 ../modules/power/main.qml:534
 msgid "Suspend"
-msgstr "Mise en veille "
+msgstr "Mettre en veille "
 
 #: ../modules/power/main.qml:148
 msgid "Ask"
@@ -1718,7 +1718,7 @@ msgstr "Rien"
 
 #: ../modules/power/main.qml:213
 msgid "Password required to wake up"
-msgstr "Un mot de passe est requis pour sortir de veille"
+msgstr "Un mot de passe est requis à la sortie de veille"
 
 #: ../modules/power/main.qml:235
 msgid "Plugged in"
@@ -1766,7 +1766,7 @@ msgstr "Volume d'entrée"
 
 #: ../modules/sound/main.qml:295
 msgid "Input Feedback"
-msgstr "Niveau du retour utilisateur"
+msgstr "Effet larsen"
 
 #: ../modules/sound/main.qml:331
 msgid "Output Port"
@@ -1806,7 +1806,7 @@ msgstr "Édition Deepin"
 
 #: ../modules/system_info/main.qml:114
 msgid "System Type"
-msgstr "Type de système"
+msgstr "Système"
 
 #: ../modules/system_info/main.qml:115
 msgid "bit"
@@ -1862,7 +1862,7 @@ msgstr "Modem"
 
 #: ../modules/network/main.qml:180
 msgid "InfiniBand"
-msgstr "Bande infini"
+msgstr "InfiniBand"
 
 #: ../modules/network/main.qml:182
 msgid "Bond"
@@ -1922,4 +1922,4 @@ msgstr "VPN OpenConnect"
 
 #: ../modules/account/main.qml:132
 msgid "User List"
-msgstr ""
+msgstr "Liste d'utilisateur"
