@@ -39,21 +39,44 @@ Item {
 
     signal resetEmit
 
-    Column {
-        anchors.top: parent.top
+//    Column {
+//        anchors.top: parent.top
+//        width: parent.width
+
+
+
+
+//    }
+    DssTitle {
+        id:daDT
         width: parent.width
+        anchors.top: parent.top
+        text: modulesId.moduleLocaleNames["default_applications"]
 
-        DssTitle {
-            text: modulesId.moduleLocaleNames["default_applications"]
-
-            rightLoader.sourceComponent: ResetButton {
-                onClicked: {
-                    defaultAppsId.Reset()
-                    mediaMountId.Reset()
-                    default_applications.resetEmit()
-                }
+        rightLoader.sourceComponent: ResetButton {
+            onClicked: {
+                defaultAppsId.Reset()
+                mediaMountId.Reset()
+                default_applications.resetEmit()
             }
         }
+    }
+
+    DSeparatorHorizontal{
+        anchors.top:daDT.bottom
+    }
+
+    ListView {
+        anchors.top:daDT.bottom
+        height: parent.height
+        width: parent.width
+        model: itemModel
+        clip: true
+    }
+
+    VisualItemModel
+    {
+        id: itemModel
 
         DSeparatorHorizontal {}
 
@@ -73,7 +96,7 @@ Item {
                 {
                     "name": dsTr("Browser"),
                     "icon": "images/network.png",
-                    "defaultGetType": "x-scheme-handler/http", 
+                    "defaultGetType": "x-scheme-handler/http",
                     "setTypeGroup": [
                         "x-scheme-handler/ftp",
                         "x-scheme-handler/http",
@@ -160,7 +183,7 @@ Item {
                         "video/x-theora",
                         "video/quicktime",
                         "video/x-ms-asf",
-			"application/vnd.rn-realmedia",
+            "application/vnd.rn-realmedia",
                         "video/x-ms-wmv"
                     ]
                 },
@@ -256,7 +279,7 @@ Item {
 
             content.sourceComponent: MultiExpandArea {
                 expandItems: [
-                    { 
+                    {
                         "name": dsTr("CD Audio"),
                         "icon": "images/cd.png",
                         "contentType": "x-content/audio-cdda"
@@ -328,5 +351,7 @@ Item {
         }
 
         DSeparatorHorizontal {}
+
     }
+
 }

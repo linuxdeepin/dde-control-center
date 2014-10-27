@@ -55,6 +55,7 @@ DFlickable {
 
     property var globalDate: new Date()
 
+
     Component.onCompleted: {
         lang = dsslocale.lang
     }
@@ -68,17 +69,29 @@ DFlickable {
         }
     }
 
-    Column {
-        id: beforeTimeZoneArea
-        anchors.top: parent.top
+
+    DssTitle {
+        id:datetimeDT
+        text: modulesId.moduleLocaleNames["date_time"]
+    }
+
+    DSeparatorHorizontal {
+        anchors.top: datetimeDT.bottom
+    }
+
+    ListView {
+        anchors.top:datetimeDT.bottom
+        height: parent.height - datetimeDT.height
         width: parent.width
-        height: childrenRect.height
+        model: itemModel
+        clip: true
+    }
 
-        DssTitle {
-            text: modulesId.moduleLocaleNames["date_time"]
-        }
+    VisualItemModel
+    {
+        id: itemModel
 
-        DSeparatorHorizontal {}
+        DSeparatorHorizontal{}
 
         TimeBox {
             id: timeBox
@@ -115,17 +128,17 @@ DFlickable {
         }
 
         DSeparatorHorizontal {}
-    }
 
-    TimezoneArea {
-        id: timeZoneArea
-        anchors.top: beforeTimeZoneArea.bottom
-        listAreaMaxHeight: parent.height - beforeTimeZoneArea.height - afterTimeZoneArea.height - 34
-    }
+        TimezoneArea {
+            id: timeZoneArea
+//            listAreaMaxHeight: rootWindow.height - (timeBox.height
+//                                                + autoSetTimeBox.height
+//                                                + twentyFourHourSetBox.height
+//                                                + dateBoxTitle.height
+//                                                + calendarObj.height + 100)
+            listAreaMaxHeight: 230
+        }
 
-    Column {
-        id: afterTimeZoneArea
-        anchors.top: timeZoneArea.bottom
 
         DSeparatorHorizontal {}
 
@@ -162,4 +175,18 @@ DFlickable {
 
         DSeparatorHorizontal {}
     }
+//    Column {
+//        id: beforeTimeZoneArea
+//        anchors.top: parent.top
+//        width: parent.width
+//        height: childrenRect.height
+//    }
+
+
+
+//    Column {
+//        id: afterTimeZoneArea
+//        anchors.top: timeZoneArea.bottom
+
+//    }
 }

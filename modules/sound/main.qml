@@ -60,7 +60,7 @@ Item {
             }
         }
     }
-    
+
     property var currentSource: {
         for (var i = 0; i < allSources.length; i++) {
             if (allSources[i].name == audioId.defaultSource) {
@@ -68,13 +68,13 @@ Item {
             }
         }
     }
-    
+
     Component.onCompleted: {
         if (dsslocale.lang == "zh") {
             leftWidth = 80
         }
     }
-    
+
     Timer {
         id: tick_timer
         running: true
@@ -85,25 +85,23 @@ Item {
         }
     }
 
-    Column {
-        id: titleColumn
+    DssTitle {
+        id:soundDT
+        anchors.top: parent.top
         width: parent.width
-        height: childrenRect.height
-        z: 1
+        text: modulesId.moduleLocaleNames["sound"]
 
-        DssTitle {
-            text: modulesId.moduleLocaleNames["sound"]
-
-            rightLoader.sourceComponent: ResetButton {
-                onClicked: audioId.Reset()
-            }
+        rightLoader.sourceComponent: ResetButton {
+            onClicked: audioId.Reset()
         }
+    }
 
-        DSeparatorHorizontal{}
+    DSeparatorHorizontal{
+        anchors.top:soundDT.bottom
     }
 
     DFlickable {
-        anchors.top: titleColumn.bottom
+        anchors.top: soundDT.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
@@ -120,7 +118,10 @@ Item {
                 PropertyAnimation {duration: 200}
             }
 
+            DSeparatorHorizontal{}
+
             DBaseLine {
+                id:speakerDL
                 height: 38
                 leftLoader.sourceComponent: DssH2 {
                     text: dsTr("Speaker")
@@ -162,11 +163,11 @@ Item {
                         min: 0
                         max: 150
                         init: currentSink.volume * 100
-                        
+
                         onValueChanged:{
                             currentSink.SetVolume(value / 100, false)
                         }
-                        
+
                         onValueConfirmed: {
                             currentSink.SetVolume(value / 100, true)
                         }
@@ -259,7 +260,7 @@ Item {
                         init: currentSource.volume * 100
 
                         onValueChanged:{
-							currentSource.SetVolume(value / 100, false)
+                            currentSource.SetVolume(value / 100, false)
                         }
 
                         Component.onCompleted: {
@@ -277,7 +278,7 @@ Item {
                                 }
                             }
                         }
-                        
+
                         Connections {
                             target: soundModule
 

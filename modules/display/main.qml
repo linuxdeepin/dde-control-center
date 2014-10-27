@@ -130,120 +130,134 @@ Column {
             id: monitorDragArea
         }
 
-        DSeparatorHorizontal {}
     }
 
-    Column{
-        id: propertiesColumn
+    ListView {
+        height: parent.height - topColumn.height
         width: parent.width
-        height: childrenRect.height
-        visible: !monitorDragArea.editable
+        model: itemModel
+        clip: true
+    }
+
+    VisualItemModel
+    {
+        id: itemModel
+
+        Column{
+            id: propertiesColumn
+            width: parent.width
+            height: childrenRect.height
+            visible: !monitorDragArea.editable
+
+            DSeparatorHorizontal{height: 1}
+
+            DBaseLine {
+                id: monitorChoose
+                height: 38
+
+                property var currentSelectedMonitor: rightLoader.item.currentItem.delegateId
+
+                leftLoader.sourceComponent: DssH2 {
+                    text: dsTr("Monitor")
+                }
+
+                rightLoader.sourceComponent: DRadioButton {
+
+                    function getIndexFromId(buttonId){
+                        for(var i=0; i<buttonModel.length; i++){
+                            if(buttonId == buttonModel[i].buttonId){
+                                return i
+                            }
+                        }
+                        return -1
+                    }
+
+                    function selectItemFromId(buttonId){
+                        var index = getIndexFromId(buttonId)
+                        if(index != -1){
+                            selectItem(index)
+                            return true
+                        }
+                        else{
+                            return false
+                        }
+                    }
+
+                    buttonModel: {
+                        var myModel = new Array()
+                        for(var i=0; i<allMonitorsObjects.length; i++){
+                            var outputObj = allMonitorsObjects[i]
+                            myModel.push({
+                                "buttonId": outputObj,
+                                "buttonLabel": outputObj.name
+                            })
+                        }
+                        return myModel
+                    }
+                    Component.onCompleted:{
+                        for(var i=0; i<buttonModel.length; i++){
+                            if(buttonModel[i]["buttonId"].opened){
+                                currentIndex = i
+                                break
+                            }
+                        }
+                    }
+                }
+            }
+
+            DSeparatorHorizontal{}
+
+            MonitorProperties {
+                outputObj: monitorChoose.currentSelectedMonitor
+                monitorsNumber: allMonitorsObjects.length
+            }
+        }
 
         DBaseLine {
-            id: monitorChoose
-            height: 38
-
-            property var currentSelectedMonitor: rightLoader.item.currentItem.delegateId
-
-            leftLoader.sourceComponent: DssH2 {
-                text: dsTr("Monitor")
-            }
-
-            rightLoader.sourceComponent: DRadioButton {
-
-                function getIndexFromId(buttonId){
-                    for(var i=0; i<buttonModel.length; i++){
-                        if(buttonId == buttonModel[i].buttonId){
-                            return i
+            rightMargin: 10
+            rightLoader.sourceComponent: Row {
+                spacing: 6
+                DTextButton {
+                    text: dsTr("Apply")
+                    visible: {
+                        if (monitorDragArea.editable || displayId.hasChanged){
+                            return true
+                        }
+                        else{
+                            return false
                         }
                     }
-                    return -1
-                }
-
-                function selectItemFromId(buttonId){
-                    var index = getIndexFromId(buttonId)
-                    if(index != -1){
-                        selectItem(index)
-                        return true
-                    }
-                    else{
-                        return false
+                    onClicked: {
+                        if(monitorDragArea.editable){
+                            monitorDragArea.applyPostion()
+                            monitorDragArea.editable = false
+                        }
+                        displayChangesApply()
                     }
                 }
 
-                buttonModel: {
-                    var myModel = new Array()
-                    for(var i=0; i<allMonitorsObjects.length; i++){
-                        var outputObj = allMonitorsObjects[i]
-                        myModel.push({
-                            "buttonId": outputObj,
-                            "buttonLabel": outputObj.name
-                        })
-                    }
-                    return myModel
-                }
-                Component.onCompleted:{
-                    for(var i=0; i<buttonModel.length; i++){
-                        if(buttonModel[i]["buttonId"].opened){
-                            currentIndex = i
-                            break
+                DTextButton {
+                    text: dsTr("Cancel")
+
+                    visible: {
+                        if (monitorDragArea.editable || displayId.hasChanged){
+                            return true
+                        }
+                        else{
+                            return false
                         }
                     }
-                }
-            }
-        }
 
-        DSeparatorHorizontal{}
-
-        MonitorProperties {
-            outputObj: monitorChoose.currentSelectedMonitor
-            monitorsNumber: allMonitorsObjects.length
-        }
-    }
-
-    DBaseLine {
-        rightMargin: 10
-        rightLoader.sourceComponent: Row {
-            spacing: 6
-            DTextButton {
-                text: dsTr("Apply")
-                visible: {
-                    if (monitorDragArea.editable || displayId.hasChanged){
-                        return true
-                    }
-                    else{
-                        return false
-                    }
-                }
-                onClicked: {
-                    if(monitorDragArea.editable){
-                        monitorDragArea.applyPostion()
+                    onClicked: {
+                        if(monitorDragArea.editable){
+                            monitorDragArea.editable = false
+                        }
+                        displayId.ResetChanges()
                         monitorDragArea.editable = false
                     }
-                    displayChangesApply()
-                }
-            }
-
-            DTextButton {
-                text: dsTr("Cancel")
-
-                visible: {
-                    if (monitorDragArea.editable || displayId.hasChanged){
-                        return true
-                    }
-                    else{
-                        return false
-                    }
-                }
-
-                onClicked: {
-                    if(monitorDragArea.editable){
-                        monitorDragArea.editable = false
-                    }
-                    displayId.ResetChanges()
-                    monitorDragArea.editable = false
                 }
             }
         }
+
     }
 }

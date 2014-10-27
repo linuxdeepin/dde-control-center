@@ -74,37 +74,35 @@ Rectangle {
         }
     }
 
-    Column {
-        id: title_column
+
+    Item {
+        id:titleItem
         width: power.width
-        z: 3
+        height: title.height
+        anchors.top: parent.top
 
-        Item {
-            width: power.width
-            height: title.height
-
-            PowerTitle {
-                id: title
-                text: modulesId.moduleLocaleNames["power"]
-                hint: power.getBatteryPercentage()
-                showHyphen: dbus_power.batteryIsPresent
-                breath: dbus_power.batteryState == 1
-            }
-
-            ResetButton {
-                onClicked: dbus_power.Reset()
-
-                anchors.right: parent.right
-                anchors.rightMargin: 15
-                anchors.verticalCenter: parent.verticalCenter
-            }
+        PowerTitle {
+            id: title
+            text: modulesId.moduleLocaleNames["power"]
+            hint: power.getBatteryPercentage()
+            showHyphen: dbus_power.batteryIsPresent
+            breath: dbus_power.batteryState == 1
         }
 
-        DSeparatorHorizontal {}
+        ResetButton {
+            onClicked: dbus_power.Reset()
+
+            anchors.right: parent.right
+            anchors.rightMargin: 15
+            anchors.verticalCenter: parent.verticalCenter
+        }
     }
 
+    DSeparatorHorizontal {anchors.top:titleItem.bottom}
+
+
     DFlickable {
-        anchors.top: title_column.bottom
+        anchors.top: titleItem.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
@@ -115,6 +113,8 @@ Rectangle {
         Column {
             id: main_column
             width: power.width
+
+            DSeparatorHorizontal{}
 
             DBaseExpand {
                 id: power_button_rect

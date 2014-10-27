@@ -44,25 +44,38 @@ Item {
         return Math.abs(a-b) < minValue
     }
 
-    Column {
-        id: mouseSettingsColumn
-        anchors.top: parent.top
-        width: parent.width
 
-        DssTitle {
-            text: dsTr("Mouse")
+    DssTitle {
+        id:mouseDT
+        text: dsTr("Mouse")
 
-            rightLoader.sourceComponent: ResetButton {
-                onClicked: {
-                    dbusMouse.Reset()
-                    if (dbusTouchpad.exist){
-                        dbusTouchpad.Reset()
-                    }
+        rightLoader.sourceComponent: ResetButton {
+            onClicked: {
+                dbusMouse.Reset()
+                if (dbusTouchpad.exist){
+                    dbusTouchpad.Reset()
                 }
             }
         }
+    }
 
-        DSeparatorHorizontal {}
+    DSeparatorHorizontal {
+        anchors.top:mouseDT.bottom
+    }
+
+    ListView {
+        anchors.top:mouseDT.bottom
+        height: parent.height - mouseDT.height
+        width: parent.width
+        model: itemModel
+        clip: true
+    }
+
+    VisualItemModel
+    {
+        id: itemModel
+
+        DSeparatorHorizontal{}
 
         DCenterLine {
             leftWidth: mouseModule.leftWidth

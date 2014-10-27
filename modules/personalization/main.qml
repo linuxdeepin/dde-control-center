@@ -45,6 +45,7 @@ Item {
 
     property int cellWidth: 144
     property int cellHeight: 112
+    property int maxConetentHeight: height - personalizationTitle.height -  32 * 5 - 2
 
     property var constants: DConstants {}
     property var listModelComponent: DListModelComponent {}
@@ -82,17 +83,27 @@ Item {
         Theme {}
     }
 
-    Column {
-        id: contentArea
+
+    DssTitle {
+        id: personalizationTitle
+        text: modulesId.moduleLocaleNames["personalization"]
+    }
+
+    DSeparatorHorizontal{
+        anchors.top:personalizationTitle.bottom
+    }
+
+    ListView {
+        anchors.top:personalizationTitle.bottom
+        height: parent.height - personalizationTitle.height
         width: parent.width
-        height: parent.height
+        model: itemModel
+        clip: true
+    }
 
-        property int maxConetentHeight: height - personalizationTitle.height -  32 * 5 - 2
-
-        DssTitle {
-            id: personalizationTitle
-            text: modulesId.moduleLocaleNames["personalization"]
-        }
+    VisualItemModel
+    {
+        id: itemModel
 
         DSeparatorHorizontal {}
 

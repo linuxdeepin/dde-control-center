@@ -92,396 +92,416 @@ Item {
         ListModel {}
     }
 
-    Column {
-        id: contentColumn
+    DssTitle {
+        id:keyDT
         anchors.top: parent.top
-        width: parent.width
-        height: childrenRect.height
+        text: modulesId.moduleLocaleNames["keyboard"]
+        rightLoader.sourceComponent: ResetButton {
+            onClicked: {
+                dbusKeyboard.Reset()
 
-        DssTitle {
-            text: modulesId.moduleLocaleNames["keyboard"]
-            rightLoader.sourceComponent: ResetButton {
-                onClicked: {
-                    dbusKeyboard.Reset()
-
-                    repeatDelayCL.content.children[0].setValue(dbusKeyboard.repeatDelay,false)
-                    repeatRateCL.content.children[0].setValue(dbusKeyboard.repeatInterval * 10,false)
-                    cursorBlinkRateCL.content.children[0].setValue(dbusKeyboard.cursorBlink,false)
-                    capsLockBL.rightLoader.children[0].checked = dbusKeyboard.capslockToggle
-                    testAreaCL.content.children[0].children[0].text = ""
-                }
+                repeatDelayCL.content.children[0].setValue(dbusKeyboard.repeatDelay,false)
+                repeatRateCL.content.children[0].setValue(dbusKeyboard.repeatInterval * 10,false)
+                cursorBlinkRateCL.content.children[0].setValue(dbusKeyboard.cursorBlink,false)
+                capsLockBL.rightLoader.children[0].checked = dbusKeyboard.capslockToggle
+                testAreaCL.content.children[0].children[0].text = ""
             }
         }
-
-        DSeparatorHorizontal {}
-
-        DCenterLine {
-            id: repeatDelayCL
-            height: contentHeight
-            centerPadding: keyboardModule.centerPadding
-            leftWidth: titleWidth
-            title.text: dsTr("Repeat Delay")
-            content.sourceComponent: DSliderEnhanced {
-                width: sliderWidth
-
-                min: 20
-                max: 600
-                init: parseInt(dbusKeyboard.repeatDelay)
-                valueDisplayVisible: false
-
-                onValueConfirmed:{
-                    dbusKeyboard.repeatDelay = value
-                }
-
-                Component.onCompleted: {
-                    addRuler(20, dsTr("Short"))
-                    addRuler(600, dsTr("Long"))
-                }
-            }
-        }
-
-        DCenterLine {
-            id:repeatRateCL
-            height: contentHeight
-            centerPadding: keyboardModule.centerPadding
-            leftWidth: titleWidth
-            title.text: dsTr("Repeat Rate")
-
-            content.sourceComponent: DSliderEnhanced {
-                width: sliderWidth
-
-                min: 1000
-                max: 200
-                init: dbusKeyboard.repeatInterval * 10
-                valueDisplayVisible: false
-
-                onValueConfirmed:{
-                    dbusKeyboard.repeatInterval = value / 10
-                }
-
-                Component.onCompleted: {
-                    addRuler(200, dsTr("Fast"))
-                    addRuler(1000, dsTr("Slow"))
-                }
-            }
-        }
-
-        DCenterLine {
-            id: cursorBlinkRateCL
-            height: contentHeight
-            centerPadding: keyboardModule.centerPadding
-            leftWidth: titleWidth
-            title.text: dsTr("Cursor Blink Rate")
-
-            content.sourceComponent: DSliderEnhanced {
-                width: sliderWidth
-
-                min: 2500
-                max: 100
-                init: dbusKeyboard.cursorBlink
-                valueDisplayVisible: false
-
-                onValueConfirmed:{
-                    dbusKeyboard.cursorBlink = value
-                    mainObject.setCursorFlashTime(parseInt(value))
-                }
-
-                Component.onCompleted: {
-                    addRuler(100, dsTr("Fast"))
-                    addRuler(2500, dsTr("Slow"))
-                }
-            }
-        }
-
-        DCenterLine {
-            id:testAreaCL
-            height: contentHeight
-            centerPadding: keyboardModule.centerPadding
-            leftWidth: titleWidth
-            title.text: dsTr("Test Area")
-
-            content.sourceComponent: Item {
-                width: sliderWidth
-                height: parent.height
-
-                TestInput {
-                    id: testRepeatIntervalInput
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    width: sliderWidth - 16
-                    cursorBlinkTime: dbusKeyboard.cursorBlink
-                }
-            }
-        }
-
-        DSeparatorHorizontal {}
-
-        DBaseLine {
-            id:capsLockBL
-            leftLoader.sourceComponent: DssH2 { text: dsTr("Caps Lock prompt") }
-            rightLoader.sourceComponent: DSwitchButton {
-                checked: dbusKeyboard.capslockToggle
-
-                onClicked: {
-                    dbusKeyboard.capslockToggle = checked
-                }
-            }
-        }
-
-        DSeparatorHorizontal {}
     }
 
-    Column {
-        id: keyboardLayoutArea
+    DSeparatorHorizontal {
+        anchors.top: keyDT.bottom
+    }
+
+    ListView {
+        id:keyListView
+        anchors.top:keyDT.bottom
+        height: parent.height - keyDT.height
         width: parent.width
-        height: childrenRect.height
-        anchors.top: contentColumn.bottom
-        anchors.left: contentColumn.left
+        model: itemModel
+        clip: true
+    }
 
-        property string currentActionStateName: ""
+    VisualItemModel
+    {
+        id: itemModel
 
-        DBaseLine {
-            id: keyboardLayoutAreaTitleLine
-            function reset(){
-                rightLoader.item.currentActionStateName = ""
-            }
-            leftLoader.sourceComponent: DssH2 {
-                text: dsTr("Keyboard Layout")
-            }
-            rightLoader.sourceComponent: StateButtons {
-                deleteButton.visible: layoutList.count > 1
-                onCurrentActionStateNameChanged: {
-                    if(keyboardLayoutArea.currentActionStateName == "addButton"){
-                        var selectedKeys = addLayoutList.getSelectedKeys()
-                        for(var i=0; i<selectedKeys.length; i++){
-                            if(!keyboardModule.isInUserLayouts(selectedKeys[i])){
-                                dbusKeyboard.AddUserLayout(selectedKeys[i])
-                            }
-                        }
-                    }
-                    keyboardLayoutArea.currentActionStateName = currentActionStateName
-
-                    if(currentActionStateName == "addButton"){
-                        indexLetterListView.currentIndex = 0
-                        addLayoutList.rebuildModel(addLayoutIndex.searchIndexResult["A"])
-                    }
-                }
-            }
-        }
-
-        DSeparatorHorizontal {}
-
-        Rectangle {
-            id: userKeyboardLayoutsArea
-            color: dconstants.contentBgColor
-            width: parent.width
-            height: childrenRect.height
-            visible: keyboardLayoutArea.currentActionStateName != "addButton"
-
-            ListView {
-                id: layoutList
-                width: parent.width
-                height: count * 28
-                currentIndex: -1
-                clip: true
-
-                property string selectLayoutId: dbusKeyboard.currentLayout
-                property bool inDeleteAction: keyboardLayoutArea.currentActionStateName == "deleteButton"
-
-                function switchLayout(id){
-                    dbusKeyboard.currentLayout = id
-                }
-
-                function deleteLayout(id){
-                    dbusKeyboard.DeleteUserLayout(id)
-                }
-
-                function reloadLayout(){
-                    var myModel = listModelComponent.createObject(layoutList, {})
-                    var userKeyboardLayouts = dbusKeyboard.userLayoutList
-                    for (var i=0; i<userKeyboardLayouts.length; i++){
-                        var id = userKeyboardLayouts[i]
-                        myModel.append({
-                            "item_id": id,
-                            "item_name": allLayoutMapL10n[id]
-                        })
-                    }
-                    layoutList.model = myModel
-                }
-
-                delegate: SelectItem {
-                    selectItemId: layoutList.selectLayoutId
-                    totalItemNumber: layoutList.count
-                    inDeleteAction: layoutList.inDeleteAction
-
-                    onDeleteAction: {
-                        layoutList.deleteLayout(itemId)
-                    }
-
-                    onSelectAction: {
-                        layoutList.switchLayout(itemId)
-                    }
-                }
-            }
-        } // End of userKeyboardLayoutsArea
+        DSeparatorHorizontal{}
 
         Column {
-            id: addLayoutArea
-            width: parent.width
-            visible: keyboardLayoutArea.currentActionStateName == "addButton"
+            id: contentColumn
+            width: keyListView.width
+            height: childrenRect.height
 
-            Rectangle {
-                id: addLayoutIndex
-                height: 28
-                width: parent.width
-                color: dconstants.bgColor
+            DCenterLine {
+                id: repeatDelayCL
+                height: contentHeight
+                centerPadding: keyboardModule.centerPadding
+                leftWidth: titleWidth
+                title.text: dsTr("Repeat Delay")
+                content.sourceComponent: DSliderEnhanced {
+                    width: sliderWidth
 
-                property var searchIndexResult: null
+                    min: 20
+                    max: 600
+                    init: parseInt(dbusKeyboard.repeatDelay)
+                    valueDisplayVisible: false
 
-                Component.onCompleted: {
-                    searchIndexResult = new Object()
-                    var alphabet = ["A", "B", "C", "D", "E", "F", "G",
-                                    "H", "I", "J", "K", "L", "M", "N",
-                                    "O", "P", "Q", "R", "S", "T",
-                                    "U", "V", "W", "X", "Y", "Z"
-                                ]
-                    for(var i=0;i<alphabet.length;i++){
-                        var indexLetter = alphabet[i]
-                        var search_result = dbusSearch.SearchStartWithString(indexLetter, keyboardModule.searchMd5)
-                        if(search_result.length > 0){
-                            indexLetterListView.model.append({
-                                "indexLetter": indexLetter,
-                            })
-                            searchIndexResult[indexLetter] = search_result
-                        }
+                    onValueConfirmed:{
+                        dbusKeyboard.repeatDelay = value
+                    }
+
+                    Component.onCompleted: {
+                        addRuler(20, dsTr("Short"))
+                        addRuler(600, dsTr("Long"))
                     }
                 }
+            }
 
-                ListView {
-                    id: indexLetterListView
-                    width: childrenRect.width
+            DCenterLine {
+                id:repeatRateCL
+                height: contentHeight
+                centerPadding: keyboardModule.centerPadding
+                leftWidth: titleWidth
+                title.text: dsTr("Repeat Rate")
+
+                content.sourceComponent: DSliderEnhanced {
+                    width: sliderWidth
+
+                    min: 1000
+                    max: 200
+                    init: dbusKeyboard.repeatInterval * 10
+                    valueDisplayVisible: false
+
+                    onValueConfirmed:{
+                        dbusKeyboard.repeatInterval = value / 10
+                    }
+
+                    Component.onCompleted: {
+                        addRuler(200, dsTr("Fast"))
+                        addRuler(1000, dsTr("Slow"))
+                    }
+                }
+            }
+
+            DCenterLine {
+                id: cursorBlinkRateCL
+                height: contentHeight
+                centerPadding: keyboardModule.centerPadding
+                leftWidth: titleWidth
+                title.text: dsTr("Cursor Blink Rate")
+
+                content.sourceComponent: DSliderEnhanced {
+                    width: sliderWidth
+
+                    min: 2500
+                    max: 100
+                    init: dbusKeyboard.cursorBlink
+                    valueDisplayVisible: false
+
+                    onValueConfirmed:{
+                        dbusKeyboard.cursorBlink = value
+                        mainObject.setCursorFlashTime(parseInt(value))
+                    }
+
+                    Component.onCompleted: {
+                        addRuler(100, dsTr("Fast"))
+                        addRuler(2500, dsTr("Slow"))
+                    }
+                }
+            }
+
+            DCenterLine {
+                id:testAreaCL
+                height: contentHeight
+                centerPadding: keyboardModule.centerPadding
+                leftWidth: titleWidth
+                title.text: dsTr("Test Area")
+
+                content.sourceComponent: Item {
+                    width: sliderWidth
                     height: parent.height
-                    orientation: ListView.Horizontal
-                    boundsBehavior: Flickable.StopAtBounds
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    model: ListModel{}
-                    currentIndex: -1
-                    delegate: DLabel{
+
+                    TestInput {
+                        id: testRepeatIntervalInput
                         anchors.verticalCenter: parent.verticalCenter
-                        width: contentWidth + 4
-                        text: indexLetter
-                        font.pixelSize: ListView.isCurrentItem ? 18 : 13
-                        color: {
-                            if (ListView.isCurrentItem | hovered){
-                                return dconstants.activeColor
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        width: sliderWidth - 16
+                        cursorBlinkTime: dbusKeyboard.cursorBlink
+                    }
+                }
+            }
+
+            DSeparatorHorizontal {}
+
+            DBaseLine {
+                id:capsLockBL
+                leftLoader.sourceComponent: DssH2 { text: dsTr("Caps Lock prompt") }
+                rightLoader.sourceComponent: DSwitchButton {
+                    checked: dbusKeyboard.capslockToggle
+
+                    onClicked: {
+                        dbusKeyboard.capslockToggle = checked
+                    }
+                }
+            }
+
+            DSeparatorHorizontal {}
+        }
+
+        Column {
+            id: keyboardLayoutArea
+            width: keyListView.width
+            height: childrenRect.height
+
+            property string currentActionStateName: ""
+
+            DBaseLine {
+                id: keyboardLayoutAreaTitleLine
+                function reset(){
+                    rightLoader.item.currentActionStateName = ""
+                }
+                leftLoader.sourceComponent: DssH2 {
+                    text: dsTr("Keyboard Layout")
+                }
+                rightLoader.sourceComponent: StateButtons {
+                    deleteButton.visible: layoutList.count > 1
+                    onCurrentActionStateNameChanged: {
+                        if(keyboardLayoutArea.currentActionStateName == "addButton"){
+                            var selectedKeys = addLayoutList.getSelectedKeys()
+                            for(var i=0; i<selectedKeys.length; i++){
+                                if(!keyboardModule.isInUserLayouts(selectedKeys[i])){
+                                    dbusKeyboard.AddUserLayout(selectedKeys[i])
+                                }
                             }
-                            return dconstants.fgColor
                         }
+                        keyboardLayoutArea.currentActionStateName = currentActionStateName
 
-                        property bool hovered: false
-
-                        MouseArea {
-                            anchors.fill: parent
-                            hoverEnabled: true
-                            onEntered: parent.hovered = true
-                            onExited: parent.hovered = false
-                            onReleased: containsMouse ? parent.hovered = true : parent.hovered = false
-                            onClicked: parent.ListView.view.currentIndex = index
+                        if(currentActionStateName == "addButton"){
+                            indexLetterListView.currentIndex = 0
+                            addLayoutList.rebuildModel(addLayoutIndex.searchIndexResult["A"])
                         }
                     }
                 }
-            } // End of addLayoutIndex
+            }
 
             DSeparatorHorizontal {}
 
             Rectangle {
-                id: addLayoutListBox
+                id: userKeyboardLayoutsArea
                 color: dconstants.contentBgColor
                 width: parent.width
                 height: childrenRect.height
-            }
+                visible: keyboardLayoutArea.currentActionStateName != "addButton"
 
-            ListView {
-                id: addLayoutList
-                parent: addLayoutListBox
-                height: {
-                    var listHeight = addLayoutList.model.count * 28
-                    return Math.min(keyboardModule.height - 278 - 64, listHeight)
-                }
-                width: parent.width
-                clip: true
+                ListView {
+                    id: layoutList
+                    width: parent.width
+                    height: count * 28
+                    currentIndex: -1
+                    clip: true
 
-                Connections {
-                    target: indexLetterListView
-                    onCurrentIndexChanged: {
-                        if(indexLetterListView.currentIndex != -1){
-                            var dataObject = indexLetterListView.model.get(indexLetterListView.currentIndex)
-                            var indexLetter = dataObject.indexLetter
-                            addLayoutList.rebuildModel(addLayoutIndex.searchIndexResult[indexLetter])
-                        }
+                    property string selectLayoutId: dbusKeyboard.currentLayout
+                    property bool inDeleteAction: keyboardLayoutArea.currentActionStateName == "deleteButton"
+
+                    function switchLayout(id){
+                        dbusKeyboard.currentLayout = id
                     }
-                }
 
-                function getSelectedKeys(){
-                    var selectedKeys = []
-                    var allChildren = contentItem.children
-                    for(var i=0; i<allChildren.length; i++){
-                        if(allChildren[i]["selected"]){
-                            selectedKeys.push(allChildren[i].itemId)
-                        }
+                    function deleteLayout(id){
+                        dbusKeyboard.DeleteUserLayout(id)
                     }
-                    return selectedKeys
-                }
 
-                function rebuildModel(search_result){
-                    addLayoutList.model.clear()
-                    for (var i=0; i<search_result.length; i++){
-                        var id = layoutValueToKey[search_result[i]]
-                        if(!keyboardModule.isInUserLayouts(id)){
-                            addLayoutList.model.append({
-                                "label": allLayoutMapL10n[id],
-                                "item_id": id
+                    function reloadLayout(){
+                        var myModel = listModelComponent.createObject(layoutList, {})
+                        var userKeyboardLayouts = dbusKeyboard.userLayoutList
+                        for (var i=0; i<userKeyboardLayouts.length; i++){
+                            var id = userKeyboardLayouts[i]
+                            myModel.append({
+                                "item_id": id,
+                                "item_name": allLayoutMapL10n[id]
                             })
                         }
+                        layoutList.model = myModel
+                    }
+
+                    delegate: SelectItem {
+                        selectItemId: layoutList.selectLayoutId
+                        totalItemNumber: layoutList.count
+                        inDeleteAction: layoutList.inDeleteAction
+
+                        onDeleteAction: {
+                            layoutList.deleteLayout(itemId)
+                        }
+
+                        onSelectAction: {
+                            layoutList.switchLayout(itemId)
+                        }
                     }
                 }
+            } // End of userKeyboardLayoutsArea
 
-                model: ListModel {}
+            Column {
+                id: addLayoutArea
+                width: parent.width
+                visible: keyboardLayoutArea.currentActionStateName == "addButton"
 
-                delegate: AddLayoutItem {}
-                DScrollBar { flickable: addLayoutList }
-            }
+                Rectangle {
+                    id: addLayoutIndex
+                    height: 28
+                    width: parent.width
+                    color: dconstants.bgColor
 
-            DBaseLine {
-                height: 28
-                visible: addLayoutList.model.count == 0
-                color: dconstants.contentBgColor
-                leftLoader.sourceComponent: DLabel{
-                    text: dsTr("No result")
+                    property var searchIndexResult: null
+
+                    Component.onCompleted: {
+                        searchIndexResult = new Object()
+                        var alphabet = ["A", "B", "C", "D", "E", "F", "G",
+                                        "H", "I", "J", "K", "L", "M", "N",
+                                        "O", "P", "Q", "R", "S", "T",
+                                        "U", "V", "W", "X", "Y", "Z"
+                                    ]
+                        for(var i=0;i<alphabet.length;i++){
+                            var indexLetter = alphabet[i]
+                            var search_result = dbusSearch.SearchStartWithString(indexLetter, keyboardModule.searchMd5)
+                            if(search_result.length > 0){
+                                indexLetterListView.model.append({
+                                    "indexLetter": indexLetter,
+                                })
+                                searchIndexResult[indexLetter] = search_result
+                            }
+                        }
+                    }
+
+                    ListView {
+                        id: indexLetterListView
+                        width: childrenRect.width
+                        height: parent.height
+                        orientation: ListView.Horizontal
+                        boundsBehavior: Flickable.StopAtBounds
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        model: ListModel{}
+                        currentIndex: -1
+                        delegate: DLabel{
+                            anchors.verticalCenter: parent.verticalCenter
+                            width: contentWidth + 4
+                            text: indexLetter
+                            font.pixelSize: ListView.isCurrentItem ? 18 : 13
+                            color: {
+                                if (ListView.isCurrentItem | hovered){
+                                    return dconstants.activeColor
+                                }
+                                return dconstants.fgColor
+                            }
+
+                            property bool hovered: false
+
+                            MouseArea {
+                                anchors.fill: parent
+                                hoverEnabled: true
+                                onEntered: parent.hovered = true
+                                onExited: parent.hovered = false
+                                onReleased: containsMouse ? parent.hovered = true : parent.hovered = false
+                                onClicked: parent.ListView.view.currentIndex = index
+                            }
+                        }
+                    }
+                } // End of addLayoutIndex
+
+                DSeparatorHorizontal {}
+
+                Rectangle {
+                    id: addLayoutListBox
+                    color: dconstants.contentBgColor
+                    width: parent.width
+                    height: childrenRect.height
                 }
-            }
-        } // End of addLayoutArea
 
-        DSeparatorHorizontal {}
+                ListView {
+                    id: addLayoutList
+                    parent: addLayoutListBox
+                    height: {
+                        var listHeight = addLayoutList.model.count * 28
+                        return Math.min(keyboardModule.height - 278 - 64, listHeight)
+                    }
+                    width: parent.width
+                    clip: true
 
-        LocaleArea {
-            id: localeArea
-            listAreaMaxHeight: keyboardModule.height - 278 - 94
-            onExpandedChanged: {
-                if(expanded){
-                    keyboardLayoutAreaTitleLine.reset()
+                    Connections {
+                        target: indexLetterListView
+                        onCurrentIndexChanged: {
+                            if(indexLetterListView.currentIndex != -1){
+                                var dataObject = indexLetterListView.model.get(indexLetterListView.currentIndex)
+                                var indexLetter = dataObject.indexLetter
+                                addLayoutList.rebuildModel(addLayoutIndex.searchIndexResult[indexLetter])
+                            }
+                        }
+                    }
+
+                    function getSelectedKeys(){
+                        var selectedKeys = []
+                        var allChildren = contentItem.children
+                        for(var i=0; i<allChildren.length; i++){
+                            if(allChildren[i]["selected"]){
+                                selectedKeys.push(allChildren[i].itemId)
+                            }
+                        }
+                        return selectedKeys
+                    }
+
+                    function rebuildModel(search_result){
+                        addLayoutList.model.clear()
+                        for (var i=0; i<search_result.length; i++){
+                            var id = layoutValueToKey[search_result[i]]
+                            if(!keyboardModule.isInUserLayouts(id)){
+                                addLayoutList.model.append({
+                                    "label": allLayoutMapL10n[id],
+                                    "item_id": id
+                                })
+                            }
+                        }
+                    }
+
+                    model: ListModel {}
+
+                    delegate: AddLayoutItem {}
+                    DScrollBar { flickable: addLayoutList }
                 }
-            }
-            Connections{
-                target: keyboardLayoutArea
-                onCurrentActionStateNameChanged: {
-                    if(keyboardLayoutArea.currentActionStateName != ""){
-                        localeArea.expanded = false
+
+                DBaseLine {
+                    height: 28
+                    visible: addLayoutList.model.count == 0
+                    color: dconstants.contentBgColor
+                    leftLoader.sourceComponent: DLabel{
+                        text: dsTr("No result")
+                    }
+                }
+            } // End of addLayoutArea
+
+            DSeparatorHorizontal {}
+
+            LocaleArea {
+                id: localeArea
+                listAreaMaxHeight: keyboardModule.height - 278 - 94
+                onExpandedChanged: {
+                    if(expanded){
+                        keyboardLayoutAreaTitleLine.reset()
+                    }
+                }
+                Connections{
+                    target: keyboardLayoutArea
+                    onCurrentActionStateNameChanged: {
+                        if(keyboardLayoutArea.currentActionStateName != ""){
+                            localeArea.expanded = false
+                        }
                     }
                 }
             }
+            DSeparatorHorizontal {}
+
         }
-        DSeparatorHorizontal {}
 
     }
+
+
 }

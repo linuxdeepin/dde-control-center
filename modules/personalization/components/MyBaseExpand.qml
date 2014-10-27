@@ -53,7 +53,7 @@ DBaseExpand {
 
     content.sourceComponent: DFlickable {
         width: personalizationModule.width
-        height: Math.min(childrenRect.height, contentArea.maxConetentHeight)
+        height: Math.min(childrenRect.height, personalizationModule.maxConetentHeight)
         contentWidth: width
         contentHeight: realContent.height
 

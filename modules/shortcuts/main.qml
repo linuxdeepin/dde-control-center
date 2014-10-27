@@ -104,45 +104,51 @@ Item {
     Component.onCompleted: {
     }
 
-    Column {
-        id: keybindingTitleColumn
+
+    DssTitle {
+        id:titleDT
         anchors.top: parent.top
         width: parent.width
-        height: childrenRect.height
-
-        DssTitle {
-            text: modulesId.moduleLocaleNames["shortcuts"]
-            rightLoader.sourceComponent: ResetButton {
-                onClicked: {
-                    dbusKeyBinding.Reset()
-                }
-            }
-            rightLoader.visible: searchResultListView.keyword == ""
-        }
-
-        DSeparatorHorizontal {}
-
-        DBaseLine{
-            leftMargin: 18
-            leftLoader.sourceComponent: DSearchInput {
-                width: shortcutsModule.width - 36
-                onTextChanged: {
-                    searchResultListView.keyword = text
-                }
-
-                Keys.onEscapePressed: {
-                    text = ""
-                }
+        text: modulesId.moduleLocaleNames["shortcuts"]
+        rightLoader.sourceComponent: ResetButton {
+            onClicked: {
+                dbusKeyBinding.Reset()
             }
         }
+        rightLoader.visible: searchResultListView.keyword == ""
+    }
 
-        DSeparatorHorizontal {}
+    DSeparatorHorizontal {
+        id:shortcutsSP1
+        anchors.top: titleDT.bottom
+    }
+
+    DBaseLine{
+        id:searchDL
+        anchors.top: shortcutsSP1.bottom
+        width: parent.width
+        leftMargin: 18
+        leftLoader.sourceComponent: DSearchInput {
+            width: shortcutsModule.width - 36
+            onTextChanged: {
+                searchResultListView.keyword = text
+            }
+
+            Keys.onEscapePressed: {
+                text = ""
+            }
+        }
+    }
+
+    DSeparatorHorizontal {
+        id:shortcutsSP2
+        anchors.top: searchDL.bottom
     }
 
     DFlickable {
-        anchors.top: keybindingTitleColumn.bottom
+        anchors.top: searchDL.bottom
         width: parent.width
-        height: parent.height - keybindingTitleColumn.height
+        height: parent.height - titleDT.height - searchDL.height - 2
         clip: true
 
         contentWidth: width
@@ -153,6 +159,8 @@ Item {
             width: parent.width
             height: childrenRect.height
             clip: true
+
+            DSeparatorHorizontal{}
 
             Rectangle {
                 id: searchResultListBox
@@ -224,7 +232,7 @@ Item {
                         id: customItem
                         property string name: dsTr("Custom")
                         property var keyBindings: dbusKeyBinding.customList
-                        listMaxHeight: shortcutsModule.height - keybindingTitleColumn.height - keybindingListColumn.height
+                        listMaxHeight: shortcutsModule.height - (titleDT.height + searchDL.height + 2) - keybindingListColumn.height
                     }
                 }
             }
