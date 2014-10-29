@@ -23,7 +23,7 @@
 
 import QtQuick 2.2
 import Deepin.Widgets 1.0
-import DBus.Com.Deepin.Daemon.DateAndTime 1.0
+import DBus.Com.Deepin.Daemon.LangSelector 1.0
 import "../shared"
 
 DBaseExpand {
@@ -31,11 +31,11 @@ DBaseExpand {
 
     property int listAreaMaxHeight: 100
 
-    property var dbusDateAndTime: DateAndTime {}
+    property var dbusLangSelector: LangSelector{}
     property var listModelComponent: DListModelComponent {}
-    property string currentLocale: dbusDateAndTime.currentLocale
+    property string currentLocale: dbusLangSelector.currentLocale
 
-    property var allLocaleInformation: dbusDateAndTime.GetLocaleList()
+    property var allLocaleInformation: dbusLangSelector.GetLocaleList()
     property var localeToLanguage: {
         var tmp = new Object()
         for(var i in allLocaleInformation){
@@ -64,7 +64,7 @@ DBaseExpand {
                 }
             }
         }
-        
+
         onClicked: {
             localeExpand.expanded = !localeExpand.expanded
         }
@@ -135,7 +135,7 @@ DBaseExpand {
                 }
 
                 onSelectAction: {
-                    dbusDateAndTime.SetLocale(itemId)
+                    dbusLangSelector.SetLocale(itemId)
                 }
             }
 
