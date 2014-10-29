@@ -25,6 +25,8 @@ import QtQuick 2.0
 import Deepin.Widgets 1.0
 import QtQuick.Window 2.1
 import Deepin.Locale 1.0
+import Deepin.DockApplet 1.0
+import Deepin.AppletWidgets 1.0
 import DBus.Com.Deepin.Dde.ControlCenter 1.0
 import DBus.Com.Deepin.Daemon.Network 1.0
 import DBus.Com.Deepin.Daemon.Dock 1.0
@@ -64,25 +66,41 @@ QtObject {
     }
 
     property var appletInfos: ListModel {
-        function update(applet_id, applet_name, applet_visible){
+        function update(applet_id, applet_name, applet_visible,applet_icon){
             print("==> [info] update applet info:", applet_id)
             for(var i=0;i<count;i++){
                 var tmpInfo = get(i)
                 if(tmpInfo.applet_id == applet_id){
                     get(i).applet_name = applet_name
                     get(i).applet_visible = applet_visible
+                    get(i).applet_icon = applet_icon
                     mainObject.setAppletState(dockDisplayMode, applet_id, applet_visible)
                     return
                 }
             }
 
             append({
-                "applet_id": applet_id,
-                "applet_name": applet_name,
-                "applet_visible": applet_visible
-            })
+                       "applet_id": applet_id,
+                       "applet_name": applet_name,
+                       "applet_visible": applet_visible,
+                       "applet_icon":applet_icon,
+                       "setting_enable":true    //default all show in setting panel
+                   })
+
             mainObject.setAppletState(dockDisplayMode, applet_id, applet_visible)
             return
+        }
+
+        function rmItem(applet_id){
+            print("==> [info] remove item from appletInfos:", applet_id)
+            for(var i=0;i<count;i++){
+                var tmpInfo = get(i)
+                if(tmpInfo.applet_id == applet_id){
+                    root.setAppletState(applet_id, false)
+                    remove(i)
+                    return
+                }
+            }
         }
     }
 
@@ -101,6 +119,8 @@ QtObject {
 
     function setAppletState(applet_id, newState){
         for(var i=0; i<repeater.count; i++){
+            //try sub item
+            repeater.itemAt(i).item.setSubAppletState(applet_id,newState)
             if(repeater.itemAt(i).appletId == applet_id){
                 repeater.itemAt(i).setAppletState(newState)
                 break
@@ -115,6 +135,11 @@ QtObject {
                 break
             }
         }
+    }
+
+    function showSettingWindow(mouseX) {
+        appletSettingWindow.item.mouseX = mouseX
+        appletSettingWindow.item.show()
     }
 
     // init dock setting
@@ -140,6 +165,17 @@ QtObject {
         active: wirelessDevices.length > 0
     }
 
+    property var appletSettingWindow: Loader {
+        sourceComponent: AppletSettingWindow {
+            switchList:appletInfos
+            onItemClicked: {
+                root.setAppletState(switchTitle,switchState)
+            }
+        }
+
+        active: true
+    }
+
     property var applets: Item {
         Repeater {
             id: repeater
@@ -153,14 +189,16 @@ QtObject {
         for(var i=0;i<applet_infos.length;i++){
             if(i % 2 == 0){
                 appletListModel.append({
-                     "applet_id": applet_infos[i],
-                     "applet_path": applet_infos[i+1]
-                })
+                                           "applet_id": applet_infos[i],
+                                           "applet_path": applet_infos[i+1]
+                                       })
             }
         }
     }
 
-    Component.onCompleted: initAppletListModel()
+    Component.onCompleted: {
+        initAppletListModel()
+    }
 }
 
 /*****

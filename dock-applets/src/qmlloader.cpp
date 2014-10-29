@@ -218,3 +218,12 @@ void AppletDBus::ToggleApplet(QString id)
                 Q_ARG(QVariant, QVariant::fromValue(id))
                 );
 }
+
+void AppletDBus::ShowSettingWindow(int mouseX)
+{
+    QMetaObject::invokeMethod(
+                m_parent->rootObject,
+                "showSettingWindow",
+                Q_ARG(QVariant, QVariant::fromValue(mouseX))
+                );
+}

@@ -31,6 +31,7 @@ AppletPlugin {
     managed: dbusPower.batteryIsPresent
     show: managed && true
     name: dsTr("Power")
+    iconPath: getIconUrl("power/small/battery-charge.png")
 
     // Power
     property var dbusPower: Power{}

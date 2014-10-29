@@ -30,6 +30,7 @@ AppletPlugin {
     managed: true
     show: true
     name: dsTr("Sound")
+    iconPath:getIconUrl("sound/small/sound_100.png")
 
     appletTrayLoader: Loader {
         sourceComponent: AppletTray{}

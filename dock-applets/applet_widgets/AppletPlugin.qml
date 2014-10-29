@@ -31,6 +31,14 @@ Item {
     property bool managed: true
     property bool show: true
     property string name: ""
+    property string iconPath:""
+    property string appletPath:""//for sub applet
+
+    signal subAppletStateChanged(string subAppletId,bool subAppletState)
+
+    function setAppletPath(applet_path){
+        appletItem.appletPath = applet_path
+    }
 
     function setAppletState(applet_visible) {
         if(managed){
@@ -38,12 +46,16 @@ Item {
         }
     }
 
+    function setSubAppletState(applet_id,new_state){
+        appletItem.subAppletStateChanged(applet_id,new_state)
+    }
+
     property var appletTrayLoader: Loader {}
 
     Component.onCompleted: {
         if(managed){
             show = root.getInitAppletSate(appletId)
-            appletInfos.update(appletId, name, show)
+            appletInfos.update(appletId, name, show,iconPath)
         }
     }
 }

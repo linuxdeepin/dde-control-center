@@ -50,7 +50,7 @@ Loader {
         target: appletRootLoader.item
         onShowChanged: {
             if(appletRootLoader.isItemValid() && appletRootLoader.item.managed){
-                appletInfos.update(appletId, appletRootLoader.item.name, appletRootLoader.item.show)
+                appletInfos.update(appletId, appletRootLoader.item.name, appletRootLoader.item.show, appletRootLoader.item.iconPath)
             }
         }
     }
@@ -62,6 +62,12 @@ Loader {
                 var applet_visible = root.getInitAppletSate(appletRootLoader.appletId)
                 appletRootLoader.setAppletState(applet_visible)
             }
+        }
+    }
+
+    Component.onCompleted: {
+        if (appletRootLoader.isItemValid()){
+            appletRootLoader.item.setAppletPath(qmlPath)
         }
     }
 }

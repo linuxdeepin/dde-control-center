@@ -99,7 +99,6 @@ DockApplet{
 			mainObject.restartDockApplet()
 		}
 
-
         ListView {
             id: diskListView
             anchors.horizontalCenter: parent.horizontalCenter

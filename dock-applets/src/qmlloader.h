@@ -81,6 +81,7 @@ public:
     Q_SLOT void ShowApplet(QString id);
     Q_SLOT void HideApplet(QString id);
     Q_SLOT void ToggleApplet(QString id);
+    Q_SLOT void ShowSettingWindow(int mouseX);
 
 private:
     QmlLoader* m_parent;

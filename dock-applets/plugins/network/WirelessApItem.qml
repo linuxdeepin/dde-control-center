@@ -107,15 +107,15 @@ Item {
             var power = apSignal
             var secure = apSecured ? "-secure": ""
             if (power <= 5)
-                return "images/ap-signal-0" + secure + ".svg"
+                return "images/ap-signal-0" + secure + ".png"
             else if (power <= 25)
-                return "images/ap-signal-25" + secure + ".svg"
+                return "images/ap-signal-25" + secure + ".png"
             else if (power <= 50)
-                return "images/ap-signal-50" + secure + ".svg"
+                return "images/ap-signal-50" + secure + ".png"
             else if (power <= 75)
-                return "images/ap-signal-75" + secure + ".svg"
+                return "images/ap-signal-75" + secure + ".png"
             else if (power <= 100)
-                return "images/ap-signal-100" + secure + ".svg"
+                return "images/ap-signal-100" + secure + ".png"
         }
     }
 
@@ -132,7 +132,7 @@ Item {
     Component.onCompleted: {
         updateWirelessConnectionInfo()
     }
-    
+
     function updateWirelessConnectionInfo() {
         if(nmConnections){
             var wirelessConnections = nmConnections["wireless"]
@@ -151,7 +151,7 @@ Item {
             wirelessItem.uuid = uuid
         }
     }
-    
+
     function activateThisConnection(){
         if (apSecuredInEap && uuid == "") {
             print("secured in eap") // TODO debug

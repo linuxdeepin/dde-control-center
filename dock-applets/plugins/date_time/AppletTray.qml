@@ -129,7 +129,6 @@ DockApplet{
 		}
 
 
-
         Column {
             id: contentColumn
             width: itemWidth * 7 - 1

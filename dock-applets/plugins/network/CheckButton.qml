@@ -23,10 +23,12 @@
 
 import QtQuick 2.0
 import Deepin.Widgets 1.0
+import QtGraphicalEffects 1.0
 
 DImageCheckButton{
     property url onImage: ""
     property url offImage: ""
+    property alias deviceIndex:indexText.text
 
     anchors.verticalCenter: parent.verticalCenter
     inactivatedNormalImage: offImage
@@ -36,4 +38,27 @@ DImageCheckButton{
     activatedNormalImage: onImage
     activatedHoverImage: activatedNormalImage
     activatedPressImage: activatedNormalImage
+
+
+
+    Text {
+        id:indexText
+        anchors {right: parent.right; bottom: parent.bottom}
+        height: 9
+        width: 9
+        verticalAlignment: Text.AlignVCenter
+        horizontalAlignment: Text.AlignHCenter
+        color: "#ffffff"
+        font.bold: true
+        font.pixelSize: 9
+    }
+
+    Glow {
+        anchors.fill: indexText
+        radius: 5
+        samples: 16
+        color: "#000"
+        spread: 0.8
+        source: indexText
+    }
 }

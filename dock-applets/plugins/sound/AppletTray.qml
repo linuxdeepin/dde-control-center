@@ -190,7 +190,6 @@ DockApplet{
 			mainObject.restartDockApplet()
 		}
 
-
         Connections{
             target: defaultSink
             onVolumeChanged: {

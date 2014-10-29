@@ -30,9 +30,81 @@ AppletPlugin {
     managed: true
     show: true
     name: dsTr("Network")
+    iconPath:getIconUrl("network/small/wired_on.png")
+
+    property var activeConnections: unmarshalJSON(dbusNetwork.activeConnections)
+    property var activeConnectionsCount: {
+        if (activeConnections)
+            return  Object.keys(activeConnections).length
+        else
+            return 0
+    }
+
+    property bool hasWiredDevices: {
+        if(nmDevices["wired"] && nmDevices["wired"].length > 0){
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    // wifi
+    property bool hasWirelessDevices: {
+        if(nmDevices["wireless"] && nmDevices["wireless"].length > 0){
+            return true
+        }
+        else{
+            return false
+        }
+    }
+
+    Connections {
+        target:root
+        onDockDisplayModeChanged:{
+            if (dockDisplayMode == 0){
+                updateWiredSettingItem(true)
+            }
+            else{
+                updateWiredSettingItem(false)
+            }
+        }
+    }
+
+    Timer {
+        id:delayUpdateTimer
+        repeat: false
+        running: true
+        interval: 1000
+        onTriggered: {
+            if (dockDisplayMode == 0){
+                updateWiredSettingItem(true)
+            }
+            else{
+                updateWiredSettingItem(false)
+            }
+        }
+    }
+
+    function updateWiredSettingItem(showFlag){
+        for (var i = 0; i < appletInfos.count; i ++){
+            if (appletInfos.get(i).applet_icon.indexOf("network") > 0){
+                appletInfos.get(i).setting_enable = showFlag
+            }
+        }
+    }
+
 
     appletTrayLoader: Loader {
         sourceComponent: AppletTray{}
-        active: appletItem.show
+        active: appletItem.show && ((hasWiredDevices && !hasWirelessDevices && activeConnectionsCount == 0 && dockDisplayMode != 0) || dockDisplayMode == 0)
+    }
+
+    onSubAppletStateChanged:{
+        subAppletManager.updateAppletState(subAppletId, subAppletState)
+    }
+
+    SubAppletManager {
+        id:subAppletManager
+        parentAppletPath: appletItem.appletPath
     }
 }

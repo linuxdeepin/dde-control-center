@@ -31,13 +31,12 @@ import DBus.Com.Deepin.Api.Graphic 1.0
 import Deepin.AppletWidgets 1.0
 
 DockApplet{
-    title: "Network"
+    id:networkApplet
+    title: activeConnectionsCount > 0 ? dsTr("Network Connected") : dsTr("Network Not Connected")
     appid: "AppletNetwork"
     icon: dockDisplayMode == 0 ? macIconUri : winIconUri
 
     property var dconstants: DConstants {}
-    property var activeConnections: unmarshalJSON(dbusNetwork.activeConnections)
-
     property string macIconUri: getIcon()
     property string winIconUri: getIconUrl("network/small/wired_on.png")
 
@@ -65,8 +64,17 @@ DockApplet{
         }
     }
 
+    property bool airplaneModeActive: {
+        if(dbusNetwork.networkingEnabled || dbusBluetooth.powered){
+            return false
+        }
+        else{
+            return true
+        }
+    }
+
     function getIcon(){
-        if(airplaneModeButton.airplaneModeActive){
+        if(airplaneModeActive){
             var iconDataUri = getIconDataUri("network/normal/airplane_mode.png")
             winIconUri = getIconUrl("network/small/airplane.png")
         }
@@ -147,9 +155,16 @@ DockApplet{
         }
     }
 
-    // wifi
+    // wifi    property var nmDevices: JSON.parse(dbusNetwork.devices)
+    property var wirelessDevices: nmDevices["wireless"] == undefined ? [] : nmDevices["wireless"]
+    property var wirelessDevicesCount: {
+        if (wirelessDevices)
+            return wirelessDevices.length
+        else
+            return 0
+    }
     property bool hasWirelessDevices: {
-        if(nmDevices["wireless"] && nmDevices["wireless"].length > 0){
+        if(wirelessDevicesCount > 0){
             return true
         }
         else{
@@ -158,6 +173,7 @@ DockApplet{
     }
     property var wifiStateDict: { "show": true, "imagePath": "" }
     property var activeWirelessDevice: getActiveWirelessDevice()
+    property var wirelessListModel: ListModel {}
     onActiveWirelessDeviceChanged: {
         if(activeWirelessDevice){
             var allAp = JSON.parse(dbusNetwork.GetAccessPoints(activeWirelessDevice.Path))
@@ -177,6 +193,7 @@ DockApplet{
             }
         }
     }
+    onWirelessDevicesCountChanged: buttonRow.updateWirelessApplet()
 
     Connections{
         target: dbusNetwork
@@ -270,7 +287,6 @@ DockApplet{
         updateState("bluetooth", show, imagePath)
     }
 
-
     property int xEdgePadding: 10
 
     function getActiveWirelessDevice(){
@@ -311,27 +327,29 @@ DockApplet{
         }
     }
 
-    window: DockQuickWindow {
-        id: root
-        width: 224
+    window: (dockDisplayMode == 0 && !hasWirelessDevices && !vpnButton.visible && !bluetoothButton.visible) ||
+            (hasWiredDevices && !hasWirelessDevices && activeConnectionsCount == 0 && dockDisplayMode != 0) ? null : rootWindow
+
+    DockQuickWindow {
+        id: rootWindow
+        width: buttonRow.width > 130 ? buttonRow.width + 30 : 130
         height: contentColumn.height + xEdgePadding * 2
         color: "transparent"
 
-		onNativeWindowDestroyed: {
-			toggleAppletState("network")
-			toggleAppletState("network")
-		}
-		onQt5ScreenDestroyed: {
-			console.log("Recive onQt5ScreenDestroyed")
-			mainObject.restartDockApplet()
-		}
-
-
+        onNativeWindowDestroyed: {
+            toggleAppletState("network")
+            toggleAppletState("network")
+        }
+        onQt5ScreenDestroyed: {
+            console.log("Recive onQt5ScreenDestroyed")
+            mainObject.restartDockApplet()
+        }
 
         Item {
             anchors.centerIn: parent
             width: parent.width - xEdgePadding * 2
             height: parent.height - xEdgePadding * 2
+            visible: dockDisplayMode == 0
 
             Column {
                 id: contentColumn
@@ -343,66 +361,52 @@ DockApplet{
                     spacing: 16
                     anchors.horizontalCenter: parent.horizontalCenter
 
-                    CheckButton{
-                        id: wiredCheckButton
-                        onImage: "images/wire_on.png"
-                        offImage: "images/wire_off.png"
-                        visible: hasWiredDevices
+                    function updateWirelessApplet(){
+                        wirelessListModel.clear()
 
-                        onClicked: {
-                            dbusNetwork.wiredEnabled = active
-                        }
-
-                        Connections{
-                            target: dbusNetwork
-                            onWiredEnabledChanged:{
-                                if(!wiredCheckButton.pressed){
-                                    wiredCheckButton.active = dbusNetwork.wiredEnabled
-                                }
-                            }
-                        }
-
-                        Timer{
-                            running: true
-                            interval: 100
-                            onTriggered: {
-                                parent.active = dbusNetwork.wiredEnabled
-                            }
+                        for (var i = 0; i < wirelessDevicesCount; i ++){
+                            wirelessListModel.append({"devicePath": wirelessDevices[i].Path})
                         }
                     }
 
-                    CheckButton{
-                        id: wirelessCheckButton
-                        onImage: "images/wifi_on.png"
-                        offImage: "images/wifi_off.png"
-                        visible: hasWirelessDevices
+                    Repeater {
+                        id: wirelessRepeater
+                        model: wirelessListModel
+                        delegate: CheckButton{
+                            id: wirelessCheckButton
+                            onImage: "images/wifi_on.png"
+                            offImage: "images/wifi_off.png"
+                            visible: true
+                            deviceIndex: index + 1
 
-                        onClicked: {
-                            dbusNetwork.wirelessEnabled = active
-                        }
+                            onClicked: {
+                                if (!dbusNetwork.IsDeviceEnabled(devicePath)){
+                                    print ("==> [Info] Enable wireless device...")
+                                    dbusNetwork.EnableDevice(devicePath,true)
+                                }
+                                else{
+                                    dbusNetwork.EnableDevice(devicePath,false)
+                                }
+                            }
 
-                        Connections{
-                            target: dbusNetwork
-                            onWirelessEnabledChanged:{
-                                if(!wirelessCheckButton.pressed){
-                                    wirelessCheckButton.active = dbusNetwork.wirelessEnabled
+                            Connections{
+                                target: dbusNetwork
+                                onWirelessEnabledChanged:{
+                                    if(!wirelessCheckButton.pressed){
+                                        wirelessCheckButton.active = dbusNetwork.IsDeviceEnabled(devicePath)
+                                    }
+                                }
+                            }
+
+                            Timer{
+                                running: true
+                                interval: 100
+                                onTriggered: {
+                                    parent.active = dbusNetwork.IsDeviceEnabled(devicePath)
                                 }
                             }
                         }
-
-                        Timer{
-                            running: true
-                            interval: 100
-                            onTriggered: {
-                                parent.active = dbusNetwork.wirelessEnabled
-                            }
-                        }
                     }
-
-                    //CheckButton{
-                        //onImage: "images/3g_on.png"
-                        //offImage: "images/3g_off.png"
-                    //}
 
                     // TODO
                     CheckButton{
@@ -410,7 +414,7 @@ DockApplet{
                         visible: vpnConnections ? vpnConnections.length > 0 : false
                         onImage: "images/vpn_on.png"
                         offImage: "images/vpn_off.png"
-                        property bool vpnActive: activeVpnIndex != -1
+                        active: activeVpnIndex != -1
 
                         // onVpnActiveChanged: {
                         //     if(!vpnButton.pressed){
@@ -441,7 +445,7 @@ DockApplet{
                                 }
                             }
                         }
-                        
+
                         Timer{
                             running: true
                             interval: 100
@@ -457,6 +461,7 @@ DockApplet{
                         visible: adapters.length > 0
                         onImage: "images/bluetooth_on.png"
                         offImage: "images/bluetooth_off.png"
+                        deviceIndex: "1"
 
                         onClicked: {
                             dbusBluetooth.powered = active
@@ -490,60 +495,10 @@ DockApplet{
                             }
                         }
                     }
-
-                    CheckButton {
-                        id: airplaneModeButton
-                        onImage: "images/airplane_mode_on.png"
-                        offImage: "images/airplane_mode_off.png"
-                        property bool airplaneModeActive: {
-                            if(dbusNetwork.networkingEnabled || dbusBluetooth.powered){
-                                return false
-                            }
-                            else{
-                                return true
-                            }
-                        }
-
-                        onAirplaneModeActiveChanged: {
-                            if(!airplaneModeButton.pressed){
-                                airplaneModeButton.active = airplaneModeButton.airplaneModeActive
-                            }
-                        }
-
-                        function setActive(){
-                            dbusNetwork.networkingEnabled = true
-                            dbusBluetooth.powered = true
-                        }
-
-                        function setDeactive(){
-                            dbusNetwork.networkingEnabled = false
-                            dbusBluetooth.powered = false
-                        }
-
-                        onClicked: {
-                            if(active){
-                                setDeactive()
-                            }
-                            else{
-                                setActive()
-                            }
-                        }
-
-                        Timer{
-                            running: true
-                            interval: 100
-                            onTriggered: {
-                                parent.active = parent.airplaneModeActive
-                            }
-                        }
-
-                    }
                 }
 
             }
-
         }
 
     }
-
 }
