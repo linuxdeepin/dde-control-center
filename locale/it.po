@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-13 15:23+0800\n"
-"PO-Revision-Date: 2014-10-15 19:40+0000\n"
-"Last-Translator: Massimo Antonio Carofano <real.massimo@hotmail.it>\n"
+"PO-Revision-Date: 2014-10-30 03:17+0000\n"
+"Last-Translator: szd_liufei <liufei@linuxdeepin.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/dde-control-center/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1798,7 +1798,7 @@ msgstr "Mostra avanzate..."
 
 #: ../modules/system_info/main.qml:102
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
-msgstr "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd.\nTraduzione italiana a cura di Carofano Massimo Antonio."
+msgstr "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd.\nLocalizzazione italiana a cura di Carofano Massimo Antonio."
 
 #: ../modules/system_info/main.qml:108
 msgid "Deepin Edition"
