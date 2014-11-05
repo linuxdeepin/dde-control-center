@@ -25,6 +25,7 @@ var iconTipComponent = Qt.createComponent("IconTip.qml");
 var iconTipPage;
 var pageX = 0
 var pageY = 0
+var showInRight = false
 var pageWidth = 0
 var toolTip = ""
 
@@ -37,7 +38,13 @@ function showIconTip()
         iconTipPage.y = pageY
         iconTipPage.width = pageWidth;
         iconTipPage.toolTip = toolTip
-        iconTipPage.showTipAtRight()
+        if (showInRight){
+            iconTipPage.showTipAtRight()
+        }
+        else{
+            iconTipPage.showTipAtLeft()
+        }
+
         return
     }
     else
@@ -71,7 +78,12 @@ function fnishCreate()
             iconTipPage.y = pageY
             iconTipPage.width = pageWidth;
             iconTipPage.toolTip = toolTip
-            iconTipPage.showTipAtRight();
+            if (showInRight){
+                iconTipPage.showTipAtRight()
+            }
+            else{
+                iconTipPage.showTipAtLeft()
+            }
         }
     }
     else if (iconTipComponent.status === Component.Error) {

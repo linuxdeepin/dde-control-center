@@ -185,7 +185,8 @@ Rectangle {
             IconTip.pageWidth = iconTipText.width + 30
             IconTip.setAnimationEnable(Math.abs(tipDisplayHeight - IconTip.pageY) > 50 ? false : true)
             IconTip.pageY = tipDisplayHeight
-            IconTip.pageX = Screen.width -  panelContent.width - IconTip.pageWidth - 10
+            IconTip.pageX = shouldShowInRight ? Screen.width -  panelContent.width - IconTip.pageWidth - 10 : panelContent.width + 10
+            IconTip.showInRight = shouldShowInRight
             IconTip.toolTip = localeName
             IconTip.showIconTip()
         }
@@ -250,7 +251,7 @@ Rectangle {
             addHomeShutdownButton()
             rightBoxLoaderItem.iconId = currentContentId
             moduleIconList.iconLabelOpacity = 0
-            rightBox.x = 48
+            rightBox.x = shouldShowInRight?48:0
             showContentPanel.start()
         }
     }
@@ -282,7 +283,7 @@ Rectangle {
             removeHomeShutdownButton()
             rightBoxLoaderItem.iconId = ""
             moduleIconList.iconLabelOpacity = 1
-            rightBox.x = panelContent.width
+            rightBox.x = shouldShowInRight?panelContent.width:-rightBox.width
             showHomePanel.start()
         }
     }
@@ -323,7 +324,9 @@ Rectangle {
         id: iconsArea
         anchors.top: parent.top
         anchors.topMargin: headerArea.height
-        anchors.left: parent.left
+        anchors.left:shouldShowInRight? parent.left:undefined
+        anchors.right:shouldShowInRight?undefined:parent.right
+
         width: parent.width
         height: !isSiderNavigate ? parent.height - headerArea.height - footerArea.height : parent.height
         clip: true
@@ -435,7 +438,7 @@ Rectangle {
         width: parent.width - trayWidth
         height: parent.height
         color: dconstants.bgColor
-        x: panelContent.width
+        x: shouldShowInRight?panelContent.width:-width
         clip: true
 
         MouseArea{
@@ -460,7 +463,7 @@ Rectangle {
                     print("==> [info] load module:", iconId)
             }
 
-            DSeparatorVertical {}
+            DSeparatorVertical {visible: shouldShowInRight}
 
             Loader{
                 id: rightBoxLoader
@@ -488,6 +491,8 @@ Rectangle {
                     }
                 }
             }
+
+            DSeparatorVertical {visible: !shouldShowInRight}
         }
     }
 }

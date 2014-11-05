@@ -63,12 +63,23 @@ QtObject {
         }
         onButtonPress: {
             //it's up to controlcenter direction
-            if (screenSize.width - arg1 > panelWidth){
-                clickedToHide = true
+            if (rootWindow.shouldShowInRight){
+                if (screenSize.width - arg1 > panelWidth){
+                    clickedToHide = true
+                }
+                else{
+                    clickedToHide = false
+                }
             }
             else{
-                clickedToHide = false
+                if (arg1 > panelWidth){
+                    clickedToHide = true
+                }
+                else{
+                    clickedToHide = false
+                }
             }
+
         }
 
         onCursorMove: {
@@ -153,6 +164,10 @@ QtObject {
             }
         }
         return -1
+    }
+
+    function setShowInRightFlag(flag){
+        rootWindow.shouldShowInRight = flag
     }
 
     function showModule(modulesId){

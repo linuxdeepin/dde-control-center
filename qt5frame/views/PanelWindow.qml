@@ -30,7 +30,7 @@ DOverrideWindow {
     color: Qt.rgba(0, 0, 0, 0)
     flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.X11BypassWindowManagerHint
 
-    x: screenSize.x + screenSize.width - width
+    x: shouldShowInRight?screenSize.x + screenSize.width - width:0
     y: screenSize.y
     width: validWidth ? panelWidth + shadowImage.width : 0
     height: screenSize.height
@@ -46,6 +46,7 @@ DOverrideWindow {
     }
 
     property bool validWidth: false
+    property bool shouldShowInRight: true
     property int moduleNameMaxWidth: modulesId.getMaxModuleNameWidth()
     property int displayWidth: 0
 
@@ -186,7 +187,7 @@ DOverrideWindow {
 
         width: panelWidth
         height: parent.height
-        x: rootWindow.width - displayWidth
+        x: shouldShowInRight?rootWindow.width - displayWidth:displayWidth-panelWidth
 
         PanelContent {
             id: panelContent
@@ -197,7 +198,9 @@ DOverrideWindow {
 
     Image {
         id:shadowImage
-        anchors.right: frame.left
+        anchors.right: shouldShowInRight?frame.left:undefined
+        anchors.left: shouldShowInRight?undefined:frame.right
+        rotation: shouldShowInRight?0:180
         width: 16
         height: parent.height
         source: "images/shadow.png"
