@@ -57,7 +57,7 @@ public:
     void showImmediately();
     void hide();
     void hideImmediately();
-    void setShowInRightFlag(bool flag);
+    void togglePanelInLeft();
     bool isNetworkCanShowPassword();
     int getWindowX();
 
@@ -89,8 +89,8 @@ public:
     void initConnection();
 
     Q_SLOT void Toggle();
+    Q_SLOT void ToggleInLeft();
     Q_SLOT void Show();
-    Q_SLOT void ShowInLeft();
     Q_SLOT void ShowModule(QString name);
     Q_SLOT void ShowImmediately();
     Q_SLOT void Hide();

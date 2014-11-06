@@ -122,13 +122,11 @@ void QmlLoader::hideImmediately()
                 );
 }
 
-void QmlLoader::setShowInRightFlag(bool flag)
+void QmlLoader::togglePanelInLeft()
 {
-    QVariant showFlag = QVariant(flag);
     QMetaObject::invokeMethod(
                 this->rootObject,
-                "setShowInRightFlag",
-                Q_ARG(QVariant, showFlag)
+                "togglePanelInLeft"
                 );
 }
 
@@ -244,15 +242,14 @@ void QmlLoaderDBus::Toggle()
     m_parent->toggle();
 }
 
+void QmlLoaderDBus::ToggleInLeft()
+{
+    m_parent->togglePanelInLeft();
+}
+
 void QmlLoaderDBus::Show()
 {
     m_parent->show();
-}
-
-void QmlLoaderDBus::ShowInLeft()
-{
-    m_parent->setShowInRightFlag(false);//default is true
-    m_parent->toggle();
 }
 
 void QmlLoaderDBus::ShowModule(QString name)

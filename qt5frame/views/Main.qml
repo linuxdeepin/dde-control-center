@@ -49,11 +49,21 @@ QtObject {
             if(arg3 != -1){
                 gotShowModuleFlag = false
 
-                if (screenSize.width - arg1 > panelWidth && clickedToHide){
-                    clickedToHide = true
+                if (rootWindow.shouldShowInRight){
+                    if (screenSize.width - arg1 > panelWidth && clickedToHide){
+                        clickedToHide = true
+                    }
+                    else{
+                        clickedToHide = false
+                    }
                 }
                 else{
-                    clickedToHide = false
+                    if (arg1 > panelWidth && clickedToHide){
+                        clickedToHide = true
+                    }
+                    else{
+                        clickedToHide = false
+                    }
                 }
 
                 delayHideTimer.mousex = arg1
@@ -166,10 +176,6 @@ QtObject {
         return -1
     }
 
-    function setShowInRightFlag(flag){
-        rootWindow.shouldShowInRight = flag
-    }
-
     function showModule(modulesId){
         gotShowModuleFlag = true
         rootWindow.showModule(modulesId)
@@ -199,6 +205,10 @@ QtObject {
         rootWindow.togglePanel()
     }
 
+    function togglePanelInLeft(){
+        rootWindow.togglePanelInLeft()
+    }
+
     function outerAreaClicked(mousex, mousey){
         if (clickedToHide){
             if ((rootWindow.displayWidth == trayWidth) && (
@@ -215,14 +225,26 @@ QtObject {
     function in_visible_area(mousex, mousey){
         var width = rootWindow.displayWidth
         var height = rootWindow.height
-        if ((mousex >= screenSize.x + screenSize.width - width) && (
-        mousex <= screenSize.x + screenSize.width) && (
-        mousey >= screenSize.y + screenSize.height - height) && (
-        mousey <= screenSize.y + screenSize.height)){
-            return true
+        if (rootWindow.shouldShowInRight){
+            if ((mousex >= screenSize.x + screenSize.width - width) && (
+            mousex <= screenSize.x + screenSize.width) && (
+            mousey >= screenSize.y + screenSize.height - height) && (
+            mousey <= screenSize.y + screenSize.height)){
+                return true
+            }
+            else {
+                return false
+            }
         }
-        else {
-            return false
+        else{
+            if ((mousex <= width) && (
+            mousey >= screenSize.y + screenSize.height - height) && (
+            mousey <= screenSize.y + screenSize.height)){
+                return true
+            }
+            else {
+                return false
+            }
         }
     }
 }

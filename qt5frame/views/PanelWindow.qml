@@ -32,7 +32,7 @@ DOverrideWindow {
 
     x: shouldShowInRight?screenSize.x + screenSize.width - width:0
     y: screenSize.y
-    width: validWidth ? panelWidth + shadowImage.width : 0
+    width: validWidth ? panelWidth + 16 : 0
     height: screenSize.height
 
 
@@ -63,6 +63,8 @@ DOverrideWindow {
     }
 
     function showModule(moduleId){
+        if (moduleId != "home")
+            rootWindow.shouldShowInRight = true
         panelContent.moduleIconList.iconClickAction(moduleId)
     }
 
@@ -98,6 +100,17 @@ DOverrideWindow {
     }
 
     function togglePanel(){
+        rootWindow.shouldShowInRight = true
+        if(rootWindow.displayWidth == 0){
+            rootWindow.showPanel()
+        }
+        else{
+            rootWindow.hidePanel(false)
+        }
+    }
+
+    function togglePanelInLeft(){
+        rootWindow.shouldShowInRight = false
         if(rootWindow.displayWidth == 0){
             rootWindow.showPanel()
         }
@@ -217,6 +230,11 @@ DOverrideWindow {
         else{
             return false
         }
+    }
+
+    onShouldShowInRightChanged: {
+        rootWindow.displayWidth = 0
+        showModule("home")
     }
 
     onWindowFocusChanged: {
