@@ -390,6 +390,7 @@ Rectangle {
             function iconClickAction(iconId) {
                 currentContentId = iconId
                 if (iconId == 'shutdown'){
+                    IconTip.destroyiconTipImmediately()
                     shutdownButtonClicked()
                 }
                 else if(iconId == "home"){

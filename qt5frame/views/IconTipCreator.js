@@ -39,9 +39,11 @@ function showIconTip()
         iconTipPage.width = pageWidth;
         iconTipPage.toolTip = toolTip
         if (showInRight){
+            iconTipPage.destroyInterval = 200
             iconTipPage.showTipAtRight()
         }
         else{
+            iconTipPage.destroyInterval = 200
             iconTipPage.showTipAtLeft()
         }
 
@@ -79,9 +81,11 @@ function fnishCreate()
             iconTipPage.width = pageWidth;
             iconTipPage.toolTip = toolTip
             if (showInRight){
+                iconTipPage.destroyInterval = 200
                 iconTipPage.showTipAtRight()
             }
             else{
+                iconTipPage.destroyInterval = 200
                 iconTipPage.showTipAtLeft()
             }
         }
@@ -96,6 +100,13 @@ function destroyiconTip()
 {
     if (iconTipPage != undefined)
         iconTipPage.destroyTip()
+}
+
+function destroyiconTipImmediately(){
+    if (iconTipPage != undefined){
+        iconTipPage.destroyInterval = -1
+        iconTipPage.destroyTip()
+    }
 }
 
 function setAnimationEnable(flag)
