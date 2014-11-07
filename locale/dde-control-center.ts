@@ -1770,7 +1770,17 @@
 <context>
     <name>FontSettingsExpand</name>
     <message>
-        <location filename="../modules/personalization/components/FontSettingsExpand.qml" line="+36"/>
+        <location filename="../modules/personalization/components/FontSettingsExpand.qml" line="+47"/>
+        <source>Standard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Monospaced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+15"/>
         <source>Size</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2106,7 +2116,7 @@
 <context>
     <name>PanelContent</name>
     <message>
-        <location filename="../qt5frame/views/PanelContent.qml" line="+454"/>
+        <location filename="../qt5frame/views/PanelContent.qml" line="+473"/>
         <source>Power</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2723,7 +2733,7 @@
         <location filename="../modules/power/main.qml" line="+268"/>
         <location line="+184"/>
         <location filename="../modules/shortcuts/main.qml" line="+53"/>
-        <location line="+172"/>
+        <location line="+180"/>
         <source>Custom</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2756,7 +2766,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="+93"/>
+        <location filename="../modules/date_time/main.qml" line="+106"/>
         <source>Automatic date and time</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2776,7 +2786,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/main.qml" line="+62"/>
+        <location filename="../modules/default_applications/main.qml" line="+85"/>
         <source>Default Applications</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2846,12 +2856,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/main.qml" line="+117"/>
+        <location filename="../modules/display/main.qml" line="+118"/>
         <source>Primary Monitor: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+31"/>
+        <location line="+43"/>
         <source>Monitor</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2886,7 +2896,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="+123"/>
+        <location filename="../modules/keyboard/main.qml" line="+141"/>
         <source>Repeat Delay</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2908,7 +2918,7 @@
     <message>
         <location line="+15"/>
         <location line="+27"/>
-        <location filename="../modules/mouse_touchpad/main.qml" line="+121"/>
+        <location filename="../modules/mouse_touchpad/main.qml" line="+134"/>
         <location line="+36"/>
         <source>Fast</source>
         <translation type="unfinished"></translation>
@@ -2932,7 +2942,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+48"/>
+        <location line="+46"/>
         <source>Keyboard Layout</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2942,17 +2952,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-239"/>
+        <location line="-237"/>
         <source>Caps Lock prompt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse_touchpad/main.qml" line="-103"/>
+        <location filename="../modules/mouse_touchpad/main.qml" line="-119"/>
         <source>Mouse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+33"/>
         <source>Primary Button</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2982,13 +2992,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/main.qml" line="+101"/>
+        <location filename="../modules/personalization/main.qml" line="+112"/>
         <source>Theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+7"/>
-        <location filename="../modules/shortcuts/main.qml" line="-174"/>
+        <location filename="../modules/shortcuts/main.qml" line="-182"/>
         <source>Window</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3136,7 +3146,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="+126"/>
+        <location filename="../modules/sound/main.qml" line="+127"/>
         <source>Speaker</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3197,7 +3207,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/main.qml" line="+102"/>
+        <location filename="../modules/system_info/main.qml" line="+118"/>
         <source>Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3232,7 +3242,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+18"/>
         <source>GNU GENERAL PUBLIC LICENSE</source>
         <translation type="unfinished"></translation>
     </message>
