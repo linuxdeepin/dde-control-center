@@ -124,7 +124,7 @@ DBaseExpand {
 
             property var localeList: new Array()
 
-            delegate: SelectItem {
+            delegate: LangSelectItem {
                 totalItemNumber: 2
                 selectItemId: localeExpand.currentLocale
 

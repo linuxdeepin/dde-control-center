@@ -72,6 +72,7 @@ Item {
 
     DssTitle {
         id:sysinfoDT
+        anchors.top: parent.top
         text: modulesId.moduleLocaleNames["system_info"]
     }
 
@@ -164,21 +165,23 @@ Item {
             }
 
             SepratorHorizontal {}
-
         }
 
         DBaseExpand {
             id: gplExpand
             width: sysinfoListView.width
+            height: systemInfoModule.height - infoColumn.height - sysinfoDT.height - 5
             header.sourceComponent: DDownArrowHeader {
                 text: dsTr("GNU GENERAL PUBLIC LICENSE")
                 onClicked: {
                     gplExpand.expanded = !gplExpand.expanded
                 }
+
+                SepratorHorizontal {anchors.bottom: parent.bottom;visible: !gplExpand.expanded}
             }
             content.sourceComponent: DFlickable {
                 width: parent.width
-                height: systemInfoModule.height - infoColumn.height - 34
+                height: gplExpand.height - 32
                 contentWidth: parent.width
                 contentHeight: gplContent.height
 
@@ -208,13 +211,13 @@ Item {
                         wrapMode: TextEdit.WordWrap
                         readOnly: true
                     }
-
                 }
             }
-        }
 
-        SepratorHorizontal {
-            width: sysinfoListView.width
+            SepratorHorizontal {
+                anchors.bottom :parent.bottom
+                width: sysinfoListView.width
+            }
         }
 
     }

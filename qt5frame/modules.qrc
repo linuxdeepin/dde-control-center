@@ -327,5 +327,6 @@
         <file>views/icons/wacom_normal.png</file>
         <file>views/icons/wacom_press.png</file>
         <file>modules/wacom/main.qml</file>
+        <file>modules/keyboard/LangSelectItem.qml</file>
     </qresource>
 </RCC>

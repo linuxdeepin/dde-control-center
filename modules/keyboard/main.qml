@@ -116,7 +116,7 @@ Item {
     ListView {
         id:keyListView
         anchors.top:keyDT.bottom
-        height: parent.height - keyDT.height
+        anchors.bottom: parent.bottom
         width: parent.width
         model: itemModel
         clip: true
@@ -252,7 +252,7 @@ Item {
         Column {
             id: keyboardLayoutArea
             width: keyListView.width
-            height: childrenRect.height
+            height: childrenRect.height - 10
 
             property string currentActionStateName: ""
 
@@ -482,7 +482,12 @@ Item {
 
             LocaleArea {
                 id: localeArea
-                listAreaMaxHeight: keyboardModule.height - 278 - 94
+                listAreaMaxHeight: keyboardModule.height
+                                   - contentColumn.height
+                                   - keyboardLayoutAreaTitleLine.height
+                                   - userKeyboardLayoutsArea.height
+                                   - addLayoutArea.height
+                                   - keyDT.height - 13
                 onExpandedChanged: {
                     if(expanded){
                         keyboardLayoutAreaTitleLine.reset()
