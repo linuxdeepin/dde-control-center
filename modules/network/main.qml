@@ -314,6 +314,7 @@ Item {
 
     DSeparatorHorizontal{
         anchors.top: header.bottom
+        anchors.topMargin: 1
         anchors.left: parent.left
         width: parent.width
     }

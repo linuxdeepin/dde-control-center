@@ -4,37 +4,33 @@ import Deepin.Widgets 1.0
 DBaseExpand {
     id: wiredDeviceExpand
     width: parent.width
-    visible: wiredDevicesNumber > 0
+    height: visible ? childrenRect.height : 0
+    visible: !(device.State == nmDeviceStateUnavailable && device.Vendor.indexOf("Apple") >= 0)
+    expanded: dbusNetwork.IsDeviceEnabled(device.Path) && visible
 
-    property var wiredDevices: {
-        var tmp = nmDevices[nmDeviceTypeEthernet]
-        if(typeof(tmp) == "undefined"){
-            return new Array()
-        }
-        else{
-            return tmp
+    property int conn_index:0
+    property int wiredDevicesNumber:0
+    property int dslConnectionNumber:0
+    property var dslConnections:[]
+    property var device
+
+    Connections{
+        target: dbusNetwork
+        onDeviceEnabled:{
+            if(arg0 == device.Path){
+                // print("onDeviceEnabled:", arg0, arg1) // TODO test
+                wiredDeviceExpand.expanded = arg1
+            }
         }
     }
-    property int wiredDevicesNumber: wiredDevices.length
-
-    property var dslConnections: {
-        var tmp = nmConnections[nmConnectionTypePppoe]
-        if(typeof(tmp) == "undefined"){
-            return new Array()
-        }
-        else{
-            return tmp
-        }
-    }
-    property int dslConnectionNumber: dslConnections.length
-
-    expanded: dbusNetwork.wiredEnabled
 
     header.sourceComponent: DBaseLine{
         id: wiredDeviceHeader
         leftLoader.sourceComponent: DssH2 {
+            elide: Text.ElideRight
+            width: wiredDeviceExpand.width * 2 / 3
             anchors.verticalCenter: parent.verticalCenter
-            text: dsTr("Wired Network")
+            text: wiredDevicesNumber > 1 && device.UsbDevice ? device.Vendor : dsTr("Wired Network")
         }
 
         rightLoader.sourceComponent: DSwitchButton{
@@ -47,7 +43,7 @@ DBaseExpand {
                 }
             }
             onClicked: {
-                dbusNetwork.wiredEnabled = checked
+                dbusNetwork.EnableDevice(device.Path,checked)
             }
         }
     }
@@ -80,20 +76,20 @@ DBaseExpand {
 
             function updateModel(){
                 model.clear()
-                for(var i=0; i<wiredDevicesNumber;i++){
-                    model.append({
-                        "conn_index": i,
-                        "dsl_index": -1, 
-                    })
-                    for(var j=0;j<dslConnectionNumber;j++){
+                model.append({
+                    "conn_index":wiredDeviceExpand.conn_index,
+                    "dsl_index": -1
+                })
+                for(var i=0;i<dslConnectionNumber;i++){
+                    if (dslConnections[i].HwAddress == "" || dslConnections[i].HwAddress == device.HwAddress){
                         model.append({
-                            "conn_index": i,
-                            "dsl_index": j, 
+                            "conn_index":wiredDeviceExpand.conn_index,
+                            "dsl_index": i
                         })
                     }
                 }
             }
         }
-
     }
+
 }

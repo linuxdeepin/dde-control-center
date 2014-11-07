@@ -19,6 +19,8 @@ BaseEditLine {
         }
         DLabel {
             width: valueWidth
+            elide: Text.ElideRight
+            font.pixelSize: 12
             visible: connectionSession.type == nmConnectionTypeWired
             Binding on text {
                 when: root.cacheValue != undefined

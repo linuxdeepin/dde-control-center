@@ -66,7 +66,7 @@ Column {
                     // InfoItem {label: dsTr("IPv6 Secondary DNS");  value: modelData.Ip6.Dns2}
                     // InfoItem {label: dsTr("IPv6 Ternary DNS");    value: modelData.Ip6.Dns3}
 
-                    InfoItem {label: dsTr("Device Speed");   value: modelData.Speed + " Mb/s"}
+                    InfoItem {label: dsTr("Device Speed");   value: modelData.Speed}
                 }
             }
         }

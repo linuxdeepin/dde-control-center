@@ -38,9 +38,9 @@ Column{
     }
     property string lableName: {
         if(itemType == "wired"){
-            if (isUsbDevice && deviceVendor) {
-                return deviceVendor
-            }
+//            if (isUsbDevice && deviceVendor) {
+//                return deviceVendor
+//            }
             if (index > 0) {
                 return dsTr("Wired Connection %1").arg(index + 1)
             }
