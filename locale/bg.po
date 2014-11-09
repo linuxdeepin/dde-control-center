@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-13 15:23+0800\n"
-"PO-Revision-Date: 2014-10-30 03:17+0000\n"
-"Last-Translator: szd_liufei <liufei@linuxdeepin.com>\n"
+"POT-Creation-Date: 2014-10-30 09:02+0800\n"
+"PO-Revision-Date: 2014-11-06 02:00+0000\n"
+"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/projects/p/dde-control-center/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -508,23 +508,23 @@ msgstr "Зареждане"
 
 #: ../dock-applets/plugins/power/AppletTray.qml:46
 #: ../modules/personalization/widgets/ThemeItem.qml:95
-#: ../modules/power/main.qml:268 ../modules/power/main.qml:443
+#: ../modules/power/main.qml:268 ../modules/power/main.qml:452
 #: ../modules/shortcuts/main.qml:53 ../modules/shortcuts/main.qml:225
 msgid "Custom"
 msgstr "Потребителски"
 
 #: ../dock-applets/plugins/power/AppletTray.qml:47
-#: ../modules/power/main.qml:256 ../modules/power/main.qml:431
+#: ../modules/power/main.qml:256 ../modules/power/main.qml:440
 msgid "Power saver"
 msgstr "Спестяване на енергия"
 
 #: ../dock-applets/plugins/power/AppletTray.qml:48
-#: ../modules/power/main.qml:250 ../modules/power/main.qml:425
+#: ../modules/power/main.qml:250 ../modules/power/main.qml:434
 msgid "Balanced"
 msgstr "Балансирано"
 
 #: ../dock-applets/plugins/power/AppletTray.qml:49
-#: ../modules/power/main.qml:262 ../modules/power/main.qml:437
+#: ../modules/power/main.qml:262 ../modules/power/main.qml:446
 msgid "High performance"
 msgstr "Висока производителност"
 
@@ -1105,7 +1105,7 @@ msgstr "Управление на захранването"
 msgid "More Settings"
 msgstr "Още настройки"
 
-#: ../qt5frame/views/ModulesData.qml:59 ../qt5frame/views/PanelContent.qml:410
+#: ../qt5frame/views/ModulesData.qml:59 ../qt5frame/views/PanelContent.qml:454
 #: ../dock-applets/plugins/power/main.qml:33
 msgid "Power"
 msgstr "Захранване"
@@ -1131,31 +1131,35 @@ msgid "Keyboard and Language"
 msgstr "Клавиатура и език"
 
 #: ../qt5frame/views/ModulesData.qml:65
+msgid "Tablet"
+msgstr ""
+
+#: ../qt5frame/views/ModulesData.qml:66
 msgid "Mouse and Touchpad"
 msgstr "Мишка и Тъчпад"
 
-#: ../qt5frame/views/ModulesData.qml:66 ../modules/mouse_touchpad/main.qml:53
+#: ../qt5frame/views/ModulesData.qml:67 ../modules/mouse_touchpad/main.qml:53
 msgid "Mouse"
 msgstr "Мишка"
 
-#: ../qt5frame/views/ModulesData.qml:67
+#: ../qt5frame/views/ModulesData.qml:68
 msgid "User Accounts"
 msgstr "Потребителски акаунти"
 
-#: ../qt5frame/views/ModulesData.qml:68
+#: ../qt5frame/views/ModulesData.qml:69
 #: ../modules/default_applications/main.qml:62
 msgid "Default Applications"
 msgstr "Програми по подразбиране"
 
-#: ../qt5frame/views/ModulesData.qml:69
+#: ../qt5frame/views/ModulesData.qml:70
 msgid "System Information"
 msgstr "Системна информация"
 
-#: ../qt5frame/views/ModulesData.qml:70
+#: ../qt5frame/views/ModulesData.qml:71
 msgid "Boot Menu"
 msgstr "Boot Меню"
 
-#: ../qt5frame/views/ModulesData.qml:71
+#: ../qt5frame/views/ModulesData.qml:72
 msgid "Home"
 msgstr "Домашна папка"
 
@@ -1372,7 +1376,7 @@ msgstr "Скорост на показалеца"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:134
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:171
-#: ../modules/keyboard/main.qml:154 ../modules/keyboard/main.qml:180
+#: ../modules/keyboard/main.qml:164 ../modules/keyboard/main.qml:191
 #: ../modules/mouse_touchpad/main.qml:120
 #: ../modules/mouse_touchpad/main.qml:156
 msgid "Slow"
@@ -1380,7 +1384,7 @@ msgstr "Бавно"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:135
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:172
-#: ../modules/keyboard/main.qml:153 ../modules/keyboard/main.qml:179
+#: ../modules/keyboard/main.qml:163 ../modules/keyboard/main.qml:190
 #: ../modules/mouse_touchpad/main.qml:121
 #: ../modules/mouse_touchpad/main.qml:157
 msgid "Fast"
@@ -1396,12 +1400,12 @@ msgid "Drag Threshold"
 msgstr "Праг на чувствителност при плъзгане"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:208
-#: ../modules/keyboard/main.qml:128
+#: ../modules/keyboard/main.qml:137
 msgid "Short"
 msgstr "Кратко"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:209
-#: ../modules/keyboard/main.qml:129
+#: ../modules/keyboard/main.qml:138
 msgid "Long"
 msgstr "Дълго"
 
@@ -1601,31 +1605,31 @@ msgstr "Цвят на текста"
 msgid "Selected Text Color"
 msgstr "Избран цвят на текста"
 
-#: ../modules/keyboard/main.qml:114
+#: ../modules/keyboard/main.qml:123
 msgid "Repeat Delay"
 msgstr "Забавяне преди повторение"
 
-#: ../modules/keyboard/main.qml:138
+#: ../modules/keyboard/main.qml:148
 msgid "Repeat Rate"
 msgstr "Скорост на повторение"
 
-#: ../modules/keyboard/main.qml:163
+#: ../modules/keyboard/main.qml:174
 msgid "Cursor Blink Rate"
 msgstr "Скорост на мигане на курсора"
 
-#: ../modules/keyboard/main.qml:189
+#: ../modules/keyboard/main.qml:201
 msgid "Test Area"
 msgstr "Тестова зона"
 
-#: ../modules/keyboard/main.qml:236
+#: ../modules/keyboard/main.qml:249
 msgid "Keyboard Layout"
 msgstr "Клавиатурни подредби"
 
-#: ../modules/keyboard/main.qml:447
+#: ../modules/keyboard/main.qml:460
 msgid "No result"
 msgstr "Няма резултат"
 
-#: ../modules/keyboard/main.qml:208
+#: ../modules/keyboard/main.qml:221
 msgid "Caps Lock prompt"
 msgstr "Бърз клавиш Caps Lock"
 
@@ -1696,9 +1700,9 @@ msgstr "Изключване"
 #: ../modules/power/main.qml:143 ../modules/power/main.qml:189
 #: ../modules/power/main.qml:253 ../modules/power/main.qml:259
 #: ../modules/power/main.qml:265 ../modules/power/main.qml:271
-#: ../modules/power/main.qml:358 ../modules/power/main.qml:428
-#: ../modules/power/main.qml:434 ../modules/power/main.qml:440
-#: ../modules/power/main.qml:446 ../modules/power/main.qml:534
+#: ../modules/power/main.qml:366 ../modules/power/main.qml:437
+#: ../modules/power/main.qml:443 ../modules/power/main.qml:449
+#: ../modules/power/main.qml:455 ../modules/power/main.qml:543
 msgid "Suspend"
 msgstr "Приспиване"
 
@@ -1722,19 +1726,19 @@ msgstr "Изискване на парола при събуждане"
 msgid "Plugged in"
 msgstr "Свързано"
 
-#: ../modules/power/main.qml:410
+#: ../modules/power/main.qml:419
 msgid "On battery"
 msgstr "На батерия"
 
 #: ../modules/power/main.qml:252 ../modules/power/main.qml:258
 #: ../modules/power/main.qml:264 ../modules/power/main.qml:270
-#: ../modules/power/main.qml:318 ../modules/power/main.qml:427
-#: ../modules/power/main.qml:433 ../modules/power/main.qml:439
-#: ../modules/power/main.qml:445 ../modules/power/main.qml:494
+#: ../modules/power/main.qml:325 ../modules/power/main.qml:436
+#: ../modules/power/main.qml:442 ../modules/power/main.qml:448
+#: ../modules/power/main.qml:454 ../modules/power/main.qml:503
 msgid "Turn off the display"
 msgstr "Изключване на дисплея"
 
-#: ../modules/power/main.qml:313 ../modules/power/main.qml:489
+#: ../modules/power/main.qml:319 ../modules/power/main.qml:498
 msgid "Custom Options"
 msgstr "Потребителски опции"
 
@@ -1921,3 +1925,79 @@ msgstr "VPN OpenConnect"
 #: ../modules/account/main.qml:132
 msgid "User List"
 msgstr "Потребителски списък"
+
+#: ../modules/wacom/main.qml:14
+msgid "Page Up"
+msgstr ""
+
+#: ../modules/wacom/main.qml:15
+msgid "Page Down"
+msgstr ""
+
+#: ../modules/wacom/main.qml:16
+msgid "Left Click"
+msgstr ""
+
+#: ../modules/wacom/main.qml:17
+msgid "Right Click"
+msgstr ""
+
+#: ../modules/wacom/main.qml:18
+msgid "Middle Click"
+msgstr ""
+
+#: ../modules/wacom/main.qml:69
+msgid "Tablet Orientation"
+msgstr ""
+
+#: ../modules/wacom/main.qml:76
+msgid "Left Hand"
+msgstr ""
+
+#: ../modules/wacom/main.qml:77
+msgid "Right Hand"
+msgstr ""
+
+#: ../modules/wacom/main.qml:90
+msgid "Digital Pen Modes"
+msgstr ""
+
+#: ../modules/wacom/main.qml:97
+msgid "Pen Mode"
+msgstr ""
+
+#: ../modules/wacom/main.qml:98
+msgid "Mouse Mode"
+msgstr ""
+
+#: ../modules/wacom/main.qml:112
+msgid "Down Key"
+msgstr ""
+
+#: ../modules/wacom/main.qml:137
+msgid "Up Key"
+msgstr ""
+
+#: ../modules/wacom/main.qml:162
+msgid "Pressure"
+msgstr ""
+
+#: ../modules/wacom/main.qml:178
+msgid "Soft"
+msgstr ""
+
+#: ../modules/wacom/main.qml:179
+msgid "Hard"
+msgstr ""
+
+#: ../modules/wacom/main.qml:190
+msgid "Double-click Space"
+msgstr ""
+
+#: ../modules/wacom/main.qml:206
+msgid "Narrow"
+msgstr ""
+
+#: ../modules/wacom/main.qml:207
+msgid "Wide"
+msgstr ""
