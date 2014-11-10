@@ -229,7 +229,7 @@ Rectangle {
             IconTip.pageWidth = iconTipText.width + 30
             IconTip.setAnimationEnable(Math.abs(tipDisplayHeight - IconTip.pageY) > 50 ? false : true)
             IconTip.pageY = tipDisplayHeight
-            IconTip.pageX = shouldShowInRight ? Screen.width -  panelContent.width - IconTip.pageWidth - 10 : panelContent.width + 10
+            IconTip.pageX = shouldShowInRight ? screenSize.width + screenSize.x -  panelContent.width - IconTip.pageWidth - 10 : panelContent.width + 10
             IconTip.showInRight = shouldShowInRight
             IconTip.toolTip = localeName
             IconTip.showIconTip()

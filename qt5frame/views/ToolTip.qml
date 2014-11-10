@@ -78,8 +78,8 @@ Window {
         onTriggered: {
             toolTip.x = cursorPosition.x + 10
             toolTip.y = cursorPosition.y + 10
-            if (toolTip.x + toolTip.width > screenSize.width){
-                toolTip.x = screenSize.width - toolTip.width
+            if (toolTip.x + toolTip.width > screenSize.width + screenSize.x){
+                toolTip.x = screenSize.width + screenSize.x - toolTip.width
             }
             if (toolTip.y + toolTip.height > screenSize.height){
                 toolTip.y = pos[1] - 10 - toolTip.height
