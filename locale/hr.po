@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-30 09:02+0800\n"
-"PO-Revision-Date: 2014-11-06 02:00+0000\n"
+"PO-Revision-Date: 2014-11-11 06:55+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/projects/p/dde-control-center/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -259,7 +259,7 @@ msgstr "Dopusti Cisco Secure Desktop Trojan"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:274
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
 msgid "Customize Key Direction"
-msgstr ""
+msgstr "Prilagodi ključ smjera"
 
 #: ../modules/network/add/AddVpn.qml:214 ../modules/network/add/AddVpn.qml:304
 #: ../modules/network/wireless/AddWireless.qml:165
@@ -290,7 +290,7 @@ msgstr "CSD skripta"
 #: ../modules/network/add/AddVpn.qml:224
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:154
 msgid "Use FSID for Key Passphrase"
-msgstr ""
+msgstr "Use FSID for Key Passphrase"
 
 #: ../modules/network/add/AddVpn.qml:324
 #: ../modules/network/wireless/AddWireless.qml:206
@@ -308,7 +308,7 @@ msgstr "Nepromjenjiv ključ"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:284
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:63
 msgid "Key Direction"
-msgstr ""
+msgstr "Key Direction"
 
 #: ../modules/network/add/AddVpn.qml:364
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:294
@@ -791,7 +791,7 @@ msgstr "Nema TCP kompresije zaglavlja"
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:158
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:137
 msgid "Send PPP Echo Packets"
-msgstr ""
+msgstr "Send PPP Echo Packets"
 
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:23
 msgid "Security Required"
@@ -1568,7 +1568,7 @@ msgstr "DVD Video"
 
 #: ../modules/default_applications/main.qml:270
 msgid "Music Player"
-msgstr ""
+msgstr "Glazbeni svirač"
 
 #: ../modules/default_applications/main.qml:275
 msgid "Camera"

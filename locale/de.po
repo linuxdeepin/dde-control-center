@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-30 09:02+0800\n"
-"PO-Revision-Date: 2014-11-06 12:22+0000\n"
+"PO-Revision-Date: 2014-11-13 09:36+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/dde-control-center/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -1984,7 +1984,7 @@ msgstr "Nach-oben-Taste"
 
 #: ../modules/wacom/main.qml:162
 msgid "Pressure"
-msgstr ""
+msgstr "Druck"
 
 #: ../modules/wacom/main.qml:178
 msgid "Soft"

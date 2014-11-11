@@ -1,22 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # artor <arto@rusanen.me>, 2014
+# Kimmo Siniluoto <robotti1984@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-22 10:39+0800\n"
-"PO-Revision-Date: 2014-07-02 08:41+0000\n"
-"Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
-"Language-Team: Finnish (http://www.transifex.com/projects/p/dde-control-"
-"center/language/fi/)\n"
-"Language: fi\n"
+"POT-Creation-Date: 2014-10-30 09:02+0800\n"
+"PO-Revision-Date: 2014-11-17 16:21+0000\n"
+"Last-Translator: Kimmo Siniluoto <robotti1984@gmail.com>\n"
+"Language-Team: Finnish (http://www.transifex.com/projects/p/dde-control-center/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../modules/network/add/AddDsl.qml:11
@@ -34,7 +34,7 @@ msgstr "Nimi"
 #: ../modules/network/add/AddDsl.qml:36
 #: ../modules/network/add/AddMobile.qml:75
 #: ../modules/network/add/AddMobile.qml:105
-#: ../modules/account/AddUserDialog.qml:116
+#: ../modules/account/AddUserDialog.qml:117
 #: ../modules/network/add/AddVpn.qml:124 ../modules/network/add/AddVpn.qml:254
 #: ../modules/network/add/AddVpn.qml:394 ../modules/network/add/AddVpn.qml:434
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:53
@@ -56,7 +56,7 @@ msgstr "Palvelu"
 #: ../modules/network/add/AddDsl.qml:56
 #: ../modules/network/add/AddMobile.qml:85
 #: ../modules/network/add/AddMobile.qml:115
-#: ../modules/account/AddUserDialog.qml:158
+#: ../modules/account/AddUserDialog.qml:160
 #: ../modules/network/add/AddVpn.qml:144 ../modules/network/add/AddVpn.qml:274
 #: ../modules/network/add/AddVpn.qml:414
 #: ../modules/network/wireless/AddWireless.qml:64
@@ -97,7 +97,7 @@ msgid "Number"
 msgstr "Numero"
 
 #: ../modules/network/add/AddSectionSave.qml:11
-#: ../modules/account/AddUserDialog.qml:325
+#: ../modules/account/AddUserDialog.qml:327
 #: ../modules/network/wireless/AddWireless.qml:216
 #: ../modules/network/ConnectionAdd.qml:69
 #: ../modules/network/ConnectionEdit.qml:146
@@ -108,7 +108,7 @@ msgstr "Numero"
 #: ../modules/shortcuts/ShortcutInput.qml:343
 #: ../modules/date_time/TimeBox.qml:212
 #: ../modules/network/wireless/WifiHotspot.qml:82
-#: ../dock-applets/qml/WifiPasswordWindow.qml:171
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:183
 #: ../modules/display/main.qml:227
 msgid "Cancel"
 msgstr "Peruutus"
@@ -121,58 +121,55 @@ msgstr "Lisää"
 
 #: ../modules/account/AddUserDialog.qml:48
 #: ../modules/account/PasswordDialog.qml:96
-#, fuzzy
 msgid "Invalid password"
-msgstr "Salasana"
+msgstr "Väärä salasana"
 
 #: ../modules/account/AddUserDialog.qml:53
-#, fuzzy
 msgid "Nothing input"
-msgstr "Ei mitään"
+msgstr "Ei mitään syötettä"
 
 #: ../modules/account/AddUserDialog.qml:58
 #: ../modules/account/PasswordDialog.qml:101
-#, fuzzy
 msgid "Different password"
-msgstr "Salasana uudelleen"
+msgstr "Eri salasana"
 
 #: ../modules/account/AddUserDialog.qml:67
 msgid "Add User"
 msgstr "Lisää käyttäjä"
 
-#: ../modules/account/AddUserDialog.qml:95
+#: ../modules/account/AddUserDialog.qml:96
 msgid "New User"
 msgstr "Uusi käyttäjä"
 
-#: ../modules/account/AddUserDialog.qml:99
-#: ../modules/account/AddUserDialog.qml:254
-#: ../modules/account/EditUserDialog.qml:135
-#: ../modules/account/UserList.qml:188
+#: ../modules/account/AddUserDialog.qml:100
+#: ../modules/account/AddUserDialog.qml:256
+#: ../modules/account/EditUserDialog.qml:138
+#: ../modules/account/UserList.qml:222
 msgid "Standard"
 msgstr "Standardi"
 
-#: ../modules/account/AddUserDialog.qml:99
-#: ../modules/account/AddUserDialog.qml:255
-#: ../modules/account/EditUserDialog.qml:136
-#: ../modules/account/UserList.qml:188
+#: ../modules/account/AddUserDialog.qml:100
+#: ../modules/account/AddUserDialog.qml:257
+#: ../modules/account/EditUserDialog.qml:139
+#: ../modules/account/UserList.qml:222
 msgid "Administrator"
 msgstr "Järjestelmänvalvoja"
 
-#: ../modules/account/AddUserDialog.qml:201
+#: ../modules/account/AddUserDialog.qml:203
 msgid "Repeat Password"
 msgstr "Salasana uudelleen"
 
-#: ../modules/account/AddUserDialog.qml:242
-#: ../modules/account/EditUserDialog.qml:123
+#: ../modules/account/AddUserDialog.qml:244
+#: ../modules/account/EditUserDialog.qml:126
 msgid "Account Type"
 msgstr "Tilin tyyppi"
 
-#: ../modules/account/AddUserDialog.qml:274
-#: ../modules/account/EditUserDialog.qml:56
+#: ../modules/account/AddUserDialog.qml:276
+#: ../modules/account/EditUserDialog.qml:59
 msgid "Auto-login"
 msgstr "Automaattikirjaus"
 
-#: ../modules/account/AddUserDialog.qml:338
+#: ../modules/account/AddUserDialog.qml:340
 #: ../modules/account/DeleteUserDialog.qml:46
 #: ../modules/account/PasswordDialog.qml:221 ../modules/account/WebCam.qml:148
 msgid "Confirm"
@@ -246,24 +243,23 @@ msgstr "Kysy salasanaa"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:94
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:214
 msgid "CA Cert"
-msgstr "CA Certifikaatti"
+msgstr "CA varmenne"
 
 #: ../modules/network/add/AddVpn.qml:174
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:104
 msgid "Proxy"
-msgstr "Proxy"
+msgstr "Välityspalvelin"
 
 #: ../modules/network/add/AddVpn.qml:184
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:114
 msgid "Allow Cisco Secure Desktop Trojan"
-msgstr ""
+msgstr "Allow Cisco Secure Desktop Trojan"
 
 #: ../modules/network/add/AddVpn.qml:344
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:274
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
-#, fuzzy
 msgid "Customize Key Direction"
-msgstr "Resoluutio"
+msgstr "Määritä avaimen suunta"
 
 #: ../modules/network/add/AddVpn.qml:214 ../modules/network/add/AddVpn.qml:304
 #: ../modules/network/wireless/AddWireless.qml:165
@@ -271,12 +267,12 @@ msgstr "Resoluutio"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:144
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:234
 msgid "Private Key"
-msgstr ""
+msgstr "Yksityinen avain"
 
 #: ../modules/network/add/AddVpn.qml:244
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:174
 msgid "Auth Type"
-msgstr ""
+msgstr "Tyyppi"
 
 #: ../modules/network/add/AddVpn.qml:204 ../modules/network/add/AddVpn.qml:294
 #: ../modules/network/wireless/AddWireless.qml:114
@@ -284,45 +280,45 @@ msgstr ""
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:134
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:224
 msgid "User Cert"
-msgstr ""
+msgstr "Käyttäjän varmenne"
 
 #: ../modules/network/add/AddVpn.qml:194
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:124
 msgid "CSD Script"
-msgstr ""
+msgstr "CSD Script"
 
 #: ../modules/network/add/AddVpn.qml:224
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:154
 msgid "Use FSID for Key Passphrase"
-msgstr ""
+msgstr "Use FSID for Key Passphrase"
 
 #: ../modules/network/add/AddVpn.qml:324
 #: ../modules/network/wireless/AddWireless.qml:206
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:195
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:254
 msgid "Private Pwd"
-msgstr ""
+msgstr "Yksityisen avaimen salasana"
 
 #: ../modules/network/add/AddVpn.qml:334
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:264
 msgid "Static Key"
-msgstr ""
+msgstr "Staattinen avain"
 
 #: ../modules/network/add/AddVpn.qml:354
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:284
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:63
 msgid "Key Direction"
-msgstr ""
+msgstr "Avaimen suunta"
 
 #: ../modules/network/add/AddVpn.qml:364
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:294
 msgid "Remote IP"
-msgstr ""
+msgstr "Remote IP"
 
 #: ../modules/network/add/AddVpn.qml:374
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:304
 msgid "Local IP"
-msgstr ""
+msgstr "Local IP"
 
 #: ../modules/network/add/AddVpn.qml:454
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:394
@@ -343,34 +339,34 @@ msgstr "Ryhmän salasana"
 #: ../modules/network/add/AddVpn.qml:494
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:434
 msgid "Use Hybrid Authentication"
-msgstr ""
+msgstr "Use Hybrid Authentication"
 
 #: ../modules/network/add/AddVpn.qml:504
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:444
 msgid "CA File"
-msgstr ""
+msgstr "CA-tiedosto"
 
 #: ../modules/network/add/AddVpn.qml:516
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:23
 msgid "Enable IPsec"
-msgstr ""
+msgstr "Ota käyttöön IPsec"
 
 #: ../modules/network/add/AddVpn.qml:536
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:43
 msgid "Group ID"
-msgstr ""
+msgstr "Group ID"
 
 #: ../modules/network/add/AddVpn.qml:546
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:53
 msgid "Pre-Shared Key"
-msgstr ""
+msgstr "Jaettu avain"
 
 #: ../modules/network/add/AddVpn.qml:558 ../modules/network/add/AddVpn.qml:570
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:23
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:23
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:23
 msgid "Use MPPE"
-msgstr ""
+msgstr "Käytä Point-to-Point-salausta (MPPE)"
 
 #: ../modules/network/wireless/AddWireless.qml:8
 msgid "Connect to wireless"
@@ -380,7 +376,7 @@ msgstr "Yhdistä langattomaan verkkoon"
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:23
 #: ../modules/network/wireless/WifiHotspot.qml:37
 msgid "SSID"
-msgstr ""
+msgstr "SSID"
 
 #: ../modules/network/wireless/AddWireless.qml:44
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:11
@@ -390,52 +386,52 @@ msgstr ""
 #: ../modules/network/Info.qml:53
 #: ../modules/network/wireless/WifiHotspot.qml:49
 msgid "Security"
-msgstr ""
+msgstr "Tietoturva"
 
 #: ../modules/network/wireless/AddWireless.qml:54
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:43
 #: ../modules/network/wireless/WifiHotspot.qml:59
 msgid "Key"
-msgstr ""
+msgstr "Avain"
 
 #: ../modules/network/wireless/AddWireless.qml:74
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:63
 msgid "EAP Auth"
-msgstr ""
+msgstr "Suojattu EAP (PEAP)"
 
 #: ../modules/network/wireless/AddWireless.qml:84
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:73
 msgid "Identity"
-msgstr ""
+msgstr "Identiteetti"
 
 #: ../modules/network/wireless/AddWireless.qml:94
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:83
 msgid "Anonymous ID"
-msgstr ""
+msgstr "Anonyymi identiteetti"
 
 #: ../modules/network/wireless/AddWireless.qml:124
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:113
 msgid "Provisioning"
-msgstr ""
+msgstr "Provisioning"
 
 #: ../modules/network/wireless/AddWireless.qml:134
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:123
 msgid "PAC file"
-msgstr ""
+msgstr "PAC tiedosto"
 
 #: ../modules/network/wireless/AddWireless.qml:144
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:133
 msgid "PEAP Version"
-msgstr ""
+msgstr "PEAP versio"
 
 #: ../modules/network/wireless/AddWireless.qml:154
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:143
 msgid "Inner Auth"
-msgstr ""
+msgstr "Sisempi tunnistautuminen"
 
 #: ../modules/network/wireless/AddWireless.qml:224
 #: ../modules/network/widgets/PasswordBox.qml:109
-#: ../dock-applets/qml/WifiPasswordWindow.qml:178
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:190
 msgid "Connect"
 msgstr "Yhdistä"
 
@@ -443,12 +439,107 @@ msgstr "Yhdistä"
 #: ../modules/power/AppletSwitchArea.qml:40
 #: ../modules/sound/AppletSwitchArea.qml:40
 msgid "Dock Applet Enabled"
-msgstr ""
+msgstr "Dock sovelma otettu käyttöön"
+
+#: ../dock-applets/plugins/date_time/AppletTray.qml:90
+msgid "_Switch to analog"
+msgstr "Vaihda analogiseen"
+
+#: ../dock-applets/plugins/date_time/AppletTray.qml:91
+msgid "_Switch to digital"
+msgstr "Vaihda digitaaliseen"
+
+#: ../dock-applets/plugins/date_time/AppletTray.qml:178
+#: ../modules/date_time/CalendarComponent.qml:83
+#: ../dock-applets/plugins/date_time/calendar_core.js:4
+msgid "Sun"
+msgstr "Su"
+
+#: ../dock-applets/plugins/date_time/AppletTray.qml:179
+#: ../modules/date_time/CalendarComponent.qml:84
+#: ../dock-applets/plugins/date_time/calendar_core.js:4
+msgid "Mon"
+msgstr "Ma"
+
+#: ../dock-applets/plugins/date_time/AppletTray.qml:180
+#: ../modules/date_time/CalendarComponent.qml:85
+#: ../dock-applets/plugins/date_time/calendar_core.js:4
+msgid "Tue"
+msgstr "Ti"
+
+#: ../dock-applets/plugins/date_time/AppletTray.qml:181
+#: ../modules/date_time/CalendarComponent.qml:86
+#: ../dock-applets/plugins/date_time/calendar_core.js:4
+msgid "Wed"
+msgstr "Ke"
+
+#: ../dock-applets/plugins/date_time/AppletTray.qml:182
+#: ../modules/date_time/CalendarComponent.qml:87
+#: ../dock-applets/plugins/date_time/calendar_core.js:4
+msgid "Thu"
+msgstr "To"
+
+#: ../dock-applets/plugins/date_time/AppletTray.qml:183
+#: ../modules/date_time/CalendarComponent.qml:88
+#: ../dock-applets/plugins/date_time/calendar_core.js:4
+msgid "Fri"
+msgstr "Pe"
+
+#: ../dock-applets/plugins/date_time/AppletTray.qml:184
+#: ../modules/date_time/CalendarComponent.qml:89
+#: ../dock-applets/plugins/date_time/calendar_core.js:4
+msgid "Sat"
+msgstr "La"
+
+#: ../dock-applets/plugins/network/AppletTray.qml:319
+#: ../dock-applets/plugins/power/AppletTray.qml:99
+#: ../dock-applets/plugins/sound/AppletTray.qml:183
+msgid "_Run"
+msgstr "Suorita"
+
+#: ../dock-applets/plugins/network/AppletTray.qml:320
+#: ../dock-applets/plugins/power/AppletTray.qml:106
+#: ../dock-applets/plugins/sound/AppletTray.qml:184
+msgid "_Undock"
+msgstr "Irroita"
+
+#: ../dock-applets/plugins/power/AppletTray.qml:34
+msgid "On Charging"
+msgstr "Latautuu"
+
+#: ../dock-applets/plugins/power/AppletTray.qml:46
+#: ../modules/personalization/widgets/ThemeItem.qml:95
+#: ../modules/power/main.qml:268 ../modules/power/main.qml:452
+#: ../modules/shortcuts/main.qml:53 ../modules/shortcuts/main.qml:225
+msgid "Custom"
+msgstr "Kustomoitu"
+
+#: ../dock-applets/plugins/power/AppletTray.qml:47
+#: ../modules/power/main.qml:256 ../modules/power/main.qml:440
+msgid "Power saver"
+msgstr "Virransäästö"
+
+#: ../dock-applets/plugins/power/AppletTray.qml:48
+#: ../modules/power/main.qml:250 ../modules/power/main.qml:434
+msgid "Balanced"
+msgstr "Tasoitettu"
+
+#: ../dock-applets/plugins/power/AppletTray.qml:49
+#: ../modules/power/main.qml:262 ../modules/power/main.qml:446
+msgid "High performance"
+msgstr "Korkea suoritusteho"
+
+#: ../dock-applets/plugins/sound/AppletTray.qml:219
+msgid "Device"
+msgstr "Laite"
+
+#: ../dock-applets/plugins/sound/AppletTray.qml:319
+msgid "Applications"
+msgstr "Ohjelmat"
 
 #: ../modules/account/AvatarPickDialog.qml:5
-#, fuzzy
 msgid "Choose a new picture for your Avatar"
-msgstr "Valitse uusi kuvasi"
+msgstr "Valitse kuva käyttäjätilille"
 
 #: ../modules/account/AvatarView.qml:19
 msgid "Recently Used"
@@ -456,61 +547,31 @@ msgstr "Viimeksi käytetty"
 
 #: ../modules/account/AvatarView.qml:20
 msgid "Avatar"
-msgstr ""
+msgstr "Avatar"
 
 #: ../modules/account/AvatarView.qml:21
 msgid "Webcam"
-msgstr "Webcam"
+msgstr "Web-kamera"
+
+#: ../modules/sound/BalanceLine.qml:31
+msgid "Left/Right Balance"
+msgstr "Vasen/Oikea tasapaino"
+
+#: ../modules/sound/BalanceLine.qml:53
+msgid "Left"
+msgstr "Vasen"
+
+#: ../modules/sound/BalanceLine.qml:55
+msgid "Right"
+msgstr "Oikea"
 
 #: ../modules/network/edit_autogen/BaseConnectionEdit.qml:43
 msgid "Automatically connect"
 msgstr "Yhdistä automaattisesti"
 
-#: ../modules/date_time/Calendar.qml:129
+#: ../modules/date_time/Calendar.qml:131
 msgid "Today"
 msgstr "Tänään"
-
-#: ../modules/date_time/CalendarComponent.qml:83
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:178
-msgid "Sun"
-msgstr "Sun"
-
-#: ../modules/date_time/CalendarComponent.qml:84
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:179
-msgid "Mon"
-msgstr "Ma"
-
-#: ../modules/date_time/CalendarComponent.qml:85
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:180
-msgid "Tue"
-msgstr "Ti"
-
-#: ../modules/date_time/CalendarComponent.qml:86
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:181
-msgid "Wed"
-msgstr "Ke"
-
-#: ../modules/date_time/CalendarComponent.qml:87
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:182
-msgid "Thu"
-msgstr "To"
-
-#: ../modules/date_time/CalendarComponent.qml:88
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:183
-msgid "Fri"
-msgstr "Pe"
-
-#: ../modules/date_time/CalendarComponent.qml:89
-#: ../dock-applets/qml/date_time/calendar_core.js:4
-#: ../dock-applets/qml/date_time/main.qml:184
-msgid "Sat"
-msgstr "La"
 
 #: ../modules/network/ConnectionAdd.qml:12
 msgid "New Network"
@@ -547,6 +608,7 @@ msgstr "Tallenna"
 
 #: ../modules/network/ConnectionEdit.qml:113 ../modules/network/Info.qml:79
 #: ../modules/date_time/StateButtons.qml:35
+#: ../modules/date_time/StateButtons.qml:49
 #: ../modules/date_time/TimezoneArea.qml:257
 msgid "Close"
 msgstr "Sulje"
@@ -567,7 +629,7 @@ msgstr "Pidä käyttäjän tiedostot"
 msgid "Delete user's files"
 msgstr "Poista käyttäjän tiedostot"
 
-#: ../dock-applets/qml/disk_mount/DiskItem.qml:124
+#: ../dock-applets/plugins/disk_mount/DiskItem.qml:124
 msgid "Unmount failed!"
 msgstr "Liitoksen poisto epäonnistui!"
 
@@ -601,9 +663,8 @@ msgstr "Kloonattu MAC osoite"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:43
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:85
-#, fuzzy
 msgid "Customize MTU"
-msgstr "Kustomoitu MTU"
+msgstr "Muokkaa MTU"
 
 #: ../modules/network/edit_autogen/EditSectionEthernet.qml:53
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:107
@@ -628,7 +689,7 @@ msgstr "IP osoite"
 
 #: ../modules/network/edit_autogen/EditSectionIpv4.qml:44
 msgid "Netmask"
-msgstr "Netmask"
+msgstr "Verkkopeite"
 
 #: ../modules/network/edit_autogen/EditSectionIpv4.qml:69
 #: ../modules/network/edit_autogen/EditSectionIpv6.qml:65
@@ -670,220 +731,219 @@ msgstr "PPP"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:34
 msgid "128-bit MPPE"
-msgstr ""
+msgstr "128-bittinen salaus"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:45
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:43
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:43
 msgid "Stateful MPPE"
-msgstr ""
+msgstr "Tilallinen salaus"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:55
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:53
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:53
 msgid "Refuse EAP Authentication"
-msgstr ""
+msgstr "Kieltäydy EAP todentamisesta"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:65
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:64
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:64
 msgid "Refuse PAP Authentication"
-msgstr ""
+msgstr "Kieltäydy PAP todentamisesta"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:75
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:75
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:75
 msgid "Refuse CHAP Authentication"
-msgstr ""
+msgstr "Kieltäydy CHAP todentamisesta"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:85
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:86
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:86
 msgid "Refuse MSCHAP Authentication"
-msgstr ""
+msgstr "Kieltäydy MSCHAP todentamisesta"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:95
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:97
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:97
 msgid "Refuse MSCHAPv2 Authentication"
-msgstr ""
+msgstr "Kieltäydy MSCHAPv2 todentamisesta"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:105
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:108
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:107
 msgid "No BSD Data Compression"
-msgstr ""
+msgstr "Ei BSD-pakkausta"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:115
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:118
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:117
 msgid "No Deflate Data Compression"
-msgstr ""
+msgstr "Ei deflate-pakkausta"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:125
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:128
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:127
 msgid "No TCP Header Compression"
-msgstr ""
+msgstr "Ei TCP-otsakkeiden pakkausta"
 
 #: ../modules/network/edit_autogen/EditSectionPpp.qml:135
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:158
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:137
 msgid "Send PPP Echo Packets"
-msgstr ""
+msgstr "Lähetä PPP:n echo-paketteja"
 
 #: ../modules/network/edit_autogen/EditSectionSecurity.qml:23
 msgid "Security Required"
-msgstr ""
+msgstr "Security Required"
 
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:74
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:354
 msgid "NT Domain"
-msgstr ""
+msgstr "NT-toimialue"
 
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:11
 msgid "VPN IPsec"
-msgstr ""
+msgstr "VPN IPsec"
 
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:11
 #: ../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:11
 msgid "VPN PPP"
-msgstr ""
+msgstr "VPN PPP"
 
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:138
 msgid "No Protocol Field Compression"
-msgstr ""
+msgstr "No Protocol Field Compression"
 
 #: ../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:148
 msgid "No Address/Control Compression"
-msgstr ""
+msgstr "No Address/Control Compression"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:11
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:11
 msgid "VPN Advanced"
-msgstr ""
+msgstr "VPN lisäasetukset"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:33
 msgid "Gateway Port"
-msgstr ""
+msgstr "Yhdysväylän portti"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:23
 msgid "Customize Gateway Port"
-msgstr ""
+msgstr "Muokkaa yhdysväylän porttia"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:45
 msgid "Customize Renegotiation Interval"
-msgstr ""
+msgstr "Customize Regegotiation Interval"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:55
 msgid "Renegotiation Interval"
-msgstr ""
+msgstr "Renegotiation Interval"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:67
 msgid "Use LZO data compression"
-msgstr ""
+msgstr "Käytä LZO-pakkausta"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:77
 msgid "Use TCP connection"
-msgstr ""
+msgstr "Käytä TCP-yhteyttä"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:87
 msgid "Use TAP device"
-msgstr ""
+msgstr "Käytä TAP-laitetta"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:97
-#, fuzzy
 msgid "Customize Tunnel MTU"
-msgstr "Kustomoitu MTU"
+msgstr "Customize Tunnel MTU"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:119
 msgid "Customize UDP Fragment Size"
-msgstr ""
+msgstr "Customize UDP Fragment Size"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
 msgid "UDP Fragment Size"
-msgstr ""
+msgstr "UDP Fragment Size"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:141
 msgid "Restrict Tunnel TCP MSS"
-msgstr ""
+msgstr "Restrict Tunnel TCP MSS"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:151
 msgid "Randomize Remote Hosts"
-msgstr ""
+msgstr "Randomize Remote Hosts"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:11
 msgid "VPN Proxies"
-msgstr ""
+msgstr "VPN välityspalvelimet"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:23
 msgid "Proxy Type"
-msgstr ""
+msgstr "Välityspalvelimen tyyppi"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:33
 msgid "Server IP"
-msgstr ""
+msgstr "Palvelimen IP"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:43
 #: ../modules/network/proxy/ProxyLine.qml:39
 msgid "Port"
-msgstr ""
+msgstr "Portti"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:55
 msgid "Retry Indefinitely When Failed"
-msgstr ""
+msgstr "Yritä jatkuvasti uudelleen virheen sattuessa"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:11
 msgid "VPN Security"
-msgstr ""
+msgstr "VPN tietoturva"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:23
 msgid "Cipher"
-msgstr ""
+msgstr "Salausmenetelmä"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:33
 msgid "HMAC Auth"
-msgstr ""
+msgstr "HMAC-tunnistautuminen"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:11
 msgid "VPN TLS Authentication"
-msgstr ""
+msgstr "TLS-tunnistauminen"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:23
 msgid "Subject Match"
-msgstr ""
+msgstr "Subject match"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:33
 msgid "Remote Cert Type"
-msgstr ""
+msgstr "Remote Cert Type"
 
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:43
 msgid "Key File"
-msgstr ""
+msgstr "Avaintiedosto"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:23
 msgid "Domain"
-msgstr ""
+msgstr "Domain"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:33
 msgid "Vendor"
-msgstr ""
+msgstr "Vendor"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:43
 msgid "Version"
-msgstr ""
+msgstr "Version"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:53
 msgid "Encryption"
-msgstr ""
+msgstr "Salaus"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:63
 msgid "NAT Traversal"
-msgstr ""
+msgstr "NAT Traversal"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:73
 msgid "IKE DH Group"
-msgstr ""
+msgstr "IKE DH Group"
 
 #: ../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:83
 msgid "Forward Secrecy"
@@ -899,79 +959,89 @@ msgstr ""
 
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:11
 msgid "Wi-Fi"
-msgstr ""
+msgstr "Wi-Fi"
 
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:33
 msgid "Mode"
-msgstr ""
+msgstr "Tila"
 
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:43
 msgid "Band"
-msgstr ""
+msgstr "Taajuusalue"
 
 #: ../modules/network/edit_autogen/EditSectionWifi.qml:54
 msgid "Channel"
-msgstr ""
+msgstr "Kanava"
 
-#: ../modules/account/EditUserDialog.qml:90
+#: ../modules/account/EditUserDialog.qml:93
 msgid "Enable"
 msgstr ""
 
+#: ../modules/sound/FadeLine.qml:31
+msgid "Front/Rear Balance"
+msgstr "Etu/Taka tasapaino"
+
+#: ../modules/sound/FadeLine.qml:55
+msgid "Front"
+msgstr "Etu"
+
+#: ../modules/sound/FadeLine.qml:53
+msgid "Rear"
+msgstr "Taka"
+
 #: ../modules/personalization/components/FontSettingsExpand.qml:36
 msgid "Size"
-msgstr ""
+msgstr "Koko"
 
 #: ../modules/personalization/components/FontSettingsExpand.qml:65
 #, qt-format
 msgid "Font %1"
-msgstr ""
+msgstr "Kirjasin"
 
-#: ../modules/account/GuestUser.qml:40 ../qt5frame/views/HeaderArea.qml:108
+#: ../modules/account/GuestUser.qml:45 ../qt5frame/views/HeaderArea.qml:108
 msgid "Guest"
-msgstr ""
+msgstr "Vieras"
 
-#: ../modules/account/GuestUser.qml:101
+#: ../modules/account/GuestUser.qml:106
 #: ../modules/display/MonitorProperties.qml:80
 msgid "Enabled"
-msgstr ""
+msgstr "Käytössä"
 
 #: ../modules/network/Info.qml:13
 msgid "Activated Connections"
-msgstr ""
+msgstr "Aktiiviset yhteydet"
 
 #: ../modules/network/Info.qml:15
-#, fuzzy
 msgid "None Activated Connection"
-msgstr "Uusi mobiiliyhteys"
+msgstr "Epäaktiiviset yhteydet"
 
 #: ../modules/network/Info.qml:39
-#, fuzzy
 msgid "(default)"
-msgstr "Oletus"
+msgstr "(oletus)"
 
 #: ../modules/network/Info.qml:50
 msgid "Interface"
-msgstr ""
+msgstr "Verkkoliitäntä"
 
 #: ../modules/network/Info.qml:54
 msgid "Device Addr"
-msgstr ""
+msgstr "Laiteosoite"
 
 #: ../modules/network/Info.qml:56
 msgid "Subnet Mask"
-msgstr ""
+msgstr "Aliverkon peite"
 
 #: ../modules/network/Info.qml:57
 msgid "Route Addr"
-msgstr ""
+msgstr "Yhdyskäytävä"
 
 #: ../modules/network/Info.qml:58
 msgid "Primary DNS"
-msgstr ""
+msgstr "Ensisijainen DNS"
 
 #: ../modules/network/Info.qml:59
 msgid "Secondary DNS"
-msgstr ""
+msgstr "Toissijainen DNS"
 
 #: ../modules/network/Info.qml:60
 msgid "Third DNS"
@@ -979,7 +1049,7 @@ msgstr ""
 
 #: ../modules/network/Info.qml:69
 msgid "Device Speed"
-msgstr ""
+msgstr "Laitenopeus"
 
 #: ../modules/keyboard/LocaleArea.qml:53
 msgid "Language"
@@ -994,9 +1064,7 @@ msgstr "Haluatko pitää nämä näytön asetukset?"
 msgid ""
 "Reverting to previous display settings in <font color='#F48914'>%1</font> "
 "seconds."
-msgstr ""
-"Palataan edellisiin asetuksiin <font color='#F48914'>%1</font> sekunnin "
-"päästä."
+msgstr "Palataan edellisiin asetuksiin <font color='#F48914'>%1</font> sekunnin päästä."
 
 #: ../modules/display/MessageBox.qml:124
 msgid "Keep Changes"
@@ -1006,15 +1074,18 @@ msgstr "Pidä asetukset"
 msgid "Revert"
 msgstr "Palauta asetukset"
 
-#: ../qt5frame/views/ModulesData.qml:52 ../dock-applets/qml/main.qml:54
+#: ../qt5frame/views/ModulesData.qml:52
+#: ../dock-applets/plugins/date_time/main.qml:32
 msgid "Date and Time"
 msgstr "Päivä ja aika"
 
-#: ../qt5frame/views/ModulesData.qml:53 ../dock-applets/qml/main.qml:50
+#: ../qt5frame/views/ModulesData.qml:53
+#: ../dock-applets/plugins/network/main.qml:32
 msgid "Network"
 msgstr "Verkko"
 
-#: ../qt5frame/views/ModulesData.qml:54 ../dock-applets/qml/main.qml:53
+#: ../qt5frame/views/ModulesData.qml:54
+#: ../dock-applets/plugins/disk_mount/main.qml:33
 msgid "Disk Mount"
 msgstr "Levyn liitin"
 
@@ -1022,7 +1093,8 @@ msgstr "Levyn liitin"
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: ../qt5frame/views/ModulesData.qml:56 ../dock-applets/qml/main.qml:51
+#: ../qt5frame/views/ModulesData.qml:56
+#: ../dock-applets/plugins/sound/main.qml:32
 msgid "Sound"
 msgstr "Ääni"
 
@@ -1034,8 +1106,8 @@ msgstr "Virran hallinta"
 msgid "More Settings"
 msgstr "Lisää asetuksia"
 
-#: ../qt5frame/views/ModulesData.qml:59 ../qt5frame/views/PanelContent.qml:418
-#: ../dock-applets/qml/main.qml:52
+#: ../qt5frame/views/ModulesData.qml:59 ../qt5frame/views/PanelContent.qml:454
+#: ../dock-applets/plugins/power/main.qml:33
 msgid "Power"
 msgstr "Virta"
 
@@ -1056,42 +1128,45 @@ msgid "Keyboard Shortcuts"
 msgstr "Pikanäppäimet"
 
 #: ../qt5frame/views/ModulesData.qml:64
-#, fuzzy
 msgid "Keyboard and Language"
-msgstr "Näppäimistön asettelu"
+msgstr "Näppäimistö ja Kieli"
 
 #: ../qt5frame/views/ModulesData.qml:65
+msgid "Tablet"
+msgstr "Tablet"
+
+#: ../qt5frame/views/ModulesData.qml:66
 msgid "Mouse and Touchpad"
 msgstr "Hiiri sekä kosketuslevy"
 
-#: ../qt5frame/views/ModulesData.qml:66 ../modules/mouse_touchpad/main.qml:50
+#: ../qt5frame/views/ModulesData.qml:67 ../modules/mouse_touchpad/main.qml:53
 msgid "Mouse"
 msgstr "Hiiri"
 
-#: ../qt5frame/views/ModulesData.qml:67
+#: ../qt5frame/views/ModulesData.qml:68
 msgid "User Accounts"
 msgstr "Käyttäjätilit"
 
-#: ../qt5frame/views/ModulesData.qml:68
+#: ../qt5frame/views/ModulesData.qml:69
 #: ../modules/default_applications/main.qml:62
 msgid "Default Applications"
 msgstr "Oletusohjelmat"
 
-#: ../qt5frame/views/ModulesData.qml:69
+#: ../qt5frame/views/ModulesData.qml:70
 msgid "System Information"
 msgstr "Järjestelmätiedot"
 
-#: ../qt5frame/views/ModulesData.qml:70
+#: ../qt5frame/views/ModulesData.qml:71
 msgid "Boot Menu"
 msgstr "Käynnistys menu"
 
-#: ../qt5frame/views/ModulesData.qml:71
+#: ../qt5frame/views/ModulesData.qml:72
 msgid "Home"
 msgstr "Koti"
 
 #: ../modules/display/MonitorComponent.qml:185
 msgid "Split"
-msgstr ""
+msgstr "Jaettu"
 
 #: ../modules/display/MonitorComponent.qml:236
 msgid "Set as primary display"
@@ -1134,20 +1209,19 @@ msgid "Brightness"
 msgstr "Kirkkaus"
 
 #: ../modules/network/wired/NewItem.qml:45
-#: ../modules/network/wired/WiredItem.qml:88
+#: ../modules/network/wired/WiredItem.qml:89
 #, qt-format
 msgid "Wired Connection %1"
-msgstr "Langallinen verkko %1"
+msgstr "Langallinen yhteys %1"
 
 #: ../modules/network/wired/NewItem.qml:47
-#: ../modules/network/wired/WiredItem.qml:90
-#, fuzzy
+#: ../modules/network/wired/WiredItem.qml:91
 msgid "Wired Connection"
-msgstr "Langallinen verkko %1"
+msgstr "Langallinen yhteys"
 
 #: ../modules/network/widgets/NotManagedSection.qml:25
 msgid "not managed"
-msgstr ""
+msgstr "ei ole hallittu"
 
 #: ../modules/network/widgets/PasswordBox.qml:76
 msgid "Password: "
@@ -1165,19 +1239,17 @@ msgstr "Toista"
 msgid "Drag and drop an image to change background."
 msgstr "Raahaa ja pudota kuva vaihtaaksesi taustakuvan"
 
-#: ../modules/grub/Preview.qml:123
-msgid "Image format not supported."
-msgstr ""
+#: ../modules/grub/Preview.qml:123 ../modules/account/UserList.qml:233
+msgid "Image format not supported"
+msgstr "Kuvaformaatti ei ole tuettu"
 
 #: ../modules/grub/Preview.qml:124
-#, fuzzy
 msgid "Updating..."
-msgstr "Skannataan..."
+msgstr "Päivitetään..."
 
 #: ../modules/grub/Preview.qml:125
-#, fuzzy
 msgid "Successfully updated, reboot to view."
-msgstr "Onnistuneesti vaihdettu, käynnistä uudelleen nähdäksesi."
+msgstr "Onnistuneesti päivitetty, käynnistä uudelleen."
 
 #: ../modules/network/proxy/ProxyContent.qml:43
 msgid "None"
@@ -1204,9 +1276,8 @@ msgid "FTP Proxy"
 msgstr "FTP Proxy"
 
 #: ../modules/network/proxy/ProxyContent.qml:124
-#, fuzzy
 msgid "Socks Proxy"
-msgstr "Järjestelmän Proxy"
+msgstr "Socks Proxy"
 
 #: ../modules/network/proxy/ProxyContent.qml:149
 msgid "Configuration URL"
@@ -1218,15 +1289,15 @@ msgstr "Toteuta koko järjestelmään"
 
 #: ../modules/network/proxy/ProxyExpand.qml:37
 msgid "System Proxy"
-msgstr "Järjestelmän Proxy"
+msgstr "Järjestelmän välityspalvelin"
 
 #: ../modules/shared/ResetButton.qml:39
 msgid "Reset successfully"
-msgstr "Resetointi onnistui"
+msgstr "Oletusarvojen palautus onnistui"
 
 #: ../modules/shared/ResetButton.qml:47
 msgid "Reset"
-msgstr "Resetoi"
+msgstr "Oletusarvojen palautus"
 
 #: ../modules/shortcuts/ShortcutInput.qml:108
 msgid "Disable"
@@ -1268,13 +1339,6 @@ msgstr "Esikatsele teemaa"
 msgid "Done"
 msgstr "Valmis"
 
-#: ../modules/personalization/widgets/ThemeItem.qml:95
-#: ../dock-applets/qml/power/main.qml:46 ../modules/power/main.qml:268
-#: ../modules/power/main.qml:443 ../modules/shortcuts/main.qml:53
-#: ../modules/shortcuts/main.qml:225
-msgid "Custom"
-msgstr "Kustomoitu"
-
 #: ../modules/date_time/TimeBox.qml:161
 msgid "Double-click the above digits to change your time."
 msgstr "Tuplaklikkaa ylläolevia numeroita vaihtaaksesi ajan."
@@ -1287,43 +1351,43 @@ msgstr "Aseta"
 msgid "Time zone"
 msgstr "Aikavyöhyke"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:51
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:50
 msgid "Touchpad"
 msgstr "Kosketuslevy"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:82
-#: ../modules/mouse_touchpad/main.qml:67
+#: ../modules/mouse_touchpad/main.qml:70
 msgid "Primary Button"
 msgstr "Ensisijainen painike"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:90
-#: ../modules/mouse_touchpad/main.qml:74
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:91
+#: ../modules/mouse_touchpad/main.qml:78
 msgid "Left Button"
 msgstr "Vasen painike"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:91
-#: ../modules/mouse_touchpad/main.qml:75
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:92
+#: ../modules/mouse_touchpad/main.qml:79
 msgid "Right Button"
 msgstr "Oikea painike"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:104
-#: ../modules/mouse_touchpad/main.qml:88
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:117
+#: ../modules/mouse_touchpad/main.qml:104
 msgid "Pointer Speed"
 msgstr "Osoittimen nopeus"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:119
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:169
-#: ../modules/keyboard/main.qml:154 ../modules/keyboard/main.qml:180
-#: ../modules/mouse_touchpad/main.qml:103
-#: ../modules/mouse_touchpad/main.qml:155
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:134
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:171
+#: ../modules/keyboard/main.qml:164 ../modules/keyboard/main.qml:191
+#: ../modules/mouse_touchpad/main.qml:120
+#: ../modules/mouse_touchpad/main.qml:156
 msgid "Slow"
 msgstr "Hidas"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:120
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:170
-#: ../modules/keyboard/main.qml:153 ../modules/keyboard/main.qml:179
-#: ../modules/mouse_touchpad/main.qml:104
-#: ../modules/mouse_touchpad/main.qml:156
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:135
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:172
+#: ../modules/keyboard/main.qml:163 ../modules/keyboard/main.qml:190
+#: ../modules/mouse_touchpad/main.qml:121
+#: ../modules/mouse_touchpad/main.qml:157
 msgid "Fast"
 msgstr "Nopea"
 
@@ -1332,27 +1396,35 @@ msgstr "Nopea"
 msgid "Double-click Speed"
 msgstr "Tuplapainalluksen nopeus"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:180
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:192
 msgid "Drag Threshold"
 msgstr "Raahauksen raja-arvo"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:195
-#: ../modules/keyboard/main.qml:128
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:208
+#: ../modules/keyboard/main.qml:137
 msgid "Short"
 msgstr "Lyhyt"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:196
-#: ../modules/keyboard/main.qml:129
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:209
+#: ../modules/keyboard/main.qml:138
 msgid "Long"
 msgstr "Pitkä"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:205
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:228
 msgid "Natural Scrolling"
 msgstr "Luonnollinen rullaaminen"
 
-#: ../modules/mouse_touchpad/TouchpadComponent.qml:228
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:252
 msgid "Tap to click"
 msgstr "Napauta klikkaaksesi"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:275
+msgid "Two-finger scrolling"
+msgstr "Kahden sormen vieritys"
+
+#: ../modules/mouse_touchpad/TouchpadComponent.qml:298
+msgid "Edge scrolling"
+msgstr "Reunavieritys"
 
 #: ../modules/network/vpn/VpnExpand.qml:48
 msgid "VPN Connections"
@@ -1372,28 +1444,28 @@ msgstr "Kameraa ei löydy"
 
 #: ../modules/network/wireless/WifiHotspot.qml:23
 msgid "Edit Wi-Fi Hotspot"
-msgstr "Muokkaa Wi-Fi aluetta"
+msgstr "Muokkaa Wi-Fi tukiasemaa"
 
 #: ../modules/network/wireless/WifiHotspot.qml:23
 msgid "Create Wi-Fi Hotspot"
-msgstr "Luo Wi-Fi alue"
+msgstr "Luo Wi-Fi tukiasema"
 
 #: ../modules/network/wireless/WifiHotspot.qml:91
 msgid "Create"
 msgstr "Luo"
 
-#: ../dock-applets/qml/WifiPasswordWindow.qml:127
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:139
 msgid "Authentication required by Wi-Fi network"
-msgstr "Wi-Fi verrko vaatii tunnustuksen"
+msgstr "Wi-Fi verkko vaatii tunnustuksen"
 
-#: ../dock-applets/qml/WifiPasswordWindow.qml:135
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:147
 #, qt-format
 msgid ""
 "Passwords or encryption keys are required to access the Wi-Fi network <font "
 "color=\"#faca57\">%1</font>"
 msgstr "Wi-Fi verkko <font color=\"#faca57\">%1</font> tarvitsee salasanan"
 
-#: ../dock-applets/qml/WifiPasswordWindow.qml:149
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:161
 msgid "Password:"
 msgstr "Salasana:"
 
@@ -1401,86 +1473,38 @@ msgstr "Salasana:"
 msgid "Wired Network"
 msgstr "Langaton verkko"
 
-#: ../dock-applets/qml/network/WirelessApList.qml:95
+#: ../dock-applets/plugins/network/WirelessApList.qml:95
 msgid "Scanning..."
 msgstr "Skannataan..."
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:28
-#: ../dock-applets/qml/network/WirelessNetwork.qml:50
+#: ../dock-applets/plugins/network/WirelessNetwork.qml:50
 msgid "Wireless Network"
 msgstr "Langaton verkko"
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:26
-#: ../dock-applets/qml/network/WirelessNetwork.qml:50
+#: ../dock-applets/plugins/network/WirelessNetwork.qml:50
 #, qt-format
 msgid "Wireless Network %1"
 msgstr "Langaton verkko %1"
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:35
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:55
 msgid ""
-"Wireless network is unable to be connected maybe due to the following "
-"reasons:\n"
+"Wireless network is unable to be connected maybe due to the following reasons:\n"
 "\n"
 "1. The hardware switch of wireless network card is off\n"
 "2. Incorrect network configuration in /etc/network/interface\n"
 "3. Incorrect driver of network hardware"
 msgstr ""
 
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:137
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:352
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:35
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:158
 msgid "Connect to hidden access point"
 msgstr "Yhdistä piilotettuun verkkoon"
 
-#: ../dock-applets/qml/date_time/main.qml:90
-msgid "_Switch to analog"
-msgstr "Vaihda analogiseen"
-
-#: ../dock-applets/qml/date_time/main.qml:91
-msgid "_Switch to digital"
-msgstr "Vaihda digitaaliseen"
-
-#: ../dock-applets/qml/network/main.qml:319
-#: ../dock-applets/qml/power/main.qml:99
-#: ../dock-applets/qml/sound/main.qml:183
-msgid "_Run"
-msgstr "Suorita"
-
-#: ../dock-applets/qml/power/main.qml:34
-msgid "On Charging"
-msgstr "Latautuu"
-
-#: ../dock-applets/qml/power/main.qml:47 ../modules/power/main.qml:256
-#: ../modules/power/main.qml:431
-msgid "Power saver"
-msgstr "Virransäästö"
-
-#: ../dock-applets/qml/power/main.qml:48 ../modules/power/main.qml:250
-#: ../modules/power/main.qml:425
-msgid "Balanced"
-msgstr "Tasoitettu"
-
-#: ../dock-applets/qml/power/main.qml:49 ../modules/power/main.qml:262
-#: ../modules/power/main.qml:437
-msgid "High performance"
-msgstr "Korkea suoritusteho"
-
-#: ../dock-applets/qml/network/main.qml:320
-#: ../dock-applets/qml/power/main.qml:106
-#: ../dock-applets/qml/sound/main.qml:184
-msgid "_Undock"
-msgstr "Irroita"
-
-#: ../dock-applets/qml/sound/main.qml:219
-msgid "Device"
-msgstr "Laite"
-
-#: ../dock-applets/qml/sound/main.qml:313
-msgid "Applications"
-msgstr "Ohjelmat"
-
 #: ../modules/bluetooth/main.qml:76
 msgid "ON/OFF"
-msgstr "ON/OFF"
+msgstr "PÄÄLLÄ/POIS"
 
 #: ../modules/bluetooth/main.qml:141
 msgid "Devices nearby"
@@ -1528,7 +1552,7 @@ msgstr "Kuvat"
 
 #: ../modules/default_applications/main.qml:186
 msgid "Terminal"
-msgstr "Terminaali"
+msgstr "Pääte"
 
 #: ../modules/default_applications/main.qml:245
 msgid "AutoPlay"
@@ -1556,7 +1580,7 @@ msgstr "Ohjelmisto"
 
 #: ../modules/display/main.qml:117
 msgid "Primary Monitor: "
-msgstr ""
+msgstr "Ensisijainen näyttö"
 
 #: ../modules/display/main.qml:148
 msgid "Monitor"
@@ -1568,7 +1592,7 @@ msgstr "Käytä"
 
 #: ../modules/grub/main.qml:112
 msgid "Default Startup"
-msgstr ""
+msgstr "Oletuskäynnistys"
 
 #: ../modules/grub/main.qml:167
 msgid "Boot delay"
@@ -1582,35 +1606,35 @@ msgstr "Tekstin väri"
 msgid "Selected Text Color"
 msgstr "Valittu tekstin väri"
 
-#: ../modules/keyboard/main.qml:114
+#: ../modules/keyboard/main.qml:123
 msgid "Repeat Delay"
 msgstr "Toiston viive"
 
-#: ../modules/keyboard/main.qml:138
+#: ../modules/keyboard/main.qml:148
 msgid "Repeat Rate"
 msgstr "Toiton tahti"
 
-#: ../modules/keyboard/main.qml:163
+#: ../modules/keyboard/main.qml:174
 msgid "Cursor Blink Rate"
 msgstr "Kursorin vilketahti"
 
-#: ../modules/keyboard/main.qml:189
+#: ../modules/keyboard/main.qml:201
 msgid "Test Area"
 msgstr "Testialue"
 
-#: ../modules/keyboard/main.qml:236
+#: ../modules/keyboard/main.qml:249
 msgid "Keyboard Layout"
 msgstr "Näppäimistön asettelu"
 
-#: ../modules/keyboard/main.qml:447
+#: ../modules/keyboard/main.qml:460
 msgid "No result"
 msgstr "Ei kohteita"
 
-#: ../modules/keyboard/main.qml:208
+#: ../modules/keyboard/main.qml:221
 msgid "Caps Lock prompt"
 msgstr "Caps Lock kehote"
 
-#: ../modules/mouse_touchpad/main.qml:167
+#: ../modules/mouse_touchpad/main.qml:177
 msgid "Disable the touchpad when inserting the mouse"
 msgstr "Poista kosketuslevy käytöstä kun hiiri on asennettu"
 
@@ -1625,6 +1649,10 @@ msgstr "Ikkuna"
 #: ../modules/personalization/main.qml:115
 msgid "Icon"
 msgstr "Kuvake"
+
+#: ../modules/personalization/main.qml:122
+msgid "Cursor"
+msgstr "Osoitin"
 
 #: ../modules/personalization/main.qml:129
 msgid "Wallpaper"
@@ -1673,9 +1701,9 @@ msgstr "Sammuta"
 #: ../modules/power/main.qml:143 ../modules/power/main.qml:189
 #: ../modules/power/main.qml:253 ../modules/power/main.qml:259
 #: ../modules/power/main.qml:265 ../modules/power/main.qml:271
-#: ../modules/power/main.qml:358 ../modules/power/main.qml:428
-#: ../modules/power/main.qml:434 ../modules/power/main.qml:440
-#: ../modules/power/main.qml:446 ../modules/power/main.qml:534
+#: ../modules/power/main.qml:366 ../modules/power/main.qml:437
+#: ../modules/power/main.qml:443 ../modules/power/main.qml:449
+#: ../modules/power/main.qml:455 ../modules/power/main.qml:543
 msgid "Suspend"
 msgstr "Valmiustila"
 
@@ -1685,7 +1713,7 @@ msgstr "Kysy"
 
 #: ../modules/power/main.qml:170
 msgid "When I close the lid"
-msgstr "Kun suljen kuoren"
+msgstr "Kun suljen kannen"
 
 #: ../modules/power/main.qml:194
 msgid "Nothing"
@@ -1693,25 +1721,25 @@ msgstr "Ei mitään"
 
 #: ../modules/power/main.qml:213
 msgid "Password required to wake up"
-msgstr ""
+msgstr "Salasana vaadittu herätessä"
 
 #: ../modules/power/main.qml:235
 msgid "Plugged in"
-msgstr ""
+msgstr "Kytketty pistorasiaan"
 
-#: ../modules/power/main.qml:410
+#: ../modules/power/main.qml:419
 msgid "On battery"
-msgstr ""
+msgstr "Akkukäyttö"
 
 #: ../modules/power/main.qml:252 ../modules/power/main.qml:258
 #: ../modules/power/main.qml:264 ../modules/power/main.qml:270
-#: ../modules/power/main.qml:318 ../modules/power/main.qml:427
-#: ../modules/power/main.qml:433 ../modules/power/main.qml:439
-#: ../modules/power/main.qml:445 ../modules/power/main.qml:494
+#: ../modules/power/main.qml:325 ../modules/power/main.qml:436
+#: ../modules/power/main.qml:442 ../modules/power/main.qml:448
+#: ../modules/power/main.qml:454 ../modules/power/main.qml:503
 msgid "Turn off the display"
 msgstr "Sulje näyttö"
 
-#: ../modules/power/main.qml:313 ../modules/power/main.qml:489
+#: ../modules/power/main.qml:319 ../modules/power/main.qml:498
 msgid "Custom Options"
 msgstr "Omat asetukset"
 
@@ -1731,55 +1759,43 @@ msgstr "Kaiutin"
 msgid "Output Volume"
 msgstr "Äänenvoimakkuus"
 
-#: ../modules/sound/main.qml:204
-msgid "Balance"
-msgstr "Tasapaino"
-
-#: ../modules/sound/main.qml:226
-msgid "Left"
-msgstr "Vasen"
-
-#: ../modules/sound/main.qml:228
-msgid "Right"
-msgstr "Oikea"
-
-#: ../modules/sound/main.qml:260
+#: ../modules/sound/main.qml:221
 msgid "Microphone"
 msgstr "Mikrofoni"
 
-#: ../modules/sound/main.qml:290
+#: ../modules/sound/main.qml:251
 msgid "Input Volume"
-msgstr "Sisääntulo voimakkuus"
+msgstr "Sisääntulon voimakkuus"
 
-#: ../modules/sound/main.qml:334
+#: ../modules/sound/main.qml:295
 msgid "Input Feedback"
 msgstr "Sisääntulon palaute"
 
-#: ../modules/sound/main.qml:370
+#: ../modules/sound/main.qml:331
 msgid "Output Port"
-msgstr "Ulostulon portti"
+msgstr "Ulostulo portti"
 
-#: ../modules/sound/main.qml:387 ../modules/sound/main.qml:490
+#: ../modules/sound/main.qml:348 ../modules/sound/main.qml:451
 msgid "No port exists in this device."
 msgstr "Laitteessa ei ole portteja"
 
-#: ../modules/sound/main.qml:425
+#: ../modules/sound/main.qml:386
 msgid "Output device"
 msgstr "Ulostulolaite"
 
-#: ../modules/sound/main.qml:473
+#: ../modules/sound/main.qml:434
 msgid "Input Port"
 msgstr "Sisääntulo portti"
 
-#: ../modules/sound/main.qml:528
+#: ../modules/sound/main.qml:489
 msgid "Input device"
 msgstr "Sisääntulolaite"
 
-#: ../modules/sound/main.qml:581
+#: ../modules/sound/main.qml:542
 msgid "Hide Advanced..."
 msgstr "Piilota kehittyneet asetukset..."
 
-#: ../modules/sound/main.qml:581
+#: ../modules/sound/main.qml:542
 msgid "Show Advanced..."
 msgstr "Näytä kehittyneet asetukset..."
 
@@ -1853,7 +1869,7 @@ msgstr "InfiniBand"
 
 #: ../modules/network/main.qml:182
 msgid "Bond"
-msgstr "Side"
+msgstr "Sidonta"
 
 #: ../modules/network/main.qml:184
 msgid "VLAN"
@@ -1861,7 +1877,7 @@ msgstr "VLAN"
 
 #: ../modules/network/main.qml:186
 msgid "ADSL"
-msgstr "ADSL"
+msgstr "DSL"
 
 #: ../modules/network/main.qml:188
 msgid "Bridge"
@@ -1869,106 +1885,120 @@ msgstr "Silta"
 
 #: ../modules/network/main.qml:198
 msgid "802.11 WiFi"
-msgstr ""
+msgstr "802.11 WiFi"
 
 #: ../modules/network/main.qml:200
 msgid "802.11 WiFi AdHoc"
-msgstr ""
+msgstr "802.11 WiFi AdHoc"
 
 #: ../modules/network/main.qml:202
-#, fuzzy
 msgid "802.11 WiFi Hotspot"
-msgstr "Muokkaa Wi-Fi aluetta"
+msgstr "802.11 WiFi HotSpot"
 
 #: ../modules/network/main.qml:208
-#, fuzzy
 msgid "Mobile GSM"
-msgstr "Mobiili"
+msgstr "Mobiililaajakaista"
 
 #: ../modules/network/main.qml:210
-#, fuzzy
 msgid "Mobile CDMA"
-msgstr "Mobiili"
+msgstr "Mobiililaajakaista CDMA"
 
 #: ../modules/network/main.qml:214
-#, fuzzy
 msgid "VPN L2TP"
-msgstr "L2TP"
+msgstr "VPN L2TP"
 
 #: ../modules/network/main.qml:216
-#, fuzzy
 msgid "VPN PPTP"
-msgstr "PPTP"
+msgstr "VPN PPTP"
 
 #: ../modules/network/main.qml:218
-#, fuzzy
 msgid "VPN VPNC"
-msgstr "VPNC"
+msgstr "VPN VPNC"
 
 #: ../modules/network/main.qml:220
-#, fuzzy
 msgid "VPN OpenVPN"
-msgstr "OpenVPN"
+msgstr "VPN OpenVPN"
 
 #: ../modules/network/main.qml:222
-#, fuzzy
 msgid "VPN OpenConnect"
-msgstr "OpenConnect"
+msgstr "VPN OpenConnect"
 
-#~ msgid "Socks Host"
-#~ msgstr "Socks Host"
+#: ../modules/account/main.qml:132
+msgid "User List"
+msgstr "Käyttäjälista"
 
-#~ msgid "January"
-#~ msgstr "Tammikuu"
+#: ../modules/wacom/main.qml:14
+msgid "Page Up"
+msgstr "Page Up"
 
-#~ msgid "February"
-#~ msgstr "Helmikuu"
+#: ../modules/wacom/main.qml:15
+msgid "Page Down"
+msgstr "Page Down"
 
-#~ msgid "March"
-#~ msgstr "Maaliskuu"
+#: ../modules/wacom/main.qml:16
+msgid "Left Click"
+msgstr "Vasen klikkaus"
 
-#~ msgid "April"
-#~ msgstr "Huhtikuu"
+#: ../modules/wacom/main.qml:17
+msgid "Right Click"
+msgstr "Oikea klikkaus"
 
-#~ msgid "May"
-#~ msgstr "Toukokuu"
+#: ../modules/wacom/main.qml:18
+msgid "Middle Click"
+msgstr "Keskiklikkaus"
 
-#~ msgid "June"
-#~ msgstr "Kesäkuu"
+#: ../modules/wacom/main.qml:69
+msgid "Tablet Orientation"
+msgstr "Tablet Suuntautuminen"
 
-#~ msgid "July"
-#~ msgstr "Heinäkuu"
+#: ../modules/wacom/main.qml:76
+msgid "Left Hand"
+msgstr "Vasenkätinen"
 
-#~ msgid "August"
-#~ msgstr "Elokuu"
+#: ../modules/wacom/main.qml:77
+msgid "Right Hand"
+msgstr "Oikeakätinen"
 
-#~ msgid "September"
-#~ msgstr "Syyskuu"
+#: ../modules/wacom/main.qml:90
+msgid "Digital Pen Modes"
+msgstr "Digitaaliset kynän tilat"
 
-#~ msgid "October"
-#~ msgstr "Lokakuu"
+#: ../modules/wacom/main.qml:97
+msgid "Pen Mode"
+msgstr "Kynän tila"
 
-#~ msgid "November"
-#~ msgstr "Marraskuu"
+#: ../modules/wacom/main.qml:98
+msgid "Mouse Mode"
+msgstr "Hiiren tila"
 
-#~ msgid "December"
-#~ msgstr "Joulukuu"
+#: ../modules/wacom/main.qml:112
+msgid "Down Key"
+msgstr "Alas-näppäin"
 
-#~ msgid "Keyboard"
-#~ msgstr "Näppäimistö"
+#: ../modules/wacom/main.qml:137
+msgid "Up Key"
+msgstr "Ylös-näppäin"
 
-#, fuzzy
-#~ msgid "Advanced"
-#~ msgstr "Piilota kehittyneet asetukset..."
+#: ../modules/wacom/main.qml:162
+msgid "Pressure"
+msgstr "Paine"
 
-#~ msgid "Default"
-#~ msgstr "Oletus"
+#: ../modules/wacom/main.qml:178
+msgid "Soft"
+msgstr "Pehmeä"
 
-#~ msgid "General"
-#~ msgstr "Yleinen"
+#: ../modules/wacom/main.qml:179
+msgid "Hard"
+msgstr "Kova"
 
-#~ msgid "For All Users"
-#~ msgstr "Kaikille käyttäjille"
+#: ../modules/wacom/main.qml:190
+msgid "Double-click Space"
+msgstr "Kaksoisklikkaus alue"
 
-#~ msgid "Background is changing, please reboot later..."
-#~ msgstr "Taustakuva vaihtuu, käynnistä uudelleen myöhemmin..."
+#: ../modules/wacom/main.qml:206
+msgid "Narrow"
+msgstr "Kapea"
+
+#: ../modules/wacom/main.qml:207
+msgid "Wide"
+msgstr "Laaja"

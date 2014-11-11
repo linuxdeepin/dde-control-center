@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-30 09:02+0800\n"
-"PO-Revision-Date: 2014-11-06 07:00+0000\n"
+"PO-Revision-Date: 2014-11-14 21:01+0000\n"
 "Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/dde-control-center/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -1931,11 +1931,11 @@ msgstr "Lista użytkowników"
 
 #: ../modules/wacom/main.qml:14
 msgid "Page Up"
-msgstr ""
+msgstr "Page Up"
 
 #: ../modules/wacom/main.qml:15
 msgid "Page Down"
-msgstr ""
+msgstr "Page Down"
 
 #: ../modules/wacom/main.qml:16
 msgid "Left Click"
@@ -1951,35 +1951,35 @@ msgstr "Kliknięcie środkowym przyciskiem"
 
 #: ../modules/wacom/main.qml:69
 msgid "Tablet Orientation"
-msgstr ""
+msgstr "Orientacja tabletu"
 
 #: ../modules/wacom/main.qml:76
 msgid "Left Hand"
-msgstr ""
+msgstr "Lewa ręka"
 
 #: ../modules/wacom/main.qml:77
 msgid "Right Hand"
-msgstr ""
+msgstr "Prawa ręka"
 
 #: ../modules/wacom/main.qml:90
 msgid "Digital Pen Modes"
-msgstr ""
+msgstr "Tryby pisaka cyfrowego"
 
 #: ../modules/wacom/main.qml:97
 msgid "Pen Mode"
-msgstr ""
+msgstr "Tryb pisaka"
 
 #: ../modules/wacom/main.qml:98
 msgid "Mouse Mode"
-msgstr ""
+msgstr "Tryb myszy"
 
 #: ../modules/wacom/main.qml:112
 msgid "Down Key"
-msgstr ""
+msgstr "Klawisz w dół"
 
 #: ../modules/wacom/main.qml:137
 msgid "Up Key"
-msgstr ""
+msgstr "Klawisz w górę"
 
 #: ../modules/wacom/main.qml:162
 msgid "Pressure"

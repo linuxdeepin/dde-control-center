@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-30 09:02+0800\n"
-"PO-Revision-Date: 2014-11-06 02:21+0000\n"
+"PO-Revision-Date: 2014-11-11 06:55+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/dde-control-center/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -1136,7 +1136,7 @@ msgstr "Tastatur og sprog"
 
 #: ../qt5frame/views/ModulesData.qml:65
 msgid "Tablet"
-msgstr ""
+msgstr "Tablet"
 
 #: ../qt5frame/views/ModulesData.qml:66
 msgid "Mouse and Touchpad"
@@ -1932,59 +1932,59 @@ msgstr "Liste af brugere"
 
 #: ../modules/wacom/main.qml:14
 msgid "Page Up"
-msgstr ""
+msgstr "Side op"
 
 #: ../modules/wacom/main.qml:15
 msgid "Page Down"
-msgstr ""
+msgstr "Side ned"
 
 #: ../modules/wacom/main.qml:16
 msgid "Left Click"
-msgstr ""
+msgstr "Venstreklik"
 
 #: ../modules/wacom/main.qml:17
 msgid "Right Click"
-msgstr ""
+msgstr "Højreklik"
 
 #: ../modules/wacom/main.qml:18
 msgid "Middle Click"
-msgstr ""
+msgstr "Midterklik"
 
 #: ../modules/wacom/main.qml:69
 msgid "Tablet Orientation"
-msgstr ""
+msgstr "Tablet Orientering"
 
 #: ../modules/wacom/main.qml:76
 msgid "Left Hand"
-msgstr ""
+msgstr "Venstrehåndet"
 
 #: ../modules/wacom/main.qml:77
 msgid "Right Hand"
-msgstr ""
+msgstr "Højrehåndet"
 
 #: ../modules/wacom/main.qml:90
 msgid "Digital Pen Modes"
-msgstr ""
+msgstr "Digital Pentilstand"
 
 #: ../modules/wacom/main.qml:97
 msgid "Pen Mode"
-msgstr ""
+msgstr "Pentilstand"
 
 #: ../modules/wacom/main.qml:98
 msgid "Mouse Mode"
-msgstr ""
+msgstr "Musetilstand"
 
 #: ../modules/wacom/main.qml:112
 msgid "Down Key"
-msgstr ""
+msgstr "Pil ned, tastatur"
 
 #: ../modules/wacom/main.qml:137
 msgid "Up Key"
-msgstr ""
+msgstr "Pil op tastatur"
 
 #: ../modules/wacom/main.qml:162
 msgid "Pressure"
-msgstr ""
+msgstr "Tryk"
 
 #: ../modules/wacom/main.qml:178
 msgid "Soft"
@@ -1992,16 +1992,16 @@ msgstr "Blød"
 
 #: ../modules/wacom/main.qml:179
 msgid "Hard"
-msgstr ""
+msgstr "Hårdt"
 
 #: ../modules/wacom/main.qml:190
 msgid "Double-click Space"
-msgstr ""
+msgstr "Dobbeltklik på område"
 
 #: ../modules/wacom/main.qml:206
 msgid "Narrow"
-msgstr ""
+msgstr "Smal"
 
 #: ../modules/wacom/main.qml:207
 msgid "Wide"
-msgstr ""
+msgstr "Bred"
