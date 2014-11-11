@@ -37,16 +37,6 @@ DockApplet{
         //showDiskMount(0)
     }
 
-    onNativeWindowDestroyed: {
-        toggleAppletState("disk_mount")
-        toggleAppletState("disk_mount")
-    }
-
-    onQt5ScreenDestroyed: {
-        console.log("Recive onQt5ScreenDestroyed")
-        mainObject.restartDockApplet()
-    }
-
     function showDiskMount(id){
         dbusControlCenter.ShowModule("default_applications")
     }
@@ -98,6 +88,17 @@ DockApplet{
         width: windowWidth
         height: diskListView.height + xEdgePadding * 2
         color: "transparent"
+
+		onNativeWindowDestroyed: {
+			toggleAppletState("disk_mount")
+			toggleAppletState("disk_mount")
+		}
+
+		onQt5ScreenDestroyed: {
+			console.log("Recive onQt5ScreenDestroyed")
+			mainObject.restartDockApplet()
+		}
+
 
         ListView {
             id: diskListView

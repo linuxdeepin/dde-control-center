@@ -76,16 +76,6 @@ DockApplet{
         showDateTime(0)
     }
 
-    onNativeWindowDestroyed: {
-        toggleAppletState("date_time")
-        toggleAppletState("date_time")
-    }
-
-    onQt5ScreenDestroyed: {
-        console.log("Recive onQt5ScreenDestroyed")
-        mainObject.restartDockApplet()
-    }
-
     property var typeNames: {
         "digital": dsTr("_Switch to analog"),
         "analog": dsTr("_Switch to digital")
@@ -128,6 +118,17 @@ DockApplet{
         width: rootWidth
         height: contentColumn.height
         color: "transparent"
+
+        onNativeWindowDestroyed: {
+            toggleAppletState("date_time")
+            toggleAppletState("date_time")
+        }
+		onQt5ScreenDestroyed: {
+			console.log("Recive onQt5ScreenDestroyed")
+			mainObject.restartDockApplet()
+		}
+
+
 
         Column {
             id: contentColumn

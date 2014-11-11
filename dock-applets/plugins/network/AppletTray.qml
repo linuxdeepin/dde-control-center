@@ -304,16 +304,6 @@ DockApplet{
         showNetwork(0)
     }
 
-    onNativeWindowDestroyed: {
-        toggleAppletState("network")
-        toggleAppletState("network")
-    }
-
-    onQt5ScreenDestroyed: {
-        console.log("Recive onQt5ScreenDestroyed")
-        mainObject.restartDockApplet()
-    }
-
     menu: AppletMenu {
         Component.onCompleted: {
             addItem(dsTr("_Run"), showNetwork);
@@ -326,6 +316,17 @@ DockApplet{
         width: 224
         height: contentColumn.height + xEdgePadding * 2
         color: "transparent"
+
+		onNativeWindowDestroyed: {
+			toggleAppletState("network")
+			toggleAppletState("network")
+		}
+		onQt5ScreenDestroyed: {
+			console.log("Recive onQt5ScreenDestroyed")
+			mainObject.restartDockApplet()
+		}
+
+
 
         Item {
             anchors.centerIn: parent

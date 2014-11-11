@@ -127,16 +127,6 @@ DockApplet{
         showSound(0)
     }
 
-    onNativeWindowDestroyed: {
-        toggleAppletState("sound")
-        toggleAppletState("sound")
-    }
-
-    onQt5ScreenDestroyed: {
-        console.log("Recive onQt5ScreenDestroyed")
-        mainObject.restartDockApplet()
-    }
-
     Timer{
         id: onMousewheelTimer
         property bool isOnWheel: false
@@ -190,6 +180,16 @@ DockApplet{
         width: rootWidth
         height: content.height + xEdgePadding * 2
         color: "transparent"
+
+		onNativeWindowDestroyed: {
+			toggleAppletState("sound")
+			toggleAppletState("sound")
+		}
+		onQt5ScreenDestroyed: {
+			console.log("Recive onQt5ScreenDestroyed")
+			mainObject.restartDockApplet()
+		}
+
 
         Connections{
             target: defaultSink
