@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-07 10:08+0800\n"
+"POT-Creation-Date: 2014-10-30 09:02+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -107,7 +107,7 @@ msgstr ""
 #: ../modules/date_time/TimeBox.qml:212
 #: ../modules/network/wireless/WifiHotspot.qml:82
 #: ../dock-applets/src/frame/WifiPasswordWindow.qml:183
-#: ../modules/display/main.qml:240
+#: ../modules/display/main.qml:227
 msgid "Cancel"
 msgstr ""
 
@@ -142,7 +142,6 @@ msgstr ""
 #: ../modules/account/AddUserDialog.qml:100
 #: ../modules/account/AddUserDialog.qml:256
 #: ../modules/account/EditUserDialog.qml:138
-#: ../modules/personalization/components/FontSettingsExpand.qml:47
 #: ../modules/account/UserList.qml:222
 msgid "Standard"
 msgstr ""
@@ -509,7 +508,7 @@ msgstr ""
 #: ../dock-applets/plugins/power/AppletTray.qml:46
 #: ../modules/personalization/widgets/ThemeItem.qml:95
 #: ../modules/power/main.qml:268 ../modules/power/main.qml:452
-#: ../modules/shortcuts/main.qml:53 ../modules/shortcuts/main.qml:233
+#: ../modules/shortcuts/main.qml:53 ../modules/shortcuts/main.qml:225
 msgid "Custom"
 msgstr ""
 
@@ -988,15 +987,11 @@ msgstr ""
 msgid "Rear"
 msgstr ""
 
-#: ../modules/personalization/components/FontSettingsExpand.qml:64
-msgid "Monospaced"
-msgstr ""
-
-#: ../modules/personalization/components/FontSettingsExpand.qml:79
+#: ../modules/personalization/components/FontSettingsExpand.qml:36
 msgid "Size"
 msgstr ""
 
-#: ../modules/personalization/components/FontSettingsExpand.qml:108
+#: ../modules/personalization/components/FontSettingsExpand.qml:65
 #, qt-format
 msgid "Font %1"
 msgstr ""
@@ -1109,7 +1104,7 @@ msgstr ""
 msgid "More Settings"
 msgstr ""
 
-#: ../qt5frame/views/ModulesData.qml:59 ../qt5frame/views/PanelContent.qml:473
+#: ../qt5frame/views/ModulesData.qml:59 ../qt5frame/views/PanelContent.qml:454
 #: ../dock-applets/plugins/power/main.qml:33
 msgid "Power"
 msgstr ""
@@ -1142,7 +1137,7 @@ msgstr ""
 msgid "Mouse and Touchpad"
 msgstr ""
 
-#: ../qt5frame/views/ModulesData.qml:67 ../modules/mouse_touchpad/main.qml:50
+#: ../qt5frame/views/ModulesData.qml:67 ../modules/mouse_touchpad/main.qml:53
 msgid "Mouse"
 msgstr ""
 
@@ -1151,7 +1146,7 @@ msgid "User Accounts"
 msgstr ""
 
 #: ../qt5frame/views/ModulesData.qml:69
-#: ../modules/default_applications/main.qml:85
+#: ../modules/default_applications/main.qml:62
 msgid "Default Applications"
 msgstr ""
 
@@ -1359,43 +1354,43 @@ msgid "Touchpad"
 msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:82
-#: ../modules/mouse_touchpad/main.qml:83
+#: ../modules/mouse_touchpad/main.qml:70
 msgid "Primary Button"
 msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:91
-#: ../modules/mouse_touchpad/main.qml:91
+#: ../modules/mouse_touchpad/main.qml:78
 msgid "Left Button"
 msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:92
-#: ../modules/mouse_touchpad/main.qml:92
+#: ../modules/mouse_touchpad/main.qml:79
 msgid "Right Button"
 msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:117
-#: ../modules/mouse_touchpad/main.qml:117
+#: ../modules/mouse_touchpad/main.qml:104
 msgid "Pointer Speed"
 msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:134
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:171
-#: ../modules/keyboard/main.qml:182 ../modules/keyboard/main.qml:209
-#: ../modules/mouse_touchpad/main.qml:133
-#: ../modules/mouse_touchpad/main.qml:169
+#: ../modules/keyboard/main.qml:164 ../modules/keyboard/main.qml:191
+#: ../modules/mouse_touchpad/main.qml:120
+#: ../modules/mouse_touchpad/main.qml:156
 msgid "Slow"
 msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:135
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:172
-#: ../modules/keyboard/main.qml:181 ../modules/keyboard/main.qml:208
-#: ../modules/mouse_touchpad/main.qml:134
-#: ../modules/mouse_touchpad/main.qml:170
+#: ../modules/keyboard/main.qml:163 ../modules/keyboard/main.qml:190
+#: ../modules/mouse_touchpad/main.qml:121
+#: ../modules/mouse_touchpad/main.qml:157
 msgid "Fast"
 msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:154
-#: ../modules/mouse_touchpad/main.qml:153
+#: ../modules/mouse_touchpad/main.qml:140
 msgid "Double-click Speed"
 msgstr ""
 
@@ -1404,12 +1399,12 @@ msgid "Drag Threshold"
 msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:208
-#: ../modules/keyboard/main.qml:155
+#: ../modules/keyboard/main.qml:137
 msgid "Short"
 msgstr ""
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:209
-#: ../modules/keyboard/main.qml:156
+#: ../modules/keyboard/main.qml:138
 msgid "Long"
 msgstr ""
 
@@ -1514,83 +1509,83 @@ msgstr ""
 msgid "Devices nearby"
 msgstr ""
 
-#: ../modules/date_time/main.qml:106
+#: ../modules/date_time/main.qml:93
 msgid "Automatic date and time"
 msgstr ""
 
-#: ../modules/date_time/main.qml:122
+#: ../modules/date_time/main.qml:109
 msgid "Use 24-hour clock"
 msgstr ""
 
-#: ../modules/date_time/main.qml:152
+#: ../modules/date_time/main.qml:139
 msgid "Date"
 msgstr ""
 
-#: ../modules/date_time/main.qml:156
+#: ../modules/date_time/main.qml:143
 msgid "Set Date"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:97
+#: ../modules/default_applications/main.qml:74
 msgid "Browser"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:111
+#: ../modules/default_applications/main.qml:88
 msgid "Mail"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:122
+#: ../modules/default_applications/main.qml:99
 msgid "Text"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:128
+#: ../modules/default_applications/main.qml:105
 msgid "Music"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:159
+#: ../modules/default_applications/main.qml:136
 msgid "Video"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:191
+#: ../modules/default_applications/main.qml:168
 msgid "Picture"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:209
+#: ../modules/default_applications/main.qml:186
 msgid "Terminal"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:268
+#: ../modules/default_applications/main.qml:245
 msgid "AutoPlay"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:283
+#: ../modules/default_applications/main.qml:260
 msgid "CD Audio"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:288
+#: ../modules/default_applications/main.qml:265
 msgid "DVD Video"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:293
+#: ../modules/default_applications/main.qml:270
 msgid "Music Player"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:298
+#: ../modules/default_applications/main.qml:275
 msgid "Camera"
 msgstr ""
 
-#: ../modules/default_applications/main.qml:303
+#: ../modules/default_applications/main.qml:280
 msgid "Software"
 msgstr ""
 
-#: ../modules/display/main.qml:118
+#: ../modules/display/main.qml:117
 msgid "Primary Monitor: "
 msgstr ""
 
-#: ../modules/display/main.qml:161
+#: ../modules/display/main.qml:148
 msgid "Monitor"
 msgstr ""
 
-#: ../modules/display/main.qml:221
+#: ../modules/display/main.qml:208
 msgid "Apply"
 msgstr ""
 
@@ -1610,59 +1605,59 @@ msgstr ""
 msgid "Selected Text Color"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:141
+#: ../modules/keyboard/main.qml:123
 msgid "Repeat Delay"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:166
+#: ../modules/keyboard/main.qml:148
 msgid "Repeat Rate"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:192
+#: ../modules/keyboard/main.qml:174
 msgid "Cursor Blink Rate"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:219
+#: ../modules/keyboard/main.qml:201
 msgid "Test Area"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:265
+#: ../modules/keyboard/main.qml:249
 msgid "Keyboard Layout"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:476
+#: ../modules/keyboard/main.qml:460
 msgid "No result"
 msgstr ""
 
-#: ../modules/keyboard/main.qml:239
+#: ../modules/keyboard/main.qml:221
 msgid "Caps Lock prompt"
 msgstr ""
 
-#: ../modules/mouse_touchpad/main.qml:190
+#: ../modules/mouse_touchpad/main.qml:177
 msgid "Disable the touchpad when inserting the mouse"
 msgstr ""
 
-#: ../modules/personalization/main.qml:112
+#: ../modules/personalization/main.qml:101
 msgid "Theme"
 msgstr ""
 
-#: ../modules/personalization/main.qml:119 ../modules/shortcuts/main.qml:51
+#: ../modules/personalization/main.qml:108 ../modules/shortcuts/main.qml:51
 msgid "Window"
 msgstr ""
 
-#: ../modules/personalization/main.qml:126
+#: ../modules/personalization/main.qml:115
 msgid "Icon"
 msgstr ""
 
-#: ../modules/personalization/main.qml:133
+#: ../modules/personalization/main.qml:122
 msgid "Cursor"
 msgstr ""
 
-#: ../modules/personalization/main.qml:140
+#: ../modules/personalization/main.qml:129
 msgid "Wallpaper"
 msgstr ""
 
-#: ../modules/personalization/main.qml:154
+#: ../modules/personalization/main.qml:143
 msgid "Fonts"
 msgstr ""
 
@@ -1755,83 +1750,83 @@ msgstr ""
 msgid "Workspace"
 msgstr ""
 
-#: ../modules/sound/main.qml:127
+#: ../modules/sound/main.qml:126
 msgid "Speaker"
 msgstr ""
 
-#: ../modules/sound/main.qml:157
+#: ../modules/sound/main.qml:156
 msgid "Output Volume"
 msgstr ""
 
-#: ../modules/sound/main.qml:222
+#: ../modules/sound/main.qml:221
 msgid "Microphone"
 msgstr ""
 
-#: ../modules/sound/main.qml:252
+#: ../modules/sound/main.qml:251
 msgid "Input Volume"
 msgstr ""
 
-#: ../modules/sound/main.qml:296
+#: ../modules/sound/main.qml:295
 msgid "Input Feedback"
 msgstr ""
 
-#: ../modules/sound/main.qml:332
+#: ../modules/sound/main.qml:331
 msgid "Output Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:349 ../modules/sound/main.qml:452
+#: ../modules/sound/main.qml:348 ../modules/sound/main.qml:451
 msgid "No port exists in this device."
 msgstr ""
 
-#: ../modules/sound/main.qml:387
+#: ../modules/sound/main.qml:386
 msgid "Output device"
 msgstr ""
 
-#: ../modules/sound/main.qml:435
+#: ../modules/sound/main.qml:434
 msgid "Input Port"
 msgstr ""
 
-#: ../modules/sound/main.qml:490
+#: ../modules/sound/main.qml:489
 msgid "Input device"
 msgstr ""
 
-#: ../modules/sound/main.qml:543
+#: ../modules/sound/main.qml:542
 msgid "Hide Advanced..."
 msgstr ""
 
-#: ../modules/sound/main.qml:543
+#: ../modules/sound/main.qml:542
 msgid "Show Advanced..."
 msgstr ""
 
-#: ../modules/system_info/main.qml:118
+#: ../modules/system_info/main.qml:102
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
 msgstr ""
 
-#: ../modules/system_info/main.qml:124
+#: ../modules/system_info/main.qml:108
 msgid "Deepin Edition"
 msgstr ""
 
-#: ../modules/system_info/main.qml:130
+#: ../modules/system_info/main.qml:114
 msgid "System Type"
 msgstr ""
 
-#: ../modules/system_info/main.qml:131
+#: ../modules/system_info/main.qml:115
 msgid "bit"
 msgstr ""
 
-#: ../modules/system_info/main.qml:136
+#: ../modules/system_info/main.qml:120
 msgid "Processor"
 msgstr ""
 
-#: ../modules/system_info/main.qml:150
+#: ../modules/system_info/main.qml:134
 msgid "Memory"
 msgstr ""
 
-#: ../modules/system_info/main.qml:156
+#: ../modules/system_info/main.qml:140
 msgid "Disk"
 msgstr ""
 
-#: ../modules/system_info/main.qml:174
+#: ../modules/system_info/main.qml:159
 msgid "GNU GENERAL PUBLIC LICENSE"
 msgstr ""
 
