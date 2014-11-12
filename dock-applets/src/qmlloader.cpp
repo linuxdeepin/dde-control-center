@@ -21,8 +21,7 @@
 **
 ****************************************************************************/
 
-
-#include <QtGui/QGuiApplication>
+#include <QApplication>
 #include <QQmlEngine>
 #include <QQmlComponent>
 #include <QDBusConnection>

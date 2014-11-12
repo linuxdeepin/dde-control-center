@@ -21,9 +21,8 @@
 **
 ****************************************************************************/
 
-#include <QtGui/QGuiApplication>
-#include <QtQml/QQmlEngine>
-#include <QCoreApplication>
+#include <QQmlEngine>
+#include <QApplication>
 #include <QDBusConnection>
 #include <QDebug>
 
@@ -31,8 +30,8 @@
 
 int main(int argc, char* argv[])
 {
-    QCoreApplication::setAttribute(Qt::AA_X11InitThreads, true);
-    QGuiApplication app(argc, argv);
+    QApplication::setAttribute(Qt::AA_X11InitThreads, true);
+    QApplication app(argc, argv);
 
     if(QDBusConnection::sessionBus().registerService("dde.dock.entry.AppletManager")){
         QmlLoader* qmlLoader = new QmlLoader();

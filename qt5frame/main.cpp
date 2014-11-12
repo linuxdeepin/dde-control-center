@@ -21,19 +21,16 @@
 **
 ****************************************************************************/
 
-#include <QtGui/QGuiApplication>
-#include <QtQml/QQmlEngine>
-#include <QCoreApplication>
 #include <QApplication>
 #include <QDBusConnection>
 #include <QDBusInterface>
-#include <qdebug.h>
+#include <QDebug>
 
 #include "qmlloader.h"
 
 int main(int argc, char* argv[])
 {
-    QCoreApplication::setAttribute(Qt::AA_X11InitThreads, true);
+    QApplication::setAttribute(Qt::AA_X11InitThreads, true);
     QApplication app(argc, argv);
 
     if(QDBusConnection::sessionBus().registerService(DBUS_NAME)){
@@ -41,7 +38,7 @@ int main(int argc, char* argv[])
         QmlLoader* qmlLoader = new QmlLoader();
         qmlLoader->rootContext->setContextProperty("mainObject", qmlLoader);
         qmlLoader->load(QUrl("qrc:///views/Main.qml"));
-        QObject::connect(qmlLoader->engine, SIGNAL(quit()), QCoreApplication::instance(), SLOT(quit()));
+        QObject::connect(qmlLoader->engine, SIGNAL(quit()), QApplication::instance(), SLOT(quit()));
 
         if(argc == 2){
             QString order = argv[1];

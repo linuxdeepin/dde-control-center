@@ -21,7 +21,6 @@
 **
 ****************************************************************************/
 
-
 #include <QQmlEngine>
 #include <QQmlComponent>
 #include <QDBusConnection>
@@ -30,7 +29,6 @@
 #include <QDebug>
 #include <QDir>
 #include <QSettings>
-#include <QGuiApplication>
 #include <QPixmap>
 #include <QCursor>
 #include <QApplication>
@@ -200,14 +198,14 @@ void QmlLoader::setCustomCursor(QString path)
     path = path.split("//")[1];
     QPixmap pixmap = QPixmap(path);
     QCursor cursor = QCursor(pixmap, -1, -1);
-    QGuiApplication::restoreOverrideCursor();
-    QGuiApplication::setOverrideCursor(cursor);
-    QGuiApplication::changeOverrideCursor(cursor);
+    QApplication::restoreOverrideCursor();
+    QApplication::setOverrideCursor(cursor);
+    QApplication::changeOverrideCursor(cursor);
 }
 
 void QmlLoader::clearCustomCursor()
 {
-    QGuiApplication::restoreOverrideCursor();
+    QApplication::restoreOverrideCursor();
 }
 
 void QmlLoader::setCursorFlashTime(int time)
