@@ -81,8 +81,8 @@ Window {
             if (toolTip.x + toolTip.width > screenSize.width + screenSize.x){
                 toolTip.x = screenSize.width + screenSize.x - toolTip.width
             }
-            if (toolTip.y + toolTip.height > screenSize.height){
-                toolTip.y = pos[1] - 10 - toolTip.height
+            if (toolTip.y + toolTip.height > screenSize.height + screenSize.y){
+                toolTip.y = screenSize.height + screenSize.y -toolTip.height - 10
             }
             toolTip.show()
             toolTip.visible = true
