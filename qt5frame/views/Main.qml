@@ -49,22 +49,10 @@ QtObject {
             if(arg3 != -1){
                 gotShowModuleFlag = false
 
-                if (rootWindow.shouldShowInRight){
-                    if (screenSize.width - arg1 > panelWidth && clickedToHide){
-                        clickedToHide = true
-                    }
-                    else{
-                        clickedToHide = false
-                    }
-                }
-                else{
-                    if (arg1 > panelWidth && clickedToHide){
-                        clickedToHide = true
-                    }
-                    else{
-                        clickedToHide = false
-                    }
-                }
+                if (!in_visible_area(arg1,arg2) && clickedToHide)
+                    clickedToHide = true
+                else
+                    clickedToHide = false
 
                 delayHideTimer.mousex = arg1
                 delayHideTimer.mousey = arg2
@@ -72,24 +60,8 @@ QtObject {
             }
         }
         onButtonPress: {
-            //it's up to controlcenter direction
-            if (rootWindow.shouldShowInRight){
-                if (screenSize.width - arg1 > panelWidth){
-                    clickedToHide = true
-                }
-                else{
-                    clickedToHide = false
-                }
-            }
-            else{
-                if (arg1 > panelWidth){
-                    clickedToHide = true
-                }
-                else{
-                    clickedToHide = false
-                }
-            }
-
+            //remeber press position,user maybe drag outside the control-center
+            clickedToHide = !in_visible_area(arg1,arg2)
         }
 
         onCursorMove: {
@@ -227,8 +199,8 @@ QtObject {
         var height = rootWindow.height
         if (rootWindow.shouldShowInRight){
             if ((mousex >= screenSize.x + screenSize.width - width) && (
-            mousex <= screenSize.x + screenSize.width) && (
-            mousey >= screenSize.y + screenSize.height - height) && (
+            mousex <= screenSize.x + screenSize.width) &&
+            mousey >= screenSize.y && (
             mousey <= screenSize.y + screenSize.height)){
                 return true
             }
@@ -237,9 +209,10 @@ QtObject {
             }
         }
         else{
-            if ((mousex <= width) && (
-            mousey >= screenSize.y + screenSize.height - height) && (
-            mousey <= screenSize.y + screenSize.height)){
+            if ((mousex <= width + screenSize.x) &&
+                 mousex >= screenSize.x &&
+                 mousey >= screenSize.y && (
+                 mousey <= screenSize.y + screenSize.height)){
                 return true
             }
             else {
