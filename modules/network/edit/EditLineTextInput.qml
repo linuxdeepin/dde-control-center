@@ -21,6 +21,7 @@ BaseEditLine {
         onTextChanged: {
             setKey(text)
         }
+
     }
 }
 

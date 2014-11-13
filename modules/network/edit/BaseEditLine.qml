@@ -93,16 +93,16 @@ DBaseLine {
 
     function setKey(v) {
         cacheValue = v
-        if (cacheValue === getKey() && !setKeyAlways) {
+        if (cacheValue === getKey() && !isValueError() && !setKeyAlways) {
             return
         }
-        print("-> BaseEditLine.setKey()", section, key, cacheValue) // TODO test
+//        print("-> BaseEditLine.setKey()", section, key, cacheValue) // TODO test
         connectionSession.SetKey(section, key, marshalJSON(cacheValue))
     }
 
     function getKey() {
         var value = unmarshalJSON(connectionSession.GetKey(section, key))
-        print("-> BaseEditLine.getKey()", section, key, value) // TODO test
+//        print("-> BaseEditLine.getKey()", section, key, value) // TODO test
         return value
     }
 
