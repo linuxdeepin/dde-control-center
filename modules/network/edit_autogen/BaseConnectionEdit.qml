@@ -42,6 +42,16 @@ BaseEditPage {
         key: "autoconnect"
         text: dsTr("Automatically connect")
     }
+    EditLineSwitchButton {
+        id: lineConnectionVkVpnAutoconnect
+        connectionSession: editPage.connectionSession
+        availableSections: editPage.availableSections
+        availableKeys: editPage.availableKeys
+        errors: editPage.errors
+        section: "connection"
+        key: "vk-vpn-autoconnect"
+        text: dsTr("Automatically connect")
+    }
     
     EditSectionEthernet {
         myIndex: 1
