@@ -3,10 +3,10 @@ import Deepin.Widgets 1.0
 
 BaseEditLine {
     id: root
-    
+
     property int min: 0
     property int max: 65535
-    
+
     rightLoader.sourceComponent: DSpinner {
         id: spinner
         activeFocusOnTab: true
@@ -14,6 +14,10 @@ BaseEditLine {
         state: root.showError ? "warning" : "normal"
         min: root.min
         max: root.max
+
+        property bool loaded: false
+        Component.onCompleted: loaded = true
+
         Connections {
             target: root
             onWidgetShown: {
@@ -24,7 +28,7 @@ BaseEditLine {
             }
         }
         onTextChanged: {
-            if (text != "") {
+            if (loaded && text != "") {
                 setKey(parseInt(text))
             }
         }
