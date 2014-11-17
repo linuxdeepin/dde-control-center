@@ -71,7 +71,7 @@ Window {
     }
 
     Connections {
-        id: dbusNetwork
+        target: dbusNetwork
         onNeedSecrets:{
             print("NeedSectets Emit in dss Frame:", arg0, arg1, arg2)
             if(!dbusControlCenter.isNetworkCanShowPassword()){
