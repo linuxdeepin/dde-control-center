@@ -87,7 +87,7 @@ Item {
             gotoAddWirelessConnectionWizard()
         } else {
             // connection for current access point exists, just activate it
-            dbusNetwork.ActivateAccessPoint(uuid, masterApPath, devicePath)
+            wirelessItem.connectionPath = dbusNetwork.ActivateAccessPoint(uuid, masterApPath, devicePath)
         }
     }
 
@@ -240,8 +240,6 @@ Item {
         id: passwordArea
         anchors.top: wirelessLine.bottom
         anchors.topMargin: 0 - arrowHeight
-        uuid: wirelessItem.uuid
         path: wirelessItem.connectionPath
-        prefixCondition: activeAp == masterApPath
     }
 }

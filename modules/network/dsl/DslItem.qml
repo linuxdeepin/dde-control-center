@@ -23,7 +23,7 @@ Item {
     // Component.onCompleted: {
         // print(activeConnectionInfo)
     // }
-    
+
     function getBool(s){
         if(typeof(s) == "undefined"){
             return false
@@ -62,7 +62,7 @@ Item {
 
     function activateThisConnection(){
         var devicePath = getDevicePath()
-        print("DSL Device Path:", devicePath) 
+        print("DSL Device Path:", devicePath)
         dbusNetwork.ActivateConnection(infos.Uuid, devicePath)
     }
 
@@ -142,7 +142,6 @@ Item {
         id: passwordArea
         anchors.top: lineBox.bottom
         anchors.topMargin: 0 - arrowHeight
-        uuid: infos.Uuid
         path: infos.Path
     }
 }

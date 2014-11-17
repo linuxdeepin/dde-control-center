@@ -10,7 +10,6 @@ Item {
     height: 0
     clip: true
 
-    property string uuid: ""
     property string path: ""
     property bool prefixCondition: true
 
@@ -43,9 +42,9 @@ Item {
     Connections {
         target: networkModule
         onNeedSecretsEmit: {
-            if (uuid){
-                if(path == passwordArea.path && prefixCondition){
-                    print("==> onNeedSecretsEmit:", passwordArea.path, path) // TODO test
+            if (path == passwordArea.path) {
+                if(prefixCondition){
+                    print("==> onNeedSecretsEmit:", passwordArea.path, passwordArea.prefixCondition)
                     passwordArea.showArea(encryptionName)
                 }
             }

@@ -104,7 +104,6 @@ Item {
         id: passwordArea
         anchors.top: lineBox.bottom
         anchors.topMargin: 0 - arrowHeight
-        uuid: infos.Uuid
         path: infos.Path
     }
 }
