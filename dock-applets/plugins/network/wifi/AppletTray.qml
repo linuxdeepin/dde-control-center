@@ -48,7 +48,7 @@ DockApplet{
         return 0
     }
 
-    property var wirelessEnabled : dbusNetwork.wirelessEnabled
+    property var wirelessEnabled : dbusNetwork.IsDeviceEnabled(devicePath)
     property int deviceStatus: wirelessDevices[deviceIndex].State
     property string activeAp: wirelessDevices[deviceIndex].ActiveAp
     property string devicePath: wirelessDevices[deviceIndex].Path
@@ -57,6 +57,13 @@ DockApplet{
 
     property var nmActiveConnections: unmarshalJSON(dbusNetwork.activeConnections)
     property var nmConnections: unmarshalJSON(dbusNetwork.connections)
+
+    Connections {
+        target: dbusNetwork
+        onDeviceEnabled:{
+            wirelessEnabled = dbusNetwork.IsDeviceEnabled(devicePath)
+        }
+    }
 
     function updateDockIcon() {
         if (!wirelessEnabled  || activeAp == "/")
@@ -163,14 +170,15 @@ DockApplet{
                     }
 
                     rightLoader.sourceComponent: DSwitchButton {
+                        id:wirelessSwitchButton
+                        checked: wirelessEnabled
                         Connections{
                             target: wifiApplet
                             onWirelessEnabledChanged:{
-                                check = wirelessEnabled
+                                wirelessSwitchButton.checked = wirelessEnabled
                             }
                         }
-                        checked: wirelessEnabled
-                        onClicked: dbusNetwork.wirelessEnabled = checked
+                        onClicked: dbusNetwork.EnableDevice(devicePath,checked)
                     }
                 }
 

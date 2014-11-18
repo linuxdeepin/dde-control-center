@@ -198,7 +198,6 @@ DockApplet{
     Connections{
         target: dbusNetwork
         onAccessPointPropertiesChanged: {
-            console.log(arg0,arg1,arg2)
             if(activeWirelessDevice && arg0 == activeWirelessDevice.Path){
                 var apInfo = unmarshalJSON(arg1)
                 if(apInfo.Path == activeWirelessDevice.ActiveAp){
@@ -237,30 +236,9 @@ DockApplet{
 
     // vpn
     property var vpnConnections: nmConnections["vpn"]
-    property int activeVpnIndex: {
-        for(var i in activeConnections){
-            if(activeConnections[i].Vpn){
-                return i
-            }
-        }
-        return -1
-    }
-
-    onActiveVpnIndexChanged: {
-        var vpnShow = vpnConnections ? vpnConnections.length > 0 : false
-        var vpnEnabled = activeVpnIndex != -1
-        var imagePath = "network/normal/vpn_"
-        if(vpnEnabled){
-            imagePath += "on.png"
-        }
-        else{
-            imagePath += "off.png"
-        }
-        updateState("vpn", vpnShow, imagePath)
-    }
     onVpnConnectionsChanged: {
         var vpnShow = vpnConnections ? vpnConnections.length > 0 : false
-        var vpnEnabled = activeVpnIndex != -1
+        var vpnEnabled = dbusNetwork.vpnEnabled
         var imagePath = "network/normal/vpn_"
         if(vpnEnabled){
             imagePath += "on.png"
@@ -299,6 +277,7 @@ DockApplet{
         }
         return null
     }
+
     function getActiveWiredDevice(){
         for(var i in wiredDevices){
             var info = wiredDevices[i]
@@ -364,9 +343,12 @@ DockApplet{
 
                     function updateWirelessApplet(){
                         wirelessListModel.clear()
-
                         for (var i = 0; i < wirelessDevicesCount; i ++){
-                            wirelessListModel.append({"devicePath": wirelessDevices[i].Path})
+                            wirelessListModel.append({
+                                                         "devicePath": wirelessDevices[i].Path,
+                                                         "devicesCount":wirelessDevicesCount,
+                                                         "deviceState":wirelessDevices[i].State
+                                                     })
                         }
                     }
 
@@ -378,7 +360,10 @@ DockApplet{
                             onImage: "images/wifi_on.png"
                             offImage: "images/wifi_off.png"
                             visible: true
-                            deviceIndex: index + 1
+                            property var pDeviceCount: devicesCount
+                            property var pDeviceState: deviceState
+                            onPDeviceStateChanged: wirelessCheckButton.active = dbusNetwork.IsDeviceEnabled(devicePath)
+                            onPDeviceCountChanged: deviceIndex = pDeviceCount > 1 ? index + 1 : ""
 
                             onClicked: {
                                 if (!dbusNetwork.IsDeviceEnabled(devicePath)){
@@ -387,23 +372,6 @@ DockApplet{
                                 }
                                 else{
                                     dbusNetwork.EnableDevice(devicePath,false)
-                                }
-                            }
-
-                            Connections{
-                                target: dbusNetwork
-                                onWirelessEnabledChanged:{
-                                    if(!wirelessCheckButton.pressed){
-                                        wirelessCheckButton.active = dbusNetwork.IsDeviceEnabled(devicePath)
-                                    }
-                                }
-                            }
-
-                            Timer{
-                                running: true
-                                interval: 100
-                                onTriggered: {
-                                    parent.active = dbusNetwork.IsDeviceEnabled(devicePath)
                                 }
                             }
                         }
@@ -415,24 +383,7 @@ DockApplet{
                         visible: vpnConnections ? vpnConnections.length > 0 : false
                         onImage: "images/vpn_on.png"
                         offImage: "images/vpn_off.png"
-                        active: activeVpnIndex != -1
-
-                        // onVpnActiveChanged: {
-                        //     if(!vpnButton.pressed){
-                        //         vpnButton.active = vpnActive
-                        //     }
-                        // }
-
-                        // function deactiveVpn(){
-                        //     if(activeVpnIndex != -1){
-                        //         var uuid = activeConnections[activeVpnIndex].Uuid
-                        //         dbusNetwork.DeactivateConnection(uuid)
-                        //     }
-                        // }
-
-                        // onClicked: {
-                        //     deactiveVpn()
-                        // }
+                        active: dbusNetwork.vpnEnabled
 
                         onClicked: {
                             dbusNetwork.vpnEnabled = active
@@ -462,7 +413,7 @@ DockApplet{
                         visible: adapters.length > 0
                         onImage: "images/bluetooth_on.png"
                         offImage: "images/bluetooth_off.png"
-                        deviceIndex: "1"
+                        deviceIndex: ""
 
                         onClicked: {
                             dbusBluetooth.powered = active
