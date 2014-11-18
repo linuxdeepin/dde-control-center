@@ -30,8 +30,8 @@ MyBaseExpand {
     property var standardFontList: dbusThemeManager.fontNameList
     property var monoFontList:dbusThemeManager.fontMonoList
     property int contenHeight: 35
-    property int contenTitleWidth: 80
-    property int contenCenterPadding: 20
+    property int contenTitleWidth: 90
+    property int contenCenterPadding: 10
     property int comboboxWidth: 200
 
 
@@ -55,7 +55,6 @@ MyBaseExpand {
                     dbusThemeManager.Set("font-name", standardFontList[index])
             }
         }
-
 
         FontComboBoxLine {
             parentWindow: rootWindow
@@ -83,7 +82,7 @@ MyBaseExpand {
                    FontSlider{
                        id: slider
                        anchors {verticalCenter: parent.verticalCenter; left:parent.left;leftMargin: 3}
-                       width: 160
+                       width: 155
                        maximumValue: 16
                        minimumValue: 9
                        value: currentThemeObject.fontSize
