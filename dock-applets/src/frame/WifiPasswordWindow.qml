@@ -86,7 +86,6 @@ Window {
 
     property string uuid :""
     property string devicePath : ""
-    property bool oldCheckState: false
 
     property var dssLocale: DLocale {
         domain: "dde-control-center"
@@ -100,8 +99,6 @@ Window {
     }
 
     function showDialog(){
-        autoConnectBox.checked = getConnectionSession().GetKey("connection","autoconnect") == "true"?true:false
-        oldCheckState = autoConnectBox.checked
         messageBox.visible = true
         messageBox.show()
     }
@@ -118,16 +115,6 @@ Window {
     function connectAction(){
         hideDialog()
         dbusNetwork.FeedSecret(accessPointObj, accessPointEncryption, passwordInput.text, autoconnect)
-    }
-
-
-    Component {
-        id: connectionSessionBuilder
-        ConnectionSession {}
-    }
-    function getConnectionSession() {
-        var connectionPath = dbusNetwork.EditConnection(uuid,devicePath)
-        return connectionSessionBuilder.createObject(null, { path: connectionPath })
     }
 
     DWindowFrame {
