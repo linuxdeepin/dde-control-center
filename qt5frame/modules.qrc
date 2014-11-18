@@ -59,7 +59,6 @@
         <file>modules/sound/main.qml</file>
         <file>modules/sound/SliderBg.qml</file>
         <file>modules/sound/DSlider.qml</file>
-        <file>modules/sound/AppletSwitchArea.qml</file>
         <file>modules/sound/BalanceLine.qml</file>
         <file>modules/sound/FadeLine.qml</file>
         <file>modules/sound/LeftTitle.qml</file>
@@ -178,7 +177,6 @@
         <file>modules/power/ConcavePart.qml</file>
         <file>modules/power/main.qml</file>
         <file>modules/power/TitleSeparator.qml</file>
-        <file>modules/power/AppletSwitchArea.qml</file>
         <file>modules/power/PowerTitle.qml</file>
         <file>modules/power/RaisedPart.qml</file>
         <file>modules/power/PropertyItem.qml</file>
@@ -239,7 +237,6 @@
         <file>modules/network/InfoItem.qml</file>
         <file>modules/network/main.qml</file>
         <file>modules/network/ConnectStatusImage.qml</file>
-        <file>modules/network/AppletSwitchArea.qml</file>
         <file>modules/network/ConnectionEdit.qml</file>
         <file>modules/network/Info.qml</file>
         <file>modules/network/ConnectionAdd.qml</file>

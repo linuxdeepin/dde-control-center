@@ -26,5 +26,4 @@ Column {
     ProxyExpand {}
 
     DBaseLine {}
-    AppletSwitchArea {}
 }

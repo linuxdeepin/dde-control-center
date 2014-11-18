@@ -546,11 +546,8 @@ Item {
                     }
                 }
             }
-        }
 
-        AppletSwitchArea {
-            anchors.top: link_button_column.bottom
-            anchors.topMargin: 20
+            DSeparatorHorizontal {}
         }
     }
 }
