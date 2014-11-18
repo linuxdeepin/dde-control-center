@@ -461,6 +461,14 @@
     </message>
 </context>
 <context>
+    <name>AppletSettingWindow</name>
+    <message>
+        <location filename="../dock-applets/applet_widgets/AppletSettingWindow.qml" line="+101"/>
+        <source>Notice Region Setting </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AppletSwitchArea</name>
     <message>
         <location filename="../modules/network/AppletSwitchArea.qml" line="+40"/>
@@ -473,7 +481,7 @@
 <context>
     <name>AppletTray</name>
     <message>
-        <location filename="../dock-applets/plugins/date_time/AppletTray.qml" line="+90"/>
+        <location filename="../dock-applets/plugins/date_time/AppletTray.qml" line="+80"/>
         <source>_Switch to analog</source>
         <translation type="unfinished"></translation>
     </message>
@@ -483,7 +491,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+87"/>
+        <location line="+97"/>
         <source>Sun</source>
         <translation type="unfinished"></translation>
     </message>
@@ -518,14 +526,30 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/plugins/network/AppletTray.qml" line="+319"/>
+        <location filename="../dock-applets/plugins/network/AppletTray.qml" line="+35"/>
+        <source>Network Connected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Network Not Connected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+290"/>
+        <location filename="../dock-applets/plugins/network/bluetooth/AppletTray.qml" line="+78"/>
+        <location filename="../dock-applets/plugins/network/vpn/AppletTray.qml" line="+70"/>
+        <location filename="../dock-applets/plugins/network/wifi/AppletTray.qml" line="+119"/>
         <location filename="../dock-applets/plugins/power/AppletTray.qml" line="+99"/>
-        <location filename="../dock-applets/plugins/sound/AppletTray.qml" line="+183"/>
+        <location filename="../dock-applets/plugins/sound/AppletTray.qml" line="+173"/>
         <source>_Run</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
+        <location filename="../dock-applets/plugins/network/bluetooth/AppletTray.qml" line="+1"/>
+        <location filename="../dock-applets/plugins/network/vpn/AppletTray.qml" line="+1"/>
+        <location filename="../dock-applets/plugins/network/wifi/AppletTray.qml" line="+1"/>
         <location filename="../dock-applets/plugins/power/AppletTray.qml" line="+7"/>
         <location filename="../dock-applets/plugins/sound/AppletTray.qml" line="+1"/>
         <source>_Undock</source>
@@ -557,13 +581,28 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/plugins/sound/AppletTray.qml" line="+35"/>
+        <location filename="../dock-applets/plugins/sound/AppletTray.qml" line="+44"/>
         <source>Device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+100"/>
         <source>Applications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../dock-applets/plugins/network/bluetooth/AppletTray.qml" line="+39"/>
+        <source>Bluetooth</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../dock-applets/plugins/network/vpn/AppletTray.qml" line="+39"/>
+        <source>VPN</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../dock-applets/plugins/network/wifi/AppletTray.qml" line="+41"/>
+        <source>Wireless Network</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -619,6 +658,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location line="+10"/>
         <location line="+10"/>
         <source>Automatically connect</source>
         <translation type="unfinished"></translation>
@@ -1770,12 +1810,12 @@
 <context>
     <name>FontSettingsExpand</name>
     <message>
-        <location filename="../modules/personalization/components/FontSettingsExpand.qml" line="+47"/>
+        <location filename="../modules/personalization/components/FontSettingsExpand.qml" line="+48"/>
         <source>Standard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+18"/>
         <source>Monospaced</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2116,7 +2156,7 @@
 <context>
     <name>PanelContent</name>
     <message>
-        <location filename="../qt5frame/views/PanelContent.qml" line="+454"/>
+        <location filename="../qt5frame/views/PanelContent.qml" line="+473"/>
         <source>Power</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2124,7 +2164,7 @@
 <context>
     <name>PasswordBox</name>
     <message>
-        <location filename="../modules/network/widgets/PasswordBox.qml" line="+76"/>
+        <location filename="../modules/network/widgets/PasswordBox.qml" line="+75"/>
         <source>Password: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -2597,7 +2637,7 @@
 <context>
     <name>WiredDeviceExpand</name>
     <message>
-        <location filename="../modules/network/wired/WiredDeviceExpand.qml" line="+37"/>
+        <location filename="../modules/network/wired/WiredDeviceExpand.qml" line="+33"/>
         <source>Wired Network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2733,7 +2773,7 @@
         <location filename="../modules/power/main.qml" line="+268"/>
         <location line="+184"/>
         <location filename="../modules/shortcuts/main.qml" line="+53"/>
-        <location line="+172"/>
+        <location line="+180"/>
         <source>Custom</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2766,7 +2806,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="+93"/>
+        <location filename="../modules/date_time/main.qml" line="+106"/>
         <source>Automatic date and time</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2786,7 +2826,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/main.qml" line="+62"/>
+        <location filename="../modules/default_applications/main.qml" line="+85"/>
         <source>Default Applications</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2856,12 +2896,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/main.qml" line="+117"/>
+        <location filename="../modules/display/main.qml" line="+118"/>
         <source>Primary Monitor: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+31"/>
+        <location line="+43"/>
         <source>Monitor</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2896,7 +2936,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="+123"/>
+        <location filename="../modules/keyboard/main.qml" line="+141"/>
         <source>Repeat Delay</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2918,7 +2958,7 @@
     <message>
         <location line="+15"/>
         <location line="+27"/>
-        <location filename="../modules/mouse_touchpad/main.qml" line="+121"/>
+        <location filename="../modules/mouse_touchpad/main.qml" line="+134"/>
         <location line="+36"/>
         <source>Fast</source>
         <translation type="unfinished"></translation>
@@ -2942,7 +2982,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+48"/>
+        <location line="+46"/>
         <source>Keyboard Layout</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2952,17 +2992,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-239"/>
+        <location line="-237"/>
         <source>Caps Lock prompt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse_touchpad/main.qml" line="-103"/>
+        <location filename="../modules/mouse_touchpad/main.qml" line="-119"/>
         <source>Mouse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+33"/>
         <source>Primary Button</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2992,13 +3032,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/main.qml" line="+101"/>
+        <location filename="../modules/personalization/main.qml" line="+112"/>
         <source>Theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+7"/>
-        <location filename="../modules/shortcuts/main.qml" line="-174"/>
+        <location filename="../modules/shortcuts/main.qml" line="-182"/>
         <source>Window</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3146,7 +3186,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="+126"/>
+        <location filename="../modules/sound/main.qml" line="+127"/>
         <source>Speaker</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3207,7 +3247,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/main.qml" line="+102"/>
+        <location filename="../modules/system_info/main.qml" line="+119"/>
         <source>Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3242,7 +3282,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+18"/>
         <source>GNU GENERAL PUBLIC LICENSE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3273,12 +3313,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location filename="../dock-applets/plugins/network/bluetooth/main.qml" line="+33"/>
+        <location filename="../modules/network/main.qml" line="+2"/>
         <source>Bluetooth</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location filename="../modules/network/main.qml" line="+2"/>
         <source>OLPC mesh</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3358,12 +3399,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location filename="../dock-applets/plugins/network/vpn/main.qml" line="+33"/>
+        <location filename="../modules/network/main.qml" line="+2"/>
         <source>VPN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location filename="../modules/network/main.qml" line="+2"/>
         <source>VPN L2TP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3485,6 +3527,11 @@
     <message>
         <location line="+1"/>
         <source>Wide</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../dock-applets/plugins/network/wifi/main.qml" line="+33"/>
+        <source>Wireless Network</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
