@@ -23,7 +23,7 @@ Column{
             // return deviceState == nmDeviceStateActivated
         }
         else{
-            return isActivedConnection(devicePath, dslInfo.Uuid)
+            return isActivedConnection(devicePath, dslInfoUuid)
         }
     }
     property bool isWaiting: {
@@ -33,7 +33,7 @@ Column{
             return activeWiredConnectionInfo && activeWiredConnectionInfo.State == nmActiveConnectionStateActivating
         }
         else{
-            return isActivatingConnection(devicePath, dslInfo.Uuid)
+            return isActivatingConnection(devicePath, dslInfoUuid)
         }
     }
     property string lableName: {
@@ -47,7 +47,7 @@ Column{
             return dsTr("Wired Connection")
         }
         else{
-            return dslInfo.Id
+            return dslInfoId
         }
     }
 
@@ -61,6 +61,18 @@ Column{
 
     // for DSL
     property var dslInfo: dslIndex == -1 ? null : dslConnections[dslIndex]
+    property var dslInfoId:{
+        if (dslInfo == null)
+            return ""
+        else
+            return dslInfo.Id
+    }
+    property var dslInfoUuid: {
+        if (dslInfo == null)
+            return ""
+        else
+            return dslInfo.Uuid
+    }
 
     // functions
     function print_info(s){
@@ -74,7 +86,7 @@ Column{
         }
         else if(itemType == "dsl"){
             print_info("activate dsl connection: " + devicePath)
-            dbusNetwork.ActivateConnection(dslInfo.Uuid, devicePath)
+            dbusNetwork.ActivateConnection(dslInfoUuid, devicePath)
         }
     }
 
@@ -83,8 +95,8 @@ Column{
             gotoEditConnection("editPage", uuid, wiredItem.devicePath)
         }
         else if(itemType == "dsl"){
-            // gotoEditConnection("editPage", dslInfo.Uuid, "/") // TODO
-            gotoEditConnection("editPage", dslInfo.Uuid, wiredItem.devicePath)
+            // gotoEditConnection("editPage", dslInfoUuid, "/") // TODO
+            gotoEditConnection("editPage", dslInfoUuid, wiredItem.devicePath)
         }
     }
 
@@ -98,7 +110,7 @@ Column{
         // }
         // else if(itemType == "dsl"){
         //     print_info("disconnect dsl connection: " + devicePath)
-        //     dbusNetwork.DeactivateConnection(dslInfo.Uuid)
+        //     dbusNetwork.DeactivateConnection(dslInfoUuid)
         // }
     }
 

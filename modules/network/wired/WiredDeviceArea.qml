@@ -21,16 +21,6 @@ Column {
             return 0
         }
     }
-    property var dslConnections: {
-        var tmp = nmConnections[nmConnectionTypePppoe]
-        if(typeof(tmp) == "undefined"){
-            return new Array()
-        }
-        else{
-            return tmp
-        }
-    }
-    property int dslConnectionNumber: dslConnections.length
 
     ListView{
         id: wiredDevicesList
@@ -43,8 +33,6 @@ Column {
         delegate: WiredDeviceExpand {
             conn_index: index
             wiredDevicesNumber: wiredArea.wiredDevicesNumber
-            dslConnectionNumber: wiredArea.dslConnectionNumber
-            dslConnections: wiredArea.dslConnections
             device: wiredDevices[index]
             DSeparatorHorizontal {
                 height: 1

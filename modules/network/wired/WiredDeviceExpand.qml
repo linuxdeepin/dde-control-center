@@ -10,8 +10,13 @@ DBaseExpand {
 
     property int conn_index:0
     property int wiredDevicesNumber:0
-    property int dslConnectionNumber:0
-    property var dslConnections:[]
+    property int dslConnectionNumber: {
+        if (dslConnections)
+            return dslConnections.length
+        else
+            return 0
+    }
+    property var dslConnections:nmConnections[nmConnectionTypePppoe]
     property var device
 
     Connections{
