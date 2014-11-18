@@ -60,6 +60,14 @@ Column {
         }
         return openedM
     }
+    property bool editting:{
+        if (monitorDragArea.editable || displayId.hasChanged){
+            return true
+        }
+        else{
+            return false
+        }
+    }
 
     function displayChangesApply(){
         displayId.Apply()
@@ -128,6 +136,43 @@ Column {
 
         MonitorDragArea {
             id: monitorDragArea
+        }
+
+        DSeparatorHorizontal {visible: editting}
+
+        DBaseLine {
+            height: editting ? 30 : 0
+            visible: editting
+            rightMargin: 10
+            rightLoader.sourceComponent: Row {
+                spacing: 6
+                DTextButton {
+                    id:applyButton
+                    text: dsTr("Apply")
+                    visible: editting
+                    onClicked: {
+                        if(monitorDragArea.editable){
+                            monitorDragArea.applyPostion()
+                            monitorDragArea.editable = false
+                        }
+                        displayChangesApply()
+                    }
+                }
+
+                DTextButton {
+                    text: dsTr("Cancel")
+
+                    visible: editting
+
+                    onClicked: {
+                        if(monitorDragArea.editable){
+                            monitorDragArea.editable = false
+                        }
+                        displayId.ResetChanges()
+                        monitorDragArea.editable = false
+                    }
+                }
+            }
         }
 
     }
@@ -210,52 +255,6 @@ Column {
             MonitorProperties {
                 outputObj: monitorChoose.currentSelectedMonitor
                 monitorsNumber: allMonitorsObjects.length
-            }
-        }
-
-        DBaseLine {
-            rightMargin: 10
-            rightLoader.sourceComponent: Row {
-                spacing: 6
-                DTextButton {
-                    text: dsTr("Apply")
-                    visible: {
-                        if (monitorDragArea.editable || displayId.hasChanged){
-                            return true
-                        }
-                        else{
-                            return false
-                        }
-                    }
-                    onClicked: {
-                        if(monitorDragArea.editable){
-                            monitorDragArea.applyPostion()
-                            monitorDragArea.editable = false
-                        }
-                        displayChangesApply()
-                    }
-                }
-
-                DTextButton {
-                    text: dsTr("Cancel")
-
-                    visible: {
-                        if (monitorDragArea.editable || displayId.hasChanged){
-                            return true
-                        }
-                        else{
-                            return false
-                        }
-                    }
-
-                    onClicked: {
-                        if(monitorDragArea.editable){
-                            monitorDragArea.editable = false
-                        }
-                        displayId.ResetChanges()
-                        monitorDragArea.editable = false
-                    }
-                }
             }
         }
 
