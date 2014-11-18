@@ -5,7 +5,7 @@ import "../shared"
 Item {
     id: warning_arrow_rect
     width: 400
-    height: warning_arrow_rect_text.implicitHeight + (textVertPadding + shadowWidth) * 2 + arrowHeight
+    height: warning_arrow_rect_text.implicitHeight + (textVertPadding + shadowWidth) * 2 + arrowHeight * 2
 
     property int shadowWidth: 5
     property alias arrowHeight: rect.arrowHeight
@@ -42,6 +42,9 @@ Item {
     Text {
         id: warning_arrow_rect_text
         color: "#ff8c03"
+        verticalAlignment: Text.AlignVCenter
+        anchors.top: parent.top
+        anchors.topMargin: arrowHeight * 3 + 2
 
         x: warning_arrow_rect.shadowWidth + warning_arrow_rect.textHoriPadding
         y: warning_arrow_rect.shadowWidth + warning_arrow_rect.arrowHeight + warning_arrow_rect.textVertPadding

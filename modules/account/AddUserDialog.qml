@@ -33,6 +33,30 @@ Rectangle {
         repeat_password_input.warningState = false
     }
 
+    function verifyUserName(){
+        var user_name_check_result = dbus_accounts.IsUsernameValid(user_name_input.text.toLowerCase())
+        if(!user_name_check_result[0]) {
+            user_name_input.showWarning(user_name_check_result[1])
+            return user_name_check_result[2]
+        }
+        else
+            return user_name_check_result[2]
+    }
+
+    function verifyPassword(){
+        if (password_input.text == "" || repeat_password_input.text == "")
+            return true
+        if (password_input.text != repeat_password_input.text) {
+            repeat_password_input.showWarning(dsTr("Different password"))
+            return false
+        }
+        else{
+            repeat_password_input.warningState = false
+            return true
+        }
+
+    }
+
     Column {
         id: column
         width: 310
@@ -126,6 +150,7 @@ Rectangle {
                 id: user_name_input
 
                 property bool warningState: false
+                property string oldText: ""
 
                 KeyNavigation.tab: password_input
 
@@ -135,6 +160,19 @@ Rectangle {
                 textInput.font.capitalization: Font.AllLowercase
                 onTextChanged: {
                     warningState = false
+                    if (text != ""){//when confirmed,show empty warning
+                        var verifyValue = verifyUserName()
+                        if (verifyValue == -1){
+                            oldText = text
+                        }
+                        else{
+                            if (verifyValue != 4 && verifyValue != 5)
+                                text = oldText
+                            warningState = true
+                        }
+                    }
+                    else
+                        oldText = ""
                 }
 
                 function showWarning(msg) {
@@ -178,6 +216,9 @@ Rectangle {
                 anchors.verticalCenter: parent.verticalCenter
                 onTextChanged: {
                     warningState = false
+                    repeat_password_input.warningState = false
+                    checkTimer.stop()
+                    checkTimer.start()
                 }
 
                 function showWarning(msg) {
@@ -219,6 +260,8 @@ Rectangle {
                 anchors.verticalCenter: parent.verticalCenter
                 onTextChanged: {
                     warningState = false
+                    checkTimer.stop()
+                    checkTimer.start()
                 }
 
                 function showWarning(msg) {
@@ -231,6 +274,14 @@ Rectangle {
                     warningState = true
                 }
             }
+        }
+
+        Timer {
+            id:checkTimer
+            repeat: false
+            interval: 700
+            running: false
+            onTriggered: verifyPassword()
         }
 
         DSeparatorHorizontal {}
