@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-30 09:02+0800\n"
-"PO-Revision-Date: 2014-11-11 06:55+0000\n"
+"POT-Creation-Date: 2014-11-18 10:39+0800\n"
+"PO-Revision-Date: 2014-11-18 03:08+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/dde-control-center/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -107,13 +107,13 @@ msgstr "Número"
 #: ../modules/network/ConnectionEdit.qml:146
 #: ../modules/shortcuts/CustomKeybinding.qml:151
 #: ../modules/account/DeleteUserDialog.qml:33
-#: ../modules/network/widgets/PasswordBox.qml:101
+#: ../modules/network/widgets/PasswordBox.qml:100
 #: ../modules/account/PasswordDialog.qml:207
 #: ../modules/shortcuts/ShortcutInput.qml:343
 #: ../modules/date_time/TimeBox.qml:212
 #: ../modules/network/wireless/WifiHotspot.qml:82
 #: ../dock-applets/src/frame/WifiPasswordWindow.qml:183
-#: ../modules/display/main.qml:227
+#: ../modules/display/main.qml:240
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -148,6 +148,7 @@ msgstr "Novo Usuário"
 #: ../modules/account/AddUserDialog.qml:100
 #: ../modules/account/AddUserDialog.qml:256
 #: ../modules/account/EditUserDialog.qml:138
+#: ../modules/personalization/components/FontSettingsExpand.qml:48
 #: ../modules/account/UserList.qml:222
 msgid "Standard"
 msgstr "Padrão"
@@ -434,10 +435,14 @@ msgid "Inner Auth"
 msgstr "Autent. Inner"
 
 #: ../modules/network/wireless/AddWireless.qml:224
-#: ../modules/network/widgets/PasswordBox.qml:109
+#: ../modules/network/widgets/PasswordBox.qml:108
 #: ../dock-applets/src/frame/WifiPasswordWindow.qml:190
 msgid "Connect"
 msgstr "Conectar"
+
+#: ../dock-applets/applet_widgets/AppletSettingWindow.qml:101
+msgid "Notice Region Setting "
+msgstr ""
 
 #: ../modules/network/AppletSwitchArea.qml:40
 #: ../modules/power/AppletSwitchArea.qml:40
@@ -445,11 +450,11 @@ msgstr "Conectar"
 msgid "Dock Applet Enabled"
 msgstr "Applet da Barra Ativado"
 
-#: ../dock-applets/plugins/date_time/AppletTray.qml:90
+#: ../dock-applets/plugins/date_time/AppletTray.qml:80
 msgid "_Switch to analog"
 msgstr "_Mudar para analógico "
 
-#: ../dock-applets/plugins/date_time/AppletTray.qml:91
+#: ../dock-applets/plugins/date_time/AppletTray.qml:81
 msgid "_Switch to digital"
 msgstr "_Mudar para digital"
 
@@ -495,15 +500,29 @@ msgstr "Sex"
 msgid "Sat"
 msgstr "Sab"
 
-#: ../dock-applets/plugins/network/AppletTray.qml:319
+#: ../dock-applets/plugins/network/AppletTray.qml:35
+msgid "Network Connected"
+msgstr ""
+
+#: ../dock-applets/plugins/network/AppletTray.qml:35
+msgid "Network Not Connected"
+msgstr ""
+
+#: ../dock-applets/plugins/network/AppletTray.qml:325
+#: ../dock-applets/plugins/network/bluetooth/AppletTray.qml:78
+#: ../dock-applets/plugins/network/vpn/AppletTray.qml:70
+#: ../dock-applets/plugins/network/wifi/AppletTray.qml:119
 #: ../dock-applets/plugins/power/AppletTray.qml:99
-#: ../dock-applets/plugins/sound/AppletTray.qml:183
+#: ../dock-applets/plugins/sound/AppletTray.qml:173
 msgid "_Run"
 msgstr "_Executar"
 
-#: ../dock-applets/plugins/network/AppletTray.qml:320
+#: ../dock-applets/plugins/network/AppletTray.qml:326
+#: ../dock-applets/plugins/network/bluetooth/AppletTray.qml:79
+#: ../dock-applets/plugins/network/vpn/AppletTray.qml:71
+#: ../dock-applets/plugins/network/wifi/AppletTray.qml:120
 #: ../dock-applets/plugins/power/AppletTray.qml:106
-#: ../dock-applets/plugins/sound/AppletTray.qml:184
+#: ../dock-applets/plugins/sound/AppletTray.qml:174
 msgid "_Undock"
 msgstr "_Remover da barra"
 
@@ -514,7 +533,7 @@ msgstr "Carregando"
 #: ../dock-applets/plugins/power/AppletTray.qml:46
 #: ../modules/personalization/widgets/ThemeItem.qml:95
 #: ../modules/power/main.qml:268 ../modules/power/main.qml:452
-#: ../modules/shortcuts/main.qml:53 ../modules/shortcuts/main.qml:225
+#: ../modules/shortcuts/main.qml:53 ../modules/shortcuts/main.qml:233
 msgid "Custom"
 msgstr "Personalizado"
 
@@ -533,13 +552,35 @@ msgstr "Balanceada"
 msgid "High performance"
 msgstr "Alta Performance"
 
-#: ../dock-applets/plugins/sound/AppletTray.qml:219
+#: ../dock-applets/plugins/sound/AppletTray.qml:218
 msgid "Device"
 msgstr "Dispositivo"
 
-#: ../dock-applets/plugins/sound/AppletTray.qml:319
+#: ../dock-applets/plugins/sound/AppletTray.qml:318
 msgid "Applications"
 msgstr "Aplicações"
+
+#: ../dock-applets/plugins/network/bluetooth/AppletTray.qml:118
+#: ../qt5frame/views/ModulesData.qml:55
+#: ../dock-applets/plugins/network/bluetooth/main.qml:33
+#: ../modules/network/main.qml:172
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: ../dock-applets/plugins/network/vpn/AppletTray.qml:110
+#: ../modules/network/ConnectionAdd.qml:45
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:11
+#: ../dock-applets/plugins/network/vpn/main.qml:33
+#: ../modules/network/main.qml:212
+msgid "VPN"
+msgstr "VPN"
+
+#: ../dock-applets/plugins/network/wifi/AppletTray.qml:161
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:28
+#: ../dock-applets/plugins/network/WirelessNetwork.qml:50
+#: ../dock-applets/plugins/network/wifi/main.qml:33
+msgid "Wireless Network"
+msgstr "Rede Wireless"
 
 #: ../modules/account/AvatarPickDialog.qml:5
 msgid "Choose a new picture for your Avatar"
@@ -570,6 +611,7 @@ msgid "Right"
 msgstr "Direita"
 
 #: ../modules/network/edit_autogen/BaseConnectionEdit.qml:43
+#: ../modules/network/edit_autogen/BaseConnectionEdit.qml:53
 msgid "Automatically connect"
 msgstr "Conectar-se automaticamente "
 
@@ -586,12 +628,6 @@ msgstr "Nova Conexão "
 #: ../modules/network/main.qml:204
 msgid "PPPoE"
 msgstr "PPoE"
-
-#: ../modules/network/ConnectionAdd.qml:45
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:11
-#: ../modules/network/main.qml:212
-msgid "VPN"
-msgstr "VPN"
 
 #: ../modules/network/ConnectionAdd.qml:77
 msgid "Next"
@@ -993,11 +1029,15 @@ msgstr "Frontal"
 msgid "Rear"
 msgstr "Traseiro"
 
-#: ../modules/personalization/components/FontSettingsExpand.qml:36
+#: ../modules/personalization/components/FontSettingsExpand.qml:66
+msgid "Monospaced"
+msgstr ""
+
+#: ../modules/personalization/components/FontSettingsExpand.qml:81
 msgid "Size"
 msgstr "Tamanho"
 
-#: ../modules/personalization/components/FontSettingsExpand.qml:65
+#: ../modules/personalization/components/FontSettingsExpand.qml:110
 #, qt-format
 msgid "Font %1"
 msgstr "Fonte %1"
@@ -1093,10 +1133,6 @@ msgstr "Rede"
 msgid "Disk Mount"
 msgstr "Montar Disco"
 
-#: ../qt5frame/views/ModulesData.qml:55 ../modules/network/main.qml:172
-msgid "Bluetooth"
-msgstr "Bluetooth"
-
 #: ../qt5frame/views/ModulesData.qml:56
 #: ../dock-applets/plugins/sound/main.qml:32
 msgid "Sound"
@@ -1110,7 +1146,7 @@ msgstr "Gerenciamento de Energia"
 msgid "More Settings"
 msgstr "Mais Configurações"
 
-#: ../qt5frame/views/ModulesData.qml:59 ../qt5frame/views/PanelContent.qml:454
+#: ../qt5frame/views/ModulesData.qml:59 ../qt5frame/views/PanelContent.qml:473
 #: ../dock-applets/plugins/power/main.qml:33
 msgid "Power"
 msgstr "Energia"
@@ -1143,7 +1179,7 @@ msgstr ""
 msgid "Mouse and Touchpad"
 msgstr "Mouse e Touchpad"
 
-#: ../qt5frame/views/ModulesData.qml:67 ../modules/mouse_touchpad/main.qml:53
+#: ../qt5frame/views/ModulesData.qml:67 ../modules/mouse_touchpad/main.qml:50
 msgid "Mouse"
 msgstr "Mouse"
 
@@ -1152,7 +1188,7 @@ msgid "User Accounts"
 msgstr "Contas de Usuários"
 
 #: ../qt5frame/views/ModulesData.qml:69
-#: ../modules/default_applications/main.qml:62
+#: ../modules/default_applications/main.qml:85
 msgid "Default Applications"
 msgstr "Aplicativos Padrões"
 
@@ -1227,7 +1263,7 @@ msgstr "Conexão cabeada"
 msgid "not managed"
 msgstr "não gerenciado"
 
-#: ../modules/network/widgets/PasswordBox.qml:76
+#: ../modules/network/widgets/PasswordBox.qml:75
 msgid "Password: "
 msgstr "Senha:"
 
@@ -1360,43 +1396,43 @@ msgid "Touchpad"
 msgstr "Touchpad"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:82
-#: ../modules/mouse_touchpad/main.qml:70
+#: ../modules/mouse_touchpad/main.qml:83
 msgid "Primary Button"
 msgstr "Botão Primário"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:91
-#: ../modules/mouse_touchpad/main.qml:78
+#: ../modules/mouse_touchpad/main.qml:91
 msgid "Left Button"
 msgstr "Botão Esquerdo"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:92
-#: ../modules/mouse_touchpad/main.qml:79
+#: ../modules/mouse_touchpad/main.qml:92
 msgid "Right Button"
 msgstr "Botão Direito"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:117
-#: ../modules/mouse_touchpad/main.qml:104
+#: ../modules/mouse_touchpad/main.qml:117
 msgid "Pointer Speed"
 msgstr "Velocidade do Ponteiro"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:134
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:171
-#: ../modules/keyboard/main.qml:164 ../modules/keyboard/main.qml:191
-#: ../modules/mouse_touchpad/main.qml:120
-#: ../modules/mouse_touchpad/main.qml:156
+#: ../modules/keyboard/main.qml:182 ../modules/keyboard/main.qml:209
+#: ../modules/mouse_touchpad/main.qml:133
+#: ../modules/mouse_touchpad/main.qml:169
 msgid "Slow"
 msgstr "Lento"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:135
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:172
-#: ../modules/keyboard/main.qml:163 ../modules/keyboard/main.qml:190
-#: ../modules/mouse_touchpad/main.qml:121
-#: ../modules/mouse_touchpad/main.qml:157
+#: ../modules/keyboard/main.qml:181 ../modules/keyboard/main.qml:208
+#: ../modules/mouse_touchpad/main.qml:134
+#: ../modules/mouse_touchpad/main.qml:170
 msgid "Fast"
 msgstr "Rápido"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:154
-#: ../modules/mouse_touchpad/main.qml:140
+#: ../modules/mouse_touchpad/main.qml:153
 msgid "Double-click Speed"
 msgstr "Velocidade do Clique duplo"
 
@@ -1405,12 +1441,12 @@ msgid "Drag Threshold"
 msgstr "Arrastar começo"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:208
-#: ../modules/keyboard/main.qml:137
+#: ../modules/keyboard/main.qml:155
 msgid "Short"
 msgstr "Curto"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:209
-#: ../modules/keyboard/main.qml:138
+#: ../modules/keyboard/main.qml:156
 msgid "Long"
 msgstr "Longo"
 
@@ -1473,18 +1509,13 @@ msgstr "Senhas ou chaves de criptografia requeridas para acessar a rede WI-Fi <f
 msgid "Password:"
 msgstr "Senha:"
 
-#: ../modules/network/wired/WiredDeviceExpand.qml:37
+#: ../modules/network/wired/WiredDeviceExpand.qml:33
 msgid "Wired Network"
 msgstr "Conexão Cabeada"
 
 #: ../dock-applets/plugins/network/WirelessApList.qml:95
 msgid "Scanning..."
 msgstr "Escaneando..."
-
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:28
-#: ../dock-applets/plugins/network/WirelessNetwork.qml:50
-msgid "Wireless Network"
-msgstr "Rede Wireless"
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:26
 #: ../dock-applets/plugins/network/WirelessNetwork.qml:50
@@ -1514,83 +1545,83 @@ msgstr "LIG/DESL"
 msgid "Devices nearby"
 msgstr "Dispositivos próximos"
 
-#: ../modules/date_time/main.qml:93
+#: ../modules/date_time/main.qml:106
 msgid "Automatic date and time"
 msgstr "Data e hora automática "
 
-#: ../modules/date_time/main.qml:109
+#: ../modules/date_time/main.qml:122
 msgid "Use 24-hour clock"
 msgstr "Usar Relógio 24-horas"
 
-#: ../modules/date_time/main.qml:139
+#: ../modules/date_time/main.qml:152
 msgid "Date"
 msgstr "Data"
 
-#: ../modules/date_time/main.qml:143
+#: ../modules/date_time/main.qml:156
 msgid "Set Date"
 msgstr "Definir Data"
 
-#: ../modules/default_applications/main.qml:74
+#: ../modules/default_applications/main.qml:97
 msgid "Browser"
 msgstr "Navegador"
 
-#: ../modules/default_applications/main.qml:88
+#: ../modules/default_applications/main.qml:111
 msgid "Mail"
 msgstr "Mail"
 
-#: ../modules/default_applications/main.qml:99
+#: ../modules/default_applications/main.qml:122
 msgid "Text"
 msgstr "Texto"
 
-#: ../modules/default_applications/main.qml:105
+#: ../modules/default_applications/main.qml:128
 msgid "Music"
 msgstr "Música"
 
-#: ../modules/default_applications/main.qml:136
+#: ../modules/default_applications/main.qml:159
 msgid "Video"
 msgstr "Vídeo"
 
-#: ../modules/default_applications/main.qml:168
+#: ../modules/default_applications/main.qml:191
 msgid "Picture"
 msgstr "Foto"
 
-#: ../modules/default_applications/main.qml:186
+#: ../modules/default_applications/main.qml:209
 msgid "Terminal"
 msgstr "Terminal"
 
-#: ../modules/default_applications/main.qml:245
+#: ../modules/default_applications/main.qml:268
 msgid "AutoPlay"
 msgstr "Reprodução Automática"
 
-#: ../modules/default_applications/main.qml:260
+#: ../modules/default_applications/main.qml:283
 msgid "CD Audio"
 msgstr "CD de Áudio"
 
-#: ../modules/default_applications/main.qml:265
+#: ../modules/default_applications/main.qml:288
 msgid "DVD Video"
 msgstr "DVD de Vídeo "
 
-#: ../modules/default_applications/main.qml:270
+#: ../modules/default_applications/main.qml:293
 msgid "Music Player"
 msgstr "Reprodutor de Músicas"
 
-#: ../modules/default_applications/main.qml:275
+#: ../modules/default_applications/main.qml:298
 msgid "Camera"
 msgstr "Câmera"
 
-#: ../modules/default_applications/main.qml:280
+#: ../modules/default_applications/main.qml:303
 msgid "Software"
 msgstr "Software"
 
-#: ../modules/display/main.qml:117
+#: ../modules/display/main.qml:118
 msgid "Primary Monitor: "
 msgstr "Monitor Principal:"
 
-#: ../modules/display/main.qml:148
+#: ../modules/display/main.qml:161
 msgid "Monitor"
 msgstr "Monitor"
 
-#: ../modules/display/main.qml:208
+#: ../modules/display/main.qml:221
 msgid "Apply"
 msgstr "Aplicar"
 
@@ -1610,59 +1641,59 @@ msgstr "Cor do Texto"
 msgid "Selected Text Color"
 msgstr "Cor de Texto Selecionada"
 
-#: ../modules/keyboard/main.qml:123
+#: ../modules/keyboard/main.qml:141
 msgid "Repeat Delay"
 msgstr "Atraso de Repetição"
 
-#: ../modules/keyboard/main.qml:148
+#: ../modules/keyboard/main.qml:166
 msgid "Repeat Rate"
 msgstr "Taxa de Repetição"
 
-#: ../modules/keyboard/main.qml:174
+#: ../modules/keyboard/main.qml:192
 msgid "Cursor Blink Rate"
 msgstr "Taxa de Intermitência do Cursor"
 
-#: ../modules/keyboard/main.qml:201
+#: ../modules/keyboard/main.qml:219
 msgid "Test Area"
 msgstr "Área de Teste"
 
-#: ../modules/keyboard/main.qml:249
+#: ../modules/keyboard/main.qml:265
 msgid "Keyboard Layout"
 msgstr "Layout do Teclado"
 
-#: ../modules/keyboard/main.qml:460
+#: ../modules/keyboard/main.qml:476
 msgid "No result"
 msgstr "Sem resultado"
 
-#: ../modules/keyboard/main.qml:221
+#: ../modules/keyboard/main.qml:239
 msgid "Caps Lock prompt"
 msgstr "Caps Lock prompt"
 
-#: ../modules/mouse_touchpad/main.qml:177
+#: ../modules/mouse_touchpad/main.qml:190
 msgid "Disable the touchpad when inserting the mouse"
 msgstr "Desativar o touchpad quando o mouse for inserido"
 
-#: ../modules/personalization/main.qml:101
+#: ../modules/personalization/main.qml:112
 msgid "Theme"
 msgstr "Tema"
 
-#: ../modules/personalization/main.qml:108 ../modules/shortcuts/main.qml:51
+#: ../modules/personalization/main.qml:119 ../modules/shortcuts/main.qml:51
 msgid "Window"
 msgstr "Janela"
 
-#: ../modules/personalization/main.qml:115
+#: ../modules/personalization/main.qml:126
 msgid "Icon"
 msgstr "Ícone "
 
-#: ../modules/personalization/main.qml:122
+#: ../modules/personalization/main.qml:133
 msgid "Cursor"
 msgstr "Cursor"
 
-#: ../modules/personalization/main.qml:129
+#: ../modules/personalization/main.qml:140
 msgid "Wallpaper"
 msgstr "Papel de Parede"
 
-#: ../modules/personalization/main.qml:143
+#: ../modules/personalization/main.qml:154
 msgid "Fonts"
 msgstr "Fontes"
 
@@ -1755,83 +1786,83 @@ msgstr "Sistema"
 msgid "Workspace"
 msgstr "Espaço de trabalho"
 
-#: ../modules/sound/main.qml:126
+#: ../modules/sound/main.qml:127
 msgid "Speaker"
 msgstr "Alto-Falante"
 
-#: ../modules/sound/main.qml:156
+#: ../modules/sound/main.qml:157
 msgid "Output Volume"
 msgstr "Volume de Saída"
 
-#: ../modules/sound/main.qml:221
+#: ../modules/sound/main.qml:222
 msgid "Microphone"
 msgstr "Microfone"
 
-#: ../modules/sound/main.qml:251
+#: ../modules/sound/main.qml:252
 msgid "Input Volume"
 msgstr "Volume de Entrada"
 
-#: ../modules/sound/main.qml:295
+#: ../modules/sound/main.qml:296
 msgid "Input Feedback"
 msgstr "Realimentação de Entrada"
 
-#: ../modules/sound/main.qml:331
+#: ../modules/sound/main.qml:332
 msgid "Output Port"
 msgstr "Porta de Saída"
 
-#: ../modules/sound/main.qml:348 ../modules/sound/main.qml:451
+#: ../modules/sound/main.qml:349 ../modules/sound/main.qml:452
 msgid "No port exists in this device."
 msgstr "Não há porta nesse dispositivo."
 
-#: ../modules/sound/main.qml:386
+#: ../modules/sound/main.qml:387
 msgid "Output device"
 msgstr "Dispositivo de saída"
 
-#: ../modules/sound/main.qml:434
+#: ../modules/sound/main.qml:435
 msgid "Input Port"
 msgstr "Porta de Entrada"
 
-#: ../modules/sound/main.qml:489
+#: ../modules/sound/main.qml:490
 msgid "Input device"
 msgstr "Dispostivo de entrada"
 
-#: ../modules/sound/main.qml:542
+#: ../modules/sound/main.qml:543
 msgid "Hide Advanced..."
 msgstr "Esconder opções Avançadas..."
 
-#: ../modules/sound/main.qml:542
+#: ../modules/sound/main.qml:543
 msgid "Show Advanced..."
 msgstr "Mostrar opções Avançadas..."
 
-#: ../modules/system_info/main.qml:102
+#: ../modules/system_info/main.qml:119
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
 msgstr "Todos os direitos reservados (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
 
-#: ../modules/system_info/main.qml:108
+#: ../modules/system_info/main.qml:125
 msgid "Deepin Edition"
 msgstr "Deepin Edition"
 
-#: ../modules/system_info/main.qml:114
+#: ../modules/system_info/main.qml:131
 msgid "System Type"
 msgstr "Tipo de Sistema"
 
-#: ../modules/system_info/main.qml:115
+#: ../modules/system_info/main.qml:132
 msgid "bit"
 msgstr "bit"
 
-#: ../modules/system_info/main.qml:120
+#: ../modules/system_info/main.qml:137
 msgid "Processor"
 msgstr "Processador"
 
-#: ../modules/system_info/main.qml:134
+#: ../modules/system_info/main.qml:151
 msgid "Memory"
 msgstr "Memória"
 
-#: ../modules/system_info/main.qml:140
+#: ../modules/system_info/main.qml:157
 msgid "Disk"
 msgstr "Disco"
 
-#: ../modules/system_info/main.qml:159
+#: ../modules/system_info/main.qml:175
 msgid "GNU GENERAL PUBLIC LICENSE"
 msgstr "LICENÇA PÚBLICA GERAL GNU"
 

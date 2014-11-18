@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-30 09:02+0800\n"
-"PO-Revision-Date: 2014-11-11 06:55+0000\n"
+"POT-Creation-Date: 2014-11-18 10:39+0800\n"
+"PO-Revision-Date: 2014-11-18 03:08+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/dde-control-center/language/hu/)\n"
 "MIME-Version: 1.0\n"
@@ -107,13 +107,13 @@ msgstr "Szám"
 #: ../modules/network/ConnectionEdit.qml:146
 #: ../modules/shortcuts/CustomKeybinding.qml:151
 #: ../modules/account/DeleteUserDialog.qml:33
-#: ../modules/network/widgets/PasswordBox.qml:101
+#: ../modules/network/widgets/PasswordBox.qml:100
 #: ../modules/account/PasswordDialog.qml:207
 #: ../modules/shortcuts/ShortcutInput.qml:343
 #: ../modules/date_time/TimeBox.qml:212
 #: ../modules/network/wireless/WifiHotspot.qml:82
 #: ../dock-applets/src/frame/WifiPasswordWindow.qml:183
-#: ../modules/display/main.qml:227
+#: ../modules/display/main.qml:240
 msgid "Cancel"
 msgstr "Mégsem"
 
@@ -148,6 +148,7 @@ msgstr "Új felhasználó"
 #: ../modules/account/AddUserDialog.qml:100
 #: ../modules/account/AddUserDialog.qml:256
 #: ../modules/account/EditUserDialog.qml:138
+#: ../modules/personalization/components/FontSettingsExpand.qml:48
 #: ../modules/account/UserList.qml:222
 msgid "Standard"
 msgstr "Szokásos"
@@ -434,10 +435,14 @@ msgid "Inner Auth"
 msgstr "Belső hitelesítés"
 
 #: ../modules/network/wireless/AddWireless.qml:224
-#: ../modules/network/widgets/PasswordBox.qml:109
+#: ../modules/network/widgets/PasswordBox.qml:108
 #: ../dock-applets/src/frame/WifiPasswordWindow.qml:190
 msgid "Connect"
 msgstr "Csatlakozás"
+
+#: ../dock-applets/applet_widgets/AppletSettingWindow.qml:101
+msgid "Notice Region Setting "
+msgstr ""
 
 #: ../modules/network/AppletSwitchArea.qml:40
 #: ../modules/power/AppletSwitchArea.qml:40
@@ -445,11 +450,11 @@ msgstr "Csatlakozás"
 msgid "Dock Applet Enabled"
 msgstr "Dokk kisalkalmazás engedélyezve"
 
-#: ../dock-applets/plugins/date_time/AppletTray.qml:90
+#: ../dock-applets/plugins/date_time/AppletTray.qml:80
 msgid "_Switch to analog"
 msgstr "_Váltás analógra"
 
-#: ../dock-applets/plugins/date_time/AppletTray.qml:91
+#: ../dock-applets/plugins/date_time/AppletTray.qml:81
 msgid "_Switch to digital"
 msgstr "_Váltás digitálisra"
 
@@ -495,15 +500,29 @@ msgstr "Pé"
 msgid "Sat"
 msgstr "Szo"
 
-#: ../dock-applets/plugins/network/AppletTray.qml:319
+#: ../dock-applets/plugins/network/AppletTray.qml:35
+msgid "Network Connected"
+msgstr ""
+
+#: ../dock-applets/plugins/network/AppletTray.qml:35
+msgid "Network Not Connected"
+msgstr ""
+
+#: ../dock-applets/plugins/network/AppletTray.qml:325
+#: ../dock-applets/plugins/network/bluetooth/AppletTray.qml:78
+#: ../dock-applets/plugins/network/vpn/AppletTray.qml:70
+#: ../dock-applets/plugins/network/wifi/AppletTray.qml:119
 #: ../dock-applets/plugins/power/AppletTray.qml:99
-#: ../dock-applets/plugins/sound/AppletTray.qml:183
+#: ../dock-applets/plugins/sound/AppletTray.qml:173
 msgid "_Run"
 msgstr "_Futtatás"
 
-#: ../dock-applets/plugins/network/AppletTray.qml:320
+#: ../dock-applets/plugins/network/AppletTray.qml:326
+#: ../dock-applets/plugins/network/bluetooth/AppletTray.qml:79
+#: ../dock-applets/plugins/network/vpn/AppletTray.qml:71
+#: ../dock-applets/plugins/network/wifi/AppletTray.qml:120
 #: ../dock-applets/plugins/power/AppletTray.qml:106
-#: ../dock-applets/plugins/sound/AppletTray.qml:184
+#: ../dock-applets/plugins/sound/AppletTray.qml:174
 msgid "_Undock"
 msgstr "_Rögzítés feloldása"
 
@@ -514,7 +533,7 @@ msgstr "Töltődik"
 #: ../dock-applets/plugins/power/AppletTray.qml:46
 #: ../modules/personalization/widgets/ThemeItem.qml:95
 #: ../modules/power/main.qml:268 ../modules/power/main.qml:452
-#: ../modules/shortcuts/main.qml:53 ../modules/shortcuts/main.qml:225
+#: ../modules/shortcuts/main.qml:53 ../modules/shortcuts/main.qml:233
 msgid "Custom"
 msgstr "Egyéni"
 
@@ -533,13 +552,35 @@ msgstr "Kiegyensúlyozott"
 msgid "High performance"
 msgstr "Magas teljesítmény "
 
-#: ../dock-applets/plugins/sound/AppletTray.qml:219
+#: ../dock-applets/plugins/sound/AppletTray.qml:218
 msgid "Device"
 msgstr "Eszköz"
 
-#: ../dock-applets/plugins/sound/AppletTray.qml:319
+#: ../dock-applets/plugins/sound/AppletTray.qml:318
 msgid "Applications"
 msgstr "Alkalmazások"
+
+#: ../dock-applets/plugins/network/bluetooth/AppletTray.qml:118
+#: ../qt5frame/views/ModulesData.qml:55
+#: ../dock-applets/plugins/network/bluetooth/main.qml:33
+#: ../modules/network/main.qml:172
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: ../dock-applets/plugins/network/vpn/AppletTray.qml:110
+#: ../modules/network/ConnectionAdd.qml:45
+#: ../modules/network/edit_autogen/EditSectionVpn.qml:11
+#: ../dock-applets/plugins/network/vpn/main.qml:33
+#: ../modules/network/main.qml:212
+msgid "VPN"
+msgstr "VPN"
+
+#: ../dock-applets/plugins/network/wifi/AppletTray.qml:161
+#: ../modules/network/wireless/WirelessDeviceExpand.qml:28
+#: ../dock-applets/plugins/network/WirelessNetwork.qml:50
+#: ../dock-applets/plugins/network/wifi/main.qml:33
+msgid "Wireless Network"
+msgstr "Vezeték nélküli hálózat"
 
 #: ../modules/account/AvatarPickDialog.qml:5
 msgid "Choose a new picture for your Avatar"
@@ -570,6 +611,7 @@ msgid "Right"
 msgstr "Jobbra"
 
 #: ../modules/network/edit_autogen/BaseConnectionEdit.qml:43
+#: ../modules/network/edit_autogen/BaseConnectionEdit.qml:53
 msgid "Automatically connect"
 msgstr "Automatikus csatlakozás"
 
@@ -586,12 +628,6 @@ msgstr "Új hálózat"
 #: ../modules/network/main.qml:204
 msgid "PPPoE"
 msgstr "PPPoE"
-
-#: ../modules/network/ConnectionAdd.qml:45
-#: ../modules/network/edit_autogen/EditSectionVpn.qml:11
-#: ../modules/network/main.qml:212
-msgid "VPN"
-msgstr "VPN"
 
 #: ../modules/network/ConnectionAdd.qml:77
 msgid "Next"
@@ -993,11 +1029,15 @@ msgstr "Első"
 msgid "Rear"
 msgstr "Hátsó"
 
-#: ../modules/personalization/components/FontSettingsExpand.qml:36
+#: ../modules/personalization/components/FontSettingsExpand.qml:66
+msgid "Monospaced"
+msgstr ""
+
+#: ../modules/personalization/components/FontSettingsExpand.qml:81
 msgid "Size"
 msgstr "Méret"
 
-#: ../modules/personalization/components/FontSettingsExpand.qml:65
+#: ../modules/personalization/components/FontSettingsExpand.qml:110
 #, qt-format
 msgid "Font %1"
 msgstr "Betűtípus %1"
@@ -1093,10 +1133,6 @@ msgstr "Hálózat"
 msgid "Disk Mount"
 msgstr "Lemez csatolás"
 
-#: ../qt5frame/views/ModulesData.qml:55 ../modules/network/main.qml:172
-msgid "Bluetooth"
-msgstr "Bluetooth"
-
 #: ../qt5frame/views/ModulesData.qml:56
 #: ../dock-applets/plugins/sound/main.qml:32
 msgid "Sound"
@@ -1110,7 +1146,7 @@ msgstr "Energiagazdálkodás"
 msgid "More Settings"
 msgstr "Egyéb beállítások"
 
-#: ../qt5frame/views/ModulesData.qml:59 ../qt5frame/views/PanelContent.qml:454
+#: ../qt5frame/views/ModulesData.qml:59 ../qt5frame/views/PanelContent.qml:473
 #: ../dock-applets/plugins/power/main.qml:33
 msgid "Power"
 msgstr "Főkapcsoló"
@@ -1143,7 +1179,7 @@ msgstr "Táblagép"
 msgid "Mouse and Touchpad"
 msgstr "Egér és touchpad"
 
-#: ../qt5frame/views/ModulesData.qml:67 ../modules/mouse_touchpad/main.qml:53
+#: ../qt5frame/views/ModulesData.qml:67 ../modules/mouse_touchpad/main.qml:50
 msgid "Mouse"
 msgstr "Egér"
 
@@ -1152,7 +1188,7 @@ msgid "User Accounts"
 msgstr "Felhasználói fiókok"
 
 #: ../qt5frame/views/ModulesData.qml:69
-#: ../modules/default_applications/main.qml:62
+#: ../modules/default_applications/main.qml:85
 msgid "Default Applications"
 msgstr "Alapértelmezett alkalmazások"
 
@@ -1227,7 +1263,7 @@ msgstr "Vezetékes kapcsolat"
 msgid "not managed"
 msgstr "nem sikerült"
 
-#: ../modules/network/widgets/PasswordBox.qml:76
+#: ../modules/network/widgets/PasswordBox.qml:75
 msgid "Password: "
 msgstr "Jelszó:"
 
@@ -1360,43 +1396,43 @@ msgid "Touchpad"
 msgstr "Tapipad"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:82
-#: ../modules/mouse_touchpad/main.qml:70
+#: ../modules/mouse_touchpad/main.qml:83
 msgid "Primary Button"
 msgstr "Elsődleges gomb"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:91
-#: ../modules/mouse_touchpad/main.qml:78
+#: ../modules/mouse_touchpad/main.qml:91
 msgid "Left Button"
 msgstr "Bal gomb"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:92
-#: ../modules/mouse_touchpad/main.qml:79
+#: ../modules/mouse_touchpad/main.qml:92
 msgid "Right Button"
 msgstr "Jobb gomb"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:117
-#: ../modules/mouse_touchpad/main.qml:104
+#: ../modules/mouse_touchpad/main.qml:117
 msgid "Pointer Speed"
 msgstr "Mutató sebesség"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:134
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:171
-#: ../modules/keyboard/main.qml:164 ../modules/keyboard/main.qml:191
-#: ../modules/mouse_touchpad/main.qml:120
-#: ../modules/mouse_touchpad/main.qml:156
+#: ../modules/keyboard/main.qml:182 ../modules/keyboard/main.qml:209
+#: ../modules/mouse_touchpad/main.qml:133
+#: ../modules/mouse_touchpad/main.qml:169
 msgid "Slow"
 msgstr "Lassú"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:135
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:172
-#: ../modules/keyboard/main.qml:163 ../modules/keyboard/main.qml:190
-#: ../modules/mouse_touchpad/main.qml:121
-#: ../modules/mouse_touchpad/main.qml:157
+#: ../modules/keyboard/main.qml:181 ../modules/keyboard/main.qml:208
+#: ../modules/mouse_touchpad/main.qml:134
+#: ../modules/mouse_touchpad/main.qml:170
 msgid "Fast"
 msgstr "Gyors"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:154
-#: ../modules/mouse_touchpad/main.qml:140
+#: ../modules/mouse_touchpad/main.qml:153
 msgid "Double-click Speed"
 msgstr "Dupla-klikk sebesség"
 
@@ -1405,12 +1441,12 @@ msgid "Drag Threshold"
 msgstr "Húzza a küszöbre"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:208
-#: ../modules/keyboard/main.qml:137
+#: ../modules/keyboard/main.qml:155
 msgid "Short"
 msgstr "Rövid"
 
 #: ../modules/mouse_touchpad/TouchpadComponent.qml:209
-#: ../modules/keyboard/main.qml:138
+#: ../modules/keyboard/main.qml:156
 msgid "Long"
 msgstr "Hosszú"
 
@@ -1473,18 +1509,13 @@ msgstr "Jelszó vagy  titkosítási kulcs szükséges ahhoz, hogy  hozzáférjen
 msgid "Password:"
 msgstr "Jelszó:"
 
-#: ../modules/network/wired/WiredDeviceExpand.qml:37
+#: ../modules/network/wired/WiredDeviceExpand.qml:33
 msgid "Wired Network"
 msgstr "Vezetékes hálózat "
 
 #: ../dock-applets/plugins/network/WirelessApList.qml:95
 msgid "Scanning..."
 msgstr "Keresés..."
-
-#: ../modules/network/wireless/WirelessDeviceExpand.qml:28
-#: ../dock-applets/plugins/network/WirelessNetwork.qml:50
-msgid "Wireless Network"
-msgstr "Vezeték nélküli hálózat"
 
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:26
 #: ../dock-applets/plugins/network/WirelessNetwork.qml:50
@@ -1514,83 +1545,83 @@ msgstr "BE/KI"
 msgid "Devices nearby"
 msgstr "Eszközök a közelben"
 
-#: ../modules/date_time/main.qml:93
+#: ../modules/date_time/main.qml:106
 msgid "Automatic date and time"
 msgstr "Automatikus idő és dátum"
 
-#: ../modules/date_time/main.qml:109
+#: ../modules/date_time/main.qml:122
 msgid "Use 24-hour clock"
 msgstr "24 órás formátum"
 
-#: ../modules/date_time/main.qml:139
+#: ../modules/date_time/main.qml:152
 msgid "Date"
 msgstr "Dátum"
 
-#: ../modules/date_time/main.qml:143
+#: ../modules/date_time/main.qml:156
 msgid "Set Date"
 msgstr "Dátum beállítása"
 
-#: ../modules/default_applications/main.qml:74
+#: ../modules/default_applications/main.qml:97
 msgid "Browser"
 msgstr "Böngésző"
 
-#: ../modules/default_applications/main.qml:88
+#: ../modules/default_applications/main.qml:111
 msgid "Mail"
 msgstr "E-mail"
 
-#: ../modules/default_applications/main.qml:99
+#: ../modules/default_applications/main.qml:122
 msgid "Text"
 msgstr "Szöveg"
 
-#: ../modules/default_applications/main.qml:105
+#: ../modules/default_applications/main.qml:128
 msgid "Music"
 msgstr "Zene"
 
-#: ../modules/default_applications/main.qml:136
+#: ../modules/default_applications/main.qml:159
 msgid "Video"
 msgstr "Videó"
 
-#: ../modules/default_applications/main.qml:168
+#: ../modules/default_applications/main.qml:191
 msgid "Picture"
 msgstr "Fénykép"
 
-#: ../modules/default_applications/main.qml:186
+#: ../modules/default_applications/main.qml:209
 msgid "Terminal"
 msgstr "Terminál"
 
-#: ../modules/default_applications/main.qml:245
+#: ../modules/default_applications/main.qml:268
 msgid "AutoPlay"
 msgstr "Automatikus lejátszás"
 
-#: ../modules/default_applications/main.qml:260
+#: ../modules/default_applications/main.qml:283
 msgid "CD Audio"
 msgstr "Audió CD"
 
-#: ../modules/default_applications/main.qml:265
+#: ../modules/default_applications/main.qml:288
 msgid "DVD Video"
 msgstr "DVD videó"
 
-#: ../modules/default_applications/main.qml:270
+#: ../modules/default_applications/main.qml:293
 msgid "Music Player"
 msgstr "Zenelejátszó"
 
-#: ../modules/default_applications/main.qml:275
+#: ../modules/default_applications/main.qml:298
 msgid "Camera"
 msgstr "Kamera"
 
-#: ../modules/default_applications/main.qml:280
+#: ../modules/default_applications/main.qml:303
 msgid "Software"
 msgstr "szoftver"
 
-#: ../modules/display/main.qml:117
+#: ../modules/display/main.qml:118
 msgid "Primary Monitor: "
 msgstr "Elsődleges Monitor:"
 
-#: ../modules/display/main.qml:148
+#: ../modules/display/main.qml:161
 msgid "Monitor"
 msgstr "Monitor"
 
-#: ../modules/display/main.qml:208
+#: ../modules/display/main.qml:221
 msgid "Apply"
 msgstr "Alkalmaz"
 
@@ -1610,59 +1641,59 @@ msgstr "Szöveg szín"
 msgid "Selected Text Color"
 msgstr "Kiválasztott szöveg szín"
 
-#: ../modules/keyboard/main.qml:123
+#: ../modules/keyboard/main.qml:141
 msgid "Repeat Delay"
 msgstr "Ismétlés késleltetése"
 
-#: ../modules/keyboard/main.qml:148
+#: ../modules/keyboard/main.qml:166
 msgid "Repeat Rate"
 msgstr "Ismétlés arány"
 
-#: ../modules/keyboard/main.qml:174
+#: ../modules/keyboard/main.qml:192
 msgid "Cursor Blink Rate"
 msgstr "Kurzor sebesség"
 
-#: ../modules/keyboard/main.qml:201
+#: ../modules/keyboard/main.qml:219
 msgid "Test Area"
 msgstr "Teszt mező"
 
-#: ../modules/keyboard/main.qml:249
+#: ../modules/keyboard/main.qml:265
 msgid "Keyboard Layout"
 msgstr "Billentyűzetkiosztás"
 
-#: ../modules/keyboard/main.qml:460
+#: ../modules/keyboard/main.qml:476
 msgid "No result"
 msgstr "Nincs találat"
 
-#: ../modules/keyboard/main.qml:221
+#: ../modules/keyboard/main.qml:239
 msgid "Caps Lock prompt"
 msgstr "Caps Lock figyelmeztető "
 
-#: ../modules/mouse_touchpad/main.qml:177
+#: ../modules/mouse_touchpad/main.qml:190
 msgid "Disable the touchpad when inserting the mouse"
 msgstr "Az egér használatánál érintőpad kikapcsolása"
 
-#: ../modules/personalization/main.qml:101
+#: ../modules/personalization/main.qml:112
 msgid "Theme"
 msgstr "Téma"
 
-#: ../modules/personalization/main.qml:108 ../modules/shortcuts/main.qml:51
+#: ../modules/personalization/main.qml:119 ../modules/shortcuts/main.qml:51
 msgid "Window"
 msgstr "Ablak"
 
-#: ../modules/personalization/main.qml:115
+#: ../modules/personalization/main.qml:126
 msgid "Icon"
 msgstr "Ikon"
 
-#: ../modules/personalization/main.qml:122
+#: ../modules/personalization/main.qml:133
 msgid "Cursor"
 msgstr "Kurzor"
 
-#: ../modules/personalization/main.qml:129
+#: ../modules/personalization/main.qml:140
 msgid "Wallpaper"
 msgstr "Háttérkép"
 
-#: ../modules/personalization/main.qml:143
+#: ../modules/personalization/main.qml:154
 msgid "Fonts"
 msgstr "Betűtípusok"
 
@@ -1755,83 +1786,83 @@ msgstr "Rendszer"
 msgid "Workspace"
 msgstr "Munkaterület"
 
-#: ../modules/sound/main.qml:126
+#: ../modules/sound/main.qml:127
 msgid "Speaker"
 msgstr "Hangszóró"
 
-#: ../modules/sound/main.qml:156
+#: ../modules/sound/main.qml:157
 msgid "Output Volume"
 msgstr "Kimeneti hangerő"
 
-#: ../modules/sound/main.qml:221
+#: ../modules/sound/main.qml:222
 msgid "Microphone"
 msgstr "Mikrofon"
 
-#: ../modules/sound/main.qml:251
+#: ../modules/sound/main.qml:252
 msgid "Input Volume"
 msgstr "Bemeneti hangerő"
 
-#: ../modules/sound/main.qml:295
+#: ../modules/sound/main.qml:296
 msgid "Input Feedback"
 msgstr "Bemeneti visszajelzés"
 
-#: ../modules/sound/main.qml:331
+#: ../modules/sound/main.qml:332
 msgid "Output Port"
 msgstr "Kimeneti port"
 
-#: ../modules/sound/main.qml:348 ../modules/sound/main.qml:451
+#: ../modules/sound/main.qml:349 ../modules/sound/main.qml:452
 msgid "No port exists in this device."
 msgstr "Nincs csatlakozási lehetőség ehhez az eszközhöz"
 
-#: ../modules/sound/main.qml:386
+#: ../modules/sound/main.qml:387
 msgid "Output device"
 msgstr "Kimeneti eszköz"
 
-#: ../modules/sound/main.qml:434
+#: ../modules/sound/main.qml:435
 msgid "Input Port"
 msgstr "Bemeneti port"
 
-#: ../modules/sound/main.qml:489
+#: ../modules/sound/main.qml:490
 msgid "Input device"
 msgstr "Bemeneti eszköz"
 
-#: ../modules/sound/main.qml:542
+#: ../modules/sound/main.qml:543
 msgid "Hide Advanced..."
 msgstr "További opciók elrejtése..."
 
-#: ../modules/sound/main.qml:542
+#: ../modules/sound/main.qml:543
 msgid "Show Advanced..."
 msgstr "További opciók..."
 
-#: ../modules/system_info/main.qml:102
+#: ../modules/system_info/main.qml:119
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
 msgstr "Minden jog fenntartva  (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
 
-#: ../modules/system_info/main.qml:108
+#: ../modules/system_info/main.qml:125
 msgid "Deepin Edition"
 msgstr "Deepin verzió"
 
-#: ../modules/system_info/main.qml:114
+#: ../modules/system_info/main.qml:131
 msgid "System Type"
 msgstr "Architektúra"
 
-#: ../modules/system_info/main.qml:115
+#: ../modules/system_info/main.qml:132
 msgid "bit"
 msgstr "bit"
 
-#: ../modules/system_info/main.qml:120
+#: ../modules/system_info/main.qml:137
 msgid "Processor"
 msgstr "Processzor"
 
-#: ../modules/system_info/main.qml:134
+#: ../modules/system_info/main.qml:151
 msgid "Memory"
 msgstr "Memória"
 
-#: ../modules/system_info/main.qml:140
+#: ../modules/system_info/main.qml:157
 msgid "Disk"
 msgstr "Lemez"
 
-#: ../modules/system_info/main.qml:159
+#: ../modules/system_info/main.qml:175
 msgid "GNU GENERAL PUBLIC LICENSE"
 msgstr "GNU ÁLTALÁNOS PUBLIKUS LICENC"
 
