@@ -49,9 +49,9 @@ DBaseExpand {
     property var languageList: null
     property var languageToLocale: null
 
-    header.sourceComponent: DDownArrowHeader {
+    header.sourceComponent: DownExpandHeader{
         text: dsTr("Language")
-        hintText: " (" + localeToLanguage[currentLocale]+ ")"
+        hintTextId: currentLocale
         width: 310
         anchors.leftMargin: 2
         anchors.rightMargin: 10
@@ -142,9 +142,6 @@ DBaseExpand {
             function getModel(localeList){
                 var newModel = listModelComponent.createObject(localeListView, {})
                 for(var i in localeList){
-                    if(localeList[i][0] == localeExpand.currentLocale){
-                        localeListView.seletedIndex = i
-                    }
                     newModel.append({
                         "item_id": localeList[i][0],
                         "item_name": localeList[i][1]
@@ -164,6 +161,9 @@ DBaseExpand {
                     var info = allLocaleInformation[i]
                     languageList.push(info[1])
                     languageToLocale[info[1]] = info[0]
+                    if(info[0] == localeExpand.currentLocale){
+                        localeListView.seletedIndex = i
+                    }
                 }
                 searchMd5 = dbusSearch.NewSearchWithStrList(languageList)[0]
                 localeListView.localeList = allLocaleInformation
@@ -171,14 +171,11 @@ DBaseExpand {
 
             Timer {
                 id: initSearchLocaleDataTimer
+                running: true
                 interval: 1000
                 onTriggered: {
                     localeListView.initSearchLocaleData()
                 }
-            }
-
-            Component.onCompleted: {
-                initSearchLocaleDataTimer.start()
             }
         }
     }

@@ -32,7 +32,7 @@ Item {
     property bool selected: selectItemId == itemId
     property bool hovered: false
 
-    property bool showTip: nameText.isElide
+    property bool showTip: false
 
     // info from model
     property string itemId: typeof(item_id) == "undefined" ? "" : item_id
@@ -108,6 +108,23 @@ Item {
         anchors.leftMargin: labelLeftMargin
         anchors.verticalCenter: parent.verticalCenter
 
+        Image {
+            anchors.left: parent.left
+            anchors.leftMargin: 0
+            anchors.verticalCenter: parent.verticalCenter
+            source: {
+                if(selected){
+                    return "lang_images/active/" + itemId + ".png"
+                }else if(hovered){
+                    return "lang_images/hover/" + itemId + ".png"
+                }
+                else{
+                    return "lang_images/normal/" + itemId + ".png"
+                }
+            }
+        }
+
+        /***
         DssH3 {
             id: nameText
             anchors.left: parent.left
@@ -137,6 +154,7 @@ Item {
                 }
             }
         }
+        ***/
     }
 
     MouseArea {
