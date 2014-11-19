@@ -58,6 +58,7 @@ Rectangle {
             text: modulesId.moduleLocaleNames["account"]
 
             Row {
+                id:buttonRow
                 spacing: 10
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.right: parent.right
@@ -85,6 +86,17 @@ Rectangle {
                         } else {
                             user_list.allNormal()
                         }
+
+                        gButtonToolTip.visible = false
+                    }
+                    onHoverChanged: {
+                        var mapX = - delete_check_button.mapFromItem(root,0,0).x
+                        if (hover)
+                            gButtonToolTip.showToolTip(mapX + 45 + 10,buttonRow.y + 3,dsTr("Delete Account"))
+                        else{
+                            gButtonToolTip.hideToolTip()
+                        }
+
                     }
                 }
 
@@ -112,6 +124,15 @@ Rectangle {
                             main_column.state = "normal"
                             root.scrollToLastPosition()
                         }
+
+                        gButtonToolTip.visible = false
+                    }
+                    onHoverChanged: {
+                        var mapX = - delete_check_button.mapFromItem(root,0,0).x
+                        if (hover && visible)
+                            gButtonToolTip.showToolTip(mapX + 45 + 10,buttonRow.y + 3,dsTr("Add Account"))
+                        else
+                            gButtonToolTip.hideToolTip()
                     }
 
                     Connections {

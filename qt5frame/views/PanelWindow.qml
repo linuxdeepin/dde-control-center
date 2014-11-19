@@ -78,6 +78,8 @@ DOverrideWindow {
 
     function hidePanel(quit) {
         if(clickedToHide){
+            gConfluentToolTip.visible = false
+
             if(!hideAll.running && !showAll.running){
                 hideAll.quit = quit
                 hideAll.start()
@@ -194,6 +196,22 @@ DOverrideWindow {
         }
         //rootWindow.x does not changed in some case
         onStopped: rootWindow.x = shouldShowInRight?screenSize.x + screenSize.width - width:0
+    }
+
+    ButtonToolTip {
+        id:gButtonToolTip
+        animationDuration: 300
+        autoHideInterval: -1
+        delayShowInterval: 500
+        z:1
+    }
+
+    ConfluentToolTip {
+        id:gConfluentToolTip
+        animationDuration: 200
+        delayShowInterval: 1000
+        autoHideInterval: -1
+        z: 1
     }
 
     Rectangle {

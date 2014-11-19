@@ -103,6 +103,8 @@ Rectangle {
             width: calendarItemCellWidth
             height: calendarItemCellHeight
             componentMonth: yearMonth
+            onItemEnter: delayHideTimer.stop()
+            onItemExist: delayHideTimer.start()
         }
         focus: true
         currentIndex: -1
@@ -115,6 +117,16 @@ Rectangle {
         function getDelegateInstanceAt(index) {
             var item = contentItem.children[index];
             return item;
+        }
+    }
+
+    Timer {
+        id:delayHideTimer
+        repeat: false
+        interval: 1000
+        running: false
+        onTriggered: {
+            gConfluentToolTip.hideToolTip()
         }
     }
 }

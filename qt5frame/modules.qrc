@@ -905,5 +905,10 @@
         <file>modules/network/wired/WiredDeviceExpand.qml</file>
         <file>modules/network/wired/WiredItem.qml</file>
         <file>modules/network/wired/WiredDeviceArea.qml</file>
+        <file>views/ButtonToolTip.qml</file>
+        <file>views/images/confluent_back.png</file>
+        <file>views/ConfluentToolTip.qml</file>
+        <file>views/images/triangle.png</file>
+        <file>views/images/circle.png</file>
     </qresource>
 </RCC>

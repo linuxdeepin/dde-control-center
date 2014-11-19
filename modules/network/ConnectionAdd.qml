@@ -9,7 +9,7 @@ Column {
 
     DBaseLine {
         leftLoader.sourceComponent: DssH2 {
-            text: dsTr("New Network")
+            text: dsTr("Add Network Connection")
         }
     }
 

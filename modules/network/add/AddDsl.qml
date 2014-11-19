@@ -8,7 +8,7 @@ BaseEditPage {
 
     DBaseLine {
         leftLoader.sourceComponent: DssH2 {
-            text: dsTr("New PPPoE Connection")
+            text: dsTr("Add PPPoE Connection")
         }
     }
     DSeparatorHorizontal {}
@@ -23,7 +23,7 @@ BaseEditPage {
         key: "id"
         text: dsTr("Name")
     }
-    
+
     // copy from ../edit_autogen/EditSectionPppoe.qml
     EditLineTextInput {
         id: linePppoeUsername

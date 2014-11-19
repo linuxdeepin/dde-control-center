@@ -64,6 +64,15 @@ Rectangle {
         onEntered: {
             parent.hovered = true
             if (delegate.itemTooltip && delegate.itemTooltip != "") {
+//                var mapY = - delegate.mapFromItem(power,0,0).y
+//                var mapX = - delegate.mapFromItem(power,0,0).x
+
+//                gConfluentToolTip.visible = true
+//                gConfluentToolTip.width = power.width
+//                gConfluentToolTip.rectangleHeight = 36
+//                gConfluentToolTip.arrowHeight = 8
+//                gConfluentToolTip.showToolTip(66, mapY - delegate.height + 4,delegate.width / 2 + mapX,delegate.itemTooltip)
+
                 toolTip.showTip(delegate.itemTooltip)
             }
         }

@@ -38,6 +38,8 @@ Rectangle {
     property var lunarDayInfo: dbusLunarCalendar.GetLunarInfoBySolar(parseInt(dateValueArray[0]), parseInt(dateValueArray[1]), parseInt(dateValueArray[2]))
     property var hasFestival: lunarDayInfo[1] && (lunarDayInfo[0][8] || lunarDayInfo[0][9])
 
+    signal itemEnter()
+    signal itemExist()
     Item{
         id: contentFrame
         anchors.centerIn: parent
@@ -130,6 +132,8 @@ Rectangle {
             calendarWidget.currentSelectedDateValue = dateValue
         }
         onEntered: {
+            calendarItem.itemEnter()
+
             var tipStr = ""
             if(dsslocale.lang == "zh_CN"){
                 if(lunarDayInfo[1]){
@@ -142,13 +146,20 @@ Rectangle {
                         tipStr += "\n" + info[9]
                     }
                 }
+
+                var mapY = - calendarItem.mapFromItem(dateTimeModule,0,0).y
+                var mapX = - calendarItem.mapFromItem(dateTimeModule,0,0).x
+
+                gConfluentToolTip.visible = true
+                gConfluentToolTip.width = calendarItem.width * 7
+                gConfluentToolTip.rectangleHeight = 36
+                gConfluentToolTip.arrowHeight = 8
+                gConfluentToolTip.showToolTip(66, mapY - calendarItem.height + 4,calendarItem.width / 2 + mapX,tipStr)
             }
-            else{
-                tipStr = dateValue
-            }
-            toolTip.showTip(tipStr)
         }
-        onExited: toolTip.hideTip()
+        onExited: {
+            calendarItem.itemExist()
+        }
     } // End of mousearea
 
 }

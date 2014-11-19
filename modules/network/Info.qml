@@ -10,9 +10,9 @@ Column {
         leftLoader.sourceComponent: DssH1 {
             text: {
                 if (getActiveConnectionInfo()) {
-                    return dsTr("Activated Connections")
+                    return dsTr("Connected")
                 }
-                return dsTr("None Activated Connection")
+                return dsTr("Not Connected")
             }
         }
     }

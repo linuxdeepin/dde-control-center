@@ -295,7 +295,17 @@ Item {
                 onClicked: {
                     stackView.push(stackViewPages["addPage"])
                     stackView.currentItemId = "addPage"
+                    gButtonToolTip.visible = false
                 }
+                onStateChanged: {
+                    var mapX = - addButton.mapFromItem(networkModule,0,0).x
+                    if (state == "hovered" && !addButton.pressed){
+                        gButtonToolTip.showToolTip(mapX + 45 + 10,addButton.y + 3,dsTr("Add Network Connection"))
+                    }
+                    else
+                        gButtonToolTip.hideToolTip()
+                }
+
             }
 
             DImageButton {
@@ -307,6 +317,15 @@ Item {
                 onClicked: {
                     stackView.push(stackViewPages["infoPage"])
                     stackView.currentItemId = "infoPage"
+
+                    gButtonToolTip.hideToolTip()
+                }
+                onStateChanged: {
+                    var mapX = - addButton.mapFromItem(networkModule,0,0).x
+                    if (state == "hovered" && visible)
+                        gButtonToolTip.showToolTip(mapX + 45 + 10,addButton.y + 3,dsTr("View Detailed Information"))
+                    else
+                        gButtonToolTip.hideToolTip()
                 }
             }
         }

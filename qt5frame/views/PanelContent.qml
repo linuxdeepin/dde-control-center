@@ -504,8 +504,11 @@ Rectangle {
                 rightBoxLoaderItem.visible = iconId != ''
                 rightBoxLoader.iconId = iconId
                 rightBoxLoader.source = (iconId == ''? '' : '/modules/' + iconId + '/main.qml')
-                if(iconId)
+                if(iconId){
+                    gConfluentToolTip.visible = false
+                    gButtonToolTip.visible = false
                     print("==> [info] load module:", iconId)
+                }
             }
 
             DSeparatorVertical {visible: shouldShowInRight}

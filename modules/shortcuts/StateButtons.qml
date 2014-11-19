@@ -71,6 +71,15 @@ Item {
             id: deleteButton
             onClicked: {
                 stateButtons.currentActionStateName = "deleteButton"
+                gButtonToolTip.visible = false
+            }
+            onStateChanged: {
+                var mapX = - deleteButton.mapFromItem(shortcutsModule,0,0).x
+                var mapY = - deleteButton.mapFromItem(shortcutsModule,0,0).y
+                if (state == "hovered" && visible)
+                    gButtonToolTip.showToolTip(mapX + 45 + 10,mapY + 3,dsTr("Delete Shortcut"))
+                else
+                    gButtonToolTip.hideToolTip()
             }
         }
 
@@ -78,6 +87,15 @@ Item {
             id: addButton
             onClicked: {
                 stateButtons.currentActionStateName = "addButton"
+                gButtonToolTip.visible = false
+            }
+            onStateChanged: {
+                var mapX = - deleteButton.mapFromItem(shortcutsModule,0,0).x
+                var mapY = - deleteButton.mapFromItem(shortcutsModule,0,0).y
+                if (state == "hovered" && visible)
+                    gButtonToolTip.showToolTip(mapX + 45 + 10,mapY + 3,dsTr("Add Shortcut"))
+                else
+                    gButtonToolTip.hideToolTip()
             }
         }
     }

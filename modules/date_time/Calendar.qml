@@ -43,6 +43,7 @@ Column {
         monthChange(currentSelectedDateValue)
     }
 
+
     function monthChange(dateValue){
         var tmpYearMonth = CalendarCore.getYearMonth(dateValue)
         if (CalendarCore.compareYearMonth(tmpYearMonth, cur_calendar.yearMonth) == 1 && slideStop){

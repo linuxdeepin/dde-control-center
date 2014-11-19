@@ -110,6 +110,18 @@ Rectangle {
         contentWidth: main_column.childrenRect.width
         contentHeight: main_column.childrenRect.height
 
+
+        Timer {
+            id:delayHideTimer
+            repeat: false
+            running: false
+            interval: 1000
+            triggeredOnStart: false
+            onTriggered: {
+                gConfluentToolTip.hideToolTip()
+            }
+        }
+
         Column {
             id: main_column
             width: power.width
@@ -277,7 +289,11 @@ Rectangle {
                             currentValue: dbus_power.linePowerPlan
                             onSelectAction: {
                                 dbus_power.linePowerPlan = itemValue
+                                if (itemValue == 0)
+                                    gConfluentToolTip.hideToolTip()
                             }
+                            onItemEnter: delayHideTimer.stop()
+                            onItemExist: delayHideTimer.start()
                         }
                     }
                 }
@@ -461,7 +477,11 @@ Rectangle {
                             currentValue: dbus_power.batteryPlan
                             onSelectAction: {
                                 dbus_power.batteryPlan = itemValue
+                                if (itemValue == 0)
+                                    gConfluentToolTip.hideToolTip()
                             }
+                            onItemEnter: delayHideTimer.stop()
+                            onItemExist: delayHideTimer.start()
                         }
                     }
                 }

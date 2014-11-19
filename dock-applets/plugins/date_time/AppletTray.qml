@@ -123,10 +123,10 @@ DockApplet{
             toggleAppletState("date_time")
             toggleAppletState("date_time")
         }
-		onQt5ScreenDestroyed: {
-			console.log("Recive onQt5ScreenDestroyed")
-			mainObject.restartDockApplet()
-		}
+        onQt5ScreenDestroyed: {
+            console.log("Recive onQt5ScreenDestroyed")
+            mainObject.restartDockApplet()
+        }
 
 
         Column {
@@ -225,6 +225,6 @@ DockApplet{
             }
 
         }
-        
+
     }
 }

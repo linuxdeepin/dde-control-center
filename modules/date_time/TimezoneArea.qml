@@ -62,7 +62,7 @@ Column {
         for(var i in timezoneList){
             var info = timezoneList[i]
             if (typeof(d[info[0]]) != "undefined") {
-                print(info[0], "repeat")
+                print("==> timezoneCityDict",info[0], "repeat")
             }
             d[info[0]] = info[1]
         }

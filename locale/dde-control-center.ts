@@ -5,7 +5,7 @@
     <name>AddDsl</name>
     <message>
         <location filename="../modules/network/add/AddDsl.qml" line="+11"/>
-        <source>New PPPoE Connection</source>
+        <source>Add PPPoE Connection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -86,7 +86,7 @@
 <context>
     <name>AddUserDialog</name>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="+48"/>
+        <location filename="../modules/account/AddUserDialog.qml" line="+72"/>
         <source>Invalid password</source>
         <translation type="unfinished"></translation>
     </message>
@@ -96,7 +96,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="-27"/>
+        <location line="+32"/>
         <source>Different password</source>
         <translation type="unfinished"></translation>
     </message>
@@ -112,33 +113,33 @@
     </message>
     <message>
         <location line="+4"/>
-        <location line="+156"/>
+        <location line="+183"/>
         <source>Standard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-156"/>
-        <location line="+157"/>
+        <location line="-183"/>
+        <location line="+184"/>
         <source>Administrator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-140"/>
+        <location line="-167"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+43"/>
+        <location line="+57"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+43"/>
+        <location line="+46"/>
         <source>Repeat Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+41"/>
+        <location line="+51"/>
         <source>Account Type</source>
         <translation type="unfinished"></translation>
     </message>
@@ -469,16 +470,6 @@
     </message>
 </context>
 <context>
-    <name>AppletSwitchArea</name>
-    <message>
-        <location filename="../modules/network/AppletSwitchArea.qml" line="+40"/>
-        <location filename="../modules/power/AppletSwitchArea.qml" line="+40"/>
-        <location filename="../modules/sound/AppletSwitchArea.qml" line="+40"/>
-        <source>Dock Applet Enabled</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>AppletTray</name>
     <message>
         <location filename="../dock-applets/plugins/date_time/AppletTray.qml" line="+80"/>
@@ -536,7 +527,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+290"/>
+        <location line="+291"/>
         <location filename="../dock-applets/plugins/network/bluetooth/AppletTray.qml" line="+78"/>
         <location filename="../dock-applets/plugins/network/vpn/AppletTray.qml" line="+70"/>
         <location filename="../dock-applets/plugins/network/wifi/AppletTray.qml" line="+119"/>
@@ -667,7 +658,7 @@
 <context>
     <name>Calendar</name>
     <message>
-        <location filename="../modules/date_time/Calendar.qml" line="+131"/>
+        <location filename="../modules/date_time/Calendar.qml" line="+132"/>
         <source>Today</source>
         <translation type="unfinished"></translation>
     </message>
@@ -714,7 +705,7 @@
     <name>ConnectionAdd</name>
     <message>
         <location filename="../modules/network/ConnectionAdd.qml" line="+12"/>
-        <source>New Network</source>
+        <source>Add Network Connection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -741,7 +732,7 @@
 <context>
     <name>ConnectionEdit</name>
     <message>
-        <location filename="../modules/network/ConnectionEdit.qml" line="+51"/>
+        <location filename="../modules/network/ConnectionEdit.qml" line="+52"/>
         <source>Delete this network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -766,7 +757,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+12"/>
+        <location line="+15"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1855,12 +1846,12 @@
     <name>Info</name>
     <message>
         <location filename="../modules/network/Info.qml" line="+13"/>
-        <source>Activated Connections</source>
+        <source>Connected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>None Activated Connection</source>
+        <source>Not Connected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2164,12 +2155,17 @@
 <context>
     <name>PasswordBox</name>
     <message>
-        <location filename="../modules/network/widgets/PasswordBox.qml" line="+75"/>
-        <source>Password: </source>
+        <location filename="../modules/network/widgets/PasswordBox.qml" line="+95"/>
+        <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+25"/>
+        <location line="+7"/>
+        <source>Auto-connect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2381,6 +2377,36 @@
         <location line="+1"/>
         <location line="+14"/>
         <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Delete Time Zone</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Add Time Zone</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/StateButtons.qml" line="+43"/>
+        <source>Delete Keyboard Layout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+15"/>
+        <source>Add Keyboard Layout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/shortcuts/StateButtons.qml" line="+42"/>
+        <source>Delete Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Add Shortcut</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2609,22 +2635,22 @@
 <context>
     <name>WifiPasswordWindow</name>
     <message>
-        <location filename="../dock-applets/src/frame/WifiPasswordWindow.qml" line="+139"/>
-        <source>Authentication required by Wi-Fi network</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>Passwords or encryption keys are required to access the Wi-Fi network &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Password:</source>
+        <location filename="../dock-applets/src/frame/WifiPasswordWindow.qml" line="+151"/>
+        <source>Please enter the password of  &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+22"/>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Auto-connect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+15"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2637,7 +2663,7 @@
 <context>
     <name>WiredDeviceExpand</name>
     <message>
-        <location filename="../modules/network/wired/WiredDeviceExpand.qml" line="+33"/>
+        <location filename="../modules/network/wired/WiredDeviceExpand.qml" line="+38"/>
         <source>Wired Network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2770,28 +2796,28 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/main.qml" line="+268"/>
-        <location line="+184"/>
+        <location filename="../modules/power/main.qml" line="+284"/>
+        <location line="+190"/>
         <location filename="../modules/shortcuts/main.qml" line="+53"/>
         <location line="+180"/>
         <source>Custom</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-196"/>
-        <location line="+184"/>
+        <location line="-202"/>
+        <location line="+190"/>
         <source>Power saver</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-190"/>
-        <location line="+184"/>
+        <location line="-196"/>
+        <location line="+190"/>
         <source>Balanced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-172"/>
-        <location line="+184"/>
+        <location line="-178"/>
+        <location line="+190"/>
         <source>High performance</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2896,22 +2922,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/main.qml" line="+118"/>
+        <location filename="../modules/display/main.qml" line="+126"/>
         <source>Primary Monitor: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+43"/>
+        <location line="+80"/>
         <source>Monitor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+60"/>
+        <location line="-55"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+12"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3063,7 +3089,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/main.qml" line="-393"/>
+        <location filename="../modules/power/main.qml" line="-415"/>
         <location line="+12"/>
         <source>Never</source>
         <translation type="unfinished"></translation>
@@ -3099,39 +3125,39 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+60"/>
+        <location line="+72"/>
         <source>When I press the power button</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+14"/>
-        <location line="+46"/>
+        <location line="+48"/>
         <source>Shutdown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-41"/>
-        <location line="+46"/>
-        <location line="+64"/>
+        <location line="-43"/>
+        <location line="+48"/>
+        <location line="+66"/>
         <location line="+6"/>
         <location line="+6"/>
         <location line="+6"/>
-        <location line="+95"/>
-        <location line="+71"/>
+        <location line="+99"/>
+        <location line="+73"/>
         <location line="+6"/>
         <location line="+6"/>
         <location line="+6"/>
-        <location line="+88"/>
+        <location line="+92"/>
         <source>Suspend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-395"/>
+        <location line="-409"/>
         <source>Ask</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+24"/>
         <source>When I close the lid</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3141,7 +3167,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+21"/>
         <source>Password required to wake up</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3151,27 +3177,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+184"/>
+        <location line="+190"/>
         <source>On battery</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-167"/>
+        <location line="-173"/>
         <location line="+6"/>
         <location line="+6"/>
         <location line="+6"/>
-        <location line="+55"/>
-        <location line="+111"/>
+        <location line="+57"/>
+        <location line="+115"/>
         <location line="+6"/>
         <location line="+6"/>
         <location line="+6"/>
-        <location line="+49"/>
+        <location line="+51"/>
         <source>Turn off the display</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-184"/>
-        <location line="+179"/>
+        <location line="-190"/>
+        <location line="+185"/>
         <source>Custom Options</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3399,8 +3425,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location line="+93"/>
+        <source>Add Network Connection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>View Detailed Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../dock-applets/plugins/network/vpn/main.qml" line="+33"/>
-        <location filename="../modules/network/main.qml" line="+2"/>
+        <location filename="../modules/network/main.qml" line="-114"/>
         <source>VPN</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3430,7 +3466,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/main.qml" line="+132"/>
+        <location filename="../modules/account/main.qml" line="+95"/>
+        <source>Delete Account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source>Add Account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
         <source>User List</source>
         <translation type="unfinished"></translation>
     </message>

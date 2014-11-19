@@ -29,6 +29,8 @@ Rectangle {
     property bool hovered: false
 
     signal selectAction(var itemValue)
+    signal itemEnter()
+    signal itemExist()
 
     Rectangle {
         id: contentBox
@@ -62,20 +64,29 @@ Rectangle {
         hoverEnabled: true
 
         onEntered: {
+            delegate.itemEnter()
+
             parent.hovered = true
             if (delegate.itemTooltip && delegate.itemTooltip != "") {
-                toolTip.showTip(delegate.itemTooltip)
+
+                var mapY = - delegate.mapFromItem(panelContent,0,0).y
+                var mapX = - delegate.mapFromItem(panelContent,0,0).x
+
+                gConfluentToolTip.visible = true
+                gConfluentToolTip.width = panelContent.width
+                gConfluentToolTip.rectangleHeight = 33
+                gConfluentToolTip.arrowHeight = 8
+                gConfluentToolTip.showToolTip(66, mapY - delegate.height - 2,delegate.width / 2 - 50 + mapX,delegate.itemTooltip)
             }
         }
 
         onExited: {
             parent.hovered = false
-            toolTip.hideTip()
+            delegate.itemExist()
         }
 
         onReleased: {
             parent.hovered = false
-            toolTip.hideTip()
         }
 
         onClicked: {

@@ -70,12 +70,28 @@ Item {
             onClicked: {
                 stateButtons.currentActionStateName = "deleteButton"
             }
+            onStateChanged: {
+                var mapX = - deleteButton.mapFromItem(keyboardModule,0,0).x
+                var mapY = - deleteButton.mapFromItem(keyboardModule,0,0).y
+                if (state == "hovered" && visible)
+                    gButtonToolTip.showToolTip(mapX + 45 + 10,mapY + 3,dsTr("Delete Keyboard Layout"))
+                else
+                    gButtonToolTip.hideToolTip()
+            }
         }
 
         DssAddButton {
             id: addButton
             onClicked: {
                 stateButtons.currentActionStateName = "addButton"
+            }
+            onStateChanged: {
+                var mapX = - deleteButton.mapFromItem(keyboardModule,0,0).x
+                var mapY = - deleteButton.mapFromItem(keyboardModule,0,0).y
+                if (state == "hovered" && visible)
+                    gButtonToolTip.showToolTip(mapX + 45 + 10,mapY + 3,dsTr("Add Keyboard Layout"))
+                else
+                    gButtonToolTip.hideToolTip()
             }
         }
     }
