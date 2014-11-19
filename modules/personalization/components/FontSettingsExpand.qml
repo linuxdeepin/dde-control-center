@@ -75,8 +75,8 @@ MyBaseExpand {
 
         DCenterLine {
                height: contenHeight
-               centerPadding: 10
-               leftWidth: 80
+               centerPadding: 0
+               leftWidth: 90
                title.text: dsTr("Size")
                content.sourceComponent: Item {
                    FontSlider{
@@ -112,5 +112,4 @@ MyBaseExpand {
                }
            }
     }
-
 }
