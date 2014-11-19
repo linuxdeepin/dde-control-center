@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-18 10:39+0800\n"
-"PO-Revision-Date: 2014-11-18 03:08+0000\n"
+"POT-Creation-Date: 2014-11-25 17:46+0800\n"
+"PO-Revision-Date: 2014-11-26 01:43+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/dde-control-center/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -25,8 +25,8 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../modules/network/add/AddDsl.qml:11
-msgid "New PPPoE Connection"
-msgstr "Koneksi PPPoE baru"
+msgid "Add PPPoE Connection"
+msgstr ""
 
 #: ../modules/network/add/AddDsl.qml:24
 #: ../modules/network/add/AddMobile.qml:33
@@ -39,7 +39,7 @@ msgstr "Nama"
 #: ../modules/network/add/AddDsl.qml:36
 #: ../modules/network/add/AddMobile.qml:75
 #: ../modules/network/add/AddMobile.qml:105
-#: ../modules/account/AddUserDialog.qml:117
+#: ../modules/account/AddUserDialog.qml:141
 #: ../modules/network/add/AddVpn.qml:124 ../modules/network/add/AddVpn.qml:254
 #: ../modules/network/add/AddVpn.qml:394 ../modules/network/add/AddVpn.qml:434
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:53
@@ -61,7 +61,7 @@ msgstr "Layanan"
 #: ../modules/network/add/AddDsl.qml:56
 #: ../modules/network/add/AddMobile.qml:85
 #: ../modules/network/add/AddMobile.qml:115
-#: ../modules/account/AddUserDialog.qml:160
+#: ../modules/account/AddUserDialog.qml:198
 #: ../modules/network/add/AddVpn.qml:144 ../modules/network/add/AddVpn.qml:274
 #: ../modules/network/add/AddVpn.qml:414
 #: ../modules/network/wireless/AddWireless.qml:64
@@ -75,8 +75,10 @@ msgstr "Layanan"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:204
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:344
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:75
+#: ../modules/network/widgets/PasswordBox.qml:95
 #: ../modules/account/PasswordDialog.qml:62
 #: ../modules/network/wireless/WifiHotspot.qml:69
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:173
 msgid "Password"
 msgstr "Kata Sandi"
 
@@ -102,19 +104,20 @@ msgid "Number"
 msgstr "Nomor"
 
 #: ../modules/network/add/AddSectionSave.qml:11
-#: ../modules/account/AddUserDialog.qml:327
+#: ../modules/account/AddUserDialog.qml:378
 #: ../modules/network/wireless/AddWireless.qml:216
+#: ../modules/bluetooth/BluetoothDeviceExpand.qml:87
 #: ../modules/network/ConnectionAdd.qml:69
-#: ../modules/network/ConnectionEdit.qml:146
+#: ../modules/network/ConnectionEdit.qml:150
 #: ../modules/shortcuts/CustomKeybinding.qml:151
 #: ../modules/account/DeleteUserDialog.qml:33
-#: ../modules/network/widgets/PasswordBox.qml:100
+#: ../modules/network/widgets/PasswordBox.qml:118
 #: ../modules/account/PasswordDialog.qml:207
 #: ../modules/shortcuts/ShortcutInput.qml:343
 #: ../modules/date_time/TimeBox.qml:212
 #: ../modules/network/wireless/WifiHotspot.qml:82
-#: ../dock-applets/src/frame/WifiPasswordWindow.qml:183
-#: ../modules/display/main.qml:240
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:196
+#: ../modules/display/main.qml:163
 msgid "Cancel"
 msgstr "Batal"
 
@@ -124,58 +127,59 @@ msgstr "Batal"
 msgid "Add"
 msgstr "Tambah"
 
-#: ../modules/account/AddUserDialog.qml:48
+#: ../modules/account/AddUserDialog.qml:72
 #: ../modules/account/PasswordDialog.qml:96
 msgid "Invalid password"
 msgstr "Kata kunci Salah"
 
-#: ../modules/account/AddUserDialog.qml:53
+#: ../modules/account/AddUserDialog.qml:77
 msgid "Nothing input"
 msgstr "Tidak ada masukan"
 
-#: ../modules/account/AddUserDialog.qml:58
+#: ../modules/account/AddUserDialog.qml:50
+#: ../modules/account/AddUserDialog.qml:82
 #: ../modules/account/PasswordDialog.qml:101
 msgid "Different password"
 msgstr "Kata kunci berbeda"
 
-#: ../modules/account/AddUserDialog.qml:67
+#: ../modules/account/AddUserDialog.qml:91
 msgid "Add User"
 msgstr "Tambah Pengguna"
 
-#: ../modules/account/AddUserDialog.qml:96
+#: ../modules/account/AddUserDialog.qml:120
 msgid "New User"
 msgstr "Pengguna Baru"
 
-#: ../modules/account/AddUserDialog.qml:100
-#: ../modules/account/AddUserDialog.qml:256
+#: ../modules/account/AddUserDialog.qml:124
+#: ../modules/account/AddUserDialog.qml:307
 #: ../modules/account/EditUserDialog.qml:138
 #: ../modules/personalization/components/FontSettingsExpand.qml:48
 #: ../modules/account/UserList.qml:222
 msgid "Standard"
 msgstr "Standar"
 
-#: ../modules/account/AddUserDialog.qml:100
-#: ../modules/account/AddUserDialog.qml:257
+#: ../modules/account/AddUserDialog.qml:124
+#: ../modules/account/AddUserDialog.qml:308
 #: ../modules/account/EditUserDialog.qml:139
 #: ../modules/account/UserList.qml:222
 msgid "Administrator"
 msgstr "Administrator"
 
-#: ../modules/account/AddUserDialog.qml:203
+#: ../modules/account/AddUserDialog.qml:244
 msgid "Repeat Password"
 msgstr "Tulis kembali Kata Sandi"
 
-#: ../modules/account/AddUserDialog.qml:244
+#: ../modules/account/AddUserDialog.qml:295
 #: ../modules/account/EditUserDialog.qml:126
 msgid "Account Type"
 msgstr "Tipe Akun"
 
-#: ../modules/account/AddUserDialog.qml:276
+#: ../modules/account/AddUserDialog.qml:327
 #: ../modules/account/EditUserDialog.qml:59
 msgid "Auto-login"
 msgstr "Masuk-Otomatis"
 
-#: ../modules/account/AddUserDialog.qml:340
+#: ../modules/account/AddUserDialog.qml:391
 #: ../modules/account/DeleteUserDialog.qml:46
 #: ../modules/account/PasswordDialog.qml:221 ../modules/account/WebCam.qml:148
 msgid "Confirm"
@@ -436,20 +440,14 @@ msgid "Inner Auth"
 msgstr "Inner Auth"
 
 #: ../modules/network/wireless/AddWireless.qml:224
-#: ../modules/network/widgets/PasswordBox.qml:108
-#: ../dock-applets/src/frame/WifiPasswordWindow.qml:190
+#: ../modules/network/widgets/PasswordBox.qml:126
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:203
 msgid "Connect"
 msgstr "Sambungkan"
 
-#: ../dock-applets/applet_widgets/AppletSettingWindow.qml:101
-msgid "Notice Region Setting "
+#: ../dock-applets/src/frame/AppletSettingWindow.qml:101
+msgid "Notification Area Settings"
 msgstr ""
-
-#: ../modules/network/AppletSwitchArea.qml:40
-#: ../modules/power/AppletSwitchArea.qml:40
-#: ../modules/sound/AppletSwitchArea.qml:40
-msgid "Dock Applet Enabled"
-msgstr "Dock Applet diaktifkan"
 
 #: ../dock-applets/plugins/date_time/AppletTray.qml:80
 msgid "_Switch to analog"
@@ -509,19 +507,19 @@ msgstr ""
 msgid "Network Not Connected"
 msgstr ""
 
-#: ../dock-applets/plugins/network/AppletTray.qml:325
+#: ../dock-applets/plugins/network/AppletTray.qml:305
 #: ../dock-applets/plugins/network/bluetooth/AppletTray.qml:78
 #: ../dock-applets/plugins/network/vpn/AppletTray.qml:70
-#: ../dock-applets/plugins/network/wifi/AppletTray.qml:119
+#: ../dock-applets/plugins/network/wifi/AppletTray.qml:126
 #: ../dock-applets/plugins/power/AppletTray.qml:99
 #: ../dock-applets/plugins/sound/AppletTray.qml:173
 msgid "_Run"
 msgstr "_Jalankan"
 
-#: ../dock-applets/plugins/network/AppletTray.qml:326
+#: ../dock-applets/plugins/network/AppletTray.qml:306
 #: ../dock-applets/plugins/network/bluetooth/AppletTray.qml:79
 #: ../dock-applets/plugins/network/vpn/AppletTray.qml:71
-#: ../dock-applets/plugins/network/wifi/AppletTray.qml:120
+#: ../dock-applets/plugins/network/wifi/AppletTray.qml:127
 #: ../dock-applets/plugins/power/AppletTray.qml:106
 #: ../dock-applets/plugins/sound/AppletTray.qml:174
 msgid "_Undock"
@@ -533,23 +531,23 @@ msgstr "Sedang mengisi"
 
 #: ../dock-applets/plugins/power/AppletTray.qml:46
 #: ../modules/personalization/widgets/ThemeItem.qml:95
-#: ../modules/power/main.qml:268 ../modules/power/main.qml:452
+#: ../modules/power/main.qml:280 ../modules/power/main.qml:468
 #: ../modules/shortcuts/main.qml:53 ../modules/shortcuts/main.qml:233
 msgid "Custom"
 msgstr "Kustom"
 
 #: ../dock-applets/plugins/power/AppletTray.qml:47
-#: ../modules/power/main.qml:256 ../modules/power/main.qml:440
+#: ../modules/power/main.qml:268 ../modules/power/main.qml:456
 msgid "Power saver"
 msgstr "Penghemat daya"
 
 #: ../dock-applets/plugins/power/AppletTray.qml:48
-#: ../modules/power/main.qml:250 ../modules/power/main.qml:434
+#: ../modules/power/main.qml:262 ../modules/power/main.qml:450
 msgid "Balanced"
 msgstr "Seimbang"
 
 #: ../dock-applets/plugins/power/AppletTray.qml:49
-#: ../modules/power/main.qml:262 ../modules/power/main.qml:446
+#: ../modules/power/main.qml:274 ../modules/power/main.qml:462
 msgid "High performance"
 msgstr "Kinerja tinggi"
 
@@ -576,7 +574,7 @@ msgstr "Bluetooth"
 msgid "VPN"
 msgstr "VPN"
 
-#: ../dock-applets/plugins/network/wifi/AppletTray.qml:161
+#: ../dock-applets/plugins/network/wifi/AppletTray.qml:168
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:28
 #: ../dock-applets/plugins/network/WirelessNetwork.qml:50
 #: ../dock-applets/plugins/network/wifi/main.qml:33
@@ -616,13 +614,22 @@ msgstr "Kanan"
 msgid "Automatically connect"
 msgstr "Sambung Otomatis"
 
-#: ../modules/date_time/Calendar.qml:131
+#: ../modules/bluetooth/BluetoothDeviceExpand.qml:99
+#: ../modules/display/main.qml:151
+msgid "Apply"
+msgstr "Terapkan"
+
+#: ../modules/bluetooth/BluetoothDeviceExpand.qml:127
+msgid "Devices nearby"
+msgstr "Perangkat terdekat"
+
+#: ../modules/date_time/Calendar.qml:132
 msgid "Today"
 msgstr "Hari ini"
 
-#: ../modules/network/ConnectionAdd.qml:12
-msgid "New Network"
-msgstr "Jaringan baru"
+#: ../modules/network/ConnectionAdd.qml:12 ../modules/network/main.qml:303
+msgid "Add Network Connection"
+msgstr ""
 
 #: ../modules/network/ConnectionAdd.qml:35
 #: ../modules/network/edit_autogen/EditSectionPppoe.qml:11
@@ -634,27 +641,27 @@ msgstr "PPPoE"
 msgid "Next"
 msgstr "Selanjutnya"
 
-#: ../modules/network/ConnectionEdit.qml:51
+#: ../modules/network/ConnectionEdit.qml:52
 msgid "Delete this network"
 msgstr "Hapus jaringan ini"
 
-#: ../modules/network/ConnectionEdit.qml:51
+#: ../modules/network/ConnectionEdit.qml:52
 msgid "Are you sure you want to delete this network?"
 msgstr "Anda yakin akan menghapus jaringan ini?"
 
-#: ../modules/network/ConnectionEdit.qml:101
+#: ../modules/network/ConnectionEdit.qml:102
 #: ../modules/network/wireless/WifiHotspot.qml:91
 msgid "Save"
 msgstr "Simpan"
 
-#: ../modules/network/ConnectionEdit.qml:113 ../modules/network/Info.qml:79
+#: ../modules/network/ConnectionEdit.qml:114 ../modules/network/Info.qml:79
 #: ../modules/date_time/StateButtons.qml:35
 #: ../modules/date_time/StateButtons.qml:49
 #: ../modules/date_time/TimezoneArea.qml:257
 msgid "Close"
 msgstr "Tutup"
 
-#: ../modules/network/ConnectionEdit.qml:134
+#: ../modules/network/ConnectionEdit.qml:135
 msgid "Delete"
 msgstr "Hapus"
 
@@ -1030,15 +1037,15 @@ msgstr "Depan"
 msgid "Rear"
 msgstr "Belakang"
 
-#: ../modules/personalization/components/FontSettingsExpand.qml:66
+#: ../modules/personalization/components/FontSettingsExpand.qml:65
 msgid "Monospaced"
 msgstr ""
 
-#: ../modules/personalization/components/FontSettingsExpand.qml:81
+#: ../modules/personalization/components/FontSettingsExpand.qml:80
 msgid "Size"
 msgstr "Ukuran"
 
-#: ../modules/personalization/components/FontSettingsExpand.qml:110
+#: ../modules/personalization/components/FontSettingsExpand.qml:109
 #, qt-format
 msgid "Font %1"
 msgstr "Fonta %1"
@@ -1053,12 +1060,12 @@ msgid "Enabled"
 msgstr "diaktifkan"
 
 #: ../modules/network/Info.qml:13
-msgid "Activated Connections"
-msgstr "Koneksi diaktifkan"
+msgid "Connected"
+msgstr ""
 
 #: ../modules/network/Info.qml:15
-msgid "None Activated Connection"
-msgstr "None Aktifkan Koneksi"
+msgid "Not Connected"
+msgstr ""
 
 #: ../modules/network/Info.qml:39
 msgid "(default)"
@@ -1264,9 +1271,10 @@ msgstr "Koneksi Kabel"
 msgid "not managed"
 msgstr "tidak dikelola"
 
-#: ../modules/network/widgets/PasswordBox.qml:75
-msgid "Password: "
-msgstr "Kata Sandi :"
+#: ../modules/network/widgets/PasswordBox.qml:102
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:181
+msgid "Auto-connect"
+msgstr ""
 
 #: ../modules/account/PasswordDialog.qml:114
 msgid "New Password"
@@ -1379,6 +1387,30 @@ msgstr "Pratampil Tema"
 #: ../modules/shortcuts/StateButtons.qml:38
 msgid "Done"
 msgstr "Selesai"
+
+#: ../modules/date_time/StateButtons.qml:72
+msgid "Delete Time Zone"
+msgstr ""
+
+#: ../modules/date_time/StateButtons.qml:88
+msgid "Add Time Zone"
+msgstr ""
+
+#: ../modules/keyboard/StateButtons.qml:77
+msgid "Delete Keyboard Layout"
+msgstr ""
+
+#: ../modules/keyboard/StateButtons.qml:92
+msgid "Add Keyboard Layout"
+msgstr ""
+
+#: ../modules/shortcuts/StateButtons.qml:80
+msgid "Delete Shortcut"
+msgstr ""
+
+#: ../modules/shortcuts/StateButtons.qml:96
+msgid "Add Shortcut"
+msgstr ""
 
 #: ../modules/date_time/TimeBox.qml:161
 msgid "Double-click the above digits to change your time."
@@ -1495,22 +1527,12 @@ msgstr "Buat Hotspot Wi-Fi"
 msgid "Create"
 msgstr "Buat"
 
-#: ../dock-applets/src/frame/WifiPasswordWindow.qml:139
-msgid "Authentication required by Wi-Fi network"
-msgstr "Autentikasi dibutuhkan oleh jaringan Wi-Fi"
-
-#: ../dock-applets/src/frame/WifiPasswordWindow.qml:147
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:151
 #, qt-format
-msgid ""
-"Passwords or encryption keys are required to access the Wi-Fi network <font "
-"color=\"#faca57\">%1</font>"
-msgstr "Kata sandi atau kunci enkripsi dibutuhkan untuk untuk mengakses jaringan Wi-Fi <font color=\"#faca57\">%1</font>"
+msgid "Please enter the password of  <font color=\"#faca57\">%1</font>"
+msgstr ""
 
-#: ../dock-applets/src/frame/WifiPasswordWindow.qml:161
-msgid "Password:"
-msgstr "Kata sandi:"
-
-#: ../modules/network/wired/WiredDeviceExpand.qml:33
+#: ../modules/network/wired/WiredDeviceExpand.qml:38
 msgid "Wired Network"
 msgstr "Koneksi Kabel"
 
@@ -1537,14 +1559,6 @@ msgstr "Jarigan nirkabel tidak dapat dihubungkan mungkin karena alasan berikut:\
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:158
 msgid "Connect to hidden access point"
 msgstr "Sambungkan ke akses point tersembunyi"
-
-#: ../modules/bluetooth/main.qml:76
-msgid "ON/OFF"
-msgstr "NYALA/MATi"
-
-#: ../modules/bluetooth/main.qml:141
-msgid "Devices nearby"
-msgstr "Perangkat terdekat"
 
 #: ../modules/date_time/main.qml:106
 msgid "Automatic date and time"
@@ -1614,17 +1628,13 @@ msgstr "Kamera"
 msgid "Software"
 msgstr "Perangkat lunak"
 
-#: ../modules/display/main.qml:118
+#: ../modules/display/main.qml:126
 msgid "Primary Monitor: "
 msgstr "Monitor Primer:"
 
-#: ../modules/display/main.qml:161
+#: ../modules/display/main.qml:206
 msgid "Monitor"
 msgstr "Monitor"
-
-#: ../modules/display/main.qml:221
-msgid "Apply"
-msgstr "Terapkan"
 
 #: ../modules/grub/main.qml:112
 msgid "Default Startup"
@@ -1726,56 +1736,56 @@ msgstr "30 menit"
 msgid "1 hour"
 msgstr "1 jam"
 
-#: ../modules/power/main.qml:124
+#: ../modules/power/main.qml:136
 msgid "When I press the power button"
 msgstr "Ketika ditekan tombol power"
 
-#: ../modules/power/main.qml:138 ../modules/power/main.qml:184
+#: ../modules/power/main.qml:150 ../modules/power/main.qml:196
 msgid "Shutdown"
 msgstr "Matikan"
 
-#: ../modules/power/main.qml:143 ../modules/power/main.qml:189
-#: ../modules/power/main.qml:253 ../modules/power/main.qml:259
+#: ../modules/power/main.qml:155 ../modules/power/main.qml:201
 #: ../modules/power/main.qml:265 ../modules/power/main.qml:271
-#: ../modules/power/main.qml:366 ../modules/power/main.qml:437
-#: ../modules/power/main.qml:443 ../modules/power/main.qml:449
-#: ../modules/power/main.qml:455 ../modules/power/main.qml:543
+#: ../modules/power/main.qml:277 ../modules/power/main.qml:283
+#: ../modules/power/main.qml:382 ../modules/power/main.qml:453
+#: ../modules/power/main.qml:459 ../modules/power/main.qml:465
+#: ../modules/power/main.qml:471 ../modules/power/main.qml:563
 msgid "Suspend"
 msgstr "Tangguhkan"
 
-#: ../modules/power/main.qml:148
+#: ../modules/power/main.qml:160
 msgid "Ask"
 msgstr "Tanya"
 
-#: ../modules/power/main.qml:170
+#: ../modules/power/main.qml:182
 msgid "When I close the lid"
 msgstr "Ketika Saya menutup lid"
 
-#: ../modules/power/main.qml:194
+#: ../modules/power/main.qml:206
 msgid "Nothing"
 msgstr "Tidak ada apa-apa"
 
-#: ../modules/power/main.qml:213
+#: ../modules/power/main.qml:225
 msgid "Password required to wake up"
 msgstr "Kata sandi dibutuhkan untung membangunkan"
 
-#: ../modules/power/main.qml:235
+#: ../modules/power/main.qml:247
 msgid "Plugged in"
 msgstr "Plugged in"
 
-#: ../modules/power/main.qml:419
+#: ../modules/power/main.qml:435
 msgid "On battery"
 msgstr "Pada baterai"
 
-#: ../modules/power/main.qml:252 ../modules/power/main.qml:258
 #: ../modules/power/main.qml:264 ../modules/power/main.qml:270
-#: ../modules/power/main.qml:325 ../modules/power/main.qml:436
-#: ../modules/power/main.qml:442 ../modules/power/main.qml:448
-#: ../modules/power/main.qml:454 ../modules/power/main.qml:503
+#: ../modules/power/main.qml:276 ../modules/power/main.qml:282
+#: ../modules/power/main.qml:341 ../modules/power/main.qml:452
+#: ../modules/power/main.qml:458 ../modules/power/main.qml:464
+#: ../modules/power/main.qml:470 ../modules/power/main.qml:523
 msgid "Turn off the display"
 msgstr "Matikan layar"
 
-#: ../modules/power/main.qml:319 ../modules/power/main.qml:498
+#: ../modules/power/main.qml:335 ../modules/power/main.qml:518
 msgid "Custom Options"
 msgstr "Opsi Kustom"
 
@@ -1939,6 +1949,10 @@ msgstr "Mobile GSM"
 msgid "Mobile CDMA"
 msgstr "Mobile CDMA"
 
+#: ../modules/network/main.qml:326
+msgid "View Detailed Information"
+msgstr ""
+
 #: ../modules/network/main.qml:214
 msgid "VPN L2TP"
 msgstr "VPN L2TP"
@@ -1959,7 +1973,15 @@ msgstr "VPN OpenVPN"
 msgid "VPN OpenConnect"
 msgstr "VPN OpenConnect"
 
-#: ../modules/account/main.qml:132
+#: ../modules/account/main.qml:95
+msgid "Delete Account"
+msgstr ""
+
+#: ../modules/account/main.qml:133
+msgid "Add Account"
+msgstr ""
+
+#: ../modules/account/main.qml:153
 msgid "User List"
 msgstr "Daftar Pengguna"
 

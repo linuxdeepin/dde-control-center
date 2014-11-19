@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-18 10:39+0800\n"
-"PO-Revision-Date: 2014-11-18 03:08+0000\n"
+"POT-Creation-Date: 2014-11-25 17:46+0800\n"
+"PO-Revision-Date: 2014-11-26 01:43+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/dde-control-center/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -22,8 +22,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../modules/network/add/AddDsl.qml:11
-msgid "New PPPoE Connection"
-msgstr "Nueva conexión PPPoE"
+msgid "Add PPPoE Connection"
+msgstr ""
 
 #: ../modules/network/add/AddDsl.qml:24
 #: ../modules/network/add/AddMobile.qml:33
@@ -36,7 +36,7 @@ msgstr "Nombre"
 #: ../modules/network/add/AddDsl.qml:36
 #: ../modules/network/add/AddMobile.qml:75
 #: ../modules/network/add/AddMobile.qml:105
-#: ../modules/account/AddUserDialog.qml:117
+#: ../modules/account/AddUserDialog.qml:141
 #: ../modules/network/add/AddVpn.qml:124 ../modules/network/add/AddVpn.qml:254
 #: ../modules/network/add/AddVpn.qml:394 ../modules/network/add/AddVpn.qml:434
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:53
@@ -58,7 +58,7 @@ msgstr "Servicio"
 #: ../modules/network/add/AddDsl.qml:56
 #: ../modules/network/add/AddMobile.qml:85
 #: ../modules/network/add/AddMobile.qml:115
-#: ../modules/account/AddUserDialog.qml:160
+#: ../modules/account/AddUserDialog.qml:198
 #: ../modules/network/add/AddVpn.qml:144 ../modules/network/add/AddVpn.qml:274
 #: ../modules/network/add/AddVpn.qml:414
 #: ../modules/network/wireless/AddWireless.qml:64
@@ -72,8 +72,10 @@ msgstr "Servicio"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:204
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:344
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:75
+#: ../modules/network/widgets/PasswordBox.qml:95
 #: ../modules/account/PasswordDialog.qml:62
 #: ../modules/network/wireless/WifiHotspot.qml:69
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:173
 msgid "Password"
 msgstr "Contraseña:"
 
@@ -99,19 +101,20 @@ msgid "Number"
 msgstr "Número"
 
 #: ../modules/network/add/AddSectionSave.qml:11
-#: ../modules/account/AddUserDialog.qml:327
+#: ../modules/account/AddUserDialog.qml:378
 #: ../modules/network/wireless/AddWireless.qml:216
+#: ../modules/bluetooth/BluetoothDeviceExpand.qml:87
 #: ../modules/network/ConnectionAdd.qml:69
-#: ../modules/network/ConnectionEdit.qml:146
+#: ../modules/network/ConnectionEdit.qml:150
 #: ../modules/shortcuts/CustomKeybinding.qml:151
 #: ../modules/account/DeleteUserDialog.qml:33
-#: ../modules/network/widgets/PasswordBox.qml:100
+#: ../modules/network/widgets/PasswordBox.qml:118
 #: ../modules/account/PasswordDialog.qml:207
 #: ../modules/shortcuts/ShortcutInput.qml:343
 #: ../modules/date_time/TimeBox.qml:212
 #: ../modules/network/wireless/WifiHotspot.qml:82
-#: ../dock-applets/src/frame/WifiPasswordWindow.qml:183
-#: ../modules/display/main.qml:240
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:196
+#: ../modules/display/main.qml:163
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -121,58 +124,59 @@ msgstr "Cancelar"
 msgid "Add"
 msgstr "Añadir"
 
-#: ../modules/account/AddUserDialog.qml:48
+#: ../modules/account/AddUserDialog.qml:72
 #: ../modules/account/PasswordDialog.qml:96
 msgid "Invalid password"
 msgstr "Contraseña incorrecta"
 
-#: ../modules/account/AddUserDialog.qml:53
+#: ../modules/account/AddUserDialog.qml:77
 msgid "Nothing input"
 msgstr "Nada introducido"
 
-#: ../modules/account/AddUserDialog.qml:58
+#: ../modules/account/AddUserDialog.qml:50
+#: ../modules/account/AddUserDialog.qml:82
 #: ../modules/account/PasswordDialog.qml:101
 msgid "Different password"
 msgstr "Contraseñas diferentes"
 
-#: ../modules/account/AddUserDialog.qml:67
+#: ../modules/account/AddUserDialog.qml:91
 msgid "Add User"
 msgstr "Añadir Usuario"
 
-#: ../modules/account/AddUserDialog.qml:96
+#: ../modules/account/AddUserDialog.qml:120
 msgid "New User"
 msgstr "Nuevo Usuario"
 
-#: ../modules/account/AddUserDialog.qml:100
-#: ../modules/account/AddUserDialog.qml:256
+#: ../modules/account/AddUserDialog.qml:124
+#: ../modules/account/AddUserDialog.qml:307
 #: ../modules/account/EditUserDialog.qml:138
 #: ../modules/personalization/components/FontSettingsExpand.qml:48
 #: ../modules/account/UserList.qml:222
 msgid "Standard"
 msgstr "Estándar"
 
-#: ../modules/account/AddUserDialog.qml:100
-#: ../modules/account/AddUserDialog.qml:257
+#: ../modules/account/AddUserDialog.qml:124
+#: ../modules/account/AddUserDialog.qml:308
 #: ../modules/account/EditUserDialog.qml:139
 #: ../modules/account/UserList.qml:222
 msgid "Administrator"
 msgstr "Administrador"
 
-#: ../modules/account/AddUserDialog.qml:203
+#: ../modules/account/AddUserDialog.qml:244
 msgid "Repeat Password"
 msgstr "Repetir Contraseña"
 
-#: ../modules/account/AddUserDialog.qml:244
+#: ../modules/account/AddUserDialog.qml:295
 #: ../modules/account/EditUserDialog.qml:126
 msgid "Account Type"
 msgstr "Tipo de Cuenta"
 
-#: ../modules/account/AddUserDialog.qml:276
+#: ../modules/account/AddUserDialog.qml:327
 #: ../modules/account/EditUserDialog.qml:59
 msgid "Auto-login"
 msgstr "Inicio Automático"
 
-#: ../modules/account/AddUserDialog.qml:340
+#: ../modules/account/AddUserDialog.qml:391
 #: ../modules/account/DeleteUserDialog.qml:46
 #: ../modules/account/PasswordDialog.qml:221 ../modules/account/WebCam.qml:148
 msgid "Confirm"
@@ -433,20 +437,14 @@ msgid "Inner Auth"
 msgstr "Autenticación Interna"
 
 #: ../modules/network/wireless/AddWireless.qml:224
-#: ../modules/network/widgets/PasswordBox.qml:108
-#: ../dock-applets/src/frame/WifiPasswordWindow.qml:190
+#: ../modules/network/widgets/PasswordBox.qml:126
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:203
 msgid "Connect"
 msgstr "Conectar"
 
-#: ../dock-applets/applet_widgets/AppletSettingWindow.qml:101
-msgid "Notice Region Setting "
+#: ../dock-applets/src/frame/AppletSettingWindow.qml:101
+msgid "Notification Area Settings"
 msgstr ""
-
-#: ../modules/network/AppletSwitchArea.qml:40
-#: ../modules/power/AppletSwitchArea.qml:40
-#: ../modules/sound/AppletSwitchArea.qml:40
-msgid "Dock Applet Enabled"
-msgstr "Applet en el Dock Habilitado"
 
 #: ../dock-applets/plugins/date_time/AppletTray.qml:80
 msgid "_Switch to analog"
@@ -506,19 +504,19 @@ msgstr ""
 msgid "Network Not Connected"
 msgstr ""
 
-#: ../dock-applets/plugins/network/AppletTray.qml:325
+#: ../dock-applets/plugins/network/AppletTray.qml:305
 #: ../dock-applets/plugins/network/bluetooth/AppletTray.qml:78
 #: ../dock-applets/plugins/network/vpn/AppletTray.qml:70
-#: ../dock-applets/plugins/network/wifi/AppletTray.qml:119
+#: ../dock-applets/plugins/network/wifi/AppletTray.qml:126
 #: ../dock-applets/plugins/power/AppletTray.qml:99
 #: ../dock-applets/plugins/sound/AppletTray.qml:173
 msgid "_Run"
 msgstr "_Ejecutar"
 
-#: ../dock-applets/plugins/network/AppletTray.qml:326
+#: ../dock-applets/plugins/network/AppletTray.qml:306
 #: ../dock-applets/plugins/network/bluetooth/AppletTray.qml:79
 #: ../dock-applets/plugins/network/vpn/AppletTray.qml:71
-#: ../dock-applets/plugins/network/wifi/AppletTray.qml:120
+#: ../dock-applets/plugins/network/wifi/AppletTray.qml:127
 #: ../dock-applets/plugins/power/AppletTray.qml:106
 #: ../dock-applets/plugins/sound/AppletTray.qml:174
 msgid "_Undock"
@@ -530,23 +528,23 @@ msgstr "Cargando"
 
 #: ../dock-applets/plugins/power/AppletTray.qml:46
 #: ../modules/personalization/widgets/ThemeItem.qml:95
-#: ../modules/power/main.qml:268 ../modules/power/main.qml:452
+#: ../modules/power/main.qml:280 ../modules/power/main.qml:468
 #: ../modules/shortcuts/main.qml:53 ../modules/shortcuts/main.qml:233
 msgid "Custom"
 msgstr "Personalizado"
 
 #: ../dock-applets/plugins/power/AppletTray.qml:47
-#: ../modules/power/main.qml:256 ../modules/power/main.qml:440
+#: ../modules/power/main.qml:268 ../modules/power/main.qml:456
 msgid "Power saver"
 msgstr "Ahorro de energía"
 
 #: ../dock-applets/plugins/power/AppletTray.qml:48
-#: ../modules/power/main.qml:250 ../modules/power/main.qml:434
+#: ../modules/power/main.qml:262 ../modules/power/main.qml:450
 msgid "Balanced"
 msgstr "Balanceado"
 
 #: ../dock-applets/plugins/power/AppletTray.qml:49
-#: ../modules/power/main.qml:262 ../modules/power/main.qml:446
+#: ../modules/power/main.qml:274 ../modules/power/main.qml:462
 msgid "High performance"
 msgstr "Alto rendimiento"
 
@@ -573,7 +571,7 @@ msgstr "Bluetooth"
 msgid "VPN"
 msgstr "VPN"
 
-#: ../dock-applets/plugins/network/wifi/AppletTray.qml:161
+#: ../dock-applets/plugins/network/wifi/AppletTray.qml:168
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:28
 #: ../dock-applets/plugins/network/WirelessNetwork.qml:50
 #: ../dock-applets/plugins/network/wifi/main.qml:33
@@ -613,13 +611,22 @@ msgstr "Derecha"
 msgid "Automatically connect"
 msgstr "Conectar automáticamente"
 
-#: ../modules/date_time/Calendar.qml:131
+#: ../modules/bluetooth/BluetoothDeviceExpand.qml:99
+#: ../modules/display/main.qml:151
+msgid "Apply"
+msgstr "Aplicar"
+
+#: ../modules/bluetooth/BluetoothDeviceExpand.qml:127
+msgid "Devices nearby"
+msgstr "Dispositivos cercanos"
+
+#: ../modules/date_time/Calendar.qml:132
 msgid "Today"
 msgstr "Hoy"
 
-#: ../modules/network/ConnectionAdd.qml:12
-msgid "New Network"
-msgstr "Nueva Red"
+#: ../modules/network/ConnectionAdd.qml:12 ../modules/network/main.qml:303
+msgid "Add Network Connection"
+msgstr ""
 
 #: ../modules/network/ConnectionAdd.qml:35
 #: ../modules/network/edit_autogen/EditSectionPppoe.qml:11
@@ -631,27 +638,27 @@ msgstr "PPPoE"
 msgid "Next"
 msgstr "Siguiente"
 
-#: ../modules/network/ConnectionEdit.qml:51
+#: ../modules/network/ConnectionEdit.qml:52
 msgid "Delete this network"
 msgstr "Borrar esta red"
 
-#: ../modules/network/ConnectionEdit.qml:51
+#: ../modules/network/ConnectionEdit.qml:52
 msgid "Are you sure you want to delete this network?"
 msgstr "¿Está seguro que desea borrar esta red?"
 
-#: ../modules/network/ConnectionEdit.qml:101
+#: ../modules/network/ConnectionEdit.qml:102
 #: ../modules/network/wireless/WifiHotspot.qml:91
 msgid "Save"
 msgstr "Guardar"
 
-#: ../modules/network/ConnectionEdit.qml:113 ../modules/network/Info.qml:79
+#: ../modules/network/ConnectionEdit.qml:114 ../modules/network/Info.qml:79
 #: ../modules/date_time/StateButtons.qml:35
 #: ../modules/date_time/StateButtons.qml:49
 #: ../modules/date_time/TimezoneArea.qml:257
 msgid "Close"
 msgstr "Cerrar"
 
-#: ../modules/network/ConnectionEdit.qml:134
+#: ../modules/network/ConnectionEdit.qml:135
 msgid "Delete"
 msgstr "Eliminar"
 
@@ -1027,15 +1034,15 @@ msgstr ""
 msgid "Rear"
 msgstr ""
 
-#: ../modules/personalization/components/FontSettingsExpand.qml:66
+#: ../modules/personalization/components/FontSettingsExpand.qml:65
 msgid "Monospaced"
 msgstr ""
 
-#: ../modules/personalization/components/FontSettingsExpand.qml:81
+#: ../modules/personalization/components/FontSettingsExpand.qml:80
 msgid "Size"
 msgstr "Tamaño"
 
-#: ../modules/personalization/components/FontSettingsExpand.qml:110
+#: ../modules/personalization/components/FontSettingsExpand.qml:109
 #, qt-format
 msgid "Font %1"
 msgstr "Fuente %1"
@@ -1050,12 +1057,12 @@ msgid "Enabled"
 msgstr "Habilitado"
 
 #: ../modules/network/Info.qml:13
-msgid "Activated Connections"
-msgstr "Conexiones activadas"
+msgid "Connected"
+msgstr ""
 
 #: ../modules/network/Info.qml:15
-msgid "None Activated Connection"
-msgstr "Ninguna conexión activada"
+msgid "Not Connected"
+msgstr ""
 
 #: ../modules/network/Info.qml:39
 msgid "(default)"
@@ -1261,9 +1268,10 @@ msgstr "Conexión por cable"
 msgid "not managed"
 msgstr "No administrado"
 
-#: ../modules/network/widgets/PasswordBox.qml:75
-msgid "Password: "
-msgstr "Contraseña:"
+#: ../modules/network/widgets/PasswordBox.qml:102
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:181
+msgid "Auto-connect"
+msgstr ""
 
 #: ../modules/account/PasswordDialog.qml:114
 msgid "New Password"
@@ -1376,6 +1384,30 @@ msgstr "Vista previa de tema"
 #: ../modules/shortcuts/StateButtons.qml:38
 msgid "Done"
 msgstr "Hecho"
+
+#: ../modules/date_time/StateButtons.qml:72
+msgid "Delete Time Zone"
+msgstr ""
+
+#: ../modules/date_time/StateButtons.qml:88
+msgid "Add Time Zone"
+msgstr ""
+
+#: ../modules/keyboard/StateButtons.qml:77
+msgid "Delete Keyboard Layout"
+msgstr ""
+
+#: ../modules/keyboard/StateButtons.qml:92
+msgid "Add Keyboard Layout"
+msgstr ""
+
+#: ../modules/shortcuts/StateButtons.qml:80
+msgid "Delete Shortcut"
+msgstr ""
+
+#: ../modules/shortcuts/StateButtons.qml:96
+msgid "Add Shortcut"
+msgstr ""
 
 #: ../modules/date_time/TimeBox.qml:161
 msgid "Double-click the above digits to change your time."
@@ -1492,22 +1524,12 @@ msgstr "Crear Wi-Fi Hotspot"
 msgid "Create"
 msgstr "Crear"
 
-#: ../dock-applets/src/frame/WifiPasswordWindow.qml:139
-msgid "Authentication required by Wi-Fi network"
-msgstr "Autenticación requerida por red Wi-Fi"
-
-#: ../dock-applets/src/frame/WifiPasswordWindow.qml:147
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:151
 #, qt-format
-msgid ""
-"Passwords or encryption keys are required to access the Wi-Fi network <font "
-"color=\"#faca57\">%1</font>"
-msgstr "Contraseñas o claves de cifrado están obligadas a acceder a la red Wi-Fi del <font color=\"#faca57\"> %1</font>"
+msgid "Please enter the password of  <font color=\"#faca57\">%1</font>"
+msgstr ""
 
-#: ../dock-applets/src/frame/WifiPasswordWindow.qml:161
-msgid "Password:"
-msgstr "Contraseña:"
-
-#: ../modules/network/wired/WiredDeviceExpand.qml:33
+#: ../modules/network/wired/WiredDeviceExpand.qml:38
 msgid "Wired Network"
 msgstr "Red cableada"
 
@@ -1534,14 +1556,6 @@ msgstr "No es posible conectar a la red inalámbrica quizá debido a las siguien
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:158
 msgid "Connect to hidden access point"
 msgstr "Conectar al punto de acceso oculto"
-
-#: ../modules/bluetooth/main.qml:76
-msgid "ON/OFF"
-msgstr "Encender/Apagar"
-
-#: ../modules/bluetooth/main.qml:141
-msgid "Devices nearby"
-msgstr "Dispositivos cercanos"
 
 #: ../modules/date_time/main.qml:106
 msgid "Automatic date and time"
@@ -1611,17 +1625,13 @@ msgstr "Cámara"
 msgid "Software"
 msgstr "Software"
 
-#: ../modules/display/main.qml:118
+#: ../modules/display/main.qml:126
 msgid "Primary Monitor: "
 msgstr "Monitor primario:"
 
-#: ../modules/display/main.qml:161
+#: ../modules/display/main.qml:206
 msgid "Monitor"
 msgstr "Monitor"
-
-#: ../modules/display/main.qml:221
-msgid "Apply"
-msgstr "Aplicar"
 
 #: ../modules/grub/main.qml:112
 msgid "Default Startup"
@@ -1723,56 +1733,56 @@ msgstr "30 minutos"
 msgid "1 hour"
 msgstr "1 hora"
 
-#: ../modules/power/main.qml:124
+#: ../modules/power/main.qml:136
 msgid "When I press the power button"
 msgstr "Cuando presiono el botón de encendido"
 
-#: ../modules/power/main.qml:138 ../modules/power/main.qml:184
+#: ../modules/power/main.qml:150 ../modules/power/main.qml:196
 msgid "Shutdown"
 msgstr "Apagar"
 
-#: ../modules/power/main.qml:143 ../modules/power/main.qml:189
-#: ../modules/power/main.qml:253 ../modules/power/main.qml:259
+#: ../modules/power/main.qml:155 ../modules/power/main.qml:201
 #: ../modules/power/main.qml:265 ../modules/power/main.qml:271
-#: ../modules/power/main.qml:366 ../modules/power/main.qml:437
-#: ../modules/power/main.qml:443 ../modules/power/main.qml:449
-#: ../modules/power/main.qml:455 ../modules/power/main.qml:543
+#: ../modules/power/main.qml:277 ../modules/power/main.qml:283
+#: ../modules/power/main.qml:382 ../modules/power/main.qml:453
+#: ../modules/power/main.qml:459 ../modules/power/main.qml:465
+#: ../modules/power/main.qml:471 ../modules/power/main.qml:563
 msgid "Suspend"
 msgstr "Suspender"
 
-#: ../modules/power/main.qml:148
+#: ../modules/power/main.qml:160
 msgid "Ask"
 msgstr "Preguntar"
 
-#: ../modules/power/main.qml:170
+#: ../modules/power/main.qml:182
 msgid "When I close the lid"
 msgstr "Cuando cierro la tapa del portátil "
 
-#: ../modules/power/main.qml:194
+#: ../modules/power/main.qml:206
 msgid "Nothing"
 msgstr "Nada"
 
-#: ../modules/power/main.qml:213
+#: ../modules/power/main.qml:225
 msgid "Password required to wake up"
 msgstr "Requerir contraseña al encender"
 
-#: ../modules/power/main.qml:235
+#: ../modules/power/main.qml:247
 msgid "Plugged in"
 msgstr "Enchufado"
 
-#: ../modules/power/main.qml:419
+#: ../modules/power/main.qml:435
 msgid "On battery"
 msgstr "Con Bateria"
 
-#: ../modules/power/main.qml:252 ../modules/power/main.qml:258
 #: ../modules/power/main.qml:264 ../modules/power/main.qml:270
-#: ../modules/power/main.qml:325 ../modules/power/main.qml:436
-#: ../modules/power/main.qml:442 ../modules/power/main.qml:448
-#: ../modules/power/main.qml:454 ../modules/power/main.qml:503
+#: ../modules/power/main.qml:276 ../modules/power/main.qml:282
+#: ../modules/power/main.qml:341 ../modules/power/main.qml:452
+#: ../modules/power/main.qml:458 ../modules/power/main.qml:464
+#: ../modules/power/main.qml:470 ../modules/power/main.qml:523
 msgid "Turn off the display"
 msgstr "Apagar la pantalla"
 
-#: ../modules/power/main.qml:319 ../modules/power/main.qml:498
+#: ../modules/power/main.qml:335 ../modules/power/main.qml:518
 msgid "Custom Options"
 msgstr "Opciones personalizadas"
 
@@ -1936,6 +1946,10 @@ msgstr "Conexión móvil GSM"
 msgid "Mobile CDMA"
 msgstr "Conexión móvil CDMA"
 
+#: ../modules/network/main.qml:326
+msgid "View Detailed Information"
+msgstr ""
+
 #: ../modules/network/main.qml:214
 msgid "VPN L2TP"
 msgstr "VPN L2TP"
@@ -1956,7 +1970,15 @@ msgstr "VPN OpenVPN"
 msgid "VPN OpenConnect"
 msgstr "VPN OpenConnect"
 
-#: ../modules/account/main.qml:132
+#: ../modules/account/main.qml:95
+msgid "Delete Account"
+msgstr ""
+
+#: ../modules/account/main.qml:133
+msgid "Add Account"
+msgstr ""
+
+#: ../modules/account/main.qml:153
 msgid "User List"
 msgstr ""
 

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-18 10:39+0800\n"
-"PO-Revision-Date: 2014-11-18 05:21+0000\n"
+"POT-Creation-Date: 2014-11-25 17:46+0800\n"
+"PO-Revision-Date: 2014-11-26 03:23+0000\n"
 "Last-Translator: szd_liufei <liufei@linuxdeepin.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/dde-control-center/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -20,8 +20,8 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../modules/network/add/AddDsl.qml:11
-msgid "New PPPoE Connection"
-msgstr "新建PPPoE连接"
+msgid "Add PPPoE Connection"
+msgstr "添加拨号连接"
 
 #: ../modules/network/add/AddDsl.qml:24
 #: ../modules/network/add/AddMobile.qml:33
@@ -34,7 +34,7 @@ msgstr "名称"
 #: ../modules/network/add/AddDsl.qml:36
 #: ../modules/network/add/AddMobile.qml:75
 #: ../modules/network/add/AddMobile.qml:105
-#: ../modules/account/AddUserDialog.qml:117
+#: ../modules/account/AddUserDialog.qml:141
 #: ../modules/network/add/AddVpn.qml:124 ../modules/network/add/AddVpn.qml:254
 #: ../modules/network/add/AddVpn.qml:394 ../modules/network/add/AddVpn.qml:434
 #: ../modules/network/edit_autogen/EditSectionMobile.qml:53
@@ -56,7 +56,7 @@ msgstr "服务"
 #: ../modules/network/add/AddDsl.qml:56
 #: ../modules/network/add/AddMobile.qml:85
 #: ../modules/network/add/AddMobile.qml:115
-#: ../modules/account/AddUserDialog.qml:160
+#: ../modules/account/AddUserDialog.qml:198
 #: ../modules/network/add/AddVpn.qml:144 ../modules/network/add/AddVpn.qml:274
 #: ../modules/network/add/AddVpn.qml:414
 #: ../modules/network/wireless/AddWireless.qml:64
@@ -70,8 +70,10 @@ msgstr "服务"
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:204
 #: ../modules/network/edit_autogen/EditSectionVpn.qml:344
 #: ../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:75
+#: ../modules/network/widgets/PasswordBox.qml:95
 #: ../modules/account/PasswordDialog.qml:62
 #: ../modules/network/wireless/WifiHotspot.qml:69
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:173
 msgid "Password"
 msgstr "密码"
 
@@ -97,19 +99,20 @@ msgid "Number"
 msgstr "数字"
 
 #: ../modules/network/add/AddSectionSave.qml:11
-#: ../modules/account/AddUserDialog.qml:327
+#: ../modules/account/AddUserDialog.qml:378
 #: ../modules/network/wireless/AddWireless.qml:216
+#: ../modules/bluetooth/BluetoothDeviceExpand.qml:87
 #: ../modules/network/ConnectionAdd.qml:69
-#: ../modules/network/ConnectionEdit.qml:146
+#: ../modules/network/ConnectionEdit.qml:150
 #: ../modules/shortcuts/CustomKeybinding.qml:151
 #: ../modules/account/DeleteUserDialog.qml:33
-#: ../modules/network/widgets/PasswordBox.qml:100
+#: ../modules/network/widgets/PasswordBox.qml:118
 #: ../modules/account/PasswordDialog.qml:207
 #: ../modules/shortcuts/ShortcutInput.qml:343
 #: ../modules/date_time/TimeBox.qml:212
 #: ../modules/network/wireless/WifiHotspot.qml:82
-#: ../dock-applets/src/frame/WifiPasswordWindow.qml:183
-#: ../modules/display/main.qml:240
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:196
+#: ../modules/display/main.qml:163
 msgid "Cancel"
 msgstr "取消"
 
@@ -119,58 +122,59 @@ msgstr "取消"
 msgid "Add"
 msgstr "添加"
 
-#: ../modules/account/AddUserDialog.qml:48
+#: ../modules/account/AddUserDialog.qml:72
 #: ../modules/account/PasswordDialog.qml:96
 msgid "Invalid password"
 msgstr "无效密码"
 
-#: ../modules/account/AddUserDialog.qml:53
+#: ../modules/account/AddUserDialog.qml:77
 msgid "Nothing input"
 msgstr "未输入"
 
-#: ../modules/account/AddUserDialog.qml:58
+#: ../modules/account/AddUserDialog.qml:50
+#: ../modules/account/AddUserDialog.qml:82
 #: ../modules/account/PasswordDialog.qml:101
 msgid "Different password"
 msgstr "密码不一致"
 
-#: ../modules/account/AddUserDialog.qml:67
+#: ../modules/account/AddUserDialog.qml:91
 msgid "Add User"
 msgstr "添加用户"
 
-#: ../modules/account/AddUserDialog.qml:96
+#: ../modules/account/AddUserDialog.qml:120
 msgid "New User"
 msgstr "新建用户"
 
-#: ../modules/account/AddUserDialog.qml:100
-#: ../modules/account/AddUserDialog.qml:256
+#: ../modules/account/AddUserDialog.qml:124
+#: ../modules/account/AddUserDialog.qml:307
 #: ../modules/account/EditUserDialog.qml:138
 #: ../modules/personalization/components/FontSettingsExpand.qml:48
 #: ../modules/account/UserList.qml:222
 msgid "Standard"
 msgstr "标准"
 
-#: ../modules/account/AddUserDialog.qml:100
-#: ../modules/account/AddUserDialog.qml:257
+#: ../modules/account/AddUserDialog.qml:124
+#: ../modules/account/AddUserDialog.qml:308
 #: ../modules/account/EditUserDialog.qml:139
 #: ../modules/account/UserList.qml:222
 msgid "Administrator"
 msgstr "管理员"
 
-#: ../modules/account/AddUserDialog.qml:203
+#: ../modules/account/AddUserDialog.qml:244
 msgid "Repeat Password"
 msgstr "重复密码"
 
-#: ../modules/account/AddUserDialog.qml:244
+#: ../modules/account/AddUserDialog.qml:295
 #: ../modules/account/EditUserDialog.qml:126
 msgid "Account Type"
 msgstr "账户类型"
 
-#: ../modules/account/AddUserDialog.qml:276
+#: ../modules/account/AddUserDialog.qml:327
 #: ../modules/account/EditUserDialog.qml:59
 msgid "Auto-login"
 msgstr "自动登录"
 
-#: ../modules/account/AddUserDialog.qml:340
+#: ../modules/account/AddUserDialog.qml:391
 #: ../modules/account/DeleteUserDialog.qml:46
 #: ../modules/account/PasswordDialog.qml:221 ../modules/account/WebCam.qml:148
 msgid "Confirm"
@@ -431,20 +435,14 @@ msgid "Inner Auth"
 msgstr "内部认证"
 
 #: ../modules/network/wireless/AddWireless.qml:224
-#: ../modules/network/widgets/PasswordBox.qml:108
-#: ../dock-applets/src/frame/WifiPasswordWindow.qml:190
+#: ../modules/network/widgets/PasswordBox.qml:126
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:203
 msgid "Connect"
 msgstr "连接"
 
-#: ../dock-applets/applet_widgets/AppletSettingWindow.qml:101
-msgid "Notice Region Setting "
+#: ../dock-applets/src/frame/AppletSettingWindow.qml:101
+msgid "Notification Area Settings"
 msgstr "通知区域设置"
-
-#: ../modules/network/AppletSwitchArea.qml:40
-#: ../modules/power/AppletSwitchArea.qml:40
-#: ../modules/sound/AppletSwitchArea.qml:40
-msgid "Dock Applet Enabled"
-msgstr "Dock插件开启"
 
 #: ../dock-applets/plugins/date_time/AppletTray.qml:80
 msgid "_Switch to analog"
@@ -504,19 +502,19 @@ msgstr "网络已连接"
 msgid "Network Not Connected"
 msgstr "网络未连接"
 
-#: ../dock-applets/plugins/network/AppletTray.qml:325
+#: ../dock-applets/plugins/network/AppletTray.qml:305
 #: ../dock-applets/plugins/network/bluetooth/AppletTray.qml:78
 #: ../dock-applets/plugins/network/vpn/AppletTray.qml:70
-#: ../dock-applets/plugins/network/wifi/AppletTray.qml:119
+#: ../dock-applets/plugins/network/wifi/AppletTray.qml:126
 #: ../dock-applets/plugins/power/AppletTray.qml:99
 #: ../dock-applets/plugins/sound/AppletTray.qml:173
 msgid "_Run"
 msgstr "运行(_R)"
 
-#: ../dock-applets/plugins/network/AppletTray.qml:326
+#: ../dock-applets/plugins/network/AppletTray.qml:306
 #: ../dock-applets/plugins/network/bluetooth/AppletTray.qml:79
 #: ../dock-applets/plugins/network/vpn/AppletTray.qml:71
-#: ../dock-applets/plugins/network/wifi/AppletTray.qml:120
+#: ../dock-applets/plugins/network/wifi/AppletTray.qml:127
 #: ../dock-applets/plugins/power/AppletTray.qml:106
 #: ../dock-applets/plugins/sound/AppletTray.qml:174
 msgid "_Undock"
@@ -528,23 +526,23 @@ msgstr "正在充电"
 
 #: ../dock-applets/plugins/power/AppletTray.qml:46
 #: ../modules/personalization/widgets/ThemeItem.qml:95
-#: ../modules/power/main.qml:268 ../modules/power/main.qml:452
+#: ../modules/power/main.qml:280 ../modules/power/main.qml:468
 #: ../modules/shortcuts/main.qml:53 ../modules/shortcuts/main.qml:233
 msgid "Custom"
 msgstr "自定义"
 
 #: ../dock-applets/plugins/power/AppletTray.qml:47
-#: ../modules/power/main.qml:256 ../modules/power/main.qml:440
+#: ../modules/power/main.qml:268 ../modules/power/main.qml:456
 msgid "Power saver"
 msgstr "节能"
 
 #: ../dock-applets/plugins/power/AppletTray.qml:48
-#: ../modules/power/main.qml:250 ../modules/power/main.qml:434
+#: ../modules/power/main.qml:262 ../modules/power/main.qml:450
 msgid "Balanced"
 msgstr "均衡"
 
 #: ../dock-applets/plugins/power/AppletTray.qml:49
-#: ../modules/power/main.qml:262 ../modules/power/main.qml:446
+#: ../modules/power/main.qml:274 ../modules/power/main.qml:462
 msgid "High performance"
 msgstr "高性能"
 
@@ -571,7 +569,7 @@ msgstr "蓝牙"
 msgid "VPN"
 msgstr "VPN"
 
-#: ../dock-applets/plugins/network/wifi/AppletTray.qml:161
+#: ../dock-applets/plugins/network/wifi/AppletTray.qml:168
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:28
 #: ../dock-applets/plugins/network/WirelessNetwork.qml:50
 #: ../dock-applets/plugins/network/wifi/main.qml:33
@@ -611,13 +609,22 @@ msgstr "右"
 msgid "Automatically connect"
 msgstr "自动连接"
 
-#: ../modules/date_time/Calendar.qml:131
+#: ../modules/bluetooth/BluetoothDeviceExpand.qml:99
+#: ../modules/display/main.qml:151
+msgid "Apply"
+msgstr "应用"
+
+#: ../modules/bluetooth/BluetoothDeviceExpand.qml:127
+msgid "Devices nearby"
+msgstr "附近的设备"
+
+#: ../modules/date_time/Calendar.qml:132
 msgid "Today"
 msgstr "返回今天"
 
-#: ../modules/network/ConnectionAdd.qml:12
-msgid "New Network"
-msgstr "新建网络"
+#: ../modules/network/ConnectionAdd.qml:12 ../modules/network/main.qml:303
+msgid "Add Network Connection"
+msgstr "添加网络连接"
 
 #: ../modules/network/ConnectionAdd.qml:35
 #: ../modules/network/edit_autogen/EditSectionPppoe.qml:11
@@ -629,27 +636,27 @@ msgstr "拨号"
 msgid "Next"
 msgstr "下一步"
 
-#: ../modules/network/ConnectionEdit.qml:51
+#: ../modules/network/ConnectionEdit.qml:52
 msgid "Delete this network"
 msgstr "删除此网络"
 
-#: ../modules/network/ConnectionEdit.qml:51
+#: ../modules/network/ConnectionEdit.qml:52
 msgid "Are you sure you want to delete this network?"
 msgstr "您确认要删除此网络吗？"
 
-#: ../modules/network/ConnectionEdit.qml:101
+#: ../modules/network/ConnectionEdit.qml:102
 #: ../modules/network/wireless/WifiHotspot.qml:91
 msgid "Save"
 msgstr "保存"
 
-#: ../modules/network/ConnectionEdit.qml:113 ../modules/network/Info.qml:79
+#: ../modules/network/ConnectionEdit.qml:114 ../modules/network/Info.qml:79
 #: ../modules/date_time/StateButtons.qml:35
 #: ../modules/date_time/StateButtons.qml:49
 #: ../modules/date_time/TimezoneArea.qml:257
 msgid "Close"
 msgstr "关闭"
 
-#: ../modules/network/ConnectionEdit.qml:134
+#: ../modules/network/ConnectionEdit.qml:135
 msgid "Delete"
 msgstr "删除"
 
@@ -1025,15 +1032,15 @@ msgstr "前"
 msgid "Rear"
 msgstr "后"
 
-#: ../modules/personalization/components/FontSettingsExpand.qml:66
+#: ../modules/personalization/components/FontSettingsExpand.qml:65
 msgid "Monospaced"
 msgstr "等宽"
 
-#: ../modules/personalization/components/FontSettingsExpand.qml:81
+#: ../modules/personalization/components/FontSettingsExpand.qml:80
 msgid "Size"
 msgstr "大小"
 
-#: ../modules/personalization/components/FontSettingsExpand.qml:110
+#: ../modules/personalization/components/FontSettingsExpand.qml:109
 #, qt-format
 msgid "Font %1"
 msgstr "字体 %1"
@@ -1048,12 +1055,12 @@ msgid "Enabled"
 msgstr "启用"
 
 #: ../modules/network/Info.qml:13
-msgid "Activated Connections"
-msgstr "激活的连接"
+msgid "Connected"
+msgstr "已连接"
 
 #: ../modules/network/Info.qml:15
-msgid "None Activated Connection"
-msgstr "尚无激活的连接"
+msgid "Not Connected"
+msgstr "未连接"
 
 #: ../modules/network/Info.qml:39
 msgid "(default)"
@@ -1259,9 +1266,10 @@ msgstr "有线连接"
 msgid "not managed"
 msgstr "未托管"
 
-#: ../modules/network/widgets/PasswordBox.qml:75
-msgid "Password: "
-msgstr "密码: "
+#: ../modules/network/widgets/PasswordBox.qml:102
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:181
+msgid "Auto-connect"
+msgstr "自动连接"
 
 #: ../modules/account/PasswordDialog.qml:114
 msgid "New Password"
@@ -1374,6 +1382,30 @@ msgstr "预览主题"
 #: ../modules/shortcuts/StateButtons.qml:38
 msgid "Done"
 msgstr "完成"
+
+#: ../modules/date_time/StateButtons.qml:72
+msgid "Delete Time Zone"
+msgstr "删除时区"
+
+#: ../modules/date_time/StateButtons.qml:88
+msgid "Add Time Zone"
+msgstr "添加时区"
+
+#: ../modules/keyboard/StateButtons.qml:77
+msgid "Delete Keyboard Layout"
+msgstr "删除键盘布局"
+
+#: ../modules/keyboard/StateButtons.qml:92
+msgid "Add Keyboard Layout"
+msgstr "添加键盘布局"
+
+#: ../modules/shortcuts/StateButtons.qml:80
+msgid "Delete Shortcut"
+msgstr "删除快捷键"
+
+#: ../modules/shortcuts/StateButtons.qml:96
+msgid "Add Shortcut"
+msgstr "添加快捷键"
 
 #: ../modules/date_time/TimeBox.qml:161
 msgid "Double-click the above digits to change your time."
@@ -1490,22 +1522,12 @@ msgstr "创建无线热点"
 msgid "Create"
 msgstr "创建"
 
-#: ../dock-applets/src/frame/WifiPasswordWindow.qml:139
-msgid "Authentication required by Wi-Fi network"
-msgstr "Wi-Fi网络所需的授权"
-
-#: ../dock-applets/src/frame/WifiPasswordWindow.qml:147
+#: ../dock-applets/src/frame/WifiPasswordWindow.qml:151
 #, qt-format
-msgid ""
-"Passwords or encryption keys are required to access the Wi-Fi network <font "
-"color=\"#faca57\">%1</font>"
-msgstr "连接Wi-Fi网络所需的密码或密钥 <font color=\"#faca57\">%1</font>"
+msgid "Please enter the password of  <font color=\"#faca57\">%1</font>"
+msgstr "请输入<font color=\"#faca57\">%1</font>的密码"
 
-#: ../dock-applets/src/frame/WifiPasswordWindow.qml:161
-msgid "Password:"
-msgstr "密码："
-
-#: ../modules/network/wired/WiredDeviceExpand.qml:33
+#: ../modules/network/wired/WiredDeviceExpand.qml:38
 msgid "Wired Network"
 msgstr "有线网络"
 
@@ -1532,14 +1554,6 @@ msgstr "无法连接到无线网络，有可能是以下原因造成：\n\n1. �
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:158
 msgid "Connect to hidden access point"
 msgstr "连接到隐藏网络"
-
-#: ../modules/bluetooth/main.qml:76
-msgid "ON/OFF"
-msgstr "开启/关闭"
-
-#: ../modules/bluetooth/main.qml:141
-msgid "Devices nearby"
-msgstr "附近的设备"
 
 #: ../modules/date_time/main.qml:106
 msgid "Automatic date and time"
@@ -1609,17 +1623,13 @@ msgstr "照相机"
 msgid "Software"
 msgstr "软件"
 
-#: ../modules/display/main.qml:118
+#: ../modules/display/main.qml:126
 msgid "Primary Monitor: "
 msgstr "主显示器："
 
-#: ../modules/display/main.qml:161
+#: ../modules/display/main.qml:206
 msgid "Monitor"
 msgstr "显示器"
-
-#: ../modules/display/main.qml:221
-msgid "Apply"
-msgstr "应用"
 
 #: ../modules/grub/main.qml:112
 msgid "Default Startup"
@@ -1721,56 +1731,56 @@ msgstr "30分钟"
 msgid "1 hour"
 msgstr "1小时"
 
-#: ../modules/power/main.qml:124
+#: ../modules/power/main.qml:136
 msgid "When I press the power button"
 msgstr "按下电源按钮"
 
-#: ../modules/power/main.qml:138 ../modules/power/main.qml:184
+#: ../modules/power/main.qml:150 ../modules/power/main.qml:196
 msgid "Shutdown"
 msgstr "关机"
 
-#: ../modules/power/main.qml:143 ../modules/power/main.qml:189
-#: ../modules/power/main.qml:253 ../modules/power/main.qml:259
+#: ../modules/power/main.qml:155 ../modules/power/main.qml:201
 #: ../modules/power/main.qml:265 ../modules/power/main.qml:271
-#: ../modules/power/main.qml:366 ../modules/power/main.qml:437
-#: ../modules/power/main.qml:443 ../modules/power/main.qml:449
-#: ../modules/power/main.qml:455 ../modules/power/main.qml:543
+#: ../modules/power/main.qml:277 ../modules/power/main.qml:283
+#: ../modules/power/main.qml:382 ../modules/power/main.qml:453
+#: ../modules/power/main.qml:459 ../modules/power/main.qml:465
+#: ../modules/power/main.qml:471 ../modules/power/main.qml:563
 msgid "Suspend"
 msgstr "待机"
 
-#: ../modules/power/main.qml:148
+#: ../modules/power/main.qml:160
 msgid "Ask"
 msgstr "询问"
 
-#: ../modules/power/main.qml:170
+#: ../modules/power/main.qml:182
 msgid "When I close the lid"
 msgstr "合上笔记本盖子"
 
-#: ../modules/power/main.qml:194
+#: ../modules/power/main.qml:206
 msgid "Nothing"
 msgstr "无"
 
-#: ../modules/power/main.qml:213
+#: ../modules/power/main.qml:225
 msgid "Password required to wake up"
 msgstr "唤醒需要密码"
 
-#: ../modules/power/main.qml:235
+#: ../modules/power/main.qml:247
 msgid "Plugged in"
 msgstr "接通电源"
 
-#: ../modules/power/main.qml:419
+#: ../modules/power/main.qml:435
 msgid "On battery"
 msgstr "使用电池"
 
-#: ../modules/power/main.qml:252 ../modules/power/main.qml:258
 #: ../modules/power/main.qml:264 ../modules/power/main.qml:270
-#: ../modules/power/main.qml:325 ../modules/power/main.qml:436
-#: ../modules/power/main.qml:442 ../modules/power/main.qml:448
-#: ../modules/power/main.qml:454 ../modules/power/main.qml:503
+#: ../modules/power/main.qml:276 ../modules/power/main.qml:282
+#: ../modules/power/main.qml:341 ../modules/power/main.qml:452
+#: ../modules/power/main.qml:458 ../modules/power/main.qml:464
+#: ../modules/power/main.qml:470 ../modules/power/main.qml:523
 msgid "Turn off the display"
 msgstr "关闭显示器"
 
-#: ../modules/power/main.qml:319 ../modules/power/main.qml:498
+#: ../modules/power/main.qml:335 ../modules/power/main.qml:518
 msgid "Custom Options"
 msgstr "自定义选项"
 
@@ -1934,6 +1944,10 @@ msgstr "移动 GSM"
 msgid "Mobile CDMA"
 msgstr "移动 CDMA"
 
+#: ../modules/network/main.qml:326
+msgid "View Detailed Information"
+msgstr "查看详情"
+
 #: ../modules/network/main.qml:214
 msgid "VPN L2TP"
 msgstr "VPN L2TP"
@@ -1954,7 +1968,15 @@ msgstr "VPN OpenVPN"
 msgid "VPN OpenConnect"
 msgstr "VPN OpenConnect"
 
-#: ../modules/account/main.qml:132
+#: ../modules/account/main.qml:95
+msgid "Delete Account"
+msgstr "删除账户"
+
+#: ../modules/account/main.qml:133
+msgid "Add Account"
+msgstr "添加账户"
+
+#: ../modules/account/main.qml:153
 msgid "User List"
 msgstr "用户列表"
 
