@@ -150,6 +150,17 @@ int QmlLoader::getWindowX()
     return returnValue.toInt();
 }
 
+bool QmlLoader::getShowInRightFlag()
+{
+    QVariant returnValue;
+    QMetaObject::invokeMethod(
+                this->rootObject,
+                "getShowInRightFlag",
+                Q_RETURN_ARG(QVariant, returnValue)
+                );
+    return returnValue.toBool();
+}
+
 QString QmlLoader::toHumanShortcutLabel(QString sequence)
 {
     QStringList sequenceList = sequence.split("-");
@@ -283,6 +294,11 @@ void QmlLoaderDBus::initConnection()
 int QmlLoaderDBus::getWindowX()
 {
     return m_parent->getWindowX();
+}
+
+bool QmlLoaderDBus::getShowinRightFlag()
+{
+    return m_parent->getShowInRightFlag();
 }
 
 void QmlLoaderDBus::windowXChangedSlot(int windowX)

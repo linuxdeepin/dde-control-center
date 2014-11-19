@@ -108,6 +108,10 @@ QtObject {
         return rootWindow.getRealWindowX()
     }
 
+    function getShowInRightFlag(){
+        return rootWindow.shouldShowInRight
+    }
+
     property var rootWindow: PanelWindow {
         onWindowXChanged: {
             root.windowXChanged(windowX)

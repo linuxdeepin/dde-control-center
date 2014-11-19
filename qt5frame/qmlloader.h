@@ -60,6 +60,7 @@ public:
     void togglePanelInLeft();
     bool isNetworkCanShowPassword();
     int getWindowX();
+    bool getShowInRightFlag();
 
 public slots:
     void installPackage(QString packageName);
@@ -98,10 +99,12 @@ public:
     Q_SLOT bool isNetworkCanShowPassword();
 
     Q_PROPERTY(int X READ getWindowX)
+    Q_PROPERTY(bool showInRight READ getShowinRightFlag)
 
 private:
     QmlLoader* m_parent;
     int getWindowX();
+    bool getShowinRightFlag();
 
 private slots:
     void windowXChangedSlot(int);

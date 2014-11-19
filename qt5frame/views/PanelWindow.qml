@@ -59,7 +59,7 @@ DOverrideWindow {
     //cause of the animation,rootWindow.x can not changes in timely
     //if control center can show from left,this func should be change by reality
     function getRealWindowX() {
-        return screenSize.width - displayWidth;
+        return screenSize.width + screenSize.x - displayWidth
     }
 
     function showModule(moduleId){
@@ -192,6 +192,8 @@ DOverrideWindow {
                 timeoutQuit.stop()
             }
         }
+        //rootWindow.x does not changed in some case
+        onStopped: rootWindow.x = shouldShowInRight?screenSize.x + screenSize.width - width:0
     }
 
     Rectangle {

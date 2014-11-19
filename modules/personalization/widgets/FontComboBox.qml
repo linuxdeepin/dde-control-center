@@ -41,7 +41,7 @@ Item {
 
     Timer {
         id:menuRefreshTimer
-        interval: 200
+        interval: 50
         repeat: false
         onTriggered: {
             menu.update()
