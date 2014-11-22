@@ -139,7 +139,7 @@ QtObject {
 
     function showSettingWindow(mouseX) {
         appletSettingWindow.item.mouseX = mouseX
-        appletSettingWindow.item.show()
+        appletSettingWindow.item.showWindow()
     }
 
     // init dock setting

@@ -910,5 +910,13 @@
         <file>views/ConfluentToolTip.qml</file>
         <file>views/images/triangle.png</file>
         <file>views/images/circle.png</file>
+        <file>modules/bluetooth/BluetoothDeviceExpand.qml</file>
+        <file>modules/bluetooth/BluetoothDeviceItem.qml</file>
+        <file>modules/bluetooth/WaitingImage.qml</file>
+        <file>modules/bluetooth/images/waiting.svg</file>
+        <file>modules/bluetooth/images/connected.png</file>
+        <file>modules/bluetooth/images/disconnect.png</file>
+        <file>modules/bluetooth/images/edit_hover.png</file>
+        <file>modules/bluetooth/images/edit_normal.png</file>
     </qresource>
 </RCC>
