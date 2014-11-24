@@ -178,7 +178,13 @@ Rectangle {
         TimeEdit{
             id: timeEdit
             onAccepted: {
-                gDate.SetTime(timeEdit.currentTime)
+                var year = globalDate.toLocaleDateString(locale,"yyyy")
+                var month = globalDate.toLocaleDateString(locale,"MM")
+                var date = globalDate.toLocaleDateString(locale,"dd")
+                var second = globalDate.toLocaleTimeString(locale,"ss")
+
+                gDate.SetDate(year,month,date,timeEdit.currentHour,timeEdit.currentMin,second,"0")
+
                 showTimeNormal()
             }
             height: parent.height - buttonArea.height
@@ -195,7 +201,14 @@ Rectangle {
             DTextAction {
                 text: dsTr("Set")
                 onClicked: {
-                    gDate.SetTime(timeEdit.currentTime)
+                    var year = globalDate.toLocaleDateString(locale,"yyyy")
+                    var month = globalDate.toLocaleDateString(locale,"MM")
+                    var date = globalDate.toLocaleDateString(locale,"dd")
+                    var second = globalDate.toLocaleTimeString(locale,"ss")
+
+                    print ("==> Set Date:",year,month,date,timeEdit.currentHour,timeEdit.currentMin,second,0)
+                    gDate.SetDate(year,month,date,timeEdit.currentHour,timeEdit.currentMin,second,"0")
+
                     timeBox.showTimeNormal()
                 }
             }

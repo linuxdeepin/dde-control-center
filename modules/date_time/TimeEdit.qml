@@ -41,6 +41,8 @@ Row {
     signal accepted
 
     property string currentTime: hoursEdit.text + ":" + minutesEdit.text + ":0"
+    property string currentHour: hoursEdit.text.trim()
+    property string currentMin: minutesEdit.text.trim()
 
     Item {
         width: hoursEdit.width

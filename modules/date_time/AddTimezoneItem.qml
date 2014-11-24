@@ -26,37 +26,65 @@ import Deepin.Widgets 1.0
 
 Item {
     width: parent.width
-    height: 28
-    anchors.left: parent.left
-    anchors.leftMargin: 15
-    anchors.right: parent.right
-    anchors.rightMargin: 15
+    height: 50
 
-    property string itemValue: value
-    property string itemLabel: label
+    property string pTimezone:timezone
+    property string pCityList: cityList
+    property string pOffsetName: offsetName
 
     property bool selected: false
 
-    signal selectAction(string itemValue, bool selected)
+    signal selectAction(string timezone, bool selected)
 
     DssH3 {
-        id: nameText
-        anchors.verticalCenter: parent.verticalCenter
+        id: cityText
+        anchors.top: parent.top
+        anchors.topMargin: 6
         anchors.left: parent.left
-        text: itemLabel
-        color: dconstants.fgColor
+        anchors.leftMargin: 14
+        text: pCityList
+        color: "#e6e6e6"
         font.pixelSize: 12
         elide: Text.ElideRight
+        height: 30
         width: parent.width - checkButton.width - 36
+    }
+
+    DssH3 {
+        id:offsetText
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 0
+        anchors.left: parent.left
+        anchors.leftMargin: 14
+        text: pOffsetName
+        color: "#b4b4b4"
+        font.pixelSize: 11
+        elide: Text.ElideRight
+        height: 20
+        width: parent.width - checkButton.width - 36
+
     }
 
     DssMultiAddCheckButton {
         id: checkButton
         anchors.right: parent.right
+        anchors.rightMargin: 14
         anchors.verticalCenter: parent.verticalCenter
         onClicked: {
             parent.selected = !parent.selected
-            selectAction(itemValue, selected)
+            selectAction(pTimezone, selected)
         }
     }
+
+    MouseArea {
+        anchors.fill: parent
+        anchors.rightMargin: checkButton.width + 14
+        onClicked: {
+            parent.selected = !parent.selected
+            checkButton.active = selected
+            selectAction(pTimezone, selected)
+        }
+    }
+
+    DSeparatorHorizontal {anchors.bottom: parent.bottom}
 }

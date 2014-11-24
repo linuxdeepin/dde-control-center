@@ -912,5 +912,13 @@
         <file>modules/system_info/InfoItem.qml</file>
         <file>modules/system_info/SepratorHorizontal.qml</file>
         <file>modules/system_info/images/logo.png</file>
+        <file>modules/date_time/UserTimezoneItem.qml</file>
+        <file>modules/date_time/images/select_zone.png</file>
+        <file>modules/date_time/DSTItem.qml</file>
+        <file>views/ConfluentToolTip.qml</file>
+        <file>views/ButtonToolTip.qml</file>
+        <file>views/images/circle.png</file>
+        <file>views/images/confluent_back.png</file>
+        <file>views/images/triangle.png</file>
     </qresource>
 </RCC>

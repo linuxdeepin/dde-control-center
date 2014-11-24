@@ -45,7 +45,10 @@ DFlickable {
             calendarObj.currentSelectedDateValue = calendarObj.currentDateValue
         }
     }
+    property var currentTimezone: gDate.currentTimezone
+    property var dstList
     property var dconstants: DConstants {}
+    property bool showedTimezoneList: false
     property string lang: 'en_US'
     property var locale: Qt.locale()
 
@@ -54,7 +57,6 @@ DFlickable {
     property var dbusSearch: Search {}
 
     property var globalDate: new Date()
-
 
     Component.onCompleted: {
         lang = dsslocale.lang
@@ -96,7 +98,7 @@ DFlickable {
         TimeBox {
             id: timeBox
             use24Hour: twentyFourHourSetBox.active
-            editable: !gDate.autoSetTime
+            editable: !gDate.nTPEnabled
         }
 
         DSeparatorHorizontal {}
@@ -105,46 +107,126 @@ DFlickable {
             id: autoSetTimeBox
             text: dsTr("Automatic date and time")
             width: parent.width
-            active: gDate.autoSetTime
+            height: showedTimezoneList ? 0 : 30
+            visible: !showedTimezoneList
+            active: gDate.nTPEnabled
 
             onClicked: {
-                gDate.autoSetTime = active
+                gDate.nTPEnabled = active
                 if(active && timeBox.inEdit){
                     timeBox.showTimeNormal()
                 }
             }
         }
 
-        DSeparatorHorizontal {}
+        DSeparatorHorizontal {visible: !showedTimezoneList}
 
         DSwitchButtonHeader {
             id: twentyFourHourSetBox
             text: dsTr("Use 24-hour clock")
             active: gDate.use24HourDisplay
+            height: showedTimezoneList ? 0 : 30
+            visible: !showedTimezoneList
 
             onClicked: {
                 gDate.use24HourDisplay = active
             }
         }
 
-        DSeparatorHorizontal {}
+        DSeparatorHorizontal {visible: !showedTimezoneList}
 
         TimezoneArea {
             id: timeZoneArea
-//            listAreaMaxHeight: rootWindow.height - (timeBox.height
-//                                                + autoSetTimeBox.height
-//                                                + twentyFourHourSetBox.height
-//                                                + dateBoxTitle.height
-//                                                + calendarObj.height + 100)
-            listAreaMaxHeight: 230
+            onIsAddState: showedTimezoneList = state
+            listAreaMaxHeight: isInAddState ? dateTimeModule.contentHeight - timeBox.height - datetimeDT.height: 230
         }
 
 
-        DSeparatorHorizontal {}
+        DBaseExpand {
+            id: dstRec
+            expanded: true
+            opacity: 0
+            height: opacity > 0 ? 60 : 0
+
+            property var pDSTList
+
+            DSeparatorHorizontal {anchors.top: parent.top}
+
+            header.sourceComponent: DBaseLine {
+                leftLoader.sourceComponent: DssH2 {
+                    text: dsTr("Adjust DST clock ")
+                }
+            }
+            content.sourceComponent: GridView{
+                id: dstListView
+                width: parent.width
+                height: 30
+
+                cellWidth: width/3
+                cellHeight: 24
+
+                Connections {
+                    target: timeZoneArea
+                    onHasDSTList:{
+                        if (sHasDST){
+                            dstRec.opacity = 1
+                            dstListView.fillModel(sDSTList)
+                        }
+                        else
+                            dstRec.opacity = 0
+                    }
+                }
+
+                function getLabelName(value){
+                    if (value == 0)
+                        return dsTr("None")
+                    else{
+                        if (value > 0)
+                            return "+" + value.toString() + "h"
+                        else
+                            return value.toString() + "h"
+                    }
+                }
+
+                function fillModel(pDSTList){
+                    dstListView.model.clear()
+
+                    for (var key in pDSTList){
+                        var value = key / 3600
+                        dstListView.model.append({
+                                         "item_label": getLabelName(value),
+                                         "item_value": key.toString(),
+                                         "item_zone": pDSTList[key]
+                                     })
+                    }
+                }
+
+                model:ListModel {}
+
+                delegate: DSTItem {
+                    currentValue: typeof(gDate.dSTOffset) == "undefined" ? 0 : gDate.dSTOffset
+                    onSelectAction: {
+                        print ("==> Set DST:",itemValue,itemZone,typeof(gDate.dSTOffset),gDate.dSTOffset)
+                        gDate.SetTimezone(timezone)
+                        gDate.dSTOffset = itemValue
+                    }
+                }
+            }
+
+            Behavior on height {
+                PropertyAnimation {target: dstRec; property: "height"; duration: 150}
+            }
+            Behavior on opacity {
+                NumberAnimation {target: dstRec; property: "opacity"; duration: 150}
+            }
+        }
+
 
         DBaseLine {
             id: dateBoxTitle
             width: parent.width
+            height: showedTimezoneList ? 0 : 30
+            visible: !showedTimezoneList
             rightMargin: 10
 
             leftLoader.sourceComponent: DLabel {
@@ -162,31 +244,31 @@ DFlickable {
                 }
 
                 onClicked: {
-                    gDate.SetDate(calendarObj.currentSelectedDateValue)
+                    var dateString = calendarObj.currentSelectedDateValue
+                    if (dateString == "")
+                        return
+                    var dateValue = dateString.split("-")
+
+                    var year = dateValue[0]
+                    var month = dateValue[1]
+                    var date = dateValue[2]
+                    var hour = globalDate.toLocaleTimeString(locale,"HH")
+                    var min = globalDate.toLocaleTimeString(locale,"mm")
+                    var second = globalDate.toLocaleTimeString(locale,"ss")
+
+                    gDate.SetDate(year,month,date,hour,min,second,0)
                 }
             }
         }
 
-        DSeparatorHorizontal {}
+        DSeparatorHorizontal {visible: !showedTimezoneList}
 
         Calendar {
+            height: showedTimezoneList ? 0 : 308
+            visible: !showedTimezoneList
             id: calendarObj
         }
 
         DSeparatorHorizontal {}
     }
-//    Column {
-//        id: beforeTimeZoneArea
-//        anchors.top: parent.top
-//        width: parent.width
-//        height: childrenRect.height
-//    }
-
-
-
-//    Column {
-//        id: afterTimeZoneArea
-//        anchors.top: timeZoneArea.bottom
-
-//    }
 }
