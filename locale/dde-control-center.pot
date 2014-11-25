@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-21 17:28+0800\n"
+"POT-Creation-Date: 2014-11-25 17:46+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -99,6 +99,7 @@ msgstr ""
 #: ../modules/network/add/AddSectionSave.qml:11
 #: ../modules/account/AddUserDialog.qml:378
 #: ../modules/network/wireless/AddWireless.qml:216
+#: ../modules/bluetooth/BluetoothDeviceExpand.qml:87
 #: ../modules/network/ConnectionAdd.qml:69
 #: ../modules/network/ConnectionEdit.qml:150
 #: ../modules/shortcuts/CustomKeybinding.qml:151
@@ -437,8 +438,8 @@ msgstr ""
 msgid "Connect"
 msgstr ""
 
-#: ../dock-applets/applet_widgets/AppletSettingWindow.qml:101
-msgid "Notice Region Setting "
+#: ../dock-applets/src/frame/AppletSettingWindow.qml:101
+msgid "Notification Area Settings"
 msgstr ""
 
 #: ../dock-applets/plugins/date_time/AppletTray.qml:80
@@ -499,19 +500,19 @@ msgstr ""
 msgid "Network Not Connected"
 msgstr ""
 
-#: ../dock-applets/plugins/network/AppletTray.qml:326
+#: ../dock-applets/plugins/network/AppletTray.qml:305
 #: ../dock-applets/plugins/network/bluetooth/AppletTray.qml:78
 #: ../dock-applets/plugins/network/vpn/AppletTray.qml:70
-#: ../dock-applets/plugins/network/wifi/AppletTray.qml:119
+#: ../dock-applets/plugins/network/wifi/AppletTray.qml:126
 #: ../dock-applets/plugins/power/AppletTray.qml:99
 #: ../dock-applets/plugins/sound/AppletTray.qml:173
 msgid "_Run"
 msgstr ""
 
-#: ../dock-applets/plugins/network/AppletTray.qml:327
+#: ../dock-applets/plugins/network/AppletTray.qml:306
 #: ../dock-applets/plugins/network/bluetooth/AppletTray.qml:79
 #: ../dock-applets/plugins/network/vpn/AppletTray.qml:71
-#: ../dock-applets/plugins/network/wifi/AppletTray.qml:120
+#: ../dock-applets/plugins/network/wifi/AppletTray.qml:127
 #: ../dock-applets/plugins/power/AppletTray.qml:106
 #: ../dock-applets/plugins/sound/AppletTray.qml:174
 msgid "_Undock"
@@ -523,23 +524,23 @@ msgstr ""
 
 #: ../dock-applets/plugins/power/AppletTray.qml:46
 #: ../modules/personalization/widgets/ThemeItem.qml:95
-#: ../modules/power/main.qml:284 ../modules/power/main.qml:474
+#: ../modules/power/main.qml:280 ../modules/power/main.qml:468
 #: ../modules/shortcuts/main.qml:53 ../modules/shortcuts/main.qml:233
 msgid "Custom"
 msgstr ""
 
 #: ../dock-applets/plugins/power/AppletTray.qml:47
-#: ../modules/power/main.qml:272 ../modules/power/main.qml:462
+#: ../modules/power/main.qml:268 ../modules/power/main.qml:456
 msgid "Power saver"
 msgstr ""
 
 #: ../dock-applets/plugins/power/AppletTray.qml:48
-#: ../modules/power/main.qml:266 ../modules/power/main.qml:456
+#: ../modules/power/main.qml:262 ../modules/power/main.qml:450
 msgid "Balanced"
 msgstr ""
 
 #: ../dock-applets/plugins/power/AppletTray.qml:49
-#: ../modules/power/main.qml:278 ../modules/power/main.qml:468
+#: ../modules/power/main.qml:274 ../modules/power/main.qml:462
 msgid "High performance"
 msgstr ""
 
@@ -566,7 +567,7 @@ msgstr ""
 msgid "VPN"
 msgstr ""
 
-#: ../dock-applets/plugins/network/wifi/AppletTray.qml:161
+#: ../dock-applets/plugins/network/wifi/AppletTray.qml:168
 #: ../modules/network/wireless/WirelessDeviceExpand.qml:28
 #: ../dock-applets/plugins/network/WirelessNetwork.qml:50
 #: ../dock-applets/plugins/network/wifi/main.qml:33
@@ -604,6 +605,15 @@ msgstr ""
 #: ../modules/network/edit_autogen/BaseConnectionEdit.qml:43
 #: ../modules/network/edit_autogen/BaseConnectionEdit.qml:53
 msgid "Automatically connect"
+msgstr ""
+
+#: ../modules/bluetooth/BluetoothDeviceExpand.qml:99
+#: ../modules/display/main.qml:151
+msgid "Apply"
+msgstr ""
+
+#: ../modules/bluetooth/BluetoothDeviceExpand.qml:127
+msgid "Devices nearby"
 msgstr ""
 
 #: ../modules/date_time/Calendar.qml:132
@@ -1020,15 +1030,15 @@ msgstr ""
 msgid "Rear"
 msgstr ""
 
-#: ../modules/personalization/components/FontSettingsExpand.qml:66
+#: ../modules/personalization/components/FontSettingsExpand.qml:65
 msgid "Monospaced"
 msgstr ""
 
-#: ../modules/personalization/components/FontSettingsExpand.qml:81
+#: ../modules/personalization/components/FontSettingsExpand.qml:80
 msgid "Size"
 msgstr ""
 
-#: ../modules/personalization/components/FontSettingsExpand.qml:110
+#: ../modules/personalization/components/FontSettingsExpand.qml:109
 #, qt-format
 msgid "Font %1"
 msgstr ""
@@ -1544,14 +1554,6 @@ msgstr ""
 msgid "Connect to hidden access point"
 msgstr ""
 
-#: ../modules/bluetooth/main.qml:76
-msgid "ON/OFF"
-msgstr ""
-
-#: ../modules/bluetooth/main.qml:141
-msgid "Devices nearby"
-msgstr ""
-
 #: ../modules/date_time/main.qml:106
 msgid "Automatic date and time"
 msgstr ""
@@ -1626,10 +1628,6 @@ msgstr ""
 
 #: ../modules/display/main.qml:206
 msgid "Monitor"
-msgstr ""
-
-#: ../modules/display/main.qml:151
-msgid "Apply"
 msgstr ""
 
 #: ../modules/grub/main.qml:112
@@ -1736,16 +1734,16 @@ msgstr ""
 msgid "When I press the power button"
 msgstr ""
 
-#: ../modules/power/main.qml:150 ../modules/power/main.qml:198
+#: ../modules/power/main.qml:150 ../modules/power/main.qml:196
 msgid "Shutdown"
 msgstr ""
 
-#: ../modules/power/main.qml:155 ../modules/power/main.qml:203
-#: ../modules/power/main.qml:269 ../modules/power/main.qml:275
-#: ../modules/power/main.qml:281 ../modules/power/main.qml:287
-#: ../modules/power/main.qml:386 ../modules/power/main.qml:459
-#: ../modules/power/main.qml:465 ../modules/power/main.qml:471
-#: ../modules/power/main.qml:477 ../modules/power/main.qml:569
+#: ../modules/power/main.qml:155 ../modules/power/main.qml:201
+#: ../modules/power/main.qml:265 ../modules/power/main.qml:271
+#: ../modules/power/main.qml:277 ../modules/power/main.qml:283
+#: ../modules/power/main.qml:382 ../modules/power/main.qml:453
+#: ../modules/power/main.qml:459 ../modules/power/main.qml:465
+#: ../modules/power/main.qml:471 ../modules/power/main.qml:563
 msgid "Suspend"
 msgstr ""
 
@@ -1753,35 +1751,35 @@ msgstr ""
 msgid "Ask"
 msgstr ""
 
-#: ../modules/power/main.qml:184
+#: ../modules/power/main.qml:182
 msgid "When I close the lid"
 msgstr ""
 
-#: ../modules/power/main.qml:208
+#: ../modules/power/main.qml:206
 msgid "Nothing"
 msgstr ""
 
-#: ../modules/power/main.qml:229
+#: ../modules/power/main.qml:225
 msgid "Password required to wake up"
 msgstr ""
 
-#: ../modules/power/main.qml:251
+#: ../modules/power/main.qml:247
 msgid "Plugged in"
 msgstr ""
 
-#: ../modules/power/main.qml:441
+#: ../modules/power/main.qml:435
 msgid "On battery"
 msgstr ""
 
-#: ../modules/power/main.qml:268 ../modules/power/main.qml:274
-#: ../modules/power/main.qml:280 ../modules/power/main.qml:286
-#: ../modules/power/main.qml:343 ../modules/power/main.qml:458
-#: ../modules/power/main.qml:464 ../modules/power/main.qml:470
-#: ../modules/power/main.qml:476 ../modules/power/main.qml:527
+#: ../modules/power/main.qml:264 ../modules/power/main.qml:270
+#: ../modules/power/main.qml:276 ../modules/power/main.qml:282
+#: ../modules/power/main.qml:341 ../modules/power/main.qml:452
+#: ../modules/power/main.qml:458 ../modules/power/main.qml:464
+#: ../modules/power/main.qml:470 ../modules/power/main.qml:523
 msgid "Turn off the display"
 msgstr ""
 
-#: ../modules/power/main.qml:337 ../modules/power/main.qml:522
+#: ../modules/power/main.qml:335 ../modules/power/main.qml:518
 msgid "Custom Options"
 msgstr ""
 

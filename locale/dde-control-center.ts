@@ -464,8 +464,8 @@
 <context>
     <name>AppletSettingWindow</name>
     <message>
-        <location filename="../dock-applets/applet_widgets/AppletSettingWindow.qml" line="+101"/>
-        <source>Notice Region Setting </source>
+        <location filename="../dock-applets/src/frame/AppletSettingWindow.qml" line="+101"/>
+        <source>Notification Area Settings</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -527,10 +527,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+291"/>
+        <location line="+270"/>
         <location filename="../dock-applets/plugins/network/bluetooth/AppletTray.qml" line="+78"/>
         <location filename="../dock-applets/plugins/network/vpn/AppletTray.qml" line="+70"/>
-        <location filename="../dock-applets/plugins/network/wifi/AppletTray.qml" line="+119"/>
+        <location filename="../dock-applets/plugins/network/wifi/AppletTray.qml" line="+126"/>
         <location filename="../dock-applets/plugins/power/AppletTray.qml" line="+99"/>
         <location filename="../dock-applets/plugins/sound/AppletTray.qml" line="+173"/>
         <source>_Run</source>
@@ -652,6 +652,24 @@
         <location line="+10"/>
         <location line="+10"/>
         <source>Automatically connect</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothDeviceExpand</name>
+    <message>
+        <location filename="../modules/bluetooth/BluetoothDeviceExpand.qml" line="+87"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+28"/>
+        <source>Devices nearby</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1806,7 +1824,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+17"/>
         <source>Monospaced</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2796,39 +2814,29 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/main.qml" line="+284"/>
-        <location line="+190"/>
+        <location filename="../modules/power/main.qml" line="+280"/>
+        <location line="+188"/>
         <location filename="../modules/shortcuts/main.qml" line="+53"/>
         <location line="+180"/>
         <source>Custom</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-202"/>
-        <location line="+190"/>
+        <location line="-200"/>
+        <location line="+188"/>
         <source>Power saver</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-196"/>
-        <location line="+190"/>
+        <location line="-194"/>
+        <location line="+188"/>
         <source>Balanced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-178"/>
-        <location line="+190"/>
+        <location line="-176"/>
+        <location line="+188"/>
         <source>High performance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/bluetooth/main.qml" line="+76"/>
-        <source>ON/OFF</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+65"/>
-        <source>Devices nearby</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3089,7 +3097,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/main.qml" line="-415"/>
+        <location filename="../modules/power/main.qml" line="-409"/>
         <location line="+12"/>
         <source>Never</source>
         <translation type="unfinished"></translation>
@@ -3131,19 +3139,19 @@
     </message>
     <message>
         <location line="+14"/>
-        <location line="+48"/>
+        <location line="+46"/>
         <source>Shutdown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-43"/>
-        <location line="+48"/>
-        <location line="+66"/>
+        <location line="-41"/>
+        <location line="+46"/>
+        <location line="+64"/>
         <location line="+6"/>
         <location line="+6"/>
         <location line="+6"/>
         <location line="+99"/>
-        <location line="+73"/>
+        <location line="+71"/>
         <location line="+6"/>
         <location line="+6"/>
         <location line="+6"/>
@@ -3152,12 +3160,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-409"/>
+        <location line="-403"/>
         <source>Ask</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+22"/>
         <source>When I close the lid</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3167,7 +3175,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+21"/>
+        <location line="+19"/>
         <source>Password required to wake up</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3177,27 +3185,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+190"/>
+        <location line="+188"/>
         <source>On battery</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-173"/>
+        <location line="-171"/>
         <location line="+6"/>
         <location line="+6"/>
         <location line="+6"/>
-        <location line="+57"/>
-        <location line="+115"/>
+        <location line="+59"/>
+        <location line="+111"/>
         <location line="+6"/>
         <location line="+6"/>
         <location line="+6"/>
-        <location line="+51"/>
+        <location line="+53"/>
         <source>Turn off the display</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-190"/>
-        <location line="+185"/>
+        <location line="-188"/>
+        <location line="+183"/>
         <source>Custom Options</source>
         <translation type="unfinished"></translation>
     </message>

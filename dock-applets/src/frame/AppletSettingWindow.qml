@@ -98,31 +98,25 @@ Window {
 
                 Text {
                     id:titleText
-                    text:dsTr("Notice Region Setting ")
+                    text:dsTr("Notification Area Settings")
                     color: "#ffffff"
                     font.pixelSize: 11
                     anchors.centerIn: parent
                     verticalAlignment: Text.AlignVCenter
                 }
 
-                DIcon {
+                DImageButton{
                     id:closeButton
                     width: 11
                     height: 8
                     anchors.right: parent.right
                     anchors.rightMargin: 8
                     anchors.verticalCenter: parent.verticalCenter
-                    icon:getIconUrl("setting_window/close_normal.png")
+                    onClicked: root.hide()
 
-
-                    MouseArea {
-                        anchors.fill: parent
-                        hoverEnabled: true
-                        onEntered: closeButton.icon = getIconUrl("setting_window/close_hover.png")
-                        onExited: closeButton.icon = getIconUrl("setting_window/close_normal.png")
-                        onPressed: closeButton.icon = getIconUrl("setting_window/close_press.png")
-                        onClicked: root.hide()
-                    }
+                    normal_image: "images/close_normal.png"
+                    hover_image: "images/close_hover.png"
+                    press_image: "images/close_press.png"
                 }
 
                 MouseArea {
