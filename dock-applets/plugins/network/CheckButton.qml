@@ -53,6 +53,7 @@ DImageCheckButton{
         font.pixelSize: 9
     }
 
+    /***
     Glow {
         anchors.fill: indexText
         radius: 5
@@ -61,4 +62,5 @@ DImageCheckButton{
         spread: 0.8
         source: indexText
     }
+    ***/
 }

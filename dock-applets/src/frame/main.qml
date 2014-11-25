@@ -146,6 +146,9 @@ QtObject {
     property var dbusDockSetting: DockSetting {
         path: "/dde/dock/DockSetting"
         onDisplayModeChanged: {
+            if(root.dockDisplayMode == 0 || arg0 == 0){
+                mainObject.restartDockApplet()
+            }
             root.dockDisplayMode = arg0
         }
     }
