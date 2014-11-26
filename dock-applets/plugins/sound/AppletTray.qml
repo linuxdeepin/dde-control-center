@@ -74,51 +74,51 @@ DockApplet{
     }
 
     function getIcon(){
-        var step = 100
-        var winStep = 100
+        var step = 10
+        var winStep = 3
         if(typeof(defaultSink.volume) != "undefined"){
             var vol = getVolume()
             if(vol < 1){
                 step = 0
             }
             else if(vol < 10){
-                step = 10
+                step = 1
             }
             else if(vol > 100){
-                step = 100
+                step = 10
             }
             else{
-                step = parseInt(getVolume()/10) * 10
+                step = parseInt(getVolume()/10)
             }
 
             if(vol < 1){
                 winStep = 0
             }
             else if(vol < 33){
-                winStep = 33
+                winStep = 1
             }
             else if(vol < 66){
-                winStep = 66
+                winStep = 2
             }
             else{
-                winStep = 100
+                winStep = 3
             }
         }
 
         if(defaultSink.mute){
             if(dockDisplayMode == 0){
-                return getIconUrl("sound/normal/sound_mute_%1.png".arg(step))
+                return "dock-sound-mute-%1".arg(step)
             }
             else {
-                return getIconUrl("sound/small/sound_mute.png")
+                return "dock-sound-mute"
             }
         }
         else{
             if(dockDisplayMode == 0){
-                return getIconUrl("sound/normal/sound_%1.png".arg(step))
+                return "dock-sound-%1".arg(step)
             }
             else{
-                return getIconUrl("sound/small/sound_%1.png".arg(winStep))
+                return "dock-sound-%1".arg(winStep)
             }
         }
     }
@@ -182,8 +182,8 @@ DockApplet{
         color: "transparent"
 
 		onNativeWindowDestroyed: {
-			toggleAppletState("sound")
-			toggleAppletState("sound")
+            print("@@@@@@@@@@@ rebuild sound window...")
+			mainObject.restartDockApplet()
 		}
 		onQt5ScreenDestroyed: {
 			console.log("Recive onQt5ScreenDestroyed")

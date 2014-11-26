@@ -30,7 +30,7 @@ AppletPlugin {
     managed: true
     show: true
     name: dsTr("Network")
-    iconPath:getIconUrl("network/small/wired_on.png")
+    iconPath: getIconUrl("network/small/wired_on.png")
 
     property var activeConnections: unmarshalJSON(dbusNetwork.activeConnections)
     property var activeConnectionsCount: {

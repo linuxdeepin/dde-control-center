@@ -31,7 +31,7 @@ AppletPlugin {
     managed: false
     show: mountDiskList.length > 0
     name: dsTr("Disk Mount")
-    iconPath: getIconUrl("disk_mount/icon_16.png")
+    iconPath: "dock-usb"
 
     // DiskMount
     property var dbusDiskMount: DiskMount {}

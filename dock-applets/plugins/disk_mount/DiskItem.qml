@@ -85,7 +85,7 @@ Item {
                 theme: "Deepin"
                 icon: mainObject.isPathExist(iconUrl) ? iconUrl : diskInfo[9]
 
-                property url iconUrl: getIconUrl("disk_mount/%1.png".arg(diskInfo[9]))
+                property url iconUrl: "images/%1.png".arg(diskInfo[9])
 
                 MouseArea{
                     anchors.fill: parent

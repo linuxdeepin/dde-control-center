@@ -8,7 +8,7 @@ uri = Deepin.AppletWidgets
 
 installPath = $$[QT_INSTALL_QML]/$$replace(uri, \\., /)
 
-qmldir.files += *.qml qmldir
+qmldir.files += *.qml qmldir images
 qmldir.path = $$installPath
 
 target.path = $$installPath

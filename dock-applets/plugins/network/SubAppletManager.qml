@@ -29,7 +29,7 @@ import DBus.Com.Deepin.Daemon.Bluetooth 1.0
 Item {
     id:managerItem
 
-    property string parentAppletPath:""
+    property string parentAppletPath
 
     readonly property string nmConnectionTypeVpn: "vpn"
     property var dbusNetwork: NetworkManager{}

@@ -4,3 +4,4 @@ AppletMenu 1.0 AppletMenu.qml
 AppletWhiteSlider 1.0 AppletWhiteSlider.qml
 AppletWaitingImage 1.0 AppletWaitingImage.qml
 SubAppletItemLoader 1.0 SubAppletItemLoader.qml
+AppletConnectButton 1.0 AppletConnectButton.qml

@@ -30,6 +30,7 @@ import Deepin.AppletWidgets 1.0
 import DBus.Com.Deepin.Dde.ControlCenter 1.0
 import DBus.Com.Deepin.Daemon.Network 1.0
 import DBus.Com.Deepin.Daemon.Dock 1.0
+import DBus.Com.Deepin.Daemon.ThemeManager 1.0
 
 QtObject {
     id: root
@@ -43,6 +44,31 @@ QtObject {
     function dsTr(s){
         return dssLocale.dsTr(s)
     }
+
+    // icon theme
+    property var dbusThemeManager: ThemeManager{}
+    property var themeObjectList: {
+        var themeComponent = Qt.createComponent("ThemeComponent.qml")
+        var themes = []
+        var themeList = dbusThemeManager.themeList
+        for(var i in themeList){
+            var themeObj = themeComponent.createObject(root, { path: themeList[i] })
+            themes.push(themeObj)
+        }
+        return themes
+    }
+    property var currentThemeObject: {
+        for(var i in themeObjectList){
+            var obj = themeObjectList[i]
+            if(obj.name == dbusThemeManager.currentTheme){
+                return obj
+            }
+        }
+        return themeObjectList[0]
+    }
+
+    property string iconThemeName: currentThemeObject.iconTheme
+    // icon theme
 
     function getIconUrl(path){
         return mainObject.getIconUrl(path)

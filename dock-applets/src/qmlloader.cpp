@@ -34,6 +34,13 @@
 
 #include "qmlloader.h"
 
+#undef signals
+extern "C" {
+  #include <gtk/gtk.h>
+}
+#define signals public
+
+
 QmlLoader::QmlLoader(QObject *parent)
     :QObject(parent)
 {
@@ -68,6 +75,41 @@ bool QmlLoader::isPathExist(QString path)
         path = path.replace("file://", "");
     }
     return QFile::exists(path);
+}
+
+QString QmlLoader::iconNameToPath(QString qname, int size)
+{
+    char *name = qname.toUtf8().data();
+
+    if (g_path_is_absolute(name))
+        return qname;
+    g_return_val_if_fail(name != NULL, NULL);
+
+    int pic_name_len = strlen(name);
+    char* ext = strrchr(name, '.');
+    if (ext != NULL) {
+        if (g_ascii_strcasecmp(ext+1, "png") == 0 || g_ascii_strcasecmp(ext+1, "svg") == 0 || g_ascii_strcasecmp(ext+1, "jpg") == 0) {
+            pic_name_len = ext - name;
+            g_debug("desktop's Icon name should an absoulte path or an basename without extension");
+        }
+    }
+
+    char* pic_name = g_strndup(name, pic_name_len);
+    GtkIconTheme* them = gtk_icon_theme_get_default();
+
+    GtkIconInfo* info = gtk_icon_theme_lookup_icon(them, pic_name, size, GTK_ICON_LOOKUP_GENERIC_FALLBACK);
+    g_free(pic_name);
+    if (info) {
+        char* path = g_strdup(gtk_icon_info_get_filename(info));
+#if GTK_MAJOR_VERSION >= 3
+        g_object_unref(info);
+#elif GTK_MAJOR_VERSION == 2
+        gtk_icon_info_free(info);
+#endif
+        return QString(path);
+    } else {
+        return NULL;
+    }
 }
 
 QStringList QmlLoader::scanPlugins()

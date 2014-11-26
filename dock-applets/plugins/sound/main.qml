@@ -30,7 +30,7 @@ AppletPlugin {
     managed: true
     show: true
     name: dsTr("Sound")
-    iconPath:getIconUrl("sound/small/sound_100.png")
+    iconPath: "dock-sound-3"
 
     appletTrayLoader: Loader {
         sourceComponent: AppletTray{}

@@ -3,6 +3,7 @@
     <file>frame/main.qml</file>
     <file>frame/AppletSwitchLine.qml</file>
     <file>frame/AppletSettingWindow.qml</file>
+    <file>frame/ThemeComponent.qml</file>
     <file>frame/WifiPasswordWindow.qml</file>
     <file>frame/AppletLoader.qml</file>
     <file>frame/images/close_normal.png</file>

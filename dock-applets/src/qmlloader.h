@@ -55,6 +55,7 @@ public:
     Q_INVOKABLE QString getIconUrl(QString path);
     Q_INVOKABLE void xdgOpen(QString path);
     Q_INVOKABLE bool isPathExist(QString path);
+    Q_INVOKABLE QString iconNameToPath(QString qname, int size);
 
     Q_INVOKABLE QStringList scanPlugins();
 

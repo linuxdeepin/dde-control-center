@@ -58,12 +58,10 @@ Item {
         height: parent.height
         width: parent.width
 
-        DImageButton {
+        AppletConnectButton {
             anchors.right: nameLabel.left
             anchors.rightMargin: 4
             anchors.verticalCenter: parent.verticalCenter
-            normal_image: getIconUrl("bluetooth/connected.png")
-            hover_image: getIconUrl("bluetooth/disconnect.png")
             visible: apConnected
             onClicked: {
                 dbusNetwork.DisconnectDevice(devicePath)

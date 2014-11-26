@@ -112,54 +112,54 @@ DockApplet {
         var percentage = parseInt(dbusPower.batteryPercentage)
         if(dockDisplayMode == 0){
             if (dbusPower.onBattery){
-                var path = "power/normal/battery_%1.png"
+                var path = "dock-battery-%1"
             }
             else{
-                var path = "power/normal/battery-charge_%1.png"
+                var path = "dock-battery-charge-%1"
             }
 
             if(percentage <= 5){
-                return getIconUrl(path.arg(0))
+                return path.arg(0)
             }
             else if(percentage <= 18){
-                return getIconUrl(path.arg(10))
+                return path.arg(1)
             }
             else if(percentage <= 38){
-                return getIconUrl(path.arg(25))
+                return path.arg(2)
             }
             else if(percentage <= 62){
-                return getIconUrl(path.arg(50))
+                return path.arg(3)
             }
             else if(percentage <= 88){
-                return getIconUrl(path.arg(75))
+                return path.arg(4)
             }
             else{
-                return getIconUrl(path.arg(100))
+                return path.arg(5)
             }
         }
         else{
             if (!dbusPower.onBattery){
-                return getIconUrl("power/small/battery-charge.png")
+                return "dock-battery-charge"
             }
             else {
-                var winPath = "power/small/battery_%1.png"
+                var winPath = "dock-battery-%1"
                 if(percentage <= 5){
-                    return getIconUrl(winPath.arg(0))
+                    return winPath.arg(0)
                 }
                 else if(percentage <= 20){
-                    return getIconUrl(winPath.arg(20))
+                    return winPath.arg(1)
                 }
                 else if(percentage <= 40){
-                    return getIconUrl(winPath.arg(40))
+                    return winPath.arg(2)
                 }
                 else if(percentage <= 60){
-                    return getIconUrl(winPath.arg(60))
+                    return winPath.arg(3)
                 }
                 else if(percentage <= 80){
-                    return getIconUrl(winPath.arg(80))
+                    return winPath.arg(4)
                 }
                 else{
-                    return getIconUrl(winPath.arg(100))
+                    return winPath.arg(5)
                 }
             }
         }

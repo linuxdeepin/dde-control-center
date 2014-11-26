@@ -5,7 +5,7 @@ Image {
     property bool on: false
 
     visible: container.on
-    source: getIconUrl("network/small/waiting.png")
+    source: "images/waiting.png"
     NumberAnimation on rotation {
         running: container.on;
         from: 0;
