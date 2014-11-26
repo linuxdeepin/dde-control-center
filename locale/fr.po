@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-25 17:46+0800\n"
-"PO-Revision-Date: 2014-11-26 01:43+0000\n"
+"POT-Creation-Date: 2014-11-27 14:00+0800\n"
+"PO-Revision-Date: 2014-11-27 06:16+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dde-control-center/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: ../modules/network/add/AddDsl.qml:11
 msgid "Add PPPoE Connection"
-msgstr ""
+msgstr "Ajouter connection PPPoE"
 
 #: ../modules/network/add/AddDsl.qml:24
 #: ../modules/network/add/AddMobile.qml:33
@@ -110,7 +110,7 @@ msgstr "Nombre"
 #: ../modules/network/widgets/PasswordBox.qml:118
 #: ../modules/account/PasswordDialog.qml:207
 #: ../modules/shortcuts/ShortcutInput.qml:343
-#: ../modules/date_time/TimeBox.qml:212
+#: ../modules/date_time/TimeBox.qml:225
 #: ../modules/network/wireless/WifiHotspot.qml:82
 #: ../dock-applets/src/frame/WifiPasswordWindow.qml:196
 #: ../modules/display/main.qml:163
@@ -119,7 +119,7 @@ msgstr "Annuler"
 
 #: ../modules/network/add/AddSectionSave.qml:20
 #: ../modules/shortcuts/CustomKeybinding.qml:157
-#: ../modules/date_time/TimezoneArea.qml:254
+#: ../modules/date_time/TimezoneArea.qml:412
 msgid "Add"
 msgstr "Ajouter"
 
@@ -441,9 +441,9 @@ msgstr "Authentification Interne"
 msgid "Connect"
 msgstr "Se connecter"
 
-#: ../dock-applets/src/frame/AppletSettingWindow.qml:101
+#: ../dock-applets/src/frame/AppletSettingWindow.qml:108
 msgid "Notification Area Settings"
-msgstr ""
+msgstr "Notifications de paramêtres "
 
 #: ../dock-applets/plugins/date_time/AppletTray.qml:80
 msgid "_Switch to analog"
@@ -503,7 +503,7 @@ msgstr "Réseau connecté"
 msgid "Network Not Connected"
 msgstr "Réseau non connecté"
 
-#: ../dock-applets/plugins/network/AppletTray.qml:305
+#: ../dock-applets/plugins/network/AppletTray.qml:310
 #: ../dock-applets/plugins/network/bluetooth/AppletTray.qml:78
 #: ../dock-applets/plugins/network/vpn/AppletTray.qml:70
 #: ../dock-applets/plugins/network/wifi/AppletTray.qml:126
@@ -512,7 +512,7 @@ msgstr "Réseau non connecté"
 msgid "_Run"
 msgstr "_Exécuter"
 
-#: ../dock-applets/plugins/network/AppletTray.qml:306
+#: ../dock-applets/plugins/network/AppletTray.qml:311
 #: ../dock-applets/plugins/network/bluetooth/AppletTray.qml:79
 #: ../dock-applets/plugins/network/vpn/AppletTray.qml:71
 #: ../dock-applets/plugins/network/wifi/AppletTray.qml:127
@@ -625,7 +625,7 @@ msgstr "Aujourd'hui"
 
 #: ../modules/network/ConnectionAdd.qml:12 ../modules/network/main.qml:303
 msgid "Add Network Connection"
-msgstr ""
+msgstr "Ajouter Connection Réseau"
 
 #: ../modules/network/ConnectionAdd.qml:35
 #: ../modules/network/edit_autogen/EditSectionPppoe.qml:11
@@ -653,7 +653,7 @@ msgstr "Sauvegarder"
 #: ../modules/network/ConnectionEdit.qml:114 ../modules/network/Info.qml:79
 #: ../modules/date_time/StateButtons.qml:35
 #: ../modules/date_time/StateButtons.qml:49
-#: ../modules/date_time/TimezoneArea.qml:257
+#: ../modules/date_time/TimezoneArea.qml:415
 msgid "Close"
 msgstr "Fermer"
 
@@ -1057,11 +1057,11 @@ msgstr "Activé"
 
 #: ../modules/network/Info.qml:13
 msgid "Connected"
-msgstr ""
+msgstr "Connecté"
 
 #: ../modules/network/Info.qml:15
 msgid "Not Connected"
-msgstr ""
+msgstr "Non Connecté"
 
 #: ../modules/network/Info.qml:39
 msgid "(default)"
@@ -1270,7 +1270,7 @@ msgstr "Pas réussi"
 #: ../modules/network/widgets/PasswordBox.qml:102
 #: ../dock-applets/src/frame/WifiPasswordWindow.qml:181
 msgid "Auto-connect"
-msgstr ""
+msgstr "Auto-connection"
 
 #: ../modules/account/PasswordDialog.qml:114
 msgid "New Password"
@@ -1297,6 +1297,7 @@ msgid "Successfully updated, reboot to view."
 msgstr "Mise-à-jour effectuée avec succès, redémarrer pour appliquer."
 
 #: ../modules/network/proxy/ProxyContent.qml:43
+#: ../modules/date_time/main.qml:182
 msgid "None"
 msgstr "Aucun"
 
@@ -1386,37 +1387,37 @@ msgstr "Fait"
 
 #: ../modules/date_time/StateButtons.qml:72
 msgid "Delete Time Zone"
-msgstr ""
+msgstr "Supprimer la zone de temps"
 
 #: ../modules/date_time/StateButtons.qml:88
 msgid "Add Time Zone"
-msgstr ""
+msgstr "Ajouter une zone de temps"
 
 #: ../modules/keyboard/StateButtons.qml:77
 msgid "Delete Keyboard Layout"
-msgstr ""
+msgstr "Supprimer le language clavier"
 
 #: ../modules/keyboard/StateButtons.qml:92
 msgid "Add Keyboard Layout"
-msgstr ""
+msgstr "Ajouter un language clavier"
 
 #: ../modules/shortcuts/StateButtons.qml:80
 msgid "Delete Shortcut"
-msgstr ""
+msgstr "Supprimer raccourci"
 
 #: ../modules/shortcuts/StateButtons.qml:96
 msgid "Add Shortcut"
-msgstr ""
+msgstr "Ajouter raccourci"
 
 #: ../modules/date_time/TimeBox.qml:161
 msgid "Double-click the above digits to change your time."
 msgstr "Double cliquer sur les nombres ci-dessus pour changer l'heure."
 
-#: ../modules/date_time/TimeBox.qml:196
+#: ../modules/date_time/TimeBox.qml:202
 msgid "Set"
 msgstr "Paramétrer"
 
-#: ../modules/date_time/TimezoneArea.qml:101
+#: ../modules/date_time/TimezoneArea.qml:236
 msgid "Time zone"
 msgstr "Zone horaire"
 
@@ -1526,7 +1527,7 @@ msgstr "Créer"
 #: ../dock-applets/src/frame/WifiPasswordWindow.qml:151
 #, qt-format
 msgid "Please enter the password of  <font color=\"#faca57\">%1</font>"
-msgstr ""
+msgstr "Veuillez entrer le mot de passe pour <font color=\"#faca57\">%1</font>"
 
 #: ../modules/network/wired/WiredDeviceExpand.qml:38
 msgid "Wired Network"
@@ -1556,19 +1557,23 @@ msgstr "Le réseau sans fil n'est pas en mesure de se connecter, peut-être dû 
 msgid "Connect to hidden access point"
 msgstr "Se connecter à un point d'accès caché "
 
-#: ../modules/date_time/main.qml:106
+#: ../modules/date_time/main.qml:108
 msgid "Automatic date and time"
 msgstr "Date et heure automatique"
 
-#: ../modules/date_time/main.qml:122
+#: ../modules/date_time/main.qml:126
 msgid "Use 24-hour clock"
 msgstr "Utiliser le format 24 heures"
 
-#: ../modules/date_time/main.qml:152
+#: ../modules/date_time/main.qml:157
+msgid "Adjust DST clock "
+msgstr ""
+
+#: ../modules/date_time/main.qml:234
 msgid "Date"
 msgstr "Date"
 
-#: ../modules/date_time/main.qml:156
+#: ../modules/date_time/main.qml:238
 msgid "Set Date"
 msgstr "Régler la date"
 
@@ -1633,8 +1638,8 @@ msgid "Monitor"
 msgstr "Écran"
 
 #: ../modules/grub/main.qml:112
-msgid "Default Startup"
-msgstr "Démarrage par défaut"
+msgid "Default Boot"
+msgstr ""
 
 #: ../modules/grub/main.qml:167
 msgid "Boot delay"
@@ -1842,8 +1847,8 @@ msgid "Show Advanced..."
 msgstr "Montrer les options avancées"
 
 #: ../modules/system_info/main.qml:119
-msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
-msgstr "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
+msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
+msgstr ""
 
 #: ../modules/system_info/main.qml:125
 msgid "Deepin Edition"
@@ -1947,7 +1952,7 @@ msgstr "Connexion mobile CDMA"
 
 #: ../modules/network/main.qml:326
 msgid "View Detailed Information"
-msgstr ""
+msgstr "Voir informations détaillées"
 
 #: ../modules/network/main.qml:214
 msgid "VPN L2TP"
@@ -1971,11 +1976,11 @@ msgstr "VPN OpenConnect"
 
 #: ../modules/account/main.qml:95
 msgid "Delete Account"
-msgstr ""
+msgstr "Supprimer le compte"
 
 #: ../modules/account/main.qml:133
 msgid "Add Account"
-msgstr ""
+msgstr "Ajouter un compte"
 
 #: ../modules/account/main.qml:153
 msgid "User List"
@@ -2019,7 +2024,7 @@ msgstr "Mode crayon tactile"
 
 #: ../modules/wacom/main.qml:97
 msgid "Pen Mode"
-msgstr "Mode Crayon"
+msgstr "Mode Tactile"
 
 #: ../modules/wacom/main.qml:98
 msgid "Mouse Mode"
@@ -2039,11 +2044,11 @@ msgstr "Pression"
 
 #: ../modules/wacom/main.qml:178
 msgid "Soft"
-msgstr "Douce"
+msgstr "Doux"
 
 #: ../modules/wacom/main.qml:179
 msgid "Hard"
-msgstr "Dure"
+msgstr "Dur"
 
 #: ../modules/wacom/main.qml:190
 msgid "Double-click Space"

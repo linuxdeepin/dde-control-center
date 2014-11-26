@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-25 17:46+0800\n"
-"PO-Revision-Date: 2014-11-26 01:43+0000\n"
+"POT-Creation-Date: 2014-11-27 14:00+0800\n"
+"PO-Revision-Date: 2014-11-27 06:16+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/dde-control-center/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -109,7 +109,7 @@ msgstr "Numara"
 #: ../modules/network/widgets/PasswordBox.qml:118
 #: ../modules/account/PasswordDialog.qml:207
 #: ../modules/shortcuts/ShortcutInput.qml:343
-#: ../modules/date_time/TimeBox.qml:212
+#: ../modules/date_time/TimeBox.qml:225
 #: ../modules/network/wireless/WifiHotspot.qml:82
 #: ../dock-applets/src/frame/WifiPasswordWindow.qml:196
 #: ../modules/display/main.qml:163
@@ -118,7 +118,7 @@ msgstr "Vazgeç"
 
 #: ../modules/network/add/AddSectionSave.qml:20
 #: ../modules/shortcuts/CustomKeybinding.qml:157
-#: ../modules/date_time/TimezoneArea.qml:254
+#: ../modules/date_time/TimezoneArea.qml:412
 msgid "Add"
 msgstr "Ekle"
 
@@ -440,7 +440,7 @@ msgstr "Inner Auth"
 msgid "Connect"
 msgstr "Bağlantı"
 
-#: ../dock-applets/src/frame/AppletSettingWindow.qml:101
+#: ../dock-applets/src/frame/AppletSettingWindow.qml:108
 msgid "Notification Area Settings"
 msgstr ""
 
@@ -502,7 +502,7 @@ msgstr ""
 msgid "Network Not Connected"
 msgstr ""
 
-#: ../dock-applets/plugins/network/AppletTray.qml:305
+#: ../dock-applets/plugins/network/AppletTray.qml:310
 #: ../dock-applets/plugins/network/bluetooth/AppletTray.qml:78
 #: ../dock-applets/plugins/network/vpn/AppletTray.qml:70
 #: ../dock-applets/plugins/network/wifi/AppletTray.qml:126
@@ -511,7 +511,7 @@ msgstr ""
 msgid "_Run"
 msgstr "_Çalıştır"
 
-#: ../dock-applets/plugins/network/AppletTray.qml:306
+#: ../dock-applets/plugins/network/AppletTray.qml:311
 #: ../dock-applets/plugins/network/bluetooth/AppletTray.qml:79
 #: ../dock-applets/plugins/network/vpn/AppletTray.qml:71
 #: ../dock-applets/plugins/network/wifi/AppletTray.qml:127
@@ -652,7 +652,7 @@ msgstr "Kaydet"
 #: ../modules/network/ConnectionEdit.qml:114 ../modules/network/Info.qml:79
 #: ../modules/date_time/StateButtons.qml:35
 #: ../modules/date_time/StateButtons.qml:49
-#: ../modules/date_time/TimezoneArea.qml:257
+#: ../modules/date_time/TimezoneArea.qml:415
 msgid "Close"
 msgstr "Kapat"
 
@@ -1296,6 +1296,7 @@ msgid "Successfully updated, reboot to view."
 msgstr "Güncelleme başarılı, görmek için tekrar başlat."
 
 #: ../modules/network/proxy/ProxyContent.qml:43
+#: ../modules/date_time/main.qml:182
 msgid "None"
 msgstr "Yok"
 
@@ -1411,11 +1412,11 @@ msgstr ""
 msgid "Double-click the above digits to change your time."
 msgstr "Zamanı değiştirmek için yukarıdaki basamak çift tıklatın."
 
-#: ../modules/date_time/TimeBox.qml:196
+#: ../modules/date_time/TimeBox.qml:202
 msgid "Set"
 msgstr "Ayarla"
 
-#: ../modules/date_time/TimezoneArea.qml:101
+#: ../modules/date_time/TimezoneArea.qml:236
 msgid "Time zone"
 msgstr "Zaman dilimi"
 
@@ -1555,19 +1556,23 @@ msgstr "Kablosuz ağ aşşağıdaki sebeplerden dolayı bağlanamıyor olabilir:
 msgid "Connect to hidden access point"
 msgstr "Gizli erişim noktasına bağlan"
 
-#: ../modules/date_time/main.qml:106
+#: ../modules/date_time/main.qml:108
 msgid "Automatic date and time"
 msgstr "Otomatik tarih ve zaman"
 
-#: ../modules/date_time/main.qml:122
+#: ../modules/date_time/main.qml:126
 msgid "Use 24-hour clock"
 msgstr "24-saat formatını kullan"
 
-#: ../modules/date_time/main.qml:152
+#: ../modules/date_time/main.qml:157
+msgid "Adjust DST clock "
+msgstr ""
+
+#: ../modules/date_time/main.qml:234
 msgid "Date"
 msgstr "Tarih"
 
-#: ../modules/date_time/main.qml:156
+#: ../modules/date_time/main.qml:238
 msgid "Set Date"
 msgstr "Tarihi Ayarla"
 
@@ -1632,8 +1637,8 @@ msgid "Monitor"
 msgstr "Monitör"
 
 #: ../modules/grub/main.qml:112
-msgid "Default Startup"
-msgstr "Varsayılan Başlangıç"
+msgid "Default Boot"
+msgstr ""
 
 #: ../modules/grub/main.qml:167
 msgid "Boot delay"
@@ -1841,8 +1846,8 @@ msgid "Show Advanced..."
 msgstr "Gelişmişi Görüntüle..."
 
 #: ../modules/system_info/main.qml:119
-msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
-msgstr "Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd."
+msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
+msgstr ""
 
 #: ../modules/system_info/main.qml:125
 msgid "Deepin Edition"
