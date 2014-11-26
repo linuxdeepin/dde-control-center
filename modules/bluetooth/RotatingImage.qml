@@ -21,8 +21,8 @@ Item {
         id: rotating_animation
         target: img
         property: "rotation"
-        from: 0
-        to: - 360
+        from: -360
+        to: 0
         duration: 1000
         loops: Animation.Infinite
         /* easing.type: Easing.OutQuad */
