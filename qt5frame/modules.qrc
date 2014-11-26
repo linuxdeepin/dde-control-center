@@ -63,6 +63,7 @@
         <file>modules/date_time/CalendarTitleItem.qml</file>
         <file>modules/date_time/AddTimezoneItem.qml</file>
         <file>modules/date_time/Calendar.qml</file>
+        <file>modules/date_time/OpacityImageButton.qml</file>
         <file>modules/date_time/CalendarComponent.qml</file>
         <file>modules/date_time/StateButtons.qml</file>
         <file>modules/date_time/TimeNormal.qml</file>

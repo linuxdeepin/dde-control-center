@@ -33,7 +33,7 @@ Row {
     property bool canAdjustMonth: true
     signal monthChanged(var newDateString )
 
-    DOpacityImageButton {
+    OpacityImageButton {
         id: decreaseYearButton
         source: 'images/arrow_left_white.png'
         anchors.verticalCenter: parent.verticalCenter
@@ -67,7 +67,7 @@ Row {
         }
     }
 
-    DOpacityImageButton {
+    OpacityImageButton {
         id: increaseYearButton
         anchors.verticalCenter: parent.verticalCenter
         anchors.rightMargin: 6
@@ -86,7 +86,7 @@ Row {
         }
     }
 
-    DOpacityImageButton {
+    OpacityImageButton {
         id: decreaseMonthButton
         anchors.verticalCenter: parent.verticalCenter
 
@@ -130,7 +130,7 @@ Row {
         }
     }
 
-    DOpacityImageButton {
+    OpacityImageButton {
         id: increaseMonthButton
         anchors.verticalCenter: parent.verticalCenter
 
