@@ -56,7 +56,6 @@ DockApplet{
         return value
     }
 
-
     function showNetwork(id){
         dbusControlCenter.ShowModule("network")
     }

@@ -29,7 +29,7 @@ import DBus.Com.Deepin.Daemon.Bluetooth 1.0
 Item {
     id:managerItem
 
-    property string parentAppletPath
+    property string parentAppletPath:""
 
     readonly property string nmConnectionTypeVpn: "vpn"
     property var dbusNetwork: NetworkManager{}
@@ -54,15 +54,18 @@ Item {
     }
     property int oldWirelessDevicesCount:0
 
-    property var dbusBluetooth: Bluetooth{}
-    property var bluetoothAdapters: unmarshalJSON(dbusBluetooth.adapters)
+    Bluetooth {
+        id: dbusBluetooth
+        onAdapterAdded:bluetoothAdapters = unmarshalJSON(dbusBluetooth.GetAdapters())
+        onAdapterRemoved:bluetoothAdapters = unmarshalJSON(dbusBluetooth.GetAdapters())
+    }
+    property var bluetoothAdapters: unmarshalJSON(dbusBluetooth.GetAdapters())
     property var blueToothAdaptersCount: {
         if (bluetoothAdapters)
             return bluetoothAdapters.length
         else
             return 0
     }
-    property int oldBluetoothAdaptersCount:0
 
     property var wirelessListModel: ListModel {}
     property var bluetoothListModel: ListModel {}
@@ -93,9 +96,8 @@ Item {
 
     onBlueToothAdaptersCountChanged: {
         //update bluetooth model
-        if (getParentAppletPathHead() != "" && oldBluetoothAdaptersCount != blueToothAdaptersCount){
+        if (getParentAppletPathHead() != ""){
             updateBluetoothAdaperts()
-            oldBluetoothAdaptersCount = blueToothAdaptersCount
         }
 
         updateSettingItem(dockDisplayMode != 0)
@@ -106,6 +108,11 @@ Item {
             clearVPNAppletInfos()
         else
             insertVPNAppletInfos()
+    }
+
+
+    Component.onCompleted: {
+        bluetoothAdapters = unmarshalJSON(dbusBluetooth.GetAdapters())
     }
 
     Timer {
@@ -124,9 +131,13 @@ Item {
     function getParentAppletPathHead(){
         if (parentAppletPath != "")
             return parentAppletPath.substring(0,parentAppletPath.length - 8)//"main.qml" got 8 character
+        else
+            return ""
     }
 
     function updateWirelessApplet(){
+        if (getParentAppletPathHead() == "")
+            return
         print("==> [Info] Updating Wifi applet....................")
         clearWirelessAppletInfos()
         wirelessListModel.clear()
@@ -182,34 +193,19 @@ Item {
     }
 
     function updateBluetoothAdaperts(){
+        if (getParentAppletPathHead() == "")
+            return
         print ("==> [Info:] Updating Bluetooth applet...")
         clearBluetoothAppletInfos()
         bluetoothListModel.clear()
 
-
-        //only support one device now
-        if (blueToothAdaptersCount >= 1){
+        for (var i = 0; i < blueToothAdaptersCount; i ++){
             bluetoothListModel.append({
-                                          "applet_id": "bluetooth",
-                                          "applet_path": getParentAppletPathHead() + "bluetooth/main.qml"
-                                      })
+                                         "applet_id": bluetoothAdapters[i].Path,
+                                         "applet_name":bluetoothAdapters[i].Alias,
+                                         "applet_path": getParentAppletPathHead() + "bluetooth/main.qml"
+                                     })
         }
-
-        //use the below code when support MultiDevice
-//        if (blueToothAdaptersCount == 1){
-//            bluetoothListModel.append({
-//                                         "applet_id": "bluetooth",
-//                                         "applet_path": getParentAppletPathHead() + "bluetooth/main.qml"
-//                                     })
-//        }
-//        else {
-//            for (var i = 0; i < blueToothAdaptersCount; i ++){
-//                bluetoothListModel.append({
-//                                             "applet_id": bluetoothAdapters[i].Vendor,
-//                                             "applet_path": getParentAppletPathHead() + "bluetooth/main.qml"
-//                                         })
-//            }
-//        }
     }
 
     function clearBluetoothAppletInfos() {

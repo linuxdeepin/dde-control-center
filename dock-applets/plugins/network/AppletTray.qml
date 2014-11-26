@@ -51,6 +51,7 @@ DockApplet{
         }
     }
 
+
     property var dconstants: DConstants {}
     property string macIconUri: getFashionIcon()
     property string winIconUri: mainObject.iconNameToPath("dock-wired-on", 16)
@@ -87,7 +88,6 @@ DockApplet{
             return true
         }
     }
-
     function getWinIcon(){
     }
 
@@ -96,12 +96,12 @@ DockApplet{
         for(var i=0; i<subImageList.count; i++){
             var imageInfo = subImageList.get(i)
             iconDataUri = dbusGraphic.CompositeImageUri(
-                iconDataUri,
-                getIconDataUri(imageInfo.imagePath),
-                imageInfo.x,
-                imageInfo.y,
-                "png"
-            )
+                        iconDataUri,
+                        getIconDataUri(imageInfo.imagePath),
+                        imageInfo.x,
+                        imageInfo.y,
+                        "png"
+                        )
         }
 
         if(activeWiredDevice){
@@ -254,22 +254,40 @@ DockApplet{
     }
 
     // bluetooth
-    property var dbusBluetooth: Bluetooth {}
-    property var adapters: dbusBluetooth.adapters ? unmarshalJSON(dbusBluetooth.adapters) : ""
-    function updateBluetoothIcon(){
-        var show = adapters.length > 0
-        var enabled = dbusBluetooth.powered ? dbusBluetooth.powered : false
+    Bluetooth {
+        id: dbusBluetooth
+        onAdapterAdded:bluetoothAdapters = unmarshalJSON(dbusBluetooth.GetAdapters())
+        onAdapterRemoved:bluetoothAdapters = unmarshalJSON(dbusBluetooth.GetAdapters())
+        onAdapterPropertiesChanged: bluetoothAdapters = unmarshalJSON(dbusBluetooth.GetAdapters())
+    }
+    property var bluetoothAdapters: unmarshalJSON(dbusBluetooth.GetAdapters())
+    property var blueToothAdaptersCount: {
+        if (bluetoothAdapters)
+            return bluetoothAdapters.length
+        else
+            return 0
+    }
+    property var bluetoothListmodel: ListModel{}
+    property var bluetoothState: dbusBluetooth.state
+    onBluetoothStateChanged: updateBluetoothState()
+    onBlueToothAdaptersCountChanged: {
+        buttonRow.updateBluetoothApplet()
+        updateBluetoothState()
+    }
+    onBluetoothAdaptersChanged: updateBluetoothState()
+
+    function updateBluetoothState(){
+        var show = blueToothAdaptersCount > 0
+        var enabled = bluetoothState == stateConnected
+
         if(enabled){
-            var imagePath = mainObject.iconNameToPath("dock-bluetooth-on", 16)
+            var imagePath = mainObject.iconNameToPath("fashion-bluetooth-on", 16)
         }
         else{
-            var imagePath = mainObject.iconNameToPath("dock-bluetooth-off", 16)
+            var imagePath = mainObject.iconNameToPath("fashion-bluetooth-off", 16)
         }
         updateState("bluetooth", show, imagePath)
     }
-
-    onAdaptersChanged: updateBluetoothIcon()
-
 
     property int xEdgePadding: 10
 
@@ -312,7 +330,7 @@ DockApplet{
         }
     }
 
-    window: (dockDisplayMode == 0 && !hasWirelessDevices && !vpnButton.visible && !bluetoothButton.visible) ||
+    window: (dockDisplayMode == 0 && !hasWirelessDevices && !vpnButton.visible && blueToothAdaptersCount <=0) ||
             (hasWiredDevices && !hasWirelessDevices && activeConnectionsCount == 0 && dockDisplayMode != 0) ? null : rootWindow
 
     DockQuickWindow {
@@ -354,6 +372,17 @@ DockApplet{
                                                          "devicesCount":wirelessDevicesCount,
                                                          "deviceState":wirelessDevices[i].State
                                                      })
+                        }
+                    }
+
+                    function updateBluetoothApplet(){
+                        bluetoothListmodel.clear()
+                        for (var i = 0; i < blueToothAdaptersCount; i ++){
+                            bluetoothListmodel.append({
+                                                          "adapterPath": bluetoothAdapters[i].Path,
+                                                          "adapterCount":blueToothAdaptersCount,
+                                                          "adapterPowered":bluetoothAdapters[i].Powered
+                                                      })
                         }
                     }
 
@@ -413,34 +442,21 @@ DockApplet{
                         }
                     }
 
-                    CheckButton{
-                        id: bluetoothButton
-                        visible: adapters.length > 0
-                        onImage: "images/bluetooth_on.png"
-                        offImage: "images/bluetooth_off.png"
-                        deviceIndex: ""
+                    Repeater {
+                        id:bluetoothRepeater
+                        model: bluetoothListmodel
+                        delegate: CheckButton {
+                            id: bluetoothButton
+                            visible: true
+                            onImage: "images/bluetooth_on.png"
+                            offImage: "images/bluetooth_off.png"
+                            active: adapterPowered
+                            deviceIndex: adapterCount > 1 ? index + 1 : ""
 
-                        onClicked: {
-                            dbusBluetooth.powered = active
-                        }
-
-                        Connections{
-                            target: dbusBluetooth
-                            onPoweredChanged:{
-                                if(!bluetoothButton.pressed && typeof(dbusBluetooth.powered) != "undefined"){
-                                    bluetoothButton.active = dbusBluetooth.powered
-                                }
-                                updateBluetoothIcon()
+                            onClicked: {
+                                dbusBluetooth.SetAdapterPowered(adapterPath, !adapterPowered)
                             }
-                        }
 
-                        Timer{
-                            running: true
-                            interval: 100
-                            onTriggered: {
-                                if(dbusBluetooth.powered)
-                                    parent.active = dbusBluetooth.powered
-                            }
                         }
                     }
                 }

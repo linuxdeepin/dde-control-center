@@ -30,21 +30,27 @@ AppletPlugin {
 
     managed: true
     show: true
-    name: dsTr("Bluetooth")
+    name:  appletName == "" ? appletId : appletName
     iconPath:getIconUrl("bluetooth/bluetooth-enable.png")
 
-    Bluetooth { id: dbus_bluetooth }
-    property var dockMode: dockDisplayMode
-    property var adapters: unmarshalJSON(dbus_bluetooth.adapters)
-    property var adaptersCount: {
-        if (adapters)
-            return adapters.length
+    Bluetooth {
+        id: dbus_bluetooth
+        onAdapterAdded:bluetoothAdapters = unmarshalJSON(dbusBluetooth.GetAdapters())
+        onAdapterRemoved:bluetoothAdapters = unmarshalJSON(dbusBluetooth.GetAdapters())
+        onAdapterPropertiesChanged: bluetoothAdapters = unmarshalJSON(dbusBluetooth.GetAdapters())
+    }
+    property var bluetoothAdapters: unmarshalJSON(dbusBluetooth.GetAdapters())
+    property var blueToothAdaptersCount: {
+        if (bluetoothAdapters)
+            return bluetoothAdapters.length
         else
             return 0
     }
 
+    property var dockMode: dockDisplayMode
+
     appletTrayLoader: Loader {
         sourceComponent: AppletTray{}
-        active:adaptersCount > 0 && appletItem.show && dockMode != 0//not mac mode
+        active:blueToothAdaptersCount > 0 && appletItem.show && dockMode != 0//not mac mode
     }
 }

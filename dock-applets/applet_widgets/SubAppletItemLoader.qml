@@ -28,6 +28,7 @@ Loader {
     id: appletRootLoader
     property url qmlPath: applet_path
     property string appletId: applet_id
+    property string appletName: typeof(applet_name) == "undefined" ? "" : applet_name
     source: qmlPath
 
     function setAppletState(newState){

@@ -58,6 +58,10 @@ AppletPlugin {
         }
     }
 
+    property int stateUnavailable: 0
+    property int stateAvailable: 1
+    property int stateConnected: 2
+
     Connections {
         target:root
         onDockDisplayModeChanged:{

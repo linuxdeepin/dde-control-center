@@ -30,7 +30,7 @@ DImageCheckButton{
     property url offImage: ""
     property alias deviceIndex:indexText.text
 
-    anchors.verticalCenter: parent.verticalCenter
+//    anchors.verticalCenter: parent.verticalCenter
     inactivatedNormalImage: offImage
     inactivatedHoverImage: inactivatedNormalImage
     inactivatedPressImage: inactivatedNormalImage
@@ -53,14 +53,12 @@ DImageCheckButton{
         font.pixelSize: 9
     }
 
-    /***
-    Glow {
-        anchors.fill: indexText
-        radius: 5
-        samples: 16
-        color: "#000"
-        spread: 0.8
-        source: indexText
-    }
-    ***/
+//    Glow {
+//        anchors.fill: indexText
+//        radius: 5
+//        samples: 16
+//        color: "#000"
+//        spread: 0.8
+//        source: indexText
+//    }
 }
