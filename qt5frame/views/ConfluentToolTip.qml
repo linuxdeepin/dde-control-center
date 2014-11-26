@@ -51,6 +51,7 @@ Item {
     }
 
     function hideToolTip(){
+        delayShowTimer.stop()
         rootItem.state = "hideTip"
     }
 

@@ -158,6 +158,7 @@ Rectangle {
             }
         }
         onExited: {
+            gConfluentToolTip.visible = false
             gConfluentToolTip.hideToolTip()
 //            calendarItem.itemExist()
         }

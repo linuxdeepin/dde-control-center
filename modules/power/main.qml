@@ -118,7 +118,7 @@ Rectangle {
             interval: 1000
             triggeredOnStart: false
             onTriggered: {
-                gConfluentToolTip.hideToolTip()
+                gConfluentToolTip.visible = false
             }
         }
 
@@ -290,7 +290,7 @@ Rectangle {
                             onSelectAction: {
                                 dbus_power.linePowerPlan = itemValue
                                 if (itemValue == 0)
-                                    gConfluentToolTip.hideToolTip()
+                                    gConfluentToolTip.visible = false
                             }
                             onItemEnter: delayHideTimer.stop()
                             onItemExist: delayHideTimer.start()
@@ -478,7 +478,7 @@ Rectangle {
                             onSelectAction: {
                                 dbus_power.batteryPlan = itemValue
                                 if (itemValue == 0)
-                                    gConfluentToolTip.hideToolTip()
+                                    gConfluentToolTip.visible = false
                             }
                             onItemEnter: delayHideTimer.stop()
                             onItemExist: delayHideTimer.start()
