@@ -3,7 +3,6 @@ Section: admin
 Priority: optional
 Maintainer:  Li Longyu (Ai Kotoba) <leaeasy@gmail.com>
 Build-Depends: debhelper (>= 9),
- python (>= 2.6.3~),
  pkg-config,
  libx11-dev,
  libxtst-dev,
@@ -11,6 +10,8 @@ Build-Depends: debhelper (>= 9),
  qt5-default,
  qtdeclarative5-dev,
  libqt5webkit5-dev,
+ libgtk2.0-dev,
+ deepin-gettext-tools,
 Standards-Version: 3.9.5
 Homepage: http://gitcafe.com/Deepin/dde-control-center.git
 
@@ -26,9 +27,6 @@ Depends: ${shlibs:Depends},
  dde-qml-dbus-factory,
  deepin-artwork-themes,
  deepin-qml-widgets,
- python,
- python-pyqt5,
- python-xpyb,
  qml-dde-dock-applet,
  qt5-extra,
  xkb-data-i18n | xkb-data,

@@ -7,7 +7,7 @@ build:
 	cd out; qmake ..; make
 
 translate:
-	cd tools; ./generate_mo.py
+	deepin-generate-mo locale/locale_config.ini
 
 install: build translate
 	mkdir -p ${DESTDIR}${PREFIX}/share/locale
