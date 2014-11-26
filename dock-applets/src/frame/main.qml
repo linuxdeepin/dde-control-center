@@ -165,7 +165,7 @@ QtObject {
 
     function showSettingWindow(mouseX) {
         appletSettingWindow.item.mouseX = mouseX
-        appletSettingWindow.item.show()
+        appletSettingWindow.item.showWindow()
     }
 
     // init dock setting
@@ -196,7 +196,7 @@ QtObject {
 
     property var appletSettingWindow: Loader {
         sourceComponent: AppletSettingWindow {
-            switchList:appletInfos
+            switchList: appletInfos
             onItemClicked: {
                 root.setAppletState(switchTitle,switchState)
             }

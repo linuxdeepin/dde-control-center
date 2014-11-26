@@ -17,6 +17,7 @@ Item {
     DIcon {
         id:itemIcon
         icon: switchIcon
+        theme: "Deepin"
         width: 16
         height: 16
         anchors {left: parent.left; leftMargin: 15; verticalCenter: parent.verticalCenter}
@@ -28,7 +29,7 @@ Item {
         width: parent.width / 2
         elide: Text.ElideRight
         color: "#ffffff"
-        font.pixelSize: 11
+        font.pixelSize: 13
         text: switchTitle
         verticalAlignment: Text.AlignLeft
         anchors.left: itemIcon.right
