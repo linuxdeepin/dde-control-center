@@ -54,7 +54,7 @@ Window {
         anchors.centerIn: parent
         text: monitorObject.name
         font.pixelSize: monitorObject.width/50
-        font.bold: true
+        font.weight: Font.DemiBold
         color: "black"
         opacity: 0.8
     }

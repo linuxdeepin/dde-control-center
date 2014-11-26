@@ -94,7 +94,7 @@ Rectangle{
         id: nameText
         anchors.centerIn: parent
         text: displayName
-        font.bold: true
+        font.weight: Font.DemiBold
         font.pixelSize: parent.width/12
         visible: !(monitorObject.isComposited && inEditMode)
     }

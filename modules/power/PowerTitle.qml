@@ -15,14 +15,14 @@ DBaseLine {
     leftLoader.sourceComponent: Row {
         DssH1 {
             id: title
-            font.bold: true
+            font.weight: Font.DemiBold
             color: "white"
             text: dssTitle.text
         }
         
         DssH1 {
             visible: dssTitle.showHyphen
-            font.bold: true
+            font.weight: Font.DemiBold
             color: "#666666"
             text: " - "
         }        
@@ -34,7 +34,7 @@ DBaseLine {
             
             DssH2 {
                 id: hint
-                font.bold: true
+                font.weight: Font.DemiBold
                 color: "white"
                 text: dssTitle.hint
                 anchors.verticalCenter: parent.verticalCenter

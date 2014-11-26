@@ -112,7 +112,7 @@ Column {
                     id: moduleName
                     text: modulesId.moduleLocaleNames["display"]
                     color: "white"
-                    font.bold: true
+                    font.weight: Font.DemiBold
 
                     MouseArea{
                         anchors.fill: parent

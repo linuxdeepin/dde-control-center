@@ -47,7 +47,7 @@ Window {
         anchors.centerIn: parent
         text: monitorObject.name
         font.pixelSize: 1000/8
-        font.bold: true
+        font.weight: Font.DemiBold
         color: "white"
         style: Text.Outline;
         styleColor: "black"

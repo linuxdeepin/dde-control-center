@@ -46,7 +46,7 @@ Item {
             id: touchpadTitle
             leftLoader.sourceComponent: DssH2 {
                 color: "white"
-                font.bold: true
+                font.weight: Font.DemiBold
                 text: dsTr("Touchpad")
             }
             rightLoader.visible: !autoDisableTouchpad.enabled

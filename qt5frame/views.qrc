@@ -1,128 +1,139 @@
 <RCC>
     <qresource prefix="/">
-        <file>views/PanelWindow.qml</file>
-        <file>views/NumberTip.qml</file>
-        <file>views/HeaderArea.qml</file>
-        <file>views/Main.qml</file>
-        <file>views/CloseButton.qml</file>
-        <file>views/ModulesData.qml</file>
-        <file>views/RectWithCorner.qml</file>
         <file>views/PanelContent.qml</file>
-        <file>views/InnerIconTip.qml</file>
-        <file>views/Menu.qml</file>
-        <file>views/ScrollWidget.qml</file>
-        <file>views/NumberTipText.qml</file>
-        <file>views/DRectangle.qml</file>
         <file>views/ImageCheckButton.qml</file>
+        <file>views/Main.qml</file>
+        <file>views/ScrollWidget.qml</file>
+        <file>views/HeaderArea.qml</file>
+        <file>views/IconTipCreator.js</file>
+        <file>views/NumberTipText.qml</file>
         <file>views/ToolTip.qml</file>
+        <file>views/PanelWindow.qml</file>
+        <file>views/DRectangle.qml</file>
+        <file>views/CloseButton.qml</file>
+        <file>views/Menu.qml</file>
+        <file>views/ButtonToolTip.qml</file>
+        <file>views/NumberTip.qml</file>
         <file>views/ModuleIconItem.qml</file>
+        <file>views/RectWithCorner.qml</file>
+        <file>views/InnerIconTip.qml</file>
+        <file>views/ConfluentToolTip.qml</file>
         <file>views/MenuItem.qml</file>
-        <file>views/icons/grub_hover.png</file>
-        <file>views/icons/power_press.png</file>
-        <file>views/icons/power_hover.png</file>
-        <file>views/icons/keyboard_hover.png</file>
-        <file>views/icons/account_normal.png</file>
-        <file>views/icons/home_hover.png</file>
-        <file>views/icons/grub_normal.png</file>
-        <file>views/icons/keyboard_normal.png</file>
-        <file>views/icons/shortcuts_normal.png</file>
-        <file>views/icons/bluetooth_press.png</file>
-        <file>views/icons/account_hover.png</file>
-        <file>views/icons/system_info_hover.png</file>
-        <file>views/icons/personalization_hover.png</file>
-        <file>views/icons/sound_press.png</file>
-        <file>views/icons/sound_hover.png</file>
-        <file>views/icons/mouse_touchpad_hover.png</file>
+        <file>views/IconTip.qml</file>
+        <file>views/ModulesData.qml</file>
+        <file>views/icons/network_hover.png</file>
         <file>views/icons/home_normal.png</file>
-        <file>views/icons/home_press.png</file>
-        <file>views/icons/display_press.png</file>
-        <file>views/icons/shutdown_hover.png</file>
-        <file>views/icons/system_info_press.png</file>
-        <file>views/icons/default_applications_normal.png</file>
+        <file>views/icons/shutdown_normal.png</file>
+        <file>views/icons/system_info_normal.png</file>
+        <file>views/icons/power_hover.png</file>
         <file>views/icons/keyboard_press.png</file>
-        <file>views/icons/mouse_touchpad_press.png</file>
-        <file>views/icons/grub_press.png</file>
+        <file>views/icons/shortcuts_press.png</file>
+        <file>views/icons/bluetooth_press.png</file>
+        <file>views/icons/wacom_press.png</file>
+        <file>views/icons/display_normal.png</file>
+        <file>views/icons/date_time_hover.png</file>
         <file>views/icons/personalization_normal.png</file>
         <file>views/icons/personalization_press.png</file>
-        <file>views/icons/power_normal.png</file>
-        <file>views/icons/bluetooth_normal.png</file>
-        <file>views/icons/network_press.png</file>
-        <file>views/icons/shortcuts_press.png</file>
-        <file>views/icons/mouse_touchpad_normal.png</file>
-        <file>views/icons/sound_normal.png</file>
-        <file>views/icons/default_applications_press.png</file>
+        <file>views/icons/shortcuts_normal.png</file>
         <file>views/icons/default_applications_hover.png</file>
-        <file>views/icons/date_time_hover.png</file>
+        <file>views/icons/default_applications_normal.png</file>
+        <file>views/icons/account_hover.png</file>
+        <file>views/icons/wacom_hover.png</file>
+        <file>views/icons/sound_normal.png</file>
+        <file>views/icons/wacom_normal.png</file>
+        <file>views/icons/network_press.png</file>
+        <file>views/icons/home_hover.png</file>
+        <file>views/icons/power_press.png</file>
+        <file>views/icons/system_info_hover.png</file>
+        <file>views/icons/keyboard_normal.png</file>
+        <file>views/icons/account_normal.png</file>
+        <file>views/icons/mouse_touchpad_hover.png</file>
+        <file>views/icons/mouse_touchpad_press.png</file>
+        <file>views/icons/bluetooth_normal.png</file>
         <file>views/icons/shutdown_press.png</file>
-        <file>views/icons/shortcuts_hover.png</file>
-        <file>views/icons/display_normal.png</file>
-        <file>views/icons/network_normal.png</file>
-        <file>views/icons/display_hover.png</file>
+        <file>views/icons/system_info_press.png</file>
         <file>views/icons/bluetooth_hover.png</file>
-        <file>views/icons/shutdown_normal.png</file>
-        <file>views/icons/date_time_press.png</file>
+        <file>views/icons/mouse_touchpad_normal.png</file>
+        <file>views/icons/sound_press.png</file>
         <file>views/icons/date_time_normal.png</file>
-        <file>views/icons/system_info_normal.png</file>
+        <file>views/icons/display_press.png</file>
+        <file>views/icons/grub_normal.png</file>
+        <file>views/icons/grub_hover.png</file>
+        <file>views/icons/shutdown_hover.png</file>
+        <file>views/icons/shortcuts_hover.png</file>
+        <file>views/icons/network_normal.png</file>
+        <file>views/icons/default_applications_press.png</file>
+        <file>views/icons/date_time_press.png</file>
+        <file>views/icons/personalization_hover.png</file>
         <file>views/icons/account_press.png</file>
-        <file>views/icons/network_hover.png</file>
-        <file>views/small_icons/grub_hover.png</file>
-        <file>views/small_icons/power_press.png</file>
-        <file>views/small_icons/power_hover.png</file>
-        <file>views/small_icons/keyboard_hover.png</file>
-        <file>views/small_icons/account_normal.png</file>
-        <file>views/small_icons/home_hover.png</file>
-        <file>views/small_icons/grub_normal.png</file>
-        <file>views/small_icons/keyboard_normal.png</file>
-        <file>views/small_icons/shortcuts_normal.png</file>
-        <file>views/small_icons/bluetooth_press.png</file>
-        <file>views/small_icons/account_hover.png</file>
-        <file>views/small_icons/system_info_hover.png</file>
-        <file>views/small_icons/personalization_hover.png</file>
-        <file>views/small_icons/sound_press.png</file>
-        <file>views/small_icons/sound_hover.png</file>
-        <file>views/small_icons/mouse_touchpad_hover.png</file>
+        <file>views/icons/sound_hover.png</file>
+        <file>views/icons/power_normal.png</file>
+        <file>views/icons/grub_press.png</file>
+        <file>views/icons/home_press.png</file>
+        <file>views/icons/display_hover.png</file>
+        <file>views/icons/keyboard_hover.png</file>
+        <file>views/images/warning.svg</file>
+        <file>views/images/shutdown_normal.png</file>
+        <file>views/images/shadow.png</file>
+        <file>views/images/shutdown_bg.png</file>
+        <file>views/images/window_close.png</file>
+        <file>views/images/confluent_back.png</file>
+        <file>views/images/shutdown_hover.png</file>
+        <file>views/images/tooltip_left.png</file>
+        <file>views/images/triangle.png</file>
+        <file>views/images/tooltip_middle.png</file>
+        <file>views/images/tooltip_right.png</file>
+        <file>views/images/circle.png</file>
+        <file>views/small_icons/network_hover.png</file>
         <file>views/small_icons/home_normal.png</file>
-        <file>views/small_icons/home_press.png</file>
-        <file>views/small_icons/display_press.png</file>
-        <file>views/small_icons/shutdown_hover.png</file>
-        <file>views/small_icons/system_info_press.png</file>
-        <file>views/small_icons/default_applications_normal.png</file>
+        <file>views/small_icons/shutdown_normal.png</file>
+        <file>views/small_icons/system_info_normal.png</file>
+        <file>views/small_icons/power_hover.png</file>
         <file>views/small_icons/keyboard_press.png</file>
-        <file>views/small_icons/mouse_touchpad_press.png</file>
-        <file>views/small_icons/grub_press.png</file>
+        <file>views/small_icons/shortcuts_press.png</file>
+        <file>views/small_icons/bluetooth_press.png</file>
+        <file>views/small_icons/wacom_press.png</file>
+        <file>views/small_icons/display_normal.png</file>
+        <file>views/small_icons/date_time_hover.png</file>
         <file>views/small_icons/personalization_normal.png</file>
         <file>views/small_icons/personalization_press.png</file>
-        <file>views/small_icons/power_normal.png</file>
-        <file>views/small_icons/bluetooth_normal.png</file>
-        <file>views/small_icons/network_press.png</file>
-        <file>views/small_icons/shortcuts_press.png</file>
-        <file>views/small_icons/mouse_touchpad_normal.png</file>
-        <file>views/small_icons/sound_normal.png</file>
-        <file>views/small_icons/default_applications_press.png</file>
+        <file>views/small_icons/shortcuts_normal.png</file>
         <file>views/small_icons/default_applications_hover.png</file>
-        <file>views/small_icons/date_time_hover.png</file>
+        <file>views/small_icons/default_applications_normal.png</file>
+        <file>views/small_icons/account_hover.png</file>
+        <file>views/small_icons/wacom_hover.png</file>
+        <file>views/small_icons/sound_normal.png</file>
+        <file>views/small_icons/wacom_normal.png</file>
+        <file>views/small_icons/network_press.png</file>
+        <file>views/small_icons/home_hover.png</file>
+        <file>views/small_icons/power_press.png</file>
+        <file>views/small_icons/system_info_hover.png</file>
+        <file>views/small_icons/keyboard_normal.png</file>
+        <file>views/small_icons/account_normal.png</file>
+        <file>views/small_icons/mouse_touchpad_hover.png</file>
+        <file>views/small_icons/mouse_touchpad_press.png</file>
+        <file>views/small_icons/bluetooth_normal.png</file>
         <file>views/small_icons/shutdown_press.png</file>
-        <file>views/small_icons/shortcuts_hover.png</file>
-        <file>views/small_icons/display_normal.png</file>
-        <file>views/small_icons/network_normal.png</file>
-        <file>views/small_icons/display_hover.png</file>
+        <file>views/small_icons/system_info_press.png</file>
         <file>views/small_icons/bluetooth_hover.png</file>
-        <file>views/small_icons/shutdown_normal.png</file>
-        <file>views/small_icons/date_time_press.png</file>
+        <file>views/small_icons/mouse_touchpad_normal.png</file>
+        <file>views/small_icons/sound_press.png</file>
         <file>views/small_icons/date_time_normal.png</file>
-        <file>views/small_icons/system_info_normal.png</file>
+        <file>views/small_icons/display_press.png</file>
+        <file>views/small_icons/grub_normal.png</file>
+        <file>views/small_icons/grub_hover.png</file>
+        <file>views/small_icons/shutdown_hover.png</file>
+        <file>views/small_icons/shortcuts_hover.png</file>
+        <file>views/small_icons/network_normal.png</file>
+        <file>views/small_icons/default_applications_press.png</file>
+        <file>views/small_icons/date_time_press.png</file>
+        <file>views/small_icons/personalization_hover.png</file>
         <file>views/small_icons/account_press.png</file>
-        <file>views/small_icons/network_hover.png</file>
-        <file>views/images/window_close.png</file>
-        <file>views/images/shutdown_bg.png</file>
-        <file>views/images/tooltip_middle.png</file>
-        <file>views/images/shadow.png</file>
-        <file>views/images/shutdown_hover.png</file>
-        <file>views/images/tooltip_right.png</file>
-        <file>views/images/tooltip_left.png</file>
-        <file>views/images/shutdown_normal.png</file>
-        <file>views/images/warning.svg</file>
-        <file>views/IconTip.qml</file>
-        <file>views/IconTipCreator.js</file>
+        <file>views/small_icons/sound_hover.png</file>
+        <file>views/small_icons/power_normal.png</file>
+        <file>views/small_icons/grub_press.png</file>
+        <file>views/small_icons/home_press.png</file>
+        <file>views/small_icons/display_hover.png</file>
+        <file>views/small_icons/keyboard_hover.png</file>
     </qresource>
 </RCC>

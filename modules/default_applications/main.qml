@@ -83,7 +83,7 @@ Item {
         DBaseLine{
             leftLoader.sourceComponent: DssH2 {
                 text: dsTr("Default Applications")
-                font.bold: true
+                font.weight: Font.DemiBold
                 style: Text.Raised
                 styleColor: Qt.rgba(0, 0, 0, 0.9)
             }
@@ -268,7 +268,7 @@ Item {
                 text: dsTr("AutoPlay")
                 style: Text.Raised
                 styleColor: Qt.rgba(0, 0, 0, 0.9)
-                font.bold: true
+                font.weight: Font.DemiBold
                 rightMargin: 13
                 active: mediaMountId.autoMountOpen
 
