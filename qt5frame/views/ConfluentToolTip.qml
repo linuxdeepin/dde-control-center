@@ -44,7 +44,7 @@ Item {
         rootItem.x = x
         rootItem.y = y
         rootItem.middleX = mX
-        tipText.text = tips
+        tipText.text = tips.replace(/[\r\n]/g,"  ")
 
         delayShowTimer.stop()
         delayShowTimer.start()
@@ -128,6 +128,7 @@ Item {
         fillMode: Image.TileHorizontally
         anchors.right: anchorsItem.left
         anchors.bottom: arrowTriangle.top
+        anchors.bottomMargin: -1
         source: "qrc:/views/images/confluent_back.png"
 
         Rectangle{
@@ -144,7 +145,7 @@ Item {
         samples: 16
         horizontalOffset: 0
         verticalOffset: 2
-        color: Qt.rgba(0,0,0,0.50)
+        color: "#1a1a1a"
         source: leftImage
     }
 
@@ -155,6 +156,7 @@ Item {
         fillMode: Image.TileHorizontally
         anchors.left: anchorsItem.right
         anchors.bottom: arrowTriangle.top
+        anchors.bottomMargin: -1
         source: "qrc:/views/images/confluent_back.png"
 
         Rectangle{
@@ -171,7 +173,7 @@ Item {
         samples: 16
         horizontalOffset: 0
         verticalOffset: 2
-        color: Qt.rgba(0,0,0,0.50)
+        color: "#1a1a1a"
         source: rightImage
     }
 
@@ -187,8 +189,8 @@ Item {
 
     Text {
         id:tipText
-        color: "#FFC735"
-        font.pixelSize: 11
+        color: dconstants.tuhaoColor
+        font.pixelSize: 12
         opacity: 0
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: leftImage.verticalCenter
@@ -219,30 +221,30 @@ Item {
     ]
 
     transitions: [
-        Transition {
-            from: "showTip"
-            to: "hideTip"
-            SequentialAnimation {
-                NumberAnimation {target: tipText; property: "opacity"; duration: animationDuration; easing.type: Easing.OutCubic}
-                ParallelAnimation {
-                    NumberAnimation {target: leftImage; property: "width"; duration: animationDuration; easing.type: Easing.OutCubic}
-                    NumberAnimation {target: leftImage; property: "height"; duration: animationDuration; easing.type: Easing.OutCubic}
-                    NumberAnimation {target: leftImage; property: "opacity"; duration: animationDuration; easing.type: Easing.OutCubic}
-                    NumberAnimation {target: rightImage; property: "width"; duration: animationDuration; easing.type: Easing.OutCubic}
-                    NumberAnimation {target: rightImage; property: "height"; duration: animationDuration; easing.type: Easing.OutCubic}
-                    NumberAnimation {target: rightImage; property: "opacity"; duration: animationDuration; easing.type: Easing.OutCubic}
-                    NumberAnimation {target: arrowTriangle; property: "width"; duration: animationDuration;easing.type: Easing.OutCubic}
-                }
-
+//        Transition {
+//            from: "showTip"
+//            to: "hideTip"
+//            SequentialAnimation {
+//                NumberAnimation {target: tipText; property: "opacity"; duration: animationDuration; easing.type: Easing.OutCubic}
 //                ParallelAnimation {
-//                    NumberAnimation {target: leftCircleRec; property: "width"; duration: animationDuration;easing.type: Easing.OutCubic}
-//                    NumberAnimation {target: leftCircleRec; property: "height"; duration: animationDuration;easing.type: Easing.OutCubic}
-//                    NumberAnimation {target: rightCircleRec; property: "width"; duration: animationDuration;easing.type: Easing.OutCubic}
-//                    NumberAnimation {target: rightCircleRec; property: "height"; duration: animationDuration;easing.type: Easing.OutCubic}
+//                    NumberAnimation {target: leftImage; property: "width"; duration: animationDuration; easing.type: Easing.OutCubic}
+//                    NumberAnimation {target: leftImage; property: "height"; duration: animationDuration; easing.type: Easing.OutCubic}
+//                    NumberAnimation {target: leftImage; property: "opacity"; duration: animationDuration; easing.type: Easing.OutCubic}
+//                    NumberAnimation {target: rightImage; property: "width"; duration: animationDuration; easing.type: Easing.OutCubic}
+//                    NumberAnimation {target: rightImage; property: "height"; duration: animationDuration; easing.type: Easing.OutCubic}
+//                    NumberAnimation {target: rightImage; property: "opacity"; duration: animationDuration; easing.type: Easing.OutCubic}
 //                    NumberAnimation {target: arrowTriangle; property: "width"; duration: animationDuration;easing.type: Easing.OutCubic}
 //                }
-            }
-        },
+
+////                ParallelAnimation {
+////                    NumberAnimation {target: leftCircleRec; property: "width"; duration: animationDuration;easing.type: Easing.OutCubic}
+////                    NumberAnimation {target: leftCircleRec; property: "height"; duration: animationDuration;easing.type: Easing.OutCubic}
+////                    NumberAnimation {target: rightCircleRec; property: "width"; duration: animationDuration;easing.type: Easing.OutCubic}
+////                    NumberAnimation {target: rightCircleRec; property: "height"; duration: animationDuration;easing.type: Easing.OutCubic}
+////                    NumberAnimation {target: arrowTriangle; property: "width"; duration: animationDuration;easing.type: Easing.OutCubic}
+////                }
+//            }
+//        },
         Transition {
             from: "hideTip"
             to: "showTip"

@@ -157,7 +157,7 @@ Rectangle {
             anchors.topMargin: 10
             anchors.horizontalCenter: dynamicTime.horizontalCenter
             font.pixelSize: 12
-            color: "#F48914"
+            color: dconstants.tuhaoColor
             text: dsTr("Double-click the above digits to change your time.")
             visible: opacity != 0
             opacity: 0

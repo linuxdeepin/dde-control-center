@@ -158,7 +158,8 @@ Rectangle {
             }
         }
         onExited: {
-            calendarItem.itemExist()
+            gConfluentToolTip.hideToolTip()
+//            calendarItem.itemExist()
         }
     } // End of mousearea
 

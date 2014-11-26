@@ -82,7 +82,8 @@ Rectangle {
 
         onExited: {
             parent.hovered = false
-            delegate.itemExist()
+            gConfluentToolTip.hideToolTip()
+//            delegate.itemExist()
         }
 
         onReleased: {
