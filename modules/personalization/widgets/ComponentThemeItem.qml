@@ -62,10 +62,10 @@ Item {
                 return dconstants.activeColor
             }
             else if(parent.hoverHightlight){
-                return dconstants.hoverColor
+                return Qt.rgba(1, 1, 1, 0.6)
             }
             else{
-                return dconstants.fgColor
+                return Qt.rgba(1, 1, 1, 0.3)
             }
         }
 
