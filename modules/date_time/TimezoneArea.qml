@@ -61,11 +61,15 @@ Column {
 
     property var zoneCodePair: {
         var zoneCodeArray = new Array()
-        var lastCode = 0
+        var codeArray = new Array()
+
         for(var i=0;i<timezoneInformation["code"].length;i++){
             var code = timezoneInformation["code"][i]
-            if (code == lastCode)
+
+            if (codeArray.indexOf(code) >= 0)
                 continue
+            codeArray.push(code)
+
             var zoneArray = new Array()
             for (var j = 0; j < timezoneInformation["zone"].length; j ++){
                 if (timezoneInformation["code"][j] == code){
@@ -73,7 +77,6 @@ Column {
                 }
             }
             zoneCodeArray.push({"zones": zoneArray,"code": code})
-            lastCode = code
         }
 
         return zoneCodeArray
