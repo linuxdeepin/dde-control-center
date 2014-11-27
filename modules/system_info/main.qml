@@ -116,7 +116,7 @@ Item {
                     anchors.bottomMargin: 18
                     anchors.horizontalCenter: parent.horizontalCenter
 
-                    text: dsTr("Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd.")
+                    text: dsTr("Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd.")
                 }
             }
 

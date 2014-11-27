@@ -464,7 +464,7 @@
 <context>
     <name>AppletSettingWindow</name>
     <message>
-        <location filename="../dock-applets/src/frame/AppletSettingWindow.qml" line="+101"/>
+        <location filename="../dock-applets/src/frame/AppletSettingWindow.qml" line="+108"/>
         <source>Notification Area Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -527,7 +527,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+270"/>
+        <location line="+275"/>
         <location filename="../dock-applets/plugins/network/bluetooth/AppletTray.qml" line="+78"/>
         <location filename="../dock-applets/plugins/network/vpn/AppletTray.qml" line="+70"/>
         <location filename="../dock-applets/plugins/network/wifi/AppletTray.qml" line="+126"/>
@@ -2444,12 +2444,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+41"/>
         <source>Set</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+23"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2457,12 +2457,12 @@
 <context>
     <name>TimezoneArea</name>
     <message>
-        <location filename="../modules/date_time/TimezoneArea.qml" line="+101"/>
+        <location filename="../modules/date_time/TimezoneArea.qml" line="+236"/>
         <source>Time zone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+153"/>
+        <location line="+176"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2840,17 +2840,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="+106"/>
+        <location filename="../modules/date_time/main.qml" line="+108"/>
         <source>Automatic date and time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+18"/>
         <source>Use 24-hour clock</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+30"/>
+        <location line="+31"/>
+        <source>Adjust DST clock </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+25"/>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+52"/>
         <source>Date</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2951,7 +2961,7 @@
     </message>
     <message>
         <location filename="../modules/grub/main.qml" line="+112"/>
-        <source>Default Startup</source>
+        <source>Default Boot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3282,7 +3292,7 @@
     </message>
     <message>
         <location filename="../modules/system_info/main.qml" line="+119"/>
-        <source>Copyright (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd.</source>
+        <source>Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

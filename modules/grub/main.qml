@@ -109,7 +109,7 @@ Rectangle {
                 id: default_entry_expand
 
                 header.sourceComponent: DDownArrowHeader {
-                    text: dsTr("Default Startup")
+                    text: dsTr("Default Boot")
                     onClicked: {
                         default_entry_expand.expanded = !default_entry_expand.expanded
                     }
