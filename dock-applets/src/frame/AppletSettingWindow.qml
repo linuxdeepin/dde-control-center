@@ -143,6 +143,7 @@ DWindow {
             height: childrenRect.height
             width: parent.width
             model: switchList
+            boundsBehavior: Flickable.StopAtBounds
             delegate: AppletSwitchLine{
                 height: setting_enable ? 30 : 0
                 onClicked: root.itemClicked(switchTitle,switchState)
