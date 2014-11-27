@@ -35,17 +35,24 @@ AppletPlugin {
 
     Bluetooth {
         id: dbus_bluetooth
-        onAdapterAdded:bluetoothAdapters = unmarshalJSON(dbusBluetooth.GetAdapters())
-        onAdapterRemoved:bluetoothAdapters = unmarshalJSON(dbusBluetooth.GetAdapters())
-        onAdapterPropertiesChanged: bluetoothAdapters = unmarshalJSON(dbusBluetooth.GetAdapters())
+        onAdapterPropertiesChanged: {
+			var tmpAdapter = unmarshalJSON(arg0)
+			for (var i= 0; i < appletInfos.count; i ++){
+				if (appletInfos.get(i).applet_id == tmpAdapter.Path){
+					appletInfos.get(i).applet_name = tmpAdapter.Alias
+					break
+				}
+			}
+            if (tmpAdapter.Path == appletId){
+                adapterAlias = tmpAdapter.Alias
+                adapterPowered = tmpAdapter.Powered
+
+			}
+		}
     }
-    property var bluetoothAdapters: unmarshalJSON(dbusBluetooth.GetAdapters())
-    property var blueToothAdaptersCount: {
-        if (bluetoothAdapters)
-            return bluetoothAdapters.length
-        else
-            return 0
-    }
+    property bool adapterPowered: false
+    property string adapterAlias: ""
+    property string adapterPath: ""
 
     property var dockMode: dockDisplayMode
 
@@ -53,4 +60,16 @@ AppletPlugin {
         sourceComponent: AppletTray{}
         active:blueToothAdaptersCount > 0 && appletItem.show && dockMode != 0//not mac mode
     }
+
+	Component.onCompleted:{
+		var tmpAdapters = unmarshalJSON(dbusBluetooth.GetAdapters()) 
+		for (var i = 0; i < tmpAdapters.length; i ++){
+			if (tmpAdapters[i].Path == appletId){
+                adapterPath = tmpAdapters[i].Path
+                adapterAlias = tmpAdapters[i].Alias
+                adapterPowered = tmpAdapters[i].Powered
+				break
+			}
+		}
+	}
 }

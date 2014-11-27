@@ -30,24 +30,15 @@ import Deepin.Widgets 1.0
 
 DockApplet{
     id: bluetoothApplet
-    title: bluetoothAdapters[adapterIndex].Alias
-    appid: bluetoothAdapters[adapterIndex].Path
+    title: adapterAlias
+    appid: adapterPath
     icon: adapterConnected ? getIconUrl("bluetooth/bluetooth-enable.png") : getIconUrl("bluetooth/bluetooth-disable.png")
 
     property int xEdgePadding: 2
     property int titleSpacing: 10
     property int rootWidth: 180
 
-
-    property int adapterIndex: {
-        for (var i = 0; i < bluetoothAdapters.length; i++){
-            if (bluetoothAdapters[i].Path == appletId){
-                return i
-            }
-        }
-        return 0
-    }
-    property bool adapterConnected: bluetoothAdapters[adapterIndex].Powered
+    property bool adapterConnected: adapterPowered
 
 
     // helper functions
@@ -115,7 +106,7 @@ DockApplet{
                     leftLoader.sourceComponent: DssH2 {
                         elide: Text.ElideRight
                         width: 100
-                        text: bluetoothAdapters[adapterIndex].Alias
+                        text: adapterAlias
                         color: "#ffffff"
                     }
 
@@ -128,7 +119,7 @@ DockApplet{
                         }
 
                         checked: adapterConnected
-                        onClicked: dbus_bluetooth.SetAdapterPowered(bluetoothAdapters[adapterIndex].Path, checked)
+                        onClicked: dbus_bluetooth.SetAdapterPowered(adapterPath, checked)
                     }
                 }
 
@@ -146,7 +137,7 @@ DockApplet{
                         model: ListModel {
                             id: deviceModel
                             Component.onCompleted: {
-                                var devInfos = unmarshalJSON(dbus_bluetooth.GetDevices(bluetoothAdapters[adapterIndex].Path))
+                                var devInfos = unmarshalJSON(dbus_bluetooth.GetDevices(adapterPath))
                                 clear()
                                 for(var i in devInfos){
                                     addOrUpdateDevice(devInfos[i])
@@ -240,19 +231,19 @@ DockApplet{
                             target: dbus_bluetooth
                             onDeviceAdded: {
                                 var devInfo = unmarshalJSON(arg0)
-                                if (devInfo.AdapterPath != bluetoothAdapters[adapterIndex].Path)
+                                if (devInfo.AdapterPath != adapterPath)
                                     return
                                 deviceModel.addOrUpdateDevice(devInfo)
                             }
                             onDeviceRemoved: {
                                 var devInfo = unmarshalJSON(arg0)
-                                if (devInfo.AdapterPath != bluetoothAdapters[adapterIndex].Path)
+                                if (devInfo.AdapterPath != adapterPath)
                                     return
                                 deviceModel.removeDevice(devInfo)
                             }
                             onDevicePropertiesChanged: {
                                 var devInfo = unmarshalJSON(arg0)
-                                if (devInfo.AdapterPath != bluetoothAdapters[adapterIndex].Path)
+                                if (devInfo.AdapterPath != adapterPath)
                                     return
                                 deviceModel.addOrUpdateDevice(devInfo)
                             }
