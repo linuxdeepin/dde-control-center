@@ -118,7 +118,7 @@ Rectangle {
             interval: 1000
             triggeredOnStart: false
             onTriggered: {
-                gConfluentToolTip.visible = false
+//                gConfluentToolTip.visible = false
             }
         }
 
@@ -241,9 +241,11 @@ Rectangle {
             DBaseLine{}
             DBaseExpand {
                 id: power_plan_ac_rect
+                property bool shouldHideTitle: false
                 expanded: true
                 header.sourceComponent: DBaseLine {
                     leftLoader.sourceComponent: DssH2 {
+                        visible: !power_plan_ac_rect.shouldHideTitle
                         text: dsTr("Plugged in")
                     }
                 }
@@ -292,8 +294,15 @@ Rectangle {
                                 if (itemValue == 0)
                                     gConfluentToolTip.visible = false
                             }
-                            onItemEnter: delayHideTimer.stop()
-                            onItemExist: delayHideTimer.start()
+                            onItemEnter: {
+                                var mapY = - power_plan_ac_rect.mapFromItem(power,0,0).y
+                                gButtonToolTip.showToolTip(362,mapY + 6,tooltip.replace(/[\r\n]/g,"  "))
+                            }
+
+                            onItemExist: {
+                                power_plan_ac_rect.shouldHideTitle = false
+                                gButtonToolTip.hideToolTip()
+                            }
                         }
                     }
                 }
@@ -480,8 +489,15 @@ Rectangle {
                                 if (itemValue == 0)
                                     gConfluentToolTip.visible = false
                             }
-                            onItemEnter: delayHideTimer.stop()
-                            onItemExist: delayHideTimer.start()
+                            onItemEnter: {
+                                var mapY = - power_plan_battery_rect.mapFromItem(power,0,0).y
+                                gButtonToolTip.showToolTip(362,mapY + 6,tooltip.replace(/[\r\n]/g,"  "))
+                            }
+
+                            onItemExist: {
+                                power_plan_ac_rect.shouldHideTitle = false
+                                gButtonToolTip.hideToolTip()
+                            }
                         }
                     }
                 }
