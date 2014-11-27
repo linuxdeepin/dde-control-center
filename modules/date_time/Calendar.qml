@@ -43,6 +43,35 @@ Column {
         monthChange(currentSelectedDateValue)
     }
 
+    function initTooltip(dateString){
+//        var dateString = CalendarCore.dateToString(globalDate)
+        if (dateString == "")
+            return
+        var dateValue = dateString.split("-")
+
+        var year = dateValue[0]
+        var month = dateValue[1]
+        var date = dateValue[2]
+
+        var lunarDayInfo = dbusLunarCalendar.GetLunarInfoBySolar(year,month,date)
+
+        var tipStr = ""
+        if(dsslocale.lang == "zh_CN"){
+            if(lunarDayInfo[1]){
+                var info = lunarDayInfo[0]
+                tipStr = info[3] + info[4]
+                if(info[8]){
+                    tipStr += "\n" + info[8]
+                }
+                if(info[9]){
+                    tipStr += "\n" + info[9]
+                }
+            }
+
+        }
+
+        tooltipLabel.text = tipStr.replace(/[\r\n]/g,"  ")
+    }
 
     function monthChange(dateValue){
         var tmpYearMonth = CalendarCore.getYearMonth(dateValue)
@@ -124,7 +153,7 @@ Column {
             canAdjustMonth: slideStop
             height: dateBoxAdjustment.height
             dateValue: calendarWidget.currentSelectedDateValue
-            onMonthChanged: calendarWidget.currentSelectedDateValue = newDateString
+            onMonthChanged:calendarWidget.currentSelectedDateValue = newDateString
         }
 
         rightLoader.sourceComponent: DTextAction {
@@ -133,6 +162,7 @@ Column {
             visible: opacity != 0
             opacity: isToday ? 0 : 1
             onClicked: {
+                calendarWidget.initTooltip(CalendarCore.dateToString(globalDate))
                 if(CalendarCore.compareYearMonth(currentDateValue, calendarWidget.currentSelectedDateValue) == 0){
                     calendarWidget.currentSelectedDateValue = currentDateValue
                 }
@@ -142,6 +172,26 @@ Column {
             }
         }
 
+    }
+
+    Rectangle {
+        id: tooltipRec
+        height: 25
+        width: parent.width
+
+        property string dateText:""
+
+        color: "#1a1b1b"
+
+        DLabel {
+            id:tooltipLabel
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.left: parent.left
+            anchors.leftMargin: 15
+            font.pixelSize: 11
+            verticalAlignment: Text.AlignVCenter
+            height: parent.height
+        }
     }
 
     Rectangle {
@@ -161,6 +211,7 @@ Column {
         Component.onCompleted: {
             initCalendar()
             calendarWidget.currentSelectedDateValue = CalendarCore.dateToString(globalDate)
+            initTooltip(CalendarCore.dateToString(globalDate))
         }
 
         function createCanlendar(yearMonth, position){
@@ -181,5 +232,8 @@ Column {
             }
             return calendar
         }
+
     }
+
+    DSeparatorHorizontal {}
 }

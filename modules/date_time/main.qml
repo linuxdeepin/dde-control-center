@@ -268,7 +268,5 @@ DFlickable {
             visible: !showedTimezoneList
             id: calendarObj
         }
-
-        DSeparatorHorizontal {}
     }
 }

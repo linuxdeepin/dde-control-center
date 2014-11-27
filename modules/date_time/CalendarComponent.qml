@@ -105,6 +105,9 @@ Rectangle {
             componentMonth: yearMonth
             onItemEnter: delayHideTimer.stop()
             onItemExist: delayHideTimer.start()
+            onItemClicked: {
+                tooltipLabel.text = tooltip.replace(/[\r\n]/g,"  ")
+            }
         }
         focus: true
         currentIndex: -1

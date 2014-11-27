@@ -33,7 +33,7 @@ Item {
     property alias middleX: anchorsItem.x
     property int arrowHeight: 10
     property int arrowWidth: 15
-    property int rectangleHeight: 25
+    property int rectangleHeight: 0
     property int animationDuration: 300
     property int autoHideInterval: -1
     property int delayShowInterval: -1
@@ -55,13 +55,13 @@ Item {
         rootItem.state = "hideTip"
     }
 
-    onYChanged: {
-        if (autoHideInterval > 0){
-            autoHideTimer.stop()
-            autoHideTimer.start()
-        }
+//    onYChanged: {
+//        if (autoHideInterval > 0){
+//            autoHideTimer.stop()
+//            autoHideTimer.start()
+//        }
 
-    }
+//    }
     onMiddleXChanged: {
         if (autoHideInterval > 0){
             autoHideTimer.stop()
@@ -72,9 +72,9 @@ Item {
     Behavior on middleX {
         SmoothedAnimation { duration: animationDuration }
     }
-    Behavior on y {
-        SmoothedAnimation { duration: animationDuration }
-    }
+//    Behavior on y {
+//        SmoothedAnimation { duration: animationDuration }
+//    }
 
     Timer {
         id:autoHideTimer
@@ -206,7 +206,7 @@ Item {
             PropertyChanges {target: rightImage; width: rootItem.width - middleX;height:rectangleHeight; opacity: 1}
 //            PropertyChanges {target: leftCircleRec; width: rectangleHeight; height: rectangleHeight}
 //            PropertyChanges {target: rightCircleRec; width: rectangleHeight; height: rectangleHeight}
-            PropertyChanges {target: arrowTriangle; width: arrowWidth}
+//            PropertyChanges {target: arrowTriangle; width: arrowWidth}
             PropertyChanges {target: tipText; opacity: 1}
         },
         State {
@@ -215,7 +215,7 @@ Item {
             PropertyChanges {target: rightImage; width: 0;height:rectangleHeight / 2; opacity: 0.5}
 //            PropertyChanges {target: leftCircleRec; width: 0; height: 0}
 //            PropertyChanges {target: rightCircleRec; width: 0; height: 0}
-            PropertyChanges {target: arrowTriangle; width: 0}
+//            PropertyChanges {target: arrowTriangle; width: 0}
             PropertyChanges {target: tipText; opacity: 0}
         }
 
@@ -265,7 +265,7 @@ Item {
                     NumberAnimation {target: rightImage; property: "width"; duration: animationDuration; easing.type: Easing.OutCubic}
                     NumberAnimation {target: rightImage; property: "height"; duration: animationDuration; easing.type: Easing.OutCubic}
                     NumberAnimation {target: rightImage; property: "opacity"; duration: animationDuration; easing.type: Easing.OutCubic}
-                    NumberAnimation {target: arrowTriangle; property: "width"; duration: animationDuration;easing.type: Easing.OutCubic}
+//                    NumberAnimation {target: arrowTriangle; property: "width"; duration: animationDuration;easing.type: Easing.OutCubic}
                 }
                 NumberAnimation {target: tipText; property: "opacity"; duration: animationDuration; easing.type: Easing.OutCubic}
             }

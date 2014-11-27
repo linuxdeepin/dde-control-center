@@ -209,7 +209,7 @@ DOverrideWindow {
     ConfluentToolTip {
         id:gConfluentToolTip
         animationDuration: 200
-        delayShowInterval: 1000
+        delayShowInterval: -1
         autoHideInterval: -1
         z: 1
     }
