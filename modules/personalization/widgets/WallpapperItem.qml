@@ -48,34 +48,32 @@ Item {
         visible: parent.selected
     }
 
-    Rectangle {
-        id: itemThumbnailBox
+    Image {
+        id: itemThumbnailImage
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
         anchors.topMargin: 8
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 8
         width: 130
-        color: "transparent"
-        border.width: 1
-        border.color: {
-            if(parent.selected){
-                return dconstants.activeColor
-            }
-            else if(parent.hoverHightlight){
-                return Qt.rgba(1, 1, 1, 0.6)
-            }
-            else{
-                return Qt.rgba(1, 1, 1, 0.3)
-            }
-        }
+        source: "file://" + item_img_url
 
-        Image {
-            id: itemThumbnailImage
-            anchors.centerIn: parent
-            source: "file://" + item_img_url
-            width: parent.width - 2
-            height: parent.height - 2
+        Rectangle {
+            id: itemThumbnailBox
+            anchors.fill: parent
+            color: "transparent"
+            border.width: 1
+            border.color: {
+                if(themeItem.selected){
+                    return dconstants.activeColor
+                }
+                else if(themeItem.hoverHightlight){
+                    return Qt.rgba(1, 1, 1, 0.6)
+                }
+                else{
+                    return Qt.rgba(1, 1, 1, 0.3)
+                }
+            }
         }
     }
 

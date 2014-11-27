@@ -546,8 +546,6 @@ Item {
                     }
                 }
             }
-
-            DSeparatorHorizontal {}
         }
     }
 }

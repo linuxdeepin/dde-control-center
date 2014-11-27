@@ -45,51 +45,48 @@ Item {
         radius: 3
         visible: parent.selected
     }
-    
-    Rectangle {
-        id: itemThumbnailBox
+
+    Image {
+        id: itemThumbnailImage
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
         anchors.topMargin: 8
         width: 130
         height: 74
-        color: "transparent"
-        border.width: 1
-        border.color: {
-            if(parent.selected){
-                return dconstants.activeColor
-            }
-            else if(parent.hovered){
-                return Qt.rgba(1, 1, 1, 0.6)
-            }
-            else{
-                return Qt.rgba(1, 1, 1, 0.3)
+        source: "file://" + item_img_url
+
+        Rectangle {
+            id: itemThumbnailBox
+            anchors.fill: parent
+            color: "transparent"
+            border.width: 1
+            border.color: {
+                if(themeItem.selected){
+                    return dconstants.activeColor
+                }
+                else if(themeItem.hovered){
+                    return Qt.rgba(1, 1, 1, 0.6)
+                }
+                else{
+                    return Qt.rgba(1, 1, 1, 0.3)
+                }
             }
         }
 
-        Image {
-            id: itemThumbnailImage
-            anchors.centerIn: parent
-            source: "file://" + item_img_url
-            width: parent.width - 2
-            height: parent.height - 2
-
-            Connections {
-                target: themeObj
-                onBackgroundChanged: {
-                    print("changed:", itemValue)
-                    if(itemValue == "Custom"){
-                        itemThumbnailImage.source = "file://" + dbusThemeManager.GetThumbnail("background", themeObj.background)
-                    }
+        Connections {
+            target: themeObj
+            onBackgroundChanged: {
+                print("changed:", itemValue)
+                if(itemValue == "Custom"){
+                    itemThumbnailImage.source = "file://" + dbusThemeManager.GetThumbnail("background", themeObj.background)
                 }
             }
-            
         }
     }
 
     DssH2 {
         id: itemNameArea
-        anchors.top: itemThumbnailBox.bottom
+        anchors.top: itemThumbnailImage.bottom
         anchors.topMargin: 6
         anchors.horizontalCenter: parent.horizontalCenter
         text: item_name == "Custom" ? dsTr("Custom") : item_name
@@ -126,11 +123,11 @@ Item {
     Item {
         id: zoomButtonBox
         visible: parent.hovered && previewExists
-        anchors.top: itemThumbnailBox.top
+        anchors.top: itemThumbnailImage.top
         anchors.topMargin: 3
-        anchors.right: itemThumbnailBox.right
+        anchors.right: itemThumbnailImage.right
         anchors.rightMargin: 3
-        width: zoomButton.width 
+        width: zoomButton.width
         height: zoomButton.height
         property bool previewExists: themeObj.preview ? themeObj.preview.length != 0 : false
         //property bool previewExists: true

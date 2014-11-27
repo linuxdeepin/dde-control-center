@@ -47,41 +47,39 @@ Item {
         radius: 3
         visible: parent.selected
     }
-    
-    Rectangle {
-        id: itemThumbnailBox
+
+    Image {
+        id: itemThumbnailImage
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
         anchors.topMargin: 8
         width: 130
         height: 74
-        color: "transparent"
-        border.width: 1
-        border.color: {
-            if(parent.selected){
-                return dconstants.activeColor
-            }
-            else if(parent.hoverHightlight){
-                return Qt.rgba(1, 1, 1, 0.6)
-            }
-            else{
-                return Qt.rgba(1, 1, 1, 0.3)
-            }
-        }
+        source: "file://" + item_img_url
+        cache: false
 
-        Image {
-            id: itemThumbnailImage
-            anchors.centerIn: parent
-            source: "file://" + item_img_url
-            width: parent.width - 2
-            height: parent.height - 2
-            cache: false
+        Rectangle {
+            id: itemThumbnailBox
+            color: "transparent"
+            anchors.fill: parent
+            border.width: 1
+            border.color: {
+                if(themeItem.selected){
+                    return dconstants.activeColor
+                }
+                else if(themeItem.hoverHightlight){
+                    return Qt.rgba(1, 1, 1, 0.6)
+                }
+                else{
+                    return Qt.rgba(1, 1, 1, 0.3)
+                }
+            }
         }
     }
 
     DssH2 {
         id: itemNameArea
-        anchors.top: itemThumbnailBox.bottom
+        anchors.top: itemThumbnailImage.bottom
         anchors.topMargin: 6
         anchors.horizontalCenter: parent.horizontalCenter
         text: item_name
