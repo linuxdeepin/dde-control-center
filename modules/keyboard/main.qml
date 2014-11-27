@@ -486,7 +486,6 @@ Item {
                                    - contentColumn.height
                                    - keyboardLayoutAreaTitleLine.height
                                    - userKeyboardLayoutsArea.height
-                                   - addLayoutArea.height
                                    - keyDT.height - 13
                 onExpandedChanged: {
                     if(expanded){
