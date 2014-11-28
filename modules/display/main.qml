@@ -140,41 +140,6 @@ Column {
 
         DSeparatorHorizontal {visible: editting}
 
-        DBaseLine {
-            height: editting ? 30 : 0
-            visible: editting
-            rightMargin: 10
-            rightLoader.sourceComponent: Row {
-                spacing: 6
-                DTextButton {
-                    id:applyButton
-                    text: dsTr("Apply")
-                    visible: editting
-                    onClicked: {
-                        if(monitorDragArea.editable){
-                            monitorDragArea.applyPostion()
-                            monitorDragArea.editable = false
-                        }
-                        displayChangesApply()
-                    }
-                }
-
-                DTextButton {
-                    text: dsTr("Cancel")
-
-                    visible: editting
-
-                    onClicked: {
-                        if(monitorDragArea.editable){
-                            monitorDragArea.editable = false
-                        }
-                        displayId.ResetChanges()
-                        monitorDragArea.editable = false
-                    }
-                }
-            }
-        }
-
     }
 
     ListView {
@@ -191,7 +156,7 @@ Column {
         Column{
             id: propertiesColumn
             width: parent.width
-            height: childrenRect.height
+            height: visible ? childrenRect.height : 0
             visible: !monitorDragArea.editable
 
             DSeparatorHorizontal{height: 1}
@@ -255,6 +220,43 @@ Column {
             MonitorProperties {
                 outputObj: monitorChoose.currentSelectedMonitor
                 monitorsNumber: allMonitorsObjects.length
+            }
+
+        }
+
+
+        DBaseLine {
+            height: editting ? 30 : 0
+            visible: editting
+            rightMargin: 10
+            rightLoader.sourceComponent: Row {
+                spacing: 6
+                DTextButton {
+                    id:applyButton
+                    text: dsTr("Apply")
+                    visible: editting
+                    onClicked: {
+                        if(monitorDragArea.editable){
+                            monitorDragArea.applyPostion()
+                            monitorDragArea.editable = false
+                        }
+                        displayChangesApply()
+                    }
+                }
+
+                DTextButton {
+                    text: dsTr("Cancel")
+
+                    visible: editting
+
+                    onClicked: {
+                        if(monitorDragArea.editable){
+                            monitorDragArea.editable = false
+                        }
+                        displayId.ResetChanges()
+                        monitorDragArea.editable = false
+                    }
+                }
             }
         }
 
