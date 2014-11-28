@@ -30,11 +30,21 @@ DOverrideWindow {
     color: Qt.rgba(0, 0, 0, 0)
     flags: Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.X11BypassWindowManagerHint
 
-    x: shouldShowInRight?screenSize.x + screenSize.width - width:0
+    x: shouldShowInRight?screenSize.x + screenSize.width - width:screenSize.x
     y: screenSize.y
     width: validWidth ? panelWidth + 16 : 0
     height: screenSize.height
 
+    property int rightX: screenSize.x + screenSize.width - width
+
+    onRightXChanged: {
+        if(shouldShowInRight){
+            rootWindow.x = rightX
+        }
+        else{
+            rootWindow.x = screenSize.x
+        }
+    }
 
     signal moduleStartChange(string nextModuleName)
     signal panelHided

@@ -33,11 +33,14 @@ DWindow {
     color: "transparent"
     flags: Qt.Tool | Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint
 
-    x: Math.min(screenSize.x + (screenSize.width - width)/2, rootWindow.x - width)
+    x: shouldShowInRight ? myRightX : myLeftX
     y: screenSize.y + (screenSize.height - height)/2
 
     width: messageColumn.width + 30
     height: 150
+
+    property var myRightX: Math.min(screenSize.x + (screenSize.width - width)/2, rootWindow.x - width)
+    property var myLeftX: Math.max(screenSize.x + (screenSize.width - width)/2, rootWindow.x + rootWindow.width)
 
     shadowWidth: 15
 
