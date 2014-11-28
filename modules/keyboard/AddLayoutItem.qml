@@ -34,7 +34,7 @@ Rectangle {
     property string layoutName: label
 
     property bool selected: false
-    
+
     DssH3 {
         id: nameText
         anchors.left: parent.left
@@ -42,18 +42,27 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         font.pixelSize: 12
         text: layoutName
-        width: parent.width - deleteButton.width - 40
+        width: parent.width - addButton.width - 40
         elide: Text.ElideRight
     }
 
     DssMultiAddCheckButton {
-        id: deleteButton
+        id: addButton
         anchors.right: parent.right
         anchors.rightMargin: 18
         anchors.verticalCenter: parent.verticalCenter
 
         onClicked: {
             parent.selected = !parent.selected
+        }
+    }
+
+    MouseArea {
+        anchors.fill: parent
+        anchors.rightMargin: addButton.width + 18
+        onClicked :{
+            parent.selected = !parent.selected
+            addButton.active = selected
         }
     }
 }
