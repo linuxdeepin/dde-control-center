@@ -147,6 +147,7 @@ DFlickable {
             expanded: true
             opacity: 0
             height: opacity > 0 ? 60 : 0
+            visible: !showedTimezoneList
 
             property var pDSTList
 

@@ -152,6 +152,5 @@ Item {
 
     }
 
-
     DSeparatorHorizontal {anchors.bottom: parent.bottom}
 }
