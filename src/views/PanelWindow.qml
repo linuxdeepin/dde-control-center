@@ -65,11 +65,12 @@ DOverrideWindow {
     property bool clickedToHide: true
     property alias panelContent: panelContent
     property var modulesId: ModulesData {}
+    property bool samePosition: true
 
     //cause of the animation,rootWindow.x can not changes in timely
     //if control center can show from left,this func should be change by reality
     function getRealWindowX() {
-        return screenSize.width + screenSize.x - displayWidth
+        return shouldShowInRight ? screenSize.width + screenSize.x - displayWidth : screenSize.width + screenSize.x
     }
 
     function showModule(moduleId){
@@ -112,6 +113,8 @@ DOverrideWindow {
     }
 
     function togglePanel(){
+        if (!rootWindow.shouldShowInRight)
+            samePosition = false
         rootWindow.shouldShowInRight = true
         if(rootWindow.displayWidth == 0){
             rootWindow.showPanel()
@@ -122,6 +125,8 @@ DOverrideWindow {
     }
 
     function togglePanelInLeft(){
+        if (rootWindow.shouldShowInRight)
+            samePosition = false
         rootWindow.shouldShowInRight = false
         if(rootWindow.displayWidth == 0){
             rootWindow.showPanel()
@@ -196,6 +201,10 @@ DOverrideWindow {
         easing.type: Easing.OutQuart
 
         onStarted: {
+            if (!samePosition){//change x rule befor show animation start
+                rootWindow.x = shouldShowInRight?screenSize.x + screenSize.width - width:0
+            }
+
             validWidth = true
             rootWindow.show()
             rootWindow.raise()
@@ -205,7 +214,12 @@ DOverrideWindow {
             }
         }
         //rootWindow.x does not changed in some case
-        onStopped: rootWindow.x = shouldShowInRight?screenSize.x + screenSize.width - width:0
+        onStopped: {
+            if (samePosition){
+                rootWindow.x = shouldShowInRight?screenSize.x + screenSize.width - width:0
+            }
+            samePosition = true
+        }
     }
 
     ButtonToolTip {

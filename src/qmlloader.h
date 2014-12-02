@@ -99,7 +99,7 @@ public:
     Q_SLOT bool isNetworkCanShowPassword();
 
     Q_PROPERTY(int X READ getWindowX)
-    Q_PROPERTY(bool showInRight READ getShowinRightFlag)
+    Q_PROPERTY(bool ShowInRight READ getShowinRightFlag)
 
 private:
     QmlLoader* m_parent;
