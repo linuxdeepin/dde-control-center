@@ -1,3 +1,10 @@
+dde-control-center (0.1) unstable; urgency=medium
+
+  * New release.
+  * Split dde-dock-applets out.
+
+ -- 宋文武 <songwenwu@linuxdeepin.com>  Tue, 02 Dec 2014 10:19:15 +0800
+
 dde-control-center (0.0~git20141112) unstable; urgency=medium
 
   * Unstable release.

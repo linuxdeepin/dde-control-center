@@ -4,7 +4,7 @@
 <context>
     <name>AddDsl</name>
     <message>
-        <location filename="../modules/network/add/AddDsl.qml" line="+11"/>
+        <location filename="../src/modules/network/add/AddDsl.qml" line="+11"/>
         <source>Add PPPoE Connection</source>
         <translation type="unfinished"></translation>
     </message>
@@ -32,7 +32,7 @@
 <context>
     <name>AddMobile</name>
     <message>
-        <location filename="../modules/network/add/AddMobile.qml" line="+20"/>
+        <location filename="../src/modules/network/add/AddMobile.qml" line="+20"/>
         <source>New Mobile Connection</source>
         <translation type="unfinished"></translation>
     </message>
@@ -73,7 +73,7 @@
 <context>
     <name>AddSectionSave</name>
     <message>
-        <location filename="../modules/network/add/AddSectionSave.qml" line="+11"/>
+        <location filename="../src/modules/network/add/AddSectionSave.qml" line="+11"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -86,7 +86,7 @@
 <context>
     <name>AddUserDialog</name>
     <message>
-        <location filename="../modules/account/AddUserDialog.qml" line="+72"/>
+        <location filename="../src/modules/account/AddUserDialog.qml" line="+72"/>
         <source>Invalid password</source>
         <translation type="unfinished"></translation>
     </message>
@@ -162,7 +162,7 @@
 <context>
     <name>AddVpn</name>
     <message>
-        <location filename="../modules/network/add/AddVpn.qml" line="+15"/>
+        <location filename="../src/modules/network/add/AddVpn.qml" line="+15"/>
         <source>VPN Type</source>
         <translation type="unfinished"></translation>
     </message>
@@ -364,7 +364,7 @@
 <context>
     <name>AddWireless</name>
     <message>
-        <location filename="../modules/network/wireless/AddWireless.qml" line="+8"/>
+        <location filename="../src/modules/network/wireless/AddWireless.qml" line="+8"/>
         <source>Connect to wireless</source>
         <translation type="unfinished"></translation>
     </message>
@@ -462,145 +462,9 @@
     </message>
 </context>
 <context>
-    <name>AppletSettingWindow</name>
-    <message>
-        <location filename="../dock-applets/src/frame/AppletSettingWindow.qml" line="+108"/>
-        <source>Notification Area Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>AppletTray</name>
-    <message>
-        <location filename="../dock-applets/plugins/date_time/AppletTray.qml" line="+80"/>
-        <source>_Switch to analog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>_Switch to digital</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+97"/>
-        <source>Sun</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Mon</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Tue</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Wed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Thu</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Fri</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Sat</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../dock-applets/plugins/network/AppletTray.qml" line="+35"/>
-        <source>Network Connected</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Network Not Connected</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+275"/>
-        <location filename="../dock-applets/plugins/network/bluetooth/AppletTray.qml" line="+78"/>
-        <location filename="../dock-applets/plugins/network/vpn/AppletTray.qml" line="+70"/>
-        <location filename="../dock-applets/plugins/network/wifi/AppletTray.qml" line="+126"/>
-        <location filename="../dock-applets/plugins/power/AppletTray.qml" line="+99"/>
-        <location filename="../dock-applets/plugins/sound/AppletTray.qml" line="+173"/>
-        <source>_Run</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <location filename="../dock-applets/plugins/network/bluetooth/AppletTray.qml" line="+1"/>
-        <location filename="../dock-applets/plugins/network/vpn/AppletTray.qml" line="+1"/>
-        <location filename="../dock-applets/plugins/network/wifi/AppletTray.qml" line="+1"/>
-        <location filename="../dock-applets/plugins/power/AppletTray.qml" line="+7"/>
-        <location filename="../dock-applets/plugins/sound/AppletTray.qml" line="+1"/>
-        <source>_Undock</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../dock-applets/plugins/power/AppletTray.qml" line="-72"/>
-        <source>On Charging</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+12"/>
-        <source>Custom</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Power saver</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Balanced</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>High performance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../dock-applets/plugins/sound/AppletTray.qml" line="+44"/>
-        <source>Device</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+100"/>
-        <source>Applications</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../dock-applets/plugins/network/bluetooth/AppletTray.qml" line="+39"/>
-        <source>Bluetooth</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../dock-applets/plugins/network/vpn/AppletTray.qml" line="+39"/>
-        <source>VPN</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../dock-applets/plugins/network/wifi/AppletTray.qml" line="+41"/>
-        <source>Wireless Network</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>AvatarPickDialog</name>
     <message>
-        <location filename="../modules/account/AvatarPickDialog.qml" line="+5"/>
+        <location filename="../src/modules/account/AvatarPickDialog.qml" line="+5"/>
         <source>Choose a new picture for your Avatar</source>
         <translation type="unfinished"></translation>
     </message>
@@ -608,7 +472,7 @@
 <context>
     <name>AvatarView</name>
     <message>
-        <location filename="../modules/account/AvatarView.qml" line="+19"/>
+        <location filename="../src/modules/account/AvatarView.qml" line="+19"/>
         <source>Recently Used</source>
         <translation type="unfinished"></translation>
     </message>
@@ -626,7 +490,7 @@
 <context>
     <name>BalanceLine</name>
     <message>
-        <location filename="../modules/sound/BalanceLine.qml" line="+31"/>
+        <location filename="../src/modules/sound/BalanceLine.qml" line="+31"/>
         <source>Left/Right Balance</source>
         <translation type="unfinished"></translation>
     </message>
@@ -644,7 +508,7 @@
 <context>
     <name>BaseConnectionEdit</name>
     <message>
-        <location filename="../modules/network/edit_autogen/BaseConnectionEdit.qml" line="+33"/>
+        <location filename="../src/modules/network/edit_autogen/BaseConnectionEdit.qml" line="+33"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
@@ -658,7 +522,7 @@
 <context>
     <name>BluetoothDeviceExpand</name>
     <message>
-        <location filename="../modules/bluetooth/BluetoothDeviceExpand.qml" line="+87"/>
+        <location filename="../src/modules/bluetooth/BluetoothDeviceExpand.qml" line="+87"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -676,7 +540,7 @@
 <context>
     <name>Calendar</name>
     <message>
-        <location filename="../modules/date_time/Calendar.qml" line="+132"/>
+        <location filename="../src/modules/date_time/Calendar.qml" line="+161"/>
         <source>Today</source>
         <translation type="unfinished"></translation>
     </message>
@@ -684,7 +548,7 @@
 <context>
     <name>CalendarComponent</name>
     <message>
-        <location filename="../modules/date_time/CalendarComponent.qml" line="+83"/>
+        <location filename="../src/modules/date_time/CalendarComponent.qml" line="+83"/>
         <source>Sun</source>
         <translation type="unfinished"></translation>
     </message>
@@ -722,7 +586,7 @@
 <context>
     <name>ConnectionAdd</name>
     <message>
-        <location filename="../modules/network/ConnectionAdd.qml" line="+12"/>
+        <location filename="../src/modules/network/ConnectionAdd.qml" line="+12"/>
         <source>Add Network Connection</source>
         <translation type="unfinished"></translation>
     </message>
@@ -750,7 +614,7 @@
 <context>
     <name>ConnectionEdit</name>
     <message>
-        <location filename="../modules/network/ConnectionEdit.qml" line="+52"/>
+        <location filename="../src/modules/network/ConnectionEdit.qml" line="+52"/>
         <source>Delete this network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -783,7 +647,7 @@
 <context>
     <name>CustomKeybinding</name>
     <message>
-        <location filename="../modules/shortcuts/CustomKeybinding.qml" line="+118"/>
+        <location filename="../src/modules/shortcuts/CustomKeybinding.qml" line="+118"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
@@ -806,7 +670,7 @@
 <context>
     <name>DeleteUserDialog</name>
     <message>
-        <location filename="../modules/account/DeleteUserDialog.qml" line="+19"/>
+        <location filename="../src/modules/account/DeleteUserDialog.qml" line="+19"/>
         <source>Keep user&apos;s files</source>
         <translation type="unfinished"></translation>
     </message>
@@ -827,17 +691,9 @@
     </message>
 </context>
 <context>
-    <name>DiskItem</name>
-    <message>
-        <location filename="../dock-applets/plugins/disk_mount/DiskItem.qml" line="+124"/>
-        <source>Unmount failed!</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>DslExpand</name>
     <message>
-        <location filename="../modules/network/dsl/DslExpand.qml" line="+19"/>
+        <location filename="../src/modules/network/dsl/DslExpand.qml" line="+19"/>
         <source>PPPoE Connections</source>
         <translation type="unfinished"></translation>
     </message>
@@ -845,7 +701,7 @@
 <context>
     <name>EditLineMissingPackage</name>
     <message>
-        <location filename="../modules/network/edit/EditLineMissingPackage.qml" line="+15"/>
+        <location filename="../src/modules/network/edit/EditLineMissingPackage.qml" line="+15"/>
         <source>Current system lacks component for %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -858,7 +714,7 @@
 <context>
     <name>EditSectionEthernet</name>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionEthernet.qml" line="+11"/>
+        <location filename="../src/modules/network/edit_autogen/EditSectionEthernet.qml" line="+11"/>
         <source>Ethernet</source>
         <translation type="unfinished"></translation>
     </message>
@@ -886,7 +742,7 @@
 <context>
     <name>EditSectionIpv4</name>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionIpv4.qml" line="+11"/>
+        <location filename="../src/modules/network/edit_autogen/EditSectionIpv4.qml" line="+11"/>
         <source>IPv4</source>
         <translation type="unfinished"></translation>
     </message>
@@ -919,7 +775,7 @@
 <context>
     <name>EditSectionIpv6</name>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionIpv6.qml" line="+11"/>
+        <location filename="../src/modules/network/edit_autogen/EditSectionIpv6.qml" line="+11"/>
         <source>IPv6</source>
         <translation type="unfinished"></translation>
     </message>
@@ -952,7 +808,7 @@
 <context>
     <name>EditSectionMobile</name>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionMobile.qml" line="+11"/>
+        <location filename="../src/modules/network/edit_autogen/EditSectionMobile.qml" line="+11"/>
         <source>Mobile</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1008,7 +864,7 @@
 <context>
     <name>EditSectionPpp</name>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionPpp.qml" line="+11"/>
+        <location filename="../src/modules/network/edit_autogen/EditSectionPpp.qml" line="+11"/>
         <source>PPP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1076,7 +932,7 @@
 <context>
     <name>EditSectionPppoe</name>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionPppoe.qml" line="+11"/>
+        <location filename="../src/modules/network/edit_autogen/EditSectionPppoe.qml" line="+11"/>
         <source>PPPoE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1099,7 +955,7 @@
 <context>
     <name>EditSectionSecurity</name>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionSecurity.qml" line="+11"/>
+        <location filename="../src/modules/network/edit_autogen/EditSectionSecurity.qml" line="+11"/>
         <location line="+22"/>
         <source>Security</source>
         <translation type="unfinished"></translation>
@@ -1185,7 +1041,7 @@
 <context>
     <name>EditSectionVpn</name>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpn.qml" line="+11"/>
+        <location filename="../src/modules/network/edit_autogen/EditSectionVpn.qml" line="+11"/>
         <source>VPN</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1336,7 +1192,7 @@
 <context>
     <name>EditSectionVpnL2tpIpsec</name>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml" line="+11"/>
+        <location filename="../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml" line="+11"/>
         <source>VPN IPsec</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1364,7 +1220,7 @@
 <context>
     <name>EditSectionVpnL2tpPpp</name>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="+11"/>
+        <location filename="../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml" line="+11"/>
         <source>VPN PPP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1442,7 +1298,7 @@
 <context>
     <name>EditSectionVpnOpenvpnAdvanced</name>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="+11"/>
+        <location filename="../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml" line="+11"/>
         <source>VPN Advanced</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1515,7 +1371,7 @@
 <context>
     <name>EditSectionVpnOpenvpnProxies</name>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml" line="+11"/>
+        <location filename="../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml" line="+11"/>
         <source>VPN Proxies</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1553,7 +1409,7 @@
 <context>
     <name>EditSectionVpnOpenvpnSecurity</name>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml" line="+11"/>
+        <location filename="../src/modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml" line="+11"/>
         <source>VPN Security</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1571,7 +1427,7 @@
 <context>
     <name>EditSectionVpnOpenvpnTlsauth</name>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml" line="+11"/>
+        <location filename="../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml" line="+11"/>
         <source>VPN TLS Authentication</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1604,7 +1460,7 @@
 <context>
     <name>EditSectionVpnPptpPpp</name>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnPptpPpp.qml" line="+11"/>
+        <location filename="../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml" line="+11"/>
         <source>VPN PPP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1672,7 +1528,7 @@
 <context>
     <name>EditSectionVpnVpncAdvanced</name>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml" line="+11"/>
+        <location filename="../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml" line="+11"/>
         <source>VPN Advanced</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1725,7 +1581,7 @@
 <context>
     <name>EditSectionWifi</name>
     <message>
-        <location filename="../modules/network/edit_autogen/EditSectionWifi.qml" line="+11"/>
+        <location filename="../src/modules/network/edit_autogen/EditSectionWifi.qml" line="+11"/>
         <source>Wi-Fi</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1773,7 +1629,7 @@
 <context>
     <name>EditUserDialog</name>
     <message>
-        <location filename="../modules/account/EditUserDialog.qml" line="+59"/>
+        <location filename="../src/modules/account/EditUserDialog.qml" line="+59"/>
         <source>Auto-login</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1801,7 +1657,7 @@
 <context>
     <name>FadeLine</name>
     <message>
-        <location filename="../modules/sound/FadeLine.qml" line="+31"/>
+        <location filename="../src/modules/sound/FadeLine.qml" line="+31"/>
         <source>Front/Rear Balance</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1819,7 +1675,7 @@
 <context>
     <name>FontSettingsExpand</name>
     <message>
-        <location filename="../modules/personalization/components/FontSettingsExpand.qml" line="+48"/>
+        <location filename="../src/modules/personalization/components/FontSettingsExpand.qml" line="+48"/>
         <source>Standard</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1842,7 +1698,7 @@
 <context>
     <name>GuestUser</name>
     <message>
-        <location filename="../modules/account/GuestUser.qml" line="+45"/>
+        <location filename="../src/modules/account/GuestUser.qml" line="+45"/>
         <source>Guest</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1855,7 +1711,7 @@
 <context>
     <name>HeaderArea</name>
     <message>
-        <location filename="../qt5frame/views/HeaderArea.qml" line="+108"/>
+        <location filename="../src/views/HeaderArea.qml" line="+108"/>
         <source>Guest</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1863,7 +1719,7 @@
 <context>
     <name>Info</name>
     <message>
-        <location filename="../modules/network/Info.qml" line="+13"/>
+        <location filename="../src/modules/network/Info.qml" line="+13"/>
         <source>Connected</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1936,7 +1792,7 @@
 <context>
     <name>LocaleArea</name>
     <message>
-        <location filename="../modules/keyboard/LocaleArea.qml" line="+53"/>
+        <location filename="../src/modules/keyboard/LocaleArea.qml" line="+53"/>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1944,7 +1800,7 @@
 <context>
     <name>MessageBox</name>
     <message>
-        <location filename="../modules/display/MessageBox.qml" line="+102"/>
+        <location filename="../src/modules/display/MessageBox.qml" line="+105"/>
         <source>Do you want to keep these display settings?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1967,7 +1823,7 @@
 <context>
     <name>ModulesData</name>
     <message>
-        <location filename="../qt5frame/views/ModulesData.qml" line="+52"/>
+        <location filename="../src/views/ModulesData.qml" line="+52"/>
         <source>Date and Time</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2075,7 +1931,7 @@
 <context>
     <name>MonitorComponent</name>
     <message>
-        <location filename="../modules/display/MonitorComponent.qml" line="+185"/>
+        <location filename="../src/modules/display/MonitorComponent.qml" line="+185"/>
         <source>Split</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2088,7 +1944,7 @@
 <context>
     <name>MonitorDragArea</name>
     <message>
-        <location filename="../modules/display/MonitorDragArea.qml" line="+463"/>
+        <location filename="../src/modules/display/MonitorDragArea.qml" line="+463"/>
         <source>Identify</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2101,7 +1957,7 @@
 <context>
     <name>MonitorProperties</name>
     <message>
-        <location filename="../modules/display/MonitorProperties.qml" line="+47"/>
+        <location filename="../src/modules/display/MonitorProperties.qml" line="+47"/>
         <source>Normal</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2144,7 +2000,7 @@
 <context>
     <name>NewItem</name>
     <message>
-        <location filename="../modules/network/wired/NewItem.qml" line="+45"/>
+        <location filename="../src/modules/network/wired/NewItem.qml" line="+45"/>
         <source>Wired Connection %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2157,7 +2013,7 @@
 <context>
     <name>NotManagedSection</name>
     <message>
-        <location filename="../modules/network/widgets/NotManagedSection.qml" line="+25"/>
+        <location filename="../src/modules/network/widgets/NotManagedSection.qml" line="+25"/>
         <source>not managed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2165,7 +2021,7 @@
 <context>
     <name>PanelContent</name>
     <message>
-        <location filename="../qt5frame/views/PanelContent.qml" line="+473"/>
+        <location filename="../src/views/PanelContent.qml" line="+473"/>
         <source>Power</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2173,7 +2029,7 @@
 <context>
     <name>PasswordBox</name>
     <message>
-        <location filename="../modules/network/widgets/PasswordBox.qml" line="+95"/>
+        <location filename="../src/modules/network/widgets/PasswordBox.qml" line="+95"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2196,7 +2052,7 @@
 <context>
     <name>PasswordDialog</name>
     <message>
-        <location filename="../modules/account/PasswordDialog.qml" line="+62"/>
+        <location filename="../src/modules/account/PasswordDialog.qml" line="+62"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2234,7 +2090,7 @@
 <context>
     <name>Preview</name>
     <message>
-        <location filename="../modules/grub/Preview.qml" line="+122"/>
+        <location filename="../src/modules/grub/Preview.qml" line="+122"/>
         <source>Drag and drop an image to change background.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2257,7 +2113,7 @@
 <context>
     <name>ProxyContent</name>
     <message>
-        <location filename="../modules/network/proxy/ProxyContent.qml" line="+43"/>
+        <location filename="../src/modules/network/proxy/ProxyContent.qml" line="+43"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2305,7 +2161,7 @@
 <context>
     <name>ProxyExpand</name>
     <message>
-        <location filename="../modules/network/proxy/ProxyExpand.qml" line="+37"/>
+        <location filename="../src/modules/network/proxy/ProxyExpand.qml" line="+37"/>
         <source>System Proxy</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2313,7 +2169,7 @@
 <context>
     <name>ProxyLine</name>
     <message>
-        <location filename="../modules/network/proxy/ProxyLine.qml" line="+39"/>
+        <location filename="../src/modules/network/proxy/ProxyLine.qml" line="+39"/>
         <source>Port</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2321,7 +2177,7 @@
 <context>
     <name>ResetButton</name>
     <message>
-        <location filename="../modules/shared/ResetButton.qml" line="+39"/>
+        <location filename="../src/modules/shared/ResetButton.qml" line="+39"/>
         <source>Reset successfully</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2334,7 +2190,7 @@
 <context>
     <name>ShortcutInput</name>
     <message>
-        <location filename="../modules/shortcuts/ShortcutInput.qml" line="+108"/>
+        <location filename="../src/modules/shortcuts/ShortcutInput.qml" line="+108"/>
         <source>Disable</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2377,7 +2233,7 @@
 <context>
     <name>ShowPreviewButton</name>
     <message>
-        <location filename="../modules/personalization/widgets/ShowPreviewButton.qml" line="+53"/>
+        <location filename="../src/modules/personalization/widgets/ShowPreviewButton.qml" line="+53"/>
         <source>Preview Theme</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2385,9 +2241,9 @@
 <context>
     <name>StateButtons</name>
     <message>
-        <location filename="../modules/date_time/StateButtons.qml" line="+34"/>
-        <location filename="../modules/keyboard/StateButtons.qml" line="+34"/>
-        <location filename="../modules/shortcuts/StateButtons.qml" line="+38"/>
+        <location filename="../src/modules/date_time/StateButtons.qml" line="+34"/>
+        <location filename="../src/modules/keyboard/StateButtons.qml" line="+34"/>
+        <location filename="../src/modules/shortcuts/StateButtons.qml" line="+38"/>
         <source>Done</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2408,7 +2264,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/StateButtons.qml" line="+43"/>
+        <location filename="../src/modules/keyboard/StateButtons.qml" line="+43"/>
         <source>Delete Keyboard Layout</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2418,7 +2274,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/StateButtons.qml" line="+42"/>
+        <location filename="../src/modules/shortcuts/StateButtons.qml" line="+42"/>
         <source>Delete Shortcut</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2431,7 +2287,7 @@
 <context>
     <name>ThemeItem</name>
     <message>
-        <location filename="../modules/personalization/widgets/ThemeItem.qml" line="+95"/>
+        <location filename="../src/modules/personalization/widgets/ThemeItem.qml" line="+92"/>
         <source>Custom</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2439,7 +2295,7 @@
 <context>
     <name>TimeBox</name>
     <message>
-        <location filename="../modules/date_time/TimeBox.qml" line="+161"/>
+        <location filename="../src/modules/date_time/TimeBox.qml" line="+161"/>
         <source>Double-click the above digits to change your time.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2457,7 +2313,7 @@
 <context>
     <name>TimezoneArea</name>
     <message>
-        <location filename="../modules/date_time/TimezoneArea.qml" line="+236"/>
+        <location filename="../src/modules/date_time/TimezoneArea.qml" line="+239"/>
         <source>Time zone</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2475,7 +2331,7 @@
 <context>
     <name>TouchpadComponent</name>
     <message>
-        <location filename="../modules/mouse_touchpad/TouchpadComponent.qml" line="+50"/>
+        <location filename="../src/modules/mouse_touchpad/TouchpadComponent.qml" line="+50"/>
         <source>Touchpad</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2555,7 +2411,7 @@
 <context>
     <name>UserList</name>
     <message>
-        <location filename="../modules/account/UserList.qml" line="+222"/>
+        <location filename="../src/modules/account/UserList.qml" line="+222"/>
         <source>Standard</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2573,7 +2429,7 @@
 <context>
     <name>VpnExpand</name>
     <message>
-        <location filename="../modules/network/vpn/VpnExpand.qml" line="+48"/>
+        <location filename="../src/modules/network/vpn/VpnExpand.qml" line="+48"/>
         <source>VPN Connections</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2581,7 +2437,7 @@
 <context>
     <name>WebCam</name>
     <message>
-        <location filename="../modules/account/WebCam.qml" line="+125"/>
+        <location filename="../src/modules/account/WebCam.qml" line="+125"/>
         <location line="+15"/>
         <source>Snapshot</source>
         <translation type="unfinished"></translation>
@@ -2605,7 +2461,7 @@
 <context>
     <name>WifiHotspot</name>
     <message>
-        <location filename="../modules/network/wireless/WifiHotspot.qml" line="+23"/>
+        <location filename="../src/modules/network/wireless/WifiHotspot.qml" line="+23"/>
         <source>Edit Wi-Fi Hotspot</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2651,37 +2507,9 @@
     </message>
 </context>
 <context>
-    <name>WifiPasswordWindow</name>
-    <message>
-        <location filename="../dock-applets/src/frame/WifiPasswordWindow.qml" line="+151"/>
-        <source>Please enter the password of  &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+22"/>
-        <source>Password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+8"/>
-        <source>Auto-connect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+15"/>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Connect</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>WiredDeviceExpand</name>
     <message>
-        <location filename="../modules/network/wired/WiredDeviceExpand.qml" line="+38"/>
+        <location filename="../src/modules/network/wired/WiredDeviceExpand.qml" line="+38"/>
         <source>Wired Network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2689,7 +2517,7 @@
 <context>
     <name>WiredItem</name>
     <message>
-        <location filename="../modules/network/wired/WiredItem.qml" line="+89"/>
+        <location filename="../src/modules/network/wired/WiredItem.qml" line="+89"/>
         <source>Wired Connection %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2700,17 +2528,9 @@
     </message>
 </context>
 <context>
-    <name>WirelessApList</name>
-    <message>
-        <location filename="../dock-applets/plugins/network/WirelessApList.qml" line="+95"/>
-        <source>Scanning...</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>WirelessDeviceExpand</name>
     <message>
-        <location filename="../modules/network/wireless/WirelessDeviceExpand.qml" line="+28"/>
+        <location filename="../src/modules/network/wireless/WirelessDeviceExpand.qml" line="+28"/>
         <source>Wireless Network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2736,111 +2556,35 @@
     </message>
 </context>
 <context>
-    <name>WirelessNetwork</name>
-    <message>
-        <location filename="../dock-applets/plugins/network/WirelessNetwork.qml" line="+50"/>
-        <source>Wireless Network %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Wireless Network</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>calendar_core</name>
-    <message>
-        <location filename="../dock-applets/plugins/date_time/calendar_core.js" line="+4"/>
-        <source>Sun</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Mon</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Tue</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Wed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Thu</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Fri</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Sat</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>main</name>
     <message>
-        <location filename="../dock-applets/plugins/network/main.qml" line="+32"/>
-        <source>Network</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../dock-applets/plugins/sound/main.qml" line="+32"/>
-        <source>Sound</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../dock-applets/plugins/power/main.qml" line="+33"/>
-        <source>Power</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../dock-applets/plugins/disk_mount/main.qml" line="+33"/>
-        <source>Disk Mount</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../dock-applets/plugins/date_time/main.qml" line="+32"/>
-        <source>Date and Time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/power/main.qml" line="+280"/>
-        <location line="+188"/>
-        <location filename="../modules/shortcuts/main.qml" line="+53"/>
+        <location filename="../src/modules/power/main.qml" line="+282"/>
+        <location line="+195"/>
+        <location filename="../src/modules/shortcuts/main.qml" line="+53"/>
         <location line="+180"/>
         <source>Custom</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-200"/>
-        <location line="+188"/>
+        <location line="-207"/>
+        <location line="+195"/>
         <source>Power saver</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-194"/>
-        <location line="+188"/>
+        <location line="-201"/>
+        <location line="+195"/>
         <source>Balanced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-176"/>
-        <location line="+188"/>
+        <location line="-183"/>
+        <location line="+195"/>
         <source>High performance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/date_time/main.qml" line="+108"/>
+        <location filename="../src/modules/date_time/main.qml" line="+108"/>
         <source>Automatic date and time</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2850,7 +2594,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+31"/>
+        <location line="+32"/>
         <source>Adjust DST clock </source>
         <translation type="unfinished"></translation>
     </message>
@@ -2870,7 +2614,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/main.qml" line="+85"/>
+        <location filename="../src/modules/default_applications/main.qml" line="+85"/>
         <source>Default Applications</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2940,17 +2684,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/main.qml" line="+126"/>
+        <location filename="../src/modules/display/main.qml" line="+126"/>
         <source>Primary Monitor: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+80"/>
+        <location line="+45"/>
         <source>Monitor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-55"/>
+        <location line="+65"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2960,7 +2704,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/main.qml" line="+112"/>
+        <location filename="../src/modules/grub/main.qml" line="+112"/>
         <source>Default Boot</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2980,7 +2724,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/main.qml" line="+141"/>
+        <location filename="../src/modules/keyboard/main.qml" line="+141"/>
         <source>Repeat Delay</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3002,7 +2746,7 @@
     <message>
         <location line="+15"/>
         <location line="+27"/>
-        <location filename="../modules/mouse_touchpad/main.qml" line="+134"/>
+        <location filename="../src/modules/mouse_touchpad/main.qml" line="+134"/>
         <location line="+36"/>
         <source>Fast</source>
         <translation type="unfinished"></translation>
@@ -3010,7 +2754,7 @@
     <message>
         <location line="-26"/>
         <location line="+27"/>
-        <location filename="../modules/mouse_touchpad/main.qml" line="-37"/>
+        <location filename="../src/modules/mouse_touchpad/main.qml" line="-37"/>
         <location line="+36"/>
         <source>Slow</source>
         <translation type="unfinished"></translation>
@@ -3041,7 +2785,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse_touchpad/main.qml" line="-119"/>
+        <location filename="../src/modules/mouse_touchpad/main.qml" line="-119"/>
         <source>Mouse</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3076,13 +2820,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/main.qml" line="+112"/>
+        <location filename="../src/modules/personalization/main.qml" line="+112"/>
         <source>Theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+7"/>
-        <location filename="../modules/shortcuts/main.qml" line="-182"/>
+        <location filename="../src/modules/shortcuts/main.qml" line="-182"/>
         <source>Window</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3107,7 +2851,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/main.qml" line="-409"/>
+        <location filename="../src/modules/power/main.qml" line="-418"/>
         <location line="+12"/>
         <source>Never</source>
         <translation type="unfinished"></translation>
@@ -3156,21 +2900,21 @@
     <message>
         <location line="-41"/>
         <location line="+46"/>
-        <location line="+64"/>
+        <location line="+66"/>
         <location line="+6"/>
         <location line="+6"/>
         <location line="+6"/>
-        <location line="+99"/>
+        <location line="+106"/>
         <location line="+71"/>
         <location line="+6"/>
         <location line="+6"/>
         <location line="+6"/>
-        <location line="+92"/>
+        <location line="+99"/>
         <source>Suspend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-403"/>
+        <location line="-419"/>
         <source>Ask</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3190,37 +2934,37 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+24"/>
         <source>Plugged in</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+188"/>
+        <location line="+195"/>
         <source>On battery</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-171"/>
+        <location line="-178"/>
         <location line="+6"/>
         <location line="+6"/>
         <location line="+6"/>
-        <location line="+59"/>
+        <location line="+66"/>
         <location line="+111"/>
         <location line="+6"/>
         <location line="+6"/>
         <location line="+6"/>
-        <location line="+53"/>
+        <location line="+60"/>
         <source>Turn off the display</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-188"/>
-        <location line="+183"/>
+        <location line="-195"/>
+        <location line="+190"/>
         <source>Custom Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/main.qml" line="-2"/>
+        <location filename="../src/modules/shortcuts/main.qml" line="-2"/>
         <source>System</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3230,7 +2974,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/main.qml" line="+127"/>
+        <location filename="../src/modules/sound/main.qml" line="+127"/>
         <source>Speaker</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3291,7 +3035,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/main.qml" line="+119"/>
+        <location filename="../src/modules/system_info/main.qml" line="+119"/>
         <source>Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3331,7 +3075,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="+162"/>
+        <location filename="../src/modules/network/main.qml" line="+162"/>
         <location line="+28"/>
         <source>Unknown</source>
         <translation type="unfinished"></translation>
@@ -3357,13 +3101,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/plugins/network/bluetooth/main.qml" line="+33"/>
-        <location filename="../modules/network/main.qml" line="+2"/>
+        <location line="+2"/>
         <source>Bluetooth</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="+2"/>
+        <location line="+2"/>
         <source>OLPC mesh</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3453,13 +3196,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-applets/plugins/network/vpn/main.qml" line="+33"/>
-        <location filename="../modules/network/main.qml" line="-114"/>
+        <location line="-114"/>
         <source>VPN</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/main.qml" line="+2"/>
+        <location line="+2"/>
         <source>VPN L2TP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3484,7 +3226,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/main.qml" line="+95"/>
+        <location filename="../src/modules/account/main.qml" line="+95"/>
         <source>Delete Account</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3499,7 +3241,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/wacom/main.qml" line="+14"/>
+        <location filename="../src/modules/wacom/main.qml" line="+14"/>
         <source>Page Up</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3591,11 +3333,6 @@
     <message>
         <location line="+1"/>
         <source>Wide</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../dock-applets/plugins/network/wifi/main.qml" line="+33"/>
-        <source>Wireless Network</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
