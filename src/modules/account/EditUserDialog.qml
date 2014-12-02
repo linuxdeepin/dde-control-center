@@ -42,7 +42,7 @@ Rectangle {
                 var right = edit_dialog.this_user.SetIconFile(iconFile)
                 if (!right) {
                     doCheck(edit_dialog.this_user.iconFile)
-                }                
+                }
             }
         }
 
@@ -69,8 +69,8 @@ Rectangle {
                     checked: edit_dialog.this_user.automaticLogin
 
                     onClicked: {
-                        var right = edit_dialog.this_user.SetAutomaticLogin(checked)   
-                        checked = Qt.binding(function () {return edit_dialog.this_user.automaticLogin})                     
+                        var right = edit_dialog.this_user.SetAutomaticLogin(checked)
+                        checked = Qt.binding(function () {return edit_dialog.this_user.automaticLogin})
                     }
 
                     anchors.right: parent.right
@@ -135,7 +135,7 @@ Rectangle {
                     id: user_type_radio
 
                     buttonModel: [
-                        {"buttonId": "user", "buttonLabel": dsTr("Standard")},
+                        {"buttonId": "user", "buttonLabel": dsTr("Normal User")},
                         {"buttonId": "administrator", "buttonLabel": dsTr("Administrator")},
                     ]
                     initializeIndex: edit_dialog.this_user.accountType

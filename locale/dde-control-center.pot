@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-02 10:00+0800\n"
+"POT-Creation-Date: 2014-12-02 17:21+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -145,18 +145,17 @@ msgid "New User"
 msgstr ""
 
 #: ../src/modules/account/AddUserDialog.qml:124
-#: ../src/modules/account/AddUserDialog.qml:307
-#: ../src/modules/account/EditUserDialog.qml:138
-#: ../src/modules/personalization/components/FontSettingsExpand.qml:48
-#: ../src/modules/account/UserList.qml:222
-msgid "Standard"
-msgstr ""
-
-#: ../src/modules/account/AddUserDialog.qml:124
 #: ../src/modules/account/AddUserDialog.qml:308
 #: ../src/modules/account/EditUserDialog.qml:139
 #: ../src/modules/account/UserList.qml:222
 msgid "Administrator"
+msgstr ""
+
+#: ../src/modules/account/AddUserDialog.qml:124
+#: ../src/modules/account/AddUserDialog.qml:307
+#: ../src/modules/account/EditUserDialog.qml:138
+#: ../src/modules/account/UserList.qml:222
+msgid "Normal User"
 msgstr ""
 
 #: ../src/modules/account/AddUserDialog.qml:244
@@ -937,6 +936,10 @@ msgstr ""
 msgid "Rear"
 msgstr ""
 
+#: ../src/modules/personalization/components/FontSettingsExpand.qml:48
+msgid "Standard"
+msgstr ""
+
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:65
 msgid "Monospaced"
 msgstr ""
@@ -1199,6 +1202,7 @@ msgid "Successfully updated, reboot to view."
 msgstr ""
 
 #: ../src/modules/network/proxy/ProxyContent.qml:43
+#: ../src/modules/shortcuts/ShortcutInput.qml:108
 #: ../src/modules/date_time/main.qml:183
 msgid "None"
 msgstr ""
@@ -1245,10 +1249,6 @@ msgstr ""
 
 #: ../src/modules/shared/ResetButton.qml:47
 msgid "Reset"
-msgstr ""
-
-#: ../src/modules/shortcuts/ShortcutInput.qml:108
-msgid "Disable"
 msgstr ""
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:126

@@ -219,7 +219,7 @@ ListView {
                         }
 
                         DssH3 {
-                            text: this_user.accountType == 0 ? dsTr("Standard") : dsTr("Administrator")
+                            text: this_user.accountType == 0 ? dsTr("Normal User") : dsTr("Administrator")
                             color: dconstants.fgColor
                             font.pixelSize: 10
                         }

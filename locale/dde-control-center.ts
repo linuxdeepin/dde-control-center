@@ -113,18 +113,18 @@
     </message>
     <message>
         <location line="+4"/>
-        <location line="+183"/>
-        <source>Standard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-183"/>
         <location line="+184"/>
         <source>Administrator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-167"/>
+        <location line="-184"/>
+        <location line="+183"/>
+        <source>Normal User</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-166"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1645,7 +1645,7 @@
     </message>
     <message>
         <location line="+12"/>
-        <source>Standard</source>
+        <source>Normal User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2191,7 +2191,7 @@
     <name>ShortcutInput</name>
     <message>
         <location filename="../src/modules/shortcuts/ShortcutInput.qml" line="+108"/>
-        <source>Disable</source>
+        <source>None</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2412,12 +2412,12 @@
     <name>UserList</name>
     <message>
         <location filename="../src/modules/account/UserList.qml" line="+222"/>
-        <source>Standard</source>
+        <source>Administrator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+0"/>
-        <source>Administrator</source>
+        <source>Normal User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
