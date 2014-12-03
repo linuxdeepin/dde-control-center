@@ -152,7 +152,7 @@ Item {
                     var arg0_lower_case = arg0.toLowerCase()
                     if(arg0_lower_case == 'escape' || arg0 == ""){
                     }
-                    else if( arg0_lower_case =="backspace" ){
+                    else if( arg0_lower_case =="backspace" || arg0_lower_case == "delete"){
                         dbusKeyBinding.ModifyShortcut(currentShortcutId, "")
                     }
                     else {
@@ -224,7 +224,7 @@ Item {
 
         function showInvalidInfo(shortcutName){
             invalidInfo.text = dsTr('Shortcut \"%1\" is invalid, please retype new shortcut.').arg(mainObject.toHumanShortcutLabel(shortcutName))
-            invalidInfoArea.height = conflictInfo.height + 8
+            invalidInfoArea.height = conflictInfo.height + 15
             hideInvalidInfoArea.restart()
         }
 
@@ -238,7 +238,7 @@ Item {
         }
 
         Timer{
-            id: hideInvalidInfoArea 
+            id: hideInvalidInfoArea
             repeat: false
             running: false
             interval: 1500
