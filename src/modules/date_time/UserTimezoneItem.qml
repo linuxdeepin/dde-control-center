@@ -72,9 +72,9 @@ Item {
 
         Image {
             id:selectImg
-            width: 16
-            height: 16
-            source: "qrc:/modules/date_time/images/select_zone.png"
+            width: 14
+            height: 14
+            source: "qrc:/modules/date_time/images/select.png"
             anchors.left: parent.left
             anchors.leftMargin: 10
             anchors.verticalCenter: parent.verticalCenter
