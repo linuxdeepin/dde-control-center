@@ -76,7 +76,7 @@ Column {
 
     DBaseLine{
         rightLoader.sourceComponent: DTextButton{
-            text: dsTr("Close")
+            text: dsTr("Cancel")
             onClicked: {
                 stackView.reset()
             }

@@ -99,6 +99,14 @@ BaseConnectionEdit {
 
             DTextButton {
                 anchors.verticalCenter: parent.verticalCenter
+                text: dsTr("Cancel")
+                onClicked: {
+                    stackView.reset()
+                    connectionSession.Close()
+                }
+            }
+            DTextButton {
+                anchors.verticalCenter: parent.verticalCenter
                 text: dsTr("Save")
                 onClicked: {
                     editPage.checkKeysInPage()
@@ -107,14 +115,6 @@ BaseConnectionEdit {
                     } else {
                         editPage.showErrors()
                     }
-                }
-            }
-            DTextButton {
-                anchors.verticalCenter: parent.verticalCenter
-                text: dsTr("Close")
-                onClicked: {
-                    stackView.reset()
-                    connectionSession.Close()
                 }
             }
 
