@@ -26,78 +26,38 @@ import QtQuick.Controls 1.1
 import QtQuick.Controls.Styles 1.1
 import QtQuick.Layouts 1.1
 import Deepin.Widgets 1.0
+import "../shared"
 
 Item {
     id: monitorProperties
     width: parent.width
-    height: childrenRect.height
+    height: visible ? childrenRect.height : 0
 
     property int sliderWidth: 186
     property var listModelComponent: DListModelComponent {}
-
-    property var outputObj
-    property int monitorsNumber: 0
-
-    property string currentResolution: getResolutionFromMode(outputObj.currentMode)
-    property int currentRotation: outputObj.rotation
 
     property var initExpanded: true
 
     property var rotationNames: {
         1: dsTr("Normal"),
-        2: dsTr("Rotate Right"),
-        4: dsTr("Upside Down"),
-        8: dsTr("Rotate Left"),
+                2: dsTr("Rotate Right"),
+                4: dsTr("Upside Down"),
+                8: dsTr("Rotate Left"),
     }
 
-    property var monitorNames: outputObj.outputs
     property var brightnessValues: displayId.brightness
 
-    onOutputObjChanged: {
-        if(outputObj){
-            enabledSwitcher.rightLoader.item.checked = outputObj.opened
-            resolutionArea.content.item.loadResolutionModel()
-        }
-    }
-
-    function getResolutionFromMode(mode){
-        return mode[1] + "x" + mode[2]
-    }
+    property int expandIndex: openedMonitors.length > 1 ? 0 : 2
 
     Column {
         id: enabledColumn
         width: parent.width
         height: childrenRect.height
 
-        Column{
-            width: parent.width
-            height: childrenRect.height
-            visible: monitorsNumber > 1
-
-            DBaseLine{
-                id: enabledSwitcher
-                leftLoader.sourceComponent: DssH2{
-                    text: dsTr("Enabled")
-                }
-                rightLoader.sourceComponent: DSwitchButton{
-                    onClicked: {
-                        outputObj.SwitchOn(!outputObj.opened)
-                    }
-                }
-            }
-
-
-            DSeparatorHorizontal{}
-        }
-
         Item {
             width: parent.width
-            height: outputObj.opened ? propertyColumn.height : 0
+            height: propertyColumn.height
             clip: true
-
-            //Behavior on height{
-                //PropertyAnimation { duration: 150 }
-            //}
 
             Column{
                 id: propertyColumn
@@ -106,94 +66,193 @@ Item {
                 height: childrenRect.height
 
                 DBaseExpand {
+                    id:powerArea
+                    visible: allMonitorsObjectsCount > 1
+                    expanded:  visible && expandIndex == 0
+                    onExpandedChanged: {
+                        if(header.item){
+                            header.item.active = expanded
+                        }
+                    }
+                    header.sourceComponent: DDownArrowHeader {
+                        text: dsTr("Enable Monitor(s)")
+                        active: expandIndex == 0
+                        onClicked: {
+                            if(expandIndex == 0){
+                                expandIndex = -1
+                            }
+                            else{
+                                expandIndex = 0
+                            }
+                        }
+                    }
+
+                    content.sourceComponent: Item {
+                        width: parent.width
+                        height: childrenRect.height + 10
+
+                        DssH3 {
+                            id: enableTitle
+                            text: dsTr("Please choose the monitor(s) you want to enable")
+                            color: dconstants.fgDarkColor
+                            width: parent.width
+                            height: 20
+                            anchors.top: parent.top
+                            anchors.topMargin: 10
+                            anchors.left: parent.left
+                            anchors.leftMargin: 15
+                        }
+
+                        ListView {
+                            id: powerView
+                            width: parent.width
+                            height: count * 28
+                            anchors.top:enableTitle.bottom
+                            anchors.horizontalCenter: parent.horizontalCenter
+
+                            model: allMonitorsObjectsCount
+
+                            delegate: EnableSelectItem {
+                                pOutputObj:allMonitorsObjects[index]
+                                pOutputObjName: pOutputObj.name
+                                visible: !pOutputObj.isComposited
+                                onSelectAction: {
+                                    if (powerView.count > 1){
+                                        var nextOpenedState = !pOutputObj.opened
+                                        if (!nextOpenedState && openedMonitors.length <= 1)
+                                            return
+                                        pOutputObj.SwitchOn(nextOpenedState)
+                                        powerView.updateEnableMonitorCount()
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+
+                DSeparatorHorizontal{visible: powerArea.visible}
+
+                DBaseExpand {
+                    id:primaryArea
+                    visible: allMonitorsObjectsCount > 1
+                    expanded:  visible && expandIndex == 1
+                    onExpandedChanged: {
+                        if(header.item){
+                            header.item.active = expanded
+                        }
+                    }
+                    header.sourceComponent: DDownArrowHeader {
+                        text: dsTr("Primary Screen")
+                        hintText: displayId.primary
+                        active: expandIndex == 1
+                        onClicked: {
+                            if(expandIndex == 1){
+                                expandIndex = -1
+                            }
+                            else{
+                                expandIndex = 1
+                            }
+                        }
+
+                    }
+
+                    content.sourceComponent: ListView {
+                        id: primaryScreenView
+                        width: parent.width
+                        height: childrenRect.height
+
+                        model: allMonitorsObjectsCount
+
+                        delegate: PrimaryScreenSelectItem {
+                            primaryScreenName: displayId.primary
+                            pOutputObj:allMonitorsObjects[index]
+                            pOutputObjName: pOutputObj.name
+                            visible: !pOutputObj.isComposited
+                            onSelectAction: {
+                                displayId.SetPrimary(pOutputObjName)
+                            }
+                        }
+                    }
+                }
+
+                DSeparatorHorizontal {visible: primaryArea.visible}
+
+                DBaseExpand {
                     id: resolutionArea
-                    expanded: header.item.active
+                    expanded:  expandIndex == 2
+                    onExpandedChanged: {
+                        if(header.item){
+                            header.item.active = expanded
+                        }
+                    }
                     header.sourceComponent: DDownArrowHeader {
                         text: dsTr("Resolution")
-                        hintText: " (" + currentResolution + ")"
-                        active: initExpanded
+                        active: expandIndex == 2
+                        onClicked: {
+                            if(expandIndex == 2){
+                                expandIndex = -1
+                            }
+                            else{
+                                expandIndex = 2
+                            }
+                        }
                     }
-                
-                    content.sourceComponent: GridView{
-                        id: modesView
+
+                    content.sourceComponent: ListView {
+                        id: resolutionView
                         width: parent.width
-                        height: Math.ceil(count/3) * 30
+                        height: childrenRect.height
+                        spacing: 5
 
-                        cellWidth: width/3
-                        cellHeight: 30
-                        property int currentValue: outputObj.currentMode[0]
-                        property var valueDict: new Object()
+                        model: allMonitorsObjectsCount
 
-                        function loadResolutionModel(){
-                            var modes = outputObj.ListModes()
-                            modesView.model.clear()
-                            valueDict = new Object()
-                            for(var i=0; i<modes.length; i++){
-                                var resolution = getResolutionFromMode(modes[i])
-                                if(!valueDict[resolution]){
-                                    valueDict[resolution] = []
-                                }
-                                valueDict[resolution].push(modes[i][0])
-                            }
-
-                            for(var key in valueDict){
-                                modesView.model.append({
-                                    "item_label": key,
-                                    "item_value": valueDict[key][0]
-                                })
-                            }
-                        }
-
-                        model: ListModel{}
-
-                        delegate: ModeItem {
-                            modesDict: modesView.valueDict
-                            currentValue: modesView.currentValue
-                            onSelectAction: {
-                                outputObj.SetMode(itemValue)
-                            }
+                        delegate: ResolutionRectangle {
+                            pOutputObj:allMonitorsObjects[index]
+                            pOutputObjName: pOutputObj.name
+                            shouldShowMonitorName: pOutputObj.opened && openedMonitors.length > 1
+                            itemIndex: index
                         }
                     }
+
                 }
 
                 DSeparatorHorizontal {}
 
                 DBaseExpand {
                     id: rotationArea
-                    expanded: header.item.active
+                    expanded:  expandIndex == 3
+                    onExpandedChanged: {
+                        if(header.item){
+                            header.item.active = expanded
+                        }
+                    }
                     header.sourceComponent: DDownArrowHeader {
                         text: dsTr("Rotation")
-                        hintText: " (" + rotationNames[currentRotation] + ")"
-                        active: initExpanded
+                        active: expandIndex == 3
+                        onClicked: {
+                            if(expandIndex == 3){
+                                expandIndex = -1
+                            }
+                            else{
+                                expandIndex = 3
+                            }
+                        }
                     }
-                
-                    content.sourceComponent: GridView{
+
+                    content.sourceComponent:ListView {
                         id: rotationView
                         width: parent.width
-                        height: Math.ceil(count/2) * 30
+                        height: childrenRect.height
+                        spacing: 5
 
-                        cellWidth: width/2
-                        cellHeight: 30
-                        property int currentValue: outputObj.rotation
+                        model: allMonitorsObjectsCount
 
-                        model: {
-                            var rotation_model = listModelComponent.createObject(rotationView, {})
-                            var rotations = outputObj.ListRotations()
-                            for(var i=0; i<rotations.length; i++){
-                                var rotation = rotations[i]
-                                rotation_model.append({
-                                    "item_label": rotationNames[rotation],
-                                    "item_value": rotations[i]
-                                })
-                            }
-                            return rotation_model
-                        }
-
-                        delegate: RotationItem {
-                            currentValue: rotationView.currentValue
-                            onSelectAction: {
-                                outputObj.SetRotation(itemValue)
-                            }
+                        delegate: RotationRectangle {
+                            pOutputObj:allMonitorsObjects[index]
+                            pOutputObjName: pOutputObj.name
+                            shouldShowMonitorName: pOutputObj.opened && openedMonitors.length > 1
+                            itemIndex: index
                         }
                     }
 
@@ -201,91 +260,70 @@ Item {
 
                 DSeparatorHorizontal {}
 
+                DBaseExpand {
+                    id:brightnessArea
+                    visible: !singleBrightnessLine.visible
+                    height: visible ? childrenRect.height : 0
+                    expanded:  expandIndex == 4
+                    onExpandedChanged: {
+                        if(header.item){
+                            header.item.active = expanded
+                        }
+                    }
+                    header.sourceComponent: DDownArrowHeader {
+                        text: dsTr("Brightness")
+                        active: expandIndex == 4
+                        onClicked: {
+                            if(expandIndex == 4){
+                                expandIndex = -1
+                            }
+                            else{
+                                expandIndex = 4
+                            }
+                        }
+                    }
+
+                    content.sourceComponent:ListView {
+                        id: brightnessView
+                        width: parent.width
+                        height: childrenRect.height
+
+                        model: realMonitorsCount
+
+                        delegate: BrightnessRectangle {
+                            pOutputObjName: realMonitorsList[index]
+                            itemIndex: index
+                        }
+                    }
+                }
+
                 DBaseLine {
+                    id:singleBrightnessLine
+                    visible: openedMonitors.length == 1 && !openedMonitors[0].isComposited
+                    height: visible ? 30 : 0
+
                     leftLoader.sourceComponent: DssH2 {
                         text: dsTr("Brightness")
                     }
-
                     rightLoader.sourceComponent: DSliderEnhanced {
-                        id: oneBrightnessSlider
-                        property string outputName: monitorNames ? monitorNames[0] : ""
-                        width: sliderWidth
+                        id: singleBrightnessSlider
+                        width: 200
                         height: 28
+
                         min: 0
                         max: 1.0
-                        init: outputName ? brightnessValues[outputName] : max
+                        init: typeof(openedMonitors[0]) != "undefined" ? brightnessValues[openedMonitors[0].name] : max
                         valueDisplayVisible: false
 
                         onValueChanged:{
-                            if(outputName && value >= 0 && value <= 1){
-                                displayId.SetBrightness(outputName, value)
-                            }
-                        }
-                        visible: monitorNames.length == 1
-
-                        onOutputNameChanged: {
-                            if (outputName && brightnessValues)
-                                setValue(brightnessValues[outputName])
-                        }
-
-                        Connections {
-                            target: monitorProperties
-                            onBrightnessValuesChanged: {
-                                if(!oneBrightnessSlider.pressedFlag && oneBrightnessSlider.outputName != "") {
-                                    oneBrightnessSlider.setValue(brightnessValues[oneBrightnessSlider.outputName])
-                                }
+                            if(openedMonitors[0] && value >= 0 && value <= 1){
+                                displayId.SetBrightness(openedMonitors[0].name, value)
                             }
                         }
                     }
                 }
 
                 DSeparatorHorizontal {}
-
-                Repeater{
-                    model: monitorNames
-                    delegate: DBaseLine{
-                        width: monitorProperties.width
-                        visible: monitorNames.length > 1
-                        leftMargin: 18
-
-                        leftLoader.sourceComponent: LeftTitle{
-                            width: 70
-                            text: monitorNames[index]
-                        }
-
-                        rightLoader.sourceComponent: DSliderEnhanced {
-                            id: multiBrightnessSlider
-                            property var outputName: monitorNames[index]
-                            width: sliderWidth
-                            height: 28
-                            min: 0
-                            max: 1.0
-                            init: brightnessValues[outputName]
-                            valueDisplayVisible: false
-
-                            onValueChanged:{
-                                if(outputName && value >= 0 && value <= 1){
-                                    displayId.SetBrightness(outputName, value)
-                                }
-                            }
-
-                            onOutputNameChanged:{
-                                setValue(brightnessValues[outputName])
-                            }
-
-                            Connections {
-                                target: monitorProperties
-                                onBrightnessValuesChanged: {
-                                    if (!multiBrightnessSlider.pressedFlag) {
-                                        multiBrightnessSlider.setValue(brightnessValues[multiBrightnessSlider.outputName])
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                DSeparatorHorizontal { visible: outputObj.isComposited }
             }
         }
     }

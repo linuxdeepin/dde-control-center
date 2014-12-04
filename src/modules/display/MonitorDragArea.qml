@@ -48,6 +48,7 @@ Rectangle {
         }
         return views
     }
+
     property var centerIdentifyWindows: {
         var wins = new Array()
         var component = Qt.createComponent("CenterIdentifyWindow.qml")
@@ -441,7 +442,9 @@ Rectangle {
         id: buttonArea
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom
-        height: editButton.height
+        anchors.bottomMargin: 5
+        height: 30
+        width: parent.width
         visible: {
             if(openedMonitors.length == 1){
                 return openedMonitors[0].isComposited
@@ -451,16 +454,20 @@ Rectangle {
             }
         }
 
-        Row{
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottom: parent.bottom
-            visible: !editable
+        Row {
             width: childrenRect.width
-            height: childrenRect.height
-            spacing: 10
+            height: parent.height
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.verticalCenter
+            spacing: 5
 
-            DTextAction {
-                text: dsTr("Identify")
+            ImageLabel {
+                id:identifyItem
+                height: parent.height
+                normal_image: "images/recognize_normal.png"
+                hover_image: "images/recognize_hover.png"
+                press_image: "images/recognize_press.png"
+                label_text: dsTr("Identify")
                 onClicked: {
                     for(var i in centerIdentifyWindows){
                         centerIdentifyWindows[i].showWindow()
@@ -468,16 +475,16 @@ Rectangle {
                 }
             }
 
-            Rectangle {
-                width: 1
-                height: editButton.height - 4
-                anchors.verticalCenter: editButton.verticalCenter
-                color: dconstants.fgColor
-            }
+            ImageLabel {
+                id:editItem
+                height: parent.height
+                width: visible ? childrenRect.width : 0
+                visible: !splitItem.visible && monitorsDetailsProperty.visible && !editting
 
-            DTextAction {
-                id: editButton
-                text: dsTr("Edit")
+                normal_image: "images/edit_normal.png"
+                hover_image: "images/edit_hover.png"
+                press_image: "images/edit_press.png"
+                label_text:  dsTr("Edit")
                 onClicked: {
                     editable = true
                     for(var i=0; i<monitorsViews.length; i++){
@@ -485,13 +492,29 @@ Rectangle {
                     }
                 }
             }
+
+            ImageLabel {
+                id:splitItem
+                height: parent.height
+                width: visible ? childrenRect.width : 0
+                visible: (typeof (openedMonitors[0]) == "undefined" ? false : openedMonitors[0].isComposited) && monitorsDetailsProperty.visible
+
+                normal_image: "images/split_normal.png"
+                hover_image: "images/split_hover.png"
+                press_image: "images/split_press.png"
+                label_text:  dsTr("Split")
+                onClicked: {
+                    displayId.SplitMonitor(openedMonitors[0].name)
+                }
+            }
         }
+
     }
 
     Rectangle{
         id: validArea
         anchors.centerIn: parent
-        height: parent.height - buttonArea.height * 2
+        height: parent.height - buttonArea.height * 3
         width: parent.width - 40
         color: Qt.rgba(1, 0, 0, 0)
 

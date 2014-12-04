@@ -124,18 +124,6 @@ DWindow {
             spacing: 6
 
             DTransparentButton {
-                text: dsTr("Keep Changes")
-                activeFocusOnTab: true
-                Keys.onReturnPressed: activate()
-                onClicked: activate()
-
-                function activate(){
-                    displayId.SaveChanges()
-                    hideDialog()
-                }
-            }
-
-            DTransparentButton {
                 id: revertButton
                 text: dsTr("Revert")
                 activeFocusOnTab: true
@@ -144,6 +132,18 @@ DWindow {
 
                 function activate(){
                     displayId.ResetChanges()
+                    hideDialog()
+                }
+            }
+
+            DTransparentButton {
+                text: dsTr("Keep Changes")
+                activeFocusOnTab: true
+                Keys.onReturnPressed: activate()
+                onClicked: activate()
+
+                function activate(){
+                    displayId.SaveChanges()
                     hideDialog()
                 }
             }

@@ -538,6 +538,14 @@
     </message>
 </context>
 <context>
+    <name>BrightnessRectangle</name>
+    <message>
+        <location filename="../src/modules/display/BrightnessRectangle.qml" line="+59"/>
+        <source>Monitor</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Calendar</name>
     <message>
         <location filename="../src/modules/date_time/Calendar.qml" line="+161"/>
@@ -1806,12 +1814,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+26"/>
         <source>Keep Changes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="-12"/>
         <source>Revert</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1925,22 +1933,9 @@
     </message>
 </context>
 <context>
-    <name>MonitorComponent</name>
-    <message>
-        <location filename="../src/modules/display/MonitorComponent.qml" line="+185"/>
-        <source>Split</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+51"/>
-        <source>Set as primary display</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>MonitorDragArea</name>
     <message>
-        <location filename="../src/modules/display/MonitorDragArea.qml" line="+463"/>
+        <location filename="../src/modules/display/MonitorDragArea.qml" line="+470"/>
         <source>Identify</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1949,11 +1944,16 @@
         <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location line="+18"/>
+        <source>Split</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MonitorProperties</name>
     <message>
-        <location filename="../src/modules/display/MonitorProperties.qml" line="+47"/>
+        <location filename="../src/modules/display/MonitorProperties.qml" line="+42"/>
         <source>Normal</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1973,23 +1973,82 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+30"/>
-        <source>Enabled</source>
+        <location line="+33"/>
+        <source>Enable Monitor(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+18"/>
+        <source>Please choose the monitor(s) you want to enable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+50"/>
+        <source>Primary Screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+44"/>
         <source>Resolution</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+53"/>
+        <location line="+41"/>
         <source>Rotation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+41"/>
+        <location line="+43"/>
+        <location line="+32"/>
         <source>Brightness</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MonitorsSimpleSetting</name>
+    <message>
+        <location filename="../src/modules/display/MonitorsSimpleSetting.qml" line="+38"/>
+        <source>Display Modes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>Copy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Copy the contents of your primary screen to other screens.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Extend</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Extend your screen contents to display different contents on different screens.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+21"/>
+        <source>Only Displayed on %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Screen contents are only displayed on %1 but not on other screens.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>Custom Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>You can do other custom settings to your screens.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2180,6 +2239,22 @@
     <message>
         <location line="+8"/>
         <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ResolutionRectangle</name>
+    <message>
+        <location filename="../src/modules/display/ResolutionRectangle.qml" line="+68"/>
+        <source>Monitor</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RotationRectangle</name>
+    <message>
+        <location filename="../src/modules/display/RotationRectangle.qml" line="+68"/>
+        <source>Monitor</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2617,28 +2692,28 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/modules/power/main.qml" line="+282"/>
-        <location line="+195"/>
+        <location filename="../src/modules/power/main.qml" line="+270"/>
+        <location line="+193"/>
         <location filename="../src/modules/shortcuts/main.qml" line="+53"/>
         <location line="+180"/>
         <source>Custom</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-207"/>
-        <location line="+195"/>
+        <location line="-205"/>
+        <location line="+193"/>
         <source>Power saver</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-201"/>
-        <location line="+195"/>
+        <location line="-199"/>
+        <location line="+193"/>
         <source>Balanced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-183"/>
-        <location line="+195"/>
+        <location line="-181"/>
+        <location line="+193"/>
         <source>High performance</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2668,8 +2743,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+23"/>
         <source>Set Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+27"/>
+        <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2743,22 +2823,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/modules/display/main.qml" line="+126"/>
-        <source>Primary Monitor: </source>
+        <location filename="../src/modules/display/main.qml" line="+145"/>
+        <source>Return</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+45"/>
-        <source>Monitor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+65"/>
+        <location line="+77"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+12"/>
+        <location filename="../src/modules/date_time/main.qml" line="-18"/>
+        <location filename="../src/modules/display/main.qml" line="-14"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2910,7 +2986,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/modules/power/main.qml" line="-418"/>
+        <location filename="../src/modules/power/main.qml" line="-404"/>
         <location line="+12"/>
         <source>Never</source>
         <translation type="unfinished"></translation>
@@ -2946,7 +3022,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+72"/>
+        <location line="+60"/>
         <source>When I press the power button</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2963,17 +3039,17 @@
         <location line="+6"/>
         <location line="+6"/>
         <location line="+6"/>
-        <location line="+106"/>
+        <location line="+104"/>
         <location line="+71"/>
         <location line="+6"/>
         <location line="+6"/>
         <location line="+6"/>
-        <location line="+99"/>
+        <location line="+97"/>
         <source>Suspend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-419"/>
+        <location line="-415"/>
         <source>Ask</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2998,27 +3074,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+195"/>
+        <location line="+193"/>
         <source>On battery</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-178"/>
+        <location line="-176"/>
         <location line="+6"/>
         <location line="+6"/>
         <location line="+6"/>
-        <location line="+66"/>
+        <location line="+64"/>
         <location line="+111"/>
         <location line="+6"/>
         <location line="+6"/>
         <location line="+6"/>
-        <location line="+60"/>
+        <location line="+58"/>
         <source>Turn off the display</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-195"/>
-        <location line="+190"/>
+        <location line="-193"/>
+        <location line="+188"/>
         <source>Custom Options</source>
         <translation type="unfinished"></translation>
     </message>

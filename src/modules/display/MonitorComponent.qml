@@ -53,17 +53,17 @@ Rectangle{
 
     color: pressed ? "#252525" : "#0d0d0d"
     border.width: 1
-    border.color: {
-        if(inEditMode && beJoined){
-            return "red"
-        }
-        else if(!inEditMode && monitorChoose.currentSelectedMonitor == monitorObject && openedMonitorNumber > 1){
-            return dconstants.activeColor
-        }
-        else{
-            return dconstants.fgDarkColor
-        }
-    }
+//    border.color: {
+//        if(inEditMode && beJoined){
+//            return "red"
+//        }
+//        else if(!inEditMode && monitorChoose.currentSelectedMonitor == monitorObject && openedMonitorNumber > 1){
+//            return dconstants.activeColor
+//        }
+//        else{
+//            return dconstants.fgDarkColor
+//        }
+//    }
     visible: monitorObject.opened
     opacity: pressed ? 0.6 : 0.9
 
@@ -92,7 +92,11 @@ Rectangle{
 
     DssH1 {
         id: nameText
-        anchors.centerIn: parent
+        anchors.centerIn: realMonitorsCount == 1 ? parent : undefined
+        anchors.right: realMonitorsCount > 1 ? parent.right : undefined
+        anchors.rightMargin: realMonitorsCount > 1 ? 10 : 0
+        anchors.top: realMonitorsCount > 1 ? parent.top: undefined
+        anchors.topMargin: realMonitorsCount > 1 ? 10 : 0
         text: displayName
         font.weight: Font.DemiBold
         font.pixelSize: parent.width/12
@@ -172,82 +176,16 @@ Rectangle{
                 dragAndMoveAction(monitorIndex)
             }
         }
-
-        onClicked: {
-            if(!inEditMode){
-                monitorChoose.rightLoader.item.selectItemFromId(monitorObject)
-            }
-        }
     }
 
-    DTextAction{
-        anchors.right: parent.right
-        text: dsTr("Split")
-        onClicked: {
-            displayId.SplitMonitor(monitorObject.name)
-        }
-        visible: monitorObject.isComposited
-        hasUnderline: true
-    }
-
-    Item{
-        id: setPrimaryButton
-        anchors.right: parent.right
-        anchors.top: parent.top
-        width: stateButton.width + 6
-        height: stateButton.height + 6
-        visible: openedMonitorNumber > 1 && !inEditMode
-
-        property bool hovered: false
-        property bool selected: displayId.primary == monitorObject.name
-
-        Rectangle{
-            id: stateButton
-            anchors.centerIn: parent
-            width: 16
-            height: 16
-            radius: 8
-            color: {
-                if(parent.selected){
-                    return dconstants.activeColor
-                }
-                else{
-                    return Qt.rgba(0, 0, 0, 0.3)
-                }
-            }
-            border.width: 1
-            border.color: {
-                if(parent.selected || parent.hovered){
-                    return  dconstants.activeColor
-                }
-                else{
-                    return "white"
-                }
-            }
-        }
-
-        MouseArea {
-            anchors.fill: parent
-            hoverEnabled: true
-
-            onEntered: {
-                parent.hovered = true
-                if(!parent.selected){
-                    toolTip.showTip(dsTr("Set as primary display"))
-                }
-            }
-
-            onExited: {
-                parent.hovered = false
-                toolTip.hideTip()
-            }
-
-            onClicked: {
-                if(!parent.selected){
-                    displayId.SetPrimary(monitorObject.name)
-                }
-            }
-        }
+    Image {
+        id:dockShadowImg
+        source: "images/dock-shadow.png"
+        width: parent.width * 2 / 5
+        height: parent.height / 10
+        anchors.bottom: parent.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+        visible: !monitorObject.isComposited && displayId.primary == monitorObject.name && openedMonitors.length > 1
     }
 
 }

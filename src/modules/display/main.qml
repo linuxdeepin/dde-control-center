@@ -45,12 +45,12 @@ Column {
         }
     }
 
-
     property var messageBox: MessageBox{}
     property var dconstants: DConstants {}
     property var displayId: Display {}
 
     property var allMonitorsObjects: getAllMonitorsObj(displayId.monitors)
+    property int allMonitorsObjectsCount: allMonitorsObjects.length
     property var openedMonitors: {
         var openedM = new Array()
         for(var i in allMonitorsObjects){
@@ -68,6 +68,10 @@ Column {
             return false
         }
     }
+    property var realMonitorsList: Object.keys(displayId.brightness)
+    property int realMonitorsCount: realMonitorsList.length
+
+    property bool onCustomizeMode: false
 
     function displayChangesApply(){
         displayId.Apply()
@@ -110,6 +114,7 @@ Column {
 
                 DssH1 {
                     id: moduleName
+                    visible: !returnItem.visible
                     text: modulesId.moduleLocaleNames["display"]
                     color: "white"
                     font.weight: Font.DemiBold
@@ -120,11 +125,37 @@ Column {
                     }
                 }
 
-                DssH3 {
-                    visible: openedMonitors.length > 1
-                    anchors.bottom: moduleName.bottom
-                    text: "(" + dsTr("Primary Monitor: ") + displayId.primary + ")"
-                    color: "white"
+                Item {
+                    id:returnItem
+                    visible: realMonitorsCount  > 1 && simplepropertySetting.visible == false
+                    width: childrenRect.width
+                    height: moduleName.height
+
+                    Image {
+                        id:returnImg
+                        width: 16
+                        height: 16
+                        source: "images/arrow_left_hover.png"
+                        anchors.left: parent.left
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+
+                    DssH1 {
+                        id:returnName
+                        text: dsTr("Return")
+                        color: dconstants.hoverColor
+                        anchors.left: returnImg.right
+                        anchors.verticalCenter: parent.verticalCenter
+                        horizontalAlignment: Text.AlignLeft
+                        verticalAlignment: Text.AlignVCenter
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            onCustomizeMode = false
+                        }
+                    }
                 }
             }
             rightLoader.sourceComponent: ResetButton {
@@ -134,94 +165,36 @@ Column {
 
         DSeparatorHorizontal {}
 
-        MonitorDragArea {
-            id: monitorDragArea
-        }
-
-        DSeparatorHorizontal {visible: editting}
-
     }
 
     ListView {
         height: parent.height - topColumn.height
         width: parent.width
-        model: itemModel
+        model: propertyModel
         clip: true
     }
 
     VisualItemModel
     {
-        id: itemModel
+        id: propertyModel
 
-        Column{
-            id: propertiesColumn
-            width: parent.width
+
+        MonitorDragArea {
+            id: monitorDragArea
+        }
+
+        DSeparatorHorizontal {}
+
+        MonitorProperties {
+            id:monitorsDetailsProperty
             height: visible ? childrenRect.height : 0
-            visible: !monitorDragArea.editable
+            visible: (realMonitorsCount == 1 || onCustomizeMode) && !monitorDragArea.editable
+        }
 
-            DSeparatorHorizontal{height: 1}
-
-            DBaseLine {
-                id: monitorChoose
-                height: 38
-
-                property var currentSelectedMonitor: rightLoader.item.currentItem.delegateId
-
-                leftLoader.sourceComponent: DssH2 {
-                    text: dsTr("Monitor")
-                }
-
-                rightLoader.sourceComponent: DRadioButton {
-
-                    function getIndexFromId(buttonId){
-                        for(var i=0; i<buttonModel.length; i++){
-                            if(buttonId == buttonModel[i].buttonId){
-                                return i
-                            }
-                        }
-                        return -1
-                    }
-
-                    function selectItemFromId(buttonId){
-                        var index = getIndexFromId(buttonId)
-                        if(index != -1){
-                            selectItem(index)
-                            return true
-                        }
-                        else{
-                            return false
-                        }
-                    }
-
-                    buttonModel: {
-                        var myModel = new Array()
-                        for(var i=0; i<allMonitorsObjects.length; i++){
-                            var outputObj = allMonitorsObjects[i]
-                            myModel.push({
-                                "buttonId": outputObj,
-                                "buttonLabel": outputObj.name
-                            })
-                        }
-                        return myModel
-                    }
-                    Component.onCompleted:{
-                        for(var i=0; i<buttonModel.length; i++){
-                            if(buttonModel[i]["buttonId"].opened){
-                                currentIndex = i
-                                break
-                            }
-                        }
-                    }
-                }
-            }
-
-            DSeparatorHorizontal{}
-
-            MonitorProperties {
-                outputObj: monitorChoose.currentSelectedMonitor
-                monitorsNumber: allMonitorsObjects.length
-            }
-
+        MonitorsSimpleSetting {
+            id:simplepropertySetting
+            height: visible ? childrenRect.height : 0
+            visible: realMonitorsCount > 1 && !monitorsDetailsProperty.visible  && !editting
         }
 
 
@@ -232,6 +205,19 @@ Column {
             rightLoader.sourceComponent: Row {
                 spacing: 6
                 DTextButton {
+                    text: dsTr("Cancel")
+                    visible: editting
+
+                    onClicked: {
+                        if(monitorDragArea.editable){
+                            monitorDragArea.editable = false
+                        }
+                        displayId.ResetChanges()
+                        monitorDragArea.editable = false
+                    }
+                }
+
+                DTextButton {
                     id:applyButton
                     text: dsTr("Apply")
                     visible: editting
@@ -241,20 +227,6 @@ Column {
                             monitorDragArea.editable = false
                         }
                         displayChangesApply()
-                    }
-                }
-
-                DTextButton {
-                    text: dsTr("Cancel")
-
-                    visible: editting
-
-                    onClicked: {
-                        if(monitorDragArea.editable){
-                            monitorDragArea.editable = false
-                        }
-                        displayId.ResetChanges()
-                        monitorDragArea.editable = false
                     }
                 }
             }

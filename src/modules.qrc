@@ -907,7 +907,6 @@
         <file>modules/display/CenterIdentifyWindow.qml</file>
         <file>modules/display/MonitorDragArea.qml</file>
         <file>modules/display/DragArea.qml</file>
-        <file>modules/display/images/edit.png</file>
         <file>modules/system_info/main.qml</file>
         <file>modules/system_info/InfoItem.qml</file>
         <file>modules/system_info/SepratorHorizontal.qml</file>
@@ -923,5 +922,37 @@
         <file>modules/date_time/images/setdate_hover.png</file>
         <file>modules/date_time/images/setdate_normal.png</file>
         <file>modules/date_time/images/setdate_press.png</file>
+        <file>modules/display/ResolutionRectangle.qml</file>
+        <file>modules/display/RotationRectangle.qml</file>
+        <file>modules/display/BrightnessRectangle.qml</file>
+        <file>modules/display/EnableSelectItem.qml</file>
+        <file>modules/display/PrimaryScreenSelectItem.qml</file>
+        <file>modules/display/MonitorsSimpleSetting.qml</file>
+        <file>modules/display/SimpleModelSelectItem.qml</file>
+        <file>modules/display/images/copy_active.png</file>
+        <file>modules/display/images/copy_hover.png</file>
+        <file>modules/display/images/copy_normal.png</file>
+        <file>modules/display/images/customize_active.png</file>
+        <file>modules/display/images/customize_hover.png</file>
+        <file>modules/display/images/customize_normal.png</file>
+        <file>modules/display/images/dock-shadow.png</file>
+        <file>modules/display/images/edit_hover.png</file>
+        <file>modules/display/images/edit_normal.png</file>
+        <file>modules/display/images/edit_press.png</file>
+        <file>modules/display/images/extend_active.png</file>
+        <file>modules/display/images/extend_hover.png</file>
+        <file>modules/display/images/extend_normal.png</file>
+        <file>modules/display/images/recognize_hover.png</file>
+        <file>modules/display/images/recognize_normal.png</file>
+        <file>modules/display/images/recognize_press.png</file>
+        <file>modules/display/images/select.png</file>
+        <file>modules/display/images/single_hover.png</file>
+        <file>modules/display/images/single_normal.png</file>
+        <file>modules/display/images/single_press.png</file>
+        <file>modules/display/images/split_hover.png</file>
+        <file>modules/display/images/split_normal.png</file>
+        <file>modules/display/images/split_press.png</file>
+        <file>modules/display/images/arrow_left_hover.png</file>
+        <file>modules/display/ImageLabel.qml</file>
     </qresource>
 </RCC>
