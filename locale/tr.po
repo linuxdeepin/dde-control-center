@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-02 17:21+0800\n"
-"PO-Revision-Date: 2014-12-04 02:57+0000\n"
-"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
+"POT-Creation-Date: 2014-12-04 15:35+0800\n"
+"PO-Revision-Date: 2014-12-05 01:30+0000\n"
+"Last-Translator: yakup <mutouk@yandex.ru>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/dde-control-center/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -105,9 +105,11 @@ msgstr "Numara"
 #: ../src/modules/network/wireless/AddWireless.qml:216
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:87
 #: ../src/modules/network/ConnectionAdd.qml:69
+#: ../src/modules/network/ConnectionEdit.qml:102
 #: ../src/modules/network/ConnectionEdit.qml:150
 #: ../src/modules/shortcuts/CustomKeybinding.qml:151
 #: ../src/modules/account/DeleteUserDialog.qml:33
+#: ../src/modules/network/Info.qml:79
 #: ../src/modules/network/widgets/PasswordBox.qml:118
 #: ../src/modules/account/PasswordDialog.qml:207
 #: ../src/modules/shortcuts/ShortcutInput.qml:343
@@ -158,7 +160,7 @@ msgstr "Yönetici"
 #: ../src/modules/account/EditUserDialog.qml:138
 #: ../src/modules/account/UserList.qml:222
 msgid "Normal User"
-msgstr ""
+msgstr "Normal Kullanıcı"
 
 #: ../src/modules/account/AddUserDialog.qml:244
 msgid "Repeat Password"
@@ -527,7 +529,7 @@ msgstr "Cmt"
 #: ../src/modules/network/ConnectionAdd.qml:12
 #: ../src/modules/network/main.qml:303
 msgid "Add Network Connection"
-msgstr ""
+msgstr "Ağ Bağlantısı Ekle"
 
 #: ../src/modules/network/ConnectionAdd.qml:35
 #: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:11
@@ -553,18 +555,10 @@ msgstr "Bu ağı sil"
 msgid "Are you sure you want to delete this network?"
 msgstr "Bu kaplamayı silmek istediğine emin misin?"
 
-#: ../src/modules/network/ConnectionEdit.qml:102
+#: ../src/modules/network/ConnectionEdit.qml:110
 #: ../src/modules/network/wireless/WifiHotspot.qml:91
 msgid "Save"
 msgstr "Kaydet"
-
-#: ../src/modules/network/ConnectionEdit.qml:114
-#: ../src/modules/network/Info.qml:79
-#: ../src/modules/date_time/StateButtons.qml:35
-#: ../src/modules/date_time/StateButtons.qml:49
-#: ../src/modules/date_time/TimezoneArea.qml:418
-msgid "Close"
-msgstr "Kapat"
 
 #: ../src/modules/network/ConnectionEdit.qml:135
 msgid "Delete"
@@ -944,7 +938,7 @@ msgstr "Standart"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:65
 msgid "Monospaced"
-msgstr ""
+msgstr "Tek boşluklu"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:80
 msgid "Size"
@@ -1085,7 +1079,7 @@ msgstr "Klavye ve Dil"
 
 #: ../src/views/ModulesData.qml:65
 msgid "Tablet"
-msgstr ""
+msgstr "Tablet"
 
 #: ../src/views/ModulesData.qml:66
 msgid "Mouse and Touchpad"
@@ -1177,7 +1171,7 @@ msgstr "yönetilmez"
 
 #: ../src/modules/network/widgets/PasswordBox.qml:102
 msgid "Auto-connect"
-msgstr ""
+msgstr "Otomatik-bağlantı"
 
 #: ../src/modules/account/PasswordDialog.qml:114
 msgid "New Password"
@@ -1289,25 +1283,31 @@ msgstr "Tema Önizleme"
 msgid "Done"
 msgstr "Bitti"
 
+#: ../src/modules/date_time/StateButtons.qml:35
+#: ../src/modules/date_time/StateButtons.qml:49
+#: ../src/modules/date_time/TimezoneArea.qml:418
+msgid "Close"
+msgstr "Kapat"
+
 #: ../src/modules/date_time/StateButtons.qml:72
 msgid "Delete Time Zone"
-msgstr ""
+msgstr "Zaman Dilimini Sil"
 
 #: ../src/modules/date_time/StateButtons.qml:88
 msgid "Add Time Zone"
-msgstr ""
+msgstr "Zaman Dilimi Ekle"
 
 #: ../src/modules/keyboard/StateButtons.qml:77
 msgid "Delete Keyboard Layout"
-msgstr ""
+msgstr "Klavye Düzenini Sil"
 
 #: ../src/modules/keyboard/StateButtons.qml:92
 msgid "Add Keyboard Layout"
-msgstr ""
+msgstr "Klavye Düzeni Ekle"
 
 #: ../src/modules/shortcuts/StateButtons.qml:80
 msgid "Delete Shortcut"
-msgstr ""
+msgstr "Kısayolu Sil"
 
 #: ../src/modules/shortcuts/StateButtons.qml:96
 msgid "Add Shortcut"
@@ -1330,6 +1330,58 @@ msgstr "Ayarla"
 #: ../src/modules/date_time/TimezoneArea.qml:239
 msgid "Time zone"
 msgstr "Zaman dilimi"
+
+#: ../src/views/TmpTranslationFile.qml:8
+msgid "Display Modes"
+msgstr "Ekran Modları"
+
+#: ../src/views/TmpTranslationFile.qml:12
+msgid "Copy"
+msgstr "Kopyala"
+
+#: ../src/views/TmpTranslationFile.qml:16
+msgid "Copy the contents of your primary screen to other screens."
+msgstr "Diğer ekranlara birincil ekranın içeriğini kopyalayın."
+
+#: ../src/views/TmpTranslationFile.qml:20
+msgid "Extend"
+msgstr "Uzat"
+
+#: ../src/views/TmpTranslationFile.qml:24
+msgid ""
+"Extend your screen contents. Different contents will be displayed on "
+"different screens."
+msgstr "Ekran içeriğini genişletin. Farklı içerikler farklı ekranlarda olacak."
+
+#: ../src/views/TmpTranslationFile.qml:28
+#, qt-format
+msgid "Only Displayed on %1"
+msgstr "Yanlız %1 de gösterildi"
+
+#: ../src/views/TmpTranslationFile.qml:32
+#, qt-format
+msgid "Screen contents are only displayed on %1 but not on other screens."
+msgstr "Ekran içerikleri yanlız %1 de gösterilecek ancak diğer ekranlarda gösterilmeyecek."
+
+#: ../src/views/TmpTranslationFile.qml:36
+msgid "Custom Settings"
+msgstr "Özel Ayarlar"
+
+#: ../src/views/TmpTranslationFile.qml:40
+msgid "You can do other custom settings to your screens."
+msgstr "Ekranında diğer özel ayarları yapabilirsin."
+
+#: ../src/views/TmpTranslationFile.qml:44
+msgid "Double-click this area to change your time"
+msgstr "Bu alanda çift tıklayarak saat değiştirilebilir"
+
+#: ../src/views/TmpTranslationFile.qml:48
+msgid "Account information is being prepared..."
+msgstr "Hesap bilgileri hazırlanıyor..."
+
+#: ../src/views/TmpTranslationFile.qml:52
+msgid "Primary Screen"
+msgstr "Birincil Ekran"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
 msgid "Touchpad"
@@ -1483,7 +1535,7 @@ msgstr "24-saat formatını kullan"
 
 #: ../src/modules/date_time/main.qml:158
 msgid "Adjust DST clock "
-msgstr ""
+msgstr "Yaz saatini ayarlayın"
 
 #: ../src/modules/date_time/main.qml:235
 msgid "Date"
@@ -1555,7 +1607,7 @@ msgstr "Monitör"
 
 #: ../src/modules/grub/main.qml:112
 msgid "Default Boot"
-msgstr ""
+msgstr "Varsayılan Başlangıç"
 
 #: ../src/modules/grub/main.qml:167
 msgid "Boot delay"
@@ -1765,7 +1817,7 @@ msgstr "Gelişmişi Görüntüle..."
 
 #: ../src/modules/system_info/main.qml:119
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
-msgstr ""
+msgstr "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
 
 #: ../src/modules/system_info/main.qml:125
 msgid "Deepin Edition"
@@ -1869,7 +1921,7 @@ msgstr "Mobil CDMA"
 
 #: ../src/modules/network/main.qml:326
 msgid "View Detailed Information"
-msgstr ""
+msgstr "Detaylı Bilgileri Göster"
 
 #: ../src/modules/network/main.qml:214
 msgid "VPN L2TP"
@@ -1905,11 +1957,11 @@ msgstr "Kullanıcı Listesi"
 
 #: ../src/modules/wacom/main.qml:14
 msgid "Page Up"
-msgstr ""
+msgstr "Üst Sayfa"
 
 #: ../src/modules/wacom/main.qml:15
 msgid "Page Down"
-msgstr ""
+msgstr "Alt Sayfa"
 
 #: ../src/modules/wacom/main.qml:16
 msgid "Left Click"
@@ -1917,7 +1969,7 @@ msgstr "Sol Tıklama"
 
 #: ../src/modules/wacom/main.qml:17
 msgid "Right Click"
-msgstr ""
+msgstr "Sağ Tıklama"
 
 #: ../src/modules/wacom/main.qml:18
 msgid "Middle Click"
@@ -1925,15 +1977,15 @@ msgstr "Orta Tıklama"
 
 #: ../src/modules/wacom/main.qml:69
 msgid "Tablet Orientation"
-msgstr ""
+msgstr "Tablet Yönü"
 
 #: ../src/modules/wacom/main.qml:76
 msgid "Left Hand"
-msgstr ""
+msgstr "Sol El"
 
 #: ../src/modules/wacom/main.qml:77
 msgid "Right Hand"
-msgstr ""
+msgstr "Sağ El"
 
 #: ../src/modules/wacom/main.qml:90
 msgid "Digital Pen Modes"
@@ -1941,7 +1993,7 @@ msgstr "Dijital Kalem Modları"
 
 #: ../src/modules/wacom/main.qml:97
 msgid "Pen Mode"
-msgstr ""
+msgstr "Kalem Modu"
 
 #: ../src/modules/wacom/main.qml:98
 msgid "Mouse Mode"
@@ -1949,15 +2001,15 @@ msgstr "Fare Modu"
 
 #: ../src/modules/wacom/main.qml:112
 msgid "Down Key"
-msgstr ""
+msgstr "Aşşağı Tuş"
 
 #: ../src/modules/wacom/main.qml:137
 msgid "Up Key"
-msgstr ""
+msgstr "Yukarı Tuş"
 
 #: ../src/modules/wacom/main.qml:162
 msgid "Pressure"
-msgstr ""
+msgstr "Baskı"
 
 #: ../src/modules/wacom/main.qml:178
 msgid "Soft"
@@ -1965,15 +2017,15 @@ msgstr "Soft"
 
 #: ../src/modules/wacom/main.qml:179
 msgid "Hard"
-msgstr ""
+msgstr "Zor"
 
 #: ../src/modules/wacom/main.qml:190
 msgid "Double-click Space"
-msgstr ""
+msgstr "Çift tıklama Boşluk"
 
 #: ../src/modules/wacom/main.qml:206
 msgid "Narrow"
-msgstr ""
+msgstr "Daralt"
 
 #: ../src/modules/wacom/main.qml:207
 msgid "Wide"

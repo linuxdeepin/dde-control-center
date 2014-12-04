@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-02 17:21+0800\n"
-"PO-Revision-Date: 2014-12-04 03:40+0000\n"
+"POT-Creation-Date: 2014-12-04 15:35+0800\n"
+"PO-Revision-Date: 2014-12-09 08:37+0000\n"
 "Last-Translator: szd_liufei <liufei@linuxdeepin.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/dde-control-center/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -106,9 +106,11 @@ msgstr "数字"
 #: ../src/modules/network/wireless/AddWireless.qml:216
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:87
 #: ../src/modules/network/ConnectionAdd.qml:69
+#: ../src/modules/network/ConnectionEdit.qml:102
 #: ../src/modules/network/ConnectionEdit.qml:150
 #: ../src/modules/shortcuts/CustomKeybinding.qml:151
 #: ../src/modules/account/DeleteUserDialog.qml:33
+#: ../src/modules/network/Info.qml:79
 #: ../src/modules/network/widgets/PasswordBox.qml:118
 #: ../src/modules/account/PasswordDialog.qml:207
 #: ../src/modules/shortcuts/ShortcutInput.qml:343
@@ -281,7 +283,7 @@ msgstr "自定义密钥方向"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:144
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:234
 msgid "Private Key"
-msgstr "密钥"
+msgstr "私钥"
 
 #: ../src/modules/network/add/AddVpn.qml:244
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:174
@@ -312,7 +314,7 @@ msgstr "为密钥口令句使用FSID"
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:195
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:254
 msgid "Private Pwd"
-msgstr "密码"
+msgstr "私钥密码"
 
 #: ../src/modules/network/add/AddVpn.qml:334
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:264
@@ -554,18 +556,10 @@ msgstr "删除此网络"
 msgid "Are you sure you want to delete this network?"
 msgstr "您确认要删除此网络吗？"
 
-#: ../src/modules/network/ConnectionEdit.qml:102
+#: ../src/modules/network/ConnectionEdit.qml:110
 #: ../src/modules/network/wireless/WifiHotspot.qml:91
 msgid "Save"
 msgstr "保存"
-
-#: ../src/modules/network/ConnectionEdit.qml:114
-#: ../src/modules/network/Info.qml:79
-#: ../src/modules/date_time/StateButtons.qml:35
-#: ../src/modules/date_time/StateButtons.qml:49
-#: ../src/modules/date_time/TimezoneArea.qml:418
-msgid "Close"
-msgstr "关闭"
 
 #: ../src/modules/network/ConnectionEdit.qml:135
 msgid "Delete"
@@ -1290,6 +1284,12 @@ msgstr "预览主题"
 msgid "Done"
 msgstr "完成"
 
+#: ../src/modules/date_time/StateButtons.qml:35
+#: ../src/modules/date_time/StateButtons.qml:49
+#: ../src/modules/date_time/TimezoneArea.qml:418
+msgid "Close"
+msgstr "关闭"
+
 #: ../src/modules/date_time/StateButtons.qml:72
 msgid "Delete Time Zone"
 msgstr "删除时区"
@@ -1331,6 +1331,58 @@ msgstr "保存"
 #: ../src/modules/date_time/TimezoneArea.qml:239
 msgid "Time zone"
 msgstr "时区"
+
+#: ../src/views/TmpTranslationFile.qml:8
+msgid "Display Modes"
+msgstr "显示模式"
+
+#: ../src/views/TmpTranslationFile.qml:12
+msgid "Copy"
+msgstr "复制"
+
+#: ../src/views/TmpTranslationFile.qml:16
+msgid "Copy the contents of your primary screen to other screens."
+msgstr "将您的一个屏幕内容复制到其他屏幕"
+
+#: ../src/views/TmpTranslationFile.qml:20
+msgid "Extend"
+msgstr "扩展"
+
+#: ../src/views/TmpTranslationFile.qml:24
+msgid ""
+"Extend your screen contents. Different contents will be displayed on "
+"different screens."
+msgstr "将您的屏幕内容扩展，在不同屏幕显示不同内容"
+
+#: ../src/views/TmpTranslationFile.qml:28
+#, qt-format
+msgid "Only Displayed on %1"
+msgstr "仅在%1上显示"
+
+#: ../src/views/TmpTranslationFile.qml:32
+#, qt-format
+msgid "Screen contents are only displayed on %1 but not on other screens."
+msgstr "仅在%1上显示屏幕内容，其他屏幕不显示"
+
+#: ../src/views/TmpTranslationFile.qml:36
+msgid "Custom Settings"
+msgstr "自定义设置"
+
+#: ../src/views/TmpTranslationFile.qml:40
+msgid "You can do other custom settings to your screens."
+msgstr "您可以对屏幕进行其他自定义设置"
+
+#: ../src/views/TmpTranslationFile.qml:44
+msgid "Double-click this area to change your time"
+msgstr "双击此区域以更改时间"
+
+#: ../src/views/TmpTranslationFile.qml:48
+msgid "Account information is being prepared..."
+msgstr "正在准备账户信息…"
+
+#: ../src/views/TmpTranslationFile.qml:52
+msgid "Primary Screen"
+msgstr "主屏"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
 msgid "Touchpad"

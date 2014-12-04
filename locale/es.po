@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-02 17:21+0800\n"
-"PO-Revision-Date: 2014-12-04 02:57+0000\n"
+"POT-Creation-Date: 2014-12-04 15:35+0800\n"
+"PO-Revision-Date: 2014-12-04 13:37+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/dde-control-center/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: ../src/modules/network/add/AddDsl.qml:11
 msgid "Add PPPoE Connection"
-msgstr ""
+msgstr "Añadir conexión PPPoE"
 
 #: ../src/modules/network/add/AddDsl.qml:24
 #: ../src/modules/network/add/AddMobile.qml:33
@@ -107,9 +107,11 @@ msgstr "Número"
 #: ../src/modules/network/wireless/AddWireless.qml:216
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:87
 #: ../src/modules/network/ConnectionAdd.qml:69
+#: ../src/modules/network/ConnectionEdit.qml:102
 #: ../src/modules/network/ConnectionEdit.qml:150
 #: ../src/modules/shortcuts/CustomKeybinding.qml:151
 #: ../src/modules/account/DeleteUserDialog.qml:33
+#: ../src/modules/network/Info.qml:79
 #: ../src/modules/network/widgets/PasswordBox.qml:118
 #: ../src/modules/account/PasswordDialog.qml:207
 #: ../src/modules/shortcuts/ShortcutInput.qml:343
@@ -160,7 +162,7 @@ msgstr "Administrador"
 #: ../src/modules/account/EditUserDialog.qml:138
 #: ../src/modules/account/UserList.qml:222
 msgid "Normal User"
-msgstr ""
+msgstr "Usuario normal"
 
 #: ../src/modules/account/AddUserDialog.qml:244
 msgid "Repeat Password"
@@ -470,7 +472,7 @@ msgstr "Cámara Web"
 
 #: ../src/modules/sound/BalanceLine.qml:31
 msgid "Left/Right Balance"
-msgstr ""
+msgstr "Equilibrio izquierda/derecha"
 
 #: ../src/modules/sound/BalanceLine.qml:53
 msgid "Left"
@@ -529,7 +531,7 @@ msgstr "Sáb"
 #: ../src/modules/network/ConnectionAdd.qml:12
 #: ../src/modules/network/main.qml:303
 msgid "Add Network Connection"
-msgstr ""
+msgstr "Añadir conexión de red"
 
 #: ../src/modules/network/ConnectionAdd.qml:35
 #: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:11
@@ -555,18 +557,10 @@ msgstr "Borrar esta red"
 msgid "Are you sure you want to delete this network?"
 msgstr "¿Está seguro que desea borrar esta red?"
 
-#: ../src/modules/network/ConnectionEdit.qml:102
+#: ../src/modules/network/ConnectionEdit.qml:110
 #: ../src/modules/network/wireless/WifiHotspot.qml:91
 msgid "Save"
 msgstr "Guardar"
-
-#: ../src/modules/network/ConnectionEdit.qml:114
-#: ../src/modules/network/Info.qml:79
-#: ../src/modules/date_time/StateButtons.qml:35
-#: ../src/modules/date_time/StateButtons.qml:49
-#: ../src/modules/date_time/TimezoneArea.qml:418
-msgid "Close"
-msgstr "Cerrar"
 
 #: ../src/modules/network/ConnectionEdit.qml:135
 msgid "Delete"
@@ -930,15 +924,15 @@ msgstr "Habilitar"
 
 #: ../src/modules/sound/FadeLine.qml:31
 msgid "Front/Rear Balance"
-msgstr ""
+msgstr "Equilibrio frontal/trasero"
 
 #: ../src/modules/sound/FadeLine.qml:55
 msgid "Front"
-msgstr ""
+msgstr "Frente"
 
 #: ../src/modules/sound/FadeLine.qml:53
 msgid "Rear"
-msgstr ""
+msgstr "Parte trasera"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:48
 msgid "Standard"
@@ -946,7 +940,7 @@ msgstr "Estándar"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:65
 msgid "Monospaced"
-msgstr ""
+msgstr "Monospaced"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:80
 msgid "Size"
@@ -972,7 +966,7 @@ msgstr "Conectado"
 
 #: ../src/modules/network/Info.qml:15
 msgid "Not Connected"
-msgstr ""
+msgstr "No conectado"
 
 #: ../src/modules/network/Info.qml:39
 msgid "(default)"
@@ -1087,7 +1081,7 @@ msgstr "Idioma y Teclado"
 
 #: ../src/views/ModulesData.qml:65
 msgid "Tablet"
-msgstr ""
+msgstr "Tableta"
 
 #: ../src/views/ModulesData.qml:66
 msgid "Mouse and Touchpad"
@@ -1179,7 +1173,7 @@ msgstr "No administrado"
 
 #: ../src/modules/network/widgets/PasswordBox.qml:102
 msgid "Auto-connect"
-msgstr ""
+msgstr "Auto-conectar"
 
 #: ../src/modules/account/PasswordDialog.qml:114
 msgid "New Password"
@@ -1195,7 +1189,7 @@ msgstr "Arrastre y suelte una imagen para cambiar el fondo."
 
 #: ../src/modules/grub/Preview.qml:123 ../src/modules/account/UserList.qml:233
 msgid "Image format not supported"
-msgstr ""
+msgstr "Fornato de imagen no compatible"
 
 #: ../src/modules/grub/Preview.qml:124
 msgid "Updating..."
@@ -1291,29 +1285,35 @@ msgstr "Vista previa de tema"
 msgid "Done"
 msgstr "Hecho"
 
+#: ../src/modules/date_time/StateButtons.qml:35
+#: ../src/modules/date_time/StateButtons.qml:49
+#: ../src/modules/date_time/TimezoneArea.qml:418
+msgid "Close"
+msgstr "Cerrar"
+
 #: ../src/modules/date_time/StateButtons.qml:72
 msgid "Delete Time Zone"
-msgstr ""
+msgstr "Borrar zona horaria"
 
 #: ../src/modules/date_time/StateButtons.qml:88
 msgid "Add Time Zone"
-msgstr ""
+msgstr "Añadir zona horaria"
 
 #: ../src/modules/keyboard/StateButtons.qml:77
 msgid "Delete Keyboard Layout"
-msgstr ""
+msgstr "Borrar disposición del teclado"
 
 #: ../src/modules/keyboard/StateButtons.qml:92
 msgid "Add Keyboard Layout"
-msgstr ""
+msgstr "Añadir disposición de teclado"
 
 #: ../src/modules/shortcuts/StateButtons.qml:80
 msgid "Delete Shortcut"
-msgstr ""
+msgstr "Borrar atajo"
 
 #: ../src/modules/shortcuts/StateButtons.qml:96
 msgid "Add Shortcut"
-msgstr ""
+msgstr "Añadir atajo"
 
 #: ../src/modules/personalization/widgets/ThemeItem.qml:92
 #: ../src/modules/power/main.qml:282 ../src/modules/power/main.qml:477
@@ -1332,6 +1332,58 @@ msgstr "Aplicar"
 #: ../src/modules/date_time/TimezoneArea.qml:239
 msgid "Time zone"
 msgstr "Zona Horaria"
+
+#: ../src/views/TmpTranslationFile.qml:8
+msgid "Display Modes"
+msgstr "Modos de visualización"
+
+#: ../src/views/TmpTranslationFile.qml:12
+msgid "Copy"
+msgstr "Copiar"
+
+#: ../src/views/TmpTranslationFile.qml:16
+msgid "Copy the contents of your primary screen to other screens."
+msgstr "Copie los contenidos de su pantalla principal a otras pantallas"
+
+#: ../src/views/TmpTranslationFile.qml:20
+msgid "Extend"
+msgstr "Extender"
+
+#: ../src/views/TmpTranslationFile.qml:24
+msgid ""
+"Extend your screen contents. Different contents will be displayed on "
+"different screens."
+msgstr "Amplíe el contenido de su pantalla. Se mostrarán distintos contenidos en las distintas pantallas."
+
+#: ../src/views/TmpTranslationFile.qml:28
+#, qt-format
+msgid "Only Displayed on %1"
+msgstr "Solo se muestra en %1"
+
+#: ../src/views/TmpTranslationFile.qml:32
+#, qt-format
+msgid "Screen contents are only displayed on %1 but not on other screens."
+msgstr "Los contenidos de la pantalla solo se muestran en %1, pero no en otras pantallas"
+
+#: ../src/views/TmpTranslationFile.qml:36
+msgid "Custom Settings"
+msgstr "Configuración personalizada"
+
+#: ../src/views/TmpTranslationFile.qml:40
+msgid "You can do other custom settings to your screens."
+msgstr "Puede añadir configuraciones personalizadas a sus pantallas."
+
+#: ../src/views/TmpTranslationFile.qml:44
+msgid "Double-click this area to change your time"
+msgstr "Hacer doble clic en esta zona para cambiar la hora"
+
+#: ../src/views/TmpTranslationFile.qml:48
+msgid "Account information is being prepared..."
+msgstr "Se está preparando la información de la cuenta."
+
+#: ../src/views/TmpTranslationFile.qml:52
+msgid "Primary Screen"
+msgstr "Pantalla principal"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
 msgid "Touchpad"
@@ -1402,11 +1454,11 @@ msgstr "Toque como clic"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:275
 msgid "Two-finger scrolling"
-msgstr ""
+msgstr "Desplazamiento con dos dedos"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:298
 msgid "Edge scrolling"
-msgstr ""
+msgstr "Desplazamiento de bordes"
 
 #: ../src/modules/network/vpn/VpnExpand.qml:48
 msgid "VPN Connections"
@@ -1485,7 +1537,7 @@ msgstr "Usar reloj de 24 horas"
 
 #: ../src/modules/date_time/main.qml:158
 msgid "Adjust DST clock "
-msgstr ""
+msgstr "Ajustar reloj DST"
 
 #: ../src/modules/date_time/main.qml:235
 msgid "Date"
@@ -1557,7 +1609,7 @@ msgstr "Monitor"
 
 #: ../src/modules/grub/main.qml:112
 msgid "Default Boot"
-msgstr ""
+msgstr "Arranque por defecto"
 
 #: ../src/modules/grub/main.qml:167
 msgid "Boot delay"
@@ -1618,7 +1670,7 @@ msgstr "Ícono"
 
 #: ../src/modules/personalization/main.qml:133
 msgid "Cursor"
-msgstr ""
+msgstr "Cursor"
 
 #: ../src/modules/personalization/main.qml:140
 msgid "Wallpaper"
@@ -1767,7 +1819,7 @@ msgstr "Mostrar opciones avanzadas..."
 
 #: ../src/modules/system_info/main.qml:119
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
-msgstr ""
+msgstr "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
 
 #: ../src/modules/system_info/main.qml:125
 msgid "Deepin Edition"
@@ -1871,7 +1923,7 @@ msgstr "Conexión móvil CDMA"
 
 #: ../src/modules/network/main.qml:326
 msgid "View Detailed Information"
-msgstr ""
+msgstr "Ver información detallada"
 
 #: ../src/modules/network/main.qml:214
 msgid "VPN L2TP"
@@ -1895,71 +1947,71 @@ msgstr "VPN OpenConnect"
 
 #: ../src/modules/account/main.qml:95
 msgid "Delete Account"
-msgstr ""
+msgstr "Borrar cuenta"
 
 #: ../src/modules/account/main.qml:133
 msgid "Add Account"
-msgstr ""
+msgstr "Añadir cuenta"
 
 #: ../src/modules/account/main.qml:153
 msgid "User List"
-msgstr ""
+msgstr "Lista de usuarios"
 
 #: ../src/modules/wacom/main.qml:14
 msgid "Page Up"
-msgstr ""
+msgstr "Retroceso de página"
 
 #: ../src/modules/wacom/main.qml:15
 msgid "Page Down"
-msgstr ""
+msgstr "Página abajo"
 
 #: ../src/modules/wacom/main.qml:16
 msgid "Left Click"
-msgstr ""
+msgstr "Clic con el botón izquierdo"
 
 #: ../src/modules/wacom/main.qml:17
 msgid "Right Click"
-msgstr ""
+msgstr "Clic con el botón derecho"
 
 #: ../src/modules/wacom/main.qml:18
 msgid "Middle Click"
-msgstr ""
+msgstr "Clic con el botón central"
 
 #: ../src/modules/wacom/main.qml:69
 msgid "Tablet Orientation"
-msgstr ""
+msgstr "Orientación de la tableta"
 
 #: ../src/modules/wacom/main.qml:76
 msgid "Left Hand"
-msgstr ""
+msgstr "Mano izquierda"
 
 #: ../src/modules/wacom/main.qml:77
 msgid "Right Hand"
-msgstr ""
+msgstr "Mano derecha"
 
 #: ../src/modules/wacom/main.qml:90
 msgid "Digital Pen Modes"
-msgstr ""
+msgstr "Modos de bolígrafo digital"
 
 #: ../src/modules/wacom/main.qml:97
 msgid "Pen Mode"
-msgstr ""
+msgstr "Modo Bolígrafo"
 
 #: ../src/modules/wacom/main.qml:98
 msgid "Mouse Mode"
-msgstr ""
+msgstr "Modo Ratón"
 
 #: ../src/modules/wacom/main.qml:112
 msgid "Down Key"
-msgstr ""
+msgstr "Tecla de Avance página"
 
 #: ../src/modules/wacom/main.qml:137
 msgid "Up Key"
-msgstr ""
+msgstr "Tecla Arriba"
 
 #: ../src/modules/wacom/main.qml:162
 msgid "Pressure"
-msgstr ""
+msgstr "Presión"
 
 #: ../src/modules/wacom/main.qml:178
 msgid "Soft"
@@ -1967,16 +2019,16 @@ msgstr "Suave"
 
 #: ../src/modules/wacom/main.qml:179
 msgid "Hard"
-msgstr ""
+msgstr "Duro"
 
 #: ../src/modules/wacom/main.qml:190
 msgid "Double-click Space"
-msgstr ""
+msgstr "Doble clic Barra espaciadora"
 
 #: ../src/modules/wacom/main.qml:206
 msgid "Narrow"
-msgstr ""
+msgstr "Estrecho"
 
 #: ../src/modules/wacom/main.qml:207
 msgid "Wide"
-msgstr ""
+msgstr "Ancho"

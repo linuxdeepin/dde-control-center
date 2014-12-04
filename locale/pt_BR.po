@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-02 17:21+0800\n"
-"PO-Revision-Date: 2014-12-04 02:57+0000\n"
+"POT-Creation-Date: 2014-12-04 15:35+0800\n"
+"PO-Revision-Date: 2014-12-04 08:34+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/dde-control-center/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -109,9 +109,11 @@ msgstr "Número"
 #: ../src/modules/network/wireless/AddWireless.qml:216
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:87
 #: ../src/modules/network/ConnectionAdd.qml:69
+#: ../src/modules/network/ConnectionEdit.qml:102
 #: ../src/modules/network/ConnectionEdit.qml:150
 #: ../src/modules/shortcuts/CustomKeybinding.qml:151
 #: ../src/modules/account/DeleteUserDialog.qml:33
+#: ../src/modules/network/Info.qml:79
 #: ../src/modules/network/widgets/PasswordBox.qml:118
 #: ../src/modules/account/PasswordDialog.qml:207
 #: ../src/modules/shortcuts/ShortcutInput.qml:343
@@ -557,18 +559,10 @@ msgstr "Excluir esta rede"
 msgid "Are you sure you want to delete this network?"
 msgstr "Você tem certeza que deseja excluir essa rede? "
 
-#: ../src/modules/network/ConnectionEdit.qml:102
+#: ../src/modules/network/ConnectionEdit.qml:110
 #: ../src/modules/network/wireless/WifiHotspot.qml:91
 msgid "Save"
 msgstr "Salvar"
-
-#: ../src/modules/network/ConnectionEdit.qml:114
-#: ../src/modules/network/Info.qml:79
-#: ../src/modules/date_time/StateButtons.qml:35
-#: ../src/modules/date_time/StateButtons.qml:49
-#: ../src/modules/date_time/TimezoneArea.qml:418
-msgid "Close"
-msgstr "Fechar"
 
 #: ../src/modules/network/ConnectionEdit.qml:135
 msgid "Delete"
@@ -1293,6 +1287,12 @@ msgstr "Prévia do Tema"
 msgid "Done"
 msgstr "Feito"
 
+#: ../src/modules/date_time/StateButtons.qml:35
+#: ../src/modules/date_time/StateButtons.qml:49
+#: ../src/modules/date_time/TimezoneArea.qml:418
+msgid "Close"
+msgstr "Fechar"
+
 #: ../src/modules/date_time/StateButtons.qml:72
 msgid "Delete Time Zone"
 msgstr "Excluir Fuso Horário"
@@ -1334,6 +1334,58 @@ msgstr "Configurar"
 #: ../src/modules/date_time/TimezoneArea.qml:239
 msgid "Time zone"
 msgstr "Fuso horário"
+
+#: ../src/views/TmpTranslationFile.qml:8
+msgid "Display Modes"
+msgstr ""
+
+#: ../src/views/TmpTranslationFile.qml:12
+msgid "Copy"
+msgstr "Copiar"
+
+#: ../src/views/TmpTranslationFile.qml:16
+msgid "Copy the contents of your primary screen to other screens."
+msgstr ""
+
+#: ../src/views/TmpTranslationFile.qml:20
+msgid "Extend"
+msgstr "Extender"
+
+#: ../src/views/TmpTranslationFile.qml:24
+msgid ""
+"Extend your screen contents. Different contents will be displayed on "
+"different screens."
+msgstr ""
+
+#: ../src/views/TmpTranslationFile.qml:28
+#, qt-format
+msgid "Only Displayed on %1"
+msgstr ""
+
+#: ../src/views/TmpTranslationFile.qml:32
+#, qt-format
+msgid "Screen contents are only displayed on %1 but not on other screens."
+msgstr ""
+
+#: ../src/views/TmpTranslationFile.qml:36
+msgid "Custom Settings"
+msgstr ""
+
+#: ../src/views/TmpTranslationFile.qml:40
+msgid "You can do other custom settings to your screens."
+msgstr ""
+
+#: ../src/views/TmpTranslationFile.qml:44
+msgid "Double-click this area to change your time"
+msgstr ""
+
+#: ../src/views/TmpTranslationFile.qml:48
+msgid "Account information is being prepared..."
+msgstr ""
+
+#: ../src/views/TmpTranslationFile.qml:52
+msgid "Primary Screen"
+msgstr ""
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
 msgid "Touchpad"

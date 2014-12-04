@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-02 17:21+0800\n"
-"PO-Revision-Date: 2014-12-04 02:57+0000\n"
+"POT-Creation-Date: 2014-12-04 15:35+0800\n"
+"PO-Revision-Date: 2014-12-04 20:41+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/dde-control-center/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: ../src/modules/network/add/AddDsl.qml:11
 msgid "Add PPPoE Connection"
-msgstr ""
+msgstr "Voeg PPPoE-Verbinding Toe"
 
 #: ../src/modules/network/add/AddDsl.qml:24
 #: ../src/modules/network/add/AddMobile.qml:33
@@ -107,9 +107,11 @@ msgstr "Nummer"
 #: ../src/modules/network/wireless/AddWireless.qml:216
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:87
 #: ../src/modules/network/ConnectionAdd.qml:69
+#: ../src/modules/network/ConnectionEdit.qml:102
 #: ../src/modules/network/ConnectionEdit.qml:150
 #: ../src/modules/shortcuts/CustomKeybinding.qml:151
 #: ../src/modules/account/DeleteUserDialog.qml:33
+#: ../src/modules/network/Info.qml:79
 #: ../src/modules/network/widgets/PasswordBox.qml:118
 #: ../src/modules/account/PasswordDialog.qml:207
 #: ../src/modules/shortcuts/ShortcutInput.qml:343
@@ -160,7 +162,7 @@ msgstr "Beheerder"
 #: ../src/modules/account/EditUserDialog.qml:138
 #: ../src/modules/account/UserList.qml:222
 msgid "Normal User"
-msgstr ""
+msgstr "Normale Gebruiker"
 
 #: ../src/modules/account/AddUserDialog.qml:244
 msgid "Repeat Password"
@@ -529,7 +531,7 @@ msgstr "za"
 #: ../src/modules/network/ConnectionAdd.qml:12
 #: ../src/modules/network/main.qml:303
 msgid "Add Network Connection"
-msgstr ""
+msgstr "Voeg Netwerkverbinding Toe"
 
 #: ../src/modules/network/ConnectionAdd.qml:35
 #: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:11
@@ -555,18 +557,10 @@ msgstr "Dit netwerk verwijderen"
 msgid "Are you sure you want to delete this network?"
 msgstr "Weet u zeker dat u dit netwerk wilt verwijderen?"
 
-#: ../src/modules/network/ConnectionEdit.qml:102
+#: ../src/modules/network/ConnectionEdit.qml:110
 #: ../src/modules/network/wireless/WifiHotspot.qml:91
 msgid "Save"
 msgstr "Opslaan"
-
-#: ../src/modules/network/ConnectionEdit.qml:114
-#: ../src/modules/network/Info.qml:79
-#: ../src/modules/date_time/StateButtons.qml:35
-#: ../src/modules/date_time/StateButtons.qml:49
-#: ../src/modules/date_time/TimezoneArea.qml:418
-msgid "Close"
-msgstr "Sluiten"
 
 #: ../src/modules/network/ConnectionEdit.qml:135
 msgid "Delete"
@@ -946,7 +940,7 @@ msgstr "Standaard"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:65
 msgid "Monospaced"
-msgstr ""
+msgstr "Enkele Regelafstand"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:80
 msgid "Size"
@@ -972,7 +966,7 @@ msgstr "Verbonden"
 
 #: ../src/modules/network/Info.qml:15
 msgid "Not Connected"
-msgstr ""
+msgstr "Niet Verbonden"
 
 #: ../src/modules/network/Info.qml:39
 msgid "(default)"
@@ -1087,7 +1081,7 @@ msgstr "Toetsenbord en taal"
 
 #: ../src/views/ModulesData.qml:65
 msgid "Tablet"
-msgstr ""
+msgstr "Tablet"
 
 #: ../src/views/ModulesData.qml:66
 msgid "Mouse and Touchpad"
@@ -1179,7 +1173,7 @@ msgstr "onbeheer"
 
 #: ../src/modules/network/widgets/PasswordBox.qml:102
 msgid "Auto-connect"
-msgstr ""
+msgstr "Automatisch Verbinding Maken"
 
 #: ../src/modules/account/PasswordDialog.qml:114
 msgid "New Password"
@@ -1195,7 +1189,7 @@ msgstr "Sleep een afbeelding hierheen om de achtergrond te veranderen."
 
 #: ../src/modules/grub/Preview.qml:123 ../src/modules/account/UserList.qml:233
 msgid "Image format not supported"
-msgstr ""
+msgstr "Afbeeldingsformaat niet ondersteund"
 
 #: ../src/modules/grub/Preview.qml:124
 msgid "Updating..."
@@ -1291,29 +1285,35 @@ msgstr "Thema Voorvertonen"
 msgid "Done"
 msgstr "Gereed"
 
+#: ../src/modules/date_time/StateButtons.qml:35
+#: ../src/modules/date_time/StateButtons.qml:49
+#: ../src/modules/date_time/TimezoneArea.qml:418
+msgid "Close"
+msgstr "Sluiten"
+
 #: ../src/modules/date_time/StateButtons.qml:72
 msgid "Delete Time Zone"
-msgstr ""
+msgstr "Verwijder Tijdzone"
 
 #: ../src/modules/date_time/StateButtons.qml:88
 msgid "Add Time Zone"
-msgstr ""
+msgstr "Voeg Tijdzone Toe"
 
 #: ../src/modules/keyboard/StateButtons.qml:77
 msgid "Delete Keyboard Layout"
-msgstr ""
+msgstr "Verwijder Lay-out van Toetsenbord"
 
 #: ../src/modules/keyboard/StateButtons.qml:92
 msgid "Add Keyboard Layout"
-msgstr ""
+msgstr "Voeg Lay-out van Toetsenbord Toe"
 
 #: ../src/modules/shortcuts/StateButtons.qml:80
 msgid "Delete Shortcut"
-msgstr ""
+msgstr "Verwijder Snelkoppeling"
 
 #: ../src/modules/shortcuts/StateButtons.qml:96
 msgid "Add Shortcut"
-msgstr ""
+msgstr "Voeg Snelkoppeling Toe"
 
 #: ../src/modules/personalization/widgets/ThemeItem.qml:92
 #: ../src/modules/power/main.qml:282 ../src/modules/power/main.qml:477
@@ -1332,6 +1332,58 @@ msgstr "Instellen"
 #: ../src/modules/date_time/TimezoneArea.qml:239
 msgid "Time zone"
 msgstr "Tijdzone"
+
+#: ../src/views/TmpTranslationFile.qml:8
+msgid "Display Modes"
+msgstr "Weergavemodi "
+
+#: ../src/views/TmpTranslationFile.qml:12
+msgid "Copy"
+msgstr "Kopiëren"
+
+#: ../src/views/TmpTranslationFile.qml:16
+msgid "Copy the contents of your primary screen to other screens."
+msgstr "Kopieer de inhoud van uw hoofdscherm naar andere schermen. "
+
+#: ../src/views/TmpTranslationFile.qml:20
+msgid "Extend"
+msgstr "Uitbreiden"
+
+#: ../src/views/TmpTranslationFile.qml:24
+msgid ""
+"Extend your screen contents. Different contents will be displayed on "
+"different screens."
+msgstr "Breidt de inhoud van uw scherm uit. De inhoud wordt op verschillende schermen weergegeven. "
+
+#: ../src/views/TmpTranslationFile.qml:28
+#, qt-format
+msgid "Only Displayed on %1"
+msgstr "Uitsluitend Weergegeven op %1"
+
+#: ../src/views/TmpTranslationFile.qml:32
+#, qt-format
+msgid "Screen contents are only displayed on %1 but not on other screens."
+msgstr "Inhoud van het scherm wordt alleen getoond op %1, maar niet op andere schermen. "
+
+#: ../src/views/TmpTranslationFile.qml:36
+msgid "Custom Settings"
+msgstr "Aangepaste Instellingen"
+
+#: ../src/views/TmpTranslationFile.qml:40
+msgid "You can do other custom settings to your screens."
+msgstr "U kunt andere aangepaste instellingen kiezen voor uw schermen. "
+
+#: ../src/views/TmpTranslationFile.qml:44
+msgid "Double-click this area to change your time"
+msgstr "Dubbelklik dit gebied om uw tijd te veranderen"
+
+#: ../src/views/TmpTranslationFile.qml:48
+msgid "Account information is being prepared..."
+msgstr "Accountinformatie wordt voorbereid"
+
+#: ../src/views/TmpTranslationFile.qml:52
+msgid "Primary Screen"
+msgstr "Hoofdscherm"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
 msgid "Touchpad"
@@ -1485,7 +1537,7 @@ msgstr "Gebruik 24-uurs klok"
 
 #: ../src/modules/date_time/main.qml:158
 msgid "Adjust DST clock "
-msgstr ""
+msgstr "Pas DST-klok aan"
 
 #: ../src/modules/date_time/main.qml:235
 msgid "Date"
@@ -1557,7 +1609,7 @@ msgstr "Beeldscherm"
 
 #: ../src/modules/grub/main.qml:112
 msgid "Default Boot"
-msgstr ""
+msgstr "Standaard Opstarten"
 
 #: ../src/modules/grub/main.qml:167
 msgid "Boot delay"
@@ -1618,7 +1670,7 @@ msgstr "Icoon"
 
 #: ../src/modules/personalization/main.qml:133
 msgid "Cursor"
-msgstr ""
+msgstr "Cursor"
 
 #: ../src/modules/personalization/main.qml:140
 msgid "Wallpaper"
@@ -1767,7 +1819,7 @@ msgstr "Geavanceerde Opties Weergeven..."
 
 #: ../src/modules/system_info/main.qml:119
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
-msgstr ""
+msgstr "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
 
 #: ../src/modules/system_info/main.qml:125
 msgid "Deepin Edition"
@@ -1871,7 +1923,7 @@ msgstr "Mobile CDMA"
 
 #: ../src/modules/network/main.qml:326
 msgid "View Detailed Information"
-msgstr ""
+msgstr "Bekijk Gedetailleerde Informatie"
 
 #: ../src/modules/network/main.qml:214
 msgid "VPN L2TP"
@@ -1895,88 +1947,88 @@ msgstr "VPN OpenConnect"
 
 #: ../src/modules/account/main.qml:95
 msgid "Delete Account"
-msgstr ""
+msgstr "Verwijder Account"
 
 #: ../src/modules/account/main.qml:133
 msgid "Add Account"
-msgstr ""
+msgstr "Voeg Account Toe"
 
 #: ../src/modules/account/main.qml:153
 msgid "User List"
-msgstr ""
+msgstr "Gebruikerslijst"
 
 #: ../src/modules/wacom/main.qml:14
 msgid "Page Up"
-msgstr ""
+msgstr "Pagina Omhoog"
 
 #: ../src/modules/wacom/main.qml:15
 msgid "Page Down"
-msgstr ""
+msgstr "Pagina Naar Beneden"
 
 #: ../src/modules/wacom/main.qml:16
 msgid "Left Click"
-msgstr ""
+msgstr "Klik met Linkermuisknop"
 
 #: ../src/modules/wacom/main.qml:17
 msgid "Right Click"
-msgstr ""
+msgstr "Klik met Rechtermuisknop"
 
 #: ../src/modules/wacom/main.qml:18
 msgid "Middle Click"
-msgstr ""
+msgstr "Klik met Middelste Muisknop"
 
 #: ../src/modules/wacom/main.qml:69
 msgid "Tablet Orientation"
-msgstr ""
+msgstr "Tabletoriëntatie"
 
 #: ../src/modules/wacom/main.qml:76
 msgid "Left Hand"
-msgstr ""
+msgstr "Linkerhand"
 
 #: ../src/modules/wacom/main.qml:77
 msgid "Right Hand"
-msgstr ""
+msgstr "Rechterhand"
 
 #: ../src/modules/wacom/main.qml:90
 msgid "Digital Pen Modes"
-msgstr ""
+msgstr "Digitale Pen-modi"
 
 #: ../src/modules/wacom/main.qml:97
 msgid "Pen Mode"
-msgstr ""
+msgstr "Penmodus"
 
 #: ../src/modules/wacom/main.qml:98
 msgid "Mouse Mode"
-msgstr ""
+msgstr "Muismodus"
 
 #: ../src/modules/wacom/main.qml:112
 msgid "Down Key"
-msgstr ""
+msgstr "Omlaag-toets"
 
 #: ../src/modules/wacom/main.qml:137
 msgid "Up Key"
-msgstr ""
+msgstr "Omhoog-toets"
 
 #: ../src/modules/wacom/main.qml:162
 msgid "Pressure"
-msgstr ""
+msgstr "Druk"
 
 #: ../src/modules/wacom/main.qml:178
 msgid "Soft"
-msgstr ""
+msgstr "Zacht"
 
 #: ../src/modules/wacom/main.qml:179
 msgid "Hard"
-msgstr ""
+msgstr "Hard"
 
 #: ../src/modules/wacom/main.qml:190
 msgid "Double-click Space"
-msgstr ""
+msgstr "Dubbelklik Spatie"
 
 #: ../src/modules/wacom/main.qml:206
 msgid "Narrow"
-msgstr ""
+msgstr "Smal"
 
 #: ../src/modules/wacom/main.qml:207
 msgid "Wide"
-msgstr ""
+msgstr "Breed"

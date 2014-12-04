@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-02 17:21+0800\n"
-"PO-Revision-Date: 2014-12-04 02:57+0000\n"
-"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
+"POT-Creation-Date: 2014-12-04 15:35+0800\n"
+"PO-Revision-Date: 2014-12-04 21:49+0000\n"
+"Last-Translator: Microtus <hrabosmartin@gmail.com>\n"
 "Language-Team: Slovak (http://www.transifex.com/projects/p/dde-control-center/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -105,9 +105,11 @@ msgstr "Číslo"
 #: ../src/modules/network/wireless/AddWireless.qml:216
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:87
 #: ../src/modules/network/ConnectionAdd.qml:69
+#: ../src/modules/network/ConnectionEdit.qml:102
 #: ../src/modules/network/ConnectionEdit.qml:150
 #: ../src/modules/shortcuts/CustomKeybinding.qml:151
 #: ../src/modules/account/DeleteUserDialog.qml:33
+#: ../src/modules/network/Info.qml:79
 #: ../src/modules/network/widgets/PasswordBox.qml:118
 #: ../src/modules/account/PasswordDialog.qml:207
 #: ../src/modules/shortcuts/ShortcutInput.qml:343
@@ -158,7 +160,7 @@ msgstr "Administrátor"
 #: ../src/modules/account/EditUserDialog.qml:138
 #: ../src/modules/account/UserList.qml:222
 msgid "Normal User"
-msgstr ""
+msgstr "Bežný užívateľ"
 
 #: ../src/modules/account/AddUserDialog.qml:244
 msgid "Repeat Password"
@@ -553,18 +555,10 @@ msgstr "Odstrániť túto sieť"
 msgid "Are you sure you want to delete this network?"
 msgstr "Ste si istý, že chcete odstrániť túto sieť?"
 
-#: ../src/modules/network/ConnectionEdit.qml:102
+#: ../src/modules/network/ConnectionEdit.qml:110
 #: ../src/modules/network/wireless/WifiHotspot.qml:91
 msgid "Save"
 msgstr "Uložiť"
-
-#: ../src/modules/network/ConnectionEdit.qml:114
-#: ../src/modules/network/Info.qml:79
-#: ../src/modules/date_time/StateButtons.qml:35
-#: ../src/modules/date_time/StateButtons.qml:49
-#: ../src/modules/date_time/TimezoneArea.qml:418
-msgid "Close"
-msgstr "Zavrieť"
 
 #: ../src/modules/network/ConnectionEdit.qml:135
 msgid "Delete"
@@ -1289,6 +1283,12 @@ msgstr "Ukážka témy"
 msgid "Done"
 msgstr "Hotovo"
 
+#: ../src/modules/date_time/StateButtons.qml:35
+#: ../src/modules/date_time/StateButtons.qml:49
+#: ../src/modules/date_time/TimezoneArea.qml:418
+msgid "Close"
+msgstr "Zavrieť"
+
 #: ../src/modules/date_time/StateButtons.qml:72
 msgid "Delete Time Zone"
 msgstr "Odstrániť časové pásmo"
@@ -1330,6 +1330,58 @@ msgstr "Nastaviť"
 #: ../src/modules/date_time/TimezoneArea.qml:239
 msgid "Time zone"
 msgstr "Časové pásmo"
+
+#: ../src/views/TmpTranslationFile.qml:8
+msgid "Display Modes"
+msgstr "Režimy zobrazenia"
+
+#: ../src/views/TmpTranslationFile.qml:12
+msgid "Copy"
+msgstr "Kopírovať"
+
+#: ../src/views/TmpTranslationFile.qml:16
+msgid "Copy the contents of your primary screen to other screens."
+msgstr "Skopírovať obsah primárnej obrazovky na ostatné obrazovky. "
+
+#: ../src/views/TmpTranslationFile.qml:20
+msgid "Extend"
+msgstr "Rozšíriť"
+
+#: ../src/views/TmpTranslationFile.qml:24
+msgid ""
+"Extend your screen contents. Different contents will be displayed on "
+"different screens."
+msgstr "Rozšíriť obsah obrazovky. Rozličný obsah  bude zobrazený na rozdielnych obrazovkách. "
+
+#: ../src/views/TmpTranslationFile.qml:28
+#, qt-format
+msgid "Only Displayed on %1"
+msgstr "Zobrazené iba na %1"
+
+#: ../src/views/TmpTranslationFile.qml:32
+#, qt-format
+msgid "Screen contents are only displayed on %1 but not on other screens."
+msgstr "Obsah obrazovky je zobrazený iba na %1 a nie na ostatných obrazovkách."
+
+#: ../src/views/TmpTranslationFile.qml:36
+msgid "Custom Settings"
+msgstr "Vlastné nastavenia"
+
+#: ../src/views/TmpTranslationFile.qml:40
+msgid "You can do other custom settings to your screens."
+msgstr "Môžte vykonať iné vlastné nastavenia vašich obrazoviek. "
+
+#: ../src/views/TmpTranslationFile.qml:44
+msgid "Double-click this area to change your time"
+msgstr "Dvojité kliknutie na tento priestor zmení čas"
+
+#: ../src/views/TmpTranslationFile.qml:48
+msgid "Account information is being prepared..."
+msgstr "Pripravujú sa informácie o účte..."
+
+#: ../src/views/TmpTranslationFile.qml:52
+msgid "Primary Screen"
+msgstr "Primárna aobrazovka"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
 msgid "Touchpad"

@@ -3,26 +3,27 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# lexross <its4moi@gmail.com>, 2014
-# ZereoX <jay_123_1@hotmail.com>, 2014
-# Tristan Denni <tristan.denni@viacesi.fr>, 2014
+# LaScapigliata <ditri2000@hotmail.com>, 2014
+# Francesko Isallari <francesko1989@gmail.com>, 2014
+# Jim Spentzos <jimspentzos2000@gmail.com>, 2014
+# Jim Spentzos <jimspentzos2000@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-04 15:35+0800\n"
-"PO-Revision-Date: 2014-12-07 14:11+0000\n"
-"Last-Translator: lexross <its4moi@gmail.com>\n"
-"Language-Team: French (http://www.transifex.com/projects/p/dde-control-center/language/fr/)\n"
+"PO-Revision-Date: 2014-12-05 19:21+0000\n"
+"Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
+"Language-Team: Greek (http://www.transifex.com/projects/p/dde-control-center/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: el\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/modules/network/add/AddDsl.qml:11
 msgid "Add PPPoE Connection"
-msgstr "Ajouter connection PPPoE"
+msgstr "Πρόσθεσε σύνδεση PPPoE "
 
 #: ../src/modules/network/add/AddDsl.qml:24
 #: ../src/modules/network/add/AddMobile.qml:33
@@ -30,7 +31,7 @@ msgstr "Ajouter connection PPPoE"
 #: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:33
 #: ../src/modules/shortcuts/CustomKeybinding.qml:118
 msgid "Name"
-msgstr "Nom"
+msgstr "Όνομα"
 
 #: ../src/modules/network/add/AddDsl.qml:36
 #: ../src/modules/network/add/AddMobile.qml:75
@@ -49,12 +50,12 @@ msgstr "Nom"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:374
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:65
 msgid "Username"
-msgstr "Utilisateur"
+msgstr "Όνομα χρήστη"
 
 #: ../src/modules/network/add/AddDsl.qml:46
 #: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:33
 msgid "Service"
-msgstr "Service"
+msgstr "Υπηρεσία"
 
 #: ../src/modules/network/add/AddDsl.qml:56
 #: ../src/modules/network/add/AddMobile.qml:85
@@ -78,16 +79,16 @@ msgstr "Service"
 #: ../src/modules/account/PasswordDialog.qml:62
 #: ../src/modules/network/wireless/WifiHotspot.qml:69
 msgid "Password"
-msgstr "Mot de passe"
+msgstr "Κωδικός πρόσβασης"
 
 #: ../src/modules/network/add/AddMobile.qml:20
 msgid "New Mobile Connection"
-msgstr "Nouvelle connexion mobile"
+msgstr "Νέα Κινητή Σύνδεση"
 
 #: ../src/modules/network/add/AddMobile.qml:45
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:23
 msgid "Service Type"
-msgstr "Type de service"
+msgstr "Τύπος Υπηρεσίας"
 
 #: ../src/modules/network/add/AddMobile.qml:55
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:33
@@ -99,7 +100,7 @@ msgstr "APN"
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:43
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:113
 msgid "Number"
-msgstr "Nombre"
+msgstr "Αριθμός"
 
 #: ../src/modules/network/add/AddSectionSave.qml:11
 #: ../src/modules/account/AddUserDialog.qml:378
@@ -118,75 +119,75 @@ msgstr "Nombre"
 #: ../src/modules/network/wireless/WifiHotspot.qml:82
 #: ../src/modules/display/main.qml:248
 msgid "Cancel"
-msgstr "Annuler"
+msgstr "Ακύρωση"
 
 #: ../src/modules/network/add/AddSectionSave.qml:20
 #: ../src/modules/shortcuts/CustomKeybinding.qml:157
 #: ../src/modules/date_time/TimezoneArea.qml:415
 msgid "Add"
-msgstr "Ajouter"
+msgstr "Προσθήκη"
 
 #: ../src/modules/account/AddUserDialog.qml:72
 #: ../src/modules/account/PasswordDialog.qml:96
 msgid "Invalid password"
-msgstr "Mot de Passe incorrect"
+msgstr "Μη έγκυρος κωδικός πρόσβασης"
 
 #: ../src/modules/account/AddUserDialog.qml:77
 msgid "Nothing input"
-msgstr "Rien n'a été écrit"
+msgstr "Δεν εισάχθηκε τίποτα"
 
 #: ../src/modules/account/AddUserDialog.qml:50
 #: ../src/modules/account/AddUserDialog.qml:82
 #: ../src/modules/account/PasswordDialog.qml:101
 msgid "Different password"
-msgstr "Mot de passe différent"
+msgstr "Διαφορετικός κωδικός πρόσβασης"
 
 #: ../src/modules/account/AddUserDialog.qml:91
 msgid "Add User"
-msgstr "Ajouter un utilisateur"
+msgstr "Προσθήκη Χρήστη"
 
 #: ../src/modules/account/AddUserDialog.qml:120
 msgid "New User"
-msgstr "Nouvel utilisateur"
+msgstr "Νέος Χρήστης"
 
 #: ../src/modules/account/AddUserDialog.qml:124
 #: ../src/modules/account/AddUserDialog.qml:308
 #: ../src/modules/account/EditUserDialog.qml:139
 #: ../src/modules/account/UserList.qml:222
 msgid "Administrator"
-msgstr "Administrateur"
+msgstr "Διαχειριστής"
 
 #: ../src/modules/account/AddUserDialog.qml:124
 #: ../src/modules/account/AddUserDialog.qml:307
 #: ../src/modules/account/EditUserDialog.qml:138
 #: ../src/modules/account/UserList.qml:222
 msgid "Normal User"
-msgstr "Utilisateur"
+msgstr "Κανονικός χρήστης"
 
 #: ../src/modules/account/AddUserDialog.qml:244
 msgid "Repeat Password"
-msgstr "Répéter le mot de passe"
+msgstr "Επανάληψη Κωδικού Πρόσβασης"
 
 #: ../src/modules/account/AddUserDialog.qml:295
 #: ../src/modules/account/EditUserDialog.qml:126
 msgid "Account Type"
-msgstr "Type de compte"
+msgstr "Τύπος Λογαριασμού"
 
 #: ../src/modules/account/AddUserDialog.qml:327
 #: ../src/modules/account/EditUserDialog.qml:59
 msgid "Auto-login"
-msgstr "Connexion automatique"
+msgstr "Αυτόματη είσοδος"
 
 #: ../src/modules/account/AddUserDialog.qml:391
 #: ../src/modules/account/DeleteUserDialog.qml:46
 #: ../src/modules/account/PasswordDialog.qml:221
 #: ../src/modules/account/WebCam.qml:148
 msgid "Confirm"
-msgstr "Confirmer"
+msgstr "Επιβεβαίωση"
 
 #: ../src/modules/network/add/AddVpn.qml:15
 msgid "VPN Type"
-msgstr "Type de VPN"
+msgstr "Τύπος VPN"
 
 #: ../src/modules/network/add/AddVpn.qml:36
 msgid "L2TP"
@@ -210,12 +211,12 @@ msgstr "VPNC"
 
 #: ../src/modules/network/add/AddVpn.qml:69
 msgid "Basic Information"
-msgstr "Informations générales"
+msgstr "Βασικές πληροφορίες"
 
 #: ../src/modules/network/add/AddVpn.qml:82
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:23
 msgid "Need VPN Plugin"
-msgstr "Nécessite une extension VPN"
+msgstr "Απαιτείται Πρόσθετο VPN"
 
 #: ../src/modules/network/add/AddVpn.qml:114
 #: ../src/modules/network/add/AddVpn.qml:154
@@ -230,7 +231,7 @@ msgstr "Nécessite une extension VPN"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:314
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:364
 msgid "Gateway"
-msgstr "Passerelle"
+msgstr "Gateway"
 
 #: ../src/modules/network/add/AddVpn.qml:134
 #: ../src/modules/network/add/AddVpn.qml:264
@@ -249,7 +250,7 @@ msgstr "Passerelle"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:384
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:414
 msgid "Ask for Pwd"
-msgstr "Mot de passe demandé"
+msgstr "Ερώτηση για Κωδ. Προσ."
 
 #: ../src/modules/network/add/AddVpn.qml:164
 #: ../src/modules/network/add/AddVpn.qml:284
@@ -263,18 +264,18 @@ msgstr "CA Cert"
 #: ../src/modules/network/add/AddVpn.qml:174
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:104
 msgid "Proxy"
-msgstr "Proxy"
+msgstr "Διακομιστής Μεσολάβησης"
 
 #: ../src/modules/network/add/AddVpn.qml:184
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:114
 msgid "Allow Cisco Secure Desktop Trojan"
-msgstr "Autoriser le Trojan Cisco Secure Desktop"
+msgstr "Να επιτρέπεται ο Ασφαλής Δούρειος Ίππος Επιφάνειας Εργασίας Cisco"
 
 #: ../src/modules/network/add/AddVpn.qml:344
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:274
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
 msgid "Customize Key Direction"
-msgstr "Personnaliser la touche direction"
+msgstr "Προσαρμογή Κατεύθυνσης Κλειδιού"
 
 #: ../src/modules/network/add/AddVpn.qml:214
 #: ../src/modules/network/add/AddVpn.qml:304
@@ -283,12 +284,12 @@ msgstr "Personnaliser la touche direction"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:144
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:234
 msgid "Private Key"
-msgstr "Clé privée"
+msgstr "Ιδιωτικό Κλειδί"
 
 #: ../src/modules/network/add/AddVpn.qml:244
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:174
 msgid "Auth Type"
-msgstr "Type d'authentification"
+msgstr "Τύπος Πιστοποίησης"
 
 #: ../src/modules/network/add/AddVpn.qml:204
 #: ../src/modules/network/add/AddVpn.qml:294
@@ -297,87 +298,87 @@ msgstr "Type d'authentification"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:134
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:224
 msgid "User Cert"
-msgstr "Cert. utilisateur"
+msgstr "Πιστοποιητικό Χρήστη"
 
 #: ../src/modules/network/add/AddVpn.qml:194
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:124
 msgid "CSD Script"
-msgstr "Script CSD"
+msgstr "CSD Script"
 
 #: ../src/modules/network/add/AddVpn.qml:224
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:154
 msgid "Use FSID for Key Passphrase"
-msgstr "Utilisez FSID pour la phrase clé"
+msgstr "Χρησιμοποιήστε FSID για Key Passphrase "
 
 #: ../src/modules/network/add/AddVpn.qml:324
 #: ../src/modules/network/wireless/AddWireless.qml:206
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:195
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:254
 msgid "Private Pwd"
-msgstr "Mdp privé"
+msgstr "Ιδιωτικό Pwd"
 
 #: ../src/modules/network/add/AddVpn.qml:334
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:264
 msgid "Static Key"
-msgstr "Clé statique"
+msgstr "Στατικό κλειδί"
 
 #: ../src/modules/network/add/AddVpn.qml:354
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:284
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:63
 msgid "Key Direction"
-msgstr "Clé directionnelle"
+msgstr "Βασική Κατεύθυνση"
 
 #: ../src/modules/network/add/AddVpn.qml:364
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:294
 msgid "Remote IP"
-msgstr "IP distante"
+msgstr "Απομακρυσμένη IP"
 
 #: ../src/modules/network/add/AddVpn.qml:374
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:304
 msgid "Local IP"
-msgstr "IP locale"
+msgstr "Τοπική IP"
 
 #: ../src/modules/network/add/AddVpn.qml:454
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:394
 msgid "User Pwd"
-msgstr "Mot de passe utilisateur"
+msgstr "Κωδ. Προσβ. Χρήστη"
 
 #: ../src/modules/network/add/AddVpn.qml:464
 #: ../src/modules/network/add/AddVpn.qml:526
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:404
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:33
 msgid "Group Name"
-msgstr "Nom du groupe"
+msgstr "Όνομα Ομάδας"
 
 #: ../src/modules/network/add/AddVpn.qml:484
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:424
 msgid "Group Pwd"
-msgstr "Mot de passe du groupe"
+msgstr "Κωδ. Προσβ. Ομάδας"
 
 #: ../src/modules/network/add/AddVpn.qml:494
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:434
 msgid "Use Hybrid Authentication"
-msgstr "Utiliser une authentification hybride"
+msgstr "Χρήση Υβριδικής Πιστοποίησης"
 
 #: ../src/modules/network/add/AddVpn.qml:504
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:444
 msgid "CA File"
-msgstr "Fichier CA"
+msgstr "Αρχείο CA"
 
 #: ../src/modules/network/add/AddVpn.qml:516
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:23
 msgid "Enable IPsec"
-msgstr "Activer IPsec"
+msgstr "Ενεργοποίηση IPsec"
 
 #: ../src/modules/network/add/AddVpn.qml:536
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:43
 msgid "Group ID"
-msgstr "Identifiant du groupe"
+msgstr "ID Ομάδας"
 
 #: ../src/modules/network/add/AddVpn.qml:546
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:53
 msgid "Pre-Shared Key"
-msgstr "Clé pré-partagée"
+msgstr "Ήδη κοινόχρηστο κλειδί"
 
 #: ../src/modules/network/add/AddVpn.qml:558
 #: ../src/modules/network/add/AddVpn.qml:570
@@ -385,11 +386,11 @@ msgstr "Clé pré-partagée"
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:23
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:23
 msgid "Use MPPE"
-msgstr "Utiliser MPPE"
+msgstr "Χρήση MPPE"
 
 #: ../src/modules/network/wireless/AddWireless.qml:8
 msgid "Connect to wireless"
-msgstr "Se connecter au réseau sans fil"
+msgstr "Σύνδεση σε ασύρματο"
 
 #: ../src/modules/network/wireless/AddWireless.qml:32
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:23
@@ -405,132 +406,132 @@ msgstr "SSID"
 #: ../src/modules/network/Info.qml:53
 #: ../src/modules/network/wireless/WifiHotspot.qml:49
 msgid "Security"
-msgstr "Sécurité"
+msgstr "Ασφάλεια"
 
 #: ../src/modules/network/wireless/AddWireless.qml:54
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:43
 #: ../src/modules/network/wireless/WifiHotspot.qml:59
 msgid "Key"
-msgstr "Clé"
+msgstr "Κλειδί"
 
 #: ../src/modules/network/wireless/AddWireless.qml:74
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:63
 msgid "EAP Auth"
-msgstr "Authentification EAP"
+msgstr "EAP Auth"
 
 #: ../src/modules/network/wireless/AddWireless.qml:84
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:73
 msgid "Identity"
-msgstr "Identité"
+msgstr "Ταυτότητα"
 
 #: ../src/modules/network/wireless/AddWireless.qml:94
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:83
 msgid "Anonymous ID"
-msgstr "Identifiant anonyme"
+msgstr "Ανώνυμο αναγνωριστικό"
 
 #: ../src/modules/network/wireless/AddWireless.qml:124
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:113
 msgid "Provisioning"
-msgstr "Disposition"
+msgstr "Προμήθεια"
 
 #: ../src/modules/network/wireless/AddWireless.qml:134
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:123
 msgid "PAC file"
-msgstr "Fichier PAC"
+msgstr "Αρχείο PAC"
 
 #: ../src/modules/network/wireless/AddWireless.qml:144
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:133
 msgid "PEAP Version"
-msgstr "Version PEAP"
+msgstr "Έκδοση PEAP"
 
 #: ../src/modules/network/wireless/AddWireless.qml:154
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:143
 msgid "Inner Auth"
-msgstr "Authentification Interne"
+msgstr "Εσωτερικός έλεγχος ταυτότητας"
 
 #: ../src/modules/network/wireless/AddWireless.qml:224
 #: ../src/modules/network/widgets/PasswordBox.qml:126
 msgid "Connect"
-msgstr "Se connecter"
+msgstr "Σύνδεση"
 
 #: ../src/modules/account/AvatarPickDialog.qml:5
 msgid "Choose a new picture for your Avatar"
-msgstr "Sélectionnez une image pour votre Avatar"
+msgstr "Διαλέξτε μια νέα εικόνα για το Άβαταρ σας."
 
 #: ../src/modules/account/AvatarView.qml:19
 msgid "Recently Used"
-msgstr "Utilisé récemment "
+msgstr "Χρισημοποιήθηκαν πρόσφατα"
 
 #: ../src/modules/account/AvatarView.qml:20
 msgid "Avatar"
-msgstr "Avatar"
+msgstr "Εικόνα προφίλ"
 
 #: ../src/modules/account/AvatarView.qml:21
 msgid "Webcam"
-msgstr "Webcam"
+msgstr "Κάμερα"
 
 #: ../src/modules/sound/BalanceLine.qml:31
 msgid "Left/Right Balance"
-msgstr "Gauche/Droite"
+msgstr "Αριστερή/Δεξιά Ισορροπία"
 
 #: ../src/modules/sound/BalanceLine.qml:53
 msgid "Left"
-msgstr "Gauche"
+msgstr "Αριστερά"
 
 #: ../src/modules/sound/BalanceLine.qml:55
 msgid "Right"
-msgstr "Droite"
+msgstr "Δεξιά"
 
 #: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:43
 #: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:53
 msgid "Automatically connect"
-msgstr "Se connecter automatiquement"
+msgstr "Αυτόματη σύνδεση"
 
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:99
 #: ../src/modules/display/main.qml:236
 msgid "Apply"
-msgstr "Appliquer"
+msgstr "Εφαρμογή"
 
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:127
 msgid "Devices nearby"
-msgstr "Périphériques proches"
+msgstr "Κοντινές συσκευές"
 
 #: ../src/modules/date_time/Calendar.qml:161
 msgid "Today"
-msgstr "Aujourd'hui"
+msgstr "Σήμερα"
 
 #: ../src/modules/date_time/CalendarComponent.qml:83
 msgid "Sun"
-msgstr "Dim"
+msgstr "Κυρ"
 
 #: ../src/modules/date_time/CalendarComponent.qml:84
 msgid "Mon"
-msgstr "Lun"
+msgstr "Δευ"
 
 #: ../src/modules/date_time/CalendarComponent.qml:85
 msgid "Tue"
-msgstr "Mar"
+msgstr "Τρι"
 
 #: ../src/modules/date_time/CalendarComponent.qml:86
 msgid "Wed"
-msgstr "Mer"
+msgstr "Τετ"
 
 #: ../src/modules/date_time/CalendarComponent.qml:87
 msgid "Thu"
-msgstr "Jeu"
+msgstr "Πεμ"
 
 #: ../src/modules/date_time/CalendarComponent.qml:88
 msgid "Fri"
-msgstr "Ven"
+msgstr "Παρ"
 
 #: ../src/modules/date_time/CalendarComponent.qml:89
 msgid "Sat"
-msgstr "Sam"
+msgstr "Σάβ"
 
 #: ../src/modules/network/ConnectionAdd.qml:12
 #: ../src/modules/network/main.qml:303
 msgid "Add Network Connection"
-msgstr "Ajouter Connection Réseau"
+msgstr "Προσθήκη Σύνδεσης Δικτύου"
 
 #: ../src/modules/network/ConnectionAdd.qml:35
 #: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:11
@@ -546,49 +547,49 @@ msgstr "VPN"
 
 #: ../src/modules/network/ConnectionAdd.qml:77
 msgid "Next"
-msgstr "Suivant"
+msgstr "Επόμενο"
 
 #: ../src/modules/network/ConnectionEdit.qml:52
 msgid "Delete this network"
-msgstr "Supprimer ce réseau"
+msgstr "Διαγραφή αυτού του δικτύου"
 
 #: ../src/modules/network/ConnectionEdit.qml:52
 msgid "Are you sure you want to delete this network?"
-msgstr "Êtes vous sûr de vouloir supprimer ce réseau ?"
+msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το δίκτυο;"
 
 #: ../src/modules/network/ConnectionEdit.qml:110
 #: ../src/modules/network/wireless/WifiHotspot.qml:91
 msgid "Save"
-msgstr "Sauvegarder"
+msgstr "Αποθήκευση"
 
 #: ../src/modules/network/ConnectionEdit.qml:135
 msgid "Delete"
-msgstr "Supprimer"
+msgstr "Διαγραφή"
 
 #: ../src/modules/shortcuts/CustomKeybinding.qml:133
 msgid "Command"
-msgstr "Commande"
+msgstr "Εντολή"
 
 #: ../src/modules/account/DeleteUserDialog.qml:19
 msgid "Keep user's files"
-msgstr "Conserver les fichiers utilisateurs"
+msgstr "Διατήρηση αρχείων χρήστη"
 
 #: ../src/modules/account/DeleteUserDialog.qml:20
 msgid "Delete user's files"
-msgstr "Supprimer les fichiers utilisateurs "
+msgstr "Διαγραφή αρχείων χρήστη"
 
 #: ../src/modules/network/dsl/DslExpand.qml:19
 msgid "PPPoE Connections"
-msgstr "Connexions PPPoE"
+msgstr "PPPoE Συνδέσεις"
 
 #: ../src/modules/network/edit/EditLineMissingPackage.qml:15
 #, qt-format
 msgid "Current system lacks component for %1"
-msgstr "Le système actuel manque de composants pour %1"
+msgstr "Από το τρέχον σύστημα λέιπει το στοιχείο για %1"
 
 #: ../src/modules/network/edit/EditLineMissingPackage.qml:22
 msgid "Click to install"
-msgstr "Cliquer pour installer"
+msgstr "Κάντε κλικ για εγκατάσταση"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:11
 #: ../src/modules/network/main.qml:196
@@ -598,17 +599,17 @@ msgstr "Ethernet"
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:23
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:65
 msgid "Device MAC Addr"
-msgstr "MAC du périphérique "
+msgstr "Συσκευή διεύθυνση MAC"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:33
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:75
 msgid "Cloned MAC Addr"
-msgstr "MAC clonée"
+msgstr "Κλωνοποιημένη διεύθυνση MAC "
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:43
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:85
 msgid "Customize MTU"
-msgstr "MTU personnalisé"
+msgstr "Προσαρμογή MTU"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:53
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:107
@@ -623,22 +624,22 @@ msgstr "IPv4"
 #: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:23
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:23
 msgid "Method"
-msgstr "Méthode"
+msgstr "Μέθοδος"
 
 #: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:33
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:33
 #: ../src/modules/network/Info.qml:55
 msgid "IP Address"
-msgstr "Adresse IP"
+msgstr "Διεύθυνση IP"
 
 #: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:44
 msgid "Netmask"
-msgstr "Masque de sous-réseau"
+msgstr "Μάσκα Δικτύου"
 
 #: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:69
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:65
 msgid "DNS Server"
-msgstr "Serveur DNS"
+msgstr "Εξυπηρετητής DNS "
 
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:11
 msgid "IPv6"
@@ -646,24 +647,24 @@ msgstr "IPv6"
 
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:43
 msgid "Prefix"
-msgstr "Préfixe"
+msgstr "Πρόθεμα"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:11
 #: ../src/modules/network/main.qml:206
 msgid "Mobile"
-msgstr "Mobile"
+msgstr "Κινητό"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:73
 msgid "Network ID"
-msgstr "Identifiant du réseau"
+msgstr "Αναγνωριστικό δικτύου"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:83
 msgid "Type"
-msgstr "Type"
+msgstr "Τύπος"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:93
 msgid "Home Network Only"
-msgstr "Réseau domestique uniquement"
+msgstr "Μόνο τοπικό δίκτυο"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:103
 msgid "PIN"
@@ -681,70 +682,70 @@ msgstr "128-bit MPPE"
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:43
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:43
 msgid "Stateful MPPE"
-msgstr "MPPE en état"
+msgstr "MPPE με επίβλεψη κατάστασης"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:55
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:53
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:53
 msgid "Refuse EAP Authentication"
-msgstr "Refuser l'authentification EAP"
+msgstr "Άρνηση ελέγχου ταυτότητας EAP "
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:65
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:64
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:64
 msgid "Refuse PAP Authentication"
-msgstr "Refuser l'authentification PAP"
+msgstr "Απόρριψη ελέγχου ταυτότητας PAP "
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:75
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:75
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:75
 msgid "Refuse CHAP Authentication"
-msgstr "Refuser l'authentification CHAP"
+msgstr "Άρνηση ελέγχου ταυτότητας CHAP"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:85
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:86
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:86
 msgid "Refuse MSCHAP Authentication"
-msgstr "Refuser l'authentification MSCHAP"
+msgstr "Άρνηση ελέγχου ταυτότητας MSCHAP "
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:95
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:97
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:97
 msgid "Refuse MSCHAPv2 Authentication"
-msgstr "Refuser l'authentification MSCHAPv2"
+msgstr "Απόρριψη ελέγχου ταυτότητας MSCHAPv2 "
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:105
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:108
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:107
 msgid "No BSD Data Compression"
-msgstr "Pas de compression des données BSD"
+msgstr "Καμία συμπίεση δεδομένων BSD "
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:115
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:118
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:117
 msgid "No Deflate Data Compression"
-msgstr "Pas de compression des données Deflate"
+msgstr "No Deflate Data Compression"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:125
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:128
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:127
 msgid "No TCP Header Compression"
-msgstr "Pas de compression des En-tête TCP"
+msgstr "Καμία Συμπίεση Κεφαλίδας TCP "
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:135
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:158
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:137
 msgid "Send PPP Echo Packets"
-msgstr "Envoyer les paquets à répétition PPP"
+msgstr "Στείλε πακέτα αντήχησης PPP "
 
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:23
 msgid "Security Required"
-msgstr "Sécurité demandée"
+msgstr "Απαιτείται ασφάλεια"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:74
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:354
 msgid "NT Domain"
-msgstr "Domaine NT"
+msgstr "Τομέας NT "
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:11
 msgid "VPN IPsec"
@@ -757,149 +758,149 @@ msgstr "VPN PPP"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:138
 msgid "No Protocol Field Compression"
-msgstr "Pas de compression de champs des protocoles"
+msgstr "Καμία συμπίεση πεδίου πρωτοκόλλου"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:148
 msgid "No Address/Control Compression"
-msgstr "Pas de compression des adresses/contrôles"
+msgstr "Καμία συμπίεση Διεύθυνσης/Ελέγχου"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:11
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:11
 msgid "VPN Advanced"
-msgstr "VPN avancé"
+msgstr "Προχωρημένο VPN"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:33
 msgid "Gateway Port"
-msgstr "Port de la passerelle"
+msgstr "Θύρα Πύλης"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:23
 msgid "Customize Gateway Port"
-msgstr "Personnaliser port de la passerelle"
+msgstr "Προσαρμοσμένη Θύρα Πύλης"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:45
 msgid "Customize Renegotiation Interval"
-msgstr "Intervalle de renégociation personnalisé"
+msgstr "Προσαρμόστε το Διάστημα Επαναδιαπραγμάτευσης"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:55
 msgid "Renegotiation Interval"
-msgstr "Intervalle de renégociation"
+msgstr "Διάστημα επαναδιαπραγμάτευσης"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:67
 msgid "Use LZO data compression"
-msgstr "Utiliser la compression des données LZO"
+msgstr "Χρήση συμπίεσης δεδομένων LZO "
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:77
 msgid "Use TCP connection"
-msgstr "Utiliser une connexion TCP"
+msgstr "Χρήση σύνδεσης TCP "
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:87
 msgid "Use TAP device"
-msgstr "Utiliser un périphérique TAP"
+msgstr "Χρήση συσκευής TAP"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:97
 msgid "Customize Tunnel MTU"
-msgstr "Tunnel MTU personnalisé"
+msgstr "Προσαρμογή Tunnel MTU "
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:119
 msgid "Customize UDP Fragment Size"
-msgstr "Tailles de fragments UDP personnalisés"
+msgstr "Προσαρμογή Μεγέθους Τμήματος UDP"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
 msgid "UDP Fragment Size"
-msgstr "Taille de fragments UDP"
+msgstr "Μέγεθος τμήματος UDP "
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:141
 msgid "Restrict Tunnel TCP MSS"
-msgstr "Restreindre le Tunnel TCP MSS"
+msgstr "Περιορισμός διοχέτευσης TCP MSS "
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:151
 msgid "Randomize Remote Hosts"
-msgstr "Hôtes distants aléatoires"
+msgstr "Τυχαίος απομακρυσμένος κεντρικός υπολογιστής"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:11
 msgid "VPN Proxies"
-msgstr "Proxys VPN"
+msgstr "Διακομιστές VPN"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:23
 msgid "Proxy Type"
-msgstr "Type de proxy"
+msgstr "Τύπος διακομιστή"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:33
 msgid "Server IP"
-msgstr "IP du serveur"
+msgstr "IP διακομιστή"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:43
 #: ../src/modules/network/proxy/ProxyLine.qml:39
 msgid "Port"
-msgstr "Port"
+msgstr "Θύρα"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:55
 msgid "Retry Indefinitely When Failed"
-msgstr "Réessayer indéfiniment quand il y a échec"
+msgstr "Συνεχής προσπάθεια σε περίπτωση αποτυχίας"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:11
 msgid "VPN Security"
-msgstr "Sécurité du VPN"
+msgstr "Ασφάλεια VPN"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:23
 msgid "Cipher"
-msgstr "Code secret"
+msgstr "Κρυπτογράφηση"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:33
 msgid "HMAC Auth"
-msgstr "Authentification HMAC"
+msgstr "HMAC Auth "
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:11
 msgid "VPN TLS Authentication"
-msgstr "Authentification VPN TLS"
+msgstr "Έλεγχος ταυτότητας VPN TLS "
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:23
 msgid "Subject Match"
-msgstr "Le sujet correspond"
+msgstr "Συμφωνία θέματος"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:33
 msgid "Remote Cert Type"
-msgstr "Type du certificat distant"
+msgstr "Απομακρυσμένος τύπος πιστοποιητικού"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:43
 msgid "Key File"
-msgstr "Ficher clé"
+msgstr "Αρχείο κλειδιού"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:23
 msgid "Domain"
-msgstr "Domaine"
+msgstr "Τομέας"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:33
 msgid "Vendor"
-msgstr "Vendeur"
+msgstr "Προμηθευτής"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:43
 msgid "Version"
-msgstr "Version"
+msgstr "Έκδοση"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:53
 msgid "Encryption"
-msgstr "Chiffrement"
+msgstr "Κρυπτογράφηση"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:63
 msgid "NAT Traversal"
-msgstr "Traversée NAT"
+msgstr "Διέλευση NAT"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:73
 msgid "IKE DH Group"
-msgstr "Groupe IKE DH"
+msgstr "IKE DH Group "
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:83
 msgid "Forward Secrecy"
-msgstr "Transmettre le secret"
+msgstr "Άμεση Εμπιστευτικότητα"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:93
 msgid "Local Port"
-msgstr "Port local"
+msgstr "Τοπική Πύλη"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:105
 msgid "Disable Dead Peer Detection"
-msgstr "Désactiver la détection d'un pair mort"
+msgstr "Απενεργοποίηση Ανίχνευσης Dead Peer"
 
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:11
 msgid "Wi-Fi"
@@ -907,136 +908,136 @@ msgstr "Wi-Fi"
 
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:33
 msgid "Mode"
-msgstr "Mode"
+msgstr "Λειτουργία"
 
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:43
 msgid "Band"
-msgstr "Bande"
+msgstr "Mπάντα"
 
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:54
 msgid "Channel"
-msgstr "Canal"
+msgstr "Kανάλι"
 
 #: ../src/modules/account/EditUserDialog.qml:93
 msgid "Enable"
-msgstr "Activé"
+msgstr "Ενεργοποίηση"
 
 #: ../src/modules/sound/FadeLine.qml:31
 msgid "Front/Rear Balance"
-msgstr "Balance Avant/Arrière"
+msgstr "Μπροστά/Πίσω Ισορροπία"
 
 #: ../src/modules/sound/FadeLine.qml:55
 msgid "Front"
-msgstr "Avant"
+msgstr "Μπροστά"
 
 #: ../src/modules/sound/FadeLine.qml:53
 msgid "Rear"
-msgstr "Arrière"
+msgstr "Πίσω όψη"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:48
 msgid "Standard"
-msgstr "Standard"
+msgstr "Τυπικός"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:65
 msgid "Monospaced"
-msgstr "Mono"
+msgstr "Σταθερού πλάτους"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:80
 msgid "Size"
-msgstr "Taille"
+msgstr "Μέγεθος"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:109
 #, qt-format
 msgid "Font %1"
-msgstr "Police %1"
+msgstr "Γραμματοσειρά %1 "
 
 #: ../src/modules/account/GuestUser.qml:45 ../src/views/HeaderArea.qml:108
 msgid "Guest"
-msgstr "Invité"
+msgstr "Επισκέπτης"
 
 #: ../src/modules/account/GuestUser.qml:106
 #: ../src/modules/display/MonitorProperties.qml:80
 msgid "Enabled"
-msgstr "Activé"
+msgstr "Ενεργοποιημένο"
 
 #: ../src/modules/network/Info.qml:13
 msgid "Connected"
-msgstr "Connecté"
+msgstr "Συνδέθηκε"
 
 #: ../src/modules/network/Info.qml:15
 msgid "Not Connected"
-msgstr "Non Connecté"
+msgstr "Δεν συνδέθηκε"
 
 #: ../src/modules/network/Info.qml:39
 msgid "(default)"
-msgstr "(Par défaut)"
+msgstr "(προεπιλογή)"
 
 #: ../src/modules/network/Info.qml:50
 msgid "Interface"
-msgstr "Interface"
+msgstr "Περιβάλλον εργασίας"
 
 #: ../src/modules/network/Info.qml:54
 msgid "Device Addr"
-msgstr "Adresse du périphérique"
+msgstr "Συσκευή Διεύθ"
 
 #: ../src/modules/network/Info.qml:56
 msgid "Subnet Mask"
-msgstr "Masque de sous-réseau"
+msgstr "Μάσκα υποδικτύου"
 
 #: ../src/modules/network/Info.qml:57
 msgid "Route Addr"
-msgstr "Adresse routeur"
+msgstr "Gateway"
 
 #: ../src/modules/network/Info.qml:58
 msgid "Primary DNS"
-msgstr "DNS primaire"
+msgstr "Πρωτεύον DNS"
 
 #: ../src/modules/network/Info.qml:59
 msgid "Secondary DNS"
-msgstr "DNS secondaire"
+msgstr "Δευτερεύον DNS"
 
 #: ../src/modules/network/Info.qml:60
 msgid "Third DNS"
-msgstr "troisième DNS"
+msgstr "Τρίτος DNS"
 
 #: ../src/modules/network/Info.qml:69
 msgid "Device Speed"
-msgstr "Vitesse du périphérique"
+msgstr "Ταχύτητα Συσκευής"
 
 #: ../src/modules/keyboard/LocaleArea.qml:53
 msgid "Language"
-msgstr "Langage"
+msgstr "Γλώσσα"
 
 #: ../src/modules/display/MessageBox.qml:105
 msgid "Do you want to keep these display settings?"
-msgstr "Voulez vous garder ces paramètres d’affichage ?"
+msgstr "Θα θέλετε να διατηρήσετε αυτές τις ρυθμίσεις της οθόνης;"
 
 #: ../src/modules/display/MessageBox.qml:114
 #, qt-format
 msgid ""
 "Reverting to previous display settings in <font color='#F48914'>%1</font> "
 "seconds."
-msgstr "Retour aux paramètres d'affichage précédent dans <font color='#F48914'>%1</font> secondes."
+msgstr "Επαναφορά σε προηγούμενες ρυθμίσεις προβολής σε <font color='#F48914'>%1</font> δευτερόλεπτα."
 
 #: ../src/modules/display/MessageBox.qml:127
 msgid "Keep Changes"
-msgstr "Garder les changements"
+msgstr "Κρατήστε Αλλαγές"
 
 #: ../src/modules/display/MessageBox.qml:140
 msgid "Revert"
-msgstr "Rétablir"
+msgstr "Επαναφορά"
 
 #: ../src/views/ModulesData.qml:52
 msgid "Date and Time"
-msgstr "Date et Heure"
+msgstr "Ημερομηνία και Ώρα"
 
 #: ../src/views/ModulesData.qml:53
 msgid "Network"
-msgstr "Réseau"
+msgstr "Δίκτυο"
 
 #: ../src/views/ModulesData.qml:54
 msgid "Disk Mount"
-msgstr "Disque monté"
+msgstr "Μοντάρισμα Δίσκου"
 
 #: ../src/views/ModulesData.qml:55 ../src/modules/network/main.qml:172
 msgid "Bluetooth"
@@ -1044,369 +1045,369 @@ msgstr "Bluetooth"
 
 #: ../src/views/ModulesData.qml:56
 msgid "Sound"
-msgstr "Son"
+msgstr "Ήχος"
 
 #: ../src/views/ModulesData.qml:57
 msgid "Power Management"
-msgstr "Gestion de l'alimentation"
+msgstr "Διαχείριση Ισχύος"
 
 #: ../src/views/ModulesData.qml:58
 msgid "More Settings"
-msgstr "Plus de réglages"
+msgstr "Περισσότερες Ρυθμίσεις"
 
 #: ../src/views/ModulesData.qml:59 ../src/views/PanelContent.qml:473
 msgid "Power"
-msgstr "Arrêter"
+msgstr "Ισχύς"
 
 #: ../src/views/ModulesData.qml:60
 msgid "Display"
-msgstr "Affichage"
+msgstr "Οθόνη"
 
 #: ../src/views/ModulesData.qml:61
 msgid "Desktop"
-msgstr "Bureau"
+msgstr "Επιφάνεια εργασίας"
 
 #: ../src/views/ModulesData.qml:62
 msgid "Personalization"
-msgstr "Personnalisation"
+msgstr "Εξατομίκευση"
 
 #: ../src/views/ModulesData.qml:63
 msgid "Keyboard Shortcuts"
-msgstr "Raccourcis clavier"
+msgstr "Συντομεύσεις Πληκτρολογίου"
 
 #: ../src/views/ModulesData.qml:64
 msgid "Keyboard and Language"
-msgstr "Clavier et language"
+msgstr "Πληκτρολόγιο και Γλώσσα"
 
 #: ../src/views/ModulesData.qml:65
 msgid "Tablet"
-msgstr "Tablette"
+msgstr "Ταμπλέτα"
 
 #: ../src/views/ModulesData.qml:66
 msgid "Mouse and Touchpad"
-msgstr "Souris et Touchpad"
+msgstr "Ποντίκι και Touchpad"
 
 #: ../src/views/ModulesData.qml:67 ../src/modules/mouse_touchpad/main.qml:50
 msgid "Mouse"
-msgstr "Souris"
+msgstr "Ποντίκι"
 
 #: ../src/views/ModulesData.qml:68
 msgid "User Accounts"
-msgstr "Comptes utilisateurs"
+msgstr "Λογαριασμοί Χρήστη"
 
 #: ../src/views/ModulesData.qml:69
 #: ../src/modules/default_applications/main.qml:85
 msgid "Default Applications"
-msgstr "Applications par défaut"
+msgstr "Προεπιλεγμένες Εφαρμογές"
 
 #: ../src/views/ModulesData.qml:70
 msgid "System Information"
-msgstr "Informations du système"
+msgstr "Πληροφορίες Συστήματος"
 
 #: ../src/views/ModulesData.qml:71
 msgid "Boot Menu"
-msgstr "Menu démarrer"
+msgstr "Μενού Εκκίνησης"
 
 #: ../src/views/ModulesData.qml:72
 msgid "Home"
-msgstr "Dossier personnel "
+msgstr "Αρχική"
 
 #: ../src/modules/display/MonitorComponent.qml:185
 msgid "Split"
-msgstr "Diviser"
+msgstr "Χωρισμός"
 
 #: ../src/modules/display/MonitorComponent.qml:236
 msgid "Set as primary display"
-msgstr "Sélectionner comme affichage principal"
+msgstr "Ορισμός ως πρωτεύουσα οθόνη"
 
 #: ../src/modules/display/MonitorDragArea.qml:463
 msgid "Identify"
-msgstr "Identifier"
+msgstr "Αναγνώριση"
 
 #: ../src/modules/display/MonitorDragArea.qml:480
 msgid "Edit"
-msgstr "Éditer"
+msgstr "Επεξεργασία"
 
 #: ../src/modules/display/MonitorProperties.qml:47
 msgid "Normal"
-msgstr "Normal"
+msgstr "Κανονικό"
 
 #: ../src/modules/display/MonitorProperties.qml:48
 msgid "Rotate Right"
-msgstr "Faire une rotation sur la droite"
+msgstr "Περιστροφή προς τα δεξιά"
 
 #: ../src/modules/display/MonitorProperties.qml:49
 msgid "Upside Down"
-msgstr "De haut en bas"
+msgstr "Ανάποδα"
 
 #: ../src/modules/display/MonitorProperties.qml:50
 msgid "Rotate Left"
-msgstr "Faire une rotation sur la gauche"
+msgstr "Περιστροφή προς τα αριστερά"
 
 #: ../src/modules/display/MonitorProperties.qml:112
 msgid "Resolution"
-msgstr "Résolution"
+msgstr "Ανάλυση"
 
 #: ../src/modules/display/MonitorProperties.qml:165
 msgid "Rotation"
-msgstr "Rotation"
+msgstr "Περιστροφή"
 
 #: ../src/modules/display/MonitorProperties.qml:206
 msgid "Brightness"
-msgstr "Luminosité"
+msgstr "Φωτεινότητα"
 
 #: ../src/modules/network/wired/NewItem.qml:45
 #: ../src/modules/network/wired/WiredItem.qml:89
 #, qt-format
 msgid "Wired Connection %1"
-msgstr "Connexion filaire %1"
+msgstr "Ενσύρματη Σύνδεση %1"
 
 #: ../src/modules/network/wired/NewItem.qml:47
 #: ../src/modules/network/wired/WiredItem.qml:91
 msgid "Wired Connection"
-msgstr "Connexion filaire"
+msgstr "Ενσύρματη Σύνδεση"
 
 #: ../src/modules/network/widgets/NotManagedSection.qml:25
 msgid "not managed"
-msgstr "Pas réussi"
+msgstr "δεν διαχειρίζεται"
 
 #: ../src/modules/network/widgets/PasswordBox.qml:102
 msgid "Auto-connect"
-msgstr "Auto-connection"
+msgstr "Αυτόματη σύνδεση"
 
 #: ../src/modules/account/PasswordDialog.qml:114
 msgid "New Password"
-msgstr "Nouveau mot de passe"
+msgstr "Νέος Κωδικός Πρόσβασης"
 
 #: ../src/modules/account/PasswordDialog.qml:159
 msgid "Repeat"
-msgstr "Répéter"
+msgstr "Επανάληψη"
 
 #: ../src/modules/grub/Preview.qml:122
 msgid "Drag and drop an image to change background."
-msgstr "Glisser et déposer une image pour changer de fond d'écran."
+msgstr "Μεταφέρετε και αποθέστε μια εικόνα για να αλλάξετε φόντο."
 
 #: ../src/modules/grub/Preview.qml:123 ../src/modules/account/UserList.qml:233
 msgid "Image format not supported"
-msgstr "Format d'image non accepté."
+msgstr "Ο τύπος της εικόνας δεν υποστηρίζεται"
 
 #: ../src/modules/grub/Preview.qml:124
 msgid "Updating..."
-msgstr "Mise à jour..."
+msgstr "Ενημέρωση..."
 
 #: ../src/modules/grub/Preview.qml:125
 msgid "Successfully updated, reboot to view."
-msgstr "Mise-à-jour effectuée avec succès, redémarrer pour appliquer."
+msgstr "Επιτυχής ενημέρωση, επανεκκινήστε να δείτε."
 
 #: ../src/modules/network/proxy/ProxyContent.qml:43
 #: ../src/modules/shortcuts/ShortcutInput.qml:108
 #: ../src/modules/date_time/main.qml:183
 msgid "None"
-msgstr "Aucun"
+msgstr "Κανένα"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:48
 msgid "Manual"
-msgstr "Manuel"
+msgstr "Xειροκίνητο"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:53
 msgid "Auto"
-msgstr "Automatique"
+msgstr "Αυτόματο"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:88
 msgid "HTTP Proxy"
-msgstr "Proxy HTTP"
+msgstr "HTTP Διακομιστής Μεσολάβησης"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:100
 msgid "HTTPS Proxy"
-msgstr "Proxy HTTPS"
+msgstr "HTTPS Διακομιστής Μεσολάβησης"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:112
 msgid "FTP Proxy"
-msgstr "Proxy FTP"
+msgstr "FTP Διακομιστής Μεσολάβησης"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:124
 msgid "Socks Proxy"
-msgstr "Socks Proxy"
+msgstr "Socks Διακομιστής Μεσολάβησης"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:149
 msgid "Configuration URL"
-msgstr "URL de configuration"
+msgstr "URL ρύθμισης παραμέτρων"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:166
 msgid "Apply system wide"
-msgstr "Appliquer la largeur sur le système"
+msgstr "Εφαρμογή σε ολόκληρο το σύστημα"
 
 #: ../src/modules/network/proxy/ProxyExpand.qml:37
 msgid "System Proxy"
-msgstr "Proxy système"
+msgstr "Σύστημα μεσολάβησης"
 
 #: ../src/modules/shared/ResetButton.qml:39
 msgid "Reset successfully"
-msgstr "Réinitialisation réussie"
+msgstr "Επιτυχής επαναφορά"
 
 #: ../src/modules/shared/ResetButton.qml:47
 msgid "Reset"
-msgstr "Réinitialiser "
+msgstr "Επαναφορά"
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:126
 msgid "Please input new shortcut"
-msgstr "Nommer le nouveau raccourci"
+msgstr "Παρακαλώ εισάγετε νέα συντόμευση"
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:226
 #, qt-format
 msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
-msgstr "Le raccourci \"%1\" est invalide, veuillez créer un nouveau raccourci."
+msgstr "Συντόμευση \"% 1\" δεν είναι έγκυρο, παρακαλώ πληκτρολογήστε ξανά νέα συντόμευση."
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:264
 msgid "The shortcut you set "
-msgstr "Le raccourci que vous avez paramétré"
+msgstr "Η συντόμευση που ορίσατε"
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:267
 #, qt-format
 msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
-msgstr "Présence de conflits avec un \"%2\" dans la catégorie \"%1\"."
+msgstr "διενέξεις με αυτό που χρησιμοποιείται για το \"%2\" στην κατηγορία \"%1\""
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:269
 msgid "Do you want to replace it?"
-msgstr "Voulez vous le remplacer ?"
+msgstr "Θέλετε να το αντικαταστήσετε;"
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:327
 msgid "Replace"
-msgstr "Remplacer "
+msgstr "Αντικατάσταση"
 
 #: ../src/modules/personalization/widgets/ShowPreviewButton.qml:53
 msgid "Preview Theme"
-msgstr "Prévisualiser le thème"
+msgstr "Προεπισκόπηση Θέματος"
 
 #: ../src/modules/date_time/StateButtons.qml:34
 #: ../src/modules/keyboard/StateButtons.qml:34
 #: ../src/modules/shortcuts/StateButtons.qml:38
 msgid "Done"
-msgstr "Fait"
+msgstr "Τέλος"
 
 #: ../src/modules/date_time/StateButtons.qml:35
 #: ../src/modules/date_time/StateButtons.qml:49
 #: ../src/modules/date_time/TimezoneArea.qml:418
 msgid "Close"
-msgstr "Fermer"
+msgstr "Κλείσιμο"
 
 #: ../src/modules/date_time/StateButtons.qml:72
 msgid "Delete Time Zone"
-msgstr "Supprimer la zone de temps"
+msgstr "Διαγραφή Ζώνη Ώρας"
 
 #: ../src/modules/date_time/StateButtons.qml:88
 msgid "Add Time Zone"
-msgstr "Ajouter une zone de temps"
+msgstr "Προσθήκη Ζώνης Ώρας"
 
 #: ../src/modules/keyboard/StateButtons.qml:77
 msgid "Delete Keyboard Layout"
-msgstr "Supprimer le language clavier"
+msgstr "Διαγραφή Διάταξης Πληκτρολογίου"
 
 #: ../src/modules/keyboard/StateButtons.qml:92
 msgid "Add Keyboard Layout"
-msgstr "Ajouter un language clavier"
+msgstr "Προσθήκη Διάταξης Πληκτρολογίου"
 
 #: ../src/modules/shortcuts/StateButtons.qml:80
 msgid "Delete Shortcut"
-msgstr "Supprimer raccourci"
+msgstr "Διαγραφή Συντόμευσης"
 
 #: ../src/modules/shortcuts/StateButtons.qml:96
 msgid "Add Shortcut"
-msgstr "Ajouter raccourci"
+msgstr "Προσθήκη Συντόμευσης"
 
 #: ../src/modules/personalization/widgets/ThemeItem.qml:92
 #: ../src/modules/power/main.qml:282 ../src/modules/power/main.qml:477
 #: ../src/modules/shortcuts/main.qml:53 ../src/modules/shortcuts/main.qml:233
 msgid "Custom"
-msgstr "Personnalisé"
+msgstr "Προσαρμοσμένο"
 
 #: ../src/modules/date_time/TimeBox.qml:161
 msgid "Double-click the above digits to change your time."
-msgstr "Double-clic sur les nombres ci-dessus pour changer l'heure."
+msgstr "Κάντε διπλό κλικ στα παραπάνω ψηφία για να αλλάξετε την ώρα σας."
 
 #: ../src/modules/date_time/TimeBox.qml:202
 msgid "Set"
-msgstr "Paramétrer"
+msgstr "Ορισμός"
 
 #: ../src/modules/date_time/TimezoneArea.qml:239
 msgid "Time zone"
-msgstr "Zone horaire"
+msgstr "Ζώνη ώρας"
 
 #: ../src/views/TmpTranslationFile.qml:8
 msgid "Display Modes"
-msgstr "Afficher les différents modes"
+msgstr "Λειτουργείες εμφάνισης"
 
 #: ../src/views/TmpTranslationFile.qml:12
 msgid "Copy"
-msgstr "Copier "
+msgstr "Αντιγραφή"
 
 #: ../src/views/TmpTranslationFile.qml:16
 msgid "Copy the contents of your primary screen to other screens."
-msgstr "Copier l'affichage du premier écran virtuel aux autres écrans."
+msgstr "Αντιγράψτε τα περιεχόμενα της κύριας οθόνης σας σε άλλες οθόνες."
 
 #: ../src/views/TmpTranslationFile.qml:20
 msgid "Extend"
-msgstr "Etendre"
+msgstr "Επέκταση"
 
 #: ../src/views/TmpTranslationFile.qml:24
 msgid ""
 "Extend your screen contents. Different contents will be displayed on "
 "different screens."
-msgstr "Différents affichages peuvent êtres appliqués indépendamment, sur chaques écrans."
+msgstr "Επεκτείνετε τα περιεχόμενα οθόνης. Διαφορετικά περιεχόμενα θα εμφανίζονται σε διαφορετικές οθόνες."
 
 #: ../src/views/TmpTranslationFile.qml:28
 #, qt-format
 msgid "Only Displayed on %1"
-msgstr "Afficher uniquement sur %1"
+msgstr "Εμφανίζεται μόνο στο %1 "
 
 #: ../src/views/TmpTranslationFile.qml:32
 #, qt-format
 msgid "Screen contents are only displayed on %1 but not on other screens."
-msgstr "L'affichage est uniquement sur %1 mais pas aux autres écrans."
+msgstr "Τα περιεχόμενα οθόνης εμφανίζονται μόνο στο %1 αλλά σε καμία άλλη οθόνη."
 
 #: ../src/views/TmpTranslationFile.qml:36
 msgid "Custom Settings"
-msgstr "Paramètres personnels"
+msgstr "Προσαρμοσμένες ρυθμίσεις"
 
 #: ../src/views/TmpTranslationFile.qml:40
 msgid "You can do other custom settings to your screens."
-msgstr "Vous pouvez appliquer d'autres paramètres pour vos écrans."
+msgstr "Μπορείτε να κάνετε και άλλες προσαρμοσμένες ρυθμίσεις στις οθόνες σου."
 
 #: ../src/views/TmpTranslationFile.qml:44
 msgid "Double-click this area to change your time"
-msgstr "Double-clic dans cette zone pour changer l'heure"
+msgstr "Κάντε διπλό κλικ σε αυτήν την περιοχή για να αλλάξετε την ώρα"
 
 #: ../src/views/TmpTranslationFile.qml:48
 msgid "Account information is being prepared..."
-msgstr "Les informations du compte sont en cours de préparation..."
+msgstr "Ετοιμάζονται οι πληροφορίες λογαριασμού..."
 
 #: ../src/views/TmpTranslationFile.qml:52
 msgid "Primary Screen"
-msgstr "Écran principal"
+msgstr "Κύριο οθόνη"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
 msgid "Touchpad"
-msgstr "Pavé tactile"
+msgstr "Touchpad"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:82
 #: ../src/modules/mouse_touchpad/main.qml:83
 msgid "Primary Button"
-msgstr "Bouton principal"
+msgstr "Πρωτεύον Πλήκτρο"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:91
 #: ../src/modules/mouse_touchpad/main.qml:91
 msgid "Left Button"
-msgstr "Bouton gauche"
+msgstr "Αριστερό Πλήκτρο"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:92
 #: ../src/modules/mouse_touchpad/main.qml:92
 msgid "Right Button"
-msgstr "Bouton droit"
+msgstr "Δεξί Πλήκτρο"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:117
 #: ../src/modules/mouse_touchpad/main.qml:117
 msgid "Pointer Speed"
-msgstr "Vitesse du pointeur"
+msgstr "Ταχύτητα Δείκτη"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:134
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:171
@@ -1414,7 +1415,7 @@ msgstr "Vitesse du pointeur"
 #: ../src/modules/mouse_touchpad/main.qml:133
 #: ../src/modules/mouse_touchpad/main.qml:169
 msgid "Slow"
-msgstr "Lent"
+msgstr "Αργή"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:135
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:172
@@ -1422,83 +1423,83 @@ msgstr "Lent"
 #: ../src/modules/mouse_touchpad/main.qml:134
 #: ../src/modules/mouse_touchpad/main.qml:170
 msgid "Fast"
-msgstr "Rapide"
+msgstr "Γρήγορη"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:154
 #: ../src/modules/mouse_touchpad/main.qml:153
 msgid "Double-click Speed"
-msgstr "Vitesse du double clic"
+msgstr "Ταχύτητα Διπλού Κλικ"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:192
 msgid "Drag Threshold"
-msgstr "Seuil de défilement"
+msgstr "Σύρετε το Όριο"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:208
 #: ../src/modules/keyboard/main.qml:155
 msgid "Short"
-msgstr "Court"
+msgstr "Σύντομο"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:209
 #: ../src/modules/keyboard/main.qml:156
 msgid "Long"
-msgstr "Long"
+msgstr "Μακρύ"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:228
 msgid "Natural Scrolling"
-msgstr "Défilement naturel"
+msgstr "Κύλιση πραγματικής κατεύθυνσης"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:252
 msgid "Tap to click"
-msgstr "Tapoter pour cliquer"
+msgstr "Πατήστε για κλικ"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:275
 msgid "Two-finger scrolling"
-msgstr "Défiler avec deux doigt "
+msgstr "Κύλιση με δύο δάχτυλα"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:298
 msgid "Edge scrolling"
-msgstr "Défilement du bord"
+msgstr "Κύλιση ακμής"
 
 #: ../src/modules/network/vpn/VpnExpand.qml:48
 msgid "VPN Connections"
-msgstr "Connexions VPN"
+msgstr "Συνδέσεις VPN"
 
 #: ../src/modules/account/WebCam.qml:125 ../src/modules/account/WebCam.qml:140
 msgid "Snapshot"
-msgstr "Instantané"
+msgstr "Στιγμιότυπο"
 
 #: ../src/modules/account/WebCam.qml:136
 msgid "Again"
-msgstr "Encore"
+msgstr "Ξανά"
 
 #: ../src/modules/account/WebCam.qml:175
 msgid "No camera found."
-msgstr "Aucune caméra trouvée."
+msgstr "Δε βρέθηκε κάμερα."
 
 #: ../src/modules/network/wireless/WifiHotspot.qml:23
 msgid "Edit Wi-Fi Hotspot"
-msgstr "Modifier le point d’accès Wi-Fi"
+msgstr "Επεξεργασία Wi-Fi Hotspot"
 
 #: ../src/modules/network/wireless/WifiHotspot.qml:23
 msgid "Create Wi-Fi Hotspot"
-msgstr "Créer un point d’accès Wi-Fi"
+msgstr "Δημιουργία Wi-Fi Hotspot"
 
 #: ../src/modules/network/wireless/WifiHotspot.qml:91
 msgid "Create"
-msgstr "Créer"
+msgstr "Δημιουργία"
 
 #: ../src/modules/network/wired/WiredDeviceExpand.qml:38
 msgid "Wired Network"
-msgstr "Réseau filaire"
+msgstr "Ενσύρματο Δίκτυο"
 
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:28
 msgid "Wireless Network"
-msgstr "Réseau sans fil"
+msgstr "Ασύρματο Δίκτυο"
 
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:26
 #, qt-format
 msgid "Wireless Network %1"
-msgstr "Réseau sans fil %1"
+msgstr "Ασύρματο Δίκτυο %1"
 
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:55
 msgid ""
@@ -1507,213 +1508,213 @@ msgid ""
 "1. The hardware switch of wireless network card is off\n"
 "2. Incorrect network configuration in /etc/network/interface\n"
 "3. Incorrect driver of network hardware"
-msgstr "Le réseau sans fil n'est pas en mesure de se connecter, peut-être dû aux raisons suivantes\n\n1.Le connecteur WIFI est en position off\n2.La configuration du réseau dans /etc/network/interface est incorrecte\n3.Mauvais pilote de la carte réseau"
+msgstr "Το ασύρματο δίκτυο δεν είναι σε θέση να συνδεθεί ίσως οφείλεται στους εξής λόγους:\n\n1. Ο διακόπτης υλικού της κάρτας ασύρματου δικτύου είναι σβηστός\n2. Λανθασμένη διαμόρφωση δικτύου στο /etc/network/interface\n3. Λάθος οδηγός του υλικού δικτύου"
 
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:35
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:158
 msgid "Connect to hidden access point"
-msgstr "Se connecter à un point d'accès caché "
+msgstr "Σύνδεση σε κρυφό σημείο πρόσβασης"
 
 #: ../src/modules/power/main.qml:270 ../src/modules/power/main.qml:465
 msgid "Power saver"
-msgstr "Économie d'énergie"
+msgstr "Εξοικονόμηση Ενέργειας"
 
 #: ../src/modules/power/main.qml:264 ../src/modules/power/main.qml:459
 msgid "Balanced"
-msgstr "Équilibré"
+msgstr "Ισορροπημένη"
 
 #: ../src/modules/power/main.qml:276 ../src/modules/power/main.qml:471
 msgid "High performance"
-msgstr "Hautes performances"
+msgstr "Υψηλή απόδοση"
 
 #: ../src/modules/date_time/main.qml:108
 msgid "Automatic date and time"
-msgstr "Réglage automatique"
+msgstr "Αυτόματη ημερομηνία και ώρα"
 
 #: ../src/modules/date_time/main.qml:126
 msgid "Use 24-hour clock"
-msgstr "Utiliser le format 24 heures"
+msgstr "Χρήση ρολογιού 24 ωρών"
 
 #: ../src/modules/date_time/main.qml:158
 msgid "Adjust DST clock "
-msgstr "Régler à l'heure d'été"
+msgstr "Προσαρμογή DST ρολόι"
 
 #: ../src/modules/date_time/main.qml:235
 msgid "Date"
-msgstr "Date"
+msgstr "Ημερομηνία"
 
 #: ../src/modules/date_time/main.qml:239
 msgid "Set Date"
-msgstr "Régler la date"
+msgstr "Ορισμός Ημερομηνίας"
 
 #: ../src/modules/default_applications/main.qml:97
 msgid "Browser"
-msgstr "Navigateur"
+msgstr "Περιηγητές"
 
 #: ../src/modules/default_applications/main.qml:111
 msgid "Mail"
-msgstr "Courrier"
+msgstr "Αλληλογραφία"
 
 #: ../src/modules/default_applications/main.qml:122
 msgid "Text"
-msgstr "Texte"
+msgstr "Κείμενο"
 
 #: ../src/modules/default_applications/main.qml:128
 msgid "Music"
-msgstr "Musique"
+msgstr "Μουσική"
 
 #: ../src/modules/default_applications/main.qml:159
 msgid "Video"
-msgstr "Vidéo"
+msgstr "Βίντεο"
 
 #: ../src/modules/default_applications/main.qml:191
 msgid "Picture"
-msgstr "Image"
+msgstr "Εικόνα"
 
 #: ../src/modules/default_applications/main.qml:209
 msgid "Terminal"
-msgstr "Terminal"
+msgstr "Τερματικό"
 
 #: ../src/modules/default_applications/main.qml:268
 msgid "AutoPlay"
-msgstr "Lecture automatique"
+msgstr "Αυτόματη Αναπαραγωγή"
 
 #: ../src/modules/default_applications/main.qml:283
 msgid "CD Audio"
-msgstr "CD Audio"
+msgstr "CD Ήχου"
 
 #: ../src/modules/default_applications/main.qml:288
 msgid "DVD Video"
-msgstr "DVD Vidéo"
+msgstr "DVD Βίντεο"
 
 #: ../src/modules/default_applications/main.qml:293
 msgid "Music Player"
-msgstr "Lecteur de musique"
+msgstr "Πρόγραμμα Αναπαραγωγής Μουσικής"
 
 #: ../src/modules/default_applications/main.qml:298
 msgid "Camera"
-msgstr "Photo"
+msgstr "Κάμερα"
 
 #: ../src/modules/default_applications/main.qml:303
 msgid "Software"
-msgstr "Logiciel"
+msgstr "Λογισμικό"
 
 #: ../src/modules/display/main.qml:126
 msgid "Primary Monitor: "
-msgstr "Écran principal :"
+msgstr "Πρωτεύουσα Οθόνη:"
 
 #: ../src/modules/display/main.qml:171
 msgid "Monitor"
-msgstr "Écran"
+msgstr "Παρακολούθηση"
 
 #: ../src/modules/grub/main.qml:112
 msgid "Default Boot"
-msgstr "Démarrage par défault"
+msgstr "Προεπιλεγμένη εκκίνηση"
 
 #: ../src/modules/grub/main.qml:167
 msgid "Boot delay"
-msgstr "Délai de démarrage"
+msgstr "Καθυστέρηση εκκίνησης"
 
 #: ../src/modules/grub/main.qml:206
 msgid "Text Color"
-msgstr "Couleur du texte"
+msgstr "Χρώμα Κειμένου"
 
 #: ../src/modules/grub/main.qml:239
 msgid "Selected Text Color"
-msgstr "Couleur de texte sélectionnée"
+msgstr "Χρώμα Επιλεγμένου Κειμένου"
 
 #: ../src/modules/keyboard/main.qml:141
 msgid "Repeat Delay"
-msgstr "Délai de répétition "
+msgstr "Επανάληψη Καθυστέρησης"
 
 #: ../src/modules/keyboard/main.qml:166
 msgid "Repeat Rate"
-msgstr "Taux de répétition"
+msgstr "Ρυθμός επανάληψης"
 
 #: ../src/modules/keyboard/main.qml:192
 msgid "Cursor Blink Rate"
-msgstr "Vitesse de clignotement du curseur"
+msgstr "Ρυθμός εναλλαγής φωτεινότητας δρομέα"
 
 #: ../src/modules/keyboard/main.qml:219
 msgid "Test Area"
-msgstr "Zone de test"
+msgstr "Περιοχή Δοκιμής"
 
 #: ../src/modules/keyboard/main.qml:265
 msgid "Keyboard Layout"
-msgstr "Disposition du clavier"
+msgstr "Διάταξη Πληκτρολογίου"
 
 #: ../src/modules/keyboard/main.qml:476
 msgid "No result"
-msgstr "Pas de résultat"
+msgstr "Κανένα αποτέλεσμα"
 
 #: ../src/modules/keyboard/main.qml:239
 msgid "Caps Lock prompt"
-msgstr "Pavé numérique verrouillé"
+msgstr "Ειδοποίηση πλήκτρου Caps Lock"
 
 #: ../src/modules/mouse_touchpad/main.qml:190
 msgid "Disable the touchpad when inserting the mouse"
-msgstr "Désactiver le pavé tactile lorsqu'une souris est connecté"
+msgstr "Απενεργοποιήστε το touchpad όταν συνδέσετε το ποντίκι"
 
 #: ../src/modules/personalization/main.qml:112
 msgid "Theme"
-msgstr "Thème"
+msgstr "Θέμα"
 
 #: ../src/modules/personalization/main.qml:119
 #: ../src/modules/shortcuts/main.qml:51
 msgid "Window"
-msgstr "Fenêtre"
+msgstr "Παράθυρο"
 
 #: ../src/modules/personalization/main.qml:126
 msgid "Icon"
-msgstr "Icône"
+msgstr "Εικονίδια"
 
 #: ../src/modules/personalization/main.qml:133
 msgid "Cursor"
-msgstr "Curseur"
+msgstr "Κέρσορας"
 
 #: ../src/modules/personalization/main.qml:140
 msgid "Wallpaper"
-msgstr "Fond d’écran "
+msgstr "Ταπετσαρία"
 
 #: ../src/modules/personalization/main.qml:154
 msgid "Fonts"
-msgstr "Polices"
+msgstr "Γραμματοσειρές"
 
 #: ../src/modules/power/main.qml:53 ../src/modules/power/main.qml:65
 msgid "Never"
-msgstr "Jamais"
+msgstr "Ποτέ"
 
 #: ../src/modules/power/main.qml:59
 msgid "1 minute"
-msgstr "1 minute"
+msgstr "1 λεπτό"
 
 #: ../src/modules/power/main.qml:60
 msgid "5 minutes"
-msgstr "5 minutes"
+msgstr "5 λεπτά"
 
 #: ../src/modules/power/main.qml:61
 msgid "10 minutes"
-msgstr "10 minutes"
+msgstr "10 λεπτά"
 
 #: ../src/modules/power/main.qml:62
 msgid "15 minutes"
-msgstr "15 minutes"
+msgstr "15 λεπτά"
 
 #: ../src/modules/power/main.qml:63
 msgid "30 minutes"
-msgstr "30 minutes"
+msgstr "30 λεπτά"
 
 #: ../src/modules/power/main.qml:64
 msgid "1 hour"
-msgstr "1 heure"
+msgstr "1 ώρα"
 
 #: ../src/modules/power/main.qml:136
 msgid "When I press the power button"
-msgstr "Quand j'appuie sur le bouton d'alimentation"
+msgstr "Όταν πατήσω το κουμπί τροφοδοσίας"
 
 #: ../src/modules/power/main.qml:150 ../src/modules/power/main.qml:196
 msgid "Shutdown"
-msgstr "Arrêter"
+msgstr "Τερματισμός λειτουργίας"
 
 #: ../src/modules/power/main.qml:155 ../src/modules/power/main.qml:201
 #: ../src/modules/power/main.qml:267 ../src/modules/power/main.qml:273
@@ -1722,31 +1723,31 @@ msgstr "Arrêter"
 #: ../src/modules/power/main.qml:468 ../src/modules/power/main.qml:474
 #: ../src/modules/power/main.qml:480 ../src/modules/power/main.qml:579
 msgid "Suspend"
-msgstr "Mettre en veille "
+msgstr "Αναστολή λειτουργίας"
 
 #: ../src/modules/power/main.qml:160
 msgid "Ask"
-msgstr "Me demander"
+msgstr "Ερώτηση"
 
 #: ../src/modules/power/main.qml:182
 msgid "When I close the lid"
-msgstr "Quand je ferme le couvercle"
+msgstr "Όταν κλείσω το καπάκι"
 
 #: ../src/modules/power/main.qml:206
 msgid "Nothing"
-msgstr "Aucun"
+msgstr "Τίποτα"
 
 #: ../src/modules/power/main.qml:225
 msgid "Password required to wake up"
-msgstr "Mot de passe requis pour sortir de veille"
+msgstr "Απαιτείται κωδικός για αφύπνιση"
 
 #: ../src/modules/power/main.qml:249
 msgid "Plugged in"
-msgstr "Mode alimentation"
+msgstr "Στην πρίζα"
 
 #: ../src/modules/power/main.qml:444
 msgid "On battery"
-msgstr "Sur batterie"
+msgstr "Με μπαταρία"
 
 #: ../src/modules/power/main.qml:266 ../src/modules/power/main.qml:272
 #: ../src/modules/power/main.qml:278 ../src/modules/power/main.qml:284
@@ -1754,79 +1755,79 @@ msgstr "Sur batterie"
 #: ../src/modules/power/main.qml:467 ../src/modules/power/main.qml:473
 #: ../src/modules/power/main.qml:479 ../src/modules/power/main.qml:539
 msgid "Turn off the display"
-msgstr "Désactiver l'affichage"
+msgstr "Απενεργοποιήστε την οθόνη"
 
 #: ../src/modules/power/main.qml:344 ../src/modules/power/main.qml:534
 msgid "Custom Options"
-msgstr "Options personnalisées"
+msgstr "Προσαρμοσμένες Επιλογές"
 
 #: ../src/modules/shortcuts/main.qml:49
 msgid "System"
-msgstr "Système"
+msgstr "Σύστημα"
 
 #: ../src/modules/shortcuts/main.qml:52
 msgid "Workspace"
-msgstr "Espace de travail"
+msgstr "Χώρος εργασίας"
 
 #: ../src/modules/sound/main.qml:127
 msgid "Speaker"
-msgstr "Haut-parleur"
+msgstr "Ομιλητής"
 
 #: ../src/modules/sound/main.qml:157
 msgid "Output Volume"
-msgstr "Volume de sortie"
+msgstr "Όγκος εξόδου"
 
 #: ../src/modules/sound/main.qml:222
 msgid "Microphone"
-msgstr "Micro"
+msgstr "Μικρόφωνο"
 
 #: ../src/modules/sound/main.qml:252
 msgid "Input Volume"
-msgstr "Volume d'entrée"
+msgstr "Ένταση Εισόδου"
 
 #: ../src/modules/sound/main.qml:296
 msgid "Input Feedback"
-msgstr "Effet larsen"
+msgstr "Εισαγωγή Σχολίων"
 
 #: ../src/modules/sound/main.qml:332
 msgid "Output Port"
-msgstr "Source de sortie"
+msgstr "Θύρα Εξόδου"
 
 #: ../src/modules/sound/main.qml:349 ../src/modules/sound/main.qml:452
 msgid "No port exists in this device."
-msgstr "Aucun port existant pour ce périphérique"
+msgstr "Δεν υπάρχει θύρα σε αυτήν την συσκευή"
 
 #: ../src/modules/sound/main.qml:387
 msgid "Output device"
-msgstr "Périphérique de sortie"
+msgstr "Συσκευή Εξόδου"
 
 #: ../src/modules/sound/main.qml:435
 msgid "Input Port"
-msgstr "Source d'entrée "
+msgstr "Θύρα Εισόδου"
 
 #: ../src/modules/sound/main.qml:490
 msgid "Input device"
-msgstr "Périphérique d'entrée"
+msgstr "Συσκευή Εισόδου"
 
 #: ../src/modules/sound/main.qml:543
 msgid "Hide Advanced..."
-msgstr "Cacher les options avancées ..."
+msgstr "Απόκρυψη Προχωρημένων..."
 
 #: ../src/modules/sound/main.qml:543
 msgid "Show Advanced..."
-msgstr "Montrer les options avancées"
+msgstr "Εμφάνιση προχωρημένου"
 
 #: ../src/modules/system_info/main.qml:119
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
-msgstr "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
+msgstr "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd. "
 
 #: ../src/modules/system_info/main.qml:125
 msgid "Deepin Edition"
-msgstr "Édition Deepin"
+msgstr "Έκδοση Deepin"
 
 #: ../src/modules/system_info/main.qml:131
 msgid "System Type"
-msgstr "Système"
+msgstr "Τύπος Συστήματος"
 
 #: ../src/modules/system_info/main.qml:132
 msgid "bit"
@@ -1834,43 +1835,43 @@ msgstr "bit"
 
 #: ../src/modules/system_info/main.qml:137
 msgid "Processor"
-msgstr "Processeur"
+msgstr "Επεξεργαστής"
 
 #: ../src/modules/system_info/main.qml:151
 msgid "Memory"
-msgstr "Mémoire"
+msgstr "Μνήμη"
 
 #: ../src/modules/system_info/main.qml:157
 msgid "Disk"
-msgstr "Disque"
+msgstr "Δίσκος"
 
 #: ../src/modules/system_info/main.qml:175
 msgid "GNU GENERAL PUBLIC LICENSE"
-msgstr "GNU GENERAL PUBLIC LICENSE"
+msgstr "GNU ΓΕΝΙΚΗ ΔΗΜΟΣΙΑ ΑΔΕΙΑ"
 
 #: ../src/modules/network/main.qml:162 ../src/modules/network/main.qml:190
 msgid "Unknown"
-msgstr "Inconnu"
+msgstr "Άγνωστο"
 
 #: ../src/modules/network/main.qml:164
 msgid "Wired"
-msgstr "Par câble"
+msgstr "Ενσύρματο"
 
 #: ../src/modules/network/main.qml:166
 msgid "Wireless"
-msgstr "Sans fil"
+msgstr "Ασύρματο"
 
 #: ../src/modules/network/main.qml:168
 msgid "Unused1"
-msgstr "Inutilisé1"
+msgstr "Αχρησιμοποίητο1"
 
 #: ../src/modules/network/main.qml:170
 msgid "Unused2"
-msgstr "Inutilisé2"
+msgstr "Αχρησιμοποίητο2"
 
 #: ../src/modules/network/main.qml:174
 msgid "OLPC mesh"
-msgstr "Mailles OLPC"
+msgstr "OLPC mesh"
 
 #: ../src/modules/network/main.qml:176
 msgid "WiMax"
@@ -1878,7 +1879,7 @@ msgstr "WiMax"
 
 #: ../src/modules/network/main.qml:178
 msgid "Modem"
-msgstr "Modem"
+msgstr "Μόντεμ"
 
 #: ../src/modules/network/main.qml:180
 msgid "InfiniBand"
@@ -1886,7 +1887,7 @@ msgstr "InfiniBand"
 
 #: ../src/modules/network/main.qml:182
 msgid "Bond"
-msgstr "Lien"
+msgstr "Δεσμός"
 
 #: ../src/modules/network/main.qml:184
 msgid "VLAN"
@@ -1898,31 +1899,31 @@ msgstr "ADSL"
 
 #: ../src/modules/network/main.qml:188
 msgid "Bridge"
-msgstr "Pont"
+msgstr "Γέφυρα"
 
 #: ../src/modules/network/main.qml:198
 msgid "802.11 WiFi"
-msgstr "Wi-Fi 802.11"
+msgstr "802.11 WiFi"
 
 #: ../src/modules/network/main.qml:200
 msgid "802.11 WiFi AdHoc"
-msgstr "Réseau Ad-Hoc Wi-Fi 802.11"
+msgstr "802.11 WiFi AdHoc"
 
 #: ../src/modules/network/main.qml:202
 msgid "802.11 WiFi Hotspot"
-msgstr "Points d'accès sans-fil 802.11"
+msgstr "802.11 WiFi Hotspot"
 
 #: ../src/modules/network/main.qml:208
 msgid "Mobile GSM"
-msgstr "Connexion mobile GSM"
+msgstr "Mobile GSM"
 
 #: ../src/modules/network/main.qml:210
 msgid "Mobile CDMA"
-msgstr "Connexion mobile CDMA"
+msgstr "Mobile CDMA"
 
 #: ../src/modules/network/main.qml:326
 msgid "View Detailed Information"
-msgstr "Voir informations détaillées"
+msgstr "Προβολή λεπτομερών πληροφοριών"
 
 #: ../src/modules/network/main.qml:214
 msgid "VPN L2TP"
@@ -1946,88 +1947,88 @@ msgstr "VPN OpenConnect"
 
 #: ../src/modules/account/main.qml:95
 msgid "Delete Account"
-msgstr "Supprimer le compte"
+msgstr "Διαγραφή λογαριασμού"
 
 #: ../src/modules/account/main.qml:133
 msgid "Add Account"
-msgstr "Ajouter un compte"
+msgstr "Προσθήκη λογαριασμού"
 
 #: ../src/modules/account/main.qml:153
 msgid "User List"
-msgstr "Liste d'utilisateur"
+msgstr "Λίστα χρήστη"
 
 #: ../src/modules/wacom/main.qml:14
 msgid "Page Up"
-msgstr "Haut de page"
+msgstr "Προηγούμενη σελίδα"
 
 #: ../src/modules/wacom/main.qml:15
 msgid "Page Down"
-msgstr "Bas de page"
+msgstr "Επόμενη σελίδα"
 
 #: ../src/modules/wacom/main.qml:16
 msgid "Left Click"
-msgstr "Clic gauche"
+msgstr "Αριστερό Κλικ"
 
 #: ../src/modules/wacom/main.qml:17
 msgid "Right Click"
-msgstr "Clic droit"
+msgstr "Δεξί Κλικ"
 
 #: ../src/modules/wacom/main.qml:18
 msgid "Middle Click"
-msgstr "Clic central"
+msgstr "Μεσαίο κλικ"
 
 #: ../src/modules/wacom/main.qml:69
 msgid "Tablet Orientation"
-msgstr "Orientation de la tablette"
+msgstr "Προσανατολισμός Τάμπλετ"
 
 #: ../src/modules/wacom/main.qml:76
 msgid "Left Hand"
-msgstr "Main gauche"
+msgstr "Αριστερό Χέρι"
 
 #: ../src/modules/wacom/main.qml:77
 msgid "Right Hand"
-msgstr "Main droite"
+msgstr "Δεξί Χέρι"
 
 #: ../src/modules/wacom/main.qml:90
 msgid "Digital Pen Modes"
-msgstr "Mode crayon tactile"
+msgstr "Λειτουργία Ψηφιακού Στιλό"
 
 #: ../src/modules/wacom/main.qml:97
 msgid "Pen Mode"
-msgstr "Mode Tactile"
+msgstr "Κατάσταση λειτουργίας πένας"
 
 #: ../src/modules/wacom/main.qml:98
 msgid "Mouse Mode"
-msgstr "Mode souris"
+msgstr "Λειτουργία ποντικιού"
 
 #: ../src/modules/wacom/main.qml:112
 msgid "Down Key"
-msgstr "Touche bas"
+msgstr "Κάτω Πλήκτρο"
 
 #: ../src/modules/wacom/main.qml:137
 msgid "Up Key"
-msgstr "Touche haut"
+msgstr "Πάνω Πλήκτρο"
 
 #: ../src/modules/wacom/main.qml:162
 msgid "Pressure"
-msgstr "Pression"
+msgstr "Πίεση"
 
 #: ../src/modules/wacom/main.qml:178
 msgid "Soft"
-msgstr "Doux"
+msgstr "Μαλακή"
 
 #: ../src/modules/wacom/main.qml:179
 msgid "Hard"
-msgstr "Dur"
+msgstr "Δύσκολο"
 
 #: ../src/modules/wacom/main.qml:190
 msgid "Double-click Space"
-msgstr "Espace du double-clic"
+msgstr "Κάντε διπλό κλικ στο Space"
 
 #: ../src/modules/wacom/main.qml:206
 msgid "Narrow"
-msgstr "Étroit"
+msgstr "Στενός"
 
 #: ../src/modules/wacom/main.qml:207
 msgid "Wide"
-msgstr "Large"
+msgstr "Ευρύς"
