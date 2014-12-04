@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-04 11:36+0800\n"
+"POT-Creation-Date: 2014-12-04 15:35+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1167,10 +1167,6 @@ msgstr ""
 msgid "not managed"
 msgstr ""
 
-#: ../src/views/PanelWindow.qml:48 ../src/views/TmpTranslationFile.qml:28
-msgid "Only Displayed on VGA1"
-msgstr ""
-
 #: ../src/modules/network/widgets/PasswordBox.qml:102
 msgid "Auto-connect"
 msgstr ""
@@ -1355,35 +1351,33 @@ msgid ""
 "different screens."
 msgstr ""
 
+#: ../src/views/TmpTranslationFile.qml:28
+#, qt-format
+msgid "Only Displayed on %1"
+msgstr ""
+
 #: ../src/views/TmpTranslationFile.qml:32
-msgid "Screen contents are only displayed on VGA1 but not on other screens."
+#, qt-format
+msgid "Screen contents are only displayed on %1 but not on other screens."
 msgstr ""
 
 #: ../src/views/TmpTranslationFile.qml:36
-msgid "Only Displayed on LVDS1"
-msgstr ""
-
-#: ../src/views/TmpTranslationFile.qml:40
-msgid "Screen contents are only displayed on LVDS1 but not on other screens."
-msgstr ""
-
-#: ../src/views/TmpTranslationFile.qml:44
 msgid "Custom Settings"
 msgstr ""
 
-#: ../src/views/TmpTranslationFile.qml:48
+#: ../src/views/TmpTranslationFile.qml:40
 msgid "You can do other custom settings to your screens."
 msgstr ""
 
-#: ../src/views/TmpTranslationFile.qml:52
+#: ../src/views/TmpTranslationFile.qml:44
 msgid "Double-click this area to change your time"
 msgstr ""
 
-#: ../src/views/TmpTranslationFile.qml:56
+#: ../src/views/TmpTranslationFile.qml:48
 msgid "Account information is being prepared..."
 msgstr ""
 
-#: ../src/views/TmpTranslationFile.qml:60
+#: ../src/views/TmpTranslationFile.qml:52
 msgid "Primary Screen"
 msgstr ""
 

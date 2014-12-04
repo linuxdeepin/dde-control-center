@@ -2023,14 +2023,6 @@
     </message>
 </context>
 <context>
-    <name>PanelWindow</name>
-    <message>
-        <location filename="../src/views/PanelWindow.qml" line="+48"/>
-        <source>Only Displayed on VGA1</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>PasswordBox</name>
     <message>
         <location filename="../src/modules/network/widgets/PasswordBox.qml" line="+95"/>
@@ -2361,22 +2353,12 @@
     </message>
     <message>
         <location line="+4"/>
-        <source>Only Displayed on VGA1</source>
+        <source>Only Displayed on %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+4"/>
-        <source>Screen contents are only displayed on VGA1 but not on other screens.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>Only Displayed on LVDS1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>Screen contents are only displayed on LVDS1 but not on other screens.</source>
+        <source>Screen contents are only displayed on %1 but not on other screens.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -25,19 +25,11 @@ Item {
 
         //仅在VGA1上显示
 
-        tmpName = dsTr("Only Displayed on VGA1")
+        tmpName = dsTr("Only Displayed on %1").arg("VGA1")
 
         //仅在VGA1上显示屏幕内容，其他屏幕不显示
 
-        tmpName = dsTr("Screen contents are only displayed on VGA1 but not on other screens.")
-
-        //仅在LVDS1上显示
-
-        tmpName = dsTr("Only Displayed on LVDS1")
-
-        //仅在LVDS1上显示屏幕内容，其他屏幕不显示
-
-        tmpName = dsTr("Screen contents are only displayed on LVDS1 but not on other screens.")
+        tmpName = dsTr("Screen contents are only displayed on %1 but not on other screens.").arg("VGA1")
 
         //自定义设置
 
