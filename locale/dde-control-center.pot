@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-02 17:21+0800\n"
+"POT-Creation-Date: 2014-12-04 11:36+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -103,9 +103,11 @@ msgstr ""
 #: ../src/modules/network/wireless/AddWireless.qml:216
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:87
 #: ../src/modules/network/ConnectionAdd.qml:69
+#: ../src/modules/network/ConnectionEdit.qml:102
 #: ../src/modules/network/ConnectionEdit.qml:150
 #: ../src/modules/shortcuts/CustomKeybinding.qml:151
 #: ../src/modules/account/DeleteUserDialog.qml:33
+#: ../src/modules/network/Info.qml:79
 #: ../src/modules/network/widgets/PasswordBox.qml:118
 #: ../src/modules/account/PasswordDialog.qml:207
 #: ../src/modules/shortcuts/ShortcutInput.qml:343
@@ -551,17 +553,9 @@ msgstr ""
 msgid "Are you sure you want to delete this network?"
 msgstr ""
 
-#: ../src/modules/network/ConnectionEdit.qml:102
+#: ../src/modules/network/ConnectionEdit.qml:110
 #: ../src/modules/network/wireless/WifiHotspot.qml:91
 msgid "Save"
-msgstr ""
-
-#: ../src/modules/network/ConnectionEdit.qml:114
-#: ../src/modules/network/Info.qml:79
-#: ../src/modules/date_time/StateButtons.qml:35
-#: ../src/modules/date_time/StateButtons.qml:49
-#: ../src/modules/date_time/TimezoneArea.qml:418
-msgid "Close"
 msgstr ""
 
 #: ../src/modules/network/ConnectionEdit.qml:135
@@ -1173,6 +1167,10 @@ msgstr ""
 msgid "not managed"
 msgstr ""
 
+#: ../src/views/PanelWindow.qml:48 ../src/views/TmpTranslationFile.qml:28
+msgid "Only Displayed on VGA1"
+msgstr ""
+
 #: ../src/modules/network/widgets/PasswordBox.qml:102
 msgid "Auto-connect"
 msgstr ""
@@ -1287,6 +1285,12 @@ msgstr ""
 msgid "Done"
 msgstr ""
 
+#: ../src/modules/date_time/StateButtons.qml:35
+#: ../src/modules/date_time/StateButtons.qml:49
+#: ../src/modules/date_time/TimezoneArea.qml:418
+msgid "Close"
+msgstr ""
+
 #: ../src/modules/date_time/StateButtons.qml:72
 msgid "Delete Time Zone"
 msgstr ""
@@ -1327,6 +1331,60 @@ msgstr ""
 
 #: ../src/modules/date_time/TimezoneArea.qml:239
 msgid "Time zone"
+msgstr ""
+
+#: ../src/views/TmpTranslationFile.qml:8
+msgid "Display Modes"
+msgstr ""
+
+#: ../src/views/TmpTranslationFile.qml:12
+msgid "Copy"
+msgstr ""
+
+#: ../src/views/TmpTranslationFile.qml:16
+msgid "Copy the contents of your primary screen to other screens."
+msgstr ""
+
+#: ../src/views/TmpTranslationFile.qml:20
+msgid "Extend"
+msgstr ""
+
+#: ../src/views/TmpTranslationFile.qml:24
+msgid ""
+"Extend your screen contents. Different contents will be displayed on "
+"different screens."
+msgstr ""
+
+#: ../src/views/TmpTranslationFile.qml:32
+msgid "Screen contents are only displayed on VGA1 but not on other screens."
+msgstr ""
+
+#: ../src/views/TmpTranslationFile.qml:36
+msgid "Only Displayed on LVDS1"
+msgstr ""
+
+#: ../src/views/TmpTranslationFile.qml:40
+msgid "Screen contents are only displayed on LVDS1 but not on other screens."
+msgstr ""
+
+#: ../src/views/TmpTranslationFile.qml:44
+msgid "Custom Settings"
+msgstr ""
+
+#: ../src/views/TmpTranslationFile.qml:48
+msgid "You can do other custom settings to your screens."
+msgstr ""
+
+#: ../src/views/TmpTranslationFile.qml:52
+msgid "Double-click this area to change your time"
+msgstr ""
+
+#: ../src/views/TmpTranslationFile.qml:56
+msgid "Account information is being prepared..."
+msgstr ""
+
+#: ../src/views/TmpTranslationFile.qml:60
+msgid "Primary Screen"
 msgstr ""
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50

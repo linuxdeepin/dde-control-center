@@ -624,22 +624,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+50"/>
+        <location line="+58"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+12"/>
-        <source>Close</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+21"/>
+        <location line="+25"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="-33"/>
+        <location line="+48"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1785,7 +1781,7 @@
     </message>
     <message>
         <location line="+10"/>
-        <source>Close</source>
+        <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2023,6 +2019,14 @@
     <message>
         <location filename="../src/views/PanelContent.qml" line="+473"/>
         <source>Power</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PanelWindow</name>
+    <message>
+        <location filename="../src/views/PanelWindow.qml" line="+48"/>
+        <source>Only Displayed on VGA1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2325,6 +2329,79 @@
     <message>
         <location line="+3"/>
         <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TmpTranslationFile</name>
+    <message>
+        <location filename="../src/views/TmpTranslationFile.qml" line="+8"/>
+        <source>Display Modes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Copy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Copy the contents of your primary screen to other screens.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Extend</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Extend your screen contents. Different contents will be displayed on different screens.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Only Displayed on VGA1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Screen contents are only displayed on VGA1 but not on other screens.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Only Displayed on LVDS1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Screen contents are only displayed on LVDS1 but not on other screens.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Custom Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>You can do other custom settings to your screens.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Double-click this area to change your time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Account information is being prepared...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Primary Screen</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
