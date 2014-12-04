@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-02 10:00+0800\n"
-"PO-Revision-Date: 2014-12-02 09:37+0000\n"
-"Last-Translator: szd_liufei <liufei@linuxdeepin.com>\n"
+"POT-Creation-Date: 2014-12-02 17:21+0800\n"
+"PO-Revision-Date: 2014-12-04 02:57+0000\n"
+"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Spanish (Latin America) (http://www.transifex.com/projects/p/dde-control-center/language/es_419/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -149,19 +149,18 @@ msgid "New User"
 msgstr "Nuevo Usuario"
 
 #: ../src/modules/account/AddUserDialog.qml:124
-#: ../src/modules/account/AddUserDialog.qml:307
-#: ../src/modules/account/EditUserDialog.qml:138
-#: ../src/modules/personalization/components/FontSettingsExpand.qml:48
-#: ../src/modules/account/UserList.qml:222
-msgid "Standard"
-msgstr "Estándar"
-
-#: ../src/modules/account/AddUserDialog.qml:124
 #: ../src/modules/account/AddUserDialog.qml:308
 #: ../src/modules/account/EditUserDialog.qml:139
 #: ../src/modules/account/UserList.qml:222
 msgid "Administrator"
 msgstr "Administrador"
+
+#: ../src/modules/account/AddUserDialog.qml:124
+#: ../src/modules/account/AddUserDialog.qml:307
+#: ../src/modules/account/EditUserDialog.qml:138
+#: ../src/modules/account/UserList.qml:222
+msgid "Normal User"
+msgstr ""
 
 #: ../src/modules/account/AddUserDialog.qml:244
 msgid "Repeat Password"
@@ -941,6 +940,10 @@ msgstr ""
 msgid "Rear"
 msgstr ""
 
+#: ../src/modules/personalization/components/FontSettingsExpand.qml:48
+msgid "Standard"
+msgstr "Estándar"
+
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:65
 msgid "Monospaced"
 msgstr ""
@@ -1203,6 +1206,7 @@ msgid "Successfully updated, reboot to view."
 msgstr ""
 
 #: ../src/modules/network/proxy/ProxyContent.qml:43
+#: ../src/modules/shortcuts/ShortcutInput.qml:108
 #: ../src/modules/date_time/main.qml:183
 msgid "None"
 msgstr "Ninguno"
@@ -1250,10 +1254,6 @@ msgstr "Satisfactoriamente restaurado"
 #: ../src/modules/shared/ResetButton.qml:47
 msgid "Reset"
 msgstr "Restaurar"
-
-#: ../src/modules/shortcuts/ShortcutInput.qml:108
-msgid "Disable"
-msgstr "Desactivar"
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:126
 msgid "Please input new shortcut"
