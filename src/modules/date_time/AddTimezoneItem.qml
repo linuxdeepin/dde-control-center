@@ -25,12 +25,14 @@ import QtQuick 2.0
 import Deepin.Widgets 1.0
 
 Item {
+    id: addZoneItem
     width: parent.width
     height: 50
 
     property string pTimezone:timezone
-    property string pCityList: cityList
-    property string pOffsetName: offsetName
+
+    property int pOffset: getOffsetByZone(pTimezone)
+    property string pOffsetName: getOffsetName(pOffset)
 
     property bool selected: false
 
@@ -42,12 +44,15 @@ Item {
         anchors.topMargin: 6
         anchors.left: parent.left
         anchors.leftMargin: 14
-        text: pCityList
         color: "#e6e6e6"
         font.pixelSize: 12
         elide: Text.ElideRight
         height: 30
         width: parent.width - checkButton.width - 36
+
+        Component.onCompleted: {
+            cityText.text = reduceTextLengthWithFlag(getCityListByOffset(pOffset),font.pixelSize,width,",")
+        }
     }
 
     DssH3 {

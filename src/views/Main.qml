@@ -139,6 +139,17 @@ QtObject {
         }
     }
 
+
+    function getStringPixelSize(preText,fontPixelSize){
+        var tmpText = calculateTextComponent.createObject(null, { "text": preText , "font.pixelSize": fontPixelSize})
+        var width = tmpText.width
+        return width
+    }
+
+    property var calculateTextComponent: Component {
+        Text{visible: false}
+    }
+
     function dsTr(s){
         return dsslocale.dsTr(s)
     }

@@ -31,10 +31,10 @@ Item {
     height: messageItem.height
 
     property string pTimezone: timezone
-    property int pTimezoneOffset: timezoneOffset
-    property string pCityList: cityList
-    property string pOffsetName: offsetName
-    property var pDSTList: DSTList
+    property int pTimezoneOffset: getOffsetByZone(pTimezone)
+
+    property string pOffsetName: getOffsetName(pTimezoneOffset)
+    property var pDSTList: getDSTByZone(pTimezone)
     property bool pHasDST: {
         var tmpArray = Object.keys(pDSTList)
         if (tmpArray.length < 1)
@@ -49,7 +49,7 @@ Item {
             return true
     }
 
-    property bool pIsCurrentTimezone: isCurrentTimezone
+    property bool pIsCurrentTimezone: pTimezoneOffset == currentTimezoneOffset
     property bool pInDeleteAction : inDeleteAction
 
     signal selectAction(string timezone)
@@ -118,12 +118,14 @@ Item {
             anchors.topMargin: 6
             anchors.left: deleteButton.right
             anchors.leftMargin: 14
-            text: pCityList
             color: pIsCurrentTimezone ? dconstants.activeColor : "#e6e6e6"
             font.pixelSize: 12
             elide: Text.ElideRight
             height: 30
             width: parent.width - deleteButton.width - 36
+            Component.onCompleted: {
+                text = reduceTextLengthWithFlag(getCityListByOffset(pTimezoneOffset),font.pixelSize,width,",")
+            }
         }
 
         DssH3 {

@@ -58,6 +58,21 @@ DFlickable {
 
     property var globalDate: new Date()
 
+    function reduceTextLengthWithFlag(preText,fontPixelSize,maxWidth,splitFlag){
+        if (Math.ceil(getStringPixelSize(preText,fontPixelSize)) < maxWidth){
+            return preText
+        }
+
+        var tmpTextArray = preText.split(splitFlag)
+        for (var i = 1; i < tmpTextArray.length; i ++){
+            var tmpString = tmpTextArray.slice(0,-i).join(splitFlag)
+            var width = Math.ceil(getStringPixelSize(tmpString,fontPixelSize))
+            if (width <= maxWidth){
+                return tmpString
+            }
+        }
+    }
+
     Component.onCompleted: {
         lang = dsslocale.lang
     }

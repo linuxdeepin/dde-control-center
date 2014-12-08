@@ -38,7 +38,7 @@ Column {
     }
 
     Behavior on height {
-        PropertyAnimation { easing.type: Easing.InQuad; duration: 300 }
+        PropertyAnimation { easing.type: Easing.InQuad; duration: 150 }
     }
 
     signal hasDSTList(bool sHasDST ,var sDSTList)
@@ -49,7 +49,7 @@ Column {
         var zoneList = new Array()
         var cityList = new Array()
         var codeList = new Array()
-        var allZoneInfo = gDate.GetAllZoneSummary()
+        var allZoneInfo = gDate.GetAllZoneInfo()
         for(var i in allZoneInfo){
             var info = allZoneInfo[i]
             zoneList.push(info[0])
@@ -83,25 +83,30 @@ Column {
     }
 
     property var userTimezoneList: gDate.userTimezones
+    property var userTimezoneOffsetList: {
+        var tmpArray = new Array()
+        for (var i = 0; i < userTimezoneList.length; i ++){
+            tmpArray.push(getOffsetByZone(userTimezoneList[i]))
+        }
+        return tmpArray
+    }
 
     property var currentTimezone: gDate.currentTimezone
 
+    property var currentTimezoneOffset: getOffsetByZone(currentTimezone)
 
     property string currentActionStateName: ""
     property var listModelComponent: DListModelComponent {}
-    property string searchMd5: {
-        var retList = dbusSearch.NewSearchWithStrList(timezoneInformation.city)
-        return retList[0]
-    }
 
     property int listAreaMaxHeight
 
-    function isInUserTimezone(zone){
-        for (var i = 0; i < userTimezoneList.length; i ++){
-            if (getOffsetByZone(userTimezoneList[i]) == getOffsetByZone(zone))
-                return true
-        }
-        return false
+    property bool inDeleteAction: false
+
+    function isInUserTimezone(offset){
+        if (userTimezoneOffsetList.indexOf(offset) != -1)
+            return true
+        else
+            return false
     }
 
     function getCityByZone(zone){
@@ -111,7 +116,7 @@ Column {
         else{
             if (!gDate.GetZoneInfo(zone))
                 return ""
-            return gDate.GetZoneInfo(zone)[0][1]
+            return gDate.GetZoneInfo(zone)[1]
         }
     }
 
@@ -126,12 +131,12 @@ Column {
         }
         var DSTArray = new Object()
         for (i = 0; i < tmpArray.length; i ++){
-            if (gDate.GetZoneInfo(tmpArray[i])[1][0] == 0 || gDate.GetZoneInfo(tmpArray[i])[1][1] == 0){
+            if (gDate.GetZoneInfo(tmpArray[i])[3][0] == 0 || gDate.GetZoneInfo(tmpArray[i])[3][1] == 0){
                 DSTArray[0] = tmpArray[i]
                 continue
             }
             else{
-                DSTArray[gDate.GetZoneInfo(tmpArray[i])[1][2]] = tmpArray[i]
+                DSTArray[gDate.GetZoneInfo(tmpArray[i])[3][2] - tmpOffset] = tmpArray[i]
             }
         }
 
@@ -145,7 +150,7 @@ Column {
         else{
             if (!gDate.GetZoneInfo(zone))
                 return ""
-            return gDate.GetZoneInfo(zone)[0][2]
+            return gDate.GetZoneInfo(zone)[2]
         }
     }
 
@@ -157,11 +162,11 @@ Column {
             for (var i = 0; i < cityArray.length - 1; i ++){
                 if (!gDate.GetZoneInfo(cityArray[i]))
                     continue
-                tmpList += gDate.GetZoneInfo(cityArray[i])[0][1] + ", "
+                tmpList += gDate.GetZoneInfo(cityArray[i])[1] + ", "
             }
 
             if (gDate.GetZoneInfo(cityArray[cityArray.length - 1]))
-                tmpList += gDate.GetZoneInfo(cityArray[cityArray.length - 1])[0][1]
+                tmpList += gDate.GetZoneInfo(cityArray[cityArray.length - 1])[1]
 
             return tmpList
         }
@@ -212,24 +217,19 @@ Column {
     }
 
     onUserTimezoneListChanged: {
-        if (timeZoneArea.currentActionStateName == "deleteButton")
-            userTimezoneListView.fillModel(true)
-        else{
-            delayAddTimer.stop()
-            delayAddTimer.start()
-        }
+        delayUpdateTimer.stop()
+        delayUpdateTimer.start()
     }
 
-    onCurrentTimezoneChanged: userTimezoneListView.updateCurrentTimezone()
     onHeightChanged: gButtonToolTip.hideToolTip()
+
     Timer {
-        id:delayAddTimer
+        id:delayUpdateTimer
         repeat: false
-        interval: 300
+        interval: 100
         running: false
         onTriggered: {
-//            print ("==> Fill user timezone model...")
-            userTimezoneListView.fillModel(false)
+            userTimezoneListView.updateModel()
         }
     }
 
@@ -250,23 +250,25 @@ Column {
                         }
                     }
 
+                    addTimezoneListView.selectedItemDict = {}
+
                     timeZoneArea.isAddState(false)
                     timeZoneArea.isInAddState = false
                 }
                 else if (timezoneArea.currentActionStateName == "deleteButton"){
-                    userTimezoneListView.updateDeleteActionFlag(false)
+                    inDeleteAction = false
                 }
 
-                if (currentActionStateName == "deleteButton")
-                    userTimezoneListView.updateDeleteActionFlag(true)
+                if (currentActionStateName == "deleteButton"){
+                    inDeleteAction = true
+                }
+
                 // before changed
 
                 timezoneArea.currentActionStateName = currentActionStateName
 
                 // after changed
                 if(timezoneArea.currentActionStateName == "addButton"){
-                    addTimezoneListView.fillModel()
-
                     timeZoneArea.isAddState(true)
                     timeZoneArea.isInAddState = true
                 }
@@ -291,58 +293,85 @@ Column {
             height: model.count * 50 > listAreaMaxHeight ? listAreaMaxHeight : model.count * 50
             clip: true
 
-            function fillModel(ida){
+            function fillModel(){
                 model.clear()
 
-                var currentTimezoneOffset = getOffsetByZone(gDate.currentTimezone)
-
                 for (var i = 0; i < userTimezoneList.length; i ++){
-                    var tmpZone = userTimezoneList[i]
-                    if (!gDate.GetZoneInfo(tmpZone)){
-                        continue
-                    }
-
-                    var tmpTimezoneOffset = getOffsetByZone(tmpZone)
-                    if (isInList(tmpTimezoneOffset))
-                        continue
-
                     model.append({
-                                     "timezone" : tmpZone,
-                                     "cityList": getCityListByOffset(tmpTimezoneOffset),
-                                     "offsetName": getOffsetName(tmpTimezoneOffset),
-                                     "timezoneOffset":tmpTimezoneOffset,
-                                     "DSTList": getDSTByZone(tmpZone),
-                                     "isCurrentTimezone": tmpTimezoneOffset == currentTimezoneOffset,
-                                     "inDeleteAction": ida
+                                     "timezone" : userTimezoneList[i]
                                  })
                 }
             }
 
-            function updateDeleteActionFlag(flag){
-                for (var i = 0; i < model.count; i ++){
-                    model.get(i).inDeleteAction = flag
+            function updateModel(){
+                if (userTimezoneList.length > model.count){
+                    addToModel()
+                }
+                else if (userTimezoneList.length < model.count){
+                    deleteFromModel()
                 }
             }
 
-            function updateCurrentTimezone(){
-                var currentTimezoneOffset = getOffsetByZone(gDate.currentTimezone)
-                for (var i = 0; i < model.count; i ++){
-                    if (model.get(i).timezoneOffset == currentTimezoneOffset)
-                        model.get(i).isCurrentTimezone = true
-                    else
-                        model.get(i).isCurrentTimezone = false
+            function deleteFromModel(){
+                var tmpList = new Array()
+
+                var modelCount = model.count
+                for (var i = 0; i < model.count; i ++){//get all invalid item
+                    var tmpZone = model.get(i).timezone
+                    if (!isInUserTimezoneList(tmpZone))
+                        tmpList.push(tmpZone)
+                }
+
+                for (i = 0; i < tmpList.length; i ++){//delete all invalid item from model
+                    model.remove(getItemIndex(tmpList[i]))
+                    addTimezoneListView.addToModel(tmpList[i])
                 }
             }
 
-            function isInList(offset){
+            function addToModel(){
+                for (var i = 0; i < userTimezoneList.length; i ++){
+                    if (!isInModel(userTimezoneList[i])){
+                        model.append({
+                                         "timezone" : userTimezoneList[i]
+                                     })
+                        addTimezoneListView.deleteFromMode(userTimezoneList[i])
+                    }
+                }
+            }
+
+            function getItemIndex(timezone){
+                var tmpOffset = getOffsetByZone(timezone)
+
                 for (var i = 0 ; i < model.count; i ++){
-                    if (model.get(i).timezoneOffset == offset)
+                    if (getOffsetByZone(model.get(i).timezone) == tmpOffset)
+                        return i
+                }
+
+                return -1
+            }
+
+            function isInModel(timezone){
+                var tmpOffset = getOffsetByZone(timezone)
+
+                for (var i = 0 ; i < model.count; i ++){
+                    if (getOffsetByZone(model.get(i).timezone) == tmpOffset)
                         return true
                 }
+
                 return false
             }
 
-            Component.onCompleted: fillModel(false)
+            function isInUserTimezoneList(timezone){
+                var tmpOffset = getOffsetByZone(timezone)
+                if (userTimezoneOffsetList.indexOf(tmpOffset) < 0){
+                    return false
+                }
+                else{
+                    return true
+                }
+            }
+
+            Component.onCompleted: fillModel()
 
             model: ListModel {}
 
@@ -388,22 +417,41 @@ Column {
             function fillModel(){
                 model.clear()
                 for (var i = 0; i < zoneCodePair.length; i ++){
+                    var zones = zoneCodePair[i]["zones"]
+                    var offset = zoneCodePair[i]["code"]
                     model.append({
-                                  "timezone":zoneCodePair[i]["zones"][0],
-                                  "cityList": getCityList(zoneCodePair[i]["zones"]),
-                                  "offsetName": getOffsetName(zoneCodePair[i]["code"])
+                                  "timezone":zones[0]
                                  })
                 }
+
+                for (i = 0; i < userTimezoneList.length; i ++){
+                    deleteFromMode(userTimezoneList[i])
+                }
+            }
+
+            function addToModel(timezone){
+                model.append({
+                                 "timezone":timezone
+                             })
+            }
+
+            function deleteFromMode(timezone){
+                model.remove(getItemIndex(getOffsetByZone(timezone)))
+            }
+
+            function getItemIndex(offset){
+                for (var i = 0 ; i < model.count; i ++){
+                    if (getOffsetByZone(model.get(i).timezone) == offset)
+                        return i
+                }
+
+                return -1
             }
 
             model: ListModel {}
 
             delegate: AddTimezoneItem{
                 onSelectAction: {
-                    if (isInUserTimezone(timezone)){
-                        return
-                    }
-
                     addTimezoneListView.selectedItemDict[timezone] = selected
                     var length = 0
                     for(var key in addTimezoneListView.selectedItemDict){
@@ -423,6 +471,8 @@ Column {
             DScrollBar {
                 flickable: addTimezoneListView
             }
+
+            Component.onCompleted: fillModel()
         }
     }
 }
