@@ -2292,7 +2292,7 @@
     <name>TimeBox</name>
     <message>
         <location filename="../src/modules/date_time/TimeBox.qml" line="+161"/>
-        <source>Double-click the above digits to change your time.</source>
+        <source>Double-click this area to change your time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

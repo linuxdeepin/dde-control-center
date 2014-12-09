@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-04 15:35+0800\n"
+"POT-Creation-Date: 2014-12-10 10:41+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1318,7 +1318,8 @@ msgid "Custom"
 msgstr ""
 
 #: ../src/modules/date_time/TimeBox.qml:161
-msgid "Double-click the above digits to change your time."
+#: ../src/views/TmpTranslationFile.qml:44
+msgid "Double-click this area to change your time"
 msgstr ""
 
 #: ../src/modules/date_time/TimeBox.qml:202
@@ -1367,10 +1368,6 @@ msgstr ""
 
 #: ../src/views/TmpTranslationFile.qml:40
 msgid "You can do other custom settings to your screens."
-msgstr ""
-
-#: ../src/views/TmpTranslationFile.qml:44
-msgid "Double-click this area to change your time"
 msgstr ""
 
 #: ../src/views/TmpTranslationFile.qml:48

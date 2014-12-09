@@ -33,7 +33,6 @@ Item {
 
     property bool use24Hour: false
     property bool mouseAreaVisible: true
-    signal doubleClicked()
 
     property int fontSize: 55
     property color fontColor: "white"
@@ -84,13 +83,6 @@ Item {
             font.pixelSize: fontSize
             color: fontColor
             text: globalDate.getMinutes() < 10 ? "0" + globalDate.getMinutes() : globalDate.getMinutes()
-        }
-    }
-
-    MouseArea {
-        anchors.fill: parent
-        onDoubleClicked: {
-            parent.doubleClicked()
         }
     }
 }

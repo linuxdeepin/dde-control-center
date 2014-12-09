@@ -93,6 +93,12 @@ Rectangle {
                 showTip()
             }
         }
+
+        onDoubleClicked: {
+            if(timeBox.editable){
+                showTimeEdit()
+            }
+        }
     }
 
     Item {
@@ -109,12 +115,6 @@ Rectangle {
             anchors.top: parent.top
             anchors.horizontalCenter: parent.horizontalCenter
             use24Hour: timeBox.use24Hour
-
-            onDoubleClicked: {
-                if(timeBox.editable){
-                    showTimeEdit()
-                }
-            }
         }
 
         DLabel {
@@ -158,7 +158,7 @@ Rectangle {
             anchors.horizontalCenter: dynamicTime.horizontalCenter
             font.pixelSize: 12
             color: dconstants.tuhaoColor
-            text: dsTr("Double-click the above digits to change your time.")
+            text: dsTr("Double-click this area to change your time")
             visible: opacity != 0
             opacity: 0
 
