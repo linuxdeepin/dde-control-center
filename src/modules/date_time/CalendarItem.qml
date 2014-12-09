@@ -151,11 +151,6 @@ Rectangle {
         onEntered: {
             calendarItem.itemEnter()
         }
-        onExited: {
-            gConfluentToolTip.visible = false
-            gConfluentToolTip.hideToolTip()
-//            calendarItem.itemExist()
-        }
     } // End of mousearea
 
 }

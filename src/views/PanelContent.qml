@@ -505,7 +505,6 @@ Rectangle {
                 rightBoxLoader.iconId = iconId
                 rightBoxLoader.source = (iconId == ''? '' : '/modules/' + iconId + '/main.qml')
                 if(iconId){
-                    gConfluentToolTip.visible = false
                     gButtonToolTip.visible = false
                     print("==> [info] load module:", iconId)
                 }

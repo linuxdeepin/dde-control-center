@@ -920,5 +920,8 @@
         <file>views/images/circle.png</file>
         <file>views/images/confluent_back.png</file>
         <file>views/images/triangle.png</file>
+        <file>modules/date_time/images/setdate_hover.png</file>
+        <file>modules/date_time/images/setdate_normal.png</file>
+        <file>modules/date_time/images/setdate_press.png</file>
     </qresource>
 </RCC>

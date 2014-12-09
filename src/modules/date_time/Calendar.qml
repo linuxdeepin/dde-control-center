@@ -176,7 +176,8 @@ Column {
 
     Rectangle {
         id: tooltipRec
-        height: 25
+        height: tooltipLabel.visible ? 25 : 0
+        enabled: tooltipLabel.visible
         width: parent.width
 
         property string dateText:""
@@ -191,6 +192,7 @@ Column {
             font.pixelSize: 11
             verticalAlignment: Text.AlignVCenter
             height: parent.height
+            visible: text != ""
         }
     }
 

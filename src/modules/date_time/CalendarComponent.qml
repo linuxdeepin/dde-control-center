@@ -103,8 +103,6 @@ Rectangle {
             width: calendarItemCellWidth
             height: calendarItemCellHeight
             componentMonth: yearMonth
-            onItemEnter: delayHideTimer.stop()
-            onItemExist: delayHideTimer.start()
             onItemClicked: {
                 tooltipLabel.text = tooltip.replace(/[\r\n]/g,"  ")
             }
@@ -120,16 +118,6 @@ Rectangle {
         function getDelegateInstanceAt(index) {
             var item = contentItem.children[index];
             return item;
-        }
-    }
-
-    Timer {
-        id:delayHideTimer
-        repeat: false
-        interval: 1000
-        running: false
-        onTriggered: {
-            gConfluentToolTip.hideToolTip()
         }
     }
 }

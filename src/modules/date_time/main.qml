@@ -235,29 +235,79 @@ DFlickable {
                 text: dsTr("Date")
             }
 
-            rightLoader.sourceComponent: DTextButton {
-                text: dsTr("Set Date")
-                visible: opacity != 0
-                opacity: calendarObj.isToday ? 0 : 1
+            rightLoader.sourceComponent: Item {
+                height: dateBoxTitle.height
 
-                Behavior on opacity {
-                    PropertyAnimation { duration: 200 }
+                property bool normalState: true
+
+                DImageButton {
+                    id: setImage
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.right: parent.right
+                    normal_image: "images/setdate_normal.png"
+                    hover_image: "images/setdate_hover.png"
+                    press_image: "images/setdate_press.png"
+                    visible: parent.normalState && !gDate.nTPEnabled
+                    onClicked: {
+                        parent.normalState = false
+                        gButtonToolTip.hideToolTip()
+                    }
+                    onEntered: {
+                        var mapX = - setImage.mapFromItem(dateTimeModule,0,0).x
+                        var mapY = - setImage.mapFromItem(dateTimeModule,0,0).y
+                        gButtonToolTip.showToolTip(mapX + 45 + 10,mapY,dsTr("Set Date"))
+                    }
+                    onExited: {
+                        gButtonToolTip.hideToolTip()
+                    }
                 }
 
-                onClicked: {
-                    var dateString = calendarObj.currentSelectedDateValue
-                    if (dateString == "")
-                        return
-                    var dateValue = dateString.split("-")
+                DTextButton {
+                    id: cancelButton
+                    text: dsTr("Cancel")
+                    visible: opacity != 0
+                    opacity: parent.normalState ? 0 : 1
+                    anchors.right: confirmButton.left
+                    anchors.rightMargin: 5
+                    anchors.verticalCenter: parent.verticalCenter
 
-                    var year = dateValue[0]
-                    var month = dateValue[1]
-                    var date = dateValue[2]
-                    var hour = globalDate.toLocaleTimeString(locale,"HH")
-                    var min = globalDate.toLocaleTimeString(locale,"mm")
-                    var second = globalDate.toLocaleTimeString(locale,"ss")
+                    Behavior on opacity {
+                        PropertyAnimation { duration: 200 }
+                    }
 
-                    gDate.SetDate(year,month,date,hour,min,second,0)
+                    onClicked: {
+                        parent.normalState = true
+                    }
+                }
+
+                DTextButton {
+                    id:confirmButton
+                    text: dsTr("Confirm")
+                    visible: opacity != 0
+                    opacity: parent.normalState ? 0 : 1
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+
+                    Behavior on opacity {
+                        PropertyAnimation { duration: 200 }
+                    }
+
+                    onClicked: {
+                        var dateString = calendarObj.currentSelectedDateValue
+                        if (dateString == "")
+                            return
+                        var dateValue = dateString.split("-")
+
+                        var year = dateValue[0]
+                        var month = dateValue[1]
+                        var date = dateValue[2]
+                        var hour = globalDate.toLocaleTimeString(locale,"HH")
+                        var min = globalDate.toLocaleTimeString(locale,"mm")
+                        var second = globalDate.toLocaleTimeString(locale,"ss")
+
+                        gDate.SetDate(year,month,date,hour,min,second,0)
+                        parent.normalState = true
+                    }
                 }
             }
         }

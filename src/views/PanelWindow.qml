@@ -89,8 +89,6 @@ DOverrideWindow {
 
     function hidePanel(quit) {
         if(clickedToHide){
-            gConfluentToolTip.visible = false
-
             if(!hideAll.running && !showAll.running){
                 hideAll.quit = quit
                 hideAll.start()
@@ -228,14 +226,6 @@ DOverrideWindow {
         autoHideInterval: -1
         delayShowInterval: 500
         z:1
-    }
-
-    ConfluentToolTip {
-        id:gConfluentToolTip
-        animationDuration: 200
-        delayShowInterval: -1
-        autoHideInterval: -1
-        z: 1
     }
 
     Rectangle {
