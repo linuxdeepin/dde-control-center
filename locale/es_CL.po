@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-04 15:35+0800\n"
-"PO-Revision-Date: 2014-12-04 08:34+0000\n"
+"POT-Creation-Date: 2014-12-10 10:41+0800\n"
+"PO-Revision-Date: 2014-12-10 06:34+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Spanish (Chile) (http://www.transifex.com/projects/p/dde-control-center/language/es_CL/)\n"
 "MIME-Version: 1.0\n"
@@ -1323,8 +1323,9 @@ msgid "Custom"
 msgstr "Personalizar"
 
 #: ../src/modules/date_time/TimeBox.qml:161
-msgid "Double-click the above digits to change your time."
-msgstr "Haz doble clic en los dígitos de arriba para cambiar la hora"
+#: ../src/views/TmpTranslationFile.qml:44
+msgid "Double-click this area to change your time"
+msgstr ""
 
 #: ../src/modules/date_time/TimeBox.qml:202
 msgid "Set"
@@ -1372,10 +1373,6 @@ msgstr ""
 
 #: ../src/views/TmpTranslationFile.qml:40
 msgid "You can do other custom settings to your screens."
-msgstr ""
-
-#: ../src/views/TmpTranslationFile.qml:44
-msgid "Double-click this area to change your time"
 msgstr ""
 
 #: ../src/views/TmpTranslationFile.qml:48
