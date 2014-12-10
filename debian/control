@@ -28,6 +28,7 @@ Depends: ${shlibs:Depends},
  deepin-artwork-themes,
  deepin-qml-widgets,
  qt5-extra,
+ libqt5svg5,
  xkb-data-i18n | xkb-data,
 Description: New control center for linux deepin
  New control center for linux deepin
