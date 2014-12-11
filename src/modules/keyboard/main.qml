@@ -293,11 +293,12 @@ Item {
                 width: parent.width
                 height: childrenRect.height
                 visible: keyboardLayoutArea.currentActionStateName != "addButton"
+                clip: true
 
                 ListView {
                     id: layoutList
                     width: parent.width
-                    height: count * 28
+                    height: count <= 6 ? count * 28 : 6 * 28
                     currentIndex: -1
                     clip: true
 
@@ -338,7 +339,12 @@ Item {
                             layoutList.switchLayout(itemId)
                         }
                     }
+
+                    DScrollBar {
+                        flickable: layoutList
+                    }
                 }
+
             } // End of userKeyboardLayoutsArea
 
             Column {
