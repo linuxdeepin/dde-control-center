@@ -259,6 +259,7 @@ DFlickable {
                     id: setImage
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.right: parent.right
+                    anchors.rightMargin: 7
                     normal_image: "images/setdate_normal.png"
                     hover_image: "images/setdate_hover.png"
                     press_image: "images/setdate_press.png"
@@ -301,6 +302,7 @@ DFlickable {
                     visible: opacity != 0
                     opacity: parent.normalState ? 0 : 1
                     anchors.right: parent.right
+                    anchors.rightMargin: 7
                     anchors.verticalCenter: parent.verticalCenter
 
                     Behavior on opacity {
