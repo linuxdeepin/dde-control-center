@@ -116,6 +116,8 @@ Rectangle {
                     }
 
                     onClicked: {
+                        user_list.allNormal()
+
                         if (active) {
                             main_column.state = "add_dialog"
                             root.scrollToTop()
