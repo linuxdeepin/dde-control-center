@@ -194,7 +194,7 @@ Column {
         MonitorsSimpleSetting {
             id:simplepropertySetting
             height: visible ? childrenRect.height : 0
-            visible: realMonitorsCount > 1 && !monitorsDetailsProperty.visible  && !editting
+            visible: realMonitorsCount > 1 && !monitorsDetailsProperty.visible  && !monitorDragArea.editable
         }
 
 
