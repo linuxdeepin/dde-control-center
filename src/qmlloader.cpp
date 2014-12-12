@@ -206,7 +206,12 @@ QString QmlLoader::getGplText(QString language, QString type)
 
 void QmlLoader::setCustomCursor(QString path)
 {
-    path = path.split("//")[1];
+    if(path.startsWith("qrc://")){
+        path = path.replace("qrc://", ":");
+    }
+    if(path.startsWith("file://")){
+        path = path.replace("file://", "");
+    }
     QPixmap pixmap = QPixmap(path);
     QCursor cursor = QCursor(pixmap, -1, -1);
     QApplication::restoreOverrideCursor();
