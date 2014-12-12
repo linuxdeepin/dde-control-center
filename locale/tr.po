@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-10 10:41+0800\n"
-"PO-Revision-Date: 2014-12-10 06:34+0000\n"
-"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
+"POT-Creation-Date: 2014-12-11 10:14+0800\n"
+"PO-Revision-Date: 2014-12-12 02:23+0000\n"
+"Last-Translator: yakup <mutouk@yandex.ru>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/dde-control-center/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -115,7 +115,7 @@ msgstr "Numara"
 #: ../src/modules/shortcuts/ShortcutInput.qml:343
 #: ../src/modules/date_time/TimeBox.qml:225
 #: ../src/modules/network/wireless/WifiHotspot.qml:82
-#: ../src/modules/display/main.qml:248
+#: ../src/modules/date_time/main.qml:267 ../src/modules/display/main.qml:208
 msgid "Cancel"
 msgstr "Vazgeç"
 
@@ -179,7 +179,7 @@ msgstr "Otomatik giriş"
 #: ../src/modules/account/AddUserDialog.qml:391
 #: ../src/modules/account/DeleteUserDialog.qml:46
 #: ../src/modules/account/PasswordDialog.qml:221
-#: ../src/modules/account/WebCam.qml:148
+#: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:285
 msgid "Confirm"
 msgstr "Onayla"
 
@@ -486,13 +486,19 @@ msgid "Automatically connect"
 msgstr "Otomatik bağlan"
 
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:99
-#: ../src/modules/display/main.qml:236
+#: ../src/modules/display/main.qml:222
 msgid "Apply"
 msgstr "Uygula"
 
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:127
 msgid "Devices nearby"
 msgstr "Yakın cihazlar"
+
+#: ../src/modules/display/BrightnessRectangle.qml:59
+#: ../src/modules/display/ResolutionRectangle.qml:68
+#: ../src/modules/display/RotationRectangle.qml:68
+msgid "Monitor"
+msgstr "Monitör"
 
 #: ../src/modules/date_time/Calendar.qml:161
 msgid "Today"
@@ -954,7 +960,6 @@ msgid "Guest"
 msgstr "Misafir"
 
 #: ../src/modules/account/GuestUser.qml:106
-#: ../src/modules/display/MonitorProperties.qml:80
 msgid "Enabled"
 msgstr "Aktif"
 
@@ -1017,11 +1022,11 @@ msgid ""
 "seconds."
 msgstr "<font color='#F48914'>%1</font> saniye içinde önceki ekran ayarlarına dönecek."
 
-#: ../src/modules/display/MessageBox.qml:127
+#: ../src/modules/display/MessageBox.qml:140
 msgid "Keep Changes"
 msgstr "Değişiklikleri Tut"
 
-#: ../src/modules/display/MessageBox.qml:140
+#: ../src/modules/display/MessageBox.qml:128
 msgid "Revert"
 msgstr "Eski haline döndür"
 
@@ -1110,49 +1115,107 @@ msgstr "Önyükleme Menüsü"
 msgid "Home"
 msgstr "Ev"
 
-#: ../src/modules/display/MonitorComponent.qml:185
-msgid "Split"
-msgstr "Bölme"
-
-#: ../src/modules/display/MonitorComponent.qml:236
-msgid "Set as primary display"
-msgstr "Birincil ekran olarak ayarla"
-
-#: ../src/modules/display/MonitorDragArea.qml:463
+#: ../src/modules/display/MonitorDragArea.qml:470
 msgid "Identify"
 msgstr "Belirleme"
 
-#: ../src/modules/display/MonitorDragArea.qml:480
+#: ../src/modules/display/MonitorDragArea.qml:487
 msgid "Edit"
 msgstr "Düzenle"
 
-#: ../src/modules/display/MonitorProperties.qml:47
+#: ../src/modules/display/MonitorDragArea.qml:505
+msgid "Split"
+msgstr "Bölme"
+
+#: ../src/modules/display/MonitorProperties.qml:42
 msgid "Normal"
 msgstr "Normal"
 
-#: ../src/modules/display/MonitorProperties.qml:48
+#: ../src/modules/display/MonitorProperties.qml:43
 msgid "Rotate Right"
 msgstr "Sağa Çevir"
 
-#: ../src/modules/display/MonitorProperties.qml:49
+#: ../src/modules/display/MonitorProperties.qml:44
 msgid "Upside Down"
 msgstr "Başaşağı Çevir"
 
-#: ../src/modules/display/MonitorProperties.qml:50
+#: ../src/modules/display/MonitorProperties.qml:45
 msgid "Rotate Left"
 msgstr "Sola Çevir"
 
-#: ../src/modules/display/MonitorProperties.qml:112
+#: ../src/modules/display/MonitorProperties.qml:78
+msgid "Enable Monitor(s)"
+msgstr "Ekran(ları) Etkinleştir"
+
+#: ../src/modules/display/MonitorProperties.qml:96
+msgid "Please choose the monitor(s) you want to enable"
+msgstr "Lütfen etkinleştirmek için ekran(ları) seçin"
+
+#: ../src/modules/display/MonitorProperties.qml:146
+#: ../src/views/TmpTranslationFile.qml:52
+msgid "Primary Screen"
+msgstr "Birincil Ekran"
+
+#: ../src/modules/display/MonitorProperties.qml:190
 msgid "Resolution"
 msgstr "Çözünürlük"
 
-#: ../src/modules/display/MonitorProperties.qml:165
+#: ../src/modules/display/MonitorProperties.qml:231
 msgid "Rotation"
 msgstr "Çevirme"
 
-#: ../src/modules/display/MonitorProperties.qml:206
+#: ../src/modules/display/MonitorProperties.qml:274
+#: ../src/modules/display/MonitorProperties.qml:306
 msgid "Brightness"
 msgstr "Parlaklık"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:38
+#: ../src/views/TmpTranslationFile.qml:8
+msgid "Display Modes"
+msgstr "Ekran Modları"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:58
+#: ../src/views/TmpTranslationFile.qml:12
+msgid "Copy"
+msgstr "Kopyala"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:59
+#: ../src/views/TmpTranslationFile.qml:16
+msgid "Copy the contents of your primary screen to other screens."
+msgstr "Diğer ekranlara birincil ekranın içeriğini kopyalayın."
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:76
+#: ../src/views/TmpTranslationFile.qml:20
+msgid "Extend"
+msgstr "Uzat"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:77
+msgid ""
+"Extend your screen contents to display different contents on different "
+"screens."
+msgstr "Farklı ekranlarda farklı içerikleri görüntülemek için ekran içeriğini uzatın."
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:98
+#: ../src/views/TmpTranslationFile.qml:28
+#, qt-format
+msgid "Only Displayed on %1"
+msgstr "Yanlız %1 de gösterildi"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:99
+#: ../src/views/TmpTranslationFile.qml:32
+#, qt-format
+msgid "Screen contents are only displayed on %1 but not on other screens."
+msgstr "Ekran içerikleri yanlız %1 de gösterilecek ancak diğer ekranlarda gösterilmeyecek."
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:118
+#: ../src/views/TmpTranslationFile.qml:36
+msgid "Custom Settings"
+msgstr "Özel Ayarlar"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:119
+#: ../src/views/TmpTranslationFile.qml:40
+msgid "You can do other custom settings to your screens."
+msgstr "Ekranında diğer özel ayarları yapabilirsin."
 
 #: ../src/modules/network/wired/NewItem.qml:45
 #: ../src/modules/network/wired/WiredItem.qml:89
@@ -1314,7 +1377,7 @@ msgid "Add Shortcut"
 msgstr "Kısayol Ekle"
 
 #: ../src/modules/personalization/widgets/ThemeItem.qml:92
-#: ../src/modules/power/main.qml:282 ../src/modules/power/main.qml:477
+#: ../src/modules/power/main.qml:270 ../src/modules/power/main.qml:463
 #: ../src/modules/shortcuts/main.qml:53 ../src/modules/shortcuts/main.qml:233
 msgid "Custom"
 msgstr "Özel"
@@ -1332,53 +1395,15 @@ msgstr "Ayarla"
 msgid "Time zone"
 msgstr "Zaman dilimi"
 
-#: ../src/views/TmpTranslationFile.qml:8
-msgid "Display Modes"
-msgstr "Ekran Modları"
-
-#: ../src/views/TmpTranslationFile.qml:12
-msgid "Copy"
-msgstr "Kopyala"
-
-#: ../src/views/TmpTranslationFile.qml:16
-msgid "Copy the contents of your primary screen to other screens."
-msgstr "Diğer ekranlara birincil ekranın içeriğini kopyalayın."
-
-#: ../src/views/TmpTranslationFile.qml:20
-msgid "Extend"
-msgstr "Uzat"
-
 #: ../src/views/TmpTranslationFile.qml:24
 msgid ""
 "Extend your screen contents. Different contents will be displayed on "
 "different screens."
 msgstr "Ekran içeriğini genişletin. Farklı içerikler farklı ekranlarda olacak."
 
-#: ../src/views/TmpTranslationFile.qml:28
-#, qt-format
-msgid "Only Displayed on %1"
-msgstr "Yanlız %1 de gösterildi"
-
-#: ../src/views/TmpTranslationFile.qml:32
-#, qt-format
-msgid "Screen contents are only displayed on %1 but not on other screens."
-msgstr "Ekran içerikleri yanlız %1 de gösterilecek ancak diğer ekranlarda gösterilmeyecek."
-
-#: ../src/views/TmpTranslationFile.qml:36
-msgid "Custom Settings"
-msgstr "Özel Ayarlar"
-
-#: ../src/views/TmpTranslationFile.qml:40
-msgid "You can do other custom settings to your screens."
-msgstr "Ekranında diğer özel ayarları yapabilirsin."
-
 #: ../src/views/TmpTranslationFile.qml:48
 msgid "Account information is being prepared..."
 msgstr "Hesap bilgileri hazırlanıyor..."
-
-#: ../src/views/TmpTranslationFile.qml:52
-msgid "Primary Screen"
-msgstr "Birincil Ekran"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
 msgid "Touchpad"
@@ -1510,15 +1535,15 @@ msgstr "Kablosuz ağ aşşağıdaki sebeplerden dolayı bağlanamıyor olabilir:
 msgid "Connect to hidden access point"
 msgstr "Gizli erişim noktasına bağlan"
 
-#: ../src/modules/power/main.qml:270 ../src/modules/power/main.qml:465
+#: ../src/modules/power/main.qml:258 ../src/modules/power/main.qml:451
 msgid "Power saver"
 msgstr "Güç tasarrufu"
 
-#: ../src/modules/power/main.qml:264 ../src/modules/power/main.qml:459
+#: ../src/modules/power/main.qml:252 ../src/modules/power/main.qml:445
 msgid "Balanced"
 msgstr "Dengeli"
 
-#: ../src/modules/power/main.qml:276 ../src/modules/power/main.qml:471
+#: ../src/modules/power/main.qml:264 ../src/modules/power/main.qml:457
 msgid "High performance"
 msgstr "Yüksek performans"
 
@@ -1538,7 +1563,7 @@ msgstr "Yaz saatini ayarlayın"
 msgid "Date"
 msgstr "Tarih"
 
-#: ../src/modules/date_time/main.qml:239
+#: ../src/modules/date_time/main.qml:258
 msgid "Set Date"
 msgstr "Tarihi Ayarla"
 
@@ -1594,13 +1619,9 @@ msgstr "Kamera"
 msgid "Software"
 msgstr "Yazılım"
 
-#: ../src/modules/display/main.qml:126
-msgid "Primary Monitor: "
-msgstr "Birincil Ekran:"
-
-#: ../src/modules/display/main.qml:171
-msgid "Monitor"
-msgstr "Monitör"
+#: ../src/modules/display/main.qml:145
+msgid "Return"
+msgstr "Geri döndür"
 
 #: ../src/modules/grub/main.qml:112
 msgid "Default Boot"
@@ -1703,56 +1724,56 @@ msgstr "30 dakika"
 msgid "1 hour"
 msgstr "1 saat"
 
-#: ../src/modules/power/main.qml:136
+#: ../src/modules/power/main.qml:124
 msgid "When I press the power button"
 msgstr "Güç tuşuna bastıktan sonra"
 
-#: ../src/modules/power/main.qml:150 ../src/modules/power/main.qml:196
+#: ../src/modules/power/main.qml:138 ../src/modules/power/main.qml:184
 msgid "Shutdown"
 msgstr "Kapat"
 
-#: ../src/modules/power/main.qml:155 ../src/modules/power/main.qml:201
+#: ../src/modules/power/main.qml:143 ../src/modules/power/main.qml:189
+#: ../src/modules/power/main.qml:255 ../src/modules/power/main.qml:261
 #: ../src/modules/power/main.qml:267 ../src/modules/power/main.qml:273
-#: ../src/modules/power/main.qml:279 ../src/modules/power/main.qml:285
-#: ../src/modules/power/main.qml:391 ../src/modules/power/main.qml:462
-#: ../src/modules/power/main.qml:468 ../src/modules/power/main.qml:474
-#: ../src/modules/power/main.qml:480 ../src/modules/power/main.qml:579
+#: ../src/modules/power/main.qml:377 ../src/modules/power/main.qml:448
+#: ../src/modules/power/main.qml:454 ../src/modules/power/main.qml:460
+#: ../src/modules/power/main.qml:466 ../src/modules/power/main.qml:563
 msgid "Suspend"
 msgstr "Askıya al"
 
-#: ../src/modules/power/main.qml:160
+#: ../src/modules/power/main.qml:148
 msgid "Ask"
 msgstr "Sor"
 
-#: ../src/modules/power/main.qml:182
+#: ../src/modules/power/main.qml:170
 msgid "When I close the lid"
 msgstr "Kapağı kapattıktan sonra"
 
-#: ../src/modules/power/main.qml:206
+#: ../src/modules/power/main.qml:194
 msgid "Nothing"
 msgstr "Hiçbir şey"
 
-#: ../src/modules/power/main.qml:225
+#: ../src/modules/power/main.qml:213
 msgid "Password required to wake up"
 msgstr "Uyanmak için şifre gerekli"
 
-#: ../src/modules/power/main.qml:249
+#: ../src/modules/power/main.qml:237
 msgid "Plugged in"
 msgstr "Fişe takılı"
 
-#: ../src/modules/power/main.qml:444
+#: ../src/modules/power/main.qml:430
 msgid "On battery"
 msgstr "Bataryada"
 
+#: ../src/modules/power/main.qml:254 ../src/modules/power/main.qml:260
 #: ../src/modules/power/main.qml:266 ../src/modules/power/main.qml:272
-#: ../src/modules/power/main.qml:278 ../src/modules/power/main.qml:284
-#: ../src/modules/power/main.qml:350 ../src/modules/power/main.qml:461
-#: ../src/modules/power/main.qml:467 ../src/modules/power/main.qml:473
-#: ../src/modules/power/main.qml:479 ../src/modules/power/main.qml:539
+#: ../src/modules/power/main.qml:336 ../src/modules/power/main.qml:447
+#: ../src/modules/power/main.qml:453 ../src/modules/power/main.qml:459
+#: ../src/modules/power/main.qml:465 ../src/modules/power/main.qml:523
 msgid "Turn off the display"
 msgstr "Ekranı kapat"
 
-#: ../src/modules/power/main.qml:344 ../src/modules/power/main.qml:534
+#: ../src/modules/power/main.qml:330 ../src/modules/power/main.qml:518
 msgid "Custom Options"
 msgstr "Özel Seçenekler"
 

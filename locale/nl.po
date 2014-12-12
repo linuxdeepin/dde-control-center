@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-10 10:41+0800\n"
-"PO-Revision-Date: 2014-12-10 06:34+0000\n"
+"POT-Creation-Date: 2014-12-11 10:14+0800\n"
+"PO-Revision-Date: 2014-12-12 00:55+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/dde-control-center/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -117,7 +117,7 @@ msgstr "Nummer"
 #: ../src/modules/shortcuts/ShortcutInput.qml:343
 #: ../src/modules/date_time/TimeBox.qml:225
 #: ../src/modules/network/wireless/WifiHotspot.qml:82
-#: ../src/modules/display/main.qml:248
+#: ../src/modules/date_time/main.qml:267 ../src/modules/display/main.qml:208
 msgid "Cancel"
 msgstr "Annuleren"
 
@@ -181,7 +181,7 @@ msgstr "Automatische aanmelding"
 #: ../src/modules/account/AddUserDialog.qml:391
 #: ../src/modules/account/DeleteUserDialog.qml:46
 #: ../src/modules/account/PasswordDialog.qml:221
-#: ../src/modules/account/WebCam.qml:148
+#: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:285
 msgid "Confirm"
 msgstr "Bevestigen"
 
@@ -488,13 +488,19 @@ msgid "Automatically connect"
 msgstr "Automatisch verbinden"
 
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:99
-#: ../src/modules/display/main.qml:236
+#: ../src/modules/display/main.qml:222
 msgid "Apply"
 msgstr "Toepassen"
 
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:127
 msgid "Devices nearby"
 msgstr "Nabije apparaten"
+
+#: ../src/modules/display/BrightnessRectangle.qml:59
+#: ../src/modules/display/ResolutionRectangle.qml:68
+#: ../src/modules/display/RotationRectangle.qml:68
+msgid "Monitor"
+msgstr "Beeldscherm"
 
 #: ../src/modules/date_time/Calendar.qml:161
 msgid "Today"
@@ -956,7 +962,6 @@ msgid "Guest"
 msgstr "Gast"
 
 #: ../src/modules/account/GuestUser.qml:106
-#: ../src/modules/display/MonitorProperties.qml:80
 msgid "Enabled"
 msgstr "Ingeschakeld"
 
@@ -1019,11 +1024,11 @@ msgid ""
 "seconds."
 msgstr "Vorige beeldscherminstellingen worden hersteld in <font color='#F48914'>%1</font> seconden."
 
-#: ../src/modules/display/MessageBox.qml:127
+#: ../src/modules/display/MessageBox.qml:140
 msgid "Keep Changes"
 msgstr "Wijzigingen Behouden"
 
-#: ../src/modules/display/MessageBox.qml:140
+#: ../src/modules/display/MessageBox.qml:128
 msgid "Revert"
 msgstr "Terugzetten"
 
@@ -1112,49 +1117,107 @@ msgstr "Opstartmenu"
 msgid "Home"
 msgstr "Thuis"
 
-#: ../src/modules/display/MonitorComponent.qml:185
-msgid "Split"
-msgstr "Splitsen"
-
-#: ../src/modules/display/MonitorComponent.qml:236
-msgid "Set as primary display"
-msgstr "Als hoofdbeeldscherm instellen"
-
-#: ../src/modules/display/MonitorDragArea.qml:463
+#: ../src/modules/display/MonitorDragArea.qml:470
 msgid "Identify"
 msgstr "Identificeren"
 
-#: ../src/modules/display/MonitorDragArea.qml:480
+#: ../src/modules/display/MonitorDragArea.qml:487
 msgid "Edit"
 msgstr "Bewerken"
 
-#: ../src/modules/display/MonitorProperties.qml:47
+#: ../src/modules/display/MonitorDragArea.qml:505
+msgid "Split"
+msgstr "Splitsen"
+
+#: ../src/modules/display/MonitorProperties.qml:42
 msgid "Normal"
 msgstr "Normaal"
 
-#: ../src/modules/display/MonitorProperties.qml:48
+#: ../src/modules/display/MonitorProperties.qml:43
 msgid "Rotate Right"
 msgstr "Naar Rechts Draaien"
 
-#: ../src/modules/display/MonitorProperties.qml:49
+#: ../src/modules/display/MonitorProperties.qml:44
 msgid "Upside Down"
 msgstr "Omdraaien"
 
-#: ../src/modules/display/MonitorProperties.qml:50
+#: ../src/modules/display/MonitorProperties.qml:45
 msgid "Rotate Left"
 msgstr "Naar Links Draaien"
 
-#: ../src/modules/display/MonitorProperties.qml:112
+#: ../src/modules/display/MonitorProperties.qml:78
+msgid "Enable Monitor(s)"
+msgstr ""
+
+#: ../src/modules/display/MonitorProperties.qml:96
+msgid "Please choose the monitor(s) you want to enable"
+msgstr ""
+
+#: ../src/modules/display/MonitorProperties.qml:146
+#: ../src/views/TmpTranslationFile.qml:52
+msgid "Primary Screen"
+msgstr "Hoofdscherm"
+
+#: ../src/modules/display/MonitorProperties.qml:190
 msgid "Resolution"
 msgstr "Resolutie"
 
-#: ../src/modules/display/MonitorProperties.qml:165
+#: ../src/modules/display/MonitorProperties.qml:231
 msgid "Rotation"
 msgstr "Rotatie"
 
-#: ../src/modules/display/MonitorProperties.qml:206
+#: ../src/modules/display/MonitorProperties.qml:274
+#: ../src/modules/display/MonitorProperties.qml:306
 msgid "Brightness"
 msgstr "Helderheid"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:38
+#: ../src/views/TmpTranslationFile.qml:8
+msgid "Display Modes"
+msgstr "Weergavemodi "
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:58
+#: ../src/views/TmpTranslationFile.qml:12
+msgid "Copy"
+msgstr "Kopiëren"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:59
+#: ../src/views/TmpTranslationFile.qml:16
+msgid "Copy the contents of your primary screen to other screens."
+msgstr "Kopieer de inhoud van uw hoofdscherm naar andere schermen. "
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:76
+#: ../src/views/TmpTranslationFile.qml:20
+msgid "Extend"
+msgstr "Uitbreiden"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:77
+msgid ""
+"Extend your screen contents to display different contents on different "
+"screens."
+msgstr ""
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:98
+#: ../src/views/TmpTranslationFile.qml:28
+#, qt-format
+msgid "Only Displayed on %1"
+msgstr "Uitsluitend Weergegeven op %1"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:99
+#: ../src/views/TmpTranslationFile.qml:32
+#, qt-format
+msgid "Screen contents are only displayed on %1 but not on other screens."
+msgstr "Inhoud van het scherm wordt alleen getoond op %1, maar niet op andere schermen. "
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:118
+#: ../src/views/TmpTranslationFile.qml:36
+msgid "Custom Settings"
+msgstr "Aangepaste Instellingen"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:119
+#: ../src/views/TmpTranslationFile.qml:40
+msgid "You can do other custom settings to your screens."
+msgstr "U kunt andere aangepaste instellingen kiezen voor uw schermen. "
 
 #: ../src/modules/network/wired/NewItem.qml:45
 #: ../src/modules/network/wired/WiredItem.qml:89
@@ -1316,7 +1379,7 @@ msgid "Add Shortcut"
 msgstr "Voeg Snelkoppeling Toe"
 
 #: ../src/modules/personalization/widgets/ThemeItem.qml:92
-#: ../src/modules/power/main.qml:282 ../src/modules/power/main.qml:477
+#: ../src/modules/power/main.qml:270 ../src/modules/power/main.qml:463
 #: ../src/modules/shortcuts/main.qml:53 ../src/modules/shortcuts/main.qml:233
 msgid "Custom"
 msgstr "Aangepast"
@@ -1334,53 +1397,15 @@ msgstr "Instellen"
 msgid "Time zone"
 msgstr "Tijdzone"
 
-#: ../src/views/TmpTranslationFile.qml:8
-msgid "Display Modes"
-msgstr "Weergavemodi "
-
-#: ../src/views/TmpTranslationFile.qml:12
-msgid "Copy"
-msgstr "Kopiëren"
-
-#: ../src/views/TmpTranslationFile.qml:16
-msgid "Copy the contents of your primary screen to other screens."
-msgstr "Kopieer de inhoud van uw hoofdscherm naar andere schermen. "
-
-#: ../src/views/TmpTranslationFile.qml:20
-msgid "Extend"
-msgstr "Uitbreiden"
-
 #: ../src/views/TmpTranslationFile.qml:24
 msgid ""
 "Extend your screen contents. Different contents will be displayed on "
 "different screens."
 msgstr "Breidt de inhoud van uw scherm uit. De inhoud wordt op verschillende schermen weergegeven. "
 
-#: ../src/views/TmpTranslationFile.qml:28
-#, qt-format
-msgid "Only Displayed on %1"
-msgstr "Uitsluitend Weergegeven op %1"
-
-#: ../src/views/TmpTranslationFile.qml:32
-#, qt-format
-msgid "Screen contents are only displayed on %1 but not on other screens."
-msgstr "Inhoud van het scherm wordt alleen getoond op %1, maar niet op andere schermen. "
-
-#: ../src/views/TmpTranslationFile.qml:36
-msgid "Custom Settings"
-msgstr "Aangepaste Instellingen"
-
-#: ../src/views/TmpTranslationFile.qml:40
-msgid "You can do other custom settings to your screens."
-msgstr "U kunt andere aangepaste instellingen kiezen voor uw schermen. "
-
 #: ../src/views/TmpTranslationFile.qml:48
 msgid "Account information is being prepared..."
 msgstr "Accountinformatie wordt voorbereid"
-
-#: ../src/views/TmpTranslationFile.qml:52
-msgid "Primary Screen"
-msgstr "Hoofdscherm"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
 msgid "Touchpad"
@@ -1512,15 +1537,15 @@ msgstr "Draadloos netwerk is niet in staat te verbinden. Mogelijk komt dit door:
 msgid "Connect to hidden access point"
 msgstr "Verbinden met verborgen toegangspunt"
 
-#: ../src/modules/power/main.qml:270 ../src/modules/power/main.qml:465
+#: ../src/modules/power/main.qml:258 ../src/modules/power/main.qml:451
 msgid "Power saver"
 msgstr "Stroombesparing"
 
-#: ../src/modules/power/main.qml:264 ../src/modules/power/main.qml:459
+#: ../src/modules/power/main.qml:252 ../src/modules/power/main.qml:445
 msgid "Balanced"
 msgstr "Gebalanceerd"
 
-#: ../src/modules/power/main.qml:276 ../src/modules/power/main.qml:471
+#: ../src/modules/power/main.qml:264 ../src/modules/power/main.qml:457
 msgid "High performance"
 msgstr "Hoge prestaties"
 
@@ -1540,7 +1565,7 @@ msgstr "Pas DST-klok aan"
 msgid "Date"
 msgstr "Datum"
 
-#: ../src/modules/date_time/main.qml:239
+#: ../src/modules/date_time/main.qml:258
 msgid "Set Date"
 msgstr "Datum instellen"
 
@@ -1596,13 +1621,9 @@ msgstr "Camera"
 msgid "Software"
 msgstr "Software"
 
-#: ../src/modules/display/main.qml:126
-msgid "Primary Monitor: "
-msgstr "Hoofd monitor:"
-
-#: ../src/modules/display/main.qml:171
-msgid "Monitor"
-msgstr "Beeldscherm"
+#: ../src/modules/display/main.qml:145
+msgid "Return"
+msgstr ""
 
 #: ../src/modules/grub/main.qml:112
 msgid "Default Boot"
@@ -1705,56 +1726,56 @@ msgstr "30 minuten"
 msgid "1 hour"
 msgstr "1 uur"
 
-#: ../src/modules/power/main.qml:136
+#: ../src/modules/power/main.qml:124
 msgid "When I press the power button"
 msgstr "Als ik op de aan/uit-knop druk"
 
-#: ../src/modules/power/main.qml:150 ../src/modules/power/main.qml:196
+#: ../src/modules/power/main.qml:138 ../src/modules/power/main.qml:184
 msgid "Shutdown"
 msgstr "Afsluiten"
 
-#: ../src/modules/power/main.qml:155 ../src/modules/power/main.qml:201
+#: ../src/modules/power/main.qml:143 ../src/modules/power/main.qml:189
+#: ../src/modules/power/main.qml:255 ../src/modules/power/main.qml:261
 #: ../src/modules/power/main.qml:267 ../src/modules/power/main.qml:273
-#: ../src/modules/power/main.qml:279 ../src/modules/power/main.qml:285
-#: ../src/modules/power/main.qml:391 ../src/modules/power/main.qml:462
-#: ../src/modules/power/main.qml:468 ../src/modules/power/main.qml:474
-#: ../src/modules/power/main.qml:480 ../src/modules/power/main.qml:579
+#: ../src/modules/power/main.qml:377 ../src/modules/power/main.qml:448
+#: ../src/modules/power/main.qml:454 ../src/modules/power/main.qml:460
+#: ../src/modules/power/main.qml:466 ../src/modules/power/main.qml:563
 msgid "Suspend"
 msgstr "Slaapstand"
 
-#: ../src/modules/power/main.qml:160
+#: ../src/modules/power/main.qml:148
 msgid "Ask"
 msgstr "Vraag"
 
-#: ../src/modules/power/main.qml:182
+#: ../src/modules/power/main.qml:170
 msgid "When I close the lid"
 msgstr "Als ik het deksel sluit"
 
-#: ../src/modules/power/main.qml:206
+#: ../src/modules/power/main.qml:194
 msgid "Nothing"
 msgstr "Niks"
 
-#: ../src/modules/power/main.qml:225
+#: ../src/modules/power/main.qml:213
 msgid "Password required to wake up"
 msgstr "Wachtwoord vereist om computer uit slaapstand te halen"
 
-#: ../src/modules/power/main.qml:249
+#: ../src/modules/power/main.qml:237
 msgid "Plugged in"
 msgstr "Aan netstroom"
 
-#: ../src/modules/power/main.qml:444
+#: ../src/modules/power/main.qml:430
 msgid "On battery"
 msgstr "Op accu"
 
+#: ../src/modules/power/main.qml:254 ../src/modules/power/main.qml:260
 #: ../src/modules/power/main.qml:266 ../src/modules/power/main.qml:272
-#: ../src/modules/power/main.qml:278 ../src/modules/power/main.qml:284
-#: ../src/modules/power/main.qml:350 ../src/modules/power/main.qml:461
-#: ../src/modules/power/main.qml:467 ../src/modules/power/main.qml:473
-#: ../src/modules/power/main.qml:479 ../src/modules/power/main.qml:539
+#: ../src/modules/power/main.qml:336 ../src/modules/power/main.qml:447
+#: ../src/modules/power/main.qml:453 ../src/modules/power/main.qml:459
+#: ../src/modules/power/main.qml:465 ../src/modules/power/main.qml:523
 msgid "Turn off the display"
 msgstr "Schakel het beeldscherm uit"
 
-#: ../src/modules/power/main.qml:344 ../src/modules/power/main.qml:534
+#: ../src/modules/power/main.qml:330 ../src/modules/power/main.qml:518
 msgid "Custom Options"
 msgstr "Aangepaste Instellingen"
 

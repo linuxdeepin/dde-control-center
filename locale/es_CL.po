@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-10 10:41+0800\n"
-"PO-Revision-Date: 2014-12-10 06:34+0000\n"
+"POT-Creation-Date: 2014-12-11 10:14+0800\n"
+"PO-Revision-Date: 2014-12-12 00:55+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Spanish (Chile) (http://www.transifex.com/projects/p/dde-control-center/language/es_CL/)\n"
 "MIME-Version: 1.0\n"
@@ -118,7 +118,7 @@ msgstr "Número"
 #: ../src/modules/shortcuts/ShortcutInput.qml:343
 #: ../src/modules/date_time/TimeBox.qml:225
 #: ../src/modules/network/wireless/WifiHotspot.qml:82
-#: ../src/modules/display/main.qml:248
+#: ../src/modules/date_time/main.qml:267 ../src/modules/display/main.qml:208
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -182,7 +182,7 @@ msgstr "Auto-login"
 #: ../src/modules/account/AddUserDialog.qml:391
 #: ../src/modules/account/DeleteUserDialog.qml:46
 #: ../src/modules/account/PasswordDialog.qml:221
-#: ../src/modules/account/WebCam.qml:148
+#: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:285
 msgid "Confirm"
 msgstr "Confirmar"
 
@@ -489,13 +489,19 @@ msgid "Automatically connect"
 msgstr "Conectar automáticamente"
 
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:99
-#: ../src/modules/display/main.qml:236
+#: ../src/modules/display/main.qml:222
 msgid "Apply"
 msgstr "Aplicar"
 
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:127
 msgid "Devices nearby"
 msgstr "Dispositivos cercanos"
+
+#: ../src/modules/display/BrightnessRectangle.qml:59
+#: ../src/modules/display/ResolutionRectangle.qml:68
+#: ../src/modules/display/RotationRectangle.qml:68
+msgid "Monitor"
+msgstr "Monitor"
 
 #: ../src/modules/date_time/Calendar.qml:161
 msgid "Today"
@@ -957,7 +963,6 @@ msgid "Guest"
 msgstr "Invitado"
 
 #: ../src/modules/account/GuestUser.qml:106
-#: ../src/modules/display/MonitorProperties.qml:80
 msgid "Enabled"
 msgstr "Habilitado"
 
@@ -1020,11 +1025,11 @@ msgid ""
 "seconds."
 msgstr "Volviendo a los ajustes previos en <font color='#F48914'>%1</font> segundos."
 
-#: ../src/modules/display/MessageBox.qml:127
+#: ../src/modules/display/MessageBox.qml:140
 msgid "Keep Changes"
 msgstr "Guardar los cambios"
 
-#: ../src/modules/display/MessageBox.qml:140
+#: ../src/modules/display/MessageBox.qml:128
 msgid "Revert"
 msgstr "Volver"
 
@@ -1113,49 +1118,107 @@ msgstr "Menú de arranque"
 msgid "Home"
 msgstr "Inicio"
 
-#: ../src/modules/display/MonitorComponent.qml:185
-msgid "Split"
-msgstr ""
-
-#: ../src/modules/display/MonitorComponent.qml:236
-msgid "Set as primary display"
-msgstr "Establecer como ajustes básicos"
-
-#: ../src/modules/display/MonitorDragArea.qml:463
+#: ../src/modules/display/MonitorDragArea.qml:470
 msgid "Identify"
 msgstr "Identificar"
 
-#: ../src/modules/display/MonitorDragArea.qml:480
+#: ../src/modules/display/MonitorDragArea.qml:487
 msgid "Edit"
 msgstr "Editar"
 
-#: ../src/modules/display/MonitorProperties.qml:47
+#: ../src/modules/display/MonitorDragArea.qml:505
+msgid "Split"
+msgstr ""
+
+#: ../src/modules/display/MonitorProperties.qml:42
 msgid "Normal"
 msgstr "Modo normal"
 
-#: ../src/modules/display/MonitorProperties.qml:48
+#: ../src/modules/display/MonitorProperties.qml:43
 msgid "Rotate Right"
 msgstr "Girar a la derecha"
 
-#: ../src/modules/display/MonitorProperties.qml:49
+#: ../src/modules/display/MonitorProperties.qml:44
 msgid "Upside Down"
 msgstr "Al revés"
 
-#: ../src/modules/display/MonitorProperties.qml:50
+#: ../src/modules/display/MonitorProperties.qml:45
 msgid "Rotate Left"
 msgstr "Girar a la izquierda"
 
-#: ../src/modules/display/MonitorProperties.qml:112
+#: ../src/modules/display/MonitorProperties.qml:78
+msgid "Enable Monitor(s)"
+msgstr ""
+
+#: ../src/modules/display/MonitorProperties.qml:96
+msgid "Please choose the monitor(s) you want to enable"
+msgstr ""
+
+#: ../src/modules/display/MonitorProperties.qml:146
+#: ../src/views/TmpTranslationFile.qml:52
+msgid "Primary Screen"
+msgstr ""
+
+#: ../src/modules/display/MonitorProperties.qml:190
 msgid "Resolution"
 msgstr "Resolucion"
 
-#: ../src/modules/display/MonitorProperties.qml:165
+#: ../src/modules/display/MonitorProperties.qml:231
 msgid "Rotation"
 msgstr "Rotacion"
 
-#: ../src/modules/display/MonitorProperties.qml:206
+#: ../src/modules/display/MonitorProperties.qml:274
+#: ../src/modules/display/MonitorProperties.qml:306
 msgid "Brightness"
 msgstr "Brillo"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:38
+#: ../src/views/TmpTranslationFile.qml:8
+msgid "Display Modes"
+msgstr ""
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:58
+#: ../src/views/TmpTranslationFile.qml:12
+msgid "Copy"
+msgstr "Copiar"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:59
+#: ../src/views/TmpTranslationFile.qml:16
+msgid "Copy the contents of your primary screen to other screens."
+msgstr ""
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:76
+#: ../src/views/TmpTranslationFile.qml:20
+msgid "Extend"
+msgstr ""
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:77
+msgid ""
+"Extend your screen contents to display different contents on different "
+"screens."
+msgstr ""
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:98
+#: ../src/views/TmpTranslationFile.qml:28
+#, qt-format
+msgid "Only Displayed on %1"
+msgstr ""
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:99
+#: ../src/views/TmpTranslationFile.qml:32
+#, qt-format
+msgid "Screen contents are only displayed on %1 but not on other screens."
+msgstr ""
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:118
+#: ../src/views/TmpTranslationFile.qml:36
+msgid "Custom Settings"
+msgstr ""
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:119
+#: ../src/views/TmpTranslationFile.qml:40
+msgid "You can do other custom settings to your screens."
+msgstr ""
 
 #: ../src/modules/network/wired/NewItem.qml:45
 #: ../src/modules/network/wired/WiredItem.qml:89
@@ -1317,7 +1380,7 @@ msgid "Add Shortcut"
 msgstr ""
 
 #: ../src/modules/personalization/widgets/ThemeItem.qml:92
-#: ../src/modules/power/main.qml:282 ../src/modules/power/main.qml:477
+#: ../src/modules/power/main.qml:270 ../src/modules/power/main.qml:463
 #: ../src/modules/shortcuts/main.qml:53 ../src/modules/shortcuts/main.qml:233
 msgid "Custom"
 msgstr "Personalizar"
@@ -1335,52 +1398,14 @@ msgstr "Fijar"
 msgid "Time zone"
 msgstr "Zona horaria"
 
-#: ../src/views/TmpTranslationFile.qml:8
-msgid "Display Modes"
-msgstr ""
-
-#: ../src/views/TmpTranslationFile.qml:12
-msgid "Copy"
-msgstr "Copiar"
-
-#: ../src/views/TmpTranslationFile.qml:16
-msgid "Copy the contents of your primary screen to other screens."
-msgstr ""
-
-#: ../src/views/TmpTranslationFile.qml:20
-msgid "Extend"
-msgstr ""
-
 #: ../src/views/TmpTranslationFile.qml:24
 msgid ""
 "Extend your screen contents. Different contents will be displayed on "
 "different screens."
 msgstr ""
 
-#: ../src/views/TmpTranslationFile.qml:28
-#, qt-format
-msgid "Only Displayed on %1"
-msgstr ""
-
-#: ../src/views/TmpTranslationFile.qml:32
-#, qt-format
-msgid "Screen contents are only displayed on %1 but not on other screens."
-msgstr ""
-
-#: ../src/views/TmpTranslationFile.qml:36
-msgid "Custom Settings"
-msgstr ""
-
-#: ../src/views/TmpTranslationFile.qml:40
-msgid "You can do other custom settings to your screens."
-msgstr ""
-
 #: ../src/views/TmpTranslationFile.qml:48
 msgid "Account information is being prepared..."
-msgstr ""
-
-#: ../src/views/TmpTranslationFile.qml:52
-msgid "Primary Screen"
 msgstr ""
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
@@ -1513,15 +1538,15 @@ msgstr ""
 msgid "Connect to hidden access point"
 msgstr "Conectar a punto de acceso oculto"
 
-#: ../src/modules/power/main.qml:270 ../src/modules/power/main.qml:465
+#: ../src/modules/power/main.qml:258 ../src/modules/power/main.qml:451
 msgid "Power saver"
 msgstr "Ahorro de energia"
 
-#: ../src/modules/power/main.qml:264 ../src/modules/power/main.qml:459
+#: ../src/modules/power/main.qml:252 ../src/modules/power/main.qml:445
 msgid "Balanced"
 msgstr "Equilibrada"
 
-#: ../src/modules/power/main.qml:276 ../src/modules/power/main.qml:471
+#: ../src/modules/power/main.qml:264 ../src/modules/power/main.qml:457
 msgid "High performance"
 msgstr "Alto desempeño"
 
@@ -1541,7 +1566,7 @@ msgstr ""
 msgid "Date"
 msgstr "Fecha"
 
-#: ../src/modules/date_time/main.qml:239
+#: ../src/modules/date_time/main.qml:258
 msgid "Set Date"
 msgstr "Establecer Fecha"
 
@@ -1597,13 +1622,9 @@ msgstr "Camara"
 msgid "Software"
 msgstr "Aplicaciones"
 
-#: ../src/modules/display/main.qml:126
-msgid "Primary Monitor: "
-msgstr "Monitor primario:"
-
-#: ../src/modules/display/main.qml:171
-msgid "Monitor"
-msgstr "Monitor"
+#: ../src/modules/display/main.qml:145
+msgid "Return"
+msgstr ""
 
 #: ../src/modules/grub/main.qml:112
 msgid "Default Boot"
@@ -1706,56 +1727,56 @@ msgstr "30 minutos"
 msgid "1 hour"
 msgstr "1 hora"
 
-#: ../src/modules/power/main.qml:136
+#: ../src/modules/power/main.qml:124
 msgid "When I press the power button"
 msgstr "Cuando presione el boton de encendido/apagado"
 
-#: ../src/modules/power/main.qml:150 ../src/modules/power/main.qml:196
+#: ../src/modules/power/main.qml:138 ../src/modules/power/main.qml:184
 msgid "Shutdown"
 msgstr "Apagar el equipo"
 
-#: ../src/modules/power/main.qml:155 ../src/modules/power/main.qml:201
+#: ../src/modules/power/main.qml:143 ../src/modules/power/main.qml:189
+#: ../src/modules/power/main.qml:255 ../src/modules/power/main.qml:261
 #: ../src/modules/power/main.qml:267 ../src/modules/power/main.qml:273
-#: ../src/modules/power/main.qml:279 ../src/modules/power/main.qml:285
-#: ../src/modules/power/main.qml:391 ../src/modules/power/main.qml:462
-#: ../src/modules/power/main.qml:468 ../src/modules/power/main.qml:474
-#: ../src/modules/power/main.qml:480 ../src/modules/power/main.qml:579
+#: ../src/modules/power/main.qml:377 ../src/modules/power/main.qml:448
+#: ../src/modules/power/main.qml:454 ../src/modules/power/main.qml:460
+#: ../src/modules/power/main.qml:466 ../src/modules/power/main.qml:563
 msgid "Suspend"
 msgstr "Suspender"
 
-#: ../src/modules/power/main.qml:160
+#: ../src/modules/power/main.qml:148
 msgid "Ask"
 msgstr "Preguntar"
 
-#: ../src/modules/power/main.qml:182
+#: ../src/modules/power/main.qml:170
 msgid "When I close the lid"
 msgstr "Cuando cierre la tapa del equipo"
 
-#: ../src/modules/power/main.qml:206
+#: ../src/modules/power/main.qml:194
 msgid "Nothing"
 msgstr "Nada"
 
-#: ../src/modules/power/main.qml:225
+#: ../src/modules/power/main.qml:213
 msgid "Password required to wake up"
 msgstr "Requerir contraseña al reactivarse"
 
-#: ../src/modules/power/main.qml:249
+#: ../src/modules/power/main.qml:237
 msgid "Plugged in"
 msgstr "Conectado"
 
-#: ../src/modules/power/main.qml:444
+#: ../src/modules/power/main.qml:430
 msgid "On battery"
 msgstr "Con batería"
 
+#: ../src/modules/power/main.qml:254 ../src/modules/power/main.qml:260
 #: ../src/modules/power/main.qml:266 ../src/modules/power/main.qml:272
-#: ../src/modules/power/main.qml:278 ../src/modules/power/main.qml:284
-#: ../src/modules/power/main.qml:350 ../src/modules/power/main.qml:461
-#: ../src/modules/power/main.qml:467 ../src/modules/power/main.qml:473
-#: ../src/modules/power/main.qml:479 ../src/modules/power/main.qml:539
+#: ../src/modules/power/main.qml:336 ../src/modules/power/main.qml:447
+#: ../src/modules/power/main.qml:453 ../src/modules/power/main.qml:459
+#: ../src/modules/power/main.qml:465 ../src/modules/power/main.qml:523
 msgid "Turn off the display"
 msgstr "Apagar el monitor"
 
-#: ../src/modules/power/main.qml:344 ../src/modules/power/main.qml:534
+#: ../src/modules/power/main.qml:330 ../src/modules/power/main.qml:518
 msgid "Custom Options"
 msgstr "Opciones personalizadas"
 
