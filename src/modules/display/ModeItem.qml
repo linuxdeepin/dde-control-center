@@ -49,14 +49,7 @@ Rectangle {
     property var modesDict
     property string currentValue: "0x0" // set from delegate
 
-    property bool selected: {
-        if(itemLabel){
-            return getIndexFromArray(currentValue, modesDict[itemLabel]) != -1
-        }
-        else{
-            return false
-        }
-    }
+    property bool selected: itemLabel == currentValue
     property bool hovered: false
 
     Component.onCompleted: {

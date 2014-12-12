@@ -79,7 +79,7 @@ Item {
         cellWidth: width/3
         cellHeight: 30
         clip: true
-        property int currentValue: pOutputObj.currentMode[0]
+        property string currentValue: (pOutputObj.width).toString() + "x" + (pOutputObj.height).toString()
         property var valueDict: new Object()
 
         function loadResolutionModel(){
