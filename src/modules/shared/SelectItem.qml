@@ -28,7 +28,7 @@ Item {
     id: selectItem
     width: parent.width
     height: 28
-    property int labelLeftMargin: 40
+    property int labelLeftMargin: 44
     property bool selected: selectItemId == itemId
     property bool hovered: false
     
@@ -72,7 +72,8 @@ Item {
 
     DssMultiDeleteButton {
         id: deleteButton
-        anchors.right: nameText.left
+        anchors.left: nameImage.left
+        anchors.leftMargin: 4
         anchors.verticalCenter: parent.verticalCenter
         opacity: {
             if(selected){
