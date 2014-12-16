@@ -459,7 +459,8 @@ Rectangle {
             height: parent.height
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
-            spacing: 5
+            spacing: 16
+
 
             ImageLabel {
                 id:identifyItem
