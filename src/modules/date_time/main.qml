@@ -156,7 +156,6 @@ DFlickable {
             listAreaMaxHeight: isInAddState ? dateTimeModule.contentHeight - timeBox.height - datetimeDT.height: 230
         }
 
-
         DBaseExpand {
             id: dstRec
             expanded: true
@@ -332,7 +331,7 @@ DFlickable {
         DSeparatorHorizontal {visible: !showedTimezoneList}
 
         Calendar {
-            height: showedTimezoneList ? 0 : 308
+            height: showedTimezoneList ? 0 : 333
             visible: !showedTimezoneList
             id: calendarObj
         }
