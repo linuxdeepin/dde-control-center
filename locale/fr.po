@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-11 10:14+0800\n"
-"PO-Revision-Date: 2014-12-12 00:55+0000\n"
-"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
+"PO-Revision-Date: 2014-12-14 09:10+0000\n"
+"Last-Translator: lexross <its4moi@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dde-control-center/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1146,11 +1146,11 @@ msgstr "Faire une rotation sur la gauche"
 
 #: ../src/modules/display/MonitorProperties.qml:78
 msgid "Enable Monitor(s)"
-msgstr ""
+msgstr "Activer le(s) moniteur(s)"
 
 #: ../src/modules/display/MonitorProperties.qml:96
 msgid "Please choose the monitor(s) you want to enable"
-msgstr ""
+msgstr "Veuillez choisir le(s) moniteur(s) que vous voulez activer"
 
 #: ../src/modules/display/MonitorProperties.qml:146
 #: ../src/views/TmpTranslationFile.qml:52
@@ -1194,7 +1194,7 @@ msgstr "Etendre"
 msgid ""
 "Extend your screen contents to display different contents on different "
 "screens."
-msgstr ""
+msgstr "Etendre l'affichage de votre bureau sur d'autres écrans."
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:98
 #: ../src/views/TmpTranslationFile.qml:28
@@ -1622,7 +1622,7 @@ msgstr "Logiciel"
 
 #: ../src/modules/display/main.qml:145
 msgid "Return"
-msgstr ""
+msgstr "Retour"
 
 #: ../src/modules/grub/main.qml:112
 msgid "Default Boot"

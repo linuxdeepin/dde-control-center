@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-11 10:14+0800\n"
-"PO-Revision-Date: 2014-12-12 00:55+0000\n"
-"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
+"PO-Revision-Date: 2014-12-12 06:10+0000\n"
+"Last-Translator: Анатолий Валерианович <ffox909@mail.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/dde-control-center/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: ../src/modules/network/add/AddDsl.qml:11
 msgid "Add PPPoE Connection"
-msgstr ""
+msgstr "Добавить подключение PPPoE"
 
 #: ../src/modules/network/add/AddDsl.qml:24
 #: ../src/modules/network/add/AddMobile.qml:33
@@ -162,7 +162,7 @@ msgstr "Администратор"
 #: ../src/modules/account/EditUserDialog.qml:138
 #: ../src/modules/account/UserList.qml:222
 msgid "Normal User"
-msgstr ""
+msgstr "Обычный пользователь"
 
 #: ../src/modules/account/AddUserDialog.qml:244
 msgid "Repeat Password"
@@ -537,7 +537,7 @@ msgstr "Сб"
 #: ../src/modules/network/ConnectionAdd.qml:12
 #: ../src/modules/network/main.qml:303
 msgid "Add Network Connection"
-msgstr ""
+msgstr "Добавить сетевое подключение"
 
 #: ../src/modules/network/ConnectionAdd.qml:35
 #: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:11
@@ -971,7 +971,7 @@ msgstr "Подключён"
 
 #: ../src/modules/network/Info.qml:15
 msgid "Not Connected"
-msgstr ""
+msgstr "Не подключено"
 
 #: ../src/modules/network/Info.qml:39
 msgid "(default)"
@@ -1147,16 +1147,16 @@ msgstr "Повернуть влево"
 
 #: ../src/modules/display/MonitorProperties.qml:78
 msgid "Enable Monitor(s)"
-msgstr ""
+msgstr "Включить монитор(ы)"
 
 #: ../src/modules/display/MonitorProperties.qml:96
 msgid "Please choose the monitor(s) you want to enable"
-msgstr ""
+msgstr "Выберите  монитор(ы), которые хотите включить"
 
 #: ../src/modules/display/MonitorProperties.qml:146
 #: ../src/views/TmpTranslationFile.qml:52
 msgid "Primary Screen"
-msgstr ""
+msgstr "Первичный экран"
 
 #: ../src/modules/display/MonitorProperties.qml:190
 msgid "Resolution"
@@ -1174,7 +1174,7 @@ msgstr "Яркость"
 #: ../src/modules/display/MonitorsSimpleSetting.qml:38
 #: ../src/views/TmpTranslationFile.qml:8
 msgid "Display Modes"
-msgstr ""
+msgstr "Режимы отображения"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:58
 #: ../src/views/TmpTranslationFile.qml:12
@@ -1184,7 +1184,7 @@ msgstr "Копировать"
 #: ../src/modules/display/MonitorsSimpleSetting.qml:59
 #: ../src/views/TmpTranslationFile.qml:16
 msgid "Copy the contents of your primary screen to other screens."
-msgstr ""
+msgstr "Копировать содержание первичного экрана на другие."
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:76
 #: ../src/views/TmpTranslationFile.qml:20
@@ -1195,29 +1195,29 @@ msgstr "Продлить"
 msgid ""
 "Extend your screen contents to display different contents on different "
 "screens."
-msgstr ""
+msgstr "Расширьте содержание вашего экрана, что бы отобразить различное содержание на других экранах."
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:98
 #: ../src/views/TmpTranslationFile.qml:28
 #, qt-format
 msgid "Only Displayed on %1"
-msgstr ""
+msgstr "Показывать только ан %1"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:99
 #: ../src/views/TmpTranslationFile.qml:32
 #, qt-format
 msgid "Screen contents are only displayed on %1 but not on other screens."
-msgstr ""
+msgstr "Содержимое экрана отображается только на %1."
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:118
 #: ../src/views/TmpTranslationFile.qml:36
 msgid "Custom Settings"
-msgstr ""
+msgstr "Собственные настройки"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:119
 #: ../src/views/TmpTranslationFile.qml:40
 msgid "You can do other custom settings to your screens."
-msgstr ""
+msgstr "Вы можете делать другие пользовательские настройки экранов."
 
 #: ../src/modules/network/wired/NewItem.qml:45
 #: ../src/modules/network/wired/WiredItem.qml:89
@@ -1236,7 +1236,7 @@ msgstr "не управляемый"
 
 #: ../src/modules/network/widgets/PasswordBox.qml:102
 msgid "Auto-connect"
-msgstr ""
+msgstr "Автоподключение"
 
 #: ../src/modules/account/PasswordDialog.qml:114
 msgid "New Password"
@@ -1356,27 +1356,27 @@ msgstr "Закрыть"
 
 #: ../src/modules/date_time/StateButtons.qml:72
 msgid "Delete Time Zone"
-msgstr ""
+msgstr "Удалить часовой пояс"
 
 #: ../src/modules/date_time/StateButtons.qml:88
 msgid "Add Time Zone"
-msgstr ""
+msgstr "Добавить часовой пояс"
 
 #: ../src/modules/keyboard/StateButtons.qml:77
 msgid "Delete Keyboard Layout"
-msgstr ""
+msgstr "Удалить раскладку клавиатуры"
 
 #: ../src/modules/keyboard/StateButtons.qml:92
 msgid "Add Keyboard Layout"
-msgstr ""
+msgstr "Добавить раскладку клавиатуры"
 
 #: ../src/modules/shortcuts/StateButtons.qml:80
 msgid "Delete Shortcut"
-msgstr ""
+msgstr "Удалить сочетание"
 
 #: ../src/modules/shortcuts/StateButtons.qml:96
 msgid "Add Shortcut"
-msgstr ""
+msgstr "Добавить сочетание"
 
 #: ../src/modules/personalization/widgets/ThemeItem.qml:92
 #: ../src/modules/power/main.qml:270 ../src/modules/power/main.qml:463
@@ -1387,7 +1387,7 @@ msgstr "Собстенный"
 #: ../src/modules/date_time/TimeBox.qml:161
 #: ../src/views/TmpTranslationFile.qml:44
 msgid "Double-click this area to change your time"
-msgstr ""
+msgstr "Двойной клик в этой области для смены времени"
 
 #: ../src/modules/date_time/TimeBox.qml:202
 msgid "Set"
@@ -1401,11 +1401,11 @@ msgstr "Часовой пояс"
 msgid ""
 "Extend your screen contents. Different contents will be displayed on "
 "different screens."
-msgstr ""
+msgstr "Расширьте содержимое экрана. На разных экранах, будет отображаться различное содержимое."
 
 #: ../src/views/TmpTranslationFile.qml:48
 msgid "Account information is being prepared..."
-msgstr ""
+msgstr "Готовится информация об этой учётной записи..."
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
 msgid "Touchpad"
@@ -1559,7 +1559,7 @@ msgstr "24-часовой формат"
 
 #: ../src/modules/date_time/main.qml:158
 msgid "Adjust DST clock "
-msgstr ""
+msgstr "Скорректируйте часы DST"
 
 #: ../src/modules/date_time/main.qml:235
 msgid "Date"
@@ -1623,11 +1623,11 @@ msgstr "Программное обеспечение"
 
 #: ../src/modules/display/main.qml:145
 msgid "Return"
-msgstr ""
+msgstr "Вернуться"
 
 #: ../src/modules/grub/main.qml:112
 msgid "Default Boot"
-msgstr ""
+msgstr "Загрузка по умолчанию"
 
 #: ../src/modules/grub/main.qml:167
 msgid "Boot delay"
@@ -1837,7 +1837,7 @@ msgstr "Показать экспертные…"
 
 #: ../src/modules/system_info/main.qml:119
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
-msgstr ""
+msgstr "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
 
 #: ../src/modules/system_info/main.qml:125
 msgid "Deepin Edition"
@@ -1941,7 +1941,7 @@ msgstr "Мобильный CDMA"
 
 #: ../src/modules/network/main.qml:326
 msgid "View Detailed Information"
-msgstr ""
+msgstr "Показать детальную информацию"
 
 #: ../src/modules/network/main.qml:214
 msgid "VPN L2TP"
@@ -1965,11 +1965,11 @@ msgstr "VPN OpenConnect"
 
 #: ../src/modules/account/main.qml:95
 msgid "Delete Account"
-msgstr ""
+msgstr "Удалить учётную запись"
 
 #: ../src/modules/account/main.qml:133
 msgid "Add Account"
-msgstr ""
+msgstr "Добавить учётную запись"
 
 #: ../src/modules/account/main.qml:153
 msgid "User List"
