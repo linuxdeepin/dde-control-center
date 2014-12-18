@@ -252,7 +252,7 @@ Item {
         Column {
             id: keyboardLayoutArea
             width: keyListView.width
-            height: childrenRect.height - 10
+            height: childrenRect.height
 
             property string currentActionStateName: ""
 
@@ -511,6 +511,12 @@ Item {
 
         }
 
+
+        Item {
+            id:spacingItem
+            width: 500
+            height: 10
+        }
     }
 
 
