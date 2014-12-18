@@ -73,7 +73,7 @@ Item {
         valueDisplayVisible: false
 
         onValueChanged:{
-            if(pOutputObjName && value >= 0 && value <= 1){
+            if(pOutputObjName && value >= 0 && value <= 1 && pressedFlag){
                 displayId.SetBrightness(pOutputObjName, value)
             }
         }
