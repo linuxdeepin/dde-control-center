@@ -34,7 +34,10 @@ Item {
     property var brightnessValues: displayId.brightness
     property int itemIndex: 0
 
-    onBrightnessValuesChanged: {
+    onBrightnessValuesChanged: setBrightness()
+    onPOutputObjNameChanged: setBrightness()
+
+    function setBrightness(){
         if(!oneBrightnessSlider.pressedFlag && pOutputObjName != "") {
             oneBrightnessSlider.setValue(brightnessValues[pOutputObjName])
         }
