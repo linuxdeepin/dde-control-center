@@ -70,6 +70,15 @@ Column {
     }
     property var realMonitorsList: Object.keys(displayId.brightness)
     property int realMonitorsCount: realMonitorsList.length
+    property bool hasCompositedMonitors:{
+        for (var i = 0; i < allMonitorsObjectsCount; i ++){
+            if (allMonitorsObjects[i].opened && allMonitorsObjects[i].isComposited){
+                return true
+            }
+        }
+        return false
+    }
+    property bool doSplited: false
 
     property bool onCustomizeMode: false
 
@@ -176,6 +185,7 @@ Column {
                         }
                         displayId.ResetChanges()
                         monitorDragArea.editable = false
+                        doSplited = false
                     }
                 }
 
@@ -196,6 +206,7 @@ Column {
                         else{
                             displayChangesApply()
                         }
+                        doSplited = false
                     }
                 }
             }

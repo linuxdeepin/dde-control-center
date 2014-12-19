@@ -469,6 +469,7 @@ Rectangle {
                 hover_image: "images/recognize_hover.png"
                 press_image: "images/recognize_press.png"
                 label_text: dsTr("Identify")
+                visible: !monitorDragArea.editable && !doSplited
                 onClicked: {
                     for(var i in centerIdentifyWindows){
                         centerIdentifyWindows[i].showWindow()
@@ -505,6 +506,7 @@ Rectangle {
                 press_image: "images/split_press.png"
                 label_text:  dsTr("Split")
                 onClicked: {
+                    doSplited = true
                     displayId.SplitMonitor(openedMonitors[0].name)
                 }
             }
