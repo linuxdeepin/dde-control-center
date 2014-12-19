@@ -53,7 +53,7 @@ Item {
     property bool pInDeleteAction : inDeleteAction
 
     signal selectAction(string timezone)
-    signal deleteAction(string timezone)
+    signal deleteAction(int timezoneOffset)
 
     Rectangle {
         visible: pIsCurrentTimezone
@@ -104,7 +104,7 @@ Item {
             visible: opacity != 0
 
             onClicked: {
-                deleteAction(pTimezone)
+                deleteAction(pTimezoneOffset)
             }
 
             Behavior on opacity {
