@@ -144,7 +144,7 @@ Item {
                     }
                     header.sourceComponent: DDownArrowHeader {
                         text: dsTr("Primary Screen")
-                        hintText: displayId.primary
+                        hintText:"  " + displayId.primary
                         active: expandIndex == 1
                         onClicked: {
                             if(expandIndex == 1){
