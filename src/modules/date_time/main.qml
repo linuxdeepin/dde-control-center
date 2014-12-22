@@ -40,9 +40,7 @@ DFlickable {
     FontLoader { id: fixedFont; source: "MavenProLight-200.otf" }
     property var gDate: DateAndTime {
         onCurrentTimezoneChanged: {
-            Date.timeZoneUpdated()
-            globalDate = new Date()
-            calendarObj.currentSelectedDateValue = calendarObj.currentDateValue
+            timezoneChangedCallbackTimer.restart()
         }
     }
     property var currentTimezone: gDate.currentTimezone
@@ -77,15 +75,24 @@ DFlickable {
         lang = dsslocale.lang
     }
 
+    Timer{
+        id: timezoneChangedCallbackTimer
+        interval: 800
+        onTriggered: {
+            Date.timeZoneUpdated()
+            globalDate = new Date()
+            calendarObj.currentSelectedDateValue = calendarObj.currentDateValue
+        }
+    }
+
     Timer {
-        running: true
+        running: !timezoneChangedCallbackTimer.running
         repeat: true
         interval: 500
         onTriggered: {
             dateTimeModule.globalDate= new Date()
         }
     }
-
 
     DssTitle {
         id:datetimeDT
@@ -155,7 +162,6 @@ DFlickable {
             onIsAddState: showedTimezoneList = state
             listAreaMaxHeight: isInAddState ? dateTimeModule.contentHeight - timeBox.height - datetimeDT.height: 230
         }
-
 
         DBaseExpand {
             id: dstRec
@@ -332,7 +338,7 @@ DFlickable {
         DSeparatorHorizontal {visible: !showedTimezoneList}
 
         Calendar {
-            height: showedTimezoneList ? 0 : 308
+            height: showedTimezoneList ? 0 : 333
             visible: !showedTimezoneList
             id: calendarObj
         }

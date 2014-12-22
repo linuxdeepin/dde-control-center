@@ -70,6 +70,15 @@ Column {
     }
     property var realMonitorsList: Object.keys(displayId.brightness)
     property int realMonitorsCount: realMonitorsList.length
+    property bool hasCompositedMonitors:{
+        for (var i = 0; i < allMonitorsObjectsCount; i ++){
+            if (allMonitorsObjects[i].opened && allMonitorsObjects[i].isComposited){
+                return true
+            }
+        }
+        return false
+    }
+    property bool doSplited: false
 
     property bool onCustomizeMode: false
 
@@ -118,44 +127,6 @@ Column {
                     text: modulesId.moduleLocaleNames["display"]
                     color: "white"
                     font.weight: Font.DemiBold
-
-                    MouseArea{
-                        anchors.fill: parent
-                        onClicked: messageBox.showDialog()
-                    }
-                }
-
-                Item {
-                    id:returnItem
-                    visible: realMonitorsCount  > 1 && simplepropertySetting.visible == false
-                    width: childrenRect.width
-                    height: moduleName.height
-
-                    Image {
-                        id:returnImg
-                        width: 16
-                        height: 16
-                        source: "images/arrow_left_hover.png"
-                        anchors.left: parent.left
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
-
-                    DssH1 {
-                        id:returnName
-                        text: dsTr("Return")
-                        color: dconstants.hoverColor
-                        anchors.left: returnImg.right
-                        anchors.verticalCenter: parent.verticalCenter
-                        horizontalAlignment: Text.AlignLeft
-                        verticalAlignment: Text.AlignVCenter
-                    }
-
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                            onCustomizeMode = false
-                        }
-                    }
                 }
             }
             rightLoader.sourceComponent: ResetButton {
@@ -199,34 +170,43 @@ Column {
 
 
         DBaseLine {
-            height: editting ? 30 : 0
-            visible: editting
+            height: visible ? 30 : 0
+            visible: onCustomizeMode || (realMonitorsCount == 1 && editting)
             rightMargin: 10
             rightLoader.sourceComponent: Row {
                 spacing: 6
                 DTextButton {
                     text: dsTr("Cancel")
-                    visible: editting
 
                     onClicked: {
+                        onCustomizeMode = false
                         if(monitorDragArea.editable){
                             monitorDragArea.editable = false
                         }
                         displayId.ResetChanges()
                         monitorDragArea.editable = false
+                        doSplited = false
                     }
                 }
 
                 DTextButton {
                     id:applyButton
-                    text: dsTr("Apply")
-                    visible: editting
+                    text: displayId.displayMode != 0 && realMonitorsCount != 1 ? dsTr("Confirm") : dsTr("Apply")
                     onClicked: {
                         if(monitorDragArea.editable){
                             monitorDragArea.applyPostion()
                             monitorDragArea.editable = false
                         }
-                        displayChangesApply()
+                        if (displayId.displayMode != 0){
+                            print ("==>[info] change mode to customize...")
+                            displayId.SaveChanges()
+                            displayId.SwitchMode(0,"")
+                            onCustomizeMode = false
+                        }
+                        else{
+                            displayChangesApply()
+                        }
+                        doSplited = false
                     }
                 }
             }

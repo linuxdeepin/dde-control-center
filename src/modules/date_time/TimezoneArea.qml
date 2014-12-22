@@ -86,8 +86,13 @@ Column {
     property var userTimezoneOffsetList: {
         var tmpArray = new Array()
         for (var i = 0; i < userTimezoneList.length; i ++){
-            tmpArray.push(getOffsetByZone(userTimezoneList[i]))
+            var tmpOffset = getOffsetByZone(userTimezoneList[i])
+            if (tmpArray.indexOf(tmpOffset) == -1){//not exit,add it
+                tmpArray.push(getOffsetByZone(userTimezoneList[i]))
+            }
+
         }
+
         return tmpArray
     }
 
@@ -176,6 +181,15 @@ Column {
         for (var i = 0; i < zoneCodePair.length; i ++){
             if (zoneCodePair[i]["code"] == offset){
                 return getCityList(zoneCodePair[i]["zones"])
+            }
+        }
+        return ""
+    }
+
+    function getTimezoneListByOffset(offset){
+        for (var i = 0; i < zoneCodePair.length; i ++){
+            if (zoneCodePair[i]["code"] == offset){
+                return zoneCodePair[i]["zones"]
             }
         }
         return ""
@@ -293,21 +307,11 @@ Column {
             height: model.count * 50 > listAreaMaxHeight ? listAreaMaxHeight : model.count * 50
             clip: true
 
-            function fillModel(){
-                model.clear()
-
-                for (var i = 0; i < userTimezoneList.length; i ++){
-                    model.append({
-                                     "timezone" : userTimezoneList[i]
-                                 })
-                }
-            }
-
             function updateModel(){
-                if (userTimezoneList.length > model.count){
+                if (userTimezoneOffsetList.length > model.count){
                     addToModel()
                 }
-                else if (userTimezoneList.length < model.count){
+                else if (userTimezoneOffsetList.length < model.count){
                     deleteFromModel()
                 }
             }
@@ -371,14 +375,15 @@ Column {
                 }
             }
 
-            Component.onCompleted: fillModel()
-
             model: ListModel {}
 
             delegate: UserTimezoneItem{
                 onDeleteAction: {
-                    print ("==> Deletting usertimezone...",timezone)
-                    gDate.DeleteUserTimezone(timezone)
+                    print ("==> Deletting usertimezone...",timezoneOffset)
+                    var cityList = getTimezoneListByOffset(timezoneOffset)
+                    for (var i = 0; i < cityList.length; i ++){
+                        gDate.DeleteUserTimezone(cityList[i])
+                    }
                 }
                 onSelectAction: {
                     timeZoneArea.hasDSTList(pHasDST,pDSTList)
@@ -422,10 +427,6 @@ Column {
                     model.append({
                                   "timezone":zones[0]
                                  })
-                }
-
-                for (i = 0; i < userTimezoneList.length; i ++){
-                    deleteFromMode(userTimezoneList[i])
                 }
             }
 

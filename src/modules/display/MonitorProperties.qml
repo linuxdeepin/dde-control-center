@@ -144,7 +144,7 @@ Item {
                     }
                     header.sourceComponent: DDownArrowHeader {
                         text: dsTr("Primary Screen")
-                        hintText: displayId.primary
+                        hintText:"  " + displayId.primary
                         active: expandIndex == 1
                         onClicked: {
                             if(expandIndex == 1){
@@ -305,6 +305,7 @@ Item {
                     leftLoader.sourceComponent: DssH2 {
                         text: dsTr("Brightness")
                     }
+
                     rightLoader.sourceComponent: DSliderEnhanced {
                         id: singleBrightnessSlider
                         width: 200
@@ -316,7 +317,7 @@ Item {
                         valueDisplayVisible: false
 
                         onValueChanged:{
-                            if(openedMonitors[0] && value >= 0 && value <= 1){
+                            if(openedMonitors[0] && value >= 0 && value <= 1 && pressedFlag){
                                 displayId.SetBrightness(openedMonitors[0].name, value)
                             }
                         }

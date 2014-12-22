@@ -119,6 +119,9 @@ DBaseExpand {
             height: parent.height - searchInputBox.height
             model: getModel(localeList)
             clip: true
+            //init scroll to selected item
+            highlightFollowsCurrentItem: true
+            currentIndex: count -1
 
             property int seletedIndex: -1
 
