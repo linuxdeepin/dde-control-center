@@ -14,6 +14,8 @@ Column {
     property int deviceConnecting: 1
     property int deviceConnected: 2
     property var dconstants: DConstants {}
+    property string adapterName: bluetoothAdapter.Alias
+    property int maxNameWidth: 200
 
     function isNameInUsed(name){
         for (var i = 0; i < adapterCount; i ++){
@@ -37,6 +39,21 @@ Column {
                     elide: Text.ElideRight
                     anchors.verticalCenter: parent.verticalCenter
                     text: bluetoothAdapter.Alias
+
+                    function updateWidth(){
+                        var tmpWidth = getStringPixelSize(adapterName,13)
+                        if (tmpWidth < maxNameWidth)
+                            adapterNameText.width = tmpWidth
+                        else
+                            adapterNameText.width = maxNameWidth
+                    }
+
+                    Connections{
+                        target: rootExpand
+                        onAdapterNameChanged: adapterNameText.updateWidth()
+                    }
+
+                    Component.onCompleted: adapterNameText.updateWidth()
                 }
 
                 DImageButton {
