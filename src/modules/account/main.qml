@@ -302,6 +302,10 @@ Rectangle {
                     add_check_button.visible = false
                     delete_check_button.visible = false
                 }
+                else{
+                    add_check_button.visible = true
+                    delete_check_button.visible = dbus_accounts.userList.length != 1
+                }
 
                 // prevent guest_user from flicking away while showing
                 expanded ? root.scrollToTop() : root.scrollToLastPosition()
