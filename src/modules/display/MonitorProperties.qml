@@ -311,7 +311,7 @@ Item {
                         width: 200
                         height: 28
 
-                        min: 0
+                        min: 0.1
                         max: 1.0
                         init: typeof(openedMonitors[0]) != "undefined" ? brightnessValues[openedMonitors[0].name] : max
                         valueDisplayVisible: false

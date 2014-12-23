@@ -70,7 +70,7 @@ Item {
         anchors.topMargin: 5
         anchors.horizontalCenter: parent.horizontalCenter
 
-        min: 0
+        min: 0.1
         max: 1.0
         init: pOutputObjName ? brightnessValues[pOutputObjName] : max
         valueDisplayVisible: false
