@@ -3,25 +3,26 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# artor <arto@rusanen.me>, 2014
-# Kimmo Siniluoto <robotti1984@gmail.com>, 2014
+# szd_liufei <liufei@linuxdeepin.com>, 2014
+# Nicolae Crefelean, 2014
+# Vasilii Rusu <basil_russu@hotmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-26 16:16+0800\n"
-"PO-Revision-Date: 2014-12-26 08:27+0000\n"
+"PO-Revision-Date: 2014-12-26 08:41+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
-"Language-Team: Finnish (http://www.transifex.com/projects/p/dde-control-center/language/fi/)\n"
+"Language-Team: Romanian (http://www.transifex.com/projects/p/dde-control-center/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fi\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
 #: ../src/modules/network/add/AddDsl.qml:11
 msgid "Add PPPoE Connection"
-msgstr ""
+msgstr "Adaugă conexiune PPPoE"
 
 #: ../src/modules/network/add/AddDsl.qml:24
 #: ../src/modules/network/add/AddMobile.qml:33
@@ -29,7 +30,7 @@ msgstr ""
 #: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:33
 #: ../src/modules/shortcuts/CustomKeybinding.qml:118
 msgid "Name"
-msgstr "Nimi"
+msgstr "Nume"
 
 #: ../src/modules/network/add/AddDsl.qml:36
 #: ../src/modules/network/add/AddMobile.qml:75
@@ -48,12 +49,12 @@ msgstr "Nimi"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:374
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:65
 msgid "Username"
-msgstr "Käyttäjänimi"
+msgstr "Nume de utilizator"
 
 #: ../src/modules/network/add/AddDsl.qml:46
 #: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:33
 msgid "Service"
-msgstr "Palvelu"
+msgstr "Serviciu"
 
 #: ../src/modules/network/add/AddDsl.qml:56
 #: ../src/modules/network/add/AddMobile.qml:85
@@ -77,16 +78,16 @@ msgstr "Palvelu"
 #: ../src/modules/account/PasswordDialog.qml:62
 #: ../src/modules/network/wireless/WifiHotspot.qml:69
 msgid "Password"
-msgstr "Salasana"
+msgstr "Parolă"
 
 #: ../src/modules/network/add/AddMobile.qml:20
 msgid "New Mobile Connection"
-msgstr "Uusi mobiiliyhteys"
+msgstr "Conexiune mobilă nouă"
 
 #: ../src/modules/network/add/AddMobile.qml:45
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:23
 msgid "Service Type"
-msgstr "Palvelun tyyppi"
+msgstr "Tip serviciu"
 
 #: ../src/modules/network/add/AddMobile.qml:55
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:33
@@ -98,7 +99,7 @@ msgstr "APN"
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:43
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:113
 msgid "Number"
-msgstr "Numero"
+msgstr "Număr"
 
 #: ../src/modules/network/add/AddSectionSave.qml:11
 #: ../src/modules/account/AddUserDialog.qml:413
@@ -117,20 +118,20 @@ msgstr "Numero"
 #: ../src/modules/network/wireless/WifiHotspot.qml:82
 #: ../src/modules/date_time/main.qml:289 ../src/modules/display/main.qml:179
 msgid "Cancel"
-msgstr "Peruutus"
+msgstr "Anulare"
 
 #: ../src/modules/network/add/AddSectionSave.qml:20
 #: ../src/modules/shortcuts/CustomKeybinding.qml:157
 #: ../src/modules/date_time/TimezoneArea.qml:464
 msgid "Add"
-msgstr "Lisää"
+msgstr "Adaugă"
 
 #: ../src/modules/account/AddUserDialog.qml:58
 #: ../src/modules/account/AddUserDialog.qml:63
 #: ../src/modules/account/AddUserDialog.qml:245
 #: ../src/modules/account/PasswordDialog.qml:156
 msgid "Password can not be empty."
-msgstr ""
+msgstr "Câmpul parolă nu poate fi gol."
 
 #: ../src/modules/account/AddUserDialog.qml:68
 #: ../src/modules/account/AddUserDialog.qml:225
@@ -142,15 +143,15 @@ msgstr ""
 #: ../src/modules/account/PasswordDialog.qml:208
 #: ../src/modules/account/PasswordDialog.qml:218
 msgid "The two passwords do not match."
-msgstr ""
+msgstr "Cele două parole nu se potrivesc."
 
 #: ../src/modules/account/AddUserDialog.qml:77
 msgid "Add User"
-msgstr "Lisää käyttäjä"
+msgstr "Adaugă utilizator"
 
 #: ../src/modules/account/AddUserDialog.qml:106
 msgid "New User"
-msgstr "Uusi käyttäjä"
+msgstr "Utilizator nou"
 
 #: ../src/modules/account/AddUserDialog.qml:110
 #: ../src/modules/account/AddUserDialog.qml:343
@@ -158,7 +159,7 @@ msgstr "Uusi käyttäjä"
 #: ../src/modules/account/UserList.qml:228
 #: ../src/modules/account/UserListCreatingItem.qml:88
 msgid "Administrator"
-msgstr "Järjestelmänvalvoja"
+msgstr "Administrator"
 
 #: ../src/modules/account/AddUserDialog.qml:110
 #: ../src/modules/account/AddUserDialog.qml:342
@@ -166,27 +167,27 @@ msgstr "Järjestelmänvalvoja"
 #: ../src/modules/account/UserList.qml:228
 #: ../src/modules/account/UserListCreatingItem.qml:88
 msgid "Normal User"
-msgstr ""
+msgstr "Utilizator normal"
 
 #: ../src/modules/account/AddUserDialog.qml:175
 #: ../src/modules/account/AddUserDialog.qml:235
 #: ../src/modules/account/AddUserDialog.qml:301
 msgid "Username can not be empty."
-msgstr ""
+msgstr "Câmpul utilizator nu poate fi gol."
 
 #: ../src/modules/account/AddUserDialog.qml:270
 msgid "Repeat Password"
-msgstr "Salasana uudelleen"
+msgstr "Repetă parola"
 
 #: ../src/modules/account/AddUserDialog.qml:330
 #: ../src/modules/account/EditUserDialog.qml:126
 msgid "Account Type"
-msgstr "Tilin tyyppi"
+msgstr "Tip cont"
 
 #: ../src/modules/account/AddUserDialog.qml:362
 #: ../src/modules/account/EditUserDialog.qml:59
 msgid "Auto-login"
-msgstr "Automaattikirjaus"
+msgstr "Conectare automată"
 
 #: ../src/modules/account/AddUserDialog.qml:426
 #: ../src/modules/account/DeleteUserDialog.qml:46
@@ -194,11 +195,11 @@ msgstr "Automaattikirjaus"
 #: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:307
 #: ../src/modules/display/main.qml:194
 msgid "Confirm"
-msgstr "Vahvista"
+msgstr "Confirmă"
 
 #: ../src/modules/network/add/AddVpn.qml:15
 msgid "VPN Type"
-msgstr "VPN tyyppi"
+msgstr "Tip VPN"
 
 #: ../src/modules/network/add/AddVpn.qml:36
 msgid "L2TP"
@@ -222,12 +223,12 @@ msgstr "VPNC"
 
 #: ../src/modules/network/add/AddVpn.qml:69
 msgid "Basic Information"
-msgstr "Perustiedot"
+msgstr "Informații de bază"
 
 #: ../src/modules/network/add/AddVpn.qml:82
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:23
 msgid "Need VPN Plugin"
-msgstr "Tarvitaan VPN lisäosa"
+msgstr "Este necesar modulul VPN"
 
 #: ../src/modules/network/add/AddVpn.qml:114
 #: ../src/modules/network/add/AddVpn.qml:154
@@ -242,7 +243,7 @@ msgstr "Tarvitaan VPN lisäosa"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:314
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:364
 msgid "Gateway"
-msgstr "Yhdyskäytävä"
+msgstr "Gateway"
 
 #: ../src/modules/network/add/AddVpn.qml:134
 #: ../src/modules/network/add/AddVpn.qml:264
@@ -261,7 +262,7 @@ msgstr "Yhdyskäytävä"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:384
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:414
 msgid "Ask for Pwd"
-msgstr "Kysy salasanaa"
+msgstr "Solicită parolă"
 
 #: ../src/modules/network/add/AddVpn.qml:164
 #: ../src/modules/network/add/AddVpn.qml:284
@@ -270,23 +271,23 @@ msgstr "Kysy salasanaa"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:94
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:214
 msgid "CA Cert"
-msgstr "CA varmenne"
+msgstr "Certificat CA"
 
 #: ../src/modules/network/add/AddVpn.qml:174
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:104
 msgid "Proxy"
-msgstr "Välityspalvelin"
+msgstr "Proxy"
 
 #: ../src/modules/network/add/AddVpn.qml:184
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:114
 msgid "Allow Cisco Secure Desktop Trojan"
-msgstr "Allow Cisco Secure Desktop Trojan"
+msgstr "Permite troianul Cisco Secure Desktop"
 
 #: ../src/modules/network/add/AddVpn.qml:344
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:274
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
 msgid "Customize Key Direction"
-msgstr "Määritä avaimen suunta"
+msgstr "Setare Direcţie Cheie"
 
 #: ../src/modules/network/add/AddVpn.qml:214
 #: ../src/modules/network/add/AddVpn.qml:304
@@ -295,12 +296,12 @@ msgstr "Määritä avaimen suunta"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:144
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:234
 msgid "Private Key"
-msgstr "Yksityinen avain"
+msgstr "Cheie privată"
 
 #: ../src/modules/network/add/AddVpn.qml:244
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:174
 msgid "Auth Type"
-msgstr "Tyyppi"
+msgstr "Tipul Autentificării"
 
 #: ../src/modules/network/add/AddVpn.qml:204
 #: ../src/modules/network/add/AddVpn.qml:294
@@ -309,87 +310,87 @@ msgstr "Tyyppi"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:134
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:224
 msgid "User Cert"
-msgstr "Käyttäjän varmenne"
+msgstr "Certificatul utilizatorului"
 
 #: ../src/modules/network/add/AddVpn.qml:194
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:124
 msgid "CSD Script"
-msgstr "CSD Script"
+msgstr "Script CSD"
 
 #: ../src/modules/network/add/AddVpn.qml:224
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:154
 msgid "Use FSID for Key Passphrase"
-msgstr "Use FSID for Key Passphrase"
+msgstr "Aplicaţi FSID pentru fraza -cheie"
 
 #: ../src/modules/network/add/AddVpn.qml:324
 #: ../src/modules/network/wireless/AddWireless.qml:206
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:195
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:254
 msgid "Private Pwd"
-msgstr "Yksityisen avaimen salasana"
+msgstr "Parolă privată"
 
 #: ../src/modules/network/add/AddVpn.qml:334
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:264
 msgid "Static Key"
-msgstr "Staattinen avain"
+msgstr "Cheie tip Static"
 
 #: ../src/modules/network/add/AddVpn.qml:354
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:284
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:63
 msgid "Key Direction"
-msgstr "Avaimen suunta"
+msgstr "Direcţie Cheie"
 
 #: ../src/modules/network/add/AddVpn.qml:364
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:294
 msgid "Remote IP"
-msgstr "Remote IP"
+msgstr "IP îndepărtat"
 
 #: ../src/modules/network/add/AddVpn.qml:374
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:304
 msgid "Local IP"
-msgstr "Local IP"
+msgstr "IP local"
 
 #: ../src/modules/network/add/AddVpn.qml:454
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:394
 msgid "User Pwd"
-msgstr "Käyttäjän salasana"
+msgstr "Parola utilizatorului"
 
 #: ../src/modules/network/add/AddVpn.qml:464
 #: ../src/modules/network/add/AddVpn.qml:526
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:404
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:33
 msgid "Group Name"
-msgstr "Ryhmän nimi"
+msgstr "Nume Grup"
 
 #: ../src/modules/network/add/AddVpn.qml:484
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:424
 msgid "Group Pwd"
-msgstr "Ryhmän salasana"
+msgstr "Parola Grup"
 
 #: ../src/modules/network/add/AddVpn.qml:494
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:434
 msgid "Use Hybrid Authentication"
-msgstr "Use Hybrid Authentication"
+msgstr "Utilizarea Autentificării Hibride"
 
 #: ../src/modules/network/add/AddVpn.qml:504
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:444
 msgid "CA File"
-msgstr "CA-tiedosto"
+msgstr "Fişier CA"
 
 #: ../src/modules/network/add/AddVpn.qml:516
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:23
 msgid "Enable IPsec"
-msgstr "Ota käyttöön IPsec"
+msgstr "Activare IPsec"
 
 #: ../src/modules/network/add/AddVpn.qml:536
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:43
 msgid "Group ID"
-msgstr "Group ID"
+msgstr "ID Grup"
 
 #: ../src/modules/network/add/AddVpn.qml:546
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:53
 msgid "Pre-Shared Key"
-msgstr "Jaettu avain"
+msgstr "Cheie Pre-Shared"
 
 #: ../src/modules/network/add/AddVpn.qml:558
 #: ../src/modules/network/add/AddVpn.qml:570
@@ -397,11 +398,11 @@ msgstr "Jaettu avain"
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:23
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:23
 msgid "Use MPPE"
-msgstr "Käytä Point-to-Point-salausta (MPPE)"
+msgstr "Utilizare MPPE"
 
 #: ../src/modules/network/wireless/AddWireless.qml:8
 msgid "Connect to wireless"
-msgstr "Yhdistä langattomaan verkkoon"
+msgstr "Conectat la reţea fără fir"
 
 #: ../src/modules/network/wireless/AddWireless.qml:32
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:23
@@ -417,61 +418,61 @@ msgstr "SSID"
 #: ../src/modules/network/Info.qml:53
 #: ../src/modules/network/wireless/WifiHotspot.qml:49
 msgid "Security"
-msgstr "Tietoturva"
+msgstr "Securizare"
 
 #: ../src/modules/network/wireless/AddWireless.qml:54
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:43
 #: ../src/modules/network/wireless/WifiHotspot.qml:59
 msgid "Key"
-msgstr "Avain"
+msgstr "Cheie"
 
 #: ../src/modules/network/wireless/AddWireless.qml:74
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:63
 msgid "EAP Auth"
-msgstr "Suojattu EAP (PEAP)"
+msgstr "Autentificare EAP"
 
 #: ../src/modules/network/wireless/AddWireless.qml:84
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:73
 msgid "Identity"
-msgstr "Identiteetti"
+msgstr "Identitate"
 
 #: ../src/modules/network/wireless/AddWireless.qml:94
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:83
 msgid "Anonymous ID"
-msgstr "Anonyymi identiteetti"
+msgstr "ID Anonim"
 
 #: ../src/modules/network/wireless/AddWireless.qml:124
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:113
 msgid "Provisioning"
-msgstr "Provisioning"
+msgstr "Provizionare"
 
 #: ../src/modules/network/wireless/AddWireless.qml:134
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:123
 msgid "PAC file"
-msgstr "PAC tiedosto"
+msgstr "Fişier PAC"
 
 #: ../src/modules/network/wireless/AddWireless.qml:144
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:133
 msgid "PEAP Version"
-msgstr "PEAP versio"
+msgstr "Versiune PEAP"
 
 #: ../src/modules/network/wireless/AddWireless.qml:154
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:143
 msgid "Inner Auth"
-msgstr "Sisempi tunnistautuminen"
+msgstr "Autentificare internă"
 
 #: ../src/modules/network/wireless/AddWireless.qml:224
 #: ../src/modules/network/widgets/PasswordBox.qml:126
 msgid "Connect"
-msgstr "Yhdistä"
+msgstr "Conectează"
 
 #: ../src/modules/account/AvatarPickDialog.qml:5
 msgid "Choose a new picture for your Avatar"
-msgstr "Valitse kuva käyttäjätilille"
+msgstr "Alegeţi poză nouă pentru avatarul Dvs."
 
 #: ../src/modules/account/AvatarView.qml:19
 msgid "Recently Used"
-msgstr "Viimeksi käytetty"
+msgstr "Recent utilizat"
 
 #: ../src/modules/account/AvatarView.qml:20
 msgid "Avatar"
@@ -479,77 +480,77 @@ msgstr "Avatar"
 
 #: ../src/modules/account/AvatarView.qml:21
 msgid "Webcam"
-msgstr "Web-kamera"
+msgstr "Camera Web"
 
 #: ../src/modules/sound/BalanceLine.qml:31
 msgid "Left/Right Balance"
-msgstr "Vasen/Oikea tasapaino"
+msgstr "Echilibrare Stânga/Dreapta"
 
 #: ../src/modules/sound/BalanceLine.qml:53
 msgid "Left"
-msgstr "Vasen"
+msgstr "Stânga"
 
 #: ../src/modules/sound/BalanceLine.qml:55
 msgid "Right"
-msgstr "Oikea"
+msgstr "Dreapta"
 
 #: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:43
 #: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:53
 msgid "Automatically connect"
-msgstr "Yhdistä automaattisesti"
+msgstr "Conectare automată"
 
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:116
 #: ../src/modules/personalization/widgets/PreviewWindow.qml:280
 #: ../src/modules/display/main.qml:194
 msgid "Apply"
-msgstr "Käytä"
+msgstr "Aplică"
 
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:144
 msgid "Devices nearby"
-msgstr "Laitteet lähettyvillä"
+msgstr "Dispozitive în apropiere"
 
 #: ../src/modules/display/BrightnessRectangle.qml:61
 #: ../src/modules/display/ResolutionRectangle.qml:68
 #: ../src/modules/display/RotationRectangle.qml:68
 msgid "Monitor"
-msgstr "Näyttö"
+msgstr "Monitor"
 
 #: ../src/modules/date_time/Calendar.qml:164
 msgid "Today"
-msgstr "Tänään"
+msgstr "Astăzi"
 
 #: ../src/modules/date_time/CalendarComponent.qml:83
 msgid "Sun"
-msgstr "Su"
+msgstr "Dum"
 
 #: ../src/modules/date_time/CalendarComponent.qml:84
 msgid "Mon"
-msgstr "Ma"
+msgstr "Lun"
 
 #: ../src/modules/date_time/CalendarComponent.qml:85
 msgid "Tue"
-msgstr "Ti"
+msgstr "Mar"
 
 #: ../src/modules/date_time/CalendarComponent.qml:86
 msgid "Wed"
-msgstr "Ke"
+msgstr "Mie"
 
 #: ../src/modules/date_time/CalendarComponent.qml:87
 msgid "Thu"
-msgstr "To"
+msgstr "Joi"
 
 #: ../src/modules/date_time/CalendarComponent.qml:88
 msgid "Fri"
-msgstr "Pe"
+msgstr "Vin"
 
 #: ../src/modules/date_time/CalendarComponent.qml:89
 msgid "Sat"
-msgstr "La"
+msgstr "Sâm"
 
 #: ../src/modules/network/ConnectionAdd.qml:12
 #: ../src/modules/network/main.qml:303
 msgid "Add Network Connection"
-msgstr ""
+msgstr "Adaugă conexiune rețea"
 
 #: ../src/modules/network/ConnectionAdd.qml:35
 #: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:11
@@ -565,69 +566,69 @@ msgstr "VPN"
 
 #: ../src/modules/network/ConnectionAdd.qml:77
 msgid "Next"
-msgstr "Seuraava"
+msgstr "Urmatorul"
 
 #: ../src/modules/network/ConnectionEdit.qml:52
 msgid "Delete this network"
-msgstr "Poista tämä verkko"
+msgstr "Şterge aceasta reţea"
 
 #: ../src/modules/network/ConnectionEdit.qml:52
 msgid "Are you sure you want to delete this network?"
-msgstr "Haluatko varmasti poistaa tämän verkon?"
+msgstr "Sunteţi sigur că doriţi să ştergeţi aceasta reţea?"
 
 #: ../src/modules/network/ConnectionEdit.qml:110
 #: ../src/modules/network/wireless/WifiHotspot.qml:91
 msgid "Save"
-msgstr "Tallenna"
+msgstr "Salvează"
 
 #: ../src/modules/network/ConnectionEdit.qml:135
 msgid "Delete"
-msgstr "Poista"
+msgstr "Șterge"
 
 #: ../src/modules/shortcuts/CustomKeybinding.qml:133
 msgid "Command"
-msgstr "Käsky"
+msgstr "Comandă"
 
 #: ../src/modules/account/DeleteUserDialog.qml:19
 msgid "Keep user's files"
-msgstr "Pidä käyttäjän tiedostot"
+msgstr "Păstrare fişiere utilizatorului"
 
 #: ../src/modules/account/DeleteUserDialog.qml:20
 msgid "Delete user's files"
-msgstr "Poista käyttäjän tiedostot"
+msgstr "Ştergere fişiere utilizatorului"
 
 #: ../src/modules/network/dsl/DslExpand.qml:19
 msgid "PPPoE Connections"
-msgstr "PPPoE Yhteydet"
+msgstr "Conexiunile PPPoE"
 
 #: ../src/modules/network/edit/EditLineMissingPackage.qml:15
 #, qt-format
 msgid "Current system lacks component for %1"
-msgstr "Tästä järjestelmästä puuttuu komponentit %1 lle"
+msgstr "Sistemul actual nu dispune de component pentru %1"
 
 #: ../src/modules/network/edit/EditLineMissingPackage.qml:22
 msgid "Click to install"
-msgstr "Paina asentaaksesi"
+msgstr "Click pentru instalare"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:11
 #: ../src/modules/network/main.qml:196
 msgid "Ethernet"
-msgstr "Verkko"
+msgstr "Reţea Ethernet"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:23
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:65
 msgid "Device MAC Addr"
-msgstr "Laitteen MAC osoite"
+msgstr "Adresa MAC a dispozitivului"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:33
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:75
 msgid "Cloned MAC Addr"
-msgstr "Kloonattu MAC osoite"
+msgstr "Adresa MAC clonată a dispozitivului"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:43
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:85
 msgid "Customize MTU"
-msgstr "Muokkaa MTU"
+msgstr "Personalizare MTU"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:53
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:107
@@ -642,22 +643,22 @@ msgstr "IPv4"
 #: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:23
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:23
 msgid "Method"
-msgstr "Menetelmä"
+msgstr "Modalitate"
 
 #: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:33
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:33
 #: ../src/modules/network/Info.qml:55
 msgid "IP Address"
-msgstr "IP osoite"
+msgstr "Adresa IP"
 
 #: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:44
 msgid "Netmask"
-msgstr "Verkkopeite"
+msgstr "Mască de rețea"
 
 #: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:69
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:65
 msgid "DNS Server"
-msgstr "DNS palvelin"
+msgstr "DNS Server"
 
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:11
 msgid "IPv6"
@@ -665,24 +666,24 @@ msgstr "IPv6"
 
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:43
 msgid "Prefix"
-msgstr "Etuliite"
+msgstr "Prefix"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:11
 #: ../src/modules/network/main.qml:206
 msgid "Mobile"
-msgstr "Mobiili"
+msgstr "Mobil"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:73
 msgid "Network ID"
-msgstr "Verkon ID"
+msgstr "ID rețea"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:83
 msgid "Type"
-msgstr "Tyyppi"
+msgstr "Tip"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:93
 msgid "Home Network Only"
-msgstr "Vain kotiverkko"
+msgstr "Doar rețeaua de acasă"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:103
 msgid "PIN"
@@ -694,76 +695,76 @@ msgstr "PPP"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:34
 msgid "128-bit MPPE"
-msgstr "128-bittinen salaus"
+msgstr "MPPE  128 octeţi"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:45
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:43
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:43
 msgid "Stateful MPPE"
-msgstr "Tilallinen salaus"
+msgstr "MPPE complet etapizat"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:55
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:53
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:53
 msgid "Refuse EAP Authentication"
-msgstr "Kieltäydy EAP todentamisesta"
+msgstr "Refuză autentificarea EAP"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:65
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:64
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:64
 msgid "Refuse PAP Authentication"
-msgstr "Kieltäydy PAP todentamisesta"
+msgstr "Refuză autentificarea PAP"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:75
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:75
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:75
 msgid "Refuse CHAP Authentication"
-msgstr "Kieltäydy CHAP todentamisesta"
+msgstr "Refuză autentificare CHAP"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:85
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:86
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:86
 msgid "Refuse MSCHAP Authentication"
-msgstr "Kieltäydy MSCHAP todentamisesta"
+msgstr "Refuză autentificarea MSCHAP"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:95
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:97
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:97
 msgid "Refuse MSCHAPv2 Authentication"
-msgstr "Kieltäydy MSCHAPv2 todentamisesta"
+msgstr "Refuză autentificarea MSCHAPv2"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:105
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:108
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:107
 msgid "No BSD Data Compression"
-msgstr "Ei BSD-pakkausta"
+msgstr "Nu există compresie a datelor BSD"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:115
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:118
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:117
 msgid "No Deflate Data Compression"
-msgstr "Ei deflate-pakkausta"
+msgstr "Compresia datelor fără diminuarea acestora"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:125
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:128
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:127
 msgid "No TCP Header Compression"
-msgstr "Ei TCP-otsakkeiden pakkausta"
+msgstr "Nu există compresie TCP antet"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:135
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:158
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:137
 msgid "Send PPP Echo Packets"
-msgstr "Lähetä PPP:n echo-paketteja"
+msgstr "Trimite pachete ecou PPP"
 
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:23
 msgid "Security Required"
-msgstr "Security Required"
+msgstr "Cerințele Securității"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:74
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:354
 msgid "NT Domain"
-msgstr "NT-toimialue"
+msgstr "Domeniu NT"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:11
 msgid "VPN IPsec"
@@ -776,149 +777,149 @@ msgstr "VPN PPP"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:138
 msgid "No Protocol Field Compression"
-msgstr "No Protocol Field Compression"
+msgstr "Nu există comprimare pentru câmpul protocol"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:148
 msgid "No Address/Control Compression"
-msgstr "No Address/Control Compression"
+msgstr "Nu există comprimare pentru adresă/control"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:11
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:11
 msgid "VPN Advanced"
-msgstr "VPN lisäasetukset"
+msgstr "VPN avansat"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:33
 msgid "Gateway Port"
-msgstr "Yhdysväylän portti"
+msgstr "Port gateway"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:23
 msgid "Customize Gateway Port"
-msgstr "Muokkaa yhdysväylän porttia"
+msgstr "Particularizează port gateway"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:45
 msgid "Customize Renegotiation Interval"
-msgstr "Customize Regegotiation Interval"
+msgstr "Particularizează interval renegociere"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:55
 msgid "Renegotiation Interval"
-msgstr "Renegotiation Interval"
+msgstr "Interval renegociere"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:67
 msgid "Use LZO data compression"
-msgstr "Käytä LZO-pakkausta"
+msgstr "Utilizează comprimarea LZO a datelor"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:77
 msgid "Use TCP connection"
-msgstr "Käytä TCP-yhteyttä"
+msgstr "Utilizează conexiunea TCP"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:87
 msgid "Use TAP device"
-msgstr "Käytä TAP-laitetta"
+msgstr "Foloseşte dispozitivul TACTIL"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:97
 msgid "Customize Tunnel MTU"
-msgstr "Customize Tunnel MTU"
+msgstr "Particularizează tunel MTU"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:119
 msgid "Customize UDP Fragment Size"
-msgstr "Customize UDP Fragment Size"
+msgstr "Personalizează dimensiunea fragmentului UDP"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
 msgid "UDP Fragment Size"
-msgstr "UDP Fragment Size"
+msgstr "Dimensiune fragment UDP"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:141
 msgid "Restrict Tunnel TCP MSS"
-msgstr "Restrict Tunnel TCP MSS"
+msgstr "Restricționează tunel TCP MSS"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:151
 msgid "Randomize Remote Hosts"
-msgstr "Randomize Remote Hosts"
+msgstr "Selectează aleator gazdele de la distanță"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:11
 msgid "VPN Proxies"
-msgstr "VPN välityspalvelimet"
+msgstr "Proxy-uri VPN"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:23
 msgid "Proxy Type"
-msgstr "Välityspalvelimen tyyppi"
+msgstr "Tip proxy"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:33
 msgid "Server IP"
-msgstr "Palvelimen IP"
+msgstr "IP server"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:43
 #: ../src/modules/network/proxy/ProxyLine.qml:39
 msgid "Port"
-msgstr "Portti"
+msgstr "Port"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:55
 msgid "Retry Indefinitely When Failed"
-msgstr "Yritä jatkuvasti uudelleen virheen sattuessa"
+msgstr "În caz de eşec reîncearcă fără întrerupere"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:11
 msgid "VPN Security"
-msgstr "VPN tietoturva"
+msgstr "Securitate VPN"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:23
 msgid "Cipher"
-msgstr "Salausmenetelmä"
+msgstr "Cifru"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:33
 msgid "HMAC Auth"
-msgstr "HMAC-tunnistautuminen"
+msgstr "Autentificare HMAC"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:11
 msgid "VPN TLS Authentication"
-msgstr "TLS-tunnistauminen"
+msgstr "Autentificare TLS VPN"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:23
 msgid "Subject Match"
-msgstr "Subject match"
+msgstr "Potrivire subiect"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:33
 msgid "Remote Cert Type"
-msgstr "Remote Cert Type"
+msgstr "Tip certificat la distanță"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:43
 msgid "Key File"
-msgstr "Avaintiedosto"
+msgstr "Fişier cheie"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:23
 msgid "Domain"
-msgstr "Domain"
+msgstr "Domeniu"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:33
 msgid "Vendor"
-msgstr "Vendor"
+msgstr "Furnizor"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:43
 msgid "Version"
-msgstr "Version"
+msgstr "Versune"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:53
 msgid "Encryption"
-msgstr "Salaus"
+msgstr "Criptare"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:63
 msgid "NAT Traversal"
-msgstr "NAT Traversal"
+msgstr "Traversare NAT"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:73
 msgid "IKE DH Group"
-msgstr "IKE DH Group"
+msgstr "Grup IKE DH"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:83
 msgid "Forward Secrecy"
-msgstr ""
+msgstr "Secret redirecționare"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:93
 msgid "Local Port"
-msgstr ""
+msgstr "Port local"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:105
 msgid "Disable Dead Peer Detection"
-msgstr ""
+msgstr "Dezactivează detectarea perechii inactive"
 
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:11
 msgid "Wi-Fi"
@@ -926,135 +927,135 @@ msgstr "Wi-Fi"
 
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:33
 msgid "Mode"
-msgstr "Tila"
+msgstr "Mod"
 
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:43
 msgid "Band"
-msgstr "Taajuusalue"
+msgstr "Bandă"
 
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:54
 msgid "Channel"
-msgstr "Kanava"
+msgstr "Canal"
 
 #: ../src/modules/account/EditUserDialog.qml:93
 msgid "Enable"
-msgstr ""
+msgstr "Activare"
 
 #: ../src/modules/sound/FadeLine.qml:31
 msgid "Front/Rear Balance"
-msgstr "Etu/Taka tasapaino"
+msgstr "Balans față/spate"
 
 #: ../src/modules/sound/FadeLine.qml:55
 msgid "Front"
-msgstr "Etu"
+msgstr "În față"
 
 #: ../src/modules/sound/FadeLine.qml:53
 msgid "Rear"
-msgstr "Taka"
+msgstr "Înapoi"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:48
 msgid "Standard"
-msgstr "Standardi"
+msgstr "Standard"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:70
 msgid "Monospaced"
-msgstr ""
+msgstr "Mono spațializat"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:90
 msgid "Size"
-msgstr "Koko"
+msgstr "Mărime"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:119
 #, qt-format
 msgid "Font %1"
-msgstr "Kirjasin"
+msgstr "Font %1"
 
 #: ../src/modules/account/GuestUser.qml:45 ../src/views/HeaderArea.qml:108
 msgid "Guest"
-msgstr "Vieras"
+msgstr "oaspete"
 
 #: ../src/modules/account/GuestUser.qml:106
 msgid "Enabled"
-msgstr "Käytössä"
+msgstr "Activat"
 
 #: ../src/modules/network/Info.qml:13
 msgid "Connected"
-msgstr ""
+msgstr "Conectat"
 
 #: ../src/modules/network/Info.qml:15
 msgid "Not Connected"
-msgstr ""
+msgstr "Neconectat"
 
 #: ../src/modules/network/Info.qml:39
 msgid "(default)"
-msgstr "(oletus)"
+msgstr "(implicit)"
 
 #: ../src/modules/network/Info.qml:50
 msgid "Interface"
-msgstr "Verkkoliitäntä"
+msgstr "Interfață"
 
 #: ../src/modules/network/Info.qml:54
 msgid "Device Addr"
-msgstr "Laiteosoite"
+msgstr "Adresă dispozitiv"
 
 #: ../src/modules/network/Info.qml:56
 msgid "Subnet Mask"
-msgstr "Aliverkon peite"
+msgstr "Mască subrețea"
 
 #: ../src/modules/network/Info.qml:57
 msgid "Route Addr"
-msgstr "Yhdyskäytävä"
+msgstr "Gateway"
 
 #: ../src/modules/network/Info.qml:58
 msgid "Primary DNS"
-msgstr "Ensisijainen DNS"
+msgstr "DNS principal"
 
 #: ../src/modules/network/Info.qml:59
 msgid "Secondary DNS"
-msgstr "Toissijainen DNS"
+msgstr "DNS secundar"
 
 #: ../src/modules/network/Info.qml:60
 msgid "Third DNS"
-msgstr ""
+msgstr "DNS terț"
 
 #: ../src/modules/network/Info.qml:69
 msgid "Device Speed"
-msgstr "Laitenopeus"
+msgstr "Viteza dispozitivului"
 
 #: ../src/modules/keyboard/LocaleArea.qml:53
 msgid "Language"
-msgstr "Kieli"
+msgstr "Limba"
 
 #: ../src/modules/display/MessageBox.qml:105
 msgid "Do you want to keep these display settings?"
-msgstr "Haluatko pitää nämä näytön asetukset?"
+msgstr "Vrei să păstrezi aceste setări de afişaj?"
 
 #: ../src/modules/display/MessageBox.qml:114
 #, qt-format
 msgid ""
 "Reverting to previous display settings in <font color='#F48914'>%1</font> "
 "seconds."
-msgstr "Palataan edellisiin asetuksiin <font color='#F48914'>%1</font> sekunnin päästä."
+msgstr "Revenire la setările anterioare ale afişajului în <font color='#F48914'>%1</font> secunde."
 
 #: ../src/modules/display/MessageBox.qml:140
 msgid "Keep Changes"
-msgstr "Pidä asetukset"
+msgstr "Păstrează modificările"
 
 #: ../src/modules/display/MessageBox.qml:128
 msgid "Revert"
-msgstr "Palauta asetukset"
+msgstr "Întoarce-te"
 
 #: ../src/views/ModulesData.qml:52
 msgid "Date and Time"
-msgstr "Päivä ja aika"
+msgstr "Data şi ora"
 
 #: ../src/views/ModulesData.qml:53
 msgid "Network"
-msgstr "Verkko"
+msgstr "Reţea"
 
 #: ../src/views/ModulesData.qml:54
 msgid "Disk Mount"
-msgstr "Levyn liitin"
+msgstr "Încărcare disc"
 
 #: ../src/views/ModulesData.qml:55 ../src/modules/network/main.qml:172
 msgid "Bluetooth"
@@ -1062,243 +1063,243 @@ msgstr "Bluetooth"
 
 #: ../src/views/ModulesData.qml:56
 msgid "Sound"
-msgstr "Ääni"
+msgstr "Sunet"
 
 #: ../src/views/ModulesData.qml:57
 msgid "Power Management"
-msgstr "Virran hallinta"
+msgstr "Administrare energie"
 
 #: ../src/views/ModulesData.qml:58
 msgid "More Settings"
-msgstr "Lisää asetuksia"
+msgstr "Mai multe setări"
 
 #: ../src/views/ModulesData.qml:59 ../src/views/PanelContent.qml:473
 msgid "Power"
-msgstr "Virta"
+msgstr "Energie"
 
 #: ../src/views/ModulesData.qml:60
 msgid "Display"
-msgstr "Näyttö"
+msgstr "Afişaj"
 
 #: ../src/views/ModulesData.qml:61
 msgid "Desktop"
-msgstr "Työpöytä"
+msgstr "Spațiu de lucru"
 
 #: ../src/views/ModulesData.qml:62
 msgid "Personalization"
-msgstr "Personointi"
+msgstr "Personalizare"
 
 #: ../src/views/ModulesData.qml:63
 msgid "Keyboard Shortcuts"
-msgstr "Pikanäppäimet"
+msgstr "Comenzi rapide tastatură"
 
 #: ../src/views/ModulesData.qml:64
 msgid "Keyboard and Language"
-msgstr "Näppäimistö ja Kieli"
+msgstr "Tastatură şi limbă"
 
 #: ../src/views/ModulesData.qml:65
 msgid "Tablet"
-msgstr "Tablet"
+msgstr "Tabletă"
 
 #: ../src/views/ModulesData.qml:66
 msgid "Mouse and Touchpad"
-msgstr "Hiiri sekä kosketuslevy"
+msgstr "Mouse şi panou tactil"
 
 #: ../src/views/ModulesData.qml:67 ../src/modules/mouse_touchpad/main.qml:50
 msgid "Mouse"
-msgstr "Hiiri"
+msgstr "Mouse"
 
 #: ../src/views/ModulesData.qml:68
 msgid "User Accounts"
-msgstr "Käyttäjätilit"
+msgstr "Conturi utilizator"
 
 #: ../src/views/ModulesData.qml:69
 #: ../src/modules/default_applications/main.qml:85
 msgid "Default Applications"
-msgstr "Oletusohjelmat"
+msgstr "Aplicații implicite"
 
 #: ../src/views/ModulesData.qml:70
 msgid "System Information"
-msgstr "Järjestelmätiedot"
+msgstr "Informații sistem"
 
 #: ../src/views/ModulesData.qml:71
 msgid "Boot Menu"
-msgstr "Käynnistys menu"
+msgstr "Meniu pornire"
 
 #: ../src/views/ModulesData.qml:72
 msgid "Home"
-msgstr "Koti"
+msgstr "Acasă"
 
 #: ../src/modules/display/MonitorDragArea.qml:471
 msgid "Identify"
-msgstr "Tunnus"
+msgstr "Identifică"
 
 #: ../src/modules/display/MonitorDragArea.qml:489
 msgid "Edit"
-msgstr "Muokkaa"
+msgstr "Editare"
 
 #: ../src/modules/display/MonitorDragArea.qml:507
 msgid "Split"
-msgstr "Jaa"
+msgstr "Desparte"
 
 #: ../src/modules/display/MonitorProperties.qml:42
 msgid "Normal"
-msgstr "Normaali"
+msgstr "Normal"
 
 #: ../src/modules/display/MonitorProperties.qml:43
 msgid "Rotate Right"
-msgstr "Käännä oikealle"
+msgstr "Roteşte la dreapta"
 
 #: ../src/modules/display/MonitorProperties.qml:44
 msgid "Upside Down"
-msgstr "Ylösalaisin"
+msgstr "Răsturnat"
 
 #: ../src/modules/display/MonitorProperties.qml:45
 msgid "Rotate Left"
-msgstr "Käännä vasemmalle"
+msgstr "Roteşte stânga"
 
 #: ../src/modules/display/MonitorProperties.qml:78
 msgid "Enable Monitor(s)"
-msgstr ""
+msgstr "Activează monitor(monitoare)"
 
 #: ../src/modules/display/MonitorProperties.qml:96
 msgid "Please choose the monitor(s) you want to enable"
-msgstr ""
+msgstr "Alege te rog monitorul(monitoarele) pe care vrei să le activezi"
 
 #: ../src/modules/display/MonitorProperties.qml:146
 #: ../src/views/TmpTranslationFile.qml:52
 msgid "Primary Screen"
-msgstr ""
+msgstr "Ecran principal"
 
 #: ../src/modules/display/MonitorProperties.qml:190
 msgid "Resolution"
-msgstr "Resoluutio"
+msgstr "Rezoluția"
 
 #: ../src/modules/display/MonitorProperties.qml:231
 msgid "Rotation"
-msgstr "Kääntö"
+msgstr "Rotire"
 
 #: ../src/modules/display/MonitorProperties.qml:274
 #: ../src/modules/display/MonitorProperties.qml:306
 msgid "Brightness"
-msgstr "Kirkkaus"
+msgstr "Luminozitate"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:38
 #: ../src/views/TmpTranslationFile.qml:8
 msgid "Display Modes"
-msgstr ""
+msgstr "Moduri afişaj"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:58
 #: ../src/views/TmpTranslationFile.qml:12
 msgid "Copy"
-msgstr "Kopioi"
+msgstr "Copiere"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:59
 #: ../src/views/TmpTranslationFile.qml:16
 msgid "Copy the contents of your primary screen to other screens."
-msgstr ""
+msgstr "Copiază componentele de pe ecranul principal pe alte ecrane."
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:76
 #: ../src/views/TmpTranslationFile.qml:20
 msgid "Extend"
-msgstr ""
+msgstr "Extindere"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:77
 msgid ""
 "Extend your screen contents to display different contents on different "
 "screens."
-msgstr ""
+msgstr "Extinde componentele de pe ecran pentru a afişa diferite componente pe diverse ecrane."
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:98
 #: ../src/views/TmpTranslationFile.qml:28
 #, qt-format
 msgid "Only Displayed on %1"
-msgstr ""
+msgstr "Afişat doar pe %1"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:99
 #: ../src/views/TmpTranslationFile.qml:32
 #, qt-format
 msgid "Screen contents are only displayed on %1 but not on other screens."
-msgstr ""
+msgstr "Componentele de pe ecran sunt afişate doar pe %1 dar nu şi pe alte ecrane."
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:118
 #: ../src/views/TmpTranslationFile.qml:36
 msgid "Custom Settings"
-msgstr ""
+msgstr "Setări particularizate"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:119
 #: ../src/views/TmpTranslationFile.qml:40
 msgid "You can do other custom settings to your screens."
-msgstr ""
+msgstr "Poți face şi alte setări particularizate pentru ecranele tale."
 
 #: ../src/modules/network/wired/NewItem.qml:45
 #: ../src/modules/network/wired/WiredItem.qml:89
 #, qt-format
 msgid "Wired Connection %1"
-msgstr "Langallinen yhteys %1"
+msgstr "Conexiune cu fir %1"
 
 #: ../src/modules/network/wired/NewItem.qml:47
 #: ../src/modules/network/wired/WiredItem.qml:91
 msgid "Wired Connection"
-msgstr "Langallinen yhteys"
+msgstr "Conexiune prin cablu"
 
 #: ../src/modules/network/widgets/NotManagedSection.qml:25
 msgid "not managed"
-msgstr "ei ole hallittu"
+msgstr "neadministrat"
 
 #: ../src/modules/network/widgets/PasswordBox.qml:102
 msgid "Auto-connect"
-msgstr ""
+msgstr "Auto conectare"
 
 #: ../src/modules/account/PasswordDialog.qml:96
 msgid "Invalid password"
-msgstr "Väärä salasana"
+msgstr "Parolă incorectă"
 
 #: ../src/modules/account/PasswordDialog.qml:101
 msgid "Different password"
-msgstr "Eri salasana"
+msgstr "Parola diferită"
 
 #: ../src/modules/account/PasswordDialog.qml:114
 msgid "New Password"
-msgstr "Uusi salasana"
+msgstr "Parolă nouă"
 
 #: ../src/modules/account/PasswordDialog.qml:180
 msgid "Repeat"
-msgstr "Toista"
+msgstr "Repetă"
 
 #: ../src/modules/grub/Preview.qml:122
 msgid "Drag and drop an image to change background."
-msgstr "Raahaa ja pudota kuva vaihtaaksesi taustakuvan"
+msgstr "Trage şi aşează o imagine pentru modificarea fundalului."
 
 #: ../src/modules/grub/Preview.qml:123 ../src/modules/account/UserList.qml:239
 msgid "Image format not supported"
-msgstr "Kuvaformaatti ei ole tuettu"
+msgstr "Format imagine nesuportat"
 
 #: ../src/modules/grub/Preview.qml:124
 msgid "Updating..."
-msgstr "Päivitetään..."
+msgstr "Actualizează..."
 
 #: ../src/modules/grub/Preview.qml:125
 msgid "Successfully updated, reboot to view."
-msgstr "Onnistuneesti päivitetty, käynnistä uudelleen."
+msgstr "Actualizat cu succes, reporneşte pentru vizualizare."
 
 #: ../src/modules/network/proxy/ProxyContent.qml:43
 #: ../src/modules/shortcuts/ShortcutInput.qml:119
 #: ../src/modules/date_time/main.qml:204
 msgid "None"
-msgstr "Ei mitään"
+msgstr "Nimic"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:48
 msgid "Manual"
-msgstr "Manuaalinen"
+msgstr "Manual"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:53
 msgid "Auto"
-msgstr "Automaattinen"
+msgstr "Auto"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:88
 msgid "HTTP Proxy"
-msgstr "HTTP Proxy"
+msgstr "Proxy HTTP"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:100
 msgid "HTTPS Proxy"
@@ -1306,150 +1307,150 @@ msgstr "HTTPS Proxy"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:112
 msgid "FTP Proxy"
-msgstr "FTP Proxy"
+msgstr "Proxy FTP"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:124
 msgid "Socks Proxy"
-msgstr "Socks Proxy"
+msgstr "Socket sigur proxy"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:149
 msgid "Configuration URL"
-msgstr "Konfigurointi URL"
+msgstr "URL configurare"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:166
 msgid "Apply system wide"
-msgstr "Toteuta koko järjestelmään"
+msgstr "Aplică sistemul pe tot ecranul"
 
 #: ../src/modules/network/proxy/ProxyExpand.qml:37
 msgid "System Proxy"
-msgstr "Järjestelmän välityspalvelin"
+msgstr "Proxy sistem"
 
 #: ../src/modules/shared/ResetButton.qml:39
 msgid "Reset successfully"
-msgstr "Oletusarvojen palautus onnistui"
+msgstr "Resetare cu succes"
 
 #: ../src/modules/shared/ResetButton.qml:47
 msgid "Reset"
-msgstr "Oletusarvojen palautus"
+msgstr "Reinițializare"
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:137
 msgid "Please input new shortcut"
-msgstr "Anna uusi pikanäppäin"
+msgstr "Introdu te rog scurtătură nouă"
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:238
 #, qt-format
 msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
-msgstr "Pikanäppäin \"%1\" ei ole kelvollinen. Anna uusi pikanäppäin."
+msgstr "Scurtătura \"%1\" este invalidă, te rog rescrie noua scurtătură."
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:276
 msgid "The shortcut you set "
-msgstr "Pikanäppäin on asetettu"
+msgstr "Comandă rapidă introdusă"
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:279
 #, qt-format
 msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
-msgstr "Tämä on jo käytössä toiminnolle \"%2\" kategoriassa \"%1\""
+msgstr "conflicte la cel utilizat pentru \"%2\" în categoria \"%1\"."
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:281
 msgid "Do you want to replace it?"
-msgstr "Haluatko korvata sen?"
+msgstr "Doriți să înlocuiți?"
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:339
 msgid "Replace"
-msgstr "Korvaa"
+msgstr "Înlocuiește"
 
 #: ../src/modules/personalization/widgets/ShowPreviewButton.qml:53
 msgid "Preview Theme"
-msgstr "Esikatsele teemaa"
+msgstr "Previzualizare temă"
 
 #: ../src/modules/date_time/StateButtons.qml:34
 #: ../src/modules/keyboard/StateButtons.qml:34
 #: ../src/modules/shortcuts/StateButtons.qml:38
 msgid "Done"
-msgstr "Valmis"
+msgstr "Finalizat"
 
 #: ../src/modules/date_time/StateButtons.qml:35
 #: ../src/modules/date_time/StateButtons.qml:49
 #: ../src/modules/date_time/TimezoneArea.qml:467
 msgid "Close"
-msgstr "Sulje"
+msgstr "Închide"
 
 #: ../src/modules/date_time/StateButtons.qml:72
 msgid "Delete Time Zone"
-msgstr ""
+msgstr "Şterge fus orar"
 
 #: ../src/modules/date_time/StateButtons.qml:88
 msgid "Add Time Zone"
-msgstr ""
+msgstr "Adaugă fus orar"
 
 #: ../src/modules/keyboard/StateButtons.qml:77
 msgid "Delete Keyboard Layout"
-msgstr ""
+msgstr "Şterge dispunere tastatură"
 
 #: ../src/modules/keyboard/StateButtons.qml:92
 msgid "Add Keyboard Layout"
-msgstr ""
+msgstr "Adaugă dispunere tastatură"
 
 #: ../src/modules/shortcuts/StateButtons.qml:80
 msgid "Delete Shortcut"
-msgstr ""
+msgstr "Şterge scurtătură"
 
 #: ../src/modules/shortcuts/StateButtons.qml:96
 msgid "Add Shortcut"
-msgstr ""
+msgstr "Adaugă scurtătură"
 
 #: ../src/modules/personalization/widgets/ThemeItem.qml:92
 #: ../src/modules/power/main.qml:270 ../src/modules/power/main.qml:463
 #: ../src/modules/shortcuts/main.qml:54 ../src/modules/shortcuts/main.qml:231
 msgid "Custom"
-msgstr "Kustomoitu"
+msgstr "Personalizare"
 
 #: ../src/modules/date_time/TimeBox.qml:161
 #: ../src/views/TmpTranslationFile.qml:44
 msgid "Double-click this area to change your time"
-msgstr ""
+msgstr "Dublu clic în această zonă pentru modificarea orei"
 
 #: ../src/modules/date_time/TimeBox.qml:202
 msgid "Set"
-msgstr "Aseta"
+msgstr "Setează"
 
 #: ../src/modules/date_time/TimezoneArea.qml:253
 msgid "Time zone"
-msgstr "Aikavyöhyke"
+msgstr "Fus orar"
 
 #: ../src/views/TmpTranslationFile.qml:24
 msgid ""
 "Extend your screen contents. Different contents will be displayed on "
 "different screens."
-msgstr ""
+msgstr "Extinde componentele ecranului. Componente diferite"
 
 #: ../src/views/TmpTranslationFile.qml:48
 msgid "Account information is being prepared..."
-msgstr ""
+msgstr "Se pregătesc informațiile contului..."
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
 msgid "Touchpad"
-msgstr "Kosketuslevy"
+msgstr "Panou tactil"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:82
 #: ../src/modules/mouse_touchpad/main.qml:83
 msgid "Primary Button"
-msgstr "Ensisijainen painike"
+msgstr "Buton principal"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:91
 #: ../src/modules/mouse_touchpad/main.qml:91
 msgid "Left Button"
-msgstr "Vasen painike"
+msgstr "Butonul din stânga"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:92
 #: ../src/modules/mouse_touchpad/main.qml:92
 msgid "Right Button"
-msgstr "Oikea painike"
+msgstr "Butonul din dreapta"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:117
 #: ../src/modules/mouse_touchpad/main.qml:117
 msgid "Pointer Speed"
-msgstr "Osoittimen nopeus"
+msgstr "Viteză indicator"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:134
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:171
@@ -1457,7 +1458,7 @@ msgstr "Osoittimen nopeus"
 #: ../src/modules/mouse_touchpad/main.qml:133
 #: ../src/modules/mouse_touchpad/main.qml:169
 msgid "Slow"
-msgstr "Hidas"
+msgstr "Încet"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:135
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:172
@@ -1465,42 +1466,42 @@ msgstr "Hidas"
 #: ../src/modules/mouse_touchpad/main.qml:134
 #: ../src/modules/mouse_touchpad/main.qml:170
 msgid "Fast"
-msgstr "Nopea"
+msgstr "Rapid"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:154
 #: ../src/modules/mouse_touchpad/main.qml:153
 msgid "Double-click Speed"
-msgstr "Tuplapainalluksen nopeus"
+msgstr "Viteză dublu clic"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:192
 msgid "Drag Threshold"
-msgstr "Raahauksen raja-arvo"
+msgstr "Trage limită"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:208
 #: ../src/modules/keyboard/main.qml:163
 msgid "Short"
-msgstr "Lyhyt"
+msgstr "Scurt"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:209
 #: ../src/modules/keyboard/main.qml:164
 msgid "Long"
-msgstr "Pitkä"
+msgstr "Lung"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:228
 msgid "Natural Scrolling"
-msgstr "Luonnollinen rullaaminen"
+msgstr "Derulare naturală"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:252
 msgid "Tap to click"
-msgstr "Napauta klikkaaksesi"
+msgstr "Atinge pentru a face clic"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:275
 msgid "Two-finger scrolling"
-msgstr "Kahden sormen vieritys"
+msgstr "Derulare cu două degete"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:298
 msgid "Edge scrolling"
-msgstr "Reunavieritys"
+msgstr "Limită derulare"
 
 #: ../src/modules/account/UserListCreatingItem.qml:99
 msgid "Account Preparing..."
@@ -1508,44 +1509,44 @@ msgstr ""
 
 #: ../src/modules/network/vpn/VpnExpand.qml:48
 msgid "VPN Connections"
-msgstr "VPN Yhteydet"
+msgstr "Conexiuni VPN"
 
 #: ../src/modules/account/WebCam.qml:125 ../src/modules/account/WebCam.qml:140
 msgid "Snapshot"
-msgstr "Kuva"
+msgstr "Instantaneu"
 
 #: ../src/modules/account/WebCam.qml:136
 msgid "Again"
-msgstr "Uudestaan"
+msgstr "Din nou"
 
 #: ../src/modules/account/WebCam.qml:175
 msgid "No camera found."
-msgstr "Kameraa ei löydy"
+msgstr "Nu s-a găsit nicio cameră."
 
 #: ../src/modules/network/wireless/WifiHotspot.qml:23
 msgid "Edit Wi-Fi Hotspot"
-msgstr "Muokkaa Wi-Fi tukiasemaa"
+msgstr "Editează punct acces Wi-Fi"
 
 #: ../src/modules/network/wireless/WifiHotspot.qml:23
 msgid "Create Wi-Fi Hotspot"
-msgstr "Luo Wi-Fi tukiasema"
+msgstr "Creează punct acces Wi-Fi"
 
 #: ../src/modules/network/wireless/WifiHotspot.qml:91
 msgid "Create"
-msgstr "Luo"
+msgstr "Creează"
 
 #: ../src/modules/network/wired/WiredDeviceExpand.qml:38
 msgid "Wired Network"
-msgstr "Langaton verkko"
+msgstr "Rețea conectată"
 
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:28
 msgid "Wireless Network"
-msgstr "Langaton verkko"
+msgstr "Rețea fără fir"
 
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:26
 #, qt-format
 msgid "Wireless Network %1"
-msgstr "Langaton verkko %1"
+msgstr "Rețea fără fir %1"
 
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:55
 msgid ""
@@ -1554,60 +1555,60 @@ msgid ""
 "1. The hardware switch of wireless network card is off\n"
 "2. Incorrect network configuration in /etc/network/interface\n"
 "3. Incorrect driver of network hardware"
-msgstr ""
+msgstr "Rețeaua fără fir nu poate fi conectată posibil din următoarele cauze:\n\n1. Butonul de la cartela rețelei fără fir este oprit\n2. Configurare incorectă a rețelei în /etc/rețea/interfață\n3. Driver incorect pentru rețea"
 
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:35
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:158
 msgid "Connect to hidden access point"
-msgstr "Yhdistä piilotettuun verkkoon"
+msgstr "Conectează la punctul ascuns de acces"
 
 #: ../src/modules/power/main.qml:258 ../src/modules/power/main.qml:451
 msgid "Power saver"
-msgstr "Virransäästö"
+msgstr "Economizor energie"
 
 #: ../src/modules/power/main.qml:252 ../src/modules/power/main.qml:445
 msgid "Balanced"
-msgstr "Tasoitettu"
+msgstr "Echilibrat"
 
 #: ../src/modules/power/main.qml:264 ../src/modules/power/main.qml:457
 msgid "High performance"
-msgstr "Korkea suoritusteho"
+msgstr "Performanţă înaltă"
 
 #: ../src/modules/date_time/main.qml:130
 msgid "Automatic date and time"
-msgstr "Automaattinen päiväys ja aika"
+msgstr "Setare automată dată şi oră"
 
 #: ../src/modules/date_time/main.qml:148
 msgid "Use 24-hour clock"
-msgstr "Käytä 24-tunnin kelloa"
+msgstr "Utilizează ceas cu format de 24 ore"
 
 #: ../src/modules/date_time/main.qml:179
 msgid "Adjust DST clock "
-msgstr ""
+msgstr "Ajustează ceasul DST"
 
 #: ../src/modules/date_time/main.qml:256
 msgid "Date"
-msgstr "Päivä"
+msgstr "Dată"
 
 #: ../src/modules/date_time/main.qml:280
 msgid "Set Date"
-msgstr "Aseta päiväys"
+msgstr "Setează data"
 
 #: ../src/modules/default_applications/main.qml:97
 msgid "Browser"
-msgstr "Selain"
+msgstr "Browser-ul"
 
 #: ../src/modules/default_applications/main.qml:111
 msgid "Mail"
-msgstr "Sähköposti"
+msgstr "Mail"
 
 #: ../src/modules/default_applications/main.qml:122
 msgid "Text"
-msgstr "Teksti"
+msgstr "Text"
 
 #: ../src/modules/default_applications/main.qml:128
 msgid "Music"
-msgstr "Musiikki"
+msgstr "Muzică"
 
 #: ../src/modules/default_applications/main.qml:159
 msgid "Video"
@@ -1615,144 +1616,144 @@ msgstr "Video"
 
 #: ../src/modules/default_applications/main.qml:191
 msgid "Picture"
-msgstr "Kuvat"
+msgstr "Fotografie"
 
 #: ../src/modules/default_applications/main.qml:209
 msgid "Terminal"
-msgstr "Pääte"
+msgstr "Terminal"
 
 #: ../src/modules/default_applications/main.qml:268
 msgid "AutoPlay"
-msgstr "Automaattitoisto"
+msgstr "Auto redare"
 
 #: ../src/modules/default_applications/main.qml:283
 msgid "CD Audio"
-msgstr "CD Audio"
+msgstr "Audio CD"
 
 #: ../src/modules/default_applications/main.qml:288
 msgid "DVD Video"
-msgstr "DVD Video"
+msgstr "Video DVD"
 
 #: ../src/modules/default_applications/main.qml:293
 msgid "Music Player"
-msgstr "Musiikkitoistin"
+msgstr "Player-ul muzical"
 
 #: ../src/modules/default_applications/main.qml:298
 msgid "Camera"
-msgstr "Kamera"
+msgstr "Camera Web"
 
 #: ../src/modules/default_applications/main.qml:303
 msgid "Software"
-msgstr "Ohjelmisto"
+msgstr "Software"
 
 #: ../src/modules/grub/main.qml:112
 msgid "Default Boot"
-msgstr ""
+msgstr "Pornire implicită"
 
 #: ../src/modules/grub/main.qml:167
 msgid "Boot delay"
-msgstr "Käynnistysviive"
+msgstr "Întârziere pornire"
 
 #: ../src/modules/grub/main.qml:206
 msgid "Text Color"
-msgstr "Tekstin väri"
+msgstr "Culoare text"
 
 #: ../src/modules/grub/main.qml:239
 msgid "Selected Text Color"
-msgstr "Valittu tekstin väri"
+msgstr "Culoare text selectat"
 
 #: ../src/modules/keyboard/main.qml:149
 msgid "Repeat Delay"
-msgstr "Toiston viive"
+msgstr "Repetă întârzierea"
 
 #: ../src/modules/keyboard/main.qml:174
 msgid "Repeat Rate"
-msgstr "Toiton tahti"
+msgstr "Rată repetare"
 
 #: ../src/modules/keyboard/main.qml:200
 msgid "Cursor Blink Rate"
-msgstr "Kursorin vilketahti"
+msgstr "Rată clipire cursor"
 
 #: ../src/modules/keyboard/main.qml:226
 msgid "Test Area"
-msgstr "Testialue"
+msgstr "Zonă testare"
 
 #: ../src/modules/keyboard/main.qml:272
 msgid "Keyboard Layout"
-msgstr "Näppäimistön asettelu"
+msgstr "Dispunere tastatură"
 
 #: ../src/modules/keyboard/main.qml:489
 msgid "No result"
-msgstr "Ei kohteita"
+msgstr "Niciun rezultat"
 
 #: ../src/modules/keyboard/main.qml:246
 msgid "Caps Lock prompt"
-msgstr "Caps Lock kehote"
+msgstr "Mesaj fixare majuscule"
 
 #: ../src/modules/mouse_touchpad/main.qml:190
 msgid "Disable the touchpad when inserting the mouse"
-msgstr "Poista kosketuslevy käytöstä kun hiiri on asennettu"
+msgstr "Dezactivează panoul tactil la conectarea mouseului"
 
 #: ../src/modules/personalization/main.qml:111
 msgid "Theme"
-msgstr "Teema"
+msgstr "Tema"
 
 #: ../src/modules/personalization/main.qml:118
 #: ../src/modules/shortcuts/main.qml:52
 msgid "Window"
-msgstr "Ikkuna"
+msgstr "Fereastră"
 
 #: ../src/modules/personalization/main.qml:125
 msgid "Icon"
-msgstr "Kuvake"
+msgstr "Iconiță"
 
 #: ../src/modules/personalization/main.qml:132
 msgid "Cursor"
-msgstr "Osoitin"
+msgstr "Cursor"
 
 #: ../src/modules/personalization/main.qml:139
 msgid "Wallpaper"
-msgstr "Taustakuva"
+msgstr "Imagine fundal"
 
 #: ../src/modules/personalization/main.qml:153
 msgid "Fonts"
-msgstr "Fontit"
+msgstr "Fonturi"
 
 #: ../src/modules/power/main.qml:53 ../src/modules/power/main.qml:65
 msgid "Never"
-msgstr "Ei koskaan"
+msgstr "Niciodată"
 
 #: ../src/modules/power/main.qml:59
 msgid "1 minute"
-msgstr "1 minuutti"
+msgstr "1 minut"
 
 #: ../src/modules/power/main.qml:60
 msgid "5 minutes"
-msgstr "5 minuuttia"
+msgstr "5 minute"
 
 #: ../src/modules/power/main.qml:61
 msgid "10 minutes"
-msgstr "10 minuuttia"
+msgstr "10 minute"
 
 #: ../src/modules/power/main.qml:62
 msgid "15 minutes"
-msgstr "15 minuuttia"
+msgstr "15 minute"
 
 #: ../src/modules/power/main.qml:63
 msgid "30 minutes"
-msgstr "30 minuuttia"
+msgstr "30 de minute"
 
 #: ../src/modules/power/main.qml:64
 msgid "1 hour"
-msgstr "1 tunti"
+msgstr "1 oră"
 
 #: ../src/modules/power/main.qml:124
 msgid "When I press the power button"
-msgstr "Kun painan virtapainiketta"
+msgstr "Când apăs butonul de pornire"
 
 #: ../src/modules/power/main.qml:138 ../src/modules/power/main.qml:184
 msgid "Shutdown"
-msgstr "Sammuta"
+msgstr "Închide"
 
 #: ../src/modules/power/main.qml:143 ../src/modules/power/main.qml:189
 #: ../src/modules/power/main.qml:255 ../src/modules/power/main.qml:261
@@ -1761,31 +1762,31 @@ msgstr "Sammuta"
 #: ../src/modules/power/main.qml:454 ../src/modules/power/main.qml:460
 #: ../src/modules/power/main.qml:466 ../src/modules/power/main.qml:563
 msgid "Suspend"
-msgstr "Valmiustila"
+msgstr "Suspendare"
 
 #: ../src/modules/power/main.qml:148
 msgid "Ask"
-msgstr "Kysy"
+msgstr "Întreabă"
 
 #: ../src/modules/power/main.qml:170
 msgid "When I close the lid"
-msgstr "Kun suljen kannen"
+msgstr "Când închid capacul"
 
 #: ../src/modules/power/main.qml:194
 msgid "Nothing"
-msgstr "Ei mitään"
+msgstr "Nimic"
 
 #: ../src/modules/power/main.qml:213
 msgid "Password required to wake up"
-msgstr "Salasana vaadittu herätessä"
+msgstr "Introdu parola pentru trezire"
 
 #: ../src/modules/power/main.qml:237
 msgid "Plugged in"
-msgstr "Kytketty pistorasiaan"
+msgstr "Conectat"
 
 #: ../src/modules/power/main.qml:430
 msgid "On battery"
-msgstr "Akkukäyttö"
+msgstr "La baterie"
 
 #: ../src/modules/power/main.qml:254 ../src/modules/power/main.qml:260
 #: ../src/modules/power/main.qml:266 ../src/modules/power/main.qml:272
@@ -1793,123 +1794,123 @@ msgstr "Akkukäyttö"
 #: ../src/modules/power/main.qml:453 ../src/modules/power/main.qml:459
 #: ../src/modules/power/main.qml:465 ../src/modules/power/main.qml:523
 msgid "Turn off the display"
-msgstr "Sulje näyttö"
+msgstr "Închide afișajul"
 
 #: ../src/modules/power/main.qml:330 ../src/modules/power/main.qml:518
 msgid "Custom Options"
-msgstr "Omat asetukset"
+msgstr "Opțiuni particulare"
 
 #: ../src/modules/shortcuts/main.qml:50
 msgid "System"
-msgstr "Järjestelmä"
+msgstr "Sistem"
 
 #: ../src/modules/shortcuts/main.qml:53
 msgid "Workspace"
-msgstr "Työtila"
+msgstr "Spațiu de lucru"
 
 #: ../src/modules/sound/main.qml:127
 msgid "Speaker"
-msgstr "Kaiutin"
+msgstr "Difuzor"
 
 #: ../src/modules/sound/main.qml:157
 msgid "Output Volume"
-msgstr "Äänenvoimakkuus"
+msgstr "Volum ieşire"
 
 #: ../src/modules/sound/main.qml:222
 msgid "Microphone"
-msgstr "Mikrofoni"
+msgstr "Microfon"
 
 #: ../src/modules/sound/main.qml:252
 msgid "Input Volume"
-msgstr "Sisääntulon voimakkuus"
+msgstr "Volum intrare"
 
 #: ../src/modules/sound/main.qml:296
 msgid "Input Feedback"
-msgstr "Sisääntulon palaute"
+msgstr "Răspuns"
 
 #: ../src/modules/sound/main.qml:332
 msgid "Output Port"
-msgstr "Ulostulo portti"
+msgstr "Port ieşire"
 
 #: ../src/modules/sound/main.qml:349 ../src/modules/sound/main.qml:452
 msgid "No port exists in this device."
-msgstr "Laitteessa ei ole portteja"
+msgstr "Nu există porturi în acest dispozitiv."
 
 #: ../src/modules/sound/main.qml:387
 msgid "Output device"
-msgstr "Ulostulolaite"
+msgstr "Dispozitiv ieşire"
 
 #: ../src/modules/sound/main.qml:435
 msgid "Input Port"
-msgstr "Sisääntulo portti"
+msgstr "Port intrare"
 
 #: ../src/modules/sound/main.qml:490
 msgid "Input device"
-msgstr "Sisääntulolaite"
+msgstr "Dispozitiv intrare"
 
 #: ../src/modules/sound/main.qml:543
 msgid "Hide Advanced..."
-msgstr "Piilota kehittyneet asetukset..."
+msgstr "Ascunde avansate..."
 
 #: ../src/modules/sound/main.qml:543
 msgid "Show Advanced..."
-msgstr "Näytä kehittyneet asetukset..."
+msgstr "Afişează avansate..."
 
 #: ../src/modules/system_info/main.qml:119
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
-msgstr ""
+msgstr "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
 
 #: ../src/modules/system_info/main.qml:125
 msgid "Deepin Edition"
-msgstr "Deepin Edition"
+msgstr "Ediția Deepin"
 
 #: ../src/modules/system_info/main.qml:131
 msgid "System Type"
-msgstr "Järjetelmätyyppi"
+msgstr "Tip sistem"
 
 #: ../src/modules/system_info/main.qml:132
 msgid "bit"
-msgstr "-bittinen"
+msgstr "bit"
 
 #: ../src/modules/system_info/main.qml:137
 msgid "Processor"
-msgstr "Prosessori"
+msgstr "Procesor"
 
 #: ../src/modules/system_info/main.qml:151
 msgid "Memory"
-msgstr "Muisti"
+msgstr "Memorie"
 
 #: ../src/modules/system_info/main.qml:157
 msgid "Disk"
-msgstr "Levy"
+msgstr "Disc"
 
 #: ../src/modules/system_info/main.qml:175
 msgid "GNU GENERAL PUBLIC LICENSE"
-msgstr "GNU GENERAL PUBLIC LICENSE"
+msgstr "LICENȚĂ GENERALĂ PUBLICĂ GNU"
 
 #: ../src/modules/network/main.qml:162 ../src/modules/network/main.qml:190
 msgid "Unknown"
-msgstr "Tuntematon"
+msgstr "Necunoscut"
 
 #: ../src/modules/network/main.qml:164
 msgid "Wired"
-msgstr "Langallinen"
+msgstr "Conectat"
 
 #: ../src/modules/network/main.qml:166
 msgid "Wireless"
-msgstr "Langaton"
+msgstr "Fără fir"
 
 #: ../src/modules/network/main.qml:168
 msgid "Unused1"
-msgstr "Käyttämätön1"
+msgstr "Neutilizat1"
 
 #: ../src/modules/network/main.qml:170
 msgid "Unused2"
-msgstr "Käyttämätön2"
+msgstr "Neutilizat2"
 
 #: ../src/modules/network/main.qml:174
 msgid "OLPC mesh"
-msgstr "OLPC mesh"
+msgstr "Buclă OLPC"
 
 #: ../src/modules/network/main.qml:176
 msgid "WiMax"
@@ -1917,15 +1918,15 @@ msgstr "WiMax"
 
 #: ../src/modules/network/main.qml:178
 msgid "Modem"
-msgstr "Modeemi"
+msgstr "Modem"
 
 #: ../src/modules/network/main.qml:180
 msgid "InfiniBand"
-msgstr "InfiniBand"
+msgstr "Bandă infinit"
 
 #: ../src/modules/network/main.qml:182
 msgid "Bond"
-msgstr "Sidonta"
+msgstr "Legătură"
 
 #: ../src/modules/network/main.qml:184
 msgid "VLAN"
@@ -1933,35 +1934,35 @@ msgstr "VLAN"
 
 #: ../src/modules/network/main.qml:186
 msgid "ADSL"
-msgstr "DSL"
+msgstr "ADSL"
 
 #: ../src/modules/network/main.qml:188
 msgid "Bridge"
-msgstr "Silta"
+msgstr "Punte"
 
 #: ../src/modules/network/main.qml:198
 msgid "802.11 WiFi"
-msgstr "802.11 WiFi"
+msgstr "WiFi 802.11"
 
 #: ../src/modules/network/main.qml:200
 msgid "802.11 WiFi AdHoc"
-msgstr "802.11 WiFi AdHoc"
+msgstr "Ad-hoc WiFi 802.11"
 
 #: ../src/modules/network/main.qml:202
 msgid "802.11 WiFi Hotspot"
-msgstr "802.11 WiFi HotSpot"
+msgstr "Punct de acces WiFi 802.11"
 
 #: ../src/modules/network/main.qml:208
 msgid "Mobile GSM"
-msgstr "Mobiililaajakaista"
+msgstr "GSM mobil"
 
 #: ../src/modules/network/main.qml:210
 msgid "Mobile CDMA"
-msgstr "Mobiililaajakaista CDMA"
+msgstr "CDMA mobil"
 
 #: ../src/modules/network/main.qml:326
 msgid "View Detailed Information"
-msgstr ""
+msgstr "Vizualizează informații detaliate"
 
 #: ../src/modules/network/main.qml:214
 msgid "VPN L2TP"
@@ -1981,92 +1982,92 @@ msgstr "VPN OpenVPN"
 
 #: ../src/modules/network/main.qml:222
 msgid "VPN OpenConnect"
-msgstr "VPN OpenConnect"
+msgstr "VPN Conexiune deschisă"
 
 #: ../src/modules/account/main.qml:98
 msgid "Delete Account"
-msgstr ""
+msgstr "Șterge cont"
 
 #: ../src/modules/account/main.qml:138
 msgid "Add Account"
-msgstr ""
+msgstr "Adaugă cont"
 
 #: ../src/modules/account/main.qml:158
 msgid "User List"
-msgstr "Käyttäjälista"
+msgstr "Listă utilizator"
 
 #: ../src/modules/wacom/main.qml:14
 msgid "Page Up"
-msgstr "Page Up"
+msgstr "Pagină în sus"
 
 #: ../src/modules/wacom/main.qml:15
 msgid "Page Down"
-msgstr "Page Down"
+msgstr "Pagină în jos"
 
 #: ../src/modules/wacom/main.qml:16
 msgid "Left Click"
-msgstr "Vasen klikkaus"
+msgstr "Clic stânga"
 
 #: ../src/modules/wacom/main.qml:17
 msgid "Right Click"
-msgstr "Oikea klikkaus"
+msgstr "Clic dreapta"
 
 #: ../src/modules/wacom/main.qml:18
 msgid "Middle Click"
-msgstr "Keskiklikkaus"
+msgstr "Buton mijloc mouse"
 
 #: ../src/modules/wacom/main.qml:69
 msgid "Tablet Orientation"
-msgstr "Tablet Suuntautuminen"
+msgstr "Orientare tabletă"
 
 #: ../src/modules/wacom/main.qml:76
 msgid "Left Hand"
-msgstr "Vasenkätinen"
+msgstr "Mâna stângă"
 
 #: ../src/modules/wacom/main.qml:77
 msgid "Right Hand"
-msgstr "Oikeakätinen"
+msgstr "Mâna dreaptă"
 
 #: ../src/modules/wacom/main.qml:90
 msgid "Digital Pen Modes"
-msgstr "Digitaaliset kynän tilat"
+msgstr "Moduri scriere digitală"
 
 #: ../src/modules/wacom/main.qml:97
 msgid "Pen Mode"
-msgstr "Kynän tila"
+msgstr "Modul scriere"
 
 #: ../src/modules/wacom/main.qml:98
 msgid "Mouse Mode"
-msgstr "Hiiren tila"
+msgstr "Modul mouse"
 
 #: ../src/modules/wacom/main.qml:112
 msgid "Down Key"
-msgstr "Alas-näppäin"
+msgstr "Tasta în jos"
 
 #: ../src/modules/wacom/main.qml:137
 msgid "Up Key"
-msgstr "Ylös-näppäin"
+msgstr "Tasta săgeată în sus"
 
 #: ../src/modules/wacom/main.qml:162
 msgid "Pressure"
-msgstr "Paine"
+msgstr "Comprimare"
 
 #: ../src/modules/wacom/main.qml:178
 msgid "Soft"
-msgstr "Pehmeä"
+msgstr "Soft"
 
 #: ../src/modules/wacom/main.qml:179
 msgid "Hard"
-msgstr "Kova"
+msgstr "Hard"
 
 #: ../src/modules/wacom/main.qml:190
 msgid "Double-click Space"
-msgstr "Kaksoispainallus alue"
+msgstr "Spațiu prin dublu clic"
 
 #: ../src/modules/wacom/main.qml:206
 msgid "Narrow"
-msgstr "Kapea"
+msgstr "Îngust"
 
 #: ../src/modules/wacom/main.qml:207
 msgid "Wide"
-msgstr "Laaja"
+msgstr "Lat"

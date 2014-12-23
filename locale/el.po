@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-11 10:14+0800\n"
-"PO-Revision-Date: 2014-12-12 00:55+0000\n"
+"POT-Creation-Date: 2014-12-26 16:16+0800\n"
+"PO-Revision-Date: 2014-12-26 08:41+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/dde-control-center/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -36,7 +36,7 @@ msgstr "Όνομα"
 #: ../src/modules/network/add/AddDsl.qml:36
 #: ../src/modules/network/add/AddMobile.qml:75
 #: ../src/modules/network/add/AddMobile.qml:105
-#: ../src/modules/account/AddUserDialog.qml:141
+#: ../src/modules/account/AddUserDialog.qml:127
 #: ../src/modules/network/add/AddVpn.qml:124
 #: ../src/modules/network/add/AddVpn.qml:254
 #: ../src/modules/network/add/AddVpn.qml:394
@@ -60,7 +60,7 @@ msgstr "Υπηρεσία"
 #: ../src/modules/network/add/AddDsl.qml:56
 #: ../src/modules/network/add/AddMobile.qml:85
 #: ../src/modules/network/add/AddMobile.qml:115
-#: ../src/modules/account/AddUserDialog.qml:198
+#: ../src/modules/account/AddUserDialog.qml:200
 #: ../src/modules/network/add/AddVpn.qml:144
 #: ../src/modules/network/add/AddVpn.qml:274
 #: ../src/modules/network/add/AddVpn.qml:414
@@ -103,9 +103,9 @@ msgid "Number"
 msgstr "Αριθμός"
 
 #: ../src/modules/network/add/AddSectionSave.qml:11
-#: ../src/modules/account/AddUserDialog.qml:378
+#: ../src/modules/account/AddUserDialog.qml:413
 #: ../src/modules/network/wireless/AddWireless.qml:216
-#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:87
+#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:104
 #: ../src/modules/network/ConnectionAdd.qml:69
 #: ../src/modules/network/ConnectionEdit.qml:102
 #: ../src/modules/network/ConnectionEdit.qml:150
@@ -113,75 +113,88 @@ msgstr "Αριθμός"
 #: ../src/modules/account/DeleteUserDialog.qml:33
 #: ../src/modules/network/Info.qml:79
 #: ../src/modules/network/widgets/PasswordBox.qml:118
-#: ../src/modules/account/PasswordDialog.qml:207
-#: ../src/modules/shortcuts/ShortcutInput.qml:343
+#: ../src/modules/account/PasswordDialog.qml:243
+#: ../src/modules/shortcuts/ShortcutInput.qml:355
 #: ../src/modules/date_time/TimeBox.qml:225
 #: ../src/modules/network/wireless/WifiHotspot.qml:82
-#: ../src/modules/date_time/main.qml:267 ../src/modules/display/main.qml:208
+#: ../src/modules/date_time/main.qml:289 ../src/modules/display/main.qml:179
 msgid "Cancel"
 msgstr "Ακύρωση"
 
 #: ../src/modules/network/add/AddSectionSave.qml:20
 #: ../src/modules/shortcuts/CustomKeybinding.qml:157
-#: ../src/modules/date_time/TimezoneArea.qml:415
+#: ../src/modules/date_time/TimezoneArea.qml:464
 msgid "Add"
 msgstr "Προσθήκη"
 
-#: ../src/modules/account/AddUserDialog.qml:72
-#: ../src/modules/account/PasswordDialog.qml:96
-msgid "Invalid password"
-msgstr "Μη έγκυρος κωδικός πρόσβασης"
+#: ../src/modules/account/AddUserDialog.qml:58
+#: ../src/modules/account/AddUserDialog.qml:63
+#: ../src/modules/account/AddUserDialog.qml:245
+#: ../src/modules/account/PasswordDialog.qml:156
+msgid "Password can not be empty."
+msgstr "Ο κωδικός πρόσβασης δεν μπορεί να είναι κενός."
+
+#: ../src/modules/account/AddUserDialog.qml:68
+#: ../src/modules/account/AddUserDialog.qml:225
+#: ../src/modules/account/AddUserDialog.qml:239
+#: ../src/modules/account/AddUserDialog.qml:291
+#: ../src/modules/account/AddUserDialog.qml:306
+#: ../src/modules/account/PasswordDialog.qml:141
+#: ../src/modules/account/PasswordDialog.qml:151
+#: ../src/modules/account/PasswordDialog.qml:208
+#: ../src/modules/account/PasswordDialog.qml:218
+msgid "The two passwords do not match."
+msgstr "Οι δύο κωδικοί δεν ταιριάζουν."
 
 #: ../src/modules/account/AddUserDialog.qml:77
-msgid "Nothing input"
-msgstr "Δεν εισάχθηκε τίποτα"
-
-#: ../src/modules/account/AddUserDialog.qml:50
-#: ../src/modules/account/AddUserDialog.qml:82
-#: ../src/modules/account/PasswordDialog.qml:101
-msgid "Different password"
-msgstr "Διαφορετικός κωδικός πρόσβασης"
-
-#: ../src/modules/account/AddUserDialog.qml:91
 msgid "Add User"
 msgstr "Προσθήκη Χρήστη"
 
-#: ../src/modules/account/AddUserDialog.qml:120
+#: ../src/modules/account/AddUserDialog.qml:106
 msgid "New User"
 msgstr "Νέος Χρήστης"
 
-#: ../src/modules/account/AddUserDialog.qml:124
-#: ../src/modules/account/AddUserDialog.qml:308
+#: ../src/modules/account/AddUserDialog.qml:110
+#: ../src/modules/account/AddUserDialog.qml:343
 #: ../src/modules/account/EditUserDialog.qml:139
-#: ../src/modules/account/UserList.qml:222
+#: ../src/modules/account/UserList.qml:228
+#: ../src/modules/account/UserListCreatingItem.qml:88
 msgid "Administrator"
 msgstr "Διαχειριστής"
 
-#: ../src/modules/account/AddUserDialog.qml:124
-#: ../src/modules/account/AddUserDialog.qml:307
+#: ../src/modules/account/AddUserDialog.qml:110
+#: ../src/modules/account/AddUserDialog.qml:342
 #: ../src/modules/account/EditUserDialog.qml:138
-#: ../src/modules/account/UserList.qml:222
+#: ../src/modules/account/UserList.qml:228
+#: ../src/modules/account/UserListCreatingItem.qml:88
 msgid "Normal User"
 msgstr "Κανονικός χρήστης"
 
-#: ../src/modules/account/AddUserDialog.qml:244
+#: ../src/modules/account/AddUserDialog.qml:175
+#: ../src/modules/account/AddUserDialog.qml:235
+#: ../src/modules/account/AddUserDialog.qml:301
+msgid "Username can not be empty."
+msgstr "Το όνομα Χρήστη δεν μπορεί να είναι κενό."
+
+#: ../src/modules/account/AddUserDialog.qml:270
 msgid "Repeat Password"
 msgstr "Επανάληψη Κωδικού Πρόσβασης"
 
-#: ../src/modules/account/AddUserDialog.qml:295
+#: ../src/modules/account/AddUserDialog.qml:330
 #: ../src/modules/account/EditUserDialog.qml:126
 msgid "Account Type"
 msgstr "Τύπος Λογαριασμού"
 
-#: ../src/modules/account/AddUserDialog.qml:327
+#: ../src/modules/account/AddUserDialog.qml:362
 #: ../src/modules/account/EditUserDialog.qml:59
 msgid "Auto-login"
 msgstr "Αυτόματη είσοδος"
 
-#: ../src/modules/account/AddUserDialog.qml:391
+#: ../src/modules/account/AddUserDialog.qml:426
 #: ../src/modules/account/DeleteUserDialog.qml:46
-#: ../src/modules/account/PasswordDialog.qml:221
-#: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:285
+#: ../src/modules/account/PasswordDialog.qml:257
+#: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:307
+#: ../src/modules/display/main.qml:194
 msgid "Confirm"
 msgstr "Επιβεβαίωση"
 
@@ -487,22 +500,23 @@ msgstr "Δεξιά"
 msgid "Automatically connect"
 msgstr "Αυτόματη σύνδεση"
 
-#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:99
-#: ../src/modules/display/main.qml:222
+#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:116
+#: ../src/modules/personalization/widgets/PreviewWindow.qml:280
+#: ../src/modules/display/main.qml:194
 msgid "Apply"
 msgstr "Εφαρμογή"
 
-#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:127
+#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:144
 msgid "Devices nearby"
 msgstr "Κοντινές συσκευές"
 
-#: ../src/modules/display/BrightnessRectangle.qml:59
+#: ../src/modules/display/BrightnessRectangle.qml:61
 #: ../src/modules/display/ResolutionRectangle.qml:68
 #: ../src/modules/display/RotationRectangle.qml:68
 msgid "Monitor"
 msgstr "Παρακολούθηση"
 
-#: ../src/modules/date_time/Calendar.qml:161
+#: ../src/modules/date_time/Calendar.qml:164
 msgid "Today"
 msgstr "Σήμερα"
 
@@ -944,15 +958,15 @@ msgstr "Πίσω όψη"
 msgid "Standard"
 msgstr "Τυπικός"
 
-#: ../src/modules/personalization/components/FontSettingsExpand.qml:65
+#: ../src/modules/personalization/components/FontSettingsExpand.qml:70
 msgid "Monospaced"
 msgstr "Σταθερού πλάτους"
 
-#: ../src/modules/personalization/components/FontSettingsExpand.qml:80
+#: ../src/modules/personalization/components/FontSettingsExpand.qml:90
 msgid "Size"
 msgstr "Μέγεθος"
 
-#: ../src/modules/personalization/components/FontSettingsExpand.qml:109
+#: ../src/modules/personalization/components/FontSettingsExpand.qml:119
 #, qt-format
 msgid "Font %1"
 msgstr "Γραμματοσειρά %1 "
@@ -1117,15 +1131,15 @@ msgstr "Μενού Εκκίνησης"
 msgid "Home"
 msgstr "Αρχική"
 
-#: ../src/modules/display/MonitorDragArea.qml:470
+#: ../src/modules/display/MonitorDragArea.qml:471
 msgid "Identify"
 msgstr "Αναγνώριση"
 
-#: ../src/modules/display/MonitorDragArea.qml:487
+#: ../src/modules/display/MonitorDragArea.qml:489
 msgid "Edit"
 msgstr "Επεξεργασία"
 
-#: ../src/modules/display/MonitorDragArea.qml:505
+#: ../src/modules/display/MonitorDragArea.qml:507
 msgid "Split"
 msgstr "Χωρισμός"
 
@@ -1147,11 +1161,11 @@ msgstr "Περιστροφή προς τα αριστερά"
 
 #: ../src/modules/display/MonitorProperties.qml:78
 msgid "Enable Monitor(s)"
-msgstr ""
+msgstr "Ενεργοποίηση Οθόνης(ών)"
 
 #: ../src/modules/display/MonitorProperties.qml:96
 msgid "Please choose the monitor(s) you want to enable"
-msgstr ""
+msgstr "Παρακαλώ επιλέξτε την/τις οθόνη(-ες) που επιθυμείτε να ενεργοποιήσετε"
 
 #: ../src/modules/display/MonitorProperties.qml:146
 #: ../src/views/TmpTranslationFile.qml:52
@@ -1195,7 +1209,7 @@ msgstr "Επέκταση"
 msgid ""
 "Extend your screen contents to display different contents on different "
 "screens."
-msgstr ""
+msgstr "Μεγιστοποιήστε τα περιεχόμενα της οθόνης σας ώστε να εμφανίζονται διαφορετικά περιεχόμενα σε διαφορετικές οθόνες."
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:98
 #: ../src/views/TmpTranslationFile.qml:28
@@ -1238,11 +1252,19 @@ msgstr "δεν διαχειρίζεται"
 msgid "Auto-connect"
 msgstr "Αυτόματη σύνδεση"
 
+#: ../src/modules/account/PasswordDialog.qml:96
+msgid "Invalid password"
+msgstr "Μη έγκυρος κωδικός πρόσβασης"
+
+#: ../src/modules/account/PasswordDialog.qml:101
+msgid "Different password"
+msgstr "Διαφορετικός κωδικός πρόσβασης"
+
 #: ../src/modules/account/PasswordDialog.qml:114
 msgid "New Password"
 msgstr "Νέος Κωδικός Πρόσβασης"
 
-#: ../src/modules/account/PasswordDialog.qml:159
+#: ../src/modules/account/PasswordDialog.qml:180
 msgid "Repeat"
 msgstr "Επανάληψη"
 
@@ -1250,7 +1272,7 @@ msgstr "Επανάληψη"
 msgid "Drag and drop an image to change background."
 msgstr "Μεταφέρετε και αποθέστε μια εικόνα για να αλλάξετε φόντο."
 
-#: ../src/modules/grub/Preview.qml:123 ../src/modules/account/UserList.qml:233
+#: ../src/modules/grub/Preview.qml:123 ../src/modules/account/UserList.qml:239
 msgid "Image format not supported"
 msgstr "Ο τύπος της εικόνας δεν υποστηρίζεται"
 
@@ -1263,8 +1285,8 @@ msgid "Successfully updated, reboot to view."
 msgstr "Επιτυχής ενημέρωση, επανεκκινήστε να δείτε."
 
 #: ../src/modules/network/proxy/ProxyContent.qml:43
-#: ../src/modules/shortcuts/ShortcutInput.qml:108
-#: ../src/modules/date_time/main.qml:183
+#: ../src/modules/shortcuts/ShortcutInput.qml:119
+#: ../src/modules/date_time/main.qml:204
 msgid "None"
 msgstr "Κανένα"
 
@@ -1312,29 +1334,29 @@ msgstr "Επιτυχής επαναφορά"
 msgid "Reset"
 msgstr "Επαναφορά"
 
-#: ../src/modules/shortcuts/ShortcutInput.qml:126
+#: ../src/modules/shortcuts/ShortcutInput.qml:137
 msgid "Please input new shortcut"
 msgstr "Παρακαλώ εισάγετε νέα συντόμευση"
 
-#: ../src/modules/shortcuts/ShortcutInput.qml:226
+#: ../src/modules/shortcuts/ShortcutInput.qml:238
 #, qt-format
 msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
 msgstr "Συντόμευση \"% 1\" δεν είναι έγκυρο, παρακαλώ πληκτρολογήστε ξανά νέα συντόμευση."
 
-#: ../src/modules/shortcuts/ShortcutInput.qml:264
+#: ../src/modules/shortcuts/ShortcutInput.qml:276
 msgid "The shortcut you set "
 msgstr "Η συντόμευση που ορίσατε"
 
-#: ../src/modules/shortcuts/ShortcutInput.qml:267
+#: ../src/modules/shortcuts/ShortcutInput.qml:279
 #, qt-format
 msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
 msgstr "διενέξεις με αυτό που χρησιμοποιείται για το \"%2\" στην κατηγορία \"%1\""
 
-#: ../src/modules/shortcuts/ShortcutInput.qml:269
+#: ../src/modules/shortcuts/ShortcutInput.qml:281
 msgid "Do you want to replace it?"
 msgstr "Θέλετε να το αντικαταστήσετε;"
 
-#: ../src/modules/shortcuts/ShortcutInput.qml:327
+#: ../src/modules/shortcuts/ShortcutInput.qml:339
 msgid "Replace"
 msgstr "Αντικατάσταση"
 
@@ -1350,7 +1372,7 @@ msgstr "Τέλος"
 
 #: ../src/modules/date_time/StateButtons.qml:35
 #: ../src/modules/date_time/StateButtons.qml:49
-#: ../src/modules/date_time/TimezoneArea.qml:418
+#: ../src/modules/date_time/TimezoneArea.qml:467
 msgid "Close"
 msgstr "Κλείσιμο"
 
@@ -1380,7 +1402,7 @@ msgstr "Προσθήκη Συντόμευσης"
 
 #: ../src/modules/personalization/widgets/ThemeItem.qml:92
 #: ../src/modules/power/main.qml:270 ../src/modules/power/main.qml:463
-#: ../src/modules/shortcuts/main.qml:53 ../src/modules/shortcuts/main.qml:233
+#: ../src/modules/shortcuts/main.qml:54 ../src/modules/shortcuts/main.qml:231
 msgid "Custom"
 msgstr "Προσαρμοσμένο"
 
@@ -1393,7 +1415,7 @@ msgstr "Κάντε διπλό κλικ σε αυτήν την περιοχή γ�
 msgid "Set"
 msgstr "Ορισμός"
 
-#: ../src/modules/date_time/TimezoneArea.qml:239
+#: ../src/modules/date_time/TimezoneArea.qml:253
 msgid "Time zone"
 msgstr "Ζώνη ώρας"
 
@@ -1433,7 +1455,7 @@ msgstr "Ταχύτητα Δείκτη"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:134
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:171
-#: ../src/modules/keyboard/main.qml:182 ../src/modules/keyboard/main.qml:209
+#: ../src/modules/keyboard/main.qml:190 ../src/modules/keyboard/main.qml:216
 #: ../src/modules/mouse_touchpad/main.qml:133
 #: ../src/modules/mouse_touchpad/main.qml:169
 msgid "Slow"
@@ -1441,7 +1463,7 @@ msgstr "Αργή"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:135
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:172
-#: ../src/modules/keyboard/main.qml:181 ../src/modules/keyboard/main.qml:208
+#: ../src/modules/keyboard/main.qml:189 ../src/modules/keyboard/main.qml:215
 #: ../src/modules/mouse_touchpad/main.qml:134
 #: ../src/modules/mouse_touchpad/main.qml:170
 msgid "Fast"
@@ -1457,12 +1479,12 @@ msgid "Drag Threshold"
 msgstr "Σύρετε το Όριο"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:208
-#: ../src/modules/keyboard/main.qml:155
+#: ../src/modules/keyboard/main.qml:163
 msgid "Short"
 msgstr "Σύντομο"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:209
-#: ../src/modules/keyboard/main.qml:156
+#: ../src/modules/keyboard/main.qml:164
 msgid "Long"
 msgstr "Μακρύ"
 
@@ -1481,6 +1503,10 @@ msgstr "Κύλιση με δύο δάχτυλα"
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:298
 msgid "Edge scrolling"
 msgstr "Κύλιση ακμής"
+
+#: ../src/modules/account/UserListCreatingItem.qml:99
+msgid "Account Preparing..."
+msgstr ""
 
 #: ../src/modules/network/vpn/VpnExpand.qml:48
 msgid "VPN Connections"
@@ -1549,23 +1575,23 @@ msgstr "Ισορροπημένη"
 msgid "High performance"
 msgstr "Υψηλή απόδοση"
 
-#: ../src/modules/date_time/main.qml:108
+#: ../src/modules/date_time/main.qml:130
 msgid "Automatic date and time"
 msgstr "Αυτόματη ημερομηνία και ώρα"
 
-#: ../src/modules/date_time/main.qml:126
+#: ../src/modules/date_time/main.qml:148
 msgid "Use 24-hour clock"
 msgstr "Χρήση ρολογιού 24 ωρών"
 
-#: ../src/modules/date_time/main.qml:158
+#: ../src/modules/date_time/main.qml:179
 msgid "Adjust DST clock "
 msgstr "Προσαρμογή DST ρολόι"
 
-#: ../src/modules/date_time/main.qml:235
+#: ../src/modules/date_time/main.qml:256
 msgid "Date"
 msgstr "Ημερομηνία"
 
-#: ../src/modules/date_time/main.qml:258
+#: ../src/modules/date_time/main.qml:280
 msgid "Set Date"
 msgstr "Ορισμός Ημερομηνίας"
 
@@ -1621,10 +1647,6 @@ msgstr "Κάμερα"
 msgid "Software"
 msgstr "Λογισμικό"
 
-#: ../src/modules/display/main.qml:145
-msgid "Return"
-msgstr ""
-
 #: ../src/modules/grub/main.qml:112
 msgid "Default Boot"
 msgstr "Προεπιλεγμένη εκκίνηση"
@@ -1641,31 +1663,31 @@ msgstr "Χρώμα Κειμένου"
 msgid "Selected Text Color"
 msgstr "Χρώμα Επιλεγμένου Κειμένου"
 
-#: ../src/modules/keyboard/main.qml:141
+#: ../src/modules/keyboard/main.qml:149
 msgid "Repeat Delay"
 msgstr "Επανάληψη Καθυστέρησης"
 
-#: ../src/modules/keyboard/main.qml:166
+#: ../src/modules/keyboard/main.qml:174
 msgid "Repeat Rate"
 msgstr "Ρυθμός επανάληψης"
 
-#: ../src/modules/keyboard/main.qml:192
+#: ../src/modules/keyboard/main.qml:200
 msgid "Cursor Blink Rate"
 msgstr "Ρυθμός εναλλαγής φωτεινότητας δρομέα"
 
-#: ../src/modules/keyboard/main.qml:219
+#: ../src/modules/keyboard/main.qml:226
 msgid "Test Area"
 msgstr "Περιοχή Δοκιμής"
 
-#: ../src/modules/keyboard/main.qml:265
+#: ../src/modules/keyboard/main.qml:272
 msgid "Keyboard Layout"
 msgstr "Διάταξη Πληκτρολογίου"
 
-#: ../src/modules/keyboard/main.qml:476
+#: ../src/modules/keyboard/main.qml:489
 msgid "No result"
 msgstr "Κανένα αποτέλεσμα"
 
-#: ../src/modules/keyboard/main.qml:239
+#: ../src/modules/keyboard/main.qml:246
 msgid "Caps Lock prompt"
 msgstr "Ειδοποίηση πλήκτρου Caps Lock"
 
@@ -1673,28 +1695,28 @@ msgstr "Ειδοποίηση πλήκτρου Caps Lock"
 msgid "Disable the touchpad when inserting the mouse"
 msgstr "Απενεργοποιήστε το touchpad όταν συνδέσετε το ποντίκι"
 
-#: ../src/modules/personalization/main.qml:112
+#: ../src/modules/personalization/main.qml:111
 msgid "Theme"
 msgstr "Θέμα"
 
-#: ../src/modules/personalization/main.qml:119
-#: ../src/modules/shortcuts/main.qml:51
+#: ../src/modules/personalization/main.qml:118
+#: ../src/modules/shortcuts/main.qml:52
 msgid "Window"
 msgstr "Παράθυρο"
 
-#: ../src/modules/personalization/main.qml:126
+#: ../src/modules/personalization/main.qml:125
 msgid "Icon"
 msgstr "Εικονίδια"
 
-#: ../src/modules/personalization/main.qml:133
+#: ../src/modules/personalization/main.qml:132
 msgid "Cursor"
 msgstr "Κέρσορας"
 
-#: ../src/modules/personalization/main.qml:140
+#: ../src/modules/personalization/main.qml:139
 msgid "Wallpaper"
 msgstr "Ταπετσαρία"
 
-#: ../src/modules/personalization/main.qml:154
+#: ../src/modules/personalization/main.qml:153
 msgid "Fonts"
 msgstr "Γραμματοσειρές"
 
@@ -1779,11 +1801,11 @@ msgstr "Απενεργοποιήστε την οθόνη"
 msgid "Custom Options"
 msgstr "Προσαρμοσμένες Επιλογές"
 
-#: ../src/modules/shortcuts/main.qml:49
+#: ../src/modules/shortcuts/main.qml:50
 msgid "System"
 msgstr "Σύστημα"
 
-#: ../src/modules/shortcuts/main.qml:52
+#: ../src/modules/shortcuts/main.qml:53
 msgid "Workspace"
 msgstr "Χώρος εργασίας"
 
@@ -1963,15 +1985,15 @@ msgstr "VPN OpenVPN"
 msgid "VPN OpenConnect"
 msgstr "VPN OpenConnect"
 
-#: ../src/modules/account/main.qml:95
+#: ../src/modules/account/main.qml:98
 msgid "Delete Account"
 msgstr "Διαγραφή λογαριασμού"
 
-#: ../src/modules/account/main.qml:133
+#: ../src/modules/account/main.qml:138
 msgid "Add Account"
 msgstr "Προσθήκη λογαριασμού"
 
-#: ../src/modules/account/main.qml:153
+#: ../src/modules/account/main.qml:158
 msgid "User List"
 msgstr "Λίστα χρήστη"
 
