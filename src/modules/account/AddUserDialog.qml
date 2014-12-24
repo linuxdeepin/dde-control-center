@@ -43,20 +43,6 @@ Rectangle {
             return user_name_check_result[2]
     }
 
-    function verifyPassword(){
-        if (password_input.text == "" || repeat_password_input.text == "")
-            return true
-        if (password_input.text != repeat_password_input.text) {
-            repeat_password_input.showWarning(dsTr("Different password"))
-            return false
-        }
-        else{
-            repeat_password_input.warningState = false
-            return true
-        }
-
-    }
-
     Column {
         id: column
         width: 310
@@ -68,18 +54,18 @@ Rectangle {
                 return false
             }
 
-            if (password_input.text == "" || !dbus_accounts.IsPasswordValid(password_input.text)) {
-                password_input.showWarning(dsTr("Invalid password"))
+            if (password_input.text == "") {
+                password_input.showWarning(dsTr("Password can not be empty."))
                 return false
             }
 
             if (repeat_password_input.text == "") {
-                repeat_password_input.showWarning(dsTr("Nothing input"))
+                repeat_password_input.showWarning(dsTr("Password can not be empty."))
                 return false
             }
 
             if (password_input.text != repeat_password_input.text) {
-                repeat_password_input.showWarning(dsTr("Different password"))
+                repeat_password_input.showWarning(dsTr("The two passwords do not match."))
                 return false
             }
 
@@ -158,9 +144,10 @@ Rectangle {
                 anchors.rightMargin: 15
                 anchors.verticalCenter: parent.verticalCenter
                 textInput.font.capitalization: Font.AllLowercase
+
                 onTextChanged: {
                     warningState = false
-                    if (text != ""){//when confirmed,show empty warning
+                    if (text != ""){//when confirmed or lost focus,show empty warning
                         var verifyValue = verifyUserName()
                         if (verifyValue == -1){
                             oldText = text
@@ -173,6 +160,20 @@ Rectangle {
                     }
                     else
                         oldText = ""
+                }
+
+                onFocusChanged: {
+                    if (focus){
+                        warningState = false
+                        password_input.warningState = false
+                        repeat_password_input.warningState = false
+                    }
+                    else{
+                        if (user_name_input.text == ""){
+                            warningState = true
+                            showWarning(dsTr("Username can not be empty."))
+                        }
+                    }
                 }
 
                 function showWarning(msg) {
@@ -217,8 +218,32 @@ Rectangle {
                 onTextChanged: {
                     warningState = false
                     repeat_password_input.warningState = false
-                    checkTimer.stop()
-                    checkTimer.start()
+
+                    if (repeat_password_input.text != "" && repeat_password_input.text != text){
+                        repeat_password_input.warningState = true
+                        repeat_password_input.showWarning(dsTr("The two passwords do not match."))
+                    }
+                }
+
+                onFocusChanged: {
+                    if (focus){
+                        warningState = false
+
+                        if (user_name_input.text == ""){
+                            user_name_input.warningState = true
+                            user_name_input.showWarning(dsTr("Username can not be empty."))
+                        }
+                        else if (repeat_password_input.text != "" && repeat_password_input.text != text){
+                            repeat_password_input.warningState = true
+                            repeat_password_input.showWarning(dsTr("The two passwords do not match."))
+                        }
+                    }
+                    else{
+                        if (password_input.text == "" && user_name_input.text != ""){
+                            warningState = true
+                            showWarning(dsTr("Password can not be empty."))
+                        }
+                    }
                 }
 
                 function showWarning(msg) {
@@ -243,7 +268,6 @@ Rectangle {
             DLabel {
                 text: dsTr("Repeat Password")
                 font.pixelSize: 12
-
                 anchors.left: parent.left
                 anchors.leftMargin: 15
                 anchors.verticalCenter: parent.verticalCenter
@@ -260,8 +284,26 @@ Rectangle {
                 anchors.verticalCenter: parent.verticalCenter
                 onTextChanged: {
                     warningState = false
-                    checkTimer.stop()
-                    checkTimer.start()
+
+                    if (text != "" && password_input.text.indexOf(text,0) != 0){
+                        warningState = true
+                        showWarning(dsTr("The two passwords do not match."))
+                    }
+                }
+
+                onFocusChanged: {
+                    if (focus){
+                        warningState = false
+
+                        if (user_name_input.text == ""){
+                            user_name_input.warningState = true
+                            user_name_input.showWarning(dsTr("Username can not be empty."))
+                        }
+                    }
+                    else if (password_input.text != "" && repeat_password_input.text == ""){
+                        warningState = true
+                        showWarning(dsTr("The two passwords do not match."))
+                    }
                 }
 
                 function showWarning(msg) {
@@ -274,14 +316,6 @@ Rectangle {
                     warningState = true
                 }
             }
-        }
-
-        Timer {
-            id:checkTimer
-            repeat: false
-            interval: 700
-            running: false
-            onTriggered: verifyPassword()
         }
 
         DSeparatorHorizontal {}

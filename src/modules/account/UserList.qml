@@ -215,6 +215,8 @@ ListView {
                         DssH2 {
                             text: this_user.userName
                             color: delete_line.nameColor
+                            width: 140
+                            elide: Text.ElideRight
                             font.pixelSize: 14
                         }
 
