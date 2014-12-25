@@ -44,6 +44,7 @@ Item {
     property int expandItemIndex: -1
 
     property var stopSetKeyBinding: false
+    property bool canShowWarning: false
 
     property var categoryObjects: {
         "systemList": dsTr("System"),
@@ -101,10 +102,6 @@ Item {
         }
     }
 
-    Component.onCompleted: {
-    }
-
-
     DssTitle {
         id:titleDT
         anchors.top: parent.top
@@ -132,6 +129,7 @@ Item {
             width: shortcutsModule.width - 36
             onTextChanged: {
                 searchResultListView.keyword = text
+                canShowWarning = false
             }
 
             Keys.onEscapePressed: {
@@ -171,7 +169,7 @@ Item {
                 ListView {
                     id: searchResultListView
                     width: parent.width
-                    height: searchResultListView.count * 30
+                    height: childrenRect.height
                     focus: true
                     clip: true
                     boundsBehavior: Flickable.StopAtBounds
