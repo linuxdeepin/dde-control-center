@@ -144,6 +144,7 @@ Rectangle {
                 anchors.rightMargin: 15
                 anchors.verticalCenter: parent.verticalCenter
                 textInput.font.capitalization: Font.AllLowercase
+                textInput.maximumLength: 32
 
                 onTextChanged: {
                     warningState = false
