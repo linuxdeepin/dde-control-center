@@ -70,7 +70,7 @@ Item {
         }
         for(var i in dbusKeyBinding.customList){
             var temp_list = dbusKeyBinding.customList[i]
-            keywords[temp_list[0]] = temp_list[1]
+            keywords[temp_list[0]] = temp_list[1] + ", " + mainObject.toHumanShortcutLabel(temp_list[2])
         }
         var retList = searchId.NewSearchWithStrDict(keywords)
         shortcutsModule.searchMd5 = retList[0]
