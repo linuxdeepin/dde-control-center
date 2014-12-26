@@ -22,6 +22,8 @@ ListView {
     signal allAction ()
     signal actionButtonClicked ()
 
+    signal userHasAdded(var userInfo)
+
     function showCurrentUserDetail () {
         fromPanelAvatar = true
     }
@@ -46,6 +48,7 @@ ListView {
                          "userDBusPath": path,
                          "avatarErrMsgShowed":false}
         user_status == "currentUser" ? user_list_model.insert(0, user_dict) : user_list_model.append(user_dict)
+        root.userHasAdded(user_dict)
     }
 
     function deleteUser(path) {
