@@ -88,20 +88,21 @@
     <message>
         <location filename="../src/modules/account/AddUserDialog.qml" line="+58"/>
         <location line="+5"/>
-        <location line="+174"/>
-        <location line="+69"/>
-        <location line="+6"/>
+        <location line="+182"/>
         <source>Password can not be empty.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-244"/>
-        <location line="+221"/>
+        <location line="-177"/>
+        <location line="+157"/>
+        <location line="+14"/>
+        <location line="+52"/>
+        <location line="+15"/>
         <source>The two passwords do not match.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-212"/>
+        <location line="-229"/>
         <source>Add User</source>
         <translation type="unfinished"></translation>
     </message>
@@ -112,40 +113,40 @@
     </message>
     <message>
         <location line="+4"/>
-        <location line="+240"/>
+        <location line="+233"/>
         <source>Administrator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-240"/>
-        <location line="+239"/>
+        <location line="-233"/>
+        <location line="+232"/>
         <source>Normal User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-222"/>
+        <location line="-215"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+47"/>
-        <location line="+57"/>
-        <location line="+71"/>
+        <location line="+48"/>
+        <location line="+60"/>
+        <location line="+66"/>
         <source>Username can not be empty.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-103"/>
+        <location line="-101"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+63"/>
+        <location line="+70"/>
         <source>Repeat Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+75"/>
+        <location line="+60"/>
         <source>Account Type</source>
         <translation type="unfinished"></translation>
     </message>
@@ -546,7 +547,7 @@
 <context>
     <name>BrightnessRectangle</name>
     <message>
-        <location filename="../src/modules/display/BrightnessRectangle.qml" line="+62"/>
+        <location filename="../src/modules/display/BrightnessRectangle.qml" line="+61"/>
         <source>Monitor</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2133,12 +2134,25 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+45"/>
+        <location line="+27"/>
+        <location line="+10"/>
+        <location line="+57"/>
+        <location line="+10"/>
+        <source>The two passwords do not match.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-62"/>
+        <source>Password can not be empty.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+24"/>
         <source>Repeat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+48"/>
+        <location line="+63"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2275,7 +2289,7 @@
 <context>
     <name>ShortcutInput</name>
     <message>
-        <location filename="../src/modules/shortcuts/ShortcutInput.qml" line="+108"/>
+        <location filename="../src/modules/shortcuts/ShortcutInput.qml" line="+119"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2285,7 +2299,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+100"/>
+        <location line="+101"/>
         <source>Shortcut &quot;%1&quot; is invalid, please retype new shortcut.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2559,7 +2573,7 @@
 <context>
     <name>UserList</name>
     <message>
-        <location filename="../src/modules/account/UserList.qml" line="+222"/>
+        <location filename="../src/modules/account/UserList.qml" line="+228"/>
         <source>Administrator</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2571,6 +2585,24 @@
     <message>
         <location line="+11"/>
         <source>Image format not supported</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UserListCreatingItem</name>
+    <message>
+        <location filename="../src/modules/account/UserListCreatingItem.qml" line="+88"/>
+        <source>Normal User</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Administrator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Account Preparing...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2708,8 +2740,8 @@
     <message>
         <location filename="../src/modules/power/main.qml" line="+270"/>
         <location line="+193"/>
-        <location filename="../src/modules/shortcuts/main.qml" line="+53"/>
-        <location line="+180"/>
+        <location filename="../src/modules/shortcuts/main.qml" line="+54"/>
+        <location line="+177"/>
         <source>Custom</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2869,7 +2901,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/modules/keyboard/main.qml" line="+141"/>
+        <location filename="../src/modules/keyboard/main.qml" line="+149"/>
         <source>Repeat Delay</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2890,27 +2922,27 @@
     </message>
     <message>
         <location line="+15"/>
-        <location line="+27"/>
+        <location line="+26"/>
         <location filename="../src/modules/mouse_touchpad/main.qml" line="+134"/>
         <location line="+36"/>
         <source>Fast</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-26"/>
-        <location line="+27"/>
+        <location line="-25"/>
+        <location line="+26"/>
         <location filename="../src/modules/mouse_touchpad/main.qml" line="-37"/>
         <location line="+36"/>
         <source>Slow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-17"/>
+        <location line="-16"/>
         <source>Cursor Blink Rate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+26"/>
         <source>Test Area</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2971,7 +3003,7 @@
     </message>
     <message>
         <location line="+7"/>
-        <location filename="../src/modules/shortcuts/main.qml" line="-182"/>
+        <location filename="../src/modules/shortcuts/main.qml" line="-179"/>
         <source>Window</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3371,7 +3403,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/modules/account/main.qml" line="+95"/>
+        <location filename="../src/modules/account/main.qml" line="+98"/>
         <source>Delete Account</source>
         <translation type="unfinished"></translation>
     </message>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-24 14:42+0800\n"
+"POT-Creation-Date: 2014-12-26 16:16+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,7 +56,7 @@ msgstr ""
 #: ../src/modules/network/add/AddDsl.qml:56
 #: ../src/modules/network/add/AddMobile.qml:85
 #: ../src/modules/network/add/AddMobile.qml:115
-#: ../src/modules/account/AddUserDialog.qml:199
+#: ../src/modules/account/AddUserDialog.qml:200
 #: ../src/modules/network/add/AddVpn.qml:144
 #: ../src/modules/network/add/AddVpn.qml:274
 #: ../src/modules/network/add/AddVpn.qml:414
@@ -99,7 +99,7 @@ msgid "Number"
 msgstr ""
 
 #: ../src/modules/network/add/AddSectionSave.qml:11
-#: ../src/modules/account/AddUserDialog.qml:420
+#: ../src/modules/account/AddUserDialog.qml:413
 #: ../src/modules/network/wireless/AddWireless.qml:216
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:104
 #: ../src/modules/network/ConnectionAdd.qml:69
@@ -109,8 +109,8 @@ msgstr ""
 #: ../src/modules/account/DeleteUserDialog.qml:33
 #: ../src/modules/network/Info.qml:79
 #: ../src/modules/network/widgets/PasswordBox.qml:118
-#: ../src/modules/account/PasswordDialog.qml:207
-#: ../src/modules/shortcuts/ShortcutInput.qml:343
+#: ../src/modules/account/PasswordDialog.qml:243
+#: ../src/modules/shortcuts/ShortcutInput.qml:355
 #: ../src/modules/date_time/TimeBox.qml:225
 #: ../src/modules/network/wireless/WifiHotspot.qml:82
 #: ../src/modules/date_time/main.qml:289 ../src/modules/display/main.qml:179
@@ -125,14 +125,20 @@ msgstr ""
 
 #: ../src/modules/account/AddUserDialog.qml:58
 #: ../src/modules/account/AddUserDialog.qml:63
-#: ../src/modules/account/AddUserDialog.qml:237
-#: ../src/modules/account/AddUserDialog.qml:306
-#: ../src/modules/account/AddUserDialog.qml:312
+#: ../src/modules/account/AddUserDialog.qml:245
+#: ../src/modules/account/PasswordDialog.qml:156
 msgid "Password can not be empty."
 msgstr ""
 
 #: ../src/modules/account/AddUserDialog.qml:68
-#: ../src/modules/account/AddUserDialog.qml:289
+#: ../src/modules/account/AddUserDialog.qml:225
+#: ../src/modules/account/AddUserDialog.qml:239
+#: ../src/modules/account/AddUserDialog.qml:291
+#: ../src/modules/account/AddUserDialog.qml:306
+#: ../src/modules/account/PasswordDialog.qml:141
+#: ../src/modules/account/PasswordDialog.qml:151
+#: ../src/modules/account/PasswordDialog.qml:208
+#: ../src/modules/account/PasswordDialog.qml:218
 msgid "The two passwords do not match."
 msgstr ""
 
@@ -145,42 +151,44 @@ msgid "New User"
 msgstr ""
 
 #: ../src/modules/account/AddUserDialog.qml:110
-#: ../src/modules/account/AddUserDialog.qml:350
+#: ../src/modules/account/AddUserDialog.qml:343
 #: ../src/modules/account/EditUserDialog.qml:139
-#: ../src/modules/account/UserList.qml:222
+#: ../src/modules/account/UserList.qml:228
+#: ../src/modules/account/UserListCreatingItem.qml:88
 msgid "Administrator"
 msgstr ""
 
 #: ../src/modules/account/AddUserDialog.qml:110
-#: ../src/modules/account/AddUserDialog.qml:349
+#: ../src/modules/account/AddUserDialog.qml:342
 #: ../src/modules/account/EditUserDialog.qml:138
-#: ../src/modules/account/UserList.qml:222
+#: ../src/modules/account/UserList.qml:228
+#: ../src/modules/account/UserListCreatingItem.qml:88
 msgid "Normal User"
 msgstr ""
 
-#: ../src/modules/account/AddUserDialog.qml:174
-#: ../src/modules/account/AddUserDialog.qml:231
-#: ../src/modules/account/AddUserDialog.qml:302
+#: ../src/modules/account/AddUserDialog.qml:175
+#: ../src/modules/account/AddUserDialog.qml:235
+#: ../src/modules/account/AddUserDialog.qml:301
 msgid "Username can not be empty."
 msgstr ""
 
-#: ../src/modules/account/AddUserDialog.qml:262
+#: ../src/modules/account/AddUserDialog.qml:270
 msgid "Repeat Password"
 msgstr ""
 
-#: ../src/modules/account/AddUserDialog.qml:337
+#: ../src/modules/account/AddUserDialog.qml:330
 #: ../src/modules/account/EditUserDialog.qml:126
 msgid "Account Type"
 msgstr ""
 
-#: ../src/modules/account/AddUserDialog.qml:369
+#: ../src/modules/account/AddUserDialog.qml:362
 #: ../src/modules/account/EditUserDialog.qml:59
 msgid "Auto-login"
 msgstr ""
 
-#: ../src/modules/account/AddUserDialog.qml:433
+#: ../src/modules/account/AddUserDialog.qml:426
 #: ../src/modules/account/DeleteUserDialog.qml:46
-#: ../src/modules/account/PasswordDialog.qml:221
+#: ../src/modules/account/PasswordDialog.qml:257
 #: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:307
 #: ../src/modules/display/main.qml:194
 msgid "Confirm"
@@ -498,7 +506,7 @@ msgstr ""
 msgid "Devices nearby"
 msgstr ""
 
-#: ../src/modules/display/BrightnessRectangle.qml:62
+#: ../src/modules/display/BrightnessRectangle.qml:61
 #: ../src/modules/display/ResolutionRectangle.qml:68
 #: ../src/modules/display/RotationRectangle.qml:68
 msgid "Monitor"
@@ -1252,7 +1260,7 @@ msgstr ""
 msgid "New Password"
 msgstr ""
 
-#: ../src/modules/account/PasswordDialog.qml:159
+#: ../src/modules/account/PasswordDialog.qml:180
 msgid "Repeat"
 msgstr ""
 
@@ -1260,7 +1268,7 @@ msgstr ""
 msgid "Drag and drop an image to change background."
 msgstr ""
 
-#: ../src/modules/grub/Preview.qml:123 ../src/modules/account/UserList.qml:233
+#: ../src/modules/grub/Preview.qml:123 ../src/modules/account/UserList.qml:239
 msgid "Image format not supported"
 msgstr ""
 
@@ -1273,7 +1281,7 @@ msgid "Successfully updated, reboot to view."
 msgstr ""
 
 #: ../src/modules/network/proxy/ProxyContent.qml:43
-#: ../src/modules/shortcuts/ShortcutInput.qml:108
+#: ../src/modules/shortcuts/ShortcutInput.qml:119
 #: ../src/modules/date_time/main.qml:204
 msgid "None"
 msgstr ""
@@ -1322,29 +1330,29 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: ../src/modules/shortcuts/ShortcutInput.qml:126
+#: ../src/modules/shortcuts/ShortcutInput.qml:137
 msgid "Please input new shortcut"
 msgstr ""
 
-#: ../src/modules/shortcuts/ShortcutInput.qml:226
+#: ../src/modules/shortcuts/ShortcutInput.qml:238
 #, qt-format
 msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
 msgstr ""
 
-#: ../src/modules/shortcuts/ShortcutInput.qml:264
+#: ../src/modules/shortcuts/ShortcutInput.qml:276
 msgid "The shortcut you set "
 msgstr ""
 
-#: ../src/modules/shortcuts/ShortcutInput.qml:267
+#: ../src/modules/shortcuts/ShortcutInput.qml:279
 #, qt-format
 msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
 msgstr ""
 
-#: ../src/modules/shortcuts/ShortcutInput.qml:269
+#: ../src/modules/shortcuts/ShortcutInput.qml:281
 msgid "Do you want to replace it?"
 msgstr ""
 
-#: ../src/modules/shortcuts/ShortcutInput.qml:327
+#: ../src/modules/shortcuts/ShortcutInput.qml:339
 msgid "Replace"
 msgstr ""
 
@@ -1390,7 +1398,7 @@ msgstr ""
 
 #: ../src/modules/personalization/widgets/ThemeItem.qml:92
 #: ../src/modules/power/main.qml:270 ../src/modules/power/main.qml:463
-#: ../src/modules/shortcuts/main.qml:53 ../src/modules/shortcuts/main.qml:233
+#: ../src/modules/shortcuts/main.qml:54 ../src/modules/shortcuts/main.qml:231
 msgid "Custom"
 msgstr ""
 
@@ -1443,7 +1451,7 @@ msgstr ""
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:134
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:171
-#: ../src/modules/keyboard/main.qml:182 ../src/modules/keyboard/main.qml:209
+#: ../src/modules/keyboard/main.qml:190 ../src/modules/keyboard/main.qml:216
 #: ../src/modules/mouse_touchpad/main.qml:133
 #: ../src/modules/mouse_touchpad/main.qml:169
 msgid "Slow"
@@ -1451,7 +1459,7 @@ msgstr ""
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:135
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:172
-#: ../src/modules/keyboard/main.qml:181 ../src/modules/keyboard/main.qml:208
+#: ../src/modules/keyboard/main.qml:189 ../src/modules/keyboard/main.qml:215
 #: ../src/modules/mouse_touchpad/main.qml:134
 #: ../src/modules/mouse_touchpad/main.qml:170
 msgid "Fast"
@@ -1467,12 +1475,12 @@ msgid "Drag Threshold"
 msgstr ""
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:208
-#: ../src/modules/keyboard/main.qml:155
+#: ../src/modules/keyboard/main.qml:163
 msgid "Short"
 msgstr ""
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:209
-#: ../src/modules/keyboard/main.qml:156
+#: ../src/modules/keyboard/main.qml:164
 msgid "Long"
 msgstr ""
 
@@ -1490,6 +1498,10 @@ msgstr ""
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:298
 msgid "Edge scrolling"
+msgstr ""
+
+#: ../src/modules/account/UserListCreatingItem.qml:99
+msgid "Account Preparing..."
 msgstr ""
 
 #: ../src/modules/network/vpn/VpnExpand.qml:48
@@ -1648,31 +1660,31 @@ msgstr ""
 msgid "Selected Text Color"
 msgstr ""
 
-#: ../src/modules/keyboard/main.qml:141
+#: ../src/modules/keyboard/main.qml:149
 msgid "Repeat Delay"
 msgstr ""
 
-#: ../src/modules/keyboard/main.qml:166
+#: ../src/modules/keyboard/main.qml:174
 msgid "Repeat Rate"
 msgstr ""
 
-#: ../src/modules/keyboard/main.qml:192
+#: ../src/modules/keyboard/main.qml:200
 msgid "Cursor Blink Rate"
 msgstr ""
 
-#: ../src/modules/keyboard/main.qml:219
+#: ../src/modules/keyboard/main.qml:226
 msgid "Test Area"
 msgstr ""
 
-#: ../src/modules/keyboard/main.qml:265
+#: ../src/modules/keyboard/main.qml:272
 msgid "Keyboard Layout"
 msgstr ""
 
-#: ../src/modules/keyboard/main.qml:482
+#: ../src/modules/keyboard/main.qml:489
 msgid "No result"
 msgstr ""
 
-#: ../src/modules/keyboard/main.qml:239
+#: ../src/modules/keyboard/main.qml:246
 msgid "Caps Lock prompt"
 msgstr ""
 
@@ -1685,7 +1697,7 @@ msgid "Theme"
 msgstr ""
 
 #: ../src/modules/personalization/main.qml:118
-#: ../src/modules/shortcuts/main.qml:51
+#: ../src/modules/shortcuts/main.qml:52
 msgid "Window"
 msgstr ""
 
@@ -1786,11 +1798,11 @@ msgstr ""
 msgid "Custom Options"
 msgstr ""
 
-#: ../src/modules/shortcuts/main.qml:49
+#: ../src/modules/shortcuts/main.qml:50
 msgid "System"
 msgstr ""
 
-#: ../src/modules/shortcuts/main.qml:52
+#: ../src/modules/shortcuts/main.qml:53
 msgid "Workspace"
 msgstr ""
 
@@ -1970,15 +1982,15 @@ msgstr ""
 msgid "VPN OpenConnect"
 msgstr ""
 
-#: ../src/modules/account/main.qml:95
+#: ../src/modules/account/main.qml:98
 msgid "Delete Account"
 msgstr ""
 
-#: ../src/modules/account/main.qml:135
+#: ../src/modules/account/main.qml:138
 msgid "Add Account"
 msgstr ""
 
-#: ../src/modules/account/main.qml:155
+#: ../src/modules/account/main.qml:158
 msgid "User List"
 msgstr ""
 

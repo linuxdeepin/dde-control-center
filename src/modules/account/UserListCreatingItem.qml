@@ -96,7 +96,7 @@ Rectangle{
             }
 
             DssH2 {
-                text: dsTr("Account Creating...")
+                text: dsTr("Account Preparing...")
                 color: dconstants.tuhaoColor
                 font.pixelSize: 12
                 anchors.left:name_column.left
