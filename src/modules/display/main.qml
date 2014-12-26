@@ -123,7 +123,6 @@ Column {
 
                 DssH1 {
                     id: moduleName
-                    visible: !returnItem.visible
                     text: modulesId.moduleLocaleNames["display"]
                     color: "white"
                     font.weight: Font.DemiBold
@@ -190,8 +189,8 @@ Column {
                 }
 
                 DTextButton {
-                    id:applyButton
-                    text: displayId.displayMode != 0 && realMonitorsCount != 1 ? dsTr("Confirm") : dsTr("Apply")
+                    id: applyButton
+                    text: displayId.hasChanged ? dsTr("Apply") :  dsTr("Confirm")
                     onClicked: {
                         if(monitorDragArea.editable){
                             monitorDragArea.applyPostion()
@@ -203,8 +202,11 @@ Column {
                             displayId.SwitchMode(0,"")
                             onCustomizeMode = false
                         }
-                        else{
+                        else if(displayId.hasChanged){
                             displayChangesApply()
+                        }
+                        else{
+                            onCustomizeMode = false
                         }
                         doSplited = false
                     }

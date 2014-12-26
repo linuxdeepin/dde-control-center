@@ -135,7 +135,7 @@ Item {
 
                 DBaseExpand {
                     id:primaryArea
-                    visible: allMonitorsObjectsCount > 1
+                    visible: openedMonitors.length > 1
                     expanded:  visible && expandIndex == 1
                     onExpandedChanged: {
                         if(header.item){
@@ -154,7 +154,6 @@ Item {
                                 expandIndex = 1
                             }
                         }
-
                     }
 
                     content.sourceComponent: ListView {
@@ -162,11 +161,11 @@ Item {
                         width: parent.width
                         height: childrenRect.height
 
-                        model: allMonitorsObjectsCount
+                        model: openedMonitors.length
 
                         delegate: PrimaryScreenSelectItem {
                             primaryScreenName: displayId.primary
-                            pOutputObj:allMonitorsObjects[index]
+                            pOutputObj: openedMonitors[index]
                             pOutputObjName: pOutputObj.name
                             visible: !pOutputObj.isComposited
                             onSelectAction: {
