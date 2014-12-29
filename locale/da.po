@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-26 16:16+0800\n"
-"PO-Revision-Date: 2014-12-26 08:41+0000\n"
+"POT-Creation-Date: 2014-12-29 12:29+0800\n"
+"PO-Revision-Date: 2014-12-29 04:44+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/dde-control-center/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -114,11 +114,11 @@ msgstr "Nummer"
 #: ../src/modules/account/DeleteUserDialog.qml:33
 #: ../src/modules/network/Info.qml:79
 #: ../src/modules/network/widgets/PasswordBox.qml:118
-#: ../src/modules/account/PasswordDialog.qml:243
+#: ../src/modules/account/PasswordDialog.qml:248
 #: ../src/modules/shortcuts/ShortcutInput.qml:355
 #: ../src/modules/date_time/TimeBox.qml:225
 #: ../src/modules/network/wireless/WifiHotspot.qml:82
-#: ../src/modules/date_time/main.qml:289 ../src/modules/display/main.qml:179
+#: ../src/modules/date_time/main.qml:289 ../src/modules/display/main.qml:178
 msgid "Cancel"
 msgstr "Annuller"
 
@@ -131,7 +131,9 @@ msgstr "Tilføj"
 #: ../src/modules/account/AddUserDialog.qml:58
 #: ../src/modules/account/AddUserDialog.qml:63
 #: ../src/modules/account/AddUserDialog.qml:245
-#: ../src/modules/account/PasswordDialog.qml:156
+#: ../src/modules/account/PasswordDialog.qml:96
+#: ../src/modules/account/PasswordDialog.qml:101
+#: ../src/modules/account/PasswordDialog.qml:161
 msgid "Password can not be empty."
 msgstr "Kodeord kan ikke være tomt."
 
@@ -140,10 +142,11 @@ msgstr "Kodeord kan ikke være tomt."
 #: ../src/modules/account/AddUserDialog.qml:239
 #: ../src/modules/account/AddUserDialog.qml:291
 #: ../src/modules/account/AddUserDialog.qml:306
-#: ../src/modules/account/PasswordDialog.qml:141
-#: ../src/modules/account/PasswordDialog.qml:151
-#: ../src/modules/account/PasswordDialog.qml:208
-#: ../src/modules/account/PasswordDialog.qml:218
+#: ../src/modules/account/PasswordDialog.qml:106
+#: ../src/modules/account/PasswordDialog.qml:146
+#: ../src/modules/account/PasswordDialog.qml:156
+#: ../src/modules/account/PasswordDialog.qml:213
+#: ../src/modules/account/PasswordDialog.qml:223
 msgid "The two passwords do not match."
 msgstr "De to adgangskoder er ikke ens."
 
@@ -193,9 +196,9 @@ msgstr "Auto-logind"
 
 #: ../src/modules/account/AddUserDialog.qml:426
 #: ../src/modules/account/DeleteUserDialog.qml:46
-#: ../src/modules/account/PasswordDialog.qml:257
+#: ../src/modules/account/PasswordDialog.qml:262
 #: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:307
-#: ../src/modules/display/main.qml:194
+#: ../src/modules/display/main.qml:193
 msgid "Confirm"
 msgstr "Bekræft"
 
@@ -503,7 +506,7 @@ msgstr "Automatisk forbindelse"
 
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:116
 #: ../src/modules/personalization/widgets/PreviewWindow.qml:280
-#: ../src/modules/display/main.qml:194
+#: ../src/modules/display/main.qml:193
 msgid "Apply"
 msgstr "Anvend"
 
@@ -1173,16 +1176,16 @@ msgstr "Vælg venligst den skærm(e), du vil aktivere"
 msgid "Primary Screen"
 msgstr "Primær skærm"
 
-#: ../src/modules/display/MonitorProperties.qml:190
+#: ../src/modules/display/MonitorProperties.qml:189
 msgid "Resolution"
 msgstr "Opløsning"
 
-#: ../src/modules/display/MonitorProperties.qml:231
+#: ../src/modules/display/MonitorProperties.qml:230
 msgid "Rotation"
 msgstr "Rotation"
 
-#: ../src/modules/display/MonitorProperties.qml:274
-#: ../src/modules/display/MonitorProperties.qml:306
+#: ../src/modules/display/MonitorProperties.qml:273
+#: ../src/modules/display/MonitorProperties.qml:305
 msgid "Brightness"
 msgstr "Lysstyrke"
 
@@ -1253,19 +1256,11 @@ msgstr "lykkedes ikke"
 msgid "Auto-connect"
 msgstr "Forbind automatisk"
 
-#: ../src/modules/account/PasswordDialog.qml:96
-msgid "Invalid password"
-msgstr "Ugyldig adgangskode"
-
-#: ../src/modules/account/PasswordDialog.qml:101
-msgid "Different password"
-msgstr "Ikke samme adgangskode"
-
-#: ../src/modules/account/PasswordDialog.qml:114
+#: ../src/modules/account/PasswordDialog.qml:119
 msgid "New Password"
 msgstr "Ny adgangskode"
 
-#: ../src/modules/account/PasswordDialog.qml:180
+#: ../src/modules/account/PasswordDialog.qml:185
 msgid "Repeat"
 msgstr "Gentag"
 
@@ -1507,7 +1502,7 @@ msgstr "Kantrulning"
 
 #: ../src/modules/account/UserListCreatingItem.qml:99
 msgid "Account Preparing..."
-msgstr ""
+msgstr "Konto Forbereder..."
 
 #: ../src/modules/network/vpn/VpnExpand.qml:48
 msgid "VPN Connections"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-26 16:16+0800\n"
-"PO-Revision-Date: 2014-12-26 08:27+0000\n"
+"POT-Creation-Date: 2014-12-29 12:29+0800\n"
+"PO-Revision-Date: 2014-12-29 04:44+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: English (Australia) (http://www.transifex.com/projects/p/dde-control-center/language/en_AU/)\n"
 "MIME-Version: 1.0\n"
@@ -110,11 +110,11 @@ msgstr "Number"
 #: ../src/modules/account/DeleteUserDialog.qml:33
 #: ../src/modules/network/Info.qml:79
 #: ../src/modules/network/widgets/PasswordBox.qml:118
-#: ../src/modules/account/PasswordDialog.qml:243
+#: ../src/modules/account/PasswordDialog.qml:248
 #: ../src/modules/shortcuts/ShortcutInput.qml:355
 #: ../src/modules/date_time/TimeBox.qml:225
 #: ../src/modules/network/wireless/WifiHotspot.qml:82
-#: ../src/modules/date_time/main.qml:289 ../src/modules/display/main.qml:179
+#: ../src/modules/date_time/main.qml:289 ../src/modules/display/main.qml:178
 msgid "Cancel"
 msgstr "Cancel"
 
@@ -127,7 +127,9 @@ msgstr "Add"
 #: ../src/modules/account/AddUserDialog.qml:58
 #: ../src/modules/account/AddUserDialog.qml:63
 #: ../src/modules/account/AddUserDialog.qml:245
-#: ../src/modules/account/PasswordDialog.qml:156
+#: ../src/modules/account/PasswordDialog.qml:96
+#: ../src/modules/account/PasswordDialog.qml:101
+#: ../src/modules/account/PasswordDialog.qml:161
 msgid "Password can not be empty."
 msgstr ""
 
@@ -136,10 +138,11 @@ msgstr ""
 #: ../src/modules/account/AddUserDialog.qml:239
 #: ../src/modules/account/AddUserDialog.qml:291
 #: ../src/modules/account/AddUserDialog.qml:306
-#: ../src/modules/account/PasswordDialog.qml:141
-#: ../src/modules/account/PasswordDialog.qml:151
-#: ../src/modules/account/PasswordDialog.qml:208
-#: ../src/modules/account/PasswordDialog.qml:218
+#: ../src/modules/account/PasswordDialog.qml:106
+#: ../src/modules/account/PasswordDialog.qml:146
+#: ../src/modules/account/PasswordDialog.qml:156
+#: ../src/modules/account/PasswordDialog.qml:213
+#: ../src/modules/account/PasswordDialog.qml:223
 msgid "The two passwords do not match."
 msgstr ""
 
@@ -189,9 +192,9 @@ msgstr "Auto-login"
 
 #: ../src/modules/account/AddUserDialog.qml:426
 #: ../src/modules/account/DeleteUserDialog.qml:46
-#: ../src/modules/account/PasswordDialog.qml:257
+#: ../src/modules/account/PasswordDialog.qml:262
 #: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:307
-#: ../src/modules/display/main.qml:194
+#: ../src/modules/display/main.qml:193
 msgid "Confirm"
 msgstr "Confirm"
 
@@ -499,7 +502,7 @@ msgstr "Connect automatically"
 
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:116
 #: ../src/modules/personalization/widgets/PreviewWindow.qml:280
-#: ../src/modules/display/main.qml:194
+#: ../src/modules/display/main.qml:193
 msgid "Apply"
 msgstr "Apply"
 
@@ -1169,16 +1172,16 @@ msgstr ""
 msgid "Primary Screen"
 msgstr ""
 
-#: ../src/modules/display/MonitorProperties.qml:190
+#: ../src/modules/display/MonitorProperties.qml:189
 msgid "Resolution"
 msgstr "Resolution"
 
-#: ../src/modules/display/MonitorProperties.qml:231
+#: ../src/modules/display/MonitorProperties.qml:230
 msgid "Rotation"
 msgstr "Rotation"
 
-#: ../src/modules/display/MonitorProperties.qml:274
-#: ../src/modules/display/MonitorProperties.qml:306
+#: ../src/modules/display/MonitorProperties.qml:273
+#: ../src/modules/display/MonitorProperties.qml:305
 msgid "Brightness"
 msgstr "Brightness"
 
@@ -1249,19 +1252,11 @@ msgstr "not managed"
 msgid "Auto-connect"
 msgstr ""
 
-#: ../src/modules/account/PasswordDialog.qml:96
-msgid "Invalid password"
-msgstr "Invalid password"
-
-#: ../src/modules/account/PasswordDialog.qml:101
-msgid "Different password"
-msgstr "Different password"
-
-#: ../src/modules/account/PasswordDialog.qml:114
+#: ../src/modules/account/PasswordDialog.qml:119
 msgid "New Password"
 msgstr "New Password"
 
-#: ../src/modules/account/PasswordDialog.qml:180
+#: ../src/modules/account/PasswordDialog.qml:185
 msgid "Repeat"
 msgstr "Repeat"
 
