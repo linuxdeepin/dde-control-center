@@ -1995,7 +1995,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+44"/>
+        <location line="+43"/>
         <source>Resolution</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2119,22 +2119,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+34"/>
-        <source>Invalid password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Different password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+13"/>
+        <location line="+57"/>
         <source>New Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="-13"/>
+        <location line="+40"/>
         <location line="+10"/>
         <location line="+57"/>
         <location line="+10"/>
@@ -2142,7 +2133,9 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-62"/>
+        <location line="-127"/>
+        <location line="+5"/>
+        <location line="+60"/>
         <source>Password can not be empty.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2795,7 +2788,7 @@
     </message>
     <message>
         <location line="+27"/>
-        <location filename="../src/modules/display/main.qml" line="+194"/>
+        <location filename="../src/modules/display/main.qml" line="+193"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>

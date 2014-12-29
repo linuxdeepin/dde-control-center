@@ -92,13 +92,18 @@ Item {
         property int echoMode: TextInput.Password
 
         function validate() {
-            if (new_password_input.text == "" || !dbus_accounts.IsPasswordValid(new_password_input.text)) {
-                new_password_input.showWarning(dsTr("Invalid password"))
+            if (new_password_input.text == "") {
+                new_password_input.showWarning(dsTr("Password can not be empty."))
                 return false
             }
 
-            if (repeat_input.text != new_password_input.text) {
-                repeat_input.showWarning(dsTr("Different password"))
+            if (repeat_input.text == "") {
+                repeat_input.showWarning(dsTr("Password can not be empty."))
+                return false
+            }
+
+            if (new_password_input.text != repeat_input.text) {
+                repeat_input.showWarning(dsTr("The two passwords do not match."))
                 return false
             }
 
