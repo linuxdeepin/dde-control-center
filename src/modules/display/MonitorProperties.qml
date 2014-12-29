@@ -262,7 +262,8 @@ Item {
                 DBaseExpand {
                     id:brightnessArea
                     visible: !singleBrightnessLine.visible
-                    height: visible ? childrenRect.height : 0
+                    height: visible ? childrenHeight : 0
+                    property int childrenHeight: childrenRect.height
                     expanded:  expandIndex == 4
                     onExpandedChanged: {
                         if(header.item){

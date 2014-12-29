@@ -157,7 +157,8 @@ Column {
 
         MonitorProperties {
             id:monitorsDetailsProperty
-            height: visible ? childrenRect.height : 0
+            height: visible ? childrenHeight : 0
+            property int childrenHeight: childrenRect.height
             visible: (realMonitorsCount == 1 || onCustomizeMode) && !monitorDragArea.editable
         }
 
@@ -190,7 +191,7 @@ Column {
 
                 DTextButton {
                     id: applyButton
-                    text: displayId.hasChanged ? dsTr("Apply") :  dsTr("Confirm")
+                    text: displayId.hasChanged || monitorDragArea.editable ? dsTr("Apply") :  dsTr("Confirm")
                     onClicked: {
                         if(monitorDragArea.editable){
                             monitorDragArea.applyPostion()
