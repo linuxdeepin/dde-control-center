@@ -5,14 +5,16 @@
 # Translators:
 # freddy4212 <freddy4212@gmail.com>, 2014
 # Catherinelin <linhongxia@linuxdeepin.com>, 2014
+# szd_liufei <liufei@linuxdeepin.com>, 2014
 # Paris Qian Sen <qiansen1386@gmail.com>, 2014
+# Peter Dave Hello <hsu@peterdavehello.org>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-29 12:29+0800\n"
-"PO-Revision-Date: 2014-12-29 04:44+0000\n"
-"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
+"PO-Revision-Date: 2014-12-30 06:15+0000\n"
+"Last-Translator: szd_liufei <liufei@linuxdeepin.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/dde-control-center/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +24,7 @@ msgstr ""
 
 #: ../src/modules/network/add/AddDsl.qml:11
 msgid "Add PPPoE Connection"
-msgstr ""
+msgstr "新增撥號連接"
 
 #: ../src/modules/network/add/AddDsl.qml:24
 #: ../src/modules/network/add/AddMobile.qml:33
@@ -49,7 +51,7 @@ msgstr "名稱"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:374
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:65
 msgid "Username"
-msgstr "用戶名"
+msgstr "使用者名稱"
 
 #: ../src/modules/network/add/AddDsl.qml:46
 #: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:33
@@ -82,7 +84,7 @@ msgstr "密碼"
 
 #: ../src/modules/network/add/AddMobile.qml:20
 msgid "New Mobile Connection"
-msgstr "新建行動網絡連線"
+msgstr "新增行動網絡連線"
 
 #: ../src/modules/network/add/AddMobile.qml:45
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:23
@@ -124,7 +126,7 @@ msgstr "取消"
 #: ../src/modules/shortcuts/CustomKeybinding.qml:157
 #: ../src/modules/date_time/TimezoneArea.qml:464
 msgid "Add"
-msgstr "添加"
+msgstr "新增"
 
 #: ../src/modules/account/AddUserDialog.qml:58
 #: ../src/modules/account/AddUserDialog.qml:63
@@ -150,11 +152,11 @@ msgstr "兩次輸入的密碼不相同"
 
 #: ../src/modules/account/AddUserDialog.qml:77
 msgid "Add User"
-msgstr "添加用戶"
+msgstr "新增使用者"
 
 #: ../src/modules/account/AddUserDialog.qml:106
 msgid "New User"
-msgstr "新建用戶"
+msgstr "新增使用者"
 
 #: ../src/modules/account/AddUserDialog.qml:110
 #: ../src/modules/account/AddUserDialog.qml:343
@@ -170,13 +172,13 @@ msgstr "管理員"
 #: ../src/modules/account/UserList.qml:228
 #: ../src/modules/account/UserListCreatingItem.qml:88
 msgid "Normal User"
-msgstr ""
+msgstr "普通使用者"
 
 #: ../src/modules/account/AddUserDialog.qml:175
 #: ../src/modules/account/AddUserDialog.qml:235
 #: ../src/modules/account/AddUserDialog.qml:301
 msgid "Username can not be empty."
-msgstr ""
+msgstr "使用者名稱不能為空"
 
 #: ../src/modules/account/AddUserDialog.qml:270
 msgid "Repeat Password"
@@ -323,7 +325,7 @@ msgstr "CSD 腳本"
 #: ../src/modules/network/add/AddVpn.qml:224
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:154
 msgid "Use FSID for Key Passphrase"
-msgstr ""
+msgstr "為密鑰口令句使用FSID"
 
 #: ../src/modules/network/add/AddVpn.qml:324
 #: ../src/modules/network/wireless/AddWireless.qml:206
@@ -487,7 +489,7 @@ msgstr "拍照"
 
 #: ../src/modules/sound/BalanceLine.qml:31
 msgid "Left/Right Balance"
-msgstr ""
+msgstr "左/右平衡"
 
 #: ../src/modules/sound/BalanceLine.qml:53
 msgid "Left"
@@ -553,7 +555,7 @@ msgstr "六"
 #: ../src/modules/network/ConnectionAdd.qml:12
 #: ../src/modules/network/main.qml:303
 msgid "Add Network Connection"
-msgstr ""
+msgstr "新增網絡連線"
 
 #: ../src/modules/network/ConnectionAdd.qml:35
 #: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:11
@@ -801,7 +803,7 @@ msgstr "自訂閘道器埠"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:45
 msgid "Customize Renegotiation Interval"
-msgstr ""
+msgstr "自定義重新協商間隔"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:55
 msgid "Renegotiation Interval"
@@ -821,11 +823,11 @@ msgstr "使用 TAP 設備"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:97
 msgid "Customize Tunnel MTU"
-msgstr ""
+msgstr "自定義最大傳輸單元（MTU）"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:119
 msgid "Customize UDP Fragment Size"
-msgstr ""
+msgstr "自定義UDP數據報段長度"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
 msgid "UDP Fragment Size"
@@ -854,7 +856,7 @@ msgstr "伺服器 IP"
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:43
 #: ../src/modules/network/proxy/ProxyLine.qml:39
 msgid "Port"
-msgstr "通訊埠"
+msgstr "連接埠"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:55
 msgid "Retry Indefinitely When Failed"
@@ -882,7 +884,7 @@ msgstr "主題匹配"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:33
 msgid "Remote Cert Type"
-msgstr "遠程Cert類型"
+msgstr "遠端Cert類型"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:43
 msgid "Key File"
@@ -922,7 +924,7 @@ msgstr "本機通訊埠"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:105
 msgid "Disable Dead Peer Detection"
-msgstr "禁用死端檢測"
+msgstr "停用死端檢測"
 
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:11
 msgid "Wi-Fi"
@@ -946,15 +948,15 @@ msgstr "啟用"
 
 #: ../src/modules/sound/FadeLine.qml:31
 msgid "Front/Rear Balance"
-msgstr ""
+msgstr "前/後平衡"
 
 #: ../src/modules/sound/FadeLine.qml:55
 msgid "Front"
-msgstr ""
+msgstr "前"
 
 #: ../src/modules/sound/FadeLine.qml:53
 msgid "Rear"
-msgstr ""
+msgstr "後"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:48
 msgid "Standard"
@@ -962,7 +964,7 @@ msgstr "標準"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:70
 msgid "Monospaced"
-msgstr ""
+msgstr "等寬"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:90
 msgid "Size"
@@ -983,11 +985,11 @@ msgstr "啟用"
 
 #: ../src/modules/network/Info.qml:13
 msgid "Connected"
-msgstr "已連接"
+msgstr "已連線"
 
 #: ../src/modules/network/Info.qml:15
 msgid "Not Connected"
-msgstr ""
+msgstr "未連線"
 
 #: ../src/modules/network/Info.qml:39
 msgid "(default)"
@@ -1003,15 +1005,15 @@ msgstr "設備位址"
 
 #: ../src/modules/network/Info.qml:56
 msgid "Subnet Mask"
-msgstr "子網掩碼"
+msgstr "子網路遮罩"
 
 #: ../src/modules/network/Info.qml:57
 msgid "Route Addr"
-msgstr "網關地址"
+msgstr "路由器位指"
 
 #: ../src/modules/network/Info.qml:58
 msgid "Primary DNS"
-msgstr "首要 DNS"
+msgstr "主要 DNS"
 
 #: ../src/modules/network/Info.qml:59
 msgid "Secondary DNS"
@@ -1102,7 +1104,7 @@ msgstr "鍵盤與語言"
 
 #: ../src/views/ModulesData.qml:65
 msgid "Tablet"
-msgstr ""
+msgstr "數位板"
 
 #: ../src/views/ModulesData.qml:66
 msgid "Mouse and Touchpad"
@@ -1143,7 +1145,7 @@ msgstr "編輯"
 
 #: ../src/modules/display/MonitorDragArea.qml:507
 msgid "Split"
-msgstr ""
+msgstr "拆分"
 
 #: ../src/modules/display/MonitorProperties.qml:42
 msgid "Normal"
@@ -1163,16 +1165,16 @@ msgstr "向左旋轉"
 
 #: ../src/modules/display/MonitorProperties.qml:78
 msgid "Enable Monitor(s)"
-msgstr ""
+msgstr "啟用顯示器"
 
 #: ../src/modules/display/MonitorProperties.qml:96
 msgid "Please choose the monitor(s) you want to enable"
-msgstr ""
+msgstr "請選擇您要啟用的顯示器（可多選）"
 
 #: ../src/modules/display/MonitorProperties.qml:146
 #: ../src/views/TmpTranslationFile.qml:52
 msgid "Primary Screen"
-msgstr ""
+msgstr "主畫面"
 
 #: ../src/modules/display/MonitorProperties.qml:189
 msgid "Resolution"
@@ -1190,7 +1192,7 @@ msgstr "亮度"
 #: ../src/modules/display/MonitorsSimpleSetting.qml:38
 #: ../src/views/TmpTranslationFile.qml:8
 msgid "Display Modes"
-msgstr ""
+msgstr "顯示模式"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:58
 #: ../src/views/TmpTranslationFile.qml:12
@@ -1200,7 +1202,7 @@ msgstr "複製"
 #: ../src/modules/display/MonitorsSimpleSetting.qml:59
 #: ../src/views/TmpTranslationFile.qml:16
 msgid "Copy the contents of your primary screen to other screens."
-msgstr ""
+msgstr "將您的一個螢幕內容複製到其他螢幕"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:76
 #: ../src/views/TmpTranslationFile.qml:20
@@ -1211,29 +1213,29 @@ msgstr "延伸"
 msgid ""
 "Extend your screen contents to display different contents on different "
 "screens."
-msgstr ""
+msgstr "將您的螢幕內容延伸，在不同螢幕顯示不同內容"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:98
 #: ../src/views/TmpTranslationFile.qml:28
 #, qt-format
 msgid "Only Displayed on %1"
-msgstr ""
+msgstr "僅在%1上顯示"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:99
 #: ../src/views/TmpTranslationFile.qml:32
 #, qt-format
 msgid "Screen contents are only displayed on %1 but not on other screens."
-msgstr ""
+msgstr "僅在%1上顯示螢幕內容，其他螢幕不顯示"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:118
 #: ../src/views/TmpTranslationFile.qml:36
 msgid "Custom Settings"
-msgstr ""
+msgstr "個人化設定"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:119
 #: ../src/views/TmpTranslationFile.qml:40
 msgid "You can do other custom settings to your screens."
-msgstr ""
+msgstr "您可以針對螢幕做其他個性化設定"
 
 #: ../src/modules/network/wired/NewItem.qml:45
 #: ../src/modules/network/wired/WiredItem.qml:89
@@ -1248,11 +1250,11 @@ msgstr "有線連線"
 
 #: ../src/modules/network/widgets/NotManagedSection.qml:25
 msgid "not managed"
-msgstr ""
+msgstr "未託管"
 
 #: ../src/modules/network/widgets/PasswordBox.qml:102
 msgid "Auto-connect"
-msgstr ""
+msgstr "自動連線"
 
 #: ../src/modules/account/PasswordDialog.qml:119
 msgid "New Password"
@@ -1268,7 +1270,7 @@ msgstr "拖拽圖片到此以更換背景"
 
 #: ../src/modules/grub/Preview.qml:123 ../src/modules/account/UserList.qml:239
 msgid "Image format not supported"
-msgstr ""
+msgstr "不支援的圖片格式"
 
 #: ../src/modules/grub/Preview.qml:124
 msgid "Updating..."
@@ -1348,11 +1350,11 @@ msgstr "與 \"%1\" 類別下的 \"%2\" 的捷徑鍵衝突。"
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:281
 msgid "Do you want to replace it?"
-msgstr "是否進行替換？"
+msgstr "是否進行取代？"
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:339
 msgid "Replace"
-msgstr "替換"
+msgstr "取代"
 
 #: ../src/modules/personalization/widgets/ShowPreviewButton.qml:53
 msgid "Preview Theme"
@@ -1372,27 +1374,27 @@ msgstr "關閉"
 
 #: ../src/modules/date_time/StateButtons.qml:72
 msgid "Delete Time Zone"
-msgstr ""
+msgstr "刪除時區"
 
 #: ../src/modules/date_time/StateButtons.qml:88
 msgid "Add Time Zone"
-msgstr ""
+msgstr "增加時區"
 
 #: ../src/modules/keyboard/StateButtons.qml:77
 msgid "Delete Keyboard Layout"
-msgstr ""
+msgstr "刪除鍵盤配置"
 
 #: ../src/modules/keyboard/StateButtons.qml:92
 msgid "Add Keyboard Layout"
-msgstr ""
+msgstr "增加鍵盤配置"
 
 #: ../src/modules/shortcuts/StateButtons.qml:80
 msgid "Delete Shortcut"
-msgstr ""
+msgstr "刪除捷徑"
 
 #: ../src/modules/shortcuts/StateButtons.qml:96
 msgid "Add Shortcut"
-msgstr ""
+msgstr "增加捷徑"
 
 #: ../src/modules/personalization/widgets/ThemeItem.qml:92
 #: ../src/modules/power/main.qml:270 ../src/modules/power/main.qml:463
@@ -1403,7 +1405,7 @@ msgstr "自定"
 #: ../src/modules/date_time/TimeBox.qml:161
 #: ../src/views/TmpTranslationFile.qml:44
 msgid "Double-click this area to change your time"
-msgstr ""
+msgstr "按兩下此區域以更改時間"
 
 #: ../src/modules/date_time/TimeBox.qml:202
 msgid "Set"
@@ -1417,11 +1419,11 @@ msgstr "時區"
 msgid ""
 "Extend your screen contents. Different contents will be displayed on "
 "different screens."
-msgstr ""
+msgstr "將您的螢幕內容擴展，在不同螢幕顯示不同內容"
 
 #: ../src/views/TmpTranslationFile.qml:48
 msgid "Account information is being prepared..."
-msgstr ""
+msgstr "正在準備帳戶資訊 ..."
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
 msgid "Touchpad"
@@ -1466,7 +1468,7 @@ msgstr "快"
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:154
 #: ../src/modules/mouse_touchpad/main.qml:153
 msgid "Double-click Speed"
-msgstr "雙擊速度"
+msgstr "連按滑鼠兩下的速度"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:192
 msgid "Drag Threshold"
@@ -1488,19 +1490,19 @@ msgstr "自然滾動"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:252
 msgid "Tap to click"
-msgstr "輕觸以點擊"
+msgstr "輕觸以點選"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:275
 msgid "Two-finger scrolling"
-msgstr ""
+msgstr "雙指滾動"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:298
 msgid "Edge scrolling"
-msgstr ""
+msgstr "邊緣滾動"
 
 #: ../src/modules/account/UserListCreatingItem.qml:99
 msgid "Account Preparing..."
-msgstr ""
+msgstr "帳號準備中 ..."
 
 #: ../src/modules/network/vpn/VpnExpand.qml:48
 msgid "VPN Connections"
@@ -1550,7 +1552,7 @@ msgid ""
 "1. The hardware switch of wireless network card is off\n"
 "2. Incorrect network configuration in /etc/network/interface\n"
 "3. Incorrect driver of network hardware"
-msgstr ""
+msgstr "無法連接到無線網路，有可能是以下原因造成：\\n\\n1. 您的無線網卡的硬體開關是關閉的\\n2. 您的網路配置 /etc/network/interface 不正確\\n3. 您的網路硬體沒有被正確驅動"
 
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:35
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:158
@@ -1579,7 +1581,7 @@ msgstr "24小時制"
 
 #: ../src/modules/date_time/main.qml:179
 msgid "Adjust DST clock "
-msgstr ""
+msgstr "調整夏令時時鐘"
 
 #: ../src/modules/date_time/main.qml:256
 msgid "Date"
@@ -1643,7 +1645,7 @@ msgstr "軟體"
 
 #: ../src/modules/grub/main.qml:112
 msgid "Default Boot"
-msgstr ""
+msgstr "默認啟動"
 
 #: ../src/modules/grub/main.qml:167
 msgid "Boot delay"
@@ -1704,7 +1706,7 @@ msgstr "圖示"
 
 #: ../src/modules/personalization/main.qml:132
 msgid "Cursor"
-msgstr ""
+msgstr "游標"
 
 #: ../src/modules/personalization/main.qml:139
 msgid "Wallpaper"
@@ -1853,7 +1855,7 @@ msgstr "顯示進階設定 ..."
 
 #: ../src/modules/system_info/main.qml:119
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
-msgstr ""
+msgstr "2011-2014 武漢深之度科技有限公司版權所有"
 
 #: ../src/modules/system_info/main.qml:125
 msgid "Deepin Edition"
@@ -1957,7 +1959,7 @@ msgstr "CDMA 行動"
 
 #: ../src/modules/network/main.qml:326
 msgid "View Detailed Information"
-msgstr ""
+msgstr "檢視詳細資訊"
 
 #: ../src/modules/network/main.qml:214
 msgid "VPN L2TP"
@@ -1981,71 +1983,71 @@ msgstr "VPN OpenConnect"
 
 #: ../src/modules/account/main.qml:98
 msgid "Delete Account"
-msgstr ""
+msgstr "刪除帳號"
 
 #: ../src/modules/account/main.qml:138
 msgid "Add Account"
-msgstr ""
+msgstr "新增帳號"
 
 #: ../src/modules/account/main.qml:158
 msgid "User List"
-msgstr ""
+msgstr "使用者列表"
 
 #: ../src/modules/wacom/main.qml:14
 msgid "Page Up"
-msgstr ""
+msgstr "上一頁"
 
 #: ../src/modules/wacom/main.qml:15
 msgid "Page Down"
-msgstr ""
+msgstr "下一頁"
 
 #: ../src/modules/wacom/main.qml:16
 msgid "Left Click"
-msgstr ""
+msgstr "點選滑鼠左鍵"
 
 #: ../src/modules/wacom/main.qml:17
 msgid "Right Click"
-msgstr ""
+msgstr "點選滑鼠右鍵"
 
 #: ../src/modules/wacom/main.qml:18
 msgid "Middle Click"
-msgstr ""
+msgstr "點選滑鼠中間的按鍵"
 
 #: ../src/modules/wacom/main.qml:69
 msgid "Tablet Orientation"
-msgstr ""
+msgstr "數位板方向"
 
 #: ../src/modules/wacom/main.qml:76
 msgid "Left Hand"
-msgstr ""
+msgstr "左手"
 
 #: ../src/modules/wacom/main.qml:77
 msgid "Right Hand"
-msgstr ""
+msgstr "右手"
 
 #: ../src/modules/wacom/main.qml:90
 msgid "Digital Pen Modes"
-msgstr ""
+msgstr "觸控筆模式"
 
 #: ../src/modules/wacom/main.qml:97
 msgid "Pen Mode"
-msgstr ""
+msgstr "筆模式"
 
 #: ../src/modules/wacom/main.qml:98
 msgid "Mouse Mode"
-msgstr ""
+msgstr "滑鼠模式"
 
 #: ../src/modules/wacom/main.qml:112
 msgid "Down Key"
-msgstr ""
+msgstr "下鍵"
 
 #: ../src/modules/wacom/main.qml:137
 msgid "Up Key"
-msgstr ""
+msgstr "上鍵"
 
 #: ../src/modules/wacom/main.qml:162
 msgid "Pressure"
-msgstr ""
+msgstr "壓感"
 
 #: ../src/modules/wacom/main.qml:178
 msgid "Soft"
@@ -2053,16 +2055,16 @@ msgstr "溫和"
 
 #: ../src/modules/wacom/main.qml:179
 msgid "Hard"
-msgstr ""
+msgstr "重"
 
 #: ../src/modules/wacom/main.qml:190
 msgid "Double-click Space"
-msgstr ""
+msgstr "按兩下間距"
 
 #: ../src/modules/wacom/main.qml:206
 msgid "Narrow"
-msgstr ""
+msgstr "小"
 
 #: ../src/modules/wacom/main.qml:207
 msgid "Wide"
-msgstr ""
+msgstr "大"

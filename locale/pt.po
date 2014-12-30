@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-29 12:29+0800\n"
-"PO-Revision-Date: 2014-12-29 04:44+0000\n"
+"PO-Revision-Date: 2014-12-29 17:40+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/dde-control-center/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -1500,7 +1500,7 @@ msgstr "Deslocamento limite"
 
 #: ../src/modules/account/UserListCreatingItem.qml:99
 msgid "Account Preparing..."
-msgstr ""
+msgstr "Preparando Conta..."
 
 #: ../src/modules/network/vpn/VpnExpand.qml:48
 msgid "VPN Connections"
