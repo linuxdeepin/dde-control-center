@@ -75,6 +75,9 @@ Column {
 
     function monthChange(dateValue){
         var tmpYearMonth = CalendarCore.getYearMonth(dateValue)
+        if(cur_calendar == undefined){
+            return
+        }
         if (CalendarCore.compareYearMonth(tmpYearMonth, cur_calendar.yearMonth) == 1 && slideStop){
             next_calendar = calendarSlideBox.createCanlendar(tmpYearMonth, "next")
             next_calendar.visible = true

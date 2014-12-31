@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-11 10:14+0800\n"
-"PO-Revision-Date: 2014-12-12 00:55+0000\n"
+"POT-Creation-Date: 2014-12-29 12:29+0800\n"
+"PO-Revision-Date: 2014-12-29 04:44+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/dde-control-center/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: ../src/modules/network/add/AddDsl.qml:11
 msgid "Add PPPoE Connection"
-msgstr ""
+msgstr "Добавить подключение PPPoE"
 
 #: ../src/modules/network/add/AddDsl.qml:24
 #: ../src/modules/network/add/AddMobile.qml:33
@@ -36,7 +36,7 @@ msgstr "Имя"
 #: ../src/modules/network/add/AddDsl.qml:36
 #: ../src/modules/network/add/AddMobile.qml:75
 #: ../src/modules/network/add/AddMobile.qml:105
-#: ../src/modules/account/AddUserDialog.qml:141
+#: ../src/modules/account/AddUserDialog.qml:127
 #: ../src/modules/network/add/AddVpn.qml:124
 #: ../src/modules/network/add/AddVpn.qml:254
 #: ../src/modules/network/add/AddVpn.qml:394
@@ -60,7 +60,7 @@ msgstr "Служба"
 #: ../src/modules/network/add/AddDsl.qml:56
 #: ../src/modules/network/add/AddMobile.qml:85
 #: ../src/modules/network/add/AddMobile.qml:115
-#: ../src/modules/account/AddUserDialog.qml:198
+#: ../src/modules/account/AddUserDialog.qml:200
 #: ../src/modules/network/add/AddVpn.qml:144
 #: ../src/modules/network/add/AddVpn.qml:274
 #: ../src/modules/network/add/AddVpn.qml:414
@@ -103,9 +103,9 @@ msgid "Number"
 msgstr "Номер"
 
 #: ../src/modules/network/add/AddSectionSave.qml:11
-#: ../src/modules/account/AddUserDialog.qml:378
+#: ../src/modules/account/AddUserDialog.qml:413
 #: ../src/modules/network/wireless/AddWireless.qml:216
-#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:87
+#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:104
 #: ../src/modules/network/ConnectionAdd.qml:69
 #: ../src/modules/network/ConnectionEdit.qml:102
 #: ../src/modules/network/ConnectionEdit.qml:150
@@ -113,75 +113,91 @@ msgstr "Номер"
 #: ../src/modules/account/DeleteUserDialog.qml:33
 #: ../src/modules/network/Info.qml:79
 #: ../src/modules/network/widgets/PasswordBox.qml:118
-#: ../src/modules/account/PasswordDialog.qml:207
-#: ../src/modules/shortcuts/ShortcutInput.qml:343
+#: ../src/modules/account/PasswordDialog.qml:248
+#: ../src/modules/shortcuts/ShortcutInput.qml:355
 #: ../src/modules/date_time/TimeBox.qml:225
 #: ../src/modules/network/wireless/WifiHotspot.qml:82
-#: ../src/modules/date_time/main.qml:267 ../src/modules/display/main.qml:208
+#: ../src/modules/date_time/main.qml:289 ../src/modules/display/main.qml:178
 msgid "Cancel"
 msgstr "Отмена"
 
 #: ../src/modules/network/add/AddSectionSave.qml:20
 #: ../src/modules/shortcuts/CustomKeybinding.qml:157
-#: ../src/modules/date_time/TimezoneArea.qml:415
+#: ../src/modules/date_time/TimezoneArea.qml:464
 msgid "Add"
 msgstr "Добавить"
 
-#: ../src/modules/account/AddUserDialog.qml:72
+#: ../src/modules/account/AddUserDialog.qml:58
+#: ../src/modules/account/AddUserDialog.qml:63
+#: ../src/modules/account/AddUserDialog.qml:245
 #: ../src/modules/account/PasswordDialog.qml:96
-msgid "Invalid password"
-msgstr "Неверный пароль"
+#: ../src/modules/account/PasswordDialog.qml:101
+#: ../src/modules/account/PasswordDialog.qml:161
+msgid "Password can not be empty."
+msgstr "Пароль не может быть пустым."
+
+#: ../src/modules/account/AddUserDialog.qml:68
+#: ../src/modules/account/AddUserDialog.qml:225
+#: ../src/modules/account/AddUserDialog.qml:239
+#: ../src/modules/account/AddUserDialog.qml:291
+#: ../src/modules/account/AddUserDialog.qml:306
+#: ../src/modules/account/PasswordDialog.qml:106
+#: ../src/modules/account/PasswordDialog.qml:146
+#: ../src/modules/account/PasswordDialog.qml:156
+#: ../src/modules/account/PasswordDialog.qml:213
+#: ../src/modules/account/PasswordDialog.qml:223
+msgid "The two passwords do not match."
+msgstr "Пароли не совпадают."
 
 #: ../src/modules/account/AddUserDialog.qml:77
-msgid "Nothing input"
-msgstr "Не введено"
-
-#: ../src/modules/account/AddUserDialog.qml:50
-#: ../src/modules/account/AddUserDialog.qml:82
-#: ../src/modules/account/PasswordDialog.qml:101
-msgid "Different password"
-msgstr "Пароли не совпадают"
-
-#: ../src/modules/account/AddUserDialog.qml:91
 msgid "Add User"
 msgstr "Добавить пользователя"
 
-#: ../src/modules/account/AddUserDialog.qml:120
+#: ../src/modules/account/AddUserDialog.qml:106
 msgid "New User"
 msgstr "Новый пользователь"
 
-#: ../src/modules/account/AddUserDialog.qml:124
-#: ../src/modules/account/AddUserDialog.qml:308
+#: ../src/modules/account/AddUserDialog.qml:110
+#: ../src/modules/account/AddUserDialog.qml:343
 #: ../src/modules/account/EditUserDialog.qml:139
-#: ../src/modules/account/UserList.qml:222
+#: ../src/modules/account/UserList.qml:228
+#: ../src/modules/account/UserListCreatingItem.qml:88
 msgid "Administrator"
 msgstr "Администратор"
 
-#: ../src/modules/account/AddUserDialog.qml:124
-#: ../src/modules/account/AddUserDialog.qml:307
+#: ../src/modules/account/AddUserDialog.qml:110
+#: ../src/modules/account/AddUserDialog.qml:342
 #: ../src/modules/account/EditUserDialog.qml:138
-#: ../src/modules/account/UserList.qml:222
+#: ../src/modules/account/UserList.qml:228
+#: ../src/modules/account/UserListCreatingItem.qml:88
 msgid "Normal User"
-msgstr ""
+msgstr "Обычный пользователь"
 
-#: ../src/modules/account/AddUserDialog.qml:244
+#: ../src/modules/account/AddUserDialog.qml:175
+#: ../src/modules/account/AddUserDialog.qml:235
+#: ../src/modules/account/AddUserDialog.qml:301
+msgid "Username can not be empty."
+msgstr "Имя пользователя не может быть пустым."
+
+#: ../src/modules/account/AddUserDialog.qml:270
 msgid "Repeat Password"
 msgstr "Повтор пароля"
 
-#: ../src/modules/account/AddUserDialog.qml:295
+#: ../src/modules/account/AddUserDialog.qml:330
 #: ../src/modules/account/EditUserDialog.qml:126
 msgid "Account Type"
 msgstr "Тип аккаунта"
 
-#: ../src/modules/account/AddUserDialog.qml:327
+#: ../src/modules/account/AddUserDialog.qml:362
 #: ../src/modules/account/EditUserDialog.qml:59
 msgid "Auto-login"
 msgstr "Автовход"
 
-#: ../src/modules/account/AddUserDialog.qml:391
+#: ../src/modules/account/AddUserDialog.qml:426
 #: ../src/modules/account/DeleteUserDialog.qml:46
-#: ../src/modules/account/PasswordDialog.qml:221
-#: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:285
+#: ../src/modules/account/PasswordDialog.qml:262
+#: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:307
+#: ../src/modules/display/main.qml:193
 msgid "Confirm"
 msgstr "Подтвердить"
 
@@ -487,22 +503,23 @@ msgstr "Правый"
 msgid "Automatically connect"
 msgstr "Соединятся втоматически"
 
-#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:99
-#: ../src/modules/display/main.qml:222
+#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:116
+#: ../src/modules/personalization/widgets/PreviewWindow.qml:280
+#: ../src/modules/display/main.qml:193
 msgid "Apply"
 msgstr "Применить"
 
-#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:127
+#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:144
 msgid "Devices nearby"
 msgstr "Устройства поблизости"
 
-#: ../src/modules/display/BrightnessRectangle.qml:59
+#: ../src/modules/display/BrightnessRectangle.qml:61
 #: ../src/modules/display/ResolutionRectangle.qml:68
 #: ../src/modules/display/RotationRectangle.qml:68
 msgid "Monitor"
 msgstr "Монитор"
 
-#: ../src/modules/date_time/Calendar.qml:161
+#: ../src/modules/date_time/Calendar.qml:164
 msgid "Today"
 msgstr "Сегодня"
 
@@ -537,7 +554,7 @@ msgstr "Сб"
 #: ../src/modules/network/ConnectionAdd.qml:12
 #: ../src/modules/network/main.qml:303
 msgid "Add Network Connection"
-msgstr ""
+msgstr "Добавить сетевое подключение"
 
 #: ../src/modules/network/ConnectionAdd.qml:35
 #: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:11
@@ -944,15 +961,15 @@ msgstr "Задний"
 msgid "Standard"
 msgstr "Стандартный"
 
-#: ../src/modules/personalization/components/FontSettingsExpand.qml:65
+#: ../src/modules/personalization/components/FontSettingsExpand.qml:70
 msgid "Monospaced"
 msgstr "Моноширинный"
 
-#: ../src/modules/personalization/components/FontSettingsExpand.qml:80
+#: ../src/modules/personalization/components/FontSettingsExpand.qml:90
 msgid "Size"
 msgstr "Размер"
 
-#: ../src/modules/personalization/components/FontSettingsExpand.qml:109
+#: ../src/modules/personalization/components/FontSettingsExpand.qml:119
 #, qt-format
 msgid "Font %1"
 msgstr "Шрифт %1"
@@ -971,7 +988,7 @@ msgstr "Подключён"
 
 #: ../src/modules/network/Info.qml:15
 msgid "Not Connected"
-msgstr ""
+msgstr "Не подключено"
 
 #: ../src/modules/network/Info.qml:39
 msgid "(default)"
@@ -1117,15 +1134,15 @@ msgstr "Меню загрузки"
 msgid "Home"
 msgstr "Домашняя"
 
-#: ../src/modules/display/MonitorDragArea.qml:470
+#: ../src/modules/display/MonitorDragArea.qml:471
 msgid "Identify"
 msgstr "Идентификация"
 
-#: ../src/modules/display/MonitorDragArea.qml:487
+#: ../src/modules/display/MonitorDragArea.qml:489
 msgid "Edit"
 msgstr "Редактировать"
 
-#: ../src/modules/display/MonitorDragArea.qml:505
+#: ../src/modules/display/MonitorDragArea.qml:507
 msgid "Split"
 msgstr "Сплит"
 
@@ -1147,34 +1164,34 @@ msgstr "Повернуть влево"
 
 #: ../src/modules/display/MonitorProperties.qml:78
 msgid "Enable Monitor(s)"
-msgstr ""
+msgstr "Включить монитор(ы)"
 
 #: ../src/modules/display/MonitorProperties.qml:96
 msgid "Please choose the monitor(s) you want to enable"
-msgstr ""
+msgstr "Выберите  монитор(ы), которые хотите включить"
 
 #: ../src/modules/display/MonitorProperties.qml:146
 #: ../src/views/TmpTranslationFile.qml:52
 msgid "Primary Screen"
-msgstr ""
+msgstr "Первичный экран"
 
-#: ../src/modules/display/MonitorProperties.qml:190
+#: ../src/modules/display/MonitorProperties.qml:189
 msgid "Resolution"
 msgstr "Разрешение"
 
-#: ../src/modules/display/MonitorProperties.qml:231
+#: ../src/modules/display/MonitorProperties.qml:230
 msgid "Rotation"
 msgstr "Вращение"
 
-#: ../src/modules/display/MonitorProperties.qml:274
-#: ../src/modules/display/MonitorProperties.qml:306
+#: ../src/modules/display/MonitorProperties.qml:273
+#: ../src/modules/display/MonitorProperties.qml:305
 msgid "Brightness"
 msgstr "Яркость"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:38
 #: ../src/views/TmpTranslationFile.qml:8
 msgid "Display Modes"
-msgstr ""
+msgstr "Режимы отображения"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:58
 #: ../src/views/TmpTranslationFile.qml:12
@@ -1184,7 +1201,7 @@ msgstr "Копировать"
 #: ../src/modules/display/MonitorsSimpleSetting.qml:59
 #: ../src/views/TmpTranslationFile.qml:16
 msgid "Copy the contents of your primary screen to other screens."
-msgstr ""
+msgstr "Копировать содержание первичного экрана на другие."
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:76
 #: ../src/views/TmpTranslationFile.qml:20
@@ -1195,29 +1212,29 @@ msgstr "Продлить"
 msgid ""
 "Extend your screen contents to display different contents on different "
 "screens."
-msgstr ""
+msgstr "Расширьте содержание вашего экрана, что бы отобразить различное содержание на других экранах."
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:98
 #: ../src/views/TmpTranslationFile.qml:28
 #, qt-format
 msgid "Only Displayed on %1"
-msgstr ""
+msgstr "Показывать только ан %1"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:99
 #: ../src/views/TmpTranslationFile.qml:32
 #, qt-format
 msgid "Screen contents are only displayed on %1 but not on other screens."
-msgstr ""
+msgstr "Содержимое экрана отображается только на %1."
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:118
 #: ../src/views/TmpTranslationFile.qml:36
 msgid "Custom Settings"
-msgstr ""
+msgstr "Собственные настройки"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:119
 #: ../src/views/TmpTranslationFile.qml:40
 msgid "You can do other custom settings to your screens."
-msgstr ""
+msgstr "Вы можете делать другие пользовательские настройки экранов."
 
 #: ../src/modules/network/wired/NewItem.qml:45
 #: ../src/modules/network/wired/WiredItem.qml:89
@@ -1236,13 +1253,13 @@ msgstr "не управляемый"
 
 #: ../src/modules/network/widgets/PasswordBox.qml:102
 msgid "Auto-connect"
-msgstr ""
+msgstr "Автоподключение"
 
-#: ../src/modules/account/PasswordDialog.qml:114
+#: ../src/modules/account/PasswordDialog.qml:119
 msgid "New Password"
 msgstr "Новый пароль"
 
-#: ../src/modules/account/PasswordDialog.qml:159
+#: ../src/modules/account/PasswordDialog.qml:185
 msgid "Repeat"
 msgstr "Повторить"
 
@@ -1250,7 +1267,7 @@ msgstr "Повторить"
 msgid "Drag and drop an image to change background."
 msgstr "Перетащите изображение для смены фона"
 
-#: ../src/modules/grub/Preview.qml:123 ../src/modules/account/UserList.qml:233
+#: ../src/modules/grub/Preview.qml:123 ../src/modules/account/UserList.qml:239
 msgid "Image format not supported"
 msgstr "Неподдерживаемый формат образа"
 
@@ -1263,8 +1280,8 @@ msgid "Successfully updated, reboot to view."
 msgstr "Успешное обновление, перезагрузите чтобы увидеть."
 
 #: ../src/modules/network/proxy/ProxyContent.qml:43
-#: ../src/modules/shortcuts/ShortcutInput.qml:108
-#: ../src/modules/date_time/main.qml:183
+#: ../src/modules/shortcuts/ShortcutInput.qml:119
+#: ../src/modules/date_time/main.qml:204
 msgid "None"
 msgstr "Ничего"
 
@@ -1312,29 +1329,29 @@ msgstr "Успешный сброс"
 msgid "Reset"
 msgstr "Сброс"
 
-#: ../src/modules/shortcuts/ShortcutInput.qml:126
+#: ../src/modules/shortcuts/ShortcutInput.qml:137
 msgid "Please input new shortcut"
 msgstr "Пожалуйста, введите новые сочетания клавиш"
 
-#: ../src/modules/shortcuts/ShortcutInput.qml:226
+#: ../src/modules/shortcuts/ShortcutInput.qml:238
 #, qt-format
 msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
 msgstr "Сочетание «%1» некорректно, попробуйте новое."
 
-#: ../src/modules/shortcuts/ShortcutInput.qml:264
+#: ../src/modules/shortcuts/ShortcutInput.qml:276
 msgid "The shortcut you set "
 msgstr "Установленные вами сочетания"
 
-#: ../src/modules/shortcuts/ShortcutInput.qml:267
+#: ../src/modules/shortcuts/ShortcutInput.qml:279
 #, qt-format
 msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
 msgstr "конфликты с используемым для \"%2\" в категории \"%1\""
 
-#: ../src/modules/shortcuts/ShortcutInput.qml:269
+#: ../src/modules/shortcuts/ShortcutInput.qml:281
 msgid "Do you want to replace it?"
 msgstr "Желаете заменить?"
 
-#: ../src/modules/shortcuts/ShortcutInput.qml:327
+#: ../src/modules/shortcuts/ShortcutInput.qml:339
 msgid "Replace"
 msgstr "Заменить"
 
@@ -1350,50 +1367,50 @@ msgstr "Выполнено"
 
 #: ../src/modules/date_time/StateButtons.qml:35
 #: ../src/modules/date_time/StateButtons.qml:49
-#: ../src/modules/date_time/TimezoneArea.qml:418
+#: ../src/modules/date_time/TimezoneArea.qml:467
 msgid "Close"
 msgstr "Закрыть"
 
 #: ../src/modules/date_time/StateButtons.qml:72
 msgid "Delete Time Zone"
-msgstr ""
+msgstr "Удалить часовой пояс"
 
 #: ../src/modules/date_time/StateButtons.qml:88
 msgid "Add Time Zone"
-msgstr ""
+msgstr "Добавить часовой пояс"
 
 #: ../src/modules/keyboard/StateButtons.qml:77
 msgid "Delete Keyboard Layout"
-msgstr ""
+msgstr "Удалить раскладку клавиатуры"
 
 #: ../src/modules/keyboard/StateButtons.qml:92
 msgid "Add Keyboard Layout"
-msgstr ""
+msgstr "Добавить раскладку клавиатуры"
 
 #: ../src/modules/shortcuts/StateButtons.qml:80
 msgid "Delete Shortcut"
-msgstr ""
+msgstr "Удалить сочетание"
 
 #: ../src/modules/shortcuts/StateButtons.qml:96
 msgid "Add Shortcut"
-msgstr ""
+msgstr "Добавить сочетание"
 
 #: ../src/modules/personalization/widgets/ThemeItem.qml:92
 #: ../src/modules/power/main.qml:270 ../src/modules/power/main.qml:463
-#: ../src/modules/shortcuts/main.qml:53 ../src/modules/shortcuts/main.qml:233
+#: ../src/modules/shortcuts/main.qml:54 ../src/modules/shortcuts/main.qml:231
 msgid "Custom"
 msgstr "Собстенный"
 
 #: ../src/modules/date_time/TimeBox.qml:161
 #: ../src/views/TmpTranslationFile.qml:44
 msgid "Double-click this area to change your time"
-msgstr ""
+msgstr "Двойной клик в этой области для смены времени"
 
 #: ../src/modules/date_time/TimeBox.qml:202
 msgid "Set"
 msgstr "Установить"
 
-#: ../src/modules/date_time/TimezoneArea.qml:239
+#: ../src/modules/date_time/TimezoneArea.qml:253
 msgid "Time zone"
 msgstr "Часовой пояс"
 
@@ -1401,11 +1418,11 @@ msgstr "Часовой пояс"
 msgid ""
 "Extend your screen contents. Different contents will be displayed on "
 "different screens."
-msgstr ""
+msgstr "Расширьте содержимое экрана. На разных экранах, будет отображаться различное содержимое."
 
 #: ../src/views/TmpTranslationFile.qml:48
 msgid "Account information is being prepared..."
-msgstr ""
+msgstr "Готовится информация об этой учётной записи..."
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
 msgid "Touchpad"
@@ -1433,7 +1450,7 @@ msgstr "Скорость указателя"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:134
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:171
-#: ../src/modules/keyboard/main.qml:182 ../src/modules/keyboard/main.qml:209
+#: ../src/modules/keyboard/main.qml:190 ../src/modules/keyboard/main.qml:216
 #: ../src/modules/mouse_touchpad/main.qml:133
 #: ../src/modules/mouse_touchpad/main.qml:169
 msgid "Slow"
@@ -1441,7 +1458,7 @@ msgstr "Медленнее"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:135
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:172
-#: ../src/modules/keyboard/main.qml:181 ../src/modules/keyboard/main.qml:208
+#: ../src/modules/keyboard/main.qml:189 ../src/modules/keyboard/main.qml:215
 #: ../src/modules/mouse_touchpad/main.qml:134
 #: ../src/modules/mouse_touchpad/main.qml:170
 msgid "Fast"
@@ -1457,12 +1474,12 @@ msgid "Drag Threshold"
 msgstr "Порог перетаскивания"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:208
-#: ../src/modules/keyboard/main.qml:155
+#: ../src/modules/keyboard/main.qml:163
 msgid "Short"
 msgstr "Короче"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:209
-#: ../src/modules/keyboard/main.qml:156
+#: ../src/modules/keyboard/main.qml:164
 msgid "Long"
 msgstr "Длиннее"
 
@@ -1481,6 +1498,10 @@ msgstr "Прокрутка двумя пальцами"
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:298
 msgid "Edge scrolling"
 msgstr "Прокрутка у края"
+
+#: ../src/modules/account/UserListCreatingItem.qml:99
+msgid "Account Preparing..."
+msgstr "Подготовка аккаунта..."
 
 #: ../src/modules/network/vpn/VpnExpand.qml:48
 msgid "VPN Connections"
@@ -1549,23 +1570,23 @@ msgstr "Сбалансированный"
 msgid "High performance"
 msgstr "Высокая производительность"
 
-#: ../src/modules/date_time/main.qml:108
+#: ../src/modules/date_time/main.qml:130
 msgid "Automatic date and time"
 msgstr "Дата и время автоматически"
 
-#: ../src/modules/date_time/main.qml:126
+#: ../src/modules/date_time/main.qml:148
 msgid "Use 24-hour clock"
 msgstr "24-часовой формат"
 
-#: ../src/modules/date_time/main.qml:158
+#: ../src/modules/date_time/main.qml:179
 msgid "Adjust DST clock "
-msgstr ""
+msgstr "Скорректируйте часы DST"
 
-#: ../src/modules/date_time/main.qml:235
+#: ../src/modules/date_time/main.qml:256
 msgid "Date"
 msgstr "Дата"
 
-#: ../src/modules/date_time/main.qml:258
+#: ../src/modules/date_time/main.qml:280
 msgid "Set Date"
 msgstr "Установить дату"
 
@@ -1621,13 +1642,9 @@ msgstr "Камера"
 msgid "Software"
 msgstr "Программное обеспечение"
 
-#: ../src/modules/display/main.qml:145
-msgid "Return"
-msgstr ""
-
 #: ../src/modules/grub/main.qml:112
 msgid "Default Boot"
-msgstr ""
+msgstr "Загрузка по умолчанию"
 
 #: ../src/modules/grub/main.qml:167
 msgid "Boot delay"
@@ -1641,31 +1658,31 @@ msgstr "Цвет текста"
 msgid "Selected Text Color"
 msgstr "Выбор цвета текста"
 
-#: ../src/modules/keyboard/main.qml:141
+#: ../src/modules/keyboard/main.qml:149
 msgid "Repeat Delay"
 msgstr "Задержка повторения"
 
-#: ../src/modules/keyboard/main.qml:166
+#: ../src/modules/keyboard/main.qml:174
 msgid "Repeat Rate"
 msgstr "Скорость повтора"
 
-#: ../src/modules/keyboard/main.qml:192
+#: ../src/modules/keyboard/main.qml:200
 msgid "Cursor Blink Rate"
 msgstr "Частота мигания курсора"
 
-#: ../src/modules/keyboard/main.qml:219
+#: ../src/modules/keyboard/main.qml:226
 msgid "Test Area"
 msgstr "Полигон"
 
-#: ../src/modules/keyboard/main.qml:265
+#: ../src/modules/keyboard/main.qml:272
 msgid "Keyboard Layout"
 msgstr "Раскладка клавиатуры"
 
-#: ../src/modules/keyboard/main.qml:476
+#: ../src/modules/keyboard/main.qml:489
 msgid "No result"
 msgstr "Нет результата"
 
-#: ../src/modules/keyboard/main.qml:239
+#: ../src/modules/keyboard/main.qml:246
 msgid "Caps Lock prompt"
 msgstr "Индикатор Caps Lock"
 
@@ -1673,28 +1690,28 @@ msgstr "Индикатор Caps Lock"
 msgid "Disable the touchpad when inserting the mouse"
 msgstr "Отключать тачпад при подключении мыши"
 
-#: ../src/modules/personalization/main.qml:112
+#: ../src/modules/personalization/main.qml:111
 msgid "Theme"
 msgstr "Тема"
 
-#: ../src/modules/personalization/main.qml:119
-#: ../src/modules/shortcuts/main.qml:51
+#: ../src/modules/personalization/main.qml:118
+#: ../src/modules/shortcuts/main.qml:52
 msgid "Window"
 msgstr "Окно"
 
-#: ../src/modules/personalization/main.qml:126
+#: ../src/modules/personalization/main.qml:125
 msgid "Icon"
 msgstr "Значёк"
 
-#: ../src/modules/personalization/main.qml:133
+#: ../src/modules/personalization/main.qml:132
 msgid "Cursor"
 msgstr "Курсор"
 
-#: ../src/modules/personalization/main.qml:140
+#: ../src/modules/personalization/main.qml:139
 msgid "Wallpaper"
 msgstr "Обои"
 
-#: ../src/modules/personalization/main.qml:154
+#: ../src/modules/personalization/main.qml:153
 msgid "Fonts"
 msgstr "Шрифты"
 
@@ -1779,11 +1796,11 @@ msgstr "Выключить дисплей"
 msgid "Custom Options"
 msgstr "Пользовательские параметры"
 
-#: ../src/modules/shortcuts/main.qml:49
+#: ../src/modules/shortcuts/main.qml:50
 msgid "System"
 msgstr "Система"
 
-#: ../src/modules/shortcuts/main.qml:52
+#: ../src/modules/shortcuts/main.qml:53
 msgid "Workspace"
 msgstr "Рабочий стол"
 
@@ -1837,7 +1854,7 @@ msgstr "Показать экспертные…"
 
 #: ../src/modules/system_info/main.qml:119
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
-msgstr ""
+msgstr "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
 
 #: ../src/modules/system_info/main.qml:125
 msgid "Deepin Edition"
@@ -1941,7 +1958,7 @@ msgstr "Мобильный CDMA"
 
 #: ../src/modules/network/main.qml:326
 msgid "View Detailed Information"
-msgstr ""
+msgstr "Показать детальную информацию"
 
 #: ../src/modules/network/main.qml:214
 msgid "VPN L2TP"
@@ -1963,15 +1980,15 @@ msgstr "VPN OpenVPN"
 msgid "VPN OpenConnect"
 msgstr "VPN OpenConnect"
 
-#: ../src/modules/account/main.qml:95
+#: ../src/modules/account/main.qml:98
 msgid "Delete Account"
-msgstr ""
+msgstr "Удалить учётную запись"
 
-#: ../src/modules/account/main.qml:133
+#: ../src/modules/account/main.qml:138
 msgid "Add Account"
-msgstr ""
+msgstr "Добавить учётную запись"
 
-#: ../src/modules/account/main.qml:153
+#: ../src/modules/account/main.qml:158
 msgid "User List"
 msgstr "Список пользователей"
 

@@ -51,6 +51,13 @@ Item {
 
     property var layoutValueToKey: null
 
+    Connections {
+        target: dbusKeyboard
+        onCursorBlinkChanged: {
+            mainObject.setCursorFlashTime(parseInt(dbusKeyboard.cursorBlink))
+        }
+    }
+
     function initSearchSequence() {
         var layoutMap = dbusKeyboard.LayoutList()
         layoutValueToKey = new Object()
@@ -78,6 +85,7 @@ Item {
         var retList = dbusSearch.NewSearchWithStrList(valueList)
         keyboardModule.searchMd5 = retList[0]
         layoutList.reloadLayout()
+        mainObject.setCursorFlashTime(parseInt(dbusKeyboard.cursorBlink))
     }
 
     Connections {
@@ -201,7 +209,6 @@ Item {
 
                     onValueConfirmed:{
                         dbusKeyboard.cursorBlink = value
-                        mainObject.setCursorFlashTime(parseInt(value))
                     }
 
                     Component.onCompleted: {
@@ -252,7 +259,7 @@ Item {
         Column {
             id: keyboardLayoutArea
             width: keyListView.width
-            height: childrenRect.height - 10
+            height: childrenRect.height
 
             property string currentActionStateName: ""
 
@@ -511,6 +518,12 @@ Item {
 
         }
 
+
+        Item {
+            id:spacingItem
+            width: 500
+            height: 10
+        }
     }
 
 

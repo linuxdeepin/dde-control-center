@@ -38,7 +38,6 @@ Window {
     color: "transparent"
     property int frameRadius: 4
     property int shadowRadius: 10
-
     property int contentWidth: 300
     property int contentHeight: 500
 
@@ -63,6 +62,7 @@ Window {
     }
 
     function showWindow(themeObject){
+        x = rootWindow.getRealWindowX() - width
         previewsWindow.themeObject = themeObject
         previewSlide.currentIndex = 1
         previewsWindow.show()
@@ -78,7 +78,7 @@ Window {
 
     Timer{
         id: hideToTrue
-        interval: 200
+        interval: 300
         running: false
         onTriggered: {
             rootWindow.clickedToHide = true
@@ -277,7 +277,7 @@ Window {
                     anchors.rightMargin: 10
 
                     contentLoader.sourceComponent: DLabel {
-                        text: "Apply"
+                        text: dsTr("Apply")
                         anchors.centerIn: parent
 
                         color: {
@@ -294,6 +294,7 @@ Window {
                     }
 
                     onClicked: {
+                        dbusThemeManager.Set("theme", themeObject.name)
                         previewsWindow.hideWindow()
                     }
                 }

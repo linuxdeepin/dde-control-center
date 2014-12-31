@@ -73,7 +73,6 @@ Item {
     }
 
     property var previewsWindow: PreviewWindow {
-        x: rootWindow.x - width
         y: rootWindow.y + 18
         themeObject: currentThemeObject
     }

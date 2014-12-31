@@ -51,6 +51,17 @@ Item {
         PropertyAnimation { duration: 100 }
     }
 
+    Connections {
+        target:shortcutsModule
+        onCanShowWarningChanged:{
+            if (!canShowWarning){
+                conflictInfoArea.height = 0
+                stopSetKeyBinding = false
+                inConfictDealing = false
+            }
+        }
+    }
+
     Item {
         id: keyBindingArea
         anchors.top: parent.top
@@ -164,6 +175,7 @@ Item {
                                 break;
                             case "Conflict":
                                 if (result[1][0]==currentShortcutId) return
+                                canShowWarning = true
                                 conflictInfoArea.showConfictArea(arg0, result[1]);
                                 break;
                             case "Valid":

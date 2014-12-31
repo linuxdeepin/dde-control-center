@@ -22,6 +22,8 @@ ListView {
     signal allAction ()
     signal actionButtonClicked ()
 
+    signal userHasAdded(var userInfo)
+
     function showCurrentUserDetail () {
         fromPanelAvatar = true
     }
@@ -46,6 +48,7 @@ ListView {
                          "userDBusPath": path,
                          "avatarErrMsgShowed":false}
         user_status == "currentUser" ? user_list_model.insert(0, user_dict) : user_list_model.append(user_dict)
+        root.userHasAdded(user_dict)
     }
 
     function deleteUser(path) {
@@ -116,7 +119,7 @@ ListView {
                     if (component_bg.height == 0) {
                         component_bg.state = "normal"
                     }
-                    edit_user_dialog.reset()
+                    editUserDialogLoader.item.reset()
                 }
 
                 onAllAction: {
@@ -135,7 +138,6 @@ ListView {
             DeleteLine {
                 id: delete_line
                 width: component_bg.width
-                height: userIsCurrentUser(this_user) ? 116 : 100
                 moveDelta: 50
 
                 state: "normal"
@@ -148,6 +150,8 @@ ListView {
 
                 property color nameColor
                 property string expandButtonStatus: "normal"
+
+                Component.onCompleted: height = userIsCurrentUser(this_user) ? 116 : 100
 
                 onAction: {
                     component_bg.state = "delete_dialog"
@@ -215,6 +219,8 @@ ListView {
                         DssH2 {
                             text: this_user.userName
                             color: delete_line.nameColor
+                            width: 140
+                            elide: Text.ElideRight
                             font.pixelSize: 14
                         }
 
@@ -303,15 +309,26 @@ ListView {
                 anchors.top: delete_line.bottom
             }
 
-            EditUserDialog {
-                id: edit_user_dialog
-                maxHeight: frame.height - title_column.height - delete_line.height
-                visible: delete_line.editUserDialogVisible
-                this_user: User { path: userDBusPath}
+
+            Loader {//In order to load list quickly,Large resource load leater
+                id:editUserDialogLoader
+                active: false
                 anchors.top: component_sep.bottom
-                onSetAvatarIconError: {
-                    showChooseAvatarIconTypeErrMsg(uid,true)
+                sourceComponent: EditUserDialog {
+                    id: edit_user_dialog
+                    maxHeight: frame.height - title_column.height - delete_line.height
+                    visible: delete_line.editUserDialogVisible
+                    this_user: User { path: userDBusPath}
+                    onSetAvatarIconError: {
+                        showChooseAvatarIconTypeErrMsg(uid,true)
+                    }
                 }
+            }
+
+            Timer {
+                running: true
+                interval: 300
+                onTriggered: editUserDialogLoader.active = true
             }
 
             states: [
@@ -388,7 +405,7 @@ ListView {
                     }
                     PropertyChanges {
                         target: component_bg
-                        height: delete_line.height + component_sep.height + edit_user_dialog.height
+                        height: delete_line.height + component_sep.height + editUserDialogLoader.item.height
                     }
                 }
             ]

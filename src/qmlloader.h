@@ -75,6 +75,10 @@ public slots:
 
     QString toHumanShortcutLabel(QString sequence);
 
+    //Bugfix: qt5 double screen switch case screen distory
+    //if you do not patch Qt, only restart DockApplet is OK
+    void restart(QString moduleName);
+
 private:
     QmlLoaderDBus * m_dbus_proxyer;
 };

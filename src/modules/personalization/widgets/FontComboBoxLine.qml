@@ -18,6 +18,7 @@ Rectangle {
     property var dconstants: DConstants {}
 
     signal menuSelect(int index)
+    signal clicked()
 
     height: 30
     width: parent.width
@@ -46,5 +47,6 @@ Rectangle {
         onMenuSelect: {
             header.menuSelect(index)
         }
+        onClicked: header.clicked()
     }
 }

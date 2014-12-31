@@ -120,8 +120,8 @@ DBaseExpand {
             actived: displayId.displayMode == 0
 
             onClicked: {
-                displayId.SwitchMode(0,"")
-                displayId.SaveChanges()
+//                displayId.SwitchMode(0,"")
+//                displayId.SaveChanges()
                 onCustomizeMode = true
             }
 
