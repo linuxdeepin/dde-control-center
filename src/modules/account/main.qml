@@ -10,6 +10,8 @@ Rectangle {
     height: 600
     property var constants: DConstants {}
 
+    property bool inUserCreating: false
+
     SessionManager { id: dbus_session_manager }
     Accounts { id: dbus_accounts }
     User { id: dbus_user }
@@ -58,11 +60,12 @@ Rectangle {
             text: modulesId.moduleLocaleNames["account"]
 
             Row {
-                id:buttonRow
+                id: buttonRow
                 spacing: 10
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.right: parent.right
                 anchors.rightMargin: 15
+                visible: !inUserCreating
 
                 DImageCheckButton {
                     id: delete_check_button
@@ -156,7 +159,7 @@ Rectangle {
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.right: parent.right
                 anchors.rightMargin: 15
-                visible: add_check_button.visible || (add_user_dialog.visible && !add_check_button.visible)?false:true
+                visible: inUserCreating || add_check_button.visible || (add_user_dialog.visible && !add_check_button.visible)?false:true
                 onClicked: {
                     user_list.backToNormal()
 
@@ -189,34 +192,22 @@ Rectangle {
             AddUserDialog {
                 id: add_user_dialog
 
-                onCancelled: {
+                function backToNormal(){
                     main_column.state = "normal"
                     root.showAddDeleteButton()
                     add_user_dialog.reset()
-
                     root.scrollToLastPosition()
                 }
 
+                onCancelled: {
+                    backToNormal()
+                }
+
                 onConfirmed: {
-                    var result = dbus_accounts.CreateUser(userInfo.userName, userInfo.userName, userInfo.userAccountType)
-                    var new_user = result[0]
-                    var right = result[1]
-                    if (right) {
-                        dbus_user.path = new_user
-                        /* dbus_user.passwordMode = 2 // i think this nonsense too, but the fact is this help a lot >_< */
-                        /* // The user should be in a group named "nopasswdlogin" before we set his password, */
-                        /* // but a fresh _new_ user is not in that group(weird), so we should set it first. */
-                        dbus_user.SetPassword(userInfo.userPassword, "")
-                        dbus_user.SetIconFile(userInfo.userIconFile)
-                        dbus_user.SetAccountType(userInfo.userAccountType)
-                        dbus_user.SetAutomaticLogin(userInfo.userAutoLogin)
-
-                        root.showAddDeleteButton()
-                        main_column.state = "normal"
-                        add_user_dialog.reset()
-                    }
-
-                    root.scrollToLastPosition()
+                    dbus_accounts.CreateUser(userInfo.userName, userInfo.userName, userInfo.userAccountType)
+                    userCreatingItem.setCreatingUser(userInfo)
+                    inUserCreating = true
+                    backToNormal()
                 }
             }
 
@@ -287,6 +278,25 @@ Rectangle {
                     }
                 }
             ]
+
+            UserListCreatingItem{
+                id: userCreatingItem
+                width: parent.width
+                visible: inUserCreating
+                Connections {
+                    target: user_list
+                    onUserHasAdded: {
+                        if(userCreatingItem.currentUserName == userInfo.userName && userCreatingItem.creatingUserInfo){
+                            inUserCreating = false
+                            dbus_user.path = userInfo.userDBusPath
+                            dbus_user.SetPassword(userCreatingItem.creatingUserInfo.userPassword)
+                            dbus_user.SetIconFile(userCreatingItem.creatingUserInfo.userIconFile)
+                            dbus_user.SetAccountType(userCreatingItem.creatingUserInfo.userAccountType)
+                            dbus_user.SetAutomaticLogin(userCreatingItem.creatingUserInfo.userAutoLogin)
+                        }
+                    }
+                }
+            }
         }
 
         GuestUser {
@@ -301,6 +311,10 @@ Rectangle {
                 {
                     add_check_button.visible = false
                     delete_check_button.visible = false
+                }
+                else{
+                    add_check_button.visible = true
+                    delete_check_button.visible = dbus_accounts.userList.length != 1
                 }
 
                 // prevent guest_user from flicking away while showing

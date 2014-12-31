@@ -5,14 +5,16 @@
 # Translators:
 # freddy4212 <freddy4212@gmail.com>, 2014
 # Catherinelin <linhongxia@linuxdeepin.com>, 2014
+# szd_liufei <liufei@linuxdeepin.com>, 2014
 # Paris Qian Sen <qiansen1386@gmail.com>, 2014
+# Peter Dave Hello <hsu@peterdavehello.org>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-11 10:14+0800\n"
-"PO-Revision-Date: 2014-12-12 00:55+0000\n"
-"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
+"POT-Creation-Date: 2014-12-29 12:29+0800\n"
+"PO-Revision-Date: 2014-12-30 06:15+0000\n"
+"Last-Translator: szd_liufei <liufei@linuxdeepin.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/dde-control-center/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +24,7 @@ msgstr ""
 
 #: ../src/modules/network/add/AddDsl.qml:11
 msgid "Add PPPoE Connection"
-msgstr ""
+msgstr "新增撥號連接"
 
 #: ../src/modules/network/add/AddDsl.qml:24
 #: ../src/modules/network/add/AddMobile.qml:33
@@ -35,7 +37,7 @@ msgstr "名稱"
 #: ../src/modules/network/add/AddDsl.qml:36
 #: ../src/modules/network/add/AddMobile.qml:75
 #: ../src/modules/network/add/AddMobile.qml:105
-#: ../src/modules/account/AddUserDialog.qml:141
+#: ../src/modules/account/AddUserDialog.qml:127
 #: ../src/modules/network/add/AddVpn.qml:124
 #: ../src/modules/network/add/AddVpn.qml:254
 #: ../src/modules/network/add/AddVpn.qml:394
@@ -49,7 +51,7 @@ msgstr "名稱"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:374
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:65
 msgid "Username"
-msgstr "用戶名"
+msgstr "使用者名稱"
 
 #: ../src/modules/network/add/AddDsl.qml:46
 #: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:33
@@ -59,7 +61,7 @@ msgstr "服務"
 #: ../src/modules/network/add/AddDsl.qml:56
 #: ../src/modules/network/add/AddMobile.qml:85
 #: ../src/modules/network/add/AddMobile.qml:115
-#: ../src/modules/account/AddUserDialog.qml:198
+#: ../src/modules/account/AddUserDialog.qml:200
 #: ../src/modules/network/add/AddVpn.qml:144
 #: ../src/modules/network/add/AddVpn.qml:274
 #: ../src/modules/network/add/AddVpn.qml:414
@@ -82,7 +84,7 @@ msgstr "密碼"
 
 #: ../src/modules/network/add/AddMobile.qml:20
 msgid "New Mobile Connection"
-msgstr "新建行動網絡連線"
+msgstr "新增行動網絡連線"
 
 #: ../src/modules/network/add/AddMobile.qml:45
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:23
@@ -102,9 +104,9 @@ msgid "Number"
 msgstr "數字"
 
 #: ../src/modules/network/add/AddSectionSave.qml:11
-#: ../src/modules/account/AddUserDialog.qml:378
+#: ../src/modules/account/AddUserDialog.qml:413
 #: ../src/modules/network/wireless/AddWireless.qml:216
-#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:87
+#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:104
 #: ../src/modules/network/ConnectionAdd.qml:69
 #: ../src/modules/network/ConnectionEdit.qml:102
 #: ../src/modules/network/ConnectionEdit.qml:150
@@ -112,75 +114,91 @@ msgstr "數字"
 #: ../src/modules/account/DeleteUserDialog.qml:33
 #: ../src/modules/network/Info.qml:79
 #: ../src/modules/network/widgets/PasswordBox.qml:118
-#: ../src/modules/account/PasswordDialog.qml:207
-#: ../src/modules/shortcuts/ShortcutInput.qml:343
+#: ../src/modules/account/PasswordDialog.qml:248
+#: ../src/modules/shortcuts/ShortcutInput.qml:355
 #: ../src/modules/date_time/TimeBox.qml:225
 #: ../src/modules/network/wireless/WifiHotspot.qml:82
-#: ../src/modules/date_time/main.qml:267 ../src/modules/display/main.qml:208
+#: ../src/modules/date_time/main.qml:289 ../src/modules/display/main.qml:178
 msgid "Cancel"
 msgstr "取消"
 
 #: ../src/modules/network/add/AddSectionSave.qml:20
 #: ../src/modules/shortcuts/CustomKeybinding.qml:157
-#: ../src/modules/date_time/TimezoneArea.qml:415
+#: ../src/modules/date_time/TimezoneArea.qml:464
 msgid "Add"
-msgstr "添加"
+msgstr "新增"
 
-#: ../src/modules/account/AddUserDialog.qml:72
+#: ../src/modules/account/AddUserDialog.qml:58
+#: ../src/modules/account/AddUserDialog.qml:63
+#: ../src/modules/account/AddUserDialog.qml:245
 #: ../src/modules/account/PasswordDialog.qml:96
-msgid "Invalid password"
-msgstr "無效密碼"
+#: ../src/modules/account/PasswordDialog.qml:101
+#: ../src/modules/account/PasswordDialog.qml:161
+msgid "Password can not be empty."
+msgstr "密碼不能空白"
+
+#: ../src/modules/account/AddUserDialog.qml:68
+#: ../src/modules/account/AddUserDialog.qml:225
+#: ../src/modules/account/AddUserDialog.qml:239
+#: ../src/modules/account/AddUserDialog.qml:291
+#: ../src/modules/account/AddUserDialog.qml:306
+#: ../src/modules/account/PasswordDialog.qml:106
+#: ../src/modules/account/PasswordDialog.qml:146
+#: ../src/modules/account/PasswordDialog.qml:156
+#: ../src/modules/account/PasswordDialog.qml:213
+#: ../src/modules/account/PasswordDialog.qml:223
+msgid "The two passwords do not match."
+msgstr "兩次輸入的密碼不相同"
 
 #: ../src/modules/account/AddUserDialog.qml:77
-msgid "Nothing input"
-msgstr "沒有輸入"
-
-#: ../src/modules/account/AddUserDialog.qml:50
-#: ../src/modules/account/AddUserDialog.qml:82
-#: ../src/modules/account/PasswordDialog.qml:101
-msgid "Different password"
-msgstr "密碼不相同"
-
-#: ../src/modules/account/AddUserDialog.qml:91
 msgid "Add User"
-msgstr "添加用戶"
+msgstr "新增使用者"
 
-#: ../src/modules/account/AddUserDialog.qml:120
+#: ../src/modules/account/AddUserDialog.qml:106
 msgid "New User"
-msgstr "新建用戶"
+msgstr "新增使用者"
 
-#: ../src/modules/account/AddUserDialog.qml:124
-#: ../src/modules/account/AddUserDialog.qml:308
+#: ../src/modules/account/AddUserDialog.qml:110
+#: ../src/modules/account/AddUserDialog.qml:343
 #: ../src/modules/account/EditUserDialog.qml:139
-#: ../src/modules/account/UserList.qml:222
+#: ../src/modules/account/UserList.qml:228
+#: ../src/modules/account/UserListCreatingItem.qml:88
 msgid "Administrator"
 msgstr "管理員"
 
-#: ../src/modules/account/AddUserDialog.qml:124
-#: ../src/modules/account/AddUserDialog.qml:307
+#: ../src/modules/account/AddUserDialog.qml:110
+#: ../src/modules/account/AddUserDialog.qml:342
 #: ../src/modules/account/EditUserDialog.qml:138
-#: ../src/modules/account/UserList.qml:222
+#: ../src/modules/account/UserList.qml:228
+#: ../src/modules/account/UserListCreatingItem.qml:88
 msgid "Normal User"
-msgstr ""
+msgstr "普通使用者"
 
-#: ../src/modules/account/AddUserDialog.qml:244
+#: ../src/modules/account/AddUserDialog.qml:175
+#: ../src/modules/account/AddUserDialog.qml:235
+#: ../src/modules/account/AddUserDialog.qml:301
+msgid "Username can not be empty."
+msgstr "使用者名稱不能為空"
+
+#: ../src/modules/account/AddUserDialog.qml:270
 msgid "Repeat Password"
 msgstr "重複密碼"
 
-#: ../src/modules/account/AddUserDialog.qml:295
+#: ../src/modules/account/AddUserDialog.qml:330
 #: ../src/modules/account/EditUserDialog.qml:126
 msgid "Account Type"
 msgstr "帳號類型"
 
-#: ../src/modules/account/AddUserDialog.qml:327
+#: ../src/modules/account/AddUserDialog.qml:362
 #: ../src/modules/account/EditUserDialog.qml:59
 msgid "Auto-login"
 msgstr "自動登入"
 
-#: ../src/modules/account/AddUserDialog.qml:391
+#: ../src/modules/account/AddUserDialog.qml:426
 #: ../src/modules/account/DeleteUserDialog.qml:46
-#: ../src/modules/account/PasswordDialog.qml:221
-#: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:285
+#: ../src/modules/account/PasswordDialog.qml:262
+#: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:307
+#: ../src/modules/display/main.qml:193
 msgid "Confirm"
 msgstr "確定"
 
@@ -307,7 +325,7 @@ msgstr "CSD 腳本"
 #: ../src/modules/network/add/AddVpn.qml:224
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:154
 msgid "Use FSID for Key Passphrase"
-msgstr ""
+msgstr "為密鑰口令句使用FSID"
 
 #: ../src/modules/network/add/AddVpn.qml:324
 #: ../src/modules/network/wireless/AddWireless.qml:206
@@ -471,7 +489,7 @@ msgstr "拍照"
 
 #: ../src/modules/sound/BalanceLine.qml:31
 msgid "Left/Right Balance"
-msgstr ""
+msgstr "左/右平衡"
 
 #: ../src/modules/sound/BalanceLine.qml:53
 msgid "Left"
@@ -486,22 +504,23 @@ msgstr "右"
 msgid "Automatically connect"
 msgstr "自動連線"
 
-#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:99
-#: ../src/modules/display/main.qml:222
+#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:116
+#: ../src/modules/personalization/widgets/PreviewWindow.qml:280
+#: ../src/modules/display/main.qml:193
 msgid "Apply"
 msgstr "套用"
 
-#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:127
+#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:144
 msgid "Devices nearby"
 msgstr "附近的設備"
 
-#: ../src/modules/display/BrightnessRectangle.qml:59
+#: ../src/modules/display/BrightnessRectangle.qml:61
 #: ../src/modules/display/ResolutionRectangle.qml:68
 #: ../src/modules/display/RotationRectangle.qml:68
 msgid "Monitor"
 msgstr "顯示器"
 
-#: ../src/modules/date_time/Calendar.qml:161
+#: ../src/modules/date_time/Calendar.qml:164
 msgid "Today"
 msgstr "今日"
 
@@ -536,7 +555,7 @@ msgstr "六"
 #: ../src/modules/network/ConnectionAdd.qml:12
 #: ../src/modules/network/main.qml:303
 msgid "Add Network Connection"
-msgstr ""
+msgstr "新增網絡連線"
 
 #: ../src/modules/network/ConnectionAdd.qml:35
 #: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:11
@@ -784,7 +803,7 @@ msgstr "自訂閘道器埠"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:45
 msgid "Customize Renegotiation Interval"
-msgstr ""
+msgstr "自定義重新協商間隔"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:55
 msgid "Renegotiation Interval"
@@ -804,11 +823,11 @@ msgstr "使用 TAP 設備"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:97
 msgid "Customize Tunnel MTU"
-msgstr ""
+msgstr "自定義最大傳輸單元（MTU）"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:119
 msgid "Customize UDP Fragment Size"
-msgstr ""
+msgstr "自定義UDP數據報段長度"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
 msgid "UDP Fragment Size"
@@ -837,7 +856,7 @@ msgstr "伺服器 IP"
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:43
 #: ../src/modules/network/proxy/ProxyLine.qml:39
 msgid "Port"
-msgstr "通訊埠"
+msgstr "連接埠"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:55
 msgid "Retry Indefinitely When Failed"
@@ -865,7 +884,7 @@ msgstr "主題匹配"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:33
 msgid "Remote Cert Type"
-msgstr "遠程Cert類型"
+msgstr "遠端Cert類型"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:43
 msgid "Key File"
@@ -905,7 +924,7 @@ msgstr "本機通訊埠"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:105
 msgid "Disable Dead Peer Detection"
-msgstr "禁用死端檢測"
+msgstr "停用死端檢測"
 
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:11
 msgid "Wi-Fi"
@@ -929,29 +948,29 @@ msgstr "啟用"
 
 #: ../src/modules/sound/FadeLine.qml:31
 msgid "Front/Rear Balance"
-msgstr ""
+msgstr "前/後平衡"
 
 #: ../src/modules/sound/FadeLine.qml:55
 msgid "Front"
-msgstr ""
+msgstr "前"
 
 #: ../src/modules/sound/FadeLine.qml:53
 msgid "Rear"
-msgstr ""
+msgstr "後"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:48
 msgid "Standard"
 msgstr "標準"
 
-#: ../src/modules/personalization/components/FontSettingsExpand.qml:65
+#: ../src/modules/personalization/components/FontSettingsExpand.qml:70
 msgid "Monospaced"
-msgstr ""
+msgstr "等寬"
 
-#: ../src/modules/personalization/components/FontSettingsExpand.qml:80
+#: ../src/modules/personalization/components/FontSettingsExpand.qml:90
 msgid "Size"
 msgstr "大小"
 
-#: ../src/modules/personalization/components/FontSettingsExpand.qml:109
+#: ../src/modules/personalization/components/FontSettingsExpand.qml:119
 #, qt-format
 msgid "Font %1"
 msgstr "字型 %1"
@@ -966,11 +985,11 @@ msgstr "啟用"
 
 #: ../src/modules/network/Info.qml:13
 msgid "Connected"
-msgstr "已連接"
+msgstr "已連線"
 
 #: ../src/modules/network/Info.qml:15
 msgid "Not Connected"
-msgstr ""
+msgstr "未連線"
 
 #: ../src/modules/network/Info.qml:39
 msgid "(default)"
@@ -986,15 +1005,15 @@ msgstr "設備位址"
 
 #: ../src/modules/network/Info.qml:56
 msgid "Subnet Mask"
-msgstr "子網掩碼"
+msgstr "子網路遮罩"
 
 #: ../src/modules/network/Info.qml:57
 msgid "Route Addr"
-msgstr "網關地址"
+msgstr "路由器位指"
 
 #: ../src/modules/network/Info.qml:58
 msgid "Primary DNS"
-msgstr "首要 DNS"
+msgstr "主要 DNS"
 
 #: ../src/modules/network/Info.qml:59
 msgid "Secondary DNS"
@@ -1085,7 +1104,7 @@ msgstr "鍵盤與語言"
 
 #: ../src/views/ModulesData.qml:65
 msgid "Tablet"
-msgstr ""
+msgstr "數位板"
 
 #: ../src/views/ModulesData.qml:66
 msgid "Mouse and Touchpad"
@@ -1116,17 +1135,17 @@ msgstr "啟動程式選單"
 msgid "Home"
 msgstr "回到首頁"
 
-#: ../src/modules/display/MonitorDragArea.qml:470
+#: ../src/modules/display/MonitorDragArea.qml:471
 msgid "Identify"
 msgstr "偵測"
 
-#: ../src/modules/display/MonitorDragArea.qml:487
+#: ../src/modules/display/MonitorDragArea.qml:489
 msgid "Edit"
 msgstr "編輯"
 
-#: ../src/modules/display/MonitorDragArea.qml:505
+#: ../src/modules/display/MonitorDragArea.qml:507
 msgid "Split"
-msgstr ""
+msgstr "拆分"
 
 #: ../src/modules/display/MonitorProperties.qml:42
 msgid "Normal"
@@ -1146,34 +1165,34 @@ msgstr "向左旋轉"
 
 #: ../src/modules/display/MonitorProperties.qml:78
 msgid "Enable Monitor(s)"
-msgstr ""
+msgstr "啟用顯示器"
 
 #: ../src/modules/display/MonitorProperties.qml:96
 msgid "Please choose the monitor(s) you want to enable"
-msgstr ""
+msgstr "請選擇您要啟用的顯示器（可多選）"
 
 #: ../src/modules/display/MonitorProperties.qml:146
 #: ../src/views/TmpTranslationFile.qml:52
 msgid "Primary Screen"
-msgstr ""
+msgstr "主畫面"
 
-#: ../src/modules/display/MonitorProperties.qml:190
+#: ../src/modules/display/MonitorProperties.qml:189
 msgid "Resolution"
 msgstr "解析度"
 
-#: ../src/modules/display/MonitorProperties.qml:231
+#: ../src/modules/display/MonitorProperties.qml:230
 msgid "Rotation"
 msgstr "旋轉"
 
-#: ../src/modules/display/MonitorProperties.qml:274
-#: ../src/modules/display/MonitorProperties.qml:306
+#: ../src/modules/display/MonitorProperties.qml:273
+#: ../src/modules/display/MonitorProperties.qml:305
 msgid "Brightness"
 msgstr "亮度"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:38
 #: ../src/views/TmpTranslationFile.qml:8
 msgid "Display Modes"
-msgstr ""
+msgstr "顯示模式"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:58
 #: ../src/views/TmpTranslationFile.qml:12
@@ -1183,7 +1202,7 @@ msgstr "複製"
 #: ../src/modules/display/MonitorsSimpleSetting.qml:59
 #: ../src/views/TmpTranslationFile.qml:16
 msgid "Copy the contents of your primary screen to other screens."
-msgstr ""
+msgstr "將您的一個螢幕內容複製到其他螢幕"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:76
 #: ../src/views/TmpTranslationFile.qml:20
@@ -1194,29 +1213,29 @@ msgstr "延伸"
 msgid ""
 "Extend your screen contents to display different contents on different "
 "screens."
-msgstr ""
+msgstr "將您的螢幕內容延伸，在不同螢幕顯示不同內容"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:98
 #: ../src/views/TmpTranslationFile.qml:28
 #, qt-format
 msgid "Only Displayed on %1"
-msgstr ""
+msgstr "僅在%1上顯示"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:99
 #: ../src/views/TmpTranslationFile.qml:32
 #, qt-format
 msgid "Screen contents are only displayed on %1 but not on other screens."
-msgstr ""
+msgstr "僅在%1上顯示螢幕內容，其他螢幕不顯示"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:118
 #: ../src/views/TmpTranslationFile.qml:36
 msgid "Custom Settings"
-msgstr ""
+msgstr "個人化設定"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:119
 #: ../src/views/TmpTranslationFile.qml:40
 msgid "You can do other custom settings to your screens."
-msgstr ""
+msgstr "您可以針對螢幕做其他個性化設定"
 
 #: ../src/modules/network/wired/NewItem.qml:45
 #: ../src/modules/network/wired/WiredItem.qml:89
@@ -1231,17 +1250,17 @@ msgstr "有線連線"
 
 #: ../src/modules/network/widgets/NotManagedSection.qml:25
 msgid "not managed"
-msgstr ""
+msgstr "未託管"
 
 #: ../src/modules/network/widgets/PasswordBox.qml:102
 msgid "Auto-connect"
-msgstr ""
+msgstr "自動連線"
 
-#: ../src/modules/account/PasswordDialog.qml:114
+#: ../src/modules/account/PasswordDialog.qml:119
 msgid "New Password"
 msgstr "新密碼"
 
-#: ../src/modules/account/PasswordDialog.qml:159
+#: ../src/modules/account/PasswordDialog.qml:185
 msgid "Repeat"
 msgstr "重複密碼"
 
@@ -1249,9 +1268,9 @@ msgstr "重複密碼"
 msgid "Drag and drop an image to change background."
 msgstr "拖拽圖片到此以更換背景"
 
-#: ../src/modules/grub/Preview.qml:123 ../src/modules/account/UserList.qml:233
+#: ../src/modules/grub/Preview.qml:123 ../src/modules/account/UserList.qml:239
 msgid "Image format not supported"
-msgstr ""
+msgstr "不支援的圖片格式"
 
 #: ../src/modules/grub/Preview.qml:124
 msgid "Updating..."
@@ -1262,8 +1281,8 @@ msgid "Successfully updated, reboot to view."
 msgstr "成功升級，重新啟動以生效。"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:43
-#: ../src/modules/shortcuts/ShortcutInput.qml:108
-#: ../src/modules/date_time/main.qml:183
+#: ../src/modules/shortcuts/ShortcutInput.qml:119
+#: ../src/modules/date_time/main.qml:204
 msgid "None"
 msgstr "無"
 
@@ -1311,31 +1330,31 @@ msgstr "重設成功"
 msgid "Reset"
 msgstr "重設"
 
-#: ../src/modules/shortcuts/ShortcutInput.qml:126
+#: ../src/modules/shortcuts/ShortcutInput.qml:137
 msgid "Please input new shortcut"
 msgstr "請輸入新的捷徑鍵"
 
-#: ../src/modules/shortcuts/ShortcutInput.qml:226
+#: ../src/modules/shortcuts/ShortcutInput.qml:238
 #, qt-format
 msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
 msgstr "無效的捷徑鍵 \"%1\"，請重新輸入。"
 
-#: ../src/modules/shortcuts/ShortcutInput.qml:264
+#: ../src/modules/shortcuts/ShortcutInput.qml:276
 msgid "The shortcut you set "
 msgstr "您設定的捷徑鍵"
 
-#: ../src/modules/shortcuts/ShortcutInput.qml:267
+#: ../src/modules/shortcuts/ShortcutInput.qml:279
 #, qt-format
 msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
 msgstr "與 \"%1\" 類別下的 \"%2\" 的捷徑鍵衝突。"
 
-#: ../src/modules/shortcuts/ShortcutInput.qml:269
+#: ../src/modules/shortcuts/ShortcutInput.qml:281
 msgid "Do you want to replace it?"
-msgstr "是否進行替換？"
+msgstr "是否進行取代？"
 
-#: ../src/modules/shortcuts/ShortcutInput.qml:327
+#: ../src/modules/shortcuts/ShortcutInput.qml:339
 msgid "Replace"
-msgstr "替換"
+msgstr "取代"
 
 #: ../src/modules/personalization/widgets/ShowPreviewButton.qml:53
 msgid "Preview Theme"
@@ -1349,50 +1368,50 @@ msgstr "完成"
 
 #: ../src/modules/date_time/StateButtons.qml:35
 #: ../src/modules/date_time/StateButtons.qml:49
-#: ../src/modules/date_time/TimezoneArea.qml:418
+#: ../src/modules/date_time/TimezoneArea.qml:467
 msgid "Close"
 msgstr "關閉"
 
 #: ../src/modules/date_time/StateButtons.qml:72
 msgid "Delete Time Zone"
-msgstr ""
+msgstr "刪除時區"
 
 #: ../src/modules/date_time/StateButtons.qml:88
 msgid "Add Time Zone"
-msgstr ""
+msgstr "增加時區"
 
 #: ../src/modules/keyboard/StateButtons.qml:77
 msgid "Delete Keyboard Layout"
-msgstr ""
+msgstr "刪除鍵盤配置"
 
 #: ../src/modules/keyboard/StateButtons.qml:92
 msgid "Add Keyboard Layout"
-msgstr ""
+msgstr "增加鍵盤配置"
 
 #: ../src/modules/shortcuts/StateButtons.qml:80
 msgid "Delete Shortcut"
-msgstr ""
+msgstr "刪除捷徑"
 
 #: ../src/modules/shortcuts/StateButtons.qml:96
 msgid "Add Shortcut"
-msgstr ""
+msgstr "增加捷徑"
 
 #: ../src/modules/personalization/widgets/ThemeItem.qml:92
 #: ../src/modules/power/main.qml:270 ../src/modules/power/main.qml:463
-#: ../src/modules/shortcuts/main.qml:53 ../src/modules/shortcuts/main.qml:233
+#: ../src/modules/shortcuts/main.qml:54 ../src/modules/shortcuts/main.qml:231
 msgid "Custom"
 msgstr "自定"
 
 #: ../src/modules/date_time/TimeBox.qml:161
 #: ../src/views/TmpTranslationFile.qml:44
 msgid "Double-click this area to change your time"
-msgstr ""
+msgstr "按兩下此區域以更改時間"
 
 #: ../src/modules/date_time/TimeBox.qml:202
 msgid "Set"
 msgstr "儲存"
 
-#: ../src/modules/date_time/TimezoneArea.qml:239
+#: ../src/modules/date_time/TimezoneArea.qml:253
 msgid "Time zone"
 msgstr "時區"
 
@@ -1400,11 +1419,11 @@ msgstr "時區"
 msgid ""
 "Extend your screen contents. Different contents will be displayed on "
 "different screens."
-msgstr ""
+msgstr "將您的螢幕內容擴展，在不同螢幕顯示不同內容"
 
 #: ../src/views/TmpTranslationFile.qml:48
 msgid "Account information is being prepared..."
-msgstr ""
+msgstr "正在準備帳戶資訊 ..."
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
 msgid "Touchpad"
@@ -1432,7 +1451,7 @@ msgstr "指針移動速度"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:134
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:171
-#: ../src/modules/keyboard/main.qml:182 ../src/modules/keyboard/main.qml:209
+#: ../src/modules/keyboard/main.qml:190 ../src/modules/keyboard/main.qml:216
 #: ../src/modules/mouse_touchpad/main.qml:133
 #: ../src/modules/mouse_touchpad/main.qml:169
 msgid "Slow"
@@ -1440,7 +1459,7 @@ msgstr "慢"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:135
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:172
-#: ../src/modules/keyboard/main.qml:181 ../src/modules/keyboard/main.qml:208
+#: ../src/modules/keyboard/main.qml:189 ../src/modules/keyboard/main.qml:215
 #: ../src/modules/mouse_touchpad/main.qml:134
 #: ../src/modules/mouse_touchpad/main.qml:170
 msgid "Fast"
@@ -1449,19 +1468,19 @@ msgstr "快"
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:154
 #: ../src/modules/mouse_touchpad/main.qml:153
 msgid "Double-click Speed"
-msgstr "雙擊速度"
+msgstr "連按滑鼠兩下的速度"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:192
 msgid "Drag Threshold"
 msgstr "拖動閥值"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:208
-#: ../src/modules/keyboard/main.qml:155
+#: ../src/modules/keyboard/main.qml:163
 msgid "Short"
 msgstr "短"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:209
-#: ../src/modules/keyboard/main.qml:156
+#: ../src/modules/keyboard/main.qml:164
 msgid "Long"
 msgstr "長"
 
@@ -1471,15 +1490,19 @@ msgstr "自然滾動"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:252
 msgid "Tap to click"
-msgstr "輕觸以點擊"
+msgstr "輕觸以點選"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:275
 msgid "Two-finger scrolling"
-msgstr ""
+msgstr "雙指滾動"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:298
 msgid "Edge scrolling"
-msgstr ""
+msgstr "邊緣滾動"
+
+#: ../src/modules/account/UserListCreatingItem.qml:99
+msgid "Account Preparing..."
+msgstr "帳號準備中 ..."
 
 #: ../src/modules/network/vpn/VpnExpand.qml:48
 msgid "VPN Connections"
@@ -1529,7 +1552,7 @@ msgid ""
 "1. The hardware switch of wireless network card is off\n"
 "2. Incorrect network configuration in /etc/network/interface\n"
 "3. Incorrect driver of network hardware"
-msgstr ""
+msgstr "無法連接到無線網路，有可能是以下原因造成：\\n\\n1. 您的無線網卡的硬體開關是關閉的\\n2. 您的網路配置 /etc/network/interface 不正確\\n3. 您的網路硬體沒有被正確驅動"
 
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:35
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:158
@@ -1548,23 +1571,23 @@ msgstr "均衡"
 msgid "High performance"
 msgstr "高性能"
 
-#: ../src/modules/date_time/main.qml:108
+#: ../src/modules/date_time/main.qml:130
 msgid "Automatic date and time"
 msgstr "自動同步時間"
 
-#: ../src/modules/date_time/main.qml:126
+#: ../src/modules/date_time/main.qml:148
 msgid "Use 24-hour clock"
 msgstr "24小時制"
 
-#: ../src/modules/date_time/main.qml:158
+#: ../src/modules/date_time/main.qml:179
 msgid "Adjust DST clock "
-msgstr ""
+msgstr "調整夏令時時鐘"
 
-#: ../src/modules/date_time/main.qml:235
+#: ../src/modules/date_time/main.qml:256
 msgid "Date"
 msgstr "日期"
 
-#: ../src/modules/date_time/main.qml:258
+#: ../src/modules/date_time/main.qml:280
 msgid "Set Date"
 msgstr "設定日期"
 
@@ -1620,13 +1643,9 @@ msgstr "照相機"
 msgid "Software"
 msgstr "軟體"
 
-#: ../src/modules/display/main.qml:145
-msgid "Return"
-msgstr ""
-
 #: ../src/modules/grub/main.qml:112
 msgid "Default Boot"
-msgstr ""
+msgstr "默認啟動"
 
 #: ../src/modules/grub/main.qml:167
 msgid "Boot delay"
@@ -1640,31 +1659,31 @@ msgstr "文字顏色"
 msgid "Selected Text Color"
 msgstr "反白像母文字顏色"
 
-#: ../src/modules/keyboard/main.qml:141
+#: ../src/modules/keyboard/main.qml:149
 msgid "Repeat Delay"
 msgstr "重複延遲"
 
-#: ../src/modules/keyboard/main.qml:166
+#: ../src/modules/keyboard/main.qml:174
 msgid "Repeat Rate"
 msgstr "重複速度"
 
-#: ../src/modules/keyboard/main.qml:192
+#: ../src/modules/keyboard/main.qml:200
 msgid "Cursor Blink Rate"
 msgstr "游標閃爍頻率"
 
-#: ../src/modules/keyboard/main.qml:219
+#: ../src/modules/keyboard/main.qml:226
 msgid "Test Area"
 msgstr "測試區"
 
-#: ../src/modules/keyboard/main.qml:265
+#: ../src/modules/keyboard/main.qml:272
 msgid "Keyboard Layout"
 msgstr "鍵盤佈局"
 
-#: ../src/modules/keyboard/main.qml:476
+#: ../src/modules/keyboard/main.qml:489
 msgid "No result"
 msgstr "無結果"
 
-#: ../src/modules/keyboard/main.qml:239
+#: ../src/modules/keyboard/main.qml:246
 msgid "Caps Lock prompt"
 msgstr "大寫鍵提示"
 
@@ -1672,28 +1691,28 @@ msgstr "大寫鍵提示"
 msgid "Disable the touchpad when inserting the mouse"
 msgstr "裝入滑鼠時停用觸控板"
 
-#: ../src/modules/personalization/main.qml:112
+#: ../src/modules/personalization/main.qml:111
 msgid "Theme"
 msgstr "主題"
 
-#: ../src/modules/personalization/main.qml:119
-#: ../src/modules/shortcuts/main.qml:51
+#: ../src/modules/personalization/main.qml:118
+#: ../src/modules/shortcuts/main.qml:52
 msgid "Window"
 msgstr "視窗"
 
-#: ../src/modules/personalization/main.qml:126
+#: ../src/modules/personalization/main.qml:125
 msgid "Icon"
 msgstr "圖示"
 
-#: ../src/modules/personalization/main.qml:133
+#: ../src/modules/personalization/main.qml:132
 msgid "Cursor"
-msgstr ""
+msgstr "游標"
 
-#: ../src/modules/personalization/main.qml:140
+#: ../src/modules/personalization/main.qml:139
 msgid "Wallpaper"
 msgstr "桌布"
 
-#: ../src/modules/personalization/main.qml:154
+#: ../src/modules/personalization/main.qml:153
 msgid "Fonts"
 msgstr "字型"
 
@@ -1778,11 +1797,11 @@ msgstr "關閉顯示器"
 msgid "Custom Options"
 msgstr "自定選項"
 
-#: ../src/modules/shortcuts/main.qml:49
+#: ../src/modules/shortcuts/main.qml:50
 msgid "System"
 msgstr "系統"
 
-#: ../src/modules/shortcuts/main.qml:52
+#: ../src/modules/shortcuts/main.qml:53
 msgid "Workspace"
 msgstr "工作區"
 
@@ -1836,7 +1855,7 @@ msgstr "顯示進階設定 ..."
 
 #: ../src/modules/system_info/main.qml:119
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
-msgstr ""
+msgstr "2011-2014 武漢深之度科技有限公司版權所有"
 
 #: ../src/modules/system_info/main.qml:125
 msgid "Deepin Edition"
@@ -1940,7 +1959,7 @@ msgstr "CDMA 行動"
 
 #: ../src/modules/network/main.qml:326
 msgid "View Detailed Information"
-msgstr ""
+msgstr "檢視詳細資訊"
 
 #: ../src/modules/network/main.qml:214
 msgid "VPN L2TP"
@@ -1962,73 +1981,73 @@ msgstr "VPN OpenVPN"
 msgid "VPN OpenConnect"
 msgstr "VPN OpenConnect"
 
-#: ../src/modules/account/main.qml:95
+#: ../src/modules/account/main.qml:98
 msgid "Delete Account"
-msgstr ""
+msgstr "刪除帳號"
 
-#: ../src/modules/account/main.qml:133
+#: ../src/modules/account/main.qml:138
 msgid "Add Account"
-msgstr ""
+msgstr "新增帳號"
 
-#: ../src/modules/account/main.qml:153
+#: ../src/modules/account/main.qml:158
 msgid "User List"
-msgstr ""
+msgstr "使用者列表"
 
 #: ../src/modules/wacom/main.qml:14
 msgid "Page Up"
-msgstr ""
+msgstr "上一頁"
 
 #: ../src/modules/wacom/main.qml:15
 msgid "Page Down"
-msgstr ""
+msgstr "下一頁"
 
 #: ../src/modules/wacom/main.qml:16
 msgid "Left Click"
-msgstr ""
+msgstr "點選滑鼠左鍵"
 
 #: ../src/modules/wacom/main.qml:17
 msgid "Right Click"
-msgstr ""
+msgstr "點選滑鼠右鍵"
 
 #: ../src/modules/wacom/main.qml:18
 msgid "Middle Click"
-msgstr ""
+msgstr "點選滑鼠中間的按鍵"
 
 #: ../src/modules/wacom/main.qml:69
 msgid "Tablet Orientation"
-msgstr ""
+msgstr "數位板方向"
 
 #: ../src/modules/wacom/main.qml:76
 msgid "Left Hand"
-msgstr ""
+msgstr "左手"
 
 #: ../src/modules/wacom/main.qml:77
 msgid "Right Hand"
-msgstr ""
+msgstr "右手"
 
 #: ../src/modules/wacom/main.qml:90
 msgid "Digital Pen Modes"
-msgstr ""
+msgstr "觸控筆模式"
 
 #: ../src/modules/wacom/main.qml:97
 msgid "Pen Mode"
-msgstr ""
+msgstr "筆模式"
 
 #: ../src/modules/wacom/main.qml:98
 msgid "Mouse Mode"
-msgstr ""
+msgstr "滑鼠模式"
 
 #: ../src/modules/wacom/main.qml:112
 msgid "Down Key"
-msgstr ""
+msgstr "下鍵"
 
 #: ../src/modules/wacom/main.qml:137
 msgid "Up Key"
-msgstr ""
+msgstr "上鍵"
 
 #: ../src/modules/wacom/main.qml:162
 msgid "Pressure"
-msgstr ""
+msgstr "壓感"
 
 #: ../src/modules/wacom/main.qml:178
 msgid "Soft"
@@ -2036,16 +2055,16 @@ msgstr "溫和"
 
 #: ../src/modules/wacom/main.qml:179
 msgid "Hard"
-msgstr ""
+msgstr "重"
 
 #: ../src/modules/wacom/main.qml:190
 msgid "Double-click Space"
-msgstr ""
+msgstr "按兩下間距"
 
 #: ../src/modules/wacom/main.qml:206
 msgid "Narrow"
-msgstr ""
+msgstr "小"
 
 #: ../src/modules/wacom/main.qml:207
 msgid "Wide"
-msgstr ""
+msgstr "大"

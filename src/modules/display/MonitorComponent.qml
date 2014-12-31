@@ -53,30 +53,52 @@ Rectangle{
 
     color: pressed ? "#252525" : "#0d0d0d"
     border.width: 1
-//    border.color: {
-//        if(inEditMode && beJoined){
-//            return "red"
-//        }
-//        else if(!inEditMode && monitorChoose.currentSelectedMonitor == monitorObject && openedMonitorNumber > 1){
-//            return dconstants.activeColor
-//        }
-//        else{
-//            return dconstants.fgDarkColor
-//        }
-//    }
+    border.color: {
+        if(inEditMode && beJoined){
+            return "red"
+        }
+        else{
+            return dconstants.fgDarkColor
+        }
+    }
     visible: monitorObject.opened
     opacity: pressed ? 0.6 : 0.9
 
     x: monitorObject.x * scaleFactor + xPadding
     y: monitorObject.y * scaleFactor + yPadding
-    width: monitorObject.width*scaleFactor
-    height: monitorObject.height*scaleFactor
+    width: monitorObject.width * scaleFactor
+    height: monitorObject.height * scaleFactor
+
+    Binding{
+        target: monitorComponent
+        property: "x"
+        value: monitorObject.x * scaleFactor + xPadding
+        when: !inEditMode
+    }
+    Binding{
+        target: monitorComponent
+        property: "y"
+        value: monitorObject.y * scaleFactor + yPadding
+        when: !inEditMode
+    }
+    Binding{
+        target: monitorComponent
+        property: "width"
+        value: monitorObject.width * scaleFactor
+        when: !inEditMode
+    }
+    Binding{
+        target: monitorComponent
+        property: "height"
+        value: monitorObject.height * scaleFactor
+        when: !inEditMode
+    }
 
     function reset(){
         x = monitorObject.x * scaleFactor + xPadding
         y = monitorObject.y * scaleFactor + yPadding
-        width = monitorObject.width*scaleFactor
-        height = monitorObject.height*scaleFactor
+        width = monitorObject.width * scaleFactor
+        height = monitorObject.height * scaleFactor
     }
 
     property real x1: x

@@ -27,8 +27,8 @@ import "../widgets"
 
 MyBaseExpand {
     id: font_themes_expand
-    property var standardFontList: dbusThemeManager.fontNameList
-    property var monoFontList:dbusThemeManager.fontMonoList
+    property var standardFontList: dbusThemeManager.GetFontList("font-standard")
+    property var monoFontList:dbusThemeManager.GetFontList("font-mono")
     property int contenHeight: 35
     property int contenTitleWidth: 90
     property int contenCenterPadding: 10
@@ -52,7 +52,12 @@ MyBaseExpand {
 
             onMenuSelect: {
                 if (currentThemeObject.fontName != standardFontList[index])
-                    dbusThemeManager.Set("font-name", standardFontList[index])
+                    dbusThemeManager.Set("font-standard", standardFontList[index])
+            }
+
+            onClicked: {
+                standardFontList = dbusThemeManager.GetFontList("font-standard")
+                monoFontList = dbusThemeManager.GetFontList("font-mono")
             }
         }
 
@@ -70,6 +75,11 @@ MyBaseExpand {
             onMenuSelect: {
                 if (currentThemeObject.fontMono != monoFontList[index])
                     dbusThemeManager.Set("font-mono", monoFontList[index])
+            }
+
+            onClicked: {
+                standardFontList = dbusThemeManager.GetFontList("font-standard")
+                monoFontList = dbusThemeManager.GetFontList("font-mono")
             }
         }
 

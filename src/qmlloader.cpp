@@ -172,6 +172,19 @@ QString QmlLoader::toHumanShortcutLabel(QString sequence)
     return sequenceList.join("+");
 }
 
+void QmlLoader::restart(QString moduleName)
+{
+    if(moduleName != NULL && moduleName != ""){
+        QStringList tmpList;
+        tmpList.append(moduleName);
+        QProcess::startDetached(QApplication::applicationFilePath(), tmpList);
+    }
+    else{
+        QProcess::startDetached(QApplication::applicationFilePath());
+    }
+    QCoreApplication::exit(0);
+}
+
 void QmlLoader::installPackage(QString packageName)
 {
     QString dbus_name = "com.linuxdeepin.softwarecenter_frontend";

@@ -46,6 +46,15 @@ DOverrideWindow {
         }
     }
 
+    onQt5ScreenChanged: {
+        if(rootWindow.displayWidth > 0){
+            mainObject.restart(panelContent.currentContentId)
+        }
+        else {
+            mainObject.restart("")
+        }
+    }
+
     signal moduleStartChange(string nextModuleName)
     signal panelHided
     signal moduleIconClicked(string iconId)

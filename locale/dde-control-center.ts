@@ -86,23 +86,23 @@
 <context>
     <name>AddUserDialog</name>
     <message>
-        <location filename="../src/modules/account/AddUserDialog.qml" line="+72"/>
-        <source>Invalid password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
+        <location filename="../src/modules/account/AddUserDialog.qml" line="+58"/>
         <location line="+5"/>
-        <source>Nothing input</source>
+        <location line="+182"/>
+        <source>Password can not be empty.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-27"/>
-        <location line="+32"/>
-        <source>Different password</source>
+        <location line="-177"/>
+        <location line="+157"/>
+        <location line="+14"/>
+        <location line="+52"/>
+        <location line="+15"/>
+        <source>The two passwords do not match.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="-229"/>
         <source>Add User</source>
         <translation type="unfinished"></translation>
     </message>
@@ -113,33 +113,40 @@
     </message>
     <message>
         <location line="+4"/>
-        <location line="+184"/>
+        <location line="+233"/>
         <source>Administrator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-184"/>
-        <location line="+183"/>
+        <location line="-233"/>
+        <location line="+232"/>
         <source>Normal User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-166"/>
+        <location line="-215"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+57"/>
+        <location line="+48"/>
+        <location line="+60"/>
+        <location line="+66"/>
+        <source>Username can not be empty.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-101"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+46"/>
+        <location line="+70"/>
         <source>Repeat Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+51"/>
+        <location line="+60"/>
         <source>Account Type</source>
         <translation type="unfinished"></translation>
     </message>
@@ -522,7 +529,7 @@
 <context>
     <name>BluetoothDeviceExpand</name>
     <message>
-        <location filename="../src/modules/bluetooth/BluetoothDeviceExpand.qml" line="+87"/>
+        <location filename="../src/modules/bluetooth/BluetoothDeviceExpand.qml" line="+104"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -540,7 +547,7 @@
 <context>
     <name>BrightnessRectangle</name>
     <message>
-        <location filename="../src/modules/display/BrightnessRectangle.qml" line="+59"/>
+        <location filename="../src/modules/display/BrightnessRectangle.qml" line="+61"/>
         <source>Monitor</source>
         <translation type="unfinished"></translation>
     </message>
@@ -548,7 +555,7 @@
 <context>
     <name>Calendar</name>
     <message>
-        <location filename="../src/modules/date_time/Calendar.qml" line="+161"/>
+        <location filename="../src/modules/date_time/Calendar.qml" line="+164"/>
         <source>Today</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1684,12 +1691,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+22"/>
         <source>Monospaced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+20"/>
         <source>Size</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1935,12 +1942,12 @@
 <context>
     <name>MonitorDragArea</name>
     <message>
-        <location filename="../src/modules/display/MonitorDragArea.qml" line="+470"/>
+        <location filename="../src/modules/display/MonitorDragArea.qml" line="+471"/>
         <source>Identify</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+18"/>
         <source>Edit</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1988,7 +1995,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+44"/>
+        <location line="+43"/>
         <source>Resolution</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2112,27 +2119,33 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+34"/>
-        <source>Invalid password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Different password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+13"/>
+        <location line="+57"/>
         <source>New Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+45"/>
+        <location line="-13"/>
+        <location line="+40"/>
+        <location line="+10"/>
+        <location line="+57"/>
+        <location line="+10"/>
+        <source>The two passwords do not match.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-127"/>
+        <location line="+5"/>
+        <location line="+60"/>
+        <source>Password can not be empty.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+24"/>
         <source>Repeat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+48"/>
+        <location line="+63"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2162,6 +2175,14 @@
     <message>
         <location line="+1"/>
         <source>Successfully updated, reboot to view.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PreviewWindow</name>
+    <message>
+        <location filename="../src/modules/personalization/widgets/PreviewWindow.qml" line="+280"/>
+        <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2261,7 +2282,7 @@
 <context>
     <name>ShortcutInput</name>
     <message>
-        <location filename="../src/modules/shortcuts/ShortcutInput.qml" line="+108"/>
+        <location filename="../src/modules/shortcuts/ShortcutInput.qml" line="+119"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2271,7 +2292,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+100"/>
+        <location line="+101"/>
         <source>Shortcut &quot;%1&quot; is invalid, please retype new shortcut.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2384,12 +2405,12 @@
 <context>
     <name>TimezoneArea</name>
     <message>
-        <location filename="../src/modules/date_time/TimezoneArea.qml" line="+239"/>
+        <location filename="../src/modules/date_time/TimezoneArea.qml" line="+253"/>
         <source>Time zone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+176"/>
+        <location line="+211"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2545,7 +2566,7 @@
 <context>
     <name>UserList</name>
     <message>
-        <location filename="../src/modules/account/UserList.qml" line="+222"/>
+        <location filename="../src/modules/account/UserList.qml" line="+228"/>
         <source>Administrator</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2557,6 +2578,24 @@
     <message>
         <location line="+11"/>
         <source>Image format not supported</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UserListCreatingItem</name>
+    <message>
+        <location filename="../src/modules/account/UserListCreatingItem.qml" line="+88"/>
+        <source>Normal User</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Administrator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Account Preparing...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2694,8 +2733,8 @@
     <message>
         <location filename="../src/modules/power/main.qml" line="+270"/>
         <location line="+193"/>
-        <location filename="../src/modules/shortcuts/main.qml" line="+53"/>
-        <location line="+180"/>
+        <location filename="../src/modules/shortcuts/main.qml" line="+54"/>
+        <location line="+177"/>
         <source>Custom</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2718,7 +2757,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/modules/date_time/main.qml" line="+108"/>
+        <location filename="../src/modules/date_time/main.qml" line="+130"/>
         <source>Automatic date and time</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2728,7 +2767,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+31"/>
         <source>Adjust DST clock </source>
         <translation type="unfinished"></translation>
     </message>
@@ -2743,12 +2782,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+24"/>
         <source>Set Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+27"/>
+        <location filename="../src/modules/display/main.qml" line="+193"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2823,18 +2863,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/modules/display/main.qml" line="+145"/>
-        <source>Return</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+77"/>
+        <location filename="../src/modules/display/main.qml" line="+0"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/modules/date_time/main.qml" line="-18"/>
-        <location filename="../src/modules/display/main.qml" line="-14"/>
+        <location filename="../src/modules/display/main.qml" line="-15"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2859,7 +2894,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/modules/keyboard/main.qml" line="+141"/>
+        <location filename="../src/modules/keyboard/main.qml" line="+149"/>
         <source>Repeat Delay</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2880,27 +2915,27 @@
     </message>
     <message>
         <location line="+15"/>
-        <location line="+27"/>
+        <location line="+26"/>
         <location filename="../src/modules/mouse_touchpad/main.qml" line="+134"/>
         <location line="+36"/>
         <source>Fast</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-26"/>
-        <location line="+27"/>
+        <location line="-25"/>
+        <location line="+26"/>
         <location filename="../src/modules/mouse_touchpad/main.qml" line="-37"/>
         <location line="+36"/>
         <source>Slow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-17"/>
+        <location line="-16"/>
         <source>Cursor Blink Rate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+26"/>
         <source>Test Area</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2910,12 +2945,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+211"/>
+        <location line="+217"/>
         <source>No result</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-237"/>
+        <location line="-243"/>
         <source>Caps Lock prompt</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2955,13 +2990,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/modules/personalization/main.qml" line="+112"/>
+        <location filename="../src/modules/personalization/main.qml" line="+111"/>
         <source>Theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+7"/>
-        <location filename="../src/modules/shortcuts/main.qml" line="-182"/>
+        <location filename="../src/modules/shortcuts/main.qml" line="-179"/>
         <source>Window</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3361,12 +3396,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/modules/account/main.qml" line="+95"/>
+        <location filename="../src/modules/account/main.qml" line="+98"/>
         <source>Delete Account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+38"/>
+        <location line="+40"/>
         <source>Add Account</source>
         <translation type="unfinished"></translation>
     </message>

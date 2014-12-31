@@ -135,7 +135,7 @@ Item {
 
                 DBaseExpand {
                     id:primaryArea
-                    visible: allMonitorsObjectsCount > 1
+                    visible: openedMonitors.length > 1
                     expanded:  visible && expandIndex == 1
                     onExpandedChanged: {
                         if(header.item){
@@ -154,7 +154,6 @@ Item {
                                 expandIndex = 1
                             }
                         }
-
                     }
 
                     content.sourceComponent: ListView {
@@ -162,11 +161,11 @@ Item {
                         width: parent.width
                         height: childrenRect.height
 
-                        model: allMonitorsObjectsCount
+                        model: openedMonitors.length
 
                         delegate: PrimaryScreenSelectItem {
                             primaryScreenName: displayId.primary
-                            pOutputObj:allMonitorsObjects[index]
+                            pOutputObj: openedMonitors[index]
                             pOutputObjName: pOutputObj.name
                             visible: !pOutputObj.isComposited
                             onSelectAction: {
@@ -263,7 +262,8 @@ Item {
                 DBaseExpand {
                     id:brightnessArea
                     visible: !singleBrightnessLine.visible
-                    height: visible ? childrenRect.height : 0
+                    height: visible ? childrenHeight : 0
+                    property int childrenHeight: childrenRect.height
                     expanded:  expandIndex == 4
                     onExpandedChanged: {
                         if(header.item){
@@ -311,7 +311,7 @@ Item {
                         width: 200
                         height: 28
 
-                        min: 0
+                        min: 0.1
                         max: 1.0
                         init: typeof(openedMonitors[0]) != "undefined" ? brightnessValues[openedMonitors[0].name] : max
                         valueDisplayVisible: false
