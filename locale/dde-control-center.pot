@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-29 12:29+0800\n"
+"POT-Creation-Date: 2015-01-07 14:39+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -113,7 +113,7 @@ msgstr ""
 #: ../src/modules/shortcuts/ShortcutInput.qml:355
 #: ../src/modules/date_time/TimeBox.qml:225
 #: ../src/modules/network/wireless/WifiHotspot.qml:82
-#: ../src/modules/date_time/main.qml:289 ../src/modules/display/main.qml:178
+#: ../src/modules/date_time/main.qml:289 ../src/modules/display/main.qml:179
 msgid "Cancel"
 msgstr ""
 
@@ -193,7 +193,7 @@ msgstr ""
 #: ../src/modules/account/DeleteUserDialog.qml:46
 #: ../src/modules/account/PasswordDialog.qml:262
 #: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:307
-#: ../src/modules/display/main.qml:193
+#: ../src/modules/display/main.qml:194
 msgid "Confirm"
 msgstr ""
 
@@ -501,7 +501,7 @@ msgstr ""
 
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:116
 #: ../src/modules/personalization/widgets/PreviewWindow.qml:280
-#: ../src/modules/display/main.qml:193
+#: ../src/modules/display/main.qml:194
 msgid "Apply"
 msgstr ""
 
@@ -1179,8 +1179,8 @@ msgstr ""
 msgid "Rotation"
 msgstr ""
 
-#: ../src/modules/display/MonitorProperties.qml:273
-#: ../src/modules/display/MonitorProperties.qml:305
+#: ../src/modules/display/MonitorProperties.qml:274
+#: ../src/modules/display/MonitorProperties.qml:306
 msgid "Brightness"
 msgstr ""
 
@@ -1568,7 +1568,7 @@ msgid "High performance"
 msgstr ""
 
 #: ../src/modules/date_time/main.qml:130
-msgid "Automatic date and time"
+msgid "Sync Automatically"
 msgstr ""
 
 #: ../src/modules/date_time/main.qml:148

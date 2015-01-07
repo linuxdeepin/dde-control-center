@@ -127,7 +127,7 @@ DFlickable {
 
         DSwitchButtonHeader {
             id: autoSetTimeBox
-            text: dsTr("Automatic date and time")
+            text: dsTr("Sync Automatically")
             width: parent.width
             height: showedTimezoneList ? 0 : 30
             visible: !showedTimezoneList
