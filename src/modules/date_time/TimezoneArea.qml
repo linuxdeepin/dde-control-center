@@ -88,9 +88,8 @@ Column {
         for (var i = 0; i < userTimezoneList.length; i ++){
             var tmpOffset = getOffsetByZone(userTimezoneList[i])
             if (tmpArray.indexOf(tmpOffset) == -1){//not exit,add it
-                tmpArray.push(getOffsetByZone(userTimezoneList[i]))
+                tmpArray.push(tmpOffset)
             }
-
         }
 
         return tmpArray
@@ -240,7 +239,7 @@ Column {
     Timer {
         id:delayUpdateTimer
         repeat: false
-        interval: 100
+        interval: 300
         running: false
         onTriggered: {
             userTimezoneListView.updateModel()
@@ -334,11 +333,11 @@ Column {
 
             function addToModel(){
                 for (var i = 0; i < userTimezoneList.length; i ++){
-                    if (!isInModel(userTimezoneList[i])){
+                    if (!isInModel(userTimezoneOffsetList[i])){
                         model.append({
                                          "timezone" : userTimezoneList[i]
                                      })
-                        addTimezoneListView.deleteFromMode(userTimezoneList[i])
+                        addTimezoneListView.deleteFromMode(userTimezoneOffsetList[i])
                     }
                 }
             }
@@ -354,11 +353,9 @@ Column {
                 return -1
             }
 
-            function isInModel(timezone){
-                var tmpOffset = getOffsetByZone(timezone)
-
+            function isInModel(timezoneOffset){
                 for (var i = 0 ; i < model.count; i ++){
-                    if (getOffsetByZone(model.get(i).timezone) == tmpOffset)
+                    if (getOffsetByZone(model.get(i).timezone) == timezoneOffset)
                         return true
                 }
 
@@ -436,8 +433,8 @@ Column {
                              })
             }
 
-            function deleteFromMode(timezone){
-                model.remove(getItemIndex(getOffsetByZone(timezone)))
+            function deleteFromMode(timezoneOffset){
+                model.remove(getItemIndex(timezoneOffset))
             }
 
             function getItemIndex(offset){
@@ -473,7 +470,9 @@ Column {
                 flickable: addTimezoneListView
             }
 
-            Component.onCompleted: fillModel()
+            Component.onCompleted: {
+                fillModel()
+            }
         }
     }
 }
