@@ -204,10 +204,10 @@ Item {
                         height: childrenRect.height
                         spacing: 5
 
-                        model: allMonitorsObjectsCount
+                        model: openedMonitors.length
 
                         delegate: ResolutionRectangle {
-                            pOutputObj:allMonitorsObjects[index]
+                            pOutputObj:openedMonitors[index]
                             pOutputObjName: pOutputObj.name
                             shouldShowMonitorName: pOutputObj.opened && openedMonitors.length > 1
                             itemIndex: index
@@ -245,10 +245,10 @@ Item {
                         height: childrenRect.height
                         spacing: 5
 
-                        model: allMonitorsObjectsCount
+                        model: openedMonitors.length
 
                         delegate: RotationRectangle {
-                            pOutputObj:allMonitorsObjects[index]
+                            pOutputObj:openedMonitors[index]
                             pOutputObjName: pOutputObj.name
                             shouldShowMonitorName: pOutputObj.opened && openedMonitors.length > 1
                             itemIndex: index

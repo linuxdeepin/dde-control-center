@@ -43,7 +43,8 @@ Item {
         return mode[1] + "x" + mode[2]
     }
 
-    Component.onCompleted: {
+    //if the name changed,it must be another monitor Object,data should be clear and reload
+    onPOutputObjNameChanged: {
         modesView.loadResolutionModel()
     }
 
@@ -82,8 +83,23 @@ Item {
         property string currentValue: (pOutputObj.width).toString() + "x" + (pOutputObj.height).toString()
         property var valueDict: new Object()
 
+        //pOutputObj.ListModes() maybe got nothing,try to reload data
+        //workaround here
+        Timer {
+            id:reloadDataTimer
+            interval: 1000
+            onTriggered: {
+                modesView.loadResolutionModel()
+            }
+        }
+
         function loadResolutionModel(){
             var modes = pOutputObj.ListModes()
+            if (pOutputObj.opened && modes.length == 0){
+                print (pOutputObj.name,"'s resolution is empty!reload data now...")
+                reloadDataTimer.start()
+            }
+
             modesView.model.clear()
             valueDict = new Object()
             for(var i=0; i<modes.length; i++){
