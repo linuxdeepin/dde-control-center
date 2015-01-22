@@ -3,6 +3,7 @@ import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
 import Deepin.Widgets 1.0
 import "wired"
+import "mobile"
 import "wireless"
 import "dsl"
 import "vpn"
@@ -15,6 +16,10 @@ Column {
 
     WiredDeviceArea{
         id: wiredArea
+    }
+
+    MobileDeviceArea {
+        id:mobileArea
     }
 
     WirelessDevicesArea{

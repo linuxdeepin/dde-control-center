@@ -13,6 +13,39 @@ BaseEditSection {
 
     content.sourceComponent: Column { 
         EditLineComboBox {
+            id: lineVsMobileVkMobileCountry
+            connectionSession: sectionMobile.connectionSession
+            availableSections: sectionMobile.availableSections
+            availableKeys: sectionMobile.availableKeys
+            errors: sectionMobile.errors
+            section: "vs-mobile"
+            key: "vk-mobile-country"
+            text: dsTr("Country or region")
+            alwaysUpdate: true
+        }
+        EditLineComboBox {
+            id: lineVsMobileVkMobileProvider
+            connectionSession: sectionMobile.connectionSession
+            availableSections: sectionMobile.availableSections
+            availableKeys: sectionMobile.availableKeys
+            errors: sectionMobile.errors
+            section: "vs-mobile"
+            key: "vk-mobile-provider"
+            text: dsTr("Provider")
+            alwaysUpdate: true
+        }
+        EditLineComboBox {
+            id: lineVsMobileVkMobilePlan
+            connectionSession: sectionMobile.connectionSession
+            availableSections: sectionMobile.availableSections
+            availableKeys: sectionMobile.availableKeys
+            errors: sectionMobile.errors
+            section: "vs-mobile"
+            key: "vk-mobile-plan"
+            text: dsTr("Plan")
+            alwaysUpdate: true
+        }
+        EditLineComboBox {
             id: lineVsMobileVkMobileServiceType
             connectionSession: sectionMobile.connectionSession
             availableSections: sectionMobile.availableSections
@@ -21,8 +54,20 @@ BaseEditSection {
             section: "vs-mobile"
             key: "vk-mobile-service-type"
             text: dsTr("Service Type")
+            alwaysUpdate: true
         }
-        EditLineEditComboBox {
+        EditLineLabel {
+            id: lineVsMobileVkGsmApnReadonly
+            connectionSession: sectionMobile.connectionSession
+            availableSections: sectionMobile.availableSections
+            availableKeys: sectionMobile.availableKeys
+            errors: sectionMobile.errors
+            section: "vs-mobile"
+            key: "vk-gsm-apn-readonly"
+            text: dsTr("APN")
+            alwaysUpdate: true
+        }
+        EditLineTextInput {
             id: lineGsmApn
             connectionSession: sectionMobile.connectionSession
             availableSections: sectionMobile.availableSections

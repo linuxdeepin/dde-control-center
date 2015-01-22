@@ -3,7 +3,7 @@ import Deepin.Widgets 1.0
 
 BaseEditLine {
     id: root
-    
+
     rightLoader.sourceComponent: DTextInput{
         id: textInput
         activeFocusOnTab: true
@@ -21,7 +21,5 @@ BaseEditLine {
         onTextChanged: {
             setKey(text)
         }
-
     }
 }
-

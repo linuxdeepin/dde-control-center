@@ -5,6 +5,14 @@ import "edit_autogen"
 BaseConnectionEdit {
     id: editPage
     signal shouldCleanPasswd()
+
+    property bool connectionAllowDelete: {
+        if (connectionSession.allowDelete == undefined)
+            return false
+        else
+            return connectionSession.allowDelete
+    }
+
     ParallelAnimation {
         id: showDelete
         NumberAnimation {
@@ -39,7 +47,7 @@ BaseConnectionEdit {
 
     Column {
         width: parent.width
-        visible: editPage.connectionPath !== undefined && connectionSession.type != nmConnectionTypeWired
+        visible: editPage.connectionPath !== undefined && connectionAllowDelete
         DBaseLine {
             id: deleteSettingLine
             color: dconstants.contentBgColor

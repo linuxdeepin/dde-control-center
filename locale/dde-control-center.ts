@@ -520,7 +520,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+11"/>
         <location line="+10"/>
         <source>Automatically connect</source>
         <translation type="unfinished"></translation>
@@ -629,7 +629,7 @@
 <context>
     <name>ConnectionEdit</name>
     <message>
-        <location filename="../src/modules/network/ConnectionEdit.qml" line="+52"/>
+        <location filename="../src/modules/network/ConnectionEdit.qml" line="+60"/>
         <source>Delete this network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -825,11 +825,27 @@
     </message>
     <message>
         <location line="+12"/>
+        <source>Country or region</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Provider</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Plan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
         <source>Service Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+11"/>
+        <location line="+11"/>
         <source>APN</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1750,7 +1766,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+9"/>
         <source>Security</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1771,7 +1787,7 @@
     </message>
     <message>
         <location line="+1"/>
-        <source>Route Addr</source>
+        <source>Gateway</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1828,6 +1844,14 @@
     <message>
         <location line="-12"/>
         <source>Revert</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MobileItem</name>
+    <message>
+        <location filename="../src/modules/network/mobile/MobileItem.qml" line="+27"/>
+        <source>Restore the connection</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

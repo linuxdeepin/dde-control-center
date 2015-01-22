@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-07 14:39+0800\n"
+"POT-Creation-Date: 2015-02-27 22:30+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,8 +37,8 @@ msgstr ""
 #: ../src/modules/network/add/AddVpn.qml:254
 #: ../src/modules/network/add/AddVpn.qml:394
 #: ../src/modules/network/add/AddVpn.qml:434
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:53
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:123
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:98
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:168
 #: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:23
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:44
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:184
@@ -62,8 +62,8 @@ msgstr ""
 #: ../src/modules/network/add/AddVpn.qml:414
 #: ../src/modules/network/wireless/AddWireless.qml:64
 #: ../src/modules/network/wireless/AddWireless.qml:186
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:63
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:133
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:108
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:178
 #: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:43
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:53
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:175
@@ -82,19 +82,20 @@ msgid "New Mobile Connection"
 msgstr ""
 
 #: ../src/modules/network/add/AddMobile.qml:45
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:23
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:56
 msgid "Service Type"
 msgstr ""
 
 #: ../src/modules/network/add/AddMobile.qml:55
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:33
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:67
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:78
 msgid "APN"
 msgstr ""
 
 #: ../src/modules/network/add/AddMobile.qml:65
 #: ../src/modules/network/add/AddMobile.qml:95
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:43
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:113
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:88
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:158
 msgid "Number"
 msgstr ""
 
@@ -103,11 +104,11 @@ msgstr ""
 #: ../src/modules/network/wireless/AddWireless.qml:216
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:104
 #: ../src/modules/network/ConnectionAdd.qml:69
-#: ../src/modules/network/ConnectionEdit.qml:102
-#: ../src/modules/network/ConnectionEdit.qml:150
+#: ../src/modules/network/ConnectionEdit.qml:110
+#: ../src/modules/network/ConnectionEdit.qml:158
 #: ../src/modules/shortcuts/CustomKeybinding.qml:151
 #: ../src/modules/account/DeleteUserDialog.qml:33
-#: ../src/modules/network/Info.qml:79
+#: ../src/modules/network/Info.qml:85
 #: ../src/modules/network/widgets/PasswordBox.qml:118
 #: ../src/modules/account/PasswordDialog.qml:248
 #: ../src/modules/shortcuts/ShortcutInput.qml:355
@@ -242,6 +243,7 @@ msgstr ""
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:164
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:314
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:364
+#: ../src/modules/network/Info.qml:63
 msgid "Gateway"
 msgstr ""
 
@@ -415,7 +417,7 @@ msgstr ""
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:33
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:33
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:33
-#: ../src/modules/network/Info.qml:53
+#: ../src/modules/network/Info.qml:59
 #: ../src/modules/network/wireless/WifiHotspot.qml:49
 msgid "Security"
 msgstr ""
@@ -494,8 +496,8 @@ msgstr ""
 msgid "Right"
 msgstr ""
 
-#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:43
-#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:53
+#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:44
+#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:54
 msgid "Automatically connect"
 msgstr ""
 
@@ -568,20 +570,20 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: ../src/modules/network/ConnectionEdit.qml:52
+#: ../src/modules/network/ConnectionEdit.qml:60
 msgid "Delete this network"
 msgstr ""
 
-#: ../src/modules/network/ConnectionEdit.qml:52
+#: ../src/modules/network/ConnectionEdit.qml:60
 msgid "Are you sure you want to delete this network?"
 msgstr ""
 
-#: ../src/modules/network/ConnectionEdit.qml:110
+#: ../src/modules/network/ConnectionEdit.qml:118
 #: ../src/modules/network/wireless/WifiHotspot.qml:91
 msgid "Save"
 msgstr ""
 
-#: ../src/modules/network/ConnectionEdit.qml:135
+#: ../src/modules/network/ConnectionEdit.qml:143
 msgid "Delete"
 msgstr ""
 
@@ -647,7 +649,7 @@ msgstr ""
 
 #: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:33
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:33
-#: ../src/modules/network/Info.qml:55
+#: ../src/modules/network/Info.qml:61
 msgid "IP Address"
 msgstr ""
 
@@ -673,19 +675,31 @@ msgstr ""
 msgid "Mobile"
 msgstr ""
 
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:73
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:23
+msgid "Country or region"
+msgstr ""
+
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:34
+msgid "Provider"
+msgstr ""
+
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:45
+msgid "Plan"
+msgstr ""
+
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:118
 msgid "Network ID"
 msgstr ""
 
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:83
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:128
 msgid "Type"
 msgstr ""
 
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:93
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:138
 msgid "Home Network Only"
 msgstr ""
 
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:103
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:148
 msgid "PIN"
 msgstr ""
 
@@ -994,31 +1008,27 @@ msgstr ""
 msgid "Interface"
 msgstr ""
 
-#: ../src/modules/network/Info.qml:54
+#: ../src/modules/network/Info.qml:60
 msgid "Device Addr"
 msgstr ""
 
-#: ../src/modules/network/Info.qml:56
+#: ../src/modules/network/Info.qml:62
 msgid "Subnet Mask"
 msgstr ""
 
-#: ../src/modules/network/Info.qml:57
-msgid "Route Addr"
-msgstr ""
-
-#: ../src/modules/network/Info.qml:58
+#: ../src/modules/network/Info.qml:64
 msgid "Primary DNS"
 msgstr ""
 
-#: ../src/modules/network/Info.qml:59
+#: ../src/modules/network/Info.qml:65
 msgid "Secondary DNS"
 msgstr ""
 
-#: ../src/modules/network/Info.qml:60
+#: ../src/modules/network/Info.qml:66
 msgid "Third DNS"
 msgstr ""
 
-#: ../src/modules/network/Info.qml:69
+#: ../src/modules/network/Info.qml:75
 msgid "Device Speed"
 msgstr ""
 
@@ -1043,6 +1053,10 @@ msgstr ""
 
 #: ../src/modules/display/MessageBox.qml:128
 msgid "Revert"
+msgstr ""
+
+#: ../src/modules/network/mobile/MobileItem.qml:27
+msgid "Restore the connection"
 msgstr ""
 
 #: ../src/views/ModulesData.qml:52

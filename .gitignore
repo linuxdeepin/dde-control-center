@@ -18,3 +18,8 @@ qt5frame/qrc_*
 qt5frame/Makefile
 qt5frame/dde-control-center
 .gitreview
+src/Makefile.control-center
+src/dde-control-center
+src/*.o
+src/moc_*
+src/qrc_*

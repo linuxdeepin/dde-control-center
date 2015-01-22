@@ -39,11 +39,15 @@ Item {
 
     DssH2 {
         id: label
+        width: parent.width - 10
+        height: parent.height
         anchors.left: parent.left
         anchors.leftMargin: 5
         anchors.verticalCenter: parent.verticalCenter
         text: "text " + index
         color: wrapper.ListView.view.currentIndex == index ? dconstants.activeColor : dconstants.fgColor
+        elide: Text.ElideRight
+        verticalAlignment: Text.AlignVCenter
     }
 
     MouseArea {

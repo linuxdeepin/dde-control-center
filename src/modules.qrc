@@ -778,12 +778,16 @@
         <file>modules/network/edit/EditLineSwitchButton.qml</file>
         <file>modules/network/edit/EditDownArrowHeader.qml</file>
         <file>modules/network/edit/EditLineIpv4Input.qml</file>
+        <file>modules/network/edit/EditLineLabel.qml</file>
         <file>modules/network/add/AddMobile.qml</file>
         <file>modules/network/add/AddVpn.qml</file>
         <file>modules/network/add/AddSectionSave.qml</file>
         <file>modules/network/add/AddDsl.qml</file>
         <file>modules/network/vpn/VpnExpand.qml</file>
         <file>modules/network/vpn/VpnItem.qml</file>
+        <file>modules/network/mobile/MobileDeviceArea.qml</file>
+        <file>modules/network/mobile/MobileDeviceExpand.qml</file>
+        <file>modules/network/mobile/MobileItem.qml</file>
         <file>modules/network/widgets/Ipv4Dot.qml</file>
         <file>modules/network/widgets/NotManagedSection.qml</file>
         <file>modules/network/widgets/PasswordBox.qml</file>

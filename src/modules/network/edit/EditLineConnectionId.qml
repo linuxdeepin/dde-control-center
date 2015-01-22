@@ -9,6 +9,7 @@ BaseEditLine {
             activeFocusOnTab: true
             width: valueWidth
             visible: connectionSession.type != nmConnectionTypeWired
+            state: root.showError ? "warning" : "normal"
             Binding on text {
                 when: root.cacheValue != undefined
                 value: root.cacheValue
@@ -29,4 +30,3 @@ BaseEditLine {
         }
     }
 }
-
