@@ -12,12 +12,10 @@
         <file>views/DRectangle.qml</file>
         <file>views/CloseButton.qml</file>
         <file>views/Menu.qml</file>
-        <file>views/ButtonToolTip.qml</file>
         <file>views/NumberTip.qml</file>
         <file>views/ModuleIconItem.qml</file>
         <file>views/RectWithCorner.qml</file>
         <file>views/InnerIconTip.qml</file>
-        <file>views/ConfluentToolTip.qml</file>
         <file>views/MenuItem.qml</file>
         <file>views/IconTip.qml</file>
         <file>views/ModulesData.qml</file>
@@ -77,13 +75,11 @@
         <file>views/images/shadow.png</file>
         <file>views/images/shutdown_bg.png</file>
         <file>views/images/window_close.png</file>
-        <file>views/images/confluent_back.png</file>
         <file>views/images/shutdown_hover.png</file>
         <file>views/images/tooltip_left.png</file>
         <file>views/images/triangle.png</file>
         <file>views/images/tooltip_middle.png</file>
         <file>views/images/tooltip_right.png</file>
-        <file>views/images/circle.png</file>
         <file>views/small_icons/network_hover.png</file>
         <file>views/small_icons/home_normal.png</file>
         <file>views/small_icons/shutdown_normal.png</file>

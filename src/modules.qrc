@@ -950,5 +950,6 @@
         <file>modules/system_info/InfoItem.qml</file>
         <file>modules/system_info/SepratorHorizontal.qml</file>
         <file>modules/system_info/images/logo.png</file>
+        <file>modules/shared/ItemTooltip.qml</file>
     </qresource>
 </RCC>

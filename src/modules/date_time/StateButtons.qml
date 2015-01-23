@@ -25,6 +25,7 @@ import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import Deepin.Widgets 1.0
+import "../shared"
 
 Item {
     id: stateButtons
@@ -36,6 +37,10 @@ Item {
     property string currentActionStateName: ""
     property alias deleteButton: deleteButton
     property alias addButton: addButton
+
+    function hideTooltip(){
+        dateTimeTooltip.hideTipImmediately()
+    }
 
     DTextButton {
         id: completeButton
@@ -51,6 +56,16 @@ Item {
         }
     }
 
+    ItemTooltip {
+        id:dateTimeTooltip
+        anchors.right: actionButtons.left
+        anchors.rightMargin: 5
+        anchors.verticalCenter: parent.verticalCenter
+        width: 200
+        delayShowInterval: 500
+        textItem.font.pixelSize: 12
+    }
+
     Row {
         id: actionButtons
         anchors.verticalCenter: parent.verticalCenter
@@ -63,15 +78,15 @@ Item {
             id: deleteButton
             onClicked: {
                 stateButtons.currentActionStateName = "deleteButton"
-                gButtonToolTip.visible = false
+                dateTimeTooltip.hideTipImmediately()
             }
             onStateChanged: {
-                var mapX = - deleteButton.mapFromItem(timezoneArea,0,0).x
-                var mapY = - deleteButton.mapFromItem(dateTimeModule,0,0).y
-                if (state == "hovered" && visible)
-                    gButtonToolTip.showToolTip(mapX + 45 + 10,mapY + 3,dsTr("Delete Time Zone"))
+                if (state == "hovered" && visible){
+                    dateTimeTooltip.tooltip = dsTr("Delete Time Zone")
+                    dateTimeTooltip.showTip()
+                }
                 else
-                    gButtonToolTip.hideToolTip()
+                    dateTimeTooltip.hideTip()
             }
         }
 
@@ -79,15 +94,15 @@ Item {
             id: addButton
             onClicked: {
                 stateButtons.currentActionStateName = "addButton"
-                gButtonToolTip.visible = false
+                dateTimeTooltip.hideTipImmediately()
             }
             onStateChanged: {
-                var mapX = - deleteButton.mapFromItem(timezoneArea,0,0).x
-                var mapY = - deleteButton.mapFromItem(dateTimeModule,0,0).y
-                if (state == "hovered" && visible)
-                    gButtonToolTip.showToolTip(mapX + 45 + 10,mapY + 3,dsTr("Add Time Zone"))
+                if (state == "hovered" && visible){
+                    dateTimeTooltip.tooltip = dsTr("Add Time Zone")
+                    dateTimeTooltip.showTip()
+                }
                 else
-                    gButtonToolTip.hideToolTip()
+                    dateTimeTooltip.hideTip()
             }
         }
     }

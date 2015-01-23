@@ -234,7 +234,11 @@ Column {
         delayUpdateTimer.start()
     }
 
-    onHeightChanged: gButtonToolTip.hideToolTip()
+    //Avoid show tooltip Inadvertently
+    onHeightChanged: {
+        if (titleLine.rightLoader.item != null)
+            titleLine.rightLoader.item.hideTooltip()
+    }
 
     Timer {
         id:delayUpdateTimer

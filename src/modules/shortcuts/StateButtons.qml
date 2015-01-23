@@ -25,6 +25,7 @@ import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import Deepin.Widgets 1.0
+import "../shared"
 
 Item {
     id: stateButtons
@@ -55,6 +56,17 @@ Item {
         }
     }
 
+
+    ItemTooltip {
+        id:shortcutsTooltip
+        anchors.right: actionButtons.left
+        anchors.rightMargin: 5
+        anchors.verticalCenter: parent.verticalCenter
+        width: 200
+        delayShowInterval: 500
+        textItem.font.pixelSize: 12
+    }
+
     Row {
         id: actionButtons
         anchors.verticalCenter: parent.verticalCenter
@@ -71,15 +83,16 @@ Item {
             id: deleteButton
             onClicked: {
                 stateButtons.currentActionStateName = "deleteButton"
-                gButtonToolTip.visible = false
+                shortcutsTooltip.hideTipImmediately()
             }
             onStateChanged: {
-                var mapX = - deleteButton.mapFromItem(shortcutsModule,0,0).x
-                var mapY = - deleteButton.mapFromItem(shortcutsModule,0,0).y
-                if (state == "hovered" && visible)
-                    gButtonToolTip.showToolTip(mapX + 45 + 10,mapY + 3,dsTr("Delete Shortcut"))
+                if (state == "hovered" && visible){
+                    shortcutsTooltip.tooltip = dsTr("Delete Shortcut")
+                    shortcutsTooltip.showTip()
+                }
+
                 else
-                    gButtonToolTip.hideToolTip()
+                    shortcutsTooltip.hideTip()
             }
         }
 
@@ -87,15 +100,15 @@ Item {
             id: addButton
             onClicked: {
                 stateButtons.currentActionStateName = "addButton"
-                gButtonToolTip.visible = false
+                shortcutsTooltip.hideTipImmediately()
             }
             onStateChanged: {
-                var mapX = - deleteButton.mapFromItem(shortcutsModule,0,0).x
-                var mapY = - deleteButton.mapFromItem(shortcutsModule,0,0).y
-                if (state == "hovered" && visible)
-                    gButtonToolTip.showToolTip(mapX + 45 + 10,mapY + 3,dsTr("Add Shortcut"))
+                if (state == "hovered" && visible){
+                    shortcutsTooltip.tooltip = dsTr("Add Shortcut")
+                    shortcutsTooltip.showTip()
+                }
                 else
-                    gButtonToolTip.hideToolTip()
+                    shortcutsTooltip.hideTip()
             }
         }
     }

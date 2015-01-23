@@ -20,49 +20,49 @@ Rectangle {
 
     function timeoutToIndex(timeout) {
         switch (timeout) {
-            case 60 * 1: return 0; break
-            case 60 * 5: return 1; break
-            case 60 * 10: return 2; break
-            case 60 * 15: return 3; break
-            case 60 * 30: return 4; break
-            case 60 * 60: return 5; break
-            default: return 6
+        case 60 * 1: return 0; break
+        case 60 * 5: return 1; break
+        case 60 * 10: return 2; break
+        case 60 * 15: return 3; break
+        case 60 * 30: return 4; break
+        case 60 * 60: return 5; break
+        default: return 6
         }
     }
 
     function indexToTimeout(idx) {
         switch (idx) {
-            case 0: return 60 * 1; break
-            case 1: return 60 * 5; break
-            case 2: return 60 * 10; break
-            case 3: return 60 * 15; break
-            case 4: return 60 * 30; break
-            case 5: return 60 * 60; break
-            case 6: return 0
+        case 0: return 60 * 1; break
+        case 1: return 60 * 5; break
+        case 2: return 60 * 10; break
+        case 3: return 60 * 15; break
+        case 4: return 60 * 30; break
+        case 5: return 60 * 60; break
+        case 6: return 0
         }
     }
 
     function indexToLabel(idx) {
         switch (idx) {
-            case 0: return "1m"; break
-            case 1: return "5m"; break
-            case 2: return "10m"; break
-            case 3: return "15m"; break
-            case 4: return "30m"; break
-            case 5: return "1h"; break
-            case 6: return dsTr("Never")
+        case 0: return "1m"; break
+        case 1: return "5m"; break
+        case 2: return "10m"; break
+        case 3: return "15m"; break
+        case 4: return "30m"; break
+        case 5: return "1h"; break
+        case 6: return dsTr("Never")
         }
     }
 
     function indexToText(idx) {
         switch (idx) {
-            case 0: return dsTr("1 minute"); break
-            case 1: return dsTr("5 minutes"); break
-            case 2: return dsTr("10 minutes"); break
-            case 3: return dsTr("15 minutes"); break
-            case 4: return dsTr("30 minutes"); break
-            case 5: return dsTr("1 hour"); break
-            case 6: return dsTr("Never")
+        case 0: return dsTr("1 minute"); break
+        case 1: return dsTr("5 minutes"); break
+        case 2: return dsTr("10 minutes"); break
+        case 3: return dsTr("15 minutes"); break
+        case 4: return dsTr("30 minutes"); break
+        case 5: return dsTr("1 hour"); break
+        case 6: return dsTr("Never")
         }
     }
 
@@ -73,7 +73,6 @@ Rectangle {
             return ""
         }
     }
-
 
     Item {
         id:titleItem
@@ -226,20 +225,70 @@ Rectangle {
             DSeparatorHorizontal{}
 
 
-            DBaseLine{}
             DBaseExpand {
                 id: power_plan_ac_rect
-                property bool shouldHideTitle: false
                 expanded: true
+
+                signal showTooltip(string tip)
+                signal hideTooltip()
+                signal hideTooltipImmediately()
+
+                headerRect.height: 28 * 2//double base height for show tooltip
                 header.sourceComponent: DBaseLine {
-                    leftLoader.sourceComponent: DssH2 {
-                        visible: !power_plan_ac_rect.shouldHideTitle
-                        text: dsTr("Plugged in")
+                    leftLoader.sourceComponent: Item {
+                        width: power_plan_ac_rect.width
+                        height: 28 * 2
+
+
+                        DssH2 {
+                            id:powerPlanAcTitle
+                            anchors.left: parent.left
+                            anchors.bottom: parent.bottom
+                            anchors.bottomMargin: 10
+                            text: dsTr("Plugged in")
+
+                            Behavior on opacity{
+                                PropertyAnimation { duration: 300 }
+                            }
+                        }
+
+                        ItemTooltip {
+                            id:itemTooltip
+                            anchors.right: parent.right
+                            anchors.rightMargin: 35
+                            anchors.bottom: parent.bottom
+                            anchors.bottomMargin: 10
+                            width: power_plan_ac_rect.width
+                            delayShowInterval: 500
+                            textItem.font.pixelSize: 12
+
+                            onShow: {
+                                if (tipLength > parent.width - powerPlanAcTitle.width - 30){
+                                    powerPlanAcTitle.opacity = 0
+                                }
+                            }
+
+                            Connections {
+                                target: power_plan_ac_rect
+                                onShowTooltip:{
+                                    itemTooltip.tooltip = tip
+                                    itemTooltip.showTip()
+                                }
+                                onHideTooltip:{
+                                    itemTooltip.hideTip()
+                                    powerPlanAcTitle.opacity = 1
+                                }
+                                onHideTooltipImmediately:{
+                                    itemTooltip.hideTipImmediately()
+                                    powerPlanAcTitle.opacity = 1
+                                }
+                            }
+                        }
                     }
                 }
                 content.sourceComponent: Column {
                     GridView{
-                        id: power_plan
+                        id: power_plan_ac
                         width: parent.width
                         height: 30 * 2
 
@@ -247,30 +296,30 @@ Rectangle {
                         cellHeight: 30
 
                         model: {
-                            var model = listModelComponent.createObject(power_plan, {})
+                            var model = listModelComponent.createObject(power_plan_ac, {})
                             model.append({
                                              "item_label": dsTr("Balanced"),
                                              "item_value": 2,
                                              "item_tooltip": dsTr("Turn off the display") + ": " + formatTime(planInfo.PowerLine.Balanced[0]) + "\n" +
-                                             dsTr("Suspend") + ": " + formatTime(planInfo.PowerLine.Balanced[1])
+                                                             dsTr("Suspend") + ": " + formatTime(planInfo.PowerLine.Balanced[1])
                                          })
                             model.append({
                                              "item_label": dsTr("Power saver"),
                                              "item_value": 1,
                                              "item_tooltip": dsTr("Turn off the display") + ": " + formatTime(planInfo.PowerLine.PowerSaver[0]) + "\n" +
-                                             dsTr("Suspend") + ": " + formatTime(planInfo.PowerLine.PowerSaver[1])
+                                                             dsTr("Suspend") + ": " + formatTime(planInfo.PowerLine.PowerSaver[1])
                                          })
                             model.append({
                                              "item_label": dsTr("High performance"),
                                              "item_value": 3,
                                              "item_tooltip": dsTr("Turn off the display") + ": " + formatTime(planInfo.PowerLine.HighPerformance[0]) + "\n" +
-                                             dsTr("Suspend") + ": " + formatTime(planInfo.PowerLine.HighPerformance[1])
+                                                             dsTr("Suspend") + ": " + formatTime(planInfo.PowerLine.HighPerformance[1])
                                          })
                             model.append({
                                              "item_label": dsTr("Custom"),
                                              "item_value": 0,
                                              "item_tooltip": dsTr("Turn off the display") + ": " + formatTime(planInfo.PowerLine.Custom[0]) + "\n" +
-                                             dsTr("Suspend") + ": " + formatTime(planInfo.PowerLine.Custom[1])
+                                                             dsTr("Suspend") + ": " + formatTime(planInfo.PowerLine.Custom[1])
                                          })
                             return model
                         }
@@ -281,13 +330,12 @@ Rectangle {
                                 dbus_power.linePowerPlan = itemValue
                             }
                             onItemEnter: {
-                                var mapY = - power_plan_ac_rect.mapFromItem(power,0,0).y
-                                gButtonToolTip.showToolTip(362,mapY + 6,tooltip.replace(/[\r\n]/g,"  "))
+                                power_plan_ac_rect.hideTooltipImmediately()
+                                power_plan_ac_rect.showTooltip(tooltip.replace(/[\r\n]/g,"  "))
                             }
 
                             onItemExist: {
-                                power_plan_ac_rect.shouldHideTitle = false
-                                gButtonToolTip.hideToolTip()
+                                power_plan_ac_rect.hideTooltip()
                             }
                         }
                     }
@@ -425,14 +473,63 @@ Rectangle {
                 id: power_plan_battery_rect
                 visible: dbus_power.batteryIsPresent
                 expanded: true
+
+                signal showTooltip(string tip)
+                signal hideTooltip()
+                signal hideTooltipImmediately()
+
                 header.sourceComponent: DBaseLine {
-                    leftLoader.sourceComponent: DssH2 {
-                        text: dsTr("On battery")
+                    leftLoader.sourceComponent: Item {
+                        width: power_plan_battery_rect.width
+                        height: 30
+
+                        DssH2 {
+                            id:powerPlanBatteryTitle
+                            anchors.left: parent.left
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: dsTr("On battery")
+
+                            Behavior on opacity{
+                                PropertyAnimation { duration: 300 }
+                            }
+                        }
+
+                        ItemTooltip {
+                            id:itemTooltipBettery
+                            anchors.right: parent.right
+                            anchors.rightMargin: 35
+                            anchors.verticalCenter: parent.verticalCenter
+                            width: power_plan_battery_rect.width
+                            delayShowInterval: 500
+                            textItem.font.pixelSize: 12
+
+                            onShow: {
+                                if (tipLength > 200){
+                                    powerPlanBatteryTitle.opacity = 0
+                                }
+                            }
+
+                            Connections {
+                                target: power_plan_battery_rect
+                                onShowTooltip:{
+                                    itemTooltipBettery.tooltip = tip
+                                    itemTooltipBettery.showTip()
+                                }
+                                onHideTooltip:{
+                                    itemTooltipBettery.hideTip()
+                                    powerPlanBatteryTitle.opacity = 1
+                                }
+                                onHideTooltipImmediately:{
+                                    itemTooltipBettery.hideTipImmediately()
+                                    powerPlanBatteryTitle.opacity = 1
+                                }
+                            }
+                        }
                     }
                 }
                 content.sourceComponent: Column {
                     GridView{
-                        id: power_plan
+                        id: power_plan_bettery
                         width: parent.width
                         height: 30 * 2
 
@@ -440,30 +537,30 @@ Rectangle {
                         cellHeight: 30
 
                         model: {
-                            var model = listModelComponent.createObject(power_plan, {})
+                            var model = listModelComponent.createObject(power_plan_bettery, {})
                             model.append({
                                              "item_label": dsTr("Balanced"),
                                              "item_value": 2,
                                              "item_tooltip": dsTr("Turn off the display") + ": " + formatTime(planInfo.Battery.Balanced[0]) + "\n" +
-                                             dsTr("Suspend") + ": " + formatTime(planInfo.Battery.Balanced[1])
+                                                             dsTr("Suspend") + ": " + formatTime(planInfo.Battery.Balanced[1])
                                          })
                             model.append({
                                              "item_label": dsTr("Power saver"),
                                              "item_value": 1,
                                              "item_tooltip": dsTr("Turn off the display") + ": " + formatTime(planInfo.Battery.PowerSaver[0]) + "\n" +
-                                             dsTr("Suspend") + ": " + formatTime(planInfo.Battery.PowerSaver[1])
+                                                             dsTr("Suspend") + ": " + formatTime(planInfo.Battery.PowerSaver[1])
                                          })
                             model.append({
                                              "item_label": dsTr("High performance"),
                                              "item_value": 3,
                                              "item_tooltip": dsTr("Turn off the display") + ": " + formatTime(planInfo.Battery.HighPerformance[0]) + "\n" +
-                                             dsTr("Suspend") + ": " + formatTime(planInfo.Battery.HighPerformance[1])
+                                                             dsTr("Suspend") + ": " + formatTime(planInfo.Battery.HighPerformance[1])
                                          })
                             model.append({
                                              "item_label": dsTr("Custom"),
                                              "item_value": 0,
                                              "item_tooltip": dsTr("Turn off the display") + ": " + formatTime(planInfo.Battery.Custom[0]) + "\n" +
-                                             dsTr("Suspend") + ": " + formatTime(planInfo.Battery.Custom[1])
+                                                             dsTr("Suspend") + ": " + formatTime(planInfo.Battery.Custom[1])
                                          })
                             return model
                         }
@@ -474,13 +571,12 @@ Rectangle {
                                 dbus_power.batteryPlan = itemValue
                             }
                             onItemEnter: {
-                                var mapY = - power_plan_battery_rect.mapFromItem(power,0,0).y
-                                gButtonToolTip.showToolTip(362,mapY + 6,tooltip.replace(/[\r\n]/g,"  "))
+                                power_plan_battery_rect.hideTooltipImmediately()
+                                power_plan_battery_rect.showTooltip(tooltip.replace(/[\r\n]/g,"  "))
                             }
 
                             onItemExist: {
-                                power_plan_ac_rect.shouldHideTitle = false
-                                gButtonToolTip.hideToolTip()
+                                power_plan_battery_rect.hideTooltip()
                             }
                         }
                     }
@@ -601,7 +697,6 @@ Rectangle {
                 }
             }
             DSeparatorHorizontal {}
-            DBaseLine {}
         }
     }
 }
