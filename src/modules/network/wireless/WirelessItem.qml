@@ -23,6 +23,8 @@ Item {
     property bool masterApSecuredInEap: masterApInfo.SecuredInEap
     property int masterApStrength: masterApInfo.Strength
 
+    signal activateAccessPoint()
+
     function updateMasterApInfoWhenActivatingAp() {
         if (!apInfos) {
             // wireless item is removed
@@ -138,7 +140,7 @@ Item {
             z: -1
             anchors.fill:parent
             hoverEnabled: true
-            visible: !networkModule.inPasswordInputting
+//            visible: !networkModule.inPasswordInputting
 
             onEntered: {
                 parent.hovered = true
@@ -152,6 +154,7 @@ Item {
                 if(!apConnected){
                     print("==> ActivateAccessPoint", uuid, masterApPath, devicePath)
                     activateWirelessConnection()
+                    wirelessItem.activateAccessPoint()
                     // TODO show waiting image imediately
                     // wirelessLine.leftLoader.item.waitingImageOn = true
                 }
@@ -250,5 +253,13 @@ Item {
         anchors.top: wirelessLine.bottom
         anchors.topMargin: 0 - arrowHeight
         path: wirelessItem.connectionPath
+
+        //other item clicked,hide itself password window
+        Connections {
+            target: wirelessDeviceBox
+            onActivateAccessPoint: {
+                passwordArea.cancelAction()
+            }
+        }
     }
 }

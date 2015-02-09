@@ -18,6 +18,8 @@ Item {
     property bool isUsbDevice: false
     property string activeAp: "/"
 
+    signal activateAccessPoint()
+
     function getDeviceTitle() {
         if (isUsbDevice && deviceVendor) {
             return deviceVendor
@@ -142,6 +144,9 @@ Item {
                     deviceHwAddress: wirelessDeviceBox.deviceHwAddress
                     activeAp: wirelessDeviceBox.activeAp
                     deviceState: wirelessDeviceBox.deviceState
+                    onActivateAccessPoint: {
+                        wirelessDeviceBox.activateAccessPoint()
+                    }
                 }
             }
 
