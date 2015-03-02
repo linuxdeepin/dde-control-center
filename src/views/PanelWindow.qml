@@ -229,14 +229,6 @@ DOverrideWindow {
         }
     }
 
-    ButtonToolTip {
-        id:gButtonToolTip
-        animationDuration: 300
-        autoHideInterval: -1
-        delayShowInterval: 500
-        z:1
-    }
-
     Rectangle {
         id: frame
         color: dconstants.bgColor

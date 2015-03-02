@@ -2,6 +2,7 @@ import QtQuick 2.1
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Accounts 1.0
 import DBus.Com.Deepin.SessionManager 1.0
+import "../shared"
 
 Rectangle {
     id: root
@@ -59,6 +60,16 @@ Rectangle {
             id: module_title
             text: modulesId.moduleLocaleNames["account"]
 
+            ItemTooltip {
+                id:userTooltip
+                anchors.right: buttonRow.left
+                anchors.rightMargin: 5
+                anchors.verticalCenter: parent.verticalCenter
+                width: module_title.width / 2
+                delayShowInterval: 500
+                textItem.font.pixelSize: 12
+            }
+
             Row {
                 id: buttonRow
                 spacing: 10
@@ -66,6 +77,7 @@ Rectangle {
                 anchors.right: parent.right
                 anchors.rightMargin: 15
                 visible: !inUserCreating
+
 
                 DImageCheckButton {
                     id: delete_check_button
@@ -90,16 +102,16 @@ Rectangle {
                             user_list.allNormal()
                         }
 
-                        gButtonToolTip.visible = false
+                        userTooltip.hideTipImmediately()
                     }
                     onHoverChanged: {
-                        var mapX = - delete_check_button.mapFromItem(root,0,0).x
-                        if (hover)
-                            gButtonToolTip.showToolTip(mapX + 45 + 10,buttonRow.y + 3,dsTr("Delete Account"))
-                        else{
-                            gButtonToolTip.hideToolTip()
+                        if (hover){
+                            userTooltip.tooltip = dsTr("Delete Account")
+                            userTooltip.showTip()
                         }
-
+                        else{
+                            userTooltip.hideTip()
+                        }
                     }
                 }
 
@@ -130,14 +142,16 @@ Rectangle {
                             root.scrollToLastPosition()
                         }
 
-                        gButtonToolTip.visible = false
+                        userTooltip.hideTipImmediately()
                     }
                     onHoverChanged: {
-                        var mapX = - delete_check_button.mapFromItem(root,0,0).x
-                        if (hover && visible)
-                            gButtonToolTip.showToolTip(mapX + 45 + 10,buttonRow.y + 3,dsTr("Add Account"))
-                        else
-                            gButtonToolTip.hideToolTip()
+                        if (hover){
+                            userTooltip.tooltip = dsTr("Add Account")
+                            userTooltip.showTip()
+                        }
+                        else{
+                            userTooltip.hideTip()
+                        }
                     }
 
                     Connections {

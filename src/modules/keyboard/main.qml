@@ -270,6 +270,10 @@ Item {
                 }
                 leftLoader.sourceComponent: DssH2 {
                     text: dsTr("Keyboard Layout")
+
+                    Behavior on opacity{
+                        PropertyAnimation { duration: 300 }
+                    }
                 }
                 rightLoader.sourceComponent: StateButtons {
                     deleteButton.visible: layoutList.count > 1
@@ -289,6 +293,12 @@ Item {
                             addLayoutList.rebuildModel(addLayoutIndex.searchIndexResult["A"])
                         }
                     }
+                    onTooltipShowed: {
+                        if (tipLength > keyboardLayoutAreaTitleLine.width - keyboardLayoutAreaTitleLine.leftLoader.item.width - width - 30){
+                            keyboardLayoutAreaTitleLine.leftLoader.item.opacity = 0
+                        }
+                    }
+                    onTooltipHide: keyboardLayoutAreaTitleLine.leftLoader.item.opacity = 1
                 }
             }
 

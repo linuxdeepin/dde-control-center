@@ -5,14 +5,14 @@
 # Translators:
 # dweight <pawel.reklamy@gmail.com>, 2014
 # mefjak <mefjak@gmail.com>, 2014
-# Piotr Strębski <strebski@o2.pl>, 2014
+# Piotr Strębski <strebski@o2.pl>, 2014-2015
 # tomaszzegar <tomaszzegar@wp.pl>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-29 12:29+0800\n"
-"PO-Revision-Date: 2014-12-29 19:50+0000\n"
+"POT-Creation-Date: 2015-01-07 14:39+0800\n"
+"PO-Revision-Date: 2015-01-07 13:30+0000\n"
 "Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/dde-control-center/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -117,7 +117,7 @@ msgstr "Numer"
 #: ../src/modules/shortcuts/ShortcutInput.qml:355
 #: ../src/modules/date_time/TimeBox.qml:225
 #: ../src/modules/network/wireless/WifiHotspot.qml:82
-#: ../src/modules/date_time/main.qml:289 ../src/modules/display/main.qml:178
+#: ../src/modules/date_time/main.qml:289 ../src/modules/display/main.qml:179
 msgid "Cancel"
 msgstr "Anuluj"
 
@@ -197,7 +197,7 @@ msgstr "Automatyczne logowanie"
 #: ../src/modules/account/DeleteUserDialog.qml:46
 #: ../src/modules/account/PasswordDialog.qml:262
 #: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:307
-#: ../src/modules/display/main.qml:193
+#: ../src/modules/display/main.qml:194
 msgid "Confirm"
 msgstr "Potwierdź"
 
@@ -505,7 +505,7 @@ msgstr "Połącz automatycznie"
 
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:116
 #: ../src/modules/personalization/widgets/PreviewWindow.qml:280
-#: ../src/modules/display/main.qml:193
+#: ../src/modules/display/main.qml:194
 msgid "Apply"
 msgstr "Zatwierdź"
 
@@ -699,7 +699,7 @@ msgstr "PPP"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:34
 msgid "128-bit MPPE"
-msgstr "128 bitowe MPPE"
+msgstr "128-bitowe MPPE"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:45
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:43
@@ -777,7 +777,7 @@ msgstr "IPsec VPN"
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:11
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:11
 msgid "VPN PPP"
-msgstr "VPN PPP"
+msgstr "PPP VPN"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:138
 msgid "No Protocol Field Compression"
@@ -1183,8 +1183,8 @@ msgstr "Rozdzielczość"
 msgid "Rotation"
 msgstr "Obrót"
 
-#: ../src/modules/display/MonitorProperties.qml:273
-#: ../src/modules/display/MonitorProperties.qml:305
+#: ../src/modules/display/MonitorProperties.qml:274
+#: ../src/modules/display/MonitorProperties.qml:306
 msgid "Brightness"
 msgstr "Jasność"
 
@@ -1277,7 +1277,7 @@ msgstr "Aktualizuję..."
 
 #: ../src/modules/grub/Preview.qml:125
 msgid "Successfully updated, reboot to view."
-msgstr "Pomyślnie zaktualizowano, uruchom ponownie aby zobaczyć."
+msgstr "Pomyślnie zaktualizowano, uruchom ponownie, aby zobaczyć."
 
 #: ../src/modules/network/proxy/ProxyContent.qml:43
 #: ../src/modules/shortcuts/ShortcutInput.qml:119
@@ -1327,7 +1327,7 @@ msgstr "Pomyślnie zresetowano"
 
 #: ../src/modules/shared/ResetButton.qml:47
 msgid "Reset"
-msgstr "Jeszcze raz"
+msgstr "Od nowa"
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:137
 msgid "Please input new shortcut"
@@ -1489,7 +1489,7 @@ msgstr "Naturalne przewijanie"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:252
 msgid "Tap to click"
-msgstr "Uderzenie, by kliknąć"
+msgstr "Uderzenie, aby kliknąć"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:275
 msgid "Two-finger scrolling"
@@ -1571,8 +1571,8 @@ msgid "High performance"
 msgstr "Wysoka wydajność"
 
 #: ../src/modules/date_time/main.qml:130
-msgid "Automatic date and time"
-msgstr "Automatyczna data i czas"
+msgid "Sync Automatically"
+msgstr "Automatycznie synchronizuj"
 
 #: ../src/modules/date_time/main.qml:148
 msgid "Use 24-hour clock"

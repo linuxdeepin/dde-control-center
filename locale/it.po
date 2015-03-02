@@ -4,15 +4,15 @@
 # 
 # Translators:
 # Gioacchino Nigrelli <gioacchino.nigrelli@gmail.com>, 2014
-# Massimo Antonio Carofano <real.massimo@hotmail.it>, 2014
+# Massimo Antonio Carofano <real.massimo@hotmail.it>, 2014-2015
 # Massimo Antonio Carofano <real.massimo@hotmail.it>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-29 12:29+0800\n"
-"PO-Revision-Date: 2014-12-29 04:44+0000\n"
-"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
+"POT-Creation-Date: 2015-01-07 14:39+0800\n"
+"PO-Revision-Date: 2015-01-07 12:01+0000\n"
+"Last-Translator: Massimo Antonio Carofano <real.massimo@hotmail.it>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/dde-control-center/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -116,7 +116,7 @@ msgstr "Numero"
 #: ../src/modules/shortcuts/ShortcutInput.qml:355
 #: ../src/modules/date_time/TimeBox.qml:225
 #: ../src/modules/network/wireless/WifiHotspot.qml:82
-#: ../src/modules/date_time/main.qml:289 ../src/modules/display/main.qml:178
+#: ../src/modules/date_time/main.qml:289 ../src/modules/display/main.qml:179
 msgid "Cancel"
 msgstr "Cancella"
 
@@ -196,7 +196,7 @@ msgstr "Auto-login"
 #: ../src/modules/account/DeleteUserDialog.qml:46
 #: ../src/modules/account/PasswordDialog.qml:262
 #: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:307
-#: ../src/modules/display/main.qml:193
+#: ../src/modules/display/main.qml:194
 msgid "Confirm"
 msgstr "Conferma"
 
@@ -504,7 +504,7 @@ msgstr "Connessione automatica"
 
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:116
 #: ../src/modules/personalization/widgets/PreviewWindow.qml:280
-#: ../src/modules/display/main.qml:193
+#: ../src/modules/display/main.qml:194
 msgid "Apply"
 msgstr "Applica"
 
@@ -1182,8 +1182,8 @@ msgstr "Risoluzione"
 msgid "Rotation"
 msgstr "Rotazione"
 
-#: ../src/modules/display/MonitorProperties.qml:273
-#: ../src/modules/display/MonitorProperties.qml:305
+#: ../src/modules/display/MonitorProperties.qml:274
+#: ../src/modules/display/MonitorProperties.qml:306
 msgid "Brightness"
 msgstr "Luminosità"
 
@@ -1570,8 +1570,8 @@ msgid "High performance"
 msgstr "Performance elevate"
 
 #: ../src/modules/date_time/main.qml:130
-msgid "Automatic date and time"
-msgstr "Data ed ora automatica"
+msgid "Sync Automatically"
+msgstr "Sincronizza automaticamente"
 
 #: ../src/modules/date_time/main.qml:148
 msgid "Use 24-hour clock"

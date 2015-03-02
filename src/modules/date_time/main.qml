@@ -28,6 +28,7 @@ import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.DateAndTime 1.0
 import DBus.Com.Deepin.Api.LunarCalendar 1.0
 import DBus.Com.Deepin.Daemon.Search 1.0
+import "../shared"
 import "calendar_core.js" as CalendarCore
 
 DFlickable {
@@ -127,7 +128,7 @@ DFlickable {
 
         DSwitchButtonHeader {
             id: autoSetTimeBox
-            text: dsTr("Automatic date and time")
+            text: dsTr("Sync Automatically")
             width: parent.width
             height: showedTimezoneList ? 0 : 30
             visible: !showedTimezoneList
@@ -261,6 +262,17 @@ DFlickable {
 
                 property bool normalState: true
 
+
+                ItemTooltip {
+                    id:dateTimeTooltip
+                    anchors.right: setImage.left
+                    anchors.rightMargin: 5
+                    anchors.verticalCenter: parent.verticalCenter
+                    width: 200
+                    delayShowInterval: 500
+                    textItem.font.pixelSize: 12
+                }
+
                 DImageButton {
                     id: setImage
                     anchors.verticalCenter: parent.verticalCenter
@@ -272,15 +284,14 @@ DFlickable {
                     visible: parent.normalState && !gDate.nTPEnabled
                     onClicked: {
                         parent.normalState = false
-                        gButtonToolTip.hideToolTip()
+                        dateTimeTooltip.hideTipImmediately()
                     }
                     onEntered: {
-                        var mapX = - setImage.mapFromItem(dateTimeModule,0,0).x
-                        var mapY = - setImage.mapFromItem(dateTimeModule,0,0).y
-                        gButtonToolTip.showToolTip(mapX + 45 + 10,mapY,dsTr("Set Date"))
+                        dateTimeTooltip.tooltip = dsTr("Set Date")
+                        dateTimeTooltip.showTip()
                     }
                     onExited: {
-                        gButtonToolTip.hideToolTip()
+                        dateTimeTooltip.hideTip()
                     }
                 }
 

@@ -47,22 +47,33 @@ FocusScope {
     function increase(){
         var value = parseInt(text_input.text)
         if(value == max){
-            text_input.text = min
+            text_input.text = "0" + min.toString()
         }
         else{
             value += 1
-            text_input.text = value
+
+            handleTextInputNumber(value)
         }
     }
 
     function decrease(){
         var value = parseInt(text_input.text)
         if(value == min){
-            text_input.text = max
+            text_input.text = max.toString()
         }
         else{
             value -= 1
-            text_input.text = value
+
+            handleTextInputNumber(value)
+        }
+    }
+
+    function handleTextInputNumber(value){
+        if (value < 10){
+            text_input.text = "0" + value.toString()
+        }
+        else{
+            text_input.text = value.toString()
         }
     }
 
@@ -126,6 +137,7 @@ FocusScope {
             verticalAlignment: TextInput.AlignVCenter
             horizontalAlignment: TextInput.AlignHCenter
             maximumLength: 2
+
             validator: IntValidator{bottom: min; top: max;}
             color: activeFocus ? dconstants.activeColor : dconstants.fgColor
             font.pixelSize: 44
@@ -143,25 +155,8 @@ FocusScope {
                 }
                 else{
                     deselect()
-                }
-            }
 
-            onTextChanged: {
-                // TODO: add > 100 support
-                if(length == 1){
-                    if(root.max < 10){
-                        //root.toNext()
-                    }
-                    else if(root.max < 100){
-                        var number2 = parseInt(root.max/10)
-                        if(parseInt(text) > number2){
-                            text = "0" + text
-                            //root.toNext()
-                        }
-                    }
-                }
-                else if(length == 2){
-                    //root.toNext()
+                    handleTextInputNumber(parseInt(text_input.text))
                 }
             }
 

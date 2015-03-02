@@ -39,9 +39,11 @@ Item {
     property bool shouldShowMonitorName: true
     property int itemIndex: 0
 
-    Component.onCompleted: {
+    //if the name changed,it must be another monitor Object,data should be clear and reload
+    onPOutputObjNameChanged: {
         rotationView.loadRotationModel()
     }
+
 
     function getResolutionFromMode(mode){
         return mode[1] + "x" + mode[2]
@@ -81,8 +83,23 @@ Item {
         clip: true
         property int currentValue: pOutputObj.rotation
 
+        //pOutputObj.ListModes() maybe got nothing,try to reload data
+        //workaround here
+        Timer {
+            id:reloadDataTimer
+            interval: 1000
+            onTriggered: {
+                rotationView.loadRotationModel()
+            }
+        }
+
         function loadRotationModel(){
             var rotations = pOutputObj.ListRotations()
+            if (pOutputObj.opened && rotations.length == 0){
+                print (pOutputObj.name,"'s rotations is empty!reload data now...")
+                reloadDataTimer.start()//no data refresh
+            }
+
             rotationView.model.clear()
             for(var i=0; i<rotations.length; i++){
                 var rotation = rotations[i]

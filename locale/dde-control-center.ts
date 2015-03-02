@@ -2005,7 +2005,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+43"/>
+        <location line="+44"/>
         <location line="+32"/>
         <source>Brightness</source>
         <translation type="unfinished"></translation>
@@ -2758,7 +2758,7 @@
     </message>
     <message>
         <location filename="../src/modules/date_time/main.qml" line="+130"/>
-        <source>Automatic date and time</source>
+        <source>Sync Automatically</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2788,7 +2788,7 @@
     </message>
     <message>
         <location line="+27"/>
-        <location filename="../src/modules/display/main.qml" line="+193"/>
+        <location filename="../src/modules/display/main.qml" line="+194"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>

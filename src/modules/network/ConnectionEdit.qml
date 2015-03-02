@@ -132,6 +132,15 @@ BaseConnectionEdit {
 
             DTextButton {
                 anchors.verticalCenter: parent.verticalCenter
+                text: dsTr("Cancel")
+                onClicked: {
+                    cancelDelete.restart()
+                    deleteSettingLine.inDeleteSetting = false
+                }
+            }
+
+            DTextButton {
+                anchors.verticalCenter: parent.verticalCenter
                 text: dsTr("Delete")
                 onClicked: {
                     //clean passwd signal
@@ -142,15 +151,6 @@ BaseConnectionEdit {
                     if (editPage.connectionPath) {
                         dbusNetwork.DeleteConnection(uuid)
                     }
-                }
-            }
-
-            DTextButton {
-                anchors.verticalCenter: parent.verticalCenter
-                text: dsTr("Cancel")
-                onClicked: {
-                    cancelDelete.restart()
-                    deleteSettingLine.inDeleteSetting = false
                 }
             }
             Item {

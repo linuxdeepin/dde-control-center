@@ -26,23 +26,28 @@ import QtQuick 2.1
 Item {
     id:buttonToolTip
     height: tipText.implicitHeight
-    width: tipText.implicitWidth
+    width: 0
     state: "hideTip"
     clip: true
 
+    property alias textItem: tipText
+    property alias tooltip: tipText.text
     property int animationDuration: 500
     property int autoHideInterval: -1
     property int delayShowInterval: -1
-    property int targetX: 0
+    property int leftMargin: 30
+
+    signal show(int tipLength)
+    signal hide()
 
     states: [
         State {
             name: "showTip"
-            PropertyChanges { target: buttonToolTip; width: tipText.implicitWidth; x: targetX }
+            PropertyChanges { target: tipText; x: leftMargin;}
         },
         State {
             name: "hideTip"
-            PropertyChanges { target: buttonToolTip; width: 0;x: targetX + tipText.implicitWidth}
+            PropertyChanges { target: tipText; x: buttonToolTip.width;}
 
         }
     ]
@@ -52,49 +57,33 @@ Item {
             from: "showTip"
             to: "hideTip"
             ParallelAnimation {
-                NumberAnimation {target: buttonToolTip;property: "width";duration: animationDuration;easing.type: Easing.OutCubic}
-                NumberAnimation {target: buttonToolTip;property: "x";duration: animationDuration;easing.type: Easing.OutCubic}
+                NumberAnimation {target: tipText;property: "x";duration: animationDuration;easing.type: Easing.OutCubic}
             }
         },
         Transition {
             from: "hideTip"
             to: "showTip"
             ParallelAnimation {
-                NumberAnimation {target: buttonToolTip;property: "width"; duration: animationDuration; easing.type: Easing.OutCubic}
-                NumberAnimation {target: buttonToolTip;property: "x";duration: animationDuration;easing.type: Easing.OutCubic}
+                NumberAnimation {target: tipText;property: "x"; duration: animationDuration; easing.type: Easing.OutCubic}
             }
         }
     ]
 
-    function resetState(){
-        buttonToolTip.width = 0
-        buttonToolTip.x = targetX + tipText.implicitWidth
+    function showTip(){
+        delayShowTimer.start()
     }
 
-    function showToolTip(x,y,tips){
-        resetState()
-        buttonToolTip.visible = true
-
-        tipText.text = tips
-        buttonToolTip.targetX = x - tipText.implicitWidth
-        buttonToolTip.x = x
-        buttonToolTip.y = y
-
-        delayShowTimer.stop()
-        delayShowTimer.restart()
-    }
-
-    function hideToolTip(){
-        delayShowTimer.stop()
+    function hideTip(){
         buttonToolTip.state = "hideTip"
+        delayShowTimer.stop()
+        buttonToolTip.hide()
     }
 
-    Timer {
-        id:autoHideTimer
-        repeat: false
-        running: false
-        interval:autoHideInterval
-        onTriggered: hideToolTip()
+    function hideTipImmediately(){
+        tipText.x = buttonToolTip.width
+        buttonToolTip.state = "hideTip"
+        delayShowTimer.stop()
+        buttonToolTip.hide()
     }
 
     Timer {
@@ -103,6 +92,7 @@ Item {
         running: false
         interval: delayShowInterval > 0 ? delayShowInterval : 0
         onTriggered: {
+            buttonToolTip.show(tipText.implicitWidth)
             buttonToolTip.state = "showTip"
 
             if (autoHideInterval > 0){
@@ -116,7 +106,11 @@ Item {
         id:tipText
         color: "#FFC735"
         font.pixelSize: 11
-        anchors.centerIn: parent
+        clip: true
+        wrapMode: Text.Wrap
+        width: parent.width - leftMargin
+        height: parent.height
+        horizontalAlignment: Text.AlignRight
         verticalAlignment: Text.AlignVCenter
     }
 }

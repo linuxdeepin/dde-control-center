@@ -25,6 +25,7 @@ import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import Deepin.Widgets 1.0
+import "../shared"
 
 Item {
     id: stateButtons
@@ -35,6 +36,9 @@ Item {
     property string currentActionStateName: ""
     property alias deleteButton: deleteButton
     property alias addButton: addButton
+
+    signal tooltipShowed(int tipLength)
+    signal tooltipHide()
 
     DTextButton {
         id: completeButton
@@ -51,6 +55,19 @@ Item {
         onClicked: {
             stateButtons.currentActionStateName = ""
         }
+    }
+
+    ItemTooltip {
+        id:keyboardTooltip
+        anchors.right: actionButtons.left
+        anchors.rightMargin: 5
+        anchors.verticalCenter: parent.verticalCenter
+        width: 200
+        delayShowInterval: 500
+        textItem.font.pixelSize: 12
+
+        onShow: stateButtons.tooltipShowed(tipLength)
+        onHide: stateButtons.tooltipHide()
     }
 
     Row {
@@ -71,12 +88,12 @@ Item {
                 stateButtons.currentActionStateName = "deleteButton"
             }
             onStateChanged: {
-                var mapX = - deleteButton.mapFromItem(keyboardModule,0,0).x
-                var mapY = - deleteButton.mapFromItem(keyboardModule,0,0).y
-                if (state == "hovered" && visible)
-                    gButtonToolTip.showToolTip(mapX + 45 + 10,mapY + 3,dsTr("Delete Keyboard Layout"))
+                if (state == "hovered" && visible){
+                    keyboardTooltip.tooltip = dsTr("Delete Keyboard Layout")
+                    keyboardTooltip.showTip()
+                }
                 else
-                    gButtonToolTip.hideToolTip()
+                    keyboardTooltip.hideTip()
             }
         }
 
@@ -86,12 +103,12 @@ Item {
                 stateButtons.currentActionStateName = "addButton"
             }
             onStateChanged: {
-                var mapX = - deleteButton.mapFromItem(keyboardModule,0,0).x
-                var mapY = - deleteButton.mapFromItem(keyboardModule,0,0).y
-                if (state == "hovered" && visible)
-                    gButtonToolTip.showToolTip(mapX + 45 + 10,mapY + 3,dsTr("Add Keyboard Layout"))
+                if (state == "hovered" && visible){
+                    keyboardTooltip.tooltip = dsTr("Add Keyboard Layout")
+                    keyboardTooltip.showTip()
+                }
                 else
-                    gButtonToolTip.hideToolTip()
+                    keyboardTooltip.hideTip()
             }
         }
     }
