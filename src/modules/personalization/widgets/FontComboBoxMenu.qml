@@ -57,7 +57,7 @@ DPopupWindow {
             id: completeViewBox
             anchors.centerIn: parent
             width: parent.width - 6
-            height: childrenRect.height
+            height: completeView.height
 
             ListView {
                 id: completeView
