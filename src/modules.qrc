@@ -951,5 +951,7 @@
         <file>modules/system_info/SepratorHorizontal.qml</file>
         <file>modules/system_info/images/logo.png</file>
         <file>modules/shared/ItemTooltip.qml</file>
+        <file>modules/personalization/widgets/images/select-dark.png</file>
+        <file>modules/personalization/widgets/images/select-dark-hover.png</file>
     </qresource>
 </RCC>

@@ -12,7 +12,7 @@ Rectangle {
     property alias boxWidth: menuBox.width
     property int menuMaxHeight: 200
     property alias parentWindow:menuBox.parentWindow
-    property alias defaultIndex: menuBox.selectIndex
+    property alias defaultIndex: menuBox.initIndex
     property alias menuLabels: menuBox.labels
 
     property var dconstants: DConstants {}
