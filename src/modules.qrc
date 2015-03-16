@@ -51,7 +51,6 @@
         <file>modules/power/RaisedPart.qml</file>
         <file>modules/power/PowerTitle.qml</file>
         <file>modules/power/ConcavePart.qml</file>
-        <file>modules/power/PropertyItem.qml</file>
         <file>modules/power/TitleSeparator.qml</file>
         <file>modules/power/images/up.png</file>
         <file>modules/power/images/power_plan_ac.png</file>

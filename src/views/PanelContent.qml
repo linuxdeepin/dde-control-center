@@ -225,8 +225,7 @@ Rectangle {
         }
 
         if(isSiderNavigate && isHover){
-            iconTipText.text = localeName
-            IconTip.pageWidth = iconTipText.width + 30
+            IconTip.pageWidth = getStringPixelSize(localeName, 14) + 30
             IconTip.setAnimationEnable(Math.abs(tipDisplayHeight - IconTip.pageY) > 50 ? false : true)
             IconTip.pageY = tipDisplayHeight + screenSize.y
             IconTip.pageX = shouldShowInRight ? screenSize.width + screenSize.x -  panelContent.width - IconTip.pageWidth - 10 : panelContent.width + 10
@@ -241,11 +240,6 @@ Rectangle {
 
     function destroyIconTip() {
         IconTip.destroyiconTip()
-    }
-    Text {
-        id:iconTipText
-        visible: false
-        text: qsTr("text")
     }
 
     Timer {

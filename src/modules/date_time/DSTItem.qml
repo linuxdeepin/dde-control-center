@@ -67,7 +67,6 @@ Rectangle {
 
         onExited: {
             parent.hovered = false
-            toolTip.hideTip()
         }
 
         onReleased: {
