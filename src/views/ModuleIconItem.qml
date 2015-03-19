@@ -170,6 +170,7 @@ Rectangle {
     }
 
     onHoverChanged: {
-        panelContent.trayIconHoverHandler(moduleId, index, hover)
+        var globalY = moduleIconItem.mapToItem(panelContent).y
+        panelContent.trayIconHoverHandler(moduleId, globalY, hover)
     }
 }

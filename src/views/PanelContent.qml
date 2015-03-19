@@ -131,15 +131,6 @@ Rectangle {
 
         }
     }
-    property real trayIconHeight: {
-        if(navigateIconModel.count==0){
-            return trayWidth
-        }
-        else{
-            var new_tray_height = iconsArea.height/(navigateIconModel.count)
-            return new_tray_height < trayWidth ? new_tray_height : trayWidth
-        }
-    }
 
     function initTrayIcon() {
         print("==> [info] initTrayIcon emit")
@@ -212,10 +203,8 @@ Rectangle {
         sessionManager.PowerOffChoose()
     }
 
-    function trayIconHoverHandler(module_id, index, isHover) {
-        var tipDisplayHeight
-        tipDisplayHeight = Math.abs(trayIconHeight - 23)/2
-            + trayIconHeight * index
+    function trayIconHoverHandler(module_id, globalY, isHover) {
+        var tipDisplayHeight = globalY + (moduleIconList.cellHeight - 23) / 2
 
         if(module_id == "mouse_touchpad" && !dbusTouchpad.exist){
             var localeName = modulesId.moduleLocaleNames["mouse"]
