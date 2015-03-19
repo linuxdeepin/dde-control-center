@@ -31,6 +31,7 @@ BaseEditLine{
     DFileChooseDialog {
         id: fileChooseDialog
         currentFolder: mainObject.getHomeDir()
+        showHidden: true
         onSelectAction: {
             root.rightLoader.item.text = fileUrl
         }
