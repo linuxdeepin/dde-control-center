@@ -337,10 +337,10 @@ Column {
             }
 
             function addToModel(){
-                for (var i = 0; i < userTimezoneList.length; i ++){
+                for (var i = 0; i < userTimezoneOffsetList.length; i ++){
                     if (!isInModel(userTimezoneOffsetList[i])){
                         model.append({
-                                         "timezone" : userTimezoneList[i]
+                                         "timezone" : getZoneByOffset(userTimezoneOffsetList[i])
                                      })
                         addTimezoneListView.deleteFromMode(userTimezoneOffsetList[i])
                     }
