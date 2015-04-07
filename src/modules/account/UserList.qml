@@ -279,6 +279,11 @@ ListView {
                         hoverEnabled: true
 
                         onClicked: {
+                            //data is undefined,do nothing
+                            if (typeof(userName) === "undefined"){
+                                return
+                            }
+
                             if (component_bg.state == "normal") {
                                 /* component_bg.state = "edit_dialog" */
                                 root.hideAllPrivate(index)

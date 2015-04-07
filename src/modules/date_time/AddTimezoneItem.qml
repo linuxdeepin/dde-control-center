@@ -31,7 +31,7 @@ Item {
 
     property string pTimezone:timezone
 
-    property int pOffset: getOffsetByZone(pTimezone)
+    property int pOffset: timeOffset
     property string pOffsetName: getOffsetName(pOffset)
 
     property bool selected: false

@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# alibacha19 <alibacha19@gmail.com>, 2014
 # johnjojo53 <john_jojo53@yahoo.com>, 2014
 # johnjojo53 <john_jojo53@yahoo.com>, 2014
 # monzerissa169 <monzerissa169@yahoo.com>, 2014
@@ -12,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-29 12:29+0800\n"
-"PO-Revision-Date: 2014-12-29 04:44+0000\n"
+"POT-Creation-Date: 2015-01-07 14:39+0800\n"
+"PO-Revision-Date: 2015-01-07 06:56+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/projects/p/dde-control-center/language/ar/)\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +25,7 @@ msgstr ""
 
 #: ../src/modules/network/add/AddDsl.qml:11
 msgid "Add PPPoE Connection"
-msgstr ""
+msgstr "إضافة اتصال عبر بروتوكول PPPoE "
 
 #: ../src/modules/network/add/AddDsl.qml:24
 #: ../src/modules/network/add/AddMobile.qml:33
@@ -118,7 +119,7 @@ msgstr "رقم"
 #: ../src/modules/shortcuts/ShortcutInput.qml:355
 #: ../src/modules/date_time/TimeBox.qml:225
 #: ../src/modules/network/wireless/WifiHotspot.qml:82
-#: ../src/modules/date_time/main.qml:289 ../src/modules/display/main.qml:178
+#: ../src/modules/date_time/main.qml:289 ../src/modules/display/main.qml:179
 msgid "Cancel"
 msgstr "إلغاء"
 
@@ -198,7 +199,7 @@ msgstr "دخول تلقائي"
 #: ../src/modules/account/DeleteUserDialog.qml:46
 #: ../src/modules/account/PasswordDialog.qml:262
 #: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:307
-#: ../src/modules/display/main.qml:193
+#: ../src/modules/display/main.qml:194
 msgid "Confirm"
 msgstr "تأكيد"
 
@@ -449,7 +450,7 @@ msgstr "IDمجهول"
 #: ../src/modules/network/wireless/AddWireless.qml:124
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:113
 msgid "Provisioning"
-msgstr ""
+msgstr "حجز"
 
 #: ../src/modules/network/wireless/AddWireless.qml:134
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:123
@@ -506,7 +507,7 @@ msgstr "اتصال تلقائي"
 
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:116
 #: ../src/modules/personalization/widgets/PreviewWindow.qml:280
-#: ../src/modules/display/main.qml:193
+#: ../src/modules/display/main.qml:194
 msgid "Apply"
 msgstr "تطبيق"
 
@@ -843,7 +844,7 @@ msgstr "المضيفين بطريقة عشوائية"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:11
 msgid "VPN Proxies"
-msgstr ""
+msgstr "وكلاء الشبكة الافتراضية الخاصة VPN"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:23
 msgid "Proxy Type"
@@ -1184,8 +1185,8 @@ msgstr "الدقة"
 msgid "Rotation"
 msgstr "دوارن"
 
-#: ../src/modules/display/MonitorProperties.qml:273
-#: ../src/modules/display/MonitorProperties.qml:305
+#: ../src/modules/display/MonitorProperties.qml:274
+#: ../src/modules/display/MonitorProperties.qml:306
 msgid "Brightness"
 msgstr "السطوع"
 
@@ -1296,7 +1297,7 @@ msgstr "ذاتي"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:88
 msgid "HTTP Proxy"
-msgstr ""
+msgstr "وكيل http"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:100
 msgid "HTTPS Proxy"
@@ -1405,7 +1406,7 @@ msgstr "مخصص"
 #: ../src/modules/date_time/TimeBox.qml:161
 #: ../src/views/TmpTranslationFile.qml:44
 msgid "Double-click this area to change your time"
-msgstr ""
+msgstr "انقر نقرا مزدوجا فوق هذه المنطقة لتغيير وقتك"
 
 #: ../src/modules/date_time/TimeBox.qml:202
 msgid "Set"
@@ -1423,7 +1424,7 @@ msgstr ""
 
 #: ../src/views/TmpTranslationFile.qml:48
 msgid "Account information is being prepared..."
-msgstr ""
+msgstr "يجري إعداد معلومات الحساب ..."
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
 msgid "Touchpad"
@@ -1572,8 +1573,8 @@ msgid "High performance"
 msgstr "أداء عالي"
 
 #: ../src/modules/date_time/main.qml:130
-msgid "Automatic date and time"
-msgstr "تاريخ ووقت تلقائي"
+msgid "Sync Automatically"
+msgstr ""
 
 #: ../src/modules/date_time/main.qml:148
 msgid "Use 24-hour clock"

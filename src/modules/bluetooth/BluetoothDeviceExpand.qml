@@ -73,7 +73,12 @@ Column {
             }
 
             rightLoader.sourceComponent: DSwitchButton {
-                checked: bluetoothAdapter.Powered
+                property var pAdapterPower: bluetoothAdapter.Powered
+                onPAdapterPowerChanged: {
+                    print ("==>[info] Adapter power changed:",pAdapterPower)
+                    checked = pAdapterPower
+                }
+
                 onClicked: dbus_bluetooth.SetAdapterPowered(bluetoothAdapter.Path, checked)
             }
         }

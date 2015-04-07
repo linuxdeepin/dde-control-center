@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-29 12:29+0800\n"
-"PO-Revision-Date: 2014-12-29 04:44+0000\n"
+"POT-Creation-Date: 2015-01-07 14:39+0800\n"
+"PO-Revision-Date: 2015-01-07 06:56+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/dde-control-center/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -118,7 +118,7 @@ msgstr "Nummer"
 #: ../src/modules/shortcuts/ShortcutInput.qml:355
 #: ../src/modules/date_time/TimeBox.qml:225
 #: ../src/modules/network/wireless/WifiHotspot.qml:82
-#: ../src/modules/date_time/main.qml:289 ../src/modules/display/main.qml:178
+#: ../src/modules/date_time/main.qml:289 ../src/modules/display/main.qml:179
 msgid "Cancel"
 msgstr "Annuller"
 
@@ -198,7 +198,7 @@ msgstr "Auto-logind"
 #: ../src/modules/account/DeleteUserDialog.qml:46
 #: ../src/modules/account/PasswordDialog.qml:262
 #: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:307
-#: ../src/modules/display/main.qml:193
+#: ../src/modules/display/main.qml:194
 msgid "Confirm"
 msgstr "Bekræft"
 
@@ -506,7 +506,7 @@ msgstr "Automatisk forbindelse"
 
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:116
 #: ../src/modules/personalization/widgets/PreviewWindow.qml:280
-#: ../src/modules/display/main.qml:193
+#: ../src/modules/display/main.qml:194
 msgid "Apply"
 msgstr "Anvend"
 
@@ -1184,8 +1184,8 @@ msgstr "Opløsning"
 msgid "Rotation"
 msgstr "Rotation"
 
-#: ../src/modules/display/MonitorProperties.qml:273
-#: ../src/modules/display/MonitorProperties.qml:305
+#: ../src/modules/display/MonitorProperties.qml:274
+#: ../src/modules/display/MonitorProperties.qml:306
 msgid "Brightness"
 msgstr "Lysstyrke"
 
@@ -1572,8 +1572,8 @@ msgid "High performance"
 msgstr "Høj ydeevne"
 
 #: ../src/modules/date_time/main.qml:130
-msgid "Automatic date and time"
-msgstr "Automatisk dato og tid"
+msgid "Sync Automatically"
+msgstr ""
 
 #: ../src/modules/date_time/main.qml:148
 msgid "Use 24-hour clock"

@@ -4,6 +4,7 @@ import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.0
 import DBus.Com.Deepin.Daemon.Network 1.0
 import Deepin.Widgets 1.0
+import "../shared"
 
 Item {
     id: networkModule
@@ -284,48 +285,64 @@ Item {
             stackView.reset()
         }
 
-        rightLoader.sourceComponent: Row {
+        rightLoader.sourceComponent: Item {
             height: header.height
-            spacing: 4
+
+            ItemTooltip {
+                id:networkTooltip
+                anchors.right: addButton.left
+                anchors.rightMargin: 5
+                anchors.verticalCenter: parent.verticalCenter
+                width: 200
+                delayShowInterval: 500
+                textItem.font.pixelSize: 12
+            }
 
             DssAddButton{
                 id: addButton
                 anchors.verticalCenter: parent.verticalCenter
+                anchors.right: infoButton.left
+                anchors.rightMargin: 4
                 visible: stackView.currentItemId == "indexPage"
                 onClicked: {
                     stackView.push(stackViewPages["addPage"])
                     stackView.currentItemId = "addPage"
-                    gButtonToolTip.visible = false
+
+                    networkTooltip.hideTipImmediately()
                 }
                 onStateChanged: {
-                    var mapX = - addButton.mapFromItem(networkModule,0,0).x
                     if (state == "hovered" && !addButton.pressed){
-                        gButtonToolTip.showToolTip(mapX + 45 + 10,addButton.y + 3,dsTr("Add Network Connection"))
+                        networkTooltip.tooltip = dsTr("Add Network Connection")
+                        networkTooltip.showTip()
                     }
                     else
-                        gButtonToolTip.hideToolTip()
+                        networkTooltip.hideTip()
                 }
 
             }
 
             DImageButton {
+                id:infoButton
                 normal_image: "images/info_normal.png"
                 hover_image: "images/info_hover.png"
                 press_image: "images/info_press.png"
                 anchors.verticalCenter: parent.verticalCenter
+                anchors.right: parent.right
+                anchors.rightMargin: 6
                 visible: stackView.currentItemId == "indexPage"
                 onClicked: {
                     stackView.push(stackViewPages["infoPage"])
                     stackView.currentItemId = "infoPage"
 
-                    gButtonToolTip.hideToolTip()
+                    networkTooltip.hideTipImmediately()
                 }
                 onStateChanged: {
-                    var mapX = - addButton.mapFromItem(networkModule,0,0).x
-                    if (state == "hovered" && visible)
-                        gButtonToolTip.showToolTip(mapX + 45 + 10,addButton.y + 3,dsTr("View Detailed Information"))
+                    if (state == "hovered" && visible){
+                        networkTooltip.tooltip = dsTr("View Detailed Information")
+                        networkTooltip.showTip()
+                    }
                     else
-                        gButtonToolTip.hideToolTip()
+                        networkTooltip.hideTip()
                 }
             }
         }

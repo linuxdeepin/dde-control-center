@@ -21,6 +21,7 @@ BaseEditSection {
             section: "vs-vpn"
             key: "vk-vpn-missing-plugin"
             text: dsTr("Need VPN Plugin")
+            alwaysUpdate: true
             missingTypeName: "VPN"
         }
         EditLineTextInput {

@@ -34,14 +34,23 @@ Item {
     property alias text: label.text
 
     Rectangle {
-        color: wrapper.ListView.view.selectIndex == index ? "#141414" : "#232323"
+        color: wrapper.ListView.view.selectIndex == index ? "#141414" : "#191919"
         anchors.fill: parent
+    }
+
+    Image {
+        id: headImg
+        source: wrapper.ListView.view.selectIndex == index ? "images/select-dark-hover.png" : "images/select-dark.png"
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.left: parent.left
+        anchors.leftMargin: 5
+        visible: index == 0
     }
 
     DLabel {
         id: label
         anchors.left: parent.left
-        anchors.leftMargin: 5
+        anchors.leftMargin: 28
         anchors.verticalCenter: parent.verticalCenter
         text: "text " + index
         font.pixelSize: 12

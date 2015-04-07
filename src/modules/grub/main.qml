@@ -256,7 +256,7 @@ Rectangle {
 
                     Connections {
                         target: dbus_grub2_theme
-                        onItemColorChanged: {
+                        onSelectedItemColorChanged: {
                             selected_picker.selectColor(dbus_grub2_theme.selectedItemColor)
                         }
                     }

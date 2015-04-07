@@ -87,10 +87,9 @@ Column {
         var tmpArray = new Array()
         for (var i = 0; i < userTimezoneList.length; i ++){
             var tmpOffset = getOffsetByZone(userTimezoneList[i])
-            if (tmpArray.indexOf(tmpOffset) == -1){//not exit,add it
-                tmpArray.push(getOffsetByZone(userTimezoneList[i]))
+            if (tmpArray.indexOf(tmpOffset) == -1){//not exit,add it,DST is the same offset
+                tmpArray.push(tmpOffset)
             }
-
         }
 
         return tmpArray
@@ -230,17 +229,22 @@ Column {
         return ""
     }
 
+    //Data may not be updated immediately
     onUserTimezoneListChanged: {
         delayUpdateTimer.stop()
         delayUpdateTimer.start()
     }
 
-    onHeightChanged: gButtonToolTip.hideToolTip()
+    //Avoid show tooltip Inadvertently
+    onHeightChanged: {
+        if (titleLine.rightLoader.item != null)
+            titleLine.rightLoader.item.hideTooltip()
+    }
 
     Timer {
         id:delayUpdateTimer
         repeat: false
-        interval: 100
+        interval: 300
         running: false
         onTriggered: {
             userTimezoneListView.updateModel()
@@ -334,11 +338,11 @@ Column {
 
             function addToModel(){
                 for (var i = 0; i < userTimezoneList.length; i ++){
-                    if (!isInModel(userTimezoneList[i])){
+                    if (!isInModel(userTimezoneOffsetList[i])){
                         model.append({
                                          "timezone" : userTimezoneList[i]
                                      })
-                        addTimezoneListView.deleteFromMode(userTimezoneList[i])
+                        addTimezoneListView.deleteFromMode(userTimezoneOffsetList[i])
                     }
                 }
             }
@@ -354,11 +358,9 @@ Column {
                 return -1
             }
 
-            function isInModel(timezone){
-                var tmpOffset = getOffsetByZone(timezone)
-
+            function isInModel(timezoneOffset){
                 for (var i = 0 ; i < model.count; i ++){
-                    if (getOffsetByZone(model.get(i).timezone) == tmpOffset)
+                    if (getOffsetByZone(model.get(i).timezone) == timezoneOffset)
                         return true
                 }
 
@@ -380,9 +382,14 @@ Column {
             delegate: UserTimezoneItem{
                 onDeleteAction: {
                     print ("==> Deletting usertimezone...",timezoneOffset)
-                    var cityList = getTimezoneListByOffset(timezoneOffset)
-                    for (var i = 0; i < cityList.length; i ++){
-                        gDate.DeleteUserTimezone(cityList[i])
+                    var tmpCityList = new Array()
+                    for (var i = 0; i < userTimezoneList.length; i ++){
+                        if (getOffsetByZone(userTimezoneList[i]) == timezoneOffset)
+                            tmpCityList.push(userTimezoneList[i])
+                    }
+
+                    for (var i = 0; i < tmpCityList.length; i ++){
+                        gDate.DeleteUserTimezone(tmpCityList[i])
                     }
                 }
                 onSelectAction: {
@@ -425,19 +432,32 @@ Column {
                     var zones = zoneCodePair[i]["zones"]
                     var offset = zoneCodePair[i]["code"]
                     model.append({
-                                  "timezone":zones[0]
+                                     "timezone":zones[0],
+                                     "timeOffset":offset
                                  })
                 }
             }
 
             function addToModel(timezone){
-                model.append({
-                                 "timezone":timezone
+                var tmpOffset = getOffsetByZone(timezone)
+                var tmpIndex = 0
+
+                //get index to sort the model
+                for (var i = 0; i < model.count; i ++){
+                    if (model.get(i).timeOffset > tmpOffset){
+                        tmpIndex = i
+                        break
+                    }
+                }
+
+                model.insert(tmpIndex, {
+                                 "timezone":timezone,
+                                 "timeOffset":tmpOffset
                              })
             }
 
-            function deleteFromMode(timezone){
-                model.remove(getItemIndex(getOffsetByZone(timezone)))
+            function deleteFromMode(timezoneOffset){
+                model.remove(getItemIndex(timezoneOffset))
             }
 
             function getItemIndex(offset){
@@ -473,7 +493,9 @@ Column {
                 flickable: addTimezoneListView
             }
 
-            Component.onCompleted: fillModel()
+            Component.onCompleted: {
+                fillModel()
+            }
         }
     }
 }

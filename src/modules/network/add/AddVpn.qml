@@ -81,6 +81,7 @@ BaseEditPage {
         key: "vk-vpn-missing-plugin"
         text: dsTr("Need VPN Plugin")
         missingTypeName: typeList.vpnNames[typeList.selectVpnType]
+        alwaysUpdate: true
     }
 
     DSeparatorHorizontal {

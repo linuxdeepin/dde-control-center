@@ -51,7 +51,6 @@
         <file>modules/power/RaisedPart.qml</file>
         <file>modules/power/PowerTitle.qml</file>
         <file>modules/power/ConcavePart.qml</file>
-        <file>modules/power/PropertyItem.qml</file>
         <file>modules/power/TitleSeparator.qml</file>
         <file>modules/power/images/up.png</file>
         <file>modules/power/images/power_plan_ac.png</file>
@@ -954,5 +953,8 @@
         <file>modules/system_info/InfoItem.qml</file>
         <file>modules/system_info/SepratorHorizontal.qml</file>
         <file>modules/system_info/images/logo.png</file>
+        <file>modules/shared/ItemTooltip.qml</file>
+        <file>modules/personalization/widgets/images/select-dark.png</file>
+        <file>modules/personalization/widgets/images/select-dark-hover.png</file>
     </qresource>
 </RCC>
