@@ -125,5 +125,11 @@
         <file>views/small_icons/home_press.png</file>
         <file>views/small_icons/display_hover.png</file>
         <file>views/small_icons/keyboard_hover.png</file>
+        <file>views/icons/remoting_hover.png</file>
+        <file>views/icons/remoting_normal.png</file>
+        <file>views/icons/remoting_press.png</file>
+        <file>views/small_icons/remoting_hover.png</file>
+        <file>views/small_icons/remoting_normal.png</file>
+        <file>views/small_icons/remoting_press.png</file>
     </qresource>
 </RCC>
