@@ -5,14 +5,14 @@
 # Translators:
 # Анатолий Валерианович <ffox909@mail.ru>, 2014
 # jvjey <justVolodya@gmail.com>, 2014
-# Serge Kukharski, 2014
-# Анатолий Валерианович <ffox909@mail.ru>, 2014
+# Serge Kukharski, 2014-2015
+# Анатолий Валерианович <ffox909@mail.ru>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-07 14:39+0800\n"
-"PO-Revision-Date: 2015-01-07 06:56+0000\n"
+"POT-Creation-Date: 2015-03-16 07:24+0000\n"
+"PO-Revision-Date: 2015-03-25 07:33+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/dde-control-center/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr "Добавить подключение PPPoE"
 
 #: ../src/modules/network/add/AddDsl.qml:24
 #: ../src/modules/network/add/AddMobile.qml:33
-#: ../src/modules/network/add/AddVpn.qml:102
+#: ../src/modules/network/add/AddVpn.qml:103
 #: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:33
 #: ../src/modules/shortcuts/CustomKeybinding.qml:118
 msgid "Name"
@@ -37,17 +37,17 @@ msgstr "Имя"
 #: ../src/modules/network/add/AddMobile.qml:75
 #: ../src/modules/network/add/AddMobile.qml:105
 #: ../src/modules/account/AddUserDialog.qml:127
-#: ../src/modules/network/add/AddVpn.qml:124
-#: ../src/modules/network/add/AddVpn.qml:254
-#: ../src/modules/network/add/AddVpn.qml:394
-#: ../src/modules/network/add/AddVpn.qml:434
+#: ../src/modules/network/add/AddVpn.qml:125
+#: ../src/modules/network/add/AddVpn.qml:255
+#: ../src/modules/network/add/AddVpn.qml:395
+#: ../src/modules/network/add/AddVpn.qml:435
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:53
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:123
 #: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:23
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:44
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:184
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:324
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:374
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:45
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:185
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:325
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:375
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:65
 msgid "Username"
 msgstr "Имя пользователя"
@@ -61,9 +61,9 @@ msgstr "Служба"
 #: ../src/modules/network/add/AddMobile.qml:85
 #: ../src/modules/network/add/AddMobile.qml:115
 #: ../src/modules/account/AddUserDialog.qml:200
-#: ../src/modules/network/add/AddVpn.qml:144
-#: ../src/modules/network/add/AddVpn.qml:274
-#: ../src/modules/network/add/AddVpn.qml:414
+#: ../src/modules/network/add/AddVpn.qml:145
+#: ../src/modules/network/add/AddVpn.qml:275
+#: ../src/modules/network/add/AddVpn.qml:415
 #: ../src/modules/network/wireless/AddWireless.qml:64
 #: ../src/modules/network/wireless/AddWireless.qml:186
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:63
@@ -71,9 +71,9 @@ msgstr "Служба"
 #: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:43
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:53
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:175
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:64
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:204
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:344
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:65
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:205
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:345
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:75
 #: ../src/modules/network/widgets/PasswordBox.qml:95
 #: ../src/modules/account/PasswordDialog.qml:62
@@ -105,10 +105,10 @@ msgstr "Номер"
 #: ../src/modules/network/add/AddSectionSave.qml:11
 #: ../src/modules/account/AddUserDialog.qml:413
 #: ../src/modules/network/wireless/AddWireless.qml:216
-#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:104
+#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:109
 #: ../src/modules/network/ConnectionAdd.qml:69
 #: ../src/modules/network/ConnectionEdit.qml:102
-#: ../src/modules/network/ConnectionEdit.qml:150
+#: ../src/modules/network/ConnectionEdit.qml:135
 #: ../src/modules/shortcuts/CustomKeybinding.qml:151
 #: ../src/modules/account/DeleteUserDialog.qml:33
 #: ../src/modules/network/Info.qml:79
@@ -117,13 +117,13 @@ msgstr "Номер"
 #: ../src/modules/shortcuts/ShortcutInput.qml:355
 #: ../src/modules/date_time/TimeBox.qml:225
 #: ../src/modules/network/wireless/WifiHotspot.qml:82
-#: ../src/modules/date_time/main.qml:289 ../src/modules/display/main.qml:179
+#: ../src/modules/date_time/main.qml:300 ../src/modules/display/main.qml:179
 msgid "Cancel"
 msgstr "Отмена"
 
 #: ../src/modules/network/add/AddSectionSave.qml:20
 #: ../src/modules/shortcuts/CustomKeybinding.qml:157
-#: ../src/modules/date_time/TimezoneArea.qml:464
+#: ../src/modules/date_time/TimezoneArea.qml:465
 msgid "Add"
 msgstr "Добавить"
 
@@ -134,7 +134,7 @@ msgstr "Добавить"
 #: ../src/modules/account/PasswordDialog.qml:101
 #: ../src/modules/account/PasswordDialog.qml:161
 msgid "Password can not be empty."
-msgstr "Пароль не может быть пустым."
+msgstr "Пароль не может быть пустым!"
 
 #: ../src/modules/account/AddUserDialog.qml:68
 #: ../src/modules/account/AddUserDialog.qml:225
@@ -147,7 +147,7 @@ msgstr "Пароль не может быть пустым."
 #: ../src/modules/account/PasswordDialog.qml:213
 #: ../src/modules/account/PasswordDialog.qml:223
 msgid "The two passwords do not match."
-msgstr "Пароли не совпадают."
+msgstr "Пароли не совпадают!"
 
 #: ../src/modules/account/AddUserDialog.qml:77
 msgid "Add User"
@@ -177,7 +177,7 @@ msgstr "Обычный пользователь"
 #: ../src/modules/account/AddUserDialog.qml:235
 #: ../src/modules/account/AddUserDialog.qml:301
 msgid "Username can not be empty."
-msgstr "Имя пользователя не может быть пустым."
+msgstr "Имя пользователя не может быть пустым!"
 
 #: ../src/modules/account/AddUserDialog.qml:270
 msgid "Repeat Password"
@@ -196,7 +196,7 @@ msgstr "Автовход"
 #: ../src/modules/account/AddUserDialog.qml:426
 #: ../src/modules/account/DeleteUserDialog.qml:46
 #: ../src/modules/account/PasswordDialog.qml:262
-#: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:307
+#: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:318
 #: ../src/modules/display/main.qml:194
 msgid "Confirm"
 msgstr "Подтвердить"
@@ -234,170 +234,170 @@ msgstr "Основная информация"
 msgid "Need VPN Plugin"
 msgstr "Нужен VPN-плагин"
 
-#: ../src/modules/network/add/AddVpn.qml:114
-#: ../src/modules/network/add/AddVpn.qml:154
-#: ../src/modules/network/add/AddVpn.qml:234
-#: ../src/modules/network/add/AddVpn.qml:384
-#: ../src/modules/network/add/AddVpn.qml:424
+#: ../src/modules/network/add/AddVpn.qml:115
+#: ../src/modules/network/add/AddVpn.qml:155
+#: ../src/modules/network/add/AddVpn.qml:235
+#: ../src/modules/network/add/AddVpn.qml:385
+#: ../src/modules/network/add/AddVpn.qml:425
 #: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:57
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:55
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:34
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:84
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:164
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:314
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:364
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:35
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:85
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:165
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:315
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:365
 msgid "Gateway"
 msgstr "Шлюз"
 
-#: ../src/modules/network/add/AddVpn.qml:134
-#: ../src/modules/network/add/AddVpn.qml:264
-#: ../src/modules/network/add/AddVpn.qml:314
-#: ../src/modules/network/add/AddVpn.qml:404
-#: ../src/modules/network/add/AddVpn.qml:444
-#: ../src/modules/network/add/AddVpn.qml:474
+#: ../src/modules/network/add/AddVpn.qml:135
+#: ../src/modules/network/add/AddVpn.qml:265
+#: ../src/modules/network/add/AddVpn.qml:315
+#: ../src/modules/network/add/AddVpn.qml:405
+#: ../src/modules/network/add/AddVpn.qml:445
+#: ../src/modules/network/add/AddVpn.qml:475
 #: ../src/modules/network/wireless/AddWireless.qml:175
 #: ../src/modules/network/wireless/AddWireless.qml:196
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:164
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:185
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:54
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:194
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:244
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:334
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:384
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:414
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:55
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:195
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:245
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:335
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:385
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:415
 msgid "Ask for Pwd"
 msgstr "Запрос пароля"
 
-#: ../src/modules/network/add/AddVpn.qml:164
-#: ../src/modules/network/add/AddVpn.qml:284
+#: ../src/modules/network/add/AddVpn.qml:165
+#: ../src/modules/network/add/AddVpn.qml:285
 #: ../src/modules/network/wireless/AddWireless.qml:104
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:93
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:94
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:214
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:95
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:215
 msgid "CA Cert"
 msgstr "CA Сертификат"
 
-#: ../src/modules/network/add/AddVpn.qml:174
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:104
+#: ../src/modules/network/add/AddVpn.qml:175
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:105
 msgid "Proxy"
 msgstr "Прокси"
 
-#: ../src/modules/network/add/AddVpn.qml:184
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:114
+#: ../src/modules/network/add/AddVpn.qml:185
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:115
 msgid "Allow Cisco Secure Desktop Trojan"
 msgstr "Разрешить троян Cisco Secure Desktop"
 
-#: ../src/modules/network/add/AddVpn.qml:344
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:274
+#: ../src/modules/network/add/AddVpn.qml:345
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:275
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
 msgid "Customize Key Direction"
 msgstr "Настроить ключевое направление"
 
-#: ../src/modules/network/add/AddVpn.qml:214
-#: ../src/modules/network/add/AddVpn.qml:304
+#: ../src/modules/network/add/AddVpn.qml:215
+#: ../src/modules/network/add/AddVpn.qml:305
 #: ../src/modules/network/wireless/AddWireless.qml:165
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:154
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:144
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:234
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:145
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:235
 msgid "Private Key"
 msgstr "Личный ключ"
 
-#: ../src/modules/network/add/AddVpn.qml:244
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:174
+#: ../src/modules/network/add/AddVpn.qml:245
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:175
 msgid "Auth Type"
 msgstr "Тип аутентификации"
 
-#: ../src/modules/network/add/AddVpn.qml:204
-#: ../src/modules/network/add/AddVpn.qml:294
+#: ../src/modules/network/add/AddVpn.qml:205
+#: ../src/modules/network/add/AddVpn.qml:295
 #: ../src/modules/network/wireless/AddWireless.qml:114
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:103
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:134
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:224
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:135
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:225
 msgid "User Cert"
 msgstr "Сертификат пользователя"
 
-#: ../src/modules/network/add/AddVpn.qml:194
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:124
+#: ../src/modules/network/add/AddVpn.qml:195
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:125
 msgid "CSD Script"
 msgstr "CSD-скрипт"
 
-#: ../src/modules/network/add/AddVpn.qml:224
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:154
+#: ../src/modules/network/add/AddVpn.qml:225
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:155
 msgid "Use FSID for Key Passphrase"
 msgstr "Используйте FSID для ключевой фразы"
 
-#: ../src/modules/network/add/AddVpn.qml:324
+#: ../src/modules/network/add/AddVpn.qml:325
 #: ../src/modules/network/wireless/AddWireless.qml:206
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:195
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:254
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:255
 msgid "Private Pwd"
 msgstr "Личный пароль"
 
-#: ../src/modules/network/add/AddVpn.qml:334
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:264
+#: ../src/modules/network/add/AddVpn.qml:335
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:265
 msgid "Static Key"
 msgstr "Статический ключ"
 
-#: ../src/modules/network/add/AddVpn.qml:354
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:284
+#: ../src/modules/network/add/AddVpn.qml:355
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:285
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:63
 msgid "Key Direction"
 msgstr "Ключевое направление"
 
-#: ../src/modules/network/add/AddVpn.qml:364
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:294
+#: ../src/modules/network/add/AddVpn.qml:365
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:295
 msgid "Remote IP"
 msgstr "Удаленный IP"
 
-#: ../src/modules/network/add/AddVpn.qml:374
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:304
+#: ../src/modules/network/add/AddVpn.qml:375
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:305
 msgid "Local IP"
 msgstr "Локальный IP"
 
-#: ../src/modules/network/add/AddVpn.qml:454
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:394
+#: ../src/modules/network/add/AddVpn.qml:455
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:395
 msgid "User Pwd"
 msgstr "Пароль пользователя"
 
-#: ../src/modules/network/add/AddVpn.qml:464
-#: ../src/modules/network/add/AddVpn.qml:526
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:404
+#: ../src/modules/network/add/AddVpn.qml:465
+#: ../src/modules/network/add/AddVpn.qml:527
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:405
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:33
 msgid "Group Name"
 msgstr "Имя группы"
 
-#: ../src/modules/network/add/AddVpn.qml:484
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:424
+#: ../src/modules/network/add/AddVpn.qml:485
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:425
 msgid "Group Pwd"
 msgstr "Пароль группы"
 
-#: ../src/modules/network/add/AddVpn.qml:494
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:434
+#: ../src/modules/network/add/AddVpn.qml:495
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:435
 msgid "Use Hybrid Authentication"
 msgstr "Использовать гибридную аутентификацию"
 
-#: ../src/modules/network/add/AddVpn.qml:504
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:444
+#: ../src/modules/network/add/AddVpn.qml:505
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:445
 msgid "CA File"
 msgstr "Файл сертификата"
 
-#: ../src/modules/network/add/AddVpn.qml:516
+#: ../src/modules/network/add/AddVpn.qml:517
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:23
 msgid "Enable IPsec"
 msgstr "Влючить IPsec"
 
-#: ../src/modules/network/add/AddVpn.qml:536
+#: ../src/modules/network/add/AddVpn.qml:537
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:43
 msgid "Group ID"
 msgstr "ID группы"
 
-#: ../src/modules/network/add/AddVpn.qml:546
+#: ../src/modules/network/add/AddVpn.qml:547
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:53
 msgid "Pre-Shared Key"
 msgstr "Pre-Shared ключ"
 
-#: ../src/modules/network/add/AddVpn.qml:558
-#: ../src/modules/network/add/AddVpn.qml:570
+#: ../src/modules/network/add/AddVpn.qml:559
+#: ../src/modules/network/add/AddVpn.qml:571
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:23
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:23
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:23
@@ -406,7 +406,7 @@ msgstr "Использовать MPPE"
 
 #: ../src/modules/network/wireless/AddWireless.qml:8
 msgid "Connect to wireless"
-msgstr "Соединиться беспроводно"
+msgstr "Соединиться с беспроводной"
 
 #: ../src/modules/network/wireless/AddWireless.qml:32
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:23
@@ -488,7 +488,7 @@ msgstr "Веб-камера"
 
 #: ../src/modules/sound/BalanceLine.qml:31
 msgid "Left/Right Balance"
-msgstr "Баланс Левый/Правый "
+msgstr "Баланс"
 
 #: ../src/modules/sound/BalanceLine.qml:53
 msgid "Left"
@@ -503,19 +503,19 @@ msgstr "Правый"
 msgid "Automatically connect"
 msgstr "Соединятся втоматически"
 
-#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:116
+#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:121
 #: ../src/modules/personalization/widgets/PreviewWindow.qml:280
 #: ../src/modules/display/main.qml:194
 msgid "Apply"
 msgstr "Применить"
 
-#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:144
+#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:149
 msgid "Devices nearby"
 msgstr "Устройства поблизости"
 
 #: ../src/modules/display/BrightnessRectangle.qml:61
-#: ../src/modules/display/ResolutionRectangle.qml:68
-#: ../src/modules/display/RotationRectangle.qml:68
+#: ../src/modules/display/ResolutionRectangle.qml:69
+#: ../src/modules/display/RotationRectangle.qml:70
 msgid "Monitor"
 msgstr "Монитор"
 
@@ -552,19 +552,19 @@ msgid "Sat"
 msgstr "Сб"
 
 #: ../src/modules/network/ConnectionAdd.qml:12
-#: ../src/modules/network/main.qml:303
+#: ../src/modules/network/main.qml:315
 msgid "Add Network Connection"
 msgstr "Добавить сетевое подключение"
 
 #: ../src/modules/network/ConnectionAdd.qml:35
 #: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:11
-#: ../src/modules/network/main.qml:204
+#: ../src/modules/network/main.qml:205
 msgid "PPPoE"
 msgstr "PPPoE"
 
 #: ../src/modules/network/ConnectionAdd.qml:45
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:11
-#: ../src/modules/network/main.qml:212
+#: ../src/modules/network/main.qml:213
 msgid "VPN"
 msgstr "VPN"
 
@@ -585,7 +585,7 @@ msgstr "Вы действительно желаете удалить эту с�
 msgid "Save"
 msgstr "Сохранить"
 
-#: ../src/modules/network/ConnectionEdit.qml:135
+#: ../src/modules/network/ConnectionEdit.qml:144
 msgid "Delete"
 msgstr "Удалить"
 
@@ -615,14 +615,14 @@ msgid "Click to install"
 msgstr "Нажать для установки"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:11
-#: ../src/modules/network/main.qml:196
+#: ../src/modules/network/main.qml:197
 msgid "Ethernet"
 msgstr "Ethernet"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:23
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:65
 msgid "Device MAC Addr"
-msgstr "MAC-адрес устройства"
+msgstr "MAC-адрес"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:33
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:75
@@ -673,7 +673,7 @@ msgid "Prefix"
 msgstr "Префикс"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:11
-#: ../src/modules/network/main.qml:206
+#: ../src/modules/network/main.qml:207
 msgid "Mobile"
 msgstr "Мобильная"
 
@@ -765,8 +765,8 @@ msgstr "Отправка эхо-пакетов PPP"
 msgid "Security Required"
 msgstr "Требование безопасности"
 
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:74
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:354
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:75
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:355
 msgid "NT Domain"
 msgstr "NT-домен"
 
@@ -947,7 +947,7 @@ msgstr "Включить"
 
 #: ../src/modules/sound/FadeLine.qml:31
 msgid "Front/Rear Balance"
-msgstr "Баланс Передний/Задний"
+msgstr "Баланс перед/зад"
 
 #: ../src/modules/sound/FadeLine.qml:55
 msgid "Front"
@@ -984,7 +984,7 @@ msgstr "Включено"
 
 #: ../src/modules/network/Info.qml:13
 msgid "Connected"
-msgstr "Подключён"
+msgstr "Подключен"
 
 #: ../src/modules/network/Info.qml:15
 msgid "Not Connected"
@@ -1008,7 +1008,7 @@ msgstr "Маска подсети"
 
 #: ../src/modules/network/Info.qml:57
 msgid "Route Addr"
-msgstr "Адрес Маршрута"
+msgstr "Адрес маршрута"
 
 #: ../src/modules/network/Info.qml:58
 msgid "Primary DNS"
@@ -1061,7 +1061,7 @@ msgstr "Сеть"
 msgid "Disk Mount"
 msgstr "Монтирование диска"
 
-#: ../src/views/ModulesData.qml:55 ../src/modules/network/main.qml:172
+#: ../src/views/ModulesData.qml:55 ../src/modules/network/main.qml:173
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
@@ -1075,7 +1075,7 @@ msgstr "Управление питанием"
 
 #: ../src/views/ModulesData.qml:58
 msgid "More Settings"
-msgstr "Ещё настройки"
+msgstr "Больше настроек"
 
 #: ../src/views/ModulesData.qml:59 ../src/views/PanelContent.qml:473
 msgid "Power"
@@ -1107,7 +1107,7 @@ msgstr "Планшет"
 
 #: ../src/views/ModulesData.qml:66
 msgid "Mouse and Touchpad"
-msgstr "Мышь и Тачпад"
+msgstr "Мышь и тачпад"
 
 #: ../src/views/ModulesData.qml:67 ../src/modules/mouse_touchpad/main.qml:50
 msgid "Mouse"
@@ -1171,7 +1171,6 @@ msgid "Please choose the monitor(s) you want to enable"
 msgstr "Выберите  монитор(ы), которые хотите включить"
 
 #: ../src/modules/display/MonitorProperties.qml:146
-#: ../src/views/TmpTranslationFile.qml:52
 msgid "Primary Screen"
 msgstr "Первичный экран"
 
@@ -1189,22 +1188,18 @@ msgid "Brightness"
 msgstr "Яркость"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:38
-#: ../src/views/TmpTranslationFile.qml:8
 msgid "Display Modes"
 msgstr "Режимы отображения"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:58
-#: ../src/views/TmpTranslationFile.qml:12
 msgid "Copy"
 msgstr "Копировать"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:59
-#: ../src/views/TmpTranslationFile.qml:16
 msgid "Copy the contents of your primary screen to other screens."
 msgstr "Копировать содержание первичного экрана на другие."
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:76
-#: ../src/views/TmpTranslationFile.qml:20
 msgid "Extend"
 msgstr "Продлить"
 
@@ -1215,24 +1210,20 @@ msgid ""
 msgstr "Расширьте содержание вашего экрана, что бы отобразить различное содержание на других экранах."
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:98
-#: ../src/views/TmpTranslationFile.qml:28
 #, qt-format
 msgid "Only Displayed on %1"
-msgstr "Показывать только ан %1"
+msgstr "Показывать только в %1"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:99
-#: ../src/views/TmpTranslationFile.qml:32
 #, qt-format
 msgid "Screen contents are only displayed on %1 but not on other screens."
 msgstr "Содержимое экрана отображается только на %1."
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:118
-#: ../src/views/TmpTranslationFile.qml:36
 msgid "Custom Settings"
 msgstr "Собственные настройки"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:119
-#: ../src/views/TmpTranslationFile.qml:40
 msgid "You can do other custom settings to your screens."
 msgstr "Вы можете делать другие пользовательские настройки экранов."
 
@@ -1249,7 +1240,7 @@ msgstr "Проводное соединение"
 
 #: ../src/modules/network/widgets/NotManagedSection.qml:25
 msgid "not managed"
-msgstr "не управляемый"
+msgstr "неуправляемый"
 
 #: ../src/modules/network/widgets/PasswordBox.qml:102
 msgid "Auto-connect"
@@ -1281,7 +1272,7 @@ msgstr "Успешное обновление, перезагрузите что
 
 #: ../src/modules/network/proxy/ProxyContent.qml:43
 #: ../src/modules/shortcuts/ShortcutInput.qml:119
-#: ../src/modules/date_time/main.qml:204
+#: ../src/modules/date_time/main.qml:205
 msgid "None"
 msgstr "Ничего"
 
@@ -1307,7 +1298,7 @@ msgstr "FTP-прокси"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:124
 msgid "Socks Proxy"
-msgstr "Socks прокси"
+msgstr "Socks-прокси"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:149
 msgid "Configuration URL"
@@ -1336,11 +1327,11 @@ msgstr "Пожалуйста, введите новые сочетания кл�
 #: ../src/modules/shortcuts/ShortcutInput.qml:238
 #, qt-format
 msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
-msgstr "Сочетание «%1» некорректно, попробуйте новое."
+msgstr "Сочетание «%1» некорректно, попробуйте новое!"
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:276
 msgid "The shortcut you set "
-msgstr "Установленные вами сочетания"
+msgstr "Ваши сочетания клавиш"
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:279
 #, qt-format
@@ -1359,50 +1350,49 @@ msgstr "Заменить"
 msgid "Preview Theme"
 msgstr "Предпросмотр темы"
 
-#: ../src/modules/date_time/StateButtons.qml:34
-#: ../src/modules/keyboard/StateButtons.qml:34
-#: ../src/modules/shortcuts/StateButtons.qml:38
+#: ../src/modules/date_time/StateButtons.qml:35
+#: ../src/modules/keyboard/StateButtons.qml:35
+#: ../src/modules/shortcuts/StateButtons.qml:39
 msgid "Done"
 msgstr "Выполнено"
 
-#: ../src/modules/date_time/StateButtons.qml:35
-#: ../src/modules/date_time/StateButtons.qml:49
-#: ../src/modules/date_time/TimezoneArea.qml:467
+#: ../src/modules/date_time/StateButtons.qml:36
+#: ../src/modules/date_time/StateButtons.qml:54
+#: ../src/modules/date_time/TimezoneArea.qml:468
 msgid "Close"
 msgstr "Закрыть"
 
-#: ../src/modules/date_time/StateButtons.qml:72
+#: ../src/modules/date_time/StateButtons.qml:85
 msgid "Delete Time Zone"
 msgstr "Удалить часовой пояс"
 
-#: ../src/modules/date_time/StateButtons.qml:88
+#: ../src/modules/date_time/StateButtons.qml:101
 msgid "Add Time Zone"
 msgstr "Добавить часовой пояс"
 
-#: ../src/modules/keyboard/StateButtons.qml:77
-msgid "Delete Keyboard Layout"
-msgstr "Удалить раскладку клавиатуры"
-
 #: ../src/modules/keyboard/StateButtons.qml:92
-msgid "Add Keyboard Layout"
-msgstr "Добавить раскладку клавиатуры"
+msgid "Delete Keyboard Layout"
+msgstr "Удалить раскладку"
 
-#: ../src/modules/shortcuts/StateButtons.qml:80
+#: ../src/modules/keyboard/StateButtons.qml:107
+msgid "Add Keyboard Layout"
+msgstr "Добавить раскладку"
+
+#: ../src/modules/shortcuts/StateButtons.qml:90
 msgid "Delete Shortcut"
 msgstr "Удалить сочетание"
 
-#: ../src/modules/shortcuts/StateButtons.qml:96
+#: ../src/modules/shortcuts/StateButtons.qml:107
 msgid "Add Shortcut"
 msgstr "Добавить сочетание"
 
 #: ../src/modules/personalization/widgets/ThemeItem.qml:92
-#: ../src/modules/power/main.qml:270 ../src/modules/power/main.qml:463
+#: ../src/modules/power/main.qml:319 ../src/modules/power/main.qml:560
 #: ../src/modules/shortcuts/main.qml:54 ../src/modules/shortcuts/main.qml:231
 msgid "Custom"
-msgstr "Собстенный"
+msgstr "Собственный"
 
 #: ../src/modules/date_time/TimeBox.qml:161
-#: ../src/views/TmpTranslationFile.qml:44
 msgid "Double-click this area to change your time"
 msgstr "Двойной клик в этой области для смены времени"
 
@@ -1410,19 +1400,9 @@ msgstr "Двойной клик в этой области для смены в�
 msgid "Set"
 msgstr "Установить"
 
-#: ../src/modules/date_time/TimezoneArea.qml:253
+#: ../src/modules/date_time/TimezoneArea.qml:256
 msgid "Time zone"
 msgstr "Часовой пояс"
-
-#: ../src/views/TmpTranslationFile.qml:24
-msgid ""
-"Extend your screen contents. Different contents will be displayed on "
-"different screens."
-msgstr "Расширьте содержимое экрана. На разных экранах, будет отображаться различное содержимое."
-
-#: ../src/views/TmpTranslationFile.qml:48
-msgid "Account information is being prepared..."
-msgstr "Готовится информация об этой учётной записи..."
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
 msgid "Touchpad"
@@ -1535,16 +1515,16 @@ msgstr "Создать"
 msgid "Wired Network"
 msgstr "Проводная сеть"
 
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:28
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:30
 msgid "Wireless Network"
 msgstr "Беспроводная сеть"
 
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:26
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:28
 #, qt-format
 msgid "Wireless Network %1"
 msgstr "Беспроводная сеть %1"
 
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:55
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:57
 msgid ""
 "Wireless network is unable to be connected maybe due to the following reasons:\n"
 "\n"
@@ -1553,40 +1533,40 @@ msgid ""
 "3. Incorrect driver of network hardware"
 msgstr "Беспроводная сеть не может быть подключена, вероятные причины:\n\n1. Отключён аппаратный ключ беспроводной карты\n2. Неверная конфигурация сети в /etc/network/interface\n3. Некорректный драйвер сетевого оборудования"
 
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:35
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:158
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:37
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:163
 msgid "Connect to hidden access point"
 msgstr "Подключение к скрытой точке доступа"
 
-#: ../src/modules/power/main.qml:258 ../src/modules/power/main.qml:451
+#: ../src/modules/power/main.qml:307 ../src/modules/power/main.qml:548
 msgid "Power saver"
 msgstr "Экономичный"
 
-#: ../src/modules/power/main.qml:252 ../src/modules/power/main.qml:445
+#: ../src/modules/power/main.qml:301 ../src/modules/power/main.qml:542
 msgid "Balanced"
 msgstr "Сбалансированный"
 
-#: ../src/modules/power/main.qml:264 ../src/modules/power/main.qml:457
+#: ../src/modules/power/main.qml:313 ../src/modules/power/main.qml:554
 msgid "High performance"
-msgstr "Высокая производительность"
+msgstr "Производительность"
 
-#: ../src/modules/date_time/main.qml:130
+#: ../src/modules/date_time/main.qml:131
 msgid "Sync Automatically"
-msgstr ""
+msgstr "Автосинхронизация"
 
-#: ../src/modules/date_time/main.qml:148
+#: ../src/modules/date_time/main.qml:149
 msgid "Use 24-hour clock"
 msgstr "24-часовой формат"
 
-#: ../src/modules/date_time/main.qml:179
+#: ../src/modules/date_time/main.qml:180
 msgid "Adjust DST clock "
 msgstr "Скорректируйте часы DST"
 
-#: ../src/modules/date_time/main.qml:256
+#: ../src/modules/date_time/main.qml:257
 msgid "Date"
 msgstr "Дата"
 
-#: ../src/modules/date_time/main.qml:280
+#: ../src/modules/date_time/main.qml:290
 msgid "Set Date"
 msgstr "Установить дату"
 
@@ -1678,7 +1658,7 @@ msgstr "Полигон"
 msgid "Keyboard Layout"
 msgstr "Раскладка клавиатуры"
 
-#: ../src/modules/keyboard/main.qml:489
+#: ../src/modules/keyboard/main.qml:499
 msgid "No result"
 msgstr "Нет результата"
 
@@ -1701,7 +1681,7 @@ msgstr "Окно"
 
 #: ../src/modules/personalization/main.qml:125
 msgid "Icon"
-msgstr "Значёк"
+msgstr "Значки"
 
 #: ../src/modules/personalization/main.qml:132
 msgid "Cursor"
@@ -1743,56 +1723,56 @@ msgstr "30 минут"
 msgid "1 hour"
 msgstr "1 час"
 
-#: ../src/modules/power/main.qml:124
+#: ../src/modules/power/main.qml:123
 msgid "When I press the power button"
 msgstr "При нажатии кнопки питания"
 
-#: ../src/modules/power/main.qml:138 ../src/modules/power/main.qml:184
+#: ../src/modules/power/main.qml:137 ../src/modules/power/main.qml:183
 msgid "Shutdown"
 msgstr "Выключить"
 
-#: ../src/modules/power/main.qml:143 ../src/modules/power/main.qml:189
-#: ../src/modules/power/main.qml:255 ../src/modules/power/main.qml:261
-#: ../src/modules/power/main.qml:267 ../src/modules/power/main.qml:273
-#: ../src/modules/power/main.qml:377 ../src/modules/power/main.qml:448
-#: ../src/modules/power/main.qml:454 ../src/modules/power/main.qml:460
-#: ../src/modules/power/main.qml:466 ../src/modules/power/main.qml:563
+#: ../src/modules/power/main.qml:142 ../src/modules/power/main.qml:188
+#: ../src/modules/power/main.qml:304 ../src/modules/power/main.qml:310
+#: ../src/modules/power/main.qml:316 ../src/modules/power/main.qml:322
+#: ../src/modules/power/main.qml:425 ../src/modules/power/main.qml:545
+#: ../src/modules/power/main.qml:551 ../src/modules/power/main.qml:557
+#: ../src/modules/power/main.qml:563 ../src/modules/power/main.qml:659
 msgid "Suspend"
 msgstr "Остановить"
 
-#: ../src/modules/power/main.qml:148
+#: ../src/modules/power/main.qml:147
 msgid "Ask"
 msgstr "Спросить"
 
-#: ../src/modules/power/main.qml:170
+#: ../src/modules/power/main.qml:169
 msgid "When I close the lid"
 msgstr "При закрытии крышки"
 
-#: ../src/modules/power/main.qml:194
+#: ../src/modules/power/main.qml:193
 msgid "Nothing"
 msgstr "Ничего"
 
-#: ../src/modules/power/main.qml:213
+#: ../src/modules/power/main.qml:212
 msgid "Password required to wake up"
 msgstr "Требовать пароль для пробуждения"
 
-#: ../src/modules/power/main.qml:237
+#: ../src/modules/power/main.qml:248
 msgid "Plugged in"
 msgstr "Подключен"
 
-#: ../src/modules/power/main.qml:430
+#: ../src/modules/power/main.qml:490
 msgid "On battery"
 msgstr "От батареи"
 
-#: ../src/modules/power/main.qml:254 ../src/modules/power/main.qml:260
-#: ../src/modules/power/main.qml:266 ../src/modules/power/main.qml:272
-#: ../src/modules/power/main.qml:336 ../src/modules/power/main.qml:447
-#: ../src/modules/power/main.qml:453 ../src/modules/power/main.qml:459
-#: ../src/modules/power/main.qml:465 ../src/modules/power/main.qml:523
+#: ../src/modules/power/main.qml:303 ../src/modules/power/main.qml:309
+#: ../src/modules/power/main.qml:315 ../src/modules/power/main.qml:321
+#: ../src/modules/power/main.qml:384 ../src/modules/power/main.qml:544
+#: ../src/modules/power/main.qml:550 ../src/modules/power/main.qml:556
+#: ../src/modules/power/main.qml:562 ../src/modules/power/main.qml:619
 msgid "Turn off the display"
 msgstr "Выключить дисплей"
 
-#: ../src/modules/power/main.qml:330 ../src/modules/power/main.qml:518
+#: ../src/modules/power/main.qml:378 ../src/modules/power/main.qml:614
 msgid "Custom Options"
 msgstr "Пользовательские параметры"
 
@@ -1810,7 +1790,7 @@ msgstr "Динамик"
 
 #: ../src/modules/sound/main.qml:157
 msgid "Output Volume"
-msgstr "Выходной уровень"
+msgstr "Уровень"
 
 #: ../src/modules/sound/main.qml:222
 msgid "Microphone"
@@ -1822,7 +1802,7 @@ msgstr "Входной уровень"
 
 #: ../src/modules/sound/main.qml:296
 msgid "Input Feedback"
-msgstr "Обратная связь входа"
+msgstr "Уровень отклика"
 
 #: ../src/modules/sound/main.qml:332
 msgid "Output Port"
@@ -1854,11 +1834,11 @@ msgstr "Показать экспертные…"
 
 #: ../src/modules/system_info/main.qml:119
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
-msgstr "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
+msgstr "Copyright (c) 2011-2015 Wuhan Deepin Technology Co., Ltd."
 
 #: ../src/modules/system_info/main.qml:125
 msgid "Deepin Edition"
-msgstr "Deepin-редакция"
+msgstr "Редакция Deepin"
 
 #: ../src/modules/system_info/main.qml:131
 msgid "System Type"
@@ -1884,111 +1864,111 @@ msgstr "Диск"
 msgid "GNU GENERAL PUBLIC LICENSE"
 msgstr "GNU GENERAL PUBLIC LICENSE"
 
-#: ../src/modules/network/main.qml:162 ../src/modules/network/main.qml:190
+#: ../src/modules/network/main.qml:163 ../src/modules/network/main.qml:191
 msgid "Unknown"
 msgstr "Неизвестный"
 
-#: ../src/modules/network/main.qml:164
+#: ../src/modules/network/main.qml:165
 msgid "Wired"
 msgstr "Проводной"
 
-#: ../src/modules/network/main.qml:166
+#: ../src/modules/network/main.qml:167
 msgid "Wireless"
 msgstr "Беспроводной"
 
-#: ../src/modules/network/main.qml:168
+#: ../src/modules/network/main.qml:169
 msgid "Unused1"
 msgstr "Неиспольз.1"
 
-#: ../src/modules/network/main.qml:170
+#: ../src/modules/network/main.qml:171
 msgid "Unused2"
 msgstr "Неиспольз.2"
 
-#: ../src/modules/network/main.qml:174
+#: ../src/modules/network/main.qml:175
 msgid "OLPC mesh"
 msgstr "OLPC mesh"
 
-#: ../src/modules/network/main.qml:176
+#: ../src/modules/network/main.qml:177
 msgid "WiMax"
 msgstr "WiMax"
 
-#: ../src/modules/network/main.qml:178
+#: ../src/modules/network/main.qml:179
 msgid "Modem"
 msgstr "Модем"
 
-#: ../src/modules/network/main.qml:180
+#: ../src/modules/network/main.qml:181
 msgid "InfiniBand"
 msgstr "InfiniBand"
 
-#: ../src/modules/network/main.qml:182
+#: ../src/modules/network/main.qml:183
 msgid "Bond"
 msgstr "Связь"
 
-#: ../src/modules/network/main.qml:184
+#: ../src/modules/network/main.qml:185
 msgid "VLAN"
 msgstr "VLAN"
 
-#: ../src/modules/network/main.qml:186
+#: ../src/modules/network/main.qml:187
 msgid "ADSL"
 msgstr "ADSL"
 
-#: ../src/modules/network/main.qml:188
+#: ../src/modules/network/main.qml:189
 msgid "Bridge"
 msgstr "Мост"
 
-#: ../src/modules/network/main.qml:198
+#: ../src/modules/network/main.qml:199
 msgid "802.11 WiFi"
 msgstr "802.11 WiFi"
 
-#: ../src/modules/network/main.qml:200
+#: ../src/modules/network/main.qml:201
 msgid "802.11 WiFi AdHoc"
 msgstr "802.11 WiFi AdHoc"
 
-#: ../src/modules/network/main.qml:202
+#: ../src/modules/network/main.qml:203
 msgid "802.11 WiFi Hotspot"
 msgstr "802.11 WiFi Хот-спот"
 
-#: ../src/modules/network/main.qml:208
+#: ../src/modules/network/main.qml:209
 msgid "Mobile GSM"
 msgstr "Мобильный GSM"
 
-#: ../src/modules/network/main.qml:210
+#: ../src/modules/network/main.qml:211
 msgid "Mobile CDMA"
 msgstr "Мобильный CDMA"
 
-#: ../src/modules/network/main.qml:326
+#: ../src/modules/network/main.qml:341
 msgid "View Detailed Information"
 msgstr "Показать детальную информацию"
 
-#: ../src/modules/network/main.qml:214
+#: ../src/modules/network/main.qml:215
 msgid "VPN L2TP"
 msgstr "VPN L2TP"
 
-#: ../src/modules/network/main.qml:216
+#: ../src/modules/network/main.qml:217
 msgid "VPN PPTP"
 msgstr "VPN PPTP"
 
-#: ../src/modules/network/main.qml:218
+#: ../src/modules/network/main.qml:219
 msgid "VPN VPNC"
 msgstr "VPN VPNC"
 
-#: ../src/modules/network/main.qml:220
+#: ../src/modules/network/main.qml:221
 msgid "VPN OpenVPN"
 msgstr "VPN OpenVPN"
 
-#: ../src/modules/network/main.qml:222
+#: ../src/modules/network/main.qml:223
 msgid "VPN OpenConnect"
 msgstr "VPN OpenConnect"
 
-#: ../src/modules/account/main.qml:98
+#: ../src/modules/account/main.qml:109
 msgid "Delete Account"
-msgstr "Удалить учётную запись"
+msgstr "Удалить учетную запись"
 
-#: ../src/modules/account/main.qml:138
+#: ../src/modules/account/main.qml:149
 msgid "Add Account"
-msgstr "Добавить учётную запись"
+msgstr "Добавить учетную запись"
 
-#: ../src/modules/account/main.qml:158
+#: ../src/modules/account/main.qml:172
 msgid "User List"
 msgstr "Список пользователей"
 

@@ -3,9 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Jesse Wayde Brandao <www.jwb@gmail.com>, 2014
-# Luis Jorge Simões das Neves <luisjneves@gmail.com>, 2014
-# Ricardo Simões <xmcorporation@gmail.com>, 2014-2015
+# Tobias Ahlström <tobias.ahlstrom@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
@@ -13,16 +11,16 @@ msgstr ""
 "POT-Creation-Date: 2015-03-16 07:24+0000\n"
 "PO-Revision-Date: 2015-03-25 07:33+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
-"Language-Team: Portuguese (http://www.transifex.com/projects/p/dde-control-center/language/pt/)\n"
+"Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/dde-control-center/language/sv_SE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt\n"
+"Language: sv_SE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/modules/network/add/AddDsl.qml:11
 msgid "Add PPPoE Connection"
-msgstr "Adicionar Ligação PPPoE"
+msgstr "Lägg till PPPoE Anslutning"
 
 #: ../src/modules/network/add/AddDsl.qml:24
 #: ../src/modules/network/add/AddMobile.qml:33
@@ -30,7 +28,7 @@ msgstr "Adicionar Ligação PPPoE"
 #: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:33
 #: ../src/modules/shortcuts/CustomKeybinding.qml:118
 msgid "Name"
-msgstr "Nome"
+msgstr "Namn"
 
 #: ../src/modules/network/add/AddDsl.qml:36
 #: ../src/modules/network/add/AddMobile.qml:75
@@ -49,12 +47,12 @@ msgstr "Nome"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:375
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:65
 msgid "Username"
-msgstr "Nome de Utilizador"
+msgstr "Användarnamn"
 
 #: ../src/modules/network/add/AddDsl.qml:46
 #: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:33
 msgid "Service"
-msgstr "Serviço"
+msgstr "Tjänster"
 
 #: ../src/modules/network/add/AddDsl.qml:56
 #: ../src/modules/network/add/AddMobile.qml:85
@@ -78,16 +76,16 @@ msgstr "Serviço"
 #: ../src/modules/account/PasswordDialog.qml:62
 #: ../src/modules/network/wireless/WifiHotspot.qml:69
 msgid "Password"
-msgstr "Palavra-passe"
+msgstr "Lösenord"
 
 #: ../src/modules/network/add/AddMobile.qml:20
 msgid "New Mobile Connection"
-msgstr "Nova Ligação Móvel"
+msgstr "Ny Mobil Anslutning"
 
 #: ../src/modules/network/add/AddMobile.qml:45
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:23
 msgid "Service Type"
-msgstr "Tipo de Serviço"
+msgstr "Tjänsttyp"
 
 #: ../src/modules/network/add/AddMobile.qml:55
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:33
@@ -99,7 +97,7 @@ msgstr "APN"
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:43
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:113
 msgid "Number"
-msgstr "Número"
+msgstr "Nummer"
 
 #: ../src/modules/network/add/AddSectionSave.qml:11
 #: ../src/modules/account/AddUserDialog.qml:413
@@ -118,13 +116,13 @@ msgstr "Número"
 #: ../src/modules/network/wireless/WifiHotspot.qml:82
 #: ../src/modules/date_time/main.qml:300 ../src/modules/display/main.qml:179
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "Avbryt"
 
 #: ../src/modules/network/add/AddSectionSave.qml:20
 #: ../src/modules/shortcuts/CustomKeybinding.qml:157
 #: ../src/modules/date_time/TimezoneArea.qml:465
 msgid "Add"
-msgstr "Adicionar"
+msgstr "Lägg till"
 
 #: ../src/modules/account/AddUserDialog.qml:58
 #: ../src/modules/account/AddUserDialog.qml:63
@@ -133,7 +131,7 @@ msgstr "Adicionar"
 #: ../src/modules/account/PasswordDialog.qml:101
 #: ../src/modules/account/PasswordDialog.qml:161
 msgid "Password can not be empty."
-msgstr "A palavra-passe não pode estar vazia."
+msgstr "Lösenordet kan inte vara tomt."
 
 #: ../src/modules/account/AddUserDialog.qml:68
 #: ../src/modules/account/AddUserDialog.qml:225
@@ -146,15 +144,15 @@ msgstr "A palavra-passe não pode estar vazia."
 #: ../src/modules/account/PasswordDialog.qml:213
 #: ../src/modules/account/PasswordDialog.qml:223
 msgid "The two passwords do not match."
-msgstr "As duas palavras-passe não coincidem."
+msgstr "Lösenorden matchar inte."
 
 #: ../src/modules/account/AddUserDialog.qml:77
 msgid "Add User"
-msgstr "Adicionar Utilizador"
+msgstr "Lägg till Användare"
 
 #: ../src/modules/account/AddUserDialog.qml:106
 msgid "New User"
-msgstr "Novo Utilizador"
+msgstr "Ny Användare"
 
 #: ../src/modules/account/AddUserDialog.qml:110
 #: ../src/modules/account/AddUserDialog.qml:343
@@ -162,7 +160,7 @@ msgstr "Novo Utilizador"
 #: ../src/modules/account/UserList.qml:228
 #: ../src/modules/account/UserListCreatingItem.qml:88
 msgid "Administrator"
-msgstr "Administrador"
+msgstr "Administratör"
 
 #: ../src/modules/account/AddUserDialog.qml:110
 #: ../src/modules/account/AddUserDialog.qml:342
@@ -170,27 +168,27 @@ msgstr "Administrador"
 #: ../src/modules/account/UserList.qml:228
 #: ../src/modules/account/UserListCreatingItem.qml:88
 msgid "Normal User"
-msgstr "Utilizador Normal"
+msgstr "Normal Användare"
 
 #: ../src/modules/account/AddUserDialog.qml:175
 #: ../src/modules/account/AddUserDialog.qml:235
 #: ../src/modules/account/AddUserDialog.qml:301
 msgid "Username can not be empty."
-msgstr "O nome de utilizador não pode estar vazio."
+msgstr "Användarnamn kan inte vara tomt."
 
 #: ../src/modules/account/AddUserDialog.qml:270
 msgid "Repeat Password"
-msgstr "Repita a Palavra-passe"
+msgstr "Repetera Lösenord"
 
 #: ../src/modules/account/AddUserDialog.qml:330
 #: ../src/modules/account/EditUserDialog.qml:126
 msgid "Account Type"
-msgstr "Tipo de Conta"
+msgstr "Kontotyp"
 
 #: ../src/modules/account/AddUserDialog.qml:362
 #: ../src/modules/account/EditUserDialog.qml:59
 msgid "Auto-login"
-msgstr "Iniciar sessão automaticamente"
+msgstr "Automatisk inloggning"
 
 #: ../src/modules/account/AddUserDialog.qml:426
 #: ../src/modules/account/DeleteUserDialog.qml:46
@@ -198,11 +196,11 @@ msgstr "Iniciar sessão automaticamente"
 #: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:318
 #: ../src/modules/display/main.qml:194
 msgid "Confirm"
-msgstr "Confirmar"
+msgstr "Bekräfta"
 
 #: ../src/modules/network/add/AddVpn.qml:15
 msgid "VPN Type"
-msgstr "Tipo de VPN"
+msgstr "VPN Typ"
 
 #: ../src/modules/network/add/AddVpn.qml:36
 msgid "L2TP"
@@ -226,12 +224,12 @@ msgstr "VPNC"
 
 #: ../src/modules/network/add/AddVpn.qml:69
 msgid "Basic Information"
-msgstr "Informação Básica"
+msgstr "Grunläggande Information"
 
 #: ../src/modules/network/add/AddVpn.qml:82
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:23
 msgid "Need VPN Plugin"
-msgstr "Necessita Plugin VPN"
+msgstr "Behöver VPN Plugin"
 
 #: ../src/modules/network/add/AddVpn.qml:115
 #: ../src/modules/network/add/AddVpn.qml:155
@@ -265,7 +263,7 @@ msgstr "Gateway"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:385
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:415
 msgid "Ask for Pwd"
-msgstr "Perguntar por Palavra-passe"
+msgstr "Fråga efter lösenord"
 
 #: ../src/modules/network/add/AddVpn.qml:165
 #: ../src/modules/network/add/AddVpn.qml:285
@@ -274,7 +272,7 @@ msgstr "Perguntar por Palavra-passe"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:95
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:215
 msgid "CA Cert"
-msgstr "Certificado CA"
+msgstr "CA Cert"
 
 #: ../src/modules/network/add/AddVpn.qml:175
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:105
@@ -284,13 +282,13 @@ msgstr "Proxy"
 #: ../src/modules/network/add/AddVpn.qml:185
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:115
 msgid "Allow Cisco Secure Desktop Trojan"
-msgstr "Permitir Área de Trabalho Cisco Secure Trojan"
+msgstr "Tillåt Cisco Secure Desktop Trojan"
 
 #: ../src/modules/network/add/AddVpn.qml:345
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:275
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
 msgid "Customize Key Direction"
-msgstr "Personalizar Tecla de Direcção"
+msgstr "Anpassa Nyckelriktning"
 
 #: ../src/modules/network/add/AddVpn.qml:215
 #: ../src/modules/network/add/AddVpn.qml:305
@@ -299,12 +297,12 @@ msgstr "Personalizar Tecla de Direcção"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:145
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:235
 msgid "Private Key"
-msgstr "Chave Privada"
+msgstr "Privat Nyckel"
 
 #: ../src/modules/network/add/AddVpn.qml:245
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:175
 msgid "Auth Type"
-msgstr "Tipo de Autenticação"
+msgstr "Auth Typ"
 
 #: ../src/modules/network/add/AddVpn.qml:205
 #: ../src/modules/network/add/AddVpn.qml:295
@@ -313,87 +311,87 @@ msgstr "Tipo de Autenticação"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:135
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:225
 msgid "User Cert"
-msgstr "Certificado do Utilizador"
+msgstr "Användarcert"
 
 #: ../src/modules/network/add/AddVpn.qml:195
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:125
 msgid "CSD Script"
-msgstr "Script CSD"
+msgstr "CSD Script"
 
 #: ../src/modules/network/add/AddVpn.qml:225
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:155
 msgid "Use FSID for Key Passphrase"
-msgstr "Usar FSDI para Chave Passphrase"
+msgstr "Använd FSID för nyckelns lösenordsfras"
 
 #: ../src/modules/network/add/AddVpn.qml:325
 #: ../src/modules/network/wireless/AddWireless.qml:206
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:195
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:255
 msgid "Private Pwd"
-msgstr "Palavra-passe Privada"
+msgstr "Privat Lösenord"
 
 #: ../src/modules/network/add/AddVpn.qml:335
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:265
 msgid "Static Key"
-msgstr "Chave Estática"
+msgstr "Statisk Nyckel"
 
 #: ../src/modules/network/add/AddVpn.qml:355
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:285
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:63
 msgid "Key Direction"
-msgstr "Direção Chave"
+msgstr "Nyckelriktning"
 
 #: ../src/modules/network/add/AddVpn.qml:365
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:295
 msgid "Remote IP"
-msgstr "IP Remoto"
+msgstr "Fjärr IP"
 
 #: ../src/modules/network/add/AddVpn.qml:375
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:305
 msgid "Local IP"
-msgstr "IP Local"
+msgstr "Lokalt IP"
 
 #: ../src/modules/network/add/AddVpn.qml:455
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:395
 msgid "User Pwd"
-msgstr "Palavra-passe do Utilizador"
+msgstr "Användarlösenord"
 
 #: ../src/modules/network/add/AddVpn.qml:465
 #: ../src/modules/network/add/AddVpn.qml:527
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:405
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:33
 msgid "Group Name"
-msgstr "Nome de Grupo"
+msgstr "Gruppnamn"
 
 #: ../src/modules/network/add/AddVpn.qml:485
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:425
 msgid "Group Pwd"
-msgstr "Password do Grupo"
+msgstr "Grupplösenord"
 
 #: ../src/modules/network/add/AddVpn.qml:495
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:435
 msgid "Use Hybrid Authentication"
-msgstr "Usar Autenticação Híbrida"
+msgstr "Använd Hybridautentisering"
 
 #: ../src/modules/network/add/AddVpn.qml:505
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:445
 msgid "CA File"
-msgstr "Ficheiro CA"
+msgstr "CA Fil"
 
 #: ../src/modules/network/add/AddVpn.qml:517
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:23
 msgid "Enable IPsec"
-msgstr "Ativar IPsec"
+msgstr "Aktivera IPsec"
 
 #: ../src/modules/network/add/AddVpn.qml:537
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:43
 msgid "Group ID"
-msgstr "ID de Grupo"
+msgstr "Grupp ID"
 
 #: ../src/modules/network/add/AddVpn.qml:547
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:53
 msgid "Pre-Shared Key"
-msgstr "Chave Pré-Partilhada "
+msgstr "Pre-Shared Key"
 
 #: ../src/modules/network/add/AddVpn.qml:559
 #: ../src/modules/network/add/AddVpn.qml:571
@@ -401,11 +399,11 @@ msgstr "Chave Pré-Partilhada "
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:23
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:23
 msgid "Use MPPE"
-msgstr "Utilizar MPPE"
+msgstr "Använd MPPE"
 
 #: ../src/modules/network/wireless/AddWireless.qml:8
 msgid "Connect to wireless"
-msgstr "Ligar a rede sem fios"
+msgstr "Anslut till trådlöst"
 
 #: ../src/modules/network/wireless/AddWireless.qml:32
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:23
@@ -421,61 +419,61 @@ msgstr "SSID"
 #: ../src/modules/network/Info.qml:53
 #: ../src/modules/network/wireless/WifiHotspot.qml:49
 msgid "Security"
-msgstr "Segurança"
+msgstr "Säkerhet"
 
 #: ../src/modules/network/wireless/AddWireless.qml:54
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:43
 #: ../src/modules/network/wireless/WifiHotspot.qml:59
 msgid "Key"
-msgstr "Chave"
+msgstr "Nyckel"
 
 #: ../src/modules/network/wireless/AddWireless.qml:74
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:63
 msgid "EAP Auth"
-msgstr "Autenticação EAP"
+msgstr "EAP Auth"
 
 #: ../src/modules/network/wireless/AddWireless.qml:84
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:73
 msgid "Identity"
-msgstr "Identidade"
+msgstr "Identitet"
 
 #: ../src/modules/network/wireless/AddWireless.qml:94
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:83
 msgid "Anonymous ID"
-msgstr "ID Anónimo"
+msgstr "Anonymt ID"
 
 #: ../src/modules/network/wireless/AddWireless.qml:124
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:113
 msgid "Provisioning"
-msgstr "Aprovisionar"
+msgstr "Provisioning"
 
 #: ../src/modules/network/wireless/AddWireless.qml:134
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:123
 msgid "PAC file"
-msgstr "Ficheiro PAC"
+msgstr "PAC fil"
 
 #: ../src/modules/network/wireless/AddWireless.qml:144
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:133
 msgid "PEAP Version"
-msgstr "Versão PEAP"
+msgstr "PEAP Version"
 
 #: ../src/modules/network/wireless/AddWireless.qml:154
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:143
 msgid "Inner Auth"
-msgstr "Autenticação Interior"
+msgstr "Inner Auth"
 
 #: ../src/modules/network/wireless/AddWireless.qml:224
 #: ../src/modules/network/widgets/PasswordBox.qml:126
 msgid "Connect"
-msgstr "Ligar"
+msgstr "Anslut"
 
 #: ../src/modules/account/AvatarPickDialog.qml:5
 msgid "Choose a new picture for your Avatar"
-msgstr "Escolher uma nova imagem para o seu Avatar"
+msgstr "Välj en ny bild för din avatar"
 
 #: ../src/modules/account/AvatarView.qml:19
 msgid "Recently Used"
-msgstr "Usado Recentemente"
+msgstr "Senast Använda"
 
 #: ../src/modules/account/AvatarView.qml:20
 msgid "Avatar"
@@ -483,77 +481,77 @@ msgstr "Avatar"
 
 #: ../src/modules/account/AvatarView.qml:21
 msgid "Webcam"
-msgstr "Câmara Web"
+msgstr "Webbkamera"
 
 #: ../src/modules/sound/BalanceLine.qml:31
 msgid "Left/Right Balance"
-msgstr "Balanceamento Esquerdo/Direito"
+msgstr "Vänster/Höger Balans"
 
 #: ../src/modules/sound/BalanceLine.qml:53
 msgid "Left"
-msgstr "Esquerda"
+msgstr "Vänster"
 
 #: ../src/modules/sound/BalanceLine.qml:55
 msgid "Right"
-msgstr "Direita"
+msgstr "Höger"
 
 #: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:43
 #: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:53
 msgid "Automatically connect"
-msgstr "Ligar automaticamente"
+msgstr "Anslut automatiskt"
 
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:121
 #: ../src/modules/personalization/widgets/PreviewWindow.qml:280
 #: ../src/modules/display/main.qml:194
 msgid "Apply"
-msgstr "Aplicar"
+msgstr "Använd"
 
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:149
 msgid "Devices nearby"
-msgstr "Dispositivos nas proximidades"
+msgstr "Enheter i närheten"
 
 #: ../src/modules/display/BrightnessRectangle.qml:61
 #: ../src/modules/display/ResolutionRectangle.qml:69
 #: ../src/modules/display/RotationRectangle.qml:70
 msgid "Monitor"
-msgstr "Monitor"
+msgstr "Skärm"
 
 #: ../src/modules/date_time/Calendar.qml:164
 msgid "Today"
-msgstr "Hoje"
+msgstr "Idag"
 
 #: ../src/modules/date_time/CalendarComponent.qml:83
 msgid "Sun"
-msgstr "Dom"
+msgstr "Sön"
 
 #: ../src/modules/date_time/CalendarComponent.qml:84
 msgid "Mon"
-msgstr "Seg"
+msgstr "Mån"
 
 #: ../src/modules/date_time/CalendarComponent.qml:85
 msgid "Tue"
-msgstr "Ter"
+msgstr "Tis"
 
 #: ../src/modules/date_time/CalendarComponent.qml:86
 msgid "Wed"
-msgstr "Qua"
+msgstr "Ons"
 
 #: ../src/modules/date_time/CalendarComponent.qml:87
 msgid "Thu"
-msgstr "Qui"
+msgstr "Tor"
 
 #: ../src/modules/date_time/CalendarComponent.qml:88
 msgid "Fri"
-msgstr "Sex"
+msgstr "Fre"
 
 #: ../src/modules/date_time/CalendarComponent.qml:89
 msgid "Sat"
-msgstr "Sáb"
+msgstr "Lör"
 
 #: ../src/modules/network/ConnectionAdd.qml:12
 #: ../src/modules/network/main.qml:315
 msgid "Add Network Connection"
-msgstr "Adicionar Ligação de Rede"
+msgstr "Lägg till Nätverksanslutning"
 
 #: ../src/modules/network/ConnectionAdd.qml:35
 #: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:11
@@ -569,69 +567,69 @@ msgstr "VPN"
 
 #: ../src/modules/network/ConnectionAdd.qml:77
 msgid "Next"
-msgstr "Seguinte"
+msgstr "Nästa"
 
 #: ../src/modules/network/ConnectionEdit.qml:52
 msgid "Delete this network"
-msgstr "Eliminar esta Rede"
+msgstr "Radera detta nätverk"
 
 #: ../src/modules/network/ConnectionEdit.qml:52
 msgid "Are you sure you want to delete this network?"
-msgstr "Tem a certeza que deseja eliminar esta rede?"
+msgstr "Är du säker på att du vill radera detta nätverk?"
 
 #: ../src/modules/network/ConnectionEdit.qml:110
 #: ../src/modules/network/wireless/WifiHotspot.qml:91
 msgid "Save"
-msgstr "Guardar"
+msgstr "Spara"
 
 #: ../src/modules/network/ConnectionEdit.qml:144
 msgid "Delete"
-msgstr "Eliminar"
+msgstr "Ta bort"
 
 #: ../src/modules/shortcuts/CustomKeybinding.qml:133
 msgid "Command"
-msgstr "Comando"
+msgstr "Kommando"
 
 #: ../src/modules/account/DeleteUserDialog.qml:19
 msgid "Keep user's files"
-msgstr "Manter os ficheiros do utilizador"
+msgstr "Spara användares filer"
 
 #: ../src/modules/account/DeleteUserDialog.qml:20
 msgid "Delete user's files"
-msgstr "Eliminar os ficheiros do utilizador"
+msgstr "Radera användares filer"
 
 #: ../src/modules/network/dsl/DslExpand.qml:19
 msgid "PPPoE Connections"
-msgstr "Ligações PPPoE"
+msgstr "PPPoE Anslutningar"
 
 #: ../src/modules/network/edit/EditLineMissingPackage.qml:15
 #, qt-format
 msgid "Current system lacks component for %1"
-msgstr "O sistema atual tem falta do componente para %1"
+msgstr "Nuvarande system saknar komponent för %1"
 
 #: ../src/modules/network/edit/EditLineMissingPackage.qml:22
 msgid "Click to install"
-msgstr "Clique para instalar"
+msgstr "Klicka för att installera"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:11
 #: ../src/modules/network/main.qml:197
 msgid "Ethernet"
-msgstr "Rede Cablada"
+msgstr "Ethernet"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:23
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:65
 msgid "Device MAC Addr"
-msgstr "Endereço Mac do Dispositivo:"
+msgstr "Enhet MAC Addr"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:33
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:75
 msgid "Cloned MAC Addr"
-msgstr "Endereço MAC Clonado"
+msgstr "Klonad MAC Addr"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:43
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:85
 msgid "Customize MTU"
-msgstr "Personalizar MTU"
+msgstr "Anpassa MTU"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:53
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:107
@@ -646,22 +644,22 @@ msgstr "IPv4"
 #: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:23
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:23
 msgid "Method"
-msgstr "Método"
+msgstr "Metod"
 
 #: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:33
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:33
 #: ../src/modules/network/Info.qml:55
 msgid "IP Address"
-msgstr "Endereço IP"
+msgstr "IP Adress"
 
 #: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:44
 msgid "Netmask"
-msgstr "Máscara de Rede"
+msgstr "Nätmask"
 
 #: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:69
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:65
 msgid "DNS Server"
-msgstr "Servidor DNS"
+msgstr "DNS Server"
 
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:11
 msgid "IPv6"
@@ -669,24 +667,24 @@ msgstr "IPv6"
 
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:43
 msgid "Prefix"
-msgstr "Prefixo"
+msgstr "Prefix"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:11
 #: ../src/modules/network/main.qml:207
 msgid "Mobile"
-msgstr "Telemóvel"
+msgstr "Mobil"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:73
 msgid "Network ID"
-msgstr "ID de rede"
+msgstr "Nätverks ID"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:83
 msgid "Type"
-msgstr "Tipo"
+msgstr "Typ"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:93
 msgid "Home Network Only"
-msgstr "Apenas Rede Caseira"
+msgstr "Endast Hemmanätverk"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:103
 msgid "PIN"
@@ -704,70 +702,70 @@ msgstr "128-bit MPPE"
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:43
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:43
 msgid "Stateful MPPE"
-msgstr "Afirmação Máxima MPPE"
+msgstr "Stateful MPPE"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:55
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:53
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:53
 msgid "Refuse EAP Authentication"
-msgstr "Recusar Autenticação EAP"
+msgstr "Avböj EAP Autentisering"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:65
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:64
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:64
 msgid "Refuse PAP Authentication"
-msgstr "Recusar Autenticação PAP"
+msgstr "Avböj PAP Autentisering"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:75
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:75
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:75
 msgid "Refuse CHAP Authentication"
-msgstr "Recusar Autenticação CHAP"
+msgstr "Avböj CHAP Autentisering"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:85
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:86
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:86
 msgid "Refuse MSCHAP Authentication"
-msgstr "Recusar Autenticação MSCHAP"
+msgstr "Avböj MSCHAP Autentisering"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:95
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:97
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:97
 msgid "Refuse MSCHAPv2 Authentication"
-msgstr "Recusar Autenticação MSCHAPv2"
+msgstr "Avböj MSCHAPv2 Autentisering"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:105
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:108
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:107
 msgid "No BSD Data Compression"
-msgstr "Nenhuma Compressão de Dados BSD"
+msgstr "Ingen BSD Datakomprimering"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:115
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:118
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:117
 msgid "No Deflate Data Compression"
-msgstr "Não Deflacionar Compressão de Dados"
+msgstr "Ingen Deflate Datakomprimering"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:125
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:128
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:127
 msgid "No TCP Header Compression"
-msgstr "Nenhuma Compressão de Cabeçalho TCP"
+msgstr "Ingen TCP Header Compression"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:135
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:158
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:137
 msgid "Send PPP Echo Packets"
-msgstr "Enviar pacotes Eco PPP"
+msgstr "Skicka PPP Echo Paket"
 
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:23
 msgid "Security Required"
-msgstr "Segurança Requerida"
+msgstr "Säkerhet Obligatorisk"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:75
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:355
 msgid "NT Domain"
-msgstr "Domínio NT"
+msgstr "NT Domän"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:11
 msgid "VPN IPsec"
@@ -780,149 +778,149 @@ msgstr "VPN PPP"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:138
 msgid "No Protocol Field Compression"
-msgstr "Nenhuma Compressão de Protocolo de Campo"
+msgstr "Ingen Protocol Field Compression"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:148
 msgid "No Address/Control Compression"
-msgstr "Nenhuma Compressão de Endereço/Controlo"
+msgstr "Ingen Address/Control Compression"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:11
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:11
 msgid "VPN Advanced"
-msgstr "VPN Avançado"
+msgstr "VPN Avancerad"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:33
 msgid "Gateway Port"
-msgstr "Porto Gateway"
+msgstr "Gateway Port"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:23
 msgid "Customize Gateway Port"
-msgstr "Porto Gateway Personalizado"
+msgstr "Anpassa Gateway Port"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:45
 msgid "Customize Renegotiation Interval"
-msgstr "Personalizar Intervalo de Renegociação"
+msgstr "Anpassa Renegotiation Interval"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:55
 msgid "Renegotiation Interval"
-msgstr "Intervalo de Renegociação"
+msgstr "Renegotiation Interval"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:67
 msgid "Use LZO data compression"
-msgstr "Usar compressão de dados LZO"
+msgstr "Använd LZO data compression"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:77
 msgid "Use TCP connection"
-msgstr "Usar conexão TCP"
+msgstr "Använd TCP anslutning"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:87
 msgid "Use TAP device"
-msgstr "Usar dispositivo TAP"
+msgstr "Använd TAP enhet"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:97
 msgid "Customize Tunnel MTU"
-msgstr "Personalizar Túnel MTU"
+msgstr "Anpassa Tunnel MTU"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:119
 msgid "Customize UDP Fragment Size"
-msgstr "Personalizar Tamanho de Fragmento UDP"
+msgstr "Anpassa UDP Fragment Size"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
 msgid "UDP Fragment Size"
-msgstr "Tamanho de Fragmento UDP"
+msgstr "UDP Fragment Size"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:141
 msgid "Restrict Tunnel TCP MSS"
-msgstr "Restringir Túnel TCP MSS"
+msgstr "Begränsa Tunnel TCP MSS"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:151
 msgid "Randomize Remote Hosts"
-msgstr "Randomizar Anfitriões Remotos"
+msgstr "Slumpa Fjärrvärdar"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:11
 msgid "VPN Proxies"
-msgstr "Proxies VPN"
+msgstr "VPN Proxies"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:23
 msgid "Proxy Type"
-msgstr "Tipo de Proxy"
+msgstr "Proxy Type"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:33
 msgid "Server IP"
-msgstr "IP do Servidor"
+msgstr "Server IP"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:43
 #: ../src/modules/network/proxy/ProxyLine.qml:39
 msgid "Port"
-msgstr "Porto"
+msgstr "Port"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:55
 msgid "Retry Indefinitely When Failed"
-msgstr "Tentar Novamente Indefinidamente Quando Falhar"
+msgstr "Försök på obestämd tid vid misslyckande"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:11
 msgid "VPN Security"
-msgstr "Segurança VPN"
+msgstr "VPN Säkerhet"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:23
 msgid "Cipher"
-msgstr "Cifra"
+msgstr "Cipher"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:33
 msgid "HMAC Auth"
-msgstr "Autenticação HMAC"
+msgstr "HMAC Auth"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:11
 msgid "VPN TLS Authentication"
-msgstr "Autenticação VPN TLS"
+msgstr "VPN TLS Authentication"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:23
 msgid "Subject Match"
-msgstr "Sujeito de Encontro"
+msgstr "Subject Match"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:33
 msgid "Remote Cert Type"
-msgstr "Tipo de Cert Remoto"
+msgstr "Fjärr Cert Type"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:43
 msgid "Key File"
-msgstr "Ficheiro Chave"
+msgstr "Nyckelfil"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:23
 msgid "Domain"
-msgstr "Domínio"
+msgstr "Domän"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:33
 msgid "Vendor"
-msgstr "Fornecedor"
+msgstr "Leverantör"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:43
 msgid "Version"
-msgstr "Versão"
+msgstr "Version"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:53
 msgid "Encryption"
-msgstr "Encriptação"
+msgstr "Kryptering"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:63
 msgid "NAT Traversal"
-msgstr "NAT Transversal"
+msgstr "NAT Traversal"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:73
 msgid "IKE DH Group"
-msgstr "Grupo IKE DH"
+msgstr "IKE DH Group"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:83
 msgid "Forward Secrecy"
-msgstr "Re-encaminhar Sigilo"
+msgstr "Forward Secrecy"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:93
 msgid "Local Port"
-msgstr "Porto Local"
+msgstr "Lokal Port"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:105
 msgid "Disable Dead Peer Detection"
-msgstr "Desativar Deteção de Peer Morto"
+msgstr "Inaktivera Dead Peer Detektion"
 
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:11
 msgid "Wi-Fi"
@@ -930,135 +928,135 @@ msgstr "Wi-Fi"
 
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:33
 msgid "Mode"
-msgstr "Modo"
+msgstr "Mode"
 
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:43
 msgid "Band"
-msgstr "Banda"
+msgstr "Band"
 
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:54
 msgid "Channel"
-msgstr "Canal"
+msgstr "Kanal"
 
 #: ../src/modules/account/EditUserDialog.qml:93
 msgid "Enable"
-msgstr "Ativar"
+msgstr "Aktivera"
 
 #: ../src/modules/sound/FadeLine.qml:31
 msgid "Front/Rear Balance"
-msgstr "Balanceamento Frontal/Traseira"
+msgstr "Fram/Bak Balans"
 
 #: ../src/modules/sound/FadeLine.qml:55
 msgid "Front"
-msgstr "Frontal"
+msgstr "Fram"
 
 #: ../src/modules/sound/FadeLine.qml:53
 msgid "Rear"
-msgstr "Traseira"
+msgstr "Bak"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:48
 msgid "Standard"
-msgstr "Padrão"
+msgstr "Standard"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:70
 msgid "Monospaced"
-msgstr "Mono-espaçado"
+msgstr "Fast bredd"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:90
 msgid "Size"
-msgstr "Tamanho"
+msgstr "Storlek"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:119
 #, qt-format
 msgid "Font %1"
-msgstr "Fonte %1"
+msgstr "Teckensnitt %1"
 
 #: ../src/modules/account/GuestUser.qml:45 ../src/views/HeaderArea.qml:108
 msgid "Guest"
-msgstr "Convidado"
+msgstr "Gäst"
 
 #: ../src/modules/account/GuestUser.qml:106
 msgid "Enabled"
-msgstr "Ativado"
+msgstr "Aktiverad"
 
 #: ../src/modules/network/Info.qml:13
 msgid "Connected"
-msgstr "Ligado"
+msgstr "Ansluten"
 
 #: ../src/modules/network/Info.qml:15
 msgid "Not Connected"
-msgstr "Desligado da Rede"
+msgstr "Inte Ansluten"
 
 #: ../src/modules/network/Info.qml:39
 msgid "(default)"
-msgstr "(padrão)"
+msgstr "(standard)"
 
 #: ../src/modules/network/Info.qml:50
 msgid "Interface"
-msgstr "Interface"
+msgstr "Gränssnitt"
 
 #: ../src/modules/network/Info.qml:54
 msgid "Device Addr"
-msgstr "Endereço do Dispositivo"
+msgstr "Enhet Addr"
 
 #: ../src/modules/network/Info.qml:56
 msgid "Subnet Mask"
-msgstr "Máscara de Sub-rede"
+msgstr "Subnet Mask"
 
 #: ../src/modules/network/Info.qml:57
 msgid "Route Addr"
-msgstr "Gateway"
+msgstr "Route Addr"
 
 #: ../src/modules/network/Info.qml:58
 msgid "Primary DNS"
-msgstr "DNS Principal"
+msgstr "Primär DNS"
 
 #: ../src/modules/network/Info.qml:59
 msgid "Secondary DNS"
-msgstr "DNS Secundário"
+msgstr "Sekundär DNS"
 
 #: ../src/modules/network/Info.qml:60
 msgid "Third DNS"
-msgstr "DNS Terceiro"
+msgstr "Tredje DNS"
 
 #: ../src/modules/network/Info.qml:69
 msgid "Device Speed"
-msgstr "Velocidade do Dispositivo"
+msgstr "Enhetshastighet"
 
 #: ../src/modules/keyboard/LocaleArea.qml:53
 msgid "Language"
-msgstr "Idioma"
+msgstr "Språk"
 
 #: ../src/modules/display/MessageBox.qml:105
 msgid "Do you want to keep these display settings?"
-msgstr "Deseja manter estas configurações apresentadas?"
+msgstr "Vill du behålla de här inställningarna för bildskärmen?"
 
 #: ../src/modules/display/MessageBox.qml:114
 #, qt-format
 msgid ""
 "Reverting to previous display settings in <font color='#F48914'>%1</font> "
 "seconds."
-msgstr "A Reverter para as configurações apresentadas anteriormente em <font color='#F48914'>%1</font> segundos."
+msgstr "Återställer till föregående bildskärmsinställningar om <font color='#F48914'>%1</font> sekunder."
 
 #: ../src/modules/display/MessageBox.qml:140
 msgid "Keep Changes"
-msgstr "Manter Alterações"
+msgstr "Behåll Ändringar"
 
 #: ../src/modules/display/MessageBox.qml:128
 msgid "Revert"
-msgstr "Reverter"
+msgstr "Återställ"
 
 #: ../src/views/ModulesData.qml:52
 msgid "Date and Time"
-msgstr "Data & Hora"
+msgstr "Datum och Tid"
 
 #: ../src/views/ModulesData.qml:53
 msgid "Network"
-msgstr "Rede"
+msgstr "Nätverk"
 
 #: ../src/views/ModulesData.qml:54
 msgid "Disk Mount"
-msgstr "Montar disco"
+msgstr "Diskmontering"
 
 #: ../src/views/ModulesData.qml:55 ../src/modules/network/main.qml:173
 msgid "Bluetooth"
@@ -1066,39 +1064,39 @@ msgstr "Bluetooth"
 
 #: ../src/views/ModulesData.qml:56
 msgid "Sound"
-msgstr "Som"
+msgstr "Ljud"
 
 #: ../src/views/ModulesData.qml:57
 msgid "Power Management"
-msgstr "Gestão de Energia"
+msgstr "Energisparfunktioner"
 
 #: ../src/views/ModulesData.qml:58
 msgid "More Settings"
-msgstr "Mais Definições"
+msgstr "Mer Inställningar"
 
 #: ../src/views/ModulesData.qml:59 ../src/views/PanelContent.qml:473
 msgid "Power"
-msgstr "Energia"
+msgstr "Avsluta"
 
 #: ../src/views/ModulesData.qml:60
 msgid "Display"
-msgstr "Ecrã"
+msgstr "Bildskärm"
 
 #: ../src/views/ModulesData.qml:61
 msgid "Desktop"
-msgstr "Ambiente de Trabalho"
+msgstr "Skrivbord"
 
 #: ../src/views/ModulesData.qml:62
 msgid "Personalization"
-msgstr "Personalização"
+msgstr "Anpassning"
 
 #: ../src/views/ModulesData.qml:63
 msgid "Keyboard Shortcuts"
-msgstr "Atalhos de Teclado"
+msgstr "Tangentbordsgenvägar"
 
 #: ../src/views/ModulesData.qml:64
 msgid "Keyboard and Language"
-msgstr "Teclado e Idioma"
+msgstr "Tangentbord och Språk"
 
 #: ../src/views/ModulesData.qml:65
 msgid "Tablet"
@@ -1106,44 +1104,44 @@ msgstr "Tablet"
 
 #: ../src/views/ModulesData.qml:66
 msgid "Mouse and Touchpad"
-msgstr "Rato e Teclado"
+msgstr "Mus och Touchpad"
 
 #: ../src/views/ModulesData.qml:67 ../src/modules/mouse_touchpad/main.qml:50
 msgid "Mouse"
-msgstr "Rato"
+msgstr "Mus"
 
 #: ../src/views/ModulesData.qml:68
 msgid "User Accounts"
-msgstr "Contas de Utilizadores"
+msgstr "Användarkonton"
 
 #: ../src/views/ModulesData.qml:69
 #: ../src/modules/default_applications/main.qml:85
 msgid "Default Applications"
-msgstr "Aplicações Predefinidas"
+msgstr "Standardprogram"
 
 #: ../src/views/ModulesData.qml:70
 msgid "System Information"
-msgstr "Informações do Sistema"
+msgstr "Systeminformation"
 
 #: ../src/views/ModulesData.qml:71
 msgid "Boot Menu"
-msgstr "Menu de Arranque"
+msgstr "Uppstartsmeny"
 
 #: ../src/views/ModulesData.qml:72
 msgid "Home"
-msgstr "Página Principal"
+msgstr "Hem"
 
 #: ../src/modules/display/MonitorDragArea.qml:471
 msgid "Identify"
-msgstr "Identificar"
+msgstr "Identifiera"
 
 #: ../src/modules/display/MonitorDragArea.qml:489
 msgid "Edit"
-msgstr "Editar"
+msgstr "Ändra"
 
 #: ../src/modules/display/MonitorDragArea.qml:507
 msgid "Split"
-msgstr "Dividir"
+msgstr "Dela"
 
 #: ../src/modules/display/MonitorProperties.qml:42
 msgid "Normal"
@@ -1151,133 +1149,133 @@ msgstr "Normal"
 
 #: ../src/modules/display/MonitorProperties.qml:43
 msgid "Rotate Right"
-msgstr "Rodar para a Direita"
+msgstr "Rotera Höger"
 
 #: ../src/modules/display/MonitorProperties.qml:44
 msgid "Upside Down"
-msgstr "Virar ao contrário"
+msgstr "Upp och ner"
 
 #: ../src/modules/display/MonitorProperties.qml:45
 msgid "Rotate Left"
-msgstr "Rodar para a Esquerda"
+msgstr "Rotera Vänster"
 
 #: ../src/modules/display/MonitorProperties.qml:78
 msgid "Enable Monitor(s)"
-msgstr "Activar Monitor(es)"
+msgstr "Aktivera Bildskärm(ar)"
 
 #: ../src/modules/display/MonitorProperties.qml:96
 msgid "Please choose the monitor(s) you want to enable"
-msgstr "Por favor escolha o(s) monitor(es) que deseja ativar"
+msgstr "Välj vilken/vilka bildskärm(ar) du vill aktivera"
 
 #: ../src/modules/display/MonitorProperties.qml:146
 msgid "Primary Screen"
-msgstr "Ecrã Primário"
+msgstr "Primär Bildskärm"
 
 #: ../src/modules/display/MonitorProperties.qml:189
 msgid "Resolution"
-msgstr "Resolução"
+msgstr "Upplösning"
 
 #: ../src/modules/display/MonitorProperties.qml:230
 msgid "Rotation"
-msgstr "Rotação"
+msgstr "Rotering"
 
 #: ../src/modules/display/MonitorProperties.qml:274
 #: ../src/modules/display/MonitorProperties.qml:306
 msgid "Brightness"
-msgstr "Luminosidade"
+msgstr "Ljusstyrka"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:38
 msgid "Display Modes"
-msgstr "Modos de Visualização"
+msgstr "Visningslägen"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:58
 msgid "Copy"
-msgstr "Copiar"
+msgstr "Kopiera"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:59
 msgid "Copy the contents of your primary screen to other screens."
-msgstr "Copiar os conteúdos do seu ecrã primário para outros ecrãs."
+msgstr "Spegla innehållet på din primära bildskärm till andra bildskärmar."
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:76
 msgid "Extend"
-msgstr "Estender"
+msgstr "Utöka"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:77
 msgid ""
 "Extend your screen contents to display different contents on different "
 "screens."
-msgstr "Amplie os conteúdos do seu monitor para visualizar diferentes conteúdos em diferentes monitores."
+msgstr "Utöka din bildskärms innehåll för att visa annat innehåll på andra bildskärmar."
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:98
 #, qt-format
 msgid "Only Displayed on %1"
-msgstr "Apenas Visualizado no %1"
+msgstr "Visas endast på %1"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:99
 #, qt-format
 msgid "Screen contents are only displayed on %1 but not on other screens."
-msgstr "Conteúdos de ecrã são apenas mostrados no %1 mas não noutros ecrãs."
+msgstr "Skärminnehåll visas endast på %1 och inte på någon annan skärm."
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:118
 msgid "Custom Settings"
-msgstr "Definições Personalizadas"
+msgstr "Anpassade Inställningar"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:119
 msgid "You can do other custom settings to your screens."
-msgstr "Pode aplicar outras definições personalizadas aos seus ecrãs."
+msgstr "Du kan göra andra anpassade inställningar till dina bildskärmar."
 
 #: ../src/modules/network/wired/NewItem.qml:45
 #: ../src/modules/network/wired/WiredItem.qml:89
 #, qt-format
 msgid "Wired Connection %1"
-msgstr "Ligação por Cabo %1"
+msgstr "Trådbunden Anslutning %1"
 
 #: ../src/modules/network/wired/NewItem.qml:47
 #: ../src/modules/network/wired/WiredItem.qml:91
 msgid "Wired Connection"
-msgstr "Ligação de Rede Cablada"
+msgstr "Trådbunden Anslutning"
 
 #: ../src/modules/network/widgets/NotManagedSection.qml:25
 msgid "not managed"
-msgstr "não gerido"
+msgstr "inte hanterad"
 
 #: ../src/modules/network/widgets/PasswordBox.qml:102
 msgid "Auto-connect"
-msgstr "Auto-ligar"
+msgstr "Anlsut automatiskt"
 
 #: ../src/modules/account/PasswordDialog.qml:119
 msgid "New Password"
-msgstr "Nova Palavra-passe"
+msgstr "Nytt Lösenord"
 
 #: ../src/modules/account/PasswordDialog.qml:185
 msgid "Repeat"
-msgstr "Repetir"
+msgstr "Repetera"
 
 #: ../src/modules/grub/Preview.qml:122
 msgid "Drag and drop an image to change background."
-msgstr "Arraste e largue uma imagem para mudar o fundo do ecrã."
+msgstr "Dra och släpp en bild för att ändra bakgrundsbild."
 
 #: ../src/modules/grub/Preview.qml:123 ../src/modules/account/UserList.qml:239
 msgid "Image format not supported"
-msgstr "Formato de imagem não suportado"
+msgstr "Bildformat stöds inte"
 
 #: ../src/modules/grub/Preview.qml:124
 msgid "Updating..."
-msgstr "A atualizar..."
+msgstr "Uppdaterar..."
 
 #: ../src/modules/grub/Preview.qml:125
 msgid "Successfully updated, reboot to view."
-msgstr "Actualização com sucesso, reinicie para ver."
+msgstr "Uppdatering lyckades, starta om för att visa."
 
 #: ../src/modules/network/proxy/ProxyContent.qml:43
 #: ../src/modules/shortcuts/ShortcutInput.qml:119
 #: ../src/modules/date_time/main.qml:205
 msgid "None"
-msgstr "Nenhum"
+msgstr "Ingen"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:48
 msgid "Manual"
-msgstr "Manual"
+msgstr "Manuell"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:53
 msgid "Auto"
@@ -1285,147 +1283,147 @@ msgstr "Auto"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:88
 msgid "HTTP Proxy"
-msgstr "Proxy HTTP "
+msgstr "HTTP Proxy"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:100
 msgid "HTTPS Proxy"
-msgstr "Proxy HTTPS "
+msgstr "HTTPS Proxy"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:112
 msgid "FTP Proxy"
-msgstr "Proxy FTP "
+msgstr "FTP Proxy"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:124
 msgid "Socks Proxy"
-msgstr "Proxy Socks"
+msgstr "Socks Proxy"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:149
 msgid "Configuration URL"
-msgstr "Configuração URL"
+msgstr "Konfigurations URL"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:166
 msgid "Apply system wide"
-msgstr "Aplicar por todo o sistema"
+msgstr "Tillämpa på hela systemet"
 
 #: ../src/modules/network/proxy/ProxyExpand.qml:37
 msgid "System Proxy"
-msgstr "Proxy do sistema"
+msgstr "System Proxy"
 
 #: ../src/modules/shared/ResetButton.qml:39
 msgid "Reset successfully"
-msgstr "Redefinição com sucesso"
+msgstr "Återställning lyckades"
 
 #: ../src/modules/shared/ResetButton.qml:47
 msgid "Reset"
-msgstr "Restabelecer"
+msgstr "Återställ"
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:137
 msgid "Please input new shortcut"
-msgstr "Por favor introduza novo atalho"
+msgstr "Vänligen ange ny genväg"
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:238
 #, qt-format
 msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
-msgstr "Atalho \"%1\" é inválido, por favor reescreva novo atalho."
+msgstr "Genväg \"%1\" är ogiltig, vänligen skriv in en ny genväg."
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:276
 msgid "The shortcut you set "
-msgstr "O atalho que definiu"
+msgstr "Genvägen du ställt in"
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:279
 #, qt-format
 msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
-msgstr "em conflito com o usado para \"%2\" na \"%1\" categoria."
+msgstr "konflikter med den som används för \"%2\" i kategorin \"%1\"."
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:281
 msgid "Do you want to replace it?"
-msgstr "Deseja substituir?"
+msgstr "Vill du ersätta det?"
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:339
 msgid "Replace"
-msgstr "Substituir"
+msgstr "Ersätt"
 
 #: ../src/modules/personalization/widgets/ShowPreviewButton.qml:53
 msgid "Preview Theme"
-msgstr "Pré-visualizar Tema"
+msgstr "Förhandsgranska tema"
 
 #: ../src/modules/date_time/StateButtons.qml:35
 #: ../src/modules/keyboard/StateButtons.qml:35
 #: ../src/modules/shortcuts/StateButtons.qml:39
 msgid "Done"
-msgstr "Terminado"
+msgstr "Klar"
 
 #: ../src/modules/date_time/StateButtons.qml:36
 #: ../src/modules/date_time/StateButtons.qml:54
 #: ../src/modules/date_time/TimezoneArea.qml:468
 msgid "Close"
-msgstr "Fechar"
+msgstr "Stäng"
 
 #: ../src/modules/date_time/StateButtons.qml:85
 msgid "Delete Time Zone"
-msgstr "Apagar Fuso Horário"
+msgstr "Ta bort Tidszon"
 
 #: ../src/modules/date_time/StateButtons.qml:101
 msgid "Add Time Zone"
-msgstr "Adicionar Fuso Horário"
+msgstr "Lägg till Tidszon"
 
 #: ../src/modules/keyboard/StateButtons.qml:92
 msgid "Delete Keyboard Layout"
-msgstr "Apagar Esquema do Teclado"
+msgstr "Ta bort Tangentbordslayout"
 
 #: ../src/modules/keyboard/StateButtons.qml:107
 msgid "Add Keyboard Layout"
-msgstr "Adicionar Esquema do Teclado"
+msgstr "Lägg till Tangentbordslayout"
 
 #: ../src/modules/shortcuts/StateButtons.qml:90
 msgid "Delete Shortcut"
-msgstr "Apagar Atalho"
+msgstr "Ta bort Genväg"
 
 #: ../src/modules/shortcuts/StateButtons.qml:107
 msgid "Add Shortcut"
-msgstr "Adicionar Atalho"
+msgstr "Lägg till Genväg"
 
 #: ../src/modules/personalization/widgets/ThemeItem.qml:92
 #: ../src/modules/power/main.qml:319 ../src/modules/power/main.qml:560
 #: ../src/modules/shortcuts/main.qml:54 ../src/modules/shortcuts/main.qml:231
 msgid "Custom"
-msgstr "Personalizado"
+msgstr "Anpassad"
 
 #: ../src/modules/date_time/TimeBox.qml:161
 msgid "Double-click this area to change your time"
-msgstr "Duplo-clique nesta área para alterar a sua hora"
+msgstr "Dubbelklicka här för att ändra din tid"
 
 #: ../src/modules/date_time/TimeBox.qml:202
 msgid "Set"
-msgstr "Definir"
+msgstr "Ställ in"
 
 #: ../src/modules/date_time/TimezoneArea.qml:256
 msgid "Time zone"
-msgstr "Fuso horário"
+msgstr "Tidszon"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
 msgid "Touchpad"
-msgstr "Painel Tátil"
+msgstr "Touchpad"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:82
 #: ../src/modules/mouse_touchpad/main.qml:83
 msgid "Primary Button"
-msgstr "Botão Principal"
+msgstr "Primär Knapp"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:91
 #: ../src/modules/mouse_touchpad/main.qml:91
 msgid "Left Button"
-msgstr "Botão Esquerdo"
+msgstr "Vänster Knapp"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:92
 #: ../src/modules/mouse_touchpad/main.qml:92
 msgid "Right Button"
-msgstr "Botão Direito"
+msgstr "Höger Knapp"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:117
 #: ../src/modules/mouse_touchpad/main.qml:117
 msgid "Pointer Speed"
-msgstr "Velocidade do Ponteiro"
+msgstr "Pekarhastighet"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:134
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:171
@@ -1433,7 +1431,7 @@ msgstr "Velocidade do Ponteiro"
 #: ../src/modules/mouse_touchpad/main.qml:133
 #: ../src/modules/mouse_touchpad/main.qml:169
 msgid "Slow"
-msgstr "Lento"
+msgstr "Långsam"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:135
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:172
@@ -1441,87 +1439,87 @@ msgstr "Lento"
 #: ../src/modules/mouse_touchpad/main.qml:134
 #: ../src/modules/mouse_touchpad/main.qml:170
 msgid "Fast"
-msgstr "Rápido"
+msgstr "Snabb"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:154
 #: ../src/modules/mouse_touchpad/main.qml:153
 msgid "Double-click Speed"
-msgstr "Velocidade do Duplo-clique"
+msgstr "Dubbelklickshastighet"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:192
 msgid "Drag Threshold"
-msgstr "Limiar de Arrastamento"
+msgstr "Draghastighet"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:208
 #: ../src/modules/keyboard/main.qml:163
 msgid "Short"
-msgstr "Curto"
+msgstr "Kort"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:209
 #: ../src/modules/keyboard/main.qml:164
 msgid "Long"
-msgstr "Longo"
+msgstr "Lång"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:228
 msgid "Natural Scrolling"
-msgstr "Deslocamento Natural"
+msgstr "Naturlig Scrollning"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:252
 msgid "Tap to click"
-msgstr "Toque para clicar"
+msgstr "Knacka för att trycka"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:275
 msgid "Two-finger scrolling"
-msgstr "Deslocamento dois-dedos"
+msgstr "Två-fingers scrollning"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:298
 msgid "Edge scrolling"
-msgstr "Deslocamento limite"
+msgstr "Kantskrollning"
 
 #: ../src/modules/account/UserListCreatingItem.qml:99
 msgid "Account Preparing..."
-msgstr "A Preparar Conta..."
+msgstr "Konto Förbereds..."
 
 #: ../src/modules/network/vpn/VpnExpand.qml:48
 msgid "VPN Connections"
-msgstr "Conexções VPN"
+msgstr "VPN Anslutningar"
 
 #: ../src/modules/account/WebCam.qml:125 ../src/modules/account/WebCam.qml:140
 msgid "Snapshot"
-msgstr "Foto Instantânea"
+msgstr "Snapshot"
 
 #: ../src/modules/account/WebCam.qml:136
 msgid "Again"
-msgstr "Outra vez"
+msgstr "Igen"
 
 #: ../src/modules/account/WebCam.qml:175
 msgid "No camera found."
-msgstr "Nenhuma camera encontrada"
+msgstr "Ingen kamera hittad."
 
 #: ../src/modules/network/wireless/WifiHotspot.qml:23
 msgid "Edit Wi-Fi Hotspot"
-msgstr "Editar Wi-Fi Hostspot"
+msgstr "Ändra Wi-Fi Hotspot"
 
 #: ../src/modules/network/wireless/WifiHotspot.qml:23
 msgid "Create Wi-Fi Hotspot"
-msgstr "Criar Hotspot WI-Fi"
+msgstr "Skapa Wi-Fi Hotspot"
 
 #: ../src/modules/network/wireless/WifiHotspot.qml:91
 msgid "Create"
-msgstr "Criar"
+msgstr "Skapa"
 
 #: ../src/modules/network/wired/WiredDeviceExpand.qml:38
 msgid "Wired Network"
-msgstr "Rede Cablada"
+msgstr "Trådbundet Nätverk"
 
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:30
 msgid "Wireless Network"
-msgstr "Rede de Internet sem fios"
+msgstr "Trådlöst Nätverk"
 
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:28
 #, qt-format
 msgid "Wireless Network %1"
-msgstr "Rede Sem Fios %1"
+msgstr "Trådlöst Nätverk %1"
 
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:57
 msgid ""
@@ -1530,68 +1528,68 @@ msgid ""
 "1. The hardware switch of wireless network card is off\n"
 "2. Incorrect network configuration in /etc/network/interface\n"
 "3. Incorrect driver of network hardware"
-msgstr "Rede Sem-fios é incapaz de ser ligada talvez devido às razões seguintes:\n\n1. O botão físico da placa sem-fios está desligado\n2. Configuração de rede incorreta em /etc/network/interface\n3. Controlador de hardware de rede incorreto"
+msgstr "Trådlöst nätverk kan inte ansluta, kanske beror det på följande anledningar:\n\n1. Det trådlösa nätverkskortet är inte påslaget\n\n2. Felaktig nätverkskonfigurering i /etc/network/interface\n\n3. Felaktig drivrutin för nätverkshårdvara"
 
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:37
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:163
 msgid "Connect to hidden access point"
-msgstr "Ligar a um ponto de acesso escondido"
+msgstr "Anslut till dold anslutningspunkt"
 
 #: ../src/modules/power/main.qml:307 ../src/modules/power/main.qml:548
 msgid "Power saver"
-msgstr "Poupança de energia"
+msgstr "Energisparare"
 
 #: ../src/modules/power/main.qml:301 ../src/modules/power/main.qml:542
 msgid "Balanced"
-msgstr "Equilibrado"
+msgstr "Balanserad"
 
 #: ../src/modules/power/main.qml:313 ../src/modules/power/main.qml:554
 msgid "High performance"
-msgstr "Alto desempenho"
+msgstr "Högpresterande"
 
 #: ../src/modules/date_time/main.qml:131
 msgid "Sync Automatically"
-msgstr "Sincronizar Automaticamente"
+msgstr "Synka Automatiskt"
 
 #: ../src/modules/date_time/main.qml:149
 msgid "Use 24-hour clock"
-msgstr "Usar relógio 24-horas"
+msgstr "Använd 24-timmarsklocka"
 
 #: ../src/modules/date_time/main.qml:180
 msgid "Adjust DST clock "
-msgstr "Ajustar relógio DST"
+msgstr "Justera DST klocka"
 
 #: ../src/modules/date_time/main.qml:257
 msgid "Date"
-msgstr "Data"
+msgstr "Datum"
 
 #: ../src/modules/date_time/main.qml:290
 msgid "Set Date"
-msgstr "Definir Data"
+msgstr "Ställ in Datum"
 
 #: ../src/modules/default_applications/main.qml:97
 msgid "Browser"
-msgstr "Navegador de Internet"
+msgstr "Webbläsare"
 
 #: ../src/modules/default_applications/main.qml:111
 msgid "Mail"
-msgstr "Correio"
+msgstr "E-post"
 
 #: ../src/modules/default_applications/main.qml:122
 msgid "Text"
-msgstr "Texto"
+msgstr "Text"
 
 #: ../src/modules/default_applications/main.qml:128
 msgid "Music"
-msgstr "Música"
+msgstr "Musik"
 
 #: ../src/modules/default_applications/main.qml:159
 msgid "Video"
-msgstr "Vídeo"
+msgstr "Video"
 
 #: ../src/modules/default_applications/main.qml:191
 msgid "Picture"
-msgstr "Imagem"
+msgstr "Bild"
 
 #: ../src/modules/default_applications/main.qml:209
 msgid "Terminal"
@@ -1599,75 +1597,75 @@ msgstr "Terminal"
 
 #: ../src/modules/default_applications/main.qml:268
 msgid "AutoPlay"
-msgstr "Reprodução Automática"
+msgstr "Spela automatiskt"
 
 #: ../src/modules/default_applications/main.qml:283
 msgid "CD Audio"
-msgstr "CD Áudio"
+msgstr "CD Ljud"
 
 #: ../src/modules/default_applications/main.qml:288
 msgid "DVD Video"
-msgstr "DVD Vídeo "
+msgstr "DVD Video"
 
 #: ../src/modules/default_applications/main.qml:293
 msgid "Music Player"
-msgstr "Reprodutor de Música"
+msgstr "Musikspelare"
 
 #: ../src/modules/default_applications/main.qml:298
 msgid "Camera"
-msgstr "Câmara"
+msgstr "Kamera"
 
 #: ../src/modules/default_applications/main.qml:303
 msgid "Software"
-msgstr "Software"
+msgstr "Programvara"
 
 #: ../src/modules/grub/main.qml:112
 msgid "Default Boot"
-msgstr "Arranque Padrão"
+msgstr "Standard Boot"
 
 #: ../src/modules/grub/main.qml:167
 msgid "Boot delay"
-msgstr "Atraso do Arranque"
+msgstr "Boot fördröjning"
 
 #: ../src/modules/grub/main.qml:206
 msgid "Text Color"
-msgstr "Cor do Texto"
+msgstr "Textfärg"
 
 #: ../src/modules/grub/main.qml:239
 msgid "Selected Text Color"
-msgstr "Selecionar Cor do Texto"
+msgstr "Vald Textfärg"
 
 #: ../src/modules/keyboard/main.qml:149
 msgid "Repeat Delay"
-msgstr "Atraso da Repetição"
+msgstr "Upprepa Fördröjning"
 
 #: ../src/modules/keyboard/main.qml:174
 msgid "Repeat Rate"
-msgstr "Taxa de repetição"
+msgstr "Upprepningshastighet"
 
 #: ../src/modules/keyboard/main.qml:200
 msgid "Cursor Blink Rate"
-msgstr "Taxa de intermitência do cursor"
+msgstr "Markör blinkhastighet"
 
 #: ../src/modules/keyboard/main.qml:226
 msgid "Test Area"
-msgstr "Área de teste"
+msgstr "Testområde"
 
 #: ../src/modules/keyboard/main.qml:272
 msgid "Keyboard Layout"
-msgstr "Esquema do Teclado"
+msgstr "Tangentbordslayout"
 
 #: ../src/modules/keyboard/main.qml:499
 msgid "No result"
-msgstr "Sem resultado"
+msgstr "Inga resultat"
 
 #: ../src/modules/keyboard/main.qml:246
 msgid "Caps Lock prompt"
-msgstr "Solicitação de Caps Lock"
+msgstr "Visa Caps Lock-läge"
 
 #: ../src/modules/mouse_touchpad/main.qml:190
 msgid "Disable the touchpad when inserting the mouse"
-msgstr "Desativar o touchpad ao inserir um rato"
+msgstr "Avaktivera touchpaden när en mus ansluts"
 
 #: ../src/modules/personalization/main.qml:111
 msgid "Theme"
@@ -1676,59 +1674,59 @@ msgstr "Tema"
 #: ../src/modules/personalization/main.qml:118
 #: ../src/modules/shortcuts/main.qml:52
 msgid "Window"
-msgstr "Janela"
+msgstr "Fönster"
 
 #: ../src/modules/personalization/main.qml:125
 msgid "Icon"
-msgstr "Ícone"
+msgstr "Ikon"
 
 #: ../src/modules/personalization/main.qml:132
 msgid "Cursor"
-msgstr "Cursor"
+msgstr "Pil"
 
 #: ../src/modules/personalization/main.qml:139
 msgid "Wallpaper"
-msgstr "Papel de Parede"
+msgstr "Bakgrundsbild"
 
 #: ../src/modules/personalization/main.qml:153
 msgid "Fonts"
-msgstr "Fontes"
+msgstr "Teckensnitt"
 
 #: ../src/modules/power/main.qml:53 ../src/modules/power/main.qml:65
 msgid "Never"
-msgstr "Nunca"
+msgstr "Aldrig"
 
 #: ../src/modules/power/main.qml:59
 msgid "1 minute"
-msgstr "1 minuto"
+msgstr "1 minut"
 
 #: ../src/modules/power/main.qml:60
 msgid "5 minutes"
-msgstr "5 minutos"
+msgstr "5 minuter"
 
 #: ../src/modules/power/main.qml:61
 msgid "10 minutes"
-msgstr "10 minutos"
+msgstr "10 minuter"
 
 #: ../src/modules/power/main.qml:62
 msgid "15 minutes"
-msgstr "15 minutos"
+msgstr "15 minuter"
 
 #: ../src/modules/power/main.qml:63
 msgid "30 minutes"
-msgstr "30 minutos"
+msgstr "30 minuter"
 
 #: ../src/modules/power/main.qml:64
 msgid "1 hour"
-msgstr "1 hora"
+msgstr "1 timme"
 
 #: ../src/modules/power/main.qml:123
 msgid "When I press the power button"
-msgstr "Quando primo o botão para ligar/desligar"
+msgstr "När jag trycker på strömbrytaren"
 
 #: ../src/modules/power/main.qml:137 ../src/modules/power/main.qml:183
 msgid "Shutdown"
-msgstr "Encerrar"
+msgstr "Stäng av"
 
 #: ../src/modules/power/main.qml:142 ../src/modules/power/main.qml:188
 #: ../src/modules/power/main.qml:304 ../src/modules/power/main.qml:310
@@ -1737,31 +1735,31 @@ msgstr "Encerrar"
 #: ../src/modules/power/main.qml:551 ../src/modules/power/main.qml:557
 #: ../src/modules/power/main.qml:563 ../src/modules/power/main.qml:659
 msgid "Suspend"
-msgstr "Suspender"
+msgstr "Vänteläge"
 
 #: ../src/modules/power/main.qml:147
 msgid "Ask"
-msgstr "Perguntar"
+msgstr "Fråga"
 
 #: ../src/modules/power/main.qml:169
 msgid "When I close the lid"
-msgstr "Quando fecho a tampa do portátil"
+msgstr "När jag stänger locket"
 
 #: ../src/modules/power/main.qml:193
 msgid "Nothing"
-msgstr "Nada"
+msgstr "Ingenting"
 
 #: ../src/modules/power/main.qml:212
 msgid "Password required to wake up"
-msgstr "Palavra-passe necessária para acordar"
+msgstr "Lösenord behövs för att väcka"
 
 #: ../src/modules/power/main.qml:248
 msgid "Plugged in"
-msgstr "Conectado"
+msgstr "Inkopplad"
 
 #: ../src/modules/power/main.qml:490
 msgid "On battery"
-msgstr "Em bateria"
+msgstr "På batteri"
 
 #: ../src/modules/power/main.qml:303 ../src/modules/power/main.qml:309
 #: ../src/modules/power/main.qml:315 ../src/modules/power/main.qml:321
@@ -1769,79 +1767,79 @@ msgstr "Em bateria"
 #: ../src/modules/power/main.qml:550 ../src/modules/power/main.qml:556
 #: ../src/modules/power/main.qml:562 ../src/modules/power/main.qml:619
 msgid "Turn off the display"
-msgstr "Desligar o ecrã"
+msgstr "Stäng av bildskärmen"
 
 #: ../src/modules/power/main.qml:378 ../src/modules/power/main.qml:614
 msgid "Custom Options"
-msgstr "Opções Personalizadas"
+msgstr "Anpassade Inställningar"
 
 #: ../src/modules/shortcuts/main.qml:50
 msgid "System"
-msgstr "Sistema"
+msgstr "System"
 
 #: ../src/modules/shortcuts/main.qml:53
 msgid "Workspace"
-msgstr "Área de Trabalho"
+msgstr "Arbetsyta"
 
 #: ../src/modules/sound/main.qml:127
 msgid "Speaker"
-msgstr "Altifalante"
+msgstr "Högtalare"
 
 #: ../src/modules/sound/main.qml:157
 msgid "Output Volume"
-msgstr "Saída de Volume"
+msgstr "Utgångsvolym"
 
 #: ../src/modules/sound/main.qml:222
 msgid "Microphone"
-msgstr "Microfone"
+msgstr "Mikrofon"
 
 #: ../src/modules/sound/main.qml:252
 msgid "Input Volume"
-msgstr "Entrada de Volume"
+msgstr "Ingångsvolym"
 
 #: ../src/modules/sound/main.qml:296
 msgid "Input Feedback"
-msgstr "Inserir Comentário"
+msgstr "Ingång Mikrofon"
 
 #: ../src/modules/sound/main.qml:332
 msgid "Output Port"
-msgstr "Porto de Saída "
+msgstr "Utgångsport"
 
 #: ../src/modules/sound/main.qml:349 ../src/modules/sound/main.qml:452
 msgid "No port exists in this device."
-msgstr "Não existe nenhum porto neste dispositivo."
+msgstr "Ingen port existerar i denna enheten."
 
 #: ../src/modules/sound/main.qml:387
 msgid "Output device"
-msgstr "Dispositivo de saída"
+msgstr "Utgångsenhet"
 
 #: ../src/modules/sound/main.qml:435
 msgid "Input Port"
-msgstr "Porto de Entrada"
+msgstr "Ingångsport"
 
 #: ../src/modules/sound/main.qml:490
 msgid "Input device"
-msgstr "Dispositivo de entrada"
+msgstr "Ingångsenhet"
 
 #: ../src/modules/sound/main.qml:543
 msgid "Hide Advanced..."
-msgstr "Esconder Avançadas..."
+msgstr "Dölj Avancerat..."
 
 #: ../src/modules/sound/main.qml:543
 msgid "Show Advanced..."
-msgstr "Mostrar Avançadas..."
+msgstr "Visa Avancerat..."
 
 #: ../src/modules/system_info/main.qml:119
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
-msgstr "Direitos de cópia (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
+msgstr "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
 
 #: ../src/modules/system_info/main.qml:125
 msgid "Deepin Edition"
-msgstr "Edição Deepin"
+msgstr "Deepin Utgåva"
 
 #: ../src/modules/system_info/main.qml:131
 msgid "System Type"
-msgstr "Tipo de Sistema"
+msgstr "Systemtyp"
 
 #: ../src/modules/system_info/main.qml:132
 msgid "bit"
@@ -1849,43 +1847,43 @@ msgstr "bit"
 
 #: ../src/modules/system_info/main.qml:137
 msgid "Processor"
-msgstr "Processador"
+msgstr "Processor"
 
 #: ../src/modules/system_info/main.qml:151
 msgid "Memory"
-msgstr "Memória"
+msgstr "Minne"
 
 #: ../src/modules/system_info/main.qml:157
 msgid "Disk"
-msgstr "Disco"
+msgstr "Hårddisk"
 
 #: ../src/modules/system_info/main.qml:175
 msgid "GNU GENERAL PUBLIC LICENSE"
-msgstr "LICENÇA PUBLICA GERAL GNU"
+msgstr "GNU GENERAL PUBLIC LICENSE"
 
 #: ../src/modules/network/main.qml:163 ../src/modules/network/main.qml:191
 msgid "Unknown"
-msgstr "Desconhecido"
+msgstr "Okänd"
 
 #: ../src/modules/network/main.qml:165
 msgid "Wired"
-msgstr "Ligação com fios"
+msgstr "Trådbunden"
 
 #: ../src/modules/network/main.qml:167
 msgid "Wireless"
-msgstr "Ligação sem fios"
+msgstr "Trådlös"
 
 #: ../src/modules/network/main.qml:169
 msgid "Unused1"
-msgstr "Sem uso1"
+msgstr "Oanvänd1"
 
 #: ../src/modules/network/main.qml:171
 msgid "Unused2"
-msgstr "Sem uso2"
+msgstr "Oanvänd2"
 
 #: ../src/modules/network/main.qml:175
 msgid "OLPC mesh"
-msgstr "Malha OLPC"
+msgstr "OLPC mesh"
 
 #: ../src/modules/network/main.qml:177
 msgid "WiMax"
@@ -1901,7 +1899,7 @@ msgstr "InfiniBand"
 
 #: ../src/modules/network/main.qml:183
 msgid "Bond"
-msgstr "Laço"
+msgstr "Bond"
 
 #: ../src/modules/network/main.qml:185
 msgid "VLAN"
@@ -1913,7 +1911,7 @@ msgstr "ADSL"
 
 #: ../src/modules/network/main.qml:189
 msgid "Bridge"
-msgstr "Ponte"
+msgstr "Brygga"
 
 #: ../src/modules/network/main.qml:199
 msgid "802.11 WiFi"
@@ -1929,15 +1927,15 @@ msgstr "802.11 WiFi Hotspot"
 
 #: ../src/modules/network/main.qml:209
 msgid "Mobile GSM"
-msgstr "Telemóvel GSM"
+msgstr "Mobil GSM"
 
 #: ../src/modules/network/main.qml:211
 msgid "Mobile CDMA"
-msgstr "Telemóvel CDMA"
+msgstr "Mobil CDMA"
 
 #: ../src/modules/network/main.qml:341
 msgid "View Detailed Information"
-msgstr "Ver Informação Detalhada"
+msgstr "Visa Detaljerad Information"
 
 #: ../src/modules/network/main.qml:215
 msgid "VPN L2TP"
@@ -1961,88 +1959,88 @@ msgstr "VPN OpenConnect"
 
 #: ../src/modules/account/main.qml:109
 msgid "Delete Account"
-msgstr "Apagar Conta"
+msgstr "Ta bort Konto"
 
 #: ../src/modules/account/main.qml:149
 msgid "Add Account"
-msgstr "Adicionar Conta"
+msgstr "Lägg till Konto"
 
 #: ../src/modules/account/main.qml:172
 msgid "User List"
-msgstr "Lista do Utilizador"
+msgstr "Användarlista"
 
 #: ../src/modules/wacom/main.qml:14
 msgid "Page Up"
-msgstr "Página Acima"
+msgstr "Sida Upp"
 
 #: ../src/modules/wacom/main.qml:15
 msgid "Page Down"
-msgstr "Página Abaixo"
+msgstr "Sida Ner"
 
 #: ../src/modules/wacom/main.qml:16
 msgid "Left Click"
-msgstr "Clique Esquerdo"
+msgstr "Vänsterklick"
 
 #: ../src/modules/wacom/main.qml:17
 msgid "Right Click"
-msgstr "Clique Direito"
+msgstr "Högerklick"
 
 #: ../src/modules/wacom/main.qml:18
 msgid "Middle Click"
-msgstr "Clique Botão do Meio"
+msgstr "Mittenklick"
 
 #: ../src/modules/wacom/main.qml:69
 msgid "Tablet Orientation"
-msgstr "Orientação do Tablet"
+msgstr "Tablet Orientering"
 
 #: ../src/modules/wacom/main.qml:76
 msgid "Left Hand"
-msgstr "Mão Esquerda"
+msgstr "Vänsterhand"
 
 #: ../src/modules/wacom/main.qml:77
 msgid "Right Hand"
-msgstr "Mão Direita"
+msgstr "Högerhand"
 
 #: ../src/modules/wacom/main.qml:90
 msgid "Digital Pen Modes"
-msgstr "Modos de Caneta Digital"
+msgstr "Digitala penlägen"
 
 #: ../src/modules/wacom/main.qml:97
 msgid "Pen Mode"
-msgstr "Modo Caneta"
+msgstr "Penläge"
 
 #: ../src/modules/wacom/main.qml:98
 msgid "Mouse Mode"
-msgstr "Modo Rato"
+msgstr "Musläge"
 
 #: ../src/modules/wacom/main.qml:112
 msgid "Down Key"
-msgstr "Tecla Abaixo"
+msgstr "Nerknapp"
 
 #: ../src/modules/wacom/main.qml:137
 msgid "Up Key"
-msgstr "Tecla Acima"
+msgstr "Uppknapp"
 
 #: ../src/modules/wacom/main.qml:162
 msgid "Pressure"
-msgstr "Pressão"
+msgstr "Tryck"
 
 #: ../src/modules/wacom/main.qml:178
 msgid "Soft"
-msgstr "Soft"
+msgstr "Mjukt"
 
 #: ../src/modules/wacom/main.qml:179
 msgid "Hard"
-msgstr "Difícil"
+msgstr "Hårt"
 
 #: ../src/modules/wacom/main.qml:190
 msgid "Double-click Space"
-msgstr "Intervalo de Clique-duplo"
+msgstr "Dubbeklick Mellanslag"
 
 #: ../src/modules/wacom/main.qml:206
 msgid "Narrow"
-msgstr "Estreito"
+msgstr "Smalare"
 
 #: ../src/modules/wacom/main.qml:207
 msgid "Wide"
-msgstr "Amplo"
+msgstr "Bredare"
