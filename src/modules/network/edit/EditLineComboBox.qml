@@ -3,41 +3,35 @@ import Deepin.Widgets 1.0
 
 BaseEditLine {
     id: root
-    
-    rightLoader.sourceComponent: DComboBoxSimple {
+
+    rightLoader.sourceComponent: DComboBox {
         id: comboBox
         anchors.left: parent.left
         width: valueWidth
+        menu.maxHeight: 200
+        parentWindow: rootWindow
 
-        property var labels: new Array()
-        property int selectIndex: -1
-        
-        onShowRequested: {
-            if(!rootMenu.visible){
-                rootMenu.labels = comboBox.labels
-                rootMenu.requestMenuItem = comboBox
-                rootMenu.currentIndex = selectIndex
-                rootMenu.posX = x
-                rootMenu.posY = y
-                rootMenu.innerWidth = width
-            }
-            rootMenu.visible = !rootMenu.visible
+        onMenuSelect: {
+            setKey(getAvailableValues()[index].Value)
+        }
+        itemDelegate: EditLineComboBoxMenuItem {
+            property int index
+            property bool itemOnHover
+            property var value
+
+            text: value
         }
 
-        function menuSelect(i){
-            setKey(getAvailableValues()[i].Value)
-        }
-        
         Connections {
             target: root
             onWidgetShown: {
-                comboBox.text = root.getAvailableValuesTextByValue()
-                comboBox.labels = root.getAvailableValuesText()
+                comboBox.value = root.getAvailableValuesTextByValue()
+                comboBox.menu.model = root.getAvailableValuesText()
                 comboBox.selectIndex = root.getAvailableValuesIndex()
             }
             onCacheValueChanged: {
-                comboBox.text = root.getAvailableValuesTextByValue()
-                comboBox.labels = root.getAvailableValuesText()
+                comboBox.value = root.getAvailableValuesTextByValue()
+                comboBox.menu.model = root.getAvailableValuesText()
                 comboBox.selectIndex = root.getAvailableValuesIndex()
             }
         }
