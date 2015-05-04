@@ -17,7 +17,6 @@
         <file>modules/personalization/widgets/Slide.qml</file>
         <file>modules/personalization/widgets/ThemeItem.qml</file>
         <file>modules/personalization/widgets/PreviewImage.qml</file>
-        <file>modules/personalization/widgets/FontComboBoxMenu.qml</file>
         <file>modules/personalization/widgets/CustomButton.qml</file>
         <file>modules/personalization/widgets/ComponentThemeItem.qml</file>
         <file>modules/personalization/widgets/PreviewWindow.qml</file>
@@ -25,7 +24,6 @@
         <file>modules/personalization/widgets/FontSlider.qml</file>
         <file>modules/personalization/widgets/SelectView.qml</file>
         <file>modules/personalization/widgets/ThemeView.qml</file>
-        <file>modules/personalization/widgets/FontComboBox.qml</file>
         <file>modules/personalization/widgets/images/close_normal.png</file>
         <file>modules/personalization/widgets/images/delete_press.png</file>
         <file>modules/personalization/widgets/images/button_center_press.png</file>
@@ -51,7 +49,6 @@
         <file>modules/power/RaisedPart.qml</file>
         <file>modules/power/PowerTitle.qml</file>
         <file>modules/power/ConcavePart.qml</file>
-        <file>modules/power/PropertyItem.qml</file>
         <file>modules/power/TitleSeparator.qml</file>
         <file>modules/power/images/up.png</file>
         <file>modules/power/images/power_plan_ac.png</file>
@@ -951,5 +948,10 @@
         <file>modules/system_info/SepratorHorizontal.qml</file>
         <file>modules/system_info/images/logo.png</file>
         <file>modules/shared/ItemTooltip.qml</file>
+        <file>modules/personalization/widgets/images/select-dark.png</file>
+        <file>modules/personalization/widgets/images/select-dark-hover.png</file>
+        <file>modules/network/edit/EditLineComboBoxMenuItem.qml</file>
+        <file>modules/network/images/select-dark-hover.png</file>
+        <file>modules/network/images/select-dark.png</file>
     </qresource>
 </RCC>

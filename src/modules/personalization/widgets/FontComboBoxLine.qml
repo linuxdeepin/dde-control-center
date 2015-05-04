@@ -12,8 +12,8 @@ Rectangle {
     property alias boxWidth: menuBox.width
     property int menuMaxHeight: 200
     property alias parentWindow:menuBox.parentWindow
-    property alias defaultIndex: menuBox.selectIndex
-    property alias menuLabels: menuBox.labels
+    property int defaultIndex: 0
+    property var menuLabels
 
     property var dconstants: DConstants {}
 
@@ -34,9 +34,8 @@ Rectangle {
         text: "Double click frequency"
     }
 
-    FontComboBox {
-        id:menuBox
-
+    DComboBox {
+        id: menuBox
         anchors.left: title.right
         anchors.leftMargin: centerPadding
         anchors.verticalCenter: title.verticalCenter
@@ -48,5 +47,14 @@ Rectangle {
             header.menuSelect(index)
         }
         onClicked: header.clicked()
+        selectIndex: defaultIndex
+        menu.model: menuLabels
+        itemDelegate: FontComboBoxMenuItem {
+            property int index
+            property bool itemOnHover
+            property var value
+
+            text: value
+        }
     }
 }

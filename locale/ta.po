@@ -3,26 +3,27 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Jesse Wayde Brandao <www.jwb@gmail.com>, 2014
-# Luis Jorge Simões das Neves <luisjneves@gmail.com>, 2014
-# Ricardo Simões <xmcorporation@gmail.com>, 2014-2015
+# Aravindan <aravindan1992@gmail.com>, 2015
+# Buvanesh Kumar <linuxsbk@gmail.com>, 2014
+# Muthuramalingam <muthu1809@gmail.com>, 2015
+# vimalkumar <vimivimal@outlook.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-16 07:24+0000\n"
-"PO-Revision-Date: 2015-03-25 07:33+0000\n"
-"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
-"Language-Team: Portuguese (http://www.transifex.com/projects/p/dde-control-center/language/pt/)\n"
+"PO-Revision-Date: 2015-04-03 14:47+0000\n"
+"Last-Translator: Aravindan <aravindan1992@gmail.com>\n"
+"Language-Team: Tamil (http://www.transifex.com/projects/p/dde-control-center/language/ta/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt\n"
+"Language: ta\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/modules/network/add/AddDsl.qml:11
 msgid "Add PPPoE Connection"
-msgstr "Adicionar Ligação PPPoE"
+msgstr "PPPoE இணைப்பு சேர்க்க"
 
 #: ../src/modules/network/add/AddDsl.qml:24
 #: ../src/modules/network/add/AddMobile.qml:33
@@ -30,7 +31,7 @@ msgstr "Adicionar Ligação PPPoE"
 #: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:33
 #: ../src/modules/shortcuts/CustomKeybinding.qml:118
 msgid "Name"
-msgstr "Nome"
+msgstr "பெயர்"
 
 #: ../src/modules/network/add/AddDsl.qml:36
 #: ../src/modules/network/add/AddMobile.qml:75
@@ -49,12 +50,12 @@ msgstr "Nome"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:375
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:65
 msgid "Username"
-msgstr "Nome de Utilizador"
+msgstr "பயனர் "
 
 #: ../src/modules/network/add/AddDsl.qml:46
 #: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:33
 msgid "Service"
-msgstr "Serviço"
+msgstr "சேவை"
 
 #: ../src/modules/network/add/AddDsl.qml:56
 #: ../src/modules/network/add/AddMobile.qml:85
@@ -78,28 +79,28 @@ msgstr "Serviço"
 #: ../src/modules/account/PasswordDialog.qml:62
 #: ../src/modules/network/wireless/WifiHotspot.qml:69
 msgid "Password"
-msgstr "Palavra-passe"
+msgstr "கடவுச்சொல்"
 
 #: ../src/modules/network/add/AddMobile.qml:20
 msgid "New Mobile Connection"
-msgstr "Nova Ligação Móvel"
+msgstr "புதிய கைப்பேசி இணை"
 
 #: ../src/modules/network/add/AddMobile.qml:45
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:23
 msgid "Service Type"
-msgstr "Tipo de Serviço"
+msgstr "சேவை வகை"
 
 #: ../src/modules/network/add/AddMobile.qml:55
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:33
 msgid "APN"
-msgstr "APN"
+msgstr "இணைப்பு முனை"
 
 #: ../src/modules/network/add/AddMobile.qml:65
 #: ../src/modules/network/add/AddMobile.qml:95
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:43
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:113
 msgid "Number"
-msgstr "Número"
+msgstr "எண்"
 
 #: ../src/modules/network/add/AddSectionSave.qml:11
 #: ../src/modules/account/AddUserDialog.qml:413
@@ -118,13 +119,13 @@ msgstr "Número"
 #: ../src/modules/network/wireless/WifiHotspot.qml:82
 #: ../src/modules/date_time/main.qml:300 ../src/modules/display/main.qml:179
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "நிறுத்து"
 
 #: ../src/modules/network/add/AddSectionSave.qml:20
 #: ../src/modules/shortcuts/CustomKeybinding.qml:157
 #: ../src/modules/date_time/TimezoneArea.qml:465
 msgid "Add"
-msgstr "Adicionar"
+msgstr "சேர்"
 
 #: ../src/modules/account/AddUserDialog.qml:58
 #: ../src/modules/account/AddUserDialog.qml:63
@@ -133,7 +134,7 @@ msgstr "Adicionar"
 #: ../src/modules/account/PasswordDialog.qml:101
 #: ../src/modules/account/PasswordDialog.qml:161
 msgid "Password can not be empty."
-msgstr "A palavra-passe não pode estar vazia."
+msgstr "கடவுச்சொல் காலியாக இருக்க முடியாது."
 
 #: ../src/modules/account/AddUserDialog.qml:68
 #: ../src/modules/account/AddUserDialog.qml:225
@@ -146,15 +147,15 @@ msgstr "A palavra-passe não pode estar vazia."
 #: ../src/modules/account/PasswordDialog.qml:213
 #: ../src/modules/account/PasswordDialog.qml:223
 msgid "The two passwords do not match."
-msgstr "As duas palavras-passe não coincidem."
+msgstr "இரு கடவுச்சொற்கள் பொருந்தவில்லை."
 
 #: ../src/modules/account/AddUserDialog.qml:77
 msgid "Add User"
-msgstr "Adicionar Utilizador"
+msgstr "பயனரை இணை"
 
 #: ../src/modules/account/AddUserDialog.qml:106
 msgid "New User"
-msgstr "Novo Utilizador"
+msgstr "புதிய பயனர்"
 
 #: ../src/modules/account/AddUserDialog.qml:110
 #: ../src/modules/account/AddUserDialog.qml:343
@@ -162,7 +163,7 @@ msgstr "Novo Utilizador"
 #: ../src/modules/account/UserList.qml:228
 #: ../src/modules/account/UserListCreatingItem.qml:88
 msgid "Administrator"
-msgstr "Administrador"
+msgstr "நிர்வாகி"
 
 #: ../src/modules/account/AddUserDialog.qml:110
 #: ../src/modules/account/AddUserDialog.qml:342
@@ -170,27 +171,27 @@ msgstr "Administrador"
 #: ../src/modules/account/UserList.qml:228
 #: ../src/modules/account/UserListCreatingItem.qml:88
 msgid "Normal User"
-msgstr "Utilizador Normal"
+msgstr "சாதாரண பயனர்"
 
 #: ../src/modules/account/AddUserDialog.qml:175
 #: ../src/modules/account/AddUserDialog.qml:235
 #: ../src/modules/account/AddUserDialog.qml:301
 msgid "Username can not be empty."
-msgstr "O nome de utilizador não pode estar vazio."
+msgstr "பயனர்பெயர் காலியாக இருக்க முடியாது."
 
 #: ../src/modules/account/AddUserDialog.qml:270
 msgid "Repeat Password"
-msgstr "Repita a Palavra-passe"
+msgstr "மீண்டுமொருமுறை கடவுச்சொல்"
 
 #: ../src/modules/account/AddUserDialog.qml:330
 #: ../src/modules/account/EditUserDialog.qml:126
 msgid "Account Type"
-msgstr "Tipo de Conta"
+msgstr "கணக்கு வகை"
 
 #: ../src/modules/account/AddUserDialog.qml:362
 #: ../src/modules/account/EditUserDialog.qml:59
 msgid "Auto-login"
-msgstr "Iniciar sessão automaticamente"
+msgstr "தானியங்கு உள்நுழைவு"
 
 #: ../src/modules/account/AddUserDialog.qml:426
 #: ../src/modules/account/DeleteUserDialog.qml:46
@@ -198,11 +199,11 @@ msgstr "Iniciar sessão automaticamente"
 #: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:318
 #: ../src/modules/display/main.qml:194
 msgid "Confirm"
-msgstr "Confirmar"
+msgstr "உறுதிப்படுத்து"
 
 #: ../src/modules/network/add/AddVpn.qml:15
 msgid "VPN Type"
-msgstr "Tipo de VPN"
+msgstr "VPN வகை"
 
 #: ../src/modules/network/add/AddVpn.qml:36
 msgid "L2TP"
@@ -214,11 +215,11 @@ msgstr "PPTP"
 
 #: ../src/modules/network/add/AddVpn.qml:38
 msgid "OpenVPN"
-msgstr "OpenVPN"
+msgstr "திறந்த நிலை VPN"
 
 #: ../src/modules/network/add/AddVpn.qml:39
 msgid "OpenConnect"
-msgstr "OpenConnect"
+msgstr "திறவுநிலை இணைத்தல்"
 
 #: ../src/modules/network/add/AddVpn.qml:40
 msgid "VPNC"
@@ -226,12 +227,12 @@ msgstr "VPNC"
 
 #: ../src/modules/network/add/AddVpn.qml:69
 msgid "Basic Information"
-msgstr "Informação Básica"
+msgstr "அடிப்படைத் தகவல்"
 
 #: ../src/modules/network/add/AddVpn.qml:82
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:23
 msgid "Need VPN Plugin"
-msgstr "Necessita Plugin VPN"
+msgstr "VPN கூட்டுறு தேவைப்படுகிறது"
 
 #: ../src/modules/network/add/AddVpn.qml:115
 #: ../src/modules/network/add/AddVpn.qml:155
@@ -246,7 +247,7 @@ msgstr "Necessita Plugin VPN"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:315
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:365
 msgid "Gateway"
-msgstr "Gateway"
+msgstr "பிணைய நுழைவாயில்"
 
 #: ../src/modules/network/add/AddVpn.qml:135
 #: ../src/modules/network/add/AddVpn.qml:265
@@ -265,7 +266,7 @@ msgstr "Gateway"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:385
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:415
 msgid "Ask for Pwd"
-msgstr "Perguntar por Palavra-passe"
+msgstr "கடவுச்சொல்லைக்கேள்"
 
 #: ../src/modules/network/add/AddVpn.qml:165
 #: ../src/modules/network/add/AddVpn.qml:285
@@ -274,23 +275,23 @@ msgstr "Perguntar por Palavra-passe"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:95
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:215
 msgid "CA Cert"
-msgstr "Certificado CA"
+msgstr "CA சான்றிதழ்"
 
 #: ../src/modules/network/add/AddVpn.qml:175
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:105
 msgid "Proxy"
-msgstr "Proxy"
+msgstr "பதிலி"
 
 #: ../src/modules/network/add/AddVpn.qml:185
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:115
 msgid "Allow Cisco Secure Desktop Trojan"
-msgstr "Permitir Área de Trabalho Cisco Secure Trojan"
+msgstr "சிஸ்கோ டெஸ்க்டாப் ட்ரோஜன் பாதுகாப்பான அனுமதி"
 
 #: ../src/modules/network/add/AddVpn.qml:345
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:275
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
 msgid "Customize Key Direction"
-msgstr "Personalizar Tecla de Direcção"
+msgstr "முக்கிய இயக்கம் தனிப்பயனாக்கலாம்"
 
 #: ../src/modules/network/add/AddVpn.qml:215
 #: ../src/modules/network/add/AddVpn.qml:305
@@ -299,12 +300,12 @@ msgstr "Personalizar Tecla de Direcção"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:145
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:235
 msgid "Private Key"
-msgstr "Chave Privada"
+msgstr "தனித்திறவி"
 
 #: ../src/modules/network/add/AddVpn.qml:245
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:175
 msgid "Auth Type"
-msgstr "Tipo de Autenticação"
+msgstr "அங்கீகார வகை"
 
 #: ../src/modules/network/add/AddVpn.qml:205
 #: ../src/modules/network/add/AddVpn.qml:295
@@ -313,87 +314,87 @@ msgstr "Tipo de Autenticação"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:135
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:225
 msgid "User Cert"
-msgstr "Certificado do Utilizador"
+msgstr "பயனர் சான்றிதழ்"
 
 #: ../src/modules/network/add/AddVpn.qml:195
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:125
 msgid "CSD Script"
-msgstr "Script CSD"
+msgstr "CSD ஸ்கிரிப்ட்"
 
 #: ../src/modules/network/add/AddVpn.qml:225
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:155
 msgid "Use FSID for Key Passphrase"
-msgstr "Usar FSDI para Chave Passphrase"
+msgstr "முக்கிய கடவுச்சொல்லை FSID பயன்படுத்தவும்"
 
 #: ../src/modules/network/add/AddVpn.qml:325
 #: ../src/modules/network/wireless/AddWireless.qml:206
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:195
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:255
 msgid "Private Pwd"
-msgstr "Palavra-passe Privada"
+msgstr "தனியார் கடவுச்சொல்"
 
 #: ../src/modules/network/add/AddVpn.qml:335
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:265
 msgid "Static Key"
-msgstr "Chave Estática"
+msgstr "நிலையான திறவி"
 
 #: ../src/modules/network/add/AddVpn.qml:355
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:285
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:63
 msgid "Key Direction"
-msgstr "Direção Chave"
+msgstr "முக்கிய இயக்கம்"
 
 #: ../src/modules/network/add/AddVpn.qml:365
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:295
 msgid "Remote IP"
-msgstr "IP Remoto"
+msgstr "தொலைநிலை IP"
 
 #: ../src/modules/network/add/AddVpn.qml:375
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:305
 msgid "Local IP"
-msgstr "IP Local"
+msgstr "உள்ளக IP"
 
 #: ../src/modules/network/add/AddVpn.qml:455
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:395
 msgid "User Pwd"
-msgstr "Palavra-passe do Utilizador"
+msgstr "பயனர் கடவுச்சொல்"
 
 #: ../src/modules/network/add/AddVpn.qml:465
 #: ../src/modules/network/add/AddVpn.qml:527
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:405
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:33
 msgid "Group Name"
-msgstr "Nome de Grupo"
+msgstr "குழு பெயர்"
 
 #: ../src/modules/network/add/AddVpn.qml:485
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:425
 msgid "Group Pwd"
-msgstr "Password do Grupo"
+msgstr "குழு கடவுச்சொல்"
 
 #: ../src/modules/network/add/AddVpn.qml:495
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:435
 msgid "Use Hybrid Authentication"
-msgstr "Usar Autenticação Híbrida"
+msgstr "கலப்பு அங்கீகாரத்தைப் பயன்படுத்து"
 
 #: ../src/modules/network/add/AddVpn.qml:505
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:445
 msgid "CA File"
-msgstr "Ficheiro CA"
+msgstr "CA கோப்பு"
 
 #: ../src/modules/network/add/AddVpn.qml:517
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:23
 msgid "Enable IPsec"
-msgstr "Ativar IPsec"
+msgstr "IP பாதுகாப்பை இயக்கு"
 
 #: ../src/modules/network/add/AddVpn.qml:537
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:43
 msgid "Group ID"
-msgstr "ID de Grupo"
+msgstr "குழு ID"
 
 #: ../src/modules/network/add/AddVpn.qml:547
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:53
 msgid "Pre-Shared Key"
-msgstr "Chave Pré-Partilhada "
+msgstr "முன்பகிரப்பட்ட திறவு"
 
 #: ../src/modules/network/add/AddVpn.qml:559
 #: ../src/modules/network/add/AddVpn.qml:571
@@ -401,11 +402,11 @@ msgstr "Chave Pré-Partilhada "
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:23
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:23
 msgid "Use MPPE"
-msgstr "Utilizar MPPE"
+msgstr "MPPE பயன்படுத்து"
 
 #: ../src/modules/network/wireless/AddWireless.qml:8
 msgid "Connect to wireless"
-msgstr "Ligar a rede sem fios"
+msgstr "கம்பியற்ற இணைப்பில் இணைக்கவும்"
 
 #: ../src/modules/network/wireless/AddWireless.qml:32
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:23
@@ -421,139 +422,139 @@ msgstr "SSID"
 #: ../src/modules/network/Info.qml:53
 #: ../src/modules/network/wireless/WifiHotspot.qml:49
 msgid "Security"
-msgstr "Segurança"
+msgstr "பாதுகாப்பு"
 
 #: ../src/modules/network/wireless/AddWireless.qml:54
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:43
 #: ../src/modules/network/wireless/WifiHotspot.qml:59
 msgid "Key"
-msgstr "Chave"
+msgstr "திறவுகோல்"
 
 #: ../src/modules/network/wireless/AddWireless.qml:74
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:63
 msgid "EAP Auth"
-msgstr "Autenticação EAP"
+msgstr "EAP அங்கீகாரம்"
 
 #: ../src/modules/network/wireless/AddWireless.qml:84
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:73
 msgid "Identity"
-msgstr "Identidade"
+msgstr "அடையாளம்"
 
 #: ../src/modules/network/wireless/AddWireless.qml:94
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:83
 msgid "Anonymous ID"
-msgstr "ID Anónimo"
+msgstr "பெயரில்லாத அடையாளம்"
 
 #: ../src/modules/network/wireless/AddWireless.qml:124
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:113
 msgid "Provisioning"
-msgstr "Aprovisionar"
+msgstr "வாய்ப்பளித்தல்"
 
 #: ../src/modules/network/wireless/AddWireless.qml:134
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:123
 msgid "PAC file"
-msgstr "Ficheiro PAC"
+msgstr "PAC கோப்பு"
 
 #: ../src/modules/network/wireless/AddWireless.qml:144
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:133
 msgid "PEAP Version"
-msgstr "Versão PEAP"
+msgstr "PEAP பதிப்பு"
 
 #: ../src/modules/network/wireless/AddWireless.qml:154
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:143
 msgid "Inner Auth"
-msgstr "Autenticação Interior"
+msgstr "உள்நிலை அங்கீகாரம்"
 
 #: ../src/modules/network/wireless/AddWireless.qml:224
 #: ../src/modules/network/widgets/PasswordBox.qml:126
 msgid "Connect"
-msgstr "Ligar"
+msgstr "இணை"
 
 #: ../src/modules/account/AvatarPickDialog.qml:5
 msgid "Choose a new picture for your Avatar"
-msgstr "Escolher uma nova imagem para o seu Avatar"
+msgstr "உங்களுக்கு பிடித்த படத்தைத் தேர்வு செய்யுங்கள்"
 
 #: ../src/modules/account/AvatarView.qml:19
 msgid "Recently Used"
-msgstr "Usado Recentemente"
+msgstr "கடைசியாகப் பயன்படுத்தியவை"
 
 #: ../src/modules/account/AvatarView.qml:20
 msgid "Avatar"
-msgstr "Avatar"
+msgstr "அவதார்"
 
 #: ../src/modules/account/AvatarView.qml:21
 msgid "Webcam"
-msgstr "Câmara Web"
+msgstr "வெப்கேமரா"
 
 #: ../src/modules/sound/BalanceLine.qml:31
 msgid "Left/Right Balance"
-msgstr "Balanceamento Esquerdo/Direito"
+msgstr "இடது/வலது சமநிலை"
 
 #: ../src/modules/sound/BalanceLine.qml:53
 msgid "Left"
-msgstr "Esquerda"
+msgstr "இடது"
 
 #: ../src/modules/sound/BalanceLine.qml:55
 msgid "Right"
-msgstr "Direita"
+msgstr "வலது"
 
 #: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:43
 #: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:53
 msgid "Automatically connect"
-msgstr "Ligar automaticamente"
+msgstr "தானியங்கு முறையில் இணை"
 
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:121
 #: ../src/modules/personalization/widgets/PreviewWindow.qml:280
 #: ../src/modules/display/main.qml:194
 msgid "Apply"
-msgstr "Aplicar"
+msgstr "விண்ணப்பிக்க"
 
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:149
 msgid "Devices nearby"
-msgstr "Dispositivos nas proximidades"
+msgstr "அருகிலுள்ள சாதனங்கள்"
 
 #: ../src/modules/display/BrightnessRectangle.qml:61
 #: ../src/modules/display/ResolutionRectangle.qml:69
 #: ../src/modules/display/RotationRectangle.qml:70
 msgid "Monitor"
-msgstr "Monitor"
+msgstr "கணினித்திரை"
 
 #: ../src/modules/date_time/Calendar.qml:164
 msgid "Today"
-msgstr "Hoje"
+msgstr "இன்று"
 
 #: ../src/modules/date_time/CalendarComponent.qml:83
 msgid "Sun"
-msgstr "Dom"
+msgstr "ஞாயிறு"
 
 #: ../src/modules/date_time/CalendarComponent.qml:84
 msgid "Mon"
-msgstr "Seg"
+msgstr "திங்கள்"
 
 #: ../src/modules/date_time/CalendarComponent.qml:85
 msgid "Tue"
-msgstr "Ter"
+msgstr "செவ்வாய்"
 
 #: ../src/modules/date_time/CalendarComponent.qml:86
 msgid "Wed"
-msgstr "Qua"
+msgstr "புதன்"
 
 #: ../src/modules/date_time/CalendarComponent.qml:87
 msgid "Thu"
-msgstr "Qui"
+msgstr "வியாழன்"
 
 #: ../src/modules/date_time/CalendarComponent.qml:88
 msgid "Fri"
-msgstr "Sex"
+msgstr "வெள்ளி"
 
 #: ../src/modules/date_time/CalendarComponent.qml:89
 msgid "Sat"
-msgstr "Sáb"
+msgstr "சனி"
 
 #: ../src/modules/network/ConnectionAdd.qml:12
 #: ../src/modules/network/main.qml:315
 msgid "Add Network Connection"
-msgstr "Adicionar Ligação de Rede"
+msgstr "பிணைய இணைப்பு சேர்க்க"
 
 #: ../src/modules/network/ConnectionAdd.qml:35
 #: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:11
@@ -569,69 +570,69 @@ msgstr "VPN"
 
 #: ../src/modules/network/ConnectionAdd.qml:77
 msgid "Next"
-msgstr "Seguinte"
+msgstr "அடுத்து"
 
 #: ../src/modules/network/ConnectionEdit.qml:52
 msgid "Delete this network"
-msgstr "Eliminar esta Rede"
+msgstr "இப்பிணையத்தை அழி"
 
 #: ../src/modules/network/ConnectionEdit.qml:52
 msgid "Are you sure you want to delete this network?"
-msgstr "Tem a certeza que deseja eliminar esta rede?"
+msgstr "இந்தப் பிணைப்பை நிச்சயம் அழிக்க விரும்புகிறீர்களா?"
 
 #: ../src/modules/network/ConnectionEdit.qml:110
 #: ../src/modules/network/wireless/WifiHotspot.qml:91
 msgid "Save"
-msgstr "Guardar"
+msgstr "சேமி"
 
 #: ../src/modules/network/ConnectionEdit.qml:144
 msgid "Delete"
-msgstr "Eliminar"
+msgstr "அழி"
 
 #: ../src/modules/shortcuts/CustomKeybinding.qml:133
 msgid "Command"
-msgstr "Comando"
+msgstr "கட்டளை"
 
 #: ../src/modules/account/DeleteUserDialog.qml:19
 msgid "Keep user's files"
-msgstr "Manter os ficheiros do utilizador"
+msgstr "பயனர் தரவுகளை வைத்திரு"
 
 #: ../src/modules/account/DeleteUserDialog.qml:20
 msgid "Delete user's files"
-msgstr "Eliminar os ficheiros do utilizador"
+msgstr "பயனர் தரவுகளை அழி"
 
 #: ../src/modules/network/dsl/DslExpand.qml:19
 msgid "PPPoE Connections"
-msgstr "Ligações PPPoE"
+msgstr "PPPoE இணைப்புகள்"
 
 #: ../src/modules/network/edit/EditLineMissingPackage.qml:15
 #, qt-format
 msgid "Current system lacks component for %1"
-msgstr "O sistema atual tem falta do componente para %1"
+msgstr "தற்போதைய கணினியில் %1 கூறு இல்லை "
 
 #: ../src/modules/network/edit/EditLineMissingPackage.qml:22
 msgid "Click to install"
-msgstr "Clique para instalar"
+msgstr "நிறுவுதலைத் தொடங்கு"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:11
 #: ../src/modules/network/main.qml:197
 msgid "Ethernet"
-msgstr "Rede Cablada"
+msgstr "ஈதர்நெட்"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:23
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:65
 msgid "Device MAC Addr"
-msgstr "Endereço Mac do Dispositivo:"
+msgstr "கருவியின் MAC முகவரி"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:33
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:75
 msgid "Cloned MAC Addr"
-msgstr "Endereço MAC Clonado"
+msgstr "குளோன் MAC முகவரி"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:43
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:85
 msgid "Customize MTU"
-msgstr "Personalizar MTU"
+msgstr "தனிபயன் MTU"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:53
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:107
@@ -646,22 +647,22 @@ msgstr "IPv4"
 #: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:23
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:23
 msgid "Method"
-msgstr "Método"
+msgstr "முறை"
 
 #: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:33
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:33
 #: ../src/modules/network/Info.qml:55
 msgid "IP Address"
-msgstr "Endereço IP"
+msgstr "IP முகவரி"
 
 #: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:44
 msgid "Netmask"
-msgstr "Máscara de Rede"
+msgstr "நெட்மாஸ்க்"
 
 #: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:69
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:65
 msgid "DNS Server"
-msgstr "Servidor DNS"
+msgstr "DNS சர்வர்"
 
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:11
 msgid "IPv6"
@@ -669,24 +670,24 @@ msgstr "IPv6"
 
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:43
 msgid "Prefix"
-msgstr "Prefixo"
+msgstr "முன்னொட்டு"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:11
 #: ../src/modules/network/main.qml:207
 msgid "Mobile"
-msgstr "Telemóvel"
+msgstr "கைப்பேசி"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:73
 msgid "Network ID"
-msgstr "ID de rede"
+msgstr "பிணைய அடையாளம்"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:83
 msgid "Type"
-msgstr "Tipo"
+msgstr "வகை"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:93
 msgid "Home Network Only"
-msgstr "Apenas Rede Caseira"
+msgstr "வீட்டு பிணையம் மட்டும்"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:103
 msgid "PIN"
@@ -698,80 +699,80 @@ msgstr "PPP"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:34
 msgid "128-bit MPPE"
-msgstr "128-bit MPPE"
+msgstr "128-பிட் MPPE"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:45
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:43
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:43
 msgid "Stateful MPPE"
-msgstr "Afirmação Máxima MPPE"
+msgstr "நிலைத்தன்மையுள்ள MPPE"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:55
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:53
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:53
 msgid "Refuse EAP Authentication"
-msgstr "Recusar Autenticação EAP"
+msgstr "EAP அங்கீகாரம் மறுப்பு"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:65
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:64
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:64
 msgid "Refuse PAP Authentication"
-msgstr "Recusar Autenticação PAP"
+msgstr "PAP அங்கீகாரம் மறுப்பு"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:75
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:75
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:75
 msgid "Refuse CHAP Authentication"
-msgstr "Recusar Autenticação CHAP"
+msgstr "CHAP அங்கீகாரம் மறுப்பு"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:85
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:86
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:86
 msgid "Refuse MSCHAP Authentication"
-msgstr "Recusar Autenticação MSCHAP"
+msgstr "MSCHAP அங்கீகாரம் மறுப்பு"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:95
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:97
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:97
 msgid "Refuse MSCHAPv2 Authentication"
-msgstr "Recusar Autenticação MSCHAPv2"
+msgstr "MSCHAPv2 அங்கீகாரம் மறுப்பு"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:105
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:108
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:107
 msgid "No BSD Data Compression"
-msgstr "Nenhuma Compressão de Dados BSD"
+msgstr "BSD தரவுச் சுருக்கம் இல்லை"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:115
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:118
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:117
 msgid "No Deflate Data Compression"
-msgstr "Não Deflacionar Compressão de Dados"
+msgstr "Deflate தரவுச் சுருக்கம் இல்லை"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:125
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:128
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:127
 msgid "No TCP Header Compression"
-msgstr "Nenhuma Compressão de Cabeçalho TCP"
+msgstr "TCP தலைப்புச் சுருக்கம் இல்லை"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:135
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:158
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:137
 msgid "Send PPP Echo Packets"
-msgstr "Enviar pacotes Eco PPP"
+msgstr "PPP எதிரொலி பாக்கெட்டுகள் அனுப்பு"
 
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:23
 msgid "Security Required"
-msgstr "Segurança Requerida"
+msgstr "பாதுகாப்பு தேவை"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:75
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:355
 msgid "NT Domain"
-msgstr "Domínio NT"
+msgstr "NT தளம்"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:11
 msgid "VPN IPsec"
-msgstr "VPN IPsec"
+msgstr "VPN IP பாதுகாப்பு"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:11
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:11
@@ -780,652 +781,652 @@ msgstr "VPN PPP"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:138
 msgid "No Protocol Field Compression"
-msgstr "Nenhuma Compressão de Protocolo de Campo"
+msgstr "கள சுருக்க வரைமுறை இல்லை"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:148
 msgid "No Address/Control Compression"
-msgstr "Nenhuma Compressão de Endereço/Controlo"
+msgstr "முகவரி/கட்டுப்பாட்டு சுருக்கம் இல்லை"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:11
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:11
 msgid "VPN Advanced"
-msgstr "VPN Avançado"
+msgstr "மேம்பட்ட VPN"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:33
 msgid "Gateway Port"
-msgstr "Porto Gateway"
+msgstr "நுழைவாயில் வழி"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:23
 msgid "Customize Gateway Port"
-msgstr "Porto Gateway Personalizado"
+msgstr "கேட்வே போர்ட் தனிப்பயனாக்கலாம்"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:45
 msgid "Customize Renegotiation Interval"
-msgstr "Personalizar Intervalo de Renegociação"
+msgstr "மறுபேர இடைவெளி தனிப்பயனாக்கலாம்"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:55
 msgid "Renegotiation Interval"
-msgstr "Intervalo de Renegociação"
+msgstr "மறுபேர இடைவேளை"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:67
 msgid "Use LZO data compression"
-msgstr "Usar compressão de dados LZO"
+msgstr "LZO தகவல் சுருக்க உபயோகி"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:77
 msgid "Use TCP connection"
-msgstr "Usar conexão TCP"
+msgstr "TCP இணைப்பை பயன்படுத்தவும்"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:87
 msgid "Use TAP device"
-msgstr "Usar dispositivo TAP"
+msgstr "TAP சாதனத்தை பயன்படுத்து"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:97
 msgid "Customize Tunnel MTU"
-msgstr "Personalizar Túnel MTU"
+msgstr "தனிப்பயனாக்கு டனல் MTU"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:119
 msgid "Customize UDP Fragment Size"
-msgstr "Personalizar Tamanho de Fragmento UDP"
+msgstr "தனிப்பயனாக்கு UDP துண்டு அளவு"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
 msgid "UDP Fragment Size"
-msgstr "Tamanho de Fragmento UDP"
+msgstr "UDP துண்டு அளவு"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:141
 msgid "Restrict Tunnel TCP MSS"
-msgstr "Restringir Túnel TCP MSS"
+msgstr " கட்டுப்படுத்து டனல் TCP எம்.எஸ்.எஸ்"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:151
 msgid "Randomize Remote Hosts"
-msgstr "Randomizar Anfitriões Remotos"
+msgstr "தொலை பரிமாறி சீரற்றதாக்கு"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:11
 msgid "VPN Proxies"
-msgstr "Proxies VPN"
+msgstr "VPN பதிலிகள் "
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:23
 msgid "Proxy Type"
-msgstr "Tipo de Proxy"
+msgstr "பதிலி வகை"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:33
 msgid "Server IP"
-msgstr "IP do Servidor"
+msgstr "சர்வர் IP"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:43
 #: ../src/modules/network/proxy/ProxyLine.qml:39
 msgid "Port"
-msgstr "Porto"
+msgstr "முணையம்"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:55
 msgid "Retry Indefinitely When Failed"
-msgstr "Tentar Novamente Indefinidamente Quando Falhar"
+msgstr "தோல்வி போது காலவரையின்றி மீண்டும் முயற்சி செய்"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:11
 msgid "VPN Security"
-msgstr "Segurança VPN"
+msgstr "VPN பாதுகாப்பு"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:23
 msgid "Cipher"
-msgstr "Cifra"
+msgstr "பூஜ்யம்"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:33
 msgid "HMAC Auth"
-msgstr "Autenticação HMAC"
+msgstr "HMAC அங்கீகாரம்"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:11
 msgid "VPN TLS Authentication"
-msgstr "Autenticação VPN TLS"
+msgstr "VPN TLS அங்கீகாரம்"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:23
 msgid "Subject Match"
-msgstr "Sujeito de Encontro"
+msgstr "பொருந்தும் பொருள்"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:33
 msgid "Remote Cert Type"
-msgstr "Tipo de Cert Remoto"
+msgstr "தொலைநிலை சான்றிதழ் வகை"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:43
 msgid "Key File"
-msgstr "Ficheiro Chave"
+msgstr "திறவுகோல் கோப்பு"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:23
 msgid "Domain"
-msgstr "Domínio"
+msgstr "தளம்"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:33
 msgid "Vendor"
-msgstr "Fornecedor"
+msgstr "விற்பனையாளர்"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:43
 msgid "Version"
-msgstr "Versão"
+msgstr "பதிப்பு"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:53
 msgid "Encryption"
-msgstr "Encriptação"
+msgstr "மறைக்குறியீடாக்கம்"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:63
 msgid "NAT Traversal"
-msgstr "NAT Transversal"
+msgstr "NAT பயணித்தல்"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:73
 msgid "IKE DH Group"
-msgstr "Grupo IKE DH"
+msgstr "IKE DH குழு"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:83
 msgid "Forward Secrecy"
-msgstr "Re-encaminhar Sigilo"
+msgstr "முன்னோக்கி இரகசியம்"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:93
 msgid "Local Port"
-msgstr "Porto Local"
+msgstr "உள்ளூர் முணையம்"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:105
 msgid "Disable Dead Peer Detection"
-msgstr "Desativar Deteção de Peer Morto"
+msgstr "டெட் Peer கண்டறிதல் முடக்கவும்"
 
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:11
 msgid "Wi-Fi"
-msgstr "Wi-Fi"
+msgstr "வைஃபை"
 
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:33
 msgid "Mode"
-msgstr "Modo"
+msgstr "முறை"
 
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:43
 msgid "Band"
-msgstr "Banda"
+msgstr "அலைவரிசை"
 
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:54
 msgid "Channel"
-msgstr "Canal"
+msgstr "சேனல்"
 
 #: ../src/modules/account/EditUserDialog.qml:93
 msgid "Enable"
-msgstr "Ativar"
+msgstr "இயக்கு"
 
 #: ../src/modules/sound/FadeLine.qml:31
 msgid "Front/Rear Balance"
-msgstr "Balanceamento Frontal/Traseira"
+msgstr "முன்/பின் சமநிலை"
 
 #: ../src/modules/sound/FadeLine.qml:55
 msgid "Front"
-msgstr "Frontal"
+msgstr "முன்பக்கம்"
 
 #: ../src/modules/sound/FadeLine.qml:53
 msgid "Rear"
-msgstr "Traseira"
+msgstr "பின் பக்கம்"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:48
 msgid "Standard"
-msgstr "Padrão"
+msgstr "தரம்"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:70
 msgid "Monospaced"
-msgstr "Mono-espaçado"
+msgstr "ஒற்றைஇடைவெளி விட்டவை"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:90
 msgid "Size"
-msgstr "Tamanho"
+msgstr "அளவு"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:119
 #, qt-format
 msgid "Font %1"
-msgstr "Fonte %1"
+msgstr "எழுத்துரு %1"
 
 #: ../src/modules/account/GuestUser.qml:45 ../src/views/HeaderArea.qml:108
 msgid "Guest"
-msgstr "Convidado"
+msgstr "விருந்தினர்"
 
 #: ../src/modules/account/GuestUser.qml:106
 msgid "Enabled"
-msgstr "Ativado"
+msgstr "இயக்கப்பட்டது"
 
 #: ../src/modules/network/Info.qml:13
 msgid "Connected"
-msgstr "Ligado"
+msgstr "இணைக்கப்பட்டுள்ளது"
 
 #: ../src/modules/network/Info.qml:15
 msgid "Not Connected"
-msgstr "Desligado da Rede"
+msgstr "இணைக்கப்படவில்லை"
 
 #: ../src/modules/network/Info.qml:39
 msgid "(default)"
-msgstr "(padrão)"
+msgstr "(இயல்புநிலை)"
 
 #: ../src/modules/network/Info.qml:50
 msgid "Interface"
-msgstr "Interface"
+msgstr "இடைமுகம்"
 
 #: ../src/modules/network/Info.qml:54
 msgid "Device Addr"
-msgstr "Endereço do Dispositivo"
+msgstr "கருவியின் முகவரி"
 
 #: ../src/modules/network/Info.qml:56
 msgid "Subnet Mask"
-msgstr "Máscara de Sub-rede"
+msgstr "சப்நெட் மாஸ்க்"
 
 #: ../src/modules/network/Info.qml:57
 msgid "Route Addr"
-msgstr "Gateway"
+msgstr "பிணைய நுழைவாயில்"
 
 #: ../src/modules/network/Info.qml:58
 msgid "Primary DNS"
-msgstr "DNS Principal"
+msgstr "முதன்மை DNS"
 
 #: ../src/modules/network/Info.qml:59
 msgid "Secondary DNS"
-msgstr "DNS Secundário"
+msgstr "இரண்டாம் நிலை DNS"
 
 #: ../src/modules/network/Info.qml:60
 msgid "Third DNS"
-msgstr "DNS Terceiro"
+msgstr "மூன்றாவது DNS"
 
 #: ../src/modules/network/Info.qml:69
 msgid "Device Speed"
-msgstr "Velocidade do Dispositivo"
+msgstr "கருவி வேகம்"
 
 #: ../src/modules/keyboard/LocaleArea.qml:53
 msgid "Language"
-msgstr "Idioma"
+msgstr "மொழி"
 
 #: ../src/modules/display/MessageBox.qml:105
 msgid "Do you want to keep these display settings?"
-msgstr "Deseja manter estas configurações apresentadas?"
+msgstr "உங்களுக்கு இந்தப் பார்வை அமைவுகளை அப்படியே வைத்துக்கொள்ள விருப்பமா?"
 
 #: ../src/modules/display/MessageBox.qml:114
 #, qt-format
 msgid ""
 "Reverting to previous display settings in <font color='#F48914'>%1</font> "
 "seconds."
-msgstr "A Reverter para as configurações apresentadas anteriormente em <font color='#F48914'>%1</font> segundos."
+msgstr "<font color='#F48914'>%1</font> நொடிகள் முந்தைய பார்வை அமைப்புகளை மாற்றியமைக்கிறது."
 
 #: ../src/modules/display/MessageBox.qml:140
 msgid "Keep Changes"
-msgstr "Manter Alterações"
+msgstr "மாற்றங்களை சேமி"
 
 #: ../src/modules/display/MessageBox.qml:128
 msgid "Revert"
-msgstr "Reverter"
+msgstr "திருப்பு / மாற்றியமை"
 
 #: ../src/views/ModulesData.qml:52
 msgid "Date and Time"
-msgstr "Data & Hora"
+msgstr "தேதி மற்றும் நேரம்"
 
 #: ../src/views/ModulesData.qml:53
 msgid "Network"
-msgstr "Rede"
+msgstr "பிணையம்"
 
 #: ../src/views/ModulesData.qml:54
 msgid "Disk Mount"
-msgstr "Montar disco"
+msgstr "வட்டு ஏற்றம்"
 
 #: ../src/views/ModulesData.qml:55 ../src/modules/network/main.qml:173
 msgid "Bluetooth"
-msgstr "Bluetooth"
+msgstr "புளூடூத்"
 
 #: ../src/views/ModulesData.qml:56
 msgid "Sound"
-msgstr "Som"
+msgstr "ஒலி"
 
 #: ../src/views/ModulesData.qml:57
 msgid "Power Management"
-msgstr "Gestão de Energia"
+msgstr "மின்திறன் செயல்பாட்டகம்"
 
 #: ../src/views/ModulesData.qml:58
 msgid "More Settings"
-msgstr "Mais Definições"
+msgstr "மேலதிக அமைப்புகள்"
 
 #: ../src/views/ModulesData.qml:59 ../src/views/PanelContent.qml:473
 msgid "Power"
-msgstr "Energia"
+msgstr "மின்திறன்"
 
 #: ../src/views/ModulesData.qml:60
 msgid "Display"
-msgstr "Ecrã"
+msgstr "திரை"
 
 #: ../src/views/ModulesData.qml:61
 msgid "Desktop"
-msgstr "Ambiente de Trabalho"
+msgstr "திரைப்பலகம்"
 
 #: ../src/views/ModulesData.qml:62
 msgid "Personalization"
-msgstr "Personalização"
+msgstr "தனிப்பயனாக்கம்"
 
 #: ../src/views/ModulesData.qml:63
 msgid "Keyboard Shortcuts"
-msgstr "Atalhos de Teclado"
+msgstr "விசைப்பலகை குறுக்குவழிகள்"
 
 #: ../src/views/ModulesData.qml:64
 msgid "Keyboard and Language"
-msgstr "Teclado e Idioma"
+msgstr "விசைப்பலகையும் மொழியும்"
 
 #: ../src/views/ModulesData.qml:65
 msgid "Tablet"
-msgstr "Tablet"
+msgstr "கைக்கணினி"
 
 #: ../src/views/ModulesData.qml:66
 msgid "Mouse and Touchpad"
-msgstr "Rato e Teclado"
+msgstr "சுட்டி மற்றும் டச்பேட்"
 
 #: ../src/views/ModulesData.qml:67 ../src/modules/mouse_touchpad/main.qml:50
 msgid "Mouse"
-msgstr "Rato"
+msgstr "சுட்டி"
 
 #: ../src/views/ModulesData.qml:68
 msgid "User Accounts"
-msgstr "Contas de Utilizadores"
+msgstr "பயனர் கணக்குகள்"
 
 #: ../src/views/ModulesData.qml:69
 #: ../src/modules/default_applications/main.qml:85
 msgid "Default Applications"
-msgstr "Aplicações Predefinidas"
+msgstr "இயல்புநிலை பயன்பாடுகள்"
 
 #: ../src/views/ModulesData.qml:70
 msgid "System Information"
-msgstr "Informações do Sistema"
+msgstr "கணினியின் வரையறை"
 
 #: ../src/views/ModulesData.qml:71
 msgid "Boot Menu"
-msgstr "Menu de Arranque"
+msgstr "துவக்க பட்டியல்"
 
 #: ../src/views/ModulesData.qml:72
 msgid "Home"
-msgstr "Página Principal"
+msgstr "முகப்புப்பக்கம்"
 
 #: ../src/modules/display/MonitorDragArea.qml:471
 msgid "Identify"
-msgstr "Identificar"
+msgstr "அடையாளப்படுத்து"
 
 #: ../src/modules/display/MonitorDragArea.qml:489
 msgid "Edit"
-msgstr "Editar"
+msgstr "தொகு"
 
 #: ../src/modules/display/MonitorDragArea.qml:507
 msgid "Split"
-msgstr "Dividir"
+msgstr "பிரி"
 
 #: ../src/modules/display/MonitorProperties.qml:42
 msgid "Normal"
-msgstr "Normal"
+msgstr "இயல்பு நிலை"
 
 #: ../src/modules/display/MonitorProperties.qml:43
 msgid "Rotate Right"
-msgstr "Rodar para a Direita"
+msgstr "வலப்புறம் திருப்புக"
 
 #: ../src/modules/display/MonitorProperties.qml:44
 msgid "Upside Down"
-msgstr "Virar ao contrário"
+msgstr "தலைகீழாக"
 
 #: ../src/modules/display/MonitorProperties.qml:45
 msgid "Rotate Left"
-msgstr "Rodar para a Esquerda"
+msgstr "இடப்புறம் திருப்பு"
 
 #: ../src/modules/display/MonitorProperties.qml:78
 msgid "Enable Monitor(s)"
-msgstr "Activar Monitor(es)"
+msgstr "கணினித்திரையை(களை) இயக்கு "
 
 #: ../src/modules/display/MonitorProperties.qml:96
 msgid "Please choose the monitor(s) you want to enable"
-msgstr "Por favor escolha o(s) monitor(es) que deseja ativar"
+msgstr "நீங்கள் செயல்படுத்த வேண்டும் மானிட்டர் (கள்) தேர்வு செய்க"
 
 #: ../src/modules/display/MonitorProperties.qml:146
 msgid "Primary Screen"
-msgstr "Ecrã Primário"
+msgstr "முதன்மைத் திரை"
 
 #: ../src/modules/display/MonitorProperties.qml:189
 msgid "Resolution"
-msgstr "Resolução"
+msgstr "பிரிதிறன்"
 
 #: ../src/modules/display/MonitorProperties.qml:230
 msgid "Rotation"
-msgstr "Rotação"
+msgstr "சுழற்சி"
 
 #: ../src/modules/display/MonitorProperties.qml:274
 #: ../src/modules/display/MonitorProperties.qml:306
 msgid "Brightness"
-msgstr "Luminosidade"
+msgstr "ஒளிர்வு"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:38
 msgid "Display Modes"
-msgstr "Modos de Visualização"
+msgstr "திரை வகைகள்"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:58
 msgid "Copy"
-msgstr "Copiar"
+msgstr "படியெடு"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:59
 msgid "Copy the contents of your primary screen to other screens."
-msgstr "Copiar os conteúdos do seu ecrã primário para outros ecrãs."
+msgstr "உங்கள் முதன்மைத் திரையின் உள்ளடக்கத்தைப் பிற திரைகளுக்குப் படியெடு"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:76
 msgid "Extend"
-msgstr "Estender"
+msgstr "நீட்டிக்க."
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:77
 msgid ""
 "Extend your screen contents to display different contents on different "
 "screens."
-msgstr "Amplie os conteúdos do seu monitor para visualizar diferentes conteúdos em diferentes monitores."
+msgstr "வெவ்வேறு திரைகளில் வெவ்வேறு உள்ளடக்கத்தைக் காட்டும் வகையில் உங்கள் திரை உள்ளடக்கத்தை நீட்டிக்கவும்"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:98
 #, qt-format
 msgid "Only Displayed on %1"
-msgstr "Apenas Visualizado no %1"
+msgstr "ஒரே %1 காட்டப்படும்"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:99
 #, qt-format
 msgid "Screen contents are only displayed on %1 but not on other screens."
-msgstr "Conteúdos de ecrã são apenas mostrados no %1 mas não noutros ecrãs."
+msgstr "திரையின் உள்ளடக்கங்கள் %1 மட்டுமே காட்டப்படுகிறது ஆனால்  மற்ற திரைகளில் இல்லை"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:118
 msgid "Custom Settings"
-msgstr "Definições Personalizadas"
+msgstr "வழக்கமான அமைவுகள்"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:119
 msgid "You can do other custom settings to your screens."
-msgstr "Pode aplicar outras definições personalizadas aos seus ecrãs."
+msgstr "நீங்கள் உங்கள் திரைகளில் மற்ற விருப்ப அமைப்புகளை செய்ய முடியும்."
 
 #: ../src/modules/network/wired/NewItem.qml:45
 #: ../src/modules/network/wired/WiredItem.qml:89
 #, qt-format
 msgid "Wired Connection %1"
-msgstr "Ligação por Cabo %1"
+msgstr "கம்பி இணைப்பு %1"
 
 #: ../src/modules/network/wired/NewItem.qml:47
 #: ../src/modules/network/wired/WiredItem.qml:91
 msgid "Wired Connection"
-msgstr "Ligação de Rede Cablada"
+msgstr "கம்பி இணைப்பு"
 
 #: ../src/modules/network/widgets/NotManagedSection.qml:25
 msgid "not managed"
-msgstr "não gerido"
+msgstr "நிர்வகிக்கப்படாதவை"
 
 #: ../src/modules/network/widgets/PasswordBox.qml:102
 msgid "Auto-connect"
-msgstr "Auto-ligar"
+msgstr "தானியங்கி-இணைப்பு"
 
 #: ../src/modules/account/PasswordDialog.qml:119
 msgid "New Password"
-msgstr "Nova Palavra-passe"
+msgstr "புதிய கடவுச்சொல்"
 
 #: ../src/modules/account/PasswordDialog.qml:185
 msgid "Repeat"
-msgstr "Repetir"
+msgstr "இன்னொரு முறை"
 
 #: ../src/modules/grub/Preview.qml:122
 msgid "Drag and drop an image to change background."
-msgstr "Arraste e largue uma imagem para mudar o fundo do ecrã."
+msgstr "பின்னணியை மாற்றுவதற்குப் படத்தை இழுத்து விடவும்"
 
 #: ../src/modules/grub/Preview.qml:123 ../src/modules/account/UserList.qml:239
 msgid "Image format not supported"
-msgstr "Formato de imagem não suportado"
+msgstr "மீட்டமை"
 
 #: ../src/modules/grub/Preview.qml:124
 msgid "Updating..."
-msgstr "A atualizar..."
+msgstr "தற்காலப்படுத்தல்"
 
 #: ../src/modules/grub/Preview.qml:125
 msgid "Successfully updated, reboot to view."
-msgstr "Actualização com sucesso, reinicie para ver."
+msgstr "தற்காலப்படுத்தல் நிறைவடைந்தது. இப்போது கணினியை மறுதொடக்கம் செய்"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:43
 #: ../src/modules/shortcuts/ShortcutInput.qml:119
 #: ../src/modules/date_time/main.qml:205
 msgid "None"
-msgstr "Nenhum"
+msgstr "ஏதுமில்லை"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:48
 msgid "Manual"
-msgstr "Manual"
+msgstr "கைமுறை"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:53
 msgid "Auto"
-msgstr "Auto"
+msgstr "தானியங்கி"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:88
 msgid "HTTP Proxy"
-msgstr "Proxy HTTP "
+msgstr "HTTP பதிலி"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:100
 msgid "HTTPS Proxy"
-msgstr "Proxy HTTPS "
+msgstr "HTTPS பதிலி"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:112
 msgid "FTP Proxy"
-msgstr "Proxy FTP "
+msgstr "FTP பதிலி"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:124
 msgid "Socks Proxy"
-msgstr "Proxy Socks"
+msgstr "பாதுகாப்பான கூடு பதிலி"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:149
 msgid "Configuration URL"
-msgstr "Configuração URL"
+msgstr "URL வடிவமைப்பு"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:166
 msgid "Apply system wide"
-msgstr "Aplicar por todo o sistema"
+msgstr "கணினி அளவிலாக பயன்படுத்து"
 
 #: ../src/modules/network/proxy/ProxyExpand.qml:37
 msgid "System Proxy"
-msgstr "Proxy do sistema"
+msgstr "கணினியின் பதிலி"
 
 #: ../src/modules/shared/ResetButton.qml:39
 msgid "Reset successfully"
-msgstr "Redefinição com sucesso"
+msgstr "வெற்றிகரமாக மீட்டமைக்கப்பட்டது"
 
 #: ../src/modules/shared/ResetButton.qml:47
 msgid "Reset"
-msgstr "Restabelecer"
+msgstr "மீட்டமை"
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:137
 msgid "Please input new shortcut"
-msgstr "Por favor introduza novo atalho"
+msgstr "புதிய சுருக்குவழியை உள்ளிடுங்களேன்"
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:238
 #, qt-format
 msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
-msgstr "Atalho \"%1\" é inválido, por favor reescreva novo atalho."
+msgstr "குறுக்குவழி \"%1\" தவறானது, புதிய குறுக்குவழியை மீண்டும் தட்டச்சு செய்க."
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:276
 msgid "The shortcut you set "
-msgstr "O atalho que definiu"
+msgstr "நீங்கள் உள்ளிட்ட சுருக்குவழி"
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:279
 #, qt-format
 msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
-msgstr "em conflito com o usado para \"%2\" na \"%1\" categoria."
+msgstr "\"% 1\" பிரிவில் \"% 2\" பயன்படுத்தப்படும் ஒன்று உடன் முரண்பாடு ஏற்படுகிறது"
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:281
 msgid "Do you want to replace it?"
-msgstr "Deseja substituir?"
+msgstr "இதை மாற்ற விரும்புகிறீர்களா?"
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:339
 msgid "Replace"
-msgstr "Substituir"
+msgstr "மாற்றுக"
 
 #: ../src/modules/personalization/widgets/ShowPreviewButton.qml:53
 msgid "Preview Theme"
-msgstr "Pré-visualizar Tema"
+msgstr "முன்னோட்ட தீம்"
 
 #: ../src/modules/date_time/StateButtons.qml:35
 #: ../src/modules/keyboard/StateButtons.qml:35
 #: ../src/modules/shortcuts/StateButtons.qml:39
 msgid "Done"
-msgstr "Terminado"
+msgstr "முடிந்தது"
 
 #: ../src/modules/date_time/StateButtons.qml:36
 #: ../src/modules/date_time/StateButtons.qml:54
 #: ../src/modules/date_time/TimezoneArea.qml:468
 msgid "Close"
-msgstr "Fechar"
+msgstr "மூடு"
 
 #: ../src/modules/date_time/StateButtons.qml:85
 msgid "Delete Time Zone"
-msgstr "Apagar Fuso Horário"
+msgstr "நேர மண்டலத்தை அழி"
 
 #: ../src/modules/date_time/StateButtons.qml:101
 msgid "Add Time Zone"
-msgstr "Adicionar Fuso Horário"
+msgstr "நேர மண்டலத்தை சேர்"
 
 #: ../src/modules/keyboard/StateButtons.qml:92
 msgid "Delete Keyboard Layout"
-msgstr "Apagar Esquema do Teclado"
+msgstr "விசைப்பலகை அமைப்பை நீக்கு"
 
 #: ../src/modules/keyboard/StateButtons.qml:107
 msgid "Add Keyboard Layout"
-msgstr "Adicionar Esquema do Teclado"
+msgstr "விசைப்பலகை அமைப்பை சேர்"
 
 #: ../src/modules/shortcuts/StateButtons.qml:90
 msgid "Delete Shortcut"
-msgstr "Apagar Atalho"
+msgstr "குறுக்குவழியை நிக்கு"
 
 #: ../src/modules/shortcuts/StateButtons.qml:107
 msgid "Add Shortcut"
-msgstr "Adicionar Atalho"
+msgstr "குறுக்குவழியை சேர்"
 
 #: ../src/modules/personalization/widgets/ThemeItem.qml:92
 #: ../src/modules/power/main.qml:319 ../src/modules/power/main.qml:560
 #: ../src/modules/shortcuts/main.qml:54 ../src/modules/shortcuts/main.qml:231
 msgid "Custom"
-msgstr "Personalizado"
+msgstr "விருப்பம்"
 
 #: ../src/modules/date_time/TimeBox.qml:161
 msgid "Double-click this area to change your time"
-msgstr "Duplo-clique nesta área para alterar a sua hora"
+msgstr "உங்கள் நேரம் மாற்ற இந்த பகுதியில் இரட்டை கிளிக் செய்யவும்"
 
 #: ../src/modules/date_time/TimeBox.qml:202
 msgid "Set"
-msgstr "Definir"
+msgstr "அமைக்கவும்"
 
 #: ../src/modules/date_time/TimezoneArea.qml:256
 msgid "Time zone"
-msgstr "Fuso horário"
+msgstr "நேர மண்டம்"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
 msgid "Touchpad"
-msgstr "Painel Tátil"
+msgstr "டச்பேட்"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:82
 #: ../src/modules/mouse_touchpad/main.qml:83
 msgid "Primary Button"
-msgstr "Botão Principal"
+msgstr "முதன்மை பொத்தான்"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:91
 #: ../src/modules/mouse_touchpad/main.qml:91
 msgid "Left Button"
-msgstr "Botão Esquerdo"
+msgstr "இடது பொத்தான்"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:92
 #: ../src/modules/mouse_touchpad/main.qml:92
 msgid "Right Button"
-msgstr "Botão Direito"
+msgstr "வலது பொத்தான்"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:117
 #: ../src/modules/mouse_touchpad/main.qml:117
 msgid "Pointer Speed"
-msgstr "Velocidade do Ponteiro"
+msgstr "சுட்டிக்காட்டி வேகம்"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:134
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:171
@@ -1433,7 +1434,7 @@ msgstr "Velocidade do Ponteiro"
 #: ../src/modules/mouse_touchpad/main.qml:133
 #: ../src/modules/mouse_touchpad/main.qml:169
 msgid "Slow"
-msgstr "Lento"
+msgstr "மெதுவாக"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:135
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:172
@@ -1441,87 +1442,87 @@ msgstr "Lento"
 #: ../src/modules/mouse_touchpad/main.qml:134
 #: ../src/modules/mouse_touchpad/main.qml:170
 msgid "Fast"
-msgstr "Rápido"
+msgstr "வேகமாக"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:154
 #: ../src/modules/mouse_touchpad/main.qml:153
 msgid "Double-click Speed"
-msgstr "Velocidade do Duplo-clique"
+msgstr "இரு கிளிக் வேகம்"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:192
 msgid "Drag Threshold"
-msgstr "Limiar de Arrastamento"
+msgstr "தொடக்கநிலை இழு"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:208
 #: ../src/modules/keyboard/main.qml:163
 msgid "Short"
-msgstr "Curto"
+msgstr "குறுகிய"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:209
 #: ../src/modules/keyboard/main.qml:164
 msgid "Long"
-msgstr "Longo"
+msgstr "நீண்ட"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:228
 msgid "Natural Scrolling"
-msgstr "Deslocamento Natural"
+msgstr "இயற்கை உருட்டுதல்"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:252
 msgid "Tap to click"
-msgstr "Toque para clicar"
+msgstr "கிளிக் செய்ய தட்டவும்"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:275
 msgid "Two-finger scrolling"
-msgstr "Deslocamento dois-dedos"
+msgstr "இரண்டு விரல் உருட்டுதல்"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:298
 msgid "Edge scrolling"
-msgstr "Deslocamento limite"
+msgstr "விளிம்பு உருட்டுதல்"
 
 #: ../src/modules/account/UserListCreatingItem.qml:99
 msgid "Account Preparing..."
-msgstr "A Preparar Conta..."
+msgstr "தயாராகிறது கணக்கு ..."
 
 #: ../src/modules/network/vpn/VpnExpand.qml:48
 msgid "VPN Connections"
-msgstr "Conexções VPN"
+msgstr "VPN இணைப்புகள்"
 
 #: ../src/modules/account/WebCam.qml:125 ../src/modules/account/WebCam.qml:140
 msgid "Snapshot"
-msgstr "Foto Instantânea"
+msgstr "நொடிப்பு"
 
 #: ../src/modules/account/WebCam.qml:136
 msgid "Again"
-msgstr "Outra vez"
+msgstr "இன்னொரு முறை"
 
 #: ../src/modules/account/WebCam.qml:175
 msgid "No camera found."
-msgstr "Nenhuma camera encontrada"
+msgstr "கேமரா இல்லை"
 
 #: ../src/modules/network/wireless/WifiHotspot.qml:23
 msgid "Edit Wi-Fi Hotspot"
-msgstr "Editar Wi-Fi Hostspot"
+msgstr "திருத்து Wi-Fi ஹாட்ஸ்பாட்"
 
 #: ../src/modules/network/wireless/WifiHotspot.qml:23
 msgid "Create Wi-Fi Hotspot"
-msgstr "Criar Hotspot WI-Fi"
+msgstr "Wi-Fi ஹாட்ஸ்பாட் உருவாக்கவும்"
 
 #: ../src/modules/network/wireless/WifiHotspot.qml:91
 msgid "Create"
-msgstr "Criar"
+msgstr "உருவாக்கு"
 
 #: ../src/modules/network/wired/WiredDeviceExpand.qml:38
 msgid "Wired Network"
-msgstr "Rede Cablada"
+msgstr "கம்பி வலைப்பின்னல்"
 
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:30
 msgid "Wireless Network"
-msgstr "Rede de Internet sem fios"
+msgstr "கம்பியில்லா இணையம்"
 
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:28
 #, qt-format
 msgid "Wireless Network %1"
-msgstr "Rede Sem Fios %1"
+msgstr "கம்பியில்லா இணைப்பு %1"
 
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:57
 msgid ""
@@ -1530,205 +1531,205 @@ msgid ""
 "1. The hardware switch of wireless network card is off\n"
 "2. Incorrect network configuration in /etc/network/interface\n"
 "3. Incorrect driver of network hardware"
-msgstr "Rede Sem-fios é incapaz de ser ligada talvez devido às razões seguintes:\n\n1. O botão físico da placa sem-fios está desligado\n2. Configuração de rede incorreta em /etc/network/interface\n3. Controlador de hardware de rede incorreto"
+msgstr "வயர்லெஸ் நெட்வொர்க் பின்வரும் காரணங்களால் ஒருவேளை இணைக்கப்பட முடியவில்லை:\n\n1. வயர்லெஸ் நெட்வொர்க் அட்டை வன்பொருள் சுவிட்ச் அனைந்துஇருத்தல்\n2. / Etc / வலையமைப்பு / இடைமுகம் தவறான நெட்வொர்க் கட்டமைப்பு\n3. பிணைய வன்பொருள் தவறான இயக்கி"
 
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:37
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:163
 msgid "Connect to hidden access point"
-msgstr "Ligar a um ponto de acesso escondido"
+msgstr "மறைக்கப்பட்ட அணுகல் புள்ளி இணைக்க"
 
 #: ../src/modules/power/main.qml:307 ../src/modules/power/main.qml:548
 msgid "Power saver"
-msgstr "Poupança de energia"
+msgstr "மின்கல சேமி"
 
 #: ../src/modules/power/main.qml:301 ../src/modules/power/main.qml:542
 msgid "Balanced"
-msgstr "Equilibrado"
+msgstr "நடுநிலை"
 
 #: ../src/modules/power/main.qml:313 ../src/modules/power/main.qml:554
 msgid "High performance"
-msgstr "Alto desempenho"
+msgstr "உயர்திறன்"
 
 #: ../src/modules/date_time/main.qml:131
 msgid "Sync Automatically"
-msgstr "Sincronizar Automaticamente"
+msgstr "தானாகவே ஒருங்கிணை"
 
 #: ../src/modules/date_time/main.qml:149
 msgid "Use 24-hour clock"
-msgstr "Usar relógio 24-horas"
+msgstr "24 மணி நேர கடிகாரத்தை பயன்படுத்தவும்"
 
 #: ../src/modules/date_time/main.qml:180
 msgid "Adjust DST clock "
-msgstr "Ajustar relógio DST"
+msgstr "DSTகடிகார ஒழுங்குபடுத்தவும்"
 
 #: ../src/modules/date_time/main.qml:257
 msgid "Date"
-msgstr "Data"
+msgstr "தேதி"
 
 #: ../src/modules/date_time/main.qml:290
 msgid "Set Date"
-msgstr "Definir Data"
+msgstr "தேதி அமை"
 
 #: ../src/modules/default_applications/main.qml:97
 msgid "Browser"
-msgstr "Navegador de Internet"
+msgstr "உலாவி"
 
 #: ../src/modules/default_applications/main.qml:111
 msgid "Mail"
-msgstr "Correio"
+msgstr "மின்னஞ்சல்"
 
 #: ../src/modules/default_applications/main.qml:122
 msgid "Text"
-msgstr "Texto"
+msgstr "உரை"
 
 #: ../src/modules/default_applications/main.qml:128
 msgid "Music"
-msgstr "Música"
+msgstr "இசை"
 
 #: ../src/modules/default_applications/main.qml:159
 msgid "Video"
-msgstr "Vídeo"
+msgstr "நிகழ்படம்"
 
 #: ../src/modules/default_applications/main.qml:191
 msgid "Picture"
-msgstr "Imagem"
+msgstr "படம்"
 
 #: ../src/modules/default_applications/main.qml:209
 msgid "Terminal"
-msgstr "Terminal"
+msgstr "முனையம்"
 
 #: ../src/modules/default_applications/main.qml:268
 msgid "AutoPlay"
-msgstr "Reprodução Automática"
+msgstr "தானியக்கம்"
 
 #: ../src/modules/default_applications/main.qml:283
 msgid "CD Audio"
-msgstr "CD Áudio"
+msgstr "CD ஒலி"
 
 #: ../src/modules/default_applications/main.qml:288
 msgid "DVD Video"
-msgstr "DVD Vídeo "
+msgstr "DVD நிகழ்படம்"
 
 #: ../src/modules/default_applications/main.qml:293
 msgid "Music Player"
-msgstr "Reprodutor de Música"
+msgstr "இசை இயக்கி"
 
 #: ../src/modules/default_applications/main.qml:298
 msgid "Camera"
-msgstr "Câmara"
+msgstr "புகைப்படக்கருவி"
 
 #: ../src/modules/default_applications/main.qml:303
 msgid "Software"
-msgstr "Software"
+msgstr "மென்பொருள்"
 
 #: ../src/modules/grub/main.qml:112
 msgid "Default Boot"
-msgstr "Arranque Padrão"
+msgstr "இயல்புநிலை துவக்கம்"
 
 #: ../src/modules/grub/main.qml:167
 msgid "Boot delay"
-msgstr "Atraso do Arranque"
+msgstr "துவக்க தாமதம்"
 
 #: ../src/modules/grub/main.qml:206
 msgid "Text Color"
-msgstr "Cor do Texto"
+msgstr "உரையின் நிறம்"
 
 #: ../src/modules/grub/main.qml:239
 msgid "Selected Text Color"
-msgstr "Selecionar Cor do Texto"
+msgstr "தேர்ந்தெடுக்கப்பட்ட உரை வண்ணம்"
 
 #: ../src/modules/keyboard/main.qml:149
 msgid "Repeat Delay"
-msgstr "Atraso da Repetição"
+msgstr "மீண்டும் செய் தாமதம்"
 
 #: ../src/modules/keyboard/main.qml:174
 msgid "Repeat Rate"
-msgstr "Taxa de repetição"
+msgstr "மீண்டும் விகிதம்"
 
 #: ../src/modules/keyboard/main.qml:200
 msgid "Cursor Blink Rate"
-msgstr "Taxa de intermitência do cursor"
+msgstr "கர்சர் சிமிட்டும் விகிதம்"
 
 #: ../src/modules/keyboard/main.qml:226
 msgid "Test Area"
-msgstr "Área de teste"
+msgstr "டெஸ்ட் பகுதி"
 
 #: ../src/modules/keyboard/main.qml:272
 msgid "Keyboard Layout"
-msgstr "Esquema do Teclado"
+msgstr "விசைப்பலகை அமைப்பை"
 
 #: ../src/modules/keyboard/main.qml:499
 msgid "No result"
-msgstr "Sem resultado"
+msgstr "முடிவு இல்லை"
 
 #: ../src/modules/keyboard/main.qml:246
 msgid "Caps Lock prompt"
-msgstr "Solicitação de Caps Lock"
+msgstr "Caps Lock வரியில்"
 
 #: ../src/modules/mouse_touchpad/main.qml:190
 msgid "Disable the touchpad when inserting the mouse"
-msgstr "Desativar o touchpad ao inserir um rato"
+msgstr "சுட்டி சேர்க்கும் போது டச்பேட் முடக்கவும்"
 
 #: ../src/modules/personalization/main.qml:111
 msgid "Theme"
-msgstr "Tema"
+msgstr "தீம்"
 
 #: ../src/modules/personalization/main.qml:118
 #: ../src/modules/shortcuts/main.qml:52
 msgid "Window"
-msgstr "Janela"
+msgstr "சாரளம்"
 
 #: ../src/modules/personalization/main.qml:125
 msgid "Icon"
-msgstr "Ícone"
+msgstr "படவுரு"
 
 #: ../src/modules/personalization/main.qml:132
 msgid "Cursor"
-msgstr "Cursor"
+msgstr "இடஞ்சுட்டி"
 
 #: ../src/modules/personalization/main.qml:139
 msgid "Wallpaper"
-msgstr "Papel de Parede"
+msgstr "சுவர் தாள்"
 
 #: ../src/modules/personalization/main.qml:153
 msgid "Fonts"
-msgstr "Fontes"
+msgstr "எழுத்துருக்கள்"
 
 #: ../src/modules/power/main.qml:53 ../src/modules/power/main.qml:65
 msgid "Never"
-msgstr "Nunca"
+msgstr "ஒருபோதும் தேவைஇல்லை"
 
 #: ../src/modules/power/main.qml:59
 msgid "1 minute"
-msgstr "1 minuto"
+msgstr "1 நிமிடம்"
 
 #: ../src/modules/power/main.qml:60
 msgid "5 minutes"
-msgstr "5 minutos"
+msgstr "5 நிமிடங்கள்"
 
 #: ../src/modules/power/main.qml:61
 msgid "10 minutes"
-msgstr "10 minutos"
+msgstr "10 நிமிடங்கள்"
 
 #: ../src/modules/power/main.qml:62
 msgid "15 minutes"
-msgstr "15 minutos"
+msgstr "15 நிமிடங்கள்"
 
 #: ../src/modules/power/main.qml:63
 msgid "30 minutes"
-msgstr "30 minutos"
+msgstr "30 நிமிடங்கள்"
 
 #: ../src/modules/power/main.qml:64
 msgid "1 hour"
-msgstr "1 hora"
+msgstr "1 மணி நேரம்"
 
 #: ../src/modules/power/main.qml:123
 msgid "When I press the power button"
-msgstr "Quando primo o botão para ligar/desligar"
+msgstr "நான் ஆற்றல் பொத்தானை அழுத்தவும் போது"
 
 #: ../src/modules/power/main.qml:137 ../src/modules/power/main.qml:183
 msgid "Shutdown"
-msgstr "Encerrar"
+msgstr "நிறுத்து   "
 
 #: ../src/modules/power/main.qml:142 ../src/modules/power/main.qml:188
 #: ../src/modules/power/main.qml:304 ../src/modules/power/main.qml:310
@@ -1737,31 +1738,31 @@ msgstr "Encerrar"
 #: ../src/modules/power/main.qml:551 ../src/modules/power/main.qml:557
 #: ../src/modules/power/main.qml:563 ../src/modules/power/main.qml:659
 msgid "Suspend"
-msgstr "Suspender"
+msgstr "தற்காலிகமாக நிறுத்தம் செய்தல்"
 
 #: ../src/modules/power/main.qml:147
 msgid "Ask"
-msgstr "Perguntar"
+msgstr "கேள்"
 
 #: ../src/modules/power/main.qml:169
 msgid "When I close the lid"
-msgstr "Quando fecho a tampa do portátil"
+msgstr "நான் மூடி மூடும்போது"
 
 #: ../src/modules/power/main.qml:193
 msgid "Nothing"
-msgstr "Nada"
+msgstr "ஒன்றுமில்லை"
 
 #: ../src/modules/power/main.qml:212
 msgid "Password required to wake up"
-msgstr "Palavra-passe necessária para acordar"
+msgstr "எழுப்ப கடவுச்சொல் தேவை"
 
 #: ../src/modules/power/main.qml:248
 msgid "Plugged in"
-msgstr "Conectado"
+msgstr "சொருகப்பட்டு"
 
 #: ../src/modules/power/main.qml:490
 msgid "On battery"
-msgstr "Em bateria"
+msgstr "பேட்டரியில்"
 
 #: ../src/modules/power/main.qml:303 ../src/modules/power/main.qml:309
 #: ../src/modules/power/main.qml:315 ../src/modules/power/main.qml:321
@@ -1769,131 +1770,131 @@ msgstr "Em bateria"
 #: ../src/modules/power/main.qml:550 ../src/modules/power/main.qml:556
 #: ../src/modules/power/main.qml:562 ../src/modules/power/main.qml:619
 msgid "Turn off the display"
-msgstr "Desligar o ecrã"
+msgstr "திரை அணைக்க"
 
 #: ../src/modules/power/main.qml:378 ../src/modules/power/main.qml:614
 msgid "Custom Options"
-msgstr "Opções Personalizadas"
+msgstr "விருப்பத்தேர்வுகள்"
 
 #: ../src/modules/shortcuts/main.qml:50
 msgid "System"
-msgstr "Sistema"
+msgstr "கணினி"
 
 #: ../src/modules/shortcuts/main.qml:53
 msgid "Workspace"
-msgstr "Área de Trabalho"
+msgstr "பணியிடம்"
 
 #: ../src/modules/sound/main.qml:127
 msgid "Speaker"
-msgstr "Altifalante"
+msgstr "ஒலிபெருக்கி"
 
 #: ../src/modules/sound/main.qml:157
 msgid "Output Volume"
-msgstr "Saída de Volume"
+msgstr "வெளியீடு ஒலியளவு"
 
 #: ../src/modules/sound/main.qml:222
 msgid "Microphone"
-msgstr "Microfone"
+msgstr "ஒலிவாங்கி"
 
 #: ../src/modules/sound/main.qml:252
 msgid "Input Volume"
-msgstr "Entrada de Volume"
+msgstr "உள்ளீடு தொகுதி"
 
 #: ../src/modules/sound/main.qml:296
 msgid "Input Feedback"
-msgstr "Inserir Comentário"
+msgstr "கருத்து உள்ளீடு"
 
 #: ../src/modules/sound/main.qml:332
 msgid "Output Port"
-msgstr "Porto de Saída "
+msgstr "வெளியீடு முணையம்"
 
 #: ../src/modules/sound/main.qml:349 ../src/modules/sound/main.qml:452
 msgid "No port exists in this device."
-msgstr "Não existe nenhum porto neste dispositivo."
+msgstr " இந்த சாதனத்தில் முணையம் ஏதும் இல்லை"
 
 #: ../src/modules/sound/main.qml:387
 msgid "Output device"
-msgstr "Dispositivo de saída"
+msgstr "வெளிப்போத்து சாதனம்"
 
 #: ../src/modules/sound/main.qml:435
 msgid "Input Port"
-msgstr "Porto de Entrada"
+msgstr "உள்ளீடு முணையம்"
 
 #: ../src/modules/sound/main.qml:490
 msgid "Input device"
-msgstr "Dispositivo de entrada"
+msgstr "உள்ளீடு சாதனம்"
 
 #: ../src/modules/sound/main.qml:543
 msgid "Hide Advanced..."
-msgstr "Esconder Avançadas..."
+msgstr "மறை  மேம்பட்ட..."
 
 #: ../src/modules/sound/main.qml:543
 msgid "Show Advanced..."
-msgstr "Mostrar Avançadas..."
+msgstr "காட்டு மேம்பட்ட..."
 
 #: ../src/modules/system_info/main.qml:119
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
-msgstr "Direitos de cópia (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
+msgstr "பதிப்புரிமை (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
 
 #: ../src/modules/system_info/main.qml:125
 msgid "Deepin Edition"
-msgstr "Edição Deepin"
+msgstr "Deepin பதிப்பு"
 
 #: ../src/modules/system_info/main.qml:131
 msgid "System Type"
-msgstr "Tipo de Sistema"
+msgstr "கணினியின் வகை"
 
 #: ../src/modules/system_info/main.qml:132
 msgid "bit"
-msgstr "bit"
+msgstr "பிட்"
 
 #: ../src/modules/system_info/main.qml:137
 msgid "Processor"
-msgstr "Processador"
+msgstr "செயலி"
 
 #: ../src/modules/system_info/main.qml:151
 msgid "Memory"
-msgstr "Memória"
+msgstr "நினைவகம்"
 
 #: ../src/modules/system_info/main.qml:157
 msgid "Disk"
-msgstr "Disco"
+msgstr "வட்டு"
 
 #: ../src/modules/system_info/main.qml:175
 msgid "GNU GENERAL PUBLIC LICENSE"
-msgstr "LICENÇA PUBLICA GERAL GNU"
+msgstr "GNU பொது மக்கள் உரிமம்"
 
 #: ../src/modules/network/main.qml:163 ../src/modules/network/main.qml:191
 msgid "Unknown"
-msgstr "Desconhecido"
+msgstr "தெரியாத"
 
 #: ../src/modules/network/main.qml:165
 msgid "Wired"
-msgstr "Ligação com fios"
+msgstr "கம்பியுள்ள"
 
 #: ../src/modules/network/main.qml:167
 msgid "Wireless"
-msgstr "Ligação sem fios"
+msgstr "கம்பியில்லா"
 
 #: ../src/modules/network/main.qml:169
 msgid "Unused1"
-msgstr "Sem uso1"
+msgstr "பயன்படுத்தப்படாத 1"
 
 #: ../src/modules/network/main.qml:171
 msgid "Unused2"
-msgstr "Sem uso2"
+msgstr "பயன்படுத்தப்படாத 2"
 
 #: ../src/modules/network/main.qml:175
 msgid "OLPC mesh"
-msgstr "Malha OLPC"
+msgstr "OLPC கண்ணி"
 
 #: ../src/modules/network/main.qml:177
 msgid "WiMax"
-msgstr "WiMax"
+msgstr "வைமாக்ஸ்"
 
 #: ../src/modules/network/main.qml:179
 msgid "Modem"
-msgstr "Modem"
+msgstr "இணக்கி"
 
 #: ../src/modules/network/main.qml:181
 msgid "InfiniBand"
@@ -1901,7 +1902,7 @@ msgstr "InfiniBand"
 
 #: ../src/modules/network/main.qml:183
 msgid "Bond"
-msgstr "Laço"
+msgstr "பாண்ட்"
 
 #: ../src/modules/network/main.qml:185
 msgid "VLAN"
@@ -1913,31 +1914,31 @@ msgstr "ADSL"
 
 #: ../src/modules/network/main.qml:189
 msgid "Bridge"
-msgstr "Ponte"
+msgstr "பாலம்"
 
 #: ../src/modules/network/main.qml:199
 msgid "802.11 WiFi"
-msgstr "802.11 WiFi"
+msgstr "802.11 வைஃபை"
 
 #: ../src/modules/network/main.qml:201
 msgid "802.11 WiFi AdHoc"
-msgstr "802.11 WiFi AdHoc"
+msgstr "802.11 வைஃபை Adhoc"
 
 #: ../src/modules/network/main.qml:203
 msgid "802.11 WiFi Hotspot"
-msgstr "802.11 WiFi Hotspot"
+msgstr "802.11 வைஃபை ஹாட்ஸ்பாட்"
 
 #: ../src/modules/network/main.qml:209
 msgid "Mobile GSM"
-msgstr "Telemóvel GSM"
+msgstr "கைப்பேசி GSM"
 
 #: ../src/modules/network/main.qml:211
 msgid "Mobile CDMA"
-msgstr "Telemóvel CDMA"
+msgstr "கைப்பேசி CDMA"
 
 #: ../src/modules/network/main.qml:341
 msgid "View Detailed Information"
-msgstr "Ver Informação Detalhada"
+msgstr "விவரமான தகவலுக்கு"
 
 #: ../src/modules/network/main.qml:215
 msgid "VPN L2TP"
@@ -1953,96 +1954,96 @@ msgstr "VPN VPNC"
 
 #: ../src/modules/network/main.qml:221
 msgid "VPN OpenVPN"
-msgstr "VPN OpenVPN"
+msgstr "VPN திறந்த நிலை VPN"
 
 #: ../src/modules/network/main.qml:223
 msgid "VPN OpenConnect"
-msgstr "VPN OpenConnect"
+msgstr "VPN திறந்த நிலை இணைப்பு"
 
 #: ../src/modules/account/main.qml:109
 msgid "Delete Account"
-msgstr "Apagar Conta"
+msgstr "கணக்கை அழி"
 
 #: ../src/modules/account/main.qml:149
 msgid "Add Account"
-msgstr "Adicionar Conta"
+msgstr "கணக்கை சேர்"
 
 #: ../src/modules/account/main.qml:172
 msgid "User List"
-msgstr "Lista do Utilizador"
+msgstr "பயனர் பட்டியல்"
 
 #: ../src/modules/wacom/main.qml:14
 msgid "Page Up"
-msgstr "Página Acima"
+msgstr "பக்கம் மேலே"
 
 #: ../src/modules/wacom/main.qml:15
 msgid "Page Down"
-msgstr "Página Abaixo"
+msgstr "பக்கம் கீழ்"
 
 #: ../src/modules/wacom/main.qml:16
 msgid "Left Click"
-msgstr "Clique Esquerdo"
+msgstr "இடது கிளிக்"
 
 #: ../src/modules/wacom/main.qml:17
 msgid "Right Click"
-msgstr "Clique Direito"
+msgstr "வலது கிளிக்"
 
 #: ../src/modules/wacom/main.qml:18
 msgid "Middle Click"
-msgstr "Clique Botão do Meio"
+msgstr "நடு கிளிக்"
 
 #: ../src/modules/wacom/main.qml:69
 msgid "Tablet Orientation"
-msgstr "Orientação do Tablet"
+msgstr "கைக்கணினி நோக்குநிலை"
 
 #: ../src/modules/wacom/main.qml:76
 msgid "Left Hand"
-msgstr "Mão Esquerda"
+msgstr "இடது கை"
 
 #: ../src/modules/wacom/main.qml:77
 msgid "Right Hand"
-msgstr "Mão Direita"
+msgstr "வலது கை"
 
 #: ../src/modules/wacom/main.qml:90
 msgid "Digital Pen Modes"
-msgstr "Modos de Caneta Digital"
+msgstr "டிஜிட்டல் பேனா முறைகள்"
 
 #: ../src/modules/wacom/main.qml:97
 msgid "Pen Mode"
-msgstr "Modo Caneta"
+msgstr "பேனா முறை"
 
 #: ../src/modules/wacom/main.qml:98
 msgid "Mouse Mode"
-msgstr "Modo Rato"
+msgstr "சுட்டி"
 
 #: ../src/modules/wacom/main.qml:112
 msgid "Down Key"
-msgstr "Tecla Abaixo"
+msgstr "கீழ் விசை"
 
 #: ../src/modules/wacom/main.qml:137
 msgid "Up Key"
-msgstr "Tecla Acima"
+msgstr "மேல் விசை"
 
 #: ../src/modules/wacom/main.qml:162
 msgid "Pressure"
-msgstr "Pressão"
+msgstr "அழுத்தம்"
 
 #: ../src/modules/wacom/main.qml:178
 msgid "Soft"
-msgstr "Soft"
+msgstr "மென்மையான"
 
 #: ../src/modules/wacom/main.qml:179
 msgid "Hard"
-msgstr "Difícil"
+msgstr "கடினமான"
 
 #: ../src/modules/wacom/main.qml:190
 msgid "Double-click Space"
-msgstr "Intervalo de Clique-duplo"
+msgstr "இரட்டை கிளிக் இடைவெளி"
 
 #: ../src/modules/wacom/main.qml:206
 msgid "Narrow"
-msgstr "Estreito"
+msgstr "குறுகிய"
 
 #: ../src/modules/wacom/main.qml:207
 msgid "Wide"
-msgstr "Amplo"
+msgstr "அகலமான"

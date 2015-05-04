@@ -131,15 +131,6 @@ Rectangle {
 
         }
     }
-    property real trayIconHeight: {
-        if(navigateIconModel.count==0){
-            return trayWidth
-        }
-        else{
-            var new_tray_height = iconsArea.height/(navigateIconModel.count)
-            return new_tray_height < trayWidth ? new_tray_height : trayWidth
-        }
-    }
 
     function initTrayIcon() {
         print("==> [info] initTrayIcon emit")
@@ -212,10 +203,8 @@ Rectangle {
         sessionManager.PowerOffChoose()
     }
 
-    function trayIconHoverHandler(module_id, index, isHover) {
-        var tipDisplayHeight
-        tipDisplayHeight = Math.abs(trayIconHeight - 23)/2
-            + trayIconHeight * index
+    function trayIconHoverHandler(module_id, globalY, isHover) {
+        var tipDisplayHeight = globalY + (moduleIconList.cellHeight - 23) / 2
 
         if(module_id == "mouse_touchpad" && !dbusTouchpad.exist){
             var localeName = modulesId.moduleLocaleNames["mouse"]
@@ -225,8 +214,7 @@ Rectangle {
         }
 
         if(isSiderNavigate && isHover){
-            iconTipText.text = localeName
-            IconTip.pageWidth = iconTipText.width + 30
+            IconTip.pageWidth = getStringPixelSize(localeName, 14) + 30
             IconTip.setAnimationEnable(Math.abs(tipDisplayHeight - IconTip.pageY) > 50 ? false : true)
             IconTip.pageY = tipDisplayHeight + screenSize.y
             IconTip.pageX = shouldShowInRight ? screenSize.width + screenSize.x -  panelContent.width - IconTip.pageWidth - 10 : panelContent.width + 10
@@ -241,11 +229,6 @@ Rectangle {
 
     function destroyIconTip() {
         IconTip.destroyiconTip()
-    }
-    Text {
-        id:iconTipText
-        visible: false
-        text: qsTr("text")
     }
 
     Timer {

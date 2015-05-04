@@ -8,14 +8,15 @@
 # eko ikhyar <ikhyar.com@gmail.com>, 2014
 # Herwono W Wijaya <root@linuxcoding.org>, 2014
 # Muhamad Mashudi Ardi Winata <muhamadmashudiardiwinata@gmail.com>, 2014
+# Rendiyono Wahyu Saputro <rendi.7936@gmail.com>, 2015
 # Sucipto <show.cheap@gmail.com>, 2014
 # Yugo Purwanto <dedy.yugo.purwanto@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-07 14:39+0800\n"
-"PO-Revision-Date: 2015-01-07 06:56+0000\n"
+"POT-Creation-Date: 2015-03-16 07:24+0000\n"
+"PO-Revision-Date: 2015-03-25 07:33+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/dde-control-center/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -30,7 +31,7 @@ msgstr "Tambah Koneksi PPPoE"
 
 #: ../src/modules/network/add/AddDsl.qml:24
 #: ../src/modules/network/add/AddMobile.qml:33
-#: ../src/modules/network/add/AddVpn.qml:102
+#: ../src/modules/network/add/AddVpn.qml:103
 #: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:33
 #: ../src/modules/shortcuts/CustomKeybinding.qml:118
 msgid "Name"
@@ -40,17 +41,17 @@ msgstr "Nama"
 #: ../src/modules/network/add/AddMobile.qml:75
 #: ../src/modules/network/add/AddMobile.qml:105
 #: ../src/modules/account/AddUserDialog.qml:127
-#: ../src/modules/network/add/AddVpn.qml:124
-#: ../src/modules/network/add/AddVpn.qml:254
-#: ../src/modules/network/add/AddVpn.qml:394
-#: ../src/modules/network/add/AddVpn.qml:434
+#: ../src/modules/network/add/AddVpn.qml:125
+#: ../src/modules/network/add/AddVpn.qml:255
+#: ../src/modules/network/add/AddVpn.qml:395
+#: ../src/modules/network/add/AddVpn.qml:435
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:53
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:123
 #: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:23
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:44
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:184
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:324
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:374
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:45
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:185
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:325
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:375
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:65
 msgid "Username"
 msgstr "Nama pengguna"
@@ -64,9 +65,9 @@ msgstr "Layanan"
 #: ../src/modules/network/add/AddMobile.qml:85
 #: ../src/modules/network/add/AddMobile.qml:115
 #: ../src/modules/account/AddUserDialog.qml:200
-#: ../src/modules/network/add/AddVpn.qml:144
-#: ../src/modules/network/add/AddVpn.qml:274
-#: ../src/modules/network/add/AddVpn.qml:414
+#: ../src/modules/network/add/AddVpn.qml:145
+#: ../src/modules/network/add/AddVpn.qml:275
+#: ../src/modules/network/add/AddVpn.qml:415
 #: ../src/modules/network/wireless/AddWireless.qml:64
 #: ../src/modules/network/wireless/AddWireless.qml:186
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:63
@@ -74,9 +75,9 @@ msgstr "Layanan"
 #: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:43
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:53
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:175
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:64
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:204
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:344
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:65
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:205
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:345
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:75
 #: ../src/modules/network/widgets/PasswordBox.qml:95
 #: ../src/modules/account/PasswordDialog.qml:62
@@ -108,10 +109,10 @@ msgstr "Nomor"
 #: ../src/modules/network/add/AddSectionSave.qml:11
 #: ../src/modules/account/AddUserDialog.qml:413
 #: ../src/modules/network/wireless/AddWireless.qml:216
-#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:104
+#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:109
 #: ../src/modules/network/ConnectionAdd.qml:69
 #: ../src/modules/network/ConnectionEdit.qml:102
-#: ../src/modules/network/ConnectionEdit.qml:150
+#: ../src/modules/network/ConnectionEdit.qml:135
 #: ../src/modules/shortcuts/CustomKeybinding.qml:151
 #: ../src/modules/account/DeleteUserDialog.qml:33
 #: ../src/modules/network/Info.qml:79
@@ -120,13 +121,13 @@ msgstr "Nomor"
 #: ../src/modules/shortcuts/ShortcutInput.qml:355
 #: ../src/modules/date_time/TimeBox.qml:225
 #: ../src/modules/network/wireless/WifiHotspot.qml:82
-#: ../src/modules/date_time/main.qml:289 ../src/modules/display/main.qml:179
+#: ../src/modules/date_time/main.qml:300 ../src/modules/display/main.qml:179
 msgid "Cancel"
 msgstr "Batal"
 
 #: ../src/modules/network/add/AddSectionSave.qml:20
 #: ../src/modules/shortcuts/CustomKeybinding.qml:157
-#: ../src/modules/date_time/TimezoneArea.qml:464
+#: ../src/modules/date_time/TimezoneArea.qml:465
 msgid "Add"
 msgstr "Tambah"
 
@@ -199,7 +200,7 @@ msgstr "Masuk-Otomatis"
 #: ../src/modules/account/AddUserDialog.qml:426
 #: ../src/modules/account/DeleteUserDialog.qml:46
 #: ../src/modules/account/PasswordDialog.qml:262
-#: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:307
+#: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:318
 #: ../src/modules/display/main.qml:194
 msgid "Confirm"
 msgstr "Konfirmasi"
@@ -237,170 +238,170 @@ msgstr "Informasi Dasar"
 msgid "Need VPN Plugin"
 msgstr "Memerlukan plugin VPN"
 
-#: ../src/modules/network/add/AddVpn.qml:114
-#: ../src/modules/network/add/AddVpn.qml:154
-#: ../src/modules/network/add/AddVpn.qml:234
-#: ../src/modules/network/add/AddVpn.qml:384
-#: ../src/modules/network/add/AddVpn.qml:424
+#: ../src/modules/network/add/AddVpn.qml:115
+#: ../src/modules/network/add/AddVpn.qml:155
+#: ../src/modules/network/add/AddVpn.qml:235
+#: ../src/modules/network/add/AddVpn.qml:385
+#: ../src/modules/network/add/AddVpn.qml:425
 #: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:57
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:55
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:34
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:84
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:164
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:314
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:364
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:35
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:85
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:165
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:315
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:365
 msgid "Gateway"
 msgstr "Gateway"
 
-#: ../src/modules/network/add/AddVpn.qml:134
-#: ../src/modules/network/add/AddVpn.qml:264
-#: ../src/modules/network/add/AddVpn.qml:314
-#: ../src/modules/network/add/AddVpn.qml:404
-#: ../src/modules/network/add/AddVpn.qml:444
-#: ../src/modules/network/add/AddVpn.qml:474
+#: ../src/modules/network/add/AddVpn.qml:135
+#: ../src/modules/network/add/AddVpn.qml:265
+#: ../src/modules/network/add/AddVpn.qml:315
+#: ../src/modules/network/add/AddVpn.qml:405
+#: ../src/modules/network/add/AddVpn.qml:445
+#: ../src/modules/network/add/AddVpn.qml:475
 #: ../src/modules/network/wireless/AddWireless.qml:175
 #: ../src/modules/network/wireless/AddWireless.qml:196
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:164
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:185
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:54
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:194
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:244
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:334
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:384
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:414
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:55
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:195
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:245
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:335
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:385
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:415
 msgid "Ask for Pwd"
 msgstr "Tanya Password"
 
-#: ../src/modules/network/add/AddVpn.qml:164
-#: ../src/modules/network/add/AddVpn.qml:284
+#: ../src/modules/network/add/AddVpn.qml:165
+#: ../src/modules/network/add/AddVpn.qml:285
 #: ../src/modules/network/wireless/AddWireless.qml:104
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:93
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:94
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:214
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:95
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:215
 msgid "CA Cert"
 msgstr "CA Cert"
 
-#: ../src/modules/network/add/AddVpn.qml:174
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:104
+#: ../src/modules/network/add/AddVpn.qml:175
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:105
 msgid "Proxy"
 msgstr "Proxy"
 
-#: ../src/modules/network/add/AddVpn.qml:184
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:114
+#: ../src/modules/network/add/AddVpn.qml:185
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:115
 msgid "Allow Cisco Secure Desktop Trojan"
 msgstr "Mengizinkan Cisco Secure Desktop Trojan"
 
-#: ../src/modules/network/add/AddVpn.qml:344
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:274
+#: ../src/modules/network/add/AddVpn.qml:345
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:275
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
 msgid "Customize Key Direction"
 msgstr "Menyesuaikan Arah Kunci"
 
-#: ../src/modules/network/add/AddVpn.qml:214
-#: ../src/modules/network/add/AddVpn.qml:304
+#: ../src/modules/network/add/AddVpn.qml:215
+#: ../src/modules/network/add/AddVpn.qml:305
 #: ../src/modules/network/wireless/AddWireless.qml:165
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:154
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:144
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:234
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:145
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:235
 msgid "Private Key"
 msgstr "Kunci Privat"
 
-#: ../src/modules/network/add/AddVpn.qml:244
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:174
+#: ../src/modules/network/add/AddVpn.qml:245
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:175
 msgid "Auth Type"
 msgstr "Tipe Auth"
 
-#: ../src/modules/network/add/AddVpn.qml:204
-#: ../src/modules/network/add/AddVpn.qml:294
+#: ../src/modules/network/add/AddVpn.qml:205
+#: ../src/modules/network/add/AddVpn.qml:295
 #: ../src/modules/network/wireless/AddWireless.qml:114
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:103
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:134
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:224
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:135
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:225
 msgid "User Cert"
 msgstr "Cert Pengguna"
 
-#: ../src/modules/network/add/AddVpn.qml:194
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:124
+#: ../src/modules/network/add/AddVpn.qml:195
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:125
 msgid "CSD Script"
 msgstr "Skrip CSD"
 
-#: ../src/modules/network/add/AddVpn.qml:224
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:154
+#: ../src/modules/network/add/AddVpn.qml:225
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:155
 msgid "Use FSID for Key Passphrase"
 msgstr "Gunakan FSID untuk Frasa Kunci"
 
-#: ../src/modules/network/add/AddVpn.qml:324
+#: ../src/modules/network/add/AddVpn.qml:325
 #: ../src/modules/network/wireless/AddWireless.qml:206
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:195
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:254
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:255
 msgid "Private Pwd"
 msgstr "Privat Pwd"
 
-#: ../src/modules/network/add/AddVpn.qml:334
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:264
+#: ../src/modules/network/add/AddVpn.qml:335
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:265
 msgid "Static Key"
 msgstr "Kunci Statis"
 
-#: ../src/modules/network/add/AddVpn.qml:354
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:284
+#: ../src/modules/network/add/AddVpn.qml:355
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:285
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:63
 msgid "Key Direction"
 msgstr "Key Pengarah"
 
-#: ../src/modules/network/add/AddVpn.qml:364
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:294
+#: ../src/modules/network/add/AddVpn.qml:365
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:295
 msgid "Remote IP"
 msgstr "IP Remote"
 
-#: ../src/modules/network/add/AddVpn.qml:374
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:304
+#: ../src/modules/network/add/AddVpn.qml:375
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:305
 msgid "Local IP"
 msgstr "IP Lokal"
 
-#: ../src/modules/network/add/AddVpn.qml:454
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:394
+#: ../src/modules/network/add/AddVpn.qml:455
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:395
 msgid "User Pwd"
 msgstr "Sandi Pengguna"
 
-#: ../src/modules/network/add/AddVpn.qml:464
-#: ../src/modules/network/add/AddVpn.qml:526
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:404
+#: ../src/modules/network/add/AddVpn.qml:465
+#: ../src/modules/network/add/AddVpn.qml:527
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:405
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:33
 msgid "Group Name"
 msgstr "Nama Grup"
 
-#: ../src/modules/network/add/AddVpn.qml:484
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:424
+#: ../src/modules/network/add/AddVpn.qml:485
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:425
 msgid "Group Pwd"
 msgstr "Sandi Grup"
 
-#: ../src/modules/network/add/AddVpn.qml:494
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:434
+#: ../src/modules/network/add/AddVpn.qml:495
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:435
 msgid "Use Hybrid Authentication"
 msgstr "Gunakan Autentikasi Ganda"
 
-#: ../src/modules/network/add/AddVpn.qml:504
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:444
+#: ../src/modules/network/add/AddVpn.qml:505
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:445
 msgid "CA File"
 msgstr "Berkas CA"
 
-#: ../src/modules/network/add/AddVpn.qml:516
+#: ../src/modules/network/add/AddVpn.qml:517
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:23
 msgid "Enable IPsec"
 msgstr "Nyalakan IPsec"
 
-#: ../src/modules/network/add/AddVpn.qml:536
+#: ../src/modules/network/add/AddVpn.qml:537
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:43
 msgid "Group ID"
 msgstr "ID Grup"
 
-#: ../src/modules/network/add/AddVpn.qml:546
+#: ../src/modules/network/add/AddVpn.qml:547
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:53
 msgid "Pre-Shared Key"
 msgstr "Pra-Pembagian Kunci"
 
-#: ../src/modules/network/add/AddVpn.qml:558
-#: ../src/modules/network/add/AddVpn.qml:570
+#: ../src/modules/network/add/AddVpn.qml:559
+#: ../src/modules/network/add/AddVpn.qml:571
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:23
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:23
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:23
@@ -506,19 +507,19 @@ msgstr "Kanan"
 msgid "Automatically connect"
 msgstr "Sambung Otomatis"
 
-#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:116
+#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:121
 #: ../src/modules/personalization/widgets/PreviewWindow.qml:280
 #: ../src/modules/display/main.qml:194
 msgid "Apply"
 msgstr "Terapkan"
 
-#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:144
+#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:149
 msgid "Devices nearby"
 msgstr "Perangkat terdekat"
 
 #: ../src/modules/display/BrightnessRectangle.qml:61
-#: ../src/modules/display/ResolutionRectangle.qml:68
-#: ../src/modules/display/RotationRectangle.qml:68
+#: ../src/modules/display/ResolutionRectangle.qml:69
+#: ../src/modules/display/RotationRectangle.qml:70
 msgid "Monitor"
 msgstr "Monitor"
 
@@ -555,19 +556,19 @@ msgid "Sat"
 msgstr "Sab"
 
 #: ../src/modules/network/ConnectionAdd.qml:12
-#: ../src/modules/network/main.qml:303
+#: ../src/modules/network/main.qml:315
 msgid "Add Network Connection"
 msgstr "Tambahkan Koneksi Network"
 
 #: ../src/modules/network/ConnectionAdd.qml:35
 #: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:11
-#: ../src/modules/network/main.qml:204
+#: ../src/modules/network/main.qml:205
 msgid "PPPoE"
 msgstr "PPPoE"
 
 #: ../src/modules/network/ConnectionAdd.qml:45
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:11
-#: ../src/modules/network/main.qml:212
+#: ../src/modules/network/main.qml:213
 msgid "VPN"
 msgstr "VPN"
 
@@ -588,7 +589,7 @@ msgstr "Anda yakin akan menghapus jaringan ini?"
 msgid "Save"
 msgstr "Simpan"
 
-#: ../src/modules/network/ConnectionEdit.qml:135
+#: ../src/modules/network/ConnectionEdit.qml:144
 msgid "Delete"
 msgstr "Hapus"
 
@@ -618,7 +619,7 @@ msgid "Click to install"
 msgstr "Klik untuk memasang"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:11
-#: ../src/modules/network/main.qml:196
+#: ../src/modules/network/main.qml:197
 msgid "Ethernet"
 msgstr "Ethernet"
 
@@ -676,7 +677,7 @@ msgid "Prefix"
 msgstr "Awalan"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:11
-#: ../src/modules/network/main.qml:206
+#: ../src/modules/network/main.qml:207
 msgid "Mobile"
 msgstr "Mobile"
 
@@ -768,8 +769,8 @@ msgstr "Kirim Paket PPP Echo"
 msgid "Security Required"
 msgstr "Keamanan Dibutuhkan"
 
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:74
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:354
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:75
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:355
 msgid "NT Domain"
 msgstr "Domain NT"
 
@@ -1064,7 +1065,7 @@ msgstr "Jaringan"
 msgid "Disk Mount"
 msgstr "Kaitkan Disk"
 
-#: ../src/views/ModulesData.qml:55 ../src/modules/network/main.qml:172
+#: ../src/views/ModulesData.qml:55 ../src/modules/network/main.qml:173
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
@@ -1174,7 +1175,6 @@ msgid "Please choose the monitor(s) you want to enable"
 msgstr "Pilih monitor() yang akan diaktifkan"
 
 #: ../src/modules/display/MonitorProperties.qml:146
-#: ../src/views/TmpTranslationFile.qml:52
 msgid "Primary Screen"
 msgstr "Layar Utama"
 
@@ -1192,22 +1192,18 @@ msgid "Brightness"
 msgstr "Kecerahan"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:38
-#: ../src/views/TmpTranslationFile.qml:8
 msgid "Display Modes"
 msgstr "Modus Tampilan"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:58
-#: ../src/views/TmpTranslationFile.qml:12
 msgid "Copy"
 msgstr "Salin"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:59
-#: ../src/views/TmpTranslationFile.qml:16
 msgid "Copy the contents of your primary screen to other screens."
 msgstr "Salin konten dari layar utama Anda ke layar lain."
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:76
-#: ../src/views/TmpTranslationFile.qml:20
 msgid "Extend"
 msgstr "Membeberkan"
 
@@ -1218,24 +1214,20 @@ msgid ""
 msgstr "Perbanyak konten layar Anda untuk menampilkan konten yang berbeda  pada layar yang berbeda."
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:98
-#: ../src/views/TmpTranslationFile.qml:28
 #, qt-format
 msgid "Only Displayed on %1"
 msgstr "Hanya Tampilkan pada %1"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:99
-#: ../src/views/TmpTranslationFile.qml:32
 #, qt-format
 msgid "Screen contents are only displayed on %1 but not on other screens."
 msgstr "Konten layar hanya ditampilkan pada %1 tapi tidak pada layar lainnya."
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:118
-#: ../src/views/TmpTranslationFile.qml:36
 msgid "Custom Settings"
 msgstr "Pengaturan Kustom"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:119
-#: ../src/views/TmpTranslationFile.qml:40
 msgid "You can do other custom settings to your screens."
 msgstr "Anda dapat menyesuaikan pengaturan kustom lainnya untuk layar Anda."
 
@@ -1284,7 +1276,7 @@ msgstr "Pemutakhiran berhasil, nyalakan ulang untuk melihat perubahannya."
 
 #: ../src/modules/network/proxy/ProxyContent.qml:43
 #: ../src/modules/shortcuts/ShortcutInput.qml:119
-#: ../src/modules/date_time/main.qml:204
+#: ../src/modules/date_time/main.qml:205
 msgid "None"
 msgstr "Tidak Ada"
 
@@ -1362,50 +1354,49 @@ msgstr "Ganti"
 msgid "Preview Theme"
 msgstr "Pratampil Tema"
 
-#: ../src/modules/date_time/StateButtons.qml:34
-#: ../src/modules/keyboard/StateButtons.qml:34
-#: ../src/modules/shortcuts/StateButtons.qml:38
+#: ../src/modules/date_time/StateButtons.qml:35
+#: ../src/modules/keyboard/StateButtons.qml:35
+#: ../src/modules/shortcuts/StateButtons.qml:39
 msgid "Done"
 msgstr "Selesai"
 
-#: ../src/modules/date_time/StateButtons.qml:35
-#: ../src/modules/date_time/StateButtons.qml:49
-#: ../src/modules/date_time/TimezoneArea.qml:467
+#: ../src/modules/date_time/StateButtons.qml:36
+#: ../src/modules/date_time/StateButtons.qml:54
+#: ../src/modules/date_time/TimezoneArea.qml:468
 msgid "Close"
 msgstr "Tutup"
 
-#: ../src/modules/date_time/StateButtons.qml:72
+#: ../src/modules/date_time/StateButtons.qml:85
 msgid "Delete Time Zone"
 msgstr "Hapus Zona Waktu"
 
-#: ../src/modules/date_time/StateButtons.qml:88
+#: ../src/modules/date_time/StateButtons.qml:101
 msgid "Add Time Zone"
 msgstr "Tambah Zona Waktu"
 
-#: ../src/modules/keyboard/StateButtons.qml:77
+#: ../src/modules/keyboard/StateButtons.qml:92
 msgid "Delete Keyboard Layout"
 msgstr "Hapus Tata Letak Keyboard"
 
-#: ../src/modules/keyboard/StateButtons.qml:92
+#: ../src/modules/keyboard/StateButtons.qml:107
 msgid "Add Keyboard Layout"
 msgstr "Tambahkan Tata Letak Keyboard"
 
-#: ../src/modules/shortcuts/StateButtons.qml:80
+#: ../src/modules/shortcuts/StateButtons.qml:90
 msgid "Delete Shortcut"
 msgstr "Hapus Pintasan"
 
-#: ../src/modules/shortcuts/StateButtons.qml:96
+#: ../src/modules/shortcuts/StateButtons.qml:107
 msgid "Add Shortcut"
 msgstr "Tambah Pintasan"
 
 #: ../src/modules/personalization/widgets/ThemeItem.qml:92
-#: ../src/modules/power/main.qml:270 ../src/modules/power/main.qml:463
+#: ../src/modules/power/main.qml:319 ../src/modules/power/main.qml:560
 #: ../src/modules/shortcuts/main.qml:54 ../src/modules/shortcuts/main.qml:231
 msgid "Custom"
 msgstr "Kustom"
 
 #: ../src/modules/date_time/TimeBox.qml:161
-#: ../src/views/TmpTranslationFile.qml:44
 msgid "Double-click this area to change your time"
 msgstr "Klik dua kali pada area ini untuk mengubah waktu Anda"
 
@@ -1413,19 +1404,9 @@ msgstr "Klik dua kali pada area ini untuk mengubah waktu Anda"
 msgid "Set"
 msgstr "Atur"
 
-#: ../src/modules/date_time/TimezoneArea.qml:253
+#: ../src/modules/date_time/TimezoneArea.qml:256
 msgid "Time zone"
 msgstr "Zona Waktu"
-
-#: ../src/views/TmpTranslationFile.qml:24
-msgid ""
-"Extend your screen contents. Different contents will be displayed on "
-"different screens."
-msgstr "Perbanyak konten layar Anda. Konten yang berbeda akan ditampilkan pada layar yang berbeda."
-
-#: ../src/views/TmpTranslationFile.qml:48
-msgid "Account information is being prepared..."
-msgstr "Informasi akun sedang dipersiapkan..."
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
 msgid "Touchpad"
@@ -1538,16 +1519,16 @@ msgstr "Buat"
 msgid "Wired Network"
 msgstr "Koneksi Kabel"
 
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:28
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:30
 msgid "Wireless Network"
 msgstr "Koneksi Nirkabel"
 
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:26
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:28
 #, qt-format
 msgid "Wireless Network %1"
 msgstr "Koneksi Nirkabel %1"
 
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:55
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:57
 msgid ""
 "Wireless network is unable to be connected maybe due to the following reasons:\n"
 "\n"
@@ -1556,40 +1537,40 @@ msgid ""
 "3. Incorrect driver of network hardware"
 msgstr "Jarigan nirkabel tidak dapat dihubungkan mungkin karena alasan berikut:\n\n1. Perangkat keras kartu jaringan nirkabel tidak aktif\n2. Kesalahan konfigurasi jaringan dalam /etc/network/interface\n3. Kesalahan driver perangkat keras jaringan"
 
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:35
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:158
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:37
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:163
 msgid "Connect to hidden access point"
 msgstr "Sambungkan ke akses point tersembunyi"
 
-#: ../src/modules/power/main.qml:258 ../src/modules/power/main.qml:451
+#: ../src/modules/power/main.qml:307 ../src/modules/power/main.qml:548
 msgid "Power saver"
 msgstr "Penghemat daya"
 
-#: ../src/modules/power/main.qml:252 ../src/modules/power/main.qml:445
+#: ../src/modules/power/main.qml:301 ../src/modules/power/main.qml:542
 msgid "Balanced"
 msgstr "Seimbang"
 
-#: ../src/modules/power/main.qml:264 ../src/modules/power/main.qml:457
+#: ../src/modules/power/main.qml:313 ../src/modules/power/main.qml:554
 msgid "High performance"
 msgstr "Kinerja tinggi"
 
-#: ../src/modules/date_time/main.qml:130
+#: ../src/modules/date_time/main.qml:131
 msgid "Sync Automatically"
-msgstr ""
+msgstr "Sinkron secara Otomatis"
 
-#: ../src/modules/date_time/main.qml:148
+#: ../src/modules/date_time/main.qml:149
 msgid "Use 24-hour clock"
 msgstr "Gunakan format 24-jam"
 
-#: ../src/modules/date_time/main.qml:179
+#: ../src/modules/date_time/main.qml:180
 msgid "Adjust DST clock "
 msgstr "Sesuaikan jam DST"
 
-#: ../src/modules/date_time/main.qml:256
+#: ../src/modules/date_time/main.qml:257
 msgid "Date"
 msgstr "Tanggal"
 
-#: ../src/modules/date_time/main.qml:280
+#: ../src/modules/date_time/main.qml:290
 msgid "Set Date"
 msgstr "Atur Tanggal"
 
@@ -1681,7 +1662,7 @@ msgstr "Area Tes"
 msgid "Keyboard Layout"
 msgstr "Tata letak Papan Ketik"
 
-#: ../src/modules/keyboard/main.qml:489
+#: ../src/modules/keyboard/main.qml:499
 msgid "No result"
 msgstr "Tidak ada hasil"
 
@@ -1746,56 +1727,56 @@ msgstr "30 menit"
 msgid "1 hour"
 msgstr "1 jam"
 
-#: ../src/modules/power/main.qml:124
+#: ../src/modules/power/main.qml:123
 msgid "When I press the power button"
 msgstr "Ketika ditekan tombol power"
 
-#: ../src/modules/power/main.qml:138 ../src/modules/power/main.qml:184
+#: ../src/modules/power/main.qml:137 ../src/modules/power/main.qml:183
 msgid "Shutdown"
 msgstr "Matikan"
 
-#: ../src/modules/power/main.qml:143 ../src/modules/power/main.qml:189
-#: ../src/modules/power/main.qml:255 ../src/modules/power/main.qml:261
-#: ../src/modules/power/main.qml:267 ../src/modules/power/main.qml:273
-#: ../src/modules/power/main.qml:377 ../src/modules/power/main.qml:448
-#: ../src/modules/power/main.qml:454 ../src/modules/power/main.qml:460
-#: ../src/modules/power/main.qml:466 ../src/modules/power/main.qml:563
+#: ../src/modules/power/main.qml:142 ../src/modules/power/main.qml:188
+#: ../src/modules/power/main.qml:304 ../src/modules/power/main.qml:310
+#: ../src/modules/power/main.qml:316 ../src/modules/power/main.qml:322
+#: ../src/modules/power/main.qml:425 ../src/modules/power/main.qml:545
+#: ../src/modules/power/main.qml:551 ../src/modules/power/main.qml:557
+#: ../src/modules/power/main.qml:563 ../src/modules/power/main.qml:659
 msgid "Suspend"
 msgstr "Tangguhkan"
 
-#: ../src/modules/power/main.qml:148
+#: ../src/modules/power/main.qml:147
 msgid "Ask"
 msgstr "Tanya"
 
-#: ../src/modules/power/main.qml:170
+#: ../src/modules/power/main.qml:169
 msgid "When I close the lid"
 msgstr "Ketika Saya menutup lid"
 
-#: ../src/modules/power/main.qml:194
+#: ../src/modules/power/main.qml:193
 msgid "Nothing"
 msgstr "Tidak ada apa-apa"
 
-#: ../src/modules/power/main.qml:213
+#: ../src/modules/power/main.qml:212
 msgid "Password required to wake up"
 msgstr "Kata sandi dibutuhkan untung membangunkan"
 
-#: ../src/modules/power/main.qml:237
+#: ../src/modules/power/main.qml:248
 msgid "Plugged in"
 msgstr "Plugged in"
 
-#: ../src/modules/power/main.qml:430
+#: ../src/modules/power/main.qml:490
 msgid "On battery"
 msgstr "Pada baterai"
 
-#: ../src/modules/power/main.qml:254 ../src/modules/power/main.qml:260
-#: ../src/modules/power/main.qml:266 ../src/modules/power/main.qml:272
-#: ../src/modules/power/main.qml:336 ../src/modules/power/main.qml:447
-#: ../src/modules/power/main.qml:453 ../src/modules/power/main.qml:459
-#: ../src/modules/power/main.qml:465 ../src/modules/power/main.qml:523
+#: ../src/modules/power/main.qml:303 ../src/modules/power/main.qml:309
+#: ../src/modules/power/main.qml:315 ../src/modules/power/main.qml:321
+#: ../src/modules/power/main.qml:384 ../src/modules/power/main.qml:544
+#: ../src/modules/power/main.qml:550 ../src/modules/power/main.qml:556
+#: ../src/modules/power/main.qml:562 ../src/modules/power/main.qml:619
 msgid "Turn off the display"
 msgstr "Matikan layar"
 
-#: ../src/modules/power/main.qml:330 ../src/modules/power/main.qml:518
+#: ../src/modules/power/main.qml:378 ../src/modules/power/main.qml:614
 msgid "Custom Options"
 msgstr "Opsi Kustom"
 
@@ -1887,111 +1868,111 @@ msgstr "Diska"
 msgid "GNU GENERAL PUBLIC LICENSE"
 msgstr "LISENSI GNU GENERAL PUBLIC"
 
-#: ../src/modules/network/main.qml:162 ../src/modules/network/main.qml:190
+#: ../src/modules/network/main.qml:163 ../src/modules/network/main.qml:191
 msgid "Unknown"
 msgstr "Tidak diketahui"
 
-#: ../src/modules/network/main.qml:164
+#: ../src/modules/network/main.qml:165
 msgid "Wired"
 msgstr "Kabel"
 
-#: ../src/modules/network/main.qml:166
+#: ../src/modules/network/main.qml:167
 msgid "Wireless"
 msgstr "Nirkabel"
 
-#: ../src/modules/network/main.qml:168
+#: ../src/modules/network/main.qml:169
 msgid "Unused1"
 msgstr "Tidak digunakan 1"
 
-#: ../src/modules/network/main.qml:170
+#: ../src/modules/network/main.qml:171
 msgid "Unused2"
 msgstr "Tidak digunakan 2"
 
-#: ../src/modules/network/main.qml:174
+#: ../src/modules/network/main.qml:175
 msgid "OLPC mesh"
 msgstr "OLPC mesh"
 
-#: ../src/modules/network/main.qml:176
+#: ../src/modules/network/main.qml:177
 msgid "WiMax"
 msgstr "WiMax"
 
-#: ../src/modules/network/main.qml:178
+#: ../src/modules/network/main.qml:179
 msgid "Modem"
 msgstr "Modem"
 
-#: ../src/modules/network/main.qml:180
+#: ../src/modules/network/main.qml:181
 msgid "InfiniBand"
 msgstr "InfiniBand"
 
-#: ../src/modules/network/main.qml:182
+#: ../src/modules/network/main.qml:183
 msgid "Bond"
 msgstr "Bond"
 
-#: ../src/modules/network/main.qml:184
+#: ../src/modules/network/main.qml:185
 msgid "VLAN"
 msgstr "VLAN"
 
-#: ../src/modules/network/main.qml:186
+#: ../src/modules/network/main.qml:187
 msgid "ADSL"
 msgstr "ADSL"
 
-#: ../src/modules/network/main.qml:188
+#: ../src/modules/network/main.qml:189
 msgid "Bridge"
 msgstr "Bridge"
 
-#: ../src/modules/network/main.qml:198
+#: ../src/modules/network/main.qml:199
 msgid "802.11 WiFi"
 msgstr "802.11 WiFi"
 
-#: ../src/modules/network/main.qml:200
+#: ../src/modules/network/main.qml:201
 msgid "802.11 WiFi AdHoc"
 msgstr "802.11 WiFi AdHoc"
 
-#: ../src/modules/network/main.qml:202
+#: ../src/modules/network/main.qml:203
 msgid "802.11 WiFi Hotspot"
 msgstr "802.11 WiFi Hotspot"
 
-#: ../src/modules/network/main.qml:208
+#: ../src/modules/network/main.qml:209
 msgid "Mobile GSM"
 msgstr "Mobile GSM"
 
-#: ../src/modules/network/main.qml:210
+#: ../src/modules/network/main.qml:211
 msgid "Mobile CDMA"
 msgstr "Mobile CDMA"
 
-#: ../src/modules/network/main.qml:326
+#: ../src/modules/network/main.qml:341
 msgid "View Detailed Information"
 msgstr "Tampilkan Informasi Detil"
 
-#: ../src/modules/network/main.qml:214
+#: ../src/modules/network/main.qml:215
 msgid "VPN L2TP"
 msgstr "VPN L2TP"
 
-#: ../src/modules/network/main.qml:216
+#: ../src/modules/network/main.qml:217
 msgid "VPN PPTP"
 msgstr "VPN PPTP"
 
-#: ../src/modules/network/main.qml:218
+#: ../src/modules/network/main.qml:219
 msgid "VPN VPNC"
 msgstr "VPN VPNC"
 
-#: ../src/modules/network/main.qml:220
+#: ../src/modules/network/main.qml:221
 msgid "VPN OpenVPN"
 msgstr "VPN OpenVPN"
 
-#: ../src/modules/network/main.qml:222
+#: ../src/modules/network/main.qml:223
 msgid "VPN OpenConnect"
 msgstr "VPN OpenConnect"
 
-#: ../src/modules/account/main.qml:98
+#: ../src/modules/account/main.qml:109
 msgid "Delete Account"
 msgstr "Hapus Akun"
 
-#: ../src/modules/account/main.qml:138
+#: ../src/modules/account/main.qml:149
 msgid "Add Account"
 msgstr "Tambah Akun"
 
-#: ../src/modules/account/main.qml:158
+#: ../src/modules/account/main.qml:172
 msgid "User List"
 msgstr "Daftar Pengguna"
 

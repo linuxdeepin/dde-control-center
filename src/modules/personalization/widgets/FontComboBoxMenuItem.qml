@@ -28,38 +28,30 @@ Item {
     id: wrapper
     width: wrapper.ListView.view.width; height: 26
 
-    signal selectAction(int index)
-    signal enter(int index)
-
     property alias text: label.text
 
     Rectangle {
-        color: wrapper.ListView.view.selectIndex == index ? "#141414" : "#232323"
+        color: itemOnHover ? "#141414" : "#191919"
         anchors.fill: parent
+    }
+
+    Image {
+        id: headImg
+        source: itemOnHover ? "images/select-dark-hover.png" : "images/select-dark.png"
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.left: parent.left
+        anchors.leftMargin: 5
+        visible: index == 0
     }
 
     DLabel {
         id: label
         anchors.left: parent.left
-        anchors.leftMargin: 5
+        anchors.leftMargin: 28
         anchors.verticalCenter: parent.verticalCenter
         text: "text " + index
         font.pixelSize: 12
         font.family: label.text
-        color: wrapper.ListView.view.selectIndex == index ? dconstants.activeColor : dconstants.fgColor
-    }
-
-    MouseArea {
-        id: mouseArea
-        anchors.fill: parent
-        hoverEnabled: true
-        onEntered:{
-            wrapper.ListView.view.selectIndex = index
-            enter(index)
-        }
-        onExited: {
-            wrapper.ListView.view.selectIndex = -1
-        }
-        onClicked: selectAction(index)
+        color: itemOnHover ? dconstants.activeColor : dconstants.fgColor
     }
 }

@@ -139,16 +139,6 @@ Rectangle {
             visible: pluginLoader.showWarning
         }
 
-        NumberTip {
-            id: numberTip
-            anchors.top: parent.top
-            anchors.topMargin: 2
-            anchors.left: parent.left
-            anchors.leftMargin: 2
-            visible: pluginLoader.tipNumber != 0
-            currentNumber: pluginLoader.tipNumber
-        }
-
         MouseArea {
             anchors.fill: parent
             hoverEnabled: true
@@ -180,6 +170,7 @@ Rectangle {
     }
 
     onHoverChanged: {
-        panelContent.trayIconHoverHandler(moduleId, index, hover)
+        var globalY = moduleIconItem.mapToItem(panelContent).y
+        panelContent.trayIconHoverHandler(moduleId, globalY, hover)
     }
 }
