@@ -45,11 +45,21 @@ Column {
     signal isAddState(bool state)
     property bool isInAddState:false
 
+    property var allZoneInfo: {
+        var zoneInfos = new Array()
+        var allZones = gDate.GetZoneList()
+        for (var i in allZones) {
+            var info = gDate.GetZoneInfo(allZones[i])
+            zoneInfos.push(info)
+        }
+
+        return zoneInfos
+    }
+
     property var timezoneInformation: {
         var zoneList = new Array()
         var cityList = new Array()
         var codeList = new Array()
-        var allZoneInfo = gDate.GetAllZoneInfo()
         for(var i in allZoneInfo){
             var info = allZoneInfo[i]
             zoneList.push(info[0])
@@ -95,7 +105,7 @@ Column {
         return tmpArray
     }
 
-    property var currentTimezone: gDate.currentTimezone
+    property var currentTimezone: gDate.timezone
 
     property var currentTimezoneOffset: getOffsetByZone(currentTimezone)
 
@@ -115,11 +125,14 @@ Column {
 
     function getCityByZone(zone){
         if (zone == ""){
+            print ("[Info](getCityByZone) Zone is empty!")
             return ""
         }
         else{
-            if (!gDate.GetZoneInfo(zone))
+            if (!gDate.GetZoneInfo(zone)){
+                print ("[Info](getCityByZone) Get zone info failed!",zone)
                 return ""
+            }
             return gDate.GetZoneInfo(zone)[1]
         }
     }
@@ -149,11 +162,15 @@ Column {
     }
 
     function getOffsetByZone(zone){
-        if (zone == "")
+        if (zone == ""){
+            print ("[Info](getOffsetByZone) Zone is empty!")
             return ""
+        }
         else{
-            if (!gDate.GetZoneInfo(zone))
+            if (!gDate.GetZoneInfo(zone)){
+                print ("[Info](getOffsetByZone) Get zone info failed!",zone)
                 return ""
+            }
             return gDate.GetZoneInfo(zone)[2]
         }
     }

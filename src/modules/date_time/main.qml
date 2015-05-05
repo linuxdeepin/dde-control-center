@@ -25,7 +25,7 @@ import QtQuick 2.2
 import QtQuick.Controls 1.0
 import QtQuick.Controls.Styles 1.0
 import Deepin.Widgets 1.0
-import DBus.Com.Deepin.Daemon.DateAndTime 1.0
+import DBus.Com.Deepin.Daemon.Timedate 1.0
 import DBus.Com.Deepin.Api.LunarCalendar 1.0
 import DBus.Com.Deepin.Daemon.Search 1.0
 import "../shared"
@@ -39,12 +39,12 @@ DFlickable {
     contentHeight: height < 768 ? 768 : height
 
     FontLoader { id: fixedFont; source: "MavenProLight-200.otf" }
-    property var gDate: DateAndTime {
-        onCurrentTimezoneChanged: {
+    property var gDate: Timedate {
+        onTimezoneChanged: {
             timezoneChangedCallbackTimer.restart()
         }
     }
-    property var currentTimezone: gDate.currentTimezone
+    property var currentTimezone: gDate.timezone
     property var dstList
     property var dconstants: DConstants {}
     property bool showedTimezoneList: false
@@ -121,7 +121,7 @@ DFlickable {
         TimeBox {
             id: timeBox
             use24Hour: twentyFourHourSetBox.active
-            editable: !gDate.nTPEnabled
+            editable: !gDate.nTP
         }
 
         DSeparatorHorizontal {}
@@ -132,10 +132,10 @@ DFlickable {
             width: parent.width
             height: showedTimezoneList ? 0 : 30
             visible: !showedTimezoneList
-            active: gDate.nTPEnabled
+            active: gDate.nTP
 
             onClicked: {
-                gDate.nTPEnabled = active
+                gDate.SetNTP(active)
                 if(active && timeBox.inEdit){
                     timeBox.showTimeNormal()
                 }
@@ -147,12 +147,12 @@ DFlickable {
         DSwitchButtonHeader {
             id: twentyFourHourSetBox
             text: dsTr("Use 24-hour clock")
-            active: gDate.use24HourDisplay
+            active: gDate.use24HourFormat
             height: showedTimezoneList ? 0 : 30
             visible: !showedTimezoneList
 
             onClicked: {
-                gDate.use24HourDisplay = active
+                gDate.use24HourFormat = active
             }
         }
 
@@ -281,7 +281,7 @@ DFlickable {
                     normal_image: "images/setdate_normal.png"
                     hover_image: "images/setdate_hover.png"
                     press_image: "images/setdate_press.png"
-                    visible: parent.normalState && !gDate.nTPEnabled
+                    visible: parent.normalState && !gDate.nTP
                     onClicked: {
                         parent.normalState = false
                         dateTimeTooltip.hideTipImmediately()
