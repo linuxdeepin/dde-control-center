@@ -78,7 +78,7 @@ Rectangle{
 
                 DssH2 {
                     text: currentUserName
-                    color: dconstants.fgColor
+                    color: DConstants.fgColor
                     width: 140
                     elide: Text.ElideRight
                     font.pixelSize: 14
@@ -86,7 +86,7 @@ Rectangle{
 
                 DssH3 {
                     text: currentUserType == 0 ? dsTr("Normal User") : dsTr("Administrator")
-                    color: dconstants.fgColor
+                    color: DConstants.fgColor
                     font.pixelSize: 10
                 }
 
@@ -97,7 +97,7 @@ Rectangle{
 
             DssH2 {
                 text: dsTr("Account Preparing...")
-                color: dconstants.tuhaoColor
+                color: DConstants.tuhaoColor
                 font.pixelSize: 12
                 anchors.left:name_column.left
                 anchors.top:name_column.bottom

@@ -41,7 +41,6 @@ Item {
     property int titleWidth: 100
     property int centerPadding: 20
 
-    property var dconstants: DConstants {}
     property var dbusKeyboard: Keyboard {}
     property var dbusSearch: Search {}
 
@@ -306,7 +305,7 @@ Item {
 
             Rectangle {
                 id: userKeyboardLayoutsArea
-                color: dconstants.contentBgColor
+                color: DConstants.contentBgColor
                 width: parent.width
                 height: childrenRect.height
                 visible: keyboardLayoutArea.currentActionStateName != "addButton"
@@ -373,7 +372,7 @@ Item {
                     id: addLayoutIndex
                     height: 28
                     width: parent.width
-                    color: dconstants.bgColor
+                    color: DConstants.bgColor
 
                     property var searchIndexResult: null
 
@@ -412,9 +411,9 @@ Item {
                             font.pixelSize: ListView.isCurrentItem ? 18 : 13
                             color: {
                                 if (ListView.isCurrentItem | hovered){
-                                    return dconstants.activeColor
+                                    return DConstants.activeColor
                                 }
-                                return dconstants.fgColor
+                                return DConstants.fgColor
                             }
 
                             property bool hovered: false
@@ -435,7 +434,7 @@ Item {
 
                 Rectangle {
                     id: addLayoutListBox
-                    color: dconstants.contentBgColor
+                    color: DConstants.contentBgColor
                     width: parent.width
                     height: childrenRect.height
                 }
@@ -494,7 +493,7 @@ Item {
                 DBaseLine {
                     height: 28
                     visible: addLayoutList.model.count == 0
-                    color: dconstants.contentBgColor
+                    color: DConstants.contentBgColor
                     leftLoader.sourceComponent: DLabel{
                         text: dsTr("No result")
                     }

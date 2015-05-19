@@ -65,7 +65,7 @@ Item {
             border.width: 1
             border.color: {
                 if(themeItem.selected){
-                    return dconstants.activeColor
+                    return DConstants.activeColor
                 }
                 else if(themeItem.hoverHightlight){
                     return Qt.rgba(1, 1, 1, 0.6)
@@ -85,13 +85,13 @@ Item {
         text: item_name
         color: {
             if(parent.selected){
-                return dconstants.activeColor
+                return DConstants.activeColor
             }
             else if(hoverHightlight){
-                return dconstants.hoverColor
+                return DConstants.hoverColor
             }
             else{
-                return dconstants.fgColor
+                return DConstants.fgColor
             }
         }
     }

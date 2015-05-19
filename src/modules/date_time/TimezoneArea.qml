@@ -319,7 +319,7 @@ Column {
         id: userTimezoneListArea
         width: parent.width
         height: childrenRect.height
-        color: dconstants.contentBgColor
+        color: DConstants.contentBgColor
         visible: timezoneArea.currentActionStateName != "addButton"
 
         ListView {
@@ -430,7 +430,7 @@ Column {
         id: addTimezoneListArea
         width: parent.width
         height: listAreaMaxHeight
-        color: dconstants.contentBgColor
+        color: DConstants.contentBgColor
         visible: timezoneArea.currentActionStateName == "addButton"
 
         ListView {

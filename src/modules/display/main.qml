@@ -46,7 +46,6 @@ Column {
     }
 
     property var messageBox: MessageBox{}
-    property var dconstants: DConstants {}
     property var displayId: Display {}
 
     property var allMonitorsObjects: getAllMonitorsObj(displayId.monitors)

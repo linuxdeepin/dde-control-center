@@ -16,7 +16,7 @@ Item {
         width: parent.width
         height: childrenRect.height
         anchors.top: parent.top
-        color: dconstants.contentBgColor
+        color: DConstants.contentBgColor
 
         Text {
             id: connectedText

@@ -46,7 +46,6 @@ DFlickable {
     }
     property var currentTimezone: gDate.timezone
     property var dstList
-    property var dconstants: DConstants {}
     property bool showedTimezoneList: false
     property string lang: 'en_US'
     property var locale: Qt.locale()

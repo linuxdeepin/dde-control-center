@@ -39,7 +39,6 @@ Item {
 
     // DBus root interface
     property var remotingServer: RemotingServer {}
-    property var dconstants: DConstants {}
 
     Component.onCompleted: {
         remotingServer.Start()

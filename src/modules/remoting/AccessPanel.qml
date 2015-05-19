@@ -43,7 +43,6 @@ Item {
 
     // DBus root interface
     property var remotingClient: RemotingClient {}
-    property var dconstants: DConstants {}
 
     property bool manualRetry: false
 

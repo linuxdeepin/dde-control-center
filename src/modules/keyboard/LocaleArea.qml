@@ -73,7 +73,7 @@ DBaseExpand {
     content.sourceComponent: Rectangle {
         width: parent.width
         height: localeExpand.listAreaMaxHeight + searchInputBox.height
-        color: dconstants.contentBgColor
+        color: DConstants.contentBgColor
 
         Connections {
             target: localeExpand

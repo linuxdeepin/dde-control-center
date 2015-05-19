@@ -22,7 +22,7 @@ Item {
         width: parent.width
         height: childrenRect.height
         anchors.top: parent.top
-        color: dconstants.contentBgColor
+        color: DConstants.contentBgColor
 
         Text {
             id:errorTipText
@@ -33,7 +33,7 @@ Item {
             verticalAlignment: Text.AlignVCenter
             wrapMode: Text.Wrap
             font.pixelSize: 12
-            color: dconstants.tuhaoColor
+            color: DConstants.tuhaoColor
             anchors {top: parent.top; horizontalCenter: parent.horizontalCenter}
             text: dsTr("获取验证码失败，您可以重试获取或者取消操作")
         }

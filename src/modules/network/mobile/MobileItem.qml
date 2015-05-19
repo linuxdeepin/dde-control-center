@@ -40,7 +40,7 @@ Column{
 
         property bool hovered: false
         property bool selected: false
-        color: dconstants.contentBgColor
+        color: DConstants.contentBgColor
 
         MouseArea{
             z:-1
@@ -90,13 +90,13 @@ Column{
                 font.pixelSize: 12
                 color: {
                     if(mobileLine.selected){
-                        return dconstants.activeColor
+                        return DConstants.activeColor
                     }
                     else if(mobileLine.hovered){
-                        return dconstants.hoverColor
+                        return DConstants.hoverColor
                     }
                     else{
-                        return dconstants.fgColor
+                        return DConstants.fgColor
                     }
                 }
             }

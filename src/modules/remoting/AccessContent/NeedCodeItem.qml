@@ -24,12 +24,12 @@ Item {
         width: parent.width
         height: childrenRect.height
         anchors.top: parent.top
-        color: dconstants.contentBgColor
+        color: DConstants.contentBgColor
 
         TextInput {
             id: codeInput
             font.pixelSize: 30
-            color: dconstants.activeColor
+            color: DConstants.activeColor
             horizontalAlignment: TextInput.AlignHCenter
             verticalAlignment: TextInput.AlignVCenter
             width: parent.width
@@ -51,7 +51,7 @@ Item {
         Rectangle {
             width: parent.width - 15 * 2
             height: 1
-            color: dconstants.fgDarkColor
+            color: DConstants.fgDarkColor
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: codeInput.bottom
         }
@@ -105,7 +105,7 @@ Item {
         },
         State {
             name: "error"
-            PropertyChanges {target: codeText; text:dsTr("The verification code you entered is wrong, please reenter it"); color: dconstants.tuhaoColor}
+            PropertyChanges {target: codeText; text:dsTr("The verification code you entered is wrong, please reenter it"); color: DConstants.tuhaoColor}
         },
         State {
             name: "gotContent"

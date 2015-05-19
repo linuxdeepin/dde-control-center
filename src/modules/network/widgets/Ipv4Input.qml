@@ -12,8 +12,6 @@ Item {
     property int inputItemHeight: height - 4
     property int inputItemWidth: (width - ipDot.width * 3 - 4)/4
 
-    property var dconstants: DConstants {}
-
     property bool isFocus: ipInput1.activeFocus || ipInput2.activeFocus || ipInput3.activeFocus || ipInput4.activeFocus
 
     signal accepted

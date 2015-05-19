@@ -17,7 +17,7 @@ Item {
         width: parent.width
         height: childrenRect.height
         anchors.top: parent.top
-        color: dconstants.contentBgColor
+        color: DConstants.contentBgColor
 
         Item {
             id: connectingStateItem
@@ -47,7 +47,7 @@ Item {
         Rectangle {
             width: parent.width - 15 * 2
             height: 1
-            color: dconstants.fgDarkColor
+            color: DConstants.fgDarkColor
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: connectingStateItem.bottom
         }

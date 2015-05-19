@@ -47,7 +47,6 @@ Item {
     property int cellHeight: 112
     property int maxConetentHeight: height - personalizationTitle.height -  32 * 5 - 2
 
-    property var constants: DConstants {}
     property var listModelComponent: DListModelComponent {}
 
     property int activeExpandIndex: 0

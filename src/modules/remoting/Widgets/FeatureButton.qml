@@ -17,11 +17,10 @@ Rectangle {
     property alias pressImage: iconImg.press_image
     property alias title: titleText.text
     property alias text: contentText.text
-    property var dconstants: DConstants {}
 
     height: 50
     width: parent.width
-    color: dconstants.bgColor
+    color: DConstants.bgColor
 
     signal clicked
 
@@ -44,7 +43,7 @@ Rectangle {
         verticalAlignment: Text.AlignTop
         anchors {top: parent.top;topMargin: 12; left: iconImg.right; leftMargin: 22}
         font.pixelSize: 12
-        color: dconstants.fgColor
+        color: DConstants.fgColor
     }
 
     Text {
