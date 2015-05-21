@@ -21,19 +21,25 @@ Item {
 
     //Server is uninitialized
     readonly property int serverStatusUninitialized : 0
+
     //Server is started
     readonly property int serverStatusStarted: 1
+
     //Server recieved new peer id
     readonly property int serverStatusPeerIdOk : 2
+
     //Server failed to get peer id
     //Caused by local network connection problem
     //This status is set 15s after server has been started and no valid peer id
     //received
     readonly property int  serverStatusPeerIdFailed : 3
+
     //Server is connected, screen is being shared
     readonly property int  serverStatusSharing : 4
+
     //Server is stopped
     readonly property int serverStatusStoped : 5
+
     //Remote peer has closed media connection
     readonly property int serverStatusDisconnected: 6
 
@@ -41,24 +47,31 @@ Item {
     property var remotingServer: RemotingServer {}
 
     Component.onCompleted: {
-        remotingServer.Start()
 
-        var tmpStatus= remotingServer.GetStatus()
-        switch (tmpStatus){
+        var serverStatus = remotingServer.GetStatus()
+        switch (serverStatus){
+        case serverStatusUninitialized:
+            remotingServer.Start()
+            break
+
         case serverStatusPeerIdOk:
-            codeText.text = remotingServer.GetPeerId()
+            generatedCodeitem.setCodeText(remotingServer.GetPeerId())
             sharePanel.state = "CreatedCode"
             break
+
         case serverStatusSharing:
             sharePanel.state = "Connected"
             break
+
         case serverStatusStoped:
             sharePanel.state = "CreatingCode"
             break
+
         case serverStatusPeerIdFailed:
             errorItem.setErrorMessage(dsT("Network error,create code failed!"))
             sharePanel.state = "error"
             break
+
         default:
             break
         }
@@ -72,17 +85,21 @@ Item {
                 generatedCodeitem.setCodeText(remotingServer.GetPeerId())
                 sharePanel.state = "CreatedCode"
                 break
+
             case serverStatusSharing:
                 sharePanel.state = "Connected"
                 break
+
             case serverStatusStoped:
                 sharePanel.state = "CreatingCode"
                 reset()
                 break
+
             case serverStatusPeerIdFailed:
                 errorItem.setErrorMessage(dsT("Network error,create code failed!"))
                 sharePanel.state = "error"
                 break
+
             default:
                 break
             }
