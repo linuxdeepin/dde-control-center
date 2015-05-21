@@ -1,6 +1,7 @@
 import QtQuick 2.1
-import Deepin.Widgets 1.0
 import QtQuick.Controls 1.0
+
+import Deepin.Widgets 1.0
 import "../shared/"
 
 Item {
@@ -12,6 +13,7 @@ Item {
         "sharePage": Qt.resolvedUrl("SharePanel.qml")
     }
 
+    // Change page in stackview
     function changePage(page) {
         stackView.push({
             "item": stackViewPages[page],
@@ -20,7 +22,7 @@ Item {
         stackView.currentItemId = page
     }
 
-
+    // Reset stackview
     function reset(){
         stackView.reset()
     }
@@ -38,11 +40,8 @@ Item {
         }
 
         Component.onCompleted: {
-            stackView.push({
-                "item": stackViewPages["mainPage"],
-                "properties": { "width": parent.width }
-            })
-            stackView.currentItemId = "mainPage"
+            // Loading main page
+            changePage("mainPage")
         }
     }
 }

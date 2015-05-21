@@ -60,10 +60,20 @@ Rectangle {
 
     DImageButton {
         id: rightArrow
-        anchors {right: parent.right; rightMargin: 14; verticalCenter: parent.verticalCenter}
+        anchors {
+            right: parent.right
+            rightMargin: 14
+            verticalCenter: parent.verticalCenter
+        }
         normal_image: "qrc:///modules/remoting/images/right-arrow-normal.png"
         hover_image: "qrc:///modules/remoting/images/right-arrow-hover.png"
         press_image: "qrc:///modules/remoting/images/right-arrow-press.png"
-        onClicked: featureButton.clicked()
+    }
+
+    MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            featureButton.clicked()
+        }
     }
 }

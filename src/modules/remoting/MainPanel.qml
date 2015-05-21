@@ -1,4 +1,5 @@
 import QtQuick 2.1
+
 import Deepin.Widgets 1.0
 import "../shared/"
 import "./Widgets"
@@ -15,7 +16,7 @@ Item {
     DssTitle {
         id:remotingTitle
         anchors.top: parent.top
-        text: qsTr("Feedback and help")//modulesId.moduleLocaleNames["remoting"]
+        text: dsTr("Feedback and help") //modulesId.moduleLocaleNames["remoting"]
     }
 
     DSeparatorHorizontal {
