@@ -36,7 +36,7 @@ Item {
             horizontalAlignment: Text.AlignLeft
             verticalAlignment: Text.AlignVCenter
             wrapMode: Text.Wrap
-            text: dsTr("The verification code is being generated, please wait...")
+            text: dsTr("Retrieving access token, please wait...")
         }
     }
 

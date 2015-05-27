@@ -35,7 +35,7 @@ Item {
             font.pixelSize: 12
             color: DConstants.tuhaoColor
             anchors {top: parent.top; horizontalCenter: parent.horizontalCenter}
-            text: dsTr("获取验证码失败，您可以重试获取或者取消操作")
+            text: dsTr("Failed to retrieve access token, please retry")
         }
     }
 

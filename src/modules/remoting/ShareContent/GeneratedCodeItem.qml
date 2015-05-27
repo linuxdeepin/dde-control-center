@@ -16,6 +16,12 @@ Item {
         codeText.text = value
     }
 
+    // Display `copy-to-clipboard` message
+    function popupCopyTip() {
+        copyTip.visible = true
+        copyTipTimer.start()
+    }
+
     Rectangle {
         id: contentRec2
         width: parent.width
@@ -57,19 +63,9 @@ Item {
     }
 
     Row {
+        id: buttonBox
         anchors {right: parent.right; rightMargin: 8; top: createdTextSeparator.bottom; topMargin: 5}
         spacing: 5
-
-
-        DTextButton {
-            text: dsTr("Copy")
-
-            onClicked: {
-                codeText.selectAll()
-                codeText.copy()
-                codeText.deselect()
-            }
-        }
 
         DTextButton {
             text: dsTr("Cancel")
@@ -78,6 +74,37 @@ Item {
                 reset()
                 remotingServer.Stop()
             }
+        }
+
+        DTextButton {
+            text: dsTr("Copy")
+
+            onClicked: {
+                codeText.selectAll()
+                codeText.copy()
+                codeText.deselect()
+                popupCopyTip()
+            }
+        }
+    }
+
+    Text {
+        id: copyTip
+        enabled: true
+        visible: false
+        anchors.top: buttonBox.bottom
+        anchors.topMargin: 5
+        anchors.leftMargin: 5
+        color: '#ffc735'
+        text: dsTr('Copied to clipboard successfully!')
+    }
+
+    Timer {
+        id: copyTipTimer
+        repeat: false
+        interval: 3000
+        onTriggered: {
+            copyTip.visible = false
         }
     }
 }

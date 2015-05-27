@@ -68,7 +68,7 @@ Item {
             break
 
         case serverStatusPeerIdFailed:
-            errorItem.setErrorMessage(dsT("Network error,create code failed!"))
+            errorItem.setErrorMessage(dsT("Network error!"))
             sharePanel.state = "error"
             break
 
@@ -96,7 +96,7 @@ Item {
                 break
 
             case serverStatusPeerIdFailed:
-                errorItem.setErrorMessage(dsT("Network error,create code failed!"))
+                errorItem.setErrorMessage(dsT("Network error!"))
                 sharePanel.state = "error"
                 break
 
