@@ -14,6 +14,7 @@ Item {
     state: "inputting"
 
     property alias code: codeInput.text
+    property color inactiveColor: "#515151"
 
     function showError(){
         needCodeItem.state = "error"
@@ -41,7 +42,7 @@ Item {
                 regExp: /[A-Za-z0-9]{6}/
             }
             onTextChanged: {
-                if (codeInput.length == 6)
+                if (codeInput.length === 6)
                     needCodeItem.state = "gotContent"
                 else
                     needCodeItem.state = "inputting"
@@ -87,11 +88,13 @@ Item {
         }
 
         DTextButton {
-            enabled: codeInput.length == 6
+            id: connectButton
+            enabled: needCodeItem.state === "gotContent"
             text: dsTr("Connect")
+            textColor: inactiveColor
 
             onClicked: {
-                print ("Connect to:",codeInput.text)
+                print ("Connect to:", codeInput.text)
                 remotingClient.Start()
                 accessPanel.state = "Connecting"
             }
@@ -101,15 +104,35 @@ Item {
     states: [
         State {
             name: "inputting"
-            PropertyChanges {target: codeText; text:dsTr("Please enter the verification code in the input field above"); color: "#7C7C7C"}
+            PropertyChanges {
+                target: codeText
+                text: dsTr("Please input access token")
+                color: "#7C7C7C"
+            }
         },
         State {
             name: "error"
-            PropertyChanges {target: codeText; text:dsTr("The verification code you entered is wrong, please reenter it"); color: DConstants.tuhaoColor}
+            PropertyChanges {
+                target: codeText
+                text: dsTr("Acess token is invalid, please retry")
+                color: DConstants.tuhaoColor
+            }
+            PropertyChanges {
+                target: connectButton
+                textColor: inactiveColor
+            }
         },
         State {
             name: "gotContent"
-            PropertyChanges {target: codeText; text:dsTr("Start after clicking on \“Connect\”"); color: "#7C7C7C"}
+            PropertyChanges {
+                target: codeText
+                text: dsTr("Start after clicking on \“Connect\”")
+                color: "#7C7C7C"
+            }
+            PropertyChanges {
+                target: connectButton
+                textColor: DConstants.textNormalColor
+            }
         }
 
     ]

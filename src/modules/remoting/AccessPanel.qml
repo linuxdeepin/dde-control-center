@@ -21,23 +21,31 @@ Item {
     //DBus status
     //Client is uninitialized
     readonly property int clientStatusUninitialized: 0
+
     //Client window showed up
     readonly property int clientStatusStarted: 1
+
     //Client window is closed
     readonly property int clientStatusStopted: 2
+
     //Web page in browser is loaded and ready
     //Call Connect() method in dbus only if receviing this ready signal.
     //Or else oxide will be failed to setup message channel
     //and remote peer id will never be sent to browser side
     readonly property int clientStatusPageReady: 3
+
     //Connecting to remote peer (server side)
     readonly property int clientStatusConnecting: 4
+
     //Connectted to remote peer successfully
     readonly property int clientStatusConnectOk: 5
+
     //Failed to connect to remote peer
     readonly property int clientStatusConnectFailed: 6
+
     //peerId unavailable
     readonly property int clientStatusUnavailable: 7
+
     //Remote peer has closed desktop sharing
     readonly property int clientStatusDisconnected: 8
 
@@ -52,16 +60,20 @@ Item {
         case clientStatusConnecting:
             accessPanel.state = "Connecting"
             break
+
         case clientStatusConnectOk:
             accessPanel.state = "Connected"
             break
+
         case clientStatusStopted:
             accessPanel.state = "NeeedAccessCode"
             break
+
         case clientStatusConnectFailed:
-            errorItem.setErrorMessage(dsTr("Failed to establish the connection, you can retry to connect"))
+            errorItem.setErrorMessage(dsTr("Failed to establish remoting connection, please retry"))
             accessPanel.state = "error"
             break
+
         default:
             break
         }
@@ -75,18 +87,22 @@ Item {
                 accessPanel.state = "Connecting"
                 manualRetry = false
                 break
+
             case clientStatusConnectOk:
                 accessPanel.state = "Connected"
                 break
+
             case clientStatusStopted:
                 if (!manualRetry){
                     accessPanel.state = "NeeedAccessCode"
                     reset()
                 }
                 break
+
             case clientStatusPageReady:
                 remotingClient.Connect(needCodeItem.code.trim())
                 break
+
             case clientStatusUnavailable:
                 print("PeerId unavailable!")
                 manualRetry = true
@@ -94,11 +110,13 @@ Item {
                 accessPanel.state = "NeeedAccessCode"
                 needCodeItem.showError()
                 break
+
             case clientStatusConnectFailed:
                 print("Connect failed!")
-                errorItem.setErrorMessage(dsTr("Failed to establish the connection, you can retry to connect"))
+                errorItem.setErrorMessage(dsTr("Failed to establish remoting connection, please retry"))
                 accessPanel.state = "error"
                 break
+
             default:
                 break
             }
