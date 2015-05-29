@@ -55,8 +55,8 @@ Item {
     property bool manualRetry: false
 
     Component.onCompleted: {
-        var tmpStatus= remotingClient.GetStatus()
-        switch (tmpStatus){
+        var clientStatus= remotingClient.GetStatus()
+        switch (clientStatus){
         case clientStatusConnecting:
             accessPanel.state = "Connecting"
             break
@@ -70,7 +70,7 @@ Item {
             break
 
         case clientStatusConnectFailed:
-            errorItem.setErrorMessage(dsTr("Failed to establish remoting connection, please retry"))
+            errorItem.setErrorMessage(dsTr("Failed to establish the connection, you can retry to connect"))
             accessPanel.state = "error"
             break
 
@@ -104,7 +104,6 @@ Item {
                 break
 
             case clientStatusUnavailable:
-                print("PeerId unavailable!")
                 manualRetry = true
                 remotingClient.Stop()
                 accessPanel.state = "NeeedAccessCode"
@@ -112,8 +111,7 @@ Item {
                 break
 
             case clientStatusConnectFailed:
-                print("Connect failed!")
-                errorItem.setErrorMessage(dsTr("Failed to establish remoting connection, please retry"))
+                errorItem.setErrorMessage(dsTr("Failed to establish the connection, you can retry to connect")
                 accessPanel.state = "error"
                 break
 

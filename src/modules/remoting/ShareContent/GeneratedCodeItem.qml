@@ -71,13 +71,13 @@ Item {
             text: dsTr("Cancel")
 
             onClicked: {
-                reset()
                 remotingServer.Stop()
+                reset()
             }
         }
 
         DTextButton {
-            text: dsTr("Copy")
+            text: dsTr("Copy Code")
 
             onClicked: {
                 codeText.selectAll()
@@ -96,7 +96,7 @@ Item {
         anchors.topMargin: 5
         anchors.leftMargin: 5
         color: '#ffc735'
-        text: dsTr('Copied to clipboard successfully!')
+        text: dsTr('Copied to clipboard successfully')
     }
 
     Timer {

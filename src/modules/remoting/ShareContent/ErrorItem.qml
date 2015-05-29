@@ -35,7 +35,7 @@ Item {
             font.pixelSize: 12
             color: DConstants.tuhaoColor
             anchors {top: parent.top; horizontalCenter: parent.horizontalCenter}
-            text: dsTr("Failed to retrieve access token, please retry")
+            text: dsTr("Failed to get the verification code, you can retry or cancel the operation")
         }
     }
 

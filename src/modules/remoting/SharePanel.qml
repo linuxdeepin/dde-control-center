@@ -82,8 +82,9 @@ Item {
         onStatusChanged: {
             switch (status){
             case serverStatusPeerIdOk:
-                generatedCodeitem.setCodeText(remotingServer.GetPeerId())
                 sharePanel.state = "CreatedCode"
+                var peerId = remotingServer.GetPeerId();
+                generatedCodeitem.setCodeText(peerId);
                 break
 
             case serverStatusSharing:

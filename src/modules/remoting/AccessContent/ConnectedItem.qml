@@ -29,7 +29,7 @@ Item {
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.Wrap
-            text: dsTr("You are now controling others desktop,you can keep going or disconnect")
+            text: dsTr("You are accessing the desktop shared by other users, you can choose to continue or disconnect")
         }
     }
 

@@ -39,7 +39,7 @@ Item {
                 font.pixelSize: 10
                 color: "#7C7C7C"
                 verticalAlignment: Text.AlignVCenter
-                text: dsTr("Connecting, Please wait...")
+                text: dsTr("Establishing connection, please wait...")
             }
         }
 
