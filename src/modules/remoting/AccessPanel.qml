@@ -111,7 +111,7 @@ Item {
                 break
 
             case clientStatusConnectFailed:
-                errorItem.setErrorMessage(dsTr("Failed to establish the connection, you can retry to connect")
+                errorItem.setErrorMessage(dsTr("Failed to establish the connection, you can retry to connect"))
                 accessPanel.state = "error"
                 break
 

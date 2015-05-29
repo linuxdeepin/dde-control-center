@@ -20,6 +20,15 @@ Item {
         needCodeItem.state = "error"
     }
 
+    function filterPeerId() {
+        codeInput.text = codeInput.text.trim().substring(0, 6)
+    }
+    property var peerIdRegExp: /[A-Za-z0-9]{6}/
+
+    function validatePeerId(peerId) {
+        return peerIdRegExp.test(codeInput.text)
+    }
+
     Rectangle {
         id: contentRec1
         width: parent.width
@@ -38,14 +47,26 @@ Item {
             selectByMouse: true
             anchors {top: parent.top; horizontalCenter: parent.horizontalCenter}
             Component.onCompleted: forceActiveFocus()
-            validator: RegExpValidator{
-                regExp: /[A-Za-z0-9]{6}/
-            }
+
+            //validator: RegExpValidator{
+            //    regExp: peerIdRegExp
+            //}
             onTextChanged: {
-                if (codeInput.length === 6)
+                filterPeerId()
+                if (validatePeerId()) {
                     needCodeItem.state = "gotContent"
-                else
+                } else {
                     needCodeItem.state = "inputting"
+                }
+            }
+
+            MouseArea {
+                acceptedButtons: Qt.RightButton
+                anchors.fill: parent
+                onClicked: {
+                    codeInput.text = ''
+                    codeInput.paste()
+                }
             }
         }
 
@@ -94,7 +115,6 @@ Item {
             textColor: inactiveColor
 
             onClicked: {
-                print ("Connect to:", codeInput.text)
                 remotingClient.Start()
                 accessPanel.state = "Connecting"
             }
