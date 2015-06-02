@@ -51,6 +51,12 @@ Item {
             //validator: RegExpValidator{
             //    regExp: peerIdRegExp
             //}
+            Keys.onReturnPressed: {
+                if (needCodeItem.state === "gotContent") {
+                    connectButton.clicked()
+                    return
+                }
+            }
             onTextChanged: {
                 filterPeerId()
                 if (validatePeerId()) {
