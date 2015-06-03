@@ -45,7 +45,10 @@ Item {
             width: parent.width
             height: 70
             selectByMouse: true
-            anchors {top: parent.top; horizontalCenter: parent.horizontalCenter}
+            anchors {
+                top: parent.top
+                horizontalCenter: parent.horizontalCenter
+            }
             Component.onCompleted: forceActiveFocus()
 
             //validator: RegExpValidator{
@@ -89,7 +92,11 @@ Item {
             width: contentWidth
             height: 20
             verticalAlignment: Text.AlignTop
-            anchors {top: codeInput.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter}
+            anchors {
+                top: codeInput.bottom
+                topMargin: 10
+                horizontalCenter: parent.horizontalCenter
+            }
             font.pixelSize: 10
             color: "#7C7C7C"
             text: dsTr("Please enter the verification code in the input field above")
@@ -98,19 +105,25 @@ Item {
     }
 
     DSeparatorHorizontal {
-        id:codeSeparator
+        id: codeSeparator
         anchors.top: contentRec1.bottom
     }
 
     Row {
         spacing: 3
-        anchors {right: parent.right; rightMargin: 8; top: codeSeparator.bottom; topMargin: 5}
+        anchors {
+            right: parent.right
+            rightMargin: 8
+            top: codeSeparator.bottom
+            topMargin: 5
+        }
 
         DTextButton {
             text: dsTr("Cancel")
 
             onClicked: {
-                reset()
+                remotingClient.Stop()
+                resetPage()
             }
         }
 
@@ -140,6 +153,7 @@ Item {
             name: "error"
             PropertyChanges {
                 target: codeText
+                // TODO: setup error message
                 text: dsTr("Acess token is invalid, please retry")
                 color: DConstants.tuhaoColor
             }

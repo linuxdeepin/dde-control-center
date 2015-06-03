@@ -16,7 +16,9 @@ Item {
         errorTipText.text = message
     }
 
+    // TODO: remove this signal
     signal retryConnect
+
     Rectangle {
         id: contentRec4
         width: parent.width
@@ -25,7 +27,7 @@ Item {
         color: DConstants.contentBgColor
 
         Text {
-            id:errorTipText
+            id: errorTipText
             width: parent.width - 40
             height: 70
             lineHeight: 1.3
@@ -34,27 +36,35 @@ Item {
             wrapMode: Text.Wrap
             font.pixelSize: 12
             color: DConstants.tuhaoColor
-            anchors {top: parent.top; horizontalCenter: parent.horizontalCenter}
+            anchors {
+                top: parent.top
+                horizontalCenter: parent.horizontalCenter
+            }
             text: dsTr("Failed to establish the connection, you can retry to connect ")
         }
     }
 
 
     DSeparatorHorizontal {
-        id:errorSeparator
+        id: errorSeparator
         anchors.top: contentRec4.bottom
     }
 
     Row {
-        anchors {right: parent.right; rightMargin: 8; top: errorSeparator.bottom; topMargin: 5}
+        anchors {
+            right: parent.right
+            rightMargin: 8
+            top: errorSeparator.bottom
+            topMargin: 5
+        }
         spacing: 5
 
         DTextButton {
             text: dsTr("Cancel")
 
             onClicked: {
-                reset()
                 remotingClient.Stop()
+                resetPage()
             }
         }
 
@@ -69,5 +79,4 @@ Item {
         }
     }
 }
-
 

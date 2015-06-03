@@ -7,8 +7,10 @@
 *
 *************************************************************/
 import QtQuick 2.1
+
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Remoting.Server 1.0
+
 import "./ShareContent"
 
 
@@ -47,9 +49,15 @@ Item {
     property var remotingServer: RemotingServer {}
 
     Component.onCompleted: {
+        if (remotingManager.CheckNetworkConnectivity() ===
+                remotingItem.networkStatusDisconnected) {
+            sharePanel.state = "NoNetworkConnection"
+            remotingServer.Stop()
+            return
+        }
 
         var serverStatus = remotingServer.GetStatus()
-        switch (serverStatus){
+        switch (serverStatus) {
         case serverStatusUninitialized:
             remotingServer.Start()
             break
@@ -80,11 +88,20 @@ Item {
     Connections {
         target: remotingServer
         onStatusChanged: {
-            switch (status){
+            if (remotingManager.CheckNetworkConnectivity() ==
+                    networkStatusDisconnected) {
+                errorItem.setErrorMessage(
+                    dsTr("No network connection is available!"))
+                sharePanel.state = "error"
+                // Ignore serverStatusChanged signal
+                return
+            }
+
+            switch (status) {
             case serverStatusPeerIdOk:
                 sharePanel.state = "CreatedCode"
-                var peerId = remotingServer.GetPeerId();
-                generatedCodeitem.setCodeText(peerId);
+                var peerId = remotingServer.GetPeerId()
+                generatedCodeitem.setCodeText(peerId)
                 break
 
             case serverStatusSharing:
@@ -93,7 +110,8 @@ Item {
 
             case serverStatusStoped:
                 sharePanel.state = "CreatingCode"
-                reset()
+                // TODO: remove this call
+                resetPage()
                 break
 
             case serverStatusPeerIdFailed:
@@ -124,7 +142,10 @@ Item {
         enabled: visible
         width: parent.width
         height: 200
-        anchors {top: separator1.bottom; horizontalCenter: parent.horizontalCenter}
+        anchors {
+            top: separator1.bottom
+            horizontalCenter: parent.horizontalCenter
+        }
     }
 
     GeneratedCodeItem {
@@ -133,7 +154,10 @@ Item {
         enabled: visible
         width: parent.width
         height: 200
-        anchors {top: separator1.bottom; horizontalCenter: parent.horizontalCenter}
+        anchors {
+            top: separator1.bottom
+            horizontalCenter: parent.horizontalCenter
+        }
     }
 
     ConnectedItem {
@@ -142,7 +166,10 @@ Item {
         enabled: visible
         width: parent.width
         height: 200
-        anchors {top: separator1.bottom; horizontalCenter: parent.horizontalCenter}
+        anchors {
+            top: separator1.bottom
+            horizontalCenter: parent.horizontalCenter
+        }
     }
 
     ErrorItem {
@@ -151,7 +178,10 @@ Item {
         enabled: visible
         width: parent.width
         height: 200
-        anchors {top: separator1.bottom; horizontalCenter: parent.horizontalCenter}
+        anchors {
+            top: separator1.bottom
+            horizontalCenter: parent.horizontalCenter
+        }
         onRetryGenerateCode: sharePanel.state = "CreatingCode"
     }
 
@@ -168,6 +198,5 @@ Item {
         State {
             name: "error"
         }
-
     ]
 }

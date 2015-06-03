@@ -9,6 +9,7 @@
 import QtQuick 2.1
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Remoting.Client 1.0
+
 import "./AccessContent"
 
 Item {
@@ -52,10 +53,16 @@ Item {
     // DBus root interface
     property var remotingClient: RemotingClient {}
 
-    property bool manualRetry: false
-
     Component.onCompleted: {
-        var clientStatus= remotingClient.GetStatus()
+        // If no network connection is available, display error page and exit
+        if (remotingManager.CheckNetworkConnectivity() ===
+                networkStatusDisconnected) {
+            errorItem.setErrorMessage(dsTr("No network connection is available!"))
+            accessPanel.state = "error"
+            return
+        }
+
+        var clientStatus = remotingClient.GetStatus()
         switch (clientStatus){
         case clientStatusConnecting:
             accessPanel.state = "Connecting"
@@ -82,10 +89,19 @@ Item {
     Connections {
         target: remotingClient
         onStatusChanged: {
+            if (remotingManager.CheckNetworkConnectivity() ==
+                    networkStatusDisconnected) {
+                if (accessPanel.state !== "NoNetworkConnection") {
+                    accessPanel.state = "NoNetworkConnection"
+                }
+                // Ignore serverStatusChanged signal
+                remotingClient.Stop()
+                return
+            }
+
             switch (status){
             case clientStatusConnecting:
                 accessPanel.state = "Connecting"
-                manualRetry = false
                 break
 
             case clientStatusConnectOk:
@@ -93,10 +109,7 @@ Item {
                 break
 
             case clientStatusStopted:
-                if (!manualRetry){
-                    accessPanel.state = "NeeedAccessCode"
-                    reset()
-                }
+                accessPanel.state = "NeeedAccessCode"
                 break
 
             case clientStatusPageReady:
@@ -104,10 +117,10 @@ Item {
                 break
 
             case clientStatusUnavailable:
-                manualRetry = true
                 remotingClient.Stop()
-                accessPanel.state = "NeeedAccessCode"
+                // TODO: setup error message
                 needCodeItem.showError()
+                accessPanel.state = "NeeedAccessCode"
                 break
 
             case clientStatusConnectFailed:
@@ -138,7 +151,10 @@ Item {
         enabled: visible
         width: parent.width
         height: 200
-        anchors {top: separator1.bottom; horizontalCenter: parent.horizontalCenter}
+        anchors {
+            top: separator1.bottom
+            horizontalCenter: parent.horizontalCenter
+        }
     }
 
     ConnectingItem {
@@ -147,7 +163,10 @@ Item {
         enabled: visible
         width: parent.width
         height: 200
-        anchors {top: separator1.bottom; horizontalCenter: parent.horizontalCenter}
+        anchors {
+            top: separator1.bottom
+            horizontalCenter: parent.horizontalCenter
+        }
     }
 
     ConnectedItem {
@@ -156,7 +175,10 @@ Item {
         enabled: visible
         width: parent.width
         height: 200
-        anchors {top: separator1.bottom; horizontalCenter: parent.horizontalCenter}
+        anchors {
+            top: separator1.bottom
+            horizontalCenter: parent.horizontalCenter
+        }
     }
 
     ErrorItem {
@@ -165,7 +187,10 @@ Item {
         enabled: visible
         width: parent.width
         height: 200
-        anchors {top: separator1.bottom; horizontalCenter: parent.horizontalCenter}
+        anchors {
+            top: separator1.bottom
+            horizontalCenter: parent.horizontalCenter
+        }
         onRetryConnect: {
             manualRetry = true
         }
@@ -184,7 +209,6 @@ Item {
         State {
             name: "error"
         }
-
     ]
 }
 

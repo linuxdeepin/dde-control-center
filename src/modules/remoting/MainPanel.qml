@@ -1,6 +1,7 @@
 import QtQuick 2.1
 
 import Deepin.Widgets 1.0
+
 import "../shared/"
 import "./Widgets"
 
@@ -12,6 +13,11 @@ Item {
     property int leftWidth: 100
     property int centerPadding: 16
 
+    Component.onCompleted: {
+        var managerStatus = remotingManager.GetStatus()
+        print("[remoting] [MainPanel] managerStatus:", managerStatus)
+        return;
+    }
 
     DssTitle {
         id:remotingTitle

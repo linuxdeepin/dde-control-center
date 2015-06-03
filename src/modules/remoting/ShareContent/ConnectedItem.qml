@@ -28,7 +28,10 @@ Item {
             wrapMode: Text.Wrap
             font.pixelSize: 12
             color: "#7C7C7C"
-            anchors {top: parent.top; horizontalCenter: parent.horizontalCenter}
+            anchors {
+                top: parent.top
+                horizontalCenter: parent.horizontalCenter
+            }
             text: dsTr("Your desktop is sharing, you can continue to share or select to disconnect")
         }
     }
@@ -41,7 +44,12 @@ Item {
 
     DTextButton {
         text: dsTr("Disconnect")
-        anchors {right: parent.right; rightMargin: 8; top: connectedSeparator.bottom; topMargin: 5}
+        anchors {
+            right: parent.right
+            rightMargin: 8
+            top: connectedSeparator.bottom
+            topMargin: 5
+        }
 
         onClicked: {
             remotingServer.StopNotify()

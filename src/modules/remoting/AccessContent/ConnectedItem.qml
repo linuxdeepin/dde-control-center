@@ -43,8 +43,8 @@ Item {
         anchors {right: parent.right; rightMargin: 8; top: connectedSeparator.bottom; topMargin: 5}
 
         onClicked: {
-            reset()
             remotingClient.Stop()
+            resetPage()
         }
     }
 }
