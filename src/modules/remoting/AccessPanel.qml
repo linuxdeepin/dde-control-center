@@ -57,7 +57,7 @@ Item {
         // If no network connection is available, display error page and exit
         if (remotingManager.CheckNetworkConnectivity() ===
                 networkStatusDisconnected) {
-            errorItem.setErrorMessage(dsTr("No network connection is available!"))
+            errorItem.setErrorMessage(dsTr("There is no network connection currently, please try again after you connect to the Internet"))
             accessPanel.state = "error"
             return
         }

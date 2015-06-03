@@ -145,7 +145,7 @@ Item {
             name: "inputting"
             PropertyChanges {
                 target: codeText
-                text: dsTr("Please input access token")
+                text: dsTr("Please enter the verification code in the input field above")
                 color: "#7C7C7C"
             }
         },
@@ -153,7 +153,6 @@ Item {
             name: "error"
             PropertyChanges {
                 target: codeText
-                // TODO: setup error message
                 text: dsTr("Acess token is invalid, please retry")
                 color: DConstants.tuhaoColor
             }

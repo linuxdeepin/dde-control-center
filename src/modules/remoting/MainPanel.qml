@@ -15,14 +15,13 @@ Item {
 
     Component.onCompleted: {
         var managerStatus = remotingManager.GetStatus()
-        print("[remoting] [MainPanel] managerStatus:", managerStatus)
         return;
     }
 
     DssTitle {
         id:remotingTitle
         anchors.top: parent.top
-        text: dsTr("Feedback and help") //modulesId.moduleLocaleNames["remoting"]
+        text: dsTr("Feedback and help")
     }
 
     DSeparatorHorizontal {
