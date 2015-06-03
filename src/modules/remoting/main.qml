@@ -57,7 +57,6 @@ Item {
 
             // Check remoting service status
             var managerStatus = remotingManager.GetStatus()
-            print("[remoting] [main] managerStatus:", managerStatus)
 
             switch (managerStatus) {
             case (managerStatusClient):

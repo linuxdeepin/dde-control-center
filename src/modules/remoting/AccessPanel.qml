@@ -91,9 +91,7 @@ Item {
         onStatusChanged: {
             if (remotingManager.CheckNetworkConnectivity() ==
                     networkStatusDisconnected) {
-                if (accessPanel.state !== "NoNetworkConnection") {
-                    accessPanel.state = "NoNetworkConnection"
-                }
+                accessPanel.state = "error"
                 // Ignore serverStatusChanged signal
                 remotingClient.Stop()
                 return

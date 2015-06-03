@@ -51,7 +51,7 @@ Item {
     Component.onCompleted: {
         if (remotingManager.CheckNetworkConnectivity() ===
                 remotingItem.networkStatusDisconnected) {
-            sharePanel.state = "NoNetworkConnection"
+            sharePanel.state = "error"
             remotingServer.Stop()
             return
         }
