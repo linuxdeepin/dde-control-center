@@ -40,7 +40,12 @@ Item {
 
     DTextButton {
         text: dsTr("Disconnect")
-        anchors {right: parent.right; rightMargin: 8; top: connectedSeparator.bottom; topMargin: 5}
+        anchors {
+            right: parent.right
+            rightMargin: 8
+            top: connectedSeparator.bottom
+            topMargin: 5
+        }
 
         onClicked: {
             remotingClient.Stop()

@@ -51,8 +51,8 @@ Item {
     Component.onCompleted: {
         if (remotingManager.CheckNetworkConnectivity() ===
                 remotingItem.networkStatusDisconnected) {
+            errorItem.setErrorMessage(dsTr("There is no network connection currently, please try again after you connect to the Internet"))
             sharePanel.state = "error"
-            remotingServer.Stop()
             return
         }
 
@@ -92,7 +92,6 @@ Item {
                     networkStatusDisconnected) {
                 errorItem.setErrorMessage(dsTr("There is no network connection currently, please try again after you connect to the Internet"))
                 sharePanel.state = "error"
-                // Ignore serverStatusChanged signal
                 return
             }
 

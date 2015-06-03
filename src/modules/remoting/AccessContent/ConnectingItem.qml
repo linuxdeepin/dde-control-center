@@ -28,12 +28,20 @@ Item {
                 id: waitingimg
                 width: 16
                 height: 16
-                anchors {left: parent.left; leftMargin: parent.width / 3; verticalCenter: parent.verticalCenter}
+                anchors {
+                    left: parent.left
+                    leftMargin: parent.width / 3
+                    verticalCenter: parent.verticalCenter
+                }
                 on: accessPanel.state == "Connecting"
             }
 
             Text {
-                anchors {left: waitingimg.right; leftMargin: 10; verticalCenter: waitingimg.verticalCenter}
+                anchors {
+                    left: waitingimg.right
+                    leftMargin: 10
+                    verticalCenter: waitingimg.verticalCenter
+                }
                 width: waitingimg.width
                 height: waitingimg.height
                 font.pixelSize: 10
@@ -58,7 +66,11 @@ Item {
             height: 20
             verticalAlignment: Text.AlignTop
             horizontalAlignment: Text.AlignHCenter
-            anchors {top: connectingStateItem.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter}
+            anchors {
+                top: connectingStateItem.bottom
+                topMargin: 10
+                horizontalCenter: parent.horizontalCenter
+            }
             font.pixelSize: 10
             color: "#7C7C7C"
             text: dsTr("Share window would be opend when connect is done")
@@ -72,7 +84,12 @@ Item {
 
     DTextButton {
         text: dsTr("Cancel")
-        anchors {right: parent.right; rightMargin: 8; top: connectingSeparator.bottom; topMargin: 5}
+        anchors {
+            right: parent.right
+            rightMargin: 8
+            top: connectingSeparator.bottom
+            topMargin: 5
+        }
 
         onClicked: {
             remotingClient.Stop()

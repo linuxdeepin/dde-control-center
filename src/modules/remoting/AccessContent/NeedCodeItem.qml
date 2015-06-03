@@ -23,6 +23,7 @@ Item {
     function filterPeerId() {
         codeInput.text = codeInput.text.trim().substring(0, 6)
     }
+
     property var peerIdRegExp: /[A-Za-z0-9]{6}/
 
     function validatePeerId(peerId) {
@@ -153,7 +154,7 @@ Item {
             name: "error"
             PropertyChanges {
                 target: codeText
-                text: dsTr("Acess token is invalid, please retry")
+                text: dsTr("The verification code is invalid! Please retry")
                 color: DConstants.tuhaoColor
             }
             PropertyChanges {

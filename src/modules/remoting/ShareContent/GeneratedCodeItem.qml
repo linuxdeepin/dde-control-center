@@ -11,7 +11,6 @@ import Deepin.Widgets 1.0
 
 Item {
 
-
     function setCodeText(value){
         codeText.text = value
     }
