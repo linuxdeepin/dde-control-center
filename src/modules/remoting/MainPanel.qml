@@ -12,11 +12,7 @@ Item {
     property int sliderWidth: 170
     property int leftWidth: 100
     property int centerPadding: 16
-
-    Component.onCompleted: {
-        var managerStatus = remotingManager.GetStatus()
-        return;
-    }
+    width: parent.width
 
     DssTitle {
         id:remotingTitle
@@ -41,8 +37,6 @@ Item {
 
     FeatureButton {
         id: shareButton
-        width: parent.width
-        height: 70
         anchors.top: desktopBaseLine.bottom
 
         title: dsTr("Share")
@@ -57,8 +51,6 @@ Item {
 
     FeatureButton {
         id: accessButton
-        width: parent.width
-        height: 70
         anchors.top: shareButton.bottom
 
         title: dsTr("Access")

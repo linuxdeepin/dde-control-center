@@ -18,7 +18,7 @@ Rectangle {
     property alias title: titleText.text
     property alias text: contentText.text
 
-    height: 50
+    height: 70
     width: parent.width
     color: DConstants.bgColor
 

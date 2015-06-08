@@ -33,7 +33,6 @@ Item {
                     leftMargin: parent.width / 3
                     verticalCenter: parent.verticalCenter
                 }
-                on: accessPanel.state == "Connecting"
             }
 
             Text {

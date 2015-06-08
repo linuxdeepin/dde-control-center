@@ -28,7 +28,6 @@ Item {
                 top: creatingTipText.top
                 topMargin: 3
             }
-            on: sharePanel.state == "CreatingCode"
         }
 
         Text {

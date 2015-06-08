@@ -63,7 +63,8 @@ Item {
             break
 
         case serverStatusPeerIdOk:
-            generatedCodeitem.setCodeText(remotingServer.GetPeerId())
+            var peerId = remotingServer.GetPeerId()
+            generatedCodeitem.setCodeText(peerId)
             sharePanel.state = "CreatedCode"
             break
 
@@ -97,9 +98,9 @@ Item {
 
             switch (status) {
             case serverStatusPeerIdOk:
-                sharePanel.state = "CreatedCode"
                 var peerId = remotingServer.GetPeerId()
                 generatedCodeitem.setCodeText(peerId)
+                sharePanel.state = "CreatedCode"
                 break
 
             case serverStatusSharing:
@@ -183,7 +184,7 @@ Item {
         onRetryGenerateCode: sharePanel.state = "CreatingCode"
     }
 
-    states:[
+    states: [
         State {
             name: "CreatingCode"
         },

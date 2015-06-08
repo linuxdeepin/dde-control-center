@@ -15,7 +15,7 @@ Item {
         codeText.text = value
     }
 
-    // Display `copy-to-clipboard` message
+    // Display `copy-to-clipboard` tooltip
     function popupCopyTip() {
         copyTip.visible = true
         copyTipTimer.start()

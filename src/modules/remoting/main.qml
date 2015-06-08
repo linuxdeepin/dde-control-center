@@ -32,24 +32,20 @@ Item {
     // Change page in stackview
     function changePage(page) {
         stackView.push({
-            "item": stackViewPages[page],
-            "properties": { "width": parent.width }
+            item: stackViewPages[page],
+            destroyOnPop: true,
         })
-        stackView.currentItemId = page
     }
 
     // Reset stackview
     function resetPage(){
         stackView.pop(null)
-        stackView.currentItemId = "mainPage"
     }
 
     StackView {
         id:stackView
         width: parent.width
         height: parent.height
-
-        property string currentItemId: ""
 
         Component.onCompleted: {
             // Loading main page
