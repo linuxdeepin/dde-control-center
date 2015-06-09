@@ -43,7 +43,7 @@ Item {
     }
 
     StackView {
-        id:stackView
+        id: stackView
         width: parent.width
         height: parent.height
 
@@ -65,6 +65,64 @@ Item {
 
             default:
                 break
+            }
+        }
+
+        delegate: StackViewDelegate {
+
+            function transitionFinished(properties) {
+                properties.enterItem.x = 0
+                properties.exitItem.x = 0
+            }
+
+            /*
+            pushTransition: StackViewTransition {
+                PropertyAnimation {
+                    target: enterItem
+                    property: 'opacity'
+                    from: 0
+                    to: 1
+                }
+
+                PropertyAnimation {
+                    target: exitItem
+                    property: 'opacity'
+                    from: 1
+                    to: 0
+                }
+            }
+            */
+
+            popTransition: StackViewTransition {
+                PropertyAnimation {
+                    target: enterItem
+                    property: 'x'
+                    from: -target.width - 10
+                    to: 0
+                }
+
+                PropertyAnimation {
+                    target: exitItem
+                    property: 'x'
+                    from: 0
+                    to: target.width + 10
+                }
+            }
+
+            pushTransition: StackViewTransition {
+                PropertyAnimation {
+                    target: enterItem
+                    property: 'x'
+                    from: target.width
+                    to: 0
+                }
+
+                PropertyAnimation {
+                    target: exitItem
+                    property: 'x'
+                    from: 0
+                    to: -target.width
+                }
             }
         }
     }

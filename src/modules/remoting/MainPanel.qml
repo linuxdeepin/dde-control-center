@@ -14,6 +14,14 @@ Item {
     property int centerPadding: 16
     width: parent.width
 
+    // HACKING: This slot is used to bypass UI letancy of StackView
+    onXChanged: {
+        if (x === 0) {
+            x = 1
+            x = 0
+        }
+    }
+
     DssTitle {
         id:remotingTitle
         anchors.top: parent.top

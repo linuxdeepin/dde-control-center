@@ -41,7 +41,12 @@ Rectangle {
         width: contentWidth
         height: 20
         verticalAlignment: Text.AlignTop
-        anchors {top: parent.top;topMargin: 12; left: iconImg.right; leftMargin: 22}
+        anchors {
+            top: parent.top
+            topMargin: 12
+            left: iconImg.right
+            leftMargin: 22
+        }
         font.pixelSize: 12
         color: DConstants.fgColor
     }
@@ -52,7 +57,10 @@ Rectangle {
         width: parent.width -iconImg.width - rightArrow.width - 18 - 22
         height: parent.height - title.height - 12
         verticalAlignment: Text.AlignTop
-        anchors {top: titleText.bottom; left: titleText.left}
+        anchors {
+            top: titleText.bottom
+            left: titleText.left
+        }
         font.pixelSize: 10
         wrapMode: Text.Wrap
         color: "#7C7C7C"
