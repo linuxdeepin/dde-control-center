@@ -11,88 +11,90 @@ import Deepin.Widgets 1.0
 import "../Widgets"
 
 Item {
+    function dsTr(s) { return s; }
 
     Rectangle {
-        id: contentRec2
+        id: mainContainer
         width: parent.width
-        height: childrenRect.height
-        anchors.top: parent.top
+        height:  100
         color: DConstants.contentBgColor
 
-        Item {
-            id: connectingStateItem
-            width: parent.width
-            height: 70
+        Column {
+            id: layout
+            anchors.fill: parent
+            anchors.leftMargin: 15
+            anchors.rightMargin: 15
 
-            WaitingImage {
-                id: waitingimg
-                width: 16
-                height: 16
-                anchors {
-                    left: parent.left
-                    leftMargin: parent.width / 3
-                    verticalCenter: parent.verticalCenter
+            Item {
+                width: parent.width
+                height: 70
+
+                Row {
+                    anchors.centerIn: parent
+                    width: waitingimg.width + waitingTip.width
+                    spacing: 10
+
+                    WaitingImage {
+                        id: waitingimg
+                        width: 16
+                        height: 16
+                    }
+
+                    Text {
+                        id: waitingTip
+                        width: contentWidth
+                        height: waitingimg.height
+                        font.pixelSize: 10
+                        color: "#7C7C7C"
+                        verticalAlignment: Text.AlignVCenter
+                        text: dsTr("Establishing connection, please wait...")
+                    }
                 }
+            }
+
+            Rectangle {
+                height: 1
+                width: parent.width
+                //color: DConstants.fgDarkColor
+                color: "#7C7C7C"
+            }
+
+            Item {
+                height: 10
+                width: parent.width
             }
 
             Text {
-                anchors {
-                    left: waitingimg.right
-                    leftMargin: 10
-                    verticalCenter: waitingimg.verticalCenter
-                }
-                width: waitingimg.width
-                height: waitingimg.height
+                id: waitingText
+                width: parent.width
+                height: 20
+                verticalAlignment: Text.AlignTop
+                horizontalAlignment: Text.AlignHCenter
                 font.pixelSize: 10
                 color: "#7C7C7C"
-                verticalAlignment: Text.AlignVCenter
-                text: dsTr("Establishing connection, please wait...")
+                text: dsTr("Share window would be opend when connect is done")
             }
-        }
-
-
-        Rectangle {
-            width: parent.width - 15 * 2
-            height: 1
-            color: DConstants.fgDarkColor
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: connectingStateItem.bottom
-        }
-
-        Text {
-            id: waitingText
-            width: parent.width - 16 * 2
-            height: 20
-            verticalAlignment: Text.AlignTop
-            horizontalAlignment: Text.AlignHCenter
-            anchors {
-                top: connectingStateItem.bottom
-                topMargin: 10
-                horizontalCenter: parent.horizontalCenter
-            }
-            font.pixelSize: 10
-            color: "#7C7C7C"
-            text: dsTr("Share window would be opend when connect is done")
         }
     }
 
-    DSeparatorHorizontal {
-        id:connectingSeparator
-        anchors.top: contentRec2.bottom
-    }
+    Item {
+        id: buttonLayout
+        width: parent.width
+        height: cancelButton.height
+        anchors.top: mainContainer.bottom
+        anchors.topMargin: 6
+        anchors.right: parent.right
+        anchors.rightMargin: 15
 
-    DTextButton {
-        text: dsTr("Cancel")
-        anchors {
-            right: parent.right
-            rightMargin: 8
-            top: connectingSeparator.bottom
-            topMargin: 5
-        }
+        DTextButton {
+            id: cancelButton
+            text: dsTr("Cancel")
+            anchors.right: parent.right
 
-        onClicked: {
-            remotingClient.Stop()
-            resetPage()
+            onClicked: {
+                remotingClient.Stop()
+                resetPage()
+            }
         }
     }
 }

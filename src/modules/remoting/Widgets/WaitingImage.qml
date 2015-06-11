@@ -3,7 +3,8 @@ import QtQuick 2.2
 Image {
     id: container
     visible: true
-    source: "qrc:///modules/remoting/images/waiting.png"
+    //source: "qrc:///modules/remoting/images/waiting.png"
+    source: "../images/waiting.png"
     RotationAnimation on rotation {
         //running: container.visible
         from: 0;
