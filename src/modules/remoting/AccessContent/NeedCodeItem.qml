@@ -16,8 +16,9 @@ Item {
     property alias code: codeInput.text
     property color inactiveColor: "#515151"
 
-    function showError(){
+    function showError(msg){
         needCodeItem.state = "error"
+        codeText.text = msg
     }
 
     function filterPeerId() {
@@ -123,7 +124,6 @@ Item {
             text: dsTr("Cancel")
 
             onClicked: {
-                remotingClient.Stop()
                 resetPage()
             }
         }
@@ -154,7 +154,6 @@ Item {
             name: "error"
             PropertyChanges {
                 target: codeText
-                text: dsTr("The verification code is invalid! Please retry")
                 color: DConstants.tuhaoColor
             }
             PropertyChanges {

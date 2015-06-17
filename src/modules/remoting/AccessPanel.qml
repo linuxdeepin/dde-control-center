@@ -77,8 +77,8 @@ Item {
             break
 
         case clientStatusConnectFailed:
-            errorItem.setErrorMessage(dsTr("Failed to establish the connection, you can retry to connect"))
-            accessPanel.state = "error"
+            needCodeItem.showError(dsTr("Failed to establish the connection, you can retry to connect"))
+            accessPanel.state = "NeeedAccessCode"
             break
 
         default:
@@ -106,7 +106,9 @@ Item {
                 break
 
             case clientStatusStopted:
-                accessPanel.state = "NeeedAccessCode"
+                if (accessPanele.state !== "NeedAccessCode") {
+                    accessPanel.state = "NeeedAccessCode"
+                }
                 break
 
             case clientStatusPageReady:
@@ -114,15 +116,13 @@ Item {
                 break
 
             case clientStatusUnavailable:
-                remotingClient.Stop()
-                // TODO: setup error message
-                needCodeItem.showError()
+                needCodeItem.showError(dsTr("The verification code is invalid! Please retry"))
                 accessPanel.state = "NeeedAccessCode"
                 break
 
             case clientStatusConnectFailed:
-                errorItem.setErrorMessage(dsTr("Failed to establish the connection, you can retry to connect"))
-                accessPanel.state = "error"
+                needCodeItem.showError(dsTr("Failed to establish the connection, you can retry to connect"))
+                accessPanel.state = "NeeedAccessCode"
                 break
 
             default:
@@ -188,9 +188,7 @@ Item {
             top: separator1.bottom
             horizontalCenter: parent.horizontalCenter
         }
-        onRetryConnect: {
-            manualRetry = true
-        }
+        onRetryConnect: accessPanel.state = "NeeedAccessCode"
     }
 
     states:[

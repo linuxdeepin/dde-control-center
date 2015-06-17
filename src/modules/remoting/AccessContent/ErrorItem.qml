@@ -16,7 +16,6 @@ Item {
         errorTipText.text = message
     }
 
-    // TODO: remove this signal
     signal retryConnect
 
     Rectangle {
@@ -63,7 +62,6 @@ Item {
             text: dsTr("Cancel")
 
             onClicked: {
-                remotingClient.Stop()
                 resetPage()
             }
         }
@@ -72,9 +70,8 @@ Item {
             text: dsTr("Retry")
 
             onClicked: {
-                errorItem.retryConnect()
-                remotingClient.Stop()
                 remotingClient.Start()
+                errorItem.retryConnect()
             }
         }
     }
