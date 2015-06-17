@@ -77,7 +77,7 @@ Item {
             break
 
         case serverStatusPeerIdFailed:
-            errorItem.setErrorMessage(dsT("Network error!"))
+            errorItem.setErrorMessage(dsTr("Failed to get the verification code, you can retry or cancel the operation"))
             sharePanel.state = "error"
             break
 
@@ -108,13 +108,14 @@ Item {
                 break
 
             case serverStatusStoped:
-                sharePanel.state = "CreatingCode"
-                // TODO: remove this call
-                resetPage()
+                if (sharePanel.state !== "error") {
+                    sharePanel.state = "CreatingCode"
+                    resetPage()
+                }
                 break
 
             case serverStatusPeerIdFailed:
-                errorItem.setErrorMessage(dsT("Network error!"))
+                errorItem.setErrorMessage(dsTr("Failed to get the verification code, you can retry or cancel the operation"))
                 sharePanel.state = "error"
                 break
 

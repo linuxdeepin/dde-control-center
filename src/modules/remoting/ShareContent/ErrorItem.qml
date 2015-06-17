@@ -16,7 +16,6 @@ Item {
         errorTipText.text = message
     }
 
-    // TODO: remove this signal
     signal retryGenerateCode
 
     Rectangle {
@@ -63,7 +62,6 @@ Item {
             text: dsTr("Cancel")
 
             onClicked: {
-                remotingServer.Stop()
                 resetPage()
             }
         }
@@ -72,9 +70,8 @@ Item {
             text: dsTr("Retry")
 
             onClicked: {
-                errorItem.retryGenerateCode()
-                remotingServer.Stop()
                 remotingServer.Start()
+                errorItem.retryGenerateCode()
             }
         }
     }
