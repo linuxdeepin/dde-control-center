@@ -5,6 +5,14 @@ import "edit_autogen"
 BaseConnectionEdit {
     id: editPage
     signal shouldCleanPasswd()
+
+    property bool connectionAllowDelete: {
+        if (connectionSession.allowDelete == undefined)
+            return false
+        else
+            return connectionSession.allowDelete
+    }
+
     ParallelAnimation {
         id: showDelete
         NumberAnimation {
@@ -39,10 +47,10 @@ BaseConnectionEdit {
 
     Column {
         width: parent.width
-        visible: editPage.connectionPath !== undefined && connectionSession.type != nmConnectionTypeWired
+        visible: editPage.connectionPath !== undefined && connectionAllowDelete
         DBaseLine {
             id: deleteSettingLine
-            color: dconstants.contentBgColor
+            color: DConstants.contentBgColor
 
             property bool inDeleteSetting: false
             property bool hovered: false
@@ -52,16 +60,16 @@ BaseConnectionEdit {
                 text: deleteSettingLine.inDeleteSetting ? dsTr("Are you sure you want to delete this network?") : dsTr("Delete this network")
                 color: {
                     if(deleteSettingLine.inDeleteSetting){
-                        return dconstants.tuhaoColor
+                        return DConstants.tuhaoColor
                     }
                     else if(deleteSettingLine.pressed){
-                        return dconstants.activeColor
+                        return DConstants.activeColor
                     }
                     else if (deleteSettingLine.hovered){
-                        return dconstants.hoverColor
+                        return DConstants.hoverColor
                     }
                     else{
-                        return dconstants.fgColor
+                        return DConstants.fgColor
                     }
                 }
             }

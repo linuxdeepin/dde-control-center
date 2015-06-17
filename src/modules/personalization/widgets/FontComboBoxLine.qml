@@ -15,14 +15,12 @@ Rectangle {
     property int defaultIndex: 0
     property var menuLabels
 
-    property var dconstants: DConstants {}
-
     signal menuSelect(int index)
     signal clicked()
 
     height: 30
     width: parent.width
-    color: dconstants.bgColor
+    color: DConstants.bgColor
 
     DLabel {
         id: title

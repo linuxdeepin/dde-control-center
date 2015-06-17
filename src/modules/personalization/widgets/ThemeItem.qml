@@ -62,7 +62,7 @@ Item {
             border.width: 1
             border.color: {
                 if(themeItem.selected){
-                    return dconstants.activeColor
+                    return DConstants.activeColor
                 }
                 else if(themeItem.hovered){
                     return Qt.rgba(1, 1, 1, 0.6)
@@ -92,13 +92,13 @@ Item {
         text: item_name == "Custom" ? dsTr("Custom") : item_name
         color: {
             if(parent.selected){
-                return dconstants.activeColor
+                return DConstants.activeColor
             }
             else if(hovered){
-                return dconstants.hoverColor
+                return DConstants.hoverColor
             }
             else{
-                return dconstants.fgColor
+                return DConstants.fgColor
             }
         }
     }

@@ -67,7 +67,7 @@ Column {
     Rectangle {
         width: parent.width
         height: 150
-        color: dconstants.contentBgColor
+        color: DConstants.contentBgColor
 
         DRoundImage {
             id: avatarImage

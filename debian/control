@@ -27,8 +27,9 @@ Depends: ${shlibs:Depends},
  dde-qml-dbus-factory,
  deepin-artwork-themes,
  deepin-qml-widgets,
- qt5-extra,
  libqt5svg5,
  xkb-data-i18n | xkb-data,
+#libqt5multimedia5-plugins is needed to get the camera work
+ libqt5multimedia5-plugins
 Description: New control center for linux deepin
  New control center for linux deepin

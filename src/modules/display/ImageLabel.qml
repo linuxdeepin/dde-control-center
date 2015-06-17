@@ -21,6 +21,7 @@
 **
 ****************************************************************************/
 import QtQuick 2.1
+import Deepin.Widgets 1.0
 
 Item {
     id:imageLabel
@@ -48,7 +49,7 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignLeft
-        color: dconstants.fgColor
+        color: DConstants.fgColor
         font.pixelSize: 12
     }
 
@@ -57,21 +58,21 @@ Item {
         hoverEnabled: true
         onEntered: {
             identifyImg.source = hover_image
-            identifyText.color = dconstants.hoverColor
+            identifyText.color = DConstants.hoverColor
         }
         onExited: {
             identifyImg.source = normal_image
-            identifyText.color = dconstants.fgColor
+            identifyText.color = DConstants.fgColor
         }
         onPressed: {
             identifyImg.source = press_image
-            identifyText.color = dconstants.activeColor
+            identifyText.color = DConstants.activeColor
 
             imageLabel.clicked()
         }
         onReleased: {
             identifyImg.source = normal_image
-            identifyText.color = dconstants.fgColor
+            identifyText.color = DConstants.fgColor
         }
 
     }

@@ -52,6 +52,6 @@ Item {
         text: "text " + index
         font.pixelSize: 12
         font.family: label.text
-        color: itemOnHover ? dconstants.activeColor : dconstants.fgColor
+        color: itemOnHover ? DConstants.activeColor : DConstants.fgColor
     }
 }

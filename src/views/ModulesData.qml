@@ -69,7 +69,8 @@ Item {
             "default_applications": dsTr("Default Applications"),
             "system_info": dsTr("System Information"),
             "grub": dsTr("Boot Menu"),
-            "home": dsTr("Home")
+            "home": dsTr("Home"),
+            "remoting": dsTr("Remote Assistance"),
         }
 
     property var allIds: [
@@ -86,7 +87,8 @@ Item {
             "mouse_touchpad",
             "keyboard",
             "shortcuts",
+            "remoting",
             "grub",
-            "system_info"
+            "system_info",
         ]
 }

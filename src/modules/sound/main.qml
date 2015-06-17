@@ -339,11 +339,11 @@ Item {
             Rectangle {
                 width: parent.width
                 height: childrenRect.height
-                color: dconstants.contentBgColor
+                color: DConstants.contentBgColor
 
                 DBaseLine{
                     visible: outputPortList.count == 0
-                    color: dconstants.contentBgColor
+                    color: DConstants.contentBgColor
                     leftMargin: itemLabelLeftMargin
                     leftLoader.sourceComponent: DssH3{
                         text: dsTr("No port exists in this device.")
@@ -394,7 +394,7 @@ Item {
             Rectangle {
                 width: parent.width
                 height: childrenRect.height
-                color: dconstants.contentBgColor
+                color: DConstants.contentBgColor
 
                 ListView{
                     id: outputDeviceList
@@ -442,11 +442,11 @@ Item {
             Rectangle {
                 width: parent.width
                 height: childrenRect.height
-                color: dconstants.contentBgColor
+                color: DConstants.contentBgColor
 
                 DBaseLine{
                     visible: inputPortList.count == 0
-                    color: dconstants.contentBgColor
+                    color: DConstants.contentBgColor
                     leftMargin: itemLabelLeftMargin
                     leftLoader.sourceComponent: DssH3{
                         text: dsTr("No port exists in this device.")
@@ -496,7 +496,7 @@ Item {
             Rectangle {
                 width: parent.width
                 height: childrenRect.height
-                color: dconstants.contentBgColor
+                color: DConstants.contentBgColor
 
                 ListView{
                     id: inputDeviceList

@@ -42,7 +42,6 @@ Window {
     property int contentHeight: 500
 
     property var themeObject
-    property var dconstants: DConstants {}
     property int pointer: 0
     property var previewsImages: ["/usr/share/backgrounds/default_background.jpg"]
     property bool isVisible: false
@@ -151,7 +150,7 @@ Window {
                             border.width: 1
                             border.color: Qt.rgba(0, 0, 0, 0.5)
                             property int realIndex: previewSlide.currentIndex == 0 ? previewsImages.length - 1 : previewSlide.currentIndex - 1
-                            color: realIndex == index ? dconstants.activeColor : dconstants.fgColor
+                            color: realIndex == index ? DConstants.activeColor : DConstants.fgColor
 
                             MouseArea {
                                 width: 25; height: 25
@@ -282,13 +281,13 @@ Window {
 
                         color: {
                             if(parent.pressed){
-                                return dconstants.activeColor
+                                return DConstants.activeColor
                             }
                             else if (parent.hovered){
-                                return dconstants.hoverColor
+                                return DConstants.hoverColor
                             }
                             else{
-                                return dconstants.fgColor
+                                return DConstants.fgColor
                             }
                         }
                     }

@@ -43,28 +43,34 @@ Column {
             }
             content.sourceComponent: DBaseLine {
                 height: leftLoader.item.height
-                color: dconstants.contentBgColor
+                color: DConstants.contentBgColor
                 leftLoader.sourceComponent: Column {
                     width: root.width
                     InfoItem {
                         label: dsTr("Interface");
-                        value: getConnectionDisplayName(modelData.ConnectionType) + " (" + modelData.DeviceInterface + ")"
+                        value: {
+                            if (modelData.ConnectionType == nmConnectionTypeMobileGsm || modelData.ConnectionType == nmConnectionTypeMobileCdma) {
+                                return getConnectionDisplayName(modelData.ConnectionType) + " " + modelData.MobileNetworkType + " (" + modelData.DeviceInterface + ")"
+                            } else {
+                                return getConnectionDisplayName(modelData.ConnectionType) + " (" + modelData.DeviceInterface + ")"
+                            }
+                        }
                     }
                     InfoItem {label: dsTr("Security");       value: modelData.Security}
                     InfoItem {label: dsTr("Device Addr");    value: modelData.HwAddress}
                     InfoItem {label: dsTr("IP Address");     value: modelData.Ip4.Address}
                     InfoItem {label: dsTr("Subnet Mask");    value: modelData.Ip4.Mask}
-                    InfoItem {label: dsTr("Route Addr");     value: modelData.Ip4.Route}
-                    InfoItem {label: dsTr("Primary DNS");    value: modelData.Ip4.Dns1}
-                    InfoItem {label: dsTr("Secondary DNS");  value: modelData.Ip4.Dns2}
-                    InfoItem {label: dsTr("Third DNS");      value: modelData.Ip4.Dns3}
+                    InfoItem {label: dsTr("Gateway");        value: modelData.Ip4.Gateways.length > 0 ? modelData.Ip4.Gateways[0] : ""}
+                    InfoItem {label: dsTr("Primary DNS");    value: modelData.Ip4.Dnses.length > 0 ? modelData.Ip4.Dnses[0] : ""}
+                    InfoItem {label: dsTr("Secondary DNS");  value: modelData.Ip4.Dnses.length > 1 ? modelData.Ip4.Dnses[1] : ""}
+                    InfoItem {label: dsTr("Third DNS");      value: modelData.Ip4.Dnses.length > 2 ? modelData.Ip4.Dnses[2] : ""}
 
-                    // TODO
+                    // TODO: fill ipv6 informations
                     // InfoItem {label: dsTr("IPv6 Address");     value: modelData.Ip6.Address}
-                    // InfoItem {label: dsTr("IPv6 Route Addr");     value: modelData.Ip6.Route}
-                    // InfoItem {label: dsTr("IPv6 Primary DNS");    value: modelData.Ip6.Dns1}
-                    // InfoItem {label: dsTr("IPv6 Secondary DNS");  value: modelData.Ip6.Dns2}
-                    // InfoItem {label: dsTr("IPv6 Ternary DNS");    value: modelData.Ip6.Dns3}
+                    // InfoItem {label: dsTr("IPv6 Gateway");     value: modelData.Ip6.Gateways.length > 0 ? modelData.Ip6.Gateways[0] : ""} // TODO
+                    // InfoItem {label: dsTr("IPv6 Primary DNS");    value: modelData.Ip6.Dnses.length > 0 ? modelData.Ip6.Dnses[0] : ""}
+                    // InfoItem {label: dsTr("IPv6 Secondary DNS");  value: modelData.Ip6.Dnses.length > 1 ? modelData.Ip6.Dnses[1] : ""}
+                    // InfoItem {label: dsTr("IPv6 Third DNS");      value: modelData.Ip6.Dnses.length > 2 ? modelData.Ip6.Dnses[2] : ""}
 
                     InfoItem {label: dsTr("Device Speed");   value: modelData.Speed}
                 }

@@ -3,7 +3,6 @@ import Deepin.Widgets 1.0
 
 Column {
     id: root
-    property var constants: DConstants{}
 
     signal cancel
     signal confirm (bool deleteFiles)

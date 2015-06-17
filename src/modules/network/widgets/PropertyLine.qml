@@ -10,7 +10,7 @@ DCenterLine {
     property string key: ""
 
     leftWidth: parent.leftWidth
-    color: dconstants.contentBgColor
+    color: DConstants.contentBgColor
     visible: getIndexFromArray("all", visibleType) != -1 || getIndexFromArray(parent.selectVpnType, visibleType) != -1
     Component.onCompleted: {
         propertyLine.parent.updateLeftWidth(title.contentWidth)

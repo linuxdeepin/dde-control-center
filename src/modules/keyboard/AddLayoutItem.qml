@@ -28,7 +28,7 @@ Rectangle {
     id: addLayoutItem
     width: parent.width
     height: 28
-    color: dconstants.contentBgColor
+    color: DConstants.contentBgColor
 
     property string itemId: item_id
     property string layoutName: label

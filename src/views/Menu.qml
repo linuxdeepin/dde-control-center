@@ -34,6 +34,7 @@ DWindowFrame{
     property real posX: 0
     property real posY: 0
     property int shadowOffset: 12
+    property int visibleLabelCount: 20
 
     property alias currentIndex: completeView.currentIndex
 
@@ -60,7 +61,7 @@ DWindowFrame{
         ListView {
             id: completeView
             width: parent.width
-            height: childrenRect.height
+            height: Math.min(completeView.count,visibleLabelCount) * 26
             model: labels
             delegate: MenuItem {
                 text: labels[index]
@@ -71,6 +72,10 @@ DWindowFrame{
             }
             clip: true
             interactive: true
+        }
+
+        DScrollBar {
+            flickable: completeView
         }
     }
 }

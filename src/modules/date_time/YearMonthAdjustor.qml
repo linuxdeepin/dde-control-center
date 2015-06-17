@@ -60,7 +60,7 @@ Row {
         Text {
             id: yearAdjustment
             anchors.centerIn: parent
-            color: dconstants.fgColor
+            color: DConstants.fgColor
             font.pixelSize: 13
             property int yearNumber: Number(dateValue.split("-")[0])
             text: String(yearNumber)
@@ -122,7 +122,7 @@ Row {
         Text {
             id: monthAdjustment
             anchors.centerIn: parent
-            color: dconstants.fgColor
+            color: DConstants.fgColor
             font.pixelSize: 13
 
             property int monthNumber: Number(dateValue.split("-")[1])

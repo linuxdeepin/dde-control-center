@@ -16,7 +16,7 @@ Column {
 
     Rectangle {
         id: guest_user
-        color: dconstants.contentBgColor
+        color: DConstants.contentBgColor
         width: 310
         height: 100
 
@@ -43,13 +43,13 @@ Column {
             DssH2 {
                 id: user_name_text
                 text: dsTr("Guest")
-                color: dconstants.fgColor
+                color: DConstants.fgColor
                 font.pixelSize: 14
             }
 
             DssH3 {
                 text: ""
-                color: dconstants.fgColor
+                color: DConstants.fgColor
                 font.pixelSize: 10
             }
 
@@ -74,11 +74,11 @@ Column {
             anchors.fill: parent
 
             onEntered: {
-                user_name_text.color = dconstants.hoverColor
+                user_name_text.color = DConstants.hoverColor
                 expand_button.status = "hover"
             }
             onExited: {
-                user_name_text.color = dconstants.fgColor
+                user_name_text.color = DConstants.fgColor
                 expand_button.status = "normal"
             }
 
@@ -100,7 +100,7 @@ Column {
             id: account_enabled_switch
             width: parent.width
             height: 38
-            color: dconstants.contentBgColor
+            color: DConstants.contentBgColor
 
             DLabel {
                 text: dsTr("Enabled")

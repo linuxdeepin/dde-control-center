@@ -150,7 +150,7 @@ Rectangle {
                     warningState = false
                     if (text != ""){//when confirmed or lost focus,show empty warning
                         var verifyValue = verifyUserName()
-                        if (verifyValue == -1){
+                        if (verifyValue == 0){
                             oldText = text
                         }
                         else{
