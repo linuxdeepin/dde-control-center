@@ -94,7 +94,7 @@ Item {
                         DssH3 {
                             id: enableTitle
                             text: dsTr("Please choose the monitor(s) you want to enable")
-                            color: DConstants.fgDarkColor
+                            color: DPalette.fgDarkColor
                             width: parent.width
                             height: 20
                             anchors.top: parent.top

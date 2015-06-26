@@ -36,12 +36,12 @@ Item {
         width: parent.width
         height: childrenRect.height
         anchors.top: parent.top
-        color: DConstants.contentBgColor
+        color: DPalette.contentBgColor
 
         TextInput {
             id: codeInput
             font.pixelSize: 30
-            color: DConstants.activeColor
+            color: DPalette.activeColor
             horizontalAlignment: TextInput.AlignHCenter
             verticalAlignment: TextInput.AlignVCenter
             width: parent.width
@@ -84,7 +84,7 @@ Item {
         Rectangle {
             width: parent.width - 15 * 2
             height: 1
-            color: DConstants.fgDarkColor
+            color: DPalette.fgDarkColor
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: codeInput.bottom
         }
@@ -154,7 +154,7 @@ Item {
             name: "error"
             PropertyChanges {
                 target: codeText
-                color: DConstants.tuhaoColor
+                color: DPalette.tuhaoColor
             }
             PropertyChanges {
                 target: connectButton
@@ -170,7 +170,7 @@ Item {
             }
             PropertyChanges {
                 target: connectButton
-                textColor: DConstants.textNormalColor
+                textColor: DPalette.textNormalColor
             }
         }
 

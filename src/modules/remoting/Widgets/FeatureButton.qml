@@ -20,7 +20,7 @@ Rectangle {
 
     height: 70
     width: parent.width
-    color: DConstants.bgColor
+    color: DPalette.bgColor
 
     signal clicked
 
@@ -48,7 +48,7 @@ Rectangle {
             leftMargin: 22
         }
         font.pixelSize: 12
-        color: DConstants.fgColor
+        color: DPalette.fgColor
     }
 
     Text {

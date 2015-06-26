@@ -41,7 +41,7 @@ Column {
         }
 
         content.sourceComponent: Rectangle {
-            color: DConstants.contentBgColor
+            color: DPalette.contentBgColor
             width: parent.width
             height: childrenRect.height
 

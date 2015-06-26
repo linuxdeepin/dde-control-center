@@ -45,7 +45,7 @@ Item {
         anchors.leftMargin: 5
         anchors.verticalCenter: parent.verticalCenter
         text: "text " + index
-        color: wrapper.ListView.view.currentIndex == index ? DConstants.activeColor : DConstants.fgColor
+        color: wrapper.ListView.view.currentIndex == index ? DPalette.activeColor : DPalette.fgColor
         elide: Text.ElideRight
         verticalAlignment: Text.AlignVCenter
     }

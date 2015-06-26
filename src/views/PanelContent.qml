@@ -34,7 +34,7 @@ import "IconTipCreator.js" as IconTip
 
 Rectangle {
     id: panelContent
-    color: DConstants.bgColor
+    color: DPalette.bgColor
 
     property alias moduleLoaderItem: rightBoxLoaderItem
     property alias moduleBox: rightBox
@@ -445,7 +445,7 @@ Rectangle {
 
             onStateChanged: {
                 if(state == ""){
-                    shutdownText.color = DConstants.fgColor
+                    shutdownText.color = DPalette.fgColor
                 } else {
                     shutdownText.color = tuhaoColor
                 }
@@ -470,7 +470,7 @@ Rectangle {
         id: rightBox
         width: parent.width - trayWidth
         height: parent.height
-        color: DConstants.bgColor
+        color: DPalette.bgColor
         x: shouldShowInRight?panelContent.width:-width
         clip: true
 

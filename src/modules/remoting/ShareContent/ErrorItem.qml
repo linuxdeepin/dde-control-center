@@ -23,7 +23,7 @@ Item {
         width: parent.width
         height: childrenRect.height
         anchors.top: parent.top
-        color: DConstants.contentBgColor
+        color: DPalette.contentBgColor
 
         Text {
             id: errorTipText
@@ -34,7 +34,7 @@ Item {
             verticalAlignment: Text.AlignVCenter
             wrapMode: Text.Wrap
             font.pixelSize: 12
-            color: DConstants.tuhaoColor
+            color: DPalette.tuhaoColor
             anchors {
                 top: parent.top
                 horizontalCenter: parent.horizontalCenter

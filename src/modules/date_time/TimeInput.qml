@@ -138,11 +138,11 @@ FocusScope {
             maximumLength: 2
 
             validator: IntValidator{bottom: min; top: max;}
-            color: activeFocus ? DConstants.activeColor : DConstants.fgColor
+            color: activeFocus ? DPalette.activeColor : DPalette.fgColor
             font.pixelSize: 44
             cursorDelegate: Rectangle{ color: "transparent" }
             selectionColor: "transparent"
-            selectedTextColor: DConstants.activeColor
+            selectedTextColor: DPalette.activeColor
 
             anchors.fill: parent
             anchors.leftMargin: 3
@@ -201,7 +201,7 @@ FocusScope {
         //anchors.fill: parent
         //onPressed: {
             //mouse.accepted = false
-            //text_input.color = DConstants.fgColor
+            //text_input.color = DPalette.fgColor
             //if (root.state == "warning") {
                 //root.state = "normal"
             //}

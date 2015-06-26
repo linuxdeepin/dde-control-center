@@ -110,7 +110,7 @@ DWindow {
                 id: messageWarning
                 anchors.left: parent.left
                 anchors.leftMargin: 20
-                color: DConstants.fgColor
+                color: DPalette.fgColor
                 text: dsTr("Reverting to previous display settings in <font color='#F48914'>%1</font> seconds.").arg(countdown.totalTime)
                 font.pixelSize: 12
             }

@@ -11,13 +11,13 @@ Rectangle {
     property alias icon: iconImage.source
     property alias active: actionButton.checked
 
-    property int leftMargin: DConstants.leftMargin
-    property int rightMargin: DConstants.rightMargin
+    property int leftMargin: DPalette.leftMargin
+    property int rightMargin: DPalette.rightMargin
     focus: true
 
     height: 30
     width: parent.width
-    color: DConstants.bgColor
+    color: DPalette.bgColor
 
     signal clicked
 

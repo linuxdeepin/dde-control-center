@@ -163,7 +163,7 @@ Item {
                 id: searchResultListBox
                 height: childrenRect.height
                 width: parent.width
-                color: DConstants.contentBgColor
+                color: DPalette.contentBgColor
 
                 ListView {
                     id: searchResultListView
@@ -200,7 +200,7 @@ Item {
                 id: systemCategoriesArea
                 width: parent.width
                 height: childrenRect.height
-                color: DConstants.bgColor
+                color: DPalette.bgColor
                 visible: searchResultListView.keyword == ""
 
                 Column {

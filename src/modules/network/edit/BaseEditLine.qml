@@ -17,7 +17,7 @@ DBaseLine {
     // if true, don't compare cache value with backend when setting key
     property bool setKeyAlways: false
 
-    color: DConstants.contentBgColor
+    color: DPalette.contentBgColor
 
     signal widgetShown
     visible: false

@@ -92,7 +92,7 @@ Rectangle {
                     else if(grey){
                         return "#444"
                     }
-                    return DConstants.fgColor
+                    return DPalette.fgColor
                 }
                 text: {
                     var info = lunarDayInfo[0]

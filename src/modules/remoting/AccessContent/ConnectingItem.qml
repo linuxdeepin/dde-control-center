@@ -17,7 +17,7 @@ Item {
         id: mainContainer
         width: parent.width
         height:  100
-        color: DConstants.contentBgColor
+        color: DPalette.contentBgColor
 
         Column {
             id: layout
@@ -55,7 +55,7 @@ Item {
             Rectangle {
                 height: 1
                 width: parent.width
-                //color: DConstants.fgDarkColor
+                //color: DPalette.fgDarkColor
                 color: "#7C7C7C"
             }
 

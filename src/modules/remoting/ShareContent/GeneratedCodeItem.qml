@@ -26,7 +26,7 @@ Item {
         width: parent.width
         height: childrenRect.height
         anchors.top: parent.top
-        color: DConstants.contentBgColor
+        color: DPalette.contentBgColor
 
         TextEdit {
             id: codeText
@@ -34,7 +34,7 @@ Item {
             width: parent.width
             height: 50
             font.pixelSize: 24
-            color: DConstants.activeColor
+            color: DPalette.activeColor
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             anchors {

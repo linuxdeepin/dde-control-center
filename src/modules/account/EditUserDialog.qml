@@ -5,7 +5,7 @@ Rectangle {
     id: edit_dialog
     width: 310
     height: column.height
-    color: DConstants.contentBgColor
+    color: DPalette.contentBgColor
 
     property var this_user: null
     property int maxHeight: 10

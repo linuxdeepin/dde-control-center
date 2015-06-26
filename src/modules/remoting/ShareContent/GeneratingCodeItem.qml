@@ -16,7 +16,7 @@ Item {
         id: contentRec
         width: parent.width
         height: 70
-        color: DConstants.contentBgColor
+        color: DPalette.contentBgColor
 
         WaitingImage {
             id: waitingimg

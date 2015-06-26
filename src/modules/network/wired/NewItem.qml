@@ -119,7 +119,7 @@ Column{
 
         property bool hovered: false
         property bool selected: false
-        color: DConstants.contentBgColor
+        color: DPalette.contentBgColor
 
         MouseArea{
             z:-1
@@ -168,13 +168,13 @@ Column{
                 elide: Text.ElideRight
                 color: {
                     if(wiredLine.selected){
-                        return DConstants.activeColor
+                        return DPalette.activeColor
                     }
                     else if(wiredLine.hovered){
-                        return DConstants.hoverColor
+                        return DPalette.hoverColor
                     }
                     else{
-                        return DConstants.fgColor
+                        return DPalette.fgColor
                     }
                 }
             }

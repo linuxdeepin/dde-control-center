@@ -305,7 +305,7 @@ Item {
 
             Rectangle {
                 id: userKeyboardLayoutsArea
-                color: DConstants.contentBgColor
+                color: DPalette.contentBgColor
                 width: parent.width
                 height: childrenRect.height
                 visible: keyboardLayoutArea.currentActionStateName != "addButton"
@@ -372,7 +372,7 @@ Item {
                     id: addLayoutIndex
                     height: 28
                     width: parent.width
-                    color: DConstants.bgColor
+                    color: DPalette.bgColor
 
                     property var searchIndexResult: null
 
@@ -411,9 +411,9 @@ Item {
                             font.pixelSize: ListView.isCurrentItem ? 18 : 13
                             color: {
                                 if (ListView.isCurrentItem | hovered){
-                                    return DConstants.activeColor
+                                    return DPalette.activeColor
                                 }
-                                return DConstants.fgColor
+                                return DPalette.fgColor
                             }
 
                             property bool hovered: false
@@ -434,7 +434,7 @@ Item {
 
                 Rectangle {
                     id: addLayoutListBox
-                    color: DConstants.contentBgColor
+                    color: DPalette.contentBgColor
                     width: parent.width
                     height: childrenRect.height
                 }
@@ -493,7 +493,7 @@ Item {
                 DBaseLine {
                     height: 28
                     visible: addLayoutList.model.count == 0
-                    color: DConstants.contentBgColor
+                    color: DPalette.contentBgColor
                     leftLoader.sourceComponent: DLabel{
                         text: dsTr("No result")
                     }

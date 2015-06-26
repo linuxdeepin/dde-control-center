@@ -28,6 +28,6 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         text: "text " + index
         font.pixelSize: 12
-        color: itemOnHover ? DConstants.activeColor : DConstants.fgColor
+        color: itemOnHover ? DPalette.activeColor : DPalette.fgColor
     }
 }

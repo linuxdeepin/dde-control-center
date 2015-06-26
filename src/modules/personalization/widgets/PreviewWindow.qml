@@ -150,7 +150,7 @@ Window {
                             border.width: 1
                             border.color: Qt.rgba(0, 0, 0, 0.5)
                             property int realIndex: previewSlide.currentIndex == 0 ? previewsImages.length - 1 : previewSlide.currentIndex - 1
-                            color: realIndex == index ? DConstants.activeColor : DConstants.fgColor
+                            color: realIndex == index ? DPalette.activeColor : DPalette.fgColor
 
                             MouseArea {
                                 width: 25; height: 25
@@ -281,13 +281,13 @@ Window {
 
                         color: {
                             if(parent.pressed){
-                                return DConstants.activeColor
+                                return DPalette.activeColor
                             }
                             else if (parent.hovered){
-                                return DConstants.hoverColor
+                                return DPalette.hoverColor
                             }
                             else{
-                                return DConstants.fgColor
+                                return DPalette.fgColor
                             }
                         }
                     }

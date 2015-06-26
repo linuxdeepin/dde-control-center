@@ -20,7 +20,7 @@ Rectangle {
 
     height: 30
     width: parent.width
-    color: DConstants.bgColor
+    color: DPalette.bgColor
 
     DLabel {
         id: title
