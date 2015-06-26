@@ -6,7 +6,7 @@ import "../shared"
 
 Rectangle {
     id: root
-    color: DConstants.bgColor
+    color: DPalette.bgColor
     width: 310
     height: 600
 

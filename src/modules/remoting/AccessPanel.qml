@@ -9,6 +9,7 @@
 import QtQuick 2.1
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Remoting.Client 1.0
+
 import "./AccessContent"
 
 Item {
@@ -52,10 +53,16 @@ Item {
     // DBus root interface
     property var remotingClient: RemotingClient {}
 
-    property bool manualRetry: false
-
     Component.onCompleted: {
-        var clientStatus= remotingClient.GetStatus()
+        // If no network connection is available, display error page and exit
+        if (remotingManager.CheckNetworkConnectivity() ===
+                networkStatusDisconnected) {
+            errorItem.setErrorMessage(dsTr("There is no network connection currently, please try again after you connect to the Internet"))
+            accessPanel.state = "error"
+            return
+        }
+
+        var clientStatus = remotingClient.GetStatus()
         switch (clientStatus){
         case clientStatusConnecting:
             accessPanel.state = "Connecting"
@@ -70,8 +77,8 @@ Item {
             break
 
         case clientStatusConnectFailed:
-            errorItem.setErrorMessage(dsTr("Failed to establish the connection, you can retry to connect"))
-            accessPanel.state = "error"
+            needCodeItem.showError(dsTr("Failed to establish the connection, you can retry to connect"))
+            accessPanel.state = "NeeedAccessCode"
             break
 
         default:
@@ -82,10 +89,16 @@ Item {
     Connections {
         target: remotingClient
         onStatusChanged: {
+            if (remotingManager.CheckNetworkConnectivity() ==
+                    networkStatusDisconnected) {
+                errorItem.setErrorMessage(dsTr("There is no network connection currently, please try again after you connect to the Internet"))
+                accessPanel.state = "error"
+                return
+            }
+
             switch (status){
             case clientStatusConnecting:
                 accessPanel.state = "Connecting"
-                manualRetry = false
                 break
 
             case clientStatusConnectOk:
@@ -93,9 +106,8 @@ Item {
                 break
 
             case clientStatusStopted:
-                if (!manualRetry){
+                if (accessPanele.state !== "NeedAccessCode") {
                     accessPanel.state = "NeeedAccessCode"
-                    reset()
                 }
                 break
 
@@ -104,15 +116,13 @@ Item {
                 break
 
             case clientStatusUnavailable:
-                manualRetry = true
-                remotingClient.Stop()
+                needCodeItem.showError(dsTr("The verification code is invalid! Please retry"))
                 accessPanel.state = "NeeedAccessCode"
-                needCodeItem.showError()
                 break
 
             case clientStatusConnectFailed:
-                errorItem.setErrorMessage(dsTr("Failed to establish the connection, you can retry to connect"))
-                accessPanel.state = "error"
+                needCodeItem.showError(dsTr("Failed to establish the connection, you can retry to connect"))
+                accessPanel.state = "NeeedAccessCode"
                 break
 
             default:
@@ -138,7 +148,10 @@ Item {
         enabled: visible
         width: parent.width
         height: 200
-        anchors {top: separator1.bottom; horizontalCenter: parent.horizontalCenter}
+        anchors {
+            top: separator1.bottom
+            horizontalCenter: parent.horizontalCenter
+        }
     }
 
     ConnectingItem {
@@ -147,7 +160,10 @@ Item {
         enabled: visible
         width: parent.width
         height: 200
-        anchors {top: separator1.bottom; horizontalCenter: parent.horizontalCenter}
+        anchors {
+            top: separator1.bottom
+            horizontalCenter: parent.horizontalCenter
+        }
     }
 
     ConnectedItem {
@@ -156,7 +172,10 @@ Item {
         enabled: visible
         width: parent.width
         height: 200
-        anchors {top: separator1.bottom; horizontalCenter: parent.horizontalCenter}
+        anchors {
+            top: separator1.bottom
+            horizontalCenter: parent.horizontalCenter
+        }
     }
 
     ErrorItem {
@@ -165,10 +184,11 @@ Item {
         enabled: visible
         width: parent.width
         height: 200
-        anchors {top: separator1.bottom; horizontalCenter: parent.horizontalCenter}
-        onRetryConnect: {
-            manualRetry = true
+        anchors {
+            top: separator1.bottom
+            horizontalCenter: parent.horizontalCenter
         }
+        onRetryConnect: accessPanel.state = "NeeedAccessCode"
     }
 
     states:[
@@ -184,7 +204,6 @@ Item {
         State {
             name: "error"
         }
-
     ]
 }
 

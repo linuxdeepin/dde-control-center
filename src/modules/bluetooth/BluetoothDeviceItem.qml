@@ -55,8 +55,8 @@ Item {
         MouseArea {
             anchors.fill: parent
             hoverEnabled: true
-            onEntered: parent.color = parent.DConstants.hoverColor
-            onExited: parent.color = parent.DConstants.fgColor
+            onEntered: parent.color = parent.DPalette.hoverColor
+            onExited: parent.color = parent.DPalette.fgColor
             onClicked: {
                 if (itemState == bluetoothDeviceDisconnected)
                     deviceItem.connectDevice()

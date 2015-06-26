@@ -60,7 +60,7 @@ Column {
 
     Rectangle {
         id: customKeybindingContentArea
-        color: DConstants.contentBgColor
+        color: DPalette.contentBgColor
         width: parent.width
         height: childrenRect.height
         clip: true

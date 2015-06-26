@@ -100,7 +100,7 @@ Item {
                 id: logoBox
                 width: parent.width
                 height: 118
-                color: DConstants.contentBgColor
+                color: DPalette.contentBgColor
 
                 Image {
                     anchors.top: parent.top
@@ -158,7 +158,7 @@ Item {
             }
 
             Rectangle {
-                color: DConstants.contentBgColor
+                color: DPalette.contentBgColor
                 height: 20
                 width: parent.width
             }
@@ -191,7 +191,7 @@ Item {
                     TextEdit {
                         id: gplTextEditTitle
                         width: parent.width
-                        color: DConstants.fgDarkColor
+                        color: DPalette.fgDarkColor
                         font.pixelSize: 11
                         text: mainObject.getGplText(lang, "title")
                         textMargin: 6
@@ -203,7 +203,7 @@ Item {
                     TextEdit {
                         id: gplTextEdit
                         width: parent.width
-                        color: DConstants.fgDarkColor
+                        color: DPalette.fgDarkColor
                         font.pixelSize: 11
                         text: mainObject.getGplText(lang, "body")
                         textMargin: 6

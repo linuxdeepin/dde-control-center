@@ -49,7 +49,7 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignLeft
-        color: DConstants.fgColor
+        color: DPalette.fgColor
         font.pixelSize: 12
     }
 
@@ -58,21 +58,21 @@ Item {
         hoverEnabled: true
         onEntered: {
             identifyImg.source = hover_image
-            identifyText.color = DConstants.hoverColor
+            identifyText.color = DPalette.hoverColor
         }
         onExited: {
             identifyImg.source = normal_image
-            identifyText.color = DConstants.fgColor
+            identifyText.color = DPalette.fgColor
         }
         onPressed: {
             identifyImg.source = press_image
-            identifyText.color = DConstants.activeColor
+            identifyText.color = DPalette.activeColor
 
             imageLabel.clicked()
         }
         onReleased: {
             identifyImg.source = normal_image
-            identifyText.color = DConstants.fgColor
+            identifyText.color = DPalette.fgColor
         }
 
     }

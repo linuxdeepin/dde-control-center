@@ -16,7 +16,7 @@ Item {
         width: parent.width
         height: childrenRect.height
         anchors.top: parent.top
-        color: DConstants.contentBgColor
+        color: DPalette.contentBgColor
 
         Text {
             id: connectedText
@@ -40,11 +40,16 @@ Item {
 
     DTextButton {
         text: dsTr("Disconnect")
-        anchors {right: parent.right; rightMargin: 8; top: connectedSeparator.bottom; topMargin: 5}
+        anchors {
+            right: parent.right
+            rightMargin: 8
+            top: connectedSeparator.bottom
+            topMargin: 5
+        }
 
         onClicked: {
-            reset()
             remotingClient.Stop()
+            resetPage()
         }
     }
 }

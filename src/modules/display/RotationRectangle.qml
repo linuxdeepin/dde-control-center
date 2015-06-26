@@ -52,7 +52,7 @@ Item {
     Rectangle {
         width: parent.width - 30
         height: visible ? 2 : 0
-        color: DConstants.bgColor
+        color: DPalette.bgColor
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
         visible: itemIndex != 0 && shouldShowMonitorName
@@ -66,7 +66,7 @@ Item {
         anchors.topMargin: 10
         anchors.left: parent.left
         anchors.leftMargin: 20
-        color: DConstants.fgDarkColor
+        color: DPalette.fgDarkColor
         text: dsTr("Monitor") + " " + pOutputObjName
     }
 

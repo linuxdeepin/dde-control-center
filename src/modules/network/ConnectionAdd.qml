@@ -18,7 +18,7 @@ Column {
     Rectangle {
         width: parent.width
         height: childrenRect.height
-        color: DConstants.contentBgColor
+        color: DPalette.contentBgColor
 
         ListView {
             id: typeList

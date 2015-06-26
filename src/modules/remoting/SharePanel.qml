@@ -7,8 +7,10 @@
 *
 *************************************************************/
 import QtQuick 2.1
+
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Remoting.Server 1.0
+
 import "./ShareContent"
 
 
@@ -47,15 +49,22 @@ Item {
     property var remotingServer: RemotingServer {}
 
     Component.onCompleted: {
+        if (remotingManager.CheckNetworkConnectivity() ===
+                remotingItem.networkStatusDisconnected) {
+            errorItem.setErrorMessage(dsTr("There is no network connection currently, please try again after you connect to the Internet"))
+            sharePanel.state = "error"
+            return
+        }
 
         var serverStatus = remotingServer.GetStatus()
-        switch (serverStatus){
+        switch (serverStatus) {
         case serverStatusUninitialized:
             remotingServer.Start()
             break
 
         case serverStatusPeerIdOk:
-            generatedCodeitem.setCodeText(remotingServer.GetPeerId())
+            var peerId = remotingServer.GetPeerId()
+            generatedCodeitem.setCodeText(peerId)
             sharePanel.state = "CreatedCode"
             break
 
@@ -68,7 +77,7 @@ Item {
             break
 
         case serverStatusPeerIdFailed:
-            errorItem.setErrorMessage(dsT("Network error!"))
+            errorItem.setErrorMessage(dsTr("Failed to get the verification code, you can retry or cancel the operation"))
             sharePanel.state = "error"
             break
 
@@ -80,11 +89,18 @@ Item {
     Connections {
         target: remotingServer
         onStatusChanged: {
-            switch (status){
+            if (remotingManager.CheckNetworkConnectivity() ==
+                    networkStatusDisconnected) {
+                errorItem.setErrorMessage(dsTr("There is no network connection currently, please try again after you connect to the Internet"))
+                sharePanel.state = "error"
+                return
+            }
+
+            switch (status) {
             case serverStatusPeerIdOk:
+                var peerId = remotingServer.GetPeerId()
+                generatedCodeitem.setCodeText(peerId)
                 sharePanel.state = "CreatedCode"
-                var peerId = remotingServer.GetPeerId();
-                generatedCodeitem.setCodeText(peerId);
                 break
 
             case serverStatusSharing:
@@ -92,12 +108,14 @@ Item {
                 break
 
             case serverStatusStoped:
-                sharePanel.state = "CreatingCode"
-                reset()
+                if (sharePanel.state !== "error") {
+                    sharePanel.state = "CreatingCode"
+                    resetPage()
+                }
                 break
 
             case serverStatusPeerIdFailed:
-                errorItem.setErrorMessage(dsT("Network error!"))
+                errorItem.setErrorMessage(dsTr("Failed to get the verification code, you can retry or cancel the operation"))
                 sharePanel.state = "error"
                 break
 
@@ -124,7 +142,10 @@ Item {
         enabled: visible
         width: parent.width
         height: 200
-        anchors {top: separator1.bottom; horizontalCenter: parent.horizontalCenter}
+        anchors {
+            top: separator1.bottom
+            horizontalCenter: parent.horizontalCenter
+        }
     }
 
     GeneratedCodeItem {
@@ -133,7 +154,10 @@ Item {
         enabled: visible
         width: parent.width
         height: 200
-        anchors {top: separator1.bottom; horizontalCenter: parent.horizontalCenter}
+        anchors {
+            top: separator1.bottom
+            horizontalCenter: parent.horizontalCenter
+        }
     }
 
     ConnectedItem {
@@ -142,7 +166,10 @@ Item {
         enabled: visible
         width: parent.width
         height: 200
-        anchors {top: separator1.bottom; horizontalCenter: parent.horizontalCenter}
+        anchors {
+            top: separator1.bottom
+            horizontalCenter: parent.horizontalCenter
+        }
     }
 
     ErrorItem {
@@ -151,11 +178,14 @@ Item {
         enabled: visible
         width: parent.width
         height: 200
-        anchors {top: separator1.bottom; horizontalCenter: parent.horizontalCenter}
+        anchors {
+            top: separator1.bottom
+            horizontalCenter: parent.horizontalCenter
+        }
         onRetryGenerateCode: sharePanel.state = "CreatingCode"
     }
 
-    states:[
+    states: [
         State {
             name: "CreatingCode"
         },
@@ -168,6 +198,5 @@ Item {
         State {
             name: "error"
         }
-
     ]
 }

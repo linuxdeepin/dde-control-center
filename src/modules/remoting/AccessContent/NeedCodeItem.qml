@@ -16,13 +16,15 @@ Item {
     property alias code: codeInput.text
     property color inactiveColor: "#515151"
 
-    function showError(){
+    function showError(msg){
         needCodeItem.state = "error"
+        codeText.text = msg
     }
 
     function filterPeerId() {
         codeInput.text = codeInput.text.trim().substring(0, 6)
     }
+
     property var peerIdRegExp: /[A-Za-z0-9]{6}/
 
     function validatePeerId(peerId) {
@@ -34,18 +36,21 @@ Item {
         width: parent.width
         height: childrenRect.height
         anchors.top: parent.top
-        color: DConstants.contentBgColor
+        color: DPalette.contentBgColor
 
         TextInput {
             id: codeInput
             font.pixelSize: 30
-            color: DConstants.activeColor
+            color: DPalette.activeColor
             horizontalAlignment: TextInput.AlignHCenter
             verticalAlignment: TextInput.AlignVCenter
             width: parent.width
             height: 70
             selectByMouse: true
-            anchors {top: parent.top; horizontalCenter: parent.horizontalCenter}
+            anchors {
+                top: parent.top
+                horizontalCenter: parent.horizontalCenter
+            }
             Component.onCompleted: forceActiveFocus()
 
             //validator: RegExpValidator{
@@ -79,7 +84,7 @@ Item {
         Rectangle {
             width: parent.width - 15 * 2
             height: 1
-            color: DConstants.fgDarkColor
+            color: DPalette.fgDarkColor
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: codeInput.bottom
         }
@@ -89,7 +94,11 @@ Item {
             width: contentWidth
             height: 20
             verticalAlignment: Text.AlignTop
-            anchors {top: codeInput.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter}
+            anchors {
+                top: codeInput.bottom
+                topMargin: 10
+                horizontalCenter: parent.horizontalCenter
+            }
             font.pixelSize: 10
             color: "#7C7C7C"
             text: dsTr("Please enter the verification code in the input field above")
@@ -98,19 +107,24 @@ Item {
     }
 
     DSeparatorHorizontal {
-        id:codeSeparator
+        id: codeSeparator
         anchors.top: contentRec1.bottom
     }
 
     Row {
         spacing: 3
-        anchors {right: parent.right; rightMargin: 8; top: codeSeparator.bottom; topMargin: 5}
+        anchors {
+            right: parent.right
+            rightMargin: 8
+            top: codeSeparator.bottom
+            topMargin: 5
+        }
 
         DTextButton {
             text: dsTr("Cancel")
 
             onClicked: {
-                reset()
+                resetPage()
             }
         }
 
@@ -132,7 +146,7 @@ Item {
             name: "inputting"
             PropertyChanges {
                 target: codeText
-                text: dsTr("Please input access token")
+                text: dsTr("Please enter the verification code in the input field above")
                 color: "#7C7C7C"
             }
         },
@@ -140,8 +154,7 @@ Item {
             name: "error"
             PropertyChanges {
                 target: codeText
-                text: dsTr("Acess token is invalid, please retry")
-                color: DConstants.tuhaoColor
+                color: DPalette.tuhaoColor
             }
             PropertyChanges {
                 target: connectButton
@@ -157,7 +170,7 @@ Item {
             }
             PropertyChanges {
                 target: connectButton
-                textColor: DConstants.textNormalColor
+                textColor: DPalette.textNormalColor
             }
         }
 

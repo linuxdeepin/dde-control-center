@@ -164,7 +164,7 @@ ListView {
                         name: "hover_shrinked"
                         PropertyChanges {
                             target: delete_line
-                            nameColor: userIsCurrentUser(this_user) ? "#faca57" : DConstants.hoverColor
+                            nameColor: userIsCurrentUser(this_user) ? "#faca57" : DPalette.hoverColor
                             expandButtonStatus: userIsCurrentUser(this_user) ? "golden" : "hover"
                             expandButtonUp: false
                         }
@@ -173,7 +173,7 @@ ListView {
                         name: "hover_expanded"
                         PropertyChanges {
                             target: delete_line
-                            nameColor: userIsCurrentUser(this_user) ? "#faca57" : DConstants.hoverColor
+                            nameColor: userIsCurrentUser(this_user) ? "#faca57" : DPalette.hoverColor
                             expandButtonStatus: userIsCurrentUser(this_user) ? "golden" : "hover"
                             expandButtonUp: true
                         }
@@ -182,7 +182,7 @@ ListView {
                         name: "normal"
                         PropertyChanges {
                             target: delete_line
-                            nameColor: userIsCurrentUser(this_user) ? "#faca57" : DConstants.fgColor
+                            nameColor: userIsCurrentUser(this_user) ? "#faca57" : DPalette.fgColor
                             expandButtonStatus: userIsCurrentUser(this_user) ? "golden" : "normal"
                             expandButtonUp: false
                         }
@@ -226,7 +226,7 @@ ListView {
 
                         DssH3 {
                             text: this_user.accountType == 0 ? dsTr("Normal User") : dsTr("Administrator")
-                            color: DConstants.fgColor
+                            color: DPalette.fgColor
                             font.pixelSize: 10
                         }
 

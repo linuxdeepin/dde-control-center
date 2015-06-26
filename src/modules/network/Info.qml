@@ -43,7 +43,7 @@ Column {
             }
             content.sourceComponent: DBaseLine {
                 height: leftLoader.item.height
-                color: DConstants.contentBgColor
+                color: DPalette.contentBgColor
                 leftLoader.sourceComponent: Column {
                     width: root.width
                     InfoItem {

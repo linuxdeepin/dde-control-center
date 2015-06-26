@@ -50,7 +50,7 @@ BaseConnectionEdit {
         visible: editPage.connectionPath !== undefined && connectionAllowDelete
         DBaseLine {
             id: deleteSettingLine
-            color: DConstants.contentBgColor
+            color: DPalette.contentBgColor
 
             property bool inDeleteSetting: false
             property bool hovered: false
@@ -60,16 +60,16 @@ BaseConnectionEdit {
                 text: deleteSettingLine.inDeleteSetting ? dsTr("Are you sure you want to delete this network?") : dsTr("Delete this network")
                 color: {
                     if(deleteSettingLine.inDeleteSetting){
-                        return DConstants.tuhaoColor
+                        return DPalette.tuhaoColor
                     }
                     else if(deleteSettingLine.pressed){
-                        return DConstants.activeColor
+                        return DPalette.activeColor
                     }
                     else if (deleteSettingLine.hovered){
-                        return DConstants.hoverColor
+                        return DPalette.hoverColor
                     }
                     else{
-                        return DConstants.fgColor
+                        return DPalette.fgColor
                     }
                 }
             }

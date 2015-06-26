@@ -137,12 +137,12 @@ Item {
 
             color: {
                 if(selected){
-                    return DConstants.activeColor
+                    return DPalette.activeColor
                 }else if(hovered){
-                    return DConstants.hoverColor
+                    return DPalette.hoverColor
                 }
                 else{
-                    return DConstants.fgColor
+                    return DPalette.fgColor
                 }
             }
             font.pixelSize: 12

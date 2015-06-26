@@ -12,9 +12,9 @@ Rectangle {
     property int verticalPadding: 3
     property int horizontalPadding: 10
 
-    property color fontNormalColor: DConstants.fgColor
-    property color fontHoverColor: DConstants.hoverColor
-    property color fontPressedColor: DConstants.activeColor
+    property color fontNormalColor: DPalette.fgColor
+    property color fontHoverColor: DPalette.hoverColor
+    property color fontPressedColor: DPalette.activeColor
     property color bgNormalColor: Qt.rgba(0, 0, 0, 0)
     property color bgPressedColor: Qt.rgba(0, 0, 0, 0.4)
 

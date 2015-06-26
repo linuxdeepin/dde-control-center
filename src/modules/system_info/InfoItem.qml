@@ -27,7 +27,7 @@ import Deepin.Widgets 1.0
 Rectangle {
     width: parent.width
     height: 28
-    color: DConstants.contentBgColor
+    color: DPalette.contentBgColor
 
     property string title
     property string value

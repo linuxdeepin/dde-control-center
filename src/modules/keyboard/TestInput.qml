@@ -31,7 +31,7 @@ DTextInput{
     textInput.cursorDelegate: Rectangle {
         width: 1
         height: parent.height
-        color: DConstants.fgColor
+        color: DPalette.fgColor
         opacity: cursorBlinkTimer.cursorOpacity
     }
 

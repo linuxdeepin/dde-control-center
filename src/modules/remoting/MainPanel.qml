@@ -1,6 +1,7 @@
 import QtQuick 2.1
 
 import Deepin.Widgets 1.0
+
 import "../shared/"
 import "./Widgets"
 
@@ -11,12 +12,20 @@ Item {
     property int sliderWidth: 170
     property int leftWidth: 100
     property int centerPadding: 16
+    width: parent.width
 
+    // HACKING: This slot is used to bypass UI letancy of StackView
+    onXChanged: {
+        if (x === 0) {
+            x = 1
+            x = 0
+        }
+    }
 
     DssTitle {
         id:remotingTitle
         anchors.top: parent.top
-        text: dsTr("Feedback and help") //modulesId.moduleLocaleNames["remoting"]
+        text: dsTr("Feedback and help")
     }
 
     DSeparatorHorizontal {
@@ -36,8 +45,6 @@ Item {
 
     FeatureButton {
         id: shareButton
-        width: parent.width
-        height: 70
         anchors.top: desktopBaseLine.bottom
 
         title: dsTr("Share")
@@ -52,8 +59,6 @@ Item {
 
     FeatureButton {
         id: accessButton
-        width: parent.width
-        height: 70
         anchors.top: shareButton.bottom
 
         title: dsTr("Access")

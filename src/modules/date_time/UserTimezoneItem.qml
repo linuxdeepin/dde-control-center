@@ -118,7 +118,7 @@ Item {
             anchors.topMargin: 6
             anchors.left: deleteButton.right
             anchors.leftMargin: 14
-            color: pIsCurrentTimezone ? DConstants.activeColor : "#e6e6e6"
+            color: pIsCurrentTimezone ? DPalette.activeColor : "#e6e6e6"
             font.pixelSize: 12
             elide: Text.ElideRight
             height: 30
@@ -135,7 +135,7 @@ Item {
             anchors.left: deleteButton.right
             anchors.leftMargin: 14
             text: pOffsetName
-            color: pIsCurrentTimezone ? DConstants.activeColor : "#e6e6e6"
+            color: pIsCurrentTimezone ? DPalette.activeColor : "#e6e6e6"
             font.pixelSize: 11
             elide: Text.ElideRight
             height: 20

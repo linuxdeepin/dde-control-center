@@ -230,7 +230,7 @@ DOverrideWindow {
 
     Rectangle {
         id: frame
-        color: DConstants.bgColor
+        color: DPalette.bgColor
 
         width: panelWidth
         height: parent.height

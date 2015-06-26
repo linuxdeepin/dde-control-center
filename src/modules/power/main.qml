@@ -5,7 +5,7 @@ import "../shared"
 
 Rectangle {
     id: power
-    color: DConstants.bgColor
+    color: DPalette.bgColor
     width: 310
     height: 600
 
@@ -345,7 +345,7 @@ Rectangle {
                 width: parent.width
                 height: dbus_power.linePowerPlan == 0 ? 150 + arrow_rect_1.arrowHeight :  0
                 visible: dbus_power.linePowerPlan == 0
-                color: DConstants.contentBgColor
+                color: DPalette.contentBgColor
 
                 Behavior on height {
                     SmoothedAnimation {duration: 200}
@@ -355,7 +355,7 @@ Rectangle {
 
                 ArrowRect {
                     id: arrow_rect_1
-                    fillStyle: DConstants.bgColor
+                    fillStyle: DPalette.bgColor
                     stroke: false
                     radius: 0
                     lineWidth: 0
@@ -381,13 +381,13 @@ Rectangle {
                         height: parent.height / 5
                         width: parent.width
                         text: dsTr("Turn off the display")
-                        color: DConstants.contentBgColor
+                        color: DPalette.contentBgColor
                     }
 
                     Rectangle {
                         width: parent.width
                         height: parent.height / 5
-                        color: DConstants.contentBgColor
+                        color: DPalette.contentBgColor
                         GridView{
                             id: ac_turn_off_monitor_view
                             anchors.fill: parent
@@ -422,12 +422,12 @@ Rectangle {
                         height: parent.height / 5
                         width: parent.width
                         text: dsTr("Suspend")
-                        color: DConstants.contentBgColor
+                        color: DPalette.contentBgColor
                     }
                     Rectangle {
                         width: parent.width
                         height: parent.height / 5
-                        color: DConstants.contentBgColor
+                        color: DPalette.contentBgColor
                         GridView{
                             id: ac_suspend_view
                             anchors.fill: parent
@@ -586,7 +586,7 @@ Rectangle {
                 width: parent.width
                 height: dbus_power.batteryPlan == 0 ? battery_custom_column.height + arrow_rect_2.arrowHeight : 0
                 visible: dbus_power.batteryPlan == 0 && dbus_power.batteryIsPresent
-                color: DConstants.contentBgColor
+                color: DPalette.contentBgColor
 
                 Behavior on height {
                     SmoothedAnimation { duration: 300 }
@@ -594,7 +594,7 @@ Rectangle {
 
                 ArrowRect {
                     id: arrow_rect_2
-                    fillStyle: DConstants.bgColor
+                    fillStyle: DPalette.bgColor
                     stroke: false
                     radius: 0
                     lineWidth: 0
@@ -614,14 +614,14 @@ Rectangle {
                     }
                     TitleSeparator {
                         width: parent.width
-                        color: DConstants.contentBgColor
+                        color: DPalette.contentBgColor
                         text: dsTr("Turn off the display")
                     }
 
                     Rectangle {
                         width: parent.width
                         height: 30
-                        color: DConstants.contentBgColor
+                        color: DPalette.contentBgColor
                         GridView{
                             id: battery_turn_off_monitor_view
                             anchors.fill: parent
@@ -654,13 +654,13 @@ Rectangle {
                     }
                     TitleSeparator {
                         width: parent.width
-                        color: DConstants.contentBgColor
+                        color: DPalette.contentBgColor
                         text: dsTr("Suspend")
                     }
                     Rectangle {
                         width: parent.width
                         height: 30
-                        color: DConstants.contentBgColor
+                        color: DPalette.contentBgColor
                         GridView{
                             id: battery_suspend_view
                             anchors.fill: parent

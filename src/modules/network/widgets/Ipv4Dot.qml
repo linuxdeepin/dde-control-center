@@ -10,6 +10,6 @@ Item{
         height: 2
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 2
-        color: DConstants.fgColor
+        color: DPalette.fgColor
     }
 }

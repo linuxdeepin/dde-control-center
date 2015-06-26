@@ -11,12 +11,11 @@ import Deepin.Widgets 1.0
 
 Item {
 
-
     function setCodeText(value){
         codeText.text = value
     }
 
-    // Display `copy-to-clipboard` message
+    // Display `copy-to-clipboard` tooltip
     function popupCopyTip() {
         copyTip.visible = true
         copyTipTimer.start()
@@ -27,7 +26,7 @@ Item {
         width: parent.width
         height: childrenRect.height
         anchors.top: parent.top
-        color: DConstants.contentBgColor
+        color: DPalette.contentBgColor
 
         TextEdit {
             id: codeText
@@ -35,11 +34,14 @@ Item {
             width: parent.width
             height: 50
             font.pixelSize: 24
-            color: DConstants.activeColor
+            color: DPalette.activeColor
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
-            anchors {top: parent.top; horizontalCenter: parent.horizontalCenter}
-            text: "kfjfhf"
+            anchors {
+                top: parent.top
+                horizontalCenter: parent.horizontalCenter
+            }
+            text: ""
         }
 
         Text {
@@ -52,19 +54,28 @@ Item {
             wrapMode: Text.Wrap
             font.pixelSize: 10
             color: "#7C7C7C"
-            anchors {top: codeText.bottom; topMargin: 10; horizontalCenter: parent.horizontalCenter}
+            anchors {
+                top: codeText.bottom
+                topMargin: 10
+                horizontalCenter: parent.horizontalCenter
+            }
             text: dsTr("To start sharing your desktop, please provide the above verification code to whom will assist you;  your shared session will begin immediately after verification code input")
         }
     }
 
     DSeparatorHorizontal {
-        id:createdTextSeparator
+        id: createdTextSeparator
         anchors.top: contentRec2.bottom
     }
 
     Row {
         id: buttonBox
-        anchors {right: parent.right; rightMargin: 8; top: createdTextSeparator.bottom; topMargin: 5}
+        anchors {
+            right: parent.right
+            rightMargin: 8
+            top: createdTextSeparator.bottom
+            topMargin: 5
+        }
         spacing: 5
 
         DTextButton {
@@ -72,7 +83,7 @@ Item {
 
             onClicked: {
                 remotingServer.Stop()
-                reset()
+                resetPage()
             }
         }
 

@@ -157,7 +157,7 @@ Rectangle {
             anchors.topMargin: 10
             anchors.horizontalCenter: dynamicTime.horizontalCenter
             font.pixelSize: 12
-            color: DConstants.tuhaoColor
+            color: DPalette.tuhaoColor
             text: dsTr("Double-click this area to change your time")
             visible: opacity != 0
             opacity: 0
@@ -217,7 +217,7 @@ Rectangle {
                 width: 1
                 height: cancelButton.height - 10
                 anchors.verticalCenter: cancelButton.verticalCenter
-                color: DConstants.fgColor
+                color: DPalette.fgColor
             }
 
             DTextAction {

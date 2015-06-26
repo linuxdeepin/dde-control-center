@@ -152,7 +152,7 @@ Item {
 
             DBaseLine {
                 id: hiddenNetworkLine
-                color: DConstants.contentBgColor
+                color: DPalette.contentBgColor
 
                 property bool hovered: false
 
@@ -162,7 +162,7 @@ Item {
                     anchors.verticalCenter: parent.verticalCenter
                     text: dsTr("Connect to hidden access point")
                     font.pixelSize: 12
-                    color: hiddenNetworkLine.hovered ? DConstants.hoverColor : DConstants.fgColor
+                    color: hiddenNetworkLine.hovered ? DPalette.hoverColor : DPalette.fgColor
                 }
                 rightLoader.sourceComponent: DArrowButton {
                     onClicked: gotoConnectHiddenAP()
@@ -186,7 +186,7 @@ Item {
             /************
             DBaseLine {
                 id: wifiHotspotLine
-                color: DConstants.contentBgColor
+                color: DPalette.contentBgColor
                 visible: true
 
                 property var hotspotInfo: {
@@ -209,7 +209,7 @@ Item {
                     anchors.verticalCenter: parent.verticalCenter
                     text: wifiHotspotLine.hotspotInfo ? dsTr("Hotspot") + wifiHotspotLine.hotspotInfo.Id : dsTr("Create Access Point")
                     font.pixelSize: 12
-                    color: wifiHotspotLine.hovered ? DConstants.hoverColor : DConstants.fgColor
+                    color: wifiHotspotLine.hovered ? DPalette.hoverColor : DPalette.fgColor
                 }
                 rightLoader.sourceComponent: DArrowButton {
                     onClicked: gotoCreateAP(wifiHotspotLine.hotspotInfo)

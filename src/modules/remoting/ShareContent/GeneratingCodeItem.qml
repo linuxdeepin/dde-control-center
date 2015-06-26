@@ -16,18 +16,27 @@ Item {
         id: contentRec
         width: parent.width
         height: 70
-        color: DConstants.contentBgColor
+        color: DPalette.contentBgColor
 
         WaitingImage {
             id: waitingimg
             width: 16
             height: 16
-            anchors {right: creatingTipText.left; rightMargin: 5; top: creatingTipText.top;topMargin: 3}
-            on: sharePanel.state == "CreatingCode"
+            anchors {
+                right: creatingTipText.left
+                rightMargin: 5
+                top: creatingTipText.top
+                topMargin: 3
+            }
         }
+
         Text {
             id: creatingTipText
-            anchors {left: parent.left;leftMargin: 16 + 16 + 5;  verticalCenter: parent.verticalCenter}
+            anchors {
+                left: parent.left
+                leftMargin: 16 + 16 + 5
+                verticalCenter: parent.verticalCenter
+            }
             width:  parent.width - 16 * 2 - 5
             height: contentHeight + 10
             lineHeight: 1.3
@@ -41,17 +50,22 @@ Item {
     }
 
     DSeparatorHorizontal {
-        id:creatingTextSeparator
+        id: creatingTextSeparator
         anchors.top: contentRec.bottom
     }
 
     DTextButton {
         text: dsTr("Cancel")
-        anchors {right: parent.right; rightMargin: 8; top: creatingTextSeparator.bottom; topMargin: 5}
+        anchors {
+            right: parent.right
+            rightMargin: 8
+            top: creatingTextSeparator.bottom
+            topMargin: 5
+        }
 
         onClicked: {
-            reset()
             remotingServer.Stop()
+            resetPage()
         }
     }
 }
