@@ -149,11 +149,6 @@ Rectangle {
             else if(module_id == "wacom" && !isWacomExist){
                 continue
             }
-            ///////////////////////////////TODO;THIS CODE SHOULD BE REMOVE WHEN REMOTING MODULE IS COMPLETED////////////////////////////
-            else if(module_id == "remoting"){
-                continue
-            }
-            ///////////////////////////////TODO;REMOVE;REMOTING//////////////////////////////////////////////////////////////////////////////////
             else{
                 var localeName = modulesId.moduleLocaleNames[module_id]
             }
