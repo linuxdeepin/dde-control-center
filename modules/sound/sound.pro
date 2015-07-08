@@ -7,4 +7,3 @@ SOURCES         = sound.cpp
 TARGET          = $$qtLibraryTarget(sound)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 
-EXAMPLE_FILES = sound.json

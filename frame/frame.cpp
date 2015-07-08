@@ -1,24 +1,50 @@
 #include "frame.h"
 #include <QDir>
+#include <QLibrary>
 #include <QPluginLoader>
 #include <QtWidgets>
+#include <QJsonObject>
+#include <QJsonDocument>
 
-Frame::Frame()
+#include "homescreen.h"
+
+Frame::Frame(QWidget * parent) :
+    QFrame(parent)
 {
-    setFixedWidth(100);
-    setFixedHeight(100);
+    setWindowFlags(Qt::FramelessWindowHint);
 
-    QGridLayout *layout = new QGridLayout(this);
+    setFixedWidth(380);
+    setFixedHeight(900);
 
+    setStyleSheet("Frame { background-color: #252627 }");
+
+    this->loadPlugins();
+
+    m_homeScreen = new HomeScreen(m_modules, this);
+    m_homeScreen->setFixedSize(this->size());
+}
+
+// private methods
+void Frame::loadPlugins()
+{
     QDir pluginsDir(qApp->applicationDirPath());
     pluginsDir.cd("modules");
     foreach (QString fileName, pluginsDir.entryList(QDir::Files)) {
-        QPluginLoader pluginLoader(pluginsDir.absoluteFilePath(fileName));
-        QObject *plugin = pluginLoader.instance();
-        if (plugin) {
-            ModuleInterface* moduleInterface = qobject_cast<ModuleInterface*>(plugin);
-            layout->addWidget(moduleInterface->getContent());
-            pluginLoader.unload();
-        }
+        if (!QLibrary::isLibrary(fileName))
+            continue;
+
+        QString filePath = pluginsDir.absoluteFilePath(fileName);
+        QPluginLoader pluginLoader(filePath);
+        QJsonObject metaData = pluginLoader.metaData().value("MetaData").toObject();
+
+        ModuleMetaData meta = {
+            filePath,
+            metaData.value("name").toString(),
+            metaData.value("icon").toObject().value("normal").toString(),
+            metaData.value("icon").toObject().value("hover").toString(),
+            metaData.value("icon").toObject().value("selected").toString()
+        };
+
+        m_modules << meta;
     }
 }

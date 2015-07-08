@@ -1,16 +1,25 @@
 #ifndef FRAME_H
 #define FRAME_H
 
-#include <QWidget>
+#include <QFrame>
+#include <QList>
 
 #include "interfaces.h"
+#include "modulemetadata.h"
 
-class Frame: public QWidget
+class HomeScreen;
+class Frame: public QFrame
 {
     Q_OBJECT
 
 public:
-    Frame();
+    Frame(QWidget * parent = 0);
+
+private:
+    HomeScreen * m_homeScreen;
+    QList<ModuleMetaData> m_modules;
+
+    void loadPlugins();
 };
 
 #endif

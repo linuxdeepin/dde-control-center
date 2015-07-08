@@ -1,1 +1,8 @@
-{}
+{
+	"name": "Power",
+	"icon": {
+		"normal": "power_normal.png",
+		"hover": "power_hover.png",
+		"selected": "power_press.png"
+	}
+}

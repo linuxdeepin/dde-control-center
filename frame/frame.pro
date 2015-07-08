@@ -1,9 +1,12 @@
 QT += widgets
 
 HEADERS    = frame.h \
-             interfaces.h
+             interfaces.h \
+    homescreen.h \
+    modulemetadata.h
 SOURCES    = frame.cpp \
-             main.cpp
+             main.cpp \
+    homescreen.cpp
 
 TARGET     = dde-control-center
-DESTDIR    = ../
+DESTDIR    = $$_PRO_FILE_PWD_/../

@@ -1,1 +1,8 @@
-{}
+{
+	"name": "Sound",
+	"icon": {
+		"normal": "sound_normal.png",
+		"hover": "sound_hover.png",
+		"selected": "sound_press.png"
+	}
+}
