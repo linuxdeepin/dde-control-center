@@ -4,10 +4,14 @@ HEADERS    = frame.h \
              interfaces.h \
     homescreen.h \
     modulemetadata.h \
-    constants.h
+    constants.h \
+    sidebar.h \
+    contentview.h
 SOURCES    = frame.cpp \
              main.cpp \
-    homescreen.cpp
+    homescreen.cpp \
+    sidebar.cpp \
+    contentview.cpp
 
 TARGET     = dde-control-center
 DESTDIR    = $$_PRO_FILE_PWD_/../

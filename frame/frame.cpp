@@ -6,8 +6,10 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QHBoxLayout>
+#include <QStackedLayout>
 
 #include "homescreen.h"
+#include "contentview.h"
 
 Frame::Frame(QWidget * parent) :
     QFrame(parent)
@@ -21,12 +23,19 @@ Frame::Frame(QWidget * parent) :
 
     this->listPlugins();
 
-    m_layout = new QHBoxLayout(this);
+    QHBoxLayout *mainLayout = new QHBoxLayout(this);
 
     m_homeScreen = new HomeScreen(m_modules, this);
-    m_homeScreen->setFixedSize(this->size());
+    m_contentView = new ContentView(m_modules, this);
+
+    m_stackedLayout = new QStackedLayout;
+    m_stackedLayout->addWidget(m_homeScreen);
+    m_stackedLayout->addWidget(m_contentView);
+
+    mainLayout->addLayout(m_stackedLayout);
 
     connect(m_homeScreen, &HomeScreen::moduleSelected, this, &Frame::selectModule);
+    connect(m_contentView, &ContentView::homeSelected, [=] { ModuleMetaData meta; this->selectModule(meta); });
 }
 
 // override methods
@@ -34,22 +43,10 @@ void Frame::keyPressEvent(QKeyEvent * event)
 {
     if (event->key() == Qt::Key_Escape) {
         qApp->quit();
-    } else if (event->key() == Qt::Key_F1) {
-        selectModule(ModuleMetaData { "" });
     }
 }
 
 // private methods
-void Frame::loadPlugin(QString path)
-{
-    QPluginLoader loader(path);
-    QObject * instance = loader.instance();
-    if (instance) {
-        ModuleInterface * module = qobject_cast<ModuleInterface*>(instance);
-        m_layout->addWidget(module->getContent());
-    }
-}
-
 void Frame::listPlugins()
 {
     QDir pluginsDir(qApp->applicationDirPath());
@@ -78,10 +75,12 @@ void Frame::listPlugins()
 // private slots
 void Frame::selectModule(ModuleMetaData metaData)
 {
-    if (!metaData.path.isEmpty()) {
-        this->loadPlugin(metaData.path);
-        m_homeScreen->setVisible(false);
+    qWarning() << metaData.path;
+
+    if (!metaData.path.isNull() && !metaData.path.isEmpty()) {
+        m_contentView->setModule(metaData);
+        m_stackedLayout->setCurrentWidget(m_contentView);
     } else {
-        m_homeScreen->setVisible(true);
+        m_stackedLayout->setCurrentWidget(m_homeScreen);
     }
 }

@@ -7,9 +7,10 @@
 #include "interfaces.h"
 #include "modulemetadata.h"
 
-class QHBoxLayout;
+class QStackedLayout;
 class QKeyEvent;
 class HomeScreen;
+class ContentView;
 class Frame: public QFrame
 {
     Q_OBJECT
@@ -20,11 +21,11 @@ public:
     void keyPressEvent(QKeyEvent * event) Q_DECL_OVERRIDE;
 
 private:
-    QHBoxLayout * m_layout;
     HomeScreen * m_homeScreen;
+    ContentView * m_contentView;
+    QStackedLayout * m_stackedLayout;
     QList<ModuleMetaData> m_modules;
 
-    void loadPlugin(QString path);
     void listPlugins();
 
 private slots:

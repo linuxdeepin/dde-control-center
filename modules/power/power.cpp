@@ -3,13 +3,19 @@
 
 #include "power.h"
 
+Power::Power()
+{
+    m_label = new QLabel("Power");
+}
+
 Power::~Power()
 {
     qDebug() << "~Power()";
+
+    m_label->deleteLater();
 }
 
 QFrame* Power::getContent()
 {
-    QLabel* label = new QLabel("power"); 
-    return label;
+    return m_label;
 }

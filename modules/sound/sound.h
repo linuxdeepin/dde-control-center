@@ -5,6 +5,7 @@
 #include <QtPlugin>
 #include "interfaces.h"
 
+class QLabel;
 class QFrame;
 class Sound: public QObject, ModuleInterface
 {
@@ -13,8 +14,12 @@ class Sound: public QObject, ModuleInterface
     Q_INTERFACES(ModuleInterface)
 
 public:
+    Sound();
     ~Sound() Q_DECL_OVERRIDE;
     QFrame* getContent() Q_DECL_OVERRIDE;
+
+private:
+    QLabel * m_label;
 };
 
 #endif

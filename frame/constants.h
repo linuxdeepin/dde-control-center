@@ -5,6 +5,8 @@
 
 namespace DCC {
 
+static const uint SideBarWidth = 48;
+
 static const QColor BgColor = "#252627";
 static const QColor BgHoverColor = "#1A1B1B";
 
