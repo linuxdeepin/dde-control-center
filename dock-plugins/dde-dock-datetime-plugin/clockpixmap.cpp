@@ -118,43 +118,87 @@ void ClockPixmap::paint()
     painter.begin(this);
 
     painter.fillRect(rect(), Qt::transparent);
-    painter.setRenderHint(QPainter::Antialiasing);
+    painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
 
     // draw background
     QPixmap background = getNamedPixmap("panel");
     painter.drawPixmap(rect(), background);
 
-    // draw text time
-    QList<int> tuple = getTimeTuple();
+    if (m_analog) {
+        // draw analog clock
+        int hourRotation = (m_time.hour() % 12) * 360 / 12;
+        int minuteRotation = m_time.minute() * 360 / 60;
 
-    // draw hours
-    int centerBaseLine = PanelSize * 11 / 20;
-    painter.drawPixmap(centerBaseLine - BigNumberWidth * 2 - BigNumberSpacing,
-                       (PanelSize - BigNumberHeight) / 2,
-                       getNumberPixmap(tuple.at(0)));
-    painter.drawPixmap(centerBaseLine - BigNumberWidth,
-                       (PanelSize - BigNumberHeight) / 2,
-                       getNumberPixmap(tuple.at(1)));
-    // draw minutes
-    if (m_in24hour) {
-        painter.drawPixmap(centerBaseLine + SmallNumberSpacing,
-                           PanelSize / 2 + BigNumberHeight / 2 - SmallNumberHeight,
-                           getNumberPixmap(tuple.at(2), false));
-        painter.drawPixmap(centerBaseLine + SmallNumberWidth + SmallNumberSpacing * 2,
-                           PanelSize / 2 + BigNumberHeight / 2 - SmallNumberHeight,
-                           getNumberPixmap(tuple.at(3), false));
+        // draw dial
+        QPixmap dial = getNamedPixmap("dail");
+        painter.drawPixmap((rect().width() - dial.width()) / 2,
+                           (rect().height() - dial.height()) / 2,
+                           dial);
+
+        QPixmap hourHand = getNamedPixmap("hour_hand_with_shadow");
+        QPixmap minuteHand = getNamedPixmap("minute_hand_with_shadow");
+
+        int halfWidth = rect().width() / 2;
+        int halfHeight = rect().height() / 2;
+
+        // draw hour hand
+        painter.save();
+
+        painter.translate(halfWidth, halfHeight);
+        painter.rotate(hourRotation);
+        painter.drawPixmap(-halfWidth, -halfHeight, hourHand);
+
+        painter.restore();
+
+        // draw minute hand
+        painter.save();
+
+        painter.translate(halfWidth, halfHeight);
+        painter.rotate(minuteRotation);
+        painter.drawPixmap(-halfWidth, -halfHeight, minuteHand);
+
+        painter.restore();
+
+        // draw central point
+        QPixmap point = getNamedPixmap("point");
+
+        painter.drawPixmap((rect().width() - point.width()) / 2,
+                           (rect().height() - point.height()) / 2,
+                           point);
+
     } else {
-        painter.drawPixmap(centerBaseLine + SmallNumberSpacing,
-                           PanelSize / 2 - BigNumberHeight / 2 + 2,
-                           getNumberPixmap(tuple.at(2), false));
-        painter.drawPixmap(centerBaseLine + SmallNumberWidth + SmallNumberSpacing * 2,
-                           PanelSize / 2 - BigNumberHeight / 2 + 2,
-                           getNumberPixmap(tuple.at(3), false));
+        // draw text time
+        QList<int> tuple = getTimeTuple();
 
-        // draw am/pm mark
-        painter.drawPixmap(centerBaseLine + 2,
-                           PanelSize / 2 + BigNumberHeight / 2 - amPmHeight,
-                           getNamedPixmap("am"));
+        // draw hours
+        int centerBaseLine = PanelSize * 11 / 20;
+        painter.drawPixmap(centerBaseLine - BigNumberWidth * 2 - BigNumberSpacing,
+                           (PanelSize - BigNumberHeight) / 2,
+                           getNumberPixmap(tuple.at(0)));
+        painter.drawPixmap(centerBaseLine - BigNumberWidth,
+                           (PanelSize - BigNumberHeight) / 2,
+                           getNumberPixmap(tuple.at(1)));
+        // draw minutes
+        if (m_in24hour) {
+            painter.drawPixmap(centerBaseLine + SmallNumberSpacing,
+                               PanelSize / 2 + BigNumberHeight / 2 - SmallNumberHeight,
+                               getNumberPixmap(tuple.at(2), false));
+            painter.drawPixmap(centerBaseLine + SmallNumberWidth + SmallNumberSpacing * 2,
+                               PanelSize / 2 + BigNumberHeight / 2 - SmallNumberHeight,
+                               getNumberPixmap(tuple.at(3), false));
+        } else {
+            painter.drawPixmap(centerBaseLine + SmallNumberSpacing,
+                               PanelSize / 2 - BigNumberHeight / 2 + 2,
+                               getNumberPixmap(tuple.at(2), false));
+            painter.drawPixmap(centerBaseLine + SmallNumberWidth + SmallNumberSpacing * 2,
+                               PanelSize / 2 - BigNumberHeight / 2 + 2,
+                               getNumberPixmap(tuple.at(3), false));
+
+            // draw am/pm mark
+            painter.drawPixmap(centerBaseLine + 2,
+                               PanelSize / 2 + BigNumberHeight / 2 - amPmHeight,
+                               getNamedPixmap("am"));
+        }
     }
 
     painter.end();
