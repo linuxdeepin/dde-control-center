@@ -1,12 +1,22 @@
 #include <QLabel>
 #include <QTimer>
 #include <QDebug>
+#include <QJsonObject>
+#include <QJsonArray>
+#include <QJsonDocument>
 
 #include "datetimeplugin.h"
 #include "clockpixmap.h"
 
+static const QString MenuIdDatetimeSettings = "id_datetime_settings";
+static const QString MenuIdSwitchDisplayMode = "id_switch_display_mode";
+static const QString MenuIdShowWeek = "id_show_week:checkbox:show";
+static const QString MenuIdShowDate = "id_show_date:checkbox:show";
+
 DateTimePlugin::DateTimePlugin() :
-    QObject()
+    QObject(),
+    m_showWeek(false),
+    m_showDate(false)
 {
     m_clockPixmap = ClockPixmap(QTime::currentTime());
 
@@ -64,6 +74,75 @@ void DateTimePlugin::changeMode(Dock::DockMode newMode,
     setMode(newMode);
 }
 
+void DateTimePlugin::updateTime()
+{
+    QTime time = QTime::currentTime();
+    QDate today = QDate::currentDate();
+
+    if (m_mode == Dock::FashionMode) {
+        m_clockPixmap.setTime(time);
+
+        // if m_clockPixmap refuse to update its time,
+        // there's no need to update our label for now;
+        if (m_clockPixmap.getTime() == time) {
+            m_item->setPixmap(m_clockPixmap);
+        }
+    } else {
+        QString oldText = m_item->text();
+        QString newText = "";
+
+        if (m_showDate) {
+            newText.append(today.toString("MMMdd"));
+        }
+
+        if (m_showWeek) {
+            newText.append(today.toString("dddd"));
+        }
+
+        newText.append(time.toString(Qt::DefaultLocaleShortDate));
+
+        m_item->setText(newText);
+
+        if (newText.length() != oldText.length()) {
+            m_item->adjustSize();
+            m_proxy->itemSizeChangedEvent(m_uuid);
+        }
+    }
+}
+
+QString DateTimePlugin::getMenuContent(QString)
+{
+    QJsonObject contentObj;
+
+    QJsonArray items;
+
+    if (m_mode == Dock::FashionMode) {
+        items.append(createMenuItem(MenuIdSwitchDisplayMode, "Switch display mode"));
+    } else {
+        items.append(createMenuItem(MenuIdShowWeek, "Show week", true, m_showWeek));
+        items.append(createMenuItem(MenuIdShowDate, "Show date", true, m_showDate));
+    }
+
+    items.append(createMenuItem(MenuIdDatetimeSettings, "Datetime settings"));
+
+    contentObj.insert("items", items);
+
+    return QString(QJsonDocument(contentObj).toJson());
+}
+
+void DateTimePlugin::invokeMenuItem(QString, QString itemId, bool checked)
+{
+    if (itemId == MenuIdSwitchDisplayMode) {
+        m_clockPixmap.setAnalog(!m_clockPixmap.getAnalog());
+        m_item->setPixmap(m_clockPixmap);
+    } else if (itemId == MenuIdShowWeek) {
+        m_showWeek = checked;
+    } else if (itemId == MenuIdShowDate) {
+        m_showDate = checked;
+    }
+}
+
+// private methods
 void DateTimePlugin::setMode(Dock::DockMode mode)
 {
     m_mode = mode;
@@ -81,19 +160,20 @@ void DateTimePlugin::setMode(Dock::DockMode mode)
     m_proxy->itemSizeChangedEvent(m_uuid);
 }
 
-void DateTimePlugin::updateTime()
+QJsonObject DateTimePlugin::createMenuItem(QString itemId, QString itemName, bool checkable, bool checked)
 {
-    QTime time = QTime::currentTime();
+    QJsonObject itemObj;
 
-    if (m_mode == Dock::FashionMode) {
-        m_clockPixmap.setTime(time);
+    itemObj.insert("itemId", itemId);
+    itemObj.insert("itemText", itemName);
+    itemObj.insert("itemIcon", "");
+    itemObj.insert("itemIconHover", "");
+    itemObj.insert("itemIconInactive", "");
+    itemObj.insert("itemExtra", "");
+    itemObj.insert("isActive", true);
+    itemObj.insert("isCheckable", checkable);
+    itemObj.insert("checked", checked);
+    itemObj.insert("itemSubMenu", QJsonObject());
 
-        // if m_clockPixmap refuse to update its time,
-        // there's no need to update our label for now;
-        if (m_clockPixmap.getTime() == time) {
-            m_item->setPixmap(m_clockPixmap);
-        }
-    } else {
-        m_item->setText(time.toString(Qt::DefaultLocaleShortDate));
-    }
+    return itemObj;
 }
