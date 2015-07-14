@@ -7,6 +7,8 @@
 #include <dock/dockplugininterface.h>
 #include <dock/dockpluginproxyinterface.h>
 
+#include "dbus/dbuspower.h"
+
 class QLabel;
 class PowerPlugin : public QObject, public DockPluginInterface
 {
@@ -28,12 +30,23 @@ public:
     virtual QWidget * getApplet(QString uuid) Q_DECL_OVERRIDE;
     virtual void changeMode(Dock::DockMode newMode, Dock::DockMode oldMode) Q_DECL_OVERRIDE;
 
+    virtual QString getMenuContent(QString uuid) Q_DECL_OVERRIDE;
+    virtual void invokeMenuItem(QString uuid, QString itemId, bool checked) Q_DECL_OVERRIDE;
+
 private:
     QString m_uuid;
     QLabel * m_label;
     DockPluginProxyInterface * m_proxy;
+    Dock::DockMode m_mode;
+
+    com::deepin::daemon::Power * m_dbusPower;
 
     void setMode(Dock::DockMode mode);
+
+    QString getBatteryIcon(int percentage, bool plugged, bool symbolic = false);
+
+private slots:
+    void updateIcon();
 };
 
 #endif // POWERPLUGIN_H

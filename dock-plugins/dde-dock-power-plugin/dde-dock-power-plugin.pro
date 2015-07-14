@@ -4,15 +4,19 @@
 #
 #-------------------------------------------------
 
-QT       += core gui widgets
+QT       += core gui widgets dbus
 
 TARGET = dde-dock-power-plugin
 TEMPLATE = lib
 CONFIG += plugin
 
-SOURCES += powerplugin.cpp
+INCLUDEPATH += ../../modules/power
 
-HEADERS += powerplugin.h
+SOURCES += powerplugin.cpp \
+    ../../modules/power/dbus/dbuspower.cpp
+
+HEADERS += powerplugin.h \
+    ../../modules/power/dbus/dbuspower.h
 
 DISTFILES += dde-dock-power-plugin.json
 
