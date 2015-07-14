@@ -195,9 +195,10 @@ void ClockPixmap::paint()
                                getNumberPixmap(tuple.at(3), false));
 
             // draw am/pm mark
+            QString mark = m_time.hour() > 12 ? "pm" : "am";
             painter.drawPixmap(centerBaseLine + 2,
                                PanelSize / 2 + BigNumberHeight / 2 - amPmHeight,
-                               getNamedPixmap("am"));
+                               getNamedPixmap(mark));
         }
     }
 
