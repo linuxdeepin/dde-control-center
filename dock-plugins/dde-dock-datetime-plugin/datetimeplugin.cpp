@@ -22,6 +22,7 @@ DateTimePlugin::DateTimePlugin() :
 
     m_item = new QLabel;
     m_item->setStyleSheet("QLabel { color: white }");
+    m_item->adjustSize();
 
     m_timer = new QTimer(this);
     m_timer->setInterval(500);
@@ -39,6 +40,8 @@ DateTimePlugin::~DateTimePlugin()
 void DateTimePlugin::init(DockPluginProxyInterface *proxy)
 {
     m_proxy = proxy;
+
+    m_proxy->itemAddedEvent(m_uuid);
 
     setMode(proxy->dockMode());
 }
@@ -156,7 +159,6 @@ void DateTimePlugin::setMode(Dock::DockMode mode)
     }
 
     m_item->adjustSize();
-    m_proxy->itemAddedEvent(m_uuid);
     m_proxy->itemSizeChangedEvent(m_uuid);
 }
 
