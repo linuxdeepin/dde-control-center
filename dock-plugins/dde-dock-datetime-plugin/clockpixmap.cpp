@@ -20,7 +20,8 @@ ClockPixmap::ClockPixmap() :
     m_in24hour(false),
     m_analog(false)
 {
-
+    // NOTE: it's essential to call fill before drawing on a QPixmap.
+    fill(Qt::transparent);
 }
 
 ClockPixmap::ClockPixmap(QTime time) :
@@ -29,6 +30,8 @@ ClockPixmap::ClockPixmap(QTime time) :
     m_in24hour(false),
     m_analog(false)
 {
+    fill(Qt::transparent);
+
     setTime(time);
 
     this->paint();
