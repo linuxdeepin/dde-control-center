@@ -1,0 +1,12 @@
+SwitchButton::indicator {
+    width: 56px;
+    height: 20px;
+}
+
+SwitchButton::indicator::unchecked {
+    image: url(:/images/switch-dark-off.svg);
+}
+
+SwitchButton::indicator::checked {
+    image: url(:/images/switch-dark-on.svg);
+}
