@@ -125,7 +125,13 @@ Item {
                 accessPanel.state = "NeeedAccessCode"
                 break
 
+            case clientStatusDisconnected:
+                accessPanel.state = "NeeedAccessCode"
+                resetPage()
+                break
+
             default:
+                print("[remoting] unhandled status:", status)
                 break
             }
         }
