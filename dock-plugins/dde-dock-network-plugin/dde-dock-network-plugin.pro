@@ -8,18 +8,20 @@ QT       += core gui widgets dbus
 
 TARGET = dde-dock-network-plugin
 TEMPLATE = lib
-CONFIG += plugin
+CONFIG += plugin c++11
 
 INCLUDEPATH += ../../modules/bluetooth
 
 SOURCES += plugins.cpp \ 
     bluetoothcomponent.cpp \
-    widgets/switchbutton.cpp
+    widgets/switchbutton.cpp \
+    ../../modules/bluetooth/dbus/dbusbluetooth.cpp
 
 HEADERS += plugins.h \ 
     plugincomponentinterface.h \
     bluetoothcomponent.h \
-    widgets/switchbutton.h
+    widgets/switchbutton.h \
+    ../../modules/bluetooth/dbus/dbusbluetooth.h
 
 DISTFILES += dde-dock-network-plugin.json
 

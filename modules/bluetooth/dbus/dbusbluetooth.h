@@ -26,6 +26,26 @@
 class Bluetooth: public QDBusAbstractInterface
 {
     Q_OBJECT
+
+    Q_SLOT void __propertyChanged__(const QDBusMessage& msg)
+    {
+        QList<QVariant> arguments = msg.arguments();
+        if (3 != arguments.count())
+            return;
+        QString interfaceName = msg.arguments().at(0).toString();
+        if (interfaceName !="com.deepin.daemon.Bluetooth")
+            return;
+        QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
+        foreach(const QString &prop, changedProps.keys()) {
+        const QMetaObject* self = metaObject();
+            for (int i=self->propertyOffset(); i < self->propertyCount(); ++i) {
+                QMetaProperty p = self->property(i);
+                if (p.name() == prop) {
+ 	            Q_EMIT p.notifySignal().invoke(this);
+                }
+            }
+        }
+   }
 public:
     static inline const char *staticInterfaceName()
     { return "com.deepin.daemon.Bluetooth"; }
@@ -35,15 +55,15 @@ public:
 
     ~Bluetooth();
 
-    Q_PROPERTY(QString Adapters READ adapters)
+    Q_PROPERTY(QString Adapters READ adapters NOTIFY AdaptersChanged)
     inline QString adapters() const
     { return qvariant_cast< QString >(property("Adapters")); }
 
-    Q_PROPERTY(QString Devices READ devices)
+    Q_PROPERTY(QString Devices READ devices NOTIFY DevicesChanged)
     inline QString devices() const
     { return qvariant_cast< QString >(property("Devices")); }
 
-    Q_PROPERTY(uint State READ state)
+    Q_PROPERTY(uint State READ state NOTIFY StateChanged)
     inline uint state() const
     { return qvariant_cast< uint >(property("State")); }
 
@@ -160,6 +180,10 @@ Q_SIGNALS: // SIGNALS
     void DevicePropertiesChanged(const QString &in0);
     void DeviceRemoved(const QString &in0);
     void RequestPinCode(const QString &in0);
+// begin property changed signals
+void AdaptersChanged();
+void DevicesChanged();
+void StateChanged();
 };
 
 namespace com {

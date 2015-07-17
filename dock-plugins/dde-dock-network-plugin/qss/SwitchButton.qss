@@ -8,5 +8,5 @@ SwitchButton::indicator::unchecked {
 }
 
 SwitchButton::indicator::checked {
-    image: url(:/images/switch-dark-off.svg);
+    image: url(:/images/switch-dark-on.svg);
 }

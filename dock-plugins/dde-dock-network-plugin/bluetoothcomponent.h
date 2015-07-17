@@ -2,12 +2,24 @@
 #define BLUETOOTHCOMPONENT_H
 
 #include <QObject>
+#include <QList>
+#include <QJsonObject>
 
 #include "plugincomponentinterface.h"
 
+#include "dbus/dbusbluetooth.h"
+
+struct BluetoothAdaptor
+{
+    QString path;
+    QString alias;
+    bool powered;
+    bool discovering;
+    bool discoverable;
+    int discoverableTimeout;
+};
+
 class QLabel;
-class QFrame;
-class SwitchButton;
 class BluetoothComponent : public QObject, public PluginComponentInterface
 {
     Q_OBJECT
@@ -26,9 +38,23 @@ public:
 
 private:
     QLabel * m_item;
-    QLabel * m_label;
-    SwitchButton * m_switchButton;
-    QFrame * m_appletFrame;
+    QList<BluetoothAdaptor> m_adaptors;
+
+    com::deepin::daemon::Bluetooth * m_dbusBluetooth;
+
+    void updateItem();
+
+    void initAdaptors();
+    bool isAnyAdaptorOn();
+
+    void addAdaptor(QJsonObject json);
+    void removeAdaptor(QJsonObject json);
+    void updateAdaptor(QJsonObject json);
+
+private slots:
+    void onAdaptorAdded(QString adaptor);
+    void onAdaptorRemoved(QString adaptor);
+    void onAdaptorPropertiesChanged(QString adaptor);
 };
 
 #endif // BLUETOOTHCOMPONENT_H
