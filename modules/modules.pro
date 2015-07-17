@@ -1,3 +1,4 @@
 TEMPLATE = subdirs
 SUBDIRS  = sound \
-           power
+           power \
+           bluetooth

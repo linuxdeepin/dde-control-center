@@ -1,0 +1,8 @@
+{
+	"name": "Bluetooth",
+	"icon": {
+		"normal": "bluetooth_normal.png",
+		"hover": "bluetooth_hover.png",
+		"selected": "bluetooth_press.png"
+	}
+}
