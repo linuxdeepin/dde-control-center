@@ -33,7 +33,7 @@ public:
     void invokeMenuItem(QString uuid, QString itemId, bool checked) Q_DECL_OVERRIDE;
 
 private:
-    QString m_uuid = "datetime";
+    QString m_uuid = "uuid_datetime";
     DockPluginProxyInterface * m_proxy;
 
     QLabel * m_item = NULL;
