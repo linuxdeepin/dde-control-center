@@ -67,7 +67,11 @@ QWidget * PowerPlugin::getApplet(QString)
 
 QWidget * PowerPlugin::getItem(QString)
 {
-    return m_label;
+    if (m_dbusPower->batteryIsPresent()) {
+        return m_label;
+    } else {
+        return NULL;
+    }
 }
 
 void PowerPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
