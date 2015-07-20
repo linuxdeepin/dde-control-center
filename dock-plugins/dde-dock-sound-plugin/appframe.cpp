@@ -69,7 +69,7 @@ void AppFrame::updateAppList()
 {
     QList<QDBusObjectPath> pathList = m_audio->sinkInputs();
 
-    int tmpCount = pathList.count();
+    emit appCountChanged(pathList.count());
 
     QStringList tmplist;
     foreach (QDBusObjectPath tmpPath, pathList) {
@@ -109,5 +109,4 @@ void AppFrame::updateAppList()
         }
     }
 
-    emit appCountChanged(tmpCount);
 }
