@@ -34,7 +34,7 @@ BluetoothComponent::BluetoothComponent(QObject *parent) :
 
 BluetoothComponent::~BluetoothComponent()
 {
-    m_item->deleteLater();
+
 }
 
 QString BluetoothComponent::getUUID()
@@ -109,8 +109,6 @@ void BluetoothComponent::initAdaptors()
 {
     QString adaptorsJsonString = m_dbusBluetooth->adapters();
     QJsonArray adaptors = QJsonDocument::fromJson(adaptorsJsonString.toUtf8()).array();
-
-    qDebug() << adaptorsJsonString;
 
     foreach (QJsonValue value, adaptors) {
         QJsonObject adaptorJson = value.toObject();

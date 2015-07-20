@@ -7,25 +7,27 @@
 
 #include "powerplugin.h"
 
+
 PowerPlugin::PowerPlugin()
 {
     QIcon::setThemeName("Deepin");
 
-    m_uuid = QUuid::createUuid().toString();
+    m_uuid = "uuid_power";
 
     m_label = new QLabel;
     m_label->adjustSize();
 
     m_dbusPower = new com::deepin::daemon::Power("com.deepin.daemon.Power",
                                                  "/com/deepin/daemon/Power",
-                                                 QDBusConnection::sessionBus());
+                                                 QDBusConnection::sessionBus(),
+                                                 this);
     connect(m_dbusPower, &Power::BatteryPercentageChanged, this, &PowerPlugin::updateIcon);
     connect(m_dbusPower, &Power::OnBatteryChanged, this, &PowerPlugin::updateIcon);
 }
 
 PowerPlugin::~PowerPlugin()
 {
-    m_label->deleteLater();
+
 }
 
 void PowerPlugin::init(DockPluginProxyInterface *proxy)

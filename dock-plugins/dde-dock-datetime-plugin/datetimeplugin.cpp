@@ -34,7 +34,7 @@ DateTimePlugin::DateTimePlugin() :
 
 DateTimePlugin::~DateTimePlugin()
 {
-    m_item->deleteLater();
+
 }
 
 void DateTimePlugin::init(DockPluginProxyInterface *proxy)
