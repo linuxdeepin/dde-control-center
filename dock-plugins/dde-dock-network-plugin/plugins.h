@@ -10,6 +10,8 @@
 #include <dock/dockpluginproxyinterface.h>
 
 #include "plugincomponentinterface.h"
+#include "bluetoothcomponent.h"
+#include "vpncomponent.h"
 
 class QLabel;
 class NetworkPlugin : public QObject, public DockPluginInterface
@@ -19,6 +21,8 @@ class NetworkPlugin : public QObject, public DockPluginInterface
     Q_INTERFACES(DockPluginInterface)
 
 public:
+    friend class VPNComponent;
+
     NetworkPlugin();
     ~NetworkPlugin() Q_DECL_OVERRIDE;
 

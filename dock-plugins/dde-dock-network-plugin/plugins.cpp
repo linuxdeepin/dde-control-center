@@ -4,13 +4,15 @@
 #include <QIcon>
 
 #include "plugins.h"
-#include "bluetoothcomponent.h"
 
-NetworkPlugin::NetworkPlugin()
+NetworkPlugin::NetworkPlugin() :
+    m_proxy(NULL)
 {
     BluetoothComponent * bluetooth = new BluetoothComponent(this);
+    VPNComponent * vpn = new VPNComponent(this);
 
     m_items[bluetooth->getUUID()] = bluetooth;
+    m_items[vpn->getUUID()] = vpn;
 }
 
 NetworkPlugin::~NetworkPlugin()
