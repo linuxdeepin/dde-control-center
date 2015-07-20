@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Resource/qss/disk.qss</file>
+    </qresource>
+</RCC>
