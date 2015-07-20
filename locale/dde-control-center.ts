@@ -2,6 +2,31 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>AccessPanel</name>
+    <message>
+        <location filename="../src/modules/remoting/AccessPanel.qml" line="+60"/>
+        <location line="+34"/>
+        <source>There is no network connection currently, please try again after you connect to the Internet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-14"/>
+        <location line="+44"/>
+        <source>Failed to establish the connection, you can retry to connect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-5"/>
+        <source>The verification code is invalid! Please retry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+24"/>
+        <source>Accessing</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AddDsl</name>
     <message>
         <location filename="../src/modules/network/add/AddDsl.qml" line="+11"/>
@@ -529,7 +554,7 @@
 <context>
     <name>BluetoothDeviceExpand</name>
     <message>
-        <location filename="../src/modules/bluetooth/BluetoothDeviceExpand.qml" line="+109"/>
+        <location filename="../src/modules/bluetooth/BluetoothDeviceExpand.qml" line="+108"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -595,6 +620,43 @@
     <message>
         <location line="+1"/>
         <source>Sat</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ConnectedItem</name>
+    <message>
+        <location filename="../src/modules/remoting/AccessContent/ConnectedItem.qml" line="+32"/>
+        <source>You are accessing the desktop shared by other users, you can choose to continue or disconnect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <location filename="../src/modules/remoting/ShareContent/ConnectedItem.qml" line="+46"/>
+        <source>Disconnect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/modules/remoting/ShareContent/ConnectedItem.qml" line="-11"/>
+        <source>Your desktop is sharing, you can continue to share or select to disconnect</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ConnectingItem</name>
+    <message>
+        <location filename="../src/modules/remoting/AccessContent/ConnectingItem.qml" line="+50"/>
+        <source>Establishing connection, please wait...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+25"/>
+        <source>Share window would be opend when connect is done</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -681,7 +743,7 @@
 <context>
     <name>DeleteUserDialog</name>
     <message>
-        <location filename="../src/modules/account/DeleteUserDialog.qml" line="+19"/>
+        <location filename="../src/modules/account/DeleteUserDialog.qml" line="+18"/>
         <source>Keep user&apos;s files</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1682,6 +1744,31 @@
     </message>
 </context>
 <context>
+    <name>ErrorItem</name>
+    <message>
+        <location filename="../src/modules/remoting/AccessContent/ErrorItem.qml" line="+42"/>
+        <source>Failed to establish the connection, you can retry to connect </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <location filename="../src/modules/remoting/ShareContent/ErrorItem.qml" line="+62"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <location filename="../src/modules/remoting/ShareContent/ErrorItem.qml" line="+8"/>
+        <source>Retry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/modules/remoting/ShareContent/ErrorItem.qml" line="-28"/>
+        <source>Failed to get the verification code, you can retry or cancel the operation</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FadeLine</name>
     <message>
         <location filename="../src/modules/sound/FadeLine.qml" line="+31"/>
@@ -1719,6 +1806,42 @@
     <message>
         <location line="+29"/>
         <source>Font %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>GeneratedCodeItem</name>
+    <message>
+        <location filename="../src/modules/remoting/ShareContent/GeneratedCodeItem.qml" line="+62"/>
+        <source>To start sharing your desktop, please provide the above verification code to whom will assist you;  your shared session will begin immediately after verification code input</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>Copy Code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>Copied to clipboard successfully</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>GeneratingCodeItem</name>
+    <message>
+        <location filename="../src/modules/remoting/ShareContent/GeneratingCodeItem.qml" line="+48"/>
+        <source>Generating the verification code, please wait...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1821,6 +1944,34 @@
     <message>
         <location filename="../src/modules/keyboard/LocaleArea.qml" line="+53"/>
         <source>Language</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MainPanel</name>
+    <message>
+        <location filename="../src/modules/remoting/MainPanel.qml" line="+28"/>
+        <source>Remote Assistance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Share</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Share your desktop to get remote assistance from other users</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>Access</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Access to the desktop shared by other users</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1962,6 +2113,11 @@
         <source>Home</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location line="+1"/>
+        <source>Remote Assistance</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MonitorDragArea</name>
@@ -2084,6 +2240,30 @@
     </message>
 </context>
 <context>
+    <name>NeedCodeItem</name>
+    <message>
+        <location filename="../src/modules/remoting/AccessContent/NeedCodeItem.qml" line="+104"/>
+        <location line="+45"/>
+        <source>Please enter the verification code in the input field above</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-25"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Connect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+34"/>
+        <source>Start after clicking on “Connect”</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>NewItem</name>
     <message>
         <location filename="../src/modules/network/wired/NewItem.qml" line="+45"/>
@@ -2093,6 +2273,14 @@
     <message>
         <location line="+2"/>
         <source>Wired Connection</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NoNetworkConnection</name>
+    <message>
+        <location filename="../src/modules/remoting/Widgets/NoNetworkConnection.qml" line="+26"/>
+        <source>No network connection is available!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2107,7 +2295,7 @@
 <context>
     <name>PanelContent</name>
     <message>
-        <location filename="../src/views/PanelContent.qml" line="+467"/>
+        <location filename="../src/views/PanelContent.qml" line="+456"/>
         <source>Power</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2205,7 +2393,7 @@
 <context>
     <name>PreviewWindow</name>
     <message>
-        <location filename="../src/modules/personalization/widgets/PreviewWindow.qml" line="+280"/>
+        <location filename="../src/modules/personalization/widgets/PreviewWindow.qml" line="+279"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2304,9 +2492,29 @@
     </message>
 </context>
 <context>
+    <name>SharePanel</name>
+    <message>
+        <location filename="../src/modules/remoting/SharePanel.qml" line="+54"/>
+        <location line="+40"/>
+        <source>There is no network connection currently, please try again after you connect to the Internet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-14"/>
+        <location line="+38"/>
+        <source>Failed to get the verification code, you can retry or cancel the operation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>Sharing</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ShortcutInput</name>
     <message>
-        <location filename="../src/modules/shortcuts/ShortcutInput.qml" line="+119"/>
+        <location filename="../src/modules/shortcuts/ShortcutInput.qml" line="+118"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2692,9 +2900,9 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/modules/power/main.qml" line="+319"/>
+        <location filename="../src/modules/power/main.qml" line="+318"/>
         <location line="+241"/>
-        <location filename="../src/modules/shortcuts/main.qml" line="+54"/>
+        <location filename="../src/modules/shortcuts/main.qml" line="+53"/>
         <location line="+177"/>
         <source>Custom</source>
         <translation type="unfinished"></translation>
@@ -2749,7 +2957,7 @@
     </message>
     <message>
         <location line="+28"/>
-        <location filename="../src/modules/display/main.qml" line="+194"/>
+        <location filename="../src/modules/display/main.qml" line="+193"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2855,7 +3063,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/modules/keyboard/main.qml" line="+149"/>
+        <location filename="../src/modules/keyboard/main.qml" line="+148"/>
         <source>Repeat Delay</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2951,7 +3159,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/modules/personalization/main.qml" line="+111"/>
+        <location filename="../src/modules/personalization/main.qml" line="+110"/>
         <source>Theme</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3166,7 +3374,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/modules/system_info/main.qml" line="+119"/>
+        <location filename="../src/modules/system_info/main.qml" line="+118"/>
         <source>Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3357,7 +3565,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/modules/account/main.qml" line="+109"/>
+        <location filename="../src/modules/account/main.qml" line="+108"/>
         <source>Delete Account</source>
         <translation type="unfinished"></translation>
     </message>
