@@ -36,7 +36,7 @@ QWidget * SoundPlugin::getItem(QString)
 
 QWidget * SoundPlugin::getApplet(QString)
 {
-    return new SoundContent();
+    return new SoundContent(m_uuid,m_proxy);
 }
 
 void SoundPlugin::changeMode(Dock::DockMode newMode,
