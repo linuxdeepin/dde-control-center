@@ -106,9 +106,10 @@ Item {
                 break
 
             case clientStatusStopted:
-                if (accessPanele.state !== "NeedAccessCode") {
+                if (accessPanel.state !== "NeedAccessCode") {
                     accessPanel.state = "NeeedAccessCode"
                 }
+                //resetPage()
                 break
 
             case clientStatusPageReady:
