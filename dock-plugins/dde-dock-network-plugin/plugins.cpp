@@ -10,9 +10,11 @@ NetworkPlugin::NetworkPlugin() :
 {
     BluetoothComponent * bluetooth = new BluetoothComponent(this);
     VPNComponent * vpn = new VPNComponent(this);
+    WiredComponent * wired = new WiredComponent(this);
 
     m_items[bluetooth->getUUID()] = bluetooth;
     m_items[vpn->getUUID()] = vpn;
+    m_items[wired->getUUID()] = wired;
 }
 
 NetworkPlugin::~NetworkPlugin()

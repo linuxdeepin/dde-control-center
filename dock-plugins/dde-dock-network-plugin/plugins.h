@@ -12,6 +12,7 @@
 #include "plugincomponentinterface.h"
 #include "bluetoothcomponent.h"
 #include "vpncomponent.h"
+#include "wiredcomponent.h"
 
 class QLabel;
 class NetworkPlugin : public QObject, public DockPluginInterface
@@ -22,6 +23,7 @@ class NetworkPlugin : public QObject, public DockPluginInterface
 
 public:
     friend class VPNComponent;
+    friend class WiredComponent;
 
     NetworkPlugin();
     ~NetworkPlugin() Q_DECL_OVERRIDE;
