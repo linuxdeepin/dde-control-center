@@ -1,0 +1,8 @@
+{
+	"name": "Network",
+	"icon": {
+		"normal": "network_normal.png",
+		"hover": "network_hover.png",
+		"selected": "network_press.png"
+	}
+}

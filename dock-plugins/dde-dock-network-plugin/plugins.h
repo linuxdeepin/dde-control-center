@@ -10,6 +10,10 @@
 #include <dock/dockpluginproxyinterface.h>
 
 #include "plugincomponentinterface.h"
+#include "bluetoothcomponent.h"
+#include "vpncomponent.h"
+#include "wiredcomponent.h"
+#include "compositecomponent.h"
 
 class QLabel;
 class NetworkPlugin : public QObject, public DockPluginInterface
@@ -19,6 +23,9 @@ class NetworkPlugin : public QObject, public DockPluginInterface
     Q_INTERFACES(DockPluginInterface)
 
 public:
+    friend class VPNComponent;
+    friend class WiredComponent;
+
     NetworkPlugin();
     ~NetworkPlugin() Q_DECL_OVERRIDE;
 
@@ -38,6 +45,10 @@ public:
 private:
     DockPluginProxyInterface * m_proxy;
     QMap<QString, PluginComponentInterface*> m_items;
+
+    Dock::DockMode m_mode;
+
+    CompositeComponent * m_composite;
 };
 
 #endif // PLUGINS_H

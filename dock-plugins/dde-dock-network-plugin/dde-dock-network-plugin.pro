@@ -10,18 +10,29 @@ TARGET = dde-dock-network-plugin
 TEMPLATE = lib
 CONFIG += plugin c++11
 
-INCLUDEPATH += ../../modules/bluetooth
+INCLUDEPATH += ../../modules/bluetooth \
+               ../../modules/network
 
 SOURCES += plugins.cpp \ 
     bluetoothcomponent.cpp \
     widgets/switchbutton.cpp \
-    ../../modules/bluetooth/dbus/dbusbluetooth.cpp
+    ../../modules/bluetooth/dbus/dbusbluetooth.cpp \
+    ../../modules/network/dbus/dbusnetwork.cpp \
+    vpncomponent.cpp \
+    vpnapplet.cpp \
+    wiredcomponent.cpp \
+    compositecomponent.cpp
 
 HEADERS += plugins.h \ 
-    plugincomponentinterface.h \
     bluetoothcomponent.h \
     widgets/switchbutton.h \
-    ../../modules/bluetooth/dbus/dbusbluetooth.h
+    ../../modules/bluetooth/dbus/dbusbluetooth.h \
+    ../../modules/network/dbus/dbusnetwork.h \
+    vpncomponent.h \
+    plugincomponentinterface.h \
+    vpnapplet.h \
+    wiredcomponent.h \
+    compositecomponent.h
 
 DISTFILES += dde-dock-network-plugin.json
 
