@@ -20,7 +20,8 @@ SOURCES += plugins.cpp \
     ../../modules/network/dbus/dbusnetwork.cpp \
     vpncomponent.cpp \
     vpnapplet.cpp \
-    wiredcomponent.cpp
+    wiredcomponent.cpp \
+    compositecomponent.cpp
 
 HEADERS += plugins.h \ 
     bluetoothcomponent.h \
@@ -30,7 +31,8 @@ HEADERS += plugins.h \
     vpncomponent.h \
     plugincomponentinterface.h \
     vpnapplet.h \
-    wiredcomponent.h
+    wiredcomponent.h \
+    compositecomponent.h
 
 DISTFILES += dde-dock-network-plugin.json
 

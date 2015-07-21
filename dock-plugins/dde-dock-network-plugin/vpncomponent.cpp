@@ -47,6 +47,11 @@ QWidget * VPNComponent::getItem()
     return m_dbusNetwork->vpnEnabled() ? m_item : NULL;
 }
 
+void VPNComponent::retainItem()
+{
+    m_item->setParent(NULL);
+}
+
 QWidget * VPNComponent::getApplet()
 {
     return new VPNApplet(this);

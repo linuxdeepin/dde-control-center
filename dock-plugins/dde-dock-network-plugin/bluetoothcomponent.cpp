@@ -56,6 +56,11 @@ QWidget * BluetoothComponent::getItem()
     }
 }
 
+void BluetoothComponent::retainItem()
+{
+    m_item->setParent(NULL);
+}
+
 QWidget * BluetoothComponent::getApplet()
 {
     QFrame * frame = new QFrame;

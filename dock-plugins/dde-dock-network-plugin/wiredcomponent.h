@@ -18,6 +18,7 @@ public:
 
     QString getTitle() Q_DECL_OVERRIDE;
     QWidget * getItem() Q_DECL_OVERRIDE;
+    void retainItem() Q_DECL_OVERRIDE;
     QWidget * getApplet() Q_DECL_OVERRIDE;
 
     QString getMenuContent() Q_DECL_OVERRIDE;

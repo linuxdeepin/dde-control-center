@@ -11,6 +11,7 @@ public:
 
     virtual QString getTitle() = 0;
     virtual QWidget * getItem() = 0;
+    virtual void retainItem() = 0;
     virtual QWidget * getApplet() = 0;
 
     virtual QString getMenuContent() = 0;

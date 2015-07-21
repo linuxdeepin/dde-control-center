@@ -47,6 +47,12 @@ QWidget * WiredComponent::getItem()
     return NULL;
 }
 
+void WiredComponent::retainItem()
+{
+    m_item->setParent(NULL);
+}
+
+
 QWidget * WiredComponent::getApplet()
 {
     return NULL;
