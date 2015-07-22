@@ -109,7 +109,7 @@ Item {
                 if (accessPanel.state !== "NeedAccessCode") {
                     accessPanel.state = "NeeedAccessCode"
                 }
-                //resetPage()
+                resetPage()
                 break
 
             case clientStatusPageReady:
