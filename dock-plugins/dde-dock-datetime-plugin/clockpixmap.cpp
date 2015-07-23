@@ -48,7 +48,8 @@ QTime ClockPixmap::getTime() const
 
 void ClockPixmap::setTime(const QTime &time)
 {
-    if (time.hour() != m_time.hour() || time.minute() != m_time.minute()) {
+    if (time.hour() != m_time.hour() || time.minute() != m_time.minute())
+    {
         m_time = time;
 
         this->paint();
@@ -120,7 +121,10 @@ void ClockPixmap::paint()
     QPainter painter;
     painter.begin(this);
 
-    painter.fillRect(rect(), Qt::transparent);
+    painter.setCompositionMode(QPainter::CompositionMode_Clear);
+    painter.fillRect(rect(), Qt::white);
+    painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
+
     painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
 
     // draw background
