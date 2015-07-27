@@ -23,6 +23,7 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
 
     foreach (ModuleMetaData meta, modules) {
         ModuleButton * button = new ModuleButton(meta, this);
+
         m_grid->addWidget(button);
 
         connect(button, &ModuleButton::clicked, this, &HomeScreen::buttonClicked);
@@ -43,22 +44,21 @@ ModuleButton::ModuleButton(ModuleMetaData metaData, QWidget * parent) :
     setFixedSize(96, 96);
     setMouseTracking(true);
 
-    QVBoxLayout * vLayout = new QVBoxLayout;
-    QHBoxLayout * hLayout = new QHBoxLayout;
-
-    this->setLayout(hLayout);
-    hLayout->addStretch();
-    hLayout->addLayout(vLayout);
-    hLayout->addStretch();
-
     m_icon = new QLabel(this);
     m_text = new QLabel(this);
     m_text->setText(m_meta.name);
+    m_text->setAlignment(Qt::AlignCenter);
 
-    vLayout->addStretch();
-    vLayout->addWidget(m_icon);
+    QHBoxLayout *hLayout = new QHBoxLayout;
+    hLayout->addStretch();
+    hLayout->addWidget(m_icon);
+    hLayout->addStretch();
+
+    QVBoxLayout *vLayout = new QVBoxLayout;
+    vLayout->addLayout(hLayout);
     vLayout->addWidget(m_text);
-    vLayout->addStretch();
+
+    this->setLayout(vLayout);
 
     setState(Normal);
 }
