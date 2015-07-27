@@ -9,6 +9,7 @@ SideBar::SideBar(QList<ModuleMetaData> modules, QWidget *parent)
     : QFrame(parent)
 {
     setFixedWidth(DCC::SideBarWidth);
+    setWindowFlags(Qt::FramelessWindowHint);
 
     setStyleSheet("SideBar { background-color: rgba(100, 0, 0, 50%) }");
 

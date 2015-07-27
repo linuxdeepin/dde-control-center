@@ -9,6 +9,8 @@
 ContentView::ContentView(QList<ModuleMetaData> modules, QWidget *parent)
     : QFrame(parent)
 {
+    setWindowFlags(Qt::FramelessWindowHint);
+
     m_pluginLoader = NULL;
 
     m_sideBar = new SideBar(modules, this);

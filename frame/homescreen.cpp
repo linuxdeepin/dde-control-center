@@ -22,6 +22,8 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     layout->addLayout(m_grid);
     layout->addSpacerItem(vSpace);
 
+    setWindowFlags(Qt::FramelessWindowHint);
+
     foreach (ModuleMetaData meta, modules) {
         ModuleButton * button = new ModuleButton(meta, this);
 
