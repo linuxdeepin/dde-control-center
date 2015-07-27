@@ -15,6 +15,8 @@ ContentView::ContentView(QList<ModuleMetaData> modules, QWidget *parent)
 
     m_layout = new QHBoxLayout(this);
     m_layout->addWidget(m_sideBar);
+    m_layout->setSpacing(0);
+    m_layout->setMargin(0);
 
     connect(m_sideBar, &SideBar::moduleSelected, this, &ContentView::onModuleSelected);
 }

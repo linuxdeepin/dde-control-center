@@ -32,7 +32,7 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     }
 
 #if 1 // just test more buttons
-    for (int i(0); i != 5; ++i)
+    for (int i(0); i != 3; ++i)
         foreach (ModuleMetaData meta, modules) {
             ModuleButton * button = new ModuleButton(meta, this);
 

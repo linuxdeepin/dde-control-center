@@ -23,16 +23,19 @@ Frame::Frame(QWidget * parent) :
 
     this->listPlugins();
 
-    QHBoxLayout *mainLayout = new QHBoxLayout(this);
-
     m_homeScreen = new HomeScreen(m_modules, this);
     m_contentView = new ContentView(m_modules, this);
 
     m_stackedLayout = new QStackedLayout;
     m_stackedLayout->addWidget(m_homeScreen);
     m_stackedLayout->addWidget(m_contentView);
+    m_stackedLayout->setMargin(0);
+    m_stackedLayout->setSpacing(0);
 
+    QHBoxLayout *mainLayout = new QHBoxLayout(this);
     mainLayout->addLayout(m_stackedLayout);
+    mainLayout->setMargin(0);
+    mainLayout->setSpacing(0);
 
     connect(m_homeScreen, &HomeScreen::moduleSelected, this, &Frame::selectModule);
     connect(m_contentView, &ContentView::homeSelected, [=] { ModuleMetaData meta; this->selectModule(meta); });

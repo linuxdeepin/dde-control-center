@@ -12,7 +12,9 @@ SideBar::SideBar(QList<ModuleMetaData> modules, QWidget *parent)
 
     setStyleSheet("SideBar { background-color: rgba(100, 0, 0, 50%) }");
 
-    QVBoxLayout * layout = new QVBoxLayout(this);
+    QVBoxLayout * layout = new QVBoxLayout;
+    layout->setMargin(0);
+    layout->setSpacing(10);
 
     // meta for home button
     ModuleMetaData home {
@@ -32,6 +34,14 @@ SideBar::SideBar(QList<ModuleMetaData> modules, QWidget *parent)
     }
 
     layout->addStretch();
+
+    QSpacerItem *hSpace = new QSpacerItem(1, 1, QSizePolicy::Expanding, QSizePolicy::Minimum);
+    QHBoxLayout *hLayout = new QHBoxLayout();
+    hLayout->addSpacerItem(hSpace);
+    hLayout->addLayout(layout);
+    hLayout->addSpacerItem(hSpace);
+
+    this->setLayout(hLayout);
 }
 
 
