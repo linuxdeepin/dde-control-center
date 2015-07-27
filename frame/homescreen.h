@@ -21,6 +21,9 @@ private:
 
 private slots:
     void buttonClicked();
+
+private:
+    int m_moduleCount = 0;
 };
 
 class QEvent;

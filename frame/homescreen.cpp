@@ -13,21 +13,35 @@
 HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     QFrame(parent)
 {
-    QHBoxLayout * layout = new QHBoxLayout(this);
+    QVBoxLayout * layout = new QVBoxLayout(this);
     this->setLayout(layout);
 
+    QSpacerItem *vSpace = new QSpacerItem(1, 1, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
     m_grid = new QGridLayout;
-    layout->addStretch();
     layout->addLayout(m_grid);
-    layout->addStretch();
+    layout->addSpacerItem(vSpace);
 
     foreach (ModuleMetaData meta, modules) {
         ModuleButton * button = new ModuleButton(meta, this);
 
-        m_grid->addWidget(button);
+        m_grid->addWidget(button, m_moduleCount / 3, m_moduleCount % 3);
+        ++m_moduleCount;
 
         connect(button, &ModuleButton::clicked, this, &HomeScreen::buttonClicked);
     }
+
+#if 1 // just test more buttons
+    for (int i(0); i != 5; ++i)
+        foreach (ModuleMetaData meta, modules) {
+            ModuleButton * button = new ModuleButton(meta, this);
+
+            m_grid->addWidget(button, m_moduleCount / 3, m_moduleCount % 3);
+            ++m_moduleCount;
+
+            connect(button, &ModuleButton::clicked, this, &HomeScreen::buttonClicked);
+        }
+#endif
 }
 
 void HomeScreen::buttonClicked()
