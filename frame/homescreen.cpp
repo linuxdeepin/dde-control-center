@@ -9,6 +9,7 @@
 
 #include "homescreen.h"
 #include "constants.h"
+#include "dclickablelabel.h"
 
 HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     QFrame(parent)
@@ -48,17 +49,42 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     topOuterWidget->setFixedHeight(DCC::HomeScreen_TopWidgetHeight);
     topOuterWidget->setFixedWidth(DCC::ControlCenterWidth);
 
+    DClickablePictureLabel *topButton = new DClickablePictureLabel(0, "shutdown_normal.png", "", "");
+    topButton->setAttribute(Qt::WA_TranslucentBackground);
+
+    QLabel *topLabel = new QLabel();
+    topLabel->setAlignment(Qt::AlignCenter);
+    topLabel->setStyleSheet(QString("color:%1;").arg("white"));
+#ifdef QT_DEBUG // for test username label
+    topLabel->setText("TestUserName");
+#endif
+
+    QHBoxLayout *topHBox_top = new QHBoxLayout;
+    topHBox_top->addStretch();
+    topHBox_top->addWidget(topButton);
+    topHBox_top->addStretch();
+    topHBox_top->setContentsMargins(0, 20, 0, 0);
+
+    QHBoxLayout *topHBox_bot = new QHBoxLayout;
+    topHBox_bot->addStretch();
+    topHBox_bot->addWidget(topLabel);
+    topHBox_bot->addStretch();
+
+    QVBoxLayout *topVBox = new QVBoxLayout;
+    topVBox->addLayout(topHBox_top);
+    topVBox->addLayout(topHBox_bot);
+
     m_topWidget = new QWidget(topOuterWidget);
     m_topWidget->setFixedSize(topOuterWidget->size());
-    m_topWidget->setStyleSheet("background-color:red;");
+    m_topWidget->setLayout(topVBox);
+    m_topWidget->setStyleSheet(QString("background-color:%1;").arg(DCC::BgDarkColor.name()));
 
-    QLabel *bottomButton = new QLabel;
-    bottomButton->setPixmap(QPixmap("modules/icons/shutdown_normal.png"));
+    DClickablePictureLabel *bottomButton = new DClickablePictureLabel(0, "shutdown_normal.png", "shutdown_hover.png", "");
     bottomButton->setAttribute(Qt::WA_TranslucentBackground);
 
     QLabel *bottomLabel = new QLabel(tr("电源"));
     bottomLabel->setAlignment(Qt::AlignCenter);
-    bottomLabel->setStyleSheet("color:#decd12;");
+    bottomLabel->setStyleSheet(QString("color:%1;").arg(DCC::TextNormalColor.name()));
 
     QVBoxLayout *bottomVLayout = new QVBoxLayout;
     bottomVLayout->addWidget(bottomButton);
@@ -95,6 +121,9 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     m_opacityEffect->setOpacity(1.0);
 
     m_centerWidget->setGraphicsEffect(m_opacityEffect);
+
+    connect(bottomButton, SIGNAL(clicked()), this, SLOT(powerButtonClicked()));
+    connect(topButton, SIGNAL(clicked()), this, SLOT(userAvatarClicked()));
 }
 
 void HomeScreen::hide()
@@ -152,6 +181,16 @@ void HomeScreen::buttonClicked()
 {
     ModuleButton * btn = qobject_cast<ModuleButton*>(sender());
     this->moduleSelected(btn->metaData());
+}
+
+void HomeScreen::powerButtonClicked()
+{
+    qDebug() << "power button clicked";
+}
+
+void HomeScreen::userAvatarClicked()
+{
+    qDebug() << "user avatar clicked";
 }
 
 // class ModuleButton

@@ -18,7 +18,7 @@ Frame::Frame(QWidget * parent) :
     setWindowFlags(Qt::FramelessWindowHint);
 
     setFixedWidth(DCC::ControlCenterWidth);
-    setFixedHeight(DCC::ControlCenterHeight);
+    setFixedHeight(900);
 
     setStyleSheet(QString("Frame { background-color:%1;}").arg(DCC::BgLightColor.name()));
 
@@ -68,7 +68,6 @@ void Frame::listPlugins()
         m_modules << meta;
     }
 }
-
 
 // private slots
 void Frame::selectModule(ModuleMetaData metaData)

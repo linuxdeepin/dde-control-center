@@ -23,6 +23,8 @@ signals:
 
 private slots:
     void buttonClicked();
+    void powerButtonClicked();
+    void userAvatarClicked();
 
 private:
     QGridLayout * m_grid;

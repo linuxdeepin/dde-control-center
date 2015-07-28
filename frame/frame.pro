@@ -6,12 +6,14 @@ HEADERS    = frame.h \
     modulemetadata.h \
     constants.h \
     sidebar.h \
-    contentview.h
+    contentview.h \
+    dclickablelabel.h
 SOURCES    = frame.cpp \
              main.cpp \
     homescreen.cpp \
     sidebar.cpp \
-    contentview.cpp
+    contentview.cpp \
+    dclickablelabel.cpp
 
 TARGET     = dde-control-center
 DESTDIR    = $$_PRO_FILE_PWD_/../
