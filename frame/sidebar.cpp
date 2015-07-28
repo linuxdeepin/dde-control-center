@@ -1,6 +1,7 @@
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QDebug>
+#include <QPropertyAnimation>
 
 #include "sidebar.h"
 #include "constants.h"
@@ -11,6 +12,8 @@ SideBar::SideBar(QList<ModuleMetaData> modules, QWidget *parent)
     setFixedWidth(DCC::SideBarWidth);
 
     //setStyleSheet("SideBar { background-color: rgba(100, 0, 0, 50%) }");
+
+    m_tips = new DTipsFrame;
 
     QVBoxLayout * layout = new QVBoxLayout;
     layout->setMargin(0);
@@ -31,6 +34,8 @@ SideBar::SideBar(QList<ModuleMetaData> modules, QWidget *parent)
         layout->addWidget(button);
 
         connect(button, &SideBarButton::clicked, this, &SideBar::onSideBarButtonClicked);
+        connect(button, &SideBarButton::hovered, m_tips, &DTipsFrame::show, Qt::DirectConnection);
+        connect(button, &SideBarButton::hovered, m_tips, &DTipsFrame::followTheSender, Qt::QueuedConnection);
     }
 
     layout->addStretch();
@@ -44,6 +49,17 @@ SideBar::SideBar(QList<ModuleMetaData> modules, QWidget *parent)
     this->setLayout(hLayout);
 }
 
+void SideBar::enterEvent(QEvent *e)
+{
+    QFrame::enterEvent(e);
+}
+
+void SideBar::leaveEvent(QEvent *e)
+{
+    m_tips->hide();
+
+    QFrame::leaveEvent(e);
+}
 
 // private slots
 void SideBar::onSideBarButtonClicked()
@@ -89,6 +105,8 @@ void SideBarButton::enterEvent(QEvent *)
 {
     if (m_state == Normal)
         this->setState(Hover);
+
+    emit hovered();
 }
 
 void SideBarButton::leaveEvent(QEvent *)

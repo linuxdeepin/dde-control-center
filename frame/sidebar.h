@@ -5,6 +5,7 @@
 #include <QAbstractButton>
 
 #include "modulemetadata.h"
+#include "dtipsframe.h"
 
 class SideBarButton;
 class SideBar : public QFrame
@@ -12,6 +13,10 @@ class SideBar : public QFrame
     Q_OBJECT
 public:
     explicit SideBar(QList<ModuleMetaData> modules, QWidget *parent = 0);
+
+private:
+    void enterEvent(QEvent *e);
+    void leaveEvent(QEvent *e);
 
 signals:
     void moduleSelected(ModuleMetaData meta);
@@ -21,6 +26,7 @@ private slots:
 
 private:
     SideBarButton *m_selectedBtn = NULL;
+    DTipsFrame *m_tips;
 };
 
 
@@ -47,6 +53,7 @@ public:
 
 signals:
     void clicked();
+    void hovered();
 
 private:
     enum State { Normal, Hover, Selected };

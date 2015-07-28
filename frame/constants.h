@@ -23,6 +23,7 @@ static const QColor HomeScreen_UsernameColor = "#fff";
 static const QColor HomeScreen_PowerTextColor = "orange";
 
 static const uint FrameAnimationDuration = 300;
+static const uint TipsAnimationDuration = 200;
 
 static const QString IconPath = "modules/icons/";
 }
