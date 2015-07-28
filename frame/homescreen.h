@@ -29,8 +29,11 @@ private:
 
     QGraphicsOpacityEffect *m_opacityEffect;
 
+    QWidget *m_topWidget;
+    QWidget *m_centerWidget;
+    QWidget *m_bottomWidget;
+
     int m_moduleCount = 0;
-    const int m_animationDuration = 300;
 };
 
 class QEvent;

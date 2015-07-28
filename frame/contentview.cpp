@@ -6,12 +6,11 @@
 #include "interfaces.h"
 #include "contentview.h"
 #include "sidebar.h"
+#include "constants.h"
 
 ContentView::ContentView(QList<ModuleMetaData> modules, QWidget *parent)
     : QFrame(parent)
 {
-    setWindowFlags(Qt::FramelessWindowHint);
-
     m_pluginLoader = NULL;
 
     m_sideBar = new SideBar(modules, this);
@@ -57,7 +56,7 @@ void ContentView::hide()
     QPropertyAnimation *animation = new QPropertyAnimation(m_opacityEffect, "opacity");
     animation->setStartValue(1.0);
     animation->setEndValue(0.0);
-    animation->setDuration(m_animationDuration);
+    animation->setDuration(DCC::FrameAnimationDuration);
     connect(animation, &QPropertyAnimation::finished, [this] () -> void {QFrame::hide();});
     animation->start();
 }
@@ -67,7 +66,7 @@ void ContentView::show()
     QPropertyAnimation *animation = new QPropertyAnimation(m_opacityEffect, "opacity");
     animation->setStartValue(0.0);
     animation->setEndValue(1.0);
-    animation->setDuration(m_animationDuration);
+    animation->setDuration(DCC::FrameAnimationDuration);
     animation->start();
     QFrame::show();
 }

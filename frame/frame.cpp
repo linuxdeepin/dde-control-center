@@ -1,6 +1,7 @@
 #include "frame.h"
 #include "homescreen.h"
 #include "contentview.h"
+#include "constants.h"
 
 #include <QDir>
 #include <QLibrary>
@@ -16,20 +17,18 @@ Frame::Frame(QWidget * parent) :
 {
     setWindowFlags(Qt::FramelessWindowHint);
 
-    setFixedWidth(380);
-    setFixedHeight(900);
+    setFixedWidth(DCC::ControlCenterWidth);
+    setFixedHeight(DCC::ControlCenterHeight);
 
-    setStyleSheet("Frame { background-color: #252627 }");
+    setStyleSheet(QString("Frame { background-color:%1;}").arg(DCC::BgLightColor.name()));
 
     this->listPlugins();
 
     m_homeScreen = new HomeScreen(m_modules, this);
-    m_homeScreen->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_homeScreen->setFixedWidth(this->width());
     m_homeScreen->setFixedHeight(this->height());
 
     m_contentView = new ContentView(m_modules, this);
-    m_contentView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_contentView->setFixedWidth(this->width());
     m_contentView->setFixedHeight(this->height());
 

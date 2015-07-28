@@ -18,7 +18,7 @@
 DBusAudioSink::DBusAudioSink(const QString &path, QObject *parent)
     : QDBusAbstractInterface(staticServerPath(), path, staticInterfaceName(), QDBusConnection::sessionBus(), parent)
 {
-    //qDBusRegisterMetaType<SinkPortsStruct>;
+    qDBusRegisterMetaType<SinkPortsStruct>();
     QDBusConnection::sessionBus().connect(this->service(), this->path(), "org.freedesktop.DBus.Properties",  "PropertiesChanged","sa{sv}as", this, SLOT(__propertyChanged__(QDBusMessage)));
 }
 

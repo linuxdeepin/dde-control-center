@@ -14,14 +14,6 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     QFrame(parent)
 {
     m_grid = new QGridLayout;
-
-    QVBoxLayout *mainLayout = new QVBoxLayout;
-    QSpacerItem *vSpace = new QSpacerItem(1, 1, QSizePolicy::Minimum, QSizePolicy::Expanding);
-    mainLayout->addLayout(m_grid);
-    mainLayout->addSpacerItem(vSpace);
-
-    this->setLayout(mainLayout);
-
     foreach (ModuleMetaData meta, modules) {
         ModuleButton * button = new ModuleButton(meta, this);
 
@@ -42,31 +34,117 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
             connect(button, &ModuleButton::clicked, this, &HomeScreen::buttonClicked);
         }
 #endif
+    m_grid->setContentsMargins(0, 25, 0, 0);
+
+    QVBoxLayout *centerVLayout = new QVBoxLayout;
+    QSpacerItem *vSpace = new QSpacerItem(1, 1, QSizePolicy::Minimum, QSizePolicy::Expanding);
+    centerVLayout->addLayout(m_grid);
+    centerVLayout->addSpacerItem(vSpace);
+
+    m_centerWidget = new QWidget(this);
+    m_centerWidget->setLayout(centerVLayout);
+
+    QWidget *topOuterWidget = new QWidget(this);
+    topOuterWidget->setFixedHeight(DCC::HomeScreen_TopWidgetHeight);
+    topOuterWidget->setFixedWidth(DCC::ControlCenterWidth);
+
+    m_topWidget = new QWidget(topOuterWidget);
+    m_topWidget->setFixedSize(topOuterWidget->size());
+    m_topWidget->setStyleSheet("background-color:red;");
+
+    QLabel *bottomButton = new QLabel;
+    bottomButton->setPixmap(QPixmap("modules/icons/shutdown_normal.png"));
+    bottomButton->setAttribute(Qt::WA_TranslucentBackground);
+
+    QLabel *bottomLabel = new QLabel(tr("电源"));
+    bottomLabel->setAlignment(Qt::AlignCenter);
+    bottomLabel->setStyleSheet("color:#decd12;");
+
+    QVBoxLayout *bottomVLayout = new QVBoxLayout;
+    bottomVLayout->addWidget(bottomButton);
+    bottomVLayout->addWidget(bottomLabel);
+    bottomVLayout->setSpacing(0);
+    bottomVLayout->setContentsMargins(0, 0, 0, 10);
+
+    QHBoxLayout *bottomHLayout = new QHBoxLayout;
+    bottomHLayout->addStretch();
+    bottomHLayout->addLayout(bottomVLayout);
+    bottomHLayout->addStretch();
+    bottomHLayout->setSpacing(0);
+    bottomHLayout->setMargin(0);
+
+    QWidget *bottomOuterWidget = new QWidget(this);
+    bottomOuterWidget->setFixedHeight(DCC::HomeScreen_BottomWidgetHeight);
+    bottomOuterWidget->setFixedWidth(DCC::ControlCenterWidth);
+
+    m_bottomWidget = new QWidget(bottomOuterWidget);
+    m_bottomWidget->setStyleSheet("background-image:url(modules/icons/shutdown_bg.png);");
+    m_bottomWidget->setLayout(bottomHLayout);
+    m_bottomWidget->setFixedSize(bottomOuterWidget->size());
+
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->addWidget(topOuterWidget);
+    mainLayout->addWidget(m_centerWidget);
+    mainLayout->addWidget(bottomOuterWidget);
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setSpacing(0);
+
+    this->setLayout(mainLayout);
 
     m_opacityEffect = new QGraphicsOpacityEffect;
     m_opacityEffect->setOpacity(1.0);
 
-    setGraphicsEffect(m_opacityEffect);
-    setWindowFlags(Qt::FramelessWindowHint);
+    m_centerWidget->setGraphicsEffect(m_opacityEffect);
 }
 
 void HomeScreen::hide()
 {
-    QPropertyAnimation *animation = new QPropertyAnimation(m_opacityEffect, "opacity");
-    animation->setStartValue(1.0);
-    animation->setEndValue(0.0);
-    animation->setDuration(m_animationDuration);
-    connect(animation, &QPropertyAnimation::finished, [this] () -> void {QFrame::hide();});
-    animation->start();
+    QPropertyAnimation *aniHideCenterWidget = new QPropertyAnimation(m_opacityEffect, "opacity");
+    aniHideCenterWidget->setStartValue(1.0);
+    aniHideCenterWidget->setEndValue(0.0);
+    aniHideCenterWidget->setDuration(DCC::FrameAnimationDuration);
+
+    QPropertyAnimation *aniHideBottomWidget = new QPropertyAnimation(m_bottomWidget, "geometry");
+    aniHideBottomWidget->setStartValue(QRect(0, 0, m_bottomWidget->width(), m_bottomWidget->height()));
+    aniHideBottomWidget->setEndValue(QRect(0, m_bottomWidget->height(), m_bottomWidget->width(), m_bottomWidget->height()));
+    aniHideBottomWidget->setDuration(DCC::FrameAnimationDuration);
+    aniHideBottomWidget->setEasingCurve(QEasingCurve::OutQuart);
+
+    QPropertyAnimation *aniHideTopWidget = new QPropertyAnimation(m_topWidget, "geometry");
+    aniHideTopWidget->setStartValue(QRect(0, 0, m_topWidget->width(), m_topWidget->height()));
+    aniHideTopWidget->setEndValue(QRect(0, -m_topWidget->height(), m_topWidget->width(), m_topWidget->height()));
+    aniHideTopWidget->setDuration(DCC::FrameAnimationDuration);
+    aniHideTopWidget->setEasingCurve(QEasingCurve::OutQuart);
+
+    connect(aniHideCenterWidget, &QPropertyAnimation::finished, [this] () -> void {QFrame::hide();});
+
+    aniHideCenterWidget->start();
+    aniHideBottomWidget->start();
+    aniHideTopWidget->start();
 }
 
 void HomeScreen::show()
 {
-    QPropertyAnimation *animation = new QPropertyAnimation(m_opacityEffect, "opacity");
-    animation->setStartValue(0.0);
-    animation->setEndValue(1.0);
-    animation->setDuration(m_animationDuration);
-    animation->start();
+    QPropertyAnimation *aniShowCenterWidget = new QPropertyAnimation(m_opacityEffect, "opacity");
+    aniShowCenterWidget->setStartValue(0.0);
+    aniShowCenterWidget->setEndValue(1.0);
+    aniShowCenterWidget->setDuration(DCC::FrameAnimationDuration);
+
+    QPropertyAnimation *aniShowBottomWidget = new QPropertyAnimation(m_bottomWidget, "geometry");
+    aniShowBottomWidget->setEndValue(QRect(0, 0, m_bottomWidget->width(), m_bottomWidget->height()));
+    aniShowBottomWidget->setStartValue(QRect(0, m_bottomWidget->height(), m_bottomWidget->width(), m_bottomWidget->height()));
+    aniShowBottomWidget->setDuration(DCC::FrameAnimationDuration);
+    aniShowBottomWidget->setEasingCurve(QEasingCurve::InQuad);
+
+    QPropertyAnimation *aniShowTopWidget = new QPropertyAnimation(m_topWidget, "geometry");
+    aniShowTopWidget->setEndValue(QRect(0, 0, m_topWidget->width(), m_topWidget->height()));
+    aniShowTopWidget->setStartValue(QRect(0, -m_topWidget->height(), m_topWidget->width(), m_topWidget->height()));
+    aniShowTopWidget->setDuration(DCC::FrameAnimationDuration);
+    aniShowTopWidget->setEasingCurve(QEasingCurve::InQuad);
+
+    aniShowCenterWidget->start();
+    aniShowBottomWidget->start();
+    aniShowTopWidget->start();
     QFrame::show();
 }
 

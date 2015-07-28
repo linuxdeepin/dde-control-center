@@ -32,8 +32,6 @@ private slots:
 
 private:
     QGraphicsOpacityEffect *m_opacityEffect;
-
-    const int m_animationDuration = 300;
 };
 
 #endif // CONTENTVIEW_H
