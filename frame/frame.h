@@ -3,7 +3,6 @@
 
 #include <QFrame>
 #include <QList>
-#include <QGraphicsOpacityEffect>
 
 #include "interfaces.h"
 #include "modulemetadata.h"
@@ -22,9 +21,6 @@ public:
     void keyPressEvent(QKeyEvent * event) Q_DECL_OVERRIDE;
 
 private:
-    inline void switchToHome();
-    inline void switchToContent();
-
     void listPlugins();
 
 private slots:
@@ -34,9 +30,6 @@ private:
     HomeScreen * m_homeScreen;
     ContentView * m_contentView;
     QList<ModuleMetaData> m_modules;
-
-    QGraphicsOpacityEffect *m_homeEffect;
-    QGraphicsOpacityEffect *m_contentEffect;
 
     const int animationDuration = 300;
 };

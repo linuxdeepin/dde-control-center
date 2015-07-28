@@ -13,16 +13,14 @@
 HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     QFrame(parent)
 {
-    QVBoxLayout * layout = new QVBoxLayout(this);
-    this->setLayout(layout);
-
-    QSpacerItem *vSpace = new QSpacerItem(1, 1, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
     m_grid = new QGridLayout;
-    layout->addLayout(m_grid);
-    layout->addSpacerItem(vSpace);
 
-    setWindowFlags(Qt::FramelessWindowHint);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    QSpacerItem *vSpace = new QSpacerItem(1, 1, QSizePolicy::Minimum, QSizePolicy::Expanding);
+    mainLayout->addLayout(m_grid);
+    mainLayout->addSpacerItem(vSpace);
+
+    this->setLayout(mainLayout);
 
     foreach (ModuleMetaData meta, modules) {
         ModuleButton * button = new ModuleButton(meta, this);
@@ -44,6 +42,32 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
             connect(button, &ModuleButton::clicked, this, &HomeScreen::buttonClicked);
         }
 #endif
+
+    m_opacityEffect = new QGraphicsOpacityEffect;
+    m_opacityEffect->setOpacity(1.0);
+
+    setGraphicsEffect(m_opacityEffect);
+    setWindowFlags(Qt::FramelessWindowHint);
+}
+
+void HomeScreen::hide()
+{
+    QPropertyAnimation *animation = new QPropertyAnimation(m_opacityEffect, "opacity");
+    animation->setStartValue(1.0);
+    animation->setEndValue(0.0);
+    animation->setDuration(m_animationDuration);
+    connect(animation, &QPropertyAnimation::finished, [this] () -> void {QFrame::hide();});
+    animation->start();
+}
+
+void HomeScreen::show()
+{
+    QPropertyAnimation *animation = new QPropertyAnimation(m_opacityEffect, "opacity");
+    animation->setStartValue(0.0);
+    animation->setEndValue(1.0);
+    animation->setDuration(m_animationDuration);
+    animation->start();
+    QFrame::show();
 }
 
 void HomeScreen::buttonClicked()

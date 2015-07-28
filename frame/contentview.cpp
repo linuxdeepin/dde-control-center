@@ -1,6 +1,7 @@
 #include <QDebug>
 #include <QPluginLoader>
 #include <QHBoxLayout>
+#include <QPropertyAnimation>
 
 #include "interfaces.h"
 #include "contentview.h"
@@ -21,6 +22,11 @@ ContentView::ContentView(QList<ModuleMetaData> modules, QWidget *parent)
     m_layout->setMargin(0);
 
     connect(m_sideBar, &SideBar::moduleSelected, this, &ContentView::onModuleSelected);
+
+    QFrame::hide();
+    m_opacityEffect = new QGraphicsOpacityEffect;
+    m_opacityEffect->setOpacity(0.0);
+    setGraphicsEffect(m_opacityEffect);
 }
 
 void ContentView::setModule(ModuleMetaData module)
@@ -44,6 +50,26 @@ void ContentView::setModule(ModuleMetaData module)
         ModuleInterface * interface = qobject_cast<ModuleInterface*>(instance);
         m_layout->addWidget(interface->getContent());
     }
+}
+
+void ContentView::hide()
+{
+    QPropertyAnimation *animation = new QPropertyAnimation(m_opacityEffect, "opacity");
+    animation->setStartValue(1.0);
+    animation->setEndValue(0.0);
+    animation->setDuration(m_animationDuration);
+    connect(animation, &QPropertyAnimation::finished, [this] () -> void {QFrame::hide();});
+    animation->start();
+}
+
+void ContentView::show()
+{
+    QPropertyAnimation *animation = new QPropertyAnimation(m_opacityEffect, "opacity");
+    animation->setStartValue(0.0);
+    animation->setEndValue(1.0);
+    animation->setDuration(m_animationDuration);
+    animation->start();
+    QFrame::show();
 }
 
 void ContentView::onModuleSelected(ModuleMetaData meta)

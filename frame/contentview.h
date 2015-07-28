@@ -3,6 +3,7 @@
 
 #include <QFrame>
 #include <QPluginLoader>
+#include <QGraphicsOpacityEffect>
 
 #include "modulemetadata.h"
 
@@ -15,6 +16,8 @@ public:
     explicit ContentView(QList<ModuleMetaData> modules, QWidget *parent = 0);
 
     void setModule(ModuleMetaData module);
+    void hide();
+    void show();
 
 signals:
     void homeSelected();
@@ -26,6 +29,11 @@ private:
 
 private slots:
     void onModuleSelected(ModuleMetaData meta);
+
+private:
+    QGraphicsOpacityEffect *m_opacityEffect;
+
+    const int m_animationDuration = 300;
 };
 
 #endif // CONTENTVIEW_H
