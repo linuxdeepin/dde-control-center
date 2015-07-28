@@ -10,7 +10,7 @@ SideBar::SideBar(QList<ModuleMetaData> modules, QWidget *parent)
 {
     setFixedWidth(DCC::SideBarWidth);
 
-    setStyleSheet("SideBar { background-color: rgba(100, 0, 0, 50%) }");
+    //setStyleSheet("SideBar { background-color: rgba(100, 0, 0, 50%) }");
 
     QVBoxLayout * layout = new QVBoxLayout;
     layout->setMargin(0);
@@ -54,16 +54,22 @@ void SideBar::onSideBarButtonClicked()
 
         emit moduleSelected(meta);
     }
+
+    if (m_selectedBtn)
+        m_selectedBtn->release();
+    m_selectedBtn = button;
+
+    if (!m_selectedBtn->metaData().path.isNull() && !m_selectedBtn->metaData().path.isEmpty())
+        m_selectedBtn->presse();
 }
 
 // SideBarButton
 SideBarButton::SideBarButton(ModuleMetaData metaData, QWidget * parent) :
-    QFrame(parent),
+    QAbstractButton(parent),
     m_meta(metaData)
 {
     setFixedSize(36, 36);
     setMouseTracking(true);
-    setStyleSheet("SideBarButton { background-color: green }");
 
     m_icon = new QLabel(this);
 
@@ -81,27 +87,45 @@ ModuleMetaData SideBarButton::metaData()
 
 void SideBarButton::enterEvent(QEvent *)
 {
-    this->setState(Hover);
+    if (m_state == Normal)
+        this->setState(Hover);
 }
 
 void SideBarButton::leaveEvent(QEvent *)
 {
-    this->setState(Normal);
+    if (m_state == Hover)
+        this->setState(Normal);
 }
 
 void SideBarButton::mousePressEvent(QMouseEvent *)
 {
-    this->setState(Selected);
     emit clicked();
 }
 
 void SideBarButton::mouseReleaseEvent(QMouseEvent *)
 {
-//    this->setState(Hover);
+    //    this->setState(Hover);
+}
+
+void SideBarButton::paintEvent(QPaintEvent *e)
+{
+    Q_UNUSED(e)
+}
+
+void SideBarButton::presse()
+{
+    setState(Selected);
+}
+
+void SideBarButton::release()
+{
+    setState(Normal);
 }
 
 void SideBarButton::setState(State state)
 {
+    m_state = state;
+
     switch (state) {
     case Normal:
         m_icon->setPixmap(QPixmap(QString("modules/icons/%1").arg(m_meta.normalIcon)));

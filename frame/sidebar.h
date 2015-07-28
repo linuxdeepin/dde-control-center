@@ -2,9 +2,11 @@
 #define SIDEBAR_H
 
 #include <QFrame>
+#include <QAbstractButton>
 
 #include "modulemetadata.h"
 
+class SideBarButton;
 class SideBar : public QFrame
 {
     Q_OBJECT
@@ -16,15 +18,19 @@ signals:
 
 private slots:
     void onSideBarButtonClicked();
+
+private:
+    SideBarButton *m_selectedBtn = NULL;
 };
 
 
 class QLabel;
 class QEvent;
 class QMouseEvent;
-class SideBarButton : public QFrame
+class SideBarButton : public QAbstractButton
 {
     Q_OBJECT
+
 public:
     SideBarButton(ModuleMetaData metaData, QWidget * parent = 0);
 
@@ -32,6 +38,10 @@ public:
     void leaveEvent(QEvent * event) Q_DECL_OVERRIDE;
     void mousePressEvent(QMouseEvent * event) Q_DECL_OVERRIDE;
     void mouseReleaseEvent(QMouseEvent * event) Q_DECL_OVERRIDE;
+    void paintEvent(QPaintEvent *e) Q_DECL_OVERRIDE;
+
+    void presse();
+    void release();
 
     ModuleMetaData metaData();
 
@@ -45,7 +55,9 @@ private:
 
     QLabel * m_icon;
 
-    void setState(State state);
+    State m_state;
+
+    void setState(State m_state);
 };
 
 #endif // SIDEBAR_H
