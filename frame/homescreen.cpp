@@ -15,6 +15,7 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     QFrame(parent)
 {
     m_grid = new QGridLayout;
+    m_grid->setContentsMargins(0, 25, 0, 0);
     foreach (ModuleMetaData meta, modules) {
         ModuleButton * button = new ModuleButton(meta, this);
 
@@ -23,19 +24,6 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
 
         connect(button, &ModuleButton::clicked, this, &HomeScreen::buttonClicked);
     }
-
-#if 1 // just test more buttons
-    for (int i(0); i != 3; ++i)
-        foreach (ModuleMetaData meta, modules) {
-            ModuleButton * button = new ModuleButton(meta, this);
-
-            m_grid->addWidget(button, m_moduleCount / 3, m_moduleCount % 3);
-            ++m_moduleCount;
-
-            connect(button, &ModuleButton::clicked, this, &HomeScreen::buttonClicked);
-        }
-#endif
-    m_grid->setContentsMargins(0, 25, 0, 0);
 
     QVBoxLayout *centerVLayout = new QVBoxLayout;
     QSpacerItem *vSpace = new QSpacerItem(1, 1, QSizePolicy::Minimum, QSizePolicy::Expanding);
@@ -54,7 +42,7 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
 
     QLabel *topLabel = new QLabel();
     topLabel->setAlignment(Qt::AlignCenter);
-    topLabel->setStyleSheet(QString("color:%1;").arg("white"));
+    topLabel->setStyleSheet(QString("color:%1;").arg(DCC::HomeScreen_UsernameColor.name()));
 #ifdef QT_DEBUG // for test username label
     topLabel->setText("TestUserName");
 #endif
@@ -84,7 +72,7 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
 
     QLabel *bottomLabel = new QLabel(tr("电源"));
     bottomLabel->setAlignment(Qt::AlignCenter);
-    bottomLabel->setStyleSheet(QString("color:%1;").arg(DCC::TextNormalColor.name()));
+    bottomLabel->setStyleSheet(QString("color:%1;").arg(DCC::HomeScreen_PowerTextColor.name()));
 
     QVBoxLayout *bottomVLayout = new QVBoxLayout;
     bottomVLayout->addWidget(bottomButton);
@@ -214,6 +202,8 @@ ModuleButton::ModuleButton(ModuleMetaData metaData, QWidget * parent) :
     QVBoxLayout *vLayout = new QVBoxLayout;
     vLayout->addLayout(hLayout);
     vLayout->addWidget(m_text);
+    vLayout->setContentsMargins(0, 15, 0, 0);
+    vLayout->setSpacing(0);
 
     this->setLayout(vLayout);
 

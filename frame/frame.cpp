@@ -17,8 +17,10 @@ Frame::Frame(QWidget * parent) :
 {
     setWindowFlags(Qt::FramelessWindowHint);
 
+    setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     setFixedWidth(DCC::ControlCenterWidth);
-    setFixedHeight(900);
+    //setMinimumHeight(minimumSizeHint().height());
+    //setFixedHeight(900);
 
     setStyleSheet(QString("Frame { background-color:%1;}").arg(DCC::BgLightColor.name()));
 
