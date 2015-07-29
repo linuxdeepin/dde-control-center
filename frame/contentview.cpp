@@ -30,7 +30,7 @@ ContentView::ContentView(QList<ModuleMetaData> modules, QWidget *parent)
 
 void ContentView::setModule(ModuleMetaData module)
 {
-    qDebug() << "Loadind module " << module.name;
+    m_sideBar->switchToModule(module);
 
     if (m_pluginLoader) {
         if (m_pluginLoader->fileName() != module.path) {
@@ -39,6 +39,7 @@ void ContentView::setModule(ModuleMetaData module)
             return;
         }
     } else {
+        qDebug() << "Loadind module " << module.name;
         m_pluginLoader = new QPluginLoader(this);
     }
 

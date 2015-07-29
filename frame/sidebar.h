@@ -14,9 +14,12 @@ class SideBar : public QFrame
 public:
     explicit SideBar(QList<ModuleMetaData> modules, QWidget *parent = 0);
 
+    void switchToModule(const ModuleMetaData & meta);
+
 private:
     void enterEvent(QEvent *e);
     void leaveEvent(QEvent *e);
+    void switchToSideBarButton(SideBarButton *btn);
 
 signals:
     void moduleSelected(ModuleMetaData meta);

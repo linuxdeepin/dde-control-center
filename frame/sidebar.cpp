@@ -15,7 +15,7 @@ SideBar::SideBar(QList<ModuleMetaData> modules, QWidget *parent)
 
     m_tips = new DTipsFrame;
 
-    QVBoxLayout * layout = new QVBoxLayout;
+    QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
     layout->setSpacing(10);
 
@@ -62,22 +62,41 @@ void SideBar::leaveEvent(QEvent *e)
     QFrame::leaveEvent(e);
 }
 
+void SideBar::switchToSideBarButton(SideBarButton *btn)
+{
+    qDebug() << "switchToSideBarButton: " << btn->metaData().name;
+
+    if (m_selectedBtn)
+        m_selectedBtn->release();
+
+    m_selectedBtn = btn;
+
+    if (!m_selectedBtn->metaData().path.isNull() && !m_selectedBtn->metaData().path.isEmpty())
+        m_selectedBtn->presse();
+}
+
 // private slots
 void SideBar::onSideBarButtonClicked()
 {
     SideBarButton *button = qobject_cast<SideBarButton*>(sender());
-    if (button) {
-        ModuleMetaData meta = button->metaData();
 
-        emit moduleSelected(meta);
-    }
+    if (!button)
+        return;
 
-    if (m_selectedBtn)
-        m_selectedBtn->release();
-    m_selectedBtn = button;
+    ModuleMetaData meta = button->metaData();
+    switchToSideBarButton(button);
 
-    if (!m_selectedBtn->metaData().path.isNull() && !m_selectedBtn->metaData().path.isEmpty())
-        m_selectedBtn->presse();
+    emit moduleSelected(meta);
+}
+
+void SideBar::switchToModule(const ModuleMetaData &meta)
+{
+    SideBarButton *btn = findChild<SideBarButton *>(meta.name);
+
+    if (!btn)
+        return;
+
+    switchToSideBarButton(btn);
 }
 
 // SideBarButton
@@ -95,6 +114,9 @@ SideBarButton::SideBarButton(ModuleMetaData metaData, QWidget * parent) :
     layout->addWidget(m_icon);
 
     setState(Normal);
+
+    setObjectName(metaData.name);
+    setAccessibleName(metaData.name);
 }
 
 ModuleMetaData SideBarButton::metaData()
