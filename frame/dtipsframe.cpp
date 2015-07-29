@@ -7,21 +7,20 @@
 DTipsFrame::DTipsFrame()
     : QFrame(0)
 {
-    setFixedSize(100, 30);
+    setFixedHeight(40);
     setWindowFlags(Qt::FramelessWindowHint | Qt::ToolTip);
+    setAttribute(Qt::WA_TranslucentBackground);
 
     m_label = new QLabel(this);
     m_label->setAlignment(Qt::AlignCenter);
 #ifdef QT_DEBUG // test text label
     m_label->setText("TestTips");
-    m_label->setStyleSheet("background-color:red;");
-
-    setStyleSheet("background-color:black;");
 #endif
+    m_label->setStyleSheet(QString("border-width:6px 20px 6px 15px; border-image:url(%1) 6 20 6 15 stretch; color:#fff;").arg(DCC::IconPath + "control_center_tooltip.png"));
 
     QHBoxLayout *layout = new QHBoxLayout(this);
     layout->addWidget(m_label);
-    layout->setContentsMargins(8, 5, 8, 5);
+    layout->setMargin(0);
 
     setLayout(layout);
 }
@@ -35,10 +34,12 @@ void DTipsFrame::move(int x, int y)
     }
     else
     {
+        QFrame::move(x, geometry().y());
+
         QPropertyAnimation *animation = new QPropertyAnimation(this, "geometry");
         animation->setStartValue(geometry());
         animation->setEndValue(QRect(x, y, width(), height()));
-        animation->setDuration(DCC::TipsAnimationDuration);
+        animation->setDuration(DCC::TipsMoveAnimationDuration);
         animation->setEasingCurve(QEasingCurve::OutCubic);
         animation->start();
     }
@@ -62,6 +63,18 @@ void DTipsFrame::followTheSender()
     int x = pos.x() - width();
     int y = pos.y() + (wHeight - height()) / 2;
 
+    x += m_extraOffsetX;
+    y += m_extraOffsetY;
+
     move(x, y);
+}
+
+void DTipsFrame::setTipsText(const QString &text)
+{
+    m_label->setText(text);
+
+    QFontMetrics metric(m_label->font());
+
+    setFixedWidth(metric.tightBoundingRect(text).width() + 50);
 }
 

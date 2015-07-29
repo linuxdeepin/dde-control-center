@@ -26,13 +26,13 @@ Frame::Frame(QWidget * parent) :
 
     this->listPlugins();
 
-    m_homeScreen = new HomeScreen(m_modules, this);
-    m_homeScreen->setFixedWidth(this->width());
-    m_homeScreen->setFixedHeight(this->height());
-
     m_contentView = new ContentView(m_modules, this);
     m_contentView->setFixedWidth(this->width());
     m_contentView->setFixedHeight(this->height());
+
+    m_homeScreen = new HomeScreen(m_modules, this);
+    m_homeScreen->setFixedWidth(this->width());
+    m_homeScreen->setFixedHeight(this->height());
 
     connect(m_homeScreen, &HomeScreen::moduleSelected, this, &Frame::selectModule);
     connect(m_contentView, &ContentView::homeSelected, [=] { ModuleMetaData meta; this->selectModule(meta);});
