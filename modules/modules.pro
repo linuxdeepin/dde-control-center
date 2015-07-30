@@ -2,4 +2,5 @@ TEMPLATE = subdirs
 SUBDIRS  = sound \
            power \
            bluetooth \
-           network
+           network \
+           default_applications

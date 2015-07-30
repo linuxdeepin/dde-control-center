@@ -1,0 +1,8 @@
+{
+	"name": "Default Applications",
+	"icon": {
+		"normal": "default_applications_normal.png",
+		"hover": "default_applications_hover.png",
+		"selected": "default_applications_press.png"
+	}
+}
