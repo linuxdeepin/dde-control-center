@@ -140,8 +140,6 @@ void BluetoothComponent::updateItem()
     } else {
         m_item->setPixmap(QIcon::fromTheme("bluetooth-disable-symbolic").pixmap(m_item->size()));
     }
-
-    m_item->show();
 }
 
 void BluetoothComponent::addAdaptor(QJsonObject json)
