@@ -7,9 +7,11 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 
+#include <libdui/dseparatorhorizontal.h>
+#include <libdui/dimagebutton.h>
+
 #include "homescreen.h"
 #include "constants.h"
-#include "dclickablelabel.h"
 
 HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     QFrame(parent)
@@ -26,7 +28,7 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     }
 
     QVBoxLayout *centerVLayout = new QVBoxLayout;
-    QSpacerItem *vSpace = new QSpacerItem(1, 1, QSizePolicy::Minimum, QSizePolicy::Expanding);
+    QSpacerItem *vSpace = new QSpacerItem(1, 1, QSizePolicy::Minimum, QSizePolicy::MinimumExpanding);
     centerVLayout->addLayout(m_grid);
     centerVLayout->addSpacerItem(vSpace);
 
@@ -37,7 +39,7 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     topOuterWidget->setFixedHeight(DCC::HomeScreen_TopWidgetHeight);
     topOuterWidget->setFixedWidth(DCC::ControlCenterWidth);
 
-    DClickablePictureLabel *topButton = new DClickablePictureLabel(0, "shutdown_normal.png", "", "");
+    DUI::DImageButton *topButton = new DUI::DImageButton(DCC::IconPath + "shutdown_normal.png", "", "");
     topButton->setAttribute(Qt::WA_TranslucentBackground);
 
     QLabel *topLabel = new QLabel();
@@ -61,13 +63,16 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     QVBoxLayout *topVBox = new QVBoxLayout;
     topVBox->addLayout(topHBox_top);
     topVBox->addLayout(topHBox_bot);
+    topVBox->addWidget(new DUI::DSeparatorHorizontal);
+    topVBox->setSpacing(0);
+    topVBox->setMargin(0);
 
     m_topWidget = new QWidget(topOuterWidget);
     m_topWidget->setFixedSize(topOuterWidget->size());
     m_topWidget->setLayout(topVBox);
     m_topWidget->setStyleSheet(QString("background-color:%1;").arg(DCC::BgDarkColor.name()));
 
-    DClickablePictureLabel *bottomButton = new DClickablePictureLabel(0, "shutdown_normal.png", "shutdown_hover.png", "");
+    DUI::DImageButton *bottomButton = new DUI::DImageButton(DCC::IconPath + "shutdown_normal.png", DCC::IconPath + "shutdown_hover.png", "");
     bottomButton->setAttribute(Qt::WA_TranslucentBackground);
 
     QLabel *bottomLabel = new QLabel(tr("电源"));

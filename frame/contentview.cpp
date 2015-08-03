@@ -8,6 +8,8 @@
 #include "sidebar.h"
 #include "constants.h"
 
+#include <libdui/dseparatorvertical.h>
+
 ContentView::ContentView(QList<ModuleMetaData> modules, QWidget *parent)
     : QFrame(parent)
 {
@@ -17,6 +19,7 @@ ContentView::ContentView(QList<ModuleMetaData> modules, QWidget *parent)
 
     m_layout = new QHBoxLayout(this);
     m_layout->addWidget(m_sideBar);
+    m_layout->addWidget(new DUI::DSeparatorVertical);
     m_layout->setSpacing(0);
     m_layout->setMargin(0);
 
