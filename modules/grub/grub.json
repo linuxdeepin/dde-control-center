@@ -1,0 +1,8 @@
+{
+	"name": "Grub",
+	"icon": {
+		"normal": "grub_normal.png",
+		"hover": "grub_hover.png",
+		"selected": "grub_press.png"
+	}
+}

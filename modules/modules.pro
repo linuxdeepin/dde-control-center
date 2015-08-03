@@ -3,4 +3,5 @@ SUBDIRS  = sound \
            power \
            bluetooth \
            network \
-           default_applications
+           default_applications \
+           grub
