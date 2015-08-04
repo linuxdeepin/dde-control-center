@@ -1,5 +1,5 @@
 {
-	"name": "Grub",
+	"name": "Boot Menu",
 	"icon": {
 		"normal": "grub_normal.png",
 		"hover": "grub_hover.png",

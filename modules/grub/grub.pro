@@ -1,11 +1,15 @@
 TEMPLATE        = lib
 CONFIG         += plugin
-QT             += widgets
+QT             += widgets dbus
 INCLUDEPATH    += ../../frame/
 HEADERS        += grub.h \
-                grubwidget.h
+                grubwidget.h \
+    grubdbus.h \
+    grubbackground.h
 SOURCES        += grub.cpp \
-                grubwidget.cpp
+                grubwidget.cpp \
+    grubdbus.cpp \
+    grubbackground.cpp
 TARGET          = $$qtLibraryTarget(grub)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 

@@ -5,6 +5,8 @@
 #include <QVBoxLayout>
 #include <libdui/dheaderline.h>
 #include <libdui/libdui_global.h>
+#include "grubbackground.h"
+#include <libdui/darrowlineexpand.h>
 
 DUI_USE_NAMESPACE
 
@@ -17,6 +19,13 @@ public:
 private:
     QVBoxLayout *m_layout;
     DHeaderLine *m_header;
+    GrubBackground *m_grubBackground;
+    DArrowLineExpand *m_arrowDefaultBoot;
+    DArrowLineExpand *m_arrowBootDelay;
+    DArrowLineExpand *m_arrowTextColor;
+    DArrowLineExpand *m_arrowSelectedTextColor;
+
+    void init();
 };
 
 #endif // GRUBWIDGET_H
