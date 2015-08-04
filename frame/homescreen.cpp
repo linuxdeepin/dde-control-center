@@ -112,7 +112,6 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
 
     m_opacityEffect = new QGraphicsOpacityEffect;
     m_opacityEffect->setOpacity(1.0);
-
     m_centerWidget->setGraphicsEffect(m_opacityEffect);
 
     connect(bottomButton, SIGNAL(clicked()), this, SLOT(powerButtonClicked()));
@@ -197,6 +196,7 @@ ModuleButton::ModuleButton(ModuleMetaData metaData, QWidget * parent) :
     m_icon = new QLabel(this);
     m_text = new QLabel(this);
     m_text->setText(m_meta.name);
+    m_text->setWordWrap(true);
     m_text->setAlignment(Qt::AlignCenter);
 
     QHBoxLayout *hLayout = new QHBoxLayout;
