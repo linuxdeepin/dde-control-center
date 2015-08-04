@@ -13,7 +13,6 @@ void DiskMountPlugin::init(DockPluginProxyInterface *proxy)
     m_proxy = proxy;
 
     mountableDeviceChanged();
-
     setMode(proxy->dockMode());
 }
 
@@ -45,7 +44,9 @@ QWidget * DiskMountPlugin::getItem(QString)
 
 QWidget * DiskMountPlugin::getApplet(QString)
 {
-    return new DiskContent(m_uuid,m_proxy);
+    if (!m_diskContent)
+        m_diskContent = new DiskContent(m_uuid, m_proxy);
+    return m_diskContent;
 }
 
 void DiskMountPlugin::changeMode(Dock::DockMode newMode,
@@ -127,7 +128,8 @@ QJsonObject DiskMountPlugin::createMenuItem(QString itemId, QString itemName, bo
 
 DiskMountPlugin::~DiskMountPlugin()
 {
-
+    if (m_diskContent)
+        m_diskContent->deleteLater();
 }
 
 #if QT_VERSION < 0x050000

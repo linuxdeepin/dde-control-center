@@ -51,6 +51,7 @@ private:
 
     Dock::DockMode m_mode = Dock::EfficientMode;
     DBusDiskMount *m_diskMount;
+    DiskContent *m_diskContent = NULL;
 
 private:
     void mountableDeviceChanged();
