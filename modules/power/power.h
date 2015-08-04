@@ -1,5 +1,5 @@
-#ifndef SOUND_H
-#define SOUND_H
+#ifndef POWER_H
+#define POWER_H
 
 #include <QObject>
 #include <QtPlugin>
