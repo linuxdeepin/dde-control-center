@@ -48,6 +48,7 @@ private:
 
     Dock::DockMode m_mode;
     MainItem * m_item = NULL;
+    SoundContent *m_soundContent = NULL;
 
 private:
     void setMode(Dock::DockMode mode);

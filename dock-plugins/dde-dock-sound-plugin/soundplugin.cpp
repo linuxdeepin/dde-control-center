@@ -36,7 +36,9 @@ QWidget * SoundPlugin::getItem(QString)
 
 QWidget * SoundPlugin::getApplet(QString)
 {
-    return new SoundContent(m_uuid,m_proxy);
+    if (!m_soundContent)
+        m_soundContent = new SoundContent(m_uuid, m_proxy);
+    return m_soundContent;
 }
 
 void SoundPlugin::changeMode(Dock::DockMode newMode,
@@ -106,7 +108,8 @@ QJsonObject SoundPlugin::createMenuItem(QString itemId, QString itemName, bool c
 
 SoundPlugin::~SoundPlugin()
 {
-
+    if (m_soundContent)
+        m_soundContent->deleteLater();
 }
 
 #if QT_VERSION < 0x050000
