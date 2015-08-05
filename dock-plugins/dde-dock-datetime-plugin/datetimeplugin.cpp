@@ -29,6 +29,8 @@ DateTimePlugin::DateTimePlugin() :
     m_timer->setSingleShot(false);
     m_timer->start();
 
+    initCalendar();
+
     connect(m_timer, &QTimer::timeout, this, &DateTimePlugin::updateTime);
 }
 
@@ -68,7 +70,8 @@ QWidget * DateTimePlugin::getItem(QString)
 
 QWidget * DateTimePlugin::getApplet(QString)
 {
-    return NULL;
+    if (m_calendar)
+        return m_calendar;
 }
 
 void DateTimePlugin::changeMode(Dock::DockMode newMode,
@@ -143,6 +146,12 @@ void DateTimePlugin::invokeMenuItem(QString, QString itemId, bool checked)
     } else if (itemId == MenuIdShowDate) {
         m_showDate = checked;
     }
+}
+
+void DateTimePlugin::initCalendar()
+{
+    m_calendar = new DCalendar();
+    m_calendar->setFixedSize(300, 300);
 }
 
 // private methods

@@ -6,6 +6,9 @@
 #include <dock/dockpluginproxyinterface.h>
 
 #include <clockpixmap.h>
+#include <libdui/dcalendar.h>
+
+DUI_USE_NAMESPACE
 
 class QLabel;
 class QTimer;
@@ -36,6 +39,7 @@ private:
     QString m_uuid = "uuid_datetime";
     DockPluginProxyInterface * m_proxy;
 
+    DCalendar * m_calendar;
     QLabel * m_item = NULL;
     QTimer * m_timer = NULL;
     ClockPixmap m_clockPixmap;
@@ -43,6 +47,8 @@ private:
     bool m_showWeek;
     bool m_showDate;
 
+private:
+    void initCalendar();
     void setMode(Dock::DockMode mode);
     QJsonObject createMenuItem(QString itemId,
                                QString itemName,

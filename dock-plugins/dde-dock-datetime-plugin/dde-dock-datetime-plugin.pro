@@ -24,3 +24,5 @@ INSTALLS += target
 
 RESOURCES += \
     images.qrc
+
+LIBS += -ldui
