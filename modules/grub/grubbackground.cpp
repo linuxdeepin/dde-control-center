@@ -4,7 +4,7 @@
 
 GrubBackground::GrubBackground(QWidget *parent) : QWidget(parent)
 {
-    setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     GrubDbus *dbus = GrubDbus::instance();
     updateBackground(dbus->background());
@@ -14,7 +14,7 @@ GrubBackground::GrubBackground(QWidget *parent) : QWidget(parent)
 void GrubBackground::paintEvent(QPaintEvent *e)
 {
     QPainter pa(this);
-    pa.drawPixmap(0, 0, m_background);
+    pa.drawPixmap(rect(), m_background);
 
     QWidget::paintEvent(e);
 }
@@ -23,7 +23,7 @@ bool GrubBackground::updateBackground(const QString &filename)
 {
     bool result = m_background.load(filename);
     if(result){
-        setFixedSize(m_background.size());
+        setMinimumSize(m_background.size());
         update();
     }
     return result;
