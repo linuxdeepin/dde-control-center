@@ -1,6 +1,7 @@
 TEMPLATE        = lib
 CONFIG         += plugin
 QT             += widgets
+LIBS           += -ldui
 INCLUDEPATH    += ../../frame/
 HEADERS         = defaultapps.h
 SOURCES         = defaultapps.cpp

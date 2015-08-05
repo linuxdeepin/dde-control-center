@@ -3,7 +3,10 @@
 
 #include <QObject>
 #include <QtPlugin>
+
 #include "interfaces.h"
+
+#include <libdui/darrowlineexpand.h>
 
 class QLabel;
 class QFrame;
@@ -18,8 +21,19 @@ public:
     ~DefaultApps() Q_DECL_OVERRIDE;
     QFrame* getContent() Q_DECL_OVERRIDE;
 
+public slots:
+    void Test();
+
 private:
-    QLabel * m_label;
+    enum DefaultAppsCategory {
+        Browser, Mail, Text, Music, Video, Picture, Terminal, CD_Audio, DVD_Video, MusicPlayer, Camera, Software,
+    };
+
+private:
+    DUI::DArrowLineExpand *createDefaultAppsExpand(const DefaultAppsCategory & category);
+
+private:
+    QFrame * m_centralWidget;
 };
 
 #endif
