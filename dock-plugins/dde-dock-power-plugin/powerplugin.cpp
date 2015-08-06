@@ -12,7 +12,7 @@ PowerPlugin::PowerPlugin()
 {
     QIcon::setThemeName("Deepin");
 
-    m_uuid = "uuid_power";
+    m_id = "id_power";
 
     m_label = new QLabel;
     m_label->adjustSize();
@@ -34,21 +34,26 @@ void PowerPlugin::init(DockPluginProxyInterface *proxy)
 {
     m_proxy = proxy;
 
-    m_proxy->itemAddedEvent(m_uuid);
+    m_proxy->itemAddedEvent(m_id);
 
     setMode(proxy->dockMode());
 }
 
-QString PowerPlugin::name()
+QString PowerPlugin::getPluginName()
 {
     return "Power plugin";
 }
 
-QStringList PowerPlugin::uuids()
+QStringList PowerPlugin::ids()
 {
-    QStringList list(m_uuid);
+    QStringList list(m_id);
 
     return list;
+}
+
+QString PowerPlugin::getName(QString id)
+{
+    return getPluginName();
 }
 
 QString PowerPlugin::getTitle(QString)
@@ -60,6 +65,27 @@ QString PowerPlugin::getTitle(QString)
     } else {
         return batteryPercentage;
     }
+}
+
+QString PowerPlugin::getCommand(QString id)
+{
+    return "dde-control-center power";
+}
+
+bool PowerPlugin::canDisable(QString id)
+{
+    return true;
+}
+
+bool PowerPlugin::isDisabled(QString id)
+{
+    return false;
+}
+
+void PowerPlugin::setDisabled(QString id, bool disabled)
+{
+    m_label->setParent(NULL);
+    m_proxy->itemRemovedEvent(id);
 }
 
 QWidget * PowerPlugin::getApplet(QString)
@@ -81,12 +107,12 @@ void PowerPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
     if (newMode != oldMode) setMode(newMode);
 }
 
-QString PowerPlugin::getMenuContent(QString uuid)
+QString PowerPlugin::getMenuContent(QString id)
 {
     return "";
 }
 
-void PowerPlugin::invokeMenuItem(QString uuid, QString itemId, bool checked)
+void PowerPlugin::invokeMenuItem(QString id, QString itemId, bool checked)
 {
 
 }
@@ -114,13 +140,13 @@ void PowerPlugin::updateIcon()
             QIcon icon = QIcon::fromTheme(iconName, fallback);
             m_label->setFixedSize(Dock::APPLET_FASHION_ICON_SIZE, Dock::APPLET_FASHION_ICON_SIZE);
             m_label->setPixmap(icon.pixmap(m_label->size()));
-            m_proxy->itemSizeChangedEvent(m_uuid);
+            m_proxy->itemSizeChangedEvent(m_id);
         } else {
             QString iconName = getBatteryIcon(batteryPercentage, !m_dbusPower->onBattery(), true);
             QIcon icon = QIcon::fromTheme(iconName, fallback);
             m_label->setFixedSize(Dock::APPLET_EFFICIENT_ICON_SIZE, Dock::APPLET_CLASSIC_ICON_SIZE);
             m_label->setPixmap(icon.pixmap(m_label->size()));
-            m_proxy->itemSizeChangedEvent(m_uuid);
+            m_proxy->itemSizeChangedEvent(m_id);
         }
     }
 }

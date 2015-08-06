@@ -22,19 +22,24 @@ public:
 
     virtual void init(DockPluginProxyInterface *proxy) Q_DECL_OVERRIDE;
 
-    virtual QString name() Q_DECL_OVERRIDE;
+    virtual QString getPluginName() Q_DECL_OVERRIDE;
 
-    virtual QStringList uuids() Q_DECL_OVERRIDE;
-    virtual QString getTitle(QString uuid) Q_DECL_OVERRIDE;
-    virtual QWidget * getItem(QString uuid) Q_DECL_OVERRIDE;
-    virtual QWidget * getApplet(QString uuid) Q_DECL_OVERRIDE;
+    virtual QStringList ids() Q_DECL_OVERRIDE;
+    virtual QString getName(QString id) Q_DECL_OVERRIDE;
+    virtual QString getTitle(QString id) Q_DECL_OVERRIDE;
+    virtual QString getCommand(QString id) Q_DECL_OVERRIDE;
+    virtual bool canDisable(QString id) Q_DECL_OVERRIDE;
+    virtual bool isDisabled(QString id) Q_DECL_OVERRIDE;
+    virtual void setDisabled(QString id, bool disabled) Q_DECL_OVERRIDE;
+    virtual QWidget * getItem(QString id) Q_DECL_OVERRIDE;
+    virtual QWidget * getApplet(QString id) Q_DECL_OVERRIDE;
     virtual void changeMode(Dock::DockMode newMode, Dock::DockMode oldMode) Q_DECL_OVERRIDE;
 
-    virtual QString getMenuContent(QString uuid) Q_DECL_OVERRIDE;
-    virtual void invokeMenuItem(QString uuid, QString itemId, bool checked) Q_DECL_OVERRIDE;
+    virtual QString getMenuContent(QString id) Q_DECL_OVERRIDE;
+    virtual void invokeMenuItem(QString id, QString itemId, bool checked) Q_DECL_OVERRIDE;
 
 private:
-    QString m_uuid;
+    QString m_id;
     QLabel * m_label;
     DockPluginProxyInterface * m_proxy;
     Dock::DockMode m_mode;
