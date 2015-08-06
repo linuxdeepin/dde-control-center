@@ -4,17 +4,20 @@
 #include <libdui/dcolorpicker.h>
 #include <QPixmap>
 #include <QDebug>
-#include <QColorDialog>
+#include <libdui/dbuttonlist.h>
+#include "dbustheme.h"
 
 GrubWidget::GrubWidget(QWidget *parent):
     QFrame(parent),
     m_layout(new QVBoxLayout()),
     m_header(new DHeaderLine()),
-    m_grubBackground(new GrubBackground()),
     m_arrowDefaultBoot(new DArrowLineExpand()),
     m_arrowBootDelay(new DArrowLineExpand()),
     m_arrowTextColor(new DArrowLineExpand()),
-    m_arrowSelectedTextColor(new DArrowLineExpand())
+    m_arrowSelectedTextColor(new DArrowLineExpand()),
+    m_themeDbus(new GrubThemeDbus(this)),
+    m_grubDbus(new GrubDbus(this)),
+    m_grubBackground(new GrubBackground(m_themeDbus))
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
@@ -31,10 +34,15 @@ void GrubWidget::init()
     m_layout->setMargin(0);
 
     m_header->setTitle(tr("Boot Menu"));
-    m_header->setContent(new DTextButton(tr("Reset")));
+    DTextButton *re_button = new DTextButton(tr("Reset"));
+    connect(re_button, &DTextButton::clicked, m_grubDbus, &GrubDbus::Reset);
+    m_header->setContent(re_button);
 
     m_arrowDefaultBoot->setTitle(tr("Default Boot"));
-    m_arrowDefaultBoot->setContent(new QWidget);
+    DButtonList *boot_list = new DButtonList;
+    boot_list->addButtons(m_grubDbus->GetSimpleEntryTitles());
+    boot_list->setFixedSize(300, boot_list->count()*30);
+    m_arrowDefaultBoot->setContent(boot_list);
     m_arrowDefaultBoot->setExpand(false);
 
     m_arrowBootDelay->setTitle(tr("Boot delay"));
@@ -49,6 +57,9 @@ void GrubWidget::init()
     picker1->addColorGradient(QPoint(7, 2), QPoint(12, 7), "#990000", "#99FFFF");
     picker1->addColorGradient(QPoint(7, 8), QPoint(12, 13), "#CC0000", "#CCFFFF");
     picker1->addColorGradient(QPoint(7, 14), QPoint(12, 19), "#FF0000", "#FFFFFF");
+    picker1->setCurrentColor(m_themeDbus->itemColor());
+    connect(picker1, &DColorPicker::currentColorChanged, m_themeDbus, &GrubThemeDbus::setItemColor);
+    connect(m_themeDbus, &GrubThemeDbus::itemColorChanged, picker1, &DColorPicker::setCurrentColor);
     m_arrowTextColor->setTitle(tr("Text Color"));
     m_arrowTextColor->setContent(picker1);
     m_arrowTextColor->setExpand(false);
@@ -61,9 +72,10 @@ void GrubWidget::init()
     picker2->addColorGradient(QPoint(7, 2), QPoint(12, 7), "#990000", "#99FFFF");
     picker2->addColorGradient(QPoint(7, 8), QPoint(12, 13), "#CC0000", "#CCFFFF");
     picker2->addColorGradient(QPoint(7, 14), QPoint(12, 19), "#FF0000", "#FFFFFF");
+    picker2->setCurrentColor(m_themeDbus->selectedItemColor());
+    connect(picker2, &DColorPicker::currentColorChanged, m_themeDbus, &GrubThemeDbus::setSelectedItemColor);
+    connect(m_themeDbus, &GrubThemeDbus::selectedItemColorChanged, picker2, &DColorPicker::setCurrentColor);
     m_arrowSelectedTextColor->setTitle("Selected Text Color");
-    QColorDialog *dialog = new QColorDialog;
-    dialog->setOptions(QColorDialog::NoButtons);
     m_arrowSelectedTextColor->setContent(picker2);
     m_arrowSelectedTextColor->setExpand(false);
 
