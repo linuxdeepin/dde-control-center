@@ -40,9 +40,16 @@ void GrubWidget::init()
 
     m_arrowDefaultBoot->setTitle(tr("Default Boot"));
     DButtonList *boot_list = new DButtonList;
-    boot_list->addButtons(m_grubDbus->GetSimpleEntryTitles());
+    QStringList title_list = m_grubDbus->GetSimpleEntryTitles();
+    int default_index = title_list.indexOf(m_grubDbus->defaultEntry());
+    boot_list->addButtons(title_list);
     boot_list->setFixedSize(300, boot_list->count()*30);
     m_arrowDefaultBoot->setContent(boot_list);
+    QWidget * tmpw = boot_list->itemWidget(boot_list->item(default_index));
+    QPushButton *tmpb = qobject_cast<QPushButton*>(tmpw);
+    if(tmpb){
+        tmpb->setChecked(true);
+    }
     m_arrowDefaultBoot->setExpand(false);
 
     m_arrowBootDelay->setTitle(tr("Boot delay"));
