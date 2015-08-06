@@ -4,13 +4,11 @@ QT             += widgets dbus
 INCLUDEPATH    += ../../frame/
 HEADERS        += grub.h \
                 grubwidget.h \
-    #grubdbus.h \
     grubbackground.h \
     dbustheme.h \
     dbusgrub.h
 SOURCES        += grub.cpp \
                 grubwidget.cpp \
-    #grubdbus.cpp \
     grubbackground.cpp \
     dbustheme.cpp \
     dbusgrub.cpp
