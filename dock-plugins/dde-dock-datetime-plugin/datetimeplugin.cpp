@@ -43,24 +43,49 @@ void DateTimePlugin::init(DockPluginProxyInterface *proxy)
 {
     m_proxy = proxy;
 
-    m_proxy->itemAddedEvent(m_uuid);
+    m_proxy->itemAddedEvent(m_id);
 
     setMode(proxy->dockMode());
 }
 
-QString DateTimePlugin::name()
+QString DateTimePlugin::getPluginName()
 {
     return "Datetime plugin";
 }
 
-QStringList DateTimePlugin::uuids()
+QStringList DateTimePlugin::ids()
 {
-    return QStringList(m_uuid);
+    return QStringList(m_id);
+}
+
+QString DateTimePlugin::getName(QString)
+{
+    return getPluginName();
 }
 
 QString DateTimePlugin::getTitle(QString)
 {
-    return name();
+    return getPluginName();
+}
+
+QString DateTimePlugin::getCommand(QString)
+{
+    return "dde-control-center date_time";
+}
+
+bool DateTimePlugin::canDisable(QString)
+{
+    return false;
+}
+
+bool DateTimePlugin::isDisabled(QString)
+{
+    return false;
+}
+
+void DateTimePlugin::setDisabled(QString, bool)
+{
+
 }
 
 QWidget * DateTimePlugin::getItem(QString)
@@ -72,6 +97,8 @@ QWidget * DateTimePlugin::getApplet(QString)
 {
     if (m_calendar)
         return m_calendar;
+    else
+        return NULL;
 }
 
 void DateTimePlugin::changeMode(Dock::DockMode newMode,
@@ -111,7 +138,7 @@ void DateTimePlugin::updateTime()
 
         if (newText.length() != oldText.length()) {
             m_item->adjustSize();
-            m_proxy->itemSizeChangedEvent(m_uuid);
+            m_proxy->itemSizeChangedEvent(m_id);
         }
     }
 }
@@ -168,7 +195,7 @@ void DateTimePlugin::setMode(Dock::DockMode mode)
     }
 
     m_item->adjustSize();
-    m_proxy->itemSizeChangedEvent(m_uuid);
+    m_proxy->itemSizeChangedEvent(m_id);
 }
 
 QJsonObject DateTimePlugin::createMenuItem(QString itemId, QString itemName, bool checkable, bool checked)
