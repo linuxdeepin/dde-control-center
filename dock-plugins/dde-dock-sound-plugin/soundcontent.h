@@ -14,7 +14,7 @@ class SoundContent : public QWidget
 {
     Q_OBJECT
 public:
-    explicit SoundContent(const QString &uuid, DockPluginProxyInterface *proxy, QWidget *parent = 0);
+    explicit SoundContent(const QString &id, DockPluginProxyInterface *proxy, QWidget *parent = 0);
 
 signals:
 
@@ -25,7 +25,7 @@ private:
     void initFrame();
 
 private:
-    QString m_uuid = "";
+    QString m_id = "";
     DockPluginProxyInterface * m_proxy = NULL;
 
 };

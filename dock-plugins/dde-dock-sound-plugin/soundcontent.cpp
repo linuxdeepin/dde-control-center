@@ -1,7 +1,7 @@
 #include "soundcontent.h"
 
-SoundContent::SoundContent(const QString &uuid, DockPluginProxyInterface *proxy, QWidget *parent)
-    : QWidget(parent),m_uuid(uuid),m_proxy(proxy)
+SoundContent::SoundContent(const QString &id, DockPluginProxyInterface *proxy, QWidget *parent)
+    : QWidget(parent),m_id(id),m_proxy(proxy)
 {
     initStyleSheet();
     initFrame();
@@ -42,7 +42,7 @@ void SoundContent::initFrame()
 
         adjustSize();
 
-        m_proxy->appletSizeChangedEvent(m_uuid);
+        m_proxy->appletSizeChangedEvent(m_id);
     });
 
     QVBoxLayout *mainLayout = new QVBoxLayout();

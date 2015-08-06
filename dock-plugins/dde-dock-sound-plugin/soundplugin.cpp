@@ -9,24 +9,52 @@ void SoundPlugin::init(DockPluginProxyInterface *proxy)
 {
     m_proxy = proxy;
 
-    m_proxy->itemAddedEvent(m_uuid);
+    m_proxy->itemAddedEvent(m_id);
 
     setMode(proxy->dockMode());
 }
 
-QString SoundPlugin::name()
+QString SoundPlugin::getPluginName()
 {
     return "Sound plugin";
 }
 
-QStringList SoundPlugin::uuids()
+QStringList SoundPlugin::ids()
 {
-    return QStringList(m_uuid);
+    return QStringList(m_id);
+}
+
+QString SoundPlugin::getName(QString)
+{
+    return getPluginName();
 }
 
 QString SoundPlugin::getTitle(QString)
 {
-    return name();
+    return getPluginName();
+}
+
+QString SoundPlugin::getCommand(QString)
+{
+    return "dde-control-center sound";
+}
+
+bool SoundPlugin::canDisable(QString id)
+{
+    return true;
+}
+
+bool SoundPlugin::isDisabled(QString)
+{
+    return false;
+}
+
+void SoundPlugin::setDisabled(QString id, bool disabled)
+{
+    if (disabled) {
+        m_item->setParent(NULL);
+        m_proxy->itemRemovedEvent(id);
+    }
 }
 
 QWidget * SoundPlugin::getItem(QString)
@@ -37,7 +65,7 @@ QWidget * SoundPlugin::getItem(QString)
 QWidget * SoundPlugin::getApplet(QString)
 {
     if (!m_soundContent)
-        m_soundContent = new SoundContent(m_uuid, m_proxy);
+        m_soundContent = new SoundContent(m_id, m_proxy);
     return m_soundContent;
 }
 
@@ -49,15 +77,7 @@ void SoundPlugin::changeMode(Dock::DockMode newMode,
 
 QString SoundPlugin::getMenuContent(QString)
 {
-    QJsonObject contentObj;
-
-    QJsonArray items;
-
-    items.append(createMenuItem("sound_setting", "Sound settings"));
-
-    contentObj.insert("items", items);
-
-    return QString(QJsonDocument(contentObj).toJson());
+    return "";
 }
 
 void SoundPlugin::invokeMenuItem(QString, QString itemId, bool checked)
@@ -85,7 +105,7 @@ void SoundPlugin::setMode(Dock::DockMode mode)
     }
 
     m_item->setDockMode(mode);
-    m_proxy->itemSizeChangedEvent(m_uuid);
+    m_proxy->itemSizeChangedEvent(m_id);
 }
 
 QJsonObject SoundPlugin::createMenuItem(QString itemId, QString itemName, bool checkable, bool checked)
