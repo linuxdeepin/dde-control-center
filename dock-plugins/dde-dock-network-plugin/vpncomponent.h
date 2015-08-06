@@ -22,9 +22,10 @@ public:
 
     VPNComponent(QObject *parent = 0);
 
-    QString getUUID() Q_DECL_OVERRIDE;
-
+    QString getId() Q_DECL_OVERRIDE;
+    QString getName() Q_DECL_OVERRIDE;
     QString getTitle() Q_DECL_OVERRIDE;
+    QString getCommand() Q_DECL_OVERRIDE;
     QWidget * getItem() Q_DECL_OVERRIDE;
     void retainItem() Q_DECL_OVERRIDE;
     QWidget * getApplet() Q_DECL_OVERRIDE;

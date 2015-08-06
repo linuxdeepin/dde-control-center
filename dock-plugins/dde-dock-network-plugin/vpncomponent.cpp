@@ -32,14 +32,24 @@ VPNComponent::VPNComponent(QObject *parent) :
     connect(m_dbusNetwork, &Network::ActiveConnectionsChanged, this, &VPNComponent::updateItem);
 }
 
-QString VPNComponent::getUUID()
+QString VPNComponent::getId()
 {
-    return "uuid_vpn";
+    return "id_vpn";
+}
+
+QString VPNComponent::getName()
+{
+    return "VPN";
 }
 
 QString VPNComponent::getTitle()
 {
-    return "VPN";
+    return getName();
+}
+
+QString VPNComponent::getCommand()
+{
+    return "dde-control-center network";
 }
 
 QWidget * VPNComponent::getItem()
@@ -84,7 +94,7 @@ void VPNComponent::updateVPNs()
         VPN vpn;
         vpn.id = vpnJson["Id"].toString();
         vpn.uuid = vpnJson["Uuid"].toString();
-        vpn.connected = isVPNConnected(vpn.uuid);
+        vpn.connected = isVPNConnected(vpn.id);
 
         m_vpns << vpn;
     } 
@@ -92,7 +102,7 @@ void VPNComponent::updateVPNs()
     emit vpnStatesChanged();
 }
 
-bool VPNComponent::isVPNConnected(QString uuid)
+bool VPNComponent::isVPNConnected(QString id)
 {
     QString activeConnectionsStr = m_dbusNetwork->activeConnections();
     QJsonObject activeConnections = QJsonDocument::fromJson(activeConnectionsStr.toUtf8()).object();
@@ -101,7 +111,7 @@ bool VPNComponent::isVPNConnected(QString uuid)
         QJsonObject activeConnection = activeConnections[key].toObject();
         bool isVpnType = activeConnection["Vpn"].toBool();
         bool isConnected = activeConnection["State"].toInt() == 2;
-        bool isUuidEqual = activeConnection["Uuid"].toString() == uuid;
+        bool isUuidEqual = activeConnection["Uuid"].toString() == id;
 
         if (isUuidEqual) {
             if (isVpnType && isConnected) {
@@ -137,11 +147,11 @@ void VPNComponent::updateItem()
         m_item->setPixmap(QIcon::fromTheme(iconName).pixmap(m_item->size()));
 
 
-        if (np && np->m_proxy) np->m_proxy->itemAddedEvent(getUUID());
+        if (np && np->m_proxy) np->m_proxy->itemAddedEvent(getId());
     } else {
 
         // NOTE: reparent our poor m_item before dock deleting it.
         m_item->setParent(NULL);
-        if (np && np->m_proxy) np->m_proxy->itemRemovedEvent(getUUID());
+        if (np && np->m_proxy) np->m_proxy->itemRemovedEvent(getId());
     }
 }

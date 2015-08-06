@@ -28,14 +28,24 @@ WiredComponent::WiredComponent(QObject *parent) :
     connect(m_dbusNetwork, &Network::ActiveConnectionsChanged, this, &WiredComponent::updateItem);
 }
 
-QString WiredComponent::getUUID()
+QString WiredComponent::getId()
 {
-    return "uuid_wired";
+    return "id_wired";
+}
+
+QString WiredComponent::getName()
+{
+    return "Wired connections";
 }
 
 QString WiredComponent::getTitle()
 {
     return getWiredIP();
+}
+
+QString WiredComponent::getCommand()
+{
+    return "dde-control-center network";
 }
 
 QWidget * WiredComponent::getItem()
@@ -82,6 +92,8 @@ QString WiredComponent::getWiredIP()
             QJsonObject connection = value.toObject();
             if (connection["ConnectionType"].toString() == "wired") {
                 return connection["Ip4"].toObject()["Address"].toString();
+            } else {
+                return "";
             }
         }
     } else {
@@ -163,8 +175,8 @@ void WiredComponent::updateItem()
             m_item->setPixmap(QIcon::fromTheme("network-offline-symbolic").pixmap(m_item->size()));
         }
 
-        if (np && np->m_proxy) np->m_proxy->itemAddedEvent(getUUID());
+        if (np && np->m_proxy) np->m_proxy->itemAddedEvent(getId());
     } else {
-        if (np && np->m_proxy) np->m_proxy->itemRemovedEvent(getUUID());
+        if (np && np->m_proxy) np->m_proxy->itemRemovedEvent(getId());
     }
 }

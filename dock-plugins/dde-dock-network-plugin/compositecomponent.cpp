@@ -15,14 +15,24 @@ CompositeComponent::CompositeComponent(QObject *parent) :
     m_item->setPixmap(QIcon::fromTheme("network-online").pixmap(m_item->size()));
 }
 
-QString CompositeComponent::getUUID()
+QString CompositeComponent::getId()
 {
-    return "uuid_composite";
+    return "id_composite";
+}
+
+QString CompositeComponent::getName()
+{
+    return "Network";
 }
 
 QString CompositeComponent::getTitle()
 {
-    return "Network";
+    return getName();
+}
+
+QString CompositeComponent::getCommand()
+{
+    return "dde-control-center network";
 }
 
 QWidget * CompositeComponent::getItem()

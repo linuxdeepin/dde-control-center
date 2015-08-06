@@ -37,14 +37,24 @@ BluetoothComponent::~BluetoothComponent()
 
 }
 
-QString BluetoothComponent::getUUID()
+QString BluetoothComponent::getId()
 {
-    return "uuid_bluetooth";
+    return "id_bluetooth";
+}
+
+QString BluetoothComponent::getName()
+{
+    return "Bluetooth";
 }
 
 QString BluetoothComponent::getTitle()
 {
-    return "Bluetooth";
+    return getName();
+}
+
+QString BluetoothComponent::getCommand()
+{
+    return "dde-control-center bluetooth";
 }
 
 QWidget * BluetoothComponent::getItem()

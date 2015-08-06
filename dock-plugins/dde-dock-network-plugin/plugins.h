@@ -4,6 +4,7 @@
 #include <QMap>
 #include <QObject>
 #include <QString>
+#include <QSettings>
 
 #include <dock/dockconstants.h>
 #include <dock/dockplugininterface.h>
@@ -31,16 +32,21 @@ public:
 
     void init(DockPluginProxyInterface *proxy) Q_DECL_OVERRIDE;
 
-    QString name() Q_DECL_OVERRIDE;
+    QString getPluginName() Q_DECL_OVERRIDE;
 
-    QStringList uuids() Q_DECL_OVERRIDE;
-    QString getTitle(QString uuid) Q_DECL_OVERRIDE;
-    QWidget * getItem(QString uuid) Q_DECL_OVERRIDE;
-    QWidget * getApplet(QString uuid) Q_DECL_OVERRIDE;
+    QStringList ids() Q_DECL_OVERRIDE;
+    QString getName(QString id) Q_DECL_OVERRIDE;
+    QString getTitle(QString id) Q_DECL_OVERRIDE;
+    QString getCommand(QString id) Q_DECL_OVERRIDE;
+    bool canDisable(QString id) Q_DECL_OVERRIDE;
+    bool isDisabled(QString id) Q_DECL_OVERRIDE;
+    void setDisabled(QString id, bool disabled) Q_DECL_OVERRIDE;
+    QWidget * getItem(QString id) Q_DECL_OVERRIDE;
+    QWidget * getApplet(QString id) Q_DECL_OVERRIDE;
     void changeMode(Dock::DockMode newMode, Dock::DockMode oldMode) Q_DECL_OVERRIDE;
 
-    QString getMenuContent(QString uuid) Q_DECL_OVERRIDE;
-    void invokeMenuItem(QString uuid, QString itemId, bool checked) Q_DECL_OVERRIDE;
+    QString getMenuContent(QString id) Q_DECL_OVERRIDE;
+    void invokeMenuItem(QString id, QString itemId, bool checked) Q_DECL_OVERRIDE;
 
 private:
     DockPluginProxyInterface * m_proxy;
@@ -49,6 +55,10 @@ private:
     Dock::DockMode m_mode;
 
     CompositeComponent * m_composite;
+
+    QSettings m_settings;
+
+    void initSettings();
 };
 
 #endif // PLUGINS_H
