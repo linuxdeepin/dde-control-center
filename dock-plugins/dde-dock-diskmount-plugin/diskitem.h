@@ -15,7 +15,7 @@ class DiskItem : public QLabel
 {
     Q_OBJECT
 public:
-    explicit DiskItem(const QString &uuid,DBusDiskMount * diskMount , QWidget *parent = 0);
+    explicit DiskItem(const QString &id,DBusDiskMount * diskMount , QWidget *parent = 0);
 
 signals:
 
@@ -27,7 +27,7 @@ private:
     QString bitToHuman(qint64 value);
 private:
     DBusDiskMount * m_diskMount = NULL;
-    QString m_uuid = "";
+    QString m_id = "";
     QString m_diskUuid = "";
     QLabel * m_titleLabel = NULL;
     DiskIcon * m_diskIcon = NULL;

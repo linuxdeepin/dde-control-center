@@ -16,19 +16,44 @@ void DiskMountPlugin::init(DockPluginProxyInterface *proxy)
     setMode(proxy->dockMode());
 }
 
-QString DiskMountPlugin::name()
+QString DiskMountPlugin::getPluginName()
 {
     return "DiskMount plugin";
 }
 
-QStringList DiskMountPlugin::uuids()
+QStringList DiskMountPlugin::ids()
 {
-    return QStringList(m_uuid);
+    return QStringList(m_id);
+}
+
+QString DiskMountPlugin::getName(QString)
+{
+    return getPluginName();
 }
 
 QString DiskMountPlugin::getTitle(QString)
 {
-    return name();
+    return getPluginName();
+}
+
+QString DiskMountPlugin::getCommand(QString)
+{
+    return "";
+}
+
+bool DiskMountPlugin::canDisable(QString)
+{
+    return false;
+}
+
+bool DiskMountPlugin::isDisabled(QString)
+{
+    return false;
+}
+
+void DiskMountPlugin::setDisabled(QString, bool)
+{
+
 }
 
 QWidget * DiskMountPlugin::getItem(QString)
@@ -45,7 +70,7 @@ QWidget * DiskMountPlugin::getItem(QString)
 QWidget * DiskMountPlugin::getApplet(QString)
 {
     if (!m_diskContent)
-        m_diskContent = new DiskContent(m_uuid, m_proxy);
+        m_diskContent = new DiskContent(m_id, m_proxy);
     return m_diskContent;
 }
 
@@ -57,15 +82,17 @@ void DiskMountPlugin::changeMode(Dock::DockMode newMode,
 
 QString DiskMountPlugin::getMenuContent(QString)
 {
-    QJsonObject contentObj;
+//    QJsonObject contentObj;
 
-    QJsonArray items;
+//    QJsonArray items;
 
-    items.append(createMenuItem("undock", "Undock"));
+//    items.append(createMenuItem("undock", "Undock"));
 
-    contentObj.insert("items", items);
+//    contentObj.insert("items", items);
 
-    return QString(QJsonDocument(contentObj).toJson());
+//    return QString(QJsonDocument(contentObj).toJson());
+
+    return "";
 }
 
 void DiskMountPlugin::invokeMenuItem(QString, QString itemId, bool checked)
@@ -88,12 +115,12 @@ void DiskMountPlugin::mountableDeviceChanged()
     if (mountableCount > 0)
     {
         if (m_itemList.count() == 0)
-            m_proxy->itemAddedEvent(m_uuid);
+            m_proxy->itemAddedEvent(m_id);
     }
     else if (m_itemList.count() > 0)
     {
         m_itemList.clear();
-        m_proxy->itemRemovedEvent(m_uuid);
+        m_proxy->itemRemovedEvent(m_id);
     }
 }
 
@@ -104,7 +131,7 @@ void DiskMountPlugin::setMode(Dock::DockMode mode)
 
     emit dockModeChanged(mode);
 
-    m_proxy->itemSizeChangedEvent(m_uuid);
+    m_proxy->itemSizeChangedEvent(m_id);
 }
 
 QJsonObject DiskMountPlugin::createMenuItem(QString itemId, QString itemName, bool checkable, bool checked)

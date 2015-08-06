@@ -1,7 +1,7 @@
 #include "diskcontent.h"
 
-DiskContent::DiskContent(const QString &uuid, DockPluginProxyInterface *proxy, QWidget *parent)
-    : QWidget(parent), m_uuid(uuid), m_proxy(proxy)
+DiskContent::DiskContent(const QString &id, DockPluginProxyInterface *proxy, QWidget *parent)
+    : QWidget(parent), m_id(id), m_proxy(proxy)
 {
     initStyleSheet();
     initDiskMount();
@@ -35,11 +35,11 @@ void DiskContent::initDiskMount()
 void DiskContent::updateMountDisks()
 {
     DiskInfoList tmpList = m_diskMount->diskList();
-    QStringList uuidList;
+    QStringList idList;
     foreach (DiskInfo info, tmpList)
     {
         if (info.canUnmount)
-            uuidList << info.uUID;
+            idList << info.uUID;
     }
 
     foreach (DiskInfo info, tmpList)
@@ -54,21 +54,21 @@ void DiskContent::updateMountDisks()
         }
     }
 
-    foreach (QString uuid, m_itemList.keys())
+    foreach (QString id, m_itemList.keys())
     {
-        if (uuidList.indexOf(uuid) == -1)//Not in can-mount list
+        if (idList.indexOf(id) == -1)//Not in can-mount list
         {
-            DiskItem * item = m_itemList.take(uuid);
+            DiskItem * item = m_itemList.take(id);
             m_mainLayout->removeWidget(item);
             item->deleteLater();
 
-            qWarning() << "Disk Unmounted:" << uuid;
+            qWarning() << "Disk Unmounted:" << id;
         }
     }
 
     adjustSize();
 
-    m_proxy->appletSizeChangedEvent(m_uuid);
+    m_proxy->appletSizeChangedEvent(m_id);
 }
 
 DiskContent::~DiskContent()

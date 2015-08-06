@@ -15,7 +15,7 @@ class DiskContent : public QWidget
 {
     Q_OBJECT
 public:
-    explicit DiskContent(const QString &uuid, DockPluginProxyInterface *proxy, QWidget *parent = 0);
+    explicit DiskContent(const QString &id, DockPluginProxyInterface *proxy, QWidget *parent = 0);
     ~DiskContent();
 
 public slots:
@@ -29,7 +29,7 @@ private:
 private:
     QVBoxLayout * m_mainLayout = NULL;
     QMap<QString, DiskItem *> m_itemList;
-    QString m_uuid = "";
+    QString m_id = "";
     DockPluginProxyInterface * m_proxy = NULL;
     DBusDiskMount * m_diskMount = NULL;
 };

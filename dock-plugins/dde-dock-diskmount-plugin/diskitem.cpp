@@ -1,7 +1,7 @@
 #include "diskitem.h"
 
-DiskItem::DiskItem(const QString &uuid, DBusDiskMount *diskMount, QWidget *parent)
-    : QLabel(parent), m_uuid(uuid)
+DiskItem::DiskItem(const QString &id, DBusDiskMount *diskMount, QWidget *parent)
+    : QLabel(parent), m_id(id)
 {
     m_diskMount = diskMount;
     connect(diskMount, &DBusDiskMount::DiskListChanged, this, &DiskItem::updateData);
@@ -16,7 +16,7 @@ void DiskItem::updateData()
     DiskInfoList infoList = m_diskMount->diskList();
     foreach (DiskInfo info, infoList)
     {
-        if (info.uUID == m_uuid)
+        if (info.uUID == m_id)
         {
             m_diskUuid = info.uUID;
 
