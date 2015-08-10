@@ -5,6 +5,7 @@
 #include <QVBoxLayout>
 #include <libdui/dheaderline.h>
 #include <libdui/libdui_global.h>
+#include <libdui/dbuttonlist.h>
 #include "grubbackground.h"
 #include "dbusgrub.h"
 #include <libdui/darrowlineexpand.h>
@@ -27,8 +28,13 @@ private:
     GrubThemeDbus *m_themeDbus;
     GrubDbus *m_grubDbus;
     GrubBackground *m_grubBackground;
+    DButtonList *m_bootEntryList, *m_bootMenuTitle;
+    QHBoxLayout *m_selectTimeoutLayout;
+    QLabel *m_tooltip;
 
     void init();
+    Q_SLOT void setDefaultEntry(const QString &entry);
+    Q_SLOT void updatingChanged(bool updating);
 };
 
 #endif // GRUBWIDGET_H

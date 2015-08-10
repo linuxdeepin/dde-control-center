@@ -1,5 +1,5 @@
 TEMPLATE        = lib
-CONFIG         += plugin
+CONFIG         += plugin c++11
 QT             += widgets dbus
 INCLUDEPATH    += ../../frame/
 HEADERS        += grub.h \

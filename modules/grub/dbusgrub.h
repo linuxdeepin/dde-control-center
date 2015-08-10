@@ -104,7 +104,7 @@ public:
     inline void setResolution(const QString &value)
     { setProperty("Resolution", QVariant::fromValue(value)); }
 
-    Q_PROPERTY(int Timeout READ timeout WRITE setTimeout NOTIFY DefaultEnChanged)
+    Q_PROPERTY(int Timeout READ timeout WRITE setTimeout NOTIFY TimeoutChanged)
     inline int timeout() const
     { return qvariant_cast< int >(property("Timeout")); }
     inline void setTimeout(int value)
@@ -152,7 +152,7 @@ Q_SIGNALS: // SIGNALS
     void EnableThemeChanged(bool EnableTheme);
     void FixSettingsAlwaysChanged(bool FixSettingsAlways);
     void ResolutionChanged(QString Resolution);
-    void DefaultEnChanged(int Timeout);
+    void TimeoutChanged(int Timeout);
     void UpdatingChanged(bool Updating);
 };
 
