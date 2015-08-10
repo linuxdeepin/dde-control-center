@@ -1,0 +1,8 @@
+{
+	"name": "System Infomation",
+	"icon": {
+		"normal": "system_info_normal.png",
+		"hover": "system_info_hover.png",
+		"selected": "system_info_press.png"
+	}
+}

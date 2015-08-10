@@ -7,7 +7,7 @@
 
 class QLabel;
 class QFrame;
-class DefaultApps: public QObject, ModuleInterface
+class DefaultApps : public QObject, ModuleInterface
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "default_applications.json")

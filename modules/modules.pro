@@ -5,4 +5,5 @@ SUBDIRS  = sound \
            network \
            default_applications \
            grub \
-           mouse
+           mouse \
+           system_info 
