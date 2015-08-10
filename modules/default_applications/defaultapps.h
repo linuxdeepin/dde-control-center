@@ -3,8 +3,10 @@
 
 #include <QObject>
 #include <QtPlugin>
+#include <QButtonGroup>
 
 #include "interfaces.h"
+#include "dbus/dbusdefaultapps.h"
 
 #include <libdui/darrowlineexpand.h>
 
@@ -31,9 +33,12 @@ private:
 
 private:
     DUI::DArrowLineExpand *createDefaultAppsExpand(const DefaultAppsCategory & category);
+    AppList getAppsListByCategory(const DefaultAppsCategory & category);
 
 private:
     QFrame * m_centralWidget;
+
+    DefaultDBusApps m_dbusDefaultApps;
 };
 
 #endif
