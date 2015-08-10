@@ -8,4 +8,5 @@ SUBDIRS  = sound \
            mouse \
            system_info \
            display \
-           account
+           account \
+           shortcuts

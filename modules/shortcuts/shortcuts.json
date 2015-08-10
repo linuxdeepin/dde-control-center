@@ -1,0 +1,8 @@
+{
+	"name": "Keyboard Shortcuts",
+	"icon": {
+		"normal": "shortcuts_normal.png",
+		"hover": "shortcuts_hover.png",
+		"selected": "shortcuts_press.png"
+	}
+}
