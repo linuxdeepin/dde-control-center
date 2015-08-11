@@ -15,7 +15,9 @@
 #include "widgets/switchbutton.h"
 
 BluetoothComponent::BluetoothComponent(QObject *parent) :
-    QObject(parent)
+    QObject(parent),
+    m_item(NULL),
+    m_applet(NULL)
 {
     QIcon::setThemeName("Deepin");
 
@@ -34,7 +36,7 @@ BluetoothComponent::BluetoothComponent(QObject *parent) :
 
 BluetoothComponent::~BluetoothComponent()
 {
-
+    delete m_applet;
 }
 
 QString BluetoothComponent::getId()
@@ -73,39 +75,9 @@ void BluetoothComponent::retainItem()
 
 QWidget * BluetoothComponent::getApplet()
 {
-    QFrame * frame = new QFrame;
+    updateApplet();
 
-    QVBoxLayout * mainLayout = new QVBoxLayout(frame);
-
-    foreach (BluetoothAdaptor adaptor, m_adaptors) {
-        QLabel * label = new QLabel;
-        label->setText(adaptor.alias);
-        label->setStyleSheet("QLabel { color: white }");
-
-        SwitchButton * switchButton = new SwitchButton;
-        switchButton->setChecked(adaptor.powered);
-
-        QFrame * lineFrame = new QFrame;
-
-        QHBoxLayout * layout = new QHBoxLayout(lineFrame);
-        layout->addWidget(label);
-        layout->addStretch();
-        layout->addWidget(switchButton);
-
-        lineFrame->adjustSize();
-
-        mainLayout->addWidget(lineFrame);
-
-        connect(switchButton, &SwitchButton::toggled, [=](bool checked) {
-            QDBusObjectPath path(adaptor.path);
-            m_dbusBluetooth->SetAdapterPowered(path, checked);
-            m_dbusBluetooth->SetAdapterDiscoverable(path, checked);
-        });
-    }
-
-    frame->adjustSize();
-
-    return frame;
+    return m_applet;
 }
 
 QString BluetoothComponent::getMenuContent()
@@ -149,6 +121,56 @@ void BluetoothComponent::updateItem()
         m_item->setPixmap(QIcon::fromTheme("bluetooth-active-symbolic").pixmap(m_item->size()));
     } else {
         m_item->setPixmap(QIcon::fromTheme("bluetooth-disable-symbolic").pixmap(m_item->size()));
+    }
+}
+
+void BluetoothComponent::updateApplet()
+{
+    if (!m_applet) {
+        m_applet = new QFrame;
+        new QVBoxLayout(m_applet);
+    } else {
+        QList<QFrame*> children = m_applet->findChildren<QFrame*>();
+        QVBoxLayout * layout = qobject_cast<QVBoxLayout*>(m_applet->layout());
+
+        if (layout) {
+            foreach (QFrame * w, children) {
+                layout->removeWidget(w);
+                w->deleteLater();
+            }
+        }
+    }
+
+    QVBoxLayout * mainLayout = qobject_cast<QVBoxLayout*>(m_applet->layout());
+
+    if (mainLayout) {
+        foreach (BluetoothAdaptor adaptor, m_adaptors) {
+            QLabel * label = new QLabel;
+            label->setText(adaptor.alias);
+            label->setStyleSheet("QLabel { color: white }");
+
+            SwitchButton * switchButton = new SwitchButton;
+            switchButton->setChecked(adaptor.powered);
+
+            QFrame * lineFrame = new QFrame;
+
+            QHBoxLayout * layout = new QHBoxLayout(lineFrame);
+            layout->addWidget(label);
+            layout->addStretch();
+            layout->addWidget(switchButton);
+
+            lineFrame->adjustSize();
+
+            mainLayout->addWidget(lineFrame);
+
+            connect(switchButton, &SwitchButton::toggled, [=](bool checked) {
+                QDBusObjectPath path(adaptor.path);
+                m_dbusBluetooth->SetAdapterPowered(path, checked);
+                m_dbusBluetooth->SetAdapterDiscoverable(path, checked);
+            });
+        }
+
+        m_applet->adjustSize();
     }
 }
 

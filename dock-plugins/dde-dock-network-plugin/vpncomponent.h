@@ -13,6 +13,7 @@ struct VPN {
     bool connected;
 };
 
+class VPNApplet;
 class QLabel;
 class VPNComponent : public QObject, public PluginComponentInterface
 {
@@ -38,6 +39,7 @@ signals:
 
 private:
     QLabel * m_item;
+    VPNApplet * m_applet;
     QList<VPN> m_vpns;
     bool m_enabled;
 

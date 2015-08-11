@@ -25,6 +25,8 @@ VPNComponent::VPNComponent(QObject *parent) :
     m_item = new QLabel;
     m_item->setFixedSize(Dock::APPLET_CLASSIC_ICON_SIZE, Dock::APPLET_CLASSIC_ICON_SIZE);
 
+    m_applet = new VPNApplet(this);
+
     this->updateItem();
 
     connect(m_dbusNetwork, &Network::VpnEnabledChanged, this, &VPNComponent::updateItem);
@@ -64,7 +66,7 @@ void VPNComponent::retainItem()
 
 QWidget * VPNComponent::getApplet()
 {
-    return new VPNApplet(this);
+    return m_applet;
 }
 
 QString VPNComponent::getMenuContent()

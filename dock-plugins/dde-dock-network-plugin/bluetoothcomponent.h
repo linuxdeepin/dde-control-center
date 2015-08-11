@@ -20,6 +20,7 @@ struct BluetoothAdaptor
 };
 
 class QLabel;
+class QFrame;
 class BluetoothComponent : public QObject, public PluginComponentInterface
 {
     Q_OBJECT
@@ -40,10 +41,12 @@ public:
 
 private:
     QLabel * m_item;
+    QFrame * m_applet;
     QList<BluetoothAdaptor> m_adaptors;
 
     com::deepin::daemon::Bluetooth * m_dbusBluetooth;
 
+    void updateApplet();
     void updateItem();
 
     void initAdaptors();
