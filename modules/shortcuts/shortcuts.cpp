@@ -1,7 +1,8 @@
-#include "shortcuts.h"
 #include <QDebug>
-#include "mainwidget.h"
 #include <QLabel>
+
+#include "mainwidget.h"
+#include "shortcuts.h"
 
 Shortcuts::Shortcuts():
     m_mainWidget(new MainWidget())

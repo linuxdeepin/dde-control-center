@@ -9,8 +9,10 @@ LIBS += -ldui
 
 HEADERS += \
     mainwidget.h \
-    shortcuts.h
+    shortcuts.h \
+    setshortcutlist.h
 
 SOURCES += \
     mainwidget.cpp \
-    shortcuts.cpp
+    shortcuts.cpp \
+    setshortcutlist.cpp

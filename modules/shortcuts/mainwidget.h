@@ -3,6 +3,7 @@
 
 #include <QFrame>
 #include <QVBoxLayout>
+
 #include <libdui/libdui_global.h>
 #include <libdui/dheaderline.h>
 
