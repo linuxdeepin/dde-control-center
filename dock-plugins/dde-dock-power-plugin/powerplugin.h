@@ -2,6 +2,7 @@
 #define POWERPLUGIN_H
 
 #include <QObject>
+#include <QSettings>
 
 #include <dock/dockconstants.h>
 #include <dock/dockplugininterface.h>
@@ -41,13 +42,15 @@ public:
 private:
     QString m_id;
     QLabel * m_label;
-    DockPluginProxyInterface * m_proxy;
     Dock::DockMode m_mode;
-
+    DockPluginProxyInterface * m_proxy;
     com::deepin::daemon::Power * m_dbusPower;
+
+    QSettings * m_settings;
 
     void setMode(Dock::DockMode mode);
 
+    void initSettings();
     QString getBatteryIcon(int percentage, bool plugged, bool symbolic = false);
 
 private slots:

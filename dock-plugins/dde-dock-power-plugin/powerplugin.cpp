@@ -2,11 +2,13 @@
 #include <QLabel>
 #include <QDebug>
 #include <QIcon>
+#include <QFile>
 
 #include <QDBusConnection>
 
 #include "powerplugin.h"
 
+static const QString SettingsEnabledKey = "PowerPlugin/enabled";
 
 PowerPlugin::PowerPlugin()
 {
@@ -23,6 +25,8 @@ PowerPlugin::PowerPlugin()
                                                  this);
     connect(m_dbusPower, &Power::BatteryPercentageChanged, this, &PowerPlugin::updateIcon);
     connect(m_dbusPower, &Power::OnBatteryChanged, this, &PowerPlugin::updateIcon);
+
+    this->initSettings();
 }
 
 PowerPlugin::~PowerPlugin()
@@ -51,7 +55,7 @@ QStringList PowerPlugin::ids()
     return list;
 }
 
-QString PowerPlugin::getName(QString id)
+QString PowerPlugin::getName(QString)
 {
     return getPluginName();
 }
@@ -67,25 +71,27 @@ QString PowerPlugin::getTitle(QString)
     }
 }
 
-QString PowerPlugin::getCommand(QString id)
+QString PowerPlugin::getCommand(QString)
 {
     return "dde-control-center power";
 }
 
-bool PowerPlugin::canDisable(QString id)
+bool PowerPlugin::canDisable(QString)
 {
     return true;
 }
 
-bool PowerPlugin::isDisabled(QString id)
+bool PowerPlugin::isDisabled(QString)
 {
-    return false;
+    return m_settings->value(SettingsEnabledKey).toBool();
 }
 
 void PowerPlugin::setDisabled(QString id, bool disabled)
 {
     m_label->setParent(NULL);
     m_proxy->itemRemovedEvent(id);
+
+    m_settings->setValue(SettingsEnabledKey, !disabled);
 }
 
 QWidget * PowerPlugin::getApplet(QString)
@@ -95,7 +101,9 @@ QWidget * PowerPlugin::getApplet(QString)
 
 QWidget * PowerPlugin::getItem(QString)
 {
-    if (m_dbusPower->batteryIsPresent()) {
+    bool enabled = m_settings->value(SettingsEnabledKey).toBool();
+
+    if (m_dbusPower->batteryIsPresent() && enabled) {
         return m_label;
     } else {
         return NULL;
@@ -107,18 +115,27 @@ void PowerPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
     if (newMode != oldMode) setMode(newMode);
 }
 
-QString PowerPlugin::getMenuContent(QString id)
+QString PowerPlugin::getMenuContent(QString)
 {
     return "";
 }
 
-void PowerPlugin::invokeMenuItem(QString id, QString itemId, bool checked)
+void PowerPlugin::invokeMenuItem(QString, QString, bool)
 {
 
 }
 
 
 // private methods
+void PowerPlugin::initSettings()
+{
+    m_settings = new QSettings("deepin", "dde-dock-power-plugin", this);
+
+    if (!QFile::exists(m_settings->fileName())) {
+        m_settings->setValue(SettingsEnabledKey, true);
+    }
+}
+
 void PowerPlugin::setMode(Dock::DockMode mode)
 {
     m_mode = mode;
