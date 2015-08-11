@@ -8,7 +8,7 @@ ShortcutWidget::ShortcutWidget(const QString &title, const QString &shortcut, QW
     QFrame(parent),
     m_layout(new QHBoxLayout),
     m_title(new QLabel(title)),
-    m_shortcut(new QLabel("shortcut"))
+    m_shortcut(new QLabel(shortcut))
 {
     m_title->setObjectName("ShortcutTitle");
     m_shortcut->setObjectName("ShortcutValue");
@@ -59,13 +59,13 @@ SetShortcutList::SetShortcutList(QWidget *parent) :
 
 int SetShortcutList::addItem(const QString &title, const QString &shortcut)
 {
-    insertItem(0, title, shortcut);
+    insertItem(count(), title, shortcut);
     return count()-1;
 }
 
 void SetShortcutList::addItems(const QStringList &titles, const QStringList &shortcuts)
 {
-    insertItems(0, titles, shortcuts);
+    insertItems(count(), titles, shortcuts);
 }
 
 void SetShortcutList::insertItem(int index, const QString &title, const QString &shortcut)

@@ -18,7 +18,8 @@
 ShortcutDbus::ShortcutDbus(QObject *parent)
     : QDBusAbstractInterface(staticServerPath(), staticInterfacePath(), staticInterfaceName(), QDBusConnection::sessionBus(), parent)
 {
-    qRegisterMetaType<ShortcutInfo>();
+    qDBusRegisterMetaType<ShortcutInfo>();
+    qDBusRegisterMetaType<ShortcutInfoList>();
     QDBusConnection::sessionBus().connect(service(), path(), "org.freedesktop.DBus.Properties",  "PropertiesChanged","sa{sv}as", this, SLOT(__propertyChanged__(QDBusMessage)));
 }
 
@@ -27,3 +28,21 @@ ShortcutDbus::~ShortcutDbus()
     QDBusConnection::sessionBus().disconnect(service(), path(), "org.freedesktop.DBus.Properties",  "PropertiesChanged","sa{sv}as", this, SLOT(__propertyChanged__(QDBusMessage)));
 }
 
+QDBusArgument &operator<<(QDBusArgument &arg, const ShortcutInfo &info)
+{
+    arg.beginStructure();
+    arg << info.id << info.title << info.shortcut;
+    arg.endStructure();
+
+    return arg;
+}
+
+
+const QDBusArgument &operator>>(const QDBusArgument &arg, ShortcutInfo &info)
+{
+    arg.beginStructure();
+    arg >> info.id >> info.title >> info.shortcut;
+    arg.endStructure();
+
+    return arg;
+}

@@ -1,9 +1,11 @@
 QLabel#ShortcutTitle{
     color: #b4b4b4;
+    font-size: 11px;
 }
 
 QLabel#ShortcutValue{
     color: #b4b4b4;
+    font-size: 11px;
 }
 
 QLabel#ShortcutValue:hover{

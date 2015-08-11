@@ -7,6 +7,8 @@
 #include <libdui/libdui_global.h>
 #include <libdui/dheaderline.h>
 
+#include "shortcutdbus.h"
+
 DUI_USE_NAMESPACE
 
 class MainWidget : public QFrame
@@ -18,6 +20,7 @@ public:
 private:
     QVBoxLayout *m_layout;
     DHeaderLine *m_header;
+    ShortcutDbus *m_dbus;
 
     void init();
 };

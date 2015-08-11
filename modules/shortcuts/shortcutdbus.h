@@ -23,6 +23,20 @@
 /*
  * Proxy class for interface com.deepin.daemon.KeyBinding
  */
+struct ShortcutInfo{
+    qint32 id;
+    QString title;
+    QString shortcut;
+};
+
+typedef QList<int> intList;
+typedef QList<ShortcutInfo> ShortcutInfoList;
+
+Q_DECLARE_METATYPE(ShortcutInfo)
+Q_DECLARE_METATYPE(ShortcutInfoList)
+
+QDBusArgument& operator<<(QDBusArgument& arg, const ShortcutInfo& info);
+const QDBusArgument& operator>>(const QDBusArgument& arg, ShortcutInfo& info);
 
 class ShortcutDbus: public QDBusAbstractInterface
 {
@@ -61,15 +75,6 @@ public:
     ShortcutDbus(QObject *parent = 0);
 
     ~ShortcutDbus();
-
-    struct ShortcutInfo{
-        qint32 id;
-        QString title;
-        QString shortcut;
-    };
-
-    typedef QList<int> intList;
-    typedef QList<ShortcutInfo> ShortcutInfoList;
 
     Q_PROPERTY(intList ConflictInvalid READ conflictInvalid NOTIFY conflictInvalidChanged)
     inline intList conflictInvalid() const
@@ -201,8 +206,6 @@ Q_SIGNALS: // SIGNALS
     void windowChanged(ShortcutInfoList WindowList);
     void workspaceListChanged(ShortcutInfoList WorkspaceList);
 };
-
-Q_DECLARE_METATYPE(ShortcutDbus::ShortcutInfo)
 
 namespace com {
   namespace deepin {
