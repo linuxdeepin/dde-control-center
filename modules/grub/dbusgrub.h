@@ -47,26 +47,6 @@ class GrubDbus: public QDBusAbstractInterface
             }
         }
     }
-
-    void updatePropertys(const QVariantMap &changedProps)
-    {
-        const QMetaObject* self = this->metaObject();
-
-        foreach(const QString &prop, changedProps.keys()) {
-            for (int i=self->propertyOffset(); i < self->propertyCount(); ++i) {
-                QMetaProperty p = self->property(i);
-                QString p_name(p.name());
-
-                if (p_name == prop) {
-                    QByteArray set_p_name = QByteArray("set").append(p_name);
-                    QVariant value = changedProps[prop];
-                    self->invokeMethod(this, set_p_name.data(), QGenericArgument(value.typeName(), value.data()));
-                    Q_EMIT p.notifySignal().invoke(this);
-                    break;
-                }
-            }
-        }
-    }
 public:
     static inline const char *staticServerPath()
     { return "com.deepin.daemon.Grub2"; }

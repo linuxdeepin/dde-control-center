@@ -1,12 +1,14 @@
-#include "grubwidget.h"
+#include <QPixmap>
+#include <QDebug>
+#include <QTimer>
+
 #include <libdui/dtextbutton.h>
 #include <libdui/dseparatorhorizontal.h>
 #include <libdui/dcolorpicker.h>
 #include <libdui/dsegmentedcontrol.h>
-#include <QPixmap>
-#include <QDebug>
 #include <libdui/dbuttonlist.h>
-#include <QTimer>
+
+#include "grubwidget.h"
 #include "dbustheme.h"
 
 GrubWidget::GrubWidget(QWidget *parent):
@@ -53,18 +55,6 @@ void GrubWidget::init()
 
     QStringList title_list = m_grubDbus->GetSimpleEntryTitles();
     m_bootEntryList->setItemWidth(310);
-    m_bootEntryList->setStyleSheet("DUI--DButtonList {background-color: transparent;}\
-                                    DUI--DButtonList QPushButton{text-align: left center;\
-                                    background-color: transparent;border:none;\
-                                    margin-left:10px;margin-right:10px;\
-                                    color:white;padding-left:20px;}\
-                                    DUI--DButtonList QPushButton:checked{\
-                                    background-image: url(:/images/dark/images/tick_hover.png);\
-                                    background-repeat: no-repeat;\
-                                    background-attachment: fixed;\
-                                    background-position: left center;\
-                                    background-color:#80000000;\
-                                    color: #19A9F9;border-radius:5px;}");
     m_bootEntryList->addButtons(title_list);
     m_bootEntryList->setFixedSize(300, m_bootEntryList->count()*30);
     m_bootMenuTitle = new DButtonList(m_grubBackground);
@@ -163,9 +153,12 @@ void GrubWidget::updatingChanged(bool updating)
         m_tooltip->setText(tr("Updating..."));
     }else{
         m_tooltip->setText(tr("Successfully updated,reboot to view."));
-        QTimer::singleShot(2000, [&](){
-            m_tooltip->setStyleSheet(m_tooltip->styleSheet()+"QLabel{color:white;}");
-            m_tooltip->setText(tr("Drag and drop an image to change background."));
-        });
+        QTimer::singleShot(2000, this, &GrubWidget::resetTooltip);
     }
+}
+
+void GrubWidget::resetTooltip()
+{
+    m_tooltip->setStyleSheet(m_tooltip->styleSheet()+"QLabel{color:white;}");
+    m_tooltip->setText(tr("Drag and drop an image to change background."));
 }

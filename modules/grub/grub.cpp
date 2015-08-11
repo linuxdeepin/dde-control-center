@@ -1,7 +1,8 @@
-#include "grub.h"
 #include <QDebug>
-#include "grubwidget.h"
 #include <QLabel>
+
+#include "grub.h"
+#include "grubwidget.h"
 
 Grub::Grub():
     m_grubWidget(new GrubWidget())
