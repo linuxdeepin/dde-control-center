@@ -6,6 +6,7 @@
 #include<libdui/dbuttonlist.h>
 
 #include "mainwidget.h"
+#include "setshortcutlist.h"
 
 MainWidget::MainWidget(QWidget *parent):
     QFrame(parent),
@@ -40,12 +41,21 @@ void MainWidget::init()
     DTextButton *re_button = new DTextButton(tr("Reset"));
     m_header->setContent(re_button);
 
+    SetShortcutList *tmp_list = new SetShortcutList;
+    tmp_list->setFixedWidth(310);
+    tmp_list->setItemSize(280, 30);
+    QStringList tmp_title;
+    tmp_title<<"";
+    QStringList tmp_shortcut;
+    tmp_shortcut<<"";
+    tmp_list->addItems(tmp_title);
+
     m_layout->setSpacing(0);
     m_layout->addWidget(m_header);
     m_layout->addWidget(new DSeparatorHorizontal);
     m_layout->addWidget(new DSearchEdit);
     m_layout->addWidget(new DSeparatorHorizontal);
-    m_layout->addWidget(addExpand(tr("System"), new QWidget));
+    m_layout->addWidget(addExpand(tr("System"), tmp_list));
     m_layout->addWidget(addExpand(tr("Window"), new QWidget));
     m_layout->addWidget(addExpand(tr("Workspace"), new QWidget));
     m_layout->addWidget(new QLabel(tr("Custom")));

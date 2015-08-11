@@ -1,34 +1,86 @@
+#include <libdui/dthememanager.h>
+
 #include "setshortcutlist.h"
+
+DUI_USE_NAMESPACE
+
+ShortcutWidget::ShortcutWidget(const QString &title, const QString &shortcut, QWidget *parent):
+    QFrame(parent),
+    m_layout(new QHBoxLayout),
+    m_title(new QLabel(title)),
+    m_shortcut(new QLabel("shortcut"))
+{
+    m_title->setObjectName("ShortcutTitle");
+    m_shortcut->setObjectName("ShortcutValue");
+
+    D_THEME_INIT_WIDGET(ShortcutWidget);
+
+    m_layout->setMargin(0);
+    m_layout->addWidget(m_title, 0, Qt::AlignVCenter|Qt::AlignLeft);
+    m_layout->addWidget(m_shortcut, 0, Qt::AlignVCenter|Qt::AlignRight);
+    setLayout(m_layout);
+}
+
+void ShortcutWidget::setTitle(const QString &title)
+{
+    m_title->setText(title);
+}
+
+void ShortcutWidget::setShortcut(const QString &shortcut)
+{
+    if (m_shortcut->text() == shortcut)
+        return;
+
+    m_shortcut->setText(shortcut);
+    emit shortcutChanged(shortcut);
+}
+
+QString ShortcutWidget::title() const
+{
+    return m_title->text();
+}
+
+QString ShortcutWidget::shortcut() const
+{
+    return m_shortcut->text();
+}
+
 
 SetShortcutList::SetShortcutList(QWidget *parent) :
     QFrame(parent),
-    m_layout(new QVBoxLayout)
+    m_layout(new QVBoxLayout(this)),
+    m_itemWidth(-1),
+    m_itemHeight(-1)
 {
-
+    m_layout->setMargin(0);
+    m_layout->setSpacing(0);
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 }
 
-int SetShortcutList::addItem(const QString &title, const QString &shortcutName)
+int SetShortcutList::addItem(const QString &title, const QString &shortcut)
 {
-    insertItem(0, title, shortcutName);
+    insertItem(0, title, shortcut);
     return count()-1;
 }
 
-void SetShortcutList::addItems(const QStringList &titles, const QStringList &shortcutNames)
+void SetShortcutList::addItems(const QStringList &titles, const QStringList &shortcuts)
 {
-    insertItems(0, titles, shortcutNames);
+    insertItems(0, titles, shortcuts);
 }
 
-void SetShortcutList::insertItem(int index, const QString &title, const QString &shortcutName)
+void SetShortcutList::insertItem(int index, const QString &title, const QString &shortcut)
 {
-    ShortcutWidget *w = new ShortcutWidget(title, shortcutName);
-    m_layout->insertWidget(index, w, 0, Qt::AlignVCenter);
-    connect(w, SIGNAL(shortcutNameChanged(QString)), SLOT(shortcutNameChanged(QString)));
+    ShortcutWidget *w = new ShortcutWidget(title, shortcut);
+    w->setFixedSize(m_itemWidth, m_itemHeight);
+    m_layout->insertWidget(index, w, 0, Qt::AlignCenter);
+    setFixedHeight(count()*(m_itemHeight+m_layout->spacing())-m_layout->spacing());
+    connect(w, SIGNAL(shortcutChanged(QString)), SLOT(shortcutChanged(QString)));
 }
 
-void SetShortcutList::insertItems(int index, const QStringList &titles, const QStringList &shortcutNames)
+void SetShortcutList::insertItems(int index, const QStringList &titles, const QStringList &shortcuts)
 {
     for(int i=0;i<titles.count();++i){
-        insertItem(index+i, titles[i], shortcutNames[i]);
+        insertItem(index+i, titles[i], i<shortcuts.count()?shortcuts[i]:"");
     }
 }
 
@@ -40,12 +92,18 @@ void SetShortcutList::setItemTitle(int index, const QString &title)
     }
 }
 
-void SetShortcutList::setItemShortcutName(int index, const QString &name)
+void SetShortcutList::setItemShortcut(int index, const QString &value)
 {
     ShortcutWidget *w = getItemWidget(index);
     if(w){
-        w->setShortcutName(name);
+        w->setShortcut(value);
     }
+}
+
+void SetShortcutList::setItemSize(int w, int h)
+{
+    m_itemWidth = w;
+    m_itemHeight = h;
 }
 
 int SetShortcutList::count() const
@@ -63,11 +121,11 @@ QString SetShortcutList::getItemTitle(int index) const
     return "";
 }
 
-QString SetShortcutList::getItemShortcutName(int index) const
+QString SetShortcutList::getItemShortcut(int index) const
 {
     ShortcutWidget *w = getItemWidget(index);
     if(w){
-        return w->shortcutName();
+        return w->shortcut();
     }
 
     return "";
@@ -90,48 +148,14 @@ ShortcutWidget *SetShortcutList::getItemWidget(int index) const
     return qobject_cast<ShortcutWidget*>(m_layout->takeAt(index)->widget());
 }
 
-void SetShortcutList::shortcutNameChanged(const QString &name)
+void SetShortcutList::shortcutChanged(const QString &value)
 {
     ShortcutWidget *w = qobject_cast<ShortcutWidget*>(sender());
 
     if(w){
         int index = m_layout->indexOf(w);
         if(index>=0&&index<count())
-            emit shortcutNameChanged(m_layout->indexOf(w), name);
-        emit shortcutNameChanged(w->title(), name);
+            emit shortcutChanged(m_layout->indexOf(w), value);
+        emit shortcutChanged(w->title(), value);
     }
-}
-
-
-
-ShortcutWidget::ShortcutWidget(const QString &title, const QString &shortcutName, QWidget *parent):
-    QFrame(parent),
-    m_shortcutName(shortcutName),
-    m_title(title)
-{
-
-}
-
-void ShortcutWidget::setTitle(const QString &title)
-{
-    m_title = title;
-}
-
-void ShortcutWidget::setShortcutName(const QString &shortcutName)
-{
-    if (m_shortcutName == shortcutName)
-        return;
-
-    m_shortcutName = shortcutName;
-    emit shortcutNameChanged(shortcutName);
-}
-
-QString ShortcutWidget::title() const
-{
-    return m_title;
-}
-
-QString ShortcutWidget::shortcutName() const
-{
-    return m_shortcutName;
 }

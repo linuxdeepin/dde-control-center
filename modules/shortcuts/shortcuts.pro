@@ -1,5 +1,5 @@
 TEMPLATE        = lib
-CONFIG         += plugin
+CONFIG         += plugin c++11
 QT             += widgets dbus
 INCLUDEPATH    += ../../frame/
 TARGET          = $$qtLibraryTarget(grub)
@@ -10,9 +10,14 @@ LIBS += -ldui
 HEADERS += \
     mainwidget.h \
     shortcuts.h \
-    setshortcutlist.h
+    setshortcutlist.h \
+    shortcutdbus.h
 
 SOURCES += \
     mainwidget.cpp \
     shortcuts.cpp \
-    setshortcutlist.cpp
+    setshortcutlist.cpp \
+    shortcutdbus.cpp
+
+RESOURCES += \
+    theme.qrc

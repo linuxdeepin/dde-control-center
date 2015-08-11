@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>light/ShortcutWidget.theme</file>
+        <file>dark/ShortcutWidget.theme</file>
+    </qresource>
+</RCC>

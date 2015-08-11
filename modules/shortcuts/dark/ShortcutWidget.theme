@@ -1,0 +1,11 @@
+QLabel#ShortcutTitle{
+    color: #b4b4b4;
+}
+
+QLabel#ShortcutValue{
+    color: #b4b4b4;
+}
+
+QLabel#ShortcutValue:hover{
+    color: white;
+}
