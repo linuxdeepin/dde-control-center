@@ -4,4 +4,5 @@ SUBDIRS  = sound \
            bluetooth \
            network \
            default_applications \
-           grub
+           grub \
+           mouse

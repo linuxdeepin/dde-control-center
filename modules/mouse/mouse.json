@@ -1,0 +1,8 @@
+{
+    "name": "Mouse",
+	"icon": {
+		"normal": "mouse_touchpad_normal.png",
+		"hover": "mouse_touchpad_hover.png",
+		"selected": "mouse_touchpad_press.png"
+	}
+}
