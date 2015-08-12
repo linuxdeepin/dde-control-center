@@ -1,8 +1,14 @@
+#include <QFile>
+
 #include "soundplugin.h"
+
+static const QString SettingsEnabledKey = "SoundPlugin/enabled";
 
 SoundPlugin::SoundPlugin()
 {
     m_item = new MainItem();
+
+    this->initSettings();
 }
 
 void SoundPlugin::init(DockPluginProxyInterface *proxy)
@@ -46,7 +52,7 @@ bool SoundPlugin::canDisable(QString id)
 
 bool SoundPlugin::isDisabled(QString)
 {
-    return false;
+    return m_settings->value(SettingsEnabledKey).toBool();
 }
 
 void SoundPlugin::setDisabled(QString id, bool disabled)
@@ -55,11 +61,15 @@ void SoundPlugin::setDisabled(QString id, bool disabled)
         m_item->setParent(NULL);
         m_proxy->itemRemovedEvent(id);
     }
+
+    m_settings->setValue(SettingsEnabledKey, !disabled);
 }
 
 QWidget * SoundPlugin::getItem(QString)
 {
-    return m_item;
+    bool enabled = m_settings->value(SettingsEnabledKey).toBool();
+
+    return enabled ? m_item : NULL;
 }
 
 QWidget * SoundPlugin::getApplet(QString)
@@ -86,6 +96,15 @@ void SoundPlugin::invokeMenuItem(QString, QString itemId, bool checked)
 }
 
 // private methods
+void SoundPlugin::initSettings()
+{
+    m_settings = new QSettings("deepin", "dde-dock-sound-plugin", this);
+
+    if (!QFile::exists(m_settings->fileName())) {
+        m_settings->setValue(SettingsEnabledKey, true);
+    }
+}
+
 void SoundPlugin::setMode(Dock::DockMode mode)
 {
     m_mode = mode;

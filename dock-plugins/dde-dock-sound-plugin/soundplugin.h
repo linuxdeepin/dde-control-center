@@ -9,6 +9,7 @@
 #include <QJsonArray>
 #include <QIcon>
 #include <QDebug>
+#include <QSettings>
 #include "dock/dockconstants.h"
 #include "dock/dockplugininterface.h"
 #include "dock/dockpluginproxyinterface.h"
@@ -54,8 +55,9 @@ private:
     Dock::DockMode m_mode;
     MainItem * m_item = NULL;
     SoundContent *m_soundContent = NULL;
+    QSettings * m_settings = NULL;
 
-private:
+    void initSettings();
     void setMode(Dock::DockMode mode);
     QJsonObject createMenuItem(QString itemId,
                                QString itemName,
