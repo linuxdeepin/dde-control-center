@@ -25,10 +25,9 @@ class BluetoothComponent : public QObject, public PluginComponentInterface
 {
     Q_OBJECT
 public:
-    BluetoothComponent(QObject *parent = 0);
+    BluetoothComponent(QString id, QObject *parent = 0);
     ~BluetoothComponent();
 
-    QString getId() Q_DECL_OVERRIDE;
     QString getName() Q_DECL_OVERRIDE;
     QString getTitle() Q_DECL_OVERRIDE;
     QString getCommand() Q_DECL_OVERRIDE;
@@ -43,6 +42,7 @@ private:
     QLabel * m_item;
     QFrame * m_applet;
     QList<BluetoothAdaptor> m_adaptors;
+    QString m_id;
 
     com::deepin::daemon::Bluetooth * m_dbusBluetooth;
 

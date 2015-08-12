@@ -21,9 +21,8 @@ class VPNComponent : public QObject, public PluginComponentInterface
 public:
     friend class VPNApplet;
 
-    VPNComponent(QObject *parent = 0);
+    VPNComponent(QString id, QObject *parent = 0);
 
-    QString getId() Q_DECL_OVERRIDE;
     QString getName() Q_DECL_OVERRIDE;
     QString getTitle() Q_DECL_OVERRIDE;
     QString getCommand() Q_DECL_OVERRIDE;
@@ -42,6 +41,7 @@ private:
     VPNApplet * m_applet;
     QList<VPN> m_vpns;
     bool m_enabled;
+    QString m_id;
 
     com::deepin::daemon::Network * m_dbusNetwork;
 

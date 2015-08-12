@@ -10,9 +10,8 @@ class CompositeComponent : public QObject, public PluginComponentInterface
 {
     Q_OBJECT
 public:
-    CompositeComponent(QObject *parent = 0);
+    CompositeComponent(QString id, QObject *parent = 0);
 
-    QString getId() Q_DECL_OVERRIDE;
     QString getName() Q_DECL_OVERRIDE;
     QString getTitle() Q_DECL_OVERRIDE;
     QString getCommand() Q_DECL_OVERRIDE;
@@ -25,6 +24,7 @@ public:
 
 private:
     QLabel * m_item;
+    QString m_id;
 };
 
 #endif // COMPOSITECOMPONENT_H

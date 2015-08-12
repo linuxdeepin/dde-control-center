@@ -12,9 +12,8 @@ class WiredComponent : public QObject, public PluginComponentInterface
 {
     Q_OBJECT
 public:
-    WiredComponent(QObject *parent = 0);
+    WiredComponent(QString id, QObject *parent = 0);
 
-    QString getId() Q_DECL_OVERRIDE;
     QString getName() Q_DECL_OVERRIDE;
     QString getTitle() Q_DECL_OVERRIDE;
     QString getCommand() Q_DECL_OVERRIDE;
@@ -28,6 +27,7 @@ public:
 private:
     QLabel * m_item;
     com::deepin::daemon::Network * m_dbusNetwork;
+    QString m_id;
 
     QString getWiredIP();
 

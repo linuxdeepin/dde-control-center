@@ -54,8 +54,6 @@ private:
 
     Dock::DockMode m_mode;
 
-    CompositeComponent * m_composite;
-
     QSettings m_settings;
 
     void initSettings();

@@ -14,10 +14,11 @@
 #include "bluetoothcomponent.h"
 #include "widgets/switchbutton.h"
 
-BluetoothComponent::BluetoothComponent(QObject *parent) :
+BluetoothComponent::BluetoothComponent(QString id, QObject *parent) :
     QObject(parent),
     m_item(NULL),
-    m_applet(NULL)
+    m_applet(NULL),
+    m_id(id)
 {
     QIcon::setThemeName("Deepin");
 
@@ -37,11 +38,6 @@ BluetoothComponent::BluetoothComponent(QObject *parent) :
 BluetoothComponent::~BluetoothComponent()
 {
     delete m_applet;
-}
-
-QString BluetoothComponent::getId()
-{
-    return "id_bluetooth";
 }
 
 QString BluetoothComponent::getName()

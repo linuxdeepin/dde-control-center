@@ -5,18 +5,18 @@
 
 #include "plugins.h"
 
+const static QString BluetoothComponentId = "id_network_bluetooth_plugin";
+const static QString VpnComponentId = "id_network_vpn_plugin";
+const static QString WiredComponentId = "id_network_wired_plugin";
+const static QString CompositeComponentId = "id_network_composite_plugin";
+
 NetworkPlugin::NetworkPlugin() :
     m_proxy(NULL)
 {
-    m_composite = new CompositeComponent(this);
-
-    BluetoothComponent * bluetooth = new BluetoothComponent(this);
-    VPNComponent * vpn = new VPNComponent(this);
-    WiredComponent * wired = new WiredComponent(this);
-
-    m_items[bluetooth->getId()] = bluetooth;
-    m_items[vpn->getId()] = vpn;
-    m_items[wired->getId()] = wired;
+    m_items[BluetoothComponentId] = new BluetoothComponent(BluetoothComponentId, this);
+    m_items[VpnComponentId] = new VPNComponent(VpnComponentId, this);
+    m_items[WiredComponentId] = new WiredComponent(WiredComponentId, this);
+    m_items[CompositeComponentId] = new CompositeComponent(CompositeComponentId, this);
 
     initSettings();
 }
@@ -37,12 +37,8 @@ void NetworkPlugin::init(DockPluginProxyInterface *proxy)
 
     m_mode = m_proxy->dockMode();
 
-    if (m_mode == Dock::FashionMode) {
-        m_proxy->itemAddedEvent(m_composite->getId());
-    } else {
-        foreach (QString id, m_items.keys()) {
-            m_proxy->itemAddedEvent(id);
-        }
+    foreach (QString id, ids()) {
+        m_proxy->itemAddedEvent(id);
     }
 }
 
@@ -54,37 +50,28 @@ QString NetworkPlugin::getPluginName()
 QStringList NetworkPlugin::ids()
 {
     if (m_mode == Dock::FashionMode) {
-        return QStringList(m_composite->getId());
+        return QStringList(CompositeComponentId);
     } else {
-        return m_items.keys();
+        QStringList keys = m_items.keys();
+        keys.removeOne(CompositeComponentId);
+
+        return keys;
     }
 }
 
 QString NetworkPlugin::getName(QString id)
 {
-    if (id == m_composite->getId()) {
-        return m_composite->getName();
-    } else {
-        return m_items.value(id)->getName();
-    }
+    return m_items.value(id)->getName();
 }
 
 QString NetworkPlugin::getTitle(QString id)
 {
-    if (id == m_composite->getId()) {
-        return m_composite->getTitle();
-    } else {
-        return m_items.value(id)->getTitle();
-    }
+    return m_items.value(id)->getTitle();
 }
 
 QString NetworkPlugin::getCommand(QString id)
 {
-    if (id == m_composite->getId()) {
-        return m_composite->getCommand();
-    } else {
-        return m_items.value(id)->getCommand();
-    }
+    return m_items.value(id)->getCommand();
 }
 
 bool NetworkPlugin::canDisable(QString)
@@ -100,11 +87,7 @@ bool NetworkPlugin::isDisabled(QString id)
 void NetworkPlugin::setDisabled(QString id, bool disabled)
 {
     if (disabled) {
-        if (id == m_composite->getId()) {
-            m_composite->retainItem();
-        } else {
-            m_items[id]->retainItem();
-        }
+        m_items[id]->retainItem();
 
         m_proxy->itemRemovedEvent(id);
     }
@@ -112,20 +95,12 @@ void NetworkPlugin::setDisabled(QString id, bool disabled)
 
 QWidget * NetworkPlugin::getApplet(QString id)
 {
-    if (id == m_composite->getId()) {
-        return m_composite->getApplet();
-    } else {
-        return m_items.value(id)->getApplet();
-    }
+    return m_items.value(id)->getApplet();
 }
 
 QWidget * NetworkPlugin::getItem(QString id)
 {
-    if (id == m_composite->getId()) {
-        return m_composite->getItem();
-    } else {
-        return m_items.value(id)->getItem();
-    }
+    return m_items.value(id)->getItem();
 }
 
 void NetworkPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
@@ -133,15 +108,23 @@ void NetworkPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
     m_mode = newMode;
 
     if (newMode == Dock::FashionMode && oldMode != Dock::FashionMode) {
-        foreach (QString id, m_items.keys()) {
+        QStringList keys = m_items.keys();
+        keys.removeOne(CompositeComponentId);
+
+        foreach (QString id, keys) {
             m_items[id]->retainItem();
             m_proxy->itemRemovedEvent(id);
         }
-        m_proxy->itemAddedEvent(m_composite->getId());
+
+        m_proxy->itemAddedEvent(CompositeComponentId);
     } else if (oldMode == Dock::FashionMode && newMode != Dock::FashionMode) {
-        m_composite->retainItem();
-        m_proxy->itemRemovedEvent(m_composite->getId());
-        foreach (QString id, m_items.keys()) {
+        PluginComponentInterface * compositeItem = m_items[CompositeComponentId];
+        compositeItem->retainItem();
+        m_proxy->itemRemovedEvent(CompositeComponentId);
+
+        QStringList keys = m_items.keys();
+        keys.removeOne(CompositeComponentId);
+        foreach (QString id, keys) {
             m_proxy->itemAddedEvent(id);
         }
     }
@@ -149,18 +132,10 @@ void NetworkPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
 
 QString NetworkPlugin::getMenuContent(QString id)
 {
-    if (id == m_composite->getId()) {
-        return m_composite->getMenuContent();
-    } else {
-        return m_items.value(id)->getMenuContent();
-    }
+    return m_items.value(id)->getMenuContent();
 }
 
 void NetworkPlugin::invokeMenuItem(QString id, QString itemId, bool checked)
 {
-    if (id == m_composite->getId()) {
-        return m_composite->invokeMenuItem(itemId, checked);
-    } else {
-        m_items.value(id)->invokeMenuItem(itemId, checked);
-    }
+    m_items.value(id)->invokeMenuItem(itemId, checked);
 }

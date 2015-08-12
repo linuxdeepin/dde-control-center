@@ -5,19 +5,15 @@
 
 #include "compositecomponent.h"
 
-CompositeComponent::CompositeComponent(QObject *parent) :
-    QObject(parent)
+CompositeComponent::CompositeComponent(QString id, QObject *parent) :
+    QObject(parent),
+    m_id(id)
 {
     QIcon::setThemeName("Deepin");
 
     m_item = new QLabel;
     m_item->setFixedSize(Dock::APPLET_FASHION_ICON_SIZE, Dock::APPLET_FASHION_ICON_SIZE);
     m_item->setPixmap(QIcon::fromTheme("network-online").pixmap(m_item->size()));
-}
-
-QString CompositeComponent::getId()
-{
-    return "id_composite";
 }
 
 QString CompositeComponent::getName()

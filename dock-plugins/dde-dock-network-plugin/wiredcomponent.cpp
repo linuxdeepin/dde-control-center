@@ -9,8 +9,9 @@
 #include "wiredcomponent.h"
 #include "plugins.h"
 
-WiredComponent::WiredComponent(QObject *parent) :
-    QObject(parent)
+WiredComponent::WiredComponent(QString id, QObject *parent) :
+    QObject(parent),
+    m_id(id)
 {
     QIcon::setThemeName("Deepin");
 
@@ -26,11 +27,6 @@ WiredComponent::WiredComponent(QObject *parent) :
 
     connect(m_dbusNetwork, &Network::ConnectionsChanged, this, &WiredComponent::updateItem);
     connect(m_dbusNetwork, &Network::ActiveConnectionsChanged, this, &WiredComponent::updateItem);
-}
-
-QString WiredComponent::getId()
-{
-    return "id_wired";
 }
 
 QString WiredComponent::getName()
@@ -175,8 +171,10 @@ void WiredComponent::updateItem()
             m_item->setPixmap(QIcon::fromTheme("network-offline-symbolic").pixmap(m_item->size()));
         }
 
-        if (np && np->m_proxy) np->m_proxy->itemAddedEvent(getId());
+        if (np && np->m_proxy) np->m_proxy->itemAddedEvent(m_id);
     } else {
-        if (np && np->m_proxy) np->m_proxy->itemRemovedEvent(getId());
+        m_item->setParent(NULL);
+
+        if (np && np->m_proxy) np->m_proxy->itemRemovedEvent(m_id);
     }
 }

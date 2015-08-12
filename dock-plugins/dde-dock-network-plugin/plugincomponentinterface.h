@@ -7,7 +7,6 @@ class QWidget;
 class PluginComponentInterface
 {
 public:
-    virtual QString getId() = 0;
     virtual QString getName() = 0;
     virtual QString getTitle() = 0;
     virtual QString getCommand() = 0;
