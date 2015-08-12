@@ -14,13 +14,15 @@ class ShortcutWidget : public QFrame
     Q_PROPERTY(QString shortcut READ shortcut WRITE setShortcut NOTIFY shortcutChanged)
 
 public:
-    ShortcutWidget(const QString &title, const QString &shortcut = "", QWidget *parent = 0);
+    ShortcutWidget(int id, const QString &title, const QString &shortcut = "", QWidget *parent = 0);
 
 public slots:
+    void setId(int id);
     void setTitle(const QString &title);
     void setShortcut(const QString &shortcut);
 
 public:
+    int id() const;
     QString title() const;
     QString shortcut() const;
 
@@ -29,6 +31,7 @@ signals:
 
 private:
     QHBoxLayout *m_layout;
+    int m_id;
     QLabel *m_title;
     QLabel *m_shortcut;
 };
@@ -41,24 +44,29 @@ public:
     explicit SetShortcutList(QWidget *parent = 0);
 
 public slots:
-    int addItem(const QString &title, const QString &shortcut = "");
-    void addItems(const QStringList &titles, const QStringList &shortcuts = QStringList());
-    void insertItem(int index, const QString &title, const QString &shortcut = "");
-    void insertItems(int index, const QStringList &titles, const QStringList &shortcuts = QStringList());
+    int addItem(int id, const QString &title, const QString &shortcut = "");
+    void addItems(QList<int> ids, const QStringList &titles, const QStringList &shortcuts = QStringList());
+    void insertItem(int index, int id, const QString &title, const QString &shortcut = "");
+    void insertItems(int index, QList<int> ids, const QStringList &titles, const QStringList &shortcuts = QStringList());
+    void setItemId(int index, int id);
     void setItemTitle(int index, const QString &title);
     void setItemShortcut(int index, const QString &value);
     void setItemSize(int w, int h);
+    void clear();
+    void removeItem(int index);
 
 public:
     int count() const;
     QString getItemTitle(int index) const;
     QString getItemShortcut(int index) const;
+    int getItemId(int index) const;
     int indexOfByTitle(const QString &title) const;
+    int indexOfById(int id) const;
     ShortcutWidget *getItemWidget(int index) const;
 
 signals:
-    void shortcutChanged(int index, QString name);
-    void shortcutChanged(QString title, QString name);
+    void shortcutChanged(int index, QString shortcut);
+    void shortcutChanged(QString title, QString shortcut);
 
 private slots:
     void shortcutChanged(const QString &value);

@@ -8,6 +8,7 @@
 #include <libdui/dheaderline.h>
 
 #include "shortcutdbus.h"
+#include "setshortcutlist.h"
 
 DUI_USE_NAMESPACE
 
@@ -23,6 +24,8 @@ private:
     ShortcutDbus *m_dbus;
 
     void init();
+
+    Q_SLOT void shortcutListChanged(SetShortcutList *listw, const ShortcutInfoList &list);
 };
 
 #endif // GRUBWIDGET_H

@@ -48,7 +48,7 @@ class ShortcutDbus: public QDBusAbstractInterface
         if (3 != arguments.count())
             return;
         QString interfaceName = msg.arguments().at(0).toString();
-        if (interfaceName !="com.deepin.daemon.Grub2")
+        if (interfaceName != staticInterfaceName())
             return;
         QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
         foreach(const QString &prop, changedProps.keys()) {
@@ -92,7 +92,7 @@ public:
     inline ShortcutInfoList systemList() const
     { return qvariant_cast< ShortcutInfoList >(property("SystemList")); }
 
-    Q_PROPERTY(ShortcutInfoList WindowList READ windowList NOTIFY windowChanged)
+    Q_PROPERTY(ShortcutInfoList WindowList READ windowList NOTIFY windowListChanged)
     inline ShortcutInfoList windowList() const
     { return qvariant_cast< ShortcutInfoList >(property("WindowList")); }
 
@@ -203,7 +203,7 @@ Q_SIGNALS: // SIGNALS
     void conflictValidChanged(intList ConflictValid);
     void customListChanged(ShortcutInfoList CustomList);
     void systemListChanged(ShortcutInfoList SystemList);
-    void windowChanged(ShortcutInfoList WindowList);
+    void windowListChanged(ShortcutInfoList WindowList);
     void workspaceListChanged(ShortcutInfoList WorkspaceList);
 };
 
