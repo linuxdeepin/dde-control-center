@@ -22,6 +22,8 @@ ShortcutWidget::ShortcutWidget(int id, const QString &title, const QString &shor
     m_layout->addWidget(m_title, 0, Qt::AlignVCenter|Qt::AlignLeft);
     m_layout->addWidget(m_shortcut, 0, Qt::AlignVCenter|Qt::AlignRight);
     setLayout(m_layout);
+
+    m_me = this;
 }
 
 void ShortcutWidget::setId(int id)
@@ -56,6 +58,32 @@ QString ShortcutWidget::title() const
 QString ShortcutWidget::shortcut() const
 {
     return m_shortcut->text();
+}
+
+QStringList ShortcutWidget::keyWords() const
+{
+    return QStringList()<<m_title->text()<<m_shortcut->text();
+}
+
+void ShortcutWidget::setData(const QVariant &datas)
+{
+    QVariantList list = datas.toList();
+    if(list.count()==3&&list[0].type()==QVariant::Int
+            &&list[1].type()==QVariant::String&&list[2].type()==QVariant::String){
+        setId(list[0].toInt());
+        m_title->setText(list[1].toString());
+        m_shortcut->setText(list[2].toString());
+    }
+}
+
+QVariant ShortcutWidget::getData()
+{
+    return QVariantList()<<m_id<<m_title->text()<<m_shortcut->text();
+}
+
+QWidget *ShortcutWidget::widget() const
+{
+    return m_me;
 }
 
 

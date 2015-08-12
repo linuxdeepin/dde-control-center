@@ -2,10 +2,11 @@ TEMPLATE        = lib
 CONFIG         += plugin c++11
 QT             += widgets dbus
 INCLUDEPATH    += ../../frame/
-TARGET          = $$qtLibraryTarget(grub)
+TARGET          = $$qtLibraryTarget(shortcuts)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 
 LIBS += -ldui
+include(../../widgets/widgets.pri)
 
 HEADERS += \
     mainwidget.h \

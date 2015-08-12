@@ -7,7 +7,9 @@
 
 #include <libdui/libdui_global.h>
 
-class ShortcutWidget : public QFrame
+#include "searchlist.h"
+
+class ShortcutWidget : public QFrame, public SearchItem
 {
     Q_OBJECT
 
@@ -26,6 +28,10 @@ public:
     QString title() const;
     QString shortcut() const;
 
+    QStringList keyWords() const Q_DECL_OVERRIDE;
+    void setData(const QVariant &datas) Q_DECL_OVERRIDE;
+    QVariant getData() Q_DECL_OVERRIDE;
+    QWidget *widget() const Q_DECL_OVERRIDE;
 signals:
     void shortcutChanged(QString shortcut);
 
@@ -34,6 +40,7 @@ private:
     int m_id;
     QLabel *m_title;
     QLabel *m_shortcut;
+    ShortcutWidget *m_me;
 };
 
 class SetShortcutList : public QFrame

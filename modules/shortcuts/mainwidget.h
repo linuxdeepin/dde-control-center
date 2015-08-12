@@ -9,6 +9,7 @@
 
 #include "shortcutdbus.h"
 #include "setshortcutlist.h"
+#include "searchlist.h"
 
 DUI_USE_NAMESPACE
 
@@ -20,12 +21,14 @@ public:
 
 private:
     QVBoxLayout *m_layout;
+    QVBoxLayout *m_childLayout;
     DHeaderLine *m_header;
     ShortcutDbus *m_dbus;
+    SearchList *m_searchList;
 
     void init();
 
-    Q_SLOT void shortcutListChanged(SetShortcutList *listw, const ShortcutInfoList &list);
+    Q_SLOT void shortcutListChanged(SetShortcutList *listw, const ShortcutInfoList &list, int offseIndex);
 };
 
 #endif // GRUBWIDGET_H
