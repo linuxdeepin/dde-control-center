@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>light/images/add_hover.png</file>
+        <file>light/images/add_normal.png</file>
+        <file>light/images/add_press.png</file>
+        <file>light/images/delete_hover.png</file>
+        <file>light/images/delete_multi_hover.png</file>
+        <file>light/images/delete_multi_normal.png</file>
+        <file>light/images/delete_multi_press.png</file>
+        <file>light/images/delete_normal.png</file>
+        <file>light/images/delete_press.png</file>
+        <file>light/DynamicLabel.theme</file>
+    </qresource>
+</RCC>

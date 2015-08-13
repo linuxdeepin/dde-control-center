@@ -25,7 +25,7 @@ static const QColor HomeScreen_PowerTextColor = "orange";
 static const uint FrameAnimationDuration = 300;
 static const uint TipsMoveAnimationDuration = 200;
 
-static const QString IconPath = "modules/icons/";
+static const QString IconPath = ":/resources/images/";
 }
 
 #endif // CONSTANTS_H

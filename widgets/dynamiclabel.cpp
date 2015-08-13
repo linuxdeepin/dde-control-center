@@ -1,5 +1,6 @@
 #include <QDebug>
 #include <QTimer>
+#include <QFile>
 
 #include <libdui/libdui_global.h>
 #include <libdui/dthememanager.h>

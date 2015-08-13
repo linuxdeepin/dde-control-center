@@ -11,4 +11,5 @@ SOURCES += $$PWD/searchlist.cpp \
     $$PWD/dynamiclabel.cpp
 
 RESOURCES += \
-    $$PWD/widgetstheme.qrc
+    $$PWD/themes/widgets_theme_dark.qrc \
+    $$PWD/themes/widgets_theme_light.qrc

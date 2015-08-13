@@ -35,8 +35,8 @@ ShortcutWidget::ShortcutWidget(int id, const QString &title, const QString &shor
 
     m_me = this;
 
-    QString icon_path = "modules/icons/";
-    icon_path = icon_path.append(DThemeManager::instance()->theme().append("/delete_multi_"));
+    QString icon_path = "widgets/themes/";
+    icon_path = icon_path.append(DThemeManager::instance()->theme().append("/images/delete_multi_"));
     m_removeButton = new DImageButton(
                 icon_path+"normal.png", icon_path+"hover.png", icon_path+"press.png", this);
     m_removeButton->setFixedSize(IMAGE_BUTTON_WIDTH, 30);

@@ -23,4 +23,5 @@ CONFIG += c++11
 LIBS += -ldui
 
 RESOURCES += \
-    qss.qrc
+    qss.qrc \
+    images.qrc

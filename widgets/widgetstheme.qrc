@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>light/DynamicLabel.theme</file>
-        <file>dark/DynamicLabel.theme</file>
-    </qresource>
-</RCC>

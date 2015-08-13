@@ -138,8 +138,8 @@ QWidget *getCustomLstHeadBar(SetShortcutList *shorcutlist, QWidget *addShortcutW
 {
     QWidget *w = new QWidget;
 
-    QString icon_path = "modules/icons/";
-    icon_path = icon_path.append(DThemeManager::instance()->theme().append("/"));
+    QString icon_path = "widgets/themes/";
+    icon_path = icon_path.append(DThemeManager::instance()->theme().append("/images/"));
 
     QHBoxLayout *layout = new QHBoxLayout;
     DynamicLabel *dl = new DynamicLabel;
