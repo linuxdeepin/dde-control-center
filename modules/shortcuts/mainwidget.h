@@ -28,7 +28,10 @@ private:
 
     void init();
 
+    SetShortcutList *addSetShortcutList(const ShortcutInfoList &tmplist);
     Q_SLOT void shortcutListChanged(SetShortcutList *listw, const ShortcutInfoList &list, int offseIndex);
+    Q_SLOT void editShortcut(const QString& shortcut);
+    Q_SLOT void removeShortcut();
 };
 
 #endif // GRUBWIDGET_H

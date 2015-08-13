@@ -2,10 +2,12 @@ QLabel#ShortcutTitle{
     color: #b4b4b4;
 }
 
-QLabel#ShortcutValue{
+QPushButton#ShortcutValue{
+    background-color: transparent;
+    border: none;
     color: #b4b4b4;
 }
 
-QLabel#ShortcutValue:hover{
+QPushButton#ShortcutValue:hover{
     color: white;
 }

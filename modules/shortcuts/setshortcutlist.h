@@ -4,10 +4,16 @@
 #include <QFrame>
 #include <QVBoxLayout>
 #include <QLabel>
+#include <QPropertyAnimation>
+#include <QPushButton>
 
 #include <libdui/libdui_global.h>
+#include <libdui/dimagebutton.h>
+#include <libdui/dshortcutedit.h>
 
 #include "searchlist.h"
+
+DUI_USE_NAMESPACE
 
 class ShortcutWidget : public QFrame, public SearchItem
 {
@@ -22,6 +28,8 @@ public slots:
     void setId(int id);
     void setTitle(const QString &title);
     void setShortcut(const QString &shortcut);
+    void showRemoveButton() const;
+    void hideRemoveButton() const;
 
 public:
     int id() const;
@@ -34,13 +42,17 @@ public:
     QWidget *widget() const Q_DECL_OVERRIDE;
 signals:
     void shortcutChanged(QString shortcut);
+    void removeShortcut();
 
 private:
     QHBoxLayout *m_layout;
     int m_id;
     QLabel *m_title;
-    QLabel *m_shortcut;
+    DShortcutEdit *m_shortcut;
     ShortcutWidget *m_me;
+    DImageButton *m_removeButton;
+    QPropertyAnimation *m_animation;
+    QString m_shortcuText;
 };
 
 class SetShortcutList : public QFrame

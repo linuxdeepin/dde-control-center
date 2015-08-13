@@ -75,7 +75,7 @@ void SearchList::clear()
 
 void SearchList::removeItem(int index)
 {
-    QListWidgetItem *tmp = m_listWidget->item(index);
+    QListWidgetItem *tmp = m_listWidget->takeItem(index);
     m_listWidget->removeItemWidget(tmp);
     delete tmp;
     SearchItem *item = getItem(index);

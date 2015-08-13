@@ -1,0 +1,105 @@
+#include <QDebug>
+#include <QTimer>
+
+#include <libdui/libdui_global.h>
+#include <libdui/dthememanager.h>
+
+#include "dynamiclabel.h"
+
+DUI_USE_NAMESPACE
+
+DynamicLabel::DynamicLabel(QWidget *parent) :
+    QFrame(parent),
+    m_label(new QLabel(this)),
+    m_animation(new QPropertyAnimation(this)),
+    m_timeout(-1)
+{
+    m_label->setObjectName("Label");
+
+    D_THEME_INIT_WIDGET(DynamicLabel);
+
+    m_animation->setTargetObject(m_label);
+    m_animation->setPropertyName("geometry");
+
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+}
+
+QLabel *DynamicLabel::label() const
+{
+    return m_label;
+}
+
+QColor DynamicLabel::color() const
+{
+    return m_label->palette().color(QPalette::Foreground);
+}
+
+int DynamicLabel::duration() const
+{
+    return m_animation->duration();
+}
+
+int DynamicLabel::timeout() const
+{
+    return m_timeout;
+}
+
+QEasingCurve::Type DynamicLabel::easingType() const
+{
+    return m_animation->easingCurve().type();
+}
+
+void DynamicLabel::setText(const QString &text)
+{
+    m_label->setText(text);
+    setFixedSize(m_label->sizeHint());
+}
+
+void DynamicLabel::showLabel()
+{
+    m_animation->stop();
+    QRect rect = this->rect();
+    rect.setX(width());
+    m_animation->setStartValue(rect);
+    rect.setX(0);
+    m_animation->setEndValue(rect);
+    m_animation->start();
+    if(m_timeout>0){
+        QTimer::singleShot(m_timeout, [&]{
+           hideLabel();
+        });
+    }
+}
+
+void DynamicLabel::hideLabel()
+{
+    m_animation->stop();
+    QRect rect = this->rect();
+    rect.setX(0);
+    m_animation->setStartValue(rect);
+    rect.setX(width());
+    m_animation->setEndValue(rect);
+    m_animation->start();
+}
+
+void DynamicLabel::setColor(QColor color)
+{
+    QPalette pa = m_label->palette();
+    pa.setColor(QPalette::Foreground, color);
+}
+
+void DynamicLabel::setDuration(int duration)
+{
+    m_animation->setDuration(duration);
+}
+
+void DynamicLabel::setTimeout(int timeout)
+{
+    m_timeout = timeout;
+}
+
+void DynamicLabel::setEasingType(QEasingCurve::Type easingType)
+{
+    m_animation->setEasingCurve(easingType);
+}
+

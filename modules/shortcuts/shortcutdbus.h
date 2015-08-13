@@ -32,6 +32,7 @@ struct ShortcutInfo{
 typedef QList<int> intList;
 typedef QList<ShortcutInfo> ShortcutInfoList;
 
+Q_DECLARE_METATYPE(intList)
 Q_DECLARE_METATYPE(ShortcutInfo)
 Q_DECLARE_METATYPE(ShortcutInfoList)
 

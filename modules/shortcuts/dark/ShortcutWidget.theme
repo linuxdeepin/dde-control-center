@@ -1,13 +1,15 @@
 QLabel#ShortcutTitle{
     color: #b4b4b4;
-    font-size: 11px;
+    font-size: 12px;
 }
 
-QLabel#ShortcutValue{
+QPushButton#ShortcutValue{
+    background-color: transparent;
+    border: none;
     color: #b4b4b4;
-    font-size: 11px;
+    font-size: 12px;
 }
 
-QLabel#ShortcutValue:hover{
+QPushButton#ShortcutValue:hover{
     color: white;
 }
