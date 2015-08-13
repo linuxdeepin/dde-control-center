@@ -6,7 +6,7 @@
 #include <QDebug>
 #include "dbus/dbusaudio.h"
 #include "dbus/dbusaudiosink.h"
-#include "dock/dockconstants.h"
+#include "dde-dock/dockconstants.h"
 #include "soundicon.h"
 
 class MainItem : public QLabel

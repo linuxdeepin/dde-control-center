@@ -1,9 +1,9 @@
 #ifndef DATETIMEPLUGIN_H
 #define DATETIMEPLUGIN_H
 
-#include <dock/dockconstants.h>
-#include <dock/dockplugininterface.h>
-#include <dock/dockpluginproxyinterface.h>
+#include <dde-dock/dockconstants.h>
+#include <dde-dock/dockplugininterface.h>
+#include <dde-dock/dockpluginproxyinterface.h>
 
 #include <clockpixmap.h>
 #include <libdui/dcalendar.h>

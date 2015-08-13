@@ -6,9 +6,9 @@
 #include <QString>
 #include <QSettings>
 
-#include <dock/dockconstants.h>
-#include <dock/dockplugininterface.h>
-#include <dock/dockpluginproxyinterface.h>
+#include <dde-dock/dockconstants.h>
+#include <dde-dock/dockplugininterface.h>
+#include <dde-dock/dockpluginproxyinterface.h>
 
 #include "plugincomponentinterface.h"
 #include "bluetoothcomponent.h"

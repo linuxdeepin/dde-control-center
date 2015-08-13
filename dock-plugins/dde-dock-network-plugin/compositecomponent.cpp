@@ -1,7 +1,7 @@
 #include <QIcon>
 #include <QLabel>
 
-#include <dock/dockconstants.h>
+#include <dde-dock/dockconstants.h>
 
 #include "compositecomponent.h"
 

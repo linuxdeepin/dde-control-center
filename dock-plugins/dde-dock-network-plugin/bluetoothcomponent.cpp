@@ -9,7 +9,7 @@
 
 #include <QDBusConnection>
 
-#include <dock/dockconstants.h>
+#include <dde-dock/dockconstants.h>
 
 #include "bluetoothcomponent.h"
 #include "widgets/switchbutton.h"

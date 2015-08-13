@@ -8,7 +8,7 @@
 #include "iconlabel.h"
 #include "soundicon.h"
 #include "dbus/dbusaudiosink.h"
-#include "dock/dockconstants.h"
+#include "dde-dock/dockconstants.h"
 
 class DeviceIconSlider : public QWidget
 {

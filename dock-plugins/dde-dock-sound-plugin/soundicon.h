@@ -4,7 +4,7 @@
 #include <QIcon>
 #include <QPixmap>
 #include <QDebug>
-#include "dock/dockconstants.h"
+#include "dde-dock/dockconstants.h"
 
 class SoundIcon : public QObject
 {

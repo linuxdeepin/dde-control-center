@@ -5,7 +5,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
-#include <dock/dockconstants.h>
+#include <dde-dock/dockconstants.h>
 
 #include "vpncomponent.h"
 #include "vpnapplet.h"

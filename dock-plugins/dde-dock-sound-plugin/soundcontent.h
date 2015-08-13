@@ -8,7 +8,7 @@
 #include <QDebug>
 #include "appframe.h"
 #include "deviceframe.h"
-#include "dock/dockpluginproxyinterface.h"
+#include "dde-dock/dockpluginproxyinterface.h"
 
 class SoundContent : public QWidget
 {

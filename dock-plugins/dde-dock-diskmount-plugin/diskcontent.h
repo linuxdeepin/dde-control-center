@@ -7,8 +7,8 @@
 #include <QFile>
 #include <QDebug>
 #include "dbus/dbusdiskmount.h"
-#include "dock/dockconstants.h"
-#include "dock/dockpluginproxyinterface.h"
+#include "dde-dock/dockconstants.h"
+#include "dde-dock/dockpluginproxyinterface.h"
 #include "diskitem.h"
 
 class DiskContent : public QWidget
