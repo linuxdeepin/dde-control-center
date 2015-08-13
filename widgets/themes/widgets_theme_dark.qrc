@@ -10,5 +10,8 @@
         <file>dark/images/delete_normal.png</file>
         <file>dark/images/delete_press.png</file>
         <file>dark/DynamicLabel.theme</file>
+        <file>dark/ModuleHeader.theme</file>
+        <file>dark/NormalLabel.theme</file>
+        <file>dark/HighlightLabel.theme</file>
     </qresource>
 </RCC>
