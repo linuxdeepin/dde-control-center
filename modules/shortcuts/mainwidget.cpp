@@ -97,15 +97,21 @@ QWidget *getAddShortcutWidget(ShortcutDbus *dbus)
     });
 
     QObject::connect(button_add, &DTextButton::clicked, [=](){
-        if(!edit_name->text().isEmpty()&&!edit_command->text().isEmpty())
+        if(!edit_name->text().isEmpty()&&!edit_command->text().isEmpty()){
             dbus->AddCustomShortcut(edit_name->text(), edit_command->text());
-        w->hide();
+            w->hide();
+        }
     });
+
+    edit_name->setObjectName("EditName");
+    edit_command->setObjectName("EditCommand");
+    edit_name->setFixedWidth(200);
+    edit_command->setFixedWidth(200);
 
     hlayout1->addSpacing(HEADER_LEFT_MARGIN);
     hlayout1->addStretch(1);
     hlayout1->addWidget(new QLabel(QObject::tr("Name")));
-    hlayout1->addWidget(edit_name, 9);
+    hlayout1->addWidget(edit_name);
     hlayout1->addSpacing(HEADER_RIGHT_MARGIN);
     hlayout2->addSpacing(HEADER_RIGHT_MARGIN);
     hlayout2->addWidget(new QLabel(QObject::tr("Command")));
@@ -195,6 +201,11 @@ QWidget *getCustomLstHeadBar(SetShortcutList *shorcutlist, QWidget *addShortcutW
     });
     DTextButton *button_ok = addShortcutWidget->findChild<DTextButton*>("AddButon");
     QObject::connect(button_ok, &DTextButton::clicked, [=](){
+        DLineEdit *edit_name = addShortcutWidget->findChild<DLineEdit*>("EditName");
+        DLineEdit *edit_command = addShortcutWidget->findChild<DLineEdit*>("EditCommand");
+        if(edit_name->text().isEmpty()||edit_command->text().isEmpty())
+            return;
+
         button_add->show();
         button_remove->show();
     });
@@ -310,8 +321,13 @@ void MainWidget::shortcutListChanged(SetShortcutList *listw, const ShortcutInfoL
         for(int i=min;i<list.count();++i){
             const ShortcutInfo &info = list[i];
             listw->addItem(info.id, info.title, shortcutTransfrom(info.shortcut));
-            m_searchList->insertItem(offseIndex+i,
-                                      new ShortcutWidget(info.id, info.title, shortcutTransfrom(info.shortcut)));
+            ShortcutWidget *shortw = new ShortcutWidget(info.id, info.title, shortcutTransfrom(info.shortcut));
+            m_searchList->insertItem(offseIndex+i, shortw);
+            connect(listw->getItemWidget(listw->count()-1), &ShortcutWidget::shortcutChanged,
+                    this, &MainWidget::editShortcut);
+            connect(shortw, &ShortcutWidget::shortcutChanged, this, &MainWidget::editShortcut);
+            connect(listw->getItemWidget(listw->count()-1), &ShortcutWidget::removeShortcut,
+                    this, &MainWidget::removeShortcut);
         }
     }else{
         for(int i=list.count();i<listw->count();++i){
@@ -323,10 +339,7 @@ void MainWidget::shortcutListChanged(SetShortcutList *listw, const ShortcutInfoL
 
 void MainWidget::removeShortcut()
 {
-    qDebug()<<"fdasssssssssss";
-
     ShortcutWidget *w = qobject_cast<ShortcutWidget*>(sender());
-    qDebug()<<w->id();
     if(w){
         m_dbus->DeleteCustomShortcut(w->id());
     }
@@ -336,6 +349,7 @@ void MainWidget::editShortcut(const QString &shortcut)
 {
     ShortcutWidget *w = qobject_cast<ShortcutWidget*>(sender());
     if(w){
-        m_dbus->ModifyShortcut(w->id(), shortcut);
+        QString str = shortcut;
+        m_dbus->ModifyShortcut(w->id(), str.replace("+", "-"));
     }
 }

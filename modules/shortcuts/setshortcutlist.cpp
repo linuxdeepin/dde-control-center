@@ -22,7 +22,6 @@ ShortcutWidget::ShortcutWidget(int id, const QString &title, const QString &shor
 
     connect(m_shortcut, &DShortcutEdit::shortcutKeysFinished, [=](const QString &str){
         emit shortcutChanged(str);
-        setShortcut(str);
     });
 
     m_shortcut->setShortcutKey(shortcut);
@@ -71,7 +70,6 @@ void ShortcutWidget::setShortcut(const QString &shortcut)
 
     m_shortcut->setShortcutKey(shortcut);
     m_shortcuText = shortcut;
-    emit shortcutChanged(shortcut);
 }
 
 void ShortcutWidget::showRemoveButton() const
@@ -117,7 +115,7 @@ void ShortcutWidget::setData(const QVariant &datas)
             &&list[1].type()==QVariant::String&&list[2].type()==QVariant::String){
         setId(list[0].toInt());
         m_title->setText(list[1].toString());
-        m_shortcut->setShortcutKey(list[2].toString());
+        setShortcut(list[2].toString());
     }
 }
 
