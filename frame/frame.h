@@ -3,14 +3,17 @@
 
 #include <QFrame>
 #include <QList>
+#include <QDBusAbstractAdaptor>
 
 #include "interfaces.h"
 #include "modulemetadata.h"
+#include "dbuscontrolcenter.h"
 
 class QStackedLayout;
 class QKeyEvent;
 class HomeScreen;
 class ContentView;
+class DBusControlCenter;
 class Frame: public QFrame
 {
     Q_OBJECT
@@ -18,7 +21,12 @@ class Frame: public QFrame
 public:
     Frame(QWidget * parent = 0);
 
+    void changeEvent(QEvent *e);
     void keyPressEvent(QKeyEvent * event) Q_DECL_OVERRIDE;
+    void show(bool imme = false);
+    void hide(bool imme = false);
+    bool isHideInLeft() const;
+    void selectModule(const QString & moduleName);
 
 private:
     void listPlugins();
@@ -30,8 +38,13 @@ private:
     HomeScreen * m_homeScreen;
     ContentView * m_contentView;
     QList<ModuleMetaData> m_modules;
+    QDBusAbstractAdaptor *m_dbusAdaptor;
+
+    bool m_visible = false;
 
     const int animationDuration = 300;
+
+    bool HideInLeft;
 };
 
 #endif

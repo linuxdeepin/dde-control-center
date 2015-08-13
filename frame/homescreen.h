@@ -19,7 +19,7 @@ public:
     void show();
 
 signals:
-    void moduleSelected(ModuleMetaData metaData);
+    void moduleSelected(ModuleMetaData);
 
 private slots:
     void buttonClicked();
@@ -34,6 +34,8 @@ private:
     QWidget *m_topWidget;
     QWidget *m_centerWidget;
     QWidget *m_bottomWidget;
+
+    QList<ModuleMetaData> modules;
 
     int m_moduleCount = 0;
 };

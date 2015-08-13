@@ -1,4 +1,4 @@
-QT += widgets
+QT += widgets dbus
 
 HEADERS    = frame.h \
              interfaces.h \
@@ -7,13 +7,15 @@ HEADERS    = frame.h \
     constants.h \
     sidebar.h \
     contentview.h \
-    dtipsframe.h
+    dtipsframe.h \
+    dbuscontrolcenter.h
 SOURCES    = frame.cpp \
              main.cpp \
     homescreen.cpp \
     sidebar.cpp \
     contentview.cpp \
-    dtipsframe.cpp
+    dtipsframe.cpp \
+    dbuscontrolcenter.cpp
 
 TARGET     = dde-control-center
 DESTDIR    = $$_PRO_FILE_PWD_/../

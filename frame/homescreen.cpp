@@ -14,7 +14,8 @@
 #include "constants.h"
 
 HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
-    QFrame(parent)
+    QFrame(parent),
+    modules(modules)
 {
     m_grid = new QGridLayout;
     m_grid->setContentsMargins(0, 25, 0, 0);
@@ -173,6 +174,8 @@ void HomeScreen::buttonClicked()
 {
     ModuleButton * btn = qobject_cast<ModuleButton*>(sender());
     this->moduleSelected(btn->metaData());
+
+    qDebug() << btn->metaData().name;
 }
 
 void HomeScreen::powerButtonClicked()
@@ -183,6 +186,9 @@ void HomeScreen::powerButtonClicked()
 void HomeScreen::userAvatarClicked()
 {
     qDebug() << "user avatar clicked";
+    for (const ModuleMetaData & data : modules)
+        if (data.name == "avator")
+            return moduleSelected(data);
 }
 
 // class ModuleButton
