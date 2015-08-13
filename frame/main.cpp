@@ -1,3 +1,6 @@
+#include <QApplication>
+#include <QFile>
+#include <QDebug>
 #include "frame.h"
 #include "interfaces.h"
 
@@ -5,6 +8,26 @@
 #include <libdui/dthememanager.h>
 
 DUI_USE_NAMESPACE
+
+QString getQssFromFile(const QString &name)
+{
+    QString qss = "";
+
+    QFile f(name);
+    if (f.open(QIODevice::ReadOnly | QIODevice::Text)){
+        qss = f.readAll();
+        f.close();
+    }
+
+    return qss;
+}
+
+void onThemeChange(const QString &theme)
+{
+    QString fileName = QString(":/resources/qss/%1.qss").arg(theme);
+
+    qApp->setStyleSheet(getQssFromFile(fileName));
+}
 
 int main(int argv, char *args[])
 {
@@ -14,7 +37,11 @@ int main(int argv, char *args[])
     frame.show();
 
     DThemeManager *manager = DThemeManager::instance();
-    manager->setTheme("dark");
+    QObject::connect(manager, &DThemeManager::themeChanged, [=](QString theme){
+        onThemeChange(theme);
+    });
+
+    manager->setTheme("light");
 
     return app.exec();
 }

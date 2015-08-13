@@ -21,3 +21,6 @@ DESTDIR    = $$_PRO_FILE_PWD_/../
 CONFIG += c++11
 
 LIBS += -ldui
+
+RESOURCES += \
+    qss.qrc

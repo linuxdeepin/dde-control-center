@@ -1,0 +1,17 @@
+StyleProperty {
+    qproperty-contentBgColor: #ffffff;
+    qproperty-panelBgColor: #fafafa;
+    qproperty-tabBgColor: #fcfcfc;
+    qproperty-radioItemSelectedColor: #ffffff;
+    qproperty-tooltipBorderColor: #26000000;
+    qproperty-textSelectedBgColor: #61b5f8;
+    qproperty-inputGrooveColor: #4cffffff;
+    qproperty-buttonGrooveColor: #02000000;
+    qproperty-textActiveColor: #2CA7F8;
+    qproperty-textHoverColor: #000000;
+    qproperty-textNormalColor: #474747;
+    qproperty-textHintColor: #909090;
+    qproperty-linkColor: #1b85ff;
+    qproperty-itemTipColor: #d98424;
+    qproperty-warningColor: #FF8F00;
+}
