@@ -1,6 +1,5 @@
 #include <QApplication>
 #include <QFile>
-#include <QDebug>
 #include "frame.h"
 #include "interfaces.h"
 
@@ -41,7 +40,7 @@ int main(int argv, char *args[])
         onThemeChange(theme);
     });
 
-    manager->setTheme("light");
+    manager->setTheme("dark");
 
     return app.exec();
 }

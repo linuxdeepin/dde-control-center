@@ -1,0 +1,8 @@
+{
+	"name": "Account",
+	"icon": {
+		"normal": "account_normal.png",
+		"hover": "account_hover.png",
+		"selected": "account_press.png"
+	}
+}

@@ -7,4 +7,5 @@ SUBDIRS  = sound \
            grub \
            mouse \
            system_info \
-		   display
+           display \
+           account
