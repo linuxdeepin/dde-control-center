@@ -15,6 +15,8 @@ DUI_USE_NAMESPACE
 SingleMonitorSettings::SingleMonitorSettings(QString monitorDBusPath, QWidget *parent)
     : QFrame(parent)
 {
+    m_dbusPath = monitorDBusPath;
+
     initUI();
 }
 

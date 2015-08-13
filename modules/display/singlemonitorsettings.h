@@ -10,6 +10,9 @@ public:
     explicit SingleMonitorSettings(QString monitorDBusPath, QWidget *parent = 0);
 
     void initUI();
+
+private:
+    QString m_dbusPath;
 };
 
 #endif // SINGLEMONITORSETTINGS_H

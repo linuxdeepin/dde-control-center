@@ -5,6 +5,8 @@
 #include <QtPlugin>
 #include "interfaces.h"
 
+#include "dbus/displayinterface.h"
+
 class QFrame;
 class Display: public QObject, ModuleInterface
 {
@@ -19,6 +21,7 @@ public:
 
 private:
     QFrame * m_frame;
+    com::deepin::daemon::Display * m_dbusDisplay;
 };
 
 #endif // DISPLAY_H

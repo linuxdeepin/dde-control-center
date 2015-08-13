@@ -41,14 +41,19 @@
 	</method>
 	<signal name="PrimaryChanged">
 		<arg type="(nnqq)"></arg>
+		<annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="MonitorBrightnessList"/>
 	</signal>
 	<property name="Monitors" type="ao" access="read"></property>
 	<property name="ScreenWidth" type="q" access="read"></property>
 	<property name="ScreenHeight" type="q" access="read"></property>
 	<property name="Primary" type="s" access="read"></property>
-	<property name="PrimaryRect" type="(nnqq)" access="read"></property>
+	<property name="PrimaryRect" type="(nnqq)" access="read">
+		<annotation name="org.qtproject.QtDBus.QtTypeName" value="QRect"/>
+	</property>
 	<property name="DisplayMode" type="n" access="read"></property>
 	<property name="BuiltinOutput" type="o" access="read"></property>
 	<property name="HasChanged" type="b" access="read"></property>
-	<property name="Brightness" type="a{sd}" access="read"></property>
+	<property name="Brightness" type="a{sd}" access="read">
+		<annotation name="org.qtproject.QtDBus.QtTypeName" value="MonitorBrightnessList"/>
+	</property>
 </interface>

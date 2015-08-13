@@ -25,7 +25,9 @@
 		<arg type="b" direction="in"></arg>
 	</method>
 	<property name="Outputs" type="as" access="read"></property>
-	<property name="BestMode" type="(uqqd)" access="read"></property>
+	<property name="BestMode" type="(uqqd)" access="read">
+		<annotation name="org.qtproject.QtDBus.QtTypeName" value="<type>"/>
+	</property>
 	<property name="IsComposited" type="b" access="read"></property>
 	<property name="Name" type="s" access="read"></property>
 	<property name="FullName" type="s" access="read"></property>
