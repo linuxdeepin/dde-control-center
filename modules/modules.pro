@@ -6,4 +6,5 @@ SUBDIRS  = sound \
            default_applications \
            grub \
            mouse \
-           system_info 
+           system_info \
+		   display

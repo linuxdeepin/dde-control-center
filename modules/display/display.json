@@ -1,0 +1,8 @@
+{
+    "name": "Display",
+	"icon": {
+        "normal": "display_normal.png",
+        "hover": "display_hover.png",
+        "selected": "display_press.png"
+	}
+}
