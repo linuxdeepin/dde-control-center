@@ -1,5 +1,3 @@
-#include <QTimer>
-
 #include <libdui/dtextbutton.h>
 #include <libdui/dseparatorhorizontal.h>
 #include <libdui/dsearchedit.h>
@@ -249,8 +247,10 @@ void MainWidget::init()
                             tmp_systemList->count()+tmp_windowList->count()+tmp_workspaceList->count());
     });
 
-    QLineEdit *edit  = new QLineEdit;
-    connect(edit, &QLineEdit::textChanged, m_searchList, [=](const QString &str){
+    DSearchEdit *edit  = new DSearchEdit;
+    connect(edit, &DSearchEdit::textChanged, m_searchList, [=]{
+        QString str = edit->text();
+
         if(!str.isEmpty()){
             if(!m_searchList->isSearching()){
                 m_searchList->beginSearch();

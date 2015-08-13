@@ -11,8 +11,7 @@ DUI_USE_NAMESPACE
 DynamicLabel::DynamicLabel(QWidget *parent) :
     QFrame(parent),
     m_label(new QLabel(this)),
-    m_animation(new QPropertyAnimation(this)),
-    m_timeout(-1)
+    m_animation(new QPropertyAnimation(this))
 {
     m_label->setObjectName("Label");
 
@@ -39,11 +38,6 @@ int DynamicLabel::duration() const
     return m_animation->duration();
 }
 
-int DynamicLabel::timeout() const
-{
-    return m_timeout;
-}
-
 QEasingCurve::Type DynamicLabel::easingType() const
 {
     return m_animation->easingCurve().type();
@@ -64,11 +58,6 @@ void DynamicLabel::showLabel()
     rect.setX(0);
     m_animation->setEndValue(rect);
     m_animation->start();
-    if(m_timeout>0){
-        QTimer::singleShot(m_timeout, [&]{
-           hideLabel();
-        });
-    }
 }
 
 void DynamicLabel::hideLabel()
@@ -91,11 +80,6 @@ void DynamicLabel::setColor(QColor color)
 void DynamicLabel::setDuration(int duration)
 {
     m_animation->setDuration(duration);
-}
-
-void DynamicLabel::setTimeout(int timeout)
-{
-    m_timeout = timeout;
 }
 
 void DynamicLabel::setEasingType(QEasingCurve::Type easingType)
