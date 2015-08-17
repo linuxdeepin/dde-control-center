@@ -5,6 +5,8 @@
 #include <QtPlugin>
 #include "interfaces.h"
 
+#include "dbus/dbuskeyboard.h"
+
 class QFrame;
 class Keyboard: public QObject, ModuleInterface
 {
@@ -19,6 +21,7 @@ public:
 
 private:
     QFrame * m_frame;
+    DBusKeyboard * m_dbusKeyboard;
 
     void initBackend();
     void initUI();
