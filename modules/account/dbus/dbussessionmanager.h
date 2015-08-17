@@ -47,11 +47,15 @@ class DBusSessionManager: public QDBusAbstractInterface
         }
    }
 public:
+    static inline const char *staticService()
+    { return "com.deepin.SessionManager"; }
+    static inline const char *staticInterfacePath()
+    { return "/com/deepin/SessionManager"; }
     static inline const char *staticInterfaceName()
     { return "com.deepin.SessionManager"; }
 
 public:
-    DBusSessionManager(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent = 0);
+    DBusSessionManager(QObject *parent = 0);
 
     ~DBusSessionManager();
 

@@ -20,6 +20,9 @@
 #include <QtCore/QVariant>
 #include <QtDBus/QtDBus>
 
+//Add by match
+#define USER_INTERFACE_PATH(USER_ID) QString("/com/deepin/daemon/Accounts/User%1").arg(USER_ID)
+
 /*
  * Proxy class for interface com.deepin.daemon.Accounts.User
  */
@@ -47,11 +50,13 @@ class DBusAccountUser: public QDBusAbstractInterface
         }
    }
 public:
+    static inline const char *staticService()
+    { return "com.deepin.daemon.Accounts"; }
     static inline const char *staticInterfaceName()
     { return "com.deepin.daemon.Accounts.User"; }
 
 public:
-    DBusAccountUser(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent = 0);
+    DBusAccountUser(const QString &path, QObject *parent = 0);
 
     ~DBusAccountUser();
 
