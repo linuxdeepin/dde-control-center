@@ -11,14 +11,16 @@ include(../../widgets/widgets.pri)
 HEADERS += \
     mainwidget.h \
     shortcuts.h \
-    setshortcutlist.h \
-    shortcutdbus.h
+    shortcutwidget.h \
+    tooltip.h \
+    selectdialog.h
 
 SOURCES += \
     mainwidget.cpp \
     shortcuts.cpp \
-    setshortcutlist.cpp \
-    shortcutdbus.cpp
+    shortcutwidget.cpp \
+    tooltip.cpp \
+    selectdialog.cpp
 
 RESOURCES += \
     theme.qrc

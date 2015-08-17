@@ -8,16 +8,22 @@
 #include <libdui/dheaderline.h>
 
 #include "shortcutdbus.h"
-#include "setshortcutlist.h"
+#include "shortcutwidget.h"
 #include "searchlist.h"
 
 DUI_USE_NAMESPACE
 
 class MainWidget : public QFrame
 {
+    Q_OBJECT
+
 public:
     explicit MainWidget(QWidget *parent = 0);
     ~MainWidget();
+
+signals:
+    void addCustomShortcut();
+    void addCustomShortcutFinished();
 
 private:
     QVBoxLayout *m_layout;
@@ -28,10 +34,12 @@ private:
 
     void init();
 
-    SetShortcutList *addSetShortcutList(const ShortcutInfoList &tmplist);
-    Q_SLOT void shortcutListChanged(SetShortcutList *listw, const ShortcutInfoList &list, int offseIndex);
-    Q_SLOT void editShortcut(const QString& shortcut);
+    SearchList *addSearchList(const ShortcutInfoList &tmplist);
+    Q_SLOT void shortcutListChanged(SearchList *listw, const ShortcutInfoList &list, int offseIndex);
+    Q_SLOT void editShortcut(ShortcutWidget *w, SearchList *listw, const QString &flag, QString shortcut);
     Q_SLOT void removeShortcut();
+    QWidget *getAddShortcutWidget();
+    QWidget *getCustomLstHeadBar(SearchList *shorcutlist);
 };
 
 #endif // GRUBWIDGET_H

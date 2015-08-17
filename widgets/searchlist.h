@@ -36,13 +36,15 @@ public slots:
     void beginSearch();
     void endSearch();
     void setKeyWord(const QString &keyWord);
+    void showItem(int index);
+    void hideItem(int index);
 
 public:
     int count() const;
     QVariant getItemData(int index) const;
     SearchItem *getItem(int index) const;
     int indexOf(SearchItem *item) const;
-    QListWidget *listWidget() const;
+    int indexOf(QWidget *widget) const;
     bool isSearching() const;
 
 signals:
@@ -52,13 +54,13 @@ private slots:
     void itemDataChanged(const QVariant &data);
 
 private:
+    int m_itemWidth;
+    int m_itemHeight;
     QVBoxLayout *m_layout;
-    QListWidget *m_listWidget;
     QList<SearchItem*> m_itemList;
     SearchDbus *m_dbus;
     QStringList m_keyWords;
     QString m_dbusKey;
-    QList<SearchItem*> m_backupItemList;
     bool m_searching;
 };
 

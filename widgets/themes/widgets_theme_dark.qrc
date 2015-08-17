@@ -13,5 +13,7 @@
         <file>dark/ModuleHeader.theme</file>
         <file>dark/NormalLabel.theme</file>
         <file>dark/HighlightLabel.theme</file>
+        <file>dark/ShortcutEdit.theme</file>
+        <file>dark/SearchList.theme</file>
     </qresource>
 </RCC>

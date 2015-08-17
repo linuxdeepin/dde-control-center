@@ -1,23 +1,24 @@
+#include <libdui/libdui_global.h>
+#include <libdui/dthememanager.h>
+
 #include "searchlist.h"
+
+DUI_USE_NAMESPACE
 
 SearchList::SearchList(QWidget *parent) :
     QFrame(parent),
+    m_itemWidth(-1),
+    m_itemHeight(-1),
     m_layout(new QVBoxLayout),
-    m_listWidget(new QListWidget),
     m_dbus(new SearchDbus(this)),
     m_searching(false)
 {
-    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 
-    m_listWidget->setSelectionMode(QListWidget::NoSelection);
-    m_listWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_listWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_listWidget->setVerticalScrollMode(QListWidget::ScrollPerItem);
-    m_listWidget->setObjectName("SearchListWidget");
-    m_listWidget->setStyleSheet("QListWidget#SearchListWidget{background-color: transparent;}");
+    D_THEME_INIT_WIDGET(SearchList);
 
     m_layout->setMargin(0);
-    m_layout->addWidget(m_listWidget);
+    m_layout->setSpacing(0);
     setLayout(m_layout);
 }
 
@@ -38,12 +39,15 @@ void SearchList::insertItem(int index, SearchItem *data)
     if(data==NULL||data->widget()==NULL)
         return;
 
-    QListWidgetItem *item = new QListWidgetItem(m_listWidget);
-    item->setBackgroundColor(Qt::transparent);
-    m_listWidget->insertItem(index, item);
     m_itemList<<data;
-    m_listWidget->setItemWidget(item, const_cast<QWidget*>(data->widget()));
+    QWidget *w = data->widget();
+    if(m_itemWidth>0)
+        w->setMinimumWidth(m_itemWidth);
+    if(m_itemHeight>0)
+        w->setMinimumHeight(m_itemHeight);
+    m_layout->insertWidget(index, data->widget());
     m_keyWords<<data->keyWords();
+    setMinimumHeight(count()*(m_layout->spacing()+m_itemHeight)-m_layout->spacing());
 }
 
 void SearchList::insertItems(int index, const QList<SearchItem*> &datas)
@@ -63,21 +67,20 @@ void SearchList::setItemData(int index, const QVariant &data)
 
 void SearchList::setItemSize(int w, int h)
 {
-    m_listWidget->setGridSize(QSize(w, h));
+    m_itemWidth = w;
+    m_itemHeight = h;
 }
 
 void SearchList::clear()
 {
-    m_listWidget->clear();
     m_itemList.clear();
     m_keyWords.clear();
+
+    setMinimumHeight(0);
 }
 
 void SearchList::removeItem(int index)
 {
-    QListWidgetItem *tmp = m_listWidget->takeItem(index);
-    m_listWidget->removeItemWidget(tmp);
-    delete tmp;
     SearchItem *item = getItem(index);
     m_itemList.removeAt(index);
 
@@ -86,6 +89,11 @@ void SearchList::removeItem(int index)
             m_keyWords.removeOne(str);
         }
     }
+
+    m_layout->removeItem(m_layout->takeAt(index));
+    delete item;
+
+    setMinimumHeight(count()*(m_layout->spacing()+m_itemHeight)-m_layout->spacing());
 }
 
 void SearchList::beginSearch()
@@ -93,7 +101,6 @@ void SearchList::beginSearch()
     if(m_searching)
         return;
     m_searching = true;
-    m_backupItemList = m_itemList;
     m_dbusKey = m_dbus->NewSearchWithStrList(m_keyWords);
 }
 
@@ -103,8 +110,9 @@ void SearchList::endSearch()
         m_dbusKey = "";
         m_searching = false;
 
-        for(int i = 0; i<count(); ++i)
-            m_listWidget->setRowHidden(i, false);
+        for(int i = 0; i<count(); ++i){
+            showItem(i);
+        }
     }
 }
 
@@ -124,8 +132,32 @@ void SearchList::setKeyWord(const QString &keyWord)
         QStringList list = m_dbus->SearchString(keyWord, m_dbusKey);
 
         for (int i = 0; i<count(); ++i) {
-            m_listWidget->setRowHidden(i, !isIntersect(list, m_itemList[i]->keyWords()));
+            if(isIntersect(list, m_itemList[i]->keyWords())){
+                showItem(i);
+            }else{
+                hideItem(i);
+            }
         }
+    }
+}
+
+void SearchList::showItem(int index)
+{
+    QWidget *w = getItem(index)->widget();
+
+    if(w&&!w->isVisible()){
+        w->show();
+        setMinimumHeight(minimumHeight()+m_layout->spacing()+m_itemHeight);
+        m_layout->update();
+    }
+}
+
+void SearchList::hideItem(int index)
+{
+    QWidget *w = getItem(index)->widget();
+    if(w&&w->isVisible()){
+        w->hide();
+        setMinimumHeight(minimumHeight()-m_layout->spacing()-m_itemHeight);
     }
 }
 
@@ -149,9 +181,16 @@ int SearchList::indexOf(SearchItem *item) const
     return m_itemList.indexOf(item);
 }
 
-QListWidget *SearchList::listWidget() const
+int SearchList::indexOf(QWidget *widget) const
 {
-    return m_listWidget;
+    for (int i=0;i<count();++i) {
+        const SearchItem *item = m_itemList[i];
+        if(item->widget() == widget){
+            return i;
+        }
+    }
+
+    return -1;
 }
 
 bool SearchList::isSearching() const
