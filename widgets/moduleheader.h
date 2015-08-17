@@ -14,7 +14,10 @@ class ModuleHeader : public DBaseLine
 {
     Q_OBJECT
 public:
-    ModuleHeader(QString title, QWidget * parent = 0);
+    ModuleHeader(QString title, bool addResetButton = true, QWidget * parent = 0);
+
+signals:
+    void resetButtonClicked();
 
 private:
     QLabel * m_title;

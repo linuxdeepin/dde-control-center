@@ -9,4 +9,5 @@ SUBDIRS  = sound \
            system_info \
            display \
            account \
-           shortcuts
+           shortcuts \
+		   keyboard

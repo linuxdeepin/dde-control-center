@@ -1,5 +1,8 @@
 #include <QApplication>
 #include <QFile>
+#include <QDebug>
+#include <QDesktopWidget>
+
 #include "frame.h"
 #include "interfaces.h"
 
@@ -31,6 +34,8 @@ void onThemeChange(const QString &theme)
 int main(int argv, char *args[])
 {
     DApplication app(argv, args);
+
+    qDebug() << app.desktop()->availableGeometry() << app.desktop()->screenGeometry();
 
     Frame frame;
     frame.show();
