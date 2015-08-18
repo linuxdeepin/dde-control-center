@@ -15,6 +15,7 @@ SOURCES    = frame.cpp \
     contentview.cpp \
     dtipsframe.cpp
 
+include(../cutelogger/cutelogger.pri)
 TARGET     = dde-control-center
 DESTDIR    = $$_PRO_FILE_PWD_/../
 

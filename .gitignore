@@ -16,3 +16,4 @@ build*/
 *.pro.user*
 *.DS_Store
 dde-control-center
+*.core

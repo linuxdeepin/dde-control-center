@@ -1,0 +1,8 @@
+{
+	"name": "Personalization",
+	"icon": {
+		"normal": "personalization_normal.png",
+		"hover": "personalization_hover.png",
+		"selected": "personalization_press.png"
+	}
+}

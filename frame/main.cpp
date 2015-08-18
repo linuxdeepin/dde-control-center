@@ -2,6 +2,7 @@
 #include <QFile>
 #include "frame.h"
 #include "interfaces.h"
+#include "logmanager.h"
 
 #include <libdui/dapplication.h>
 #include <libdui/dthememanager.h>
@@ -41,6 +42,6 @@ int main(int argv, char *args[])
     });
 
     manager->setTheme("dark");
-
+    LogManager::instance()->debug_log_console_on();
     return app.exec();
 }

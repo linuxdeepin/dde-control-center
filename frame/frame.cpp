@@ -15,13 +15,14 @@
 Frame::Frame(QWidget * parent) :
     QFrame(parent)
 {
-    setWindowFlags(Qt::FramelessWindowHint);
-
+    setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
+//    setWindowFlags(Qt::WindowStaysOnTopHint);
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
     setFixedWidth(DCC::ControlCenterWidth);
 #ifdef QT_DEBUG
     setFixedHeight(800);
 #endif
+    setFixedHeight(qApp->desktop()->screenGeometry().height());
 
     setStyleSheet(QString("Frame { background-color:%1;}").arg(DCC::BgLightColor.name()));
 
@@ -55,7 +56,6 @@ void Frame::listPlugins()
     foreach (QString fileName, pluginsDir.entryList(QDir::Files)) {
         if (!QLibrary::isLibrary(fileName))
             continue;
-
         QString filePath = pluginsDir.absoluteFilePath(fileName);
         QPluginLoader pluginLoader(filePath);
         QJsonObject metaData = pluginLoader.metaData().value("MetaData").toObject();
