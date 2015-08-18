@@ -15,6 +15,7 @@
 #include <libdui/darrowlineexpand.h>
 #include <libdui/dswitchbutton.h>
 #include <libdui/dbuttonlist.h>
+#include <libdui/dswitchlineexpand.h>
 
 DefaultApps::DefaultApps()
     : m_dbusDefaultApps("com.deepin.daemon", "/com/deepin/daemon/DefaultApps", QDBusConnection::sessionBus())
@@ -44,14 +45,8 @@ DefaultApps::DefaultApps()
     lbl_defaultApps->setStyleSheet("font-size:14px; font-weight:bold; color:#ccc;");
     defaultApplications->setLeftContent(lbl_defaultApps);
 
-    DUI::DBaseLine *autoPlayApplications = new DUI::DBaseLine;
-    QLabel *lbl_autoPlay = new QLabel(tr("AutoPlay"));
-    lbl_autoPlay->setStyleSheet("font-size:14px; font-weight:bold; color:#ccc;");
-    autoPlayApplications->setLeftContent(lbl_autoPlay);
-
-    DUI::DSwitchButton *switchBtn = new DUI::DSwitchButton;
-    switchBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
-    autoPlayApplications->setRightContent(switchBtn);
+    DUI::DSwitchLineExpand *autoPlayApplications = new DUI::DSwitchLineExpand;
+    autoPlayApplications->setTitle(tr("AutoPlay"));
 
     QVBoxLayout *scrollLayout = new QVBoxLayout;
     scrollLayout->addWidget(defaultApplications);
@@ -72,7 +67,7 @@ DefaultApps::DefaultApps()
     scrollLayout->addWidget(createDefaultAppsExpand(Software));
     //scrollLayout->addItem(vSpacer);
     //scrollLayout->addWidget(new QWidget);
-    scrollLayout->addStretch();
+    scrollLayout->addStretch(1);
     scrollLayout->setSpacing(0);
     scrollLayout->setMargin(0);
 
@@ -131,11 +126,13 @@ DUI::DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::D
     case Software:      defaultApps->setTitle(tr("Software"));      break;
     }
 
+    int index = 0;
+
     DUI::DButtonList *list = new DUI::DButtonList;
     list->setItemHeight(30);
     AppList appList = getAppsListByCategory(category);
     for (const AppType &i : appList.list)
-        list->addButton(i.s2);
+        list->addButton(i.s2, index++);
 
     QHBoxLayout *layout = new QHBoxLayout;
     layout->addWidget(list);
