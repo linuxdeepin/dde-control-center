@@ -50,8 +50,12 @@ void Frame::keyPressEvent(QKeyEvent * event)
 // private methods
 void Frame::listPlugins()
 {
-    QDir pluginsDir(qApp->applicationDirPath());
-    pluginsDir.cd("modules");
+#ifndef QT_DEBUG
+    QDir pluginsDir("/usr/share/dde-control-center/modules");
+#else
+    QDir pluginsDir("modules");
+#endif
+
     foreach (QString fileName, pluginsDir.entryList(QDir::Files)) {
         if (!QLibrary::isLibrary(fileName))
             continue;

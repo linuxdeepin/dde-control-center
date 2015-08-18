@@ -167,15 +167,21 @@ void SideBarButton::setState(State state)
 {
     m_state = state;
 
+#ifndef QT_DEBUG
+    QString moduleIconsDir("/usr/share/dde-control-center/modules/icons/%1");
+#else
+    QString moduleIconsDir("modules/icons/%1");
+#endif
+
     switch (state) {
     case Normal:
-        m_icon->setPixmap(QPixmap(QString("modules/icons/%1").arg(m_meta.normalIcon)));
+        m_icon->setPixmap(QPixmap(moduleIconsDir.arg(m_meta.normalIcon)));
         break;
     case Hover:
-        m_icon->setPixmap(QPixmap(QString("modules/icons/%1").arg(m_meta.hoverIcon)));
+        m_icon->setPixmap(QPixmap(moduleIconsDir.arg(m_meta.hoverIcon)));
         break;
     case Selected:
-        m_icon->setPixmap(QPixmap(QString("modules/icons/%1").arg(m_meta.selectedIcon)));
+        m_icon->setPixmap(QPixmap(moduleIconsDir.arg(m_meta.selectedIcon)));
         break;
     default:
         break;

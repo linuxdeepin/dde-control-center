@@ -242,15 +242,21 @@ void ModuleButton::mouseReleaseEvent(QMouseEvent *)
 
 void ModuleButton::setState(State state)
 {
+#ifndef QT_DEBUG
+    QString moduleIconsDir("/usr/share/dde-control-center/modules/icons/%1");
+#else
+    QString moduleIconsDir("modules/icons/%1");
+#endif
+
     switch (state) {
     case Normal:
         this->setStyleSheet("QFrame { background-color: transparent; border-radius: 3 }");
-        m_icon->setPixmap(QPixmap(QString("modules/icons/%1").arg(m_meta.normalIcon)));
+        m_icon->setPixmap(QPixmap(moduleIconsDir.arg(m_meta.normalIcon)));
         m_text->setStyleSheet(QString("QLabel { color: %1 }").arg(DCC::TextNormalColor.name()));
         break;
     case Hover:
         this->setStyleSheet(QString("QFrame { background-color: %1; border-radius: 3 }").arg(DCC::BgDarkColor.name()));
-        m_icon->setPixmap(QPixmap(QString("modules/icons/%1").arg(m_meta.hoverIcon)));
+        m_icon->setPixmap(QPixmap(moduleIconsDir.arg(m_meta.hoverIcon)));
         m_text->setStyleSheet(QString("QLabel { color: %1 }").arg(DCC::TextHoverColor.name()));
         break;
     default:
