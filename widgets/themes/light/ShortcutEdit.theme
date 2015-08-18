@@ -1,0 +1,15 @@
+ShortcutEdit QLabel#Label{
+    color: #b4b4b4;
+    font-size: 12px;
+}
+
+ShortcutEdit QLabel#Label:hover{
+    color: white;
+}
+
+ShortcutEdit QLineEdit#Edit{
+    color: #b4b4b4;
+    font-size: 12px;
+    border-radius: 3px;
+    background-color: #4cffffff;
+}

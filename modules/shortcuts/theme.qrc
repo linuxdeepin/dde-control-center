@@ -2,5 +2,9 @@
     <qresource prefix="/">
         <file>light/ShortcutWidget.theme</file>
         <file>dark/ShortcutWidget.theme</file>
+        <file>dark/SelectDialog.theme</file>
+        <file>light/SelectDialog.theme</file>
+        <file>light/ToolTip.theme</file>
+        <file>dark/ToolTip.theme</file>
     </qresource>
 </RCC>

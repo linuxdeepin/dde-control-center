@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QtPlugin>
+
 #include "interfaces.h"
 
 class QFrame;

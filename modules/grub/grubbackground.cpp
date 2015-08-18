@@ -1,5 +1,3 @@
-#include "grubbackground.h"
-#include "dbustheme.h"
 #include <QPainter>
 #include <QDragEnterEvent>
 #include <QDragLeaveEvent>
@@ -7,8 +5,10 @@
 #include <QDebug>
 #include <QGraphicsBlurEffect>
 #include <QLabel>
-#include <QGraphicsPixmapItem>
-#include <QStyleOptionGraphicsItem>
+#include <QMimeDatabase>
+
+#include "grubbackground.h"
+#include "dbustheme.h"
 
 GrubBackground::GrubBackground(GrubThemeDbus *themeDbus, QWidget *parent) :
     QFrame(parent),
@@ -49,10 +49,20 @@ void GrubBackground::paintEvent(QPaintEvent *e)
 
 void GrubBackground::dragEnterEvent(QDragEnterEvent *e)
 {
-    if(e->mimeData()->hasUrls()){
-        e->acceptProposedAction();
-        m_isDrop = true;
-        update();
+    QMimeDatabase b;
+    foreach (QUrl url, e->mimeData()->urls()) {
+        QString mime = b.mimeTypeForUrl(url).name();
+
+        if(!mime.contains("image/"))
+            continue;
+
+        if(e->mimeData()->hasUrls()){
+            e->acceptProposedAction();
+            m_isDrop = true;
+            update();
+        }
+
+        return;
     }
 }
 

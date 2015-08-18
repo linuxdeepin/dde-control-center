@@ -13,3 +13,7 @@ QPushButton#ShortcutValue{
 QPushButton#ShortcutValue:hover{
     color: white;
 }
+
+ShortcutWidget{
+    background-color: #1A1B1B;
+}

@@ -15,7 +15,7 @@ ContentView::ContentView(QList<ModuleMetaData> modules, QWidget *parent)
 {
     m_pluginLoader = NULL;
 
-    m_sideBar = new SideBar(modules, this);
+    m_sideBar = new SideBar(modules, parent);
 
     m_layout = new QHBoxLayout(this);
     m_layout->addWidget(m_sideBar);

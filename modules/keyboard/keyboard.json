@@ -1,0 +1,8 @@
+{
+    "name": "Keyboard and Language",
+	"icon": {
+		"normal": "keyboard_normal.png",
+		"hover": "keyboard_hover.png",
+		"selected": "keyboard_press.png"
+	}
+}

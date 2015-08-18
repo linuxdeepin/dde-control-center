@@ -19,12 +19,9 @@
 
 DUI_USE_NAMESPACE
 
-Sound::Sound()
+Sound::Sound() :
+    QObject()
 {
-    m_frame = new QFrame;
-    m_frame->setFixedWidth(310);
-    m_frame->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-
     initBackend();
     initUI();
 }
@@ -52,7 +49,11 @@ void Sound::initBackend()
 
 void Sound::initUI()
 {
+    m_frame = new QFrame;
+    m_frame->setFixedWidth(310);
+
     QVBoxLayout * mainLayout = new QVBoxLayout(m_frame);
+    mainLayout->setSpacing(0);
     mainLayout->setMargin(0);
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
@@ -141,6 +142,7 @@ void Sound::initUI()
     ///////////////////////////////////////////////////////--Advanced settings
     // Output ports
     DBaseExpand * outputPortsExpand = new DBaseExpand;
+    outputPortsExpand->setExpand(true);
 
     HeaderLine * outputPortsLine = new HeaderLine("Output ports", outputPortsExpand);
     outputPortsExpand->setHeader(outputPortsLine);
@@ -165,6 +167,7 @@ void Sound::initUI()
 
     // Output devices
     DBaseExpand * outputDevicesExpand = new DBaseExpand;
+    outputDevicesExpand->setExpand(true);
 
     HeaderLine * outputDevicesLine = new HeaderLine("Output devices", outputDevicesExpand);
     outputDevicesExpand->setHeader(outputDevicesLine);
@@ -184,6 +187,7 @@ void Sound::initUI()
 
     // Input ports
     DBaseExpand * inputPortsExpand = new DBaseExpand;
+    inputPortsExpand->setExpand(true);
 
     HeaderLine * inputPortsLine = new HeaderLine("Input ports", inputPortsExpand);
     inputPortsExpand->setHeader(inputPortsLine);
@@ -208,6 +212,7 @@ void Sound::initUI()
 
     // Input devices
     DBaseExpand * inputDevicesExpand = new DBaseExpand;
+    inputDevicesExpand->setExpand(true);
 
     HeaderLine * inputDevicesLine = new HeaderLine("Input devices", inputDevicesExpand);
     inputDevicesExpand->setHeader(inputDevicesLine);

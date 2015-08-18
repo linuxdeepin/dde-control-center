@@ -1,0 +1,97 @@
+#include <QPushButton>
+
+#include <libdui/libdui_global.h>
+#include <libdui/dthememanager.h>
+#include <libdui/dtextbutton.h>
+
+#include "selectdialog.h"
+
+DUI_USE_NAMESPACE
+
+SelectDialog::SelectDialog(QWidget *parent):
+    QFrame(parent),
+    m_label(new QLabel),
+    m_animation(new QPropertyAnimation(this, "maximumHeight", this))
+{
+    D_THEME_INIT_WIDGET(SelectDialog);
+
+    m_widget = this;
+
+    m_label->setWordWrap(true);
+
+    QLabel *icon = new QLabel;
+    icon->setPixmap(QPixmap(":/resources/images/ico_warning.png"));
+    QHBoxLayout *hlayout1 = new QHBoxLayout;
+    hlayout1->addWidget(m_label, 0, Qt::AlignLeft|Qt::AlignVCenter);
+    hlayout1->addWidget(icon, 0, Qt::AlignRight|Qt::AlignVCenter);
+
+    DTextButton *accept_button = new DTextButton(tr("Replace"));
+    DTextButton *cancel_button = new DTextButton(tr("Cancel"));
+    QHBoxLayout *hlayout2 = new QHBoxLayout;
+    hlayout2->addStretch(1);
+    hlayout2->addWidget(accept_button, 0, Qt::AlignBottom);
+    hlayout2->addWidget(cancel_button, 0, Qt::AlignBottom);
+
+    connect(accept_button, &QPushButton::clicked, this, &SelectDialog::replace);
+    connect(cancel_button, &QPushButton::clicked, this, &SelectDialog::cancel);
+
+    QVBoxLayout *layout = new QVBoxLayout;
+    layout->addLayout(hlayout1);
+    layout->addLayout(hlayout2);
+
+    setLayout(layout);
+
+    connect(m_animation, &QPropertyAnimation::finished, [&]{
+        if(height()==0)
+            emit contracted();
+    });
+}
+
+QStringList SelectDialog::keyWords() const
+{
+    return QStringList();
+}
+
+void SelectDialog::setData(const QVariant &datas)
+{
+    if(datas.type() == QVariant::String){
+        setText(datas.toString());
+    }
+}
+
+QVariant SelectDialog::getData()
+{
+    return text();
+}
+
+QWidget *SelectDialog::widget() const
+{
+    return m_widget;
+}
+
+QString SelectDialog::text() const
+{
+    return m_label->text();
+}
+
+void SelectDialog::setText(const QString &text)
+{
+    m_label->setText(text);
+}
+
+void SelectDialog::expansion()
+{
+    setFixedHeight(0);
+    m_animation->setStartValue(0);
+    m_animation->setEndValue(sizeHint().height());
+    m_animation->start();
+    emit expanded();
+}
+
+void SelectDialog::contraction()
+{
+    m_animation->setStartValue(sizeHint().height());
+    m_animation->setEndValue(0);
+    m_animation->start();
+}
+

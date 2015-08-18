@@ -3,12 +3,14 @@
 
 #include <QFrame>
 #include <QVBoxLayout>
+
+#include <libdui/darrowlineexpand.h>
 #include <libdui/dheaderline.h>
 #include <libdui/libdui_global.h>
 #include <libdui/dbuttonlist.h>
+
 #include "grubbackground.h"
 #include "dbusgrub.h"
-#include <libdui/darrowlineexpand.h>
 
 DUI_USE_NAMESPACE
 
@@ -35,6 +37,7 @@ private:
     void init();
     Q_SLOT void setDefaultEntry(const QString &entry);
     Q_SLOT void updatingChanged(bool updating);
+    Q_SLOT void resetTooltip();
 };
 
 #endif // GRUBWIDGET_H

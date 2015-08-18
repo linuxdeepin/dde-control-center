@@ -1,0 +1,3 @@
+QListWidget#SearchListWidget{
+    background-color: #1A1B1B;
+}

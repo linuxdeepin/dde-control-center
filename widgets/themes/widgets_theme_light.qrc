@@ -13,5 +13,7 @@
         <file>light/ModuleHeader.theme</file>
         <file>light/NormalLabel.theme</file>
         <file>light/HighlightLabel.theme</file>
+        <file>light/ShortcutEdit.theme</file>
+        <file>light/SearchList.theme</file>
     </qresource>
 </RCC>

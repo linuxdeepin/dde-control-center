@@ -47,11 +47,15 @@ class DBusAccount: public QDBusAbstractInterface
         }
    }
 public:
+    static inline const char *staticService()
+    { return "com.deepin.daemon.Accounts"; }
+    static inline const char *staticInterfacePath()
+    { return "/com/deepin/daemon/Accounts"; }
     static inline const char *staticInterfaceName()
     { return "com.deepin.daemon.Accounts"; }
 
 public:
-    DBusAccount(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent = 0);
+    DBusAccount(QObject *parent = 0);
 
     ~DBusAccount();
 
@@ -159,11 +163,11 @@ void GuestIconChanged();
 void UserListChanged();
 };
 
-namespace com {
-  namespace deepin {
-    namespace daemon {
-      typedef ::DBusAccount Accounts;
-    }
-  }
-}
+//namespace com {
+//  namespace deepin {
+//    namespace daemon {
+//      typedef ::DBusAccount Accounts;
+//    }
+//  }
+//}
 #endif
