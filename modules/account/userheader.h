@@ -4,18 +4,18 @@
 #include <QWidget>
 #include <QHBoxLayout>
 #include <QMouseEvent>
-#include "accounticon.h"
-#include "accountnametitle.h"
+#include "usericon.h"
+#include "usernametitle.h"
 #include "dbus/dbusaccountuser.h"
 #include "libdui/darrowbutton.h"
 
 DUI_USE_NAMESPACE
 
-class AccountHeader : public QWidget
+class UserHeader : public QWidget
 {
     Q_OBJECT
 public:
-    explicit AccountHeader(const QString &userPath, QWidget *parent = 0);
+    explicit UserHeader(const QString &userPath, QWidget *parent = 0);
     void setIcon(const QString &iconPath);
     void setAccountName(const QString &name);
     void setAccountType(const QString &type);
@@ -35,9 +35,9 @@ private:
 
 private:
     QString m_userPath = "";
-    AccountIcon *m_icon = NULL;
+    UserIcon *m_icon = NULL;
     QHBoxLayout *m_mainLayout = NULL;
-    AccountNameTitle *m_nameTitle = NULL;
+    UserNameTitle *m_nameTitle = NULL;
     DBusAccountUser *m_accountUser = NULL;
     DArrowButton *m_arrowButton = NULL;
 

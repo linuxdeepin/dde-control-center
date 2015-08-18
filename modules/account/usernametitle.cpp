@@ -1,6 +1,6 @@
-#include "accountnametitle.h"
+#include "usernametitle.h"
 
-AccountNameTitle::AccountNameTitle(QWidget *parent) : QWidget(parent)
+UserNameTitle::UserNameTitle(QWidget *parent) : QWidget(parent)
 {
     m_mainLayout = new QVBoxLayout(this);
     m_mainLayout->setMargin(0);
@@ -16,17 +16,17 @@ AccountNameTitle::AccountNameTitle(QWidget *parent) : QWidget(parent)
     m_mainLayout->addWidget(m_typeLabel);
 }
 
-void AccountNameTitle::setUserName(const QString &name)
+void UserNameTitle::setUserName(const QString &name)
 {
     m_nameLabel->setText(name);
 }
 
-void AccountNameTitle::setUserType(const QString &type)
+void UserNameTitle::setUserType(const QString &type)
 {
     m_typeLabel->setText(type);
 }
 
-void AccountNameTitle::setIsCurrentUser(bool v)
+void UserNameTitle::setIsCurrentUser(bool v)
 {
     m_isCurrentUser = v;
 }

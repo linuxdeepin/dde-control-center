@@ -5,11 +5,11 @@
 #include <QLabel>
 #include <QVBoxLayout>
 
-class AccountNameTitle : public QWidget
+class UserNameTitle : public QWidget
 {
     Q_OBJECT
 public:
-    explicit AccountNameTitle(QWidget *parent = 0);
+    explicit UserNameTitle(QWidget *parent = 0);
     void setUserName(const QString &name);
     void setUserType(const QString &type);
     void setIsCurrentUser(bool v);

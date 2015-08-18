@@ -5,17 +5,16 @@
 #include <QList>
 #include <QWidget>
 #include <QVBoxLayout>
-#include <QScrollArea>
-#include "accountexpand.h"
+#include "userexpand.h"
 #include "dbus/dbussessionmanager.h"
 #include "dbus/dbusaccount.h"
 #include "libdui/dexpandgroup.h"
 
-class AccountListPanel : public QWidget
+class UserListPanel : public QWidget
 {
     Q_OBJECT
 public:
-    explicit AccountListPanel(QWidget *parent = 0);
+    explicit UserListPanel(QWidget *parent = 0);
 
 private:
     void initSessionManager();
@@ -23,12 +22,12 @@ private:
     void onUserAdded(const QString &path);
     void onUserDeleted(const QString &path);
 private:
-    QVBoxLayout *m_mainLayout = NULL;
     DBusAccount *m_account = NULL;
+    QVBoxLayout *m_mainLayout = NULL;
     DBusSessionManager *m_sessionManager = NULL;
     DExpandGroup *m_expandGroup = NULL;
 
-    QMap<QString, AccountExpand *> m_expands;   //userPath expandObj
+    QMap<QString, UserExpand *> m_expands;   //userPath expandObj
 };
 
 #endif // ACCOUNTLISTPANEL_H

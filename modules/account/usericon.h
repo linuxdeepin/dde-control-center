@@ -6,16 +6,22 @@
 #include <QVBoxLayout>
 #include <QDebug>
 #include <QBitmap>
-class AccountIcon : public QLabel
+class UserIcon : public QLabel
 {
     Q_OBJECT
 public:
-    explicit AccountIcon(QWidget *parent = 0);
+    explicit UserIcon(QWidget *parent = 0);
     void setIcon(const QString &iconPath, const QSize &size = QSize(0, 0));
     void setIsNormal(bool normal);
 
+    QString iconPath() const;
+
+signals:
+    void mousePress();
+
 private:
     QLabel *m_iconLabel = NULL;
+    QString m_iconPath = "";
 
     const int NORMAL_ICON_SIZE = 70;
     const int BIG_ICON_SIZE = 80;

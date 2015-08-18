@@ -1,6 +1,6 @@
-#include "accounticon.h"
+#include "usericon.h"
 
-AccountIcon::AccountIcon(QWidget *parent) : QLabel(parent)
+UserIcon::UserIcon(QWidget *parent) : QLabel(parent)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setMargin(0);
@@ -14,7 +14,7 @@ AccountIcon::AccountIcon(QWidget *parent) : QLabel(parent)
     setLayout(mainLayout);
 }
 
-void AccountIcon::setIcon(const QString &iconPath, const QSize &size)
+void UserIcon::setIcon(const QString &iconPath, const QSize &size)
 {
     if (size.isEmpty())
         m_iconLabel->setFixedSize(NORMAL_ICON_SIZE, NORMAL_ICON_SIZE);
@@ -22,13 +22,22 @@ void AccountIcon::setIcon(const QString &iconPath, const QSize &size)
         m_iconLabel->setFixedSize(size);
 
     m_iconLabel->setPixmap(QPixmap(iconPath).scaled(m_iconLabel->size()));
+
+    m_iconPath = iconPath;
 }
 
-void AccountIcon::setIsNormal(bool normal)
+void UserIcon::setIsNormal(bool normal)
 {
     if (normal)
         m_iconLabel->setFixedSize(NORMAL_ICON_SIZE, NORMAL_ICON_SIZE);
     else
         m_iconLabel->setFixedSize(BIG_ICON_SIZE, BIG_ICON_SIZE);
+
+    m_iconLabel->setPixmap(QPixmap(m_iconPath).scaled(m_iconLabel->size()));
 }
+QString UserIcon::iconPath() const
+{
+    return m_iconPath;
+}
+
 

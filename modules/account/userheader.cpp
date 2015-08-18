@@ -1,6 +1,6 @@
-#include "accountheader.h"
+#include "userheader.h"
 
-AccountHeader::AccountHeader(const QString &userPath, QWidget *parent)
+UserHeader::UserHeader(const QString &userPath, QWidget *parent)
     : QWidget(parent), m_userPath(userPath)
 {
     m_mainLayout = new QHBoxLayout(this);
@@ -8,10 +8,10 @@ AccountHeader::AccountHeader(const QString &userPath, QWidget *parent)
     m_mainLayout->setSpacing(0);
     m_mainLayout->setAlignment(Qt::AlignVCenter);
 
-    m_icon = new AccountIcon();
+    m_icon = new UserIcon();
     m_icon->setFixedSize(ICON_WIDTH, ICON_NORMAL_HEIGHT);
 
-    m_nameTitle = new AccountNameTitle(this);
+    m_nameTitle = new UserNameTitle(this);
 
     m_arrowButton = new DArrowButton(this);
     m_arrowButton->setFixedSize(50, 20);
@@ -30,28 +30,28 @@ AccountHeader::AccountHeader(const QString &userPath, QWidget *parent)
     initData();
 }
 
-void AccountHeader::setIcon(const QString &iconPath)
+void UserHeader::setIcon(const QString &iconPath)
 {
     m_icon->setIcon(iconPath);
 }
 
-void AccountHeader::setAccountName(const QString &name)
+void UserHeader::setAccountName(const QString &name)
 {
     m_nameTitle->setUserName(name);
 }
 
-void AccountHeader::setAccountType(const QString &type)
+void UserHeader::setAccountType(const QString &type)
 {
     m_nameTitle->setUserType(type);
 }
 
-void AccountHeader::setIsCurrentUser(bool isCurrentUser)
+void UserHeader::setIsCurrentUser(bool isCurrentUser)
 {
     m_nameTitle->setIsCurrentUser(isCurrentUser);
     m_icon->setIsNormal(!isCurrentUser);
 }
 
-void AccountHeader::setExpand(bool value)
+void UserHeader::setExpand(bool value)
 {
     if (value)
         m_arrowButton->setArrowDirection(DArrowButton::ArrowUp);
@@ -59,13 +59,13 @@ void AccountHeader::setExpand(bool value)
         m_arrowButton->setArrowDirection(DArrowButton::ArrowDown);
 }
 
-void AccountHeader::mousePressEvent(QMouseEvent *event)
+void UserHeader::mousePressEvent(QMouseEvent *event)
 {
     reverseArrowDirection();
     emit mousePress();
 }
 
-void AccountHeader::initData()
+void UserHeader::initData()
 {
     if (m_accountUser && m_accountUser->isValid()){
         setIcon(m_accountUser->iconFile());
@@ -74,7 +74,7 @@ void AccountHeader::initData()
     }
 }
 
-void AccountHeader::reverseArrowDirection()
+void UserHeader::reverseArrowDirection()
 {
     if (m_arrowButton->arrowDirection() == DArrowButton::ArrowUp)
         m_arrowButton->setArrowDirection(DArrowButton::ArrowDown);
@@ -82,7 +82,7 @@ void AccountHeader::reverseArrowDirection()
         m_arrowButton->setArrowDirection(DArrowButton::ArrowUp);
 }
 
-QString AccountHeader::getTypeName(int type)
+QString UserHeader::getTypeName(int type)
 {
     switch (type) {
     case 1:
