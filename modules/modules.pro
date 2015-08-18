@@ -10,4 +10,5 @@ SUBDIRS  = sound \
            display \
            account \
            shortcuts \
-		   keyboard
+		   keyboard \
+		   datetime
