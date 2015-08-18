@@ -44,7 +44,18 @@ DArrowLineExpand *addExpand(const QString &title, QWidget *widget)
     return expand;
 }
 
-extern Q_GUI_EXPORT QString shortcutTransfrom(const QString& str);
+QString shortcutTransfrom(const QString& str)
+{
+    if(str == "")
+        return QObject::tr("None");
+
+    QStringList shortnamelist = str.split("-");
+    for(QString &keyname: shortnamelist){
+        if(keyname.count()>0)
+            keyname[0]=keyname[0].toUpper();
+    }
+    return shortnamelist.join("+");
+}
 
 SearchList *MainWidget::addSearchList(const ShortcutInfoList &tmplist)
 {
@@ -229,23 +240,28 @@ void MainWidget::init()
     m_searchList->hide();
     m_searchList->setItemSize(310, RADIO_ITEM_HEIGHT);
 
-    SearchList *tmp_systemList = addSearchList(m_dbus->systemList());
-    SearchList *tmp_windowList = addSearchList(m_dbus->windowList());
-    SearchList *tmp_workspaceList = addSearchList(m_dbus->workspaceList());
-    SearchList *tmp_customList = addSearchList(m_dbus->customList());
+    m_systemList = addSearchList(m_dbus->systemList());
+    m_windowList = addSearchList(m_dbus->windowList());
+    m_workspaceList = addSearchList(m_dbus->workspaceList());
+    m_customList = addSearchList(m_dbus->customList());
+
+    m_systemList->setObjectName("System");
+    m_windowList->setObjectName("Window");
+    m_workspaceList->setObjectName("Workspace");
+    m_customList->setObjectName("Custom");
 
     connect(m_dbus, &ShortcutDbus::systemListChanged, [=](const ShortcutInfoList& list){
-        shortcutListChanged(tmp_systemList, list, 0);
+        shortcutListChanged(m_systemList, list, 0);
     });
     connect(m_dbus, &ShortcutDbus::windowListChanged, [=](const ShortcutInfoList& list){
-        shortcutListChanged(tmp_windowList, list, tmp_systemList->count());
+        shortcutListChanged(m_windowList, list, m_systemList->count());
     });
     connect(m_dbus, &ShortcutDbus::workspaceListChanged, [=](const ShortcutInfoList& list){
-        shortcutListChanged(tmp_workspaceList, list, tmp_systemList->count()+tmp_windowList->count());
+        shortcutListChanged(m_workspaceList, list, m_systemList->count()+m_windowList->count());
     });
     connect(m_dbus, &ShortcutDbus::customListChanged, [=](const ShortcutInfoList& list){
-        shortcutListChanged(tmp_customList, list,
-                            tmp_systemList->count()+tmp_windowList->count()+tmp_workspaceList->count());
+        shortcutListChanged(m_customList, list,
+                            m_systemList->count()+m_windowList->count()+m_workspaceList->count());
     });
 
     DSearchEdit *edit  = new DSearchEdit;
@@ -283,12 +299,12 @@ void MainWidget::init()
     m_layout->addWidget(new DSeparatorHorizontal);
     m_layout->addWidget(m_searchList, 10);
     m_childLayout->setMargin(0);
-    m_childLayout->addWidget(addExpand(tr("System"), tmp_systemList));
-    m_childLayout->addWidget(addExpand(tr("Window"), tmp_windowList));
-    m_childLayout->addWidget(addExpand(tr("Workspace"), tmp_workspaceList));
-    m_childLayout->addWidget(getCustomLstHeadBar(tmp_customList));
+    m_childLayout->addWidget(addExpand(tr("System"), m_systemList));
+    m_childLayout->addWidget(addExpand(tr("Window"), m_windowList));
+    m_childLayout->addWidget(addExpand(tr("Workspace"), m_workspaceList));
+    m_childLayout->addWidget(getCustomLstHeadBar(m_customList));
     m_childLayout->addWidget(new DSeparatorHorizontal);
-    m_childLayout->addWidget(tmp_customList);
+    m_childLayout->addWidget(m_customList);
     m_childLayout->addWidget(new DSeparatorHorizontal);
     m_childLayout->addSpacing(5);
     m_childLayout->addWidget(getAddShortcutWidget());
@@ -335,10 +351,11 @@ void MainWidget::shortcutListChanged(SearchList *listw, const ShortcutInfoList &
 
 void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QString &flag, QString shortcut)
 {
+    if(!w||!listw)
+        return;
+
     if(flag == "Valid"){
-        if(w){
-            m_dbus->ModifyShortcut(w->id(), shortcut.replace("+", "-"));
-        }
+        m_dbus->ModifyShortcut(w->id(), shortcut);
         return;
     }
 
@@ -352,11 +369,54 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
         label->setText(tr("Shortcut \"%1\" is invalid, please retype new shortcut.")
                        .arg(shortcut));
         listw->insertItem(index+1, label);
+        listw->setMinimumHeight(listw->minimumHeight()+label->sizeHint().height());
+        label->setTimeout(2000);
+        label->expansion();
+        connect(label, &ToolTip::contracted, [=]{
+            listw->removeItem(listw->indexOf(qobject_cast<QWidget*>(label)));
+        });
     }else if(flag == "Conflict"){
+        QList<ShortcutWidget*> tmp_list;
+
+        QString tmp_shortcut = shortcutTransfrom(shortcut);
+        QString tmp_text = tr("The shortcut you set ");
+
+        QList<SearchList*> tmp_searchlist;
+        tmp_searchlist<<m_systemList<<m_windowList<<m_workspaceList<<m_customList;
+
+        foreach (SearchList* list, tmp_searchlist) {
+            for (int i=0; i<list->count(); ++i) {
+                ShortcutWidget *tmp_w = qobject_cast<ShortcutWidget*>(list->getItem(i)->widget());
+                if(tmp_w&&tmp_w->shortcut() == tmp_shortcut){
+                    tmp_list << tmp_w;
+                    tmp_text += tr("conflicts with the one used for \"%2\" in the \"%1\" category.")
+                            .arg(list->objectName()).arg(tmp_w->title());
+                }
+            }
+        }
+
+        tmp_text.append(tr("Do you want to replace it?"));
+
         SelectDialog *dialog = new SelectDialog;
-        dialog->setText(tr("Shortcut \"%1\" is invalid, please retype new shortcut.")
-                       .arg(shortcut));
+        dialog->setText(tmp_text);
         listw->insertItem(index+1, dialog);
+        listw->setMinimumHeight(listw->minimumHeight()+dialog->sizeHint().height());
+
+        connect(dialog, &SelectDialog::replace, [=]{
+            listw->removeItem(listw->indexOf(qobject_cast<QWidget*>(dialog)));
+
+            foreach (ShortcutWidget* tmp_w, tmp_list) {
+                m_dbus->ModifyShortcut(tmp_w->id(), "");
+            }
+            m_dbus->ModifyShortcut(w->id(), shortcut);
+        });
+        connect(dialog, &SelectDialog::cancel, [=]{
+            dialog->contraction();
+        });
+        connect(dialog, &SelectDialog::contracted, [=]{
+            listw->removeItem(listw->indexOf(qobject_cast<QWidget*>(dialog)));
+        });
+        dialog->expansion();
     }
 }
 

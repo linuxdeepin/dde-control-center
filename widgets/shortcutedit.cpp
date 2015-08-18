@@ -12,19 +12,6 @@
 
 DUI_USE_NAMESPACE
 
-QString shortcutTransfrom(const QString& str)
-{
-    if(str == "")
-        return QObject::tr("None");
-
-    QStringList shortnamelist = str.split("-");
-    for(QString &keyname: shortnamelist){
-        if(keyname.count()>0)
-            keyname[0]=keyname[0].toUpper();
-    }
-    return shortnamelist.join("+");
-}
-
 ShortcutEdit::ShortcutEdit(QWidget *parent) :
     QFrame(parent),
     m_layout(new QHBoxLayout),
@@ -65,7 +52,7 @@ ShortcutEdit::ShortcutEdit(QWidget *parent) :
             if(result!="Valid"){
                 key = result+"_"+key;
             }else{
-                key = "Valid"+QString("_")+shortcutTransfrom(key);
+                key = "Valid"+QString("_")+key;
             }
         }
 

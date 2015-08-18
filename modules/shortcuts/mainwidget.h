@@ -31,6 +31,10 @@ private:
     DHeaderLine *m_header;
     ShortcutDbus *m_dbus;
     SearchList *m_searchList;
+    SearchList *m_systemList;
+    SearchList *m_windowList;
+    SearchList *m_workspaceList;
+    SearchList *m_customList;
 
     void init();
 

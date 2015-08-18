@@ -19,6 +19,7 @@ SearchList::SearchList(QWidget *parent) :
 
     m_layout->setMargin(0);
     m_layout->setSpacing(0);
+    m_layout->addStretch(1);
     setLayout(m_layout);
 }
 
@@ -39,7 +40,7 @@ void SearchList::insertItem(int index, SearchItem *data)
     if(data==NULL||data->widget()==NULL)
         return;
 
-    m_itemList<<data;
+    m_itemList.insert(index, data);
     QWidget *w = data->widget();
     if(m_itemWidth>0)
         w->setMinimumWidth(m_itemWidth);
@@ -89,10 +90,9 @@ void SearchList::removeItem(int index)
             m_keyWords.removeOne(str);
         }
     }
-
     m_layout->removeItem(m_layout->takeAt(index));
-    delete item;
-
+    if(item)
+        delete item;
     setMinimumHeight(count()*(m_layout->spacing()+m_itemHeight)-m_layout->spacing());
 }
 
