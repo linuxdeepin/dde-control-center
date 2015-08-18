@@ -97,7 +97,7 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     bottomOuterWidget->setFixedWidth(DCC::ControlCenterWidth);
 
     m_bottomWidget = new QWidget(bottomOuterWidget);
-    m_bottomWidget->setStyleSheet("background-image:url(modules/icons/shutdown_bg.png);");
+    m_bottomWidget->setStyleSheet("background-image:url(:/resources/images/shutdown_bg.png);");
     m_bottomWidget->setLayout(bottomHLayout);
     m_bottomWidget->setFixedSize(bottomOuterWidget->size());
 
