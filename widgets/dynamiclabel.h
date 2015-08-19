@@ -27,6 +27,9 @@ public slots:
     void setDuration(int duration);
     void setEasingType(QEasingCurve::Type easingType);
 
+signals:
+    void hideFinished();
+
 private:
     QLabel *m_label;
     QPropertyAnimation *m_animation;

@@ -13,7 +13,7 @@ Shortcuts::Shortcuts():
 Shortcuts::~Shortcuts()
 {
     qDebug() << "~Shortcuts()";
-    delete m_mainWidget ;
+    m_mainWidget->deleteLater();
 }
 
 QFrame *Shortcuts::getContent()

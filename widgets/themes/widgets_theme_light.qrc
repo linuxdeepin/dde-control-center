@@ -15,5 +15,8 @@
         <file>light/HighlightLabel.theme</file>
         <file>light/ShortcutEdit.theme</file>
         <file>light/SearchList.theme</file>
+        <file>light/images/multiselect_inactive_normal.png</file>
+        <file>light/images/multiselect_inactive_hover.png</file>
+        <file>light/images/multiselect_active_normal.png</file>
     </qresource>
 </RCC>

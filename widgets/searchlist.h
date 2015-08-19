@@ -21,6 +21,10 @@ public:
 class SearchList : public QFrame
 {
     Q_OBJECT
+
+    Q_PROPERTY(int checkedItem READ checkedItem WRITE setCheckedItem NOTIFY checkedItemChanged)
+    Q_PROPERTY(int count READ count NOTIFY countChanged FINAL)
+    Q_PROPERTY(bool checkable READ checkable WRITE setCheckable NOTIFY checkableChanged)
 public:
     explicit SearchList(QWidget *parent = 0);
 
@@ -38,6 +42,8 @@ public slots:
     void setKeyWord(const QString &keyWord);
     void showItem(int index);
     void hideItem(int index);
+    void setCheckedItem(int checkedItem);
+    void setCheckable(bool checkable);
 
 public:
     int count() const;
@@ -46,12 +52,17 @@ public:
     int indexOf(SearchItem *item) const;
     int indexOf(QWidget *widget) const;
     bool isSearching() const;
+    int checkedItem() const;
+    bool checkable() const;
 
 signals:
     void itemDataChanged(int index, const QVariant &data);
+    void checkedItemChanged(int index);
+    void countChanged();
+    void checkableChanged(bool checkable);
 
-private slots:
-    void itemDataChanged(const QVariant &data);
+protected:
+    bool eventFilter(QObject *, QEvent *) Q_DECL_OVERRIDE;
 
 private:
     int m_itemWidth;
@@ -62,6 +73,8 @@ private:
     QStringList m_keyWords;
     QString m_dbusKey;
     bool m_searching;
+    int m_checkedItem;
+    bool m_checkable;
 };
 
 #endif // SEARCHLIST_H

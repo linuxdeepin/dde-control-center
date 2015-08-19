@@ -21,6 +21,12 @@ DynamicLabel::DynamicLabel(QWidget *parent) :
     m_animation->setTargetObject(m_label);
     m_animation->setPropertyName("geometry");
 
+    connect(m_animation, SIGNAL(finished()), SLOT(update()));
+    connect(m_animation, &QPropertyAnimation::finished, [&]{
+        if(m_label->width() == 0)
+            emit hideFinished();
+    });
+
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 }
 
