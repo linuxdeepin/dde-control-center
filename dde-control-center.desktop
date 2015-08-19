@@ -1,0 +1,96 @@
+[Desktop Entry]
+Categories=Application;System;Settings
+Comment=Deepin Desktop Environment Control Center
+Encoding=UTF-8
+Exec=/usr/bin/dde-control-center show
+Icon=preferences-system
+Name=Control Center
+OnlyShowIn=Deepin
+StartupNotify=false
+Terminal=false
+Type=Application
+X-MultipleArgs=false
+
+
+
+# Translations
+
+
+# Translations
+Comment[am]=የዴስክቶፕ መቆጣጠሪያ ማእከል
+Name[am]=መቆጣጠሪያ ማእከል
+Comment[ar]=مركز التحكم _ مكتب دييبن
+Name[ar]=مركز التحكم
+Name[az]=İdarə Etmə Mərkəzi
+Comment[bg]=Контролен център на графичната среда Deepin
+Name[bg]=Контролен център
+Comment[ca]=Centre de control del medi d'escriptori Deepin
+Name[ca]=Centre de control
+Comment[cs]=Ovládací středisko pracovního prostředí Deepin
+Name[cs]=Ovládací středisko
+Comment[da]=Deepin Skrivebordsmiljø - Kontrolcenter
+Name[da]=Kontrolcenter
+Comment[de]=Deepin Desktopumgebungs-Kontrollzentrum
+Name[de]=Kontrollzentrum
+Comment[el]=έντρο Ελέγχου Περιβάλλοντος Επιφάνειας Εργασίας του Deepin
+Name[el]=Κέντρο Ελέγχου
+Comment[es]=Centro de Control para Entorno de Escritorio Deepin
+Name[es]=Centro de Control
+Comment[fi]=Deepin Desktop Environment Ohjauspaneli
+Name[fi]=Ohjauspaneli
+Comment[fr]=Centre de contrôle de l'environnement de bureau Deepin
+Name[fr]=Centre de contrôle
+Comment[es_CL]=Centro de Control de escritorio Deepin
+Name[es_CL]=Centro de Control
+Comment[he]=מרכז בקרת סביבת העבודה של Deepin
+Name[he]=מרכז בקרה
+Comment[hr]=Središte upravljanja Deepin radnog okruženja
+Name[hr]=Središte upravljanja
+Comment[hu]=Deepin Asztali Környezet beállításai
+Name[hu]=Rendszerbeállítások 
+Comment[hy]=Deepin Desktop Environment-ի Ղեկավարման Կենտրոն
+Name[hy]=Ղեկավարման Կենտրոն
+Comment[id]=Pusat Kontrol Lingkungan Desktop Deepin
+Name[id]=Pusat Kontrol
+Comment[it]=Control Center del Deepin Desktop Environment
+Name[it]=Control Center
+Comment[ja]=コントロールセンター
+Name[ja]=コントロールセンター
+Name[ms]=Pusat Kawalan
+Comment[af_ZA]=Deepin Lessenaar Omgewing Beheersentrum
+Name[af_ZA]=Beheersentrum
+Comment[nb]=Deepin Skrivebords Kontroll Panel
+Name[nb]=Kontroll Panel
+Comment[nl]=Systeeminstellingen van Deepin-bureaubladomgeving
+Name[nl]=Systeeminstellingen
+Comment[es_419]=Centro de Control del Entorno de Escritorio Deepin
+Name[es_419]=Centro de Control
+Comment[pl]=Centrum kontroli środowiska pulpitu Deepin
+Name[pl]=Centrum sterowania
+Comment[pt]=Centro de Controlo do Ambiente de Trabalho Deepin
+Name[pt]=Centro de Controlo
+Comment[pt_BR]=Centro de Controle de Ambiente de Trabalho Deepin
+Name[pt_BR]=Central de Controle
+Comment[ro]=Panou de Control al Mediului de Lucru Deepin
+Name[ro]=Panou de Control
+Comment[ru]=Центр управления окружением Deepin Desktop
+Name[ru]=Центр управления
+Comment[sk]=Deepin ovládacie centrum prostredia
+Name[sk]=Ovládacie centrum
+Comment[sl]=Deepin namizno okolje kontrolni center
+Name[sl]=Kontrolni center
+Comment[tr]=Deepin Masaüstü Ortamı Kontrol Merkezi
+Name[tr]=Kontrol Merkezi
+Name[uk]=Центр керування
+Comment[zh_CN]=Deepin桌面环境控制中心
+Name[zh_CN]=控制中心
+Comment[zh_TW]=深度桌面環境的系統控制中心
+Name[zh_TW]=控制中心
+Comment[es_AR]=Centro de Control del Entorno de Escritorio Deepin
+Name[es_AR]=Centro de Control
+Comment[es_MX]=Centro de Contrl del Entorno Escritorio Deepin
+Name[es_MX]=Centro de control
+Comment[en_AU]=Deepin Desktop Environment Control Center
+Name[en_AU]=Control Center
+Comment[es_ES]=Centro de Control de Escritorio de Deepin
+Name[es_ES]=Centro de Control
