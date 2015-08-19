@@ -12,7 +12,7 @@ Display::Display():
     m_dbusDisplay = new DisplayInterface(this);
 
     m_frame = new SingleMonitorSettings(m_dbusDisplay, m_dbusDisplay->monitors().at(0).path());
-    m_frame->setFixedWidth(300);
+    m_frame->setFixedWidth(310);
     m_frame->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
 }
 
