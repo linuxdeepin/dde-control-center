@@ -8,8 +8,8 @@
  * Do not edit! All changes made to it will be lost.
  */
 
-#ifndef DISPLAYINTERFACE_H_1439463328
-#define DISPLAYINTERFACE_H_1439463328
+#ifndef DISPLAYINTERFACE_H_1439948860
+#define DISPLAYINTERFACE_H_1439948860
 
 #include <QtCore/QObject>
 #include <QtCore/QByteArray>
@@ -20,54 +20,82 @@
 #include <QtCore/QVariant>
 #include <QtDBus/QtDBus>
 
+typedef QMap<QString, double> BrightnessMap;
+
+Q_DECLARE_METATYPE(BrightnessMap)
+
 /*
  * Proxy class for interface com.deepin.daemon.Display
  */
 class DisplayInterface: public QDBusAbstractInterface
 {
     Q_OBJECT
+
+    Q_SLOT void __propertyChanged__(const QDBusMessage& msg)
+    {
+        QList<QVariant> arguments = msg.arguments();
+        if (3 != arguments.count())
+            return;
+        QString interfaceName = msg.arguments().at(0).toString();
+        if (interfaceName !="com.deepin.daemon.Display")
+            return;
+        QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
+        foreach(const QString &prop, changedProps.keys()) {
+        const QMetaObject* self = metaObject();
+            for (int i=self->propertyOffset(); i < self->propertyCount(); ++i) {
+                QMetaProperty p = self->property(i);
+                if (p.name() == prop) {
+ 	            Q_EMIT p.notifySignal().invoke(this);
+                }
+            }
+        }
+   }
 public:
     static inline const char *staticInterfaceName()
     { return "com.deepin.daemon.Display"; }
+    static inline const char *staticServiceName()
+    { return "com.deepin.daemon.Display"; }
+    static inline const char *staticObjectPath()
+    { return "/com/deepin/daemon/Display"; }
 
 public:
-    DisplayInterface(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent = 0);
+    DisplayInterface(QObject *parent = 0);
 
     ~DisplayInterface();
 
-    Q_PROPERTY(MonitorBrightnessList Brightness READ brightness)
-    inline MonitorBrightnessList brightness() const
-    { return qvariant_cast< MonitorBrightnessList >(property("Brightness")); }
+    Q_PROPERTY(BrightnessMap Brightness READ brightness NOTIFY BrightnessChanged)
+    inline BrightnessMap brightness() const
+    { return qvariant_cast< BrightnessMap >(property("Brightness")); }
 
-    Q_PROPERTY(QDBusObjectPath BuiltinOutput READ builtinOutput)
+    Q_PROPERTY(QDBusObjectPath BuiltinOutput READ builtinOutput NOTIFY BuiltinOutputChanged)
     inline QDBusObjectPath builtinOutput() const
     { return qvariant_cast< QDBusObjectPath >(property("BuiltinOutput")); }
 
-    Q_PROPERTY(short DisplayMode READ displayMode)
+    Q_PROPERTY(short DisplayMode READ displayMode NOTIFY DisplayModeChanged)
     inline short displayMode() const
     { return qvariant_cast< short >(property("DisplayMode")); }
 
-    Q_PROPERTY(bool HasChanged READ hasChanged)
+    Q_PROPERTY(bool HasChanged READ hasChanged NOTIFY HasChangedChanged)
     inline bool hasChanged() const
     { return qvariant_cast< bool >(property("HasChanged")); }
 
-    Q_PROPERTY(QList<QDBusObjectPath> Monitors READ monitors)
+    Q_PROPERTY(QList<QDBusObjectPath> Monitors READ monitors NOTIFY MonitorsChanged)
     inline QList<QDBusObjectPath> monitors() const
     { return qvariant_cast< QList<QDBusObjectPath> >(property("Monitors")); }
 
-    Q_PROPERTY(QString Primary READ primary)
+    Q_PROPERTY(QString Primary READ primary NOTIFY PrimaryChanged)
     inline QString primary() const
     { return qvariant_cast< QString >(property("Primary")); }
 
-    Q_PROPERTY(QRect PrimaryRect READ primaryRect)
+    Q_PROPERTY(QRect PrimaryRect READ primaryRect NOTIFY PrimaryRectChanged)
     inline QRect primaryRect() const
     { return qvariant_cast< QRect >(property("PrimaryRect")); }
 
-    Q_PROPERTY(ushort ScreenHeight READ screenHeight)
+    Q_PROPERTY(ushort ScreenHeight READ screenHeight NOTIFY ScreenHeightChanged)
     inline ushort screenHeight() const
     { return qvariant_cast< ushort >(property("ScreenHeight")); }
 
-    Q_PROPERTY(ushort ScreenWidth READ screenWidth)
+    Q_PROPERTY(ushort ScreenWidth READ screenWidth NOTIFY ScreenWidthChanged)
     inline ushort screenWidth() const
     { return qvariant_cast< ushort >(property("ScreenWidth")); }
 
@@ -166,14 +194,17 @@ public Q_SLOTS: // METHODS
     }
 
 Q_SIGNALS: // SIGNALS
-    void PrimaryChanged(MonitorBrightnessList in0);
+    void PrimaryChanged(const QRect &in0);
+// begin property changed signals
+void BrightnessChanged();
+void BuiltinOutputChanged();
+void DisplayModeChanged();
+void HasChangedChanged();
+void MonitorsChanged();
+void PrimaryChanged();
+void PrimaryRectChanged();
+void ScreenHeightChanged();
+void ScreenWidthChanged();
 };
 
-namespace com {
-  namespace deepin {
-    namespace daemon {
-      typedef ::DisplayInterface Display;
-    }
-  }
-}
 #endif

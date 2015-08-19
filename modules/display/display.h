@@ -21,7 +21,7 @@ public:
 
 private:
     QFrame * m_frame;
-    com::deepin::daemon::Display * m_dbusDisplay;
+    DisplayInterface * m_dbusDisplay;
 };
 
 #endif // DISPLAY_H
