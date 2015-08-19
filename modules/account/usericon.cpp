@@ -40,4 +40,10 @@ QString UserIcon::iconPath() const
     return m_iconPath;
 }
 
+void UserIcon::mousePressEvent(QMouseEvent *e)
+{
+    emit mousePress();
+    QLabel::mousePressEvent(e);
+}
+
 

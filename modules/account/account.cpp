@@ -24,5 +24,5 @@ Account::~Account()
 
 QFrame* Account::getContent()
 {
-    return new MainWidget();
+    return new AccountMainWidget();
 }

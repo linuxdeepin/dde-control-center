@@ -5,7 +5,7 @@
 #include "shortcuts.h"
 
 Shortcuts::Shortcuts():
-    m_mainWidget(new MainWidget())
+    m_mainWidget(new AccountMainWidget())
 {
 
 }

@@ -1,6 +1,7 @@
 #ifndef ACCOUNTHEADER_H
 #define ACCOUNTHEADER_H
 
+#include <QLabel>
 #include <QWidget>
 #include <QHBoxLayout>
 #include <QMouseEvent>
@@ -11,14 +12,11 @@
 
 DUI_USE_NAMESPACE
 
-class UserHeader : public QWidget
+class UserHeader : public QLabel
 {
     Q_OBJECT
 public:
     explicit UserHeader(const QString &userPath, QWidget *parent = 0);
-    void setIcon(const QString &iconPath);
-    void setAccountName(const QString &name);
-    void setAccountType(const QString &type);
     void setIsCurrentUser(bool isCurrentUser);
     void setExpand(bool value);
 
@@ -26,12 +24,16 @@ signals:
     void mousePress();
 
 protected:
-    void mousePressEvent(QMouseEvent *event);
+    void mousePressEvent(QMouseEvent *);
 
 private:
     void initData();
     void reverseArrowDirection();
     QString getTypeName(int type);
+
+    void updateIcon();
+    void updateAccountName();
+    void updateAccountType();
 
 private:
     QString m_userPath = "";

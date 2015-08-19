@@ -19,6 +19,9 @@ public:
 signals:
     void mousePress();
 
+protected:
+    void mousePressEvent(QMouseEvent *e);
+
 private:
     QLabel *m_iconLabel = NULL;
     QString m_iconPath = "";

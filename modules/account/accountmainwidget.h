@@ -8,13 +8,14 @@
 #include "moduleheader.h"
 #include "userlistpanel.h"
 #include "libdui/dconstants.h"
+#include "libdui/dthememanager.h"
 #include "libdui/dseparatorhorizontal.h"
 
-class MainWidget : public QFrame
+class AccountMainWidget : public QFrame
 {
     Q_OBJECT
 public:
-    explicit MainWidget(QWidget *parent = 0);
+    explicit AccountMainWidget(QWidget *parent = 0);
 
 protected:
     void resizeEvent(QResizeEvent *event);
