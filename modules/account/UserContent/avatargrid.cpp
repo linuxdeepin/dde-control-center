@@ -53,7 +53,9 @@ void AvatarGrid::init()
 void AvatarGrid::onIconPress()
 {
     UserIcon * icon = qobject_cast<UserIcon *>(sender());
-    if (icon)
-        emit selectedAvatar(icon->iconPath());
+    if (icon){
+        emit avatarSelected(icon->iconPath());
+    }
 }
+
 

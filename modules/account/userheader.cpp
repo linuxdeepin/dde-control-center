@@ -1,7 +1,7 @@
 #include "userheader.h"
 
 UserHeader::UserHeader(const QString &userPath, QWidget *parent)
-    : QWidget(parent), m_userPath(userPath)
+    : QLabel(parent), m_userPath(userPath)
 {
     m_mainLayout = new QHBoxLayout(this);
     m_mainLayout->setMargin(0);
@@ -27,22 +27,23 @@ UserHeader::UserHeader(const QString &userPath, QWidget *parent)
 
     //get dbus data
     m_accountUser = new DBusAccountUser(userPath, this);
-    initData();
+    if (m_accountUser->isValid())
+        initData();
 }
 
-void UserHeader::setIcon(const QString &iconPath)
+void UserHeader::updateIcon()
 {
-    m_icon->setIcon(iconPath);
+    m_icon->setIcon(m_accountUser->iconFile());
 }
 
-void UserHeader::setAccountName(const QString &name)
+void UserHeader::updateAccountName()
 {
-    m_nameTitle->setUserName(name);
+    m_nameTitle->setUserName(m_accountUser->userName());
 }
 
-void UserHeader::setAccountType(const QString &type)
+void UserHeader::updateAccountType()
 {
-    m_nameTitle->setUserType(type);
+    m_nameTitle->setUserType(getTypeName(m_accountUser->accountType()));
 }
 
 void UserHeader::setIsCurrentUser(bool isCurrentUser)
@@ -59,7 +60,7 @@ void UserHeader::setExpand(bool value)
         m_arrowButton->setArrowDirection(DArrowButton::ArrowDown);
 }
 
-void UserHeader::mousePressEvent(QMouseEvent *event)
+void UserHeader::mousePressEvent(QMouseEvent *)
 {
     reverseArrowDirection();
     emit mousePress();
@@ -67,11 +68,12 @@ void UserHeader::mousePressEvent(QMouseEvent *event)
 
 void UserHeader::initData()
 {
-    if (m_accountUser && m_accountUser->isValid()){
-        setIcon(m_accountUser->iconFile());
-        setAccountName(m_accountUser->userName());
-        setAccountType(getTypeName(m_accountUser->accountType()));
-    }
+    updateIcon();
+    updateAccountName();
+    updateAccountType();
+
+    connect(m_accountUser, &DBusAccountUser::IconFileChanged, this, &UserHeader::updateIcon);
+    connect(m_accountUser, &DBusAccountUser::AccountTypeChanged, this, &UserHeader::updateAccountType);
 }
 
 void UserHeader::reverseArrowDirection()

@@ -47,13 +47,15 @@ void ContentView::setModule(ModuleMetaData module)
     }
 
     m_pluginLoader->setFileName(module.path);
-    qDebug() << "loaded file name: " << m_pluginLoader->fileName();
 
     QObject * instance = m_pluginLoader->instance();
-    qDebug() << instance;
     if (instance) {
         ModuleInterface * interface = qobject_cast<ModuleInterface*>(instance);
         m_layout->addWidget(interface->getContent());
+
+        qDebug() << "loaded file name: " << m_pluginLoader->fileName();
+    } else {
+        qDebug() << m_pluginLoader->errorString();
     }
 }
 

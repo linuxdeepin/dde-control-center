@@ -7,7 +7,7 @@
 #include "interfaces.h"
 
 class QFrame;
-class MainWidget;
+class AccountMainWidget;
 class Shortcuts: public QObject, ModuleInterface
 {
     Q_OBJECT

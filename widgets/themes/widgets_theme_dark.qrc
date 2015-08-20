@@ -15,5 +15,8 @@
         <file>dark/HighlightLabel.theme</file>
         <file>dark/ShortcutEdit.theme</file>
         <file>dark/SearchList.theme</file>
+        <file>dark/images/multiselect_inactive_normal.png</file>
+        <file>dark/images/multiselect_inactive_hover.png</file>
+        <file>dark/images/multiselect_active_normal.png</file>
     </qresource>
 </RCC>

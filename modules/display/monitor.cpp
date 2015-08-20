@@ -13,3 +13,18 @@ Monitor::Monitor(QWidget *parent) :
     setAlignment(Qt::AlignCenter);
 }
 
+
+void Monitor::setName(QString name)
+{
+    setText(name);
+}
+
+QSize Monitor::resolution()
+{
+    return m_resolution;
+}
+
+void Monitor::setResolution(int width, int height)
+{
+    m_resolution = QSize(width, height);
+}

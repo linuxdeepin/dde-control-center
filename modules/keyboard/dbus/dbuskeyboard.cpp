@@ -18,6 +18,7 @@
 DBusKeyboard::DBusKeyboard(QObject *parent)
     : QDBusAbstractInterface(staticServiceName(), staticObjectPath(), staticInterfaceName(), QDBusConnection::sessionBus(), parent)
 {
+    qDBusRegisterMetaType<KeyboardLayoutList>();
     QDBusConnection::sessionBus().connect(this->service(), this->path(), "org.freedesktop.DBus.Properties",  "PropertiesChanged","sa{sv}as", this, SLOT(__propertyChanged__(QDBusMessage)));
 }
 

@@ -15,12 +15,23 @@ MonitorGround::MonitorGround(QWidget *parent)
 
 void MonitorGround::addMonitor(Monitor *monitor)
 {
-    monitor->setFixedSize(240, 140);
+    m_monitor = monitor;
+    m_monitor->setParent(this);
 
-    qDebug() << this->rect() << monitor->rect();
+    relayout();
+}
 
-    QPoint delta = this->rect().center() - monitor->rect().center();
+void MonitorGround::relayout()
+{
+    int destHeight = 140;
 
-    monitor->setParent(this);
-    monitor->move(delta.x(), delta.y());
+    QSize resolution = m_monitor->resolution();
+
+    int destWidth = destHeight * resolution.width() / resolution.height();
+
+    m_monitor->setFixedSize(destWidth, destHeight);
+
+    QPoint delta = this->rect().center() - m_monitor->rect().center();
+
+    m_monitor->move(delta.x(), delta.y());
 }

@@ -13,7 +13,7 @@ Grub::Grub():
 Grub::~Grub()
 {
     qDebug() << "~Grub()";
-    delete m_grubWidget ;
+    m_grubWidget->deleteLater();
 }
 
 QFrame *Grub::getContent()

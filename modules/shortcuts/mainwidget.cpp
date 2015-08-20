@@ -16,7 +16,7 @@
 
 DUI_USE_NAMESPACE
 
-MainWidget::MainWidget(QWidget *parent):
+AccountMainWidget::AccountMainWidget(QWidget *parent):
     QFrame(parent),
     m_layout(new QVBoxLayout),
     m_childLayout(new QVBoxLayout),
@@ -29,7 +29,7 @@ MainWidget::MainWidget(QWidget *parent):
     init();
 }
 
-MainWidget::~MainWidget()
+AccountMainWidget::~AccountMainWidget()
 {
 
 }
@@ -57,7 +57,7 @@ QString shortcutTransfrom(const QString& str)
     return shortnamelist.join("+");
 }
 
-SearchList *MainWidget::addSearchList(const ShortcutInfoList &tmplist)
+SearchList *AccountMainWidget::addSearchList(const ShortcutInfoList &tmplist)
 {
     SearchList *list = new SearchList;
     list->setFixedWidth(310);
@@ -74,13 +74,13 @@ SearchList *MainWidget::addSearchList(const ShortcutInfoList &tmplist)
         connect(shortw, &ShortcutWidget::shortcutChanged, [=](const QString &flag, const QString &shortcut){
             editShortcut(shortw, m_searchList, flag, shortcut);
         });
-        connect(tmpw, &ShortcutWidget::removeShortcut, this, &MainWidget::removeShortcut);
+        connect(tmpw, &ShortcutWidget::removeShortcut, this, &AccountMainWidget::removeShortcut);
     }
 
     return list;
 }
 
-QWidget *MainWidget::getAddShortcutWidget()
+QWidget *AccountMainWidget::getAddShortcutWidget()
 {
     QWidget *w = new QWidget;
     w->hide();
@@ -142,7 +142,7 @@ QWidget *MainWidget::getAddShortcutWidget()
     return w;
 }
 
-QWidget *MainWidget::getCustomLstHeadBar(SearchList *shorcutlist)
+QWidget *AccountMainWidget::getCustomLstHeadBar(SearchList *shorcutlist)
 {
     QWidget *w = new QWidget;
 
@@ -228,7 +228,7 @@ QWidget *MainWidget::getCustomLstHeadBar(SearchList *shorcutlist)
     return w;
 }
 
-void MainWidget::init()
+void AccountMainWidget::init()
 {
     m_layout->setMargin(0);
 
@@ -314,7 +314,7 @@ void MainWidget::init()
     setLayout(m_layout);
 }
 
-void MainWidget::shortcutListChanged(SearchList *listw, const ShortcutInfoList &list, int offseIndex)
+void AccountMainWidget::shortcutListChanged(SearchList *listw, const ShortcutInfoList &list, int offseIndex)
 {
     int min = qMin(listw->count(), list.count());
 
@@ -339,7 +339,7 @@ void MainWidget::shortcutListChanged(SearchList *listw, const ShortcutInfoList &
             connect(shortw, &ShortcutWidget::shortcutChanged, [=](const QString& flag, const QString &shortcut){
                 editShortcut(shortw, m_searchList, flag, shortcut);
             });
-            connect(tmpw, &ShortcutWidget::removeShortcut, this, &MainWidget::removeShortcut);
+            connect(tmpw, &ShortcutWidget::removeShortcut, this, &AccountMainWidget::removeShortcut);
         }
     }else{
         for(int i=list.count();i<listw->count();++i){
@@ -349,7 +349,7 @@ void MainWidget::shortcutListChanged(SearchList *listw, const ShortcutInfoList &
     }
 }
 
-void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QString &flag, QString shortcut)
+void AccountMainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QString &flag, QString shortcut)
 {
     if(!w||!listw)
         return;
@@ -420,7 +420,7 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
     }
 }
 
-void MainWidget::removeShortcut()
+void AccountMainWidget::removeShortcut()
 {
     ShortcutWidget *w = qobject_cast<ShortcutWidget*>(sender());
     if(w){

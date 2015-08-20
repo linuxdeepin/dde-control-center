@@ -11,6 +11,10 @@ public:
     explicit MonitorGround(QWidget *parent = 0);
 
     void addMonitor(Monitor * monitor);
+    void relayout();
+
+private:
+    Monitor * m_monitor;
 };
 
 #endif // MONITORGROUND_H

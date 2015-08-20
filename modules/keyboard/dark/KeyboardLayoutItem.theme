@@ -1,0 +1,25 @@
+KeyboardLayoutItem{
+    padding-left: 10px;
+}
+
+KeyboardLayoutItem QLabel{
+    font-size: 12px;
+    color: #b4b4b4;
+}
+
+KeyboardLayoutItem QLabel:hover{
+    color: white;
+}
+
+KeyboardLayoutItem[checked="true"]{
+    background-image: url(:/dark/images/tick_hover.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-color: #66000000;
+    border-radius: 3px;
+    background-origin: content;
+}
+
+KeyboardLayoutItem[checked="true"] QLabel{
+    color: #2CA7F8;
+}

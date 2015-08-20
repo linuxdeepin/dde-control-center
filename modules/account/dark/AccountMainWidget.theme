@@ -1,0 +1,7 @@
+AvatarGrid, UserContent, QScrollArea{
+    background-color: transparent;
+}
+
+UserHeader {
+    background-color: #1A1B1B;
+}

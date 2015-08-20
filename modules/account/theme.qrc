@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>dark/AccountMainWidget.theme</file>
+        <file>light/AccountMainWidget.theme</file>
+    </qresource>
+    <qresource prefix="/images">
+        <file>images/avatar_add.png</file>
+        <file>images/mask.png</file>
+    </qresource>
+</RCC>

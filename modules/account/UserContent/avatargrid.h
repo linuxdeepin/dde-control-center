@@ -16,7 +16,7 @@ public:
     void setAvatars(const QStringList &list);
 
 signals:
-    void selectedAvatar(const QString &path);
+    void avatarSelected(const QString &path);
     void clearAvatar();
 
 private:

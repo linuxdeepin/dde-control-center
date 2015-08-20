@@ -11,7 +11,6 @@ UserExpand::UserExpand(const QString &userPath, QWidget *parent)
     });
 
     m_content = new UserContent(userPath, this);
-    m_content->setFixedWidth(width());
     connect(m_content, &UserContent::sizeChanged, this, &UserExpand::updateContentHeight);
 
     setContent(m_content);

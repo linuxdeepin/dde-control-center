@@ -11,7 +11,9 @@ SearchList::SearchList(QWidget *parent) :
     m_itemHeight(-1),
     m_layout(new QVBoxLayout),
     m_dbus(new SearchDbus(this)),
-    m_searching(false)
+    m_searching(false),
+    m_checkedItem(-1),
+    m_checkable(false)
 {
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 
@@ -44,11 +46,16 @@ void SearchList::insertItem(int index, SearchItem *data)
     QWidget *w = data->widget();
     if(m_itemWidth>0)
         w->setMinimumWidth(m_itemWidth);
-    if(m_itemHeight>0)
+    if(m_itemHeight>0){
         w->setMinimumHeight(m_itemHeight);
-    m_layout->insertWidget(index, data->widget());
+        setMinimumHeight(count()*(m_layout->spacing()+m_itemHeight)-m_layout->spacing());
+    }
+
+    w->installEventFilter(this);
+    m_layout->insertWidget(index, w, 0, Qt::AlignCenter);
     m_keyWords<<data->keyWords();
-    setMinimumHeight(count()*(m_layout->spacing()+m_itemHeight)-m_layout->spacing());
+
+    emit countChanged();
 }
 
 void SearchList::insertItems(int index, const QList<SearchItem*> &datas)
@@ -61,8 +68,9 @@ void SearchList::insertItems(int index, const QList<SearchItem*> &datas)
 void SearchList::setItemData(int index, const QVariant &data)
 {
     SearchItem *item = getItem(index);
-    if(item){
+    if(item&&item->getData()!=data){
         item->setData(data);
+        emit itemDataChanged(index, data);
     }
 }
 
@@ -74,10 +82,19 @@ void SearchList::setItemSize(int w, int h)
 
 void SearchList::clear()
 {
-    m_itemList.clear();
     m_keyWords.clear();
 
+    for(int i=0;i<count();++i){
+        m_layout->removeItem(m_layout->takeAt(i));
+        m_itemList[i]->widget()->removeEventFilter(this);
+        delete m_itemList[i];
+    }
+
+    m_itemList.clear();
+
     setMinimumHeight(0);
+    setCheckedItem(-1);
+    emit countChanged();
 }
 
 void SearchList::removeItem(int index)
@@ -91,9 +108,19 @@ void SearchList::removeItem(int index)
         }
     }
     m_layout->removeItem(m_layout->takeAt(index));
-    if(item)
+    if(item){
+        item->widget()->removeEventFilter(this);
         delete item;
-    setMinimumHeight(count()*(m_layout->spacing()+m_itemHeight)-m_layout->spacing());
+    }
+
+    if(index == m_checkedItem){
+        setCheckedItem(-1);
+    }
+
+    if(m_itemHeight>0)
+        setMinimumHeight(count()*(m_layout->spacing()+m_itemHeight)-m_layout->spacing());
+
+    emit countChanged();
 }
 
 void SearchList::beginSearch()
@@ -128,11 +155,12 @@ bool isIntersect(const QStringList& list1, const QStringList &list2)
 
 void SearchList::setKeyWord(const QString &keyWord)
 {
-    if(m_searching&&!keyWord.isEmpty()){
+    if(m_searching){
         QStringList list = m_dbus->SearchString(keyWord, m_dbusKey);
 
         for (int i = 0; i<count(); ++i) {
-            if(isIntersect(list, m_itemList[i]->keyWords())){
+            if(keyWord.isEmpty()
+                    || isIntersect(list, m_itemList[i]->keyWords())){
                 showItem(i);
             }else{
                 hideItem(i);
@@ -147,8 +175,8 @@ void SearchList::showItem(int index)
 
     if(w&&!w->isVisible()){
         w->show();
-        setMinimumHeight(minimumHeight()+m_layout->spacing()+m_itemHeight);
-        m_layout->update();
+        if(m_itemHeight>0)
+            setMinimumHeight(minimumHeight()+m_layout->spacing()+m_itemHeight);
     }
 }
 
@@ -157,8 +185,43 @@ void SearchList::hideItem(int index)
     QWidget *w = getItem(index)->widget();
     if(w&&w->isVisible()){
         w->hide();
-        setMinimumHeight(minimumHeight()-m_layout->spacing()-m_itemHeight);
+        if(m_itemHeight>0)
+            setMinimumHeight(minimumHeight()-m_layout->spacing()-m_itemHeight);
     }
+}
+
+void SearchList::setCheckedItem(int checkedItem)
+{
+    if (m_checkedItem == checkedItem)
+        return;
+
+    if(m_checkable){
+        if(m_checkedItem>=0&&m_checkedItem<count()){
+            QWidget *w = getItem(m_checkedItem)->widget();
+            if(w){
+                w->setProperty("checked", false);
+            }
+        }
+
+        if(checkedItem>=0&&checkedItem<count()){
+            QWidget *w = getItem(checkedItem)->widget();
+            if(w){
+                w->setProperty("checked", true);
+            }
+        }
+    }
+
+    m_checkedItem = checkedItem;
+    emit checkedItemChanged(checkedItem);
+}
+
+void SearchList::setCheckable(bool checkable)
+{
+    if (m_checkable == checkable)
+        return;
+
+    m_checkable = checkable;
+    emit checkableChanged(checkable);
 }
 
 int SearchList::count() const
@@ -198,10 +261,29 @@ bool SearchList::isSearching() const
     return m_searching;
 }
 
-void SearchList::itemDataChanged(const QVariant &data)
+int SearchList::checkedItem() const
 {
-    SearchItem *item = dynamic_cast<SearchItem*>(sender());
-    if(item){
-        emit itemDataChanged(indexOf(item), data);
+    return m_checkedItem;
+}
+
+bool SearchList::checkable() const
+{
+    return m_checkable;
+}
+
+bool SearchList::eventFilter(QObject *obj, QEvent *e)
+{
+    if(!m_checkable || e->type() != QEvent::MouseButtonRelease)
+        return false;
+
+    QWidget *w = qobject_cast<QWidget*>(obj);
+
+    if(w){
+        int index = indexOf(w);
+        if(index>=0){
+            setCheckedItem(index);
+        }
     }
+
+    return false;
 }

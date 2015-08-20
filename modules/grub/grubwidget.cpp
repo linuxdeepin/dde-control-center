@@ -153,7 +153,7 @@ void GrubWidget::updatingChanged(bool updating)
         m_tooltip->setText(tr("Updating..."));
     }else{
         m_tooltip->setText(tr("Successfully updated,reboot to view."));
-        QTimer::singleShot(2000, this, &GrubWidget::resetTooltip);
+        QTimer::singleShot(2000, this, SLOT(resetTooltip()));
     }
 }
 

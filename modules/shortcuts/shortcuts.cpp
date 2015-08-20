@@ -5,7 +5,7 @@
 #include "shortcuts.h"
 
 Shortcuts::Shortcuts():
-    m_mainWidget(new MainWidget())
+    m_mainWidget(new AccountMainWidget())
 {
 
 }
@@ -13,7 +13,7 @@ Shortcuts::Shortcuts():
 Shortcuts::~Shortcuts()
 {
     qDebug() << "~Shortcuts()";
-    delete m_mainWidget ;
+    m_mainWidget->deleteLater();
 }
 
 QFrame *Shortcuts::getContent()

@@ -1,12 +1,15 @@
 <interface name="com.deepin.daemon.Display.Monitor">
 	<method name="ListModes">
 		<arg type="a(uqqd)" direction="out"></arg>
+		<annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="MonitorModeList"/>
 	</method>
 	<method name="ListReflect">
 		<arg type="aq" direction="out"></arg>
+		<annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="UshortList"/>
 	</method>
 	<method name="ListRotations">
 		<arg type="aq" direction="out"></arg>
+		<annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="UshortList"/>
 	</method>
 	<method name="SetMode">
 		<arg type="u" direction="in"></arg>
@@ -25,7 +28,9 @@
 		<arg type="b" direction="in"></arg>
 	</method>
 	<property name="Outputs" type="as" access="read"></property>
-	<property name="BestMode" type="(uqqd)" access="read"></property>
+	<property name="BestMode" type="(uqqd)" access="read">
+		<annotation name="org.qtproject.QtDBus.QtTypeName" value="MonitorMode"/>
+	</property>
 	<property name="IsComposited" type="b" access="read"></property>
 	<property name="Name" type="s" access="read"></property>
 	<property name="FullName" type="s" access="read"></property>
@@ -34,7 +39,9 @@
 	<property name="Opened" type="b" access="read"></property>
 	<property name="Rotation" type="q" access="read"></property>
 	<property name="Reflect" type="q" access="read"></property>
-	<property name="CurrentMode" type="(uqqd)" access="read"></property>
+	<property name="CurrentMode" type="(uqqd)" access="read">
+		<annotation name="org.qtproject.QtDBus.QtTypeName" value="MonitorMode"/>
+	</property>
 	<property name="Width" type="q" access="read"></property>
 	<property name="Height" type="q" access="read"></property>
 </interface>
