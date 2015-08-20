@@ -20,6 +20,7 @@ Mouse::Mouse()
     m_label->setStyleSheet(QString("QLabel{color: %1;font-size:12px;}").arg(DCC::TextNormalColor.name()));
     QVBoxLayout * layout = new QVBoxLayout(m_label);
     layout->setMargin(0);
+    layout->setSpacing(0);
 
     m_mouseInterface = new ComDeepinDaemonInputDeviceMouseInterface("com.deepin.daemon.InputDevices",
                                                                     "/com/deepin/daemon/InputDevice/Mouse", QDBusConnection::sessionBus(), this);
@@ -126,11 +127,11 @@ Mouse::Mouse()
     m_touchpadPrimaryButtonSetting->addSegmented(tr("Left Button"));
     m_touchpadPrimaryButtonSetting->addSegmented(tr("Right Button"));
 
-    m_touchpadPointSpeed = new DSlider(Qt::Horizontal);
+    m_touchpadPointSpeedSlider = new DSlider(Qt::Horizontal);
     m_touchpadDoubleClickSpeed = new DSlider(Qt::Horizontal);
     m_touchpadDragThreshold = new DSlider(Qt::Horizontal);
 
-    m_touchpadPointSpeed->setMinimumSize(180, 20);
+    m_touchpadPointSpeedSlider->setMinimumSize(180, 20);
     m_touchpadDoubleClickSpeed->setMinimumSize(180, 20);
     m_touchpadDragThreshold->setMinimumSize(180, 20);
 
@@ -145,7 +146,7 @@ Mouse::Mouse()
     m_touchpadEdgeScrollSwitch->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     m_touchpadSettingPanel->addRow(tr("Primary Button"), 0, m_touchpadPrimaryButtonSetting);
-    m_touchpadSettingPanel->addRow(tr("Tracking Speed"), m_touchpadPointSpeed);
+    m_touchpadSettingPanel->addRow(tr("Tracking Speed"), m_touchpadPointSpeedSlider);
     m_touchpadSettingPanel->addRow(tr("Double Click Speed"), m_touchpadDoubleClickSpeed);
     m_touchpadSettingPanel->addRow(tr("Drag Thredshold"), m_touchpadDragThreshold);
     m_touchpadSettingPanel->addRow(tr("Nature Scroll"), 0, m_touchpadNatureScrollSwitch);
@@ -190,25 +191,81 @@ Mouse::Mouse()
     ////////////////////////////////////////////////////////////// init those widgets state
     connect(m_mouseResetButton, SIGNAL(clicked(bool)), this, SLOT(reset()));
     connect(m_mousePrimaryButtonSetting, SIGNAL(currentChanged(int)), this, SLOT(setMousePrimaryButton(int)));
+    connect(m_mouseInterface, &ComDeepinDaemonInputDeviceMouseInterface::leftHandedChanged,
+            [&](bool arg){
+            m_mousePrimaryButtonSetting->setCurrentIndex((int)arg);
+    });
     connect(m_mousePointSpeedSlider, SIGNAL(valueChanged(int)), this, SLOT(setMousePointSpeed(int)));
+    connect(m_mouseInterface, &ComDeepinDaemonInputDeviceMouseInterface::motionAccelerationChanged,
+            [&](double value){
+        qDebug()<<m_mousePointSpeed<<value;
+        if(value != m_mousePointSpeed){
+            m_mousePointSpeedSlider->setValue((3.2-value) *1000);
+            m_mousePointSpeed = value;
+        }
+    });
     connect(m_mouseDoubleClickIntervalSlider, SIGNAL(valueChanged(int)), this, SLOT(setMouseDoubleClickInterval(int)));
-
+    connect(m_mouseInterface, &ComDeepinDaemonInputDeviceMouseInterface::doubleClickChanged,
+            [&](int value){
+        m_mouseDoubleClickIntervalSlider->setValue(1000 - value);
+    });
     connect(m_forbiddenTouchpadWhenMouseSwitchButton, SIGNAL(checkedChanged(bool)),
             this, SLOT(disableTouchpadWhenMousePluggedIn(bool)));
-
+    connect(m_mouseInterface, &ComDeepinDaemonInputDeviceMouseInterface::disableTpadChanged,
+            m_forbiddenTouchpadWhenMouseSwitchButton, &DSwitchButton::setChecked);
+    connect(m_forbiddenTouchpadWhenMouseSwitchButton, SIGNAL(checkedChanged(bool)),
+            m_touchpadSwitchButton, SLOT(setHidden(bool)));
     connect(m_touchpadSwitchButton, SIGNAL(checkedChanged(bool)), this, SLOT(enableTouchpad(bool)));
-    connect(m_touchpadPointSpeed, SIGNAL(valueChanged(int)), this, SLOT(setTouchpadPointSpeed(int)));
+    connect(m_touchpadInterface, &ComDeepinDaemonInputDeviceTouchPadInterface::tpadEnableChanged,
+            m_touchpadSwitchButton, &DSwitchButton::setChecked);
+    connect(m_touchpadSwitchButton, SIGNAL(checkedChanged(bool)),
+            m_touchpadSettingPanel, SLOT(setVisible(bool)));
+    connect(m_touchpadSwitchButton, SIGNAL(checkedChanged(bool)),
+            m_fourthHSeparator, SLOT(setVisible(bool)));
+    connect(m_touchpadPointSpeedSlider, SIGNAL(valueChanged(int)), this, SLOT(setTouchpadPointSpeed(int)));
+    connect(m_touchpadInterface, &ComDeepinDaemonInputDeviceTouchPadInterface::motionAccelerationChanged,
+            [&](double value){
+        qDebug()<<m_touchpadPointSpeed<<value;
+        if(value != m_touchpadPointSpeed){
+            m_touchpadPointSpeedSlider->setValue((3.2-value)*1000);
+            m_touchpadPointSpeed = value;
+        }
+    });
     connect(m_touchpadDoubleClickSpeed, SIGNAL(valueChanged(int)), this, SLOT(setTouchpadDoubleClickInterval(int)));
+    connect(m_touchpadInterface, &ComDeepinDaemonInputDeviceTouchPadInterface::doubleClickChanged,
+            [&](int value){
+        m_touchpadDoubleClickSpeed->setValue(1000 - value);
+    });
     connect(m_touchpadNatureScrollSwitch, SIGNAL(checkedChanged(bool)), this, SLOT(enableTouchpadNatureScroll(bool)));
+    connect(m_touchpadInterface, &ComDeepinDaemonInputDeviceTouchPadInterface::naturalScrollChanged,
+            m_touchpadNatureScrollSwitch, &DSwitchButton::setChecked);
     connect(m_touchpadTapToClickSwitch, SIGNAL(checkedChanged(bool)), this, SLOT(enableTouchpadTapToClick(bool)));
-    connect(m_touchpadTwoFingerScrollSwitch, SIGNAL(checkedChanged(bool)), this, SLOT(enableTouchpadEdgeScroll(bool)));
+    connect(m_touchpadInterface, &ComDeepinDaemonInputDeviceTouchPadInterface::tapClickChanged,
+            m_touchpadTapToClickSwitch, &DSwitchButton::setChecked);
+    connect(m_touchpadTwoFingerScrollSwitch, SIGNAL(checkedChanged(bool)), this, SLOT(enableTouchpadTwoFingerScroll(bool)));
+    connect(m_touchpadInterface, &ComDeepinDaemonInputDeviceTouchPadInterface::vertScrollChanged,
+            m_touchpadTwoFingerScrollSwitch, &DSwitchButton::setChecked);
     connect(m_touchpadEdgeScrollSwitch, SIGNAL(checkedChanged(bool)), this, SLOT(enableTouchpadEdgeScroll(bool)));
+    connect(m_touchpadInterface, &ComDeepinDaemonInputDeviceTouchPadInterface::edgeScrollChanged,
+            m_touchpadEdgeScrollSwitch, &DSwitchButton::setChecked);
+    connect(m_touchpadDragThreshold, &DSlider::valueChanged,
+            m_touchpadInterface, &ComDeepinDaemonInputDeviceTouchPadInterface::setDragThreshold);
+    connect(m_touchpadInterface, &ComDeepinDaemonInputDeviceTouchPadInterface::dragThresholdChanged,
+            m_touchpadDragThreshold, &DSlider::setValue);
+    connect(m_touchpadPrimaryButtonSetting, &DSegmentedControl::currentChanged,
+            [&](int arg){
+        m_touchpadInterface->setLeftHanded(arg);
+    });
+    connect(m_touchpadInterface, &ComDeepinDaemonInputDeviceTouchPadInterface::leftHandedChanged,
+            [&](bool arg){
+        m_touchpadPrimaryButtonSetting->setCurrentIndex((int)arg);
+    });
+
 }
 
 void Mouse::reset() {
     QDBusPendingCall reply = m_mouseInterface->Reset();
     reply.waitForFinished();
-    setWidgetsValue();
 }
 
 void Mouse::setWidgetsValue() {
@@ -219,11 +276,12 @@ void Mouse::setWidgetsValue() {
         m_mousePrimaryButtonSetting->setCurrentIndex(0);
     }
 
-    m_mousePointSpeedSlider->setRange(2, 30);	// 0.2 ~ 3
-    m_mousePointSpeedSlider->setValue(m_mouseInterface->motionAcceleration() * 10);
+    m_mousePointSpeed = m_mouseInterface->motionAcceleration();
+    m_mousePointSpeedSlider->setRange(200, 3000);	// 3 ~ 0.2
+    m_mousePointSpeedSlider->setValue((3.2-m_mousePointSpeed) * 1000);
 
-    m_mouseDoubleClickIntervalSlider->setRange(100, 1000);	// 100 ~ 1000
-    m_mouseDoubleClickIntervalSlider->setValue(m_mouseInterface->doubleClick());
+    m_mouseDoubleClickIntervalSlider->setRange(0, 900);	// 100 ~ 1000
+    m_mouseDoubleClickIntervalSlider->setValue(1000 - m_mouseInterface->doubleClick());
 
     m_forbiddenTouchpadWhenMouseSwitchButton->setChecked(m_mouseInterface->disableTpad());
 
@@ -233,24 +291,21 @@ void Mouse::setWidgetsValue() {
         m_touchpadSwitchButton->setChecked(false);
     }
 
-    if (m_touchpadInterface->leftHanded() == true){
-        m_touchpadPrimaryButtonSetting->setCurrentIndex(1);
-    } else {
-        m_touchpadPrimaryButtonSetting->setCurrentIndex(0);
-    }
+    m_touchpadPrimaryButtonSetting->setCurrentIndex((int)m_touchpadInterface->leftHanded());
 
-    m_touchpadPointSpeed->setRange(2, 30);	// not sure
-    m_touchpadPointSpeed->setValue(m_touchpadInterface->motionAcceleration() * 10);
+    m_touchpadPointSpeed = m_touchpadInterface->motionAcceleration();
+    m_touchpadPointSpeedSlider->setRange(200, 3000);	// 3 ~ 0.2
+    m_touchpadPointSpeedSlider->setValue((3.2-m_touchpadPointSpeed) * 1000);
 
-    m_touchpadDoubleClickSpeed->setRange(100, 1000);	// not sure
-    m_touchpadDoubleClickSpeed->setValue(m_touchpadInterface->doubleClick());
+    m_touchpadDoubleClickSpeed->setRange(0, 900);	// not sure
+    m_touchpadDoubleClickSpeed->setValue(1000 - m_touchpadInterface->doubleClick());
 
-    m_touchpadDragThreshold->setRange(2, 30);	// not sure
+    m_touchpadDragThreshold->setRange(1, 10);	// not sure
     m_touchpadDragThreshold->setValue(m_touchpadInterface->dragThreshold());
 
     m_touchpadNatureScrollSwitch->setChecked(m_touchpadInterface->naturalScroll());
     m_touchpadTapToClickSwitch->setChecked(m_touchpadInterface->tapClick());
-    // touchpadTwoFingerScrollSwitch->setChecked(m_touchpadInterface->);
+    m_touchpadTwoFingerScrollSwitch->setChecked(m_touchpadInterface->vertScroll());
     m_touchpadEdgeScrollSwitch->setChecked(m_touchpadInterface->edgeScroll());
 
 }
@@ -267,12 +322,12 @@ void Mouse::setMousePrimaryButton(int index)
 void Mouse::setMousePointSpeed(int speed)
 {
     // the value should be scaled
-    m_mouseInterface->setMotionAcceleration((3 - speed * 1.0 / 10) + 0.2);
+    m_mouseInterface->setMotionAcceleration((3200 - speed)/1000);
 }
 
 void Mouse::setMouseDoubleClickInterval(int interval)
 {
-    m_mouseInterface->setDoubleClick(interval);
+    m_mouseInterface->setDoubleClick(1000 - interval);
 }
 
 void Mouse::disableTouchpadWhenMousePluggedIn(bool flag)
@@ -287,17 +342,17 @@ void Mouse::enableTouchpad(bool flag)
 
 void Mouse::setTouchpadPointSpeed(int speed)
 {
-    m_touchpadInterface->setMotionAcceleration(speed * 1.0 / 30);
+    m_touchpadInterface->setMotionAcceleration((3200 - speed)/1000);
 }
 
 void Mouse::setTouchpadDoubleClickInterval(int interval)
 {
-    m_touchpadInterface->setDoubleClick(interval);
+    m_touchpadInterface->setDoubleClick(1000 - interval);
 }
 
 void Mouse::enableTouchpadNatureScroll(bool flag)
 {
-    m_touchpadInterface->setDoubleClick(flag);
+    m_touchpadInterface->setNaturalScroll(flag);
 }
 
 void Mouse::enableTouchpadTapToClick(bool flag)
@@ -307,9 +362,7 @@ void Mouse::enableTouchpadTapToClick(bool flag)
 
 void Mouse::enableTouchpadTwoFingerScroll(bool flag)
 {
-    Q_UNUSED(flag)
-    qDebug() << "tmp not implemented";
-    //
+    m_touchpadInterface->setVertScroll(flag);
 }
 
 void Mouse::enableTouchpadEdgeScroll(bool flag)

@@ -83,7 +83,7 @@ private:
     DSeparatorHorizontal * m_thirdHSeparator;
     ContainerWidget * m_touchpadSettingPanel;
     DSegmentedControl * m_touchpadPrimaryButtonSetting;
-    DSlider * m_touchpadPointSpeed;
+    DSlider * m_touchpadPointSpeedSlider;
     DSlider * m_touchpadDoubleClickSpeed;
     DSlider * m_touchpadDragThreshold;
     DSwitchButton * m_touchpadNatureScrollSwitch;
@@ -91,6 +91,8 @@ private:
     DSwitchButton * m_touchpadTwoFingerScrollSwitch;
     DSwitchButton * m_touchpadEdgeScrollSwitch ;
     DSeparatorHorizontal * m_fourthHSeparator;
+    double m_mousePointSpeed;
+    double m_touchpadPointSpeed;
 
     void setWidgetsValue();
 };

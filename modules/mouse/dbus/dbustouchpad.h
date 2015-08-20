@@ -47,6 +47,27 @@ Q_DECLARE_METATYPE(TouchpadDeviceList)
 class ComDeepinDaemonInputDeviceTouchPadInterface: public QDBusAbstractInterface
 {
     Q_OBJECT
+
+    Q_SLOT void __propertyChanged__(const QDBusMessage& msg)
+    {
+        QList<QVariant> arguments = msg.arguments();
+        if (3 != arguments.count())
+            return;
+        QString interfaceName = msg.arguments().at(0).toString();
+        if (interfaceName != "com.deepin.daemon.InputDevice.TouchPad")
+            return;
+        QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
+        foreach(const QString &prop, changedProps.keys()) {
+        const QMetaObject* self = metaObject();
+            for (int i=self->propertyOffset(); i < self->propertyCount(); ++i) {
+                QMetaProperty p = self->property(i);
+                if (p.name() == prop) {
+                    QVariant v = p.read(this);
+                    Q_EMIT p.notifySignal().invoke(this, QGenericArgument(v.typeName(), v.data()));
+                }
+            }
+        }
+    }
 public:
     static inline const char *staticInterfaceName()
     { return "com.deepin.daemon.InputDevice.TouchPad"; }
@@ -56,87 +77,87 @@ public:
 
     ~ComDeepinDaemonInputDeviceTouchPadInterface();
 
-    Q_PROPERTY(int DeltaScroll READ deltaScroll WRITE setDeltaScroll)
+    Q_PROPERTY(int DeltaScroll READ deltaScroll WRITE setDeltaScroll NOTIFY deltaScrollChanged)
     inline int deltaScroll() const
     { return qvariant_cast< int >(property("DeltaScroll")); }
     inline void setDeltaScroll(int value)
     { setProperty("DeltaScroll", QVariant::fromValue(value)); }
 
-    Q_PROPERTY(TouchpadDeviceList DeviceList READ deviceList)
+    Q_PROPERTY(TouchpadDeviceList DeviceList READ deviceList NOTIFY deviceListChanged)
     inline TouchpadDeviceList deviceList() const
     { return qvariant_cast< TouchpadDeviceList >(property("DeviceList")); }
 
-    Q_PROPERTY(bool DisableIfTyping READ disableIfTyping WRITE setDisableIfTyping)
+    Q_PROPERTY(bool DisableIfTyping READ disableIfTyping WRITE setDisableIfTyping NOTIFY disableIfTrpingChanged)
     inline bool disableIfTyping() const
     { return qvariant_cast< bool >(property("DisableIfTyping")); }
     inline void setDisableIfTyping(bool value)
     { setProperty("DisableIfTyping", QVariant::fromValue(value)); }
 
-    Q_PROPERTY(int DoubleClick READ doubleClick WRITE setDoubleClick)
+    Q_PROPERTY(int DoubleClick READ doubleClick WRITE setDoubleClick NOTIFY doubleClickChanged)
     inline int doubleClick() const
     { return qvariant_cast< int >(property("DoubleClick")); }
     inline void setDoubleClick(int value)
     { setProperty("DoubleClick", QVariant::fromValue(value)); }
 
-    Q_PROPERTY(int DragThreshold READ dragThreshold WRITE setDragThreshold)
+    Q_PROPERTY(int DragThreshold READ dragThreshold WRITE setDragThreshold NOTIFY dragThresholdChanged)
     inline int dragThreshold() const
     { return qvariant_cast< int >(property("DragThreshold")); }
     inline void setDragThreshold(int value)
     { setProperty("DragThreshold", QVariant::fromValue(value)); }
 
-    Q_PROPERTY(bool EdgeScroll READ edgeScroll WRITE setEdgeScroll)
+    Q_PROPERTY(bool EdgeScroll READ edgeScroll WRITE setEdgeScroll NOTIFY edgeScrollChanged)
     inline bool edgeScroll() const
     { return qvariant_cast< bool >(property("EdgeScroll")); }
     inline void setEdgeScroll(bool value)
     { setProperty("EdgeScroll", QVariant::fromValue(value)); }
 
-    Q_PROPERTY(bool Exist READ exist)
+    Q_PROPERTY(bool Exist READ exist NOTIFY existChanged)
     inline bool exist() const
     { return qvariant_cast< bool >(property("Exist")); }
 
-    Q_PROPERTY(bool HorizScroll READ horizScroll WRITE setHorizScroll)
+    Q_PROPERTY(bool HorizScroll READ horizScroll WRITE setHorizScroll NOTIFY horizScrollChanged)
     inline bool horizScroll() const
     { return qvariant_cast< bool >(property("HorizScroll")); }
     inline void setHorizScroll(bool value)
     { setProperty("HorizScroll", QVariant::fromValue(value)); }
 
-    Q_PROPERTY(bool LeftHanded READ leftHanded WRITE setLeftHanded)
+    Q_PROPERTY(bool LeftHanded READ leftHanded WRITE setLeftHanded NOTIFY leftHandedChanged)
     inline bool leftHanded() const
     { return qvariant_cast< bool >(property("LeftHanded")); }
     inline void setLeftHanded(bool value)
     { setProperty("LeftHanded", QVariant::fromValue(value)); }
 
-    Q_PROPERTY(double MotionAcceleration READ motionAcceleration WRITE setMotionAcceleration)
+    Q_PROPERTY(double MotionAcceleration READ motionAcceleration WRITE setMotionAcceleration NOTIFY motionAccelerationChanged)
     inline double motionAcceleration() const
     { return qvariant_cast< double >(property("MotionAcceleration")); }
     inline void setMotionAcceleration(double value)
     { setProperty("MotionAcceleration", QVariant::fromValue(value)); }
 
-    Q_PROPERTY(double MotionThreshold READ motionThreshold WRITE setMotionThreshold)
+    Q_PROPERTY(double MotionThreshold READ motionThreshold WRITE setMotionThreshold NOTIFY motionThresholdChanged)
     inline double motionThreshold() const
     { return qvariant_cast< double >(property("MotionThreshold")); }
     inline void setMotionThreshold(double value)
     { setProperty("MotionThreshold", QVariant::fromValue(value)); }
 
-    Q_PROPERTY(bool NaturalScroll READ naturalScroll WRITE setNaturalScroll)
+    Q_PROPERTY(bool NaturalScroll READ naturalScroll WRITE setNaturalScroll NOTIFY naturalScrollChanged)
     inline bool naturalScroll() const
     { return qvariant_cast< bool >(property("NaturalScroll")); }
     inline void setNaturalScroll(bool value)
     { setProperty("NaturalScroll", QVariant::fromValue(value)); }
 
-    Q_PROPERTY(bool TPadEnable READ tPadEnable WRITE setTPadEnable)
+    Q_PROPERTY(bool TPadEnable READ tPadEnable WRITE setTPadEnable NOTIFY tpadEnableChanged)
     inline bool tPadEnable() const
     { return qvariant_cast< bool >(property("TPadEnable")); }
     inline void setTPadEnable(bool value)
     { setProperty("TPadEnable", QVariant::fromValue(value)); }
 
-    Q_PROPERTY(bool TapClick READ tapClick WRITE setTapClick)
+    Q_PROPERTY(bool TapClick READ tapClick WRITE setTapClick NOTIFY tapClickChanged)
     inline bool tapClick() const
     { return qvariant_cast< bool >(property("TapClick")); }
     inline void setTapClick(bool value)
     { setProperty("TapClick", QVariant::fromValue(value)); }
 
-    Q_PROPERTY(bool VertScroll READ vertScroll WRITE setVertScroll)
+    Q_PROPERTY(bool VertScroll READ vertScroll WRITE setVertScroll NOTIFY vertScrollChanged)
     inline bool vertScroll() const
     { return qvariant_cast< bool >(property("VertScroll")); }
     inline void setVertScroll(bool value)
@@ -150,6 +171,21 @@ public Q_SLOTS: // METHODS
     }
 
 Q_SIGNALS: // SIGNALS
+    void vertScrollChanged(bool VertScroll);
+    void tapClickChanged(bool TapClick);
+    void tpadEnableChanged(bool TPadEnable);
+    void naturalScrollChanged(bool NaturalScroll);
+    void motionThresholdChanged(double MotionThreshold);
+    void motionAccelerationChanged(double MotionAcceleration);
+    void leftHandedChanged(bool LeftHanded);
+    void horizScrollChanged(bool HorizScroll);
+    void existChanged(bool Exist);
+    void edgeScrollChanged(bool EdgeScroll);
+    void dragThresholdChanged(int DragThreshold);
+    void doubleClickChanged(int DoubleClick);
+    void disableIfTrpingChanged(bool DisableIfTyping);
+    void deviceListChanged(TouchpadDeviceList DeviceList);
+    void deltaScrollChanged(int DeltaScroll);
 };
 
 namespace com {
