@@ -18,5 +18,14 @@
         <file>dark/images/multiselect_inactive_normal.png</file>
         <file>dark/images/multiselect_inactive_hover.png</file>
         <file>dark/images/multiselect_active_normal.png</file>
+        <file>dark/images/dss_add_focus.png</file>
+        <file>dark/images/dss_add_hover.png</file>
+        <file>dark/images/dss_add_normal.png</file>
+        <file>dark/images/dss_add_press.png</file>
+        <file>dark/images/dss_remove_focus.png</file>
+        <file>dark/images/dss_remove_hover.png</file>
+        <file>dark/images/dss_remove_normal.png</file>
+        <file>dark/GeneralAddButton.theme</file>
+        <file>dark/GeneralRemoveButton.theme</file>
     </qresource>
 </RCC>

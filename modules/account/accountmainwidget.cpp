@@ -29,7 +29,7 @@ AccountMainWidget::AccountMainWidget(QWidget *parent) : QFrame(parent)
 
 void AccountMainWidget::initHeader()
 {
-    m_header = new ModuleHeader("Account", false, this);
+    m_header = new ModuleHeader(tr("Account"), false, this);
     m_mainLayout->addWidget(m_header);
 
     QStackedWidget *stackWidget = new QStackedWidget();
@@ -37,31 +37,34 @@ void AccountMainWidget::initHeader()
 
     QWidget *headerButtonContent = new QWidget();
     QHBoxLayout *buttonLayout = new QHBoxLayout();
-    DTextButton *deleteButton = new DTextButton("-");
-    DTextButton *addButton = new DTextButton("+");
+    buttonLayout->setContentsMargins(0, 0, 0, 0);
+    buttonLayout->setSpacing(0);
+    buttonLayout->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
+    GeneralRemoveButton *deleteButton = new GeneralRemoveButton;
+    GeneralAddButton *addButton = new GeneralAddButton;
     buttonLayout->addWidget(deleteButton);
     buttonLayout->addSpacing(DUI::BUTTON_MARGIN);
     buttonLayout->addWidget(addButton);
     headerButtonContent->setLayout(buttonLayout);
 
-    DTextButton *listButton = new DTextButton("User List");
+    DTextButton *listButton = new DTextButton(tr("User List"));
 
     stackWidget->addWidget(headerButtonContent);
     stackWidget->addWidget(listButton);
 
-    connect(deleteButton, &DTextButton::clicked, this, &AccountMainWidget::requestDelete);
-    connect(deleteButton, &DTextButton::clicked, [=]{
-        if (m_state == StateDeleting){
-            setPanelState(StateNormal);
-            emit requestDelete(false);
-        }
-        else{
+    connect(deleteButton, &GeneralRemoveButton::stateChanged, [=]{
+        switch (deleteButton->getState()) {
+        case GeneralRemoveButton::Checked:
             setPanelState(StateDeleting);
             emit requestDelete(true);
+            break;
+        default:
+            setPanelState(StateNormal);
+            emit requestDelete(false);
+            break;
         }
-
     });
-    connect(addButton, &DTextButton::clicked, [=]{
+    connect(addButton, &GeneralAddButton::clicked, [=]{
         setPanelState(StateCreating);
     });
 

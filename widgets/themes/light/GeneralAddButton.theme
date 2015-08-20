@@ -1,0 +1,5 @@
+GeneralAddButton {
+    qproperty-normalPic: url(:/light/images/dss_add_normal.png);
+    qproperty-hoverPic: url(:/light/images/dss_add_hover.png);
+    qproperty-pressPic: url(:/light/images/dss_add_press.png);
+}

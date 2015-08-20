@@ -13,6 +13,8 @@
 #include "libdui/dtextbutton.h"
 #include "libdui/dthememanager.h"
 #include "libdui/dseparatorhorizontal.h"
+#include "generalremovebutton.h"
+#include "generaladdbutton.h"
 
 class AccountMainWidget : public QFrame
 {
