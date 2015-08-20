@@ -1,0 +1,10 @@
+NormalWidget #TimeLabel {
+    font-size:44px;
+    color:white;
+    font-family:;
+}
+
+NormalWidget #TipsLabel {
+    color:white;
+    font-size:12px;
+}

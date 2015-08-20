@@ -1,0 +1,8 @@
+EditWidget #TimeSpliter {
+    font-size:52px;
+    color:white;
+}
+
+EditWidget #ControlSpliter {
+    color:white;
+}

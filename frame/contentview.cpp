@@ -42,7 +42,6 @@ void ContentView::setModule(ModuleMetaData module)
             return;
         }
     } else {
-        qDebug() << "Loadind module " << module.name;
         m_pluginLoader = new QPluginLoader(this);
     }
 

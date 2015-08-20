@@ -1,0 +1,47 @@
+<interface name="com.deepin.daemon.Timedate">
+     <method name="AddUserTimezone">
+          <arg type="s" direction="in"></arg>
+     </method>
+     <method name="DeleteUserTimezone">
+          <arg type="s" direction="in"></arg>
+     </method>
+     <method name="GetZoneInfo">
+          <arg type="s" direction="in"></arg>
+          <arg type="(ssi(xxi))" direction="out"></arg>
+          <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value ="ZoneInfo"/>
+     </method>
+     <method name="GetZoneList">
+          <arg type="as" direction="out"></arg>
+     </method>
+     <method name="SetDate">
+          <arg type="i" direction="in"></arg>
+          <arg type="i" direction="in"></arg>
+          <arg type="i" direction="in"></arg>
+          <arg type="i" direction="in"></arg>
+          <arg type="i" direction="in"></arg>
+          <arg type="i" direction="in"></arg>
+          <arg type="i" direction="in"></arg>
+     </method>
+     <method name="SetLocalRTC">
+          <arg type="b" direction="in"></arg>
+          <arg type="b" direction="in"></arg>
+     </method>
+     <method name="SetNTP">
+          <arg type="b" direction="in"></arg>
+     </method>
+     <method name="SetTime">
+          <arg type="x" direction="in"></arg>
+          <arg type="b" direction="in"></arg>
+     </method>
+     <method name="SetTimezone">
+          <arg type="s" direction="in"></arg>
+     </method>
+     <property name="CanNTP" type="b" access="read"></property>
+     <property name="NTP" type="b" access="read"></property>
+     <property name="LocalRTC" type="b" access="read"></property>
+     <property name="Timezone" type="s" access="read"></property>
+     <property name="Use24HourFormat" type="b" access="readwrite"></property>
+     <property name="DSTOffset" type="i" access="readwrite"></property>
+     <property name="UserTimezones" type="as" access="read"></property>
+</interface>
+
