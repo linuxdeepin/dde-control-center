@@ -59,7 +59,7 @@ Item {
                 topMargin: 10
                 horizontalCenter: parent.horizontalCenter
             }
-            text: dsTr("To start sharing your desktop, please provide the above verification code to whom will assist you;  your shared session will begin immediately after verification code input")
+            text: dsTr("To start sharing your desktop, please provide the above verification code to whom will assist you. Your shared session will begin immediately after verification code input")
         }
     }
 

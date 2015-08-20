@@ -165,7 +165,7 @@ Item {
             name: "gotContent"
             PropertyChanges {
                 target: codeText
-                text: dsTr("Start after clicking on \“Connect\”")
+                text: dsTr("Start remote access after clicking on \"Connect\"")
                 color: "#7C7C7C"
             }
             PropertyChanges {

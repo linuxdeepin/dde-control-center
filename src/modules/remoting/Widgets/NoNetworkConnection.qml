@@ -23,7 +23,7 @@ Item {
                 top: parent.top
                 horizontalCenter: parent.horizontalCenter
             }
-            text: dsTr("No network connection is available!")
+            text: dsTr("No network connections are available, please retry...")
         }
     }
 }

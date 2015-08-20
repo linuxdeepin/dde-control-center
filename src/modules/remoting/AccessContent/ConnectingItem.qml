@@ -72,7 +72,7 @@ Item {
                 horizontalAlignment: Text.AlignHCenter
                 font.pixelSize: 10
                 color: "#7C7C7C"
-                text: dsTr("Share window would be opend when connect is done")
+                text: dsTr("This panel will be hidden automatically and the remote session window will be opened on the desktop after connection is established successfully")
             }
         }
     }

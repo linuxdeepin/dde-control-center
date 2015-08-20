@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-20 16:19+0800\n"
+"POT-Creation-Date: 2015-08-20 14:55+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -745,8 +745,7 @@ msgstr ""
 msgid "Subnet Mask"
 msgstr ""
 
-#: ../src/modules/network/Info.qml:63
-#: ../src/modules/network/add/AddVpn.qml:115
+#: ../src/modules/network/Info.qml:63 ../src/modules/network/add/AddVpn.qml:115
 #: ../src/modules/network/add/AddVpn.qml:155
 #: ../src/modules/network/add/AddVpn.qml:235
 #: ../src/modules/network/add/AddVpn.qml:385
@@ -1776,11 +1775,15 @@ msgid "Establishing connection, please wait..."
 msgstr ""
 
 #: ../src/modules/remoting/AccessContent/ConnectingItem.qml:75
-msgid "Share window would be opend when connect is done"
+msgid ""
+"This panel will be hidden automatically and the remote session window will "
+"be opened on the desktop after connection is established successfully"
 msgstr ""
 
 #: ../src/modules/remoting/AccessContent/ErrorItem.qml:42
-msgid "Failed to establish the connection, you can retry to connect "
+#: ../src/modules/remoting/AccessPanel.qml:81
+#: ../src/modules/remoting/AccessPanel.qml:127
+msgid "Failed to establish the connection, you can retry to connect"
 msgstr ""
 
 #: ../src/modules/remoting/AccessContent/ErrorItem.qml:70
@@ -1794,28 +1797,22 @@ msgid "Please enter the verification code in the input field above"
 msgstr ""
 
 #: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:168
-msgid "Start after clicking on “Connect”"
+msgid "Start remote access after clicking on \"Connect\""
 msgstr ""
 
 #: ../src/modules/remoting/AccessPanel.qml:60
-#: ../src/modules/remoting/AccessPanel.qml:94
+#: ../src/modules/remoting/AccessPanel.qml:95
 #: ../src/modules/remoting/SharePanel.qml:54
 #: ../src/modules/remoting/SharePanel.qml:94
-msgid ""
-"There is no network connection currently, please try again after you connect "
-"to the Internet"
+#: ../src/modules/remoting/Widgets/NoNetworkConnection.qml:26
+msgid "No network connections are available, please retry..."
 msgstr ""
 
-#: ../src/modules/remoting/AccessPanel.qml:80
-#: ../src/modules/remoting/AccessPanel.qml:124
-msgid "Failed to establish the connection, you can retry to connect"
+#: ../src/modules/remoting/AccessPanel.qml:122
+msgid "The verification code is invalid, please retry"
 msgstr ""
 
-#: ../src/modules/remoting/AccessPanel.qml:119
-msgid "The verification code is invalid! Please retry"
-msgstr ""
-
-#: ../src/modules/remoting/AccessPanel.qml:143
+#: ../src/modules/remoting/AccessPanel.qml:146
 msgid "Accessing"
 msgstr ""
 
@@ -1841,7 +1838,7 @@ msgstr ""
 
 #: ../src/modules/remoting/ShareContent/ConnectedItem.qml:35
 msgid ""
-"Your desktop is sharing, you can continue to share or select to disconnect"
+"Sharing your desktop, your can continue to share or choose to disconnect"
 msgstr ""
 
 #: ../src/modules/remoting/ShareContent/ErrorItem.qml:42
@@ -1854,7 +1851,7 @@ msgstr ""
 #: ../src/modules/remoting/ShareContent/GeneratedCodeItem.qml:62
 msgid ""
 "To start sharing your desktop, please provide the above verification code to "
-"whom will assist you;  your shared session will begin immediately after "
+"whom will assist you. Your shared session will begin immediately after "
 "verification code input"
 msgstr ""
 
@@ -1872,10 +1869,6 @@ msgstr ""
 
 #: ../src/modules/remoting/SharePanel.qml:131
 msgid "Sharing"
-msgstr ""
-
-#: ../src/modules/remoting/Widgets/NoNetworkConnection.qml:26
-msgid "No network connection is available!"
 msgstr ""
 
 #: ../src/modules/shared/ResetButton.qml:39

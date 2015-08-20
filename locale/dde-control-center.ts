@@ -5,19 +5,19 @@
     <name>AccessPanel</name>
     <message>
         <location filename="../src/modules/remoting/AccessPanel.qml" line="+60"/>
-        <location line="+34"/>
-        <source>There is no network connection currently, please try again after you connect to the Internet</source>
+        <location line="+35"/>
+        <source>No network connections are available, please retry...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-14"/>
-        <location line="+44"/>
+        <location line="+46"/>
         <source>Failed to establish the connection, you can retry to connect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-5"/>
-        <source>The verification code is invalid! Please retry</source>
+        <source>The verification code is invalid, please retry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -638,7 +638,7 @@
     </message>
     <message>
         <location filename="../src/modules/remoting/ShareContent/ConnectedItem.qml" line="-11"/>
-        <source>Your desktop is sharing, you can continue to share or select to disconnect</source>
+        <source>Sharing your desktop, your can continue to share or choose to disconnect</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -651,7 +651,7 @@
     </message>
     <message>
         <location line="+25"/>
-        <source>Share window would be opend when connect is done</source>
+        <source>This panel will be hidden automatically and the remote session window will be opened on the desktop after connection is established successfully</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1747,7 +1747,7 @@
     <name>ErrorItem</name>
     <message>
         <location filename="../src/modules/remoting/AccessContent/ErrorItem.qml" line="+42"/>
-        <source>Failed to establish the connection, you can retry to connect </source>
+        <source>Failed to establish the connection, you can retry to connect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1813,7 +1813,7 @@
     <name>GeneratedCodeItem</name>
     <message>
         <location filename="../src/modules/remoting/ShareContent/GeneratedCodeItem.qml" line="+62"/>
-        <source>To start sharing your desktop, please provide the above verification code to whom will assist you;  your shared session will begin immediately after verification code input</source>
+        <source>To start sharing your desktop, please provide the above verification code to whom will assist you. Your shared session will begin immediately after verification code input</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2259,7 +2259,7 @@
     </message>
     <message>
         <location line="+34"/>
-        <source>Start after clicking on “Connect”</source>
+        <source>Start remote access after clicking on &quot;Connect&quot;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2280,7 +2280,7 @@
     <name>NoNetworkConnection</name>
     <message>
         <location filename="../src/modules/remoting/Widgets/NoNetworkConnection.qml" line="+26"/>
-        <source>No network connection is available!</source>
+        <source>No network connections are available, please retry...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2494,19 +2494,19 @@
 <context>
     <name>SharePanel</name>
     <message>
-        <location filename="../src/modules/remoting/SharePanel.qml" line="+54"/>
-        <location line="+40"/>
-        <source>There is no network connection currently, please try again after you connect to the Internet</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-14"/>
+        <location filename="../src/modules/remoting/SharePanel.qml" line="+80"/>
         <location line="+38"/>
         <source>Failed to get the verification code, you can retry or cancel the operation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="-64"/>
+        <location line="+40"/>
+        <source>No network connections are available, please retry...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+37"/>
         <source>Sharing</source>
         <translation type="unfinished"></translation>
     </message>
