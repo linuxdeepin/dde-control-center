@@ -13,7 +13,12 @@ HEADERS += $$PWD/searchlist.h \
     $$PWD/shortcutedit.h \
     $$PWD/imagenamebutton.h \
     $$PWD/addrmdoneline.h \
-    $$PWD/multiaddcheckbutton.h
+    $$PWD/multiaddcheckbutton.h \
+    $$PWD/inputline.h \
+    $$PWD/switchline.h \
+    $$PWD/confirmbuttonline.h \
+    $$PWD/applybuttonline.h \
+    $$PWD/passwdline.h
 SOURCES += $$PWD/searchlist.cpp \
     $$PWD/dynamiclabel.cpp \
     $$PWD/moduleheader.cpp \
@@ -22,7 +27,12 @@ SOURCES += $$PWD/searchlist.cpp \
     $$PWD/shortcutedit.cpp \
     $$PWD/imagenamebutton.cpp \
     $$PWD/addrmdoneline.cpp \
-    $$PWD/multiaddcheckbutton.cpp
+    $$PWD/multiaddcheckbutton.cpp \
+    $$PWD/inputline.cpp \
+    $$PWD/switchline.cpp \
+    $$PWD/confirmbuttonline.cpp \
+    $$PWD/applybuttonline.cpp \
+    $$PWD/passwdline.cpp
 
 RESOURCES += \
     $$PWD/themes/widgets_theme_dark.qrc \

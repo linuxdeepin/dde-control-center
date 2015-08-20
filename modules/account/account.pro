@@ -20,9 +20,9 @@ HEADERS         += \
     UserContent/webcamavatarpanel.h \
     UserContent/avatargrid.h \
     accountmainwidget.h \
-    UserContent/switchline.h \
     UserContent/accounttypeline.h \
-    UserContent/passwordline.h
+    createuserpanel.h \
+    UserContent/passwordframe.h
 SOURCES         += \
     account.cpp \
     dbus/dbusaccount.cpp \
@@ -37,9 +37,9 @@ SOURCES         += \
     UserContent/webcamavatarpanel.cpp \
     UserContent/avatargrid.cpp \
     accountmainwidget.cpp \
-    UserContent/switchline.cpp \
     UserContent/accounttypeline.cpp \
-    UserContent/passwordline.cpp
+    createuserpanel.cpp \
+    UserContent/passwordframe.cpp
 TARGET          = $$qtLibraryTarget(account)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 

@@ -10,7 +10,7 @@
 #include "libdui/dswitchlineexpand.h"
 #include "webcamavatarpanel.h"
 #include "accounttypeline.h"
-#include "passwordline.h"
+#include "passwordframe.h"
 #include "avatargrid.h"
 #include "switchline.h"
 
@@ -42,7 +42,7 @@ private:
     DBusAccountUser *m_accountUser = NULL;
     QStackedWidget *m_stackWidget = NULL;
     DSegmentedControl *m_segmentedControl = NULL;
-    PasswordLine *m_passwordLine = NULL;
+    PasswordFrame *m_passwordFrame = NULL;
     AccountTypeLine *m_typeLine = NULL;
     SwitchLine *m_autoLoginLine = NULL;
     SwitchLine *m_lockLine = NULL;

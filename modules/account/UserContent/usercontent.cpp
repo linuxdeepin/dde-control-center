@@ -31,7 +31,7 @@ void UserContent::initSegmentedControl()
     m_segmentedControl->addSegmented("Recently Used");
     m_segmentedControl->addSegmented("Avatar");
     m_segmentedControl->addSegmented("Webcam");
-    m_segmentedControl->setMaximumWidth(230);
+//    m_segmentedControl->setMaximumWidth(230);
     m_segmentedControl->setCurrentIndex(1);
 
     m_mainLayout->addSpacing(LAYOUT_SPACING);
@@ -120,15 +120,15 @@ void UserContent::initAccountType()
 
 void UserContent::initPassword()
 {
-    m_passwordLine = new PasswordLine();
-    connect(m_passwordLine, &PasswordLine::sizeChanged, [=]{
+    m_passwordFrame = new PasswordFrame();
+    connect(m_passwordFrame, &PasswordFrame::sizeChanged, [=]{
         updateSize();
     });
-    connect(m_passwordLine, &PasswordLine::changePassword, [=](QString password){
+    connect(m_passwordFrame, &PasswordFrame::changePassword, [=](QString password){
         m_accountUser->SetPassword(password);
     });
 
-    m_mainLayout->addWidget(m_passwordLine);
+    m_mainLayout->addWidget(m_passwordFrame);
 }
 
 void UserContent::onAvatarSelected(const QString &avatar)
@@ -146,7 +146,7 @@ void UserContent::updateSize(bool note)
     int totalHeight = LAYOUT_SPACING * 2;
     totalHeight += m_stackWidget->height();
     totalHeight += m_segmentedControl->height();
-    totalHeight += m_passwordLine->height();
+    totalHeight += m_passwordFrame->height();
     totalHeight += m_typeLine->height();
     totalHeight += m_autoLoginLine->height();
     totalHeight += m_lockLine->height();
