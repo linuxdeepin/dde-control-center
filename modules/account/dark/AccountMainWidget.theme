@@ -1,7 +1,32 @@
+/*
 AvatarGrid, UserContent, QScrollArea{
+    background-color: transparent;
+}
+*/
+* {
     background-color: transparent;
 }
 
 UserHeader {
     background-color: #1A1B1B;
+}
+
+/********************************** Create Frame ************************/
+CreateUserPanel {
+    qproperty-lineBackgroundColor: #1A1B1B;
+}
+
+QLabel#CreateHeaderLabel {
+    font-size: 14px;
+    color: #01BDFF;
+}
+
+QLabel#NewNameLabel {
+    font-size: 14px;
+    color: #b4b4b4;
+}
+
+QLabel#NewTypeLabel {
+    font-size: 12px;
+    color: #b4b4b4;
 }

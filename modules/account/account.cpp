@@ -6,13 +6,7 @@
 Account::Account()
 {
     m_label = new QLabel("Account");
-
-    /*
-    SessionManager { id: dbus_session_manager }
-    Accounts { id: dbus_accounts }
-    User { id: dbus_user }
-    User { id: current_user; path: dbus_accounts.FindUserById(dbus_session_manager.currentUid)}
-*/
+    m_mainWidget = new AccountMainWidget;
 }
 
 Account::~Account()
@@ -20,9 +14,10 @@ Account::~Account()
     qDebug() << "~Account()";
 
     m_label->deleteLater();
+    m_mainWidget->deleteLater();
 }
 
 QFrame* Account::getContent()
 {
-    return new AccountMainWidget();
+    return m_mainWidget;
 }

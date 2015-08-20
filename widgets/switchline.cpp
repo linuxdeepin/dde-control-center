@@ -10,6 +10,11 @@ SwitchLine::SwitchLine(QWidget *parent) : DHeaderLine(parent)
     sh->move(0, height() - 2);
 }
 
+bool SwitchLine::check() const
+{
+    return m_button->checked();
+}
+
 void SwitchLine::setCheck(bool s)
 {
     m_button->setChecked(s);

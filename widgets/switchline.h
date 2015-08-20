@@ -13,6 +13,7 @@ class SwitchLine : public DHeaderLine
     Q_OBJECT
 public:
     explicit SwitchLine(QWidget *parent = 0);
+    bool check() const;
     void setCheck(bool s);
 
 signals:

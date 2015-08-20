@@ -13,13 +13,13 @@
 
 DUI_USE_NAMESPACE
 
-class AccountMainWidget : public QFrame
+class MainWidget : public QFrame
 {
     Q_OBJECT
 
 public:
-    explicit AccountMainWidget(QWidget *parent = 0);
-    ~AccountMainWidget();
+    explicit MainWidget(QWidget *parent = 0);
+    ~MainWidget();
 
 signals:
     void addCustomShortcut();

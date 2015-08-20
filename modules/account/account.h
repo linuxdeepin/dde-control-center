@@ -21,6 +21,7 @@ public:
 
 private:
     QLabel * m_label;
+    AccountMainWidget*m_mainWidget;
 };
 
 #endif

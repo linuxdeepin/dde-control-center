@@ -12,6 +12,11 @@ AccountTypeLine::AccountTypeLine(QWidget *parent) : DHeaderLine(parent)
     separator->move(0, height() - 2);
 }
 
+int AccountTypeLine::currentIndex() const
+{
+    return m_control->currentIndex();
+}
+
 void AccountTypeLine::setType(int type)
 {
     m_control->setCurrentIndex(type);

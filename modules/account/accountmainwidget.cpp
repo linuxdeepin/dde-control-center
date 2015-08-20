@@ -25,8 +25,6 @@ AccountMainWidget::AccountMainWidget(QWidget *parent) : QFrame(parent)
         else
             m_stackWidget->setCurrentIndex(0);
     });
-
-    setStyleSheet("background-color: transparent;");
 }
 
 void AccountMainWidget::initHeader()
@@ -105,6 +103,12 @@ void AccountMainWidget::initListPanel()
 void AccountMainWidget::initCreatePanel()
 {
     m_createPanel = new CreateUserPanel();
+    connect(m_createPanel, &CreateUserPanel::createCancel, [=]{
+        setPanelState(StateNormal);
+    });
+    connect(m_createPanel, &CreateUserPanel::createConfirm, [=]{
+        setPanelState(StateNormal);
+    });
 
     m_stackWidget->addWidget(m_createPanel);
 }
