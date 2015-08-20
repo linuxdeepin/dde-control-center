@@ -40,7 +40,7 @@ Keyboard::Keyboard() :
 Keyboard::~Keyboard()
 {
     qDebug() << "~Keyboard and Language";
-    delete m_frame;
+    m_frame->deleteLater();
 }
 
 void Keyboard::initBackend()
@@ -91,12 +91,14 @@ void Keyboard::initUI()
 
     QVBoxLayout * mainLayout = new QVBoxLayout(m_frame);
     mainLayout->setMargin(10);
+    mainLayout->setSpacing(0);
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
     /// Header
     ModuleHeader * header = new ModuleHeader("Keyboard and Language");
     mainLayout->addWidget(header);
     mainLayout->addWidget(new DSeparatorHorizontal);
+    mainLayout->addSpacing(10);
     connect(header, &ModuleHeader::resetButtonClicked, [=] {
         m_dbusKeyboard->Reset();
     });
@@ -159,6 +161,7 @@ void Keyboard::initUI()
     basicSettingsLayout->addWidget(testAreaEdit, 3, 1);
 
     mainLayout->addLayout(basicSettingsLayout);
+    mainLayout->addSpacing(10);
     mainLayout->addWidget(new DSeparatorHorizontal);
 
     DHeaderLine * capsLockLine = new DHeaderLine;
@@ -181,9 +184,10 @@ void Keyboard::initUI()
     keyboardLayoutLine->setAddButtonToolTip(tr("Add Keyboard Layout"));
 
     SearchList *user_layout_list = new SearchList;
-    user_layout_list->setItemSize(290, MENU_ITEM_HEIGHT);
+    user_layout_list->setItemSize(290, EXPAND_HEADER_HEIGHT);
     user_layout_list->setCheckable(true);
     updateKeyboardLayout(user_layout_list, keyboardLayoutLine);
+    keyboardLayoutLine->setRemoveHidden(user_layout_list->count()<2);
 
     FirstLetterClassify *letter_list = new FirstLetterClassify(m_frame);
     QDBusPendingReply<KeyboardLayoutList> list = m_dbusKeyboard->LayoutList();
@@ -237,7 +241,7 @@ void Keyboard::initUI()
     connect(keyboardLayoutLine, &AddRmDoneLine::doneClicked, [=]{
         keyboardLayoutLine->setDoneHidden(true);
         keyboardLayoutLine->setAddHidden(false);
-        keyboardLayoutLine->setRemoveHidden(false);
+        keyboardLayoutLine->setRemoveHidden(user_layout_list->count()<2);
 
         letter_list->hide();
         user_layout_list->show();

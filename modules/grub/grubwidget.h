@@ -14,15 +14,18 @@
 
 DUI_USE_NAMESPACE
 
+class ModuleHeader;
 class GrubWidget : public QFrame
 {
+    Q_OBJECT
+
 public:
     explicit GrubWidget(QWidget *parent = 0);
     ~GrubWidget();
 
 private:
     QVBoxLayout *m_layout;
-    DHeaderLine *m_header;
+    ModuleHeader *m_header;
     DArrowLineExpand *m_arrowDefaultBoot;
     DArrowLineExpand *m_arrowBootDelay;
     DArrowLineExpand *m_arrowTextColor;

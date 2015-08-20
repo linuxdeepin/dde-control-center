@@ -18,18 +18,16 @@ KeyboardLayoutItem::KeyboardLayoutItem(bool showRmButton, QWidget *parent) :
 {
     D_THEME_INIT_WIDGET(KeyboardLayoutItem);
 
-    ImageNameButton *delete_button = new ImageNameButton("delete_multi", this);
-    delete_button->move(8, 4);
-    delete_button->setHidden(!showRmButton);
+    m_deleteButton = new ImageNameButton("delete_multi", this);
+    m_deleteButton->setHidden(!showRmButton);
 
-    connect(delete_button, &ImageNameButton::clicked, this, &KeyboardLayoutItem::removeButtonClicked);
+    connect(m_deleteButton, &ImageNameButton::clicked, this, &KeyboardLayoutItem::removeButtonClicked);
     connect(this, &KeyboardLayoutItem::showRemoveButton, [=]{
         if(!m_checked){
-            delete_button->move(8, height()/2-delete_button->height()/2);
-            delete_button->show();
+            m_deleteButton->show();
         }
     });
-    connect(this, &KeyboardLayoutItem::hideRemoveButton, delete_button, &ImageNameButton::hide);
+    connect(this, &KeyboardLayoutItem::hideRemoveButton, m_deleteButton, &ImageNameButton::hide);
 
     m_layout->setMargin(0);
     m_layout->setContentsMargins(22, 0, 0, 0);
@@ -181,5 +179,12 @@ bool KeyboardLayoutItem::eventFilter(QObject *obj, QEvent *e)
     }
 
     return false;
+}
+
+void KeyboardLayoutItem::resizeEvent(QResizeEvent *e)
+{
+    m_deleteButton->move(8, height()/2-m_deleteButton->height()/2);
+
+    QFrame::resizeEvent(e);
 }
 

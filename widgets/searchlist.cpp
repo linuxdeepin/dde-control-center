@@ -45,10 +45,10 @@ void SearchList::insertItem(int index, SearchItem *data)
     m_itemList.insert(index, data);
     QWidget *w = data->widget();
     if(m_itemWidth>0)
-        w->setMinimumWidth(m_itemWidth);
+        w->setFixedWidth(m_itemWidth);
     if(m_itemHeight>0){
-        w->setMinimumHeight(m_itemHeight);
-        setMinimumHeight(count()*(m_layout->spacing()+m_itemHeight)-m_layout->spacing());
+        w->setFixedHeight(m_itemHeight);
+        setFixedHeight(count()*(m_layout->spacing()+m_itemHeight)-m_layout->spacing());
     }
 
     w->installEventFilter(this);
@@ -92,7 +92,7 @@ void SearchList::clear()
 
     m_itemList.clear();
 
-    setMinimumHeight(0);
+    setFixedHeight(0);
     setCheckedItem(-1);
     emit countChanged();
 }
@@ -118,7 +118,7 @@ void SearchList::removeItem(int index)
     }
 
     if(m_itemHeight>0)
-        setMinimumHeight(count()*(m_layout->spacing()+m_itemHeight)-m_layout->spacing());
+        setFixedHeight(count()*(m_layout->spacing()+m_itemHeight)-m_layout->spacing());
 
     emit countChanged();
 }
@@ -176,7 +176,7 @@ void SearchList::showItem(int index)
     if(w&&!w->isVisible()){
         w->show();
         if(m_itemHeight>0)
-            setMinimumHeight(minimumHeight()+m_layout->spacing()+m_itemHeight);
+            setFixedHeight(height()+m_layout->spacing()+m_itemHeight);
     }
 }
 
@@ -186,7 +186,7 @@ void SearchList::hideItem(int index)
     if(w&&w->isVisible()){
         w->hide();
         if(m_itemHeight>0)
-            setMinimumHeight(minimumHeight()-m_layout->spacing()-m_itemHeight);
+            setFixedHeight(height()-m_layout->spacing()-m_itemHeight);
     }
 }
 

@@ -16,3 +16,5 @@ TARGET          = $$qtLibraryTarget(grub)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 
 LIBS += -ldui
+
+include(../../widgets/widgets.pri)

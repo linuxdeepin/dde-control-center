@@ -8,13 +8,15 @@
 #include <libdui/dsegmentedcontrol.h>
 #include <libdui/dbuttonlist.h>
 
+#include "moduleheader.h"
+
 #include "grubwidget.h"
 #include "dbustheme.h"
 
 GrubWidget::GrubWidget(QWidget *parent):
     QFrame(parent),
     m_layout(new QVBoxLayout()),
-    m_header(new DHeaderLine()),
+    m_header(new ModuleHeader(tr("Boot Menu"))),
     m_arrowDefaultBoot(new DArrowLineExpand()),
     m_arrowBootDelay(new DArrowLineExpand()),
     m_arrowTextColor(new DArrowLineExpand()),
@@ -41,10 +43,7 @@ void GrubWidget::init()
 {
     m_layout->setMargin(0);
 
-    m_header->setTitle(tr("Boot Menu"));
-    DTextButton *re_button = new DTextButton(tr("Reset"));
-    connect(re_button, &DTextButton::clicked, m_grubDbus, &GrubDbus::Reset);
-    m_header->setContent(re_button);
+    connect(m_header, &ModuleHeader::resetButtonClicked, m_grubDbus, &GrubDbus::Reset);
 
     m_tooltip = new QLabel(m_grubBackground);
     m_tooltip->setStyleSheet("QLabel{background:rbga(0,0,0,110);color:white;}");
@@ -74,14 +73,15 @@ void GrubWidget::init()
 
     m_arrowDefaultBoot->setTitle(tr("Default Boot"));
     m_arrowDefaultBoot->setContent(m_bootEntryList);
-    m_arrowDefaultBoot->setExpand(false);
 
     QWidget *bg_ts = new QWidget;
     bg_ts->setFixedSize(310, 30);
     DSegmentedControl *timeout_select = new DSegmentedControl(bg_ts);
     timeout_select->setStyleSheet(timeout_select->styleSheet()
                                   +"DUI--DSegmentedControl#DSegmentedControl\
-    {color:#f0f0f0;border:none;background: transparent;}");
+                                    {color:#f0f0f0;border:none;background: transparent;}\
+                                    DUI--DSegmentedHighlight#Highlight{border:none;\
+                                    background-color: #66000000;border-radius:3px;}");
     timeout_select->addSegmented(QStringList()<<"1s"<<"5s"<<"10s"<<"15s"<<"20s"<<"25s"<<"30s");
     timeout_select->setFixedSize(bg_ts->width()*0.9, 24);
     timeout_select->move(bg_ts->rect().center()-timeout_select->rect().center());
@@ -95,7 +95,6 @@ void GrubWidget::init()
 
     m_arrowBootDelay->setTitle(tr("Boot delay"));
     m_arrowBootDelay->setContent(bg_ts);
-    m_arrowBootDelay->setExpand(false);
 
     DColorPicker *picker1 = new DColorPicker(10, this);
     picker1->setCurrentColor(m_themeDbus->itemColor());
@@ -104,7 +103,6 @@ void GrubWidget::init()
 
     m_arrowTextColor->setTitle(tr("Text Color"));
     m_arrowTextColor->setContent(picker1);
-    m_arrowTextColor->setExpand(false);
 
     DColorPicker *picker2 = new DColorPicker(10, this);
     picker2->setCurrentColor(m_themeDbus->selectedItemColor());
@@ -113,7 +111,6 @@ void GrubWidget::init()
 
     m_arrowSelectedTextColor->setTitle("Selected Text Color");
     m_arrowSelectedTextColor->setContent(picker2);
-    m_arrowSelectedTextColor->setExpand(false);
 
     m_layout->setSpacing(0);
     m_layout->addWidget(m_header);

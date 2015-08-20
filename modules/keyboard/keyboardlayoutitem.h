@@ -7,6 +7,7 @@
 
 #include "searchlist.h"
 
+class ImageNameButton;
 class KeyboardLayoutItem : public QFrame, public SearchItem
 {
     Q_OBJECT
@@ -49,7 +50,8 @@ signals:
     void hideRemoveButton();
 
 protected:
-    bool eventFilter(QObject *obj, QEvent *e);
+    bool eventFilter(QObject *obj, QEvent *e) Q_DECL_OVERRIDE;
+    void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
 
 private:
     QWidget *m_widget;
@@ -61,6 +63,7 @@ private:
     QString m_imageNormal;
     QStringList m_keyWords;
     QString m_imageChecked;
+    ImageNameButton *m_deleteButton;
 };
 
 #endif // KEYBOARDLAYOUTITEM_H
