@@ -140,9 +140,9 @@ void HomeScreen::hide()
 
     connect(aniHideCenterWidget, &QPropertyAnimation::finished, [this] () -> void {QFrame::hide();});
 
-    aniHideCenterWidget->start();
-    aniHideBottomWidget->start();
-    aniHideTopWidget->start();
+    aniHideCenterWidget->start(QAbstractAnimation::DeleteWhenStopped);
+    aniHideBottomWidget->start(QAbstractAnimation::DeleteWhenStopped);
+    aniHideTopWidget->start(QAbstractAnimation::DeleteWhenStopped);
 }
 
 void HomeScreen::show()
@@ -164,9 +164,9 @@ void HomeScreen::show()
     aniShowTopWidget->setDuration(DCC::FrameAnimationDuration);
     aniShowTopWidget->setEasingCurve(QEasingCurve::InQuad);
 
-    aniShowCenterWidget->start();
-    aniShowBottomWidget->start();
-    aniShowTopWidget->start();
+    aniShowCenterWidget->start(QAbstractAnimation::DeleteWhenStopped);
+    aniShowBottomWidget->start(QAbstractAnimation::DeleteWhenStopped);
+    aniShowTopWidget->start(QAbstractAnimation::DeleteWhenStopped);
     QFrame::show();
 }
 

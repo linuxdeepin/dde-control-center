@@ -65,7 +65,7 @@ void ContentView::hide()
     animation->setEndValue(0.0);
     animation->setDuration(DCC::FrameAnimationDuration);
     connect(animation, &QPropertyAnimation::finished, [this] () -> void {QFrame::hide();});
-    animation->start();
+    animation->start(QAbstractAnimation::DeleteWhenStopped);
 }
 
 void ContentView::show()
@@ -74,7 +74,7 @@ void ContentView::show()
     animation->setStartValue(0.0);
     animation->setEndValue(1.0);
     animation->setDuration(DCC::FrameAnimationDuration);
-    animation->start();
+    animation->start(QAbstractAnimation::DeleteWhenStopped);
     QFrame::show();
 }
 

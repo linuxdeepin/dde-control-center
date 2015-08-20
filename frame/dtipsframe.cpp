@@ -41,7 +41,7 @@ void DTipsFrame::move(int x, int y)
         animation->setEndValue(QRect(x, y, width(), height()));
         animation->setDuration(DCC::TipsMoveAnimationDuration);
         animation->setEasingCurve(QEasingCurve::OutCubic);
-        animation->start();
+        animation->start(QAbstractAnimation::DeleteWhenStopped);
     }
 }
 

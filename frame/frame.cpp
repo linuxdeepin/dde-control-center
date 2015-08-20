@@ -102,7 +102,7 @@ void Frame::show(bool imme)
         animation->setEndValue(QRect(endX, 0, width(), height()));
         animation->setEasingCurve(QEasingCurve::InCurve);
         animation->setDuration(animationDuration);
-        animation->start();
+        animation->start(QAbstractAnimation::DeleteWhenStopped);
     }
 
     setFocus();
@@ -143,7 +143,7 @@ void Frame::hide(bool imme)
         animation->setEndValue(QRect(endX, 0, width(), height()));
         animation->setEasingCurve(QEasingCurve::OutCubic);
         animation->setDuration(animationDuration);
-        animation->start();
+        animation->start(QAbstractAnimation::DeleteWhenStopped);
 
         connect(animation, &QPropertyAnimation::finished, [this] () -> void {QFrame::hide();});
     }
