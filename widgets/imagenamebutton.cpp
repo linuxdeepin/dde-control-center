@@ -10,5 +10,6 @@ ImageNameButton::ImageNameButton(const QString &iconName, QWidget *parent) :
     setNormalPic(QPixmap(icon_path+"_normal.png"));
     setPressPic(QPixmap(icon_path+"_press.png"));
     setHoverPic(QPixmap(icon_path+"_hover.png"));
+    setCheckedPic(QPixmap(icon_path+"_checked.png"));
 }
 

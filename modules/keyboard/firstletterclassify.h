@@ -43,6 +43,7 @@ private:
     QHBoxLayout *m_layout;
     QLabel *m_label;
     MultiAddCheckButton *m_checkButton;
+    bool m_checked;
 };
 
 class FirstLetterClassify : public QFrame

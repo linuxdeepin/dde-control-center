@@ -29,5 +29,6 @@
         <file>dark/images/list_remove_normal.png</file>
         <file>dark/images/list_remove_press.png</file>
         <file>dark/MultiDeleteButton.theme</file>
+        <file>dark/MultiAddCheckButton.theme</file>
     </qresource>
 </RCC>
