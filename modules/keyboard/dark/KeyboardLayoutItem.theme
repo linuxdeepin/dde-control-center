@@ -23,3 +23,7 @@ KeyboardLayoutItem[checked="true"]{
 KeyboardLayoutItem[checked="true"] QLabel{
     color: #2CA7F8;
 }
+
+KeyboardLayoutItem[showBgColor="false"]{
+    background-color: transparent;
+}

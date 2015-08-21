@@ -19,6 +19,7 @@ class KeyboardLayoutItem : public QFrame, public SearchItem
     Q_PROPERTY(QString imagePress READ imagePress WRITE setImagePress)
     Q_PROPERTY(QString imageChecked READ imageChecked WRITE setImageChecked)
     Q_PROPERTY(QStringList keyWords READ keyWords WRITE setKeyWords)
+    Q_PROPERTY(bool showBgColor READ showBgColor WRITE setShowBgColor NOTIFY showBgColorChanged)
 
 public:
     explicit KeyboardLayoutItem(bool showRmButton = false, QWidget *parent = 0);
@@ -27,12 +28,15 @@ public:
     void setData(const QVariant &datas) Q_DECL_OVERRIDE;
     QVariant getData() Q_DECL_OVERRIDE;
     QWidget *widget() const Q_DECL_OVERRIDE;
+    void setListWidget(SearchList *list) Q_DECL_OVERRIDE;
+
     bool checked() const;
     QString title() const;
     QString imagePress() const;
     QString imageHover() const;
     QString imageNormal() const;
     QString imageChecked() const;
+    bool showBgColor() const;
 
 public slots:
     void setChecked(bool checked);
@@ -42,12 +46,14 @@ public slots:
     void setImageNormal(QString imageNormal);
     void setImageChecked(QString imageChecked);
     void setKeyWords(QStringList keyWords);
+    void setShowBgColor(bool showBgColor);
 
 signals:
     void checkedChanged(bool checked);
     void removeButtonClicked();
     void showRemoveButton();
     void hideRemoveButton();
+    void showBgColorChanged(bool showBgColor);
 
 protected:
     bool eventFilter(QObject *obj, QEvent *e) Q_DECL_OVERRIDE;
@@ -64,6 +70,7 @@ private:
     QStringList m_keyWords;
     QString m_imageChecked;
     ImageNameButton *m_deleteButton;
+    bool m_showBgColor;
 };
 
 #endif // KEYBOARDLAYOUTITEM_H

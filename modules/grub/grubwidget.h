@@ -23,6 +23,9 @@ public:
     explicit GrubWidget(QWidget *parent = 0);
     ~GrubWidget();
 
+protected:
+    bool eventFilter(QObject *, QEvent *) Q_DECL_OVERRIDE;
+
 private:
     QVBoxLayout *m_layout;
     ModuleHeader *m_header;
@@ -36,6 +39,7 @@ private:
     DButtonList *m_bootEntryList, *m_bootMenuTitle;
     QHBoxLayout *m_selectTimeoutLayout;
     QLabel *m_tooltip;
+    QStringList m_timeoutList;
 
     void init();
     Q_SLOT void setDefaultEntry(const QString &entry);
