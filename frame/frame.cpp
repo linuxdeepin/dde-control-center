@@ -51,8 +51,10 @@ Frame::Frame(QWidget * parent) :
 
 void Frame::changeEvent(QEvent *e)
 {
-//    if (m_visible && !isActiveWindow() && e->type() == QEvent::ActivationChange)
-//        hide();
+#ifndef QT_DEBUG // for test, we dont need it disapper
+    if (m_visible && !isActiveWindow() && e->type() == QEvent::ActivationChange)
+        hide();
+#endif
 
     QFrame::changeEvent(e);
 }

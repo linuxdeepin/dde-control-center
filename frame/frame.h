@@ -44,7 +44,7 @@ private:
 
     const int animationDuration = 300;
 
-    bool HideInLeft;
+    bool HideInLeft = false;
 };
 
 #endif

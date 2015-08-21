@@ -24,7 +24,6 @@ public:
 
 public slots:
     void switchAutoSync(const bool autoSync);
-    void switchClockFormat(const bool use24HourFormat);
 
 private:
     QFrame * m_frame;

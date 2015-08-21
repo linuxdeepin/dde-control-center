@@ -7,7 +7,7 @@
 #include <QLabel>
 #include <QDebug>
 #include <QEvent>
-#include <QTime>
+#include <QTimer>
 
 using DUI::DThemeManager;
 
@@ -40,7 +40,7 @@ void TimeWidget::switchToEditMode()
     m_normalWidget->hide();
     m_editWidget->show();
 
-    m_editWidget->setTime(QTime::currentTime());
+    m_editWidget->updateTime();
 }
 
 void TimeWidget::switchToNormalMode()
@@ -48,7 +48,7 @@ void TimeWidget::switchToNormalMode()
     m_normalWidget->show();
     m_editWidget->hide();
 
-    m_normalWidget->setTime(QTime::currentTime());
+    m_normalWidget->updateDateTime();
 }
 
 
@@ -60,32 +60,55 @@ NormalWidget::NormalWidget(QWidget *parent) :
     m_timeLabel = new QLabel;
     m_timeLabel->setAlignment(Qt::AlignCenter);
     m_timeLabel->setObjectName("TimeLabel");
-    QLabel *normalTipsLabel = new QLabel;
-    normalTipsLabel->setAlignment(Qt::AlignCenter);
-    normalTipsLabel->setText("asdadsasdasd");
-    normalTipsLabel->setObjectName("TipsLabel");
+
+    m_amOrPm = new QLabel;
+    m_amOrPm->setAlignment(Qt::AlignBottom | Qt::AlignVCenter);
+    m_amOrPm->setObjectName("TimeAmOrPm");
+
+    QHBoxLayout *hLayout = new QHBoxLayout;
+    hLayout->addStretch();
+    hLayout->addWidget(m_timeLabel);
+    hLayout->addWidget(m_amOrPm);
+    hLayout->addStretch();
+
+    m_tipsLabel = new QLabel;
+    m_tipsLabel->setAlignment(Qt::AlignCenter);
+    m_tipsLabel->setObjectName("TipsLabel");
 
     QVBoxLayout *normalLayout = new QVBoxLayout;
-    normalLayout->addWidget(m_timeLabel);
-    normalLayout->addWidget(normalTipsLabel);
+    normalLayout->addLayout(hLayout);
+    normalLayout->addWidget(m_tipsLabel);
     normalLayout->setContentsMargins(0, 30, 0, 30);
 
     setLayout(normalLayout);
-    setTime(QTime::currentTime());
+
+    // maybe its a Qt bug. we need adjust time format by m_amOrPm visible property.
+    QTimer::singleShot(0, this, SLOT(updateDateTime()));
 
     D_THEME_INIT_WIDGET(NormalWidget);
 }
 
-void NormalWidget::setTime(const QTime &time)
+void NormalWidget::updateDateTime()
 {
-    const QString hour = QString("%1").arg(QString::number(time.hour()), 2, '0');
-    const QString minute = QString("%1").arg(QString::number(time.minute()), 2, '0');
+    const QDateTime datetime = QDateTime::currentDateTime();
+    const int hour = datetime.time().hour() % (12 + 12 * !m_amOrPm->isVisible());
+    const QString hourStr = QString("%1").arg(QString::number(hour), 2, '0');
+    const QString minuteStr = QString("%1").arg(QString::number(datetime.time().minute()), 2, '0');
 
-    m_timeLabel->setText(QString("%1:%2").arg(hour).arg(minute));
+    m_timeLabel->setText(QString("%1:%2").arg(hourStr).arg(minuteStr));
+    m_tipsLabel->setText(datetime.toString("dddd, dd MMMM yyyy"));
+
+    m_amOrPm->setText(datetime.toString("A"));
 }
 
 void NormalWidget::enterEvent(QEvent *)
 {
+    m_tipsLabel->setText(tr("Double-click this area to change your time"));
+}
+
+void NormalWidget::leaveEvent(QEvent *)
+{
+    updateDateTime();
 }
 
 void NormalWidget::mouseDoubleClickEvent(QMouseEvent *)
@@ -97,7 +120,6 @@ void NormalWidget::mouseDoubleClickEvent(QMouseEvent *)
 EditWidget::EditWidget(QWidget *parent) :
     QWidget(parent)
 {
-
     m_spinHour = new TimeSpinBox;
     m_spinHour->setMaxNumber(23);
     m_spinMinute = new TimeSpinBox;
@@ -132,16 +154,18 @@ EditWidget::EditWidget(QWidget *parent) :
 
     setLayout(centeralLayout);
 
-    connect(m_setTimeButton, &DUI::DTextButton::clicked, [this] () -> void {emit accept(QTime(m_spinHour->text().toInt(), m_spinMinute->text().toInt()));});
+    connect(m_setTimeButton, &DUI::DTextButton::clicked, [this] () -> void {
+                emit accept(QDateTime(QDate::currentDate(), QTime(m_spinHour->text().toInt(), m_spinMinute->text().toInt())));
+            });
     connect(m_cancelTimeButton, &DUI::DTextButton::clicked, this, &EditWidget::cancel);
 
     D_THEME_INIT_WIDGET(EditWidget);
 }
 
-void EditWidget::setTime(const QTime &time)
+void EditWidget::updateTime()
 {
-    m_spinHour->setNumber(time.hour());
-    m_spinMinute->setNumber(time.minute());
+    m_spinHour->setNumber(QTime::currentTime().hour());
+    m_spinMinute->setNumber(QTime::currentTime().minute());
 }
 
 

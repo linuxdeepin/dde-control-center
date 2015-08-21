@@ -5,7 +5,7 @@
 #include <QLabel>
 
 #include <libdui/dseparatorhorizontal.h>
-#include <libdui/dbaseline.h>
+#include <libdui/dheaderline.h>
 #include <libdui/dimagebutton.h>
 
 #include "datetime.h"
@@ -21,25 +21,26 @@ Datetime::Datetime() :
 {
     ModuleHeader *header = new ModuleHeader(tr("Date and Time"), false);
 
-    DUI::DBaseLine *dateBaseLine = new DUI::DBaseLine;
-    dateBaseLine->setLeftContent(new QLabel(tr("Date")));
+    DUI::DHeaderLine *dateBaseLine = new DUI::DHeaderLine;
+    dateBaseLine->setTitle(tr("Date"));
 
     m_autoSyncSwitcher = new DUI::DSwitchButton;
     m_autoSyncSwitcher->setChecked(m_dbusInter.nTP());
-    DUI::DBaseLine *cyncBaseLine = new DUI::DBaseLine;
-    cyncBaseLine->setLeftContent(new QLabel(tr("Sync Automaticly")));
-    cyncBaseLine->setRightContent(m_autoSyncSwitcher);
+    DUI::DHeaderLine *cyncBaseLine = new DUI::DHeaderLine;
+    cyncBaseLine->setTitle(tr("Sync Automaticly"));
+    cyncBaseLine->setContent(m_autoSyncSwitcher);
 
     m_clockFormatSwitcher = new DUI::DSwitchButton;
     m_clockFormatSwitcher->setChecked(m_dbusInter.use24HourFormat());
-    DUI::DBaseLine *clockFormat = new DUI::DBaseLine;
-    clockFormat->setLeftContent(new QLabel(tr("Use 24-hour clock")));
-    clockFormat->setRightContent(m_clockFormatSwitcher);
+    DUI::DHeaderLine *clockFormat = new DUI::DHeaderLine;
+    clockFormat->setTitle(tr("Use 24-hour clock"));
+    clockFormat->setContent(m_clockFormatSwitcher);
 
     m_calendar = new DUI::DCalendar(m_frame);
     m_calendar->setMinimumHeight(350);
 
     TimeWidget *timeWidget = new TimeWidget;
+    timeWidget->setIs24HourFormat(m_dbusInter.use24HourFormat());
 
     QVBoxLayout *centeralLayout = new QVBoxLayout;
     centeralLayout->addWidget(header);
@@ -60,9 +61,15 @@ Datetime::Datetime() :
 
     m_frame->setLayout(centeralLayout);
 
-    connect(m_clockFormatSwitcher, &DUI::DSwitchButton::checkedChanged, this, &Datetime::switchClockFormat);
+    connect(m_clockFormatSwitcher, &DUI::DSwitchButton::checkedChanged, &m_dbusInter, &DBusTimedate::setUse24HourFormat);
+    connect(m_clockFormatSwitcher, &DUI::DSwitchButton::checkedChanged, timeWidget, &TimeWidget::setIs24HourFormat);
     connect(m_autoSyncSwitcher, &DUI::DSwitchButton::checkedChanged, this, &Datetime::switchAutoSync);
-    connect(timeWidget, &TimeWidget::applyTime, [this] (const QTime & time) -> void {qDebug() << time;});
+    connect(timeWidget, &TimeWidget::applyTime, [this] (const QDateTime & time) -> void {
+        m_dbusInter.SetTime(time.currentMSecsSinceEpoch(), true);
+    });
+    //connect(&m_dbusInter, &DBusTimedate::Use24HourFormatChanged, [timeWidget, this] () -> void {timeWidget->setIs24HourFormat(m_dbusInter.use24HourFormat());});
+
+    qDebug() << m_dbusInter.use24HourFormat();
 }
 
 Datetime::~Datetime()
@@ -74,16 +81,10 @@ Datetime::~Datetime()
 
 QFrame* Datetime::getContent()
 {
-    qDebug() << m_frame << "xxxxxxxxxxxxxxxx";
     return m_frame;
 }
 
 void Datetime::switchAutoSync(const bool autoSync)
 {
     m_dbusInter.SetNTP(autoSync);
-}
-
-void Datetime::switchClockFormat(const bool use24HourFormat)
-{
-    m_dbusInter.setUse24HourFormat(use24HourFormat);
 }

@@ -52,14 +52,18 @@ signals:
     void onDoubleClick();
 
 public slots:
-    void setTime(const QTime & time);
+    void updateDateTime();
+    inline void setIs24HourFormat(const bool is24HourFormat) {m_amOrPm->setVisible(!is24HourFormat); updateDateTime();}
 
 private:
     void enterEvent(QEvent *);
+    void leaveEvent(QEvent *);
     void mouseDoubleClickEvent(QMouseEvent *);
 
 private:
     QLabel *m_timeLabel;
+    QLabel *m_amOrPm;
+    QLabel *m_tipsLabel;
 };
 
 class EditWidget : public QWidget
@@ -70,11 +74,11 @@ public:
     EditWidget(QWidget *parent = 0);
 
 signals:
-    void accept(QTime time);
+    void accept(QDateTime time);
     void cancel();
 
 public slots:
-    void setTime(const QTime & time);
+    void updateTime();
 
 private:
     TimeSpinBox *m_spinHour;
@@ -91,12 +95,13 @@ public:
     TimeWidget(QWidget *parent = 0);
 
 signals:
-    void applyTime(QTime time);
+    void applyTime(QDateTime time);
 
 public slots:
     void switchToEditMode();
     void switchToNormalMode();
     //inline void setTime(const QTime & time) {m_normalWidget->setTime(time); m_editWidget->setTime(time);}
+    inline void setIs24HourFormat(const bool is24HourFormat) {m_normalWidget->setIs24HourFormat(is24HourFormat);}
 
 private:
     NormalWidget *m_normalWidget;
