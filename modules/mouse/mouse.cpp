@@ -175,6 +175,9 @@ Mouse::Mouse()
     m_doubleClickSpeedLabel->setWordWrap(true);
     m_forbiddenTouchpadWhenMouseLabel->setWordWrap(true);
 
+    onTouchPadExistChanged();////update widgets visible property
+    m_mouseSettingPanel->setVisible(m_mouseInterface->exist());
+
     layout->addWidget(m_topHeaderLine);
     layout->addWidget(m_firstHSeparator);
     layout->addWidget(m_mouseSettingPanel);
@@ -258,7 +261,15 @@ Mouse::Mouse()
             [&](bool arg){
         m_touchpadPrimaryButtonSetting->setCurrentIndex((int)arg);
     });
-
+    connect(m_mouseInterface, &ComDeepinDaemonInputDeviceMouseInterface::existChanged,
+            [&](bool arg){
+        m_mouseSettingPanel->setVisible(arg);
+        if(!arg){
+            m_secondHSeparator->setVisible(arg);
+        }
+    });
+    connect(m_touchpadInterface, &ComDeepinDaemonInputDeviceTouchPadInterface::existChanged,
+            this, &Mouse::onTouchPadExistChanged);
 }
 
 void Mouse::reset() {
@@ -366,6 +377,17 @@ void Mouse::enableTouchpadTwoFingerScroll(bool flag)
 void Mouse::enableTouchpadEdgeScroll(bool flag)
 {
     m_touchpadInterface->setEdgeScroll(flag);
+}
+
+void Mouse::onTouchPadExistChanged()
+{
+    bool touchpadExist = m_touchpadInterface->exist();
+
+    m_secondHSeparator->setVisible(touchpadExist&&m_mouseInterface->exist());
+    m_touchpadHeaderLine->setVisible(touchpadExist);
+    m_thirdHSeparator->setVisible(touchpadExist);
+    m_touchpadSettingPanel->setVisible(touchpadExist);
+    m_fourthHSeparator->setVisible(touchpadExist);
 }
 
 Mouse::~Mouse()

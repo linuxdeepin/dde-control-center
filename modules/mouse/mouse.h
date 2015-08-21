@@ -47,9 +47,8 @@ public slots:
     void enableTouchpadTapToClick(bool flag);
     void enableTouchpadTwoFingerScroll(bool flag);
     void enableTouchpadEdgeScroll(bool flag);
-
+    void onTouchPadExistChanged();
     void reset();
-
 private:
     QLabel * m_label;
 
