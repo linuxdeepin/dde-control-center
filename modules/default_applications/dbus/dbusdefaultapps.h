@@ -59,7 +59,7 @@ public:
     { return "com.deepin.daemon.DefaultApps"; }
 
 public:
-    DefaultDBusApps(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent = 0);
+    DefaultDBusApps(QObject *parent = 0);
 
     ~DefaultDBusApps();
 

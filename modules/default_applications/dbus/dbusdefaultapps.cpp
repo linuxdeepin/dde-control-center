@@ -15,8 +15,8 @@
  * Implementation of interface class DefaultApps
  */
 
-DefaultDBusApps::DefaultDBusApps(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent)
-    : QDBusAbstractInterface(service, path, staticInterfaceName(), connection, parent)
+DefaultDBusApps::DefaultDBusApps(QObject *parent)
+    : QDBusAbstractInterface("com.deepin.daemon", "/com/deepin/daemon/DefaultApps", staticInterfaceName(), QDBusConnection::sessionBus(), parent)
 {
 }
 

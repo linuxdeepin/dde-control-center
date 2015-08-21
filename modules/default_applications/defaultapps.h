@@ -10,6 +10,8 @@
 
 #include <libdui/darrowlineexpand.h>
 
+DUI_USE_NAMESPACE
+
 class QLabel;
 class QFrame;
 class DefaultApps : public QObject, ModuleInterface
@@ -32,7 +34,7 @@ private:
     };
 
 private:
-    DUI::DArrowLineExpand *createDefaultAppsExpand(const DefaultAppsCategory & category);
+    DArrowLineExpand *createDefaultAppsExpand(const DefaultAppsCategory & category);
     AppList getAppsListByCategory(const DefaultAppsCategory & category);
 
 private:

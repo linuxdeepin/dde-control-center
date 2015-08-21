@@ -17,11 +17,11 @@
 #include <libdui/dbuttonlist.h>
 #include <libdui/dswitchlineexpand.h>
 
-DefaultApps::DefaultApps()
-    : m_dbusDefaultApps("com.deepin.daemon", "/com/deepin/daemon/DefaultApps", QDBusConnection::sessionBus())
-{
-    Q_INIT_RESOURCE(dark);
+DUI_USE_NAMESPACE
 
+DefaultApps::DefaultApps()
+    : m_dbusDefaultApps(this)
+{
     AppList::registerMetaType();
     AppType::registerMetaType();
 
@@ -31,7 +31,7 @@ DefaultApps::DefaultApps()
     //QSpacerItem *vSpacer = new QSpacerItem(0, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
     QLabel *lbl_title = new QLabel(tr("Default Applications"));
     lbl_title->setStyleSheet("font-size:16px; font-weight:bold; color:#fff;");
-    DUI::DTextButton *btn_reset = new DUI::DTextButton(tr("Reset"));
+    DTextButton *btn_reset = new DTextButton(tr("Reset"));
 
     QHBoxLayout *titleLayout = new QHBoxLayout;
     titleLayout->addWidget(lbl_title);
@@ -40,17 +40,17 @@ DefaultApps::DefaultApps()
     titleLayout->setContentsMargins(15, 15, 15, 15);
     titleLayout->setSpacing(0);
 
-    DUI::DBaseLine *defaultApplications = new DUI::DBaseLine;
+    DBaseLine *defaultApplications = new DBaseLine;
     QLabel *lbl_defaultApps = new QLabel(tr("Default Applications"));
     lbl_defaultApps->setStyleSheet("font-size:14px; font-weight:bold; color:#ccc;");
     defaultApplications->setLeftContent(lbl_defaultApps);
 
-    DUI::DSwitchLineExpand *autoPlayApplications = new DUI::DSwitchLineExpand;
+    DSwitchLineExpand *autoPlayApplications = new DSwitchLineExpand;
     autoPlayApplications->setTitle(tr("AutoPlay"));
 
     QVBoxLayout *scrollLayout = new QVBoxLayout;
     scrollLayout->addWidget(defaultApplications);
-    scrollLayout->addWidget(new DUI::DSeparatorHorizontal);
+    scrollLayout->addWidget(new DSeparatorHorizontal);
     scrollLayout->addWidget(createDefaultAppsExpand(Browser));
     scrollLayout->addWidget(createDefaultAppsExpand(Mail));
     scrollLayout->addWidget(createDefaultAppsExpand(Text));
@@ -59,7 +59,7 @@ DefaultApps::DefaultApps()
     scrollLayout->addWidget(createDefaultAppsExpand(Picture));
     scrollLayout->addWidget(createDefaultAppsExpand(Terminal));
     scrollLayout->addWidget(autoPlayApplications);
-    scrollLayout->addWidget(new DUI::DSeparatorHorizontal);
+    scrollLayout->addWidget(new DSeparatorHorizontal);
     scrollLayout->addWidget(createDefaultAppsExpand(CD_Audio));
     scrollLayout->addWidget(createDefaultAppsExpand(DVD_Video));
     scrollLayout->addWidget(createDefaultAppsExpand(MusicPlayer));
@@ -84,7 +84,7 @@ DefaultApps::DefaultApps()
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addLayout(titleLayout);
-    mainLayout->addWidget(new DUI::DSeparatorHorizontal);
+    mainLayout->addWidget(new DSeparatorHorizontal);
     mainLayout->setSpacing(0);
     mainLayout->setMargin(0);
     mainLayout->addWidget(scrollWidget);
@@ -106,9 +106,9 @@ QFrame* DefaultApps::getContent()
     return m_centralWidget;
 }
 
-DUI::DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::DefaultAppsCategory &category)
+DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::DefaultAppsCategory &category)
 {
-    DUI::DArrowLineExpand *defaultApps = new DUI::DArrowLineExpand;
+    DArrowLineExpand *defaultApps = new DArrowLineExpand;
 
     switch (category)
     {
@@ -128,7 +128,7 @@ DUI::DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::D
 
     int index = 0;
 
-    DUI::DButtonList *list = new DUI::DButtonList;
+    DButtonList *list = new DButtonList;
     list->setItemHeight(30);
     AppList appList = getAppsListByCategory(category);
     for (const AppType &i : appList.list)
@@ -141,8 +141,6 @@ DUI::DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::D
 
     QWidget *appsList = new QWidget;
 
-    // for test, we have nothing to show.
-    //appsList->setMinimumHeight(appsList->sizeHint().height());
     appsList->setFixedHeight(30 * appList.list.count());
     //list->setFixedSize(list->width(), 30 * appList.list.count());
     //appsList->setFixedHeight(50);
