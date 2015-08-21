@@ -183,7 +183,7 @@ AddRmDoneLine *MainWidget::getCustomLstHeadBar()
         }
     });
 
-    connect(this, &AccountMainWidget::addCustomShortcutFinished, [=]{
+    connect(this, &MainWidget::addCustomShortcutFinished, [=]{
         w->setAddHidden(false);
         w->setRemoveHidden(m_customList->count()<1);
     });
