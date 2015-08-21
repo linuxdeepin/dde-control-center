@@ -132,7 +132,6 @@ void DBusWorker::getThemeObjs(){
 void DBusWorker::setTheme(QString Type, QString Key){
     QDBusPendingReply<> reply = m_appearanceDaemonInterface->Set(Type, Key);
     reply.waitForFinished();
-    QJsonObject obj;
     if (!reply.isError()){
         qDebug() << "set" << Type << Key << "success";
     }else{

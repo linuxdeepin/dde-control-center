@@ -463,7 +463,7 @@ void Personalization::updateCurrentTheme(QString themeKey){
 
 void Personalization::setThemeByIndex(int index){
     if (m_themeKeys.length() > index){
-        QString key = m_themeKeys.at(index);
+        QString key = m_themeImageInfos.at(index).value("key");
         m_dbusWorker->setTheme(m_dbusWorker->staticTypeKeys.value("TypeDTheme"), key);
     }else{
         qDebug() << "set theme Error" <<  m_themeKeys << index;
@@ -472,7 +472,7 @@ void Personalization::setThemeByIndex(int index){
 
 void Personalization::setWindowByIndex(int index){
     if (m_windowKeys.length() > index){
-        QString key = m_windowKeys.at(index);
+        QString key = m_windowImageInfos.at(index).value("key");
         m_dbusWorker->setTheme(m_dbusWorker->staticTypeKeys.value("TypeGtkTheme"), key);
     }else{
         qDebug() << "set window Error" <<  m_windowKeys << index;
@@ -481,7 +481,7 @@ void Personalization::setWindowByIndex(int index){
 
 void Personalization::setIconByIndex(int index){
     if (m_iconKeys.length() > index){
-        QString key = m_iconKeys.at(index);
+        QString key = m_iconImageInfos.at(index).value("key");
         m_dbusWorker->setTheme(m_dbusWorker->staticTypeKeys.value("TypeIconTheme"), key);
     }else{
         qDebug() << "set icon Error" <<  m_iconKeys << index;
@@ -490,7 +490,7 @@ void Personalization::setIconByIndex(int index){
 
 void Personalization::setCursorByIndex(int index){
     if (m_cursorKeys.length() > index){
-        QString key = m_cursorKeys.at(index);
+        QString key = m_cursorImageInfos.at(index).value("key");
         m_dbusWorker->setTheme(m_dbusWorker->staticTypeKeys.value("TypeCursorTheme"), key);
     }else{
         qDebug() << "set cursor Error" <<  m_cursorKeys << index;
@@ -499,7 +499,7 @@ void Personalization::setCursorByIndex(int index){
 
 void Personalization::setBackgroundByIndex(int index){
     if (m_backgroundKeys.length() > index){
-        QString key = m_backgroundKeys.at(index);
+        QString key = m_wallpaperImageInfos.at(index).value("key");
         m_dbusWorker->setTheme(m_dbusWorker->staticTypeKeys.value("TypeBackground"), key);
     }else{
         qDebug() << "set background Error" <<  m_backgroundKeys << index;
