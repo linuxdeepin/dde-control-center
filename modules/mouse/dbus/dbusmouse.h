@@ -45,6 +45,27 @@ Q_DECLARE_METATYPE(MouseDeviceList)
 class ComDeepinDaemonInputDeviceMouseInterface: public QDBusAbstractInterface
 {
     Q_OBJECT
+
+    Q_SLOT void __propertyChanged__(const QDBusMessage& msg)
+    {
+        QList<QVariant> arguments = msg.arguments();
+        if (3 != arguments.count())
+            return;
+        QString interfaceName = msg.arguments().at(0).toString();
+        if (interfaceName != "com.deepin.daemon.InputDevice.Mouse")
+            return;
+        QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
+        foreach(const QString &prop, changedProps.keys()) {
+        const QMetaObject* self = metaObject();
+            for (int i=self->propertyOffset(); i < self->propertyCount(); ++i) {
+                QMetaProperty p = self->property(i);
+                if (p.name() == prop) {
+                    QVariant v = p.read(this);
+                    Q_EMIT p.notifySignal().invoke(this, QGenericArgument(v.typeName(), v.data()));
+                }
+            }
+        }
+    }
 public:
     static inline const char *staticInterfaceName()
     { return "com.deepin.daemon.InputDevice.Mouse"; }
@@ -54,57 +75,57 @@ public:
 
     ~ComDeepinDaemonInputDeviceMouseInterface();
 
-    Q_PROPERTY(MouseDeviceList DeviceList READ deviceList)
+    Q_PROPERTY(MouseDeviceList DeviceList READ deviceList NOTIFY deviceListChanged)
     inline MouseDeviceList deviceList() const
     { return qvariant_cast< MouseDeviceList >(property("DeviceList")); }
 
-    Q_PROPERTY(bool DisableTpad READ disableTpad WRITE setDisableTpad)
+    Q_PROPERTY(bool DisableTpad READ disableTpad WRITE setDisableTpad NOTIFY disableTpadChanged)
     inline bool disableTpad() const
     { return qvariant_cast< bool >(property("DisableTpad")); }
     inline void setDisableTpad(bool value)
     { setProperty("DisableTpad", QVariant::fromValue(value)); }
 
-    Q_PROPERTY(int DoubleClick READ doubleClick WRITE setDoubleClick)
+    Q_PROPERTY(int DoubleClick READ doubleClick WRITE setDoubleClick NOTIFY doubleClickChanged)
     inline int doubleClick() const
     { return qvariant_cast< int >(property("DoubleClick")); }
     inline void setDoubleClick(int value)
     { setProperty("DoubleClick", QVariant::fromValue(value)); }
 
-    Q_PROPERTY(int DragThreshold READ dragThreshold WRITE setDragThreshold)
+    Q_PROPERTY(int DragThreshold READ dragThreshold WRITE setDragThreshold NOTIFY dragThresholdChanged)
     inline int dragThreshold() const
     { return qvariant_cast< int >(property("DragThreshold")); }
     inline void setDragThreshold(int value)
     { setProperty("DragThreshold", QVariant::fromValue(value)); }
 
-    Q_PROPERTY(bool Exist READ exist)
+    Q_PROPERTY(bool Exist READ exist NOTIFY existChanged)
     inline bool exist() const
     { return qvariant_cast< bool >(property("Exist")); }
 
-    Q_PROPERTY(bool LeftHanded READ leftHanded WRITE setLeftHanded)
+    Q_PROPERTY(bool LeftHanded READ leftHanded WRITE setLeftHanded  NOTIFY leftHandedChanged)
     inline bool leftHanded() const
     { return qvariant_cast< bool >(property("LeftHanded")); }
     inline void setLeftHanded(bool value)
     { setProperty("LeftHanded", QVariant::fromValue(value)); }
 
-    Q_PROPERTY(bool MiddleButtonEmulation READ middleButtonEmulation WRITE setMiddleButtonEmulation)
+    Q_PROPERTY(bool MiddleButtonEmulation READ middleButtonEmulation WRITE setMiddleButtonEmulation  NOTIFY middleButtonEmulationChanged)
     inline bool middleButtonEmulation() const
     { return qvariant_cast< bool >(property("MiddleButtonEmulation")); }
     inline void setMiddleButtonEmulation(bool value)
     { setProperty("MiddleButtonEmulation", QVariant::fromValue(value)); }
 
-    Q_PROPERTY(double MotionAcceleration READ motionAcceleration WRITE setMotionAcceleration)
+    Q_PROPERTY(double MotionAcceleration READ motionAcceleration WRITE setMotionAcceleration NOTIFY motionAccelerationChanged)
     inline double motionAcceleration() const
     { return qvariant_cast< double >(property("MotionAcceleration")); }
     inline void setMotionAcceleration(double value)
     { setProperty("MotionAcceleration", QVariant::fromValue(value)); }
 
-    Q_PROPERTY(double MotionThreshold READ motionThreshold WRITE setMotionThreshold)
+    Q_PROPERTY(double MotionThreshold READ motionThreshold WRITE setMotionThreshold NOTIFY motionThresholdChanged)
     inline double motionThreshold() const
     { return qvariant_cast< double >(property("MotionThreshold")); }
     inline void setMotionThreshold(double value)
     { setProperty("MotionThreshold", QVariant::fromValue(value)); }
 
-    Q_PROPERTY(bool NaturalScroll READ naturalScroll WRITE setNaturalScroll)
+    Q_PROPERTY(bool NaturalScroll READ naturalScroll WRITE setNaturalScroll NOTIFY naturalScrollChanged)
     inline bool naturalScroll() const
     { return qvariant_cast< bool >(property("NaturalScroll")); }
     inline void setNaturalScroll(bool value)
@@ -118,6 +139,16 @@ public Q_SLOTS: // METHODS
     }
 
 Q_SIGNALS: // SIGNALS
+    void naturalScrollChanged(bool NaturalScroll);
+    void motionThresholdChanged(double MotionThreshold);
+    void motionAccelerationChanged(double MotionAcceleration);
+    void middleButtonEmulationChanged(bool MiddleButtonEmulation);
+    void leftHandedChanged(bool LeftHanded);
+    void existChanged(bool Exist);
+    void dragThresholdChanged(int DragThreshold);
+    void doubleClickChanged(int DoubleClick);
+    void disableTpadChanged(bool DisableTpad);
+    void deviceListChanged(MouseDeviceList DeviceList);
 };
 
 namespace com {
