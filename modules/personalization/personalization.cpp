@@ -94,7 +94,7 @@ void Personalization::initConnect(){
     connect(m_cursorButtonGrid, &DButtonGrid::buttonCheckedIndexChanged, this, &Personalization::setCursorByIndex);
     connect(m_wallpaperButtonGrid, &DButtonGrid::buttonCheckedIndexChanged, this, &Personalization::setBackgroundByIndex);
     connect(m_standardFontCombox, SIGNAL(currentIndexChanged(int)), this, SLOT(setStandardFontByIndex(int)));
-    connect(m_monospaceFontCombox, SIGNAL(currentIndexChanged(int)), this, SLOT(setCursorByIndex(int)));
+    connect(m_monospaceFontCombox, SIGNAL(currentIndexChanged(int)), this, SLOT(setMonospaceFontByIndex(int)));
 }
 
 void Personalization::initThemeExpand(){
@@ -484,7 +484,7 @@ void Personalization::setIconByIndex(int index){
         QString key = m_iconKeys.at(index);
         m_dbusWorker->setTheme(m_dbusWorker->staticTypeKeys.value("TypeIconTheme"), key);
     }else{
-        qDebug() << "set window Error" <<  m_iconKeys << index;
+        qDebug() << "set icon Error" <<  m_iconKeys << index;
     }
 }
 
@@ -493,7 +493,7 @@ void Personalization::setCursorByIndex(int index){
         QString key = m_cursorKeys.at(index);
         m_dbusWorker->setTheme(m_dbusWorker->staticTypeKeys.value("TypeCursorTheme"), key);
     }else{
-        qDebug() << "set window Error" <<  m_cursorKeys << index;
+        qDebug() << "set cursor Error" <<  m_cursorKeys << index;
     }
 }
 
@@ -502,7 +502,7 @@ void Personalization::setBackgroundByIndex(int index){
         QString key = m_backgroundKeys.at(index);
         m_dbusWorker->setTheme(m_dbusWorker->staticTypeKeys.value("TypeBackground"), key);
     }else{
-        qDebug() << "set window Error" <<  m_backgroundKeys << index;
+        qDebug() << "set background Error" <<  m_backgroundKeys << index;
     }
 }
 
@@ -511,7 +511,7 @@ void Personalization::setStandardFontByIndex(int index){
         QString key = m_standardFonts.at(index);
         m_dbusWorker->setTheme(m_dbusWorker->staticTypeKeys.value("TypeStandardFont"), key);
     }else{
-        qDebug() << "set window Error" <<  m_standardFonts << index;
+        qDebug() << "set standard Error" <<  m_standardFonts << index;
     }
 }
 
@@ -520,7 +520,7 @@ void Personalization::setMonospaceFontByIndex(int index){
         QString key = m_monospaceFonts.at(index);
         m_dbusWorker->setTheme(m_dbusWorker->staticTypeKeys.value("TypeMonospaceFont"), key);
     }else{
-        qDebug() << "set window Error" <<  m_monospaceFonts << index;
+        qDebug() << "set monospace Error" <<  m_monospaceFonts << index;
     }
 }
 
@@ -533,7 +533,7 @@ void Personalization::setFontSize(int fontSize){
     QString tip = tr("font") + QString::number(fontSize);
     m_fontTipLabel->setText(tip);
     m_fontTipLabel->setStyleSheet(style);
-    m_dbusWorker->setTheme("FontSize", QString::number(fontSize));
+    m_dbusWorker->setTheme(m_dbusWorker->staticTypeKeys.value("TypeFontSize"), QString::number(fontSize));
 }
 
 Personalization::~Personalization()
