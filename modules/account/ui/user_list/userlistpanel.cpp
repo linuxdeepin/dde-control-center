@@ -44,6 +44,8 @@ void UserListPanel::initAccount()
             continue;
 
         UserExpand *userExpand = new UserExpand(path, this);
+        connect(userExpand, &UserExpand::cancelDelete, this, &UserListPanel::cancelDelete);
+        connect(this, &UserListPanel::requestDelete, userExpand, &UserExpand::requestDelete);
         m_expandGroup->addExpand(userExpand);
         m_expands.insert(path, userExpand);
         m_mainLayout->addWidget(userExpand);
@@ -56,6 +58,8 @@ void UserListPanel::initAccount()
 void UserListPanel::onUserAdded(const QString &path)
 {
     UserExpand *expand = new UserExpand(path, this);
+    connect(expand, &UserExpand::cancelDelete, this, &UserListPanel::cancelDelete);
+    connect(this, &UserListPanel::requestDelete, expand, &UserExpand::requestDelete);
     m_expandGroup->addExpand(expand);
     m_expands.insert(path, expand);
     m_mainLayout->insertWidget(m_mainLayout->count() - 1, expand);

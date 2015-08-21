@@ -52,9 +52,19 @@ void AccountMainWidget::initHeader()
     stackWidget->addWidget(headerButtonContent);
     stackWidget->addWidget(listButton);
 
+    connect(this, &AccountMainWidget::cancelDelete, [=]{
+       if (deleteButton){
+           deleteButton->setChecked(false);
+
+           m_state = StateNormal;
+       }
+    });
     connect(deleteButton, &GeneralRemoveButton::stateChanged, [=]{
-        switch (deleteButton->getState()) {
-        case GeneralRemoveButton::Checked:
+        DImageButton::State buttonState = deleteButton->getState();
+        if (buttonState == DImageButton::Hover || buttonState == DImageButton::Press)
+            return;
+        switch (buttonState) {
+        case DImageButton::Checked:
             setPanelState(StateDeleting);
             emit requestDelete(true);
             break;
@@ -94,6 +104,12 @@ void AccountMainWidget::initHeader()
 void AccountMainWidget::initListPanel()
 {
     m_listPanel = new UserListPanel();
+    connect(this, &AccountMainWidget::requestDelete, m_listPanel, &UserListPanel::requestDelete);
+    connect(m_listPanel, &UserListPanel::cancelDelete, [=]{
+        emit cancelDelete();
+        emit requestDelete(false);
+        setPanelState(StateNormal);
+    });
     m_listScrollArea = new QScrollArea();
     m_listScrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_listScrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);

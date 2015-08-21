@@ -32,6 +32,7 @@ public:
 signals:
     void stateChanged(PanelState state);
     void requestDelete(bool flag);
+    void cancelDelete();
 
 private:
     void initHeader();

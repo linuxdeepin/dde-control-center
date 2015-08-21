@@ -9,6 +9,8 @@ UserExpand::UserExpand(const QString &userPath, QWidget *parent)
     connect(m_header, &UserExpandHeader::mousePress, [=]{
         setExpand(!expand());
     });
+    connect(m_header, &UserExpandHeader::cancelDelete, this, &UserExpand::cancelDelete);
+    connect(this, &UserExpand::requestDelete, m_header, &UserExpandHeader::changeToDeleteState);
 
     m_content = new UserExpandContent(userPath, this);
     connect(m_content, &UserExpandContent::sizeChanged, this, &UserExpand::updateContentHeight);

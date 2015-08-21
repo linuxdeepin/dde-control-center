@@ -16,8 +16,11 @@ public:
     explicit UserExpand(const QString &userPath, QWidget *parent = 0);
     void setIsCurrentUser(bool v);
     void setExpand(bool v);
-
     QString userPath() const;
+
+signals:
+    void requestDelete(bool flag);
+    void cancelDelete();
 
 private:
     QString m_userPath = "";

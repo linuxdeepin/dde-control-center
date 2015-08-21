@@ -183,6 +183,13 @@ void CreateUserPanel::onUserAdded(const QString &path)
         if (!m_passwdNew->text().isEmpty() && m_passwdNew->text() == m_passwdRepeat->text())
             user->SetPassword(m_passwdNew->text());
         user->SetAutomaticLogin(m_autoLogin->check());
+
+        //clear up data
+        m_nameLine->lineEdit()->setText("");
+        m_passwdNew->passwordEdit()->setPassword("");
+        m_passwdRepeat->passwordEdit()->setPassword("");
+        m_accountType->setType(0);
+        m_autoLogin->setCheck(false);
     }
 }
 QString CreateUserPanel::lineBackgroundColor() const
