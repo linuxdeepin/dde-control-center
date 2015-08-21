@@ -291,6 +291,7 @@ void Personalization::updateThemeObjs(const ThemeObjs &themeObjs){
 }
 
 void Personalization::updateThemeButtons(const ImageInfoList &imageInfos){
+    m_themeImageInfos = imageInfos;
     m_themeButtonGrid->addImageButtons(imageInfos);
 
     int w = m_themeButtonGrid->width() + m_margins.left() + m_margins.right();
@@ -301,6 +302,7 @@ void Personalization::updateThemeButtons(const ImageInfoList &imageInfos){
 }
 
 void Personalization::updateWindowButtons(const ImageInfoList &imageInfos){
+    m_windowImageInfos = imageInfos;
     m_windowButtonGrid->addImageButtons(imageInfos);
 
     int w = m_windowButtonGrid->width() + m_margins.left() + m_margins.right();
@@ -310,6 +312,7 @@ void Personalization::updateWindowButtons(const ImageInfoList &imageInfos){
 }
 
 void Personalization::updateIconButtons(const ImageInfoList &imageInfos){
+    m_iconImageInfos = imageInfos;
     m_iconButtonGrid->addImageButtons(imageInfos);
 
     int w = m_iconButtonGrid->width() + m_margins.left() + m_margins.right();
@@ -319,6 +322,7 @@ void Personalization::updateIconButtons(const ImageInfoList &imageInfos){
 }
 
 void Personalization::updateCursorButtons(const ImageInfoList &imageInfos){
+    m_cursorImageInfos = imageInfos;
     m_cursorButtonGrid->addImageButtons(imageInfos);
 
     int w = m_cursorButtonGrid->width() + m_margins.left() + m_margins.right();
@@ -328,6 +332,7 @@ void Personalization::updateCursorButtons(const ImageInfoList &imageInfos){
 }
 
 void Personalization::updateWallpaperButtons(const ImageInfoList &imageInfos){
+    m_wallpaperImageInfos = imageInfos;
     m_wallpaperButtonGrid->addImageButtons(imageInfos, false);
     int w = m_wallpaperButtonGrid->width() + m_margins.left() + m_margins.right();
     int h = m_wallpaperButtonGrid->height() + m_margins.top() + m_margins.bottom();
@@ -378,36 +383,44 @@ void Personalization::handleDataFinished(){
     m_themeExpand->setExpand(true);
 }
 
+int Personalization::getValidKeyIndex(const ImageInfoList &infoList, const QString &key) const{
+    for(int i=0; i< infoList.count(); i++){
+        if (key == infoList.at(i).value("key")){
+            return i;
+        }
+    }
+}
+
 void Personalization::updateCurrentTheme(QString themeKey){
     m_currentTheme = themeKey;
     if (m_themeObjs.contains(themeKey)){
        const QJsonObject& obj =  m_themeObjs.value(themeKey);
        if (m_themeKeys.contains(themeKey)){
-            m_themeButtonGrid->checkButtonByIndex(m_themeKeys.indexOf(themeKey));
+            m_themeButtonGrid->checkButtonByIndex(getValidKeyIndex(m_themeImageInfos, themeKey));
        }
 
        QString gtkKey("Gtk");
        if (obj.contains(gtkKey)){
             QString id = obj.value(gtkKey).toObject().value("Id").toString();
-            m_windowButtonGrid->checkButtonByIndex(m_windowKeys.indexOf(id));
+            m_windowButtonGrid->checkButtonByIndex(getValidKeyIndex(m_windowImageInfos, gtkKey));
        }
 
        QString iconKey("Icon");
        if (obj.contains(iconKey)){
             QString id = obj.value(iconKey).toObject().value("Id").toString();
-            m_iconButtonGrid->checkButtonByIndex(m_iconKeys.indexOf(id));
+            m_iconButtonGrid->checkButtonByIndex(getValidKeyIndex(m_iconImageInfos, id));
        }
 
        QString cursorKey("Cursor");
        if (obj.contains(cursorKey)){
             QString id = obj.value(cursorKey).toObject().value("Id").toString();
-            m_cursorButtonGrid->checkButtonByIndex(m_cursorKeys.indexOf(id));
+            m_cursorButtonGrid->checkButtonByIndex(getValidKeyIndex(m_cursorImageInfos, id));
        }
 
        QString backgroundKey("Background");
        if (obj.contains(backgroundKey)){
            QString URI = obj.value(backgroundKey).toObject().value("URI").toString();
-           m_wallpaperButtonGrid->checkButtonByIndex(m_backgroundKeys.indexOf(URI));
+           m_wallpaperButtonGrid->checkButtonByIndex(getValidKeyIndex(m_wallpaperImageInfos, URI));
        }
 
        QString standardFont = obj.value("StandardFont").toObject().value("Id").toString();

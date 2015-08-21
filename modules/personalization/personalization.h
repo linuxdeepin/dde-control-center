@@ -58,6 +58,8 @@ public:
     void initFontExpand();
     DArrowLineExpand* getFontExpand();
 
+    int getValidKeyIndex(const ImageInfoList& infoList, const QString& key) const;
+
 signals:
     void dataRequested();
 
