@@ -4,11 +4,15 @@
 #include <QLabel>
 #include <QWidget>
 #include <QHBoxLayout>
+#include <QVBoxLayout>
 #include <QMouseEvent>
+#include <QStackedWidget>
 #include "usericon.h"
 #include "usernametitle.h"
 #include "dbus/dbusaccountuser.h"
 #include "libdui/darrowbutton.h"
+#include "libdui/dsegmentedcontrol.h"
+#include "confirmbuttonline.h"
 
 DUI_USE_NAMESPACE
 
@@ -28,12 +32,17 @@ protected:
 
 private:
     void initData();
+    void initIcon();
+    void initRightStack();
     void reverseArrowDirection();
     QString getTypeName(int type);
 
     void updateIcon();
     void updateAccountName();
     void updateAccountType();
+
+    void onCancelDeleteUser();
+    void onConfirmDeleteUser();
 
 private:
     QString m_userPath = "";
@@ -42,6 +51,7 @@ private:
     UserNameTitle *m_nameTitle = NULL;
     DBusAccountUser *m_accountUser = NULL;
     DArrowButton *m_arrowButton = NULL;
+    QStackedWidget *m_rightStack = NULL;
 
     const int ICON_WIDTH = 118;
     const int ICON_NORMAL_HEIGHT = 100;
