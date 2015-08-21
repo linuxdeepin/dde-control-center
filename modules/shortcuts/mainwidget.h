@@ -9,17 +9,19 @@
 
 #include "shortcutdbus.h"
 #include "shortcutwidget.h"
-#include "searchlist.h"
 
 DUI_USE_NAMESPACE
 
-class AccountMainWidget : public QFrame
+class AddRmDoneLine;
+class ModuleHeader;
+class SearchList;
+class MainWidget : public QFrame
 {
     Q_OBJECT
 
 public:
-    explicit AccountMainWidget(QWidget *parent = 0);
-    ~AccountMainWidget();
+    explicit MainWidget(QWidget *parent = 0);
+    ~MainWidget();
 
 signals:
     void addCustomShortcut();
@@ -28,7 +30,7 @@ signals:
 private:
     QVBoxLayout *m_layout;
     QVBoxLayout *m_childLayout;
-    DHeaderLine *m_header;
+    ModuleHeader *m_header;
     ShortcutDbus *m_dbus;
     SearchList *m_searchList;
     SearchList *m_systemList;
@@ -43,7 +45,7 @@ private:
     Q_SLOT void editShortcut(ShortcutWidget *w, SearchList *listw, const QString &flag, QString shortcut);
     Q_SLOT void removeShortcut();
     QWidget *getAddShortcutWidget();
-    QWidget *getCustomLstHeadBar(SearchList *shorcutlist);
+    AddRmDoneLine *getCustomLstHeadBar();
 };
 
 #endif // GRUBWIDGET_H

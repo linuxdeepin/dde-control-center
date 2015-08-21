@@ -11,35 +11,37 @@ HEADERS         += \
     dbus/dbusaccount.h \
     dbus/dbusaccountuser.h \
     dbus/dbussessionmanager.h \
-    UserContent/usercontent.h \
-    userexpand.h \
-    userheader.h \
-    userlistpanel.h \
-    usernametitle.h \
-    usericon.h \
-    UserContent/webcamavatarpanel.h \
-    UserContent/avatargrid.h \
-    accountmainwidget.h \
-    UserContent/accounttypeline.h \
-    createuserpanel.h \
-    UserContent/passwordframe.h
+    ui/accountmainwidget.h \
+    ui/user_list/accounttypeline.h \
+    ui/user_list/avatargrid.h \
+    ui/user_list/passwordframe.h \
+    ui/user_list/userexpand.h \
+    ui/user_list/usericon.h \
+    ui/user_list/userlistpanel.h \
+    ui/user_list/usernametitle.h \
+    ui/user_list/webcamavatarpanel.h \
+    ui/user_create/createuserpanel.h \
+    ui/user_list/userexpandcontent.h \
+    ui/user_list/userexpandheader.h
+
 SOURCES         += \
     account.cpp \
     dbus/dbusaccount.cpp \
     dbus/dbusaccountuser.cpp \
     dbus/dbussessionmanager.cpp \
-    UserContent/usercontent.cpp \
-    userexpand.cpp \
-    userheader.cpp \
-    userlistpanel.cpp \
-    usernametitle.cpp \
-    usericon.cpp \
-    UserContent/webcamavatarpanel.cpp \
-    UserContent/avatargrid.cpp \
-    accountmainwidget.cpp \
-    UserContent/accounttypeline.cpp \
-    createuserpanel.cpp \
-    UserContent/passwordframe.cpp
+    ui/accountmainwidget.cpp \
+    ui/user_list/accounttypeline.cpp \
+    ui/user_list/avatargrid.cpp \
+    ui/user_list/passwordframe.cpp \
+    ui/user_list/userexpand.cpp \
+    ui/user_list/usericon.cpp \
+    ui/user_list/userlistpanel.cpp \
+    ui/user_list/usernametitle.cpp \
+    ui/user_list/webcamavatarpanel.cpp \
+    ui/user_create/createuserpanel.cpp \
+    ui/user_list/userexpandcontent.cpp \
+    ui/user_list/userexpandheader.cpp
+
 TARGET          = $$qtLibraryTarget(account)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 

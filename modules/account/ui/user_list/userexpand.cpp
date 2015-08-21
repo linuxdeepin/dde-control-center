@@ -3,15 +3,15 @@
 UserExpand::UserExpand(const QString &userPath, QWidget *parent)
     : DBaseExpand(parent),m_userPath(userPath)
 {
-    m_header = new UserHeader(userPath, this);
+    m_header = new UserExpandHeader(userPath, this);
     setHeader(m_header);
     setHeaderHeight(HEADER_HEIGHT);
-    connect(m_header, &UserHeader::mousePress, [=]{
+    connect(m_header, &UserExpandHeader::mousePress, [=]{
         setExpand(!expand());
     });
 
-    m_content = new UserContent(userPath, this);
-    connect(m_content, &UserContent::sizeChanged, this, &UserExpand::updateContentHeight);
+    m_content = new UserExpandContent(userPath, this);
+    connect(m_content, &UserExpandContent::sizeChanged, this, &UserExpand::updateContentHeight);
 
     setContent(m_content);
 }

@@ -4,9 +4,6 @@
         <file>light/images/add_normal.png</file>
         <file>light/images/add_press.png</file>
         <file>light/images/delete_hover.png</file>
-        <file>light/images/delete_multi_hover.png</file>
-        <file>light/images/delete_multi_normal.png</file>
-        <file>light/images/delete_multi_press.png</file>
         <file>light/images/delete_normal.png</file>
         <file>light/images/delete_press.png</file>
         <file>light/DynamicLabel.theme</file>
@@ -18,5 +15,20 @@
         <file>light/images/multiselect_inactive_normal.png</file>
         <file>light/images/multiselect_inactive_hover.png</file>
         <file>light/images/multiselect_active_normal.png</file>
+        <file>light/GeneralAddButton.theme</file>
+        <file>light/GeneralRemoveButton.theme</file>
+        <file>light/images/dss_add_focus.png</file>
+        <file>light/images/dss_add_hover.png</file>
+        <file>light/images/dss_add_normal.png</file>
+        <file>light/images/dss_add_press.png</file>
+        <file>light/images/dss_remove_focus.png</file>
+        <file>light/images/dss_remove_hover.png</file>
+        <file>light/images/dss_remove_normal.png</file>
+        <file>light/images/dss_remove_press.png</file>
+        <file>light/images/list_remove_hover.png</file>
+        <file>light/images/list_remove_normal_focus.png</file>
+        <file>light/images/list_remove_normal.png</file>
+        <file>light/images/list_remove_press.png</file>
+        <file>light/MultiDeleteButton.theme</file>
     </qresource>
 </RCC>

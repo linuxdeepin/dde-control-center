@@ -51,8 +51,8 @@ Frame::Frame(QWidget * parent) :
 
 void Frame::changeEvent(QEvent *e)
 {
-    if (m_visible && !isActiveWindow() && e->type() == QEvent::ActivationChange)
-        hide();
+//    if (m_visible && !isActiveWindow() && e->type() == QEvent::ActivationChange)
+//        hide();
 
     QFrame::changeEvent(e);
 }

@@ -9,18 +9,22 @@
 #include <libdui/dthememanager.h>
 #include <libdui/libdui_global.h>
 
+#include "imagenamebutton.h"
+#include "addrmdoneline.h"
+#include "moduleheader.h"
+#include "searchlist.h"
+
 #include "mainwidget.h"
-#include "dynamiclabel.h"
 #include "tooltip.h"
 #include "selectdialog.h"
 
 DUI_USE_NAMESPACE
 
-AccountMainWidget::AccountMainWidget(QWidget *parent):
+MainWidget::MainWidget(QWidget *parent):
     QFrame(parent),
     m_layout(new QVBoxLayout),
     m_childLayout(new QVBoxLayout),
-    m_header(new DHeaderLine),
+    m_header(new ModuleHeader(tr("Keyboard Shortcuts"))),
     m_dbus(new ShortcutDbus(this)),
     m_searchList(new SearchList)
 {
@@ -29,7 +33,7 @@ AccountMainWidget::AccountMainWidget(QWidget *parent):
     init();
 }
 
-AccountMainWidget::~AccountMainWidget()
+MainWidget::~MainWidget()
 {
 
 }
@@ -39,7 +43,6 @@ DArrowLineExpand *addExpand(const QString &title, QWidget *widget)
     DArrowLineExpand *expand = new DArrowLineExpand;
     expand->setTitle(title);
     expand->setContent(widget);
-    expand->setExpand(false);
 
     return expand;
 }
@@ -57,7 +60,7 @@ QString shortcutTransfrom(const QString& str)
     return shortnamelist.join("+");
 }
 
-SearchList *AccountMainWidget::addSearchList(const ShortcutInfoList &tmplist)
+SearchList *MainWidget::addSearchList(const ShortcutInfoList &tmplist)
 {
     SearchList *list = new SearchList;
     list->setFixedWidth(310);
@@ -74,13 +77,13 @@ SearchList *AccountMainWidget::addSearchList(const ShortcutInfoList &tmplist)
         connect(shortw, &ShortcutWidget::shortcutChanged, [=](const QString &flag, const QString &shortcut){
             editShortcut(shortw, m_searchList, flag, shortcut);
         });
-        connect(tmpw, &ShortcutWidget::removeShortcut, this, &AccountMainWidget::removeShortcut);
+        connect(tmpw, &ShortcutWidget::removeShortcut, this, &MainWidget::removeShortcut);
     }
 
     return list;
 }
 
-QWidget *AccountMainWidget::getAddShortcutWidget()
+QWidget *MainWidget::getAddShortcutWidget()
 {
     QWidget *w = new QWidget;
     w->hide();
@@ -142,100 +145,57 @@ QWidget *AccountMainWidget::getAddShortcutWidget()
     return w;
 }
 
-QWidget *AccountMainWidget::getCustomLstHeadBar(SearchList *shorcutlist)
+AddRmDoneLine *MainWidget::getCustomLstHeadBar()
 {
-    QWidget *w = new QWidget;
+    AddRmDoneLine *w = new AddRmDoneLine;
+    w->setRmButtonToolTip(tr("Delete Shortcut"));
+    w->setAddButtonToolTip(tr("Add Shortcut"));
+    w->setTitle(tr("Custom"));
 
-    QString icon_path = "widgets/themes/";
-    icon_path = icon_path.append(DThemeManager::instance()->theme().append("/images/"));
 
-    QHBoxLayout *layout = new QHBoxLayout;
-    DynamicLabel *dl = new DynamicLabel;
-    DImageButton *button_remove = new DImageButton(
-                icon_path+"delete_normal.png", icon_path+"delete_hover.png", icon_path+"delete_press.png");
-    DImageButton *button_add = new DImageButton(
-                icon_path+"add_normal.png", icon_path+"add_hover.png", icon_path+"add_press.png");
-    DTextButton *button_done = new DTextButton(QObject::tr("Done"));
-
-    button_add->setFixedHeight(BUTTON_HEIGHT);
-    button_done->hide();
-
-    dl->setEasingType(QEasingCurve::OutQuint);
-
-    connect(button_add, &DImageButton::clicked, [=](){
-        button_add->hide();
-        button_remove->hide();
+    connect(w, &AddRmDoneLine::addClicked, [=](){
+        w->setAddHidden(true);
+        w->setRemoveHidden(true);
         emit addCustomShortcut();
     });
-    connect(button_remove, &DImageButton::clicked, [=](){
-        button_add->hide();
-        button_remove->hide();
-        button_done->show();
+    connect(w, &AddRmDoneLine::removeClicked, [=](){
+        w->setAddHidden(true);
+        w->setRemoveHidden(true);
+        w->setDoneHidden(false);
 
-        for(int i=0;i<shorcutlist->count();++i){
-            ShortcutWidget *w = qobject_cast<ShortcutWidget*>(shorcutlist->getItem(i)->widget());
+        for(int i=0;i<m_customList->count();++i){
+            ShortcutWidget *w = qobject_cast<ShortcutWidget*>(m_customList->getItem(i)->widget());
             if(w){
                 w->showRemoveButton();
             }
         }
     });
-    connect(button_done, &DTextButton::clicked, [=](){
-        button_done->hide();
-        button_add->show();
-        button_remove->show();
+    connect(w, &AddRmDoneLine::doneClicked, [=](){
+        w->setAddHidden(false);
+        w->setRemoveHidden(m_customList->count()<1);
+        w->setDoneHidden(true);
 
-        for(int i=0;i<shorcutlist->count();++i){
-            ShortcutWidget *w = qobject_cast<ShortcutWidget*>(shorcutlist->getItem(i)->widget());
+        for(int i=0;i<m_customList->count();++i){
+            ShortcutWidget *w = qobject_cast<ShortcutWidget*>(m_customList->getItem(i)->widget());
             if(w){
                 w->hideRemoveButton();
             }
         }
     });
-    connect(button_remove, &DImageButton::stateChanged, [=](){
-        if(button_remove->getState() == DImageButton::Hover){
-            dl->setText(QObject::tr("Delete Shortcut"));
-            dl->showLabel();
-        }else{
-            dl->hideLabel();
-        }
+
+    connect(this, &MainWidget::addCustomShortcutFinished, [=]{
+        w->setAddHidden(false);
+        w->setRemoveHidden(m_customList->count()<1);
     });
-    connect(button_add, &DImageButton::stateChanged, [=](){
-        if(button_add->getState() == DImageButton::Hover){
-            dl->setText(QObject::tr("Add Shortcut"));
-            dl->showLabel();
-        }else{
-            dl->hideLabel();
-        }
-    });
-
-    connect(this, SIGNAL(addCustomShortcutFinished()), button_add, SLOT(show()));
-    connect(this, SIGNAL(addCustomShortcutFinished()), button_remove, SLOT(show()));
-
-    layout->setMargin(0);
-    layout->addSpacing(HEADER_LEFT_MARGIN);
-    layout->addWidget(new QLabel(QObject::tr("Custom")));
-    layout->addStretch(1);
-    layout->addWidget(dl);
-    layout->addWidget(button_remove);
-    layout->addWidget(button_add);
-    layout->addWidget(button_done);
-    layout->addSpacing(HEADER_RIGHT_MARGIN);
-
-    w->setFixedHeight(EXPAND_HEADER_HEIGHT);
-    w->setLayout(layout);
-    w->setStyleSheet("QLabel{color: #b4b4b4;font-size: 12px;}");
 
     return w;
 }
 
-void AccountMainWidget::init()
+void MainWidget::init()
 {
     m_layout->setMargin(0);
 
-    m_header->setTitle(tr("Keyboard Shortcuts"));
-    DTextButton *re_button = new DTextButton(tr("Reset"));
-    connect(re_button, &DTextButton::clicked, m_dbus, &ShortcutDbus::Reset);
-    m_header->setContent(re_button);
+    connect(m_header, &ModuleHeader::resetButtonClicked, m_dbus, &ShortcutDbus::Reset);
 
     m_searchList->hide();
     m_searchList->setItemSize(310, RADIO_ITEM_HEIGHT);
@@ -292,6 +252,17 @@ void AccountMainWidget::init()
         }
     });
 
+    AddRmDoneLine *customLine = getCustomLstHeadBar();
+    customLine->setRemoveHidden(m_customList->count()<1);
+
+    DSeparatorHorizontal *customListSeparator = new DSeparatorHorizontal;
+    customListSeparator->setHidden(m_customList->count()<1);
+    connect(m_customList, &SearchList::countChanged, [=]{
+        customListSeparator->setHidden(m_customList->count()<1);
+        if(customLine->doneButton()->isHidden())
+            customLine->setRemoveHidden(m_customList->count()<1);
+    });
+
     m_layout->setSpacing(0);
     m_layout->addWidget(m_header);
     m_layout->addWidget(new DSeparatorHorizontal);
@@ -302,10 +273,10 @@ void AccountMainWidget::init()
     m_childLayout->addWidget(addExpand(tr("System"), m_systemList));
     m_childLayout->addWidget(addExpand(tr("Window"), m_windowList));
     m_childLayout->addWidget(addExpand(tr("Workspace"), m_workspaceList));
-    m_childLayout->addWidget(getCustomLstHeadBar(m_customList));
+    m_childLayout->addWidget(customLine);
     m_childLayout->addWidget(new DSeparatorHorizontal);
     m_childLayout->addWidget(m_customList);
-    m_childLayout->addWidget(new DSeparatorHorizontal);
+    m_childLayout->addWidget(customListSeparator);
     m_childLayout->addSpacing(5);
     m_childLayout->addWidget(getAddShortcutWidget());
     m_layout->addLayout(m_childLayout);
@@ -314,7 +285,7 @@ void AccountMainWidget::init()
     setLayout(m_layout);
 }
 
-void AccountMainWidget::shortcutListChanged(SearchList *listw, const ShortcutInfoList &list, int offseIndex)
+void MainWidget::shortcutListChanged(SearchList *listw, const ShortcutInfoList &list, int offseIndex)
 {
     int min = qMin(listw->count(), list.count());
 
@@ -339,7 +310,7 @@ void AccountMainWidget::shortcutListChanged(SearchList *listw, const ShortcutInf
             connect(shortw, &ShortcutWidget::shortcutChanged, [=](const QString& flag, const QString &shortcut){
                 editShortcut(shortw, m_searchList, flag, shortcut);
             });
-            connect(tmpw, &ShortcutWidget::removeShortcut, this, &AccountMainWidget::removeShortcut);
+            connect(tmpw, &ShortcutWidget::removeShortcut, this, &MainWidget::removeShortcut);
         }
     }else{
         for(int i=list.count();i<listw->count();++i){
@@ -349,7 +320,7 @@ void AccountMainWidget::shortcutListChanged(SearchList *listw, const ShortcutInf
     }
 }
 
-void AccountMainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QString &flag, QString shortcut)
+void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QString &flag, QString shortcut)
 {
     if(!w||!listw)
         return;
@@ -420,7 +391,7 @@ void AccountMainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const
     }
 }
 
-void AccountMainWidget::removeShortcut()
+void MainWidget::removeShortcut()
 {
     ShortcutWidget *w = qobject_cast<ShortcutWidget*>(sender());
     if(w){

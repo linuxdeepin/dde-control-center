@@ -19,6 +19,7 @@ AddRmDoneLine::AddRmDoneLine(QWidget *parent) :
     QLabel *label = findChild<QLabel*>("DHeaderLineTitle");
 
     layout->setMargin(0);
+    layout->addStretch(1);
     layout->addWidget(dynamic_label);
     layout->addWidget(m_removeButton);
     layout->addWidget(m_addButton);

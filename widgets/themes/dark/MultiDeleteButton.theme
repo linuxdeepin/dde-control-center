@@ -1,0 +1,6 @@
+MultiDeleteButton {
+    qproperty-normalPic: url(":/dark/images/list_remove_normal.png");
+    qproperty-hoverPic: url(":/dark/images/list_remove_hover.png");
+    qproperty-pressPic: url(":/dark/images/list_remove_press.png");
+    qproperty-checkedPic: url(":/dark/images/list_remove_focus.png");
+}

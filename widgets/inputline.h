@@ -15,6 +15,9 @@ public:
     QString text() const;
     DLineEdit *lineEdit() const;
 
+signals:
+    void textChanged(const QString &text);
+
 private:
     void setContent(QWidget *content);
 

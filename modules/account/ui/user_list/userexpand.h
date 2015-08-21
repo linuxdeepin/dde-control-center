@@ -4,8 +4,8 @@
 #include <QWidget>
 #include <QResizeEvent>
 #include "libdui/dbaseexpand.h"
-#include "userheader.h"
-#include "UserContent/usercontent.h"
+#include "userexpandheader.h"
+#include "userexpandcontent.h"
 
 DUI_USE_NAMESPACE
 
@@ -21,8 +21,8 @@ public:
 
 private:
     QString m_userPath = "";
-    UserHeader *m_header = NULL;
-    UserContent *m_content = NULL;
+    UserExpandHeader *m_header = NULL;
+    UserExpandContent *m_content = NULL;
 
     const int HEADER_HEIGHT = 100;
     const int HEADER_CURRENT_USER_HEIGHT = 118;

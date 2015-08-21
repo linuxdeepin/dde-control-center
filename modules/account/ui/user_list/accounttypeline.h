@@ -13,6 +13,7 @@ class AccountTypeLine : public DHeaderLine
     Q_OBJECT
 public:
     explicit AccountTypeLine(QWidget *parent = 0);
+    int currentIndex() const;
     void setType(int type);
 
 signals:

@@ -1,0 +1,6 @@
+GeneralRemoveButton {
+    qproperty-normalPic: url(":/light/images/dss_remove_normal.png");
+    qproperty-hoverPic: url(":/light/images/dss_remove_hover.png");
+    qproperty-pressPic: url(":/light/images/dss_remove_focus.png");
+    qproperty-checkedPic: url(":/light/images/dss_remove_focus.png");
+}
