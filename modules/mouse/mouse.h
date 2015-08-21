@@ -20,7 +20,7 @@
 DUI_USE_NAMESPACE
 
 class ContainerWidget;
-
+class ModuleHeader;
 class QLabel;
 class QFrame;
 class Mouse: public QObject, ModuleInterface
@@ -55,8 +55,7 @@ private:
     ComDeepinDaemonInputDeviceMouseInterface * m_mouseInterface;
     ComDeepinDaemonInputDeviceTouchPadInterface * m_touchpadInterface;
 
-    DHeaderLine * m_topHeaderLine;
-    DTextButton * m_mouseResetButton;
+    ModuleHeader * m_topHeaderLine;
     DSeparatorHorizontal * m_firstHSeparator;
     QWidget * m_mouseSettingPanel;
     QVBoxLayout * m_mouseSettingPanelLayout;
