@@ -44,9 +44,26 @@ Frame::Frame(QWidget * parent) :
     conn.registerObject("/ControlCenter", this);
     conn.registerService("com.deepin.dde.ControlCenter");
 
+    m_showAni = new QPropertyAnimation(this, "geometry");
+    m_showAni->setDuration(DCC::FrameAnimationDuration);
+    m_showAni->setEasingCurve(DCC::FrameShowCurve);
+
+    m_hideAni = new QPropertyAnimation(this, "geometry");
+    m_hideAni->setDuration(DCC::FrameAnimationDuration);
+    m_hideAni->setEasingCurve(DCC::FrameHideCurve);
+
 #ifdef QT_DEBUG
     HideInLeft = true;
 #endif
+
+    connect(m_hideAni, &QPropertyAnimation::finished, this, &QFrame::hide);
+}
+
+Frame::~Frame()
+{
+    m_showAni->deleteLater();
+    m_hideAni->deleteLater();
+    m_dbusAdaptor->deleteLater();
 }
 
 void Frame::changeEvent(QEvent *e)
@@ -97,12 +114,11 @@ void Frame::show(bool imme)
 
         QFrame::move(startX, 0);
         QFrame::show();
-        QPropertyAnimation *animation = new QPropertyAnimation(this, "geometry");
-        animation->setStartValue(QRect(startX, 0, width(), height()));
-        animation->setEndValue(QRect(endX, 0, width(), height()));
-        animation->setEasingCurve(QEasingCurve::InCurve);
-        animation->setDuration(animationDuration);
-        animation->start(QAbstractAnimation::DeleteWhenStopped);
+        m_hideAni->stop();
+        m_showAni->stop();
+        m_showAni->setStartValue(QRect(startX, 0, width(), height()));
+        m_showAni->setEndValue(QRect(endX, 0, width(), height()));
+        m_showAni->start();
     }
 
     setFocus();
@@ -138,14 +154,11 @@ void Frame::hide(bool imme)
         }
 
         QFrame::move(startX, 0);
-        QPropertyAnimation *animation = new QPropertyAnimation(this, "geometry");
-        animation->setStartValue(QRect(startX, 0, width(), height()));
-        animation->setEndValue(QRect(endX, 0, width(), height()));
-        animation->setEasingCurve(QEasingCurve::OutCubic);
-        animation->setDuration(animationDuration);
-        animation->start(QAbstractAnimation::DeleteWhenStopped);
-
-        connect(animation, &QPropertyAnimation::finished, [this] () -> void {QFrame::hide();});
+        m_showAni->stop();
+        m_hideAni->stop();
+        m_hideAni->setStartValue(QRect(startX, 0, width(), height()));
+        m_hideAni->setEndValue(QRect(endX, 0, width(), height()));
+        m_hideAni->start();
     }
 }
 

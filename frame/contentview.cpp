@@ -23,12 +23,29 @@ ContentView::ContentView(QList<ModuleMetaData> modules, QWidget *parent)
     m_layout->setSpacing(0);
     m_layout->setMargin(0);
 
-    connect(m_sideBar, &SideBar::moduleSelected, this, &ContentView::onModuleSelected);
-
     QFrame::hide();
     m_opacityEffect = new QGraphicsOpacityEffect;
     m_opacityEffect->setOpacity(0.0);
     setGraphicsEffect(m_opacityEffect);
+
+    m_showAni = new QPropertyAnimation(m_opacityEffect, "opacity");
+    m_showAni->setDuration(DCC::FrameAnimationDuration);
+
+    m_hideAni = new QPropertyAnimation(m_opacityEffect, "opacity");
+    m_hideAni->setDuration(DCC::FrameAnimationDuration);
+
+    connect(m_sideBar, &SideBar::moduleSelected, this, &ContentView::onModuleSelected);
+    connect(m_hideAni, &QPropertyAnimation::finished, this, &QFrame::hide);
+
+    setLayout(m_layout);
+}
+
+ContentView::~ContentView()
+{
+    m_pluginLoader->deleteLater();
+    m_opacityEffect->deleteLater();
+    m_showAni->deleteLater();
+    m_hideAni->deleteLater();
 }
 
 void ContentView::setModule(ModuleMetaData module)
@@ -60,21 +77,21 @@ void ContentView::setModule(ModuleMetaData module)
 
 void ContentView::hide()
 {
-    QPropertyAnimation *animation = new QPropertyAnimation(m_opacityEffect, "opacity");
-    animation->setStartValue(1.0);
-    animation->setEndValue(0.0);
-    animation->setDuration(DCC::FrameAnimationDuration);
-    connect(animation, &QPropertyAnimation::finished, [this] () -> void {QFrame::hide();});
-    animation->start(QAbstractAnimation::DeleteWhenStopped);
+    m_showAni->stop();
+    m_hideAni->stop();
+    m_hideAni->setStartValue(1.0);
+    m_hideAni->setEndValue(0.0);
+    m_hideAni->start();
 }
 
 void ContentView::show()
 {
-    QPropertyAnimation *animation = new QPropertyAnimation(m_opacityEffect, "opacity");
-    animation->setStartValue(0.0);
-    animation->setEndValue(1.0);
-    animation->setDuration(DCC::FrameAnimationDuration);
-    animation->start(QAbstractAnimation::DeleteWhenStopped);
+    m_hideAni->stop();
+    m_showAni->stop();
+    m_showAni->setStartValue(0.0);
+    m_showAni->setEndValue(1.0);
+    m_showAni->start();
+
     QFrame::show();
 }
 

@@ -4,6 +4,7 @@
 #include <QFrame>
 #include <QPluginLoader>
 #include <QGraphicsOpacityEffect>
+#include <QPropertyAnimation>
 
 #include "modulemetadata.h"
 
@@ -14,6 +15,7 @@ class ContentView : public QFrame
     Q_OBJECT
 public:
     explicit ContentView(QList<ModuleMetaData> modules, QWidget *parent = 0);
+    ~ContentView();
 
     void setModule(ModuleMetaData module);
     void hide();
@@ -32,6 +34,8 @@ private slots:
 
 private:
     QGraphicsOpacityEffect *m_opacityEffect;
+    QPropertyAnimation *m_showAni;
+    QPropertyAnimation *m_hideAni;
 };
 
 #endif // CONTENTVIEW_H

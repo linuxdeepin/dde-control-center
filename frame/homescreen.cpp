@@ -115,58 +115,78 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     m_opacityEffect->setOpacity(1.0);
     m_centerWidget->setGraphicsEffect(m_opacityEffect);
 
+    m_topAni = new QPropertyAnimation(m_topWidget, "geometry");
+    m_topAni->setDuration(DCC::FrameAnimationDuration);
+
+    m_ctrHideAni = new QPropertyAnimation(m_opacityEffect, "opacity");
+    m_ctrHideAni->setDuration(DCC::FrameAnimationDuration);
+    m_ctrHideAni->setEasingCurve(DCC::FrameHideCurve);
+
+    m_ctrShowAni = new QPropertyAnimation(m_opacityEffect, "opacity");
+    m_ctrShowAni->setDuration(DCC::FrameAnimationDuration);
+    m_ctrShowAni->setEasingCurve(DCC::FrameShowCurve);
+
+    m_botAni = new QPropertyAnimation(m_bottomWidget, "geometry");
+    m_botAni->setDuration(DCC::FrameAnimationDuration);
+
     connect(bottomButton, SIGNAL(clicked()), this, SLOT(powerButtonClicked()));
     connect(topButton, SIGNAL(clicked()), this, SLOT(userAvatarClicked()));
+    connect(m_ctrHideAni, &QPropertyAnimation::finished, this, &QFrame::hide);
+}
+
+HomeScreen::~HomeScreen()
+{
+    m_opacityEffect->deleteLater();
+    m_topAni->deleteLater();
+    m_ctrHideAni->deleteLater();
+    m_ctrShowAni->deleteLater();
+    m_botAni->deleteLater();
 }
 
 void HomeScreen::hide()
 {
-    QPropertyAnimation *aniHideCenterWidget = new QPropertyAnimation(m_opacityEffect, "opacity");
-    aniHideCenterWidget->setStartValue(1.0);
-    aniHideCenterWidget->setEndValue(0.0);
-    aniHideCenterWidget->setDuration(DCC::FrameAnimationDuration);
+    m_topAni->stop();
+    m_ctrHideAni->stop();
+    m_ctrShowAni->stop();
+    m_botAni->stop();
 
-    QPropertyAnimation *aniHideBottomWidget = new QPropertyAnimation(m_bottomWidget, "geometry");
-    aniHideBottomWidget->setStartValue(QRect(0, 0, m_bottomWidget->width(), m_bottomWidget->height()));
-    aniHideBottomWidget->setEndValue(QRect(0, m_bottomWidget->height(), m_bottomWidget->width(), m_bottomWidget->height()));
-    aniHideBottomWidget->setDuration(DCC::FrameAnimationDuration);
-    aniHideBottomWidget->setEasingCurve(QEasingCurve::OutQuart);
+    m_ctrHideAni->setStartValue(1.0);
+    m_ctrHideAni->setEndValue(0.0);
 
-    QPropertyAnimation *aniHideTopWidget = new QPropertyAnimation(m_topWidget, "geometry");
-    aniHideTopWidget->setStartValue(QRect(0, 0, m_topWidget->width(), m_topWidget->height()));
-    aniHideTopWidget->setEndValue(QRect(0, -m_topWidget->height(), m_topWidget->width(), m_topWidget->height()));
-    aniHideTopWidget->setDuration(DCC::FrameAnimationDuration);
-    aniHideTopWidget->setEasingCurve(QEasingCurve::OutQuart);
+    m_botAni->setStartValue(QRect(0, 0, m_bottomWidget->width(), m_bottomWidget->height()));
+    m_botAni->setEndValue(QRect(0, m_bottomWidget->height(), m_bottomWidget->width(), m_bottomWidget->height()));
+    m_botAni->setEasingCurve(DCC::FrameHideCurve);
 
-    connect(aniHideCenterWidget, &QPropertyAnimation::finished, [this] () -> void {QFrame::hide();});
+    m_topAni->setStartValue(QRect(0, 0, m_topWidget->width(), m_topWidget->height()));
+    m_topAni->setEndValue(QRect(0, -m_topWidget->height(), m_topWidget->width(), m_topWidget->height()));
+    m_topAni->setEasingCurve(DCC::FrameHideCurve);
 
-    aniHideCenterWidget->start(QAbstractAnimation::DeleteWhenStopped);
-    aniHideBottomWidget->start(QAbstractAnimation::DeleteWhenStopped);
-    aniHideTopWidget->start(QAbstractAnimation::DeleteWhenStopped);
+    m_ctrHideAni->start();
+    m_topAni->start();
+    m_botAni->start();
 }
 
 void HomeScreen::show()
 {
-    QPropertyAnimation *aniShowCenterWidget = new QPropertyAnimation(m_opacityEffect, "opacity");
-    aniShowCenterWidget->setStartValue(0.0);
-    aniShowCenterWidget->setEndValue(1.0);
-    aniShowCenterWidget->setDuration(DCC::FrameAnimationDuration);
+    m_topAni->stop();
+    m_ctrHideAni->stop();
+    m_ctrShowAni->stop();
+    m_botAni->stop();
 
-    QPropertyAnimation *aniShowBottomWidget = new QPropertyAnimation(m_bottomWidget, "geometry");
-    aniShowBottomWidget->setEndValue(QRect(0, 0, m_bottomWidget->width(), m_bottomWidget->height()));
-    aniShowBottomWidget->setStartValue(QRect(0, m_bottomWidget->height(), m_bottomWidget->width(), m_bottomWidget->height()));
-    aniShowBottomWidget->setDuration(DCC::FrameAnimationDuration);
-    aniShowBottomWidget->setEasingCurve(QEasingCurve::InQuad);
+    m_ctrShowAni->setStartValue(0.0);
+    m_ctrShowAni->setEndValue(1.0);
 
-    QPropertyAnimation *aniShowTopWidget = new QPropertyAnimation(m_topWidget, "geometry");
-    aniShowTopWidget->setEndValue(QRect(0, 0, m_topWidget->width(), m_topWidget->height()));
-    aniShowTopWidget->setStartValue(QRect(0, -m_topWidget->height(), m_topWidget->width(), m_topWidget->height()));
-    aniShowTopWidget->setDuration(DCC::FrameAnimationDuration);
-    aniShowTopWidget->setEasingCurve(QEasingCurve::InQuad);
+    m_botAni->setEndValue(QRect(0, 0, m_bottomWidget->width(), m_bottomWidget->height()));
+    m_botAni->setStartValue(QRect(0, m_bottomWidget->height(), m_bottomWidget->width(), m_bottomWidget->height()));
+    m_botAni->setEasingCurve(DCC::FrameShowCurve);
 
-    aniShowCenterWidget->start(QAbstractAnimation::DeleteWhenStopped);
-    aniShowBottomWidget->start(QAbstractAnimation::DeleteWhenStopped);
-    aniShowTopWidget->start(QAbstractAnimation::DeleteWhenStopped);
+    m_topAni->setEndValue(QRect(0, 0, m_topWidget->width(), m_topWidget->height()));
+    m_topAni->setStartValue(QRect(0, -m_topWidget->height(), m_topWidget->width(), m_topWidget->height()));
+    m_topAni->setEasingCurve(DCC::FrameShowCurve);
+
+    m_ctrShowAni->start();
+    m_botAni->start();
+    m_topAni->start();
     QFrame::show();
 }
 
