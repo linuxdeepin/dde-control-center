@@ -198,7 +198,6 @@ Mouse::Mouse()
     connect(m_mousePointSpeedSlider, SIGNAL(valueChanged(int)), this, SLOT(setMousePointSpeed(int)));
     connect(m_mouseInterface, &ComDeepinDaemonInputDeviceMouseInterface::motionAccelerationChanged,
             [&](double value){
-        qDebug()<<m_mousePointSpeed<<value;
         if(value != m_mousePointSpeed){
             m_mousePointSpeedSlider->setValue((3.2-value) *1000);
             m_mousePointSpeed = value;
@@ -225,7 +224,6 @@ Mouse::Mouse()
     connect(m_touchpadPointSpeedSlider, SIGNAL(valueChanged(int)), this, SLOT(setTouchpadPointSpeed(int)));
     connect(m_touchpadInterface, &ComDeepinDaemonInputDeviceTouchPadInterface::motionAccelerationChanged,
             [&](double value){
-        qDebug()<<m_touchpadPointSpeed<<value;
         if(value != m_touchpadPointSpeed){
             m_touchpadPointSpeedSlider->setValue((3.2-value)*1000);
             m_touchpadPointSpeed = value;
@@ -322,7 +320,7 @@ void Mouse::setMousePrimaryButton(int index)
 void Mouse::setMousePointSpeed(int speed)
 {
     // the value should be scaled
-    m_mouseInterface->setMotionAcceleration((3200 - speed)/1000);
+    m_mouseInterface->setMotionAcceleration((3200 - speed)/1000.0);
 }
 
 void Mouse::setMouseDoubleClickInterval(int interval)
@@ -342,7 +340,7 @@ void Mouse::enableTouchpad(bool flag)
 
 void Mouse::setTouchpadPointSpeed(int speed)
 {
-    m_touchpadInterface->setMotionAcceleration((3200 - speed)/1000);
+    m_touchpadInterface->setMotionAcceleration((3200 - speed)/1000.0);
 }
 
 void Mouse::setTouchpadDoubleClickInterval(int interval)
