@@ -16,16 +16,23 @@ class UserListPanel : public QWidget
 public:
     explicit UserListPanel(QWidget *parent = 0);
 
+signals:
+    void requestDelete(bool flag);
+    void cancelDelete();
+    void hideForSetting();
+    void showForNormal();
+    void changeToSetting(bool setting);
+
 private:
     void initSessionManager();
     void initAccount();
     void onUserAdded(const QString &path);
     void onUserDeleted(const QString &path);
+
 private:
     DBusAccount *m_account = NULL;
     QVBoxLayout *m_mainLayout = NULL;
     DBusSessionManager *m_sessionManager = NULL;
-    DExpandGroup *m_expandGroup = NULL;
 
     QMap<QString, UserExpand *> m_expands;   //userPath expandObj
 };

@@ -8,6 +8,7 @@ UserExpandHeader::UserExpandHeader(const QString &userPath, QWidget *parent)
     m_mainLayout->setSpacing(0);
     m_mainLayout->setAlignment(Qt::AlignVCenter);
 
+    initDeleteButton();
     initIcon();
     initRightStack();
 
@@ -34,12 +35,17 @@ void UserExpandHeader::updateAccountType()
 
 void UserExpandHeader::onCancelDeleteUser()
 {
-
+    m_rightStack->setCurrentIndex(0);
+    m_arrowButton->setVisible(true);
+    changeToDeleteState(false);
 }
 
 void UserExpandHeader::onConfirmDeleteUser()
 {
-
+    DBusAccount *account = new DBusAccount(this);
+    if (account->isValid())
+        account->DeleteUser(m_accountUser->userName(), folderControl->currentIndex() != 0);
+    account->deleteLater();
 }
 
 void UserExpandHeader::setIsCurrentUser(bool isCurrentUser)
@@ -54,6 +60,16 @@ void UserExpandHeader::setExpand(bool value)
         m_arrowButton->setArrowDirection(DArrowButton::ArrowUp);
     else
         m_arrowButton->setArrowDirection(DArrowButton::ArrowDown);
+}
+
+void UserExpandHeader::changeToDeleteState(bool value)
+{
+    if (value){
+        m_arrowButton->setVisible(false);
+        m_deleteButton->showIcon();
+    }
+    else
+        m_deleteButton->hideIcon();
 }
 
 void UserExpandHeader::mousePressEvent(QMouseEvent *)
@@ -96,16 +112,16 @@ void UserExpandHeader::initRightStack()
     normalLayout->addStretch();
     normalLayout->addWidget(m_arrowButton);
 
-    DSegmentedControl *folderControl = new DSegmentedControl;
+    folderControl = new DSegmentedControl;
     folderControl->addSegmented(tr("Keep Folder"));
     folderControl->addSegmented(tr("Delete Folder"));
     ConfirmButtonLine *confirmLine = new ConfirmButtonLine;
+    connect(confirmLine, &ConfirmButtonLine::cancel, this, &UserExpandHeader::cancelDelete);
     connect(confirmLine, &ConfirmButtonLine::cancel, this, &UserExpandHeader::onCancelDeleteUser);
     connect(confirmLine, &ConfirmButtonLine::confirm, this, &UserExpandHeader::onConfirmDeleteUser);
     QFrame *deleteFrame = new QFrame;
     QVBoxLayout *deleteLayout = new QVBoxLayout(deleteFrame);
     deleteLayout->setAlignment(Qt::AlignCenter);
-    deleteLayout->setContentsMargins(0, 0, 20, 0);
     deleteLayout->addWidget(folderControl);
     deleteLayout->addWidget(confirmLine);
 
@@ -113,6 +129,17 @@ void UserExpandHeader::initRightStack()
     m_rightStack->addWidget(normalFrame);
     m_rightStack->addWidget(deleteFrame);
     m_mainLayout->addWidget(m_rightStack);
+}
+
+void UserExpandHeader::initDeleteButton()
+{
+    m_deleteButton = new DeleteButton;
+    m_mainLayout->addWidget(m_deleteButton);
+    connect(m_deleteButton, &DeleteButton::clicked, [=]{
+        m_rightStack->setCurrentIndex(1);
+        changeToDeleteState(false);
+    });
+    changeToDeleteState(false);
 }
 
 void UserExpandHeader::reverseArrowDirection()
@@ -136,5 +163,38 @@ QString UserExpandHeader::getTypeName(int type)
 }
 
 
+DeleteButton::DeleteButton(QWidget *parent) : QFrame(parent)
+{
+    m_deleteButton = new MultiDeleteButton;
+    connect(m_deleteButton, &MultiDeleteButton::clicked, this, &DeleteButton::clicked);
 
+    QHBoxLayout *layout = new QHBoxLayout(this);
+    layout->setContentsMargins(0, 0, 0, 0);
+    layout->setAlignment(Qt::AlignVCenter);
 
+    layout->addSpacing(14);
+    layout->addWidget(m_deleteButton);
+    layout->addSpacing(22);
+
+    m_animation = new QPropertyAnimation(this, "width",this);
+    m_animation->setDuration(ANIMATION_DURATION);
+    m_animation->setEasingCurve(ANIMATION_CURVE);
+}
+
+void DeleteButton::showIcon()
+{
+    m_animation->setStartValue(0);
+    m_animation->setEndValue(ICON_WIDTH);
+    m_animation->stop();
+    m_animation->start();
+}
+
+void DeleteButton::hideIcon()
+{
+    if (width() == 0)
+        return;
+    m_animation->setStartValue(ICON_WIDTH);
+    m_animation->setEndValue(0);
+    m_animation->stop();
+    m_animation->start();
+}

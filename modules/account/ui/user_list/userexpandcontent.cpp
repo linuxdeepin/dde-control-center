@@ -31,7 +31,7 @@ void UserExpandContent::initSegmentedControl()
     m_segmentedControl->addSegmented("Recently Used");
     m_segmentedControl->addSegmented("Avatar");
     m_segmentedControl->addSegmented("Webcam");
-//    m_segmentedControl->setMaximumWidth(230);
+    m_segmentedControl->setMaximumWidth(230);
     m_segmentedControl->setCurrentIndex(1);
 
     m_mainLayout->addSpacing(LAYOUT_SPACING);

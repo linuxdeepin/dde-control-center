@@ -5,6 +5,8 @@
 #include <QFormLayout>
 #include "constants.h"
 
+#include "moduleheader.h"
+
 #include "mouse.h"
 
 DUI_USE_NAMESPACE
@@ -27,10 +29,7 @@ Mouse::Mouse()
     m_touchpadInterface = new ComDeepinDaemonInputDeviceTouchPadInterface("com.deepin.daemon.InputDevices",
                                                                           "/com/deepin/daemon/InputDevice/TouchPad", QDBusConnection::sessionBus(), this);
     //////////////////////////////////////////////////////////////-- top header
-    m_topHeaderLine = new DHeaderLine(m_label);
-    m_mouseResetButton = new DTextButton(tr("Reset"));
-    m_topHeaderLine->setTitle(tr("Mouse"));
-    m_topHeaderLine->setContent(m_mouseResetButton);
+    m_topHeaderLine = new ModuleHeader(tr("Mouse And Touchpad"));
 
     //////////////////////////////////////////////////////////////-- horizontal separator
     m_firstHSeparator = new DSeparatorHorizontal(m_label);
@@ -175,6 +174,9 @@ Mouse::Mouse()
     m_doubleClickSpeedLabel->setWordWrap(true);
     m_forbiddenTouchpadWhenMouseLabel->setWordWrap(true);
 
+    onTouchPadExistChanged();////update widgets visible property
+    m_mouseSettingPanel->setVisible(m_mouseInterface->exist());
+
     layout->addWidget(m_topHeaderLine);
     layout->addWidget(m_firstHSeparator);
     layout->addWidget(m_mouseSettingPanel);
@@ -189,7 +191,7 @@ Mouse::Mouse()
     ////////////////////////////////////////////////////////////// init those widgets state
     setWidgetsValue();
     ////////////////////////////////////////////////////////////// init those widgets state
-    connect(m_mouseResetButton, SIGNAL(clicked(bool)), this, SLOT(reset()));
+    connect(m_topHeaderLine, &ModuleHeader::resetButtonClicked, this, &Mouse::reset);
     connect(m_mousePrimaryButtonSetting, SIGNAL(currentChanged(int)), this, SLOT(setMousePrimaryButton(int)));
     connect(m_mouseInterface, &ComDeepinDaemonInputDeviceMouseInterface::leftHandedChanged,
             [&](bool arg){
@@ -258,7 +260,13 @@ Mouse::Mouse()
             [&](bool arg){
         m_touchpadPrimaryButtonSetting->setCurrentIndex((int)arg);
     });
-
+    connect(m_mouseInterface, &ComDeepinDaemonInputDeviceMouseInterface::existChanged,
+            [&](bool arg){
+        m_mouseSettingPanel->setVisible(arg);
+        m_secondHSeparator->setVisible(arg);
+    });
+    connect(m_touchpadInterface, &ComDeepinDaemonInputDeviceTouchPadInterface::existChanged,
+            this, &Mouse::onTouchPadExistChanged);
 }
 
 void Mouse::reset() {
@@ -366,6 +374,18 @@ void Mouse::enableTouchpadTwoFingerScroll(bool flag)
 void Mouse::enableTouchpadEdgeScroll(bool flag)
 {
     m_touchpadInterface->setEdgeScroll(flag);
+}
+
+void Mouse::onTouchPadExistChanged()
+{
+    bool touchpadExist = m_touchpadInterface->exist();
+
+    m_forbiddenTouchpadWhenMouseSwitchButton->setVisible(touchpadExist);
+    m_forbiddenTouchpadWhenMouseLabel->setVisible(touchpadExist);
+    m_touchpadHeaderLine->setVisible(touchpadExist);
+    m_thirdHSeparator->setVisible(touchpadExist);
+    m_touchpadSettingPanel->setVisible(touchpadExist);
+    m_fourthHSeparator->setVisible(touchpadExist);
 }
 
 Mouse::~Mouse()

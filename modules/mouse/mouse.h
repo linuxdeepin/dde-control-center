@@ -20,7 +20,7 @@
 DUI_USE_NAMESPACE
 
 class ContainerWidget;
-
+class ModuleHeader;
 class QLabel;
 class QFrame;
 class Mouse: public QObject, ModuleInterface
@@ -47,17 +47,15 @@ public slots:
     void enableTouchpadTapToClick(bool flag);
     void enableTouchpadTwoFingerScroll(bool flag);
     void enableTouchpadEdgeScroll(bool flag);
-
+    void onTouchPadExistChanged();
     void reset();
-
 private:
     QLabel * m_label;
 
     ComDeepinDaemonInputDeviceMouseInterface * m_mouseInterface;
     ComDeepinDaemonInputDeviceTouchPadInterface * m_touchpadInterface;
 
-    DHeaderLine * m_topHeaderLine;
-    DTextButton * m_mouseResetButton;
+    ModuleHeader * m_topHeaderLine;
     DSeparatorHorizontal * m_firstHSeparator;
     QWidget * m_mouseSettingPanel;
     QVBoxLayout * m_mouseSettingPanelLayout;
