@@ -3,6 +3,7 @@
 
 #include <QColor>
 #include <QString>
+#include <QEasingCurve>
 
 namespace DCC {
 
@@ -23,7 +24,11 @@ static const QColor HomeScreen_UsernameColor = "#fff";
 static const QColor HomeScreen_PowerTextColor = "orange";
 
 static const uint FrameAnimationDuration = 300;
+static const QEasingCurve FrameShowCurve = QEasingCurve::InQuart;
+static const QEasingCurve FrameHideCurve = QEasingCurve::OutQuart;
+
 static const uint TipsMoveAnimationDuration = 200;
+static const QEasingCurve TipsMoveCurve = QEasingCurve::OutCubic;
 
 static const QString IconPath = ":/resources/images/";
 }

@@ -40,7 +40,8 @@ class DBusKeyboard: public QDBusAbstractInterface
             if (interfaceName !="com.deepin.daemon.InputDevice.Keyboard")
                 return;
             QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
-            foreach(const QString &prop, changedProps.keys()) {
+            QStringList keys = changedProps.keys();
+            foreach(const QString &prop, keys) {
             const QMetaObject* self = metaObject();
                 for (int i=self->propertyOffset(); i < self->propertyCount(); ++i) {
                     QMetaProperty p = self->property(i);

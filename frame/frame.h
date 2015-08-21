@@ -4,6 +4,7 @@
 #include <QFrame>
 #include <QList>
 #include <QDBusAbstractAdaptor>
+#include <QPropertyAnimation>
 
 #include "interfaces.h"
 #include "modulemetadata.h"
@@ -20,6 +21,7 @@ class Frame: public QFrame
 
 public:
     Frame(QWidget * parent = 0);
+    ~Frame();
 
     void changeEvent(QEvent *e);
     void keyPressEvent(QKeyEvent * event) Q_DECL_OVERRIDE;
@@ -39,12 +41,12 @@ private:
     ContentView * m_contentView;
     QList<ModuleMetaData> m_modules;
     QDBusAbstractAdaptor *m_dbusAdaptor;
+    QPropertyAnimation *m_showAni;
+    QPropertyAnimation *m_hideAni;
 
     bool m_visible = false;
 
-    const int animationDuration = 300;
-
-    bool HideInLeft;
+    bool HideInLeft = false;
 };
 
 #endif

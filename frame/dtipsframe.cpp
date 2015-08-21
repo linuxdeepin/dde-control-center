@@ -22,7 +22,16 @@ DTipsFrame::DTipsFrame()
     layout->addWidget(m_label);
     layout->setMargin(0);
 
+    m_moveAni = new QPropertyAnimation(this, "geometry");
+    m_moveAni->setEasingCurve(DCC::TipsMoveCurve);
+    m_moveAni->setDuration(DCC::TipsMoveAnimationDuration);
+
     setLayout(layout);
+}
+
+DTipsFrame::~DTipsFrame()
+{
+    m_moveAni->deleteLater();
 }
 
 void DTipsFrame::move(int x, int y)
@@ -36,12 +45,10 @@ void DTipsFrame::move(int x, int y)
     {
         QFrame::move(x, geometry().y());
 
-        QPropertyAnimation *animation = new QPropertyAnimation(this, "geometry");
-        animation->setStartValue(geometry());
-        animation->setEndValue(QRect(x, y, width(), height()));
-        animation->setDuration(DCC::TipsMoveAnimationDuration);
-        animation->setEasingCurve(QEasingCurve::OutCubic);
-        animation->start();
+        m_moveAni->stop();
+        m_moveAni->setStartValue(geometry());
+        m_moveAni->setEndValue(QRect(x, y, width(), height()));
+        m_moveAni->start();
     }
 }
 

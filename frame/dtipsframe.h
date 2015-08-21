@@ -3,12 +3,14 @@
 
 #include <QFrame>
 #include <QLabel>
+#include <QPropertyAnimation>
 
 class DTipsFrame : public QFrame
 {
     Q_OBJECT
 public:
     DTipsFrame();
+    ~DTipsFrame();
 
     void move(int x, int y);
 
@@ -20,6 +22,8 @@ public slots:
 
 private:
     QLabel *m_label;
+
+    QPropertyAnimation *m_moveAni;
 
     bool m_isFirstMove = true;
 

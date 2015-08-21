@@ -14,6 +14,7 @@ class HomeScreen : public QFrame
     Q_OBJECT
 public:
     explicit HomeScreen(QList<ModuleMetaData> modules, QWidget *parent = 0);
+    ~HomeScreen();
 
     void hide();
     void show();
@@ -30,6 +31,10 @@ private:
     QGridLayout * m_grid;
 
     QGraphicsOpacityEffect *m_opacityEffect;
+    QPropertyAnimation *m_topAni;
+    QPropertyAnimation *m_ctrShowAni;
+    QPropertyAnimation *m_ctrHideAni;
+    QPropertyAnimation *m_botAni;
 
     QWidget *m_topWidget;
     QWidget *m_centerWidget;
