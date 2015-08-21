@@ -7,8 +7,8 @@
 #include <QVBoxLayout>
 #include <QStackedWidget>
 #include "moduleheader.h"
-#include "userlistpanel.h"
-#include "createuserpanel.h"
+#include "user_list/userlistpanel.h"
+#include "user_create/createuserpanel.h"
 #include "libdui/dconstants.h"
 #include "libdui/dtextbutton.h"
 #include "libdui/dthememanager.h"

@@ -5,7 +5,7 @@
 #include <QLayout>
 #include <QTableWidget>
 #include <QHeaderView>
-#include "../usericon.h"
+#include "usericon.h"
 
 class AvatarGrid : public QTableWidget
 {

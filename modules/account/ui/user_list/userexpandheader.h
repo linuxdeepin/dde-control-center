@@ -1,5 +1,5 @@
-#ifndef ACCOUNTHEADER_H
-#define ACCOUNTHEADER_H
+#ifndef USEREXPANDHEADER_H
+#define USEREXPANDHEADER_H
 
 #include <QLabel>
 #include <QWidget>
@@ -12,11 +12,11 @@
 
 DUI_USE_NAMESPACE
 
-class UserHeader : public QLabel
+class UserExpandHeader : public QLabel
 {
     Q_OBJECT
 public:
-    explicit UserHeader(const QString &userPath, QWidget *parent = 0);
+    explicit UserExpandHeader(const QString &userPath, QWidget *parent = 0);
     void setIsCurrentUser(bool isCurrentUser);
     void setExpand(bool value);
 
@@ -48,4 +48,4 @@ private:
     const int ICON_BIG_HEIGHT = 118;
 };
 
-#endif // ACCOUNTHEADER_H
+#endif // USEREXPANDHEADER_H

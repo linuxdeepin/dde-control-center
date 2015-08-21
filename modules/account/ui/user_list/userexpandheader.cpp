@@ -1,6 +1,6 @@
-#include "userheader.h"
+#include "userexpandheader.h"
 
-UserHeader::UserHeader(const QString &userPath, QWidget *parent)
+UserExpandHeader::UserExpandHeader(const QString &userPath, QWidget *parent)
     : QLabel(parent), m_userPath(userPath)
 {
     m_mainLayout = new QHBoxLayout(this);
@@ -31,28 +31,28 @@ UserHeader::UserHeader(const QString &userPath, QWidget *parent)
         initData();
 }
 
-void UserHeader::updateIcon()
+void UserExpandHeader::updateIcon()
 {
     m_icon->setIcon(m_accountUser->iconFile());
 }
 
-void UserHeader::updateAccountName()
+void UserExpandHeader::updateAccountName()
 {
     m_nameTitle->setUserName(m_accountUser->userName());
 }
 
-void UserHeader::updateAccountType()
+void UserExpandHeader::updateAccountType()
 {
     m_nameTitle->setUserType(getTypeName(m_accountUser->accountType()));
 }
 
-void UserHeader::setIsCurrentUser(bool isCurrentUser)
+void UserExpandHeader::setIsCurrentUser(bool isCurrentUser)
 {
     m_nameTitle->setIsCurrentUser(isCurrentUser);
     m_icon->setIsNormal(!isCurrentUser);
 }
 
-void UserHeader::setExpand(bool value)
+void UserExpandHeader::setExpand(bool value)
 {
     if (value)
         m_arrowButton->setArrowDirection(DArrowButton::ArrowUp);
@@ -60,23 +60,23 @@ void UserHeader::setExpand(bool value)
         m_arrowButton->setArrowDirection(DArrowButton::ArrowDown);
 }
 
-void UserHeader::mousePressEvent(QMouseEvent *)
+void UserExpandHeader::mousePressEvent(QMouseEvent *)
 {
     reverseArrowDirection();
     emit mousePress();
 }
 
-void UserHeader::initData()
+void UserExpandHeader::initData()
 {
     updateIcon();
     updateAccountName();
     updateAccountType();
 
-    connect(m_accountUser, &DBusAccountUser::IconFileChanged, this, &UserHeader::updateIcon);
-    connect(m_accountUser, &DBusAccountUser::AccountTypeChanged, this, &UserHeader::updateAccountType);
+    connect(m_accountUser, &DBusAccountUser::IconFileChanged, this, &UserExpandHeader::updateIcon);
+    connect(m_accountUser, &DBusAccountUser::AccountTypeChanged, this, &UserExpandHeader::updateAccountType);
 }
 
-void UserHeader::reverseArrowDirection()
+void UserExpandHeader::reverseArrowDirection()
 {
     if (m_arrowButton->arrowDirection() == DArrowButton::ArrowUp)
         m_arrowButton->setArrowDirection(DArrowButton::ArrowDown);
@@ -84,7 +84,7 @@ void UserHeader::reverseArrowDirection()
         m_arrowButton->setArrowDirection(DArrowButton::ArrowUp);
 }
 
-QString UserHeader::getTypeName(int type)
+QString UserExpandHeader::getTypeName(int type)
 {
     switch (type) {
     case 1:

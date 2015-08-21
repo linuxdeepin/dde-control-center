@@ -1,5 +1,5 @@
-#ifndef ACCOUNTCONTENT_H
-#define ACCOUNTCONTENT_H
+#ifndef USEREXPANDCONTENT_H
+#define USEREXPANDCONTENT_H
 
 #include <QWidget>
 #include <QVBoxLayout>
@@ -16,11 +16,11 @@
 
 DUI_USE_NAMESPACE
 
-class UserContent : public QWidget
+class UserExpandContent : public QWidget
 {
     Q_OBJECT
 public:
-    explicit UserContent(const QString &userPath, QWidget *parent = 0);
+    explicit UserExpandContent(const QString &userPath, QWidget *parent = 0);
 
 signals:
     void sizeChanged();
@@ -53,4 +53,4 @@ private:
     const int LAYOUT_SPACING = 10;
 };
 
-#endif // ACCOUNTCONTENT_H
+#endif // USEREXPANDCONTENT_H

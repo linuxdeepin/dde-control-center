@@ -8,13 +8,13 @@
 #include "dbus/dbusaccount.h"
 #include "dbus/dbusaccountuser.h"
 #include "libdui/dseparatorhorizontal.h"
-#include "UserContent/accounttypeline.h"
+#include "../user_list/accounttypeline.h"
+#include "../user_list/usericon.h"
 #include "libdui/dheaderline.h"
 #include "confirmbuttonline.h"
 #include "passwdline.h"
 #include "switchline.h"
 #include "inputline.h"
-#include "usericon.h"
 
 DUI_USE_NAMESPACE
 

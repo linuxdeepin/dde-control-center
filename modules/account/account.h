@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QtPlugin>
 #include "interfaces.h"
-#include "accountmainwidget.h"
+#include "ui/accountmainwidget.h"
 
 class QLabel;
 class QFrame;

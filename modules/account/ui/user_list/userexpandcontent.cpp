@@ -1,6 +1,6 @@
-#include "usercontent.h"
+#include "userexpandcontent.h"
 
-UserContent::UserContent(const QString &userPath, QWidget *parent)
+UserExpandContent::UserExpandContent(const QString &userPath, QWidget *parent)
     : QWidget(parent),m_userPath(userPath)
 {
     m_mainLayout = new QVBoxLayout(this);
@@ -25,7 +25,7 @@ UserContent::UserContent(const QString &userPath, QWidget *parent)
     }
 }
 
-void UserContent::initSegmentedControl()
+void UserExpandContent::initSegmentedControl()
 {
     m_segmentedControl = new DSegmentedControl(this);
     m_segmentedControl->addSegmented("Recently Used");
@@ -38,13 +38,13 @@ void UserContent::initSegmentedControl()
     m_mainLayout->addWidget(m_segmentedControl);
 }
 
-void UserContent::initAvatarPanel()
+void UserExpandContent::initAvatarPanel()
 {
     AvatarGrid *historyAvatarGrid = new AvatarGrid(this);
     AvatarGrid *allAvatarGrid = new AvatarGrid(this);
     WebcamAvatarPanel *wap = new WebcamAvatarPanel(this);
-    connect(historyAvatarGrid, &AvatarGrid::avatarSelected, this, &UserContent::onAvatarSelected);
-    connect(allAvatarGrid, &AvatarGrid::avatarSelected, this, &UserContent::onAvatarSelected);
+    connect(historyAvatarGrid, &AvatarGrid::avatarSelected, this, &UserExpandContent::onAvatarSelected);
+    connect(allAvatarGrid, &AvatarGrid::avatarSelected, this, &UserExpandContent::onAvatarSelected);
 
     m_stackWidget = new QStackedWidget(this);
     connect(m_segmentedControl, &DSegmentedControl::currentChanged, m_stackWidget, &QStackedWidget::setCurrentIndex);
@@ -75,7 +75,7 @@ void UserContent::initAvatarPanel()
     m_mainLayout->addWidget(m_stackWidget);
 }
 
-void UserContent::initAutoLogin()
+void UserExpandContent::initAutoLogin()
 {
     m_autoLoginLine = new SwitchLine();
     m_autoLoginLine->setTitle("Auto Login");
@@ -90,7 +90,7 @@ void UserContent::initAutoLogin()
     m_mainLayout->addWidget(m_autoLoginLine);
 }
 
-void UserContent::initUserEnable()
+void UserExpandContent::initUserEnable()
 {
     m_lockLine = new SwitchLine();
     m_lockLine->setTitle("Enable");
@@ -105,7 +105,7 @@ void UserContent::initUserEnable()
     m_mainLayout->addWidget(m_lockLine);
 }
 
-void UserContent::initAccountType()
+void UserExpandContent::initAccountType()
 {
     m_typeLine = new AccountTypeLine();
     m_typeLine->setTitle("Account Type");
@@ -118,7 +118,7 @@ void UserContent::initAccountType()
     m_mainLayout->addWidget(m_typeLine);
 }
 
-void UserContent::initPassword()
+void UserExpandContent::initPassword()
 {
     m_passwordFrame = new PasswordFrame();
     connect(m_passwordFrame, &PasswordFrame::sizeChanged, [=]{
@@ -131,7 +131,7 @@ void UserContent::initPassword()
     m_mainLayout->addWidget(m_passwordFrame);
 }
 
-void UserContent::onAvatarSelected(const QString &avatar)
+void UserExpandContent::onAvatarSelected(const QString &avatar)
 {
     if (avatar == ":/images/images/avatar_add.png"){
         //TODO
@@ -141,7 +141,7 @@ void UserContent::onAvatarSelected(const QString &avatar)
         m_accountUser->SetIconFile(avatar);
 }
 
-void UserContent::updateSize(bool note)
+void UserExpandContent::updateSize(bool note)
 {
     int totalHeight = LAYOUT_SPACING * 2;
     totalHeight += m_stackWidget->height();
