@@ -30,5 +30,6 @@
         <file>light/images/list_remove_normal.png</file>
         <file>light/images/list_remove_press.png</file>
         <file>light/MultiDeleteButton.theme</file>
+        <file>light/MultiAddCheckButton.theme</file>
     </qresource>
 </RCC>

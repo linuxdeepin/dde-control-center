@@ -20,6 +20,10 @@ KeyboardLayoutDelegate::KeyboardLayoutDelegate(const QString &title, QWidget *pa
 
     setTitle(title);
 
+    m_checkButton->setCheckable(true);
+    m_checkButton->setChecked(false);
+    m_checked = false;
+
     m_layout->setMargin(0);
     m_layout->addSpacing(HEADER_LEFT_MARGIN);
     m_layout->addWidget(m_label);
@@ -28,7 +32,12 @@ KeyboardLayoutDelegate::KeyboardLayoutDelegate(const QString &title, QWidget *pa
 
     setLayout(m_layout);
 
-    connect(m_checkButton, &MultiAddCheckButton::checkedChanged, this, &KeyboardLayoutDelegate::checkedChanged);
+    connect(m_checkButton, &MultiAddCheckButton::stateChanged, [&]{
+        if(m_checked != m_checkButton->isChecked()){
+            m_checked = m_checkButton->isChecked();
+            emit checkedChanged(m_checked);
+        }
+    });
 }
 
 QStringList KeyboardLayoutDelegate::keyWords() const
@@ -63,7 +72,7 @@ QString KeyboardLayoutDelegate::title() const
 
 bool KeyboardLayoutDelegate::checked() const
 {
-    return m_checkButton->checked();
+    return m_checkButton->isChecked();
 }
 
 void KeyboardLayoutDelegate::setChecked(bool checked)
