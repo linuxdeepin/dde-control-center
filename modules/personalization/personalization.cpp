@@ -389,6 +389,7 @@ int Personalization::getValidKeyIndex(const ImageInfoList &infoList, const QStri
             return i;
         }
     }
+    return -1;
 }
 
 void Personalization::updateCurrentTheme(QString themeKey){
@@ -396,31 +397,55 @@ void Personalization::updateCurrentTheme(QString themeKey){
     if (m_themeObjs.contains(themeKey)){
        const QJsonObject& obj =  m_themeObjs.value(themeKey);
        if (m_themeKeys.contains(themeKey)){
-            m_themeButtonGrid->checkButtonByIndex(getValidKeyIndex(m_themeImageInfos, themeKey));
+            int index = getValidKeyIndex(m_themeImageInfos, themeKey);
+            if (index >= 0){
+                m_themeButtonGrid->checkButtonByIndex(index);
+            }else{
+                qCritical() << "There is no theme named:" << themeKey;
+            }
        }
-
        QString gtkKey("Gtk");
        if (obj.contains(gtkKey)){
             QString id = obj.value(gtkKey).toObject().value("Id").toString();
-            m_windowButtonGrid->checkButtonByIndex(getValidKeyIndex(m_windowImageInfos, gtkKey));
+            int index = getValidKeyIndex(m_windowImageInfos, gtkKey);
+            if (index >= 0){
+                m_windowButtonGrid->checkButtonByIndex(index);
+            }else{
+                qCritical() << "There is no window named:" << gtkKey;
+            }
        }
 
        QString iconKey("Icon");
        if (obj.contains(iconKey)){
             QString id = obj.value(iconKey).toObject().value("Id").toString();
-            m_iconButtonGrid->checkButtonByIndex(getValidKeyIndex(m_iconImageInfos, id));
+            int index = getValidKeyIndex(m_iconImageInfos, id);
+            if (index >= 0){
+                m_iconButtonGrid->checkButtonByIndex(index);
+            }else{
+                qCritical() << "There is no icon named:" << id;
+            }
        }
 
        QString cursorKey("Cursor");
        if (obj.contains(cursorKey)){
             QString id = obj.value(cursorKey).toObject().value("Id").toString();
-            m_cursorButtonGrid->checkButtonByIndex(getValidKeyIndex(m_cursorImageInfos, id));
+            int index = getValidKeyIndex(m_cursorImageInfos, id);
+            if(index >= 0){
+                m_cursorButtonGrid->checkButtonByIndex(index);
+            }else{
+                qCritical() << "There is no cursor named:" << id;
+            }
        }
 
        QString backgroundKey("Background");
        if (obj.contains(backgroundKey)){
            QString URI = obj.value(backgroundKey).toObject().value("URI").toString();
-           m_wallpaperButtonGrid->checkButtonByIndex(getValidKeyIndex(m_wallpaperImageInfos, URI));
+           int index = getValidKeyIndex(m_wallpaperImageInfos, URI);
+           if (index >= 0){
+                m_wallpaperButtonGrid->checkButtonByIndex(index);
+           }else{
+                qCritical() << "There is no background named:" << URI;
+           }
        }
 
        QString standardFont = obj.value("StandardFont").toObject().value("Id").toString();
