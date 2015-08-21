@@ -21,7 +21,6 @@ Personalization::Personalization():m_margins(0, 5, 0, 5)
     initUI();
     initControllers();
     emit dataRequested();
-    initConnect();
 }
 
 void Personalization::initUI(){
@@ -82,8 +81,9 @@ void Personalization::initControllers(){
     connect(m_dbusWorker, &DBusWorker::backgroundDetailsChanged, this, &Personalization::updateWallpaperButtons);
     connect(m_dbusWorker, &DBusWorker::standardFontDetailsChanged, this, &Personalization::updateStandardFontCombox);
     connect(m_dbusWorker, &DBusWorker::monospaceFontDetailsChanged, this, &Personalization::updateMonospaceFontCombox);
-    connect(m_dbusWorker, &DBusWorker::dataFinished, this, &Personalization::handleDataFinished);
+
     connect(m_dbusWorker, &DBusWorker::currentThemeChanged, this, &Personalization::updateCurrentTheme);
+    connect(m_dbusWorker, &DBusWorker::dataFinished, this, &Personalization::handleDataFinished);
     m_workerThread.start();
 }
 
@@ -381,6 +381,8 @@ void Personalization::handleDataFinished(){
         expand->setExpand(false);
     }
     m_themeExpand->setExpand(true);
+
+    initConnect();
 }
 
 int Personalization::getValidKeyIndex(const ImageInfoList &infoList, const QString &key) const{

@@ -49,8 +49,8 @@ void DBusWorker::doWork(){
     emit backgroundDetailsChanged(m_backgroundDetails);
     emit standardFontDetailsChanged(m_standardFontKeys);
     emit monospaceFontDetailsChanged(m_monospaceFontKeys);
-    emit dataFinished();
     emit currentThemeChanged(m_currentThemeKey);
+    emit dataFinished();
 }
 
 QStringList& DBusWorker::getKeys(QString Type, QStringList &keys){
