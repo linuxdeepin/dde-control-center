@@ -19,6 +19,9 @@ public:
 signals:
     void requestDelete(bool flag);
     void cancelDelete();
+    void hideForSetting();
+    void showForNormal();
+    void changeToSetting(bool setting);
 
 private:
     void initSessionManager();
@@ -30,7 +33,6 @@ private:
     DBusAccount *m_account = NULL;
     QVBoxLayout *m_mainLayout = NULL;
     DBusSessionManager *m_sessionManager = NULL;
-    DExpandGroup *m_expandGroup = NULL;
 
     QMap<QString, UserExpand *> m_expands;   //userPath expandObj
 };

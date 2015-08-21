@@ -31,9 +31,12 @@ void AccountMainWidget::initHeader()
 {
     m_header = new ModuleHeader(tr("Account"), false, this);
     m_mainLayout->addWidget(m_header);
+    DSeparatorHorizontal *separator = new DSeparatorHorizontal;
+    m_mainLayout->addWidget(separator);
 
-    QStackedWidget *stackWidget = new QStackedWidget();
-    m_header->setRightContent(stackWidget);
+    initHeaderStackWidget();
+
+    m_header->setRightContent(m_headerStackWidget);
 
     QWidget *headerButtonContent = new QWidget();
     QHBoxLayout *buttonLayout = new QHBoxLayout();
@@ -48,9 +51,21 @@ void AccountMainWidget::initHeader()
     headerButtonContent->setLayout(buttonLayout);
 
     DTextButton *listButton = new DTextButton(tr("User List"));
+    listButton->setFixedHeight(DUI::BUTTON_HEIGHT);
+    connect(listButton, &DTextButton::clicked, [=]{
+        m_headerStackWidget->setVisible(true);
+        m_headerStackWidget->setCurrentIndex(0);
+        m_state = StateNormal;
+        emit showForNormal();
+    });
+    QFrame *lbFrame = new QFrame;
+    QHBoxLayout *lbLayout = new QHBoxLayout(lbFrame);
+    lbLayout->setContentsMargins(0, 0, 0, 0);
+    lbLayout->setAlignment(Qt::AlignVCenter);
+    lbLayout->addWidget(listButton);
 
-    stackWidget->addWidget(headerButtonContent);
-    stackWidget->addWidget(listButton);
+    m_headerStackWidget->addWidget(headerButtonContent);
+    m_headerStackWidget->addWidget(lbFrame);
 
     connect(this, &AccountMainWidget::cancelDelete, [=]{
        if (deleteButton){
@@ -63,12 +78,17 @@ void AccountMainWidget::initHeader()
         DImageButton::State buttonState = deleteButton->getState();
         if (buttonState == DImageButton::Hover || buttonState == DImageButton::Press)
             return;
+
         switch (buttonState) {
         case DImageButton::Checked:
+            if (m_state == StateDeleting)
+                break;
             setPanelState(StateDeleting);
             emit requestDelete(true);
             break;
         default:
+            if (m_state == StateNormal)
+                break;
             setPanelState(StateNormal);
             emit requestDelete(false);
             break;
@@ -78,33 +98,30 @@ void AccountMainWidget::initHeader()
         setPanelState(StateCreating);
     });
 
-    connect(this, &AccountMainWidget::stateChanged, [=](PanelState state){
-        switch (state){
-        case StateNormal:
-            stackWidget->setVisible(true);
-            stackWidget->setCurrentIndex(0);
-            break;
-        case StateCreating:
-            stackWidget->setVisible(false);
-            break;
-        case StateDeleting:
-            stackWidget->setVisible(true);
-            stackWidget->setCurrentIndex(0);
-            break;
-        case StateSetting:
-            stackWidget->setVisible(true);
-            stackWidget->setCurrentIndex(1);
-            break;
-        default:
-            break;
-        }
-    });
 }
 
 void AccountMainWidget::initListPanel()
 {
     m_listPanel = new UserListPanel();
     connect(this, &AccountMainWidget::requestDelete, m_listPanel, &UserListPanel::requestDelete);
+    connect(this, &AccountMainWidget::hideForSetting, m_listPanel, &UserListPanel::hideForSetting);
+    connect(this, &AccountMainWidget::showForNormal, m_listPanel, &UserListPanel::showForNormal);
+    connect(m_listPanel, &UserListPanel::changeToSetting, [=](bool setting){
+        if (setting){
+            m_headerStackWidget->setVisible(true);
+            m_headerStackWidget->setCurrentIndex(1);
+
+            m_state = StateSetting;
+            emit hideForSetting();
+        }
+        else{
+            m_headerStackWidget->setVisible(true);
+            m_headerStackWidget->setCurrentIndex(0);
+
+            m_state = StateNormal;
+            emit showForNormal();
+        }
+    });
     connect(m_listPanel, &UserListPanel::cancelDelete, [=]{
         emit cancelDelete();
         emit requestDelete(false);
@@ -130,6 +147,33 @@ void AccountMainWidget::initCreatePanel()
     });
 
     m_stackWidget->addWidget(m_createPanel);
+}
+
+void AccountMainWidget::initHeaderStackWidget()
+{
+    m_headerStackWidget = new QStackedWidget();
+
+    connect(this, &AccountMainWidget::stateChanged, [=](PanelState state){
+        switch (state){
+        case StateNormal:
+            m_headerStackWidget->setVisible(true);
+            m_headerStackWidget->setCurrentIndex(0);
+            break;
+        case StateCreating:
+            m_headerStackWidget->setVisible(false);
+            break;
+        case StateDeleting:
+            m_headerStackWidget->setVisible(true);
+            m_headerStackWidget->setCurrentIndex(0);
+            break;
+        case StateSetting:
+            m_headerStackWidget->setVisible(true);
+            m_headerStackWidget->setCurrentIndex(1);
+            break;
+        default:
+            break;
+        }
+    });
 }
 
 void AccountMainWidget::setPanelState(AccountMainWidget::PanelState state)

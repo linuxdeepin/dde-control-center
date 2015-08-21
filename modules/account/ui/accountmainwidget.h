@@ -33,14 +33,18 @@ signals:
     void stateChanged(PanelState state);
     void requestDelete(bool flag);
     void cancelDelete();
+    void hideForSetting();
+    void showForNormal();
 
 private:
     void initHeader();
     void initListPanel();
     void initCreatePanel();
+    void initHeaderStackWidget();
 
     void setPanelState(PanelState state);
 private:
+    QStackedWidget *m_headerStackWidget = NULL;
     QStackedWidget *m_stackWidget = NULL;
     CreateUserPanel *m_createPanel = NULL;
     QScrollArea *m_listScrollArea = NULL;
