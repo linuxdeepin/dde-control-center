@@ -5,6 +5,7 @@
 #include <QLayout>
 #include <QTableWidget>
 #include <QHeaderView>
+#include <QButtonGroup>
 #include "useravatar.h"
 #include "dbus/dbusaccountuser.h"
 
@@ -22,10 +23,15 @@ signals:
 
 private:
     void init();
+    void clearUp();
     void onIconPress();
     void onRequestDelete();
 
+private slots:
+    void onButtonToggled(QAbstractButton * button, bool checked);
+
 private:
+    QButtonGroup *m_buttonGroup = NULL;
     DBusAccountUser *m_user = NULL;
 
     const int COLUMN_COUNT = 3;

@@ -5,6 +5,9 @@
 
 Account::Account()
 {
+    Q_INIT_RESOURCE(widgets_theme_dark);
+    Q_INIT_RESOURCE(widgets_theme_light);
+
     m_label = new QLabel("Account");
     m_mainWidget = new AccountMainWidget;
 }

@@ -2,15 +2,35 @@ AvatarGrid, UserExpandContent, QScrollArea, QStackedWidget, UserAvatar, UserList
     background-color: transparent;
 }
 
-UserExpandHeader {
-    background-color: #1A1B1B;
-}
-
 AvatarDeleteButton {
     qproperty-normalPic: url(":/images/dark/images/delete_icon.png");
     qproperty-hoverPic: url(":/images/dark/images/delete_icon.png");
     qproperty-pressPic: url(":/images/dark/images/delete_icon.png");
     qproperty-checkedPic: url(":/images/dark/images/delete_icon.png");
+}
+
+QLabel#CameraErrorLabel {
+    font-size: 16px;
+    color: #b4b4b4
+}
+
+QLabel#HeaderTypeLabel {
+    font-size: 12px;
+    color: #b4b4b4;
+}
+
+HeaderNameLabel {
+    font-size: 12px;
+    color: #b4b4b4;
+}
+
+HeaderNameLabel[isCurrentUser="true"] {
+    font-size: 12px;
+    color: #fdbd25;
+}
+
+UserExpandHeader {
+    background-color: #1A1B1B;
 }
 
 /********************************** Create Frame ************************/

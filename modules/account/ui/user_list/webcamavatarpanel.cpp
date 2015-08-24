@@ -113,6 +113,7 @@ void WebcamAvatarPanel::initStackWidget()
 
     QFrame *lFrame = new QFrame;
     QLabel *errorLabel = new QLabel(tr("No camera found."));
+    errorLabel->setObjectName("CameraErrorLabel");
     QVBoxLayout *lLayout = new QVBoxLayout(lFrame);
     lLayout->setAlignment(Qt::AlignCenter);
     lLayout->addWidget(errorLabel);

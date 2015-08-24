@@ -5,6 +5,20 @@
 #include <QLabel>
 #include <QVBoxLayout>
 
+class HeaderNameLabel : public QLabel
+{
+    Q_OBJECT
+    Q_PROPERTY(bool isCurrentUser READ isCurrentUser WRITE setIsCurrentUser)
+public:
+    explicit HeaderNameLabel(QWidget * parent = 0);
+
+    void setIsCurrentUser(bool value);
+    bool isCurrentUser() const;
+
+private:
+    bool m_isCurrentUser = false;
+};
+
 class UserNameTitle : public QWidget
 {
     Q_OBJECT
@@ -16,9 +30,8 @@ public:
 
 private:
     QVBoxLayout *m_mainLayout = NULL;
-    QLabel *m_nameLabel = NULL;
+    HeaderNameLabel *m_nameLabel = NULL;
     QLabel *m_typeLabel = NULL;
-    bool m_isCurrentUser = false;
 };
 
 #endif // ACCOUNTNAMETITLE_H
