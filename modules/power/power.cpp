@@ -40,7 +40,7 @@ Power::~Power()
 
 }
 
-void Power::getBatteryUsedControl() {
+void Power::updateBatteryUsedControlUI() {
     if (!m_batteryIsPresent) {
          m_batterySettingDHeaderLine->hide();
          m_batterySettingExpand->hide();
@@ -166,18 +166,18 @@ void Power::initialData() {
 
 
     ////////////////////////////////////////////////////--getLinePowerPlan
-    getLinePowerPlan();
+    updateLinePowerPlanUI();
     /////////////////////////////////////////////////////-- getLinePowerIdleDelay&SuspendDelay
 
-    getLinePowerIdleDelay();
-    getLinePowerSuspendDelay();
-    getBatteryPlan();
-    getBatteryIdleDelay();
-    getBatterySuspendDelay();
+    updateLinePowerIdleDelayUI();
+    updateLinePowerSuspendDelayUI();
+    updateBatteryPlanUI();
+    updateBatteryIdleDelayUI();
+    updateBatterySuspendDelayUI();
 
     ////////////////////////////////////////////////////--setting the UI according to the data
-    m_batteryIsPresent = true; //for testing
-    m_batteryPercentage = 60;
+//    m_batteryIsPresent = true; //for testing
+//    m_batteryPercentage = 60;
     m_powerManagementFrame->setElectricQuantity(m_batteryPercentage);
     m_powerManagementFrame->batteryReservedControl(m_batteryIsPresent);
 
@@ -197,11 +197,11 @@ void Power::initialData() {
         m_closeLaptopActionFrame->hide();
     }
 
-    getBatteryUsedControl();
+    updateBatteryUsedControlUI();
 
 }
 
-void Power::getLinePowerPlan() {
+void Power::updateLinePowerPlanUI() {
     qint32 linePowerPlan = m_powerInterfaceManagement->getLinePowerPlan();
 
     switch(linePowerPlan) {
@@ -227,7 +227,7 @@ void Power::getLinePowerPlan() {
     }
 }
 
-void Power::getLinePowerIdleDelay() {
+void Power::updateLinePowerIdleDelayUI() {
     qint32 linePowerIdleDelay = m_powerInterfaceManagement->getLinePowerIdleDelay()/60;
 
     switch (linePowerIdleDelay) {
@@ -240,7 +240,7 @@ void Power::getLinePowerIdleDelay() {
         default:{ m_powerCustomExtendBoard->m_poweroffButtonGrid->checkButtonByIndex(6);}
     }
 }
-void Power::getLinePowerSuspendDelay() {
+void Power::updateLinePowerSuspendDelayUI() {
     qint32 linePowerSuspendDelay = m_powerInterfaceManagement->getLinePowerSuspendDelay()/60;
 
     switch (linePowerSuspendDelay) {
@@ -253,7 +253,7 @@ void Power::getLinePowerSuspendDelay() {
         default:{ m_powerCustomExtendBoard->m_standByButtonGrid->checkButtonByIndex(6);}
     }
 }
-void Power::getBatteryPlan() {
+void Power::updateBatteryPlanUI() {
     qint32 batteryPlan = m_powerInterfaceManagement->getBatteryPlan();
     switch(batteryPlan) {
         case 0: {
@@ -278,7 +278,7 @@ void Power::getBatteryPlan() {
     }
 }
 
-void Power::getBatteryIdleDelay() {
+void Power::updateBatteryIdleDelayUI() {
     qint32 batteryIdleDelay = m_powerInterfaceManagement->getBatteryIdleDelay()/60;
     switch (batteryIdleDelay) {
         case 1: { m_batteryCustomExtendBoard->m_poweroffButtonGrid->checkButtonByIndex(0);break;}
@@ -291,7 +291,7 @@ void Power::getBatteryIdleDelay() {
     }
 }
 
-void Power::getBatterySuspendDelay() {
+void Power::updateBatterySuspendDelayUI() {
     qint32 batterySuspendDelay = m_powerInterfaceManagement->getBatterySuspendDelay()/60;
 
     switch (batterySuspendDelay) {
@@ -348,7 +348,7 @@ void Power::initialConnection() {
             m_powerInterfaceManagement, SLOT(setLidCloseAction(QString)));
 
     connect(m_powerInterfaceManagement, SIGNAL(LinePowerPlanChanged()),
-            this, SLOT(getLinePowerPlan()));
+            this, SLOT(updateLinePowerPlanUI()));
 
     connect(m_powerPerformanceButtonGroup, SIGNAL(buttonChecked(QString)),
             m_powerInterfaceManagement, SLOT(setLinePowerPlan(QString)));
@@ -356,13 +356,13 @@ void Power::initialConnection() {
             SLOT(setConnectPowerExpand(QString)));
 
     connect(m_powerInterfaceManagement, SIGNAL(LinePowerIdleDelayChanged()),
-            this, SLOT(getLinePowerIdleDelay()));
+            this, SLOT(updateLinePowerIdleDelayUI()));
     connect(m_powerCustomExtendBoard->m_poweroffButtonGrid,
             SIGNAL(buttonChecked(QString)),
             m_powerInterfaceManagement, SLOT(setLinePowerIdleDelay(QString)));
 
     connect(m_powerInterfaceManagement, SIGNAL(LinePowerSuspendDelayChanged()),
-            this, SLOT(getLinePowerSuspendDelay()));
+            this, SLOT(updateLinePowerSuspendDelayUI()));
     connect(m_powerCustomExtendBoard->m_standByButtonGrid,
             SIGNAL(buttonChecked(QString)),
             m_powerInterfaceManagement, SLOT(setLinePowerSuspendDelay(QString)));

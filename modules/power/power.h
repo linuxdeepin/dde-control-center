@@ -107,18 +107,18 @@ public slots:
     void initialConnection();
     //powerType is setPowerButtonAction or setLidCloseAction
 
-    void getBatteryReservedControl();
-    void getLaptopCapCloseControl();
-    void getBatteryUsedControl();
+    void updateBatteryReservedControlUI();
+    void updateLaptopCapCloseControlUI();
+    void updateBatteryUsedControlUI();
 
-    void getBatteryPlan();
-    void getBatteryIdleDelay();
-    void getBatterySuspendDelay();
+    void updateBatteryPlanUI();
+    void updateBatteryIdleDelayUI();
+    void updateBatterySuspendDelayUI();
     void setUseBatteryExpand(QString buttonId);
 
-    void getLinePowerPlan();
-    void getLinePowerIdleDelay();
-    void getLinePowerSuspendDelay();
+    void updateLinePowerPlanUI();
+    void updateLinePowerIdleDelayUI();
+    void updateLinePowerSuspendDelayUI();
     void setConnectPowerExpand(QString buttonId);
 
 };
