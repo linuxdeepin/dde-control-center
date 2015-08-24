@@ -206,11 +206,11 @@ void Keyboard::initUI()
         connect(tmpw, &KeyboardLayoutDelegate::checkedChanged, [=](bool checked){
            if(checked){
                m_dbusKeyboard->AddUserLayout(str);
+               m_selectLayoutList << tmpw;
            }else{
                m_dbusKeyboard->DeleteUserLayout(str);
+               m_selectLayoutList.removeOne(tmpw);
            }
-
-           m_selectLayoutList << tmpw;
         });
 
         tmp_list << tmpw;
