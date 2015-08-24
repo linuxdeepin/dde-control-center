@@ -50,6 +50,7 @@ void DBusWorker::doWork(){
     emit standardFontDetailsChanged(m_standardFontKeys);
     emit monospaceFontDetailsChanged(m_monospaceFontKeys);
     emit currentThemeChanged(m_currentThemeKey);
+    emit fontSizeChanged(m_fontSize);
     emit dataFinished();
 }
 
@@ -131,12 +132,7 @@ void DBusWorker::getThemeObjs(){
 
 void DBusWorker::setTheme(QString Type, QString Key){
     QDBusPendingReply<> reply = m_appearanceDaemonInterface->Set(Type, Key);
-    reply.waitForFinished();
-    if (!reply.isError()){
-        qDebug() << "set" << Type << Key << "success";
-    }else{
-        qDebug() << reply.error().message();
-    }
+    qDebug() << "set" << Type << Key;
 }
 
 DBusWorker::~DBusWorker()

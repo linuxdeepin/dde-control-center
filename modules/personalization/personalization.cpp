@@ -83,6 +83,7 @@ void Personalization::initControllers(){
     connect(m_dbusWorker, &DBusWorker::monospaceFontDetailsChanged, this, &Personalization::updateMonospaceFontCombox);
 
     connect(m_dbusWorker, &DBusWorker::currentThemeChanged, this, &Personalization::updateCurrentTheme);
+    connect(m_dbusWorker, &DBusWorker::fontSizeChanged, this, &Personalization::setFontLabel);
     connect(m_dbusWorker, &DBusWorker::dataFinished, this, &Personalization::handleDataFinished);
     m_workerThread.start();
 }
@@ -457,10 +458,6 @@ void Personalization::updateCurrentTheme(QString themeKey){
        QString monospaceFont = obj.value("MonospaceFont").toObject().value("Id").toString();
        int mIndex = m_monospaceFonts.indexOf(monospaceFont);
        m_monospaceFontCombox->setCurrentIndex(mIndex);
-
-       int fontSize = obj.value("FontSize").toInt();
-       m_slider->setValue(fontSize);
-       setFontSize(fontSize);
     }
 }
 
@@ -528,6 +525,11 @@ void Personalization::setMonospaceFontByIndex(int index){
 }
 
 void Personalization::setFontSize(int fontSize){
+    m_dbusWorker->setTheme(m_dbusWorker->staticTypeKeys.value("TypeFontSize"), QString::number(fontSize));
+    setFontLabel(fontSize);
+}
+
+void Personalization::setFontLabel(int fontSize){
     QString style = m_fontTipLabel->styleSheet();
     QString fontsizeStyle = QString("font-size:%1px;").arg(QString::number(fontSize));
     QRegExp rx("font-size\\s*:\\s*\\d+px\\s*;");
@@ -535,7 +537,7 @@ void Personalization::setFontSize(int fontSize){
     QString tip = tr("font") + QString::number(fontSize);
     m_fontTipLabel->setText(tip);
     m_fontTipLabel->setStyleSheet(style);
-    m_dbusWorker->setTheme(m_dbusWorker->staticTypeKeys.value("TypeFontSize"), QString::number(fontSize));
+    m_slider->setValue(fontSize);
 }
 
 Personalization::~Personalization()

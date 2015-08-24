@@ -89,6 +89,7 @@ public slots:
     void setBackgroundByIndex(int index);
     void setStandardFontByIndex(int index);
     void setMonospaceFontByIndex(int index);
+    void setFontLabel(int fontSize);
     void setFontSize(int fontSize);
 
 private:
