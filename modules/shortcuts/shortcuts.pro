@@ -1,12 +1,12 @@
 TEMPLATE        = lib
-CONFIG         += plugin c++11
+CONFIG         += plugin c++11 link_pkgconfig
 QT             += widgets dbus
-INCLUDEPATH    += ../../frame/
+INCLUDEPATH    += ../../frame/ ../../widgets ../../widgets/private
+PKGCONFIG += dui
+LIBS += -L../../widgets -lwidgets
+
 TARGET          = $$qtLibraryTarget(shortcuts)
 DESTDIR         = $$_PRO_FILE_PWD_/../
-
-LIBS += -ldui
-include(../../widgets/widgets.pri)
 
 HEADERS += \
     mainwidget.h \

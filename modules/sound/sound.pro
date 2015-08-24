@@ -1,7 +1,10 @@
 TEMPLATE        = lib
-CONFIG         += plugin c++11
+CONFIG         += plugin c++11 link_pkgconfig
 QT             += widgets dbus
-INCLUDEPATH    += ../../frame/
+INCLUDEPATH    += ../../frame/ ../../widgets
+PKGCONFIG += dui
+LIBS += -L../../widgets -lwidgets
+
 HEADERS         = sound.h \
     dbus/dbusaudio.h \
     dbus/dbusaudiosink.h \
@@ -16,5 +19,3 @@ SOURCES         = sound.cpp \
     dbus/dbusaudiosource.cpp
 TARGET          = $$qtLibraryTarget(sound)
 DESTDIR         = $$_PRO_FILE_PWD_/../
-
-include(../../widgets/widgets.pri)

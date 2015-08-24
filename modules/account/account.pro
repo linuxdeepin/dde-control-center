@@ -1,10 +1,9 @@
-include(../../widgets/widgets.pri)
-
 TEMPLATE        = lib
-CONFIG         += plugin c++11
-QT             += widgets multimedia multimediawidgets
-INCLUDEPATH    += ../../frame/
-LIBS += -ldui
+CONFIG         += plugin c++11 link_pkgconfig
+QT             += widgets multimedia multimediawidgets dbus
+INCLUDEPATH    += ../../frame/ ../../widgets
+PKGCONFIG += dui
+LIBS += -L../../widgets -lwidgets
 
 HEADERS         += \
     account.h \

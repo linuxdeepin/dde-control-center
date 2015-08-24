@@ -1,9 +1,10 @@
-include(../../widgets/widgets.pri)
-
 TEMPLATE        = lib
-CONFIG         += plugin c++11
+CONFIG         += plugin c++11 link_pkgconfig
 QT             += widgets dbus
-INCLUDEPATH    += ../../frame/ ../../widgets/
+INCLUDEPATH    += ../../frame/ ../../widgets
+PKGCONFIG += dui
+LIBS += -L../../widgets -lwidgets
+
 HEADERS        += display.h \
     monitorground.h \
     monitor.h \

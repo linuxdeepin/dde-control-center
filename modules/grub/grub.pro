@@ -1,7 +1,10 @@
 TEMPLATE        = lib
-CONFIG         += plugin c++11
+CONFIG         += plugin c++11 link_pkgconfig
 QT             += widgets dbus
-INCLUDEPATH    += ../../frame/
+INCLUDEPATH    += ../../frame/ ../../widgets
+PKGCONFIG += dui
+LIBS += -L../../widgets -lwidgets
+
 HEADERS        += grub.h \
                 grubwidget.h \
     grubbackground.h \
@@ -16,5 +19,3 @@ TARGET          = $$qtLibraryTarget(grub)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 
 LIBS += -ldui
-
-include(../../widgets/widgets.pri)
