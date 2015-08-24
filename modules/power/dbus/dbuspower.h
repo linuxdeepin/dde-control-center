@@ -23,7 +23,7 @@
 /*
  * Proxy class for interface com.deepin.daemon.Power
  */
-class Power: public QDBusAbstractInterface
+class DBusPower: public QDBusAbstractInterface
 {
     Q_OBJECT
 
@@ -51,9 +51,9 @@ public:
     { return "com.deepin.daemon.Power"; }
 
 public:
-    Power(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent = 0);
+    DBusPower(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent = 0);
 
-    ~Power();
+    ~DBusPower();
 
     Q_PROPERTY(int BatteryIdleDelay READ batteryIdleDelay WRITE setBatteryIdleDelay NOTIFY BatteryIdleDelayChanged)
     inline int batteryIdleDelay() const
@@ -162,7 +162,7 @@ void PowerButtonActionChanged();
 namespace com {
   namespace deepin {
     namespace daemon {
-      typedef ::Power Power;
+      typedef ::DBusPower DBusPower;
     }
   }
 }
