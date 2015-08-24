@@ -17,3 +17,4 @@ build*/
 *.DS_Store
 dde-control-center
 *.core
+*.autosave

@@ -67,8 +67,9 @@ void PowerManagement::reset(bool clicked) {
 void PowerManagement::setElectricQuantity(double electricQuantity) {
     m_powerPercentageLabel->setText(QString("%1%").arg(electricQuantity));
 }
-void PowerManagement::batteryReservedControl() {
+void PowerManagement::batteryReservedControl(bool batteryIsPresent) {
 
+    m_batteryIsPresent = batteryIsPresent;
     if (!m_batteryIsPresent) {
         m_shortSeparatorLine->hide();
         m_powerPercentageLabel->hide();

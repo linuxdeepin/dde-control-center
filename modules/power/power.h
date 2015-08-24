@@ -36,13 +36,11 @@ public:
     ~Power() Q_DECL_OVERRIDE;
     QFrame* getContent() Q_DECL_OVERRIDE;
 
-
 private:
     int m_contentHeight;
     int m_bgContentHeight;
     QLabel* m_label;
     QFrame* m_frame;
-    com::deepin::daemon::DBusPower* m_powerInterface;
     PowerInterfaceManagement* m_powerInterfaceManagement;
 //// top header
     PowerManagement* m_powerManagementFrame;
@@ -88,7 +86,7 @@ private:
     qint32 m_batteryIdleDelay;
     qint32 m_batteryPlan;
     qint32 m_batterySuspendDelay;
-     qint32 m_batteryState;//read-only
+    qint32 m_batteryState;//read-only
     /* close the notebook */
     qint32 m_lidCloseAction;
     qint32 m_linePowerIdleDelay;
@@ -106,29 +104,22 @@ public slots:
     void initialBatteryUsedUI();
 
     void initialData();
-
     void initialConnection();
     //powerType is setPowerButtonAction or setLidCloseAction
-
-    void setLockWhenActive(bool isneedPassWd);
 
     void getBatteryReservedControl();
     void getLaptopCapCloseControl();
     void getBatteryUsedControl();
 
     void getBatteryPlan();
-    void setBatteryPlan(QString buttonPerformance);
     void getBatteryIdleDelay();
-    void setBatteryIdleDelay(QString batteryIdleDelay);
     void getBatterySuspendDelay();
-    void setBatterySuspendDelay(QString batterySuspendDelay);
+    void setUseBatteryExpand(QString buttonId);
 
     void getLinePowerPlan();
-    void setLinePowerPlan(QString buttonPerformace);
     void getLinePowerIdleDelay();
-    void setLinePowerIdleDelay(QString linePowerIdleDelay);
     void getLinePowerSuspendDelay();
-    void setLinePowerSuspendDelay(QString linePowerSuspendDelay);
+    void setConnectPowerExpand(QString buttonId);
 
 };
 #endif

@@ -19,7 +19,7 @@ public:
     double m_batteryPercentage;
 public slots:
     void reset(bool clicked);
-    void batteryReservedControl();
+    void batteryReservedControl(bool batteryIsPresent);
     void setElectricQuantity(double electricQuantity);
     void initialConnection();
 signals:
