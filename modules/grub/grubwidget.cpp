@@ -13,6 +13,7 @@
 
 #include "grubwidget.h"
 #include "dbustheme.h"
+#include "bootmenulist.h"
 
 GrubWidget::GrubWidget(QWidget *parent):
     QFrame(parent),
@@ -69,15 +70,7 @@ void GrubWidget::init()
     m_bootEntryList->setItemWidth(310);
     m_bootEntryList->addButtons(title_list);
     m_bootEntryList->setFixedSize(310, m_bootEntryList->count()*MENU_ITEM_HEIGHT);
-    m_bootMenuTitle = new DButtonList(m_grubBackground);
-    m_bootMenuTitle->setStyleSheet("DUI--DButtonList {background-color: transparent;}\
-                                    DUI--DButtonList QPushButton{text-align: left center;\
-                                    background-color: transparent;border:none;\
-                                    color:white;font-size:7px;border-width:1px;padding-left:20px;}\
-                                    DUI--DButtonList QPushButton:checked{\
-                                    background-color:#20FFFFFF;\
-                                    color: #19A9F9;border-radius:5px;}");
-    m_bootMenuTitle->setItemSize(210, 13);
+    m_bootMenuTitle = new BootMenuList(m_grubBackground);
     m_bootMenuTitle->addButtons(title_list);
     m_bootMenuTitle->move(50, 50);
     setDefaultEntry(m_grubDbus->defaultEntry());
@@ -140,7 +133,6 @@ void GrubWidget::setDefaultEntry(const QString &entry)
 
     m_bootEntryList->checkButtonByIndex(default_index);
     m_bootMenuTitle->checkButtonByIndex(default_index);
-    m_bootMenuTitle->getButtonByIndex(default_index)->hideIconLabel();
 }
 
 void GrubWidget::updatingChanged(bool updating)

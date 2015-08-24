@@ -9,13 +9,16 @@ HEADERS        += grub.h \
                 grubwidget.h \
     grubbackground.h \
     dbustheme.h \
-    dbusgrub.h
+    dbusgrub.h \
+    bootmenulist.h
 SOURCES        += grub.cpp \
                 grubwidget.cpp \
     grubbackground.cpp \
     dbustheme.cpp \
-    dbusgrub.cpp
+    dbusgrub.cpp \
+    bootmenulist.cpp
 TARGET          = $$qtLibraryTarget(grub)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 
-LIBS += -ldui
+RESOURCES += \
+    theme.qrc

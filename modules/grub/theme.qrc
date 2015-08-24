@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>dark/BootMenuList.theme</file>
+        <file>light/BootMenuList.theme</file>
+    </qresource>
+</RCC>

@@ -15,6 +15,7 @@
 DUI_USE_NAMESPACE
 
 class ModuleHeader;
+class BootMenuList;
 class GrubWidget : public QFrame
 {
     Q_OBJECT
@@ -36,7 +37,8 @@ private:
     GrubThemeDbus *m_themeDbus;
     GrubDbus *m_grubDbus;
     GrubBackground *m_grubBackground;
-    DButtonList *m_bootEntryList, *m_bootMenuTitle;
+    DButtonList *m_bootEntryList;
+    BootMenuList *m_bootMenuTitle;
     QHBoxLayout *m_selectTimeoutLayout;
     QLabel *m_tooltip;
     QStringList m_timeoutList;
