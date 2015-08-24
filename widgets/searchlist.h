@@ -5,9 +5,15 @@
 #include <QListWidgetItem>
 #include <QVBoxLayout>
 #include <QPointer>
+#include <QScrollArea>
 #include <QDebug>
 
+#include <libdui/dscrollarea.h>
+#include <libdui/libdui_global.h>
+
 #include "private/searchdbus.h"
+
+DUI_USE_NAMESPACE
 
 class SearchList;
 class SearchItem
@@ -26,7 +32,7 @@ protected:
     QPointer<SearchList> m_list;
 };
 
-class SearchList : public QFrame
+class SearchList : public DScrollArea
 {
     Q_OBJECT
 
@@ -83,6 +89,7 @@ private:
     bool m_searching;
     int m_checkedItem;
     bool m_checkable;
+    QWidget *m_mainWidget;
 };
 
 #endif // SEARCHLIST_H

@@ -26,7 +26,8 @@ MainWidget::MainWidget(QWidget *parent):
     m_childLayout(new QVBoxLayout),
     m_header(new ModuleHeader(tr("Keyboard Shortcuts"))),
     m_dbus(new ShortcutDbus(this)),
-    m_searchList(new SearchList)
+    m_searchList(new SearchList),
+    m_expandGroup(new DExpandGroup(this))
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
@@ -38,11 +39,12 @@ MainWidget::~MainWidget()
 
 }
 
-DArrowLineExpand *addExpand(const QString &title, QWidget *widget)
+DArrowLineExpand *addExpand(const QString &title, QWidget *widget, DExpandGroup *group)
 {
     DArrowLineExpand *expand = new DArrowLineExpand;
     expand->setTitle(title);
     expand->setContent(widget);
+    group->addExpand(expand);
 
     return expand;
 }
@@ -198,6 +200,7 @@ void MainWidget::init()
     connect(m_header, &ModuleHeader::resetButtonClicked, m_dbus, &ShortcutDbus::Reset);
 
     m_searchList->hide();
+    m_searchList->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_searchList->setItemSize(310, RADIO_ITEM_HEIGHT);
 
     m_systemList = addSearchList(m_dbus->systemList());
@@ -270,9 +273,9 @@ void MainWidget::init()
     m_layout->addWidget(new DSeparatorHorizontal);
     m_layout->addWidget(m_searchList, 10);
     m_childLayout->setMargin(0);
-    m_childLayout->addWidget(addExpand(tr("System"), m_systemList));
-    m_childLayout->addWidget(addExpand(tr("Window"), m_windowList));
-    m_childLayout->addWidget(addExpand(tr("Workspace"), m_workspaceList));
+    m_childLayout->addWidget(addExpand(tr("System"), m_systemList, m_expandGroup));
+    m_childLayout->addWidget(addExpand(tr("Window"), m_windowList, m_expandGroup));
+    m_childLayout->addWidget(addExpand(tr("Workspace"), m_workspaceList, m_expandGroup));
     m_childLayout->addWidget(customLine);
     m_childLayout->addWidget(new DSeparatorHorizontal);
     m_childLayout->addWidget(m_customList);
@@ -340,7 +343,6 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
         label->setText(tr("Shortcut \"%1\" is invalid, please retype new shortcut.")
                        .arg(shortcut));
         listw->insertItem(index+1, label);
-        listw->setMinimumHeight(listw->minimumHeight()+label->sizeHint().height());
         label->setTimeout(2000);
         label->expansion();
         connect(label, &ToolTip::contracted, [=]{
@@ -370,8 +372,9 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
 
         SelectDialog *dialog = new SelectDialog;
         dialog->setText(tmp_text);
+        listw->setItemSize(310, 60);
         listw->insertItem(index+1, dialog);
-        listw->setMinimumHeight(listw->minimumHeight()+dialog->sizeHint().height());
+        listw->setItemSize(310, RADIO_ITEM_HEIGHT);
 
         connect(dialog, &SelectDialog::replace, [=]{
             listw->removeItem(listw->indexOf(qobject_cast<QWidget*>(dialog)));

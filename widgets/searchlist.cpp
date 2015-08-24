@@ -1,28 +1,33 @@
-#include <libdui/libdui_global.h>
 #include <libdui/dthememanager.h>
 
 #include "searchlist.h"
 
-DUI_USE_NAMESPACE
-
 SearchList::SearchList(QWidget *parent) :
-    QFrame(parent),
+    DScrollArea(parent),
     m_itemWidth(-1),
     m_itemHeight(-1),
     m_layout(new QVBoxLayout),
     m_dbus(new SearchDbus(this)),
     m_searching(false),
     m_checkedItem(-1),
-    m_checkable(false)
+    m_checkable(false),
+    m_mainWidget(new QWidget)
 {
-    setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-
     D_THEME_INIT_WIDGET(SearchList);
+
+    setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Maximum);
 
     m_layout->setMargin(0);
     m_layout->setSpacing(0);
     m_layout->addStretch(1);
-    setLayout(m_layout);
+
+    m_mainWidget->setObjectName("MainWidget");
+    m_mainWidget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    m_mainWidget->setLayout(m_layout);
+
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setWidget(m_mainWidget);
 }
 
 int SearchList::addItem(SearchItem *data)
@@ -48,7 +53,12 @@ void SearchList::insertItem(int index, SearchItem *data)
         w->setFixedWidth(m_itemWidth);
     if(m_itemHeight>0){
         w->setFixedHeight(m_itemHeight);
-        setFixedHeight(count()*(m_layout->spacing()+m_itemHeight)-m_layout->spacing());
+        m_mainWidget->setFixedHeight(count()*(m_layout->spacing()+m_itemHeight)-m_layout->spacing());
+        if(verticalScrollBarPolicy() == Qt::ScrollBarAlwaysOff){
+            setFixedHeight(m_mainWidget->height());
+        }else{
+            setMaximumHeight(m_mainWidget->height());
+        }
     }
 
     w->installEventFilter(this);
@@ -79,6 +89,8 @@ void SearchList::setItemSize(int w, int h)
 {
     m_itemWidth = w;
     m_itemHeight = h;
+
+    m_mainWidget->setFixedWidth(w);
 }
 
 void SearchList::clear()
@@ -93,7 +105,8 @@ void SearchList::clear()
 
     m_itemList.clear();
 
-    setFixedHeight(0);
+    m_mainWidget->setFixedHeight(0);
+    setMaximumHeight(0);
     setCheckedItem(-1);
     emit countChanged();
 }
@@ -118,8 +131,14 @@ void SearchList::removeItem(int index)
         setCheckedItem(-1);
     }
 
-    if(m_itemHeight>0)
-        setFixedHeight(count()*(m_layout->spacing()+m_itemHeight)-m_layout->spacing());
+    if(m_itemHeight>0){
+        m_mainWidget->setFixedHeight(count()*(m_layout->spacing()+m_itemHeight)-m_layout->spacing());
+        if(verticalScrollBarPolicy() == Qt::ScrollBarAlwaysOff){
+            setFixedHeight(m_mainWidget->height());
+        }else{
+            setMaximumHeight(m_mainWidget->height());
+        }
+    }
 
     emit countChanged();
 }
@@ -176,8 +195,14 @@ void SearchList::showItem(int index)
 
     if(w&&!w->isVisible()){
         w->show();
-        if(m_itemHeight>0)
-            setFixedHeight(height()+m_layout->spacing()+m_itemHeight);
+        if(m_itemHeight>0){
+            m_mainWidget->setFixedHeight(m_mainWidget->height()+m_layout->spacing()+m_itemHeight);
+            if(verticalScrollBarPolicy() == Qt::ScrollBarAlwaysOff){
+                setFixedHeight(m_mainWidget->height());
+            }else{
+                setMaximumHeight(m_mainWidget->height());
+            }
+        }
     }
 }
 
@@ -186,8 +211,14 @@ void SearchList::hideItem(int index)
     QWidget *w = getItem(index)->widget();
     if(w&&w->isVisible()){
         w->hide();
-        if(m_itemHeight>0)
-            setFixedHeight(height()-m_layout->spacing()-m_itemHeight);
+        if(m_itemHeight>0){
+            m_mainWidget->setFixedHeight(m_mainWidget->height()-m_layout->spacing()-m_itemHeight);
+            if(verticalScrollBarPolicy() == Qt::ScrollBarAlwaysOff){
+                setFixedHeight(m_mainWidget->height());
+            }else{
+                setMaximumHeight(m_mainWidget->height());
+            }
+        }
     }
 }
 

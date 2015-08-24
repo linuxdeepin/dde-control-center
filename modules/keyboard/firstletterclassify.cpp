@@ -95,6 +95,7 @@ FirstLetterClassify::FirstLetterClassify(QWidget *parent) :
 
     m_searchList->setItemSize(310, EXPAND_HEADER_HEIGHT);
     m_searchList->setCheckable(false);
+    m_searchList->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 
     m_letterList->setObjectName("LetterList");
 
@@ -103,12 +104,6 @@ FirstLetterClassify::FirstLetterClassify(QWidget *parent) :
     m_layout->addWidget(m_searchList);
     m_layout->addStretch(1);
     setLayout(m_layout);
-
-    connect(m_letterList, &DSegmentedControl::currentTitleChanged, [&](const QString& key){
-        m_searchList->setKeyWord(key);
-        emit currentLetterChanged(key);
-        setMinimumHeight(m_searchList->sizeHint().height()+m_letterList->sizeHint().height());
-    });
 }
 
 SearchList *FirstLetterClassify::searchList() const
@@ -136,6 +131,12 @@ void FirstLetterClassify::addItems(QList<SearchItem*> datas)
     }
 
     m_letterList->setCurrentIndex(1);
+
+    connect(m_letterList, &DSegmentedControl::currentTitleChanged, [&](const QString& key){
+        m_searchList->setKeyWord(key);
+        emit currentLetterChanged(key);
+    });
+
     foreach (QObject *obj, m_letterList->children()) {
         QWidget *w = qobject_cast<QWidget*>(obj);
         if(w){

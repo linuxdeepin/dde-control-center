@@ -6,6 +6,7 @@
 
 #include <libdui/libdui_global.h>
 #include <libdui/dheaderline.h>
+#include <libdui/dexpandgroup.h>
 
 #include "shortcutdbus.h"
 #include "shortcutwidget.h"
@@ -37,6 +38,7 @@ private:
     SearchList *m_windowList;
     SearchList *m_workspaceList;
     SearchList *m_customList;
+    DExpandGroup *m_expandGroup;
 
     void init();
 

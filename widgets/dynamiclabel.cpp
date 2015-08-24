@@ -23,11 +23,14 @@ DynamicLabel::DynamicLabel(QWidget *parent) :
 
     connect(m_animation, SIGNAL(finished()), SLOT(update()));
     connect(m_animation, &QPropertyAnimation::finished, [&]{
-        if(m_label->width() == 0)
+        if(m_label->width() == 0){
             emit hideFinished();
+            hide();
+        }
     });
 
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    hide();
 }
 
 QLabel *DynamicLabel::label() const
@@ -58,7 +61,10 @@ void DynamicLabel::setText(const QString &text)
 
 void DynamicLabel::showLabel()
 {
-    m_animation->stop();
+    if(isVisible())
+        return;
+
+    show();
     QRect rect = this->rect();
     rect.setX(width());
     m_animation->setStartValue(rect);
@@ -69,7 +75,9 @@ void DynamicLabel::showLabel()
 
 void DynamicLabel::hideLabel()
 {
-    m_animation->stop();
+    if(isHidden())
+        return;
+
     QRect rect = this->rect();
     rect.setX(0);
     m_animation->setStartValue(rect);

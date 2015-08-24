@@ -178,6 +178,9 @@ void Keyboard::initUI()
         capsLockSwitch->setChecked(m_dbusKeyboard->capslockToggle());
     });
 
+    DArrowLineExpand *language_expand = new DArrowLineExpand;
+    language_expand->setTitle(tr("Language"));
+
     AddRmDoneLine *keyboardLayoutLine = new AddRmDoneLine;
     keyboardLayoutLine->setTitle(tr("Keyboard Layout"));
     keyboardLayoutLine->setRmButtonToolTip(tr("Remove Keyboard Layout"));
@@ -230,6 +233,7 @@ void Keyboard::initUI()
         user_layout_list->hide();
         letter_list->show();
         letter_list->letterList()->setCurrentIndex(0);
+        language_expand->setExpand(false);
     });
     connect(keyboardLayoutLine, &AddRmDoneLine::removeClicked, [=]{
         keyboardLayoutLine->setAddHidden(true);
@@ -249,6 +253,21 @@ void Keyboard::initUI()
         m_selectLayoutList.clear();
 
         user_layout_list->setCheckable(true);
+    });
+
+    connect(language_expand, &DArrowLineExpand::expandChange, [=](bool arg){
+        if(arg&&keyboardLayoutLine->doneButton()->isVisible()){
+            keyboardLayoutLine->setDoneHidden(true);
+            keyboardLayoutLine->setAddHidden(false);
+            keyboardLayoutLine->setRemoveHidden(user_layout_list->count()<2);
+
+            letter_list->hide();
+            user_layout_list->show();
+            letter_list->removeItems(m_selectLayoutList);
+            m_selectLayoutList.clear();
+
+            user_layout_list->setCheckable(true);
+        }
     });
 
     connect(user_layout_list, &SearchList::checkedItemChanged, [=](int index){
@@ -274,9 +293,6 @@ void Keyboard::initUI()
                              &&keyboardLayoutLine->doneButton()->isVisible());
     });
 
-    DArrowLineExpand *language_expand = new DArrowLineExpand;
-    language_expand->setTitle(tr("Language"));
-
     QFrame *lang_list_frame = new QFrame;
     lang_list_frame->setFixedWidth(310);
 
@@ -284,15 +300,19 @@ void Keyboard::initUI()
     lang_frame_layout->setMargin(0);
 
     DSearchEdit *lang_search = new DSearchEdit;
+    lang_search->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     SearchList *language_searchList = new SearchList;
+    language_searchList->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     language_searchList->setCheckable(true);
     language_searchList->setFixedWidth(310);
     language_searchList->setItemSize(290, EXPAND_HEADER_HEIGHT);
 
-    lang_frame_layout->addWidget(lang_search);
-    lang_frame_layout->addWidget(language_searchList);
+    lang_frame_layout->addWidget(lang_search, 0, Qt::AlignTop);
+    lang_frame_layout->addWidget(language_searchList, 100);
     lang_frame_layout->addStretch(1);
+
+    lang_list_frame->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     lang_list_frame->setLayout(lang_frame_layout);
     language_expand->setContent(lang_list_frame);
 
