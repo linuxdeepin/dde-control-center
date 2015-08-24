@@ -88,6 +88,7 @@ void Personalization::initControllers(){
 }
 
 void Personalization::initConnect(){
+    connect(m_slider, &DSlider::valueChanged, this, &Personalization::setFontSize);
     connect(m_themeButtonGrid, &DButtonGrid::buttonCheckedIndexChanged, this, &Personalization::setThemeByIndex);
     connect(m_windowButtonGrid, &DButtonGrid::buttonCheckedIndexChanged, this, &Personalization::setWindowByIndex);
     connect(m_iconButtonGrid, &DButtonGrid::buttonCheckedIndexChanged, this, &Personalization::setIconByIndex);
@@ -237,7 +238,6 @@ void Personalization::initFontExpand(){
     sliderLayout->addWidget(m_fontTipLabel);
     sliderLayout->setContentsMargins(0, 0, 0, 0);
     silidFrame->setLayout(sliderLayout);
-    connect(m_slider, &DSlider::valueChanged, this, &Personalization::setFontSize);
 
 
     QFormLayout* fontLayout = new QFormLayout;
@@ -459,6 +459,7 @@ void Personalization::updateCurrentTheme(QString themeKey){
        m_monospaceFontCombox->setCurrentIndex(mIndex);
 
        int fontSize = obj.value("FontSize").toInt();
+       m_slider->setValue(fontSize);
        setFontSize(fontSize);
     }
 }
@@ -527,7 +528,6 @@ void Personalization::setMonospaceFontByIndex(int index){
 }
 
 void Personalization::setFontSize(int fontSize){
-    m_slider->setValue(fontSize);
     QString style = m_fontTipLabel->styleSheet();
     QString fontsizeStyle = QString("font-size:%1px;").arg(QString::number(fontSize));
     QRegExp rx("font-size\\s*:\\s*\\d+px\\s*;");
