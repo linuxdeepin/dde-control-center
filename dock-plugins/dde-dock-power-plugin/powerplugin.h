@@ -44,7 +44,7 @@ private:
     QLabel * m_label;
     Dock::DockMode m_mode;
     DockPluginProxyInterface * m_proxy;
-    com::deepin::daemon::Power * m_dbusPower;
+    com::deepin::daemon::DBusPower * m_dbusPower;
 
     QSettings * m_settings;
 
