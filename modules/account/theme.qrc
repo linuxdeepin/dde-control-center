@@ -4,7 +4,8 @@
         <file>light/AccountMainWidget.theme</file>
     </qresource>
     <qresource prefix="/images">
-        <file>images/avatar_add.png</file>
-        <file>images/mask.png</file>
+        <file>dark/images/delete_icon.png</file>
+        <file>dark/images/mask.png</file>
+        <file>dark/images/avatar_add.png</file>
     </qresource>
 </RCC>

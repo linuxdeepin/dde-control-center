@@ -5,13 +5,14 @@
 #include <QLayout>
 #include <QTableWidget>
 #include <QHeaderView>
-#include "usericon.h"
+#include "useravatar.h"
+#include "dbus/dbusaccountuser.h"
 
 class AvatarGrid : public QTableWidget
 {
     Q_OBJECT
 public:
-    explicit AvatarGrid(QWidget *parent = 0);
+    explicit AvatarGrid(const QString &userPath = "", QWidget *parent = 0);
 
     void setAvatars(const QStringList &list);
 
@@ -22,8 +23,11 @@ signals:
 private:
     void init();
     void onIconPress();
+    void onRequestDelete();
 
 private:
+    DBusAccountUser *m_user = NULL;
+
     const int COLUMN_COUNT = 3;
     const int ICON_SIZE = 103;
 };

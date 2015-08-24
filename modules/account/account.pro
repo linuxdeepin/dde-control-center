@@ -16,13 +16,13 @@ HEADERS         += \
     ui/user_list/avatargrid.h \
     ui/user_list/passwordframe.h \
     ui/user_list/userexpand.h \
-    ui/user_list/usericon.h \
     ui/user_list/userlistpanel.h \
     ui/user_list/usernametitle.h \
     ui/user_list/webcamavatarpanel.h \
     ui/user_create/createuserpanel.h \
     ui/user_list/userexpandcontent.h \
-    ui/user_list/userexpandheader.h
+    ui/user_list/userexpandheader.h \
+    ui/user_list/useravatar.h
 
 SOURCES         += \
     account.cpp \
@@ -34,13 +34,13 @@ SOURCES         += \
     ui/user_list/avatargrid.cpp \
     ui/user_list/passwordframe.cpp \
     ui/user_list/userexpand.cpp \
-    ui/user_list/usericon.cpp \
     ui/user_list/userlistpanel.cpp \
     ui/user_list/usernametitle.cpp \
     ui/user_list/webcamavatarpanel.cpp \
     ui/user_create/createuserpanel.cpp \
     ui/user_list/userexpandcontent.cpp \
-    ui/user_list/userexpandheader.cpp
+    ui/user_list/userexpandheader.cpp \
+    ui/user_list/useravatar.cpp
 
 TARGET          = $$qtLibraryTarget(account)
 DESTDIR         = $$_PRO_FILE_PWD_/../

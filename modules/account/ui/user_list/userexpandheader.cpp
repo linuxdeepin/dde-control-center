@@ -90,7 +90,7 @@ void UserExpandHeader::initData()
 
 void UserExpandHeader::initIcon()
 {
-    m_icon = new UserIcon();
+    m_icon = new UserAvatar();
     m_icon->setFixedSize(ICON_WIDTH, ICON_NORMAL_HEIGHT);
 
     m_mainLayout->addWidget(m_icon);

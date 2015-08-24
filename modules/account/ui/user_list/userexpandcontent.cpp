@@ -40,8 +40,8 @@ void UserExpandContent::initSegmentedControl()
 
 void UserExpandContent::initAvatarPanel()
 {
-    AvatarGrid *historyAvatarGrid = new AvatarGrid(this);
-    AvatarGrid *allAvatarGrid = new AvatarGrid(this);
+    AvatarGrid *historyAvatarGrid = new AvatarGrid("",this);
+    AvatarGrid *allAvatarGrid = new AvatarGrid(m_userPath, this);
     WebcamAvatarPanel *wap = new WebcamAvatarPanel(this);
     connect(historyAvatarGrid, &AvatarGrid::avatarSelected, this, &UserExpandContent::onAvatarSelected);
     connect(allAvatarGrid, &AvatarGrid::avatarSelected, this, &UserExpandContent::onAvatarSelected);
@@ -50,7 +50,7 @@ void UserExpandContent::initAvatarPanel()
     connect(m_segmentedControl, &DSegmentedControl::currentChanged, m_stackWidget, &QStackedWidget::setCurrentIndex);
     connect(m_stackWidget, &QStackedWidget::currentChanged, [=](int index){
         historyAvatarGrid->setAvatars(m_accountUser->historyIcons());
-        allAvatarGrid->setAvatars(m_accountUser->iconList() << ":/images/images/avatar_add.png");
+        allAvatarGrid->setAvatars(m_accountUser->iconList() << ADD_AVATAR_ICON);
 
         QSize ns;
         if (index == 0)
@@ -64,6 +64,10 @@ void UserExpandContent::initAvatarPanel()
 
         if (m_autoLoginLine)    //after initialization
             updateSize();
+    });
+    connect(m_accountUser, &DBusAccountUser::IconListChanged, [=]{
+        historyAvatarGrid->setAvatars(m_accountUser->historyIcons());
+        allAvatarGrid->setAvatars(m_accountUser->iconList() << ADD_AVATAR_ICON);
     });
 
     m_stackWidget->addWidget(historyAvatarGrid);
@@ -133,9 +137,11 @@ void UserExpandContent::initPassword()
 
 void UserExpandContent::onAvatarSelected(const QString &avatar)
 {
-    if (avatar == ":/images/images/avatar_add.png"){
-        //TODO
-        //add file from file system
+    if (avatar == ADD_AVATAR_ICON){
+        QString fileName = QFileDialog::getOpenFileName(this,
+            tr("Choose a new picture for your Avatar"), QDir::homePath(), tr("Image files (*.jpg *.png *.jpeg)"));
+        if (!fileName.isEmpty())
+            m_accountUser->SetIconFile(fileName);
     }
     else
         m_accountUser->SetIconFile(avatar);

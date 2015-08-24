@@ -59,7 +59,7 @@ void CreateUserPanel::initInfoLine()
     vLayout->setContentsMargins(0, 0, 0, 0);
     vLayout->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
 
-    UserIcon *avatar = new UserIcon;
+    UserAvatar *avatar = new UserAvatar;
     avatar->setFixedSize(ICON_SIZE, ICON_SIZE);
     avatar->setIcon(m_randIcon);
 

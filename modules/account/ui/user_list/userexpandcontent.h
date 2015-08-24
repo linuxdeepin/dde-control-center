@@ -5,6 +5,8 @@
 #include <QVBoxLayout>
 #include <QResizeEvent>
 #include <QStackedWidget>
+#include <QFileDialog>
+#include <QDir>
 #include "dbus/dbusaccountuser.h"
 #include "libdui/dsegmentedcontrol.h"
 #include "libdui/dswitchlineexpand.h"
@@ -20,7 +22,7 @@ class UserExpandContent : public QWidget
 {
     Q_OBJECT
 public:
-    explicit UserExpandContent(const QString &userPath, QWidget *parent = 0);
+    explicit UserExpandContent(const QString &userPath = "", QWidget *parent = 0);
 
 signals:
     void sizeChanged();
@@ -51,6 +53,7 @@ private:
     QString m_userPath = "";
 
     const int LAYOUT_SPACING = 10;
+    const QString ADD_AVATAR_ICON = ":/images/dark/images/avatar_add.png";
 };
 
 #endif // USEREXPANDCONTENT_H

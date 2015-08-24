@@ -8,7 +8,7 @@
 #include <QMouseEvent>
 #include <QStackedWidget>
 #include <QPropertyAnimation>
-#include "usericon.h"
+#include "useravatar.h"
 #include "usernametitle.h"
 #include "dbus/dbusaccount.h"
 #include "dbus/dbusaccountuser.h"
@@ -74,7 +74,7 @@ private:
 
 private:
     QString m_userPath = "";
-    UserIcon *m_icon = NULL;
+    UserAvatar *m_icon = NULL;
     QHBoxLayout *m_mainLayout = NULL;
     UserNameTitle *m_nameTitle = NULL;
     DBusAccountUser *m_accountUser = NULL;

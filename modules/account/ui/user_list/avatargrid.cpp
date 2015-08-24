@@ -1,7 +1,10 @@
 #include "avatargrid.h"
 
-AvatarGrid::AvatarGrid(QWidget *parent) : QTableWidget(parent)
+AvatarGrid::AvatarGrid(const QString &userPath, QWidget *parent)
+    : QTableWidget(parent)
 {
+    m_user = new DBusAccountUser(userPath, this);
+
     init();
 }
 
@@ -23,10 +26,12 @@ void AvatarGrid::setAvatars(const QStringList &list)
             if (listIndex >= listCount)
                 break;
 
-            UserIcon *icon = new UserIcon(this);
+            QString iconName = list.at(listIndex ++);
+            UserAvatar *icon = new UserAvatar(this, m_user->IsIconDeletable(iconName).value());
             icon->setFixedSize(ICON_SIZE, ICON_SIZE);
-            icon->setIcon(list.at(listIndex ++));
-            connect(icon, &UserIcon::mousePress, this, &AvatarGrid::onIconPress);
+            icon->setIcon(iconName);
+            connect(icon, &UserAvatar::mousePress, this, &AvatarGrid::onIconPress);
+            connect(icon, &UserAvatar::requestDelete, this, &AvatarGrid::onRequestDelete);
             setCellWidget(r, c, icon);  //set and delete old one
         }
     }
@@ -36,7 +41,6 @@ void AvatarGrid::setAvatars(const QStringList &list)
 
 void AvatarGrid::init()
 {
-
     setAttribute(Qt::WA_TranslucentBackground);
     horizontalHeader()->hide();
     verticalHeader()->hide();
@@ -52,9 +56,17 @@ void AvatarGrid::init()
 
 void AvatarGrid::onIconPress()
 {
-    UserIcon * icon = qobject_cast<UserIcon *>(sender());
+    UserAvatar * icon = qobject_cast<UserAvatar *>(sender());
     if (icon){
         emit avatarSelected(icon->iconPath());
+    }
+}
+
+void AvatarGrid::onRequestDelete()
+{
+    UserAvatar * icon = qobject_cast<UserAvatar *>(sender());
+    if (icon){
+        m_user->DeleteIconFile(icon->iconPath());
     }
 }
 

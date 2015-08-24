@@ -1,14 +1,16 @@
-/*
-AvatarGrid, UserContent, QScrollArea{
-    background-color: transparent;
-}
-*/
-* {
+AvatarGrid, UserExpandContent, QScrollArea, QStackedWidget, UserAvatar, UserListPanel {
     background-color: transparent;
 }
 
-UserHeader {
+UserExpandHeader {
     background-color: #1A1B1B;
+}
+
+AvatarDeleteButton {
+    qproperty-normalPic: url(":/images/dark/images/delete_icon.png");
+    qproperty-hoverPic: url(":/images/dark/images/delete_icon.png");
+    qproperty-pressPic: url(":/images/dark/images/delete_icon.png");
+    qproperty-checkedPic: url(":/images/dark/images/delete_icon.png");
 }
 
 /********************************** Create Frame ************************/
