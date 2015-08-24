@@ -4,10 +4,12 @@
 #include <QListWidget>
 #include <QListWidgetItem>
 #include <QVBoxLayout>
+#include <QPointer>
 #include <QDebug>
 
 #include "private/searchdbus.h"
 
+class SearchList;
 class SearchItem
 {
 public:
@@ -16,6 +18,12 @@ public:
     virtual void setData(const QVariant &datas) = 0;
     virtual QVariant getData() = 0;
     virtual QWidget *widget() const = 0;
+
+    SearchList *listWidget() const;
+    virtual void setListWidget(SearchList* list);
+
+protected:
+    QPointer<SearchList> m_list;
 };
 
 class SearchList : public QFrame

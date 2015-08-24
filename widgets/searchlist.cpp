@@ -54,6 +54,7 @@ void SearchList::insertItem(int index, SearchItem *data)
     w->installEventFilter(this);
     m_layout->insertWidget(index, w, 0, Qt::AlignCenter);
     m_keyWords<<data->keyWords();
+    data->setListWidget(this);
 
     emit countChanged();
 }
@@ -286,4 +287,14 @@ bool SearchList::eventFilter(QObject *obj, QEvent *e)
     }
 
     return false;
+}
+
+SearchList *SearchItem::listWidget() const
+{
+    return m_list;
+}
+
+void SearchItem::setListWidget(SearchList *list)
+{
+    m_list = list;
 }

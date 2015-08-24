@@ -14,11 +14,12 @@ KeyboardLayoutItem::KeyboardLayoutItem(bool showRmButton, QWidget *parent) :
     m_widget(this),
     m_label(new QLabel),
     m_checked(false),
-    m_layout(new QHBoxLayout)
+    m_layout(new QHBoxLayout),
+    m_showBgColor(false)
 {
     D_THEME_INIT_WIDGET(KeyboardLayoutItem);
 
-    m_deleteButton = new ImageNameButton("delete_multi", this);
+    m_deleteButton = new ImageNameButton("list_remove", this);
     m_deleteButton->setHidden(!showRmButton);
 
     connect(m_deleteButton, &ImageNameButton::clicked, this, &KeyboardLayoutItem::removeButtonClicked);
@@ -57,6 +58,16 @@ QWidget *KeyboardLayoutItem::widget() const
     return m_widget;
 }
 
+void KeyboardLayoutItem::setListWidget(SearchList *list)
+{
+    SearchItem::setListWidget(list);
+
+    connect(list, &SearchList::countChanged, this, [&]{
+        if(m_list)
+            setShowBgColor(m_list->count()>1);
+    }, Qt::QueuedConnection);
+}
+
 bool KeyboardLayoutItem::checked() const
 {
     return m_checked;
@@ -85,6 +96,11 @@ QString KeyboardLayoutItem::imageNormal() const
 QString KeyboardLayoutItem::imageChecked() const
 {
     return m_imageChecked;
+}
+
+bool KeyboardLayoutItem::showBgColor() const
+{
+    return m_showBgColor;
 }
 
 void KeyboardLayoutItem::setChecked(bool checked)
@@ -147,6 +163,18 @@ void KeyboardLayoutItem::setImageChecked(QString imageChecked)
 void KeyboardLayoutItem::setKeyWords(QStringList keyWords)
 {
     m_keyWords = keyWords;
+}
+
+void KeyboardLayoutItem::setShowBgColor(bool showBgColor)
+{
+    if (m_showBgColor == showBgColor)
+        return;
+
+    m_showBgColor = showBgColor;
+
+    D_THEME_INIT_WIDGET(KeyboardLayoutItem);
+
+    emit showBgColorChanged(showBgColor);
 }
 
 bool KeyboardLayoutItem::eventFilter(QObject *obj, QEvent *e)

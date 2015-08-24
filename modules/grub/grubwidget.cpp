@@ -7,6 +7,7 @@
 #include <libdui/dcolorpicker.h>
 #include <libdui/dsegmentedcontrol.h>
 #include <libdui/dbuttonlist.h>
+#include <libdui/dbuttongrid.h>
 
 #include "moduleheader.h"
 
@@ -30,6 +31,8 @@ GrubWidget::GrubWidget(QWidget *parent):
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     init();
+    m_grubBackground->installEventFilter(this);
+
     connect(m_themeDbus, &GrubThemeDbus::updatingChanged, this, &GrubWidget::updatingChanged);
     connect(m_grubDbus, &GrubDbus::UpdatingChanged, this, &GrubWidget::updatingChanged);
 }
@@ -37,6 +40,17 @@ GrubWidget::GrubWidget(QWidget *parent):
 GrubWidget::~GrubWidget()
 {
 
+}
+
+bool GrubWidget::eventFilter(QObject *obj, QEvent *e)
+{
+    if(obj == m_grubBackground){
+        if(e->type() == QEvent::Resize){
+            m_tooltip->move(0, m_grubBackground->height()-m_tooltip->height());
+        }
+    }
+
+    return false;
 }
 
 void GrubWidget::init()
@@ -50,12 +64,11 @@ void GrubWidget::init()
     m_tooltip->resize(310, 20);
     m_tooltip->setText(tr("Drag and drop an image to change background."));
     m_tooltip->setAlignment(Qt::AlignCenter);
-    m_tooltip->move(0, 167);
 
     QStringList title_list = m_grubDbus->GetSimpleEntryTitles();
     m_bootEntryList->setItemWidth(310);
     m_bootEntryList->addButtons(title_list);
-    m_bootEntryList->setFixedSize(300, m_bootEntryList->count()*30);
+    m_bootEntryList->setFixedSize(310, m_bootEntryList->count()*MENU_ITEM_HEIGHT);
     m_bootMenuTitle = new DButtonList(m_grubBackground);
     m_bootMenuTitle->setStyleSheet("DUI--DButtonList {background-color: transparent;}\
                                     DUI--DButtonList QPushButton{text-align: left center;\
@@ -74,27 +87,21 @@ void GrubWidget::init()
     m_arrowDefaultBoot->setTitle(tr("Default Boot"));
     m_arrowDefaultBoot->setContent(m_bootEntryList);
 
-    QWidget *bg_ts = new QWidget;
-    bg_ts->setFixedSize(310, 30);
-    DSegmentedControl *timeout_select = new DSegmentedControl(bg_ts);
-    timeout_select->setStyleSheet(timeout_select->styleSheet()
-                                  +"DUI--DSegmentedControl#DSegmentedControl\
-                                    {color:#f0f0f0;border:none;background: transparent;}\
-                                    DUI--DSegmentedHighlight#Highlight{border:none;\
-                                    background-color: #66000000;border-radius:3px;}");
-    timeout_select->addSegmented(QStringList()<<"1s"<<"5s"<<"10s"<<"15s"<<"20s"<<"25s"<<"30s");
-    timeout_select->setFixedSize(bg_ts->width()*0.9, 24);
-    timeout_select->move(bg_ts->rect().center()-timeout_select->rect().center());
-    timeout_select->setCurrentIndexByTitle(QString("%1s").arg(m_grubDbus->timeout()));
+    DButtonGrid *timeout_select = new DButtonGrid(1, 7);
+    m_timeoutList<<"1s"<<"5s"<<"10s"<<"15s"<<"20s"<<"25s"<<"30s";
+    timeout_select->addButtons(m_timeoutList);
+    timeout_select->setItemSize(30, RADIO_ITEM_HEIGHT);
+    timeout_select->setFixedHeight(RADIO_ITEM_HEIGHT);
+    timeout_select->checkButtonByIndex(m_timeoutList.indexOf(QString("%1s").arg(m_grubDbus->timeout())));
     connect(m_grubDbus, &GrubDbus::TimeoutChanged, [=](int timeout){
-        timeout_select->setCurrentIndexByTitle(QString("%1s").arg(timeout));
+        timeout_select->checkButtonByIndex(m_timeoutList.indexOf(QString("%1s").arg(timeout)));
     });
-    connect(timeout_select, &DSegmentedControl::currentTitleChanged, [=](QString title){
+    connect(timeout_select, &DButtonGrid::buttonChecked, [=](QString title){
         m_grubDbus->setTimeout(title.replace('s', "").toInt());
     });
 
     m_arrowBootDelay->setTitle(tr("Boot delay"));
-    m_arrowBootDelay->setContent(bg_ts);
+    m_arrowBootDelay->setContent(timeout_select);
 
     DColorPicker *picker1 = new DColorPicker(10, this);
     picker1->setCurrentColor(m_themeDbus->itemColor());
@@ -130,17 +137,10 @@ void GrubWidget::setDefaultEntry(const QString &entry)
 {
     QStringList title_list = m_grubDbus->GetSimpleEntryTitles();
     int default_index = title_list.indexOf(entry);
-    QWidget * tmpw = m_bootEntryList->itemWidget(m_bootEntryList->item(default_index));
-    QPushButton *tmpb = qobject_cast<QPushButton*>(tmpw);
-    if(tmpb){
-        tmpb->setChecked(true);
-    }
 
-    tmpw = m_bootMenuTitle->itemWidget(m_bootMenuTitle->item(default_index));
-    tmpb = qobject_cast<QPushButton*>(tmpw);
-    if(tmpb){
-        tmpb->setChecked(true);
-    }
+    m_bootEntryList->checkButtonByIndex(default_index);
+    m_bootMenuTitle->checkButtonByIndex(default_index);
+    m_bootMenuTitle->getButtonByIndex(default_index)->hideIconLabel();
 }
 
 void GrubWidget::updatingChanged(bool updating)
