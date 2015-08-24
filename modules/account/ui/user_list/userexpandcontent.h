@@ -26,6 +26,7 @@ public:
 
 signals:
     void sizeChanged();
+    void changeToSetting(bool value);
 
 private:
     void initSegmentedControl();

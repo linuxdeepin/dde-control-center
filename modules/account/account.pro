@@ -2,7 +2,7 @@ include(../../widgets/widgets.pri)
 
 TEMPLATE        = lib
 CONFIG         += plugin c++11
-QT             += widgets
+QT             += widgets multimedia multimediawidgets
 INCLUDEPATH    += ../../frame/
 LIBS += -ldui
 

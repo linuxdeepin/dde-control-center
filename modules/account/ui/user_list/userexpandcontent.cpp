@@ -4,9 +4,9 @@ UserExpandContent::UserExpandContent(const QString &userPath, QWidget *parent)
     : QWidget(parent),m_userPath(userPath)
 {
     m_mainLayout = new QVBoxLayout(this);
-    m_mainLayout->setMargin(0);
-    m_mainLayout->setSpacing(0);
+    m_mainLayout->setContentsMargins(0, 0, 0, 0);
     m_mainLayout->setAlignment(Qt::AlignHCenter);
+    m_mainLayout->setSpacing(0);
 
     //get dbus data
     m_accountUser = new DBusAccountUser(userPath, this);
@@ -28,23 +28,28 @@ UserExpandContent::UserExpandContent(const QString &userPath, QWidget *parent)
 void UserExpandContent::initSegmentedControl()
 {
     m_segmentedControl = new DSegmentedControl(this);
-    m_segmentedControl->addSegmented("Recently Used");
-    m_segmentedControl->addSegmented("Avatar");
-    m_segmentedControl->addSegmented("Webcam");
+    m_segmentedControl->addSegmented(tr("Recently Used"));
+    m_segmentedControl->addSegmented(tr("Avatar"));
+    m_segmentedControl->addSegmented(tr("Webcam"));
     m_segmentedControl->setMaximumWidth(230);
     m_segmentedControl->setCurrentIndex(1);
 
     m_mainLayout->addSpacing(LAYOUT_SPACING);
-    m_mainLayout->addWidget(m_segmentedControl);
+    m_mainLayout->addWidget(m_segmentedControl, 0, Qt::AlignHCenter);
 }
 
 void UserExpandContent::initAvatarPanel()
 {
     AvatarGrid *historyAvatarGrid = new AvatarGrid("",this);
     AvatarGrid *allAvatarGrid = new AvatarGrid(m_userPath, this);
-    WebcamAvatarPanel *wap = new WebcamAvatarPanel(this);
+    WebcamAvatarPanel *cameraPanel = new WebcamAvatarPanel(this);
     connect(historyAvatarGrid, &AvatarGrid::avatarSelected, this, &UserExpandContent::onAvatarSelected);
     connect(allAvatarGrid, &AvatarGrid::avatarSelected, this, &UserExpandContent::onAvatarSelected);
+    connect(cameraPanel, &WebcamAvatarPanel::selectedAvatar, this, &UserExpandContent::onAvatarSelected);
+    connect(this, &UserExpandContent::changeToSetting, [=](bool value){
+        if (!value)
+            cameraPanel->turnOffCamera();
+    });
 
     m_stackWidget = new QStackedWidget(this);
     connect(m_segmentedControl, &DSegmentedControl::currentChanged, m_stackWidget, &QStackedWidget::setCurrentIndex);
@@ -53,12 +58,18 @@ void UserExpandContent::initAvatarPanel()
         allAvatarGrid->setAvatars(m_accountUser->iconList() << ADD_AVATAR_ICON);
 
         QSize ns;
-        if (index == 0)
+        if (index == 0){
+            cameraPanel->turnOffCamera();
             ns = historyAvatarGrid->size();
-        else if (index == 1)
+        }
+        else if (index == 1){
+            cameraPanel->turnOffCamera();
             ns = allAvatarGrid->size();
-        else
-            ns = wap->size();
+        }
+        else{
+            cameraPanel->turnOnCamera();
+            ns = cameraPanel->size();
+        }
 
         m_stackWidget->setFixedSize(ns);
 
@@ -72,11 +83,11 @@ void UserExpandContent::initAvatarPanel()
 
     m_stackWidget->addWidget(historyAvatarGrid);
     m_stackWidget->addWidget(allAvatarGrid);
-    m_stackWidget->addWidget(wap);
+    m_stackWidget->addWidget(cameraPanel);
     m_stackWidget->setCurrentIndex(1);
 
     m_mainLayout->addSpacing(LAYOUT_SPACING);
-    m_mainLayout->addWidget(m_stackWidget);
+    m_mainLayout->addWidget(m_stackWidget, 0, Qt::AlignHCenter);
 }
 
 void UserExpandContent::initAutoLogin()
