@@ -27,6 +27,7 @@ SearchList::SearchList(QWidget *parent) :
 
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setAlignment(Qt::AlignHCenter);
     setWidget(m_mainWidget);
 }
 
