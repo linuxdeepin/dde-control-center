@@ -51,7 +51,8 @@ void UserExpandHeader::onConfirmDeleteUser()
 void UserExpandHeader::setIsCurrentUser(bool isCurrentUser)
 {
     m_nameTitle->setIsCurrentUser(isCurrentUser);
-    m_icon->setIsNormal(!isCurrentUser);
+    UserAvatar::AvatarSize size = isCurrentUser ? UserAvatar::AvatarLargeSize : UserAvatar::AvatarNormalSize;
+    m_icon->setAvatarSize(size);
 }
 
 void UserExpandHeader::setExpand(bool value)

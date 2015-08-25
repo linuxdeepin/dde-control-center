@@ -28,7 +28,6 @@ void CreateUserPanel::initDbusData()
 void CreateUserPanel::initHeader()
 {
     DSeparatorHorizontal *s1 = new DSeparatorHorizontal();
-    DSeparatorHorizontal *s2 = new DSeparatorHorizontal();
     QLabel *headerLabel = new QLabel(tr("Create New User"));
     headerLabel->setObjectName("CreateHeaderLabel");
     headerLabel->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
@@ -41,9 +40,8 @@ void CreateUserPanel::initHeader()
     headerLayout->addSpacing(DUI::HEADER_LEFT_MARGIN);
     headerLayout->addWidget(headerLabel);
 
-    m_layout->addWidget(s1);
     m_layout->addWidget(header);
-    m_layout->addWidget(s2);
+    m_layout->addWidget(s1);
 }
 
 void CreateUserPanel::initInfoLine()
@@ -60,6 +58,7 @@ void CreateUserPanel::initInfoLine()
     vLayout->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
 
     UserAvatar *avatar = new UserAvatar;
+    avatar->setAvatarSize(UserAvatar::AvatarSmallSize);
     avatar->setFixedSize(ICON_SIZE, ICON_SIZE);
     avatar->setIcon(m_randIcon);
 

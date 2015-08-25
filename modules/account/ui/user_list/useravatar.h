@@ -27,9 +27,15 @@ class UserAvatar : public QPushButton
     Q_PROPERTY(QColor borderColor READ borderColor WRITE setBorderColor)
     Q_PROPERTY(int borderWidth READ borderWidth WRITE setBorderWidth)
 public:
+    enum AvatarSize {
+        AvatarSmallSize,
+        AvatarNormalSize,
+        AvatarLargeSize
+    };
+
     explicit UserAvatar(QWidget *parent = 0, bool deleteable = false);
     void setIcon(const QString &iconPath, const QSize &size = QSize(0, 0));
-    void setIsNormal(bool normal);
+    void setAvatarSize(const AvatarSize &avatarSize);
 
     QString iconPath() const;
 
@@ -44,6 +50,7 @@ public:
 
     void setSelected(bool selected);
 
+
 signals:
     void mousePress();
     void requestDelete();
@@ -51,7 +58,7 @@ signals:
 protected:
     void enterEvent(QEvent *);
     void leaveEvent(QEvent *);
-    void paintEvent(QPaintEvent *event);
+    void paintEvent(QPaintEvent *);
 
 private:
     void initDeleteButton();
@@ -62,12 +69,13 @@ private:
     QString m_iconPath = "";
     QColor m_borderColor;
     QColor m_borderSelectedColor;
+    AvatarSize m_avatarSize = AvatarNormalSize;
     int m_borderWidth = 5;
-    bool m_isNormal = true;
     bool m_selected = false;
 
+    const int SMALL_ICON_SIZE = 60;
     const int NORMAL_ICON_SIZE = 70;
-    const int BIG_ICON_SIZE = 80;
+    const int LARGE_ICON_SIZE = 80;
 };
 
 

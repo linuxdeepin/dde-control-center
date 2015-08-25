@@ -26,23 +26,9 @@ void UserAvatar::setIcon(const QString &iconPath, const QSize &size)
     else
         m_iconLabel->setFixedSize(size);
 
-//    m_iconLabel->setPixmap(QPixmap(iconPath).scaled(m_iconLabel->size()));
-
     m_iconPath = iconPath;
 
     repaint();
-}
-
-void UserAvatar::setIsNormal(bool normal)
-{
-    m_isNormal = normal;
-
-    if (normal)
-        m_iconLabel->setFixedSize(NORMAL_ICON_SIZE, NORMAL_ICON_SIZE);
-    else
-        m_iconLabel->setFixedSize(BIG_ICON_SIZE, BIG_ICON_SIZE);
-
-//    m_iconLabel->setPixmap(QPixmap(m_iconPath).scaled(m_iconLabel->size()));
 }
 
 QString UserAvatar::iconPath() const
@@ -62,13 +48,23 @@ void UserAvatar::leaveEvent(QEvent *)
         m_deleteButton->hide();
 }
 
-void UserAvatar::paintEvent(QPaintEvent *event)
+void UserAvatar::paintEvent(QPaintEvent *)
 {
-    QPainter painter(this);
+    int iconSize = NORMAL_ICON_SIZE;
+    switch (m_avatarSize){
+    case AvatarSmallSize:
+        iconSize = SMALL_ICON_SIZE;
+        break;
+    case AvatarLargeSize:
+        iconSize = LARGE_ICON_SIZE;
+        break;
+    default:
+        break;
+    }
 
-    QPainterPath path;
-    int iconSize = m_isNormal ? NORMAL_ICON_SIZE : BIG_ICON_SIZE;
+    QPainter painter(this);
     QRect ellipseRec((width() -iconSize) / 2.0, (height() - iconSize) / 2.0, iconSize, iconSize);
+    QPainterPath path;
     path.addEllipse(ellipseRec);
 
     painter.setRenderHint(QPainter::Antialiasing);
@@ -95,6 +91,25 @@ void UserAvatar::initDeleteButton()
     m_deleteButton->move(width()  - m_deleteButton->width(), 0);
     connect(m_deleteButton, &AvatarDeleteButton::clicked, this, &UserAvatar::requestDelete);
 }
+
+void UserAvatar::setAvatarSize(const AvatarSize &avatarSize)
+{
+    int tmpSize = NORMAL_ICON_SIZE;
+    switch (avatarSize){
+    case AvatarSmallSize:
+        tmpSize = SMALL_ICON_SIZE;
+        break;
+    case AvatarLargeSize:
+        tmpSize = LARGE_ICON_SIZE;
+        break;
+    default:
+        break;
+    }
+    m_iconLabel->setFixedSize(tmpSize, tmpSize);
+
+    m_avatarSize = avatarSize;
+}
+
 
 void UserAvatar::setSelected(bool selected)
 {
