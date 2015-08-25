@@ -1,6 +1,7 @@
 #include <QApplication>
 #include <QFile>
 #include <QDebug>
+#include <QCommandLineParser>
 
 #include "frame.h"
 #include "interfaces.h"
@@ -36,16 +37,33 @@ int main(int argv, char *args[])
     DApplication app(argv, args);
     app.setOrganizationName("deepin");
     app.setApplicationName("DDE Control Center");
+    app.setApplicationVersion("3.0");
+
+    // take care of command line options
+    QCommandLineParser parser;
+    parser.setApplicationDescription("DDE Control Center");
+    parser.addHelpOption();
+    parser.addVersionOption();
+    parser.addPositionalArgument("module", "the module's id of which to be shown.");
+    parser.process(app);
+
+    QStringList positionalArgs = parser.positionalArguments();
+
+    // initialize logging
+    LogManager::instance()->debug_log_console_on();
 
     Frame frame;
     frame.show();
 
+    if (!positionalArgs.isEmpty()) frame.selectModule(positionalArgs.at(0));
+
+    // setup theme manager
     DThemeManager *manager = DThemeManager::instance();
     QObject::connect(manager, &DThemeManager::themeChanged, [=](QString theme){
         onThemeChange(theme);
     });
 
     manager->setTheme("dark");
-    LogManager::instance()->debug_log_console_on();
+
     return app.exec();
 }
