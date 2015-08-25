@@ -9,6 +9,9 @@ Display::Display():
     QObject(),
     m_frame(NULL)
 {
+    Q_INIT_RESOURCE(widgets_theme_dark);
+    Q_INIT_RESOURCE(widgets_theme_light);
+
     m_dbusDisplay = new DisplayInterface(this);
 
     m_frame = new SingleMonitorSettings(m_dbusDisplay, m_dbusDisplay->monitors().at(0).path());

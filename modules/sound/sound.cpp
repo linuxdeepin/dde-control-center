@@ -17,6 +17,9 @@ Sound::Sound() :
     QObject(),
     m_frame(new QFrame)
 {
+    Q_INIT_RESOURCE(widgets_theme_dark);
+    Q_INIT_RESOURCE(widgets_theme_light);
+
     initBackend();
 
     if (m_sink && m_source) {

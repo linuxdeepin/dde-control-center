@@ -33,6 +33,9 @@ Keyboard::Keyboard() :
     m_frame(new QFrame),
     m_dbusKeyboard(NULL)
 {
+    Q_INIT_RESOURCE(widgets_theme_dark);
+    Q_INIT_RESOURCE(widgets_theme_light);
+
     initBackend();
     if (m_dbusKeyboard) initUI();
 }
