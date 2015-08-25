@@ -20,5 +20,6 @@ SOURCES        += grub.cpp \
 TARGET          = $$qtLibraryTarget(grub)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 
+DISTFILES += grub.json
 RESOURCES += \
     theme.qrc

@@ -1,5 +1,5 @@
 TEMPLATE        = lib
-CONFIG         += plugin
+CONFIG         += plugin c++11
 QT             += widgets dbus
 INCLUDEPATH    += ../../frame/
 HEADERS         = systeminfo.h \
@@ -9,8 +9,4 @@ SOURCES         = systeminfo.cpp \
 TARGET          = $$qtLibraryTarget(systeminfo)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 
-DISTFILES +=
-
-RESOURCES +=
-
-QMAKE_CXXFLAGS += -std=c++11
+DISTFILES += system_info.json

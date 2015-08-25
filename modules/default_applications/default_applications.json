@@ -1,4 +1,5 @@
 {
+    "id": "defaultapps",
 	"name": "Default Applications",
 	"icon": {
 		"normal": "default_applications_normal.png",

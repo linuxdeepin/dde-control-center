@@ -1,4 +1,5 @@
 {
+    "id": "power",
 	"name": "Power",
 	"icon": {
 		"normal": "power_normal.png",

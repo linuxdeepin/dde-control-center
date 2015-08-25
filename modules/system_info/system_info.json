@@ -1,4 +1,5 @@
 {
+    "id": "system_info",
 	"name": "System Infomation",
 	"icon": {
 		"normal": "system_info_normal.png",

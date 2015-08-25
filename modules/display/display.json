@@ -1,4 +1,5 @@
 {
+    "id": "display",
     "name": "Display",
 	"icon": {
         "normal": "display_normal.png",

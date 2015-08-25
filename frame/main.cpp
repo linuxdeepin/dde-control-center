@@ -34,6 +34,8 @@ void onThemeChange(const QString &theme)
 int main(int argv, char *args[])
 {
     DApplication app(argv, args);
+    app.setOrganizationName("deepin");
+    app.setApplicationName("DDE Control Center");
 
     Frame frame;
     frame.show();

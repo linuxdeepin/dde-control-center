@@ -6,3 +6,5 @@ HEADERS         = bluetooth.h
 SOURCES         = bluetooth.cpp
 TARGET          = $$qtLibraryTarget(bluetooth)
 DESTDIR         = $$_PRO_FILE_PWD_/../
+
+DISTFILES += bluetooth.json

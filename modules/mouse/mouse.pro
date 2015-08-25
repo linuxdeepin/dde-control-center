@@ -13,3 +13,5 @@ SOURCES         = mouse.cpp \
     dbus/dbustouchpad.cpp
 TARGET          = $$qtLibraryTarget(mouse)
 DESTDIR         = $$_PRO_FILE_PWD_/../
+
+DISTFILES += mouse.json

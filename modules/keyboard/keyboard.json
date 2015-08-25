@@ -1,4 +1,5 @@
 {
+    "id": "keyboard",
     "name": "Keyboard and Language",
 	"icon": {
 		"normal": "keyboard_normal.png",

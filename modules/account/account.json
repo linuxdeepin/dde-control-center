@@ -1,4 +1,5 @@
 {
+    "id": "account",
 	"name": "Account",
 	"icon": {
 		"normal": "account_normal.png",

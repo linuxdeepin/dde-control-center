@@ -1,4 +1,5 @@
 {
+    "id": "bluetooth",
 	"name": "Bluetooth",
 	"icon": {
 		"normal": "bluetooth_normal.png",

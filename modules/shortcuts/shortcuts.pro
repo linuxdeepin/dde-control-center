@@ -22,5 +22,6 @@ SOURCES += \
     tooltip.cpp \
     selectdialog.cpp
 
+DISTFILES += shortcuts.json
 RESOURCES += \
     theme.qrc

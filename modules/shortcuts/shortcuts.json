@@ -1,4 +1,5 @@
 {
+    "id": "shortcuts",
 	"name": "Keyboard Shortcuts",
 	"icon": {
 		"normal": "shortcuts_normal.png",

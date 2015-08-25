@@ -19,3 +19,5 @@ SOURCES         = sound.cpp \
     dbus/dbusaudiosource.cpp
 TARGET          = $$qtLibraryTarget(sound)
 DESTDIR         = $$_PRO_FILE_PWD_/../
+
+DISTFILES += sound.json

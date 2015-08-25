@@ -6,3 +6,5 @@ HEADERS         = network.h
 SOURCES         = network.cpp
 TARGET          = $$qtLibraryTarget(network)
 DESTDIR         = $$_PRO_FILE_PWD_/../
+
+DISTFILES += network.json

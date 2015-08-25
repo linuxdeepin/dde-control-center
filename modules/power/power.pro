@@ -1,5 +1,5 @@
 TEMPLATE        = lib
-CONFIG         += plugin
+CONFIG         += plugin c++11
 QT             += widgets dbus
 INCLUDEPATH    += ../../frame/
 HEADERS         = power.h \
@@ -21,4 +21,5 @@ SOURCES         = power.cpp \
 
 TARGET          = $$qtLibraryTarget(power)
 DESTDIR         = $$_PRO_FILE_PWD_/../
-CONFIG += c++11
+
+DISTFILES += power.json

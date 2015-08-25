@@ -1,4 +1,5 @@
 {
+    "id": "mouse",
     "name": "Mouse And Touchpad",
 	"icon": {
 		"normal": "mouse_touchpad_normal.png",

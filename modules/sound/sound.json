@@ -1,4 +1,5 @@
 {
+    "id": "sound",
 	"name": "Sound",
 	"icon": {
 		"normal": "sound_normal.png",

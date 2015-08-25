@@ -176,6 +176,12 @@ void Frame::listPlugins()
     QDir pluginsDir("modules");
 #endif
 
+    // TODO: make this QStringList dynamic in the future to allow 3rd party modules.
+    QStringList moduleOrder;
+    moduleOrder << "account" << "display" << "defaultapps" << "personalization";
+    moduleOrder << "network" << "bluetooth" << "sound" << "datetime" << "power";
+    moduleOrder << "mouse" << "keyboard" << "shortcuts" << "grub" << "system_info";
+
     foreach (QString fileName, pluginsDir.entryList(QDir::Files)) {
         if (!QLibrary::isLibrary(fileName))
             continue;
@@ -185,6 +191,7 @@ void Frame::listPlugins()
 
         ModuleMetaData meta = {
             filePath,
+            metaData.value("id").toString(),
             metaData.value("name").toString(),
             metaData.value("icon").toObject().value("normal").toString(),
             metaData.value("icon").toObject().value("hover").toString(),
@@ -193,6 +200,10 @@ void Frame::listPlugins()
 
         m_modules << meta;
     }
+
+    qSort(m_modules.begin(), m_modules.end(), [&](const ModuleMetaData & data1, const ModuleMetaData & data2){
+        return moduleOrder.indexOf(data1.id) < moduleOrder.indexOf(data2.id);
+    });
 }
 
 // private slots

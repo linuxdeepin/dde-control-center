@@ -1,4 +1,5 @@
 {
+    "id": "datetime",
     "name": "Date and Time",
 	"icon": {
         "normal": "date_time_normal.png",

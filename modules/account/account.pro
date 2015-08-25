@@ -44,5 +44,6 @@ SOURCES         += \
 TARGET          = $$qtLibraryTarget(account)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 
+DISTFILES += account.json
 RESOURCES += \
     theme.qrc
