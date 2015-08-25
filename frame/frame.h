@@ -28,7 +28,7 @@ public:
     void show(bool imme = false);
     void hide(bool imme = false);
     bool isHideInLeft() const;
-    void selectModule(const QString & moduleName);
+    void selectModule(const QString & moduleId);
 
 private:
     void listPlugins();

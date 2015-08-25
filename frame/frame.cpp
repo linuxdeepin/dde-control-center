@@ -224,10 +224,10 @@ void Frame::selectModule(ModuleMetaData metaData)
         show();
 }
 
-void Frame::selectModule(const QString &moduleName)
+void Frame::selectModule(const QString &moduleId)
 {
-    qDebug() << "select to" << moduleName;
+    qDebug() << "select to" << moduleId;
     for (const ModuleMetaData & data : m_modules)
-        if (data.name == moduleName)
-            return selectModule(data);
+        if (data.id == moduleId)
+            selectModule(data);
 }
