@@ -1,7 +1,9 @@
 TEMPLATE        = lib
 CONFIG         += plugin c++11
 QT             += widgets dbus
-INCLUDEPATH    += ../../frame/
+INCLUDEPATH    += ../../frame/ ../../widgets
+LIBS += -L../../widgets -lwidgets
+
 HEADERS         = systeminfo.h \
     dbus/dbussysteminfo.h
 SOURCES         = systeminfo.cpp \

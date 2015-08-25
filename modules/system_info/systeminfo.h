@@ -9,6 +9,8 @@
 #include "dbus/dbussysteminfo.h"
 
 class QFrame;
+class QPlainTextEdit;
+class ModuleHeader;
 class SystemInfo : public QObject, ModuleInterface
 {
     Q_OBJECT
@@ -23,10 +25,14 @@ public:
 private:
     QString inline formatCap(qulonglong cap) const;
     QString inline getLicense(const QString & filePath, const QString &type) const;
+    Q_SLOT void updateLicenseWidget();
 
 private:
     QFrame *m_centeralFrame;
     DBusSystemInfo m_dbusSystemInfo;
+    QPlainTextEdit *m_licenseEdit;
+    QWidget *m_infoWidget;
+    ModuleHeader *m_baseLine;
 };
 
 #endif // SYSTEMINFO_H

@@ -12,13 +12,20 @@
 
 #include <libdui/dbaseline.h>
 #include <libdui/dseparatorhorizontal.h>
+#include <libdui/libdui_global.h>
 #include <libdui/darrowlineexpand.h>
+
+#include "moduleheader.h"
+
+DUI_USE_NAMESPACE
 
 SystemInfo::SystemInfo()
     : m_dbusSystemInfo("com.deepin.daemon.SystemInfo", "/com/deepin/daemon/SystemInfo", QDBusConnection::sessionBus(), this)
 {    
-    DUI::DBaseLine *baseLine = new DUI::DBaseLine;
-    baseLine->setText(tr("系统信息"));
+    Q_INIT_RESOURCE(widgets_theme_dark);
+    Q_INIT_RESOURCE(widgets_theme_light);
+
+    m_baseLine = new ModuleHeader(tr("系统信息"), false);
 
     QLabel *deepinLogo = new QLabel;
     deepinLogo->setPixmap(QPixmap("modules/system_info/images/logo.png"));
@@ -75,34 +82,36 @@ SystemInfo::SystemInfo()
     infoLayout->setContentsMargins(10, 15, 10, 30);
     infoLayout->setSpacing(8);
 
-    QWidget *infoWidget = new QWidget;
-    infoWidget->setLayout(infoLayout);
-    infoWidget->setStyleSheet("QLabel {color:#aaa; font-size:12px;} QWidget {background-color:#1a1b1b;}");
+    m_infoWidget = new QWidget;
+    m_infoWidget->setLayout(infoLayout);
+    m_infoWidget->setStyleSheet("QLabel {color:#aaa; font-size:12px;} QWidget {background-color:#1a1b1b;}");
 
-    QPlainTextEdit *licenseEdit = new QPlainTextEdit;
-    licenseEdit->appendPlainText(getLicense("./modules/system_info/gpl/gpl-3.0-%1-%2.txt", "title") + "\n" +
+    m_licenseEdit = new QPlainTextEdit;
+    m_licenseEdit->appendPlainText(getLicense("./modules/system_info/gpl/gpl-3.0-%1-%2.txt", "title") + "\n" +
                                  getLicense("./modules/system_info/gpl/gpl-3.0-%1-%2.txt", "body") + "\n");
-    licenseEdit->setBackgroundVisible(false);
-    licenseEdit->setFrameStyle(QFrame::NoFrame);
-    licenseEdit->setStyleSheet("background-color:#1a1b1b; color:#666;");
-    licenseEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    licenseEdit->verticalScrollBar()->hide();
-    licenseEdit->setContextMenuPolicy(Qt::NoContextMenu);
-    licenseEdit->setReadOnly(true);
-    licenseEdit->setTextInteractionFlags(Qt::NoTextInteraction);
-    licenseEdit->setCursor(Qt::ArrowCursor);
-    licenseEdit->moveCursor(QTextCursor::Start);
+    m_licenseEdit->setBackgroundVisible(false);
+    m_licenseEdit->setFrameStyle(QFrame::NoFrame);
+    m_licenseEdit->setStyleSheet("background-color:#1a1b1b; color:#666;");
+    m_licenseEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    m_licenseEdit->verticalScrollBar()->hide();
+    m_licenseEdit->setContextMenuPolicy(Qt::NoContextMenu);
+    m_licenseEdit->setReadOnly(true);
+    m_licenseEdit->setTextInteractionFlags(Qt::NoTextInteraction);
+    m_licenseEdit->setCursor(Qt::ArrowCursor);
+    m_licenseEdit->moveCursor(QTextCursor::Start);
+    m_licenseEdit->setFixedWidth(310);
 
-    DUI::DArrowLineExpand *license = new DUI::DArrowLineExpand;
+    DArrowLineExpand *license = new DArrowLineExpand;
     license->setTitle(tr("GNU 通用公共许可协议"));
-    license->setContent(licenseEdit);
+    license->setContent(m_licenseEdit);
 
     QVBoxLayout *centeralLayout = new QVBoxLayout;
-    centeralLayout->addWidget(baseLine);
-    centeralLayout->addWidget(new DUI::DSeparatorHorizontal);
-    centeralLayout->addWidget(infoWidget);
-    centeralLayout->addWidget(new DUI::DSeparatorHorizontal);
+    centeralLayout->addWidget(m_baseLine);
+    centeralLayout->addWidget(new DSeparatorHorizontal);
+    centeralLayout->addWidget(m_infoWidget);
+    centeralLayout->addWidget(new DSeparatorHorizontal);
     centeralLayout->addWidget(license);
+    centeralLayout->addStretch(1);
     centeralLayout->setSpacing(0);
     centeralLayout->setMargin(0);
 
@@ -119,6 +128,8 @@ SystemInfo::SystemInfo()
     qDebug() << formatCap(qulonglong(1024) * 1024 * 1024);
     qDebug() << formatCap(qulonglong(1024) * 1024 * 1024 + 1);
     qDebug() << formatCap(qulonglong(1024) * 1024 * 1024 * 1024);*/
+
+    QTimer::singleShot(100, this, SLOT(updateLicenseWidget()));
 }
 
 SystemInfo::~SystemInfo()
@@ -174,4 +185,11 @@ QString SystemInfo::getLicense(const QString &filePath, const QString &type) con
     //qDebug() << buf;
 
     return std::move(buf);
+}
+
+void SystemInfo::updateLicenseWidget()
+{
+    m_licenseEdit->setFixedHeight(m_centeralFrame->height()
+                                  - m_infoWidget->height()
+                                  - m_baseLine->height());
 }
