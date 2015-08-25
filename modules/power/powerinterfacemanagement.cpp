@@ -161,7 +161,7 @@ bool PowerInterfaceManagement::getBatteryon() {
 double PowerInterfaceManagement::getBatteryPresent() {
     return m_powerInterface->batteryPercentage();
 }
-void PowerInterfaceManagement::initialConnection() {
+void PowerInterfaceManagement::initConnection() {
    connect(m_powerInterface, SIGNAL(LidClosedActionChanged()), SIGNAL(LidClosedActionChanged()));
    connect(m_powerInterface, SIGNAL(PowerButtonActionChanged()), SIGNAL(PowerButtonActionChanged()));
 

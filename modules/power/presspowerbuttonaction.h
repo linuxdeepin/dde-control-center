@@ -19,7 +19,7 @@ signals:
     void powerButtonAction(QString action);
 
 public slots:
-    void initialConnection();
+    void initConnection();
     void setPowerButtonAction(int buttonId);
     void setTitle(QString titleName);
 private:

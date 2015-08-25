@@ -28,12 +28,12 @@ PressPowerButtonAction::PressPowerButtonAction(QStringList powerReaction, QWidge
     pressPowerButtonActionLayout->addWidget(m_pressPowerReActionExpand);
     setLayout(pressPowerButtonActionLayout);
 
-    initialConnection();
+    initConnection();
 }
 void PressPowerButtonAction::setTitle(QString titleName) {
     m_pressPowerReActionLine->setTitle(titleName);
 }
-void PressPowerButtonAction::initialConnection() {
+void PressPowerButtonAction::initConnection() {
 
     connect(m_powerActionButtonGrid, SIGNAL(buttonChecked(QString)),
             this, SIGNAL(powerButtonAction(QString)));

@@ -26,7 +26,7 @@ signals:
     void BatteryIsPresentChanged();
 
 public slots:
-    void initialConnection();
+    void initConnection();
     qint32 getPowerButtonAction();
     qint32 getLidCloseAction();
     void setPowerButtonAction(QString actionButton);

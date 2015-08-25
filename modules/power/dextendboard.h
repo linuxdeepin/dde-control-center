@@ -54,7 +54,7 @@ private:
     QStringList m_standByButtons;
     QStringList m_poweroffButtons;
     DSeparatorHorizontal* m_bottomSeparator;
-    QPropertyAnimation* m_animation;
+    QPropertyAnimation* m_animation=NULL;
 
 };
 

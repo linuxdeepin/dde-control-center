@@ -6,17 +6,11 @@
 PowerManagement::PowerManagement(QWidget *parent)
     : QFrame(parent)
 {
-    m_contentHeight = 30;
-    m_bgContentHeight = 60;
-    m_label = new QLabel;
 
     m_batteryIsPresent = false;
     m_batteryPercentage = 0;
-    topHeaderLayout = new QVBoxLayout;
-    topHeaderLayout->setMargin(0);
-    topHeaderLayout->setSpacing(0);
 
-    m_powerManagerViewLabel = new QLabel;
+    /*m_powerManagerViewLabel = new QLabel;
     m_powerManagerViewLabel->setFixedSize(300, 50);
     m_powerManagerViewLabel->setStyleSheet(QString("background-color: %1").arg(DCC::BgLightColor.name()));
     m_powerManagerLabel = new QLabel;
@@ -40,43 +34,41 @@ PowerManagement::PowerManagement(QWidget *parent)
     m_powerManagerLayout->addWidget(m_powerPercentageLabel);
     m_powerManagerLayout->addStretch();
     m_powerManagerLayout->addWidget(m_powerResetButton);
-    m_powerManagerViewLabel->setLayout(m_powerManagerLayout);
-    m_firstHSeparator = new DSeparatorHorizontal(m_label);
+    m_powerManagerViewLabel->setLayout(m_powerManagerLayout);*/
+
+
+    m_topHeaderLine = new ModuleHeader(tr("PowerManagement"));
+    m_firstHSeparator = new DSeparatorHorizontal;
 
     topHeaderLayout = new QVBoxLayout;
     topHeaderLayout->setMargin(0);
     topHeaderLayout->setSpacing(0);
-    topHeaderLayout->addWidget(m_powerManagerViewLabel);
+    topHeaderLayout->addWidget(m_topHeaderLine);
     topHeaderLayout->addWidget(m_firstHSeparator);
     setLayout(topHeaderLayout);
 
-    initialConnection();
+    initConnection();
 
 }
 PowerManagement::~PowerManagement() {
 }
 
-void PowerManagement::initialConnection() {
-   connect(m_powerResetButton, SIGNAL(clicked(bool)), this, SLOT(reset(bool)));
+void PowerManagement::initConnection() {
+    connect(m_topHeaderLine, SIGNAL(resetButtonClicked()), this, SLOT(reset()));
 }
-void PowerManagement::reset(bool clicked) {
-    if (clicked) {
-        emit Reset();
-    }
+void PowerManagement::reset() {
+    emit Reset();
 }
+
 void PowerManagement::setElectricQuantity(double electricQuantity) {
-    m_powerPercentageLabel->setText(QString("%1%").arg(electricQuantity));
+    m_batteryPercentage = electricQuantity;
 }
 void PowerManagement::batteryReservedControl(bool batteryIsPresent) {
 
     m_batteryIsPresent = batteryIsPresent;
     if (!m_batteryIsPresent) {
-        m_shortSeparatorLine->hide();
-        m_powerPercentageLabel->hide();
-
+        headTitle = QString("PowerManagement");
     } else {
-        m_shortSeparatorLine->show();
-        m_powerPercentageLabel->show();
-
+        headTitle = QString("PowerManagement-%1").arg(m_batteryPercentage);
     }
 }

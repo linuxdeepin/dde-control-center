@@ -39,7 +39,7 @@ public:
 private:
     int m_contentHeight;
     int m_bgContentHeight;
-    QLabel* m_label;
+
     QFrame* m_frame;
     PowerInterfaceManagement* m_powerInterfaceManagement;
 //// top header
@@ -97,14 +97,14 @@ signals:
 
 public slots:
     void Reset(bool reset);
-    void initialUI();
-    void initialCloseLapTopActionUI();
-    void initialClockWhenActiveUI();
-    void initialPowerConnectionPanelUI();
-    void initialBatteryUsedUI();
+    void initUI();
+    void initCloseLapTopActionUI();
+    void initClockWhenActiveUI();
+    void initPowerConnectionPanelUI();
+    void initBatteryUsedUI();
 
-    void initialData();
-    void initialConnection();
+    void initData();
+    void initConnection();
     //powerType is setPowerButtonAction or setLidCloseAction
 
     void updateBatteryReservedControlUI();

@@ -6,6 +6,7 @@
 #include <libdui/dheaderline.h>
 #include <libdui/dseparatorhorizontal.h>
 
+#include "moduleheader.h"
 DUI_USE_NAMESPACE
 
 class PowerManagement:public QFrame {
@@ -18,24 +19,27 @@ public:
     bool m_onBattery;
     double m_batteryPercentage;
 public slots:
+    void reset();
     void reset(bool clicked);
+
     void batteryReservedControl(bool batteryIsPresent);
     void setElectricQuantity(double electricQuantity);
-    void initialConnection();
+    void initConnection();
 signals:
     void Reset();
 private:
     int m_contentHeight;
     int m_bgContentHeight;
-    QLabel* m_label;
+    QString headTitle;
     // top header
     QVBoxLayout* topHeaderLayout;
-    QLabel* m_powerManagerViewLabel;
+    ModuleHeader* m_topHeaderLine;
+    /*QLabel* m_powerManagerViewLabel;
     QLabel* m_powerManagerLabel;
     QLabel* m_shortSeparatorLine;
     QLabel* m_powerPercentageLabel;
     QHBoxLayout* m_powerManagerLayout;
-    DTextButton* m_powerResetButton;
+    DTextButton* m_powerResetButton;*/
     DSeparatorHorizontal * m_firstHSeparator;
 };
 #endif // powermanager
