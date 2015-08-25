@@ -46,6 +46,7 @@ private slots:
     void onUserAdded(const QString &path);
 
 private:
+    UserAvatar *m_avatar = NULL;
     DBusAccount *m_account = NULL;
     QVBoxLayout *m_layout = NULL;
     InputLine *m_nameLine = NULL;

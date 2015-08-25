@@ -31,7 +31,6 @@ void UserExpandContent::initSegmentedControl()
     m_segmentedControl->addSegmented(tr("Recently Used"));
     m_segmentedControl->addSegmented(tr("Avatar"));
     m_segmentedControl->addSegmented(tr("Webcam"));
-    m_segmentedControl->setMaximumWidth(230);
     m_segmentedControl->setCurrentIndex(1);
 
     m_mainLayout->addSpacing(LAYOUT_SPACING);
@@ -160,7 +159,7 @@ void UserExpandContent::onAvatarSelected(const QString &avatar)
 
 void UserExpandContent::updateSize(bool note)
 {
-    int totalHeight = LAYOUT_SPACING * 2;
+    int totalHeight = 0;
     totalHeight += m_stackWidget->height();
     totalHeight += m_segmentedControl->height();
     totalHeight += m_passwordFrame->height();

@@ -1,5 +1,16 @@
 AvatarGrid, UserExpandContent, QScrollArea, QStackedWidget, UserAvatar, UserListPanel {
     background-color: transparent;
+    border: none;
+}
+
+UserAvatar {
+    qproperty-borderSelectedColor: #2CA7F8;
+    qproperty-borderColor: white;
+    qproperty-borderWidth: 5;
+
+    background-color: transparent;
+    color: #b4b4b4;
+    border: none;
 }
 
 AvatarDeleteButton {
@@ -41,6 +52,10 @@ CreateUserPanel {
 QLabel#CreateHeaderLabel {
     font-size: 14px;
     color: #01BDFF;
+}
+
+QLabel#CreateInfoLabel {
+    background-color: #1A1B1B;
 }
 
 QLabel#NewNameLabel {

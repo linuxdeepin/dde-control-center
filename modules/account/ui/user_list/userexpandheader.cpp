@@ -35,8 +35,6 @@ void UserExpandHeader::updateAccountType()
 
 void UserExpandHeader::onCancelDeleteUser()
 {
-    m_rightStack->setCurrentIndex(0);
-    m_arrowButton->setVisible(true);
     changeToDeleteState(false);
 }
 
@@ -69,8 +67,11 @@ void UserExpandHeader::changeToDeleteState(bool value)
         m_arrowButton->setVisible(false);
         m_deleteButton->showIcon();
     }
-    else
+    else{
+        m_arrowButton->setVisible(true);
+        m_rightStack->setCurrentIndex(0);
         m_deleteButton->hideIcon();
+    }
 }
 
 void UserExpandHeader::mousePressEvent(QMouseEvent *)
@@ -135,12 +136,12 @@ void UserExpandHeader::initRightStack()
 void UserExpandHeader::initDeleteButton()
 {
     m_deleteButton = new DeleteButton;
+    m_deleteButton->hideIcon();
     m_mainLayout->addWidget(m_deleteButton);
     connect(m_deleteButton, &DeleteButton::clicked, [=]{
         m_rightStack->setCurrentIndex(1);
-        changeToDeleteState(false);
+        m_deleteButton->hideIcon();
     });
-    changeToDeleteState(false);
 }
 
 void UserExpandHeader::reverseArrowDirection()

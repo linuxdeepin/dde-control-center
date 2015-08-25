@@ -22,10 +22,11 @@ UserExpand::UserExpand(const QString &userPath, QWidget *parent)
     m_animation->setDuration(ANIMATION_DURATION);
     m_animation->setEasingCurve(ANIMATION_CURVE);
     connect(m_animation, &QPropertyAnimation::finished, [=]{
-        //for expand
+        //for expandable
         if ((!m_isCurrentUser && height() == HEADER_HEIGHT)
                 || (m_isCurrentUser && height() == HEADER_CURRENT_USER_HEIGHT)){
             setMaximumHeight(10000);
+            setMinimumHeight(0);
         }
     });
 }

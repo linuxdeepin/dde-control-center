@@ -54,6 +54,10 @@ QLabel#CreateHeaderLabel {
     color: #01BDFF;
 }
 
+QLabel#CreateInfoLabel {
+    background-color: #1A1B1B;
+}
+
 QLabel#NewNameLabel {
     font-size: 14px;
     color: #b4b4b4;

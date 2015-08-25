@@ -27,40 +27,35 @@ void CreateUserPanel::initDbusData()
 
 void CreateUserPanel::initHeader()
 {
-    DSeparatorHorizontal *s1 = new DSeparatorHorizontal();
     QLabel *headerLabel = new QLabel(tr("Create New User"));
     headerLabel->setObjectName("CreateHeaderLabel");
+    headerLabel->setFixedHeight(DUI::EXPAND_HEADER_HEIGHT);
+    headerLabel->setContentsMargins(DUI::HEADER_LEFT_MARGIN, 0 , 0, 0);
     headerLabel->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
-    QFrame *header = new QFrame;
-    header->setFixedHeight(DUI::EXPAND_HEADER_HEIGHT);
-    QHBoxLayout *headerLayout = new QHBoxLayout(header);
-    headerLayout->setContentsMargins(0, 0, 0, 0);
-    headerLayout->setSpacing(0);
-    headerLayout->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
-    headerLayout->addSpacing(DUI::HEADER_LEFT_MARGIN);
-    headerLayout->addWidget(headerLabel);
 
-    m_layout->addWidget(header);
-    m_layout->addWidget(s1);
+    m_layout->addWidget(headerLabel);
+    DSeparatorHorizontal *s = new DSeparatorHorizontal;
+    m_layout->addWidget(s);
 }
 
 void CreateUserPanel::initInfoLine()
 {
-    QFrame *infoFrame = new QFrame;
+    QLabel *infoFrame = new QLabel;
+    infoFrame->setObjectName("CreateInfoLabel");
     infoFrame->setFixedHeight(100);
     QHBoxLayout *hLayout = new QHBoxLayout(infoFrame);
-    hLayout->setSpacing(0);
-    hLayout->setContentsMargins(0, 0, 0, 0);
     hLayout->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
+    hLayout->setContentsMargins(0, 0, 0, 0);
+    hLayout->setSpacing(0);
     QVBoxLayout *vLayout  = new QVBoxLayout;
-    vLayout->setSpacing(0);
-    vLayout->setContentsMargins(0, 0, 0, 0);
     vLayout->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
+    vLayout->setContentsMargins(0, 0, 0, 0);
+    vLayout->setSpacing(0);
 
-    UserAvatar *avatar = new UserAvatar;
-    avatar->setAvatarSize(UserAvatar::AvatarSmallSize);
-    avatar->setFixedSize(ICON_SIZE, ICON_SIZE);
-    avatar->setIcon(m_randIcon);
+    m_avatar = new UserAvatar;
+    m_avatar->setAvatarSize(UserAvatar::AvatarSmallSize);
+    m_avatar->setFixedSize(ICON_SIZE, ICON_SIZE);
+    m_avatar->setIcon(m_randIcon);
 
     QLabel *newNameLabel = new QLabel(tr("New User"));
     newNameLabel->setObjectName("NewNameLabel");
@@ -86,14 +81,14 @@ void CreateUserPanel::initInfoLine()
     vLayout->addWidget(newTypeLabel);
 
     hLayout->addSpacing(DUI::HEADER_LEFT_MARGIN);
-    hLayout->addWidget(avatar);
+    hLayout->addWidget(m_avatar);
     hLayout->addSpacing(DUI::HEADER_LEFT_MARGIN);
     hLayout->addLayout(vLayout);
     hLayout->addStretch(1);
 
     DSeparatorHorizontal *s = new DSeparatorHorizontal();
-    m_layout->insertWidget(1, s);
-    m_layout->insertWidget(1, infoFrame);
+    m_layout->insertWidget(2, s);
+    m_layout->insertWidget(2, infoFrame);
 }
 
 void CreateUserPanel::initInputLline()
@@ -183,12 +178,14 @@ void CreateUserPanel::onUserAdded(const QString &path)
             user->SetPassword(m_passwdNew->text());
         user->SetAutomaticLogin(m_autoLogin->check());
 
-        //clear up data
+        //clear up(update) data
         m_nameLine->lineEdit()->setText("");
         m_passwdNew->passwordEdit()->setPassword("");
         m_passwdRepeat->passwordEdit()->setPassword("");
         m_accountType->setType(0);
         m_autoLogin->setCheck(false);
+        m_randIcon = m_account->RandUserIcon().value();
+        m_avatar->setIcon(m_randIcon);
     }
 }
 QString CreateUserPanel::lineBackgroundColor() const
