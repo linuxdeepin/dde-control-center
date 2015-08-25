@@ -55,7 +55,8 @@ public:
     explicit FirstLetterClassify(QWidget *parent = 0);
     SearchList *searchList() const;
     DSegmentedControl *letterList() const;
-    void addItems(QList<SearchItem*> datas);
+    void addItem(SearchItem *data);
+    void addEnd();
     void removeItems(QList<SearchItem*> datas);
     QString currentLetter() const;
 
@@ -70,7 +71,7 @@ private:
     DSegmentedControl *m_letterList;
     SearchList *m_searchList;
     QString m_currentLetter;
-    QMap<QChar, bool> m_mapLetters;
+    int m_mapLetters[26]={0};
 };
 
 #endif // FIRSTLETTERCLASSIFY_H

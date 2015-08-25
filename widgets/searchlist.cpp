@@ -2,6 +2,16 @@
 
 #include "searchlist.h"
 
+bool isIntersect(const QStringList& list1, const QStringList &list2)
+{
+    foreach (const QString &str, list1) {
+        if(list2.contains(str))
+            return true;
+    }
+
+    return false;
+}
+
 SearchList::SearchList(QWidget *parent) :
     DScrollArea(parent),
     m_itemWidth(-1),
@@ -11,7 +21,8 @@ SearchList::SearchList(QWidget *parent) :
     m_searching(false),
     m_checkedItem(-1),
     m_checkable(false),
-    m_mainWidget(new QWidget)
+    m_mainWidget(new QWidget),
+    m_visibleCount(0)
 {
     D_THEME_INIT_WIDGET(SearchList);
 
@@ -45,16 +56,31 @@ void SearchList::addItems(const QList<SearchItem*> &datas)
 
 void SearchList::insertItem(int index, SearchItem *data)
 {
-    if(data==NULL||data->widget()==NULL)
+    if(data==NULL || data->widget()==NULL || m_itemList.contains(data))
         return;
 
     m_itemList.insert(index, data);
+    m_keyWords << data->keyWords();
+
     QWidget *w = data->widget();
     if(m_itemWidth>0)
         w->setFixedWidth(m_itemWidth);
     if(m_itemHeight>0){
         w->setFixedHeight(m_itemHeight);
-        m_mainWidget->setFixedHeight(count()*(m_layout->spacing()+m_itemHeight)-m_layout->spacing());
+        if(m_searching){
+            updateKeyWords();
+            QString key = m_dbus->NewSearchWithStrList(data->keyWords());
+            QStringList tmp_list = m_dbus->SearchString(m_keyWord, key);
+
+            if(isIntersect(tmp_list, data->keyWords()))
+                setVisibleCount(m_visibleCount+1);
+            else
+                w->hide();
+        }else{
+            setVisibleCount(m_visibleCount+1);
+        }
+        m_mainWidget->setFixedHeight( m_visibleCount * (m_layout->spacing() + m_itemHeight) - m_layout->spacing());
+
         if(verticalScrollBarPolicy() == Qt::ScrollBarAlwaysOff){
             setFixedHeight(m_mainWidget->height());
         }else{
@@ -62,9 +88,8 @@ void SearchList::insertItem(int index, SearchItem *data)
         }
     }
 
-    w->installEventFilter(this);
     m_layout->insertWidget(index, w, 0, Qt::AlignCenter);
-    m_keyWords<<data->keyWords();
+
     data->setListWidget(this);
 
     emit countChanged();
@@ -109,6 +134,9 @@ void SearchList::clear()
     m_mainWidget->setFixedHeight(0);
     setMaximumHeight(0);
     setCheckedItem(-1);
+
+    setVisibleCount(0);
+
     emit countChanged();
 }
 
@@ -122,9 +150,24 @@ void SearchList::removeItem(int index)
             m_keyWords.removeOne(str);
         }
     }
+
     m_layout->removeItem(m_layout->takeAt(index));
+
     if(item){
-        item->widget()->removeEventFilter(this);
+        QWidget *w = item->widget();
+        w->hide();
+        if(w){
+            w->removeEventFilter(this);
+
+            if(m_searching){
+                if(isIntersect(m_dbusKeyWords, item->keyWords())){
+                    setVisibleCount(m_visibleCount-1);
+                }
+            }else{
+                setVisibleCount(m_visibleCount-1);
+            }
+        }
+
         delete item;
     }
 
@@ -133,12 +176,14 @@ void SearchList::removeItem(int index)
     }
 
     if(m_itemHeight>0){
-        m_mainWidget->setFixedHeight(count()*(m_layout->spacing()+m_itemHeight)-m_layout->spacing());
+        m_mainWidget->setFixedHeight( m_visibleCount * (m_layout->spacing() + m_itemHeight) - m_layout->spacing());
         if(verticalScrollBarPolicy() == Qt::ScrollBarAlwaysOff){
             setFixedHeight(m_mainWidget->height());
         }else{
             setMaximumHeight(m_mainWidget->height());
         }
+
+        update();
     }
 
     emit countChanged();
@@ -149,7 +194,7 @@ void SearchList::beginSearch()
     if(m_searching)
         return;
     m_searching = true;
-    m_dbusKey = m_dbus->NewSearchWithStrList(m_keyWords);
+    updateKeyWords();
 }
 
 void SearchList::endSearch()
@@ -164,30 +209,25 @@ void SearchList::endSearch()
     }
 }
 
-bool isIntersect(const QStringList& list1, const QStringList &list2)
-{
-    foreach (const QString &str, list1) {
-        if(list2.contains(str))
-            return true;
-    }
-
-    return false;
-}
-
 void SearchList::setKeyWord(const QString &keyWord)
 {
-    if(m_searching){
-        QStringList list = m_dbus->SearchString(keyWord, m_dbusKey);
+    if(!m_searching || m_keyWord == keyWord)
+        return;
 
-        for (int i = 0; i<count(); ++i) {
-            if(keyWord.isEmpty()
-                    || isIntersect(list, m_itemList[i]->keyWords())){
-                showItem(i);
-            }else{
-                hideItem(i);
-            }
+    m_keyWord = keyWord;
+
+    m_dbusKeyWords = m_dbus->SearchString(keyWord, m_dbusKey);
+
+    for (int i = 0; i<count(); ++i) {
+        if(keyWord.isEmpty()
+                || isIntersect(m_dbusKeyWords, m_itemList[i]->keyWords())){
+            showItem(i);
+        }else{
+            hideItem(i);
         }
     }
+
+    emit keyWordChanged(keyWord);
 }
 
 void SearchList::showItem(int index)
@@ -196,8 +236,10 @@ void SearchList::showItem(int index)
 
     if(w&&!w->isVisible()){
         w->show();
+        setVisibleCount(m_visibleCount+1);
+
         if(m_itemHeight>0){
-            m_mainWidget->setFixedHeight(m_mainWidget->height()+m_layout->spacing()+m_itemHeight);
+            m_mainWidget->setFixedHeight( m_visibleCount * (m_layout->spacing() + m_itemHeight) - m_layout->spacing());
             if(verticalScrollBarPolicy() == Qt::ScrollBarAlwaysOff){
                 setFixedHeight(m_mainWidget->height());
             }else{
@@ -210,10 +252,13 @@ void SearchList::showItem(int index)
 void SearchList::hideItem(int index)
 {
     QWidget *w = getItem(index)->widget();
+
     if(w&&w->isVisible()){
         w->hide();
+        setVisibleCount(m_visibleCount-1);
+
         if(m_itemHeight>0){
-            m_mainWidget->setFixedHeight(m_mainWidget->height()-m_layout->spacing()-m_itemHeight);
+            m_mainWidget->setFixedHeight( m_visibleCount * (m_layout->spacing() + m_itemHeight) - m_layout->spacing());
             if(verticalScrollBarPolicy() == Qt::ScrollBarAlwaysOff){
                 setFixedHeight(m_mainWidget->height());
             }else{
@@ -254,7 +299,29 @@ void SearchList::setCheckable(bool checkable)
         return;
 
     m_checkable = checkable;
+
+    if(checkable){
+        foreach (SearchItem *item, m_itemList) {
+            QWidget *w = item->widget();
+            if(w){
+                w->installEventFilter(this);
+            }
+        }
+    }else{
+        foreach (SearchItem *item, m_itemList) {
+            QWidget *w = item->widget();
+            if(w){
+                w->removeEventFilter(this);
+            }
+        }
+    }
+
     emit checkableChanged(checkable);
+}
+
+void SearchList::updateKeyWords()
+{
+    m_dbusKey = m_dbus->NewSearchWithStrList(m_keyWords);
 }
 
 int SearchList::count() const
@@ -304,9 +371,19 @@ bool SearchList::checkable() const
     return m_checkable;
 }
 
+int SearchList::visibleCount() const
+{
+    return m_visibleCount;
+}
+
+QString SearchList::keyWord() const
+{
+    return m_keyWord;
+}
+
 bool SearchList::eventFilter(QObject *obj, QEvent *e)
 {
-    if(!m_checkable || e->type() != QEvent::MouseButtonRelease)
+    if(e->type() != QEvent::MouseButtonRelease)
         return false;
 
     QWidget *w = qobject_cast<QWidget*>(obj);
@@ -319,6 +396,16 @@ bool SearchList::eventFilter(QObject *obj, QEvent *e)
     }
 
     return false;
+}
+
+void SearchList::setVisibleCount(int count)
+{
+    if(m_visibleCount == count)
+        return;
+
+    m_visibleCount = count;
+
+    emit visibleCountChanged(count);
 }
 
 SearchList *SearchItem::listWidget() const

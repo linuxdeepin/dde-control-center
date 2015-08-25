@@ -42,8 +42,17 @@ KeyboardLayoutDelegate::KeyboardLayoutDelegate(const QString &title, QWidget *pa
 
 QStringList KeyboardLayoutDelegate::keyWords() const
 {
-    if(!title().isEmpty())
-        return QStringList()<<title()[0].toUpper();
+    if(!title().isEmpty()){
+        QDBusInterface dbus_pinyin( "com.deepin.api.Pinyin", "/com/deepin/api/Pinyin",
+                                  "com.deepin.api.Pinyin" );
+
+        QDBusMessage result = dbus_pinyin.call("Query", QString(title()[0]));
+
+        QStringList list;
+        foreach(const QString &str, result.arguments()[0].toStringList())
+            list << str[0].toUpper();
+        return list;
+    }
 
     return QStringList();
 }
@@ -116,17 +125,29 @@ DSegmentedControl *FirstLetterClassify::letterList() const
     return m_letterList;
 }
 
-void FirstLetterClassify::addItems(QList<SearchItem*> datas)
+void FirstLetterClassify::addItem(SearchItem *data)
 {
-    foreach (SearchItem* data, datas) {
-        m_mapLetters[data->keyWords()[0][0].toUpper()] = true;
-    }
-    m_searchList->addItems(datas);
-    m_searchList->beginSearch();
+    foreach (QString pinyin, data->keyWords()) {
+        int ch = pinyin[0].toLatin1()-65;
 
-    for(char ch = 'A'; ch<='Z'; ch++){
-        if(m_mapLetters[ch]){
-            m_letterList->addSegmented(QString(ch));
+        if(ch>=0)
+            ++m_mapLetters[ch];
+    }
+
+    m_searchList->addItem(data);
+}
+
+void FirstLetterClassify::addEnd()
+{
+    if(m_searchList->isSearching())
+        m_searchList->updateKeyWords();
+    else
+        m_searchList->beginSearch();
+
+    for(int ch = 0; ch<26; ch++){
+        if(m_mapLetters[ch] > 0){
+            if(m_letterList->indexByTitle(QString(ch+65)) < 0)
+                m_letterList->addSegmented(QString(ch+65));
         }
     }
 
@@ -148,8 +169,21 @@ void FirstLetterClassify::addItems(QList<SearchItem*> datas)
 void FirstLetterClassify::removeItems(QList<SearchItem *> datas)
 {
     foreach (SearchItem* item, datas) {
+        foreach (QString pinyin, item->keyWords()) {
+            int ch = pinyin[0].toLatin1()-65;
+
+            if(ch >= 0){
+                --m_mapLetters[ch];
+
+                if(m_mapLetters[ch] <= 0)
+                    m_letterList->removeSegmented(m_letterList->indexByTitle(QString(ch+65)));
+            }
+        }
+
         m_searchList->removeItem(m_searchList->indexOf(item));
     }
+
+    m_searchList->updateKeyWords();
 }
 
 QString FirstLetterClassify::currentLetter() const

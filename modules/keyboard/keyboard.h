@@ -17,6 +17,8 @@ class QFrame;
 class SearchItem;
 class SearchList;
 class AddRmDoneLine;
+class FirstLetterClassify;
+class QVBoxLayout;
 class Keyboard: public QObject, ModuleInterface
 {
     Q_OBJECT
@@ -28,12 +30,17 @@ public:
     ~Keyboard() Q_DECL_OVERRIDE;
     QFrame* getContent() Q_DECL_OVERRIDE;
 
+private slots:
+    void loadLetterClassify();
+
 private:
     QFrame * m_frame;
     DBusKeyboard * m_dbusKeyboard;
     QMap<QString, QString> m_mapUserLayoutInfo;
     QMap<QString, int> m_mapUserLayoutIndex;
     QList<SearchItem*> m_selectLayoutList;
+    FirstLetterClassify *m_letterClassifyList;
+    QVBoxLayout *m_mainLayout;
 
     void updateKeyboardLayout(SearchList *button_list, AddRmDoneLine *line, bool showRemoveButton = false);
     void initBackend();

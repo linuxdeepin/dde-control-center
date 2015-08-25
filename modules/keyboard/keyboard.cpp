@@ -31,7 +31,8 @@ DUI_USE_NAMESPACE
 Keyboard::Keyboard() :
     QObject(),
     m_frame(new QFrame),
-    m_dbusKeyboard(NULL)
+    m_dbusKeyboard(NULL),
+    m_letterClassifyList(NULL)
 {
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
@@ -71,6 +72,20 @@ void Keyboard::updateKeyboardLayout(SearchList *button_list, AddRmDoneLine *line
         KeyboardLayoutItem *item = new KeyboardLayoutItem(showRemoveButton&&str!=current_layout);
         connect(item, &KeyboardLayoutItem::removeButtonClicked, [=]{
             m_dbusKeyboard->DeleteUserLayout(str);
+
+            KeyboardLayoutDelegate *tmpw = new KeyboardLayoutDelegate(item->title());
+            connect(tmpw, &KeyboardLayoutDelegate::checkedChanged, [=](bool checked){
+               if(checked){
+                   m_dbusKeyboard->AddUserLayout(str);
+                   m_selectLayoutList << tmpw;
+               }else{
+                   m_dbusKeyboard->DeleteUserLayout(str);
+                   m_selectLayoutList.removeOne(tmpw);
+               }
+            });
+
+            m_letterClassifyList->addItem(tmpw);
+            m_letterClassifyList->addEnd();
         });
         connect(line, &AddRmDoneLine::removeClicked, item, &KeyboardLayoutItem::showRemoveButton);
         connect(line, &AddRmDoneLine::doneClicked, item, &KeyboardLayoutItem::hideRemoveButton);
@@ -92,16 +107,16 @@ void Keyboard::initUI()
     m_frame->setFixedWidth(310);
     m_frame->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
 
-    QVBoxLayout * mainLayout = new QVBoxLayout(m_frame);
-    mainLayout->setMargin(10);
-    mainLayout->setSpacing(0);
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    m_mainLayout = new QVBoxLayout(m_frame);
+    m_mainLayout->setMargin(10);
+    m_mainLayout->setSpacing(0);
+    m_mainLayout->setContentsMargins(0, 0, 0, 0);
 
     /// Header
     ModuleHeader * header = new ModuleHeader("Keyboard and Language");
-    mainLayout->addWidget(header);
-    mainLayout->addWidget(new DSeparatorHorizontal);
-    mainLayout->addSpacing(10);
+    m_mainLayout->addWidget(header);
+    m_mainLayout->addWidget(new DSeparatorHorizontal);
+    m_mainLayout->addSpacing(10);
     connect(header, &ModuleHeader::resetButtonClicked, [=] {
         m_dbusKeyboard->Reset();
     });
@@ -163,9 +178,9 @@ void Keyboard::initUI()
     basicSettingsLayout->addWidget(testAreaTitle, 3, 0, Qt::AlignRight);
     basicSettingsLayout->addWidget(testAreaEdit, 3, 1);
 
-    mainLayout->addLayout(basicSettingsLayout);
-    mainLayout->addSpacing(10);
-    mainLayout->addWidget(new DSeparatorHorizontal);
+    m_mainLayout->addLayout(basicSettingsLayout);
+    m_mainLayout->addSpacing(10);
+    m_mainLayout->addWidget(new DSeparatorHorizontal);
 
     DHeaderLine * capsLockLine = new DHeaderLine;
     DSwitchButton * capsLockSwitch = new DSwitchButton(capsLockLine);
@@ -195,34 +210,6 @@ void Keyboard::initUI()
     updateKeyboardLayout(user_layout_list, keyboardLayoutLine);
     keyboardLayoutLine->setRemoveHidden(user_layout_list->count()<2);
 
-    FirstLetterClassify *letter_list = new FirstLetterClassify(m_frame);
-    QDBusPendingReply<KeyboardLayoutList> list = m_dbusKeyboard->LayoutList();
-    list.waitForFinished();
-    QList<SearchItem*> tmp_list;
-    KeyboardLayoutList tmp_map = list.value();
-
-    foreach (const QString &str, tmp_map.keys()) {
-        if(m_mapUserLayoutInfo.contains(tmp_map[str]))
-            continue;
-
-        KeyboardLayoutDelegate *tmpw = new KeyboardLayoutDelegate(tmp_map[str]);
-        connect(tmpw, &KeyboardLayoutDelegate::checkedChanged, [=](bool checked){
-           if(checked){
-               m_dbusKeyboard->AddUserLayout(str);
-               m_selectLayoutList << tmpw;
-           }else{
-               m_dbusKeyboard->DeleteUserLayout(str);
-               m_selectLayoutList.removeOne(tmpw);
-           }
-        });
-
-        tmp_list << tmpw;
-    }
-
-    letter_list->hide();
-    letter_list->addItems(tmp_list);
-    letter_list->setFixedWidth(310);
-
     connect(user_layout_list, &SearchList::countChanged, [=]{
         if(user_layout_list->isVisible()&&keyboardLayoutLine->doneButton()->isHidden())
             keyboardLayoutLine->setRemoveHidden(user_layout_list->count()<2);
@@ -234,8 +221,8 @@ void Keyboard::initUI()
         keyboardLayoutLine->setDoneHidden(false);
 
         user_layout_list->hide();
-        letter_list->show();
-        letter_list->letterList()->setCurrentIndex(0);
+        m_letterClassifyList->show();
+        m_letterClassifyList->letterList()->setCurrentIndex(0);
         language_expand->setExpand(false);
     });
     connect(keyboardLayoutLine, &AddRmDoneLine::removeClicked, [=]{
@@ -250,9 +237,9 @@ void Keyboard::initUI()
         keyboardLayoutLine->setAddHidden(false);
         keyboardLayoutLine->setRemoveHidden(user_layout_list->count()<2);
 
-        letter_list->hide();
+        m_letterClassifyList->hide();
         user_layout_list->show();
-        letter_list->removeItems(m_selectLayoutList);
+        m_letterClassifyList->removeItems(m_selectLayoutList);
         m_selectLayoutList.clear();
 
         user_layout_list->setCheckable(true);
@@ -264,9 +251,9 @@ void Keyboard::initUI()
             keyboardLayoutLine->setAddHidden(false);
             keyboardLayoutLine->setRemoveHidden(user_layout_list->count()<2);
 
-            letter_list->hide();
+            m_letterClassifyList->hide();
             user_layout_list->show();
-            letter_list->removeItems(m_selectLayoutList);
+            m_letterClassifyList->removeItems(m_selectLayoutList);
             m_selectLayoutList.clear();
 
             user_layout_list->setCheckable(true);
@@ -312,7 +299,7 @@ void Keyboard::initUI()
     language_searchList->setItemSize(290, EXPAND_HEADER_HEIGHT);
 
     lang_frame_layout->addWidget(lang_search, 0, Qt::AlignTop);
-    lang_frame_layout->addWidget(language_searchList, 100);
+    lang_frame_layout->addWidget(language_searchList, 50);
     lang_frame_layout->addStretch(1);
 
     lang_list_frame->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
@@ -370,16 +357,49 @@ void Keyboard::initUI()
             language_searchList->setCheckedItem(index);
     });
 
-    mainLayout->addWidget(capsLockLine);
-    mainLayout->addWidget(new DSeparatorHorizontal);
-    mainLayout->addWidget(keyboardLayoutLine);
-    mainLayout->addWidget(new DSeparatorHorizontal);
-    mainLayout->addWidget(user_layout_list);
-    mainLayout->addWidget(letter_list);
-    mainLayout->addWidget(new DSeparatorHorizontal);
-    mainLayout->addWidget(language_expand);
+    m_mainLayout->addWidget(capsLockLine);
+    m_mainLayout->addWidget(new DSeparatorHorizontal);
+    m_mainLayout->addWidget(keyboardLayoutLine);
+    m_mainLayout->addWidget(new DSeparatorHorizontal);
+    m_mainLayout->addWidget(user_layout_list);
+    m_mainLayout->addWidget(new DSeparatorHorizontal);
+    m_mainLayout->addWidget(language_expand);
+    m_mainLayout->addStretch(1);
 
-    mainLayout->addStretch(1);
+    QTimer::singleShot(400, this, SLOT(loadLetterClassify()));
+}
+
+void Keyboard::loadLetterClassify()
+{
+    m_letterClassifyList = new FirstLetterClassify(m_frame);
+    m_letterClassifyList->hide();
+    m_letterClassifyList->setFixedWidth(310);
+
+    QDBusPendingReply<KeyboardLayoutList> list = m_dbusKeyboard->LayoutList();
+    list.waitForFinished();
+    KeyboardLayoutList tmp_map = list.value();
+
+    foreach (const QString &str, tmp_map.keys()) {
+        if(m_mapUserLayoutInfo.contains(tmp_map[str]))
+            continue;
+
+        KeyboardLayoutDelegate *tmpw = new KeyboardLayoutDelegate(tmp_map[str]);
+        connect(tmpw, &KeyboardLayoutDelegate::checkedChanged, [=](bool checked){
+           if(checked){
+               m_dbusKeyboard->AddUserLayout(str);
+               m_selectLayoutList << tmpw;
+           }else{
+               m_dbusKeyboard->DeleteUserLayout(str);
+               m_selectLayoutList.removeOne(tmpw);
+           }
+        });
+
+        m_letterClassifyList->addItem(tmpw);
+    }
+
+    m_letterClassifyList->addEnd();
+
+    m_mainLayout->insertWidget(10, m_letterClassifyList);
 }
 
 QFrame* Keyboard::getContent()
