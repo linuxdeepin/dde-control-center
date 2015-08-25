@@ -39,11 +39,6 @@ Frame::Frame(QWidget * parent) :
     connect(m_homeScreen, SIGNAL(moduleSelected(ModuleMetaData)), this, SLOT(selectModule(ModuleMetaData)));
     connect(m_contentView, &ContentView::homeSelected, [=] { ModuleMetaData meta; this->selectModule(meta);});
 
-    m_dbusAdaptor = new DBusControlCenter(this);
-    QDBusConnection conn = QDBusConnection::sessionBus();
-    conn.registerObject("/ControlCenter", this);
-    conn.registerService("com.deepin.dde.ControlCenter");
-
     m_showAni = new QPropertyAnimation(this, "geometry");
     m_showAni->setDuration(DCC::FrameAnimationDuration);
     m_showAni->setEasingCurve(DCC::FrameShowCurve);
@@ -63,7 +58,6 @@ Frame::~Frame()
 {
     m_showAni->deleteLater();
     m_hideAni->deleteLater();
-    m_dbusAdaptor->deleteLater();
 }
 
 void Frame::changeEvent(QEvent *e)

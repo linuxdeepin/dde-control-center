@@ -55,7 +55,14 @@ int main(int argv, char *args[])
     Frame frame;
     frame.show();
 
-    if (!positionalArgs.isEmpty()) frame.selectModule(positionalArgs.at(0));
+    if (!positionalArgs.isEmpty()) {
+        frame.selectModule(positionalArgs.at(0));
+    }
+
+    DBusControlCenter adaptor(&frame);
+    QDBusConnection conn = QDBusConnection::sessionBus();
+    conn.registerObject("/com/deepin/dde/ControlCenter", &frame);
+    conn.registerService("com.deepin.dde.ControlCenter");
 
     // setup theme manager
     DThemeManager *manager = DThemeManager::instance();

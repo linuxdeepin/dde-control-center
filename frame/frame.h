@@ -40,7 +40,6 @@ private:
     HomeScreen * m_homeScreen;
     ContentView * m_contentView;
     QList<ModuleMetaData> m_modules;
-    QDBusAbstractAdaptor *m_dbusAdaptor;
     QPropertyAnimation *m_showAni;
     QPropertyAnimation *m_hideAni;
 
