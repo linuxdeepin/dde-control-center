@@ -7,7 +7,8 @@
 Grub::Grub():
     m_grubWidget(new GrubWidget())
 {
-
+    Q_INIT_RESOURCE(widgets_theme_dark);
+    Q_INIT_RESOURCE(widgets_theme_light);
 }
 
 Grub::~Grub()

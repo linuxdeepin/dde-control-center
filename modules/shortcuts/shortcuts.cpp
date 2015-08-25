@@ -7,7 +7,8 @@
 Shortcuts::Shortcuts():
     m_mainWidget(new MainWidget())
 {
-
+    Q_INIT_RESOURCE(widgets_theme_dark);
+    Q_INIT_RESOURCE(widgets_theme_light);
 }
 
 Shortcuts::~Shortcuts()

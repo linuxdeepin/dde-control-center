@@ -18,6 +18,9 @@ DUI_USE_NAMESPACE
 
 Mouse::Mouse()
 {
+    Q_INIT_RESOURCE(widgets_theme_dark);
+    Q_INIT_RESOURCE(widgets_theme_light);
+
     m_label = new QLabel();
     m_label->setStyleSheet(QString("QLabel{color: %1;font-size:12px;}").arg(DCC::TextNormalColor.name()));
     QVBoxLayout * layout = new QVBoxLayout(m_label);
