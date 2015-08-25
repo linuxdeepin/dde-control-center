@@ -1,5 +1,6 @@
 AvatarGrid, UserExpandContent, QScrollArea, QStackedWidget, UserAvatar, UserListPanel {
     background-color: transparent;
+    border: none;
 }
 
 UserAvatar {
