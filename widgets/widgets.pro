@@ -10,7 +10,6 @@ HEADERS += $$PWD/searchlist.h \
     $$PWD/moduleheader.h \
     $$PWD/normallabel.h \
     $$PWD/highlightlabel.h \
-    $$PWD/shortcutedit.h \
     $$PWD/imagenamebutton.h \
     $$PWD/addrmdoneline.h \
     $$PWD/multiaddcheckbutton.h \
@@ -27,7 +26,6 @@ SOURCES += $$PWD/searchlist.cpp \
     $$PWD/moduleheader.cpp \
     $$PWD/normallabel.cpp \
     $$PWD/highlightlabel.cpp \
-    $$PWD/shortcutedit.cpp \
     $$PWD/imagenamebutton.cpp \
     $$PWD/addrmdoneline.cpp \
     $$PWD/multiaddcheckbutton.cpp \

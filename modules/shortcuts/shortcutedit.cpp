@@ -8,16 +8,16 @@
 #include <libdui/dthememanager.h>
 
 #include "shortcutedit.h"
-#include "private/shortcutdbus.h"
+#include "shortcutdbus.h"
 
 DUI_USE_NAMESPACE
 
-ShortcutEdit::ShortcutEdit(QWidget *parent) :
+ShortcutEdit::ShortcutEdit(ShortcutDbus *dbus, QWidget *parent) :
     QFrame(parent),
     m_layout(new QHBoxLayout),
     m_label(new QLabel),
     m_edit(new QLineEdit),
-    m_dbus(new ShortcutDbus)
+    m_dbus(dbus)
 {
     m_label->setObjectName("Label");
     m_edit->setObjectName("Edit");
@@ -46,8 +46,7 @@ ShortcutEdit::ShortcutEdit(QWidget *parent) :
         if(key.toLower() == "backspace" || key.toLower() == "delete"){
             key = "";
         }else{
-            int tmp;
-            QString result = m_dbus->CheckShortcutConflict(key, tmp).value();
+            QString result = m_dbus->CheckShortcutConflict(key);
 
             if(result!="Valid"){
                 key = result+"_"+key;
@@ -101,7 +100,7 @@ bool ShortcutEdit::eventFilter(QObject *obj, QEvent *e)
         if(e->type() == QEvent::MouseButtonPress){
             m_label->hide();
             m_edit->show();
-            m_dbus->GrabKbdAndMouse();
+            m_dbus->GrabScreen();
         }
     }
 

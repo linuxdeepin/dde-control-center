@@ -49,27 +49,14 @@ DArrowLineExpand *addExpand(const QString &title, QWidget *widget, DExpandGroup 
     return expand;
 }
 
-QString shortcutTransfrom(const QString& str)
-{
-    if(str == "")
-        return QObject::tr("None");
-
-    QStringList shortnamelist = str.split("-");
-    for(QString &keyname: shortnamelist){
-        if(keyname.count()>0)
-            keyname[0]=keyname[0].toUpper();
-    }
-    return shortnamelist.join("+");
-}
-
 SearchList *MainWidget::addSearchList(const ShortcutInfoList &tmplist)
 {
     SearchList *list = new SearchList;
     list->setFixedWidth(310);
     list->setItemSize(310, RADIO_ITEM_HEIGHT);
     foreach (const ShortcutInfo &info, tmplist) {
-        ShortcutWidget *tmpw = new ShortcutWidget(info.id, info.title, shortcutTransfrom(info.shortcut));
-        ShortcutWidget *shortw = new ShortcutWidget(info.id, info.title, shortcutTransfrom(info.shortcut));
+        ShortcutWidget *tmpw = new ShortcutWidget(m_dbus, info.id, info.title, info.shortcut);
+        ShortcutWidget *shortw = new ShortcutWidget(m_dbus, info.id, info.title, info.shortcut);
         m_searchList->addItem(shortw);
         list->addItem(tmpw);
 
@@ -295,16 +282,16 @@ void MainWidget::shortcutListChanged(SearchList *listw, const ShortcutInfoList &
     for(int i=0;i<min;++i){
         const ShortcutInfo &info = list[i];
         listw->setItemData(i,
-                           QVariantList()<<info.id<<info.title<<shortcutTransfrom(info.shortcut));
+                           QVariantList()<<info.id<<info.title<<info.shortcut);
         m_searchList->setItemData(offseIndex+i,
-                                  QVariantList()<<info.id<<info.title<<shortcutTransfrom(info.shortcut));
+                                  QVariantList()<<info.id<<info.title<<info.shortcut);
     }
 
     if(listw->count()<list.count()){
         for(int i=min;i<list.count();++i){
             const ShortcutInfo &info = list[i];
-            ShortcutWidget *tmpw = new ShortcutWidget(info.id, info.title, shortcutTransfrom(info.shortcut));
-            ShortcutWidget *shortw = new ShortcutWidget(info.id, info.title, shortcutTransfrom(info.shortcut));
+            ShortcutWidget *tmpw = new ShortcutWidget(m_dbus, info.id, info.title, info.shortcut);
+            ShortcutWidget *shortw = new ShortcutWidget(m_dbus, info.id, info.title, info.shortcut);
             m_searchList->insertItem(offseIndex+i, shortw);
             listw->addItem(tmpw);
             connect(tmpw, &ShortcutWidget::shortcutChanged, [=](const QString& flag, const QString &shortcut){
@@ -329,7 +316,7 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
         return;
 
     if(flag == "Valid"){
-        m_dbus->ModifyShortcut(w->id(), shortcut);
+        m_dbus->ModifyShortcut(w->id(), w->shortcut(), shortcut);
         return;
     }
 
@@ -351,7 +338,7 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
     }else if(flag == "Conflict"){
         QList<ShortcutWidget*> tmp_list;
 
-        QString tmp_shortcut = shortcutTransfrom(shortcut);
+        QString tmp_shortcut = shortcut;
         QString tmp_text = tr("The shortcut you set ");
 
         QList<SearchList*> tmp_searchlist;
@@ -380,9 +367,9 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
             listw->removeItem(listw->indexOf(qobject_cast<QWidget*>(dialog)));
 
             foreach (ShortcutWidget* tmp_w, tmp_list) {
-                m_dbus->ModifyShortcut(tmp_w->id(), "");
+                m_dbus->ModifyShortcut(tmp_w->id(), tmp_w->shortcut(), "");
             }
-            m_dbus->ModifyShortcut(w->id(), shortcut);
+            m_dbus->ModifyShortcut(w->id(), w->shortcut(), shortcut);
         });
         connect(dialog, &SelectDialog::cancel, [=]{
             dialog->contraction();

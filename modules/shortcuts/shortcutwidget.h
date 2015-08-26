@@ -8,13 +8,13 @@
 #include <QPushButton>
 
 #include <libdui/libdui_global.h>
-#include <libdui/dimagebutton.h>
 
 #include "searchlist.h"
 #include "shortcutedit.h"
 
 DUI_USE_NAMESPACE
 
+class ImageNameButton;
 class ShortcutWidget : public QFrame, public SearchItem
 {
     Q_OBJECT
@@ -22,7 +22,7 @@ class ShortcutWidget : public QFrame, public SearchItem
     Q_PROPERTY(QString shortcut READ shortcut WRITE setShortcut NOTIFY shortcutChanged)
 
 public:
-    ShortcutWidget(int id, const QString &title, const QString &shortcut = "", QWidget *parent = 0);
+    ShortcutWidget(ShortcutDbus *dbus, int id, const QString &title, const QString &shortcut = "", QWidget *parent = 0);
 
 public slots:
     void setId(int id);
@@ -55,7 +55,7 @@ private:
     QLabel *m_title;
     ShortcutEdit *m_shortcut;
     ShortcutWidget *m_me;
-    DImageButton *m_removeButton;
+    ImageNameButton *m_removeButton;
     QPropertyAnimation *m_animation;
     QString m_shortcuText;
 };

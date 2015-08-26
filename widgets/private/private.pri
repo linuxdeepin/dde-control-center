@@ -1,8 +1,6 @@
-HEADERS += $$PWD/searchdbus.h \
-           $$PWD/shortcutdbus.h
+HEADERS += $$PWD/searchdbus.h
 
-SOURCES += $$PWD/searchdbus.cpp \
-           $$PWD/shortcutdbus.cpp
+SOURCES += $$PWD/searchdbus.cpp
 
 QT += dbus
 

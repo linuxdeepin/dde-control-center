@@ -1,7 +1,7 @@
 TEMPLATE        = lib
 CONFIG         += plugin c++11 link_pkgconfig
 QT             += widgets dbus
-INCLUDEPATH    += ../../frame/ ../../widgets ../../widgets/private
+INCLUDEPATH    += ../../frame/ ../../widgets
 PKGCONFIG += dui
 LIBS += -L../../widgets -lwidgets
 
@@ -13,14 +13,18 @@ HEADERS += \
     shortcuts.h \
     shortcutwidget.h \
     tooltip.h \
-    selectdialog.h
+    selectdialog.h \
+    shortcutdbus.h \
+    shortcutedit.h
 
 SOURCES += \
     mainwidget.cpp \
     shortcuts.cpp \
     shortcutwidget.cpp \
     tooltip.cpp \
-    selectdialog.cpp
+    selectdialog.cpp \
+    shortcutdbus.cpp \
+    shortcutedit.cpp
 
 DISTFILES += shortcuts.json
 RESOURCES += \

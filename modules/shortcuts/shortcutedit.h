@@ -15,7 +15,7 @@ class ShortcutEdit : public QFrame
     Q_PROPERTY(QString shortcut READ shortcut WRITE setShortcut)
 
 public:
-    explicit ShortcutEdit(QWidget *parent = 0);
+    explicit ShortcutEdit(ShortcutDbus *dbus, QWidget *parent = 0);
 
     QString shortcut() const;
     bool editing() const;

@@ -5,15 +5,17 @@
 #include <libdui/dthememanager.h>
 #include <libdui/dconstants.h>
 
+#include "imagenamebutton.h"
+
 #include "shortcutwidget.h"
 
-ShortcutWidget::ShortcutWidget(int id, const QString &title, const QString &shortcut, QWidget *parent):
+ShortcutWidget::ShortcutWidget(ShortcutDbus *dbus, int id, const QString &title, const QString &shortcut, QWidget *parent):
     QFrame(parent),
     m_hlayout(new QHBoxLayout),
     m_vlayout(new QVBoxLayout),
     m_id(id),
     m_title(new QLabel(title)),
-    m_shortcut(new ShortcutEdit),
+    m_shortcut(new ShortcutEdit(dbus)),
     m_animation(new QPropertyAnimation(this))
 {
     m_title->setObjectName("ShortcutTitle");
@@ -36,11 +38,7 @@ ShortcutWidget::ShortcutWidget(int id, const QString &title, const QString &shor
 
     m_me = this;
 
-    QString icon_path = "widgets/themes/";
-    icon_path = icon_path.append(DThemeManager::instance()->theme().append("/images/delete_multi_"));
-    m_removeButton = new DImageButton(
-                icon_path+"normal.png", icon_path+"hover.png", icon_path+"press.png", this);
-    m_removeButton->setFixedSize(IMAGE_BUTTON_WIDTH, 30);
+    m_removeButton = new ImageNameButton("list_remove", this);
     m_removeButton->move(-m_removeButton->width(), m_removeButton->y());
 
     connect(m_shortcut, &ShortcutEdit::shortcutKeyFinished, this, &ShortcutWidget::shortcutKeyFinished);
