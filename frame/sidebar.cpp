@@ -22,6 +22,7 @@ SideBar::SideBar(QList<ModuleMetaData> modules, QWidget *parent)
     // meta for home button
     ModuleMetaData home {
         "",
+        "",
         "Back to home",
         "home_normal.png",
         "home_hover.png",
