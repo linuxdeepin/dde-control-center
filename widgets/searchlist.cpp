@@ -89,6 +89,8 @@ void SearchList::insertItem(int index, SearchItem *data)
     }
 
     m_layout->insertWidget(index, w, 0, Qt::AlignCenter);
+    if(m_checkable)
+        w->installEventFilter(this);
 
     data->setListWidget(this);
 

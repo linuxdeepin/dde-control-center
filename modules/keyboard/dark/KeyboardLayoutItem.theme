@@ -26,4 +26,5 @@ KeyboardLayoutItem[checked="true"] QLabel{
 
 KeyboardLayoutItem[showBgColor="false"]{
     background-color: transparent;
+    background-image: url();
 }
