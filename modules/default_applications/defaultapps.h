@@ -40,8 +40,6 @@ private:
 
 private:
     DArrowLineExpand *createDefaultAppsExpand(const DefaultAppsCategory & category);
-    AppList getAppsListByCategory(const DefaultAppsCategory & category);
-    AppList getMediaListByCategory(const DefaultAppsCategory & category);
     const QString getTypeByCategory(const DefaultAppsCategory & category);
     void setMediaOptionVisible(const bool visible);
 
@@ -50,7 +48,7 @@ private:
 
     ModuleHeader *m_header;
 
-    DefaultDBusApps m_dbusDefaultApps;
+    DBusDefaultApps m_dbusDefaultApps;
     DBusDefaultMedia m_dbusDefaultMedia;
 
     DExpandGroup *m_appGrp;

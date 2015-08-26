@@ -5,6 +5,9 @@
 #include <QScrollArea>
 #include <QObject>
 #include <QDBusPendingReply>
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <QJsonObject>
 
 #include "moduleheader.h"
 
@@ -21,11 +24,10 @@
 
 DUI_USE_NAMESPACE
 
-DefaultApps::DefaultApps()
-    : m_dbusDefaultApps(this)
+DefaultApps::DefaultApps() :
+    m_dbusDefaultApps(this),
+    m_dbusDefaultMedia(this)
 {
-    AppType::registerMetaType();
-
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
 
@@ -34,7 +36,7 @@ DefaultApps::DefaultApps()
     m_header = new ModuleHeader(tr("Default Applications"));
 
     DSwitchButton *autoPlaySwitch = new DSwitchButton;
-    autoPlaySwitch->setChecked(m_dbusDefaultMedia.autoMountOpen());
+    //autoPlaySwitch->setChecked(m_dbusDefaultMedia.autoMountOpen());
 
     DHeaderLine *defaultApps = new DHeaderLine;
     defaultApps->setTitle(tr("Default Applications"));
@@ -117,7 +119,7 @@ DefaultApps::DefaultApps()
     m_centralWidget->updateGeometry();
     m_centralWidget->update();
 
-    setMediaOptionVisible(m_dbusDefaultMedia.autoMountOpen());
+    //setMediaOptionVisible(m_dbusDefaultMedia.autoMountOpen());
 
     connect(autoPlaySwitch, &DSwitchButton::checkedChanged, this, &DefaultApps::setMediaOptionVisible);
 }
@@ -168,8 +170,8 @@ DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::Defaul
     const QString mime = getTypeByCategory(category);
     bool isMedia = false;
 
-    AppList appList;
-    AppType defaultApp;
+    QString appListJson;
+    QString defaultAppJson;
 
     switch (category)
     {
@@ -179,24 +181,31 @@ DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::Defaul
     case Music:
     case Video:
     case Picture:
-    case Terminal:      appList = m_dbusDefaultApps.AppsListViaType(mime);
-                        defaultApp = m_dbusDefaultApps.DefaultAppViaType(mime);         break;
+    case Terminal:      appListJson = m_dbusDefaultApps.ListApps(mime);
+                        defaultAppJson = m_dbusDefaultApps.GetDefaultApp(mime);         break;
 
     case CD_Audio:
     case DVD_Video:
     case MusicPlayer:
     case Camera:
     case Software:      isMedia = true;
-                        appList = m_dbusDefaultMedia.MediaAppListByMime(mime);
-                        defaultApp = m_dbusDefaultMedia.DefaultMediaAppByMime(mime);    break;
+                        appListJson = m_dbusDefaultMedia.ListApps(mime);
+                        defaultAppJson = m_dbusDefaultMedia.GetDefaultApp(mime);        break;
     }
+
+    //qDebug() << mime << appListJson << defaultAppJson;
+
+    QJsonArray appList = QJsonDocument::fromJson(appListJson.toStdString().c_str()).array();
+    QJsonObject defaultApp = QJsonDocument::fromJson(defaultAppJson.toStdString().c_str()).object();
 
     int selected = -1;
     for (int i = 0; i != appList.size(); ++i)
     {
-        list->addButton(appList.at(i).m_appName);
+        list->addButton(appList.at(i).toObject().take("Name").toString());
 
-        if (appList.at(i) == defaultApp)
+        //qDebug() << appList.at(i).toObject() << defaultApp;
+
+        if (appList.at(i).toObject() == defaultApp)
             selected = i;
     }
     if (selected != -1)
@@ -206,20 +215,20 @@ DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::Defaul
         if (!appList.count())
             return;
 
-        const QString desktop = appList.at(0).m_appDesktop;
+        /*const QString desktop = appList.at(0).toObject().take("Id").toString();
         if (desktop == "nautilus-autorun-software.desktop" ||
             desktop == "Nothing" ||
             desktop == "Open Folder")
             ;// TODO: select nothing.
-        else
+        else*/
             list->checkButtonByIndex(0);
     });
 
     connect(list, &DButtonList::buttonCheckedIndexChanged, [=] (int index) -> void {
         if (isMedia)
-            m_dbusDefaultMedia.SetMediaAppByMime(mime, appList.at(index).m_appDesktop);
+            m_dbusDefaultMedia.SetDefaultApp(mime, appList.at(index).toObject().take("Id").toString());
         else
-            m_dbusDefaultApps.SetDefaultAppViaType(mime, appList.at(index).m_appDesktop);
+            m_dbusDefaultApps.SetDefaultApp(mime, appList.at(index).toObject().take("Id").toString());
     });
 
     QHBoxLayout *layout = new QHBoxLayout;
@@ -238,16 +247,6 @@ DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::Defaul
     return defaultApps;
 }
 
-AppList DefaultApps::getMediaListByCategory(const DefaultApps::DefaultAppsCategory &category)
-{
-    QDBusPendingReply<AppList> list = m_dbusDefaultMedia.MediaAppListByMime(getTypeByCategory(category));
-    list.waitForFinished();
-
-    qDebug() << "list: " << list.argumentAt<0>() << list.error() << getTypeByCategory(category);
-
-    return list.argumentAt<0>();
-}
-
 const QString DefaultApps::getTypeByCategory(const DefaultApps::DefaultAppsCategory &category)
 {
     switch (category)
@@ -258,7 +257,7 @@ const QString DefaultApps::getTypeByCategory(const DefaultApps::DefaultAppsCateg
     case Music:         return "audio/mpeg";
     case Video:         return "video/mp4";
     case Picture:       return "image/jpeg";
-    case Terminal:      return "terminal";
+    case Terminal:      return "application/x-terminal";
     case CD_Audio:      return "x-content/audio-cdda";
     case DVD_Video:     return "x-content/video-dvd";
     case MusicPlayer:   return "x-content/audio-player";
@@ -277,5 +276,5 @@ void DefaultApps::setMediaOptionVisible(const bool visible)
     m_modCamera->setVisible(visible);
     m_modSoftware->setVisible(visible);
 
-    m_dbusDefaultMedia.setAutoMountOpen(visible);
+    //m_dbusDefaultMedia.setAutoMountOpen(visible);
 }

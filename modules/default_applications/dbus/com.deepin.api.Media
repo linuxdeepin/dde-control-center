@@ -1,0 +1,15 @@
+<interface name="com.deepin.api.Media">
+  <method name="GetDefaultApp">
+       <arg type="s" direction="in"></arg>
+       <arg type="s" direction="out"></arg>
+  </method>
+  <method name="ListApps">
+       <arg type="s" direction="in"></arg>
+       <arg type="s" direction="out"></arg>
+  </method>
+  <method name="Reset"></method>
+  <method name="SetDefaultApp">
+       <arg type="s" direction="in"></arg>
+       <arg type="s" direction="in"></arg>
+  </method>
+</interface>
