@@ -29,6 +29,16 @@ SideBar::SideBar(QList<ModuleMetaData> modules, QWidget *parent)
         "home_press.png"
     };
     modules.insert(0, home);
+    // meta for power button
+    ModuleMetaData power {
+        "",
+        "",
+        "Power",
+        "shutdown_normal.png",
+        "shutdown_hover.png",
+        "shutdown_press.png"
+    };
+    modules.append(power);
 
     foreach (ModuleMetaData meta, modules) {
         SideBarButton * button = new SideBarButton(meta, this);

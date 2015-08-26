@@ -23,6 +23,7 @@ public:
 
 signals:
     void homeSelected();
+    void shutdownSelected();
 
 private:
     QHBoxLayout * m_layout;

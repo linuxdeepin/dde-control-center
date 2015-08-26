@@ -2,6 +2,7 @@
 #include <QPluginLoader>
 #include <QHBoxLayout>
 #include <QPropertyAnimation>
+#include <QProcess>
 
 #include "interfaces.h"
 #include "contentview.h"
@@ -97,9 +98,11 @@ void ContentView::show()
 
 void ContentView::onModuleSelected(ModuleMetaData meta)
 {
-    if (!meta.path.isNull() && !meta.path.isEmpty()) {
-        setModule(meta);
-    } else {
-        emit homeSelected();
-    }
+    if (!meta.path.isEmpty())
+        return setModule(meta);
+
+    emit homeSelected();
+
+    if (meta.name == "Power")
+        emit shutdownSelected();
 }

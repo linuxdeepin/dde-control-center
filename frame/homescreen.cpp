@@ -6,6 +6,7 @@
 #include <QMouseEvent>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+#include <QProcess>
 
 #include <libdui/dseparatorhorizontal.h>
 #include <libdui/dimagebutton.h>
@@ -129,7 +130,7 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     m_botAni = new QPropertyAnimation(m_bottomWidget, "geometry");
     m_botAni->setDuration(DCC::FrameAnimationDuration);
 
-    connect(bottomButton, SIGNAL(clicked()), this, SLOT(powerButtonClicked()));
+    connect(bottomButton, &DUI::DImageButton::clicked, this, &HomeScreen::powerButtonClicked, Qt::DirectConnection);
     connect(topButton, SIGNAL(clicked()), this, SLOT(userAvatarClicked()));
     connect(m_ctrHideAni, &QPropertyAnimation::finished, this, &QFrame::hide);
 }
@@ -200,7 +201,10 @@ void HomeScreen::buttonClicked()
 
 void HomeScreen::powerButtonClicked()
 {
-    qDebug() << "power button clicked";
+    QProcess *proc = new QProcess;
+    proc->start("dde-shutdown");
+
+    QObject::connect(proc, static_cast<void (QProcess::*)(int)>(&QProcess::finished), proc, &QProcess::deleteLater);
 }
 
 void HomeScreen::userAvatarClicked()

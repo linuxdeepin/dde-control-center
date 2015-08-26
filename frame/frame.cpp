@@ -37,7 +37,9 @@ Frame::Frame(QWidget * parent) :
     m_homeScreen->setFixedHeight(this->height());
 
     connect(m_homeScreen, SIGNAL(moduleSelected(ModuleMetaData)), this, SLOT(selectModule(ModuleMetaData)));
-    connect(m_contentView, &ContentView::homeSelected, [=] { ModuleMetaData meta; this->selectModule(meta);});
+    connect(m_contentView, &ContentView::homeSelected, [=] {this->selectModule(ModuleMetaData());});
+    connect(m_contentView, &ContentView::shutdownSelected, m_homeScreen, &HomeScreen::powerButtonClicked, Qt::DirectConnection);
+    connect(m_contentView, &ContentView::shutdownSelected, [this] () -> void {hide();});
 
     m_showAni = new QPropertyAnimation(this, "geometry");
     m_showAni->setDuration(DCC::FrameAnimationDuration);

@@ -22,9 +22,11 @@ public:
 signals:
     void moduleSelected(ModuleMetaData);
 
+public slots:
+    void powerButtonClicked();
+
 private slots:
     void buttonClicked();
-    void powerButtonClicked();
     void userAvatarClicked();
 
 private:
