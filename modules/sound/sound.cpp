@@ -83,6 +83,7 @@ void Sound::initUI()
     ///////////////////////////////////////////////////////-- Speaker Settings
     m_speakerExpand = new DSwitchLineExpand;
     m_speakerExpand->setTitle("Speaker");
+    m_speakerSeparator = new DSeparatorHorizontal;
 
     QFrame * speakerExpandContent = new QFrame(m_speakerExpand);
     speakerExpandContent->setFixedWidth(310);
@@ -99,6 +100,8 @@ void Sound::initUI()
     m_outputVolumeSlider->setLeftTip("-");
     m_outputVolumeSlider->setRightTip("+");
     m_outputVolumeSlider->addScale(100);
+    m_outputVolumeSlider->setHoverShowValue(true);
+    m_outputVolumeSlider->setHoverShowValueInterval(1000);
     speakerForm->addWidget(m_outputVolumeSlider, 0, 1, Qt::AlignVCenter);
 
     // Left/Right balance line
@@ -109,6 +112,8 @@ void Sound::initUI()
     m_leftRightBalanceSlider->setLeftTip(tr("Left"));
     m_leftRightBalanceSlider->setRightTip(tr("Right"));
     m_leftRightBalanceSlider->addScale(0);
+    m_leftRightBalanceSlider->setHoverShowValue(true);
+    m_leftRightBalanceSlider->setHoverShowValueInterval(1000);
     speakerForm->addWidget(m_leftRightBalanceSlider, 1, 1, Qt::AlignVCenter);
 
     updateSpeakerUI();
@@ -117,11 +122,13 @@ void Sound::initUI()
 
     m_speakerExpand->setContent(speakerExpandContent);
     mainLayout->addWidget(m_speakerExpand);
+    mainLayout->addWidget(m_speakerSeparator);
     mainLayout->addWidget(new DBaseLine);
 
     ///////////////////////////////////////////////////////-- Microphone Settings
     m_microphoneExpand = new DSwitchLineExpand;
     m_microphoneExpand->setTitle("Microphone");
+    m_microphoneSeparator = new DSeparatorHorizontal;
 
     QFrame * mircophoneExpandContent = new QFrame(m_microphoneExpand);
     mircophoneExpandContent->setFixedWidth(310);
@@ -137,22 +144,28 @@ void Sound::initUI()
     m_inputVolumeSlider->setLeftTip("-");
     m_inputVolumeSlider->setRightTip("+");
     m_inputVolumeSlider->addScale(100);
+    m_inputVolumeSlider->setHoverShowValue(true);
+    m_inputVolumeSlider->setHoverShowValueInterval(1000);
     microphoneForm->addWidget(m_inputVolumeSlider, 0, 1, Qt::AlignVCenter);
 
     // microphone feedback line
     microphoneForm->addWidget(new NormalLabel("Feedback volume"), 1, 0, Qt::AlignVCenter);
     m_inputFeedbackSlider = new DSlider(Qt::Horizontal);
     QString feedbackSliderStyle = m_inputFeedbackSlider->styleSheet();
-    feedbackSliderStyle += "DUI--DSlider::handle[handleType=\"1\"] {background: none;}DUI--DSlider::add-page:horizontal[handleType=\"1\"]{border-width: 0px 2px 1px 0px;}DUI--DSlider::sub-page[handleType=\"1\"]{border-image: none;border-radius: 3px;}";
+    feedbackSliderStyle += "DUI--DSlider::handle[handleType=\"1\"] {background: none;}DUI--DSlider::add-page:horizontal[handleType=\"1\"]{border-width: 0px 2px 1px 0px;}";
     m_inputFeedbackSlider->setStyleSheet(feedbackSliderStyle);
     m_inputFeedbackSlider->setRange(0, 100);
+    m_inputFeedbackSlider->setEnabled(false);
     connect(m_inputFeedbackSlider, &DSlider::valueChanged, [=](int value){
         if(value > 80){
             m_inputFeedbackSlider->setStyleSheet(feedbackSliderStyle
-            +"DUI--DSlider::sub-page[handleType=\"1\"]{background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #0a73bb, stop:0.66 #0a73bb, stop:0.76 #ffbf0f, stop:1 #ff8503);}");
+            +"DUI--DSlider::sub-page[handleType=\"1\"]{background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #0a73bb, stop:0.66 #0a73bb, stop:0.76 #ffbf0f, stop:1 #ff8503);}DUI--DSlider::sub-page[handleType=\"1\"]{border-image: none;border-radius: 3px;}");
+        }else if(value < 3){
+            m_inputFeedbackSlider->setStyleSheet(feedbackSliderStyle
+            +"DUI--DSlider::sub-page[handleType=\"1\"]{background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #0a73bb, stop:1 #51a7dc)}DUI--DSlider::sub-page[handleType=\"1\"]{border-image: none;border-radius: 2px;}");
         }else{
             m_inputFeedbackSlider->setStyleSheet(feedbackSliderStyle
-            +"DUI--DSlider::sub-page[handleType=\"1\"]{background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #0a73bb, stop:1 #51a7dc)}");
+            +"DUI--DSlider::sub-page[handleType=\"1\"]{background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #0a73bb, stop:1 #51a7dc)}DUI--DSlider::sub-page[handleType=\"1\"]{border-image: none;border-radius: 3px;}");
         }
     });
     microphoneForm->addWidget(m_inputFeedbackSlider, 1, 1, Qt::AlignVCenter);
@@ -163,7 +176,7 @@ void Sound::initUI()
 
     m_microphoneExpand->setContent(mircophoneExpandContent);
     mainLayout->addWidget(m_microphoneExpand);
-    mainLayout->addWidget(new DSeparatorHorizontal);
+    mainLayout->addWidget(m_microphoneSeparator);
     mainLayout->addWidget(new DBaseLine);
 
     ///////////////////////////////////////////////////////--Advanced settings
@@ -314,8 +327,10 @@ void Sound::updateSpeakerUI()
     });
 
     m_speakerExpand->setExpand(!m_sink->mute());
+    m_speakerSeparator->setHidden(m_sink->mute());
     connect(m_sink, &DBusAudioSink::MuteChanged, [=]{
         m_speakerExpand->setExpand(!m_sink->mute());
+        m_speakerSeparator->setHidden(m_sink->mute());
     });
     connect(m_speakerExpand, &DBaseExpand::expandChange, [=] (bool expanded) {
         m_sink->SetMute(!expanded);
@@ -335,8 +350,10 @@ void Sound::updateMicrophoneUI()
     });
 
     m_microphoneExpand->setExpand(!m_source->mute());
+    m_microphoneSeparator->setHidden(m_source->mute());
     connect(m_source, &DBusAudioSource::MuteChanged, [=]{
         m_microphoneExpand->setExpand(!m_source->mute());
+        m_microphoneSeparator->setHidden(m_source->mute());
     });
     connect(m_microphoneExpand, &DBaseExpand::expandChange, [=](bool expanded){
         m_source->SetMute(!expanded);
