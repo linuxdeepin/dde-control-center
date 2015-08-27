@@ -8,7 +8,7 @@
 
 #include "interfaces.h"
 #include "modulemetadata.h"
-#include "dbuscontrolcenter.h"
+#include "dbus/dbuscontrolcenter.h"
 
 class QStackedLayout;
 class QKeyEvent;

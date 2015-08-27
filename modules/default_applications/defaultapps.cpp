@@ -36,7 +36,7 @@ DefaultApps::DefaultApps() :
     m_header = new ModuleHeader(tr("Default Applications"));
 
     DSwitchButton *autoPlaySwitch = new DSwitchButton;
-    //autoPlaySwitch->setChecked(m_dbusDefaultMedia.autoMountOpen());
+    autoPlaySwitch->setChecked(m_dbusDefaultMedia.autoOpen());
 
     DHeaderLine *defaultApps = new DHeaderLine;
     defaultApps->setTitle(tr("Default Applications"));
@@ -119,7 +119,7 @@ DefaultApps::DefaultApps() :
     m_centralWidget->updateGeometry();
     m_centralWidget->update();
 
-    //setMediaOptionVisible(m_dbusDefaultMedia.autoMountOpen());
+    setMediaOptionVisible(m_dbusDefaultMedia.autoOpen());
 
     connect(autoPlaySwitch, &DSwitchButton::checkedChanged, this, &DefaultApps::setMediaOptionVisible);
 }
@@ -215,12 +215,11 @@ DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::Defaul
         if (!appList.count())
             return;
 
-        /*const QString desktop = appList.at(0).toObject().take("Id").toString();
-        if (desktop == "nautilus-autorun-software.desktop" ||
-            desktop == "Nothing" ||
-            desktop == "Open Folder")
-            ;// TODO: select nothing.
-        else*/
+        const QString desktop = appList.at(0).toObject().take("Id").toString();
+        if (desktop == "ignore" ||
+            desktop == "nautilus-autorun-software.desktop")
+            ;// TODO: select nothing. waitting for DButtonList update.
+        else
             list->checkButtonByIndex(0);
     });
 
@@ -276,5 +275,5 @@ void DefaultApps::setMediaOptionVisible(const bool visible)
     m_modCamera->setVisible(visible);
     m_modSoftware->setVisible(visible);
 
-    //m_dbusDefaultMedia.setAutoMountOpen(visible);
+    m_dbusDefaultMedia.EnableAutoOpen(visible);
 }

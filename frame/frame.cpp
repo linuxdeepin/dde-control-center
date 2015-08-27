@@ -15,13 +15,15 @@
 
 #include <libdui/dapplication.h>
 
+DUI_USE_NAMESPACE
+
 Frame::Frame(QWidget * parent) :
     QFrame(parent)
 {
     setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::Tool | Qt::X11BypassWindowManagerHint);
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
     setFixedWidth(DCC::ControlCenterWidth);
-    setFixedHeight(DUI::DApplication::desktop()->height());
+    setFixedHeight(DApplication::desktop()->height());
     setFocusPolicy(Qt::StrongFocus);
 
     setStyleSheet(QString("Frame { background-color:%1;}").arg(DCC::BgLightColor.name()));
@@ -64,11 +66,11 @@ Frame::~Frame()
 
 void Frame::changeEvent(QEvent *e)
 {
-#ifndef QT_DEBUG // for test, we dont need it disapper
     if (m_visible && !isActiveWindow() && e->type() == QEvent::ActivationChange)
+#ifndef QT_DEBUG // for test, we dont need it disapper
         hide();
 #else
-    qDebug() << "DDE-Control-Center will auto-hide.";
+        qDebug() << "DDE-Control-Center will auto-hide.";
 #endif
 
     QFrame::changeEvent(e);
@@ -106,8 +108,8 @@ void Frame::show(bool imme)
         }
         else
         {
-            startX = DUI::DApplication::desktop()->width();
-            endX = DUI::DApplication::desktop()->width() - width();
+            startX = DApplication::desktop()->width();
+            endX = DApplication::desktop()->width() - width();
         }
 
         QFrame::move(startX, 0);
@@ -147,8 +149,8 @@ void Frame::hide(bool imme)
         }
         else
         {
-            endX = DUI::DApplication::desktop()->width();
-            startX = DUI::DApplication::desktop()->width() - width();
+            endX = DApplication::desktop()->width();
+            startX = DApplication::desktop()->width() - width();
         }
 
         QFrame::move(startX, 0);

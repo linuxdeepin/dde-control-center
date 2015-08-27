@@ -8,8 +8,8 @@
  * Do not edit! All changes made to it will be lost.
  */
 
-#ifndef DBUSDEFAULTMEDIA_H_1440579777
-#define DBUSDEFAULTMEDIA_H_1440579777
+#ifndef DBUSDEFAULTMEDIA_H_1440642843
+#define DBUSDEFAULTMEDIA_H_1440642843
 
 #include <QtCore/QObject>
 #include <QtCore/QByteArray>
@@ -56,7 +56,18 @@ public:
 
     ~DBusDefaultMedia();
 
+    Q_PROPERTY(bool AutoOpen READ autoOpen NOTIFY AutoOpenChanged)
+    inline bool autoOpen() const
+    { return qvariant_cast< bool >(property("AutoOpen")); }
+
 public Q_SLOTS: // METHODS
+    inline QDBusPendingReply<> EnableAutoOpen(bool in0)
+    {
+        QList<QVariant> argumentList;
+        argumentList << QVariant::fromValue(in0);
+        return asyncCallWithArgumentList(QStringLiteral("EnableAutoOpen"), argumentList);
+    }
+
     inline QDBusPendingReply<QString> GetDefaultApp(const QString &in0)
     {
         QList<QVariant> argumentList;
@@ -86,6 +97,7 @@ public Q_SLOTS: // METHODS
 
 Q_SIGNALS: // SIGNALS
 // begin property changed signals
+void AutoOpenChanged();
 };
 
 namespace com {

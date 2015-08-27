@@ -8,14 +8,14 @@ HEADERS    = frame.h \
     sidebar.h \
     contentview.h \
     dtipsframe.h \
-    dbuscontrolcenter.h
+    dbus/dbuscontrolcenter.h
 SOURCES    = frame.cpp \
              main.cpp \
     homescreen.cpp \
     sidebar.cpp \
     contentview.cpp \
     dtipsframe.cpp \
-    dbuscontrolcenter.cpp
+    dbus/dbuscontrolcenter.cpp
 
 include(../cutelogger/cutelogger.pri)
 TARGET     = dde-control-center
