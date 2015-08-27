@@ -15,10 +15,11 @@
  * Implementation of interface class DBusTimedate
  */
 
-DBusTimedate::DBusTimedate(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent)
-    : QDBusAbstractInterface(service, path, staticInterfaceName(), connection, parent)
+DBusTimedate::DBusTimedate(QObject *parent)
+    : QDBusAbstractInterface("com.deepin.daemon.Timedate", "/com/deepin/daemon/Timedate", staticInterfaceName(), QDBusConnection::sessionBus(), parent)
 {
     QDBusConnection::sessionBus().connect(this->service(), this->path(), "org.freedesktop.DBus.Properties",  "PropertiesChanged", "sa{sv}as", this, SLOT(__propertyChanged__(QDBusMessage)));
+    ZoneInfo::registerMetaType();
 }
 
 DBusTimedate::~DBusTimedate()

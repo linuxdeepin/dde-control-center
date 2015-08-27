@@ -5,10 +5,15 @@
 #include <QtPlugin>
 
 #include "interfaces.h"
+#include "datecontrolwidget.h"
+#include "timezonectrlwidget.h"
 #include "dbus/dbustimedate.h"
 
 #include <libdui/dcalendar.h>
 #include <libdui/dswitchbutton.h>
+#include <libdui/dheaderline.h>
+
+DUI_USE_NAMESPACE
 
 class QFrame;
 class Datetime: public QObject, ModuleInterface
@@ -30,9 +35,12 @@ private:
 
     DBusTimedate m_dbusInter;
 
-    DUI::DCalendar *m_calendar;
-    DUI::DSwitchButton *m_clockFormatSwitcher;
-    DUI::DSwitchButton *m_autoSyncSwitcher;
+    DHeaderLine *m_timezoneHeaderLine;
+    DCalendar *m_calendar;
+    DSwitchButton *m_clockFormatSwitcher;
+    DSwitchButton *m_autoSyncSwitcher;
+    DateControlWidget *m_dateCtrlWidget;
+    TimezoneCtrlWidget *m_timezoneCtrlWidget;
 };
 
 #endif //DATETIME_H

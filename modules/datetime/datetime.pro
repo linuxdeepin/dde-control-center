@@ -7,13 +7,18 @@ LIBS += -L../../widgets -lwidgets
 
 HEADERS        += datetime.h \
     dbus/dbustimedate.h \
-    timewidget.h
+    timewidget.h \
+    datecontrolwidget.h \
+    timezonectrlwidget.h
 SOURCES        += datetime.cpp \
     dbus/dbustimedate.cpp \
-    timewidget.cpp
+    timewidget.cpp \
+    datecontrolwidget.cpp \
+    timezonectrlwidget.cpp
 TARGET          = $$qtLibraryTarget(datetime)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 DISTFILES      += datetime.json
 
 RESOURCES += \
-    theme.qrc
+    theme.qrc \
+    icons.qrc

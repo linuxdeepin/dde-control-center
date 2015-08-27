@@ -25,7 +25,7 @@ class ZoneInfo
 {
 public:
     ZoneInfo();
-    void registerMetaType();
+    static void registerMetaType();
 
     friend QDebug operator<< (QDebug argument, const ZoneInfo & info);
     friend QDBusArgument & operator<< (QDBusArgument & argument, const ZoneInfo & info);
@@ -73,7 +73,7 @@ public:
     { return "com.deepin.daemon.Timedate"; }
 
 public:
-    DBusTimedate(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent = 0);
+    DBusTimedate(QObject *parent = 0);
 
     ~DBusTimedate();
 
