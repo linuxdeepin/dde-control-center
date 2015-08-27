@@ -52,11 +52,10 @@ SideBar::SideBar(QList<ModuleMetaData> modules, QWidget *parent)
 
     layout->addStretch();
 
-    QSpacerItem *hSpace = new QSpacerItem(1, 1, QSizePolicy::Expanding, QSizePolicy::Minimum);
     QHBoxLayout *hLayout = new QHBoxLayout();
-    hLayout->addSpacerItem(hSpace);
+    hLayout->addStretch();
     hLayout->addLayout(layout);
-    hLayout->addSpacerItem(hSpace);
+    hLayout->addStretch();
 
     this->setLayout(hLayout);
 }
