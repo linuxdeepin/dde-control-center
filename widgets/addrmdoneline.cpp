@@ -63,6 +63,7 @@ AddRmDoneLine::AddRmDoneLine(QWidget *parent) :
     frame->setLayout(layout);
 
     setContent(frame);
+    setFixedHeight(EXPAND_HEADER_HEIGHT);
 }
 
 ImageNameButton *AddRmDoneLine::removeButton() const

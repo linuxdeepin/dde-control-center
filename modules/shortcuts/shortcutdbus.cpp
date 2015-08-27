@@ -29,6 +29,9 @@ enum KeyType{
 ShortcutDbus::ShortcutDbus(QObject *parent)
     : QDBusAbstractInterface(staticServerPath(), staticInterfacePath(), staticInterfaceName(), QDBusConnection::sessionBus(), parent)
 {
+    connect(this, &ShortcutDbus::Error, [=](const QString &in0, const QString &in1){
+        qDebug() << "ShortcutDbus:" << in0 << in1;
+    });
     connect(this, &ShortcutDbus::Changed, this, &ShortcutDbus::updateShortcutList);
     connect(this, &ShortcutDbus::KeyEvent, [&](bool arg, const QString &str){
         if(arg)

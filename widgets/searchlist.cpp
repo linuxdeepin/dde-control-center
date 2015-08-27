@@ -40,6 +40,7 @@ SearchList::SearchList(QWidget *parent) :
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setAlignment(Qt::AlignHCenter);
     setWidget(m_mainWidget);
+    setMaximumHeight(0);
 }
 
 int SearchList::addItem(SearchItem *data)

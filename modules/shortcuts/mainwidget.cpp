@@ -214,6 +214,17 @@ void MainWidget::init()
                             m_systemList->count()+m_windowList->count()+m_workspaceList->count());
     });
 
+    AddRmDoneLine *customLine = getCustomLstHeadBar();
+    customLine->setRemoveHidden(m_customList->count()<1);
+
+    DSeparatorHorizontal *customListSeparator = new DSeparatorHorizontal;
+    customListSeparator->setHidden(m_customList->count()<1);
+    connect(m_customList, &SearchList::countChanged, [=]{
+        customListSeparator->setHidden(m_customList->count()<1);
+        if(customLine->doneButton()->isHidden())
+            customLine->setRemoveHidden(m_customList->count()<1);
+    });
+
     DSearchEdit *edit  = new DSearchEdit;
     connect(edit, &DSearchEdit::textChanged, m_searchList, [=]{
         QString str = edit->text();
@@ -239,18 +250,8 @@ void MainWidget::init()
                 if(w)
                     w->show();
             }
+            customListSeparator->setHidden(m_customList->count()<1);
         }
-    });
-
-    AddRmDoneLine *customLine = getCustomLstHeadBar();
-    customLine->setRemoveHidden(m_customList->count()<1);
-
-    DSeparatorHorizontal *customListSeparator = new DSeparatorHorizontal;
-    customListSeparator->setHidden(m_customList->count()<1);
-    connect(m_customList, &SearchList::countChanged, [=]{
-        customListSeparator->setHidden(m_customList->count()<1);
-        if(customLine->doneButton()->isHidden())
-            customLine->setRemoveHidden(m_customList->count()<1);
     });
 
     m_layout->setSpacing(0);
