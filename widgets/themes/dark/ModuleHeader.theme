@@ -2,3 +2,7 @@ ModuleHeader QLabel {
     color: "white";
     font-size: 14px;
 }
+
+ModuleHeader #TipsLabel {
+    color:#01BDFF;
+}
