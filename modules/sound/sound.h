@@ -48,6 +48,8 @@ private:
     DBusAudioSource * m_source;
     QList<DBusAudioSink *> m_sinks;
     QList<DBusAudioSource *> m_sources;
+    QDBusInterface *m_dbusMeter;
+    QTimer m_meterTimer;
 
     void initBackend();
     void initUI();
@@ -59,6 +61,7 @@ private:
     void updateMicrophoneUI();
     void updateOutputPorts();
     void updateInputPorts();
+    Q_SLOT void meterVolumeChanged(const QDBusMessage& msg);
 };
 
 #endif
