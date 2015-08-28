@@ -10,6 +10,7 @@ TARGET = dde-dock-sound-plugin
 TEMPLATE = lib
 CONFIG += plugin c++11
 INCLUDEPATH += ../../modules/sound/
+DESTDIR = $$_PRO_FILE_PWD_/../
 
 SOURCES += soundplugin.cpp \
     ../../modules/sound/dbus/dbusaudio.cpp \

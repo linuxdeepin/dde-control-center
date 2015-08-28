@@ -9,9 +9,9 @@
 #include <QIcon>
 #include <QDebug>
 #include "mainitem.h"
-#include "dde-dock/dockconstants.h"
-#include "dde-dock/dockplugininterface.h"
-#include "dde-dock/dockpluginproxyinterface.h"
+#include <dde-dock/dockconstants.h>
+#include <dde-dock/dockplugininterface.h>
+#include <dde-dock/dockpluginproxyinterface.h>
 #include "dbus/dbusdiskmount.h"
 #include "diskcontent.h"
 

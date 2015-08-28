@@ -1,6 +1,7 @@
 TEMPLATE = subdirs
 SUBDIRS = frame \
           widgets \
-          modules
+          modules \
+          dock-plugins
 
 modules.depends = widgets

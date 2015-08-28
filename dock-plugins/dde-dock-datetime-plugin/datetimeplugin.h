@@ -15,7 +15,7 @@ class QTimer;
 class DateTimePlugin : public QObject, public DockPluginInterface
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID DockPluginInterface_iid FILE "dde-dock-datetime-plugin.json")
+    Q_PLUGIN_METADATA(IID "org.deepin.Dock.PluginInterface" FILE "dde-dock-datetime-plugin.json")
     Q_INTERFACES(DockPluginInterface)
 
 public:

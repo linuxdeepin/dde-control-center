@@ -10,9 +10,9 @@
 #include <QIcon>
 #include <QDebug>
 #include <QSettings>
-#include "dde-dock/dockconstants.h"
-#include "dde-dock/dockplugininterface.h"
-#include "dde-dock/dockpluginproxyinterface.h"
+#include <dde-dock/dockconstants.h>
+#include <dde-dock/dockplugininterface.h>
+#include <dde-dock/dockpluginproxyinterface.h>
 #include "mainitem.h"
 #include "soundcontent.h"
 

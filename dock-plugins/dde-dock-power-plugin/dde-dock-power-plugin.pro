@@ -9,6 +9,7 @@ QT       += core gui widgets dbus
 TARGET = dde-dock-power-plugin
 TEMPLATE = lib
 CONFIG += plugin
+DESTDIR = $$_PRO_FILE_PWD_/../
 
 INCLUDEPATH += ../../modules/power
 

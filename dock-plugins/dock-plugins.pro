@@ -3,4 +3,4 @@ SUBDIRS = dde-dock-power-plugin \
           dde-dock-datetime-plugin \
           dde-dock-network-plugin \
           dde-dock-sound-plugin \
-		  dde-dock-diskmount-plugin
+          dde-dock-diskmount-plugin

@@ -5,7 +5,7 @@
 #include <QIcon>
 #include <QPixmap>
 #include <QDebug>
-#include "dde-dock/dockconstants.h"
+#include <dde-dock/dockconstants.h>
 
 class MainItem : public QLabel
 {
