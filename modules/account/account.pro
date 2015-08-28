@@ -20,8 +20,7 @@ HEADERS         += \
     ui/user_list/webcamavatarpanel.h \
     ui/user_create/createuserpanel.h \
     ui/user_list/userexpandcontent.h \
-    ui/user_list/userexpandheader.h \
-    ui/user_list/useravatar.h
+    ui/user_list/userexpandheader.h
 
 SOURCES         += \
     account.cpp \
@@ -38,8 +37,7 @@ SOURCES         += \
     ui/user_list/webcamavatarpanel.cpp \
     ui/user_create/createuserpanel.cpp \
     ui/user_list/userexpandcontent.cpp \
-    ui/user_list/userexpandheader.cpp \
-    ui/user_list/useravatar.cpp
+    ui/user_list/userexpandheader.cpp
 
 TARGET          = $$qtLibraryTarget(account)
 DESTDIR         = $$_PRO_FILE_PWD_/../

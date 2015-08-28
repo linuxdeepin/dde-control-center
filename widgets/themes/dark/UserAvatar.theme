@@ -1,0 +1,9 @@
+UserAvatar {
+    qproperty-borderSelectedColor: #2CA7F8;
+    qproperty-borderColor: white;
+    qproperty-borderWidth: 5;
+
+    background-color: transparent;
+    color: #b4b4b4;
+    border: none;
+}

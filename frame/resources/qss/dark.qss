@@ -15,3 +15,20 @@ StyleProperty {
     qproperty-itemTipColor: #fdbd25;
     qproperty-warningColor: #FF8000;
 }
+
+QLabel#Username {
+    color:#ff8000;
+    font-size:18px;
+}
+
+QWidget#TopWidget {
+    background-color:#1a1a1b;
+}
+
+QLabel#PowerLabel {
+    color:orange;
+}
+
+QWidget#BottomWidget {
+    background-image:url(:/resources/images/shutdown_bg.png);
+}

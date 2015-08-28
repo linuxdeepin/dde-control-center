@@ -30,5 +30,6 @@
         <file>dark/images/list_remove_press.png</file>
         <file>dark/MultiDeleteButton.theme</file>
         <file>dark/MultiAddCheckButton.theme</file>
+        <file>dark/UserAvatar.theme</file>
     </qresource>
 </RCC>

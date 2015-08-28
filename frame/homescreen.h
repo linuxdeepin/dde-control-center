@@ -2,6 +2,8 @@
 #define HOMESCREEN_H
 
 #include "modulemetadata.h"
+#include "dbus/dbusaccounts.h"
+#include "dbus/dbususer.h"
 
 #include <QFrame>
 #include <QPropertyAnimation>
@@ -31,6 +33,9 @@ private slots:
 
 private:
     QGridLayout * m_grid;
+
+    DBusAccounts *m_dbusAccounts;
+    DBusUser *m_dbusUserInfo;
 
     QGraphicsOpacityEffect *m_opacityEffect;
     QPropertyAnimation *m_topAni;

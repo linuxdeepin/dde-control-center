@@ -14,10 +14,19 @@
 #include "homescreen.h"
 #include "constants.h"
 
+#include "useravatar.h"
+
 HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     QFrame(parent),
+    m_dbusAccounts(new DBusAccounts(this)),
     modules(modules)
 {
+    Q_INIT_RESOURCE(widgets_theme_dark);
+    Q_INIT_RESOURCE(widgets_theme_light);
+
+    // get user info d-bus interface
+    m_dbusUserInfo = new DBusUser(m_dbusAccounts->userList().first(), this);
+
     m_grid = new QGridLayout;
     m_grid->setContentsMargins(0, 25, 0, 0);
     foreach (ModuleMetaData meta, modules) {
@@ -41,45 +50,45 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     topOuterWidget->setFixedHeight(DCC::HomeScreen_TopWidgetHeight);
     topOuterWidget->setFixedWidth(DCC::ControlCenterWidth);
 
-    DUI::DImageButton *topButton = new DUI::DImageButton(DCC::IconPath + "shutdown_normal.png", "", "");
-    topButton->setAttribute(Qt::WA_TranslucentBackground);
+    UserAvatar *topButton = new UserAvatar;
+    topButton->setIcon(m_dbusUserInfo->iconFile());
+    topButton->setFixedSize(80, 80);
+    topButton->setAvatarSize(UserAvatar::AvatarLargeSize);
 
-    QLabel *topLabel = new QLabel();
+    QLabel *topLabel = new QLabel;
+    topLabel->setFixedHeight(30);
     topLabel->setAlignment(Qt::AlignCenter);
-    topLabel->setStyleSheet(QString("color:%1;").arg(DCC::HomeScreen_UsernameColor.name()));
-#ifdef QT_DEBUG // for test username label
-    topLabel->setText("TestUserName");
-#endif
+    topLabel->setObjectName("Username");
+    topLabel->setText(m_dbusUserInfo->userName());
 
-    QHBoxLayout *topHBox_top = new QHBoxLayout;
-    topHBox_top->addStretch();
-    topHBox_top->addWidget(topButton);
-    topHBox_top->addStretch();
-    topHBox_top->setContentsMargins(0, 20, 0, 0);
+    QVBoxLayout *topWidgetLayout = new QVBoxLayout;
+    topWidgetLayout->addWidget(topButton);
+    topWidgetLayout->setAlignment(topButton, Qt::AlignCenter);
+    topWidgetLayout->addWidget(topLabel);
+    topWidgetLayout->addStretch();
+    topWidgetLayout->setSpacing(20);
+    topWidgetLayout->setContentsMargins(0, 20, 0, 15);
 
-    QHBoxLayout *topHBox_bot = new QHBoxLayout;
-    topHBox_bot->addStretch();
-    topHBox_bot->addWidget(topLabel);
-    topHBox_bot->addStretch();
+    QWidget *topWidget = new QWidget;
+    topWidget->setLayout(topWidgetLayout);
+    topWidget->setObjectName("TopWidget");
 
     QVBoxLayout *topVBox = new QVBoxLayout;
-    topVBox->addLayout(topHBox_top);
-    topVBox->addLayout(topHBox_bot);
-    topVBox->addWidget(new DUI::DSeparatorHorizontal);
+    topVBox->addWidget(topWidget);
+    topVBox->addWidget(new DSeparatorHorizontal);
     topVBox->setSpacing(0);
     topVBox->setMargin(0);
 
     m_topWidget = new QWidget(topOuterWidget);
     m_topWidget->setFixedSize(topOuterWidget->size());
     m_topWidget->setLayout(topVBox);
-    m_topWidget->setStyleSheet(QString("background-color:%1;").arg(DCC::BgDarkColor.name()));
 
-    DUI::DImageButton *bottomButton = new DUI::DImageButton(DCC::IconPath + "shutdown_normal.png", DCC::IconPath + "shutdown_hover.png", "");
+    DImageButton *bottomButton = new DImageButton(DCC::IconPath + "shutdown_normal.png", DCC::IconPath + "shutdown_hover.png", "");
     bottomButton->setAttribute(Qt::WA_TranslucentBackground);
 
     QLabel *bottomLabel = new QLabel(tr("电源"));
+    bottomLabel->setObjectName("PowerLabel");
     bottomLabel->setAlignment(Qt::AlignCenter);
-    bottomLabel->setStyleSheet(QString("color:%1;").arg(DCC::HomeScreen_PowerTextColor.name()));
 
     QVBoxLayout *bottomVLayout = new QVBoxLayout;
     bottomVLayout->addWidget(bottomButton);
@@ -99,7 +108,7 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     bottomOuterWidget->setFixedWidth(DCC::ControlCenterWidth);
 
     m_bottomWidget = new QWidget(bottomOuterWidget);
-    m_bottomWidget->setStyleSheet("background-image:url(:/resources/images/shutdown_bg.png);");
+    m_bottomWidget->setObjectName("BottomWidget");
     m_bottomWidget->setLayout(bottomHLayout);
     m_bottomWidget->setFixedSize(bottomOuterWidget->size());
 
@@ -130,8 +139,8 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     m_botAni = new QPropertyAnimation(m_bottomWidget, "geometry");
     m_botAni->setDuration(DCC::FrameAnimationDuration);
 
-    connect(bottomButton, &DUI::DImageButton::clicked, this, &HomeScreen::powerButtonClicked, Qt::DirectConnection);
-    connect(topButton, SIGNAL(clicked()), this, SLOT(userAvatarClicked()));
+    connect(bottomButton, &DImageButton::clicked, this, &HomeScreen::powerButtonClicked, Qt::DirectConnection);
+    connect(topButton, &UserAvatar::clicked, this, &HomeScreen::userAvatarClicked);
     connect(m_ctrHideAni, &QPropertyAnimation::finished, this, &QFrame::hide);
 }
 
@@ -209,9 +218,8 @@ void HomeScreen::powerButtonClicked()
 
 void HomeScreen::userAvatarClicked()
 {
-    qDebug() << "user avatar clicked";
     for (const ModuleMetaData & data : modules)
-        if (data.name == "avator")
+        if (data.name == "Account")
             return moduleSelected(data);
 }
 

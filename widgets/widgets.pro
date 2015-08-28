@@ -20,7 +20,8 @@ HEADERS += $$PWD/searchlist.h \
     $$PWD/passwdline.h \
     $$PWD/generaladdbutton.h \
     $$PWD/generalremovebutton.h \
-    $$PWD/multideletebutton.h
+    $$PWD/multideletebutton.h \
+    $$PWD/useravatar.h
 SOURCES += $$PWD/searchlist.cpp \
     $$PWD/dynamiclabel.cpp \
     $$PWD/moduleheader.cpp \
@@ -36,7 +37,8 @@ SOURCES += $$PWD/searchlist.cpp \
     $$PWD/passwdline.cpp \
     $$PWD/generaladdbutton.cpp \
     $$PWD/generalremovebutton.cpp \
-    $$PWD/multideletebutton.cpp
+    $$PWD/multideletebutton.cpp \
+    $$PWD/useravatar.cpp
 
 RESOURCES += \
     $$PWD/themes/widgets_theme_dark.qrc \

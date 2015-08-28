@@ -9,7 +9,7 @@
 #include "dbus/dbusaccountuser.h"
 #include "libdui/dseparatorhorizontal.h"
 #include "../user_list/accounttypeline.h"
-#include "../user_list/useravatar.h"
+#include "useravatar.h"
 #include "libdui/dheaderline.h"
 #include "confirmbuttonline.h"
 #include "passwdline.h"

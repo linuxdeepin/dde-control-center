@@ -1,5 +1,7 @@
 #include "useravatar.h"
 
+#include "dthememanager.h"
+
 UserAvatar::UserAvatar(QWidget *parent, bool deleteable) : QPushButton(parent)
 {
     setCheckable(true);
@@ -17,6 +19,8 @@ UserAvatar::UserAvatar(QWidget *parent, bool deleteable) : QPushButton(parent)
 
     if (deleteable)
         initDeleteButton();
+
+    D_THEME_INIT_WIDGET(UserAvatar);
 }
 
 void UserAvatar::setIcon(const QString &iconPath, const QSize &size)
@@ -80,6 +84,7 @@ void UserAvatar::paintEvent(QPaintEvent *)
     pen.setWidth(m_borderWidth);
     painter.setPen(pen);
     painter.drawPath(path);
+    painter.end();
 }
 
 void UserAvatar::initDeleteButton()

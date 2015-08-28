@@ -20,9 +20,6 @@ static const uint ControlCenterWidth = 360;
 static const uint HomeScreen_TopWidgetHeight = 150;
 static const uint HomeScreen_BottomWidgetHeight = 86;
 
-static const QColor HomeScreen_UsernameColor = "#fff";
-static const QColor HomeScreen_PowerTextColor = "orange";
-
 static const uint FrameAnimationDuration = 300;
 static const QEasingCurve FrameShowCurve = QEasingCurve::InQuart;
 static const QEasingCurve FrameHideCurve = QEasingCurve::OutQuart;

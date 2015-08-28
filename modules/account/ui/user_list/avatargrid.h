@@ -6,8 +6,9 @@
 #include <QTableWidget>
 #include <QHeaderView>
 #include <QButtonGroup>
-#include "useravatar.h"
 #include "dbus/dbusaccountuser.h"
+
+#include "useravatar.h"
 
 class AvatarGrid : public QTableWidget
 {
