@@ -1,0 +1,6 @@
+Monitor{
+    border: 1px solid #4b4b4b;
+    background-color: #0e0e0e;
+    font-size: 18px;
+    color: #9b9b9b;
+}

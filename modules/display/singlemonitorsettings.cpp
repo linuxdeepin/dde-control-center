@@ -13,10 +13,12 @@
 
 DUI_USE_NAMESPACE
 
-SingleMonitorSettings::SingleMonitorSettings(DisplayInterface * dbusDisplay, QString monitorDBusPath, QWidget *parent)
+SingleMonitorSettings::SingleMonitorSettings(DisplayInterface * dbusDisplay, QWidget *parent)
     : QFrame(parent)
 {
-    m_dbusMonitor = new MonitorInterface(monitorDBusPath, this);
+    foreach (const QDBusObjectPath &path, dbusDisplay->monitors()) {
+        m_dbusMonitors << new MonitorInterface(path.path(), this);
+    }
     m_dbusDisplay = dbusDisplay;
 
     m_rotationMap[1] = "Normal";
@@ -31,22 +33,10 @@ SingleMonitorSettings::SingleMonitorSettings(DisplayInterface * dbusDisplay, QSt
 void SingleMonitorSettings::initUI()
 {
     QVBoxLayout * mainLayout = new QVBoxLayout(this);
-    mainLayout->setMargin(0);
-    mainLayout->setSpacing(0);
-    mainLayout->setContentsMargins(0, 0, 0, 0);
 
     ModuleHeader * headerLine = new ModuleHeader("Display");
 
-    mainLayout->addWidget(headerLine);
-    mainLayout->addWidget(new DSeparatorHorizontal);
-
-    m_monitor = new Monitor;
     m_monitorGround = new MonitorGround;
-    m_monitorGround->addMonitor(m_monitor);
-    updateMonitor();
-
-    mainLayout->addWidget(m_monitorGround);
-    mainLayout->addWidget(new DSeparatorHorizontal);
 
     // resolution
     DArrowLineExpand * resolutionExpand = new DArrowLineExpand;
@@ -59,14 +49,8 @@ void SingleMonitorSettings::initUI()
     m_resolutionButtons->addButtons(resolutions);
     updateResolutionButtons();
 
-    connect(m_dbusMonitor, &MonitorInterface::CurrentModeChanged, this, &SingleMonitorSettings::updateResolutionButtons);
-    connect(m_resolutionButtons, &DButtonGrid::buttonCheckedIndexChanged, [=](int index){
-        m_dbusMonitor->SetMode(m_monitorModeList.at(index).id);
-        m_dbusDisplay->Apply();
-    });
-
     resolutionExpand->setContent(m_resolutionButtons);
-    mainLayout->addWidget(resolutionExpand);
+
 
     // rotation
     DArrowLineExpand * rotationExpand = new DArrowLineExpand;
@@ -79,20 +63,33 @@ void SingleMonitorSettings::initUI()
     m_rotationButtons->addButtons(rotations);
     updateRotationButtons();
 
-    connect(m_dbusMonitor, &MonitorInterface::RotationChanged, this, &SingleMonitorSettings::updateRotationButtons);
-    connect(m_rotationButtons, &DButtonGrid::buttonCheckedIndexChanged, [=](int index){
-        ushort rotaion = m_dbusMonitor->rotation();
-        foreach (ushort r, m_rotationMap.keys()) {
-            if (m_rotationMap.value(r) == rotations.at(index)) {
-                rotaion = r;
+    foreach (MonitorInterface *dbusMonitor, m_dbusMonitors) {
+        connect(dbusMonitor, &MonitorInterface::CurrentModeChanged, this, &SingleMonitorSettings::updateResolutionButtons);
+        connect(m_resolutionButtons, &DButtonGrid::buttonCheckedIndexChanged, [=](int index){
+            dbusMonitor->SetMode(m_monitorModeList.at(index).id);
+            m_dbusDisplay->Apply();
+        });
+
+        connect(dbusMonitor, &MonitorInterface::RotationChanged, this, &SingleMonitorSettings::updateRotationButtons);
+        connect(m_rotationButtons, &DButtonGrid::buttonCheckedIndexChanged, [=](int index){
+            ushort rotaion = dbusMonitor->rotation();
+            foreach (ushort r, m_rotationMap.keys()) {
+                if (m_rotationMap.value(r) == rotations.at(index)) {
+                    rotaion = r;
+                }
             }
-        }
-        m_dbusMonitor->SetRotation(rotaion);
-        m_dbusDisplay->Apply();
-    });
+            dbusMonitor->SetRotation(rotaion);
+            m_dbusDisplay->Apply();
+        });
+
+        Monitor *monitor =  new Monitor;
+        m_monitors << monitor;
+        m_monitorGround->addMonitor(monitor);
+        updateMonitor();
+    }
 
     rotationExpand->setContent(m_rotationButtons);
-    mainLayout->addWidget(rotationExpand);
+
 
     // brightness
     DBaseLine * brightnessHeaderLine = new DBaseLine;
@@ -109,10 +106,19 @@ void SingleMonitorSettings::initUI()
     updateBrightnessSlider();
 
     connect(m_brightnessSlider, &DSlider::valueChanged, [=]{
-        m_dbusDisplay->SetBrightness(m_dbusMonitor->name(), m_brightnessSlider->value() / 10.0);
+        m_dbusDisplay->SetBrightness(m_dbusMonitors[0]->name(), m_brightnessSlider->value() / 10.0);
     });
     connect(m_dbusDisplay, &DisplayInterface::BrightnessChanged, this, &SingleMonitorSettings::updateBrightnessSlider);
 
+    mainLayout->setMargin(0);
+    mainLayout->setSpacing(0);
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->addWidget(headerLine);
+    mainLayout->addWidget(new DSeparatorHorizontal);
+    mainLayout->addWidget(m_monitorGround);
+    mainLayout->addWidget(new DSeparatorHorizontal);
+    mainLayout->addWidget(resolutionExpand);
+    mainLayout->addWidget(rotationExpand);
     mainLayout->addWidget(brightnessHeaderLine);
     mainLayout->addWidget(new DSeparatorHorizontal);
 
@@ -121,27 +127,28 @@ void SingleMonitorSettings::initUI()
 
 void SingleMonitorSettings::initBackend()
 {
-    QDBusPendingReply<MonitorModeList> modesReply = m_dbusMonitor->ListModes();
+    QDBusPendingReply<MonitorModeList> modesReply = m_dbusMonitors[0]->ListModes();
     modesReply.waitForFinished();
     m_monitorModeList = modesReply.value();
 
-    QDBusPendingReply<UshortList> rotationsReply = m_dbusMonitor->ListRotations();
+    QDBusPendingReply<UshortList> rotationsReply = m_dbusMonitors[0]->ListRotations();
     rotationsReply.waitForFinished();
     m_monitorRotations = rotationsReply.value();
 }
 
 void SingleMonitorSettings::updateMonitor()
 {
-    m_monitor->setName(m_dbusMonitor->name());
-    m_monitor->setResolution(m_dbusMonitor->width(), m_dbusMonitor->height());
-    m_monitorGround->relayout();
+//    monitor->setName(m_dbusMonitors[0]->name());
+//    monitor->setResolution(m_dbusMonitors[0]->width(), m_dbusMonitors[0]->height());
+
+//    m_monitorGround->relayout();
 }
 
 void SingleMonitorSettings::updateResolutionButtons()
 {
     QStringList resolutions = getResolutionLabels();
 
-    MonitorMode currentMode = m_dbusMonitor->currentMode();
+    MonitorMode currentMode = m_dbusMonitors[0]->currentMode();
     QString currentResolution = QString("%1x%2").arg(currentMode.width).arg(currentMode.height);
     m_resolutionButtons->checkButtonByIndex(resolutions.indexOf(currentResolution));
 
@@ -152,7 +159,7 @@ void SingleMonitorSettings::updateRotationButtons()
 {
     QStringList rotations = getRotationLabels();
 
-    ushort currentRotation = m_dbusMonitor->rotation();
+    ushort currentRotation = m_dbusMonitors[0]->rotation();
     m_rotationButtons->checkButtonByIndex(rotations.indexOf(m_rotationMap[currentRotation]));
 
     updateMonitor();
@@ -161,7 +168,7 @@ void SingleMonitorSettings::updateRotationButtons()
 void SingleMonitorSettings::updateBrightnessSlider()
 {
     BrightnessMap brightnessMap = m_dbusDisplay->brightness();
-    m_brightnessSlider->setValue(brightnessMap[m_dbusMonitor->name()] * 10);
+    m_brightnessSlider->setValue(brightnessMap[m_dbusMonitors[0]->name()] * 10);
 }
 
 QStringList SingleMonitorSettings::getResolutionLabels()

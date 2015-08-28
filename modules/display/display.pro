@@ -10,15 +10,20 @@ HEADERS        += display.h \
     monitor.h \
     singlemonitorsettings.h \
     dbus/displayinterface.h \
-    dbus/monitorinterface.h
+    dbus/monitorinterface.h \
+    displaymodeitem.h
 SOURCES        += display.cpp \
     monitorground.cpp \
     monitor.cpp \
     singlemonitorsettings.cpp \
     dbus/displayinterface.cpp \
-    dbus/monitorinterface.cpp
+    dbus/monitorinterface.cpp \
+    displaymodeitem.cpp
 TARGET          = $$qtLibraryTarget(display)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 DISTFILES += display.json
 
 LIBS += -ldui
+
+RESOURCES += \
+    theme.qrc

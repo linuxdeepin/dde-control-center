@@ -18,17 +18,17 @@ class SingleMonitorSettings : public QFrame
 {
     Q_OBJECT
 public:
-    explicit SingleMonitorSettings(DisplayInterface * display, QString monitorDBusPath, QWidget *parent = 0);
+    explicit SingleMonitorSettings(DisplayInterface * display, QWidget *parent = 0);
 
 private:
-    MonitorInterface * m_dbusMonitor;
+    QList<MonitorInterface*> m_dbusMonitors;
     DisplayInterface * m_dbusDisplay;
 
     QMap<ushort, QString> m_rotationMap;
     MonitorModeList m_monitorModeList;
     UshortList m_monitorRotations;
 
-    Monitor * m_monitor;
+    QList<Monitor*> m_monitors;
     MonitorGround * m_monitorGround;
     DButtonGrid * m_resolutionButtons;
     DButtonGrid * m_rotationButtons;

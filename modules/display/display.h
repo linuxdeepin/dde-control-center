@@ -3,11 +3,20 @@
 
 #include <QObject>
 #include <QtPlugin>
+
+#include <libdui/darrowlineexpand.h>
+#include <libdui/libdui_global.h>
+
 #include "interfaces.h"
 
 #include "dbus/displayinterface.h"
 
+DUI_USE_NAMESPACE
+
 class QFrame;
+class MonitorGround;
+class MonitorInterface;
+class Monitor;
 class Display: public QObject, ModuleInterface
 {
     Q_OBJECT
@@ -19,9 +28,16 @@ public:
     ~Display() Q_DECL_OVERRIDE;
     QFrame *getContent() Q_DECL_OVERRIDE;
 
+private slots:
+    void initUI();
+    void updateUI();
+
 private:
     QFrame * m_frame;
     DisplayInterface * m_dbusDisplay;
+    MonitorGround *m_monitorGround;
+    QList<MonitorInterface*> m_dbusMonitors;
+    QList<Monitor*> m_monitors;
 };
 
 #endif // DISPLAY_H

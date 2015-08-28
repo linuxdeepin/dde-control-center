@@ -11,10 +11,16 @@ public:
     explicit MonitorGround(QWidget *parent = 0);
 
     void addMonitor(Monitor * monitor);
+    void removeMonitor(Monitor * monitor);
+    void clear();
     void relayout();
 
+private slots:
+    void onMonitorMouseMove();
+    void onMonitorMouseRelease();
+
 private:
-    Monitor * m_monitor;
+    QList<Monitor*> m_monitors;
 };
 
 #endif // MONITORGROUND_H
