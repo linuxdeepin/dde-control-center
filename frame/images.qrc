@@ -4,6 +4,5 @@
         <file>resources/images/shutdown_bg.png</file>
         <file>resources/images/shutdown_hover.png</file>
         <file>resources/images/shutdown_normal.png</file>
-        <file>resources/images/ico_warning.png</file>
     </qresource>
 </RCC>

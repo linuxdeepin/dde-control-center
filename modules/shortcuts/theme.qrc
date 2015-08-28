@@ -6,5 +6,6 @@
         <file>light/SelectDialog.theme</file>
         <file>light/ToolTip.theme</file>
         <file>dark/ToolTip.theme</file>
+        <file>images/ico_warning.png</file>
     </qresource>
 </RCC>

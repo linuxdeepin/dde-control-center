@@ -20,7 +20,7 @@ SelectDialog::SelectDialog(QWidget *parent):
     m_label->setWordWrap(true);
 
     QLabel *icon = new QLabel;
-    icon->setPixmap(QPixmap(":/resources/images/ico_warning.png"));
+    icon->setPixmap(QPixmap(":/images/ico_warning.png"));
     QHBoxLayout *hlayout1 = new QHBoxLayout;
     hlayout1->addWidget(m_label, 0, Qt::AlignLeft|Qt::AlignVCenter);
     hlayout1->addWidget(icon, 0, Qt::AlignRight|Qt::AlignVCenter);
