@@ -6,8 +6,10 @@
 #include <QTime>
 #include <QLabel>
 
-#include <libdui/dtextbutton.h>
+#include <libdui/dlinkbutton.h>
 #include <libdui/dimagebutton.h>
+
+DUI_USE_NAMESPACE
 
 class TimeSpinBox : public QFrame
 {
@@ -36,8 +38,8 @@ private:
     int m_maxNumber = 0;
     int m_minNumber = 0;
 
-    DUI::DImageButton *m_addBtn;
-    DUI::DImageButton *m_subBtn;
+    DImageButton *m_addBtn;
+    DImageButton *m_subBtn;
     QLabel *m_spinLabel;
 };
 
@@ -83,8 +85,8 @@ public slots:
 private:
     TimeSpinBox *m_spinHour;
     TimeSpinBox *m_spinMinute;
-    DUI::DTextButton *m_setTimeButton;
-    DUI::DTextButton *m_cancelTimeButton;
+    DLinkButton *m_setTimeButton;
+    DLinkButton *m_cancelTimeButton;
 };
 
 class TimeWidget : public QFrame

@@ -31,9 +31,17 @@ public slots:
     void switchAutoSync(const bool autoSync);
 
 private:
+    static const QString getUTCOffset(int offset);
+    const QString getZoneCityListByOffset(int zoneOffset);
+    const ZoneInfo &getZoneInfoByName(const QString & zoneName) const;
+    QWidget *createTimezoneListWidget();
+
+private:
     QFrame * m_frame;
 
     DBusTimedate m_dbusInter;
+
+    QList<ZoneInfo> *m_zoneInfoList;
 
     DHeaderLine *m_timezoneHeaderLine;
     DCalendar *m_calendar;

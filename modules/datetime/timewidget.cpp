@@ -9,7 +9,7 @@
 #include <QEvent>
 #include <QTimer>
 
-using DUI::DThemeManager;
+DUI_USE_NAMESPACE
 
 TimeWidget::TimeWidget(QWidget *parent) :
     QFrame(parent)
@@ -82,7 +82,7 @@ NormalWidget::NormalWidget(QWidget *parent) :
 
     setLayout(normalLayout);
 
-    // maybe its a Qt bug. we need adjust time format by m_amOrPm visible property.
+    // we need adjust time format by m_amOrPm visible property.
     QTimer::singleShot(0, this, SLOT(updateDateTime()));
 
     D_THEME_INIT_WIDGET(NormalWidget);
@@ -91,12 +91,12 @@ NormalWidget::NormalWidget(QWidget *parent) :
 void NormalWidget::updateDateTime()
 {
     const QDateTime datetime = QDateTime::currentDateTime();
-    const int hour = datetime.time().hour() % (12 + 12 * !m_amOrPm->isVisible());
+    const int hour = datetime.time().hour() % (m_amOrPm->isVisible() ? 12 : 24);
     const QString hourStr = QString("%1").arg(QString::number(hour), 2, '0');
     const QString minuteStr = QString("%1").arg(QString::number(datetime.time().minute()), 2, '0');
 
     m_timeLabel->setText(QString("%1:%2").arg(hourStr).arg(minuteStr));
-    m_tipsLabel->setText(datetime.toString("dddd, dd MMMM yyyy"));
+    m_tipsLabel->setText(datetime.toString(tr("dddd, dd MMMM yyyy")));
 
     m_amOrPm->setText(datetime.toString("A"));
 }
@@ -135,8 +135,8 @@ EditWidget::EditWidget(QWidget *parent) :
     timeLayout->addStretch();
     timeLayout->setSpacing(8);
 
-    m_setTimeButton = new DUI::DTextButton(tr("Set"));
-    m_cancelTimeButton = new DUI::DTextButton(tr("Cancel"));
+    m_setTimeButton = new DLinkButton(tr("Set"));
+    m_cancelTimeButton = new DLinkButton(tr("Cancel"));
     QLabel *controlSplit = new QLabel("|");
     controlSplit->setObjectName("ControlSpliter");
 
@@ -154,10 +154,10 @@ EditWidget::EditWidget(QWidget *parent) :
 
     setLayout(centeralLayout);
 
-    connect(m_setTimeButton, &DUI::DTextButton::clicked, [this] () -> void {
+    connect(m_setTimeButton, &DLinkButton::clicked, [this] () -> void {
                 emit accept(QDateTime(QDate::currentDate(), QTime(m_spinHour->text().toInt(), m_spinMinute->text().toInt())));
             });
-    connect(m_cancelTimeButton, &DUI::DTextButton::clicked, this, &EditWidget::cancel);
+    connect(m_cancelTimeButton, &DLinkButton::clicked, this, &EditWidget::cancel);
 
     D_THEME_INIT_WIDGET(EditWidget);
 }
@@ -177,14 +177,14 @@ TimeSpinBox::TimeSpinBox(QWidget *parent) :
     m_spinLabel->setAlignment(Qt::AlignCenter);
     m_spinLabel->setObjectName("SpinLabel");
 
-    m_addBtn = new DUI::DImageButton;
+    m_addBtn = new DImageButton;
     //m_addBtn->setNormalPic(QPixmap("modules/datetime/icons/arrow_up_normal.png"));
     //m_addBtn->setHoverPic(QPixmap("modules/datetime/icons/arrow_up_hover.png"));
     //m_addBtn->setPressPic(QPixmap("modules/datetime/icons/arrow_up_press.png"));
     m_addBtn->setObjectName("SpinAddBtn");
     //m_addBtn->hide();
 
-    m_subBtn = new DUI::DImageButton;
+    m_subBtn = new DImageButton;
     //m_subBtn->setNormalPic(QPixmap("modules/datetime/icons/arrow_down_normal.png"));
     //m_subBtn->setHoverPic(QPixmap("modules/datetime/icons/arrow_down_hover.png"));
     //m_subBtn->setPressPic(QPixmap("modules/datetime/icons/arrow_down_press.png"));
@@ -203,8 +203,8 @@ TimeSpinBox::TimeSpinBox(QWidget *parent) :
 
     setLayout(centeralLayout);
 
-    connect(m_addBtn, &DUI::DImageButton::clicked, this, &TimeSpinBox::addNumber);
-    connect(m_subBtn, &DUI::DImageButton::clicked, this, &TimeSpinBox::subNumber);
+    connect(m_addBtn, &DImageButton::clicked, this, &TimeSpinBox::addNumber);
+    connect(m_subBtn, &DImageButton::clicked, this, &TimeSpinBox::subNumber);
 
     D_THEME_INIT_WIDGET(TimeSpinBox);
 }

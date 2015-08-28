@@ -27,16 +27,16 @@ public:
     ZoneInfo();
     static void registerMetaType();
 
-    friend QDebug operator<< (QDebug argument, const ZoneInfo & info);
-    friend QDBusArgument & operator<< (QDBusArgument & argument, const ZoneInfo & info);
-    friend const QDBusArgument & operator>> (const QDBusArgument & argument, ZoneInfo & info);
+    friend QDebug operator<<(QDebug argument, const ZoneInfo & info);
+    friend QDBusArgument &operator<<(QDBusArgument & argument, const ZoneInfo & info);
+    friend const QDBusArgument &operator>>(const QDBusArgument & argument, ZoneInfo & info);
 
 public:
-    QString s1;
-    QString s2;
-    int i1;
-    int i2;
-    int i3;
+    QString m_zoneName;
+    QString m_zoneCity;
+    int m_utcOffset;
+    qint64 i2;
+    qint64 i3;
     int i4;
 };
 

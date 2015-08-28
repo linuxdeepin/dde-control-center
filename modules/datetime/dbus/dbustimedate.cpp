@@ -18,8 +18,8 @@
 DBusTimedate::DBusTimedate(QObject *parent)
     : QDBusAbstractInterface("com.deepin.daemon.Timedate", "/com/deepin/daemon/Timedate", staticInterfaceName(), QDBusConnection::sessionBus(), parent)
 {
-    QDBusConnection::sessionBus().connect(this->service(), this->path(), "org.freedesktop.DBus.Properties",  "PropertiesChanged", "sa{sv}as", this, SLOT(__propertyChanged__(QDBusMessage)));
     ZoneInfo::registerMetaType();
+    QDBusConnection::sessionBus().connect(this->service(), this->path(), "org.freedesktop.DBus.Properties",  "PropertiesChanged", "sa{sv}as", this, SLOT(__propertyChanged__(QDBusMessage)));
 }
 
 DBusTimedate::~DBusTimedate()
@@ -38,18 +38,18 @@ void ZoneInfo::registerMetaType()
     qDBusRegisterMetaType<ZoneInfo>();
 }
 
-QDebug operator<< (QDebug argument, const ZoneInfo & info)
+QDebug operator<<(QDebug argument, const ZoneInfo & info)
 {
-    argument << info.s1 << info.s2 << info.i1;
-    argument << info.i2 << info.i3 << info.i4;
+    argument << info.m_zoneName << ',' << info.m_zoneCity << ',' << info.m_utcOffset << ',';
+    argument << info.i2 << ',' << info.i3 << ',' << info.i4 << endl;
 
     return argument;
 }
 
-QDBusArgument & operator<< (QDBusArgument & argument, const ZoneInfo & info)
+QDBusArgument &operator<<(QDBusArgument & argument, const ZoneInfo & info)
 {
     argument.beginStructure();
-    argument << info.s1 << info.s2 << info.i1;
+    argument << info.m_zoneName << info.m_zoneCity << info.m_utcOffset;
     argument.beginStructure();
     argument << info.i2 << info.i3 << info.i4;
     argument.endStructure();
@@ -58,10 +58,10 @@ QDBusArgument & operator<< (QDBusArgument & argument, const ZoneInfo & info)
     return argument;
 }
 
-const QDBusArgument & operator>> (const QDBusArgument & argument, ZoneInfo & info)
+const QDBusArgument &operator>>(const QDBusArgument & argument, ZoneInfo & info)
 {
     argument.beginStructure();
-    argument >> info.s1 >> info.s2 >> info.i1;
+    argument >> info.m_zoneName >> info.m_zoneCity >> info.m_utcOffset;
     argument.beginStructure();
     argument >> info.i2 >> info.i3 >> info.i4;
     argument.endStructure();
