@@ -18,7 +18,8 @@ DUI_USE_NAMESPACE
 Datetime::Datetime() :
     QObject(),
     m_frame(new QFrame),
-    m_dbusInter(m_frame)
+    m_dbusInter(m_frame),
+    m_timezoneListWidget(new QWidget)
 {
     // get timezone info list
     m_zoneInfoList = new QList<ZoneInfo>;
@@ -65,6 +66,8 @@ Datetime::Datetime() :
     TimeWidget *timeWidget = new TimeWidget;
     timeWidget->setIs24HourFormat(m_dbusInter.use24HourFormat());
 
+    showSelectedTimezoneList();
+
     QVBoxLayout *centeralLayout = new QVBoxLayout;
     centeralLayout->addWidget(header);
     centeralLayout->addWidget(new DSeparatorHorizontal);
@@ -76,8 +79,8 @@ Datetime::Datetime() :
     centeralLayout->addWidget(new DSeparatorHorizontal);
     centeralLayout->addWidget(m_timezoneHeaderLine);
     centeralLayout->addWidget(new DSeparatorHorizontal);
-    centeralLayout->addWidget(createTimezoneListWidget());
-    centeralLayout->addWidget(new DSeparatorHorizontal);
+    centeralLayout->addWidget(m_timezoneListWidget);
+    //centeralLayout->addWidget(new DSeparatorHorizontal);
     centeralLayout->addWidget(dateBaseLine);
     centeralLayout->addWidget(new DSeparatorHorizontal);
     centeralLayout->addWidget(m_calendar);
@@ -89,10 +92,14 @@ Datetime::Datetime() :
     m_frame->setLayout(centeralLayout);
     m_dateCtrlWidget->setVisible(!m_dbusInter.nTP());
 
+    connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::removeAccept, this, &Datetime::showSelectedTimezoneList);
+    connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::removeTimezone, this, &Datetime::toRemoveTimezoneMode);
+    connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::addTimezone, this, &Datetime::showTimezoneList);
     connect(m_clockFormatSwitcher, &DSwitchButton::checkedChanged, &m_dbusInter, &DBusTimedate::setUse24HourFormat);
     connect(m_clockFormatSwitcher, &DSwitchButton::checkedChanged, timeWidget, &TimeWidget::setIs24HourFormat);
     connect(m_autoSyncSwitcher, &DSwitchButton::checkedChanged, this, &Datetime::switchAutoSync);
     connect(&m_dbusInter, &DBusTimedate::NTPChanged, [this] () -> void {m_dateCtrlWidget->setVisible(!m_dbusInter.nTP());});
+    connect(&m_dbusInter, &DBusTimedate::TimezoneChanged, this, &Datetime::showSelectedTimezoneList);
     connect(timeWidget, &TimeWidget::applyTime, [this] (const QDateTime & time) -> void {
                 m_dbusInter.SetTime(time.currentMSecsSinceEpoch(), true);
     });
@@ -159,10 +166,29 @@ const ZoneInfo &Datetime::getZoneInfoByName(const QString &zoneName) const
     return m_zoneInfoList->first();
 }
 
-QWidget *Datetime::createTimezoneListWidget()
+void Datetime::clearTimezoneList()
 {
+    // destruct old items in timezone listwidget.
+    qDeleteAll(m_timezoneListWidget->children());
+    QLayout *oldLayout = m_timezoneListWidget->layout();
+    if (oldLayout)
+    {
+        oldLayout->setParent(nullptr);
+        oldLayout->deleteLater();
+    }
+
+    m_timezoneListWidget->setLayout(nullptr);
+}
+
+void Datetime::showSelectedTimezoneList()
+{
+    //qDebug() << __LINE__ << __func__;
+    clearTimezoneList();
+
+    const QString userZone = m_dbusInter.timezone();
     QStringList zoneList = m_dbusInter.userTimezones();
     QVBoxLayout *mainLayout = new QVBoxLayout;
+    int zoneNums = 0;
 
     for (const QString & zone : zoneList)
     {
@@ -170,21 +196,78 @@ QWidget *Datetime::createTimezoneListWidget()
         if (zone == "Etc/UTC")
             continue;
 
+        ++zoneNums;
+
         const ZoneInfo & zoneInfo = getZoneInfoByName(zone);
         qDebug() << zone << zoneInfo;
 
-        TimezoneWidget *zoneWidget = new TimezoneWidget;
+        TimezoneWidget *zoneWidget = new TimezoneWidget(&zoneInfo);
         zoneWidget->setZoneCities(getZoneCityListByOffset(zoneInfo.m_utcOffset));
         zoneWidget->setZoneUTCOffset(getUTCOffset(zoneInfo.m_utcOffset));
+        zoneWidget->setSelected(userZone == zoneInfo.m_zoneName);
+
+        connect(zoneWidget, &TimezoneWidget::clicked, [this, zoneWidget] () -> void {toggleTimeZone(zoneWidget);});
 
         mainLayout->addWidget(zoneWidget);
         mainLayout->addWidget(new DSeparatorHorizontal);
     }
     mainLayout->addStretch();
+    mainLayout->setSpacing(0);
+    mainLayout->setMargin(0);
 
-    QWidget *widget = new QWidget;
-    widget->setLayout(mainLayout);
-    widget->setFixedHeight(300);
+    m_timezoneListWidget->setLayout(mainLayout);
+    m_timezoneListWidget->setFixedHeight(50 * zoneNums);
+}
 
-    return widget;
+void Datetime::showTimezoneList()
+{
+    clearTimezoneList();
+/*
+    QStringList zoneList = m_dbusInter.GetZoneList();
+    QStringList userZoneList = m_dbusInter.userTimezones();
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    int zoneNums = 0;
+
+    for (const QString & zone : zoneList)
+    {
+
+    }*/
+}
+
+void Datetime::toRemoveTimezoneMode()
+{
+    // update zone list.
+    showSelectedTimezoneList();
+    const QObjectList list = m_timezoneListWidget->children();
+
+    for (QObject * object : list)
+    {
+        TimezoneWidget *widget = qobject_cast<TimezoneWidget *>(object);
+        if (!widget)
+            continue;
+
+        widget->removeMode();
+        widget->disconnect();
+
+        connect(widget, &TimezoneWidget::clicked, [this, widget] () -> void {removeTimeZone(widget);});
+    }
+}
+
+void Datetime::toggleTimeZone(TimezoneWidget *zone)
+{
+    if (!zone)
+        return;
+
+    qDebug() << "toggle zone: " << zone->zoneName();
+    m_dbusInter.SetTimezone(zone->zoneName());
+}
+
+void Datetime::removeTimeZone(TimezoneWidget *zone)
+{
+    if (!zone)
+        return;
+
+    qDebug() << "remove zone: " << zone->zoneName();
+    m_dbusInter.DeleteUserTimezone(zone->zoneName());
+    toRemoveTimezoneMode();
 }

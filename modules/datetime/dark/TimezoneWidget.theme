@@ -1,0 +1,25 @@
+TimezoneWidget {
+    /*background-color:red;*/
+}
+
+TimezoneWidget[selected="true"] {
+    background-color:#181920;
+}
+
+TimezoneWidget #Cities {
+    color:white;
+    font-size:12px;
+}
+
+TimezoneWidget[selected="true"] #Cities {
+    color:red;
+}
+
+TimezoneWidget #UTCOffset {
+    color:white;
+    font-size:12px;
+}
+
+TimezoneWidget[selected="true"] #UTCOffset {
+    color:red;
+}

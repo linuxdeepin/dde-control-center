@@ -7,6 +7,7 @@
 #include "interfaces.h"
 #include "datecontrolwidget.h"
 #include "timezonectrlwidget.h"
+#include "timezonewidget.h"
 #include "dbus/dbustimedate.h"
 
 #include <libdui/dcalendar.h>
@@ -34,7 +35,14 @@ private:
     static const QString getUTCOffset(int offset);
     const QString getZoneCityListByOffset(int zoneOffset);
     const ZoneInfo &getZoneInfoByName(const QString & zoneName) const;
-    QWidget *createTimezoneListWidget();
+    void clearTimezoneList();
+    void showSelectedTimezoneList();
+    void showTimezoneList();
+    void toRemoveTimezoneMode();
+
+private slots:
+    void toggleTimeZone(TimezoneWidget *zone);
+    void removeTimeZone(TimezoneWidget *zone);
 
 private:
     QFrame * m_frame;
@@ -49,6 +57,7 @@ private:
     DSwitchButton *m_autoSyncSwitcher;
     DateControlWidget *m_dateCtrlWidget;
     TimezoneCtrlWidget *m_timezoneCtrlWidget;
+    QWidget *m_timezoneListWidget;
 };
 
 #endif //DATETIME_H
