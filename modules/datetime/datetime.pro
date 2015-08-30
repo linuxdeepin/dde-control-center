@@ -10,17 +10,18 @@ HEADERS        += datetime.h \
     timewidget.h \
     datecontrolwidget.h \
     timezonectrlwidget.h \
-    timezonewidget.h
+    timezonewidget.h \
+    timezoneitemwidget.h
 SOURCES        += datetime.cpp \
     dbus/dbustimedate.cpp \
     timewidget.cpp \
     datecontrolwidget.cpp \
     timezonectrlwidget.cpp \
-    timezonewidget.cpp
+    timezonewidget.cpp \
+    timezoneitemwidget.cpp
 TARGET          = $$qtLibraryTarget(datetime)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 DISTFILES      += datetime.json
 
 RESOURCES += \
-    theme.qrc \
-    icons.qrc
+    theme.qrc

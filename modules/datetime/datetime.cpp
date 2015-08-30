@@ -11,6 +11,7 @@
 #include "timewidget.h"
 #include "moduleheader.h"
 #include "timezonewidget.h"
+#include "timezoneitemwidget.h"
 #include "dbus/dbustimedate.h"
 
 DUI_USE_NAMESPACE
@@ -92,6 +93,7 @@ Datetime::Datetime() :
     m_frame->setLayout(centeralLayout);
     m_dateCtrlWidget->setVisible(!m_dbusInter.nTP());
 
+    connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::addTimezoneCancel, this, &Datetime::showSelectedTimezoneList);
     connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::removeAccept, this, &Datetime::showSelectedTimezoneList);
     connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::removeTimezone, this, &Datetime::toRemoveTimezoneMode);
     connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::addTimezone, this, &Datetime::showTimezoneList);
@@ -176,8 +178,6 @@ void Datetime::clearTimezoneList()
         oldLayout->setParent(nullptr);
         oldLayout->deleteLater();
     }
-
-    m_timezoneListWidget->setLayout(nullptr);
 }
 
 void Datetime::showSelectedTimezoneList()
@@ -222,7 +222,7 @@ void Datetime::showSelectedTimezoneList()
 void Datetime::showTimezoneList()
 {
     clearTimezoneList();
-/*
+
     QStringList zoneList = m_dbusInter.GetZoneList();
     QStringList userZoneList = m_dbusInter.userTimezones();
     QVBoxLayout *mainLayout = new QVBoxLayout;
@@ -230,8 +230,26 @@ void Datetime::showTimezoneList()
 
     for (const QString & zone : zoneList)
     {
+        if (userZoneList.contains(zone))
+            continue;
 
-    }*/
+        ++zoneNums;
+
+        const ZoneInfo & zoneInfo = getZoneInfoByName(zone);
+
+        TimezoneItemWidget *itemWidget = new TimezoneItemWidget(&zoneInfo);
+        itemWidget->setZones(getZoneCityListByOffset(zoneInfo.m_utcOffset));
+        itemWidget->setUTCOffset(getUTCOffset(zoneInfo.m_utcOffset));
+
+        mainLayout->addWidget(itemWidget);
+        mainLayout->addWidget(new DSeparatorHorizontal);
+    }
+    mainLayout->addStretch();
+    mainLayout->setSpacing(0);
+    mainLayout->setMargin(0);
+
+    m_timezoneListWidget->setLayout(mainLayout);
+    m_timezoneListWidget->setFixedHeight(50 * zoneNums);
 }
 
 void Datetime::toRemoveTimezoneMode()

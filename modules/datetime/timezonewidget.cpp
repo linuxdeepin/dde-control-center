@@ -3,10 +3,6 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 
-#include <libdui/dthememanager.h>
-
-DUI_USE_NAMESPACE
-
 TimezoneWidget::TimezoneWidget(const ZoneInfo *info, QWidget *parent) :
     QFrame(parent),
     m_zoneInfo(info)
