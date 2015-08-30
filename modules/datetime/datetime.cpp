@@ -3,9 +3,11 @@
 #include <QVBoxLayout>
 #include <QGridLayout>
 #include <QLabel>
+#include <QDesktopWidget>
 
 #include <libdui/dseparatorhorizontal.h>
 #include <libdui/dimagebutton.h>
+#include <libdui/dapplication.h>
 
 #include "datetime.h"
 #include "timewidget.h"
@@ -42,9 +44,10 @@ Datetime::Datetime() :
 
     m_dateCtrlWidget = new DateControlWidget;
 
-    DHeaderLine *dateBaseLine = new DHeaderLine;
-    dateBaseLine->setTitle(tr("Date"));
-    dateBaseLine->setContent(m_dateCtrlWidget);
+    m_dateSeparator = new DSeparatorHorizontal;
+    m_dateHeaderLine = new DHeaderLine;
+    m_dateHeaderLine->setTitle(tr("Date"));
+    m_dateHeaderLine->setContent(m_dateCtrlWidget);
 
     m_timezoneCtrlWidget = new TimezoneCtrlWidget;
     m_timezoneListWidget->setItemSize(310, 50);
@@ -54,43 +57,46 @@ Datetime::Datetime() :
     m_timezoneHeaderLine->setTitle(tr("TimeZone"));
     m_timezoneHeaderLine->setContent(m_timezoneCtrlWidget);
 
+    m_syncSeparator = new DSeparatorHorizontal;
     m_autoSyncSwitcher = new DSwitchButton;
     m_autoSyncSwitcher->setChecked(m_dbusInter.nTP());
-    DHeaderLine *cyncBaseLine = new DHeaderLine;
-    cyncBaseLine->setTitle(tr("Sync Automaticly"));
-    cyncBaseLine->setContent(m_autoSyncSwitcher);
+    m_syncHeaderLine = new DHeaderLine;
+    m_syncHeaderLine->setTitle(tr("Sync Automaticly"));
+    m_syncHeaderLine->setContent(m_autoSyncSwitcher);
 
+    m_clockSeparator = new DSeparatorHorizontal;
     m_clockFormatSwitcher = new DSwitchButton;
     m_clockFormatSwitcher->setChecked(m_dbusInter.use24HourFormat());
-    DHeaderLine *clockFormat = new DHeaderLine;
-    clockFormat->setTitle(tr("Use 24-hour clock"));
-    clockFormat->setContent(m_clockFormatSwitcher);
+    m_clockHeaderLine = new DHeaderLine;
+    m_clockHeaderLine->setTitle(tr("Use 24-hour clock"));
+    m_clockHeaderLine->setContent(m_clockFormatSwitcher);
 
+    m_calendarSeparator = new DSeparatorHorizontal;
     m_calendar = new DCalendar(m_frame);
     m_calendar->setMinimumHeight(350);
 
-    TimeWidget *timeWidget = new TimeWidget;
-    timeWidget->setIs24HourFormat(m_dbusInter.use24HourFormat());
+    m_timeWidget = new TimeWidget;
+    m_timeWidget->setIs24HourFormat(m_dbusInter.use24HourFormat());
 
     showSelectedTimezoneList();
 
     QVBoxLayout *centeralLayout = new QVBoxLayout;
     centeralLayout->addWidget(header);
     centeralLayout->addWidget(new DSeparatorHorizontal);
-    centeralLayout->addWidget(timeWidget);
+    centeralLayout->addWidget(m_timeWidget);
     centeralLayout->addWidget(new DSeparatorHorizontal);
-    centeralLayout->addWidget(cyncBaseLine);
-    centeralLayout->addWidget(new DSeparatorHorizontal);
-    centeralLayout->addWidget(clockFormat);
-    centeralLayout->addWidget(new DSeparatorHorizontal);
+    centeralLayout->addWidget(m_syncHeaderLine);
+    centeralLayout->addWidget(m_syncSeparator);
+    centeralLayout->addWidget(m_clockHeaderLine);
+    centeralLayout->addWidget(m_clockSeparator);
     centeralLayout->addWidget(m_timezoneHeaderLine);
     centeralLayout->addWidget(new DSeparatorHorizontal);
     centeralLayout->addWidget(m_timezoneListWidget);
     //centeralLayout->addWidget(new DSeparatorHorizontal);
-    centeralLayout->addWidget(dateBaseLine);
-    centeralLayout->addWidget(new DSeparatorHorizontal);
+    centeralLayout->addWidget(m_dateHeaderLine);
+    centeralLayout->addWidget(m_dateSeparator);
     centeralLayout->addWidget(m_calendar);
-    centeralLayout->addWidget(new DSeparatorHorizontal);
+    centeralLayout->addWidget(m_calendarSeparator);
     centeralLayout->addStretch(1);
     centeralLayout->setSpacing(0);
     centeralLayout->setMargin(0);
@@ -105,11 +111,11 @@ Datetime::Datetime() :
     connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::removeTimezone, this, &Datetime::toRemoveTimezoneMode);
     connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::addTimezone, this, &Datetime::showTimezoneList);
     connect(m_clockFormatSwitcher, &DSwitchButton::checkedChanged, &m_dbusInter, &DBusTimedate::setUse24HourFormat);
-    connect(m_clockFormatSwitcher, &DSwitchButton::checkedChanged, timeWidget, &TimeWidget::setIs24HourFormat);
+    connect(m_clockFormatSwitcher, &DSwitchButton::checkedChanged, m_timeWidget, &TimeWidget::setIs24HourFormat);
     connect(m_autoSyncSwitcher, &DSwitchButton::checkedChanged, this, &Datetime::switchAutoSync);
     connect(&m_dbusInter, &DBusTimedate::NTPChanged, [this] () -> void {m_dateCtrlWidget->setVisible(!m_dbusInter.nTP());});
     connect(&m_dbusInter, &DBusTimedate::TimezoneChanged, this, &Datetime::showSelectedTimezoneList);
-    connect(timeWidget, &TimeWidget::applyTime, [this] (const QDateTime & time) -> void {
+    connect(m_timeWidget, &TimeWidget::applyTime, [this] (const QDateTime & time) -> void {
                 m_dbusInter.SetTime(time.currentMSecsSinceEpoch(), true);
     });
     connect(m_dateCtrlWidget, &DateControlWidget::applyDate, [this] () -> void {
@@ -179,6 +185,15 @@ void Datetime::showSelectedTimezoneList()
 {
     m_timezoneListWidget->clear();
 
+    m_clockHeaderLine->show();
+    m_syncHeaderLine->show();
+    m_dateHeaderLine->show();
+    m_calendar->show();
+    m_clockSeparator->show();
+    m_syncSeparator->show();
+    m_calendarSeparator->show();
+    m_dateSeparator->show();
+
     const QString userZone = m_dbusInter.timezone();
     QStringList zoneList = m_dbusInter.userTimezones();
     int zoneNums = 0;
@@ -212,6 +227,15 @@ void Datetime::showTimezoneList()
     m_timezoneListWidget->clear();
     m_choosedZoneList.clear();
 
+    m_clockHeaderLine->hide();
+    m_syncHeaderLine->hide();
+    m_dateHeaderLine->hide();
+    m_calendar->hide();
+    m_clockSeparator->hide();
+    m_syncSeparator->hide();
+    m_calendarSeparator->hide();
+    m_dateSeparator->hide();
+
     QList<ZoneInfo> *zoneList = m_zoneInfoList;
     QStringList userZoneList = m_dbusInter.userTimezones();
     int zoneNums = 0;
@@ -238,7 +262,11 @@ void Datetime::showTimezoneList()
         m_timezoneListWidget->addItem(itemWidget);
     }
 
-    m_timezoneListWidget->setFixedHeight(qMin(300, 50 * zoneNums));
+    // 50 = module header + DSeparatorHorizontal
+    int maxHeight = DApplication::desktop()->height();
+    maxHeight -= m_timezoneHeaderLine->height() + 2 + m_timeWidget->height() + 2 + 50;
+
+    m_timezoneListWidget->setFixedHeight(qMin(maxHeight, 50 * zoneNums));
 }
 
 void Datetime::toRemoveTimezoneMode()

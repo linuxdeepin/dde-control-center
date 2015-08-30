@@ -65,6 +65,8 @@ void Frame::changeEvent(QEvent *e)
 #ifndef QT_DEBUG // for test, we dont need it disapper
     if (m_visible && !isActiveWindow() && e->type() == QEvent::ActivationChange)
         hide();
+#else
+    qDebug() << "DDE-Control-Center will auto-hide.";
 #endif
 
     QFrame::changeEvent(e);

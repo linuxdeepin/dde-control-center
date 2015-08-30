@@ -8,6 +8,7 @@
 #include "datecontrolwidget.h"
 #include "timezonectrlwidget.h"
 #include "timezonewidget.h"
+#include "timewidget.h"
 #include "timezoneitemwidget.h"
 #include "dbus/dbustimedate.h"
 
@@ -16,6 +17,7 @@
 #include <libdui/dcalendar.h>
 #include <libdui/dswitchbutton.h>
 #include <libdui/dheaderline.h>
+#include <libdui/dseparatorhorizontal.h>
 
 DUI_USE_NAMESPACE
 
@@ -55,12 +57,20 @@ private:
 
     QList<ZoneInfo> *m_zoneInfoList;
 
+    DSeparatorHorizontal *m_clockSeparator;
+    DSeparatorHorizontal *m_syncSeparator;
+    DSeparatorHorizontal *m_dateSeparator;
+    DSeparatorHorizontal *m_calendarSeparator;
+    DHeaderLine *m_clockHeaderLine;
+    DHeaderLine *m_syncHeaderLine;
+    DHeaderLine *m_dateHeaderLine;
     DHeaderLine *m_timezoneHeaderLine;
     DCalendar *m_calendar;
     DSwitchButton *m_clockFormatSwitcher;
     DSwitchButton *m_autoSyncSwitcher;
     DateControlWidget *m_dateCtrlWidget;
     TimezoneCtrlWidget *m_timezoneCtrlWidget;
+    TimeWidget *m_timeWidget;
     SearchList *m_timezoneListWidget;
 
     QList<QString> m_choosedZoneList;

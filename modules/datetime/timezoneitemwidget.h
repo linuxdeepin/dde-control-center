@@ -3,6 +3,7 @@
 
 #include <QFrame>
 #include <QLabel>
+#include <QMouseEvent>
 
 #include <libdui/dthememanager.h>
 
@@ -36,7 +37,7 @@ private:
     QStringList keyWords() const Q_DECL_OVERRIDE {return QStringList();}
     void setData(const QVariant&) Q_DECL_OVERRIDE {}
     QVariant getData() Q_DECL_OVERRIDE {return QVariant();}
-    void mouseReleaseEvent(QMouseEvent *) {emit clicked(this); m_checkBtn->setChecked(!m_checkBtn->isChecked());}
+    void mouseReleaseEvent(QMouseEvent *e) {emit clicked(this); m_checkBtn->setChecked(!m_checkBtn->isChecked()); e->accept();}
 
 private:
     QLabel *m_zones;
