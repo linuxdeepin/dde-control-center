@@ -33,6 +33,7 @@ TimezoneCtrlWidget::TimezoneCtrlWidget(QWidget *parent) : QWidget(parent)
     connect(m_cancelBtn, &DTextButton::clicked, this, &TimezoneCtrlWidget::addTimezoneCancel);
     connect(m_cancelBtn, &DTextButton::clicked, this, &TimezoneCtrlWidget::toNormalMode);
     connect(m_addTimezoneBtn, &DTextButton::clicked, this, &TimezoneCtrlWidget::addTimezoneAccept);
+    connect(m_addTimezoneBtn, &DTextButton::clicked, this, &TimezoneCtrlWidget::toNormalMode);
     connect(m_addBtn, &ImageNameButton::clicked, this, &TimezoneCtrlWidget::addTimezone);
     connect(m_addBtn, &ImageNameButton::clicked, this, &TimezoneCtrlWidget::toAddTimezoneMode);
     connect(m_delBtn, &DImageButton::stateChanged, [this] () -> void {
@@ -76,5 +77,11 @@ void TimezoneCtrlWidget::toAddTimezoneMode()
     m_cancelBtn->show();
     m_confirmBtn->hide();
     m_addTimezoneBtn->hide();
+}
+
+void TimezoneCtrlWidget::setAcceptOrCancel(bool accept)
+{
+    m_addTimezoneBtn->setVisible(!accept);
+    m_cancelBtn->setVisible(accept);
 }
 

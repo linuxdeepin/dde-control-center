@@ -27,6 +27,7 @@ public slots:
     void toNormalMode();
     void toDelTimezoneMode();
     void toAddTimezoneMode();
+    void setAcceptOrCancel(bool accept);
 
 private:
     DynamicLabel *m_TipsLabel;

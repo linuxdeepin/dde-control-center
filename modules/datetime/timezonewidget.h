@@ -8,11 +8,13 @@
 #include "multiaddcheckbutton.h"
 #include "dbus/dbustimedate.h"
 
+#include "searchlist.h"
+
 #include <libdui/dimagebutton.h>
 
 DUI_USE_NAMESPACE
 
-class TimezoneWidget : public QFrame
+class TimezoneWidget : public QFrame, public SearchItem
 {
     Q_OBJECT
     Q_PROPERTY(bool selected READ isSelected)
@@ -22,6 +24,8 @@ public:
 
     inline bool isSelected() {return m_selected;}
     inline const QString zoneName() {return m_zoneInfo->m_zoneName;}
+
+    QWidget *widget() const Q_DECL_OVERRIDE {return const_cast<TimezoneWidget *>(this);}
 
 signals:
     void clicked();
@@ -37,6 +41,9 @@ public slots:
 
 private:
     inline void mouseReleaseEvent(QMouseEvent *) {if (!m_selected) emit clicked();}
+    QStringList keyWords() const Q_DECL_OVERRIDE {return QStringList();}
+    void setData(const QVariant&) Q_DECL_OVERRIDE {}
+    QVariant getData() Q_DECL_OVERRIDE {return QVariant();}
 
 private:
     const ZoneInfo *m_zoneInfo;

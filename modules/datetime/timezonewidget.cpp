@@ -3,6 +3,10 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 
+#include <libdui/dseparatorhorizontal.h>
+
+DUI_USE_NAMESPACE
+
 TimezoneWidget::TimezoneWidget(const ZoneInfo *info, QWidget *parent) :
     QFrame(parent),
     m_zoneInfo(info)
@@ -36,14 +40,20 @@ TimezoneWidget::TimezoneWidget(const ZoneInfo *info, QWidget *parent) :
     labelsLayout->setSpacing(0);
     labelsLayout->setContentsMargins(0, 3, 0, 3);
 
-    QHBoxLayout *mainLayout = new QHBoxLayout;
-    mainLayout->addWidget(btnsWidget);
-    mainLayout->addLayout(labelsLayout);
-    mainLayout->addStretch();
-    mainLayout->setContentsMargins(8, 0, 8, 0);
+    QHBoxLayout *hLayout = new QHBoxLayout;
+    hLayout->addWidget(btnsWidget);
+    hLayout->addLayout(labelsLayout);
+    hLayout->addStretch();
+    hLayout->setContentsMargins(8, 0, 8, 0);
+
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->addLayout(hLayout);
+    mainLayout->addWidget(new DSeparatorHorizontal);
+    mainLayout->setMargin(0);
+    mainLayout->setSpacing(0);
 
     setLayout(mainLayout);
-    setFixedHeight(48);
+    setFixedHeight(50);
     normalMode();
     reloadThemes();
 
