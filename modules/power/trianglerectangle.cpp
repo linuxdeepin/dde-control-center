@@ -1,9 +1,10 @@
+#include <QtGui/QPainter>
 #include "trianglerectangle.h"
 
 TriangleRectangle::TriangleRectangle(QWidget *parent)
     : QFrame(parent)
 {
-    topFromRight = this->width()/8 + 3;
+    topFromRight = this->width()/8-8;
     halfwidth = 4;
     fillColor = Qt::cyan;
     strokeColor = Qt::red;

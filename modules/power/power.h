@@ -80,46 +80,76 @@ private:
 
     /* get the setting in dbus connection */
     bool m_batteryIsPresent;
-    bool m_lockWhenActive;
     bool m_onBattery;
     double m_batteryPercentage;
-    qint32 m_batteryIdleDelay;
-    qint32 m_batteryPlan;
-    qint32 m_batterySuspendDelay;
+
     qint32 m_batteryState;//read-only
-    /* close the notebook */
-    qint32 m_lidCloseAction;
-    qint32 m_linePowerIdleDelay;
-    qint32 m_linePowerSuspendDelay;
-    qint32 m_powerButtonAction;
 
 signals:
 
 public slots:
-    void Reset(bool reset);
+    inline void Reset(bool reset) {
+        if (reset) { m_powerInterfaceManagement->Reset();}
+    }
     void initUI();
-    void initCloseLapTopActionUI();
     void initClockWhenActiveUI();
     void initPowerConnectionPanelUI();
     void initBatteryUsedUI();
 
     void initData();
-    void initConnection();
-    //powerType is setPowerButtonAction or setLidCloseAction
 
+// update the UI after get the Initialize data
     void updateBatteryReservedControlUI();
     void updateLaptopCapCloseControlUI();
     void updateBatteryUsedControlUI();
 
-    void updateBatteryPlanUI();
-    void updateBatteryIdleDelayUI();
-    void updateBatterySuspendDelayUI();
-    void setUseBatteryExpand(QString buttonId);
+    void initConnection();
 
-    void updateLinePowerPlanUI();
-    void updateLinePowerIdleDelayUI();
-    void updateLinePowerSuspendDelayUI();
-    void setConnectPowerExpand(QString buttonId);
+    inline void updateBatteryPlanUI() {
+        qint32 batteryPlan = m_powerInterfaceManagement->getBatteryPlan();
+        setPowerAndBatteryCheckAndExpand(batteryPlan, m_batteryButtonGrid, m_batteryCustomExtendBoard);
+    }
+    inline void updateBatteryIdleDelayUI() {
+        qint32 batteryIdleDelay = m_powerInterfaceManagement->getBatteryIdleDelay()/60;
+        set7ButtonGridChecked(batteryIdleDelay, m_batteryCustomExtendBoard->m_poweroffButtonGrid);
+    }
+    inline void updateBatterySuspendDelayUI() {
+        qint32 batterySuspendDelay = m_powerInterfaceManagement->getBatterySuspendDelay()/60;
+        set7ButtonGridChecked(batterySuspendDelay, m_batteryCustomExtendBoard->m_standByButtonGrid);
+    }
+    inline void setUseBatteryExpand(QString buttonId) {
+        setPowerAndBatteryExpand(buttonId, m_batteryCustomExtendBoard);
+    }
 
+    inline void updateLinePowerPlanUI() {
+        qint32 linePowerPlan = m_powerInterfaceManagement->getLinePowerPlan();
+        setPowerAndBatteryCheckAndExpand(linePowerPlan, m_powerPerformanceButtonGroup,
+           m_powerCustomExtendBoard);
+    }
+    inline void updateLinePowerIdleDelayUI() {
+        qint32 linePowerIdleDelay = m_powerInterfaceManagement->getLinePowerIdleDelay()/60;
+        set7ButtonGridChecked(linePowerIdleDelay, m_powerCustomExtendBoard->m_poweroffButtonGrid);
+    }
+    inline void updateLinePowerSuspendDelayUI() {
+        qint32 linePowerSuspendDelay = m_powerInterfaceManagement->getLinePowerSuspendDelay()/60;
+        set7ButtonGridChecked(linePowerSuspendDelay, m_powerCustomExtendBoard->m_standByButtonGrid);
+    }
+    inline void setConnectPowerExpand(QString buttonId) {
+        setPowerAndBatteryExpand(buttonId, m_powerCustomExtendBoard);
+    }
+    void set4ButtonGridChecked(int idIndex, DButtonGrid* buttonGroup);
+    void set7ButtonGridChecked(int idIndex, DButtonGrid* buttonGroup);
+    inline void setPowerAndBatteryExpand(QString buttonId, DExtendBoard* expandBoard) {
+        if (buttonId == "Custom") {expandBoard->setExpand(true);}
+        else { expandBoard->setExpand(false);}
+    }
+    inline void setPowerAndBatteryExpand(int idIndex, DExtendBoard* expandBoard) {
+        if (idIndex==0) { expandBoard->setExpand(true);}
+        else { expandBoard->setExpand(false);}
+    }
+    inline void setPowerAndBatteryCheckAndExpand(int idIndex, DButtonGrid* buttonGroup,DExtendBoard* expandBoard) {
+        setPowerAndBatteryExpand(idIndex, expandBoard);
+        set4ButtonGridChecked(idIndex, buttonGroup);
+    }
 };
 #endif

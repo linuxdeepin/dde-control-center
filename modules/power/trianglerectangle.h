@@ -1,8 +1,8 @@
 #ifndef WIDGET_H
 #define WIDGET_H
 
-#include <QtWidgets>
-#include <QtGui>
+#include <QtWidgets/QFrame>
+#include <QtGui/QColor>
 
 class TriangleRectangle : public QFrame
 {

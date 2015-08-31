@@ -1,7 +1,4 @@
 #include "dextendboard.h"
-#include <QtCore>
-#include <QtWidgets>
-#include <QtGui>
 
 DExtendBoard::DExtendBoard(QFrame *parent)
     : QFrame(parent)
@@ -21,63 +18,70 @@ DExtendBoard::DExtendBoard(QFrame *parent)
     m_guideExtendTriangle->strokeColor = qRgb(37, 38, 39);
     m_guideExtendTriangle->setStyleSheet(QString("background-color: %1;").arg(DCC::BgDarkColor.name()));
     m_customChooseLabel = new QLabel;
+
     m_customChooseLabel->setFixedHeight(30);
-    m_customChooseLabel->setText("自定义");
+    m_customChooseLabel->setText(tr("Custom"));
     m_customChooseLabel->setStyleSheet(QString("background-color: %1;color:rgb(180,180,180)").arg(DCC::BgLightColor.name()));
 
     m_poweroffLabel = new QLabel;
-    m_poweroffLabel->setText("关闭显示器");
+    m_poweroffLabel->setText(tr("Close Display"));
     m_poweroffLabel->setStyleSheet("color: rgb(180, 180, 180)");
 
     m_poweroffButtonGrid = new DButtonGrid(1, 7);
     m_poweroffButtonGrid->setFixedHeight(30);
     m_poweroffButtonGrid->setItemSize(32, 28);
 
-    m_poweroffButtons << "1m" << "5m" << "10m" << "15m" << "30m" << "1h" << "never";
+    m_poweroffButtons << "1m" << "5m" << "10m" << "15m" << "30m" << "1h" << tr("never");
     m_poweroffButtonGrid->addButtons(m_poweroffButtons);
     m_poweroffButtonGrid->checkButtonByIndex(2);
     m_standByLabel = new QLabel;
-    m_standByLabel->setText("待机");
+    m_standByLabel->setText(tr("StandBy"));
     m_standByLabel->setStyleSheet("color: rgb(180, 180, 180)");;
     m_standByButtonGrid = new DButtonGrid(1, 7);
     m_poweroffButtonGrid->setFixedHeight(30);
     m_standByButtonGrid->setItemSize(32, 28);
 
-    m_standByButtons << "1m" << "5m" << "10m" << "15m" << "30m" << "1h" << "never";
+    m_standByButtons << "1m" << "5m" << "10m" << "15m" << "30m" << "1h" << tr("never");
     m_standByButtonGrid->addButtons(m_standByButtons);
     m_standByButtonGrid->checkButtonByIndex(2);
 
     m_bottomSeparator = new DSeparatorHorizontal(m_label);
 
+    m_customLabel = new QLabel;
+    m_customLabel->setStyleSheet(QString("background-color: %1;color:rgb(180,180,180)").arg(DCC::BgLightColor.name()));
+
     customPowerOffLayout = new QHBoxLayout;
     customPowerOffLayout->setMargin(0);
     customPowerOffLayout->setSpacing(0);
+    customPowerOffLayout->addSpacing(DUI::HEADER_LEFT_MARGIN);
     customPowerOffLayout->addWidget(m_customChooseLabel);
-
+    customPowerOffLayout->addStretch();
+    m_customLabel->setLayout(customPowerOffLayout);
 
     powerOffLayout = new QHBoxLayout;
     powerOffLayout->setMargin(0);
     powerOffLayout->setSpacing(0);
+    powerOffLayout->addSpacing(DUI::HEADER_LEFT_MARGIN);
     powerOffLayout->addWidget(m_poweroffLabel);
 
 
     standByLayout = new QHBoxLayout;
     standByLayout->setMargin(0);
     standByLayout->setSpacing(0);
+    standByLayout->addSpacing(DUI::HEADER_LEFT_MARGIN);
     standByLayout->addWidget(m_standByLabel);
 
     m_contentLayout = new QVBoxLayout;
     m_contentLayout->setMargin(0);
     m_contentLayout->setSpacing(0);
     m_contentLayout->addWidget(m_guideExtendTriangle);
-    m_contentLayout->addLayout(customPowerOffLayout);
+    m_contentLayout->addWidget(m_customLabel);
     m_contentLayout->addLayout(powerOffLayout);
     m_contentLayout->addWidget(m_poweroffButtonGrid);
     m_contentLayout->addLayout(standByLayout);
     m_contentLayout->addWidget(m_standByButtonGrid);
     m_contentLayout->addWidget(m_bottomSeparator);
     setLayout(m_contentLayout);
-
 
 }
 

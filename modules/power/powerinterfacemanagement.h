@@ -1,6 +1,7 @@
 #ifndef POWERINTERFACEMANAGEMENT
 #define POWERINTERFACEMANAGEMENT
 #include <QObject>
+
 #include "dbus/dbuspower.h"
 
 class PowerInterfaceManagement:public QObject
@@ -23,6 +24,7 @@ signals:
     void BatteryIdleDelayChanged();
     void BatterySuspendDelayChanged();
     void BatteryPercentageChanged();
+    void BatteryPercentageChanged(double percentage);
     void BatteryIsPresentChanged();
 
 public slots:
@@ -53,6 +55,7 @@ public slots:
     bool getBatteryIsPresent();
     bool getBatteryon();
     double getBatteryPresent();
+    void batteryPresentUpdate();
 };
 #endif // POWERINTERFACEMANAGEMENT
 

@@ -3,6 +3,7 @@
 
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QFrame>
+
 #include <libdui/dseparatorhorizontal.h>
 #include <libdui/dbuttongrid.h>
 #include <libdui/dheaderline.h>

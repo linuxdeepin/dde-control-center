@@ -59,38 +59,32 @@ qint32 PowerInterfaceManagement::getLinePowerIdleDelay() {
     return m_powerInterface->linePowerIdleDelay();
 }
 void PowerInterfaceManagement::setLinePowerIdleDelay(QString linePowerIdleDelay) {
-    if (linePowerIdleDelay == "1m") {
-        m_powerInterface->setLinePowerIdleDelay(1*60);
-    } else if (linePowerIdleDelay == "5m") {
-        m_powerInterface->setLinePowerIdleDelay(5*60);
-    } else if (linePowerIdleDelay == "10m") {
-        m_powerInterface->setLinePowerIdleDelay(10*60);
-    } else if  (linePowerIdleDelay == "15m") {
-        m_powerInterface->setLinePowerIdleDelay(15*60);
-    } else if (linePowerIdleDelay == "30m") {
-        m_powerInterface->setLinePowerIdleDelay(30*60);
-    } else if (linePowerIdleDelay == "1h") {
-        m_powerInterface->setLinePowerIdleDelay(3600);
+    bool endWithHour = linePowerIdleDelay.endsWith("h");
+    bool endWithMinute = linePowerIdleDelay.endsWith("m");
+
+    if (endWithHour) {
+        int time = linePowerIdleDelay.replace("h", "").toInt();
+        m_powerInterface->setLinePowerIdleDelay(time*60*60);
+    } else if (endWithMinute) {
+        int time = linePowerIdleDelay.replace("m", "").toInt();
+        m_powerInterface->setLinePowerIdleDelay(time*60);
     } else {
         m_powerInterface->setLinePowerIdleDelay(0);
     }
+
 }
 qint32 PowerInterfaceManagement::getLinePowerSuspendDelay() {
     return m_powerInterface->linePowerSuspendDelay();
 }
 void PowerInterfaceManagement::setLinePowerSuspendDelay(QString linePowerSuspendDelay) {
-    if (linePowerSuspendDelay == "1m") {
-        m_powerInterface->setLinePowerSuspendDelay(1*60);
-    } else if (linePowerSuspendDelay == "5m") {
-        m_powerInterface->setLinePowerSuspendDelay(5*60);
-    } else if (linePowerSuspendDelay == "10m") {
-        m_powerInterface->setLinePowerSuspendDelay(10*60);
-    } else if  (linePowerSuspendDelay == "15m") {
-        m_powerInterface->setLinePowerSuspendDelay(15*60);
-    } else if (linePowerSuspendDelay == "30m") {
-        m_powerInterface->setLinePowerSuspendDelay(30*60);
-    } else if (linePowerSuspendDelay == "1h") {
-        m_powerInterface->setLinePowerSuspendDelay(3600);
+    bool endWithHour = linePowerSuspendDelay.endsWith("h");
+    bool endWithMinute = linePowerSuspendDelay.endsWith("m");
+    if (endWithHour) {
+        int time = linePowerSuspendDelay.replace("h", "").toInt();
+        m_powerInterface->setLinePowerSuspendDelay(time*60*60);
+    } else if (endWithMinute) {
+        int time = linePowerSuspendDelay.replace("m", "").toInt();
+        m_powerInterface->setLinePowerSuspendDelay(time*60);
     } else {
         m_powerInterface->setLinePowerSuspendDelay(0);
     }
@@ -113,18 +107,14 @@ qint32 PowerInterfaceManagement::getBatteryIdleDelay() {
     return m_powerInterface->batteryIdleDelay();
 }
 void PowerInterfaceManagement::setBatteryIdleDelay(QString batteryIdleDelay) {
-    if (batteryIdleDelay == "1m") {
-        m_powerInterface->setBatteryIdleDelay(1*60);
-    } else if (batteryIdleDelay == "5m") {
-        m_powerInterface->setBatteryIdleDelay(5*60);
-    } else if (batteryIdleDelay == "10m") {
-        m_powerInterface->setBatteryIdleDelay(10*60);
-    } else if (batteryIdleDelay == "15m") {
-        m_powerInterface->setBatteryIdleDelay(15*60);
-    } else if (batteryIdleDelay == "30m") {
-        m_powerInterface->setBatteryIdleDelay(30*60);
-    } else if (batteryIdleDelay == "1h") {
-        m_powerInterface->setBatteryIdleDelay(60*60);
+    bool endWithHour = batteryIdleDelay.endsWith("h");
+    bool endWithMinute = batteryIdleDelay.endsWith("m");
+    if (endWithHour) {
+        int time = batteryIdleDelay.replace("h", "").toInt();
+        m_powerInterface->setBatteryIdleDelay(time*60*60);
+    } else if (endWithMinute) {
+        int time = batteryIdleDelay.replace("m", "").toInt();
+        m_powerInterface->setBatteryIdleDelay(time*60);
     } else {
         m_powerInterface->setBatteryIdleDelay(0);
     }
@@ -133,18 +123,14 @@ qint32 PowerInterfaceManagement::getBatterySuspendDelay() {
     return m_powerInterface->batterySuspendDelay();
 }
 void PowerInterfaceManagement::setBatterySuspendDelay(QString batterySuspendDelay) {
-    if (batterySuspendDelay == "1m") {
-        m_powerInterface->setBatterySuspendDelay(1*60);
-    } else if (batterySuspendDelay == "5m") {
-        m_powerInterface->setBatterySuspendDelay(5*60);
-    } else if (batterySuspendDelay == "10m") {
-        m_powerInterface->setBatterySuspendDelay(10*60);
-    } else if (batterySuspendDelay == "15m") {
-        m_powerInterface->setBatterySuspendDelay(15*60);
-    } else if (batterySuspendDelay == "30m") {
-        m_powerInterface->setBatterySuspendDelay(30*60);
-    } else if (batterySuspendDelay == "1h") {
-        m_powerInterface->setBatterySuspendDelay(60*60);
+    bool endWithHour = batterySuspendDelay.endsWith("h");
+    bool endWithMinute = batterySuspendDelay.endsWith("m");
+    if (endWithHour) {
+        int time = batterySuspendDelay.replace("h", "").toInt();
+        m_powerInterface->setBatterySuspendDelay(time*60*60);
+    } else if (endWithMinute) {
+        int time = batterySuspendDelay.replace("m", "").toInt();
+        m_powerInterface->setBatterySuspendDelay(time*60);
     } else {
         m_powerInterface->setBatterySuspendDelay(0);
     }
@@ -160,6 +146,9 @@ bool PowerInterfaceManagement::getBatteryon() {
 }
 double PowerInterfaceManagement::getBatteryPresent() {
     return m_powerInterface->batteryPercentage();
+}
+void PowerInterfaceManagement::batteryPresentUpdate() {
+    emit this->BatteryPercentageChanged(m_powerInterface->batteryPercentage());
 }
 void PowerInterfaceManagement::initConnection() {
    connect(m_powerInterface, SIGNAL(LidClosedActionChanged()), SIGNAL(LidClosedActionChanged()));
@@ -178,4 +167,6 @@ void PowerInterfaceManagement::initConnection() {
 
    connect(m_powerInterface, SIGNAL(BatteryIsPresentChanged()), SIGNAL(BatteryIsPresentChanged()));
    connect(m_powerInterface, SIGNAL(BatteryPercentageChanged()), SIGNAL(BatteryPercentageChanged()));
+   connect(m_powerInterface, SIGNAL(BatteryPercentageChanged()), SLOT(batteryPresentUpdate()));
+
 }

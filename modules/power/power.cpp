@@ -5,11 +5,15 @@
 #include "constants.h"
 
 Power::Power()
+    :QObject(),
+      m_contentHeight(30),
+      m_bgContentHeight(60),
+      m_frame(new QFrame),
+      m_powerManagementFrame(new PowerManagement)
 {
 
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
-
 
     m_powerInterfaceManagement = new PowerInterfaceManagement;
 
@@ -37,16 +41,11 @@ void Power::updateBatteryUsedControlUI() {
     }
 }
 
-void Power::Reset(bool reset) {
-    if (reset) {
-        m_powerInterfaceManagement->Reset();
-    }
-}
-
-void Power::initClockWhenActiveUI() {
+void Power::initClockWhenActiveUI()
+{
     m_secondHSeparator = new DSeparatorHorizontal;
     m_chooseNeedPasswdLine = new DHeaderLine;
-    m_chooseNeedPasswdLine->setTitle("PasswdNeedForWakeUp");
+    m_chooseNeedPasswdLine->setTitle(tr("PasswdNeedForWakeUp"));
     m_chooseNeedPasswdButton = new DSwitchButton;
     m_chooseNeedPasswdLine->setContent(m_chooseNeedPasswdButton);
     m_chooseNeedPasswdLine->setFixedHeight(m_contentHeight);
@@ -72,7 +71,7 @@ void Power::initPowerConnectionPanelUI() {
 
     m_powerPerformanceButtonGroup = new DButtonGrid(2, 2);
 
-    m_powerPerformaceString << "Balanced" << "PowerSaver" << "HighPerformance" << "Custom";
+    m_powerPerformaceString << tr("Balanced") << tr("PowerSaver") << tr("HighPerformance") << tr("Custom");
     m_powerPerformanceButtonGroup->addButtons(m_powerPerformaceString);
     m_powerPerformanceButtonGroup->setItemSize(150, 30);
     m_powerPerformanceButtonGroup->checkButtonByIndex(2);
@@ -97,14 +96,13 @@ void Power::initBatteryUsedUI() {
     m_batterySettingDHeaderLine = new DHeaderLine;
     m_batterySettingDHeaderLine->setTitle(tr("UseBattery"));
 
-
     m_batterySettingExpand = new DBaseExpand;
 
     m_batterySettingExpand->setFixedHeight(m_bgContentHeight);
     m_batterySettingExpand->setHeader(m_batterySettingDHeaderLine);
     m_batterySettingExpand->setHeaderHeight(m_contentHeight);
     m_batteryButtonGrid = new DButtonGrid(2, 2);
-    m_powerPerformaceString << "Balanced" << "PowerSaver" << "HighPerformance" << "Custom";
+    m_powerPerformaceString << tr("Balanced") << tr("PowerSaver") << tr("HighPerformance") << tr("Custom");
     m_batteryButtonGrid->addButtons(m_powerPerformaceString);
     m_batteryButtonGrid->setItemSize(150, 30);
     m_batteryButtonGrid->checkButtonByIndex(3);
@@ -126,18 +124,12 @@ void Power::initBatteryUsedUI() {
 }
 void Power::initUI() {
 
-    m_frame = new QFrame;
-    m_contentHeight = 30;
-    m_bgContentHeight = 60;
-//    m_frame->setStyleSheet(QString("QLabel{color: %1;font-size:12px;}").arg(DCC::TextNormalColor.name()));
-    m_powerManagementFrame = new PowerManagement;
-
-    linePowerAction  << "poweroff" << "standby" << "ask";
+    linePowerAction  << tr("poweroff") << tr("standby") << tr("ask");
     m_pressPowerButtonActionFrame = new PressPowerButtonAction(linePowerAction);
     m_pressPowerButtonActionFrame->setTitle(tr("PressPowerButton"));
     m_pressPowerButtonActionFrame->setFixedHeight(m_bgContentHeight);
 
-    closeLaptopAction << "poweroff" << "standby" << "no";
+    closeLaptopAction << tr("poweroff") << tr("standby") << tr("no");
     m_closeLaptopActionFrame = new PressPowerButtonAction(closeLaptopAction);
     m_closeLaptopActionFrame->setTitle(tr("CloseLaptop"));
     m_closeLaptopActionFrame->setFixedHeight(m_bgContentHeight);
@@ -164,8 +156,6 @@ void Power::initData() {
     m_batteryIsPresent = m_powerInterfaceManagement->getBatteryIsPresent();
     m_onBattery = m_powerInterfaceManagement->getBatteryon();
     m_batteryPercentage = m_powerInterfaceManagement->getBatteryPresent();
-
-
 
     ////////////////////////////////////////////////////--getLinePowerPlan
     updateLinePowerPlanUI();
@@ -198,131 +188,33 @@ void Power::initData() {
     } else {
         m_closeLaptopActionFrame->hide();
     }
-
     updateBatteryUsedControlUI();
 
 }
 
-void Power::updateLinePowerPlanUI() {
-    qint32 linePowerPlan = m_powerInterfaceManagement->getLinePowerPlan();
-
-    switch(linePowerPlan) {
-        case 0: {
-           m_powerPerformanceButtonGroup->checkButtonByIndex(3);
-           m_powerCustomExtendBoard->setExpand(true);
-           break;
-        }
-        case 1: {
-            m_powerPerformanceButtonGroup->checkButtonByIndex(1);
-            m_powerCustomExtendBoard->setExpand(false);
-            break;
-        }
-        case 2: {
-            m_powerPerformanceButtonGroup->checkButtonByIndex(0);
-            m_powerCustomExtendBoard->setExpand(false);
-            break;
-        }
-        case 3: {
-            m_powerPerformanceButtonGroup->checkButtonByIndex(2);
-            m_powerCustomExtendBoard->setExpand(false);
-        }
+void Power::set4ButtonGridChecked(int idIndex, DButtonGrid *buttonGroup) {
+    switch(idIndex) {
+        case 0: { buttonGroup->checkButtonByIndex(3);break;}
+        case 1: { buttonGroup->checkButtonByIndex(1);break;}
+        case 2: { buttonGroup->checkButtonByIndex(0);break;}
+        default: { buttonGroup->checkButtonByIndex(2);}
+    }
+}
+void Power::set7ButtonGridChecked(int idIndex, DButtonGrid* buttonGroup) {
+    switch(idIndex) {
+        case 1: { buttonGroup->checkButtonByIndex(0); break;}
+        case 5: { buttonGroup->checkButtonByIndex(1); break;}
+        case 10: { buttonGroup->checkButtonByIndex(2); break;}
+        case 15: { buttonGroup->checkButtonByIndex(3); break;}
+        case 30: { buttonGroup->checkButtonByIndex(4); break;}
+        case 60: { buttonGroup->checkButtonByIndex(5); break;}
+        default: { buttonGroup->checkButtonByIndex(6);}
     }
 }
 
-void Power::updateLinePowerIdleDelayUI() {
-    qint32 linePowerIdleDelay = m_powerInterfaceManagement->getLinePowerIdleDelay()/60;
-
-    switch (linePowerIdleDelay) {
-        case 1:{ m_powerCustomExtendBoard->m_poweroffButtonGrid->checkButtonByIndex(0);break;}
-        case 5:{ m_powerCustomExtendBoard->m_poweroffButtonGrid->checkButtonByIndex(1);break;}
-        case 10:{ m_powerCustomExtendBoard->m_poweroffButtonGrid->checkButtonByIndex(2);break;}
-        case 15:{ m_powerCustomExtendBoard->m_poweroffButtonGrid->checkButtonByIndex(3);break;}
-        case 30:{ m_powerCustomExtendBoard->m_poweroffButtonGrid->checkButtonByIndex(4);break;}
-        case 60:{ m_powerCustomExtendBoard->m_poweroffButtonGrid->checkButtonByIndex(5);break;}
-        default:{ m_powerCustomExtendBoard->m_poweroffButtonGrid->checkButtonByIndex(6);}
-    }
-}
-void Power::updateLinePowerSuspendDelayUI() {
-    qint32 linePowerSuspendDelay = m_powerInterfaceManagement->getLinePowerSuspendDelay()/60;
-
-    switch (linePowerSuspendDelay) {
-        case 1:{ m_powerCustomExtendBoard->m_standByButtonGrid->checkButtonByIndex(0);break;}
-        case 5:{ m_powerCustomExtendBoard->m_standByButtonGrid->checkButtonByIndex(1);break;}
-        case 10:{ m_powerCustomExtendBoard->m_standByButtonGrid->checkButtonByIndex(2);break;}
-        case 15:{ m_powerCustomExtendBoard->m_standByButtonGrid->checkButtonByIndex(3);break;}
-        case 30:{ m_powerCustomExtendBoard->m_standByButtonGrid->checkButtonByIndex(4);break;}
-        case 60:{ m_powerCustomExtendBoard->m_standByButtonGrid->checkButtonByIndex(5);break;}
-        default:{ m_powerCustomExtendBoard->m_standByButtonGrid->checkButtonByIndex(6);}
-    }
-}
-void Power::updateBatteryPlanUI() {
-    qint32 batteryPlan = m_powerInterfaceManagement->getBatteryPlan();
-    switch(batteryPlan) {
-        case 0: {
-           m_batteryButtonGrid->checkButtonByIndex(3);
-           m_batteryCustomExtendBoard->setExpand(true);
-           break;
-        }
-        case 1: {
-            m_batteryButtonGrid->checkButtonByIndex(1);
-            m_batteryCustomExtendBoard->setExpand(false);
-            break;
-        }
-        case 2: {
-            m_batteryButtonGrid->checkButtonByIndex(0);
-            m_batteryCustomExtendBoard->setExpand(false);
-            break;
-        }
-        case 3: {
-            m_batteryButtonGrid->checkButtonByIndex(2);
-            m_batteryCustomExtendBoard->setExpand(false);
-        }
-    }
-}
-
-void Power::updateBatteryIdleDelayUI() {
-    qint32 batteryIdleDelay = m_powerInterfaceManagement->getBatteryIdleDelay()/60;
-    switch (batteryIdleDelay) {
-        case 1: { m_batteryCustomExtendBoard->m_poweroffButtonGrid->checkButtonByIndex(0);break;}
-        case 5: { m_batteryCustomExtendBoard->m_poweroffButtonGrid->checkButtonByIndex(1);break;}
-        case 10: { m_batteryCustomExtendBoard->m_poweroffButtonGrid->checkButtonByIndex(2);break;}
-        case 15: { m_batteryCustomExtendBoard->m_poweroffButtonGrid->checkButtonByIndex(3);break;}
-        case 30: { m_batteryCustomExtendBoard->m_poweroffButtonGrid->checkButtonByIndex(4);break;}
-        case 60: { m_batteryCustomExtendBoard->m_poweroffButtonGrid->checkButtonByIndex(5);break;}
-        default: { m_batteryCustomExtendBoard->m_poweroffButtonGrid->checkButtonByIndex(6);}
-    }
-}
-
-void Power::updateBatterySuspendDelayUI() {
-    qint32 batterySuspendDelay = m_powerInterfaceManagement->getBatterySuspendDelay()/60;
-
-    switch (batterySuspendDelay) {
-        case 1: { m_batteryCustomExtendBoard->m_standByButtonGrid->checkButtonByIndex(0);break;}
-        case 5: { m_batteryCustomExtendBoard->m_standByButtonGrid->checkButtonByIndex(1);break;}
-        case 10: { m_batteryCustomExtendBoard->m_standByButtonGrid->checkButtonByIndex(2);break;}
-        case 15: { m_batteryCustomExtendBoard->m_standByButtonGrid->checkButtonByIndex(3);break;}
-        case 30: { m_batteryCustomExtendBoard->m_standByButtonGrid->checkButtonByIndex(4);break;}
-        case 60: { m_batteryCustomExtendBoard->m_standByButtonGrid->checkButtonByIndex(5);break;}
-        default: { m_batteryCustomExtendBoard->m_standByButtonGrid->checkButtonByIndex(6);}
-    }
-}
-void Power::setConnectPowerExpand(QString buttonId) {
-
-    if (buttonId == "Custom") {
-        m_powerCustomExtendBoard->setExpand(true);
-    } else {
-        m_powerCustomExtendBoard->setExpand(false);
-    }
-}
-void Power::setUseBatteryExpand(QString buttonId) {
-    if (buttonId == "Custom") {
-        m_batteryCustomExtendBoard->setExpand(true);
-    } else {
-        m_batteryCustomExtendBoard->setExpand(false);
-    }
-}
 void Power::initConnection() {
-
+    connect(m_powerInterfaceManagement, SIGNAL(BatteryPercentageChanged(double)),
+            m_powerManagementFrame, SLOT(setElectricQuantity(double)));
     connect(m_powerInterfaceManagement, SIGNAL(BatteryPercentageChanged()),
             this, SLOT(initData()));
     connect(m_powerInterfaceManagement, SIGNAL(BatteryIsPresentChanged()),
@@ -336,19 +228,14 @@ void Power::initConnection() {
     connect(m_chooseNeedPasswdButton, SIGNAL(checkedChanged(bool)),
             m_powerInterfaceManagement,
             SLOT(setLockWhenActive(bool)));
-
     connect(m_powerInterfaceManagement, SIGNAL(PowerButtonActionChanged()),
              SLOT(initData()));
-
     connect(m_pressPowerButtonActionFrame, SIGNAL(powerButtonAction(QString)),
             m_powerInterfaceManagement, SLOT(setPowerButtonAction(QString)));
-
     connect(m_powerInterfaceManagement, SIGNAL(LidClosedActionChanged()),
               SLOT(initData()));
-
     connect(m_closeLaptopActionFrame, SIGNAL(powerButtonAction(QString)),
             m_powerInterfaceManagement, SLOT(setLidCloseAction(QString)));
-
     connect(m_powerInterfaceManagement, SIGNAL(LinePowerPlanChanged()),
             this, SLOT(updateLinePowerPlanUI()));
 

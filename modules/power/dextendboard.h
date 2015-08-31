@@ -1,17 +1,16 @@
 #ifndef DEXTENDBOARD_H
 #define DEXTENDBOARD_H
 
-#include <QtCore>
+#include <QtCore/QStringList>
+#include <QtCore/QPropertyAnimation>
 #include <QtPlugin>
-#include <QtWidgets>
-
-#include <libdui/dheaderline.h>
-#include <libdui/dbaseline.h>
-#include <libdui/dseparatorhorizontal.h>
-#include <libdui/dslider.h>
-#include <libdui/dsegmentedcontrol.h>
-#include <libdui/dswitchbutton.h>
+#include <QtWidgets/QFrame>
+#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QLabel>
+#include <QtGui/QResizeEvent>
 #include <libdui/dbuttongrid.h>
+#include <libdui/dseparatorhorizontal.h>
 
 #include "constants.h"
 #include "trianglerectangle.h"
@@ -39,7 +38,6 @@ public:
     DButtonGrid* m_standByButtonGrid;
     DButtonGrid* m_poweroffButtonGrid;
 
-
 private:
     QHBoxLayout* customPowerOffLayout;
     QHBoxLayout* powerOffLayout;
@@ -47,6 +45,7 @@ private:
     QLabel* m_label;
     TriangleRectangle* m_guideExtendTriangle;
     QVBoxLayout* m_contentLayout;
+    QLabel* m_customLabel;
     QLabel* m_customChooseLabel;
     QLabel* m_poweroffLabel;
 
