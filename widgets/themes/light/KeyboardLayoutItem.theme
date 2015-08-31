@@ -12,7 +12,7 @@ KeyboardLayoutItem QLabel:hover{
 }
 
 KeyboardLayoutItem[checked="true"]{
-    background-image: url(:/dark/images/tick_hover.png);
+    background-image: url(:/light/images/tick_hover.png);
     background-repeat: no-repeat;
     background-position: left center;
     background-color: #ffffff;

@@ -18,32 +18,25 @@ class SingleMonitorSettings : public QFrame
 {
     Q_OBJECT
 public:
-    explicit SingleMonitorSettings(DisplayInterface * display, QWidget *parent = 0);
+    explicit SingleMonitorSettings(DisplayInterface * display,
+                                   const QList<MonitorInterface*> &list,
+                                   QWidget *parent = 0);
 
 private:
     QList<MonitorInterface*> m_dbusMonitors;
     DisplayInterface * m_dbusDisplay;
-
     QMap<ushort, QString> m_rotationMap;
-    MonitorModeList m_monitorModeList;
-    UshortList m_monitorRotations;
-
     QList<Monitor*> m_monitors;
-    MonitorGround * m_monitorGround;
-    DButtonGrid * m_resolutionButtons;
-    DButtonGrid * m_rotationButtons;
-    DSlider * m_brightnessSlider;
 
     void initUI();
     void initBackend();
-    QStringList getResolutionLabels();
-    QStringList getRotationLabels();
+    QStringList getResolutionLabels(MonitorInterface *dbus);
+    QStringList getRotationLabels(MonitorInterface *dbus);
 
 private slots:
-    void updateMonitor();
-    void updateResolutionButtons();
-    void updateRotationButtons();
-    void updateBrightnessSlider();
+    void updateResolutionButtons(MonitorInterface *dbus, DButtonGrid *resolutionButtons);
+    void updateRotationButtons(MonitorInterface *dbus, DButtonGrid *rotationButtons);
+    void updateBrightnessSlider(MonitorInterface *dbus, DSlider *brightnessSlider);
 };
 
 #endif // SINGLEMONITORSETTINGS_H

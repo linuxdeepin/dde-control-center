@@ -13,9 +13,9 @@ public:
     void addMonitor(Monitor * monitor);
     void removeMonitor(Monitor * monitor);
     void clear();
-    void relayout();
 
 private slots:
+    void relayout();
     void onMonitorMouseMove();
     void onMonitorMouseRelease();
 

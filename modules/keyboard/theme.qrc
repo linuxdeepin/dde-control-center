@@ -1,8 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>dark/images/tick_hover.png</file>
-        <file>dark/KeyboardLayoutItem.theme</file>
-        <file>light/KeyboardLayoutItem.theme</file>
         <file>dark/FirstLetterClassify.theme</file>
         <file>light/FirstLetterClassify.theme</file>
     </qresource>

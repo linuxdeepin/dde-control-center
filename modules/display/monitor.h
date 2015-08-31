@@ -3,6 +3,7 @@
 
 #include <QLabel>
 
+class MonitorInterface;
 class Monitor : public QFrame
 {
     Q_OBJECT
@@ -18,12 +19,12 @@ class Monitor : public QFrame
     Q_PROPERTY(bool primary READ primary WRITE setPrimary)
 
 public:
-    explicit Monitor(QWidget *parent = 0);
+    explicit Monitor(MonitorInterface *dbus, QWidget *parent = 0);
 
     void setName(QString name);
 
-    QSize resolution();
-    void setResolution(int width, int height);
+    QRect resolution();
+    MonitorInterface *dbusInterface() const;
     QColor dockBgColor() const;
     bool draggable() const;
     QString name() const;
@@ -59,7 +60,7 @@ protected:
     void mouseReleaseEvent(QMouseEvent *e);
 
 private:
-    QSize m_resolution;
+    MonitorInterface *m_dbusInterface;
     QColor m_dockBgColor;
     bool m_draggable;
     QPoint m_oldPos;

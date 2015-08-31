@@ -10,11 +10,13 @@
 #include <libdui/dthememanager.h>
 
 #include "monitor.h"
+#include "dbus/monitorinterface.h"
 
 DUI_USE_NAMESPACE
 
-Monitor::Monitor(QWidget *parent) :
+Monitor::Monitor(MonitorInterface *dbus, QWidget *parent) :
     QFrame(parent),
+    m_dbusInterface(dbus),
     m_draggable(false),
     m_nameAlignment(Qt::AlignCenter),
     m_brother(NULL),
@@ -24,8 +26,6 @@ Monitor::Monitor(QWidget *parent) :
     m_child(NULL)
 {
     D_THEME_INIT_WIDGET(Monitor, draging, eyeing);
-
-    setFocusPolicy(Qt::ClickFocus);
 }
 
 
@@ -39,14 +39,9 @@ void Monitor::setName(QString name)
     update();
 }
 
-QSize Monitor::resolution()
+MonitorInterface *Monitor::dbusInterface() const
 {
-    return m_resolution;
-}
-
-void Monitor::setResolution(int width, int height)
-{
-    m_resolution = QSize(width, height);
+    return m_dbusInterface;
 }
 
 QColor Monitor::dockBgColor() const

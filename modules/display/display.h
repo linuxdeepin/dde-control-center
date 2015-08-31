@@ -29,11 +29,12 @@ public:
     QFrame *getContent() Q_DECL_OVERRIDE;
 
 private slots:
-    void initUI();
+    void init();
     void updateUI();
 
 private:
     QFrame * m_frame;
+    QVBoxLayout *m_mainLayout;
     DisplayInterface * m_dbusDisplay;
     MonitorGround *m_monitorGround;
     QList<MonitorInterface*> m_dbusMonitors;

@@ -30,5 +30,7 @@
         <file>dark/MultiDeleteButton.theme</file>
         <file>dark/MultiAddCheckButton.theme</file>
         <file>dark/UserAvatar.theme</file>
+        <file>dark/KeyboardLayoutItem.theme</file>
+        <file>dark/images/tick_hover.png</file>
     </qresource>
 </RCC>

@@ -11,14 +11,18 @@ HEADERS        += display.h \
     singlemonitorsettings.h \
     dbus/displayinterface.h \
     dbus/monitorinterface.h \
-    displaymodeitem.h
+    displaymodeitem.h \
+    titleandwidget.h \
+    vlayoutwidget.h
 SOURCES        += display.cpp \
     monitorground.cpp \
     monitor.cpp \
     singlemonitorsettings.cpp \
     dbus/displayinterface.cpp \
     dbus/monitorinterface.cpp \
-    displaymodeitem.cpp
+    displaymodeitem.cpp \
+    titleandwidget.cpp \
+    vlayoutwidget.cpp
 TARGET          = $$qtLibraryTarget(display)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 DISTFILES += display.json

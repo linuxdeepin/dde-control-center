@@ -19,12 +19,12 @@
 #include "moduleheader.h"
 #include "normallabel.h"
 #include "addrmdoneline.h"
+#include "keyboardlayoutitem.h"
 
 #include "keyboard.h"
 #include "dbus/dbusinputdevices.h"
 #include "dbus/dbuslangselector.h"
 #include "firstletterclassify.h"
-#include "keyboardlayoutitem.h"
 
 DUI_USE_NAMESPACE
 

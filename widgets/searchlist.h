@@ -20,9 +20,9 @@ class SearchItem
 {
 public:
     virtual ~SearchItem(){}
-    virtual QStringList keyWords() const = 0;
-    virtual void setData(const QVariant &datas) = 0;
-    virtual QVariant getData() = 0;
+    virtual QStringList keyWords() const{return QStringList();}
+    virtual void setData(const QVariant &){}
+    virtual QVariant getData(){return QVariant();}
     virtual QWidget *widget() const = 0;
 
     SearchList *listWidget() const;

@@ -20,11 +20,13 @@
         <file>images/recognize_press.png</file>
         <file>images/single_hover.png</file>
         <file>images/single_normal.png</file>
-        <file>images/single_press.png</file>
+        <file>images/single_active.png</file>
         <file>images/split_hover.png</file>
         <file>images/split_normal.png</file>
         <file>images/split_press.png</file>
         <file>dark/DisplayModeItem.theme</file>
         <file>light/DisplayModeItem.theme</file>
+        <file>dark/TitleAndWidget.theme</file>
+        <file>light/TitleAndWidget.theme</file>
     </qresource>
 </RCC>

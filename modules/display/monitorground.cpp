@@ -4,6 +4,7 @@
 
 #include "monitorground.h"
 #include "monitor.h"
+#include "dbus/monitorinterface.h"
 
 MonitorGround::MonitorGround(QWidget *parent)
     : QFrame(parent)
@@ -32,6 +33,11 @@ void MonitorGround::addMonitor(Monitor *monitor)
     connect(monitor, &Monitor::mousePressed, monitor, &Monitor::raise);
     connect(monitor, &Monitor::mouseMoveing, this, &MonitorGround::onMonitorMouseMove);
     connect(monitor, &Monitor::mouseRelease, this, &MonitorGround::onMonitorMouseRelease);
+    connect(monitor->dbusInterface(), &MonitorInterface::XChanged, this, &MonitorGround::relayout);
+    connect(monitor->dbusInterface(), &MonitorInterface::YChanged, this, &MonitorGround::relayout);
+    connect(monitor->dbusInterface(), &MonitorInterface::WidthChanged, this, &MonitorGround::relayout);
+    connect(monitor->dbusInterface(), &MonitorInterface::HeightChanged, this, &MonitorGround::relayout);
+    connect(monitor->dbusInterface(), &MonitorInterface::RotationChanged, this, &MonitorGround::relayout);
 
     relayout();
 }
@@ -45,6 +51,11 @@ void MonitorGround::removeMonitor(Monitor *monitor)
     disconnect(monitor, &Monitor::mousePressed, monitor, &Monitor::raise);
     disconnect(monitor, &Monitor::mouseMoveing, this, &MonitorGround::onMonitorMouseMove);
     disconnect(monitor, &Monitor::mouseRelease, this, &MonitorGround::onMonitorMouseRelease);
+    disconnect(monitor->dbusInterface(), &MonitorInterface::XChanged, this, &MonitorGround::relayout);
+    disconnect(monitor->dbusInterface(), &MonitorInterface::YChanged, this, &MonitorGround::relayout);
+    disconnect(monitor->dbusInterface(), &MonitorInterface::WidthChanged, this, &MonitorGround::relayout);
+    disconnect(monitor->dbusInterface(), &MonitorInterface::HeightChanged, this, &MonitorGround::relayout);
+    disconnect(monitor->dbusInterface(), &MonitorInterface::RotationChanged, this, &MonitorGround::relayout);
 
     relayout();
 }
@@ -58,32 +69,40 @@ void MonitorGround::clear()
 
 void MonitorGround::relayout()
 {
-    int destHeight = 140;
-
     if(m_monitors.count() == 1){
         Monitor *monitor = m_monitors[0];
-        QSize resolution = monitor->resolution();
-        int destWidth = destHeight * resolution.width() / resolution.height();
-        monitor->setFixedSize(destWidth, destHeight);
-        QPoint delta = this->rect().center() - monitor->rect().center();
-        monitor->move(delta.x(), delta.y());
-    }else{
+        MonitorInterface *dbus = monitor->dbusInterface();
+
+        double maxWidth = dbus->x()+dbus->width();
+        double maxHeight = dbus->y()+dbus->height();
+        double scaleFactor = 0.8 * qMin(width() / maxWidth, height() / maxHeight);
+
+        int x = (width() - maxWidth*scaleFactor) / 2.0;
+        int y = (height() - maxHeight*scaleFactor) / 2.0;
+
+        monitor->setFixedSize(scaleFactor*dbus->width(), scaleFactor*dbus->height());
+        monitor->move(x + dbus->x()*scaleFactor, y + dbus->y()*scaleFactor);
+        monitor->show();
+    }else if(m_monitors.count() > 1){
         Monitor *monitor1 = m_monitors[0];
         Monitor *monitor2 = m_monitors[1];
+        MonitorInterface *dbus1 = monitor1->dbusInterface();
+        MonitorInterface *dbus2 = monitor2->dbusInterface();
 
-        QSize resolution = monitor1->resolution();
-        resolution.setWidth(destHeight / resolution.height() * resolution.width());
-        resolution.setHeight(destHeight);
-        monitor1->setFixedSize(resolution);
+        double maxWidth = qMax(dbus1->x()+dbus1->width(), dbus2->x()+dbus2->width());
+        double maxHeight = qMax(dbus1->y()+dbus1->height(), dbus2->y()+dbus2->height());
+        double scaleFactor = 0.8 * qMin(width() / maxWidth, height() / maxHeight);
 
-        resolution = monitor2->resolution();
-        resolution.setWidth(destHeight / resolution.height() * resolution.width());
-        resolution.setHeight(destHeight);
-        monitor2->setFixedSize(resolution);
+        int x = (width() - maxWidth*scaleFactor) / 2.0;
+        int y = (height() - maxHeight*scaleFactor) / 2.0;
 
-        monitor1->move((height() - monitor1->height()) / 2,
-                       (width() - monitor1->width() - monitor2->width()) / 2);
-        monitor2->move(monitor1->x() + monitor1->width(), monitor1->y());
+        monitor1->setFixedSize(scaleFactor*dbus1->width(), scaleFactor*dbus1->height());
+        monitor2->setFixedSize(scaleFactor*dbus2->width(), scaleFactor*dbus2->height());
+        monitor1->move(x + dbus1->x()*scaleFactor, y + dbus1->y()*scaleFactor);
+        monitor2->move(x + dbus2->x()*scaleFactor, y + dbus2->y()*scaleFactor);
+
+        monitor1->show();
+        monitor2->show();
     }
 }
 
