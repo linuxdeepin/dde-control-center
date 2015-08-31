@@ -8,121 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-16 07:24+0000\n"
-"PO-Revision-Date: 2015-03-25 07:33+0000\n"
+"POT-Creation-Date: 2015-08-20 14:55+0800\n"
+"PO-Revision-Date: 2015-08-20 07:04+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
-"Language-Team: Korean (http://www.transifex.com/projects/p/dde-control-center/language/ko/)\n"
+"Language-Team: Korean (http://www.transifex.com/linuxdeepin/dde-control-center/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-#: ../src/modules/network/add/AddDsl.qml:11
-msgid "Add PPPoE Connection"
-msgstr "PPPoE 연결 추가"
-
-#: ../src/modules/network/add/AddDsl.qml:24
-#: ../src/modules/network/add/AddMobile.qml:33
-#: ../src/modules/network/add/AddVpn.qml:103
-#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:33
-#: ../src/modules/shortcuts/CustomKeybinding.qml:118
-msgid "Name"
-msgstr "이름"
-
-#: ../src/modules/network/add/AddDsl.qml:36
-#: ../src/modules/network/add/AddMobile.qml:75
-#: ../src/modules/network/add/AddMobile.qml:105
-#: ../src/modules/account/AddUserDialog.qml:127
-#: ../src/modules/network/add/AddVpn.qml:125
-#: ../src/modules/network/add/AddVpn.qml:255
-#: ../src/modules/network/add/AddVpn.qml:395
-#: ../src/modules/network/add/AddVpn.qml:435
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:53
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:123
-#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:23
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:45
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:185
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:325
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:375
-#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:65
-msgid "Username"
-msgstr "사용자 이름"
-
-#: ../src/modules/network/add/AddDsl.qml:46
-#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:33
-msgid "Service"
-msgstr "서비스"
-
-#: ../src/modules/network/add/AddDsl.qml:56
-#: ../src/modules/network/add/AddMobile.qml:85
-#: ../src/modules/network/add/AddMobile.qml:115
-#: ../src/modules/account/AddUserDialog.qml:200
-#: ../src/modules/network/add/AddVpn.qml:145
-#: ../src/modules/network/add/AddVpn.qml:275
-#: ../src/modules/network/add/AddVpn.qml:415
-#: ../src/modules/network/wireless/AddWireless.qml:64
-#: ../src/modules/network/wireless/AddWireless.qml:186
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:63
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:133
-#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:43
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:53
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:175
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:65
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:205
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:345
-#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:75
-#: ../src/modules/network/widgets/PasswordBox.qml:95
-#: ../src/modules/account/PasswordDialog.qml:62
-#: ../src/modules/network/wireless/WifiHotspot.qml:69
-msgid "Password"
-msgstr "암호"
-
-#: ../src/modules/network/add/AddMobile.qml:20
-msgid "New Mobile Connection"
-msgstr "새로운 모바일 연결"
-
-#: ../src/modules/network/add/AddMobile.qml:45
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:23
-msgid "Service Type"
-msgstr "서비스 타입"
-
-#: ../src/modules/network/add/AddMobile.qml:55
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:33
-msgid "APN"
-msgstr "APN"
-
-#: ../src/modules/network/add/AddMobile.qml:65
-#: ../src/modules/network/add/AddMobile.qml:95
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:43
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:113
-msgid "Number"
-msgstr "번호"
-
-#: ../src/modules/network/add/AddSectionSave.qml:11
-#: ../src/modules/account/AddUserDialog.qml:413
-#: ../src/modules/network/wireless/AddWireless.qml:216
-#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:109
-#: ../src/modules/network/ConnectionAdd.qml:69
-#: ../src/modules/network/ConnectionEdit.qml:102
-#: ../src/modules/network/ConnectionEdit.qml:135
-#: ../src/modules/shortcuts/CustomKeybinding.qml:151
-#: ../src/modules/account/DeleteUserDialog.qml:33
-#: ../src/modules/network/Info.qml:79
-#: ../src/modules/network/widgets/PasswordBox.qml:118
-#: ../src/modules/account/PasswordDialog.qml:248
-#: ../src/modules/shortcuts/ShortcutInput.qml:355
-#: ../src/modules/date_time/TimeBox.qml:225
-#: ../src/modules/network/wireless/WifiHotspot.qml:82
-#: ../src/modules/date_time/main.qml:300 ../src/modules/display/main.qml:179
-msgid "Cancel"
-msgstr "취소"
-
-#: ../src/modules/network/add/AddSectionSave.qml:20
-#: ../src/modules/shortcuts/CustomKeybinding.qml:157
-#: ../src/modules/date_time/TimezoneArea.qml:465
-msgid "Add"
-msgstr "추가"
 
 #: ../src/modules/account/AddUserDialog.qml:58
 #: ../src/modules/account/AddUserDialog.qml:63
@@ -170,11 +64,54 @@ msgstr "관리자"
 msgid "Normal User"
 msgstr "일반 사용자"
 
+#: ../src/modules/account/AddUserDialog.qml:127
+#: ../src/modules/network/add/AddDsl.qml:36
+#: ../src/modules/network/add/AddMobile.qml:75
+#: ../src/modules/network/add/AddMobile.qml:105
+#: ../src/modules/network/add/AddVpn.qml:125
+#: ../src/modules/network/add/AddVpn.qml:255
+#: ../src/modules/network/add/AddVpn.qml:395
+#: ../src/modules/network/add/AddVpn.qml:435
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:98
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:168
+#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:23
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:45
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:185
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:325
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:375
+#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:65
+msgid "Username"
+msgstr "사용자 이름"
+
 #: ../src/modules/account/AddUserDialog.qml:175
 #: ../src/modules/account/AddUserDialog.qml:235
 #: ../src/modules/account/AddUserDialog.qml:301
 msgid "Username can not be empty."
 msgstr "사용자 이름을 채워주세요."
+
+#: ../src/modules/account/AddUserDialog.qml:200
+#: ../src/modules/account/PasswordDialog.qml:62
+#: ../src/modules/network/add/AddDsl.qml:56
+#: ../src/modules/network/add/AddMobile.qml:85
+#: ../src/modules/network/add/AddMobile.qml:115
+#: ../src/modules/network/add/AddVpn.qml:145
+#: ../src/modules/network/add/AddVpn.qml:275
+#: ../src/modules/network/add/AddVpn.qml:415
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:108
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:178
+#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:43
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:53
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:175
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:65
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:205
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:345
+#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:75
+#: ../src/modules/network/widgets/PasswordBox.qml:95
+#: ../src/modules/network/wireless/AddWireless.qml:64
+#: ../src/modules/network/wireless/AddWireless.qml:186
+#: ../src/modules/network/wireless/WifiHotspot.qml:69
+msgid "Password"
+msgstr "암호"
 
 #: ../src/modules/account/AddUserDialog.qml:270
 msgid "Repeat Password"
@@ -190,13 +127,695 @@ msgstr "계정 타입"
 msgid "Auto-login"
 msgstr "자동 로그인"
 
+#: ../src/modules/account/AddUserDialog.qml:413
+#: ../src/modules/account/DeleteUserDialog.qml:32
+#: ../src/modules/account/PasswordDialog.qml:248
+#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:108
+#: ../src/modules/date_time/TimeBox.qml:225
+#: ../src/modules/date_time/main.qml:300 ../src/modules/display/main.qml:178
+#: ../src/modules/network/ConnectionAdd.qml:69
+#: ../src/modules/network/ConnectionEdit.qml:110
+#: ../src/modules/network/ConnectionEdit.qml:143
+#: ../src/modules/network/Info.qml:85
+#: ../src/modules/network/add/AddSectionSave.qml:11
+#: ../src/modules/network/widgets/PasswordBox.qml:118
+#: ../src/modules/network/wireless/AddWireless.qml:216
+#: ../src/modules/network/wireless/WifiHotspot.qml:82
+#: ../src/modules/remoting/AccessContent/ConnectingItem.qml:91
+#: ../src/modules/remoting/AccessContent/ErrorItem.qml:62
+#: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:124
+#: ../src/modules/remoting/ShareContent/ErrorItem.qml:62
+#: ../src/modules/remoting/ShareContent/GeneratedCodeItem.qml:82
+#: ../src/modules/remoting/ShareContent/GeneratingCodeItem.qml:58
+#: ../src/modules/shortcuts/CustomKeybinding.qml:151
+#: ../src/modules/shortcuts/ShortcutInput.qml:354
+msgid "Cancel"
+msgstr "취소"
+
 #: ../src/modules/account/AddUserDialog.qml:426
-#: ../src/modules/account/DeleteUserDialog.qml:46
+#: ../src/modules/account/DeleteUserDialog.qml:45
 #: ../src/modules/account/PasswordDialog.qml:262
 #: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:318
-#: ../src/modules/display/main.qml:194
+#: ../src/modules/display/main.qml:193
 msgid "Confirm"
 msgstr "확인"
+
+#: ../src/modules/account/AvatarPickDialog.qml:5
+msgid "Choose a new picture for your Avatar"
+msgstr "아바타의 새로운 사진 선택"
+
+#: ../src/modules/account/AvatarView.qml:19
+msgid "Recently Used"
+msgstr "최근 사용된"
+
+#: ../src/modules/account/AvatarView.qml:20
+msgid "Avatar"
+msgstr "아바타"
+
+#: ../src/modules/account/AvatarView.qml:21
+msgid "Webcam"
+msgstr "웹캠"
+
+#: ../src/modules/account/DeleteUserDialog.qml:18
+msgid "Keep user's files"
+msgstr "사용자 파일 남겨둠"
+
+#: ../src/modules/account/DeleteUserDialog.qml:19
+msgid "Delete user's files"
+msgstr "사용자 파일 삭제"
+
+#: ../src/modules/account/EditUserDialog.qml:93
+msgid "Enable"
+msgstr "활성화"
+
+#: ../src/modules/account/GuestUser.qml:45 ../src/views/HeaderArea.qml:108
+msgid "Guest"
+msgstr "게스트"
+
+#: ../src/modules/account/GuestUser.qml:106
+msgid "Enabled"
+msgstr "활성화됨"
+
+#: ../src/modules/account/PasswordDialog.qml:119
+msgid "New Password"
+msgstr "새로운 암호"
+
+#: ../src/modules/account/PasswordDialog.qml:185
+msgid "Repeat"
+msgstr "다시"
+
+#: ../src/modules/account/UserList.qml:239 ../src/modules/grub/Preview.qml:123
+msgid "Image format not supported"
+msgstr "지원하지 않는 이미지 포멧입니다"
+
+#: ../src/modules/account/UserListCreatingItem.qml:99
+msgid "Account Preparing..."
+msgstr "계정 준비중..."
+
+#: ../src/modules/account/WebCam.qml:125 ../src/modules/account/WebCam.qml:140
+msgid "Snapshot"
+msgstr "스냅샷"
+
+#: ../src/modules/account/WebCam.qml:136
+msgid "Again"
+msgstr "다시"
+
+#: ../src/modules/account/WebCam.qml:175
+msgid "No camera found."
+msgstr "카메라를 찾을 수 없습니다."
+
+#: ../src/modules/account/main.qml:108
+msgid "Delete Account"
+msgstr "계정 삭제"
+
+#: ../src/modules/account/main.qml:148
+msgid "Add Account"
+msgstr "계정 추가"
+
+#: ../src/modules/account/main.qml:171
+msgid "User List"
+msgstr "사용자 목록"
+
+#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:120
+#: ../src/modules/display/main.qml:193
+#: ../src/modules/personalization/widgets/PreviewWindow.qml:279
+msgid "Apply"
+msgstr "적용"
+
+#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:148
+msgid "Devices nearby"
+msgstr "가까이에 있는 장치"
+
+#: ../src/modules/date_time/Calendar.qml:164
+msgid "Today"
+msgstr "오늘"
+
+#: ../src/modules/date_time/CalendarComponent.qml:83
+msgid "Sun"
+msgstr "일"
+
+#: ../src/modules/date_time/CalendarComponent.qml:84
+msgid "Mon"
+msgstr "월"
+
+#: ../src/modules/date_time/CalendarComponent.qml:85
+msgid "Tue"
+msgstr "화"
+
+#: ../src/modules/date_time/CalendarComponent.qml:86
+msgid "Wed"
+msgstr "수"
+
+#: ../src/modules/date_time/CalendarComponent.qml:87
+msgid "Thu"
+msgstr "목"
+
+#: ../src/modules/date_time/CalendarComponent.qml:88
+msgid "Fri"
+msgstr "금"
+
+#: ../src/modules/date_time/CalendarComponent.qml:89
+msgid "Sat"
+msgstr "토"
+
+#: ../src/modules/date_time/StateButtons.qml:35
+#: ../src/modules/keyboard/StateButtons.qml:35
+#: ../src/modules/shortcuts/StateButtons.qml:39
+msgid "Done"
+msgstr "완료"
+
+#: ../src/modules/date_time/StateButtons.qml:36
+#: ../src/modules/date_time/StateButtons.qml:54
+#: ../src/modules/date_time/TimezoneArea.qml:487
+msgid "Close"
+msgstr "닫기"
+
+#: ../src/modules/date_time/StateButtons.qml:85
+msgid "Delete Time Zone"
+msgstr "시간대 삭제"
+
+#: ../src/modules/date_time/StateButtons.qml:101
+msgid "Add Time Zone"
+msgstr "시간대 추가"
+
+#: ../src/modules/date_time/TimeBox.qml:161
+msgid "Double-click this area to change your time"
+msgstr "이 영력을 더블 클릭하여 시간을 변경합니다"
+
+#: ../src/modules/date_time/TimeBox.qml:202
+msgid "Set"
+msgstr "설정"
+
+#: ../src/modules/date_time/TimezoneArea.qml:257
+msgid "Time zone"
+msgstr "시간대"
+
+#: ../src/modules/date_time/TimezoneArea.qml:484
+#: ../src/modules/network/add/AddSectionSave.qml:20
+#: ../src/modules/shortcuts/CustomKeybinding.qml:157
+msgid "Add"
+msgstr "추가"
+
+#: ../src/modules/date_time/main.qml:131
+msgid "Sync Automatically"
+msgstr "자동으로 동기화"
+
+#: ../src/modules/date_time/main.qml:149
+msgid "Use 24-hour clock"
+msgstr "24시간 시계 사용"
+
+#: ../src/modules/date_time/main.qml:180
+msgid "Adjust DST clock "
+msgstr "DST 시계 조정"
+
+#: ../src/modules/date_time/main.qml:205
+#: ../src/modules/network/proxy/ProxyContent.qml:43
+#: ../src/modules/shortcuts/ShortcutInput.qml:118
+msgid "None"
+msgstr "없음"
+
+#: ../src/modules/date_time/main.qml:257
+msgid "Date"
+msgstr "날짜"
+
+#: ../src/modules/date_time/main.qml:290
+msgid "Set Date"
+msgstr "날짜 설정"
+
+#: ../src/modules/default_applications/main.qml:85
+#: ../src/views/ModulesData.qml:69
+msgid "Default Applications"
+msgstr "기본 응용프로그램"
+
+#: ../src/modules/default_applications/main.qml:97
+msgid "Browser"
+msgstr "브라우저"
+
+#: ../src/modules/default_applications/main.qml:111
+msgid "Mail"
+msgstr "메일"
+
+#: ../src/modules/default_applications/main.qml:122
+msgid "Text"
+msgstr "텍스트"
+
+#: ../src/modules/default_applications/main.qml:128
+msgid "Music"
+msgstr "음악"
+
+#: ../src/modules/default_applications/main.qml:159
+msgid "Video"
+msgstr "비디오"
+
+#: ../src/modules/default_applications/main.qml:191
+msgid "Picture"
+msgstr "사진"
+
+#: ../src/modules/default_applications/main.qml:209
+msgid "Terminal"
+msgstr "터미널"
+
+#: ../src/modules/default_applications/main.qml:268
+msgid "AutoPlay"
+msgstr "자동 재생"
+
+#: ../src/modules/default_applications/main.qml:283
+msgid "CD Audio"
+msgstr "CD 오디오"
+
+#: ../src/modules/default_applications/main.qml:288
+msgid "DVD Video"
+msgstr "DVD 비디오"
+
+#: ../src/modules/default_applications/main.qml:293
+msgid "Music Player"
+msgstr "음악 플레이어"
+
+#: ../src/modules/default_applications/main.qml:298
+msgid "Camera"
+msgstr "카메라"
+
+#: ../src/modules/default_applications/main.qml:303
+msgid "Software"
+msgstr "소프트웨어"
+
+#: ../src/modules/display/BrightnessRectangle.qml:61
+#: ../src/modules/display/ResolutionRectangle.qml:69
+#: ../src/modules/display/RotationRectangle.qml:70
+msgid "Monitor"
+msgstr "모니터"
+
+#: ../src/modules/display/MessageBox.qml:105
+msgid "Do you want to keep these display settings?"
+msgstr "디스플레이 설정을 유지하시겠습니까?"
+
+#: ../src/modules/display/MessageBox.qml:114
+#, qt-format
+msgid ""
+"Reverting to previous display settings in <font color='#F48914'>%1</font> "
+"seconds."
+msgstr "<font color='#F48914'>%1</font>초 후 이전 디스플레이 설정으로 되돌아갑니다."
+
+#: ../src/modules/display/MessageBox.qml:128
+msgid "Revert"
+msgstr "복구"
+
+#: ../src/modules/display/MessageBox.qml:140
+msgid "Keep Changes"
+msgstr "변경사항 유지"
+
+#: ../src/modules/display/MonitorDragArea.qml:471
+msgid "Identify"
+msgstr "식별자"
+
+#: ../src/modules/display/MonitorDragArea.qml:489
+msgid "Edit"
+msgstr "수정"
+
+#: ../src/modules/display/MonitorDragArea.qml:507
+msgid "Split"
+msgstr "스프리트"
+
+#: ../src/modules/display/MonitorProperties.qml:42
+msgid "Normal"
+msgstr "표준"
+
+#: ../src/modules/display/MonitorProperties.qml:43
+msgid "Rotate Right"
+msgstr "오른쪽으로 회전"
+
+#: ../src/modules/display/MonitorProperties.qml:44
+msgid "Upside Down"
+msgstr "꺼꾸로"
+
+#: ../src/modules/display/MonitorProperties.qml:45
+msgid "Rotate Left"
+msgstr "왼족으로 회전"
+
+#: ../src/modules/display/MonitorProperties.qml:78
+msgid "Enable Monitor(s)"
+msgstr "모니터 활성화"
+
+#: ../src/modules/display/MonitorProperties.qml:96
+msgid "Please choose the monitor(s) you want to enable"
+msgstr "활성화할 모니터를 선택합니다"
+
+#: ../src/modules/display/MonitorProperties.qml:146
+msgid "Primary Screen"
+msgstr "기본 화면"
+
+#: ../src/modules/display/MonitorProperties.qml:189
+msgid "Resolution"
+msgstr "해상도"
+
+#: ../src/modules/display/MonitorProperties.qml:230
+msgid "Rotation"
+msgstr "회전"
+
+#: ../src/modules/display/MonitorProperties.qml:274
+#: ../src/modules/display/MonitorProperties.qml:306
+msgid "Brightness"
+msgstr "밝기"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:38
+msgid "Display Modes"
+msgstr "디스플레이 모드"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:58
+msgid "Copy"
+msgstr "복사"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:59
+msgid "Copy the contents of your primary screen to other screens."
+msgstr "다른 화면에 기본 화면의 내용을 복사합니다."
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:76
+msgid "Extend"
+msgstr "확장"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:77
+msgid ""
+"Extend your screen contents to display different contents on different "
+"screens."
+msgstr "다른 화면에 서로 다른 내용을 표시할 수 있도록 확장합니다."
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:98
+#, qt-format
+msgid "Only Displayed on %1"
+msgstr "%1에서만 디스플레이됨"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:99
+#, qt-format
+msgid "Screen contents are only displayed on %1 but not on other screens."
+msgstr "화면내용을 %1에서만 디스플레이되고 다른 쪽은 안됩니다."
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:118
+msgid "Custom Settings"
+msgstr "사용자 정의 설정"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:119
+msgid "You can do other custom settings to your screens."
+msgstr "화면을 다른 방법의 사용자 지정 설정을 할 수 있습니다."
+
+#: ../src/modules/grub/Preview.qml:122
+msgid "Drag and drop an image to change background."
+msgstr "백그라운드를 변경하려면 이미지를 드래그 엔 드랍으로 가져옵니다."
+
+#: ../src/modules/grub/Preview.qml:124
+msgid "Updating..."
+msgstr "업데이트중..."
+
+#: ../src/modules/grub/Preview.qml:125
+msgid "Successfully updated, reboot to view."
+msgstr "업데이트 완료했습니다. 리붓후 확인하십시오."
+
+#: ../src/modules/grub/main.qml:112
+msgid "Default Boot"
+msgstr "기본 부팅"
+
+#: ../src/modules/grub/main.qml:167
+msgid "Boot delay"
+msgstr "부팅 지연"
+
+#: ../src/modules/grub/main.qml:206
+msgid "Text Color"
+msgstr "텍스트 색"
+
+#: ../src/modules/grub/main.qml:239
+msgid "Selected Text Color"
+msgstr "택스트 색 선택"
+
+#: ../src/modules/keyboard/LocaleArea.qml:53
+msgid "Language"
+msgstr "언어"
+
+#: ../src/modules/keyboard/StateButtons.qml:92
+msgid "Delete Keyboard Layout"
+msgstr "키보드 레이아웃 삭제"
+
+#: ../src/modules/keyboard/StateButtons.qml:107
+msgid "Add Keyboard Layout"
+msgstr "키보드 레이아웃 추가"
+
+#: ../src/modules/keyboard/main.qml:148
+msgid "Repeat Delay"
+msgstr "지연 반복"
+
+#: ../src/modules/keyboard/main.qml:162
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:208
+msgid "Short"
+msgstr "짧게"
+
+#: ../src/modules/keyboard/main.qml:163
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:209
+msgid "Long"
+msgstr "길게"
+
+#: ../src/modules/keyboard/main.qml:173
+msgid "Repeat Rate"
+msgstr "반복 속도"
+
+#: ../src/modules/keyboard/main.qml:188 ../src/modules/keyboard/main.qml:214
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:135
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:172
+#: ../src/modules/mouse_touchpad/main.qml:134
+#: ../src/modules/mouse_touchpad/main.qml:170
+msgid "Fast"
+msgstr "빠름"
+
+#: ../src/modules/keyboard/main.qml:189 ../src/modules/keyboard/main.qml:215
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:134
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:171
+#: ../src/modules/mouse_touchpad/main.qml:133
+#: ../src/modules/mouse_touchpad/main.qml:169
+msgid "Slow"
+msgstr "느림"
+
+#: ../src/modules/keyboard/main.qml:199
+msgid "Cursor Blink Rate"
+msgstr "커서 깜박임 속도"
+
+#: ../src/modules/keyboard/main.qml:225
+msgid "Test Area"
+msgstr "테스트 공간"
+
+#: ../src/modules/keyboard/main.qml:245
+msgid "Caps Lock prompt"
+msgstr "캡슬 락 프롬프트"
+
+#: ../src/modules/keyboard/main.qml:271
+msgid "Keyboard Layout"
+msgstr "키보드 레이아웃"
+
+#: ../src/modules/keyboard/main.qml:498
+msgid "No result"
+msgstr "결과 없음"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
+msgid "Touchpad"
+msgstr "터치패드"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:82
+#: ../src/modules/mouse_touchpad/main.qml:83
+msgid "Primary Button"
+msgstr "기본 버튼"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:91
+#: ../src/modules/mouse_touchpad/main.qml:91
+msgid "Left Button"
+msgstr "왼쪽 버튼"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:92
+#: ../src/modules/mouse_touchpad/main.qml:92
+msgid "Right Button"
+msgstr "오른쪽 버튼"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:117
+#: ../src/modules/mouse_touchpad/main.qml:117
+msgid "Pointer Speed"
+msgstr "포인터 속도"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:154
+#: ../src/modules/mouse_touchpad/main.qml:153
+msgid "Double-click Speed"
+msgstr "더블클릭 속도"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:192
+msgid "Drag Threshold"
+msgstr "드래그 임계값"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:228
+msgid "Natural Scrolling"
+msgstr "자연스러운 스크롤"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:252
+msgid "Tap to click"
+msgstr "탭으로 클릭"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:275
+msgid "Two-finger scrolling"
+msgstr "두 손가락으로 스크롤"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:298
+msgid "Edge scrolling"
+msgstr "가장자리 스크롤"
+
+#: ../src/modules/mouse_touchpad/main.qml:50 ../src/views/ModulesData.qml:67
+msgid "Mouse"
+msgstr "마우스"
+
+#: ../src/modules/mouse_touchpad/main.qml:190
+msgid "Disable the touchpad when inserting the mouse"
+msgstr "마우스를 사용할때 터치 패드 비활성화"
+
+#: ../src/modules/network/ConnectionAdd.qml:12
+#: ../src/modules/network/main.qml:315
+msgid "Add Network Connection"
+msgstr "네트워크 연결 추가"
+
+#: ../src/modules/network/ConnectionAdd.qml:35
+#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:11
+#: ../src/modules/network/main.qml:205
+msgid "PPPoE"
+msgstr "PPPoE"
+
+#: ../src/modules/network/ConnectionAdd.qml:45
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:11
+#: ../src/modules/network/main.qml:213
+msgid "VPN"
+msgstr "VPN"
+
+#: ../src/modules/network/ConnectionAdd.qml:77
+msgid "Next"
+msgstr "다음"
+
+#: ../src/modules/network/ConnectionEdit.qml:60
+msgid "Are you sure you want to delete this network?"
+msgstr "정말 이 네트워크를 삭제하시겠습니까?"
+
+#: ../src/modules/network/ConnectionEdit.qml:60
+msgid "Delete this network"
+msgstr "이 네트워크 삭제"
+
+#: ../src/modules/network/ConnectionEdit.qml:118
+#: ../src/modules/network/wireless/WifiHotspot.qml:91
+msgid "Save"
+msgstr "저장"
+
+#: ../src/modules/network/ConnectionEdit.qml:152
+msgid "Delete"
+msgstr "삭제"
+
+#: ../src/modules/network/Info.qml:13
+msgid "Connected"
+msgstr "연결됨"
+
+#: ../src/modules/network/Info.qml:15
+msgid "Not Connected"
+msgstr "연결되지 않음"
+
+#: ../src/modules/network/Info.qml:39
+msgid "(default)"
+msgstr "(기본)"
+
+#: ../src/modules/network/Info.qml:50
+msgid "Interface"
+msgstr "인터페이스"
+
+#: ../src/modules/network/Info.qml:59
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:11
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:33
+#: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:33
+#: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:33
+#: ../src/modules/network/wireless/AddWireless.qml:44
+#: ../src/modules/network/wireless/WifiHotspot.qml:49
+msgid "Security"
+msgstr "보안"
+
+#: ../src/modules/network/Info.qml:60
+msgid "Device Addr"
+msgstr "장치 주소"
+
+#: ../src/modules/network/Info.qml:61
+#: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:33
+#: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:33
+msgid "IP Address"
+msgstr "IP 주소"
+
+#: ../src/modules/network/Info.qml:62
+msgid "Subnet Mask"
+msgstr "서브넷 마크"
+
+#: ../src/modules/network/Info.qml:63
+#: ../src/modules/network/add/AddVpn.qml:115
+#: ../src/modules/network/add/AddVpn.qml:155
+#: ../src/modules/network/add/AddVpn.qml:235
+#: ../src/modules/network/add/AddVpn.qml:385
+#: ../src/modules/network/add/AddVpn.qml:425
+#: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:57
+#: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:55
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:35
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:85
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:165
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:315
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:365
+msgid "Gateway"
+msgstr "게이트웨이"
+
+#: ../src/modules/network/Info.qml:64
+msgid "Primary DNS"
+msgstr "첫 번째 DNS"
+
+#: ../src/modules/network/Info.qml:65
+msgid "Secondary DNS"
+msgstr "두번째 DNS"
+
+#: ../src/modules/network/Info.qml:66
+msgid "Third DNS"
+msgstr "세번째 DNS"
+
+#: ../src/modules/network/Info.qml:75
+msgid "Device Speed"
+msgstr "장치 속도"
+
+#: ../src/modules/network/add/AddDsl.qml:11
+msgid "Add PPPoE Connection"
+msgstr "PPPoE 연결 추가"
+
+#: ../src/modules/network/add/AddDsl.qml:24
+#: ../src/modules/network/add/AddMobile.qml:33
+#: ../src/modules/network/add/AddVpn.qml:103
+#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:33
+#: ../src/modules/shortcuts/CustomKeybinding.qml:118
+msgid "Name"
+msgstr "이름"
+
+#: ../src/modules/network/add/AddDsl.qml:46
+#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:33
+msgid "Service"
+msgstr "서비스"
+
+#: ../src/modules/network/add/AddMobile.qml:20
+msgid "New Mobile Connection"
+msgstr "새로운 모바일 연결"
+
+#: ../src/modules/network/add/AddMobile.qml:45
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:56
+msgid "Service Type"
+msgstr "서비스 타입"
+
+#: ../src/modules/network/add/AddMobile.qml:55
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:67
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:78
+msgid "APN"
+msgstr "APN"
+
+#: ../src/modules/network/add/AddMobile.qml:65
+#: ../src/modules/network/add/AddMobile.qml:95
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:88
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:158
+msgid "Number"
+msgstr "번호"
 
 #: ../src/modules/network/add/AddVpn.qml:15
 msgid "VPN Type"
@@ -231,29 +850,12 @@ msgstr "기본 정보"
 msgid "Need VPN Plugin"
 msgstr "VPN 플러그인 필요"
 
-#: ../src/modules/network/add/AddVpn.qml:115
-#: ../src/modules/network/add/AddVpn.qml:155
-#: ../src/modules/network/add/AddVpn.qml:235
-#: ../src/modules/network/add/AddVpn.qml:385
-#: ../src/modules/network/add/AddVpn.qml:425
-#: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:57
-#: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:55
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:35
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:85
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:165
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:315
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:365
-msgid "Gateway"
-msgstr "게이트웨이"
-
 #: ../src/modules/network/add/AddVpn.qml:135
 #: ../src/modules/network/add/AddVpn.qml:265
 #: ../src/modules/network/add/AddVpn.qml:315
 #: ../src/modules/network/add/AddVpn.qml:405
 #: ../src/modules/network/add/AddVpn.qml:445
 #: ../src/modules/network/add/AddVpn.qml:475
-#: ../src/modules/network/wireless/AddWireless.qml:175
-#: ../src/modules/network/wireless/AddWireless.qml:196
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:164
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:185
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:55
@@ -262,15 +864,17 @@ msgstr "게이트웨이"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:335
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:385
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:415
+#: ../src/modules/network/wireless/AddWireless.qml:175
+#: ../src/modules/network/wireless/AddWireless.qml:196
 msgid "Ask for Pwd"
 msgstr "암호 요청"
 
 #: ../src/modules/network/add/AddVpn.qml:165
 #: ../src/modules/network/add/AddVpn.qml:285
-#: ../src/modules/network/wireless/AddWireless.qml:104
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:93
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:95
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:215
+#: ../src/modules/network/wireless/AddWireless.qml:104
 msgid "CA Cert"
 msgstr "CA Cert"
 
@@ -284,49 +888,43 @@ msgstr "프록시"
 msgid "Allow Cisco Secure Desktop Trojan"
 msgstr "시스코 보안 데스크탑 Trojan 허용"
 
-#: ../src/modules/network/add/AddVpn.qml:345
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:275
-#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
-msgid "Customize Key Direction"
-msgstr "사용자 정의된 키 안내"
-
-#: ../src/modules/network/add/AddVpn.qml:215
-#: ../src/modules/network/add/AddVpn.qml:305
-#: ../src/modules/network/wireless/AddWireless.qml:165
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:154
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:145
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:235
-msgid "Private Key"
-msgstr "개인키"
-
-#: ../src/modules/network/add/AddVpn.qml:245
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:175
-msgid "Auth Type"
-msgstr "인증 타입"
-
-#: ../src/modules/network/add/AddVpn.qml:205
-#: ../src/modules/network/add/AddVpn.qml:295
-#: ../src/modules/network/wireless/AddWireless.qml:114
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:103
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:135
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:225
-msgid "User Cert"
-msgstr "사용자 Cert"
-
 #: ../src/modules/network/add/AddVpn.qml:195
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:125
 msgid "CSD Script"
 msgstr "CSD 스크립트"
+
+#: ../src/modules/network/add/AddVpn.qml:205
+#: ../src/modules/network/add/AddVpn.qml:295
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:103
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:135
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:225
+#: ../src/modules/network/wireless/AddWireless.qml:114
+msgid "User Cert"
+msgstr "사용자 Cert"
+
+#: ../src/modules/network/add/AddVpn.qml:215
+#: ../src/modules/network/add/AddVpn.qml:305
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:154
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:145
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:235
+#: ../src/modules/network/wireless/AddWireless.qml:165
+msgid "Private Key"
+msgstr "개인키"
 
 #: ../src/modules/network/add/AddVpn.qml:225
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:155
 msgid "Use FSID for Key Passphrase"
 msgstr "키 암호화에 FSID 사용"
 
+#: ../src/modules/network/add/AddVpn.qml:245
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:175
+msgid "Auth Type"
+msgstr "인증 타입"
+
 #: ../src/modules/network/add/AddVpn.qml:325
-#: ../src/modules/network/wireless/AddWireless.qml:206
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:195
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:255
+#: ../src/modules/network/wireless/AddWireless.qml:206
 msgid "Private Pwd"
 msgstr "개인 Pwd"
 
@@ -334,6 +932,12 @@ msgstr "개인 Pwd"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:265
 msgid "Static Key"
 msgstr "정적 키"
+
+#: ../src/modules/network/add/AddVpn.qml:345
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:275
+#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
+msgid "Customize Key Direction"
+msgstr "사용자 정의된 키 안내"
 
 #: ../src/modules/network/add/AddVpn.qml:355
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:285
@@ -401,203 +1005,6 @@ msgstr "사전 공유 킵"
 msgid "Use MPPE"
 msgstr "MPPE 사용"
 
-#: ../src/modules/network/wireless/AddWireless.qml:8
-msgid "Connect to wireless"
-msgstr "무선 인터넷 연결"
-
-#: ../src/modules/network/wireless/AddWireless.qml:32
-#: ../src/modules/network/edit_autogen/EditSectionWifi.qml:23
-#: ../src/modules/network/wireless/WifiHotspot.qml:37
-msgid "SSID"
-msgstr "SSID"
-
-#: ../src/modules/network/wireless/AddWireless.qml:44
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:11
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:33
-#: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:33
-#: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:33
-#: ../src/modules/network/Info.qml:53
-#: ../src/modules/network/wireless/WifiHotspot.qml:49
-msgid "Security"
-msgstr "보안"
-
-#: ../src/modules/network/wireless/AddWireless.qml:54
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:43
-#: ../src/modules/network/wireless/WifiHotspot.qml:59
-msgid "Key"
-msgstr "키"
-
-#: ../src/modules/network/wireless/AddWireless.qml:74
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:63
-msgid "EAP Auth"
-msgstr "EAP 인증"
-
-#: ../src/modules/network/wireless/AddWireless.qml:84
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:73
-msgid "Identity"
-msgstr "신원"
-
-#: ../src/modules/network/wireless/AddWireless.qml:94
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:83
-msgid "Anonymous ID"
-msgstr "익명 ID"
-
-#: ../src/modules/network/wireless/AddWireless.qml:124
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:113
-msgid "Provisioning"
-msgstr "제공"
-
-#: ../src/modules/network/wireless/AddWireless.qml:134
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:123
-msgid "PAC file"
-msgstr "PAC 파일"
-
-#: ../src/modules/network/wireless/AddWireless.qml:144
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:133
-msgid "PEAP Version"
-msgstr "PEAP 버전"
-
-#: ../src/modules/network/wireless/AddWireless.qml:154
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:143
-msgid "Inner Auth"
-msgstr "내부 인증"
-
-#: ../src/modules/network/wireless/AddWireless.qml:224
-#: ../src/modules/network/widgets/PasswordBox.qml:126
-msgid "Connect"
-msgstr "연결"
-
-#: ../src/modules/account/AvatarPickDialog.qml:5
-msgid "Choose a new picture for your Avatar"
-msgstr "아바타의 새로운 사진 선택"
-
-#: ../src/modules/account/AvatarView.qml:19
-msgid "Recently Used"
-msgstr "최근 사용된"
-
-#: ../src/modules/account/AvatarView.qml:20
-msgid "Avatar"
-msgstr "아바타"
-
-#: ../src/modules/account/AvatarView.qml:21
-msgid "Webcam"
-msgstr "웹캠"
-
-#: ../src/modules/sound/BalanceLine.qml:31
-msgid "Left/Right Balance"
-msgstr "왼쪽/오른쪽 균형"
-
-#: ../src/modules/sound/BalanceLine.qml:53
-msgid "Left"
-msgstr "왼쪽"
-
-#: ../src/modules/sound/BalanceLine.qml:55
-msgid "Right"
-msgstr "오른쪽"
-
-#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:43
-#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:53
-msgid "Automatically connect"
-msgstr "자동 연결"
-
-#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:121
-#: ../src/modules/personalization/widgets/PreviewWindow.qml:280
-#: ../src/modules/display/main.qml:194
-msgid "Apply"
-msgstr "적용"
-
-#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:149
-msgid "Devices nearby"
-msgstr "가까이에 있는 장치"
-
-#: ../src/modules/display/BrightnessRectangle.qml:61
-#: ../src/modules/display/ResolutionRectangle.qml:69
-#: ../src/modules/display/RotationRectangle.qml:70
-msgid "Monitor"
-msgstr "모니터"
-
-#: ../src/modules/date_time/Calendar.qml:164
-msgid "Today"
-msgstr "오늘"
-
-#: ../src/modules/date_time/CalendarComponent.qml:83
-msgid "Sun"
-msgstr "일"
-
-#: ../src/modules/date_time/CalendarComponent.qml:84
-msgid "Mon"
-msgstr "월"
-
-#: ../src/modules/date_time/CalendarComponent.qml:85
-msgid "Tue"
-msgstr "화"
-
-#: ../src/modules/date_time/CalendarComponent.qml:86
-msgid "Wed"
-msgstr "수"
-
-#: ../src/modules/date_time/CalendarComponent.qml:87
-msgid "Thu"
-msgstr "목"
-
-#: ../src/modules/date_time/CalendarComponent.qml:88
-msgid "Fri"
-msgstr "금"
-
-#: ../src/modules/date_time/CalendarComponent.qml:89
-msgid "Sat"
-msgstr "토"
-
-#: ../src/modules/network/ConnectionAdd.qml:12
-#: ../src/modules/network/main.qml:315
-msgid "Add Network Connection"
-msgstr "네트워크 연결 추가"
-
-#: ../src/modules/network/ConnectionAdd.qml:35
-#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:11
-#: ../src/modules/network/main.qml:205
-msgid "PPPoE"
-msgstr "PPPoE"
-
-#: ../src/modules/network/ConnectionAdd.qml:45
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:11
-#: ../src/modules/network/main.qml:213
-msgid "VPN"
-msgstr "VPN"
-
-#: ../src/modules/network/ConnectionAdd.qml:77
-msgid "Next"
-msgstr "다음"
-
-#: ../src/modules/network/ConnectionEdit.qml:52
-msgid "Delete this network"
-msgstr "이 네트워크 삭제"
-
-#: ../src/modules/network/ConnectionEdit.qml:52
-msgid "Are you sure you want to delete this network?"
-msgstr "정말 이 네트워크를 삭제하시겠습니까?"
-
-#: ../src/modules/network/ConnectionEdit.qml:110
-#: ../src/modules/network/wireless/WifiHotspot.qml:91
-msgid "Save"
-msgstr "저장"
-
-#: ../src/modules/network/ConnectionEdit.qml:144
-msgid "Delete"
-msgstr "삭제"
-
-#: ../src/modules/shortcuts/CustomKeybinding.qml:133
-msgid "Command"
-msgstr "명령"
-
-#: ../src/modules/account/DeleteUserDialog.qml:19
-msgid "Keep user's files"
-msgstr "사용자 파일 남겨둠"
-
-#: ../src/modules/account/DeleteUserDialog.qml:20
-msgid "Delete user's files"
-msgstr "사용자 파일 삭제"
-
 #: ../src/modules/network/dsl/DslExpand.qml:19
 msgid "PPPoE Connections"
 msgstr "PPPoE 연결"
@@ -610,6 +1017,11 @@ msgstr "현재 시스템에 %1에 대한 구성 요소가 빠져있음"
 #: ../src/modules/network/edit/EditLineMissingPackage.qml:22
 msgid "Click to install"
 msgstr "클릭하여 설치"
+
+#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:44
+#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:54
+msgid "Automatically connect"
+msgstr "자동 연결"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:11
 #: ../src/modules/network/main.qml:197
@@ -646,12 +1058,6 @@ msgstr "IPv4"
 msgid "Method"
 msgstr "메소드"
 
-#: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:33
-#: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:33
-#: ../src/modules/network/Info.qml:55
-msgid "IP Address"
-msgstr "IP 주소"
-
 #: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:44
 msgid "Netmask"
 msgstr "넷마스크"
@@ -674,19 +1080,31 @@ msgstr "접두사"
 msgid "Mobile"
 msgstr "모바일"
 
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:73
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:23
+msgid "Country or region"
+msgstr ""
+
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:34
+msgid "Provider"
+msgstr ""
+
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:45
+msgid "Plan"
+msgstr ""
+
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:118
 msgid "Network ID"
 msgstr "네트워크 ID"
 
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:83
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:128
 msgid "Type"
 msgstr "타입"
 
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:93
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:138
 msgid "Home Network Only"
 msgstr "홈 네트워크만"
 
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:103
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:148
 msgid "PIN"
 msgstr "PIN"
 
@@ -762,6 +1180,47 @@ msgstr "PPP 에코 패킷 보냄"
 msgid "Security Required"
 msgstr "보안 필수"
 
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:43
+#: ../src/modules/network/wireless/AddWireless.qml:54
+#: ../src/modules/network/wireless/WifiHotspot.qml:59
+msgid "Key"
+msgstr "키"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:63
+#: ../src/modules/network/wireless/AddWireless.qml:74
+msgid "EAP Auth"
+msgstr "EAP 인증"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:73
+#: ../src/modules/network/wireless/AddWireless.qml:84
+msgid "Identity"
+msgstr "신원"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:83
+#: ../src/modules/network/wireless/AddWireless.qml:94
+msgid "Anonymous ID"
+msgstr "익명 ID"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:113
+#: ../src/modules/network/wireless/AddWireless.qml:124
+msgid "Provisioning"
+msgstr "제공"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:123
+#: ../src/modules/network/wireless/AddWireless.qml:134
+msgid "PAC file"
+msgstr "PAC 파일"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:133
+#: ../src/modules/network/wireless/AddWireless.qml:144
+msgid "PEAP Version"
+msgstr "PEAP 버전"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:143
+#: ../src/modules/network/wireless/AddWireless.qml:154
+msgid "Inner Auth"
+msgstr "내부 인증"
+
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:75
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:355
 msgid "NT Domain"
@@ -789,13 +1248,13 @@ msgstr "주소/컨트롤 압축 안함"
 msgid "VPN Advanced"
 msgstr "VPN Advanced"
 
-#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:33
-msgid "Gateway Port"
-msgstr "게이트웨이 포트"
-
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:23
 msgid "Customize Gateway Port"
 msgstr "사용자 정의된 게이트웨이 포트"
+
+#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:33
+msgid "Gateway Port"
+msgstr "게이트웨이 포트"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:45
 msgid "Customize Renegotiation Interval"
@@ -926,6 +1385,12 @@ msgstr "죽은 피어 발견 비활성화"
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
 
+#: ../src/modules/network/edit_autogen/EditSectionWifi.qml:23
+#: ../src/modules/network/wireless/AddWireless.qml:32
+#: ../src/modules/network/wireless/WifiHotspot.qml:37
+msgid "SSID"
+msgstr "SSID"
+
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:33
 msgid "Mode"
 msgstr "모드"
@@ -937,929 +1402,6 @@ msgstr "밴드"
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:54
 msgid "Channel"
 msgstr "채널"
-
-#: ../src/modules/account/EditUserDialog.qml:93
-msgid "Enable"
-msgstr "활성화"
-
-#: ../src/modules/sound/FadeLine.qml:31
-msgid "Front/Rear Balance"
-msgstr "앞/뒤 균형"
-
-#: ../src/modules/sound/FadeLine.qml:55
-msgid "Front"
-msgstr "앞"
-
-#: ../src/modules/sound/FadeLine.qml:53
-msgid "Rear"
-msgstr "뒤"
-
-#: ../src/modules/personalization/components/FontSettingsExpand.qml:48
-msgid "Standard"
-msgstr "표준"
-
-#: ../src/modules/personalization/components/FontSettingsExpand.qml:70
-msgid "Monospaced"
-msgstr "고정폭"
-
-#: ../src/modules/personalization/components/FontSettingsExpand.qml:90
-msgid "Size"
-msgstr "크기"
-
-#: ../src/modules/personalization/components/FontSettingsExpand.qml:119
-#, qt-format
-msgid "Font %1"
-msgstr "폰트 %1"
-
-#: ../src/modules/account/GuestUser.qml:45 ../src/views/HeaderArea.qml:108
-msgid "Guest"
-msgstr "게스트"
-
-#: ../src/modules/account/GuestUser.qml:106
-msgid "Enabled"
-msgstr "활성화됨"
-
-#: ../src/modules/network/Info.qml:13
-msgid "Connected"
-msgstr "연결됨"
-
-#: ../src/modules/network/Info.qml:15
-msgid "Not Connected"
-msgstr "연결되지 않음"
-
-#: ../src/modules/network/Info.qml:39
-msgid "(default)"
-msgstr "(기본)"
-
-#: ../src/modules/network/Info.qml:50
-msgid "Interface"
-msgstr "인터페이스"
-
-#: ../src/modules/network/Info.qml:54
-msgid "Device Addr"
-msgstr "장치 주소"
-
-#: ../src/modules/network/Info.qml:56
-msgid "Subnet Mask"
-msgstr "서브넷 마크"
-
-#: ../src/modules/network/Info.qml:57
-msgid "Route Addr"
-msgstr "라우터 주소"
-
-#: ../src/modules/network/Info.qml:58
-msgid "Primary DNS"
-msgstr "첫 번째 DNS"
-
-#: ../src/modules/network/Info.qml:59
-msgid "Secondary DNS"
-msgstr "두번째 DNS"
-
-#: ../src/modules/network/Info.qml:60
-msgid "Third DNS"
-msgstr "세번째 DNS"
-
-#: ../src/modules/network/Info.qml:69
-msgid "Device Speed"
-msgstr "장치 속도"
-
-#: ../src/modules/keyboard/LocaleArea.qml:53
-msgid "Language"
-msgstr "언어"
-
-#: ../src/modules/display/MessageBox.qml:105
-msgid "Do you want to keep these display settings?"
-msgstr "디스플레이 설정을 유지하시겠습니까?"
-
-#: ../src/modules/display/MessageBox.qml:114
-#, qt-format
-msgid ""
-"Reverting to previous display settings in <font color='#F48914'>%1</font> "
-"seconds."
-msgstr "<font color='#F48914'>%1</font>초 후 이전 디스플레이 설정으로 되돌아갑니다."
-
-#: ../src/modules/display/MessageBox.qml:140
-msgid "Keep Changes"
-msgstr "변경사항 유지"
-
-#: ../src/modules/display/MessageBox.qml:128
-msgid "Revert"
-msgstr "복구"
-
-#: ../src/views/ModulesData.qml:52
-msgid "Date and Time"
-msgstr "날짜와 시간"
-
-#: ../src/views/ModulesData.qml:53
-msgid "Network"
-msgstr "네트워크"
-
-#: ../src/views/ModulesData.qml:54
-msgid "Disk Mount"
-msgstr "디스크 연결"
-
-#: ../src/views/ModulesData.qml:55 ../src/modules/network/main.qml:173
-msgid "Bluetooth"
-msgstr "블루투스"
-
-#: ../src/views/ModulesData.qml:56
-msgid "Sound"
-msgstr "소리"
-
-#: ../src/views/ModulesData.qml:57
-msgid "Power Management"
-msgstr "전원 관리"
-
-#: ../src/views/ModulesData.qml:58
-msgid "More Settings"
-msgstr "설정 더보기"
-
-#: ../src/views/ModulesData.qml:59 ../src/views/PanelContent.qml:473
-msgid "Power"
-msgstr "전원"
-
-#: ../src/views/ModulesData.qml:60
-msgid "Display"
-msgstr "디스플레이"
-
-#: ../src/views/ModulesData.qml:61
-msgid "Desktop"
-msgstr "데스크탑"
-
-#: ../src/views/ModulesData.qml:62
-msgid "Personalization"
-msgstr "개인 설정"
-
-#: ../src/views/ModulesData.qml:63
-msgid "Keyboard Shortcuts"
-msgstr "키보드 단축키"
-
-#: ../src/views/ModulesData.qml:64
-msgid "Keyboard and Language"
-msgstr "키보드와 언어"
-
-#: ../src/views/ModulesData.qml:65
-msgid "Tablet"
-msgstr "타블렛"
-
-#: ../src/views/ModulesData.qml:66
-msgid "Mouse and Touchpad"
-msgstr "마우스와 터치패드"
-
-#: ../src/views/ModulesData.qml:67 ../src/modules/mouse_touchpad/main.qml:50
-msgid "Mouse"
-msgstr "마우스"
-
-#: ../src/views/ModulesData.qml:68
-msgid "User Accounts"
-msgstr "사용자 계정"
-
-#: ../src/views/ModulesData.qml:69
-#: ../src/modules/default_applications/main.qml:85
-msgid "Default Applications"
-msgstr "기본 응용프로그램"
-
-#: ../src/views/ModulesData.qml:70
-msgid "System Information"
-msgstr "시스템 정보"
-
-#: ../src/views/ModulesData.qml:71
-msgid "Boot Menu"
-msgstr "부팅 메뉴"
-
-#: ../src/views/ModulesData.qml:72
-msgid "Home"
-msgstr "홈"
-
-#: ../src/modules/display/MonitorDragArea.qml:471
-msgid "Identify"
-msgstr "식별자"
-
-#: ../src/modules/display/MonitorDragArea.qml:489
-msgid "Edit"
-msgstr "수정"
-
-#: ../src/modules/display/MonitorDragArea.qml:507
-msgid "Split"
-msgstr "스프리트"
-
-#: ../src/modules/display/MonitorProperties.qml:42
-msgid "Normal"
-msgstr "표준"
-
-#: ../src/modules/display/MonitorProperties.qml:43
-msgid "Rotate Right"
-msgstr "오른쪽으로 회전"
-
-#: ../src/modules/display/MonitorProperties.qml:44
-msgid "Upside Down"
-msgstr "꺼꾸로"
-
-#: ../src/modules/display/MonitorProperties.qml:45
-msgid "Rotate Left"
-msgstr "왼족으로 회전"
-
-#: ../src/modules/display/MonitorProperties.qml:78
-msgid "Enable Monitor(s)"
-msgstr "모니터 활성화"
-
-#: ../src/modules/display/MonitorProperties.qml:96
-msgid "Please choose the monitor(s) you want to enable"
-msgstr "활성화할 모니터를 선택합니다"
-
-#: ../src/modules/display/MonitorProperties.qml:146
-msgid "Primary Screen"
-msgstr "기본 화면"
-
-#: ../src/modules/display/MonitorProperties.qml:189
-msgid "Resolution"
-msgstr "해상도"
-
-#: ../src/modules/display/MonitorProperties.qml:230
-msgid "Rotation"
-msgstr "회전"
-
-#: ../src/modules/display/MonitorProperties.qml:274
-#: ../src/modules/display/MonitorProperties.qml:306
-msgid "Brightness"
-msgstr "밝기"
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:38
-msgid "Display Modes"
-msgstr "디스플레이 모드"
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:58
-msgid "Copy"
-msgstr "복사"
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:59
-msgid "Copy the contents of your primary screen to other screens."
-msgstr "다른 화면에 기본 화면의 내용을 복사합니다."
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:76
-msgid "Extend"
-msgstr "확장"
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:77
-msgid ""
-"Extend your screen contents to display different contents on different "
-"screens."
-msgstr "다른 화면에 서로 다른 내용을 표시할 수 있도록 확장합니다."
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:98
-#, qt-format
-msgid "Only Displayed on %1"
-msgstr "%1에서만 디스플레이됨"
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:99
-#, qt-format
-msgid "Screen contents are only displayed on %1 but not on other screens."
-msgstr "화면내용을 %1에서만 디스플레이되고 다른 쪽은 안됩니다."
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:118
-msgid "Custom Settings"
-msgstr "사용자 정의 설정"
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:119
-msgid "You can do other custom settings to your screens."
-msgstr "화면을 다른 방법의 사용자 지정 설정을 할 수 있습니다."
-
-#: ../src/modules/network/wired/NewItem.qml:45
-#: ../src/modules/network/wired/WiredItem.qml:89
-#, qt-format
-msgid "Wired Connection %1"
-msgstr "%1 유선 연결"
-
-#: ../src/modules/network/wired/NewItem.qml:47
-#: ../src/modules/network/wired/WiredItem.qml:91
-msgid "Wired Connection"
-msgstr "유선 연결"
-
-#: ../src/modules/network/widgets/NotManagedSection.qml:25
-msgid "not managed"
-msgstr "관리하지 않음"
-
-#: ../src/modules/network/widgets/PasswordBox.qml:102
-msgid "Auto-connect"
-msgstr "자동 연결"
-
-#: ../src/modules/account/PasswordDialog.qml:119
-msgid "New Password"
-msgstr "새로운 암호"
-
-#: ../src/modules/account/PasswordDialog.qml:185
-msgid "Repeat"
-msgstr "다시"
-
-#: ../src/modules/grub/Preview.qml:122
-msgid "Drag and drop an image to change background."
-msgstr "백그라운드를 변경하려면 이미지를 드래그 엔 드랍으로 가져옵니다."
-
-#: ../src/modules/grub/Preview.qml:123 ../src/modules/account/UserList.qml:239
-msgid "Image format not supported"
-msgstr "지원하지 않는 이미지 포멧입니다"
-
-#: ../src/modules/grub/Preview.qml:124
-msgid "Updating..."
-msgstr "업데이트중..."
-
-#: ../src/modules/grub/Preview.qml:125
-msgid "Successfully updated, reboot to view."
-msgstr "업데이트 완료했습니다. 리붓후 확인하십시오."
-
-#: ../src/modules/network/proxy/ProxyContent.qml:43
-#: ../src/modules/shortcuts/ShortcutInput.qml:119
-#: ../src/modules/date_time/main.qml:205
-msgid "None"
-msgstr "없음"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:48
-msgid "Manual"
-msgstr "수동"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:53
-msgid "Auto"
-msgstr "자동"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:88
-msgid "HTTP Proxy"
-msgstr "HTTP 프록시"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:100
-msgid "HTTPS Proxy"
-msgstr "HTTPS 프록시"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:112
-msgid "FTP Proxy"
-msgstr "FTP 프록시"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:124
-msgid "Socks Proxy"
-msgstr "소켓 프로시"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:149
-msgid "Configuration URL"
-msgstr "URL 구성"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:166
-msgid "Apply system wide"
-msgstr "시스템 전체 적용"
-
-#: ../src/modules/network/proxy/ProxyExpand.qml:37
-msgid "System Proxy"
-msgstr "시스템 프록시"
-
-#: ../src/modules/shared/ResetButton.qml:39
-msgid "Reset successfully"
-msgstr "재설정 완료"
-
-#: ../src/modules/shared/ResetButton.qml:47
-msgid "Reset"
-msgstr "재설정"
-
-#: ../src/modules/shortcuts/ShortcutInput.qml:137
-msgid "Please input new shortcut"
-msgstr "새로운 바로가기를 입력해주세요"
-
-#: ../src/modules/shortcuts/ShortcutInput.qml:238
-#, qt-format
-msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
-msgstr "바로가기 \"%1\"를 사용할 수 없습니다. 새로운 바로가기를 입력하십시오."
-
-#: ../src/modules/shortcuts/ShortcutInput.qml:276
-msgid "The shortcut you set "
-msgstr "바로가기 설정"
-
-#: ../src/modules/shortcuts/ShortcutInput.qml:279
-#, qt-format
-msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
-msgstr "\"%1\" 카테고리에 있는 \"%2\"와 사용하는 것이 겹칩니다."
-
-#: ../src/modules/shortcuts/ShortcutInput.qml:281
-msgid "Do you want to replace it?"
-msgstr "그것을 변경하시겠습니까?"
-
-#: ../src/modules/shortcuts/ShortcutInput.qml:339
-msgid "Replace"
-msgstr "교체"
-
-#: ../src/modules/personalization/widgets/ShowPreviewButton.qml:53
-msgid "Preview Theme"
-msgstr "테마 미리보기"
-
-#: ../src/modules/date_time/StateButtons.qml:35
-#: ../src/modules/keyboard/StateButtons.qml:35
-#: ../src/modules/shortcuts/StateButtons.qml:39
-msgid "Done"
-msgstr "완료"
-
-#: ../src/modules/date_time/StateButtons.qml:36
-#: ../src/modules/date_time/StateButtons.qml:54
-#: ../src/modules/date_time/TimezoneArea.qml:468
-msgid "Close"
-msgstr "닫기"
-
-#: ../src/modules/date_time/StateButtons.qml:85
-msgid "Delete Time Zone"
-msgstr "시간대 삭제"
-
-#: ../src/modules/date_time/StateButtons.qml:101
-msgid "Add Time Zone"
-msgstr "시간대 추가"
-
-#: ../src/modules/keyboard/StateButtons.qml:92
-msgid "Delete Keyboard Layout"
-msgstr "키보드 레이아웃 삭제"
-
-#: ../src/modules/keyboard/StateButtons.qml:107
-msgid "Add Keyboard Layout"
-msgstr "키보드 레이아웃 추가"
-
-#: ../src/modules/shortcuts/StateButtons.qml:90
-msgid "Delete Shortcut"
-msgstr "바로가기 삭제"
-
-#: ../src/modules/shortcuts/StateButtons.qml:107
-msgid "Add Shortcut"
-msgstr "바로가기 추가"
-
-#: ../src/modules/personalization/widgets/ThemeItem.qml:92
-#: ../src/modules/power/main.qml:319 ../src/modules/power/main.qml:560
-#: ../src/modules/shortcuts/main.qml:54 ../src/modules/shortcuts/main.qml:231
-msgid "Custom"
-msgstr "사용자 정의"
-
-#: ../src/modules/date_time/TimeBox.qml:161
-msgid "Double-click this area to change your time"
-msgstr "이 영력을 더블 클릭하여 시간을 변경합니다"
-
-#: ../src/modules/date_time/TimeBox.qml:202
-msgid "Set"
-msgstr "설정"
-
-#: ../src/modules/date_time/TimezoneArea.qml:256
-msgid "Time zone"
-msgstr "시간대"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
-msgid "Touchpad"
-msgstr "터치패드"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:82
-#: ../src/modules/mouse_touchpad/main.qml:83
-msgid "Primary Button"
-msgstr "기본 버튼"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:91
-#: ../src/modules/mouse_touchpad/main.qml:91
-msgid "Left Button"
-msgstr "왼쪽 버튼"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:92
-#: ../src/modules/mouse_touchpad/main.qml:92
-msgid "Right Button"
-msgstr "오른쪽 버튼"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:117
-#: ../src/modules/mouse_touchpad/main.qml:117
-msgid "Pointer Speed"
-msgstr "포인터 속도"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:134
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:171
-#: ../src/modules/keyboard/main.qml:190 ../src/modules/keyboard/main.qml:216
-#: ../src/modules/mouse_touchpad/main.qml:133
-#: ../src/modules/mouse_touchpad/main.qml:169
-msgid "Slow"
-msgstr "느림"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:135
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:172
-#: ../src/modules/keyboard/main.qml:189 ../src/modules/keyboard/main.qml:215
-#: ../src/modules/mouse_touchpad/main.qml:134
-#: ../src/modules/mouse_touchpad/main.qml:170
-msgid "Fast"
-msgstr "빠름"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:154
-#: ../src/modules/mouse_touchpad/main.qml:153
-msgid "Double-click Speed"
-msgstr "더블클릭 속도"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:192
-msgid "Drag Threshold"
-msgstr "드래그 임계값"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:208
-#: ../src/modules/keyboard/main.qml:163
-msgid "Short"
-msgstr "짧게"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:209
-#: ../src/modules/keyboard/main.qml:164
-msgid "Long"
-msgstr "길게"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:228
-msgid "Natural Scrolling"
-msgstr "자연스러운 스크롤"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:252
-msgid "Tap to click"
-msgstr "탭으로 클릭"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:275
-msgid "Two-finger scrolling"
-msgstr "두 손가락으로 스크롤"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:298
-msgid "Edge scrolling"
-msgstr "가장자리 스크롤"
-
-#: ../src/modules/account/UserListCreatingItem.qml:99
-msgid "Account Preparing..."
-msgstr "계정 준비중..."
-
-#: ../src/modules/network/vpn/VpnExpand.qml:48
-msgid "VPN Connections"
-msgstr "VPN 연결"
-
-#: ../src/modules/account/WebCam.qml:125 ../src/modules/account/WebCam.qml:140
-msgid "Snapshot"
-msgstr "스냅샷"
-
-#: ../src/modules/account/WebCam.qml:136
-msgid "Again"
-msgstr "다시"
-
-#: ../src/modules/account/WebCam.qml:175
-msgid "No camera found."
-msgstr "카메라를 찾을 수 없습니다."
-
-#: ../src/modules/network/wireless/WifiHotspot.qml:23
-msgid "Edit Wi-Fi Hotspot"
-msgstr "Wi-Fi 핫스팟 수정"
-
-#: ../src/modules/network/wireless/WifiHotspot.qml:23
-msgid "Create Wi-Fi Hotspot"
-msgstr "Wi-Fi 핫스팟 생성"
-
-#: ../src/modules/network/wireless/WifiHotspot.qml:91
-msgid "Create"
-msgstr "생성"
-
-#: ../src/modules/network/wired/WiredDeviceExpand.qml:38
-msgid "Wired Network"
-msgstr "유선 네트워크"
-
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:30
-msgid "Wireless Network"
-msgstr "무선 네트워크"
-
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:28
-#, qt-format
-msgid "Wireless Network %1"
-msgstr "무선 네트워크 %1"
-
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:57
-msgid ""
-"Wireless network is unable to be connected maybe due to the following reasons:\n"
-"\n"
-"1. The hardware switch of wireless network card is off\n"
-"2. Incorrect network configuration in /etc/network/interface\n"
-"3. Incorrect driver of network hardware"
-msgstr "무선 네트워크를 다음과 같은 이유로 연결할 수 없습니다:\n\n1. 무선 네트워크 카드의 하드웨어 스위치가 꺼져 있는 경우\n2. /etc/network/interface의 네트워크 설정이 잘 못 되어있는 경우\n3. 네트워크 하드웨어 드라이버가 잘 못된 경우"
-
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:37
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:163
-msgid "Connect to hidden access point"
-msgstr "숨겨진 연결 포인트에 연결"
-
-#: ../src/modules/power/main.qml:307 ../src/modules/power/main.qml:548
-msgid "Power saver"
-msgstr "절전"
-
-#: ../src/modules/power/main.qml:301 ../src/modules/power/main.qml:542
-msgid "Balanced"
-msgstr "균형"
-
-#: ../src/modules/power/main.qml:313 ../src/modules/power/main.qml:554
-msgid "High performance"
-msgstr "높은 성능"
-
-#: ../src/modules/date_time/main.qml:131
-msgid "Sync Automatically"
-msgstr "자동으로 동기화"
-
-#: ../src/modules/date_time/main.qml:149
-msgid "Use 24-hour clock"
-msgstr "24시간 시계 사용"
-
-#: ../src/modules/date_time/main.qml:180
-msgid "Adjust DST clock "
-msgstr "DST 시계 조정"
-
-#: ../src/modules/date_time/main.qml:257
-msgid "Date"
-msgstr "날짜"
-
-#: ../src/modules/date_time/main.qml:290
-msgid "Set Date"
-msgstr "날짜 설정"
-
-#: ../src/modules/default_applications/main.qml:97
-msgid "Browser"
-msgstr "브라우저"
-
-#: ../src/modules/default_applications/main.qml:111
-msgid "Mail"
-msgstr "메일"
-
-#: ../src/modules/default_applications/main.qml:122
-msgid "Text"
-msgstr "텍스트"
-
-#: ../src/modules/default_applications/main.qml:128
-msgid "Music"
-msgstr "음악"
-
-#: ../src/modules/default_applications/main.qml:159
-msgid "Video"
-msgstr "비디오"
-
-#: ../src/modules/default_applications/main.qml:191
-msgid "Picture"
-msgstr "사진"
-
-#: ../src/modules/default_applications/main.qml:209
-msgid "Terminal"
-msgstr "터미널"
-
-#: ../src/modules/default_applications/main.qml:268
-msgid "AutoPlay"
-msgstr "자동 재생"
-
-#: ../src/modules/default_applications/main.qml:283
-msgid "CD Audio"
-msgstr "CD 오디오"
-
-#: ../src/modules/default_applications/main.qml:288
-msgid "DVD Video"
-msgstr "DVD 비디오"
-
-#: ../src/modules/default_applications/main.qml:293
-msgid "Music Player"
-msgstr "음악 플레이어"
-
-#: ../src/modules/default_applications/main.qml:298
-msgid "Camera"
-msgstr "카메라"
-
-#: ../src/modules/default_applications/main.qml:303
-msgid "Software"
-msgstr "소프트웨어"
-
-#: ../src/modules/grub/main.qml:112
-msgid "Default Boot"
-msgstr "기본 부팅"
-
-#: ../src/modules/grub/main.qml:167
-msgid "Boot delay"
-msgstr "부팅 지연"
-
-#: ../src/modules/grub/main.qml:206
-msgid "Text Color"
-msgstr "텍스트 색"
-
-#: ../src/modules/grub/main.qml:239
-msgid "Selected Text Color"
-msgstr "택스트 색 선택"
-
-#: ../src/modules/keyboard/main.qml:149
-msgid "Repeat Delay"
-msgstr "지연 반복"
-
-#: ../src/modules/keyboard/main.qml:174
-msgid "Repeat Rate"
-msgstr "반복 속도"
-
-#: ../src/modules/keyboard/main.qml:200
-msgid "Cursor Blink Rate"
-msgstr "커서 깜박임 속도"
-
-#: ../src/modules/keyboard/main.qml:226
-msgid "Test Area"
-msgstr "테스트 공간"
-
-#: ../src/modules/keyboard/main.qml:272
-msgid "Keyboard Layout"
-msgstr "키보드 레이아웃"
-
-#: ../src/modules/keyboard/main.qml:499
-msgid "No result"
-msgstr "결과 없음"
-
-#: ../src/modules/keyboard/main.qml:246
-msgid "Caps Lock prompt"
-msgstr "캡슬 락 프롬프트"
-
-#: ../src/modules/mouse_touchpad/main.qml:190
-msgid "Disable the touchpad when inserting the mouse"
-msgstr "마우스를 사용할때 터치 패드 비활성화"
-
-#: ../src/modules/personalization/main.qml:111
-msgid "Theme"
-msgstr "테마"
-
-#: ../src/modules/personalization/main.qml:118
-#: ../src/modules/shortcuts/main.qml:52
-msgid "Window"
-msgstr "윈도우"
-
-#: ../src/modules/personalization/main.qml:125
-msgid "Icon"
-msgstr "아이콘"
-
-#: ../src/modules/personalization/main.qml:132
-msgid "Cursor"
-msgstr "커서"
-
-#: ../src/modules/personalization/main.qml:139
-msgid "Wallpaper"
-msgstr "바탕화면"
-
-#: ../src/modules/personalization/main.qml:153
-msgid "Fonts"
-msgstr "폰트"
-
-#: ../src/modules/power/main.qml:53 ../src/modules/power/main.qml:65
-msgid "Never"
-msgstr "전혀"
-
-#: ../src/modules/power/main.qml:59
-msgid "1 minute"
-msgstr "1 분"
-
-#: ../src/modules/power/main.qml:60
-msgid "5 minutes"
-msgstr "5 분"
-
-#: ../src/modules/power/main.qml:61
-msgid "10 minutes"
-msgstr "10 분"
-
-#: ../src/modules/power/main.qml:62
-msgid "15 minutes"
-msgstr "15 분"
-
-#: ../src/modules/power/main.qml:63
-msgid "30 minutes"
-msgstr "30 분"
-
-#: ../src/modules/power/main.qml:64
-msgid "1 hour"
-msgstr "1 시간"
-
-#: ../src/modules/power/main.qml:123
-msgid "When I press the power button"
-msgstr "전원 버튼을 누르면"
-
-#: ../src/modules/power/main.qml:137 ../src/modules/power/main.qml:183
-msgid "Shutdown"
-msgstr "전원 종료"
-
-#: ../src/modules/power/main.qml:142 ../src/modules/power/main.qml:188
-#: ../src/modules/power/main.qml:304 ../src/modules/power/main.qml:310
-#: ../src/modules/power/main.qml:316 ../src/modules/power/main.qml:322
-#: ../src/modules/power/main.qml:425 ../src/modules/power/main.qml:545
-#: ../src/modules/power/main.qml:551 ../src/modules/power/main.qml:557
-#: ../src/modules/power/main.qml:563 ../src/modules/power/main.qml:659
-msgid "Suspend"
-msgstr "일시 정지"
-
-#: ../src/modules/power/main.qml:147
-msgid "Ask"
-msgstr "물음"
-
-#: ../src/modules/power/main.qml:169
-msgid "When I close the lid"
-msgstr "덮게를 닫을 때"
-
-#: ../src/modules/power/main.qml:193
-msgid "Nothing"
-msgstr "아무것도 안함"
-
-#: ../src/modules/power/main.qml:212
-msgid "Password required to wake up"
-msgstr "깨울때 암호 입력"
-
-#: ../src/modules/power/main.qml:248
-msgid "Plugged in"
-msgstr "전원 사용"
-
-#: ../src/modules/power/main.qml:490
-msgid "On battery"
-msgstr "베터리 사용"
-
-#: ../src/modules/power/main.qml:303 ../src/modules/power/main.qml:309
-#: ../src/modules/power/main.qml:315 ../src/modules/power/main.qml:321
-#: ../src/modules/power/main.qml:384 ../src/modules/power/main.qml:544
-#: ../src/modules/power/main.qml:550 ../src/modules/power/main.qml:556
-#: ../src/modules/power/main.qml:562 ../src/modules/power/main.qml:619
-msgid "Turn off the display"
-msgstr "화면 끄기"
-
-#: ../src/modules/power/main.qml:378 ../src/modules/power/main.qml:614
-msgid "Custom Options"
-msgstr "사용자 정의 옵션"
-
-#: ../src/modules/shortcuts/main.qml:50
-msgid "System"
-msgstr "시스템"
-
-#: ../src/modules/shortcuts/main.qml:53
-msgid "Workspace"
-msgstr "워크 스페이스"
-
-#: ../src/modules/sound/main.qml:127
-msgid "Speaker"
-msgstr "스피커"
-
-#: ../src/modules/sound/main.qml:157
-msgid "Output Volume"
-msgstr "출력 볼륨"
-
-#: ../src/modules/sound/main.qml:222
-msgid "Microphone"
-msgstr "마이크"
-
-#: ../src/modules/sound/main.qml:252
-msgid "Input Volume"
-msgstr "입력 볼륨"
-
-#: ../src/modules/sound/main.qml:296
-msgid "Input Feedback"
-msgstr "입력 피드백"
-
-#: ../src/modules/sound/main.qml:332
-msgid "Output Port"
-msgstr "출력 포트"
-
-#: ../src/modules/sound/main.qml:349 ../src/modules/sound/main.qml:452
-msgid "No port exists in this device."
-msgstr "포트에 장치가 존재하지 않습니다."
-
-#: ../src/modules/sound/main.qml:387
-msgid "Output device"
-msgstr "출력 장치"
-
-#: ../src/modules/sound/main.qml:435
-msgid "Input Port"
-msgstr "입력 포트"
-
-#: ../src/modules/sound/main.qml:490
-msgid "Input device"
-msgstr "입력 장치"
-
-#: ../src/modules/sound/main.qml:543
-msgid "Hide Advanced..."
-msgstr "고급 기능 숨기기..."
-
-#: ../src/modules/sound/main.qml:543
-msgid "Show Advanced..."
-msgstr "고급 기능 보기..."
-
-#: ../src/modules/system_info/main.qml:119
-msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
-msgstr "저작권 (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
-
-#: ../src/modules/system_info/main.qml:125
-msgid "Deepin Edition"
-msgstr "Deepin 에디션"
-
-#: ../src/modules/system_info/main.qml:131
-msgid "System Type"
-msgstr "시스템 타입"
-
-#: ../src/modules/system_info/main.qml:132
-msgid "bit"
-msgstr "비트"
-
-#: ../src/modules/system_info/main.qml:137
-msgid "Processor"
-msgstr "프로세서"
-
-#: ../src/modules/system_info/main.qml:151
-msgid "Memory"
-msgstr "메모리"
-
-#: ../src/modules/system_info/main.qml:157
-msgid "Disk"
-msgstr "디스크"
-
-#: ../src/modules/system_info/main.qml:175
-msgid "GNU GENERAL PUBLIC LICENSE"
-msgstr "GNU GENERAL PUBLIC LICENSE"
 
 #: ../src/modules/network/main.qml:163 ../src/modules/network/main.qml:191
 msgid "Unknown"
@@ -1880,6 +1422,10 @@ msgstr "Unused1"
 #: ../src/modules/network/main.qml:171
 msgid "Unused2"
 msgstr "Unused2"
+
+#: ../src/modules/network/main.qml:173 ../src/views/ModulesData.qml:55
+msgid "Bluetooth"
+msgstr "블루투스"
 
 #: ../src/modules/network/main.qml:175
 msgid "OLPC mesh"
@@ -1933,10 +1479,6 @@ msgstr "모바일 GSM"
 msgid "Mobile CDMA"
 msgstr "모바일 CDMA"
 
-#: ../src/modules/network/main.qml:341
-msgid "View Detailed Information"
-msgstr "자세한 정보 보기"
-
 #: ../src/modules/network/main.qml:215
 msgid "VPN L2TP"
 msgstr "VPN L2TP"
@@ -1957,17 +1499,536 @@ msgstr "VPN OpenVPN"
 msgid "VPN OpenConnect"
 msgstr "VPN OpenConnect"
 
-#: ../src/modules/account/main.qml:109
-msgid "Delete Account"
-msgstr "계정 삭제"
+#: ../src/modules/network/main.qml:341
+msgid "View Detailed Information"
+msgstr "자세한 정보 보기"
 
-#: ../src/modules/account/main.qml:149
-msgid "Add Account"
-msgstr "계정 추가"
+#: ../src/modules/network/mobile/MobileItem.qml:27
+msgid "Restore the connection"
+msgstr ""
 
-#: ../src/modules/account/main.qml:172
-msgid "User List"
-msgstr "사용자 목록"
+#: ../src/modules/network/proxy/ProxyContent.qml:48
+msgid "Manual"
+msgstr "수동"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:53
+msgid "Auto"
+msgstr "자동"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:88
+msgid "HTTP Proxy"
+msgstr "HTTP 프록시"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:100
+msgid "HTTPS Proxy"
+msgstr "HTTPS 프록시"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:112
+msgid "FTP Proxy"
+msgstr "FTP 프록시"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:124
+msgid "Socks Proxy"
+msgstr "소켓 프로시"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:149
+msgid "Configuration URL"
+msgstr "URL 구성"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:166
+msgid "Apply system wide"
+msgstr "시스템 전체 적용"
+
+#: ../src/modules/network/proxy/ProxyExpand.qml:37
+msgid "System Proxy"
+msgstr "시스템 프록시"
+
+#: ../src/modules/network/vpn/VpnExpand.qml:48
+msgid "VPN Connections"
+msgstr "VPN 연결"
+
+#: ../src/modules/network/widgets/NotManagedSection.qml:25
+msgid "not managed"
+msgstr "관리하지 않음"
+
+#: ../src/modules/network/widgets/PasswordBox.qml:102
+msgid "Auto-connect"
+msgstr "자동 연결"
+
+#: ../src/modules/network/widgets/PasswordBox.qml:126
+#: ../src/modules/network/wireless/AddWireless.qml:224
+#: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:134
+msgid "Connect"
+msgstr "연결"
+
+#: ../src/modules/network/wired/NewItem.qml:45
+#: ../src/modules/network/wired/WiredItem.qml:89
+#, qt-format
+msgid "Wired Connection %1"
+msgstr "%1 유선 연결"
+
+#: ../src/modules/network/wired/NewItem.qml:47
+#: ../src/modules/network/wired/WiredItem.qml:91
+msgid "Wired Connection"
+msgstr "유선 연결"
+
+#: ../src/modules/network/wired/WiredDeviceExpand.qml:38
+msgid "Wired Network"
+msgstr "유선 네트워크"
+
+#: ../src/modules/network/wireless/AddWireless.qml:8
+msgid "Connect to wireless"
+msgstr "무선 인터넷 연결"
+
+#: ../src/modules/network/wireless/WifiHotspot.qml:23
+msgid "Create Wi-Fi Hotspot"
+msgstr "Wi-Fi 핫스팟 생성"
+
+#: ../src/modules/network/wireless/WifiHotspot.qml:23
+msgid "Edit Wi-Fi Hotspot"
+msgstr "Wi-Fi 핫스팟 수정"
+
+#: ../src/modules/network/wireless/WifiHotspot.qml:91
+msgid "Create"
+msgstr "생성"
+
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:28
+#, qt-format
+msgid "Wireless Network %1"
+msgstr "무선 네트워크 %1"
+
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:30
+msgid "Wireless Network"
+msgstr "무선 네트워크"
+
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:37
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:163
+msgid "Connect to hidden access point"
+msgstr "숨겨진 연결 포인트에 연결"
+
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:57
+msgid ""
+"Wireless network is unable to be connected maybe due to the following reasons:\n"
+"\n"
+"1. The hardware switch of wireless network card is off\n"
+"2. Incorrect network configuration in /etc/network/interface\n"
+"3. Incorrect driver of network hardware"
+msgstr "무선 네트워크를 다음과 같은 이유로 연결할 수 없습니다:\n\n1. 무선 네트워크 카드의 하드웨어 스위치가 꺼져 있는 경우\n2. /etc/network/interface의 네트워크 설정이 잘 못 되어있는 경우\n3. 네트워크 하드웨어 드라이버가 잘 못된 경우"
+
+#: ../src/modules/personalization/components/FontSettingsExpand.qml:48
+msgid "Standard"
+msgstr "표준"
+
+#: ../src/modules/personalization/components/FontSettingsExpand.qml:70
+msgid "Monospaced"
+msgstr "고정폭"
+
+#: ../src/modules/personalization/components/FontSettingsExpand.qml:90
+msgid "Size"
+msgstr "크기"
+
+#: ../src/modules/personalization/components/FontSettingsExpand.qml:119
+#, qt-format
+msgid "Font %1"
+msgstr "폰트 %1"
+
+#: ../src/modules/personalization/main.qml:110
+msgid "Theme"
+msgstr "테마"
+
+#: ../src/modules/personalization/main.qml:117
+#: ../src/modules/shortcuts/main.qml:51
+msgid "Window"
+msgstr "윈도우"
+
+#: ../src/modules/personalization/main.qml:124
+msgid "Icon"
+msgstr "아이콘"
+
+#: ../src/modules/personalization/main.qml:131
+msgid "Cursor"
+msgstr "커서"
+
+#: ../src/modules/personalization/main.qml:138
+msgid "Wallpaper"
+msgstr "바탕화면"
+
+#: ../src/modules/personalization/main.qml:152
+msgid "Fonts"
+msgstr "폰트"
+
+#: ../src/modules/personalization/widgets/ShowPreviewButton.qml:53
+msgid "Preview Theme"
+msgstr "테마 미리보기"
+
+#: ../src/modules/personalization/widgets/ThemeItem.qml:92
+#: ../src/modules/power/main.qml:318 ../src/modules/power/main.qml:559
+#: ../src/modules/shortcuts/main.qml:53 ../src/modules/shortcuts/main.qml:230
+msgid "Custom"
+msgstr "사용자 정의"
+
+#: ../src/modules/power/main.qml:52 ../src/modules/power/main.qml:64
+msgid "Never"
+msgstr "전혀"
+
+#: ../src/modules/power/main.qml:58
+msgid "1 minute"
+msgstr "1 분"
+
+#: ../src/modules/power/main.qml:59
+msgid "5 minutes"
+msgstr "5 분"
+
+#: ../src/modules/power/main.qml:60
+msgid "10 minutes"
+msgstr "10 분"
+
+#: ../src/modules/power/main.qml:61
+msgid "15 minutes"
+msgstr "15 분"
+
+#: ../src/modules/power/main.qml:62
+msgid "30 minutes"
+msgstr "30 분"
+
+#: ../src/modules/power/main.qml:63
+msgid "1 hour"
+msgstr "1 시간"
+
+#: ../src/modules/power/main.qml:122
+msgid "When I press the power button"
+msgstr "전원 버튼을 누르면"
+
+#: ../src/modules/power/main.qml:136 ../src/modules/power/main.qml:182
+msgid "Shutdown"
+msgstr "전원 종료"
+
+#: ../src/modules/power/main.qml:141 ../src/modules/power/main.qml:187
+#: ../src/modules/power/main.qml:303 ../src/modules/power/main.qml:309
+#: ../src/modules/power/main.qml:315 ../src/modules/power/main.qml:321
+#: ../src/modules/power/main.qml:424 ../src/modules/power/main.qml:544
+#: ../src/modules/power/main.qml:550 ../src/modules/power/main.qml:556
+#: ../src/modules/power/main.qml:562 ../src/modules/power/main.qml:658
+msgid "Suspend"
+msgstr "일시 정지"
+
+#: ../src/modules/power/main.qml:146
+msgid "Ask"
+msgstr "물음"
+
+#: ../src/modules/power/main.qml:168
+msgid "When I close the lid"
+msgstr "덮게를 닫을 때"
+
+#: ../src/modules/power/main.qml:192
+msgid "Nothing"
+msgstr "아무것도 안함"
+
+#: ../src/modules/power/main.qml:211
+msgid "Password required to wake up"
+msgstr "깨울때 암호 입력"
+
+#: ../src/modules/power/main.qml:247
+msgid "Plugged in"
+msgstr "전원 사용"
+
+#: ../src/modules/power/main.qml:300 ../src/modules/power/main.qml:541
+msgid "Balanced"
+msgstr "균형"
+
+#: ../src/modules/power/main.qml:302 ../src/modules/power/main.qml:308
+#: ../src/modules/power/main.qml:314 ../src/modules/power/main.qml:320
+#: ../src/modules/power/main.qml:383 ../src/modules/power/main.qml:543
+#: ../src/modules/power/main.qml:549 ../src/modules/power/main.qml:555
+#: ../src/modules/power/main.qml:561 ../src/modules/power/main.qml:618
+msgid "Turn off the display"
+msgstr "화면 끄기"
+
+#: ../src/modules/power/main.qml:306 ../src/modules/power/main.qml:547
+msgid "Power saver"
+msgstr "절전"
+
+#: ../src/modules/power/main.qml:312 ../src/modules/power/main.qml:553
+msgid "High performance"
+msgstr "높은 성능"
+
+#: ../src/modules/power/main.qml:377 ../src/modules/power/main.qml:613
+msgid "Custom Options"
+msgstr "사용자 정의 옵션"
+
+#: ../src/modules/power/main.qml:489
+msgid "On battery"
+msgstr "베터리 사용"
+
+#: ../src/modules/remoting/AccessContent/ConnectedItem.qml:32
+msgid ""
+"You are accessing the desktop shared by other users, you can choose to "
+"continue or disconnect"
+msgstr ""
+
+#: ../src/modules/remoting/AccessContent/ConnectedItem.qml:42
+#: ../src/modules/remoting/ShareContent/ConnectedItem.qml:46
+msgid "Disconnect"
+msgstr ""
+
+#: ../src/modules/remoting/AccessContent/ConnectingItem.qml:50
+msgid "Establishing connection, please wait..."
+msgstr ""
+
+#: ../src/modules/remoting/AccessContent/ConnectingItem.qml:75
+msgid ""
+"This panel will be hidden automatically and the remote session window will "
+"be opened on the desktop after connection is established successfully"
+msgstr ""
+
+#: ../src/modules/remoting/AccessContent/ErrorItem.qml:42
+#: ../src/modules/remoting/AccessPanel.qml:81
+#: ../src/modules/remoting/AccessPanel.qml:127
+msgid "Failed to establish the connection, you can retry to connect"
+msgstr ""
+
+#: ../src/modules/remoting/AccessContent/ErrorItem.qml:70
+#: ../src/modules/remoting/ShareContent/ErrorItem.qml:70
+msgid "Retry"
+msgstr ""
+
+#: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:104
+#: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:149
+msgid "Please enter the verification code in the input field above"
+msgstr ""
+
+#: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:168
+msgid "Start remote access after clicking on \"Connect\""
+msgstr ""
+
+#: ../src/modules/remoting/AccessPanel.qml:60
+#: ../src/modules/remoting/AccessPanel.qml:95
+#: ../src/modules/remoting/SharePanel.qml:54
+#: ../src/modules/remoting/SharePanel.qml:94
+#: ../src/modules/remoting/Widgets/NoNetworkConnection.qml:26
+msgid "No network connections are available, please retry..."
+msgstr ""
+
+#: ../src/modules/remoting/AccessPanel.qml:122
+msgid "The verification code is invalid, please retry"
+msgstr ""
+
+#: ../src/modules/remoting/AccessPanel.qml:146
+msgid "Accessing"
+msgstr ""
+
+#: ../src/modules/remoting/MainPanel.qml:28 ../src/views/ModulesData.qml:73
+msgid "Remote Assistance"
+msgstr ""
+
+#: ../src/modules/remoting/MainPanel.qml:35
+msgid "Share"
+msgstr ""
+
+#: ../src/modules/remoting/MainPanel.qml:36
+msgid "Share your desktop to get remote assistance from other users"
+msgstr ""
+
+#: ../src/modules/remoting/MainPanel.qml:49
+msgid "Access"
+msgstr ""
+
+#: ../src/modules/remoting/MainPanel.qml:50
+msgid "Access to the desktop shared by other users"
+msgstr ""
+
+#: ../src/modules/remoting/ShareContent/ConnectedItem.qml:35
+msgid ""
+"Sharing your desktop, your can continue to share or choose to disconnect"
+msgstr ""
+
+#: ../src/modules/remoting/ShareContent/ErrorItem.qml:42
+#: ../src/modules/remoting/SharePanel.qml:80
+#: ../src/modules/remoting/SharePanel.qml:118
+msgid ""
+"Failed to get the verification code, you can retry or cancel the operation"
+msgstr ""
+
+#: ../src/modules/remoting/ShareContent/GeneratedCodeItem.qml:62
+msgid ""
+"To start sharing your desktop, please provide the above verification code to"
+" whom will assist you. Your shared session will begin immediately after "
+"verification code input"
+msgstr ""
+
+#: ../src/modules/remoting/ShareContent/GeneratedCodeItem.qml:91
+msgid "Copy Code"
+msgstr ""
+
+#: ../src/modules/remoting/ShareContent/GeneratedCodeItem.qml:110
+msgid "Copied to clipboard successfully"
+msgstr ""
+
+#: ../src/modules/remoting/ShareContent/GeneratingCodeItem.qml:48
+msgid "Generating the verification code, please wait..."
+msgstr ""
+
+#: ../src/modules/remoting/SharePanel.qml:131
+msgid "Sharing"
+msgstr ""
+
+#: ../src/modules/shared/ResetButton.qml:39
+msgid "Reset successfully"
+msgstr "재설정 완료"
+
+#: ../src/modules/shared/ResetButton.qml:47
+msgid "Reset"
+msgstr "재설정"
+
+#: ../src/modules/shortcuts/CustomKeybinding.qml:133
+msgid "Command"
+msgstr "명령"
+
+#: ../src/modules/shortcuts/ShortcutInput.qml:136
+msgid "Please input new shortcut"
+msgstr "새로운 바로가기를 입력해주세요"
+
+#: ../src/modules/shortcuts/ShortcutInput.qml:237
+#, qt-format
+msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
+msgstr "바로가기 \"%1\"를 사용할 수 없습니다. 새로운 바로가기를 입력하십시오."
+
+#: ../src/modules/shortcuts/ShortcutInput.qml:275
+msgid "The shortcut you set "
+msgstr "바로가기 설정"
+
+#: ../src/modules/shortcuts/ShortcutInput.qml:278
+#, qt-format
+msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
+msgstr "\"%1\" 카테고리에 있는 \"%2\"와 사용하는 것이 겹칩니다."
+
+#: ../src/modules/shortcuts/ShortcutInput.qml:280
+msgid "Do you want to replace it?"
+msgstr "그것을 변경하시겠습니까?"
+
+#: ../src/modules/shortcuts/ShortcutInput.qml:338
+msgid "Replace"
+msgstr "교체"
+
+#: ../src/modules/shortcuts/StateButtons.qml:90
+msgid "Delete Shortcut"
+msgstr "바로가기 삭제"
+
+#: ../src/modules/shortcuts/StateButtons.qml:107
+msgid "Add Shortcut"
+msgstr "바로가기 추가"
+
+#: ../src/modules/shortcuts/main.qml:49
+msgid "System"
+msgstr "시스템"
+
+#: ../src/modules/shortcuts/main.qml:52
+msgid "Workspace"
+msgstr "워크 스페이스"
+
+#: ../src/modules/sound/BalanceLine.qml:31
+msgid "Left/Right Balance"
+msgstr "왼쪽/오른쪽 균형"
+
+#: ../src/modules/sound/BalanceLine.qml:53
+msgid "Left"
+msgstr "왼쪽"
+
+#: ../src/modules/sound/BalanceLine.qml:55
+msgid "Right"
+msgstr "오른쪽"
+
+#: ../src/modules/sound/FadeLine.qml:31
+msgid "Front/Rear Balance"
+msgstr "앞/뒤 균형"
+
+#: ../src/modules/sound/FadeLine.qml:53
+msgid "Rear"
+msgstr "뒤"
+
+#: ../src/modules/sound/FadeLine.qml:55
+msgid "Front"
+msgstr "앞"
+
+#: ../src/modules/sound/main.qml:127
+msgid "Speaker"
+msgstr "스피커"
+
+#: ../src/modules/sound/main.qml:157
+msgid "Output Volume"
+msgstr "출력 볼륨"
+
+#: ../src/modules/sound/main.qml:222
+msgid "Microphone"
+msgstr "마이크"
+
+#: ../src/modules/sound/main.qml:252
+msgid "Input Volume"
+msgstr "입력 볼륨"
+
+#: ../src/modules/sound/main.qml:296
+msgid "Input Feedback"
+msgstr "입력 피드백"
+
+#: ../src/modules/sound/main.qml:332
+msgid "Output Port"
+msgstr "출력 포트"
+
+#: ../src/modules/sound/main.qml:349 ../src/modules/sound/main.qml:452
+msgid "No port exists in this device."
+msgstr "포트에 장치가 존재하지 않습니다."
+
+#: ../src/modules/sound/main.qml:387
+msgid "Output device"
+msgstr "출력 장치"
+
+#: ../src/modules/sound/main.qml:435
+msgid "Input Port"
+msgstr "입력 포트"
+
+#: ../src/modules/sound/main.qml:490
+msgid "Input device"
+msgstr "입력 장치"
+
+#: ../src/modules/sound/main.qml:543
+msgid "Hide Advanced..."
+msgstr "고급 기능 숨기기..."
+
+#: ../src/modules/sound/main.qml:543
+msgid "Show Advanced..."
+msgstr "고급 기능 보기..."
+
+#: ../src/modules/system_info/main.qml:118
+msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
+msgstr "저작권 (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
+
+#: ../src/modules/system_info/main.qml:124
+msgid "Deepin Edition"
+msgstr "Deepin 에디션"
+
+#: ../src/modules/system_info/main.qml:130
+msgid "System Type"
+msgstr "시스템 타입"
+
+#: ../src/modules/system_info/main.qml:131
+msgid "bit"
+msgstr "비트"
+
+#: ../src/modules/system_info/main.qml:136
+msgid "Processor"
+msgstr "프로세서"
+
+#: ../src/modules/system_info/main.qml:150
+msgid "Memory"
+msgstr "메모리"
+
+#: ../src/modules/system_info/main.qml:156
+msgid "Disk"
+msgstr "디스크"
+
+#: ../src/modules/system_info/main.qml:174
+msgid "GNU GENERAL PUBLIC LICENSE"
+msgstr "GNU GENERAL PUBLIC LICENSE"
 
 #: ../src/modules/wacom/main.qml:14
 msgid "Page Up"
@@ -2044,3 +2105,75 @@ msgstr "좁게"
 #: ../src/modules/wacom/main.qml:207
 msgid "Wide"
 msgstr "넓게"
+
+#: ../src/views/ModulesData.qml:52
+msgid "Date and Time"
+msgstr "날짜와 시간"
+
+#: ../src/views/ModulesData.qml:53
+msgid "Network"
+msgstr "네트워크"
+
+#: ../src/views/ModulesData.qml:54
+msgid "Disk Mount"
+msgstr "디스크 연결"
+
+#: ../src/views/ModulesData.qml:56
+msgid "Sound"
+msgstr "소리"
+
+#: ../src/views/ModulesData.qml:57
+msgid "Power Management"
+msgstr "전원 관리"
+
+#: ../src/views/ModulesData.qml:58
+msgid "More Settings"
+msgstr "설정 더보기"
+
+#: ../src/views/ModulesData.qml:59 ../src/views/PanelContent.qml:456
+msgid "Power"
+msgstr "전원"
+
+#: ../src/views/ModulesData.qml:60
+msgid "Display"
+msgstr "디스플레이"
+
+#: ../src/views/ModulesData.qml:61
+msgid "Desktop"
+msgstr "데스크탑"
+
+#: ../src/views/ModulesData.qml:62
+msgid "Personalization"
+msgstr "개인 설정"
+
+#: ../src/views/ModulesData.qml:63
+msgid "Keyboard Shortcuts"
+msgstr "키보드 단축키"
+
+#: ../src/views/ModulesData.qml:64
+msgid "Keyboard and Language"
+msgstr "키보드와 언어"
+
+#: ../src/views/ModulesData.qml:65
+msgid "Tablet"
+msgstr "타블렛"
+
+#: ../src/views/ModulesData.qml:66
+msgid "Mouse and Touchpad"
+msgstr "마우스와 터치패드"
+
+#: ../src/views/ModulesData.qml:68
+msgid "User Accounts"
+msgstr "사용자 계정"
+
+#: ../src/views/ModulesData.qml:70
+msgid "System Information"
+msgstr "시스템 정보"
+
+#: ../src/views/ModulesData.qml:71
+msgid "Boot Menu"
+msgstr "부팅 메뉴"
+
+#: ../src/views/ModulesData.qml:72
+msgid "Home"
+msgstr "홈"

@@ -10,121 +10,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-16 07:24+0000\n"
-"PO-Revision-Date: 2015-03-27 10:52+0000\n"
-"Last-Translator: lexross <its4moi@gmail.com>\n"
-"Language-Team: French (http://www.transifex.com/projects/p/dde-control-center/language/fr/)\n"
+"POT-Creation-Date: 2015-08-20 14:55+0800\n"
+"PO-Revision-Date: 2015-08-20 07:04+0000\n"
+"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
+"Language-Team: French (http://www.transifex.com/linuxdeepin/dde-control-center/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-
-#: ../src/modules/network/add/AddDsl.qml:11
-msgid "Add PPPoE Connection"
-msgstr "Ajouter connection PPPoE"
-
-#: ../src/modules/network/add/AddDsl.qml:24
-#: ../src/modules/network/add/AddMobile.qml:33
-#: ../src/modules/network/add/AddVpn.qml:103
-#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:33
-#: ../src/modules/shortcuts/CustomKeybinding.qml:118
-msgid "Name"
-msgstr "Nom"
-
-#: ../src/modules/network/add/AddDsl.qml:36
-#: ../src/modules/network/add/AddMobile.qml:75
-#: ../src/modules/network/add/AddMobile.qml:105
-#: ../src/modules/account/AddUserDialog.qml:127
-#: ../src/modules/network/add/AddVpn.qml:125
-#: ../src/modules/network/add/AddVpn.qml:255
-#: ../src/modules/network/add/AddVpn.qml:395
-#: ../src/modules/network/add/AddVpn.qml:435
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:53
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:123
-#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:23
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:45
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:185
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:325
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:375
-#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:65
-msgid "Username"
-msgstr "Utilisateur"
-
-#: ../src/modules/network/add/AddDsl.qml:46
-#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:33
-msgid "Service"
-msgstr "Service"
-
-#: ../src/modules/network/add/AddDsl.qml:56
-#: ../src/modules/network/add/AddMobile.qml:85
-#: ../src/modules/network/add/AddMobile.qml:115
-#: ../src/modules/account/AddUserDialog.qml:200
-#: ../src/modules/network/add/AddVpn.qml:145
-#: ../src/modules/network/add/AddVpn.qml:275
-#: ../src/modules/network/add/AddVpn.qml:415
-#: ../src/modules/network/wireless/AddWireless.qml:64
-#: ../src/modules/network/wireless/AddWireless.qml:186
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:63
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:133
-#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:43
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:53
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:175
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:65
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:205
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:345
-#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:75
-#: ../src/modules/network/widgets/PasswordBox.qml:95
-#: ../src/modules/account/PasswordDialog.qml:62
-#: ../src/modules/network/wireless/WifiHotspot.qml:69
-msgid "Password"
-msgstr "Mot de passe"
-
-#: ../src/modules/network/add/AddMobile.qml:20
-msgid "New Mobile Connection"
-msgstr "Nouvelle connexion mobile"
-
-#: ../src/modules/network/add/AddMobile.qml:45
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:23
-msgid "Service Type"
-msgstr "Type de service"
-
-#: ../src/modules/network/add/AddMobile.qml:55
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:33
-msgid "APN"
-msgstr "APN"
-
-#: ../src/modules/network/add/AddMobile.qml:65
-#: ../src/modules/network/add/AddMobile.qml:95
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:43
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:113
-msgid "Number"
-msgstr "Nombre"
-
-#: ../src/modules/network/add/AddSectionSave.qml:11
-#: ../src/modules/account/AddUserDialog.qml:413
-#: ../src/modules/network/wireless/AddWireless.qml:216
-#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:109
-#: ../src/modules/network/ConnectionAdd.qml:69
-#: ../src/modules/network/ConnectionEdit.qml:102
-#: ../src/modules/network/ConnectionEdit.qml:135
-#: ../src/modules/shortcuts/CustomKeybinding.qml:151
-#: ../src/modules/account/DeleteUserDialog.qml:33
-#: ../src/modules/network/Info.qml:79
-#: ../src/modules/network/widgets/PasswordBox.qml:118
-#: ../src/modules/account/PasswordDialog.qml:248
-#: ../src/modules/shortcuts/ShortcutInput.qml:355
-#: ../src/modules/date_time/TimeBox.qml:225
-#: ../src/modules/network/wireless/WifiHotspot.qml:82
-#: ../src/modules/date_time/main.qml:300 ../src/modules/display/main.qml:179
-msgid "Cancel"
-msgstr "Annuler"
-
-#: ../src/modules/network/add/AddSectionSave.qml:20
-#: ../src/modules/shortcuts/CustomKeybinding.qml:157
-#: ../src/modules/date_time/TimezoneArea.qml:465
-msgid "Add"
-msgstr "Ajouter"
 
 #: ../src/modules/account/AddUserDialog.qml:58
 #: ../src/modules/account/AddUserDialog.qml:63
@@ -172,11 +66,54 @@ msgstr "Administrateur"
 msgid "Normal User"
 msgstr "Utilisateur"
 
+#: ../src/modules/account/AddUserDialog.qml:127
+#: ../src/modules/network/add/AddDsl.qml:36
+#: ../src/modules/network/add/AddMobile.qml:75
+#: ../src/modules/network/add/AddMobile.qml:105
+#: ../src/modules/network/add/AddVpn.qml:125
+#: ../src/modules/network/add/AddVpn.qml:255
+#: ../src/modules/network/add/AddVpn.qml:395
+#: ../src/modules/network/add/AddVpn.qml:435
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:98
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:168
+#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:23
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:45
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:185
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:325
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:375
+#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:65
+msgid "Username"
+msgstr "Utilisateur"
+
 #: ../src/modules/account/AddUserDialog.qml:175
 #: ../src/modules/account/AddUserDialog.qml:235
 #: ../src/modules/account/AddUserDialog.qml:301
 msgid "Username can not be empty."
 msgstr "Le nom d'utilisateur ne peut être vide."
+
+#: ../src/modules/account/AddUserDialog.qml:200
+#: ../src/modules/account/PasswordDialog.qml:62
+#: ../src/modules/network/add/AddDsl.qml:56
+#: ../src/modules/network/add/AddMobile.qml:85
+#: ../src/modules/network/add/AddMobile.qml:115
+#: ../src/modules/network/add/AddVpn.qml:145
+#: ../src/modules/network/add/AddVpn.qml:275
+#: ../src/modules/network/add/AddVpn.qml:415
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:108
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:178
+#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:43
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:53
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:175
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:65
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:205
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:345
+#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:75
+#: ../src/modules/network/widgets/PasswordBox.qml:95
+#: ../src/modules/network/wireless/AddWireless.qml:64
+#: ../src/modules/network/wireless/AddWireless.qml:186
+#: ../src/modules/network/wireless/WifiHotspot.qml:69
+msgid "Password"
+msgstr "Mot de passe"
 
 #: ../src/modules/account/AddUserDialog.qml:270
 msgid "Repeat Password"
@@ -192,13 +129,695 @@ msgstr "Type de compte"
 msgid "Auto-login"
 msgstr "Connexion automatique"
 
+#: ../src/modules/account/AddUserDialog.qml:413
+#: ../src/modules/account/DeleteUserDialog.qml:32
+#: ../src/modules/account/PasswordDialog.qml:248
+#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:108
+#: ../src/modules/date_time/TimeBox.qml:225
+#: ../src/modules/date_time/main.qml:300 ../src/modules/display/main.qml:178
+#: ../src/modules/network/ConnectionAdd.qml:69
+#: ../src/modules/network/ConnectionEdit.qml:110
+#: ../src/modules/network/ConnectionEdit.qml:143
+#: ../src/modules/network/Info.qml:85
+#: ../src/modules/network/add/AddSectionSave.qml:11
+#: ../src/modules/network/widgets/PasswordBox.qml:118
+#: ../src/modules/network/wireless/AddWireless.qml:216
+#: ../src/modules/network/wireless/WifiHotspot.qml:82
+#: ../src/modules/remoting/AccessContent/ConnectingItem.qml:91
+#: ../src/modules/remoting/AccessContent/ErrorItem.qml:62
+#: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:124
+#: ../src/modules/remoting/ShareContent/ErrorItem.qml:62
+#: ../src/modules/remoting/ShareContent/GeneratedCodeItem.qml:82
+#: ../src/modules/remoting/ShareContent/GeneratingCodeItem.qml:58
+#: ../src/modules/shortcuts/CustomKeybinding.qml:151
+#: ../src/modules/shortcuts/ShortcutInput.qml:354
+msgid "Cancel"
+msgstr "Annuler"
+
 #: ../src/modules/account/AddUserDialog.qml:426
-#: ../src/modules/account/DeleteUserDialog.qml:46
+#: ../src/modules/account/DeleteUserDialog.qml:45
 #: ../src/modules/account/PasswordDialog.qml:262
 #: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:318
-#: ../src/modules/display/main.qml:194
+#: ../src/modules/display/main.qml:193
 msgid "Confirm"
 msgstr "Confirmer"
+
+#: ../src/modules/account/AvatarPickDialog.qml:5
+msgid "Choose a new picture for your Avatar"
+msgstr "Sélectionnez une image pour votre Avatar"
+
+#: ../src/modules/account/AvatarView.qml:19
+msgid "Recently Used"
+msgstr "Utilisé récemment "
+
+#: ../src/modules/account/AvatarView.qml:20
+msgid "Avatar"
+msgstr "Avatar"
+
+#: ../src/modules/account/AvatarView.qml:21
+msgid "Webcam"
+msgstr "Webcam"
+
+#: ../src/modules/account/DeleteUserDialog.qml:18
+msgid "Keep user's files"
+msgstr "Conserver les fichiers utilisateurs"
+
+#: ../src/modules/account/DeleteUserDialog.qml:19
+msgid "Delete user's files"
+msgstr "Supprimer les fichiers utilisateurs "
+
+#: ../src/modules/account/EditUserDialog.qml:93
+msgid "Enable"
+msgstr "Activé"
+
+#: ../src/modules/account/GuestUser.qml:45 ../src/views/HeaderArea.qml:108
+msgid "Guest"
+msgstr "Invité"
+
+#: ../src/modules/account/GuestUser.qml:106
+msgid "Enabled"
+msgstr "Activé"
+
+#: ../src/modules/account/PasswordDialog.qml:119
+msgid "New Password"
+msgstr "Nouveau mot de passe"
+
+#: ../src/modules/account/PasswordDialog.qml:185
+msgid "Repeat"
+msgstr "Répéter"
+
+#: ../src/modules/account/UserList.qml:239 ../src/modules/grub/Preview.qml:123
+msgid "Image format not supported"
+msgstr "Format d'image non accepté."
+
+#: ../src/modules/account/UserListCreatingItem.qml:99
+msgid "Account Preparing..."
+msgstr "Compte en préparation..."
+
+#: ../src/modules/account/WebCam.qml:125 ../src/modules/account/WebCam.qml:140
+msgid "Snapshot"
+msgstr "Instantané"
+
+#: ../src/modules/account/WebCam.qml:136
+msgid "Again"
+msgstr "Encore"
+
+#: ../src/modules/account/WebCam.qml:175
+msgid "No camera found."
+msgstr "Aucune caméra trouvée."
+
+#: ../src/modules/account/main.qml:108
+msgid "Delete Account"
+msgstr "Supprimer le compte"
+
+#: ../src/modules/account/main.qml:148
+msgid "Add Account"
+msgstr "Ajouter un compte"
+
+#: ../src/modules/account/main.qml:171
+msgid "User List"
+msgstr "Liste d'utilisateur"
+
+#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:120
+#: ../src/modules/display/main.qml:193
+#: ../src/modules/personalization/widgets/PreviewWindow.qml:279
+msgid "Apply"
+msgstr "Appliquer"
+
+#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:148
+msgid "Devices nearby"
+msgstr "Périphériques proches"
+
+#: ../src/modules/date_time/Calendar.qml:164
+msgid "Today"
+msgstr "Aujourd'hui"
+
+#: ../src/modules/date_time/CalendarComponent.qml:83
+msgid "Sun"
+msgstr "Dim"
+
+#: ../src/modules/date_time/CalendarComponent.qml:84
+msgid "Mon"
+msgstr "Lun"
+
+#: ../src/modules/date_time/CalendarComponent.qml:85
+msgid "Tue"
+msgstr "Mar"
+
+#: ../src/modules/date_time/CalendarComponent.qml:86
+msgid "Wed"
+msgstr "Mer"
+
+#: ../src/modules/date_time/CalendarComponent.qml:87
+msgid "Thu"
+msgstr "Jeu"
+
+#: ../src/modules/date_time/CalendarComponent.qml:88
+msgid "Fri"
+msgstr "Ven"
+
+#: ../src/modules/date_time/CalendarComponent.qml:89
+msgid "Sat"
+msgstr "Sam"
+
+#: ../src/modules/date_time/StateButtons.qml:35
+#: ../src/modules/keyboard/StateButtons.qml:35
+#: ../src/modules/shortcuts/StateButtons.qml:39
+msgid "Done"
+msgstr "Fait"
+
+#: ../src/modules/date_time/StateButtons.qml:36
+#: ../src/modules/date_time/StateButtons.qml:54
+#: ../src/modules/date_time/TimezoneArea.qml:487
+msgid "Close"
+msgstr "Fermer"
+
+#: ../src/modules/date_time/StateButtons.qml:85
+msgid "Delete Time Zone"
+msgstr "Supprimer la zone de temps"
+
+#: ../src/modules/date_time/StateButtons.qml:101
+msgid "Add Time Zone"
+msgstr "Ajouter une zone de temps"
+
+#: ../src/modules/date_time/TimeBox.qml:161
+msgid "Double-click this area to change your time"
+msgstr "Double-clic dans cette zone pour changer l'heure"
+
+#: ../src/modules/date_time/TimeBox.qml:202
+msgid "Set"
+msgstr "Paramétrer"
+
+#: ../src/modules/date_time/TimezoneArea.qml:257
+msgid "Time zone"
+msgstr "Zone horaire"
+
+#: ../src/modules/date_time/TimezoneArea.qml:484
+#: ../src/modules/network/add/AddSectionSave.qml:20
+#: ../src/modules/shortcuts/CustomKeybinding.qml:157
+msgid "Add"
+msgstr "Ajouter"
+
+#: ../src/modules/date_time/main.qml:131
+msgid "Sync Automatically"
+msgstr "Sync Automatique"
+
+#: ../src/modules/date_time/main.qml:149
+msgid "Use 24-hour clock"
+msgstr "Utiliser le format 24 heures"
+
+#: ../src/modules/date_time/main.qml:180
+msgid "Adjust DST clock "
+msgstr "Régler à l'heure d'été"
+
+#: ../src/modules/date_time/main.qml:205
+#: ../src/modules/network/proxy/ProxyContent.qml:43
+#: ../src/modules/shortcuts/ShortcutInput.qml:118
+msgid "None"
+msgstr "Aucun"
+
+#: ../src/modules/date_time/main.qml:257
+msgid "Date"
+msgstr "Date"
+
+#: ../src/modules/date_time/main.qml:290
+msgid "Set Date"
+msgstr "Régler la date"
+
+#: ../src/modules/default_applications/main.qml:85
+#: ../src/views/ModulesData.qml:69
+msgid "Default Applications"
+msgstr "Applications par défaut"
+
+#: ../src/modules/default_applications/main.qml:97
+msgid "Browser"
+msgstr "Navigateur"
+
+#: ../src/modules/default_applications/main.qml:111
+msgid "Mail"
+msgstr "Courrier"
+
+#: ../src/modules/default_applications/main.qml:122
+msgid "Text"
+msgstr "Texte"
+
+#: ../src/modules/default_applications/main.qml:128
+msgid "Music"
+msgstr "Musique"
+
+#: ../src/modules/default_applications/main.qml:159
+msgid "Video"
+msgstr "Vidéo"
+
+#: ../src/modules/default_applications/main.qml:191
+msgid "Picture"
+msgstr "Image"
+
+#: ../src/modules/default_applications/main.qml:209
+msgid "Terminal"
+msgstr "Terminal"
+
+#: ../src/modules/default_applications/main.qml:268
+msgid "AutoPlay"
+msgstr "Lecture automatique"
+
+#: ../src/modules/default_applications/main.qml:283
+msgid "CD Audio"
+msgstr "CD Audio"
+
+#: ../src/modules/default_applications/main.qml:288
+msgid "DVD Video"
+msgstr "DVD Vidéo"
+
+#: ../src/modules/default_applications/main.qml:293
+msgid "Music Player"
+msgstr "Lecteur de musique"
+
+#: ../src/modules/default_applications/main.qml:298
+msgid "Camera"
+msgstr "Photo"
+
+#: ../src/modules/default_applications/main.qml:303
+msgid "Software"
+msgstr "Logiciel"
+
+#: ../src/modules/display/BrightnessRectangle.qml:61
+#: ../src/modules/display/ResolutionRectangle.qml:69
+#: ../src/modules/display/RotationRectangle.qml:70
+msgid "Monitor"
+msgstr "Écran"
+
+#: ../src/modules/display/MessageBox.qml:105
+msgid "Do you want to keep these display settings?"
+msgstr "Voulez vous garder ces paramètres d’affichage ?"
+
+#: ../src/modules/display/MessageBox.qml:114
+#, qt-format
+msgid ""
+"Reverting to previous display settings in <font color='#F48914'>%1</font> "
+"seconds."
+msgstr "Retour aux paramètres d'affichage précédent dans <font color='#F48914'>%1</font> secondes."
+
+#: ../src/modules/display/MessageBox.qml:128
+msgid "Revert"
+msgstr "Rétablir"
+
+#: ../src/modules/display/MessageBox.qml:140
+msgid "Keep Changes"
+msgstr "Garder les changements"
+
+#: ../src/modules/display/MonitorDragArea.qml:471
+msgid "Identify"
+msgstr "Identifier"
+
+#: ../src/modules/display/MonitorDragArea.qml:489
+msgid "Edit"
+msgstr "Éditer"
+
+#: ../src/modules/display/MonitorDragArea.qml:507
+msgid "Split"
+msgstr "Diviser"
+
+#: ../src/modules/display/MonitorProperties.qml:42
+msgid "Normal"
+msgstr "Normal"
+
+#: ../src/modules/display/MonitorProperties.qml:43
+msgid "Rotate Right"
+msgstr "Faire une rotation sur la droite"
+
+#: ../src/modules/display/MonitorProperties.qml:44
+msgid "Upside Down"
+msgstr "De haut en bas"
+
+#: ../src/modules/display/MonitorProperties.qml:45
+msgid "Rotate Left"
+msgstr "Faire une rotation sur la gauche"
+
+#: ../src/modules/display/MonitorProperties.qml:78
+msgid "Enable Monitor(s)"
+msgstr "Activer le(s) moniteur(s)"
+
+#: ../src/modules/display/MonitorProperties.qml:96
+msgid "Please choose the monitor(s) you want to enable"
+msgstr "Veuillez choisir le(s) moniteur(s) que vous voulez activer"
+
+#: ../src/modules/display/MonitorProperties.qml:146
+msgid "Primary Screen"
+msgstr "Écran principal"
+
+#: ../src/modules/display/MonitorProperties.qml:189
+msgid "Resolution"
+msgstr "Résolution"
+
+#: ../src/modules/display/MonitorProperties.qml:230
+msgid "Rotation"
+msgstr "Rotation"
+
+#: ../src/modules/display/MonitorProperties.qml:274
+#: ../src/modules/display/MonitorProperties.qml:306
+msgid "Brightness"
+msgstr "Luminosité"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:38
+msgid "Display Modes"
+msgstr "Afficher les différents modes"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:58
+msgid "Copy"
+msgstr "Copier "
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:59
+msgid "Copy the contents of your primary screen to other screens."
+msgstr "Copier l'affichage du premier écran virtuel aux autres écrans."
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:76
+msgid "Extend"
+msgstr "Etendre"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:77
+msgid ""
+"Extend your screen contents to display different contents on different "
+"screens."
+msgstr "Etendre l'affichage de votre bureau sur d'autres écrans."
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:98
+#, qt-format
+msgid "Only Displayed on %1"
+msgstr "Afficher uniquement sur %1"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:99
+#, qt-format
+msgid "Screen contents are only displayed on %1 but not on other screens."
+msgstr "L'affichage est uniquement sur %1 mais pas aux autres écrans."
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:118
+msgid "Custom Settings"
+msgstr "Paramètres personnels"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:119
+msgid "You can do other custom settings to your screens."
+msgstr "Vous pouvez appliquer d'autres paramètres pour vos écrans."
+
+#: ../src/modules/grub/Preview.qml:122
+msgid "Drag and drop an image to change background."
+msgstr "Glisser et déposer une image pour changer de fond d'écran."
+
+#: ../src/modules/grub/Preview.qml:124
+msgid "Updating..."
+msgstr "Mise à jour..."
+
+#: ../src/modules/grub/Preview.qml:125
+msgid "Successfully updated, reboot to view."
+msgstr "Mise-à-jour effectuée avec succès, redémarrer pour appliquer."
+
+#: ../src/modules/grub/main.qml:112
+msgid "Default Boot"
+msgstr "Démarrage par défault"
+
+#: ../src/modules/grub/main.qml:167
+msgid "Boot delay"
+msgstr "Délai de démarrage"
+
+#: ../src/modules/grub/main.qml:206
+msgid "Text Color"
+msgstr "Couleur du texte"
+
+#: ../src/modules/grub/main.qml:239
+msgid "Selected Text Color"
+msgstr "Couleur de texte sélectionnée"
+
+#: ../src/modules/keyboard/LocaleArea.qml:53
+msgid "Language"
+msgstr "Langage"
+
+#: ../src/modules/keyboard/StateButtons.qml:92
+msgid "Delete Keyboard Layout"
+msgstr "Supprimer le language clavier"
+
+#: ../src/modules/keyboard/StateButtons.qml:107
+msgid "Add Keyboard Layout"
+msgstr "Ajouter un language clavier"
+
+#: ../src/modules/keyboard/main.qml:148
+msgid "Repeat Delay"
+msgstr "Délai de répétition "
+
+#: ../src/modules/keyboard/main.qml:162
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:208
+msgid "Short"
+msgstr "Court"
+
+#: ../src/modules/keyboard/main.qml:163
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:209
+msgid "Long"
+msgstr "Long"
+
+#: ../src/modules/keyboard/main.qml:173
+msgid "Repeat Rate"
+msgstr "Taux de répétition"
+
+#: ../src/modules/keyboard/main.qml:188 ../src/modules/keyboard/main.qml:214
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:135
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:172
+#: ../src/modules/mouse_touchpad/main.qml:134
+#: ../src/modules/mouse_touchpad/main.qml:170
+msgid "Fast"
+msgstr "Rapide"
+
+#: ../src/modules/keyboard/main.qml:189 ../src/modules/keyboard/main.qml:215
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:134
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:171
+#: ../src/modules/mouse_touchpad/main.qml:133
+#: ../src/modules/mouse_touchpad/main.qml:169
+msgid "Slow"
+msgstr "Lent"
+
+#: ../src/modules/keyboard/main.qml:199
+msgid "Cursor Blink Rate"
+msgstr "Vitesse de clignotement du curseur"
+
+#: ../src/modules/keyboard/main.qml:225
+msgid "Test Area"
+msgstr "Zone de test"
+
+#: ../src/modules/keyboard/main.qml:245
+msgid "Caps Lock prompt"
+msgstr "Pavé numérique verrouillé"
+
+#: ../src/modules/keyboard/main.qml:271
+msgid "Keyboard Layout"
+msgstr "Disposition du clavier"
+
+#: ../src/modules/keyboard/main.qml:498
+msgid "No result"
+msgstr "Pas de résultat"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
+msgid "Touchpad"
+msgstr "Pavé tactile"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:82
+#: ../src/modules/mouse_touchpad/main.qml:83
+msgid "Primary Button"
+msgstr "Bouton principal"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:91
+#: ../src/modules/mouse_touchpad/main.qml:91
+msgid "Left Button"
+msgstr "Bouton gauche"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:92
+#: ../src/modules/mouse_touchpad/main.qml:92
+msgid "Right Button"
+msgstr "Bouton droit"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:117
+#: ../src/modules/mouse_touchpad/main.qml:117
+msgid "Pointer Speed"
+msgstr "Vitesse du pointeur"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:154
+#: ../src/modules/mouse_touchpad/main.qml:153
+msgid "Double-click Speed"
+msgstr "Vitesse du double clic"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:192
+msgid "Drag Threshold"
+msgstr "Seuil de défilement"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:228
+msgid "Natural Scrolling"
+msgstr "Défilement naturel"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:252
+msgid "Tap to click"
+msgstr "Tapoter pour cliquer"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:275
+msgid "Two-finger scrolling"
+msgstr "Défiler avec deux doigt "
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:298
+msgid "Edge scrolling"
+msgstr "Défilement du bord"
+
+#: ../src/modules/mouse_touchpad/main.qml:50 ../src/views/ModulesData.qml:67
+msgid "Mouse"
+msgstr "Souris"
+
+#: ../src/modules/mouse_touchpad/main.qml:190
+msgid "Disable the touchpad when inserting the mouse"
+msgstr "Désactiver le pavé tactile lorsqu'une souris est connecté"
+
+#: ../src/modules/network/ConnectionAdd.qml:12
+#: ../src/modules/network/main.qml:315
+msgid "Add Network Connection"
+msgstr "Ajouter Connection Réseau"
+
+#: ../src/modules/network/ConnectionAdd.qml:35
+#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:11
+#: ../src/modules/network/main.qml:205
+msgid "PPPoE"
+msgstr "PPPoE"
+
+#: ../src/modules/network/ConnectionAdd.qml:45
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:11
+#: ../src/modules/network/main.qml:213
+msgid "VPN"
+msgstr "VPN"
+
+#: ../src/modules/network/ConnectionAdd.qml:77
+msgid "Next"
+msgstr "Suivant"
+
+#: ../src/modules/network/ConnectionEdit.qml:60
+msgid "Are you sure you want to delete this network?"
+msgstr "Êtes vous sûr de vouloir supprimer ce réseau ?"
+
+#: ../src/modules/network/ConnectionEdit.qml:60
+msgid "Delete this network"
+msgstr "Supprimer ce réseau"
+
+#: ../src/modules/network/ConnectionEdit.qml:118
+#: ../src/modules/network/wireless/WifiHotspot.qml:91
+msgid "Save"
+msgstr "Sauvegarder"
+
+#: ../src/modules/network/ConnectionEdit.qml:152
+msgid "Delete"
+msgstr "Supprimer"
+
+#: ../src/modules/network/Info.qml:13
+msgid "Connected"
+msgstr "Connecté"
+
+#: ../src/modules/network/Info.qml:15
+msgid "Not Connected"
+msgstr "Non Connecté"
+
+#: ../src/modules/network/Info.qml:39
+msgid "(default)"
+msgstr "(Par défaut)"
+
+#: ../src/modules/network/Info.qml:50
+msgid "Interface"
+msgstr "Interface"
+
+#: ../src/modules/network/Info.qml:59
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:11
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:33
+#: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:33
+#: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:33
+#: ../src/modules/network/wireless/AddWireless.qml:44
+#: ../src/modules/network/wireless/WifiHotspot.qml:49
+msgid "Security"
+msgstr "Sécurité"
+
+#: ../src/modules/network/Info.qml:60
+msgid "Device Addr"
+msgstr "Adresse du périphérique"
+
+#: ../src/modules/network/Info.qml:61
+#: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:33
+#: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:33
+msgid "IP Address"
+msgstr "Adresse IP"
+
+#: ../src/modules/network/Info.qml:62
+msgid "Subnet Mask"
+msgstr "Masque de sous-réseau"
+
+#: ../src/modules/network/Info.qml:63
+#: ../src/modules/network/add/AddVpn.qml:115
+#: ../src/modules/network/add/AddVpn.qml:155
+#: ../src/modules/network/add/AddVpn.qml:235
+#: ../src/modules/network/add/AddVpn.qml:385
+#: ../src/modules/network/add/AddVpn.qml:425
+#: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:57
+#: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:55
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:35
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:85
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:165
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:315
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:365
+msgid "Gateway"
+msgstr "Passerelle"
+
+#: ../src/modules/network/Info.qml:64
+msgid "Primary DNS"
+msgstr "DNS primaire"
+
+#: ../src/modules/network/Info.qml:65
+msgid "Secondary DNS"
+msgstr "DNS secondaire"
+
+#: ../src/modules/network/Info.qml:66
+msgid "Third DNS"
+msgstr "troisième DNS"
+
+#: ../src/modules/network/Info.qml:75
+msgid "Device Speed"
+msgstr "Vitesse du périphérique"
+
+#: ../src/modules/network/add/AddDsl.qml:11
+msgid "Add PPPoE Connection"
+msgstr "Ajouter connection PPPoE"
+
+#: ../src/modules/network/add/AddDsl.qml:24
+#: ../src/modules/network/add/AddMobile.qml:33
+#: ../src/modules/network/add/AddVpn.qml:103
+#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:33
+#: ../src/modules/shortcuts/CustomKeybinding.qml:118
+msgid "Name"
+msgstr "Nom"
+
+#: ../src/modules/network/add/AddDsl.qml:46
+#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:33
+msgid "Service"
+msgstr "Service"
+
+#: ../src/modules/network/add/AddMobile.qml:20
+msgid "New Mobile Connection"
+msgstr "Nouvelle connexion mobile"
+
+#: ../src/modules/network/add/AddMobile.qml:45
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:56
+msgid "Service Type"
+msgstr "Type de service"
+
+#: ../src/modules/network/add/AddMobile.qml:55
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:67
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:78
+msgid "APN"
+msgstr "APN"
+
+#: ../src/modules/network/add/AddMobile.qml:65
+#: ../src/modules/network/add/AddMobile.qml:95
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:88
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:158
+msgid "Number"
+msgstr "Nombre"
 
 #: ../src/modules/network/add/AddVpn.qml:15
 msgid "VPN Type"
@@ -233,29 +852,12 @@ msgstr "Informations générales"
 msgid "Need VPN Plugin"
 msgstr "Nécessite une extension VPN"
 
-#: ../src/modules/network/add/AddVpn.qml:115
-#: ../src/modules/network/add/AddVpn.qml:155
-#: ../src/modules/network/add/AddVpn.qml:235
-#: ../src/modules/network/add/AddVpn.qml:385
-#: ../src/modules/network/add/AddVpn.qml:425
-#: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:57
-#: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:55
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:35
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:85
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:165
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:315
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:365
-msgid "Gateway"
-msgstr "Passerelle"
-
 #: ../src/modules/network/add/AddVpn.qml:135
 #: ../src/modules/network/add/AddVpn.qml:265
 #: ../src/modules/network/add/AddVpn.qml:315
 #: ../src/modules/network/add/AddVpn.qml:405
 #: ../src/modules/network/add/AddVpn.qml:445
 #: ../src/modules/network/add/AddVpn.qml:475
-#: ../src/modules/network/wireless/AddWireless.qml:175
-#: ../src/modules/network/wireless/AddWireless.qml:196
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:164
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:185
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:55
@@ -264,15 +866,17 @@ msgstr "Passerelle"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:335
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:385
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:415
+#: ../src/modules/network/wireless/AddWireless.qml:175
+#: ../src/modules/network/wireless/AddWireless.qml:196
 msgid "Ask for Pwd"
 msgstr "Mot de passe demandé"
 
 #: ../src/modules/network/add/AddVpn.qml:165
 #: ../src/modules/network/add/AddVpn.qml:285
-#: ../src/modules/network/wireless/AddWireless.qml:104
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:93
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:95
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:215
+#: ../src/modules/network/wireless/AddWireless.qml:104
 msgid "CA Cert"
 msgstr "CA Cert"
 
@@ -286,49 +890,43 @@ msgstr "Proxy"
 msgid "Allow Cisco Secure Desktop Trojan"
 msgstr "Autoriser le Trojan Cisco Secure Desktop"
 
-#: ../src/modules/network/add/AddVpn.qml:345
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:275
-#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
-msgid "Customize Key Direction"
-msgstr "Personnaliser la touche direction"
-
-#: ../src/modules/network/add/AddVpn.qml:215
-#: ../src/modules/network/add/AddVpn.qml:305
-#: ../src/modules/network/wireless/AddWireless.qml:165
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:154
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:145
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:235
-msgid "Private Key"
-msgstr "Clé privée"
-
-#: ../src/modules/network/add/AddVpn.qml:245
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:175
-msgid "Auth Type"
-msgstr "Type d'authentification"
-
-#: ../src/modules/network/add/AddVpn.qml:205
-#: ../src/modules/network/add/AddVpn.qml:295
-#: ../src/modules/network/wireless/AddWireless.qml:114
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:103
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:135
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:225
-msgid "User Cert"
-msgstr "Cert. utilisateur"
-
 #: ../src/modules/network/add/AddVpn.qml:195
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:125
 msgid "CSD Script"
 msgstr "Script CSD"
+
+#: ../src/modules/network/add/AddVpn.qml:205
+#: ../src/modules/network/add/AddVpn.qml:295
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:103
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:135
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:225
+#: ../src/modules/network/wireless/AddWireless.qml:114
+msgid "User Cert"
+msgstr "Cert. utilisateur"
+
+#: ../src/modules/network/add/AddVpn.qml:215
+#: ../src/modules/network/add/AddVpn.qml:305
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:154
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:145
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:235
+#: ../src/modules/network/wireless/AddWireless.qml:165
+msgid "Private Key"
+msgstr "Clé privée"
 
 #: ../src/modules/network/add/AddVpn.qml:225
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:155
 msgid "Use FSID for Key Passphrase"
 msgstr "Utilisez FSID pour la phrase clé"
 
+#: ../src/modules/network/add/AddVpn.qml:245
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:175
+msgid "Auth Type"
+msgstr "Type d'authentification"
+
 #: ../src/modules/network/add/AddVpn.qml:325
-#: ../src/modules/network/wireless/AddWireless.qml:206
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:195
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:255
+#: ../src/modules/network/wireless/AddWireless.qml:206
 msgid "Private Pwd"
 msgstr "Mdp privé"
 
@@ -336,6 +934,12 @@ msgstr "Mdp privé"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:265
 msgid "Static Key"
 msgstr "Clé statique"
+
+#: ../src/modules/network/add/AddVpn.qml:345
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:275
+#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
+msgid "Customize Key Direction"
+msgstr "Personnaliser la touche direction"
 
 #: ../src/modules/network/add/AddVpn.qml:355
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:285
@@ -403,203 +1007,6 @@ msgstr "Clé pré-partagée"
 msgid "Use MPPE"
 msgstr "Utiliser MPPE"
 
-#: ../src/modules/network/wireless/AddWireless.qml:8
-msgid "Connect to wireless"
-msgstr "Se connecter au réseau sans fil"
-
-#: ../src/modules/network/wireless/AddWireless.qml:32
-#: ../src/modules/network/edit_autogen/EditSectionWifi.qml:23
-#: ../src/modules/network/wireless/WifiHotspot.qml:37
-msgid "SSID"
-msgstr "SSID"
-
-#: ../src/modules/network/wireless/AddWireless.qml:44
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:11
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:33
-#: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:33
-#: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:33
-#: ../src/modules/network/Info.qml:53
-#: ../src/modules/network/wireless/WifiHotspot.qml:49
-msgid "Security"
-msgstr "Sécurité"
-
-#: ../src/modules/network/wireless/AddWireless.qml:54
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:43
-#: ../src/modules/network/wireless/WifiHotspot.qml:59
-msgid "Key"
-msgstr "Clé"
-
-#: ../src/modules/network/wireless/AddWireless.qml:74
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:63
-msgid "EAP Auth"
-msgstr "Authentification EAP"
-
-#: ../src/modules/network/wireless/AddWireless.qml:84
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:73
-msgid "Identity"
-msgstr "Identité"
-
-#: ../src/modules/network/wireless/AddWireless.qml:94
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:83
-msgid "Anonymous ID"
-msgstr "Identifiant anonyme"
-
-#: ../src/modules/network/wireless/AddWireless.qml:124
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:113
-msgid "Provisioning"
-msgstr "Disposition"
-
-#: ../src/modules/network/wireless/AddWireless.qml:134
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:123
-msgid "PAC file"
-msgstr "Fichier PAC"
-
-#: ../src/modules/network/wireless/AddWireless.qml:144
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:133
-msgid "PEAP Version"
-msgstr "Version PEAP"
-
-#: ../src/modules/network/wireless/AddWireless.qml:154
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:143
-msgid "Inner Auth"
-msgstr "Authentification Interne"
-
-#: ../src/modules/network/wireless/AddWireless.qml:224
-#: ../src/modules/network/widgets/PasswordBox.qml:126
-msgid "Connect"
-msgstr "Se connecter"
-
-#: ../src/modules/account/AvatarPickDialog.qml:5
-msgid "Choose a new picture for your Avatar"
-msgstr "Sélectionnez une image pour votre Avatar"
-
-#: ../src/modules/account/AvatarView.qml:19
-msgid "Recently Used"
-msgstr "Utilisé récemment "
-
-#: ../src/modules/account/AvatarView.qml:20
-msgid "Avatar"
-msgstr "Avatar"
-
-#: ../src/modules/account/AvatarView.qml:21
-msgid "Webcam"
-msgstr "Webcam"
-
-#: ../src/modules/sound/BalanceLine.qml:31
-msgid "Left/Right Balance"
-msgstr "Gauche/Droite"
-
-#: ../src/modules/sound/BalanceLine.qml:53
-msgid "Left"
-msgstr "Gauche"
-
-#: ../src/modules/sound/BalanceLine.qml:55
-msgid "Right"
-msgstr "Droite"
-
-#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:43
-#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:53
-msgid "Automatically connect"
-msgstr "Se connecter automatiquement"
-
-#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:121
-#: ../src/modules/personalization/widgets/PreviewWindow.qml:280
-#: ../src/modules/display/main.qml:194
-msgid "Apply"
-msgstr "Appliquer"
-
-#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:149
-msgid "Devices nearby"
-msgstr "Périphériques proches"
-
-#: ../src/modules/display/BrightnessRectangle.qml:61
-#: ../src/modules/display/ResolutionRectangle.qml:69
-#: ../src/modules/display/RotationRectangle.qml:70
-msgid "Monitor"
-msgstr "Écran"
-
-#: ../src/modules/date_time/Calendar.qml:164
-msgid "Today"
-msgstr "Aujourd'hui"
-
-#: ../src/modules/date_time/CalendarComponent.qml:83
-msgid "Sun"
-msgstr "Dim"
-
-#: ../src/modules/date_time/CalendarComponent.qml:84
-msgid "Mon"
-msgstr "Lun"
-
-#: ../src/modules/date_time/CalendarComponent.qml:85
-msgid "Tue"
-msgstr "Mar"
-
-#: ../src/modules/date_time/CalendarComponent.qml:86
-msgid "Wed"
-msgstr "Mer"
-
-#: ../src/modules/date_time/CalendarComponent.qml:87
-msgid "Thu"
-msgstr "Jeu"
-
-#: ../src/modules/date_time/CalendarComponent.qml:88
-msgid "Fri"
-msgstr "Ven"
-
-#: ../src/modules/date_time/CalendarComponent.qml:89
-msgid "Sat"
-msgstr "Sam"
-
-#: ../src/modules/network/ConnectionAdd.qml:12
-#: ../src/modules/network/main.qml:315
-msgid "Add Network Connection"
-msgstr "Ajouter Connection Réseau"
-
-#: ../src/modules/network/ConnectionAdd.qml:35
-#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:11
-#: ../src/modules/network/main.qml:205
-msgid "PPPoE"
-msgstr "PPPoE"
-
-#: ../src/modules/network/ConnectionAdd.qml:45
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:11
-#: ../src/modules/network/main.qml:213
-msgid "VPN"
-msgstr "VPN"
-
-#: ../src/modules/network/ConnectionAdd.qml:77
-msgid "Next"
-msgstr "Suivant"
-
-#: ../src/modules/network/ConnectionEdit.qml:52
-msgid "Delete this network"
-msgstr "Supprimer ce réseau"
-
-#: ../src/modules/network/ConnectionEdit.qml:52
-msgid "Are you sure you want to delete this network?"
-msgstr "Êtes vous sûr de vouloir supprimer ce réseau ?"
-
-#: ../src/modules/network/ConnectionEdit.qml:110
-#: ../src/modules/network/wireless/WifiHotspot.qml:91
-msgid "Save"
-msgstr "Sauvegarder"
-
-#: ../src/modules/network/ConnectionEdit.qml:144
-msgid "Delete"
-msgstr "Supprimer"
-
-#: ../src/modules/shortcuts/CustomKeybinding.qml:133
-msgid "Command"
-msgstr "Commande"
-
-#: ../src/modules/account/DeleteUserDialog.qml:19
-msgid "Keep user's files"
-msgstr "Conserver les fichiers utilisateurs"
-
-#: ../src/modules/account/DeleteUserDialog.qml:20
-msgid "Delete user's files"
-msgstr "Supprimer les fichiers utilisateurs "
-
 #: ../src/modules/network/dsl/DslExpand.qml:19
 msgid "PPPoE Connections"
 msgstr "Connexions PPPoE"
@@ -612,6 +1019,11 @@ msgstr "Le système actuel manque de composants pour %1"
 #: ../src/modules/network/edit/EditLineMissingPackage.qml:22
 msgid "Click to install"
 msgstr "Cliquer pour installer"
+
+#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:44
+#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:54
+msgid "Automatically connect"
+msgstr "Se connecter automatiquement"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:11
 #: ../src/modules/network/main.qml:197
@@ -648,12 +1060,6 @@ msgstr "IPv4"
 msgid "Method"
 msgstr "Méthode"
 
-#: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:33
-#: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:33
-#: ../src/modules/network/Info.qml:55
-msgid "IP Address"
-msgstr "Adresse IP"
-
 #: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:44
 msgid "Netmask"
 msgstr "Masque de sous-réseau"
@@ -676,19 +1082,31 @@ msgstr "Préfixe"
 msgid "Mobile"
 msgstr "Mobile"
 
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:73
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:23
+msgid "Country or region"
+msgstr ""
+
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:34
+msgid "Provider"
+msgstr ""
+
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:45
+msgid "Plan"
+msgstr ""
+
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:118
 msgid "Network ID"
 msgstr "Identifiant du réseau"
 
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:83
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:128
 msgid "Type"
 msgstr "Type"
 
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:93
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:138
 msgid "Home Network Only"
 msgstr "Réseau domestique uniquement"
 
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:103
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:148
 msgid "PIN"
 msgstr "PIN"
 
@@ -764,6 +1182,47 @@ msgstr "Envoyer les paquets à répétition PPP"
 msgid "Security Required"
 msgstr "Sécurité demandée"
 
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:43
+#: ../src/modules/network/wireless/AddWireless.qml:54
+#: ../src/modules/network/wireless/WifiHotspot.qml:59
+msgid "Key"
+msgstr "Clé"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:63
+#: ../src/modules/network/wireless/AddWireless.qml:74
+msgid "EAP Auth"
+msgstr "Authentification EAP"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:73
+#: ../src/modules/network/wireless/AddWireless.qml:84
+msgid "Identity"
+msgstr "Identité"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:83
+#: ../src/modules/network/wireless/AddWireless.qml:94
+msgid "Anonymous ID"
+msgstr "Identifiant anonyme"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:113
+#: ../src/modules/network/wireless/AddWireless.qml:124
+msgid "Provisioning"
+msgstr "Disposition"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:123
+#: ../src/modules/network/wireless/AddWireless.qml:134
+msgid "PAC file"
+msgstr "Fichier PAC"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:133
+#: ../src/modules/network/wireless/AddWireless.qml:144
+msgid "PEAP Version"
+msgstr "Version PEAP"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:143
+#: ../src/modules/network/wireless/AddWireless.qml:154
+msgid "Inner Auth"
+msgstr "Authentification Interne"
+
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:75
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:355
 msgid "NT Domain"
@@ -791,13 +1250,13 @@ msgstr "Pas de compression des adresses/contrôles"
 msgid "VPN Advanced"
 msgstr "VPN avancé"
 
-#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:33
-msgid "Gateway Port"
-msgstr "Port de la passerelle"
-
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:23
 msgid "Customize Gateway Port"
 msgstr "Personnaliser port de la passerelle"
+
+#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:33
+msgid "Gateway Port"
+msgstr "Port de la passerelle"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:45
 msgid "Customize Renegotiation Interval"
@@ -928,6 +1387,12 @@ msgstr "Désactiver la détection d'un pair mort"
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
 
+#: ../src/modules/network/edit_autogen/EditSectionWifi.qml:23
+#: ../src/modules/network/wireless/AddWireless.qml:32
+#: ../src/modules/network/wireless/WifiHotspot.qml:37
+msgid "SSID"
+msgstr "SSID"
+
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:33
 msgid "Mode"
 msgstr "Mode"
@@ -939,929 +1404,6 @@ msgstr "Bande"
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:54
 msgid "Channel"
 msgstr "Canal"
-
-#: ../src/modules/account/EditUserDialog.qml:93
-msgid "Enable"
-msgstr "Activé"
-
-#: ../src/modules/sound/FadeLine.qml:31
-msgid "Front/Rear Balance"
-msgstr "Balance Avant/Arrière"
-
-#: ../src/modules/sound/FadeLine.qml:55
-msgid "Front"
-msgstr "Avant"
-
-#: ../src/modules/sound/FadeLine.qml:53
-msgid "Rear"
-msgstr "Arrière"
-
-#: ../src/modules/personalization/components/FontSettingsExpand.qml:48
-msgid "Standard"
-msgstr "Standard"
-
-#: ../src/modules/personalization/components/FontSettingsExpand.qml:70
-msgid "Monospaced"
-msgstr "Mono"
-
-#: ../src/modules/personalization/components/FontSettingsExpand.qml:90
-msgid "Size"
-msgstr "Taille"
-
-#: ../src/modules/personalization/components/FontSettingsExpand.qml:119
-#, qt-format
-msgid "Font %1"
-msgstr "Police %1"
-
-#: ../src/modules/account/GuestUser.qml:45 ../src/views/HeaderArea.qml:108
-msgid "Guest"
-msgstr "Invité"
-
-#: ../src/modules/account/GuestUser.qml:106
-msgid "Enabled"
-msgstr "Activé"
-
-#: ../src/modules/network/Info.qml:13
-msgid "Connected"
-msgstr "Connecté"
-
-#: ../src/modules/network/Info.qml:15
-msgid "Not Connected"
-msgstr "Non Connecté"
-
-#: ../src/modules/network/Info.qml:39
-msgid "(default)"
-msgstr "(Par défaut)"
-
-#: ../src/modules/network/Info.qml:50
-msgid "Interface"
-msgstr "Interface"
-
-#: ../src/modules/network/Info.qml:54
-msgid "Device Addr"
-msgstr "Adresse du périphérique"
-
-#: ../src/modules/network/Info.qml:56
-msgid "Subnet Mask"
-msgstr "Masque de sous-réseau"
-
-#: ../src/modules/network/Info.qml:57
-msgid "Route Addr"
-msgstr "Adresse routeur"
-
-#: ../src/modules/network/Info.qml:58
-msgid "Primary DNS"
-msgstr "DNS primaire"
-
-#: ../src/modules/network/Info.qml:59
-msgid "Secondary DNS"
-msgstr "DNS secondaire"
-
-#: ../src/modules/network/Info.qml:60
-msgid "Third DNS"
-msgstr "troisième DNS"
-
-#: ../src/modules/network/Info.qml:69
-msgid "Device Speed"
-msgstr "Vitesse du périphérique"
-
-#: ../src/modules/keyboard/LocaleArea.qml:53
-msgid "Language"
-msgstr "Langage"
-
-#: ../src/modules/display/MessageBox.qml:105
-msgid "Do you want to keep these display settings?"
-msgstr "Voulez vous garder ces paramètres d’affichage ?"
-
-#: ../src/modules/display/MessageBox.qml:114
-#, qt-format
-msgid ""
-"Reverting to previous display settings in <font color='#F48914'>%1</font> "
-"seconds."
-msgstr "Retour aux paramètres d'affichage précédent dans <font color='#F48914'>%1</font> secondes."
-
-#: ../src/modules/display/MessageBox.qml:140
-msgid "Keep Changes"
-msgstr "Garder les changements"
-
-#: ../src/modules/display/MessageBox.qml:128
-msgid "Revert"
-msgstr "Rétablir"
-
-#: ../src/views/ModulesData.qml:52
-msgid "Date and Time"
-msgstr "Date et Heure"
-
-#: ../src/views/ModulesData.qml:53
-msgid "Network"
-msgstr "Réseau"
-
-#: ../src/views/ModulesData.qml:54
-msgid "Disk Mount"
-msgstr "Disque monté"
-
-#: ../src/views/ModulesData.qml:55 ../src/modules/network/main.qml:173
-msgid "Bluetooth"
-msgstr "Bluetooth"
-
-#: ../src/views/ModulesData.qml:56
-msgid "Sound"
-msgstr "Son"
-
-#: ../src/views/ModulesData.qml:57
-msgid "Power Management"
-msgstr "Gestion de l'alimentation"
-
-#: ../src/views/ModulesData.qml:58
-msgid "More Settings"
-msgstr "Plus de réglages"
-
-#: ../src/views/ModulesData.qml:59 ../src/views/PanelContent.qml:473
-msgid "Power"
-msgstr "Arrêter"
-
-#: ../src/views/ModulesData.qml:60
-msgid "Display"
-msgstr "Affichage"
-
-#: ../src/views/ModulesData.qml:61
-msgid "Desktop"
-msgstr "Bureau"
-
-#: ../src/views/ModulesData.qml:62
-msgid "Personalization"
-msgstr "Personnalisation"
-
-#: ../src/views/ModulesData.qml:63
-msgid "Keyboard Shortcuts"
-msgstr "Raccourcis clavier"
-
-#: ../src/views/ModulesData.qml:64
-msgid "Keyboard and Language"
-msgstr "Clavier et language"
-
-#: ../src/views/ModulesData.qml:65
-msgid "Tablet"
-msgstr "Tablette"
-
-#: ../src/views/ModulesData.qml:66
-msgid "Mouse and Touchpad"
-msgstr "Souris et Touchpad"
-
-#: ../src/views/ModulesData.qml:67 ../src/modules/mouse_touchpad/main.qml:50
-msgid "Mouse"
-msgstr "Souris"
-
-#: ../src/views/ModulesData.qml:68
-msgid "User Accounts"
-msgstr "Comptes utilisateurs"
-
-#: ../src/views/ModulesData.qml:69
-#: ../src/modules/default_applications/main.qml:85
-msgid "Default Applications"
-msgstr "Applications par défaut"
-
-#: ../src/views/ModulesData.qml:70
-msgid "System Information"
-msgstr "Informations du système"
-
-#: ../src/views/ModulesData.qml:71
-msgid "Boot Menu"
-msgstr "Menu démarrer"
-
-#: ../src/views/ModulesData.qml:72
-msgid "Home"
-msgstr "Dossier personnel "
-
-#: ../src/modules/display/MonitorDragArea.qml:471
-msgid "Identify"
-msgstr "Identifier"
-
-#: ../src/modules/display/MonitorDragArea.qml:489
-msgid "Edit"
-msgstr "Éditer"
-
-#: ../src/modules/display/MonitorDragArea.qml:507
-msgid "Split"
-msgstr "Diviser"
-
-#: ../src/modules/display/MonitorProperties.qml:42
-msgid "Normal"
-msgstr "Normal"
-
-#: ../src/modules/display/MonitorProperties.qml:43
-msgid "Rotate Right"
-msgstr "Faire une rotation sur la droite"
-
-#: ../src/modules/display/MonitorProperties.qml:44
-msgid "Upside Down"
-msgstr "De haut en bas"
-
-#: ../src/modules/display/MonitorProperties.qml:45
-msgid "Rotate Left"
-msgstr "Faire une rotation sur la gauche"
-
-#: ../src/modules/display/MonitorProperties.qml:78
-msgid "Enable Monitor(s)"
-msgstr "Activer le(s) moniteur(s)"
-
-#: ../src/modules/display/MonitorProperties.qml:96
-msgid "Please choose the monitor(s) you want to enable"
-msgstr "Veuillez choisir le(s) moniteur(s) que vous voulez activer"
-
-#: ../src/modules/display/MonitorProperties.qml:146
-msgid "Primary Screen"
-msgstr "Écran principal"
-
-#: ../src/modules/display/MonitorProperties.qml:189
-msgid "Resolution"
-msgstr "Résolution"
-
-#: ../src/modules/display/MonitorProperties.qml:230
-msgid "Rotation"
-msgstr "Rotation"
-
-#: ../src/modules/display/MonitorProperties.qml:274
-#: ../src/modules/display/MonitorProperties.qml:306
-msgid "Brightness"
-msgstr "Luminosité"
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:38
-msgid "Display Modes"
-msgstr "Afficher les différents modes"
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:58
-msgid "Copy"
-msgstr "Copier "
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:59
-msgid "Copy the contents of your primary screen to other screens."
-msgstr "Copier l'affichage du premier écran virtuel aux autres écrans."
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:76
-msgid "Extend"
-msgstr "Etendre"
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:77
-msgid ""
-"Extend your screen contents to display different contents on different "
-"screens."
-msgstr "Etendre l'affichage de votre bureau sur d'autres écrans."
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:98
-#, qt-format
-msgid "Only Displayed on %1"
-msgstr "Afficher uniquement sur %1"
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:99
-#, qt-format
-msgid "Screen contents are only displayed on %1 but not on other screens."
-msgstr "L'affichage est uniquement sur %1 mais pas aux autres écrans."
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:118
-msgid "Custom Settings"
-msgstr "Paramètres personnels"
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:119
-msgid "You can do other custom settings to your screens."
-msgstr "Vous pouvez appliquer d'autres paramètres pour vos écrans."
-
-#: ../src/modules/network/wired/NewItem.qml:45
-#: ../src/modules/network/wired/WiredItem.qml:89
-#, qt-format
-msgid "Wired Connection %1"
-msgstr "Connexion filaire %1"
-
-#: ../src/modules/network/wired/NewItem.qml:47
-#: ../src/modules/network/wired/WiredItem.qml:91
-msgid "Wired Connection"
-msgstr "Connexion filaire"
-
-#: ../src/modules/network/widgets/NotManagedSection.qml:25
-msgid "not managed"
-msgstr "Pas réussi"
-
-#: ../src/modules/network/widgets/PasswordBox.qml:102
-msgid "Auto-connect"
-msgstr "Auto-connection"
-
-#: ../src/modules/account/PasswordDialog.qml:119
-msgid "New Password"
-msgstr "Nouveau mot de passe"
-
-#: ../src/modules/account/PasswordDialog.qml:185
-msgid "Repeat"
-msgstr "Répéter"
-
-#: ../src/modules/grub/Preview.qml:122
-msgid "Drag and drop an image to change background."
-msgstr "Glisser et déposer une image pour changer de fond d'écran."
-
-#: ../src/modules/grub/Preview.qml:123 ../src/modules/account/UserList.qml:239
-msgid "Image format not supported"
-msgstr "Format d'image non accepté."
-
-#: ../src/modules/grub/Preview.qml:124
-msgid "Updating..."
-msgstr "Mise à jour..."
-
-#: ../src/modules/grub/Preview.qml:125
-msgid "Successfully updated, reboot to view."
-msgstr "Mise-à-jour effectuée avec succès, redémarrer pour appliquer."
-
-#: ../src/modules/network/proxy/ProxyContent.qml:43
-#: ../src/modules/shortcuts/ShortcutInput.qml:119
-#: ../src/modules/date_time/main.qml:205
-msgid "None"
-msgstr "Aucun"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:48
-msgid "Manual"
-msgstr "Manuel"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:53
-msgid "Auto"
-msgstr "Automatique"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:88
-msgid "HTTP Proxy"
-msgstr "Proxy HTTP"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:100
-msgid "HTTPS Proxy"
-msgstr "Proxy HTTPS"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:112
-msgid "FTP Proxy"
-msgstr "Proxy FTP"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:124
-msgid "Socks Proxy"
-msgstr "Socks Proxy"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:149
-msgid "Configuration URL"
-msgstr "URL de configuration"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:166
-msgid "Apply system wide"
-msgstr "Appliquer la largeur sur le système"
-
-#: ../src/modules/network/proxy/ProxyExpand.qml:37
-msgid "System Proxy"
-msgstr "Proxy système"
-
-#: ../src/modules/shared/ResetButton.qml:39
-msgid "Reset successfully"
-msgstr "Réinitialisation réussie"
-
-#: ../src/modules/shared/ResetButton.qml:47
-msgid "Reset"
-msgstr "Réinitialiser "
-
-#: ../src/modules/shortcuts/ShortcutInput.qml:137
-msgid "Please input new shortcut"
-msgstr "Nommer le nouveau raccourci"
-
-#: ../src/modules/shortcuts/ShortcutInput.qml:238
-#, qt-format
-msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
-msgstr "Le raccourci \"%1\" est invalide, veuillez créer un nouveau raccourci."
-
-#: ../src/modules/shortcuts/ShortcutInput.qml:276
-msgid "The shortcut you set "
-msgstr "Le raccourci que vous avez paramétré"
-
-#: ../src/modules/shortcuts/ShortcutInput.qml:279
-#, qt-format
-msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
-msgstr "Présence de conflits avec un \"%2\" dans la catégorie \"%1\"."
-
-#: ../src/modules/shortcuts/ShortcutInput.qml:281
-msgid "Do you want to replace it?"
-msgstr "Voulez vous le remplacer ?"
-
-#: ../src/modules/shortcuts/ShortcutInput.qml:339
-msgid "Replace"
-msgstr "Remplacer "
-
-#: ../src/modules/personalization/widgets/ShowPreviewButton.qml:53
-msgid "Preview Theme"
-msgstr "Prévisualiser le thème"
-
-#: ../src/modules/date_time/StateButtons.qml:35
-#: ../src/modules/keyboard/StateButtons.qml:35
-#: ../src/modules/shortcuts/StateButtons.qml:39
-msgid "Done"
-msgstr "Fait"
-
-#: ../src/modules/date_time/StateButtons.qml:36
-#: ../src/modules/date_time/StateButtons.qml:54
-#: ../src/modules/date_time/TimezoneArea.qml:468
-msgid "Close"
-msgstr "Fermer"
-
-#: ../src/modules/date_time/StateButtons.qml:85
-msgid "Delete Time Zone"
-msgstr "Supprimer la zone de temps"
-
-#: ../src/modules/date_time/StateButtons.qml:101
-msgid "Add Time Zone"
-msgstr "Ajouter une zone de temps"
-
-#: ../src/modules/keyboard/StateButtons.qml:92
-msgid "Delete Keyboard Layout"
-msgstr "Supprimer le language clavier"
-
-#: ../src/modules/keyboard/StateButtons.qml:107
-msgid "Add Keyboard Layout"
-msgstr "Ajouter un language clavier"
-
-#: ../src/modules/shortcuts/StateButtons.qml:90
-msgid "Delete Shortcut"
-msgstr "Supprimer raccourci"
-
-#: ../src/modules/shortcuts/StateButtons.qml:107
-msgid "Add Shortcut"
-msgstr "Ajouter raccourci"
-
-#: ../src/modules/personalization/widgets/ThemeItem.qml:92
-#: ../src/modules/power/main.qml:319 ../src/modules/power/main.qml:560
-#: ../src/modules/shortcuts/main.qml:54 ../src/modules/shortcuts/main.qml:231
-msgid "Custom"
-msgstr "Personnalisé"
-
-#: ../src/modules/date_time/TimeBox.qml:161
-msgid "Double-click this area to change your time"
-msgstr "Double-clic dans cette zone pour changer l'heure"
-
-#: ../src/modules/date_time/TimeBox.qml:202
-msgid "Set"
-msgstr "Paramétrer"
-
-#: ../src/modules/date_time/TimezoneArea.qml:256
-msgid "Time zone"
-msgstr "Zone horaire"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
-msgid "Touchpad"
-msgstr "Pavé tactile"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:82
-#: ../src/modules/mouse_touchpad/main.qml:83
-msgid "Primary Button"
-msgstr "Bouton principal"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:91
-#: ../src/modules/mouse_touchpad/main.qml:91
-msgid "Left Button"
-msgstr "Bouton gauche"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:92
-#: ../src/modules/mouse_touchpad/main.qml:92
-msgid "Right Button"
-msgstr "Bouton droit"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:117
-#: ../src/modules/mouse_touchpad/main.qml:117
-msgid "Pointer Speed"
-msgstr "Vitesse du pointeur"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:134
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:171
-#: ../src/modules/keyboard/main.qml:190 ../src/modules/keyboard/main.qml:216
-#: ../src/modules/mouse_touchpad/main.qml:133
-#: ../src/modules/mouse_touchpad/main.qml:169
-msgid "Slow"
-msgstr "Lent"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:135
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:172
-#: ../src/modules/keyboard/main.qml:189 ../src/modules/keyboard/main.qml:215
-#: ../src/modules/mouse_touchpad/main.qml:134
-#: ../src/modules/mouse_touchpad/main.qml:170
-msgid "Fast"
-msgstr "Rapide"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:154
-#: ../src/modules/mouse_touchpad/main.qml:153
-msgid "Double-click Speed"
-msgstr "Vitesse du double clic"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:192
-msgid "Drag Threshold"
-msgstr "Seuil de défilement"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:208
-#: ../src/modules/keyboard/main.qml:163
-msgid "Short"
-msgstr "Court"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:209
-#: ../src/modules/keyboard/main.qml:164
-msgid "Long"
-msgstr "Long"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:228
-msgid "Natural Scrolling"
-msgstr "Défilement naturel"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:252
-msgid "Tap to click"
-msgstr "Tapoter pour cliquer"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:275
-msgid "Two-finger scrolling"
-msgstr "Défiler avec deux doigt "
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:298
-msgid "Edge scrolling"
-msgstr "Défilement du bord"
-
-#: ../src/modules/account/UserListCreatingItem.qml:99
-msgid "Account Preparing..."
-msgstr "Compte en préparation..."
-
-#: ../src/modules/network/vpn/VpnExpand.qml:48
-msgid "VPN Connections"
-msgstr "Connexions VPN"
-
-#: ../src/modules/account/WebCam.qml:125 ../src/modules/account/WebCam.qml:140
-msgid "Snapshot"
-msgstr "Instantané"
-
-#: ../src/modules/account/WebCam.qml:136
-msgid "Again"
-msgstr "Encore"
-
-#: ../src/modules/account/WebCam.qml:175
-msgid "No camera found."
-msgstr "Aucune caméra trouvée."
-
-#: ../src/modules/network/wireless/WifiHotspot.qml:23
-msgid "Edit Wi-Fi Hotspot"
-msgstr "Modifier le point d’accès Wi-Fi"
-
-#: ../src/modules/network/wireless/WifiHotspot.qml:23
-msgid "Create Wi-Fi Hotspot"
-msgstr "Créer un point d’accès Wi-Fi"
-
-#: ../src/modules/network/wireless/WifiHotspot.qml:91
-msgid "Create"
-msgstr "Créer"
-
-#: ../src/modules/network/wired/WiredDeviceExpand.qml:38
-msgid "Wired Network"
-msgstr "Réseau filaire"
-
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:30
-msgid "Wireless Network"
-msgstr "Réseau sans fil"
-
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:28
-#, qt-format
-msgid "Wireless Network %1"
-msgstr "Réseau sans fil %1"
-
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:57
-msgid ""
-"Wireless network is unable to be connected maybe due to the following reasons:\n"
-"\n"
-"1. The hardware switch of wireless network card is off\n"
-"2. Incorrect network configuration in /etc/network/interface\n"
-"3. Incorrect driver of network hardware"
-msgstr "Le réseau sans fil n'est pas en mesure de se connecter, peut-être dû aux raisons suivantes\n\n1.Le connecteur WIFI est en position off\n2.La configuration du réseau dans /etc/network/interface est incorrecte\n3.Mauvais pilote de la carte réseau"
-
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:37
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:163
-msgid "Connect to hidden access point"
-msgstr "Se connecter à un point d'accès caché "
-
-#: ../src/modules/power/main.qml:307 ../src/modules/power/main.qml:548
-msgid "Power saver"
-msgstr "Économie d'énergie"
-
-#: ../src/modules/power/main.qml:301 ../src/modules/power/main.qml:542
-msgid "Balanced"
-msgstr "Équilibré"
-
-#: ../src/modules/power/main.qml:313 ../src/modules/power/main.qml:554
-msgid "High performance"
-msgstr "Hautes performances"
-
-#: ../src/modules/date_time/main.qml:131
-msgid "Sync Automatically"
-msgstr "Sync Automatique"
-
-#: ../src/modules/date_time/main.qml:149
-msgid "Use 24-hour clock"
-msgstr "Utiliser le format 24 heures"
-
-#: ../src/modules/date_time/main.qml:180
-msgid "Adjust DST clock "
-msgstr "Régler à l'heure d'été"
-
-#: ../src/modules/date_time/main.qml:257
-msgid "Date"
-msgstr "Date"
-
-#: ../src/modules/date_time/main.qml:290
-msgid "Set Date"
-msgstr "Régler la date"
-
-#: ../src/modules/default_applications/main.qml:97
-msgid "Browser"
-msgstr "Navigateur"
-
-#: ../src/modules/default_applications/main.qml:111
-msgid "Mail"
-msgstr "Courrier"
-
-#: ../src/modules/default_applications/main.qml:122
-msgid "Text"
-msgstr "Texte"
-
-#: ../src/modules/default_applications/main.qml:128
-msgid "Music"
-msgstr "Musique"
-
-#: ../src/modules/default_applications/main.qml:159
-msgid "Video"
-msgstr "Vidéo"
-
-#: ../src/modules/default_applications/main.qml:191
-msgid "Picture"
-msgstr "Image"
-
-#: ../src/modules/default_applications/main.qml:209
-msgid "Terminal"
-msgstr "Terminal"
-
-#: ../src/modules/default_applications/main.qml:268
-msgid "AutoPlay"
-msgstr "Lecture automatique"
-
-#: ../src/modules/default_applications/main.qml:283
-msgid "CD Audio"
-msgstr "CD Audio"
-
-#: ../src/modules/default_applications/main.qml:288
-msgid "DVD Video"
-msgstr "DVD Vidéo"
-
-#: ../src/modules/default_applications/main.qml:293
-msgid "Music Player"
-msgstr "Lecteur de musique"
-
-#: ../src/modules/default_applications/main.qml:298
-msgid "Camera"
-msgstr "Photo"
-
-#: ../src/modules/default_applications/main.qml:303
-msgid "Software"
-msgstr "Logiciel"
-
-#: ../src/modules/grub/main.qml:112
-msgid "Default Boot"
-msgstr "Démarrage par défault"
-
-#: ../src/modules/grub/main.qml:167
-msgid "Boot delay"
-msgstr "Délai de démarrage"
-
-#: ../src/modules/grub/main.qml:206
-msgid "Text Color"
-msgstr "Couleur du texte"
-
-#: ../src/modules/grub/main.qml:239
-msgid "Selected Text Color"
-msgstr "Couleur de texte sélectionnée"
-
-#: ../src/modules/keyboard/main.qml:149
-msgid "Repeat Delay"
-msgstr "Délai de répétition "
-
-#: ../src/modules/keyboard/main.qml:174
-msgid "Repeat Rate"
-msgstr "Taux de répétition"
-
-#: ../src/modules/keyboard/main.qml:200
-msgid "Cursor Blink Rate"
-msgstr "Vitesse de clignotement du curseur"
-
-#: ../src/modules/keyboard/main.qml:226
-msgid "Test Area"
-msgstr "Zone de test"
-
-#: ../src/modules/keyboard/main.qml:272
-msgid "Keyboard Layout"
-msgstr "Disposition du clavier"
-
-#: ../src/modules/keyboard/main.qml:499
-msgid "No result"
-msgstr "Pas de résultat"
-
-#: ../src/modules/keyboard/main.qml:246
-msgid "Caps Lock prompt"
-msgstr "Pavé numérique verrouillé"
-
-#: ../src/modules/mouse_touchpad/main.qml:190
-msgid "Disable the touchpad when inserting the mouse"
-msgstr "Désactiver le pavé tactile lorsqu'une souris est connecté"
-
-#: ../src/modules/personalization/main.qml:111
-msgid "Theme"
-msgstr "Thème"
-
-#: ../src/modules/personalization/main.qml:118
-#: ../src/modules/shortcuts/main.qml:52
-msgid "Window"
-msgstr "Fenêtre"
-
-#: ../src/modules/personalization/main.qml:125
-msgid "Icon"
-msgstr "Icône"
-
-#: ../src/modules/personalization/main.qml:132
-msgid "Cursor"
-msgstr "Curseur"
-
-#: ../src/modules/personalization/main.qml:139
-msgid "Wallpaper"
-msgstr "Fond d’écran "
-
-#: ../src/modules/personalization/main.qml:153
-msgid "Fonts"
-msgstr "Polices"
-
-#: ../src/modules/power/main.qml:53 ../src/modules/power/main.qml:65
-msgid "Never"
-msgstr "Jamais"
-
-#: ../src/modules/power/main.qml:59
-msgid "1 minute"
-msgstr "1 minute"
-
-#: ../src/modules/power/main.qml:60
-msgid "5 minutes"
-msgstr "5 minutes"
-
-#: ../src/modules/power/main.qml:61
-msgid "10 minutes"
-msgstr "10 minutes"
-
-#: ../src/modules/power/main.qml:62
-msgid "15 minutes"
-msgstr "15 minutes"
-
-#: ../src/modules/power/main.qml:63
-msgid "30 minutes"
-msgstr "30 minutes"
-
-#: ../src/modules/power/main.qml:64
-msgid "1 hour"
-msgstr "1 heure"
-
-#: ../src/modules/power/main.qml:123
-msgid "When I press the power button"
-msgstr "Quand j'appuie sur le bouton d'alimentation"
-
-#: ../src/modules/power/main.qml:137 ../src/modules/power/main.qml:183
-msgid "Shutdown"
-msgstr "Arrêter"
-
-#: ../src/modules/power/main.qml:142 ../src/modules/power/main.qml:188
-#: ../src/modules/power/main.qml:304 ../src/modules/power/main.qml:310
-#: ../src/modules/power/main.qml:316 ../src/modules/power/main.qml:322
-#: ../src/modules/power/main.qml:425 ../src/modules/power/main.qml:545
-#: ../src/modules/power/main.qml:551 ../src/modules/power/main.qml:557
-#: ../src/modules/power/main.qml:563 ../src/modules/power/main.qml:659
-msgid "Suspend"
-msgstr "Mettre en veille "
-
-#: ../src/modules/power/main.qml:147
-msgid "Ask"
-msgstr "Me demander"
-
-#: ../src/modules/power/main.qml:169
-msgid "When I close the lid"
-msgstr "Quand je ferme le couvercle"
-
-#: ../src/modules/power/main.qml:193
-msgid "Nothing"
-msgstr "Aucun"
-
-#: ../src/modules/power/main.qml:212
-msgid "Password required to wake up"
-msgstr "Mot de passe requis pour sortir de veille"
-
-#: ../src/modules/power/main.qml:248
-msgid "Plugged in"
-msgstr "Mode alimentation"
-
-#: ../src/modules/power/main.qml:490
-msgid "On battery"
-msgstr "Sur batterie"
-
-#: ../src/modules/power/main.qml:303 ../src/modules/power/main.qml:309
-#: ../src/modules/power/main.qml:315 ../src/modules/power/main.qml:321
-#: ../src/modules/power/main.qml:384 ../src/modules/power/main.qml:544
-#: ../src/modules/power/main.qml:550 ../src/modules/power/main.qml:556
-#: ../src/modules/power/main.qml:562 ../src/modules/power/main.qml:619
-msgid "Turn off the display"
-msgstr "Désactiver l'affichage"
-
-#: ../src/modules/power/main.qml:378 ../src/modules/power/main.qml:614
-msgid "Custom Options"
-msgstr "Options personnalisées"
-
-#: ../src/modules/shortcuts/main.qml:50
-msgid "System"
-msgstr "Système"
-
-#: ../src/modules/shortcuts/main.qml:53
-msgid "Workspace"
-msgstr "Espace de travail"
-
-#: ../src/modules/sound/main.qml:127
-msgid "Speaker"
-msgstr "Haut-parleur"
-
-#: ../src/modules/sound/main.qml:157
-msgid "Output Volume"
-msgstr "Volume de sortie"
-
-#: ../src/modules/sound/main.qml:222
-msgid "Microphone"
-msgstr "Micro"
-
-#: ../src/modules/sound/main.qml:252
-msgid "Input Volume"
-msgstr "Volume d'entrée"
-
-#: ../src/modules/sound/main.qml:296
-msgid "Input Feedback"
-msgstr "Effet larsen"
-
-#: ../src/modules/sound/main.qml:332
-msgid "Output Port"
-msgstr "Source de sortie"
-
-#: ../src/modules/sound/main.qml:349 ../src/modules/sound/main.qml:452
-msgid "No port exists in this device."
-msgstr "Aucun port existant pour ce périphérique"
-
-#: ../src/modules/sound/main.qml:387
-msgid "Output device"
-msgstr "Périphérique de sortie"
-
-#: ../src/modules/sound/main.qml:435
-msgid "Input Port"
-msgstr "Source d'entrée "
-
-#: ../src/modules/sound/main.qml:490
-msgid "Input device"
-msgstr "Périphérique d'entrée"
-
-#: ../src/modules/sound/main.qml:543
-msgid "Hide Advanced..."
-msgstr "Cacher les options avancées ..."
-
-#: ../src/modules/sound/main.qml:543
-msgid "Show Advanced..."
-msgstr "Montrer les options avancées"
-
-#: ../src/modules/system_info/main.qml:119
-msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
-msgstr "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
-
-#: ../src/modules/system_info/main.qml:125
-msgid "Deepin Edition"
-msgstr "Édition Deepin"
-
-#: ../src/modules/system_info/main.qml:131
-msgid "System Type"
-msgstr "Système"
-
-#: ../src/modules/system_info/main.qml:132
-msgid "bit"
-msgstr "bit"
-
-#: ../src/modules/system_info/main.qml:137
-msgid "Processor"
-msgstr "Processeur"
-
-#: ../src/modules/system_info/main.qml:151
-msgid "Memory"
-msgstr "Mémoire"
-
-#: ../src/modules/system_info/main.qml:157
-msgid "Disk"
-msgstr "Disque"
-
-#: ../src/modules/system_info/main.qml:175
-msgid "GNU GENERAL PUBLIC LICENSE"
-msgstr "GNU GENERAL PUBLIC LICENSE"
 
 #: ../src/modules/network/main.qml:163 ../src/modules/network/main.qml:191
 msgid "Unknown"
@@ -1882,6 +1424,10 @@ msgstr "Inutilisé1"
 #: ../src/modules/network/main.qml:171
 msgid "Unused2"
 msgstr "Inutilisé2"
+
+#: ../src/modules/network/main.qml:173 ../src/views/ModulesData.qml:55
+msgid "Bluetooth"
+msgstr "Bluetooth"
 
 #: ../src/modules/network/main.qml:175
 msgid "OLPC mesh"
@@ -1935,10 +1481,6 @@ msgstr "Connexion mobile GSM"
 msgid "Mobile CDMA"
 msgstr "Connexion mobile CDMA"
 
-#: ../src/modules/network/main.qml:341
-msgid "View Detailed Information"
-msgstr "Voir informations détaillées"
-
 #: ../src/modules/network/main.qml:215
 msgid "VPN L2TP"
 msgstr "VPN L2TP"
@@ -1959,17 +1501,536 @@ msgstr "VPN OpenVPN"
 msgid "VPN OpenConnect"
 msgstr "VPN OpenConnect"
 
-#: ../src/modules/account/main.qml:109
-msgid "Delete Account"
-msgstr "Supprimer le compte"
+#: ../src/modules/network/main.qml:341
+msgid "View Detailed Information"
+msgstr "Voir informations détaillées"
 
-#: ../src/modules/account/main.qml:149
-msgid "Add Account"
-msgstr "Ajouter un compte"
+#: ../src/modules/network/mobile/MobileItem.qml:27
+msgid "Restore the connection"
+msgstr ""
 
-#: ../src/modules/account/main.qml:172
-msgid "User List"
-msgstr "Liste d'utilisateur"
+#: ../src/modules/network/proxy/ProxyContent.qml:48
+msgid "Manual"
+msgstr "Manuel"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:53
+msgid "Auto"
+msgstr "Automatique"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:88
+msgid "HTTP Proxy"
+msgstr "Proxy HTTP"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:100
+msgid "HTTPS Proxy"
+msgstr "Proxy HTTPS"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:112
+msgid "FTP Proxy"
+msgstr "Proxy FTP"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:124
+msgid "Socks Proxy"
+msgstr "Socks Proxy"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:149
+msgid "Configuration URL"
+msgstr "URL de configuration"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:166
+msgid "Apply system wide"
+msgstr "Appliquer la largeur sur le système"
+
+#: ../src/modules/network/proxy/ProxyExpand.qml:37
+msgid "System Proxy"
+msgstr "Proxy système"
+
+#: ../src/modules/network/vpn/VpnExpand.qml:48
+msgid "VPN Connections"
+msgstr "Connexions VPN"
+
+#: ../src/modules/network/widgets/NotManagedSection.qml:25
+msgid "not managed"
+msgstr "Pas réussi"
+
+#: ../src/modules/network/widgets/PasswordBox.qml:102
+msgid "Auto-connect"
+msgstr "Auto-connection"
+
+#: ../src/modules/network/widgets/PasswordBox.qml:126
+#: ../src/modules/network/wireless/AddWireless.qml:224
+#: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:134
+msgid "Connect"
+msgstr "Se connecter"
+
+#: ../src/modules/network/wired/NewItem.qml:45
+#: ../src/modules/network/wired/WiredItem.qml:89
+#, qt-format
+msgid "Wired Connection %1"
+msgstr "Connexion filaire %1"
+
+#: ../src/modules/network/wired/NewItem.qml:47
+#: ../src/modules/network/wired/WiredItem.qml:91
+msgid "Wired Connection"
+msgstr "Connexion filaire"
+
+#: ../src/modules/network/wired/WiredDeviceExpand.qml:38
+msgid "Wired Network"
+msgstr "Réseau filaire"
+
+#: ../src/modules/network/wireless/AddWireless.qml:8
+msgid "Connect to wireless"
+msgstr "Se connecter au réseau sans fil"
+
+#: ../src/modules/network/wireless/WifiHotspot.qml:23
+msgid "Create Wi-Fi Hotspot"
+msgstr "Créer un point d’accès Wi-Fi"
+
+#: ../src/modules/network/wireless/WifiHotspot.qml:23
+msgid "Edit Wi-Fi Hotspot"
+msgstr "Modifier le point d’accès Wi-Fi"
+
+#: ../src/modules/network/wireless/WifiHotspot.qml:91
+msgid "Create"
+msgstr "Créer"
+
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:28
+#, qt-format
+msgid "Wireless Network %1"
+msgstr "Réseau sans fil %1"
+
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:30
+msgid "Wireless Network"
+msgstr "Réseau sans fil"
+
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:37
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:163
+msgid "Connect to hidden access point"
+msgstr "Se connecter à un point d'accès caché "
+
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:57
+msgid ""
+"Wireless network is unable to be connected maybe due to the following reasons:\n"
+"\n"
+"1. The hardware switch of wireless network card is off\n"
+"2. Incorrect network configuration in /etc/network/interface\n"
+"3. Incorrect driver of network hardware"
+msgstr "Le réseau sans fil n'est pas en mesure de se connecter, peut-être dû aux raisons suivantes\n\n1.Le connecteur WIFI est en position off\n2.La configuration du réseau dans /etc/network/interface est incorrecte\n3.Mauvais pilote de la carte réseau"
+
+#: ../src/modules/personalization/components/FontSettingsExpand.qml:48
+msgid "Standard"
+msgstr "Standard"
+
+#: ../src/modules/personalization/components/FontSettingsExpand.qml:70
+msgid "Monospaced"
+msgstr "Mono"
+
+#: ../src/modules/personalization/components/FontSettingsExpand.qml:90
+msgid "Size"
+msgstr "Taille"
+
+#: ../src/modules/personalization/components/FontSettingsExpand.qml:119
+#, qt-format
+msgid "Font %1"
+msgstr "Police %1"
+
+#: ../src/modules/personalization/main.qml:110
+msgid "Theme"
+msgstr "Thème"
+
+#: ../src/modules/personalization/main.qml:117
+#: ../src/modules/shortcuts/main.qml:51
+msgid "Window"
+msgstr "Fenêtre"
+
+#: ../src/modules/personalization/main.qml:124
+msgid "Icon"
+msgstr "Icône"
+
+#: ../src/modules/personalization/main.qml:131
+msgid "Cursor"
+msgstr "Curseur"
+
+#: ../src/modules/personalization/main.qml:138
+msgid "Wallpaper"
+msgstr "Fond d’écran "
+
+#: ../src/modules/personalization/main.qml:152
+msgid "Fonts"
+msgstr "Polices"
+
+#: ../src/modules/personalization/widgets/ShowPreviewButton.qml:53
+msgid "Preview Theme"
+msgstr "Prévisualiser le thème"
+
+#: ../src/modules/personalization/widgets/ThemeItem.qml:92
+#: ../src/modules/power/main.qml:318 ../src/modules/power/main.qml:559
+#: ../src/modules/shortcuts/main.qml:53 ../src/modules/shortcuts/main.qml:230
+msgid "Custom"
+msgstr "Personnalisé"
+
+#: ../src/modules/power/main.qml:52 ../src/modules/power/main.qml:64
+msgid "Never"
+msgstr "Jamais"
+
+#: ../src/modules/power/main.qml:58
+msgid "1 minute"
+msgstr "1 minute"
+
+#: ../src/modules/power/main.qml:59
+msgid "5 minutes"
+msgstr "5 minutes"
+
+#: ../src/modules/power/main.qml:60
+msgid "10 minutes"
+msgstr "10 minutes"
+
+#: ../src/modules/power/main.qml:61
+msgid "15 minutes"
+msgstr "15 minutes"
+
+#: ../src/modules/power/main.qml:62
+msgid "30 minutes"
+msgstr "30 minutes"
+
+#: ../src/modules/power/main.qml:63
+msgid "1 hour"
+msgstr "1 heure"
+
+#: ../src/modules/power/main.qml:122
+msgid "When I press the power button"
+msgstr "Quand j'appuie sur le bouton d'alimentation"
+
+#: ../src/modules/power/main.qml:136 ../src/modules/power/main.qml:182
+msgid "Shutdown"
+msgstr "Arrêter"
+
+#: ../src/modules/power/main.qml:141 ../src/modules/power/main.qml:187
+#: ../src/modules/power/main.qml:303 ../src/modules/power/main.qml:309
+#: ../src/modules/power/main.qml:315 ../src/modules/power/main.qml:321
+#: ../src/modules/power/main.qml:424 ../src/modules/power/main.qml:544
+#: ../src/modules/power/main.qml:550 ../src/modules/power/main.qml:556
+#: ../src/modules/power/main.qml:562 ../src/modules/power/main.qml:658
+msgid "Suspend"
+msgstr "Mettre en veille "
+
+#: ../src/modules/power/main.qml:146
+msgid "Ask"
+msgstr "Me demander"
+
+#: ../src/modules/power/main.qml:168
+msgid "When I close the lid"
+msgstr "Quand je ferme le couvercle"
+
+#: ../src/modules/power/main.qml:192
+msgid "Nothing"
+msgstr "Aucun"
+
+#: ../src/modules/power/main.qml:211
+msgid "Password required to wake up"
+msgstr "Mot de passe requis pour sortir de veille"
+
+#: ../src/modules/power/main.qml:247
+msgid "Plugged in"
+msgstr "Mode alimentation"
+
+#: ../src/modules/power/main.qml:300 ../src/modules/power/main.qml:541
+msgid "Balanced"
+msgstr "Équilibré"
+
+#: ../src/modules/power/main.qml:302 ../src/modules/power/main.qml:308
+#: ../src/modules/power/main.qml:314 ../src/modules/power/main.qml:320
+#: ../src/modules/power/main.qml:383 ../src/modules/power/main.qml:543
+#: ../src/modules/power/main.qml:549 ../src/modules/power/main.qml:555
+#: ../src/modules/power/main.qml:561 ../src/modules/power/main.qml:618
+msgid "Turn off the display"
+msgstr "Désactiver l'affichage"
+
+#: ../src/modules/power/main.qml:306 ../src/modules/power/main.qml:547
+msgid "Power saver"
+msgstr "Économie d'énergie"
+
+#: ../src/modules/power/main.qml:312 ../src/modules/power/main.qml:553
+msgid "High performance"
+msgstr "Hautes performances"
+
+#: ../src/modules/power/main.qml:377 ../src/modules/power/main.qml:613
+msgid "Custom Options"
+msgstr "Options personnalisées"
+
+#: ../src/modules/power/main.qml:489
+msgid "On battery"
+msgstr "Sur batterie"
+
+#: ../src/modules/remoting/AccessContent/ConnectedItem.qml:32
+msgid ""
+"You are accessing the desktop shared by other users, you can choose to "
+"continue or disconnect"
+msgstr ""
+
+#: ../src/modules/remoting/AccessContent/ConnectedItem.qml:42
+#: ../src/modules/remoting/ShareContent/ConnectedItem.qml:46
+msgid "Disconnect"
+msgstr ""
+
+#: ../src/modules/remoting/AccessContent/ConnectingItem.qml:50
+msgid "Establishing connection, please wait..."
+msgstr ""
+
+#: ../src/modules/remoting/AccessContent/ConnectingItem.qml:75
+msgid ""
+"This panel will be hidden automatically and the remote session window will "
+"be opened on the desktop after connection is established successfully"
+msgstr ""
+
+#: ../src/modules/remoting/AccessContent/ErrorItem.qml:42
+#: ../src/modules/remoting/AccessPanel.qml:81
+#: ../src/modules/remoting/AccessPanel.qml:127
+msgid "Failed to establish the connection, you can retry to connect"
+msgstr ""
+
+#: ../src/modules/remoting/AccessContent/ErrorItem.qml:70
+#: ../src/modules/remoting/ShareContent/ErrorItem.qml:70
+msgid "Retry"
+msgstr ""
+
+#: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:104
+#: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:149
+msgid "Please enter the verification code in the input field above"
+msgstr ""
+
+#: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:168
+msgid "Start remote access after clicking on \"Connect\""
+msgstr ""
+
+#: ../src/modules/remoting/AccessPanel.qml:60
+#: ../src/modules/remoting/AccessPanel.qml:95
+#: ../src/modules/remoting/SharePanel.qml:54
+#: ../src/modules/remoting/SharePanel.qml:94
+#: ../src/modules/remoting/Widgets/NoNetworkConnection.qml:26
+msgid "No network connections are available, please retry..."
+msgstr ""
+
+#: ../src/modules/remoting/AccessPanel.qml:122
+msgid "The verification code is invalid, please retry"
+msgstr ""
+
+#: ../src/modules/remoting/AccessPanel.qml:146
+msgid "Accessing"
+msgstr ""
+
+#: ../src/modules/remoting/MainPanel.qml:28 ../src/views/ModulesData.qml:73
+msgid "Remote Assistance"
+msgstr ""
+
+#: ../src/modules/remoting/MainPanel.qml:35
+msgid "Share"
+msgstr "Partager"
+
+#: ../src/modules/remoting/MainPanel.qml:36
+msgid "Share your desktop to get remote assistance from other users"
+msgstr ""
+
+#: ../src/modules/remoting/MainPanel.qml:49
+msgid "Access"
+msgstr ""
+
+#: ../src/modules/remoting/MainPanel.qml:50
+msgid "Access to the desktop shared by other users"
+msgstr ""
+
+#: ../src/modules/remoting/ShareContent/ConnectedItem.qml:35
+msgid ""
+"Sharing your desktop, your can continue to share or choose to disconnect"
+msgstr ""
+
+#: ../src/modules/remoting/ShareContent/ErrorItem.qml:42
+#: ../src/modules/remoting/SharePanel.qml:80
+#: ../src/modules/remoting/SharePanel.qml:118
+msgid ""
+"Failed to get the verification code, you can retry or cancel the operation"
+msgstr ""
+
+#: ../src/modules/remoting/ShareContent/GeneratedCodeItem.qml:62
+msgid ""
+"To start sharing your desktop, please provide the above verification code to"
+" whom will assist you. Your shared session will begin immediately after "
+"verification code input"
+msgstr ""
+
+#: ../src/modules/remoting/ShareContent/GeneratedCodeItem.qml:91
+msgid "Copy Code"
+msgstr ""
+
+#: ../src/modules/remoting/ShareContent/GeneratedCodeItem.qml:110
+msgid "Copied to clipboard successfully"
+msgstr ""
+
+#: ../src/modules/remoting/ShareContent/GeneratingCodeItem.qml:48
+msgid "Generating the verification code, please wait..."
+msgstr ""
+
+#: ../src/modules/remoting/SharePanel.qml:131
+msgid "Sharing"
+msgstr "Partage en cours"
+
+#: ../src/modules/shared/ResetButton.qml:39
+msgid "Reset successfully"
+msgstr "Réinitialisation réussie"
+
+#: ../src/modules/shared/ResetButton.qml:47
+msgid "Reset"
+msgstr "Réinitialiser "
+
+#: ../src/modules/shortcuts/CustomKeybinding.qml:133
+msgid "Command"
+msgstr "Commande"
+
+#: ../src/modules/shortcuts/ShortcutInput.qml:136
+msgid "Please input new shortcut"
+msgstr "Nommer le nouveau raccourci"
+
+#: ../src/modules/shortcuts/ShortcutInput.qml:237
+#, qt-format
+msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
+msgstr "Le raccourci \"%1\" est invalide, veuillez créer un nouveau raccourci."
+
+#: ../src/modules/shortcuts/ShortcutInput.qml:275
+msgid "The shortcut you set "
+msgstr "Le raccourci que vous avez paramétré"
+
+#: ../src/modules/shortcuts/ShortcutInput.qml:278
+#, qt-format
+msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
+msgstr "Présence de conflits avec un \"%2\" dans la catégorie \"%1\"."
+
+#: ../src/modules/shortcuts/ShortcutInput.qml:280
+msgid "Do you want to replace it?"
+msgstr "Voulez vous le remplacer ?"
+
+#: ../src/modules/shortcuts/ShortcutInput.qml:338
+msgid "Replace"
+msgstr "Remplacer "
+
+#: ../src/modules/shortcuts/StateButtons.qml:90
+msgid "Delete Shortcut"
+msgstr "Supprimer raccourci"
+
+#: ../src/modules/shortcuts/StateButtons.qml:107
+msgid "Add Shortcut"
+msgstr "Ajouter raccourci"
+
+#: ../src/modules/shortcuts/main.qml:49
+msgid "System"
+msgstr "Système"
+
+#: ../src/modules/shortcuts/main.qml:52
+msgid "Workspace"
+msgstr "Espace de travail"
+
+#: ../src/modules/sound/BalanceLine.qml:31
+msgid "Left/Right Balance"
+msgstr "Gauche/Droite"
+
+#: ../src/modules/sound/BalanceLine.qml:53
+msgid "Left"
+msgstr "Gauche"
+
+#: ../src/modules/sound/BalanceLine.qml:55
+msgid "Right"
+msgstr "Droite"
+
+#: ../src/modules/sound/FadeLine.qml:31
+msgid "Front/Rear Balance"
+msgstr "Balance Avant/Arrière"
+
+#: ../src/modules/sound/FadeLine.qml:53
+msgid "Rear"
+msgstr "Arrière"
+
+#: ../src/modules/sound/FadeLine.qml:55
+msgid "Front"
+msgstr "Avant"
+
+#: ../src/modules/sound/main.qml:127
+msgid "Speaker"
+msgstr "Haut-parleur"
+
+#: ../src/modules/sound/main.qml:157
+msgid "Output Volume"
+msgstr "Volume de sortie"
+
+#: ../src/modules/sound/main.qml:222
+msgid "Microphone"
+msgstr "Micro"
+
+#: ../src/modules/sound/main.qml:252
+msgid "Input Volume"
+msgstr "Volume d'entrée"
+
+#: ../src/modules/sound/main.qml:296
+msgid "Input Feedback"
+msgstr "Effet larsen"
+
+#: ../src/modules/sound/main.qml:332
+msgid "Output Port"
+msgstr "Source de sortie"
+
+#: ../src/modules/sound/main.qml:349 ../src/modules/sound/main.qml:452
+msgid "No port exists in this device."
+msgstr "Aucun port existant pour ce périphérique"
+
+#: ../src/modules/sound/main.qml:387
+msgid "Output device"
+msgstr "Périphérique de sortie"
+
+#: ../src/modules/sound/main.qml:435
+msgid "Input Port"
+msgstr "Source d'entrée "
+
+#: ../src/modules/sound/main.qml:490
+msgid "Input device"
+msgstr "Périphérique d'entrée"
+
+#: ../src/modules/sound/main.qml:543
+msgid "Hide Advanced..."
+msgstr "Cacher les options avancées ..."
+
+#: ../src/modules/sound/main.qml:543
+msgid "Show Advanced..."
+msgstr "Montrer les options avancées"
+
+#: ../src/modules/system_info/main.qml:118
+msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
+msgstr "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
+
+#: ../src/modules/system_info/main.qml:124
+msgid "Deepin Edition"
+msgstr "Édition Deepin"
+
+#: ../src/modules/system_info/main.qml:130
+msgid "System Type"
+msgstr "Système"
+
+#: ../src/modules/system_info/main.qml:131
+msgid "bit"
+msgstr "bit"
+
+#: ../src/modules/system_info/main.qml:136
+msgid "Processor"
+msgstr "Processeur"
+
+#: ../src/modules/system_info/main.qml:150
+msgid "Memory"
+msgstr "Mémoire"
+
+#: ../src/modules/system_info/main.qml:156
+msgid "Disk"
+msgstr "Disque"
+
+#: ../src/modules/system_info/main.qml:174
+msgid "GNU GENERAL PUBLIC LICENSE"
+msgstr "GNU GENERAL PUBLIC LICENSE"
 
 #: ../src/modules/wacom/main.qml:14
 msgid "Page Up"
@@ -2046,3 +2107,75 @@ msgstr "Étroit"
 #: ../src/modules/wacom/main.qml:207
 msgid "Wide"
 msgstr "Large"
+
+#: ../src/views/ModulesData.qml:52
+msgid "Date and Time"
+msgstr "Date et Heure"
+
+#: ../src/views/ModulesData.qml:53
+msgid "Network"
+msgstr "Réseau"
+
+#: ../src/views/ModulesData.qml:54
+msgid "Disk Mount"
+msgstr "Disque monté"
+
+#: ../src/views/ModulesData.qml:56
+msgid "Sound"
+msgstr "Son"
+
+#: ../src/views/ModulesData.qml:57
+msgid "Power Management"
+msgstr "Gestion de l'alimentation"
+
+#: ../src/views/ModulesData.qml:58
+msgid "More Settings"
+msgstr "Plus de réglages"
+
+#: ../src/views/ModulesData.qml:59 ../src/views/PanelContent.qml:456
+msgid "Power"
+msgstr "Arrêter"
+
+#: ../src/views/ModulesData.qml:60
+msgid "Display"
+msgstr "Affichage"
+
+#: ../src/views/ModulesData.qml:61
+msgid "Desktop"
+msgstr "Bureau"
+
+#: ../src/views/ModulesData.qml:62
+msgid "Personalization"
+msgstr "Personnalisation"
+
+#: ../src/views/ModulesData.qml:63
+msgid "Keyboard Shortcuts"
+msgstr "Raccourcis clavier"
+
+#: ../src/views/ModulesData.qml:64
+msgid "Keyboard and Language"
+msgstr "Clavier et language"
+
+#: ../src/views/ModulesData.qml:65
+msgid "Tablet"
+msgstr "Tablette"
+
+#: ../src/views/ModulesData.qml:66
+msgid "Mouse and Touchpad"
+msgstr "Souris et Touchpad"
+
+#: ../src/views/ModulesData.qml:68
+msgid "User Accounts"
+msgstr "Comptes utilisateurs"
+
+#: ../src/views/ModulesData.qml:70
+msgid "System Information"
+msgstr "Informations du système"
+
+#: ../src/views/ModulesData.qml:71
+msgid "Boot Menu"
+msgstr "Menu démarrer"
+
+#: ../src/views/ModulesData.qml:72
+msgid "Home"
+msgstr "Dossier personnel "
