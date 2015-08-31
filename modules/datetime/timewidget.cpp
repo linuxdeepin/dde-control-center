@@ -214,6 +214,12 @@ void TimeSpinBox::setNumber(int num)
     m_spinLabel->setText(QString("%1").arg(QString::number(num), 2, QLatin1Char('0')));
 }
 
+void TimeSpinBox::wheelEvent(QWheelEvent *e)
+{
+    e->accept();
+    e->delta() > 0 ? addNumber() : subNumber();
+}
+
 void TimeSpinBox::addNumber()
 {
     const int num = m_spinLabel->text().toInt();

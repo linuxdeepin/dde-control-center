@@ -4,6 +4,7 @@
 #include <QFrame>
 #include <QWidget>
 #include <QTime>
+#include <QWheelEvent>
 #include <QLabel>
 
 #include <libdui/dlinkbutton.h>
@@ -28,7 +29,7 @@ public slots:
     void setNumber(int num);
 
 private:
-    //bool eventFilter(QObject *o, QEvent *e);
+    void wheelEvent(QWheelEvent *e);
 
 private slots:
     void addNumber();

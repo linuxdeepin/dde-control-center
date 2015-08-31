@@ -68,12 +68,10 @@ int main(int argv, char *args[])
     DThemeManager *manager = DThemeManager::instance();
     QObject::connect(manager, &DThemeManager::themeChanged, [=](QString theme){
         onThemeChange(theme);
-        qDebug() << "aaaaaaa";
     });
 
     manager->setTheme("dark");
-    manager->themeChanged("dark");
-    qDebug() << app.styleSheet();
+    onThemeChange("dark");
 
     return app.exec();
 }
