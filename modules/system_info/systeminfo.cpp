@@ -7,8 +7,7 @@
 #include <QPlainTextEdit>
 #include <QScrollBar>
 #include <QLocale>
-
-#include <fstream>
+#include <QFile>
 
 #include <libdui/dbaseline.h>
 #include <libdui/dseparatorhorizontal.h>
@@ -28,7 +27,7 @@ SystemInfo::SystemInfo()
     m_baseLine = new ModuleHeader(tr("系统信息"), false);
 
     QLabel *deepinLogo = new QLabel;
-    deepinLogo->setPixmap(QPixmap("modules/system_info/images/logo.png"));
+    deepinLogo->setPixmap(QPixmap(":/images/images/logo.png"));
     deepinLogo->setAlignment(Qt::AlignCenter);
 
     QLabel *deepinName = new QLabel(tr("Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."));
@@ -87,8 +86,8 @@ SystemInfo::SystemInfo()
     m_infoWidget->setStyleSheet("QLabel {color:#aaa; font-size:12px;} QWidget {background-color:#1a1b1b;}");
 
     m_licenseEdit = new QPlainTextEdit;
-    m_licenseEdit->appendPlainText(getLicense("./modules/system_info/gpl/gpl-3.0-%1-%2.txt", "title") + "\n" +
-                                 getLicense("./modules/system_info/gpl/gpl-3.0-%1-%2.txt", "body") + "\n");
+    m_licenseEdit->appendPlainText(getLicense(":/licenses/gpl/gpl-3.0-%1-%2.txt", "title") + "\n" +
+                                 getLicense(":/licenses/gpl/gpl-3.0-%1-%2.txt", "body") + "\n");
     m_licenseEdit->setBackgroundVisible(false);
     m_licenseEdit->setFrameStyle(QFrame::NoFrame);
     m_licenseEdit->setStyleSheet("background-color:#1a1b1b; color:#666;");
@@ -118,18 +117,7 @@ SystemInfo::SystemInfo()
     m_centeralFrame = new QFrame;
     m_centeralFrame->setLayout(centeralLayout);
 
-    /*
-    qDebug() << formatCap(qulonglong(1000));
-    qDebug() << formatCap(qulonglong(1024));
-    qDebug() << formatCap(qulonglong(1024) + 1);
-    qDebug() << formatCap(qulonglong(1024) * 1024);
-    qDebug() << formatCap(qulonglong(1024) * 1024);
-    qDebug() << formatCap(qulonglong(1024) * 1024 + 1);
-    qDebug() << formatCap(qulonglong(1024) * 1024 * 1024);
-    qDebug() << formatCap(qulonglong(1024) * 1024 * 1024 + 1);
-    qDebug() << formatCap(qulonglong(1024) * 1024 * 1024 * 1024);*/
-
-    QTimer::singleShot(100, this, SLOT(updateLicenseWidget()));
+    QTimer::singleShot(0, this, SLOT(updateLicenseWidget()));
 }
 
 SystemInfo::~SystemInfo()
@@ -176,19 +164,12 @@ QString SystemInfo::getLicense(const QString &filePath, const QString &type) con
 
     qDebug() << path;
 
-    std::ifstream license;
-    license.open(path.toStdString(), std::ios::in);
-
-    if (!license.is_open())
+    QFile license(path);
+    if (!license.open(QIODevice::ReadOnly))
         return "";
 
-    QByteArray buf;
-    char c;
-    while (license.get(c))
-        buf.append(c);
+    const QByteArray buf = license.readAll();
     license.close();
-
-    //qDebug() << buf;
 
     return std::move(buf);
 }

@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/logo.png</file>
+    </qresource>
+    <qresource prefix="/licenses">
+        <file>gpl/gpl-3.0-zh_TW-title.txt</file>
+        <file>gpl/gpl-3.0-zh_TW-body.txt</file>
+        <file>gpl/gpl-3.0-zh_CN-title.txt</file>
+        <file>gpl/gpl-3.0-zh_CN-body.txt</file>
+        <file>gpl/gpl-3.0-en-title.txt</file>
+        <file>gpl/gpl-3.0-en-body.txt</file>
+    </qresource>
+</RCC>

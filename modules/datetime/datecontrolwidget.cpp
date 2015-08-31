@@ -10,9 +10,9 @@ DateControlWidget::DateControlWidget(QWidget *parent) : QWidget(parent)
 
     m_ctrlBtn = new DImageButton;
     m_ctrlBtn->setCheckable(false);
-    m_ctrlBtn->setNormalPic("modules/datetime/icons/setdate_normal.png");
-    m_ctrlBtn->setHoverPic("modules/datetime/icons/setdate_hover.png");
-    m_ctrlBtn->setPressPic("modules/datetime/icons/setdate_press.png");
+    m_ctrlBtn->setNormalPic(":/icons/setdate_normal.png");
+    m_ctrlBtn->setHoverPic(":/icons/setdate_hover.png");
+    m_ctrlBtn->setPressPic(":/icons/setdate_press.png");
 
     m_confirmBtn = new DTextButton(tr("Confirm"));
     m_cancelBtn = new DTextButton(tr("Cancel"));

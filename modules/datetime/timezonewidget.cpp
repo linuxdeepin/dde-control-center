@@ -20,7 +20,7 @@ TimezoneWidget::TimezoneWidget(const ZoneInfo *info, QWidget *parent) :
 
     m_removeBtn = new MultiDeleteButton;
     m_selectedBtn = new DImageButton;
-    m_selectedBtn->setNormalPic("modules/datetime/icons/select.png");
+    m_selectedBtn->setNormalPic(":/icons/select.png");
 
     QHBoxLayout *btnsLayout = new QHBoxLayout;
     btnsLayout->addWidget(m_removeBtn);

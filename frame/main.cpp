@@ -53,7 +53,9 @@ int main(int argv, char *args[])
     LogManager::instance()->debug_log_console_on();
 
     Frame frame;
+#ifdef QT_DEBUG
     frame.show();
+#endif
 
     if (!positionalArgs.isEmpty()) {
         frame.selectModule(positionalArgs.at(0));

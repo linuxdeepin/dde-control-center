@@ -12,3 +12,6 @@ TARGET          = $$qtLibraryTarget(systeminfo)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 
 DISTFILES += system_info.json
+
+RESOURCES += \
+    resource.qrc

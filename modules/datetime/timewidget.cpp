@@ -195,16 +195,10 @@ TimeSpinBox::TimeSpinBox(QWidget *parent) :
     m_spinLabel->setObjectName("SpinLabel");
 
     m_addBtn = new DImageButton;
-    //m_addBtn->setNormalPic(QPixmap("modules/datetime/icons/arrow_up_normal.png"));
-    //m_addBtn->setHoverPic(QPixmap("modules/datetime/icons/arrow_up_hover.png"));
-    //m_addBtn->setPressPic(QPixmap("modules/datetime/icons/arrow_up_press.png"));
     m_addBtn->setObjectName("SpinAddBtn");
     //m_addBtn->hide();
 
     m_subBtn = new DImageButton;
-    //m_subBtn->setNormalPic(QPixmap("modules/datetime/icons/arrow_down_normal.png"));
-    //m_subBtn->setHoverPic(QPixmap("modules/datetime/icons/arrow_down_hover.png"));
-    //m_subBtn->setPressPic(QPixmap("modules/datetime/icons/arrow_down_press.png"));
     m_subBtn->setObjectName("SpinSubBtn");
     //m_subBtn->hide();
 
