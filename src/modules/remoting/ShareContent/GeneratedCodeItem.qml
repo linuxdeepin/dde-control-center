@@ -107,6 +107,7 @@ Item {
         anchors.topMargin: 5
         anchors.leftMargin: 5
         color: '#ffc735'
+        font.pixelSize: 10
         text: dsTr('Copied to clipboard successfully')
     }
 
