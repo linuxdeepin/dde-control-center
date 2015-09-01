@@ -24,3 +24,5 @@ DISTFILES += dde-dock-power-plugin.json
 target.path = /usr/share/dde-dock/plugins/
 
 INSTALLS += target
+
+QMAKE_MOC_OPTIONS += -I/usr/include/

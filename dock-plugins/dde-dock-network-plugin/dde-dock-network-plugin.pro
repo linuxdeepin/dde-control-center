@@ -44,3 +44,5 @@ INSTALLS += target
 RESOURCES += \
     images.qrc \
     qss.qrc
+
+QMAKE_MOC_OPTIONS += -I/usr/include/

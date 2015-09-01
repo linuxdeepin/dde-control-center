@@ -27,3 +27,5 @@ RESOURCES += \
     images.qrc
 
 LIBS += -ldui
+
+QMAKE_MOC_OPTIONS += -I/usr/include/

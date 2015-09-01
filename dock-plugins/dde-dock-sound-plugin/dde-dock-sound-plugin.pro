@@ -48,3 +48,5 @@ PKGCONFIG += gtk+-2.0
 
 RESOURCES += \
     qss.qrc
+
+QMAKE_MOC_OPTIONS += -I/usr/include/

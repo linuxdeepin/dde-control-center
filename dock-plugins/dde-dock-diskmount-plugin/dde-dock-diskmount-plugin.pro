@@ -36,3 +36,5 @@ unix {
 RESOURCES += \
     qss.qrc \
     disk-images.qrc
+
+QMAKE_MOC_OPTIONS += -I/usr/include/
