@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/fonts">
+        <file>fonts/MavenProLight-200.otf</file>
+    </qresource>
+</RCC>

@@ -74,6 +74,8 @@ Datetime::Datetime() :
     m_calendarSeparator = new DSeparatorHorizontal;
     m_calendar = new DCalendar(m_frame);
     m_calendar->setMinimumHeight(350);
+    // if NOT zh_CN or zh_TW, hide lunar
+    m_calendar->setLunarVisible(QLocale::system().name().contains("zh"));
 
     m_timeWidget = new TimeWidget;
     m_timeWidget->setIs24HourFormat(m_dbusInter.use24HourFormat());

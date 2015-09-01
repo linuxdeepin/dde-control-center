@@ -24,4 +24,5 @@ DESTDIR         = $$_PRO_FILE_PWD_/../
 DISTFILES      += datetime.json
 
 RESOURCES += \
-    theme.qrc
+    theme.qrc \
+    resource.qrc

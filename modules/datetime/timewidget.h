@@ -66,6 +66,7 @@ private:
 private:
     QLabel *m_timeLabel;
     QLabel *m_amOrPm;
+    QLabel *m_dateLabel;
     QLabel *m_tipsLabel;
 };
 

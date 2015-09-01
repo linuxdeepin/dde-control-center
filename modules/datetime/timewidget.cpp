@@ -8,6 +8,7 @@
 #include <QDebug>
 #include <QEvent>
 #include <QTimer>
+#include <QFontDatabase>
 
 DUI_USE_NAMESPACE
 
@@ -55,11 +56,14 @@ void TimeWidget::switchToNormalMode()
 NormalWidget::NormalWidget(QWidget *parent) :
     QWidget(parent)
 {
-    setFixedHeight(150);
+    int id = QFontDatabase::addApplicationFont(":/fonts/fonts/MavenProLight-200.otf");
+    QString family = QFontDatabase::applicationFontFamilies(id).at(0);
+    QFont font(family);
 
     m_timeLabel = new QLabel;
     m_timeLabel->setAlignment(Qt::AlignCenter);
     m_timeLabel->setObjectName("TimeLabel");
+    m_timeLabel->setFont(font);
 
     m_amOrPm = new QLabel;
     m_amOrPm->setAlignment(Qt::AlignBottom | Qt::AlignVCenter);
@@ -71,15 +75,23 @@ NormalWidget::NormalWidget(QWidget *parent) :
     hLayout->addWidget(m_amOrPm);
     hLayout->addStretch();
 
+    m_dateLabel = new QLabel;
+    m_dateLabel->setAlignment(Qt::AlignCenter);
+    m_dateLabel->setObjectName("DateLabel");
+
     m_tipsLabel = new QLabel;
     m_tipsLabel->setAlignment(Qt::AlignCenter);
+    m_tipsLabel->setText(tr("Double-click this area to change your time"));
     m_tipsLabel->setObjectName("TipsLabel");
+    m_tipsLabel->hide();
 
     QVBoxLayout *normalLayout = new QVBoxLayout;
     normalLayout->addLayout(hLayout);
+    normalLayout->addWidget(m_dateLabel);
     normalLayout->addWidget(m_tipsLabel);
     normalLayout->setContentsMargins(0, 30, 0, 30);
 
+    setFixedHeight(150);
     setLayout(normalLayout);
 
     // we need adjust time format by m_amOrPm visible property.
@@ -96,19 +108,22 @@ void NormalWidget::updateDateTime()
     const QString minuteStr = QString("%1").arg(QString::number(datetime.time().minute()), 2, '0');
 
     m_timeLabel->setText(QString("%1:%2").arg(hourStr).arg(minuteStr));
-    m_tipsLabel->setText(datetime.toString(tr("dddd, dd MMMM yyyy")));
+    m_dateLabel->setText(datetime.toString(tr("dddd, dd MMMM yyyy")));
 
     m_amOrPm->setText(datetime.toString("A"));
 }
 
 void NormalWidget::enterEvent(QEvent *)
 {
-    m_tipsLabel->setText(tr("Double-click this area to change your time"));
+    m_dateLabel->hide();
+    m_tipsLabel->show();
 }
 
 void NormalWidget::leaveEvent(QEvent *)
 {
     updateDateTime();
+    m_dateLabel->show();
+    m_tipsLabel->hide();
 }
 
 void NormalWidget::mouseDoubleClickEvent(QMouseEvent *)
@@ -136,7 +151,9 @@ EditWidget::EditWidget(QWidget *parent) :
     timeLayout->setSpacing(8);
 
     m_setTimeButton = new DLinkButton(tr("Set"));
+    m_setTimeButton->setFixedWidth(50);
     m_cancelTimeButton = new DLinkButton(tr("Cancel"));
+    m_cancelTimeButton->setFixedWidth(50);
     QLabel *controlSplit = new QLabel("|");
     controlSplit->setObjectName("ControlSpliter");
 
