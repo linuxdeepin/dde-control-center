@@ -51,8 +51,6 @@ void DisplayModeItem::setIconName(QString iconName)
         return;
 
     m_iconName = iconName;
-
-    D_THEME_INIT_WIDGET(DisplayModeItem);
 }
 
 void DisplayModeItem::setTitle(QString title)
@@ -71,6 +69,4 @@ void DisplayModeItem::setActive(bool active)
         return;
 
     m_active = active;
-
-    D_THEME_INIT_WIDGET(DisplayModeItem);
 }

@@ -17,7 +17,7 @@ KeyboardLayoutItem::KeyboardLayoutItem(bool showRmButton, QWidget *parent) :
     m_layout(new QHBoxLayout),
     m_showBgColor(false)
 {
-    D_THEME_INIT_WIDGET(KeyboardLayoutItem);
+    D_THEME_INIT_WIDGET(KeyboardLayoutItem, checked, showBgColor);
 
     m_deleteButton = new ImageNameButton("list_remove", this);
     m_deleteButton->setHidden(!showRmButton);
@@ -110,8 +110,6 @@ void KeyboardLayoutItem::setChecked(bool checked)
 
     m_checked = checked;
 
-    D_THEME_INIT_WIDGET(KeyboardLayoutItem);
-
     if(!m_imageChecked.isEmpty()&&!m_imageChecked.isEmpty()){
         if(checked){
             m_label->removeEventFilter(this);
@@ -171,8 +169,6 @@ void KeyboardLayoutItem::setShowBgColor(bool showBgColor)
         return;
 
     m_showBgColor = showBgColor;
-
-    D_THEME_INIT_WIDGET(KeyboardLayoutItem);
 
     emit showBgColorChanged(showBgColor);
 }

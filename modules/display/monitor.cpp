@@ -23,7 +23,7 @@ Monitor::Monitor(QWidget *parent) :
     m_primary(false),
     m_child(NULL)
 {
-    D_THEME_INIT_WIDGET(Monitor);
+    D_THEME_INIT_WIDGET(Monitor, draging, eyeing);
 
     setFocusPolicy(Qt::ClickFocus);
 }
@@ -300,8 +300,6 @@ void Monitor::setDraging(bool arg)
 
     m_draging = arg;
 
-    D_THEME_INIT_WIDGET(Monitor);
-
     emit dragingChanged(arg);
 }
 
@@ -311,6 +309,4 @@ void Monitor::setEyeing(bool arg)
         return;
 
     m_eyeing = arg;
-
-    D_THEME_INIT_WIDGET(Monitor);
 }
