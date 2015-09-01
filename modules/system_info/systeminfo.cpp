@@ -24,7 +24,7 @@ SystemInfo::SystemInfo()
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
 
-    m_baseLine = new ModuleHeader(tr("系统信息"), false);
+    m_baseLine = new ModuleHeader(tr("System Info"), false);
 
     QLabel *deepinLogo = new QLabel;
     deepinLogo->setPixmap(QPixmap(":/images/images/logo.png"));
@@ -34,30 +34,30 @@ SystemInfo::SystemInfo()
     deepinName->setWordWrap(true);
     deepinName->setAlignment(Qt::AlignCenter);
 
-    QLabel *info_sysVersion = new QLabel(tr("系统版本 :"));
+    QLabel *info_sysVersion = new QLabel(tr("System Version :"));
     info_sysVersion->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
     QLabel *info_sysVersionContent = new QLabel(m_dbusSystemInfo.version());
     info_sysVersionContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
     info_sysVersionContent->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
 
-    QLabel *info_sysType = new QLabel(tr("系统类型 :"));
+    QLabel *info_sysType = new QLabel(tr("System Type :"));
     info_sysType->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
     QLabel *info_sysTypeContent = new QLabel(QString(tr("%1位")).arg(m_dbusSystemInfo.systemType()));
     info_sysTypeContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
 
-    QLabel *info_cpuType = new QLabel(tr("处理器 :"));
+    QLabel *info_cpuType = new QLabel(tr("Processor :"));
     info_cpuType->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
     QLabel *info_cpuTypeContent = new QLabel(m_dbusSystemInfo.processor());
     info_cpuTypeContent->setWordWrap(true);
     info_cpuTypeContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
 
-    QLabel *info_memory = new QLabel(tr("内存 :"));
+    QLabel *info_memory = new QLabel(tr("Memory :"));
     info_memory->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
     QLabel *info_memoryContent = new QLabel(formatCap(m_dbusSystemInfo.memoryCap()));
     info_memoryContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
 
 
-    QLabel *info_hardDrive = new QLabel(tr("硬盘 :"));
+    QLabel *info_hardDrive = new QLabel(tr("Hard Drive :"));
     info_hardDrive->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
     QLabel *info_hardDriveContent = new QLabel(formatCap(m_dbusSystemInfo.diskCap()));
     info_hardDriveContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
@@ -99,9 +99,10 @@ SystemInfo::SystemInfo()
     m_licenseEdit->setCursor(Qt::ArrowCursor);
     m_licenseEdit->moveCursor(QTextCursor::Start);
     m_licenseEdit->setFixedWidth(310);
+    m_licenseEdit->installEventFilter(this);
 
     DArrowLineExpand *license = new DArrowLineExpand;
-    license->setTitle(tr("GNU 通用公共许可协议"));
+    license->setTitle(tr("GNU General Public License"));
     license->setContent(m_licenseEdit);
 
     QVBoxLayout *centeralLayout = new QVBoxLayout;
@@ -132,8 +133,6 @@ SystemInfo::~SystemInfo()
 
 QFrame *SystemInfo::getContent()
 {
-    QTimer::singleShot(0, this, SLOT(updateLicenseWidget()));
-
     return m_centeralFrame;
 }
 
@@ -176,8 +175,18 @@ QString SystemInfo::getLicense(const QString &filePath, const QString &type) con
 
 void SystemInfo::updateLicenseWidget()
 {
+//    qDebug() << m_centeralFrame->height();
     m_licenseEdit->setFixedHeight(m_centeralFrame->height()
                                   - m_infoWidget->height()
                                   - m_baseLine->height()
+                                  - 32 // 32 for DArrowLine
                                   - 6); // 6 for DSeparatorHorizontal * 3
+}
+
+bool SystemInfo::eventFilter(QObject *o, QEvent *e)
+{
+    if (o == m_licenseEdit && e->type() == QEvent::Resize)
+        updateLicenseWidget();
+
+    return false;
 }

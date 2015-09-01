@@ -26,6 +26,7 @@ private:
     QString inline formatCap(qulonglong cap) const;
     QString inline getLicense(const QString & filePath, const QString &type) const;
     Q_SLOT void updateLicenseWidget();
+    bool eventFilter(QObject *, QEvent *e);
 
 private:
     QFrame *m_centeralFrame;
