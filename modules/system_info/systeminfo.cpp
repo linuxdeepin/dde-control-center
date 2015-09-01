@@ -116,8 +116,6 @@ SystemInfo::SystemInfo()
 
     m_centeralFrame = new QFrame;
     m_centeralFrame->setLayout(centeralLayout);
-
-    QTimer::singleShot(0, this, SLOT(updateLicenseWidget()));
 }
 
 SystemInfo::~SystemInfo()
@@ -134,6 +132,8 @@ SystemInfo::~SystemInfo()
 
 QFrame *SystemInfo::getContent()
 {
+    QTimer::singleShot(0, this, SLOT(updateLicenseWidget()));
+
     return m_centeralFrame;
 }
 
@@ -178,5 +178,6 @@ void SystemInfo::updateLicenseWidget()
 {
     m_licenseEdit->setFixedHeight(m_centeralFrame->height()
                                   - m_infoWidget->height()
-                                  - m_baseLine->height());
+                                  - m_baseLine->height()
+                                  - 6); // 6 for DSeparatorHorizontal * 3
 }

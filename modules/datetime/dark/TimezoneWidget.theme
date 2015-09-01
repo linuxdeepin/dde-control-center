@@ -12,7 +12,7 @@ TimezoneWidget #Cities {
 }
 
 TimezoneWidget[selected="true"] #Cities {
-    color:red;
+    color:#01BDFF;
 }
 
 TimezoneWidget #UTCOffset {
@@ -21,5 +21,5 @@ TimezoneWidget #UTCOffset {
 }
 
 TimezoneWidget[selected="true"] #UTCOffset {
-    color:red;
+    color:#01BDFF;
 }
