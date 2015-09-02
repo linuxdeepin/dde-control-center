@@ -35,6 +35,11 @@ VPNComponent::VPNComponent(QString id, QObject *parent) :
     connect(m_dbusNetwork, &Network::ActiveConnectionsChanged, this, &VPNComponent::updateItem);
 }
 
+QPixmap VPNComponent::getIcon()
+{
+    return QIcon::fromTheme("network-vpn-active-symbolic").pixmap(QSize(Dock::APPLET_CLASSIC_ICON_SIZE, Dock::APPLET_CLASSIC_ICON_SIZE));
+}
+
 QString VPNComponent::getName()
 {
     return "VPN";

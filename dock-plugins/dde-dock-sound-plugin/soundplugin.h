@@ -38,7 +38,8 @@ public:
     QString getName(QString id) Q_DECL_OVERRIDE;
     QString getTitle(QString id) Q_DECL_OVERRIDE;
     QString getCommand(QString id) Q_DECL_OVERRIDE;
-    bool canDisable(QString id) Q_DECL_OVERRIDE;
+    QPixmap getIcon(QString id) Q_DECL_OVERRIDE;
+    bool canDisable(QString) Q_DECL_OVERRIDE;
     bool isDisabled(QString id) Q_DECL_OVERRIDE;
     void setDisabled(QString id, bool disabled) Q_DECL_OVERRIDE;
     QWidget * getItem(QString id) Q_DECL_OVERRIDE;
@@ -52,13 +53,15 @@ private:
     QString m_id = "sound_plugin";
     DockPluginProxyInterface * m_proxy;
 
-    Dock::DockMode m_mode;
+    Dock::DockMode m_mode = Dock::FashionMode;
     MainItem * m_item = NULL;
     SoundContent *m_soundContent = NULL;
     QSettings * m_settings = NULL;
 
     void initSettings();
+    void onDisableChanged();
     void setMode(Dock::DockMode mode);
+    QString settingDisabledKey();
     QJsonObject createMenuItem(QString itemId,
                                QString itemName,
                                bool checkable = false,

@@ -40,6 +40,11 @@ BluetoothComponent::~BluetoothComponent()
     delete m_applet;
 }
 
+QPixmap BluetoothComponent::getIcon()
+{
+    return QIcon::fromTheme("bluetooth-active-symbolic").pixmap(QSize(Dock::APPLET_CLASSIC_ICON_SIZE, Dock::APPLET_CLASSIC_ICON_SIZE));
+}
+
 QString BluetoothComponent::getName()
 {
     return "Bluetooth";

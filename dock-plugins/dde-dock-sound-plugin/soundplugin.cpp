@@ -2,8 +2,6 @@
 
 #include "soundplugin.h"
 
-static const QString SettingsEnabledKey = "SoundPlugin/enabled";
-
 SoundPlugin::SoundPlugin()
 {
     m_item = new MainItem();
@@ -15,14 +13,14 @@ void SoundPlugin::init(DockPluginProxyInterface *proxy)
 {
     m_proxy = proxy;
 
-    m_proxy->itemAddedEvent(m_id);
-
     setMode(proxy->dockMode());
+
+    onDisableChanged();
 }
 
 QString SoundPlugin::getPluginName()
 {
-    return "Sound plugin";
+    return tr("Sound");
 }
 
 QStringList SoundPlugin::ids()
@@ -45,31 +43,36 @@ QString SoundPlugin::getCommand(QString)
     return "dde-control-center sound";
 }
 
-bool SoundPlugin::canDisable(QString id)
+QPixmap SoundPlugin::getIcon(QString id)
+{
+     return SoundIcon::getDefaultSinkDockIcon(Dock::EfficientMode, 100);
+}
+
+bool SoundPlugin::canDisable(QString)
 {
     return true;
 }
 
 bool SoundPlugin::isDisabled(QString)
 {
-    return m_settings->value(SettingsEnabledKey).toBool();
+    return m_settings->value(settingDisabledKey()).toBool();
 }
 
 void SoundPlugin::setDisabled(QString id, bool disabled)
 {
-    if (disabled) {
-        m_item->setParent(NULL);
-        m_proxy->itemRemovedEvent(id);
-    }
+    if (id != m_id)
+        return;
 
-    m_settings->setValue(SettingsEnabledKey, !disabled);
+    m_settings->setValue(settingDisabledKey(), disabled);
+
+    onDisableChanged();
 }
 
 QWidget * SoundPlugin::getItem(QString)
 {
-    bool enabled = m_settings->value(SettingsEnabledKey).toBool();
+    bool disabled = m_settings->value(settingDisabledKey()).toBool();
 
-    return enabled ? m_item : NULL;
+    return disabled ? NULL : m_item;
 }
 
 QWidget * SoundPlugin::getApplet(QString)
@@ -79,10 +82,12 @@ QWidget * SoundPlugin::getApplet(QString)
     return m_soundContent;
 }
 
-void SoundPlugin::changeMode(Dock::DockMode newMode,
-                                Dock::DockMode)
+void SoundPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
 {
-    setMode(newMode);
+    if (newMode != oldMode){
+        setMode(newMode);
+        onDisableChanged();
+    }
 }
 
 QString SoundPlugin::getMenuContent(QString)
@@ -101,8 +106,17 @@ void SoundPlugin::initSettings()
     m_settings = new QSettings("deepin", "dde-dock-sound-plugin", this);
 
     if (!QFile::exists(m_settings->fileName())) {
-        m_settings->setValue(SettingsEnabledKey, true);
+        m_settings->setValue(settingDisabledKey(), true);
     }
+}
+
+void SoundPlugin::onDisableChanged()
+{
+    m_proxy->itemRemovedEvent(m_id);
+    m_item->setParent(NULL);
+
+    if (!isDisabled(m_id))
+        m_proxy->itemAddedEvent(m_id);
 }
 
 void SoundPlugin::setMode(Dock::DockMode mode)
@@ -125,6 +139,11 @@ void SoundPlugin::setMode(Dock::DockMode mode)
 
     m_item->setDockMode(mode);
     m_proxy->itemSizeChangedEvent(m_id);
+}
+
+QString SoundPlugin::settingDisabledKey()
+{
+    return QString("%1/disabled").arg(m_mode);
 }
 
 QJsonObject SoundPlugin::createMenuItem(QString itemId, QString itemName, bool checkable, bool checked)

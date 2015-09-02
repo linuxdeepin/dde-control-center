@@ -2,11 +2,13 @@
 #define PLUGINCOMPONENTINTERFACE_H
 
 #include <QString>
+#include <QPixmap>
 
 class QWidget;
 class PluginComponentInterface
 {
 public:
+    virtual QPixmap getIcon() = 0;
     virtual QString getName() = 0;
     virtual QString getTitle() = 0;
     virtual QString getCommand() = 0;

@@ -16,6 +16,11 @@ CompositeComponent::CompositeComponent(QString id, QObject *parent) :
     m_item->setPixmap(QIcon::fromTheme("network-online").pixmap(m_item->size()));
 }
 
+QPixmap CompositeComponent::getIcon()
+{
+    return QIcon::fromTheme("network-wired-symbolic").pixmap(QSize(Dock::APPLET_CLASSIC_ICON_SIZE, Dock::APPLET_CLASSIC_ICON_SIZE));
+}
+
 QString CompositeComponent::getName()
 {
     return "Network";

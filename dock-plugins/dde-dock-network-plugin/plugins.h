@@ -38,6 +38,7 @@ public:
     QString getName(QString id) Q_DECL_OVERRIDE;
     QString getTitle(QString id) Q_DECL_OVERRIDE;
     QString getCommand(QString id) Q_DECL_OVERRIDE;
+    QPixmap getIcon(QString id) Q_DECL_OVERRIDE;
     bool canDisable(QString id) Q_DECL_OVERRIDE;
     bool isDisabled(QString id) Q_DECL_OVERRIDE;
     void setDisabled(QString id, bool disabled) Q_DECL_OVERRIDE;
@@ -52,13 +53,15 @@ private:
     DockPluginProxyInterface * m_proxy;
     QMap<QString, PluginComponentInterface*> m_items;
 
-    Dock::DockMode m_mode;
+    Dock::DockMode m_mode = Dock::FashionMode;
 
     CompositeComponent * m_composite;
 
     QSettings * m_settings;
 
     void initSettings();
+    void onDisableChanged();
+    QString settingDisabledKey(const QString &uuid);
 };
 
 #endif // PLUGINS_H

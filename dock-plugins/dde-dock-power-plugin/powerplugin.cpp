@@ -8,8 +8,6 @@
 
 #include "powerplugin.h"
 
-static const QString SettingsEnabledKey = "PowerPlugin/enabled";
-
 PowerPlugin::PowerPlugin()
 {
     QIcon::setThemeName("Deepin");
@@ -38,9 +36,9 @@ void PowerPlugin::init(DockPluginProxyInterface *proxy)
 {
     m_proxy = proxy;
 
-    m_proxy->itemAddedEvent(m_id);
-
     setMode(proxy->dockMode());
+
+    onDisableChanged();
 }
 
 QString PowerPlugin::getPluginName()
@@ -76,22 +74,31 @@ QString PowerPlugin::getCommand(QString)
     return "dde-control-center power";
 }
 
+QPixmap PowerPlugin::getIcon(QString)
+{
+    QString iconName = getBatteryIcon(100, false, true);
+    QIcon icon = QIcon::fromTheme(iconName, QIcon::fromTheme("application-default-icon"));
+    return icon.pixmap(QSize(Dock::APPLET_EFFICIENT_ICON_SIZE, Dock::APPLET_CLASSIC_ICON_SIZE));
+}
+
 bool PowerPlugin::canDisable(QString)
 {
-    return true;
+    return m_dbusPower->batteryIsPresent();
 }
 
 bool PowerPlugin::isDisabled(QString)
 {
-    return m_settings->value(SettingsEnabledKey).toBool();
+    return m_settings->value(settingDisabledKey()).toBool();
 }
 
 void PowerPlugin::setDisabled(QString id, bool disabled)
 {
-    m_label->setParent(NULL);
-    m_proxy->itemRemovedEvent(id);
+    if (id != m_id)
+        return;
 
-    m_settings->setValue(SettingsEnabledKey, !disabled);
+    m_settings->setValue(settingDisabledKey(), disabled);
+
+    onDisableChanged();
 }
 
 QWidget * PowerPlugin::getApplet(QString)
@@ -101,9 +108,9 @@ QWidget * PowerPlugin::getApplet(QString)
 
 QWidget * PowerPlugin::getItem(QString)
 {
-    bool enabled = m_settings->value(SettingsEnabledKey).toBool();
+    bool disable = m_settings->value(settingDisabledKey()).toBool();
 
-    if (m_dbusPower->batteryIsPresent() && enabled) {
+    if (m_dbusPower->batteryIsPresent() && !disable) {
         return m_label;
     } else {
         return NULL;
@@ -112,7 +119,11 @@ QWidget * PowerPlugin::getItem(QString)
 
 void PowerPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
 {
-    if (newMode != oldMode) setMode(newMode);
+    if (newMode != oldMode){
+        //make sure m_mode changed beford update disable-state
+        setMode(newMode);
+        onDisableChanged();
+    }
 }
 
 QString PowerPlugin::getMenuContent(QString)
@@ -132,8 +143,17 @@ void PowerPlugin::initSettings()
     m_settings = new QSettings("deepin", "dde-dock-power-plugin", this);
 
     if (!QFile::exists(m_settings->fileName())) {
-        m_settings->setValue(SettingsEnabledKey, true);
+        m_settings->setValue(settingDisabledKey(), true);
     }
+}
+
+void PowerPlugin::onDisableChanged()
+{
+    m_proxy->itemRemovedEvent(m_id);
+    m_label->setParent(NULL);
+
+    if (!isDisabled(m_id))
+        m_proxy->itemAddedEvent(m_id);
 }
 
 void PowerPlugin::setMode(Dock::DockMode mode)
@@ -141,6 +161,11 @@ void PowerPlugin::setMode(Dock::DockMode mode)
     m_mode = mode;
 
     updateIcon();
+}
+
+QString PowerPlugin::settingDisabledKey()
+{
+    return QString::number(m_mode) + "/disabled";
 }
 
 void PowerPlugin::updateIcon()

@@ -12,6 +12,7 @@ class CompositeComponent : public QObject, public PluginComponentInterface
 public:
     CompositeComponent(QString id, QObject *parent = 0);
 
+    QPixmap getIcon() Q_DECL_OVERRIDE;
     QString getName() Q_DECL_OVERRIDE;
     QString getTitle() Q_DECL_OVERRIDE;
     QString getCommand() Q_DECL_OVERRIDE;

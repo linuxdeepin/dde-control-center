@@ -29,6 +29,11 @@ WiredComponent::WiredComponent(QString id, QObject *parent) :
     connect(m_dbusNetwork, &Network::ActiveConnectionsChanged, this, &WiredComponent::updateItem);
 }
 
+QPixmap WiredComponent::getIcon()
+{
+    return QIcon::fromTheme("network-wired-symbolic").pixmap(QSize(Dock::APPLET_CLASSIC_ICON_SIZE, Dock::APPLET_CLASSIC_ICON_SIZE));
+}
+
 QString WiredComponent::getName()
 {
     return "Wired connections";

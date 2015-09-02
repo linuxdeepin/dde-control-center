@@ -28,6 +28,7 @@ public:
     BluetoothComponent(QString id, QObject *parent = 0);
     ~BluetoothComponent();
 
+    QPixmap getIcon() Q_DECL_OVERRIDE;
     QString getName() Q_DECL_OVERRIDE;
     QString getTitle() Q_DECL_OVERRIDE;
     QString getCommand() Q_DECL_OVERRIDE;

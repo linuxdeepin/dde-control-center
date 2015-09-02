@@ -21,36 +21,38 @@ public:
     PowerPlugin();
     ~PowerPlugin() Q_DECL_OVERRIDE;
 
-    virtual void init(DockPluginProxyInterface *proxy) Q_DECL_OVERRIDE;
+    void init(DockPluginProxyInterface *proxy) Q_DECL_OVERRIDE;
 
-    virtual QString getPluginName() Q_DECL_OVERRIDE;
+    QString getPluginName() Q_DECL_OVERRIDE;
 
-    virtual QStringList ids() Q_DECL_OVERRIDE;
-    virtual QString getName(QString id) Q_DECL_OVERRIDE;
-    virtual QString getTitle(QString id) Q_DECL_OVERRIDE;
-    virtual QString getCommand(QString id) Q_DECL_OVERRIDE;
-    virtual bool canDisable(QString id) Q_DECL_OVERRIDE;
-    virtual bool isDisabled(QString id) Q_DECL_OVERRIDE;
-    virtual void setDisabled(QString id, bool disabled) Q_DECL_OVERRIDE;
-    virtual QWidget * getItem(QString id) Q_DECL_OVERRIDE;
-    virtual QWidget * getApplet(QString id) Q_DECL_OVERRIDE;
-    virtual void changeMode(Dock::DockMode newMode, Dock::DockMode oldMode) Q_DECL_OVERRIDE;
+    QStringList ids() Q_DECL_OVERRIDE;
+    QString getName(QString id) Q_DECL_OVERRIDE;
+    QString getTitle(QString id) Q_DECL_OVERRIDE;
+    QString getCommand(QString id) Q_DECL_OVERRIDE;
+    QPixmap getIcon(QString) Q_DECL_OVERRIDE;
+    bool canDisable(QString id) Q_DECL_OVERRIDE;
+    bool isDisabled(QString id) Q_DECL_OVERRIDE;
+    void setDisabled(QString id, bool disabled) Q_DECL_OVERRIDE;
+    QWidget * getItem(QString id) Q_DECL_OVERRIDE;
+    QWidget * getApplet(QString id) Q_DECL_OVERRIDE;
+    void changeMode(Dock::DockMode newMode, Dock::DockMode oldMode) Q_DECL_OVERRIDE;
 
-    virtual QString getMenuContent(QString id) Q_DECL_OVERRIDE;
-    virtual void invokeMenuItem(QString id, QString itemId, bool checked) Q_DECL_OVERRIDE;
+    QString getMenuContent(QString id) Q_DECL_OVERRIDE;
+    void invokeMenuItem(QString id, QString itemId, bool checked) Q_DECL_OVERRIDE;
 
 private:
     QString m_id;
     QLabel * m_label;
-    Dock::DockMode m_mode;
+    Dock::DockMode m_mode = Dock::FashionMode;
     DockPluginProxyInterface * m_proxy;
     com::deepin::daemon::DBusPower * m_dbusPower;
 
     QSettings * m_settings;
 
-    void setMode(Dock::DockMode mode);
-
     void initSettings();
+    void onDisableChanged();
+    void setMode(Dock::DockMode mode);
+    QString settingDisabledKey();
     QString getBatteryIcon(int percentage, bool plugged, bool symbolic = false);
 
 private slots:
