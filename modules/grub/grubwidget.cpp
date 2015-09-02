@@ -73,6 +73,11 @@ void GrubWidget::init()
     m_bootMenuTitle = new BootMenuList(m_grubBackground);
     m_bootMenuTitle->addButtons(title_list);
     m_bootMenuTitle->move(50, 50);
+    m_bootMenuTitle->setNormalColor(m_themeDbus->itemColor());
+    m_bootMenuTitle->setEnabledColor(m_themeDbus->selectedItemColor());
+    connect(m_themeDbus, &GrubThemeDbus::itemColorChanged, m_bootMenuTitle, &BootMenuList::setNormalColor);
+    connect(m_themeDbus, &GrubThemeDbus::selectedItemColorChanged, m_bootMenuTitle, &BootMenuList::setEnabledColor);
+
     setDefaultEntry(m_grubDbus->defaultEntry());
     connect(m_grubDbus, &GrubDbus::DefaultEntryChanged, this, &GrubWidget::setDefaultEntry);
     connect(m_bootEntryList, &DButtonList::buttonChecked, m_grubDbus, &GrubDbus::setDefaultEntry);

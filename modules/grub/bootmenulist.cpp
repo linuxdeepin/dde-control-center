@@ -18,6 +18,16 @@ BootMenuList::BootMenuList(QWidget *parent) :
     m_layout->setSpacing(0);
 }
 
+QColor BootMenuList::normalColor() const
+{
+    return m_normalColor;
+}
+
+QColor BootMenuList::enabledColor() const
+{
+    return m_enabledColor;
+}
+
 void BootMenuList::addButtons(const QStringList &listLabels)
 {
     foreach (const QString &title, listLabels) {
@@ -41,4 +51,32 @@ void BootMenuList::checkButtonByIndex(int index)
         }
         w->setEnabled(true);
     }
+}
+
+void BootMenuList::setNormalColor(QColor normalColor)
+{
+    if (m_normalColor == normalColor)
+        return;
+
+    QString str = styleSheet();
+    str.replace(QString("QLabel{color: %1}").arg(m_normalColor.toRgb().name()),
+                QString("QLabel{color: %1}").arg(normalColor.toRgb().name()));
+    setStyleSheet(str);
+
+    m_normalColor = normalColor;
+    emit normalColorChanged(normalColor);
+}
+
+void BootMenuList::setEnabledColor(QColor enabledColor)
+{
+    if(m_enabledColor == enabledColor)
+        return;
+
+    QString str = styleSheet();
+    str.replace(QString("QLabel:enabled{color: %1}").arg(m_enabledColor.toRgb().name()),
+                QString("QLabel:enabled{color: %1}").arg(enabledColor.toRgb().name()));
+    setStyleSheet(str);
+
+    m_enabledColor = enabledColor;
+    emit enabledColorChanged(enabledColor);
 }
