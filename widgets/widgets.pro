@@ -22,7 +22,8 @@ HEADERS += $$PWD/searchlist.h \
     $$PWD/generalremovebutton.h \
     $$PWD/multideletebutton.h \
     $$PWD/useravatar.h \
-    keyboardlayoutitem.h
+    genericlistitem.h \
+    listwidget.h
 SOURCES += $$PWD/searchlist.cpp \
     $$PWD/dynamiclabel.cpp \
     $$PWD/moduleheader.cpp \
@@ -40,7 +41,8 @@ SOURCES += $$PWD/searchlist.cpp \
     $$PWD/generalremovebutton.cpp \
     $$PWD/multideletebutton.cpp \
     $$PWD/useravatar.cpp \
-    keyboardlayoutitem.cpp
+    genericlistitem.cpp \
+    listwidget.cpp
 
 RESOURCES += \
     $$PWD/themes/widgets_theme_dark.qrc \

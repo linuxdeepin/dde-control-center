@@ -1,5 +1,5 @@
-#ifndef KEYBOARDLAYOUTITEM_H
-#define KEYBOARDLAYOUTITEM_H
+#ifndef GENERICLISTITEM_H
+#define GENERICLISTITEM_H
 
 #include <QFrame>
 #include <QLabel>
@@ -8,7 +8,7 @@
 #include "searchlist.h"
 
 class ImageNameButton;
-class KeyboardLayoutItem : public QFrame, public SearchItem
+class GenericListItem : public QFrame, public SearchItem
 {
     Q_OBJECT
 
@@ -22,7 +22,7 @@ class KeyboardLayoutItem : public QFrame, public SearchItem
     Q_PROPERTY(bool showBgColor READ showBgColor WRITE setShowBgColor NOTIFY showBgColorChanged)
 
 public:
-    explicit KeyboardLayoutItem(bool showRmButton = false, QWidget *parent = 0);
+    explicit GenericListItem(bool showRmButton = false, QWidget *parent = 0);
 
     QStringList keyWords() const Q_DECL_OVERRIDE;
     void setData(const QVariant &datas) Q_DECL_OVERRIDE;
@@ -73,4 +73,4 @@ private:
     bool m_showBgColor;
 };
 
-#endif // KEYBOARDLAYOUTITEM_H
+#endif // GENERICLISTITEM_H

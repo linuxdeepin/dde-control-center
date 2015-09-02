@@ -19,7 +19,7 @@
 #include "moduleheader.h"
 #include "normallabel.h"
 #include "addrmdoneline.h"
-#include "keyboardlayoutitem.h"
+#include "genericlistitem.h"
 
 #include "keyboard.h"
 #include "dbus/dbusinputdevices.h"
@@ -69,8 +69,8 @@ void Keyboard::updateKeyboardLayout(SearchList *button_list, AddRmDoneLine *line
 
         m_mapUserLayoutInfo[tmp.value()] = str;
 
-        KeyboardLayoutItem *item = new KeyboardLayoutItem(showRemoveButton&&str!=current_layout);
-        connect(item, &KeyboardLayoutItem::removeButtonClicked, [=]{
+        GenericListItem *item = new GenericListItem(showRemoveButton&&str!=current_layout);
+        connect(item, &GenericListItem::removeButtonClicked, [=]{
             m_dbusKeyboard->DeleteUserLayout(str);
 
             KeyboardLayoutDelegate *tmpw = new KeyboardLayoutDelegate(item->title());
@@ -87,8 +87,8 @@ void Keyboard::updateKeyboardLayout(SearchList *button_list, AddRmDoneLine *line
             m_letterClassifyList->addItem(tmpw);
             m_letterClassifyList->addEnd();
         });
-        connect(line, &AddRmDoneLine::removeClicked, item, &KeyboardLayoutItem::showRemoveButton);
-        connect(line, &AddRmDoneLine::doneClicked, item, &KeyboardLayoutItem::hideRemoveButton);
+        connect(line, &AddRmDoneLine::removeClicked, item, &GenericListItem::showRemoveButton);
+        connect(line, &AddRmDoneLine::doneClicked, item, &GenericListItem::hideRemoveButton);
         item->setTitle(tmp.value());
         m_mapUserLayoutIndex[str] = button_list->addItem(item);
 
@@ -313,7 +313,7 @@ void Keyboard::initUI()
     QString current_lang = dbusLangSelector->currentLocale();
 
     foreach (const LocaleInfo &info, lang_list.value()) {
-        KeyboardLayoutItem *item = new KeyboardLayoutItem;
+        GenericListItem *item = new GenericListItem;
         QString theme = DThemeManager::instance()->theme();
 
         item->setKeyWords(QStringList()<<info.name);

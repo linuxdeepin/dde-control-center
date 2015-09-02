@@ -30,7 +30,7 @@
         <file>light/images/list_remove_press.png</file>
         <file>light/MultiDeleteButton.theme</file>
         <file>light/MultiAddCheckButton.theme</file>
-        <file>light/KeyboardLayoutItem.theme</file>
+        <file>light/GenericListItem.theme</file>
         <file>light/images/tick_hover.png</file>
     </qresource>
 </RCC>

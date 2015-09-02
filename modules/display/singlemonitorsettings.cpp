@@ -7,7 +7,7 @@
 
 #include "moduleheader.h"
 #include "normallabel.h"
-#include "keyboardlayoutitem.h"
+#include "genericlistitem.h"
 
 #include "monitor.h"
 #include "monitorground.h"
@@ -92,7 +92,7 @@ void SingleMonitorSettings::initUI()
 
     foreach (MonitorInterface* dbusMonitor, m_dbusMonitors) {
         if(enableMonitorList){
-            KeyboardLayoutItem *enableMonitorItem = new KeyboardLayoutItem;
+            GenericListItem *enableMonitorItem = new GenericListItem;
             enableMonitorItem->setTitle(dbusMonitor->name());
             enableMonitorList->addWidget(enableMonitorItem, 25, Qt::AlignLeft);
 
@@ -183,7 +183,8 @@ void SingleMonitorSettings::updateResolutionButtons(MonitorInterface *dbus, DBut
 
     MonitorMode currentMode = dbus->currentMode();
     QString currentResolution = QString("%1x%2").arg(currentMode.width).arg(currentMode.height);
-    resolutionButtons->checkButtonByIndex(resolutions.indexOf(currentResolution));
+    int index = resolutions.indexOf(currentResolution);
+    resolutionButtons->checkButtonByIndex(index);
 }
 
 void SingleMonitorSettings::updateRotationButtons(MonitorInterface *dbus, DButtonGrid *rotationButtons)
@@ -191,7 +192,9 @@ void SingleMonitorSettings::updateRotationButtons(MonitorInterface *dbus, DButto
     QStringList rotations = getRotationLabels(dbus);
 
     ushort currentRotation = dbus->rotation();
-    rotationButtons->checkButtonByIndex(rotations.indexOf(m_rotationMap[currentRotation]));
+    int index = rotations.indexOf(m_rotationMap[currentRotation]);
+    if(index >= 0)
+        rotationButtons->checkButtonByIndex(index);
 }
 
 void SingleMonitorSettings::updateBrightnessSlider(MonitorInterface *dbus, DSlider *brightnessSlider)

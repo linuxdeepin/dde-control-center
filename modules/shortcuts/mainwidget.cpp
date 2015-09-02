@@ -321,7 +321,7 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
         return;
     }
 
-    int index = listw->indexOf(qobject_cast<QWidget*>(w));
+    int index = listw->indexOf(w);
 
     if(index<0||index>listw->count()-1)
         return;
@@ -334,7 +334,7 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
         label->setTimeout(2000);
         label->expansion();
         connect(label, &ToolTip::contracted, [=]{
-            listw->removeItem(listw->indexOf(qobject_cast<QWidget*>(label)));
+            listw->removeItem(listw->indexOf(label));
         });
     }else if(flag == "Conflict"){
         QList<ShortcutWidget*> tmp_list;
@@ -365,7 +365,7 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
         listw->setItemSize(310, RADIO_ITEM_HEIGHT);
 
         connect(dialog, &SelectDialog::replace, [=]{
-            listw->removeItem(listw->indexOf(qobject_cast<QWidget*>(dialog)));
+            listw->removeItem(listw->indexOf(dialog));
 
             foreach (ShortcutWidget* tmp_w, tmp_list) {
                 m_dbus->ModifyShortcut(tmp_w->id(), tmp_w->shortcut(), "");
@@ -376,7 +376,7 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
             dialog->contraction();
         });
         connect(dialog, &SelectDialog::contracted, [=]{
-            listw->removeItem(listw->indexOf(qobject_cast<QWidget*>(dialog)));
+            listw->removeItem(listw->indexOf(dialog));
         });
         dialog->expansion();
     }

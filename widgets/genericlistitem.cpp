@@ -4,12 +4,12 @@
 #include <libdui/dthememanager.h>
 #include <libdui/dconstants.h>
 
-#include "keyboardlayoutitem.h"
+#include "genericlistitem.h"
 #include "imagenamebutton.h"
 
 DUI_USE_NAMESPACE
 
-KeyboardLayoutItem::KeyboardLayoutItem(bool showRmButton, QWidget *parent) :
+GenericListItem::GenericListItem(bool showRmButton, QWidget *parent) :
     QFrame(parent),
     m_widget(this),
     m_label(new QLabel),
@@ -17,18 +17,18 @@ KeyboardLayoutItem::KeyboardLayoutItem(bool showRmButton, QWidget *parent) :
     m_layout(new QHBoxLayout),
     m_showBgColor(false)
 {
-    D_THEME_INIT_WIDGET(KeyboardLayoutItem, checked, showBgColor);
+    D_THEME_INIT_WIDGET(GenericListItem, checked, showBgColor);
 
     m_deleteButton = new ImageNameButton("list_remove", this);
     m_deleteButton->setHidden(!showRmButton);
 
-    connect(m_deleteButton, &ImageNameButton::clicked, this, &KeyboardLayoutItem::removeButtonClicked);
-    connect(this, &KeyboardLayoutItem::showRemoveButton, [=]{
+    connect(m_deleteButton, &ImageNameButton::clicked, this, &GenericListItem::removeButtonClicked);
+    connect(this, &GenericListItem::showRemoveButton, [=]{
         if(!m_checked){
             m_deleteButton->show();
         }
     });
-    connect(this, &KeyboardLayoutItem::hideRemoveButton, m_deleteButton, &ImageNameButton::hide);
+    connect(this, &GenericListItem::hideRemoveButton, m_deleteButton, &ImageNameButton::hide);
 
     m_layout->setMargin(0);
     m_layout->setContentsMargins(22, 0, 0, 0);
@@ -36,29 +36,29 @@ KeyboardLayoutItem::KeyboardLayoutItem(bool showRmButton, QWidget *parent) :
     setLayout(m_layout);
 }
 
-QStringList KeyboardLayoutItem::keyWords() const
+QStringList GenericListItem::keyWords() const
 {
     return m_keyWords;
 }
 
-void KeyboardLayoutItem::setData(const QVariant &datas)
+void GenericListItem::setData(const QVariant &datas)
 {
     if(datas.type() == QVariant::String){
         m_label->setText(datas.toString());
     }
 }
 
-QVariant KeyboardLayoutItem::getData()
+QVariant GenericListItem::getData()
 {
     return m_label->text();
 }
 
-QWidget *KeyboardLayoutItem::widget() const
+QWidget *GenericListItem::widget() const
 {
     return m_widget;
 }
 
-void KeyboardLayoutItem::setListWidget(SearchList *list)
+void GenericListItem::setListWidget(SearchList *list)
 {
     SearchItem::setListWidget(list);
 
@@ -68,42 +68,42 @@ void KeyboardLayoutItem::setListWidget(SearchList *list)
     }, Qt::QueuedConnection);
 }
 
-bool KeyboardLayoutItem::checked() const
+bool GenericListItem::checked() const
 {
     return m_checked;
 }
 
-QString KeyboardLayoutItem::title() const
+QString GenericListItem::title() const
 {
     return m_label->text();
 }
 
-QString KeyboardLayoutItem::imagePress() const
+QString GenericListItem::imagePress() const
 {
     return m_imagePress;
 }
 
-QString KeyboardLayoutItem::imageHover() const
+QString GenericListItem::imageHover() const
 {
     return m_imageHover;
 }
 
-QString KeyboardLayoutItem::imageNormal() const
+QString GenericListItem::imageNormal() const
 {
     return m_imageNormal;
 }
 
-QString KeyboardLayoutItem::imageChecked() const
+QString GenericListItem::imageChecked() const
 {
     return m_imageChecked;
 }
 
-bool KeyboardLayoutItem::showBgColor() const
+bool GenericListItem::showBgColor() const
 {
     return m_showBgColor;
 }
 
-void KeyboardLayoutItem::setChecked(bool checked)
+void GenericListItem::setChecked(bool checked)
 {
     if (m_checked == checked)
         return;
@@ -123,22 +123,22 @@ void KeyboardLayoutItem::setChecked(bool checked)
     emit checkedChanged(checked);
 }
 
-void KeyboardLayoutItem::setTitle(QString title)
+void GenericListItem::setTitle(QString title)
 {
     m_label->setText(title);
 }
 
-void KeyboardLayoutItem::setImagePress(QString imagePress)
+void GenericListItem::setImagePress(QString imagePress)
 {
     m_imagePress = imagePress;
 }
 
-void KeyboardLayoutItem::setImageHover(QString imageHover)
+void GenericListItem::setImageHover(QString imageHover)
 {
     m_imageHover = imageHover;
 }
 
-void KeyboardLayoutItem::setImageNormal(QString imageNormal)
+void GenericListItem::setImageNormal(QString imageNormal)
 {
     m_imageNormal = imageNormal;
     if(imageNormal.isEmpty()){
@@ -150,7 +150,7 @@ void KeyboardLayoutItem::setImageNormal(QString imageNormal)
     }
 }
 
-void KeyboardLayoutItem::setImageChecked(QString imageChecked)
+void GenericListItem::setImageChecked(QString imageChecked)
 {
     m_imageChecked = imageChecked;
     if(!imageChecked.isEmpty()&&m_checked){
@@ -158,12 +158,12 @@ void KeyboardLayoutItem::setImageChecked(QString imageChecked)
     }
 }
 
-void KeyboardLayoutItem::setKeyWords(QStringList keyWords)
+void GenericListItem::setKeyWords(QStringList keyWords)
 {
     m_keyWords = keyWords;
 }
 
-void KeyboardLayoutItem::setShowBgColor(bool showBgColor)
+void GenericListItem::setShowBgColor(bool showBgColor)
 {
     if (m_showBgColor == showBgColor)
         return;
@@ -173,7 +173,7 @@ void KeyboardLayoutItem::setShowBgColor(bool showBgColor)
     emit showBgColorChanged(showBgColor);
 }
 
-bool KeyboardLayoutItem::eventFilter(QObject *obj, QEvent *e)
+bool GenericListItem::eventFilter(QObject *obj, QEvent *e)
 {
     if(obj == m_label){
         switch (e->type()) {
@@ -205,7 +205,7 @@ bool KeyboardLayoutItem::eventFilter(QObject *obj, QEvent *e)
     return false;
 }
 
-void KeyboardLayoutItem::resizeEvent(QResizeEvent *e)
+void GenericListItem::resizeEvent(QResizeEvent *e)
 {
     m_deleteButton->move(8, height()/2-m_deleteButton->height()/2);
 

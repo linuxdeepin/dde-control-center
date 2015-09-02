@@ -1,17 +1,17 @@
-KeyboardLayoutItem{
+GenericListItem{
     padding-left: 10px;
 }
 
-KeyboardLayoutItem QLabel{
+GenericListItem QLabel{
     font-size: 12px;
     color: #b4b4b4;
 }
 
-KeyboardLayoutItem QLabel:hover{
+GenericListItem QLabel:hover{
     color: white;
 }
 
-KeyboardLayoutItem[checked="true"]{
+GenericListItem[checked="true"]{
     background-image: url(:/dark/images/tick_hover.png);
     background-repeat: no-repeat;
     background-position: left center;
@@ -20,11 +20,11 @@ KeyboardLayoutItem[checked="true"]{
     background-origin: content;
 }
 
-KeyboardLayoutItem[checked="true"] QLabel{
+GenericListItem[checked="true"] QLabel{
     color: #2CA7F8;
 }
 
-KeyboardLayoutItem[showBgColor="false"]{
+GenericListItem[showBgColor="false"]{
     background-color: transparent;
     background-image: url();
 }
