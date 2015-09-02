@@ -50,6 +50,8 @@ RightContentWidget::RightContentWidget(bool addResetButton, QWidget *parent):
         QHBoxLayout *layout = new QHBoxLayout;
         layout->addWidget(m_tipsLabel);
         layout->addWidget(m_reset);
+        layout->setSpacing(0);
+        layout->setMargin(0);
         setLayout(layout);
         m_timer->setInterval(800);
 
