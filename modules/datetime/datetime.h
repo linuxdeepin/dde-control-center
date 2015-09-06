@@ -69,6 +69,7 @@ private:
     TimezoneCtrlWidget *m_timezoneCtrlWidget;
     TimeWidget *m_timeWidget;
     SearchList *m_timezoneListWidget;
+    QTimer *m_refershTimer;
 
     QList<QString> m_choosedZoneList;
 };

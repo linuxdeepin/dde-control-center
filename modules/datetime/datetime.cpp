@@ -22,7 +22,8 @@ Datetime::Datetime() :
     QObject(),
     m_frame(new QFrame),
     m_dbusInter(m_frame),
-    m_timezoneListWidget(new SearchList)
+    m_timezoneListWidget(new SearchList),
+    m_refershTimer(new QTimer(m_frame))
 {
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
@@ -106,6 +107,11 @@ Datetime::Datetime() :
     m_frame->setLayout(centeralLayout);
     m_dateCtrlWidget->setVisible(!m_dbusInter.nTP());
 
+    // update every second
+    m_refershTimer->setInterval(1 * 1000);
+    m_refershTimer->start();
+
+    connect(m_refershTimer, &QTimer::timeout, m_timeWidget, &TimeWidget::updateTime);
     connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::addTimezoneAccept, this, &Datetime::addUserTimeZone);
     connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::addTimezoneAccept, this, &Datetime::showSelectedTimezoneList);
     connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::addTimezoneCancel, this, &Datetime::showSelectedTimezoneList);
@@ -113,7 +119,9 @@ Datetime::Datetime() :
     connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::removeTimezone, this, &Datetime::toRemoveTimezoneMode);
     connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::addTimezone, this, &Datetime::showTimezoneList);
     connect(m_clockFormatSwitcher, &DSwitchButton::checkedChanged, &m_dbusInter, &DBusTimedate::setUse24HourFormat);
-    connect(m_clockFormatSwitcher, &DSwitchButton::checkedChanged, m_timeWidget, &TimeWidget::setIs24HourFormat);
+//    connect(m_clockFormatSwitcher, &DSwitchButton::checkedChanged, m_timeWidget, &TimeWidget::setIs24HourFormat);
+    connect(&m_dbusInter, &DBusTimedate::Use24HourFormatChanged, [this] {m_timeWidget->setIs24HourFormat(m_dbusInter.use24HourFormat());});
+    connect(&m_dbusInter, &DBusTimedate::Use24HourFormatChanged, m_timeWidget, &TimeWidget::updateTime);
     connect(m_autoSyncSwitcher, &DSwitchButton::checkedChanged, &m_dbusInter, &DBusTimedate::SetNTP);
     connect(&m_dbusInter, &DBusTimedate::NTPChanged, [this] () -> void {m_dateCtrlWidget->setVisible(!m_dbusInter.nTP());});
     connect(&m_dbusInter, &DBusTimedate::TimezoneChanged, this, &Datetime::showSelectedTimezoneList);

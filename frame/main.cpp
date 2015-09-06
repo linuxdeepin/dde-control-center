@@ -63,10 +63,13 @@ int main(int argv, char *args[])
 
     DBusControlCenter adaptor(&frame);
     QDBusConnection conn = QDBusConnection::sessionBus();
-    if (!conn.registerService("com.deepin.dde.ControlCenter"))
+    if (!conn.registerService("com.deepin.dde.ControlCenter") ||
+        !conn.registerObject("/com/deepin/dde/ControlCenter", &frame))
+#ifndef QT_DEBUG
         return -1;
-    if (!conn.registerObject("/com/deepin/dde/ControlCenter", &frame))
-        return -1;
+#else
+        qWarning() << "d-bus service already registered!";
+#endif
 
     // setup theme manager
     DThemeManager *manager = DThemeManager::instance();

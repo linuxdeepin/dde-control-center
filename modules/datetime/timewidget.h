@@ -56,7 +56,7 @@ signals:
 
 public slots:
     void updateDateTime();
-    inline void setIs24HourFormat(const bool is24HourFormat) {m_amOrPm->setVisible(!is24HourFormat); updateDateTime();}
+    inline void setIs24HourFormat(const bool is24HourFormat) {m_amOrPm->setVisible(!is24HourFormat);}
 
 private:
     void enterEvent(QEvent *);
@@ -104,6 +104,7 @@ signals:
 public slots:
     void switchToEditMode();
     void switchToNormalMode();
+    inline void updateTime() {m_normalWidget->updateDateTime();}
     //inline void setTime(const QTime & time) {m_normalWidget->setTime(time); m_editWidget->setTime(time);}
     inline void setIs24HourFormat(const bool is24HourFormat) {m_normalWidget->setIs24HourFormat(is24HourFormat);}
 

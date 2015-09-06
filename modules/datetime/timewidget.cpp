@@ -95,7 +95,7 @@ NormalWidget::NormalWidget(QWidget *parent) :
     setLayout(normalLayout);
 
     // we need adjust time format by m_amOrPm visible property.
-    QTimer::singleShot(0, this, SLOT(updateDateTime()));
+    QTimer::singleShot(1, this, SLOT(updateDateTime()));
 
     D_THEME_INIT_WIDGET(NormalWidget);
 }
