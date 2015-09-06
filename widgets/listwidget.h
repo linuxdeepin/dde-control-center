@@ -17,6 +17,7 @@ class ListWidget : public DScrollArea
     Q_PROPERTY(int count READ count NOTIFY countChanged FINAL)
     Q_PROPERTY(int visibleCount READ visibleCount NOTIFY visibleCountChanged FINAL)
     Q_PROPERTY(bool checkable READ checkable WRITE setCheckable)
+    Q_PROPERTY(bool enableUncheck READ enableUncheck WRITE setEnableUncheck NOTIFY enableUncheckChanged)
     Q_PROPERTY(CheckMode checkMode READ checkMode)
 
     Q_ENUMS(CheckMode)
@@ -29,10 +30,10 @@ public:
     explicit ListWidget(CheckMode checkMode = Radio, QWidget *parent = 0);
 
 public slots:
-    int addWidget(QWidget *w);
-    void addWidgets(const QList<QWidget*> &ws);
-    void insertWidget(int index, QWidget *w);
-    void insertWidgets(int index, const QList<QWidget*> &ws);
+    int addWidget(QWidget *w, Qt::Alignment a = Qt::AlignHCenter);
+    void addWidgets(const QList<QWidget*> &ws, Qt::Alignment a = Qt::AlignHCenter);
+    void insertWidget(int index, QWidget *w, Qt::Alignment a = Qt::AlignHCenter);
+    void insertWidgets(int index, const QList<QWidget*> &ws, Qt::Alignment a = Qt::AlignHCenter);
     void setItemSize(int w, int h);
     void clear(bool isDelete = true);
     void removeWidget(int index, bool isDelete = true);
@@ -41,6 +42,7 @@ public slots:
     void setChecked(int index, bool checked);
     void setCheckMode(CheckMode checkMode);
     void setCheckable(bool checkable);
+    void setEnableUncheck(bool enableUncheck);
 
 public:
     int count() const;
@@ -49,6 +51,8 @@ public:
     int firstChecked() const;
     QList<int> checkedList() const;
     bool checkable() const;
+    bool enableUncheck() const;
+    bool isChecked(int index) const;
     int visibleCount() const;
     CheckMode checkMode() const;
     QList<QWidget*> widgetList() const;
@@ -59,7 +63,9 @@ signals:
     void checkedChanged(int index, bool checked);
     void countChanged();
     void checkableChanged(bool checkable);
+    void enableUncheckChanged(bool enableUncheck);
     void visibleCountChanged(int visibleCount);
+    void clicked(int index);
 
 protected:
     bool eventFilter(QObject *, QEvent *) Q_DECL_OVERRIDE;
@@ -77,6 +83,7 @@ private:
     int m_visibleCount;
     bool m_checkable;
     QMap<int, bool> m_mapVisible;
+    bool m_enableUncheck;
 };
 
 #endif // LISTWIDGET_H

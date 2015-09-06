@@ -17,7 +17,8 @@ TitleAndWidget::TitleAndWidget(QWidget *w, const QString &title, QWidget *parent
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
-    layout->addWidget(w, 0, Qt::AlignHCenter|Qt::AlignBottom);
+    layout->addSpacing(15);
+    layout->addWidget(w, 0, Qt::AlignHCenter|Qt::AlignTop);
 
     setLayout(layout);
 }

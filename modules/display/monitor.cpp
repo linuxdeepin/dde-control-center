@@ -19,10 +19,9 @@ Monitor::Monitor(MonitorInterface *dbus, QWidget *parent) :
     m_dbusInterface(dbus),
     m_draggable(false),
     m_nameAlignment(Qt::AlignCenter),
-    m_brother(NULL),
     m_draging(false),
     m_eyeing(false),
-    m_primary(false),
+    m_isPrimary(false),
     m_child(NULL)
 {
     D_THEME_INIT_WIDGET(Monitor, draging, eyeing);
@@ -37,6 +36,11 @@ void Monitor::setName(QString name)
     m_name = name;
 
     update();
+}
+
+QRect Monitor::resolution()
+{
+    return QRect(m_dbusInterface->x(), m_dbusInterface->y(), m_dbusInterface->width(), m_dbusInterface->height());
 }
 
 MonitorInterface *Monitor::dbusInterface() const
@@ -64,11 +68,6 @@ Qt::Alignment Monitor::nameAlignment() const
     return m_nameAlignment;
 }
 
-Monitor *Monitor::brother() const
-{
-    return m_brother;
-}
-
 bool Monitor::draging() const
 {
     return m_draging;
@@ -79,14 +78,24 @@ bool Monitor::eyeing() const
     return m_eyeing;
 }
 
-bool Monitor::primary() const
+bool Monitor::isPrimary() const
 {
-    return m_primary;
+    return m_isPrimary;
 }
 
 const Monitor *Monitor::child() const
 {
     return m_child;
+}
+
+QRect Monitor::parentRect() const
+{
+    return m_parentRect;
+}
+
+void Monitor::setParentRect(const QRect &rect)
+{
+    m_parentRect = rect;
 }
 
 void Monitor::setDockBgColor(QColor dockBgColor)
@@ -114,17 +123,12 @@ void Monitor::setNameAlignment(Qt::Alignment nameAlignment)
     m_nameAlignment = nameAlignment;
 }
 
-void Monitor::setBrother(Monitor *brother)
+void Monitor::setIsPrimary(bool primary)
 {
-    m_brother = brother;
-}
-
-void Monitor::setPrimary(bool primary)
-{
-    if(m_primary == primary)
+    if(m_isPrimary == primary)
         return;
 
-    m_primary = primary;
+    m_isPrimary = primary;
 
     update();
 }
@@ -140,8 +144,8 @@ void Monitor::paintEvent(QPaintEvent *e)
 
     if(m_child){
         child_rect.setWidth(width() * 0.5625);
-        child_rect.setHeight(height() * 0.5);
-        child_rect.moveTo(width() / 8, height() / 6);
+        child_rect.setHeight(height() * 0.4);
+        child_rect.moveTo(width() / 8, height() / 4);
 
         QRect me_rect = child_rect;
         me_rect.moveTopLeft(QPoint(child_rect.right() - child_rect.width() * 0.667,
@@ -150,8 +154,16 @@ void Monitor::paintEvent(QPaintEvent *e)
         QTextOption tmpOption;
         QFont font = pa.font();
 
+        tmpOption.setAlignment(Qt::AlignRight);
+        font.setPixelSize(child_rect.height() / 3.5);
+        pa.setFont(font);
+        QRect tmp_rect = rect();
+        tmp_rect.setRight(tmp_rect.right() - tmp_rect.height() / 15.0);
+        tmp_rect.setTop(tmp_rect.top() + tmp_rect.height() / 15.0);
+        pa.drawText(tmp_rect, m_dbusInterface->name(), tmpOption);
+
         tmpOption.setAlignment(Qt::AlignCenter);
-        font.setPixelSize(child_rect.height() / 2);
+        font.setPixelSize(child_rect.height() / 1.3);
 
         pa.fillRect(child_rect, Qt::black);
         pa.setFont(font);
@@ -160,7 +172,7 @@ void Monitor::paintEvent(QPaintEvent *e)
         pa.setPen(QColor("#4b4b4b"));
         pa.drawRect(child_rect);
 
-        pa.setOpacity(0.95);
+        pa.setOpacity(0.85);
         pa.fillRect(me_rect, Qt::black);
         pa.setOpacity(1);
         pa.drawRect(me_rect);
@@ -181,11 +193,11 @@ void Monitor::paintEvent(QPaintEvent *e)
         nameOption.setAlignment(m_nameAlignment);
         pa.drawText(rect(), m_name, nameOption);
 
-        if(m_draging && m_brother){
-            pa.drawText(10, 20, QString("(%1,%2)").arg(x() - m_brother->x()).arg(y() - m_brother->y()));
+        if(m_draging){
+            pa.drawText(10, 20, QString("(%1,%2)").arg(x() - m_parentRect.x()).arg(y() - m_parentRect.y()));
         }
 
-        if(m_primary){
+        if(m_isPrimary){
             QPainterPath path;
             path.moveTo(top_width, this->height() - height);
             path.lineTo(top_width * 2, this->height() - height);
@@ -210,7 +222,8 @@ void Monitor::mousePressEvent(QMouseEvent *e)
         return;
     }
 
-    m_oldPos = e->pos();
+    m_pressPos = e->pos();
+    m_oldPos = pos();
 
     setCursor(Qt::ClosedHandCursor);
 
@@ -228,7 +241,7 @@ void Monitor::mouseMoveEvent(QMouseEvent *e)
         return;
     }
 
-    move(pos() + e->pos() - m_oldPos);
+    move(pos() + e->pos() - m_pressPos);
 
     emit mouseMoveing(e->pos());
 }
@@ -272,6 +285,7 @@ bool Monitor::drop(Monitor *monitor)
     setEyeing(false);
 
     m_child = monitor;
+    m_child->setParent(this);
     m_child->hide();
 
     update();
@@ -304,4 +318,6 @@ void Monitor::setEyeing(bool arg)
         return;
 
     m_eyeing = arg;
+
+    emit eyeingChanged(arg);
 }

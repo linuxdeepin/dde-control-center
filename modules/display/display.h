@@ -17,6 +17,8 @@ class QFrame;
 class MonitorGround;
 class MonitorInterface;
 class Monitor;
+class ListWidget;
+class CustomSettings;
 class Display: public QObject, ModuleInterface
 {
     Q_OBJECT
@@ -31,6 +33,7 @@ public:
 private slots:
     void init();
     void updateUI();
+    void onDisplayModeChanged();
 
 private:
     QFrame * m_frame;
@@ -39,6 +42,9 @@ private:
     MonitorGround *m_monitorGround;
     QList<MonitorInterface*> m_dbusMonitors;
     QList<Monitor*> m_monitors;
+    ListWidget *m_widgetList;
+    QStringList m_monitorNameList;
+    CustomSettings *m_singleSettings = NULL;
 };
 
 #endif // DISPLAY_H

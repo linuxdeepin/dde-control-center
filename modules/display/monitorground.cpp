@@ -1,17 +1,68 @@
 #include <QDebug>
+#include <QHBoxLayout>
+
+#include "imagenamebutton.h"
 
 #include "constants.h"
 
 #include "monitorground.h"
 #include "monitor.h"
 #include "dbus/monitorinterface.h"
+#include "dbus/displayinterface.h"
+#include "displaymodeitem.h"
 
-MonitorGround::MonitorGround(QWidget *parent)
-    : QFrame(parent)
+DisplayModeItem * getIconButton(const QString &text){
+    DisplayModeItem* button = new DisplayModeItem(false, false);
+    button->setText(QObject::tr(text.toLatin1().data()));
+    button->setClickCheck(false);
+    button->setIconName(text.toLower());
+    button->hide();
+
+    return button;
+}
+
+MonitorGround::MonitorGround(DisplayInterface * display, QWidget *parent):
+    QFrame(parent),
+    m_dbusDisplay(display)
 {
-    setStyleSheet(QString("QFrame { background-color: %1 }").arg(DCC::BgDarkColor.name()));
+    setStyleSheet(QString("QFrame { background-color: %1; }").arg(DCC::BgDarkColor.name()));
 
     setFixedSize(310, 210);
+
+    QHBoxLayout *layout = new QHBoxLayout;
+
+    m_recognize = getIconButton("Recognize");
+    m_edit = getIconButton("Edit");
+    m_split = getIconButton("Split");
+
+    connect(m_split, &DisplayModeItem::clicked, [this]{
+        foreach (Monitor *monitor, m_monitors) {
+            MonitorInterface *dbus = monitor->dbusInterface();
+            if(dbus->isComposited()){
+                m_dbusDisplay->SplitMonitor(dbus->name());
+            }
+        }
+
+        m_split->hide();
+        m_edit->show();
+    });
+
+    connect(m_edit, &DisplayModeItem::clicked, [this]{
+        foreach (Monitor *monitor, m_monitors) {
+            monitor->setDraggable(true);
+        }
+
+        m_recognize->hide();
+        m_edit->hide();
+    });
+
+    layout->addStretch(1);
+    layout->addWidget(m_recognize, 0, Qt::AlignBottom);
+    layout->addWidget(m_edit, 0, Qt::AlignBottom);
+    layout->addWidget(m_split, 0, Qt::AlignBottom);
+    layout->addStretch(1);
+
+    setLayout(layout);
 }
 
 void MonitorGround::addMonitor(Monitor *monitor)
@@ -21,24 +72,21 @@ void MonitorGround::addMonitor(Monitor *monitor)
 
     m_monitors << monitor;
     monitor->setParent(this);
+    MonitorInterface* dbus = monitor->dbusInterface();
 
-    if(m_monitors.count() == 2){
-        m_monitors[0]->setBrother(m_monitors[1]);
-        m_monitors[1]->setBrother(m_monitors[0]);
+    connect(monitor, &Monitor::mousePressed, monitor, &Monitor::raise, Qt::DirectConnection);
+    connect(monitor, &Monitor::mouseMoveing, this, &MonitorGround::onMonitorMouseMove, Qt::DirectConnection);
+    connect(monitor, &Monitor::mouseRelease, this, &MonitorGround::onMonitorMouseRelease, Qt::DirectConnection);
+    connect(dbus, &MonitorInterface::XChanged, this, &MonitorGround::relayout, Qt::DirectConnection);
+    connect(dbus, &MonitorInterface::YChanged, this, &MonitorGround::relayout, Qt::DirectConnection);
+    connect(dbus, &MonitorInterface::WidthChanged, this, &MonitorGround::relayout, Qt::DirectConnection);
+    connect(dbus, &MonitorInterface::HeightChanged, this, &MonitorGround::relayout, Qt::DirectConnection);
+    connect(dbus, &MonitorInterface::RotationChanged, this, &MonitorGround::relayout, Qt::DirectConnection);
+    connect(dbus, &MonitorInterface::OpenedChanged, this, &MonitorGround::relayout, Qt::DirectConnection);
+    connect(dbus, &MonitorInterface::OpenedChanged, this, &MonitorGround::updateOpenedCount, Qt::DirectConnection);
+    connect(dbus, &MonitorInterface::IsCompositedChanged, this, &MonitorGround::updateOpenedCount, Qt::DirectConnection);
 
-        m_monitors[0]->setDraggable(true);
-        m_monitors[1]->setDraggable(true);
-    }
-
-    connect(monitor, &Monitor::mousePressed, monitor, &Monitor::raise);
-    connect(monitor, &Monitor::mouseMoveing, this, &MonitorGround::onMonitorMouseMove);
-    connect(monitor, &Monitor::mouseRelease, this, &MonitorGround::onMonitorMouseRelease);
-    connect(monitor->dbusInterface(), &MonitorInterface::XChanged, this, &MonitorGround::relayout);
-    connect(monitor->dbusInterface(), &MonitorInterface::YChanged, this, &MonitorGround::relayout);
-    connect(monitor->dbusInterface(), &MonitorInterface::WidthChanged, this, &MonitorGround::relayout);
-    connect(monitor->dbusInterface(), &MonitorInterface::HeightChanged, this, &MonitorGround::relayout);
-    connect(monitor->dbusInterface(), &MonitorInterface::RotationChanged, this, &MonitorGround::relayout);
-
+    updateOpenedCount();
     relayout();
 }
 
@@ -47,16 +95,21 @@ void MonitorGround::removeMonitor(Monitor *monitor)
     m_monitors.removeOne(monitor);
 
     monitor->setParent(NULL);
+    MonitorInterface* dbus = monitor->dbusInterface();
 
     disconnect(monitor, &Monitor::mousePressed, monitor, &Monitor::raise);
     disconnect(monitor, &Monitor::mouseMoveing, this, &MonitorGround::onMonitorMouseMove);
     disconnect(monitor, &Monitor::mouseRelease, this, &MonitorGround::onMonitorMouseRelease);
-    disconnect(monitor->dbusInterface(), &MonitorInterface::XChanged, this, &MonitorGround::relayout);
-    disconnect(monitor->dbusInterface(), &MonitorInterface::YChanged, this, &MonitorGround::relayout);
-    disconnect(monitor->dbusInterface(), &MonitorInterface::WidthChanged, this, &MonitorGround::relayout);
-    disconnect(monitor->dbusInterface(), &MonitorInterface::HeightChanged, this, &MonitorGround::relayout);
-    disconnect(monitor->dbusInterface(), &MonitorInterface::RotationChanged, this, &MonitorGround::relayout);
+    disconnect(dbus, &MonitorInterface::XChanged, this, &MonitorGround::relayout);
+    disconnect(dbus, &MonitorInterface::YChanged, this, &MonitorGround::relayout);
+    disconnect(dbus, &MonitorInterface::WidthChanged, this, &MonitorGround::relayout);
+    disconnect(dbus, &MonitorInterface::HeightChanged, this, &MonitorGround::relayout);
+    disconnect(dbus, &MonitorInterface::RotationChanged, this, &MonitorGround::relayout);
+    disconnect(dbus, &MonitorInterface::OpenedChanged, this, &MonitorGround::relayout);
+    disconnect(dbus, &MonitorInterface::OpenedChanged, this, &MonitorGround::updateOpenedCount);
+    disconnect(dbus, &MonitorInterface::IsCompositedChanged, this, &MonitorGround::updateOpenedCount);
 
+    updateOpenedCount();
     relayout();
 }
 
@@ -67,42 +120,80 @@ void MonitorGround::clear()
     }
 }
 
+void MonitorGround::beginEdit()
+{
+    m_editing = true;
+
+    updateOpenedCount();
+}
+
+void MonitorGround::endEdit()
+{
+    foreach (Monitor *monitor, m_monitors) {
+        monitor->setDraggable(false);
+    }
+
+    m_editing = false;
+
+    updateOpenedCount();
+}
+
 void MonitorGround::relayout()
 {
-    if(m_monitors.count() == 1){
-        Monitor *monitor = m_monitors[0];
-        MonitorInterface *dbus = monitor->dbusInterface();
+    QRect max_rect;
 
-        double maxWidth = dbus->x()+dbus->width();
-        double maxHeight = dbus->y()+dbus->height();
-        double scaleFactor = 0.8 * qMin(width() / maxWidth, height() / maxHeight);
+    QList<Monitor*> hide_monitors;
 
-        int x = (width() - maxWidth*scaleFactor) / 2.0;
-        int y = (height() - maxHeight*scaleFactor) / 2.0;
+    foreach (Monitor *monitor, m_monitors) {
+        monitor->setVisible(monitor->dbusInterface()->opened());
 
-        monitor->setFixedSize(scaleFactor*dbus->width(), scaleFactor*dbus->height());
-        monitor->move(x + dbus->x()*scaleFactor, y + dbus->y()*scaleFactor);
-        monitor->show();
-    }else if(m_monitors.count() > 1){
-        Monitor *monitor1 = m_monitors[0];
-        Monitor *monitor2 = m_monitors[1];
-        MonitorInterface *dbus1 = monitor1->dbusInterface();
-        MonitorInterface *dbus2 = monitor2->dbusInterface();
+        if(monitor->isHidden()){
+            hide_monitors << monitor;
+            continue;
+        }
 
-        double maxWidth = qMax(dbus1->x()+dbus1->width(), dbus2->x()+dbus2->width());
-        double maxHeight = qMax(dbus1->y()+dbus1->height(), dbus2->y()+dbus2->height());
-        double scaleFactor = 0.8 * qMin(width() / maxWidth, height() / maxHeight);
+        QRect rect = monitor->resolution();
+        max_rect = rect.united(max_rect);
+    }
 
-        int x = (width() - maxWidth*scaleFactor) / 2.0;
-        int y = (height() - maxHeight*scaleFactor) / 2.0;
+    qreal rect_scale = qMin((double)width() / max_rect.width() * 0.9,
+                            (double)height() / max_rect.height() * 0.6);
 
-        monitor1->setFixedSize(scaleFactor*dbus1->width(), scaleFactor*dbus1->height());
-        monitor2->setFixedSize(scaleFactor*dbus2->width(), scaleFactor*dbus2->height());
-        monitor1->move(x + dbus1->x()*scaleFactor, y + dbus1->y()*scaleFactor);
-        monitor2->move(x + dbus2->x()*scaleFactor, y + dbus2->y()*scaleFactor);
+    max_rect.setTop(max_rect.top() * rect_scale);
+    max_rect.setBottom(max_rect.bottom() * rect_scale);
+    max_rect.setLeft(max_rect.left() * rect_scale);
+    max_rect.setRight(max_rect.right() * rect_scale);
+    max_rect.moveCenter(this->rect().center());
 
-        monitor1->show();
-        monitor2->show();
+    foreach (Monitor *monitor, m_monitors) {
+        QRect rect = monitor->resolution();
+
+        if(monitor->isHidden()){
+            continue;
+        }
+
+        foreach (Monitor *tmp, hide_monitors) {
+            QRect tmp_rect = tmp->resolution();
+
+            int tmp_int = rect.top() - tmp_rect.top();
+
+            if(tmp_int > 0)
+                rect.moveTop(rect.top() - qMin(tmp_int, tmp_rect.height()));
+
+            tmp_int = rect.left() - tmp_rect.left();
+
+            if(tmp_int > 0)
+                rect.moveLeft(rect.left() - qMin(tmp_int, tmp_rect.width()));
+        }
+
+        rect.setTop(rect.top() * rect_scale);
+        rect.setBottom(rect.bottom() * rect_scale);
+        rect.setLeft(rect.left() * rect_scale);
+        rect.setRight(rect.right() * rect_scale);
+        rect.moveTopLeft(max_rect.topLeft() + rect.topLeft());
+
+        monitor->setParentRect(max_rect);
+        monitor->setGeometry(rect);
     }
 }
 
@@ -113,9 +204,10 @@ void MonitorGround::onMonitorMouseMove()
     if(!monitor)
         return;
 
-    Monitor *brother = monitor->brother();
+    foreach (Monitor *brother, m_monitors) {
+        if(brother == monitor)
+            continue;
 
-    if(brother){
         if(brother->geometry().contains(monitor->geometry().center())){
             brother->dragEnter(monitor);
         }else{
@@ -131,13 +223,56 @@ void MonitorGround::onMonitorMouseRelease()
     if(!monitor)
         return;
 
-    Monitor *brother = monitor->brother();
+    bool tmp = true;
 
-    if(brother && brother->geometry().contains(monitor->geometry().center())){
-        if(brother->drop(monitor)){
-            m_monitors.removeOne(monitor);
-            brother->setDraggable(false);
-            relayout();
+    foreach (Monitor *brother, m_monitors) {
+        if(brother == monitor)
+            continue;
+
+        if(brother->geometry().contains(monitor->geometry().center())){
+            if(brother->drop(monitor)){
+                m_monitors.removeOne(monitor);
+                brother->setDraggable(false);
+                tmp = false;
+                m_dbusDisplay->JoinMonitor(monitor->name(), brother->name());
+            }
         }
     }
+
+    if(tmp){
+        MonitorInterface *dbus = monitor->dbusInterface();
+        double scale = dbus->width() / (double)monitor->width();
+
+        dbus->SetPos((monitor->x() - monitor->parentRect().x()) * scale,
+                     (monitor->y() - monitor->parentRect().y()) * scale);
+    }
+}
+
+void MonitorGround::updateOpenedCount()
+{
+    int openedMonitorCount = 0;
+
+    foreach (Monitor *monitor, m_monitors) {
+        MonitorInterface *dbus = monitor->dbusInterface();
+        if(dbus->opened()){
+            ++openedMonitorCount;
+            if(dbus->isComposited())
+                ++openedMonitorCount;
+        }
+    }
+
+    if(m_editing && openedMonitorCount > 1){
+        if(openedMonitorCount > m_dbusDisplay->monitors().count()){
+            m_split->show();
+            m_edit->hide();
+        }else{
+            m_edit->show();
+            m_split->hide();
+        }
+    }else{
+        m_split->hide();
+        m_edit->hide();
+    }
+
+    m_recognize->setVisible(openedMonitorCount > 1);
 }

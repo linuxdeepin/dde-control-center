@@ -1,7 +1,3 @@
 SearchList{
     background-color: white;
 }
-
-SearchList QWidget#MainWidget{
-    background-color: transparent;
-}

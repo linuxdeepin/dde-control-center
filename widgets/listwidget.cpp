@@ -12,7 +12,8 @@ ListWidget::ListWidget(CheckMode checkMode, QWidget *parent) :
     m_checkMode(checkMode),
     m_mainWidget(new QWidget),
     m_visibleCount(0),
-    m_checkable(false)
+    m_checkable(false),
+    m_enableUncheck(false)
 {
     D_THEME_INIT_WIDGET(ListWidget);
 
@@ -34,32 +35,35 @@ ListWidget::ListWidget(CheckMode checkMode, QWidget *parent) :
     setMaximumHeight(0);
 }
 
-int ListWidget::addWidget(QWidget *w)
+int ListWidget::addWidget(QWidget *w, Qt::Alignment a)
 {
-    insertWidget(count(), w);
+    insertWidget(count(), w, a);
 
     return count()-1;
 }
 
-void ListWidget::addWidgets(const QList<QWidget*> &ws)
+void ListWidget::addWidgets(const QList<QWidget*> &ws, Qt::Alignment a)
 {
-    insertWidgets(count(), ws);
+    insertWidgets(count(), ws, a);
 }
 
-void ListWidget::insertWidget(int index, QWidget *w)
+void ListWidget::insertWidget(int index, QWidget *w, Qt::Alignment a)
 {
     if(w==NULL || m_widgetList.contains(w))
         return;
 
     m_widgetList.insert(index, w);
 
-    if(m_itemWidth>0)
+    if(m_itemWidth>0){
         w->setFixedWidth(m_itemWidth);
+    }else{
+        m_mainWidget->setFixedWidth(w->width());
+    }
     if(m_itemHeight>0){
         w->setFixedHeight(m_itemHeight);
     }
 
-    m_layout->insertWidget(index, w, 0, Qt::AlignCenter);
+    m_layout->insertWidget(index, w, 0, a);
     if(m_checkable)
         w->installEventFilter(this);
 
@@ -71,10 +75,10 @@ void ListWidget::insertWidget(int index, QWidget *w)
     emit countChanged();
 }
 
-void ListWidget::insertWidgets(int index, const QList<QWidget*> &ws)
+void ListWidget::insertWidgets(int index, const QList<QWidget*> &ws, Qt::Alignment a)
 {
     foreach (QWidget *w, ws) {
-        insertWidget(index++, w);
+        insertWidget(index++, w, a);
     }
 }
 
@@ -82,6 +86,9 @@ void ListWidget::setItemSize(int w, int h)
 {
     m_itemWidth = w;
     m_itemHeight = h;
+
+    if(m_itemWidth <= 0 && m_itemHeight <= 0)
+        return;
 
     m_mainWidget->setFixedWidth(w);
 
@@ -163,8 +170,7 @@ void ListWidget::hideWidget(int index)
 
 void ListWidget::setChecked(int index, bool checked)
 {
-    if (!m_checkable || (checked && m_checkedList.contains(index))
-            || (!checked && !m_checkedList.contains(index)))
+    if (!m_checkable || (checked && isChecked(index)) || (!checked && !isChecked(index)))
         return;
 
     if(m_checkMode == Radio && checked){
@@ -195,10 +201,10 @@ void ListWidget::setChecked(int index, bool checked)
 
 void ListWidget::setCheckable(bool checkable)
 {
-    m_checkable = checkable;
-
     if (m_checkable == checkable)
         return;
+
+    m_checkable = checkable;
 
     if(checkable){
         foreach (QWidget *w, m_widgetList) {
@@ -209,6 +215,15 @@ void ListWidget::setCheckable(bool checkable)
             w->removeEventFilter(this);
         }
     }
+}
+
+void ListWidget::setEnableUncheck(bool enableUncheck)
+{
+    if (m_enableUncheck == enableUncheck)
+        return;
+
+    m_enableUncheck = enableUncheck;
+    emit enableUncheckChanged(enableUncheck);
 }
 
 int ListWidget::count() const
@@ -231,9 +246,24 @@ int ListWidget::firstChecked() const
     return m_checkedList.count()>0 ? m_checkedList.first() : -1;
 }
 
+QList<int> ListWidget::checkedList() const
+{
+    return m_checkedList;
+}
+
 bool ListWidget::checkable() const
 {
     return m_checkable;
+}
+
+bool ListWidget::enableUncheck() const
+{
+    return m_enableUncheck;
+}
+
+bool ListWidget::isChecked(int index) const
+{
+    return m_checkedList.contains(index);
 }
 
 int ListWidget::visibleCount() const
@@ -256,7 +286,12 @@ bool ListWidget::eventFilter(QObject *obj, QEvent *e)
     if(w){
         int index = indexOf(w);
         if(index>=0){
-            setChecked(index, true);
+            if(m_enableUncheck)
+                setChecked(index, !isChecked(index));
+            else
+                setChecked(index, true);
+
+            emit clicked(index);
         }
     }
 

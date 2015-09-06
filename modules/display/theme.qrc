@@ -2,31 +2,53 @@
     <qresource prefix="/">
         <file>dark/Monitor.theme</file>
         <file>light/Monitor.theme</file>
-        <file>images/arrow_left_hover.png</file>
-        <file>images/copy_active.png</file>
-        <file>images/copy_hover.png</file>
-        <file>images/copy_normal.png</file>
-        <file>images/customize_active.png</file>
-        <file>images/customize_hover.png</file>
-        <file>images/customize_normal.png</file>
-        <file>images/edit_hover.png</file>
-        <file>images/edit_normal.png</file>
-        <file>images/edit_press.png</file>
-        <file>images/extend_active.png</file>
-        <file>images/extend_hover.png</file>
-        <file>images/extend_normal.png</file>
-        <file>images/recognize_hover.png</file>
-        <file>images/recognize_normal.png</file>
-        <file>images/recognize_press.png</file>
-        <file>images/single_hover.png</file>
-        <file>images/single_normal.png</file>
-        <file>images/single_active.png</file>
-        <file>images/split_hover.png</file>
-        <file>images/split_normal.png</file>
-        <file>images/split_press.png</file>
         <file>dark/DisplayModeItem.theme</file>
         <file>light/DisplayModeItem.theme</file>
         <file>dark/TitleAndWidget.theme</file>
         <file>light/TitleAndWidget.theme</file>
+        <file>dark/images/edit_hover.png</file>
+        <file>dark/images/edit_normal.png</file>
+        <file>dark/images/edit_press.png</file>
+        <file>dark/images/recognize_hover.png</file>
+        <file>dark/images/recognize_normal.png</file>
+        <file>dark/images/recognize_press.png</file>
+        <file>dark/images/split_hover.png</file>
+        <file>dark/images/split_normal.png</file>
+        <file>dark/images/split_press.png</file>
+        <file>light/images/edit_hover.png</file>
+        <file>light/images/edit_normal.png</file>
+        <file>light/images/edit_press.png</file>
+        <file>light/images/recognize_hover.png</file>
+        <file>light/images/recognize_normal.png</file>
+        <file>light/images/recognize_press.png</file>
+        <file>light/images/split_hover.png</file>
+        <file>light/images/split_normal.png</file>
+        <file>light/images/split_press.png</file>
+        <file>dark/images/arrow_left_hover.png</file>
+        <file>dark/images/copy_active.png</file>
+        <file>dark/images/copy_hover.png</file>
+        <file>dark/images/copy_normal.png</file>
+        <file>dark/images/customize_active.png</file>
+        <file>dark/images/customize_hover.png</file>
+        <file>dark/images/customize_normal.png</file>
+        <file>dark/images/extend_active.png</file>
+        <file>dark/images/extend_hover.png</file>
+        <file>dark/images/extend_normal.png</file>
+        <file>dark/images/single_active.png</file>
+        <file>dark/images/single_hover.png</file>
+        <file>dark/images/single_normal.png</file>
+        <file>light/images/arrow_left_hover.png</file>
+        <file>light/images/copy_active.png</file>
+        <file>light/images/copy_hover.png</file>
+        <file>light/images/copy_normal.png</file>
+        <file>light/images/customize_active.png</file>
+        <file>light/images/customize_hover.png</file>
+        <file>light/images/customize_normal.png</file>
+        <file>light/images/extend_active.png</file>
+        <file>light/images/extend_hover.png</file>
+        <file>light/images/extend_normal.png</file>
+        <file>light/images/single_active.png</file>
+        <file>light/images/single_hover.png</file>
+        <file>light/images/single_normal.png</file>
     </qresource>
 </RCC>

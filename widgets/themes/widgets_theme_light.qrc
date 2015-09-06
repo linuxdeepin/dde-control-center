@@ -32,5 +32,6 @@
         <file>light/MultiAddCheckButton.theme</file>
         <file>light/GenericListItem.theme</file>
         <file>light/images/tick_hover.png</file>
+        <file>light/ListWidget.theme</file>
     </qresource>
 </RCC>

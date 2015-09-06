@@ -195,7 +195,7 @@ public Q_SLOTS: // METHODS
     }
 
 Q_SIGNALS: // SIGNALS
-    void PrimaryChanged(const QRect &in0);
+    //void PrimaryChanged(const QRect &in0);
 // begin property changed signals
 void BrightnessChanged();
 void BuiltinOutputChanged();

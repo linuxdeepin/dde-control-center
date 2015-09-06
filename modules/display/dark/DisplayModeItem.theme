@@ -16,6 +16,6 @@ DisplayModeItem[hover=true] QLabel{
     color: white;
 }
 
-DisplayModeItem[active=true] QLabel{
+DisplayModeItem[checked=true] QLabel{
     color: #01BDFF;
 }

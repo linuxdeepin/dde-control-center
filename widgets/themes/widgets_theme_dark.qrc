@@ -32,5 +32,6 @@
         <file>dark/UserAvatar.theme</file>
         <file>dark/GenericListItem.theme</file>
         <file>dark/images/tick_hover.png</file>
+        <file>dark/ListWidget.theme</file>
     </qresource>
 </RCC>
