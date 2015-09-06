@@ -34,8 +34,8 @@ public slots:
     void insertWidget(int index, QWidget *w);
     void insertWidgets(int index, const QList<QWidget*> &ws);
     void setItemSize(int w, int h);
-    void clear();
-    void removeWidget(int index);
+    void clear(bool isDelete = true);
+    void removeWidget(int index, bool isDelete = true);
     void showWidget(int index);
     void hideWidget(int index);
     void setChecked(int index, bool checked);

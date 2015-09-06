@@ -2,7 +2,6 @@
 #include <libdui/dseparatorhorizontal.h>
 #include <libdui/dsearchedit.h>
 #include <libdui/darrowlineexpand.h>
-#include <libdui/dtextbutton.h>
 #include <libdui/dbuttonlist.h>
 #include <libdui/dlineedit.h>
 #include <libdui/dimagebutton.h>
@@ -53,7 +52,7 @@ SearchList *MainWidget::addSearchList(const ShortcutInfoList &tmplist)
 {
     SearchList *list = new SearchList;
     list->setFixedWidth(310);
-    list->setItemSize(310, RADIO_ITEM_HEIGHT);
+    list->setItemSize(310, 0);
     foreach (const ShortcutInfo &info, tmplist) {
         ShortcutWidget *tmpw = new ShortcutWidget(m_dbus, info.id, info.title, info.shortcut);
         ShortcutWidget *shortw = new ShortcutWidget(m_dbus, info.id, info.title, info.shortcut);
@@ -188,7 +187,7 @@ void MainWidget::init()
 
     m_searchList->hide();
     m_searchList->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    m_searchList->setItemSize(310, RADIO_ITEM_HEIGHT);
+    m_searchList->setItemSize(310, 0);
 
     m_systemList = addSearchList(m_dbus->systemList());
     m_windowList = addSearchList(m_dbus->windowList());
@@ -226,6 +225,8 @@ void MainWidget::init()
     });
 
     DSearchEdit *edit  = new DSearchEdit;
+
+    edit->setFixedWidth(280);
     connect(edit, &DSearchEdit::textChanged, m_searchList, [=]{
         QString str = edit->text();
 
@@ -257,7 +258,9 @@ void MainWidget::init()
     m_layout->setSpacing(0);
     m_layout->addWidget(m_header);
     m_layout->addWidget(new DSeparatorHorizontal);
-    m_layout->addWidget(edit);
+    m_layout->addSpacing(5);
+    m_layout->addWidget(edit, 0, Qt::AlignHCenter);
+    m_layout->addSpacing(5);
     m_layout->addWidget(new DSeparatorHorizontal);
     m_layout->addWidget(m_searchList, 10);
     m_childLayout->setMargin(0);
@@ -317,7 +320,7 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
         return;
 
     if(flag == "Valid"){
-        m_dbus->ModifyShortcut(w->id(), w->shortcut(), shortcut);
+        m_dbus->ModifyShortcut(w->id(), shortcut);
         return;
     }
 
@@ -360,17 +363,15 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
 
         SelectDialog *dialog = new SelectDialog;
         dialog->setText(tmp_text);
-        listw->setItemSize(310, 60);
         listw->insertItem(index+1, dialog);
-        listw->setItemSize(310, RADIO_ITEM_HEIGHT);
 
         connect(dialog, &SelectDialog::replace, [=]{
             listw->removeItem(listw->indexOf(dialog));
 
             foreach (ShortcutWidget* tmp_w, tmp_list) {
-                m_dbus->ModifyShortcut(tmp_w->id(), tmp_w->shortcut(), "");
+                m_dbus->ModifyShortcut(tmp_w->id(), "");
             }
-            m_dbus->ModifyShortcut(w->id(), w->shortcut(), shortcut);
+            m_dbus->ModifyShortcut(w->id(), shortcut);
         });
         connect(dialog, &SelectDialog::cancel, [=]{
             dialog->contraction();

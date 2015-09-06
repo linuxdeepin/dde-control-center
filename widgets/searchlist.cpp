@@ -76,9 +76,14 @@ void SearchList::setItemData(int index, const QVariant &data)
 
 void SearchList::clear()
 {
-    m_keyWords.clear();
+    ListWidget::clear(false);
 
-    ListWidget::clear();
+    foreach (SearchItem *item, m_itemList) {
+        delete item;
+    }
+
+    m_itemList.clear();
+    m_keyWords.clear();
 }
 
 void SearchList::removeItem(int index)
@@ -95,7 +100,7 @@ void SearchList::removeItem(int index)
     if(item){
         QWidget *w = item->widget();
         if(w){
-            ListWidget::removeWidget(index);
+            ListWidget::removeWidget(index, false);
 
             if(m_searching){
                 if(isIntersect(m_dbusKeyWords, item->keyWords())){
@@ -122,6 +127,7 @@ void SearchList::endSearch()
 {
     if(m_searching){
         m_dbusKey = "";
+        m_keyWord = "";
         m_searching = false;
 
         for(int i = 0; i<count(); ++i){

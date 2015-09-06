@@ -12,6 +12,7 @@
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QJsonDocument>
+#include <QDebug>
 
 #include "shortcutdbus.h"
 
@@ -29,9 +30,6 @@ enum KeyType{
 ShortcutDbus::ShortcutDbus(QObject *parent)
     : QDBusAbstractInterface(staticServerPath(), staticInterfacePath(), staticInterfaceName(), QDBusConnection::sessionBus(), parent)
 {
-    connect(this, &ShortcutDbus::Error, [=](const QString &in0, const QString &in1){
-        qDebug() << "ShortcutDbus:" << in0 << in1;
-    });
     connect(this, &ShortcutDbus::Changed, this, &ShortcutDbus::updateShortcutList);
     connect(this, &ShortcutDbus::KeyEvent, [&](bool arg, const QString &str){
         if(arg)
@@ -39,6 +37,8 @@ ShortcutDbus::ShortcutDbus(QObject *parent)
         else
             emit KeyReleaseEvent(str);
     });
+    connect(this, &ShortcutDbus::Added, this, &ShortcutDbus::onAdded);
+    connect(this, &ShortcutDbus::Deleted, this, &ShortcutDbus::onDeleted);
 
     QStringList list;
     list << "launcher" << "show-desktop" << "lock-screen" << "file-manager" << "switch-windows" << "switch-windows-backward"
@@ -52,7 +52,7 @@ ShortcutDbus::ShortcutDbus(QObject *parent)
         list << "disable-touchpad";
 
     foreach (QString str, list) {
-        m_hash[str] = &m_systemList;
+        m_idToInfoListHash[str] = &m_systemList;
     }
 
     list.clear();
@@ -60,7 +60,7 @@ ShortcutDbus::ShortcutDbus(QObject *parent)
          << "begin-resize" << "toggle-shaded" << "activate-window-menu";
 
     foreach (QString str, list) {
-        m_hash[str] = &m_windowList;
+        m_idToInfoListHash[str] = &m_windowList;
     }
 
     list.clear();
@@ -71,68 +71,126 @@ ShortcutDbus::ShortcutDbus(QObject *parent)
          << "move-to-workspace-up" << "move-to-workspace-down";
 
     foreach (QString str, list) {
-        m_hash[str] = &m_workspaceList;
+        m_idToInfoListHash[str] = &m_workspaceList;
     }
 
-    updateShortcutList("");
+    updateShortcutList("", -1);
 }
 
 ShortcutDbus::~ShortcutDbus()
 {
 }
 
-void ShortcutDbus::updateShortcutList(const QString &in0)
+int ShortcutDbus::getId()
 {
-    qDebug()<<in0<<this;
+    return m_intId++;
+}
 
-    m_shortcutMapList.clear();
-    m_systemList.clear();
-    m_windowList.clear();
-    m_workspaceList.clear();
-    m_customList.clear();
+QString ShortcutDbus::getId(int type, const QString &id) const
+{
+    return QString::number(type)+id;
+}
 
-    QDBusPendingReply<QString> result = List();
-    result.waitForFinished();
+void ShortcutDbus::updateShortcutList(const QString &id, qint32 type)
+{
+    if(type == -1){
+        m_strIdAndTypeToInfoMap.clear();
+        m_intIdToInfoMap.clear();
+        m_systemList.clear();
+        m_windowList.clear();
+        m_workspaceList.clear();
+        m_customList.clear();
 
-    QJsonArray list = QJsonDocument::fromJson(result.value().toUtf8()).array();
+        QDBusPendingReply<QString> result = List();
+        result.waitForFinished();
 
-    foreach (QJsonValue obj, list) {
-        QJsonObject map = obj.toObject();
+        QJsonArray list = QJsonDocument::fromJson(result.value().toUtf8()).array();
 
-        int type = map["Type"].toInt();
-        QString shortcuts = map["Accels"].toArray()[0].toString();
-        if(shortcuts.isEmpty())
-            shortcuts = "None";
-        QString name = map["Name"].toString();
-        QString id = map["Id"].toString();
+        foreach (QJsonValue obj, list) {
+            QJsonObject map = obj.toObject();
 
-        m_shortcutMapList << ShortcutMapInfo{type, map["Id"].toString()};
+            int type = map["Type"].toInt();
+            QString shortcuts = map["Accels"].toArray()[0].toString();
+            if(shortcuts.isEmpty())
+                shortcuts = "None";
+            QString name = map["Name"].toString();
+            QString id = map["Id"].toString();
 
-        switch (type) {
-        case KeyTypeSystem:{
-            ShortcutInfoList *info_list = m_hash.value(id, NULL);
-            if(info_list)
-                info_list->append(ShortcutInfo{m_shortcutMapList.count()-1, name, shortcuts});
-            break;
+            switch (type) {
+            case KeyTypeSystem://express
+            case KeyTypeWM:{
+                ShortcutInfoList *info_list = m_idToInfoListHash.value(id, NULL);
+                if(info_list){
+                    ShortcutInfo info = ShortcutInfo{type, getId(), id, name, shortcuts};
+                    info_list->append(info);
+                    m_strIdAndTypeToInfoMap[getId(type, id)] = &info_list->last();
+                    m_intIdToInfoMap[info_list->last().id] = &info_list->last();
+                }
+                break;
+            }
+            case KeyTypeCustom:{
+                m_customList << ShortcutInfo{type, getId(), id, name, shortcuts};
+                m_strIdAndTypeToInfoMap[getId(type, id)] = &m_customList.last();
+                m_intIdToInfoMap[m_customList.last().id] = &m_customList.last();
+                break;
+            }
+            default:
+                break;
+            }
         }
-        case KeyTypeWM:{
-            ShortcutInfoList *info_list = m_hash.value(id, NULL);
-            if(info_list)
-                info_list->append(ShortcutInfo{m_shortcutMapList.count()-1, name, shortcuts});
-            break;
+
+        emit systemListChanged(m_systemList);
+        emit windowListChanged(m_windowList);
+        emit workspaceListChanged(m_workspaceList);
+        emit customListChanged(m_customList);
+    }else{
+        ShortcutInfoList *info_list = m_idToInfoListHash.value(id, NULL);
+        if(!info_list)
+            info_list = &m_customList;
+
+        ShortcutInfo *info = m_strIdAndTypeToInfoMap[getId(type, id)];
+        if(info){
+            QDBusPendingReply<QString> info_json = Query(id, type);
+            info_json.waitForFinished();
+            info->shortcut = QJsonDocument::fromJson(info_json.value().toUtf8()).object()["Accels"].toArray()[0].toString();
+            if(info->shortcut.isEmpty())
+                info->shortcut = "None";
         }
-        case KeyTypeCustom:{
-            m_customList << ShortcutInfo{m_shortcutMapList.count()-1, name, shortcuts};
-            break;
-        }
-        default:
-            break;
+
+        if(info_list == &m_systemList){
+            emit systemListChanged(m_systemList);
+        }else if(info_list == &m_windowList){
+            emit windowListChanged(m_windowList);
+        }else if(info_list == &m_workspaceList){
+            emit workspaceListChanged(m_workspaceList);
+        }else{
+            emit customListChanged(m_customList);
         }
     }
+}
 
-    emit systemListChanged(m_systemList);
-    emit windowListChanged(m_windowList);
-    emit workspaceListChanged(m_workspaceList);
-    emit customListChanged(m_customList);
+void ShortcutDbus::onAdded(const QString &id, qint32 type)
+{
+    if(type == KeyTypeCustom){
+        QDBusPendingReply<QString> info_json = Query(id, type);
+        info_json.waitForFinished();
+        QString name = QJsonDocument::fromJson(info_json.value().toUtf8()).object()["Name"].toString();
+        m_customList << ShortcutInfo{type, getId(), id, name, "None"};
+        m_strIdAndTypeToInfoMap[getId(type, id)] = &m_customList.last();
+        m_intIdToInfoMap[m_customList.last().id] = &m_customList.last();
+
+        emit customListChanged(m_customList);
+    }
+}
+
+void ShortcutDbus::onDeleted(const QString &id, qint32 type)
+{
+    if(type == KeyTypeCustom){
+        const ShortcutInfo *info = m_strIdAndTypeToInfoMap[getId(type, id)];
+        if(info)
+            m_customList.removeOne(*info);
+
+        emit customListChanged(m_customList);
+    }
 }
 

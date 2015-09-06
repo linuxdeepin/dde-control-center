@@ -54,6 +54,8 @@ ShortcutWidget::ShortcutWidget(ShortcutDbus *dbus, int id, const QString &title,
 
     m_animation->setTargetObject(m_removeButton);
     m_animation->setPropertyName("geometry");
+
+    setFixedHeight(RADIO_ITEM_HEIGHT);
 }
 
 void ShortcutWidget::setId(int id)

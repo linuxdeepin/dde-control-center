@@ -94,12 +94,14 @@ void ListWidget::setItemSize(int w, int h)
     }
 }
 
-void ListWidget::clear()
+void ListWidget::clear(bool isDelete)
 {
     for(int i=0;i<count();++i){
         m_layout->removeItem(m_layout->takeAt(i));
         m_widgetList[i]->removeEventFilter(this);
-        m_widgetList[i]->deleteLater();
+        m_widgetList[i]->setParent(NULL);
+        if(isDelete)
+            m_widgetList[i]->deleteLater();
     }
 
     m_mapVisible.clear();
@@ -113,7 +115,7 @@ void ListWidget::clear()
     emit countChanged();
 }
 
-void ListWidget::removeWidget(int index)
+void ListWidget::removeWidget(int index, bool isDelete)
 {
     QWidget *w = getWidget(index);
 
@@ -128,7 +130,9 @@ void ListWidget::removeWidget(int index)
     }
 
     w->removeEventFilter(this);
-    w->deleteLater();
+    w->setParent(NULL);
+    if(isDelete)
+        w->deleteLater();
 
     emit countChanged();
 }

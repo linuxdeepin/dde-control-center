@@ -25,14 +25,15 @@
  */
 
 struct ShortcutInfo{
+    qint32 type;
     qint32 id;
+    QString strId;
     QString title;
     QString shortcut;
-};
 
-struct ShortcutMapInfo{
-    int type;
-    QString id;
+    bool operator==(const ShortcutInfo& info){
+        return id == info.id;
+    }
 };
 
 typedef QList<ShortcutInfo> ShortcutInfoList;
@@ -103,13 +104,6 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QStringLiteral("Disable"), argumentList);
     }
 
-    inline QDBusPendingReply<QString> GetAction(const QString &in0, int in1)
-    {
-        QList<QVariant> argumentList;
-        argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1);
-        return asyncCallWithArgumentList(QStringLiteral("GetAction"), argumentList);
-    }
-
     inline QDBusPendingReply<> GrabScreen()
     {
         QList<QVariant> argumentList;
@@ -159,6 +153,13 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QStringLiteral("Reset"), argumentList);
     }
 
+    inline QDBusPendingReply<QString> Query(const QString &in0, int in1)
+    {
+        QList<QVariant> argumentList;
+        argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1);
+        return asyncCallWithArgumentList(QStringLiteral("Query"), argumentList);
+    }
+
     inline const ShortcutInfoList& customList() const
     {
         return m_customList;
@@ -198,34 +199,36 @@ public Q_SLOTS: // METHODS
         return !result;
     }
 
-    inline bool ModifyShortcut(int in0, QString old_shortcut, const QString &in1)
+    inline void ModifyShortcut(int in0, const QString &in1)
     {
-        ShortcutMapInfo info = m_shortcutMapList[in0];
+        const ShortcutInfo *info = m_intIdToInfoMap[in0];
+        if(!info)
+            return;
+
         QString str;
-        bool result = true;
 
-        if(old_shortcut!="None"){
-            result &= ModifiedAccel(info.id, info.type, old_shortcut, false, str).value();//remove
+        if(info->shortcut != "None"){
+            ModifiedAccel(info->strId, info->type, info->shortcut, false, str).value();//remove
         }
 
-        if(!in1.isEmpty()){
-            result &= ModifiedAccel(info.id, info.type, in1, true, str).value();
-        }
+        if(!in1.isEmpty() && in1 != "None")
+            ModifiedAccel(info->strId, info->type, in1, true, str).value();
 
-        return result;
     }
 
     inline void DeleteCustomShortcut(int in0)
     {
-        ShortcutMapInfo info = m_shortcutMapList[in0];
-        Delete(info.id, info.type);
+        const ShortcutInfo *info = m_intIdToInfoMap[in0];
+        if(!info)
+            return;
+
+        Delete(info->strId, info->type);
     }
 
 Q_SIGNALS: // SIGNALS
-    void Added(const QString &in0);
-    void Changed(const QString &in0);
-    void Deleted(const QString &in0);
-    void Error(const QString &in0, const QString &in1);
+    void Added(const QString &in0, qint32);
+    void Changed(const QString &in0, qint32);
+    void Deleted(const QString &in0, qint32);
     void KeyEvent(bool in0, const QString &in1);
 // begin property changed signals
     void KeyPressEvent(const QString &in0);
@@ -236,14 +239,20 @@ Q_SIGNALS: // SIGNALS
     void workspaceListChanged(const ShortcutInfoList &WorkspaceList);
 
 private:
-    QList<ShortcutMapInfo> m_shortcutMapList;
     ShortcutInfoList m_systemList;
     ShortcutInfoList m_windowList;
     ShortcutInfoList m_workspaceList;
     ShortcutInfoList m_customList;
-    QHash<QString, ShortcutInfoList*> m_hash;
+    QHash<QString, ShortcutInfoList*> m_idToInfoListHash;
+    QMap<QString, ShortcutInfo*> m_strIdAndTypeToInfoMap;
+    QMap<int, ShortcutInfo*> m_intIdToInfoMap;
+    int m_intId = 0;
 
-    Q_SLOT void updateShortcutList(const QString &in0);
+    int getId();
+    QString getId(int type, const QString &id) const;
+    Q_SLOT void updateShortcutList(const QString &in0, qint32 type);
+    Q_SLOT void onAdded(const QString &id, qint32 type);
+    Q_SLOT void onDeleted(const QString &id, qint32 type);
 };
 
 namespace com {

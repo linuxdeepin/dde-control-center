@@ -44,19 +44,24 @@ ShortcutEdit::ShortcutEdit(ShortcutDbus *dbus, QWidget *parent) :
         }
 
         if(key.toLower() == "backspace" || key.toLower() == "delete"){
-            key = "";
+            key = "Valid_None";
         }else{
             QString result = m_dbus->CheckShortcutConflict(key);
 
-            if(result!="Valid"){
+            if(result != "Valid"){
                 key = result+"_"+key;
             }else{
-                key = "Valid"+QString("_")+key;
+                key = "Valid_"+key;
             }
         }
 
         quitEditState();
         emit shortcutKeyFinished(key);
+    });
+
+    connect(m_dbus, &ShortcutDbus::KeyPressEvent, [this](const QString key){
+        if(key.isEmpty())
+            quitEditState();
     });
 
     setLayout(m_layout);
