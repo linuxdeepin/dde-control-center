@@ -33,9 +33,6 @@ public:
     ~Datetime() Q_DECL_OVERRIDE;
     QFrame* getContent() Q_DECL_OVERRIDE;
 
-public slots:
-    void switchAutoSync(const bool autoSync);
-
 private:
     static const QString getUTCOffset(int offset);
     const QString getZoneCityListByOffset(int zoneOffset);

@@ -114,18 +114,21 @@ Datetime::Datetime() :
     connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::addTimezone, this, &Datetime::showTimezoneList);
     connect(m_clockFormatSwitcher, &DSwitchButton::checkedChanged, &m_dbusInter, &DBusTimedate::setUse24HourFormat);
     connect(m_clockFormatSwitcher, &DSwitchButton::checkedChanged, m_timeWidget, &TimeWidget::setIs24HourFormat);
-    connect(m_autoSyncSwitcher, &DSwitchButton::checkedChanged, this, &Datetime::switchAutoSync);
+    connect(m_autoSyncSwitcher, &DSwitchButton::checkedChanged, &m_dbusInter, &DBusTimedate::SetNTP);
     connect(&m_dbusInter, &DBusTimedate::NTPChanged, [this] () -> void {m_dateCtrlWidget->setVisible(!m_dbusInter.nTP());});
     connect(&m_dbusInter, &DBusTimedate::TimezoneChanged, this, &Datetime::showSelectedTimezoneList);
     connect(m_timeWidget, &TimeWidget::applyTime, [this] (const QDateTime & time) -> void {
-                m_dbusInter.SetTime(time.currentMSecsSinceEpoch(), true);
+        qDebug() << "set time: " << time;
+        m_dbusInter.SetTime(time.currentMSecsSinceEpoch(), true);
     });
     connect(m_dateCtrlWidget, &DateControlWidget::applyDate, [this] () -> void {
-                const QDate date = m_calendar->getSelectDate();
-                const QTime time = QTime::currentTime();
+        const QDate date = m_calendar->getSelectDate();
+        const QTime time = QTime::currentTime();
+        qDebug() << "set date: " << date << time;
 
-                m_dbusInter.SetDate(date.year(), date.month(), date.day(), time.hour(), time.minute(), time.second(), time.msec());
-                m_calendar->resetCurrentDate(date);
+        m_dbusInter.SetDate(date.year(), date.month(), date.day(), time.hour(), time.minute(), time.second(), time.msec());
+        // TODO: reset current date only apply successful
+        m_calendar->resetCurrentDate(date);
     });
 
     qDebug() << getZoneCityListByOffset(m_dbusInter.GetZoneInfo(m_dbusInter.timezone()).argumentAt<0>().m_utcOffset);
@@ -142,11 +145,6 @@ Datetime::~Datetime()
 QFrame* Datetime::getContent()
 {
     return m_frame;
-}
-
-void Datetime::switchAutoSync(const bool autoSync)
-{
-    m_dbusInter.SetNTP(autoSync);
 }
 
 const QString Datetime::getUTCOffset(int offset)
@@ -238,12 +236,12 @@ void Datetime::showTimezoneList()
     m_calendarSeparator->hide();
     m_dateSeparator->hide();
 
-    QList<ZoneInfo> *zoneList = m_zoneInfoList;
     QStringList userZoneList = m_dbusInter.userTimezones();
     int zoneNums = 0;
     int lastUTCOffset = -1;
 
-    for (const ZoneInfo & zone : *zoneList)
+    // m_zoneInfoList is sorted list.
+    for (const ZoneInfo & zone : *m_zoneInfoList)
     {
         // skip exist timezone
         if (userZoneList.contains(zone.m_zoneName))

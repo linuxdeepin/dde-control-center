@@ -59,6 +59,7 @@ TimezoneWidget::TimezoneWidget(const ZoneInfo *info, QWidget *parent) :
 
     connect(this, &TimezoneWidget::selectStateChanged, this, &TimezoneWidget::normalMode);
     connect(this, &TimezoneWidget::selectStateChanged, this, &TimezoneWidget::reloadThemes);
+    connect(m_removeBtn, &MultiDeleteButton::clicked, this, &TimezoneWidget::clicked);
 }
 
 void TimezoneWidget::setSelected(const bool selected)
