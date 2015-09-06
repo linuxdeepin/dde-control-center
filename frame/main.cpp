@@ -63,8 +63,10 @@ int main(int argv, char *args[])
 
     DBusControlCenter adaptor(&frame);
     QDBusConnection conn = QDBusConnection::sessionBus();
-    conn.registerObject("/com/deepin/dde/ControlCenter", &frame);
-    conn.registerService("com.deepin.dde.ControlCenter");
+    if (!conn.registerService("com.deepin.dde.ControlCenter"))
+        return -1;
+    if (!conn.registerObject("/com/deepin/dde/ControlCenter", &frame))
+        return -1;
 
     // setup theme manager
     DThemeManager *manager = DThemeManager::instance();
