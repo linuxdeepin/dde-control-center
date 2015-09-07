@@ -2,8 +2,8 @@ TimezoneWidget {
     /*background-color:red;*/
 }
 
-TimezoneWidget[selected="true"] {
-    background-color:#181920;
+TimezoneWidget[selected="false"] {
+    background-color:#252627;
 }
 
 TimezoneWidget #Cities {

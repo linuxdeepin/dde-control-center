@@ -30,9 +30,15 @@ Datetime::Datetime() :
 
     // get timezone info list
     m_zoneInfoList = new QList<ZoneInfo>;
-    QStringList zoneList = m_dbusInter.GetZoneList();
+    QDBusPendingReply<QStringList> list = m_dbusInter.GetZoneList();
+    list.waitForFinished();
+    QStringList zoneList = list.value();
     for (const QString & zone : zoneList)
-        m_zoneInfoList->append(m_dbusInter.GetZoneInfo(zone).argumentAt<0>());
+    {
+        QDBusPendingReply<ZoneInfo> info = m_dbusInter.GetZoneInfo(zone);
+        info.waitForFinished();
+        m_zoneInfoList->append(info.argumentAt<0>());
+    }
 
     // sort by utc offset ascend, if utc offset is equal, sort by city.
     std::sort(m_zoneInfoList->begin(), m_zoneInfoList->end(), [this] (const ZoneInfo & z1, const ZoneInfo & z2) -> bool {
@@ -40,6 +46,8 @@ Datetime::Datetime() :
             return z1.m_zoneCity < z2.m_zoneCity;
         return z1.m_utcOffset < z2.m_utcOffset;
     });
+
+    m_frame->installEventFilter(this);
 
     ModuleHeader *header = new ModuleHeader(tr("Date and Time"), false);
 
@@ -80,6 +88,7 @@ Datetime::Datetime() :
 
     m_timeWidget = new TimeWidget;
     m_timeWidget->setIs24HourFormat(m_dbusInter.use24HourFormat());
+    m_timeWidget->installEventFilter(this);
 
     showSelectedTimezoneList();
 
@@ -112,6 +121,7 @@ Datetime::Datetime() :
     m_refershTimer->start();
 
     connect(m_refershTimer, &QTimer::timeout, m_timeWidget, &TimeWidget::updateTime);
+    connect(&m_dbusInter, &DBusTimedate::TimezoneChanged, m_timeWidget, &TimeWidget::updateTime);
     connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::addTimezoneAccept, this, &Datetime::addUserTimeZone);
     connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::addTimezoneAccept, this, &Datetime::showSelectedTimezoneList);
     connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::addTimezoneCancel, this, &Datetime::showSelectedTimezoneList);
@@ -127,14 +137,14 @@ Datetime::Datetime() :
     connect(&m_dbusInter, &DBusTimedate::TimezoneChanged, this, &Datetime::showSelectedTimezoneList);
     connect(m_timeWidget, &TimeWidget::applyTime, [this] (const QDateTime & time) -> void {
         qDebug() << "set time: " << time;
-        m_dbusInter.SetTime(time.currentMSecsSinceEpoch(), true);
+        m_dbusInter.SetTime(time.currentMSecsSinceEpoch(), true).waitForFinished();
     });
     connect(m_dateCtrlWidget, &DateControlWidget::applyDate, [this] () -> void {
         const QDate date = m_calendar->getSelectDate();
         const QTime time = QTime::currentTime();
         qDebug() << "set date: " << date << time;
 
-        m_dbusInter.SetDate(date.year(), date.month(), date.day(), time.hour(), time.minute(), time.second(), time.msec());
+        m_dbusInter.SetDate(date.year(), date.month(), date.day(), time.hour(), time.minute(), time.second(), time.msec()).waitForFinished();
         // TODO: reset current date only apply successful
         m_calendar->resetCurrentDate(date);
     });
@@ -215,7 +225,6 @@ void Datetime::showSelectedTimezoneList()
         ++zoneNums;
 
         const ZoneInfo & zoneInfo = getZoneInfoByName(zone);
-        qDebug() << zone << zoneInfo;
 
         TimezoneWidget *zoneWidget = new TimezoneWidget(&zoneInfo);
         zoneWidget->setZoneCities(getZoneCityListByOffset(zoneInfo.m_utcOffset));
@@ -227,7 +236,7 @@ void Datetime::showSelectedTimezoneList()
         m_timezoneListWidget->addItem(zoneWidget);
     }
 
-    m_timezoneListWidget->setFixedHeight(qMin(300, 50 * zoneNums));
+    adjustItemHeight();
 }
 
 void Datetime::showTimezoneList()
@@ -251,14 +260,15 @@ void Datetime::showTimezoneList()
     // m_zoneInfoList is sorted list.
     for (const ZoneInfo & zone : *m_zoneInfoList)
     {
-        // skip exist timezone
-        if (userZoneList.contains(zone.m_zoneName))
-            continue;
         // skip repeat timezone
         if (zone.m_utcOffset == lastUTCOffset)
             continue;
-
         lastUTCOffset = zone.m_utcOffset;
+
+        // skip exist timezone
+        if (userZoneList.contains(zone.m_zoneName))
+            continue;
+
         ++zoneNums;
 
         TimezoneItemWidget *itemWidget = new TimezoneItemWidget(&zone);
@@ -295,13 +305,31 @@ void Datetime::toRemoveTimezoneMode()
     }
 }
 
+void Datetime::adjustItemHeight()
+{
+    // m_timezoneListWidget height
+    int maxHeight = DApplication::desktop()->height();
+    maxHeight -= m_timezoneHeaderLine->height() + 2 + m_timeWidget->height() + 2;
+    maxHeight -= (m_syncHeaderLine->height() + 2) * 4 + m_calendar->height();
+    m_timezoneListWidget->setFixedHeight(qMin(maxHeight, 50 * m_timezoneListWidget->count()));
+}
+
+bool Datetime::eventFilter(QObject *o, QEvent *e)
+{
+    if ((o == m_frame || o == m_timeWidget) &&
+        e->type() == QEvent::Resize)
+        adjustItemHeight();
+
+    return false;
+}
+
 void Datetime::toggleTimeZone(TimezoneWidget *zone)
 {
     if (!zone)
         return;
 
     qDebug() << "toggle zone: " << zone->zoneName();
-    m_dbusInter.SetTimezone(zone->zoneName());
+    m_dbusInter.SetTimezone(zone->zoneName()).waitForFinished();
 }
 
 void Datetime::removeTimeZone(TimezoneWidget *zone)
@@ -310,26 +338,27 @@ void Datetime::removeTimeZone(TimezoneWidget *zone)
         return;
 
     qDebug() << "remove zone: " << zone->zoneName();
-    m_dbusInter.DeleteUserTimezone(zone->zoneName());
+    m_dbusInter.DeleteUserTimezone(zone->zoneName()).waitForFinished();
     toRemoveTimezoneMode();
 }
 
 void Datetime::addUserTimeZone()
 {
+    qDebug() << "add zone list: " << m_choosedZoneList;
     for (const QString & zone : m_choosedZoneList)
-        m_dbusInter.AddUserTimezone(zone);
+        m_dbusInter.AddUserTimezone(zone).waitForFinished();
     m_choosedZoneList.clear();
 }
 
 void Datetime::timezoneItemChoosed(const TimezoneItemWidget *item)
 {
-    if (!item)
-        return;
-
-    if (!item->selected())
-        m_choosedZoneList.append(item->zoneName());
-    else
-        m_choosedZoneList.removeOne(item->zoneName());
+    if (item)
+    {
+        if (!item->selected())
+            m_choosedZoneList.append(item->zoneName());
+        else
+            m_choosedZoneList.removeOne(item->zoneName());
+    }
 
     m_timezoneCtrlWidget->setAcceptOrCancel(m_choosedZoneList.isEmpty());
 }
