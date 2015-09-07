@@ -50,7 +50,8 @@ signals:
     void dockModeChanged(Dock::DockMode mode);
 
 private:
-    QList<MainItem *> m_itemList;
+    bool m_hasMount = false;
+    MainItem * m_item = NULL;
     QString m_id = "disk_mount_plugin";
     DockPluginProxyInterface * m_proxy;
 

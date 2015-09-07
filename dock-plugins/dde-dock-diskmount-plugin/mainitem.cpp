@@ -5,7 +5,7 @@ MainItem::MainItem(QWidget *parent) : QLabel(parent)
     updateIcon();
 }
 
-void MainItem::setDockMode(Dock::DockMode mode)
+void MainItem::onDockModeChanged(Dock::DockMode mode)
 {
     m_dockMode = mode;
 

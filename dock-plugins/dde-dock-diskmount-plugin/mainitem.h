@@ -12,7 +12,7 @@ class MainItem : public QLabel
     Q_OBJECT
 public:
     MainItem(QWidget *parent = 0);
-    void setDockMode(Dock::DockMode mode);
+    void onDockModeChanged(Dock::DockMode mode);
 
 private:
     void updateIcon();

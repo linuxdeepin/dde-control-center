@@ -5,6 +5,9 @@ DiskMountPlugin::DiskMountPlugin()
 {
     m_diskMount = new DBusDiskMount(this);
     connect(m_diskMount,&DBusDiskMount::DiskListChanged,this,&DiskMountPlugin::mountableDeviceChanged);
+
+    m_item = new MainItem();
+    connect(this, &DiskMountPlugin::dockModeChanged, m_item, &MainItem::onDockModeChanged);
 }
 
 
@@ -58,13 +61,8 @@ void DiskMountPlugin::setDisabled(QString, bool)
 
 QWidget * DiskMountPlugin::getItem(QString)
 {
-    MainItem * item = new MainItem();
-    connect(this,&DiskMountPlugin::dockModeChanged,item,&MainItem::setDockMode);
-    item->setDockMode(m_mode);
-
-    m_itemList.append(item);
-
-    return item;
+    m_item->onDockModeChanged(m_mode);
+    return m_item;
 }
 
 QWidget * DiskMountPlugin::getApplet(QString)
@@ -82,16 +80,6 @@ void DiskMountPlugin::changeMode(Dock::DockMode newMode,
 
 QString DiskMountPlugin::getMenuContent(QString)
 {
-//    QJsonObject contentObj;
-
-//    QJsonArray items;
-
-//    items.append(createMenuItem("undock", "Undock"));
-
-//    contentObj.insert("items", items);
-
-//    return QString(QJsonDocument(contentObj).toJson());
-
     return "";
 }
 
@@ -102,24 +90,25 @@ void DiskMountPlugin::invokeMenuItem(QString, QString itemId, bool checked)
 
 void DiskMountPlugin::mountableDeviceChanged()
 {
-    int mountableCount = 0;
+    bool hasMount = false;
     DiskInfoList tmpList = m_diskMount->diskList();
     foreach (DiskInfo info, tmpList) {
         if (info.canUnmount)
         {
-            mountableCount ++;
+            hasMount = true;
             break;
         }
     }
 
-    if (mountableCount > 0)
-    {
-        if (m_itemList.count() == 0)
-            m_proxy->itemAddedEvent(m_id);
-    }
-    else if (m_itemList.count() > 0)
-    {
-        m_itemList.clear();
+    if (hasMount == m_hasMount)
+        return;
+    else
+        m_hasMount = hasMount;
+
+    if (hasMount)
+        m_proxy->itemAddedEvent(m_id);
+    else{
+        m_item->setParent(NULL);
         m_proxy->itemRemovedEvent(m_id);
     }
 }

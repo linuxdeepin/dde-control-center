@@ -87,8 +87,6 @@ public:
     Q_PROPERTY(DiskInfoList DiskList READ diskList NOTIFY DiskListChanged)
     inline DiskInfoList diskList() const
     {
-
-        qWarning() << dynamicPropertyNames();
         return qvariant_cast< DiskInfoList >(property("DiskList")); }
 
 public Q_SLOTS: // METHODS
