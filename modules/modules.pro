@@ -1,8 +1,8 @@
 TEMPLATE = subdirs
 SUBDIRS  = sound \
            power \
-           bluetooth \
-           network \
+#           bluetooth \
+#           network \
            default_applications \
            grub \
            mouse \
