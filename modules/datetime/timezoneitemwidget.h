@@ -26,7 +26,7 @@ public:
     inline bool selected() const {return m_checkBtn->isChecked();}
 
 signals:
-    void clicked(const TimezoneItemWidget *item);
+    void clicked();
 
 public slots:
     inline void reloadThemes() {D_THEME_INIT_WIDGET(TimezoneItemWidget);}
@@ -37,7 +37,7 @@ private:
     QStringList keyWords() const Q_DECL_OVERRIDE {return QStringList();}
     void setData(const QVariant&) Q_DECL_OVERRIDE {}
     QVariant getData() Q_DECL_OVERRIDE {return QVariant();}
-    void mouseReleaseEvent(QMouseEvent *e) {emit clicked(this); m_checkBtn->setChecked(!m_checkBtn->isChecked()); e->accept();}
+    void mouseReleaseEvent(QMouseEvent *e) {emit clicked(); m_checkBtn->setChecked(!m_checkBtn->isChecked()); e->accept();}
 
 private:
     QLabel *m_zones;

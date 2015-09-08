@@ -47,7 +47,7 @@ private slots:
     void toggleTimeZone(TimezoneWidget *zone);
     void removeTimeZone(TimezoneWidget *zone);
     void addUserTimeZone();
-    void timezoneItemChoosed(const TimezoneItemWidget *item);
+    void timezoneItemChoosed();
 
 private:
     QFrame * m_frame;

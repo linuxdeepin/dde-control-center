@@ -350,8 +350,10 @@ void Datetime::addUserTimeZone()
     m_choosedZoneList.clear();
 }
 
-void Datetime::timezoneItemChoosed(const TimezoneItemWidget *item)
+void Datetime::timezoneItemChoosed()
 {
+    const TimezoneItemWidget *item = qobject_cast<TimezoneItemWidget *>(sender());
+
     if (item)
     {
         if (!item->selected())

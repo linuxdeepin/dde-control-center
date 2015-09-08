@@ -65,9 +65,9 @@ void ContentView::setModule(ModuleMetaData module)
 
     m_pluginLoader->setFileName(module.path);
 
-    QObject * instance = m_pluginLoader->instance();
+    QObject *instance = m_pluginLoader->instance();
     if (instance) {
-        ModuleInterface * interface = qobject_cast<ModuleInterface*>(instance);
+        ModuleInterface *interface = qobject_cast<ModuleInterface *>(instance);
         m_layout->addWidget(interface->getContent());
 
         qDebug() << "loaded file name: " << m_pluginLoader->fileName();
@@ -98,11 +98,13 @@ void ContentView::show()
 
 void ContentView::onModuleSelected(ModuleMetaData meta)
 {
-    if (!meta.path.isEmpty())
+    if (!meta.path.isEmpty()) {
         return setModule(meta);
+    }
 
     emit homeSelected();
 
-    if (meta.name == "Power")
+    if (meta.name == "Power") {
         emit shutdownSelected();
+    }
 }

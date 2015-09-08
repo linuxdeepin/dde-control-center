@@ -42,5 +42,7 @@ TimezoneItemWidget::TimezoneItemWidget(const ZoneInfo *info, QWidget *parent) :
     setLayout(mainLayout);
     setFixedHeight(50);
     reloadThemes();
+
+    connect(m_checkBtn, &MultiAddCheckButton::clicked, this, &TimezoneItemWidget::clicked);
 }
 
