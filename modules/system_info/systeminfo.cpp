@@ -42,7 +42,7 @@ SystemInfo::SystemInfo()
 
     QLabel *info_sysType = new QLabel(tr("System Type :"));
     info_sysType->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
-    QLabel *info_sysTypeContent = new QLabel(QString(tr("%1位")).arg(m_dbusSystemInfo.systemType()));
+    QLabel *info_sysTypeContent = new QLabel(QString(tr("%1Bit")).arg(m_dbusSystemInfo.systemType()));
     info_sysTypeContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
 
     QLabel *info_cpuType = new QLabel(tr("Processor :"));

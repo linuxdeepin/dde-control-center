@@ -40,10 +40,12 @@ int main(int argv, char *args[])
     app.setApplicationVersion("3.0");
 
     // take care of command line options
+    QCommandLineOption showOption(QStringList() << "s" << "show", "show control center(hide for default).");
     QCommandLineParser parser;
     parser.setApplicationDescription("DDE Control Center");
     parser.addHelpOption();
     parser.addVersionOption();
+    parser.addOption(showOption);
     parser.addPositionalArgument("module", "the module's id of which to be shown.");
     parser.process(app);
 
@@ -53,8 +55,10 @@ int main(int argv, char *args[])
     LogManager::instance()->debug_log_console_on();
 
     Frame frame;
-#ifdef QT_DEBUG
-    frame.show();
+#ifndef QT_DEBUG
+    if (parser.isSet(showOption))
+#else
+        frame.show();
 #endif
 
     if (!positionalArgs.isEmpty()) {
