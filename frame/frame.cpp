@@ -217,7 +217,7 @@ void Frame::globalMouseReleaseEvent(int button, int x, int y)
 {
     Q_UNUSED(button);
 
-    if (!rect().contains(x, y)) {
+    if (!rect().contains(x - this->x(), y - this->y())) {
         hide();
     }
 }
