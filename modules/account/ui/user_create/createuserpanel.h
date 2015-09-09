@@ -39,17 +39,26 @@ private:
     void initConfirmLine();
 
 private slots:
+    bool validate();
     void updateLineStyle();
-
+    void resetData();
     void onCancel();
     void onConfirm();
     void onUserAdded(const QString &path);
+    void onNameFocusChanged(bool focus);
+    void onPasswdFocusChanged(bool focus);
+    void onPasswdRepeatFocusChanged(bool focus);
+    void onNameChanged(const QString &name);
+    void onPasswdChanged(const QString &);
+    void onPasswdRepeatChanged(const QString &passwd);
 
 private:
+    QString m_oldName = "";
     UserAvatar *m_avatar = NULL;
     DBusAccount *m_account = NULL;
     QVBoxLayout *m_layout = NULL;
     InputLine *m_nameLine = NULL;
+    QLabel *m_newNameLabel = NULL;
     SwitchLine *m_autoLogin = NULL;
     PasswdLine *m_passwdNew = NULL;
     PasswdLine *m_passwdRepeat = NULL;

@@ -3,7 +3,12 @@ CONFIG         += plugin c++11 link_pkgconfig
 QT             += widgets multimedia multimediawidgets dbus
 INCLUDEPATH    += ../../frame/ ../../widgets
 PKGCONFIG += dui
-LIBS += -L../../widgets -lwidgets
+
+CONFIG(debug) {
+    include(../../widgets/widgets.pri)
+} else {
+    LIBS += -L../../widgets -lwidgets
+}
 
 HEADERS         += \
     account.h \

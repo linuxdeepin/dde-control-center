@@ -57,12 +57,9 @@ void CreateUserPanel::initInfoLine()
     m_avatar->setFixedSize(ICON_SIZE, ICON_SIZE);
     m_avatar->setIcon(m_randIcon);
 
-    QLabel *newNameLabel = new QLabel(tr("New User"));
-    newNameLabel->setObjectName("NewNameLabel");
-    newNameLabel->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
-    connect(m_nameLine, &InputLine::textChanged, [=](QString text){
-        newNameLabel->setText(text.isEmpty() ? tr("New User") : text.toLower());
-    });
+    m_newNameLabel = new QLabel(tr("New User"));
+    m_newNameLabel->setObjectName("NewNameLabel");
+    m_newNameLabel->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
     QLabel *newTypeLabel = new QLabel(tr("Normal User"));
     newTypeLabel->setObjectName("NewTypeLabel");
     newTypeLabel->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
@@ -77,7 +74,7 @@ void CreateUserPanel::initInfoLine()
         }
     });
 
-    vLayout->addWidget(newNameLabel);
+    vLayout->addWidget(m_newNameLabel);
     vLayout->addWidget(newTypeLabel);
 
     hLayout->addSpacing(DUI::HEADER_LEFT_MARGIN);
@@ -98,6 +95,12 @@ void CreateUserPanel::initInputLline()
     m_passwdRepeat = new PasswdLine();
     m_accountType = new AccountTypeLine();
     m_autoLogin = new SwitchLine();
+    connect(m_nameLine, &InputLine::textChanged, this, &CreateUserPanel::onNameChanged);
+    connect(m_passwdNew, &PasswdLine::textChanged, this, &CreateUserPanel::onPasswdChanged);
+    connect(m_passwdRepeat, &PasswdLine::textChanged, this, &CreateUserPanel::onPasswdRepeatChanged);
+    connect(m_nameLine, &InputLine::focusChanged, this, &CreateUserPanel::onNameFocusChanged);
+    connect(m_passwdNew, &PasswdLine::focusChanged, this, &CreateUserPanel::onPasswdFocusChanged);
+    connect(m_passwdRepeat, &PasswdLine::focusChanged, this, &CreateUserPanel::onPasswdRepeatFocusChanged);
 
     QFont f = m_nameLine->lineEdit()->font();
     f.setCapitalization(QFont::AllLowercase);
@@ -135,6 +138,33 @@ void CreateUserPanel::initConfirmLine()
     m_layout->addWidget(s4);
 }
 
+bool CreateUserPanel::validate()
+{
+    QDBusPendingReply<bool, QString, int> reply = m_account->IsUsernameValid(m_nameLine->text().toLower());
+    bool nameValid = reply.argumentAt(0).isValid() ? reply.argumentAt(0).toBool() : false;
+    QString warningMsg = reply.argumentAt(1).isValid() ? reply.argumentAt(1).toString() : "";
+    if (!nameValid){
+        m_nameLine->showWarning(warningMsg);
+        return false;
+    }
+
+    if (m_passwdNew->text().isEmpty()){
+        m_passwdNew->showWarning(tr("Password can not be empty."));
+        return false;
+    }
+
+    if (m_passwdRepeat->text().isEmpty()){
+        m_passwdRepeat->showWarning(tr("Password can not be empty."));
+    }
+
+    if (m_passwdRepeat->text() != m_passwdNew->text()){
+        m_passwdRepeat->showWarning(tr("The two passwords do not match."));
+        return false;
+    }
+
+    return true;
+}
+
 void CreateUserPanel::updateLineStyle()
 {
     //For Style sheet
@@ -148,23 +178,30 @@ void CreateUserPanel::updateLineStyle()
     m_confirmLine->setStyleSheet(m_confirmLine->styleSheet() + backgrounStyle);
 }
 
+void CreateUserPanel::resetData()
+{
+    m_oldName = "";
+    m_nameLine->setText("");
+    m_nameLine->hideWarning();
+    m_passwdNew->setText("");
+    m_passwdNew->hideWarning();
+    m_passwdRepeat->setText("");
+    m_passwdRepeat->hideWarning();
+}
+
 void CreateUserPanel::onCancel()
 {
     emit createCancel();
+    resetData();
 }
 
 void CreateUserPanel::onConfirm()
 {
-    if (!m_nameLine->text().isEmpty()
-            && !m_passwdNew->text().isEmpty()
-            && m_passwdNew->text() == m_passwdRepeat->text()){
+    if (validate()){
         m_account->CreateUser(m_nameLine->text().toLower(), "", m_accountType->currentIndex());
 
         emit createConfirm();
-    }
-    else{
-        //TODO
-        qWarning() << "[Warnig] Info got error ==========";
+        resetData();
     }
 }
 
@@ -188,6 +225,87 @@ void CreateUserPanel::onUserAdded(const QString &path)
         m_avatar->setIcon(m_randIcon);
     }
 }
+
+void CreateUserPanel::onNameFocusChanged(bool focus)
+{
+    if (focus){
+        m_nameLine->hideWarning();
+        m_passwdNew->hideWarning();
+        m_passwdRepeat->hideWarning();
+    }
+    else if (m_nameLine->text().isEmpty())
+        m_nameLine->showWarning(tr("Username can not be empty."));
+}
+
+void CreateUserPanel::onPasswdFocusChanged(bool focus)
+{
+    if (focus){
+        m_passwdNew->hideWarning();
+        m_passwdRepeat->hideWarning();
+
+        if (m_nameLine->text().isEmpty())
+            m_nameLine->showWarning(tr("Username can not be empty."));
+        else if (!m_passwdRepeat->text().isEmpty() && m_passwdRepeat->text() != m_passwdNew->text())
+            m_passwdRepeat->showWarning(tr("The two passwords do not match."));
+    }
+    else if (m_passwdNew->text().isEmpty() && !m_nameLine->text().isEmpty())
+        m_passwdNew->showWarning("Password can not be empty.");
+}
+
+void CreateUserPanel::onPasswdRepeatFocusChanged(bool focus)
+{
+    if (focus){
+        m_passwdNew->hideWarning();
+        m_passwdRepeat->hideWarning();
+
+        if (m_nameLine->text().isEmpty())
+            m_nameLine->showWarning(tr("Username can not be empty."));
+    }
+    else if (!m_passwdNew->text().isEmpty() && m_passwdRepeat->text().isEmpty())
+        m_passwdRepeat->showWarning(tr("The two passwords do not match."));
+}
+
+void CreateUserPanel::onNameChanged(const QString &name)
+{
+    m_nameLine->hideWarning();
+    if (!name.isEmpty()){
+        QDBusPendingReply<bool, QString, int> reply = m_account->IsUsernameValid(name.toLower());
+        bool nameValid = reply.argumentAt(0).isValid() ? reply.argumentAt(0).toBool() : false;
+        QString warningMsg = reply.argumentAt(1).isValid() ? reply.argumentAt(1).toString() : "";
+        int validCode = reply.argumentAt(2).isValid() ? reply.argumentAt(2).toInt() : -1;
+        if (nameValid){
+            m_oldName = name;
+            m_newNameLabel->setText(name.toLower());
+        }
+        else{
+            if (validCode == 4 || validCode == 5)//4:NameExist,5:SystemUsed
+                m_oldName = name;
+            else{
+                m_nameLine->setText(m_oldName.toLower());
+            }
+            m_newNameLabel->setText(m_oldName.toLower());
+            m_nameLine->showWarning(warningMsg);
+        }
+    }
+    else
+        m_newNameLabel->setText(tr("New User"));
+}
+
+void CreateUserPanel::onPasswdChanged(const QString &)
+{
+    m_passwdNew->hideWarning();
+    m_passwdRepeat->hideWarning();
+    if (!m_passwdRepeat->text().isEmpty() && m_passwdNew->text() != m_passwdRepeat->text())
+        m_passwdRepeat->showWarning(tr("The two passwords do not match."));
+}
+
+void CreateUserPanel::onPasswdRepeatChanged(const QString &passwd)
+{
+    m_passwdRepeat->hideWarning();
+    if (!m_passwdRepeat->text().isEmpty() && m_passwdNew->text().indexOf(passwd, 0) != 0)
+        m_passwdRepeat->showWarning(tr("The two passwords do not match."));
+}
+
 QString CreateUserPanel::lineBackgroundColor() const
 {
     return m_lineBackgroundColor;

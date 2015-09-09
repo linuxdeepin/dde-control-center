@@ -33,5 +33,6 @@
         <file>dark/GenericListItem.theme</file>
         <file>dark/images/tick_hover.png</file>
         <file>dark/ListWidget.theme</file>
+        <file>dark/InputWarningFrame.theme</file>
     </qresource>
 </RCC>
