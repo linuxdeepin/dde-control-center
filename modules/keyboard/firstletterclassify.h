@@ -35,6 +35,9 @@ public slots:
     void setTitle(const QString &title);
     void setChecked(bool checked);
 
+protected:
+    void mouseReleaseEvent(QMouseEvent *e);
+
 signals:
     void checkedChanged(bool checked);
 

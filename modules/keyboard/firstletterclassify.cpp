@@ -89,6 +89,13 @@ void KeyboardLayoutDelegate::setChecked(bool checked)
     m_checkButton->setChecked(checked);
 }
 
+void KeyboardLayoutDelegate::mouseReleaseEvent(QMouseEvent *e)
+{
+    QFrame::mouseReleaseEvent(e);
+
+    m_checkButton->setChecked(!m_checkButton->isChecked());
+}
+
 void KeyboardLayoutDelegate::setTitle(const QString &title)
 {
     m_label->setText(title);

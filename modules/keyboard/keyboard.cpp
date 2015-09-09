@@ -290,6 +290,7 @@ void Keyboard::initUI()
     lang_frame_layout->setMargin(0);
 
     DSearchEdit *lang_search = new DSearchEdit;
+    lang_search->setFixedWidth(290);
     lang_search->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     SearchList *language_searchList = new SearchList;
@@ -298,7 +299,8 @@ void Keyboard::initUI()
     language_searchList->setFixedWidth(310);
     language_searchList->setItemSize(290, EXPAND_HEADER_HEIGHT);
 
-    lang_frame_layout->addWidget(lang_search, 0, Qt::AlignTop);
+    lang_frame_layout->addSpacing(10);
+    lang_frame_layout->addWidget(lang_search, 0, Qt::AlignTop|Qt::AlignHCenter);
     lang_frame_layout->addWidget(language_searchList, 50);
     lang_frame_layout->addStretch(1);
 

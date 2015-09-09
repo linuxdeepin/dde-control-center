@@ -66,6 +66,9 @@ void GenericListItem::setListWidget(SearchList *list)
         if(m_list)
             setShowBgColor(m_list->count()>1);
     }, Qt::QueuedConnection);
+
+    if(m_list)
+        setShowBgColor(m_list->count()>1);
 }
 
 bool GenericListItem::checked() const
