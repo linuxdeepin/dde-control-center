@@ -10,6 +10,7 @@ class DisplayModeItem : public QLabel
     Q_PROPERTY(QString iconName READ iconName WRITE setIconName)
     Q_PROPERTY(QString title READ title WRITE setTitle)
     Q_PROPERTY(QString text READ text WRITE setText)
+    Q_PROPERTY(QString iconText READ iconText WRITE setIconText)
     Q_PROPERTY(bool checked READ checked WRITE setChecked NOTIFY checkedChanged)
     Q_PROPERTY(bool hover READ hover NOTIFY hoverChanged)
     Q_PROPERTY(bool clickCheck READ clickCheck WRITE setClickCheck)
@@ -24,6 +25,7 @@ public:
     bool checked() const;
     bool hover() const;
     bool clickCheck() const;
+    QString iconText() const;
 
 public slots:
     void setIconName(QString iconName);
@@ -31,6 +33,7 @@ public slots:
     void setText(QString text);
     void setChecked(bool checked);
     void setClickCheck(bool clickCheck);
+    void setIconText(QString iconText);
 
 signals:
     void hoverChanged(bool hover);
@@ -41,6 +44,7 @@ protected:
     void enterEvent(QEvent *e);
     void leaveEvent(QEvent *e);
     void mouseReleaseEvent(QMouseEvent *e);
+    void paintEvent(QPaintEvent *e);
 
 private:
     void setHover(bool arg);
@@ -51,6 +55,7 @@ private:
 
     QString m_iconName;
     QString m_iconPath;
+    QString m_iconText;
     QLabel *m_title;
     QLabel *m_text;
     bool m_checked;

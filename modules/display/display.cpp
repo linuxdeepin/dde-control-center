@@ -47,6 +47,8 @@ void Display::init()
 
     ModuleHeader * headerLine = new ModuleHeader("Display");
 
+    connect(headerLine, &ModuleHeader::resetButtonClicked, m_dbusDisplay, &DisplayInterface::Reset);
+
     m_monitorGround = new MonitorGround(m_dbusDisplay);
 
     m_mainLayout->addWidget(headerLine);
@@ -74,8 +76,6 @@ void Display::init()
 
 void Display::updateUI()
 {
-    qDebug()<<"monitor changed";
-
     QList<QDBusObjectPath> pathList = m_dbusDisplay->monitors();
 
     m_monitorGround->clear();
@@ -101,7 +101,7 @@ void Display::updateUI()
 
         if(tmp_list.count() == pathList.count())
             monitor->setName(interface->name());
-        else
+        else if(i < tmp_list.count() - 1)
             monitor->setName(tmp_list[i]);
 
         if(monitor->name() == primargName)
@@ -129,8 +129,12 @@ void Display::updateUI()
         QWidget *widget = item->widget();
         m_mainLayout->removeItem(item);
         delete item;
-        if(widget)
-            delete widget;
+
+        if(widget == m_singleSettings){
+            widget->hide();
+        }else{
+            widget->deleteLater();
+        }
     }
 
     if(m_monitorNameList.count() > 1){
@@ -171,11 +175,14 @@ void Display::updateUI()
         m_widgetList->addWidget(item_copy);
         m_widgetList->addWidget(item_extend);
 
-        foreach (const QString& name, m_monitorNameList) {
+        for (int i=0; i < m_monitorNameList.count(); ++i) {
+            const QString& name = m_monitorNameList[i];
+
             DisplayModeItem *item_monitor = new DisplayModeItem;
             item_monitor->setTitle(tr("Only Displayed on %1").arg(name));
             item_monitor->setText(tr("Screen contents are only displayed on %1 but not on other screens.").arg(name));
             item_monitor->setIconName("single");
+            item_monitor->setIconText(QString::number(i));
             m_widgetList->addWidget(item_monitor);
 
             connect(item_monitor, &DisplayModeItem::checkedChanged, this, [=](bool arg){
@@ -201,7 +208,7 @@ void Display::updateUI()
             m_singleSettings->hide();
             onDisplayModeChanged();
             m_monitorGround->endEdit();
-        }, Qt::DirectConnection);
+        });
 
         m_mainLayout->addWidget(displayModeExpand);
         m_mainLayout->addWidget(m_singleSettings);

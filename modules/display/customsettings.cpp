@@ -3,6 +3,7 @@
 #include <libdui/dbuttonlist.h>
 #include <libdui/dexpandgroup.h>
 #include <libdui/dtextbutton.h>
+#include <libdui/dseparatorhorizontal.h>
 
 #include "moduleheader.h"
 #include "normallabel.h"
@@ -69,10 +70,14 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
 
     ListWidget *brightnessList = new ListWidget;
     m_brightnessExpand = new DArrowLineExpand;
-    brightnessList->setItemSize(290, 55);
+    brightnessList->setItemSize(290, 0);
     m_brightnessExpand->setTitle(tr("Brightness"));
     m_brightnessExpand->setContent(brightnessList);
     expandGroup->addExpand(m_brightnessExpand);
+
+    connect(brightnessList, &ListWidget::countChanged, [brightnessList]{
+        brightnessList->setFixedHeight(brightnessList->height() - 2);
+    });
 
     if(m_dbusMonitors.count() > 1){
         DArrowLineExpand * enableMonitor = new DArrowLineExpand;
@@ -127,11 +132,21 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
     ListWidget *resolutionList = new ListWidget;
     resolutionList->setFixedWidth(290);
 
+    connect(resolutionList, &ListWidget::countChanged, [resolutionList]{
+        resolutionList->setFixedHeight(resolutionList->height() - 2);
+    });
+
     ListWidget *rotationList = new ListWidget;
     rotationList->setFixedWidth(290);
 
+    connect(rotationList, &ListWidget::countChanged, [rotationList]{
+        rotationList->setFixedHeight(rotationList->height() - 2);
+    });
+
     foreach (const QString& name, m_monitorNameList) {
-        brightnessList->addWidget(new TitleAndWidget(getBrightnessSlider(name), tr("Monitor %1").arg(name)));
+        TitleAndWidget *widget = new TitleAndWidget(getBrightnessSlider(name), tr("Monitor %1").arg(name));
+        widget->setFixedHeight(50);
+        brightnessList->addWidget(widget);
     }
 
     DSlider *tmp_slider = getBrightnessSlider(m_dbusDisplay->primary());
@@ -166,6 +181,11 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
         resolutionList->addWidget(titleWidget_resolution);
         resolutionExpand->setContent(resolutionList);
 
+        connect(resolutionList, &ListWidget::visibleCountChanged, titleWidget_resolution, [titleWidget_resolution](int count){
+            titleWidget_resolution->setTitleVisible(count > 1);
+        }, Qt::DirectConnection);
+        titleWidget_resolution->setTitleVisible(resolutionList->visibleCount() > 1);
+
         DButtonGrid *rotationButtons = new DButtonGrid;
         rotationButtons->setItemSize(90, 30);
         QStringList rotations = getRotationLabels(dbusMonitor);
@@ -177,6 +197,11 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
         titleWidget_rotation->setFixedSize(290, rotationButtons->rowCount() * 30 + 30);
         rotationList->addWidget(titleWidget_rotation);
         rotationExpand->setContent(rotationList);
+
+        connect(rotationList, &ListWidget::visibleCountChanged, titleWidget_rotation, [titleWidget_rotation](int count){
+            titleWidget_rotation->setTitleVisible(count > 1);
+        }, Qt::DirectConnection);
+        titleWidget_rotation->setTitleVisible(rotationList->visibleCount() > 1);
 
         updateRotationButtons(dbusMonitor, rotationButtons);
 

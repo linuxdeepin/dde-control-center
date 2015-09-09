@@ -1,4 +1,5 @@
 #include <QVBoxLayout>
+#include <QPainter>
 
 #include <libdui/libdui_global.h>
 #include <libdui/dthememanager.h>
@@ -78,6 +79,11 @@ bool DisplayModeItem::clickCheck() const
     return m_clickCheck;
 }
 
+QString DisplayModeItem::iconText() const
+{
+    return m_iconText;
+}
+
 void DisplayModeItem::setIconName(QString iconName)
 {
     if(m_iconName == iconName)
@@ -126,6 +132,11 @@ void DisplayModeItem::setClickCheck(bool clickCheck)
     m_clickCheck = clickCheck;
 }
 
+void DisplayModeItem::setIconText(QString iconText)
+{
+    m_iconText = iconText;
+}
+
 void DisplayModeItem::enterEvent(QEvent *e)
 {
     QLabel::enterEvent(e);
@@ -149,6 +160,19 @@ void DisplayModeItem::mouseReleaseEvent(QMouseEvent *e)
     }
 
     emit clicked();
+}
+
+void DisplayModeItem::paintEvent(QPaintEvent *e)
+{
+    QLabel::paintEvent(e);
+
+    QPainter pa(this);
+    QTextOption tmpOption;
+    tmpOption.setAlignment(Qt::AlignVCenter);
+    QRect rect = this->rect();
+    rect.setLeft(30);
+    pa.drawText(rect, m_iconText, tmpOption);
+    pa.end();
 }
 
 void DisplayModeItem::setHover(bool arg)
