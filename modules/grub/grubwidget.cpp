@@ -136,8 +136,10 @@ void GrubWidget::setDefaultEntry(const QString &entry)
     QStringList title_list = m_grubDbus->GetSimpleEntryTitles();
     int default_index = title_list.indexOf(entry);
 
-    m_bootEntryList->checkButtonByIndex(default_index);
-    m_bootMenuTitle->checkButtonByIndex(default_index);
+    if(default_index >= 0 && default_index < m_bootEntryList->count()){
+        m_bootEntryList->checkButtonByIndex(default_index);
+        m_bootMenuTitle->checkButtonByIndex(default_index);
+    }
 }
 
 void GrubWidget::updatingChanged(bool updating)
