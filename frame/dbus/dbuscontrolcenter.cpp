@@ -86,10 +86,11 @@ void DBusControlCenter::Toggle()
 {
     // handle method call com.deepin.dde.ControlCenter.Toggle
     //parent()->Toggle();
-    if (parent()->isVisible())
+    if (parent()->isVisible()) {
         parent()->hide();
-    else
+    } else {
         parent()->show();
+    }
 }
 
 void DBusControlCenter::ToggleInLeft()

@@ -27,29 +27,33 @@ class DBusUser: public QDBusAbstractInterface
 {
     Q_OBJECT
 
-    Q_SLOT void __propertyChanged__(const QDBusMessage& msg)
+    Q_SLOT void __propertyChanged__(const QDBusMessage &msg)
     {
         QList<QVariant> arguments = msg.arguments();
-        if (3 != arguments.count())
+        if (3 != arguments.count()) {
             return;
+        }
         QString interfaceName = msg.arguments().at(0).toString();
-        if (interfaceName !="com.deepin.daemon.Accounts.User")
+        if (interfaceName != "com.deepin.daemon.Accounts.User") {
             return;
+        }
         QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
         QStringList keys = changedProps.keys();
-        foreach(const QString &prop, keys) {
-        const QMetaObject* self = metaObject();
-            for (int i=self->propertyOffset(); i < self->propertyCount(); ++i) {
+        foreach(const QString & prop, keys) {
+            const QMetaObject *self = metaObject();
+            for (int i = self->propertyOffset(); i < self->propertyCount(); ++i) {
                 QMetaProperty p = self->property(i);
                 if (p.name() == prop) {
- 	            Q_EMIT p.notifySignal().invoke(this);
+                    Q_EMIT p.notifySignal().invoke(this);
                 }
             }
         }
-   }
+    }
 public:
     static inline const char *staticInterfaceName()
-    { return "com.deepin.daemon.Accounts.User"; }
+    {
+        return "com.deepin.daemon.Accounts.User";
+    }
 
 public:
     DBusUser(const QString &path, QObject *parent = 0);
@@ -58,55 +62,81 @@ public:
 
     Q_PROPERTY(int AccountType READ accountType NOTIFY AccountTypeChanged)
     inline int accountType() const
-    { return qvariant_cast< int >(property("AccountType")); }
+    {
+        return qvariant_cast< int >(property("AccountType"));
+    }
 
     Q_PROPERTY(bool AutomaticLogin READ automaticLogin NOTIFY AutomaticLoginChanged)
     inline bool automaticLogin() const
-    { return qvariant_cast< bool >(property("AutomaticLogin")); }
+    {
+        return qvariant_cast< bool >(property("AutomaticLogin"));
+    }
 
     Q_PROPERTY(QString BackgroundFile READ backgroundFile NOTIFY BackgroundFileChanged)
     inline QString backgroundFile() const
-    { return qvariant_cast< QString >(property("BackgroundFile")); }
+    {
+        return qvariant_cast< QString >(property("BackgroundFile"));
+    }
 
     Q_PROPERTY(QString Gid READ gid NOTIFY GidChanged)
     inline QString gid() const
-    { return qvariant_cast< QString >(property("Gid")); }
+    {
+        return qvariant_cast< QString >(property("Gid"));
+    }
 
     Q_PROPERTY(QStringList HistoryIcons READ historyIcons NOTIFY HistoryIconsChanged)
     inline QStringList historyIcons() const
-    { return qvariant_cast< QStringList >(property("HistoryIcons")); }
+    {
+        return qvariant_cast< QStringList >(property("HistoryIcons"));
+    }
 
     Q_PROPERTY(QString HomeDir READ homeDir NOTIFY HomeDirChanged)
     inline QString homeDir() const
-    { return qvariant_cast< QString >(property("HomeDir")); }
+    {
+        return qvariant_cast< QString >(property("HomeDir"));
+    }
 
     Q_PROPERTY(QString IconFile READ iconFile NOTIFY IconFileChanged)
     inline QString iconFile() const
-    { return qvariant_cast< QString >(property("IconFile")); }
+    {
+        return qvariant_cast< QString >(property("IconFile"));
+    }
 
     Q_PROPERTY(QStringList IconList READ iconList NOTIFY IconListChanged)
     inline QStringList iconList() const
-    { return qvariant_cast< QStringList >(property("IconList")); }
+    {
+        return qvariant_cast< QStringList >(property("IconList"));
+    }
 
     Q_PROPERTY(bool Locked READ locked NOTIFY LockedChanged)
     inline bool locked() const
-    { return qvariant_cast< bool >(property("Locked")); }
+    {
+        return qvariant_cast< bool >(property("Locked"));
+    }
 
     Q_PROPERTY(qulonglong LoginTime READ loginTime NOTIFY LoginTimeChanged)
     inline qulonglong loginTime() const
-    { return qvariant_cast< qulonglong >(property("LoginTime")); }
+    {
+        return qvariant_cast< qulonglong >(property("LoginTime"));
+    }
 
     Q_PROPERTY(QString Shell READ shell NOTIFY ShellChanged)
     inline QString shell() const
-    { return qvariant_cast< QString >(property("Shell")); }
+    {
+        return qvariant_cast< QString >(property("Shell"));
+    }
 
     Q_PROPERTY(QString Uid READ uid NOTIFY UidChanged)
     inline QString uid() const
-    { return qvariant_cast< QString >(property("Uid")); }
+    {
+        return qvariant_cast< QString >(property("Uid"));
+    }
 
     Q_PROPERTY(QString UserName READ userName NOTIFY UserNameChanged)
     inline QString userName() const
-    { return qvariant_cast< QString >(property("UserName")); }
+    {
+        return qvariant_cast< QString >(property("UserName"));
+    }
 
 public Q_SLOTS: // METHODS
     inline QDBusPendingReply<bool> DeleteHistoryIcon(const QString &in0)
@@ -201,28 +231,32 @@ public Q_SLOTS: // METHODS
 
 Q_SIGNALS: // SIGNALS
 // begin property changed signals
-void AccountTypeChanged();
-void AutomaticLoginChanged();
-void BackgroundFileChanged();
-void GidChanged();
-void HistoryIconsChanged();
-void HomeDirChanged();
-void IconFileChanged();
-void IconListChanged();
-void LockedChanged();
-void LoginTimeChanged();
-void ShellChanged();
-void UidChanged();
-void UserNameChanged();
+    void AccountTypeChanged();
+    void AutomaticLoginChanged();
+    void BackgroundFileChanged();
+    void GidChanged();
+    void HistoryIconsChanged();
+    void HomeDirChanged();
+    void IconFileChanged();
+    void IconListChanged();
+    void LockedChanged();
+    void LoginTimeChanged();
+    void ShellChanged();
+    void UidChanged();
+    void UserNameChanged();
 };
 
-namespace com {
-  namespace deepin {
-    namespace daemon {
-      namespace AccountsInfo {
-        typedef ::DBusUser User;
-      }
-    }
-  }
+namespace com
+{
+namespace deepin
+{
+namespace daemon
+{
+namespace AccountsInfo
+{
+typedef ::DBusUser User;
+}
+}
+}
 }
 #endif

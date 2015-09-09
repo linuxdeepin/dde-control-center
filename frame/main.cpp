@@ -17,7 +17,7 @@ QString getQssFromFile(const QString &name)
     QString qss = "";
 
     QFile f(name);
-    if (f.open(QIODevice::ReadOnly | QIODevice::Text)){
+    if (f.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qss = f.readAll();
         f.close();
     }
@@ -58,17 +58,17 @@ int main(int argv, char *args[])
 #ifndef QT_DEBUG
     if (parser.isSet(showOption))
 #else
-        frame.show();
+    frame.show();
 #endif
 
-    if (!positionalArgs.isEmpty()) {
-        frame.selectModule(positionalArgs.at(0));
-    }
+        if (!positionalArgs.isEmpty()) {
+            frame.selectModule(positionalArgs.at(0));
+        }
 
     DBusControlCenter adaptor(&frame);
     QDBusConnection conn = QDBusConnection::sessionBus();
     if (!conn.registerService("com.deepin.dde.ControlCenter") ||
-        !conn.registerObject("/com/deepin/dde/ControlCenter", &frame))
+            !conn.registerObject("/com/deepin/dde/ControlCenter", &frame))
 #ifndef QT_DEBUG
         return -1;
 #else
@@ -77,7 +77,7 @@ int main(int argv, char *args[])
 
     // setup theme manager
     DThemeManager *manager = DThemeManager::instance();
-    QObject::connect(manager, &DThemeManager::themeChanged, [=](QString theme){
+    QObject::connect(manager, &DThemeManager::themeChanged, [ = ](QString theme) {
         onThemeChange(theme);
     });
 

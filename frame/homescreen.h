@@ -32,7 +32,7 @@ private slots:
     void userAvatarClicked();
 
 private:
-    QGridLayout * m_grid;
+    QGridLayout *m_grid;
 
     DBusAccounts *m_dbusAccounts;
     DBusUser *m_dbusUserInfo;
@@ -58,12 +58,12 @@ class ModuleButton : public QFrame
 {
     Q_OBJECT
 public:
-    ModuleButton(ModuleMetaData metaData, QWidget * parent = 0);
+    ModuleButton(ModuleMetaData metaData, QWidget *parent = 0);
 
-    void enterEvent(QEvent * event) Q_DECL_OVERRIDE;
-    void leaveEvent(QEvent * event) Q_DECL_OVERRIDE;
-    void mousePressEvent(QMouseEvent * event) Q_DECL_OVERRIDE;
-    void mouseReleaseEvent(QMouseEvent * event) Q_DECL_OVERRIDE;
+    void enterEvent(QEvent *event) Q_DECL_OVERRIDE;
+    void leaveEvent(QEvent *event) Q_DECL_OVERRIDE;
+    void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
+    void mouseReleaseEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
 
     ModuleMetaData metaData();
 
@@ -79,8 +79,8 @@ private:
 private:
     ModuleMetaData m_meta;
 
-    QLabel * m_icon;
-    QLabel * m_text;
+    QLabel *m_icon;
+    QLabel *m_text;
 };
 
 #endif // HOMESCREEN_H

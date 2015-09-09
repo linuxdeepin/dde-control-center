@@ -7,7 +7,7 @@ class ModuleInterface
 {
 public:
     virtual ~ModuleInterface() {}
-    virtual QFrame* getContent() = 0;
+    virtual QFrame *getContent() = 0;
 };
 
 

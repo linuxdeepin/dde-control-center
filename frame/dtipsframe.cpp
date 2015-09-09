@@ -36,13 +36,10 @@ DTipsFrame::~DTipsFrame()
 
 void DTipsFrame::move(int x, int y)
 {
-    if (m_isFirstMove)
-    {
+    if (m_isFirstMove) {
         QFrame::move(x, y);
         m_isFirstMove = false;
-    }
-    else
-    {
+    } else {
         QFrame::move(x, geometry().y());
 
         m_moveAni->stop();
@@ -56,14 +53,14 @@ void DTipsFrame::followTheSender()
 {
     QWidget *widget = qobject_cast<QWidget *>(sender());
 
-    if (!widget)
+    if (!widget) {
         return;
+    }
 
     const int wHeight = widget->height();
 
     QPoint pos;
-    do
-    {
+    do {
         pos += widget->pos();
     } while ((widget = widget->parentWidget()) != 0);
 

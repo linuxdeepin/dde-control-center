@@ -26,9 +26,9 @@ signals:
     void shutdownSelected();
 
 private:
-    QHBoxLayout * m_layout;
-    SideBar * m_sideBar;
-    QPluginLoader * m_pluginLoader;
+    QHBoxLayout *m_layout;
+    SideBar *m_sideBar;
+    QPluginLoader *m_pluginLoader;
 
 private slots:
     void onModuleSelected(ModuleMetaData meta);

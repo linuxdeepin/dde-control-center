@@ -3,8 +3,7 @@
 
 #include <QString>
 
-struct ModuleMetaData
-{
+struct ModuleMetaData {
     QString path;
     QString id;
     QString name;

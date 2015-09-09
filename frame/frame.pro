@@ -10,7 +10,8 @@ HEADERS    = frame.h \
     dtipsframe.h \
     dbus/dbuscontrolcenter.h \
     dbus/dbususer.h \
-    dbus/dbusaccounts.h
+    dbus/dbusaccounts.h \
+    dbus/dbusxmousearea.h
 SOURCES    = frame.cpp \
              main.cpp \
     homescreen.cpp \
@@ -19,7 +20,8 @@ SOURCES    = frame.cpp \
     dtipsframe.cpp \
     dbus/dbuscontrolcenter.cpp \
     dbus/dbususer.cpp \
-    dbus/dbusaccounts.cpp
+    dbus/dbusaccounts.cpp \
+    dbus/dbusxmousearea.cpp
 
 include(../cutelogger/cutelogger.pri)
 TARGET     = dde-control-center

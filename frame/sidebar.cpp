@@ -40,12 +40,12 @@ SideBar::SideBar(QList<ModuleMetaData> modules, QWidget *parent)
     };
     modules.append(power);
 
-    foreach (ModuleMetaData meta, modules) {
-        SideBarButton * button = new SideBarButton(meta, this);
+    foreach(ModuleMetaData meta, modules) {
+        SideBarButton *button = new SideBarButton(meta, this);
         layout->addWidget(button);
 
         connect(button, &SideBarButton::clicked, this, &SideBar::onSideBarButtonClicked);
-        connect(button, &SideBarButton::hovered, [this, button] () -> void {m_tips->setTipsText(button->metaData().name);});
+        connect(button, &SideBarButton::hovered, [this, button]() -> void {m_tips->setTipsText(button->metaData().name);});
         connect(button, &SideBarButton::hovered, m_tips, &DTipsFrame::show, Qt::QueuedConnection);
         connect(button, &SideBarButton::hovered, m_tips, &DTipsFrame::followTheSender, Qt::QueuedConnection);
     }
@@ -76,22 +76,25 @@ void SideBar::switchToSideBarButton(SideBarButton *btn)
 {
     qDebug() << "switchToSideBarButton: " << btn->metaData().name;
 
-    if (m_selectedBtn)
+    if (m_selectedBtn) {
         m_selectedBtn->release();
+    }
 
     m_selectedBtn = btn;
 
-    if (!m_selectedBtn->metaData().path.isNull() && !m_selectedBtn->metaData().path.isEmpty())
+    if (!m_selectedBtn->metaData().path.isNull() && !m_selectedBtn->metaData().path.isEmpty()) {
         m_selectedBtn->presse();
+    }
 }
 
 // private slots
 void SideBar::onSideBarButtonClicked()
 {
-    SideBarButton *button = qobject_cast<SideBarButton*>(sender());
+    SideBarButton *button = qobject_cast<SideBarButton *>(sender());
 
-    if (!button)
+    if (!button) {
         return;
+    }
 
     ModuleMetaData meta = button->metaData();
     switchToSideBarButton(button);
@@ -103,14 +106,15 @@ void SideBar::switchToModule(const ModuleMetaData &meta)
 {
     SideBarButton *btn = findChild<SideBarButton *>(meta.name);
 
-    if (!btn)
+    if (!btn) {
         return;
+    }
 
     switchToSideBarButton(btn);
 }
 
 // SideBarButton
-SideBarButton::SideBarButton(ModuleMetaData metaData, QWidget * parent) :
+SideBarButton::SideBarButton(ModuleMetaData metaData, QWidget *parent) :
     QAbstractButton(parent),
     m_meta(metaData)
 {
@@ -119,7 +123,7 @@ SideBarButton::SideBarButton(ModuleMetaData metaData, QWidget * parent) :
 
     m_icon = new QLabel(this);
 
-    QVBoxLayout * layout = new QVBoxLayout(this);
+    QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setContentsMargins(0, 0, 0, 0);
     layout->addWidget(m_icon);
 
@@ -136,16 +140,18 @@ ModuleMetaData SideBarButton::metaData()
 
 void SideBarButton::enterEvent(QEvent *)
 {
-    if (m_state == Normal)
+    if (m_state == Normal) {
         this->setState(Hover);
+    }
 
     emit hovered();
 }
 
 void SideBarButton::leaveEvent(QEvent *)
 {
-    if (m_state == Hover)
+    if (m_state == Hover) {
         this->setState(Normal);
+    }
 }
 
 void SideBarButton::mousePressEvent(QMouseEvent *)

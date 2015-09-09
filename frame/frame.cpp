@@ -17,8 +17,9 @@
 
 DUI_USE_NAMESPACE
 
-Frame::Frame(QWidget * parent) :
-    QFrame(parent)
+Frame::Frame(QWidget *parent) :
+    QFrame(parent),
+    m_dbusXMouseArea(new DBusXMouseArea(this))
 {
     setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::Tool | Qt::X11BypassWindowManagerHint);
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
@@ -39,9 +40,9 @@ Frame::Frame(QWidget * parent) :
     m_homeScreen->setFixedHeight(this->height());
 
     connect(m_homeScreen, SIGNAL(moduleSelected(ModuleMetaData)), this, SLOT(selectModule(ModuleMetaData)));
-    connect(m_contentView, &ContentView::homeSelected, [=] {this->selectModule(ModuleMetaData());});
+    connect(m_contentView, &ContentView::homeSelected, [ = ] {this->selectModule(ModuleMetaData());});
     connect(m_contentView, &ContentView::shutdownSelected, m_homeScreen, &HomeScreen::powerButtonClicked, Qt::DirectConnection);
-    connect(m_contentView, &ContentView::shutdownSelected, [this] () -> void {hide();});
+    connect(m_contentView, &ContentView::shutdownSelected, [this]() -> void {hide();});
 
     m_showAni = new QPropertyAnimation(this, "geometry");
     m_showAni->setDuration(DCC::FrameAnimationDuration);
@@ -55,6 +56,7 @@ Frame::Frame(QWidget * parent) :
     HideInLeft = true;
 #endif
 
+    connect(m_dbusXMouseArea, &DBusXMouseArea::ButtonRelease, this, &Frame::globalMouseReleaseEvent);
     connect(m_hideAni, &QPropertyAnimation::finished, this, &QFrame::hide);
 }
 
@@ -64,20 +66,8 @@ Frame::~Frame()
     m_hideAni->deleteLater();
 }
 
-void Frame::changeEvent(QEvent *e)
-{
-    if (m_visible && !isActiveWindow() && e->type() == QEvent::ActivationChange)
-#ifndef QT_DEBUG // for test, we dont need it disapper
-        hide();
-#else
-        qDebug() << "DDE-Control-Center will auto-hide.";
-#endif
-
-    QFrame::changeEvent(e);
-}
-
 // override methods
-void Frame::keyPressEvent(QKeyEvent * event)
+void Frame::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Escape) {
         qApp->quit();
@@ -86,28 +76,23 @@ void Frame::keyPressEvent(QKeyEvent * event)
 
 void Frame::show(bool imme)
 {
-    if (m_visible)
+    if (m_visible) {
         return;
+    }
     m_visible = true;
 
     int endX = 0;
 
-    if (imme)
-    {
+    if (imme) {
         QFrame::move(endX, 0);
         QFrame::show();
-    }
-    else
-    {
+    } else {
         int startX = 0;
 
-        if (HideInLeft)
-        {
+        if (HideInLeft) {
             startX = -DCC::ControlCenterWidth;
             endX = 0;
-        }
-        else
-        {
+        } else {
             startX = DApplication::desktop()->width();
             endX = DApplication::desktop()->width() - width();
         }
@@ -123,32 +108,32 @@ void Frame::show(bool imme)
 
     setFocus();
     activateWindow();
+
+    QDBusPendingReply<QString> reply = m_dbusXMouseArea->RegisterFullScreen();
+    reply.waitForFinished();
+    m_dbusFullScreenKey = reply.value();
+    qDebug() << "register full screen: " << m_dbusFullScreenKey;
 }
 
 void Frame::hide(bool imme)
 {
-    if (!m_visible)
+    if (!m_visible) {
         return;
+    }
     m_visible = false;
 
     int endX = 0;
 
-    if (imme)
-    {
+    if (imme) {
         QFrame::move(endX, 0);
         QFrame::hide();
-    }
-    else
-    {
+    } else {
         int startX = 0;
 
-        if (HideInLeft)
-        {
+        if (HideInLeft) {
             endX = -DCC::ControlCenterWidth;
             startX = 0;
-        }
-        else
-        {
+        } else {
             endX = DApplication::desktop()->width();
             startX = DApplication::desktop()->width() - width();
         }
@@ -160,6 +145,8 @@ void Frame::hide(bool imme)
         m_hideAni->setEndValue(QRect(endX, 0, width(), height()));
         m_hideAni->start();
     }
+
+    m_dbusXMouseArea->UnregisterArea(m_dbusFullScreenKey).waitForFinished();
 }
 
 bool Frame::isHideInLeft() const
@@ -182,9 +169,10 @@ void Frame::listPlugins()
     moduleOrder << "network" << "bluetooth" << "sound" << "datetime" << "power";
     moduleOrder << "mouse" << "keyboard" << "shortcuts" << "grub" << "system_info";
 
-    foreach (QString fileName, pluginsDir.entryList(QDir::Files)) {
-        if (!QLibrary::isLibrary(fileName))
+    foreach(QString fileName, pluginsDir.entryList(QDir::Files)) {
+        if (!QLibrary::isLibrary(fileName)) {
             continue;
+        }
         QString filePath = pluginsDir.absoluteFilePath(fileName);
         QPluginLoader pluginLoader(filePath);
         QJsonObject metaData = pluginLoader.metaData().value("MetaData").toObject();
@@ -201,7 +189,7 @@ void Frame::listPlugins()
         m_modules << meta;
     }
 
-    qSort(m_modules.begin(), m_modules.end(), [&](const ModuleMetaData & data1, const ModuleMetaData & data2){
+    qSort(m_modules.begin(), m_modules.end(), [&](const ModuleMetaData & data1, const ModuleMetaData & data2) {
         return moduleOrder.indexOf(data1.id) < moduleOrder.indexOf(data2.id);
     });
 }
@@ -220,14 +208,25 @@ void Frame::selectModule(ModuleMetaData metaData)
         m_contentView->hide();
     }
 
-    if (!m_visible)
+    if (!m_visible) {
         show();
+    }
+}
+
+void Frame::globalMouseReleaseEvent(int button, int x, int y)
+{
+    Q_UNUSED(button);
+
+    if (!rect().contains(x, y)) {
+        hide();
+    }
 }
 
 void Frame::selectModule(const QString &moduleId)
 {
     qDebug() << "select to" << moduleId;
-    for (const ModuleMetaData & data : m_modules)
-        if (data.id == moduleId)
+    for (const ModuleMetaData &data : m_modules)
+        if (data.id == moduleId) {
             selectModule(data);
+        }
 }

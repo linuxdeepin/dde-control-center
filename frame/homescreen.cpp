@@ -29,8 +29,8 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
 
     m_grid = new QGridLayout;
     m_grid->setContentsMargins(0, 25, 0, 0);
-    foreach (ModuleMetaData meta, modules) {
-        ModuleButton * button = new ModuleButton(meta, this);
+    foreach(ModuleMetaData meta, modules) {
+        ModuleButton *button = new ModuleButton(meta, this);
 
         m_grid->addWidget(button, m_moduleCount / 3, m_moduleCount % 3);
         ++m_moduleCount;
@@ -202,7 +202,7 @@ void HomeScreen::show()
 
 void HomeScreen::buttonClicked()
 {
-    ModuleButton * btn = qobject_cast<ModuleButton*>(sender());
+    ModuleButton *btn = qobject_cast<ModuleButton *>(sender());
     this->moduleSelected(btn->metaData());
 
     qDebug() << btn->metaData().name;
@@ -217,13 +217,14 @@ void HomeScreen::powerButtonClicked()
 
 void HomeScreen::userAvatarClicked()
 {
-    for (const ModuleMetaData & data : modules)
-        if (data.name == "Account")
+    for (const ModuleMetaData &data : modules)
+        if (data.name == "Account") {
             return moduleSelected(data);
+        }
 }
 
 // class ModuleButton
-ModuleButton::ModuleButton(ModuleMetaData metaData, QWidget * parent) :
+ModuleButton::ModuleButton(ModuleMetaData metaData, QWidget *parent) :
     QFrame(parent),
     m_meta(metaData)
 {

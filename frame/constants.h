@@ -5,7 +5,8 @@
 #include <QString>
 #include <QEasingCurve>
 
-namespace DCC {
+namespace DCC
+{
 
 static const uint SideBarWidth = 48;
 

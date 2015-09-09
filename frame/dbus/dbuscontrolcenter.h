@@ -34,23 +34,23 @@ class DBusControlCenter: public QDBusAbstractAdaptor
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "com.deepin.dde.ControlCenter")
     Q_CLASSINFO("D-Bus Introspection", ""
-"  <interface name=\"com.deepin.dde.ControlCenter\">\n"
-"    <property access=\"read\" type=\"i\" name=\"X\"/>\n"
-"    <property access=\"read\" type=\"b\" name=\"ShowInRight\"/>\n"
-"    <method name=\"Toggle\"/>\n"
-"    <method name=\"ToggleInLeft\"/>\n"
-"    <method name=\"Show\"/>\n"
-"    <method name=\"ShowModule\">\n"
-"      <arg direction=\"in\" type=\"s\" name=\"name\"/>\n"
-"    </method>\n"
-"    <method name=\"ShowImmediately\"/>\n"
-"    <method name=\"Hide\"/>\n"
-"    <method name=\"HideImmediately\"/>\n"
-"    <method name=\"isNetworkCanShowPassword\">\n"
-"      <arg direction=\"out\" type=\"b\"/>\n"
-"    </method>\n"
-"  </interface>\n"
-        "")
+                "  <interface name=\"com.deepin.dde.ControlCenter\">\n"
+                "    <property access=\"read\" type=\"i\" name=\"X\"/>\n"
+                "    <property access=\"read\" type=\"b\" name=\"ShowInRight\"/>\n"
+                "    <method name=\"Toggle\"/>\n"
+                "    <method name=\"ToggleInLeft\"/>\n"
+                "    <method name=\"Show\"/>\n"
+                "    <method name=\"ShowModule\">\n"
+                "      <arg direction=\"in\" type=\"s\" name=\"name\"/>\n"
+                "    </method>\n"
+                "    <method name=\"ShowImmediately\"/>\n"
+                "    <method name=\"Hide\"/>\n"
+                "    <method name=\"HideImmediately\"/>\n"
+                "    <method name=\"isNetworkCanShowPassword\">\n"
+                "      <arg direction=\"out\" type=\"b\"/>\n"
+                "    </method>\n"
+                "  </interface>\n"
+                "")
 public:
     DBusControlCenter(Frame *parent);
     virtual ~DBusControlCenter();

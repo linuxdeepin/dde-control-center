@@ -18,7 +18,7 @@ private:
 
 public slots:
     void followTheSender();
-    void setTipsText(const QString & text);
+    void setTipsText(const QString &text);
 
 private:
     QLabel *m_label;

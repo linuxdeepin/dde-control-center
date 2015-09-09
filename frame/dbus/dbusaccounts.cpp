@@ -18,7 +18,7 @@
 DBusAccounts::DBusAccounts(QObject *parent)
     : QDBusAbstractInterface("com.deepin.daemon.Accounts", "/com/deepin/daemon/Accounts", staticInterfaceName(), QDBusConnection::systemBus(), parent)
 {
-    QDBusConnection::sessionBus().connect(this->service(), this->path(), "org.freedesktop.DBus.Properties",  "PropertiesChanged","sa{sv}as", this, SLOT(__propertyChanged__(QDBusMessage)));
+    QDBusConnection::sessionBus().connect(this->service(), this->path(), "org.freedesktop.DBus.Properties",  "PropertiesChanged", "sa{sv}as", this, SLOT(__propertyChanged__(QDBusMessage)));
 }
 
 DBusAccounts::~DBusAccounts()
