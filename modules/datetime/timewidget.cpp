@@ -115,6 +115,9 @@ void NormalWidget::updateDateTime()
 
 void NormalWidget::enterEvent(QEvent *)
 {
+    if (!m_editEnable)
+        return;
+
     m_dateLabel->hide();
     m_tipsLabel->show();
 }
@@ -128,7 +131,8 @@ void NormalWidget::leaveEvent(QEvent *)
 
 void NormalWidget::mouseDoubleClickEvent(QMouseEvent *)
 {
-    emit onDoubleClick();
+    if (m_editEnable)
+        emit onDoubleClick();
 }
 
 

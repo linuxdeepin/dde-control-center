@@ -87,6 +87,7 @@ Datetime::Datetime() :
     m_calendar->setLunarVisible(QLocale::system().name().contains("zh"));
 
     m_timeWidget = new TimeWidget;
+    m_timeWidget->setEditable(!m_dbusInter.nTP());
     m_timeWidget->setIs24HourFormat(m_dbusInter.use24HourFormat());
     m_timeWidget->installEventFilter(this);
 
@@ -133,6 +134,7 @@ Datetime::Datetime() :
     connect(&m_dbusInter, &DBusTimedate::Use24HourFormatChanged, [this] {m_timeWidget->setIs24HourFormat(m_dbusInter.use24HourFormat());});
     connect(&m_dbusInter, &DBusTimedate::Use24HourFormatChanged, m_timeWidget, &TimeWidget::updateTime);
     connect(m_autoSyncSwitcher, &DSwitchButton::checkedChanged, &m_dbusInter, &DBusTimedate::SetNTP);
+    connect(&m_dbusInter, &DBusTimedate::NTPChanged, [this] {m_timeWidget->setEditable(!m_dbusInter.nTP());});
     connect(&m_dbusInter, &DBusTimedate::NTPChanged, [this] () -> void {m_dateCtrlWidget->setVisible(!m_dbusInter.nTP());});
     connect(&m_dbusInter, &DBusTimedate::TimezoneChanged, this, &Datetime::showSelectedTimezoneList);
     connect(m_timeWidget, &TimeWidget::applyTime, [this] (const QDateTime & time) -> void {
