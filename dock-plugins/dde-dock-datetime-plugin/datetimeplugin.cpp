@@ -30,6 +30,7 @@ DateTimePlugin::DateTimePlugin() :
     m_timer->start();
 
     initCalendar();
+    initDBusControl();
 
     connect(m_timer, &QTimer::timeout, this, &DateTimePlugin::updateTime);
 }
@@ -132,7 +133,8 @@ void DateTimePlugin::updateTime()
             newText.append(today.toString("dddd"));
         }
 
-        newText.append(time.toString(Qt::DefaultLocaleShortDate));
+        QString timeFormat = m_use24HourFormat ? "h:m" : "a h:m";
+        newText.append(time.toString(timeFormat));
 
         m_item->setText(newText);
 
@@ -141,6 +143,14 @@ void DateTimePlugin::updateTime()
             m_proxy->itemSizeChangedEvent(m_id);
         }
     }
+}
+
+void DateTimePlugin::onUse24HourFormatChanged()
+{
+    m_use24HourFormat = m_dateTime->use24HourFormat();
+    //force update pixmap for fashion mode
+    m_clockPixmap.setIn24hour(m_use24HourFormat);
+    m_item->setPixmap(m_clockPixmap);
 }
 
 QString DateTimePlugin::getMenuContent(QString)
@@ -181,6 +191,15 @@ void DateTimePlugin::initCalendar()
     m_calendar->setFixedSize(300, 300);
 }
 
+void DateTimePlugin::initDBusControl()
+{
+    m_dateTime = new DBusTimedate(this);
+    connect(m_dateTime, &DBusTimedate::Use24HourFormatChanged, this, &DateTimePlugin::onUse24HourFormatChanged);
+
+    //for initialization
+    onUse24HourFormatChanged();
+}
+
 // private methods
 void DateTimePlugin::setMode(Dock::DockMode mode)
 {
@@ -191,7 +210,8 @@ void DateTimePlugin::setMode(Dock::DockMode mode)
     if (m_mode == Dock::FashionMode) {
         m_item->setPixmap(m_clockPixmap);
     } else {
-        m_item->setText(time.toString(Qt::DefaultLocaleShortDate));
+        QString timeFormat = m_use24HourFormat ? "h:m" : "a h:m";
+        m_item->setText(time.toString(timeFormat));
     }
 
     m_item->adjustSize();

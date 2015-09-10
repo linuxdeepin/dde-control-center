@@ -65,9 +65,8 @@ void ClockPixmap::setIn24hour(bool in24hour)
 {
     if (in24hour != m_in24hour) {
         m_in24hour = in24hour;
-
-        this->paint();
     }
+    this->paint();
 }
 bool ClockPixmap::getAnalog() const
 {
@@ -103,7 +102,12 @@ QList<int> ClockPixmap::getTimeTuple()
 {
     QList<int> tuple;
 
-    int hour = m_time.hour() > 12 ? m_time.hour() - 12 : m_time.hour();
+    int hour = 0;
+    if (!m_in24hour && m_time.hour() > 12)
+        hour = m_time.hour() - 12;
+    else
+        hour = m_time.hour();
+
     int minute = m_time.minute();
 
     int hourHigh = hour / 10;

@@ -7,6 +7,7 @@
 
 #include <clockpixmap.h>
 #include <libdui/dcalendar.h>
+#include "dbus/dbustimedate.h"
 
 DUI_USE_NAMESPACE
 
@@ -41,6 +42,7 @@ public:
     void invokeMenuItem(QString id, QString itemId, bool checked) Q_DECL_OVERRIDE;
 
 private:
+    DBusTimedate *m_dateTime = NULL;
     QString m_id = "id_datetime";
     DockPluginProxyInterface * m_proxy;
 
@@ -51,9 +53,11 @@ private:
     Dock::DockMode m_mode;
     bool m_showWeek;
     bool m_showDate;
+    bool m_use24HourFormat;
 
 private:
     void initCalendar();
+    void initDBusControl();
     void setMode(Dock::DockMode mode);
     QJsonObject createMenuItem(QString itemId,
                                QString itemName,
@@ -62,6 +66,7 @@ private:
 
 private slots:
     void updateTime();
+    void onUse24HourFormatChanged();
 };
 
 #endif // DATETIMEPLUGIN_H
