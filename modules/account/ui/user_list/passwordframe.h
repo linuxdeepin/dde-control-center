@@ -29,10 +29,18 @@ signals:
     void changePassword(QString password);
 
 private:
+    void onPasswdFocusChanged(bool focus);
+    void onPasswdChanged(const QString &);
+    void onPasswdRepeatFocusChanged(bool focus);
+    void onPasswdRepeatChanged(const QString &passwd);
     void initInactiveWidget();
     void initActiveWidget();
+    void resetData();
+    bool validate();
 
 private:
+    PasswdLine *m_lineNew = NULL;
+    PasswdLine *m_lineRepeat = NULL;
     QWidget *m_inactiveWidget = NULL;
     DHeaderLine *m_activeWidget = NULL;
 };
