@@ -58,6 +58,7 @@ void Power::initClockWhenActiveUI()
     lockWhenActiveLayout->addWidget(m_chooseNeedPasswdLine);
     lockWhenActiveLayout->addWidget(m_thirdHSeparator);
 }
+
 void Power::initPowerConnectionPanelUI() {
     m_prePowerSettingHeaderLine = new DHeaderLine;
     m_powerSettingDHeaderLine = new DHeaderLine;
@@ -68,6 +69,9 @@ void Power::initPowerConnectionPanelUI() {
     m_powerSettingExpand->setHeader(m_powerSettingDHeaderLine);
     m_powerSettingExpand->setHeaderHeight(30);
 
+    m_powerDynamicLabel = new DynamicLabel(m_powerSettingDHeaderLine);
+    m_powerDynamicLabel->move(m_powerDynamicLabel->width()-20, 9);
+    m_powerDynamicLabel->setDuration(1000);
 
     m_powerPerformanceButtonGroup = new DButtonGrid(2, 2);
 
@@ -98,6 +102,11 @@ void Power::initBatteryUsedUI() {
 
     m_batterySettingExpand = new DBaseExpand;
 
+    m_batteryDynamicLabel = new DynamicLabel(m_batterySettingDHeaderLine);
+    m_batteryDynamicLabel->move(m_batteryDynamicLabel->width()-20,  9);
+    m_batteryDynamicLabel->setDuration(1000);
+
+
     m_batterySettingExpand->setFixedHeight(m_bgContentHeight);
     m_batterySettingExpand->setHeader(m_batterySettingDHeaderLine);
     m_batterySettingExpand->setHeaderHeight(m_contentHeight);
@@ -124,12 +133,12 @@ void Power::initBatteryUsedUI() {
 }
 void Power::initUI() {
 
-    linePowerAction  << tr("poweroff") << tr("standby") << tr("ask");
+    linePowerAction  << tr("poweroff") << tr("suspend") << tr("ask");
     m_pressPowerButtonActionFrame = new PressPowerButtonAction(linePowerAction);
     m_pressPowerButtonActionFrame->setTitle(tr("PressPowerButton"));
     m_pressPowerButtonActionFrame->setFixedHeight(m_bgContentHeight);
 
-    closeLaptopAction << tr("poweroff") << tr("standby") << tr("no");
+    closeLaptopAction << tr("poweroff") << tr("suspend") << tr("no");
     m_closeLaptopActionFrame = new PressPowerButtonAction(closeLaptopAction);
     m_closeLaptopActionFrame->setTitle(tr("CloseLaptop"));
     m_closeLaptopActionFrame->setFixedHeight(m_bgContentHeight);
@@ -211,7 +220,6 @@ void Power::set7ButtonGridChecked(int idIndex, DButtonGrid* buttonGroup) {
         default: { buttonGroup->checkButtonByIndex(6);}
     }
 }
-
 void Power::initConnection() {
     connect(m_powerInterfaceManagement, SIGNAL(BatteryPercentageChanged(double)),
             m_powerManagementFrame, SLOT(setElectricQuantity(double)));
@@ -244,6 +252,11 @@ void Power::initConnection() {
     connect(m_powerPerformanceButtonGroup, SIGNAL(buttonChecked(QString)),
             SLOT(setConnectPowerExpand(QString)));
 
+    connect(m_powerPerformanceButtonGroup, SIGNAL(buttonMouseEntered(QString)),
+            this, SLOT(showPowerTooltip(QString)));
+    connect(m_powerPerformanceButtonGroup, SIGNAL(buttonMouseLeaved(QString)),
+            this, SLOT(hidePowerTooltip(QString)));
+
     connect(m_powerInterfaceManagement, SIGNAL(LinePowerIdleDelayChanged()),
             this, SLOT(updateLinePowerIdleDelayUI()));
     connect(m_powerCustomExtendBoard->m_poweroffButtonGrid,
@@ -252,7 +265,7 @@ void Power::initConnection() {
 
     connect(m_powerInterfaceManagement, SIGNAL(LinePowerSuspendDelayChanged()),
             this, SLOT(updateLinePowerSuspendDelayUI()));
-    connect(m_powerCustomExtendBoard->m_standByButtonGrid,
+    connect(m_powerCustomExtendBoard->m_suspendButtonGrid,
             SIGNAL(buttonChecked(QString)),
             m_powerInterfaceManagement, SLOT(setLinePowerSuspendDelay(QString)));
 
@@ -260,6 +273,13 @@ void Power::initConnection() {
             this, SLOT(initData()));
     connect(m_batteryButtonGrid, SIGNAL(buttonChecked(QString)),
             m_powerInterfaceManagement, SLOT(setBatteryPlan(QString)));
+
+    connect(m_batteryButtonGrid, SIGNAL(buttonMouseEntered(QString)),
+            this, SLOT(showBatteryTooltip(QString)));
+
+    connect(m_batteryButtonGrid, SIGNAL(buttonMouseLeaved(QString)),
+            this, SLOT(hideBatteryTooltip(QString)));
+
     connect(m_batteryButtonGrid, SIGNAL(buttonChecked(QString)),
             SLOT(setUseBatteryExpand(QString)));
     connect(m_powerInterfaceManagement, SIGNAL(BatteryIdleDelayChanged()),
@@ -269,7 +289,7 @@ void Power::initConnection() {
 
     connect(m_powerInterfaceManagement, SIGNAL(BatterySuspendDelayChanged()),
             this, SLOT(initData()));
-    connect(m_batteryCustomExtendBoard->m_standByButtonGrid, SIGNAL(buttonChecked(QString)),
+    connect(m_batteryCustomExtendBoard->m_suspendButtonGrid, SIGNAL(buttonChecked(QString)),
             m_powerInterfaceManagement, SLOT(setBatterySuspendDelay(QString)));
 }
 

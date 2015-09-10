@@ -21,6 +21,7 @@
 #include "powermanagement.h"
 #include "presspowerbuttonaction.h"
 #include "powerinterfacemanagement.h"
+#include "dynamiclabel.h"
 
 DUI_USE_NAMESPACE
 class QLabel;
@@ -69,6 +70,7 @@ private:
     DSeparatorHorizontal* m_forthHSeparator;
     DBaseExpand* m_powerSettingExpand;
     DExtendBoard* m_powerCustomExtendBoard;
+    DynamicLabel* m_powerDynamicLabel;
 // use battery
     QVBoxLayout* batteryUsedLayout;
     DButtonGrid* m_batteryButtonGrid;
@@ -77,15 +79,13 @@ private:
     DSeparatorHorizontal* m_sixthHSeparator;
     DBaseExpand* m_batterySettingExpand;
     DExtendBoard* m_batteryCustomExtendBoard;
-
+    DynamicLabel* m_batteryDynamicLabel;
     /* get the setting in dbus connection */
     bool m_batteryIsPresent;
     bool m_onBattery;
     double m_batteryPercentage;
 
     qint32 m_batteryState;//read-only
-
-signals:
 
 public slots:
     inline void Reset(bool reset) {
@@ -115,7 +115,7 @@ public slots:
     }
     inline void updateBatterySuspendDelayUI() {
         qint32 batterySuspendDelay = m_powerInterfaceManagement->getBatterySuspendDelay()/60;
-        set7ButtonGridChecked(batterySuspendDelay, m_batteryCustomExtendBoard->m_standByButtonGrid);
+        set7ButtonGridChecked(batterySuspendDelay, m_batteryCustomExtendBoard->m_suspendButtonGrid);
     }
     inline void setUseBatteryExpand(QString buttonId) {
         setPowerAndBatteryExpand(buttonId, m_batteryCustomExtendBoard);
@@ -132,7 +132,7 @@ public slots:
     }
     inline void updateLinePowerSuspendDelayUI() {
         qint32 linePowerSuspendDelay = m_powerInterfaceManagement->getLinePowerSuspendDelay()/60;
-        set7ButtonGridChecked(linePowerSuspendDelay, m_powerCustomExtendBoard->m_standByButtonGrid);
+        set7ButtonGridChecked(linePowerSuspendDelay, m_powerCustomExtendBoard->m_suspendButtonGrid);
     }
     inline void setConnectPowerExpand(QString buttonId) {
         setPowerAndBatteryExpand(buttonId, m_powerCustomExtendBoard);
@@ -150,6 +150,30 @@ public slots:
     inline void setPowerAndBatteryCheckAndExpand(int idIndex, DButtonGrid* buttonGroup,DExtendBoard* expandBoard) {
         setPowerAndBatteryExpand(idIndex, expandBoard);
         set4ButtonGridChecked(idIndex, buttonGroup);
+    }
+    inline void  setPowerDynamicTooltip(QString itemId) {
+        QString powerTips = m_powerInterfaceManagement->setPowerTooltipText(itemId, "power");
+        m_powerDynamicLabel->setText(powerTips);
+    }
+    inline void  showPowerTooltip(QString itemId) {
+        setPowerDynamicTooltip(itemId);
+        m_powerDynamicLabel->showLabel();
+    }
+    inline void  hidePowerTooltip(QString itemId) {
+        Q_UNUSED(itemId);
+        m_powerDynamicLabel->hideLabel();
+    }
+    inline void  setBatteryDynamicTooltip(QString itemId) {
+        QString batteryTips = m_powerInterfaceManagement->setPowerTooltipText(itemId, "battery");
+        m_batteryDynamicLabel->setText(batteryTips);
+    }
+    inline void  showBatteryTooltip(QString itemId) {
+        setBatteryDynamicTooltip(itemId);
+        m_batteryDynamicLabel->showLabel();
+    }
+    inline void  hideBatteryTooltip(QString itemId) {
+        Q_UNUSED(itemId);
+        m_batteryDynamicLabel->hideLabel();
     }
 };
 #endif

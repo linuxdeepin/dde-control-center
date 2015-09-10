@@ -56,6 +56,7 @@ public slots:
     bool getBatteryon();
     double getBatteryPresent();
     void batteryPresentUpdate();
+    QString setPowerTooltipText(QString itemId, QString powerType);
 };
 #endif // POWERINTERFACEMANAGEMENT
 

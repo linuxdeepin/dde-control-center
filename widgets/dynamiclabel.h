@@ -26,7 +26,7 @@ public slots:
     void setColor(QColor color);
     void setDuration(int duration);
     void setEasingType(QEasingCurve::Type easingType);
-
+    void setDisappearDuration(int duration);
 signals:
     void hideFinished();
 

@@ -19,7 +19,7 @@ qint32 PowerInterfaceManagement::getLidCloseAction() {
 void PowerInterfaceManagement::setPowerButtonAction(QString actionButton) {
     if (actionButton == "poweroff") {
         m_powerInterface->setPowerButtonAction(2);
-    } else if (actionButton == "standby") {
+    } else if (actionButton == "suspend") {
         m_powerInterface->setPowerButtonAction(1);
     } else {
         m_powerInterface->setPowerButtonAction(4);
@@ -28,7 +28,7 @@ void PowerInterfaceManagement::setPowerButtonAction(QString actionButton) {
 void PowerInterfaceManagement::setLidCloseAction(QString actionButton) {
     if (actionButton == "poweroff") {
         m_powerInterface->setLidClosedAction(2);
-    } else if (actionButton == "standby") {
+    } else if (actionButton == "suspend") {
         m_powerInterface->setLidClosedAction(1);
     } else {
         m_powerInterface->setLidClosedAction(4);
@@ -150,6 +150,46 @@ double PowerInterfaceManagement::getBatteryPresent() {
 void PowerInterfaceManagement::batteryPresentUpdate() {
     emit this->BatteryPercentageChanged(m_powerInterface->batteryPercentage());
 }
+QString PowerInterfaceManagement::setPowerTooltipText(QString itemId, QString powerType) {
+
+    if (itemId == "Balanced") {
+        return QString(tr("suspend %1 closedisplay %2minutes").arg(tr("never")).arg("10"));
+    }
+    else if (itemId == "PowerSaver") {
+        return QString(tr("suspend %1minutes closedisplay %2minutes").arg("5").arg("15"));
+    }
+    else if (itemId == "HighPerformance") {
+        return QString(tr("suspend %1 closedisplay %2minutes").arg(tr("never")).arg(tr("15")));
+    }
+    else {
+        QString suspendTime, idleTime;
+        qint32 powerSuspendTime, powerIdleTime;
+        if (powerType == "power") {
+            powerSuspendTime = m_powerInterface->linePowerSuspendDelay()/60;
+            powerIdleTime = m_powerInterface->linePowerIdleDelay()/60;
+        } else {
+            powerSuspendTime = m_powerInterface->batterySuspendDelay()/60;
+            powerIdleTime = m_powerInterface->batteryIdleDelay()/60;
+        }
+
+        if (powerSuspendTime==0) {
+            suspendTime = tr("never");
+        } else if (powerSuspendTime==60) {
+            suspendTime = QString("%1hour").arg(powerSuspendTime/60);
+        } else {
+            suspendTime = QString(tr("%1minute").arg(powerSuspendTime));
+        }
+
+        if (powerIdleTime==0) {
+            idleTime = tr("never");
+        } else if (powerIdleTime==60) {
+            idleTime = QString("%1hour").arg(powerIdleTime/60);
+        } else {
+            idleTime = QString(tr("%1minute").arg(powerIdleTime));
+        }
+        return QString(tr("suspend %1 closedisplay %2").arg(suspendTime).arg(idleTime));
+    }
+}
 void PowerInterfaceManagement::initConnection() {
    connect(m_powerInterface, SIGNAL(LidClosedActionChanged()), SIGNAL(LidClosedActionChanged()));
    connect(m_powerInterface, SIGNAL(PowerButtonActionChanged()), SIGNAL(PowerButtonActionChanged()));
@@ -168,5 +208,7 @@ void PowerInterfaceManagement::initConnection() {
    connect(m_powerInterface, SIGNAL(BatteryIsPresentChanged()), SIGNAL(BatteryIsPresentChanged()));
    connect(m_powerInterface, SIGNAL(BatteryPercentageChanged()), SIGNAL(BatteryPercentageChanged()));
    connect(m_powerInterface, SIGNAL(BatteryPercentageChanged()), SLOT(batteryPresentUpdate()));
+   connect(m_powerInterface, SIGNAL(BatterySuspendDelayChanged()), SIGNAL(BatteryTooltipTextChanged()));
+   connect(m_powerInterface, SIGNAL(BatteryIdleDelayChanged()), SIGNAL(BatteryTooltipTextChanged()));
 
 }

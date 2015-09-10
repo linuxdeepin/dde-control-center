@@ -34,16 +34,16 @@ DExtendBoard::DExtendBoard(QFrame *parent)
     m_poweroffButtons << "1m" << "5m" << "10m" << "15m" << "30m" << "1h" << tr("never");
     m_poweroffButtonGrid->addButtons(m_poweroffButtons);
     m_poweroffButtonGrid->checkButtonByIndex(2);
-    m_standByLabel = new QLabel;
-    m_standByLabel->setText(tr("StandBy"));
-    m_standByLabel->setStyleSheet("color: rgb(180, 180, 180)");;
-    m_standByButtonGrid = new DButtonGrid(1, 7);
+    m_suspendLabel = new QLabel;
+    m_suspendLabel->setText(tr("suspend"));
+    m_suspendLabel->setStyleSheet("color: rgb(180, 180, 180)");;
+    m_suspendButtonGrid = new DButtonGrid(1, 7);
     m_poweroffButtonGrid->setFixedHeight(30);
-    m_standByButtonGrid->setItemSize(32, 28);
+    m_suspendButtonGrid->setItemSize(32, 28);
 
-    m_standByButtons << "1m" << "5m" << "10m" << "15m" << "30m" << "1h" << tr("never");
-    m_standByButtonGrid->addButtons(m_standByButtons);
-    m_standByButtonGrid->checkButtonByIndex(2);
+    m_suspendButtons << "1m" << "5m" << "10m" << "15m" << "30m" << "1h" << tr("never");
+    m_suspendButtonGrid->addButtons(m_suspendButtons);
+    m_suspendButtonGrid->checkButtonByIndex(2);
 
     m_bottomSeparator = new DSeparatorHorizontal(m_label);
 
@@ -65,11 +65,11 @@ DExtendBoard::DExtendBoard(QFrame *parent)
     powerOffLayout->addWidget(m_poweroffLabel);
 
 
-    standByLayout = new QHBoxLayout;
-    standByLayout->setMargin(0);
-    standByLayout->setSpacing(0);
-    standByLayout->addSpacing(DUI::HEADER_LEFT_MARGIN);
-    standByLayout->addWidget(m_standByLabel);
+    suspendLayout = new QHBoxLayout;
+    suspendLayout->setMargin(0);
+    suspendLayout->setSpacing(0);
+    suspendLayout->addSpacing(DUI::HEADER_LEFT_MARGIN);
+    suspendLayout->addWidget(m_suspendLabel);
 
     m_contentLayout = new QVBoxLayout;
     m_contentLayout->setMargin(0);
@@ -78,8 +78,8 @@ DExtendBoard::DExtendBoard(QFrame *parent)
     m_contentLayout->addWidget(m_customLabel);
     m_contentLayout->addLayout(powerOffLayout);
     m_contentLayout->addWidget(m_poweroffButtonGrid);
-    m_contentLayout->addLayout(standByLayout);
-    m_contentLayout->addWidget(m_standByButtonGrid);
+    m_contentLayout->addLayout(suspendLayout);
+    m_contentLayout->addWidget(m_suspendButtonGrid);
     m_contentLayout->addWidget(m_bottomSeparator);
     setLayout(m_contentLayout);
 
@@ -109,8 +109,8 @@ void DExtendBoard::setExpand(bool expand) {
         m_guideExtendTriangle->show();
         m_customChooseLabel->show();
         m_poweroffLabel->show();
-        m_standByLabel->show();
-        m_standByButtonGrid->show();
+        m_suspendLabel->show();
+        m_suspendButtonGrid->show();
         m_poweroffButtonGrid->show();
         this->setFixedHeight(200);
         m_animation->setStartValue(2);
@@ -124,8 +124,8 @@ void DExtendBoard::setExpand(bool expand) {
         m_guideExtendTriangle->hide();
         m_customChooseLabel->hide();
         m_poweroffLabel->hide();
-        m_standByLabel->hide();
-        m_standByButtonGrid->hide();
+        m_suspendLabel->hide();
+        m_suspendButtonGrid->hide();
         m_poweroffButtonGrid->hide();
         m_bottomSeparator->move(1, 1);
     }

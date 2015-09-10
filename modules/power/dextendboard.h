@@ -35,13 +35,13 @@ public:
     void setWidth(int ex_width);
     void setHeight(int ex_height);
     void resizeEvent(QResizeEvent *e);
-    DButtonGrid* m_standByButtonGrid;
+    DButtonGrid* m_suspendButtonGrid;
     DButtonGrid* m_poweroffButtonGrid;
 
 private:
     QHBoxLayout* customPowerOffLayout;
     QHBoxLayout* powerOffLayout;
-    QHBoxLayout* standByLayout;
+    QHBoxLayout* suspendLayout;
     QLabel* m_label;
     TriangleRectangle* m_guideExtendTriangle;
     QVBoxLayout* m_contentLayout;
@@ -49,8 +49,8 @@ private:
     QLabel* m_customChooseLabel;
     QLabel* m_poweroffLabel;
 
-    QLabel* m_standByLabel;
-    QStringList m_standByButtons;
+    QLabel* m_suspendLabel;
+    QStringList m_suspendButtons;
     QStringList m_poweroffButtons;
     DSeparatorHorizontal* m_bottomSeparator;
     QPropertyAnimation* m_animation=NULL;
