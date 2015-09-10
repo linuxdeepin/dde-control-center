@@ -35,6 +35,7 @@ void UserExpand::setIsCurrentUser(bool v)
 {
     m_isCurrentUser = v;
     m_header->setIsCurrentUser(v);
+    m_content->setIsCurrentUser(v);
     setHeaderHeight(v ? HEADER_CURRENT_USER_HEIGHT : HEADER_HEIGHT);
 }
 

@@ -25,6 +25,15 @@ UserExpandContent::UserExpandContent(const QString &userPath, QWidget *parent)
     }
 }
 
+void UserExpandContent::setIsCurrentUser(bool isCurrentUser)
+{
+    if (isCurrentUser){
+        m_typeLine->setFixedHeight(0);
+        m_lockLine->setFixedHeight(0);
+        updateSize();
+    }
+}
+
 void UserExpandContent::initSegmentedControl()
 {
     m_segmentedControl = new DSegmentedControl(this);
