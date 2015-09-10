@@ -142,6 +142,7 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     connect(bottomButton, &DImageButton::clicked, this, &HomeScreen::powerButtonClicked, Qt::DirectConnection);
     connect(topButton, &UserAvatar::clicked, this, &HomeScreen::userAvatarClicked);
     connect(m_ctrHideAni, &QPropertyAnimation::finished, this, &QFrame::hide);
+    connect(m_ctrShowAni, &QPropertyAnimation::finished, this, &HomeScreen::showAniFinished, Qt::QueuedConnection);
 }
 
 HomeScreen::~HomeScreen()

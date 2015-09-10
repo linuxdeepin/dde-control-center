@@ -23,6 +23,7 @@ public:
 
 signals:
     void moduleSelected(ModuleMetaData);
+    void showAniFinished();
 
 public slots:
     void powerButtonClicked();

@@ -43,6 +43,7 @@ Frame::Frame(QWidget *parent) :
     connect(m_contentView, &ContentView::homeSelected, [ = ] {this->selectModule(ModuleMetaData());});
     connect(m_contentView, &ContentView::shutdownSelected, m_homeScreen, &HomeScreen::powerButtonClicked, Qt::DirectConnection);
     connect(m_contentView, &ContentView::shutdownSelected, [this]() -> void {hide();});
+    connect(m_homeScreen, &HomeScreen::showAniFinished, m_contentView, &ContentView::unloadOldPlugin);
 
     m_showAni = new QPropertyAnimation(this, "geometry");
     m_showAni->setDuration(DCC::FrameAnimationDuration);

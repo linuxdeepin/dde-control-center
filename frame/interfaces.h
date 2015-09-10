@@ -8,6 +8,10 @@ class ModuleInterface
 public:
     virtual ~ModuleInterface() {}
     virtual QFrame *getContent() = 0;
+
+public slots:
+    // plugin can remove there own data on this function(remove popup window for example).
+    virtual void preUnload() {}
 };
 
 

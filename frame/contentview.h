@@ -21,6 +21,9 @@ public:
     void hide();
     void show();
 
+public slots:
+    inline void unloadOldPlugin() {m_pluginLoader->unload();}
+
 signals:
     void homeSelected();
     void shutdownSelected();

@@ -3,6 +3,7 @@
 #include <QHBoxLayout>
 #include <QPropertyAnimation>
 #include <QProcess>
+#include <QTimer>
 
 #include "interfaces.h"
 #include "contentview.h"
@@ -14,7 +15,7 @@
 ContentView::ContentView(QList<ModuleMetaData> modules, QWidget *parent)
     : QFrame(parent)
 {
-    m_pluginLoader = NULL;
+    m_pluginLoader = new QPluginLoader(this);
 
     m_sideBar = new SideBar(modules, parent);
 
@@ -51,19 +52,10 @@ ContentView::~ContentView()
 
 void ContentView::setModule(ModuleMetaData module)
 {
-    m_sideBar->switchToModule(module);
-
-    if (m_pluginLoader) {
-        if (m_pluginLoader->fileName() != module.path) {
-            m_pluginLoader->unload();
-        } else {
-            return;
-        }
-    } else {
-        m_pluginLoader = new QPluginLoader(this);
-    }
-
+    // unload old plugin
+    m_pluginLoader->unload();
     m_pluginLoader->setFileName(module.path);
+    m_sideBar->switchToModule(module);
 
     QObject *instance = m_pluginLoader->instance();
     if (instance) {
@@ -98,9 +90,15 @@ void ContentView::show()
 
 void ContentView::onModuleSelected(ModuleMetaData meta)
 {
+    // switch to another plugin
     if (!meta.path.isEmpty()) {
         return setModule(meta);
     }
+
+    // when goto home screen, notify plugin know.
+    ModuleInterface *inter = qobject_cast<ModuleInterface *>(m_pluginLoader->instance());
+    if (inter)
+        inter->preUnload();
 
     emit homeSelected();
 
