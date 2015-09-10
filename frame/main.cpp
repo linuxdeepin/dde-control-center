@@ -57,9 +57,8 @@ int main(int argv, char *args[])
     Frame frame;
 #ifndef QT_DEBUG
     if (parser.isSet(showOption))
-#else
-    frame.show();
 #endif
+    frame.show();
 
         if (!positionalArgs.isEmpty()) {
             frame.selectModule(positionalArgs.at(0));
