@@ -15,8 +15,10 @@ class UserListPanel : public QWidget
     Q_OBJECT
 public:
     explicit UserListPanel(QWidget *parent = 0);
+    void preDestroy();
 
 signals:
+    void requestPreDestroy();
     void requestDelete(bool flag);
     void cancelDelete();
     void hideForSetting();

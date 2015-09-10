@@ -23,6 +23,7 @@ class PasswordFrame : public QStackedWidget
     Q_OBJECT
 public:
     explicit PasswordFrame(QWidget *parent = 0);
+    void preDestroy();
 
 signals:
     void sizeChanged();

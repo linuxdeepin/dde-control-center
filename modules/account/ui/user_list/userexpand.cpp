@@ -15,6 +15,7 @@ UserExpand::UserExpand(const QString &userPath, QWidget *parent)
     m_content = new UserExpandContent(userPath, this);
     connect(m_content, &UserExpandContent::sizeChanged, this, &UserExpand::updateContentHeight);
     connect(this, &UserExpand::changeToSetting, m_content, &UserExpandContent::changeToSetting);
+    connect(this, &UserExpand::requestPreDestroy, m_content, &UserExpandContent::onRequestPreDestroy);
 
     setContent(m_content);
 

@@ -11,6 +11,11 @@ UserListPanel::UserListPanel(QWidget *parent) : QWidget(parent)
     initAccount();
 }
 
+void UserListPanel::preDestroy()
+{
+    emit requestPreDestroy();
+}
+
 void UserListPanel::initSessionManager()
 {
     m_sessionManager = new DBusSessionManager(this);
@@ -35,6 +40,7 @@ void UserListPanel::initAccount()
     m_mainLayout->addWidget(currentUser);
     connect(currentUser, &UserExpand::expandChange, this, &UserListPanel::adjustSize);
     connect(currentUser, &UserExpand::changeToSetting, this, &UserListPanel::changeToSetting);
+    connect(this, &UserListPanel::requestPreDestroy, currentUser, &UserExpand::requestPreDestroy);
     connect(this, &UserListPanel::showForNormal, currentUser, &UserExpand::showNormal);
     connect(this, &UserListPanel::hideForSetting, currentUser, &UserExpand::hide);
 
@@ -46,6 +52,7 @@ void UserListPanel::initAccount()
         UserExpand *userExpand = new UserExpand(path, this);
         connect(userExpand, &UserExpand::cancelDelete, this, &UserListPanel::cancelDelete);
         connect(userExpand, &UserExpand::changeToSetting, this, &UserListPanel::changeToSetting);
+        connect(this, &UserListPanel::requestPreDestroy, userExpand, &UserExpand::requestPreDestroy);
         connect(this, &UserListPanel::requestDelete, userExpand, &UserExpand::requestDelete);
         connect(this, &UserListPanel::showForNormal, userExpand, &UserExpand::showNormal);
         connect(this, &UserListPanel::hideForSetting, userExpand, &UserExpand::hide);

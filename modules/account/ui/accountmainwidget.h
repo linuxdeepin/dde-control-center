@@ -28,6 +28,7 @@ public:
     };
 
     explicit AccountMainWidget(QWidget *parent = 0);
+    void preDestroy();
 
 signals:
     void stateChanged(PanelState state);

@@ -23,6 +23,7 @@ public:
     QString userPath() const;
 
 signals:
+    void requestPreDestroy();
     void changeToSetting(bool setting);
     void requestDelete(bool flag);
     void cancelDelete();

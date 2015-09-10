@@ -8,6 +8,12 @@ PasswordFrame::PasswordFrame(QWidget *parent) : QStackedWidget(parent)
     setCurrentIndex(0);
 }
 
+void PasswordFrame::preDestroy()
+{
+    m_lineNew->hideWarning();
+    m_lineRepeat->hideWarning();
+}
+
 void PasswordFrame::onPasswdFocusChanged(bool focus)
 {
     if (focus){

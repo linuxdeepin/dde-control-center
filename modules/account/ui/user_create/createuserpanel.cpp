@@ -316,6 +316,13 @@ void CreateUserPanel::setLineBackgroundColor(const QString &lineBackgroundColor)
     m_lineBackgroundColor = lineBackgroundColor;
 }
 
+void CreateUserPanel::preDestroy()
+{
+    m_nameLine->hideWarning();
+    m_passwdNew->hideWarning();
+    m_passwdRepeat->hideWarning();
+}
+
 
 
 

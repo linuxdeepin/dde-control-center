@@ -26,6 +26,7 @@ public:
     explicit CreateUserPanel(QWidget *parent = 0);
     QString lineBackgroundColor() const;
     void setLineBackgroundColor(const QString &lineBackgroundColor);
+    void preDestroy();
 
 signals:
     void createCancel();

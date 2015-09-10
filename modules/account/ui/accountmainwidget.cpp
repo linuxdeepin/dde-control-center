@@ -27,6 +27,12 @@ AccountMainWidget::AccountMainWidget(QWidget *parent) : QFrame(parent)
     });
 }
 
+void AccountMainWidget::preDestroy()
+{
+    m_createPanel->preDestroy();
+    m_listPanel->preDestroy();
+}
+
 void AccountMainWidget::initHeader()
 {
     m_header = new ModuleHeader(tr("Account"), false, this);

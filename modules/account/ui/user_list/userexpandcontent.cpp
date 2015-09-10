@@ -34,6 +34,11 @@ void UserExpandContent::setIsCurrentUser(bool isCurrentUser)
     }
 }
 
+void UserExpandContent::onRequestPreDestroy()
+{
+    m_passwordFrame->preDestroy();
+}
+
 void UserExpandContent::initSegmentedControl()
 {
     m_segmentedControl = new DSegmentedControl(this);

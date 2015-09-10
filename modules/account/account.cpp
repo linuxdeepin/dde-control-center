@@ -24,3 +24,8 @@ QFrame* Account::getContent()
 {
     return m_mainWidget;
 }
+
+void Account::preUnload()
+{
+    m_mainWidget->preDestroy();
+}
