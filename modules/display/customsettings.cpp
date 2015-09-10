@@ -259,36 +259,42 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
         }, Qt::DirectConnection);
     }
 
-    QHBoxLayout *buttonLayout = NULL;
-    if(m_monitorNameList.count()>1){
-        buttonLayout = new QHBoxLayout;
-        DTextButton *button_cancel = new DTextButton(tr("Cancel"));
-        DTextButton *button_ok = new DTextButton(tr("Ok"));
+    QHBoxLayout *buttonLayout = new QHBoxLayout;
 
-        button_cancel->setFixedSize(30, 25);
-        button_ok->setFixedSize(30, 25);
+    DTextButton *button_cancel = new DTextButton(tr("Cancel"));
+    DTextButton *button_ok = new DTextButton(tr("Ok"));
 
-        buttonLayout->addStretch(1);
-        buttonLayout->addWidget(button_cancel);
-        buttonLayout->addSpacing(5);
-        buttonLayout->addWidget(button_ok);
-        buttonLayout->addSpacing(10);
+    button_cancel->setVisible(m_dbusDisplay->hasChanged());
+    button_ok->setVisible(button_cancel->isVisible());
 
-        connect(button_cancel, &DTextButton::clicked, [this]{
-            emit cancel();
-            if(m_dbusDisplay->hasChanged()){
-                m_dbusDisplay->ResetChanges();
-            }
-        });
-        connect(button_ok, &DTextButton::clicked, [this]{
-            if(m_dbusDisplay->displayMode() != 0){
-                m_dbusDisplay->SwitchMode(0, "");
-            }else{
-                m_dbusDisplay->SaveChanges();
-                m_dbusDisplay->Apply();
-            }
-        });
-    }
+    button_cancel->setFixedSize(30, 25);
+    button_ok->setFixedSize(30, 25);
+
+    buttonLayout->addStretch(1);
+    buttonLayout->addWidget(button_cancel);
+    buttonLayout->addSpacing(5);
+    buttonLayout->addWidget(button_ok);
+    buttonLayout->addSpacing(10);
+
+    connect(button_cancel, &DTextButton::clicked, [this]{
+        emit cancel();
+        if(m_dbusDisplay->hasChanged()){
+            m_dbusDisplay->ResetChanges();
+        }
+    });
+    connect(button_ok, &DTextButton::clicked, [this]{
+        if(m_dbusDisplay->displayMode() != 0){
+            m_dbusDisplay->SwitchMode(0, "");
+        }else{
+            m_dbusDisplay->SaveChanges();
+            m_dbusDisplay->Apply();
+        }
+    });
+
+    connect(m_dbusDisplay, &DisplayInterface::HasChangedChanged, [this, button_cancel, button_ok]{
+        button_cancel->setVisible(m_dbusDisplay->hasChanged());
+        button_ok->setVisible(button_cancel->isVisible());
+    });
 
     m_mainLayout->addWidget(resolutionExpand);
     m_mainLayout->addWidget(rotationExpand);
