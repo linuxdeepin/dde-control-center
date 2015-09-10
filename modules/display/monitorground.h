@@ -6,6 +6,7 @@
 class Monitor;
 class DisplayInterface;
 class DisplayModeItem;
+class FullScreenTooltip;
 class MonitorGround : public QFrame
 {
     Q_OBJECT
@@ -31,6 +32,7 @@ private:
     DisplayModeItem *m_recognize;
     DisplayModeItem *m_edit;
     DisplayModeItem *m_split;
+    QList<FullScreenTooltip*> m_tooltipList;
 };
 
 #endif // MONITORGROUND_H

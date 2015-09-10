@@ -12,7 +12,8 @@ HEADERS        += display.h \
     dbus/monitorinterface.h \
     displaymodeitem.h \
     titleandwidget.h \
-    customsettings.h
+    customsettings.h \
+    fullscreentooltip.h
 SOURCES        += display.cpp \
     monitorground.cpp \
     monitor.cpp \
@@ -20,7 +21,8 @@ SOURCES        += display.cpp \
     dbus/monitorinterface.cpp \
     displaymodeitem.cpp \
     titleandwidget.cpp \
-    customsettings.cpp
+    customsettings.cpp \
+    fullscreentooltip.cpp
 TARGET          = $$qtLibraryTarget(display)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 DISTFILES += display.json

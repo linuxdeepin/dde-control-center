@@ -10,6 +10,7 @@
 #include "dbus/monitorinterface.h"
 #include "dbus/displayinterface.h"
 #include "displaymodeitem.h"
+#include "fullscreentooltip.h"
 
 DisplayModeItem * getIconButton(const QString &text){
     DisplayModeItem* button = new DisplayModeItem(false, false);
@@ -54,6 +55,10 @@ MonitorGround::MonitorGround(DisplayInterface * display, QWidget *parent):
 
         m_recognize->hide();
         m_edit->hide();
+
+        foreach (FullScreenTooltip* tootip, m_tooltipList) {
+            tootip->showToTopLeft();
+        }
     });
 
     layout->addStretch(1);
@@ -88,6 +93,13 @@ void MonitorGround::addMonitor(Monitor *monitor)
 
     updateOpenedCount();
     relayout();
+
+    FullScreenTooltip *tooltip = new FullScreenTooltip(dbus);
+    m_tooltipList << tooltip;
+    connect(m_recognize, &DisplayModeItem::clicked, tooltip, [this, tooltip]{
+        tooltip->showToCenter();
+        QTimer::singleShot(3000, tooltip, SLOT(hide()));
+    });
 }
 
 void MonitorGround::removeMonitor(Monitor *monitor)
@@ -118,6 +130,9 @@ void MonitorGround::clear()
     foreach (Monitor *monitor, m_monitors) {
         removeMonitor(monitor);
     }
+    foreach (FullScreenTooltip *tooltip, m_tooltipList) {
+        tooltip->deleteLater();
+    }
 }
 
 void MonitorGround::beginEdit()
@@ -136,6 +151,10 @@ void MonitorGround::endEdit()
     m_editing = false;
 
     updateOpenedCount();
+
+    foreach (FullScreenTooltip* tootip, m_tooltipList) {
+        tootip->hide();
+    }
 }
 
 void MonitorGround::relayout()

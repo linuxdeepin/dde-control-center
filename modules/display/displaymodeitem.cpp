@@ -1,5 +1,6 @@
 #include <QVBoxLayout>
 #include <QPainter>
+#include <QLabel>
 
 #include <libdui/libdui_global.h>
 #include <libdui/dthememanager.h>

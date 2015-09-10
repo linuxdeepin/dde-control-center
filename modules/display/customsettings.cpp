@@ -262,10 +262,17 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
     QHBoxLayout *buttonLayout = new QHBoxLayout;
 
     DTextButton *button_cancel = new DTextButton(tr("Cancel"));
-    DTextButton *button_ok = new DTextButton(tr("Ok"));
+    DTextButton *button_ok = new DTextButton(tr("Apply"));
 
-    button_cancel->setVisible(m_dbusDisplay->hasChanged());
-    button_ok->setVisible(button_cancel->isVisible());
+    if(m_monitorNameList.count() == 1){
+        button_cancel->setVisible(m_dbusDisplay->hasChanged());
+        button_ok->setVisible(button_cancel->isVisible());
+
+        connect(m_dbusDisplay, &DisplayInterface::HasChangedChanged, [this, button_cancel, button_ok]{
+            button_cancel->setVisible(m_dbusDisplay->hasChanged());
+            button_ok->setVisible(button_cancel->isVisible());
+        });
+    }
 
     button_cancel->setFixedSize(30, 25);
     button_ok->setFixedSize(30, 25);
@@ -286,14 +293,10 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
         if(m_dbusDisplay->displayMode() != 0){
             m_dbusDisplay->SwitchMode(0, "");
         }else{
-            m_dbusDisplay->SaveChanges();
             m_dbusDisplay->Apply();
+            m_dbusDisplay->SaveChanges();
         }
-    });
-
-    connect(m_dbusDisplay, &DisplayInterface::HasChangedChanged, [this, button_cancel, button_ok]{
-        button_cancel->setVisible(m_dbusDisplay->hasChanged());
-        button_ok->setVisible(button_cancel->isVisible());
+        emit cancel();
     });
 
     m_mainLayout->addWidget(resolutionExpand);
