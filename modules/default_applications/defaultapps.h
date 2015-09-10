@@ -41,6 +41,7 @@ private:
 private:
     DArrowLineExpand *createDefaultAppsExpand(const DefaultAppsCategory & category);
     const QString getTypeByCategory(const DefaultAppsCategory & category);
+    const QStringList getTypeListByCategory(const DefaultAppsCategory & category);
     void setMediaOptionVisible(const bool visible);
 
 private:

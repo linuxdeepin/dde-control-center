@@ -224,10 +224,16 @@ DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::Defaul
     });
 
     connect(list, &DButtonList::buttonCheckedIndexChanged, [=] (int index) -> void {
-        if (isMedia)
-            m_dbusDefaultMedia.SetDefaultApp(mime, appList.at(index).toObject().take("Id").toString());
-        else
-            m_dbusDefaultApps.SetDefaultApp(mime, appList.at(index).toObject().take("Id").toString());
+        const QStringList mimeList = getTypeListByCategory(category);
+        const QString appName = appList.at(index).toObject().take("Id").toString();
+        for (const QString &mime : mimeList)
+        {
+            qDebug() << "set default app: " << mime << " -> " << appName;
+            if (isMedia)
+                m_dbusDefaultMedia.SetDefaultApp(mime, appName).waitForFinished();
+            else
+                m_dbusDefaultApps.SetDefaultApp(mime, appName).waitForFinished();
+        }
     });
 
     QHBoxLayout *layout = new QHBoxLayout;
@@ -265,6 +271,42 @@ const QString DefaultApps::getTypeByCategory(const DefaultApps::DefaultAppsCateg
     }
 
     return QString();
+}
+
+const QStringList DefaultApps::getTypeListByCategory(const DefaultApps::DefaultAppsCategory &category)
+{
+
+    switch (category)
+    {
+    case Browser:       return QStringList() << "x-scheme-handler/http" << "x-scheme-handler/ftp" << "x-scheme-handler/https"
+                                             << "text/html" << "text/xml" << "text/xhtml_xml" << "text/xhtml+xml";
+    case Mail:          return QStringList() << "x-scheme-handler/mailto" << "message/rfc822" << "application/x-extension-eml"
+                                             << "application/x-xpinstall";
+    case Text:          return QStringList() << "text/plain";
+    case Music:         return QStringList() << "audio/mpeg" << "audio/mp3" << "audio/x-mp3" << "audio/mpeg3" << "audio/x-mpeg-3"
+                                             << "audio/x-mpeg" << "audio/flac" << "audio/x-flac" << "application/x-flac"
+                                             << "audio/ape" << "audio/x-ape" << "application/x-ape" << "audio/ogg" << "audio/x-ogg"
+                                             << "audio/musepack" << "application/musepack" << "audio/x-musepack"
+                                             << "application/x-musepack" << "audio/mpc" << "audio/x-mpc" << "audio/vorbis"
+                                             << "audio/x-vorbis" << "audio/x-wav" << "audio/x-ms-wma";
+    case Video:         return QStringList() << "video/mp4" << "audio/mp4" << "audio/x-matroska" << "video/x-matroska"
+                                             << "application/x-matroska" << "video/avi" << "video/msvideo" << "video/x-msvideo"
+                                             << "video/ogg" << "application/ogg" << "application/x-ogg" << "video/3gpp" << "video/3gpp2"
+                                             << "video/flv" << "video/x-flv" << "video/x-flic" << "video/mpeg" << "video/x-mpeg"
+                                             << "video/x-ogm" << "application/x-shockwave-flash" << "video/x-theora" << "video/quicktime"
+                                             << "video/x-ms-asf" << "application/vnd.rn-realmedia" << "video/x-ms-wmv";
+    case Picture:       return QStringList() << "image/jpeg" << "image/pjpeg" << "image/bmp" << "image/x-bmp" << "image/png"
+                                             << "image/x-png" << "image/tiff" << "image/svg+xml" << "image/x-xbitmap" << "image/gif"
+                                             << "image/x-xpixmap";
+    case Terminal:      return QStringList() << "application/x-terminal";
+    case CD_Audio:      return QStringList() << "x-content/audio-cdda";
+    case DVD_Video:     return QStringList() << "x-content/video-dvd";
+    case MusicPlayer:   return QStringList() << "x-content/audio-player";
+    case Camera:        return QStringList() << "x-content/image-dcf";
+    case Software:      return QStringList() << "x-content/unix-software";
+    }
+
+    return QStringList();
 }
 
 void DefaultApps::setMediaOptionVisible(const bool visible)
