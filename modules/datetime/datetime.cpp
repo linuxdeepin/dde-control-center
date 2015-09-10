@@ -237,6 +237,9 @@ void Datetime::showSelectedTimezoneList()
     }
 
     adjustItemHeight();
+
+    // when list item count <= 1, control widget should hide "delete" button
+    m_timezoneCtrlWidget->setListNums(zoneNums);
 }
 
 void Datetime::showTimezoneList()

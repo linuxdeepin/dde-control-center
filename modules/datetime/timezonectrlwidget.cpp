@@ -55,7 +55,8 @@ TimezoneCtrlWidget::TimezoneCtrlWidget(QWidget *parent) : QWidget(parent)
 void TimezoneCtrlWidget::toNormalMode()
 {
     m_addBtn->show();
-    m_delBtn->show();
+    if (m_listNums > 1)
+        m_delBtn->show();
     m_cancelBtn->hide();
     m_confirmBtn->hide();
     m_addTimezoneBtn->hide();
@@ -83,5 +84,15 @@ void TimezoneCtrlWidget::setAcceptOrCancel(bool accept)
 {
     m_addTimezoneBtn->setVisible(!accept);
     m_cancelBtn->setVisible(accept);
+}
+
+void TimezoneCtrlWidget::setListNums(int nums)
+{
+     m_listNums = nums;
+
+     if (nums > 1)
+         return;
+
+     m_delBtn->hide();
 }
 

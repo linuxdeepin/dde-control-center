@@ -28,6 +28,7 @@ public slots:
     void toDelTimezoneMode();
     void toAddTimezoneMode();
     void setAcceptOrCancel(bool accept);
+    void setListNums(int nums);
 
 private:
     DynamicLabel *m_TipsLabel;
@@ -36,6 +37,8 @@ private:
     DTextButton *m_cancelBtn;
     DTextButton *m_confirmBtn;
     DTextButton *m_addTimezoneBtn;
+
+    int m_listNums = 0;
 };
 
 #endif // TIMEZONECTRLWIDGET_H
