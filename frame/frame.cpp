@@ -15,6 +15,10 @@
 
 #include <libdui/dapplication.h>
 
+#include "anchors.h"
+
+#include "dbus/displayinterface.h"
+
 DUI_USE_NAMESPACE
 
 Frame::Frame(QWidget *parent) :
@@ -23,8 +27,7 @@ Frame::Frame(QWidget *parent) :
 {
     setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::Tool | Qt::X11BypassWindowManagerHint);
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
-    setFixedWidth(DCC::ControlCenterWidth);
-    setFixedHeight(DApplication::desktop()->height());
+    resize(0, 0);
     setFocusPolicy(Qt::StrongFocus);
 
     setStyleSheet(QString("Frame { background-color:%1;}").arg(DCC::BgLightColor.name()));
@@ -32,12 +35,10 @@ Frame::Frame(QWidget *parent) :
     this->listPlugins();
 
     m_contentView = new ContentView(m_modules, this);
-    m_contentView->setFixedWidth(this->width());
-    m_contentView->setFixedHeight(this->height());
+    m_contentView->setFixedWidth(DCC::ControlCenterWidth);
 
     m_homeScreen = new HomeScreen(m_modules, this);
-    m_homeScreen->setFixedWidth(this->width());
-    m_homeScreen->setFixedHeight(this->height());
+    m_homeScreen->setFixedWidth(DCC::ControlCenterWidth);
 
     connect(m_homeScreen, SIGNAL(moduleSelected(ModuleMetaData)), this, SLOT(selectModule(ModuleMetaData)));
     connect(m_contentView, &ContentView::homeSelected, [ = ] {this->selectModule(ModuleMetaData());});
@@ -56,9 +57,29 @@ Frame::Frame(QWidget *parent) :
 #ifdef QT_DEBUG
     HideInLeft = true;
 #endif
+    if(HideInLeft)
+        AnchorsBase::setAnchor(m_homeScreen, Qt::AnchorRight, this, Qt::AnchorRight);
 
     connect(m_dbusXMouseArea, &DBusXMouseArea::ButtonRelease, this, &Frame::globalMouseReleaseEvent);
     connect(m_hideAni, &QPropertyAnimation::finished, this, &QFrame::hide);
+
+    m_primaryScreen = qApp->primaryScreen();
+    updateFrameGeometry(m_primaryScreen->geometry());
+    connect(m_primaryScreen, &QScreen::geometryChanged, this, &Frame::updateFrameGeometry);
+
+    DisplayInterface *display_dbus = new DisplayInterface(this);
+    connect(display_dbus, &DisplayInterface::PrimaryChanged, [this, display_dbus]{
+        disconnect(m_primaryScreen, &QScreen::geometryChanged, this, &Frame::updateFrameGeometry);
+
+        foreach (QScreen *s, qApp->screens()) {
+            if(s->name() == display_dbus->primary()){
+                m_primaryScreen = s;
+                break;
+            }
+        }
+        updateFrameGeometry(m_primaryScreen->geometry());
+        connect(m_primaryScreen, &QScreen::geometryChanged, this, &Frame::updateFrameGeometry);
+    });
 }
 
 Frame::~Frame()
@@ -82,28 +103,29 @@ void Frame::show(bool imme)
     }
     m_visible = true;
 
-    int endX = 0;
-
     if (imme) {
-        QFrame::move(endX, 0);
+        updateFrameGeometry(m_primaryScreen->geometry());
+        resize(DCC::ControlCenterWidth, height());
         QFrame::show();
     } else {
-        int startX = 0;
+        QRect startRect(0, 0, 0, height());
+        QRect endRect(0, 0, DCC::ControlCenterWidth, height());
 
         if (HideInLeft) {
-            startX = -DCC::ControlCenterWidth;
-            endX = 0;
+            endRect.moveLeft(m_primaryScreen->geometry().left());
+            startRect.moveLeft(endRect.left());
+            startRect.setRight(endRect.left() -1);
         } else {
-            startX = DApplication::desktop()->width();
-            endX = DApplication::desktop()->width() - width();
+            endRect.moveRight(m_primaryScreen->geometry().right());
+            startRect.moveRight(endRect.right());
+            startRect.setLeft(endRect.right() + 1);
         }
 
-        QFrame::move(startX, 0);
         QFrame::show();
         m_hideAni->stop();
         m_showAni->stop();
-        m_showAni->setStartValue(QRect(startX, 0, width(), height()));
-        m_showAni->setEndValue(QRect(endX, 0, width(), height()));
+        m_showAni->setStartValue(startRect);
+        m_showAni->setEndValue(endRect);
         m_showAni->start();
     }
 
@@ -123,27 +145,26 @@ void Frame::hide(bool imme)
     }
     m_visible = false;
 
-    int endX = 0;
-
     if (imme) {
-        QFrame::move(endX, 0);
         QFrame::hide();
     } else {
-        int startX = 0;
+        QRect startRect(0, 0, 0, height());
+        QRect endRect(0, 0, DCC::ControlCenterWidth, height());
 
         if (HideInLeft) {
-            endX = -DCC::ControlCenterWidth;
-            startX = 0;
+            endRect.moveLeft(m_primaryScreen->geometry().left());
+            startRect.moveLeft(endRect.left());
+            startRect.setRight(endRect.left() -1);
         } else {
-            endX = DApplication::desktop()->width();
-            startX = DApplication::desktop()->width() - width();
+            endRect.moveRight(m_primaryScreen->geometry().right());
+            startRect.moveRight(endRect.right());
+            startRect.setLeft(endRect.right() + 1);
         }
 
-        QFrame::move(startX, 0);
         m_showAni->stop();
         m_hideAni->stop();
-        m_hideAni->setStartValue(QRect(startX, 0, width(), height()));
-        m_hideAni->setEndValue(QRect(endX, 0, width(), height()));
+        m_hideAni->setStartValue(endRect);
+        m_hideAni->setEndValue(startRect);
         m_hideAni->start();
     }
 
@@ -221,6 +242,20 @@ void Frame::globalMouseReleaseEvent(int button, int x, int y)
     if (!rect().contains(x - this->x(), y - this->y())) {
         hide();
     }
+}
+
+void Frame::updateFrameGeometry(QRect rect)
+{
+    setFixedHeight(rect.height());
+    QRect tmp = this->geometry();
+    if(HideInLeft)
+        tmp.moveLeft(rect.left());
+    else
+        tmp.moveRight(rect.right());
+    move(tmp.topLeft());
+
+    m_contentView->setFixedHeight(this->height());
+    m_homeScreen->setFixedHeight(this->height());
 }
 
 void Frame::selectModule(const QString &moduleId)

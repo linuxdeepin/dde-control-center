@@ -6,6 +6,8 @@
 #include <QDBusAbstractAdaptor>
 #include <QPropertyAnimation>
 
+#include "anchors.h"
+
 #include "interfaces.h"
 #include "modulemetadata.h"
 #include "dbus/dbuscontrolcenter.h"
@@ -36,6 +38,7 @@ private:
 private slots:
     void selectModule(ModuleMetaData metaData);
     void globalMouseReleaseEvent(int button, int x, int y);
+    void updateFrameGeometry(QRect rect);
 
 private:
     HomeScreen *m_homeScreen;
@@ -44,6 +47,7 @@ private:
     QPropertyAnimation *m_showAni;
     QPropertyAnimation *m_hideAni;
     DBusXMouseArea *m_dbusXMouseArea;
+    QScreen *m_primaryScreen;
 
     QString m_dbusFullScreenKey = QString();
 

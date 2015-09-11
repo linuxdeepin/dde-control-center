@@ -11,7 +11,8 @@ HEADERS    = frame.h \
     dbus/dbuscontrolcenter.h \
     dbus/dbususer.h \
     dbus/dbusaccounts.h \
-    dbus/dbusxmousearea.h
+    dbus/dbusxmousearea.h \
+    ../modules/display/dbus/displayinterface.h
 SOURCES    = frame.cpp \
              main.cpp \
     homescreen.cpp \
@@ -21,7 +22,8 @@ SOURCES    = frame.cpp \
     dbus/dbuscontrolcenter.cpp \
     dbus/dbususer.cpp \
     dbus/dbusaccounts.cpp \
-    dbus/dbusxmousearea.cpp
+    dbus/dbusxmousearea.cpp \
+    ../modules/display/dbus/displayinterface.cpp
 
 include(../cutelogger/cutelogger.pri)
 TARGET     = dde-control-center
@@ -35,4 +37,4 @@ RESOURCES += \
     qss.qrc \
     images.qrc
 
-INCLUDEPATH    += ../widgets
+INCLUDEPATH    += ../widgets ../modules/display

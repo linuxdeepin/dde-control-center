@@ -19,7 +19,8 @@ HEADERS += $$PWD/searchlist.h \
     $$PWD/useravatar.h \
     $$PWD/genericlistitem.h \
     $$PWD/listwidget.h \
-    $$PWD/inputwarningframe.h
+    $$PWD/inputwarningframe.h \
+    $$PWD/anchors.h
 SOURCES += $$PWD/searchlist.cpp \
     $$PWD/dynamiclabel.cpp \
     $$PWD/moduleheader.cpp \
@@ -39,7 +40,8 @@ SOURCES += $$PWD/searchlist.cpp \
     $$PWD/useravatar.cpp \
     $$PWD/genericlistitem.cpp \
     $$PWD/listwidget.cpp \
-    $$PWD/inputwarningframe.cpp
+    $$PWD/inputwarningframe.cpp \
+    $$PWD/anchors.cpp
 
 RESOURCES += \
     $$PWD/themes/widgets_theme_dark.qrc \
