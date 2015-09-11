@@ -148,7 +148,7 @@ Datetime::Datetime() :
 
         m_dbusInter.SetDate(date.year(), date.month(), date.day(), time.hour(), time.minute(), time.second(), time.msec()).waitForFinished();
         // TODO: reset current date only apply successful
-        m_calendar->resetCurrentDate(date);
+        m_calendar->setCurrentDate(date);
     });
 
     qDebug() << getZoneCityListByOffset(m_dbusInter.GetZoneInfo(m_dbusInter.timezone()).argumentAt<0>().m_utcOffset);
