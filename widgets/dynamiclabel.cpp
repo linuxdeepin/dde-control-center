@@ -61,8 +61,7 @@ void DynamicLabel::setText(const QString &text)
 
 void DynamicLabel::showLabel()
 {
-    if(isVisible())
-        return;
+    m_animation->stop();
 
     show();
     QRect rect = this->rect();
@@ -71,6 +70,8 @@ void DynamicLabel::showLabel()
     rect.setX(0);
     m_animation->setEndValue(rect);
     m_animation->start();
+
+    update();
 }
 
 void DynamicLabel::hideLabel()
