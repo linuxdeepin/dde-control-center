@@ -7,7 +7,7 @@ PressPowerButtonAction::PressPowerButtonAction(QStringList powerReaction, QWidge
     m_contentHeight = 30;
     m_pressPowerReActionLine = new DHeaderLine;
     m_pressPowerReActionLine->setFixedHeight(m_contentHeight);
-    m_pressPowerReActionLine->setTitle(tr("PressPowerButton"));
+    m_pressPowerReActionLine->setTitle(tr("When I press the power button"));
 
     m_pressPowerReActionExpand = new DBaseExpand;
     m_pressPowerReActionExpand->setFixedHeight(m_contentHeight);

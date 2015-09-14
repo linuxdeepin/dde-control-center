@@ -45,7 +45,7 @@ void Power::initClockWhenActiveUI()
 {
     m_secondHSeparator = new DSeparatorHorizontal;
     m_chooseNeedPasswdLine = new DHeaderLine;
-    m_chooseNeedPasswdLine->setTitle(tr("PasswdNeedForWakeUp"));
+    m_chooseNeedPasswdLine->setTitle(tr("Password required to wake up"));
     m_chooseNeedPasswdButton = new DSwitchButton;
     m_chooseNeedPasswdLine->setContent(m_chooseNeedPasswdButton);
     m_chooseNeedPasswdLine->setFixedHeight(m_contentHeight);
@@ -62,7 +62,7 @@ void Power::initClockWhenActiveUI()
 void Power::initPowerConnectionPanelUI() {
     m_prePowerSettingHeaderLine = new DHeaderLine;
     m_powerSettingDHeaderLine = new DHeaderLine;
-    m_powerSettingDHeaderLine->setTitle(tr("Connect Power"));
+    m_powerSettingDHeaderLine->setTitle(tr("Plugged in"));
 
     m_powerSettingExpand = new DBaseExpand;
     m_powerSettingExpand->setFixedHeight(m_bgContentHeight);
@@ -70,12 +70,11 @@ void Power::initPowerConnectionPanelUI() {
     m_powerSettingExpand->setHeaderHeight(30);
 
     m_powerDynamicLabel = new DynamicLabel(m_powerSettingDHeaderLine);
-    m_powerDynamicLabel->move(m_powerDynamicLabel->width()-20, 9);
-    m_powerDynamicLabel->setDuration(1000);
+    m_powerDynamicLabel->setDuration(500);
 
     m_powerPerformanceButtonGroup = new DButtonGrid(2, 2);
 
-    m_powerPerformaceString << tr("Balanced") << tr("PowerSaver") << tr("HighPerformance") << tr("Custom");
+    m_powerPerformaceString << tr("Balanced") << tr("Power saver") << tr("High performance") << tr("Custom");
     m_powerPerformanceButtonGroup->addButtons(m_powerPerformaceString);
     m_powerPerformanceButtonGroup->setItemSize(150, 30);
     m_powerPerformanceButtonGroup->checkButtonByIndex(2);
@@ -98,20 +97,19 @@ void Power::initBatteryUsedUI() {
     /////////////////////////////////////////////////////////--use battery setting panel
     m_preBatterySettingHeaderLine = new DHeaderLine;
     m_batterySettingDHeaderLine = new DHeaderLine;
-    m_batterySettingDHeaderLine->setTitle(tr("UseBattery"));
+    m_batterySettingDHeaderLine->setTitle(tr("On battery"));
 
     m_batterySettingExpand = new DBaseExpand;
 
     m_batteryDynamicLabel = new DynamicLabel(m_batterySettingDHeaderLine);
-    m_batteryDynamicLabel->move(m_batteryDynamicLabel->width()-20,  9);
-    m_batteryDynamicLabel->setDuration(1000);
+    m_batteryDynamicLabel->setDuration(500);
 
 
     m_batterySettingExpand->setFixedHeight(m_bgContentHeight);
     m_batterySettingExpand->setHeader(m_batterySettingDHeaderLine);
     m_batterySettingExpand->setHeaderHeight(m_contentHeight);
     m_batteryButtonGrid = new DButtonGrid(2, 2);
-    m_powerPerformaceString << tr("Balanced") << tr("PowerSaver") << tr("HighPerformance") << tr("Custom");
+    m_powerPerformaceString << tr("Balanced") << tr("Power saver") << tr("High performance") << tr("Custom");
     m_batteryButtonGrid->addButtons(m_powerPerformaceString);
     m_batteryButtonGrid->setItemSize(150, 30);
     m_batteryButtonGrid->checkButtonByIndex(3);
@@ -133,14 +131,14 @@ void Power::initBatteryUsedUI() {
 }
 void Power::initUI() {
 
-    linePowerAction  << tr("poweroff") << tr("suspend") << tr("ask");
+    linePowerAction  << tr("ShutDown") << tr("Suspend") << tr("Ask");
     m_pressPowerButtonActionFrame = new PressPowerButtonAction(linePowerAction);
-    m_pressPowerButtonActionFrame->setTitle(tr("PressPowerButton"));
+    m_pressPowerButtonActionFrame->setTitle(tr("When I press the power button"));
     m_pressPowerButtonActionFrame->setFixedHeight(m_bgContentHeight);
 
-    closeLaptopAction << tr("poweroff") << tr("suspend") << tr("no");
+    closeLaptopAction << tr("ShutDown") << tr("Suspend") << tr("Nothing");
     m_closeLaptopActionFrame = new PressPowerButtonAction(closeLaptopAction);
-    m_closeLaptopActionFrame->setTitle(tr("CloseLaptop"));
+    m_closeLaptopActionFrame->setTitle(tr("When I close the lid"));
     m_closeLaptopActionFrame->setFixedHeight(m_bgContentHeight);
 
     initClockWhenActiveUI();

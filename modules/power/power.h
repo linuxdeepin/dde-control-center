@@ -157,6 +157,13 @@ public slots:
     }
     inline void  showPowerTooltip(QString itemId) {
         setPowerDynamicTooltip(itemId);
+        int move_x, move_y;
+
+        if (m_powerDynamicLabel->height()>=16) { move_y = 0;}
+        else { move_y = 9;}
+        if (m_powerDynamicLabel->width()>=165) { move_x = 110;}
+        else { move_x = 140;}
+        m_powerDynamicLabel->move(move_x, move_y);
         m_powerDynamicLabel->showLabel();
     }
     inline void  hidePowerTooltip(QString itemId) {
@@ -169,6 +176,13 @@ public slots:
     }
     inline void  showBatteryTooltip(QString itemId) {
         setBatteryDynamicTooltip(itemId);
+        int move_x, move_y;
+
+        if (m_batteryDynamicLabel->height()>=16) { move_y = 0;}
+        else { move_y = 9;}
+        if (m_batteryDynamicLabel->width()>=165) { move_x = 110;}
+        else { move_x = 140;}
+        m_batteryDynamicLabel->move(move_x, move_y);
         m_batteryDynamicLabel->showLabel();
     }
     inline void  hideBatteryTooltip(QString itemId) {

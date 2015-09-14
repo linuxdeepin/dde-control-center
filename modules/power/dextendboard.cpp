@@ -20,11 +20,11 @@ DExtendBoard::DExtendBoard(QFrame *parent)
     m_customChooseLabel = new QLabel;
 
     m_customChooseLabel->setFixedHeight(30);
-    m_customChooseLabel->setText(tr("Custom"));
+    m_customChooseLabel->setText(tr("Custom options"));
     m_customChooseLabel->setStyleSheet(QString("background-color: %1;color:rgb(180,180,180)").arg(DCC::BgLightColor.name()));
 
     m_poweroffLabel = new QLabel;
-    m_poweroffLabel->setText(tr("Close Display"));
+    m_poweroffLabel->setText(tr("Turn off the display"));
     m_poweroffLabel->setStyleSheet("color: rgb(180, 180, 180)");
 
     m_poweroffButtonGrid = new DButtonGrid(1, 7);
@@ -35,7 +35,7 @@ DExtendBoard::DExtendBoard(QFrame *parent)
     m_poweroffButtonGrid->addButtons(m_poweroffButtons);
     m_poweroffButtonGrid->checkButtonByIndex(2);
     m_suspendLabel = new QLabel;
-    m_suspendLabel->setText(tr("suspend"));
+    m_suspendLabel->setText(tr("Suspend"));
     m_suspendLabel->setStyleSheet("color: rgb(180, 180, 180)");;
     m_suspendButtonGrid = new DButtonGrid(1, 7);
     m_poweroffButtonGrid->setFixedHeight(30);
