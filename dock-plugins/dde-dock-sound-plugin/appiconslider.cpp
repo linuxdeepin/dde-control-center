@@ -16,9 +16,8 @@ void AppIconSlider::volumeUpdate()
 {
     if (m_dasi && m_iLabel && m_iSlider)
     {
-        int volume = int(m_dasi->volume() * 100);
-        if (!m_iSlider->isSliderDown())
-            m_iSlider->setValue(volume);
+        int volume = qRound(m_dasi->volume() * 100);
+        m_iSlider->setValue(volume);
 
         m_iLabel->setPixmap(SoundIcon::getAppSinkIcon(ICON_SIZE,m_dasi->icon()));
     }
@@ -52,8 +51,8 @@ void AppIconSlider::initWidget()
     m_iSlider->setMaximum(100);
     m_iSlider->setMinimum(0);
     connect(m_iSlider,&QSlider::valueChanged,[=](int value){
-        if (m_iSlider->isSliderDown())
-            m_dasi->SetVolume(double(value) / 100, m_dasi->mute());
+        m_dasi->SetMute(false);
+        m_dasi->SetVolume(value / 100.00, m_dasi->mute());
     });
 
     volumeUpdate();

@@ -15,10 +15,8 @@ void DeviceIconSlider::volumeUpdate()
 {
     if (m_das && m_iLabel && m_iSlider)
     {
-        int volume = int(m_das->volume() * 100);
-        if (!m_iSlider->isSliderDown())
-            m_iSlider->setValue(volume);
-
+        int volume = qRound(m_das->volume() * 100);
+        m_iSlider->setValue(volume);
         m_iLabel->setPixmap(SoundIcon::getDefaultSinkIcon(ICON_SIZE,volume,m_das->mute()));
     }
 }
@@ -27,6 +25,7 @@ void DeviceIconSlider::initSink(const QString &path)
 {
     m_das = new DBusAudioSink(path,this);
     connect(m_das,&DBusAudioSink::VolumeChanged,this,&DeviceIconSlider::volumeUpdate);
+    connect(m_das, &DBusAudioSink::MuteChanged, this, &DeviceIconSlider::volumeUpdate);
 }
 
 void DeviceIconSlider::initWidget()
@@ -43,8 +42,8 @@ void DeviceIconSlider::initWidget()
     m_iSlider->setMaximum(100);
     m_iSlider->setMinimum(0);
     connect(m_iSlider,&QSlider::valueChanged,[=](int value){
-        if (m_iSlider->isSliderDown())
-            m_das->SetVolume(double(value) / 100,m_das->mute());
+        m_das->SetMute(false);
+        m_das->SetVolume(value / 100.00, m_das->mute());
     });
 
     volumeUpdate();

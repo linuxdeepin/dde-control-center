@@ -16,6 +16,8 @@ void MainItem::wheelEvent(QWheelEvent * event)
 {
     if (m_defaultSkin)
     {
+        m_defaultSkin->SetMute(false);
+
         double tmp = m_defaultSkin->volume();
         if (event->angleDelta().y() > 0)
             m_defaultSkin->SetVolume(tmp > 0.9 ? 1.0 : tmp + WHEEL_STEP,m_defaultSkin->mute());
@@ -34,6 +36,7 @@ void MainItem::initDefaultSink()
     QString path = QDBusObjectPath(audio->GetDefaultSink().value()).path();
     m_defaultSkin = new DBusAudioSink(path,this);
     connect(m_defaultSkin,&DBusAudioSink::VolumeChanged,this,&MainItem::updateIcon);
+    connect(m_defaultSkin,&DBusAudioSink::MuteChanged,this,&MainItem::updateIcon);
 }
 
 void MainItem::updateIcon()

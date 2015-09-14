@@ -19,8 +19,6 @@ signals:
     void pressed();
     void released();
     void clicked();
-
-public slots:
 };
 
 #endif // ICONLABEL_H
