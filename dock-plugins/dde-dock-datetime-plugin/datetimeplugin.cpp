@@ -71,7 +71,7 @@ QString DateTimePlugin::getTitle(QString)
 
 QString DateTimePlugin::getCommand(QString)
 {
-    return "dde-control-center date_time";
+    return "dde-control-center datetime";
 }
 
 bool DateTimePlugin::canDisable(QString)
