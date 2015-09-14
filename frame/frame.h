@@ -17,7 +17,7 @@ class QStackedLayout;
 class QKeyEvent;
 class HomeScreen;
 class ContentView;
-class DBusControlCenter;
+class DBusControlCenterService;
 class Frame: public QFrame
 {
     Q_OBJECT

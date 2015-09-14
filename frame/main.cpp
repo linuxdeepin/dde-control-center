@@ -6,6 +6,8 @@
 #include "frame.h"
 #include "interfaces.h"
 #include "logmanager.h"
+#include "dbus/dbuscontrolcenter.h"
+#include "dbus/dbuscontrolcenterservice.h"
 
 #include <libdui/dapplication.h>
 #include <libdui/dthememanager.h>
@@ -55,24 +57,32 @@ int main(int argv, char *args[])
     LogManager::instance()->debug_log_console_on();
 
     Frame frame;
-#ifndef QT_DEBUG
-    if (parser.isSet(showOption))
-#endif
-    frame.show();
-
-        if (!positionalArgs.isEmpty()) {
-            frame.selectModule(positionalArgs.at(0));
-        }
-
-    DBusControlCenter adaptor(&frame);
+    DBusControlCenterService adaptor(&frame);
     QDBusConnection conn = QDBusConnection::sessionBus();
     if (!conn.registerService("com.deepin.dde.ControlCenter") ||
-            !conn.registerObject("/com/deepin/dde/ControlCenter", &frame))
+        !conn.registerObject("/com/deepin/dde/ControlCenter", &frame))
+    {
+        qDebug() << "dbus service already registered!";
+
+        // call exist service
+        DBusControlCenter c;
+        if (!positionalArgs.isEmpty()) {
+            c.ShowModule(positionalArgs.at(0));
+        } else if (parser.isSet(showOption)) {
+            c.Show();
+        }
+
 #ifndef QT_DEBUG
-        return -1;
-#else
-        qWarning() << "d-bus service already registered!";
+        return 0;
 #endif
+    }
+
+    if (!positionalArgs.isEmpty())
+        frame.selectModule(positionalArgs.at(0));
+#ifndef QT_DEBUG
+    else if (parser.isSet(showOption))
+#endif
+    frame.show();
 
     // setup theme manager
     DThemeManager *manager = DThemeManager::instance();

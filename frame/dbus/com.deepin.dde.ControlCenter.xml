@@ -1,0 +1,16 @@
+<interface name="com.deepin.dde.ControlCenter">
+  <property access="read" type="i" name="X"/>
+  <property access="read" type="b" name="ShowInRight"/>
+  <method name="Toggle"/>
+  <method name="ToggleInLeft"/>
+  <method name="Show"/>
+  <method name="ShowModule">
+    <arg direction="in" type="s" name="name"/>
+  </method>
+  <method name="ShowImmediately"/>
+  <method name="Hide"/>
+  <method name="HideImmediately"/>
+  <method name="isNetworkCanShowPassword">
+    <arg direction="out" type="b"/>
+  </method>
+</interface>
