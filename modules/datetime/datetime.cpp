@@ -344,7 +344,10 @@ void Datetime::removeTimeZone(TimezoneWidget *zone)
 
     qDebug() << "remove zone: " << zone->zoneName();
     m_dbusInter.DeleteUserTimezone(zone->zoneName()).waitForFinished();
-    toRemoveTimezoneMode();
+    //toRemoveTimezoneMode();
+    const int i = m_timezoneListWidget->indexOf(zone);
+    m_timezoneListWidget->removeItem(i);
+    adjustItemHeight();
 }
 
 void Datetime::addUserTimeZone()
