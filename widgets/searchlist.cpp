@@ -90,18 +90,15 @@ void SearchList::removeItem(int index)
 {
     SearchItem *item = getItem(index);
     m_itemList.removeAt(index);
+    ListWidget::removeWidget(index, false);
 
     if(item){
         foreach (const QString &str, item->keyWords()) {
             m_keyWords.removeOne(str);
         }
-    }
 
-    if(item){
         QWidget *w = item->widget();
         if(w){
-            ListWidget::removeWidget(index, false);
-
             if(m_searching){
                 if(isIntersect(m_dbusKeyWords, item->keyWords())){
                     setVisibleCount(visibleCount()-1);

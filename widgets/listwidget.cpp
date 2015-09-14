@@ -67,7 +67,7 @@ void ListWidget::insertWidget(int index, QWidget *w, Qt::Alignment a)
     if(m_checkable)
         w->installEventFilter(this);
 
-    m_mapVisible[index] = true;
+    m_mapVisible[w] = true;
 
     setHeight(m_mainWidget->height() + w->height() + m_layout->spacing());
     setVisibleCount(m_visibleCount + 1);
@@ -130,8 +130,8 @@ void ListWidget::removeWidget(int index, bool isDelete)
     m_layout->removeItem(m_layout->takeAt(index));
     m_checkedList.removeOne(index);
 
-    if(m_mapVisible.value(index, false)){
-        m_mapVisible.remove(index);
+    if(m_mapVisible.value(w, false)){
+        m_mapVisible.remove(w);
         setHeight(m_mainWidget->height() - w->height() - m_layout->spacing());
         setVisibleCount(m_visibleCount -1);
     }
@@ -148,9 +148,9 @@ void ListWidget::showWidget(int index)
 {
     QWidget *w = getWidget(index);
 
-    if(!m_mapVisible.value(index, true)){
+    if(!m_mapVisible.value(w, true)){
         w->show();
-        m_mapVisible[index] = true;
+        m_mapVisible[w] = true;
         setVisibleCount(m_visibleCount+1);
         setHeight(m_mainWidget->height() + w->height() + m_layout->spacing());
     }
@@ -160,9 +160,9 @@ void ListWidget::hideWidget(int index)
 {
     QWidget *w = getWidget(index);
 
-    if(m_mapVisible.value(index, false)){
+    if(m_mapVisible.value(w, false)){
         w->hide();
-        m_mapVisible[index] = false;
+        m_mapVisible[w] = false;
         setVisibleCount(m_visibleCount-1);
         setHeight(m_mainWidget->height() - w->height() - m_layout->spacing());
     }
@@ -278,7 +278,7 @@ ListWidget::CheckMode ListWidget::checkMode() const
 
 bool ListWidget::eventFilter(QObject *obj, QEvent *e)
 {
-    if(e->type() != QEvent::MouseButtonRelease)
+    if(!m_checkable || e->type() != QEvent::MouseButtonRelease)
         return false;
 
     QWidget *w = qobject_cast<QWidget*>(obj);

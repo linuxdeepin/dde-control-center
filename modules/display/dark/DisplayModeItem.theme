@@ -14,10 +14,18 @@ QLabel#Title{
     font-size: 14px;
 }
 
-QLabel[hover=true]{
+DisplayModeItem[hover=true]{
     color: white;
 }
 
-QLabel[checked=true]{
+DisplayModeItem[checked=true]{
+    color: #01BDFF;
+}
+
+DisplayModeItem[hover=true] QLabel{
+    color: white;
+}
+
+DisplayModeItem[checked=true] QLabel{
     color: #01BDFF;
 }

@@ -9,8 +9,8 @@
 
 DUI_USE_NAMESPACE
 
-TitleAndWidget::TitleAndWidget(QWidget *w, const QString &title, QWidget *parent) :
-    QLabel(title, parent)
+TitleAndWidget::TitleAndWidget(QWidget *w , bool showSeparator, QWidget *parent) :
+    QLabel(parent)
 {
     D_THEME_INIT_WIDGET(TitleAndWidget);
 
@@ -20,7 +20,8 @@ TitleAndWidget::TitleAndWidget(QWidget *w, const QString &title, QWidget *parent
     layout->setMargin(0);
     layout->addSpacing(15);
     layout->addWidget(w, 0, Qt::AlignHCenter | Qt::AlignTop);
-    layout->addWidget(new DSeparatorHorizontal);
+    if(showSeparator)
+        layout->addWidget(new DSeparatorHorizontal);
 
     setLayout(layout);
 }

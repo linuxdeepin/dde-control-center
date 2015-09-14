@@ -108,8 +108,8 @@ void Frame::show(bool imme)
         resize(DCC::ControlCenterWidth, height());
         QFrame::show();
     } else {
-        QRect startRect(0, 0, 0, height());
-        QRect endRect(0, 0, DCC::ControlCenterWidth, height());
+        QRect startRect(0, y(), 0, height());
+        QRect endRect(0, y(), DCC::ControlCenterWidth, height());
 
         if (HideInLeft) {
             endRect.moveLeft(m_primaryScreen->geometry().left());
@@ -148,8 +148,8 @@ void Frame::hide(bool imme)
     if (imme) {
         QFrame::hide();
     } else {
-        QRect startRect(0, 0, 0, height());
-        QRect endRect(0, 0, DCC::ControlCenterWidth, height());
+        QRect startRect(0, y(), 0, height());
+        QRect endRect(0, y(), DCC::ControlCenterWidth, height());
 
         if (HideInLeft) {
             endRect.moveLeft(m_primaryScreen->geometry().left());
@@ -248,6 +248,7 @@ void Frame::updateFrameGeometry(QRect rect)
 {
     setFixedHeight(rect.height());
     QRect tmp = this->geometry();
+    tmp.moveTop(rect.top());
     if(HideInLeft)
         tmp.moveLeft(rect.left());
     else

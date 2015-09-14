@@ -95,7 +95,7 @@ void FullScreenTooltip::paintEvent(QPaintEvent *e)
         pa.setPen(pen);
         pa.drawRect(this->rect());
         QFont font;
-        font.setPixelSize(rect.height() / 1.5);
+        font.setPixelSize(qMin<int>(rect.width() / (name.size() - 2), rect.height() / 1.5));
         setFont(font);
         pa.drawText(this->rect(), name, option);
     }

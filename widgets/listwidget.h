@@ -82,7 +82,7 @@ private:
     QWidget *m_mainWidget;
     int m_visibleCount;
     bool m_checkable;
-    QMap<int, bool> m_mapVisible;
+    QMap<const QWidget*, bool> m_mapVisible;
     bool m_enableUncheck;
 };
 

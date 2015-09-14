@@ -2,7 +2,6 @@
 
 #include <libdui/dbuttonlist.h>
 #include <libdui/dexpandgroup.h>
-#include <libdui/dtextbutton.h>
 #include <libdui/dseparatorhorizontal.h>
 
 #include "moduleheader.h"
@@ -16,12 +15,13 @@
 
 DUI_USE_NAMESPACE
 
-CustomSettings::CustomSettings(DisplayInterface * dbusDisplay,
+CustomSettings::CustomSettings(DisplayInterface * dbusDisplay, MonitorGround *monitorGround,
                                              const QList<MonitorInterface *> &list,
                                              QWidget *parent)
     : QFrame(parent),
       m_dbusMonitors(list),
-      m_dbusDisplay(dbusDisplay)
+      m_dbusDisplay(dbusDisplay),
+      m_monitorGround(monitorGround)
 {
     m_rotationMap[1] = tr("Normal");
     m_rotationMap[2] = tr("Rotate right");
@@ -32,8 +32,6 @@ CustomSettings::CustomSettings(DisplayInterface * dbusDisplay,
     m_mainLayout->setMargin(0);
     m_mainLayout->setSpacing(0);
     m_mainLayout->setContentsMargins(0, 0, 0, 0);
-
-    updateUI(list);
 }
 
 CustomSettings::~CustomSettings()
@@ -47,9 +45,10 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
         QLayoutItem *item = m_mainLayout->itemAt(i);
         QWidget *w = item->widget();
         if(w){
-            delete w;
+            w->deleteLater();
         }
         m_mainLayout->removeItem(item);
+        delete item;
     }
 
     m_dbusMonitors = list;
@@ -93,7 +92,7 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
             enableMonitorList->setEnableUncheck(enableMonitorList->checkedList().count() > 1);
         });
 
-        TitleAndWidget *enableTitle = new TitleAndWidget(enableMonitorList);
+        TitleAndWidget *enableTitle = new TitleAndWidget(enableMonitorList, false);
         enableTitle->setText(tr("Please select the monitor you want to enable (checkable)"));
         enableTitle->setFixedSize(290, m_dbusMonitors.count() * 25 + 30);
         enableMonitor->setContent(enableTitle);
@@ -144,7 +143,8 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
     });
 
     foreach (const QString& name, m_monitorNameList) {
-        TitleAndWidget *widget = new TitleAndWidget(getBrightnessSlider(name), tr("Monitor %1").arg(name));
+        TitleAndWidget *widget = new TitleAndWidget(getBrightnessSlider(name));
+        widget->setText(tr("Monitor %1").arg(name));
         widget->setFixedHeight(50);
         brightnessList->addWidget(widget);
     }
@@ -176,7 +176,8 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
         resolutionButtons->setItemSize(90, 30);
         updateResolutionButtons(dbusMonitor, resolutionButtons);
 
-        TitleAndWidget *titleWidget_resolution = new TitleAndWidget(resolutionButtons, tr("Monitor %1").arg(dbusMonitor->name()));
+        TitleAndWidget *titleWidget_resolution = new TitleAndWidget(resolutionButtons);
+        titleWidget_resolution->setText(tr("Monitor %1").arg(dbusMonitor->name()));
         titleWidget_resolution->setFixedSize(290, resolutionButtons->rowCount() * 30 + 30);
         resolutionList->addWidget(titleWidget_resolution);
         resolutionExpand->setContent(resolutionList);
@@ -193,7 +194,8 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
         rotationButtons->setRowCount(qCeil(rotations.length() / 2.0));
         rotationButtons->addButtons(rotations);
 
-        TitleAndWidget *titleWidget_rotation = new TitleAndWidget(rotationButtons, tr("Monitor %1").arg(dbusMonitor->name()));
+        TitleAndWidget *titleWidget_rotation = new TitleAndWidget(rotationButtons);
+        titleWidget_rotation->setText(tr("Monitor %1").arg(dbusMonitor->name()));
         titleWidget_rotation->setFixedSize(290, rotationButtons->rowCount() * 30 + 30);
         rotationList->addWidget(titleWidget_rotation);
         rotationExpand->setContent(rotationList);
@@ -261,41 +263,50 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
 
     QHBoxLayout *buttonLayout = new QHBoxLayout;
 
-    DTextButton *button_cancel = new DTextButton(tr("Cancel"));
-    DTextButton *button_ok = new DTextButton(tr("Apply"));
-
     if(m_monitorNameList.count() == 1){
-        button_cancel->setVisible(m_dbusDisplay->hasChanged());
-        button_ok->setVisible(button_cancel->isVisible());
+        m_cancelButton->setVisible(m_dbusDisplay->hasChanged());
+        m_applyButton->setVisible(m_cancelButton->isVisible());
 
-        connect(m_dbusDisplay, &DisplayInterface::HasChangedChanged, [this, button_cancel, button_ok]{
-            button_cancel->setVisible(m_dbusDisplay->hasChanged());
-            button_ok->setVisible(button_cancel->isVisible());
+        connect(m_dbusDisplay, &DisplayInterface::HasChangedChanged, buttonLayout, [this]{
+            m_cancelButton->setVisible(m_dbusDisplay->hasChanged());
+            m_applyButton->setVisible(m_cancelButton->isVisible());
         });
     }
 
-    button_cancel->setFixedSize(30, 25);
-    button_ok->setFixedSize(30, 25);
-
     buttonLayout->addStretch(1);
-    buttonLayout->addWidget(button_cancel);
+    buttonLayout->addWidget(m_cancelButton);
     buttonLayout->addSpacing(5);
-    buttonLayout->addWidget(button_ok);
+    buttonLayout->addWidget(m_applyButton);
     buttonLayout->addSpacing(10);
 
-    connect(button_cancel, &DTextButton::clicked, [this]{
-        emit cancel();
+    connect(m_dbusDisplay, &DisplayInterface::HasChangedChanged, buttonLayout, [this]{
+        if(m_dbusDisplay->hasChanged() || m_monitorGround->editing())
+            m_applyButton->setText(tr("Apply"));
+        else
+            m_applyButton->setText(tr("Confirm"));
+    });
+    connect(m_monitorGround, &MonitorGround::editingChanged, buttonLayout, [this]{
+        if(m_dbusDisplay->hasChanged() || m_monitorGround->editing())
+            m_applyButton->setText(tr("Apply"));
+        else
+            m_applyButton->setText(tr("Confirm"));
+    });
+    connect(m_cancelButton, &DTextButton::clicked, buttonLayout, [this]{
         if(m_dbusDisplay->hasChanged()){
             m_dbusDisplay->ResetChanges();
         }
+
+        emit cancel();
     });
-    connect(button_ok, &DTextButton::clicked, [this]{
+    connect(m_applyButton, &DTextButton::clicked, buttonLayout, [this]{
         if(m_dbusDisplay->displayMode() != 0){
-            m_dbusDisplay->SwitchMode(0, "");
-        }else{
-            m_dbusDisplay->Apply();
             m_dbusDisplay->SaveChanges();
+            m_dbusDisplay->SwitchMode(0, "");
         }
+        if(m_dbusDisplay->hasChanged()){
+            m_dbusDisplay->Apply();
+        }
+
         emit cancel();
     });
 
@@ -304,10 +315,8 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
     m_mainLayout->addWidget(m_brightnessHeaderLine);
     m_mainLayout->addWidget(m_brightnessLineSeparator);
     m_mainLayout->addWidget(m_brightnessExpand);
-    if(buttonLayout){
-        m_mainLayout->addSpacing(10);
-        m_mainLayout->addLayout(buttonLayout);
-    }
+    m_mainLayout->addSpacing(10);
+    m_mainLayout->addLayout(buttonLayout);
     m_mainLayout->addStretch(1);
 
     updateBrightnessLayout();

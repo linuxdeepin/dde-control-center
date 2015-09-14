@@ -7,7 +7,7 @@ class TitleAndWidget : public QLabel
 {
     Q_OBJECT
 public:
-    explicit TitleAndWidget(QWidget *w, const QString &title = "", QWidget *parent = 0);
+    explicit TitleAndWidget(QWidget *w, bool showSeparator = true, QWidget *parent = 0);
 
     void setTitleVisible(bool arg);
 

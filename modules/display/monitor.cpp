@@ -285,7 +285,6 @@ bool Monitor::drop(Monitor *monitor)
     setEyeing(false);
 
     m_child = monitor;
-    m_child->setParent(this);
     m_child->hide();
 
     update();
@@ -295,11 +294,12 @@ bool Monitor::drop(Monitor *monitor)
 
 Monitor *Monitor::split()
 {
+    Monitor *m = m_child;
     m_child = NULL;
 
     update();
 
-    return m_child;
+    return m;
 }
 
 void Monitor::setDraging(bool arg)

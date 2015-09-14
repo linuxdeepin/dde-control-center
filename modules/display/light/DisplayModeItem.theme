@@ -1,6 +1,8 @@
 DisplayModeItem{
     background-color: transparent;
     margin: 0px 10px 0px 10px;
+    color: #b4b4b4;
+    font-size: 20px;
 }
 
 DisplayModeItem QLabel{
@@ -8,8 +10,16 @@ DisplayModeItem QLabel{
     color: #b4b4b4;
 }
 
-QLabel#Title{
+DisplayModeItem#Title{
     font-size: 14px;
+}
+
+DisplayModeItem[hover=true]{
+    color: white;
+}
+
+DisplayModeItem[checked=true]{
+    color: #01BDFF;
 }
 
 DisplayModeItem[hover=true] QLabel{

@@ -24,7 +24,9 @@ DisplayModeItem * getIconButton(const QString &text){
 
 MonitorGround::MonitorGround(DisplayInterface * display, QWidget *parent):
     QFrame(parent),
-    m_dbusDisplay(display)
+    m_dbusDisplay(display),
+    m_editing(false),
+    m_editable(false)
 {
     setStyleSheet(QString("QFrame { background-color: %1; }").arg(DCC::BgDarkColor.name()));
 
@@ -48,18 +50,7 @@ MonitorGround::MonitorGround(DisplayInterface * display, QWidget *parent):
         m_edit->show();
     });
 
-    connect(m_edit, &DisplayModeItem::clicked, [this]{
-        foreach (Monitor *monitor, m_monitors) {
-            monitor->setDraggable(true);
-        }
-
-        m_recognize->hide();
-        m_edit->hide();
-
-        foreach (FullScreenTooltip* tootip, m_tooltipList) {
-            tootip->showToTopLeft();
-        }
-    });
+    connect(m_edit, &DisplayModeItem::clicked, this, &MonitorGround::beginEdit);
 
     layout->addStretch(1);
     layout->addWidget(m_recognize, 0, Qt::AlignBottom);
@@ -96,6 +87,8 @@ void MonitorGround::addMonitor(Monitor *monitor)
 
     FullScreenTooltip *tooltip = new FullScreenTooltip(dbus);
     m_tooltipList << tooltip;
+    if(m_editing)
+        tooltip->showToTopLeft();
     connect(m_recognize, &DisplayModeItem::clicked, tooltip, [this, tooltip]{
         tooltip->showToCenter();
         QTimer::singleShot(3000, tooltip, SLOT(hide()));
@@ -104,6 +97,13 @@ void MonitorGround::addMonitor(Monitor *monitor)
 
 void MonitorGround::removeMonitor(Monitor *monitor)
 {
+    int index = m_monitors.indexOf(monitor);
+    if(index >= 0){
+        FullScreenTooltip *tip = m_tooltipList.at(index);
+        m_tooltipList.removeAt(index);
+        delete tip;
+    }
+
     m_monitors.removeOne(monitor);
 
     monitor->setParent(NULL);
@@ -130,16 +130,22 @@ void MonitorGround::clear()
     foreach (Monitor *monitor, m_monitors) {
         removeMonitor(monitor);
     }
-    foreach (FullScreenTooltip *tooltip, m_tooltipList) {
-        tooltip->deleteLater();
-    }
 }
 
 void MonitorGround::beginEdit()
 {
-    m_editing = true;
+    setEditing(true);
 
-    updateOpenedCount();
+    foreach (Monitor *monitor, m_monitors) {
+        monitor->setDraggable(true);
+    }
+
+    m_recognize->hide();
+    m_edit->hide();
+
+    foreach (FullScreenTooltip* tootip, m_tooltipList) {
+        tootip->showToTopLeft();
+    }
 }
 
 void MonitorGround::endEdit()
@@ -148,13 +154,38 @@ void MonitorGround::endEdit()
         monitor->setDraggable(false);
     }
 
-    m_editing = false;
-
-    updateOpenedCount();
+    setEditing(false);
 
     foreach (FullScreenTooltip* tootip, m_tooltipList) {
         tootip->hide();
     }
+}
+
+bool MonitorGround::editable() const
+{
+    return m_editable;
+}
+
+bool MonitorGround::editing() const
+{
+    return m_editing;
+}
+
+void MonitorGround::setEditable(bool editable)
+{
+    m_editable = editable;
+    if(!m_editable)
+        endEdit();
+    updateOpenedCount();
+}
+
+void MonitorGround::setEditing(bool editing)
+{
+    if (m_editing == editing)
+        return;
+
+    m_editing = editing;
+    emit editingChanged(editing);
 }
 
 void MonitorGround::relayout()
@@ -250,7 +281,6 @@ void MonitorGround::onMonitorMouseRelease()
 
         if(brother->geometry().contains(monitor->geometry().center())){
             if(brother->drop(monitor)){
-                m_monitors.removeOne(monitor);
                 brother->setDraggable(false);
                 tmp = false;
                 m_dbusDisplay->JoinMonitor(monitor->name(), brother->name());
@@ -280,7 +310,7 @@ void MonitorGround::updateOpenedCount()
         }
     }
 
-    if(m_editing && openedMonitorCount > 1){
+    if(m_editable && openedMonitorCount > 1){
         if(openedMonitorCount > m_dbusDisplay->monitors().count()){
             m_split->show();
             m_edit->hide();

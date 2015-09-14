@@ -1,6 +1,7 @@
 #include <QVBoxLayout>
 #include <QPainter>
 #include <QLabel>
+#include <QDebug>
 
 #include <libdui/libdui_global.h>
 #include <libdui/dthememanager.h>
@@ -156,8 +157,8 @@ void DisplayModeItem::mouseReleaseEvent(QMouseEvent *e)
 {
     QLabel::mouseReleaseEvent(e);
 
-    if(m_clickCheck){
-        setChecked(!m_checked);
+    if(m_clickCheck && !m_checked){
+        setChecked(true);
     }
 
     emit clicked();

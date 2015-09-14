@@ -9,6 +9,7 @@
 #include <libdui/dseparatorhorizontal.h>
 #include <libdui/dbaseline.h>
 #include <libdui/darrowlineexpand.h>
+#include <libdui/dtextbutton.h>
 
 #include "dbus/monitorinterface.h"
 #include "dbus/displayinterface.h"
@@ -21,7 +22,7 @@ class CustomSettings : public QFrame
 {
     Q_OBJECT
 public:
-    explicit CustomSettings(DisplayInterface * display,
+    explicit CustomSettings(DisplayInterface * display, MonitorGround *monitorGround,
                                    const QList<MonitorInterface*> &list,
                                    QWidget *parent = 0);
     ~CustomSettings();
@@ -38,6 +39,9 @@ private:
     DArrowLineExpand *m_brightnessExpand;
     QPointer<DArrowLineExpand> m_primaryMonitor;
     QVBoxLayout * m_mainLayout;
+    DTextButton *m_cancelButton = new DTextButton(tr("Cancel"));
+    DTextButton *m_applyButton = new DTextButton(tr("Confirm"));
+    MonitorGround *m_monitorGround;
 
     QStringList getResolutionLabels(MonitorInterface *dbus);
     QStringList getRotationLabels(MonitorInterface *dbus);

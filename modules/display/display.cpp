@@ -58,7 +58,7 @@ void Display::init()
 
     m_frame->setLayout(m_mainLayout);
 
-    m_singleSettings = new CustomSettings(m_dbusDisplay, m_dbusMonitors);
+    m_singleSettings = new CustomSettings(m_dbusDisplay, m_monitorGround, m_dbusMonitors);
     m_singleSettings->hide();
 
     updateUI();
@@ -143,7 +143,6 @@ void Display::updateUI()
 
         m_widgetList = new ListWidget;
         m_widgetList->setItemSize(310, 90);
-        m_widgetList->setCheckable(false);
 
         DisplayModeItem *item_copy = new DisplayModeItem;
         item_copy->setTitle(tr("Copy"));
@@ -160,6 +159,7 @@ void Display::updateUI()
         item_extend->setTitle(tr("Extend"));
         item_extend->setText(tr("Extend your screen contents to display different contents on different screens."));
         item_extend->setIconName("extend");
+
         connect(item_extend, &DisplayModeItem::checkedChanged, this, [=](bool arg){
             if(arg && m_dbusDisplay->displayMode() != 2){
                 qDebug()<<"SwitchMode(2";
@@ -182,11 +182,11 @@ void Display::updateUI()
             item_monitor->setTitle(tr("Only Displayed on %1").arg(name));
             item_monitor->setText(tr("Screen contents are only displayed on %1 but not on other screens.").arg(name));
             item_monitor->setIconName("single");
-            item_monitor->setIconText(QString::number(i));
+            item_monitor->setIconText(QString::number(i + 1));
             m_widgetList->addWidget(item_monitor);
 
             connect(item_monitor, &DisplayModeItem::checkedChanged, this, [=](bool arg){
-                if(arg && m_dbusDisplay->displayMode() != 3){
+                if(arg){
                     qDebug()<<"SwitchMode(3";
                     m_dbusDisplay->SwitchMode(3, name);
                 }
@@ -197,17 +197,17 @@ void Display::updateUI()
 
         displayModeExpand->setContent(m_widgetList);
 
-        connect(item_settings, &DisplayModeItem::clicked, this, [this, displayModeExpand]{
+        connect(item_settings, &DisplayModeItem::clicked, displayModeExpand, [this, displayModeExpand]{
             displayModeExpand->hide();
             m_singleSettings->show();
-            m_monitorGround->beginEdit();
+            m_monitorGround->setEditable(true);
         }, Qt::DirectConnection);
 
-        connect(m_singleSettings, &CustomSettings::cancel, this, [this, displayModeExpand]{
+        connect(m_singleSettings, &CustomSettings::cancel, displayModeExpand, [this, displayModeExpand]{
             displayModeExpand->show();
             m_singleSettings->hide();
             onDisplayModeChanged();
-            m_monitorGround->endEdit();
+            m_monitorGround->setEditable(false);
         });
 
         m_mainLayout->addWidget(displayModeExpand);

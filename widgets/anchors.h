@@ -14,14 +14,18 @@ class ExtendWidget: public QObject
     Q_OBJECT
 
     Q_PROPERTY(QWidget *target READ target WRITE setTarget NOTIFY targetChanged)
+    Q_PROPERTY(bool enabled READ enabled WRITE setEnabled NOTIFY enabledChanged)
+
 public:
     explicit ExtendWidget(QWidget *w, QObject *parent = 0);
     ~ExtendWidget();
 
     QWidget *target() const;
+    bool enabled() const;
 
 public slots:
     void setTarget(QWidget *target);
+    void setEnabled(bool enabled);
 
 signals:
     void xChanged(int x);
@@ -31,6 +35,7 @@ signals:
     void heightChanged(int height);
     void sizeChanged(const QSize &size);
     void targetChanged(QWidget *target);
+    void enabledChanged(bool enabled);
 
 protected:
     bool eventFilter(QObject *o, QEvent *e) Q_DECL_OVERRIDE;
@@ -130,7 +135,8 @@ class AnchorsBase : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QWidget *target READ target WRITE setTarget NOTIFY targetChanged)
+    Q_PROPERTY(QWidget *target READ target CONSTANT)
+    Q_PROPERTY(bool enabled READ enabled WRITE setEnabled NOTIFY enabledChanged)
     Q_PROPERTY(const AnchorsBase *anchors READ anchors)
     Q_PROPERTY(const AnchorInfo *top READ top WRITE setTop NOTIFY topChanged)
     Q_PROPERTY(const AnchorInfo *bottom READ bottom WRITE setBottom NOTIFY bottomChanged)
@@ -162,6 +168,7 @@ public:
     };
 
     QWidget *target() const;
+    bool enabled() const;
     const AnchorsBase *anchors() const;
     const AnchorInfo *top() const;
     const AnchorInfo *bottom() const;
@@ -184,9 +191,11 @@ public:
     bool isBinding(const AnchorInfo *info) const;
 
     static bool setAnchor(QWidget *w, const Qt::AnchorPoint &p, QWidget *target, const Qt::AnchorPoint &point);
+    static void clearAnchors(const QWidget *w);
+    static AnchorsBase *getAnchorBaseByWidget(const QWidget *w);
 
 public slots:
-    void setTarget(QWidget *target);
+    void setEnabled(bool enabled);
     bool setAnchor(const Qt::AnchorPoint &p, QWidget *target, const Qt::AnchorPoint &point);
     bool setTop(const AnchorInfo *top);
     bool setBottom(const AnchorInfo *bottom);
@@ -229,6 +238,7 @@ private slots:
     void updateCenterIn();
 
 signals:
+    void enabledChanged(bool enabled);
     void topChanged(const AnchorInfo *top);
     void bottomChanged(const AnchorInfo *bottom);
     void leftChanged(const AnchorInfo *left);
@@ -246,40 +256,36 @@ signals:
     void verticalCenterOffsetChanged(int verticalCenterOffset);
     void alignWhenCenteredChanged(bool alignWhenCentered);
 
-    void targetChanged(QWidget *target);
-
 protected:
-    explicit AnchorsBase(AnchorsBasePrivate *dd, QWidget *w);
-    void setWidget(QWidget *w);
-
-    AnchorsBasePrivate *d_ptr;
-
-    Q_DECLARE_PRIVATE(AnchorsBase)
+    explicit AnchorsBase(AnchorsBasePrivate *dd);
+    void init(QWidget *w);
 
 private:
-    void init(QWidget *w);
+    AnchorsBase(QWidget *w, bool);
+
+    AnchorsBasePrivate *d_ptr = NULL;
+
+    Q_DECLARE_PRIVATE(AnchorsBase)
 };
 
 template<class T>
 class Anchors : public AnchorsBase
 {
 public:
-    inline Anchors(): AnchorsBase(new T)
-    {
-        m_widget = qobject_cast<T *>(target());
-    }
+    inline Anchors(): AnchorsBase(NULL), m_widget(NULL) {}
     inline Anchors(T *w): AnchorsBase(w), m_widget(w) {}
     inline Anchors(const Anchors &me): AnchorsBase(me.m_widget), m_widget(me.m_widget) {}
 
     inline T &operator=(const Anchors &me)
     {
-        m_widget = me.m_widget, setTarget(m_widget);
+        m_widget = me.m_widget;
+        init(m_widget);
         return *m_widget;
     }
     inline T &operator=(T *w)
     {
         m_widget = w;
-        setTarget(w);
+        init(w);
         return *m_widget;
     }
     inline T *widget() const
