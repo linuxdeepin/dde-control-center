@@ -125,15 +125,17 @@ void DateTimePlugin::updateTime()
         QString oldText = m_item->text();
         QString newText = "";
 
-        if (m_showDate) {
-            newText.append(today.toString("MMMdd"));
-        }
+        //change date and time format in translation
+        QString dateFormat = tr("dd MMM");
+        QString dateWeekFormat = tr("dddd dd MMM");
+        if (m_showDate && !m_showWeek)
+            newText = today.toString(dateFormat);
+        else if (m_showWeek && !m_showDate)
+            newText = today.toString("dddd");
+        else if (m_showDate && m_showWeek)
+            newText = today.toString(dateWeekFormat);
 
-        if (m_showWeek) {
-            newText.append(today.toString("dddd"));
-        }
-
-        QString timeFormat = m_use24HourFormat ? "h:m" : "a h:m";
+        QString timeFormat = m_use24HourFormat ? "hh:mm" : tr("hh:mm a");
         newText.append(time.toString(timeFormat));
 
         m_item->setText(newText);
@@ -212,7 +214,7 @@ void DateTimePlugin::setMode(Dock::DockMode mode)
     if (m_mode == Dock::FashionMode) {
         m_item->setPixmap(m_clockPixmap);
     } else {
-        QString timeFormat = m_use24HourFormat ? "h:m" : "a h:m";
+        QString timeFormat = m_use24HourFormat ? "hh:mm" : tr("hh:mm a");
         m_item->setText(time.toString(timeFormat));
     }
 
