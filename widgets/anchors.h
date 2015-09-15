@@ -272,7 +272,7 @@ template<class T>
 class Anchors : public AnchorsBase
 {
 public:
-    inline Anchors(): AnchorsBase(NULL), m_widget(NULL) {}
+    inline Anchors(): AnchorsBase((QWidget*)NULL), m_widget(NULL) {}
     inline Anchors(T *w): AnchorsBase(w), m_widget(w) {}
     inline Anchors(const Anchors &me): AnchorsBase(me.m_widget), m_widget(me.m_widget) {}
 
