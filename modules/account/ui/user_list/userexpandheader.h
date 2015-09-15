@@ -78,7 +78,7 @@ private:
     QHBoxLayout *m_mainLayout = NULL;
     UserNameTitle *m_nameTitle = NULL;
     DBusAccountUser *m_accountUser = NULL;
-    DSegmentedControl *folderControl = NULL;
+    DSegmentedControl *m_folderControl = NULL;
     DArrowButton *m_arrowButton = NULL;
     QStackedWidget *m_rightStack = NULL;
     DeleteButton *m_deleteButton = NULL;

@@ -42,7 +42,7 @@ void UserExpandHeader::onConfirmDeleteUser()
 {
     DBusAccount *account = new DBusAccount(this);
     if (account->isValid())
-        account->DeleteUser(m_accountUser->userName(), folderControl->currentIndex() != 0);
+        account->DeleteUser(m_accountUser->userName(), m_folderControl->currentIndex() != 0);
     account->deleteLater();
 }
 
@@ -114,18 +114,29 @@ void UserExpandHeader::initRightStack()
     normalLayout->addStretch();
     normalLayout->addWidget(m_arrowButton);
 
-    folderControl = new DSegmentedControl;
-    folderControl->addSegmented(tr("Keep Folder"));
-    folderControl->addSegmented(tr("Delete Folder"));
-    ConfirmButtonLine *confirmLine = new ConfirmButtonLine;
-    connect(confirmLine, &ConfirmButtonLine::cancel, this, &UserExpandHeader::cancelDelete);
-    connect(confirmLine, &ConfirmButtonLine::cancel, this, &UserExpandHeader::onCancelDeleteUser);
-    connect(confirmLine, &ConfirmButtonLine::confirm, this, &UserExpandHeader::onConfirmDeleteUser);
+    m_folderControl = new DSegmentedControl;
+    m_folderControl->addSegmented(tr("Keep Folder"));
+    m_folderControl->addSegmented(tr("Delete Folder"));
+
+    DTextButton *cancelButton = new DTextButton(tr("Cancel"));
+    DTextButton *confirmButton = new DTextButton(tr("Confirm"));
+    connect(cancelButton, &DTextButton::clicked, this, &UserExpandHeader::cancelDelete);
+    connect(cancelButton, &DTextButton::clicked, this, &UserExpandHeader::onCancelDeleteUser);
+    connect(confirmButton, &DTextButton::clicked, this, &UserExpandHeader::onConfirmDeleteUser);
+    QHBoxLayout *buttonLayout = new QHBoxLayout;
+    buttonLayout->setContentsMargins(0, 0, 0, 0);
+    buttonLayout->setAlignment(Qt::AlignRight);
+    buttonLayout->addWidget(cancelButton);
+    buttonLayout->addSpacing(DUI::BUTTON_MARGIN);
+    buttonLayout->addWidget(confirmButton);
+    buttonLayout->addSpacing(DUI::HEADER_RIGHT_MARGIN);
+
     QFrame *deleteFrame = new QFrame;
     QVBoxLayout *deleteLayout = new QVBoxLayout(deleteFrame);
-    deleteLayout->setAlignment(Qt::AlignCenter);
-    deleteLayout->addWidget(folderControl);
-    deleteLayout->addWidget(confirmLine);
+    deleteLayout->setContentsMargins(0, 0, 0, 0);
+    deleteLayout->setSpacing(0);
+    deleteLayout->addWidget(m_folderControl);
+    deleteLayout->addLayout(buttonLayout);
 
     m_rightStack = new QStackedWidget;
     m_rightStack->addWidget(normalFrame);
