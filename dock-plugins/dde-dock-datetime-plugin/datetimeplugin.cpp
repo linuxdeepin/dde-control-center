@@ -173,7 +173,7 @@ QString DateTimePlugin::getMenuContent(QString)
     return QString(QJsonDocument(contentObj).toJson());
 }
 
-void DateTimePlugin::invokeMenuItem(QString, QString itemId, bool checked)
+void DateTimePlugin::invokeMenuItem(QString id, QString itemId, bool checked)
 {
     if (itemId == MenuIdSwitchDisplayMode) {
         m_clockPixmap.setAnalog(!m_clockPixmap.getAnalog());
@@ -182,6 +182,8 @@ void DateTimePlugin::invokeMenuItem(QString, QString itemId, bool checked)
         m_showWeek = checked;
     } else if (itemId == MenuIdShowDate) {
         m_showDate = checked;
+    } else if (itemId == MenuIdDatetimeSettings) {
+        QProcess::startDetached(getCommand(id));
     }
 }
 
