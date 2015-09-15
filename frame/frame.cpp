@@ -18,6 +18,7 @@
 #include "anchors.h"
 
 #include "dbus/displayinterface.h"
+#include "dtipsframe.h"
 
 DUI_USE_NAMESPACE
 

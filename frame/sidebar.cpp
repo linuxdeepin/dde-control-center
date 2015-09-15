@@ -46,7 +46,7 @@ SideBar::SideBar(QList<ModuleMetaData> modules, QWidget *parent)
 
         connect(button, &SideBarButton::clicked, this, &SideBar::onSideBarButtonClicked);
         connect(button, &SideBarButton::hovered, [this, button]() -> void {m_tips->setTipsText(button->metaData().name);});
-        connect(button, &SideBarButton::hovered, m_tips, &DTipsFrame::show, Qt::QueuedConnection);
+        connect(button, &SideBarButton::hovered, m_tips, &DTipsFrame::show, Qt::DirectConnection);
         connect(button, &SideBarButton::hovered, m_tips, &DTipsFrame::followTheSender, Qt::QueuedConnection);
     }
 

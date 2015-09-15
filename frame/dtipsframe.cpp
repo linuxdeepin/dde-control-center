@@ -21,7 +21,7 @@ DTipsFrame::DTipsFrame()
     QHBoxLayout *layout = new QHBoxLayout(this);
     layout->addWidget(m_label);
     layout->setMargin(0);
-    layout->setContentsMargins(0, 0, 0, 0);
+    layout->setContentsMargins(0, 0, arrowWidth(), 0);
 
     m_moveAni = new QPropertyAnimation(this, "geometry");
     m_moveAni->setEasingCurve(DCC::TipsMoveCurve);
@@ -62,6 +62,12 @@ void DTipsFrame::followTheSender()
     const int wWidth = arrowDirection() == ArrowLeft
             ? widget->window()->geometry().right() + 8
             : widget->window()->geometry().left() - width() - 8;
+
+    if(arrowDirection() == ArrowLeft){
+        layout()->setContentsMargins(arrowWidth(), 0, 0, 0);
+    }else{
+        layout()->setContentsMargins(0, 0, arrowWidth(), 0);
+    }
 
     QPoint pos;
     do {
