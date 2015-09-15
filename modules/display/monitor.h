@@ -37,6 +37,7 @@ public:
     void setParentRect(const QRect &rect);
 
 public slots:
+    void setResolution(const QRect &rect);
     void setDockBgColor(QColor dockBgColor);
     void setDraggable(bool draggable);
     void setAlignment(Qt::Alignment aalignment);
@@ -46,6 +47,8 @@ public slots:
     void dragLeave();
     bool drop(Monitor *e);
     Monitor* split();
+    void applyResolution();
+    void resetResolution();
 
 signals:
     void dragingChanged(bool draging);
@@ -73,6 +76,7 @@ private:
     bool m_isPrimary;
     Monitor* m_child;
     QRect m_parentRect;
+    QRect m_resolution;
 
     void setDraging(bool arg);
     void setEyeing(bool arg);

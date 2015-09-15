@@ -292,6 +292,8 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
             m_applyButton->setText(tr("Confirm"));
     });
     connect(m_cancelButton, &DTextButton::clicked, buttonLayout, [this]{
+        m_monitorGround->cancelEdit();
+
         if(m_dbusDisplay->hasChanged()){
             m_dbusDisplay->ResetChanges();
         }
@@ -299,12 +301,15 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
         emit cancel();
     });
     connect(m_applyButton, &DTextButton::clicked, buttonLayout, [this]{
+        m_monitorGround->applyEdit();
+
         if(m_dbusDisplay->displayMode() != 0){
             m_dbusDisplay->SaveChanges();
             m_dbusDisplay->SwitchMode(0, "");
         }
         if(m_dbusDisplay->hasChanged()){
             m_dbusDisplay->Apply();
+            m_dbusDisplay->SaveChanges();
         }
 
         emit cancel();

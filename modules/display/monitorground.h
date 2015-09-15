@@ -26,9 +26,11 @@ public:
 public slots:
     void setEditable(bool editable);
     void setEditing(bool editing);
+    void cancelEdit();
 
 signals:
     void editingChanged(bool editing);
+    void applyEdit();
 
 private slots:
     void beginEdit();

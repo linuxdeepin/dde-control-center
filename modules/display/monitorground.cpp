@@ -24,9 +24,9 @@ DisplayModeItem * getIconButton(const QString &text){
 
 MonitorGround::MonitorGround(DisplayInterface * display, QWidget *parent):
     QFrame(parent),
-    m_dbusDisplay(display),
     m_editing(false),
-    m_editable(false)
+    m_editable(false),
+    m_dbusDisplay(display)
 {
     setStyleSheet(QString("QFrame { background-color: %1; }").arg(DCC::BgDarkColor.name()));
 
@@ -81,6 +81,7 @@ void MonitorGround::addMonitor(Monitor *monitor)
     connect(dbus, &MonitorInterface::OpenedChanged, this, &MonitorGround::relayout, Qt::DirectConnection);
     connect(dbus, &MonitorInterface::OpenedChanged, this, &MonitorGround::updateOpenedCount, Qt::DirectConnection);
     connect(dbus, &MonitorInterface::IsCompositedChanged, this, &MonitorGround::updateOpenedCount, Qt::DirectConnection);
+    connect(this, &MonitorGround::applyEdit, monitor, &Monitor::applyResolution);
 
     updateOpenedCount();
     relayout();
@@ -120,6 +121,7 @@ void MonitorGround::removeMonitor(Monitor *monitor)
     disconnect(dbus, &MonitorInterface::OpenedChanged, this, &MonitorGround::relayout);
     disconnect(dbus, &MonitorInterface::OpenedChanged, this, &MonitorGround::updateOpenedCount);
     disconnect(dbus, &MonitorInterface::IsCompositedChanged, this, &MonitorGround::updateOpenedCount);
+    disconnect(this, &MonitorGround::applyEdit, monitor, &Monitor::applyResolution);
 
     updateOpenedCount();
     relayout();
@@ -186,6 +188,15 @@ void MonitorGround::setEditing(bool editing)
 
     m_editing = editing;
     emit editingChanged(editing);
+}
+
+void MonitorGround::cancelEdit()
+{
+    foreach (Monitor *monitor, m_monitors) {
+        monitor->resetResolution();
+    }
+
+    relayout();
 }
 
 void MonitorGround::relayout()
@@ -289,11 +300,29 @@ void MonitorGround::onMonitorMouseRelease()
     }
 
     if(tmp){
-        MonitorInterface *dbus = monitor->dbusInterface();
-        double scale = dbus->width() / (double)monitor->width();
+        QRect rect = monitor->resolution();
+        double scale = rect.width() / (double)monitor->width();
+        rect.moveTopLeft(QPoint((monitor->x() - monitor->parentRect().x()) * scale,
+                (monitor->y() - monitor->parentRect().y()) * scale));
 
-        dbus->SetPos((monitor->x() - monitor->parentRect().x()) * scale,
-                     (monitor->y() - monitor->parentRect().y()) * scale);
+        monitor->setResolution(rect);
+
+        QPoint min_pos = rect.topLeft();
+
+        foreach (Monitor *monitor, m_monitors) {
+            QRect rect = monitor->resolution();
+            if(rect.x() < min_pos.x())
+                min_pos.setX(rect.x());
+            if(rect.y() < min_pos.y())
+                min_pos.setY(rect.y());
+        }
+        foreach (Monitor *monitor, m_monitors) {
+            QRect rect = monitor->resolution();
+            rect.moveTopLeft(rect.topLeft() - min_pos);
+            monitor->setResolution(rect);
+        }
+
+        relayout();
     }
 }
 

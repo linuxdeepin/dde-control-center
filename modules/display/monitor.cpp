@@ -25,6 +25,11 @@ Monitor::Monitor(MonitorInterface *dbus, QWidget *parent) :
     m_child(NULL)
 {
     D_THEME_INIT_WIDGET(Monitor, draging, eyeing);
+    m_resolution = QRect(m_dbusInterface->x(), m_dbusInterface->y(), m_dbusInterface->width(), m_dbusInterface->height());
+    connect(m_dbusInterface, &MonitorInterface::XChanged, [this]{m_resolution.moveLeft(m_dbusInterface->x());});
+    connect(m_dbusInterface, &MonitorInterface::YChanged, [this]{m_resolution.moveTop(m_dbusInterface->y());});
+    connect(m_dbusInterface, &MonitorInterface::WidthChanged, [this]{m_resolution.setWidth(m_dbusInterface->width());});
+    connect(m_dbusInterface, &MonitorInterface::HeightChanged, [this]{m_resolution.setHeight(m_dbusInterface->height());});
 }
 
 
@@ -40,7 +45,7 @@ void Monitor::setName(QString name)
 
 QRect Monitor::resolution()
 {
-    return QRect(m_dbusInterface->x(), m_dbusInterface->y(), m_dbusInterface->width(), m_dbusInterface->height());
+    return m_resolution;
 }
 
 MonitorInterface *Monitor::dbusInterface() const
@@ -96,6 +101,11 @@ QRect Monitor::parentRect() const
 void Monitor::setParentRect(const QRect &rect)
 {
     m_parentRect = rect;
+}
+
+void Monitor::setResolution(const QRect &rect)
+{
+    m_resolution = rect;
 }
 
 void Monitor::setDockBgColor(QColor dockBgColor)
@@ -300,6 +310,16 @@ Monitor *Monitor::split()
     update();
 
     return m;
+}
+
+void Monitor::applyResolution()
+{
+    m_dbusInterface->SetPos(m_resolution.left(), m_resolution.top());
+}
+
+void Monitor::resetResolution()
+{
+    m_resolution = QRect(m_dbusInterface->x(), m_dbusInterface->y(), m_dbusInterface->width(), m_dbusInterface->height());
 }
 
 void Monitor::setDraging(bool arg)
