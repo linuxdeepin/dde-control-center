@@ -100,7 +100,7 @@ void Frame::keyPressEvent(QKeyEvent *event)
 
 void Frame::show(bool imme)
 {
-    if (m_visible) {
+    if (m_visible || m_hideAni->state() == QPropertyAnimation::Running) {
         return;
     }
     m_visible = true;
@@ -142,7 +142,7 @@ void Frame::show(bool imme)
 
 void Frame::hide(bool imme)
 {
-    if (!m_visible) {
+    if (!m_visible || m_showAni->state() == QPropertyAnimation::Running) {
         return;
     }
     m_visible = false;
