@@ -86,6 +86,8 @@ void DBusControlCenterService::Toggle()
 {
     // handle method call com.deepin.dde.ControlCenter.Toggle
     //parent()->Toggle();
+    parent()->setHideInLeft(false);
+
     if (parent()->isVisible()) {
         parent()->hide();
     } else {
@@ -97,6 +99,13 @@ void DBusControlCenterService::ToggleInLeft()
 {
     // handle method call com.deepin.dde.ControlCenter.ToggleInLeft
     //parent()->ToggleInLeft();
+    parent()->setHideInLeft(true);
+
+    if (parent()->isVisible()) {
+        parent()->hide();
+    } else {
+        parent()->show();
+    }
 }
 
 bool DBusControlCenterService::isNetworkCanShowPassword()

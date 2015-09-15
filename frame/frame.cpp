@@ -34,7 +34,11 @@ Frame::Frame(QWidget *parent) :
 
     this->listPlugins();
 
-    m_contentView = new ContentView(m_modules, this);
+#ifdef QT_DEBUG
+    HideInLeft = true;
+#endif
+
+    m_contentView = new ContentView(m_modules, HideInLeft, this);
     m_contentView->setFixedWidth(DCC::ControlCenterWidth);
 
     m_homeScreen = new HomeScreen(m_modules, this);
@@ -45,6 +49,7 @@ Frame::Frame(QWidget *parent) :
     connect(m_contentView, &ContentView::shutdownSelected, m_homeScreen, &HomeScreen::powerButtonClicked, Qt::DirectConnection);
     connect(m_contentView, &ContentView::shutdownSelected, [this]() -> void {hide();});
     connect(m_homeScreen, &HomeScreen::showAniFinished, m_contentView, &ContentView::unloadOldPlugin);
+    connect(this, &Frame::hideInLeftChanged, m_contentView, &ContentView::reLayout);
 
     m_showAni = new QPropertyAnimation(this, "geometry");
     m_showAni->setDuration(DCC::FrameAnimationDuration);
@@ -54,9 +59,6 @@ Frame::Frame(QWidget *parent) :
     m_hideAni->setDuration(DCC::FrameAnimationDuration);
     m_hideAni->setEasingCurve(DCC::FrameHideCurve);
 
-#ifdef QT_DEBUG
-    HideInLeft = true;
-#endif
     if(HideInLeft)
         AnchorsBase::setAnchor(m_homeScreen, Qt::AnchorRight, this, Qt::AnchorRight);
 
@@ -266,4 +268,22 @@ void Frame::selectModule(const QString &moduleId)
         if (data.id == moduleId) {
             selectModule(data);
         }
+}
+
+void Frame::setHideInLeft(bool hideInLeft)
+{
+    if (HideInLeft == hideInLeft)
+        return;
+
+    HideInLeft = hideInLeft;
+    if(HideInLeft){
+        AnchorsBase::setAnchor(m_homeScreen, Qt::AnchorRight, this, Qt::AnchorRight);
+    }else{
+        AnchorsBase::clearAnchors(m_homeScreen);
+        AnchorsBase::clearAnchors(this);
+        m_homeScreen->move(0, 0);
+    }
+
+    updateFrameGeometry(m_primaryScreen->geometry());
+    emit hideInLeftChanged(hideInLeft);
 }

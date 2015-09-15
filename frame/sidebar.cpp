@@ -113,6 +113,11 @@ void SideBar::switchToModule(const ModuleMetaData &meta)
     switchToSideBarButton(btn);
 }
 
+DTipsFrame *SideBar::getTipFrame() const
+{
+    return m_tips;
+}
+
 // SideBarButton
 SideBarButton::SideBarButton(ModuleMetaData metaData, QWidget *parent) :
     QAbstractButton(parent),

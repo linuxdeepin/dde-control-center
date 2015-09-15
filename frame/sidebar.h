@@ -15,6 +15,7 @@ public:
     explicit SideBar(QList<ModuleMetaData> modules, QWidget *parent = 0);
 
     void switchToModule(const ModuleMetaData &meta);
+    DTipsFrame *getTipFrame() const;
 
 private:
     void enterEvent(QEvent *e);

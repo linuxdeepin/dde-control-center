@@ -5,7 +5,12 @@
 #include <QLabel>
 #include <QPropertyAnimation>
 
-class DTipsFrame : public QFrame
+#include <libdui/darrowrectangle.h>
+#include <libdui/libdui_global.h>
+
+DUI_USE_NAMESPACE
+
+class DTipsFrame : public DArrowRectangle
 {
     Q_OBJECT
 public:
@@ -19,6 +24,7 @@ private:
 public slots:
     void followTheSender();
     void setTipsText(const QString &text);
+    void show();
 
 private:
     QLabel *m_label;
