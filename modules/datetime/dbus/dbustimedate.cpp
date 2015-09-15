@@ -38,6 +38,13 @@ void ZoneInfo::registerMetaType()
     qDBusRegisterMetaType<ZoneInfo>();
 }
 
+bool ZoneInfo::operator ==(const ZoneInfo &what) const
+{
+    // TODO: 这里只判断这两个成员应该就可以了
+    return m_zoneName == what.m_zoneName &&
+           m_utcOffset == what.m_utcOffset;
+}
+
 QDebug operator<<(QDebug argument, const ZoneInfo & info)
 {
     argument << info.m_zoneName << ',' << info.m_zoneCity << ',' << info.m_utcOffset << ',';
@@ -48,10 +55,16 @@ QDebug operator<<(QDebug argument, const ZoneInfo & info)
 
 QDBusArgument &operator<<(QDBusArgument & argument, const ZoneInfo & info)
 {
+    ZoneInfo what = info;
+
+    // TODO: 神奇的需求要求把 Asia/Shanghai 的城市替换成 Beijing
+    if (info.m_zoneName == "Asia/Shanghai")
+        what.m_zoneCity = "Shanghai";
+
     argument.beginStructure();
-    argument << info.m_zoneName << info.m_zoneCity << info.m_utcOffset;
+    argument << what.m_zoneName << what.m_zoneCity << what.m_utcOffset;
     argument.beginStructure();
-    argument << info.i2 << info.i3 << info.i4;
+    argument << what.i2 << what.i3 << what.i4;
     argument.endStructure();
     argument.endStructure();
 
@@ -66,6 +79,10 @@ const QDBusArgument &operator>>(const QDBusArgument & argument, ZoneInfo & info)
     argument >> info.i2 >> info.i3 >> info.i4;
     argument.endStructure();
     argument.endStructure();
+
+    // TODO: 神奇的需求要求把 Asia/Shanghai 的城市替换成 Beijing
+    if (info.m_zoneName == "Asia/Shanghai")
+        info.m_zoneCity = "Beijing";
 
     return argument;
 }

@@ -31,6 +31,8 @@ public:
     friend QDBusArgument &operator<<(QDBusArgument & argument, const ZoneInfo & info);
     friend const QDBusArgument &operator>>(const QDBusArgument & argument, ZoneInfo & info);
 
+    bool operator==(const ZoneInfo &what) const;
+
 public:
     QString m_zoneName;
     QString m_zoneCity;

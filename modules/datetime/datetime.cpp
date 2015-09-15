@@ -4,6 +4,7 @@
 #include <QGridLayout>
 #include <QLabel>
 #include <QDesktopWidget>
+#include <QDateTime>
 
 #include <libdui/dseparatorhorizontal.h>
 #include <libdui/dimagebutton.h>
@@ -39,6 +40,10 @@ Datetime::Datetime() :
         info.waitForFinished();
         m_zoneInfoList->append(info.argumentAt<0>());
     }
+
+    // TODO: 现在 GetZoneList 获取不到 "Asia/Shanghai"，但用户是可以设置的，先强制把Shanghai加入进去
+    const ZoneInfo userZoneInfo = m_dbusInter.GetZoneInfo("Asia/Shanghai");
+    m_zoneInfoList->append(userZoneInfo);
 
     // sort by utc offset ascend, if utc offset is equal, sort by city.
     std::sort(m_zoneInfoList->begin(), m_zoneInfoList->end(), [this] (const ZoneInfo & z1, const ZoneInfo & z2) -> bool {
@@ -130,7 +135,6 @@ Datetime::Datetime() :
     connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::removeTimezone, this, &Datetime::toRemoveTimezoneMode);
     connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::addTimezone, this, &Datetime::showTimezoneList);
     connect(m_clockFormatSwitcher, &DSwitchButton::checkedChanged, &m_dbusInter, &DBusTimedate::setUse24HourFormat);
-//    connect(m_clockFormatSwitcher, &DSwitchButton::checkedChanged, m_timeWidget, &TimeWidget::setIs24HourFormat);
     connect(&m_dbusInter, &DBusTimedate::Use24HourFormatChanged, [this] {m_timeWidget->setIs24HourFormat(m_dbusInter.use24HourFormat());});
     connect(&m_dbusInter, &DBusTimedate::Use24HourFormatChanged, m_timeWidget, &TimeWidget::updateTime);
     connect(m_autoSyncSwitcher, &DSwitchButton::checkedChanged, &m_dbusInter, &DBusTimedate::SetNTP);
@@ -138,8 +142,8 @@ Datetime::Datetime() :
     connect(&m_dbusInter, &DBusTimedate::NTPChanged, [this] () -> void {m_dateCtrlWidget->setVisible(!m_dbusInter.nTP());});
     connect(&m_dbusInter, &DBusTimedate::TimezoneChanged, this, &Datetime::showSelectedTimezoneList);
     connect(m_timeWidget, &TimeWidget::applyTime, [this] (const QDateTime & time) -> void {
-        qDebug() << "set time: " << time;
-        m_dbusInter.SetTime(time.currentMSecsSinceEpoch(), true).waitForFinished();
+        qDebug() << "set time: " << time << time.currentMSecsSinceEpoch();
+        m_dbusInter.SetDate(time.date().year(), time.date().month(), time.date().day(), time.time().hour(), time.time().minute(), time.time().second(), time.time().msec()).waitForFinished();
     });
     connect(m_dateCtrlWidget, &DateControlWidget::applyDate, [this] () -> void {
         const QDate date = m_calendar->getSelectDate();
