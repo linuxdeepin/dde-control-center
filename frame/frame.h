@@ -39,6 +39,10 @@ public slots:
 
 signals:
     void hideInLeftChanged(bool hideInLeft);
+    void xChanged();
+
+protected:
+    void moveEvent(QMoveEvent *e);
 
 private:
     void listPlugins();

@@ -9,14 +9,23 @@
 
 DBusWorker::DBusWorker(QObject *parent) : QObject(parent)
 {
-
-}
-
-void DBusWorker::doWork(){
     m_appearanceDaemonInterface = new AppearanceDaemonInterface(staticServiceName(),
                                                                 staticObjectPathName(),
                                                                 QDBusConnection::sessionBus(),
                                                                 this);
+
+    connect(m_appearanceDaemonInterface, &AppearanceDaemonInterface::Changed,
+            m_appearanceDaemonInterface, [this](const QString &str1, const QString &){
+        if(str1 != "background")
+            return;
+
+        m_themeDetails.clear();
+        getDetails(staticTypeKeys.value("TypeDTheme"), m_themeKeys, m_themeDetails);
+        emit themeDetailsChanged(m_themeDetails);
+    });
+}
+
+void DBusWorker::doWork(){
     getKeys(staticTypeKeys.value("TypeDTheme"), m_themeKeys);
     getKeys(staticTypeKeys.value("TypeGtkTheme"), m_windowKeys);
     getKeys(staticTypeKeys.value("TypeIconTheme"), m_iconKeys);

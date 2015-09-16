@@ -60,8 +60,10 @@ Frame::Frame(QWidget *parent) :
     m_hideAni->setDuration(DCC::FrameAnimationDuration);
     m_hideAni->setEasingCurve(DCC::FrameHideCurve);
 
-    if(HideInLeft)
+    if(HideInLeft){
         AnchorsBase::setAnchor(m_homeScreen, Qt::AnchorRight, this, Qt::AnchorRight);
+        AnchorsBase::setAnchor(m_contentView, Qt::AnchorRight, this, Qt::AnchorRight);
+    }
 
     connect(m_dbusXMouseArea, &DBusXMouseArea::ButtonRelease, this, &Frame::globalMouseReleaseEvent);
     connect(m_hideAni, &QPropertyAnimation::finished, this, &QFrame::hide);
@@ -279,12 +281,22 @@ void Frame::setHideInLeft(bool hideInLeft)
     HideInLeft = hideInLeft;
     if(HideInLeft){
         AnchorsBase::setAnchor(m_homeScreen, Qt::AnchorRight, this, Qt::AnchorRight);
+        AnchorsBase::setAnchor(m_contentView, Qt::AnchorRight, this, Qt::AnchorRight);
     }else{
         AnchorsBase::clearAnchors(m_homeScreen);
+        AnchorsBase::clearAnchors(m_contentView);
         AnchorsBase::clearAnchors(this);
         m_homeScreen->move(0, 0);
+        m_contentView->move(0, 0);
     }
 
     updateFrameGeometry(m_primaryScreen->geometry());
     emit hideInLeftChanged(hideInLeft);
+}
+
+void Frame::moveEvent(QMoveEvent *e)
+{
+    QFrame::moveEvent(e);
+
+    emit xChanged();
 }

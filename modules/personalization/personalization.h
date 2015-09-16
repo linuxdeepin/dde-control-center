@@ -16,6 +16,7 @@
 #include <libdui/dcombobox.h>
 #include <libdui/dsimplecombobox.h>
 #include <libdui/dlabel.h>
+#include <libdui/dfontcombobox.h>
 
 
 #include "persionalizationfwd.h"
@@ -127,8 +128,8 @@ private:
     DArrowLineExpand* m_fontExpand = NULL;
     QFrame* m_fontContentFrame = NULL;
 
-    DComboBox* m_standardFontCombox;
-    DComboBox* m_monospaceFontCombox;
+    DFontComboBox* m_standardFontCombox;
+    DFontComboBox* m_monospaceFontCombox;
     DSlider* m_slider;
     DLabel* m_fontTipLabel;
 

@@ -219,9 +219,9 @@ void Personalization::initFontExpand(){
     DLabel* standartLabel = new DLabel(tr("Standard font"));
     DLabel* monospaceLabel = new DLabel(tr("Monospace font"));
     DLabel* sizeLabel = new DLabel(tr("Size"));
-    m_standardFontCombox = new DComboBox;
+    m_standardFontCombox = new DFontComboBox;
     m_standardFontCombox->setFixedHeight(BUTTON_HEIGHT);
-    m_monospaceFontCombox = new DComboBox;
+    m_monospaceFontCombox = new DFontComboBox;
     m_monospaceFontCombox->setFixedHeight(BUTTON_HEIGHT);
 
     QFrame* silidFrame = new QFrame;
@@ -245,19 +245,19 @@ void Personalization::initFontExpand(){
     fontLayout->addRow(standartLabel, m_standardFontCombox);
     fontLayout->addRow(monospaceLabel,m_monospaceFontCombox);
     fontLayout->addRow(sizeLabel, silidFrame);
-    fontLayout->setSpacing(5);
+    fontLayout->setSpacing(15);
     fontLayout->setContentsMargins(10, 10, 10, 10);
     fontLayout->setLabelAlignment(Qt::AlignHCenter | Qt::AlignRight);
 
     m_fontContentFrame = new QFrame;
-    QVBoxLayout *mainLayout = new QVBoxLayout;
-    mainLayout->addLayout(fontLayout);
-    mainLayout->setSpacing(0);
-    mainLayout->setContentsMargins(m_margins);
-    m_fontContentFrame->setLayout(mainLayout);
+    //QVBoxLayout *mainLayout = new QVBoxLayout;
+    //mainLayout->addLayout(fontLayout);
+    //mainLayout->setSpacing(0);
+    //mainLayout->setContentsMargins(m_margins);
+    m_fontContentFrame->setLayout(fontLayout);
     m_contentFrames.append(m_fontContentFrame);
 
-    m_fontContentFrame->setFixedHeight(100);
+    m_fontContentFrame->setFixedHeight(110);
     m_fontExpand->setContent(m_fontContentFrame);
 }
 
@@ -293,6 +293,7 @@ void Personalization::updateThemeObjs(const ThemeObjs &themeObjs){
 
 void Personalization::updateThemeButtons(const ImageInfoList &imageInfos){
     m_themeImageInfos = imageInfos;
+    m_themeButtonGrid->clear();
     m_themeButtonGrid->addImageButtons(imageInfos);
 
     int w = m_themeButtonGrid->width() + m_margins.left() + m_margins.right();
@@ -344,7 +345,7 @@ void Personalization::updateWallpaperButtons(const ImageInfoList &imageInfos){
 void Personalization::updateStandardFontCombox(const QStringList &standardFonts){
     m_standardFonts = standardFonts;
     foreach (QString family, standardFonts) {
-        m_standardFontCombox->addItem(family);
+        m_standardFontCombox->addFontItem(family);
     }
 }
 
@@ -352,7 +353,7 @@ void Personalization::updateStandardFontCombox(const QStringList &standardFonts)
 void Personalization::updateMonospaceFontCombox(const QStringList &monospaceFonts){
     m_monospaceFonts = monospaceFonts;
     foreach (QString family, monospaceFonts) {
-        m_monospaceFontCombox->addItem(family);
+        m_monospaceFontCombox->addFontItem(family);
     }
 }
 

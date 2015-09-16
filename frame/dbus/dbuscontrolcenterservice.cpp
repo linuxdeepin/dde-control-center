@@ -26,7 +26,15 @@ DBusControlCenterService::DBusControlCenterService(Frame *parent)
     : QDBusAbstractAdaptor(parent)
 {
     // constructor
-    setAutoRelaySignals(true);
+
+    connect(parent, &Frame::xChanged, [parent]{
+        QDBusMessage m = QDBusMessage::createSignal("/com/deepin/dde/ControlCenter", "org.freedesktop.DBus.Properties", "PropertiesChanged");
+        QMap<QString, QVariant> changedProperties;
+        changedProperties["X"] = parent->pos().x();
+        QList<QString> invalidatedProperties;
+        m << QVariant("com.deepin.dde.ControlCenter") << changedProperties << QVariant(invalidatedProperties);
+        QDBusConnection::sessionBus().send(m);
+    });
 }
 
 DBusControlCenterService::~DBusControlCenterService()

@@ -117,13 +117,13 @@ void ContentView::reLayout(bool hideInLeft)
 
     m_rightSeparator->setHidden(hideInLeft);
     m_leftSeparator->setVisible(hideInLeft);
-    int index = hideInLeft ? 2 : 0;
-    if(m_layout->count() > 2){
+    int index = hideInLeft ? 3 : 0;
+    if(m_layout->count() > 3){
         QLayoutItem *item = m_layout->itemAt(index);
         QWidget *w = item->widget();
         if(w){
             m_layout->removeItem(item);
-            m_layout->insertWidget(2 - index, w);
+            m_layout->insertWidget(3 - index, w);
         }
     }
 }
