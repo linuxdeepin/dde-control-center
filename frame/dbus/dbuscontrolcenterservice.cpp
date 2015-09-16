@@ -17,6 +17,8 @@
 #include <QtCore/QString>
 #include <QtCore/QStringList>
 #include <QtCore/QVariant>
+#include <QGuiApplication>
+#include <QScreen>
 
 /*
  * Implementation of adaptor class DBusControlCenter
@@ -35,6 +37,8 @@ DBusControlCenterService::DBusControlCenterService(Frame *parent)
         m << QVariant("com.deepin.dde.ControlCenter") << changedProperties << QVariant(invalidatedProperties);
         QDBusConnection::sessionBus().send(m);
     });
+
+    connect(parent, &Frame::hideInLeftChanged, parent, &Frame::xChanged);
 }
 
 DBusControlCenterService::~DBusControlCenterService()
@@ -56,7 +60,9 @@ bool DBusControlCenterService::showInRight() const
 int DBusControlCenterService::x() const
 {
     // get the value of property X
-    return qvariant_cast< int >(parent()->pos().x());
+    return parent()->isHideInLeft()
+            ? qApp->primaryScreen()->geometry().right()
+            :qvariant_cast< int >(parent()->pos().x());
 }
 
 void DBusControlCenterService::Hide()
