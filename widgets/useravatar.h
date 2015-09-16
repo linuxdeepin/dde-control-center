@@ -5,7 +5,6 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <QBitmap>
 #include <QPainter>
 #include <QDebug>
 #include "QPushButton"
@@ -36,6 +35,7 @@ public:
     explicit UserAvatar(QWidget *parent = 0, bool deleteable = false);
     void setIcon(const QString &iconPath, const QSize &size = QSize(0, 0));
     void setAvatarSize(const AvatarSize &avatarSize);
+    void setDisabled(bool disable);
 
     QString iconPath() const;
 
@@ -61,6 +61,7 @@ protected:
     void paintEvent(QPaintEvent *);
 
 private:
+    QImage imageToGray(const QImage &image);
     void initDeleteButton();
 
 private:

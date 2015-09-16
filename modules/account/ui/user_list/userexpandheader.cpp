@@ -21,6 +21,7 @@ UserExpandHeader::UserExpandHeader(const QString &userPath, QWidget *parent)
 void UserExpandHeader::updateIcon()
 {
     m_icon->setIcon(m_accountUser->iconFile());
+    m_icon->setDisabled(m_accountUser->locked());
 }
 
 void UserExpandHeader::updateAccountName()
@@ -87,6 +88,7 @@ void UserExpandHeader::initData()
     updateAccountType();
 
     connect(m_accountUser, &DBusAccountUser::IconFileChanged, this, &UserExpandHeader::updateIcon);
+    connect(m_accountUser, &DBusAccountUser::LockedChanged, this, &UserExpandHeader::updateIcon);
     connect(m_accountUser, &DBusAccountUser::AccountTypeChanged, this, &UserExpandHeader::updateAccountType);
 }
 
