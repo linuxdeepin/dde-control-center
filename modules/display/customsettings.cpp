@@ -306,8 +306,7 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
         if(m_dbusDisplay->displayMode() != 0){
             m_dbusDisplay->SaveChanges();
             m_dbusDisplay->SwitchMode(0, "");
-        }
-        if(m_dbusDisplay->hasChanged()){
+        }else if(m_dbusDisplay->hasChanged()){
             m_dbusDisplay->Apply();
             m_dbusDisplay->SaveChanges();
         }

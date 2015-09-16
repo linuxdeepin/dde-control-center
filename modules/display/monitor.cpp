@@ -25,11 +25,13 @@ Monitor::Monitor(MonitorInterface *dbus, QWidget *parent) :
     m_child(NULL)
 {
     D_THEME_INIT_WIDGET(Monitor, draging, eyeing);
-    m_resolution = QRect(m_dbusInterface->x(), m_dbusInterface->y(), m_dbusInterface->width(), m_dbusInterface->height());
-    connect(m_dbusInterface, &MonitorInterface::XChanged, [this]{m_resolution.moveLeft(m_dbusInterface->x());});
-    connect(m_dbusInterface, &MonitorInterface::YChanged, [this]{m_resolution.moveTop(m_dbusInterface->y());});
-    connect(m_dbusInterface, &MonitorInterface::WidthChanged, [this]{m_resolution.setWidth(m_dbusInterface->width());});
-    connect(m_dbusInterface, &MonitorInterface::HeightChanged, [this]{m_resolution.setHeight(m_dbusInterface->height());});
+    if(dbus){
+        m_resolution = QRect(m_dbusInterface->x(), m_dbusInterface->y(), m_dbusInterface->width(), m_dbusInterface->height());
+        connect(m_dbusInterface, &MonitorInterface::XChanged, [this]{m_resolution.moveLeft(m_dbusInterface->x());});
+        connect(m_dbusInterface, &MonitorInterface::YChanged, [this]{m_resolution.moveTop(m_dbusInterface->y());});
+        connect(m_dbusInterface, &MonitorInterface::WidthChanged, [this]{m_resolution.setWidth(m_dbusInterface->width());});
+        connect(m_dbusInterface, &MonitorInterface::HeightChanged, [this]{m_resolution.setHeight(m_dbusInterface->height());});
+    }
 }
 
 
