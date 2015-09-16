@@ -109,7 +109,7 @@ void UserExpandContent::initAutoLogin()
     m_autoLoginLine->setTitle("Auto Login");
     m_autoLoginLine->setCheck(m_accountUser->automaticLogin());
     connect(m_autoLoginLine, &SwitchLine::checkChanged, [=](bool s){
-        if (s)//just record the valid value(configure file just has single line record,set invalid value will cause error)
+        if (m_accountUser->automaticLogin() != s)//just record the valid value(configure file just has single line record,set invalid value will cause error)
             m_accountUser->SetAutomaticLogin(s);
     });
     connect(m_accountUser, &DBusAccountUser::AutomaticLoginChanged, [=]{
