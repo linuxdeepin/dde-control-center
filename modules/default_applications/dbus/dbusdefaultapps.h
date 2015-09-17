@@ -21,32 +21,7 @@
 #include <QtDBus/QtDBus>
 #include <QtDBus/QDBusArgument>
 
-class AppType
-{
-public:
-    static void registerMetaType();
-
-    friend QDBusArgument &operator<<(QDBusArgument &argument, const AppType& message);
-    friend const QDBusArgument &operator>>(const QDBusArgument &argument, AppType &message);
-    friend QDebug &operator<<(QDebug &argument, const AppType& message);
-
-public:
-    QString s1;
-    QString s2;
-    QString s3;
-};
-
-class AppList
-{
-public:
-    static void registerMetaType();
-
-    friend QDBusArgument &operator<<(QDBusArgument &argument, const AppList& message);
-    friend const QDBusArgument &operator>>(const QDBusArgument &argument, AppList &message);
-
-public:
-    QList<AppType> list;
-};
+#include "apptype.h"
 
 /*
  * Proxy class for interface com.deepin.daemon.DefaultApps
@@ -102,7 +77,4 @@ namespace com {
     }
   }
 }
-
-Q_DECLARE_METATYPE(AppType)
-Q_DECLARE_METATYPE(AppList)
 #endif

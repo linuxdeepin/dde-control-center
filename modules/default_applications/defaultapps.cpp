@@ -6,6 +6,8 @@
 #include <QObject>
 #include <QDBusPendingReply>
 
+#include "moduleheader.h"
+
 #include "defaultapps.h"
 #include "dbus/dbusdefaultapps.h"
 
@@ -15,56 +17,77 @@
 #include <libdui/darrowlineexpand.h>
 #include <libdui/dswitchbutton.h>
 #include <libdui/dbuttonlist.h>
-#include <libdui/dswitchlineexpand.h>
+#include <libdui/dswitchbutton.h>
 
 DUI_USE_NAMESPACE
 
 DefaultApps::DefaultApps()
     : m_dbusDefaultApps(this)
 {
-    AppList::registerMetaType();
     AppType::registerMetaType();
+
+    Q_INIT_RESOURCE(widgets_theme_dark);
+    Q_INIT_RESOURCE(widgets_theme_light);
 
     m_centralWidget = new QFrame;
 
-    QSpacerItem *hSpacer = new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Minimum);
-    //QSpacerItem *vSpacer = new QSpacerItem(0, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
-    QLabel *lbl_title = new QLabel(tr("Default Applications"));
-    lbl_title->setStyleSheet("font-size:16px; font-weight:bold; color:#fff;");
-    DTextButton *btn_reset = new DTextButton(tr("Reset"));
+    m_header = new ModuleHeader(tr("Default Applications"));
 
-    QHBoxLayout *titleLayout = new QHBoxLayout;
-    titleLayout->addWidget(lbl_title);
-    titleLayout->addItem(hSpacer);
-    titleLayout->addWidget(btn_reset);
-    titleLayout->setContentsMargins(15, 15, 15, 15);
-    titleLayout->setSpacing(0);
+    DSwitchButton *autoPlaySwitch = new DSwitchButton;
+    autoPlaySwitch->setChecked(m_dbusDefaultMedia.autoMountOpen());
 
-    DBaseLine *defaultApplications = new DBaseLine;
-    QLabel *lbl_defaultApps = new QLabel(tr("Default Applications"));
-    lbl_defaultApps->setStyleSheet("font-size:14px; font-weight:bold; color:#ccc;");
-    defaultApplications->setLeftContent(lbl_defaultApps);
+    DHeaderLine *defaultApps = new DHeaderLine;
+    defaultApps->setTitle(tr("Default Applications"));
 
-    DSwitchLineExpand *autoPlayApplications = new DSwitchLineExpand;
+    DHeaderLine *autoPlayApplications = new DHeaderLine;
     autoPlayApplications->setTitle(tr("AutoPlay"));
+    autoPlayApplications->setContent(autoPlaySwitch);
+
+    m_appGrp = new DExpandGroup;
+    m_modBrowser = createDefaultAppsExpand(Browser);
+    m_appGrp->addExpand(m_modBrowser);
+    m_modMail = createDefaultAppsExpand(Mail);
+    m_appGrp->addExpand(m_modMail);
+    m_modText = createDefaultAppsExpand(Text);
+    m_appGrp->addExpand(m_modText);
+    m_modMusic = createDefaultAppsExpand(Music);
+    m_appGrp->addExpand(m_modMusic);
+    m_modVideo = createDefaultAppsExpand(Video);
+    m_appGrp->addExpand(m_modVideo);
+    m_modPicture = createDefaultAppsExpand(Picture);
+    m_appGrp->addExpand(m_modPicture);
+    m_modTerminal = createDefaultAppsExpand(Terminal);
+    m_appGrp->addExpand(m_modTerminal);
+
+    m_mediaGrp = new DExpandGroup;
+    m_modCDAudio = createDefaultAppsExpand(CD_Audio);
+    m_mediaGrp->addExpand(m_modCDAudio);
+    m_modDVDVideo = createDefaultAppsExpand(DVD_Video);
+    m_mediaGrp->addExpand(m_modDVDVideo);
+    m_modMusicPlayer = createDefaultAppsExpand(MusicPlayer);
+    m_mediaGrp->addExpand(m_modMusicPlayer);
+    m_modCamera = createDefaultAppsExpand(Camera);
+    m_mediaGrp->addExpand(m_modCamera);
+    m_modSoftware = createDefaultAppsExpand(Software);
+    m_mediaGrp->addExpand(m_modSoftware);
 
     QVBoxLayout *scrollLayout = new QVBoxLayout;
-    scrollLayout->addWidget(defaultApplications);
+    scrollLayout->addWidget(defaultApps);
     scrollLayout->addWidget(new DSeparatorHorizontal);
-    scrollLayout->addWidget(createDefaultAppsExpand(Browser));
-    scrollLayout->addWidget(createDefaultAppsExpand(Mail));
-    scrollLayout->addWidget(createDefaultAppsExpand(Text));
-    scrollLayout->addWidget(createDefaultAppsExpand(Music));
-    scrollLayout->addWidget(createDefaultAppsExpand(Video));
-    scrollLayout->addWidget(createDefaultAppsExpand(Picture));
-    scrollLayout->addWidget(createDefaultAppsExpand(Terminal));
+    scrollLayout->addWidget(m_modBrowser);
+    scrollLayout->addWidget(m_modMail);
+    scrollLayout->addWidget(m_modText);
+    scrollLayout->addWidget(m_modMusic);
+    scrollLayout->addWidget(m_modVideo);
+    scrollLayout->addWidget(m_modPicture);
+    scrollLayout->addWidget(m_modTerminal);
     scrollLayout->addWidget(autoPlayApplications);
     scrollLayout->addWidget(new DSeparatorHorizontal);
-    scrollLayout->addWidget(createDefaultAppsExpand(CD_Audio));
-    scrollLayout->addWidget(createDefaultAppsExpand(DVD_Video));
-    scrollLayout->addWidget(createDefaultAppsExpand(MusicPlayer));
-    scrollLayout->addWidget(createDefaultAppsExpand(Camera));
-    scrollLayout->addWidget(createDefaultAppsExpand(Software));
+    scrollLayout->addWidget(m_modCDAudio);
+    scrollLayout->addWidget(m_modDVDVideo);
+    scrollLayout->addWidget(m_modMusicPlayer);
+    scrollLayout->addWidget(m_modCamera);
+    scrollLayout->addWidget(m_modSoftware);
     //scrollLayout->addItem(vSpacer);
     //scrollLayout->addWidget(new QWidget);
     scrollLayout->addStretch(1);
@@ -74,6 +97,7 @@ DefaultApps::DefaultApps()
     QWidget *scrollWidget = new QWidget;
     scrollWidget->setLayout(scrollLayout);
     scrollWidget->setFixedWidth(310);
+
 /*
     QScrollArea *scrollArea = new QScrollArea;
     scrollArea->setWidget(scrollWidget);
@@ -83,7 +107,7 @@ DefaultApps::DefaultApps()
     scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);*/
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
-    mainLayout->addLayout(titleLayout);
+    mainLayout->addWidget(m_header);
     mainLayout->addWidget(new DSeparatorHorizontal);
     mainLayout->setSpacing(0);
     mainLayout->setMargin(0);
@@ -92,18 +116,29 @@ DefaultApps::DefaultApps()
     m_centralWidget->setLayout(mainLayout);
     m_centralWidget->updateGeometry();
     m_centralWidget->update();
+
+    setMediaOptionVisible(m_dbusDefaultMedia.autoMountOpen());
+
+    connect(autoPlaySwitch, &DSwitchButton::checkedChanged, this, &DefaultApps::setMediaOptionVisible);
 }
 
 DefaultApps::~DefaultApps()
 {    
     qDebug() << "~DefaultApps()";
 
+    m_centralWidget->setParent(nullptr);
     m_centralWidget->deleteLater();
 }
 
 QFrame* DefaultApps::getContent()
 {
     return m_centralWidget;
+}
+
+void DefaultApps::reset()
+{
+    m_dbusDefaultApps.Reset();
+    m_dbusDefaultMedia.Reset();
 }
 
 DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::DefaultAppsCategory &category)
@@ -126,13 +161,66 @@ DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::Defaul
     case Software:      defaultApps->setTitle(tr("Software"));      break;
     }
 
-    int index = 0;
-
     DButtonList *list = new DButtonList;
     list->setItemHeight(30);
-    AppList appList = getAppsListByCategory(category);
-    for (const AppType &i : appList.list)
-        list->addButton(i.s2, index++);
+    list->setItemWidth(310);
+
+    const QString mime = getTypeByCategory(category);
+    bool isMedia = false;
+
+    AppList appList;
+    AppType defaultApp;
+
+    switch (category)
+    {
+    case Browser:
+    case Mail:
+    case Text:
+    case Music:
+    case Video:
+    case Picture:
+    case Terminal:      appList = m_dbusDefaultApps.AppsListViaType(mime);
+                        defaultApp = m_dbusDefaultApps.DefaultAppViaType(mime);         break;
+
+    case CD_Audio:
+    case DVD_Video:
+    case MusicPlayer:
+    case Camera:
+    case Software:      isMedia = true;
+                        appList = m_dbusDefaultMedia.MediaAppListByMime(mime);
+                        defaultApp = m_dbusDefaultMedia.DefaultMediaAppByMime(mime);    break;
+    }
+
+    int selected = -1;
+    for (int i = 0; i != appList.size(); ++i)
+    {
+        list->addButton(appList.at(i).m_appName);
+
+        if (appList.at(i) == defaultApp)
+            selected = i;
+    }
+    if (selected != -1)
+        list->checkButtonByIndex(selected);
+
+    connect(m_header, &ModuleHeader::resetButtonClicked, [=] () -> void {
+        if (!appList.count())
+            return;
+
+        const QString desktop = appList.at(0).m_appDesktop;
+        if (desktop == "nautilus-autorun-software.desktop" ||
+            desktop == "Nothing" ||
+            desktop == "Open Folder")
+            ;// TODO: select nothing.
+        else
+            list->checkButtonByIndex(0);
+    });
+
+    connect(list, &DButtonList::buttonCheckedIndexChanged, [=] (int index) -> void {
+        if (isMedia)
+            m_dbusDefaultMedia.SetMediaAppByMime(mime, appList.at(index).m_appDesktop);
+        else
+            m_dbusDefaultApps.SetDefaultAppViaType(mime, appList.at(index).m_appDesktop);
+    });
 
     QHBoxLayout *layout = new QHBoxLayout;
     layout->addWidget(list);
@@ -141,9 +229,7 @@ DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::Defaul
 
     QWidget *appsList = new QWidget;
 
-    appsList->setFixedHeight(30 * appList.list.count());
-    //list->setFixedSize(list->width(), 30 * appList.list.count());
-    //appsList->setFixedHeight(50);
+    appsList->setFixedHeight(30 * appList.count());
     appsList->setLayout(layout);
 
     defaultApps->setContent(appsList);
@@ -152,29 +238,44 @@ DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::Defaul
     return defaultApps;
 }
 
-AppList DefaultApps::getAppsListByCategory(const DefaultApps::DefaultAppsCategory &category)
+AppList DefaultApps::getMediaListByCategory(const DefaultApps::DefaultAppsCategory &category)
 {
-    QString type = "";
+    QDBusPendingReply<AppList> list = m_dbusDefaultMedia.MediaAppListByMime(getTypeByCategory(category));
+    list.waitForFinished();
 
-    switch (category)
-    {
-    case Browser:       type = "x-scheme-handler/http";     break;
-    case Mail:          type = "x-scheme-handler/mailto";   break;
-    case Text:          type = "text/plain";                break;
-    case Music:         type = "audio/mpeg";                break;
-    case Video:         type = "video/mp4";                 break;
-    case Picture:       type = "image/jpeg";                break;
-    case Terminal:      type = "terminal";                  break;
-    case CD_Audio:      type = "x-content/audio-cdda";      break;
-    case DVD_Video:     type = "x-content/video-dvd";       break;
-    case MusicPlayer:   type = "x-content/audio-player";    break;
-    case Camera:        type = "x-content/image-dcf";       break;
-    case Software:      type = "x-content/unix-software";   break;
-    }
-
-    QDBusPendingReply<AppList> list = m_dbusDefaultApps.AppsListViaType(type);
-
-    qDebug() << type << endl << list.argumentAt<0>().list;
+    qDebug() << "list: " << list.argumentAt<0>() << list.error() << getTypeByCategory(category);
 
     return list.argumentAt<0>();
+}
+
+const QString DefaultApps::getTypeByCategory(const DefaultApps::DefaultAppsCategory &category)
+{
+    switch (category)
+    {
+    case Browser:       return "x-scheme-handler/http";
+    case Mail:          return "x-scheme-handler/mailto";
+    case Text:          return "text/plain";
+    case Music:         return "audio/mpeg";
+    case Video:         return "video/mp4";
+    case Picture:       return "image/jpeg";
+    case Terminal:      return "terminal";
+    case CD_Audio:      return "x-content/audio-cdda";
+    case DVD_Video:     return "x-content/video-dvd";
+    case MusicPlayer:   return "x-content/audio-player";
+    case Camera:        return "x-content/image-dcf";
+    case Software:      return "x-content/unix-software";
+    }
+
+    return QString();
+}
+
+void DefaultApps::setMediaOptionVisible(const bool visible)
+{
+    m_modCDAudio->setVisible(visible);
+    m_modDVDVideo->setVisible(visible);
+    m_modMusicPlayer->setVisible(visible);
+    m_modCamera->setVisible(visible);
+    m_modSoftware->setVisible(visible);
+
+    m_dbusDefaultMedia.setAutoMountOpen(visible);
 }
