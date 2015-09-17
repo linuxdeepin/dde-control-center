@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-20 14:55+0800\n"
-"PO-Revision-Date: 2015-08-20 07:04+0000\n"
-"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
+"PO-Revision-Date: 2015-09-02 12:33+0000\n"
+"Last-Translator: lexross <its4moi@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/linuxdeepin/dde-control-center/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -347,7 +347,7 @@ msgstr "Régler la date"
 #: ../src/modules/default_applications/main.qml:85
 #: ../src/views/ModulesData.qml:69
 msgid "Default Applications"
-msgstr "Applications par défaut"
+msgstr "Applications choisies"
 
 #: ../src/modules/default_applications/main.qml:97
 msgid "Browser"
@@ -444,15 +444,15 @@ msgstr "Normal"
 
 #: ../src/modules/display/MonitorProperties.qml:43
 msgid "Rotate Right"
-msgstr "Faire une rotation sur la droite"
+msgstr "Rotation à droite"
 
 #: ../src/modules/display/MonitorProperties.qml:44
 msgid "Upside Down"
-msgstr "De haut en bas"
+msgstr "Verticale"
 
 #: ../src/modules/display/MonitorProperties.qml:45
 msgid "Rotate Left"
-msgstr "Faire une rotation sur la gauche"
+msgstr "Rotation à gauche"
 
 #: ../src/modules/display/MonitorProperties.qml:78
 msgid "Enable Monitor(s)"
@@ -549,7 +549,7 @@ msgstr "Couleur de texte sélectionnée"
 
 #: ../src/modules/keyboard/LocaleArea.qml:53
 msgid "Language"
-msgstr "Langage"
+msgstr "Language"
 
 #: ../src/modules/keyboard/StateButtons.qml:92
 msgid "Delete Keyboard Layout"
@@ -595,7 +595,7 @@ msgstr "Lent"
 
 #: ../src/modules/keyboard/main.qml:199
 msgid "Cursor Blink Rate"
-msgstr "Vitesse de clignotement du curseur"
+msgstr "Clignotement du curseur"
 
 #: ../src/modules/keyboard/main.qml:225
 msgid "Test Area"
@@ -620,7 +620,7 @@ msgstr "Pavé tactile"
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:82
 #: ../src/modules/mouse_touchpad/main.qml:83
 msgid "Primary Button"
-msgstr "Bouton principal"
+msgstr "Vitesse"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:91
 #: ../src/modules/mouse_touchpad/main.qml:91
@@ -1084,15 +1084,15 @@ msgstr "Mobile"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:23
 msgid "Country or region"
-msgstr ""
+msgstr "Pays ou Region"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:34
 msgid "Provider"
-msgstr ""
+msgstr "F.a.i"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:45
 msgid "Plan"
-msgstr ""
+msgstr "Plan"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:118
 msgid "Network ID"
@@ -1507,7 +1507,7 @@ msgstr "Voir informations détaillées"
 
 #: ../src/modules/network/mobile/MobileItem.qml:27
 msgid "Restore the connection"
-msgstr ""
+msgstr "Rétablir connection"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:48
 msgid "Manual"
@@ -1539,7 +1539,7 @@ msgstr "URL de configuration"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:166
 msgid "Apply system wide"
-msgstr "Appliquer la largeur sur le système"
+msgstr "Appliquer "
 
 #: ../src/modules/network/proxy/ProxyExpand.qml:37
 msgid "System Proxy"
@@ -1645,7 +1645,7 @@ msgstr "Fenêtre"
 
 #: ../src/modules/personalization/main.qml:124
 msgid "Icon"
-msgstr "Icône"
+msgstr "Icônes"
 
 #: ../src/modules/personalization/main.qml:131
 msgid "Cursor"
@@ -1766,42 +1766,42 @@ msgstr "Sur batterie"
 msgid ""
 "You are accessing the desktop shared by other users, you can choose to "
 "continue or disconnect"
-msgstr ""
+msgstr "Vous accédez au bureau partagé par d'autres utilisateurs, vous pouvez choisir de continuer ou de sortir"
 
 #: ../src/modules/remoting/AccessContent/ConnectedItem.qml:42
 #: ../src/modules/remoting/ShareContent/ConnectedItem.qml:46
 msgid "Disconnect"
-msgstr ""
+msgstr "Déconnecter"
 
 #: ../src/modules/remoting/AccessContent/ConnectingItem.qml:50
 msgid "Establishing connection, please wait..."
-msgstr ""
+msgstr "Connection en cours,veuillez patienter..."
 
 #: ../src/modules/remoting/AccessContent/ConnectingItem.qml:75
 msgid ""
 "This panel will be hidden automatically and the remote session window will "
 "be opened on the desktop after connection is established successfully"
-msgstr ""
+msgstr "Ce panneau sera caché automatiquement et la fenêtre de session à distance sera ouverte sur le bureau après que la connexion soit établie avec succès"
 
 #: ../src/modules/remoting/AccessContent/ErrorItem.qml:42
 #: ../src/modules/remoting/AccessPanel.qml:81
 #: ../src/modules/remoting/AccessPanel.qml:127
 msgid "Failed to establish the connection, you can retry to connect"
-msgstr ""
+msgstr "Impossible d'établir la connexion, réessayer de se connecter ?"
 
 #: ../src/modules/remoting/AccessContent/ErrorItem.qml:70
 #: ../src/modules/remoting/ShareContent/ErrorItem.qml:70
 msgid "Retry"
-msgstr ""
+msgstr "Réessayer"
 
 #: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:104
 #: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:149
 msgid "Please enter the verification code in the input field above"
-msgstr ""
+msgstr "Entrez le code de vérification dans le champ de saisie ci-dessus"
 
 #: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:168
 msgid "Start remote access after clicking on \"Connect\""
-msgstr ""
+msgstr "Démarrer l'accès à distance après avoir cliqué sur \"Connection\""
 
 #: ../src/modules/remoting/AccessPanel.qml:60
 #: ../src/modules/remoting/AccessPanel.qml:95
@@ -1809,19 +1809,19 @@ msgstr ""
 #: ../src/modules/remoting/SharePanel.qml:94
 #: ../src/modules/remoting/Widgets/NoNetworkConnection.qml:26
 msgid "No network connections are available, please retry..."
-msgstr ""
+msgstr "Aucune connexions réseaux disponibles, veuillez réessayer ..."
 
 #: ../src/modules/remoting/AccessPanel.qml:122
 msgid "The verification code is invalid, please retry"
-msgstr ""
+msgstr "Le code de vérification est invalide,veuillez réessayer"
 
 #: ../src/modules/remoting/AccessPanel.qml:146
 msgid "Accessing"
-msgstr ""
+msgstr "Accéder"
 
 #: ../src/modules/remoting/MainPanel.qml:28 ../src/views/ModulesData.qml:73
 msgid "Remote Assistance"
-msgstr ""
+msgstr "Aide à distance"
 
 #: ../src/modules/remoting/MainPanel.qml:35
 msgid "Share"
@@ -1829,46 +1829,46 @@ msgstr "Partager"
 
 #: ../src/modules/remoting/MainPanel.qml:36
 msgid "Share your desktop to get remote assistance from other users"
-msgstr ""
+msgstr "Partagez votre bureau pour obtenir une assistance à distance d'autres utilisateurs"
 
 #: ../src/modules/remoting/MainPanel.qml:49
 msgid "Access"
-msgstr ""
+msgstr "Accéder "
 
 #: ../src/modules/remoting/MainPanel.qml:50
 msgid "Access to the desktop shared by other users"
-msgstr ""
+msgstr "Accédez au bureau partagé par d'autres utilisateurs"
 
 #: ../src/modules/remoting/ShareContent/ConnectedItem.qml:35
 msgid ""
 "Sharing your desktop, your can continue to share or choose to disconnect"
-msgstr ""
+msgstr "Partagez votre bureau, vous pouvez continuer à partager ou choisir de vous déconnecter"
 
 #: ../src/modules/remoting/ShareContent/ErrorItem.qml:42
 #: ../src/modules/remoting/SharePanel.qml:80
 #: ../src/modules/remoting/SharePanel.qml:118
 msgid ""
 "Failed to get the verification code, you can retry or cancel the operation"
-msgstr ""
+msgstr "Impossible d'obtenir le code de vérification, vous pouvez réessayer ou annuler l'opération"
 
 #: ../src/modules/remoting/ShareContent/GeneratedCodeItem.qml:62
 msgid ""
 "To start sharing your desktop, please provide the above verification code to"
 " whom will assist you. Your shared session will begin immediately after "
 "verification code input"
-msgstr ""
+msgstr "Pour commencer l'aide à distance, veuillez fournir le code de vérification ci-dessus à la personne qui vous assistera. Votre session partagée débutera immédiatement après l'entrée du code de vérification"
 
 #: ../src/modules/remoting/ShareContent/GeneratedCodeItem.qml:91
 msgid "Copy Code"
-msgstr ""
+msgstr "Insérez le code"
 
 #: ../src/modules/remoting/ShareContent/GeneratedCodeItem.qml:110
 msgid "Copied to clipboard successfully"
-msgstr ""
+msgstr "Copié dans le presse papier avec succès"
 
 #: ../src/modules/remoting/ShareContent/GeneratingCodeItem.qml:48
 msgid "Generating the verification code, please wait..."
-msgstr ""
+msgstr "Génération du code de vérification, veuillez patienter..."
 
 #: ../src/modules/remoting/SharePanel.qml:131
 msgid "Sharing"

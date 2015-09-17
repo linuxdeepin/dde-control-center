@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-20 14:55+0800\n"
-"PO-Revision-Date: 2015-08-20 07:04+0000\n"
-"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
+"PO-Revision-Date: 2015-09-16 17:51+0000\n"
+"Last-Translator: Carl Andersen <carl@manjaro.dk>\n"
 "Language-Team: Danish (http://www.transifex.com/linuxdeepin/dde-control-center/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1086,15 +1086,15 @@ msgstr "Mobil"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:23
 msgid "Country or region"
-msgstr ""
+msgstr "Land eller region"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:34
 msgid "Provider"
-msgstr ""
+msgstr "Udbyder"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:45
 msgid "Plan"
-msgstr ""
+msgstr "Plan"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:118
 msgid "Network ID"
@@ -1509,7 +1509,7 @@ msgstr "Se detaljerede oplysninger"
 
 #: ../src/modules/network/mobile/MobileItem.qml:27
 msgid "Restore the connection"
-msgstr ""
+msgstr "Gendan forbindelsen"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:48
 msgid "Manual"
@@ -1768,42 +1768,42 @@ msgstr "På batteri"
 msgid ""
 "You are accessing the desktop shared by other users, you can choose to "
 "continue or disconnect"
-msgstr ""
+msgstr "Du har adgang til skrivebordet der deles af andre brugere, du kan vælge at fortsætte eller afbryde"
 
 #: ../src/modules/remoting/AccessContent/ConnectedItem.qml:42
 #: ../src/modules/remoting/ShareContent/ConnectedItem.qml:46
 msgid "Disconnect"
-msgstr ""
+msgstr "Afbryd"
 
 #: ../src/modules/remoting/AccessContent/ConnectingItem.qml:50
 msgid "Establishing connection, please wait..."
-msgstr ""
+msgstr "Etablerer forbindelse, vent venligst ..."
 
 #: ../src/modules/remoting/AccessContent/ConnectingItem.qml:75
 msgid ""
 "This panel will be hidden automatically and the remote session window will "
 "be opened on the desktop after connection is established successfully"
-msgstr ""
+msgstr "Dette panel vil være skjult automatisk, og sessions vinduet til fjernbetjening vil blive åbnet på skrivebordet, når forbindelsen er etableret med succes"
 
 #: ../src/modules/remoting/AccessContent/ErrorItem.qml:42
 #: ../src/modules/remoting/AccessPanel.qml:81
 #: ../src/modules/remoting/AccessPanel.qml:127
 msgid "Failed to establish the connection, you can retry to connect"
-msgstr ""
+msgstr "Det lykkedes ikke at oprette forbindelse, du kan prøve at tilslutte igen"
 
 #: ../src/modules/remoting/AccessContent/ErrorItem.qml:70
 #: ../src/modules/remoting/ShareContent/ErrorItem.qml:70
 msgid "Retry"
-msgstr ""
+msgstr "Prøv igen"
 
 #: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:104
 #: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:149
 msgid "Please enter the verification code in the input field above"
-msgstr ""
+msgstr "Indtast venligst bekræftelseskoden i indtastningsfeltet ovenfor"
 
 #: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:168
 msgid "Start remote access after clicking on \"Connect\""
-msgstr ""
+msgstr "Start fjernadgang efter at have klikket på \"Forbind\""
 
 #: ../src/modules/remoting/AccessPanel.qml:60
 #: ../src/modules/remoting/AccessPanel.qml:95
@@ -1811,19 +1811,19 @@ msgstr ""
 #: ../src/modules/remoting/SharePanel.qml:94
 #: ../src/modules/remoting/Widgets/NoNetworkConnection.qml:26
 msgid "No network connections are available, please retry..."
-msgstr ""
+msgstr "Ingen netværksforbindelser er til rådighed, prøv venligst igen..."
 
 #: ../src/modules/remoting/AccessPanel.qml:122
 msgid "The verification code is invalid, please retry"
-msgstr ""
+msgstr "Den bekræftelseskode er ugyldig, prøv venligst igen"
 
 #: ../src/modules/remoting/AccessPanel.qml:146
 msgid "Accessing"
-msgstr ""
+msgstr "Adgang"
 
 #: ../src/modules/remoting/MainPanel.qml:28 ../src/views/ModulesData.qml:73
 msgid "Remote Assistance"
-msgstr ""
+msgstr "Fjernsupport"
 
 #: ../src/modules/remoting/MainPanel.qml:35
 msgid "Share"
@@ -1831,46 +1831,46 @@ msgstr "Del"
 
 #: ../src/modules/remoting/MainPanel.qml:36
 msgid "Share your desktop to get remote assistance from other users"
-msgstr ""
+msgstr "Del dit skrivebord for at få ekstern hjælp fra andre brugere"
 
 #: ../src/modules/remoting/MainPanel.qml:49
 msgid "Access"
-msgstr ""
+msgstr "Der er adgang"
 
 #: ../src/modules/remoting/MainPanel.qml:50
 msgid "Access to the desktop shared by other users"
-msgstr ""
+msgstr "Adgang til skrivebordet deles med andre brugere"
 
 #: ../src/modules/remoting/ShareContent/ConnectedItem.qml:35
 msgid ""
 "Sharing your desktop, your can continue to share or choose to disconnect"
-msgstr ""
+msgstr "Deling af dit skrivebord, du kan fortsætte med at dele, eller vælge at afbryde"
 
 #: ../src/modules/remoting/ShareContent/ErrorItem.qml:42
 #: ../src/modules/remoting/SharePanel.qml:80
 #: ../src/modules/remoting/SharePanel.qml:118
 msgid ""
 "Failed to get the verification code, you can retry or cancel the operation"
-msgstr ""
+msgstr "Det lykkedes ikke at få bekræftelseskode, du kan prøve igen eller annullere handlingen"
 
 #: ../src/modules/remoting/ShareContent/GeneratedCodeItem.qml:62
 msgid ""
 "To start sharing your desktop, please provide the above verification code to"
 " whom will assist you. Your shared session will begin immediately after "
 "verification code input"
-msgstr ""
+msgstr "For at begynde at dele dit skrivebord, skal du give den ovennævnte bekræftelseskode, til hvem som vil hjælpe dig. Din delte session vil begynde umiddelbart efter bekræftelseskode indgang"
 
 #: ../src/modules/remoting/ShareContent/GeneratedCodeItem.qml:91
 msgid "Copy Code"
-msgstr ""
+msgstr "Kopier koden"
 
 #: ../src/modules/remoting/ShareContent/GeneratedCodeItem.qml:110
 msgid "Copied to clipboard successfully"
-msgstr ""
+msgstr "Kopieret til klippebordet med succes"
 
 #: ../src/modules/remoting/ShareContent/GeneratingCodeItem.qml:48
 msgid "Generating the verification code, please wait..."
-msgstr ""
+msgstr "Generering af bekræftelseskoden, vent venligst..."
 
 #: ../src/modules/remoting/SharePanel.qml:131
 msgid "Sharing"

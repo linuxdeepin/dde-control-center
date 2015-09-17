@@ -11,13 +11,14 @@
 # Jorge Sanes <jorgesanes10@hotmail.com>, 2015
 # Jonathan <jyv0708@gmail.com>, 2014
 # Luis Castillo <castilloluis2005@gmail.com>, 2014
+# ranmaruhibikiya <ranmaru.hibikiya@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-20 14:55+0800\n"
-"PO-Revision-Date: 2015-08-20 07:04+0000\n"
-"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
+"PO-Revision-Date: 2015-09-05 17:09+0000\n"
+"Last-Translator: ranmaruhibikiya <ranmaru.hibikiya@gmail.com>\n"
 "Language-Team: Spanish (Latin America) (http://www.transifex.com/linuxdeepin/dde-control-center/language/es_419/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1786,7 +1787,7 @@ msgstr "Estableciendo conexión, por favor esperar..."
 msgid ""
 "This panel will be hidden automatically and the remote session window will "
 "be opened on the desktop after connection is established successfully"
-msgstr ""
+msgstr "Este panel se ocultará automáticamente y la ventana de sesión remota se abrirá sobre el escritorio después de establecer la conexión exitosamente"
 
 #: ../src/modules/remoting/AccessContent/ErrorItem.qml:42
 #: ../src/modules/remoting/AccessPanel.qml:81
@@ -1806,7 +1807,7 @@ msgstr "Por favor escriba el código de verificación en el campo de texto de ar
 
 #: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:168
 msgid "Start remote access after clicking on \"Connect\""
-msgstr ""
+msgstr "Iniciar acceso remoto después de dar clic sobre \"Conectar\""
 
 #: ../src/modules/remoting/AccessPanel.qml:60
 #: ../src/modules/remoting/AccessPanel.qml:95
@@ -1814,11 +1815,11 @@ msgstr ""
 #: ../src/modules/remoting/SharePanel.qml:94
 #: ../src/modules/remoting/Widgets/NoNetworkConnection.qml:26
 msgid "No network connections are available, please retry..."
-msgstr ""
+msgstr "No hay conexiones de red disponibles, por favor intente de nuevo..."
 
 #: ../src/modules/remoting/AccessPanel.qml:122
 msgid "The verification code is invalid, please retry"
-msgstr ""
+msgstr "El código de verificación no es válido, por favor intente de nuevo"
 
 #: ../src/modules/remoting/AccessPanel.qml:146
 msgid "Accessing"
@@ -1847,7 +1848,7 @@ msgstr "Acceso al escritorio compartido por otros usuarios"
 #: ../src/modules/remoting/ShareContent/ConnectedItem.qml:35
 msgid ""
 "Sharing your desktop, your can continue to share or choose to disconnect"
-msgstr ""
+msgstr "Compartiendo su escritorio, puede continuar compartiendo o elegir desconectarse"
 
 #: ../src/modules/remoting/ShareContent/ErrorItem.qml:42
 #: ../src/modules/remoting/SharePanel.qml:80
@@ -1861,7 +1862,7 @@ msgid ""
 "To start sharing your desktop, please provide the above verification code to"
 " whom will assist you. Your shared session will begin immediately after "
 "verification code input"
-msgstr ""
+msgstr "Para empezar a compartir su escritorio, por favor provea con el código de verificación a quien lo asistirá. Su sesión compartida iniciará inmediatamente después de introducir el código de verificación"
 
 #: ../src/modules/remoting/ShareContent/GeneratedCodeItem.qml:91
 msgid "Copy Code"

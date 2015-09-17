@@ -5,6 +5,7 @@
 # Translators:
 # alexandar topalov <verrocchio82@gmail.com>, 2014
 # Galin Iskrenov <loot270@abv.bg>, 2015
+# Georgi Georgiev <georgiev_1994@abv.bg>, 2015
 # Kiril Kirilov <cybercop_montana@abv.bg>, 2014-2015
 # Petya Antonova <gothfield@gmail.com>, 2015
 msgid ""
@@ -12,8 +13,8 @@ msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-20 14:55+0800\n"
-"PO-Revision-Date: 2015-08-28 15:49+0000\n"
-"Last-Translator: Galin Iskrenov <loot270@abv.bg>\n"
+"PO-Revision-Date: 2015-09-01 13:33+0000\n"
+"Last-Translator: Georgi Georgiev <georgiev_1994@abv.bg>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/linuxdeepin/dde-control-center/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1782,13 +1783,13 @@ msgstr "Осъществяване на връзка, почакайте…"
 msgid ""
 "This panel will be hidden automatically and the remote session window will "
 "be opened on the desktop after connection is established successfully"
-msgstr ""
+msgstr "Този панел ще се скрие автоматично и прозореца на сесията за отдалечен достъп ще се отвори след като връзката е осъществена успешно"
 
 #: ../src/modules/remoting/AccessContent/ErrorItem.qml:42
 #: ../src/modules/remoting/AccessPanel.qml:81
 #: ../src/modules/remoting/AccessPanel.qml:127
 msgid "Failed to establish the connection, you can retry to connect"
-msgstr ""
+msgstr "Неуспех при осъществяване на връзката, опитайте отново"
 
 #: ../src/modules/remoting/AccessContent/ErrorItem.qml:70
 #: ../src/modules/remoting/ShareContent/ErrorItem.qml:70
@@ -1798,11 +1799,11 @@ msgstr "Отново"
 #: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:104
 #: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:149
 msgid "Please enter the verification code in the input field above"
-msgstr ""
+msgstr "Моля въведете кода за проверка в полето по-горе"
 
 #: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:168
 msgid "Start remote access after clicking on \"Connect\""
-msgstr ""
+msgstr "Стартирайте отдалечен достъп след като натиснете \"Свързване\""
 
 #: ../src/modules/remoting/AccessPanel.qml:60
 #: ../src/modules/remoting/AccessPanel.qml:95
@@ -1810,15 +1811,15 @@ msgstr ""
 #: ../src/modules/remoting/SharePanel.qml:94
 #: ../src/modules/remoting/Widgets/NoNetworkConnection.qml:26
 msgid "No network connections are available, please retry..."
-msgstr ""
+msgstr "Няма налични интернет връзки, опитайте отново..."
 
 #: ../src/modules/remoting/AccessPanel.qml:122
 msgid "The verification code is invalid, please retry"
-msgstr ""
+msgstr "Кода за проверка е невалиден, опитайте отново"
 
 #: ../src/modules/remoting/AccessPanel.qml:146
 msgid "Accessing"
-msgstr ""
+msgstr "Опит за достъп"
 
 #: ../src/modules/remoting/MainPanel.qml:28 ../src/views/ModulesData.qml:73
 msgid "Remote Assistance"
@@ -1830,46 +1831,46 @@ msgstr "Споделяне"
 
 #: ../src/modules/remoting/MainPanel.qml:36
 msgid "Share your desktop to get remote assistance from other users"
-msgstr ""
+msgstr "Споделете вашия десктоп за да получите отдалечена помощ от другите потребители"
 
 #: ../src/modules/remoting/MainPanel.qml:49
 msgid "Access"
-msgstr ""
+msgstr "Достъп"
 
 #: ../src/modules/remoting/MainPanel.qml:50
 msgid "Access to the desktop shared by other users"
-msgstr ""
+msgstr "Достъп до десктопа, споделен от другите потребители"
 
 #: ../src/modules/remoting/ShareContent/ConnectedItem.qml:35
 msgid ""
 "Sharing your desktop, your can continue to share or choose to disconnect"
-msgstr ""
+msgstr "Споделяне на десктопа, можете да продължите споделянето или да го прекратите"
 
 #: ../src/modules/remoting/ShareContent/ErrorItem.qml:42
 #: ../src/modules/remoting/SharePanel.qml:80
 #: ../src/modules/remoting/SharePanel.qml:118
 msgid ""
 "Failed to get the verification code, you can retry or cancel the operation"
-msgstr ""
+msgstr "Неуспех при получаване на кодът за проверка, опитайте отново или прекъснете операцията"
 
 #: ../src/modules/remoting/ShareContent/GeneratedCodeItem.qml:62
 msgid ""
 "To start sharing your desktop, please provide the above verification code to"
 " whom will assist you. Your shared session will begin immediately after "
 "verification code input"
-msgstr ""
+msgstr "За да започнете споделянето, моля предайте кодът за проверка на този, който ще ви помага. Споделената сесия ще започне веднага след като кодът за проверка е въведен."
 
 #: ../src/modules/remoting/ShareContent/GeneratedCodeItem.qml:91
 msgid "Copy Code"
-msgstr ""
+msgstr "Копиране на код"
 
 #: ../src/modules/remoting/ShareContent/GeneratedCodeItem.qml:110
 msgid "Copied to clipboard successfully"
-msgstr ""
+msgstr "Копирането в системния буфер е успешно"
 
 #: ../src/modules/remoting/ShareContent/GeneratingCodeItem.qml:48
 msgid "Generating the verification code, please wait..."
-msgstr ""
+msgstr "Генериране на кода за проверка, моля почакайте..."
 
 #: ../src/modules/remoting/SharePanel.qml:131
 msgid "Sharing"
