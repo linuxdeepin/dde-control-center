@@ -137,10 +137,15 @@ Datetime::Datetime() :
     connect(m_clockFormatSwitcher, &DSwitchButton::checkedChanged, &m_dbusInter, &DBusTimedate::setUse24HourFormat);
     connect(&m_dbusInter, &DBusTimedate::Use24HourFormatChanged, [this] {m_timeWidget->setIs24HourFormat(m_dbusInter.use24HourFormat());});
     connect(&m_dbusInter, &DBusTimedate::Use24HourFormatChanged, m_timeWidget, &TimeWidget::updateTime);
-    connect(m_autoSyncSwitcher, &DSwitchButton::checkedChanged, &m_dbusInter, &DBusTimedate::SetNTP);
     connect(&m_dbusInter, &DBusTimedate::NTPChanged, [this] {m_timeWidget->setEditable(!m_dbusInter.nTP());});
     connect(&m_dbusInter, &DBusTimedate::NTPChanged, [this] () -> void {m_dateCtrlWidget->setVisible(!m_dbusInter.nTP());});
     connect(&m_dbusInter, &DBusTimedate::TimezoneChanged, this, &Datetime::showSelectedTimezoneList);
+    connect(m_autoSyncSwitcher, &DSwitchButton::checkedChanged, [this] {
+        QDBusPendingReply<> reply = m_dbusInter.SetNTP(m_autoSyncSwitcher->checked());
+        reply.waitForFinished();
+        if (reply.isError())
+            m_autoSyncSwitcher->setChecked(m_dbusInter.nTP());
+    });
     connect(m_timeWidget, &TimeWidget::applyTime, [this] (const QDateTime & time) -> void {
         qDebug() << "set time: " << time << time.currentMSecsSinceEpoch();
         m_dbusInter.SetDate(time.date().year(), time.date().month(), time.date().day(), time.time().hour(), time.time().minute(), time.time().second(), time.time().msec()).waitForFinished();
@@ -150,9 +155,10 @@ Datetime::Datetime() :
         const QTime time = QTime::currentTime();
         qDebug() << "set date: " << date << time;
 
-        m_dbusInter.SetDate(date.year(), date.month(), date.day(), time.hour(), time.minute(), time.second(), time.msec()).waitForFinished();
-        // TODO: reset current date only apply successful
-        m_calendar->setCurrentDate(date);
+        QDBusPendingReply<> reply = m_dbusInter.SetDate(date.year(), date.month(), date.day(), time.hour(), time.minute(), time.second(), time.msec());
+        reply.waitForFinished();
+        if (!reply.isError())
+            m_calendar->setCurrentDate(date);
     });
 
     qDebug() << getZoneCityListByOffset(m_dbusInter.GetZoneInfo(m_dbusInter.timezone()).argumentAt<0>().m_utcOffset);
