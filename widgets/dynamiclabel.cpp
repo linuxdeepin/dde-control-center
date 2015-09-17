@@ -56,7 +56,8 @@ QEasingCurve::Type DynamicLabel::easingType() const
 void DynamicLabel::setText(const QString &text)
 {
     m_label->setText(text);
-    setFixedSize(m_label->sizeHint());
+    setMinimumWidth(m_label->sizeHint().width());
+    setFixedHeight(m_label->sizeHint().height());
 }
 
 void DynamicLabel::showLabel()
@@ -64,10 +65,10 @@ void DynamicLabel::showLabel()
     m_animation->stop();
 
     show();
-    QRect rect = this->rect();
-    rect.setX(width());
+    QRect rect = m_label->rect();
+    rect.moveLeft(width());
     m_animation->setStartValue(rect);
-    rect.setX(0);
+    rect.moveRight(width());
     m_animation->setEndValue(rect);
     m_animation->start();
 
@@ -79,10 +80,10 @@ void DynamicLabel::hideLabel()
     if(isHidden())
         return;
 
-    QRect rect = this->rect();
-    rect.setX(0);
+    QRect rect = m_label->rect();
+    rect.moveRight(width());
     m_animation->setStartValue(rect);
-    rect.setX(width());
+    rect.moveLeft(width());
     m_animation->setEndValue(rect);
     m_animation->start();
 }
