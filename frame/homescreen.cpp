@@ -235,8 +235,13 @@ ModuleButton::ModuleButton(ModuleMetaData metaData, QWidget *parent) :
     setFixedSize(90, 90);
     setMouseTracking(true);
 
+    // text font
+    QFont font(QFont().family());
+    font.setPixelSize(11);
+
     m_icon = new QLabel(this);
     m_text = new QLabel(this);
+    m_text->setFont(font);
     m_text->setText(m_meta.name);
     m_text->setWordWrap(true);
     m_text->setAlignment(Qt::AlignCenter);
