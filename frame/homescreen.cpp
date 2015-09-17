@@ -28,7 +28,8 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     m_dbusUserInfo = new DBusUser(m_dbusAccounts->userList().first(), this);
 
     m_grid = new QGridLayout;
-    m_grid->setContentsMargins(0, 25, 0, 0);
+    m_grid->setContentsMargins(40, 25, 40, 0);
+    m_grid->setSpacing(5);
     foreach(ModuleMetaData meta, modules) {
         ModuleButton *button = new ModuleButton(meta, this);
 
@@ -42,6 +43,8 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     QSpacerItem *vSpace = new QSpacerItem(1, 1, QSizePolicy::Minimum, QSizePolicy::MinimumExpanding);
     centerVLayout->addLayout(m_grid);
     centerVLayout->addSpacerItem(vSpace);
+    centerVLayout->setSpacing(0);
+    centerVLayout->setMargin(0);
 
     m_centerWidget = new QWidget(this);
     m_centerWidget->setLayout(centerVLayout);
@@ -229,7 +232,7 @@ ModuleButton::ModuleButton(ModuleMetaData metaData, QWidget *parent) :
     QFrame(parent),
     m_meta(metaData)
 {
-    setFixedSize(96, 96);
+    setFixedSize(90, 90);
     setMouseTracking(true);
 
     m_icon = new QLabel(this);
@@ -238,16 +241,13 @@ ModuleButton::ModuleButton(ModuleMetaData metaData, QWidget *parent) :
     m_text->setWordWrap(true);
     m_text->setAlignment(Qt::AlignCenter);
 
-    QHBoxLayout *hLayout = new QHBoxLayout;
-    hLayout->addStretch();
-    hLayout->addWidget(m_icon);
-    hLayout->addStretch();
-
     QVBoxLayout *vLayout = new QVBoxLayout;
-    vLayout->addLayout(hLayout);
+    vLayout->addWidget(m_icon);
+    vLayout->setAlignment(m_icon, Qt::AlignCenter);
     vLayout->addWidget(m_text);
-    vLayout->setContentsMargins(0, 15, 0, 0);
-    vLayout->setSpacing(0);
+    vLayout->addStretch();
+    vLayout->setContentsMargins(0, 14, 0, 0);
+    vLayout->setSpacing(6);
 
     this->setLayout(vLayout);
 
