@@ -22,8 +22,8 @@ static const uint HomeScreen_TopWidgetHeight = 150;
 static const uint HomeScreen_BottomWidgetHeight = 86;
 
 static const uint FrameAnimationDuration = 300;
-static const QEasingCurve FrameShowCurve = QEasingCurve::InQuart;
-static const QEasingCurve FrameHideCurve = QEasingCurve::OutQuart;
+static const QEasingCurve FrameShowCurve = QEasingCurve::Linear;
+static const QEasingCurve FrameHideCurve = QEasingCurve::Linear;
 
 static const uint TipsMoveAnimationDuration = 200;
 static const QEasingCurve TipsMoveCurve = QEasingCurve::OutCubic;
