@@ -220,9 +220,9 @@ void Personalization::initFontExpand(){
     DLabel* monospaceLabel = new DLabel(tr("Monospace font"));
     DLabel* sizeLabel = new DLabel(tr("Size"));
     m_standardFontCombox = new DFontComboBox;
-    m_standardFontCombox->setFixedHeight(BUTTON_HEIGHT);
+    m_standardFontCombox->setFixedSize(200, BUTTON_HEIGHT);
     m_monospaceFontCombox = new DFontComboBox;
-    m_monospaceFontCombox->setFixedHeight(BUTTON_HEIGHT);
+    m_monospaceFontCombox->setFixedSize(200, BUTTON_HEIGHT);
 
     QFrame* silidFrame = new QFrame;
 
