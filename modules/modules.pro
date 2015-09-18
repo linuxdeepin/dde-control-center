@@ -4,7 +4,7 @@ SUBDIRS  = sound \
 #           bluetooth \
 #           network \
            default_applications \
-           grub \
+#           grub \
            mouse \
            system_info \
            display \
@@ -13,3 +13,7 @@ SUBDIRS  = sound \
            personalization\
            keyboard \
            datetime
+
+isEqual(WITHOUT_MODULE_GRUB, NO){
+    SUBDIRS += grub
+}

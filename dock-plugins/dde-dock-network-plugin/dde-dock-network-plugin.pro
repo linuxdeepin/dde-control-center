@@ -37,10 +37,6 @@ HEADERS += plugins.h \
 
 DISTFILES += dde-dock-network-plugin.json
 
-target.path = /usr/share/dde-dock/plugins/
-
-INSTALLS += target
-
 RESOURCES += \
     images.qrc \
     qss.qrc

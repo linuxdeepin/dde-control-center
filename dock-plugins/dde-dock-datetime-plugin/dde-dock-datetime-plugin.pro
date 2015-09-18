@@ -22,10 +22,6 @@ HEADERS += datetimeplugin.h \
 
 DISTFILES += dde-dock-datetime-plugin.json
 
-target.path = /usr/share/dde-dock/plugins/
-
-INSTALLS += target
-
 RESOURCES += \
     images.qrc
 

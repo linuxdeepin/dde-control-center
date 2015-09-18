@@ -28,11 +28,6 @@ HEADERS += diskmountplugin.h \
     umountbutton.h
 DISTFILES += dde-dock-diskmount-plugin.json
 
-unix {
-    target.path = /usr/share/dde-dock/plugins/
-    INSTALLS += target
-}
-
 RESOURCES += \
     qss.qrc \
     disk-images.qrc

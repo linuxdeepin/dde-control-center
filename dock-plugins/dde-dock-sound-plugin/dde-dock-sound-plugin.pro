@@ -39,11 +39,6 @@ HEADERS += soundplugin.h \
     iconlabel.h
 DISTFILES += dde-dock-sound-plugin.json
 
-unix {
-    target.path = /usr/share/dde-dock/plugins/
-    INSTALLS += target
-}
-
 PKGCONFIG += gtk+-2.0
 
 RESOURCES += \
