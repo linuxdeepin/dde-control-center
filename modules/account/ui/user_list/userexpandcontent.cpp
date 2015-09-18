@@ -101,6 +101,7 @@ void UserExpandContent::initAvatarPanel()
 
     m_mainLayout->addSpacing(LAYOUT_SPACING);
     m_mainLayout->addWidget(m_stackWidget, 0, Qt::AlignHCenter);
+    m_mainLayout->addWidget(new DSeparatorHorizontal);
 }
 
 void UserExpandContent::initAutoLogin()
@@ -175,6 +176,7 @@ void UserExpandContent::onAvatarSelected(const QString &avatar)
 void UserExpandContent::updateSize(bool note)
 {
     int totalHeight = 0;
+    totalHeight += LAYOUT_SPACING * 2;
     totalHeight += m_stackWidget->height();
     totalHeight += m_segmentedControl->height();
     totalHeight += m_passwordFrame->height();
