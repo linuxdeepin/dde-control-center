@@ -1,6 +1,7 @@
 #include <QDebug>
 #include <QTimer>
 #include <QFile>
+#include <QResizeEvent>
 
 #include <libdui/libdui_global.h>
 #include <libdui/dthememanager.h>
@@ -19,18 +20,19 @@ DynamicLabel::DynamicLabel(QWidget *parent) :
     D_THEME_INIT_WIDGET(DynamicLabel);
 
     m_animation->setTargetObject(m_label);
-    m_animation->setPropertyName("geometry");
+    m_animation->setPropertyName("pos");
 
-    connect(m_animation, SIGNAL(finished()), SLOT(update()));
-    connect(m_animation, &QPropertyAnimation::finished, [&]{
-        if(m_label->width() == 0){
+    connect(m_animation, &QPropertyAnimation::finished, [this]{
+        update();
+        if(m_label->geometry().left() == width())
             emit hideFinished();
-            hide();
-        }
     });
-
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    hide();
+}
+
+QString DynamicLabel::text() const
+{
+    return m_label->text();
 }
 
 QLabel *DynamicLabel::label() const
@@ -53,40 +55,50 @@ QEasingCurve::Type DynamicLabel::easingType() const
     return m_animation->easingCurve().type();
 }
 
+QSize DynamicLabel::sizeHint() const
+{
+    return m_label->sizeHint();
+}
+
 void DynamicLabel::setText(const QString &text)
 {
     m_label->setText(text);
-    m_label->setFixedWidth(qMin(width(), m_label->fontMetrics().width(text)));
-    setFixedHeight(m_label->sizeHint().height());
-    m_label->setFixedHeight(height());
+    updateGeometry();
+    resize(m_label->sizeHint());
 }
 
 void DynamicLabel::showLabel()
 {
+    m_delayTimer.stop();
     m_animation->stop();
-
-    show();
-    QRect rect = m_label->rect();
-    rect.moveLeft(width());
-    m_animation->setStartValue(rect);
-    rect.moveRight(width());
-    m_animation->setEndValue(rect);
+    m_animation->setStartValue(QPoint(width(), 0));
+    m_animation->setEndValue(QPoint(width() - qMin(m_label->width(), m_label->fontMetrics().width(text())), 0));
     m_animation->start();
-
-    update();
 }
 
 void DynamicLabel::hideLabel()
 {
-    if(isHidden())
-        return;
-
-    QRect rect = m_label->rect();
-    rect.moveRight(width());
-    m_animation->setStartValue(rect);
-    rect.moveLeft(width());
-    m_animation->setEndValue(rect);
+    m_delayTimer.stop();
+    m_animation->stop();
+    m_animation->setStartValue(QPoint(m_label->x(), 0));
+    m_animation->setEndValue(QPoint(width(), 0));
     m_animation->start();
+}
+
+void DynamicLabel::delayShowLabel(int duration)
+{
+    m_delayTimer.stop();
+    disconnect(&m_delayTimer, &QTimer::timeout, this, &DynamicLabel::hideLabel);
+    connect(&m_delayTimer, &QTimer::timeout, this, &DynamicLabel::showLabel);
+    m_delayTimer.start(duration);
+}
+
+void DynamicLabel::delayHideLabel(int duration)
+{
+    m_delayTimer.stop();
+    disconnect(&m_delayTimer, &QTimer::timeout, this, &DynamicLabel::showLabel);
+    connect(&m_delayTimer, &QTimer::timeout, this, &DynamicLabel::hideLabel);
+    m_delayTimer.start(duration);
 }
 
 void DynamicLabel::setColor(QColor color)
@@ -103,5 +115,11 @@ void DynamicLabel::setDuration(int duration)
 void DynamicLabel::setEasingType(QEasingCurve::Type easingType)
 {
     m_animation->setEasingCurve(easingType);
+}
+
+void DynamicLabel::resizeEvent(QResizeEvent *e)
+{
+    QFrame::resizeEvent(e);
+    m_label->setFixedSize(e->size());
 }
 
