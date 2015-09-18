@@ -31,11 +31,11 @@ Power::~Power()
 
 void Power::updateBatteryUsedControlUI() {
     if (!m_batteryIsPresent) {
-         m_batterySettingDHeaderLine->hide();
+         m_batterySettingDBaseLine->hide();
          m_batterySettingExpand->hide();
          m_batteryCustomExtendBoard->hide();
     } else {
-        m_batterySettingDHeaderLine->show();
+        m_batterySettingDBaseLine->show();
         m_batterySettingExpand->show();
         m_batteryCustomExtendBoard->show();
     }
@@ -60,18 +60,39 @@ void Power::initClockWhenActiveUI()
 }
 
 void Power::initPowerConnectionPanelUI() {
-    m_prePowerSettingHeaderLine = new DHeaderLine;
-    m_powerSettingDHeaderLine = new DHeaderLine;
-    m_powerSettingDHeaderLine->setTitle(tr("Plugged in"));
+    m_powerSettingDBaseLine = new DBaseLine;
+    QLabel* breatingPowerTotalLabel = new QLabel;
+    breatingPowerTotalLabel->setFixedHeight(60);
+    m_powerConnectionBreathingLabel = new DBreathingLabel;
+    m_powerConnectionBreathingLabel->setColor(DCC::TextNormalColor);
+    m_powerConnectionBreathingLabel->setText(tr("Plugged in"));
+    breatingPowerTotalLabel->setSizePolicy(QSizePolicy::Expanding,
+                                           QSizePolicy::Expanding);
+
+    QVBoxLayout* powerBreathingLayout = new QVBoxLayout;
+    powerBreathingLayout->setMargin(0);
+    powerBreathingLayout->setSpacing(0);
+    powerBreathingLayout->addStretch();
+    powerBreathingLayout->addWidget(m_powerConnectionBreathingLabel);
+    powerBreathingLayout->addSpacing(5);
+    breatingPowerTotalLabel->setLayout(powerBreathingLayout);
+
+    m_powerSettingDBaseLine->setLeftContent(breatingPowerTotalLabel);
+
 
     m_powerSettingExpand = new DBaseExpand;
     m_powerSettingExpand->setFixedHeight(m_bgContentHeight);
-    m_powerSettingExpand->setHeader(m_powerSettingDHeaderLine);
+    m_powerSettingExpand->setHeader(m_powerSettingDBaseLine);
     m_powerSettingExpand->setHeaderHeight(30);
 
-    m_powerDynamicLabel = new DynamicLabel(m_powerSettingDHeaderLine);
-    m_powerDynamicLabel->setDuration(500);
+    m_powerSettingDBaseLine->setFixedHeight(60);
+    m_powerDynamicLabel = new DynamicLabel(m_powerSettingDBaseLine);
+    m_powerDynamicLabel->setFixedSize(310, 55);
+    m_powerDynamicLabel->label()->setFixedHeight(55);
+    m_powerDynamicLabel->label()->setAlignment(Qt::AlignBottom);
+    m_powerDynamicLabel->label()->setWordWrap(true);
 
+    m_powerDynamicLabel->setDuration(500);
     m_powerPerformanceButtonGroup = new DButtonGrid(2, 2);
 
     m_powerPerformaceString << tr("Balanced") << tr("Power saver") << tr("High performance") << tr("Custom");
@@ -87,27 +108,46 @@ void Power::initPowerConnectionPanelUI() {
     powerConnectLayout = new QVBoxLayout;
     powerConnectLayout->setMargin(0);
     powerConnectLayout->setSpacing(0);
-    powerConnectLayout->addWidget(m_prePowerSettingHeaderLine);
-    powerConnectLayout->addWidget(m_powerSettingDHeaderLine);
+    powerConnectLayout->addWidget(m_powerSettingDBaseLine);
     powerConnectLayout->addWidget(m_powerSettingExpand);
     powerConnectLayout->addWidget(m_powerCustomExtendBoard);
 
 }
 void Power::initBatteryUsedUI() {
     /////////////////////////////////////////////////////////--use battery setting panel
-    m_preBatterySettingHeaderLine = new DHeaderLine;
-    m_batterySettingDHeaderLine = new DHeaderLine;
-    m_batterySettingDHeaderLine->setTitle(tr("On battery"));
+    m_batterySettingDBaseLine = new DBaseLine;
+
+    QLabel* breatingBatteryTotalLabel = new QLabel;
+    breatingBatteryTotalLabel->setFixedHeight(60);
+    breatingBatteryTotalLabel->setSizePolicy(QSizePolicy::Expanding,
+                                             QSizePolicy::Expanding);
+
+    m_batteryBreathingLabel = new DBreathingLabel;
+    m_batteryBreathingLabel->setText(tr("On battery"));
+    m_batteryBreathingLabel->setColor(DCC::TextNormalColor);
+
+    QVBoxLayout* batteryBreathingLayout = new QVBoxLayout;
+    batteryBreathingLayout->setMargin(0);
+    batteryBreathingLayout->setSpacing(0);
+    batteryBreathingLayout->addStretch();
+    batteryBreathingLayout->addWidget(m_batteryBreathingLabel);
+    batteryBreathingLayout->addSpacing(5);
+    breatingBatteryTotalLabel->setLayout(batteryBreathingLayout);
+
 
     m_batterySettingExpand = new DBaseExpand;
-
-    m_batteryDynamicLabel = new DynamicLabel(m_batterySettingDHeaderLine);
-    m_batteryDynamicLabel->setDuration(500);
+    m_batterySettingDBaseLine->setLeftContent(breatingBatteryTotalLabel);
+    m_batterySettingDBaseLine->setFixedHeight(60);
+    m_batteryDynamicLabel = new DynamicLabel(m_batterySettingDBaseLine);
+    m_batteryDynamicLabel->setFixedSize(310, 55);
+    m_batteryDynamicLabel->label()->setFixedHeight(55);
+    m_batteryDynamicLabel->label()->setAlignment(Qt::AlignBottom);
+    m_batteryDynamicLabel->label()->setWordWrap(true);
 
 
     m_batterySettingExpand->setFixedHeight(m_bgContentHeight);
-    m_batterySettingExpand->setHeader(m_batterySettingDHeaderLine);
-    m_batterySettingExpand->setHeaderHeight(m_contentHeight);
+    m_batterySettingExpand->setHeader(m_batterySettingDBaseLine);
+    m_batterySettingExpand->setHeaderHeight(60);
     m_batteryButtonGrid = new DButtonGrid(2, 2);
     m_powerPerformaceString << tr("Balanced") << tr("Power saver") << tr("High performance") << tr("Custom");
     m_batteryButtonGrid->addButtons(m_powerPerformaceString);
@@ -123,8 +163,7 @@ void Power::initBatteryUsedUI() {
     batteryUsedLayout = new QVBoxLayout;
     batteryUsedLayout->setMargin(0);
     batteryUsedLayout->setSpacing(0);
-    batteryUsedLayout->addWidget(m_preBatterySettingHeaderLine);
-    batteryUsedLayout->addWidget(m_batterySettingDHeaderLine);
+    batteryUsedLayout->addWidget(m_batterySettingDBaseLine);
     batteryUsedLayout->addWidget(m_batterySettingExpand);
     batteryUsedLayout->addWidget(m_batteryCustomExtendBoard);
 

@@ -56,8 +56,9 @@ QEasingCurve::Type DynamicLabel::easingType() const
 void DynamicLabel::setText(const QString &text)
 {
     m_label->setText(text);
-    setMinimumWidth(m_label->sizeHint().width());
+    m_label->setFixedWidth(qMin(width(), m_label->fontMetrics().width(text)));
     setFixedHeight(m_label->sizeHint().height());
+    m_label->setFixedHeight(height());
 }
 
 void DynamicLabel::showLabel()

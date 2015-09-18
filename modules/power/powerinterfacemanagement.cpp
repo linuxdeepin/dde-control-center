@@ -193,12 +193,6 @@ QString PowerInterfaceManagement::setPowerTooltipText(QString itemId, QString po
     }
 
     QString tooltip_content = QString(tr("Turn off the display: %1 Suspend: %2 ").arg(argument_display).arg(argument_suspend));
-    QFont labelFont;
-    QFontMetrics fm(labelFont);
-    int width=fm.width(tooltip_content);
-    if (width>=250) {
-        tooltip_content = QString(tr("Turn off the display: %1 \n Suspend: %2 ").arg(argument_display).arg(argument_suspend));
-    }
     return tooltip_content;
 }
 void PowerInterfaceManagement::initConnection() {

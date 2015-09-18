@@ -22,7 +22,7 @@
 #include "presspowerbuttonaction.h"
 #include "powerinterfacemanagement.h"
 #include "dynamiclabel.h"
-
+#include "dbreathinglabel.h"
 DUI_USE_NAMESPACE
 class QLabel;
 class QFrame;
@@ -65,8 +65,9 @@ private:
     QStringList m_powerPerformaceString;
     DButtonGrid* m_powerPerformanceButtonGroup;
     DHeaderLine* m_prePowerSettingHeaderLine;
-    DHeaderLine* m_powerSettingDHeaderLine;
-    DHeaderLine* m_powerSettingBaseLine;
+    DBaseLine* m_powerSettingDBaseLine;
+//    DBaseLine* m_powerSettingBaseLine;
+    DBreathingLabel* m_powerConnectionBreathingLabel;
     DSeparatorHorizontal* m_forthHSeparator;
     DBaseExpand* m_powerSettingExpand;
     DExtendBoard* m_powerCustomExtendBoard;
@@ -74,8 +75,8 @@ private:
 // use battery
     QVBoxLayout* batteryUsedLayout;
     DButtonGrid* m_batteryButtonGrid;
-    DHeaderLine* m_preBatterySettingHeaderLine;
-    DHeaderLine* m_batterySettingDHeaderLine;
+    DBaseLine* m_batterySettingDBaseLine;
+    DBreathingLabel* m_batteryBreathingLabel;
     DSeparatorHorizontal* m_sixthHSeparator;
     DBaseExpand* m_batterySettingExpand;
     DExtendBoard* m_batteryCustomExtendBoard;
@@ -157,17 +158,16 @@ public slots:
     }
     inline void  showPowerTooltip(QString itemId) {
         setPowerDynamicTooltip(itemId);
-        int move_x, move_y;
-
-        if (m_powerDynamicLabel->height()>=16) { move_y = 0;}
-        else { move_y = 9;}
-        if (m_powerDynamicLabel->width()>=165) { move_x = 110;}
-        else { move_x = 140;}
-        m_powerDynamicLabel->move(move_x, move_y);
+        QFont labelFont; QFontMetrics fm(labelFont);
+        QString tips = m_powerInterfaceManagement->setPowerTooltipText(itemId, "power");
+        if (fm.width(tips) > 240) {
+            m_powerConnectionBreathingLabel->hideLabel();
+        }
         m_powerDynamicLabel->showLabel();
     }
     inline void  hidePowerTooltip(QString itemId) {
         Q_UNUSED(itemId);
+        m_powerConnectionBreathingLabel->showLabel();
         m_powerDynamicLabel->hideLabel();
     }
     inline void  setBatteryDynamicTooltip(QString itemId) {
@@ -176,13 +176,12 @@ public slots:
     }
     inline void  showBatteryTooltip(QString itemId) {
         setBatteryDynamicTooltip(itemId);
-        int move_x, move_y;
-
-        if (m_batteryDynamicLabel->height()>=16) { move_y = 0;}
-        else { move_y = 9;}
-        if (m_batteryDynamicLabel->width()>=165) { move_x = 110;}
-        else { move_x = 140;}
-        m_batteryDynamicLabel->move(move_x, move_y);
+        QFont labelFont; QFontMetrics fm(labelFont);
+        QString tips = m_powerInterfaceManagement->setPowerTooltipText(itemId, "battery");
+        qDebug() << fm.width(tips);
+        if (fm.width(tips) > 240) {
+            m_batteryBreathingLabel->hideLabel();
+        }
         m_batteryDynamicLabel->showLabel();
     }
     inline void  hideBatteryTooltip(QString itemId) {
