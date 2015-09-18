@@ -15,6 +15,7 @@
 #include "libdui/dseparatorhorizontal.h"
 #include "generalremovebutton.h"
 #include "generaladdbutton.h"
+#include "dynamiclabel.h"
 
 class AccountMainWidget : public QFrame
 {

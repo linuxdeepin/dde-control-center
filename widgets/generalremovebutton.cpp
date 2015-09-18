@@ -8,3 +8,13 @@ GeneralRemoveButton::GeneralRemoveButton(QWidget *parent) : DImageButton(parent)
     setFixedSize(24, 23);   //image's size
 }
 
+void GeneralRemoveButton::enterEvent(QEvent *)
+{
+    emit mouseEnter();
+}
+
+void GeneralRemoveButton::leaveEvent(QEvent *)
+{
+    emit mouseLeave();
+}
+

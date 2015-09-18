@@ -40,10 +40,12 @@ void AccountMainWidget::initHeader()
     DSeparatorHorizontal *separator = new DSeparatorHorizontal;
     m_mainLayout->addWidget(separator);
 
+
     initHeaderStackWidget();
 
     m_header->setRightContent(m_headerStackWidget);
 
+    //dsTr("Delete Account")dsTr("Add Account")
     QWidget *headerButtonContent = new QWidget();
     QHBoxLayout *buttonLayout = new QHBoxLayout();
     buttonLayout->setContentsMargins(0, 0, 0, 0);
@@ -73,6 +75,8 @@ void AccountMainWidget::initHeader()
     m_headerStackWidget->addWidget(headerButtonContent);
     m_headerStackWidget->addWidget(lbFrame);
 
+    DynamicLabel *toolTip = new DynamicLabel(m_header);
+
     connect(this, &AccountMainWidget::cancelDelete, [=]{
        if (deleteButton){
            deleteButton->setChecked(false);
@@ -80,6 +84,7 @@ void AccountMainWidget::initHeader()
            m_state = StateNormal;
        }
     });
+
     connect(deleteButton, &GeneralRemoveButton::stateChanged, [=]{
         DImageButton::State buttonState = deleteButton->getState();
         if (buttonState == DImageButton::Hover || buttonState == DImageButton::Press)
@@ -99,9 +104,30 @@ void AccountMainWidget::initHeader()
             emit requestDelete(false);
             break;
         }
+        toolTip->hideLabel();
     });
+    connect(deleteButton, &GeneralRemoveButton::mouseEnter, [=]{
+        toolTip->setText(tr("Delete Account"));
+        //the x or width value is valid after all component ready,infact it only need move once
+        toolTip->move(deleteButton->mapToGlobal(QPoint(0, 0)).x() - toolTip->width(),
+                      (m_header->height() - toolTip->height()) / 2);
+
+        toolTip->showLabel();
+    });
+    connect(deleteButton, &GeneralRemoveButton::mouseLeave, [=]{
+        toolTip->hideLabel();
+    });
+
     connect(addButton, &GeneralAddButton::clicked, [=]{
         setPanelState(StateCreating);
+        toolTip->hideLabel();
+    });
+    connect(addButton, &GeneralAddButton::mouseEnter, [=]{
+        toolTip->setText(tr("Add Account"));
+        toolTip->showLabel();
+    });
+    connect(addButton, &GeneralAddButton::mouseLeave, [=]{
+        toolTip->hideLabel();
     });
 
 }

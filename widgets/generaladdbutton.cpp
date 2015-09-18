@@ -6,3 +6,13 @@ GeneralAddButton::GeneralAddButton(QWidget *parent) : DImageButton(parent)
     setCheckable(false);
 }
 
+void GeneralAddButton::enterEvent(QEvent *)
+{
+    emit mouseEnter();
+}
+
+void GeneralAddButton::leaveEvent(QEvent *)
+{
+    emit mouseLeave();
+}
+
