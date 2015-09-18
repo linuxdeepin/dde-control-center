@@ -21,6 +21,7 @@ class Frame: public QFrame
     Q_OBJECT
 
     Q_PROPERTY(bool hideInLeft READ isHideInLeft WRITE setHideInLeft NOTIFY hideInLeftChanged)
+    Q_PROPERTY(bool canNotHide READ canNotHide WRITE setCanNotHide NOTIFY canNotHideChanged)
 
 public:
     Frame(QWidget *parent = 0);
@@ -32,14 +33,17 @@ public:
     inline bool isHideInLeft() const {return m_hideInLeft;}
     void selectModule(const QString &moduleId);
     int visibleFrameXPos();
+    bool canNotHide() const;
 
 public slots:
     void setHideInLeft(bool hideInLeft);
     void updateGeometry();
+    void setCanNotHide(bool canNotHide);
 
 signals:
     void hideInLeftChanged(bool hideInLeft);
     void xChanged();
+    void canNotHideChanged(bool canNotHide);
 
 private:
     void listPlugins();
@@ -61,6 +65,7 @@ private:
 
     bool m_visible = false;
     bool m_hideInLeft = true;
+    bool m_canNotHide = false;
 };
 
 #endif

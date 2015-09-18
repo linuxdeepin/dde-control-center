@@ -21,7 +21,8 @@ HEADERS += $$PWD/searchlist.h \
     $$PWD/listwidget.h \
     $$PWD/inputwarningframe.h \
     $$PWD/anchors.h \
-    $$PWD/dbreathinglabel.h
+    $$PWD/dbreathinglabel.h \
+    $$PWD/mousearea.h
 SOURCES += $$PWD/searchlist.cpp \
     $$PWD/dynamiclabel.cpp \
     $$PWD/moduleheader.cpp \
@@ -43,7 +44,8 @@ SOURCES += $$PWD/searchlist.cpp \
     $$PWD/listwidget.cpp \
     $$PWD/inputwarningframe.cpp \
     $$PWD/anchors.cpp \
-    $$PWD/dbreathinglabel.cpp
+    $$PWD/dbreathinglabel.cpp \
+    $$PWD/mousearea.cpp
 
 RESOURCES += \
     $$PWD/themes/widgets_theme_dark.qrc \

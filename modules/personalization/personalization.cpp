@@ -11,6 +11,8 @@
 #include <QThread>
 #include <QFormLayout>
 
+#include "mousearea.h"
+
 DUI_USE_NAMESPACE
 
 Personalization::Personalization():m_margins(0, 5, 0, 5)
@@ -30,6 +32,14 @@ void Personalization::initUI(){
     m_headerLine->setStyleSheet("font-size: 16px;color:white");
     m_headerLine->setFixedHeight(50);
     m_headerLine->setTitle(tr("Personalization"));
+
+    m_previewWindow = new PreviewWindow;
+    connect(m_previewWindow, &PreviewWindow::apply, [this](const QString &key){
+        if(m_dbusWorker->getCurrentTheme() != key){
+            m_dbusWorker->setTheme(m_dbusWorker->staticTypeKeys.value("TypeDTheme"), key);
+        }
+        m_previewWindow->close();
+    });
 
     DSeparatorHorizontal* horizontalSeparator = new DSeparatorHorizontal();
     initThemeExpand();
@@ -294,7 +304,34 @@ void Personalization::updateThemeObjs(const ThemeObjs &themeObjs){
 void Personalization::updateThemeButtons(const ImageInfoList &imageInfos){
     m_themeImageInfos = imageInfos;
     m_themeButtonGrid->clear();
-    m_themeButtonGrid->addImageButtons(imageInfos);
+
+    for(int i = 0; i < imageInfos.count(); ++i){
+        const QMap<QString, QString> &map = imageInfos.at(i);
+        ImageButton *button = new ImageButton(map.value("url"), map.value("name"));
+        button->setCheckable(true);
+
+        MouseArea *mousearea = new MouseArea(button);
+        mousearea->setHoverEnabled(true);
+        mousearea->resize(button->size());
+
+        ImageButton *preview = new ImageButton("", "", false, mousearea);
+        preview->setStyleSheet("*{border:none;}");
+        preview->setIcon(QIcon(":/images/preview.png"));
+        preview->move(115, 8);
+        preview->hide();
+
+        QString key = map["key"];
+
+        connect(mousearea, &MouseArea::entered, preview, &ImageButton::show);
+        connect(mousearea, &MouseArea::exited, preview, &ImageButton::hide);
+        connect(preview, &ImageButton::clicked, m_previewWindow, [this, key]{
+            m_previewWindow->show(key);
+        });
+        connect(preview, &ImageButton::clicked, m_previewWindow, [this, key]{
+            m_previewWindow->setImages(m_dbusWorker->getPreviewImages(key));
+        });
+        m_themeButtonGrid->addButtonWidget(button, i);
+    }
 
     int w = m_themeButtonGrid->width() + m_margins.left() + m_margins.right();
     int h = m_themeButtonGrid->height() + m_margins.top() + m_margins.bottom();
@@ -363,7 +400,7 @@ void Personalization::handleDataFinished(){
     }
 
     int space = qApp->desktop()->screenGeometry().height() - m_headerLine->height();
-    foreach (DBaseExpand* expand, m_expandGroup->expands()) {
+    for (int i=0; i< m_expandGroup->expands().count(); ++i) {
         space -= EXPAND_HEADER_HEIGHT + 2;
     }
 
@@ -465,7 +502,8 @@ void Personalization::updateCurrentTheme(QString themeKey){
 void Personalization::setThemeByIndex(int index){
     if (m_themeKeys.length() > index){
         QString key = m_themeImageInfos.at(index).value("key");
-        m_dbusWorker->setTheme(m_dbusWorker->staticTypeKeys.value("TypeDTheme"), key);
+        if(m_dbusWorker->getCurrentTheme() != key)
+            m_dbusWorker->setTheme(m_dbusWorker->staticTypeKeys.value("TypeDTheme"), key);
     }else{
         qDebug() << "set theme Error" <<  m_themeKeys << index;
     }
@@ -547,6 +585,7 @@ Personalization::~Personalization()
     m_workerThread.quit();
     m_workerThread.wait();
     m_frame->deleteLater();
+    m_previewWindow->deleteLater();
 }
 
 QFrame* Personalization::getContent()

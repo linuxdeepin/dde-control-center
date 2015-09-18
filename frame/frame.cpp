@@ -117,7 +117,7 @@ void Frame::show(bool imme)
 
 void Frame::hide(bool imme)
 {
-    if (!m_visible || m_showAni->state() == QPropertyAnimation::Running) {
+    if (m_canNotHide || !m_visible || m_showAni->state() == QPropertyAnimation::Running) {
         return;
     }
     m_visible = false;
@@ -221,6 +221,11 @@ int Frame::visibleFrameXPos()
     return pos().x() + m_centeralWidget->pos().x();
 }
 
+bool Frame::canNotHide() const
+{
+    return m_canNotHide;
+}
+
 void Frame::setHideInLeft(bool hideInLeft)
 {
     if (m_hideInLeft == hideInLeft)
@@ -261,4 +266,13 @@ void Frame::updateGeometry()
     m_homeScreen->setFixedHeight(primaryScreen->size().height());
 
     QFrame::updateGeometry();
+}
+
+void Frame::setCanNotHide(bool canNotHide)
+{
+    if (m_canNotHide == canNotHide)
+        return;
+
+    m_canNotHide = canNotHide;
+    emit canNotHideChanged(canNotHide);
 }

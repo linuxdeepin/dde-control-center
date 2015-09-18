@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/close_normal.png</file>
+        <file>images/close_press.png</file>
+        <file>images/left_normal.png</file>
+        <file>images/left_pressed.png</file>
+        <file>images/preview.png</file>
+        <file>images/right_normal.png</file>
+        <file>images/right_pressed.png</file>
+    </qresource>
+</RCC>

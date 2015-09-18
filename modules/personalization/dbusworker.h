@@ -41,6 +41,7 @@ public:
     QString getCurrentTheme();
     QJsonObject getThemeByKey(QString theme);
     void getThemeObjs();
+    QStringList getPreviewImages(const QString &themeName) const;
 
 signals:
     void themeKeysChanged(const QStringList& themeKeys);
