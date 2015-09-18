@@ -62,7 +62,7 @@ int DBusControlCenterService::x() const
     // get the value of property X
     return parent()->isHideInLeft()
             ? qApp->primaryScreen()->geometry().right()
-            :qvariant_cast< int >(parent()->pos().x());
+            : qvariant_cast< int >(parent()->visibleFrameXPos());
 }
 
 void DBusControlCenterService::Hide()

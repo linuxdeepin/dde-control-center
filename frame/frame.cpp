@@ -2,6 +2,8 @@
 #include "homescreen.h"
 #include "contentview.h"
 #include "constants.h"
+#include "dtipsframe.h"
+#include "dbus/displayinterface.h"
 
 #include <QDir>
 #include <QLibrary>
@@ -15,36 +17,45 @@
 
 #include <libdui/dapplication.h>
 
-#include "anchors.h"
-
-#include "dbus/displayinterface.h"
-#include "dtipsframe.h"
-
 DUI_USE_NAMESPACE
 
 Frame::Frame(QWidget *parent) :
     QFrame(parent),
     m_dbusXMouseArea(new DBusXMouseArea(this))
 {
-    setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::Tool | Qt::X11BypassWindowManagerHint);
-    setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
-    resize(0, 0);
-    setFocusPolicy(Qt::StrongFocus);
+    QPalette palette;
+    palette.setColor(QPalette::Background, DCC::BgLightColor);
+    m_centeralWidget = new QWidget(this);
+    m_centeralWidget->setPalette(palette);
+    m_centeralWidget->setAutoFillBackground(true);
 
-    setStyleSheet(QString("Frame { background-color:%1;}").arg(DCC::BgLightColor.name()));
-
-    this->listPlugins();
-
-#ifdef QT_DEBUG
-    HideInLeft = true;
-#endif
-
-    m_contentView = new ContentView(m_modules, HideInLeft, this);
+    listPlugins();
+    m_contentView = new ContentView(m_modules, m_hideInLeft, m_centeralWidget);
     m_contentView->setFixedWidth(DCC::ControlCenterWidth);
-
-    m_homeScreen = new HomeScreen(m_modules, this);
+    m_homeScreen = new HomeScreen(m_modules, m_centeralWidget);
     m_homeScreen->setFixedWidth(DCC::ControlCenterWidth);
 
+    m_showAni = new QPropertyAnimation(m_centeralWidget, "pos");
+    m_showAni->setDuration(DCC::FrameAnimationDuration);
+    m_showAni->setEasingCurve(DCC::FrameShowCurve);
+
+    m_hideAni = new QPropertyAnimation(m_centeralWidget, "pos");
+    m_hideAni->setDuration(DCC::FrameAnimationDuration);
+    m_hideAni->setEasingCurve(DCC::FrameHideCurve);
+
+    const QSize frameSize(DCC::ControlCenterWidth, qApp->primaryScreen()->size().height());
+    m_centeralWidget->setFixedSize(frameSize);
+    m_contentView->setFixedSize(frameSize);
+    m_homeScreen->setFixedSize(frameSize);
+
+    DisplayInterface *display_dbus = new DisplayInterface(this);
+    connect(display_dbus, &DisplayInterface::PrimaryChanged, this, &Frame::updateGeometry);
+    connect(this, &Frame::hideInLeftChanged, this, &Frame::updateGeometry);
+    connect(m_dbusXMouseArea, &DBusXMouseArea::ButtonRelease, this, &Frame::globalMouseReleaseEvent);
+    connect(m_hideAni, &QPropertyAnimation::finished, this, &QFrame::hide);
+    connect(m_hideAni, &QPropertyAnimation::valueChanged, this, &Frame::xChanged);
+    connect(m_showAni, &QPropertyAnimation::valueChanged, this, &Frame::xChanged);
+    connect(m_showAni, &QPropertyAnimation::finished, m_centeralWidget, static_cast<void (QWidget::*)()>(&QWidget::update));
     connect(m_homeScreen, SIGNAL(moduleSelected(ModuleMetaData)), this, SLOT(selectModule(ModuleMetaData)));
     connect(m_contentView, &ContentView::homeSelected, [ = ] {this->selectModule(ModuleMetaData());});
     connect(m_contentView, &ContentView::shutdownSelected, m_homeScreen, &HomeScreen::powerButtonClicked, Qt::DirectConnection);
@@ -52,39 +63,12 @@ Frame::Frame(QWidget *parent) :
     connect(m_homeScreen, &HomeScreen::showAniFinished, m_contentView, &ContentView::unloadOldPlugin);
     connect(this, &Frame::hideInLeftChanged, m_contentView, &ContentView::reLayout);
 
-    m_showAni = new QPropertyAnimation(this, "geometry");
-    m_showAni->setDuration(DCC::FrameAnimationDuration);
-    m_showAni->setEasingCurve(DCC::FrameShowCurve);
-
-    m_hideAni = new QPropertyAnimation(this, "geometry");
-    m_hideAni->setDuration(DCC::FrameAnimationDuration);
-    m_hideAni->setEasingCurve(DCC::FrameHideCurve);
-
-    if(HideInLeft){
-        AnchorsBase::setAnchor(m_homeScreen, Qt::AnchorRight, this, Qt::AnchorRight);
-        AnchorsBase::setAnchor(m_contentView, Qt::AnchorRight, this, Qt::AnchorRight);
-    }
-
-    connect(m_dbusXMouseArea, &DBusXMouseArea::ButtonRelease, this, &Frame::globalMouseReleaseEvent);
-    connect(m_hideAni, &QPropertyAnimation::finished, this, &QFrame::hide);
-
-    m_primaryScreen = qApp->primaryScreen();
-    updateFrameGeometry(m_primaryScreen->geometry());
-    connect(m_primaryScreen, &QScreen::geometryChanged, this, &Frame::updateFrameGeometry);
-
-    DisplayInterface *display_dbus = new DisplayInterface(this);
-    connect(display_dbus, &DisplayInterface::PrimaryChanged, [this, display_dbus]{
-        disconnect(m_primaryScreen, &QScreen::geometryChanged, this, &Frame::updateFrameGeometry);
-
-        foreach (QScreen *s, qApp->screens()) {
-            if(s->name() == display_dbus->primary()){
-                m_primaryScreen = s;
-                break;
-            }
-        }
-        updateFrameGeometry(m_primaryScreen->geometry());
-        connect(m_primaryScreen, &QScreen::geometryChanged, this, &Frame::updateFrameGeometry);
-    });
+    setFixedSize(frameSize);
+    setWindowFlags(Qt::X11BypassWindowManagerHint);
+    setAttribute(Qt::WA_TranslucentBackground);
+    setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    setFocusPolicy(Qt::StrongFocus);
+    setHideInLeft(false);
 }
 
 Frame::~Frame()
@@ -109,38 +93,26 @@ void Frame::show(bool imme)
     m_visible = true;
 
     if (imme) {
-        updateFrameGeometry(m_primaryScreen->geometry());
-        resize(DCC::ControlCenterWidth, height());
-        QFrame::show();
+        m_centeralWidget->move(0, 0);
     } else {
-        QRect startRect(0, y(), 0, height());
-        QRect endRect(0, y(), DCC::ControlCenterWidth, height());
+        int startX = m_hideInLeft ? -DCC::ControlCenterWidth : DCC::ControlCenterWidth;
 
-        if (HideInLeft) {
-            endRect.moveLeft(m_primaryScreen->geometry().left());
-            startRect.moveLeft(endRect.left());
-            startRect.setRight(endRect.left() -1);
-        } else {
-            endRect.moveRight(m_primaryScreen->geometry().right());
-            startRect.moveRight(endRect.right());
-            startRect.setLeft(endRect.right() + 1);
-        }
-
-        QFrame::show();
         m_hideAni->stop();
         m_showAni->stop();
-        m_showAni->setStartValue(startRect);
-        m_showAni->setEndValue(endRect);
+        m_showAni->setStartValue(QPoint(startX, 0));
+        m_showAni->setEndValue(QPoint(0, 0));
         m_showAni->start();
     }
-
-    setFocus();
-    activateWindow();
 
     QDBusPendingReply<QString> reply = m_dbusXMouseArea->RegisterFullScreen();
     reply.waitForFinished();
     m_dbusFullScreenKey = reply.value();
-    qDebug() << "register full screen: " << m_dbusFullScreenKey;
+
+    QFrame::show();
+    setFocus();
+    activateWindow();
+
+    emit xChanged();
 }
 
 void Frame::hide(bool imme)
@@ -153,32 +125,18 @@ void Frame::hide(bool imme)
     if (imme) {
         QFrame::hide();
     } else {
-        QRect startRect(0, y(), 0, height());
-        QRect endRect(0, y(), DCC::ControlCenterWidth, height());
+        int endX = m_hideInLeft ? -DCC::ControlCenterWidth : DCC::ControlCenterWidth;
 
-        if (HideInLeft) {
-            endRect.moveLeft(m_primaryScreen->geometry().left());
-            startRect.moveLeft(endRect.left());
-            startRect.setRight(endRect.left() -1);
-        } else {
-            endRect.moveRight(m_primaryScreen->geometry().right());
-            startRect.moveRight(endRect.right());
-            startRect.setLeft(endRect.right() + 1);
-        }
-
-        m_showAni->stop();
         m_hideAni->stop();
-        m_hideAni->setStartValue(endRect);
-        m_hideAni->setEndValue(startRect);
+        m_showAni->stop();
+        m_hideAni->setEndValue(QPoint(endX, 0));
+        m_hideAni->setStartValue(QPoint(0, 0));
         m_hideAni->start();
     }
 
     m_dbusXMouseArea->UnregisterArea(m_dbusFullScreenKey).waitForFinished();
-}
 
-bool Frame::isHideInLeft() const
-{
-    return HideInLeft;
+    emit xChanged();
 }
 
 // private methods
@@ -249,21 +207,6 @@ void Frame::globalMouseReleaseEvent(int button, int x, int y)
     }
 }
 
-void Frame::updateFrameGeometry(QRect rect)
-{
-    setFixedHeight(rect.height());
-    QRect tmp = this->geometry();
-    tmp.moveTop(rect.top());
-    if(HideInLeft)
-        tmp.moveLeft(rect.left());
-    else
-        tmp.moveRight(rect.right());
-    move(tmp.topLeft());
-
-    m_contentView->setFixedHeight(this->height());
-    m_homeScreen->setFixedHeight(this->height());
-}
-
 void Frame::selectModule(const QString &moduleId)
 {
     qDebug() << "select to" << moduleId;
@@ -273,30 +216,49 @@ void Frame::selectModule(const QString &moduleId)
         }
 }
 
+int Frame::visibleFrameXPos()
+{
+    return pos().x() + m_centeralWidget->pos().x();
+}
+
 void Frame::setHideInLeft(bool hideInLeft)
 {
-    if (HideInLeft == hideInLeft)
+    if (m_hideInLeft == hideInLeft)
         return;
 
-    HideInLeft = hideInLeft;
-    if(HideInLeft){
-        AnchorsBase::setAnchor(m_homeScreen, Qt::AnchorRight, this, Qt::AnchorRight);
-        AnchorsBase::setAnchor(m_contentView, Qt::AnchorRight, this, Qt::AnchorRight);
-    }else{
-        AnchorsBase::clearAnchors(m_homeScreen);
-        AnchorsBase::clearAnchors(m_contentView);
-        AnchorsBase::clearAnchors(this);
-        m_homeScreen->move(0, 0);
-        m_contentView->move(0, 0);
-    }
+    m_hideInLeft = hideInLeft;
 
-    updateFrameGeometry(m_primaryScreen->geometry());
     emit hideInLeftChanged(hideInLeft);
 }
 
-void Frame::moveEvent(QMoveEvent *e)
+void Frame::updateGeometry()
 {
-    QFrame::moveEvent(e);
+    DisplayInterface *inter = qobject_cast<DisplayInterface *>(sender());
+    QScreen *primaryScreen = qApp->primaryScreen();
 
-    emit xChanged();
+    if (inter)
+    {
+        for (QScreen *screen : qApp->screens())
+        {
+            if (screen->name() == inter->primary())
+            {
+                primaryScreen = screen;
+                break;
+            }
+        }
+    }
+
+    int posX;
+    if (m_hideInLeft)
+        posX = primaryScreen->geometry().left();
+    else
+        posX = primaryScreen->geometry().right() - DCC::ControlCenterWidth + 1;
+
+    move(posX, primaryScreen->geometry().y());
+    setFixedHeight(primaryScreen->size().height());
+    m_centeralWidget->setFixedHeight(primaryScreen->size().height());
+    m_contentView->setFixedHeight(primaryScreen->size().height());
+    m_homeScreen->setFixedHeight(primaryScreen->size().height());
+
+    QFrame::updateGeometry();
 }

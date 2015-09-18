@@ -6,8 +6,6 @@
 #include <QDBusAbstractAdaptor>
 #include <QPropertyAnimation>
 
-#include "anchors.h"
-
 #include "interfaces.h"
 #include "modulemetadata.h"
 #include "dbus/dbuscontrolcenter.h"
@@ -31,18 +29,17 @@ public:
     void keyPressEvent(QKeyEvent *event) Q_DECL_OVERRIDE;
     void show(bool imme = false);
     void hide(bool imme = false);
-    bool isHideInLeft() const;
+    inline bool isHideInLeft() const {return m_hideInLeft;}
     void selectModule(const QString &moduleId);
+    int visibleFrameXPos();
 
 public slots:
     void setHideInLeft(bool hideInLeft);
+    void updateGeometry();
 
 signals:
     void hideInLeftChanged(bool hideInLeft);
     void xChanged();
-
-protected:
-    void moveEvent(QMoveEvent *e);
 
 private:
     void listPlugins();
@@ -50,7 +47,6 @@ private:
 private slots:
     void selectModule(ModuleMetaData metaData);
     void globalMouseReleaseEvent(int button, int x, int y);
-    void updateFrameGeometry(QRect rect);
 
 private:
     HomeScreen *m_homeScreen;
@@ -59,12 +55,12 @@ private:
     QPropertyAnimation *m_showAni;
     QPropertyAnimation *m_hideAni;
     DBusXMouseArea *m_dbusXMouseArea;
-    QScreen *m_primaryScreen;
+    QWidget *m_centeralWidget;
 
     QString m_dbusFullScreenKey = QString();
 
     bool m_visible = false;
-    bool HideInLeft = false;
+    bool m_hideInLeft = true;
 };
 
 #endif
