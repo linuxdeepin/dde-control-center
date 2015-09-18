@@ -35,10 +35,6 @@ UserExpandHeader {
 }
 
 /********************************** Create Frame ************************/
-CreateUserPanel {
-    qproperty-lineBackgroundColor: #1A1B1B;
-}
-
 QLabel#CreateHeaderLabel {
     font-size: 14px;
     color: #01BDFF;

@@ -11,10 +11,9 @@
 #include "libdui/dsegmentedcontrol.h"
 #include "libdui/dswitchlineexpand.h"
 #include "webcamavatarpanel.h"
-#include "accounttypeline.h"
 #include "passwordframe.h"
 #include "avatargrid.h"
-#include "switchline.h"
+#include "../controlline.h"
 
 DUI_USE_NAMESPACE
 
@@ -51,8 +50,8 @@ private:
     DSegmentedControl *m_segmentedControl = NULL;
     PasswordFrame *m_passwordFrame = NULL;
     AccountTypeLine *m_typeLine = NULL;
-    SwitchLine *m_autoLoginLine = NULL;
-    SwitchLine *m_lockLine = NULL;
+    AccountSwitchLine *m_autoLoginLine = NULL;
+    AccountSwitchLine *m_lockLine = NULL;
 
     QString m_userPath = "";
 

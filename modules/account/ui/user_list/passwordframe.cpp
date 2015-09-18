@@ -50,9 +50,10 @@ void PasswordFrame::onPasswdRepeatChanged(const QString &passwd)
 
 void PasswordFrame::initInactiveWidget()
 {
-    DHeaderLine * line = new DHeaderLine();
-    DTextButton *button = new DTextButton("....");
-    line->setTitle("Password");
+    AccountHeaderLine * line = new AccountHeaderLine();
+    DTextButton *button = new DTextButton("\u2022\u0020\u2022\u0020\u2022\u0020\u2022");
+    button->setStyleSheet("border:none;color: #b4b4b4;font-size: 14px;outline:none;");
+    line->setTitle(tr("Password"));
     line->setContent(button);
     connect(button, &QPushButton::clicked, [=]{
         setCurrentIndex(1);
@@ -72,17 +73,17 @@ void PasswordFrame::initActiveWidget()
     layout->setMargin(0);
     layout->setSpacing(0);
 
-    m_lineNew = new PasswdLine();
+    m_lineNew = new AccountPasswdLine();
     m_lineNew->setTitle("New Password");
-    m_lineRepeat = new PasswdLine();
+    m_lineRepeat = new AccountPasswdLine();
     m_lineRepeat->setTitle("Repeat Password");
-    connect(m_lineNew, &PasswdLine::textChanged, this, &PasswordFrame::onPasswdChanged);
-    connect(m_lineNew, &PasswdLine::focusChanged, this, &PasswordFrame::onPasswdFocusChanged);
-    connect(m_lineRepeat, &PasswdLine::textChanged, this, &PasswordFrame::onPasswdRepeatChanged);
-    connect(m_lineRepeat, &PasswdLine::focusChanged, this, &PasswordFrame::onPasswdRepeatFocusChanged);
+    connect(m_lineNew, &AccountPasswdLine::textChanged, this, &PasswordFrame::onPasswdChanged);
+    connect(m_lineNew, &AccountPasswdLine::focusChanged, this, &PasswordFrame::onPasswdFocusChanged);
+    connect(m_lineRepeat, &AccountPasswdLine::textChanged, this, &PasswordFrame::onPasswdRepeatChanged);
+    connect(m_lineRepeat, &AccountPasswdLine::focusChanged, this, &PasswordFrame::onPasswdRepeatFocusChanged);
 
-    ConfirmButtonLine *lineButton = new ConfirmButtonLine();
-    connect(lineButton, &ConfirmButtonLine::cancel, [=]{
+    AccountConfirmButtonLine *lineButton = new AccountConfirmButtonLine();
+    connect(lineButton, &AccountConfirmButtonLine::cancel, [=]{
         setCurrentIndex(0);
         setFixedHeight(m_lineNew->height());
 
@@ -90,7 +91,7 @@ void PasswordFrame::initActiveWidget()
 
         resetData();
     });
-    connect(lineButton, &ConfirmButtonLine::confirm, [=]{
+    connect(lineButton, &AccountConfirmButtonLine::confirm, [=]{
         if (validate()){
             emit changePassword(m_lineNew->text());
 

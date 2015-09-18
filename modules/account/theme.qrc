@@ -2,6 +2,8 @@
     <qresource prefix="/">
         <file>dark/AccountMainWidget.theme</file>
         <file>light/AccountMainWidget.theme</file>
+        <file>dark/AccountHeaderLine.theme</file>
+        <file>light/AccountHeaderLine.theme</file>
     </qresource>
     <qresource prefix="/images">
         <file>dark/images/delete_icon.png</file>

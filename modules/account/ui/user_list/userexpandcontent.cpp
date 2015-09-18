@@ -105,10 +105,10 @@ void UserExpandContent::initAvatarPanel()
 
 void UserExpandContent::initAutoLogin()
 {
-    m_autoLoginLine = new SwitchLine();
+    m_autoLoginLine = new AccountSwitchLine();
     m_autoLoginLine->setTitle("Auto Login");
     m_autoLoginLine->setCheck(m_accountUser->automaticLogin());
-    connect(m_autoLoginLine, &SwitchLine::checkChanged, [=](bool s){
+    connect(m_autoLoginLine, &AccountSwitchLine::checkChanged, [=](bool s){
         if (m_accountUser->automaticLogin() != s)//just record the valid value(configure file just has single line record,set invalid value will cause error)
             m_accountUser->SetAutomaticLogin(s);
     });
@@ -121,10 +121,10 @@ void UserExpandContent::initAutoLogin()
 
 void UserExpandContent::initUserEnable()
 {
-    m_lockLine = new SwitchLine();
+    m_lockLine = new AccountSwitchLine();
     m_lockLine->setTitle("Enable");
     m_lockLine->setCheck(!m_accountUser->locked());
-    connect(m_lockLine, &SwitchLine::checkChanged, [=](bool s){
+    connect(m_lockLine, &AccountSwitchLine::checkChanged, [=](bool s){
         m_accountUser->SetLocked(!s);
     });
     connect(m_accountUser, &DBusAccountUser::LockedChanged, [=]{

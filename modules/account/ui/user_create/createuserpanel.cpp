@@ -90,17 +90,17 @@ void CreateUserPanel::initInfoLine()
 
 void CreateUserPanel::initInputLline()
 {
-    m_nameLine = new InputLine();
-    m_passwdNew = new PasswdLine();
-    m_passwdRepeat = new PasswdLine();
+    m_nameLine = new AccountInputLine();
+    m_passwdNew = new AccountPasswdLine();
+    m_passwdRepeat = new AccountPasswdLine();
     m_accountType = new AccountTypeLine();
-    m_autoLogin = new SwitchLine();
-    connect(m_nameLine, &InputLine::textChanged, this, &CreateUserPanel::onNameChanged);
-    connect(m_passwdNew, &PasswdLine::textChanged, this, &CreateUserPanel::onPasswdChanged);
-    connect(m_passwdRepeat, &PasswdLine::textChanged, this, &CreateUserPanel::onPasswdRepeatChanged);
-    connect(m_nameLine, &InputLine::focusChanged, this, &CreateUserPanel::onNameFocusChanged);
-    connect(m_passwdNew, &PasswdLine::focusChanged, this, &CreateUserPanel::onPasswdFocusChanged);
-    connect(m_passwdRepeat, &PasswdLine::focusChanged, this, &CreateUserPanel::onPasswdRepeatFocusChanged);
+    m_autoLogin = new AccountSwitchLine();
+    connect(m_nameLine, &AccountInputLine::textChanged, this, &CreateUserPanel::onNameChanged);
+    connect(m_passwdNew, &AccountPasswdLine::textChanged, this, &CreateUserPanel::onPasswdChanged);
+    connect(m_passwdRepeat, &AccountPasswdLine::textChanged, this, &CreateUserPanel::onPasswdRepeatChanged);
+    connect(m_nameLine, &AccountInputLine::focusChanged, this, &CreateUserPanel::onNameFocusChanged);
+    connect(m_passwdNew, &AccountPasswdLine::focusChanged, this, &CreateUserPanel::onPasswdFocusChanged);
+    connect(m_passwdRepeat, &AccountPasswdLine::focusChanged, this, &CreateUserPanel::onPasswdRepeatFocusChanged);
 
     QFont f = m_nameLine->lineEdit()->font();
     f.setCapitalization(QFont::AllLowercase);
@@ -123,15 +123,13 @@ void CreateUserPanel::initInputLline()
     m_layout->addWidget(s3);
     m_layout->addWidget(m_accountType);
     m_layout->addWidget(m_autoLogin);
-
-    QTimer::singleShot(200, this, SLOT(updateLineStyle()));
 }
 
 void CreateUserPanel::initConfirmLine()
 {
-    m_confirmLine = new ConfirmButtonLine();
-    connect(m_confirmLine, &ConfirmButtonLine::cancel, this, &CreateUserPanel::onCancel);
-    connect(m_confirmLine, &ConfirmButtonLine::confirm, this, &CreateUserPanel::onConfirm);
+    m_confirmLine = new AccountConfirmButtonLine();
+    connect(m_confirmLine, &AccountConfirmButtonLine::cancel, this, &CreateUserPanel::onCancel);
+    connect(m_confirmLine, &AccountConfirmButtonLine::confirm, this, &CreateUserPanel::onConfirm);
 
     DSeparatorHorizontal *s4 = new DSeparatorHorizontal();
     m_layout->addWidget(m_confirmLine);
@@ -163,19 +161,6 @@ bool CreateUserPanel::validate()
     }
 
     return true;
-}
-
-void CreateUserPanel::updateLineStyle()
-{
-    //For Style sheet
-    //DUI with a higher priority
-    QString backgrounStyle = QString("DUI--DBaseLine { background-color: %1}").arg(lineBackgroundColor());
-    m_nameLine->setStyleSheet(m_nameLine->styleSheet() + backgrounStyle);
-    m_passwdNew->setStyleSheet(m_passwdNew->styleSheet() + backgrounStyle);
-    m_passwdRepeat->setStyleSheet(m_passwdRepeat->styleSheet() + backgrounStyle);
-    m_accountType->setStyleSheet(m_accountType->styleSheet() + backgrounStyle);
-    m_autoLogin->setStyleSheet(m_autoLogin->styleSheet() + backgrounStyle);
-    m_confirmLine->setStyleSheet(m_confirmLine->styleSheet() + backgrounStyle);
 }
 
 void CreateUserPanel::resetData()
@@ -301,24 +286,3 @@ void CreateUserPanel::onPasswdRepeatChanged(const QString &passwd)
     if (!m_passwdRepeat->text().isEmpty() && m_passwdNew->text().indexOf(passwd, 0) != 0)
         m_passwdRepeat->showWarning(tr("The two passwords do not match."));
 }
-
-QString CreateUserPanel::lineBackgroundColor() const
-{
-    return m_lineBackgroundColor;
-}
-
-void CreateUserPanel::setLineBackgroundColor(const QString &lineBackgroundColor)
-{
-    m_lineBackgroundColor = lineBackgroundColor;
-}
-
-void CreateUserPanel::preDestroy()
-{
-    m_nameLine->hideWarning();
-    m_passwdNew->hideWarning();
-    m_passwdRepeat->hideWarning();
-}
-
-
-
-

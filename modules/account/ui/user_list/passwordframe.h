@@ -11,8 +11,7 @@
 #include "libdui/dheaderline.h"
 #include "libdui/dlineedit.h"
 #include "libdui/dconstants.h"
-#include "confirmbuttonline.h"
-#include "passwdline.h"
+#include "../controlline.h"
 #include <QDebug>
 
 DUI_USE_NAMESPACE
@@ -40,10 +39,9 @@ private:
     bool validate();
 
 private:
-    PasswdLine *m_lineNew = NULL;
-    PasswdLine *m_lineRepeat = NULL;
+    AccountPasswdLine *m_lineNew = NULL;
+    AccountPasswdLine *m_lineRepeat = NULL;
     QWidget *m_inactiveWidget = NULL;
-    DHeaderLine *m_activeWidget = NULL;
 };
 
 #endif // PASSWORDLINE_H

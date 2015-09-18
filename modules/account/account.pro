@@ -16,7 +16,6 @@ HEADERS         += \
     dbus/dbusaccountuser.h \
     dbus/dbussessionmanager.h \
     ui/accountmainwidget.h \
-    ui/user_list/accounttypeline.h \
     ui/user_list/avatargrid.h \
     ui/user_list/passwordframe.h \
     ui/user_list/userexpand.h \
@@ -25,7 +24,8 @@ HEADERS         += \
     ui/user_list/webcamavatarpanel.h \
     ui/user_create/createuserpanel.h \
     ui/user_list/userexpandcontent.h \
-    ui/user_list/userexpandheader.h
+    ui/user_list/userexpandheader.h \
+    ui/controlline.h
 
 SOURCES         += \
     account.cpp \
@@ -33,7 +33,6 @@ SOURCES         += \
     dbus/dbusaccountuser.cpp \
     dbus/dbussessionmanager.cpp \
     ui/accountmainwidget.cpp \
-    ui/user_list/accounttypeline.cpp \
     ui/user_list/avatargrid.cpp \
     ui/user_list/passwordframe.cpp \
     ui/user_list/userexpand.cpp \
@@ -42,7 +41,8 @@ SOURCES         += \
     ui/user_list/webcamavatarpanel.cpp \
     ui/user_create/createuserpanel.cpp \
     ui/user_list/userexpandcontent.cpp \
-    ui/user_list/userexpandheader.cpp
+    ui/user_list/userexpandheader.cpp \
+    ui/controlline.cpp
 
 TARGET          = $$qtLibraryTarget(account)
 DESTDIR         = $$_PRO_FILE_PWD_/../
