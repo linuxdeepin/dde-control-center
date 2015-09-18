@@ -187,6 +187,10 @@ void CreateUserPanel::resetData()
     m_passwdNew->hideWarning();
     m_passwdRepeat->setText("");
     m_passwdRepeat->hideWarning();
+    m_accountType->setType(0);
+    m_autoLogin->setCheck(false);
+    m_randIcon = m_account->RandUserIcon().value();
+    m_avatar->setIcon(m_randIcon);
 }
 
 void CreateUserPanel::onCancel()
@@ -201,7 +205,6 @@ void CreateUserPanel::onConfirm()
         m_account->CreateUser(m_nameLine->text().toLower(), "", m_accountType->currentIndex());
 
         emit createConfirm();
-        resetData();
     }
 }
 
@@ -215,14 +218,7 @@ void CreateUserPanel::onUserAdded(const QString &path)
             user->SetPassword(m_passwdNew->text());
         user->SetAutomaticLogin(m_autoLogin->check());
 
-        //clear up(update) data
-        m_nameLine->lineEdit()->setText("");
-        m_passwdNew->passwordEdit()->setPassword("");
-        m_passwdRepeat->passwordEdit()->setPassword("");
-        m_accountType->setType(0);
-        m_autoLogin->setCheck(false);
-        m_randIcon = m_account->RandUserIcon().value();
-        m_avatar->setIcon(m_randIcon);
+        resetData();
     }
 }
 
