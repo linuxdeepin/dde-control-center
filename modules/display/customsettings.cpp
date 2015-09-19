@@ -425,9 +425,12 @@ DSlider *CustomSettings::getBrightnessSlider(const QString &name)
 
     updateBrightnessSlider(name, brightnessSlider);
 
-    connect(brightnessSlider, &DSlider::valueChanged, this, [=]{
-        m_dbusDisplay->SetBrightness(name, brightnessSlider->value() / 10.0);
+    connect(brightnessSlider, &DSlider::sliderMoved, this, [=](int value){
+        m_dbusDisplay->SetBrightness(name, value / 10.0);
     }, Qt::DirectConnection);
+    connect(brightnessSlider, &DSlider::sliderReleased, [=]{
+        m_dbusDisplay->SetBrightness(name, brightnessSlider->value() / 10.0);
+    });
     connect(m_dbusDisplay, &DisplayInterface::BrightnessChanged, brightnessSlider, [this, name, brightnessSlider]{
         updateBrightnessSlider(name, brightnessSlider);
     }, Qt::DirectConnection);
