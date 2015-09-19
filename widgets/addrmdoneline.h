@@ -1,14 +1,17 @@
 #ifndef ADDRMDONELINE_H
 #define ADDRMDONELINE_H
 
-#include <libdui/dheaderline.h>
+#include <libdui/dbaseline.h>
 #include <libdui/libdui_global.h>
 #include <libdui/dtextbutton.h>
+
+#include "dbreathinglabel.h"
 
 DUI_USE_NAMESPACE
 
 class ImageNameButton;
-class AddRmDoneLine : public DHeaderLine
+class DynamicLabel;
+class AddRmDoneLine : public DBaseLine
 {
     Q_OBJECT
 
@@ -17,6 +20,7 @@ class AddRmDoneLine : public DHeaderLine
     Q_PROPERTY(QString doneButtonToolTip READ doneButtonToolTip WRITE setDoneButtonToolTip)
 public:
     explicit AddRmDoneLine(QWidget *parent = 0);
+     void setTitle(const QString &title);
 
     ImageNameButton *removeButton() const;
     ImageNameButton *addButton() const;
@@ -29,6 +33,9 @@ public slots:
     void setRmButtonToolTip(QString rmButtonToolTip);
     void setAddButtonToolTip(QString addButtonToolTip);
     void setDoneButtonToolTip(QString doneButtonToolTip);
+
+private slots:
+    void onButtonStateChanged();
 
 signals:
     void addClicked();
@@ -45,6 +52,8 @@ private:
     QString m_rmButtonToolTip;
     QString m_addButtonToolTip;
     QString m_doneButtonToolTip;
+    DBreathingLabel *m_leftLabel;
+    DynamicLabel *m_dynamicLabel;
 };
 
 #endif // ADDRMDONELINE_H

@@ -5,7 +5,9 @@
 #include "imagenamebutton.h"
 
 AddRmDoneLine::AddRmDoneLine(QWidget *parent) :
-    DHeaderLine(parent)
+    DBaseLine(parent),
+    m_leftLabel(new DBreathingLabel(this)),
+    m_dynamicLabel(new DynamicLabel)
 {
     QFrame *frame = new QFrame(this);
     QHBoxLayout *layout = new QHBoxLayout;
@@ -14,13 +16,12 @@ AddRmDoneLine::AddRmDoneLine(QWidget *parent) :
     m_doneButton = new DTextButton(tr("Done"));
     m_doneButton->hide();
 
-    DynamicLabel *dynamic_label = new DynamicLabel;
-
-    QLabel *label = findChild<QLabel*>("DHeaderLineTitle");
+    m_leftLabel->move(15, 0);
+    m_leftLabel->setStyleSheet("font-size: 12px;");
+    m_leftLabel->setColor("#b4b4b4");
 
     layout->setMargin(0);
-    layout->addStretch(1);
-    layout->addWidget(dynamic_label);
+    layout->addWidget(m_dynamicLabel);
     layout->addWidget(m_removeButton);
     layout->addWidget(m_addButton);
     layout->addWidget(m_doneButton);
@@ -31,39 +32,19 @@ AddRmDoneLine::AddRmDoneLine(QWidget *parent) :
     connect(this, &AddRmDoneLine::setAddHidden, m_addButton, &ImageNameButton::setHidden);
     connect(this, &AddRmDoneLine::setRemoveHidden, m_removeButton, &ImageNameButton::setHidden);
     connect(this, &AddRmDoneLine::setDoneHidden, m_doneButton, &DTextButton::setHidden);
-    connect(dynamic_label, &DynamicLabel::hideFinished, label, &QLabel::show);
-    connect(m_removeButton, &DImageButton::stateChanged, [=](){
-        if(m_removeButton->getState() == DImageButton::Hover){
-            if(m_rmButtonToolTip.isEmpty())
-                return;
-
-            dynamic_label->setText(m_rmButtonToolTip);
-            if(label)
-                label->hide();
-            dynamic_label->showLabel();
-        }else{
-            dynamic_label->hideLabel();
-        }
-    });
-
-    connect(m_addButton, &DImageButton::stateChanged, [=](){
-        if(m_addButton->getState() == DImageButton::Hover){
-            if(m_addButtonToolTip.isEmpty())
-                return;
-
-            dynamic_label->setText(m_addButtonToolTip);
-            if(label)
-                label->hide();
-            dynamic_label->showLabel();
-        }else{
-            dynamic_label->hideLabel();
-        }
-    });
+    connect(m_dynamicLabel, &DynamicLabel::hideFinished, m_leftLabel, &QLabel::show);
+    connect(m_removeButton, &DImageButton::stateChanged, this, &AddRmDoneLine::onButtonStateChanged);
+    connect(m_addButton, &DImageButton::stateChanged, this, &AddRmDoneLine::onButtonStateChanged);
 
     frame->setLayout(layout);
 
-    setContent(frame);
+    setRightContent(frame);
     setFixedHeight(EXPAND_HEADER_HEIGHT);
+}
+
+void AddRmDoneLine::setTitle(const QString &title)
+{
+    m_leftLabel->setText(title);
 }
 
 ImageNameButton *AddRmDoneLine::removeButton() const
@@ -109,5 +90,27 @@ void AddRmDoneLine::setAddButtonToolTip(QString addButtonToolTip)
 void AddRmDoneLine::setDoneButtonToolTip(QString doneButtonToolTip)
 {
     m_doneButtonToolTip = doneButtonToolTip;
+}
+
+void AddRmDoneLine::onButtonStateChanged()
+{
+    DImageButton *button = qobject_cast<DImageButton*>(sender());
+    if(!button)
+        return;
+
+    if(button->getState() == DImageButton::Hover){
+        QString tooltip = button == m_addButton ? m_addButtonToolTip : m_rmButtonToolTip;
+        if(tooltip.isEmpty())
+            return;
+
+        m_dynamicLabel->setText(tooltip);
+        m_dynamicLabel->showLabel();
+        if(m_leftLabel->geometry().right() >= 260 - m_dynamicLabel->width())
+            m_leftLabel->hideLabel();
+    }else{
+        m_dynamicLabel->hideLabel();
+        if(!m_leftLabel->property("alpha").toBool())
+            m_leftLabel->showLabel();
+    }
 }
 
