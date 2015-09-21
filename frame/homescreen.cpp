@@ -28,8 +28,8 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     m_dbusUserInfo = new DBusUser(m_dbusAccounts->userList().first(), this);
 
     m_grid = new QGridLayout;
-    m_grid->setMargin(0);
-    m_grid->setSpacing(0);
+    m_grid->setContentsMargins(1, 0, 1, 0);
+    m_grid->setSpacing(2);
     foreach(ModuleMetaData meta, modules) {
         ModuleButton *button = new ModuleButton(meta, this);
 
@@ -86,7 +86,9 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     m_topWidget->setFixedSize(topOuterWidget->size());
     m_topWidget->setLayout(topVBox);
 
-    DImageButton *bottomButton = new DImageButton(DCC::IconPath + "shutdown_normal.png", DCC::IconPath + "shutdown_hover.png", "");
+    DImageButton *bottomButton = new DImageButton(DCC::IconPath + "power-button-normal.svg",
+                                                  DCC::IconPath + "power-button-hover.svg",
+                                                  DCC::IconPath + "power-button-press.svg");
     bottomButton->setAttribute(Qt::WA_TranslucentBackground);
 
     QLabel *bottomLabel = new QLabel(tr("电源"));
@@ -232,7 +234,7 @@ ModuleButton::ModuleButton(ModuleMetaData metaData, QWidget *parent) :
     QFrame(parent),
     m_meta(metaData)
 {
-    setFixedSize(120, 110);
+    setFixedSize(118, 110);
     setMouseTracking(true);
 
     // text font
