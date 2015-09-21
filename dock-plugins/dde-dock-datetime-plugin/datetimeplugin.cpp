@@ -192,6 +192,10 @@ void DateTimePlugin::invokeMenuItem(QString id, QString itemId, bool checked)
 void DateTimePlugin::initCalendar()
 {
     m_calendar = new DCalendar();
+    m_calendar->setLunarFestivalHighlight(false);
+    m_calendar->setControlPanelVisible(false);
+    m_calendar->setDateInfoVisible(true);
+    m_calendar->setSelectionMode(DCalendar::NoSelection);
     m_calendar->setFixedSize(300, 300);
 }
 
