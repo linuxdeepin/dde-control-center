@@ -24,7 +24,7 @@ HEADERS += datetimeplugin.h \
 DISTFILES += dde-dock-datetime-plugin.json
 
 target.path = $${PREFIX}/share/dde-dock/plugins
-INSTALLS += targets
+INSTALLS += target
 
 RESOURCES += \
     images.qrc
