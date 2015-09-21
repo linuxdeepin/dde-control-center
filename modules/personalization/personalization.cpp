@@ -225,6 +225,7 @@ DArrowLineExpand* Personalization::getWallPaperExpand(){
 void Personalization::initFontExpand(){
     m_fontExpand = new DArrowLineExpand(m_frame);
     m_fontExpand->setTitle(tr("Font"));
+    m_fontExpand->setStyleSheet(m_fontExpand->styleSheet() + "DUI--ContentLoader{background:#252627;}");
 
     DLabel* standartLabel = new DLabel(tr("Standard font"));
     DLabel* monospaceLabel = new DLabel(tr("Monospace font"));
