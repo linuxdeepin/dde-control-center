@@ -1,9 +1,4 @@
 {
     "id": "bluetooth",
-	"name": "Bluetooth",
-	"icon": {
-		"normal": "bluetooth_normal.svg",
-		"hover": "bluetooth_hover.svg",
-		"selected": "bluetooth_press.svg"
-	}
+	"name": "Bluetooth"
 }

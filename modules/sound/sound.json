@@ -1,9 +1,4 @@
 {
     "id": "sound",
-	"name": "Sound",
-	"icon": {
-		"normal": "sound_normal.svg",
-		"hover": "sound_hover.svg",
-		"selected": "sound_press.svg"
-	}
+	"name": "Sound"
 }

@@ -86,9 +86,9 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     m_topWidget->setFixedSize(topOuterWidget->size());
     m_topWidget->setLayout(topVBox);
 
-    DImageButton *bottomButton = new DImageButton(DCC::IconPath + "power-button-normal.svg",
-                                                  DCC::IconPath + "power-button-hover.svg",
-                                                  DCC::IconPath + "power-button-press.svg");
+    DImageButton *bottomButton = new DImageButton(DCC::IconPath + "power-button-normal.png",
+                                                  DCC::IconPath + "power-button-hover.png",
+                                                  DCC::IconPath + "power-button-press.png");
     bottomButton->setAttribute(Qt::WA_TranslucentBackground);
 
     QLabel *bottomLabel = new QLabel(tr("电源"));
@@ -290,20 +290,20 @@ void ModuleButton::mouseReleaseEvent(QMouseEvent *)
 void ModuleButton::setState(State state)
 {
 #ifndef QT_DEBUG
-    QString moduleIconsDir("/usr/share/dde-control-center/modules/icons/%1");
+    QString moduleIconsDir("/usr/share/dde-control-center/modules/icons/32/%1_%2.svg");
 #else
-    QString moduleIconsDir("modules/icons/%1");
+    QString moduleIconsDir("modules/icons/32/%1_%2.svg");
 #endif
 
     switch (state) {
     case Normal:
         this->setStyleSheet("QFrame { background-color: transparent; border-radius: 3 }");
-        m_icon->setPixmap(QPixmap(moduleIconsDir.arg(m_meta.normalIcon)));
+        m_icon->setPixmap(QPixmap(moduleIconsDir.arg(m_meta.id).arg("normal")));
         m_text->setStyleSheet(QString("QLabel { color: %1 }").arg(DCC::TextNormalColor.name()));
         break;
     case Hover:
         this->setStyleSheet(QString("QFrame { background-color: %1; border-radius: 3 }").arg(DCC::BgDarkColor.name()));
-        m_icon->setPixmap(QPixmap(moduleIconsDir.arg(m_meta.hoverIcon)));
+        m_icon->setPixmap(QPixmap(moduleIconsDir.arg(m_meta.id).arg("hover")));
         m_text->setStyleSheet(QString("QLabel { color: %1 }").arg(DCC::TextHoverColor.name()));
         break;
     default:

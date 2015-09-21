@@ -1,9 +1,4 @@
 {
     "id": "mouse",
-    "name": "Mouse And Touchpad",
-	"icon": {
-		"normal": "mouse_touchpad_normal.svg",
-		"hover": "mouse_touchpad_hover.svg",
-		"selected": "mouse_touchpad_press.svg"
-	}
+    "name": "Mouse And Touchpad"
 }

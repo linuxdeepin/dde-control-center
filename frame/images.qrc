@@ -2,8 +2,8 @@
     <qresource prefix="/">
         <file>resources/images/control_center_tooltip.png</file>
         <file>resources/images/shutdown_bg.png</file>
-        <file>resources/images/power-button-hover.svg</file>
-        <file>resources/images/power-button-normal.svg</file>
-        <file>resources/images/power-button-press.svg</file>
+        <file>resources/images/power-button-press.png</file>
+        <file>resources/images/power-button-normal.png</file>
+        <file>resources/images/power-button-hover.png</file>
     </qresource>
 </RCC>

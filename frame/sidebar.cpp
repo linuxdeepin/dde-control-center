@@ -23,21 +23,15 @@ SideBar::SideBar(QList<ModuleMetaData> modules, QWidget *parent)
     // meta for home button
     ModuleMetaData home {
         "",
-        "",
-        "Back to home",
-        "home_normal.svg",
-        "home_hover.svg",
-        "home_press.svg"
+        "home",
+        "Back to home"
     };
     modules.insert(0, home);
     // meta for power button
     ModuleMetaData power {
         "",
-        "",
-        "Power",
-        "shutdown_normal.svg",
-        "shutdown_hover.svg",
-        "shutdown_press.svg"
+        "shutdown",
+        "Power"
     };
     modules.append(power);
 
@@ -190,22 +184,22 @@ void SideBarButton::setState(State state)
     m_state = state;
 
 #ifndef QT_DEBUG
-    QString moduleIconsDir("/usr/share/dde-control-center/modules/icons/%1");
+    QString moduleIconsDir("/usr/share/dde-control-center/modules/icons/24/%1_%2.svg");
 #else
-    QString moduleIconsDir("modules/icons/%1");
+    QString moduleIconsDir("modules/icons/24/%1_%2.svg");
 #endif
 
     QString fileName;
 
     switch (state) {
     case Normal:
-        fileName = moduleIconsDir.arg(m_meta.normalIcon);
+        fileName = moduleIconsDir.arg(m_meta.id).arg("normal");
         break;
     case Hover:
-        fileName = moduleIconsDir.arg(m_meta.hoverIcon);
+        fileName = moduleIconsDir.arg(m_meta.id).arg("hover");
         break;
     case Selected:
-        fileName = moduleIconsDir.arg(m_meta.selectedIcon);
+        fileName = moduleIconsDir.arg(m_meta.id).arg("press");
         break;
     }
 

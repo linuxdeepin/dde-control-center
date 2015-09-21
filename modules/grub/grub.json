@@ -1,9 +1,4 @@
 {
     "id": "grub",
-	"name": "Boot Menu",
-	"icon": {
-		"normal": "grub_normal.svg",
-		"hover": "grub_hover.svg",
-		"selected": "grub_press.svg"
-	}
+	"name": "Boot Menu"
 }

@@ -1,9 +1,4 @@
 {
     "id": "datetime",
-    "name": "Date and Time",
-	"icon": {
-        "normal": "date_time_normal.svg",
-        "hover": "date_time_hover.svg",
-        "selected": "date_time_press.svg"
-	}
+    "name": "Date and Time"
 }

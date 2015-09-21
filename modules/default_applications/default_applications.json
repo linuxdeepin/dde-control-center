@@ -1,9 +1,4 @@
 {
     "id": "defaultapps",
-	"name": "Default Applications",
-	"icon": {
-		"normal": "default_applications_normal.svg",
-		"hover": "default_applications_hover.svg",
-		"selected": "default_applications_press.svg"
-	}
+	"name": "Default Applications"
 }

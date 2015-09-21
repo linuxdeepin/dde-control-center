@@ -1,9 +1,4 @@
 {
     "id": "keyboard",
-    "name": "Keyboard and Language",
-	"icon": {
-		"normal": "keyboard_normal.svg",
-		"hover": "keyboard_hover.svg",
-		"selected": "keyboard_press.svg"
-	}
+    "name": "Keyboard and Language"
 }

@@ -165,10 +165,7 @@ void Frame::listPlugins()
         ModuleMetaData meta = {
             filePath,
             metaData.value("id").toString(),
-            metaData.value("name").toString(),
-            metaData.value("icon").toObject().value("normal").toString(),
-            metaData.value("icon").toObject().value("hover").toString(),
-            metaData.value("icon").toObject().value("selected").toString()
+            metaData.value("name").toString()
         };
 
         m_modules << meta;

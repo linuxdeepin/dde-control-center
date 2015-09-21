@@ -1,9 +1,4 @@
 {
     "id": "network",
-	"name": "Network",
-	"icon": {
-		"normal": "network_normal.svg",
-		"hover": "network_hover.svg",
-		"selected": "network_press.svg"
-	}
+	"name": "Network"
 }
