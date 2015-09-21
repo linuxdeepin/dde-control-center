@@ -1,9 +1,10 @@
 <RCC>
     <qresource prefix="/">
-        <file>resources/images/control_center_tooltip.png</file>
+        <file>resources/images/control_center_tooltip_right.png</file>
         <file>resources/images/shutdown_bg.png</file>
         <file>resources/images/power-button-press.png</file>
         <file>resources/images/power-button-normal.png</file>
         <file>resources/images/power-button-hover.png</file>
+        <file>resources/images/control_center_tooltip_left.png</file>
     </qresource>
 </RCC>

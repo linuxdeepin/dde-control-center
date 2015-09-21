@@ -3,6 +3,7 @@
 #include <QDebug>
 #include <QPropertyAnimation>
 #include <QSvgRenderer>
+#include <QPainter>
 
 #include "sidebar.h"
 #include "constants.h"

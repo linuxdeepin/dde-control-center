@@ -1,30 +1,37 @@
 #ifndef DTIPSFRAME_H
 #define DTIPSFRAME_H
 
-#include <QFrame>
 #include <QLabel>
 #include <QPropertyAnimation>
 
-#include <libdui/darrowrectangle.h>
-#include <libdui/libdui_global.h>
-
-DUI_USE_NAMESPACE
-
-class DTipsFrame : public DArrowRectangle
+class DTipsFrame : public QWidget
 {
     Q_OBJECT
+
+    Q_PROPERTY(ArrowDirection arrowDirection READ arrowDirection WRITE setArrowDirection)
+
+    Q_ENUMS(ArrowDirection)
 public:
+    enum ArrowDirection {
+        ArrowLeft,
+        ArrowRight,
+        ArrowTop,
+        ArrowBottom
+    };
+
     DTipsFrame();
     ~DTipsFrame();
 
     void move(int x, int y);
+    ArrowDirection arrowDirection() const;
 
 private:
-
+    void updateStyle();
 public slots:
     void followTheSender();
     void setTipsText(const QString &text);
     void show();
+    void setArrowDirection(ArrowDirection arrowDirection);
 
 private:
     QLabel *m_label;
@@ -35,6 +42,7 @@ private:
 
     const int m_extraOffsetX = -8;
     const int m_extraOffsetY = 0;
+    ArrowDirection m_arrowDirection = ArrowRight;
 };
 
 #endif // DTIPSFRAME_H

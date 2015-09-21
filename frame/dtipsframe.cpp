@@ -5,23 +5,23 @@
 #include <QPropertyAnimation>
 
 DTipsFrame::DTipsFrame()
-    : DArrowRectangle(ArrowRight)
+    : QWidget(0)
 {
     setWindowFlags(Qt::FramelessWindowHint | Qt::ToolTip);
     setAttribute(Qt::WA_TranslucentBackground);
 
+    setFixedHeight(40);
+
     m_label = new QLabel(this);
-    m_label->setFixedHeight(25);
     m_label->setAlignment(Qt::AlignCenter);
 #ifdef QT_DEBUG // test text label
     m_label->setText("TestTips");
 #endif
-    m_label->setStyleSheet("color:#fff;");
+    updateStyle();
 
     QHBoxLayout *layout = new QHBoxLayout(this);
     layout->addWidget(m_label);
     layout->setMargin(0);
-    layout->setContentsMargins(0, 0, arrowWidth(), 0);
 
     m_moveAni = new QPropertyAnimation(this, "geometry");
     m_moveAni->setEasingCurve(DCC::TipsMoveCurve);
@@ -50,6 +50,25 @@ void DTipsFrame::move(int x, int y)
     }
 }
 
+DTipsFrame::ArrowDirection DTipsFrame::arrowDirection() const
+{
+    return m_arrowDirection;
+}
+
+void DTipsFrame::updateStyle()
+{
+    if(m_arrowDirection == ArrowLeft){
+        setStyleSheet("color: white;\
+                               border-width:6px 15px 6px 20px;\
+                               padding-left: 8px;\
+                               border-image:url(:/resources/images/control_center_tooltip_left.png) 6 15 6 20 stretch;");
+    }else{
+        setStyleSheet("color: white;\
+                               border-width:6px 20px 6px 15px;\
+                               border-image:url(:/resources/images/control_center_tooltip_right.png) 6 20 6 15 stretch;");
+    }
+}
+
 void DTipsFrame::followTheSender()
 {
     QWidget *widget = qobject_cast<QWidget *>(sender());
@@ -62,12 +81,6 @@ void DTipsFrame::followTheSender()
     const int wWidth = arrowDirection() == ArrowLeft
             ? widget->window()->geometry().right() + 8
             : widget->window()->geometry().left() - width() - 8;
-
-    if(arrowDirection() == ArrowLeft){
-        layout()->setContentsMargins(arrowWidth(), 0, 0, 0);
-    }else{
-        layout()->setContentsMargins(0, 0, arrowWidth(), 0);
-    }
 
     QPoint pos;
     do {
@@ -88,11 +101,17 @@ void DTipsFrame::setTipsText(const QString &text)
 
     QFontMetrics metric(m_label->font());
 
-    setFixedWidth(metric.tightBoundingRect(text).width() + 30);
+    setFixedWidth(metric.tightBoundingRect(text).width() + 40);
 }
 
 void DTipsFrame::show()
 {
     QWidget::show();
+}
+
+void DTipsFrame::setArrowDirection(DTipsFrame::ArrowDirection arrowDirection)
+{
+    m_arrowDirection = arrowDirection;
+    updateStyle();
 }
 
