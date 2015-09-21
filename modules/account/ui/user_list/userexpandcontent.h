@@ -40,13 +40,19 @@ private:
     void initPassword();
 
     void onAvatarSelected(const QString &avatar);
+    void onAccountEnableChanged(bool enabled);
 
     void updateSize(bool note = true);
+    void updatemAvatarGridSize(int stackIndex);
 
 private:
     QVBoxLayout *m_mainLayout = NULL;
     DBusAccountUser *m_accountUser = NULL;
+    AvatarGrid *m_allAvatarGrid = NULL;
+    AvatarGrid *m_historyAvatarGrid = NULL;
+    WebcamAvatarPanel *m_cameraPanel = NULL;
     QStackedWidget *m_stackWidget = NULL;
+    QFrame *m_segmentedFrame = NULL;
     DSegmentedControl *m_segmentedControl = NULL;
     PasswordFrame *m_passwordFrame = NULL;
     AccountTypeLine *m_typeLine = NULL;

@@ -21,7 +21,7 @@ UserExpandContent::UserExpandContent(const QString &userPath, QWidget *parent)
 
         m_mainLayout->addStretch(1);
 
-        updateSize(false);
+        onAccountEnableChanged(!m_accountUser->locked());
     }
 }
 
@@ -47,59 +47,48 @@ void UserExpandContent::initSegmentedControl()
     m_segmentedControl->addSegmented(tr("Webcam"));
     m_segmentedControl->setCurrentIndex(1);
 
-    m_mainLayout->addSpacing(LAYOUT_SPACING);
-    m_mainLayout->addWidget(m_segmentedControl, 0, Qt::AlignHCenter);
+    m_segmentedFrame = new QFrame;
+    QVBoxLayout *frameLayout = new QVBoxLayout(m_segmentedFrame);
+    frameLayout->setContentsMargins(0, LAYOUT_SPACING, 0, LAYOUT_SPACING);
+    frameLayout->setAlignment(Qt::AlignCenter);
+    frameLayout->addWidget(m_segmentedControl);
+    m_mainLayout->addWidget(m_segmentedFrame, 0, Qt::AlignHCenter);
 }
 
 void UserExpandContent::initAvatarPanel()
 {
-    AvatarGrid *historyAvatarGrid = new AvatarGrid("",this);
-    AvatarGrid *allAvatarGrid = new AvatarGrid(m_userPath, this);
-    WebcamAvatarPanel *cameraPanel = new WebcamAvatarPanel(this);
-    connect(historyAvatarGrid, &AvatarGrid::avatarSelected, this, &UserExpandContent::onAvatarSelected);
-    connect(allAvatarGrid, &AvatarGrid::avatarSelected, this, &UserExpandContent::onAvatarSelected);
-    connect(cameraPanel, &WebcamAvatarPanel::selectedAvatar, this, &UserExpandContent::onAvatarSelected);
+    m_historyAvatarGrid = new AvatarGrid("",this);
+    m_allAvatarGrid = new AvatarGrid(m_userPath, this);
+    m_cameraPanel = new WebcamAvatarPanel(this);
+    connect(m_historyAvatarGrid, &AvatarGrid::avatarSelected, this, &UserExpandContent::onAvatarSelected);
+    connect(m_allAvatarGrid, &AvatarGrid::avatarSelected, this, &UserExpandContent::onAvatarSelected);
+    connect(m_cameraPanel, &WebcamAvatarPanel::selectedAvatar, this, &UserExpandContent::onAvatarSelected);
     connect(this, &UserExpandContent::changeToSetting, [=](bool value){
         if (!value)
-            cameraPanel->turnOffCamera();
+            m_cameraPanel->turnOffCamera();
     });
 
     m_stackWidget = new QStackedWidget(this);
     connect(m_segmentedControl, &DSegmentedControl::currentChanged, m_stackWidget, &QStackedWidget::setCurrentIndex);
     connect(m_stackWidget, &QStackedWidget::currentChanged, [=](int index){
-        historyAvatarGrid->setAvatars(m_accountUser->historyIcons());
-        allAvatarGrid->setAvatars(m_accountUser->iconList() << ADD_AVATAR_ICON);
+        m_historyAvatarGrid->setAvatars(m_accountUser->historyIcons());
+        m_allAvatarGrid->setAvatars(m_accountUser->iconList() << ADD_AVATAR_ICON);
 
-        QSize ns;
-        if (index == 0){
-            cameraPanel->turnOffCamera();
-            ns = historyAvatarGrid->size();
-        }
-        else if (index == 1){
-            cameraPanel->turnOffCamera();
-            ns = allAvatarGrid->size();
-        }
-        else{
-            cameraPanel->turnOnCamera();
-            ns = cameraPanel->size();
-        }
-
-        m_stackWidget->setFixedSize(ns);
+        updatemAvatarGridSize(index);
 
         if (m_autoLoginLine)    //after initialization
             updateSize();
     });
     connect(m_accountUser, &DBusAccountUser::IconListChanged, [=]{
-        historyAvatarGrid->setAvatars(m_accountUser->historyIcons());
-        allAvatarGrid->setAvatars(m_accountUser->iconList() << ADD_AVATAR_ICON);
+        m_historyAvatarGrid->setAvatars(m_accountUser->historyIcons());
+        m_allAvatarGrid->setAvatars(m_accountUser->iconList() << ADD_AVATAR_ICON);
     });
 
-    m_stackWidget->addWidget(historyAvatarGrid);
-    m_stackWidget->addWidget(allAvatarGrid);
-    m_stackWidget->addWidget(cameraPanel);
+    m_stackWidget->addWidget(m_historyAvatarGrid);
+    m_stackWidget->addWidget(m_allAvatarGrid);
+    m_stackWidget->addWidget(m_cameraPanel);
     m_stackWidget->setCurrentIndex(1);
 
-    m_mainLayout->addSpacing(LAYOUT_SPACING);
     m_mainLayout->addWidget(m_stackWidget, 0, Qt::AlignHCenter);
     m_mainLayout->addWidget(new DSeparatorHorizontal);
 }
@@ -130,6 +119,8 @@ void UserExpandContent::initUserEnable()
     });
     connect(m_accountUser, &DBusAccountUser::LockedChanged, [=]{
         m_lockLine->setCheck(!m_accountUser->locked());
+
+        onAccountEnableChanged(!m_accountUser->locked());
     });
 
     m_mainLayout->addWidget(m_lockLine);
@@ -173,12 +164,31 @@ void UserExpandContent::onAvatarSelected(const QString &avatar)
         m_accountUser->SetIconFile(avatar);
 }
 
+void UserExpandContent::onAccountEnableChanged(bool enabled)
+{
+    if (enabled) {
+        m_segmentedFrame->setFixedHeight(DUI::BUTTON_HEIGHT + LAYOUT_SPACING * 2);
+        updatemAvatarGridSize(m_stackWidget->currentIndex());
+        m_autoLoginLine->setFixedHeight(DUI::CONTENT_HEADER_HEIGHT);
+        m_typeLine->setFixedHeight(DUI::CONTENT_HEADER_HEIGHT);
+        m_passwordFrame->setFixedHeight(DUI::CONTENT_HEADER_HEIGHT);
+    }
+    else {
+        m_segmentedFrame->setFixedHeight(0);
+        m_stackWidget->setFixedHeight(0);
+        m_autoLoginLine->setFixedHeight(0);
+        m_typeLine->setFixedHeight(0);
+        m_passwordFrame->setFixedHeight(0);
+    }
+
+    updateSize(true);
+}
+
 void UserExpandContent::updateSize(bool note)
 {
     int totalHeight = 0;
-    totalHeight += LAYOUT_SPACING * 2;
     totalHeight += m_stackWidget->height();
-    totalHeight += m_segmentedControl->height();
+    totalHeight += m_segmentedFrame->height();
     totalHeight += m_passwordFrame->height();
     totalHeight += m_typeLine->height();
     totalHeight += m_autoLoginLine->height();
@@ -188,6 +198,27 @@ void UserExpandContent::updateSize(bool note)
 
     if (note)
         emit sizeChanged();
+}
+
+void UserExpandContent::updatemAvatarGridSize(int stackIndex)
+{
+    QSize ns;
+    switch (stackIndex) {
+    case 0:
+        m_cameraPanel->turnOffCamera();
+        ns = m_historyAvatarGrid->size();
+        break;
+    case 1:
+        m_cameraPanel->turnOffCamera();
+        ns = m_allAvatarGrid->size();
+        break;
+    default:
+        m_cameraPanel->turnOnCamera();
+        ns = m_cameraPanel->size();
+        break;
+    }
+
+    m_stackWidget->setFixedSize(ns);
 }
 
 
