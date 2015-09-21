@@ -41,9 +41,9 @@ ShortcutDbus::ShortcutDbus(QObject *parent)
     connect(this, &ShortcutDbus::Deleted, this, &ShortcutDbus::onDeleted);
 
     QStringList list;
-    list << "launcher" << "show-desktop" << "lock-screen" << "file-manager" << "switch-windows" << "switch-windows-backward"
+    list << "launcher" << "show-desktop" << "lock-screen" << "file-manager" << "switch-applications" << "switch-applications-backend"
          << "show-dock" << "screenshot" << "screenshot-full-screen" << "screenshot-window" << "screenshot-delayed"
-         << "terminal" << "terminal-quake" << "logout" << "deepin-translator" << "switch-layout";
+         << "terminal" << "terminal-quake" << "logout" << "switch-layout";
 
     QDBusInterface dbus("com.deepin.daemon.InputDevice.InputDevices",
                         "/com/deepin/daemon/InputDevice/TouchPad",
