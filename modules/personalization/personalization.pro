@@ -6,6 +6,7 @@
 
 QT       += core gui widgets dbus
 
+include(../../common.pri)
 TEMPLATE = lib
 CONFIG += plugin c++11
 LIBS += -ldui -L../../widgets -lwidgets
@@ -28,9 +29,7 @@ DISTFILES += \
 
 TARGET          = $$qtLibraryTarget(personalization)
 
-unix {
-    target.path = /usr/lib
-    INSTALLS += target
-}
+target.path = $${PREFIX}/share/dde-control-center/modules/
+INSTALLS += target
 
 RESOURCES += images.qrc

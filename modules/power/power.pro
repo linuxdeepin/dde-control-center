@@ -1,3 +1,4 @@
+include(../../common.pri)
 TEMPLATE        = lib
 
 CONFIG         += plugin c++11 link_pkgconfig
@@ -21,7 +22,9 @@ SOURCES         = power.cpp \
     dextendboard.cpp \
     powerinterfacemanagement.cpp
 
-
 TARGET          = $$qtLibraryTarget(power)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 DISTFILES += power.json
+
+target.path = $${PREFIX}/share/dde-control-center/modules/
+INSTALLS += target

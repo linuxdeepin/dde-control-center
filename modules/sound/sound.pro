@@ -1,3 +1,4 @@
+include(../../common.pri)
 TEMPLATE        = lib
 CONFIG         += plugin c++11 link_pkgconfig
 QT             += widgets dbus
@@ -21,3 +22,6 @@ TARGET          = $$qtLibraryTarget(sound)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 
 DISTFILES += sound.json
+
+target.path = $${PREFIX}/share/dde-control-center/modules/
+INSTALLS += target

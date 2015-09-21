@@ -1,3 +1,4 @@
+include(../../common.pri)
 TEMPLATE        = lib
 CONFIG         += plugin c++11 link_pkgconfig
 QT             += widgets dbus
@@ -26,3 +27,6 @@ DISTFILES      += datetime.json
 RESOURCES += \
     theme.qrc \
     resource.qrc
+
+target.path = $${PREFIX}/share/dde-control-center/modules/
+INSTALLS += target

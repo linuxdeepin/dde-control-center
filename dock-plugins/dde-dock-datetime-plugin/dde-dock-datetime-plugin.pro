@@ -3,6 +3,7 @@
 # Project created by QtCreator 2015-07-14T11:37:40
 #
 #-------------------------------------------------
+include(../../common.pri)
 
 QT       += core gui widgets
 
@@ -21,6 +22,9 @@ HEADERS += datetimeplugin.h \
     ../../modules/datetime/dbus/dbustimedate.h
 
 DISTFILES += dde-dock-datetime-plugin.json
+
+target.path = $${PREFIX}/share/dde-dock/plugins
+INSTALLS += targets
 
 RESOURCES += \
     images.qrc

@@ -3,6 +3,7 @@
 # Project created by QtCreator 2015-07-13T14:09:10
 #
 #-------------------------------------------------
+include(../../common.pri)
 
 QT       += core gui widgets dbus
 
@@ -20,5 +21,8 @@ HEADERS += powerplugin.h \
     ../../modules/power/dbus/dbuspower.h
 
 DISTFILES += dde-dock-power-plugin.json
+
+target.path = $${PREFIX}/share/dde-dock/plugins/
+INSTALLS += target
 
 QMAKE_MOC_OPTIONS += -I/usr/include/

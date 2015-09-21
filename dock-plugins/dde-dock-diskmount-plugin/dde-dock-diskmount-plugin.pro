@@ -3,6 +3,7 @@
 # Project created by QtCreator 2015-07-20T14:06:01
 #
 #-------------------------------------------------
+include(../../common.pri)
 
 QT       += core gui widgets dbus
 
@@ -27,6 +28,9 @@ HEADERS += diskmountplugin.h \
     diskitem.h \
     umountbutton.h
 DISTFILES += dde-dock-diskmount-plugin.json
+
+target.path = $${PREFIX}/share/dde-dock/plugins/
+INSTALLS += target
 
 RESOURCES += \
     qss.qrc \

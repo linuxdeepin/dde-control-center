@@ -3,6 +3,7 @@
 # Project created by QtCreator 2015-07-13T10:27:10
 #
 #-------------------------------------------------
+include(../../common.pri)
 
 QT       += core gui widgets dbus
 
@@ -38,6 +39,9 @@ HEADERS += soundplugin.h \
     deviceiconslider.h \
     iconlabel.h
 DISTFILES += dde-dock-sound-plugin.json
+
+target.path = $${PREFIX}/share/dde-dock/plugins/
+INSTALLS += target
 
 PKGCONFIG += gtk+-2.0
 
