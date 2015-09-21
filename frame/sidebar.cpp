@@ -2,6 +2,7 @@
 #include <QLabel>
 #include <QDebug>
 #include <QPropertyAnimation>
+#include <QSvgRenderer>
 
 #include "sidebar.h"
 #include "constants.h"
@@ -24,9 +25,9 @@ SideBar::SideBar(QList<ModuleMetaData> modules, QWidget *parent)
         "",
         "",
         "Back to home",
-        "home_normal.png",
-        "home_hover.png",
-        "home_press.png"
+        "home_normal.svg",
+        "home_hover.svg",
+        "home_press.svg"
     };
     modules.insert(0, home);
     // meta for power button
@@ -34,9 +35,9 @@ SideBar::SideBar(QList<ModuleMetaData> modules, QWidget *parent)
         "",
         "",
         "Power",
-        "shutdown_normal.png",
-        "shutdown_hover.png",
-        "shutdown_press.png"
+        "shutdown_normal.svg",
+        "shutdown_hover.svg",
+        "shutdown_press.svg"
     };
     modules.append(power);
 
@@ -194,17 +195,25 @@ void SideBarButton::setState(State state)
     QString moduleIconsDir("modules/icons/%1");
 #endif
 
+    QString fileName;
+
     switch (state) {
     case Normal:
-        m_icon->setPixmap(QPixmap(moduleIconsDir.arg(m_meta.normalIcon)));
+        fileName = moduleIconsDir.arg(m_meta.normalIcon);
         break;
     case Hover:
-        m_icon->setPixmap(QPixmap(moduleIconsDir.arg(m_meta.hoverIcon)));
+        fileName = moduleIconsDir.arg(m_meta.hoverIcon);
         break;
     case Selected:
-        m_icon->setPixmap(QPixmap(moduleIconsDir.arg(m_meta.selectedIcon)));
-        break;
-    default:
+        fileName = moduleIconsDir.arg(m_meta.selectedIcon);
         break;
     }
+
+    QPixmap pixmap(24, 24);
+    pixmap.fill(Qt::transparent);
+    QPainter painter(&pixmap);
+    QSvgRenderer renderer(fileName);
+    renderer.render(&painter);
+
+    m_icon->setPixmap(pixmap);
 }

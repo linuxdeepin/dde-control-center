@@ -2,8 +2,8 @@
     "id": "network",
 	"name": "Network",
 	"icon": {
-		"normal": "network_normal.png",
-		"hover": "network_hover.png",
-		"selected": "network_press.png"
+		"normal": "network_normal.svg",
+		"hover": "network_hover.svg",
+		"selected": "network_press.svg"
 	}
 }

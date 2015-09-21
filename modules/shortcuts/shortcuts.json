@@ -2,8 +2,8 @@
     "id": "shortcuts",
 	"name": "Keyboard Shortcuts",
 	"icon": {
-		"normal": "shortcuts_normal.png",
-		"hover": "shortcuts_hover.png",
-		"selected": "shortcuts_press.png"
+		"normal": "shortcuts_normal.svg",
+		"hover": "shortcuts_hover.svg",
+		"selected": "shortcuts_press.svg"
 	}
 }

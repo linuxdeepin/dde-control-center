@@ -252,7 +252,7 @@ ModuleButton::ModuleButton(ModuleMetaData metaData, QWidget *parent) :
     vLayout->setAlignment(m_icon, Qt::AlignHCenter);
     vLayout->addWidget(m_text);
     vLayout->setAlignment(m_text, Qt::AlignHCenter);
-    vLayout->setContentsMargins(10, 24, 0, 10);
+    vLayout->setContentsMargins(0, 24, 0, 0);
     vLayout->setSpacing(6);
 
     this->setLayout(vLayout);

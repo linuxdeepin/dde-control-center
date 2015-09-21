@@ -2,8 +2,8 @@
     "id": "system_info",
 	"name": "System Infomation",
 	"icon": {
-		"normal": "system_info_normal.png",
-		"hover": "system_info_hover.png",
-		"selected": "system_info_press.png"
+		"normal": "system_info_normal.svg",
+		"hover": "system_info_hover.svg",
+		"selected": "system_info_press.svg"
 	}
 }

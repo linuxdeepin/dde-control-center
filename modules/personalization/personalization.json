@@ -2,8 +2,8 @@
     "id": "personalization",
 	"name": "Personalization",
 	"icon": {
-		"normal": "personalization_normal.png",
-		"hover": "personalization_hover.png",
-		"selected": "personalization_press.png"
+		"normal": "personalization_normal.svg",
+		"hover": "personalization_hover.svg",
+		"selected": "personalization_press.svg"
 	}
 }

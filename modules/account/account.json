@@ -2,8 +2,8 @@
     "id": "account",
 	"name": "Account",
 	"icon": {
-		"normal": "account_normal.png",
-		"hover": "account_hover.png",
-		"selected": "account_press.png"
+		"normal": "account_normal.svg",
+		"hover": "account_hover.svg",
+		"selected": "account_press.svg"
 	}
 }

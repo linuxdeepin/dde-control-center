@@ -1,4 +1,4 @@
-QT += widgets dbus
+QT += widgets dbus svg
 
 HEADERS    = frame.h \
              interfaces.h \

@@ -2,8 +2,8 @@
     "id": "datetime",
     "name": "Date and Time",
 	"icon": {
-        "normal": "date_time_normal.png",
-        "hover": "date_time_hover.png",
-        "selected": "date_time_press.png"
+        "normal": "date_time_normal.svg",
+        "hover": "date_time_hover.svg",
+        "selected": "date_time_press.svg"
 	}
 }

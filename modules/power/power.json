@@ -2,8 +2,8 @@
     "id": "power",
 	"name": "Power",
 	"icon": {
-		"normal": "power_normal.png",
-		"hover": "power_hover.png",
-		"selected": "power_press.png"
+		"normal": "power_normal.svg",
+		"hover": "power_hover.svg",
+		"selected": "power_press.svg"
 	}
 }

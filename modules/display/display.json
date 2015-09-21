@@ -2,8 +2,8 @@
     "id": "display",
     "name": "Display",
 	"icon": {
-        "normal": "display_normal.png",
-        "hover": "display_hover.png",
-        "selected": "display_press.png"
+        "normal": "display_normal.svg",
+        "hover": "display_hover.svg",
+        "selected": "display_press.svg"
 	}
 }
