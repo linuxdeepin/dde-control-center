@@ -196,6 +196,19 @@ void Frame::globalMouseReleaseEvent(int button, int x, int y)
     }
 }
 
+void Frame::hideAndShowAnotherSide()
+{
+    hide();
+    m_hideInLeft = !m_hideInLeft;
+    QTimer::singleShot(DCC::FrameAnimationDuration + 10, this, SLOT(hideAndShowAnotherSideFinish()));
+}
+
+void Frame::hideAndShowAnotherSideFinish()
+{
+    emit hideInLeftChanged(m_hideInLeft);
+    show();
+}
+
 void Frame::selectModule(const QString &moduleId)
 {
     qDebug() << "select to" << moduleId;
@@ -264,4 +277,18 @@ void Frame::setCanNotHide(bool canNotHide)
 
     m_canNotHide = canNotHide;
     emit canNotHideChanged(canNotHide);
+}
+
+void Frame::toggle(bool inLeft)
+{
+    if (m_hideAni->state() == QPropertyAnimation::Running ||
+        m_showAni->state() == QPropertyAnimation::Running)
+        return;
+
+    const bool lastState = isHideInLeft();
+
+    if (lastState == inLeft)
+        isVisible() ? hide() : show();
+    else
+        hideAndShowAnotherSide();
 }

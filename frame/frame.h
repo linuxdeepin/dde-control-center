@@ -38,6 +38,7 @@ public slots:
     void setHideInLeft(bool hideInLeft);
     void updateGeometry();
     void setCanNotHide(bool canNotHide);
+    void toggle(bool inLeft);
 
 signals:
     void hideInLeftChanged(bool hideInLeft);
@@ -50,6 +51,8 @@ private:
 private slots:
     void selectModule(ModuleMetaData metaData);
     void globalMouseReleaseEvent(int button, int x, int y);
+    void hideAndShowAnotherSide();
+    void hideAndShowAnotherSideFinish();
 
 private:
     HomeScreen *m_homeScreen;

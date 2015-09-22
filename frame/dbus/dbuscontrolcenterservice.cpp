@@ -99,27 +99,13 @@ void DBusControlCenterService::ShowModule(const QString &name)
 void DBusControlCenterService::Toggle()
 {
     // handle method call com.deepin.dde.ControlCenter.Toggle
-    //parent()->Toggle();
-    parent()->setHideInLeft(false);
-
-    if (parent()->isVisible()) {
-        parent()->hide();
-    } else {
-        parent()->show();
-    }
+    parent()->toggle(false);
 }
 
 void DBusControlCenterService::ToggleInLeft()
 {
     // handle method call com.deepin.dde.ControlCenter.ToggleInLeft
-    //parent()->ToggleInLeft();
-    parent()->setHideInLeft(true);
-
-    if (parent()->isVisible()) {
-        parent()->hide();
-    } else {
-        parent()->show();
-    }
+    parent()->toggle(true);
 }
 
 bool DBusControlCenterService::isNetworkCanShowPassword()
