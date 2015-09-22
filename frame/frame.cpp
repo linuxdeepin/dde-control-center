@@ -64,7 +64,7 @@ Frame::Frame(QWidget *parent) :
     connect(this, &Frame::hideInLeftChanged, m_contentView, &ContentView::reLayout);
 
     setFixedSize(frameSize);
-    setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::WindowStaysOnTopHint);
+    setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::Tool);
     setAttribute(Qt::WA_TranslucentBackground);
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     setFocusPolicy(Qt::StrongFocus);
