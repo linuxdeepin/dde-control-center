@@ -27,7 +27,6 @@ public:
     Frame(QWidget *parent = 0);
     ~Frame();
 
-    void keyPressEvent(QKeyEvent *event) Q_DECL_OVERRIDE;
     void show(bool imme = false);
     void hide(bool imme = false);
     inline bool isHideInLeft() const {return m_hideInLeft;}

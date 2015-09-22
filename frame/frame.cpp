@@ -77,14 +77,6 @@ Frame::~Frame()
     m_hideAni->deleteLater();
 }
 
-// override methods
-void Frame::keyPressEvent(QKeyEvent *event)
-{
-    if (event->key() == Qt::Key_Escape) {
-        qApp->quit();
-    }
-}
-
 void Frame::show(bool imme)
 {
     if (m_visible || m_hideAni->state() == QPropertyAnimation::Running) {
