@@ -24,15 +24,26 @@ PreviewWindow::~PreviewWindow()
 
 void PreviewWindow::setImages(const QStringList &list)
 {
-    if(list.count() < 2)
+    if(list.isEmpty())
         return;
-    m_pixmap_left.load(list[0]);
-    m_pixmap_right.load(list[1]);
+
+    m_imageList.clear();
+    m_pixmap_x = 0;
+    foreach (const QString &str, list) {
+        QPixmap pixmap;
+        if(pixmap.load(str))
+            m_imageList << pixmap;
+    }
     update();
 }
 
 void PreviewWindow::show(const QString &key)
 {
+    if(m_imageList.isEmpty()){
+        qWarning() << "no call setImages;";
+        return;
+    }
+
     m_key = key;
 
     QWidget *w = qobject_cast<QWidget*>(sender());
@@ -84,9 +95,17 @@ void PreviewWindow::paintEvent(QPaintEvent *e)
     QPainterPath path;
     path.addRoundedRect(rect(), 3, 3);
     pa.setClipPath(path);
-    pa.drawPixmap(m_pixmap_x, 0, m_pixmap_left);
-    if(m_pixmap_x < 0)
-        pa.drawPixmap(m_pixmap_x + width(), 0, m_pixmap_right);
+
+    int current_image_index = -m_pixmap_x / width();
+    int image_x = m_pixmap_x % width();
+    pa.drawPixmap(image_x, 0, m_imageList[(current_image_index + m_imageList.count()) % m_imageList.count()]);
+    if(image_x < 0){
+        pa.drawPixmap(image_x + width(), 0, m_imageList[(current_image_index + 1) % m_imageList.count()]);
+    }else if(image_x > 0){
+        pa.drawPixmap(image_x - width(), 0,
+        m_imageList[(current_image_index + m_imageList.count() - 1) % m_imageList.count()]);
+    }
+
     QRect bottom_rect;
     bottom_rect.setSize(QSize(width(), 50));
     bottom_rect.moveBottom(rect().bottom());
@@ -145,17 +164,27 @@ void PreviewWindow::initUI()
 
 void PreviewWindow::imageToRight()
 {
-    m_animation_image_switch.stop();
+    if(m_animation_image_switch.state() == QVariantAnimation::Running || m_imageList.count() < 2)
+        return;
+
+    if(m_pixmap_x <= -width() * m_imageList.count())
+        m_pixmap_x = 0;
+
     m_animation_image_switch.setStartValue(m_pixmap_x);
-    m_animation_image_switch.setEndValue(-width());
+    m_animation_image_switch.setEndValue(m_pixmap_x - width());
     m_animation_image_switch.start();
 }
 
 void PreviewWindow::imageToLeft()
 {
-    m_animation_image_switch.stop();
+    if(m_animation_image_switch.state() == QVariantAnimation::Running || m_imageList.count() < 2)
+        return;
+
+    if(m_pixmap_x > 0)
+        m_pixmap_x = -width() * (m_imageList.count() - 1);
+
     m_animation_image_switch.setStartValue(m_pixmap_x);
-    m_animation_image_switch.setEndValue(0);
+    m_animation_image_switch.setEndValue(m_pixmap_x + width());
     m_animation_image_switch.start();
 }
 

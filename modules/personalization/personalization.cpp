@@ -326,10 +326,8 @@ void Personalization::updateThemeButtons(const ImageInfoList &imageInfos){
         connect(mousearea, &MouseArea::entered, preview, &ImageButton::show);
         connect(mousearea, &MouseArea::exited, preview, &ImageButton::hide);
         connect(preview, &ImageButton::clicked, m_previewWindow, [this, key]{
-            m_previewWindow->show(key);
-        });
-        connect(preview, &ImageButton::clicked, m_previewWindow, [this, key]{
             m_previewWindow->setImages(m_dbusWorker->getPreviewImages(key));
+            m_previewWindow->show(key);
         });
         m_themeButtonGrid->addButtonWidget(button, i);
     }
