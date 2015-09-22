@@ -17,6 +17,13 @@ CreateUserPanel::CreateUserPanel(QWidget *parent) : QWidget(parent)
     }
 }
 
+void CreateUserPanel::preDestroy()
+{
+    m_nameLine->hideWarning();
+    m_passwdNew->hideWarning();
+    m_passwdRepeat->hideWarning();
+}
+
 void CreateUserPanel::initDbusData()
 {
     m_account = new DBusAccount(this);
