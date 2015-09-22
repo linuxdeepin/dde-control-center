@@ -2,8 +2,6 @@
 #include <QLabel>
 #include <QDebug>
 #include <QPropertyAnimation>
-#include <QSvgRenderer>
-#include <QPainter>
 
 #include "sidebar.h"
 #include "constants.h"
@@ -18,8 +16,8 @@ SideBar::SideBar(QList<ModuleMetaData> modules, QWidget *parent)
     m_tips = new DTipsFrame;
 
     QVBoxLayout *layout = new QVBoxLayout;
-    layout->setMargin(0);
-    layout->setSpacing(10);
+    layout->setContentsMargins(0, 24, 0, 0);
+    layout->setSpacing(24);
 
     // meta for home button
     ModuleMetaData home {
@@ -39,6 +37,7 @@ SideBar::SideBar(QList<ModuleMetaData> modules, QWidget *parent)
     foreach(ModuleMetaData meta, modules) {
         SideBarButton *button = new SideBarButton(meta, this);
         layout->addWidget(button);
+        layout->setAlignment(button, Qt::AlignHCenter);
 
         connect(button, &SideBarButton::clicked, this, &SideBar::onSideBarButtonClicked);
         connect(button, &SideBarButton::hovered, [this, button]() -> void {m_tips->setTipsText(button->metaData().name);});
@@ -48,12 +47,7 @@ SideBar::SideBar(QList<ModuleMetaData> modules, QWidget *parent)
 
     layout->addStretch();
 
-    QHBoxLayout *hLayout = new QHBoxLayout();
-    hLayout->addStretch();
-    hLayout->addLayout(layout);
-    hLayout->addStretch();
-
-    this->setLayout(hLayout);
+    this->setLayout(layout);
 }
 
 void SideBar::enterEvent(QEvent *e)
@@ -119,16 +113,21 @@ SideBarButton::SideBarButton(ModuleMetaData metaData, QWidget *parent) :
     QAbstractButton(parent),
     m_meta(metaData)
 {
-    setFixedSize(36, 36);
+    setFixedSize(24, 24);
     setMouseTracking(true);
 
     m_icon = new QLabel(this);
 
     QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->setContentsMargins(0, 0, 0, 0);
+    layout->addStretch();
     layout->addWidget(m_icon);
+    layout->setAlignment(m_icon, Qt::AlignCenter);
+    layout->addStretch();
+    layout->setMargin(0);
+    layout->setSpacing(0);
 
     setState(Normal);
+//    setStyleSheet("background-color:red;");
 
     setObjectName(metaData.name);
     setAccessibleName(metaData.name);
@@ -204,11 +203,5 @@ void SideBarButton::setState(State state)
         break;
     }
 
-    QPixmap pixmap(24, 24);
-    pixmap.fill(Qt::transparent);
-    QPainter painter(&pixmap);
-    QSvgRenderer renderer(fileName);
-    renderer.render(&painter);
-
-    m_icon->setPixmap(pixmap);
+    m_icon->setPixmap(QPixmap(fileName));
 }
