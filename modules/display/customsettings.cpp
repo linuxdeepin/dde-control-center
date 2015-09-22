@@ -355,7 +355,9 @@ void CustomSettings::updateRotationButtons(MonitorInterface *dbus, DButtonGrid *
 void CustomSettings::updateBrightnessSlider(const QString& name, DSlider *brightnessSlider)
 {
     BrightnessMap brightnessMap = m_dbusDisplay->brightness();
+    m_ignoreSliderChang = true;
     brightnessSlider->setValue(brightnessMap[name] * 10);
+    m_ignoreSliderChang = false;
 }
 
 void CustomSettings::updateBrightnessLayout()
@@ -420,17 +422,15 @@ DSlider *CustomSettings::getBrightnessSlider(const QString &name)
     DSlider* brightnessSlider = new DSlider(Qt::Horizontal);
     brightnessSlider->setSingleStep(1);
     brightnessSlider->setPageStep(1);
-    brightnessSlider->setRange(0, 10);
+    brightnessSlider->setRange(1, 10);
     brightnessSlider->setMinimumWidth(290);
 
     updateBrightnessSlider(name, brightnessSlider);
 
-    connect(brightnessSlider, &DSlider::sliderMoved, this, [=](int value){
-        m_dbusDisplay->SetBrightness(name, value / 10.0);
+    connect(brightnessSlider, &DSlider::valueChanged, this, [=](int value){
+        if(!m_ignoreSliderChang)
+            m_dbusDisplay->SetBrightness(name, value / 10.0);
     }, Qt::DirectConnection);
-    connect(brightnessSlider, &DSlider::sliderReleased, [=]{
-        m_dbusDisplay->SetBrightness(name, brightnessSlider->value() / 10.0);
-    });
     connect(m_dbusDisplay, &DisplayInterface::BrightnessChanged, brightnessSlider, [this, name, brightnessSlider]{
         updateBrightnessSlider(name, brightnessSlider);
     }, Qt::DirectConnection);

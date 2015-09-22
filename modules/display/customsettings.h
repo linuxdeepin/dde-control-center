@@ -42,6 +42,7 @@ private:
     DTextButton *m_cancelButton = new DTextButton(tr("Cancel"));
     DTextButton *m_applyButton = new DTextButton(tr("Confirm"));
     MonitorGround *m_monitorGround;
+    bool m_ignoreSliderChang = false;
 
     QStringList getResolutionLabels(MonitorInterface *dbus);
     QStringList getRotationLabels(MonitorInterface *dbus);
