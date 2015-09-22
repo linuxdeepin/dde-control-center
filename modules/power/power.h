@@ -187,7 +187,9 @@ public slots:
     }
     inline void  hideBatteryTooltip(QString itemId) {
         Q_UNUSED(itemId);
+        m_batteryBreathingLabel->showLabel();
         m_batteryDynamicLabel->hideLabel();
+
     }
 };
 #endif

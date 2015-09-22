@@ -159,8 +159,8 @@ QString PowerInterfaceManagement::setPowerTooltipText(QString itemId, QString po
         argument_display = QString("10 minutes");
         argument_suspend = QString("never");
     } else if (itemId == "Power saver") {
-        argument_display = QString("15 minutes");
-        argument_suspend = QString("5 minutes");
+        argument_display = QString("5 minutes");
+        argument_suspend = QString("15 minutes");
     } else if (itemId == "High performance") {
         argument_display = QString("15 minutes");
         argument_suspend = QString("never");
