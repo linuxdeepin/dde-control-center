@@ -163,7 +163,7 @@ public slots:
         if (fm.width(tips) > 240) {
             m_powerConnectionBreathingLabel->hideLabel();
         }
-        m_powerDynamicLabel->showLabel();
+        m_powerDynamicLabel->delayShowLabel(300);
     }
     inline void  hidePowerTooltip(QString itemId) {
         Q_UNUSED(itemId);
@@ -178,11 +178,12 @@ public slots:
         setBatteryDynamicTooltip(itemId);
         QFont labelFont; QFontMetrics fm(labelFont);
         QString tips = m_powerInterfaceManagement->setPowerTooltipText(itemId, "battery");
-        qDebug() << fm.width(tips);
+
         if (fm.width(tips) > 240) {
             m_batteryBreathingLabel->hideLabel();
         }
-        m_batteryDynamicLabel->showLabel();
+
+        m_batteryDynamicLabel->delayShowLabel(300);
     }
     inline void  hideBatteryTooltip(QString itemId) {
         Q_UNUSED(itemId);

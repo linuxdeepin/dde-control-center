@@ -5,13 +5,17 @@
 #include <QPropertyAnimation>
 #include <QTimer>
 
+#include <libdui/libdui_global.h>
+
 class DynamicLabel : public QFrame
 {
     Q_OBJECT
 
     Q_PROPERTY(QColor color READ color WRITE setColor)
-    Q_PROPERTY(int duration READ duration WRITE setDuration)
-    Q_PROPERTY(QEasingCurve::Type easingType READ easingType WRITE setEasingType)
+    Q_PROPERTY(int showDuration READ showDuration WRITE setShowDuration)
+    Q_PROPERTY(QEasingCurve::Type showEasingType READ showEasingType WRITE setShowEasingType)
+    Q_PROPERTY(int hideDuration READ hideDuration WRITE setHideDuration)
+    Q_PROPERTY(QEasingCurve::Type hideEasingType READ hideEasingType WRITE setHideEasingTyp)
 
 public:
     explicit DynamicLabel(QWidget *parent = 0);
@@ -19,9 +23,13 @@ public:
     QString text() const;
     QLabel *label() const;
     QColor color() const;
-    int duration() const;
-    QEasingCurve::Type easingType() const;
+    int duration() const DUI_DECL_DEPRECATED;
+    QEasingCurve::Type easingType() const DUI_DECL_DEPRECATED;
     QSize sizeHint() const Q_DECL_OVERRIDE;
+    int hideDuration() const;
+    QEasingCurve::Type hideEasingType() const;
+    int showDuration() const;
+    QEasingCurve::Type showEasingType() const;
 
 public slots:
     void setText(const QString &text);
@@ -30,9 +38,13 @@ public slots:
     void delayShowLabel(int duration);
     void delayHideLabel(int duration);
     void setColor(QColor color);
-    void setDuration(int duration);
-    void setEasingType(QEasingCurve::Type easingType);
+    void setDuration(int duration) DUI_DECL_DEPRECATED;
+    void setEasingType(QEasingCurve::Type easingType) DUI_DECL_DEPRECATED;
     void setDisappearDuration(int duration);
+    void setHideDuration(int hideDuration);
+    void setHideEasingTyp(QEasingCurve::Type hideEasingType);
+    void setShowDuration(int showDuration);
+    void setShowEasingType(QEasingCurve::Type showEasingType);
 
 signals:
     void hideFinished();
@@ -42,7 +54,8 @@ protected:
 
 private:
     QLabel *m_label;
-    QPropertyAnimation *m_animation;
+    QPropertyAnimation *m_showAnimation;
+    QPropertyAnimation *m_hideAnimation;
     int m_timeout;
     QTimer m_delayTimer;
 };

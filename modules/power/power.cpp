@@ -91,8 +91,8 @@ void Power::initPowerConnectionPanelUI() {
     m_powerDynamicLabel->label()->setFixedHeight(55);
     m_powerDynamicLabel->label()->setAlignment(Qt::AlignBottom);
     m_powerDynamicLabel->label()->setWordWrap(true);
-
-    m_powerDynamicLabel->setDuration(500);
+    m_powerDynamicLabel->setHideDuration(200);
+    m_powerDynamicLabel->setShowDuration(500);
     m_powerPerformanceButtonGroup = new DButtonGrid(2, 2);
 
     m_powerPerformaceString << tr("Balanced") << tr("Power saver") << tr("High performance") << tr("Custom");
@@ -143,7 +143,8 @@ void Power::initBatteryUsedUI() {
     m_batteryDynamicLabel->label()->setFixedHeight(55);
     m_batteryDynamicLabel->label()->setAlignment(Qt::AlignBottom);
     m_batteryDynamicLabel->label()->setWordWrap(true);
-
+    m_batteryDynamicLabel->setHideDuration(200);
+    m_batteryDynamicLabel->setShowDuration(500);
 
     m_batterySettingExpand->setFixedHeight(m_bgContentHeight);
     m_batterySettingExpand->setHeader(m_batterySettingDBaseLine);

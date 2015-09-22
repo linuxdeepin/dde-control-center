@@ -13,20 +13,24 @@ DUI_USE_NAMESPACE
 DynamicLabel::DynamicLabel(QWidget *parent) :
     QFrame(parent),
     m_label(new QLabel(this)),
-    m_animation(new QPropertyAnimation(this))
+    m_showAnimation(new QPropertyAnimation(this)),
+    m_hideAnimation(new QPropertyAnimation(this))
 {
     m_label->setObjectName("Label");
 
     D_THEME_INIT_WIDGET(DynamicLabel);
 
-    m_animation->setTargetObject(m_label);
-    m_animation->setPropertyName("pos");
+    m_showAnimation->setTargetObject(m_label);
+    m_showAnimation->setPropertyName("pos");
+    m_hideAnimation->setTargetObject(m_label);
+    m_hideAnimation->setPropertyName("pos");
 
-    connect(m_animation, &QPropertyAnimation::finished, [this]{
+    connect(m_hideAnimation, &QPropertyAnimation::finished, [this]{
         update();
-        if(m_label->geometry().left() == width())
-            emit hideFinished();
+        hide();
+        emit hideFinished();
     });
+    hide();
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 }
 
@@ -47,17 +51,37 @@ QColor DynamicLabel::color() const
 
 int DynamicLabel::duration() const
 {
-    return m_animation->duration();
+    return showDuration();
 }
 
 QEasingCurve::Type DynamicLabel::easingType() const
 {
-    return m_animation->easingCurve().type();
+    return showEasingType();
 }
 
 QSize DynamicLabel::sizeHint() const
 {
     return m_label->sizeHint();
+}
+
+int DynamicLabel::hideDuration() const
+{
+    return m_hideAnimation->duration();
+}
+
+QEasingCurve::Type DynamicLabel::hideEasingType() const
+{
+    return m_hideAnimation->easingCurve().type();
+}
+
+int DynamicLabel::showDuration() const
+{
+    return m_showAnimation->duration();
+}
+
+QEasingCurve::Type DynamicLabel::showEasingType() const
+{
+    return m_showAnimation->easingCurve().type();
 }
 
 void DynamicLabel::setText(const QString &text)
@@ -69,20 +93,21 @@ void DynamicLabel::setText(const QString &text)
 
 void DynamicLabel::showLabel()
 {
+    m_showAnimation->stop();
+    show();
     m_delayTimer.stop();
-    m_animation->stop();
-    m_animation->setStartValue(QPoint(width(), 0));
-    m_animation->setEndValue(QPoint(width() - qMin(m_label->width(), m_label->fontMetrics().width(text())), 0));
-    m_animation->start();
+    m_showAnimation->setStartValue(QPoint(width(), 0));
+    m_showAnimation->setEndValue(QPoint(width() - qMin(m_label->width(), m_label->fontMetrics().width(text())), 0));
+    m_showAnimation->start();
 }
 
 void DynamicLabel::hideLabel()
 {
     m_delayTimer.stop();
-    m_animation->stop();
-    m_animation->setStartValue(QPoint(m_label->x(), 0));
-    m_animation->setEndValue(QPoint(width(), 0));
-    m_animation->start();
+
+    m_hideAnimation->setStartValue(QPoint(m_label->x(), 0));
+    m_hideAnimation->setEndValue(QPoint(width(), 0));
+    m_hideAnimation->start();
 }
 
 void DynamicLabel::delayShowLabel(int duration)
@@ -109,12 +134,32 @@ void DynamicLabel::setColor(QColor color)
 
 void DynamicLabel::setDuration(int duration)
 {
-    m_animation->setDuration(duration);
+    setShowDuration(duration);
 }
 
 void DynamicLabel::setEasingType(QEasingCurve::Type easingType)
 {
-    m_animation->setEasingCurve(easingType);
+    setShowEasingType(easingType);
+}
+
+void DynamicLabel::setHideDuration(int hideDuration)
+{
+    m_hideAnimation->setDuration(hideDuration);
+}
+
+void DynamicLabel::setHideEasingTyp(QEasingCurve::Type hideEasingType)
+{
+    m_hideAnimation->setEasingCurve(hideEasingType);
+}
+
+void DynamicLabel::setShowDuration(int showDuration)
+{
+    m_showAnimation->setDuration(showDuration);
+}
+
+void DynamicLabel::setShowEasingType(QEasingCurve::Type showEasingType)
+{
+    m_showAnimation->setEasingCurve(showEasingType);
 }
 
 void DynamicLabel::resizeEvent(QResizeEvent *e)
