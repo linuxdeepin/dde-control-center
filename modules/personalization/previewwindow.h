@@ -35,6 +35,8 @@ protected:
     void paintEvent(QPaintEvent *e);
 
 private:
+    int m_image_index_left = 0;
+    int m_image_index_right = 0;
     QList<QPixmap> m_imageList;
     QPointer<QWidget> m_controlCenterWindow;
     int m_pixmap_x = 0;

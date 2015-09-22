@@ -95,16 +95,8 @@ void PreviewWindow::paintEvent(QPaintEvent *e)
     QPainterPath path;
     path.addRoundedRect(rect(), 3, 3);
     pa.setClipPath(path);
-
-    int current_image_index = -m_pixmap_x / width();
-    int image_x = m_pixmap_x % width();
-    pa.drawPixmap(image_x, 0, m_imageList[(current_image_index + m_imageList.count()) % m_imageList.count()]);
-    if(image_x < 0){
-        pa.drawPixmap(image_x + width(), 0, m_imageList[(current_image_index + 1) % m_imageList.count()]);
-    }else if(image_x > 0){
-        pa.drawPixmap(image_x - width(), 0,
-        m_imageList[(current_image_index + m_imageList.count() - 1) % m_imageList.count()]);
-    }
+    pa.drawPixmap(m_pixmap_x, 0, m_imageList[m_image_index_left]);
+    pa.drawPixmap(m_pixmap_x + width(), 0, m_imageList[m_image_index_right]);
 
     QRect bottom_rect;
     bottom_rect.setSize(QSize(width(), 50));
@@ -167,11 +159,12 @@ void PreviewWindow::imageToRight()
     if(m_animation_image_switch.state() == QVariantAnimation::Running || m_imageList.count() < 2)
         return;
 
-    if(m_pixmap_x <= -width() * m_imageList.count())
-        m_pixmap_x = 0;
+    if(m_pixmap_x != 0)
+        m_image_index_left = m_image_index_right;
+    m_image_index_right = (m_image_index_left + m_imageList.count() + 1) % m_imageList.count();
 
-    m_animation_image_switch.setStartValue(m_pixmap_x);
-    m_animation_image_switch.setEndValue(m_pixmap_x - width());
+    m_animation_image_switch.setStartValue(0);
+    m_animation_image_switch.setEndValue(- width());
     m_animation_image_switch.start();
 }
 
@@ -180,11 +173,12 @@ void PreviewWindow::imageToLeft()
     if(m_animation_image_switch.state() == QVariantAnimation::Running || m_imageList.count() < 2)
         return;
 
-    if(m_pixmap_x > 0)
-        m_pixmap_x = -width() * (m_imageList.count() - 1);
+    if(m_pixmap_x == 0)
+        m_image_index_right = m_image_index_left;
+    m_image_index_left = (m_image_index_left + m_imageList.count() - 1) % m_imageList.count();
 
-    m_animation_image_switch.setStartValue(m_pixmap_x);
-    m_animation_image_switch.setEndValue(m_pixmap_x + width());
+    m_animation_image_switch.setStartValue(-width());
+    m_animation_image_switch.setEndValue(0);
     m_animation_image_switch.start();
 }
 
