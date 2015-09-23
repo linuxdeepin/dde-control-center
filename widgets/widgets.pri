@@ -20,7 +20,6 @@ HEADERS += $$PWD/searchlist.h \
     $$PWD/genericlistitem.h \
     $$PWD/listwidget.h \
     $$PWD/inputwarningframe.h \
-    $$PWD/anchors.h \
     $$PWD/dbreathinglabel.h \
     $$PWD/mousearea.h
 SOURCES += $$PWD/searchlist.cpp \
@@ -28,6 +27,7 @@ SOURCES += $$PWD/searchlist.cpp \
     $$PWD/moduleheader.cpp \
     $$PWD/normallabel.cpp \
     $$PWD/highlightlabel.cpp \
+    $$PWD/imagenamebutton.cpp \
     $$PWD/addrmdoneline.cpp \
     $$PWD/multiaddcheckbutton.cpp \
     $$PWD/inputline.cpp \
