@@ -14,6 +14,10 @@ SUBDIRS  = sound \
            keyboard \
            datetime
 
-isEqual(WITHOUT_MODULE_GRUB, NO){
+isEmpty(WITH_MODULE_GRUB){
+    WITH_MODULE_GRUB = YES
+}
+
+isEqual(WITH_MODULE_GRUB, YES){
     SUBDIRS += grub
 }
