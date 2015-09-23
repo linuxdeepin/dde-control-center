@@ -29,7 +29,9 @@ public:
 
     friend QDebug operator<<(QDebug argument, const ZoneInfo & info);
     friend QDBusArgument &operator<<(QDBusArgument & argument, const ZoneInfo & info);
+    friend QDataStream &operator<<(QDataStream & argument, const ZoneInfo & info);
     friend const QDBusArgument &operator>>(const QDBusArgument & argument, ZoneInfo & info);
+    friend const QDataStream &operator>>(QDataStream & argument, ZoneInfo & info);
 
     bool operator==(const ZoneInfo &what) const;
 

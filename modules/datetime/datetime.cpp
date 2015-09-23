@@ -24,33 +24,14 @@ Datetime::Datetime() :
     m_frame(new QFrame),
     m_dbusInter(m_frame),
     m_timezoneListWidget(new SearchList),
-    m_refershTimer(new QTimer(m_frame))
+    m_refershTimer(new QTimer(m_frame)),
+    // config manager
+    m_settings(new QSettings("deepin", "dde-control-center-datetime", this))
 {
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
 
-    // get timezone info list
-    m_zoneInfoList = new QList<ZoneInfo>;
-    QDBusPendingReply<QStringList> list = m_dbusInter.GetZoneList();
-    list.waitForFinished();
-    QStringList zoneList = list.value();
-    for (const QString & zone : zoneList)
-    {
-        QDBusPendingReply<ZoneInfo> info = m_dbusInter.GetZoneInfo(zone);
-        info.waitForFinished();
-        m_zoneInfoList->append(info.argumentAt<0>());
-    }
-
-    // TODO: 现在 GetZoneList 获取不到 "Asia/Shanghai"，但用户是可以设置的，先强制把Shanghai加入进去
-    const ZoneInfo userZoneInfo = m_dbusInter.GetZoneInfo("Asia/Shanghai");
-    m_zoneInfoList->append(userZoneInfo);
-
-    // sort by utc offset ascend, if utc offset is equal, sort by city.
-    std::sort(m_zoneInfoList->begin(), m_zoneInfoList->end(), [this] (const ZoneInfo & z1, const ZoneInfo & z2) -> bool {
-        if (z1.m_utcOffset == z2.m_utcOffset)
-            return z1.m_zoneCity < z2.m_zoneCity;
-        return z1.m_utcOffset < z2.m_utcOffset;
-    });
+    loadZoneList();
 
     m_frame->installEventFilter(this);
 
@@ -160,8 +141,6 @@ Datetime::Datetime() :
         if (!reply.isError())
             m_calendar->setCurrentDate(date);
     });
-
-    qDebug() << getZoneCityListByOffset(m_dbusInter.GetZoneInfo(m_dbusInter.timezone()).argumentAt<0>().m_utcOffset);
 }
 
 Datetime::~Datetime()
@@ -381,4 +360,51 @@ void Datetime::timezoneItemChoosed()
     }
 
     m_timezoneCtrlWidget->setAcceptOrCancel(m_choosedZoneList.isEmpty());
+}
+
+void Datetime::loadZoneList()
+{
+    const QString zoneInfoListKey = "zoneInfoList";
+
+    // get timezone info list
+    m_zoneInfoList = new QList<ZoneInfo>;
+
+    // try to read config file
+    QByteArray bytes = m_settings->value(zoneInfoListKey).toByteArray();
+    QDataStream readStream(&bytes, QIODevice::ReadOnly);
+    readStream >> *m_zoneInfoList;
+
+    // load success
+    if (!m_zoneInfoList->empty())
+        return;
+
+    qDebug() << "load zoneInfoList from d-bus";
+
+    // load config file error, read from d-bus
+    QDBusPendingReply<QStringList> list = m_dbusInter.GetZoneList();
+    list.waitForFinished();
+    QStringList zoneList = list.value();
+    for (const QString & zone : zoneList)
+    {
+        QDBusPendingReply<ZoneInfo> info = m_dbusInter.GetZoneInfo(zone);
+        info.waitForFinished();
+        m_zoneInfoList->append(info.argumentAt<0>());
+    }
+
+    // TODO: 现在 GetZoneList 获取不到 "Asia/Shanghai"，但用户是可以设置的，先强制把Shanghai加入进去
+    const ZoneInfo userZoneInfo = m_dbusInter.GetZoneInfo("Asia/Shanghai");
+    m_zoneInfoList->append(userZoneInfo);
+
+    // sort by utc offset ascend, if utc offset is equal, sort by city.
+    std::sort(m_zoneInfoList->begin(), m_zoneInfoList->end(), [this] (const ZoneInfo & z1, const ZoneInfo & z2) -> bool {
+        if (z1.m_utcOffset == z2.m_utcOffset)
+            return z1.m_zoneCity < z2.m_zoneCity;
+        return z1.m_utcOffset < z2.m_utcOffset;
+    });
+
+    QByteArray writeBytes;
+    QDataStream writeStream(&writeBytes, QIODevice::WriteOnly);
+    writeStream << *m_zoneInfoList;
+
+    m_settings->setValue(zoneInfoListKey, writeBytes);
 }

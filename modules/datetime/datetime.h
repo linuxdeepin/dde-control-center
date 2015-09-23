@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QtPlugin>
+#include <QSettings>
 
 #include "interfaces.h"
 #include "datecontrolwidget.h"
@@ -48,6 +49,7 @@ private slots:
     void removeTimeZone(TimezoneWidget *zone);
     void addUserTimeZone();
     void timezoneItemChoosed();
+    void loadZoneList();
 
 private:
     QFrame * m_frame;
@@ -72,6 +74,7 @@ private:
     TimeWidget *m_timeWidget;
     SearchList *m_timezoneListWidget;
     QTimer *m_refershTimer;
+    QSettings *m_settings;
 
     QList<QString> m_choosedZoneList;
 };

@@ -71,6 +71,20 @@ QDBusArgument &operator<<(QDBusArgument & argument, const ZoneInfo & info)
     return argument;
 }
 
+QDataStream &operator<<(QDataStream & argument, const ZoneInfo & info)
+{
+    ZoneInfo what = info;
+
+    // TODO: 神奇的需求要求把 Asia/Shanghai 的城市替换成 Beijing
+    if (info.m_zoneName == "Asia/Shanghai")
+        what.m_zoneCity = "Shanghai";
+
+    argument << what.m_zoneName << what.m_zoneCity << what.m_utcOffset;
+    argument << what.i2 << what.i3 << what.i4;
+
+    return argument;
+}
+
 const QDBusArgument &operator>>(const QDBusArgument & argument, ZoneInfo & info)
 {
     argument.beginStructure();
@@ -79,6 +93,18 @@ const QDBusArgument &operator>>(const QDBusArgument & argument, ZoneInfo & info)
     argument >> info.i2 >> info.i3 >> info.i4;
     argument.endStructure();
     argument.endStructure();
+
+    // TODO: 神奇的需求要求把 Asia/Shanghai 的城市替换成 Beijing
+    if (info.m_zoneName == "Asia/Shanghai")
+        info.m_zoneCity = "Beijing";
+
+    return argument;
+}
+
+const QDataStream &operator>>(QDataStream & argument, ZoneInfo & info)
+{
+    argument >> info.m_zoneName >> info.m_zoneCity >> info.m_utcOffset;
+    argument >> info.i2 >> info.i3 >> info.i4;
 
     // TODO: 神奇的需求要求把 Asia/Shanghai 的城市替换成 Beijing
     if (info.m_zoneName == "Asia/Shanghai")
