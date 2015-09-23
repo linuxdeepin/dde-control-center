@@ -24,7 +24,7 @@ public:
     explicit TimezoneWidget(const ZoneInfo *m_zoneInfo, QWidget *parent = 0);
 
     inline bool isSelected() {return m_selected;}
-    inline const QString zoneName() {return m_zoneInfo->m_zoneName;}
+    inline const QString zoneName() {return m_zoneInfo->getZoneName();}
 
     QWidget *widget() const Q_DECL_OVERRIDE {return const_cast<TimezoneWidget *>(this);}
 

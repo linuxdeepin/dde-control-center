@@ -36,6 +36,11 @@ public:
     bool operator==(const ZoneInfo &what) const;
 
 public:
+    inline QString getZoneName() const {return m_zoneName;}
+    inline QString getZoneCity() const {return m_zoneCity;}
+    inline int getUTCOffset() const {return m_utcOffset;}
+
+private:
     QString m_zoneName;
     QString m_zoneCity;
     int m_utcOffset;

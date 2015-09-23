@@ -22,7 +22,7 @@ public:
 
     QWidget *widget() const Q_DECL_OVERRIDE {return const_cast<TimezoneItemWidget *>(this);}
 
-    inline const QString zoneName() const {return m_zoneInfo->m_zoneName;}
+    inline const QString zoneName() const {return m_zoneInfo->getZoneName();}
     inline bool selected() const {return m_checkBtn->isChecked();}
 
 signals:

@@ -170,9 +170,12 @@ const QString Datetime::getZoneCityListByOffset(int zoneOffset)
 {
     QStringList list;
     for (const ZoneInfo & zone : *m_zoneInfoList)
-        if (zone.m_utcOffset == zoneOffset)
-            list.append(zone.m_zoneCity);
-        else if (zone.m_utcOffset > zoneOffset)
+        if (zone.getUTCOffset() == zoneOffset)
+            if (zone.getZoneCity() == "Asia/Shanghai")
+                list.append("Beijing");
+            else
+                list.append(zone.getZoneCity());
+        else if (zone.getUTCOffset() > zoneOffset)
             break;
 
     return std::move(list.join(", "));
@@ -181,7 +184,7 @@ const QString Datetime::getZoneCityListByOffset(int zoneOffset)
 const ZoneInfo &Datetime::getZoneInfoByName(const QString &zoneName) const
 {
     for (const ZoneInfo & zone : *m_zoneInfoList)
-        if (zone.m_zoneName == zoneName)
+        if (zone.getZoneName() == zoneName)
             return zone;
 
     qWarning() << zoneName << "not in Timezone list!!!";
@@ -218,9 +221,9 @@ void Datetime::showSelectedTimezoneList()
         const ZoneInfo & zoneInfo = getZoneInfoByName(zone);
 
         TimezoneWidget *zoneWidget = new TimezoneWidget(&zoneInfo);
-        zoneWidget->setZoneCities(getZoneCityListByOffset(zoneInfo.m_utcOffset));
-        zoneWidget->setZoneUTCOffset(getUTCOffset(zoneInfo.m_utcOffset));
-        zoneWidget->setSelected(userZone == zoneInfo.m_zoneName);
+        zoneWidget->setZoneCities(getZoneCityListByOffset(zoneInfo.getUTCOffset()));
+        zoneWidget->setZoneUTCOffset(getUTCOffset(zoneInfo.getUTCOffset()));
+        zoneWidget->setSelected(userZone == zoneInfo.getZoneName());
 
         connect(zoneWidget, &TimezoneWidget::clicked, [this, zoneWidget] () -> void {toggleTimeZone(zoneWidget);});
 
@@ -255,19 +258,19 @@ void Datetime::showTimezoneList()
     for (const ZoneInfo & zone : *m_zoneInfoList)
     {
         // skip repeat timezone
-        if (zone.m_utcOffset == lastUTCOffset)
+        if (zone.getUTCOffset() == lastUTCOffset)
             continue;
-        lastUTCOffset = zone.m_utcOffset;
+        lastUTCOffset = zone.getUTCOffset();
 
         // skip exist timezone
-        if (userZoneList.contains(zone.m_zoneName))
+        if (userZoneList.contains(zone.getZoneName()))
             continue;
 
         ++zoneNums;
 
         TimezoneItemWidget *itemWidget = new TimezoneItemWidget(&zone);
-        itemWidget->setZones(getZoneCityListByOffset(zone.m_utcOffset));
-        itemWidget->setUTCOffset(getUTCOffset(zone.m_utcOffset));
+        itemWidget->setZones(getZoneCityListByOffset(zone.getUTCOffset()));
+        itemWidget->setUTCOffset(getUTCOffset(zone.getUTCOffset()));
 
         connect(itemWidget, &TimezoneItemWidget::clicked, this, &Datetime::timezoneItemChoosed);
 
@@ -384,22 +387,24 @@ void Datetime::loadZoneList()
     QDBusPendingReply<QStringList> list = m_dbusInter.GetZoneList();
     list.waitForFinished();
     QStringList zoneList = list.value();
+
     for (const QString & zone : zoneList)
     {
-        QDBusPendingReply<ZoneInfo> info = m_dbusInter.GetZoneInfo(zone);
+        QDBusPendingReply<ZoneInfo> info;
+        if (zone == "Asia/Beijing")
+            info = m_dbusInter.GetZoneInfo("Asia/Shanghai");
+        else
+            info = m_dbusInter.GetZoneInfo(zone);
+
         info.waitForFinished();
         m_zoneInfoList->append(info.argumentAt<0>());
     }
 
-    // TODO: 现在 GetZoneList 获取不到 "Asia/Shanghai"，但用户是可以设置的，先强制把Shanghai加入进去
-    const ZoneInfo userZoneInfo = m_dbusInter.GetZoneInfo("Asia/Shanghai");
-    m_zoneInfoList->append(userZoneInfo);
-
     // sort by utc offset ascend, if utc offset is equal, sort by city.
     std::sort(m_zoneInfoList->begin(), m_zoneInfoList->end(), [this] (const ZoneInfo & z1, const ZoneInfo & z2) -> bool {
-        if (z1.m_utcOffset == z2.m_utcOffset)
-            return z1.m_zoneCity < z2.m_zoneCity;
-        return z1.m_utcOffset < z2.m_utcOffset;
+        if (z1.getUTCOffset() == z2.getUTCOffset())
+            return z1.getZoneCity() < z2.getZoneCity();
+        return z1.getUTCOffset() < z2.getUTCOffset();
     });
 
     QByteArray writeBytes;
