@@ -33,7 +33,7 @@ DExtendBoard::DExtendBoard(QFrame *parent)
 
     m_poweroffButtons << "1m" << "5m" << "10m" << "15m" << "30m" << "1h" << tr("never");
     m_poweroffButtonGrid->addButtons(m_poweroffButtons);
-    m_poweroffButtonGrid->checkButtonByIndex(2);
+    m_poweroffButtonGrid->checkButtonByIndex(6);
     m_suspendLabel = new QLabel;
     m_suspendLabel->setText(tr("Suspend"));
     m_suspendLabel->setStyleSheet("color: rgb(180, 180, 180)");;
@@ -43,7 +43,7 @@ DExtendBoard::DExtendBoard(QFrame *parent)
 
     m_suspendButtons << "1m" << "5m" << "10m" << "15m" << "30m" << "1h" << tr("never");
     m_suspendButtonGrid->addButtons(m_suspendButtons);
-    m_suspendButtonGrid->checkButtonByIndex(2);
+    m_suspendButtonGrid->checkButtonByIndex(6);
 
     m_bottomSeparator = new DSeparatorHorizontal(m_label);
 
