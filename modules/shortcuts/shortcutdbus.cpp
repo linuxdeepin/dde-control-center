@@ -22,9 +22,10 @@
 
 enum KeyType{
     KeyTypeSystem = 0, // 0
-    KeyTypeMedia = 1, // 1
-    KeyTypeWM = 2, // 2
-    KeyTypeCustom = 3 // 3
+    KeyTypeCustom,
+    KeyTypeMedia,
+    KeyTypeWM,
+    KeyTypeMetacity
 };
 
 ShortcutDbus::ShortcutDbus(QObject *parent)
@@ -41,9 +42,11 @@ ShortcutDbus::ShortcutDbus(QObject *parent)
     connect(this, &ShortcutDbus::Deleted, this, &ShortcutDbus::onDeleted);
 
     QStringList list;
-    list << "launcher" << "show-desktop" << "lock-screen" << "file-manager" << "switch-applications" << "switch-applications-backend"
-         << "show-dock" << "screenshot" << "screenshot-full-screen" << "screenshot-window" << "screenshot-delayed"
-         << "terminal" << "terminal-quake" << "logout" << "switch-layout";
+    list << "launcher" << "show-desktop" << "lock-screen" << "file-manager" << "switch-applications"
+         << "switch-applications-backend" << "show-dock" << "screenshot" << "screenshot-full-screen"
+         << "screenshot-window" << "screenshot-delayed" << "terminal" << "terminal-quake"
+         << "logout" << "switch-layout" << "preview-workspace" << "expose-windows" << "expose-all-windows"
+         << "switch-group" << "switch-group-backward" << "switch-applications" << "switch-applications-backward";
 
     QDBusInterface dbus("com.deepin.daemon.InputDevice.InputDevices",
                         "/com/deepin/daemon/InputDevice/TouchPad",
@@ -56,18 +59,16 @@ ShortcutDbus::ShortcutDbus(QObject *parent)
     }
 
     list.clear();
-    list << "close" << "maximize" << "unmaximize" << "minimize" << "begin-move"
-         << "begin-resize" << "toggle-shaded" << "activate-window-menu";
+    list << "close" << "maximize" << "unmaximize" << "begin-move"
+         << "begin-resize";
 
     foreach (QString str, list) {
         m_idToInfoListHash[str] = &m_windowList;
     }
 
     list.clear();
-    list << "switch-to-workspace-1" << "switch-to-workspace-2" << "switch-to-workspace-3" << "switch-to-workspace-4"
-         << "switch-to-workspace-left" << "switch-to-workspace-right" << "switch-to-workspace-up"
-         << "switch-to-workspace-down" << "move-to-workspace-1" << "move-to-workspace-2" << "move-to-workspace-3"
-         << "move-to-workspace-4" << "move-to-workspace-left" << "move-to-workspace-right"
+    list << "switch-to-workspace-left" << "switch-to-workspace-right" << "switch-to-workspace-up"
+         << "switch-to-workspace-down" << "move-to-workspace-left" << "move-to-workspace-right"
          << "move-to-workspace-up" << "move-to-workspace-down";
 
     foreach (QString str, list) {
@@ -118,6 +119,7 @@ void ShortcutDbus::updateShortcutList(const QString &id, qint32 type)
 
             switch (type) {
             case KeyTypeSystem://express
+            case KeyTypeMetacity://express
             case KeyTypeWM:{
                 ShortcutInfoList *info_list = m_idToInfoListHash.value(id, NULL);
                 if(info_list){
