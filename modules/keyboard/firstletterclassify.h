@@ -8,13 +8,13 @@
 #include <libdui/libdui_global.h>
 #include <libdui/dsegmentedcontrol.h>
 
-#include "searchlist.h"
+#include "listwidget.h"
 
 DUI_USE_NAMESPACE
 
 class MultiAddCheckButton;
 
-class KeyboardLayoutDelegate: public QFrame, public SearchItem
+class KeyboardLayoutDelegate: public QFrame
 {
     Q_OBJECT
 
@@ -24,10 +24,7 @@ class KeyboardLayoutDelegate: public QFrame, public SearchItem
 public:
     explicit KeyboardLayoutDelegate(const QString &title, QWidget *parent = 0);
 
-    QStringList keyWords() const Q_DECL_OVERRIDE;
-    void setData(const QVariant &datas) Q_DECL_OVERRIDE;
-    QVariant getData() Q_DECL_OVERRIDE;
-    QWidget *widget() const Q_DECL_OVERRIDE;
+    QStringList keyWords();
     QString title() const;
     bool checked() const;
 
@@ -40,13 +37,14 @@ protected:
 
 signals:
     void checkedChanged(bool checked);
+    void getKeyWordsFinished();
 
 private:
-    QWidget *m_widget;
     QHBoxLayout *m_layout;
     QLabel *m_label;
     MultiAddCheckButton *m_checkButton;
     bool m_checked;
+    QStringList m_pinyinFirstLetterList;
 };
 
 class FirstLetterClassify : public QFrame
@@ -56,15 +54,15 @@ class FirstLetterClassify : public QFrame
     Q_PROPERTY(QString currentLetter READ currentLetter WRITE setCurrentLetter NOTIFY currentLetterChanged)
 public:
     explicit FirstLetterClassify(QWidget *parent = 0);
-    SearchList *searchList() const;
+    ListWidget *searchList() const;
     DSegmentedControl *letterList() const;
-    void addItem(SearchItem *data);
-    void addEnd();
-    void removeItems(QList<SearchItem*> datas);
+    void addItem(KeyboardLayoutDelegate *data);
+    void removeItems(QList<KeyboardLayoutDelegate*> datas);
     QString currentLetter() const;
 
 public slots:
     void setCurrentLetter(QString currentLetter);
+    void show();
 
 signals:
     void currentLetterChanged(QString currentLetter);
@@ -72,9 +70,9 @@ signals:
 private:
     QVBoxLayout *m_layout;
     DSegmentedControl *m_letterList;
-    SearchList *m_searchList;
+    ListWidget *m_currentList = NULL;
     QString m_currentLetter;
-    int m_mapLetters[26]={0};
+    QList<ListWidget*> m_listWidgetList;
 };
 
 #endif // FIRSTLETTERCLASSIFY_H

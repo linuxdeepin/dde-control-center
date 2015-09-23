@@ -19,6 +19,7 @@ class SearchList;
 class AddRmDoneLine;
 class FirstLetterClassify;
 class QVBoxLayout;
+class KeyboardLayoutDelegate;
 class Keyboard: public QObject, ModuleInterface
 {
     Q_OBJECT
@@ -38,7 +39,7 @@ private:
     DBusKeyboard * m_dbusKeyboard;
     QMap<QString, QString> m_mapUserLayoutInfo;
     QMap<QString, int> m_mapUserLayoutIndex;
-    QList<SearchItem*> m_selectLayoutList;
+    QList<KeyboardLayoutDelegate*> m_selectLayoutList;
     FirstLetterClassify *m_letterClassifyList;
     QVBoxLayout *m_mainLayout;
 

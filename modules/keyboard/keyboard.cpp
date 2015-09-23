@@ -85,7 +85,6 @@ void Keyboard::updateKeyboardLayout(SearchList *button_list, AddRmDoneLine *line
             });
 
             m_letterClassifyList->addItem(tmpw);
-            m_letterClassifyList->addEnd();
         });
         connect(line, &AddRmDoneLine::removeClicked, item, &GenericListItem::showRemoveButton);
         connect(line, &AddRmDoneLine::doneClicked, item, &GenericListItem::hideRemoveButton);
@@ -216,13 +215,14 @@ void Keyboard::initUI()
     });
 
     connect(keyboardLayoutLine, &AddRmDoneLine::addClicked, [=]{
+
+
         keyboardLayoutLine->setAddHidden(true);
         keyboardLayoutLine->setRemoveHidden(true);
         keyboardLayoutLine->setDoneHidden(false);
 
         user_layout_list->hide();
         m_letterClassifyList->show();
-        m_letterClassifyList->letterList()->setCurrentIndex(0);
         language_expand->setExpand(false);
     });
     connect(keyboardLayoutLine, &AddRmDoneLine::removeClicked, [=]{
@@ -309,36 +309,38 @@ void Keyboard::initUI()
     language_expand->setContent(lang_list_frame);
 
     DbusLangSelector *dbusLangSelector = new DbusLangSelector(this);
-    QDBusPendingReply<LocaleList> lang_list = dbusLangSelector->GetLocaleList();
-    lang_list.waitForFinished();
+    QDBusPendingCallWatcher *lang_list = new QDBusPendingCallWatcher(dbusLangSelector->GetLocaleList(), this);
+    connect(lang_list, &QDBusPendingCallWatcher::finished, lang_list,
+            [this, lang_list, dbusLangSelector, language_searchList]{
+        QString current_lang = dbusLangSelector->currentLocale();
+        QDBusPendingReply<LocaleList> reply = *lang_list;
+        foreach (const LocaleInfo &info, reply.value()) {
+            GenericListItem *item = new GenericListItem;
+            QString theme = DThemeManager::instance()->theme();
 
-    QString current_lang = dbusLangSelector->currentLocale();
+            item->setKeyWords(QStringList()<<info.name);
+            if(theme == "dark"){
+                item->setImageNormal(":/lang_images/normal/"+info.id+".png");
+            }else{
+                item->setImageNormal(":/lang_images/dark/"+info.id+".png");
+            }
+            item->setImageHover(":/lang_images/hover/"+info.id+".png");
+            item->setImagePress(":/lang_images/hover/"+info.id+".png");
+            item->setImageChecked(":/lang_images/active/"+info.id+".png");
 
-    foreach (const LocaleInfo &info, lang_list.value()) {
-        GenericListItem *item = new GenericListItem;
-        QString theme = DThemeManager::instance()->theme();
+            language_searchList->addItem(item);
+            if(info.id == current_lang){
+                language_searchList->setCheckedItem(language_searchList->count()-1);
+            }
 
-        item->setKeyWords(QStringList()<<info.name);
-        if(theme == "dark"){
-            item->setImageNormal(":/lang_images/normal/"+info.id+".png");
-        }else{
-            item->setImageNormal(":/lang_images/dark/"+info.id+".png");
+            m_mapUserLayoutInfo[info.name] = info.id;
+            m_mapUserLayoutIndex[info.id] = language_searchList->count()-1;
         }
-        item->setImageHover(":/lang_images/hover/"+info.id+".png");
-        item->setImagePress(":/lang_images/hover/"+info.id+".png");
-        item->setImageChecked(":/lang_images/active/"+info.id+".png");
 
-        language_searchList->addItem(item);
-        if(info.id == current_lang){
-            language_searchList->setCheckedItem(language_searchList->count()-1);
-        }
-
-        m_mapUserLayoutInfo[info.name] = info.id;
-        m_mapUserLayoutIndex[info.id] = language_searchList->count()-1;
-    }
+        language_searchList->beginSearch();
+    });
 
     lang_list_frame->setMinimumHeight(lang_search->height()+language_searchList->height());
-    language_searchList->beginSearch();
 
     connect(lang_search, &DSearchEdit::textChanged, [=]{
         language_searchList->setKeyWord(lang_search->text());
@@ -368,40 +370,40 @@ void Keyboard::initUI()
     m_mainLayout->addWidget(language_expand);
     m_mainLayout->addStretch(1);
 
+    m_letterClassifyList = new FirstLetterClassify(m_frame);
+    m_letterClassifyList->hide();
+    m_letterClassifyList->setFixedWidth(310);
     QTimer::singleShot(400, this, SLOT(loadLetterClassify()));
 }
 
 void Keyboard::loadLetterClassify()
 {
-    m_letterClassifyList = new FirstLetterClassify(m_frame);
-    m_letterClassifyList->hide();
-    m_letterClassifyList->setFixedWidth(310);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_dbusKeyboard->LayoutList());
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=]{
+        QDBusPendingReply<KeyboardLayoutList> list = *watcher;
+        KeyboardLayoutList tmp_map = list.value();
 
-    QDBusPendingReply<KeyboardLayoutList> list = m_dbusKeyboard->LayoutList();
-    list.waitForFinished();
-    KeyboardLayoutList tmp_map = list.value();
+        foreach (const QString &str, tmp_map.keys()) {
+            if(m_mapUserLayoutInfo.contains(tmp_map[str]))
+                continue;
 
-    foreach (const QString &str, tmp_map.keys()) {
-        if(m_mapUserLayoutInfo.contains(tmp_map[str]))
-            continue;
+            KeyboardLayoutDelegate *tmpw = new KeyboardLayoutDelegate(tmp_map[str]);
+            connect(tmpw, &KeyboardLayoutDelegate::checkedChanged, [=](bool checked){
+               if(checked){
+                   m_dbusKeyboard->AddUserLayout(str);
+                   m_selectLayoutList << tmpw;
+               }else{
+                   m_dbusKeyboard->DeleteUserLayout(str);
+                   m_selectLayoutList.removeOne(tmpw);
+               }
+            });
 
-        KeyboardLayoutDelegate *tmpw = new KeyboardLayoutDelegate(tmp_map[str]);
-        connect(tmpw, &KeyboardLayoutDelegate::checkedChanged, [=](bool checked){
-           if(checked){
-               m_dbusKeyboard->AddUserLayout(str);
-               m_selectLayoutList << tmpw;
-           }else{
-               m_dbusKeyboard->DeleteUserLayout(str);
-               m_selectLayoutList.removeOne(tmpw);
-           }
-        });
+            m_letterClassifyList->addItem(tmpw);
+        }
 
-        m_letterClassifyList->addItem(tmpw);
-    }
-
-    m_letterClassifyList->addEnd();
-
-    m_mainLayout->insertWidget(10, m_letterClassifyList);
+        m_mainLayout->insertWidget(10, m_letterClassifyList);
+        watcher->deleteLater();
+    });
 }
 
 QFrame* Keyboard::getContent()

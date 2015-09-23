@@ -1,3 +1,8 @@
+#include <QDBusInterface>
+#include <QDBusPendingCallWatcher>
+#include <QDBusPendingReply>
+#include <QDebug>
+
 #include <libdui/dconstants.h>
 #include <libdui/libdui_global.h>
 #include <libdui/dthememanager.h>
@@ -11,7 +16,6 @@ DUI_USE_NAMESPACE
 
 KeyboardLayoutDelegate::KeyboardLayoutDelegate(const QString &title, QWidget *parent):
     QFrame(parent),
-    m_widget(this),
     m_layout(new QHBoxLayout),
     m_label(new QLabel),
     m_checkButton(new MultiAddCheckButton)
@@ -40,38 +44,23 @@ KeyboardLayoutDelegate::KeyboardLayoutDelegate(const QString &title, QWidget *pa
     });
 }
 
-QStringList KeyboardLayoutDelegate::keyWords() const
+QStringList KeyboardLayoutDelegate::keyWords()
 {
-    if(!title().isEmpty()){
+    if(m_pinyinFirstLetterList.isEmpty()){
         QDBusInterface dbus_pinyin( "com.deepin.api.Pinyin", "/com/deepin/api/Pinyin",
-                                  "com.deepin.api.Pinyin" );
-
-        QDBusMessage result = dbus_pinyin.call("Query", QString(title()[0]));
-
-        QStringList list;
-        foreach(const QString &str, result.arguments()[0].toStringList())
-            list << str[0].toUpper();
-        return list;
+                                          "com.deepin.api.Pinyin" );
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(dbus_pinyin.asyncCall("Query", QString(title()[0])), this);
+        connect(watcher, &QDBusPendingCallWatcher::finished, watcher, [this, watcher]{
+            QDBusPendingReply<QStringList> reply = *watcher;
+            if(!reply.isError()){
+                m_pinyinFirstLetterList = reply.value();
+                emit this->getKeyWordsFinished();
+            }
+            watcher->deleteLater();
+        });
     }
 
-    return QStringList();
-}
-
-void KeyboardLayoutDelegate::setData(const QVariant &datas)
-{
-    if(datas.type() == QVariant::String){
-        setTitle(datas.toString());
-    }
-}
-
-QVariant KeyboardLayoutDelegate::getData()
-{
-    return m_label->text();
-}
-
-QWidget *KeyboardLayoutDelegate::widget() const
-{
-    return m_widget;
+    return m_pinyinFirstLetterList;
 }
 
 QString KeyboardLayoutDelegate::title() const
@@ -104,64 +93,34 @@ void KeyboardLayoutDelegate::setTitle(const QString &title)
 FirstLetterClassify::FirstLetterClassify(QWidget *parent) :
     QFrame(parent),
     m_layout(new QVBoxLayout),
-    m_letterList(new DSegmentedControl),
-    m_searchList(new SearchList)
+    m_letterList(new DSegmentedControl)
 {
     D_THEME_INIT_WIDGET(FirstLetterClassify);
 
-    m_searchList->setItemSize(310, EXPAND_HEADER_HEIGHT);
-    m_searchList->setCheckable(false);
-    m_searchList->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-
     m_letterList->setObjectName("LetterList");
+
+    for (int i = 'A'; i <= 'Z'; ++i) {
+        ListWidget *w = new ListWidget;
+        w->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+        w->setItemSize(310, EXPAND_HEADER_HEIGHT);
+        m_listWidgetList << w;
+
+        m_letterList->addSegmented(QString(i));
+    }
+    m_currentList = m_listWidgetList.first();
 
     m_layout->setMargin(0);
     m_layout->addWidget(m_letterList);
-    m_layout->addWidget(m_searchList);
     m_layout->addStretch(1);
     setLayout(m_layout);
-}
-
-SearchList *FirstLetterClassify::searchList() const
-{
-    return m_searchList;
-}
-
-DSegmentedControl *FirstLetterClassify::letterList() const
-{
-    return m_letterList;
-}
-
-void FirstLetterClassify::addItem(SearchItem *data)
-{
-    foreach (QString pinyin, data->keyWords()) {
-        int ch = pinyin[0].toLatin1()-65;
-
-        if(ch>=0)
-            ++m_mapLetters[ch];
-    }
-
-    m_searchList->addItem(data);
-}
-
-void FirstLetterClassify::addEnd()
-{
-    if(m_searchList->isSearching())
-        m_searchList->updateKeyWords();
-    else
-        m_searchList->beginSearch();
-
-    for(int ch = 0; ch<26; ch++){
-        if(m_mapLetters[ch] > 0){
-            if(m_letterList->indexByTitle(QString(ch+65)) < 0)
-                m_letterList->addSegmented(QString(ch+65));
-        }
-    }
-
-    m_letterList->setCurrentIndex(1);
 
     connect(m_letterList, &DSegmentedControl::currentTitleChanged, [&](const QString& key){
-        m_searchList->setKeyWord(key);
+        int index = key[0].toUpper().toLatin1() - 65;
+        m_currentList->setParent(0);
+        m_layout->removeItem(m_layout->itemAt(1));
+        m_currentList = m_listWidgetList[index];
+        m_layout->addWidget(m_currentList);
+
         emit currentLetterChanged(key);
     });
 
@@ -173,24 +132,61 @@ void FirstLetterClassify::addEnd()
     }
 }
 
-void FirstLetterClassify::removeItems(QList<SearchItem *> datas)
+ListWidget *FirstLetterClassify::searchList() const
 {
-    foreach (SearchItem* item, datas) {
-        foreach (QString pinyin, item->keyWords()) {
-            int ch = pinyin[0].toLatin1()-65;
+    return m_currentList;
+}
 
-            if(ch >= 0){
-                --m_mapLetters[ch];
+DSegmentedControl *FirstLetterClassify::letterList() const
+{
+    return m_letterList;
+}
 
-                if(m_mapLetters[ch] <= 0)
-                    m_letterList->removeSegmented(m_letterList->indexByTitle(QString(ch+65)));
+void FirstLetterClassify::addItem(KeyboardLayoutDelegate *data)
+{
+    if(!data->keyWords().isEmpty()){
+        foreach (QString key, data->keyWords()) {
+            int index = key[0].toUpper().toLatin1() - 65;
+
+            if(index>=0){
+                m_listWidgetList[index]->addWidget(data);
             }
         }
+    }else{
+        connect(data, &KeyboardLayoutDelegate::getKeyWordsFinished, this, [this, data]{
+            QStringList keywords = data->keyWords();
 
-        m_searchList->removeItem(m_searchList->indexOf(item));
+            int index = keywords[0][0].toUpper().toLatin1() - 65;
+            if(index>=0){
+                m_listWidgetList[index]->addWidget(data);
+            }
+            for (int i=1; i < keywords.count(); ++i) {
+                QString key = keywords[i];
+                int index = key[0].toUpper().toLatin1() - 65;
+                if(index>=0){
+                    KeyboardLayoutDelegate *item = new KeyboardLayoutDelegate(data->title());
+                    connect(item, &KeyboardLayoutDelegate::checkedChanged, data, &KeyboardLayoutDelegate::setChecked);
+                    m_listWidgetList[index]->addWidget(item);
+                }
+            }
+        });
     }
+}
 
-    m_searchList->updateKeyWords();
+void FirstLetterClassify::removeItems(QList<KeyboardLayoutDelegate *> datas)
+{
+    foreach (KeyboardLayoutDelegate* w, datas) {
+        foreach (QString pinyin, w->keyWords()) {
+            int index = pinyin[0].toUpper().toLatin1() - 65;
+
+            ListWidget *list = m_listWidgetList[index];
+            for (int i = 0; i < list->count(); ++i) {
+                KeyboardLayoutDelegate* ww = qobject_cast<KeyboardLayoutDelegate*>(list->getWidget(i));
+                if(ww->title() == w->title())
+                    list->removeWidget(i);
+            }
+        }
+    }
 }
 
 QString FirstLetterClassify::currentLetter() const
@@ -201,4 +197,14 @@ QString FirstLetterClassify::currentLetter() const
 void FirstLetterClassify::setCurrentLetter(QString currentLetter)
 {
     m_letterList->setCurrentIndexByTitle(currentLetter);
+}
+
+void FirstLetterClassify::show()
+{
+    if(m_layout->count() == 2){
+        m_layout->addWidget(m_currentList);
+    }else{
+        m_letterList->currentTitleChanged(m_letterList->getText(m_listWidgetList.indexOf(m_currentList)));
+    }
+    QFrame::show();
 }
