@@ -4,6 +4,7 @@
 #include <QPropertyAnimation>
 #include <QProcess>
 #include <QTimer>
+#include <QElapsedTimer>
 
 #include "interfaces.h"
 #include "contentview.h"
@@ -63,12 +64,24 @@ ContentView::~ContentView()
 
 void ContentView::setModule(ModuleMetaData module)
 {
+    QElapsedTimer timer;
+
+#ifdef QT_DEBUG
+    timer.start();
+#endif
+
     // unload old plugin
     m_pluginLoader->unload();
+
+    qDebug() << "unload finished:" << timer.elapsed();
+
     m_pluginLoader->setFileName(module.path);
     m_sideBar->switchToModule(module);
 
     QObject *instance = m_pluginLoader->instance();
+
+    qDebug() << "get instance finished:" << timer.elapsed();
+
     if (instance) {
         ModuleInterface *interface = qobject_cast<ModuleInterface *>(instance);
         if(m_hideInLeft)
@@ -80,6 +93,8 @@ void ContentView::setModule(ModuleMetaData module)
     } else {
         qDebug() << m_pluginLoader->errorString();
     }
+
+    qDebug() << "load module finished. The time spent:" << timer.elapsed();
 }
 
 void ContentView::hide()
