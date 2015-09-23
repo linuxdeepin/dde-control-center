@@ -48,10 +48,14 @@ void SearchList::insertItem(int index, SearchItem *data)
 
     if(m_searching){
         updateKeyWords();
-        QString key = m_dbus->NewSearchWithStrList(data->keyWords());
-        QStringList tmp_list = m_dbus->SearchString(m_keyWord, key);
+        QDBusPendingReply<QString, bool> reply = m_dbus->NewSearchWithStrList(data->keyWords());
+        reply.waitForFinished();
+        QString key = reply.value();
+        QDBusPendingReply<QStringList> search_reply = m_dbus->SearchString(m_keyWord, key);
+        search_reply.waitForFinished();
+        QStringList tmp_list = search_reply.value();
 
-        if(!isIntersect(tmp_list, data->keyWords()))
+        if(tmp_list.isEmpty())
             hideWidget(index);
     }
 
@@ -140,16 +144,21 @@ void SearchList::setKeyWord(const QString &keyWord)
 
     m_keyWord = keyWord;
 
-    m_dbusKeyWords = m_dbus->SearchString(keyWord, m_dbusKey);
-
-    for (int i = 0; i<count(); ++i) {
-        if(keyWord.isEmpty()
-                || isIntersect(m_dbusKeyWords, m_itemList[i]->keyWords())){
-            showWidget(i);
-        }else{
-            hideWidget(i);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_dbus->SearchString(keyWord, m_dbusKey), this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [this, watcher]{
+        QDBusPendingReply<QStringList> reply = *watcher;
+        m_dbusKeyWords = reply.value();
+        for (int i = 0; i<count(); ++i) {
+            if(m_keyWord.isEmpty()
+                    || isIntersect(m_dbusKeyWords, m_itemList[i]->keyWords())){
+                showWidget(i);
+            }else{
+                hideWidget(i);
+            }
         }
-    }
+
+        watcher->deleteLater();
+    });
 
     emit keyWordChanged(keyWord);
 }
@@ -161,7 +170,9 @@ void SearchList::setCheckedItem(int checkedItem)
 
 void SearchList::updateKeyWords()
 {
-    m_dbusKey = m_dbus->NewSearchWithStrList(m_keyWords);
+    QDBusPendingReply<QString, bool> reply = m_dbus->NewSearchWithStrList(m_keyWords);
+    reply.waitForFinished();
+    m_dbusKey = reply;
 }
 
 QVariant SearchList::getItemData(int index) const

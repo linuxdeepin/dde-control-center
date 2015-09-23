@@ -102,49 +102,8 @@ void ShortcutDbus::updateShortcutList(const QString &id, qint32 type)
         m_workspaceList.clear();
         m_customList.clear();
 
-        QDBusPendingReply<QString> result = List();
-        result.waitForFinished();
-
-        QJsonArray list = QJsonDocument::fromJson(result.value().toUtf8()).array();
-
-        foreach (QJsonValue obj, list) {
-            QJsonObject map = obj.toObject();
-
-            int type = map["Type"].toInt();
-            QString shortcuts = map["Accels"].toArray()[0].toString();
-            if(shortcuts.isEmpty())
-                shortcuts = "None";
-            QString name = map["Name"].toString();
-            QString id = map["Id"].toString();
-
-            switch (type) {
-            case KeyTypeSystem://express
-            case KeyTypeMetacity://express
-            case KeyTypeWM:{
-                ShortcutInfoList *info_list = m_idToInfoListHash.value(id, NULL);
-                if(info_list){
-                    ShortcutInfo info = ShortcutInfo{type, getId(), id, name, shortcuts};
-                    info_list->append(info);
-                    m_strIdAndTypeToInfoMap[getId(type, id)] = &info_list->last();
-                    m_intIdToInfoMap[info_list->last().id] = &info_list->last();
-                }
-                break;
-            }
-            case KeyTypeCustom:{
-                m_customList << ShortcutInfo{type, getId(), id, name, shortcuts};
-                m_strIdAndTypeToInfoMap[getId(type, id)] = &m_customList.last();
-                m_intIdToInfoMap[m_customList.last().id] = &m_customList.last();
-                break;
-            }
-            default:
-                break;
-            }
-        }
-
-        emit systemListChanged(m_systemList);
-        emit windowListChanged(m_windowList);
-        emit workspaceListChanged(m_workspaceList);
-        emit customListChanged(m_customList);
+        QDBusPendingCallWatcher *result = new QDBusPendingCallWatcher(List(), this);
+        connect(result, &QDBusPendingCallWatcher::finished, this, &ShortcutDbus::getListFinished);
     }else{
         ShortcutInfoList *info_list = m_idToInfoListHash.value(id, NULL);
         if(!info_list)
@@ -194,5 +153,53 @@ void ShortcutDbus::onDeleted(const QString &id, qint32 type)
 
         emit customListChanged(m_customList);
     }
+}
+
+void ShortcutDbus::getListFinished(QDBusPendingCallWatcher *call)
+{
+    QDBusPendingReply<QString> result = *call;
+
+    QJsonArray list = QJsonDocument::fromJson(result.value().toUtf8()).array();
+
+    foreach (QJsonValue obj, list) {
+        QJsonObject map = obj.toObject();
+
+        int type = map["Type"].toInt();
+        QString shortcuts = map["Accels"].toArray()[0].toString();
+        if(shortcuts.isEmpty())
+            shortcuts = "None";
+        QString name = map["Name"].toString();
+        QString id = map["Id"].toString();
+
+        switch (type) {
+        case KeyTypeSystem://express
+        case KeyTypeMetacity://express
+        case KeyTypeWM:{
+            ShortcutInfoList *info_list = m_idToInfoListHash.value(id, NULL);
+            if(info_list){
+                ShortcutInfo info = ShortcutInfo{type, getId(), id, name, shortcuts};
+                info_list->append(info);
+                m_strIdAndTypeToInfoMap[getId(type, id)] = &info_list->last();
+                m_intIdToInfoMap[info_list->last().id] = &info_list->last();
+            }
+            break;
+        }
+        case KeyTypeCustom:{
+            m_customList << ShortcutInfo{type, getId(), id, name, shortcuts};
+            m_strIdAndTypeToInfoMap[getId(type, id)] = &m_customList.last();
+            m_intIdToInfoMap[m_customList.last().id] = &m_customList.last();
+            break;
+        }
+        default:
+            break;
+        }
+    }
+
+    emit systemListChanged(m_systemList);
+    emit windowListChanged(m_windowList);
+    emit workspaceListChanged(m_workspaceList);
+    emit customListChanged(m_customList);
+
+    call->deleteLater();
 }
 

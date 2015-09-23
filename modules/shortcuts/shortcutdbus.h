@@ -253,6 +253,7 @@ private:
     Q_SLOT void updateShortcutList(const QString &in0, qint32 type);
     Q_SLOT void onAdded(const QString &id, qint32 type);
     Q_SLOT void onDeleted(const QString &id, qint32 type);
+    Q_SLOT void getListFinished(QDBusPendingCallWatcher *call);
 };
 
 namespace com {
