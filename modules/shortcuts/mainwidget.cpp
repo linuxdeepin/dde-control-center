@@ -82,12 +82,12 @@ QWidget *MainWidget::getAddShortcutWidget()
     QVBoxLayout *vlayout = new QVBoxLayout;
     DLineEdit *edit_name = new DLineEdit;
     DLineEdit *edit_command= new DLineEdit;
-    DTextButton *button_cancle = new DTextButton(QObject::tr("Cancle"));
+    DTextButton *button_cancel = new DTextButton(QObject::tr("Cancel"));
     DTextButton *button_add = new DTextButton(QObject::tr("Add"));
-    button_cancle->setFixedSize(TEXT_BUTTON_MIN_WIDTH, BUTTON_HEIGHT);
+    button_cancel->setFixedSize(TEXT_BUTTON_MIN_WIDTH, BUTTON_HEIGHT);
     button_add->setFixedSize(TEXT_BUTTON_MIN_WIDTH, BUTTON_HEIGHT);
 
-    connect(button_cancle, &DTextButton::clicked, [=](){
+    connect(button_cancel, &DTextButton::clicked, [=](){
         edit_name->clear();
         edit_command->clear();
         w->hide();
@@ -117,7 +117,7 @@ QWidget *MainWidget::getAddShortcutWidget()
     hlayout2->addWidget(edit_command);
     hlayout2->addSpacing(HEADER_RIGHT_MARGIN);
     hlayout3->addStretch(1);
-    hlayout3->addWidget(button_cancle);
+    hlayout3->addWidget(button_cancel);
     hlayout3->addWidget(button_add);
     hlayout3->addSpacing(HEADER_RIGHT_MARGIN);
 
