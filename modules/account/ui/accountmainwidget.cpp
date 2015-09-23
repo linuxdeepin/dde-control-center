@@ -124,6 +124,10 @@ void AccountMainWidget::initHeader()
     });
     connect(addButton, &GeneralAddButton::mouseEnter, [=]{
         toolTip->setText(tr("Add Account"));
+        //the x or width value is valid after all component ready,infact it only need move once
+        toolTip->move(deleteButton->mapTo(this, QPoint(0, 0)).x() - toolTip->width() - DUI::TEXT_RIGHT_MARGIN,
+                      (m_header->height() - toolTip->height()) / 2);
+
         toolTip->showLabel();
     });
     connect(addButton, &GeneralAddButton::mouseLeave, [=]{
