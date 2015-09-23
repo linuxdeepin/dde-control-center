@@ -28,7 +28,6 @@ SOURCES += $$PWD/searchlist.cpp \
     $$PWD/moduleheader.cpp \
     $$PWD/normallabel.cpp \
     $$PWD/highlightlabel.cpp \
-    $$PWD/imagenamebutton.cpp \
     $$PWD/addrmdoneline.cpp \
     $$PWD/multiaddcheckbutton.cpp \
     $$PWD/inputline.cpp \
@@ -43,7 +42,6 @@ SOURCES += $$PWD/searchlist.cpp \
     $$PWD/genericlistitem.cpp \
     $$PWD/listwidget.cpp \
     $$PWD/inputwarningframe.cpp \
-    $$PWD/anchors.cpp \
     $$PWD/dbreathinglabel.cpp \
     $$PWD/mousearea.cpp
 
