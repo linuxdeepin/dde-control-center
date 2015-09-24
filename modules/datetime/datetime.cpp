@@ -197,14 +197,17 @@ void Datetime::showSelectedTimezoneList()
 {
     m_timezoneListWidget->clear();
 
-    m_clockHeaderLine->show();
-    m_syncHeaderLine->show();
-    m_dateHeaderLine->show();
-    m_calendar->show();
-    m_clockSeparator->show();
-    m_syncSeparator->show();
-    m_calendarSeparator->show();
-    m_dateSeparator->show();
+    if (!m_clockHeaderLine->isVisible())
+    {
+        m_clockHeaderLine->show();
+        m_syncHeaderLine->show();
+        m_dateHeaderLine->show();
+        m_calendar->show();
+        m_clockSeparator->show();
+        m_syncSeparator->show();
+        m_calendarSeparator->show();
+        m_dateSeparator->show();
+    }
 
     const QString userZone = m_dbusInter.timezone();
     QStringList zoneList = m_dbusInter.userTimezones();
