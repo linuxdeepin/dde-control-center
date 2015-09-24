@@ -2,7 +2,8 @@
 
 #include "dthememanager.h"
 
-UserAvatar::UserAvatar(QWidget *parent, bool deleteable) : QPushButton(parent)
+UserAvatar::UserAvatar(QWidget *parent, bool deleteable) :
+    QPushButton(parent), m_deleteable(deleteable)
 {
     setCheckable(true);
 
@@ -17,8 +18,7 @@ UserAvatar::UserAvatar(QWidget *parent, bool deleteable) : QPushButton(parent)
     mainLayout->addWidget(m_iconLabel);
     setLayout(mainLayout);
 
-    if (deleteable)
-        initDeleteButton();
+    initDeleteButton();
 
     D_THEME_INIT_WIDGET(UserAvatar);
 }
@@ -42,14 +42,13 @@ QString UserAvatar::iconPath() const
 
 void UserAvatar::enterEvent(QEvent *)
 {
-    if (m_deleteButton)
+    if (m_deleteable)
         m_deleteButton->show();
 }
 
 void UserAvatar::leaveEvent(QEvent *)
 {
-    if (m_deleteButton)
-        m_deleteButton->hide();
+    m_deleteButton->hide();
 }
 
 void UserAvatar::paintEvent(QPaintEvent *)
@@ -136,6 +135,16 @@ void UserAvatar::initDeleteButton()
     m_deleteButton->move(width()  - m_deleteButton->width(), 0);
     connect(m_deleteButton, &AvatarDeleteButton::clicked, this, &UserAvatar::requestDelete);
 }
+bool UserAvatar::deleteable() const
+{
+    return m_deleteable;
+}
+
+void UserAvatar::setDeleteable(bool deleteable)
+{
+    m_deleteable = deleteable;
+}
+
 
 void UserAvatar::setAvatarSize(const AvatarSize &avatarSize)
 {

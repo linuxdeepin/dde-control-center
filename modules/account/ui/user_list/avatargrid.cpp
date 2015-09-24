@@ -37,6 +37,9 @@ void AvatarGrid::setAvatars(const QStringList &list)
             icon->setIcon(iconName);
             connect(icon, &UserAvatar::clicked, this, &AvatarGrid::onIconPress);
             connect(icon, &UserAvatar::requestDelete, this, &AvatarGrid::onRequestDelete);
+            connect(m_user, &DBusAccountUser::IconFileChanged, [=] {
+                icon->setDeleteable(m_user->IsIconDeletable(iconName).value());
+            });
             setCellWidget(r, c, icon);  //set and delete old one
             m_buttonGroup->addButton(icon);
 

@@ -51,6 +51,9 @@ public:
     void setSelected(bool selected);
 
 
+    bool deleteable() const;
+    void setDeleteable(bool deleteable);
+
 signals:
     void mousePress();
     void requestDelete();
@@ -73,6 +76,7 @@ private:
     AvatarSize m_avatarSize = AvatarNormalSize;
     int m_borderWidth = 5;
     bool m_selected = false;
+    bool m_deleteable = false;
 
     const int SMALL_ICON_SIZE = 60;
     const int NORMAL_ICON_SIZE = 70;
