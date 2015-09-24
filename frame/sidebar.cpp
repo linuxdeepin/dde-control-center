@@ -23,7 +23,7 @@ SideBar::SideBar(QList<ModuleMetaData> modules, QWidget *parent)
     ModuleMetaData home {
         "",
         "home",
-        "Back to home"
+        "Home"
     };
     modules.insert(0, home);
     // meta for power button

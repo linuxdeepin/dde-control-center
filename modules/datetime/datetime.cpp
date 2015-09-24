@@ -49,7 +49,7 @@ Datetime::Datetime() :
     m_timezoneListWidget->setFixedWidth(310);
 
     m_timezoneHeaderLine = new DHeaderLine;
-    m_timezoneHeaderLine->setTitle(tr("TimeZone"));
+    m_timezoneHeaderLine->setTitle(tr("Time Zone"));
     m_timezoneHeaderLine->setContent(m_timezoneCtrlWidget);
 
     m_syncSeparator = new DSeparatorHorizontal;

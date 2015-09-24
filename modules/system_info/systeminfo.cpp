@@ -24,7 +24,7 @@ SystemInfo::SystemInfo()
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
 
-    m_baseLine = new ModuleHeader(tr("System Info"), false);
+    m_baseLine = new ModuleHeader(tr("System Infomation"), false);
 
     QLabel *deepinLogo = new QLabel;
     deepinLogo->setPixmap(QPixmap(":/images/images/logo.png"));
@@ -34,7 +34,7 @@ SystemInfo::SystemInfo()
     deepinName->setWordWrap(true);
     deepinName->setAlignment(Qt::AlignCenter);
 
-    QLabel *info_sysVersion = new QLabel(tr("System Version :"));
+    QLabel *info_sysVersion = new QLabel(tr("Deepin Edition :"));
     info_sysVersion->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
     QLabel *info_sysVersionContent = new QLabel(m_dbusSystemInfo.version());
     info_sysVersionContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
@@ -57,7 +57,7 @@ SystemInfo::SystemInfo()
     info_memoryContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
 
 
-    QLabel *info_hardDrive = new QLabel(tr("Hard Drive :"));
+    QLabel *info_hardDrive = new QLabel(tr("Disk :"));
     info_hardDrive->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
     QLabel *info_hardDriveContent = new QLabel(formatCap(m_dbusSystemInfo.diskCap()));
     info_hardDriveContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
@@ -102,7 +102,7 @@ SystemInfo::SystemInfo()
     m_licenseEdit->installEventFilter(this);
 
     DArrowLineExpand *license = new DArrowLineExpand;
-    license->setTitle(tr("GNU General Public License"));
+    license->setTitle(tr("GNU GENERAL PUBLIC LICENSE"));
     license->setContent(m_licenseEdit);
 
     QVBoxLayout *centeralLayout = new QVBoxLayout;
