@@ -16,6 +16,7 @@ public:
     void showWarning(const QString &msg);
 
 private:
+    QFrame *m_frame = NULL;
     QLabel *m_label = NULL;
     QWidget *m_sourceInput = NULL;
     const int ARROW_LEFT_MARGIN = 16;

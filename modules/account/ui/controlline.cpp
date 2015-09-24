@@ -8,6 +8,7 @@ AccountPasswdLine::AccountPasswdLine(QWidget *parent) : AccountHeaderLine(parent
     connect(m_passwordEdit, &DPasswordEdit::textChanged, this, &AccountPasswdLine::textChanged);
     connect(m_passwordEdit, &DPasswordEdit::focusChanged, this, &AccountPasswdLine::focusChanged);
     setContent(m_passwordEdit);
+    m_warningFrame = new InputWarningFrame(m_passwordEdit);
 }
 
 AccountPasswdLine::~AccountPasswdLine()
@@ -18,15 +19,11 @@ AccountPasswdLine::~AccountPasswdLine()
 
 void AccountPasswdLine::hideWarning()
 {
-    if (!m_warningFrame)
-        m_warningFrame = new InputWarningFrame(m_passwordEdit);
     m_warningFrame->hide();
 }
 
 void AccountPasswdLine::showWarning(const QString &msg)
 {
-    if (!m_warningFrame)
-        m_warningFrame = new InputWarningFrame(m_passwordEdit);
     m_warningFrame->showWarning(msg);
 }
 
@@ -123,6 +120,7 @@ AccountInputLine::AccountInputLine(QWidget *parent) : AccountHeaderLine(parent)
     connect(m_lineEdit, &DLineEdit::textChanged, this, &AccountInputLine::textChanged);
     connect(m_lineEdit, &DLineEdit::focusChanged, this, &AccountInputLine::focusChanged);
     setContent(m_lineEdit);
+    m_warningFrame = new InputWarningFrame(m_lineEdit);
 }
 
 AccountInputLine::~AccountInputLine()
@@ -133,15 +131,11 @@ AccountInputLine::~AccountInputLine()
 
 void AccountInputLine::hideWarning()
 {
-    if (!m_warningFrame)
-        m_warningFrame = new InputWarningFrame(m_lineEdit);
     m_warningFrame->hide();
 }
 
 void AccountInputLine::showWarning(const QString &msg)
 {
-    if (!m_warningFrame)
-        m_warningFrame = new InputWarningFrame(m_lineEdit);
     m_warningFrame->showWarning(msg);
 }
 
