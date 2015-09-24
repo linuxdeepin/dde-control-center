@@ -62,7 +62,7 @@ Mouse::Mouse()
     m_pointSpeedContainer->setLayout(m_pointSpeedContainerLayout);
     m_pointSpeedContainerLayout->setMargin(0);
 
-    m_pointSpeedLabel = new QLabel(tr("Point Speed"));
+    m_pointSpeedLabel = new QLabel(tr("Pointer Speed"));
     m_mousePointSpeedSlider = new DSlider(Qt::Horizontal);
     m_mousePointSpeedSlider->setMinimumSize(180, 20);
 
@@ -75,7 +75,7 @@ Mouse::Mouse()
     m_doubleClickSpeedContainer->setLayout(m_doubleClickContainerLayout);
     m_doubleClickContainerLayout->setMargin(0);
 
-    m_doubleClickSpeedLabel = new QLabel(tr("Double Click Speed"));
+    m_doubleClickSpeedLabel = new QLabel(tr("Double-click Speed"));
     m_mouseDoubleClickIntervalSlider = new DSlider(Qt::Horizontal);
     m_mouseDoubleClickIntervalSlider->setMinimumSize(180, 20);
 
@@ -88,8 +88,7 @@ Mouse::Mouse()
     m_forbiddenTouchpadWhenMouseLayout = new QHBoxLayout(m_forbiddenTouchpadWhenMouseContainer);
     m_forbiddenTouchpadWhenMouseContainer->setLayout(m_forbiddenTouchpadWhenMouseLayout);
     // TODO: label has too much text, font may need to be set
-    m_forbiddenTouchpadWhenMouseLabel = new QLabel(tr("Disable touchpad when"
-                                                             " the mouse is plugged in"));
+    m_forbiddenTouchpadWhenMouseLabel = new QLabel(tr("Disable the touchpad when inserting the mouse"));
     m_forbiddenTouchpadWhenMouseSwitchButton = new DSwitchButton(m_forbiddenTouchpadWhenMouseContainer);
     m_forbiddenTouchpadWhenMouseSwitchButton->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
@@ -148,13 +147,13 @@ Mouse::Mouse()
     m_touchpadEdgeScrollSwitch->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     m_touchpadSettingPanel->addRow(tr("Primary Button"), 0, m_touchpadPrimaryButtonSetting);
-    m_touchpadSettingPanel->addRow(tr("Tracking Speed"), m_touchpadPointSpeedSlider);
-    m_touchpadSettingPanel->addRow(tr("Double Click Speed"), m_touchpadDoubleClickSpeed);
+    m_touchpadSettingPanel->addRow(tr("Pointer Speed"), m_touchpadPointSpeedSlider);
+    m_touchpadSettingPanel->addRow(tr("Double-click Speed"), m_touchpadDoubleClickSpeed);
     m_touchpadSettingPanel->addRow(tr("Drag Thredshold"), m_touchpadDragThreshold);
-    m_touchpadSettingPanel->addRow(tr("Nature Scroll"), 0, m_touchpadNatureScrollSwitch);
-    m_touchpadSettingPanel->addRow(tr("Tap To Click"), 0, m_touchpadTapToClickSwitch);
-    m_touchpadSettingPanel->addRow(tr("Two Finger Scroll"), 0, m_touchpadTwoFingerScrollSwitch);
-    m_touchpadSettingPanel->addRow(tr("Edge Scroll"), 0, m_touchpadEdgeScrollSwitch);
+    m_touchpadSettingPanel->addRow(tr("Natural Scrolling"), 0, m_touchpadNatureScrollSwitch);
+    m_touchpadSettingPanel->addRow(tr("Tap to click"), 0, m_touchpadTapToClickSwitch);
+    m_touchpadSettingPanel->addRow(tr("Two-finger scrolling"), 0, m_touchpadTwoFingerScrollSwitch);
+    m_touchpadSettingPanel->addRow(tr("Edge scrolling"), 0, m_touchpadEdgeScrollSwitch);
 
     //////////////////////////////////////////////////////////////-- horizontal separator
     m_fourthHSeparator = new DSeparatorHorizontal(m_label);
