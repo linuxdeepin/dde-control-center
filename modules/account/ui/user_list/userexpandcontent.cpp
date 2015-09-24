@@ -82,6 +82,8 @@ void UserExpandContent::initAvatarPanel()
     connect(m_accountUser, &DBusAccountUser::IconListChanged, [=]{
         m_historyAvatarGrid->setAvatars(m_accountUser->historyIcons());
         m_allAvatarGrid->setAvatars(m_accountUser->iconList() << ADD_AVATAR_ICON);
+        updatemAvatarGridSize(m_stackWidget->currentIndex());
+        updateSize(true);
     });
 
     m_stackWidget->addWidget(m_historyAvatarGrid);
