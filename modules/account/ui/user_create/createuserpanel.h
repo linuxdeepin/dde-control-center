@@ -25,6 +25,9 @@ signals:
     void createCancel();
     void createConfirm();
 
+protected:
+    bool eventFilter(QObject *obj, QEvent *event);
+
 private:
     void initDbusData();
     void initHeader();

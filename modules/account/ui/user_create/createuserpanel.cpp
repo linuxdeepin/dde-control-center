@@ -15,6 +15,8 @@ CreateUserPanel::CreateUserPanel(QWidget *parent) : QWidget(parent)
 
         m_layout->addStretch();
     }
+
+    installEventFilter(this);
 }
 
 void CreateUserPanel::preDestroy()
@@ -22,6 +24,17 @@ void CreateUserPanel::preDestroy()
     m_nameLine->hideWarning();
     m_passwdNew->hideWarning();
     m_passwdRepeat->hideWarning();
+}
+
+bool CreateUserPanel::eventFilter(QObject *obj, QEvent *event)
+{
+    if (event->type() == QEvent::WindowDeactivate) {
+        m_nameLine->hideWarning();
+        m_passwdNew->hideWarning();
+        m_passwdRepeat->hideWarning();
+    }
+
+    return QWidget::eventFilter(obj, event);
 }
 
 void CreateUserPanel::initDbusData()

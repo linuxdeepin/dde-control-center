@@ -6,12 +6,24 @@ PasswordFrame::PasswordFrame(QWidget *parent) : QStackedWidget(parent)
     initActiveWidget();
 
     setCurrentIndex(0);
+
+    installEventFilter(this);
 }
 
 void PasswordFrame::preDestroy()
 {
     m_lineNew->hideWarning();
     m_lineRepeat->hideWarning();
+}
+
+bool PasswordFrame::eventFilter(QObject *obj, QEvent *event)
+{
+    if (event->type() == QEvent::WindowDeactivate) {
+        m_lineNew->hideWarning();
+        m_lineRepeat->hideWarning();
+    }
+
+    return QStackedWidget::eventFilter(obj, event);
 }
 
 void PasswordFrame::onPasswdFocusChanged(bool focus)

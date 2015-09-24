@@ -28,6 +28,9 @@ signals:
     void sizeChanged();
     void changePassword(QString password);
 
+protected:
+    bool eventFilter(QObject *obj, QEvent *event);
+
 private:
     void onPasswdFocusChanged(bool focus);
     void onPasswdChanged(const QString &);

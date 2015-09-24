@@ -6,7 +6,7 @@ InputWarningFrame::InputWarningFrame(QWidget *sourceInput) :
     D_THEME_INIT_WIDGET(InputWarningFrame);
 
     setArrowX(ARROW_LEFT_MARGIN);
-    setWindowFlags(Qt::X11BypassWindowManagerHint) ;
+    setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::ToolTip) ;
     setMaximumWidth(sourceInput->maximumWidth());
     setShadowBlurRadius(0);
     setShadowDistance(0);
