@@ -224,11 +224,11 @@ DArrowLineExpand* Personalization::getWallPaperExpand(){
 
 void Personalization::initFontExpand(){
     m_fontExpand = new DArrowLineExpand(m_frame);
-    m_fontExpand->setTitle(tr("Font"));
+    m_fontExpand->setTitle(tr("Fonts"));
     m_fontExpand->setStyleSheet(m_fontExpand->styleSheet() + "DUI--ContentLoader{background:#252627;}");
 
-    DLabel* standartLabel = new DLabel(tr("Standard font"));
-    DLabel* monospaceLabel = new DLabel(tr("Monospace font"));
+    DLabel* standartLabel = new DLabel(tr("Standard"));
+    DLabel* monospaceLabel = new DLabel(tr("Monospaced"));
     DLabel* sizeLabel = new DLabel(tr("Size"));
     m_standardFontCombox = new DFontComboBox;
     m_standardFontCombox->setFixedSize(200, BUTTON_HEIGHT);
@@ -243,7 +243,7 @@ void Personalization::initFontExpand(){
     m_slider->setHandleType(DSlider::SharpHandler);
     m_slider->setFixedHeight(BUTTON_HEIGHT);
 
-    QString tip = tr("font") + QString::number(m_slider->value());
+    QString tip = tr("Font") + QString::number(m_slider->value());
     m_fontTipLabel = new DLabel(tip);
     m_fontTipLabel->setFixedWidth(50);
     sliderLayout->addWidget(m_slider);
@@ -572,7 +572,7 @@ void Personalization::setFontLabel(int fontSize){
     QString fontsizeStyle = QString("font-size:%1px;").arg(QString::number(fontSize));
     QRegExp rx("font-size\\s*:\\s*\\d+px\\s*;");
     style.replace(rx, fontsizeStyle);
-    QString tip = tr("font") + QString::number(fontSize);
+    QString tip = tr("Font") + QString::number(fontSize);
     m_fontTipLabel->setText(tip);
     m_fontTipLabel->setStyleSheet(style);
     m_slider->setValue(fontSize);
