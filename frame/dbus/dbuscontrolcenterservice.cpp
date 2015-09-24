@@ -32,7 +32,7 @@ DBusControlCenterService::DBusControlCenterService(Frame *parent)
     connect(parent, &Frame::xChanged, [parent]{
         QDBusMessage m = QDBusMessage::createSignal("/com/deepin/dde/ControlCenter", "org.freedesktop.DBus.Properties", "PropertiesChanged");
         QMap<QString, QVariant> changedProperties;
-        changedProperties["X"] = parent->pos().x();
+        changedProperties["X"] = parent->visibleFrameXPos();
         QList<QString> invalidatedProperties;
         m << QVariant("com.deepin.dde.ControlCenter") << changedProperties << QVariant(invalidatedProperties);
         QDBusConnection::sessionBus().send(m);

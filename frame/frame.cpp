@@ -73,8 +73,8 @@ Frame::Frame(QWidget *parent) :
 
 Frame::~Frame()
 {
-    m_showAni->deleteLater();
-    m_hideAni->deleteLater();
+//    m_showAni->deleteLater();
+//    m_hideAni->deleteLater();
 }
 
 void Frame::show(bool imme)
