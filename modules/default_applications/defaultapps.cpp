@@ -230,9 +230,9 @@ DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::Defaul
         {
             qDebug() << "set default app: " << mime << " -> " << appName;
             if (isMedia)
-                m_dbusDefaultMedia.SetDefaultApp(mime, appName).waitForFinished();
+                m_dbusDefaultMedia.SetDefaultApp(mime, appName);
             else
-                m_dbusDefaultApps.SetDefaultApp(mime, appName).waitForFinished();
+                m_dbusDefaultApps.SetDefaultApp(mime, appName);
         }
     });
 
