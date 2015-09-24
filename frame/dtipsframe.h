@@ -40,8 +40,6 @@ private:
 
     bool m_isFirstMove = true;
 
-    const int m_extraOffsetX = -8;
-    const int m_extraOffsetY = 0;
     ArrowDirection m_arrowDirection = ArrowRight;
 };
 

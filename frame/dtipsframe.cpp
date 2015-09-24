@@ -58,12 +58,12 @@ DTipsFrame::ArrowDirection DTipsFrame::arrowDirection() const
 void DTipsFrame::updateStyle()
 {
     if(m_arrowDirection == ArrowLeft){
-        setStyleSheet("color: white;\
+        setStyleSheet("color: white; font-size: 12px;\
                                border-width:6px 15px 6px 20px;\
-                               padding-left: 8px;\
+                               padding-left: 6px;\
                                border-image:url(:/resources/images/control_center_tooltip_left.png) 6 15 6 20 stretch;");
     }else{
-        setStyleSheet("color: white;\
+        setStyleSheet("color: white; font-size: 12px;\
                                border-width:6px 20px 6px 15px;\
                                border-image:url(:/resources/images/control_center_tooltip_right.png) 6 20 6 15 stretch;");
     }
@@ -89,8 +89,6 @@ void DTipsFrame::followTheSender()
 
     int x = wWidth;
     int y = pos.y() + (wHeight - height()) / 2;
-
-    y += m_extraOffsetY;
 
     move(x, y);
 }
