@@ -13,6 +13,7 @@
 
 DUI_USE_NAMESPACE
 
+class QHBoxLayout;
 class PreviewWindow : public MouseArea
 {
     Q_OBJECT
@@ -47,12 +48,14 @@ private:
     QVariantAnimation m_animation_rect_opacity;
     DWindowCloseButton *m_closeButton;
     QString m_key;
+    QHBoxLayout *m_indicatorLayout;
 
     void initUI();
     void imageToRight();
     void imageToLeft();
     void showTopRect();
     void hideTopRect();
+    void updateActiveIndicator(int currentIndex, int newIndex);
 };
 
 #endif // PREVIEWWINDOW_H

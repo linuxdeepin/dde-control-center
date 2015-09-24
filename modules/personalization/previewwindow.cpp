@@ -4,6 +4,7 @@
 #include <QBitmap>
 #include <QPushButton>
 #include <QMouseEvent>
+#include <QHBoxLayout>
 #include <QDebug>
 
 #include <libdui/dtextbutton.h>
@@ -27,13 +28,26 @@ void PreviewWindow::setImages(const QStringList &list)
     if(list.isEmpty())
         return;
 
+    for(int i = 1; i < m_indicatorLayout->count() - 1; ++i){
+        QLayoutItem *item = m_indicatorLayout->itemAt(i);
+        QWidget *w = item->widget();
+        if(w)
+            w->deleteLater();
+        m_indicatorLayout->removeItem(item);
+    }
+
     m_imageList.clear();
     m_pixmap_x = 0;
     foreach (const QString &str, list) {
         QPixmap pixmap;
-        if(pixmap.load(str))
+        if(pixmap.load(str)){
             m_imageList << pixmap;
+            QLabel *indicator = new QLabel;
+            indicator->setPixmap(QPixmap(":/images/preview_image_indicator_normal.png"));
+            m_indicatorLayout->insertWidget(1, indicator, 0, Qt::AlignCenter);
+        }
     }
+    updateActiveIndicator(-1, 0);
     update();
 }
 
@@ -129,6 +143,14 @@ void PreviewWindow::initUI()
                                 "QPushButton:pressed{color:#2CA7F8;}");
     apply_button->move(230, 465);
 
+    QWidget *indicatorWidget = new QWidget(this);
+    indicatorWidget->setFixedSize(width(), 30);
+    indicatorWidget->move(0, 450);
+    m_indicatorLayout = new QHBoxLayout(indicatorWidget);
+    m_indicatorLayout->addStretch(1);
+    m_indicatorLayout->addStretch(1);
+
+
     connect(m_closeButton, &DWindowCloseButton::clicked, this, &PreviewWindow::close);
     connect(apply_button, &DTextButton::clicked, this, [this]{
         emit apply(m_key);
@@ -163,6 +185,8 @@ void PreviewWindow::imageToRight()
         m_image_index_left = m_image_index_right;
     m_image_index_right = (m_image_index_left + m_imageList.count() + 1) % m_imageList.count();
 
+    updateActiveIndicator(m_image_index_left, m_image_index_right);
+
     m_animation_image_switch.setStartValue(0);
     m_animation_image_switch.setEndValue(- width());
     m_animation_image_switch.start();
@@ -176,6 +200,8 @@ void PreviewWindow::imageToLeft()
     if(m_pixmap_x == 0)
         m_image_index_right = m_image_index_left;
     m_image_index_left = (m_image_index_left + m_imageList.count() - 1) % m_imageList.count();
+
+    updateActiveIndicator(m_image_index_right, m_image_index_left);
 
     m_animation_image_switch.setStartValue(-width());
     m_animation_image_switch.setEndValue(0);
@@ -200,4 +226,16 @@ void PreviewWindow::hideTopRect()
     m_animation_rect_opacity.setEndValue(0.0);
     m_animation_rect_opacity.start();
     m_closeButton->hide();
+}
+
+void PreviewWindow::updateActiveIndicator(int currentIndex, int newIndex)
+{
+    if(currentIndex >= 0){
+        QLabel *label = qobject_cast<QLabel*>(m_indicatorLayout->itemAt(currentIndex + 1)->widget());
+        label->setPixmap(QPixmap(":/images/preview_image_indicator_normal.png"));
+    }
+    QLabel *label = qobject_cast<QLabel*>(m_indicatorLayout->itemAt(newIndex + 1)->widget());
+    if(label){
+        label->setPixmap(QPixmap(":/images/preview_image_indicator_active.png"));
+    }
 }

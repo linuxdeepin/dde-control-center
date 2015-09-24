@@ -7,5 +7,7 @@
         <file>images/preview.png</file>
         <file>images/right_normal.png</file>
         <file>images/right_pressed.png</file>
+        <file>images/preview_image_indicator_active.png</file>
+        <file>images/preview_image_indicator_normal.png</file>
     </qresource>
 </RCC>
