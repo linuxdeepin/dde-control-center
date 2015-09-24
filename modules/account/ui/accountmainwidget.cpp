@@ -14,17 +14,12 @@ AccountMainWidget::AccountMainWidget(QWidget *parent) : QFrame(parent)
     DSeparatorHorizontal *sh = new DSeparatorHorizontal(this);
     m_mainLayout->addWidget(sh);
 
+    initDBusAccount();
     initHeader();
     initListPanel();
     initCreatePanel();
 
     m_mainLayout->addWidget(m_stackWidget);
-    connect(this, &AccountMainWidget::stateChanged, [=](PanelState state){
-        if (state == StateCreating)
-            m_stackWidget->setCurrentIndex(1);
-        else
-            m_stackWidget->setCurrentIndex(0);
-    });
 }
 
 void AccountMainWidget::preDestroy()
@@ -45,19 +40,24 @@ void AccountMainWidget::initHeader()
 
     m_header->setRightContent(m_headerStackWidget);
 
-    //dsTr("Delete Account")dsTr("Add Account")
+    //ControlButton//////////////////////////////////////////
     QWidget *headerButtonContent = new QWidget();
-    QHBoxLayout *buttonLayout = new QHBoxLayout();
+    QHBoxLayout *buttonLayout = new QHBoxLayout(headerButtonContent);
     buttonLayout->setContentsMargins(0, 0, 0, 0);
     buttonLayout->setSpacing(0);
     buttonLayout->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
-    GeneralRemoveButton *deleteButton = new GeneralRemoveButton;
-    GeneralAddButton *addButton = new GeneralAddButton;
-    buttonLayout->addWidget(deleteButton);
-    buttonLayout->addSpacing(DUI::BUTTON_MARGIN);
-    buttonLayout->addWidget(addButton);
-    headerButtonContent->setLayout(buttonLayout);
+    m_deleteUserButton = new GeneralRemoveButton;
+    if (m_account && m_account->userList().count() <= 1) {
+        m_deleteUserButton->setVisible(false);
+        m_deleteUserButton->setEnabled(false);
+    }
 
+    m_addUserButton = new GeneralAddButton;
+    buttonLayout->addWidget(m_deleteUserButton);
+    buttonLayout->addSpacing(DUI::BUTTON_MARGIN);
+    buttonLayout->addWidget(m_addUserButton);
+
+    //user list label//////////////////////////////////////////
     DTextButton *listButton = new DTextButton(tr("User List"));
     listButton->setFixedHeight(DUI::BUTTON_HEIGHT);
     connect(listButton, &DTextButton::clicked, [=]{
@@ -75,65 +75,22 @@ void AccountMainWidget::initHeader()
     m_headerStackWidget->addWidget(headerButtonContent);
     m_headerStackWidget->addWidget(lbFrame);
 
-    DynamicLabel *toolTip = new DynamicLabel(m_header);
+    m_buttonToolTip = new DynamicLabel(m_header);
 
     connect(this, &AccountMainWidget::cancelDelete, [=]{
-       if (deleteButton){
-           deleteButton->setChecked(false);
+       if (m_deleteUserButton){
+           m_deleteUserButton->setChecked(false);
 
            m_state = StateNormal;
        }
     });
 
-    connect(deleteButton, &GeneralRemoveButton::stateChanged, [=]{
-        DImageButton::State buttonState = deleteButton->getState();
-        if (buttonState == DImageButton::Hover || buttonState == DImageButton::Press)
-            return;
-
-        switch (buttonState) {
-        case DImageButton::Checked:
-            if (m_state == StateDeleting)
-                break;
-            setPanelState(StateDeleting);
-            emit requestDelete(true);
-            break;
-        default:
-            if (m_state == StateNormal)
-                break;
-            setPanelState(StateNormal);
-            emit requestDelete(false);
-            break;
-        }
-        toolTip->hideLabel();
-    });
-    connect(deleteButton, &GeneralRemoveButton::mouseEnter, [=]{
-        toolTip->setText(tr("Delete Account"));
-        //the x or width value is valid after all component ready,infact it only need move once
-        toolTip->move(deleteButton->mapTo(this, QPoint(0, 0)).x() - toolTip->width() - DUI::TEXT_RIGHT_MARGIN,
-                      (m_header->height() - toolTip->height()) / 2);
-
-        toolTip->showLabel();
-    });
-    connect(deleteButton, &GeneralRemoveButton::mouseLeave, [=]{
-        toolTip->hideLabel();
-    });
-
-    connect(addButton, &GeneralAddButton::clicked, [=]{
-        setPanelState(StateCreating);
-        toolTip->hideLabel();
-    });
-    connect(addButton, &GeneralAddButton::mouseEnter, [=]{
-        toolTip->setText(tr("Add Account"));
-        //the x or width value is valid after all component ready,infact it only need move once
-        toolTip->move(deleteButton->mapTo(this, QPoint(0, 0)).x() - toolTip->width() - DUI::TEXT_RIGHT_MARGIN,
-                      (m_header->height() - toolTip->height()) / 2);
-
-        toolTip->showLabel();
-    });
-    connect(addButton, &GeneralAddButton::mouseLeave, [=]{
-        toolTip->hideLabel();
-    });
-
+    connect(m_deleteUserButton, &GeneralRemoveButton::stateChanged, this, &AccountMainWidget::onDeleteButtonStateChanged);
+    connect(m_deleteUserButton, &GeneralRemoveButton::mouseEnter, this, &AccountMainWidget::onDeleteButtonMouseEntered);
+    connect(m_deleteUserButton, &GeneralRemoveButton::mouseLeave, m_buttonToolTip, &DynamicLabel::hideLabel);
+    connect(m_addUserButton, &GeneralAddButton::clicked, this, &AccountMainWidget::onAddButtonClicked);
+    connect(m_addUserButton, &GeneralAddButton::mouseEnter, this, &AccountMainWidget::onAddButtonMouseEntered);
+    connect(m_addUserButton, &GeneralAddButton::mouseLeave, m_buttonToolTip, &DynamicLabel::hideLabel);
 }
 
 void AccountMainWidget::initListPanel()
@@ -192,17 +149,21 @@ void AccountMainWidget::initHeaderStackWidget()
     connect(this, &AccountMainWidget::stateChanged, [=](PanelState state){
         switch (state){
         case StateNormal:
+            m_stackWidget->setCurrentIndex(0);
             m_headerStackWidget->setVisible(true);
             m_headerStackWidget->setCurrentIndex(0);
             break;
         case StateCreating:
+            m_stackWidget->setCurrentIndex(1);
             m_headerStackWidget->setVisible(false);
             break;
         case StateDeleting:
+            m_stackWidget->setCurrentIndex(0);
             m_headerStackWidget->setVisible(true);
             m_headerStackWidget->setCurrentIndex(0);
             break;
         case StateSetting:
+            m_stackWidget->setCurrentIndex(0);
             m_headerStackWidget->setVisible(true);
             m_headerStackWidget->setCurrentIndex(1);
             break;
@@ -212,10 +173,75 @@ void AccountMainWidget::initHeaderStackWidget()
     });
 }
 
+void AccountMainWidget::initDBusAccount()
+{
+    m_account = new DBusAccount(this);
+    connect(m_account, &DBusAccount::UserListChanged, [=] {
+        if (m_account->userList().count() <= 1){
+            m_deleteUserButton->setVisible(false);
+            m_deleteUserButton->setEnabled(false);
+        }
+        else {
+            m_deleteUserButton->setVisible(true);
+            m_deleteUserButton->setEnabled(true);
+        }
+    });
+}
+
 void AccountMainWidget::setPanelState(AccountMainWidget::PanelState state)
 {
     m_state = state;
 
     emit stateChanged(state);
+}
+
+void AccountMainWidget::onAddButtonClicked()
+{
+    setPanelState(StateCreating);
+    m_buttonToolTip->hideLabel();
+}
+
+void AccountMainWidget::onAddButtonMouseEntered()
+{
+    m_buttonToolTip->setText(tr("Add Account"));
+    QPoint tp = m_account->userList().count() <= 1 ? m_addUserButton->mapTo(this, QPoint(0, 0)) : m_deleteUserButton->mapTo(this, QPoint(0, 0));
+    //the x or width value is valid after all component ready,infact it only need move once
+    m_buttonToolTip->move(tp.x() - m_buttonToolTip->width() - DUI::TEXT_RIGHT_MARGIN,
+                  (m_header->height() - m_buttonToolTip->height()) / 2);
+
+    m_buttonToolTip->showLabel();
+}
+
+void AccountMainWidget::onDeleteButtonStateChanged()
+{
+    DImageButton::State buttonState = m_deleteUserButton->getState();
+    if (buttonState == DImageButton::Hover || buttonState == DImageButton::Press)
+        return;
+
+    switch (buttonState) {
+    case DImageButton::Checked:
+        if (m_state == StateDeleting)
+            break;
+        setPanelState(StateDeleting);
+        emit requestDelete(true);
+        break;
+    default:
+        if (m_state == StateNormal)
+            break;
+        setPanelState(StateNormal);
+        emit requestDelete(false);
+        break;
+    }
+    m_buttonToolTip->hideLabel();
+}
+
+void AccountMainWidget::onDeleteButtonMouseEntered()
+{
+    m_buttonToolTip->setText(tr("Delete Account"));
+    //the x or width value is valid after all component ready,infact it only need move once
+    m_buttonToolTip->move(m_deleteUserButton->mapTo(this, QPoint(0, 0)).x() - m_buttonToolTip->width() - DUI::TEXT_RIGHT_MARGIN,
+                  (m_header->height() - m_buttonToolTip->height()) / 2);
+
+    m_buttonToolTip->showLabel();
 }
 

@@ -43,16 +43,26 @@ private:
     void initListPanel();
     void initCreatePanel();
     void initHeaderStackWidget();
+    void initDBusAccount();
 
     void setPanelState(PanelState state);
+
+    void onAddButtonClicked();
+    void onAddButtonMouseEntered();
+    void onDeleteButtonStateChanged();
+    void onDeleteButtonMouseEntered();
 private:
+    GeneralAddButton *m_addUserButton = NULL;
+    GeneralRemoveButton *m_deleteUserButton = NULL;
     QStackedWidget *m_headerStackWidget = NULL;
-    QStackedWidget *m_stackWidget = NULL;
     CreateUserPanel *m_createPanel = NULL;
+    DynamicLabel *m_buttonToolTip = NULL;
+    QStackedWidget *m_stackWidget = NULL;
     QScrollArea *m_listScrollArea = NULL;
     UserListPanel *m_listPanel = NULL;
     QVBoxLayout *m_mainLayout = NULL;
     ModuleHeader *m_header = NULL;
+    DBusAccount *m_account = NULL;
 
     PanelState m_state = StateNormal;
 };
