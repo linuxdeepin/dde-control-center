@@ -312,6 +312,8 @@ void MainWidget::shortcutListChanged(SearchList *listw, const ShortcutInfoList &
             m_searchList->removeItem(offseIndex+i);
         }
     }
+
+    update();
 }
 
 void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QString &flag, QString shortcut)
