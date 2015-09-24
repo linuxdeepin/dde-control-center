@@ -37,6 +37,7 @@ Keyboard::Keyboard() :
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
 
+    setAutoDelete(false);
     initBackend();
     if (m_dbusKeyboard) initUI();
 }
@@ -66,29 +67,33 @@ void Keyboard::updateKeyboardLayout(SearchList *button_list, AddRmDoneLine *line
     foreach (const QString &str, user_layout_list) {
         QDBusPendingReply<QString> tmp = m_dbusKeyboard->GetLayoutDesc(str);
         tmp.waitForFinished();
+        QString title = tmp.value();
 
-        m_mapUserLayoutInfo[tmp.value()] = str;
+        m_mapUserLayoutInfo[title] = str;
 
-        GenericListItem *item = new GenericListItem(showRemoveButton&&str!=current_layout);
+        GenericListItem *item = new GenericListItem(showRemoveButton && str!=current_layout);
         connect(item, &GenericListItem::removeButtonClicked, [=]{
             m_dbusKeyboard->DeleteUserLayout(str);
 
-            KeyboardLayoutDelegate *tmpw = new KeyboardLayoutDelegate(item->title());
-            connect(tmpw, &KeyboardLayoutDelegate::checkedChanged, [=](bool checked){
-               if(checked){
-                   m_dbusKeyboard->AddUserLayout(str);
-                   m_selectLayoutList << tmpw;
-               }else{
-                   m_dbusKeyboard->DeleteUserLayout(str);
-                   m_selectLayoutList.removeOne(tmpw);
-               }
-            });
-
-            m_letterClassifyList->addItem(tmpw);
+            const QChar letterFirst = title[0];
+            if(letterFirst.isUpper() || letterFirst.isLower()){
+                onAddLayoutItem(str, title, QStringList() << QString(letterFirst));
+            }else{
+                QDBusInterface dbus_pinyin( "com.deepin.api.Pinyin", "/com/deepin/api/Pinyin",
+                                                  "com.deepin.api.Pinyin" );
+                QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(dbus_pinyin.asyncCall("Query", QString(title[0])), this);
+                connect(watcher, &QDBusPendingCallWatcher::finished, watcher, [this, watcher, title, str]{
+                    QDBusPendingReply<QStringList> reply = *watcher;
+                    if(!reply.isError()){
+                        onAddLayoutItem(str, title, reply.value());
+                    }
+                    watcher->deleteLater();
+                });
+            }
         });
         connect(line, &AddRmDoneLine::removeClicked, item, &GenericListItem::showRemoveButton);
         connect(line, &AddRmDoneLine::doneClicked, item, &GenericListItem::hideRemoveButton);
-        item->setTitle(tmp.value());
+        item->setTitle(title);
         m_mapUserLayoutIndex[str] = button_list->addItem(item);
 
         if(str == current_layout){
@@ -314,9 +319,9 @@ void Keyboard::initUI()
             [this, lang_list, dbusLangSelector, language_searchList]{
         QString current_lang = dbusLangSelector->currentLocale();
         QDBusPendingReply<LocaleList> reply = *lang_list;
+        QString theme = DThemeManager::instance()->theme();
         foreach (const LocaleInfo &info, reply.value()) {
             GenericListItem *item = new GenericListItem;
-            QString theme = DThemeManager::instance()->theme();
 
             item->setKeyWords(QStringList()<<info.name);
             if(theme == "dark"){
@@ -335,6 +340,7 @@ void Keyboard::initUI()
 
             m_mapUserLayoutInfo[info.name] = info.id;
             m_mapUserLayoutIndex[info.id] = language_searchList->count()-1;
+            qApp->processEvents();
         }
 
         language_searchList->beginSearch();
@@ -373,37 +379,67 @@ void Keyboard::initUI()
     m_letterClassifyList = new FirstLetterClassify(m_frame);
     m_letterClassifyList->hide();
     m_letterClassifyList->setFixedWidth(310);
+    m_mainLayout->insertWidget(10, m_letterClassifyList);
     QTimer::singleShot(400, this, SLOT(loadLetterClassify()));
+}
+
+void Keyboard::run()
+{
+    QDBusPendingReply<KeyboardLayoutList> list = m_dbusKeyboard->LayoutList();
+    list.waitForFinished();
+    KeyboardLayoutList tmp_map = list.value();
+
+    QDBusInterface dbus_pinyin( "com.deepin.api.Pinyin", "/com/deepin/api/Pinyin",
+                                      "com.deepin.api.Pinyin" );
+
+    foreach (const QString &str, tmp_map.keys()) {
+        if(m_mapUserLayoutInfo.contains(tmp_map[str]))
+            continue;
+
+        QString title = tmp_map[str];
+        QChar letterFirst = title[0];
+        QStringList letterFirstList;
+        if(letterFirst.isLower() || letterFirst.isUpper()){
+            letterFirstList << QString(letterFirst);
+        }else{
+            QDBusMessage message = dbus_pinyin.call("Query", QString(letterFirst));
+            letterFirstList = message.arguments()[0].toStringList();
+        }
+
+        if(!letterFirstList.isEmpty()){
+            emit addLayoutItem(str, title, letterFirstList);
+        }
+    }
 }
 
 void Keyboard::loadLetterClassify()
 {
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_dbusKeyboard->LayoutList());
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=]{
-        QDBusPendingReply<KeyboardLayoutList> list = *watcher;
-        KeyboardLayoutList tmp_map = list.value();
+    connect(this, &Keyboard::addLayoutItem, this, &Keyboard::onAddLayoutItem, Qt::QueuedConnection);
+    QThreadPool::globalInstance()->start(this);
+}
 
-        foreach (const QString &str, tmp_map.keys()) {
-            if(m_mapUserLayoutInfo.contains(tmp_map[str]))
-                continue;
-
-            KeyboardLayoutDelegate *tmpw = new KeyboardLayoutDelegate(tmp_map[str]);
-            connect(tmpw, &KeyboardLayoutDelegate::checkedChanged, [=](bool checked){
-               if(checked){
-                   m_dbusKeyboard->AddUserLayout(str);
-                   m_selectLayoutList << tmpw;
-               }else{
-                   m_dbusKeyboard->DeleteUserLayout(str);
-                   m_selectLayoutList.removeOne(tmpw);
-               }
-            });
-
-            m_letterClassifyList->addItem(tmpw);
-        }
-
-        m_mainLayout->insertWidget(10, m_letterClassifyList);
-        watcher->deleteLater();
+void Keyboard::onAddLayoutItem(const QString &id, const QString &title, const QStringList &letterFirstList)
+{
+    KeyboardLayoutDelegate *item = new KeyboardLayoutDelegate(title);
+    item->setKeyWords(letterFirstList);
+    connect(item, &KeyboardLayoutDelegate::checkedChanged, [=](bool checked){
+       if(checked){
+           m_dbusKeyboard->AddUserLayout(id);
+           m_selectLayoutList << item;
+       }else{
+           m_dbusKeyboard->DeleteUserLayout(id);
+           m_selectLayoutList.removeOne(item);
+       }
     });
+    m_letterClassifyList->addItem(item, letterFirstList.first().at(0));
+
+    for (int i = 1; i < letterFirstList.count(); ++i) {
+        QChar ch = letterFirstList[i][0];
+        KeyboardLayoutDelegate *tmp = new KeyboardLayoutDelegate(title);
+        tmp->setKeyWords(letterFirstList);
+        connect(tmp, &KeyboardLayoutDelegate::checkedChanged, item, &KeyboardLayoutDelegate::setChecked);
+        m_letterClassifyList->addItem(tmp, ch);
+    }
 }
 
 QFrame* Keyboard::getContent()

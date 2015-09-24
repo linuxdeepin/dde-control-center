@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QtPlugin>
+#include <QRunnable>
 
 #include <libdui/libdui_global.h>
 #include <libdui/dbuttonlist.h>
@@ -20,7 +21,8 @@ class AddRmDoneLine;
 class FirstLetterClassify;
 class QVBoxLayout;
 class KeyboardLayoutDelegate;
-class Keyboard: public QObject, ModuleInterface
+class DbusLangSelector;
+class Keyboard: public QObject, ModuleInterface, QRunnable
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "keyboard.json")
@@ -33,6 +35,10 @@ public:
 
 private slots:
     void loadLetterClassify();
+    void onAddLayoutItem(const QString &id, const QString &title, const QStringList &letterFirstList);
+
+signals:
+    void addLayoutItem(const QString &id, const QString &title, const QStringList &letterFirstList);
 
 private:
     QFrame * m_frame;
@@ -42,10 +48,13 @@ private:
     QList<KeyboardLayoutDelegate*> m_selectLayoutList;
     FirstLetterClassify *m_letterClassifyList;
     QVBoxLayout *m_mainLayout;
+    SearchList *m_languageSearchList;
+    DbusLangSelector *m_dbusLangSelector;
 
     void updateKeyboardLayout(SearchList *button_list, AddRmDoneLine *line, bool showRemoveButton = false);
     void initBackend();
     void initUI();
+    void run();
 };
 
 #endif //   KEYBOARD_H

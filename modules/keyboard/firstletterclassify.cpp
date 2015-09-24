@@ -46,21 +46,12 @@ KeyboardLayoutDelegate::KeyboardLayoutDelegate(const QString &title, QWidget *pa
 
 QStringList KeyboardLayoutDelegate::keyWords()
 {
-    if(m_pinyinFirstLetterList.isEmpty()){
-        QDBusInterface dbus_pinyin( "com.deepin.api.Pinyin", "/com/deepin/api/Pinyin",
-                                          "com.deepin.api.Pinyin" );
-        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(dbus_pinyin.asyncCall("Query", QString(title()[0])), this);
-        connect(watcher, &QDBusPendingCallWatcher::finished, watcher, [this, watcher]{
-            QDBusPendingReply<QStringList> reply = *watcher;
-            if(!reply.isError()){
-                m_pinyinFirstLetterList = reply.value();
-                emit this->getKeyWordsFinished();
-            }
-            watcher->deleteLater();
-        });
-    }
-
     return m_pinyinFirstLetterList;
+}
+
+void KeyboardLayoutDelegate::setKeyWords(const QStringList &keywords)
+{
+    m_pinyinFirstLetterList = keywords;
 }
 
 QString KeyboardLayoutDelegate::title() const
@@ -142,37 +133,6 @@ DSegmentedControl *FirstLetterClassify::letterList() const
     return m_letterList;
 }
 
-void FirstLetterClassify::addItem(KeyboardLayoutDelegate *data)
-{
-    if(!data->keyWords().isEmpty()){
-        foreach (QString key, data->keyWords()) {
-            int index = key[0].toUpper().toLatin1() - 65;
-
-            if(index>=0){
-                m_listWidgetList[index]->addWidget(data);
-            }
-        }
-    }else{
-        connect(data, &KeyboardLayoutDelegate::getKeyWordsFinished, this, [this, data]{
-            QStringList keywords = data->keyWords();
-
-            int index = keywords[0][0].toUpper().toLatin1() - 65;
-            if(index>=0){
-                m_listWidgetList[index]->addWidget(data);
-            }
-            for (int i=1; i < keywords.count(); ++i) {
-                QString key = keywords[i];
-                int index = key[0].toUpper().toLatin1() - 65;
-                if(index>=0){
-                    KeyboardLayoutDelegate *item = new KeyboardLayoutDelegate(data->title());
-                    connect(item, &KeyboardLayoutDelegate::checkedChanged, data, &KeyboardLayoutDelegate::setChecked);
-                    m_listWidgetList[index]->addWidget(item);
-                }
-            }
-        });
-    }
-}
-
 void FirstLetterClassify::removeItems(QList<KeyboardLayoutDelegate *> datas)
 {
     foreach (KeyboardLayoutDelegate* w, datas) {
@@ -194,6 +154,12 @@ QString FirstLetterClassify::currentLetter() const
     return m_letterList->getText(m_letterList->currentIndex());
 }
 
+void FirstLetterClassify::addItem(KeyboardLayoutDelegate *item, const QChar letterFirst)
+{
+    int index = letterFirst.toUpper().toLatin1() - 65;
+    m_listWidgetList[index]->addWidget(item);
+}
+
 void FirstLetterClassify::setCurrentLetter(QString currentLetter)
 {
     m_letterList->setCurrentIndexByTitle(currentLetter);
@@ -201,10 +167,6 @@ void FirstLetterClassify::setCurrentLetter(QString currentLetter)
 
 void FirstLetterClassify::show()
 {
-    if(m_layout->count() == 2){
-        m_layout->addWidget(m_currentList);
-    }else{
-        m_letterList->currentTitleChanged(m_letterList->getText(m_listWidgetList.indexOf(m_currentList)));
-    }
+    m_letterList->currentTitleChanged(m_letterList->getText(m_listWidgetList.indexOf(m_currentList)));
     QFrame::show();
 }

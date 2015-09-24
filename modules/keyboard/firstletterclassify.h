@@ -25,6 +25,7 @@ public:
     explicit KeyboardLayoutDelegate(const QString &title, QWidget *parent = 0);
 
     QStringList keyWords();
+    void setKeyWords(const QStringList &keywords);
     QString title() const;
     bool checked() const;
 
@@ -56,7 +57,7 @@ public:
     explicit FirstLetterClassify(QWidget *parent = 0);
     ListWidget *searchList() const;
     DSegmentedControl *letterList() const;
-    void addItem(KeyboardLayoutDelegate *data);
+    void addItem(KeyboardLayoutDelegate *item, const QChar letterFirst);
     void removeItems(QList<KeyboardLayoutDelegate*> datas);
     QString currentLetter() const;
 
