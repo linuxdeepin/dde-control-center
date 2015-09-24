@@ -93,7 +93,7 @@ void Sound::initUI()
     speakerForm->setRowMinimumHeight(1, 36);
 
     // Output volume line
-    speakerForm->addWidget(new NormalLabel("Output volume"), 0, 0, Qt::AlignVCenter);
+    speakerForm->addWidget(new NormalLabel("Output Volume"), 0, 0, Qt::AlignVCenter);
     m_outputVolumeSlider = new DSlider(Qt::Horizontal);
     m_outputVolumeSlider->setTracking(false);
     m_outputVolumeSlider->setRange(0, 150);
@@ -105,7 +105,7 @@ void Sound::initUI()
     speakerForm->addWidget(m_outputVolumeSlider, 0, 1, Qt::AlignVCenter);
 
     // Left/Right balance line
-    speakerForm->addWidget(new NormalLabel("Left/Right balance"), 1, 0, Qt::AlignVCenter);
+    speakerForm->addWidget(new NormalLabel("Left/Right Balance"), 1, 0, Qt::AlignVCenter);
     m_leftRightBalanceSlider = new DSlider(Qt::Horizontal);
     m_leftRightBalanceSlider->setHandleType(DSlider::SharpHandler);
     m_leftRightBalanceSlider->setRange(-100, 100);
@@ -138,7 +138,7 @@ void Sound::initUI()
     microphoneForm->setRowMinimumHeight(1, 36);
 
     // microphone volume line
-    microphoneForm->addWidget(new NormalLabel("Input volume"), 0, 0, Qt::AlignVCenter);
+    microphoneForm->addWidget(new NormalLabel("Input Volume"), 0, 0, Qt::AlignVCenter);
     m_inputVolumeSlider = new DSlider(Qt::Horizontal);
     m_inputVolumeSlider->setRange(0, 150);
     m_inputVolumeSlider->setLeftTip("-");
@@ -149,7 +149,7 @@ void Sound::initUI()
     microphoneForm->addWidget(m_inputVolumeSlider, 0, 1, Qt::AlignVCenter);
 
     // microphone feedback line
-    microphoneForm->addWidget(new NormalLabel("Feedback volume"), 1, 0, Qt::AlignVCenter);
+    microphoneForm->addWidget(new NormalLabel("Feedback Volume"), 1, 0, Qt::AlignVCenter);
     m_inputFeedbackSlider = new DSlider(Qt::Horizontal);
     QString feedbackSliderStyle = m_inputFeedbackSlider->styleSheet();
     feedbackSliderStyle += "DUI--DSlider::handle[handleType=\"1\"] {background: none;}DUI--DSlider::add-page:horizontal[handleType=\"1\"]{border-width: 0px 2px 1px 0px;}";
@@ -184,7 +184,7 @@ void Sound::initUI()
     m_outputPortsExpand = new DBaseExpand;
     m_outputPortsExpand->setExpand(true);
 
-    HeaderLine * outputPortsLine = new HeaderLine("Output ports", m_outputPortsExpand);
+    HeaderLine * outputPortsLine = new HeaderLine("Output Port", m_outputPortsExpand);
     m_outputPortsExpand->setHeader(outputPortsLine);
 
     m_outputPortsList = new DButtonList(m_outputPortsExpand);
@@ -198,7 +198,7 @@ void Sound::initUI()
     DBaseExpand * outputDevicesExpand = new DBaseExpand;
     outputDevicesExpand->setExpand(true);
 
-    HeaderLine * outputDevicesLine = new HeaderLine("Output devices", outputDevicesExpand);
+    HeaderLine * outputDevicesLine = new HeaderLine("Output device", outputDevicesExpand);
     outputDevicesExpand->setHeader(outputDevicesLine);
 
     QStringList outputDevices;
@@ -232,7 +232,7 @@ void Sound::initUI()
     m_inputPortsExpand = new DBaseExpand;
     m_inputPortsExpand->setExpand(true);
 
-    HeaderLine * inputPortsLine = new HeaderLine("Input ports", m_inputPortsExpand);
+    HeaderLine * inputPortsLine = new HeaderLine("Input Port", m_inputPortsExpand);
     m_inputPortsExpand->setHeader(inputPortsLine);
 
     m_inputPortsList = new DButtonList(m_inputPortsExpand);
@@ -246,7 +246,7 @@ void Sound::initUI()
     DBaseExpand * inputDevicesExpand = new DBaseExpand;
     inputDevicesExpand->setExpand(true);
 
-    HeaderLine * inputDevicesLine = new HeaderLine("Input devices", inputDevicesExpand);
+    HeaderLine * inputDevicesLine = new HeaderLine("Input device", inputDevicesExpand);
     inputDevicesExpand->setHeader(inputDevicesLine);
 
     QStringList inputDevices;
