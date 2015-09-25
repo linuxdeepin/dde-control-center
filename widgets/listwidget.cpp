@@ -1,4 +1,5 @@
 #include <QEvent>
+#include <QDebug>
 
 #include <libdui/dthememanager.h>
 
@@ -131,10 +132,11 @@ void ListWidget::removeWidget(int index, bool isDelete)
     m_checkedList.removeOne(index);
 
     if(m_mapVisible.value(w, false)){
-        m_mapVisible.remove(w);
+        qDebug() << w->height() << m_mainWidget->height();
         setHeight(m_mainWidget->height() - w->height() - m_layout->spacing());
         setVisibleCount(m_visibleCount -1);
     }
+    m_mapVisible.remove(w);
 
     w->removeEventFilter(this);
     w->setParent(NULL);

@@ -53,6 +53,11 @@ SearchList *MainWidget::addSearchList(const ShortcutInfoList &tmplist)
     SearchList *list = new SearchList;
     list->setFixedWidth(310);
     list->setItemSize(310, 0);
+    list->setEnableVerticalScroll(true);
+    connect(list, &SearchList::visibleCountChanged, [list]{
+        list->setFixedHeight(qMin(500, list->visibleCount() * 30));
+    });
+
     foreach (const ShortcutInfo &info, tmplist) {
         ShortcutWidget *tmpw = new ShortcutWidget(m_dbus, info.id, info.title, info.shortcut);
         ShortcutWidget *shortw = new ShortcutWidget(m_dbus, info.id, info.title, info.shortcut);
@@ -364,6 +369,7 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
         tmp_text.append(tr("Do you want to replace it?"));
 
         SelectDialog *dialog = new SelectDialog;
+        dialog->setFixedHeight(120);
         dialog->setText(tmp_text);
         listw->insertItem(index+1, dialog);
 
@@ -379,6 +385,7 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
             dialog->contraction();
         });
         connect(dialog, &SelectDialog::contracted, [=]{
+            dialog->setFixedHeight(120);
             listw->removeItem(listw->indexOf(dialog));
         });
         dialog->expansion();
