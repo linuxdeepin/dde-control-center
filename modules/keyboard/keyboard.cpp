@@ -103,7 +103,7 @@ void Keyboard::updateKeyboardLayout(SearchList *button_list, AddRmDoneLine *line
         }
     }
 
-    button_list->setFixedSize(310, button_list->count()*EXPAND_HEADER_HEIGHT);
+    button_list->setFixedSize(310, qMin(button_list->count()*EXPAND_HEADER_HEIGHT, 200));
 }
 
 void Keyboard::initUI()
@@ -213,6 +213,8 @@ void Keyboard::initUI()
     SearchList *user_layout_list = new SearchList;
     user_layout_list->setItemSize(290, EXPAND_HEADER_HEIGHT);
     user_layout_list->setCheckable(true);
+    user_layout_list->setEnableVerticalScroll(true);
+
     updateKeyboardLayout(user_layout_list, keyboardLayoutLine);
     keyboardLayoutLine->setRemoveHidden(user_layout_list->count()<2);
 

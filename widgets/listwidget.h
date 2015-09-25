@@ -18,6 +18,7 @@ class ListWidget : public DScrollArea
     Q_PROPERTY(int visibleCount READ visibleCount NOTIFY visibleCountChanged FINAL)
     Q_PROPERTY(bool checkable READ checkable WRITE setCheckable)
     Q_PROPERTY(bool enableUncheck READ enableUncheck WRITE setEnableUncheck NOTIFY enableUncheckChanged)
+    Q_PROPERTY(bool enableVerticalScroll READ enableVerticalScroll WRITE setEnableVerticalScroll NOTIFY enableVerticalScrollChanged)
     Q_PROPERTY(CheckMode checkMode READ checkMode)
 
     Q_ENUMS(CheckMode)
@@ -43,6 +44,7 @@ public slots:
     void setCheckMode(CheckMode checkMode);
     void setCheckable(bool checkable);
     void setEnableUncheck(bool enableUncheck);
+    void setEnableVerticalScroll(bool enableVerticalScroll);
 
 public:
     int count() const;
@@ -57,6 +59,7 @@ public:
     CheckMode checkMode() const;
     QList<QWidget*> widgetList() const;
     QSize itemSize() const;
+    bool enableVerticalScroll() const;
 
 signals:
     void firstCheckedChanged(int index);
@@ -66,9 +69,11 @@ signals:
     void enableUncheckChanged(bool enableUncheck);
     void visibleCountChanged(int visibleCount);
     void clicked(int index);
+    void enableVerticalScrollChanged(bool enableVerticalScroll);
 
 protected:
     bool eventFilter(QObject *, QEvent *) Q_DECL_OVERRIDE;
+    QSize sizeHint() const Q_DECL_OVERRIDE;
     void setVisibleCount(int count);
     void setHeight(int height);
 
@@ -84,6 +89,7 @@ private:
     bool m_checkable;
     QMap<const QWidget*, bool> m_mapVisible;
     bool m_enableUncheck;
+    bool m_enableVerticalScroll = false;
 };
 
 #endif // LISTWIDGET_H

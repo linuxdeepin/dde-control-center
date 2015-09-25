@@ -94,6 +94,9 @@ FirstLetterClassify::FirstLetterClassify(QWidget *parent) :
         ListWidget *w = new ListWidget;
         w->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
         w->setItemSize(310, EXPAND_HEADER_HEIGHT);
+        w->setEnableVerticalScroll(true);
+        w->setMaximumHeight(200);
+
         m_listWidgetList << w;
 
         m_letterList->addSegmented(QString(i));

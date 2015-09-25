@@ -226,6 +226,16 @@ void ListWidget::setEnableUncheck(bool enableUncheck)
     emit enableUncheckChanged(enableUncheck);
 }
 
+void ListWidget::setEnableVerticalScroll(bool enableVerticalScroll)
+{
+    if (m_enableVerticalScroll == enableVerticalScroll)
+        return;
+
+    m_enableVerticalScroll = enableVerticalScroll;
+    emit enableVerticalScrollChanged(enableVerticalScroll);
+    updateGeometry();
+}
+
 int ListWidget::count() const
 {
     return m_widgetList.count();
@@ -298,6 +308,18 @@ bool ListWidget::eventFilter(QObject *obj, QEvent *e)
     return false;
 }
 
+QSize ListWidget::sizeHint() const
+{
+    QSize size;
+    size.setWidth(m_mainWidget->width());
+    if(m_enableVerticalScroll)
+        size.setHeight(qMin(maximumHeight(), m_mainWidget->height()));
+    else
+        size.setHeight(m_mainWidget->height());
+
+    return size;
+}
+
 void ListWidget::setVisibleCount(int count)
 {
     if(m_visibleCount == count)
@@ -311,11 +333,12 @@ void ListWidget::setVisibleCount(int count)
 void ListWidget::setHeight(int height)
 {
     m_mainWidget->setFixedHeight(height);
-    if(verticalScrollBarPolicy() == Qt::ScrollBarAlwaysOff){
+    if(!m_enableVerticalScroll){
         setFixedHeight(m_mainWidget->height());
     }else{
-        setMaximumHeight(m_mainWidget->height());
+        resize(m_mainWidget->size());
     }
+    updateGeometry();
 }
 
 QList<QWidget*> ListWidget::widgetList() const
@@ -326,5 +349,10 @@ QList<QWidget*> ListWidget::widgetList() const
 QSize ListWidget::itemSize() const
 {
     return QSize(m_itemWidth, m_itemHeight);
+}
+
+bool ListWidget::enableVerticalScroll() const
+{
+    return m_enableVerticalScroll;
 }
 
