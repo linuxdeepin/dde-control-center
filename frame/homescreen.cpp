@@ -1,3 +1,7 @@
+#include "homescreen.h"
+#include "constants.h"
+#include "useravatar.h"
+
 #include <QDebug>
 #include <QGridLayout>
 #include <QPixmap>
@@ -8,13 +12,10 @@
 #include <QVBoxLayout>
 #include <QProcess>
 
+#include <unistd.h>
+
 #include <libdui/dseparatorhorizontal.h>
 #include <libdui/dimagebutton.h>
-
-#include "homescreen.h"
-#include "constants.h"
-
-#include "useravatar.h"
 
 HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     QFrame(parent),
@@ -25,7 +26,7 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     Q_INIT_RESOURCE(widgets_theme_light);
 
     // get user info d-bus interface
-    m_dbusUserInfo = new DBusUser(m_dbusAccounts->userList().first(), this);
+    m_dbusUserInfo = new DBusUser("/com/deepin/daemon/Accounts/User" + QString::number(getuid()), this);
 
     m_grid = new QGridLayout;
     m_grid->setContentsMargins(1, 0, 1, 0);
