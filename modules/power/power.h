@@ -109,6 +109,8 @@ public slots:
     inline void updateBatteryPlanUI() {
         qint32 batteryPlan = m_powerInterfaceManagement->getBatteryPlan();
         setPowerAndBatteryCheckAndExpand(batteryPlan, m_batteryButtonGrid, m_batteryCustomExtendBoard);
+        updateBatteryIdleDelayUI();
+        updateBatterySuspendDelayUI();
     }
     inline void updateBatteryIdleDelayUI() {
         qint32 batteryIdleDelay = m_powerInterfaceManagement->getBatteryIdleDelay()/60;
@@ -126,6 +128,8 @@ public slots:
         qint32 linePowerPlan = m_powerInterfaceManagement->getLinePowerPlan();
         setPowerAndBatteryCheckAndExpand(linePowerPlan, m_powerPerformanceButtonGroup,
            m_powerCustomExtendBoard);
+        updateLinePowerIdleDelayUI();
+        updateLinePowerSuspendDelayUI();
     }
     inline void updateLinePowerIdleDelayUI() {
         qint32 linePowerIdleDelay = m_powerInterfaceManagement->getLinePowerIdleDelay()/60;
