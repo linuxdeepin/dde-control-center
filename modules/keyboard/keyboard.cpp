@@ -15,6 +15,7 @@
 #include <libdui/dbuttonlist.h>
 #include <libdui/darrowlineexpand.h>
 #include <libdui/dsearchedit.h>
+#include <libdui/anchors.h>
 
 #include "moduleheader.h"
 #include "normallabel.h"
@@ -307,6 +308,16 @@ void Keyboard::initUI()
     language_searchList->setCheckable(true);
     language_searchList->setFixedWidth(310);
     language_searchList->setItemSize(290, EXPAND_HEADER_HEIGHT);
+    language_searchList->setEnableVerticalScroll(true);
+
+    ExtendWidget *extend_mainWidget = new ExtendWidget(m_frame, m_frame);
+    connect(extend_mainWidget, &ExtendWidget::heightChanged, [language_searchList, user_layout_list, this]{
+        language_searchList->setMaximumHeight(m_frame->height() - user_layout_list->geometry().bottom() - 80);
+    });
+    ExtendWidget *extend_user_layoutList = new ExtendWidget(user_layout_list, user_layout_list);
+    connect(extend_user_layoutList, &ExtendWidget::heightChanged, [language_searchList, user_layout_list, this]{
+        language_searchList->setMaximumHeight(m_frame->height() - user_layout_list->geometry().bottom() - 80);
+    });
 
     lang_frame_layout->addSpacing(10);
     lang_frame_layout->addWidget(lang_search, 0, Qt::AlignTop|Qt::AlignHCenter);
