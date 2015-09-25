@@ -55,7 +55,7 @@ Frame::Frame(QWidget *parent) :
     connect(m_hideAni, &QPropertyAnimation::finished, this, &QFrame::hide);
     connect(m_hideAni, &QPropertyAnimation::valueChanged, this, &Frame::xChanged);
     connect(m_showAni, &QPropertyAnimation::valueChanged, this, &Frame::xChanged);
-    connect(m_showAni, &QPropertyAnimation::finished, m_centeralWidget, static_cast<void (QWidget::*)()>(&QWidget::update));
+    connect(m_showAni, &QPropertyAnimation::finished, m_centeralWidget, static_cast<void (QWidget::*)()>(&QWidget::update), Qt::QueuedConnection);
     connect(m_homeScreen, SIGNAL(moduleSelected(ModuleMetaData)), this, SLOT(selectModule(ModuleMetaData)));
     connect(m_contentView, &ContentView::homeSelected, [ = ] {this->selectModule(ModuleMetaData());});
     connect(m_contentView, &ContentView::shutdownSelected, m_homeScreen, &HomeScreen::powerButtonClicked, Qt::DirectConnection);

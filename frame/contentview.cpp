@@ -50,6 +50,7 @@ ContentView::ContentView(QList<ModuleMetaData> modules, bool hideInLeft, QWidget
 
     connect(m_sideBar, &SideBar::moduleSelected, this, &ContentView::onModuleSelected);
     connect(m_hideAni, &QPropertyAnimation::finished, this, &QFrame::hide);
+    connect(m_showAni, &QPropertyAnimation::finished, this, static_cast<void (ContentView::*)()>(&ContentView::update));
 
     setLayout(m_layout);
 }
