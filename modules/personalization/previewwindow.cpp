@@ -28,8 +28,8 @@ void PreviewWindow::setImages(const QStringList &list)
     if(list.isEmpty())
         return;
 
-    for(int i = 1; i < m_indicatorLayout->count() - 1; ++i){
-        QLayoutItem *item = m_indicatorLayout->itemAt(i);
+    for(int i = 1; i <= m_imageList.count(); ++i){
+        QLayoutItem *item = m_indicatorLayout->itemAt(1);
         QWidget *w = item->widget();
         if(w)
             w->deleteLater();
