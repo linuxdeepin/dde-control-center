@@ -29,7 +29,7 @@ private slots:
     void onSideBarButtonClicked();
 
 private:
-    SideBarButton *m_selectedBtn = NULL;
+    SideBarButton *m_selectedBtn = nullptr;
     DTipsFrame *m_tips;
 };
 

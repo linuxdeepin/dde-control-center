@@ -82,7 +82,7 @@ void SideBar::onSideBarButtonClicked()
 {
     SideBarButton *button = qobject_cast<SideBarButton *>(sender());
 
-    if (!button) {
+    if (!button || button == m_selectedBtn) {
         return;
     }
 
