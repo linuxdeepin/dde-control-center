@@ -179,6 +179,8 @@ void Keyboard::initUI()
 
     NormalLabel * testAreaTitle = new NormalLabel("Test Area");
     DLineEdit * testAreaEdit = new DLineEdit;
+    connect(header, &ModuleHeader::resetButtonClicked, testAreaEdit, &DLineEdit::clear);
+
     basicSettingsLayout->addWidget(testAreaTitle, 3, 0, Qt::AlignRight);
     basicSettingsLayout->addWidget(testAreaEdit, 3, 1);
 
