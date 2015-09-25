@@ -97,6 +97,7 @@ FirstLetterClassify::FirstLetterClassify(QWidget *parent) :
         m_listWidgetList << w;
 
         m_letterList->addSegmented(QString(i));
+        m_letterList->at(i - 65)->hide();
     }
     m_currentList = m_listWidgetList.first();
 
@@ -145,6 +146,15 @@ void FirstLetterClassify::removeItems(QList<KeyboardLayoutDelegate *> datas)
                 if(ww->title() == w->title())
                     list->removeWidget(i);
             }
+            if(list->count() <= 0){
+                m_letterList->at(index)->hide();
+                for(int i = 0; i < m_letterList->count(); ++i){
+                    if(!m_letterList->at(i)->isHidden()){
+                        m_letterList->setCurrentIndex(i);
+                        break;
+                    }
+                }
+            }
         }
     }
 }
@@ -158,6 +168,7 @@ void FirstLetterClassify::addItem(KeyboardLayoutDelegate *item, const QChar lett
 {
     int index = letterFirst.toUpper().toLatin1() - 65;
     m_listWidgetList[index]->addWidget(item);
+    m_letterList->at(index)->show();
 }
 
 void FirstLetterClassify::setCurrentLetter(QString currentLetter)
