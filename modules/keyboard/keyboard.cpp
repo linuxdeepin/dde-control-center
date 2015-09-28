@@ -111,6 +111,7 @@ void Keyboard::updateKeyboardLayout(SearchList *button_list, AddRmDoneLine *line
         }
     }
 
+    button_list->setWidgetResizable(true);
     button_list->setFixedSize(310, qMin(button_list->count()*EXPAND_HEADER_HEIGHT, 200));
 }
 
