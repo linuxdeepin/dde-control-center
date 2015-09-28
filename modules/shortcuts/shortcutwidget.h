@@ -30,6 +30,7 @@ public slots:
     void setShortcut(const QString &shortcut);
     void showRemoveButton() const;
     void hideRemoveButton() const;
+    void setEnableEdit(bool enable);
 
 public:
     int id() const;

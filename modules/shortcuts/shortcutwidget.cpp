@@ -93,6 +93,11 @@ void ShortcutWidget::hideRemoveButton() const
     m_shortcut->setEnableEdit(true);
 }
 
+void ShortcutWidget::setEnableEdit(bool enable)
+{
+    m_shortcut->setEnableEdit(enable);
+}
+
 int ShortcutWidget::id() const
 {
     return m_id;

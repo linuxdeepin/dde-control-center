@@ -27,6 +27,7 @@ public:
 signals:
     void addCustomShortcut();
     void addCustomShortcutFinished();
+    void setEnableEditShortcut(bool enable);
 
 private:
     QVBoxLayout *m_layout;

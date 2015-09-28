@@ -71,6 +71,8 @@ SearchList *MainWidget::addSearchList(const ShortcutInfoList &tmplist)
             editShortcut(shortw, m_searchList, flag, shortcut);
         });
         connect(tmpw, &ShortcutWidget::removeShortcut, this, &MainWidget::removeShortcut);
+        connect(this, &MainWidget::setEnableEditShortcut, tmpw, &ShortcutWidget::setEnableEdit);
+        connect(this, &MainWidget::setEnableEditShortcut, shortw, &ShortcutWidget::setEnableEdit);
     }
 
     return list;
@@ -310,6 +312,8 @@ void MainWidget::shortcutListChanged(SearchList *listw, const ShortcutInfoList &
                 editShortcut(shortw, m_searchList, flag, shortcut);
             });
             connect(tmpw, &ShortcutWidget::removeShortcut, this, &MainWidget::removeShortcut);
+            connect(this, &MainWidget::setEnableEditShortcut, tmpw, &ShortcutWidget::setEnableEdit);
+            connect(this, &MainWidget::setEnableEditShortcut, shortw, &ShortcutWidget::setEnableEdit);
         }
     }else{
         for(int i=list.count();i<listw->count();++i){
@@ -347,6 +351,8 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
             listw->removeItem(listw->indexOf(label));
         });
     }else if(flag == "Conflict"){
+        emit setEnableEditShortcut(false);
+
         QList<ShortcutWidget*> tmp_list;
 
         QString tmp_shortcut = shortcut;
@@ -380,6 +386,7 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
                 m_dbus->ModifyShortcut(tmp_w->id(), "");
             }
             m_dbus->ModifyShortcut(w->id(), shortcut);
+            emit setEnableEditShortcut(true);
         });
         connect(dialog, &SelectDialog::cancel, [=]{
             dialog->contraction();
@@ -387,6 +394,7 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
         connect(dialog, &SelectDialog::contracted, [=]{
             dialog->setFixedHeight(120);
             listw->removeItem(listw->indexOf(dialog));
+            emit setEnableEditShortcut(true);
         });
         dialog->expansion();
     }
