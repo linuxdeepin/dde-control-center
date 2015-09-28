@@ -29,6 +29,8 @@ Datetime::Datetime() :
     // config manager
     m_settings(new QSettings("deepin", "dde-control-center-datetime", this))
 {
+    QT_TR_NOOP("Date and Time");
+
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
 

@@ -23,7 +23,9 @@
 #include "powerinterfacemanagement.h"
 #include "dynamiclabel.h"
 #include "dbreathinglabel.h"
+
 DUI_USE_NAMESPACE
+
 class QLabel;
 class QFrame;
 class Power: public QObject, ModuleInterface

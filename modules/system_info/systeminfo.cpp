@@ -20,7 +20,9 @@ DUI_USE_NAMESPACE
 
 SystemInfo::SystemInfo()
     : m_dbusSystemInfo("com.deepin.daemon.SystemInfo", "/com/deepin/daemon/SystemInfo", QDBusConnection::sessionBus(), this)
-{    
+{
+    QT_TR_NOOP("System Information");
+
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
 

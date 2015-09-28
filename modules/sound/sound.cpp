@@ -17,6 +17,8 @@ Sound::Sound() :
     QObject(),
     m_frame(new QFrame)
 {
+    QT_TR_NOOP("Sound");
+
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
 

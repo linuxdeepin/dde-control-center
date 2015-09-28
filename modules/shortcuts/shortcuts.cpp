@@ -7,6 +7,8 @@
 Shortcuts::Shortcuts():
     m_mainWidget(new MainWidget())
 {
+    QT_TR_NOOP("Keyboard Shortcuts");
+
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
 }

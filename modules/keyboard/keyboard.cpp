@@ -38,6 +38,8 @@ Keyboard::Keyboard() :
     m_dbusKeyboard(NULL),
     m_letterClassifyList(NULL)
 {
+    QT_TR_NOOP("Keyboard and Language");
+
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
 

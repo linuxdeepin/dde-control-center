@@ -17,6 +17,8 @@ DUI_USE_NAMESPACE
 
 Personalization::Personalization():m_margins(0, 5, 0, 5)
 {
+    QT_TR_NOOP("Personalization");
+
     qRegisterMetaType<ImageInfoList>("ImageInfoList");
     qRegisterMetaType<QJsonObject>("QJsonObject");
     qRegisterMetaType<ThemeObjs>("qRegisterMetaType");

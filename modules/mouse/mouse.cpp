@@ -18,6 +18,8 @@ DUI_USE_NAMESPACE
 
 Mouse::Mouse()
 {
+    QT_TR_NOOP("Mouse and Touchpad");
+
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
 
