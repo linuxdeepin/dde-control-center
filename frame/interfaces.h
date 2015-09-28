@@ -11,6 +11,8 @@ public:
 
 public slots:
     // plugin can remove there own data on this function(remove popup window for example).
+    // TODO
+    // preUnload should be executed before every unload operations.
     virtual void preUnload() {}
 };
 
