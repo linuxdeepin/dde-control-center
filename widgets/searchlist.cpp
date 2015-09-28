@@ -100,18 +100,6 @@ void SearchList::removeItem(int index)
         foreach (const QString &str, item->keyWords()) {
             m_keyWords.removeOne(str);
         }
-
-        QWidget *w = item->widget();
-        if(w){
-            if(m_searching){
-                if(isIntersect(m_dbusKeyWords, item->keyWords())){
-                    setVisibleCount(visibleCount()-1);
-                }
-            }else{
-                setVisibleCount(visibleCount()-1);
-            }
-        }
-
         delete item;
     }
 }
