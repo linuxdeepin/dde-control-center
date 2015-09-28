@@ -29,6 +29,9 @@
 
 DUI_USE_NAMESPACE
 
+//TODO
+bool meDeleted = false;
+
 Keyboard::Keyboard() :
     QObject(),
     m_frame(new QFrame),
@@ -38,6 +41,7 @@ Keyboard::Keyboard() :
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
 
+    meDeleted = false;
     setAutoDelete(false);
     initBackend();
     if (m_dbusKeyboard) initUI();
@@ -46,6 +50,7 @@ Keyboard::Keyboard() :
 Keyboard::~Keyboard()
 {
     qDebug() << "~Keyboard and Language";
+    meDeleted = true;
     m_frame->deleteLater();
 }
 
@@ -356,6 +361,8 @@ void Keyboard::initUI()
             m_mapUserLayoutInfo[info.name] = info.id;
             m_mapUserLayoutIndex[info.id] = language_searchList->count()-1;
             qApp->processEvents();
+            if(meDeleted)
+                return;
         }
 
         language_searchList->beginSearch();
@@ -408,6 +415,9 @@ void Keyboard::run()
                                       "com.deepin.api.Pinyin" );
 
     foreach (const QString &str, tmp_map.keys()) {
+        if(meDeleted)
+            return;
+
         if(m_mapUserLayoutInfo.contains(tmp_map[str]))
             continue;
 
