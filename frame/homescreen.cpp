@@ -225,7 +225,7 @@ void HomeScreen::powerButtonClicked()
 void HomeScreen::userAvatarClicked()
 {
     for (const ModuleMetaData &data : modules)
-        if (data.name == "Account") {
+        if (data.id == "account") {
             return moduleSelected(data);
         }
 }
