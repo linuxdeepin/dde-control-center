@@ -1,6 +1,7 @@
 #include <QApplication>
 #include <QFile>
 #include <QDebug>
+#include <QTranslator>
 #include <QCommandLineParser>
 
 #include "frame.h"
@@ -40,6 +41,11 @@ int main(int argv, char *args[])
     app.setOrganizationName("deepin");
     app.setApplicationName("DDE Control Center");
     app.setApplicationVersion("3.0");
+
+    // install translators
+    QTranslator translator;
+    translator.load("/usr/share/dde-control-center/translations/dde-control-center_" + QLocale::system().name());
+    app.installTranslator(&translator);
 
     // take care of command line options
     QCommandLineOption showOption(QStringList() << "s" << "show", "show control center(hide for default).");
