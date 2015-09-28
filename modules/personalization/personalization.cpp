@@ -244,6 +244,7 @@ void Personalization::initFontExpand(){
     m_slider->setRange(9, 16);
     m_slider->setHandleType(DSlider::SharpHandler);
     m_slider->setFixedHeight(BUTTON_HEIGHT);
+    m_slider->setPageStep(1);
 
     QString tip = tr("Font") + QString::number(m_slider->value());
     m_fontTipLabel = new DLabel(tip);
