@@ -14,7 +14,7 @@ DeviceFrame::DeviceFrame(QWidget *parent) : QWidget(parent)
 
 void DeviceFrame::initTitle()
 {
-    QLabel *titleLabel = new QLabel("Device");
+    QLabel *titleLabel = new QLabel(tr("Device"));
     QLabel *splitLabel = new QLabel();
     splitLabel->setObjectName("SplitLine");
     splitLabel->setFixedSize(155,1);

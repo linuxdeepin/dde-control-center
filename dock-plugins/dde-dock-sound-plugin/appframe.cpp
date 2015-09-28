@@ -13,7 +13,7 @@ AppFrame::AppFrame(QWidget *parent) : QWidget(parent)
 
 void AppFrame::initTitle()
 {
-    QLabel *titleLabel = new QLabel("Application");
+    QLabel *titleLabel = new QLabel(tr("Applications"));
     QLabel *splitLabel = new QLabel();
     splitLabel->setObjectName("SplitLine");
     splitLabel->setFixedSize(155,1);
