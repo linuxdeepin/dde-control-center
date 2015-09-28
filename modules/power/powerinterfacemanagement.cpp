@@ -19,7 +19,7 @@ qint32 PowerInterfaceManagement::getLidCloseAction() {
     return m_powerInterface->lidClosedAction();
 }
 void PowerInterfaceManagement::setPowerButtonAction(QString actionButton) {
-    if (actionButton == "ShutDown") {
+    if (actionButton == "Shutdown") {
         m_powerInterface->setPowerButtonAction(2);
     } else if (actionButton == "Suspend") {
         m_powerInterface->setPowerButtonAction(1);
@@ -28,7 +28,7 @@ void PowerInterfaceManagement::setPowerButtonAction(QString actionButton) {
     }
 }
 void PowerInterfaceManagement::setLidCloseAction(QString actionButton) {
-    if (actionButton == "ShutDown") {
+    if (actionButton == "Shutdown") {
         m_powerInterface->setLidClosedAction(2);
     } else if (actionButton == "Suspend") {
         m_powerInterface->setLidClosedAction(1);

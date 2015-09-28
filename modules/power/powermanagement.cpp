@@ -12,10 +12,12 @@ PowerManagement::PowerManagement(QWidget *parent)
     m_batteryPercentage = 0;
 
     m_powerManagerViewLabel = new QLabel;
-    m_powerManagerViewLabel->setFixedWidth(140);
+    m_powerManagerViewLabel->setFixedWidth(180);
     m_powerManagerViewLabel->setStyleSheet(QString("background-color: %1").arg(DCC::BgLightColor.name()));
     m_powerManagerLabel = new QLabel;
-    m_powerManagerLabel->setText(tr("PowerManager"));
+    m_powerManagerLabel->setText(tr("PowerManagement"));
+    m_powerManagerLabel->sizeHint();
+    m_powerManagerLabel->updateGeometry();
     m_shortSeparatorLine = new QLabel;
     m_shortSeparatorLine->setFixedSize(5, 2);
     m_shortSeparatorLine->setStyleSheet("background-color: rgb(79, 79, 79)");
@@ -28,6 +30,7 @@ PowerManagement::PowerManagement(QWidget *parent)
     m_powerManagerLayout->addWidget(m_powerManagerLabel);
     m_powerManagerLayout->addWidget(m_shortSeparatorLine);
     m_powerManagerLayout->addWidget(m_powerPercentageLabel);
+    m_powerManagerLayout->addStretch();
     m_powerManagerViewLabel->setLayout(m_powerManagerLayout);
 
 

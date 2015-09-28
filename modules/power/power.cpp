@@ -171,12 +171,12 @@ void Power::initBatteryUsedUI() {
 }
 void Power::initUI() {
 
-    linePowerAction  << tr("ShutDown") << tr("Suspend") << tr("Ask");
+    linePowerAction  << tr("Shutdown") << tr("Suspend") << tr("Ask");
     m_pressPowerButtonActionFrame = new PressPowerButtonAction(linePowerAction);
     m_pressPowerButtonActionFrame->setTitle(tr("When I press the power button"));
     m_pressPowerButtonActionFrame->setFixedHeight(m_bgContentHeight);
 
-    closeLaptopAction << tr("ShutDown") << tr("Suspend") << tr("Nothing");
+    closeLaptopAction << tr("Shutdown") << tr("Suspend") << tr("Nothing");
     m_closeLaptopActionFrame = new PressPowerButtonAction(closeLaptopAction);
     m_closeLaptopActionFrame->setTitle(tr("When I close the lid"));
     m_closeLaptopActionFrame->setFixedHeight(m_bgContentHeight);
