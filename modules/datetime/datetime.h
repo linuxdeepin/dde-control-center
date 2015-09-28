@@ -73,7 +73,8 @@ private:
     TimezoneCtrlWidget *m_timezoneCtrlWidget;
     TimeWidget *m_timeWidget;
     SearchList *m_timezoneListWidget;
-    QTimer *m_refershTimer;
+    QTimer *m_refershClockTimer;
+    QTimer *m_refershCalendarTimer;
     QSettings *m_settings;
 
     QList<QString> m_choosedZoneList;

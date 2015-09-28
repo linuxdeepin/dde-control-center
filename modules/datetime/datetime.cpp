@@ -1,3 +1,10 @@
+#include "datetime.h"
+#include "timewidget.h"
+#include "moduleheader.h"
+#include "timezonewidget.h"
+#include "timezoneitemwidget.h"
+#include "dbus/dbustimedate.h"
+
 #include <QDebug>
 #include <QFrame>
 #include <QVBoxLayout>
@@ -10,13 +17,6 @@
 #include <libdui/dimagebutton.h>
 #include <libdui/dapplication.h>
 
-#include "datetime.h"
-#include "timewidget.h"
-#include "moduleheader.h"
-#include "timezonewidget.h"
-#include "timezoneitemwidget.h"
-#include "dbus/dbustimedate.h"
-
 DUI_USE_NAMESPACE
 
 Datetime::Datetime() :
@@ -24,7 +24,8 @@ Datetime::Datetime() :
     m_frame(new QFrame),
     m_dbusInter(m_frame),
     m_timezoneListWidget(new SearchList),
-    m_refershTimer(new QTimer(m_frame)),
+    m_refershClockTimer(new QTimer(m_frame)),
+    m_refershCalendarTimer(new QTimer(m_frame)),
     // config manager
     m_settings(new QSettings("deepin", "dde-control-center-datetime", this))
 {
@@ -103,11 +104,12 @@ Datetime::Datetime() :
     m_frame->setLayout(centeralLayout);
     m_dateCtrlWidget->setVisible(!m_dbusInter.nTP());
 
-    // update every second
-    m_refershTimer->setInterval(1 * 1000);
-    m_refershTimer->start();
+    m_refershClockTimer->setInterval(1 * 1000);
+    m_refershClockTimer->start();
+    m_refershCalendarTimer->setInterval(15 * 1000);
+    m_refershCalendarTimer->start();
 
-    connect(m_refershTimer, &QTimer::timeout, m_timeWidget, &TimeWidget::updateTime);
+    connect(m_refershClockTimer, &QTimer::timeout, m_timeWidget, &TimeWidget::updateTime);
     connect(&m_dbusInter, &DBusTimedate::TimezoneChanged, m_timeWidget, &TimeWidget::updateTime);
     connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::addTimezoneAccept, this, &Datetime::addUserTimeZone);
     connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::addTimezoneAccept, this, &Datetime::showSelectedTimezoneList);
@@ -121,6 +123,10 @@ Datetime::Datetime() :
     connect(&m_dbusInter, &DBusTimedate::NTPChanged, [this] {m_timeWidget->setEditable(!m_dbusInter.nTP());});
     connect(&m_dbusInter, &DBusTimedate::NTPChanged, [this] () -> void {m_dateCtrlWidget->setVisible(!m_dbusInter.nTP());});
     connect(&m_dbusInter, &DBusTimedate::TimezoneChanged, this, &Datetime::showSelectedTimezoneList);
+    connect(m_refershCalendarTimer, &QTimer::timeout, m_timeWidget, [this] {
+        if (QDate::currentDate() != m_calendar->getCurrentDate())
+            m_calendar->setCurrentDate(QDate::currentDate());
+    });
     connect(m_autoSyncSwitcher, &DSwitchButton::checkedChanged, [this] {
         QDBusPendingReply<> reply = m_dbusInter.SetNTP(m_autoSyncSwitcher->checked());
         reply.waitForFinished();
