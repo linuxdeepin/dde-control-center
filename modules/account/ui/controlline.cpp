@@ -73,7 +73,7 @@ AccountTypeLine::AccountTypeLine(QWidget *parent) : AccountHeaderLine(parent)
 {
     m_control = new DSegmentedControl(this);
     m_control->addSegmented(tr("Normal User"));
-    m_control->addSegmented(tr("Administor"));
+    m_control->addSegmented(tr("Administrator"));
     connect(m_control, &DSegmentedControl::currentChanged, this, &AccountTypeLine::typeChanged);
     setContent(m_control);
     DSeparatorHorizontal * separator = new DSeparatorHorizontal(this);

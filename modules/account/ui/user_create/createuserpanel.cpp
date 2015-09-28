@@ -47,7 +47,7 @@ void CreateUserPanel::initDbusData()
 
 void CreateUserPanel::initHeader()
 {
-    QLabel *headerLabel = new QLabel(tr("Create New User"));
+    QLabel *headerLabel = new QLabel(tr("Add User"));
     headerLabel->setObjectName("CreateHeaderLabel");
     headerLabel->setFixedHeight(DUI::EXPAND_HEADER_HEIGHT);
     headerLabel->setContentsMargins(DUI::HEADER_LEFT_MARGIN, 0 , 0, 0);
@@ -77,7 +77,7 @@ void CreateUserPanel::initInfoLine()
     m_avatar->setFixedSize(ICON_SIZE, ICON_SIZE);
     m_avatar->setIcon(m_randIcon);
 
-    m_newNameLabel = new QLabel(tr("New User"));
+    m_newNameLabel = new QLabel(tr("new user"));
     m_newNameLabel->setObjectName("NewNameLabel");
     m_newNameLabel->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
     QLabel *newTypeLabel = new QLabel(tr("Normal User"));
@@ -86,7 +86,7 @@ void CreateUserPanel::initInfoLine()
     connect(m_accountType, &AccountTypeLine::typeChanged, [=](int type){
         switch (type) {
         case 1:
-            newTypeLabel->setText(tr("Administor"));
+            newTypeLabel->setText(tr("Administrator"));
             break;
         default:
             newTypeLabel->setText(tr("Normal User"));
@@ -126,11 +126,11 @@ void CreateUserPanel::initInputLline()
     f.setCapitalization(QFont::AllLowercase);
     m_nameLine->lineEdit()->setFont(f);
 
-    m_nameLine->setTitle(tr("User Name"));
+    m_nameLine->setTitle(tr("Username"));
     m_passwdNew->setTitle(tr("Password"));
     m_passwdRepeat->setTitle(tr("Repeat Password"));
     m_accountType->setTitle(tr("Account Type"));
-    m_autoLogin->setTitle(tr("Auto Login"));
+    m_autoLogin->setTitle(tr("Auto-login"));
 
     DSeparatorHorizontal *s1 = new DSeparatorHorizontal();
     DSeparatorHorizontal *s2 = new DSeparatorHorizontal();
@@ -250,7 +250,7 @@ void CreateUserPanel::onPasswdFocusChanged(bool focus)
             m_passwdRepeat->showWarning(tr("The two passwords do not match."));
     }
     else if (m_passwdNew->text().isEmpty() && !m_nameLine->text().isEmpty())
-        m_passwdNew->showWarning("Password can not be empty.");
+        m_passwdNew->showWarning(tr("Password can not be empty."));
 }
 
 void CreateUserPanel::onPasswdRepeatFocusChanged(bool focus)
@@ -289,7 +289,7 @@ void CreateUserPanel::onNameChanged(const QString &name)
         }
     }
     else
-        m_newNameLabel->setText(tr("New User"));
+        m_newNameLabel->setText(tr("new user"));
 }
 
 void CreateUserPanel::onPasswdChanged(const QString &)

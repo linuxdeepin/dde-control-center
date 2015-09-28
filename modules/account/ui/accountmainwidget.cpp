@@ -30,7 +30,7 @@ void AccountMainWidget::preDestroy()
 
 void AccountMainWidget::initHeader()
 {
-    m_header = new ModuleHeader(tr("Account"), false, this);
+    m_header = new ModuleHeader(tr("User Accounts"), false, this);
     m_mainLayout->addWidget(m_header);
     DSeparatorHorizontal *separator = new DSeparatorHorizontal;
     m_mainLayout->addWidget(separator);

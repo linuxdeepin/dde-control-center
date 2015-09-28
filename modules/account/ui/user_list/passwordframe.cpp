@@ -86,9 +86,9 @@ void PasswordFrame::initActiveWidget()
     layout->setSpacing(0);
 
     m_lineNew = new AccountPasswdLine();
-    m_lineNew->setTitle("New Password");
+    m_lineNew->setTitle(tr("New Password"));
     m_lineRepeat = new AccountPasswdLine();
-    m_lineRepeat->setTitle("Repeat Password");
+    m_lineRepeat->setTitle(tr("Repeat"));
     connect(m_lineNew, &AccountPasswdLine::textChanged, this, &PasswordFrame::onPasswdChanged);
     connect(m_lineNew, &AccountPasswdLine::focusChanged, this, &PasswordFrame::onPasswdFocusChanged);
     connect(m_lineRepeat, &AccountPasswdLine::textChanged, this, &PasswordFrame::onPasswdRepeatChanged);

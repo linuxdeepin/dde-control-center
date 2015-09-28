@@ -117,8 +117,8 @@ void UserExpandHeader::initRightStack()
     normalLayout->addWidget(m_arrowButton);
 
     m_folderControl = new DSegmentedControl;
-    m_folderControl->addSegmented(tr("Keep Folder"));
-    m_folderControl->addSegmented(tr("Delete Folder"));
+    m_folderControl->addSegmented(tr("Keep user's files"));
+    m_folderControl->addSegmented(tr("Delete user's files"));
 
     DTextButton *cancelButton = new DTextButton(tr("Cancel"));
     DTextButton *confirmButton = new DTextButton(tr("Confirm"));
