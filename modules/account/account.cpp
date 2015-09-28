@@ -5,7 +5,7 @@
 
 Account::Account()
 {
-    QT_TR_NOOP("User Accounts");
+    QT_TRANSLATE_NOOP("ModuleName", "User Accounts");
 
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);

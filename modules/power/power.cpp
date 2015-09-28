@@ -11,7 +11,7 @@ Power::Power()
       m_frame(new QFrame),
       m_powerManagementFrame(new PowerManagement)
 {
-    QT_TR_NOOP("Power Management");
+    QT_TRANSLATE_NOOP("ModuleName", "Power Management");
 
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);

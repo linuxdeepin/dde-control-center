@@ -2,6 +2,7 @@
 #include "constants.h"
 
 #include <QHBoxLayout>
+#include <QCoreApplication>
 #include <QPropertyAnimation>
 
 DTipsFrame::DTipsFrame()
@@ -95,7 +96,7 @@ void DTipsFrame::followTheSender()
 
 void DTipsFrame::setTipsText(const QString &text)
 {
-    m_label->setText(text);
+    m_label->setText(QCoreApplication::translate("ModuleName", text.toLatin1()));
 
     QFontMetrics metric(m_label->font());
 

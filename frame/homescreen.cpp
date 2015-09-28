@@ -11,6 +11,7 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QProcess>
+#include <QCoreApplication>
 
 #include <unistd.h>
 
@@ -245,7 +246,7 @@ ModuleButton::ModuleButton(ModuleMetaData metaData, QWidget *parent) :
     m_icon = new QLabel(this);
     m_text = new QLabel(this);
     m_text->setFont(font);
-    m_text->setText(m_meta.name);
+    m_text->setText(QCoreApplication::translate("ModuleName", m_meta.name.toLatin1()));
     m_text->setWordWrap(true);
     m_text->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
     m_text->setFixedWidth(90);

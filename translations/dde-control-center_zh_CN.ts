@@ -2,14 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="zh_CN">
 <context>
-    <name>Account</name>
-    <message>
-        <location filename="../modules/account/account.cpp" line="8"/>
-        <source>User Accounts</source>
-        <translation>账户</translation>
-    </message>
-</context>
-<context>
     <name>AccountConfirmButtonLine</name>
     <message>
         <location filename="../modules/account/ui/controlline.cpp" line="98"/>
@@ -27,7 +19,7 @@
     <message>
         <location filename="../modules/account/ui/accountmainwidget.cpp" line="33"/>
         <source>User Accounts</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">账户</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/accountmainwidget.cpp" line="61"/>
@@ -298,7 +290,6 @@
 <context>
     <name>Datetime</name>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="32"/>
         <location filename="../modules/datetime/datetime.cpp" line="41"/>
         <source>Date and Time</source>
         <translation type="unfinished"></translation>
@@ -327,7 +318,6 @@
 <context>
     <name>DefaultApps</name>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="31"/>
         <location filename="../modules/default_applications/defaultapps.cpp" line="38"/>
         <location filename="../modules/default_applications/defaultapps.cpp" line="44"/>
         <source>Default Applications</source>
@@ -410,11 +400,6 @@
 <context>
     <name>Display</name>
     <message>
-        <location filename="../modules/display/display.cpp" line="20"/>
-        <source>Display</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../modules/display/display.cpp" line="144"/>
         <source>Display Mode</source>
         <translation type="unfinished"></translation>
@@ -474,14 +459,6 @@
     </message>
 </context>
 <context>
-    <name>Grub</name>
-    <message>
-        <location filename="../modules/grub/grub.cpp" line="10"/>
-        <source>Boot Menu</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>GrubWidget</name>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="21"/>
@@ -523,18 +500,13 @@
 <context>
     <name>HomeScreen</name>
     <message>
-        <location filename="../frame/homescreen.cpp" line="95"/>
+        <location filename="../frame/homescreen.cpp" line="96"/>
         <source>Power</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Keyboard</name>
-    <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="41"/>
-        <source>Keyboard and Language</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="214"/>
         <source>Language</source>
@@ -615,12 +587,70 @@
     </message>
 </context>
 <context>
-    <name>Mouse</name>
+    <name>ModuleName</name>
+    <message>
+        <location filename="../modules/sound/sound.cpp" line="20"/>
+        <source>Sound</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/power/power.cpp" line="14"/>
+        <source>Power Management</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="31"/>
+        <source>Default Applications</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="21"/>
         <source>Mouse and Touchpad</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="24"/>
+        <source>System Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/display/display.cpp" line="20"/>
+        <source>Display</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/account/account.cpp" line="8"/>
+        <source>User Accounts</source>
+        <translation type="unfinished">账户</translation>
+    </message>
+    <message>
+        <location filename="../modules/shortcuts/shortcuts.cpp" line="10"/>
+        <source>Keyboard Shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/personalization/personalization.cpp" line="20"/>
+        <source>Personalization</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/keyboard.cpp" line="41"/>
+        <source>Keyboard and Language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/datetime/datetime.cpp" line="32"/>
+        <source>Date and Time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/grub/grub.cpp" line="10"/>
+        <source>Boot Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Mouse</name>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="37"/>
         <source>Mouse And Touchpad</source>
@@ -739,7 +769,6 @@
 <context>
     <name>Personalization</name>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="20"/>
         <location filename="../modules/personalization/personalization.cpp" line="36"/>
         <source>Personalization</source>
         <translation type="unfinished"></translation>
@@ -798,11 +827,6 @@
 </context>
 <context>
     <name>Power</name>
-    <message>
-        <location filename="../modules/power/power.cpp" line="14"/>
-        <source>Power Management</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../modules/power/power.cpp" line="49"/>
         <source>Password required to wake up</source>
@@ -978,20 +1002,7 @@
     </message>
 </context>
 <context>
-    <name>Shortcuts</name>
-    <message>
-        <location filename="../modules/shortcuts/shortcuts.cpp" line="10"/>
-        <source>Keyboard Shortcuts</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>Sound</name>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="20"/>
-        <source>Sound</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="114"/>
         <source>Left</source>
@@ -1013,11 +1024,6 @@
 </context>
 <context>
     <name>SystemInfo</name>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="24"/>
-        <source>System Information</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="29"/>
         <source>System Infomation</source>

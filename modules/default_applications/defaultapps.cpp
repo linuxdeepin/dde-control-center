@@ -28,7 +28,7 @@ DefaultApps::DefaultApps() :
     m_dbusDefaultApps(this),
     m_dbusDefaultMedia(this)
 {
-    QT_TR_NOOP("Default Applications");
+    QT_TRANSLATE_NOOP("ModuleName", "Default Applications");
 
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);

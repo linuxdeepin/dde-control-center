@@ -17,7 +17,7 @@ Display::Display():
     m_frame(NULL),
     m_mainLayout(new QVBoxLayout)
 {
-    QT_TR_NOOP("Display");
+    QT_TRANSLATE_NOOP("ModuleName", "Display");
 
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
