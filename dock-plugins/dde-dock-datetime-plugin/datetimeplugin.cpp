@@ -165,13 +165,13 @@ QString DateTimePlugin::getMenuContent(QString)
     QJsonArray items;
 
     if (m_mode == Dock::FashionMode) {
-        items.append(createMenuItem(MenuIdSwitchDisplayMode, "Switch display mode"));
+        items.append(createMenuItem(MenuIdSwitchDisplayMode, tr("Switch display mode")));
     } else {
-        items.append(createMenuItem(MenuIdShowWeek, "Show week", true, m_showWeek));
-        items.append(createMenuItem(MenuIdShowDate, "Show date", true, m_showDate));
+        items.append(createMenuItem(MenuIdShowWeek, tr("Show week"), true, m_showWeek));
+        items.append(createMenuItem(MenuIdShowDate, tr("Show date"), true, m_showDate));
     }
 
-    items.append(createMenuItem(MenuIdDatetimeSettings, "Datetime settings(_T)"));
+    items.append(createMenuItem(MenuIdDatetimeSettings, tr("Datetime settings(_T)")));
 
     contentObj.insert("items", items);
 
@@ -221,7 +221,7 @@ void DateTimePlugin::setMode(Dock::DockMode mode)
     if (m_mode == Dock::FashionMode) {
         m_item->setPixmap(m_clockPixmap);
     } else {
-        QString timeFormat = m_use24HourFormat ? "hh:mm" : tr("hh:mm a");
+        QString timeFormat = m_use24HourFormat ? " hh:mm" : tr(" hh:mm A");
         m_item->setText(time.toString(timeFormat));
     }
 
