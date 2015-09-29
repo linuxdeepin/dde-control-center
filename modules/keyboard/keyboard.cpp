@@ -319,12 +319,14 @@ void Keyboard::initUI()
     language_searchList->setEnableVerticalScroll(true);
 
     ExtendWidget *extend_mainWidget = new ExtendWidget(m_frame, m_frame);
-    connect(extend_mainWidget, &ExtendWidget::heightChanged, [language_searchList, user_layout_list, this]{
-        language_searchList->setMaximumHeight(m_frame->height() - user_layout_list->geometry().bottom() - 80);
+    connect(extend_mainWidget, &ExtendWidget::heightChanged, [language_searchList, user_layout_list, lang_list_frame, lang_search, this]{
+        language_searchList->setFixedHeight(m_frame->height() - user_layout_list->geometry().bottom() - 80);
+        lang_list_frame->setFixedHeight(language_searchList->height() + 50);
     });
     ExtendWidget *extend_user_layoutList = new ExtendWidget(user_layout_list, user_layout_list);
-    connect(extend_user_layoutList, &ExtendWidget::heightChanged, [language_searchList, user_layout_list, this]{
-        language_searchList->setMaximumHeight(m_frame->height() - user_layout_list->geometry().bottom() - 80);
+    connect(extend_user_layoutList, &ExtendWidget::heightChanged, [language_searchList, user_layout_list, lang_list_frame, lang_search, this]{
+        language_searchList->setFixedHeight(m_frame->height() - user_layout_list->geometry().bottom() - 80);
+        lang_list_frame->setFixedHeight(language_searchList->height() + 50);
     });
 
     lang_frame_layout->addSpacing(10);
