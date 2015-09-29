@@ -8,7 +8,7 @@ SUBDIRS = widgets \
           modules \
           dock-plugins
 
-TRANSLATIONS = translations/dde-control-center.ts translations/dde-control-center_zh_CN.ts
+TRANSLATIONS = translations/dde-control-center.ts
 
 frame.depends = widgets
 modules.depends = widgets

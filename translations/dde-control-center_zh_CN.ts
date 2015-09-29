@@ -272,17 +272,31 @@
     <name>DateTimePlugin</name>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="129"/>
-        <source>dd MMM</source>
+        <source>MMM dd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="130"/>
-        <source>dddd dd MMM</source>
+        <source> hh:mm </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="138"/>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="221"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="130"/>
+        <source> hh:mm A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="131"/>
+        <source>ddd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="132"/>
+        <source>ddd MMM dd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="222"/>
         <source>hh:mm a</source>
         <translation type="unfinished"></translation>
     </message>
@@ -306,7 +320,7 @@
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="62"/>
-        <source>Sync Automaticly</source>
+        <source>Sync Automatically</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -365,17 +379,17 @@
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="161"/>
-        <source>CD_Audio</source>
+        <source>CD Audio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="162"/>
-        <source>DVD_Video</source>
+        <source>DVD Video</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="163"/>
-        <source>MusicPlayer</source>
+        <source>Music Player</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -493,7 +507,7 @@
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="151"/>
-        <source>Successfully updated,reboot to view.</source>
+        <source>Successfully updated, reboot to view.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -508,22 +522,22 @@
 <context>
     <name>Keyboard</name>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="214"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="215"/>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="217"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="218"/>
         <source>Keyboard Layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="218"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="219"/>
         <source>Remove Keyboard Layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="219"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="220"/>
         <source>Add Keyboard Layout</source>
         <translation type="unfinished"></translation>
     </message>
@@ -536,52 +550,52 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="144"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="146"/>
         <source>Delete Shortcut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="145"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="147"/>
         <source>Add Shortcut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="146"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="148"/>
         <source>Custom</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="272"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="274"/>
         <source>System</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="273"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="275"/>
         <source>Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="274"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="276"/>
         <source>Workspace</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="341"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="345"/>
         <source>Shortcut &quot;%1&quot; is invalid, please retype new shortcut.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="353"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="359"/>
         <source>The shortcut you set </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="363"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="369"/>
         <source>conflicts with the one used for &quot;%2&quot; in the &quot;%1&quot; category.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="369"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="375"/>
         <source>Do you want to replace it?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -819,8 +833,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="248"/>
-        <location filename="../modules/personalization/personalization.cpp" line="577"/>
+        <location filename="../modules/personalization/personalization.cpp" line="249"/>
+        <location filename="../modules/personalization/personalization.cpp" line="578"/>
         <source>Font</source>
         <translation type="unfinished"></translation>
     </message>
@@ -910,13 +924,13 @@
     <message>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="180"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="188"/>
-        <source>1hour</source>
+        <source>1 hour</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="182"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="190"/>
-        <source>%1minutes</source>
+        <source>%1 minutes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -929,7 +943,7 @@
     <name>PowerManagement</name>
     <message>
         <location filename="../modules/power/powermanagement.cpp" line="18"/>
-        <source>PowerManagement</source>
+        <source>Power Management</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -952,22 +966,22 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="90"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="92"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="91"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="93"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="117"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="119"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="121"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="123"/>
         <source>Command</source>
         <translation type="unfinished"></translation>
     </message>
@@ -976,7 +990,7 @@
     <name>RightContentWidget</name>
     <message>
         <location filename="../widgets/moduleheader.cpp" line="45"/>
-        <source>Reset Success</source>
+        <source>Reset Successfully</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1036,32 +1050,32 @@
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="39"/>
-        <source>Deepin Edition :</source>
+        <source>Deepin Edition:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="45"/>
-        <source>System Type :</source>
+        <source>System Type:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="47"/>
-        <source>%1Bit</source>
+        <source>%1 Bit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="50"/>
-        <source>Processor :</source>
+        <source>Processor:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="56"/>
-        <source>Memory :</source>
+        <source>Memory:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="62"/>
-        <source>Disk :</source>
+        <source>Disk:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
