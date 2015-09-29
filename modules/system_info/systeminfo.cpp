@@ -32,7 +32,7 @@ SystemInfo::SystemInfo()
     deepinLogo->setPixmap(QPixmap(":/images/images/logo.png"));
     deepinLogo->setAlignment(Qt::AlignCenter);
 
-    QLabel *deepinName = new QLabel(tr("Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."));
+    QLabel *deepinName = new QLabel(tr("Copyright (c) 2011-2015 Wuhan Deepin Technology Co., Ltd."));
     deepinName->setWordWrap(true);
     deepinName->setAlignment(Qt::AlignCenter);
 
