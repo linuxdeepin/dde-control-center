@@ -126,17 +126,18 @@ void DateTimePlugin::updateTime()
         QString newText = "";
 
         //change date and time format in translation
-        QString dateFormat = tr("dd MMM");
-        QString dateWeekFormat = tr("dddd dd MMM");
-        if (m_showDate && !m_showWeek)
-            newText = today.toString(dateFormat);
-        else if (m_showWeek && !m_showDate)
-            newText = today.toString("dddd");
-        else if (m_showDate && m_showWeek)
-            newText = today.toString(dateWeekFormat);
+        QString dateFormat = tr("MMM dd");
+        QString timeFormat = m_use24HourFormat ? tr(" hh:mm ") : tr(" hh:mm A");
+        QString weekFormat = tr("ddd");
+        QString dateAndWeekFormat = tr("ddd MMM dd");
 
-        QString timeFormat = m_use24HourFormat ? "hh:mm" : tr("hh:mm a");
-        newText.append(time.toString(timeFormat));
+        if (m_showDate && m_showWeek)
+            newText += today.toString(dateAndWeekFormat);
+        else if (m_showWeek)
+            newText += today.toString(weekFormat);
+        else if (m_showDate)
+            newText += today.toString(dateFormat);
+        newText += time.toString(timeFormat);
 
         m_item->setText(newText);
 

@@ -36,30 +36,30 @@ SystemInfo::SystemInfo()
     deepinName->setWordWrap(true);
     deepinName->setAlignment(Qt::AlignCenter);
 
-    QLabel *info_sysVersion = new QLabel(tr("Deepin Edition :"));
+    QLabel *info_sysVersion = new QLabel(tr("Deepin Edition:"));
     info_sysVersion->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
     QLabel *info_sysVersionContent = new QLabel(m_dbusSystemInfo.version());
     info_sysVersionContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
     info_sysVersionContent->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
 
-    QLabel *info_sysType = new QLabel(tr("System Type :"));
+    QLabel *info_sysType = new QLabel(tr("System Type:"));
     info_sysType->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
-    QLabel *info_sysTypeContent = new QLabel(QString(tr("%1Bit")).arg(m_dbusSystemInfo.systemType()));
+    QLabel *info_sysTypeContent = new QLabel(QString(tr("%1 Bit")).arg(m_dbusSystemInfo.systemType()));
     info_sysTypeContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
 
-    QLabel *info_cpuType = new QLabel(tr("Processor :"));
+    QLabel *info_cpuType = new QLabel(tr("Processor:"));
     info_cpuType->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
     QLabel *info_cpuTypeContent = new QLabel(m_dbusSystemInfo.processor());
     info_cpuTypeContent->setWordWrap(true);
     info_cpuTypeContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
 
-    QLabel *info_memory = new QLabel(tr("Memory :"));
+    QLabel *info_memory = new QLabel(tr("Memory:"));
     info_memory->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
     QLabel *info_memoryContent = new QLabel(formatCap(m_dbusSystemInfo.memoryCap()));
     info_memoryContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
 
 
-    QLabel *info_hardDrive = new QLabel(tr("Disk :"));
+    QLabel *info_hardDrive = new QLabel(tr("Disk:"));
     info_hardDrive->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
     QLabel *info_hardDriveContent = new QLabel(formatCap(m_dbusSystemInfo.diskCap()));
     info_hardDriveContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);

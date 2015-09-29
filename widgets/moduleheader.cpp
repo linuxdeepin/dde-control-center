@@ -42,7 +42,7 @@ RightContentWidget::RightContentWidget(bool addResetButton, QWidget *parent):
     m_timer(nullptr)
 {
     if (addResetButton) {
-        m_tipsLabel = new QLabel(tr("Reset Success"), this);
+        m_tipsLabel = new QLabel(tr("Reset Successfully"), this);
         m_tipsLabel->setObjectName("TipsLabel");
         m_reset = new DTextButton("Reset", this);
         m_timer = new QTimer;

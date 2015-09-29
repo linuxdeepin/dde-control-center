@@ -59,7 +59,7 @@ Datetime::Datetime() :
     m_autoSyncSwitcher = new DSwitchButton;
     m_autoSyncSwitcher->setChecked(m_dbusInter.nTP());
     m_syncHeaderLine = new DHeaderLine;
-    m_syncHeaderLine->setTitle(tr("Sync Automaticly"));
+    m_syncHeaderLine->setTitle(tr("Sync Automatically"));
     m_syncHeaderLine->setContent(m_autoSyncSwitcher);
 
     m_clockSeparator = new DSeparatorHorizontal;

@@ -177,17 +177,17 @@ QString PowerInterfaceManagement::setPowerTooltipText(QString itemId, QString po
         if (idleTime==0) {
             argument_display = QString(tr("never"));
         } else if (idleTime/60!=0){
-            argument_display = QString(tr("1hour"));
+            argument_display = QString(tr("1 hour"));
         } else {
-            argument_display = QString(tr("%1minutes").arg(idleTime));
+            argument_display = QString(tr("%1 minutes").arg(idleTime));
         }
         ///////////////suspendTime
         if (suspendTime==0) {
             argument_suspend = QString(tr("never"));
         } else if (suspendTime/60!=0){
-            argument_suspend = QString(tr("1hour"));
+            argument_suspend = QString(tr("1 hour"));
         } else {
-            argument_suspend = QString(tr("%1minutes").arg(suspendTime));
+            argument_suspend = QString(tr("%1 minutes").arg(suspendTime));
         }
 
     }

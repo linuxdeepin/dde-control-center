@@ -158,9 +158,9 @@ DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::Defaul
     case Video:         defaultApps->setTitle(tr("Video"));         break;
     case Picture:       defaultApps->setTitle(tr("Picture"));       break;
     case Terminal:      defaultApps->setTitle(tr("Terminal"));      break;
-    case CD_Audio:      defaultApps->setTitle(tr("CD_Audio"));      break;
-    case DVD_Video:     defaultApps->setTitle(tr("DVD_Video"));     break;
-    case MusicPlayer:   defaultApps->setTitle(tr("MusicPlayer"));   break;
+    case CD_Audio:      defaultApps->setTitle(tr("CD Audio"));      break;
+    case DVD_Video:     defaultApps->setTitle(tr("DVD Video"));     break;
+    case MusicPlayer:   defaultApps->setTitle(tr("Music Player"));   break;
     case Camera:        defaultApps->setTitle(tr("Camera"));        break;
     case Software:      defaultApps->setTitle(tr("Software"));      break;
     }

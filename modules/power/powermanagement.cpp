@@ -15,7 +15,7 @@ PowerManagement::PowerManagement(QWidget *parent)
     m_powerManagerViewLabel->setFixedWidth(180);
     m_powerManagerViewLabel->setStyleSheet(QString("background-color: %1").arg(DCC::BgLightColor.name()));
     m_powerManagerLabel = new QLabel;
-    m_powerManagerLabel->setText(tr("PowerManagement"));
+    m_powerManagerLabel->setText(tr("Power Management"));
     m_powerManagerLabel->sizeHint();
     m_powerManagerLabel->updateGeometry();
     m_shortSeparatorLine = new QLabel;
