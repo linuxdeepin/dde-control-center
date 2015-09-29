@@ -17,7 +17,7 @@ static const QColor TextNormalColor = "#b4b4b4";
 static const QColor TextHoverColor = "#ffffff";
 
 static const uint ControlCenterWidth = 360;
-
+static const uint ModuleContentWidth = 310;
 static const uint HomeScreen_TopWidgetHeight = 150;
 static const uint HomeScreen_BottomWidgetHeight = 84;
 

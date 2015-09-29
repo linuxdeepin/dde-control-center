@@ -9,6 +9,7 @@
 #include <libdui/dslider.h>
 #include <libdui/dbuttonlist.h>
 #include <libdui/dbaseexpand.h>
+#include <libdui/dscrollarea.h>
 
 #include "dbus/dbusaudio.h"
 #include "dbus/dbusaudiosink.h"
@@ -43,6 +44,8 @@ private:
     DButtonList * m_outputPortsList;
     DBaseExpand * m_inputPortsExpand;
     DButtonList * m_inputPortsList;
+    QFrame *m_mainWidget;
+    DScrollArea *m_scrollArea;
 
 
     DBusAudio * m_dbusAudio;

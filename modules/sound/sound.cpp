@@ -3,8 +3,13 @@
 #include <QVBoxLayout>
 #include <QGridLayout>
 #include <QDBusObjectPath>
+#include <QGuiApplication>
+#include <QScreen>
 
 #include <libdui/dseparatorhorizontal.h>
+#include <libdui/dlinkbutton.h>
+
+#include "constants.h"
 
 #include "sound.h"
 #include "moduleheader.h"
@@ -32,7 +37,7 @@ Sound::Sound() :
 Sound::~Sound()
 {
     qDebug() << "~Sound";
-    delete m_frame;
+    m_mainWidget->deleteLater();
 }
 
 void Sound::initBackend()
@@ -66,21 +71,35 @@ void Sound::initBackend()
 
 void Sound::initUI()
 {
-    m_frame->setFixedWidth(310);
+    m_mainWidget = new QFrame;
+    m_mainWidget->setFixedWidth(DCC::ModuleContentWidth);
+
+    QVBoxLayout *mainWidgetVLayout = new QVBoxLayout(m_mainWidget);
+    mainWidgetVLayout->setSpacing(0);
+    mainWidgetVLayout->setMargin(0);
+
+    m_frame->setFixedWidth(DCC::ModuleContentWidth);
+
+    m_scrollArea = new DScrollArea;
+    m_scrollArea->setFixedSize(DCC::ModuleContentWidth, qApp->primaryScreen()->geometry().height() - 60);
+    m_scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_scrollArea->setWidget(m_frame);
 
     QVBoxLayout * mainLayout = new QVBoxLayout(m_frame);
     mainLayout->setSpacing(0);
     mainLayout->setMargin(0);
     mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
 
     ///////////////////////////////////////////////////////-- Title
-    ModuleHeader * header = new ModuleHeader("Sound");
-    mainLayout->addWidget(header);
-    mainLayout->addWidget(new DSeparatorHorizontal);
+    ModuleHeader * header = new ModuleHeader("Sound", true, m_mainWidget);
+    mainWidgetVLayout->addWidget(header);
+    mainWidgetVLayout->addWidget(new DSeparatorHorizontal);
+    mainWidgetVLayout->addWidget(m_scrollArea);
+    mainWidgetVLayout->addStretch(1);
 
-    connect(header, &ModuleHeader::resetButtonClicked, [=]{
-        m_dbusAudio->Reset();
-    });
+    connect(header, &ModuleHeader::resetButtonClicked, m_dbusAudio, &DBusAudio::Reset);
 
     ///////////////////////////////////////////////////////-- Speaker Settings
     m_speakerExpand = new DSwitchLineExpand;
@@ -88,7 +107,7 @@ void Sound::initUI()
     m_speakerSeparator = new DSeparatorHorizontal;
 
     QFrame * speakerExpandContent = new QFrame(m_speakerExpand);
-    speakerExpandContent->setFixedWidth(310);
+    speakerExpandContent->setFixedWidth(DCC::ModuleContentWidth);
     speakerExpandContent->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     QGridLayout * speakerForm = new QGridLayout(speakerExpandContent);
     speakerForm->setRowMinimumHeight(0, 36);
@@ -133,7 +152,7 @@ void Sound::initUI()
     m_microphoneSeparator = new DSeparatorHorizontal;
 
     QFrame * mircophoneExpandContent = new QFrame(m_microphoneExpand);
-    mircophoneExpandContent->setFixedWidth(310);
+    mircophoneExpandContent->setFixedWidth(DCC::ModuleContentWidth);
     mircophoneExpandContent->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     QGridLayout * microphoneForm = new QGridLayout(mircophoneExpandContent);
     microphoneForm->setRowMinimumHeight(0, 36);
@@ -179,7 +198,22 @@ void Sound::initUI()
     m_microphoneExpand->setContent(mircophoneExpandContent);
     mainLayout->addWidget(m_microphoneExpand);
     mainLayout->addWidget(m_microphoneSeparator);
-    mainLayout->addWidget(new DBaseLine);
+
+    ///advanced settings expand widget
+
+    QWidget *advanced_widget = new QWidget;
+    advanced_widget->setFixedSize(DCC::ModuleContentWidth, 400);
+    ///400 is advanced settings height sum.
+
+    QVBoxLayout *advanced_layout = new QVBoxLayout(advanced_widget);
+    advanced_layout->setMargin(0);
+    advanced_layout->setSpacing(0);
+
+    DBaseExpand *advanced_expand = new DBaseExpand;
+    advanced_expand->setContent(advanced_widget);
+    advanced_expand->setSeparatorVisible(false);
+
+    advanced_layout->addWidget(new DBaseLine);
 
     ///////////////////////////////////////////////////////--Advanced settings
     // Output ports
@@ -193,8 +227,8 @@ void Sound::initUI()
     m_outputPortsExpand->setContent(m_outputPortsList);
     updateOutputPorts();
 
-    mainLayout->addWidget(m_outputPortsExpand);
-    mainLayout->addWidget(new DSeparatorHorizontal);
+    advanced_layout->addWidget(m_outputPortsExpand);
+    advanced_layout->addWidget(new DSeparatorHorizontal);
 
     // Output devices
     DBaseExpand * outputDevicesExpand = new DBaseExpand;
@@ -210,7 +244,7 @@ void Sound::initUI()
 
     DButtonList * outputDevicesList = new DButtonList(outputDevicesExpand);
     outputDevicesList->addButtons(outputDevices);
-    outputDevicesList->setFixedSize(310, outputDevices.length() * outputDevicesList->itemWidget(outputDevicesList->item(0))->height());
+    outputDevicesList->setFixedSize(DCC::ModuleContentWidth, outputDevices.length() * outputDevicesList->itemWidget(outputDevicesList->item(0))->height());
     outputDevicesList->checkButtonByIndex(m_sinks.indexOf(m_sink));
 
     connect(outputDevicesList, &DButtonList::buttonCheckedIndexChanged, [=](int index) {
@@ -226,9 +260,9 @@ void Sound::initUI()
 
     outputDevicesExpand->setContent(outputDevicesList);
 
-    mainLayout->addWidget(outputDevicesExpand);
-    mainLayout->addWidget(new DSeparatorHorizontal);
-    mainLayout->addWidget(new DBaseLine);
+    advanced_layout->addWidget(outputDevicesExpand);
+    advanced_layout->addWidget(new DSeparatorHorizontal);
+    advanced_layout->addWidget(new DBaseLine);
 
     // Input ports
     m_inputPortsExpand = new DBaseExpand;
@@ -241,8 +275,8 @@ void Sound::initUI()
     m_inputPortsExpand->setContent(m_inputPortsList);
     updateInputPorts();
 
-    mainLayout->addWidget(m_inputPortsExpand);
-    mainLayout->addWidget(new DSeparatorHorizontal);
+    advanced_layout->addWidget(m_inputPortsExpand);
+    advanced_layout->addWidget(new DSeparatorHorizontal);
 
     // Input devices
     DBaseExpand * inputDevicesExpand = new DBaseExpand;
@@ -258,7 +292,7 @@ void Sound::initUI()
 
     DButtonList * inputDevicesList = new DButtonList(inputDevicesExpand);
     inputDevicesList->addButtons(inputDevices);
-    inputDevicesList->setFixedSize(310, inputDevices.length() * inputDevicesList->itemWidget(inputDevicesList->item(0))->height());
+    inputDevicesList->setFixedSize(DCC::ModuleContentWidth, inputDevices.length() * inputDevicesList->itemWidget(inputDevicesList->item(0))->height());
     inputDevicesList->checkButtonByIndex(m_sources.indexOf(m_source));
 
     connect(inputDevicesList, &DButtonList::buttonCheckedIndexChanged, [=](int index) {
@@ -272,16 +306,34 @@ void Sound::initUI()
 
     inputDevicesExpand->setContent(inputDevicesList);
 
-    mainLayout->addWidget(inputDevicesExpand);
-    mainLayout->addWidget(new DSeparatorHorizontal);
+    DLinkButton *advanced_button = new DLinkButton(tr("Show Advanced...") + "      ");
+    advanced_button->setStyleSheet(advanced_button->styleSheet() + "DUI--DLinkButton:pressed{color:#0188FF;}");
+    connect(advanced_button, &DLinkButton::clicked, [this, advanced_button, advanced_expand]{
+        if(advanced_expand->expand()){
+            m_frame->setFixedHeight(150);
+            ///When the height of the sum of the hide when advanced settings
+            advanced_expand->setExpand(false);
+            advanced_button->setText(tr("Show Advanced...") + "      ");
+        }else{
+            m_frame->setFixedHeight(650);
+            ///When the height of the sum of the show when advanced settings
+            advanced_expand->setExpand(true);
+            advanced_button->setText(tr("Hide Advanced...") + "      ");
+        }
+    });
 
+    advanced_layout->addWidget(inputDevicesExpand);
+    advanced_layout->addWidget(new DSeparatorHorizontal);
+    mainLayout->addWidget(advanced_expand);
+    mainLayout->addSpacing(10);
+    mainLayout->addWidget(advanced_button, 0, Qt::AlignRight);
     mainLayout->addStretch(1);
 }
 
 QFrame* Sound::getContent()
 {
     qDebug() << "Sound module" << "getContent";
-    return m_frame;
+    return m_mainWidget;
 }
 
 DBusAudioSink * Sound::getDefaultSink()
@@ -375,7 +427,7 @@ void Sound::updateOutputPorts()
     if (outputPorts.length() > 0) {
         m_outputPortsList->addButtons(outputPorts);
         m_outputPortsList->checkButtonByIndex(outputPorts.indexOf(sinkActivePort.name));
-        m_outputPortsList->setFixedSize(310, outputPorts.length() * m_outputPortsList->itemWidget(m_outputPortsList->item(0))->height());
+        m_outputPortsList->setFixedSize(DCC::ModuleContentWidth, outputPorts.length() * m_outputPortsList->itemWidget(m_outputPortsList->item(0))->height());
 
         m_outputPortsExpand->updateContentHeight();
 
@@ -403,7 +455,7 @@ void Sound::updateInputPorts()
     if (inputPorts.length() > 0) {
         m_inputPortsList->addButtons(inputPorts);
         m_inputPortsList->checkButtonByIndex(inputPorts.indexOf(sourceActivePort.name));
-        m_inputPortsList->setFixedSize(310, inputPorts.length() * m_inputPortsList->itemWidget(m_inputPortsList->item(0))->height());
+        m_inputPortsList->setFixedSize(DCC::ModuleContentWidth, inputPorts.length() * m_inputPortsList->itemWidget(m_inputPortsList->item(0))->height());
 
         m_inputPortsExpand->updateContentHeight();
 
