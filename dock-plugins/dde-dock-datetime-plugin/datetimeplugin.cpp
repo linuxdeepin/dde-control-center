@@ -96,6 +96,8 @@ QWidget * DateTimePlugin::getItem(QString)
 
 QWidget * DateTimePlugin::getApplet(QString)
 {
+    m_calendar->updateCurrentDate();
+
     if (m_calendar)
         return m_calendar;
     else
