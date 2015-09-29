@@ -3,7 +3,6 @@
 #include <QDragLeaveEvent>
 #include <QMimeData>
 #include <QDebug>
-#include <QGraphicsBlurEffect>
 #include <QLabel>
 #include <QMimeDatabase>
 
@@ -23,24 +22,13 @@ GrubBackground::GrubBackground(GrubThemeDbus *themeDbus, QWidget *parent) :
     setAcceptDrops(true);
 }
 
-QT_BEGIN_NAMESPACE
-extern Q_GUI_EXPORT void qt_blurImage( QPainter *p, QImage &blurImage, qreal radius, bool quality, bool alphaOnly, int transposed = 0 );
-QT_END_NAMESPACE
-
 void GrubBackground::paintEvent(QPaintEvent *e)
 {
     if(!m_background.isNull()){
         QPainter pa(this);
-
+        pa.drawPixmap(rect(), m_background);
         if(m_isDrop){
-            QImage image = m_background.toImage();
-            QImage scrImage = image;
-            QPainter p(&image);
-            qt_blurImage(&p, scrImage, 30, true, false);
-            pa.drawImage(rect(), scrImage);
-            pa.fillRect(rect(), QColor(0, 0, 0, 10));
-        }else{
-            pa.drawPixmap(rect(), m_background);
+            pa.fillRect(rect(), QColor(0, 0, 0, 100));
         }
     }
 
@@ -74,6 +62,9 @@ void GrubBackground::dragLeaveEvent(QDragLeaveEvent*)
 
 void GrubBackground::dropEvent(QDropEvent *e)
 {
+    if(e->mimeData()->urls().isEmpty())
+        return;
+
     QString path = e->mimeData()->urls()[0].toLocalFile();
     if(path!=""){
         m_themeDbus->SetBackgroundSourceFile(path);
