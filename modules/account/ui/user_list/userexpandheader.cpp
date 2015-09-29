@@ -173,7 +173,7 @@ QString UserExpandHeader::getTypeName(int type)
     case 0:
         return tr("Normal User");
     default:
-        return tr("Unknown User Type");
+        return "Unknown User Type";
     }
 }
 
