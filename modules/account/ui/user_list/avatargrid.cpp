@@ -4,6 +4,7 @@ AvatarGrid::AvatarGrid(const QString &userPath, QWidget *parent)
     : QTableWidget(parent)
 {
     m_user = new DBusAccountUser(userPath, this);
+    connect(m_user, &DBusAccountUser::IconFileChanged, this, &AvatarGrid::onIconFileChanged);
 
     m_buttonGroup = new QButtonGroup(this);
     connect(m_buttonGroup, SIGNAL(buttonToggled(QAbstractButton*,bool)), this, SLOT(onButtonToggled(QAbstractButton*,bool)));
@@ -37,9 +38,6 @@ void AvatarGrid::setAvatars(const QStringList &list)
             icon->setIcon(iconName);
             connect(icon, &UserAvatar::clicked, this, &AvatarGrid::onIconPress);
             connect(icon, &UserAvatar::requestDelete, this, &AvatarGrid::onRequestDelete);
-            connect(m_user, &DBusAccountUser::IconFileChanged, [=] {
-                icon->setDeleteable(m_user->IsIconDeletable(iconName).value());
-            });
             setCellWidget(r, c, icon);  //set and delete old one
             m_buttonGroup->addButton(icon);
 
@@ -94,8 +92,20 @@ void AvatarGrid::onIconPress()
 void AvatarGrid::onRequestDelete()
 {
     UserAvatar * icon = qobject_cast<UserAvatar *>(sender());
-    if (icon){
+    if (icon && m_user->isValid()){
         m_user->DeleteIconFile(icon->iconPath());
+    }
+}
+
+void AvatarGrid::onIconFileChanged()
+{
+    if (m_user->isValid()) {
+        QList<QAbstractButton *> buttonList = m_buttonGroup->buttons();
+        foreach (QAbstractButton * button, buttonList) {
+            UserAvatar * avatar = qobject_cast<UserAvatar *>(button);
+            if (avatar)
+                avatar->setDeleteable(m_user->IsIconDeletable(avatar->iconPath()));
+        }
     }
 }
 

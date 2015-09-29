@@ -27,6 +27,7 @@ private:
     void clearUp();
     void onIconPress();
     void onRequestDelete();
+    void onIconFileChanged();
 
 private slots:
     void onButtonToggled(QAbstractButton * button, bool checked);
