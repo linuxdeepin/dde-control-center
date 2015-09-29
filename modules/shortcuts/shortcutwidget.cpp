@@ -148,7 +148,8 @@ void ShortcutWidget::shortcutKeyFinished(const QString &str)
     QString flag = str.mid(0, split_pos);
     QString key = str.mid(split_pos+1);
 
-    emit shortcutChanged(flag, key);
+    if(key.toLower() != shortcut().toLower())
+        emit shortcutChanged(flag, key);
 }
 
 
