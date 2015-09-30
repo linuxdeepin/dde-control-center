@@ -125,7 +125,7 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
     expandGroup->addExpand(resolutionExpand);
 
     DArrowLineExpand * rotationExpand = new DArrowLineExpand;
-    rotationExpand->setTitle(("Rotation"));
+    rotationExpand->setTitle(tr("Rotation"));
     expandGroup->addExpand(rotationExpand);
 
     ListWidget *resolutionList = new ListWidget;

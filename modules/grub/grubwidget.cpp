@@ -114,7 +114,7 @@ void GrubWidget::init()
     connect(picker2, &DColorPicker::currentColorChanged, m_themeDbus, &GrubThemeDbus::setSelectedItemColor);
     connect(m_themeDbus, &GrubThemeDbus::selectedItemColorChanged, picker2, &DColorPicker::setCurrentColor);
 
-    m_arrowSelectedTextColor->setTitle("Selected Text Color");
+    m_arrowSelectedTextColor->setTitle(tr("Selected Text Color"));
     m_arrowSelectedTextColor->setContent(picker2);
 
     m_layout->setSpacing(0);

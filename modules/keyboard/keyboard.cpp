@@ -126,7 +126,7 @@ void Keyboard::initUI()
     m_mainLayout->setContentsMargins(0, 0, 0, 0);
 
     /// Header
-    ModuleHeader * header = new ModuleHeader("Keyboard and Language");
+    ModuleHeader * header = new ModuleHeader(tr("Keyboard and Language"));
     m_mainLayout->addWidget(header);
     m_mainLayout->addWidget(new DSeparatorHorizontal);
     m_mainLayout->addSpacing(10);
@@ -141,7 +141,7 @@ void Keyboard::initUI()
     basicSettingsLayout->setSpacing(20);
     basicSettingsLayout->setContentsMargins(0, 0, 14, 0);
 
-    NormalLabel * repeatDelayTitle = new NormalLabel("Repeat Delay");
+    NormalLabel * repeatDelayTitle = new NormalLabel(tr("Repeat Delay"));
     DSlider * repeatDelaySlider = new DSlider(Qt::Horizontal);
     repeatDelaySlider->setRange(20, 600);
     repeatDelaySlider->setValue(m_dbusKeyboard->repeatDelay());
@@ -155,7 +155,7 @@ void Keyboard::initUI()
         repeatDelaySlider->setValue(m_dbusKeyboard->repeatDelay());
     });
 
-    NormalLabel * repeatSpeedTitle = new NormalLabel("Repeat Rate");
+    NormalLabel * repeatSpeedTitle = new NormalLabel(tr("Repeat Rate"));
     DSlider * repeatSpeedSlider = new DSlider(Qt::Horizontal);
     repeatSpeedSlider->setRange(200, 1000);
     repeatSpeedSlider->setValue(1000 - (m_dbusKeyboard->repeatInterval() * 10 - 200));
@@ -170,7 +170,7 @@ void Keyboard::initUI()
     });
 
     QApplication * application = qobject_cast<QApplication*>(QApplication::instance());
-    NormalLabel * cursorBlinkIntervalTitle = new NormalLabel("Cursor Blink Rate");
+    NormalLabel * cursorBlinkIntervalTitle = new NormalLabel(tr("Cursor Blink Rate"));
     DSlider * cursorBlinkIntervalSlider = new DSlider(Qt::Horizontal);
     cursorBlinkIntervalSlider->setRange(100, 2500);
     cursorBlinkIntervalSlider->setValue(2500 - (m_dbusKeyboard->cursorBlink() - 100));
@@ -186,7 +186,7 @@ void Keyboard::initUI()
         application->setCursorFlashTime(m_dbusKeyboard->cursorBlink());
     });
 
-    NormalLabel * testAreaTitle = new NormalLabel("Test Area");
+    NormalLabel * testAreaTitle = new NormalLabel(tr("Test Area"));
     DLineEdit * testAreaEdit = new DLineEdit;
     connect(header, &ModuleHeader::resetButtonClicked, testAreaEdit, &DLineEdit::clear);
 
@@ -200,7 +200,7 @@ void Keyboard::initUI()
     DHeaderLine * capsLockLine = new DHeaderLine;
     DSwitchButton * capsLockSwitch = new DSwitchButton(capsLockLine);
     capsLockSwitch->setChecked(m_dbusKeyboard->capslockToggle());
-    capsLockLine->setTitle("Caps Lock prompt");
+    capsLockLine->setTitle(tr("Caps Lock prompt"));
     capsLockLine->setContent(capsLockSwitch);
 
     connect(capsLockSwitch, &DSwitchButton::checkedChanged, [=]{

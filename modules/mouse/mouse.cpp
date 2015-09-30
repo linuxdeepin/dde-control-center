@@ -151,7 +151,7 @@ Mouse::Mouse()
     m_touchpadSettingPanel->addRow(tr("Primary Button"), 0, m_touchpadPrimaryButtonSetting);
     m_touchpadSettingPanel->addRow(tr("Pointer Speed"), m_touchpadPointSpeedSlider);
     m_touchpadSettingPanel->addRow(tr("Double-click Speed"), m_touchpadDoubleClickSpeed);
-    m_touchpadSettingPanel->addRow(tr("Drag Thredshold"), m_touchpadDragThreshold);
+    m_touchpadSettingPanel->addRow(tr("Drag Threshold"), m_touchpadDragThreshold);
     m_touchpadSettingPanel->addRow(tr("Natural Scrolling"), 0, m_touchpadNatureScrollSwitch);
     m_touchpadSettingPanel->addRow(tr("Tap to click"), 0, m_touchpadTapToClickSwitch);
     m_touchpadSettingPanel->addRow(tr("Two-finger scrolling"), 0, m_touchpadTwoFingerScrollSwitch);

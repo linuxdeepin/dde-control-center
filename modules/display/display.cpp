@@ -47,7 +47,7 @@ void Display::init()
     m_mainLayout->setMargin(0);
     m_mainLayout->setSpacing(0);
 
-    ModuleHeader * headerLine = new ModuleHeader("Display");
+    ModuleHeader * headerLine = new ModuleHeader(tr("Display"));
 
     connect(headerLine, &ModuleHeader::resetButtonClicked, m_dbusDisplay, &DisplayInterface::Reset);
 
