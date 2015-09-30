@@ -12,11 +12,11 @@
 #include "displaymodeitem.h"
 #include "fullscreentooltip.h"
 
-DisplayModeItem * getIconButton(const QString &text){
+DisplayModeItem * getIconButton(const QString &text, const QString &iconName){
     DisplayModeItem* button = new DisplayModeItem(false, false);
-    button->setText(QObject::tr(text.toLatin1().data()));
+    button->setText(text);
     button->setClickCheck(false);
-    button->setIconName(text.toLower());
+    button->setIconName(iconName);
     button->hide();
 
     return button;
@@ -34,9 +34,9 @@ MonitorGround::MonitorGround(DisplayInterface * display, QWidget *parent):
 
     QHBoxLayout *layout = new QHBoxLayout;
 
-    m_recognize = getIconButton("Recognize");
-    m_edit = getIconButton("Edit");
-    m_split = getIconButton("Split");
+    m_recognize = getIconButton(tr("Recognize"), "recognize");
+    m_edit = getIconButton(tr("Edit"), "edit");
+    m_split = getIconButton(tr("Split"), "split");
 
     connect(m_split, &DisplayModeItem::clicked, [this]{
         foreach (Monitor *monitor, m_monitors) {
