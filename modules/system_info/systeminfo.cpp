@@ -4,10 +4,10 @@
 #include <QDebug>
 #include <QLabel>
 #include <QPixmap>
-#include <QPlainTextEdit>
 #include <QScrollBar>
 #include <QLocale>
 #include <QFile>
+#include <QScrollArea>
 
 #include <libdui/dbaseline.h>
 #include <libdui/dseparatorhorizontal.h>
@@ -15,6 +15,7 @@
 #include <libdui/darrowlineexpand.h>
 
 #include "moduleheader.h"
+#include "constants.h"
 
 DUI_USE_NAMESPACE
 
@@ -87,25 +88,43 @@ SystemInfo::SystemInfo()
     m_infoWidget->setLayout(infoLayout);
     m_infoWidget->setStyleSheet("QLabel {color:#aaa; font-size:12px;} QWidget {background-color:#1a1b1b;}");
 
-    m_licenseEdit = new QPlainTextEdit;
-    m_licenseEdit->appendPlainText(getLicense(":/licenses/gpl/gpl-3.0-%1-%2.txt", "title") + "\n" +
-                                 getLicense(":/licenses/gpl/gpl-3.0-%1-%2.txt", "body") + "\n");
-    m_licenseEdit->setBackgroundVisible(false);
-    m_licenseEdit->setFrameStyle(QFrame::NoFrame);
-    m_licenseEdit->setStyleSheet("background-color:#1a1b1b; color:#666;");
-    m_licenseEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    m_licenseEdit->verticalScrollBar()->hide();
-    m_licenseEdit->setContextMenuPolicy(Qt::NoContextMenu);
-    m_licenseEdit->setReadOnly(true);
-    m_licenseEdit->setTextInteractionFlags(Qt::NoTextInteraction);
-    m_licenseEdit->setCursor(Qt::ArrowCursor);
-    m_licenseEdit->moveCursor(QTextCursor::Start);
-    m_licenseEdit->setFixedWidth(310);
-    m_licenseEdit->installEventFilter(this);
+    QLabel *licenseTitle = new QLabel;
+    licenseTitle->setText(getLicense(":/licenses/gpl/gpl-3.0-%1-%2.txt", "title"));
+    licenseTitle->setStyleSheet("color:#666;");
+    licenseTitle->setAlignment(Qt::AlignCenter);
+    licenseTitle->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+    licenseTitle->setFixedWidth(DCC::ModuleContentWidth);
+
+    QLabel *licenseBody = new QLabel;
+    licenseBody->setText(getLicense(":/licenses/gpl/gpl-3.0-%1-%2.txt", "body"));
+    licenseBody->setStyleSheet("color:#666;");
+    licenseBody->setAlignment(Qt::AlignTop);
+    licenseBody->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    licenseBody->setFixedWidth(DCC::ModuleContentWidth);
+    licenseBody->setWordWrap(true);
+
+    QVBoxLayout *licenseLayout = new QVBoxLayout;
+    licenseLayout->addWidget(licenseTitle);
+    licenseLayout->addWidget(licenseBody);
+    licenseLayout->setSpacing(0);
+    licenseLayout->setContentsMargins(2, 5, 2, 2);
+
+    QWidget *licenseWidget = new QWidget;
+    licenseWidget->setLayout(licenseLayout);
+    licenseWidget->setFixedWidth(DCC::ModuleContentWidth);
+    licenseWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    m_licenseArea = new QScrollArea;
+    m_licenseArea->setFrameStyle(QFrame::NoFrame);
+    m_licenseArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_licenseArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_licenseArea->setWidget(licenseWidget);
+    m_licenseArea->setFixedWidth(DCC::ModuleContentWidth);
+    m_licenseArea->setStyleSheet("background-color:#1a1b1b;");
 
     DArrowLineExpand *license = new DArrowLineExpand;
     license->setTitle(tr("GNU GENERAL PUBLIC LICENSE"));
-    license->setContent(m_licenseEdit);
+    license->setContent(m_licenseArea);
 
     QVBoxLayout *centeralLayout = new QVBoxLayout;
     centeralLayout->addWidget(m_baseLine);
@@ -118,6 +137,7 @@ SystemInfo::SystemInfo()
     centeralLayout->setMargin(0);
 
     m_centeralFrame = new QFrame;
+    m_centeralFrame->installEventFilter(this);
     m_centeralFrame->setLayout(centeralLayout);
 }
 
@@ -178,7 +198,7 @@ QString SystemInfo::getLicense(const QString &filePath, const QString &type) con
 void SystemInfo::updateLicenseWidget()
 {
 //    qDebug() << m_centeralFrame->height();
-    m_licenseEdit->setFixedHeight(m_centeralFrame->height()
+    m_licenseArea->setFixedHeight(m_centeralFrame->height()
                                   - m_infoWidget->height()
                                   - m_baseLine->height()
                                   - 32 // 32 for DArrowLine
@@ -187,7 +207,7 @@ void SystemInfo::updateLicenseWidget()
 
 bool SystemInfo::eventFilter(QObject *o, QEvent *e)
 {
-    if (o == m_licenseEdit && e->type() == QEvent::Resize)
+    if (o == m_centeralFrame && e->type() == QEvent::Resize)
         updateLicenseWidget();
 
     return false;

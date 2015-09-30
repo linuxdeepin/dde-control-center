@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QFrame>
 #include <QtPlugin>
+#include <QScrollArea>
 
 #include "interfaces.h"
 #include "dbus/dbussysteminfo.h"
@@ -31,8 +32,8 @@ private:
 private:
     QFrame *m_centeralFrame;
     DBusSystemInfo m_dbusSystemInfo;
-    QPlainTextEdit *m_licenseEdit;
     QWidget *m_infoWidget;
+    QScrollArea *m_licenseArea;
     ModuleHeader *m_baseLine;
 };
 
