@@ -100,7 +100,7 @@ void DTipsFrame::setTipsText(const QString &text)
 
     QFontMetrics metric(m_label->font());
 
-    setFixedWidth(metric.tightBoundingRect(text).width() + 40);
+    setFixedWidth(metric.tightBoundingRect(m_label->text()).width() + 40);
 }
 
 void DTipsFrame::show()
