@@ -26,7 +26,7 @@ SystemInfo::SystemInfo()
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
 
-    m_baseLine = new ModuleHeader(tr("System Infomation"), false);
+    m_baseLine = new ModuleHeader(tr("System Information"), false);
 
     QLabel *deepinLogo = new QLabel;
     deepinLogo->setPixmap(QPixmap(":/images/images/logo.png"));
