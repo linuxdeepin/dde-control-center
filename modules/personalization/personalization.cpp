@@ -314,28 +314,27 @@ void Personalization::updateThemeButtons(const ImageInfoList &imageInfos){
         ImageButton *button = new ImageButton(map.value("url"), map.value("name"));
         button->setCheckable(true);
 
-        MouseArea *mousearea = new MouseArea(button);
-        mousearea->setHoverEnabled(true);
-        mousearea->resize(button->size());
-
-        ImageButton *preview = new ImageButton("", "", false, mousearea);
-        preview->setStyleSheet("*{border:none;}");
-        preview->setIcon(QIcon(":/images/preview.png"));
-        preview->move(115, 8);
-        preview->hide();
-
         QString key = map["key"];
+        const QStringList previewImageList = m_dbusWorker->getPreviewImages(key);
 
-        connect(mousearea, &MouseArea::entered, preview, &ImageButton::show);
-        connect(mousearea, &MouseArea::exited, preview, &ImageButton::hide);
-        connect(preview, &ImageButton::clicked, m_previewWindow, [this, key]{
-            if(m_previewWindow->isVisible()){
-                m_previewWindow->close();
-            }else{
-                m_previewWindow->setImages(m_dbusWorker->getPreviewImages(key));
+        if(!previewImageList.isEmpty()){
+            MouseArea *mousearea = new MouseArea(button);
+            mousearea->setHoverEnabled(true);
+            mousearea->resize(button->size());
+
+            ImageButton *preview = new ImageButton("", "", false, mousearea);
+            preview->setStyleSheet("*{border:none;}");
+            preview->setIcon(QIcon(":/images/preview.png"));
+            preview->move(115, 8);
+            preview->hide();
+
+            connect(mousearea, &MouseArea::entered, preview, &ImageButton::show);
+            connect(mousearea, &MouseArea::exited, preview, &ImageButton::hide);
+            connect(preview, &ImageButton::clicked, m_previewWindow, [this, key, previewImageList]{
+                m_previewWindow->setImages(previewImageList);
                 m_previewWindow->show(key);
-            }
-        });
+            });
+        }
         m_themeButtonGrid->addButtonWidget(button, i);
     }
 
