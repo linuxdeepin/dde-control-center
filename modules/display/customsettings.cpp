@@ -234,7 +234,9 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
                 this, &CustomSettings::updateBrightnessLayout, Qt::DirectConnection);
 
         connect(dbusMonitor, &MonitorInterface::CurrentModeChanged, resolutionButtons, [=]{
-            updateResolutionButtons(dbusMonitor, resolutionButtons);
+            MonitorMode currentMode = dbusMonitor->currentMode();
+            QString currentResolution = QString("%1x%2").arg(currentMode.width).arg(currentMode.height);
+            resolutionButtons->checkButtonByText(currentResolution);
         }, Qt::DirectConnection);
         connect(resolutionButtons, &DButtonGrid::buttonCheckedIndexChanged, this, [=](int index){
             QDBusPendingReply<MonitorModeList> modesReply = dbusMonitor->ListModes();
@@ -248,7 +250,8 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
         }, Qt::DirectConnection);
 
         connect(dbusMonitor, &MonitorInterface::RotationChanged, this, [=]{
-            updateRotationButtons(dbusMonitor, rotationButtons);
+            ushort currentRotation = dbusMonitor->rotation();
+            rotationButtons->checkButtonByText(m_rotationMap[currentRotation]);
         }, Qt::DirectConnection);
         connect(rotationButtons, &DButtonGrid::buttonCheckedIndexChanged, this, [=](int index){
             ushort rotaion = dbusMonitor->rotation();
