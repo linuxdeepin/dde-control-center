@@ -107,6 +107,8 @@ QWidget *MainWidget::getAddShortcutWidget()
             w->hide();
             emit addCustomShortcutFinished();
         }
+        edit_name->clear();
+        edit_command->clear();
     });
 
     connect(this, SIGNAL(addCustomShortcut()), w, SLOT(show()));
