@@ -24,6 +24,7 @@ public:
 signals:
     void moduleSelected(ModuleMetaData);
     void showAniFinished();
+    void powerBtnClicked();
 
 public slots:
     void powerButtonClicked();

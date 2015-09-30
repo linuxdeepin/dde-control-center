@@ -218,6 +218,8 @@ void HomeScreen::buttonClicked()
 
 void HomeScreen::powerButtonClicked()
 {
+    emit powerBtnClicked();
+
     QProcess *proc = new QProcess;
     QObject::connect(proc, static_cast<void (QProcess::*)(int)>(&QProcess::finished), proc, &QProcess::deleteLater, Qt::QueuedConnection);
     proc->start("dde-shutdown");

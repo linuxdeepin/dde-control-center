@@ -50,6 +50,7 @@ Frame::Frame(QWidget *parent) :
 
     DisplayInterface *display_dbus = new DisplayInterface(this);
     connect(display_dbus, &DisplayInterface::PrimaryChanged, this, &Frame::updateGeometry);
+    connect(m_homeScreen, &HomeScreen::powerBtnClicked, [this] {hide(true);});
     connect(this, &Frame::hideInLeftChanged, this, &Frame::updateGeometry);
     connect(m_dbusXMouseArea, &DBusXMouseArea::ButtonRelease, this, &Frame::globalMouseReleaseEvent);
     connect(m_hideAni, &QPropertyAnimation::finished, this, &QFrame::hide);
