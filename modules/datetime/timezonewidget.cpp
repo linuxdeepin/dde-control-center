@@ -11,6 +11,8 @@ TimezoneWidget::TimezoneWidget(const ZoneInfo *info, QWidget *parent) :
     QFrame(parent),
     m_zoneInfo(info)
 {
+    D_THEME_INIT_WIDGET(TimezoneWidget, selected);
+
     m_citiesLabel = new QLabel;
     m_citiesLabel->setObjectName("Cities");
 
@@ -55,10 +57,8 @@ TimezoneWidget::TimezoneWidget(const ZoneInfo *info, QWidget *parent) :
     setLayout(mainLayout);
     setFixedHeight(50);
     normalMode();
-    reloadThemes();
 
     connect(this, &TimezoneWidget::selectStateChanged, this, &TimezoneWidget::normalMode);
-    connect(this, &TimezoneWidget::selectStateChanged, this, &TimezoneWidget::reloadThemes);
     connect(m_removeBtn, &MultiDeleteButton::clicked, this, &TimezoneWidget::clicked);
 }
 

@@ -18,7 +18,7 @@ DUI_USE_NAMESPACE
 class TimezoneWidget : public QFrame, public SearchItem
 {
     Q_OBJECT
-    Q_PROPERTY(bool selected READ isSelected)
+    Q_PROPERTY(bool selected READ isSelected NOTIFY selectStateChanged)
 
 public:
     explicit TimezoneWidget(const ZoneInfo *m_zoneInfo, QWidget *parent = 0);
@@ -34,7 +34,6 @@ signals:
 
 public slots:
     void setSelected(const bool selected);
-    inline void reloadThemes() {D_THEME_INIT_WIDGET(TimezoneWidget);}
     inline void setZoneCities(const QString & cities) {m_citiesLabel->setText(cities);}
     inline void setZoneUTCOffset(const QString & UTCOffset) {m_utcOffsetLabel->setText(UTCOffset);}
     inline void removeMode() {m_removeBtn->setVisible(!m_selected); m_selectedBtn->setVisible(m_selected);}

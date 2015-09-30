@@ -36,12 +36,10 @@ Datetime::Datetime() :
 
     loadZoneList();
 
-    m_frame->installEventFilter(this);
-
-    ModuleHeader *header = new ModuleHeader(tr("Date and Time"), false);
+    const bool isNtp = m_dbusInter.nTP();
+    const bool is24HourFormat = m_dbusInter.use24HourFormat();
 
     m_dateCtrlWidget = new DateControlWidget;
-
     m_dateSeparator = new DSeparatorHorizontal;
     m_dateHeaderLine = new DHeaderLine;
     m_dateHeaderLine->setTitle(tr("Date"));
@@ -57,33 +55,32 @@ Datetime::Datetime() :
 
     m_syncSeparator = new DSeparatorHorizontal;
     m_autoSyncSwitcher = new DSwitchButton;
-    m_autoSyncSwitcher->setChecked(m_dbusInter.nTP());
+    m_autoSyncSwitcher->setChecked(isNtp);
     m_syncHeaderLine = new DHeaderLine;
     m_syncHeaderLine->setTitle(tr("Sync Automatically"));
     m_syncHeaderLine->setContent(m_autoSyncSwitcher);
 
     m_clockSeparator = new DSeparatorHorizontal;
     m_clockFormatSwitcher = new DSwitchButton;
-    m_clockFormatSwitcher->setChecked(m_dbusInter.use24HourFormat());
+    m_clockFormatSwitcher->setChecked(is24HourFormat);
     m_clockHeaderLine = new DHeaderLine;
     m_clockHeaderLine->setTitle(tr("Use 24-hour clock"));
     m_clockHeaderLine->setContent(m_clockFormatSwitcher);
 
     m_calendarSeparator = new DSeparatorHorizontal;
-    m_calendar = new DCalendar(m_frame);
+    m_calendar = new DCalendar;
     m_calendar->setFixedHeight(330);
+    m_calendar->setFixedWidth(310);
     // if NOT zh_CN or zh_TW, hide lunar
     m_calendar->setLunarVisible(QLocale::system().name().contains("zh"));
 
     m_timeWidget = new TimeWidget;
-    m_timeWidget->setEditable(!m_dbusInter.nTP());
-    m_timeWidget->setIs24HourFormat(m_dbusInter.use24HourFormat());
+    m_timeWidget->setEditable(!isNtp);
+    m_timeWidget->setIs24HourFormat(is24HourFormat);
     m_timeWidget->installEventFilter(this);
 
-    showSelectedTimezoneList();
-
     QVBoxLayout *centeralLayout = new QVBoxLayout;
-    centeralLayout->addWidget(header);
+    centeralLayout->addWidget(new ModuleHeader(tr("Date and Time"), false));
     centeralLayout->addWidget(new DSeparatorHorizontal);
     centeralLayout->addWidget(m_timeWidget);
     centeralLayout->addWidget(new DSeparatorHorizontal);
@@ -104,19 +101,14 @@ Datetime::Datetime() :
     centeralLayout->setMargin(0);
 
     m_frame->setLayout(centeralLayout);
-    m_dateCtrlWidget->setVisible(!m_dbusInter.nTP());
-
-    m_refershClockTimer->setInterval(1 * 1000);
-    m_refershClockTimer->start();
-    m_refershCalendarTimer->setInterval(15 * 1000);
-    m_refershCalendarTimer->start();
+    m_dateCtrlWidget->setVisible(!isNtp);
 
     connect(m_refershClockTimer, &QTimer::timeout, m_timeWidget, &TimeWidget::updateTime);
     connect(&m_dbusInter, &DBusTimedate::TimezoneChanged, m_timeWidget, &TimeWidget::updateTime);
     connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::addTimezoneAccept, this, &Datetime::addUserTimeZone);
-    connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::addTimezoneAccept, this, &Datetime::showSelectedTimezoneList);
-    connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::addTimezoneCancel, this, &Datetime::showSelectedTimezoneList);
-    connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::removeAccept, this, &Datetime::showSelectedTimezoneList);
+    connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::addTimezoneAccept, this, &Datetime::reloadTimezoneList);
+    connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::addTimezoneCancel, this, &Datetime::reloadTimezoneList);
+    connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::removeAccept, this, &Datetime::reloadTimezoneList);
     connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::removeTimezone, this, &Datetime::toRemoveTimezoneMode);
     connect(m_timezoneCtrlWidget, &TimezoneCtrlWidget::addTimezone, this, &Datetime::showTimezoneList);
     connect(m_clockFormatSwitcher, &DSwitchButton::checkedChanged, &m_dbusInter, &DBusTimedate::setUse24HourFormat);
@@ -124,7 +116,7 @@ Datetime::Datetime() :
     connect(&m_dbusInter, &DBusTimedate::Use24HourFormatChanged, m_timeWidget, &TimeWidget::updateTime);
     connect(&m_dbusInter, &DBusTimedate::NTPChanged, [this] {m_timeWidget->setEditable(!m_dbusInter.nTP());});
     connect(&m_dbusInter, &DBusTimedate::NTPChanged, [this] () -> void {m_dateCtrlWidget->setVisible(!m_dbusInter.nTP());});
-    connect(&m_dbusInter, &DBusTimedate::TimezoneChanged, this, &Datetime::showSelectedTimezoneList);
+    connect(&m_dbusInter, &DBusTimedate::TimezoneChanged, this, &Datetime::reloadTimezoneList);
     connect(m_refershCalendarTimer, &QTimer::timeout, m_timeWidget, [this] {
         if (QDate::currentDate() != m_calendar->getCurrentDate())
             m_calendar->setCurrentDate(QDate::currentDate());
@@ -149,12 +141,20 @@ Datetime::Datetime() :
         if (!reply.isError())
             m_calendar->setCurrentDate(date);
     });
+
+    loadTimezoneList();
+    m_refershClockTimer->setInterval(1 * 1000);
+    m_refershClockTimer->start();
+    m_refershCalendarTimer->setInterval(15 * 1000);
+    m_refershCalendarTimer->start();
+    m_frame->installEventFilter(this);
 }
 
 Datetime::~Datetime()
 {
     qDebug() << "~Datetime";
 
+    m_frame->hide();
     m_frame->setParent(nullptr);
     m_frame->deleteLater();
 }
@@ -201,22 +201,8 @@ const ZoneInfo &Datetime::getZoneInfoByName(const QString &zoneName) const
     return m_zoneInfoList->first();
 }
 
-void Datetime::showSelectedTimezoneList()
+void Datetime::loadTimezoneList()
 {
-    m_timezoneListWidget->clear();
-
-    if (!m_clockHeaderLine->isVisible())
-    {
-        m_clockHeaderLine->show();
-        m_syncHeaderLine->show();
-        m_dateHeaderLine->show();
-        m_calendar->show();
-        m_clockSeparator->show();
-        m_syncSeparator->show();
-        m_calendarSeparator->show();
-        m_dateSeparator->show();
-    }
-
     const QString userZone = m_dbusInter.timezone();
     QStringList zoneList = m_dbusInter.userTimezones();
     int zoneNums = 0;
@@ -245,6 +231,22 @@ void Datetime::showSelectedTimezoneList()
 
     // when list item count <= 1, control widget should hide "delete" button
     m_timezoneCtrlWidget->setListNums(zoneNums);
+}
+
+void Datetime::reloadTimezoneList()
+{
+    m_timezoneListWidget->clear();
+
+    m_clockHeaderLine->show();
+    m_syncHeaderLine->show();
+    m_dateHeaderLine->show();
+    m_calendar->show();
+    m_clockSeparator->show();
+    m_syncSeparator->show();
+    m_calendarSeparator->show();
+    m_dateSeparator->show();
+
+    loadTimezoneList();
 }
 
 void Datetime::showTimezoneList()
@@ -298,7 +300,7 @@ void Datetime::showTimezoneList()
 void Datetime::toRemoveTimezoneMode()
 {
     // update zone list.
-    showSelectedTimezoneList();
+    reloadTimezoneList();
 
     for (int i = 0; i != m_timezoneListWidget->count(); ++i)
     {

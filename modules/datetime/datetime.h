@@ -38,7 +38,8 @@ private:
     static const QString getUTCOffset(int offset);
     const QString getZoneCityListByOffset(int zoneOffset);
     const ZoneInfo &getZoneInfoByName(const QString & zoneName) const;
-    void showSelectedTimezoneList();
+    void loadTimezoneList();
+    void reloadTimezoneList();
     void showTimezoneList();
     void toRemoveTimezoneMode();
     void adjustItemHeight();
