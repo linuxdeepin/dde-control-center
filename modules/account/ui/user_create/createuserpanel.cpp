@@ -284,12 +284,14 @@ void CreateUserPanel::onNameChanged(const QString &name)
             else{
                 m_nameLine->setText(m_oldName.toLower());
             }
-            m_newNameLabel->setText(m_oldName.toLower());
+            m_newNameLabel->setText(m_oldName.isEmpty() ? tr("new user") : m_oldName.toLower());
             m_nameLine->showWarning(warningMsg);
         }
     }
-    else
+    else {
         m_newNameLabel->setText(tr("new user"));
+        m_oldName = "";
+    }
 }
 
 void CreateUserPanel::onPasswdChanged(const QString &)
