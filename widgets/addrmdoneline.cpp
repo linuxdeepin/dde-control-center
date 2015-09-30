@@ -45,6 +45,7 @@ AddRmDoneLine::AddRmDoneLine(QWidget *parent) :
 void AddRmDoneLine::setTitle(const QString &title)
 {
     m_leftLabel->setText(title);
+    m_leftLabel->setFixedWidth(m_leftLabel->sizeHint().width());
 }
 
 ImageNameButton *AddRmDoneLine::removeButton() const
@@ -105,7 +106,8 @@ void AddRmDoneLine::onButtonStateChanged()
 
         m_dynamicLabel->setText(tooltip);
         m_dynamicLabel->showLabel();
-        if(m_leftLabel->geometry().right() >= 260 - m_dynamicLabel->width())
+        ///230 is m_dynamicLabel geometry right border position.
+        if(m_leftLabel->geometry().right() >= 230 - m_dynamicLabel->fontMetrics().width(tooltip))
             m_leftLabel->hideLabel();
     }else{
         m_dynamicLabel->hideLabel();
