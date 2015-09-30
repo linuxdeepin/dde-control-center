@@ -115,12 +115,11 @@ QWidget *MainWidget::getAddShortcutWidget()
     edit_command->setFixedWidth(200);
 
     hlayout1->addSpacing(HEADER_LEFT_MARGIN);
-    hlayout1->addStretch(1);
-    hlayout1->addWidget(new QLabel(QObject::tr("Name")));
+    hlayout1->addWidget(new QLabel(tr("Name")), 0, Qt::AlignRight);
     hlayout1->addWidget(edit_name);
     hlayout1->addSpacing(HEADER_RIGHT_MARGIN);
     hlayout2->addSpacing(HEADER_RIGHT_MARGIN);
-    hlayout2->addWidget(new QLabel(QObject::tr("Command")));
+    hlayout2->addWidget(new QLabel(tr("Command")), 0, Qt::AlignRight);
     hlayout2->addWidget(edit_command);
     hlayout2->addSpacing(HEADER_RIGHT_MARGIN);
     hlayout3->addStretch(1);
