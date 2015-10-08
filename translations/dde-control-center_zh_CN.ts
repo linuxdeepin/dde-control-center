@@ -277,50 +277,50 @@
 <context>
     <name>DateTimePlugin</name>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="131"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="133"/>
         <source>MMM dd</source>
         <translation>MMMdd日</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="132"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="134"/>
         <source> hh:mm </source>
         <translation> hh:mm</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="132"/>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="224"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="134"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="233"/>
         <source> hh:mm A</source>
         <translation> A hh:mm</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="133"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="135"/>
         <source>ddd</source>
         <translation>dddd</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="168"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="170"/>
         <source>Switch display mode</source>
         <translation>切换显示方式</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="170"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="172"/>
         <source>Show week</source>
         <translation>显示星期几</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="171"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="173"/>
         <source>Show date</source>
         <translation>显示日期</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="174"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="176"/>
         <source>Datetime settings(_T)</source>
         <translation>时间设置(_T)</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="134"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="136"/>
         <source>ddd MMM dd</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -759,17 +759,17 @@
     <message>
         <location filename="../modules/display/monitorground.cpp" line="37"/>
         <source>Recognize</source>
-        <translation type="unfinished"></translation>
+        <translation>识别</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorground.cpp" line="38"/>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>编辑</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorground.cpp" line="39"/>
         <source>Split</source>
-        <translation type="unfinished"></translation>
+        <translation>拆分</translation>
     </message>
 </context>
 <context>
@@ -1091,6 +1091,14 @@
     </message>
 </context>
 <context>
+    <name>PowerPlugin</name>
+    <message>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="70"/>
+        <source>On Charging %1</source>
+        <translation>充电中 %1</translation>
+    </message>
+</context>
+<context>
     <name>PressPowerButtonAction</name>
     <message>
         <location filename="../modules/power/presspowerbuttonaction.cpp" line="10"/>
@@ -1151,17 +1159,6 @@
         <location filename="../modules/shortcuts/shortcutedit.cpp" line="29"/>
         <source>Please input new shortcut</source>
         <translation>请输入新的快捷键</translation>
-    </message>
-</context>
-<context>
-    <name>SideBar</name>
-    <message>
-        <source>Home</source>
-        <translation type="vanished">家目录</translation>
-    </message>
-    <message>
-        <source>Power</source>
-        <translation type="vanished">电源</translation>
     </message>
 </context>
 <context>

@@ -277,48 +277,48 @@
 <context>
     <name>DateTimePlugin</name>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="131"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="133"/>
         <source>MMM dd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="132"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="134"/>
         <source> hh:mm </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="132"/>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="224"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="134"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="233"/>
         <source> hh:mm A</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="133"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="135"/>
         <source>ddd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="134"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="136"/>
         <source>ddd MMM dd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="168"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="170"/>
         <source>Switch display mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="170"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="172"/>
         <source>Show week</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="171"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="173"/>
         <source>Show date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="174"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="176"/>
         <source>Datetime settings(_T)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -326,7 +326,7 @@
 <context>
     <name>Datetime</name>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="83"/>
+        <location filename="../modules/datetime/datetime.cpp" line="84"/>
         <source>Date and Time</source>
         <translation type="unfinished"></translation>
     </message>
@@ -348,6 +348,11 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="67"/>
         <source>Use 24-hour clock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/datetime/datetime.cpp" line="72"/>
+        <source>Reset</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -633,20 +638,24 @@
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="149"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="208"/>
         <source>Custom</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="205"/>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="275"/>
         <source>System</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="206"/>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="276"/>
         <source>Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="207"/>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="277"/>
         <source>Workspace</source>
         <translation type="unfinished"></translation>
@@ -934,7 +943,7 @@
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="249"/>
-        <location filename="../modules/personalization/personalization.cpp" line="581"/>
+        <location filename="../modules/personalization/personalization.cpp" line="582"/>
         <source>Font</source>
         <translation type="unfinished"></translation>
     </message>
@@ -972,6 +981,7 @@
     <message>
         <location filename="../modules/power/power.cpp" line="99"/>
         <location filename="../modules/power/power.cpp" line="154"/>
+        <location filename="../modules/power/power.h" line="150"/>
         <source>Custom</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1016,6 +1026,39 @@
 <context>
     <name>PowerInterfaceManagement</name>
     <message>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="22"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="31"/>
+        <source>Shutdown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="24"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="33"/>
+        <source>Suspend</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="50"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="98"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="158"/>
+        <source>Balanced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="52"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="100"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="161"/>
+        <source>Power saver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="54"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="102"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="164"/>
+        <source>High performance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="178"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="186"/>
         <source>never</source>
@@ -1044,6 +1087,14 @@
     <message>
         <location filename="../modules/power/powermanagement.cpp" line="18"/>
         <source>Power Management</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PowerPlugin</name>
+    <message>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="70"/>
+        <source>On Charging %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

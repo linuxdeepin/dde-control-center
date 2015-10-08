@@ -67,7 +67,7 @@ QString PowerPlugin::getTitle(QString)
     QString batteryPercentage = QString("%1%").arg(QString::number(m_dbusPower->batteryPercentage()));
 
     if (!m_dbusPower->onBattery()) {
-        return "Charging " + batteryPercentage;
+        return tr("On Charging %1") + batteryPercentage;
     } else {
         return batteryPercentage;
     }
