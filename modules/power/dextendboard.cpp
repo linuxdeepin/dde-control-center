@@ -31,7 +31,7 @@ DExtendBoard::DExtendBoard(QFrame *parent)
     m_poweroffButtonGrid->setFixedHeight(30);
     m_poweroffButtonGrid->setItemSize(32, 28);
 
-    m_poweroffButtons << "1m" << "5m" << "10m" << "15m" << "30m" << "1h" << tr("never");
+    m_poweroffButtons << "1m" << "5m" << "10m" << "15m" << "30m" << "1h" << tr("Never");
     m_poweroffButtonGrid->addButtons(m_poweroffButtons);
     m_poweroffButtonGrid->checkButtonByIndex(6);
     m_suspendLabel = new QLabel;
@@ -41,7 +41,7 @@ DExtendBoard::DExtendBoard(QFrame *parent)
     m_poweroffButtonGrid->setFixedHeight(30);
     m_suspendButtonGrid->setItemSize(32, 28);
 
-    m_suspendButtons << "1m" << "5m" << "10m" << "15m" << "30m" << "1h" << tr("never");
+    m_suspendButtons << "1m" << "5m" << "10m" << "15m" << "30m" << "1h" << tr("Never");
     m_suspendButtonGrid->addButtons(m_suspendButtons);
     m_suspendButtonGrid->checkButtonByIndex(6);
 

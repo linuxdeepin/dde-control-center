@@ -247,8 +247,12 @@
     <message>
         <location filename="../modules/power/dextendboard.cpp" line="34"/>
         <location filename="../modules/power/dextendboard.cpp" line="44"/>
-        <source>never</source>
+        <source>Never</source>
         <translation>从不</translation>
+    </message>
+    <message>
+        <source>never</source>
+        <translation type="vanished">从不</translation>
     </message>
     <message>
         <location filename="../modules/power/dextendboard.cpp" line="38"/>
@@ -1059,25 +1063,35 @@
         <translation>高性能</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="178"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="186"/>
         <source>never</source>
-        <translation>从不</translation>
+        <translation type="vanished">从不</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="180"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="188"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="181"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="189"/>
         <source>1 hour</source>
         <translation>1小时</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="182"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="190"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="159"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="162"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="163"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="165"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="183"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="191"/>
         <source>%1 minutes</source>
         <translation>%1分钟</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="195"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="160"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="166"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="179"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="187"/>
+        <source>Never</source>
+        <translation>从不</translation>
+    </message>
+    <message>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="196"/>
         <source>Turn off the display: %1 Suspend: %2 </source>
         <translation>关闭显示器：%1 待机：%2</translation>
     </message>

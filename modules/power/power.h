@@ -173,7 +173,9 @@ public slots:
     }
     inline void  hidePowerTooltip(QString itemId) {
         Q_UNUSED(itemId);
-        m_powerConnectionBreathingLabel->showLabel();
+        if (m_powerConnectionBreathingLabel->isHidden()) {
+            m_powerConnectionBreathingLabel->showLabel();
+        }
         m_powerDynamicLabel->hideLabel();
     }
     inline void  setBatteryDynamicTooltip(QString itemId) {
@@ -193,7 +195,9 @@ public slots:
     }
     inline void  hideBatteryTooltip(QString itemId) {
         Q_UNUSED(itemId);
-        m_batteryBreathingLabel->showLabel();
+        if (m_batteryBreathingLabel->isHidden()) {
+            m_batteryBreathingLabel->showLabel();
+        }
         m_batteryDynamicLabel->hideLabel();
 
     }

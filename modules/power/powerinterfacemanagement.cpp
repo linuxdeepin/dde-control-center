@@ -156,14 +156,15 @@ QString PowerInterfaceManagement::setPowerTooltipText(QString itemId, QString po
     QString argument_display, argument_suspend;
 
     if (itemId == tr("Balanced")) {
-        argument_display = QString("10 minutes");
-        argument_suspend = QString("never");
+        argument_display = QString(tr("%1 minutes").arg("10"));
+        argument_suspend = QString(tr("Never"));
     } else if (itemId == tr("Power saver")) {
-        argument_display = QString("5 minutes");
-        argument_suspend = QString("15 minutes");
+        argument_display = QString(tr("%1 minutes")).arg("5");
+        argument_suspend = QString(tr("%1 minutes")).arg("15");
     } else if (itemId == tr("High performance")) {
-        argument_display = QString("15 minutes");
-        argument_suspend = QString("never");
+        argument_display = QString(tr("%1 minutes")).arg("15");
+        argument_suspend = QString(tr("Never"));
+        qDebug() << argument_suspend;
     } else {
         qint32 suspendTime, idleTime;
         if (powerType == "power") {
@@ -175,7 +176,7 @@ QString PowerInterfaceManagement::setPowerTooltipText(QString itemId, QString po
         }
         /////////////////idleTime
         if (idleTime==0) {
-            argument_display = QString(tr("never"));
+            argument_display = QString(tr("Never"));
         } else if (idleTime/60!=0){
             argument_display = QString(tr("1 hour"));
         } else {
@@ -183,7 +184,7 @@ QString PowerInterfaceManagement::setPowerTooltipText(QString itemId, QString po
         }
         ///////////////suspendTime
         if (suspendTime==0) {
-            argument_suspend = QString(tr("never"));
+            argument_suspend = QString(tr("Never"));
         } else if (suspendTime/60!=0){
             argument_suspend = QString(tr("1 hour"));
         } else {
