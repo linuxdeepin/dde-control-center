@@ -202,10 +202,10 @@ void MainWidget::init()
     m_workspaceList = addSearchList(m_dbus->workspaceList());
     m_customList = addSearchList(m_dbus->customList());
 
-    m_systemList->setObjectName("System");
-    m_windowList->setObjectName("Window");
-    m_workspaceList->setObjectName("Workspace");
-    m_customList->setObjectName("Custom");
+    m_systemList->setObjectName(tr("System"));
+    m_windowList->setObjectName(tr("Window"));
+    m_workspaceList->setObjectName(tr("Workspace"));
+    m_customList->setObjectName(tr("Custom"));
 
     connect(m_dbus, &ShortcutDbus::systemListChanged, [=](const ShortcutInfoList& list){
         shortcutListChanged(m_systemList, list, 0);
