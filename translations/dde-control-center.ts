@@ -88,6 +88,7 @@
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="80"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="287"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="292"/>
         <source>new user</source>
         <translation type="unfinished"></translation>
@@ -139,8 +140,8 @@
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="179"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="250"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="266"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="300"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="307"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="302"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="309"/>
         <source>The two passwords do not match.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -213,14 +214,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="284"/>
-        <location filename="../modules/display/customsettings.cpp" line="290"/>
+        <location filename="../modules/display/customsettings.cpp" line="287"/>
+        <location filename="../modules/display/customsettings.cpp" line="293"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="286"/>
-        <location filename="../modules/display/customsettings.cpp" line="292"/>
+        <location filename="../modules/display/customsettings.cpp" line="289"/>
+        <location filename="../modules/display/customsettings.cpp" line="295"/>
         <location filename="../modules/display/customsettings.h" line="43"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
@@ -325,27 +326,27 @@
 <context>
     <name>Datetime</name>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="41"/>
+        <location filename="../modules/datetime/datetime.cpp" line="83"/>
         <source>Date and Time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="47"/>
+        <location filename="../modules/datetime/datetime.cpp" line="45"/>
         <source>Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="55"/>
+        <location filename="../modules/datetime/datetime.cpp" line="53"/>
         <source>Time Zone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="62"/>
+        <location filename="../modules/datetime/datetime.cpp" line="60"/>
         <source>Sync Automatically</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="69"/>
+        <location filename="../modules/datetime/datetime.cpp" line="67"/>
         <source>Use 24-hour clock</source>
         <translation type="unfinished"></translation>
     </message>
@@ -694,7 +695,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="24"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="25"/>
         <source>System Information</source>
         <translation type="unfinished"></translation>
     </message>
@@ -731,6 +732,34 @@
     <message>
         <location filename="../modules/grub/grub.cpp" line="10"/>
         <source>Boot Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../frame/sidebar.cpp" line="29"/>
+        <source>Home</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../frame/sidebar.cpp" line="37"/>
+        <source>Power</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MonitorGround</name>
+    <message>
+        <location filename="../modules/display/monitorground.cpp" line="37"/>
+        <source>Recognize</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/display/monitorground.cpp" line="38"/>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/display/monitorground.cpp" line="39"/>
+        <source>Split</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1082,19 +1111,6 @@
     </message>
 </context>
 <context>
-    <name>SideBar</name>
-    <message>
-        <location filename="../frame/sidebar.cpp" line="26"/>
-        <source>Home</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../frame/sidebar.cpp" line="33"/>
-        <source>Power</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>Sound</name>
     <message>
         <location filename="../modules/sound/sound.cpp" line="96"/>
@@ -1184,47 +1200,47 @@
 <context>
     <name>SystemInfo</name>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="29"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="30"/>
         <source>System Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="35"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="36"/>
         <source>Copyright (c) 2011-2015 Wuhan Deepin Technology Co., Ltd.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="39"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="40"/>
         <source>Deepin Edition:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="45"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="46"/>
         <source>System Type:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="47"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="48"/>
         <source>%1 Bit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="50"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="51"/>
         <source>Processor:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="56"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="57"/>
         <source>Memory:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="62"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="63"/>
         <source>Disk:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="107"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="126"/>
         <source>GNU GENERAL PUBLIC LICENSE</source>
         <translation type="unfinished"></translation>
     </message>

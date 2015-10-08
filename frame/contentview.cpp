@@ -158,7 +158,7 @@ void ContentView::onModuleSelected(ModuleMetaData meta)
 
     emit homeSelected();
 
-    if (meta.name == "Power") {
+    if (meta.id == "shutdown") {
         emit shutdownSelected();
     }
 }
