@@ -251,10 +251,6 @@
         <translation>从不</translation>
     </message>
     <message>
-        <source>never</source>
-        <translation type="vanished">从不</translation>
-    </message>
-    <message>
         <location filename="../modules/power/dextendboard.cpp" line="38"/>
         <source>Suspend</source>
         <translation>待机</translation>
@@ -364,72 +360,72 @@
     <name>DefaultApps</name>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="38"/>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="44"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="43"/>
         <source>Default Applications</source>
         <translation>默认程序</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="47"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="46"/>
         <source>AutoPlay</source>
         <translation>自动播放</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="154"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="52"/>
         <source>Browser</source>
         <translation>浏览器</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="155"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="54"/>
         <source>Mail</source>
         <translation>邮件</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="156"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="56"/>
         <source>Text</source>
         <translation>文本工具</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="157"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="58"/>
         <source>Music</source>
         <translation>音乐</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="158"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="60"/>
         <source>Video</source>
         <translation>视频</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="159"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="62"/>
         <source>Picture</source>
         <translation>图片</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="160"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="64"/>
         <source>Terminal</source>
         <translation>终端</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="161"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="66"/>
         <source>CD Audio</source>
         <translation>CD音频</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="162"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="68"/>
         <source>DVD Video</source>
         <translation>DVD视频</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="163"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="70"/>
         <source>Music Player</source>
         <translation>音乐播放器</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="164"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="72"/>
         <source>Camera</source>
         <translation>照相机</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="165"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="74"/>
         <source>Software</source>
         <translation>软件</translation>
     </message>
@@ -1063,10 +1059,6 @@
         <translation>高性能</translation>
     </message>
     <message>
-        <source>never</source>
-        <translation type="vanished">从不</translation>
-    </message>
-    <message>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="181"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="189"/>
         <source>1 hour</source>
@@ -1106,6 +1098,11 @@
 </context>
 <context>
     <name>PowerPlugin</name>
+    <message>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="47"/>
+        <source>Power</source>
+        <translation>电源</translation>
+    </message>
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="70"/>
         <source>On Charging %1</source>

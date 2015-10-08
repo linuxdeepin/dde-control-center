@@ -44,7 +44,7 @@ void PowerPlugin::init(DockPluginProxyInterface *proxy)
 
 QString PowerPlugin::getPluginName()
 {
-    return "Power plugin";
+    return tr("Power");
 }
 
 QStringList PowerPlugin::ids()
@@ -67,7 +67,7 @@ QString PowerPlugin::getTitle(QString)
     QString batteryPercentage = QString("%1%").arg(QString::number(m_dbusPower->batteryPercentage()));
 
     if (!m_dbusPower->onBattery()) {
-        return tr("On Charging %1") + batteryPercentage;
+        return tr("On Charging %1").arg(batteryPercentage);
     } else {
         return batteryPercentage;
     }

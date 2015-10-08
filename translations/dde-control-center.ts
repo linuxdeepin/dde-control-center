@@ -360,72 +360,72 @@
     <name>DefaultApps</name>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="38"/>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="44"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="43"/>
         <source>Default Applications</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="47"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="46"/>
         <source>AutoPlay</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="154"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="52"/>
         <source>Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="155"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="54"/>
         <source>Mail</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="156"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="56"/>
         <source>Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="157"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="58"/>
         <source>Music</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="158"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="60"/>
         <source>Video</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="159"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="62"/>
         <source>Picture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="160"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="64"/>
         <source>Terminal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="161"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="66"/>
         <source>CD Audio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="162"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="68"/>
         <source>DVD Video</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="163"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="70"/>
         <source>Music Player</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="164"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="72"/>
         <source>Camera</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="165"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="74"/>
         <source>Software</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1098,6 +1098,11 @@
 </context>
 <context>
     <name>PowerPlugin</name>
+    <message>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="47"/>
+        <source>Power</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="70"/>
         <source>On Charging %1</source>
