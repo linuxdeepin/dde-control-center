@@ -23,6 +23,7 @@
 
 import QtQuick 2.1
 import QtQuick.Controls 1.1
+import Deepin.Widgets 1.0
 
 Rectangle {
     id: delegate
@@ -35,9 +36,9 @@ Rectangle {
     property int verticalPadding: 3
     property int horizontalPadding: 10
 
-    property color fontNormalColor: dconstants.fgColor
-    property color fontHoverColor: dconstants.hoverColor
-    property color fontPressedColor: dconstants.activeColor
+    property color fontNormalColor: DPalette.fgColor
+    property color fontHoverColor: DPalette.hoverColor
+    property color fontPressedColor: DPalette.activeColor
     property color bgNormalColor: Qt.rgba(0, 0, 0, 0)
     property color bgPressedColor: Qt.rgba(0, 0, 0, 0.4)
 

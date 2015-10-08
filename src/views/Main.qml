@@ -23,6 +23,7 @@
 
 import QtQuick 2.1
 import QtQuick.Window 2.1
+import QtQuick.Controls 1.2
 import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
 import DBus.Com.Deepin.Daemon.Display 1.0
@@ -147,7 +148,7 @@ QtObject {
     }
 
     property var calculateTextComponent: Component {
-        Text{visible: false}
+        Label{visible: false}
     }
 
     function dsTr(s){

@@ -28,7 +28,7 @@ Rectangle {
     id: monitorDragArea
     width: parent.width
     height: 220
-    color: dconstants.contentBgColor
+    color: DPalette.contentBgColor
     clip: true
 
     property int adsorptionValue: 3

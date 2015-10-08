@@ -39,7 +39,7 @@ Item {
         ArrowRect {
             id: arrowRectBackground
             anchors.fill: parent
-            fillStyle: dconstants.contentBgColor
+            fillStyle: DPalette.contentBgColor
             stroke: false
             radius: 0
             lineWidth: 0

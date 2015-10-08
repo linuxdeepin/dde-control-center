@@ -34,7 +34,6 @@ FocusScope {
     property alias text: text_input.text
     property int textInputRightMargin: 0
     property int textInputLeftMargin: 0
-    property variant constants: DConstants {}
     property alias input: text_input
     property int radius: 6
 
@@ -139,11 +138,11 @@ FocusScope {
             maximumLength: 2
 
             validator: IntValidator{bottom: min; top: max;}
-            color: activeFocus ? dconstants.activeColor : dconstants.fgColor
+            color: activeFocus ? DPalette.activeColor : DPalette.fgColor
             font.pixelSize: 44
             cursorDelegate: Rectangle{ color: "transparent" }
             selectionColor: "transparent"
-            selectedTextColor: dconstants.activeColor
+            selectedTextColor: DPalette.activeColor
 
             anchors.fill: parent
             anchors.leftMargin: 3
@@ -202,7 +201,7 @@ FocusScope {
         //anchors.fill: parent
         //onPressed: {
             //mouse.accepted = false
-            //text_input.color = constants.fgColor
+            //text_input.color = DPalette.fgColor
             //if (root.state == "warning") {
                 //root.state = "normal"
             //}

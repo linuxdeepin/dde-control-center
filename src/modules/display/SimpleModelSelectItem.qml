@@ -39,12 +39,12 @@ Item {
     property bool isHover:false
     property string textColor: {
         if (actived)
-            return dconstants.activeColor
+            return DPalette.activeColor
         else{
             if (isHover)
-                return dconstants.hoverColor
+                return DPalette.hoverColor
             else
-                return dconstants.fgColor
+                return DPalette.fgColor
         }
     }
 

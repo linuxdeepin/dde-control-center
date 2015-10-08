@@ -69,7 +69,6 @@ DOverrideWindow {
     property int moduleNameMaxWidth: modulesId.getMaxModuleNameWidth()
     property int displayWidth: 0
 
-    property var dconstants: DConstants {}
     property var listModelComponent: DListModelComponent {}
     property bool clickedToHide: true
     property alias panelContent: panelContent
@@ -231,7 +230,7 @@ DOverrideWindow {
 
     Rectangle {
         id: frame
-        color: dconstants.bgColor
+        color: DPalette.bgColor
 
         width: panelWidth
         height: parent.height

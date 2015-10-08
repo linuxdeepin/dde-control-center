@@ -6,10 +6,9 @@ import "../shared"
 
 Rectangle {
     id: root
-    color: constants.bgColor
+    color: DPalette.bgColor
     width: 310
     height: 600
-    property var constants: DConstants {}
 
     property bool inUserCreating: false
 

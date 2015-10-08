@@ -11,8 +11,8 @@ Item {
     anchors.fill: parent
 
     // colors
-    property color normalColor: dconstants.fgColor
-    property color normalBorderColor: dconstants.contentBgColor
+    property color normalColor: DPalette.fgColor
+    property color normalBorderColor: DPalette.contentBgColor
     property color errorColor: "#F48914"
 
     // device type

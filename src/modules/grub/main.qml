@@ -5,7 +5,7 @@ import "../shared"
 
 Rectangle {
     id: grub
-    color: dconstants.bgColor
+    color: DPalette.bgColor
     anchors.fill: parent
 
     Grub2 { id: dbus_grub2 }
@@ -117,7 +117,7 @@ Rectangle {
                 content.sourceComponent: Rectangle {
                     width: parent.width
                     height: childrenRect.height
-                    color: dconstants.contentBgColor
+                    color: DPalette.contentBgColor
 
                     ListView {
                         id: entries_list

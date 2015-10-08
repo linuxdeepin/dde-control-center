@@ -33,7 +33,6 @@ Item {
     height: childrenRect.height
     clip: true
 
-    property var dconstants: DConstants {}
     property int grabKeyAreaWidth: tipInfoText.width + 6
 
     property var info
@@ -72,7 +71,7 @@ Item {
         DssMultiDeleteButton {
             id: deleteButton
             anchors.left: parent.left
-            anchors.leftMargin: showDelete ? dconstants.leftMargin : 0 - width
+            anchors.leftMargin: showDelete ? DPalette.leftMargin : 0 - width
             anchors.verticalCenter: parent.verticalCenter
             anchors.verticalCenterOffset: 1
             scale: 0.9
@@ -115,7 +114,7 @@ Item {
             horizontalAlignment: Text.AlignRight
             verticalAlignment: Text.AlignVCenter
             font.pixelSize: 11
-            color: hovered ? dconstants.hoverColor :  dconstants.fgColor
+            color: hovered ? DPalette.hoverColor :  DPalette.fgColor
             text: shortcutName? shortcutName : dsTr("None")
             visible: {
                 if(grabFlag | inConfictDealing){
@@ -133,7 +132,7 @@ Item {
             anchors.rightMargin: 15
             anchors.verticalCenter: parent.verticalCenter
             font.pixelSize: 11
-            color: dconstants.fgDarkColor
+            color: DPalette.fgDarkColor
             text: keyPressed ? keyPressInfo : dsTr("Please input new shortcut")
             visible: grabFlag
             property bool keyPressed: false
@@ -231,7 +230,7 @@ Item {
         anchors.top: keyBindingArea.bottom
         width: parent.width
         height: 0
-        color: dconstants.bgColor
+        color: DPalette.bgColor
         clip: true
 
         function showInvalidInfo(shortcutName){
@@ -289,7 +288,7 @@ Item {
         ArrowRect{
             id: arrowRectBackground
             anchors.fill: parent
-            fillStyle: dconstants.bgColor
+            fillStyle: DPalette.bgColor
             stroke: false
             radius: 0
             lineWidth: 0

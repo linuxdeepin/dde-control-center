@@ -41,7 +41,6 @@ Rectangle{
     property color hoverBorderColor: Qt.rgba(1, 1, 1, 0.2)
     property bool hasBorder: true
 
-    property var dconstants: DConstants {}
     property bool hovered: false
     property bool pressed: false 
 

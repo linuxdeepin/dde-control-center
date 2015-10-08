@@ -47,7 +47,7 @@ FocusScope {
             verticalAlignment: TextInput.AlignVCenter
             horizontalAlignment: TextInput.AlignHCenter
             validator: IntValidator{bottom: min; top: max;}
-            color: dconstants.fgColor
+            color: DPalette.fgColor
             font.pixelSize: 14
             selectionColor: "#31536e"
             selectByMouse: true

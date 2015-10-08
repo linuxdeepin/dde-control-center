@@ -35,7 +35,7 @@ Item {
     DssH2 {
         id: successLabel
         font.pixelSize: 12
-        color: dconstants.activeColor
+        color: DPalette.activeColor
         text: dsTr("Reset successfully")
         visible: opacity > 0
         opacity: inSuccessState ? 1 : 0

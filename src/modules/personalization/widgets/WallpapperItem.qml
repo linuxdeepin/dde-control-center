@@ -65,7 +65,7 @@ Item {
             border.width: 1
             border.color: {
                 if(themeItem.selected){
-                    return dconstants.activeColor
+                    return DPalette.activeColor
                 }
                 else if(themeItem.hoverHightlight){
                     return Qt.rgba(1, 1, 1, 0.6)

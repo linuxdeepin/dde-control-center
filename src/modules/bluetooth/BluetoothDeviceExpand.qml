@@ -13,7 +13,6 @@ Column {
     property int deviceDisconnected: 0
     property int deviceConnecting: 1
     property int deviceConnected: 2
-    property var dconstants: DConstants {}
     property string adapterName: bluetoothAdapter.Alias
     property int maxNameWidth: 200
 

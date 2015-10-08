@@ -12,121 +12,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-16 07:24+0000\n"
-"PO-Revision-Date: 2015-03-25 18:34+0000\n"
-"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
-"Language-Team: Danish (http://www.transifex.com/projects/p/dde-control-center/language/da/)\n"
+"POT-Creation-Date: 2015-08-20 14:55+0800\n"
+"PO-Revision-Date: 2015-09-16 17:51+0000\n"
+"Last-Translator: Carl Andersen <carl@manjaro.dk>\n"
+"Language-Team: Danish (http://www.transifex.com/linuxdeepin/dde-control-center/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-#: ../src/modules/network/add/AddDsl.qml:11
-msgid "Add PPPoE Connection"
-msgstr "Tilføj PPPoE-forbindelse"
-
-#: ../src/modules/network/add/AddDsl.qml:24
-#: ../src/modules/network/add/AddMobile.qml:33
-#: ../src/modules/network/add/AddVpn.qml:103
-#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:33
-#: ../src/modules/shortcuts/CustomKeybinding.qml:118
-msgid "Name"
-msgstr "Navn"
-
-#: ../src/modules/network/add/AddDsl.qml:36
-#: ../src/modules/network/add/AddMobile.qml:75
-#: ../src/modules/network/add/AddMobile.qml:105
-#: ../src/modules/account/AddUserDialog.qml:127
-#: ../src/modules/network/add/AddVpn.qml:125
-#: ../src/modules/network/add/AddVpn.qml:255
-#: ../src/modules/network/add/AddVpn.qml:395
-#: ../src/modules/network/add/AddVpn.qml:435
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:53
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:123
-#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:23
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:45
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:185
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:325
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:375
-#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:65
-msgid "Username"
-msgstr "Brugernavn"
-
-#: ../src/modules/network/add/AddDsl.qml:46
-#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:33
-msgid "Service"
-msgstr "Service"
-
-#: ../src/modules/network/add/AddDsl.qml:56
-#: ../src/modules/network/add/AddMobile.qml:85
-#: ../src/modules/network/add/AddMobile.qml:115
-#: ../src/modules/account/AddUserDialog.qml:200
-#: ../src/modules/network/add/AddVpn.qml:145
-#: ../src/modules/network/add/AddVpn.qml:275
-#: ../src/modules/network/add/AddVpn.qml:415
-#: ../src/modules/network/wireless/AddWireless.qml:64
-#: ../src/modules/network/wireless/AddWireless.qml:186
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:63
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:133
-#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:43
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:53
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:175
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:65
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:205
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:345
-#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:75
-#: ../src/modules/network/widgets/PasswordBox.qml:95
-#: ../src/modules/account/PasswordDialog.qml:62
-#: ../src/modules/network/wireless/WifiHotspot.qml:69
-msgid "Password"
-msgstr "Adgangskode"
-
-#: ../src/modules/network/add/AddMobile.qml:20
-msgid "New Mobile Connection"
-msgstr "Ny mobilforbindelse"
-
-#: ../src/modules/network/add/AddMobile.qml:45
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:23
-msgid "Service Type"
-msgstr "Servicetype"
-
-#: ../src/modules/network/add/AddMobile.qml:55
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:33
-msgid "APN"
-msgstr "APN"
-
-#: ../src/modules/network/add/AddMobile.qml:65
-#: ../src/modules/network/add/AddMobile.qml:95
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:43
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:113
-msgid "Number"
-msgstr "Nummer"
-
-#: ../src/modules/network/add/AddSectionSave.qml:11
-#: ../src/modules/account/AddUserDialog.qml:413
-#: ../src/modules/network/wireless/AddWireless.qml:216
-#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:109
-#: ../src/modules/network/ConnectionAdd.qml:69
-#: ../src/modules/network/ConnectionEdit.qml:102
-#: ../src/modules/network/ConnectionEdit.qml:135
-#: ../src/modules/shortcuts/CustomKeybinding.qml:151
-#: ../src/modules/account/DeleteUserDialog.qml:33
-#: ../src/modules/network/Info.qml:79
-#: ../src/modules/network/widgets/PasswordBox.qml:118
-#: ../src/modules/account/PasswordDialog.qml:248
-#: ../src/modules/shortcuts/ShortcutInput.qml:355
-#: ../src/modules/date_time/TimeBox.qml:225
-#: ../src/modules/network/wireless/WifiHotspot.qml:82
-#: ../src/modules/date_time/main.qml:300 ../src/modules/display/main.qml:179
-msgid "Cancel"
-msgstr "Annuller"
-
-#: ../src/modules/network/add/AddSectionSave.qml:20
-#: ../src/modules/shortcuts/CustomKeybinding.qml:157
-#: ../src/modules/date_time/TimezoneArea.qml:465
-msgid "Add"
-msgstr "Tilføj"
 
 #: ../src/modules/account/AddUserDialog.qml:58
 #: ../src/modules/account/AddUserDialog.qml:63
@@ -174,11 +68,54 @@ msgstr "Administrator"
 msgid "Normal User"
 msgstr "Normal Bruger"
 
+#: ../src/modules/account/AddUserDialog.qml:127
+#: ../src/modules/network/add/AddDsl.qml:36
+#: ../src/modules/network/add/AddMobile.qml:75
+#: ../src/modules/network/add/AddMobile.qml:105
+#: ../src/modules/network/add/AddVpn.qml:125
+#: ../src/modules/network/add/AddVpn.qml:255
+#: ../src/modules/network/add/AddVpn.qml:395
+#: ../src/modules/network/add/AddVpn.qml:435
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:98
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:168
+#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:23
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:45
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:185
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:325
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:375
+#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:65
+msgid "Username"
+msgstr "Brugernavn"
+
 #: ../src/modules/account/AddUserDialog.qml:175
 #: ../src/modules/account/AddUserDialog.qml:235
 #: ../src/modules/account/AddUserDialog.qml:301
 msgid "Username can not be empty."
 msgstr "Brugernavn kan ikke være tomt."
+
+#: ../src/modules/account/AddUserDialog.qml:200
+#: ../src/modules/account/PasswordDialog.qml:62
+#: ../src/modules/network/add/AddDsl.qml:56
+#: ../src/modules/network/add/AddMobile.qml:85
+#: ../src/modules/network/add/AddMobile.qml:115
+#: ../src/modules/network/add/AddVpn.qml:145
+#: ../src/modules/network/add/AddVpn.qml:275
+#: ../src/modules/network/add/AddVpn.qml:415
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:108
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:178
+#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:43
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:53
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:175
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:65
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:205
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:345
+#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:75
+#: ../src/modules/network/widgets/PasswordBox.qml:95
+#: ../src/modules/network/wireless/AddWireless.qml:64
+#: ../src/modules/network/wireless/AddWireless.qml:186
+#: ../src/modules/network/wireless/WifiHotspot.qml:69
+msgid "Password"
+msgstr "Adgangskode"
 
 #: ../src/modules/account/AddUserDialog.qml:270
 msgid "Repeat Password"
@@ -194,13 +131,695 @@ msgstr "Kontotype"
 msgid "Auto-login"
 msgstr "Auto-logind"
 
+#: ../src/modules/account/AddUserDialog.qml:413
+#: ../src/modules/account/DeleteUserDialog.qml:32
+#: ../src/modules/account/PasswordDialog.qml:248
+#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:108
+#: ../src/modules/date_time/TimeBox.qml:225
+#: ../src/modules/date_time/main.qml:300 ../src/modules/display/main.qml:178
+#: ../src/modules/network/ConnectionAdd.qml:69
+#: ../src/modules/network/ConnectionEdit.qml:110
+#: ../src/modules/network/ConnectionEdit.qml:143
+#: ../src/modules/network/Info.qml:85
+#: ../src/modules/network/add/AddSectionSave.qml:11
+#: ../src/modules/network/widgets/PasswordBox.qml:118
+#: ../src/modules/network/wireless/AddWireless.qml:216
+#: ../src/modules/network/wireless/WifiHotspot.qml:82
+#: ../src/modules/remoting/AccessContent/ConnectingItem.qml:91
+#: ../src/modules/remoting/AccessContent/ErrorItem.qml:62
+#: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:124
+#: ../src/modules/remoting/ShareContent/ErrorItem.qml:62
+#: ../src/modules/remoting/ShareContent/GeneratedCodeItem.qml:82
+#: ../src/modules/remoting/ShareContent/GeneratingCodeItem.qml:58
+#: ../src/modules/shortcuts/CustomKeybinding.qml:151
+#: ../src/modules/shortcuts/ShortcutInput.qml:354
+msgid "Cancel"
+msgstr "Annuller"
+
 #: ../src/modules/account/AddUserDialog.qml:426
-#: ../src/modules/account/DeleteUserDialog.qml:46
+#: ../src/modules/account/DeleteUserDialog.qml:45
 #: ../src/modules/account/PasswordDialog.qml:262
 #: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:318
-#: ../src/modules/display/main.qml:194
+#: ../src/modules/display/main.qml:193
 msgid "Confirm"
 msgstr "Bekræft"
+
+#: ../src/modules/account/AvatarPickDialog.qml:5
+msgid "Choose a new picture for your Avatar"
+msgstr "Vælg et nyt billede til din avatar"
+
+#: ../src/modules/account/AvatarView.qml:19
+msgid "Recently Used"
+msgstr "Senest anvendt"
+
+#: ../src/modules/account/AvatarView.qml:20
+msgid "Avatar"
+msgstr "Avatar"
+
+#: ../src/modules/account/AvatarView.qml:21
+msgid "Webcam"
+msgstr "Webcam"
+
+#: ../src/modules/account/DeleteUserDialog.qml:18
+msgid "Keep user's files"
+msgstr "Behold brugerens filer"
+
+#: ../src/modules/account/DeleteUserDialog.qml:19
+msgid "Delete user's files"
+msgstr "Slet brugerens filer"
+
+#: ../src/modules/account/EditUserDialog.qml:93
+msgid "Enable"
+msgstr "Aktiver"
+
+#: ../src/modules/account/GuestUser.qml:45 ../src/views/HeaderArea.qml:108
+msgid "Guest"
+msgstr "Gæst"
+
+#: ../src/modules/account/GuestUser.qml:106
+msgid "Enabled"
+msgstr "Aktiveret"
+
+#: ../src/modules/account/PasswordDialog.qml:119
+msgid "New Password"
+msgstr "Ny adgangskode"
+
+#: ../src/modules/account/PasswordDialog.qml:185
+msgid "Repeat"
+msgstr "Gentag"
+
+#: ../src/modules/account/UserList.qml:239 ../src/modules/grub/Preview.qml:123
+msgid "Image format not supported"
+msgstr "Billedformat understøttes ikke."
+
+#: ../src/modules/account/UserListCreatingItem.qml:99
+msgid "Account Preparing..."
+msgstr "Konto Forbereder..."
+
+#: ../src/modules/account/WebCam.qml:125 ../src/modules/account/WebCam.qml:140
+msgid "Snapshot"
+msgstr "Skærmbillede"
+
+#: ../src/modules/account/WebCam.qml:136
+msgid "Again"
+msgstr "Igen"
+
+#: ../src/modules/account/WebCam.qml:175
+msgid "No camera found."
+msgstr "Intet kamera fundet."
+
+#: ../src/modules/account/main.qml:108
+msgid "Delete Account"
+msgstr "Slet konto"
+
+#: ../src/modules/account/main.qml:148
+msgid "Add Account"
+msgstr "Tilføj konto"
+
+#: ../src/modules/account/main.qml:171
+msgid "User List"
+msgstr "Liste af brugere"
+
+#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:120
+#: ../src/modules/display/main.qml:193
+#: ../src/modules/personalization/widgets/PreviewWindow.qml:279
+msgid "Apply"
+msgstr "Anvend"
+
+#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:148
+msgid "Devices nearby"
+msgstr "Enheder i nærheden"
+
+#: ../src/modules/date_time/Calendar.qml:164
+msgid "Today"
+msgstr "Idag"
+
+#: ../src/modules/date_time/CalendarComponent.qml:83
+msgid "Sun"
+msgstr "Søn"
+
+#: ../src/modules/date_time/CalendarComponent.qml:84
+msgid "Mon"
+msgstr "Man"
+
+#: ../src/modules/date_time/CalendarComponent.qml:85
+msgid "Tue"
+msgstr "Tir"
+
+#: ../src/modules/date_time/CalendarComponent.qml:86
+msgid "Wed"
+msgstr "Ons"
+
+#: ../src/modules/date_time/CalendarComponent.qml:87
+msgid "Thu"
+msgstr "Tor"
+
+#: ../src/modules/date_time/CalendarComponent.qml:88
+msgid "Fri"
+msgstr "Fre"
+
+#: ../src/modules/date_time/CalendarComponent.qml:89
+msgid "Sat"
+msgstr "Lør"
+
+#: ../src/modules/date_time/StateButtons.qml:35
+#: ../src/modules/keyboard/StateButtons.qml:35
+#: ../src/modules/shortcuts/StateButtons.qml:39
+msgid "Done"
+msgstr "Færdig"
+
+#: ../src/modules/date_time/StateButtons.qml:36
+#: ../src/modules/date_time/StateButtons.qml:54
+#: ../src/modules/date_time/TimezoneArea.qml:487
+msgid "Close"
+msgstr "Luk"
+
+#: ../src/modules/date_time/StateButtons.qml:85
+msgid "Delete Time Zone"
+msgstr "Slet tidszone"
+
+#: ../src/modules/date_time/StateButtons.qml:101
+msgid "Add Time Zone"
+msgstr "Tilføj tidszone"
+
+#: ../src/modules/date_time/TimeBox.qml:161
+msgid "Double-click this area to change your time"
+msgstr "Dobbeltklik på dette område for at ændre din tid"
+
+#: ../src/modules/date_time/TimeBox.qml:202
+msgid "Set"
+msgstr "Sæt"
+
+#: ../src/modules/date_time/TimezoneArea.qml:257
+msgid "Time zone"
+msgstr "Tidszone"
+
+#: ../src/modules/date_time/TimezoneArea.qml:484
+#: ../src/modules/network/add/AddSectionSave.qml:20
+#: ../src/modules/shortcuts/CustomKeybinding.qml:157
+msgid "Add"
+msgstr "Tilføj"
+
+#: ../src/modules/date_time/main.qml:131
+msgid "Sync Automatically"
+msgstr "Automatisk synkronisering"
+
+#: ../src/modules/date_time/main.qml:149
+msgid "Use 24-hour clock"
+msgstr "Brug 24-timersur"
+
+#: ../src/modules/date_time/main.qml:180
+msgid "Adjust DST clock "
+msgstr "Juster DST ur"
+
+#: ../src/modules/date_time/main.qml:205
+#: ../src/modules/network/proxy/ProxyContent.qml:43
+#: ../src/modules/shortcuts/ShortcutInput.qml:118
+msgid "None"
+msgstr "Ingen"
+
+#: ../src/modules/date_time/main.qml:257
+msgid "Date"
+msgstr "Dato"
+
+#: ../src/modules/date_time/main.qml:290
+msgid "Set Date"
+msgstr "Sæt dato"
+
+#: ../src/modules/default_applications/main.qml:85
+#: ../src/views/ModulesData.qml:69
+msgid "Default Applications"
+msgstr "Standardprogrammer"
+
+#: ../src/modules/default_applications/main.qml:97
+msgid "Browser"
+msgstr "Browser"
+
+#: ../src/modules/default_applications/main.qml:111
+msgid "Mail"
+msgstr "Email"
+
+#: ../src/modules/default_applications/main.qml:122
+msgid "Text"
+msgstr "Tekst"
+
+#: ../src/modules/default_applications/main.qml:128
+msgid "Music"
+msgstr "Musik"
+
+#: ../src/modules/default_applications/main.qml:159
+msgid "Video"
+msgstr "Video"
+
+#: ../src/modules/default_applications/main.qml:191
+msgid "Picture"
+msgstr "Billede"
+
+#: ../src/modules/default_applications/main.qml:209
+msgid "Terminal"
+msgstr "Terminal"
+
+#: ../src/modules/default_applications/main.qml:268
+msgid "AutoPlay"
+msgstr "Automatisk afspilning"
+
+#: ../src/modules/default_applications/main.qml:283
+msgid "CD Audio"
+msgstr "CD Audio"
+
+#: ../src/modules/default_applications/main.qml:288
+msgid "DVD Video"
+msgstr "DVD Video"
+
+#: ../src/modules/default_applications/main.qml:293
+msgid "Music Player"
+msgstr "Musikafspiller"
+
+#: ../src/modules/default_applications/main.qml:298
+msgid "Camera"
+msgstr "Kamera"
+
+#: ../src/modules/default_applications/main.qml:303
+msgid "Software"
+msgstr "Software"
+
+#: ../src/modules/display/BrightnessRectangle.qml:61
+#: ../src/modules/display/ResolutionRectangle.qml:69
+#: ../src/modules/display/RotationRectangle.qml:70
+msgid "Monitor"
+msgstr "Skærm"
+
+#: ../src/modules/display/MessageBox.qml:105
+msgid "Do you want to keep these display settings?"
+msgstr "Ønsker du at beholde disse skærmindstillinger?"
+
+#: ../src/modules/display/MessageBox.qml:114
+#, qt-format
+msgid ""
+"Reverting to previous display settings in <font color='#F48914'>%1</font> "
+"seconds."
+msgstr "Går tilbage til tidligere skærmindstillinger i <font color='#F48914'>%1</font> sekunder."
+
+#: ../src/modules/display/MessageBox.qml:128
+msgid "Revert"
+msgstr "Vend tilbage"
+
+#: ../src/modules/display/MessageBox.qml:140
+msgid "Keep Changes"
+msgstr "Behold ændringer"
+
+#: ../src/modules/display/MonitorDragArea.qml:471
+msgid "Identify"
+msgstr "Identificer"
+
+#: ../src/modules/display/MonitorDragArea.qml:489
+msgid "Edit"
+msgstr "Rediger"
+
+#: ../src/modules/display/MonitorDragArea.qml:507
+msgid "Split"
+msgstr "Opdel"
+
+#: ../src/modules/display/MonitorProperties.qml:42
+msgid "Normal"
+msgstr "Normal"
+
+#: ../src/modules/display/MonitorProperties.qml:43
+msgid "Rotate Right"
+msgstr "Roter til højre"
+
+#: ../src/modules/display/MonitorProperties.qml:44
+msgid "Upside Down"
+msgstr "På hovedet"
+
+#: ../src/modules/display/MonitorProperties.qml:45
+msgid "Rotate Left"
+msgstr "Roter til venstre"
+
+#: ../src/modules/display/MonitorProperties.qml:78
+msgid "Enable Monitor(s)"
+msgstr "Aktiver skærm(e)"
+
+#: ../src/modules/display/MonitorProperties.qml:96
+msgid "Please choose the monitor(s) you want to enable"
+msgstr "Vælg venligst den skærm(e), du vil aktivere"
+
+#: ../src/modules/display/MonitorProperties.qml:146
+msgid "Primary Screen"
+msgstr "Primær skærm"
+
+#: ../src/modules/display/MonitorProperties.qml:189
+msgid "Resolution"
+msgstr "Opløsning"
+
+#: ../src/modules/display/MonitorProperties.qml:230
+msgid "Rotation"
+msgstr "Rotation"
+
+#: ../src/modules/display/MonitorProperties.qml:274
+#: ../src/modules/display/MonitorProperties.qml:306
+msgid "Brightness"
+msgstr "Lysstyrke"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:38
+msgid "Display Modes"
+msgstr "Skærmindstillinger"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:58
+msgid "Copy"
+msgstr "kopiere"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:59
+msgid "Copy the contents of your primary screen to other screens."
+msgstr "Kopier indholdet af din primære skærm til andre skærme."
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:76
+msgid "Extend"
+msgstr "Udvid"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:77
+msgid ""
+"Extend your screen contents to display different contents on different "
+"screens."
+msgstr "Udvid dit skærm indhold, for at vise forskelligt indhold på forskellige skærme."
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:98
+#, qt-format
+msgid "Only Displayed on %1"
+msgstr "Vises kun på %1"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:99
+#, qt-format
+msgid "Screen contents are only displayed on %1 but not on other screens."
+msgstr "Skærmindhold er kun vist på %1 men ikke på andre skærme."
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:118
+msgid "Custom Settings"
+msgstr "Brugerdefinerede indstillinger"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:119
+msgid "You can do other custom settings to your screens."
+msgstr "Du kan tilføje andre brugerdefinerede indstillinger til dine skærme."
+
+#: ../src/modules/grub/Preview.qml:122
+msgid "Drag and drop an image to change background."
+msgstr "Træk og slip et billede for at ændre baggrunden."
+
+#: ../src/modules/grub/Preview.qml:124
+msgid "Updating..."
+msgstr "Opdaterer..."
+
+#: ../src/modules/grub/Preview.qml:125
+msgid "Successfully updated, reboot to view."
+msgstr "Opdateret korrekt, genstart for at se."
+
+#: ../src/modules/grub/main.qml:112
+msgid "Default Boot"
+msgstr "Standard Boot"
+
+#: ../src/modules/grub/main.qml:167
+msgid "Boot delay"
+msgstr "Opstartsforsinkelse"
+
+#: ../src/modules/grub/main.qml:206
+msgid "Text Color"
+msgstr "Tekstfarve"
+
+#: ../src/modules/grub/main.qml:239
+msgid "Selected Text Color"
+msgstr "Markeret tekstfarve"
+
+#: ../src/modules/keyboard/LocaleArea.qml:53
+msgid "Language"
+msgstr "Sprog"
+
+#: ../src/modules/keyboard/StateButtons.qml:92
+msgid "Delete Keyboard Layout"
+msgstr "Slet Tastaturlayout"
+
+#: ../src/modules/keyboard/StateButtons.qml:107
+msgid "Add Keyboard Layout"
+msgstr "Tilføj Tastaturlayout"
+
+#: ../src/modules/keyboard/main.qml:148
+msgid "Repeat Delay"
+msgstr "Gentag Forsinkelse"
+
+#: ../src/modules/keyboard/main.qml:162
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:208
+msgid "Short"
+msgstr "Kort"
+
+#: ../src/modules/keyboard/main.qml:163
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:209
+msgid "Long"
+msgstr "Lang"
+
+#: ../src/modules/keyboard/main.qml:173
+msgid "Repeat Rate"
+msgstr "Gentagelse Rate"
+
+#: ../src/modules/keyboard/main.qml:188 ../src/modules/keyboard/main.qml:214
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:135
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:172
+#: ../src/modules/mouse_touchpad/main.qml:134
+#: ../src/modules/mouse_touchpad/main.qml:170
+msgid "Fast"
+msgstr "Hurtig"
+
+#: ../src/modules/keyboard/main.qml:189 ../src/modules/keyboard/main.qml:215
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:134
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:171
+#: ../src/modules/mouse_touchpad/main.qml:133
+#: ../src/modules/mouse_touchpad/main.qml:169
+msgid "Slow"
+msgstr "Langsom"
+
+#: ../src/modules/keyboard/main.qml:199
+msgid "Cursor Blink Rate"
+msgstr "Hastighed for markørblink"
+
+#: ../src/modules/keyboard/main.qml:225
+msgid "Test Area"
+msgstr "Testområde"
+
+#: ../src/modules/keyboard/main.qml:245
+msgid "Caps Lock prompt"
+msgstr "Caps Lock-markering"
+
+#: ../src/modules/keyboard/main.qml:271
+msgid "Keyboard Layout"
+msgstr "Tastaturlayout"
+
+#: ../src/modules/keyboard/main.qml:498
+msgid "No result"
+msgstr "Intet resultat"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
+msgid "Touchpad"
+msgstr "Touchpad"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:82
+#: ../src/modules/mouse_touchpad/main.qml:83
+msgid "Primary Button"
+msgstr "Primær knap"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:91
+#: ../src/modules/mouse_touchpad/main.qml:91
+msgid "Left Button"
+msgstr "Venstre knap"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:92
+#: ../src/modules/mouse_touchpad/main.qml:92
+msgid "Right Button"
+msgstr "Højre knap"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:117
+#: ../src/modules/mouse_touchpad/main.qml:117
+msgid "Pointer Speed"
+msgstr "Markørhastighed"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:154
+#: ../src/modules/mouse_touchpad/main.qml:153
+msgid "Double-click Speed"
+msgstr "Hastighed på dobbeltklik"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:192
+msgid "Drag Threshold"
+msgstr "Træk-tærskel"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:228
+msgid "Natural Scrolling"
+msgstr "Naturlig rulning"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:252
+msgid "Tap to click"
+msgstr "Tryk for at klikke"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:275
+msgid "Two-finger scrolling"
+msgstr "Rulning med to fingre"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:298
+msgid "Edge scrolling"
+msgstr "Kantrulning"
+
+#: ../src/modules/mouse_touchpad/main.qml:50 ../src/views/ModulesData.qml:67
+msgid "Mouse"
+msgstr "Mus"
+
+#: ../src/modules/mouse_touchpad/main.qml:190
+msgid "Disable the touchpad when inserting the mouse"
+msgstr "Deaktiver  touchpad, når der sættes en mus til."
+
+#: ../src/modules/network/ConnectionAdd.qml:12
+#: ../src/modules/network/main.qml:315
+msgid "Add Network Connection"
+msgstr "Tilføj netværksforbindelse"
+
+#: ../src/modules/network/ConnectionAdd.qml:35
+#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:11
+#: ../src/modules/network/main.qml:205
+msgid "PPPoE"
+msgstr "PPPoE"
+
+#: ../src/modules/network/ConnectionAdd.qml:45
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:11
+#: ../src/modules/network/main.qml:213
+msgid "VPN"
+msgstr "VPN"
+
+#: ../src/modules/network/ConnectionAdd.qml:77
+msgid "Next"
+msgstr "Næste"
+
+#: ../src/modules/network/ConnectionEdit.qml:60
+msgid "Are you sure you want to delete this network?"
+msgstr "Er du sikker på, at du vil slette dette netværk?"
+
+#: ../src/modules/network/ConnectionEdit.qml:60
+msgid "Delete this network"
+msgstr "Slet dette netværk"
+
+#: ../src/modules/network/ConnectionEdit.qml:118
+#: ../src/modules/network/wireless/WifiHotspot.qml:91
+msgid "Save"
+msgstr "Gem"
+
+#: ../src/modules/network/ConnectionEdit.qml:152
+msgid "Delete"
+msgstr "Slet"
+
+#: ../src/modules/network/Info.qml:13
+msgid "Connected"
+msgstr "Forbundet"
+
+#: ../src/modules/network/Info.qml:15
+msgid "Not Connected"
+msgstr "Ikke tilsluttet"
+
+#: ../src/modules/network/Info.qml:39
+msgid "(default)"
+msgstr "(standard)"
+
+#: ../src/modules/network/Info.qml:50
+msgid "Interface"
+msgstr "Interface"
+
+#: ../src/modules/network/Info.qml:59
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:11
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:33
+#: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:33
+#: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:33
+#: ../src/modules/network/wireless/AddWireless.qml:44
+#: ../src/modules/network/wireless/WifiHotspot.qml:49
+msgid "Security"
+msgstr "Sikkerhed"
+
+#: ../src/modules/network/Info.qml:60
+msgid "Device Addr"
+msgstr "Enhedsadresse"
+
+#: ../src/modules/network/Info.qml:61
+#: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:33
+#: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:33
+msgid "IP Address"
+msgstr "IP-adresse"
+
+#: ../src/modules/network/Info.qml:62
+msgid "Subnet Mask"
+msgstr "Subnetmaske"
+
+#: ../src/modules/network/Info.qml:63
+#: ../src/modules/network/add/AddVpn.qml:115
+#: ../src/modules/network/add/AddVpn.qml:155
+#: ../src/modules/network/add/AddVpn.qml:235
+#: ../src/modules/network/add/AddVpn.qml:385
+#: ../src/modules/network/add/AddVpn.qml:425
+#: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:57
+#: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:55
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:35
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:85
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:165
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:315
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:365
+msgid "Gateway"
+msgstr "Gateway"
+
+#: ../src/modules/network/Info.qml:64
+msgid "Primary DNS"
+msgstr "Primær DNS"
+
+#: ../src/modules/network/Info.qml:65
+msgid "Secondary DNS"
+msgstr "Sekundær DNS"
+
+#: ../src/modules/network/Info.qml:66
+msgid "Third DNS"
+msgstr "Tertiær DNS"
+
+#: ../src/modules/network/Info.qml:75
+msgid "Device Speed"
+msgstr "Enhedshastighed"
+
+#: ../src/modules/network/add/AddDsl.qml:11
+msgid "Add PPPoE Connection"
+msgstr "Tilføj PPPoE-forbindelse"
+
+#: ../src/modules/network/add/AddDsl.qml:24
+#: ../src/modules/network/add/AddMobile.qml:33
+#: ../src/modules/network/add/AddVpn.qml:103
+#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:33
+#: ../src/modules/shortcuts/CustomKeybinding.qml:118
+msgid "Name"
+msgstr "Navn"
+
+#: ../src/modules/network/add/AddDsl.qml:46
+#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:33
+msgid "Service"
+msgstr "Service"
+
+#: ../src/modules/network/add/AddMobile.qml:20
+msgid "New Mobile Connection"
+msgstr "Ny mobilforbindelse"
+
+#: ../src/modules/network/add/AddMobile.qml:45
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:56
+msgid "Service Type"
+msgstr "Servicetype"
+
+#: ../src/modules/network/add/AddMobile.qml:55
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:67
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:78
+msgid "APN"
+msgstr "APN"
+
+#: ../src/modules/network/add/AddMobile.qml:65
+#: ../src/modules/network/add/AddMobile.qml:95
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:88
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:158
+msgid "Number"
+msgstr "Nummer"
 
 #: ../src/modules/network/add/AddVpn.qml:15
 msgid "VPN Type"
@@ -235,29 +854,12 @@ msgstr "Grundlæggende oplysninger"
 msgid "Need VPN Plugin"
 msgstr "Kræver VPN-plugin"
 
-#: ../src/modules/network/add/AddVpn.qml:115
-#: ../src/modules/network/add/AddVpn.qml:155
-#: ../src/modules/network/add/AddVpn.qml:235
-#: ../src/modules/network/add/AddVpn.qml:385
-#: ../src/modules/network/add/AddVpn.qml:425
-#: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:57
-#: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:55
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:35
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:85
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:165
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:315
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:365
-msgid "Gateway"
-msgstr "Gateway"
-
 #: ../src/modules/network/add/AddVpn.qml:135
 #: ../src/modules/network/add/AddVpn.qml:265
 #: ../src/modules/network/add/AddVpn.qml:315
 #: ../src/modules/network/add/AddVpn.qml:405
 #: ../src/modules/network/add/AddVpn.qml:445
 #: ../src/modules/network/add/AddVpn.qml:475
-#: ../src/modules/network/wireless/AddWireless.qml:175
-#: ../src/modules/network/wireless/AddWireless.qml:196
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:164
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:185
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:55
@@ -266,15 +868,17 @@ msgstr "Gateway"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:335
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:385
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:415
+#: ../src/modules/network/wireless/AddWireless.qml:175
+#: ../src/modules/network/wireless/AddWireless.qml:196
 msgid "Ask for Pwd"
 msgstr "Spørg efter adgangskode"
 
 #: ../src/modules/network/add/AddVpn.qml:165
 #: ../src/modules/network/add/AddVpn.qml:285
-#: ../src/modules/network/wireless/AddWireless.qml:104
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:93
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:95
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:215
+#: ../src/modules/network/wireless/AddWireless.qml:104
 msgid "CA Cert"
 msgstr "CA-certifikat"
 
@@ -288,49 +892,43 @@ msgstr "Proxy"
 msgid "Allow Cisco Secure Desktop Trojan"
 msgstr "Tillad Cisco Secure Desktop Trojan"
 
-#: ../src/modules/network/add/AddVpn.qml:345
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:275
-#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
-msgid "Customize Key Direction"
-msgstr "Tilpas nøglested"
-
-#: ../src/modules/network/add/AddVpn.qml:215
-#: ../src/modules/network/add/AddVpn.qml:305
-#: ../src/modules/network/wireless/AddWireless.qml:165
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:154
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:145
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:235
-msgid "Private Key"
-msgstr "Privat nøgle"
-
-#: ../src/modules/network/add/AddVpn.qml:245
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:175
-msgid "Auth Type"
-msgstr "Godkendelsestype"
-
-#: ../src/modules/network/add/AddVpn.qml:205
-#: ../src/modules/network/add/AddVpn.qml:295
-#: ../src/modules/network/wireless/AddWireless.qml:114
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:103
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:135
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:225
-msgid "User Cert"
-msgstr "Brugercertifikat"
-
 #: ../src/modules/network/add/AddVpn.qml:195
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:125
 msgid "CSD Script"
 msgstr "CSD Script"
+
+#: ../src/modules/network/add/AddVpn.qml:205
+#: ../src/modules/network/add/AddVpn.qml:295
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:103
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:135
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:225
+#: ../src/modules/network/wireless/AddWireless.qml:114
+msgid "User Cert"
+msgstr "Brugercertifikat"
+
+#: ../src/modules/network/add/AddVpn.qml:215
+#: ../src/modules/network/add/AddVpn.qml:305
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:154
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:145
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:235
+#: ../src/modules/network/wireless/AddWireless.qml:165
+msgid "Private Key"
+msgstr "Privat nøgle"
 
 #: ../src/modules/network/add/AddVpn.qml:225
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:155
 msgid "Use FSID for Key Passphrase"
 msgstr "Brug FSID til adgangsnøgle"
 
+#: ../src/modules/network/add/AddVpn.qml:245
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:175
+msgid "Auth Type"
+msgstr "Godkendelsestype"
+
 #: ../src/modules/network/add/AddVpn.qml:325
-#: ../src/modules/network/wireless/AddWireless.qml:206
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:195
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:255
+#: ../src/modules/network/wireless/AddWireless.qml:206
 msgid "Private Pwd"
 msgstr "Privat adgangskode"
 
@@ -338,6 +936,12 @@ msgstr "Privat adgangskode"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:265
 msgid "Static Key"
 msgstr "Statisk nøgle"
+
+#: ../src/modules/network/add/AddVpn.qml:345
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:275
+#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
+msgid "Customize Key Direction"
+msgstr "Tilpas nøglested"
 
 #: ../src/modules/network/add/AddVpn.qml:355
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:285
@@ -405,203 +1009,6 @@ msgstr "Pre-delt Nøgle"
 msgid "Use MPPE"
 msgstr "Brug MPPE"
 
-#: ../src/modules/network/wireless/AddWireless.qml:8
-msgid "Connect to wireless"
-msgstr "Forbind til trådløs"
-
-#: ../src/modules/network/wireless/AddWireless.qml:32
-#: ../src/modules/network/edit_autogen/EditSectionWifi.qml:23
-#: ../src/modules/network/wireless/WifiHotspot.qml:37
-msgid "SSID"
-msgstr "SSID"
-
-#: ../src/modules/network/wireless/AddWireless.qml:44
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:11
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:33
-#: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:33
-#: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:33
-#: ../src/modules/network/Info.qml:53
-#: ../src/modules/network/wireless/WifiHotspot.qml:49
-msgid "Security"
-msgstr "Sikkerhed"
-
-#: ../src/modules/network/wireless/AddWireless.qml:54
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:43
-#: ../src/modules/network/wireless/WifiHotspot.qml:59
-msgid "Key"
-msgstr "Nøgle"
-
-#: ../src/modules/network/wireless/AddWireless.qml:74
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:63
-msgid "EAP Auth"
-msgstr "EAP-godkendelse"
-
-#: ../src/modules/network/wireless/AddWireless.qml:84
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:73
-msgid "Identity"
-msgstr "Identitet"
-
-#: ../src/modules/network/wireless/AddWireless.qml:94
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:83
-msgid "Anonymous ID"
-msgstr "Anonym ID"
-
-#: ../src/modules/network/wireless/AddWireless.qml:124
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:113
-msgid "Provisioning"
-msgstr "Provisioning"
-
-#: ../src/modules/network/wireless/AddWireless.qml:134
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:123
-msgid "PAC file"
-msgstr "PAC-fil"
-
-#: ../src/modules/network/wireless/AddWireless.qml:144
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:133
-msgid "PEAP Version"
-msgstr "PEAP-version"
-
-#: ../src/modules/network/wireless/AddWireless.qml:154
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:143
-msgid "Inner Auth"
-msgstr "Indre godkendelse"
-
-#: ../src/modules/network/wireless/AddWireless.qml:224
-#: ../src/modules/network/widgets/PasswordBox.qml:126
-msgid "Connect"
-msgstr "Forbind"
-
-#: ../src/modules/account/AvatarPickDialog.qml:5
-msgid "Choose a new picture for your Avatar"
-msgstr "Vælg et nyt billede til din avatar"
-
-#: ../src/modules/account/AvatarView.qml:19
-msgid "Recently Used"
-msgstr "Senest anvendt"
-
-#: ../src/modules/account/AvatarView.qml:20
-msgid "Avatar"
-msgstr "Avatar"
-
-#: ../src/modules/account/AvatarView.qml:21
-msgid "Webcam"
-msgstr "Webcam"
-
-#: ../src/modules/sound/BalanceLine.qml:31
-msgid "Left/Right Balance"
-msgstr "Venstre/højre-balance"
-
-#: ../src/modules/sound/BalanceLine.qml:53
-msgid "Left"
-msgstr "Venstre"
-
-#: ../src/modules/sound/BalanceLine.qml:55
-msgid "Right"
-msgstr "Højre"
-
-#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:43
-#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:53
-msgid "Automatically connect"
-msgstr "Automatisk forbindelse"
-
-#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:121
-#: ../src/modules/personalization/widgets/PreviewWindow.qml:280
-#: ../src/modules/display/main.qml:194
-msgid "Apply"
-msgstr "Anvend"
-
-#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:149
-msgid "Devices nearby"
-msgstr "Enheder i nærheden"
-
-#: ../src/modules/display/BrightnessRectangle.qml:61
-#: ../src/modules/display/ResolutionRectangle.qml:69
-#: ../src/modules/display/RotationRectangle.qml:70
-msgid "Monitor"
-msgstr "Skærm"
-
-#: ../src/modules/date_time/Calendar.qml:164
-msgid "Today"
-msgstr "Idag"
-
-#: ../src/modules/date_time/CalendarComponent.qml:83
-msgid "Sun"
-msgstr "Søn"
-
-#: ../src/modules/date_time/CalendarComponent.qml:84
-msgid "Mon"
-msgstr "Man"
-
-#: ../src/modules/date_time/CalendarComponent.qml:85
-msgid "Tue"
-msgstr "Tir"
-
-#: ../src/modules/date_time/CalendarComponent.qml:86
-msgid "Wed"
-msgstr "Ons"
-
-#: ../src/modules/date_time/CalendarComponent.qml:87
-msgid "Thu"
-msgstr "Tor"
-
-#: ../src/modules/date_time/CalendarComponent.qml:88
-msgid "Fri"
-msgstr "Fre"
-
-#: ../src/modules/date_time/CalendarComponent.qml:89
-msgid "Sat"
-msgstr "Lør"
-
-#: ../src/modules/network/ConnectionAdd.qml:12
-#: ../src/modules/network/main.qml:315
-msgid "Add Network Connection"
-msgstr "Tilføj netværksforbindelse"
-
-#: ../src/modules/network/ConnectionAdd.qml:35
-#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:11
-#: ../src/modules/network/main.qml:205
-msgid "PPPoE"
-msgstr "PPPoE"
-
-#: ../src/modules/network/ConnectionAdd.qml:45
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:11
-#: ../src/modules/network/main.qml:213
-msgid "VPN"
-msgstr "VPN"
-
-#: ../src/modules/network/ConnectionAdd.qml:77
-msgid "Next"
-msgstr "Næste"
-
-#: ../src/modules/network/ConnectionEdit.qml:52
-msgid "Delete this network"
-msgstr "Slet dette netværk"
-
-#: ../src/modules/network/ConnectionEdit.qml:52
-msgid "Are you sure you want to delete this network?"
-msgstr "Er du sikker på, at du vil slette dette netværk?"
-
-#: ../src/modules/network/ConnectionEdit.qml:110
-#: ../src/modules/network/wireless/WifiHotspot.qml:91
-msgid "Save"
-msgstr "Gem"
-
-#: ../src/modules/network/ConnectionEdit.qml:144
-msgid "Delete"
-msgstr "Slet"
-
-#: ../src/modules/shortcuts/CustomKeybinding.qml:133
-msgid "Command"
-msgstr "Kommando"
-
-#: ../src/modules/account/DeleteUserDialog.qml:19
-msgid "Keep user's files"
-msgstr "Behold brugerens filer"
-
-#: ../src/modules/account/DeleteUserDialog.qml:20
-msgid "Delete user's files"
-msgstr "Slet brugerens filer"
-
 #: ../src/modules/network/dsl/DslExpand.qml:19
 msgid "PPPoE Connections"
 msgstr "PPPoE-forbindelser"
@@ -614,6 +1021,11 @@ msgstr "Nuværende system mangler komponent for %1"
 #: ../src/modules/network/edit/EditLineMissingPackage.qml:22
 msgid "Click to install"
 msgstr "Klik for installation"
+
+#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:44
+#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:54
+msgid "Automatically connect"
+msgstr "Automatisk forbindelse"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:11
 #: ../src/modules/network/main.qml:197
@@ -650,12 +1062,6 @@ msgstr "IPv4"
 msgid "Method"
 msgstr "Metode"
 
-#: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:33
-#: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:33
-#: ../src/modules/network/Info.qml:55
-msgid "IP Address"
-msgstr "IP-adresse"
-
 #: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:44
 msgid "Netmask"
 msgstr "Netmaske"
@@ -678,19 +1084,31 @@ msgstr "Præfix"
 msgid "Mobile"
 msgstr "Mobil"
 
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:73
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:23
+msgid "Country or region"
+msgstr "Land eller region"
+
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:34
+msgid "Provider"
+msgstr "Udbyder"
+
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:45
+msgid "Plan"
+msgstr "Plan"
+
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:118
 msgid "Network ID"
 msgstr "Netværks-ID"
 
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:83
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:128
 msgid "Type"
 msgstr "Type"
 
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:93
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:138
 msgid "Home Network Only"
 msgstr "Kun hjemmenetværk"
 
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:103
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:148
 msgid "PIN"
 msgstr "PIN"
 
@@ -766,6 +1184,47 @@ msgstr "Send PPP Echo-pakker"
 msgid "Security Required"
 msgstr "Påkrævet sikkerhed"
 
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:43
+#: ../src/modules/network/wireless/AddWireless.qml:54
+#: ../src/modules/network/wireless/WifiHotspot.qml:59
+msgid "Key"
+msgstr "Nøgle"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:63
+#: ../src/modules/network/wireless/AddWireless.qml:74
+msgid "EAP Auth"
+msgstr "EAP-godkendelse"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:73
+#: ../src/modules/network/wireless/AddWireless.qml:84
+msgid "Identity"
+msgstr "Identitet"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:83
+#: ../src/modules/network/wireless/AddWireless.qml:94
+msgid "Anonymous ID"
+msgstr "Anonym ID"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:113
+#: ../src/modules/network/wireless/AddWireless.qml:124
+msgid "Provisioning"
+msgstr "Provisioning"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:123
+#: ../src/modules/network/wireless/AddWireless.qml:134
+msgid "PAC file"
+msgstr "PAC-fil"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:133
+#: ../src/modules/network/wireless/AddWireless.qml:144
+msgid "PEAP Version"
+msgstr "PEAP-version"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:143
+#: ../src/modules/network/wireless/AddWireless.qml:154
+msgid "Inner Auth"
+msgstr "Indre godkendelse"
+
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:75
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:355
 msgid "NT Domain"
@@ -793,13 +1252,13 @@ msgstr "Ingen Adresse/ Kontrolkomprimering"
 msgid "VPN Advanced"
 msgstr "Avanceret VPN"
 
-#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:33
-msgid "Gateway Port"
-msgstr "Gateway-port"
-
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:23
 msgid "Customize Gateway Port"
 msgstr "Sæt Gateway-port"
+
+#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:33
+msgid "Gateway Port"
+msgstr "Gateway-port"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:45
 msgid "Customize Renegotiation Interval"
@@ -930,6 +1389,12 @@ msgstr "Deaktiver Dead Peer Detection"
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
 
+#: ../src/modules/network/edit_autogen/EditSectionWifi.qml:23
+#: ../src/modules/network/wireless/AddWireless.qml:32
+#: ../src/modules/network/wireless/WifiHotspot.qml:37
+msgid "SSID"
+msgstr "SSID"
+
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:33
 msgid "Mode"
 msgstr "Tilstand"
@@ -941,929 +1406,6 @@ msgstr "Bånd"
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:54
 msgid "Channel"
 msgstr "Kanal"
-
-#: ../src/modules/account/EditUserDialog.qml:93
-msgid "Enable"
-msgstr "Aktiver"
-
-#: ../src/modules/sound/FadeLine.qml:31
-msgid "Front/Rear Balance"
-msgstr "Front/Bagbalance"
-
-#: ../src/modules/sound/FadeLine.qml:55
-msgid "Front"
-msgstr "Front"
-
-#: ../src/modules/sound/FadeLine.qml:53
-msgid "Rear"
-msgstr "Bag"
-
-#: ../src/modules/personalization/components/FontSettingsExpand.qml:48
-msgid "Standard"
-msgstr "Standard"
-
-#: ../src/modules/personalization/components/FontSettingsExpand.qml:70
-msgid "Monospaced"
-msgstr "Enkelt mellemrum"
-
-#: ../src/modules/personalization/components/FontSettingsExpand.qml:90
-msgid "Size"
-msgstr "Størrelse"
-
-#: ../src/modules/personalization/components/FontSettingsExpand.qml:119
-#, qt-format
-msgid "Font %1"
-msgstr "Skrifttype %1"
-
-#: ../src/modules/account/GuestUser.qml:45 ../src/views/HeaderArea.qml:108
-msgid "Guest"
-msgstr "Gæst"
-
-#: ../src/modules/account/GuestUser.qml:106
-msgid "Enabled"
-msgstr "Aktiveret"
-
-#: ../src/modules/network/Info.qml:13
-msgid "Connected"
-msgstr "Forbundet"
-
-#: ../src/modules/network/Info.qml:15
-msgid "Not Connected"
-msgstr "Ikke tilsluttet"
-
-#: ../src/modules/network/Info.qml:39
-msgid "(default)"
-msgstr "(standard)"
-
-#: ../src/modules/network/Info.qml:50
-msgid "Interface"
-msgstr "Interface"
-
-#: ../src/modules/network/Info.qml:54
-msgid "Device Addr"
-msgstr "Enhedsadresse"
-
-#: ../src/modules/network/Info.qml:56
-msgid "Subnet Mask"
-msgstr "Subnetmaske"
-
-#: ../src/modules/network/Info.qml:57
-msgid "Route Addr"
-msgstr "Ruteadresse"
-
-#: ../src/modules/network/Info.qml:58
-msgid "Primary DNS"
-msgstr "Primær DNS"
-
-#: ../src/modules/network/Info.qml:59
-msgid "Secondary DNS"
-msgstr "Sekundær DNS"
-
-#: ../src/modules/network/Info.qml:60
-msgid "Third DNS"
-msgstr "Tertiær DNS"
-
-#: ../src/modules/network/Info.qml:69
-msgid "Device Speed"
-msgstr "Enhedshastighed"
-
-#: ../src/modules/keyboard/LocaleArea.qml:53
-msgid "Language"
-msgstr "Sprog"
-
-#: ../src/modules/display/MessageBox.qml:105
-msgid "Do you want to keep these display settings?"
-msgstr "Ønsker du at beholde disse skærmindstillinger?"
-
-#: ../src/modules/display/MessageBox.qml:114
-#, qt-format
-msgid ""
-"Reverting to previous display settings in <font color='#F48914'>%1</font> "
-"seconds."
-msgstr "Går tilbage til tidligere skærmindstillinger i <font color='#F48914'>%1</font> sekunder."
-
-#: ../src/modules/display/MessageBox.qml:140
-msgid "Keep Changes"
-msgstr "Behold ændringer"
-
-#: ../src/modules/display/MessageBox.qml:128
-msgid "Revert"
-msgstr "Vend tilbage"
-
-#: ../src/views/ModulesData.qml:52
-msgid "Date and Time"
-msgstr "Dato og tid"
-
-#: ../src/views/ModulesData.qml:53
-msgid "Network"
-msgstr "Netværk"
-
-#: ../src/views/ModulesData.qml:54
-msgid "Disk Mount"
-msgstr "Diskmontering"
-
-#: ../src/views/ModulesData.qml:55 ../src/modules/network/main.qml:173
-msgid "Bluetooth"
-msgstr "Bluetooth"
-
-#: ../src/views/ModulesData.qml:56
-msgid "Sound"
-msgstr "Lyd"
-
-#: ../src/views/ModulesData.qml:57
-msgid "Power Management"
-msgstr "Strømstyring"
-
-#: ../src/views/ModulesData.qml:58
-msgid "More Settings"
-msgstr "Flere indstillinger"
-
-#: ../src/views/ModulesData.qml:59 ../src/views/PanelContent.qml:473
-msgid "Power"
-msgstr "Strøm"
-
-#: ../src/views/ModulesData.qml:60
-msgid "Display"
-msgstr "Skærm"
-
-#: ../src/views/ModulesData.qml:61
-msgid "Desktop"
-msgstr "Skrivebord"
-
-#: ../src/views/ModulesData.qml:62
-msgid "Personalization"
-msgstr "Personlig tilpasning"
-
-#: ../src/views/ModulesData.qml:63
-msgid "Keyboard Shortcuts"
-msgstr "Tastaurgenveje"
-
-#: ../src/views/ModulesData.qml:64
-msgid "Keyboard and Language"
-msgstr "Tastatur og sprog"
-
-#: ../src/views/ModulesData.qml:65
-msgid "Tablet"
-msgstr "Tablet"
-
-#: ../src/views/ModulesData.qml:66
-msgid "Mouse and Touchpad"
-msgstr "Mus og touchpad"
-
-#: ../src/views/ModulesData.qml:67 ../src/modules/mouse_touchpad/main.qml:50
-msgid "Mouse"
-msgstr "Mus"
-
-#: ../src/views/ModulesData.qml:68
-msgid "User Accounts"
-msgstr "Brugerkonti"
-
-#: ../src/views/ModulesData.qml:69
-#: ../src/modules/default_applications/main.qml:85
-msgid "Default Applications"
-msgstr "Standardprogrammer"
-
-#: ../src/views/ModulesData.qml:70
-msgid "System Information"
-msgstr "Systemoplysninger"
-
-#: ../src/views/ModulesData.qml:71
-msgid "Boot Menu"
-msgstr "Bootmenu"
-
-#: ../src/views/ModulesData.qml:72
-msgid "Home"
-msgstr "Hjem"
-
-#: ../src/modules/display/MonitorDragArea.qml:471
-msgid "Identify"
-msgstr "Identificer"
-
-#: ../src/modules/display/MonitorDragArea.qml:489
-msgid "Edit"
-msgstr "Rediger"
-
-#: ../src/modules/display/MonitorDragArea.qml:507
-msgid "Split"
-msgstr "Opdel"
-
-#: ../src/modules/display/MonitorProperties.qml:42
-msgid "Normal"
-msgstr "Normal"
-
-#: ../src/modules/display/MonitorProperties.qml:43
-msgid "Rotate Right"
-msgstr "Roter til højre"
-
-#: ../src/modules/display/MonitorProperties.qml:44
-msgid "Upside Down"
-msgstr "På hovedet"
-
-#: ../src/modules/display/MonitorProperties.qml:45
-msgid "Rotate Left"
-msgstr "Roter til venstre"
-
-#: ../src/modules/display/MonitorProperties.qml:78
-msgid "Enable Monitor(s)"
-msgstr "Aktiver skærm(e)"
-
-#: ../src/modules/display/MonitorProperties.qml:96
-msgid "Please choose the monitor(s) you want to enable"
-msgstr "Vælg venligst den skærm(e), du vil aktivere"
-
-#: ../src/modules/display/MonitorProperties.qml:146
-msgid "Primary Screen"
-msgstr "Primær skærm"
-
-#: ../src/modules/display/MonitorProperties.qml:189
-msgid "Resolution"
-msgstr "Opløsning"
-
-#: ../src/modules/display/MonitorProperties.qml:230
-msgid "Rotation"
-msgstr "Rotation"
-
-#: ../src/modules/display/MonitorProperties.qml:274
-#: ../src/modules/display/MonitorProperties.qml:306
-msgid "Brightness"
-msgstr "Lysstyrke"
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:38
-msgid "Display Modes"
-msgstr "Skærmindstillinger"
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:58
-msgid "Copy"
-msgstr "kopiere"
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:59
-msgid "Copy the contents of your primary screen to other screens."
-msgstr "Kopier indholdet af din primære skærm til andre skærme."
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:76
-msgid "Extend"
-msgstr "Udvid"
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:77
-msgid ""
-"Extend your screen contents to display different contents on different "
-"screens."
-msgstr "Udvid dit skærm indhold, for at vise forskelligt indhold på forskellige skærme."
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:98
-#, qt-format
-msgid "Only Displayed on %1"
-msgstr "Vises kun på %1"
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:99
-#, qt-format
-msgid "Screen contents are only displayed on %1 but not on other screens."
-msgstr "Skærmindhold er kun vist på %1 men ikke på andre skærme."
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:118
-msgid "Custom Settings"
-msgstr "Brugerdefinerede indstillinger"
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:119
-msgid "You can do other custom settings to your screens."
-msgstr "Du kan tilføje andre brugerdefinerede indstillinger til dine skærme."
-
-#: ../src/modules/network/wired/NewItem.qml:45
-#: ../src/modules/network/wired/WiredItem.qml:89
-#, qt-format
-msgid "Wired Connection %1"
-msgstr "Kablet forbindelse %1"
-
-#: ../src/modules/network/wired/NewItem.qml:47
-#: ../src/modules/network/wired/WiredItem.qml:91
-msgid "Wired Connection"
-msgstr "Kablet forbindelse"
-
-#: ../src/modules/network/widgets/NotManagedSection.qml:25
-msgid "not managed"
-msgstr "lykkedes ikke"
-
-#: ../src/modules/network/widgets/PasswordBox.qml:102
-msgid "Auto-connect"
-msgstr "Forbind automatisk"
-
-#: ../src/modules/account/PasswordDialog.qml:119
-msgid "New Password"
-msgstr "Ny adgangskode"
-
-#: ../src/modules/account/PasswordDialog.qml:185
-msgid "Repeat"
-msgstr "Gentag"
-
-#: ../src/modules/grub/Preview.qml:122
-msgid "Drag and drop an image to change background."
-msgstr "Træk og slip et billede for at ændre baggrunden."
-
-#: ../src/modules/grub/Preview.qml:123 ../src/modules/account/UserList.qml:239
-msgid "Image format not supported"
-msgstr "Billedformat understøttes ikke."
-
-#: ../src/modules/grub/Preview.qml:124
-msgid "Updating..."
-msgstr "Opdaterer..."
-
-#: ../src/modules/grub/Preview.qml:125
-msgid "Successfully updated, reboot to view."
-msgstr "Opdateret korrekt, genstart for at se."
-
-#: ../src/modules/network/proxy/ProxyContent.qml:43
-#: ../src/modules/shortcuts/ShortcutInput.qml:119
-#: ../src/modules/date_time/main.qml:205
-msgid "None"
-msgstr "Ingen"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:48
-msgid "Manual"
-msgstr "Manuel"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:53
-msgid "Auto"
-msgstr "Automatisk"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:88
-msgid "HTTP Proxy"
-msgstr "HTTP-proxy"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:100
-msgid "HTTPS Proxy"
-msgstr "HTTPS-proxy"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:112
-msgid "FTP Proxy"
-msgstr "FTP-proxy"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:124
-msgid "Socks Proxy"
-msgstr "Socks-proxy"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:149
-msgid "Configuration URL"
-msgstr "Konfigurations-URL"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:166
-msgid "Apply system wide"
-msgstr "Anvend på hele systemet"
-
-#: ../src/modules/network/proxy/ProxyExpand.qml:37
-msgid "System Proxy"
-msgstr "Systemproxy"
-
-#: ../src/modules/shared/ResetButton.qml:39
-msgid "Reset successfully"
-msgstr "Nulstilling vellykket"
-
-#: ../src/modules/shared/ResetButton.qml:47
-msgid "Reset"
-msgstr "Nulstil"
-
-#: ../src/modules/shortcuts/ShortcutInput.qml:137
-msgid "Please input new shortcut"
-msgstr "Indtast ny tastaturgenvej"
-
-#: ../src/modules/shortcuts/ShortcutInput.qml:238
-#, qt-format
-msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
-msgstr "Tastaturgenvej \"%1\" er ugyldig, indtast ny genvej."
-
-#: ../src/modules/shortcuts/ShortcutInput.qml:276
-msgid "The shortcut you set "
-msgstr "Genvejen, du har sat"
-
-#: ../src/modules/shortcuts/ShortcutInput.qml:279
-#, qt-format
-msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
-msgstr "er i konflikt med den, der anvendes til \"%2\" i \"%1\"-kategorien."
-
-#: ../src/modules/shortcuts/ShortcutInput.qml:281
-msgid "Do you want to replace it?"
-msgstr "Ønsker du at erstatte den?"
-
-#: ../src/modules/shortcuts/ShortcutInput.qml:339
-msgid "Replace"
-msgstr "Erstat"
-
-#: ../src/modules/personalization/widgets/ShowPreviewButton.qml:53
-msgid "Preview Theme"
-msgstr "Vis tema"
-
-#: ../src/modules/date_time/StateButtons.qml:35
-#: ../src/modules/keyboard/StateButtons.qml:35
-#: ../src/modules/shortcuts/StateButtons.qml:39
-msgid "Done"
-msgstr "Færdig"
-
-#: ../src/modules/date_time/StateButtons.qml:36
-#: ../src/modules/date_time/StateButtons.qml:54
-#: ../src/modules/date_time/TimezoneArea.qml:468
-msgid "Close"
-msgstr "Luk"
-
-#: ../src/modules/date_time/StateButtons.qml:85
-msgid "Delete Time Zone"
-msgstr "Slet tidszone"
-
-#: ../src/modules/date_time/StateButtons.qml:101
-msgid "Add Time Zone"
-msgstr "Tilføj tidszone"
-
-#: ../src/modules/keyboard/StateButtons.qml:92
-msgid "Delete Keyboard Layout"
-msgstr "Slet Tastaturlayout"
-
-#: ../src/modules/keyboard/StateButtons.qml:107
-msgid "Add Keyboard Layout"
-msgstr "Tilføj Tastaturlayout"
-
-#: ../src/modules/shortcuts/StateButtons.qml:90
-msgid "Delete Shortcut"
-msgstr "Slet genvej"
-
-#: ../src/modules/shortcuts/StateButtons.qml:107
-msgid "Add Shortcut"
-msgstr "Tilføj genvej"
-
-#: ../src/modules/personalization/widgets/ThemeItem.qml:92
-#: ../src/modules/power/main.qml:319 ../src/modules/power/main.qml:560
-#: ../src/modules/shortcuts/main.qml:54 ../src/modules/shortcuts/main.qml:231
-msgid "Custom"
-msgstr "Tilpasset"
-
-#: ../src/modules/date_time/TimeBox.qml:161
-msgid "Double-click this area to change your time"
-msgstr "Dobbeltklik på dette område for at ændre din tid"
-
-#: ../src/modules/date_time/TimeBox.qml:202
-msgid "Set"
-msgstr "Sæt"
-
-#: ../src/modules/date_time/TimezoneArea.qml:256
-msgid "Time zone"
-msgstr "Tidszone"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
-msgid "Touchpad"
-msgstr "Touchpad"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:82
-#: ../src/modules/mouse_touchpad/main.qml:83
-msgid "Primary Button"
-msgstr "Primær knap"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:91
-#: ../src/modules/mouse_touchpad/main.qml:91
-msgid "Left Button"
-msgstr "Venstre knap"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:92
-#: ../src/modules/mouse_touchpad/main.qml:92
-msgid "Right Button"
-msgstr "Højre knap"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:117
-#: ../src/modules/mouse_touchpad/main.qml:117
-msgid "Pointer Speed"
-msgstr "Markørhastighed"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:134
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:171
-#: ../src/modules/keyboard/main.qml:190 ../src/modules/keyboard/main.qml:216
-#: ../src/modules/mouse_touchpad/main.qml:133
-#: ../src/modules/mouse_touchpad/main.qml:169
-msgid "Slow"
-msgstr "Langsom"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:135
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:172
-#: ../src/modules/keyboard/main.qml:189 ../src/modules/keyboard/main.qml:215
-#: ../src/modules/mouse_touchpad/main.qml:134
-#: ../src/modules/mouse_touchpad/main.qml:170
-msgid "Fast"
-msgstr "Hurtig"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:154
-#: ../src/modules/mouse_touchpad/main.qml:153
-msgid "Double-click Speed"
-msgstr "Hastighed på dobbeltklik"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:192
-msgid "Drag Threshold"
-msgstr "Træk-tærskel"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:208
-#: ../src/modules/keyboard/main.qml:163
-msgid "Short"
-msgstr "Kort"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:209
-#: ../src/modules/keyboard/main.qml:164
-msgid "Long"
-msgstr "Lang"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:228
-msgid "Natural Scrolling"
-msgstr "Naturlig rulning"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:252
-msgid "Tap to click"
-msgstr "Tryk for at klikke"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:275
-msgid "Two-finger scrolling"
-msgstr "Rulning med to fingre"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:298
-msgid "Edge scrolling"
-msgstr "Kantrulning"
-
-#: ../src/modules/account/UserListCreatingItem.qml:99
-msgid "Account Preparing..."
-msgstr "Konto Forbereder..."
-
-#: ../src/modules/network/vpn/VpnExpand.qml:48
-msgid "VPN Connections"
-msgstr "VPN-forbindelser"
-
-#: ../src/modules/account/WebCam.qml:125 ../src/modules/account/WebCam.qml:140
-msgid "Snapshot"
-msgstr "Skærmbillede"
-
-#: ../src/modules/account/WebCam.qml:136
-msgid "Again"
-msgstr "Igen"
-
-#: ../src/modules/account/WebCam.qml:175
-msgid "No camera found."
-msgstr "Intet kamera fundet."
-
-#: ../src/modules/network/wireless/WifiHotspot.qml:23
-msgid "Edit Wi-Fi Hotspot"
-msgstr "Rediger Wi-Fi-hotspot"
-
-#: ../src/modules/network/wireless/WifiHotspot.qml:23
-msgid "Create Wi-Fi Hotspot"
-msgstr "Opret Wi-Fi-hotspot"
-
-#: ../src/modules/network/wireless/WifiHotspot.qml:91
-msgid "Create"
-msgstr "Opret"
-
-#: ../src/modules/network/wired/WiredDeviceExpand.qml:38
-msgid "Wired Network"
-msgstr "Kablet netværk"
-
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:30
-msgid "Wireless Network"
-msgstr "Trådløst netværk"
-
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:28
-#, qt-format
-msgid "Wireless Network %1"
-msgstr "Trådløst netværk %1"
-
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:57
-msgid ""
-"Wireless network is unable to be connected maybe due to the following reasons:\n"
-"\n"
-"1. The hardware switch of wireless network card is off\n"
-"2. Incorrect network configuration in /etc/network/interface\n"
-"3. Incorrect driver of network hardware"
-msgstr "Trådløse netværk kan ikke få forbindelse - måske af følgende årsager:\n\n1. Hardware-kontakt til trådløst netværkskort er slukket\n2. Fejl i netværksopsætningen i /etc/network/interface\n3. Forkert driver til netværkshardware"
-
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:37
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:163
-msgid "Connect to hidden access point"
-msgstr "Tilslut til skjult access point"
-
-#: ../src/modules/power/main.qml:307 ../src/modules/power/main.qml:548
-msgid "Power saver"
-msgstr "Strømbesparende"
-
-#: ../src/modules/power/main.qml:301 ../src/modules/power/main.qml:542
-msgid "Balanced"
-msgstr "Balanceret"
-
-#: ../src/modules/power/main.qml:313 ../src/modules/power/main.qml:554
-msgid "High performance"
-msgstr "Høj ydeevne"
-
-#: ../src/modules/date_time/main.qml:131
-msgid "Sync Automatically"
-msgstr "Automatisk synkronisering"
-
-#: ../src/modules/date_time/main.qml:149
-msgid "Use 24-hour clock"
-msgstr "Brug 24-timersur"
-
-#: ../src/modules/date_time/main.qml:180
-msgid "Adjust DST clock "
-msgstr "Juster DST ur"
-
-#: ../src/modules/date_time/main.qml:257
-msgid "Date"
-msgstr "Dato"
-
-#: ../src/modules/date_time/main.qml:290
-msgid "Set Date"
-msgstr "Sæt dato"
-
-#: ../src/modules/default_applications/main.qml:97
-msgid "Browser"
-msgstr "Browser"
-
-#: ../src/modules/default_applications/main.qml:111
-msgid "Mail"
-msgstr "Email"
-
-#: ../src/modules/default_applications/main.qml:122
-msgid "Text"
-msgstr "Tekst"
-
-#: ../src/modules/default_applications/main.qml:128
-msgid "Music"
-msgstr "Musik"
-
-#: ../src/modules/default_applications/main.qml:159
-msgid "Video"
-msgstr "Video"
-
-#: ../src/modules/default_applications/main.qml:191
-msgid "Picture"
-msgstr "Billede"
-
-#: ../src/modules/default_applications/main.qml:209
-msgid "Terminal"
-msgstr "Terminal"
-
-#: ../src/modules/default_applications/main.qml:268
-msgid "AutoPlay"
-msgstr "Automatisk afspilning"
-
-#: ../src/modules/default_applications/main.qml:283
-msgid "CD Audio"
-msgstr "CD Audio"
-
-#: ../src/modules/default_applications/main.qml:288
-msgid "DVD Video"
-msgstr "DVD Video"
-
-#: ../src/modules/default_applications/main.qml:293
-msgid "Music Player"
-msgstr "Musikafspiller"
-
-#: ../src/modules/default_applications/main.qml:298
-msgid "Camera"
-msgstr "Kamera"
-
-#: ../src/modules/default_applications/main.qml:303
-msgid "Software"
-msgstr "Software"
-
-#: ../src/modules/grub/main.qml:112
-msgid "Default Boot"
-msgstr "Standard Boot"
-
-#: ../src/modules/grub/main.qml:167
-msgid "Boot delay"
-msgstr "Opstartsforsinkelse"
-
-#: ../src/modules/grub/main.qml:206
-msgid "Text Color"
-msgstr "Tekstfarve"
-
-#: ../src/modules/grub/main.qml:239
-msgid "Selected Text Color"
-msgstr "Markeret tekstfarve"
-
-#: ../src/modules/keyboard/main.qml:149
-msgid "Repeat Delay"
-msgstr "Gentag Forsinkelse"
-
-#: ../src/modules/keyboard/main.qml:174
-msgid "Repeat Rate"
-msgstr "Gentagelse Rate"
-
-#: ../src/modules/keyboard/main.qml:200
-msgid "Cursor Blink Rate"
-msgstr "Hastighed for markørblink"
-
-#: ../src/modules/keyboard/main.qml:226
-msgid "Test Area"
-msgstr "Testområde"
-
-#: ../src/modules/keyboard/main.qml:272
-msgid "Keyboard Layout"
-msgstr "Tastaturlayout"
-
-#: ../src/modules/keyboard/main.qml:499
-msgid "No result"
-msgstr "Intet resultat"
-
-#: ../src/modules/keyboard/main.qml:246
-msgid "Caps Lock prompt"
-msgstr "Caps Lock-markering"
-
-#: ../src/modules/mouse_touchpad/main.qml:190
-msgid "Disable the touchpad when inserting the mouse"
-msgstr "Deaktiver  touchpad, når der sættes en mus til."
-
-#: ../src/modules/personalization/main.qml:111
-msgid "Theme"
-msgstr "Tema"
-
-#: ../src/modules/personalization/main.qml:118
-#: ../src/modules/shortcuts/main.qml:52
-msgid "Window"
-msgstr "Vindue"
-
-#: ../src/modules/personalization/main.qml:125
-msgid "Icon"
-msgstr "Ikon"
-
-#: ../src/modules/personalization/main.qml:132
-msgid "Cursor"
-msgstr "Markør"
-
-#: ../src/modules/personalization/main.qml:139
-msgid "Wallpaper"
-msgstr "Baggrundsbillede"
-
-#: ../src/modules/personalization/main.qml:153
-msgid "Fonts"
-msgstr "Skrifttyper"
-
-#: ../src/modules/power/main.qml:53 ../src/modules/power/main.qml:65
-msgid "Never"
-msgstr "Aldrig"
-
-#: ../src/modules/power/main.qml:59
-msgid "1 minute"
-msgstr "1 minut"
-
-#: ../src/modules/power/main.qml:60
-msgid "5 minutes"
-msgstr "5 minutter"
-
-#: ../src/modules/power/main.qml:61
-msgid "10 minutes"
-msgstr "10 minutter"
-
-#: ../src/modules/power/main.qml:62
-msgid "15 minutes"
-msgstr "15 minutter"
-
-#: ../src/modules/power/main.qml:63
-msgid "30 minutes"
-msgstr "30 minutter"
-
-#: ../src/modules/power/main.qml:64
-msgid "1 hour"
-msgstr "1 time"
-
-#: ../src/modules/power/main.qml:123
-msgid "When I press the power button"
-msgstr "Når der trykkes på powerknappen"
-
-#: ../src/modules/power/main.qml:137 ../src/modules/power/main.qml:183
-msgid "Shutdown"
-msgstr "Luk ned"
-
-#: ../src/modules/power/main.qml:142 ../src/modules/power/main.qml:188
-#: ../src/modules/power/main.qml:304 ../src/modules/power/main.qml:310
-#: ../src/modules/power/main.qml:316 ../src/modules/power/main.qml:322
-#: ../src/modules/power/main.qml:425 ../src/modules/power/main.qml:545
-#: ../src/modules/power/main.qml:551 ../src/modules/power/main.qml:557
-#: ../src/modules/power/main.qml:563 ../src/modules/power/main.qml:659
-msgid "Suspend"
-msgstr "Standby"
-
-#: ../src/modules/power/main.qml:147
-msgid "Ask"
-msgstr "Spørg"
-
-#: ../src/modules/power/main.qml:169
-msgid "When I close the lid"
-msgstr "Når jeg klapper skærmen ned"
-
-#: ../src/modules/power/main.qml:193
-msgid "Nothing"
-msgstr "Ingenting"
-
-#: ../src/modules/power/main.qml:212
-msgid "Password required to wake up"
-msgstr "Adgangskode påkrævet for at vågne op"
-
-#: ../src/modules/power/main.qml:248
-msgid "Plugged in"
-msgstr "Tilsluttet"
-
-#: ../src/modules/power/main.qml:490
-msgid "On battery"
-msgstr "På batteri"
-
-#: ../src/modules/power/main.qml:303 ../src/modules/power/main.qml:309
-#: ../src/modules/power/main.qml:315 ../src/modules/power/main.qml:321
-#: ../src/modules/power/main.qml:384 ../src/modules/power/main.qml:544
-#: ../src/modules/power/main.qml:550 ../src/modules/power/main.qml:556
-#: ../src/modules/power/main.qml:562 ../src/modules/power/main.qml:619
-msgid "Turn off the display"
-msgstr "Sluk skærmen"
-
-#: ../src/modules/power/main.qml:378 ../src/modules/power/main.qml:614
-msgid "Custom Options"
-msgstr "Tilpassede indstillinger"
-
-#: ../src/modules/shortcuts/main.qml:50
-msgid "System"
-msgstr "System"
-
-#: ../src/modules/shortcuts/main.qml:53
-msgid "Workspace"
-msgstr "Arbejdsområde"
-
-#: ../src/modules/sound/main.qml:127
-msgid "Speaker"
-msgstr "Højttaler"
-
-#: ../src/modules/sound/main.qml:157
-msgid "Output Volume"
-msgstr "Lydstyrke for output"
-
-#: ../src/modules/sound/main.qml:222
-msgid "Microphone"
-msgstr "Mikrofon"
-
-#: ../src/modules/sound/main.qml:252
-msgid "Input Volume"
-msgstr "Lydstyrke for input"
-
-#: ../src/modules/sound/main.qml:296
-msgid "Input Feedback"
-msgstr "Feedback fra input"
-
-#: ../src/modules/sound/main.qml:332
-msgid "Output Port"
-msgstr "Output-port"
-
-#: ../src/modules/sound/main.qml:349 ../src/modules/sound/main.qml:452
-msgid "No port exists in this device."
-msgstr "Der findes ingen port i denne enhed."
-
-#: ../src/modules/sound/main.qml:387
-msgid "Output device"
-msgstr "Outputenhed"
-
-#: ../src/modules/sound/main.qml:435
-msgid "Input Port"
-msgstr "Input-port"
-
-#: ../src/modules/sound/main.qml:490
-msgid "Input device"
-msgstr "Inputenhed"
-
-#: ../src/modules/sound/main.qml:543
-msgid "Hide Advanced..."
-msgstr "Skjul avanceret..."
-
-#: ../src/modules/sound/main.qml:543
-msgid "Show Advanced..."
-msgstr "Vis avanceret..."
-
-#: ../src/modules/system_info/main.qml:119
-msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
-msgstr "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
-
-#: ../src/modules/system_info/main.qml:125
-msgid "Deepin Edition"
-msgstr "Version af Deepin"
-
-#: ../src/modules/system_info/main.qml:131
-msgid "System Type"
-msgstr "Systemtype"
-
-#: ../src/modules/system_info/main.qml:132
-msgid "bit"
-msgstr "bit"
-
-#: ../src/modules/system_info/main.qml:137
-msgid "Processor"
-msgstr "Processor"
-
-#: ../src/modules/system_info/main.qml:151
-msgid "Memory"
-msgstr "Hukommelse"
-
-#: ../src/modules/system_info/main.qml:157
-msgid "Disk"
-msgstr "Harddisk"
-
-#: ../src/modules/system_info/main.qml:175
-msgid "GNU GENERAL PUBLIC LICENSE"
-msgstr "GNU GENERAL PUBLIC LICENSE"
 
 #: ../src/modules/network/main.qml:163 ../src/modules/network/main.qml:191
 msgid "Unknown"
@@ -1884,6 +1426,10 @@ msgstr "Ubrugt1"
 #: ../src/modules/network/main.qml:171
 msgid "Unused2"
 msgstr "Ubrugt2"
+
+#: ../src/modules/network/main.qml:173 ../src/views/ModulesData.qml:55
+msgid "Bluetooth"
+msgstr "Bluetooth"
 
 #: ../src/modules/network/main.qml:175
 msgid "OLPC mesh"
@@ -1937,10 +1483,6 @@ msgstr "Mobil GSM"
 msgid "Mobile CDMA"
 msgstr "Mobil CDMA"
 
-#: ../src/modules/network/main.qml:341
-msgid "View Detailed Information"
-msgstr "Se detaljerede oplysninger"
-
 #: ../src/modules/network/main.qml:215
 msgid "VPN L2TP"
 msgstr "VPN L2TP"
@@ -1961,17 +1503,536 @@ msgstr "VPN OpenVPN"
 msgid "VPN OpenConnect"
 msgstr "VPN OpenConnect"
 
-#: ../src/modules/account/main.qml:109
-msgid "Delete Account"
-msgstr "Slet konto"
+#: ../src/modules/network/main.qml:341
+msgid "View Detailed Information"
+msgstr "Se detaljerede oplysninger"
 
-#: ../src/modules/account/main.qml:149
-msgid "Add Account"
-msgstr "Tilføj konto"
+#: ../src/modules/network/mobile/MobileItem.qml:27
+msgid "Restore the connection"
+msgstr "Gendan forbindelsen"
 
-#: ../src/modules/account/main.qml:172
-msgid "User List"
-msgstr "Liste af brugere"
+#: ../src/modules/network/proxy/ProxyContent.qml:48
+msgid "Manual"
+msgstr "Manuel"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:53
+msgid "Auto"
+msgstr "Automatisk"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:88
+msgid "HTTP Proxy"
+msgstr "HTTP-proxy"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:100
+msgid "HTTPS Proxy"
+msgstr "HTTPS-proxy"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:112
+msgid "FTP Proxy"
+msgstr "FTP-proxy"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:124
+msgid "Socks Proxy"
+msgstr "Socks-proxy"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:149
+msgid "Configuration URL"
+msgstr "Konfigurations-URL"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:166
+msgid "Apply system wide"
+msgstr "Anvend på hele systemet"
+
+#: ../src/modules/network/proxy/ProxyExpand.qml:37
+msgid "System Proxy"
+msgstr "Systemproxy"
+
+#: ../src/modules/network/vpn/VpnExpand.qml:48
+msgid "VPN Connections"
+msgstr "VPN-forbindelser"
+
+#: ../src/modules/network/widgets/NotManagedSection.qml:25
+msgid "not managed"
+msgstr "lykkedes ikke"
+
+#: ../src/modules/network/widgets/PasswordBox.qml:102
+msgid "Auto-connect"
+msgstr "Forbind automatisk"
+
+#: ../src/modules/network/widgets/PasswordBox.qml:126
+#: ../src/modules/network/wireless/AddWireless.qml:224
+#: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:134
+msgid "Connect"
+msgstr "Forbind"
+
+#: ../src/modules/network/wired/NewItem.qml:45
+#: ../src/modules/network/wired/WiredItem.qml:89
+#, qt-format
+msgid "Wired Connection %1"
+msgstr "Kablet forbindelse %1"
+
+#: ../src/modules/network/wired/NewItem.qml:47
+#: ../src/modules/network/wired/WiredItem.qml:91
+msgid "Wired Connection"
+msgstr "Kablet forbindelse"
+
+#: ../src/modules/network/wired/WiredDeviceExpand.qml:38
+msgid "Wired Network"
+msgstr "Kablet netværk"
+
+#: ../src/modules/network/wireless/AddWireless.qml:8
+msgid "Connect to wireless"
+msgstr "Forbind til trådløs"
+
+#: ../src/modules/network/wireless/WifiHotspot.qml:23
+msgid "Create Wi-Fi Hotspot"
+msgstr "Opret Wi-Fi-hotspot"
+
+#: ../src/modules/network/wireless/WifiHotspot.qml:23
+msgid "Edit Wi-Fi Hotspot"
+msgstr "Rediger Wi-Fi-hotspot"
+
+#: ../src/modules/network/wireless/WifiHotspot.qml:91
+msgid "Create"
+msgstr "Opret"
+
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:28
+#, qt-format
+msgid "Wireless Network %1"
+msgstr "Trådløst netværk %1"
+
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:30
+msgid "Wireless Network"
+msgstr "Trådløst netværk"
+
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:37
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:163
+msgid "Connect to hidden access point"
+msgstr "Tilslut til skjult access point"
+
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:57
+msgid ""
+"Wireless network is unable to be connected maybe due to the following reasons:\n"
+"\n"
+"1. The hardware switch of wireless network card is off\n"
+"2. Incorrect network configuration in /etc/network/interface\n"
+"3. Incorrect driver of network hardware"
+msgstr "Trådløse netværk kan ikke få forbindelse - måske af følgende årsager:\n\n1. Hardware-kontakt til trådløst netværkskort er slukket\n2. Fejl i netværksopsætningen i /etc/network/interface\n3. Forkert driver til netværkshardware"
+
+#: ../src/modules/personalization/components/FontSettingsExpand.qml:48
+msgid "Standard"
+msgstr "Standard"
+
+#: ../src/modules/personalization/components/FontSettingsExpand.qml:70
+msgid "Monospaced"
+msgstr "Enkelt mellemrum"
+
+#: ../src/modules/personalization/components/FontSettingsExpand.qml:90
+msgid "Size"
+msgstr "Størrelse"
+
+#: ../src/modules/personalization/components/FontSettingsExpand.qml:119
+#, qt-format
+msgid "Font %1"
+msgstr "Skrifttype %1"
+
+#: ../src/modules/personalization/main.qml:110
+msgid "Theme"
+msgstr "Tema"
+
+#: ../src/modules/personalization/main.qml:117
+#: ../src/modules/shortcuts/main.qml:51
+msgid "Window"
+msgstr "Vindue"
+
+#: ../src/modules/personalization/main.qml:124
+msgid "Icon"
+msgstr "Ikon"
+
+#: ../src/modules/personalization/main.qml:131
+msgid "Cursor"
+msgstr "Markør"
+
+#: ../src/modules/personalization/main.qml:138
+msgid "Wallpaper"
+msgstr "Baggrundsbillede"
+
+#: ../src/modules/personalization/main.qml:152
+msgid "Fonts"
+msgstr "Skrifttyper"
+
+#: ../src/modules/personalization/widgets/ShowPreviewButton.qml:53
+msgid "Preview Theme"
+msgstr "Vis tema"
+
+#: ../src/modules/personalization/widgets/ThemeItem.qml:92
+#: ../src/modules/power/main.qml:318 ../src/modules/power/main.qml:559
+#: ../src/modules/shortcuts/main.qml:53 ../src/modules/shortcuts/main.qml:230
+msgid "Custom"
+msgstr "Tilpasset"
+
+#: ../src/modules/power/main.qml:52 ../src/modules/power/main.qml:64
+msgid "Never"
+msgstr "Aldrig"
+
+#: ../src/modules/power/main.qml:58
+msgid "1 minute"
+msgstr "1 minut"
+
+#: ../src/modules/power/main.qml:59
+msgid "5 minutes"
+msgstr "5 minutter"
+
+#: ../src/modules/power/main.qml:60
+msgid "10 minutes"
+msgstr "10 minutter"
+
+#: ../src/modules/power/main.qml:61
+msgid "15 minutes"
+msgstr "15 minutter"
+
+#: ../src/modules/power/main.qml:62
+msgid "30 minutes"
+msgstr "30 minutter"
+
+#: ../src/modules/power/main.qml:63
+msgid "1 hour"
+msgstr "1 time"
+
+#: ../src/modules/power/main.qml:122
+msgid "When I press the power button"
+msgstr "Når der trykkes på powerknappen"
+
+#: ../src/modules/power/main.qml:136 ../src/modules/power/main.qml:182
+msgid "Shutdown"
+msgstr "Luk ned"
+
+#: ../src/modules/power/main.qml:141 ../src/modules/power/main.qml:187
+#: ../src/modules/power/main.qml:303 ../src/modules/power/main.qml:309
+#: ../src/modules/power/main.qml:315 ../src/modules/power/main.qml:321
+#: ../src/modules/power/main.qml:424 ../src/modules/power/main.qml:544
+#: ../src/modules/power/main.qml:550 ../src/modules/power/main.qml:556
+#: ../src/modules/power/main.qml:562 ../src/modules/power/main.qml:658
+msgid "Suspend"
+msgstr "Standby"
+
+#: ../src/modules/power/main.qml:146
+msgid "Ask"
+msgstr "Spørg"
+
+#: ../src/modules/power/main.qml:168
+msgid "When I close the lid"
+msgstr "Når jeg klapper skærmen ned"
+
+#: ../src/modules/power/main.qml:192
+msgid "Nothing"
+msgstr "Ingenting"
+
+#: ../src/modules/power/main.qml:211
+msgid "Password required to wake up"
+msgstr "Adgangskode påkrævet for at vågne op"
+
+#: ../src/modules/power/main.qml:247
+msgid "Plugged in"
+msgstr "Tilsluttet"
+
+#: ../src/modules/power/main.qml:300 ../src/modules/power/main.qml:541
+msgid "Balanced"
+msgstr "Balanceret"
+
+#: ../src/modules/power/main.qml:302 ../src/modules/power/main.qml:308
+#: ../src/modules/power/main.qml:314 ../src/modules/power/main.qml:320
+#: ../src/modules/power/main.qml:383 ../src/modules/power/main.qml:543
+#: ../src/modules/power/main.qml:549 ../src/modules/power/main.qml:555
+#: ../src/modules/power/main.qml:561 ../src/modules/power/main.qml:618
+msgid "Turn off the display"
+msgstr "Sluk skærmen"
+
+#: ../src/modules/power/main.qml:306 ../src/modules/power/main.qml:547
+msgid "Power saver"
+msgstr "Strømbesparende"
+
+#: ../src/modules/power/main.qml:312 ../src/modules/power/main.qml:553
+msgid "High performance"
+msgstr "Høj ydeevne"
+
+#: ../src/modules/power/main.qml:377 ../src/modules/power/main.qml:613
+msgid "Custom Options"
+msgstr "Tilpassede indstillinger"
+
+#: ../src/modules/power/main.qml:489
+msgid "On battery"
+msgstr "På batteri"
+
+#: ../src/modules/remoting/AccessContent/ConnectedItem.qml:32
+msgid ""
+"You are accessing the desktop shared by other users, you can choose to "
+"continue or disconnect"
+msgstr "Du har adgang til skrivebordet der deles af andre brugere, du kan vælge at fortsætte eller afbryde"
+
+#: ../src/modules/remoting/AccessContent/ConnectedItem.qml:42
+#: ../src/modules/remoting/ShareContent/ConnectedItem.qml:46
+msgid "Disconnect"
+msgstr "Afbryd"
+
+#: ../src/modules/remoting/AccessContent/ConnectingItem.qml:50
+msgid "Establishing connection, please wait..."
+msgstr "Etablerer forbindelse, vent venligst ..."
+
+#: ../src/modules/remoting/AccessContent/ConnectingItem.qml:75
+msgid ""
+"This panel will be hidden automatically and the remote session window will "
+"be opened on the desktop after connection is established successfully"
+msgstr "Dette panel vil være skjult automatisk, og sessions vinduet til fjernbetjening vil blive åbnet på skrivebordet, når forbindelsen er etableret med succes"
+
+#: ../src/modules/remoting/AccessContent/ErrorItem.qml:42
+#: ../src/modules/remoting/AccessPanel.qml:81
+#: ../src/modules/remoting/AccessPanel.qml:127
+msgid "Failed to establish the connection, you can retry to connect"
+msgstr "Det lykkedes ikke at oprette forbindelse, du kan prøve at tilslutte igen"
+
+#: ../src/modules/remoting/AccessContent/ErrorItem.qml:70
+#: ../src/modules/remoting/ShareContent/ErrorItem.qml:70
+msgid "Retry"
+msgstr "Prøv igen"
+
+#: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:104
+#: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:149
+msgid "Please enter the verification code in the input field above"
+msgstr "Indtast venligst bekræftelseskoden i indtastningsfeltet ovenfor"
+
+#: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:168
+msgid "Start remote access after clicking on \"Connect\""
+msgstr "Start fjernadgang efter at have klikket på \"Forbind\""
+
+#: ../src/modules/remoting/AccessPanel.qml:60
+#: ../src/modules/remoting/AccessPanel.qml:95
+#: ../src/modules/remoting/SharePanel.qml:54
+#: ../src/modules/remoting/SharePanel.qml:94
+#: ../src/modules/remoting/Widgets/NoNetworkConnection.qml:26
+msgid "No network connections are available, please retry..."
+msgstr "Ingen netværksforbindelser er til rådighed, prøv venligst igen..."
+
+#: ../src/modules/remoting/AccessPanel.qml:122
+msgid "The verification code is invalid, please retry"
+msgstr "Den bekræftelseskode er ugyldig, prøv venligst igen"
+
+#: ../src/modules/remoting/AccessPanel.qml:146
+msgid "Accessing"
+msgstr "Adgang"
+
+#: ../src/modules/remoting/MainPanel.qml:28 ../src/views/ModulesData.qml:73
+msgid "Remote Assistance"
+msgstr "Fjernsupport"
+
+#: ../src/modules/remoting/MainPanel.qml:35
+msgid "Share"
+msgstr "Del"
+
+#: ../src/modules/remoting/MainPanel.qml:36
+msgid "Share your desktop to get remote assistance from other users"
+msgstr "Del dit skrivebord for at få ekstern hjælp fra andre brugere"
+
+#: ../src/modules/remoting/MainPanel.qml:49
+msgid "Access"
+msgstr "Der er adgang"
+
+#: ../src/modules/remoting/MainPanel.qml:50
+msgid "Access to the desktop shared by other users"
+msgstr "Adgang til skrivebordet deles med andre brugere"
+
+#: ../src/modules/remoting/ShareContent/ConnectedItem.qml:35
+msgid ""
+"Sharing your desktop, your can continue to share or choose to disconnect"
+msgstr "Deling af dit skrivebord, du kan fortsætte med at dele, eller vælge at afbryde"
+
+#: ../src/modules/remoting/ShareContent/ErrorItem.qml:42
+#: ../src/modules/remoting/SharePanel.qml:80
+#: ../src/modules/remoting/SharePanel.qml:118
+msgid ""
+"Failed to get the verification code, you can retry or cancel the operation"
+msgstr "Det lykkedes ikke at få bekræftelseskode, du kan prøve igen eller annullere handlingen"
+
+#: ../src/modules/remoting/ShareContent/GeneratedCodeItem.qml:62
+msgid ""
+"To start sharing your desktop, please provide the above verification code to"
+" whom will assist you. Your shared session will begin immediately after "
+"verification code input"
+msgstr "For at begynde at dele dit skrivebord, skal du give den ovennævnte bekræftelseskode, til hvem som vil hjælpe dig. Din delte session vil begynde umiddelbart efter bekræftelseskode indgang"
+
+#: ../src/modules/remoting/ShareContent/GeneratedCodeItem.qml:91
+msgid "Copy Code"
+msgstr "Kopier koden"
+
+#: ../src/modules/remoting/ShareContent/GeneratedCodeItem.qml:110
+msgid "Copied to clipboard successfully"
+msgstr "Kopieret til klippebordet med succes"
+
+#: ../src/modules/remoting/ShareContent/GeneratingCodeItem.qml:48
+msgid "Generating the verification code, please wait..."
+msgstr "Generering af bekræftelseskoden, vent venligst..."
+
+#: ../src/modules/remoting/SharePanel.qml:131
+msgid "Sharing"
+msgstr "Deling"
+
+#: ../src/modules/shared/ResetButton.qml:39
+msgid "Reset successfully"
+msgstr "Nulstilling vellykket"
+
+#: ../src/modules/shared/ResetButton.qml:47
+msgid "Reset"
+msgstr "Nulstil"
+
+#: ../src/modules/shortcuts/CustomKeybinding.qml:133
+msgid "Command"
+msgstr "Kommando"
+
+#: ../src/modules/shortcuts/ShortcutInput.qml:136
+msgid "Please input new shortcut"
+msgstr "Indtast ny tastaturgenvej"
+
+#: ../src/modules/shortcuts/ShortcutInput.qml:237
+#, qt-format
+msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
+msgstr "Tastaturgenvej \"%1\" er ugyldig, indtast ny genvej."
+
+#: ../src/modules/shortcuts/ShortcutInput.qml:275
+msgid "The shortcut you set "
+msgstr "Genvejen, du har sat"
+
+#: ../src/modules/shortcuts/ShortcutInput.qml:278
+#, qt-format
+msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
+msgstr "er i konflikt med den, der anvendes til \"%2\" i \"%1\"-kategorien."
+
+#: ../src/modules/shortcuts/ShortcutInput.qml:280
+msgid "Do you want to replace it?"
+msgstr "Ønsker du at erstatte den?"
+
+#: ../src/modules/shortcuts/ShortcutInput.qml:338
+msgid "Replace"
+msgstr "Erstat"
+
+#: ../src/modules/shortcuts/StateButtons.qml:90
+msgid "Delete Shortcut"
+msgstr "Slet genvej"
+
+#: ../src/modules/shortcuts/StateButtons.qml:107
+msgid "Add Shortcut"
+msgstr "Tilføj genvej"
+
+#: ../src/modules/shortcuts/main.qml:49
+msgid "System"
+msgstr "System"
+
+#: ../src/modules/shortcuts/main.qml:52
+msgid "Workspace"
+msgstr "Arbejdsområde"
+
+#: ../src/modules/sound/BalanceLine.qml:31
+msgid "Left/Right Balance"
+msgstr "Venstre/højre-balance"
+
+#: ../src/modules/sound/BalanceLine.qml:53
+msgid "Left"
+msgstr "Venstre"
+
+#: ../src/modules/sound/BalanceLine.qml:55
+msgid "Right"
+msgstr "Højre"
+
+#: ../src/modules/sound/FadeLine.qml:31
+msgid "Front/Rear Balance"
+msgstr "Front/Bagbalance"
+
+#: ../src/modules/sound/FadeLine.qml:53
+msgid "Rear"
+msgstr "Bag"
+
+#: ../src/modules/sound/FadeLine.qml:55
+msgid "Front"
+msgstr "Front"
+
+#: ../src/modules/sound/main.qml:127
+msgid "Speaker"
+msgstr "Højttaler"
+
+#: ../src/modules/sound/main.qml:157
+msgid "Output Volume"
+msgstr "Lydstyrke for output"
+
+#: ../src/modules/sound/main.qml:222
+msgid "Microphone"
+msgstr "Mikrofon"
+
+#: ../src/modules/sound/main.qml:252
+msgid "Input Volume"
+msgstr "Lydstyrke for input"
+
+#: ../src/modules/sound/main.qml:296
+msgid "Input Feedback"
+msgstr "Feedback fra input"
+
+#: ../src/modules/sound/main.qml:332
+msgid "Output Port"
+msgstr "Output-port"
+
+#: ../src/modules/sound/main.qml:349 ../src/modules/sound/main.qml:452
+msgid "No port exists in this device."
+msgstr "Der findes ingen port i denne enhed."
+
+#: ../src/modules/sound/main.qml:387
+msgid "Output device"
+msgstr "Outputenhed"
+
+#: ../src/modules/sound/main.qml:435
+msgid "Input Port"
+msgstr "Input-port"
+
+#: ../src/modules/sound/main.qml:490
+msgid "Input device"
+msgstr "Inputenhed"
+
+#: ../src/modules/sound/main.qml:543
+msgid "Hide Advanced..."
+msgstr "Skjul avanceret..."
+
+#: ../src/modules/sound/main.qml:543
+msgid "Show Advanced..."
+msgstr "Vis avanceret..."
+
+#: ../src/modules/system_info/main.qml:118
+msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
+msgstr "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
+
+#: ../src/modules/system_info/main.qml:124
+msgid "Deepin Edition"
+msgstr "Version af Deepin"
+
+#: ../src/modules/system_info/main.qml:130
+msgid "System Type"
+msgstr "Systemtype"
+
+#: ../src/modules/system_info/main.qml:131
+msgid "bit"
+msgstr "bit"
+
+#: ../src/modules/system_info/main.qml:136
+msgid "Processor"
+msgstr "Processor"
+
+#: ../src/modules/system_info/main.qml:150
+msgid "Memory"
+msgstr "Hukommelse"
+
+#: ../src/modules/system_info/main.qml:156
+msgid "Disk"
+msgstr "Harddisk"
+
+#: ../src/modules/system_info/main.qml:174
+msgid "GNU GENERAL PUBLIC LICENSE"
+msgstr "GNU GENERAL PUBLIC LICENSE"
 
 #: ../src/modules/wacom/main.qml:14
 msgid "Page Up"
@@ -2048,3 +2109,75 @@ msgstr "Smal"
 #: ../src/modules/wacom/main.qml:207
 msgid "Wide"
 msgstr "Bred"
+
+#: ../src/views/ModulesData.qml:52
+msgid "Date and Time"
+msgstr "Dato og tid"
+
+#: ../src/views/ModulesData.qml:53
+msgid "Network"
+msgstr "Netværk"
+
+#: ../src/views/ModulesData.qml:54
+msgid "Disk Mount"
+msgstr "Diskmontering"
+
+#: ../src/views/ModulesData.qml:56
+msgid "Sound"
+msgstr "Lyd"
+
+#: ../src/views/ModulesData.qml:57
+msgid "Power Management"
+msgstr "Strømstyring"
+
+#: ../src/views/ModulesData.qml:58
+msgid "More Settings"
+msgstr "Flere indstillinger"
+
+#: ../src/views/ModulesData.qml:59 ../src/views/PanelContent.qml:456
+msgid "Power"
+msgstr "Strøm"
+
+#: ../src/views/ModulesData.qml:60
+msgid "Display"
+msgstr "Skærm"
+
+#: ../src/views/ModulesData.qml:61
+msgid "Desktop"
+msgstr "Skrivebord"
+
+#: ../src/views/ModulesData.qml:62
+msgid "Personalization"
+msgstr "Personlig tilpasning"
+
+#: ../src/views/ModulesData.qml:63
+msgid "Keyboard Shortcuts"
+msgstr "Tastaurgenveje"
+
+#: ../src/views/ModulesData.qml:64
+msgid "Keyboard and Language"
+msgstr "Tastatur og sprog"
+
+#: ../src/views/ModulesData.qml:65
+msgid "Tablet"
+msgstr "Tablet"
+
+#: ../src/views/ModulesData.qml:66
+msgid "Mouse and Touchpad"
+msgstr "Mus og touchpad"
+
+#: ../src/views/ModulesData.qml:68
+msgid "User Accounts"
+msgstr "Brugerkonti"
+
+#: ../src/views/ModulesData.qml:70
+msgid "System Information"
+msgstr "Systemoplysninger"
+
+#: ../src/views/ModulesData.qml:71
+msgid "Boot Menu"
+msgstr "Bootmenu"
+
+#: ../src/views/ModulesData.qml:72
+msgid "Home"
+msgstr "Hjem"

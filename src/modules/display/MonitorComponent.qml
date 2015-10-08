@@ -58,7 +58,7 @@ Rectangle{
             return "red"
         }
         else{
-            return dconstants.fgDarkColor
+            return DPalette.fgDarkColor
         }
     }
     visible: monitorObject.opened
@@ -142,7 +142,7 @@ Rectangle{
                 width: compositedMonitorBox.childrenWidth
                 height: compositedMonitorBox.childrenHeight
                 border.width: 1
-                border.color: dconstants.fgDarkColor
+                border.color: DPalette.fgDarkColor
                 color: "black"
                 x: compositedMonitorBox.xSpacing * index
                 y: compositedMonitorBox.ySpacing * index

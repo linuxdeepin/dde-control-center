@@ -31,6 +31,7 @@ BaseEditPage {
         section: "connection"
         key: "id"
         text: dsTr("Name")
+        alwaysUpdate: true
     }
     EditLineSwitchButton {
         id: lineConnectionAutoconnect

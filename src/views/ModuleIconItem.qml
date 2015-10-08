@@ -95,7 +95,7 @@ Rectangle {
             id: outBox
             anchors.fill: parent
             radius: 3
-            color: dconstants.contentBgColor
+            color: DPalette.contentBgColor
             visible: {
                 if(isSiderNavigate){
                     return false

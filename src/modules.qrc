@@ -775,12 +775,16 @@
         <file>modules/network/edit/EditLineSwitchButton.qml</file>
         <file>modules/network/edit/EditDownArrowHeader.qml</file>
         <file>modules/network/edit/EditLineIpv4Input.qml</file>
+        <file>modules/network/edit/EditLineLabel.qml</file>
         <file>modules/network/add/AddMobile.qml</file>
         <file>modules/network/add/AddVpn.qml</file>
         <file>modules/network/add/AddSectionSave.qml</file>
         <file>modules/network/add/AddDsl.qml</file>
         <file>modules/network/vpn/VpnExpand.qml</file>
         <file>modules/network/vpn/VpnItem.qml</file>
+        <file>modules/network/mobile/MobileDeviceArea.qml</file>
+        <file>modules/network/mobile/MobileDeviceExpand.qml</file>
+        <file>modules/network/mobile/MobileItem.qml</file>
         <file>modules/network/widgets/Ipv4Dot.qml</file>
         <file>modules/network/widgets/NotManagedSection.qml</file>
         <file>modules/network/widgets/PasswordBox.qml</file>
@@ -953,5 +957,29 @@
         <file>modules/network/edit/EditLineComboBoxMenuItem.qml</file>
         <file>modules/network/images/select-dark-hover.png</file>
         <file>modules/network/images/select-dark.png</file>
+        <file>modules/remoting/main.qml</file>
+        <file>modules/remoting/AccessPanel.qml</file>
+        <file>modules/remoting/MainPanel.qml</file>
+        <file>modules/remoting/SharePanel.qml</file>
+        <file>modules/remoting/images/right-arrow-hover.png</file>
+        <file>modules/remoting/images/right-arrow-normal.png</file>
+        <file>modules/remoting/images/right-arrow-press.png</file>
+        <file>modules/remoting/images/access_hover.png</file>
+        <file>modules/remoting/images/access_normal.png</file>
+        <file>modules/remoting/images/access_press.png</file>
+        <file>modules/remoting/images/share_hover.png</file>
+        <file>modules/remoting/images/share_normal.png</file>
+        <file>modules/remoting/images/share_press.png</file>
+        <file>modules/remoting/images/waiting.png</file>
+        <file>modules/remoting/ShareContent/ConnectedItem.qml</file>
+        <file>modules/remoting/ShareContent/ErrorItem.qml</file>
+        <file>modules/remoting/ShareContent/GeneratedCodeItem.qml</file>
+        <file>modules/remoting/ShareContent/GeneratingCodeItem.qml</file>
+        <file>modules/remoting/Widgets/WaitingImage.qml</file>
+        <file>modules/remoting/AccessContent/ConnectedItem.qml</file>
+        <file>modules/remoting/AccessContent/ConnectingItem.qml</file>
+        <file>modules/remoting/AccessContent/ErrorItem.qml</file>
+        <file>modules/remoting/AccessContent/NeedCodeItem.qml</file>
+        <file>modules/remoting/Widgets/FeatureButton.qml</file>
     </qresource>
 </RCC>

@@ -31,7 +31,6 @@ Item {
     id: systemInfoModule
     anchors.fill: parent
 
-    property var dconstants: DConstants {}
     property var systemInfoDbus: SystemInfo {}
     property var leftWidth: Math.max(versionItem.titleWidth, typeItem.titleWidth, cpuItem.titleWidth, memoryItem.titleWidth, distItem.titleWidth) + 8
 
@@ -101,7 +100,7 @@ Item {
                 id: logoBox
                 width: parent.width
                 height: 118
-                color: dconstants.contentBgColor
+                color: DPalette.contentBgColor
 
                 Image {
                     anchors.top: parent.top
@@ -159,7 +158,7 @@ Item {
             }
 
             Rectangle {
-                color: dconstants.contentBgColor
+                color: DPalette.contentBgColor
                 height: 20
                 width: parent.width
             }
@@ -192,7 +191,7 @@ Item {
                     TextEdit {
                         id: gplTextEditTitle
                         width: parent.width
-                        color: dconstants.fgDarkColor
+                        color: DPalette.fgDarkColor
                         font.pixelSize: 11
                         text: mainObject.getGplText(lang, "title")
                         textMargin: 6
@@ -204,7 +203,7 @@ Item {
                     TextEdit {
                         id: gplTextEdit
                         width: parent.width
-                        color: dconstants.fgDarkColor
+                        color: DPalette.fgDarkColor
                         font.pixelSize: 11
                         text: mainObject.getGplText(lang, "body")
                         textMargin: 6

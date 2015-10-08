@@ -33,7 +33,6 @@ Item {
     id: shortcutsModule
     anchors.fill: parent
 
-    property var dconstants: DConstants {}
     property int contentLeftMargin: 22
     property var listModelComponent: DListModelComponent {}
 
@@ -164,7 +163,7 @@ Item {
                 id: searchResultListBox
                 height: childrenRect.height
                 width: parent.width
-                color: dconstants.contentBgColor
+                color: DPalette.contentBgColor
 
                 ListView {
                     id: searchResultListView
@@ -201,7 +200,7 @@ Item {
                 id: systemCategoriesArea
                 width: parent.width
                 height: childrenRect.height
-                color: dconstants.bgColor
+                color: DPalette.bgColor
                 visible: searchResultListView.keyword == ""
 
                 Column {

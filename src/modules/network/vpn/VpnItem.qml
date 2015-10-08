@@ -34,7 +34,7 @@ Item {
 
         property bool hovered: false
         property bool selected: false
-        color: dconstants.contentBgColor
+        color: DPalette.contentBgColor
 
         MouseArea{
             z:-1
@@ -81,13 +81,13 @@ Item {
                 font.pixelSize: 12
                 color: {
                     if(lineBox.selected){
-                        return dconstants.activeColor
+                        return DPalette.activeColor
                     }
                     else if(lineBox.hovered){
-                        return dconstants.hoverColor
+                        return DPalette.hoverColor
                     }
                     else{
-                        return dconstants.fgColor
+                        return DPalette.fgColor
                     }
                 }
             }

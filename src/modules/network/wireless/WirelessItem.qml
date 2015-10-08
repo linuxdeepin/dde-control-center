@@ -164,7 +164,7 @@ Item {
                 }
             }
         }
-        color: dconstants.contentBgColor
+        color: DPalette.contentBgColor
 
         leftLoader.sourceComponent: Item {
             height: parent.height
@@ -197,13 +197,13 @@ Item {
                 font.pixelSize: 12
                 color: {
                     if(wirelessLine.selected){
-                        return dconstants.activeColor
+                        return DPalette.activeColor
                     }
                     else if(wirelessLine.hovered){
-                        return dconstants.hoverColor
+                        return DPalette.hoverColor
                     }
                     else{
-                        return dconstants.fgColor
+                        return DPalette.fgColor
                     }
                 }
             }
