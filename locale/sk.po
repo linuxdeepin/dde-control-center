@@ -4,126 +4,21 @@
 # 
 # Translators:
 # Microtus <hrabosmartin@gmail.com>, 2014-2015
+# Marek Bujko <marek.bujko@gmail.com>, 2015
 # fasier <matus.ravas@outlook.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-16 07:24+0000\n"
-"PO-Revision-Date: 2015-03-25 07:33+0000\n"
-"Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
-"Language-Team: Slovak (http://www.transifex.com/projects/p/dde-control-center/language/sk/)\n"
+"POT-Creation-Date: 2015-08-20 14:55+0800\n"
+"PO-Revision-Date: 2015-09-06 16:52+0000\n"
+"Last-Translator: Marek Bujko <marek.bujko@gmail.com>\n"
+"Language-Team: Slovak (http://www.transifex.com/linuxdeepin/dde-control-center/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-
-#: ../src/modules/network/add/AddDsl.qml:11
-msgid "Add PPPoE Connection"
-msgstr "Pridať PPPoE spojenie"
-
-#: ../src/modules/network/add/AddDsl.qml:24
-#: ../src/modules/network/add/AddMobile.qml:33
-#: ../src/modules/network/add/AddVpn.qml:103
-#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:33
-#: ../src/modules/shortcuts/CustomKeybinding.qml:118
-msgid "Name"
-msgstr "Názov"
-
-#: ../src/modules/network/add/AddDsl.qml:36
-#: ../src/modules/network/add/AddMobile.qml:75
-#: ../src/modules/network/add/AddMobile.qml:105
-#: ../src/modules/account/AddUserDialog.qml:127
-#: ../src/modules/network/add/AddVpn.qml:125
-#: ../src/modules/network/add/AddVpn.qml:255
-#: ../src/modules/network/add/AddVpn.qml:395
-#: ../src/modules/network/add/AddVpn.qml:435
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:53
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:123
-#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:23
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:45
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:185
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:325
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:375
-#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:65
-msgid "Username"
-msgstr "Užívateľské meno"
-
-#: ../src/modules/network/add/AddDsl.qml:46
-#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:33
-msgid "Service"
-msgstr "Služba"
-
-#: ../src/modules/network/add/AddDsl.qml:56
-#: ../src/modules/network/add/AddMobile.qml:85
-#: ../src/modules/network/add/AddMobile.qml:115
-#: ../src/modules/account/AddUserDialog.qml:200
-#: ../src/modules/network/add/AddVpn.qml:145
-#: ../src/modules/network/add/AddVpn.qml:275
-#: ../src/modules/network/add/AddVpn.qml:415
-#: ../src/modules/network/wireless/AddWireless.qml:64
-#: ../src/modules/network/wireless/AddWireless.qml:186
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:63
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:133
-#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:43
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:53
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:175
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:65
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:205
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:345
-#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:75
-#: ../src/modules/network/widgets/PasswordBox.qml:95
-#: ../src/modules/account/PasswordDialog.qml:62
-#: ../src/modules/network/wireless/WifiHotspot.qml:69
-msgid "Password"
-msgstr "Heslo"
-
-#: ../src/modules/network/add/AddMobile.qml:20
-msgid "New Mobile Connection"
-msgstr "Nové mobilné spojenie"
-
-#: ../src/modules/network/add/AddMobile.qml:45
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:23
-msgid "Service Type"
-msgstr "Typ služby"
-
-#: ../src/modules/network/add/AddMobile.qml:55
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:33
-msgid "APN"
-msgstr "APN"
-
-#: ../src/modules/network/add/AddMobile.qml:65
-#: ../src/modules/network/add/AddMobile.qml:95
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:43
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:113
-msgid "Number"
-msgstr "Číslo"
-
-#: ../src/modules/network/add/AddSectionSave.qml:11
-#: ../src/modules/account/AddUserDialog.qml:413
-#: ../src/modules/network/wireless/AddWireless.qml:216
-#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:109
-#: ../src/modules/network/ConnectionAdd.qml:69
-#: ../src/modules/network/ConnectionEdit.qml:102
-#: ../src/modules/network/ConnectionEdit.qml:135
-#: ../src/modules/shortcuts/CustomKeybinding.qml:151
-#: ../src/modules/account/DeleteUserDialog.qml:33
-#: ../src/modules/network/Info.qml:79
-#: ../src/modules/network/widgets/PasswordBox.qml:118
-#: ../src/modules/account/PasswordDialog.qml:248
-#: ../src/modules/shortcuts/ShortcutInput.qml:355
-#: ../src/modules/date_time/TimeBox.qml:225
-#: ../src/modules/network/wireless/WifiHotspot.qml:82
-#: ../src/modules/date_time/main.qml:300 ../src/modules/display/main.qml:179
-msgid "Cancel"
-msgstr "Zrušiť"
-
-#: ../src/modules/network/add/AddSectionSave.qml:20
-#: ../src/modules/shortcuts/CustomKeybinding.qml:157
-#: ../src/modules/date_time/TimezoneArea.qml:465
-msgid "Add"
-msgstr "Pridať"
 
 #: ../src/modules/account/AddUserDialog.qml:58
 #: ../src/modules/account/AddUserDialog.qml:63
@@ -171,11 +66,54 @@ msgstr "Administrátor"
 msgid "Normal User"
 msgstr "Bežný užívateľ"
 
+#: ../src/modules/account/AddUserDialog.qml:127
+#: ../src/modules/network/add/AddDsl.qml:36
+#: ../src/modules/network/add/AddMobile.qml:75
+#: ../src/modules/network/add/AddMobile.qml:105
+#: ../src/modules/network/add/AddVpn.qml:125
+#: ../src/modules/network/add/AddVpn.qml:255
+#: ../src/modules/network/add/AddVpn.qml:395
+#: ../src/modules/network/add/AddVpn.qml:435
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:98
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:168
+#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:23
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:45
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:185
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:325
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:375
+#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:65
+msgid "Username"
+msgstr "Užívateľské meno"
+
 #: ../src/modules/account/AddUserDialog.qml:175
 #: ../src/modules/account/AddUserDialog.qml:235
 #: ../src/modules/account/AddUserDialog.qml:301
 msgid "Username can not be empty."
 msgstr "Užívateľské meno nesmie byť prázdne. "
+
+#: ../src/modules/account/AddUserDialog.qml:200
+#: ../src/modules/account/PasswordDialog.qml:62
+#: ../src/modules/network/add/AddDsl.qml:56
+#: ../src/modules/network/add/AddMobile.qml:85
+#: ../src/modules/network/add/AddMobile.qml:115
+#: ../src/modules/network/add/AddVpn.qml:145
+#: ../src/modules/network/add/AddVpn.qml:275
+#: ../src/modules/network/add/AddVpn.qml:415
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:108
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:178
+#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:43
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:53
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:175
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:65
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:205
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:345
+#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:75
+#: ../src/modules/network/widgets/PasswordBox.qml:95
+#: ../src/modules/network/wireless/AddWireless.qml:64
+#: ../src/modules/network/wireless/AddWireless.qml:186
+#: ../src/modules/network/wireless/WifiHotspot.qml:69
+msgid "Password"
+msgstr "Heslo"
 
 #: ../src/modules/account/AddUserDialog.qml:270
 msgid "Repeat Password"
@@ -191,13 +129,695 @@ msgstr "Typ účtu"
 msgid "Auto-login"
 msgstr "Automatické prihlásenie"
 
+#: ../src/modules/account/AddUserDialog.qml:413
+#: ../src/modules/account/DeleteUserDialog.qml:32
+#: ../src/modules/account/PasswordDialog.qml:248
+#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:108
+#: ../src/modules/date_time/TimeBox.qml:225
+#: ../src/modules/date_time/main.qml:300 ../src/modules/display/main.qml:178
+#: ../src/modules/network/ConnectionAdd.qml:69
+#: ../src/modules/network/ConnectionEdit.qml:110
+#: ../src/modules/network/ConnectionEdit.qml:143
+#: ../src/modules/network/Info.qml:85
+#: ../src/modules/network/add/AddSectionSave.qml:11
+#: ../src/modules/network/widgets/PasswordBox.qml:118
+#: ../src/modules/network/wireless/AddWireless.qml:216
+#: ../src/modules/network/wireless/WifiHotspot.qml:82
+#: ../src/modules/remoting/AccessContent/ConnectingItem.qml:91
+#: ../src/modules/remoting/AccessContent/ErrorItem.qml:62
+#: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:124
+#: ../src/modules/remoting/ShareContent/ErrorItem.qml:62
+#: ../src/modules/remoting/ShareContent/GeneratedCodeItem.qml:82
+#: ../src/modules/remoting/ShareContent/GeneratingCodeItem.qml:58
+#: ../src/modules/shortcuts/CustomKeybinding.qml:151
+#: ../src/modules/shortcuts/ShortcutInput.qml:354
+msgid "Cancel"
+msgstr "Zrušiť"
+
 #: ../src/modules/account/AddUserDialog.qml:426
-#: ../src/modules/account/DeleteUserDialog.qml:46
+#: ../src/modules/account/DeleteUserDialog.qml:45
 #: ../src/modules/account/PasswordDialog.qml:262
 #: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:318
-#: ../src/modules/display/main.qml:194
+#: ../src/modules/display/main.qml:193
 msgid "Confirm"
 msgstr "Potvrdiť"
+
+#: ../src/modules/account/AvatarPickDialog.qml:5
+msgid "Choose a new picture for your Avatar"
+msgstr "Vyberte nový obrázok pre Avatara"
+
+#: ../src/modules/account/AvatarView.qml:19
+msgid "Recently Used"
+msgstr "Nedávno použité"
+
+#: ../src/modules/account/AvatarView.qml:20
+msgid "Avatar"
+msgstr "Avatar"
+
+#: ../src/modules/account/AvatarView.qml:21
+msgid "Webcam"
+msgstr "Webkamera"
+
+#: ../src/modules/account/DeleteUserDialog.qml:18
+msgid "Keep user's files"
+msgstr "Zachovať užívateľove súbory"
+
+#: ../src/modules/account/DeleteUserDialog.qml:19
+msgid "Delete user's files"
+msgstr "Vymazať užívateľove súbory"
+
+#: ../src/modules/account/EditUserDialog.qml:93
+msgid "Enable"
+msgstr "Povoliť"
+
+#: ../src/modules/account/GuestUser.qml:45 ../src/views/HeaderArea.qml:108
+msgid "Guest"
+msgstr "Hosť"
+
+#: ../src/modules/account/GuestUser.qml:106
+msgid "Enabled"
+msgstr "Povolené"
+
+#: ../src/modules/account/PasswordDialog.qml:119
+msgid "New Password"
+msgstr "Nové heslo"
+
+#: ../src/modules/account/PasswordDialog.qml:185
+msgid "Repeat"
+msgstr "Opakovať"
+
+#: ../src/modules/account/UserList.qml:239 ../src/modules/grub/Preview.qml:123
+msgid "Image format not supported"
+msgstr "Formát obrázku nie je podporovaný"
+
+#: ../src/modules/account/UserListCreatingItem.qml:99
+msgid "Account Preparing..."
+msgstr "Účet sa pripravuje..."
+
+#: ../src/modules/account/WebCam.qml:125 ../src/modules/account/WebCam.qml:140
+msgid "Snapshot"
+msgstr "Snímka"
+
+#: ../src/modules/account/WebCam.qml:136
+msgid "Again"
+msgstr "Znovu"
+
+#: ../src/modules/account/WebCam.qml:175
+msgid "No camera found."
+msgstr "Nenájdený žiadny fotoaparát"
+
+#: ../src/modules/account/main.qml:108
+msgid "Delete Account"
+msgstr "Odstrániť účet"
+
+#: ../src/modules/account/main.qml:148
+msgid "Add Account"
+msgstr "Pridať účet"
+
+#: ../src/modules/account/main.qml:171
+msgid "User List"
+msgstr "Zoznam užívateľov"
+
+#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:120
+#: ../src/modules/display/main.qml:193
+#: ../src/modules/personalization/widgets/PreviewWindow.qml:279
+msgid "Apply"
+msgstr "Použiť"
+
+#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:148
+msgid "Devices nearby"
+msgstr "Blízke zariadenia"
+
+#: ../src/modules/date_time/Calendar.qml:164
+msgid "Today"
+msgstr "Dnes"
+
+#: ../src/modules/date_time/CalendarComponent.qml:83
+msgid "Sun"
+msgstr "Ne"
+
+#: ../src/modules/date_time/CalendarComponent.qml:84
+msgid "Mon"
+msgstr "Po"
+
+#: ../src/modules/date_time/CalendarComponent.qml:85
+msgid "Tue"
+msgstr "Ut"
+
+#: ../src/modules/date_time/CalendarComponent.qml:86
+msgid "Wed"
+msgstr "St"
+
+#: ../src/modules/date_time/CalendarComponent.qml:87
+msgid "Thu"
+msgstr "Št"
+
+#: ../src/modules/date_time/CalendarComponent.qml:88
+msgid "Fri"
+msgstr "Pi"
+
+#: ../src/modules/date_time/CalendarComponent.qml:89
+msgid "Sat"
+msgstr "So"
+
+#: ../src/modules/date_time/StateButtons.qml:35
+#: ../src/modules/keyboard/StateButtons.qml:35
+#: ../src/modules/shortcuts/StateButtons.qml:39
+msgid "Done"
+msgstr "Hotovo"
+
+#: ../src/modules/date_time/StateButtons.qml:36
+#: ../src/modules/date_time/StateButtons.qml:54
+#: ../src/modules/date_time/TimezoneArea.qml:487
+msgid "Close"
+msgstr "Zavrieť"
+
+#: ../src/modules/date_time/StateButtons.qml:85
+msgid "Delete Time Zone"
+msgstr "Odstrániť časové pásmo"
+
+#: ../src/modules/date_time/StateButtons.qml:101
+msgid "Add Time Zone"
+msgstr "Pridať časové pásmo"
+
+#: ../src/modules/date_time/TimeBox.qml:161
+msgid "Double-click this area to change your time"
+msgstr "Dvojité kliknutie na tento priestor zmení čas"
+
+#: ../src/modules/date_time/TimeBox.qml:202
+msgid "Set"
+msgstr "Nastaviť"
+
+#: ../src/modules/date_time/TimezoneArea.qml:257
+msgid "Time zone"
+msgstr "Časové pásmo"
+
+#: ../src/modules/date_time/TimezoneArea.qml:484
+#: ../src/modules/network/add/AddSectionSave.qml:20
+#: ../src/modules/shortcuts/CustomKeybinding.qml:157
+msgid "Add"
+msgstr "Pridať"
+
+#: ../src/modules/date_time/main.qml:131
+msgid "Sync Automatically"
+msgstr "Automaticky synchronizovať"
+
+#: ../src/modules/date_time/main.qml:149
+msgid "Use 24-hour clock"
+msgstr "Použiť 24-hodinový čas"
+
+#: ../src/modules/date_time/main.qml:180
+msgid "Adjust DST clock "
+msgstr "Nastaviť DST hodiny"
+
+#: ../src/modules/date_time/main.qml:205
+#: ../src/modules/network/proxy/ProxyContent.qml:43
+#: ../src/modules/shortcuts/ShortcutInput.qml:118
+msgid "None"
+msgstr "Žiadne"
+
+#: ../src/modules/date_time/main.qml:257
+msgid "Date"
+msgstr "Dátum"
+
+#: ../src/modules/date_time/main.qml:290
+msgid "Set Date"
+msgstr "Nastaviť dátum"
+
+#: ../src/modules/default_applications/main.qml:85
+#: ../src/views/ModulesData.qml:69
+msgid "Default Applications"
+msgstr "Predvolené programy"
+
+#: ../src/modules/default_applications/main.qml:97
+msgid "Browser"
+msgstr "Prehliadač"
+
+#: ../src/modules/default_applications/main.qml:111
+msgid "Mail"
+msgstr "Pošta"
+
+#: ../src/modules/default_applications/main.qml:122
+msgid "Text"
+msgstr "Text"
+
+#: ../src/modules/default_applications/main.qml:128
+msgid "Music"
+msgstr "Hudba"
+
+#: ../src/modules/default_applications/main.qml:159
+msgid "Video"
+msgstr "Video"
+
+#: ../src/modules/default_applications/main.qml:191
+msgid "Picture"
+msgstr "Obrázok"
+
+#: ../src/modules/default_applications/main.qml:209
+msgid "Terminal"
+msgstr "Terminál"
+
+#: ../src/modules/default_applications/main.qml:268
+msgid "AutoPlay"
+msgstr "Automaticky prehrať"
+
+#: ../src/modules/default_applications/main.qml:283
+msgid "CD Audio"
+msgstr "CD Audio"
+
+#: ../src/modules/default_applications/main.qml:288
+msgid "DVD Video"
+msgstr "DVD Video"
+
+#: ../src/modules/default_applications/main.qml:293
+msgid "Music Player"
+msgstr "Hudobný prehrávač"
+
+#: ../src/modules/default_applications/main.qml:298
+msgid "Camera"
+msgstr "Kamera"
+
+#: ../src/modules/default_applications/main.qml:303
+msgid "Software"
+msgstr "Softvér"
+
+#: ../src/modules/display/BrightnessRectangle.qml:61
+#: ../src/modules/display/ResolutionRectangle.qml:69
+#: ../src/modules/display/RotationRectangle.qml:70
+msgid "Monitor"
+msgstr "Obrazovka"
+
+#: ../src/modules/display/MessageBox.qml:105
+msgid "Do you want to keep these display settings?"
+msgstr "Chcete ponechať tieto nastavenia zobrazovania?"
+
+#: ../src/modules/display/MessageBox.qml:114
+#, qt-format
+msgid ""
+"Reverting to previous display settings in <font color='#F48914'>%1</font> "
+"seconds."
+msgstr "Vrátenie k predošlému nastaveniu zobrazenia za <font color='#F48914'>%1</font> sekúnd."
+
+#: ../src/modules/display/MessageBox.qml:128
+msgid "Revert"
+msgstr "Vrátiť"
+
+#: ../src/modules/display/MessageBox.qml:140
+msgid "Keep Changes"
+msgstr "Ponechať zmeny"
+
+#: ../src/modules/display/MonitorDragArea.qml:471
+msgid "Identify"
+msgstr "Identifikovať"
+
+#: ../src/modules/display/MonitorDragArea.qml:489
+msgid "Edit"
+msgstr "Upraviť"
+
+#: ../src/modules/display/MonitorDragArea.qml:507
+msgid "Split"
+msgstr "Rozdeliť"
+
+#: ../src/modules/display/MonitorProperties.qml:42
+msgid "Normal"
+msgstr "Normálny"
+
+#: ../src/modules/display/MonitorProperties.qml:43
+msgid "Rotate Right"
+msgstr "Otočiť vpravo"
+
+#: ../src/modules/display/MonitorProperties.qml:44
+msgid "Upside Down"
+msgstr "Hore nohami"
+
+#: ../src/modules/display/MonitorProperties.qml:45
+msgid "Rotate Left"
+msgstr "Otočiť vľavo"
+
+#: ../src/modules/display/MonitorProperties.qml:78
+msgid "Enable Monitor(s)"
+msgstr "Povoliť monitor(y)"
+
+#: ../src/modules/display/MonitorProperties.qml:96
+msgid "Please choose the monitor(s) you want to enable"
+msgstr "Prosím, zvoľte monitor(y), ktorý chcete povoliť"
+
+#: ../src/modules/display/MonitorProperties.qml:146
+msgid "Primary Screen"
+msgstr "Primárna aobrazovka"
+
+#: ../src/modules/display/MonitorProperties.qml:189
+msgid "Resolution"
+msgstr "Rozlíšenie"
+
+#: ../src/modules/display/MonitorProperties.qml:230
+msgid "Rotation"
+msgstr "Otočenie"
+
+#: ../src/modules/display/MonitorProperties.qml:274
+#: ../src/modules/display/MonitorProperties.qml:306
+msgid "Brightness"
+msgstr "Jas"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:38
+msgid "Display Modes"
+msgstr "Režimy zobrazenia"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:58
+msgid "Copy"
+msgstr "Kopírovať"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:59
+msgid "Copy the contents of your primary screen to other screens."
+msgstr "Skopírovať obsah primárnej obrazovky na ostatné obrazovky. "
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:76
+msgid "Extend"
+msgstr "Rozšíriť"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:77
+msgid ""
+"Extend your screen contents to display different contents on different "
+"screens."
+msgstr "Rozšíriť obsah obrazovky pre zobrazenie rozličného obsahu na rozdielnych obrazovkách. "
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:98
+#, qt-format
+msgid "Only Displayed on %1"
+msgstr "Zobrazené iba na %1"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:99
+#, qt-format
+msgid "Screen contents are only displayed on %1 but not on other screens."
+msgstr "Obsah obrazovky je zobrazený iba na %1 a nie na ostatných obrazovkách."
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:118
+msgid "Custom Settings"
+msgstr "Vlastné nastavenia"
+
+#: ../src/modules/display/MonitorsSimpleSetting.qml:119
+msgid "You can do other custom settings to your screens."
+msgstr "Môžte vykonať iné vlastné nastavenia vašich obrazoviek. "
+
+#: ../src/modules/grub/Preview.qml:122
+msgid "Drag and drop an image to change background."
+msgstr "Uchop a pusti obrázok pre zmenu pozadia"
+
+#: ../src/modules/grub/Preview.qml:124
+msgid "Updating..."
+msgstr "Obnovuje sa..."
+
+#: ../src/modules/grub/Preview.qml:125
+msgid "Successfully updated, reboot to view."
+msgstr "Úspešne aktualizované, reštartujte pre zobrazenie."
+
+#: ../src/modules/grub/main.qml:112
+msgid "Default Boot"
+msgstr "Predvolený boot"
+
+#: ../src/modules/grub/main.qml:167
+msgid "Boot delay"
+msgstr "Zdržanie bootovania"
+
+#: ../src/modules/grub/main.qml:206
+msgid "Text Color"
+msgstr "Farba textu"
+
+#: ../src/modules/grub/main.qml:239
+msgid "Selected Text Color"
+msgstr "Farba vybratého textu"
+
+#: ../src/modules/keyboard/LocaleArea.qml:53
+msgid "Language"
+msgstr "Jazyk"
+
+#: ../src/modules/keyboard/StateButtons.qml:92
+msgid "Delete Keyboard Layout"
+msgstr "Odstrániť rozloženie klávesnice"
+
+#: ../src/modules/keyboard/StateButtons.qml:107
+msgid "Add Keyboard Layout"
+msgstr "Pridať rozloženie klávesnice"
+
+#: ../src/modules/keyboard/main.qml:148
+msgid "Repeat Delay"
+msgstr "Oneskorenie opakovania"
+
+#: ../src/modules/keyboard/main.qml:162
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:208
+msgid "Short"
+msgstr "Krátke"
+
+#: ../src/modules/keyboard/main.qml:163
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:209
+msgid "Long"
+msgstr "Dlhé"
+
+#: ../src/modules/keyboard/main.qml:173
+msgid "Repeat Rate"
+msgstr "Rýchlosť opakovania"
+
+#: ../src/modules/keyboard/main.qml:188 ../src/modules/keyboard/main.qml:214
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:135
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:172
+#: ../src/modules/mouse_touchpad/main.qml:134
+#: ../src/modules/mouse_touchpad/main.qml:170
+msgid "Fast"
+msgstr "Rýchlo"
+
+#: ../src/modules/keyboard/main.qml:189 ../src/modules/keyboard/main.qml:215
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:134
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:171
+#: ../src/modules/mouse_touchpad/main.qml:133
+#: ../src/modules/mouse_touchpad/main.qml:169
+msgid "Slow"
+msgstr "Pomaly"
+
+#: ../src/modules/keyboard/main.qml:199
+msgid "Cursor Blink Rate"
+msgstr "Rýchlosť blikania kurzoru"
+
+#: ../src/modules/keyboard/main.qml:225
+msgid "Test Area"
+msgstr "Testovacia plocha"
+
+#: ../src/modules/keyboard/main.qml:245
+msgid "Caps Lock prompt"
+msgstr "Caps Lock výzva"
+
+#: ../src/modules/keyboard/main.qml:271
+msgid "Keyboard Layout"
+msgstr "Rozloženie klávesnice"
+
+#: ../src/modules/keyboard/main.qml:498
+msgid "No result"
+msgstr "Žiadne výsledky"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
+msgid "Touchpad"
+msgstr "Touchpad"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:82
+#: ../src/modules/mouse_touchpad/main.qml:83
+msgid "Primary Button"
+msgstr "Primárne tlačidlo"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:91
+#: ../src/modules/mouse_touchpad/main.qml:91
+msgid "Left Button"
+msgstr "Ľavé tlačidlo"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:92
+#: ../src/modules/mouse_touchpad/main.qml:92
+msgid "Right Button"
+msgstr "Pravé tlačidlo"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:117
+#: ../src/modules/mouse_touchpad/main.qml:117
+msgid "Pointer Speed"
+msgstr "Rýchlosť kurzora"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:154
+#: ../src/modules/mouse_touchpad/main.qml:153
+msgid "Double-click Speed"
+msgstr "Rýchlosť dvoj-kliku"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:192
+msgid "Drag Threshold"
+msgstr "Prah ťahania"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:228
+msgid "Natural Scrolling"
+msgstr "Prirodzené skrolovanie"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:252
+msgid "Tap to click"
+msgstr "Ťuknúť pre kliknutie"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:275
+msgid "Two-finger scrolling"
+msgstr "Skrolovanie dvomi prstami"
+
+#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:298
+msgid "Edge scrolling"
+msgstr "Skrolovanie hranou"
+
+#: ../src/modules/mouse_touchpad/main.qml:50 ../src/views/ModulesData.qml:67
+msgid "Mouse"
+msgstr "Myš"
+
+#: ../src/modules/mouse_touchpad/main.qml:190
+msgid "Disable the touchpad when inserting the mouse"
+msgstr "Zakázať touchpad keď sa pripája myš"
+
+#: ../src/modules/network/ConnectionAdd.qml:12
+#: ../src/modules/network/main.qml:315
+msgid "Add Network Connection"
+msgstr "Pridať sieťové spojenie"
+
+#: ../src/modules/network/ConnectionAdd.qml:35
+#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:11
+#: ../src/modules/network/main.qml:205
+msgid "PPPoE"
+msgstr "PPPoE"
+
+#: ../src/modules/network/ConnectionAdd.qml:45
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:11
+#: ../src/modules/network/main.qml:213
+msgid "VPN"
+msgstr "VPN"
+
+#: ../src/modules/network/ConnectionAdd.qml:77
+msgid "Next"
+msgstr "Ďaľšie"
+
+#: ../src/modules/network/ConnectionEdit.qml:60
+msgid "Are you sure you want to delete this network?"
+msgstr "Ste si istý, že chcete odstrániť túto sieť?"
+
+#: ../src/modules/network/ConnectionEdit.qml:60
+msgid "Delete this network"
+msgstr "Odstrániť túto sieť"
+
+#: ../src/modules/network/ConnectionEdit.qml:118
+#: ../src/modules/network/wireless/WifiHotspot.qml:91
+msgid "Save"
+msgstr "Uložiť"
+
+#: ../src/modules/network/ConnectionEdit.qml:152
+msgid "Delete"
+msgstr "Vymazať"
+
+#: ../src/modules/network/Info.qml:13
+msgid "Connected"
+msgstr "Pripojené"
+
+#: ../src/modules/network/Info.qml:15
+msgid "Not Connected"
+msgstr "Nepripojené"
+
+#: ../src/modules/network/Info.qml:39
+msgid "(default)"
+msgstr "(predvolené)"
+
+#: ../src/modules/network/Info.qml:50
+msgid "Interface"
+msgstr "Rozhranie"
+
+#: ../src/modules/network/Info.qml:59
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:11
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:33
+#: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:33
+#: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:33
+#: ../src/modules/network/wireless/AddWireless.qml:44
+#: ../src/modules/network/wireless/WifiHotspot.qml:49
+msgid "Security"
+msgstr "Bezpečnosť"
+
+#: ../src/modules/network/Info.qml:60
+msgid "Device Addr"
+msgstr "Adresa zariadenia"
+
+#: ../src/modules/network/Info.qml:61
+#: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:33
+#: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:33
+msgid "IP Address"
+msgstr "IP adresa"
+
+#: ../src/modules/network/Info.qml:62
+msgid "Subnet Mask"
+msgstr "Maska podsiete"
+
+#: ../src/modules/network/Info.qml:63
+#: ../src/modules/network/add/AddVpn.qml:115
+#: ../src/modules/network/add/AddVpn.qml:155
+#: ../src/modules/network/add/AddVpn.qml:235
+#: ../src/modules/network/add/AddVpn.qml:385
+#: ../src/modules/network/add/AddVpn.qml:425
+#: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:57
+#: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:55
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:35
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:85
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:165
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:315
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:365
+msgid "Gateway"
+msgstr "Brána"
+
+#: ../src/modules/network/Info.qml:64
+msgid "Primary DNS"
+msgstr "Primárny DNS"
+
+#: ../src/modules/network/Info.qml:65
+msgid "Secondary DNS"
+msgstr "Sekundárny DNS"
+
+#: ../src/modules/network/Info.qml:66
+msgid "Third DNS"
+msgstr "Ternárny DNS"
+
+#: ../src/modules/network/Info.qml:75
+msgid "Device Speed"
+msgstr "Rýchlosť zariadenia"
+
+#: ../src/modules/network/add/AddDsl.qml:11
+msgid "Add PPPoE Connection"
+msgstr "Pridať PPPoE spojenie"
+
+#: ../src/modules/network/add/AddDsl.qml:24
+#: ../src/modules/network/add/AddMobile.qml:33
+#: ../src/modules/network/add/AddVpn.qml:103
+#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:33
+#: ../src/modules/shortcuts/CustomKeybinding.qml:118
+msgid "Name"
+msgstr "Názov"
+
+#: ../src/modules/network/add/AddDsl.qml:46
+#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:33
+msgid "Service"
+msgstr "Služba"
+
+#: ../src/modules/network/add/AddMobile.qml:20
+msgid "New Mobile Connection"
+msgstr "Nové mobilné spojenie"
+
+#: ../src/modules/network/add/AddMobile.qml:45
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:56
+msgid "Service Type"
+msgstr "Typ služby"
+
+#: ../src/modules/network/add/AddMobile.qml:55
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:67
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:78
+msgid "APN"
+msgstr "APN"
+
+#: ../src/modules/network/add/AddMobile.qml:65
+#: ../src/modules/network/add/AddMobile.qml:95
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:88
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:158
+msgid "Number"
+msgstr "Číslo"
 
 #: ../src/modules/network/add/AddVpn.qml:15
 msgid "VPN Type"
@@ -232,29 +852,12 @@ msgstr "Základné informácie"
 msgid "Need VPN Plugin"
 msgstr "Potrebný VPN plugin"
 
-#: ../src/modules/network/add/AddVpn.qml:115
-#: ../src/modules/network/add/AddVpn.qml:155
-#: ../src/modules/network/add/AddVpn.qml:235
-#: ../src/modules/network/add/AddVpn.qml:385
-#: ../src/modules/network/add/AddVpn.qml:425
-#: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:57
-#: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:55
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:35
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:85
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:165
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:315
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:365
-msgid "Gateway"
-msgstr "Brána"
-
 #: ../src/modules/network/add/AddVpn.qml:135
 #: ../src/modules/network/add/AddVpn.qml:265
 #: ../src/modules/network/add/AddVpn.qml:315
 #: ../src/modules/network/add/AddVpn.qml:405
 #: ../src/modules/network/add/AddVpn.qml:445
 #: ../src/modules/network/add/AddVpn.qml:475
-#: ../src/modules/network/wireless/AddWireless.qml:175
-#: ../src/modules/network/wireless/AddWireless.qml:196
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:164
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:185
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:55
@@ -263,15 +866,17 @@ msgstr "Brána"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:335
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:385
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:415
+#: ../src/modules/network/wireless/AddWireless.qml:175
+#: ../src/modules/network/wireless/AddWireless.qml:196
 msgid "Ask for Pwd"
 msgstr "Žiadať heslo"
 
 #: ../src/modules/network/add/AddVpn.qml:165
 #: ../src/modules/network/add/AddVpn.qml:285
-#: ../src/modules/network/wireless/AddWireless.qml:104
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:93
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:95
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:215
+#: ../src/modules/network/wireless/AddWireless.qml:104
 msgid "CA Cert"
 msgstr "CA certifikát"
 
@@ -285,49 +890,43 @@ msgstr "Proxy"
 msgid "Allow Cisco Secure Desktop Trojan"
 msgstr "Povoliť Cisco Secure Desktop Trojan"
 
-#: ../src/modules/network/add/AddVpn.qml:345
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:275
-#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
-msgid "Customize Key Direction"
-msgstr "Upraviť Key Direction"
-
-#: ../src/modules/network/add/AddVpn.qml:215
-#: ../src/modules/network/add/AddVpn.qml:305
-#: ../src/modules/network/wireless/AddWireless.qml:165
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:154
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:145
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:235
-msgid "Private Key"
-msgstr "Privátny kľúč"
-
-#: ../src/modules/network/add/AddVpn.qml:245
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:175
-msgid "Auth Type"
-msgstr "Typ autentizácie"
-
-#: ../src/modules/network/add/AddVpn.qml:205
-#: ../src/modules/network/add/AddVpn.qml:295
-#: ../src/modules/network/wireless/AddWireless.qml:114
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:103
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:135
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:225
-msgid "User Cert"
-msgstr "Užívateľský certifikát"
-
 #: ../src/modules/network/add/AddVpn.qml:195
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:125
 msgid "CSD Script"
 msgstr "CSD Skript"
+
+#: ../src/modules/network/add/AddVpn.qml:205
+#: ../src/modules/network/add/AddVpn.qml:295
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:103
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:135
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:225
+#: ../src/modules/network/wireless/AddWireless.qml:114
+msgid "User Cert"
+msgstr "Užívateľský certifikát"
+
+#: ../src/modules/network/add/AddVpn.qml:215
+#: ../src/modules/network/add/AddVpn.qml:305
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:154
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:145
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:235
+#: ../src/modules/network/wireless/AddWireless.qml:165
+msgid "Private Key"
+msgstr "Privátny kľúč"
 
 #: ../src/modules/network/add/AddVpn.qml:225
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:155
 msgid "Use FSID for Key Passphrase"
 msgstr "Použiť FSID pre Key Passphrase"
 
+#: ../src/modules/network/add/AddVpn.qml:245
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:175
+msgid "Auth Type"
+msgstr "Typ autentizácie"
+
 #: ../src/modules/network/add/AddVpn.qml:325
-#: ../src/modules/network/wireless/AddWireless.qml:206
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:195
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:255
+#: ../src/modules/network/wireless/AddWireless.qml:206
 msgid "Private Pwd"
 msgstr "Private PWD"
 
@@ -335,6 +934,12 @@ msgstr "Private PWD"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:265
 msgid "Static Key"
 msgstr "Static Key"
+
+#: ../src/modules/network/add/AddVpn.qml:345
+#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:275
+#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
+msgid "Customize Key Direction"
+msgstr "Upraviť Key Direction"
 
 #: ../src/modules/network/add/AddVpn.qml:355
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:285
@@ -402,203 +1007,6 @@ msgstr "Pre-Shared Key"
 msgid "Use MPPE"
 msgstr "Použiť MPPE"
 
-#: ../src/modules/network/wireless/AddWireless.qml:8
-msgid "Connect to wireless"
-msgstr "Pripojiť bezdrôtovo"
-
-#: ../src/modules/network/wireless/AddWireless.qml:32
-#: ../src/modules/network/edit_autogen/EditSectionWifi.qml:23
-#: ../src/modules/network/wireless/WifiHotspot.qml:37
-msgid "SSID"
-msgstr "SSID"
-
-#: ../src/modules/network/wireless/AddWireless.qml:44
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:11
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:33
-#: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:33
-#: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:33
-#: ../src/modules/network/Info.qml:53
-#: ../src/modules/network/wireless/WifiHotspot.qml:49
-msgid "Security"
-msgstr "Bezpečnosť"
-
-#: ../src/modules/network/wireless/AddWireless.qml:54
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:43
-#: ../src/modules/network/wireless/WifiHotspot.qml:59
-msgid "Key"
-msgstr "Kľúč"
-
-#: ../src/modules/network/wireless/AddWireless.qml:74
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:63
-msgid "EAP Auth"
-msgstr "EAP autentizácia"
-
-#: ../src/modules/network/wireless/AddWireless.qml:84
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:73
-msgid "Identity"
-msgstr "Identita"
-
-#: ../src/modules/network/wireless/AddWireless.qml:94
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:83
-msgid "Anonymous ID"
-msgstr "Anonymné ID"
-
-#: ../src/modules/network/wireless/AddWireless.qml:124
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:113
-msgid "Provisioning"
-msgstr "Provisioning"
-
-#: ../src/modules/network/wireless/AddWireless.qml:134
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:123
-msgid "PAC file"
-msgstr "PAC súbor"
-
-#: ../src/modules/network/wireless/AddWireless.qml:144
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:133
-msgid "PEAP Version"
-msgstr "PEAP verzia"
-
-#: ../src/modules/network/wireless/AddWireless.qml:154
-#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:143
-msgid "Inner Auth"
-msgstr "Inner autentizácia"
-
-#: ../src/modules/network/wireless/AddWireless.qml:224
-#: ../src/modules/network/widgets/PasswordBox.qml:126
-msgid "Connect"
-msgstr "Spojiť"
-
-#: ../src/modules/account/AvatarPickDialog.qml:5
-msgid "Choose a new picture for your Avatar"
-msgstr "Vyberte nový obrázok pre Avatara"
-
-#: ../src/modules/account/AvatarView.qml:19
-msgid "Recently Used"
-msgstr "Nedávno použité"
-
-#: ../src/modules/account/AvatarView.qml:20
-msgid "Avatar"
-msgstr "Avatar"
-
-#: ../src/modules/account/AvatarView.qml:21
-msgid "Webcam"
-msgstr "Webkamera"
-
-#: ../src/modules/sound/BalanceLine.qml:31
-msgid "Left/Right Balance"
-msgstr "Ľavý/Pravý vyváženie"
-
-#: ../src/modules/sound/BalanceLine.qml:53
-msgid "Left"
-msgstr "Vľavo"
-
-#: ../src/modules/sound/BalanceLine.qml:55
-msgid "Right"
-msgstr "Vpravo"
-
-#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:43
-#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:53
-msgid "Automatically connect"
-msgstr "Automaticky pripojiť"
-
-#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:121
-#: ../src/modules/personalization/widgets/PreviewWindow.qml:280
-#: ../src/modules/display/main.qml:194
-msgid "Apply"
-msgstr "Použiť"
-
-#: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:149
-msgid "Devices nearby"
-msgstr "Blízke zariadenia"
-
-#: ../src/modules/display/BrightnessRectangle.qml:61
-#: ../src/modules/display/ResolutionRectangle.qml:69
-#: ../src/modules/display/RotationRectangle.qml:70
-msgid "Monitor"
-msgstr "Obrazovka"
-
-#: ../src/modules/date_time/Calendar.qml:164
-msgid "Today"
-msgstr "Dnes"
-
-#: ../src/modules/date_time/CalendarComponent.qml:83
-msgid "Sun"
-msgstr "Ne"
-
-#: ../src/modules/date_time/CalendarComponent.qml:84
-msgid "Mon"
-msgstr "Po"
-
-#: ../src/modules/date_time/CalendarComponent.qml:85
-msgid "Tue"
-msgstr "Ut"
-
-#: ../src/modules/date_time/CalendarComponent.qml:86
-msgid "Wed"
-msgstr "St"
-
-#: ../src/modules/date_time/CalendarComponent.qml:87
-msgid "Thu"
-msgstr "Št"
-
-#: ../src/modules/date_time/CalendarComponent.qml:88
-msgid "Fri"
-msgstr "Pi"
-
-#: ../src/modules/date_time/CalendarComponent.qml:89
-msgid "Sat"
-msgstr "So"
-
-#: ../src/modules/network/ConnectionAdd.qml:12
-#: ../src/modules/network/main.qml:315
-msgid "Add Network Connection"
-msgstr "Pridať sieťové spojenie"
-
-#: ../src/modules/network/ConnectionAdd.qml:35
-#: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:11
-#: ../src/modules/network/main.qml:205
-msgid "PPPoE"
-msgstr "PPPoE"
-
-#: ../src/modules/network/ConnectionAdd.qml:45
-#: ../src/modules/network/edit_autogen/EditSectionVpn.qml:11
-#: ../src/modules/network/main.qml:213
-msgid "VPN"
-msgstr "VPN"
-
-#: ../src/modules/network/ConnectionAdd.qml:77
-msgid "Next"
-msgstr "Ďaľšie"
-
-#: ../src/modules/network/ConnectionEdit.qml:52
-msgid "Delete this network"
-msgstr "Odstrániť túto sieť"
-
-#: ../src/modules/network/ConnectionEdit.qml:52
-msgid "Are you sure you want to delete this network?"
-msgstr "Ste si istý, že chcete odstrániť túto sieť?"
-
-#: ../src/modules/network/ConnectionEdit.qml:110
-#: ../src/modules/network/wireless/WifiHotspot.qml:91
-msgid "Save"
-msgstr "Uložiť"
-
-#: ../src/modules/network/ConnectionEdit.qml:144
-msgid "Delete"
-msgstr "Vymazať"
-
-#: ../src/modules/shortcuts/CustomKeybinding.qml:133
-msgid "Command"
-msgstr "Príkaz"
-
-#: ../src/modules/account/DeleteUserDialog.qml:19
-msgid "Keep user's files"
-msgstr "Zachovať užívateľove súbory"
-
-#: ../src/modules/account/DeleteUserDialog.qml:20
-msgid "Delete user's files"
-msgstr "Vymazať užívateľove súbory"
-
 #: ../src/modules/network/dsl/DslExpand.qml:19
 msgid "PPPoE Connections"
 msgstr "PPPoE Spojenia"
@@ -611,6 +1019,11 @@ msgstr "Aktuálny systém potrebuje komponentu pre %1"
 #: ../src/modules/network/edit/EditLineMissingPackage.qml:22
 msgid "Click to install"
 msgstr "Kliknite pre inštaláciu"
+
+#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:44
+#: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:54
+msgid "Automatically connect"
+msgstr "Automaticky pripojiť"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:11
 #: ../src/modules/network/main.qml:197
@@ -647,12 +1060,6 @@ msgstr "IPv4"
 msgid "Method"
 msgstr "Metóda"
 
-#: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:33
-#: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:33
-#: ../src/modules/network/Info.qml:55
-msgid "IP Address"
-msgstr "IP adresa"
-
 #: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:44
 msgid "Netmask"
 msgstr "Maska"
@@ -675,19 +1082,31 @@ msgstr "Prefix"
 msgid "Mobile"
 msgstr "Mobilná"
 
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:73
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:23
+msgid "Country or region"
+msgstr "Krajina alebo región"
+
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:34
+msgid "Provider"
+msgstr "Poskytovateľ"
+
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:45
+msgid "Plan"
+msgstr "Plán"
+
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:118
 msgid "Network ID"
 msgstr "Network ID"
 
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:83
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:128
 msgid "Type"
 msgstr "Typ"
 
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:93
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:138
 msgid "Home Network Only"
 msgstr "Iba domáca sieť"
 
-#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:103
+#: ../src/modules/network/edit_autogen/EditSectionMobile.qml:148
 msgid "PIN"
 msgstr "PIN"
 
@@ -763,6 +1182,47 @@ msgstr "Odoslať PPP Echo pakety"
 msgid "Security Required"
 msgstr "Požadovaná bezpečnosť"
 
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:43
+#: ../src/modules/network/wireless/AddWireless.qml:54
+#: ../src/modules/network/wireless/WifiHotspot.qml:59
+msgid "Key"
+msgstr "Kľúč"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:63
+#: ../src/modules/network/wireless/AddWireless.qml:74
+msgid "EAP Auth"
+msgstr "EAP autentizácia"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:73
+#: ../src/modules/network/wireless/AddWireless.qml:84
+msgid "Identity"
+msgstr "Identita"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:83
+#: ../src/modules/network/wireless/AddWireless.qml:94
+msgid "Anonymous ID"
+msgstr "Anonymné ID"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:113
+#: ../src/modules/network/wireless/AddWireless.qml:124
+msgid "Provisioning"
+msgstr "Provisioning"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:123
+#: ../src/modules/network/wireless/AddWireless.qml:134
+msgid "PAC file"
+msgstr "PAC súbor"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:133
+#: ../src/modules/network/wireless/AddWireless.qml:144
+msgid "PEAP Version"
+msgstr "PEAP verzia"
+
+#: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:143
+#: ../src/modules/network/wireless/AddWireless.qml:154
+msgid "Inner Auth"
+msgstr "Inner autentizácia"
+
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:75
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:355
 msgid "NT Domain"
@@ -790,13 +1250,13 @@ msgstr "Žiadna Addres/Control kompresia"
 msgid "VPN Advanced"
 msgstr "Pokročilé VPN"
 
-#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:33
-msgid "Gateway Port"
-msgstr "Port brány"
-
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:23
 msgid "Customize Gateway Port"
 msgstr "Vlastný port brány"
+
+#: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:33
+msgid "Gateway Port"
+msgstr "Port brány"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:45
 msgid "Customize Renegotiation Interval"
@@ -927,6 +1387,12 @@ msgstr "Zakázať Dead Peer detekciu"
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
 
+#: ../src/modules/network/edit_autogen/EditSectionWifi.qml:23
+#: ../src/modules/network/wireless/AddWireless.qml:32
+#: ../src/modules/network/wireless/WifiHotspot.qml:37
+msgid "SSID"
+msgstr "SSID"
+
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:33
 msgid "Mode"
 msgstr "Režim"
@@ -938,929 +1404,6 @@ msgstr "Pásmo"
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:54
 msgid "Channel"
 msgstr "Kanál"
-
-#: ../src/modules/account/EditUserDialog.qml:93
-msgid "Enable"
-msgstr "Povoliť"
-
-#: ../src/modules/sound/FadeLine.qml:31
-msgid "Front/Rear Balance"
-msgstr "Predný/Zadný vyváženie"
-
-#: ../src/modules/sound/FadeLine.qml:55
-msgid "Front"
-msgstr "Predný"
-
-#: ../src/modules/sound/FadeLine.qml:53
-msgid "Rear"
-msgstr "Zadný"
-
-#: ../src/modules/personalization/components/FontSettingsExpand.qml:48
-msgid "Standard"
-msgstr "Štandardný"
-
-#: ../src/modules/personalization/components/FontSettingsExpand.qml:70
-msgid "Monospaced"
-msgstr "Monospaced"
-
-#: ../src/modules/personalization/components/FontSettingsExpand.qml:90
-msgid "Size"
-msgstr "Veľkosť"
-
-#: ../src/modules/personalization/components/FontSettingsExpand.qml:119
-#, qt-format
-msgid "Font %1"
-msgstr "Font %1"
-
-#: ../src/modules/account/GuestUser.qml:45 ../src/views/HeaderArea.qml:108
-msgid "Guest"
-msgstr "Hosť"
-
-#: ../src/modules/account/GuestUser.qml:106
-msgid "Enabled"
-msgstr "Povolené"
-
-#: ../src/modules/network/Info.qml:13
-msgid "Connected"
-msgstr "Pripojené"
-
-#: ../src/modules/network/Info.qml:15
-msgid "Not Connected"
-msgstr "Nepripojené"
-
-#: ../src/modules/network/Info.qml:39
-msgid "(default)"
-msgstr "(predvolené)"
-
-#: ../src/modules/network/Info.qml:50
-msgid "Interface"
-msgstr "Rozhranie"
-
-#: ../src/modules/network/Info.qml:54
-msgid "Device Addr"
-msgstr "Adresa zariadenia"
-
-#: ../src/modules/network/Info.qml:56
-msgid "Subnet Mask"
-msgstr "Maska podsiete"
-
-#: ../src/modules/network/Info.qml:57
-msgid "Route Addr"
-msgstr "Adresa cesty"
-
-#: ../src/modules/network/Info.qml:58
-msgid "Primary DNS"
-msgstr "Primárny DNS"
-
-#: ../src/modules/network/Info.qml:59
-msgid "Secondary DNS"
-msgstr "Sekundárny DNS"
-
-#: ../src/modules/network/Info.qml:60
-msgid "Third DNS"
-msgstr "Ternárny DNS"
-
-#: ../src/modules/network/Info.qml:69
-msgid "Device Speed"
-msgstr "Rýchlosť zariadenia"
-
-#: ../src/modules/keyboard/LocaleArea.qml:53
-msgid "Language"
-msgstr "Jazyk"
-
-#: ../src/modules/display/MessageBox.qml:105
-msgid "Do you want to keep these display settings?"
-msgstr "Chcete ponechať tieto nastavenia zobrazovania?"
-
-#: ../src/modules/display/MessageBox.qml:114
-#, qt-format
-msgid ""
-"Reverting to previous display settings in <font color='#F48914'>%1</font> "
-"seconds."
-msgstr "Vrátenie k predošlému nastaveniu zobrazenia za <font color='#F48914'>%1</font> sekúnd."
-
-#: ../src/modules/display/MessageBox.qml:140
-msgid "Keep Changes"
-msgstr "Ponechať zmeny"
-
-#: ../src/modules/display/MessageBox.qml:128
-msgid "Revert"
-msgstr "Vrátiť"
-
-#: ../src/views/ModulesData.qml:52
-msgid "Date and Time"
-msgstr "Čas a dátum"
-
-#: ../src/views/ModulesData.qml:53
-msgid "Network"
-msgstr "Sieť"
-
-#: ../src/views/ModulesData.qml:54
-msgid "Disk Mount"
-msgstr "Pripojiť disk"
-
-#: ../src/views/ModulesData.qml:55 ../src/modules/network/main.qml:173
-msgid "Bluetooth"
-msgstr "Bluetooth"
-
-#: ../src/views/ModulesData.qml:56
-msgid "Sound"
-msgstr "Zvuk"
-
-#: ../src/views/ModulesData.qml:57
-msgid "Power Management"
-msgstr "Správa energie"
-
-#: ../src/views/ModulesData.qml:58
-msgid "More Settings"
-msgstr "Viac nastavení"
-
-#: ../src/views/ModulesData.qml:59 ../src/views/PanelContent.qml:473
-msgid "Power"
-msgstr "Energia"
-
-#: ../src/views/ModulesData.qml:60
-msgid "Display"
-msgstr "Zobraziť"
-
-#: ../src/views/ModulesData.qml:61
-msgid "Desktop"
-msgstr "Pracovné prostredie"
-
-#: ../src/views/ModulesData.qml:62
-msgid "Personalization"
-msgstr "Personalizácia"
-
-#: ../src/views/ModulesData.qml:63
-msgid "Keyboard Shortcuts"
-msgstr "Klávesové skratky"
-
-#: ../src/views/ModulesData.qml:64
-msgid "Keyboard and Language"
-msgstr "Klávesnica a jazyk"
-
-#: ../src/views/ModulesData.qml:65
-msgid "Tablet"
-msgstr "Tablet"
-
-#: ../src/views/ModulesData.qml:66
-msgid "Mouse and Touchpad"
-msgstr "Myš a Touchpad"
-
-#: ../src/views/ModulesData.qml:67 ../src/modules/mouse_touchpad/main.qml:50
-msgid "Mouse"
-msgstr "Myš"
-
-#: ../src/views/ModulesData.qml:68
-msgid "User Accounts"
-msgstr "Používateľské účty"
-
-#: ../src/views/ModulesData.qml:69
-#: ../src/modules/default_applications/main.qml:85
-msgid "Default Applications"
-msgstr "Predvolené programy"
-
-#: ../src/views/ModulesData.qml:70
-msgid "System Information"
-msgstr "Informácie o systéme"
-
-#: ../src/views/ModulesData.qml:71
-msgid "Boot Menu"
-msgstr "Bootovacie menu"
-
-#: ../src/views/ModulesData.qml:72
-msgid "Home"
-msgstr "Domov"
-
-#: ../src/modules/display/MonitorDragArea.qml:471
-msgid "Identify"
-msgstr "Identifikovať"
-
-#: ../src/modules/display/MonitorDragArea.qml:489
-msgid "Edit"
-msgstr "Upraviť"
-
-#: ../src/modules/display/MonitorDragArea.qml:507
-msgid "Split"
-msgstr "Rozdeliť"
-
-#: ../src/modules/display/MonitorProperties.qml:42
-msgid "Normal"
-msgstr "Normálny"
-
-#: ../src/modules/display/MonitorProperties.qml:43
-msgid "Rotate Right"
-msgstr "Otočiť vpravo"
-
-#: ../src/modules/display/MonitorProperties.qml:44
-msgid "Upside Down"
-msgstr "Hore nohami"
-
-#: ../src/modules/display/MonitorProperties.qml:45
-msgid "Rotate Left"
-msgstr "Otočiť vľavo"
-
-#: ../src/modules/display/MonitorProperties.qml:78
-msgid "Enable Monitor(s)"
-msgstr "Povoliť monitor(y)"
-
-#: ../src/modules/display/MonitorProperties.qml:96
-msgid "Please choose the monitor(s) you want to enable"
-msgstr "Prosím, zvoľte monitor(y), ktorý chcete povoliť"
-
-#: ../src/modules/display/MonitorProperties.qml:146
-msgid "Primary Screen"
-msgstr "Primárna aobrazovka"
-
-#: ../src/modules/display/MonitorProperties.qml:189
-msgid "Resolution"
-msgstr "Rozlíšenie"
-
-#: ../src/modules/display/MonitorProperties.qml:230
-msgid "Rotation"
-msgstr "Otočenie"
-
-#: ../src/modules/display/MonitorProperties.qml:274
-#: ../src/modules/display/MonitorProperties.qml:306
-msgid "Brightness"
-msgstr "Jas"
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:38
-msgid "Display Modes"
-msgstr "Režimy zobrazenia"
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:58
-msgid "Copy"
-msgstr "Kopírovať"
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:59
-msgid "Copy the contents of your primary screen to other screens."
-msgstr "Skopírovať obsah primárnej obrazovky na ostatné obrazovky. "
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:76
-msgid "Extend"
-msgstr "Rozšíriť"
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:77
-msgid ""
-"Extend your screen contents to display different contents on different "
-"screens."
-msgstr "Rozšíriť obsah obrazovky pre zobrazenie rozličného obsahu na rozdielnych obrazovkách. "
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:98
-#, qt-format
-msgid "Only Displayed on %1"
-msgstr "Zobrazené iba na %1"
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:99
-#, qt-format
-msgid "Screen contents are only displayed on %1 but not on other screens."
-msgstr "Obsah obrazovky je zobrazený iba na %1 a nie na ostatných obrazovkách."
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:118
-msgid "Custom Settings"
-msgstr "Vlastné nastavenia"
-
-#: ../src/modules/display/MonitorsSimpleSetting.qml:119
-msgid "You can do other custom settings to your screens."
-msgstr "Môžte vykonať iné vlastné nastavenia vašich obrazoviek. "
-
-#: ../src/modules/network/wired/NewItem.qml:45
-#: ../src/modules/network/wired/WiredItem.qml:89
-#, qt-format
-msgid "Wired Connection %1"
-msgstr "Káblové pripojenie %1"
-
-#: ../src/modules/network/wired/NewItem.qml:47
-#: ../src/modules/network/wired/WiredItem.qml:91
-msgid "Wired Connection"
-msgstr "Káblové pripojenie"
-
-#: ../src/modules/network/widgets/NotManagedSection.qml:25
-msgid "not managed"
-msgstr "nespravované"
-
-#: ../src/modules/network/widgets/PasswordBox.qml:102
-msgid "Auto-connect"
-msgstr "Automaticky-pripojiť"
-
-#: ../src/modules/account/PasswordDialog.qml:119
-msgid "New Password"
-msgstr "Nové heslo"
-
-#: ../src/modules/account/PasswordDialog.qml:185
-msgid "Repeat"
-msgstr "Opakovať"
-
-#: ../src/modules/grub/Preview.qml:122
-msgid "Drag and drop an image to change background."
-msgstr "Uchop a pusti obrázok pre zmenu pozadia"
-
-#: ../src/modules/grub/Preview.qml:123 ../src/modules/account/UserList.qml:239
-msgid "Image format not supported"
-msgstr "Formát obrázku nie je podporovaný"
-
-#: ../src/modules/grub/Preview.qml:124
-msgid "Updating..."
-msgstr "Obnovuje sa..."
-
-#: ../src/modules/grub/Preview.qml:125
-msgid "Successfully updated, reboot to view."
-msgstr "Úspešne aktualizované, reštartujte pre zobrazenie."
-
-#: ../src/modules/network/proxy/ProxyContent.qml:43
-#: ../src/modules/shortcuts/ShortcutInput.qml:119
-#: ../src/modules/date_time/main.qml:205
-msgid "None"
-msgstr "Žiadne"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:48
-msgid "Manual"
-msgstr "Ručné"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:53
-msgid "Auto"
-msgstr "Automatické"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:88
-msgid "HTTP Proxy"
-msgstr "HTTP Proxy"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:100
-msgid "HTTPS Proxy"
-msgstr "HTTPS Proxy"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:112
-msgid "FTP Proxy"
-msgstr "Proxy FTP"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:124
-msgid "Socks Proxy"
-msgstr "Proxy SOCKS"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:149
-msgid "Configuration URL"
-msgstr "Konfigurácia URL"
-
-#: ../src/modules/network/proxy/ProxyContent.qml:166
-msgid "Apply system wide"
-msgstr "Aplikovať na celý systém"
-
-#: ../src/modules/network/proxy/ProxyExpand.qml:37
-msgid "System Proxy"
-msgstr "System Proxy"
-
-#: ../src/modules/shared/ResetButton.qml:39
-msgid "Reset successfully"
-msgstr "Reset succesfully"
-
-#: ../src/modules/shared/ResetButton.qml:47
-msgid "Reset"
-msgstr "Nastaviť znovu"
-
-#: ../src/modules/shortcuts/ShortcutInput.qml:137
-msgid "Please input new shortcut"
-msgstr "Prosím, vložte novú skratku"
-
-#: ../src/modules/shortcuts/ShortcutInput.qml:238
-#, qt-format
-msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
-msgstr "Skratka \"%1\" je neplatná, prosím vložte novú skratku. "
-
-#: ../src/modules/shortcuts/ShortcutInput.qml:276
-msgid "The shortcut you set "
-msgstr "Skratka, ktorú ste nastavili"
-
-#: ../src/modules/shortcuts/ShortcutInput.qml:279
-#, qt-format
-msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
-msgstr "je v konflikte s použitou \"%2\" v \"%1\" kategórii. "
-
-#: ../src/modules/shortcuts/ShortcutInput.qml:281
-msgid "Do you want to replace it?"
-msgstr "Chcete nahradiť?"
-
-#: ../src/modules/shortcuts/ShortcutInput.qml:339
-msgid "Replace"
-msgstr "Premiestniť"
-
-#: ../src/modules/personalization/widgets/ShowPreviewButton.qml:53
-msgid "Preview Theme"
-msgstr "Ukážka témy"
-
-#: ../src/modules/date_time/StateButtons.qml:35
-#: ../src/modules/keyboard/StateButtons.qml:35
-#: ../src/modules/shortcuts/StateButtons.qml:39
-msgid "Done"
-msgstr "Hotovo"
-
-#: ../src/modules/date_time/StateButtons.qml:36
-#: ../src/modules/date_time/StateButtons.qml:54
-#: ../src/modules/date_time/TimezoneArea.qml:468
-msgid "Close"
-msgstr "Zavrieť"
-
-#: ../src/modules/date_time/StateButtons.qml:85
-msgid "Delete Time Zone"
-msgstr "Odstrániť časové pásmo"
-
-#: ../src/modules/date_time/StateButtons.qml:101
-msgid "Add Time Zone"
-msgstr "Pridať časové pásmo"
-
-#: ../src/modules/keyboard/StateButtons.qml:92
-msgid "Delete Keyboard Layout"
-msgstr "Odstrániť rozloženie klávesnice"
-
-#: ../src/modules/keyboard/StateButtons.qml:107
-msgid "Add Keyboard Layout"
-msgstr "Pridať rozloženie klávesnice"
-
-#: ../src/modules/shortcuts/StateButtons.qml:90
-msgid "Delete Shortcut"
-msgstr "Odstrániť skratku"
-
-#: ../src/modules/shortcuts/StateButtons.qml:107
-msgid "Add Shortcut"
-msgstr "Pridať skratku"
-
-#: ../src/modules/personalization/widgets/ThemeItem.qml:92
-#: ../src/modules/power/main.qml:319 ../src/modules/power/main.qml:560
-#: ../src/modules/shortcuts/main.qml:54 ../src/modules/shortcuts/main.qml:231
-msgid "Custom"
-msgstr "Vlastný"
-
-#: ../src/modules/date_time/TimeBox.qml:161
-msgid "Double-click this area to change your time"
-msgstr "Dvojité kliknutie na tento priestor zmení čas"
-
-#: ../src/modules/date_time/TimeBox.qml:202
-msgid "Set"
-msgstr "Nastaviť"
-
-#: ../src/modules/date_time/TimezoneArea.qml:256
-msgid "Time zone"
-msgstr "Časové pásmo"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
-msgid "Touchpad"
-msgstr "Touchpad"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:82
-#: ../src/modules/mouse_touchpad/main.qml:83
-msgid "Primary Button"
-msgstr "Primárne tlačidlo"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:91
-#: ../src/modules/mouse_touchpad/main.qml:91
-msgid "Left Button"
-msgstr "Ľavé tlačidlo"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:92
-#: ../src/modules/mouse_touchpad/main.qml:92
-msgid "Right Button"
-msgstr "Pravé tlačidlo"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:117
-#: ../src/modules/mouse_touchpad/main.qml:117
-msgid "Pointer Speed"
-msgstr "Rýchlosť kurzora"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:134
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:171
-#: ../src/modules/keyboard/main.qml:190 ../src/modules/keyboard/main.qml:216
-#: ../src/modules/mouse_touchpad/main.qml:133
-#: ../src/modules/mouse_touchpad/main.qml:169
-msgid "Slow"
-msgstr "Pomaly"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:135
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:172
-#: ../src/modules/keyboard/main.qml:189 ../src/modules/keyboard/main.qml:215
-#: ../src/modules/mouse_touchpad/main.qml:134
-#: ../src/modules/mouse_touchpad/main.qml:170
-msgid "Fast"
-msgstr "Rýchlo"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:154
-#: ../src/modules/mouse_touchpad/main.qml:153
-msgid "Double-click Speed"
-msgstr "Rýchlosť dvoj-kliku"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:192
-msgid "Drag Threshold"
-msgstr "Prah ťahania"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:208
-#: ../src/modules/keyboard/main.qml:163
-msgid "Short"
-msgstr "Krátke"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:209
-#: ../src/modules/keyboard/main.qml:164
-msgid "Long"
-msgstr "Dlhé"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:228
-msgid "Natural Scrolling"
-msgstr "Prirodzené skrolovanie"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:252
-msgid "Tap to click"
-msgstr "Ťuknúť pre kliknutie"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:275
-msgid "Two-finger scrolling"
-msgstr "Skrolovanie dvomi prstami"
-
-#: ../src/modules/mouse_touchpad/TouchpadComponent.qml:298
-msgid "Edge scrolling"
-msgstr "Skrolovanie hranou"
-
-#: ../src/modules/account/UserListCreatingItem.qml:99
-msgid "Account Preparing..."
-msgstr "Účet sa pripravuje..."
-
-#: ../src/modules/network/vpn/VpnExpand.qml:48
-msgid "VPN Connections"
-msgstr "VPN spojenia"
-
-#: ../src/modules/account/WebCam.qml:125 ../src/modules/account/WebCam.qml:140
-msgid "Snapshot"
-msgstr "Snímka"
-
-#: ../src/modules/account/WebCam.qml:136
-msgid "Again"
-msgstr "Znovu"
-
-#: ../src/modules/account/WebCam.qml:175
-msgid "No camera found."
-msgstr "Nenájdený žiadny fotoaparát"
-
-#: ../src/modules/network/wireless/WifiHotspot.qml:23
-msgid "Edit Wi-Fi Hotspot"
-msgstr "Upraviť Wi-Fi Hotspot"
-
-#: ../src/modules/network/wireless/WifiHotspot.qml:23
-msgid "Create Wi-Fi Hotspot"
-msgstr "Vytvoriť Wi-Fi Hotspot"
-
-#: ../src/modules/network/wireless/WifiHotspot.qml:91
-msgid "Create"
-msgstr "Vytvoriť"
-
-#: ../src/modules/network/wired/WiredDeviceExpand.qml:38
-msgid "Wired Network"
-msgstr "Drôtová sieť"
-
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:30
-msgid "Wireless Network"
-msgstr "Bezdrôtová sieť"
-
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:28
-#, qt-format
-msgid "Wireless Network %1"
-msgstr "Bezdrôtová sieť %1"
-
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:57
-msgid ""
-"Wireless network is unable to be connected maybe due to the following reasons:\n"
-"\n"
-"1. The hardware switch of wireless network card is off\n"
-"2. Incorrect network configuration in /etc/network/interface\n"
-"3. Incorrect driver of network hardware"
-msgstr "Nie je možné sa pripojiť k bezdrôtovej sieti z nasledujúcich možných dôvodov:\n\n1. Hardvérový vypínač bezdrôtového rozhrania je vypnutý\n2. Nesprávna konfigurácia siete v /etc/network/interface\n3. Nesprávny ovládač sieťového rozhrania"
-
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:37
-#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:163
-msgid "Connect to hidden access point"
-msgstr "Pripojiť k skrytému bodu prístupu"
-
-#: ../src/modules/power/main.qml:307 ../src/modules/power/main.qml:548
-msgid "Power saver"
-msgstr "Šetrič energie"
-
-#: ../src/modules/power/main.qml:301 ../src/modules/power/main.qml:542
-msgid "Balanced"
-msgstr "Vyvážený"
-
-#: ../src/modules/power/main.qml:313 ../src/modules/power/main.qml:554
-msgid "High performance"
-msgstr "Vysoký výkon"
-
-#: ../src/modules/date_time/main.qml:131
-msgid "Sync Automatically"
-msgstr "Automaticky synchronizovať"
-
-#: ../src/modules/date_time/main.qml:149
-msgid "Use 24-hour clock"
-msgstr "Použiť 24-hodinový čas"
-
-#: ../src/modules/date_time/main.qml:180
-msgid "Adjust DST clock "
-msgstr "Nastaviť DST hodiny"
-
-#: ../src/modules/date_time/main.qml:257
-msgid "Date"
-msgstr "Dátum"
-
-#: ../src/modules/date_time/main.qml:290
-msgid "Set Date"
-msgstr "Nastaviť dátum"
-
-#: ../src/modules/default_applications/main.qml:97
-msgid "Browser"
-msgstr "Prehliadač"
-
-#: ../src/modules/default_applications/main.qml:111
-msgid "Mail"
-msgstr "Pošta"
-
-#: ../src/modules/default_applications/main.qml:122
-msgid "Text"
-msgstr "Text"
-
-#: ../src/modules/default_applications/main.qml:128
-msgid "Music"
-msgstr "Hudba"
-
-#: ../src/modules/default_applications/main.qml:159
-msgid "Video"
-msgstr "Video"
-
-#: ../src/modules/default_applications/main.qml:191
-msgid "Picture"
-msgstr "Obrázok"
-
-#: ../src/modules/default_applications/main.qml:209
-msgid "Terminal"
-msgstr "Terminál"
-
-#: ../src/modules/default_applications/main.qml:268
-msgid "AutoPlay"
-msgstr "Automaticky prehrať"
-
-#: ../src/modules/default_applications/main.qml:283
-msgid "CD Audio"
-msgstr "CD Audio"
-
-#: ../src/modules/default_applications/main.qml:288
-msgid "DVD Video"
-msgstr "DVD Video"
-
-#: ../src/modules/default_applications/main.qml:293
-msgid "Music Player"
-msgstr "Hudobný prehrávač"
-
-#: ../src/modules/default_applications/main.qml:298
-msgid "Camera"
-msgstr "Kamera"
-
-#: ../src/modules/default_applications/main.qml:303
-msgid "Software"
-msgstr "Softvér"
-
-#: ../src/modules/grub/main.qml:112
-msgid "Default Boot"
-msgstr "Predvolený boot"
-
-#: ../src/modules/grub/main.qml:167
-msgid "Boot delay"
-msgstr "Zdržanie bootovania"
-
-#: ../src/modules/grub/main.qml:206
-msgid "Text Color"
-msgstr "Farba textu"
-
-#: ../src/modules/grub/main.qml:239
-msgid "Selected Text Color"
-msgstr "Farba vybratého textu"
-
-#: ../src/modules/keyboard/main.qml:149
-msgid "Repeat Delay"
-msgstr "Oneskorenie opakovania"
-
-#: ../src/modules/keyboard/main.qml:174
-msgid "Repeat Rate"
-msgstr "Rýchlosť opakovania"
-
-#: ../src/modules/keyboard/main.qml:200
-msgid "Cursor Blink Rate"
-msgstr "Rýchlosť blikania kurzoru"
-
-#: ../src/modules/keyboard/main.qml:226
-msgid "Test Area"
-msgstr "Testovacia plocha"
-
-#: ../src/modules/keyboard/main.qml:272
-msgid "Keyboard Layout"
-msgstr "Rozloženie klávesnice"
-
-#: ../src/modules/keyboard/main.qml:499
-msgid "No result"
-msgstr "Žiadne výsledky"
-
-#: ../src/modules/keyboard/main.qml:246
-msgid "Caps Lock prompt"
-msgstr "Caps Lock výzva"
-
-#: ../src/modules/mouse_touchpad/main.qml:190
-msgid "Disable the touchpad when inserting the mouse"
-msgstr "Zakázať touchpad keď sa pripája myš"
-
-#: ../src/modules/personalization/main.qml:111
-msgid "Theme"
-msgstr "Téma"
-
-#: ../src/modules/personalization/main.qml:118
-#: ../src/modules/shortcuts/main.qml:52
-msgid "Window"
-msgstr "Okno"
-
-#: ../src/modules/personalization/main.qml:125
-msgid "Icon"
-msgstr "Ikona"
-
-#: ../src/modules/personalization/main.qml:132
-msgid "Cursor"
-msgstr "Kurzor"
-
-#: ../src/modules/personalization/main.qml:139
-msgid "Wallpaper"
-msgstr "Pozadie"
-
-#: ../src/modules/personalization/main.qml:153
-msgid "Fonts"
-msgstr "Fonty"
-
-#: ../src/modules/power/main.qml:53 ../src/modules/power/main.qml:65
-msgid "Never"
-msgstr "Nikdy"
-
-#: ../src/modules/power/main.qml:59
-msgid "1 minute"
-msgstr "1 minúta"
-
-#: ../src/modules/power/main.qml:60
-msgid "5 minutes"
-msgstr "5 minút"
-
-#: ../src/modules/power/main.qml:61
-msgid "10 minutes"
-msgstr "10 minút"
-
-#: ../src/modules/power/main.qml:62
-msgid "15 minutes"
-msgstr "15 minút"
-
-#: ../src/modules/power/main.qml:63
-msgid "30 minutes"
-msgstr "30 minút"
-
-#: ../src/modules/power/main.qml:64
-msgid "1 hour"
-msgstr "1 hodina"
-
-#: ../src/modules/power/main.qml:123
-msgid "When I press the power button"
-msgstr "Pri stlačení tlačítka energie"
-
-#: ../src/modules/power/main.qml:137 ../src/modules/power/main.qml:183
-msgid "Shutdown"
-msgstr "Vypnúť"
-
-#: ../src/modules/power/main.qml:142 ../src/modules/power/main.qml:188
-#: ../src/modules/power/main.qml:304 ../src/modules/power/main.qml:310
-#: ../src/modules/power/main.qml:316 ../src/modules/power/main.qml:322
-#: ../src/modules/power/main.qml:425 ../src/modules/power/main.qml:545
-#: ../src/modules/power/main.qml:551 ../src/modules/power/main.qml:557
-#: ../src/modules/power/main.qml:563 ../src/modules/power/main.qml:659
-msgid "Suspend"
-msgstr "Uspať"
-
-#: ../src/modules/power/main.qml:147
-msgid "Ask"
-msgstr "Pýtať sa"
-
-#: ../src/modules/power/main.qml:169
-msgid "When I close the lid"
-msgstr "Pri zatvorení veka"
-
-#: ../src/modules/power/main.qml:193
-msgid "Nothing"
-msgstr "Nič"
-
-#: ../src/modules/power/main.qml:212
-msgid "Password required to wake up"
-msgstr "Žiadať heslo pri prebudení"
-
-#: ../src/modules/power/main.qml:248
-msgid "Plugged in"
-msgstr "Pripojený v sieti"
-
-#: ../src/modules/power/main.qml:490
-msgid "On battery"
-msgstr "Na batériu"
-
-#: ../src/modules/power/main.qml:303 ../src/modules/power/main.qml:309
-#: ../src/modules/power/main.qml:315 ../src/modules/power/main.qml:321
-#: ../src/modules/power/main.qml:384 ../src/modules/power/main.qml:544
-#: ../src/modules/power/main.qml:550 ../src/modules/power/main.qml:556
-#: ../src/modules/power/main.qml:562 ../src/modules/power/main.qml:619
-msgid "Turn off the display"
-msgstr "Vypnúť display"
-
-#: ../src/modules/power/main.qml:378 ../src/modules/power/main.qml:614
-msgid "Custom Options"
-msgstr "Vlastné nastavenia"
-
-#: ../src/modules/shortcuts/main.qml:50
-msgid "System"
-msgstr "Systém"
-
-#: ../src/modules/shortcuts/main.qml:53
-msgid "Workspace"
-msgstr "Pracovné prostredie"
-
-#: ../src/modules/sound/main.qml:127
-msgid "Speaker"
-msgstr "Reproduktor"
-
-#: ../src/modules/sound/main.qml:157
-msgid "Output Volume"
-msgstr "Výstupná hlasitosť"
-
-#: ../src/modules/sound/main.qml:222
-msgid "Microphone"
-msgstr "Mikrofón"
-
-#: ../src/modules/sound/main.qml:252
-msgid "Input Volume"
-msgstr "Vstupná hlasitosť"
-
-#: ../src/modules/sound/main.qml:296
-msgid "Input Feedback"
-msgstr "Vstupná väzba"
-
-#: ../src/modules/sound/main.qml:332
-msgid "Output Port"
-msgstr "Výstupná prípojka"
-
-#: ../src/modules/sound/main.qml:349 ../src/modules/sound/main.qml:452
-msgid "No port exists in this device."
-msgstr "Žiadna prípojka v zariadení"
-
-#: ../src/modules/sound/main.qml:387
-msgid "Output device"
-msgstr "Výstupné zariadenie"
-
-#: ../src/modules/sound/main.qml:435
-msgid "Input Port"
-msgstr "Vstupná prípojka"
-
-#: ../src/modules/sound/main.qml:490
-msgid "Input device"
-msgstr "Vstupné zariadenie"
-
-#: ../src/modules/sound/main.qml:543
-msgid "Hide Advanced..."
-msgstr "Skryť pokročilé..."
-
-#: ../src/modules/sound/main.qml:543
-msgid "Show Advanced..."
-msgstr "Ukázať pokročilé"
-
-#: ../src/modules/system_info/main.qml:119
-msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
-msgstr "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
-
-#: ../src/modules/system_info/main.qml:125
-msgid "Deepin Edition"
-msgstr "Deepin vydanie"
-
-#: ../src/modules/system_info/main.qml:131
-msgid "System Type"
-msgstr "Typ systému"
-
-#: ../src/modules/system_info/main.qml:132
-msgid "bit"
-msgstr "bit"
-
-#: ../src/modules/system_info/main.qml:137
-msgid "Processor"
-msgstr "Procesor"
-
-#: ../src/modules/system_info/main.qml:151
-msgid "Memory"
-msgstr "Pamäť"
-
-#: ../src/modules/system_info/main.qml:157
-msgid "Disk"
-msgstr "Disk"
-
-#: ../src/modules/system_info/main.qml:175
-msgid "GNU GENERAL PUBLIC LICENSE"
-msgstr "GNU GENERAL PUBLIC LICENSE"
 
 #: ../src/modules/network/main.qml:163 ../src/modules/network/main.qml:191
 msgid "Unknown"
@@ -1881,6 +1424,10 @@ msgstr "Nepoužitý1"
 #: ../src/modules/network/main.qml:171
 msgid "Unused2"
 msgstr "Nepoužitý2"
+
+#: ../src/modules/network/main.qml:173 ../src/views/ModulesData.qml:55
+msgid "Bluetooth"
+msgstr "Bluetooth"
 
 #: ../src/modules/network/main.qml:175
 msgid "OLPC mesh"
@@ -1934,10 +1481,6 @@ msgstr "Mobilná GSM"
 msgid "Mobile CDMA"
 msgstr "Mobilná CDMA"
 
-#: ../src/modules/network/main.qml:341
-msgid "View Detailed Information"
-msgstr "Zobraziť detailné informácie"
-
 #: ../src/modules/network/main.qml:215
 msgid "VPN L2TP"
 msgstr "VPN L2TP"
@@ -1958,17 +1501,536 @@ msgstr "VPN OpenVPN"
 msgid "VPN OpenConnect"
 msgstr "VPN OpenConnect"
 
-#: ../src/modules/account/main.qml:109
-msgid "Delete Account"
-msgstr "Odstrániť účet"
+#: ../src/modules/network/main.qml:341
+msgid "View Detailed Information"
+msgstr "Zobraziť detailné informácie"
 
-#: ../src/modules/account/main.qml:149
-msgid "Add Account"
-msgstr "Pridať účet"
+#: ../src/modules/network/mobile/MobileItem.qml:27
+msgid "Restore the connection"
+msgstr "Obnovenie spojenia"
 
-#: ../src/modules/account/main.qml:172
-msgid "User List"
-msgstr "Zoznam užívateľov"
+#: ../src/modules/network/proxy/ProxyContent.qml:48
+msgid "Manual"
+msgstr "Ručné"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:53
+msgid "Auto"
+msgstr "Automatické"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:88
+msgid "HTTP Proxy"
+msgstr "HTTP Proxy"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:100
+msgid "HTTPS Proxy"
+msgstr "HTTPS Proxy"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:112
+msgid "FTP Proxy"
+msgstr "Proxy FTP"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:124
+msgid "Socks Proxy"
+msgstr "Proxy SOCKS"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:149
+msgid "Configuration URL"
+msgstr "Konfigurácia URL"
+
+#: ../src/modules/network/proxy/ProxyContent.qml:166
+msgid "Apply system wide"
+msgstr "Aplikovať na celý systém"
+
+#: ../src/modules/network/proxy/ProxyExpand.qml:37
+msgid "System Proxy"
+msgstr "System Proxy"
+
+#: ../src/modules/network/vpn/VpnExpand.qml:48
+msgid "VPN Connections"
+msgstr "VPN spojenia"
+
+#: ../src/modules/network/widgets/NotManagedSection.qml:25
+msgid "not managed"
+msgstr "nespravované"
+
+#: ../src/modules/network/widgets/PasswordBox.qml:102
+msgid "Auto-connect"
+msgstr "Automaticky-pripojiť"
+
+#: ../src/modules/network/widgets/PasswordBox.qml:126
+#: ../src/modules/network/wireless/AddWireless.qml:224
+#: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:134
+msgid "Connect"
+msgstr "Spojiť"
+
+#: ../src/modules/network/wired/NewItem.qml:45
+#: ../src/modules/network/wired/WiredItem.qml:89
+#, qt-format
+msgid "Wired Connection %1"
+msgstr "Káblové pripojenie %1"
+
+#: ../src/modules/network/wired/NewItem.qml:47
+#: ../src/modules/network/wired/WiredItem.qml:91
+msgid "Wired Connection"
+msgstr "Káblové pripojenie"
+
+#: ../src/modules/network/wired/WiredDeviceExpand.qml:38
+msgid "Wired Network"
+msgstr "Drôtová sieť"
+
+#: ../src/modules/network/wireless/AddWireless.qml:8
+msgid "Connect to wireless"
+msgstr "Pripojiť bezdrôtovo"
+
+#: ../src/modules/network/wireless/WifiHotspot.qml:23
+msgid "Create Wi-Fi Hotspot"
+msgstr "Vytvoriť Wi-Fi Hotspot"
+
+#: ../src/modules/network/wireless/WifiHotspot.qml:23
+msgid "Edit Wi-Fi Hotspot"
+msgstr "Upraviť Wi-Fi Hotspot"
+
+#: ../src/modules/network/wireless/WifiHotspot.qml:91
+msgid "Create"
+msgstr "Vytvoriť"
+
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:28
+#, qt-format
+msgid "Wireless Network %1"
+msgstr "Bezdrôtová sieť %1"
+
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:30
+msgid "Wireless Network"
+msgstr "Bezdrôtová sieť"
+
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:37
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:163
+msgid "Connect to hidden access point"
+msgstr "Pripojiť k skrytému bodu prístupu"
+
+#: ../src/modules/network/wireless/WirelessDeviceExpand.qml:57
+msgid ""
+"Wireless network is unable to be connected maybe due to the following reasons:\n"
+"\n"
+"1. The hardware switch of wireless network card is off\n"
+"2. Incorrect network configuration in /etc/network/interface\n"
+"3. Incorrect driver of network hardware"
+msgstr "Nie je možné sa pripojiť k bezdrôtovej sieti z nasledujúcich možných dôvodov:\n\n1. Hardvérový vypínač bezdrôtového rozhrania je vypnutý\n2. Nesprávna konfigurácia siete v /etc/network/interface\n3. Nesprávny ovládač sieťového rozhrania"
+
+#: ../src/modules/personalization/components/FontSettingsExpand.qml:48
+msgid "Standard"
+msgstr "Štandardný"
+
+#: ../src/modules/personalization/components/FontSettingsExpand.qml:70
+msgid "Monospaced"
+msgstr "Monospaced"
+
+#: ../src/modules/personalization/components/FontSettingsExpand.qml:90
+msgid "Size"
+msgstr "Veľkosť"
+
+#: ../src/modules/personalization/components/FontSettingsExpand.qml:119
+#, qt-format
+msgid "Font %1"
+msgstr "Font %1"
+
+#: ../src/modules/personalization/main.qml:110
+msgid "Theme"
+msgstr "Téma"
+
+#: ../src/modules/personalization/main.qml:117
+#: ../src/modules/shortcuts/main.qml:51
+msgid "Window"
+msgstr "Okno"
+
+#: ../src/modules/personalization/main.qml:124
+msgid "Icon"
+msgstr "Ikona"
+
+#: ../src/modules/personalization/main.qml:131
+msgid "Cursor"
+msgstr "Kurzor"
+
+#: ../src/modules/personalization/main.qml:138
+msgid "Wallpaper"
+msgstr "Pozadie"
+
+#: ../src/modules/personalization/main.qml:152
+msgid "Fonts"
+msgstr "Fonty"
+
+#: ../src/modules/personalization/widgets/ShowPreviewButton.qml:53
+msgid "Preview Theme"
+msgstr "Ukážka témy"
+
+#: ../src/modules/personalization/widgets/ThemeItem.qml:92
+#: ../src/modules/power/main.qml:318 ../src/modules/power/main.qml:559
+#: ../src/modules/shortcuts/main.qml:53 ../src/modules/shortcuts/main.qml:230
+msgid "Custom"
+msgstr "Vlastný"
+
+#: ../src/modules/power/main.qml:52 ../src/modules/power/main.qml:64
+msgid "Never"
+msgstr "Nikdy"
+
+#: ../src/modules/power/main.qml:58
+msgid "1 minute"
+msgstr "1 minúta"
+
+#: ../src/modules/power/main.qml:59
+msgid "5 minutes"
+msgstr "5 minút"
+
+#: ../src/modules/power/main.qml:60
+msgid "10 minutes"
+msgstr "10 minút"
+
+#: ../src/modules/power/main.qml:61
+msgid "15 minutes"
+msgstr "15 minút"
+
+#: ../src/modules/power/main.qml:62
+msgid "30 minutes"
+msgstr "30 minút"
+
+#: ../src/modules/power/main.qml:63
+msgid "1 hour"
+msgstr "1 hodina"
+
+#: ../src/modules/power/main.qml:122
+msgid "When I press the power button"
+msgstr "Pri stlačení tlačítka napájania"
+
+#: ../src/modules/power/main.qml:136 ../src/modules/power/main.qml:182
+msgid "Shutdown"
+msgstr "Vypnúť"
+
+#: ../src/modules/power/main.qml:141 ../src/modules/power/main.qml:187
+#: ../src/modules/power/main.qml:303 ../src/modules/power/main.qml:309
+#: ../src/modules/power/main.qml:315 ../src/modules/power/main.qml:321
+#: ../src/modules/power/main.qml:424 ../src/modules/power/main.qml:544
+#: ../src/modules/power/main.qml:550 ../src/modules/power/main.qml:556
+#: ../src/modules/power/main.qml:562 ../src/modules/power/main.qml:658
+msgid "Suspend"
+msgstr "Uspať"
+
+#: ../src/modules/power/main.qml:146
+msgid "Ask"
+msgstr "Pýtať sa"
+
+#: ../src/modules/power/main.qml:168
+msgid "When I close the lid"
+msgstr "Pri zatvorení veka"
+
+#: ../src/modules/power/main.qml:192
+msgid "Nothing"
+msgstr "Nič"
+
+#: ../src/modules/power/main.qml:211
+msgid "Password required to wake up"
+msgstr "Žiadať heslo pri prebudení"
+
+#: ../src/modules/power/main.qml:247
+msgid "Plugged in"
+msgstr "Pripojený v sieti"
+
+#: ../src/modules/power/main.qml:300 ../src/modules/power/main.qml:541
+msgid "Balanced"
+msgstr "Vyvážený"
+
+#: ../src/modules/power/main.qml:302 ../src/modules/power/main.qml:308
+#: ../src/modules/power/main.qml:314 ../src/modules/power/main.qml:320
+#: ../src/modules/power/main.qml:383 ../src/modules/power/main.qml:543
+#: ../src/modules/power/main.qml:549 ../src/modules/power/main.qml:555
+#: ../src/modules/power/main.qml:561 ../src/modules/power/main.qml:618
+msgid "Turn off the display"
+msgstr "Vypnúť display"
+
+#: ../src/modules/power/main.qml:306 ../src/modules/power/main.qml:547
+msgid "Power saver"
+msgstr "Šetrič energie"
+
+#: ../src/modules/power/main.qml:312 ../src/modules/power/main.qml:553
+msgid "High performance"
+msgstr "Vysoký výkon"
+
+#: ../src/modules/power/main.qml:377 ../src/modules/power/main.qml:613
+msgid "Custom Options"
+msgstr "Vlastné nastavenia"
+
+#: ../src/modules/power/main.qml:489
+msgid "On battery"
+msgstr "Na batériu"
+
+#: ../src/modules/remoting/AccessContent/ConnectedItem.qml:32
+msgid ""
+"You are accessing the desktop shared by other users, you can choose to "
+"continue or disconnect"
+msgstr "Pristupujete na zdieľanú plochu inými užívateľmi, môžete si vybrať pokračovať alebo odpojiť"
+
+#: ../src/modules/remoting/AccessContent/ConnectedItem.qml:42
+#: ../src/modules/remoting/ShareContent/ConnectedItem.qml:46
+msgid "Disconnect"
+msgstr "Odpojiť"
+
+#: ../src/modules/remoting/AccessContent/ConnectingItem.qml:50
+msgid "Establishing connection, please wait..."
+msgstr "Nadviazanie spojenia, čakajte prosím..."
+
+#: ../src/modules/remoting/AccessContent/ConnectingItem.qml:75
+msgid ""
+"This panel will be hidden automatically and the remote session window will "
+"be opened on the desktop after connection is established successfully"
+msgstr "Tento panel bude skrytý automaticky a okno relácie sa otvorí na ploche po úspešnom nadviazaní spojenia"
+
+#: ../src/modules/remoting/AccessContent/ErrorItem.qml:42
+#: ../src/modules/remoting/AccessPanel.qml:81
+#: ../src/modules/remoting/AccessPanel.qml:127
+msgid "Failed to establish the connection, you can retry to connect"
+msgstr "Nepodarilo sa nadviazať spojenie, môžete to skúsiť znova"
+
+#: ../src/modules/remoting/AccessContent/ErrorItem.qml:70
+#: ../src/modules/remoting/ShareContent/ErrorItem.qml:70
+msgid "Retry"
+msgstr "Skúsiť znova"
+
+#: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:104
+#: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:149
+msgid "Please enter the verification code in the input field above"
+msgstr "Prosím, zadajte overovací kód do políčka vyššie"
+
+#: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:168
+msgid "Start remote access after clicking on \"Connect\""
+msgstr "Vzdialený prístup začne po kliknutí na \"Pripojiť\""
+
+#: ../src/modules/remoting/AccessPanel.qml:60
+#: ../src/modules/remoting/AccessPanel.qml:95
+#: ../src/modules/remoting/SharePanel.qml:54
+#: ../src/modules/remoting/SharePanel.qml:94
+#: ../src/modules/remoting/Widgets/NoNetworkConnection.qml:26
+msgid "No network connections are available, please retry..."
+msgstr "Nie je k dispozícií žiadne internetové pripojenie, skúste to prosím znova..."
+
+#: ../src/modules/remoting/AccessPanel.qml:122
+msgid "The verification code is invalid, please retry"
+msgstr "Overovací kód je neplatný, skúste to prosím znova"
+
+#: ../src/modules/remoting/AccessPanel.qml:146
+msgid "Accessing"
+msgstr "Pristupovanie"
+
+#: ../src/modules/remoting/MainPanel.qml:28 ../src/views/ModulesData.qml:73
+msgid "Remote Assistance"
+msgstr "Vzdialená pomoc"
+
+#: ../src/modules/remoting/MainPanel.qml:35
+msgid "Share"
+msgstr "Zdieľať"
+
+#: ../src/modules/remoting/MainPanel.qml:36
+msgid "Share your desktop to get remote assistance from other users"
+msgstr "Zdieľajte svoju plochu pre získanie vzdialenej pomoci od ostatných užívateľov"
+
+#: ../src/modules/remoting/MainPanel.qml:49
+msgid "Access"
+msgstr "Prístup"
+
+#: ../src/modules/remoting/MainPanel.qml:50
+msgid "Access to the desktop shared by other users"
+msgstr "Prístup na zdieľanú plochu od iných používateľov"
+
+#: ../src/modules/remoting/ShareContent/ConnectedItem.qml:35
+msgid ""
+"Sharing your desktop, your can continue to share or choose to disconnect"
+msgstr "Zdieľanie vašej plochy, môžete pokračovať na zdieľanie alebo odpojiť"
+
+#: ../src/modules/remoting/ShareContent/ErrorItem.qml:42
+#: ../src/modules/remoting/SharePanel.qml:80
+#: ../src/modules/remoting/SharePanel.qml:118
+msgid ""
+"Failed to get the verification code, you can retry or cancel the operation"
+msgstr "Nepodarilo sa získať overovací kód, môžete to skúsiť znova, alebo zrušiť operáciu"
+
+#: ../src/modules/remoting/ShareContent/GeneratedCodeItem.qml:62
+msgid ""
+"To start sharing your desktop, please provide the above verification code to"
+" whom will assist you. Your shared session will begin immediately after "
+"verification code input"
+msgstr "Ak chcete začať zdieľať svoju plochu, uveďte prosím asistentovi vyššie uvedený overovací kód. Vaša zdieľaná relácia začne okamžite po overení kódu."
+
+#: ../src/modules/remoting/ShareContent/GeneratedCodeItem.qml:91
+msgid "Copy Code"
+msgstr "Kopírovať kód"
+
+#: ../src/modules/remoting/ShareContent/GeneratedCodeItem.qml:110
+msgid "Copied to clipboard successfully"
+msgstr "Kopírovanie do schránky úspešné"
+
+#: ../src/modules/remoting/ShareContent/GeneratingCodeItem.qml:48
+msgid "Generating the verification code, please wait..."
+msgstr "Generujem overovací kód, prosím čakajte..."
+
+#: ../src/modules/remoting/SharePanel.qml:131
+msgid "Sharing"
+msgstr "Zdieľanie"
+
+#: ../src/modules/shared/ResetButton.qml:39
+msgid "Reset successfully"
+msgstr "Reset succesfully"
+
+#: ../src/modules/shared/ResetButton.qml:47
+msgid "Reset"
+msgstr "Nastaviť znovu"
+
+#: ../src/modules/shortcuts/CustomKeybinding.qml:133
+msgid "Command"
+msgstr "Príkaz"
+
+#: ../src/modules/shortcuts/ShortcutInput.qml:136
+msgid "Please input new shortcut"
+msgstr "Prosím, vložte novú skratku"
+
+#: ../src/modules/shortcuts/ShortcutInput.qml:237
+#, qt-format
+msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
+msgstr "Skratka \"%1\" je neplatná, prosím vložte novú skratku. "
+
+#: ../src/modules/shortcuts/ShortcutInput.qml:275
+msgid "The shortcut you set "
+msgstr "Skratka, ktorú ste nastavili"
+
+#: ../src/modules/shortcuts/ShortcutInput.qml:278
+#, qt-format
+msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
+msgstr "je v konflikte s použitou \"%2\" v \"%1\" kategórii. "
+
+#: ../src/modules/shortcuts/ShortcutInput.qml:280
+msgid "Do you want to replace it?"
+msgstr "Chcete nahradiť?"
+
+#: ../src/modules/shortcuts/ShortcutInput.qml:338
+msgid "Replace"
+msgstr "Premiestniť"
+
+#: ../src/modules/shortcuts/StateButtons.qml:90
+msgid "Delete Shortcut"
+msgstr "Odstrániť skratku"
+
+#: ../src/modules/shortcuts/StateButtons.qml:107
+msgid "Add Shortcut"
+msgstr "Pridať skratku"
+
+#: ../src/modules/shortcuts/main.qml:49
+msgid "System"
+msgstr "Systém"
+
+#: ../src/modules/shortcuts/main.qml:52
+msgid "Workspace"
+msgstr "Pracovné prostredie"
+
+#: ../src/modules/sound/BalanceLine.qml:31
+msgid "Left/Right Balance"
+msgstr "Ľavý/Pravý vyváženie"
+
+#: ../src/modules/sound/BalanceLine.qml:53
+msgid "Left"
+msgstr "Vľavo"
+
+#: ../src/modules/sound/BalanceLine.qml:55
+msgid "Right"
+msgstr "Vpravo"
+
+#: ../src/modules/sound/FadeLine.qml:31
+msgid "Front/Rear Balance"
+msgstr "Predný/Zadný vyváženie"
+
+#: ../src/modules/sound/FadeLine.qml:53
+msgid "Rear"
+msgstr "Zadný"
+
+#: ../src/modules/sound/FadeLine.qml:55
+msgid "Front"
+msgstr "Predný"
+
+#: ../src/modules/sound/main.qml:127
+msgid "Speaker"
+msgstr "Reproduktor"
+
+#: ../src/modules/sound/main.qml:157
+msgid "Output Volume"
+msgstr "Výstupná hlasitosť"
+
+#: ../src/modules/sound/main.qml:222
+msgid "Microphone"
+msgstr "Mikrofón"
+
+#: ../src/modules/sound/main.qml:252
+msgid "Input Volume"
+msgstr "Vstupná hlasitosť"
+
+#: ../src/modules/sound/main.qml:296
+msgid "Input Feedback"
+msgstr "Vstupná väzba"
+
+#: ../src/modules/sound/main.qml:332
+msgid "Output Port"
+msgstr "Výstupná prípojka"
+
+#: ../src/modules/sound/main.qml:349 ../src/modules/sound/main.qml:452
+msgid "No port exists in this device."
+msgstr "Žiadna prípojka v zariadení"
+
+#: ../src/modules/sound/main.qml:387
+msgid "Output device"
+msgstr "Výstupné zariadenie"
+
+#: ../src/modules/sound/main.qml:435
+msgid "Input Port"
+msgstr "Vstupná prípojka"
+
+#: ../src/modules/sound/main.qml:490
+msgid "Input device"
+msgstr "Vstupné zariadenie"
+
+#: ../src/modules/sound/main.qml:543
+msgid "Hide Advanced..."
+msgstr "Skryť pokročilé..."
+
+#: ../src/modules/sound/main.qml:543
+msgid "Show Advanced..."
+msgstr "Ukázať pokročilé"
+
+#: ../src/modules/system_info/main.qml:118
+msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
+msgstr "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
+
+#: ../src/modules/system_info/main.qml:124
+msgid "Deepin Edition"
+msgstr "Deepin vydanie"
+
+#: ../src/modules/system_info/main.qml:130
+msgid "System Type"
+msgstr "Typ systému"
+
+#: ../src/modules/system_info/main.qml:131
+msgid "bit"
+msgstr "bit"
+
+#: ../src/modules/system_info/main.qml:136
+msgid "Processor"
+msgstr "Procesor"
+
+#: ../src/modules/system_info/main.qml:150
+msgid "Memory"
+msgstr "Pamäť"
+
+#: ../src/modules/system_info/main.qml:156
+msgid "Disk"
+msgstr "Disk"
+
+#: ../src/modules/system_info/main.qml:174
+msgid "GNU GENERAL PUBLIC LICENSE"
+msgstr "GNU GENERAL PUBLIC LICENSE"
 
 #: ../src/modules/wacom/main.qml:14
 msgid "Page Up"
@@ -2045,3 +2107,75 @@ msgstr "Úzky"
 #: ../src/modules/wacom/main.qml:207
 msgid "Wide"
 msgstr "Široký"
+
+#: ../src/views/ModulesData.qml:52
+msgid "Date and Time"
+msgstr "Čas a dátum"
+
+#: ../src/views/ModulesData.qml:53
+msgid "Network"
+msgstr "Sieť"
+
+#: ../src/views/ModulesData.qml:54
+msgid "Disk Mount"
+msgstr "Pripojiť disk"
+
+#: ../src/views/ModulesData.qml:56
+msgid "Sound"
+msgstr "Zvuk"
+
+#: ../src/views/ModulesData.qml:57
+msgid "Power Management"
+msgstr "Správa napájania"
+
+#: ../src/views/ModulesData.qml:58
+msgid "More Settings"
+msgstr "Viac nastavení"
+
+#: ../src/views/ModulesData.qml:59 ../src/views/PanelContent.qml:456
+msgid "Power"
+msgstr "Napájanie"
+
+#: ../src/views/ModulesData.qml:60
+msgid "Display"
+msgstr "Zobraziť"
+
+#: ../src/views/ModulesData.qml:61
+msgid "Desktop"
+msgstr "Pracovné prostredie"
+
+#: ../src/views/ModulesData.qml:62
+msgid "Personalization"
+msgstr "Personalizácia"
+
+#: ../src/views/ModulesData.qml:63
+msgid "Keyboard Shortcuts"
+msgstr "Klávesové skratky"
+
+#: ../src/views/ModulesData.qml:64
+msgid "Keyboard and Language"
+msgstr "Klávesnica a jazyk"
+
+#: ../src/views/ModulesData.qml:65
+msgid "Tablet"
+msgstr "Tablet"
+
+#: ../src/views/ModulesData.qml:66
+msgid "Mouse and Touchpad"
+msgstr "Myš a Touchpad"
+
+#: ../src/views/ModulesData.qml:68
+msgid "User Accounts"
+msgstr "Používateľské účty"
+
+#: ../src/views/ModulesData.qml:70
+msgid "System Information"
+msgstr "Informácie o systéme"
+
+#: ../src/views/ModulesData.qml:71
+msgid "Boot Menu"
+msgstr "Bootovacie menu"
+
+#: ../src/views/ModulesData.qml:72
+msgid "Home"
+msgstr "Domov"

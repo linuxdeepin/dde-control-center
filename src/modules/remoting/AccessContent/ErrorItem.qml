@@ -39,7 +39,7 @@ Item {
                 top: parent.top
                 horizontalCenter: parent.horizontalCenter
             }
-            text: dsTr("Failed to establish the connection, you can retry to connect ")
+            text: dsTr("Failed to establish the connection, you can retry to connect")
         }
     }
 

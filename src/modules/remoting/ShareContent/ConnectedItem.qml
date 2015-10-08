@@ -32,7 +32,7 @@ Item {
                 top: parent.top
                 horizontalCenter: parent.horizontalCenter
             }
-            text: dsTr("Your desktop is sharing, you can continue to share or select to disconnect")
+            text: dsTr("Sharing your desktop, your can continue to share or choose to disconnect")
         }
     }
 

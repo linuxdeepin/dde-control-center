@@ -23,24 +23,9 @@ Item {
     }
 
     DssTitle {
-        id:remotingTitle
-        anchors.top: parent.top
-        text: dsTr("Feedback and help")
-    }
-
-    DSeparatorHorizontal {
-        id:separator1
-        anchors.top: remotingTitle.bottom
-    }
-
-    DBaseLine {
         id: desktopBaseLine
-        anchors.top: separator1.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
-        width: parent.width
-        leftLoader.sourceComponent: DssH2 {
-            text: dsTr("Remote desktop")
-        }
+        anchors.top: parent.top
+        text: dsTr("Remote Assistance")
     }
 
     FeatureButton {

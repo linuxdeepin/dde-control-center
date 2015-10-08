@@ -3,11 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# freddy4212 <freddy4212@gmail.com>, 2014
-# Catherinelin <linhongxia@linuxdeepin.com>, 2014
-# szd_liufei <liufei@linuxdeepin.com>, 2014
-# Paris Qian Sen <qiansen1386@gmail.com>, 2014
-# Peter Dave Hello <hsu@peterdavehello.org>, 2014
+# mi estas ni <nikajnun@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: dde-control-center\n"
@@ -15,12 +11,12 @@ msgstr ""
 "POT-Creation-Date: 2015-08-20 14:55+0800\n"
 "PO-Revision-Date: 2015-08-20 07:04+0000\n"
 "Last-Translator: deepin_transifex <xiabin@linuxdeepin.com>\n"
-"Language-Team: Chinese (Taiwan) (http://www.transifex.com/linuxdeepin/dde-control-center/language/zh_TW/)\n"
+"Language-Team: Esperanto (http://www.transifex.com/linuxdeepin/dde-control-center/language/eo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_TW\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: eo\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/modules/account/AddUserDialog.qml:58
 #: ../src/modules/account/AddUserDialog.qml:63
@@ -29,7 +25,7 @@ msgstr ""
 #: ../src/modules/account/PasswordDialog.qml:101
 #: ../src/modules/account/PasswordDialog.qml:161
 msgid "Password can not be empty."
-msgstr "密碼不能空白"
+msgstr ""
 
 #: ../src/modules/account/AddUserDialog.qml:68
 #: ../src/modules/account/AddUserDialog.qml:225
@@ -42,15 +38,15 @@ msgstr "密碼不能空白"
 #: ../src/modules/account/PasswordDialog.qml:213
 #: ../src/modules/account/PasswordDialog.qml:223
 msgid "The two passwords do not match."
-msgstr "兩次輸入的密碼不相同"
+msgstr "La du pasvortoj ne kongruas"
 
 #: ../src/modules/account/AddUserDialog.qml:77
 msgid "Add User"
-msgstr "新增使用者"
+msgstr "Aldoni uzanton"
 
 #: ../src/modules/account/AddUserDialog.qml:106
 msgid "New User"
-msgstr "新增使用者"
+msgstr "Nova uzanto"
 
 #: ../src/modules/account/AddUserDialog.qml:110
 #: ../src/modules/account/AddUserDialog.qml:343
@@ -58,7 +54,7 @@ msgstr "新增使用者"
 #: ../src/modules/account/UserList.qml:228
 #: ../src/modules/account/UserListCreatingItem.qml:88
 msgid "Administrator"
-msgstr "管理員"
+msgstr "Administranto"
 
 #: ../src/modules/account/AddUserDialog.qml:110
 #: ../src/modules/account/AddUserDialog.qml:342
@@ -66,7 +62,7 @@ msgstr "管理員"
 #: ../src/modules/account/UserList.qml:228
 #: ../src/modules/account/UserListCreatingItem.qml:88
 msgid "Normal User"
-msgstr "普通使用者"
+msgstr "Normala uzanto"
 
 #: ../src/modules/account/AddUserDialog.qml:127
 #: ../src/modules/network/add/AddDsl.qml:36
@@ -85,13 +81,13 @@ msgstr "普通使用者"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:375
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:65
 msgid "Username"
-msgstr "使用者名稱"
+msgstr "Uzantonomo"
 
 #: ../src/modules/account/AddUserDialog.qml:175
 #: ../src/modules/account/AddUserDialog.qml:235
 #: ../src/modules/account/AddUserDialog.qml:301
 msgid "Username can not be empty."
-msgstr "使用者名稱不能為空"
+msgstr "Uzantonomo ne povas esti malplena"
 
 #: ../src/modules/account/AddUserDialog.qml:200
 #: ../src/modules/account/PasswordDialog.qml:62
@@ -115,21 +111,21 @@ msgstr "使用者名稱不能為空"
 #: ../src/modules/network/wireless/AddWireless.qml:186
 #: ../src/modules/network/wireless/WifiHotspot.qml:69
 msgid "Password"
-msgstr "密碼"
+msgstr "Pasvorto"
 
 #: ../src/modules/account/AddUserDialog.qml:270
 msgid "Repeat Password"
-msgstr "重複密碼"
+msgstr "Ripeti pasvorton"
 
 #: ../src/modules/account/AddUserDialog.qml:330
 #: ../src/modules/account/EditUserDialog.qml:126
 msgid "Account Type"
-msgstr "帳號類型"
+msgstr "Konto tipo"
 
 #: ../src/modules/account/AddUserDialog.qml:362
 #: ../src/modules/account/EditUserDialog.qml:59
 msgid "Auto-login"
-msgstr "自動登入"
+msgstr " Aŭtomata ensaluto"
 
 #: ../src/modules/account/AddUserDialog.qml:413
 #: ../src/modules/account/DeleteUserDialog.qml:32
@@ -154,7 +150,7 @@ msgstr "自動登入"
 #: ../src/modules/shortcuts/CustomKeybinding.qml:151
 #: ../src/modules/shortcuts/ShortcutInput.qml:354
 msgid "Cancel"
-msgstr "取消"
+msgstr "Forigi"
 
 #: ../src/modules/account/AddUserDialog.qml:426
 #: ../src/modules/account/DeleteUserDialog.qml:45
@@ -162,422 +158,422 @@ msgstr "取消"
 #: ../src/modules/account/WebCam.qml:148 ../src/modules/date_time/main.qml:318
 #: ../src/modules/display/main.qml:193
 msgid "Confirm"
-msgstr "確定"
+msgstr "Konfirmi"
 
 #: ../src/modules/account/AvatarPickDialog.qml:5
 msgid "Choose a new picture for your Avatar"
-msgstr "選擇一張新圖片作為您的帳號圖片"
+msgstr "Elekti novan bildon por via Avataro"
 
 #: ../src/modules/account/AvatarView.qml:19
 msgid "Recently Used"
-msgstr "最近使用"
+msgstr "Ĵus uzitaj"
 
 #: ../src/modules/account/AvatarView.qml:20
 msgid "Avatar"
-msgstr "帳號圖片"
+msgstr "Avataro"
 
 #: ../src/modules/account/AvatarView.qml:21
 msgid "Webcam"
-msgstr "拍照"
+msgstr " Retkamerao"
 
 #: ../src/modules/account/DeleteUserDialog.qml:18
 msgid "Keep user's files"
-msgstr "保留用戶文件"
+msgstr " Pluteni uzanton dosierojn"
 
 #: ../src/modules/account/DeleteUserDialog.qml:19
 msgid "Delete user's files"
-msgstr "刪除用戶文件"
+msgstr " Forigi uzanton dosierojn"
 
 #: ../src/modules/account/EditUserDialog.qml:93
 msgid "Enable"
-msgstr "啟用"
+msgstr "Kapabligi"
 
 #: ../src/modules/account/GuestUser.qml:45 ../src/views/HeaderArea.qml:108
 msgid "Guest"
-msgstr "來賓"
+msgstr "Gasto"
 
 #: ../src/modules/account/GuestUser.qml:106
 msgid "Enabled"
-msgstr "啟用"
+msgstr "Kapabligita"
 
 #: ../src/modules/account/PasswordDialog.qml:119
 msgid "New Password"
-msgstr "新密碼"
+msgstr "Nova pasvorto"
 
 #: ../src/modules/account/PasswordDialog.qml:185
 msgid "Repeat"
-msgstr "重複密碼"
+msgstr "Ripeti"
 
 #: ../src/modules/account/UserList.qml:239 ../src/modules/grub/Preview.qml:123
 msgid "Image format not supported"
-msgstr "不支援的圖片格式"
+msgstr "Bildformato ne subtenata"
 
 #: ../src/modules/account/UserListCreatingItem.qml:99
 msgid "Account Preparing..."
-msgstr "帳號準備中 ..."
+msgstr "Konto preparante"
 
 #: ../src/modules/account/WebCam.qml:125 ../src/modules/account/WebCam.qml:140
 msgid "Snapshot"
-msgstr "拍照"
+msgstr "Ekbildo"
 
 #: ../src/modules/account/WebCam.qml:136
 msgid "Again"
-msgstr "重拍"
+msgstr "Denove"
 
 #: ../src/modules/account/WebCam.qml:175
 msgid "No camera found."
-msgstr "未找到相機設備"
+msgstr "Neniu kameron trovita."
 
 #: ../src/modules/account/main.qml:108
 msgid "Delete Account"
-msgstr "刪除帳號"
+msgstr "Forigi konton"
 
 #: ../src/modules/account/main.qml:148
 msgid "Add Account"
-msgstr "新增帳號"
+msgstr "Aldoni konton"
 
 #: ../src/modules/account/main.qml:171
 msgid "User List"
-msgstr "使用者列表"
+msgstr "Uzantoj listo"
 
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:120
 #: ../src/modules/display/main.qml:193
 #: ../src/modules/personalization/widgets/PreviewWindow.qml:279
 msgid "Apply"
-msgstr "套用"
+msgstr "Apliki"
 
 #: ../src/modules/bluetooth/BluetoothDeviceExpand.qml:148
 msgid "Devices nearby"
-msgstr "附近的設備"
+msgstr "Proksimaj aparatoj"
 
 #: ../src/modules/date_time/Calendar.qml:164
 msgid "Today"
-msgstr "今日"
+msgstr " Hodiaŭ"
 
 #: ../src/modules/date_time/CalendarComponent.qml:83
 msgid "Sun"
-msgstr "日"
+msgstr "Dim"
 
 #: ../src/modules/date_time/CalendarComponent.qml:84
 msgid "Mon"
-msgstr "一"
+msgstr "Lun"
 
 #: ../src/modules/date_time/CalendarComponent.qml:85
 msgid "Tue"
-msgstr "二"
+msgstr "Mar"
 
 #: ../src/modules/date_time/CalendarComponent.qml:86
 msgid "Wed"
-msgstr "三"
+msgstr "Mer"
 
 #: ../src/modules/date_time/CalendarComponent.qml:87
 msgid "Thu"
-msgstr "四"
+msgstr "Ĵaŭ"
 
 #: ../src/modules/date_time/CalendarComponent.qml:88
 msgid "Fri"
-msgstr "五"
+msgstr "Ven"
 
 #: ../src/modules/date_time/CalendarComponent.qml:89
 msgid "Sat"
-msgstr "六"
+msgstr "Sab"
 
 #: ../src/modules/date_time/StateButtons.qml:35
 #: ../src/modules/keyboard/StateButtons.qml:35
 #: ../src/modules/shortcuts/StateButtons.qml:39
 msgid "Done"
-msgstr "完成"
+msgstr "Farita"
 
 #: ../src/modules/date_time/StateButtons.qml:36
 #: ../src/modules/date_time/StateButtons.qml:54
 #: ../src/modules/date_time/TimezoneArea.qml:487
 msgid "Close"
-msgstr "關閉"
+msgstr "Fermi"
 
 #: ../src/modules/date_time/StateButtons.qml:85
 msgid "Delete Time Zone"
-msgstr "刪除時區"
+msgstr "Forigi horzonon"
 
 #: ../src/modules/date_time/StateButtons.qml:101
 msgid "Add Time Zone"
-msgstr "增加時區"
+msgstr "Aldoni horzonon"
 
 #: ../src/modules/date_time/TimeBox.qml:161
 msgid "Double-click this area to change your time"
-msgstr "按兩下此區域以更改時間"
+msgstr "Duobla alklaki ĉi tiun areon por ŝanĝi vian tempon"
 
 #: ../src/modules/date_time/TimeBox.qml:202
 msgid "Set"
-msgstr "儲存"
+msgstr "Agordi"
 
 #: ../src/modules/date_time/TimezoneArea.qml:257
 msgid "Time zone"
-msgstr "時區"
+msgstr "Horzono"
 
 #: ../src/modules/date_time/TimezoneArea.qml:484
 #: ../src/modules/network/add/AddSectionSave.qml:20
 #: ../src/modules/shortcuts/CustomKeybinding.qml:157
 msgid "Add"
-msgstr "新增"
+msgstr "Aldoni"
 
 #: ../src/modules/date_time/main.qml:131
 msgid "Sync Automatically"
-msgstr ""
+msgstr " Aŭtomate sinkronigi"
 
 #: ../src/modules/date_time/main.qml:149
 msgid "Use 24-hour clock"
-msgstr "24小時制"
+msgstr "Uzi 24-horajn horloĝon"
 
 #: ../src/modules/date_time/main.qml:180
 msgid "Adjust DST clock "
-msgstr "調整夏令時時鐘"
+msgstr "Reguligi horloĝon DST"
 
 #: ../src/modules/date_time/main.qml:205
 #: ../src/modules/network/proxy/ProxyContent.qml:43
 #: ../src/modules/shortcuts/ShortcutInput.qml:118
 msgid "None"
-msgstr "無"
+msgstr "Neniu"
 
 #: ../src/modules/date_time/main.qml:257
 msgid "Date"
-msgstr "日期"
+msgstr "Dato"
 
 #: ../src/modules/date_time/main.qml:290
 msgid "Set Date"
-msgstr "設定日期"
+msgstr "Reguligi daton"
 
 #: ../src/modules/default_applications/main.qml:85
 #: ../src/views/ModulesData.qml:69
 msgid "Default Applications"
-msgstr "預設程式"
+msgstr "Defaŭltaj aplikaĵoj"
 
 #: ../src/modules/default_applications/main.qml:97
 msgid "Browser"
-msgstr "瀏覽器"
+msgstr "Retfoliumilo"
 
 #: ../src/modules/default_applications/main.qml:111
 msgid "Mail"
-msgstr "郵件"
+msgstr "Retpoŝto"
 
 #: ../src/modules/default_applications/main.qml:122
 msgid "Text"
-msgstr "文字文件"
+msgstr "Teksto"
 
 #: ../src/modules/default_applications/main.qml:128
 msgid "Music"
-msgstr "音樂"
+msgstr "Muziko"
 
 #: ../src/modules/default_applications/main.qml:159
 msgid "Video"
-msgstr "影片"
+msgstr "Video"
 
 #: ../src/modules/default_applications/main.qml:191
 msgid "Picture"
-msgstr "圖片"
+msgstr "Bildo"
 
 #: ../src/modules/default_applications/main.qml:209
 msgid "Terminal"
-msgstr "終端機"
+msgstr "Terminalo"
 
 #: ../src/modules/default_applications/main.qml:268
 msgid "AutoPlay"
-msgstr "自動播放"
+msgstr "Aŭtomata ludo"
 
 #: ../src/modules/default_applications/main.qml:283
 msgid "CD Audio"
-msgstr "CD音訊"
+msgstr "Aŭda CD"
 
 #: ../src/modules/default_applications/main.qml:288
 msgid "DVD Video"
-msgstr "DVD視訊"
+msgstr "Videa DVD"
 
 #: ../src/modules/default_applications/main.qml:293
 msgid "Music Player"
-msgstr "音樂播放器"
+msgstr "Muzikludanto"
 
 #: ../src/modules/default_applications/main.qml:298
 msgid "Camera"
-msgstr "照相機"
+msgstr "Kamerao"
 
 #: ../src/modules/default_applications/main.qml:303
 msgid "Software"
-msgstr "軟體"
+msgstr "Programaro"
 
 #: ../src/modules/display/BrightnessRectangle.qml:61
 #: ../src/modules/display/ResolutionRectangle.qml:69
 #: ../src/modules/display/RotationRectangle.qml:70
 msgid "Monitor"
-msgstr "顯示器"
+msgstr "Monitoro"
 
 #: ../src/modules/display/MessageBox.qml:105
 msgid "Do you want to keep these display settings?"
-msgstr "是否要保留這些顯示設定？"
+msgstr "Ĉu vi volas konservi tiujn ekranon agordojn?"
 
 #: ../src/modules/display/MessageBox.qml:114
 #, qt-format
 msgid ""
 "Reverting to previous display settings in <font color='#F48914'>%1</font> "
 "seconds."
-msgstr "<font color='#F48914'>%1</font>秒後恢復之前的顯示設定。"
+msgstr "Restarigo de  la antaŭajn ekranon agordojn en <font color='#F48914'>%1</font> sekundoj."
 
 #: ../src/modules/display/MessageBox.qml:128
 msgid "Revert"
-msgstr "還原"
+msgstr "Restarigi"
 
 #: ../src/modules/display/MessageBox.qml:140
 msgid "Keep Changes"
-msgstr "保留更改"
+msgstr "Konservi ŝanĝojn"
 
 #: ../src/modules/display/MonitorDragArea.qml:471
 msgid "Identify"
-msgstr "偵測"
+msgstr " Identigo"
 
 #: ../src/modules/display/MonitorDragArea.qml:489
 msgid "Edit"
-msgstr "編輯"
+msgstr "Redakti"
 
 #: ../src/modules/display/MonitorDragArea.qml:507
 msgid "Split"
-msgstr "拆分"
+msgstr "Disigi"
 
 #: ../src/modules/display/MonitorProperties.qml:42
 msgid "Normal"
-msgstr "正常"
+msgstr "Normala"
 
 #: ../src/modules/display/MonitorProperties.qml:43
 msgid "Rotate Right"
-msgstr "向右旋轉"
+msgstr "Rotacii dekstre"
 
 #: ../src/modules/display/MonitorProperties.qml:44
 msgid "Upside Down"
-msgstr "上下翻轉"
+msgstr "Inversigiti"
 
 #: ../src/modules/display/MonitorProperties.qml:45
 msgid "Rotate Left"
-msgstr "向左旋轉"
+msgstr "Rotacii maldekstre"
 
 #: ../src/modules/display/MonitorProperties.qml:78
 msgid "Enable Monitor(s)"
-msgstr "啟用顯示器"
+msgstr "Taŭgigi ekrano(j)n"
 
 #: ../src/modules/display/MonitorProperties.qml:96
 msgid "Please choose the monitor(s) you want to enable"
-msgstr "請選擇您要啟用的顯示器（可多選）"
+msgstr "Bonvolu selekti la ekrano(j)n ke vi volas taŭgigi"
 
 #: ../src/modules/display/MonitorProperties.qml:146
 msgid "Primary Screen"
-msgstr "主畫面"
+msgstr " Unuaranga ekrano"
 
 #: ../src/modules/display/MonitorProperties.qml:189
 msgid "Resolution"
-msgstr "解析度"
+msgstr "Rezolucio"
 
 #: ../src/modules/display/MonitorProperties.qml:230
 msgid "Rotation"
-msgstr "旋轉"
+msgstr "Rotacio"
 
 #: ../src/modules/display/MonitorProperties.qml:274
 #: ../src/modules/display/MonitorProperties.qml:306
 msgid "Brightness"
-msgstr "亮度"
+msgstr "Lumeco"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:38
 msgid "Display Modes"
-msgstr "顯示模式"
+msgstr "Modoj de la ekrano"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:58
 msgid "Copy"
-msgstr "複製"
+msgstr "Kopii"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:59
 msgid "Copy the contents of your primary screen to other screens."
-msgstr "將您的一個螢幕內容複製到其他螢幕"
+msgstr "Kopii la enhavojn de via unuaranga ekrano al aliaj ekranoj."
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:76
 msgid "Extend"
-msgstr "延伸"
+msgstr "Etendi"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:77
 msgid ""
 "Extend your screen contents to display different contents on different "
 "screens."
-msgstr "將您的螢幕內容延伸，在不同螢幕顯示不同內容"
+msgstr "Etendi vian ekranon enhavojn por montri malsamajn enhavojn sur malsamaj ekranoj."
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:98
 #, qt-format
 msgid "Only Displayed on %1"
-msgstr "僅在%1上顯示"
+msgstr "Nud montrita sur la %1"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:99
 #, qt-format
 msgid "Screen contents are only displayed on %1 but not on other screens."
-msgstr "僅在%1上顯示螢幕內容，其他螢幕不顯示"
+msgstr "Ekrano enhavoj estas montritaj nur sur% 1 sed ne sur aliaj ekranoj."
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:118
 msgid "Custom Settings"
-msgstr "個人化設定"
+msgstr "Personigitaj agordojn"
 
 #: ../src/modules/display/MonitorsSimpleSetting.qml:119
 msgid "You can do other custom settings to your screens."
-msgstr "您可以針對螢幕做其他個性化設定"
+msgstr "Vi povas fari aliajn personaligitajn agordojn al la viaj ekranoj."
 
 #: ../src/modules/grub/Preview.qml:122
 msgid "Drag and drop an image to change background."
-msgstr "拖拽圖片到此以更換背景"
+msgstr "Treni kaj faligi bildon por ŝanĝi fonon."
 
 #: ../src/modules/grub/Preview.qml:124
 msgid "Updating..."
-msgstr "正在升級..."
+msgstr "Aktualigante..."
 
 #: ../src/modules/grub/Preview.qml:125
 msgid "Successfully updated, reboot to view."
-msgstr "成功升級，重新啟動以生效。"
+msgstr "Sukcese aktualigita, rekomenci por vidi"
 
 #: ../src/modules/grub/main.qml:112
 msgid "Default Boot"
-msgstr "默認啟動"
+msgstr "Defaŭlta starto"
 
 #: ../src/modules/grub/main.qml:167
 msgid "Boot delay"
-msgstr "啟動延時"
+msgstr "Startprokasto"
 
 #: ../src/modules/grub/main.qml:206
 msgid "Text Color"
-msgstr "文字顏色"
+msgstr "Tekstkoloro"
 
 #: ../src/modules/grub/main.qml:239
 msgid "Selected Text Color"
-msgstr "反白像母文字顏色"
+msgstr "Selektita tekstkoloro"
 
 #: ../src/modules/keyboard/LocaleArea.qml:53
 msgid "Language"
-msgstr "語言"
+msgstr "Lingvo"
 
 #: ../src/modules/keyboard/StateButtons.qml:92
 msgid "Delete Keyboard Layout"
-msgstr "刪除鍵盤配置"
+msgstr "Forigi klavararanĝon"
 
 #: ../src/modules/keyboard/StateButtons.qml:107
 msgid "Add Keyboard Layout"
-msgstr "增加鍵盤配置"
+msgstr "Aldoni klavararanĝon"
 
 #: ../src/modules/keyboard/main.qml:148
 msgid "Repeat Delay"
-msgstr "重複延遲"
+msgstr "Ripeti prokaston"
 
 #: ../src/modules/keyboard/main.qml:162
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:208
 msgid "Short"
-msgstr "短"
+msgstr "Mallonga"
 
 #: ../src/modules/keyboard/main.qml:163
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:209
 msgid "Long"
-msgstr "長"
+msgstr "Longa"
 
 #: ../src/modules/keyboard/main.qml:173
 msgid "Repeat Rate"
-msgstr "重複速度"
+msgstr "Ripeti ritmon"
 
 #: ../src/modules/keyboard/main.qml:188 ../src/modules/keyboard/main.qml:214
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:135
@@ -585,7 +581,7 @@ msgstr "重複速度"
 #: ../src/modules/mouse_touchpad/main.qml:134
 #: ../src/modules/mouse_touchpad/main.qml:170
 msgid "Fast"
-msgstr "快"
+msgstr "Rapida"
 
 #: ../src/modules/keyboard/main.qml:189 ../src/modules/keyboard/main.qml:215
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:134
@@ -593,89 +589,89 @@ msgstr "快"
 #: ../src/modules/mouse_touchpad/main.qml:133
 #: ../src/modules/mouse_touchpad/main.qml:169
 msgid "Slow"
-msgstr "慢"
+msgstr "Mlrapida"
 
 #: ../src/modules/keyboard/main.qml:199
 msgid "Cursor Blink Rate"
-msgstr "游標閃爍頻率"
+msgstr "Intermite kursoro ritmo"
 
 #: ../src/modules/keyboard/main.qml:225
 msgid "Test Area"
-msgstr "測試區"
+msgstr "Areo de provo"
 
 #: ../src/modules/keyboard/main.qml:245
 msgid "Caps Lock prompt"
-msgstr "大寫鍵提示"
+msgstr "Majuskla bloko postulo"
 
 #: ../src/modules/keyboard/main.qml:271
 msgid "Keyboard Layout"
-msgstr "鍵盤佈局"
+msgstr "klavara dizajno"
 
 #: ../src/modules/keyboard/main.qml:498
 msgid "No result"
-msgstr "無結果"
+msgstr "neniu rezulto"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:50
 msgid "Touchpad"
-msgstr "觸控板"
+msgstr "Tuŝbloko"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:82
 #: ../src/modules/mouse_touchpad/main.qml:83
 msgid "Primary Button"
-msgstr "主按鍵"
+msgstr " Unuaranga butono"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:91
 #: ../src/modules/mouse_touchpad/main.qml:91
 msgid "Left Button"
-msgstr "左鍵"
+msgstr "Maldekstra butono"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:92
 #: ../src/modules/mouse_touchpad/main.qml:92
 msgid "Right Button"
-msgstr "右鍵"
+msgstr "Dekstra butono"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:117
 #: ../src/modules/mouse_touchpad/main.qml:117
 msgid "Pointer Speed"
-msgstr "指針移動速度"
+msgstr "Indikilrapido"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:154
 #: ../src/modules/mouse_touchpad/main.qml:153
 msgid "Double-click Speed"
-msgstr "連按滑鼠兩下的速度"
+msgstr "Eltempiĝo de duobla alklako"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:192
 msgid "Drag Threshold"
-msgstr "拖動閥值"
+msgstr "Trensojlo"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:228
 msgid "Natural Scrolling"
-msgstr "自然滾動"
+msgstr "Natura rulado"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:252
 msgid "Tap to click"
-msgstr "輕觸以點選"
+msgstr "Frapi por klaki"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:275
 msgid "Two-finger scrolling"
-msgstr "雙指滾動"
+msgstr "Du-fingroj rulado"
 
 #: ../src/modules/mouse_touchpad/TouchpadComponent.qml:298
 msgid "Edge scrolling"
-msgstr "邊緣滾動"
+msgstr "Bordrulado"
 
 #: ../src/modules/mouse_touchpad/main.qml:50 ../src/views/ModulesData.qml:67
 msgid "Mouse"
-msgstr "滑鼠指標"
+msgstr "Muso"
 
 #: ../src/modules/mouse_touchpad/main.qml:190
 msgid "Disable the touchpad when inserting the mouse"
-msgstr "裝入滑鼠時停用觸控板"
+msgstr "Malŝalti la tuŝplaton kiam al la kunligo de la muso"
 
 #: ../src/modules/network/ConnectionAdd.qml:12
 #: ../src/modules/network/main.qml:315
 msgid "Add Network Connection"
-msgstr "新增網絡連線"
+msgstr "Aldoni retkonekton"
 
 #: ../src/modules/network/ConnectionAdd.qml:35
 #: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:11
@@ -691,40 +687,40 @@ msgstr "VPN"
 
 #: ../src/modules/network/ConnectionAdd.qml:77
 msgid "Next"
-msgstr "下一步"
+msgstr "Sekva"
 
 #: ../src/modules/network/ConnectionEdit.qml:60
 msgid "Are you sure you want to delete this network?"
-msgstr "您確定要刪除此網路嗎？"
+msgstr "Ĉu vi estas certa ke vi volas forigi ĉi tiun reton?"
 
 #: ../src/modules/network/ConnectionEdit.qml:60
 msgid "Delete this network"
-msgstr "刪除此網路"
+msgstr "Forigi tiun reton"
 
 #: ../src/modules/network/ConnectionEdit.qml:118
 #: ../src/modules/network/wireless/WifiHotspot.qml:91
 msgid "Save"
-msgstr "儲存"
+msgstr "Gardi"
 
 #: ../src/modules/network/ConnectionEdit.qml:152
 msgid "Delete"
-msgstr "刪除"
+msgstr "Forigi"
 
 #: ../src/modules/network/Info.qml:13
 msgid "Connected"
-msgstr "已連線"
+msgstr "Konektita"
 
 #: ../src/modules/network/Info.qml:15
 msgid "Not Connected"
-msgstr "未連線"
+msgstr "Nekonektita"
 
 #: ../src/modules/network/Info.qml:39
 msgid "(default)"
-msgstr "(預設)"
+msgstr "(defaŭlta)"
 
 #: ../src/modules/network/Info.qml:50
 msgid "Interface"
-msgstr "端口"
+msgstr "Interfaco"
 
 #: ../src/modules/network/Info.qml:59
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:11
@@ -734,21 +730,21 @@ msgstr "端口"
 #: ../src/modules/network/wireless/AddWireless.qml:44
 #: ../src/modules/network/wireless/WifiHotspot.qml:49
 msgid "Security"
-msgstr "安全"
+msgstr "Sekureco"
 
 #: ../src/modules/network/Info.qml:60
 msgid "Device Addr"
-msgstr "設備位址"
+msgstr "Adreso de la aparato"
 
 #: ../src/modules/network/Info.qml:61
 #: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:33
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:33
 msgid "IP Address"
-msgstr "IP 位置"
+msgstr "IP adreso"
 
 #: ../src/modules/network/Info.qml:62
 msgid "Subnet Mask"
-msgstr "子網路遮罩"
+msgstr "Masko de subreto"
 
 #: ../src/modules/network/Info.qml:63
 #: ../src/modules/network/add/AddVpn.qml:115
@@ -764,27 +760,27 @@ msgstr "子網路遮罩"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:315
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:365
 msgid "Gateway"
-msgstr "閘道器"
+msgstr "Gateway"
 
 #: ../src/modules/network/Info.qml:64
 msgid "Primary DNS"
-msgstr "主要 DNS"
+msgstr "Primara DNS"
 
 #: ../src/modules/network/Info.qml:65
 msgid "Secondary DNS"
-msgstr "次要 DNS"
+msgstr "Dua DNS"
 
 #: ../src/modules/network/Info.qml:66
 msgid "Third DNS"
-msgstr "第三 DNS"
+msgstr "Tria DNS"
 
 #: ../src/modules/network/Info.qml:75
 msgid "Device Speed"
-msgstr "設備速度"
+msgstr "Rapideco de la aparato"
 
 #: ../src/modules/network/add/AddDsl.qml:11
 msgid "Add PPPoE Connection"
-msgstr "新增撥號連接"
+msgstr "Aldoni PPPoE kunligon"
 
 #: ../src/modules/network/add/AddDsl.qml:24
 #: ../src/modules/network/add/AddMobile.qml:33
@@ -792,21 +788,21 @@ msgstr "新增撥號連接"
 #: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:33
 #: ../src/modules/shortcuts/CustomKeybinding.qml:118
 msgid "Name"
-msgstr "名稱"
+msgstr "Nomo"
 
 #: ../src/modules/network/add/AddDsl.qml:46
 #: ../src/modules/network/edit_autogen/EditSectionPppoe.qml:33
 msgid "Service"
-msgstr "服務"
+msgstr "Servado"
 
 #: ../src/modules/network/add/AddMobile.qml:20
 msgid "New Mobile Connection"
-msgstr "新增行動網絡連線"
+msgstr "Nova pôskunligo"
 
 #: ../src/modules/network/add/AddMobile.qml:45
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:56
 msgid "Service Type"
-msgstr "服務類型"
+msgstr "Servado tipo"
 
 #: ../src/modules/network/add/AddMobile.qml:55
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:67
@@ -819,11 +815,11 @@ msgstr "APN"
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:88
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:158
 msgid "Number"
-msgstr "數字"
+msgstr "Numero"
 
 #: ../src/modules/network/add/AddVpn.qml:15
 msgid "VPN Type"
-msgstr "VPN 類型"
+msgstr "VPN tipo"
 
 #: ../src/modules/network/add/AddVpn.qml:36
 msgid "L2TP"
@@ -835,11 +831,11 @@ msgstr "PPTP"
 
 #: ../src/modules/network/add/AddVpn.qml:38
 msgid "OpenVPN"
-msgstr "OpenVPN"
+msgstr "LiberaVPN"
 
 #: ../src/modules/network/add/AddVpn.qml:39
 msgid "OpenConnect"
-msgstr "OpenConnect"
+msgstr "Liberakunligo"
 
 #: ../src/modules/network/add/AddVpn.qml:40
 msgid "VPNC"
@@ -847,12 +843,12 @@ msgstr "VPNC"
 
 #: ../src/modules/network/add/AddVpn.qml:69
 msgid "Basic Information"
-msgstr "基本訊息"
+msgstr "Baza informoj"
 
 #: ../src/modules/network/add/AddVpn.qml:82
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:23
 msgid "Need VPN Plugin"
-msgstr "需要 VPN 附加元件"
+msgstr "Bezonas VPN kromaĵon"
 
 #: ../src/modules/network/add/AddVpn.qml:135
 #: ../src/modules/network/add/AddVpn.qml:265
@@ -871,7 +867,7 @@ msgstr "需要 VPN 附加元件"
 #: ../src/modules/network/wireless/AddWireless.qml:175
 #: ../src/modules/network/wireless/AddWireless.qml:196
 msgid "Ask for Pwd"
-msgstr "詢問密碼"
+msgstr "Petu por pasvorton"
 
 #: ../src/modules/network/add/AddVpn.qml:165
 #: ../src/modules/network/add/AddVpn.qml:285
@@ -880,22 +876,22 @@ msgstr "詢問密碼"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:215
 #: ../src/modules/network/wireless/AddWireless.qml:104
 msgid "CA Cert"
-msgstr "CA 認證"
+msgstr "CA Cert atesto"
 
 #: ../src/modules/network/add/AddVpn.qml:175
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:105
 msgid "Proxy"
-msgstr "代理"
+msgstr "Proxy"
 
 #: ../src/modules/network/add/AddVpn.qml:185
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:115
 msgid "Allow Cisco Secure Desktop Trojan"
-msgstr "允許思科安全桌面木馬"
+msgstr "Permesi Cisco Secure Desktop Trojan"
 
 #: ../src/modules/network/add/AddVpn.qml:195
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:125
 msgid "CSD Script"
-msgstr "CSD 腳本"
+msgstr "CSD skripto"
 
 #: ../src/modules/network/add/AddVpn.qml:205
 #: ../src/modules/network/add/AddVpn.qml:295
@@ -904,7 +900,7 @@ msgstr "CSD 腳本"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:225
 #: ../src/modules/network/wireless/AddWireless.qml:114
 msgid "User Cert"
-msgstr "使用者認證"
+msgstr "Uzanto atasto"
 
 #: ../src/modules/network/add/AddVpn.qml:215
 #: ../src/modules/network/add/AddVpn.qml:305
@@ -913,93 +909,93 @@ msgstr "使用者認證"
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:235
 #: ../src/modules/network/wireless/AddWireless.qml:165
 msgid "Private Key"
-msgstr "金鑰"
+msgstr "Privata ŝlosilo"
 
 #: ../src/modules/network/add/AddVpn.qml:225
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:155
 msgid "Use FSID for Key Passphrase"
-msgstr "為密鑰口令句使用FSID"
+msgstr "Uzi FSID por ŝlosilan pasfrazon "
 
 #: ../src/modules/network/add/AddVpn.qml:245
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:175
 msgid "Auth Type"
-msgstr "授權類型"
+msgstr "Agordo tipo"
 
 #: ../src/modules/network/add/AddVpn.qml:325
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:195
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:255
 #: ../src/modules/network/wireless/AddWireless.qml:206
 msgid "Private Pwd"
-msgstr "密碼"
+msgstr "Privata pasvorto"
 
 #: ../src/modules/network/add/AddVpn.qml:335
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:265
 msgid "Static Key"
-msgstr "靜態密碼"
+msgstr "Nemodifebla ŝlosilo"
 
 #: ../src/modules/network/add/AddVpn.qml:345
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:275
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:53
 msgid "Customize Key Direction"
-msgstr "自訂金鑰方向"
+msgstr "Agordi ŝlosilan direkton"
 
 #: ../src/modules/network/add/AddVpn.qml:355
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:285
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:63
 msgid "Key Direction"
-msgstr "金鑰方向"
+msgstr "Ŝlosilo direkto"
 
 #: ../src/modules/network/add/AddVpn.qml:365
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:295
 msgid "Remote IP"
-msgstr "遠端 IP"
+msgstr "Fora IP"
 
 #: ../src/modules/network/add/AddVpn.qml:375
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:305
 msgid "Local IP"
-msgstr "本機 IP"
+msgstr "Loka IP"
 
 #: ../src/modules/network/add/AddVpn.qml:455
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:395
 msgid "User Pwd"
-msgstr "使用者密碼"
+msgstr "Uzanto pasvorto"
 
 #: ../src/modules/network/add/AddVpn.qml:465
 #: ../src/modules/network/add/AddVpn.qml:527
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:405
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:33
 msgid "Group Name"
-msgstr "群組名稱"
+msgstr "Grupo nomo"
 
 #: ../src/modules/network/add/AddVpn.qml:485
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:425
 msgid "Group Pwd"
-msgstr "群組密碼"
+msgstr "Grupo pasvorto"
 
 #: ../src/modules/network/add/AddVpn.qml:495
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:435
 msgid "Use Hybrid Authentication"
-msgstr "使用混合授權"
+msgstr "Uzi hibrida aŭtentikigo"
 
 #: ../src/modules/network/add/AddVpn.qml:505
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:445
 msgid "CA File"
-msgstr "CA 文件"
+msgstr "CA dosiero"
 
 #: ../src/modules/network/add/AddVpn.qml:517
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:23
 msgid "Enable IPsec"
-msgstr "啟用 IPsec"
+msgstr "Taŭgigi IPsec"
 
 #: ../src/modules/network/add/AddVpn.qml:537
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:43
 msgid "Group ID"
-msgstr "群組 ID"
+msgstr "Grupo ID"
 
 #: ../src/modules/network/add/AddVpn.qml:547
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:53
 msgid "Pre-Shared Key"
-msgstr "已分享的密碼"
+msgstr "Antaŭ-kunpartigita ŝlosilo"
 
 #: ../src/modules/network/add/AddVpn.qml:559
 #: ../src/modules/network/add/AddVpn.qml:571
@@ -1007,45 +1003,45 @@ msgstr "已分享的密碼"
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:23
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:23
 msgid "Use MPPE"
-msgstr "使用 MPPE"
+msgstr "Uzi MPPE"
 
 #: ../src/modules/network/dsl/DslExpand.qml:19
 msgid "PPPoE Connections"
-msgstr "PPPoE 連線"
+msgstr "PPPoE kunligoj"
 
 #: ../src/modules/network/edit/EditLineMissingPackage.qml:15
 #, qt-format
 msgid "Current system lacks component for %1"
-msgstr "目前系統缺少 %1 元件"
+msgstr "Aktuala sistemo malhavas komponanton por %1"
 
 #: ../src/modules/network/edit/EditLineMissingPackage.qml:22
 msgid "Click to install"
-msgstr "點擊安裝"
+msgstr "Klaku por instali"
 
 #: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:44
 #: ../src/modules/network/edit_autogen/BaseConnectionEdit.qml:54
 msgid "Automatically connect"
-msgstr "自動連線"
+msgstr " Aŭtomate kunligi"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:11
 #: ../src/modules/network/main.qml:197
 msgid "Ethernet"
-msgstr "乙太網路"
+msgstr "Eterreto"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:23
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:65
 msgid "Device MAC Addr"
-msgstr "裝置 MAC 為址"
+msgstr "MAC adreso de la aparato"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:33
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:75
 msgid "Cloned MAC Addr"
-msgstr "再製 MAC 位址"
+msgstr "Klonita MAC adreso"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:43
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:85
 msgid "Customize MTU"
-msgstr "自訂 MTU"
+msgstr "Personigi MTU"
 
 #: ../src/modules/network/edit_autogen/EditSectionEthernet.qml:53
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:107
@@ -1060,16 +1056,16 @@ msgstr "IPv4"
 #: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:23
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:23
 msgid "Method"
-msgstr "方法"
+msgstr "Metodo"
 
 #: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:44
 msgid "Netmask"
-msgstr "網路遮罩"
+msgstr "Retmasko"
 
 #: ../src/modules/network/edit_autogen/EditSectionIpv4.qml:69
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:65
 msgid "DNS Server"
-msgstr "DNS 伺服器"
+msgstr "DNS servilo"
 
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:11
 msgid "IPv6"
@@ -1077,12 +1073,12 @@ msgstr "IPv6"
 
 #: ../src/modules/network/edit_autogen/EditSectionIpv6.qml:43
 msgid "Prefix"
-msgstr "前綴"
+msgstr "Prefikso"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:11
 #: ../src/modules/network/main.qml:207
 msgid "Mobile"
-msgstr "行動"
+msgstr "Poŝreto"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:23
 msgid "Country or region"
@@ -1098,15 +1094,15 @@ msgstr ""
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:118
 msgid "Network ID"
-msgstr "網路 ID"
+msgstr "Reto ID"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:128
 msgid "Type"
-msgstr "類型"
+msgstr "Tipo"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:138
 msgid "Home Network Only"
-msgstr "僅用於家庭網絡"
+msgstr "Nur domareto"
 
 #: ../src/modules/network/edit_autogen/EditSectionMobile.qml:148
 msgid "PIN"
@@ -1118,117 +1114,117 @@ msgstr "PPP"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:34
 msgid "128-bit MPPE"
-msgstr "128 位 MPPE"
+msgstr "128-bit MPPE"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:45
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:43
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:43
 msgid "Stateful MPPE"
-msgstr "MPPE 狀態"
+msgstr " Plenstata MPPE"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:55
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:53
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:53
 msgid "Refuse EAP Authentication"
-msgstr "拒絕 EAP 認證"
+msgstr " Rifuzi EAP aŭtentikigo"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:65
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:64
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:64
 msgid "Refuse PAP Authentication"
-msgstr "拒絕 PAP 認證"
+msgstr " Rifuzi PAP aŭtentikigon"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:75
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:75
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:75
 msgid "Refuse CHAP Authentication"
-msgstr "拒絕 CHAP 認證"
+msgstr " Rifuzi CHAP aŭtentikigon"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:85
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:86
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:86
 msgid "Refuse MSCHAP Authentication"
-msgstr "拒絕 MSCHAP 認證"
+msgstr " Rifuzi MSCHAP aŭtentikigon"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:95
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:97
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:97
 msgid "Refuse MSCHAPv2 Authentication"
-msgstr "拒絕 MSCHAPv2 認證"
+msgstr " Rifuzi MSCHAPv2 aŭtentikigon"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:105
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:108
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:107
 msgid "No BSD Data Compression"
-msgstr "無 BSD 數據壓縮"
+msgstr "Neniu BSD datenoj kunpremiĝo"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:115
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:118
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:117
 msgid "No Deflate Data Compression"
-msgstr "無 Deflate 數據壓縮"
+msgstr "Neniu malŝvela datenoj kunpremiĝo"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:125
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:128
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:127
 msgid "No TCP Header Compression"
-msgstr "無 TCP 報頭壓縮"
+msgstr "Neniu TCP kaplinioj kunpremiĝo"
 
 #: ../src/modules/network/edit_autogen/EditSectionPpp.qml:135
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:158
 #: ../src/modules/network/edit_autogen/EditSectionVpnPptpPpp.qml:137
 msgid "Send PPP Echo Packets"
-msgstr "發送 PPP Echo 數據包"
+msgstr "Sendi PPP eĥo paketoj"
 
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:23
 msgid "Security Required"
-msgstr "安全"
+msgstr "Sekureco bezonata"
 
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:43
 #: ../src/modules/network/wireless/AddWireless.qml:54
 #: ../src/modules/network/wireless/WifiHotspot.qml:59
 msgid "Key"
-msgstr "密碼"
+msgstr "Ŝlosilo"
 
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:63
 #: ../src/modules/network/wireless/AddWireless.qml:74
 msgid "EAP Auth"
-msgstr "EAP授權"
+msgstr "EAP rajtigo"
 
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:73
 #: ../src/modules/network/wireless/AddWireless.qml:84
 msgid "Identity"
-msgstr "識別"
+msgstr " Identeco"
 
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:83
 #: ../src/modules/network/wireless/AddWireless.qml:94
 msgid "Anonymous ID"
-msgstr "匿名 ID"
+msgstr " Anonima ID"
 
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:113
 #: ../src/modules/network/wireless/AddWireless.qml:124
 msgid "Provisioning"
-msgstr "設定"
+msgstr "Provizanta"
 
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:123
 #: ../src/modules/network/wireless/AddWireless.qml:134
 msgid "PAC file"
-msgstr "PAC 文件"
+msgstr "PAC dosiero"
 
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:133
 #: ../src/modules/network/wireless/AddWireless.qml:144
 msgid "PEAP Version"
-msgstr "PEAP 版本"
+msgstr "PEAP versio"
 
 #: ../src/modules/network/edit_autogen/EditSectionSecurity.qml:143
 #: ../src/modules/network/wireless/AddWireless.qml:154
 msgid "Inner Auth"
-msgstr "內部授權"
+msgstr "Interna aŭtentikigo"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:75
 #: ../src/modules/network/edit_autogen/EditSectionVpn.qml:355
 msgid "NT Domain"
-msgstr "NT域名"
+msgstr " NT domajno"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpIpsec.qml:11
 msgid "VPN IPsec"
@@ -1241,149 +1237,149 @@ msgstr "VPN PPP"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:138
 msgid "No Protocol Field Compression"
-msgstr "無協議項目壓縮"
+msgstr "Neniu kampprotokolo kunpremiĝo"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnL2tpPpp.qml:148
 msgid "No Address/Control Compression"
-msgstr "無地址/控制壓縮"
+msgstr "Neniu kontroladreso kunpremiĝo"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:11
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:11
 msgid "VPN Advanced"
-msgstr "進階 VPN"
+msgstr "Antaŭa VPN"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:23
 msgid "Customize Gateway Port"
-msgstr "自訂閘道器埠"
+msgstr "Agordi gateway pordon"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:33
 msgid "Gateway Port"
-msgstr "閘道器埠"
+msgstr "Gateway pordo"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:45
 msgid "Customize Renegotiation Interval"
-msgstr "自定義重新協商間隔"
+msgstr "Agordi intertraktadon intervalon"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:55
 msgid "Renegotiation Interval"
-msgstr "重新協商間隔時間"
+msgstr "Intertraktado intervalo"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:67
 msgid "Use LZO data compression"
-msgstr "使用 LZO 數據壓縮"
+msgstr "Uzi LZO datenoj kunpremiĝon"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:77
 msgid "Use TCP connection"
-msgstr "使用 TCP 連線"
+msgstr "Uzi TCP kunpremiĝon"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:87
 msgid "Use TAP device"
-msgstr "使用 TAP 設備"
+msgstr "Uzi TAP aparaton"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:97
 msgid "Customize Tunnel MTU"
-msgstr "自定義最大傳輸單元（MTU）"
+msgstr "Personigi MTU tunelon"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:119
 msgid "Customize UDP Fragment Size"
-msgstr "自定義UDP數據報段長度"
+msgstr "Personigi UDP fragmentdimension"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:129
 msgid "UDP Fragment Size"
-msgstr "UDP 數據報段長度"
+msgstr "UDP fragmentdimensio"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:141
 msgid "Restrict Tunnel TCP MSS"
-msgstr "限制通道 TCP MSS"
+msgstr "Malpliigi TCP MSS tunelo"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnAdvanced.qml:151
 msgid "Randomize Remote Hosts"
-msgstr "隨機遠端主機"
+msgstr "Hazardi forajn gastigantojn"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:11
 msgid "VPN Proxies"
-msgstr "VPN 代理"
+msgstr "VPN prokuriloj"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:23
 msgid "Proxy Type"
-msgstr "代理類型"
+msgstr "Proxy tipo"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:33
 msgid "Server IP"
-msgstr "伺服器 IP"
+msgstr "IP servilo"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:43
 #: ../src/modules/network/proxy/ProxyLine.qml:39
 msgid "Port"
-msgstr "連接埠"
+msgstr "Pordo"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnProxies.qml:55
 msgid "Retry Indefinitely When Failed"
-msgstr "失敗時重試"
+msgstr " Reprovi senĉesa se malsukcesinta"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:11
 msgid "VPN Security"
-msgstr "VPN 安全"
+msgstr "VPN sekureco"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:23
 msgid "Cipher"
-msgstr "加密"
+msgstr "Ĉifrado"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnSecurity.qml:33
 msgid "HMAC Auth"
-msgstr "HMAC 授權"
+msgstr "HMAC rajtigo"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:11
 msgid "VPN TLS Authentication"
-msgstr "VPN TLS 授權"
+msgstr " VPN TLS aŭtentikigo"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:23
 msgid "Subject Match"
-msgstr "主題匹配"
+msgstr "Korespondadulo"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:33
 msgid "Remote Cert Type"
-msgstr "遠端Cert類型"
+msgstr "Fora atesto tipo"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnOpenvpnTlsauth.qml:43
 msgid "Key File"
-msgstr "金鑰文件"
+msgstr "Ŝlosiloj dosiero"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:23
 msgid "Domain"
-msgstr "域名"
+msgstr " Domajno"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:33
 msgid "Vendor"
-msgstr "供應商"
+msgstr "Vendisto"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:43
 msgid "Version"
-msgstr "系統版本"
+msgstr "Versio"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:53
 msgid "Encryption"
-msgstr "加密"
+msgstr "Ĉifrado"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:63
 msgid "NAT Traversal"
-msgstr "NAT穿越"
+msgstr "NAT transverse"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:73
 msgid "IKE DH Group"
-msgstr "IKE DH組"
+msgstr "IKE DH grupo"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:83
 msgid "Forward Secrecy"
-msgstr "完全正向保密"
+msgstr "Senda sekreteco"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:93
 msgid "Local Port"
-msgstr "本機通訊埠"
+msgstr "Loka pordo"
 
 #: ../src/modules/network/edit_autogen/EditSectionVpnVpncAdvanced.qml:105
 msgid "Disable Dead Peer Detection"
-msgstr "停用死端檢測"
+msgstr "Malaktivigi mortinta pareco determinado"
 
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:11
 msgid "Wi-Fi"
@@ -1397,43 +1393,43 @@ msgstr "SSID"
 
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:33
 msgid "Mode"
-msgstr "模式"
+msgstr "Maniero"
 
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:43
 msgid "Band"
-msgstr "波段"
+msgstr "Bendo"
 
 #: ../src/modules/network/edit_autogen/EditSectionWifi.qml:54
 msgid "Channel"
-msgstr "頻道"
+msgstr "Kanalo"
 
 #: ../src/modules/network/main.qml:163 ../src/modules/network/main.qml:191
 msgid "Unknown"
-msgstr "未知的"
+msgstr "Nekonata"
 
 #: ../src/modules/network/main.qml:165
 msgid "Wired"
-msgstr "有線"
+msgstr "kablita"
 
 #: ../src/modules/network/main.qml:167
 msgid "Wireless"
-msgstr "無線"
+msgstr "Senkabla"
 
 #: ../src/modules/network/main.qml:169
 msgid "Unused1"
-msgstr "未使用 1"
+msgstr "Neuzita1"
 
 #: ../src/modules/network/main.qml:171
 msgid "Unused2"
-msgstr "未使用 2"
+msgstr "Neuzita2"
 
 #: ../src/modules/network/main.qml:173 ../src/views/ModulesData.qml:55
 msgid "Bluetooth"
-msgstr "藍牙"
+msgstr "Bluetooth"
 
 #: ../src/modules/network/main.qml:175
 msgid "OLPC mesh"
-msgstr "OLPC 網"
+msgstr " OLPC maŝo"
 
 #: ../src/modules/network/main.qml:177
 msgid "WiMax"
@@ -1441,7 +1437,7 @@ msgstr "WiMax"
 
 #: ../src/modules/network/main.qml:179
 msgid "Modem"
-msgstr "調製解調器"
+msgstr "Modemo"
 
 #: ../src/modules/network/main.qml:181
 msgid "InfiniBand"
@@ -1449,7 +1445,7 @@ msgstr "InfiniBand"
 
 #: ../src/modules/network/main.qml:183
 msgid "Bond"
-msgstr "綁定"
+msgstr "Ligilo"
 
 #: ../src/modules/network/main.qml:185
 msgid "VLAN"
@@ -1461,7 +1457,7 @@ msgstr "ADSL"
 
 #: ../src/modules/network/main.qml:189
 msgid "Bridge"
-msgstr "橋接"
+msgstr "Ponto"
 
 #: ../src/modules/network/main.qml:199
 msgid "802.11 WiFi"
@@ -1473,15 +1469,15 @@ msgstr "802.11 WiFi AdHoc"
 
 #: ../src/modules/network/main.qml:203
 msgid "802.11 WiFi Hotspot"
-msgstr "802.11 WiFi 熱點"
+msgstr "802.11 WiFi Retkaptejo"
 
 #: ../src/modules/network/main.qml:209
 msgid "Mobile GSM"
-msgstr "GSM 行動"
+msgstr "Poŝreto GSM"
 
 #: ../src/modules/network/main.qml:211
 msgid "Mobile CDMA"
-msgstr "CDMA 行動"
+msgstr "Poŝreto CDMA"
 
 #: ../src/modules/network/main.qml:215
 msgid "VPN L2TP"
@@ -1501,11 +1497,11 @@ msgstr "VPN OpenVPN"
 
 #: ../src/modules/network/main.qml:223
 msgid "VPN OpenConnect"
-msgstr "VPN OpenConnect"
+msgstr "VPN Liberakunligo"
 
 #: ../src/modules/network/main.qml:341
 msgid "View Detailed Information"
-msgstr "檢視詳細資訊"
+msgstr "Vidi detalajn informojn"
 
 #: ../src/modules/network/mobile/MobileItem.qml:27
 msgid "Restore the connection"
@@ -1513,102 +1509,102 @@ msgstr ""
 
 #: ../src/modules/network/proxy/ProxyContent.qml:48
 msgid "Manual"
-msgstr "手動"
+msgstr "Mana"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:53
 msgid "Auto"
-msgstr "自動"
+msgstr " Aŭtomata"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:88
 msgid "HTTP Proxy"
-msgstr "HTTP 代理"
+msgstr "HTTP Proxy"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:100
 msgid "HTTPS Proxy"
-msgstr "HTTPS 代理"
+msgstr "HTTPS Proxy"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:112
 msgid "FTP Proxy"
-msgstr "FTP 代理"
+msgstr "FTP Proxy"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:124
 msgid "Socks Proxy"
-msgstr "Socks 主機"
+msgstr "Socks Proxy"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:149
 msgid "Configuration URL"
-msgstr "設定 URL"
+msgstr "URL de la konturiĝo"
 
 #: ../src/modules/network/proxy/ProxyContent.qml:166
 msgid "Apply system wide"
-msgstr "套用到整個系統"
+msgstr "Apliki la sistemon vaste"
 
 #: ../src/modules/network/proxy/ProxyExpand.qml:37
 msgid "System Proxy"
-msgstr "系統代理"
+msgstr "Proxy de la sistemo"
 
 #: ../src/modules/network/vpn/VpnExpand.qml:48
 msgid "VPN Connections"
-msgstr "VPN 連線"
+msgstr "VPN kunligoj"
 
 #: ../src/modules/network/widgets/NotManagedSection.qml:25
 msgid "not managed"
-msgstr "未託管"
+msgstr "ne sukcesis"
 
 #: ../src/modules/network/widgets/PasswordBox.qml:102
 msgid "Auto-connect"
-msgstr "自動連線"
+msgstr " Aŭtomata kunligo"
 
 #: ../src/modules/network/widgets/PasswordBox.qml:126
 #: ../src/modules/network/wireless/AddWireless.qml:224
 #: ../src/modules/remoting/AccessContent/NeedCodeItem.qml:134
 msgid "Connect"
-msgstr "連線"
+msgstr "Kunligi"
 
 #: ../src/modules/network/wired/NewItem.qml:45
 #: ../src/modules/network/wired/WiredItem.qml:89
 #, qt-format
 msgid "Wired Connection %1"
-msgstr "有線連線 %1"
+msgstr "Kabla konekto %1"
 
 #: ../src/modules/network/wired/NewItem.qml:47
 #: ../src/modules/network/wired/WiredItem.qml:91
 msgid "Wired Connection"
-msgstr "有線連線"
+msgstr "Kabla konekto"
 
 #: ../src/modules/network/wired/WiredDeviceExpand.qml:38
 msgid "Wired Network"
-msgstr "有線網絡"
+msgstr "Kabla reto"
 
 #: ../src/modules/network/wireless/AddWireless.qml:8
 msgid "Connect to wireless"
-msgstr "連線到無線網絡"
+msgstr "Kunligi al la senkabla"
 
 #: ../src/modules/network/wireless/WifiHotspot.qml:23
 msgid "Create Wi-Fi Hotspot"
-msgstr "建立無線熱點"
+msgstr "Krei WiFi Retkaptejo"
 
 #: ../src/modules/network/wireless/WifiHotspot.qml:23
 msgid "Edit Wi-Fi Hotspot"
-msgstr "編輯無線熱點"
+msgstr "Redakti WiFi Retkaptejo"
 
 #: ../src/modules/network/wireless/WifiHotspot.qml:91
 msgid "Create"
-msgstr "建立"
+msgstr "Krei"
 
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:28
 #, qt-format
 msgid "Wireless Network %1"
-msgstr "無線網絡 %1"
+msgstr "Senkabla reto %1"
 
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:30
 msgid "Wireless Network"
-msgstr "無線網絡"
+msgstr "Senkabla reto"
 
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:37
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:163
 msgid "Connect to hidden access point"
-msgstr "連接到隱藏網絡"
+msgstr "Kunligi al kaŝitan alirpunkton"
 
 #: ../src/modules/network/wireless/WirelessDeviceExpand.qml:57
 msgid ""
@@ -1617,95 +1613,95 @@ msgid ""
 "1. The hardware switch of wireless network card is off\n"
 "2. Incorrect network configuration in /etc/network/interface\n"
 "3. Incorrect driver of network hardware"
-msgstr "無法連接到無線網路，有可能是以下原因造成：\\n\\n1. 您的無線網卡的硬體開關是關閉的\\n2. 您的網路配置 /etc/network/interface 不正確\\n3. 您的網路硬體沒有被正確驅動"
+msgstr "La senkabla reto ne povas konekti, eble pro iu el sekvaj kaŭzoj:\n\n1. La aparataro ŝaltilo de la senkava reto estas elŝaltita\n2. Malĝusta retagordo en /etc/network/interface\n3. Malĝusta ŝoforo de la reta hardvaro"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:48
 msgid "Standard"
-msgstr "標準"
+msgstr "Standarta"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:70
 msgid "Monospaced"
-msgstr "等寬"
+msgstr "Samspacita"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:90
 msgid "Size"
-msgstr "大小"
+msgstr "Dimensio"
 
 #: ../src/modules/personalization/components/FontSettingsExpand.qml:119
 #, qt-format
 msgid "Font %1"
-msgstr "字型 %1"
+msgstr "Preslitero %1"
 
 #: ../src/modules/personalization/main.qml:110
 msgid "Theme"
-msgstr "主題"
+msgstr "Etoso"
 
 #: ../src/modules/personalization/main.qml:117
 #: ../src/modules/shortcuts/main.qml:51
 msgid "Window"
-msgstr "視窗"
+msgstr "Fenestro"
 
 #: ../src/modules/personalization/main.qml:124
 msgid "Icon"
-msgstr "圖示"
+msgstr "Ikono"
 
 #: ../src/modules/personalization/main.qml:131
 msgid "Cursor"
-msgstr "游標"
+msgstr "Indikilo"
 
 #: ../src/modules/personalization/main.qml:138
 msgid "Wallpaper"
-msgstr "桌布"
+msgstr "Fonbildo"
 
 #: ../src/modules/personalization/main.qml:152
 msgid "Fonts"
-msgstr "字型"
+msgstr "Presliteroj"
 
 #: ../src/modules/personalization/widgets/ShowPreviewButton.qml:53
 msgid "Preview Theme"
-msgstr "預覽主題"
+msgstr "Antaŭmontri temon"
 
 #: ../src/modules/personalization/widgets/ThemeItem.qml:92
 #: ../src/modules/power/main.qml:318 ../src/modules/power/main.qml:559
 #: ../src/modules/shortcuts/main.qml:53 ../src/modules/shortcuts/main.qml:230
 msgid "Custom"
-msgstr "自定"
+msgstr "Personigo"
 
 #: ../src/modules/power/main.qml:52 ../src/modules/power/main.qml:64
 msgid "Never"
-msgstr "從不"
+msgstr "Neniam"
 
 #: ../src/modules/power/main.qml:58
 msgid "1 minute"
-msgstr "1 分鐘"
+msgstr "1 minuto"
 
 #: ../src/modules/power/main.qml:59
 msgid "5 minutes"
-msgstr "5 分鐘"
+msgstr "5 minutoj"
 
 #: ../src/modules/power/main.qml:60
 msgid "10 minutes"
-msgstr "10 分鐘"
+msgstr "10 minutoj"
 
 #: ../src/modules/power/main.qml:61
 msgid "15 minutes"
-msgstr "15 分鐘"
+msgstr "15 minutoj"
 
 #: ../src/modules/power/main.qml:62
 msgid "30 minutes"
-msgstr "30 分鐘"
+msgstr "30 minutoj"
 
 #: ../src/modules/power/main.qml:63
 msgid "1 hour"
-msgstr "1小時"
+msgstr "1 horo"
 
 #: ../src/modules/power/main.qml:122
 msgid "When I press the power button"
-msgstr "按下電源按鈕"
+msgstr "Kiam mi premas la nutrobutonon"
 
 #: ../src/modules/power/main.qml:136 ../src/modules/power/main.qml:182
 msgid "Shutdown"
-msgstr "關機"
+msgstr "Elŝalti"
 
 #: ../src/modules/power/main.qml:141 ../src/modules/power/main.qml:187
 #: ../src/modules/power/main.qml:303 ../src/modules/power/main.qml:309
@@ -1714,31 +1710,31 @@ msgstr "關機"
 #: ../src/modules/power/main.qml:550 ../src/modules/power/main.qml:556
 #: ../src/modules/power/main.qml:562 ../src/modules/power/main.qml:658
 msgid "Suspend"
-msgstr "待命"
+msgstr "Paŭzigi"
 
 #: ../src/modules/power/main.qml:146
 msgid "Ask"
-msgstr "詢問"
+msgstr "Peti"
 
 #: ../src/modules/power/main.qml:168
 msgid "When I close the lid"
-msgstr "闔上筆記型電腦"
+msgstr "Kiam mi fermas la kovrilon"
 
 #: ../src/modules/power/main.qml:192
 msgid "Nothing"
-msgstr "無"
+msgstr "Nenio"
 
 #: ../src/modules/power/main.qml:211
 msgid "Password required to wake up"
-msgstr "喚醒需要密碼"
+msgstr "Pasvorto postulita al la vekiĝo"
 
 #: ../src/modules/power/main.qml:247
 msgid "Plugged in"
-msgstr "接通電源"
+msgstr "Kunligita"
 
 #: ../src/modules/power/main.qml:300 ../src/modules/power/main.qml:541
 msgid "Balanced"
-msgstr "均衡"
+msgstr "Ekvilibrigita"
 
 #: ../src/modules/power/main.qml:302 ../src/modules/power/main.qml:308
 #: ../src/modules/power/main.qml:314 ../src/modules/power/main.qml:320
@@ -1746,23 +1742,23 @@ msgstr "均衡"
 #: ../src/modules/power/main.qml:549 ../src/modules/power/main.qml:555
 #: ../src/modules/power/main.qml:561 ../src/modules/power/main.qml:618
 msgid "Turn off the display"
-msgstr "關閉顯示器"
+msgstr "Elŝalti la ekranon"
 
 #: ../src/modules/power/main.qml:306 ../src/modules/power/main.qml:547
 msgid "Power saver"
-msgstr "節能"
+msgstr "Energio ŝparanto"
 
 #: ../src/modules/power/main.qml:312 ../src/modules/power/main.qml:553
 msgid "High performance"
-msgstr "高性能"
+msgstr "Altaj performancoj"
 
 #: ../src/modules/power/main.qml:377 ../src/modules/power/main.qml:613
 msgid "Custom Options"
-msgstr "自定選項"
+msgstr "Personigitaj opcioj"
 
 #: ../src/modules/power/main.qml:489
 msgid "On battery"
-msgstr "使用電池"
+msgstr "Kun la baterio"
 
 #: ../src/modules/remoting/AccessContent/ConnectedItem.qml:32
 msgid ""
@@ -1773,7 +1769,7 @@ msgstr ""
 #: ../src/modules/remoting/AccessContent/ConnectedItem.qml:42
 #: ../src/modules/remoting/ShareContent/ConnectedItem.qml:46
 msgid "Disconnect"
-msgstr "斷開"
+msgstr ""
 
 #: ../src/modules/remoting/AccessContent/ConnectingItem.qml:50
 msgid "Establishing connection, please wait..."
@@ -1827,7 +1823,7 @@ msgstr ""
 
 #: ../src/modules/remoting/MainPanel.qml:35
 msgid "Share"
-msgstr "分享"
+msgstr "Partopreni"
 
 #: ../src/modules/remoting/MainPanel.qml:36
 msgid "Share your desktop to get remote assistance from other users"
@@ -1874,310 +1870,310 @@ msgstr ""
 
 #: ../src/modules/remoting/SharePanel.qml:131
 msgid "Sharing"
-msgstr "正在分享"
+msgstr ""
 
 #: ../src/modules/shared/ResetButton.qml:39
 msgid "Reset successfully"
-msgstr "重設成功"
+msgstr "Sukcese restarigita"
 
 #: ../src/modules/shared/ResetButton.qml:47
 msgid "Reset"
-msgstr "重設"
+msgstr "Restarigi"
 
 #: ../src/modules/shortcuts/CustomKeybinding.qml:133
 msgid "Command"
-msgstr "命令"
+msgstr "Komando"
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:136
 msgid "Please input new shortcut"
-msgstr "請輸入新的捷徑鍵"
+msgstr "bonvolu eriri novan ŝparvojon"
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:237
 #, qt-format
 msgid "Shortcut \"%1\" is invalid, please retype new shortcut."
-msgstr "無效的捷徑鍵 \"%1\"，請重新輸入。"
+msgstr "Ŝparvojo \"%1\" estas malvalida, bonvolu retajpi novan ŝparvojon"
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:275
 msgid "The shortcut you set "
-msgstr "您設定的捷徑鍵"
+msgstr "la ŝparvojo ke vi agordis "
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:278
 #, qt-format
 msgid "conflicts with the one used for \"%2\" in the \"%1\" category."
-msgstr "與 \"%1\" 類別下的 \"%2\" 的捷徑鍵衝突。"
+msgstr "Konfliktoj kun tiu uzata por \"%2\" en la \"%1\" kategorio."
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:280
 msgid "Do you want to replace it?"
-msgstr "是否進行取代？"
+msgstr "Ĉu vi volas anstataŭigi ĝin?"
 
 #: ../src/modules/shortcuts/ShortcutInput.qml:338
 msgid "Replace"
-msgstr "取代"
+msgstr "Anstataŭigi"
 
 #: ../src/modules/shortcuts/StateButtons.qml:90
 msgid "Delete Shortcut"
-msgstr "刪除捷徑"
+msgstr "Forigi ŝparvojon"
 
 #: ../src/modules/shortcuts/StateButtons.qml:107
 msgid "Add Shortcut"
-msgstr "增加捷徑"
+msgstr "Aldoni ŝparvojon"
 
 #: ../src/modules/shortcuts/main.qml:49
 msgid "System"
-msgstr "系統"
+msgstr "Sistemo"
 
 #: ../src/modules/shortcuts/main.qml:52
 msgid "Workspace"
-msgstr "工作區"
+msgstr "Laborspaco"
 
 #: ../src/modules/sound/BalanceLine.qml:31
 msgid "Left/Right Balance"
-msgstr "左/右平衡"
+msgstr "Mal/dekstra  ekvilibrigo"
 
 #: ../src/modules/sound/BalanceLine.qml:53
 msgid "Left"
-msgstr "左"
+msgstr "Maldekstra"
 
 #: ../src/modules/sound/BalanceLine.qml:55
 msgid "Right"
-msgstr "右"
+msgstr "Dekstra"
 
 #: ../src/modules/sound/FadeLine.qml:31
 msgid "Front/Rear Balance"
-msgstr "前/後平衡"
+msgstr "Mal/antaŭa ekvilibrigo"
 
 #: ../src/modules/sound/FadeLine.qml:53
 msgid "Rear"
-msgstr "後"
+msgstr "Malantaŭa"
 
 #: ../src/modules/sound/FadeLine.qml:55
 msgid "Front"
-msgstr "前"
+msgstr "Antaŭa"
 
 #: ../src/modules/sound/main.qml:127
 msgid "Speaker"
-msgstr "揚聲器"
+msgstr "Laŭtparolilo"
 
 #: ../src/modules/sound/main.qml:157
 msgid "Output Volume"
-msgstr "輸出音量"
+msgstr "Eliga laŭteco"
 
 #: ../src/modules/sound/main.qml:222
 msgid "Microphone"
-msgstr "麥克風"
+msgstr "Mikrofono"
 
 #: ../src/modules/sound/main.qml:252
 msgid "Input Volume"
-msgstr "輸入音量"
+msgstr "Eniga laŭteco"
 
 #: ../src/modules/sound/main.qml:296
 msgid "Input Feedback"
-msgstr "輸入反饋"
+msgstr "Enigilo retroefiko"
 
 #: ../src/modules/sound/main.qml:332
 msgid "Output Port"
-msgstr "輸出端口"
+msgstr "Eliga pordo"
 
 #: ../src/modules/sound/main.qml:349 ../src/modules/sound/main.qml:452
 msgid "No port exists in this device."
-msgstr "這個設備沒有端口"
+msgstr "Nenia pordo ekzistas en tiu aparato"
 
 #: ../src/modules/sound/main.qml:387
 msgid "Output device"
-msgstr "輸出設備"
+msgstr "Eligilo"
 
 #: ../src/modules/sound/main.qml:435
 msgid "Input Port"
-msgstr "輸入端口"
+msgstr "Eniga pordo"
 
 #: ../src/modules/sound/main.qml:490
 msgid "Input device"
-msgstr "輸入設備"
+msgstr "Enigilo"
 
 #: ../src/modules/sound/main.qml:543
 msgid "Hide Advanced..."
-msgstr "隱藏進階設定 ..."
+msgstr "Kaŝi antaŭajn..."
 
 #: ../src/modules/sound/main.qml:543
 msgid "Show Advanced..."
-msgstr "顯示進階設定 ..."
+msgstr "Montri antaŭajn..."
 
 #: ../src/modules/system_info/main.qml:118
 msgid "Copyright (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
-msgstr "2011-2014 武漢深之度科技有限公司版權所有"
+msgstr "Aŭtorrajto (c) 2011-2014 Wuhan Deepin Technology Co., Ltd."
 
 #: ../src/modules/system_info/main.qml:124
 msgid "Deepin Edition"
-msgstr "系統版本"
+msgstr "Deepin eldono"
 
 #: ../src/modules/system_info/main.qml:130
 msgid "System Type"
-msgstr "系統類型"
+msgstr "Tipo de sistemo"
 
 #: ../src/modules/system_info/main.qml:131
 msgid "bit"
-msgstr "位"
+msgstr "bit"
 
 #: ../src/modules/system_info/main.qml:136
 msgid "Processor"
-msgstr "處理器"
+msgstr "Procezilo"
 
 #: ../src/modules/system_info/main.qml:150
 msgid "Memory"
-msgstr "記憶體"
+msgstr "Memoro"
 
 #: ../src/modules/system_info/main.qml:156
 msgid "Disk"
-msgstr "磁碟機"
+msgstr "Disko"
 
 #: ../src/modules/system_info/main.qml:174
 msgid "GNU GENERAL PUBLIC LICENSE"
-msgstr "GNU 通用公共許可協議"
+msgstr "GNU Ĝenerala Publika Permesilo"
 
 #: ../src/modules/wacom/main.qml:14
 msgid "Page Up"
-msgstr "上一頁"
+msgstr "Paĝo supre"
 
 #: ../src/modules/wacom/main.qml:15
 msgid "Page Down"
-msgstr "下一頁"
+msgstr "Paĝo sube"
 
 #: ../src/modules/wacom/main.qml:16
 msgid "Left Click"
-msgstr "點選滑鼠左鍵"
+msgstr "Maldekstra alklako"
 
 #: ../src/modules/wacom/main.qml:17
 msgid "Right Click"
-msgstr "點選滑鼠右鍵"
+msgstr "Dekstra alklako"
 
 #: ../src/modules/wacom/main.qml:18
 msgid "Middle Click"
-msgstr "點選滑鼠中間的按鍵"
+msgstr "Centra alklako"
 
 #: ../src/modules/wacom/main.qml:69
 msgid "Tablet Orientation"
-msgstr "數位板方向"
+msgstr "Orientado de la tabuleto"
 
 #: ../src/modules/wacom/main.qml:76
 msgid "Left Hand"
-msgstr "左手"
+msgstr "Maldekstra mano"
 
 #: ../src/modules/wacom/main.qml:77
 msgid "Right Hand"
-msgstr "右手"
+msgstr "Dekstra mano"
 
 #: ../src/modules/wacom/main.qml:90
 msgid "Digital Pen Modes"
-msgstr "觸控筆模式"
+msgstr "Manieroj de la diĝita plumo"
 
 #: ../src/modules/wacom/main.qml:97
 msgid "Pen Mode"
-msgstr "筆模式"
+msgstr "Maniero de la plumo"
 
 #: ../src/modules/wacom/main.qml:98
 msgid "Mouse Mode"
-msgstr "滑鼠模式"
+msgstr "Maniero de la muso"
 
 #: ../src/modules/wacom/main.qml:112
 msgid "Down Key"
-msgstr "下鍵"
+msgstr "Subŝlosilo"
 
 #: ../src/modules/wacom/main.qml:137
 msgid "Up Key"
-msgstr "上鍵"
+msgstr "Surŝlosilo"
 
 #: ../src/modules/wacom/main.qml:162
 msgid "Pressure"
-msgstr "壓感"
+msgstr "Premo"
 
 #: ../src/modules/wacom/main.qml:178
 msgid "Soft"
-msgstr "溫和"
+msgstr "Malpeza"
 
 #: ../src/modules/wacom/main.qml:179
 msgid "Hard"
-msgstr "重"
+msgstr "Peza"
 
 #: ../src/modules/wacom/main.qml:190
 msgid "Double-click Space"
-msgstr "按兩下間距"
+msgstr "duobla alklaka spaco"
 
 #: ../src/modules/wacom/main.qml:206
 msgid "Narrow"
-msgstr "小"
+msgstr "Mallarĝa"
 
 #: ../src/modules/wacom/main.qml:207
 msgid "Wide"
-msgstr "大"
+msgstr "Larĝa"
 
 #: ../src/views/ModulesData.qml:52
 msgid "Date and Time"
-msgstr "日期和時間"
+msgstr "Dato kaj horo"
 
 #: ../src/views/ModulesData.qml:53
 msgid "Network"
-msgstr "網路"
+msgstr "Reto"
 
 #: ../src/views/ModulesData.qml:54
 msgid "Disk Mount"
-msgstr "磁碟機掛載"
+msgstr "Disko muntado"
 
 #: ../src/views/ModulesData.qml:56
 msgid "Sound"
-msgstr "聲音"
+msgstr "Sono"
 
 #: ../src/views/ModulesData.qml:57
 msgid "Power Management"
-msgstr "電源管理"
+msgstr "Energia administrado"
 
 #: ../src/views/ModulesData.qml:58
 msgid "More Settings"
-msgstr "更多設定"
+msgstr "Pli agordojn"
 
 #: ../src/views/ModulesData.qml:59 ../src/views/PanelContent.qml:456
 msgid "Power"
-msgstr "電源"
+msgstr "Ŝalto"
 
 #: ../src/views/ModulesData.qml:60
 msgid "Display"
-msgstr "顯示"
+msgstr "Ekrano"
 
 #: ../src/views/ModulesData.qml:61
 msgid "Desktop"
-msgstr "桌面"
+msgstr "Skribotablo"
 
 #: ../src/views/ModulesData.qml:62
 msgid "Personalization"
-msgstr "個人化"
+msgstr "Personigo"
 
 #: ../src/views/ModulesData.qml:63
 msgid "Keyboard Shortcuts"
-msgstr "捷徑鍵"
+msgstr "Ŝparvojoj de la klavaro"
 
 #: ../src/views/ModulesData.qml:64
 msgid "Keyboard and Language"
-msgstr "鍵盤與語言"
+msgstr "Klavaro kaj lingvo"
 
 #: ../src/views/ModulesData.qml:65
 msgid "Tablet"
-msgstr "數位板"
+msgstr "Tabuleto"
 
 #: ../src/views/ModulesData.qml:66
 msgid "Mouse and Touchpad"
-msgstr "滑鼠與觸控板"
+msgstr "Muso kaj tuŝbloko"
 
 #: ../src/views/ModulesData.qml:68
 msgid "User Accounts"
-msgstr "使用者帳號"
+msgstr "Kontoj de la uzanto"
 
 #: ../src/views/ModulesData.qml:70
 msgid "System Information"
-msgstr "系統訊息"
+msgstr "Sistemo informoj"
 
 #: ../src/views/ModulesData.qml:71
 msgid "Boot Menu"
-msgstr "啟動程式選單"
+msgstr "Starto menuo"
 
 #: ../src/views/ModulesData.qml:72
 msgid "Home"
-msgstr "回到首頁"
+msgstr "Domo"

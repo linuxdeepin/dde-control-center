@@ -11,12 +11,11 @@ import Deepin.Widgets 1.0
 import "../Widgets"
 
 Item {
-    function dsTr(s) { return s; }
-
     Rectangle {
         id: mainContainer
         width: parent.width
-        height:  100
+        //height:  100
+        height: 140
         color: DPalette.contentBgColor
 
         Column {
@@ -55,8 +54,8 @@ Item {
             Rectangle {
                 height: 1
                 width: parent.width
-                //color: DPalette.fgDarkColor
-                color: "#7C7C7C"
+                color: DPalette.fgDarkColor
+                //color: "#7C7C7C"
             }
 
             Item {
@@ -67,12 +66,12 @@ Item {
             Text {
                 id: waitingText
                 width: parent.width
-                height: 20
                 verticalAlignment: Text.AlignTop
                 horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WordWrap
                 font.pixelSize: 10
                 color: "#7C7C7C"
-                text: dsTr("Share window would be opend when connect is done")
+                text: dsTr("This panel will be hidden automatically and the remote session window will be opened on the desktop after connection is established successfully")
             }
         }
     }

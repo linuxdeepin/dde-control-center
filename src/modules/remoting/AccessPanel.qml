@@ -57,8 +57,9 @@ Item {
         // If no network connection is available, display error page and exit
         if (remotingManager.CheckNetworkConnectivity() ===
                 networkStatusDisconnected) {
-            errorItem.setErrorMessage(dsTr("There is no network connection currently, please try again after you connect to the Internet"))
+            errorItem.setErrorMessage(dsTr("No network connections are available, please retry..."))
             accessPanel.state = "error"
+
             return
         }
 
@@ -91,7 +92,8 @@ Item {
         onStatusChanged: {
             if (remotingManager.CheckNetworkConnectivity() ==
                     networkStatusDisconnected) {
-                errorItem.setErrorMessage(dsTr("There is no network connection currently, please try again after you connect to the Internet"))
+                errorItem.setErrorMessage(dsTr("No network connections are available, please retry..."))
+
                 accessPanel.state = "error"
                 return
             }
@@ -106,9 +108,10 @@ Item {
                 break
 
             case clientStatusStopted:
-                if (accessPanele.state !== "NeedAccessCode") {
+                if (accessPanel.state !== "NeedAccessCode") {
                     accessPanel.state = "NeeedAccessCode"
                 }
+                resetPage()
                 break
 
             case clientStatusPageReady:
@@ -116,7 +119,7 @@ Item {
                 break
 
             case clientStatusUnavailable:
-                needCodeItem.showError(dsTr("The verification code is invalid! Please retry"))
+                needCodeItem.showError(dsTr("The verification code is invalid, please retry"))
                 accessPanel.state = "NeeedAccessCode"
                 break
 
@@ -125,7 +128,13 @@ Item {
                 accessPanel.state = "NeeedAccessCode"
                 break
 
+            case clientStatusDisconnected:
+                accessPanel.state = "NeeedAccessCode"
+                resetPage()
+                break
+
             default:
+                print("[remoting] unhandled status:", status)
                 break
             }
         }

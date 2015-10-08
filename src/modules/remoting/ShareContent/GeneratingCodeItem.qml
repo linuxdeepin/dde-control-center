@@ -26,7 +26,7 @@ Item {
                 right: creatingTipText.left
                 rightMargin: 5
                 top: creatingTipText.top
-                topMargin: 3
+                topMargin: 7
             }
         }
 

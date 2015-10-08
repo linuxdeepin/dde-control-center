@@ -39,9 +39,23 @@ Item {
             verticalAlignment: Text.AlignVCenter
             anchors {
                 top: parent.top
+                topMargin: 6
                 horizontalCenter: parent.horizontalCenter
             }
             text: ""
+        }
+
+        Text {
+            id: copyTip
+            enabled: true
+            visible: false
+            anchors.top: codeText.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            color: '#ffc735'
+            font.pixelSize: 10
+            text: dsTr('Copied to clipboard successfully')
         }
 
         Text {
@@ -56,10 +70,10 @@ Item {
             color: "#7C7C7C"
             anchors {
                 top: codeText.bottom
-                topMargin: 10
+                topMargin: 15
                 horizontalCenter: parent.horizontalCenter
             }
-            text: dsTr("To start sharing your desktop, please provide the above verification code to whom will assist you;  your shared session will begin immediately after verification code input")
+            text: dsTr("To start sharing your desktop, please provide the above verification code to whom will assist you. Your shared session will begin immediately after verification code input")
         }
     }
 
@@ -97,17 +111,6 @@ Item {
                 popupCopyTip()
             }
         }
-    }
-
-    Text {
-        id: copyTip
-        enabled: true
-        visible: false
-        anchors.top: buttonBox.bottom
-        anchors.topMargin: 5
-        anchors.leftMargin: 5
-        color: '#ffc735'
-        text: dsTr('Copied to clipboard successfully')
     }
 
     Timer {
