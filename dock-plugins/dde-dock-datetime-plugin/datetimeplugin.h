@@ -41,6 +41,9 @@ public:
     QString getMenuContent(QString id) Q_DECL_OVERRIDE;
     void invokeMenuItem(QString id, QString itemId, bool checked) Q_DECL_OVERRIDE;
 
+private slots:
+    void onInitTimerTriggered();
+
 private:
     DBusTimedate *m_dateTime = NULL;
     QString m_id = "id_datetime";
@@ -57,7 +60,6 @@ private:
 
 private:
     void initCalendar();
-    void initDBusControl();
     void setMode(Dock::DockMode mode);
     QJsonObject createMenuItem(QString itemId,
                                QString itemName,

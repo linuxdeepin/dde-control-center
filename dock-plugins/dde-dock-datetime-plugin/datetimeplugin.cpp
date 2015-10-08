@@ -29,8 +29,12 @@ DateTimePlugin::DateTimePlugin() :
     m_timer->setSingleShot(false);
     m_timer->start();
 
-    initCalendar();
-    initDBusControl();
+    m_dateTime = new DBusTimedate(this);
+    connect(m_dateTime, &DBusTimedate::Use24HourFormatChanged, this, &DateTimePlugin::onUse24HourFormatChanged);
+
+    QTimer *initTimer = new QTimer(this);
+    connect(initTimer, SIGNAL(timeout()), this, SLOT(onInitTimerTriggered()));
+    initTimer->start(1000);
 
     connect(m_timer, &QTimer::timeout, this, &DateTimePlugin::updateTime);
 }
@@ -96,8 +100,6 @@ QWidget * DateTimePlugin::getItem(QString)
 
 QWidget * DateTimePlugin::getApplet(QString)
 {
-    m_calendar->updateCurrentDate();
-
     if (m_calendar)
         return m_calendar;
     else
@@ -192,6 +194,21 @@ void DateTimePlugin::invokeMenuItem(QString id, QString itemId, bool checked)
     }
 }
 
+void DateTimePlugin::onInitTimerTriggered()
+{
+    QTimer *t = qobject_cast<QTimer *>(sender());
+
+    if (t && m_dateTime->isValid()) {
+        qWarning() << "DataTimePlugin: DBus data is ready!";
+        t->stop();
+        t->deleteLater();
+
+        initCalendar();
+        //for initialization
+        onUse24HourFormatChanged();
+    }
+}
+
 void DateTimePlugin::initCalendar()
 {
     m_calendar = new DCalendar();
@@ -200,15 +217,7 @@ void DateTimePlugin::initCalendar()
     m_calendar->setDateInfoVisible(true);
     m_calendar->setSelectionMode(DCalendar::NoSelection);
     m_calendar->setFixedSize(300, 300);
-}
-
-void DateTimePlugin::initDBusControl()
-{
-    m_dateTime = new DBusTimedate(this);
-    connect(m_dateTime, &DBusTimedate::Use24HourFormatChanged, this, &DateTimePlugin::onUse24HourFormatChanged);
-
-    //for initialization
-    onUse24HourFormatChanged();
+    m_calendar->updateCurrentDate();
 }
 
 // private methods

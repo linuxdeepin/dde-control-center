@@ -1,10 +1,14 @@
 #include <QFile>
+#include <QTimer>
 
 #include "soundplugin.h"
 
 SoundPlugin::SoundPlugin()
 {
-    m_item = new MainItem();
+    m_audio = new DBusAudio(this);
+    QTimer *initTimer = new QTimer(this);
+    connect(initTimer, SIGNAL(timeout()), this, SLOT(onInitTimerTriggered()));
+    initTimer->start(1000);
 
     this->initSettings();
 }
@@ -12,10 +16,6 @@ SoundPlugin::SoundPlugin()
 void SoundPlugin::init(DockPluginProxyInterface *proxy)
 {
     m_proxy = proxy;
-
-    setMode(proxy->dockMode());
-
-    onDisableChanged();
 }
 
 QString SoundPlugin::getPluginName()
@@ -72,14 +72,15 @@ QWidget * SoundPlugin::getItem(QString)
 {
     bool disabled = m_settings->value(settingDisabledKey()).toBool();
 
-    return disabled ? NULL : m_item;
+    return (disabled || !m_audio->isValid()) ? NULL : m_item;
 }
 
 QWidget * SoundPlugin::getApplet(QString)
 {
-    if (!m_soundContent)
-        m_soundContent = new SoundContent(m_id, m_proxy);
-    return m_soundContent;
+    if (m_audio->isValid())
+        return m_soundContent;
+    else
+        return NULL;
 }
 
 void SoundPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
@@ -100,6 +101,23 @@ void SoundPlugin::invokeMenuItem(QString, QString itemId, bool checked)
     qWarning() << "Menu check:" << itemId << checked;
 }
 
+void SoundPlugin::onInitTimerTriggered()
+{
+    QTimer *t = qobject_cast<QTimer *>(sender());
+
+    if (t && m_audio->isValid()) {
+        qWarning() << "SoundPlugin: DBus data is ready!";
+        t->stop();
+        t->deleteLater();
+
+        m_item = new MainItem();
+        m_soundContent = new SoundContent(m_id, m_proxy);
+
+        setMode(m_proxy->dockMode());
+        onDisableChanged();
+    }
+}
+
 // private methods
 void SoundPlugin::initSettings()
 {
@@ -112,6 +130,9 @@ void SoundPlugin::initSettings()
 
 void SoundPlugin::onDisableChanged()
 {
+    if (!m_item)
+        return;
+
     m_proxy->itemRemovedEvent(m_id);
     m_item->setParent(NULL);
 
@@ -121,6 +142,9 @@ void SoundPlugin::onDisableChanged()
 
 void SoundPlugin::setMode(Dock::DockMode mode)
 {
+    if (!m_item)
+        return;
+
     m_mode = mode;
 
     switch (mode) {

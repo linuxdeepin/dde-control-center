@@ -6,6 +6,10 @@ DiskMountPlugin::DiskMountPlugin()
     m_diskMount = new DBusDiskMount(this);
     connect(m_diskMount,&DBusDiskMount::DiskListChanged,this,&DiskMountPlugin::mountableDeviceChanged);
 
+    QTimer *initTimer = new QTimer(this);
+    connect(initTimer, SIGNAL(timeout()), this, SLOT(onInitTimerTriggered()));
+    initTimer->start(1000);
+
     m_item = new MainItem();
     connect(this, &DiskMountPlugin::dockModeChanged, m_item, &MainItem::onDockModeChanged);
 }
@@ -14,9 +18,6 @@ DiskMountPlugin::DiskMountPlugin()
 void DiskMountPlugin::init(DockPluginProxyInterface *proxy)
 {
     m_proxy = proxy;
-
-    mountableDeviceChanged();
-    setMode(proxy->dockMode());
 }
 
 QString DiskMountPlugin::getPluginName()
@@ -67,8 +68,6 @@ QWidget * DiskMountPlugin::getItem(QString)
 
 QWidget * DiskMountPlugin::getApplet(QString)
 {
-    if (!m_diskContent)
-        m_diskContent = new DiskContent(m_id, m_proxy);
     return m_diskContent;
 }
 
@@ -86,6 +85,22 @@ QString DiskMountPlugin::getMenuContent(QString)
 void DiskMountPlugin::invokeMenuItem(QString, QString itemId, bool checked)
 {
     qWarning() << "Menu check:" << itemId << checked;
+}
+
+void DiskMountPlugin::onInitTimerTriggered()
+{
+    QTimer *t = qobject_cast<QTimer *>(sender());
+
+    if (t && m_diskMount->isValid()) {
+        qWarning() << "DiskMountPlugin: DBus data is ready!";
+        t->stop();
+        t->deleteLater();
+
+        m_diskContent = new DiskContent(m_id, m_proxy);
+
+        mountableDeviceChanged();
+        setMode(m_proxy->dockMode());
+    }
 }
 
 void DiskMountPlugin::mountableDeviceChanged()

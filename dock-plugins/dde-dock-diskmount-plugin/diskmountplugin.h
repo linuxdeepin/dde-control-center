@@ -49,6 +49,9 @@ public:
 signals:
     void dockModeChanged(Dock::DockMode mode);
 
+private slots:
+    void onInitTimerTriggered();
+
 private:
     bool m_hasMount = false;
     MainItem * m_item = NULL;

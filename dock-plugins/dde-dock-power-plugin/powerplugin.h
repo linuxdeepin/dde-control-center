@@ -40,6 +40,9 @@ public:
     QString getMenuContent(QString id) Q_DECL_OVERRIDE;
     void invokeMenuItem(QString id, QString itemId, bool checked) Q_DECL_OVERRIDE;
 
+private slots:
+    void onInitTimerTriggered();
+
 private:
     QString m_id;
     QLabel * m_label;

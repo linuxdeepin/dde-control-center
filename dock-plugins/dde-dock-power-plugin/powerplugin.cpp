@@ -3,6 +3,7 @@
 #include <QDebug>
 #include <QIcon>
 #include <QFile>
+#include <QTimer>
 
 #include <QDBusConnection>
 
@@ -24,6 +25,10 @@ PowerPlugin::PowerPlugin()
     connect(m_dbusPower, &DBusPower::BatteryPercentageChanged, this, &PowerPlugin::updateIcon);
     connect(m_dbusPower, &DBusPower::OnBatteryChanged, this, &PowerPlugin::updateIcon);
 
+    QTimer *initTimer = new QTimer(this);
+    connect(initTimer, SIGNAL(timeout()), this, SLOT(onInitTimerTriggered()));
+    initTimer->start(1000);
+
     this->initSettings();
 }
 
@@ -35,10 +40,6 @@ PowerPlugin::~PowerPlugin()
 void PowerPlugin::init(DockPluginProxyInterface *proxy)
 {
     m_proxy = proxy;
-
-    setMode(proxy->dockMode());
-
-    onDisableChanged();
 }
 
 QString PowerPlugin::getPluginName()
@@ -60,6 +61,9 @@ QString PowerPlugin::getName(QString)
 
 QString PowerPlugin::getTitle(QString)
 {
+    if (!m_dbusPower->isValid())
+        return getPluginName();
+
     QString batteryPercentage = QString("%1%").arg(QString::number(m_dbusPower->batteryPercentage()));
 
     if (!m_dbusPower->onBattery()) {
@@ -83,7 +87,7 @@ QPixmap PowerPlugin::getIcon(QString)
 
 bool PowerPlugin::canDisable(QString)
 {
-    return m_dbusPower->batteryIsPresent();
+    return m_dbusPower->isValid() ? m_dbusPower->batteryIsPresent() : false;
 }
 
 bool PowerPlugin::isDisabled(QString)
@@ -108,6 +112,9 @@ QWidget * PowerPlugin::getApplet(QString)
 
 QWidget * PowerPlugin::getItem(QString)
 {
+    if (!m_dbusPower->isValid())
+        return NULL;
+
     bool disable = m_settings->value(settingDisabledKey()).toBool();
 
     if (m_dbusPower->batteryIsPresent() && !disable) {
@@ -119,7 +126,7 @@ QWidget * PowerPlugin::getItem(QString)
 
 void PowerPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
 {
-    if (newMode != oldMode){
+    if (m_dbusPower->isValid() && (newMode != oldMode)){
         //make sure m_mode changed beford update disable-state
         setMode(newMode);
         onDisableChanged();
@@ -134,6 +141,20 @@ QString PowerPlugin::getMenuContent(QString)
 void PowerPlugin::invokeMenuItem(QString, QString, bool)
 {
 
+}
+
+void PowerPlugin::onInitTimerTriggered()
+{
+    QTimer *t = qobject_cast<QTimer *>(sender());
+
+    if (t && m_dbusPower->isValid()) {
+        qWarning() << "PowerPlugin: DBus data is ready!";
+        t->stop();
+        t->deleteLater();
+
+        setMode(m_proxy->dockMode());
+        onDisableChanged();
+    }
 }
 
 
@@ -170,6 +191,9 @@ QString PowerPlugin::settingDisabledKey()
 
 void PowerPlugin::updateIcon()
 {
+    if (!m_dbusPower->isValid())
+        return;
+
     bool batteryPresent = m_dbusPower->batteryIsPresent();
 
     if (batteryPresent) {

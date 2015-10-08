@@ -49,6 +49,9 @@ public:
     QString getMenuContent(QString id) Q_DECL_OVERRIDE;
     void invokeMenuItem(QString id, QString itemId, bool checked) Q_DECL_OVERRIDE;
 
+private slots:
+    void onInitTimerTriggered();
+
 private:
     QString m_id = "sound_plugin";
     DockPluginProxyInterface * m_proxy;
@@ -57,6 +60,7 @@ private:
     MainItem * m_item = NULL;
     SoundContent *m_soundContent = NULL;
     QSettings * m_settings = NULL;
+    DBusAudio *m_audio = NULL;
 
     void initSettings();
     void onDisableChanged();
