@@ -343,6 +343,7 @@ void Personalization::updateThemeButtons(const ImageInfoList &imageInfos){
 
     m_themeContentFrame->setFixedSize(w, h);
     m_themeExpand->setContent(m_themeContentFrame);
+    m_themeExpand->setExpand(true);
 }
 
 void Personalization::updateWindowButtons(const ImageInfoList &imageInfos){
@@ -401,7 +402,8 @@ void Personalization::updateMonospaceFontCombox(const QStringList &monospaceFont
 
 void Personalization::handleDataFinished(){
     foreach (DBaseExpand* expand, m_expandGroup->expands()) {
-        expand->setExpand(false);
+        if (expand != m_themeExpand)
+            expand->setExpand(false);
     }
 
     int space = qApp->desktop()->screenGeometry().height() - m_headerLine->height();
@@ -422,10 +424,9 @@ void Personalization::handleDataFinished(){
         }
     }
     foreach (DBaseExpand* expand, m_expandGroup->expands()) {
-        expand->setExpand(false);
+        if (expand != m_themeExpand)
+            expand->setExpand(false);
     }
-    m_themeExpand->setExpand(true);
-
     initConnect();
 }
 
@@ -453,7 +454,7 @@ void Personalization::updateCurrentTheme(QString themeKey){
        QString gtkKey("Gtk");
        if (obj.contains(gtkKey)){
             QString id = obj.value(gtkKey).toObject().value("Id").toString();
-            int index = getValidKeyIndex(m_windowImageInfos, gtkKey);
+            int index = getValidKeyIndex(m_windowImageInfos, id);
             if (index >= 0){
                 m_windowButtonGrid->checkButtonByIndex(index);
             }else{
@@ -510,7 +511,7 @@ void Personalization::setThemeByIndex(int index){
         if(m_dbusWorker->getCurrentTheme() != key)
             m_dbusWorker->setTheme(m_dbusWorker->staticTypeKeys.value("TypeDTheme"), key);
     }else{
-        qDebug() << "set theme Error" <<  m_themeKeys << index;
+        qCritical() << "set theme Error" <<  m_themeKeys << index;
     }
 }
 
@@ -519,7 +520,7 @@ void Personalization::setWindowByIndex(int index){
         QString key = m_windowImageInfos.at(index).value("key");
         m_dbusWorker->setTheme(m_dbusWorker->staticTypeKeys.value("TypeGtkTheme"), key);
     }else{
-        qDebug() << "set window Error" <<  m_windowKeys << index;
+        qCritical() << "set window Error" <<  m_windowKeys << index;
     }
 }
 
@@ -528,7 +529,7 @@ void Personalization::setIconByIndex(int index){
         QString key = m_iconImageInfos.at(index).value("key");
         m_dbusWorker->setTheme(m_dbusWorker->staticTypeKeys.value("TypeIconTheme"), key);
     }else{
-        qDebug() << "set icon Error" <<  m_iconKeys << index;
+        qCritical() << "set icon Error" <<  m_iconKeys << index;
     }
 }
 
@@ -537,7 +538,7 @@ void Personalization::setCursorByIndex(int index){
         QString key = m_cursorImageInfos.at(index).value("key");
         m_dbusWorker->setTheme(m_dbusWorker->staticTypeKeys.value("TypeCursorTheme"), key);
     }else{
-        qDebug() << "set cursor Error" <<  m_cursorKeys << index;
+        qCritical() << "set cursor Error" <<  m_cursorKeys << index;
     }
 }
 
@@ -546,7 +547,7 @@ void Personalization::setBackgroundByIndex(int index){
         QString key = m_wallpaperImageInfos.at(index).value("key");
         m_dbusWorker->setTheme(m_dbusWorker->staticTypeKeys.value("TypeBackground"), key);
     }else{
-        qDebug() << "set background Error" <<  m_backgroundKeys << index;
+        qCritical() << "set background Error" <<  m_backgroundKeys << index;
     }
 }
 
@@ -555,7 +556,7 @@ void Personalization::setStandardFontByIndex(int index){
         QString key = m_standardFonts.at(index);
         m_dbusWorker->setTheme(m_dbusWorker->staticTypeKeys.value("TypeStandardFont"), key);
     }else{
-        qDebug() << "set standard Error" <<  m_standardFonts << index;
+        qCritical() << "set standard Error" <<  m_standardFonts << index;
     }
 }
 
@@ -564,7 +565,7 @@ void Personalization::setMonospaceFontByIndex(int index){
         QString key = m_monospaceFonts.at(index);
         m_dbusWorker->setTheme(m_dbusWorker->staticTypeKeys.value("TypeMonospaceFont"), key);
     }else{
-        qDebug() << "set monospace Error" <<  m_monospaceFonts << index;
+        qCritical() << "set monospace Error" <<  m_monospaceFonts << index;
     }
 }
 

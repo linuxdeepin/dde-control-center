@@ -27,15 +27,22 @@ DBusWorker::DBusWorker(QObject *parent) : QObject(parent)
 
 void DBusWorker::doWork(){
     getKeys(staticTypeKeys.value("TypeDTheme"), m_themeKeys);
+    emit themeKeysChanged(m_themeKeys);
+
     getKeys(staticTypeKeys.value("TypeGtkTheme"), m_windowKeys);
     getKeys(staticTypeKeys.value("TypeIconTheme"), m_iconKeys);
     getKeys(staticTypeKeys.value("TypeCursorTheme"), m_cursorKeys);
     getKeys(staticTypeKeys.value("TypeBackground"), m_backgroundKeys);
     getKeys(staticTypeKeys.value("TypeStandardFont"), m_standardFontKeys);
     getKeys(staticTypeKeys.value("TypeMonospaceFont"), m_monospaceFontKeys);
+
+
     getThemeObjs();
+    emit themeObjsChanged(m_themeObjs);
 
     getDetails(staticTypeKeys.value("TypeDTheme"), m_themeKeys, m_themeDetails);
+    emit themeDetailsChanged(m_themeDetails);
+
     getDetails(staticTypeKeys.value("TypeGtkTheme"), m_windowKeys, m_windowDetails);
     getDetails(staticTypeKeys.value("TypeIconTheme"), m_iconKeys, m_iconDetails);
     getDetails(staticTypeKeys.value("TypeCursorTheme"), m_cursorKeys, m_cursorDetails);
@@ -50,8 +57,8 @@ void DBusWorker::doWork(){
     emit cursorKeysChanged(m_cursorKeys);
     emit backgroundKeysChanged(m_backgroundKeys);
 
-    emit themeObjsChanged(m_themeObjs);
-    emit themeDetailsChanged(m_themeDetails);
+//    emit themeObjsChanged(m_themeObjs);
+//    emit themeDetailsChanged(m_themeDetails);
     emit windowDetailsChanged(m_windowDetails);
     emit iconDetailsChanged(m_iconDetails);
     emit cursorDetailsChanged(m_cursorDetails);
