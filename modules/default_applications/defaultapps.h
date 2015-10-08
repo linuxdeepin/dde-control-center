@@ -13,6 +13,7 @@
 
 #include <libdui/darrowlineexpand.h>
 #include <libdui/dexpandgroup.h>
+#include <libdui/dswitchbutton.h>
 
 DUI_USE_NAMESPACE
 
@@ -39,10 +40,13 @@ private:
     };
 
 private:
-    DArrowLineExpand *createDefaultAppsExpand(const DefaultAppsCategory & category);
+    DArrowLineExpand *createDefaultAppsExpand(const DefaultAppsCategory & category, DArrowLineExpand *defaultApps);
     const QString getTypeByCategory(const DefaultAppsCategory & category);
     const QStringList getTypeListByCategory(const DefaultAppsCategory & category);
     void setMediaOptionVisible(const bool visible);
+
+private slots:
+    void lazyLoad();
 
 private:
     QFrame * m_centralWidget;
@@ -68,6 +72,8 @@ private:
     DArrowLineExpand *m_modMusicPlayer;
     DArrowLineExpand *m_modCamera;
     DArrowLineExpand *m_modSoftware;
+
+    DSwitchButton *m_autoPlaySwitch;
 };
 
 #endif
