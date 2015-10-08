@@ -69,6 +69,7 @@ Datetime::Datetime() :
 
     m_calendarSeparator = new DSeparatorHorizontal;
     m_calendar = new DCalendar;
+    m_calendar->setResetButtonText(tr("Reset"));
     m_calendar->setFixedHeight(330);
     m_calendar->setFixedWidth(310);
     // if NOT zh_CN or zh_TW, hide lunar
