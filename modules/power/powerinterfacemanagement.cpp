@@ -19,18 +19,18 @@ qint32 PowerInterfaceManagement::getLidCloseAction() {
     return m_powerInterface->lidClosedAction();
 }
 void PowerInterfaceManagement::setPowerButtonAction(QString actionButton) {
-    if (actionButton == "Shutdown") {
+    if (actionButton == tr("Shutdown")) {
         m_powerInterface->setPowerButtonAction(2);
-    } else if (actionButton == "Suspend") {
+    } else if (actionButton == tr("Suspend")) {
         m_powerInterface->setPowerButtonAction(1);
     } else {
         m_powerInterface->setPowerButtonAction(4);
     }
 }
 void PowerInterfaceManagement::setLidCloseAction(QString actionButton) {
-    if (actionButton == "Shutdown") {
+    if (actionButton == tr("Shutdown")) {
         m_powerInterface->setLidClosedAction(2);
-    } else if (actionButton == "Suspend") {
+    } else if (actionButton == tr("Suspend")) {
         m_powerInterface->setLidClosedAction(1);
     } else {
         m_powerInterface->setLidClosedAction(4);
@@ -47,11 +47,11 @@ qint32 PowerInterfaceManagement::getLinePowerPlan() {
 }
 void PowerInterfaceManagement::setLinePowerPlan(QString buttonPerformace) {
 
-    if (buttonPerformace == "Balanced") {
+    if (buttonPerformace == tr("Balanced")) {
         m_powerInterface->setLinePowerPlan(2);
-    } else if(buttonPerformace == "Power saver") {
+    } else if(buttonPerformace == tr("Power saver")) {
         m_powerInterface->setLinePowerPlan(1);
-    } else if(buttonPerformace == "High performance") {
+    } else if(buttonPerformace == tr("High performance")) {
         m_powerInterface->setLinePowerPlan(3);
     } else {
         m_powerInterface->setLinePowerPlan(0);
@@ -95,11 +95,11 @@ qint32 PowerInterfaceManagement::getBatteryPlan() {
     return m_powerInterface->batteryPlan();
 }
 void PowerInterfaceManagement::setBatteryPlan(QString buttonPerformance) {
-    if (buttonPerformance == "Balanced") {
+    if (buttonPerformance == tr("Balanced")) {
          m_powerInterface->setBatteryPlan(2);
-    } else if(buttonPerformance == "Power saver") {
+    } else if(buttonPerformance == tr("Power saver")) {
          m_powerInterface->setBatteryPlan(1);
-    } else if(buttonPerformance == "High performance") {
+    } else if(buttonPerformance == tr("High performance")) {
          m_powerInterface->setBatteryPlan(3);
     } else {
          m_powerInterface->setBatteryPlan(0);
@@ -155,13 +155,13 @@ void PowerInterfaceManagement::batteryPresentUpdate() {
 QString PowerInterfaceManagement::setPowerTooltipText(QString itemId, QString powerType) {
     QString argument_display, argument_suspend;
 
-    if (itemId == "Balanced") {
+    if (itemId == tr("Balanced")) {
         argument_display = QString("10 minutes");
         argument_suspend = QString("never");
-    } else if (itemId == "Power saver") {
+    } else if (itemId == tr("Power saver")) {
         argument_display = QString("5 minutes");
         argument_suspend = QString("15 minutes");
-    } else if (itemId == "High performance") {
+    } else if (itemId == tr("High performance")) {
         argument_display = QString("15 minutes");
         argument_suspend = QString("never");
     } else {

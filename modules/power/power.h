@@ -147,7 +147,7 @@ public slots:
     void set4ButtonGridChecked(int idIndex, DButtonGrid* buttonGroup);
     void set7ButtonGridChecked(int idIndex, DButtonGrid* buttonGroup);
     inline void setPowerAndBatteryExpand(QString buttonId, DExtendBoard* expandBoard) {
-        if (buttonId == "Custom") {expandBoard->setExpand(true);}
+        if (buttonId == tr("Custom")) {expandBoard->setExpand(true);}
         else { expandBoard->setExpand(false);}
     }
     inline void setPowerAndBatteryExpand(int idIndex, DExtendBoard* expandBoard) {
