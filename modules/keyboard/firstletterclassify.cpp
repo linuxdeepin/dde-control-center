@@ -170,8 +170,10 @@ QString FirstLetterClassify::currentLetter() const
 void FirstLetterClassify::addItem(KeyboardLayoutDelegate *item, const QChar letterFirst)
 {
     int index = letterFirst.toUpper().toLatin1() - 65;
-    m_listWidgetList[index]->addWidget(item);
-    m_letterList->at(index)->show();
+    if(index >= 0){
+        m_listWidgetList[index]->addWidget(item);
+        m_letterList->at(index)->show();
+    }
 }
 
 void FirstLetterClassify::setCurrentLetter(QString currentLetter)
