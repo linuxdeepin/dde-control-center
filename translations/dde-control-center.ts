@@ -235,23 +235,23 @@
 <context>
     <name>DExtendBoard</name>
     <message>
-        <location filename="../modules/power/dextendboard.cpp" line="23"/>
+        <location filename="../modules/power/dextendboard.cpp" line="20"/>
         <source>Custom options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/dextendboard.cpp" line="27"/>
+        <location filename="../modules/power/dextendboard.cpp" line="24"/>
         <source>Turn off the display</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/dextendboard.cpp" line="34"/>
-        <location filename="../modules/power/dextendboard.cpp" line="44"/>
+        <location filename="../modules/power/dextendboard.cpp" line="31"/>
+        <location filename="../modules/power/dextendboard.cpp" line="41"/>
         <source>Never</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/dextendboard.cpp" line="38"/>
+        <location filename="../modules/power/dextendboard.cpp" line="35"/>
         <source>Suspend</source>
         <translation type="unfinished"></translation>
     </message>
@@ -689,7 +689,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="14"/>
+        <location filename="../modules/power/power.cpp" line="16"/>
         <source>Power Management</source>
         <translation type="unfinished"></translation>
     </message>
@@ -951,74 +951,74 @@
 <context>
     <name>Power</name>
     <message>
-        <location filename="../modules/power/power.cpp" line="49"/>
+        <location filename="../modules/power/power.cpp" line="50"/>
         <source>Password required to wake up</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="69"/>
+        <location filename="../modules/power/power.cpp" line="68"/>
         <source>Plugged in</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="99"/>
-        <location filename="../modules/power/power.cpp" line="154"/>
+        <location filename="../modules/power/power.cpp" line="97"/>
+        <location filename="../modules/power/power.cpp" line="151"/>
         <source>Balanced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="99"/>
-        <location filename="../modules/power/power.cpp" line="154"/>
+        <location filename="../modules/power/power.cpp" line="97"/>
+        <location filename="../modules/power/power.cpp" line="151"/>
         <source>Power saver</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="99"/>
-        <location filename="../modules/power/power.cpp" line="154"/>
+        <location filename="../modules/power/power.cpp" line="97"/>
+        <location filename="../modules/power/power.cpp" line="151"/>
         <source>High performance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="99"/>
-        <location filename="../modules/power/power.cpp" line="154"/>
-        <location filename="../modules/power/power.h" line="150"/>
+        <location filename="../modules/power/power.cpp" line="97"/>
+        <location filename="../modules/power/power.cpp" line="151"/>
+        <location filename="../modules/power/power.h" line="151"/>
         <source>Custom</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="127"/>
+        <location filename="../modules/power/power.cpp" line="124"/>
         <source>On battery</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="175"/>
-        <location filename="../modules/power/power.cpp" line="180"/>
+        <location filename="../modules/power/power.cpp" line="172"/>
+        <location filename="../modules/power/power.cpp" line="176"/>
         <source>Shutdown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="175"/>
-        <location filename="../modules/power/power.cpp" line="180"/>
+        <location filename="../modules/power/power.cpp" line="172"/>
+        <location filename="../modules/power/power.cpp" line="176"/>
         <source>Suspend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="175"/>
+        <location filename="../modules/power/power.cpp" line="172"/>
         <source>Ask</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="177"/>
+        <location filename="../modules/power/power.cpp" line="174"/>
         <source>When I press the power button</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="180"/>
+        <location filename="../modules/power/power.cpp" line="176"/>
         <source>Nothing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="182"/>
+        <location filename="../modules/power/power.cpp" line="178"/>
         <source>When I close the lid</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1091,7 +1091,7 @@
 <context>
     <name>PowerManagement</name>
     <message>
-        <location filename="../modules/power/powermanagement.cpp" line="18"/>
+        <location filename="../modules/power/powermanagement.cpp" line="17"/>
         <source>Power Management</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1106,14 +1106,6 @@
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="70"/>
         <source>On Charging %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>PressPowerButtonAction</name>
-    <message>
-        <location filename="../modules/power/presspowerbuttonaction.cpp" line="10"/>
-        <source>When I press the power button</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

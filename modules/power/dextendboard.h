@@ -19,18 +19,12 @@ DUI_USE_NAMESPACE
 class DExtendBoard : public QFrame
 {
     Q_OBJECT
-    Q_PROPERTY(int width READ width WRITE setWidth)
     Q_PROPERTY(int height READ height WRITE setHeight)
 public:
     DExtendBoard(QFrame *parent = 0);
     ~DExtendBoard();
 
-    bool expand = false;
-    bool value = false;
-    bool firstExpand = true;
     void setExpand(bool expand);
-    int ex_width = 200;
-    int ex_height = 60;
 
     void setWidth(int ex_width);
     void setHeight(int ex_height);
@@ -56,6 +50,5 @@ private:
     QPropertyAnimation* m_animation=NULL;
 
 };
-
 #endif // DEXTENDBOARD_H
 

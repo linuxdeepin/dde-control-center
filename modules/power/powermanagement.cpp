@@ -5,24 +5,22 @@
 #include "powermanagement.h"
 
 PowerManagement::PowerManagement(QWidget *parent)
-    : QFrame(parent)
+    : QFrame(parent),
+      m_firstHSeparator(new DSeparatorHorizontal)
 {
 
     m_batteryIsPresent = false;
     m_batteryPercentage = 0;
 
     m_powerManagerViewLabel = new QLabel;
-    m_powerManagerViewLabel->setFixedWidth(180);
     m_powerManagerViewLabel->setStyleSheet(QString("background-color: %1").arg(DCC::BgLightColor.name()));
-    m_powerManagerLabel = new QLabel;
-    m_powerManagerLabel->setText(tr("Power Management"));
+    m_powerManagerLabel = new QLabel(tr("Power Management"));
     m_powerManagerLabel->sizeHint();
-    m_powerManagerLabel->updateGeometry();
     m_shortSeparatorLine = new QLabel;
     m_shortSeparatorLine->setFixedSize(5, 2);
     m_shortSeparatorLine->setStyleSheet("background-color: rgb(79, 79, 79)");
-    m_powerPercentageLabel = new QLabel;
-    m_powerPercentageLabel->setText(QString("%1%").arg(m_batteryPercentage));
+    m_powerPercentageLabel = new QLabel(QString("%1%").arg(m_batteryPercentage));
+
     m_powerPercentageLabel->setStyleSheet("font-size: 10pt;");
     m_powerManagerLayout = new QHBoxLayout;
     m_powerManagerLayout->setMargin(0);
@@ -35,7 +33,6 @@ PowerManagement::PowerManagement(QWidget *parent)
 
 
     m_topHeaderLine = new ModuleHeader(m_powerManagerViewLabel);
-    m_firstHSeparator = new DSeparatorHorizontal;
 
     topHeaderLayout = new QVBoxLayout;
     topHeaderLayout->setMargin(0);

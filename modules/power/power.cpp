@@ -9,14 +9,14 @@ Power::Power()
       m_contentHeight(30),
       m_bgContentHeight(60),
       m_frame(new QFrame),
-      m_powerManagementFrame(new PowerManagement)
+      m_powerManagementFrame(new PowerManagement),
+      m_powerInterfaceManagement(new PowerInterfaceManagement)
+
 {
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Power Management"));
 
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
-
-    m_powerInterfaceManagement = new PowerInterfaceManagement;
 
     initUI();
     initData();
@@ -32,10 +32,12 @@ Power::~Power()
 
 void Power::updateBatteryUsedControlUI() {
     if (!m_batteryIsPresent) {
-         m_batterySettingDBaseLine->hide();
-         m_batterySettingExpand->hide();
-         m_batteryCustomExtendBoard->hide();
+        m_closeLaptopActionFrame->hide();
+        m_batterySettingDBaseLine->hide();
+        m_batterySettingExpand->hide();
+        m_batteryCustomExtendBoard->hide();
     } else {
+        m_closeLaptopActionFrame->show();
         m_batterySettingDBaseLine->show();
         m_batterySettingExpand->show();
         m_batteryCustomExtendBoard->show();
@@ -44,18 +46,16 @@ void Power::updateBatteryUsedControlUI() {
 
 void Power::initClockWhenActiveUI()
 {
-    m_secondHSeparator = new DSeparatorHorizontal;
     m_chooseNeedPasswdLine = new DHeaderLine;
     m_chooseNeedPasswdLine->setTitle(tr("Password required to wake up"));
     m_chooseNeedPasswdButton = new DSwitchButton;
     m_chooseNeedPasswdLine->setContent(m_chooseNeedPasswdButton);
     m_chooseNeedPasswdLine->setFixedHeight(m_contentHeight);
-    m_thirdHSeparator = new DSeparatorHorizontal(m_frame);
+    m_thirdHSeparator = new DSeparatorHorizontal;
 
     lockWhenActiveLayout = new QVBoxLayout;
     lockWhenActiveLayout->setMargin(0);
     lockWhenActiveLayout->setSpacing(0);
-    lockWhenActiveLayout->addWidget(m_secondHSeparator);
     lockWhenActiveLayout->addWidget(m_chooseNeedPasswdLine);
     lockWhenActiveLayout->addWidget(m_thirdHSeparator);
 }
@@ -63,7 +63,6 @@ void Power::initClockWhenActiveUI()
 void Power::initPowerConnectionPanelUI() {
     m_powerSettingDBaseLine = new DBaseLine;
     QLabel* breatingPowerTotalLabel = new QLabel;
-    breatingPowerTotalLabel->setFixedHeight(60);
     m_powerConnectionBreathingLabel = new DBreathingLabel;
     m_powerConnectionBreathingLabel->setColor(DCC::TextNormalColor);
     m_powerConnectionBreathingLabel->setText(tr("Plugged in"));
@@ -79,7 +78,6 @@ void Power::initPowerConnectionPanelUI() {
     breatingPowerTotalLabel->setLayout(powerBreathingLayout);
 
     m_powerSettingDBaseLine->setLeftContent(breatingPowerTotalLabel);
-
 
     m_powerSettingExpand = new DBaseExpand;
     m_powerSettingExpand->setFixedHeight(m_bgContentHeight);
@@ -119,7 +117,6 @@ void Power::initBatteryUsedUI() {
     m_batterySettingDBaseLine = new DBaseLine;
 
     QLabel* breatingBatteryTotalLabel = new QLabel;
-    breatingBatteryTotalLabel->setFixedHeight(60);
     breatingBatteryTotalLabel->setSizePolicy(QSizePolicy::Expanding,
                                              QSizePolicy::Expanding);
 
@@ -175,17 +172,14 @@ void Power::initUI() {
     linePowerAction  << tr("Shutdown") << tr("Suspend") << tr("Ask");
     m_pressPowerButtonActionFrame = new PressPowerButtonAction(linePowerAction);
     m_pressPowerButtonActionFrame->setTitle(tr("When I press the power button"));
-    m_pressPowerButtonActionFrame->setFixedHeight(m_bgContentHeight);
 
     closeLaptopAction << tr("Shutdown") << tr("Suspend") << tr("Nothing");
     m_closeLaptopActionFrame = new PressPowerButtonAction(closeLaptopAction);
     m_closeLaptopActionFrame->setTitle(tr("When I close the lid"));
-    m_closeLaptopActionFrame->setFixedHeight(m_bgContentHeight);
 
     initClockWhenActiveUI();
     initPowerConnectionPanelUI();
     initBatteryUsedUI();
-
     QVBoxLayout * layout = new QVBoxLayout(m_frame);
     layout->setMargin(0);
     layout->setSpacing(0);
@@ -207,13 +201,7 @@ void Power::initData() {
 
     ////////////////////////////////////////////////////--getLinePowerPlan
     updateLinePowerPlanUI();
-    /////////////////////////////////////////////////////-- getLinePowerIdleDelay&SuspendDelay
-
-    updateLinePowerIdleDelayUI();
-    updateLinePowerSuspendDelayUI();
     updateBatteryPlanUI();
-    updateBatteryIdleDelayUI();
-    updateBatterySuspendDelayUI();
 
     ////////////////////////////////////////////////////--setting the UI according to the data
 //    m_batteryIsPresent = true; //for testing
@@ -230,12 +218,6 @@ void Power::initData() {
     m_closeLaptopActionFrame->setPowerButtonAction(buttonIndex);
     ////////////////////////////////////////////////////-- lock when Active
     m_chooseNeedPasswdButton->setChecked(m_powerInterfaceManagement->getLockWhenActive());
-
-    if (m_batteryIsPresent) {
-        m_closeLaptopActionFrame->show();
-    } else {
-        m_closeLaptopActionFrame->hide();
-    }
     updateBatteryUsedControlUI();
 
 }
@@ -284,7 +266,7 @@ void Power::initConnection() {
     connect(m_closeLaptopActionFrame, SIGNAL(powerButtonAction(QString)),
             m_powerInterfaceManagement, SLOT(setLidCloseAction(QString)));
     connect(m_powerInterfaceManagement, SIGNAL(LinePowerPlanChanged()),
-            this, SLOT(updateLinePowerPlanUI()));
+            this, SLOT(initData()));
 
     connect(m_powerPerformanceButtonGroup, SIGNAL(buttonChecked(QString)),
             m_powerInterfaceManagement, SLOT(setLinePowerPlan(QString)));
@@ -297,7 +279,7 @@ void Power::initConnection() {
             this, SLOT(hidePowerTooltip(QString)));
 
     connect(m_powerInterfaceManagement, SIGNAL(LinePowerIdleDelayChanged()),
-            this, SLOT(updateLinePowerIdleDelayUI()));
+            this, SLOT(initData()));
     connect(m_powerCustomExtendBoard->m_poweroffButtonGrid,
             SIGNAL(buttonChecked(QString)),
             m_powerInterfaceManagement, SLOT(setLinePowerIdleDelay(QString)));

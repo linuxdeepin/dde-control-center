@@ -17,22 +17,17 @@ class PowerManagement:public QFrame {
 public:
     PowerManagement(QWidget *parent=0);
     ~PowerManagement();
-
-    bool m_batteryIsPresent;
-    bool m_onBattery;
-    double m_batteryPercentage;
 public slots:
     void reset();
-    void reset(bool clicked);
     void batteryReservedControl(bool batteryIsPresent);
     void setElectricQuantity(double electricQuantity);
     void initConnection();
 signals:
     void Reset();
 private:
-    int m_contentHeight;
-    int m_bgContentHeight;
     QString headTitle;
+    bool m_batteryIsPresent;
+    double m_batteryPercentage;
     // top header
     QVBoxLayout* topHeaderLayout;
     ModuleHeader* m_topHeaderLine;

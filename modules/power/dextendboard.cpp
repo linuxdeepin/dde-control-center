@@ -4,13 +4,10 @@ DExtendBoard::DExtendBoard(QFrame *parent)
     : QFrame(parent)
 {
     m_label = new QLabel;
-    value = false;
-    expand = false;
     m_label->setStyleSheet(QString("QLabel{color: %1;font-size:12px;}").arg(DCC::TextNormalColor.name()));
     setStyleSheet(QString("background-color: %1;").arg(DCC::BgDarkColor.name()));
     m_animation = new QPropertyAnimation(this, "height");
 
-    expand = false;
     connect(m_animation, &QPropertyAnimation::valueChanged, this, &DExtendBoard::adjustSize);
     m_guideExtendTriangle = new TriangleRectangle;
     m_guideExtendTriangle->setFixedHeight(8);
@@ -97,12 +94,6 @@ void DExtendBoard::setHeight(int ex_height) {
 }
 
 void DExtendBoard::setExpand(bool expand) {
-    if (value == expand && !firstExpand) {
-        value = expand;
-        return;
-    }
-    value = expand;
-
     if (expand) {
         m_animation->setDuration(200);
         m_animation->setEasingCurve(QEasingCurve::InCubic);
@@ -129,7 +120,6 @@ void DExtendBoard::setExpand(bool expand) {
         m_poweroffButtonGrid->hide();
         m_bottomSeparator->move(1, 1);
     }
-    firstExpand = false;
     m_animation->stop();
     m_animation->start();
 }

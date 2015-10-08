@@ -44,7 +44,7 @@ private:
     int m_bgContentHeight;
 
     QFrame* m_frame;
-    PowerInterfaceManagement* m_powerInterfaceManagement;
+
 //// top header
     PowerManagement* m_powerManagementFrame;
 
@@ -57,7 +57,7 @@ private:
     PressPowerButtonAction* m_closeLaptopActionFrame;
 //   lockWhenActive
     QVBoxLayout* lockWhenActiveLayout;
-    DSeparatorHorizontal* m_secondHSeparator;
+//    DSeparatorHorizontal* m_secondHSeparator;
     DHeaderLine* m_chooseNeedPasswdLine;
     DSwitchButton* m_chooseNeedPasswdButton;
     DSeparatorHorizontal* m_thirdHSeparator;
@@ -89,7 +89,8 @@ private:
     double m_batteryPercentage;
 
     qint32 m_batteryState;//read-only
-
+//interface
+     PowerInterfaceManagement* m_powerInterfaceManagement;
 public slots:
     inline void Reset(bool reset) {
         if (reset) { m_powerInterfaceManagement->Reset();}
@@ -199,7 +200,6 @@ public slots:
             m_batteryBreathingLabel->showLabel();
         }
         m_batteryDynamicLabel->hideLabel();
-
     }
 };
 #endif
