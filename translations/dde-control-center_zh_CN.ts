@@ -326,7 +326,7 @@
 <context>
     <name>Datetime</name>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="83"/>
+        <location filename="../modules/datetime/datetime.cpp" line="84"/>
         <source>Date and Time</source>
         <translation>日期和时间</translation>
     </message>
@@ -349,6 +349,11 @@
         <location filename="../modules/datetime/datetime.cpp" line="67"/>
         <source>Use 24-hour clock</source>
         <translation>24小时制</translation>
+    </message>
+    <message>
+        <location filename="../modules/datetime/datetime.cpp" line="72"/>
+        <source>Reset</source>
+        <translation>重置</translation>
     </message>
 </context>
 <context>
@@ -633,20 +638,24 @@
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="149"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="208"/>
         <source>Custom</source>
         <translation>自定义</translation>
     </message>
     <message>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="205"/>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="275"/>
         <source>System</source>
         <translation>系统</translation>
     </message>
     <message>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="206"/>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="276"/>
         <source>Window</source>
         <translation>窗口</translation>
     </message>
     <message>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="207"/>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="277"/>
         <source>Workspace</source>
         <translation>工作区</translation>
@@ -737,7 +746,7 @@
     <message>
         <location filename="../frame/sidebar.cpp" line="29"/>
         <source>Home</source>
-        <translation>家目录</translation>
+        <translation>回到主页</translation>
     </message>
     <message>
         <location filename="../frame/sidebar.cpp" line="37"/>
@@ -934,7 +943,7 @@
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="249"/>
-        <location filename="../modules/personalization/personalization.cpp" line="581"/>
+        <location filename="../modules/personalization/personalization.cpp" line="582"/>
         <source>Font</source>
         <translation>字体</translation>
     </message>
@@ -972,6 +981,7 @@
     <message>
         <location filename="../modules/power/power.cpp" line="99"/>
         <location filename="../modules/power/power.cpp" line="154"/>
+        <location filename="../modules/power/power.h" line="150"/>
         <source>Custom</source>
         <translation>自定义</translation>
     </message>
@@ -1015,6 +1025,39 @@
 </context>
 <context>
     <name>PowerInterfaceManagement</name>
+    <message>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="22"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="31"/>
+        <source>Shutdown</source>
+        <translation>关机</translation>
+    </message>
+    <message>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="24"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="33"/>
+        <source>Suspend</source>
+        <translation>待机</translation>
+    </message>
+    <message>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="50"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="98"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="158"/>
+        <source>Balanced</source>
+        <translation>均衡</translation>
+    </message>
+    <message>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="52"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="100"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="161"/>
+        <source>Power saver</source>
+        <translation>节能</translation>
+    </message>
+    <message>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="54"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="102"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="164"/>
+        <source>High performance</source>
+        <translation>高性能</translation>
+    </message>
     <message>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="178"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="186"/>
