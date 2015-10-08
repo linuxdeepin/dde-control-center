@@ -100,12 +100,14 @@ void DTipsFrame::setTipsText(const QString &text)
 
     QFontMetrics metric(m_label->font());
 
+    hide();
     setFixedWidth(metric.tightBoundingRect(m_label->text()).width() + 40);
 }
 
 void DTipsFrame::show()
 {
-    QWidget::show();
+    if (!isVisible())
+        QWidget::show();
 }
 
 void DTipsFrame::setArrowDirection(DTipsFrame::ArrowDirection arrowDirection)
