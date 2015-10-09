@@ -17,7 +17,7 @@ DUI_USE_NAMESPACE
 
 Personalization::Personalization():m_margins(0, 5, 0, 5)
 {
-    QT_TRANSLATE_NOOP("ModuleName", "Personalization");
+    Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Personalization"));
 
     qRegisterMetaType<ImageInfoList>("ImageInfoList");
     qRegisterMetaType<QJsonObject>("QJsonObject");

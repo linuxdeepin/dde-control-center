@@ -7,7 +7,7 @@
 Shortcuts::Shortcuts():
     m_mainWidget(new MainWidget())
 {
-    QT_TRANSLATE_NOOP("ModuleName", "Keyboard Shortcuts");
+    Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Keyboard Shortcuts"));
 
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);

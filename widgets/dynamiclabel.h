@@ -31,6 +31,9 @@ public:
     int showDuration() const;
     QEasingCurve::Type showEasingType() const;
 
+    void setDuration(int duration) DUI_DECL_DEPRECATED;
+    void setEasingType(QEasingCurve::Type easingType) DUI_DECL_DEPRECATED;
+
 public slots:
     void setText(const QString &text);
     void showLabel();
@@ -38,8 +41,6 @@ public slots:
     void delayShowLabel(int duration);
     void delayHideLabel(int duration);
     void setColor(QColor color);
-    void setDuration(int duration) DUI_DECL_DEPRECATED;
-    void setEasingType(QEasingCurve::Type easingType) DUI_DECL_DEPRECATED;
     void setDisappearDuration(int duration);
     void setHideDuration(int hideDuration);
     void setHideEasingTyp(QEasingCurve::Type hideEasingType);

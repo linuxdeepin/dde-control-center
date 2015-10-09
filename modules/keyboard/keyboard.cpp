@@ -38,7 +38,7 @@ Keyboard::Keyboard() :
     m_dbusKeyboard(NULL),
     m_letterClassifyList(NULL)
 {
-    QT_TRANSLATE_NOOP("ModuleName", "Keyboard and Language");
+    Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Keyboard and Language"));
 
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);

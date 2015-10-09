@@ -22,7 +22,7 @@ Sound::Sound() :
     QObject(),
     m_frame(new QFrame)
 {
-    QT_TRANSLATE_NOOP("ModuleName", "Sound");
+    Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Sound"));
 
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);

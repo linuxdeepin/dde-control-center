@@ -26,7 +26,7 @@ SideBar::SideBar(QList<ModuleMetaData> modules, QWidget *parent)
         "Home"
     };
     modules.insert(0, home);
-    QT_TRANSLATE_NOOP("ModuleName", "Home");
+    Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Home"));
     // meta for power button
     ModuleMetaData power {
         "",
@@ -34,7 +34,7 @@ SideBar::SideBar(QList<ModuleMetaData> modules, QWidget *parent)
         "Power"
     };
     modules.append(power);
-    QT_TRANSLATE_NOOP("ModuleName", "Power");
+    Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Power"));
 
     foreach(ModuleMetaData meta, modules) {
         SideBarButton *button = new SideBarButton(meta, this);
