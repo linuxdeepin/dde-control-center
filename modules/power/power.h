@@ -103,8 +103,11 @@ public slots:
     void initData();
 
 // update the UI after get the Initialize data
-    void updateBatteryReservedControlUI();
-    void updateLaptopCapCloseControlUI();
+    void updatePowerManagermentUI();
+    void updatePowerLockUI();
+
+    void updatePressPowerButtonReactionUI();
+    void updatePressLidPowerButtonReactionUI();
     void updateBatteryUsedControlUI();
 
     void initConnection();

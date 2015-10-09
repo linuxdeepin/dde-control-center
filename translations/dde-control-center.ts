@@ -897,53 +897,53 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="116"/>
+        <location filename="../modules/personalization/personalization.cpp" line="108"/>
         <source>Theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="137"/>
+        <location filename="../modules/personalization/personalization.cpp" line="129"/>
         <source>Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="161"/>
+        <location filename="../modules/personalization/personalization.cpp" line="153"/>
         <source>Icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="184"/>
+        <location filename="../modules/personalization/personalization.cpp" line="176"/>
         <source>Cursor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="206"/>
+        <location filename="../modules/personalization/personalization.cpp" line="198"/>
         <source>Wallpaper</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="229"/>
+        <location filename="../modules/personalization/personalization.cpp" line="221"/>
         <source>Fonts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="232"/>
+        <location filename="../modules/personalization/personalization.cpp" line="224"/>
         <source>Standard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="233"/>
+        <location filename="../modules/personalization/personalization.cpp" line="225"/>
         <source>Monospaced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="234"/>
+        <location filename="../modules/personalization/personalization.cpp" line="226"/>
         <source>Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="249"/>
-        <location filename="../modules/personalization/personalization.cpp" line="582"/>
+        <location filename="../modules/personalization/personalization.cpp" line="241"/>
+        <location filename="../modules/personalization/personalization.cpp" line="547"/>
         <source>Font</source>
         <translation type="unfinished"></translation>
     </message>
@@ -981,7 +981,7 @@
     <message>
         <location filename="../modules/power/power.cpp" line="97"/>
         <location filename="../modules/power/power.cpp" line="151"/>
-        <location filename="../modules/power/power.h" line="151"/>
+        <location filename="../modules/power/power.h" line="156"/>
         <source>Custom</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1026,35 +1026,35 @@
 <context>
     <name>PowerInterfaceManagement</name>
     <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="22"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="31"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="23"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="32"/>
         <source>Shutdown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="24"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="33"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="25"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="34"/>
         <source>Suspend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="50"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="98"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="158"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="51"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="99"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="159"/>
         <source>Balanced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="52"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="100"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="161"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="53"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="101"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="162"/>
         <source>Power saver</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="54"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="102"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="164"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="55"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="103"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="165"/>
         <source>High performance</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1065,18 +1065,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="159"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="162"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="160"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="163"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="165"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="164"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="166"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="183"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="191"/>
         <source>%1 minutes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="160"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="166"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="161"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="167"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="179"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="187"/>
         <source>Never</source>
@@ -1106,14 +1106,6 @@
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="70"/>
         <source>On Charging %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>PreviewWindow</name>
-    <message>
-        <location filename="../modules/personalization/previewwindow.cpp" line="140"/>
-        <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

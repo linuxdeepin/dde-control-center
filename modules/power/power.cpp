@@ -193,33 +193,38 @@ void Power::initUI() {
     layout->addStretch();
     m_frame->setLayout(layout);
 }
-void Power::initData() {
+void Power::updatePowerManagermentUI() {
     ////////////////////////////////////////////////////--get battery setting
     m_batteryIsPresent = m_powerInterfaceManagement->getBatteryIsPresent();
     m_onBattery = m_powerInterfaceManagement->getBatteryon();
     m_batteryPercentage = m_powerInterfaceManagement->getBatteryPresent();
-
-    ////////////////////////////////////////////////////--getLinePowerPlan
-    updateLinePowerPlanUI();
-    updateBatteryPlanUI();
-
-    ////////////////////////////////////////////////////--setting the UI according to the data
 //    m_batteryIsPresent = true; //for testing
 //    m_batteryPercentage = 60;
     m_powerManagementFrame->setElectricQuantity(m_batteryPercentage);
     m_powerManagementFrame->batteryReservedControl(m_batteryIsPresent);
-
-    ////////////////////////////////////////////////////--get press power button action panel
-
+}
+void Power::updatePowerLockUI() {
+    m_chooseNeedPasswdButton->setChecked(m_powerInterfaceManagement->getLockWhenActive());
+}
+void Power::updatePressPowerButtonReactionUI() {
     qint32 buttonId = m_powerInterfaceManagement->getPowerButtonAction();
     m_pressPowerButtonActionFrame->setPowerButtonAction(buttonId);
-
+}
+void Power::updatePressLidPowerButtonReactionUI() {
     qint32 buttonIndex = m_powerInterfaceManagement->getLidCloseAction();
     m_closeLaptopActionFrame->setPowerButtonAction(buttonIndex);
+}
+void Power::initData() {
+    updatePowerManagermentUI();
+    updatePowerLockUI();
+    ////////////////////////////////////////////////////--get press power button action panel
+    updatePressPowerButtonReactionUI();
+    updatePressLidPowerButtonReactionUI();
+    ////////////////////////////////////////////////////--getLinePowerPlan
+    updateLinePowerPlanUI();
+    updateBatteryPlanUI();
     ////////////////////////////////////////////////////-- lock when Active
-    m_chooseNeedPasswdButton->setChecked(m_powerInterfaceManagement->getLockWhenActive());
     updateBatteryUsedControlUI();
-
 }
 
 void Power::set4ButtonGridChecked(int idIndex, DButtonGrid *buttonGroup) {
@@ -244,29 +249,32 @@ void Power::set7ButtonGridChecked(int idIndex, DButtonGrid* buttonGroup) {
 void Power::initConnection() {
     connect(m_powerInterfaceManagement, SIGNAL(BatteryPercentageChanged(double)),
             m_powerManagementFrame, SLOT(setElectricQuantity(double)));
+
     connect(m_powerInterfaceManagement, SIGNAL(BatteryPercentageChanged()),
-            this, SLOT(initData()));
+            this, SLOT(updatePowerManagermentUI()));
     connect(m_powerInterfaceManagement, SIGNAL(BatteryIsPresentChanged()),
-            this, SLOT(initData()));
+            this, SLOT(updatePowerManagermentUI()));
 
     connect(m_powerManagementFrame, SIGNAL(Reset()),
             m_powerInterfaceManagement, SLOT(Reset()));
 
     connect(m_powerInterfaceManagement, SIGNAL(LockWhenActiveChanged()),
-            this, SLOT(initData()));
+            this, SLOT(updatePowerLockUI()));
     connect(m_chooseNeedPasswdButton, SIGNAL(checkedChanged(bool)),
             m_powerInterfaceManagement,
             SLOT(setLockWhenActive(bool)));
+
     connect(m_powerInterfaceManagement, SIGNAL(PowerButtonActionChanged()),
-             SLOT(initData()));
+             SLOT(updatePressPowerButtonReactionUI()));
     connect(m_pressPowerButtonActionFrame, SIGNAL(powerButtonAction(QString)),
             m_powerInterfaceManagement, SLOT(setPowerButtonAction(QString)));
     connect(m_powerInterfaceManagement, SIGNAL(LidClosedActionChanged()),
-              SLOT(initData()));
+              SLOT(updatePressLidPowerButtonReactionUI()));
+
     connect(m_closeLaptopActionFrame, SIGNAL(powerButtonAction(QString)),
             m_powerInterfaceManagement, SLOT(setLidCloseAction(QString)));
     connect(m_powerInterfaceManagement, SIGNAL(LinePowerPlanChanged()),
-            this, SLOT(initData()));
+            this, SLOT(updateLinePowerPlanUI()));
 
     connect(m_powerPerformanceButtonGroup, SIGNAL(buttonChecked(QString)),
             m_powerInterfaceManagement, SLOT(setLinePowerPlan(QString)));
@@ -279,7 +287,7 @@ void Power::initConnection() {
             this, SLOT(hidePowerTooltip(QString)));
 
     connect(m_powerInterfaceManagement, SIGNAL(LinePowerIdleDelayChanged()),
-            this, SLOT(initData()));
+            this, SLOT(updateLinePowerIdleDelayUI()));
     connect(m_powerCustomExtendBoard->m_poweroffButtonGrid,
             SIGNAL(buttonChecked(QString)),
             m_powerInterfaceManagement, SLOT(setLinePowerIdleDelay(QString)));
@@ -291,7 +299,7 @@ void Power::initConnection() {
             m_powerInterfaceManagement, SLOT(setLinePowerSuspendDelay(QString)));
 
     connect(m_powerInterfaceManagement, SIGNAL(BatteryPlanChanged()),
-            this, SLOT(initData()));
+            this, SLOT(updateBatteryPlanUI()));
     connect(m_batteryButtonGrid, SIGNAL(buttonChecked(QString)),
             m_powerInterfaceManagement, SLOT(setBatteryPlan(QString)));
 
@@ -304,12 +312,12 @@ void Power::initConnection() {
     connect(m_batteryButtonGrid, SIGNAL(buttonChecked(QString)),
             SLOT(setUseBatteryExpand(QString)));
     connect(m_powerInterfaceManagement, SIGNAL(BatteryIdleDelayChanged()),
-            this, SLOT(initData()));
+            this, SLOT(updateBatteryIdleDelayUI()));
     connect(m_batteryCustomExtendBoard->m_poweroffButtonGrid, SIGNAL(buttonChecked(QString)),
             m_powerInterfaceManagement, SLOT(setBatteryIdleDelay(QString)));
 
     connect(m_powerInterfaceManagement, SIGNAL(BatterySuspendDelayChanged()),
-            this, SLOT(initData()));
+            this, SLOT(updateBatterySuspendDelayUI()));
     connect(m_batteryCustomExtendBoard->m_suspendButtonGrid, SIGNAL(buttonChecked(QString)),
             m_powerInterfaceManagement, SLOT(setBatterySuspendDelay(QString)));
 }

@@ -8,6 +8,7 @@ PowerInterfaceManagement::PowerInterfaceManagement(QObject *parent)
 {
     m_powerInterface = new com::deepin::daemon::DBusPower("com.deepin.daemon.Power",
                                                       "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this);
+    initConnection();
 }
 PowerInterfaceManagement::~PowerInterfaceManagement() {
 
@@ -164,7 +165,6 @@ QString PowerInterfaceManagement::setPowerTooltipText(QString itemId, QString po
     } else if (itemId == tr("High performance")) {
         argument_display = QString(tr("%1 minutes")).arg("15");
         argument_suspend = QString(tr("Never"));
-        qDebug() << argument_suspend;
     } else {
         qint32 suspendTime, idleTime;
         if (powerType == "power") {
@@ -214,7 +214,5 @@ void PowerInterfaceManagement::initConnection() {
    connect(m_powerInterface, SIGNAL(BatteryIsPresentChanged()), SIGNAL(BatteryIsPresentChanged()));
    connect(m_powerInterface, SIGNAL(BatteryPercentageChanged()), SIGNAL(BatteryPercentageChanged()));
    connect(m_powerInterface, SIGNAL(BatteryPercentageChanged()), SLOT(batteryPresentUpdate()));
-   connect(m_powerInterface, SIGNAL(BatterySuspendDelayChanged()), SIGNAL(BatteryTooltipTextChanged()));
-   connect(m_powerInterface, SIGNAL(BatteryIdleDelayChanged()), SIGNAL(BatteryTooltipTextChanged()));
 
 }
