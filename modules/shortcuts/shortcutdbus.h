@@ -147,10 +147,10 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QStringLiteral("ModifiedName"), argumentList);
     }
 
-    inline QDBusPendingReply<> Reset()
+    inline void Reset()
     {
-        QList<QVariant> argumentList;
-        return asyncCallWithArgumentList(QStringLiteral("Reset"), argumentList);
+        call(QStringLiteral("Reset"));
+        updateShortcutList("", -1);
     }
 
     inline QDBusPendingReply<QString> Query(const QString &in0, int in1)
