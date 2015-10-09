@@ -16,13 +16,11 @@ DESTDIR         = $$_PRO_FILE_PWD_/../
 
 SOURCES += personalization.cpp \
     dbus/appearancedaemon_interface.cpp \
-    dbusworker.cpp \
-    previewwindow.cpp
+    dbusworker.cpp
 HEADERS += personalization.h \
     dbus/appearancedaemon_interface.h \
     dbusworker.h \
-    persionalizationfwd.h \
-    previewwindow.h
+    persionalizationfwd.h
 DISTFILES += \
     personalization.json \
     dbus/appearancedaemon.xml
@@ -32,4 +30,4 @@ TARGET          = $$qtLibraryTarget(personalization)
 target.path = $${PREFIX}/share/dde-control-center/modules/
 INSTALLS += target
 
-RESOURCES += images.qrc
+RESOURCES +=

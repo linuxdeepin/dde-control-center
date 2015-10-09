@@ -20,7 +20,6 @@
 
 
 #include "persionalizationfwd.h"
-#include "previewwindow.h"
 
 DUI_USE_NAMESPACE
 
@@ -103,8 +102,6 @@ private:
     ImageInfoList m_wallpaperImageInfos;
 
     QFrame * m_frame = NULL;
-
-    PreviewWindow *m_previewWindow = NULL;
 
     DHeaderLine* m_headerLine;
 

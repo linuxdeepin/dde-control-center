@@ -146,20 +146,6 @@ void DBusWorker::getThemeObjs(){
     }
 }
 
-QStringList DBusWorker::getPreviewImages(const QString &themeName) const
-{
-    QDBusPendingReply<QString> reply = m_appearanceDaemonInterface->Show("dtheme", themeName);
-    reply.waitForFinished();
-    if (!reply.isError()){
-        QVariantMap map = QJsonDocument::fromJson(reply.argumentAt(0).toByteArray()).object().toVariantMap();
-        return map["Previews"].toStringList();
-    } else {
-        qDebug() << reply.error().message();
-    }
-
-    return QStringList();
-}
-
 void DBusWorker::setTheme(QString Type, QString Key){
     QDBusPendingReply<> reply = m_appearanceDaemonInterface->Set(Type, Key);
     qDebug() << "set" << Type << Key;

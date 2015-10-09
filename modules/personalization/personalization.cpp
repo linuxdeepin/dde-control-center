@@ -35,14 +35,6 @@ void Personalization::initUI(){
     m_headerLine->setFixedHeight(50);
     m_headerLine->setTitle(tr("Personalization"));
 
-    m_previewWindow = new PreviewWindow;
-    connect(m_previewWindow, &PreviewWindow::apply, [this](const QString &key){
-        if(m_dbusWorker->getCurrentTheme() != key){
-            m_dbusWorker->setTheme(m_dbusWorker->staticTypeKeys.value("TypeDTheme"), key);
-        }
-        m_previewWindow->close();
-    });
-
     DSeparatorHorizontal* horizontalSeparator = new DSeparatorHorizontal();
     initThemeExpand();
     initWindowExpand();
@@ -308,35 +300,7 @@ void Personalization::updateThemeObjs(const ThemeObjs &themeObjs){
 void Personalization::updateThemeButtons(const ImageInfoList &imageInfos){
     m_themeImageInfos = imageInfos;
     m_themeButtonGrid->clear();
-
-    for(int i = 0; i < imageInfos.count(); ++i){
-        const QMap<QString, QString> &map = imageInfos.at(i);
-        ImageButton *button = new ImageButton(map.value("url"), map.value("name"));
-        button->setCheckable(true);
-
-        QString key = map["key"];
-        const QStringList previewImageList = m_dbusWorker->getPreviewImages(key);
-
-        if(!previewImageList.isEmpty()){
-            MouseArea *mousearea = new MouseArea(button);
-            mousearea->setHoverEnabled(true);
-            mousearea->resize(button->size());
-
-            ImageButton *preview = new ImageButton("", "", false, mousearea);
-            preview->setStyleSheet("*{border:none;}");
-            preview->setIcon(QIcon(":/images/preview.png"));
-            preview->move(115, 8);
-            preview->hide();
-
-            connect(mousearea, &MouseArea::entered, preview, &ImageButton::show);
-            connect(mousearea, &MouseArea::exited, preview, &ImageButton::hide);
-            connect(preview, &ImageButton::clicked, m_previewWindow, [this, key, previewImageList]{
-                m_previewWindow->setImages(previewImageList);
-                m_previewWindow->show(key);
-            });
-        }
-        m_themeButtonGrid->addButtonWidget(button, i);
-    }
+    m_themeButtonGrid->addImageButtons(imageInfos);
 
     int w = m_themeButtonGrid->width() + m_margins.left() + m_margins.right();
     int h = m_themeButtonGrid->height() + m_margins.top() + m_margins.bottom();
@@ -591,7 +555,6 @@ Personalization::~Personalization()
     m_workerThread.quit();
     m_workerThread.wait();
     m_frame->deleteLater();
-    m_previewWindow->deleteLater();
 }
 
 QFrame* Personalization::getContent()
