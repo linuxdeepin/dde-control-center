@@ -191,6 +191,7 @@ DeleteButton::DeleteButton(QWidget *parent) : QFrame(parent)
     layout->addWidget(m_deleteButton);
     layout->addSpacing(22);
 
+    setFixedWidth(0);
     m_animation = new QPropertyAnimation(this, "width",this);
     m_animation->setDuration(ANIMATION_DURATION);
     m_animation->setEasingCurve(ANIMATION_CURVE);
