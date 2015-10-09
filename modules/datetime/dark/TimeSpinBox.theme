@@ -1,5 +1,5 @@
 TimeSpinBox #SpinLabel {
-    font-size:52px;
+    font-size:64px;
     color:white;
     background-color:#151617;
     border-radius:5px;
@@ -16,4 +16,3 @@ TimeSpinBox #SpinSubBtn {
     qproperty-hoverPic:url(:/icons/arrow_down_hover.png);
     qproperty-pressPic:url(:/icons/arrow_down_press.png);
 }
-

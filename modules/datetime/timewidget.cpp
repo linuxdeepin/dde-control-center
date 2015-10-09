@@ -139,12 +139,17 @@ void NormalWidget::mouseDoubleClickEvent(QMouseEvent *)
 EditWidget::EditWidget(QWidget *parent) :
     QWidget(parent)
 {
+    int id = QFontDatabase::addApplicationFont(":/fonts/fonts/MavenProLight-200.otf");
+    QString family = QFontDatabase::applicationFontFamilies(id).at(0);
+    QFont font(family);
+
     m_spinHour = new TimeSpinBox;
     m_spinHour->setMaxNumber(23);
     m_spinMinute = new TimeSpinBox;
     m_spinMinute->setMaxNumber(59);
     QLabel *timeSplit = new QLabel(":");
     timeSplit->setObjectName("TimeSpliter");
+    timeSplit->setFont(font);
 
     QHBoxLayout *timeLayout = new QHBoxLayout;
     timeLayout->addStretch();
@@ -193,10 +198,15 @@ void EditWidget::updateTime()
 TimeSpinBox::TimeSpinBox(QWidget *parent) :
     QFrame(parent)
 {
+    int id = QFontDatabase::addApplicationFont(":/fonts/fonts/MavenProLight-200.otf");
+    QString family = QFontDatabase::applicationFontFamilies(id).at(0);
+    QFont font(family);
+
     m_spinLabel = new QLabel;
     m_spinLabel->setFixedSize(80, 80);
     m_spinLabel->setAlignment(Qt::AlignCenter);
     m_spinLabel->setObjectName("SpinLabel");
+    m_spinLabel->setFont(font);
 
     m_addBtn = new DImageButton;
     m_addBtn->setObjectName("SpinAddBtn");
