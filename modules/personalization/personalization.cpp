@@ -265,6 +265,8 @@ void Personalization::initFontExpand(){
 
     m_fontContentFrame->setFixedHeight(110);
     m_fontExpand->setContent(m_fontContentFrame);
+
+    m_themeExpand->setExpand(true);
 }
 
 DArrowLineExpand* Personalization::getFontExpand(){
@@ -307,7 +309,6 @@ void Personalization::updateThemeButtons(const ImageInfoList &imageInfos){
 
     m_themeContentFrame->setFixedSize(w, h);
     m_themeExpand->setContent(m_themeContentFrame);
-    m_themeExpand->setExpand(true);
 }
 
 void Personalization::updateWindowButtons(const ImageInfoList &imageInfos){
