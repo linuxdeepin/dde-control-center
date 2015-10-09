@@ -31,6 +31,9 @@ signals:
     void sizeChanged();
     void changeToSetting(bool value);
 
+private slots:
+    void initDBusData();
+
 private:
     void initSegmentedControl();
     void initAvatarPanel();
@@ -60,6 +63,7 @@ private:
     AccountSwitchLine *m_lockLine = NULL;
 
     QString m_userPath = "";
+    bool m_isCurrentUser = false;
 
     const int LAYOUT_SPACING = 10;
     const QString ADD_AVATAR_ICON = ":/images/dark/images/avatar_add.png";

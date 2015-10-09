@@ -1,3 +1,4 @@
+#include <QTimer>
 #include "userexpandcontent.h"
 
 UserExpandContent::UserExpandContent(const QString &userPath, QWidget *parent)
@@ -8,35 +9,48 @@ UserExpandContent::UserExpandContent(const QString &userPath, QWidget *parent)
     m_mainLayout->setAlignment(Qt::AlignHCenter);
     m_mainLayout->setSpacing(0);
 
-    //get dbus data
-    m_accountUser = new DBusAccountUser(userPath, this);
-
-    if (m_accountUser->isValid()){
-        initSegmentedControl();
-        initAvatarPanel();
-        initAutoLogin();
-        initUserEnable();
-        initAccountType();
-        initPassword();
-
-        m_mainLayout->addStretch(1);
-
-        onAccountEnableChanged(!m_accountUser->locked());
-    }
+    QTimer *initTimer = new QTimer(this);
+    connect(initTimer, SIGNAL(timeout()), this, SLOT(initDBusData()));
+    initTimer->start(1000);
 }
 
 void UserExpandContent::setIsCurrentUser(bool isCurrentUser)
 {
-    if (isCurrentUser){
-        m_typeLine->setFixedHeight(0);
-        m_lockLine->setFixedHeight(0);
-        updateSize();
-    }
+    m_isCurrentUser = isCurrentUser;
 }
 
 void UserExpandContent::onRequestPreDestroy()
 {
     m_passwordFrame->preDestroy();
+}
+
+void UserExpandContent::initDBusData()
+{
+    QTimer *timer = qobject_cast<QTimer *>(sender());
+    if (timer) {
+        timer->stop();
+        timer->deleteLater();
+
+        //get dbus data
+        m_accountUser = new DBusAccountUser(m_userPath, this);
+
+        if (m_accountUser->isValid()) {
+            initSegmentedControl();
+            initAvatarPanel();
+            initAutoLogin();
+            initUserEnable();
+            initAccountType();
+            initPassword();
+
+            m_mainLayout->addStretch(1);
+
+            onAccountEnableChanged(!m_accountUser->locked());
+            updateSize();
+            qWarning() << "Account: init user's dbus-data completed!" << m_userPath;
+        }
+        else
+            qWarning() << "Account: dbus's data invalid!" << m_userPath;
+    }
 }
 
 void UserExpandContent::initSegmentedControl()
@@ -126,6 +140,8 @@ void UserExpandContent::initUserEnable()
     });
 
     m_mainLayout->addWidget(m_lockLine);
+    if (m_isCurrentUser)
+        m_lockLine->setFixedHeight(0);
 }
 
 void UserExpandContent::initAccountType()
@@ -139,6 +155,8 @@ void UserExpandContent::initAccountType()
     });
 
     m_mainLayout->addWidget(m_typeLine);
+    if (m_isCurrentUser)
+        m_typeLine->setFixedHeight(0);
 }
 
 void UserExpandContent::initPassword()

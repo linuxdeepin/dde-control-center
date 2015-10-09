@@ -2,6 +2,7 @@
 
 AccountMainWidget::AccountMainWidget(QWidget *parent) : QFrame(parent)
 {
+    qWarning() << "Account: init module now...";
     D_THEME_INIT_WIDGET(AccountMainWidget);
 
     m_mainLayout = new QVBoxLayout(this);
@@ -20,6 +21,7 @@ AccountMainWidget::AccountMainWidget(QWidget *parent) : QFrame(parent)
     initCreatePanel();
 
     m_mainLayout->addWidget(m_stackWidget);
+    qWarning() << "Account: init module completed!";
 }
 
 void AccountMainWidget::preDestroy()
