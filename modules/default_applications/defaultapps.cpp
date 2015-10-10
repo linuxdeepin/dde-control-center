@@ -208,14 +208,13 @@ DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::Defaul
     connect(list, &DButtonList::buttonCheckedIndexChanged, [=] (int index) -> void {
         const QStringList mimeList = getTypeListByCategory(category);
         const QString appName = appList.at(index).toObject().take("Id").toString();
-        for (const QString &mime : mimeList)
-        {
-            qDebug() << "set default app: " << mime << " -> " << appName;
-            if (isMedia)
-                m_dbusDefaultMedia.SetDefaultApp(mime, appName);
-            else
-                m_dbusDefaultApps.SetDefaultApp(mime, appName);
-        }
+        QThread *t = nullptr;
+        if (isMedia)
+            t = new SetDefAppsThread(&m_dbusDefaultApps, mime, appName, mimeList);
+        else
+            t = new SetDefMediaThread(&m_dbusDefaultMedia, mime, appName, mimeList);
+        t->start();
+        connect(t, &QThread::finished, t, &QThread::deleteLater);
     });
 
     QHBoxLayout *layout = new QHBoxLayout;
@@ -335,4 +334,32 @@ void DefaultApps::lazyLoad()
     m_mediaGrp->addExpand(m_modMusicPlayer);
     m_mediaGrp->addExpand(m_modCamera);
     m_mediaGrp->addExpand(m_modSoftware);
+}
+
+SetDefAppsThread::SetDefAppsThread(DBusDefaultApps *dbus, const QString &mime, const QString &appName, const QStringList &list) :
+    dbus(dbus),
+    mime(mime),
+    appName(appName),
+    list(list)
+{
+}
+
+void SetDefAppsThread::run()
+{
+    for (const QString &mime : list)
+        dbus->SetDefaultApp(mime, appName).waitForFinished();
+}
+
+SetDefMediaThread::SetDefMediaThread(DBusDefaultMedia *dbus, const QString &mime, const QString &appName, const QStringList &list) :
+    dbus(dbus),
+    mime(mime),
+    appName(appName),
+    list(list)
+{
+}
+
+void SetDefMediaThread::run()
+{
+    for (const QString &mime : list)
+        dbus->SetDefaultApp(mime, appName).waitForFinished();
 }

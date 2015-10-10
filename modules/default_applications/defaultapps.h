@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QtPlugin>
 #include <QButtonGroup>
+#include <QThread>
 
 #include "moduleheader.h"
 
@@ -74,6 +75,36 @@ private:
     DArrowLineExpand *m_modSoftware;
 
     DSwitchButton *m_autoPlaySwitch;
+};
+
+class SetDefAppsThread : public QThread
+{
+    Q_OBJECT
+
+public:
+    SetDefAppsThread(DBusDefaultApps *dbus, const QString &mime, const QString &appName, const QStringList &list);
+    void run();
+
+private:
+    DBusDefaultApps *dbus;
+    QString mime;
+    QString appName;
+    QStringList list;
+};
+
+class SetDefMediaThread : public QThread
+{
+    Q_OBJECT
+
+public:
+    SetDefMediaThread(DBusDefaultMedia *dbus, const QString &mime, const QString &appName, const QStringList &list);
+    void run();
+
+private:
+    DBusDefaultMedia *dbus;
+    QString mime;
+    QString appName;
+    QStringList list;
 };
 
 #endif
