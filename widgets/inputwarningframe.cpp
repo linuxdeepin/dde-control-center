@@ -27,10 +27,12 @@ void InputWarningFrame::showWarning(const QString &msg)
     m_label->setText(msg);
     QFontMetrics metrics(m_label->font());
     int msgWidth = metrics.width(msg);
-    m_label->setFixedWidth((msgWidth < m_sourceInput->maximumWidth() ? msgWidth : m_sourceInput->maximumWidth()) - 10);
+    bool inRange = msgWidth + margin() * 2 < m_sourceInput->maximumWidth();
+    m_label->setFixedWidth(inRange ? msgWidth : m_sourceInput->maximumWidth() - margin() * 2);
     m_frame->adjustSize();
     resizeWithContent();
     QPoint sourcePoint = m_sourceInput->mapToGlobal(QPoint(0, 0));
 
-    show(sourcePoint.x() + m_sourceInput->width() / 2, sourcePoint.y() + m_sourceInput->height());
+    show(sourcePoint.x() + (inRange ? msgWidth / 2  + margin() : m_sourceInput->maximumWidth() / 2),
+         sourcePoint.y() + m_sourceInput->height());
 }
