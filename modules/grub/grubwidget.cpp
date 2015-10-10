@@ -26,8 +26,7 @@ GrubWidget::GrubWidget(QWidget *parent):
     m_themeDbus(new GrubThemeDbus(this)),
     m_grubDbus(new GrubDbus(this)),
     m_grubBackground(new GrubBackground(m_themeDbus)),
-    m_bootEntryList(new DButtonList()),
-    m_selectTimeoutLayout(new QHBoxLayout)
+    m_bootEntryList(new DButtonList())
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 

@@ -25,7 +25,7 @@ static const uint FrameAnimationDuration = 300;
 static const QEasingCurve FrameShowCurve = QEasingCurve::Linear;
 static const QEasingCurve FrameHideCurve = QEasingCurve::Linear;
 
-static const uint TipsMoveAnimationDuration = 200;
+static const uint TipsMoveAnimationDuration = 201;
 static const QEasingCurve TipsMoveCurve = QEasingCurve::OutCubic;
 
 static const QString IconPath = ":/resources/images/";
