@@ -320,7 +320,7 @@
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="136"/>
         <source>ddd MMM dd</source>
-        <translation></translation>
+        <translation>MMMdd日 dddd</translation>
     </message>
 </context>
 <context>
