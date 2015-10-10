@@ -16,6 +16,7 @@ class MonitorGround : public QFrame
 
 public:
     explicit MonitorGround(DisplayInterface * display, QWidget *parent = 0);
+    ~MonitorGround();
 
     void addMonitor(Monitor * monitor);
     void removeMonitor(Monitor * monitor);

@@ -49,6 +49,7 @@ DisplayModeItem::~DisplayModeItem()
 {
     if(m_checked)
         activeItem = NULL;
+    m_title->deleteLater();
 }
 
 QString DisplayModeItem::iconName() const

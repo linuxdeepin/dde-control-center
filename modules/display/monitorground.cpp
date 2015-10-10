@@ -61,6 +61,11 @@ MonitorGround::MonitorGround(DisplayInterface * display, QWidget *parent):
     setLayout(layout);
 }
 
+MonitorGround::~MonitorGround()
+{
+    qDeleteAll(m_tooltipList.begin(), m_tooltipList.end());
+}
+
 void MonitorGround::addMonitor(Monitor *monitor)
 {
     if(m_monitors.contains(monitor)||!monitor)
