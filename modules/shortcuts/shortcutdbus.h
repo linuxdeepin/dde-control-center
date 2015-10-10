@@ -207,11 +207,11 @@ public Q_SLOTS: // METHODS
 
         QString str;
 
-        if(info->shortcut != "None"){
+        if(info->shortcut != tr("None")){
             ModifiedAccel(info->strId, info->type, info->shortcut, false, str).value();//remove
         }
 
-        if(!in1.isEmpty() && in1 != "None")
+        if(!in1.isEmpty() && in1 != tr("None"))
             ModifiedAccel(info->strId, info->type, in1, true, str).value();
 
     }

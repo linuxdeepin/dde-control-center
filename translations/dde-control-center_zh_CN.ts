@@ -17,22 +17,22 @@
 <context>
     <name>AccountMainWidget</name>
     <message>
-        <location filename="../modules/account/ui/accountmainwidget.cpp" line="33"/>
+        <location filename="../modules/account/ui/accountmainwidget.cpp" line="35"/>
         <source>User Accounts</source>
         <translation>账户</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/accountmainwidget.cpp" line="61"/>
+        <location filename="../modules/account/ui/accountmainwidget.cpp" line="63"/>
         <source>User List</source>
         <translation>用户列表</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/accountmainwidget.cpp" line="206"/>
+        <location filename="../modules/account/ui/accountmainwidget.cpp" line="208"/>
         <source>Add Account</source>
         <translation>添加账户</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/accountmainwidget.cpp" line="240"/>
+        <location filename="../modules/account/ui/accountmainwidget.cpp" line="242"/>
         <source>Delete Account</source>
         <translation>删除账户</translation>
     </message>
@@ -88,8 +88,8 @@
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="80"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="287"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="292"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="291"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="296"/>
         <source>new user</source>
         <translation>新建用户</translation>
     </message>
@@ -132,23 +132,23 @@
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="170"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="175"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="253"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="257"/>
         <source>Password can not be empty.</source>
         <translation>密码不能为空</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="179"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="250"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="266"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="302"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="309"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="254"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="270"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="306"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="313"/>
         <source>The two passwords do not match.</source>
         <translation>两次输入密码不一致 </translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="238"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="248"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="263"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="242"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="252"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="267"/>
         <source>Username can not be empty.</source>
         <translation>用户名不能为空</translation>
     </message>
@@ -235,23 +235,23 @@
 <context>
     <name>DExtendBoard</name>
     <message>
-        <location filename="../modules/power/dextendboard.cpp" line="23"/>
+        <location filename="../modules/power/dextendboard.cpp" line="20"/>
         <source>Custom options</source>
         <translation>自定义选项</translation>
     </message>
     <message>
-        <location filename="../modules/power/dextendboard.cpp" line="27"/>
+        <location filename="../modules/power/dextendboard.cpp" line="24"/>
         <source>Turn off the display</source>
         <translation>关闭显示器</translation>
     </message>
     <message>
-        <location filename="../modules/power/dextendboard.cpp" line="34"/>
-        <location filename="../modules/power/dextendboard.cpp" line="44"/>
+        <location filename="../modules/power/dextendboard.cpp" line="31"/>
+        <location filename="../modules/power/dextendboard.cpp" line="41"/>
         <source>Never</source>
         <translation>从不</translation>
     </message>
     <message>
-        <location filename="../modules/power/dextendboard.cpp" line="38"/>
+        <location filename="../modules/power/dextendboard.cpp" line="35"/>
         <source>Suspend</source>
         <translation>待机</translation>
     </message>
@@ -494,12 +494,12 @@
 <context>
     <name>EditWidget</name>
     <message>
-        <location filename="../modules/datetime/timewidget.cpp" line="157"/>
+        <location filename="../modules/datetime/timewidget.cpp" line="162"/>
         <source>Set</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timewidget.cpp" line="159"/>
+        <location filename="../modules/datetime/timewidget.cpp" line="164"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -689,7 +689,7 @@
         <translation>声音</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="14"/>
+        <location filename="../modules/power/power.cpp" line="16"/>
         <source>Power Management</source>
         <translation>电源管理</translation>
     </message>
@@ -897,53 +897,53 @@
         <translation>个性化</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="116"/>
+        <location filename="../modules/personalization/personalization.cpp" line="108"/>
         <source>Theme</source>
         <translation>主题</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="137"/>
+        <location filename="../modules/personalization/personalization.cpp" line="129"/>
         <source>Window</source>
         <translation>窗口</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="161"/>
+        <location filename="../modules/personalization/personalization.cpp" line="153"/>
         <source>Icon</source>
         <translation>图标</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="184"/>
+        <location filename="../modules/personalization/personalization.cpp" line="176"/>
         <source>Cursor</source>
         <translation>光标</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="206"/>
+        <location filename="../modules/personalization/personalization.cpp" line="198"/>
         <source>Wallpaper</source>
         <translation>壁纸</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="229"/>
+        <location filename="../modules/personalization/personalization.cpp" line="221"/>
         <source>Fonts</source>
         <translation>字体</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="232"/>
+        <location filename="../modules/personalization/personalization.cpp" line="224"/>
         <source>Standard</source>
         <translation>标准</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="233"/>
+        <location filename="../modules/personalization/personalization.cpp" line="225"/>
         <source>Monospaced</source>
         <translation>等宽</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="234"/>
+        <location filename="../modules/personalization/personalization.cpp" line="226"/>
         <source>Size</source>
         <translation>大小</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="249"/>
-        <location filename="../modules/personalization/personalization.cpp" line="582"/>
+        <location filename="../modules/personalization/personalization.cpp" line="241"/>
+        <location filename="../modules/personalization/personalization.cpp" line="553"/>
         <source>Font</source>
         <translation>字体</translation>
     </message>
@@ -951,74 +951,74 @@
 <context>
     <name>Power</name>
     <message>
-        <location filename="../modules/power/power.cpp" line="49"/>
+        <location filename="../modules/power/power.cpp" line="50"/>
         <source>Password required to wake up</source>
         <translation>唤醒需要密码</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="69"/>
+        <location filename="../modules/power/power.cpp" line="68"/>
         <source>Plugged in</source>
         <translation>接通电源</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="99"/>
-        <location filename="../modules/power/power.cpp" line="154"/>
+        <location filename="../modules/power/power.cpp" line="97"/>
+        <location filename="../modules/power/power.cpp" line="151"/>
         <source>Balanced</source>
         <translation>均衡</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="99"/>
-        <location filename="../modules/power/power.cpp" line="154"/>
+        <location filename="../modules/power/power.cpp" line="97"/>
+        <location filename="../modules/power/power.cpp" line="151"/>
         <source>Power saver</source>
         <translation>节能</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="99"/>
-        <location filename="../modules/power/power.cpp" line="154"/>
+        <location filename="../modules/power/power.cpp" line="97"/>
+        <location filename="../modules/power/power.cpp" line="151"/>
         <source>High performance</source>
         <translation>高性能</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="99"/>
-        <location filename="../modules/power/power.cpp" line="154"/>
-        <location filename="../modules/power/power.h" line="150"/>
+        <location filename="../modules/power/power.cpp" line="97"/>
+        <location filename="../modules/power/power.cpp" line="151"/>
+        <location filename="../modules/power/power.h" line="154"/>
         <source>Custom</source>
         <translation>自定义</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="127"/>
+        <location filename="../modules/power/power.cpp" line="124"/>
         <source>On battery</source>
         <translation>使用电池</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="175"/>
-        <location filename="../modules/power/power.cpp" line="180"/>
+        <location filename="../modules/power/power.cpp" line="172"/>
+        <location filename="../modules/power/power.cpp" line="176"/>
         <source>Shutdown</source>
         <translation>关机</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="175"/>
-        <location filename="../modules/power/power.cpp" line="180"/>
+        <location filename="../modules/power/power.cpp" line="172"/>
+        <location filename="../modules/power/power.cpp" line="176"/>
         <source>Suspend</source>
         <translation>待机</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="175"/>
+        <location filename="../modules/power/power.cpp" line="172"/>
         <source>Ask</source>
         <translation>询问</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="177"/>
+        <location filename="../modules/power/power.cpp" line="174"/>
         <source>When I press the power button</source>
         <translation>按下电源按钮</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="180"/>
+        <location filename="../modules/power/power.cpp" line="176"/>
         <source>Nothing</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="182"/>
+        <location filename="../modules/power/power.cpp" line="178"/>
         <source>When I close the lid</source>
         <translation>合上笔记本盖子</translation>
     </message>
@@ -1026,35 +1026,35 @@
 <context>
     <name>PowerInterfaceManagement</name>
     <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="22"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="31"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="23"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="32"/>
         <source>Shutdown</source>
         <translation>关机</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="24"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="33"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="25"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="34"/>
         <source>Suspend</source>
         <translation>待机</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="50"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="98"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="158"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="51"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="99"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="159"/>
         <source>Balanced</source>
         <translation>均衡</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="52"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="100"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="161"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="53"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="101"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="162"/>
         <source>Power saver</source>
         <translation>节能</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="54"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="102"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="164"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="55"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="103"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="165"/>
         <source>High performance</source>
         <translation>高性能</translation>
     </message>
@@ -1065,18 +1065,18 @@
         <translation>1小时</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="159"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="162"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="160"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="163"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="165"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="164"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="166"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="183"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="191"/>
         <source>%1 minutes</source>
         <translation>%1分钟</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="160"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="166"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="161"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="167"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="179"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="187"/>
         <source>Never</source>
@@ -1091,7 +1091,7 @@
 <context>
     <name>PowerManagement</name>
     <message>
-        <location filename="../modules/power/powermanagement.cpp" line="18"/>
+        <location filename="../modules/power/powermanagement.cpp" line="17"/>
         <source>Power Management</source>
         <translation>电源管理</translation>
     </message>
@@ -1112,17 +1112,15 @@
 <context>
     <name>PressPowerButtonAction</name>
     <message>
-        <location filename="../modules/power/presspowerbuttonaction.cpp" line="10"/>
         <source>When I press the power button</source>
-        <translation>按下电源按钮</translation>
+        <translation type="vanished">按下电源按钮</translation>
     </message>
 </context>
 <context>
     <name>PreviewWindow</name>
     <message>
-        <location filename="../modules/personalization/previewwindow.cpp" line="140"/>
         <source>Apply</source>
-        <translation>应用</translation>
+        <translation type="vanished">应用</translation>
     </message>
 </context>
 <context>
@@ -1162,6 +1160,18 @@
         <location filename="../modules/shortcuts/selectdialog.cpp" line="29"/>
         <source>Cancel</source>
         <translation>取消</translation>
+    </message>
+</context>
+<context>
+    <name>ShortcutDbus</name>
+    <message>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="118"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="139"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="170"/>
+        <location filename="../modules/shortcuts/shortcutdbus.h" line="210"/>
+        <location filename="../modules/shortcuts/shortcutdbus.h" line="214"/>
+        <source>None</source>
+        <translation>无</translation>
     </message>
 </context>
 <context>
@@ -1338,42 +1348,42 @@
 <context>
     <name>UserExpandContent</name>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="45"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="59"/>
         <source>Recently Used</source>
         <translation>最近使用</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="46"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="60"/>
         <source>Avatar</source>
         <translation>头像</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="47"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="61"/>
         <source>Webcam</source>
         <translation>拍照</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="101"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="115"/>
         <source>Auto-login</source>
         <translation>自动登录</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="117"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="142"/>
         <source>Enable</source>
         <translation>启用</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="134"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="173"/>
         <source>Account Type</source>
         <translation>账户类型</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="161"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="224"/>
         <source>Choose a new picture for your Avatar</source>
         <translation>请选择一张图片作为您的头像</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="161"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="224"/>
         <source>Image files (*.jpg *.png *.jpeg)</source>
         <translation>图片文件 (*.jpg *.png *.jpeg)</translation>
     </message>
@@ -1381,32 +1391,32 @@
 <context>
     <name>UserExpandHeader</name>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="120"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="127"/>
         <source>Keep user&apos;s files</source>
         <translation>保留用户文件</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="121"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="128"/>
         <source>Delete user&apos;s files</source>
         <translation>删除用户文件</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="123"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="130"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="124"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="131"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="172"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="179"/>
         <source>Administrator</source>
         <translation>管理员</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="174"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="181"/>
         <source>Normal User</source>
         <translation>普通用户</translation>
     </message>

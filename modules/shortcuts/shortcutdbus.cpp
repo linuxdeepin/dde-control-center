@@ -115,7 +115,7 @@ void ShortcutDbus::updateShortcutList(const QString &id, qint32 type)
             info_json.waitForFinished();
             info->shortcut = QJsonDocument::fromJson(info_json.value().toUtf8()).object()["Accels"].toArray()[0].toString();
             if(info->shortcut.isEmpty())
-                info->shortcut = "None";
+                info->shortcut = tr("None");
         }
 
         if(info_list == &m_systemList){
@@ -136,7 +136,7 @@ void ShortcutDbus::onAdded(const QString &id, qint32 type)
         QDBusPendingReply<QString> info_json = Query(id, type);
         info_json.waitForFinished();
         QString name = QJsonDocument::fromJson(info_json.value().toUtf8()).object()["Name"].toString();
-        m_customList << ShortcutInfo{type, getId(), id, name, "None"};
+        m_customList << ShortcutInfo{type, getId(), id, name, tr("None")};
         m_strIdAndTypeToInfoMap[getId(type, id)] = &m_customList.last();
         m_intIdToInfoMap[m_customList.last().id] = &m_customList.last();
 
@@ -167,7 +167,7 @@ void ShortcutDbus::getListFinished(QDBusPendingCallWatcher *call)
         int type = map["Type"].toInt();
         QString shortcuts = map["Accels"].toArray()[0].toString();
         if(shortcuts.isEmpty())
-            shortcuts = "None";
+            shortcuts = tr("None");
         QString name = map["Name"].toString();
         QString id = map["Id"].toString();
 
