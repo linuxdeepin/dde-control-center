@@ -21,7 +21,8 @@ void UserExpandContent::setIsCurrentUser(bool isCurrentUser)
 
 void UserExpandContent::onRequestPreDestroy()
 {
-    m_passwordFrame->preDestroy();
+    if (m_passwordFrame)
+        m_passwordFrame->preDestroy();
 }
 
 void UserExpandContent::initDBusData()
