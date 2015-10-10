@@ -1,4 +1,5 @@
 #include "createuserpanel.h"
+#include "libintl.h"
 
 CreateUserPanel::CreateUserPanel(QWidget *parent) : QWidget(parent)
 {
@@ -162,7 +163,7 @@ bool CreateUserPanel::validate()
     bool nameValid = reply.argumentAt(0).isValid() ? reply.argumentAt(0).toBool() : false;
     QString warningMsg = reply.argumentAt(1).isValid() ? reply.argumentAt(1).toString() : "";
     if (!nameValid){
-        m_nameLine->showWarning(warningMsg);
+        m_nameLine->showWarning(dgettext("dde-daemon", warningMsg.toUtf8().data()));
         return false;
     }
 
@@ -289,7 +290,8 @@ void CreateUserPanel::onNameChanged(const QString &name)
                 m_nameLine->setText(m_oldName.toLower());
             }
             m_newNameLabel->setText(m_oldName.isEmpty() ? tr("new user") : m_oldName.toLower());
-            m_nameLine->showWarning(warningMsg);
+
+            m_nameLine->showWarning(dgettext("dde-daemon", warningMsg.toUtf8().data()));
         }
     }
     else {
