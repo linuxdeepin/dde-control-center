@@ -115,8 +115,19 @@ void UserExpandContent::initAutoLogin()
     m_autoLoginLine->setTitle(tr("Auto-login"));
     m_autoLoginLine->setCheck(m_accountUser->automaticLogin());
     connect(m_autoLoginLine, &AccountSwitchLine::checkChanged, [=](bool s){
-        if (m_accountUser->automaticLogin() != s)//just record the valid value(configure file just has single line record,set invalid value will cause error)
-            m_accountUser->SetAutomaticLogin(s);
+        if (m_accountUser->automaticLogin() == s)//just record the valid value(configure file just has single line record,set invalid value will cause error)
+            return;
+
+        this->window()->setProperty("canNotHide", true);
+        QDBusPendingReply<bool> reply = m_accountUser->SetAutomaticLogin(s);
+        reply.waitForFinished();
+        if (reply.error().isValid()) {
+            //reset state
+            m_autoLoginLine->setCheck(m_accountUser->automaticLogin());
+            qWarning() << "Account: set account automatic login error: " << reply.error();
+        }
+        //delay to buff windows active change
+        QTimer::singleShot(1000, this, SLOT(onCanHideControlCenter()));
     });
     connect(m_accountUser, &DBusAccountUser::AutomaticLoginChanged, [=]{
         m_autoLoginLine->setCheck(m_accountUser->automaticLogin());
@@ -131,7 +142,19 @@ void UserExpandContent::initUserEnable()
     m_lockLine->setTitle(tr("Enable"));
     m_lockLine->setCheck(!m_accountUser->locked());
     connect(m_lockLine, &AccountSwitchLine::checkChanged, [=](bool s){
-        m_accountUser->SetLocked(!s);
+        if (!m_accountUser->locked() == s)
+            return;
+
+        this->window()->setProperty("canNotHide", true);
+        QDBusPendingReply<bool> reply = m_accountUser->SetLocked(!s);
+        reply.waitForFinished();
+        if (reply.error().isValid()) {
+            //reset state
+            m_lockLine->setCheck(!m_accountUser->locked());
+            qWarning()<<"Account: set account lock error: " << reply.error();
+        }
+        //delay to buff windows active change
+        QTimer::singleShot(1000, this, SLOT(onCanHideControlCenter()));
     });
     connect(m_accountUser, &DBusAccountUser::LockedChanged, [=]{
         m_lockLine->setCheck(!m_accountUser->locked());
@@ -149,7 +172,21 @@ void UserExpandContent::initAccountType()
     m_typeLine = new AccountTypeLine();
     m_typeLine->setTitle(tr("Account Type"));
     m_typeLine->setType(m_accountUser->accountType());
-    connect(m_typeLine, &AccountTypeLine::typeChanged, m_accountUser, &DBusAccountUser::SetAccountType);
+    connect(m_typeLine, &AccountTypeLine::typeChanged, [=](int type) {
+        if (type == m_accountUser->accountType())
+            return;
+
+        this->window()->setProperty("canNotHide", true);
+        QDBusPendingReply<bool> reply = m_accountUser->SetAccountType(type);
+        reply.waitForFinished();
+        if (reply.error().isValid()) {
+            //reset state
+            m_typeLine->setType(m_accountUser->accountType());
+            qWarning() << "Account: set account type error: " << reply.error();
+        }
+        //delay to buff windows active change
+        QTimer::singleShot(1000, this, SLOT(onCanHideControlCenter()));
+    });
     connect(m_accountUser, &DBusAccountUser::AccountTypeChanged, [=]{
         m_typeLine->setType(m_accountUser->accountType());
     });
@@ -166,7 +203,13 @@ void UserExpandContent::initPassword()
         updateSize();
     });
     connect(m_passwordFrame, &PasswordFrame::changePassword, [=](QString password){
-        m_accountUser->SetPassword(password);
+        this->window()->setProperty("canNotHide", true);
+        QDBusPendingReply<bool> reply = m_accountUser->SetPassword(password);
+        reply.waitForFinished();
+        if (reply.error().isValid())
+            qWarning() << "Account: set password error: " << reply.error();
+        //delay to buff windows active change
+        QTimer::singleShot(1000, this, SLOT(onCanHideControlCenter()));
     });
 
     m_mainLayout->addWidget(m_passwordFrame);
@@ -174,14 +217,22 @@ void UserExpandContent::initPassword()
 
 void UserExpandContent::onAvatarSelected(const QString &avatar)
 {
+    this->window()->setProperty("canNotHide", true);
+    QString fileName = "";
     if (avatar == ADD_AVATAR_ICON){
-        QString fileName = QFileDialog::getOpenFileName(this,
+        fileName = QFileDialog::getOpenFileName(this,
             tr("Choose a new picture for your Avatar"), QDir::homePath(), tr("Image files (*.jpg *.png *.jpeg)"));
-        if (!fileName.isEmpty())
-            m_accountUser->SetIconFile(fileName);
     }
     else
-        m_accountUser->SetIconFile(avatar);
+        fileName = avatar;
+    QDBusPendingReply<bool> reply = m_accountUser->SetIconFile(fileName);
+    reply.waitForFinished();
+    if (reply.error().isValid())
+        qWarning()<<"Account: set icon file error: " << reply.error();
+
+    //delay to buff windows active change
+    QTimer::singleShot(1000, this, SLOT(onCanHideControlCenter()));
+
 }
 
 void UserExpandContent::onAccountEnableChanged(bool enabled)

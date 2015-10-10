@@ -207,9 +207,13 @@ void CreateUserPanel::onCancel()
 void CreateUserPanel::onConfirm()
 {
     if (validate()){
-        m_account->CreateUser(m_nameLine->text().toLower(), "", m_accountType->currentIndex());
-
-        emit createConfirm();
+        this->window()->setProperty("canNotHide", true);
+        QDBusPendingReply<> reply = m_account->CreateUser(m_nameLine->text().toLower(), "", m_accountType->currentIndex());
+        reply.waitForFinished();
+        if (!reply.error().isValid())
+            emit createConfirm();
+        //delay to buff windows active change
+        QTimer::singleShot(1000, this, SLOT(onCanHideControlCenter()));
     }
 }
 
@@ -308,3 +312,4 @@ void CreateUserPanel::onPasswdRepeatChanged(const QString &passwd)
     if (!m_passwdRepeat->text().isEmpty() && m_passwdNew->text().indexOf(passwd, 0) != 0)
         m_passwdRepeat->showWarning(tr("The two passwords do not match."));
 }
+

@@ -42,8 +42,15 @@ void UserExpandHeader::onCancelDeleteUser()
 void UserExpandHeader::onConfirmDeleteUser()
 {
     DBusAccount *account = new DBusAccount(this);
-    if (account->isValid())
-        account->DeleteUser(m_accountUser->userName(), m_folderControl->currentIndex() != 0);
+    if (account->isValid()) {
+        this->window()->setProperty("canNotHide", true);
+        QDBusPendingReply<bool> reply = account->DeleteUser(m_accountUser->userName(), m_folderControl->currentIndex() != 0);
+        reply.waitForFinished();
+        if (reply.error().isValid())
+            qWarning() << "Account: Delete user error: " << reply.error();
+        //delay to buff windows active change
+        QTimer::singleShot(1000, this, SLOT(onCanHideControlCenter()));
+    }
     account->deleteLater();
 }
 

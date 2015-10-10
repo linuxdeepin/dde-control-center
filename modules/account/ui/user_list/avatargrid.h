@@ -31,6 +31,7 @@ private:
 
 private slots:
     void onButtonToggled(QAbstractButton * button, bool checked);
+    void onCanHideControlCenter() {this->window()->setProperty("canNotHide", false);}
 
 private:
     QButtonGroup *m_buttonGroup = NULL;

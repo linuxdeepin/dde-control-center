@@ -57,6 +57,9 @@ signals:
 protected:
     void mousePressEvent(QMouseEvent *);
 
+private slots:
+    void onCanHideControlCenter() {this->window()->setProperty("canNotHide", false);}
+
 private:
     void initData();
     void initIcon();

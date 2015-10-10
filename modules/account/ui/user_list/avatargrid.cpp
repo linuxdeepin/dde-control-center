@@ -93,7 +93,14 @@ void AvatarGrid::onRequestDelete()
 {
     UserAvatar * icon = qobject_cast<UserAvatar *>(sender());
     if (icon && m_user->isValid()){
-        m_user->DeleteIconFile(icon->iconPath());
+        this->window()->setProperty("canNotHide", true);
+        QDBusPendingReply<bool> reply = m_user->DeleteIconFile(icon->iconPath());
+        reply.waitForFinished();
+        if (reply.error().isValid())
+            qWarning()<<"Account: delete icon file error: " << reply.error();
+
+        //delay to buff windows active change
+        QTimer::singleShot(1000, this, SLOT(onCanHideControlCenter()));
     }
 }
 
