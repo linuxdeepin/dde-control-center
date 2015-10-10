@@ -55,6 +55,8 @@ class FirstLetterClassify : public QFrame
     Q_PROPERTY(QString currentLetter READ currentLetter WRITE setCurrentLetter NOTIFY currentLetterChanged)
 public:
     explicit FirstLetterClassify(QWidget *parent = 0);
+    ~FirstLetterClassify();
+
     ListWidget *searchList() const;
     DSegmentedControl *letterList() const;
     void addItem(KeyboardLayoutDelegate *item, const QChar letterFirst);

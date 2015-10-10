@@ -127,6 +127,11 @@ FirstLetterClassify::FirstLetterClassify(QWidget *parent) :
     }
 }
 
+FirstLetterClassify::~FirstLetterClassify()
+{
+    qDeleteAll(m_listWidgetList.begin(), m_listWidgetList.end());
+}
+
 ListWidget *FirstLetterClassify::searchList() const
 {
     return m_currentList;
