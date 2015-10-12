@@ -29,7 +29,7 @@ Personalization::Personalization():m_margins(0, 5, 0, 5)
 
 void Personalization::initUI(){
     m_frame = new QFrame();
-    m_expandGroup = new DExpandGroup;
+    m_expandGroup = new DExpandGroup(this);
     m_headerLine = new DHeaderLine();
     m_headerLine->setStyleSheet("font-size: 16px;color:white");
     m_headerLine->setFixedHeight(50);
