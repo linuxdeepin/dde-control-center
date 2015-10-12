@@ -46,8 +46,8 @@ DefaultApps::DefaultApps() :
     autoPlayApplications->setTitle(tr("AutoPlay"));
     autoPlayApplications->setContent(m_autoPlaySwitch);
 
-    m_appGrp = new DExpandGroup;
-    m_mediaGrp = new DExpandGroup;
+    m_appGrp = new DExpandGroup(this);
+    m_mediaGrp = new DExpandGroup(this);
     m_modBrowser = new DArrowLineExpand;
     m_modBrowser->setTitle(tr("Browser"));
     m_modMail = new DArrowLineExpand;
