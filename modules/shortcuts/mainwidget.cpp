@@ -12,12 +12,15 @@
 #include "addrmdoneline.h"
 #include "moduleheader.h"
 #include "searchlist.h"
+#include "constants.h"
 
 #include "mainwidget.h"
 #include "tooltip.h"
 #include "selectdialog.h"
 
 DUI_USE_NAMESPACE
+
+#define LIST_MAX_HEIGHT 500
 
 MainWidget::MainWidget(QWidget *parent):
     QFrame(parent),
@@ -51,11 +54,11 @@ DArrowLineExpand *addExpand(const QString &title, QWidget *widget, DExpandGroup 
 SearchList *MainWidget::addSearchList(const ShortcutInfoList &tmplist)
 {
     SearchList *list = new SearchList;
-    list->setFixedWidth(310);
-    list->setItemSize(310, 0);
+    list->setFixedWidth(DCC::ModuleContentWidth);
+    list->setItemSize(DCC::ModuleContentWidth, 0);
     list->setEnableVerticalScroll(true);
     connect(list, &SearchList::visibleCountChanged, [list]{
-        list->setFixedHeight(qMin(500, list->visibleCount() * 30));
+        list->setFixedHeight(qMin(LIST_MAX_HEIGHT, list->visibleCount() * RADIO_ITEM_HEIGHT));
     });
 
     foreach (const ShortcutInfo &info, tmplist) {
@@ -195,7 +198,7 @@ void MainWidget::init()
 
     m_searchList->hide();
     m_searchList->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    m_searchList->setItemSize(310, 0);
+    m_searchList->setItemSize(DCC::ModuleContentWidth, 0);
 
     m_systemList = addSearchList(m_dbus->systemList());
     m_windowList = addSearchList(m_dbus->windowList());
@@ -375,12 +378,17 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
 
         tmp_text.append(tr("Do you want to replace it?"));
 
+        int dialog_height = 100;
+
         SelectDialog *dialog = new SelectDialog;
-        dialog->setFixedHeight(120);
+        dialog->setFixedHeight(dialog_height);
         dialog->setText(tmp_text);
         listw->insertItem(index+1, dialog);
+        listw->setFixedHeight(qMin(LIST_MAX_HEIGHT,
+                                   listw->count() * RADIO_ITEM_HEIGHT + dialog_height - RADIO_ITEM_HEIGHT));
 
         connect(dialog, &SelectDialog::replace, [=]{
+            dialog->setFixedHeight(dialog_height);
             listw->removeItem(listw->indexOf(dialog));
 
             foreach (ShortcutWidget* tmp_w, tmp_list) {
@@ -393,7 +401,7 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
             dialog->contraction();
         });
         connect(dialog, &SelectDialog::contracted, [=]{
-            dialog->setFixedHeight(120);
+            dialog->setFixedHeight(dialog_height);
             listw->removeItem(listw->indexOf(dialog));
             emit setEnableEditShortcut(true);
         });
