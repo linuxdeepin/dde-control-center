@@ -34,8 +34,11 @@ ShortcutEdit::ShortcutEdit(ShortcutDbus *dbus, QWidget *parent) :
     m_layout->addWidget(m_label, 0, Qt::AlignRight|Qt::AlignVCenter);
     m_layout->addWidget(m_edit, 0, Qt::AlignRight|Qt::AlignVCenter);
 
-    connect(m_dbus, &ShortcutDbus::KeyReleaseEvent, [&](QString key){
-        if(!m_edit->isVisible())
+    /// 此处的的第三个this参数必写，不然this被delete后
+    /// 当m_dbus发出KeyReleaseEvent信号后照样会调用此匿名函数
+    /// 此时，函数中使用this指针将导致控制中心崩溃
+    connect(m_dbus, &ShortcutDbus::KeyReleaseEvent, this, [this](QString key){
+        if(!editing())
             return;
 
         if(key.isEmpty() || key.toLower() == "escape"){
@@ -59,7 +62,7 @@ ShortcutEdit::ShortcutEdit(ShortcutDbus *dbus, QWidget *parent) :
         emit shortcutKeyFinished(key);
     });
 
-    connect(m_dbus, &ShortcutDbus::KeyPressEvent, [this](const QString key){
+    connect(m_dbus, &ShortcutDbus::KeyPressEvent, this, [this](const QString key){
         if(key.isEmpty())
             quitEditState();
     });
