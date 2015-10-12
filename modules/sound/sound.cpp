@@ -61,6 +61,7 @@ void Sound::initBackend()
     QString meterName = meterPath;
     meterName = meterName.replace("/", ".").mid(1);
     m_dbusMeter = new QDBusInterface("com.deepin.daemon.Audio", meterPath, meterName);
+    m_dbusMeter->setParent(this);
     connect(&m_meterTimer, &QTimer::timeout, [&]{
         m_dbusMeter->call("Tick");
     });
