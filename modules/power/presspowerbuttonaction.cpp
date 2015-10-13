@@ -39,7 +39,7 @@ void PressPowerButtonAction::setPowerButtonAction(int buttonId) {
     switch (buttonId) {
         case 1: { m_powerActionButtonGrid->checkButtonByIndex(1);break;}
         case 2: { m_powerActionButtonGrid->checkButtonByIndex(0);break;}
-        case 4: { m_powerActionButtonGrid->checkButtonByIndex(2);break;}
+        default: { m_powerActionButtonGrid->checkButtonByIndex(2);break;}
     }
 }
 PressPowerButtonAction::~PressPowerButtonAction() {

@@ -208,6 +208,7 @@ void Power::updatePowerLockUI() {
 }
 void Power::updatePressPowerButtonReactionUI() {
     qint32 buttonId = m_powerInterfaceManagement->getPowerButtonAction();
+
     m_pressPowerButtonActionFrame->setPowerButtonAction(buttonId);
 }
 void Power::updatePressLidPowerButtonReactionUI() {

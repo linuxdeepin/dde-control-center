@@ -21,20 +21,20 @@ qint32 PowerInterfaceManagement::getLidCloseAction() {
 }
 void PowerInterfaceManagement::setPowerButtonAction(QString actionButton) {
     if (actionButton == tr("Shutdown")) {
-        m_powerInterface->setPowerButtonAction(2);
+        m_powerInterface->setPowerButtonAction(CLOSE_ACTION_SHUTDOWN);
     } else if (actionButton == tr("Suspend")) {
-        m_powerInterface->setPowerButtonAction(1);
+        m_powerInterface->setPowerButtonAction(CLOSE_ACTION_SUSPEND);
     } else {
-        m_powerInterface->setPowerButtonAction(4);
+        m_powerInterface->setPowerButtonAction(CLOSE_ACTION_INTERACTIVE);
     }
 }
 void PowerInterfaceManagement::setLidCloseAction(QString actionButton) {
     if (actionButton == tr("Shutdown")) {
-        m_powerInterface->setLidClosedAction(2);
+        m_powerInterface->setLidClosedAction(CLOSE_ACTION_SHUTDOWN);
     } else if (actionButton == tr("Suspend")) {
-        m_powerInterface->setLidClosedAction(1);
+        m_powerInterface->setLidClosedAction(CLOSE_ACTION_SUSPEND);
     } else {
-        m_powerInterface->setLidClosedAction(4);
+        m_powerInterface->setLidClosedAction(CLOSE_ACTION_NOTHING);
     }
 }
 bool PowerInterfaceManagement::getLockWhenActive() {

@@ -57,6 +57,12 @@ public slots:
     double getBatteryPresent();
     void batteryPresentUpdate();
     QString setPowerTooltipText(QString itemId, QString powerType);
+private:
+    const int CLOSE_ACTION_SHUTDOWN = 2;
+    const int CLOSE_ACTION_SUSPEND = 1;
+    const int CLOSE_ACTION_INTERACTIVE = 4;
+    const int CLOSE_ACTION_NOTHING = 5;
+
 };
 #endif // POWERINTERFACEMANAGEMENT
 
