@@ -67,9 +67,8 @@ ShortcutDbus::ShortcutDbus(QObject *parent)
     }
 
     list.clear();
-    list << "switch-to-workspace-left" << "switch-to-workspace-right" << "switch-to-workspace-up"
-         << "switch-to-workspace-down" << "move-to-workspace-left" << "move-to-workspace-right"
-         << "move-to-workspace-up" << "move-to-workspace-down";
+    list << "switch-to-workspace-left" << "switch-to-workspace-right"
+         << "move-to-workspace-left" << "move-to-workspace-right";
 
     foreach (QString str, list) {
         m_idToInfoListHash[str] = &m_workspaceList;
