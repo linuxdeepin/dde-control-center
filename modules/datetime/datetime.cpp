@@ -92,7 +92,7 @@ Datetime::Datetime() :
     centeralLayout->addWidget(m_timezoneHeaderLine);
     centeralLayout->addWidget(new DSeparatorHorizontal);
     centeralLayout->addWidget(m_timezoneListWidget);
-    //centeralLayout->addWidget(new DSeparatorHorizontal);
+//    centeralLayout->addWidget(new DSeparatorHorizontal);
     centeralLayout->addWidget(m_dateHeaderLine);
     centeralLayout->addWidget(m_dateSeparator);
     centeralLayout->addWidget(m_calendar);
@@ -321,7 +321,7 @@ void Datetime::adjustItemHeight()
     // m_timezoneListWidget height
     int maxHeight = DApplication::desktop()->height();
     maxHeight -= m_timezoneHeaderLine->height() + 2 + m_timeWidget->height() + 2;
-    maxHeight -= (m_syncHeaderLine->height() + 2) * 4 + m_calendar->height();
+    maxHeight -= (m_syncHeaderLine->height() + 2) * 4 + m_calendar->height() + 13;
     m_timezoneListWidget->setFixedHeight(qMin(maxHeight, 50 * m_timezoneListWidget->count()));
 }
 
