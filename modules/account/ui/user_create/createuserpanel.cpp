@@ -239,7 +239,7 @@ void CreateUserPanel::onNameFocusChanged(bool focus)
         m_passwdNew->hideWarning();
         m_passwdRepeat->hideWarning();
     }
-    else if (m_nameLine->text().isEmpty())
+    else if (this->isActiveWindow() && m_nameLine->text().isEmpty())
         m_nameLine->showWarning(tr("Username can not be empty."));
 }
 
@@ -254,7 +254,7 @@ void CreateUserPanel::onPasswdFocusChanged(bool focus)
         else if (!m_passwdRepeat->text().isEmpty() && m_passwdRepeat->text() != m_passwdNew->text())
             m_passwdRepeat->showWarning(tr("The two passwords do not match."));
     }
-    else if (m_passwdNew->text().isEmpty() && !m_nameLine->text().isEmpty())
+    else if (this->isActiveWindow() && m_passwdNew->text().isEmpty() && !m_nameLine->text().isEmpty())
         m_passwdNew->showWarning(tr("Password can not be empty."));
 }
 
@@ -267,7 +267,7 @@ void CreateUserPanel::onPasswdRepeatFocusChanged(bool focus)
         if (m_nameLine->text().isEmpty())
             m_nameLine->showWarning(tr("Username can not be empty."));
     }
-    else if (!m_passwdNew->text().isEmpty() && m_passwdRepeat->text().isEmpty())
+    else if (this->isActiveWindow() && !m_passwdNew->text().isEmpty() && m_passwdRepeat->text().isEmpty())
         m_passwdRepeat->showWarning(tr("The two passwords do not match."));
 }
 
