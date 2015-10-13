@@ -162,7 +162,7 @@ void SoundPlugin::setMode(Dock::DockMode mode)
     }
 
     m_item->setDockMode(mode);
-    m_proxy->itemSizeChangedEvent(m_id);
+    m_proxy->infoChangedEvent(DockPluginInterface::ItemSize, m_id);
 }
 
 QString SoundPlugin::settingDisabledKey()

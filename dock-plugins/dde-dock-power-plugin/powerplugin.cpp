@@ -175,6 +175,8 @@ void PowerPlugin::onDisableChanged()
 
     if (!isDisabled(m_id))
         m_proxy->itemAddedEvent(m_id);
+
+    m_proxy->infoChangedEvent(DockPluginInterface::CanDisable, m_id);
 }
 
 void PowerPlugin::setMode(Dock::DockMode mode)
@@ -206,13 +208,13 @@ void PowerPlugin::updateIcon()
             QIcon icon = QIcon::fromTheme(iconName, fallback);
             m_label->setFixedSize(Dock::APPLET_FASHION_ICON_SIZE, Dock::APPLET_FASHION_ICON_SIZE);
             m_label->setPixmap(icon.pixmap(m_label->size()));
-            m_proxy->itemSizeChangedEvent(m_id);
+            m_proxy->infoChangedEvent(DockPluginInterface::ItemSize, m_id);
         } else {
             QString iconName = getBatteryIcon(batteryPercentage, !m_dbusPower->onBattery(), true);
             QIcon icon = QIcon::fromTheme(iconName, fallback);
             m_label->setFixedSize(Dock::APPLET_EFFICIENT_ICON_SIZE, Dock::APPLET_CLASSIC_ICON_SIZE);
             m_label->setPixmap(icon.pixmap(m_label->size()));
-            m_proxy->itemSizeChangedEvent(m_id);
+            m_proxy->infoChangedEvent(DockPluginInterface::ItemSize, m_id);
         }
     }
 }

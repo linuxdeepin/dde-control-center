@@ -135,7 +135,7 @@ void DiskMountPlugin::setMode(Dock::DockMode mode)
 
     emit dockModeChanged(mode);
 
-    m_proxy->itemSizeChangedEvent(m_id);
+    m_proxy->infoChangedEvent(DockPluginInterface::ItemSize, m_id);
 }
 
 QJsonObject DiskMountPlugin::createMenuItem(QString itemId, QString itemName, bool checkable, bool checked)

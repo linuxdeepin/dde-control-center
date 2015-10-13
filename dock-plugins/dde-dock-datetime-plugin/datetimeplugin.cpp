@@ -147,7 +147,7 @@ void DateTimePlugin::updateTime()
 
         if (newText.length() != oldText.length()) {
             m_item->adjustSize();
-            m_proxy->itemSizeChangedEvent(m_id);
+            m_proxy->infoChangedEvent(DockPluginInterface::ItemSize, m_id);
         }
     }
 }
@@ -235,7 +235,7 @@ void DateTimePlugin::setMode(Dock::DockMode mode)
     }
 
     m_item->adjustSize();
-    m_proxy->itemSizeChangedEvent(m_id);
+    m_proxy->infoChangedEvent(DockPluginInterface::ItemSize, m_id);
 }
 
 QJsonObject DateTimePlugin::createMenuItem(QString itemId, QString itemName, bool checkable, bool checked)

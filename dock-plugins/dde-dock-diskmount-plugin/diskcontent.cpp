@@ -68,7 +68,7 @@ void DiskContent::updateMountDisks()
 
     adjustSize();
 
-    m_proxy->appletSizeChangedEvent(m_id);
+    m_proxy->infoChangedEvent(DockPluginInterface::AppletSize, m_id);
 }
 
 DiskContent::~DiskContent()

@@ -42,7 +42,7 @@ void SoundContent::initFrame()
 
         adjustSize();
 
-        m_proxy->appletSizeChangedEvent(m_id);
+        m_proxy->infoChangedEvent(DockPluginInterface::AppletSize, m_id);
     });
 
     QVBoxLayout *mainLayout = new QVBoxLayout();
