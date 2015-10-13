@@ -100,8 +100,10 @@ QWidget * DateTimePlugin::getItem(QString)
 
 QWidget * DateTimePlugin::getApplet(QString)
 {
-    if (m_calendar)
+    if (m_calendar) {
+        m_calendar->setCurrentDate(QDate::currentDate());
         return m_calendar;
+    }
     else
         return NULL;
 }

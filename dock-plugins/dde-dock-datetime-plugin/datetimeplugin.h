@@ -49,7 +49,7 @@ private:
     QString m_id = "id_datetime";
     DockPluginProxyInterface * m_proxy;
 
-    DCalendar * m_calendar;
+    DCalendar * m_calendar = NULL;
     QLabel * m_item = NULL;
     QTimer * m_timer = NULL;
     ClockPixmap m_clockPixmap;
