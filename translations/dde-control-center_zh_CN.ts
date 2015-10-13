@@ -194,7 +194,7 @@
     <message>
         <location filename="../modules/display/customsettings.cpp" line="101"/>
         <source>Primary</source>
-        <translation>主分区</translation>
+        <translation>主屏幕</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="124"/>
