@@ -31,9 +31,6 @@ public:
     ~DefaultApps() Q_DECL_OVERRIDE;
     QFrame* getContent() Q_DECL_OVERRIDE;
 
-public slots:
-    void reset();
-
 private:
     enum DefaultAppsCategory {
         Browser, Mail, Text, Music, Video, Picture, Terminal,

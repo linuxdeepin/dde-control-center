@@ -63,17 +63,22 @@ DefaultApps::DefaultApps() :
     m_modTerminal = new DArrowLineExpand;
     m_modTerminal->setTitle(tr("Terminal"));
     m_modCDAudio = new DArrowLineExpand;
+    m_modCDAudio->hide();
     m_modCDAudio->setTitle(tr("CD Audio"));
     m_modDVDVideo = new DArrowLineExpand;
+    m_modDVDVideo->hide();
     m_modDVDVideo->setTitle(tr("DVD Video"));
     m_modMusicPlayer = new DArrowLineExpand;
+    m_modMusicPlayer->hide();
     m_modMusicPlayer->setTitle(tr("Music Player"));
     m_modCamera = new DArrowLineExpand;
+    m_modCamera->hide();
     m_modCamera->setTitle(tr("Camera"));
     m_modSoftware = new DArrowLineExpand;
+    m_modSoftware->hide();
     m_modSoftware->setTitle(tr("Software"));
 
-    QTimer::singleShot(1000, this, SLOT(lazyLoad()));
+    QTimer::singleShot(600, this, SLOT(lazyLoad()));
 
     QVBoxLayout *scrollLayout = new QVBoxLayout;
     scrollLayout->addWidget(defaultApps);
@@ -122,10 +127,13 @@ DefaultApps::DefaultApps() :
     m_centralWidget->update();
 
     connect(m_autoPlaySwitch, &DSwitchButton::checkedChanged, this, &DefaultApps::setMediaOptionVisible);
+    connect(m_header, &ModuleHeader::resetButtonClicked, [this] {
+        m_autoPlaySwitch->setChecked(true);
+    });
 }
 
 DefaultApps::~DefaultApps()
-{    
+{
     qDebug() << "~DefaultApps()";
 
     m_centralWidget->setParent(nullptr);
@@ -135,12 +143,6 @@ DefaultApps::~DefaultApps()
 QFrame* DefaultApps::getContent()
 {
     return m_centralWidget;
-}
-
-void DefaultApps::reset()
-{
-    m_dbusDefaultApps.Reset();
-    m_dbusDefaultMedia.Reset();
 }
 
 DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::DefaultAppsCategory &category, DArrowLineExpand *defaultApps)
