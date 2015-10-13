@@ -366,9 +366,9 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
         tmp_searchlist<<m_systemList<<m_windowList<<m_workspaceList<<m_customList;
 
         foreach (SearchList* list, tmp_searchlist) {
-            for (int i=0; i<list->count(); ++i) {
+            for (int i=0; i < list->count(); ++i) {
                 ShortcutWidget *tmp_w = qobject_cast<ShortcutWidget*>(list->getItem(i)->widget());
-                if(tmp_w&&tmp_w->shortcut() == tmp_shortcut){
+                if(tmp_w && tmp_w->shortcut().toLower() == tmp_shortcut.toLower()){
                     tmp_list << tmp_w;
                     tmp_text += tr("conflicts with the one used for \"%2\" in the \"%1\" category.")
                             .arg(list->objectName()).arg(tmp_w->title());
