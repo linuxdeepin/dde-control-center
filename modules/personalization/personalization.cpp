@@ -21,7 +21,7 @@ Personalization::Personalization():m_margins(0, 5, 0, 5)
 
     qRegisterMetaType<ImageInfoList>("ImageInfoList");
     qRegisterMetaType<QJsonObject>("QJsonObject");
-    qRegisterMetaType<ThemeObjs>("qRegisterMetaType");
+    qRegisterMetaType<JosnMapObjs>("qRegisterMetaType");
     initUI();
     initControllers();
     emit dataRequested();
@@ -294,9 +294,8 @@ void Personalization::updateBackgroundKeys(const QStringList &backgroundKeys){
 }
 
 
-void Personalization::updateThemeObjs(const ThemeObjs &themeObjs){
+void Personalization::updateThemeObjs(const JosnMapObjs &themeObjs){
     m_themeObjs = themeObjs;
-    qDebug() << themeObjs;
 }
 
 void Personalization::updateThemeButtons(const ImageInfoList &imageInfos){
@@ -451,7 +450,7 @@ void Personalization::updateCurrentTheme(QString themeKey){
 
        QString backgroundKey("Background");
        if (obj.contains(backgroundKey)){
-           QString URI = obj.value(backgroundKey).toObject().value("URI").toString();
+           QString URI = obj.value(backgroundKey).toObject().value("Id").toString();
            int index = getValidKeyIndex(m_wallpaperImageInfos, URI);
            if (index >= 0){
                 m_wallpaperButtonGrid->checkButtonByIndex(index);

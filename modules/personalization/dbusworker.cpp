@@ -18,35 +18,26 @@ DBusWorker::DBusWorker(QObject *parent) : QObject(parent)
             m_appearanceDaemonInterface, [this](const QString &str1, const QString &){
         if(str1 != "background")
             return;
-
         m_themeDetails.clear();
-        getDetails(staticTypeKeys.value("TypeDTheme"), m_themeKeys, m_themeDetails);
+        getDetails(staticTypeKeys.value("TypeDTheme"), m_themeKeys, m_themeObjs, m_themeDetails);
         emit themeDetailsChanged(m_themeDetails);
+        getCurrentTheme();
+        emit currentThemeChanged(m_currentThemeKey);
     });
 }
 
 void DBusWorker::doWork(){
-    getKeys(staticTypeKeys.value("TypeDTheme"), m_themeKeys);
+    getDetails(staticTypeKeys.value("TypeDTheme"), m_themeKeys ,m_themeObjs , m_themeDetails);
     emit themeKeysChanged(m_themeKeys);
-
-    getKeys(staticTypeKeys.value("TypeGtkTheme"), m_windowKeys);
-    getKeys(staticTypeKeys.value("TypeIconTheme"), m_iconKeys);
-    getKeys(staticTypeKeys.value("TypeCursorTheme"), m_cursorKeys);
-    getKeys(staticTypeKeys.value("TypeBackground"), m_backgroundKeys);
-    getKeys(staticTypeKeys.value("TypeStandardFont"), m_standardFontKeys);
-    getKeys(staticTypeKeys.value("TypeMonospaceFont"), m_monospaceFontKeys);
-
-
-    getThemeObjs();
     emit themeObjsChanged(m_themeObjs);
-
-    getDetails(staticTypeKeys.value("TypeDTheme"), m_themeKeys, m_themeDetails);
     emit themeDetailsChanged(m_themeDetails);
 
-    getDetails(staticTypeKeys.value("TypeGtkTheme"), m_windowKeys, m_windowDetails);
-    getDetails(staticTypeKeys.value("TypeIconTheme"), m_iconKeys, m_iconDetails);
-    getDetails(staticTypeKeys.value("TypeCursorTheme"), m_cursorKeys, m_cursorDetails);
-    getDetails(staticTypeKeys.value("TypeBackground"), m_backgroundKeys, m_backgroundDetails);
+    getDetails(staticTypeKeys.value("TypeGtkTheme"), m_windowKeys, m_windowObjs, m_windowDetails);
+    getDetails(staticTypeKeys.value("TypeIconTheme"), m_iconKeys, m_iconObjs, m_iconDetails);
+    getDetails(staticTypeKeys.value("TypeCursorTheme"), m_cursorKeys, m_cursorObjs, m_cursorDetails);
+    getDetails(staticTypeKeys.value("TypeBackground"), m_backgroundKeys, m_backgroundObjs, m_backgroundDetails);
+    getDetails(staticTypeKeys.value("TypeStandardFont"), m_standardFontKeys, m_standardFontObjs);
+    getDetails(staticTypeKeys.value("TypeMonospaceFont"), m_monospaceFontKeys, m_monospaceFontObjs);
 
     getFontSize();
     getCurrentTheme();
@@ -57,8 +48,6 @@ void DBusWorker::doWork(){
     emit cursorKeysChanged(m_cursorKeys);
     emit backgroundKeysChanged(m_backgroundKeys);
 
-//    emit themeObjsChanged(m_themeObjs);
-//    emit themeDetailsChanged(m_themeDetails);
     emit windowDetailsChanged(m_windowDetails);
     emit iconDetailsChanged(m_iconDetails);
     emit cursorDetailsChanged(m_cursorDetails);
@@ -68,17 +57,6 @@ void DBusWorker::doWork(){
     emit currentThemeChanged(m_currentThemeKey);
     emit fontSizeChanged(m_fontSize);
     emit dataFinished();
-}
-
-QStringList& DBusWorker::getKeys(QString Type, QStringList &keys){
-    QDBusPendingReply<QStringList> reply = m_appearanceDaemonInterface->List(Type);
-    reply.waitForFinished();
-    if (!reply.isError()){
-        keys = reply.argumentAt(0).toStringList();
-    }else{
-        qDebug() << reply.error().message();
-    }
-    return keys;
 }
 
 QString DBusWorker::getThumbnail(QString Type, QString key){
@@ -93,10 +71,27 @@ QString DBusWorker::getThumbnail(QString Type, QString key){
     return thumbnail;
 }
 
-ImageInfoList& DBusWorker::getDetails(QString Type, QStringList &keys, ImageInfoList &details){
-    if (keys.length() == 0){
-        keys = getKeys(Type, keys);
+void DBusWorker::getDetails(QString Type, QStringList &keys, JosnMapObjs &objs){
+    keys.clear();
+    objs.clear();
+    QDBusPendingReply<QString> reply = m_appearanceDaemonInterface->List(Type);
+    reply.waitForFinished();
+    if (!reply.isError()){
+        QJsonDocument doc = QJsonDocument::fromJson(reply.argumentAt(0).toString().toLocal8Bit());
+        for(int i=0; i< doc.array().count() ; i++){
+            QJsonObject obj = doc.array().at(i).toObject();
+            QString id = obj.value("Id").toString();
+            objs.insert(id, obj);
+            keys.append(id);
+        }
+    }else{
+        qDebug() << reply.error().message();
     }
+}
+
+ImageInfoList& DBusWorker::getDetails(QString Type, QStringList &keys, JosnMapObjs &objs, ImageInfoList &details){
+    getDetails(Type, keys, objs);
+    details.clear();
     foreach (QString key, keys) {
         QString thumbnail = getThumbnail(Type, key);
         if (thumbnail.length() > 0){
@@ -132,7 +127,7 @@ QJsonObject DBusWorker::getThemeByKey(QString theme){
     QJsonObject obj;
     if (!reply.isError()){
         QString  themeDetail = reply.argumentAt(0).toString();
-        obj = QJsonDocument::fromJson(themeDetail.toStdString().c_str()).object();
+        obj = QJsonDocument::fromJson(themeDetail.toLocal8Bit()).object();
     }else{
         qDebug() << reply.error().message();
     }
@@ -140,9 +135,17 @@ QJsonObject DBusWorker::getThemeByKey(QString theme){
 }
 
 void DBusWorker::getThemeObjs(){
-    foreach (QString key, m_themeKeys) {
-        QJsonObject obj = getThemeByKey(key);
-        m_themeObjs.insert(key, obj);
+    QDBusPendingReply<QString> reply = m_appearanceDaemonInterface->List(staticTypeKeys.value("TypeDTheme"));
+    reply.waitForFinished();
+    if (!reply.isError()){
+        QJsonDocument doc = QJsonDocument::fromJson(reply.argumentAt(0).toString().toLocal8Bit());
+        for(int i=0; i< doc.array().count() ; i++){
+            QJsonObject obj = doc.array().at(0).toObject();
+            QString id = obj.value("Id").toString();
+            m_themeObjs.insert(id, obj);
+        }
+    }else{
+        qDebug() << reply.error().message();
     }
 }
 

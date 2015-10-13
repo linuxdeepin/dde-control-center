@@ -33,10 +33,10 @@ public:
         {"TypeMonospaceFont" ,"monospacefont"},
         {"TypeFontSize","fontsize"}
     };
-    QStringList& getKeys(QString Type, QStringList& keys);
-    QString getThumbnail(QString Type, QString key);
-    ImageInfoList& getDetails(QString Type, QStringList& keys, ImageInfoList& details);
 
+    QString getThumbnail(QString Type, QString key);
+    ImageInfoList& getDetails(QString Type, QStringList& keys, JosnMapObjs& objs, ImageInfoList& details);
+    void getDetails(QString Type, QStringList& keys, JosnMapObjs& objs);
     int getFontSize();
     QString getCurrentTheme();
     QJsonObject getThemeByKey(QString theme);
@@ -49,7 +49,7 @@ signals:
     void cursorKeysChanged(const QStringList& cursorKeys);
     void backgroundKeysChanged(const QStringList& backgroundKeys);
 
-    void themeObjsChanged(const ThemeObjs& obj);
+    void themeObjsChanged(const JosnMapObjs& obj);
     void themeDetailsChanged(const ImageInfoList& details);
     void windowDetailsChanged(const ImageInfoList& details);
     void iconDetailsChanged(const ImageInfoList& details);
@@ -80,7 +80,13 @@ private:
     QStringList m_monospaceFontKeys{};
     int m_fontSize = 10;
     QString m_currentThemeKey;
-    ThemeObjs m_themeObjs;
+    JosnMapObjs m_themeObjs;
+    JosnMapObjs m_windowObjs;
+    JosnMapObjs m_iconObjs;
+    JosnMapObjs m_cursorObjs;
+    JosnMapObjs m_backgroundObjs;
+    JosnMapObjs m_standardFontObjs;
+    JosnMapObjs m_monospaceFontObjs;
     AppearanceDaemonInterface* m_appearanceDaemonInterface;
 };
 

@@ -71,7 +71,7 @@ public slots:
     void updateCursorKeys(const QStringList& cursorKeys);
     void updateBackgroundKeys(const QStringList& backgroundKeys);
 
-    void updateThemeObjs(const ThemeObjs& themeObjs);
+    void updateThemeObjs(const JosnMapObjs& themeObjs);
     void updateThemeButtons(const ImageInfoList& imageInfos);
     void updateWindowButtons(const ImageInfoList& imageInfos);
     void updateIconButtons(const ImageInfoList& imageInfos);
@@ -150,7 +150,7 @@ private:
     QStringList m_standardFonts{};
     QStringList m_monospaceFonts{};
     QString m_currentTheme;
-    ThemeObjs m_themeObjs;
+    JosnMapObjs m_themeObjs;
 
 
     int m_itemWidth = 140;
