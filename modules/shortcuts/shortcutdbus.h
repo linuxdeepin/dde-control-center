@@ -25,6 +25,7 @@
  */
 
 struct ShortcutInfo{
+    qint16 listType;
     qint32 type;
     qint32 id;
     QString strId;
@@ -49,6 +50,13 @@ public:
     { return "/com/deepin/daemon/Keybinding"; }
     static inline const char *staticInterfaceName()
     { return "com.deepin.daemon.Keybinding"; }
+
+    enum ListType{
+        SystemList,
+        WindowList,
+        WorkspaceList,
+        CustomList
+    };
 
 public:
     ShortcutDbus(QObject *parent = 0);
@@ -243,7 +251,7 @@ private:
     ShortcutInfoList m_windowList;
     ShortcutInfoList m_workspaceList;
     ShortcutInfoList m_customList;
-    QHash<QString, ShortcutInfoList*> m_idToInfoListHash;
+    QHash<QString, ShortcutInfo*> m_idToInfoListHash;
     QMap<QString, ShortcutInfo*> m_strIdAndTypeToInfoMap;
     QMap<int, ShortcutInfo*> m_intIdToInfoMap;
     int m_intId = 0;
