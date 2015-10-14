@@ -166,13 +166,14 @@ QString PowerInterfaceManagement::setPowerTooltipText(QString itemId, QString po
         argument_display = QString(tr("%1 minutes")).arg("15");
         argument_suspend = QString(tr("Never"));
     } else {
+        powerBatteryPlanInfo();
         qint32 suspendTime, idleTime;
         if (powerType == "power") {
-            suspendTime = m_powerInterface->linePowerSuspendDelay()/60;
-            idleTime = m_powerInterface->linePowerIdleDelay()/60;
+            suspendTime = M_POWER_SUSPEND_DELAY/60;
+            idleTime = M_POWER_IDLE_DELAY/60;
         } else {
-            suspendTime = m_powerInterface->batterySuspendDelay()/60;
-            idleTime = m_powerInterface->batteryIdleDelay()/60;
+            suspendTime = M_BATTERY_SUSPEND_DELAY/60;
+            idleTime = M_BATTERY_IDLE_DELAY/60;
         }
         /////////////////idleTime
         if (idleTime==0) {
@@ -196,6 +197,34 @@ QString PowerInterfaceManagement::setPowerTooltipText(QString itemId, QString po
     QString tooltip_content = QString(tr("Turn off the display: %1 Suspend: %2 ").arg(argument_display).arg(argument_suspend));
     return tooltip_content;
 }
+void PowerInterfaceManagement::powerBatteryPlanInfo() {
+    std::string planInfoString = m_powerInterface->planInfo().toStdString();
+    QString m_planInfo = QString(QString::fromLocal8Bit(planInfoString.c_str()));
+
+    QByteArray planInfo = m_planInfo.toLatin1();
+    QJsonParseError json_error;
+    QJsonDocument parse_doucment = QJsonDocument::fromJson(planInfo, &json_error);
+
+    if(json_error.error == QJsonParseError::NoError)
+    {
+        QJsonObject planInfoObject = parse_doucment.object();
+        QJsonObject powerPlanInfoObject = planInfoObject.value("PowerLine").toObject();
+        QJsonArray powerPlanInfoArray = powerPlanInfoObject.value("Custom").toArray();
+
+        if (powerPlanInfoArray.count()==2) {
+            M_POWER_IDLE_DELAY = powerPlanInfoArray.toVariantList()[0].toInt();
+            M_POWER_SUSPEND_DELAY = powerPlanInfoArray.toVariantList()[1].toInt();
+        }
+        QJsonObject batteryPlanInfoObject = planInfoObject.value("Battery").toObject();
+        QJsonArray batteryPlanInfoArray = batteryPlanInfoObject.value("Custom").toArray();
+
+        if (batteryPlanInfoArray.count()==2) {
+            M_BATTERY_IDLE_DELAY = batteryPlanInfoArray.toVariantList()[0].toInt();
+            M_BATTERY_SUSPEND_DELAY = batteryPlanInfoArray.toVariantList()[1].toInt();
+        }
+    }
+}
+
 void PowerInterfaceManagement::initConnection() {
    connect(m_powerInterface, SIGNAL(LidClosedActionChanged()), SIGNAL(LidClosedActionChanged()));
    connect(m_powerInterface, SIGNAL(PowerButtonActionChanged()), SIGNAL(PowerButtonActionChanged()));

@@ -63,6 +63,11 @@ private:
     const int CLOSE_ACTION_INTERACTIVE = 4;
     const int CLOSE_ACTION_NOTHING = 5;
 
+    int M_POWER_SUSPEND_DELAY = 0;
+    int M_POWER_IDLE_DELAY = 0;
+    int M_BATTERY_SUSPEND_DELAY = 0;
+    int M_BATTERY_IDLE_DELAY = 0;
+    void powerBatteryPlanInfo();
 };
 #endif // POWERINTERFACEMANAGEMENT
 
