@@ -30,6 +30,7 @@ private:
     DBusAudioSinkInput * m_dasi = NULL;
     QSlider *m_iSlider = NULL;
     IconLabel *m_iLabel = NULL;
+    QLabel *m_muteIcon = NULL;
 
     const int ICON_SIZE = 26;
 };

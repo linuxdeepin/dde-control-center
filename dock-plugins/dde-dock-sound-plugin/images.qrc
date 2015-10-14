@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Resource/images/app-mute.png</file>
+    </qresource>
+</RCC>

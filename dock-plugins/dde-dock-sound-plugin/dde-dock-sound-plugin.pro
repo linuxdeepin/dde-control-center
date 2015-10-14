@@ -46,6 +46,7 @@ INSTALLS += target
 PKGCONFIG += gtk+-2.0
 
 RESOURCES += \
-    qss.qrc
+    qss.qrc \
+    images.qrc
 
 QMAKE_MOC_OPTIONS += -I/usr/include/

@@ -34,6 +34,9 @@ void AppIconSlider::initSinkInput(const QString &path)
 {
     m_dasi = new DBusAudioSinkInput(path,this);
     connect(m_dasi,&DBusAudioSinkInput::VolumeChanged,this,&AppIconSlider::volumeUpdate);
+    connect(m_dasi, &DBusAudioSinkInput::MuteChanged, [=] {
+        m_muteIcon->setVisible(m_dasi->mute());
+    });
 }
 
 void AppIconSlider::initWidget()
@@ -45,6 +48,11 @@ void AppIconSlider::initWidget()
     connect(m_iLabel,&IconLabel::released,[=](){
        m_dasi->SetMute(!m_dasi->mute());
     });
+
+    m_muteIcon = new QLabel(m_iLabel);
+    m_muteIcon->setFixedSize(ICON_SIZE, ICON_SIZE);
+    m_muteIcon->setPixmap(QPixmap(":/Resource/images/app-mute.png"));
+    m_muteIcon->setVisible(m_dasi->mute());
 
     m_iSlider = new QSlider(Qt::Horizontal, this);
     m_iSlider->setFixedSize(155, 30);
