@@ -12,6 +12,7 @@
 #include <QVBoxLayout>
 #include <QProcess>
 #include <QCoreApplication>
+#include <QSettings>
 
 #include <unistd.h>
 
@@ -20,14 +21,10 @@
 
 HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     QFrame(parent),
-    m_dbusAccounts(new DBusAccounts(this)),
     modules(modules)
 {
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
-
-    // get user info d-bus interface
-    m_dbusUserInfo = new DBusUser("/com/deepin/daemon/Accounts/User" + QString::number(getuid()), this);
 
     m_grid = new QGridLayout;
     m_grid->setContentsMargins(1, 0, 1, 0);
@@ -55,8 +52,12 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     topOuterWidget->setFixedHeight(DCC::HomeScreen_TopWidgetHeight);
     topOuterWidget->setFixedWidth(DCC::ControlCenterWidth);
 
+    // TODO/FIXME: 为了优化神威机器上的启动速度，这里不用D-Bus而是直接读取配置文件
+    const QString userName(getlogin());
+    QSettings setting("/var/lib/AccountsService/users/" + userName, QSettings::IniFormat);
+
     UserAvatar *topButton = new UserAvatar;
-    topButton->setIcon(m_dbusUserInfo->iconFile());
+    topButton->setIcon(setting.value("User/Icon").toString());
     topButton->setFixedSize(80, 80);
     topButton->setAvatarSize(UserAvatar::AvatarLargeSize);
 
@@ -64,7 +65,7 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     topLabel->setFixedHeight(30);
     topLabel->setAlignment(Qt::AlignCenter);
     topLabel->setObjectName("Username");
-    topLabel->setText(m_dbusUserInfo->userName());
+    topLabel->setText(userName);
 
     QVBoxLayout *topWidgetLayout = new QVBoxLayout;
     topWidgetLayout->addWidget(topButton);

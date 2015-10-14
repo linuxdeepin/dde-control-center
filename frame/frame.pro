@@ -9,8 +9,6 @@ HEADERS    = frame.h \
     contentview.h \
     dtipsframe.h \
     dbus/dbuscontrolcenter.h \
-    dbus/dbususer.h \
-    dbus/dbusaccounts.h \
     dbus/dbusxmousearea.h \
     ../modules/display/dbus/displayinterface.h \
     dbus/dbuscontrolcenterservice.h
@@ -21,8 +19,6 @@ SOURCES    = frame.cpp \
     contentview.cpp \
     dtipsframe.cpp \
     dbus/dbuscontrolcenter.cpp \
-    dbus/dbususer.cpp \
-    dbus/dbusaccounts.cpp \
     dbus/dbusxmousearea.cpp \
     ../modules/display/dbus/displayinterface.cpp \
     dbus/dbuscontrolcenterservice.cpp
