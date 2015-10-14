@@ -34,6 +34,7 @@ public:
         {"TypeFontSize","fontsize"}
     };
 
+    void initConnect();
     QString getThumbnail(QString Type, QString key);
     ImageInfoList& getDetails(QString Type, QStringList& keys, JosnMapObjs& objs, ImageInfoList& details);
     void getDetails(QString Type, QStringList& keys, JosnMapObjs& objs);
@@ -64,6 +65,7 @@ signals:
 public slots:
     void doWork();
     void setTheme(QString Type, QString Key);
+    void deleteItem(QString Type, QString Key);
 
 private:
     QStringList m_themeKeys{};

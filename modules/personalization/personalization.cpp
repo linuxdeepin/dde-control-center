@@ -56,7 +56,6 @@ void Personalization::initUI(){
     mainLayout->setSpacing(0);
     mainLayout->setContentsMargins(0, 0, 0, 0);
     m_frame->setLayout(mainLayout);
-
     m_expandGroup->addExpand(m_themeExpand);
     m_expandGroup->addExpand(m_windowExpand);
     m_expandGroup->addExpand(m_iconExpand);
@@ -95,12 +94,15 @@ void Personalization::initControllers(){
 void Personalization::initConnect(){
     connect(m_slider, &DSlider::valueChanged, this, &Personalization::setFontSize);
     connect(m_themeButtonGrid, &DButtonGrid::buttonCheckedIndexChanged, this, &Personalization::setThemeByIndex);
+    connect(m_themeButtonGrid, SIGNAL(requestRefreshed(QString)), this, SLOT(handleDataDeleteRefrehed(QString)));
     connect(m_windowButtonGrid, &DButtonGrid::buttonCheckedIndexChanged, this, &Personalization::setWindowByIndex);
     connect(m_iconButtonGrid, &DButtonGrid::buttonCheckedIndexChanged, this, &Personalization::setIconByIndex);
     connect(m_cursorButtonGrid, &DButtonGrid::buttonCheckedIndexChanged, this, &Personalization::setCursorByIndex);
     connect(m_wallpaperButtonGrid, &DButtonGrid::buttonCheckedIndexChanged, this, &Personalization::setBackgroundByIndex);
+    connect(m_wallpaperButtonGrid, SIGNAL(requestRefreshed(QString)), this, SLOT(handleDataDeleteRefrehed(QString)));
     connect(m_standardFontCombox, SIGNAL(currentIndexChanged(int)), this, SLOT(setStandardFontByIndex(int)));
     connect(m_monospaceFontCombox, SIGNAL(currentIndexChanged(int)), this, SLOT(setMonospaceFontByIndex(int)));
+
 }
 
 void Personalization::initThemeExpand(){
@@ -342,10 +344,21 @@ void Personalization::updateCursorButtons(const ImageInfoList &imageInfos){
 
 void Personalization::updateWallpaperButtons(const ImageInfoList &imageInfos){
     m_wallpaperImageInfos = imageInfos;
+    m_wallpaperButtonGrid->clear();
     m_wallpaperButtonGrid->addImageButtons(imageInfos, false);
     int w = m_wallpaperButtonGrid->width() + m_margins.left() + m_margins.right();
     int h = m_wallpaperButtonGrid->height() + m_margins.top() + m_margins.bottom();
-    m_wallpaperContentFrame->setFixedSize(w, h);
+    m_maxExpandContentHeight = m_frame->height() \
+            - m_headerLine->height()\
+            - 2\
+            - 32 * 6;
+    if (h > m_maxExpandContentHeight){
+        m_wallpaperButtonGrid->setFixedHeight(m_maxExpandContentHeight - m_margins.top() - m_margins.bottom());
+        m_wallpaperContentFrame->setFixedSize(w, m_maxExpandContentHeight);
+    }else{
+        m_wallpaperContentFrame->setFixedSize(w, h);
+    }
+
     m_wallpaperExpand->setContent(m_wallpaperContentFrame);
 }
 
@@ -555,15 +568,28 @@ void Personalization::setFontLabel(int fontSize){
     m_slider->setValue(fontSize);
 }
 
+QFrame* Personalization::getContent()
+{
+    return m_frame;
+}
+
+void Personalization::handleDataDeleteRefrehed(QString id){
+    qDebug() << id;
+    if (sender() == m_wallpaperButtonGrid){
+        QString type = m_dbusWorker->staticTypeKeys.value("TypeBackground");
+        m_dbusWorker->deleteItem(type, id);
+    }else if (sender() == m_themeButtonGrid){
+        QString type = m_dbusWorker->staticTypeKeys.value("TypeDTheme");
+        qDebug() << type << id;
+        m_dbusWorker->deleteItem(type, id);
+    }
+}
+
+
 Personalization::~Personalization()
 {
     qDebug() << "~Personalization()";
     m_workerThread.quit();
     m_workerThread.wait();
     m_frame->deleteLater();
-}
-
-QFrame* Personalization::getContent()
-{
-    return m_frame;
 }

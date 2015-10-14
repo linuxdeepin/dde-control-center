@@ -21,8 +21,6 @@ DBusWorker::DBusWorker(QObject *parent) : QObject(parent)
         m_themeDetails.clear();
         getDetails(staticTypeKeys.value("TypeDTheme"), m_themeKeys, m_themeObjs, m_themeDetails);
         emit themeDetailsChanged(m_themeDetails);
-        getCurrentTheme();
-        emit currentThemeChanged(m_currentThemeKey);
     });
 }
 
@@ -99,10 +97,17 @@ ImageInfoList& DBusWorker::getDetails(QString Type, QStringList &keys, JosnMapOb
             if (Type == staticTypeKeys.value("TypeDTheme")){
                 name = m_themeObjs.value(key).value("Name").toString();
             }
+            QString deletable("false");
+            if (objs.value(key).contains("Deletable")){
+                if (objs.value(key).value("Deletable").toBool()){
+                    deletable = "true";
+                }
+            }
             QMap<QString, QString> detail{
                 {"key", key},
                 {"name", name},
-                {"url", thumbnail}
+                {"url", thumbnail},
+                {"deletable", deletable}
             };
             details.append(detail);
         }
@@ -152,6 +157,26 @@ void DBusWorker::getThemeObjs(){
 void DBusWorker::setTheme(QString Type, QString Key){
     QDBusPendingReply<> reply = m_appearanceDaemonInterface->Set(Type, Key);
     qDebug() << "set" << Type << Key;
+}
+
+void DBusWorker::deleteItem(QString Type, QString Key){
+    QDBusPendingReply<> reply = m_appearanceDaemonInterface->Delete(Type, Key);
+    reply.waitForFinished();
+    if (!reply.isError()){
+        qDebug() << "delete" << Type << Key << "successfully";
+        if (Type == staticTypeKeys.value("TypeBackground")){
+            getDetails(staticTypeKeys.value("TypeBackground"), m_backgroundKeys, m_backgroundObjs, m_backgroundDetails);
+            emit backgroundKeysChanged(m_backgroundKeys);
+            emit backgroundDetailsChanged(m_backgroundDetails);
+        }else if (Type == staticTypeKeys.value("TypeDTheme")){
+            getDetails(staticTypeKeys.value("TypeDTheme"), m_themeKeys ,m_themeObjs , m_themeDetails);
+            emit themeKeysChanged(m_themeKeys);
+            emit themeObjsChanged(m_themeObjs);
+            emit themeDetailsChanged(m_themeDetails);
+        }
+    }else{
+        qDebug() << reply.error().message();
+    }
 }
 
 DBusWorker::~DBusWorker()

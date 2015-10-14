@@ -63,6 +63,7 @@ public:
 
 signals:
     void dataRequested();
+    void itemDeleted(QString type, QString id);
 
 public slots:
     void updateThemeKeys(const QStringList& themeKeys);
@@ -92,6 +93,8 @@ public slots:
     void setMonospaceFontByIndex(int index);
     void setFontLabel(int fontSize);
     void setFontSize(int fontSize);
+
+    void handleDataDeleteRefrehed(QString id);
 
 private:
     QMargins m_margins;
@@ -155,6 +158,7 @@ private:
 
     int m_itemWidth = 140;
     int m_itemHeight = 90;
+    int m_maxExpandContentHeight = 0;
 };
 
 #endif // PERSONALIZATION_H
