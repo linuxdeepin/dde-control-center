@@ -34,6 +34,7 @@ class SearchList : public ListWidget
 
 public:
     explicit SearchList(QWidget *parent = 0);
+    ~SearchList();
 
 public slots:
     int addItem(SearchItem *data);

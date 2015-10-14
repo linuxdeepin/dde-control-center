@@ -23,6 +23,11 @@ SearchList::SearchList(QWidget *parent) :
     connect(this, &SearchList::firstCheckedChanged, this, &SearchList::checkedItemChanged);
 }
 
+SearchList::~SearchList()
+{
+    qDeleteAll(m_itemList.begin(), m_itemList.end());
+}
+
 int SearchList::addItem(SearchItem *data)
 {
     insertItem(count(), data);
