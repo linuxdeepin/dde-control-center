@@ -24,7 +24,8 @@ SOURCES += soundplugin.cpp \
     ../../modules/sound/dbus/dbusaudiosinkinput.cpp \
     appiconslider.cpp \
     deviceiconslider.cpp \
-    iconlabel.cpp
+    iconlabel.cpp \
+    volumeslider.cpp
 
 HEADERS += soundplugin.h \
     ../../modules/sound/dbus/dbusaudio.h \
@@ -37,7 +38,8 @@ HEADERS += soundplugin.h \
     ../../modules/sound/dbus/dbusaudiosinkinput.h \
     appiconslider.h \
     deviceiconslider.h \
-    iconlabel.h
+    iconlabel.h \
+    volumeslider.h
 DISTFILES += dde-dock-sound-plugin.json
 
 target.path = $${PREFIX}/share/dde-dock/plugins/

@@ -1,17 +1,33 @@
-QSlider::groove:horizontal {
+VolumeSlider::groove:horizontal {
     /*border: 1px solid #999999;*/
     height: 2px; /* the groove expands to the size of the slider by default. by giving it a height, it has a fixed size */
-    background: rgba(255,255,255,0.3);
-    margin: 2px 0;
+    background: transparent;
+    margin: 0px 0;
     border-radius:1;
 }
 
-QSlider::handle:horizontal {
+VolumeSlider::handle:horizontal[isMute="true"] {
+    background: rgba(255,255,255,0.3);
+    /*border: 1px solid #5c5c5c;*/
+    width: 12px;
+    margin: -5px 0; /* handle is placed by default on the contents rect of the groove. Expand outside the groove */
+    border-radius: 6px;
+}
+
+VolumeSlider::handle:horizontal {
     background: white;
     /*border: 1px solid #5c5c5c;*/
     width: 12px;
     margin: -5px 0; /* handle is placed by default on the contents rect of the groove. Expand outside the groove */
     border-radius: 6px;
+}
+
+VolumeSlider::add-page:horizontal {
+    background: rgba(255,255,255,0.3);
+}
+
+VolumeSlider::sub-page:horizontal {
+    background: rgba(255,255,255,0.7);
 }
 
 QLabel {

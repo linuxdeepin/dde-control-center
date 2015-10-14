@@ -7,6 +7,7 @@
 #include <QDebug>
 #include "iconlabel.h"
 #include "soundicon.h"
+#include "volumeslider.h"
 #include "dbus/dbusaudiosink.h"
 #include <dde-dock/dockconstants.h>
 
@@ -28,7 +29,7 @@ private:
 
 private:
     Dock::DockMode m_dockMode = Dock::EfficientMode;
-    QSlider *m_iSlider = NULL;
+    VolumeSlider *m_iSlider = NULL;
     IconLabel *m_iLabel = NULL;
 
     DBusAudioSink *m_das = NULL;
