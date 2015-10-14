@@ -236,37 +236,37 @@ QString PowerPlugin::settingDisabledKey()
 
 void PowerPlugin::updateIcon()
 {
-    if (!m_dbusPower->isValid())
-        return;
+    QString iconName;
 
-    bool batteryPresent = m_dbusPower->batteryIsPresent();
+    if (!m_dbusPower->isValid()){
+        iconName = getBatteryIcon(-1, false, m_mode != Dock::FashionMode);
+    }else{
+        bool batteryPresent = m_dbusPower->batteryIsPresent();
 
-    if (batteryPresent) {
-        int batteryPercentage = m_dbusPower->batteryPercentage();
-
-        QIcon fallback = QIcon::fromTheme("application-default-icon");
-
-        if (m_mode == Dock::FashionMode) {
-            QString iconName = getBatteryIcon(batteryPercentage, !m_dbusPower->onBattery());
-            QIcon icon = QIcon::fromTheme(iconName, fallback);
-            m_label->setFixedSize(Dock::APPLET_FASHION_ICON_SIZE, Dock::APPLET_FASHION_ICON_SIZE);
-            m_label->setPixmap(icon.pixmap(m_label->size()));
-            m_proxy->infoChangedEvent(DockPluginInterface::ItemSize, m_id);
-        } else {
-            QString iconName = getBatteryIcon(batteryPercentage, !m_dbusPower->onBattery(), true);
-            QIcon icon = QIcon::fromTheme(iconName, fallback);
-            m_label->setFixedSize(Dock::APPLET_EFFICIENT_ICON_SIZE, Dock::APPLET_CLASSIC_ICON_SIZE);
-            m_label->setPixmap(icon.pixmap(m_label->size()));
-            m_proxy->infoChangedEvent(DockPluginInterface::ItemSize, m_id);
+        if (batteryPresent) {
+            int batteryPercentage = m_dbusPower->batteryPercentage();
+            iconName = getBatteryIcon(batteryPercentage, !m_dbusPower->onBattery(),
+                                      m_mode != Dock::FashionMode);
         }
     }
+
+    if (m_mode == Dock::FashionMode) {
+        m_label->setFixedSize(Dock::APPLET_FASHION_ICON_SIZE, Dock::APPLET_FASHION_ICON_SIZE);
+    } else {
+        m_label->setFixedSize(Dock::APPLET_EFFICIENT_ICON_SIZE, Dock::APPLET_CLASSIC_ICON_SIZE);
+    }
+
+    QIcon fallback = QIcon::fromTheme("application-default-icon");
+    QIcon icon = QIcon::fromTheme(iconName, fallback);
+    m_label->setPixmap(icon.pixmap(m_label->size()));
+    m_proxy->infoChangedEvent(DockPluginInterface::ItemSize, m_id);
 }
 
 QString PowerPlugin::getBatteryIcon(int percentage, bool plugged, bool symbolic)
 {
     QString percentageStr;
 
-    if (percentage < 10) {
+    if (percentage < 10 && percentage >= 0) {
         percentageStr = "000";
     } else if (percentage < 30) {
         percentageStr = "020";
@@ -276,8 +276,13 @@ QString PowerPlugin::getBatteryIcon(int percentage, bool plugged, bool symbolic)
         percentageStr = "060";
     } else if (percentage < 90) {
         percentageStr = "080";
-    } else {
+    } else if (percentage <= 100){
         percentageStr = "100";
+    } else {
+        if(!symbolic)
+            return "battery-unknow";
+        else
+            percentageStr = "000";
     }
 
     if (symbolic) {
@@ -288,7 +293,10 @@ QString PowerPlugin::getBatteryIcon(int percentage, bool plugged, bool symbolic)
         }
     } else {
         if (plugged) {
-            return QString("battery-%1-plugged").arg(percentageStr);
+            if(percentage < 100)
+                return QString("battery-%1-plugged").arg(percentageStr);
+            else
+                return "battery-full-charged";
         } else {
             return QString("battery-%1").arg(percentageStr);
         }
