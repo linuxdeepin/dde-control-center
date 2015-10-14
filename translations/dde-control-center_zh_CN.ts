@@ -82,73 +82,73 @@
 <context>
     <name>CreateUserPanel</name>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="50"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="51"/>
         <source>Add User</source>
         <translation>添加用户</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="80"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="291"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="296"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="81"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="292"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="298"/>
         <source>new user</source>
         <translation>新建用户</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="83"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="92"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="84"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="93"/>
         <source>Normal User</source>
         <translation>普通用户</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="89"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="90"/>
         <source>Administrator</source>
         <translation>管理员</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="129"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="130"/>
         <source>Username</source>
         <translation>用户名</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="130"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="131"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="131"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="132"/>
         <source>Repeat Password</source>
         <translation>重复密码</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="132"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="133"/>
         <source>Account Type</source>
         <translation>账户类型</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="133"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="134"/>
         <source>Auto-login</source>
         <translation>自动登录</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="170"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="175"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="257"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="171"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="176"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="258"/>
         <source>Password can not be empty.</source>
         <translation>密码不能为空</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="179"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="254"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="270"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="306"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="313"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="180"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="255"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="271"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="308"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="315"/>
         <source>The two passwords do not match.</source>
         <translation>两次输入密码不一致 </translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="242"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="252"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="267"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="243"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="253"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="268"/>
         <source>Username can not be empty.</source>
         <translation>用户名不能为空</translation>
     </message>
@@ -277,48 +277,48 @@
 <context>
     <name>DateTimePlugin</name>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="133"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="135"/>
         <source>MMM dd</source>
         <translation>MMMdd日</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="134"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="136"/>
         <source> hh:mm </source>
         <translation> hh:mm</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="134"/>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="233"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="136"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="235"/>
         <source> hh:mm A</source>
         <translation> A hh:mm</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="135"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="137"/>
         <source>ddd</source>
         <translation>dddd</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="170"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="172"/>
         <source>Switch display mode</source>
         <translation>切换显示方式</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="172"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="174"/>
         <source>Show week</source>
         <translation>显示星期几</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="173"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="175"/>
         <source>Show date</source>
         <translation>显示日期</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="176"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="178"/>
         <source>Datetime settings(_T)</source>
         <translation>时间设置(_T)</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="136"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="138"/>
         <source>ddd MMM dd</source>
         <translation>MMMdd日 dddd</translation>
     </message>
@@ -405,27 +405,27 @@
         <translation>终端</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="66"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="67"/>
         <source>CD Audio</source>
         <translation>CD音频</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="68"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="70"/>
         <source>DVD Video</source>
         <translation>DVD视频</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="70"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="73"/>
         <source>Music Player</source>
         <translation>音乐播放器</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="72"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="76"/>
         <source>Camera</source>
         <translation>照相机</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="74"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="79"/>
         <source>Software</source>
         <translation>软件</translation>
     </message>
@@ -512,38 +512,38 @@
         <translation>启动菜单</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="66"/>
-        <location filename="../modules/grub/grubwidget.cpp" line="159"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="65"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="158"/>
         <source>Drag and drop an image to change background.</source>
         <translation>拖拽图片到此以更换背景</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="85"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="84"/>
         <source>Default Boot</source>
         <translation>默认启动</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="101"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="100"/>
         <source>Boot delay</source>
         <translation>启动延时</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="109"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="108"/>
         <source>Text Color</source>
         <translation>文字颜色</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="117"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="116"/>
         <source>Selected Text Color</source>
         <translation>选中文字颜色</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="149"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="148"/>
         <source>Updating...</source>
         <translation>正在更新...</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="151"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="150"/>
         <source>Successfully updated, reboot to view.</source>
         <translation>更新成功，重启可查看。</translation>
     </message>
@@ -612,71 +612,71 @@
 <context>
     <name>MainWidget</name>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="26"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="29"/>
         <source>Keyboard Shortcuts</source>
         <translation>快捷键</translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="120"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="123"/>
         <source>Name</source>
         <translation>名称</translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="124"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="127"/>
         <source>Command</source>
         <translation>命令</translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="147"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="150"/>
         <source>Delete Shortcut</source>
         <translation>删除快捷键</translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="148"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="151"/>
         <source>Add Shortcut</source>
         <translation>添加快捷键</translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="149"/>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="208"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="152"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="211"/>
         <source>Custom</source>
         <translation>自定义</translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="205"/>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="275"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="208"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="278"/>
         <source>System</source>
         <translation>系统</translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="206"/>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="276"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="209"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="279"/>
         <source>Window</source>
         <translation>窗口</translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="207"/>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="277"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="210"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="280"/>
         <source>Workspace</source>
         <translation>工作区</translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="346"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="349"/>
         <source>Shortcut &quot;%1&quot; is invalid, please retype new shortcut.</source>
         <translation>无效的快捷键&quot;%1&quot;，请重新输入。</translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="360"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="363"/>
         <source>The shortcut you set </source>
         <translation>您设置的快捷键</translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="370"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="373"/>
         <source>conflicts with the one used for &quot;%2&quot; in the &quot;%1&quot; category.</source>
         <translation>与&quot;%1&quot;类别下的&quot;%2&quot;的快捷键冲突。</translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="376"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="379"/>
         <source>Do you want to replace it?</source>
         <translation>是否进行替换？</translation>
     </message>
@@ -943,7 +943,7 @@
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="241"/>
-        <location filename="../modules/personalization/personalization.cpp" line="553"/>
+        <location filename="../modules/personalization/personalization.cpp" line="552"/>
         <source>Font</source>
         <translation>字体</translation>
     </message>
@@ -1099,14 +1099,34 @@
 <context>
     <name>PowerPlugin</name>
     <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="47"/>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="55"/>
         <source>Power</source>
         <translation>电源</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="70"/>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="78"/>
         <source>On Charging %1</source>
         <translation>充电中 %1</translation>
+    </message>
+    <message>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="171"/>
+        <source>Custom</source>
+        <translation>自定义</translation>
+    </message>
+    <message>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="172"/>
+        <source>Power saver</source>
+        <translation>节能</translation>
+    </message>
+    <message>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="173"/>
+        <source>Balanced</source>
+        <translation>均衡</translation>
+    </message>
+    <message>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="174"/>
+        <source>High performance</source>
+        <translation>高性能</translation>
     </message>
 </context>
 <context>
@@ -1126,12 +1146,12 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="92"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="95"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="93"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="96"/>
         <source>Add</source>
         <translation>添加</translation>
     </message>
@@ -1165,11 +1185,14 @@
 <context>
     <name>ShortcutDbus</name>
     <message>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="118"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="139"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="170"/>
-        <location filename="../modules/shortcuts/shortcutdbus.h" line="210"/>
-        <location filename="../modules/shortcuts/shortcutdbus.h" line="214"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="58"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="69"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="80"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="115"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="143"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="176"/>
+        <location filename="../modules/shortcuts/shortcutdbus.h" line="218"/>
+        <location filename="../modules/shortcuts/shortcutdbus.h" line="222"/>
         <source>None</source>
         <translation>无</translation>
     </message>
@@ -1185,78 +1208,78 @@
 <context>
     <name>Sound</name>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="96"/>
+        <location filename="../modules/sound/sound.cpp" line="97"/>
         <source>Sound</source>
         <translation>声音</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="106"/>
+        <location filename="../modules/sound/sound.cpp" line="107"/>
         <source>Speaker</source>
         <translation>扬声器</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="117"/>
+        <location filename="../modules/sound/sound.cpp" line="118"/>
         <source>Output Volume</source>
         <translation>输出音量</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="129"/>
+        <location filename="../modules/sound/sound.cpp" line="130"/>
         <source>Left/Right Balance</source>
         <translation>左/右平衡</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="133"/>
+        <location filename="../modules/sound/sound.cpp" line="134"/>
         <source>Left</source>
         <translation>左</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="134"/>
+        <location filename="../modules/sound/sound.cpp" line="135"/>
         <source>Right</source>
         <translation>右</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="151"/>
+        <location filename="../modules/sound/sound.cpp" line="152"/>
         <source>Microphone</source>
         <translation>麦克风</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="162"/>
+        <location filename="../modules/sound/sound.cpp" line="163"/>
         <source>Input Volume</source>
         <translation>输入音量</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="173"/>
+        <location filename="../modules/sound/sound.cpp" line="174"/>
         <source>Feedback Volume</source>
         <translation>输入反馈</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="223"/>
+        <location filename="../modules/sound/sound.cpp" line="224"/>
         <source>Output Port</source>
         <translation>输出端口</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="237"/>
+        <location filename="../modules/sound/sound.cpp" line="238"/>
         <source>Output device</source>
         <translation>输出设备</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="271"/>
+        <location filename="../modules/sound/sound.cpp" line="272"/>
         <source>Input Port</source>
         <translation>输入端口</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="285"/>
+        <location filename="../modules/sound/sound.cpp" line="286"/>
         <source>Input device</source>
         <translation>输入设备</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="309"/>
-        <location filename="../modules/sound/sound.cpp" line="316"/>
+        <location filename="../modules/sound/sound.cpp" line="310"/>
+        <location filename="../modules/sound/sound.cpp" line="317"/>
         <source>Show Advanced...</source>
         <translation>显示高级设置...</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="321"/>
+        <location filename="../modules/sound/sound.cpp" line="322"/>
         <source>Hide Advanced...</source>
         <translation>隐藏高级设置...</translation>
     </message>
@@ -1348,42 +1371,42 @@
 <context>
     <name>UserExpandContent</name>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="59"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="60"/>
         <source>Recently Used</source>
         <translation>最近使用</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="60"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="61"/>
         <source>Avatar</source>
         <translation>头像</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="61"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="62"/>
         <source>Webcam</source>
         <translation>拍照</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="115"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="116"/>
         <source>Auto-login</source>
         <translation>自动登录</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="142"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="143"/>
         <source>Enable</source>
         <translation>启用</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="173"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="174"/>
         <source>Account Type</source>
         <translation>账户类型</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="224"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="225"/>
         <source>Choose a new picture for your Avatar</source>
         <translation>请选择一张图片作为您的头像</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="224"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="225"/>
         <source>Image files (*.jpg *.png *.jpeg)</source>
         <translation>图片文件 (*.jpg *.png *.jpeg)</translation>
     </message>

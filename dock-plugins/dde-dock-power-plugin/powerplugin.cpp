@@ -9,6 +9,14 @@
 
 #include "powerplugin.h"
 
+enum MenuItemType{
+    SeparatorHorizontal = -1,
+    CustomMenuItem = 0,
+    PowerSaverMenuItem,
+    BalancedMenuItem,
+    HighPerformanceMenuItem
+};
+
 PowerPlugin::PowerPlugin()
 {
     QIcon::setThemeName("Deepin");
@@ -133,14 +141,49 @@ void PowerPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
     }
 }
 
-QString PowerPlugin::getMenuContent(QString)
+QJsonObject createMenuItem(MenuItemType itemId, QString itemName, bool checked = false, bool checkable = true)
 {
-    return "";
+    QJsonObject itemObj;
+
+    itemObj.insert("itemId", QString::number(itemId));
+    itemObj.insert("itemText", itemName);
+    itemObj.insert("itemIcon", "");
+    itemObj.insert("itemIconHover", "");
+    itemObj.insert("itemIconInactive", "");
+    itemObj.insert("itemExtra", "");
+    itemObj.insert("isActive", true);
+    itemObj.insert("isCheckable", checkable);
+    itemObj.insert("checked", checked);
+    itemObj.insert("itemSubMenu", QJsonObject());
+
+    return itemObj;
 }
 
-void PowerPlugin::invokeMenuItem(QString, QString, bool)
+QString PowerPlugin::getMenuContent(QString)
 {
+    QJsonObject contentObj;
 
+    QJsonArray items;
+
+    MenuItemType type = (MenuItemType)m_dbusPower->batteryPlan();
+
+    items.append(createMenuItem(SeparatorHorizontal, ""));
+    items.append(createMenuItem(CustomMenuItem, tr("Custom"), type == CustomMenuItem));
+    items.append(createMenuItem(PowerSaverMenuItem, tr("Power saver"), type == PowerSaverMenuItem));
+    items.append(createMenuItem(BalancedMenuItem, tr("Balanced"), type == BalancedMenuItem));
+    items.append(createMenuItem(HighPerformanceMenuItem, tr("High performance"), type == HighPerformanceMenuItem));
+    items.append(createMenuItem(SeparatorHorizontal, ""));
+
+    contentObj.insert("items", items);
+
+    return QString(QJsonDocument(contentObj).toJson());
+}
+
+void PowerPlugin::invokeMenuItem(QString id, QString itemId, bool checked)
+{
+    Q_UNUSED(id)
+    if(checked)
+        m_dbusPower->setBatteryPlan(itemId.toInt());
 }
 
 void PowerPlugin::onInitTimerTriggered()
