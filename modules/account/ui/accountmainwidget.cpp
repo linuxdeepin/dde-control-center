@@ -44,6 +44,14 @@ void AccountMainWidget::initHeader()
 
     //ControlButton//////////////////////////////////////////
     QWidget *headerButtonContent = new QWidget();
+
+    DBusSessionManager sessionManager;
+    QString currentUserPath = m_account->FindUserById(sessionManager.currentUid()).value();
+    DBusAccountUser dau(currentUserPath);
+    bool adminCurrentLogin = dau.accountType() == 1;
+    if (!adminCurrentLogin)
+        headerButtonContent->setFixedHeight(0);
+
     QHBoxLayout *buttonLayout = new QHBoxLayout(headerButtonContent);
     buttonLayout->setContentsMargins(0, 0, 0, 0);
     buttonLayout->setSpacing(0);

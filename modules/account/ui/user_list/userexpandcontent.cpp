@@ -1,4 +1,6 @@
 #include <QTimer>
+#include "dbus/dbusaccount.h"
+#include "dbus/dbussessionmanager.h"
 #include "userexpandcontent.h"
 
 UserExpandContent::UserExpandContent(const QString &userPath, QWidget *parent)
@@ -12,11 +14,6 @@ UserExpandContent::UserExpandContent(const QString &userPath, QWidget *parent)
     QTimer *initTimer = new QTimer(this);
     connect(initTimer, SIGNAL(timeout()), this, SLOT(initDBusData()));
     initTimer->start(1000);
-}
-
-void UserExpandContent::setIsCurrentUser(bool isCurrentUser)
-{
-    m_isCurrentUser = isCurrentUser;
 }
 
 void UserExpandContent::onRequestPreDestroy()
@@ -33,9 +30,15 @@ void UserExpandContent::initDBusData()
         timer->deleteLater();
 
         //get dbus data
-        m_accountUser = new DBusAccountUser(m_userPath, this);
+        DBusAccount da;
+        if (!m_accountUser)
+            m_accountUser = new DBusAccountUser(m_userPath, this);
 
-        if (m_accountUser->isValid()) {
+        if (da.isValid() && m_accountUser->isValid()) {
+            DBusSessionManager sessionManager;
+            QString currentUserPath = da.FindUserById(sessionManager.currentUid()).value();
+            m_isCurrentUser = m_userPath == currentUserPath;
+
             initSegmentedControl();
             initAvatarPanel();
             initAutoLogin();
@@ -163,9 +166,10 @@ void UserExpandContent::initUserEnable()
         onAccountEnableChanged(!m_accountUser->locked());
     });
 
-    m_mainLayout->addWidget(m_lockLine);
     if (m_isCurrentUser)
         m_lockLine->setFixedHeight(0);
+    else
+        m_mainLayout->addWidget(m_lockLine);
 }
 
 void UserExpandContent::initAccountType()
@@ -192,9 +196,10 @@ void UserExpandContent::initAccountType()
         m_typeLine->setType(m_accountUser->accountType());
     });
 
-    m_mainLayout->addWidget(m_typeLine);
     if (m_isCurrentUser)
         m_typeLine->setFixedHeight(0);
+    else
+        m_mainLayout->addWidget(m_typeLine);
 }
 
 void UserExpandContent::initPassword()
@@ -242,15 +247,16 @@ void UserExpandContent::onAccountEnableChanged(bool enabled)
         m_segmentedFrame->setFixedHeight(DUI::BUTTON_HEIGHT + LAYOUT_SPACING * 2);
         updatemAvatarGridSize(m_stackWidget->currentIndex());
         m_autoLoginLine->setFixedHeight(DUI::CONTENT_HEADER_HEIGHT);
-        m_typeLine->setFixedHeight(DUI::CONTENT_HEADER_HEIGHT);
         m_passwordFrame->setFixedHeight(DUI::CONTENT_HEADER_HEIGHT);
+        if (!m_isCurrentUser)
+            m_typeLine->setFixedHeight(DUI::CONTENT_HEADER_HEIGHT);
     }
     else {
         m_segmentedFrame->setFixedHeight(0);
         m_stackWidget->setFixedHeight(0);
         m_autoLoginLine->setFixedHeight(0);
-        m_typeLine->setFixedHeight(0);
         m_passwordFrame->setFixedHeight(0);
+        m_typeLine->setFixedHeight(0);
     }
 
     updateSize(true);

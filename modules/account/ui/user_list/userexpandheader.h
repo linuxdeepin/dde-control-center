@@ -85,6 +85,8 @@ private:
     DArrowButton *m_arrowButton = NULL;
     QStackedWidget *m_rightStack = NULL;
     DeleteButton *m_deleteButton = NULL;
+    bool m_adminCurrentLogin = true;
+    bool m_isCurrentUser = false;
 
     const int ICON_WIDTH = 118;
     const int ICON_NORMAL_HEIGHT = 100;

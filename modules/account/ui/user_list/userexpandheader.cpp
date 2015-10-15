@@ -1,4 +1,6 @@
 #include "userexpandheader.h"
+#include "dbus/dbusaccount.h"
+#include "dbus/dbussessionmanager.h"
 
 UserExpandHeader::UserExpandHeader(const QString &userPath, QWidget *parent)
     : QLabel(parent), m_userPath(userPath)
@@ -13,9 +15,21 @@ UserExpandHeader::UserExpandHeader(const QString &userPath, QWidget *parent)
     initRightStack();
 
     //get dbus data
+    DBusAccount da;
     m_accountUser = new DBusAccountUser(userPath, this);
-    if (m_accountUser->isValid())
+    if (m_accountUser->isValid()) {
+        DBusSessionManager sessionManager;
+        QString currentUserPath = da.FindUserById(sessionManager.currentUid()).value();
+        m_isCurrentUser = currentUserPath == m_userPath;
+        setIsCurrentUser(m_isCurrentUser);
+        DBusAccountUser dau(currentUserPath);
+        m_adminCurrentLogin = dau.accountType() == 1;
+
+        if (!m_adminCurrentLogin && !m_isCurrentUser)
+            m_arrowButton->setFixedSize(0, 0);
+
         initData();
+    }
 }
 
 void UserExpandHeader::updateIcon()
@@ -84,6 +98,9 @@ void UserExpandHeader::changeToDeleteState(bool value)
 
 void UserExpandHeader::mousePressEvent(QMouseEvent *)
 {
+    if (!m_adminCurrentLogin && !m_isCurrentUser)
+        return;
+
     reverseArrowDirection();
     emit mousePress();
 }
