@@ -165,7 +165,12 @@ QString PowerPlugin::getMenuContent(QString)
 
     QJsonArray items;
 
-    MenuItemType type = (MenuItemType)m_dbusPower->batteryPlan();
+    MenuItemType type;
+    if(m_dbusPower->onBattery()){
+        type = (MenuItemType)m_dbusPower->batteryPlan();
+    }else{
+        type = (MenuItemType)m_dbusPower->linePowerPlan();
+    }
 
     items.append(createMenuItem(SeparatorHorizontal, ""));
     items.append(createMenuItem(CustomMenuItem, tr("Custom"), type == CustomMenuItem));
@@ -182,8 +187,12 @@ QString PowerPlugin::getMenuContent(QString)
 void PowerPlugin::invokeMenuItem(QString id, QString itemId, bool checked)
 {
     Q_UNUSED(id)
-    if(checked)
-        m_dbusPower->setBatteryPlan(itemId.toInt());
+    if(checked){
+        if(m_dbusPower->onBattery())
+            m_dbusPower->setBatteryPlan(itemId.toInt());
+        else
+            m_dbusPower->setLinePowerPlan(itemId.toInt());
+    }
 }
 
 void PowerPlugin::onInitTimerTriggered()
