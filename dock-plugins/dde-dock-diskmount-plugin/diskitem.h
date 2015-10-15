@@ -17,14 +17,18 @@ class DiskItem : public QLabel
 public:
     explicit DiskItem(const QString &id,DBusDiskMount * diskMount , QWidget *parent = 0);
 
-signals:
-
 public slots:
     void updateData();
 
 private:
     void initWidgets();
     QString bitToHuman(qint64 value);
+    void sendNotification(const QString &title, const QString &msg);
+
+private slots:
+    void umountDisk();
+    void slotRetry(uint, QString);
+
 private:
     DBusDiskMount * m_diskMount = NULL;
     QString m_id = "";
@@ -33,6 +37,7 @@ private:
     DiskIcon * m_diskIcon = NULL;
     QLabel * m_progressLabel = NULL;
     QProgressBar * m_usedBar = NULL;
+    QDBusInterface *notifyInterface;
 };
 
 #endif // DISKITEM_H

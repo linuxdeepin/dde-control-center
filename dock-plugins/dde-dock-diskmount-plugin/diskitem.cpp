@@ -3,8 +3,15 @@
 DiskItem::DiskItem(const QString &id, DBusDiskMount *diskMount, QWidget *parent)
     : QLabel(parent), m_id(id)
 {
+    notifyInterface = new QDBusInterface("org.freedesktop.Notifications",
+                                                         "/org/freedesktop/Notifications",
+                                                         "org.freedesktop.Notifications",
+                                                         QDBusConnection::sessionBus());
+    connect(notifyInterface, SIGNAL(ActionInvoked(uint,QString)), SLOT(slotRetry(uint,QString)));
+
     m_diskMount = diskMount;
     connect(diskMount, &DBusDiskMount::DiskListChanged, this, &DiskItem::updateData);
+    connect(diskMount, &DBusDiskMount::Error, this, &DiskItem::sendNotification);
     this->setFixedSize(220,80);
     initWidgets();
 
@@ -26,6 +33,41 @@ void DiskItem::updateData()
             m_progressLabel->setText(bitToHuman(info.used) + "/" + bitToHuman(info.size));
             m_usedBar->setValue(100 * (double(info.used) / info.size));
         }
+    }
+}
+
+void DiskItem::sendNotification(const QString &title, const QString &msg)
+{
+    qDebug() << "send message:" << title << msg;
+
+    notifyInterface->asyncCall("Notify",
+                           "Disk Mount",
+                           uint(0),
+                           "diskmount",
+                           title,
+                           msg,
+                           QStringList() << "diskmount_retry" << tr("Resend"),
+                           QVariantMap(),
+                           0);
+}
+
+void DiskItem::umountDisk()
+{
+    qWarning() << "Umount Disk: "<< m_diskUuid;
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_diskMount->DeviceUnmount(m_diskUuid));
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, watcher]{
+        if(!watcher->reply().arguments().first().toBool()){
+             sendNotification("disk mount", "umount disk failed, plase retry");
+        }
+
+        watcher->deleteLater();
+    });
+}
+
+void DiskItem::slotRetry(uint, QString id)
+{
+    if(id == "diskmount_retry"){
+        umountDisk();
     }
 }
 
@@ -52,9 +94,7 @@ void DiskItem::initWidgets()
 
     UmountButton * uButton = new UmountButton(this);
     uButton->move(width() - uButton->width() - 5, m_usedBar->y() - uButton->height() - 5);
-    connect(uButton, &UmountButton::mousePressed, [=](){
-       qWarning() << "Umount Disk: "<< m_diskUuid << m_diskMount->DeviceUnmount(m_diskUuid);
-    });
+    connect(uButton, &UmountButton::mousePressed, this, &DiskItem::umountDisk);
 }
 
 QString DiskItem::bitToHuman(qint64 value)
