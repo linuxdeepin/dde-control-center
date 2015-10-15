@@ -7,6 +7,7 @@
 
 #include "datetimeplugin.h"
 #include "clockpixmap.h"
+#include "dde-dock/dockconstants.h"
 
 static const QString MenuIdDatetimeSettings = "id_datetime_settings";
 static const QString MenuIdSwitchDisplayMode = "id_switch_display_mode";
@@ -21,9 +22,8 @@ DateTimePlugin::DateTimePlugin() :
     m_clockPixmap = ClockPixmap(QTime::currentTime());
 
     m_item = new QLabel;
+    m_item->setAlignment(Qt::AlignLeft);
     m_item->setStyleSheet("QLabel { color: white }");
-    m_item->adjustSize();
-
     m_timer = new QTimer(this);
     m_timer->setInterval(500);
     m_timer->setSingleShot(false);
@@ -148,7 +148,10 @@ void DateTimePlugin::updateTime()
         m_item->setText(newText);
 
         if (newText.length() != oldText.length()) {
-            m_item->adjustSize();
+            QFontMetrics metrics(m_item->font());
+            int textWidth = metrics.width(newText);
+            int textHeight = metrics.height();
+            m_item->setFixedSize(textWidth + RIGHT_PADDING, textHeight);
             m_proxy->infoChangedEvent(DockPluginInterface::ItemSize, m_id);
         }
     }
@@ -230,13 +233,18 @@ void DateTimePlugin::setMode(Dock::DockMode mode)
     QTime time = QTime::currentTime();
 
     if (m_mode == Dock::FashionMode) {
+        m_item->setFixedSize(Dock::APPLET_FASHION_ITEM_WIDTH, Dock::APPLET_FASHION_ITEM_HEIGHT);
         m_item->setPixmap(m_clockPixmap);
     } else {
         QString timeFormat = m_use24HourFormat ? " hh:mm" : tr(" hh:mm A");
         m_item->setText(time.toString(timeFormat));
+
+        QFontMetrics metrics(m_item->font());
+        int textWidth = metrics.width(m_item->text());
+        int textHeight = metrics.height();
+        m_item->setFixedSize(textWidth + RIGHT_PADDING, textHeight);
     }
 
-    m_item->adjustSize();
     m_proxy->infoChangedEvent(DockPluginInterface::ItemSize, m_id);
 }
 

@@ -58,6 +58,10 @@ private:
     bool m_showDate;
     bool m_use24HourFormat;
 
+private slots:
+    void updateTime();
+    void onUse24HourFormatChanged();
+
 private:
     void initCalendar();
     void setMode(Dock::DockMode mode);
@@ -65,10 +69,7 @@ private:
                                QString itemName,
                                bool checkable = false,
                                bool checked = false);
-
-private slots:
-    void updateTime();
-    void onUse24HourFormatChanged();
+    const int RIGHT_PADDING = 20;
 };
 
 #endif // DATETIMEPLUGIN_H
