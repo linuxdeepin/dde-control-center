@@ -391,8 +391,11 @@ void Datetime::loadZoneList()
     QDataStream readStream(&bytes, QIODevice::ReadOnly);
     readStream >> *m_zoneInfoList;
 
-    // load success
-    if (!m_zoneInfoList->empty())
+    // FIXME: 读文件有时会出现由于文件错误而导致数据不正常，所以简单验证一下数据
+    if (!m_zoneInfoList->isEmpty() &&
+        !m_zoneInfoList->first().getZoneName().isEmpty() &&
+        !m_zoneInfoList->first().getZoneCity().isEmpty() &&
+        abs(m_zoneInfoList->first().getUTCOffset()) <= 3600 * 24)
         return;
 
     qDebug() << "load zoneInfoList from d-bus";
