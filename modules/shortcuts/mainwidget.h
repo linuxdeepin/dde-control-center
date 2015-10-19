@@ -7,6 +7,7 @@
 #include <libdui/libdui_global.h>
 #include <libdui/dheaderline.h>
 #include <libdui/dexpandgroup.h>
+#include <libdui/darrowlineexpand.h>
 
 #include "shortcutdbus.h"
 #include "shortcutwidget.h"
@@ -40,6 +41,7 @@ private:
     SearchList *m_workspaceList;
     SearchList *m_customList;
     DExpandGroup *m_expandGroup;
+    QList<QWidget*> m_expandGroupChildList;
 
     void init();
 
@@ -49,6 +51,7 @@ private:
     Q_SLOT void removeShortcut();
     QWidget *getAddShortcutWidget();
     AddRmDoneLine *getCustomLstHeadBar();
+    DArrowLineExpand *addExpand(const QString &title, QWidget *widget);
 };
 
 #endif // GRUBWIDGET_H

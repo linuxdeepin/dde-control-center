@@ -1,7 +1,6 @@
 #include <libdui/dtextbutton.h>
 #include <libdui/dseparatorhorizontal.h>
 #include <libdui/dsearchedit.h>
-#include <libdui/darrowlineexpand.h>
 #include <libdui/dbuttonlist.h>
 #include <libdui/dlineedit.h>
 #include <libdui/dimagebutton.h>
@@ -41,12 +40,13 @@ MainWidget::~MainWidget()
 
 }
 
-DArrowLineExpand *addExpand(const QString &title, QWidget *widget, DExpandGroup *group)
+DArrowLineExpand *MainWidget::addExpand(const QString &title, QWidget *widget)
 {
     DArrowLineExpand *expand = new DArrowLineExpand;
     expand->setTitle(title);
     expand->setContent(widget);
-    group->addExpand(expand);
+    m_expandGroup->addExpand(expand);
+    m_expandGroupChildList << widget;
 
     return expand;
 }
@@ -275,9 +275,9 @@ void MainWidget::init()
     m_layout->addWidget(new DSeparatorHorizontal);
     m_layout->addWidget(m_searchList, 10);
     m_childLayout->setMargin(0);
-    m_childLayout->addWidget(addExpand(tr("System"), m_systemList, m_expandGroup));
-    m_childLayout->addWidget(addExpand(tr("Window"), m_windowList, m_expandGroup));
-    m_childLayout->addWidget(addExpand(tr("Workspace"), m_workspaceList, m_expandGroup));
+    m_childLayout->addWidget(addExpand(tr("System"), m_systemList));
+    m_childLayout->addWidget(addExpand(tr("Window"), m_windowList));
+    m_childLayout->addWidget(addExpand(tr("Workspace"), m_workspaceList));
     m_childLayout->addWidget(customLine);
     m_childLayout->addWidget(new DSeparatorHorizontal);
     m_childLayout->addWidget(m_customList);
@@ -376,9 +376,18 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
             }
         }
 
+        ///下面的代码是为了得出tmp_text在message box中的高度
         tmp_text.append(tr("Do you want to replace it?"));
-
-        int dialog_height = 100;
+        QLabel tmp_label(tmp_text);
+        QFont tmp_font;
+        tmp_font.setPixelSize(12);
+        tmp_label.setFont(tmp_font);
+        tmp_label.setWordWrap(true);
+        tmp_label.setFixedWidth(DCC::ModuleContentWidth - 70);
+        ///70 是 warning icon的宽
+        int dialog_height = qMax(tmp_label.sizeHint().height(), 40) + 60;
+        ///40是warning icon的高
+        ///60是对话框中button和间隔的高
 
         SelectDialog *dialog = new SelectDialog;
         dialog->setFixedHeight(dialog_height);
@@ -386,6 +395,11 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
         listw->insertItem(index+1, dialog);
         listw->setFixedHeight(qMin(LIST_MAX_HEIGHT,
                                    listw->count() * RADIO_ITEM_HEIGHT + dialog_height - RADIO_ITEM_HEIGHT));
+
+        ///获取listw所对应的expand widget在expandGroup的index
+        index = m_expandGroupChildList.indexOf(listw);
+        if(index >= 0)
+            m_expandGroup->expand(index)->updateContentHeight();
 
         connect(dialog, &SelectDialog::replace, [=]{
             dialog->setFixedHeight(dialog_height);
@@ -396,6 +410,8 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
             }
             m_dbus->ModifyShortcut(w->id(), shortcut);
             emit setEnableEditShortcut(true);
+            if(index >= 0)
+                m_expandGroup->expand(index)->updateContentHeight();
         });
         connect(dialog, &SelectDialog::cancel, [=]{
             dialog->contraction();
@@ -404,6 +420,8 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
             dialog->setFixedHeight(dialog_height);
             listw->removeItem(listw->indexOf(dialog));
             emit setEnableEditShortcut(true);
+            if(index >= 0)
+                m_expandGroup->expand(index)->updateContentHeight();
         });
         dialog->expansion();
     }
