@@ -12,6 +12,8 @@
 #include "constants.h"
 #include "normallabel.h"
 #include "imagenamebutton.h"
+#include "listwidget.h"
+#include "genericlistitem.h"
 
 #include "bluetoothmainwidget.h"
 
@@ -23,6 +25,13 @@ BluetoothMainWidget::BluetoothMainWidget(QWidget *parent) :
     m_mainLayout->setMargin(0);
 
     initUI();
+}
+
+GenericListItem *getListItem(const QString &name)
+{
+    GenericListItem *item = new GenericListItem;
+    item->setTitle(name);
+    item->setShowBgColor(false);
 }
 
 void BluetoothMainWidget::initUI()
@@ -91,6 +100,16 @@ void BluetoothMainWidget::initUI()
     headerline->setContent(refresh_button);
     headerline->setFixedHeight(DUI::EXPAND_HEADER_HEIGHT);
 
+    ListWidget *bluetooth_list = new ListWidget;
+    DSeparatorHorizontal *listWidget_separator = new DSeparatorHorizontal;
+
+    bluetooth_list->setCheckable(true);
+    listWidget_separator->hide();
+
+    connect(bluetooth_list, &ListWidget::visibleCountChanged, this, [listWidget_separator](int count){
+        listWidget_separator->setVisible(count > 0);
+    });
+
     m_mainLayout->addWidget(header);
     m_mainLayout->addWidget(new DSeparatorHorizontal);
     m_mainLayout->addWidget(name_edit_switch);
@@ -98,6 +117,8 @@ void BluetoothMainWidget::initUI()
     m_mainLayout->addWidget(new DSeparatorHorizontal);
     m_mainLayout->addWidget(headerline);
     m_mainLayout->addWidget(new DSeparatorHorizontal);
+    m_mainLayout->addWidget(bluetooth_list);
+    m_mainLayout->addWidget(listWidget_separator);
     m_mainLayout->addStretch(1);
 }
 
