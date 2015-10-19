@@ -7,6 +7,19 @@
 #include <QJsonDocument>
 #include <QDebug>
 
+void listSort(QStringList &list)
+{
+    qSort(list.begin(), list.end());
+
+    int index = 0;
+
+    for(int i = 0; i < list.count(); ++i){
+        if(list[i].toLower().contains("deepin")){
+            list.move(i, index++);
+        }
+    }
+}
+
 DBusWorker::DBusWorker(QObject *parent) : QObject(parent)
 {
     m_appearanceDaemonInterface = new AppearanceDaemonInterface(staticServiceName(),
@@ -85,6 +98,8 @@ void DBusWorker::getDetails(QString Type, QStringList &keys, JosnMapObjs &objs){
     }else{
         qDebug() << reply.error().message();
     }
+
+    listSort(keys);
 }
 
 ImageInfoList& DBusWorker::getDetails(QString Type, QStringList &keys, JosnMapObjs &objs, ImageInfoList &details){
