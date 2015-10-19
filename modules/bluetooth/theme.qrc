@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>dark/images/connected.png</file>
+        <file>dark/images/disconnect.png</file>
+        <file>dark/images/edit_hover.png</file>
+        <file>dark/images/edit_normal.png</file>
+        <file>dark/images/reload_hover.png</file>
+        <file>dark/images/reload_normal.png</file>
+        <file>dark/images/reload_press.png</file>
+        <file>dark/images/waiting.svg</file>
+        <file>dark/images/edit_press.png</file>
+    </qresource>
+</RCC>

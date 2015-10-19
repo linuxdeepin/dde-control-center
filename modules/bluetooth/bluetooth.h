@@ -5,8 +5,7 @@
 #include <QtPlugin>
 #include "interfaces.h"
 
-class QLabel;
-class QFrame;
+class BluetoothMainWidget;
 class Bluetooth: public QObject, ModuleInterface
 {
     Q_OBJECT
@@ -19,7 +18,7 @@ public:
     QFrame* getContent() Q_DECL_OVERRIDE;
 
 private:
-    QLabel * m_label;
+    BluetoothMainWidget * m_mainWidget;
 };
 
 #endif
