@@ -211,12 +211,14 @@ DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::Defaul
         const QStringList mimeList = getTypeListByCategory(category);
         const QString appName = appList.at(index).toObject().take("Id").toString();
         QThread *t = nullptr;
-        if (isMedia)
+        if (!isMedia)
             t = new SetDefAppsThread(&m_dbusDefaultApps, mime, appName, mimeList);
         else
             t = new SetDefMediaThread(&m_dbusDefaultMedia, mime, appName, mimeList);
         t->start();
         connect(t, &QThread::finished, t, &QThread::deleteLater);
+
+        qDebug() << appName << " => " << mimeList;
     });
 
     QHBoxLayout *layout = new QHBoxLayout;
@@ -350,6 +352,7 @@ void SetDefAppsThread::run()
 {
     for (const QString &mime : list)
         dbus->SetDefaultApp(mime, appName).waitForFinished();
+    qDebug() << "app set finished" << list << " => " << appName;
 }
 
 SetDefMediaThread::SetDefMediaThread(DBusDefaultMedia *dbus, const QString &mime, const QString &appName, const QStringList &list) :
@@ -364,4 +367,5 @@ void SetDefMediaThread::run()
 {
     for (const QString &mime : list)
         dbus->SetDefaultApp(mime, appName).waitForFinished();
+    qDebug() << "set finished" << list << " => " << appName;
 }
