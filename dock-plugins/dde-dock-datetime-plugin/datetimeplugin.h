@@ -8,6 +8,7 @@
 #include <clockpixmap.h>
 #include <libdui/dcalendar.h>
 #include "dbus/dbustimedate.h"
+#include <QSettings>
 
 DUI_USE_NAMESPACE
 
@@ -54,8 +55,6 @@ private:
     QTimer * m_timer = NULL;
     ClockPixmap m_clockPixmap;
     Dock::DockMode m_mode;
-    bool m_showWeek;
-    bool m_showDate;
     bool m_use24HourFormat;
 
 private slots:
@@ -63,12 +62,18 @@ private slots:
     void onUse24HourFormatChanged();
 
 private:
+    bool showWeek();
+    bool showDate();
+    void initSettings();
     void initCalendar();
     void setMode(Dock::DockMode mode);
     QJsonObject createMenuItem(QString itemId,
                                QString itemName,
                                bool checkable = false,
                                bool checked = false);
+
+private:
+    QSettings * m_settings = NULL;
     const int RIGHT_PADDING = 20;
 };
 

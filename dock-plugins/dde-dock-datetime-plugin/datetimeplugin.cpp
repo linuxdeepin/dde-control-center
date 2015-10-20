@@ -15,10 +15,10 @@ static const QString MenuIdShowWeek = "id_show_week:checkbox:show";
 static const QString MenuIdShowDate = "id_show_date:checkbox:show";
 
 DateTimePlugin::DateTimePlugin() :
-    QObject(),
-    m_showWeek(false),
-    m_showDate(false)
+    QObject()
 {
+    initSettings();
+
     m_clockPixmap = ClockPixmap(QTime::currentTime());
 
     m_item = new QLabel;
@@ -95,6 +95,7 @@ void DateTimePlugin::setDisabled(QString, bool)
 
 QWidget * DateTimePlugin::getItem(QString)
 {
+    updateTime();
     return m_item;
 }
 
@@ -137,11 +138,11 @@ void DateTimePlugin::updateTime()
         QString weekFormat = tr("ddd");
         QString dateAndWeekFormat = tr("ddd MMM dd");
 
-        if (m_showDate && m_showWeek)
+        if (showDate() && showWeek())
             newText += today.toString(dateAndWeekFormat);
-        else if (m_showWeek)
+        else if (showWeek())
             newText += today.toString(weekFormat);
-        else if (m_showDate)
+        else if (showDate())
             newText += today.toString(dateFormat);
         newText += time.toString(timeFormat);
 
@@ -165,6 +166,16 @@ void DateTimePlugin::onUse24HourFormatChanged()
     m_item->setPixmap(m_clockPixmap);
 }
 
+bool DateTimePlugin::showWeek()
+{
+    return m_settings->value("showWeek").toBool();
+}
+
+bool DateTimePlugin::showDate()
+{
+    return m_settings->value("showDate").toBool();
+}
+
 QString DateTimePlugin::getMenuContent(QString)
 {
     QJsonObject contentObj;
@@ -174,8 +185,8 @@ QString DateTimePlugin::getMenuContent(QString)
     if (m_mode == Dock::FashionMode) {
         items.append(createMenuItem(MenuIdSwitchDisplayMode, tr("Switch display mode")));
     } else {
-        items.append(createMenuItem(MenuIdShowWeek, tr("Show week"), true, m_showWeek));
-        items.append(createMenuItem(MenuIdShowDate, tr("Show date"), true, m_showDate));
+        items.append(createMenuItem(MenuIdShowWeek, tr("Show week"), true, showWeek()));
+        items.append(createMenuItem(MenuIdShowDate, tr("Show date"), true, showDate()));
     }
 
     items.append(createMenuItem(MenuIdDatetimeSettings, tr("Datetime settings(_T)")));
@@ -191,9 +202,9 @@ void DateTimePlugin::invokeMenuItem(QString id, QString itemId, bool checked)
         m_clockPixmap.setAnalog(!m_clockPixmap.getAnalog());
         m_item->setPixmap(m_clockPixmap);
     } else if (itemId == MenuIdShowWeek) {
-        m_showWeek = checked;
+        m_settings->setValue("showWeek", checked);
     } else if (itemId == MenuIdShowDate) {
-        m_showDate = checked;
+        m_settings->setValue("showDate", checked);
     } else if (itemId == MenuIdDatetimeSettings) {
         QProcess::startDetached(getCommand(id));
     }
@@ -211,6 +222,16 @@ void DateTimePlugin::onInitTimerTriggered()
         initCalendar();
         //for initialization
         onUse24HourFormatChanged();
+    }
+}
+
+void DateTimePlugin::initSettings()
+{
+    m_settings = new QSettings("deepin", "dde-dock-datetime-plugin", this);
+
+    if (!QFile::exists(m_settings->fileName())) {
+        m_settings->setValue("showWeek", false);
+        m_settings->setValue("showDate", false);
     }
 }
 
