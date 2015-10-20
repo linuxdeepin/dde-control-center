@@ -1,7 +1,6 @@
 TEMPLATE = subdirs
 SUBDIRS  = sound \
            power \
-           bluetooth \
 #           network \
            default_applications \
 #           grub \
@@ -20,4 +19,9 @@ isEmpty(WITH_MODULE_GRUB){
 
 isEqual(WITH_MODULE_GRUB, YES){
     SUBDIRS += grub
+
+    CONFIG(debug, debug|release) {
+        message(Debug)
+        SUBDIRS += bluetooth
+    }
 }

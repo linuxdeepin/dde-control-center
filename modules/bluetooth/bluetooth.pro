@@ -4,19 +4,15 @@ TEMPLATE        = lib
 CONFIG         += plugin c++11 link_pkgconfig
 INCLUDEPATH    += ../../frame/ ../../widgets
 PKGCONFIG += dui
-
-CONFIG(debug) {
-    include(../../widgets/widgets.pri)
-} else {
-    LIBS += -L../../widgets -lwidgets
-}
+LIBS += -L../../widgets -lwidgets
 
 QT             += widgets
-INCLUDEPATH    += ../../frame/
 HEADERS         += bluetooth.h \
-    bluetoothmainwidget.h
+    bluetoothmainwidget.h \
+    bluetoothlistitem.h
 SOURCES         += bluetooth.cpp \
-    bluetoothmainwidget.cpp
+    bluetoothmainwidget.cpp \
+    bluetoothlistitem.cpp
 TARGET          = $$qtLibraryTarget(bluetooth)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 

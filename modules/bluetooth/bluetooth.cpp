@@ -19,7 +19,9 @@ Bluetooth::~Bluetooth()
 {
     qDebug() << "~Bluetooth()";
 
-    m_mainWidget->deleteLater();
+    m_mainWidget->hide();
+    m_mainWidget->setParent(nullptr);
+    delete m_mainWidget;
 }
 
 QFrame* Bluetooth::getContent()
