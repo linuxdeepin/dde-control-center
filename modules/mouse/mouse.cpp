@@ -274,8 +274,8 @@ Mouse::Mouse()
 }
 
 void Mouse::reset() {
-    QDBusPendingCall reply = m_mouseInterface->Reset();
-    reply.waitForFinished();
+    m_mouseInterface->Reset().waitForFinished();
+    m_touchpadInterface->Reset().waitForFinished();
 }
 
 void Mouse::setWidgetsValue() {
