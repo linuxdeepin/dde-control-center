@@ -28,11 +28,13 @@ private:
 private slots:
     void umountDisk();
     void slotRetry(uint, QString);
+    void umountDiskFailed();
 
 private:
     DBusDiskMount * m_diskMount = NULL;
     QString m_id = "";
     QString m_diskUuid = "";
+    QString m_diskType;
     QLabel * m_titleLabel = NULL;
     DiskIcon * m_diskIcon = NULL;
     QLabel * m_progressLabel = NULL;

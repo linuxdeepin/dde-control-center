@@ -11,7 +11,7 @@ DiskItem::DiskItem(const QString &id, DBusDiskMount *diskMount, QWidget *parent)
 
     m_diskMount = diskMount;
     connect(diskMount, &DBusDiskMount::DiskListChanged, this, &DiskItem::updateData);
-    connect(diskMount, &DBusDiskMount::Error, this, &DiskItem::sendNotification);
+    connect(diskMount, &DBusDiskMount::Error, this, &DiskItem::umountDiskFailed);
     this->setFixedSize(220,80);
     initWidgets();
 
@@ -27,6 +27,7 @@ void DiskItem::updateData()
         {
             m_diskUuid = info.uUID;
 
+            m_diskType = info.type;
             m_titleLabel->setText(info.name);
             m_diskIcon->setIcon(info.icon);
             m_diskIcon->setMountPoint(info.mountPoint);
@@ -46,7 +47,7 @@ void DiskItem::sendNotification(const QString &title, const QString &msg)
                            "diskmount",
                            title,
                            msg,
-                           QStringList() << "diskmount_retry" << tr("Resend"),
+                           QStringList() << "diskmount_retry" << tr("Retry"),
                            QVariantMap(),
                            0);
 }
@@ -57,7 +58,7 @@ void DiskItem::umountDisk()
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_diskMount->DeviceUnmount(m_diskUuid));
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, watcher]{
         if(!watcher->reply().arguments().first().toBool()){
-             sendNotification("disk mount", "umount disk failed, plase retry");
+            umountDiskFailed();
         }
 
         watcher->deleteLater();
@@ -69,6 +70,23 @@ void DiskItem::slotRetry(uint, QString id)
     if(id == "diskmount_retry"){
         umountDisk();
     }
+}
+
+void DiskItem::umountDiskFailed()
+{
+    QString disk_type_name;
+
+    if(m_diskType == "removable"){
+        disk_type_name = tr("removable disk");
+    }else if(m_diskType == "network"){
+        disk_type_name = tr("network disk");
+    }else{
+        disk_type_name = tr("local disk");
+    }
+
+    sendNotification("", QString(tr("Failed to uninstall %1 \"%2\", please retry."))
+                     .arg(disk_type_name)
+                     .arg(m_titleLabel->text()));
 }
 
 void DiskItem::initWidgets()

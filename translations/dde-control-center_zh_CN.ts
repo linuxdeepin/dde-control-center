@@ -22,17 +22,17 @@
         <translation>账户</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/accountmainwidget.cpp" line="63"/>
+        <location filename="../modules/account/ui/accountmainwidget.cpp" line="71"/>
         <source>User List</source>
         <translation>用户列表</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/accountmainwidget.cpp" line="208"/>
+        <location filename="../modules/account/ui/accountmainwidget.cpp" line="216"/>
         <source>Add Account</source>
         <translation>添加账户</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/accountmainwidget.cpp" line="242"/>
+        <location filename="../modules/account/ui/accountmainwidget.cpp" line="250"/>
         <source>Delete Account</source>
         <translation>删除账户</translation>
     </message>
@@ -77,6 +77,29 @@
         <location filename="../widgets/applybuttonline.cpp" line="7"/>
         <source>Apply</source>
         <translation>应用</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothMainWidget</name>
+    <message>
+        <location filename="../modules/bluetooth/bluetoothmainwidget.cpp" line="30"/>
+        <source>Bluetooth</source>
+        <translation>蓝牙</translation>
+    </message>
+    <message>
+        <location filename="../modules/bluetooth/bluetoothmainwidget.cpp" line="54"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../modules/bluetooth/bluetoothmainwidget.cpp" line="55"/>
+        <source>Apply</source>
+        <translation>应用</translation>
+    </message>
+    <message>
+        <location filename="../modules/bluetooth/bluetoothmainwidget.cpp" line="89"/>
+        <source>Devices nearby</source>
+        <translation>附近的设备</translation>
     </message>
 </context>
 <context>
@@ -288,7 +311,7 @@
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="136"/>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="235"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="239"/>
         <source> hh:mm A</source>
         <translation> A hh:mm</translation>
     </message>
@@ -298,22 +321,22 @@
         <translation>dddd</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="172"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="175"/>
         <source>Switch display mode</source>
         <translation>切换显示方式</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="174"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="177"/>
         <source>Show week</source>
         <translation>显示星期几</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="175"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="178"/>
         <source>Show date</source>
         <translation>显示日期</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="178"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="181"/>
         <source>Datetime settings(_T)</source>
         <translation>时间设置(_T)</translation>
     </message>
@@ -439,6 +462,34 @@
     </message>
 </context>
 <context>
+    <name>DiskItem</name>
+    <message>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="50"/>
+        <source>Retry</source>
+        <translation>重试</translation>
+    </message>
+    <message>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="80"/>
+        <source>removable disk</source>
+        <translation>可移动磁盘</translation>
+    </message>
+    <message>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="82"/>
+        <source>network disk</source>
+        <translation>网络磁盘</translation>
+    </message>
+    <message>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="84"/>
+        <source>local disk</source>
+        <translation>本地磁盘</translation>
+    </message>
+    <message>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="87"/>
+        <source>Failed to uninstall %1 &quot;%2&quot;, please retry.</source>
+        <translation>%1 \&quot;%2\&quot; 卸载失败，请重试。</translation>
+    </message>
+</context>
+<context>
     <name>Display</name>
     <message>
         <location filename="../modules/display/display.cpp" line="50"/>
@@ -551,7 +602,7 @@
 <context>
     <name>HomeScreen</name>
     <message>
-        <location filename="../frame/homescreen.cpp" line="96"/>
+        <location filename="../frame/homescreen.cpp" line="97"/>
         <source>Power</source>
         <translation>电源</translation>
     </message>
@@ -612,7 +663,7 @@
 <context>
     <name>MainWidget</name>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="29"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="28"/>
         <source>Keyboard Shortcuts</source>
         <translation>快捷键</translation>
     </message>
@@ -676,7 +727,7 @@
         <translation>与&quot;%1&quot;类别下的&quot;%2&quot;的快捷键冲突。</translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/mainwidget.cpp" line="379"/>
+        <location filename="../modules/shortcuts/mainwidget.cpp" line="380"/>
         <source>Do you want to replace it?</source>
         <translation>是否进行替换？</translation>
     </message>
@@ -752,6 +803,11 @@
         <location filename="../frame/sidebar.cpp" line="37"/>
         <source>Power</source>
         <translation>电源</translation>
+    </message>
+    <message>
+        <location filename="../modules/bluetooth/bluetooth.cpp" line="10"/>
+        <source>Bluetooth</source>
+        <translation>蓝牙</translation>
     </message>
 </context>
 <context>
@@ -897,53 +953,53 @@
         <translation>个性化</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="108"/>
+        <location filename="../modules/personalization/personalization.cpp" line="110"/>
         <source>Theme</source>
         <translation>主题</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="129"/>
+        <location filename="../modules/personalization/personalization.cpp" line="131"/>
         <source>Window</source>
         <translation>窗口</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="153"/>
+        <location filename="../modules/personalization/personalization.cpp" line="155"/>
         <source>Icon</source>
         <translation>图标</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="176"/>
+        <location filename="../modules/personalization/personalization.cpp" line="178"/>
         <source>Cursor</source>
         <translation>光标</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="198"/>
+        <location filename="../modules/personalization/personalization.cpp" line="200"/>
         <source>Wallpaper</source>
         <translation>壁纸</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="221"/>
+        <location filename="../modules/personalization/personalization.cpp" line="223"/>
         <source>Fonts</source>
         <translation>字体</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="224"/>
+        <location filename="../modules/personalization/personalization.cpp" line="226"/>
         <source>Standard</source>
         <translation>标准</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="225"/>
+        <location filename="../modules/personalization/personalization.cpp" line="227"/>
         <source>Monospaced</source>
         <translation>等宽</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="226"/>
+        <location filename="../modules/personalization/personalization.cpp" line="228"/>
         <source>Size</source>
         <translation>大小</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="241"/>
-        <location filename="../modules/personalization/personalization.cpp" line="552"/>
+        <location filename="../modules/personalization/personalization.cpp" line="243"/>
+        <location filename="../modules/personalization/personalization.cpp" line="565"/>
         <source>Font</source>
         <translation>字体</translation>
     </message>
@@ -1059,8 +1115,8 @@
         <translation>高性能</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="181"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="189"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="182"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="190"/>
         <source>1 hour</source>
         <translation>1小时</translation>
     </message>
@@ -1069,21 +1125,21 @@
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="163"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="164"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="166"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="183"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="191"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="184"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="192"/>
         <source>%1 minutes</source>
         <translation>%1分钟</translation>
     </message>
     <message>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="161"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="167"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="179"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="187"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="180"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="188"/>
         <source>Never</source>
         <translation>从不</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="196"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="197"/>
         <source>Turn off the display: %1 Suspend: %2 </source>
         <translation>关闭显示器：%1 待机：%2</translation>
     </message>
@@ -1109,22 +1165,22 @@
         <translation>充电中 %1</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="171"/>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="176"/>
         <source>Custom</source>
         <translation>自定义</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="172"/>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="177"/>
         <source>Power saver</source>
         <translation>节能</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="173"/>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="178"/>
         <source>Balanced</source>
         <translation>均衡</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="174"/>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="179"/>
         <source>High performance</source>
         <translation>高性能</translation>
     </message>
@@ -1371,42 +1427,42 @@
 <context>
     <name>UserExpandContent</name>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="60"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="63"/>
         <source>Recently Used</source>
         <translation>最近使用</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="61"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="64"/>
         <source>Avatar</source>
         <translation>头像</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="62"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="65"/>
         <source>Webcam</source>
         <translation>拍照</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="116"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="119"/>
         <source>Auto-login</source>
         <translation>自动登录</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="143"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="146"/>
         <source>Enable</source>
         <translation>启用</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="174"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="178"/>
         <source>Account Type</source>
         <translation>账户类型</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="225"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="230"/>
         <source>Choose a new picture for your Avatar</source>
         <translation>请选择一张图片作为您的头像</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="225"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="230"/>
         <source>Image files (*.jpg *.png *.jpeg)</source>
         <translation>图片文件 (*.jpg *.png *.jpeg)</translation>
     </message>
@@ -1414,32 +1470,32 @@
 <context>
     <name>UserExpandHeader</name>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="127"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="144"/>
         <source>Keep user&apos;s files</source>
         <translation>保留用户文件</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="128"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="145"/>
         <source>Delete user&apos;s files</source>
         <translation>删除用户文件</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="130"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="147"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="131"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="148"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="179"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="196"/>
         <source>Administrator</source>
         <translation>管理员</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="181"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="198"/>
         <source>Normal User</source>
         <translation>普通用户</translation>
     </message>
