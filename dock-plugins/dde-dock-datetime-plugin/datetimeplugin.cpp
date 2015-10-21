@@ -164,7 +164,8 @@ void DateTimePlugin::onUse24HourFormatChanged()
     m_use24HourFormat = m_dateTime->use24HourFormat();
     //force update pixmap for fashion mode
     m_clockPixmap.setIn24hour(m_use24HourFormat);
-    m_item->setPixmap(m_clockPixmap);
+    if (m_mode == Dock::FashionMode)
+        m_item->setPixmap(m_clockPixmap);
 }
 
 bool DateTimePlugin::showWeek()
