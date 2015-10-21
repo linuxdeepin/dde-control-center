@@ -12,4 +12,5 @@
        <arg type="s" direction="in"></arg>
        <arg type="s" direction="in"></arg>
   </method>
+  <signal name="Change"></signal>
 </interface>

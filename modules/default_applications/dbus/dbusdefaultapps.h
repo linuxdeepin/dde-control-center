@@ -86,6 +86,7 @@ public Q_SLOTS: // METHODS
 
 Q_SIGNALS: // SIGNALS
 // begin property changed signals
+    void Change();
 };
 
 namespace com {

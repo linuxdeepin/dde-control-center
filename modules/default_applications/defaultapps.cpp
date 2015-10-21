@@ -18,9 +18,6 @@
 #include <libdui/dseparatorhorizontal.h>
 #include <libdui/dbaseline.h>
 #include <libdui/darrowlineexpand.h>
-#include <libdui/dswitchbutton.h>
-#include <libdui/dbuttonlist.h>
-#include <libdui/dswitchbutton.h>
 
 DUI_USE_NAMESPACE
 
@@ -97,8 +94,6 @@ DefaultApps::DefaultApps() :
     scrollLayout->addWidget(m_modMusicPlayer);
     scrollLayout->addWidget(m_modCamera);
     scrollLayout->addWidget(m_modSoftware);
-    //scrollLayout->addItem(vSpacer);
-    //scrollLayout->addWidget(new QWidget);
     scrollLayout->addStretch(1);
     scrollLayout->setSpacing(0);
     scrollLayout->setMargin(0);
@@ -106,14 +101,6 @@ DefaultApps::DefaultApps() :
     QWidget *scrollWidget = new QWidget;
     scrollWidget->setLayout(scrollLayout);
     scrollWidget->setFixedWidth(310);
-
-/*
-    QScrollArea *scrollArea = new QScrollArea;
-    scrollArea->setWidget(scrollWidget);
-    scrollArea->setWidgetResizable(true);
-    scrollArea->setFrameShape(QFrame::NoFrame);
-    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);*/
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addWidget(m_header);
@@ -126,10 +113,9 @@ DefaultApps::DefaultApps() :
     m_centralWidget->updateGeometry();
     m_centralWidget->update();
 
+    connect(m_header, &ModuleHeader::resetButtonClicked, this, &DefaultApps::resetDefaults, Qt::QueuedConnection);
     connect(m_autoPlaySwitch, &DSwitchButton::checkedChanged, this, &DefaultApps::setMediaOptionVisible);
-    connect(m_header, &ModuleHeader::resetButtonClicked, [this] {
-        m_autoPlaySwitch->setChecked(true);
-    });
+    connect(&m_dbusDefaultApps, &DBusDefaultApps::Change, this, &DefaultApps::updateListCheckedIndex);
 }
 
 DefaultApps::~DefaultApps()
@@ -152,60 +138,27 @@ DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::Defaul
     list->setItemWidth(310);
 
     const QString mime = getTypeByCategory(category);
-    bool isMedia = false;
+    const bool isMedia = isMediaApps(category);
 
     QString appListJson;
-    QString defaultAppJson;
 
-    switch (category)
-    {
-    case Browser:
-    case Mail:
-    case Text:
-    case Music:
-    case Video:
-    case Picture:
-    case Terminal:      appListJson = m_dbusDefaultApps.ListApps(mime);
-                        defaultAppJson = m_dbusDefaultApps.GetDefaultApp(mime);         break;
+    if (isMediaApps(category))
+        appListJson = m_dbusDefaultMedia.ListApps(mime);
+    else
+        appListJson = m_dbusDefaultApps.ListApps(mime);
 
-    case CD_Audio:
-    case DVD_Video:
-    case MusicPlayer:
-    case Camera:
-    case Software:      isMedia = true;
-                        appListJson = m_dbusDefaultMedia.ListApps(mime);
-                        defaultAppJson = m_dbusDefaultMedia.GetDefaultApp(mime);        break;
-    }
-
-    //qDebug() << mime << appListJson << defaultAppJson;
 
     QJsonArray appList = QJsonDocument::fromJson(appListJson.toStdString().c_str()).array();
-    QJsonObject defaultApp = QJsonDocument::fromJson(defaultAppJson.toStdString().c_str()).object();
-
-    int selected = -1;
+    QString app;
+    QStringList apps;
     for (int i = 0; i != appList.size(); ++i)
     {
-        list->addButton(appList.at(i).toObject().take("Name").toString());
-
-        //qDebug() << appList.at(i).toObject() << defaultApp;
-
-        if (appList.at(i).toObject() == defaultApp)
-            selected = i;
+        app = appList.at(i).toObject().take("Name").toString();
+        apps << app;
+        list->addButton(app);
     }
-    if (selected != -1)
-        list->checkButtonByIndex(selected);
-
-    connect(m_header, &ModuleHeader::resetButtonClicked, [=] () -> void {
-        if (!appList.count())
-            return;
-
-        const QString desktop = appList.at(0).toObject().take("Id").toString();
-        if (desktop == "ignore" ||
-            desktop == "nautilus-autorun-software.desktop")
-            ;// TODO: select nothing. waitting for DButtonList update.
-        else
-            list->checkButtonByIndex(0);
-    });
+    m_appsList[category] = apps;
+    m_appsBtnList[category] = list;
 
     connect(list, &DButtonList::buttonCheckedIndexChanged, [=] (int index) -> void {
         const QStringList mimeList = getTypeListByCategory(category);
@@ -232,7 +185,6 @@ DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::Defaul
     appsList->setLayout(layout);
 
     defaultApps->setContent(appsList);
-    defaultApps->setExpand(false);
 
     return defaultApps;
 }
@@ -296,19 +248,79 @@ const QStringList DefaultApps::getTypeListByCategory(const DefaultApps::DefaultA
 
 void DefaultApps::setMediaOptionVisible(const bool visible)
 {
+    qDebug() << "reset visible to " << visible;
+
     m_modCDAudio->setVisible(visible);
     m_modDVDVideo->setVisible(visible);
     m_modMusicPlayer->setVisible(visible);
     m_modCamera->setVisible(visible);
     m_modSoftware->setVisible(visible);
 
-    m_dbusDefaultMedia.EnableAutoOpen(visible);
+    m_autoPlaySwitch->setChecked(visible);
+}
+
+void DefaultApps::resetDefaults()
+{
+    qDebug() << "reset";
+
+    m_dbusDefaultApps.Reset().waitForFinished();
+    m_dbusDefaultMedia.Reset().waitForFinished();
+    setMediaOptionVisible(m_dbusDefaultMedia.autoOpen());
+}
+
+void DefaultApps::updateListCheckedIndex()
+{
+    const QList<DefaultAppsCategory> &categoryList = m_appsList.keys();
+    for (const DefaultAppsCategory &category : categoryList)
+        updateCheckedItem(category);
+}
+
+void DefaultApps::updateCheckedItem(const DefaultApps::DefaultAppsCategory &category)
+{
+     const QString &mime = getTypeByCategory(category);
+     const QString &defApp = isMediaApps(category) ? m_dbusDefaultMedia.GetDefaultApp(mime)
+                                                   : m_dbusDefaultApps.GetDefaultApp(mime);
+     const QJsonObject &defaultApp = QJsonDocument::fromJson(defApp.toStdString().c_str()).object();
+     const QString &defAppName = defaultApp.value("Name").toString();
+
+     const QStringList apps = m_appsList[category];
+     const int index = apps.indexOf(defAppName);
+
+     // block signals for ignore index changed event
+     m_appsBtnList[category]->blockSignals(true);
+     // TODO/FIXME: -1 means not select any item, but DButtonList not support select nothing.
+     if (index != -1)
+        m_appsBtnList[category]->checkButtonByIndex(index);
+     m_appsBtnList[category]->blockSignals(false);
+}
+
+bool DefaultApps::isMediaApps(const DefaultApps::DefaultAppsCategory &category) const
+{
+    switch (category)
+    {
+    case Browser:
+    case Mail:
+    case Text:
+    case Music:
+    case Video:
+    case Picture:
+    case Terminal:      return false;
+
+    case CD_Audio:
+    case DVD_Video:
+    case MusicPlayer:
+    case Camera:
+    case Software:      return true;
+    default:;
+    }
+
+    // for remove complier warnings.
+    return true;
 }
 
 void DefaultApps::lazyLoad()
 {
     const bool isMediaOpen = m_dbusDefaultMedia.autoOpen();
-    m_autoPlaySwitch->setChecked(isMediaOpen);
     setMediaOptionVisible(isMediaOpen);
 
     m_modBrowser = createDefaultAppsExpand(Browser, m_modBrowser);
@@ -338,6 +350,8 @@ void DefaultApps::lazyLoad()
     m_mediaGrp->addExpand(m_modMusicPlayer);
     m_mediaGrp->addExpand(m_modCamera);
     m_mediaGrp->addExpand(m_modSoftware);
+
+    updateListCheckedIndex();
 }
 
 SetDefAppsThread::SetDefAppsThread(DBusDefaultApps *dbus, const QString &mime, const QString &appName, const QStringList &list) :

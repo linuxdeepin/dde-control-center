@@ -5,6 +5,7 @@
 #include <QtPlugin>
 #include <QButtonGroup>
 #include <QThread>
+#include <QMap>
 
 #include "moduleheader.h"
 
@@ -14,6 +15,7 @@
 
 #include <libdui/darrowlineexpand.h>
 #include <libdui/dexpandgroup.h>
+#include <libdui/dbuttonlist.h>
 #include <libdui/dswitchbutton.h>
 
 DUI_USE_NAMESPACE
@@ -42,6 +44,12 @@ private:
     const QString getTypeByCategory(const DefaultAppsCategory & category);
     const QStringList getTypeListByCategory(const DefaultAppsCategory & category);
     void setMediaOptionVisible(const bool visible);
+    void resetDefaults();
+    void updateListCheckedIndex();
+    void updateCheckedItem(const DefaultAppsCategory & category);
+
+private:
+    bool isMediaApps(const DefaultAppsCategory & category) const;
 
 private slots:
     void lazyLoad();
@@ -57,19 +65,22 @@ private:
     DExpandGroup *m_appGrp;
     DExpandGroup *m_mediaGrp;
 
-    DArrowLineExpand *m_modBrowser;
-    DArrowLineExpand *m_modMail;
-    DArrowLineExpand *m_modText;
-    DArrowLineExpand *m_modMusic;
-    DArrowLineExpand *m_modVideo;
-    DArrowLineExpand *m_modPicture;
-    DArrowLineExpand *m_modTerminal;
+    DArrowLineExpand *m_modBrowser = nullptr;
+    DArrowLineExpand *m_modMail = nullptr;
+    DArrowLineExpand *m_modText = nullptr;
+    DArrowLineExpand *m_modMusic = nullptr;
+    DArrowLineExpand *m_modVideo = nullptr;
+    DArrowLineExpand *m_modPicture = nullptr;
+    DArrowLineExpand *m_modTerminal = nullptr;
 
-    DArrowLineExpand *m_modCDAudio;
-    DArrowLineExpand *m_modDVDVideo;
-    DArrowLineExpand *m_modMusicPlayer;
-    DArrowLineExpand *m_modCamera;
-    DArrowLineExpand *m_modSoftware;
+    DArrowLineExpand *m_modCDAudio = nullptr;
+    DArrowLineExpand *m_modDVDVideo = nullptr;
+    DArrowLineExpand *m_modMusicPlayer = nullptr;
+    DArrowLineExpand *m_modCamera = nullptr;
+    DArrowLineExpand *m_modSoftware = nullptr;
+
+    QMap<DefaultAppsCategory, QStringList> m_appsList;
+    QMap<DefaultAppsCategory, DButtonList*> m_appsBtnList;
 
     DSwitchButton *m_autoPlaySwitch;
 };
