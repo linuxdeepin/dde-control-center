@@ -14,7 +14,7 @@ void MainItem::setDockMode(Dock::DockMode mode)
 
 void MainItem::wheelEvent(QWheelEvent * event)
 {
-    if (m_defaultSkin)
+    if (m_defaultSkin && m_defaultSkin->isValid())
     {
         m_defaultSkin->SetMute(false);
 

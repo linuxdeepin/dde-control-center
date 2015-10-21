@@ -47,7 +47,8 @@ void AppIconSlider::initWidget()
     m_iLabel->setFixedSize(ICON_SIZE,ICON_SIZE);
     m_iLabel->setPixmap(SoundIcon::getAppSinkIcon(ICON_SIZE,m_dasi->icon()));
     connect(m_iLabel,&IconLabel::released,[=](){
-       m_dasi->SetMute(!m_dasi->mute());
+        if (m_dasi->isValid())
+            m_dasi->SetMute(!m_dasi->mute());
     });
 
     m_muteIcon = new QLabel(m_iLabel);
@@ -61,7 +62,7 @@ void AppIconSlider::initWidget()
     m_iSlider->setMinimum(0);
     m_iSlider->setIsMute(m_dasi->mute());
     connect(m_iSlider,&QSlider::valueChanged,[=](int value){
-        if (qAbs(int(m_dasi->volume() * 100) - value) > 1) {
+        if (m_dasi->isValid() && qAbs(int(m_dasi->volume() * 100) - value) > 1) {
             m_dasi->SetMute(false);
             m_dasi->SetVolume(value / 100.00, m_dasi->mute());
         }
