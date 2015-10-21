@@ -1,3 +1,3 @@
 isEmpty(PREFIX){
-    PREFIX = /usr/local
+    PREFIX = /usr
 }
