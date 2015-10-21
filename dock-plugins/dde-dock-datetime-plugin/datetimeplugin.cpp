@@ -20,6 +20,7 @@ DateTimePlugin::DateTimePlugin() :
     initSettings();
 
     m_clockPixmap = ClockPixmap(QTime::currentTime());
+    m_clockPixmap.setAnalog(clockAnalog());
 
     m_item = new QLabel;
     m_item->setAlignment(Qt::AlignLeft);
@@ -176,6 +177,11 @@ bool DateTimePlugin::showDate()
     return m_settings->value("showDate").toBool();
 }
 
+bool DateTimePlugin::clockAnalog()
+{
+    return m_settings->value("clockAnalog").toBool();
+}
+
 QString DateTimePlugin::getMenuContent(QString)
 {
     QJsonObject contentObj;
@@ -199,7 +205,8 @@ QString DateTimePlugin::getMenuContent(QString)
 void DateTimePlugin::invokeMenuItem(QString id, QString itemId, bool checked)
 {
     if (itemId == MenuIdSwitchDisplayMode) {
-        m_clockPixmap.setAnalog(!m_clockPixmap.getAnalog());
+        m_settings->setValue("clockAnalog", !clockAnalog());
+        m_clockPixmap.setAnalog(clockAnalog());
         m_item->setPixmap(m_clockPixmap);
     } else if (itemId == MenuIdShowWeek) {
         m_settings->setValue("showWeek", checked);
@@ -232,6 +239,7 @@ void DateTimePlugin::initSettings()
     if (!QFile::exists(m_settings->fileName())) {
         m_settings->setValue("showWeek", false);
         m_settings->setValue("showDate", false);
+        m_settings->setValue("clockAnalog", false);
     }
 }
 

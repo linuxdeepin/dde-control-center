@@ -64,6 +64,7 @@ private slots:
 private:
     bool showWeek();
     bool showDate();
+    bool clockAnalog();
     void initSettings();
     void initCalendar();
     void setMode(Dock::DockMode mode);
