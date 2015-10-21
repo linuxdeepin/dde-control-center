@@ -105,7 +105,6 @@ void Sound::initUI()
     ///////////////////////////////////////////////////////-- Speaker Settings
     m_speakerExpand = new DSwitchLineExpand;
     m_speakerExpand->setTitle(tr("Speaker"));
-    m_speakerSeparator = new DSeparatorHorizontal;
 
     QFrame * speakerExpandContent = new QFrame(m_speakerExpand);
     speakerExpandContent->setFixedWidth(DCC::ModuleContentWidth);
@@ -144,13 +143,11 @@ void Sound::initUI()
 
     m_speakerExpand->setContent(speakerExpandContent);
     mainLayout->addWidget(m_speakerExpand);
-    mainLayout->addWidget(m_speakerSeparator);
     mainLayout->addWidget(new DBaseLine);
 
     ///////////////////////////////////////////////////////-- Microphone Settings
     m_microphoneExpand = new DSwitchLineExpand;
     m_microphoneExpand->setTitle(tr("Microphone"));
-    m_microphoneSeparator = new DSeparatorHorizontal;
 
     QFrame * mircophoneExpandContent = new QFrame(m_microphoneExpand);
     mircophoneExpandContent->setFixedWidth(DCC::ModuleContentWidth);
@@ -198,7 +195,6 @@ void Sound::initUI()
 
     m_microphoneExpand->setContent(mircophoneExpandContent);
     mainLayout->addWidget(m_microphoneExpand);
-    mainLayout->addWidget(m_microphoneSeparator);
 
     ///advanced settings expand widget
 
@@ -213,6 +209,7 @@ void Sound::initUI()
     DBaseExpand *advanced_expand = new DBaseExpand;
     advanced_expand->setContent(advanced_widget);
     advanced_expand->setSeparatorVisible(false);
+    advanced_expand->setExpandedSeparatorVisible(false);
 
     advanced_layout->addWidget(new DBaseLine);
 
@@ -229,7 +226,6 @@ void Sound::initUI()
     updateOutputPorts();
 
     advanced_layout->addWidget(m_outputPortsExpand);
-    advanced_layout->addWidget(new DSeparatorHorizontal);
 
     // Output devices
     DBaseExpand * outputDevicesExpand = new DBaseExpand;
@@ -262,7 +258,6 @@ void Sound::initUI()
     outputDevicesExpand->setContent(outputDevicesList);
 
     advanced_layout->addWidget(outputDevicesExpand);
-    advanced_layout->addWidget(new DSeparatorHorizontal);
     advanced_layout->addWidget(new DBaseLine);
 
     // Input ports
@@ -277,10 +272,10 @@ void Sound::initUI()
     updateInputPorts();
 
     advanced_layout->addWidget(m_inputPortsExpand);
-    advanced_layout->addWidget(new DSeparatorHorizontal);
 
     // Input devices
     DBaseExpand * inputDevicesExpand = new DBaseExpand;
+    inputDevicesExpand->setExpandedSeparatorVisible(false);
     inputDevicesExpand->setExpand(true);
 
     HeaderLine * inputDevicesLine = new HeaderLine(tr("Input device"), inputDevicesExpand);
@@ -382,10 +377,8 @@ void Sound::updateSpeakerUI()
     });
 
     m_speakerExpand->setExpand(!m_sink->mute());
-    m_speakerSeparator->setHidden(m_sink->mute());
     connect(m_sink, &DBusAudioSink::MuteChanged, [=]{
         m_speakerExpand->setExpand(!m_sink->mute());
-        m_speakerSeparator->setHidden(m_sink->mute());
     });
     connect(m_speakerExpand, &DBaseExpand::expandChange, [=] (bool expanded) {
         m_sink->SetMute(!expanded);
@@ -405,10 +398,8 @@ void Sound::updateMicrophoneUI()
     });
 
     m_microphoneExpand->setExpand(!m_source->mute());
-    m_microphoneSeparator->setHidden(m_source->mute());
     connect(m_source, &DBusAudioSource::MuteChanged, [=]{
         m_microphoneExpand->setExpand(!m_source->mute());
-        m_microphoneSeparator->setHidden(m_source->mute());
     });
     connect(m_microphoneExpand, &DBaseExpand::expandChange, [=](bool expanded){
         m_source->SetMute(!expanded);

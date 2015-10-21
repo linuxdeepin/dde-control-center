@@ -34,8 +34,6 @@ private:
 
     DSwitchLineExpand * m_speakerExpand;
     DSwitchLineExpand * m_microphoneExpand;
-    DSeparatorHorizontal *m_microphoneSeparator;
-    DSeparatorHorizontal *m_speakerSeparator;
     DSlider * m_outputVolumeSlider;
     DSlider * m_leftRightBalanceSlider;
     DSlider * m_inputVolumeSlider;
