@@ -11,7 +11,8 @@ SUBDIRS  = sound \
            shortcuts \
            personalization\
            keyboard \
-           datetime
+           datetime \
+           wacom
 
 isEmpty(WITH_MODULE_GRUB){
     WITH_MODULE_GRUB = YES
