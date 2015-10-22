@@ -80,6 +80,7 @@ void Power::initPowerConnectionPanelUI() {
     m_powerSettingDBaseLine->setLeftContent(breatingPowerTotalLabel);
 
     m_powerSettingExpand = new DBaseExpand;
+    m_powerSettingExpand->setExpandedSeparatorVisible(false);
     m_powerSettingExpand->setFixedHeight(m_bgContentHeight);
     m_powerSettingExpand->setHeader(m_powerSettingDBaseLine);
     m_powerSettingExpand->setHeaderHeight(30);
@@ -134,6 +135,7 @@ void Power::initBatteryUsedUI() {
 
 
     m_batterySettingExpand = new DBaseExpand;
+    m_batterySettingExpand->setExpandedSeparatorVisible(false);
     m_batterySettingDBaseLine->setLeftContent(breatingBatteryTotalLabel);
     m_batterySettingDBaseLine->setFixedHeight(60);
     m_batteryDynamicLabel = new DynamicLabel(m_batterySettingDBaseLine);

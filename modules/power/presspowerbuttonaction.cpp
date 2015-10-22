@@ -6,6 +6,7 @@ PressPowerButtonAction::PressPowerButtonAction(QStringList powerReaction, QWidge
     setFixedHeight(60);
     m_pressPowerReActionLine=new DHeaderLine;
     m_pressPowerReActionExpand=new DBaseExpand;
+    m_pressPowerReActionExpand->setExpandedSeparatorVisible(false);
     m_pressPowerReActionExpand->setHeader(m_pressPowerReActionLine);
     m_powerActionButtonGrid=new DButtonGrid(1, 3);
     m_powerActionButtonGrid->setItemSize(100, 30);
