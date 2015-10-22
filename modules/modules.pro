@@ -20,9 +20,14 @@ isEmpty(WITH_MODULE_GRUB){
 
 isEqual(WITH_MODULE_GRUB, YES){
     SUBDIRS += grub
+}
 
+isEmpty(WITH_MODULE_BLUETOOTH){
+    WITH_MODULE_BLUETOOTH = YES
+}
+
+isEqual(WITH_MODULE_BLUETOOTH, YES){
     CONFIG(debug, debug|release) {
-        message(Debug)
         SUBDIRS += bluetooth
     }
 }

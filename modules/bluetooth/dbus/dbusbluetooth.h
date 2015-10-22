@@ -23,7 +23,7 @@
 /*
  * Proxy class for interface com.deepin.daemon.Bluetooth
  */
-class Bluetooth: public QDBusAbstractInterface
+class DBusBluetooth: public QDBusAbstractInterface
 {
     Q_OBJECT
 
@@ -47,13 +47,17 @@ class Bluetooth: public QDBusAbstractInterface
         }
    }
 public:
+    static inline const char *staticServerPath()
+    { return "com.deepin.daemon.Bluetooth"; }
+    static inline const char *staticInterfacePath()
+    { return "/com/deepin/daemon/Bluetooth"; }
     static inline const char *staticInterfaceName()
     { return "com.deepin.daemon.Bluetooth"; }
 
 public:
-    Bluetooth(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent = 0);
+    DBusBluetooth(QObject *parent = 0);
 
-    ~Bluetooth();
+    ~DBusBluetooth();
 
     Q_PROPERTY(QString Adapters READ adapters NOTIFY AdaptersChanged)
     inline QString adapters() const
@@ -189,7 +193,7 @@ void StateChanged();
 namespace com {
   namespace deepin {
     namespace daemon {
-      typedef ::Bluetooth Bluetooth;
+      typedef ::DBusBluetooth DBusBluetooth;
     }
   }
 }

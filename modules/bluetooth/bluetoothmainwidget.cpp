@@ -1,37 +1,160 @@
 #include <QDebug>
 #include <QResizeEvent>
+#include <QJsonDocument>
 
-#include <libdui/dthememanager.h>
-#include <libdui/libdui_global.h>
+#include <libdui/dconstants.h>
 #include <libdui/dseparatorhorizontal.h>
-#include <libdui/dswitchbutton.h>
-#include <libdui/dlineedit.h>
-#include <libdui/dtextbutton.h>
-#include <libdui/dheaderline.h>
-#include <libdui/dloadingindicator.h>
 
 #include "moduleheader.h"
 #include "constants.h"
-#include "normallabel.h"
-#include "imagenamebutton.h"
-#include "listwidget.h"
-#include "genericlistitem.h"
-#include "bluetoothlistitem.h"
 
+#include "bluetoothlistitem.h"
 #include "bluetoothmainwidget.h"
+#include "adapterwidget.h"
+
+DUI_USE_NAMESPACE
+
+#define ASYN_CALL(Fun, Code, captured...) { \
+    QDBusPendingCallWatcher * watcher = new QDBusPendingCallWatcher(Fun, this); \
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [watcher, captured]{ \
+        const QVariantList & args = watcher->reply().arguments(); \
+        Code \
+        watcher->deleteLater(); \
+    }); }
 
 BluetoothMainWidget::BluetoothMainWidget(QWidget *parent) :
     QFrame(parent),
     m_mainLayout(new QVBoxLayout(this))
 {
     initUI();
+    intiBackend();
+}
+
+void BluetoothMainWidget::addAdapter(AdapterInfo *info)
+{
+    m_adapterList->addWidget(new AdapterWidget(info));
+}
+
+void BluetoothMainWidget::removeAdapter(const AdapterInfo *info)
+{
+
 }
 
 void BluetoothMainWidget::resizeEvent(QResizeEvent *e)
 {
     QFrame::resizeEvent(e);
 
-    m_deviceList->setFixedHeight(e->size().height() - m_deviceList->y());
+    m_adapterList->setFixedHeight(e->size().height() - m_adapterList->y());
+}
+
+BluetoothMainWidget::AdapterInfo* BluetoothMainWidget::newAdapterInfoByMap(const QVariantMap &map)
+{
+    AdapterInfo *info = new AdapterInfo;
+
+    info->path = map["Path"].toString();
+    info->name = map["Alias"].toString();
+    info->powered = map["Powered"].toBool();
+    info->discovering = map["Discovering"].toBool();
+    info->discoverable = map["Discoverable"].toBool();
+    info->discoverableTimeout = map["DiscoverableTimeout"].toUInt();
+    info->bluetoothDbus = m_bluetoothDbus;
+
+    ASYN_CALL(m_bluetoothDbus->GetDevices(QDBusObjectPath(info->path)), {
+                  QJsonDocument json_doc = QJsonDocument::fromJson(args[0].toByteArray());
+                  for(const QJsonValue &value : json_doc.array()){
+                      const QVariantMap &tmp_map = value.toObject().toVariantMap();
+                      DeviceInfo *device_info = newDeviceInfoByMap(tmp_map);
+                      device_info->adapterInfo = info;
+                      info->deviceInfoList.append(device_info);
+
+                      if(info->listWidget){
+                          device_info->listItem = newDeviceListItem(device_info);
+                          info->listWidget->deviceList()->addWidget(device_info->listItem);
+                      }
+                  }
+              }, this, info);
+
+    return info;
+}
+
+BluetoothMainWidget::DeviceInfo *BluetoothMainWidget::newDeviceInfoByMap(const QVariantMap &map) const
+{
+    DeviceInfo *info = new DeviceInfo;
+
+    info->path = map["Path"].toString();
+    info->name = map["Alias"].toString();
+    info->trusted = map["Trusted"].toBool();
+    info->paired = map["Paired"].toBool();
+    info->state = map["State"].toInt();
+    info->icon = map["Icon"].toString();
+
+    return info;
+}
+
+BluetoothListItem *BluetoothMainWidget::newDeviceListItem(DeviceInfo *device_info) const
+{
+    BluetoothListItem *item = new BluetoothListItem;
+    item->setFixedSize(DCC::ModuleContentWidth, DUI::EXPAND_HEADER_HEIGHT);
+    item->setTitle(device_info->name);
+
+    connect(item, &BluetoothListItem::checkedChanged, this, [item](bool checked){
+        item->setLoading(checked);
+    });
+
+    return item;
+}
+
+void BluetoothMainWidget::intiBackend()
+{
+    m_bluetoothDbus = new DBusBluetooth(this);
+
+    if(m_bluetoothDbus->state() > 0) {
+        ASYN_CALL(m_bluetoothDbus->GetAdapters(), {
+                      QJsonDocument json_doc = QJsonDocument::fromJson(args[0].toByteArray());
+                      for(const QJsonValue &value : json_doc.array()){
+                          const QVariantMap &map = value.toObject().toVariantMap();
+                          addAdapter(newAdapterInfoByMap(map));
+                      }
+                  }, this);
+    }
+
+    connect(m_bluetoothDbus, &DBusBluetooth::AdapterAdded, this, [this](const QString &str) {
+        QJsonDocument json_doc = QJsonDocument::fromJson(str.toLatin1());
+        addAdapter(newAdapterInfoByMap(json_doc.toVariant().toMap()));
+    });
+
+    connect(m_bluetoothDbus, &DBusBluetooth::AdapterRemoved, this, [this](const QString &str) {
+        QJsonDocument json_doc = QJsonDocument::fromJson(str.toLatin1());
+        removeAdapter(newAdapterInfoByMap(json_doc.toVariant().toMap()));
+    });
+
+    connect(m_bluetoothDbus, &DBusBluetooth::DeviceAdded, this, [this](const QString &str){
+        QJsonDocument json_doc = QJsonDocument::fromJson(str.toLatin1());
+        const QVariantMap &map = json_doc.toVariant().toMap();
+        DeviceInfo *device_info = newDeviceInfoByMap(map);
+        device_info->adapterInfo = m_pathToAdapterInfoMap.value(map["AdapterPath"].toString(), nullptr);
+
+        if(device_info->adapterInfo){
+            device_info->listItem = newDeviceListItem(device_info);
+            device_info->adapterInfo->listWidget->deviceList()->addWidget(device_info->listItem);
+        }
+    });
+
+    connect(m_bluetoothDbus, &DBusBluetooth::DeviceRemoved, this, [this](const QString &str){
+        QJsonDocument json_doc = QJsonDocument::fromJson(str.toLatin1());
+        const QVariantMap &map = json_doc.toVariant().toMap();
+        AdapterInfo *info = m_pathToAdapterInfoMap.value(map["AdapterPath"].toString(), nullptr);
+        if(info){
+            DeviceInfo *device_info = m_pathToDeviceInfoMap.value(map["Path"].toString(), nullptr);
+            if(device_info){
+                info->deviceInfoList.removeOne(device_info);
+                DListWidget *device_list = info->listWidget->deviceList();
+                int index = device_list->indexOf(device_info->listItem);
+                if(index > 0)
+                    device_list->removeWidget(index);
+            }
+        }
+    });
 }
 
 GenericListItem *getListItem(const QString &name)
@@ -47,135 +170,14 @@ void BluetoothMainWidget::initUI()
 {
     ModuleHeader *header = new ModuleHeader(tr("Bluetooth"), false);
 
-    m_deviceList = new ListWidget;
-
-    updateUI();
+    m_adapterList = new DListWidget;
 
     m_mainLayout->setSpacing(0);
     m_mainLayout->setMargin(0);
 
     m_mainLayout->addWidget(header);
     m_mainLayout->addWidget(new DSeparatorHorizontal);
-    m_mainLayout->addWidget(m_deviceList);
+    m_mainLayout->addWidget(m_adapterList);
     m_mainLayout->addStretch(1);
-}
-
-void BluetoothMainWidget::updateUI()
-{
-    for(int i = 0; i < 3; ++i){
-        QWidget *device_mainWidget = new QWidget;
-        QVBoxLayout *main_layout = new QVBoxLayout(device_mainWidget);
-
-        main_layout->setMargin(0);
-        main_layout->setSpacing(0);
-        device_mainWidget->setFixedSize(DCC::ModuleContentWidth, 161);
-
-        QWidget *name_edit_switch = new QWidget;
-        QHBoxLayout *h_layout = new QHBoxLayout(name_edit_switch);
-        NormalLabel *bluetooth_name = new NormalLabel("zhang");
-        ImageNameButton *edit_button = new ImageNameButton("edit");
-        DSwitchButton *bluetooth_switch = new DSwitchButton;
-
-        name_edit_switch->setFixedWidth(DCC::ModuleContentWidth);
-        name_edit_switch->setFixedHeight(DUI::EXPAND_HEADER_HEIGHT);
-        h_layout->setSpacing(10);
-        h_layout->setMargin(0);
-
-        h_layout->addSpacing(10);
-        h_layout->addWidget(bluetooth_name);
-        h_layout->addWidget(edit_button);
-        h_layout->addStretch(1);
-        h_layout->addWidget(bluetooth_switch);
-        h_layout->addSpacing(10);
-
-        QWidget *edit_name_widget = new QWidget;
-        QVBoxLayout *editWidget_vLayout = new QVBoxLayout(edit_name_widget);
-        QHBoxLayout *editWidget_hLayout = new QHBoxLayout;
-        DLineEdit *name_lineEdit = new DLineEdit;
-        DTextButton *reset_name_button = new DTextButton(tr("Default Name"));
-        DTextButton *cancel_button = new DTextButton(tr("Cancel"));
-        DTextButton *apply_button = new DTextButton(tr("Apply"));
-
-        edit_name_widget->hide();
-        editWidget_vLayout->setContentsMargins(10, 5, 10, 5);
-        editWidget_hLayout->setMargin(0);
-        editWidget_vLayout->addWidget(name_lineEdit);
-        editWidget_vLayout->addSpacing(5);
-        editWidget_vLayout->addLayout(editWidget_hLayout);
-        editWidget_hLayout->addWidget(reset_name_button);
-        editWidget_hLayout->addStretch(1);
-        editWidget_hLayout->addWidget(cancel_button);
-        editWidget_hLayout->addWidget(apply_button);
-
-        connect(edit_button, &ImageNameButton::clicked,
-                this, [name_edit_switch, edit_name_widget, name_lineEdit, bluetooth_name]{
-            name_lineEdit->setText(bluetooth_name->text());
-            name_lineEdit->setFocus();
-            name_edit_switch->hide();
-            edit_name_widget->show();
-        });
-
-        connect(cancel_button, &DTextButton::clicked,
-                this, [name_edit_switch, edit_name_widget]{
-            name_edit_switch->show();
-            edit_name_widget->hide();
-        });
-
-        connect(apply_button, &DTextButton::clicked,
-                this, [cancel_button, bluetooth_name, name_lineEdit]{
-            bluetooth_name->setText(name_lineEdit->text());
-            cancel_button->click();
-        });
-
-        DHeaderLine *headerline = new DHeaderLine;
-        ImageNameButton *refresh_button = new ImageNameButton("reload");
-        DLoadingIndicator *refresh_indicator = new DLoadingIndicator;
-
-        refresh_button->setAttribute(Qt::WA_TranslucentBackground);
-        refresh_indicator->setFixedSize(refresh_button->sizeHint());
-        refresh_indicator->setWidgetSource(refresh_button);
-        refresh_indicator->setSmooth(true);
-        refresh_indicator->setLoading(true);
-
-        headerline->setTitle(tr("Devices nearby"));
-        headerline->setLeftMargin(10);
-        headerline->setContent(refresh_indicator);
-        headerline->setFixedHeight(DUI::EXPAND_HEADER_HEIGHT);
-
-        ListWidget *search_result_list = new ListWidget;
-        DSeparatorHorizontal *listWidget_separator = new DSeparatorHorizontal;
-
-        search_result_list->setCheckable(true);
-        listWidget_separator->hide();
-
-        connect(search_result_list, &ListWidget::visibleCountChanged, this, [listWidget_separator](int count){
-            listWidget_separator->setVisible(count > 0);
-        });
-        connect(refresh_button, &ImageNameButton::clicked, this, [refresh_indicator]{
-            refresh_indicator->setLoading(!refresh_indicator->loading());
-        });
-
-        for(int j = 0; j < 3; ++j){
-            BluetoothListItem *item = new BluetoothListItem;
-            item->setFixedSize(DCC::ModuleContentWidth, DUI::EXPAND_HEADER_HEIGHT);
-            item->setTitle("I'm bluetooth");
-            search_result_list->addWidget(item);
-
-            connect(item, &BluetoothListItem::checkedChanged, this, [item](bool checked){
-                item->setLoading(checked);
-            });
-        }
-
-        main_layout->addWidget(name_edit_switch);
-        main_layout->addWidget(edit_name_widget);
-        main_layout->addWidget(new DSeparatorHorizontal);
-        main_layout->addWidget(headerline);
-        main_layout->addWidget(new DSeparatorHorizontal);
-        main_layout->addWidget(search_result_list);
-        main_layout->addWidget(listWidget_separator);
-        main_layout->addStretch(1);
-
-        m_deviceList->addWidget(device_mainWidget);
-    }
 }
 

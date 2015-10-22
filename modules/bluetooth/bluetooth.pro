@@ -9,10 +9,14 @@ LIBS += -L../../widgets -lwidgets
 QT             += widgets
 HEADERS         += bluetooth.h \
     bluetoothmainwidget.h \
-    bluetoothlistitem.h
+    bluetoothlistitem.h \
+    dbus/dbusbluetooth.h \
+    adapterwidget.h
 SOURCES         += bluetooth.cpp \
     bluetoothmainwidget.cpp \
-    bluetoothlistitem.cpp
+    bluetoothlistitem.cpp \
+    dbus/dbusbluetooth.cpp \
+    adapterwidget.cpp
 TARGET          = $$qtLibraryTarget(bluetooth)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 
