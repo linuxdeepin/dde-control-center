@@ -62,7 +62,9 @@ SearchList *MainWidget::addSearchList(const ShortcutInfoList &tmplist)
     });
 
     foreach (const ShortcutInfo &info, tmplist) {
+        ///非搜索状态下分类显示的快捷键对象
         ShortcutWidget *tmpw = new ShortcutWidget(m_dbus, info.id, info.title, info.shortcut);
+        ///搜索状态下显示的快捷键对象
         ShortcutWidget *shortw = new ShortcutWidget(m_dbus, info.id, info.title, info.shortcut);
         m_searchList->addItem(shortw);
         list->addItem(tmpw);
@@ -73,6 +75,7 @@ SearchList *MainWidget::addSearchList(const ShortcutInfoList &tmplist)
         connect(shortw, &ShortcutWidget::shortcutChanged, [=](const QString &flag, const QString &shortcut){
             editShortcut(shortw, m_searchList, flag, shortcut);
         });
+        connect(shortw, &ShortcutWidget::keyWordChanged, m_searchList, &SearchList::updateItemKeyWord);
         connect(tmpw, &ShortcutWidget::removeShortcut, this, &MainWidget::removeShortcut);
         connect(this, &MainWidget::setEnableEditShortcut, tmpw, &ShortcutWidget::setEnableEdit);
         connect(this, &MainWidget::setEnableEditShortcut, shortw, &ShortcutWidget::setEnableEdit);
@@ -200,10 +203,10 @@ void MainWidget::init()
     m_searchList->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_searchList->setItemSize(DCC::ModuleContentWidth, 0);
 
-    m_systemList = addSearchList(m_dbus->systemList());
-    m_windowList = addSearchList(m_dbus->windowList());
-    m_workspaceList = addSearchList(m_dbus->workspaceList());
-    m_customList = addSearchList(m_dbus->customList());
+    m_systemList = addSearchList(ShortcutInfoList());
+    m_windowList = addSearchList(ShortcutInfoList());
+    m_workspaceList = addSearchList(ShortcutInfoList());
+    m_customList = addSearchList(ShortcutInfoList());
 
     m_systemList->setObjectName(tr("System"));
     m_windowList->setObjectName(tr("Window"));
@@ -305,7 +308,9 @@ void MainWidget::shortcutListChanged(SearchList *listw, const ShortcutInfoList &
     if(listw->count()<list.count()){
         for(int i=min;i<list.count();++i){
             const ShortcutInfo &info = list[i];
+            ///非搜索状态下分类显示的快捷键对象
             ShortcutWidget *tmpw = new ShortcutWidget(m_dbus, info.id, info.title, info.shortcut);
+            ///搜索状态下显示的快捷键对象
             ShortcutWidget *shortw = new ShortcutWidget(m_dbus, info.id, info.title, info.shortcut);
             m_searchList->insertItem(offseIndex+i, shortw);
             listw->addItem(tmpw);
@@ -315,6 +320,7 @@ void MainWidget::shortcutListChanged(SearchList *listw, const ShortcutInfoList &
             connect(shortw, &ShortcutWidget::shortcutChanged, [=](const QString& flag, const QString &shortcut){
                 editShortcut(shortw, m_searchList, flag, shortcut);
             });
+            connect(shortw, &ShortcutWidget::keyWordChanged, m_searchList, &SearchList::updateItemKeyWord);
             connect(tmpw, &ShortcutWidget::removeShortcut, this, &MainWidget::removeShortcut);
             connect(this, &MainWidget::setEnableEditShortcut, tmpw, &ShortcutWidget::setEnableEdit);
             connect(this, &MainWidget::setEnableEditShortcut, shortw, &ShortcutWidget::setEnableEdit);

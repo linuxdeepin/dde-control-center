@@ -65,6 +65,11 @@ void ShortcutWidget::setId(int id)
 
 void ShortcutWidget::setTitle(const QString &title)
 {
+    if(title == m_title->text())
+        return;
+
+    emit keyWordChanged(m_title->text(), title);
+
     m_title->setText(title);
 }
 
@@ -74,6 +79,9 @@ void ShortcutWidget::setShortcut(const QString &shortcut)
         return;
 
     m_shortcut->setShortcut(shortcut);
+
+    emit keyWordChanged(m_shortcuText, shortcut);
+
     m_shortcuText = shortcut;
 }
 
@@ -124,7 +132,7 @@ void ShortcutWidget::setData(const QVariant &datas)
     if(list.count()==3&&list[0].type()==QVariant::Int
             &&list[1].type()==QVariant::String&&list[2].type()==QVariant::String){
         setId(list[0].toInt());
-        m_title->setText(list[1].toString());
+        setTitle(list[1].toString());
         setShortcut(list[2].toString());
     }
 }

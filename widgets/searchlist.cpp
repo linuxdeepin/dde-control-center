@@ -168,6 +168,14 @@ void SearchList::updateKeyWords()
     m_dbusKey = reply;
 }
 
+void SearchList::updateItemKeyWord(const QString &old_word, const QString &new_word)
+{
+    m_keyWords.removeOne(old_word);
+    m_keyWords << new_word;
+
+    updateKeyWords();
+}
+
 QVariant SearchList::getItemData(int index) const
 {
     return getItem(index)->getData();

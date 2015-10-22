@@ -49,6 +49,7 @@ public slots:
     void setKeyWord(const QString &keyWord);
     void setCheckedItem(int checkedItem);
     void updateKeyWords();
+    void updateItemKeyWord(const QString &old_word, const QString &new_word);
 
 public:
     QVariant getItemData(int index) const;

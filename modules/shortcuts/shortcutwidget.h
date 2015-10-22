@@ -45,6 +45,7 @@ public:
 signals:
     void shortcutChanged(QString flag, QString shortcut);
     void removeShortcut();
+    void keyWordChanged(const QString &old_word, const QString &new_word);
 
 private slots:
     void shortcutKeyFinished(const QString &str);
