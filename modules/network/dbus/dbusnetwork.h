@@ -23,7 +23,7 @@
 /*
  * Proxy class for interface com.deepin.daemon.Network
  */
-class Network: public QDBusAbstractInterface
+class DBusNetwork: public QDBusAbstractInterface
 {
     Q_OBJECT
 
@@ -51,9 +51,9 @@ public:
     { return "com.deepin.daemon.Network"; }
 
 public:
-    Network(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent = 0);
+    DBusNetwork(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent = 0);
 
-    ~Network();
+    ~DBusNetwork();
 
     Q_PROPERTY(QString ActiveConnections READ activeConnections NOTIFY ActiveConnectionsChanged)
     inline QString activeConnections() const
@@ -262,7 +262,7 @@ void VpnEnabledChanged();
 namespace com {
   namespace deepin {
     namespace daemon {
-      typedef ::Network Network;
+      typedef ::DBusNetwork DBusNetwork;
     }
   }
 }

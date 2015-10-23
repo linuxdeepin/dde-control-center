@@ -3,10 +3,11 @@
 
 #include <QObject>
 #include <QtPlugin>
+
 #include "interfaces.h"
 
 class QLabel;
-class QFrame;
+class NetworkMainWidget;
 class Network: public QObject, ModuleInterface
 {
     Q_OBJECT
@@ -19,7 +20,7 @@ public:
     QFrame* getContent() Q_DECL_OVERRIDE;
 
 private:
-    QLabel * m_label;
+    NetworkMainWidget * m_mainWidget;
 };
 
 #endif

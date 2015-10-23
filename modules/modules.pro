@@ -1,7 +1,6 @@
 TEMPLATE = subdirs
 SUBDIRS  = sound \
            power \
-#           network \
            default_applications \
 #           grub \
            mouse \
@@ -29,5 +28,15 @@ isEmpty(WITH_MODULE_BLUETOOTH){
 isEqual(WITH_MODULE_BLUETOOTH, YES){
     CONFIG(debug, debug|release) {
         SUBDIRS += bluetooth
+    }
+}
+
+isEmpty(WITH_MODULE_NETWORK){
+    WITH_MODULE_NETWORK = YES
+}
+
+isEqual(WITH_MODULE_NETWORK, YES){
+    CONFIG(debug, debug|release) {
+        SUBDIRS += network
     }
 }
