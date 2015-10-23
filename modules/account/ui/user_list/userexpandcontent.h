@@ -22,6 +22,7 @@ class UserExpandContent : public QWidget
     Q_OBJECT
 public:
     explicit UserExpandContent(const QString &userPath = "", QWidget *parent = 0);
+    ~UserExpandContent();
 
 public slots:
     void onRequestPreDestroy();

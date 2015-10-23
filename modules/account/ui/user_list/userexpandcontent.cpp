@@ -16,6 +16,11 @@ UserExpandContent::UserExpandContent(const QString &userPath, QWidget *parent)
     initTimer->start(1000);
 }
 
+UserExpandContent::~UserExpandContent()
+{
+    onCanHideControlCenter();
+}
+
 void UserExpandContent::onRequestPreDestroy()
 {
     if (m_passwordFrame)
@@ -238,7 +243,6 @@ void UserExpandContent::onAvatarSelected(const QString &avatar)
 
     //delay to buff windows active change
     QTimer::singleShot(1000, this, SLOT(onCanHideControlCenter()));
-
 }
 
 void UserExpandContent::onAccountEnableChanged(bool enabled)
