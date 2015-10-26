@@ -39,7 +39,7 @@ void NetworkMainWidget::initUI()
     header_right_widget_layout->addWidget(info_button);
     header->setRightContent(header_right_widget);
 
-    setHeaderWidget(header);
+    headerLayout()->addWidget(header);
 
     mainLayout()->addWidget(new DSeparatorHorizontal);
     mainLayout()->addStretch(1);
