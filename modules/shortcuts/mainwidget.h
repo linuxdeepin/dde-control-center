@@ -11,13 +11,14 @@
 
 #include "shortcutdbus.h"
 #include "shortcutwidget.h"
+#include "scrollframe.h"
 
 DUI_USE_NAMESPACE
 
 class AddRmDoneLine;
 class ModuleHeader;
 class SearchList;
-class MainWidget : public QFrame
+class MainWidget : public ScrollFrame
 {
     Q_OBJECT
 
@@ -31,7 +32,7 @@ signals:
     void setEnableEditShortcut(bool enable);
 
 private:
-    QVBoxLayout *m_layout;
+    QBoxLayout *m_layout;
     QVBoxLayout *m_childLayout;
     ModuleHeader *m_header;
     ShortcutDbus *m_dbus;

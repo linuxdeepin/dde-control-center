@@ -22,8 +22,7 @@ DUI_USE_NAMESPACE
 #define LIST_MAX_HEIGHT 500
 
 MainWidget::MainWidget(QWidget *parent):
-    QFrame(parent),
-    m_layout(new QVBoxLayout),
+    ScrollFrame(parent),
     m_childLayout(new QVBoxLayout),
     m_header(new ModuleHeader(tr("Keyboard Shortcuts"))),
     m_dbus(new ShortcutDbus(this)),
@@ -195,7 +194,7 @@ AddRmDoneLine *MainWidget::getCustomLstHeadBar()
 
 void MainWidget::init()
 {
-    m_layout->setMargin(0);
+    m_layout = mainLayout();
 
     connect(m_header, &ModuleHeader::resetButtonClicked, m_dbus, &ShortcutDbus::Reset);
 
@@ -269,13 +268,12 @@ void MainWidget::init()
         }
     });
 
-    m_layout->setSpacing(0);
-    m_layout->addWidget(m_header);
-    m_layout->addWidget(new DSeparatorHorizontal);
-    m_layout->addSpacing(5);
-    m_layout->addWidget(edit, 0, Qt::AlignHCenter);
-    m_layout->addSpacing(5);
-    m_layout->addWidget(new DSeparatorHorizontal);
+    headerLayout()->addWidget(m_header);
+    headerLayout()->addWidget(new DSeparatorHorizontal);
+    headerLayout()->addSpacing(5);
+    headerLayout()->addWidget(edit, 0, Qt::AlignHCenter);
+    headerLayout()->addSpacing(5);
+    headerLayout()->addWidget(new DSeparatorHorizontal);
     m_layout->addWidget(m_searchList, 10);
     m_childLayout->setMargin(0);
     m_childLayout->addWidget(addExpand(tr("System"), m_systemList));
@@ -289,8 +287,6 @@ void MainWidget::init()
     m_childLayout->addWidget(getAddShortcutWidget());
     m_layout->addLayout(m_childLayout);
     m_layout->addStretch(1);
-
-    setLayout(m_layout);
 }
 
 void MainWidget::shortcutListChanged(SearchList *listw, const ShortcutInfoList &list, int offseIndex)
