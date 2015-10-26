@@ -196,6 +196,7 @@ void MainWidget::init()
 {
     m_layout = mainLayout();
 
+    m_header->setFixedWidth(DCC::ModuleContentWidth);
     connect(m_header, &ModuleHeader::resetButtonClicked, m_dbus, &ShortcutDbus::Reset);
 
     m_searchList->hide();
