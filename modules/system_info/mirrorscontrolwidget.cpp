@@ -17,8 +17,6 @@ MirrorsControlWidget::MirrorsControlWidget(QWidget *parent)
     m_mirrorsList = new QListWidget;
     m_mirrorsList->setFrameStyle(QFrame::NoFrame);
     m_mirrorsList->setFixedWidth(DCC::ModuleContentWidth);
-//    m_mirrorsList->setFixedHeight(50);
-//    m_mirrorsList->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::MinimumExpanding);
     m_mirrorsList->setStyleSheet(QString("background-color:#252627;"));
     m_mirrorsList->hide();
     m_mirrorItems = new QMap<QListWidgetItem *, MirrorItemWidget *>;
@@ -55,11 +53,11 @@ MirrorsControlWidget::MirrorsControlWidget(QWidget *parent)
     mainLayout->addLayout(btnsLayout);
     mainLayout->addStretch(0);
     mainLayout->setSpacing(0);
-    mainLayout->setContentsMargins(0, 0, 0, 8);
+    mainLayout->setContentsMargins(0, 0, 0, 0);
 
     setLayout(mainLayout);
     setFixedWidth(DCC::ModuleContentWidth);
-    setFixedHeight(500);
+    setFixedHeight(200);
 
     connect(m_applyBtn, &DTextButton::clicked, m_cancelBtn, &DTextButton::click);
     connect(m_changeMirrorBtn, &DTextButton::clicked, [this, updateServer] {

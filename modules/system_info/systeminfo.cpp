@@ -130,7 +130,7 @@ SystemInfo::SystemInfo()
 
     UpdateWidget *updateInfoWidget = new UpdateWidget;
     MirrorsControlWidget *mirrorsControlWidget = new MirrorsControlWidget;
-//    mirrorsControlWidget->hide();
+    mirrorsControlWidget->hide();
     DVBoxWidget *updateWidget = new DVBoxWidget;
     updateWidget->layout()->addWidget(updateInfoWidget);
     updateWidget->layout()->addWidget(mirrorsControlWidget);
@@ -156,6 +156,11 @@ SystemInfo::SystemInfo()
     m_centeralFrame = new QFrame;
     m_centeralFrame->installEventFilter(this);
     m_centeralFrame->setLayout(centeralLayout);
+
+    connect(updateExpand, &UpdateArrowExpand::configButtonClicked, [updateInfoWidget, mirrorsControlWidget] {
+        updateInfoWidget->hide();
+        mirrorsControlWidget->show();
+    });
 }
 
 SystemInfo::~SystemInfo()

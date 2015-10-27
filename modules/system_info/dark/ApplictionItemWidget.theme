@@ -1,0 +1,7 @@
+ApplictionItemWidget #AppName {
+    color:#ccc;
+}
+
+ApplictionItemWidget #AppVersion {
+    color:#ccc;
+}

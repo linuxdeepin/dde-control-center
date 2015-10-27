@@ -3,5 +3,7 @@
         <file>dark/MirrorItemWidget.theme</file>
         <file>dark/SeparatorWidget.theme</file>
         <file>dark/UpdateArrowExpand.theme</file>
+        <file>dark/UpdateWidget.theme</file>
+        <file>dark/ApplictionItemWidget.theme</file>
     </qresource>
 </RCC>

@@ -1,0 +1,8 @@
+UpdateWidget #AppList {
+    background-color:#252627;
+}
+
+UpdateWidget #Tips {
+    color:#ccc;
+    font-size:12px;
+}

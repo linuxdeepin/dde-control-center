@@ -15,9 +15,9 @@ UpdateArrowExpand::UpdateArrowExpand(QWidget *parent) :
     m_updateCountLabel->setAlignment(Qt::AlignCenter);
     m_updateCountLabel->setObjectName("UpdateCount");
 
-#ifdef QT_DEBUG
+    // TODO: remove
     m_updateCountLabel->setText("101");
-#endif
+
     m_configBtn = new DImageButton(this);
     m_configBtn->setNormalPic(":/images/images/config_normal.png");
     m_configBtn->setHoverPic(":/images/images/config_hover.png");

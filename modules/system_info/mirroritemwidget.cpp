@@ -18,10 +18,9 @@ MirrorItemWidget::MirrorItemWidget(QWidget *parent)
     m_mirrorUrl = new QLabel;
     m_mirrorUrl->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
 
-#ifdef QT_DEBUG
+    // TODO: remove
     m_mirrorName->setText("官方稳定源");
     m_mirrorUrl->setText("http://packages.linuxdeepin.com");
-#endif
 
     QBoxLayout *iconLayout = new QHBoxLayout;
     iconLayout->addWidget(m_selectedBtn);
