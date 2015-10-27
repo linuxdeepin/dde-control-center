@@ -1,6 +1,5 @@
 #include <libdui/dthememanager.h>
 #include <libdui/libdui_global.h>
-#include <libdui/dseparatorhorizontal.h>
 #include <libdui/dlineedit.h>
 #include <libdui/dtextbutton.h>
 #include <libdui/dheaderline.h>
@@ -52,6 +51,8 @@ void AdapterWidget::updateUI()
     m_bluetoothName->setText(m_info->name);
     m_bluetoothSwitch->setChecked(m_info->powered);
     m_refreshnndicator->setLoading(m_info->discovering);
+    m_deviceItemList->setVisible(m_info->powered);
+    m_listWidgetSeparator->setVisible(m_deviceItemList->count() > 0 && m_info->powered);
 }
 
 void AdapterWidget::initUI()
@@ -142,14 +143,15 @@ void AdapterWidget::initUI()
     headerline->setFixedHeight(DUI::EXPAND_HEADER_HEIGHT);
 
     m_deviceItemList = new DListWidget;
-    DSeparatorHorizontal *listWidget_separator = new DSeparatorHorizontal;
+    m_listWidgetSeparator = new DSeparatorHorizontal;
 
+    m_deviceItemList->setVisible(m_info->powered);
     m_deviceItemList->setStyleSheet(styleSheet());
-    listWidget_separator->hide();
+    m_listWidgetSeparator->hide();
     m_info->widget = this;
 
-    connect(m_deviceItemList, &DListWidget::visibleCountChanged, this, [listWidget_separator](int count){
-        listWidget_separator->setVisible(count > 0);
+    connect(m_deviceItemList, &DListWidget::visibleCountChanged, this, [this](int count){
+        m_listWidgetSeparator->setVisible(count > 0 && m_info->powered);
     });
     connect(refresh_button, &ImageNameButton::clicked, this, [this] {
         m_info->bluetoothDbus->RequestDiscovery(QDBusObjectPath(m_info->path));
@@ -161,7 +163,6 @@ void AdapterWidget::initUI()
     main_layout->addWidget(headerline);
     main_layout->addWidget(new DSeparatorHorizontal);
     main_layout->addWidget(m_deviceItemList);
-    main_layout->addWidget(listWidget_separator);
+    main_layout->addWidget(m_listWidgetSeparator);
     main_layout->addStretch(1);
 }
-

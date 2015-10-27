@@ -26,9 +26,7 @@ isEmpty(WITH_MODULE_BLUETOOTH){
 }
 
 isEqual(WITH_MODULE_BLUETOOTH, YES){
-    CONFIG(debug, debug|release) {
-        SUBDIRS += bluetooth
-    }
+    SUBDIRS += bluetooth
 }
 
 isEmpty(WITH_MODULE_NETWORK){

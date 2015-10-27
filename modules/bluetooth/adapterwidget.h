@@ -6,6 +6,7 @@
 #include <libdui/dlistwidget.h>
 #include <libdui/dloadingindicator.h>
 #include <libdui/dswitchbutton.h>
+#include <libdui/dseparatorhorizontal.h>
 
 #include "bluetoothmainwidget.h"
 
@@ -30,6 +31,7 @@ private:
     void initUI();
 
     DListWidget *m_deviceItemList = nullptr;
+    DSeparatorHorizontal *m_listWidgetSeparator = nullptr;
     BluetoothMainWidget::AdapterInfo *m_info = nullptr;
     NormalLabel *m_bluetoothName;
     DSwitchButton *m_bluetoothSwitch;
