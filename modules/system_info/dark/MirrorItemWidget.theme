@@ -1,0 +1,17 @@
+MirrorItemWidget[selected="true"] {
+    background-color:#1a1b1b;
+}
+
+MirrorItemWidget[selected="false"] {
+    background-color:#252627;
+}
+
+QLabel {
+    color:white;
+    font-size:13px;
+    background-color:transparent;
+}
+
+MirrorItemWidget[selected="true"] QLabel {
+    color:cyan;
+}

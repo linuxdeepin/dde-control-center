@@ -1,0 +1,12 @@
+DUI--ContentLoader {
+    background-color:#252627;
+}
+
+#UpdateCount {
+    background-color:red;
+    color:white;
+    border:none;
+    border-radius:9px;
+    font-size:11px;
+    padding:0 3px;
+}

@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>dark/MirrorItemWidget.theme</file>
+        <file>dark/SeparatorWidget.theme</file>
+        <file>dark/UpdateArrowExpand.theme</file>
+    </qresource>
+</RCC>

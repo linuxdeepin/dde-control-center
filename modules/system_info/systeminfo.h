@@ -6,8 +6,11 @@
 #include <QtPlugin>
 #include <QScrollArea>
 
+#include <libdui/dexpandgroup.h>
+
 #include "interfaces.h"
 #include "dbus/dbussysteminfo.h"
+#include "updatearrowexpand.h"
 
 class QFrame;
 class QPlainTextEdit;
@@ -27,7 +30,7 @@ private:
     QString inline formatCap(qulonglong cap) const;
     QString inline getLicense(const QString & filePath, const QString &type) const;
     Q_SLOT void updateLicenseWidget();
-    bool eventFilter(QObject *, QEvent *e);
+    bool eventFilter(QObject *, QEvent *e) Q_DECL_OVERRIDE;
 
 private:
     QFrame *m_centeralFrame;

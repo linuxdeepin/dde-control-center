@@ -1,6 +1,10 @@
 <RCC>
     <qresource prefix="/images">
         <file>images/logo.png</file>
+        <file>images/config_press.png</file>
+        <file>images/config_normal.png</file>
+        <file>images/config_hover.png</file>
+        <file>images/select_active.png</file>
     </qresource>
     <qresource prefix="/licenses">
         <file>gpl/gpl-3.0-zh_TW-title.txt</file>

@@ -1,4 +1,8 @@
 #include "systeminfo.h"
+#include "moduleheader.h"
+#include "constants.h"
+#include "mirrorscontrolwidget.h"
+#include "updatewidget.h"
 
 #include <QVBoxLayout>
 #include <QDebug>
@@ -13,9 +17,7 @@
 #include <libdui/dseparatorhorizontal.h>
 #include <libdui/libdui_global.h>
 #include <libdui/darrowlineexpand.h>
-
-#include "moduleheader.h"
-#include "constants.h"
+#include <libdui/dboxwidget.h>
 
 DUI_USE_NAMESPACE
 
@@ -126,12 +128,27 @@ SystemInfo::SystemInfo()
     license->setTitle(tr("GNU GENERAL PUBLIC LICENSE"));
     license->setContent(m_licenseArea);
 
+    UpdateWidget *updateInfoWidget = new UpdateWidget;
+    MirrorsControlWidget *mirrorsControlWidget = new MirrorsControlWidget;
+//    mirrorsControlWidget->hide();
+    DVBoxWidget *updateWidget = new DVBoxWidget;
+    updateWidget->layout()->addWidget(updateInfoWidget);
+    updateWidget->layout()->addWidget(mirrorsControlWidget);
+
+    UpdateArrowExpand *updateExpand = new UpdateArrowExpand;
+    updateExpand->setContent(updateWidget);
+
+    DExpandGroup *expandGrp = new DExpandGroup(this);
+    expandGrp->addExpand(license);
+    expandGrp->addExpand(updateExpand);
+
     QVBoxLayout *centeralLayout = new QVBoxLayout;
     centeralLayout->addWidget(m_baseLine);
     centeralLayout->addWidget(new DSeparatorHorizontal);
     centeralLayout->addWidget(m_infoWidget);
     centeralLayout->addWidget(new DSeparatorHorizontal);
     centeralLayout->addWidget(license);
+    centeralLayout->addWidget(updateExpand);
     centeralLayout->addStretch(1);
     centeralLayout->setSpacing(0);
     centeralLayout->setMargin(0);
@@ -201,7 +218,7 @@ void SystemInfo::updateLicenseWidget()
     m_licenseArea->setFixedHeight(m_centeralFrame->height()
                                   - m_infoWidget->height()
                                   - m_baseLine->height()
-                                  - 32 // 32 for DArrowLine
+                                  - 32 * 2 // 32 for DArrowLine
                                   - 6); // 6 for DSeparatorHorizontal * 3
 }
 
