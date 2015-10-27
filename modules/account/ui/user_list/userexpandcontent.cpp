@@ -1,4 +1,5 @@
 #include <QTimer>
+#include <QApplication>
 #include "dbus/dbusaccount.h"
 #include "dbus/dbussessionmanager.h"
 #include "userexpandcontent.h"
@@ -231,15 +232,27 @@ void UserExpandContent::onAvatarSelected(const QString &avatar)
     this->window()->setProperty("canNotHide", true);
     QString fileName = "";
     if (avatar == ADD_AVATAR_ICON){
-        fileName = QFileDialog::getOpenFileName(this,
-            tr("Choose a new picture for your Avatar"), QDir::homePath(), tr("Image files (*.jpg *.png *.jpeg)"));
+        QFileDialog dl(this);
+        dl.setDirectory(QDir::homePath());
+        dl.setWindowTitle(tr("Choose a new picture for your Avatar"));
+        dl.setNameFilter(tr("Image files (*.jpg *.png *.jpeg)"));
+
+        QRect rec = QApplication::desktop()->screenGeometry();
+        dl.move(rec.x() + (rec.width() - dl.width()) / 2, rec.y() + (rec.height() - dl.height()) / 2);
+        if (dl.exec() == QDialog::Accepted) {
+            fileName = dl.selectedFiles().first();
+        }
     }
     else
         fileName = avatar;
-    QDBusPendingReply<bool> reply = m_accountUser->SetIconFile(fileName);
-    reply.waitForFinished();
-    if (reply.error().isValid())
-        qWarning()<<"Account: set icon file error: " << reply.error();
+
+    if (!fileName.isEmpty()) {
+        this->window()->setProperty("canNotHide", true);
+        QDBusPendingReply<bool> reply = m_accountUser->SetIconFile(fileName);
+        reply.waitForFinished();
+        if (reply.error().isValid())
+            qWarning()<<"Account: set icon file error: " << reply.error();
+    }
 
     //delay to buff windows active change
     QTimer::singleShot(1000, this, SLOT(onCanHideControlCenter()));
