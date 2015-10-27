@@ -106,14 +106,32 @@ QWidget *MainWidget::getAddShortcutWidget()
         emit addCustomShortcutFinished();
     });
 
+    connect(edit_name, &DLineEdit::textChanged, this, [edit_name]{
+        edit_name->setAlert(false);
+    });
+
+    connect(edit_command, &DLineEdit::textChanged, this, [edit_command]{
+        edit_command->setAlert(false);
+    });
+
     connect(button_add, &DTextButton::clicked, [=](){
-        if(!edit_name->text().isEmpty()&&!edit_command->text().isEmpty()){
+        bool canAdd = true;
+
+        if(edit_name->text().isEmpty()) {
+            edit_name->setAlert(true);
+            canAdd = false;
+        }
+        if(edit_command->text().isEmpty()) {
+            edit_command->setAlert(true);
+            canAdd = false;
+        }
+        if(canAdd) {
             m_dbus->AddCustomShortcut(edit_name->text(), edit_command->text());
             w->hide();
+            edit_name->clear();
+            edit_command->clear();
             emit addCustomShortcutFinished();
         }
-        edit_name->clear();
-        edit_command->clear();
     });
 
     connect(this, SIGNAL(addCustomShortcut()), w, SLOT(show()));
