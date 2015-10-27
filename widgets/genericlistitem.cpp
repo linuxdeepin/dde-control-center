@@ -215,3 +215,16 @@ void GenericListItem::resizeEvent(QResizeEvent *e)
     QFrame::resizeEvent(e);
 }
 
+bool GenericListItem::event(QEvent *e)
+{
+    if(e->type() == QEvent::MouseButtonRelease) {
+        emit clicked();
+    } else if(e->type() == QEvent::Enter) {
+        emit mouseEnter();
+    } else if(e->type() == QEvent::Leave) {
+        emit mouseLeave();
+    }
+
+    return QFrame::event(e);
+}
+

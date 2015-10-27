@@ -49,6 +49,9 @@ public slots:
     void setShowBgColor(bool showBgColor);
 
 signals:
+    void clicked();
+    void mouseLeave();
+    void mouseEnter();
     void checkedChanged(bool checked);
     void removeButtonClicked();
     void showRemoveButton();
@@ -58,6 +61,7 @@ signals:
 protected:
     bool eventFilter(QObject *obj, QEvent *e) Q_DECL_OVERRIDE;
     void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
+    bool event(QEvent *e) Q_DECL_OVERRIDE;
 
 private:
     QWidget *m_widget;

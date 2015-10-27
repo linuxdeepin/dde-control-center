@@ -11,7 +11,7 @@
 DUI_USE_NAMESPACE
 
 class AdapterWidget;
-class BluetoothListItem;
+class DeviceListItem;
 class BluetoothMainWidget : public QFrame
 {
     Q_OBJECT
@@ -25,8 +25,7 @@ public:
         uint discoverableTimeout;
         QString path;
         QString name;
-        QList<DeviceInfo*> deviceInfoList;
-        AdapterWidget *listWidget = nullptr;///显示蓝牙适配器搜到的设备列表的list
+        AdapterWidget *widget = nullptr;///显示蓝牙适配器搜到的设备列表的list
         DBusBluetooth *bluetoothDbus = nullptr;
     };
     ///搜到的蓝牙设备信息
@@ -39,7 +38,13 @@ public:
         QString icon;
         QString computer;
         struct AdapterInfo *adapterInfo = nullptr;
-        BluetoothListItem *listItem = nullptr;
+        DeviceListItem *item = nullptr;///
+
+        enum State{
+            Disconnected = 0,
+            Connecting = 1,
+            Connected = 2
+        };
     };
 
     explicit BluetoothMainWidget(QWidget *parent = 0);
@@ -55,13 +60,16 @@ private:
     QVBoxLayout *m_mainLayout;
     DListWidget *m_adapterList;
     DBusBluetooth *m_bluetoothDbus;
-    QList<AdapterInfo*> m_adapterInfoList;
+
     QMap<QString, AdapterInfo*> m_pathToAdapterInfoMap;
     QMap<QString, DeviceInfo*> m_pathToDeviceInfoMap;
 
     AdapterInfo* newAdapterInfoByMap(const QVariantMap &map);
-    DeviceInfo* newDeviceInfoByMap(const QVariantMap &map) const;
-    BluetoothListItem *newDeviceListItem(DeviceInfo* device_info) const;
+    DeviceInfo* newDeviceInfoByMap(const QVariantMap &map);
+    DeviceListItem *newDeviceListItem(DeviceInfo* device_info) const;
+
+    void updateAdapterInfoByMap(AdapterInfo *info, const QVariantMap &map);
+    void updateDeviceInfoByMap(DeviceInfo *info, const QVariantMap &map);
 
     void intiBackend();
     void initUI();

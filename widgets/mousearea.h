@@ -2,6 +2,7 @@
 #define MOUSEAREA_H
 
 #include <QWidget>
+#include <QMouseEvent>
 
 class MouseAreaPrivate;
 class MouseArea : public QWidget

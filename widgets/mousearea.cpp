@@ -27,6 +27,9 @@ class MouseAreaPrivate
             return;
         }
 
+        if(pressed)
+            setContainsMouse(true);
+
         m_pressed = pressed;
         emit q->pressedChanged(pressed);
     }
@@ -52,6 +55,9 @@ class MouseAreaPrivate
         }
 
         m_containsMouse = containsMouse;
+
+        setContainsMouse(containsMouse && q->pressed());
+
         emit q->containsMouseChanged(containsMouse);
     }
 
@@ -125,13 +131,19 @@ void MouseArea::mouseMoveEvent(QMouseEvent *e)
 
 void MouseArea::enterEvent(QEvent *e)
 {
+    Q_D(MouseArea);
+
     QWidget::enterEvent(e);
+    d->setContainsMouse(true);
     emit entered();
 }
 
 void MouseArea::leaveEvent(QEvent *e)
 {
+    Q_D(MouseArea);
+
     QWidget::leaveEvent(e);
+    d->setContainsMouse(false);
     emit exited();
 }
 

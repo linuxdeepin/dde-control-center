@@ -1,5 +1,5 @@
-#ifndef BLUETOOTHLISTITEM_H
-#define BLUETOOTHLISTITEM_H
+#ifndef DEVICELISTITEM_H
+#define DEVICELISTITEM_H
 
 #include <QWidget>
 
@@ -7,22 +7,30 @@
 
 #include "genericlistitem.h"
 
-class BluetoothListItem : public GenericListItem
+#include "bluetoothmainwidget.h"
+
+class DeviceListItem : public GenericListItem
 {
     Q_OBJECT
 
     Q_PROPERTY(bool loading READ loading WRITE setLoading)
 
 public:
-    explicit BluetoothListItem(QWidget *parent = 0);
+    explicit DeviceListItem(BluetoothMainWidget::DeviceInfo *info, QWidget *parent = 0);
+    ~DeviceListItem();
+
     bool loading() const;
 
 public slots:
     void setLoading(bool loading);
+    void updateUI();
 
 private:
+    void initUI();
+
     bool m_loading = false;
     DLoadingIndicator *m_indicator;
+    BluetoothMainWidget::DeviceInfo *m_info = nullptr;
 };
 
-#endif // BLUETOOTHLISTITEM_H
+#endif // DEVICELISTITEM_H

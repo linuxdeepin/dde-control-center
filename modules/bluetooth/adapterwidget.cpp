@@ -1,11 +1,9 @@
 #include <libdui/dthememanager.h>
 #include <libdui/libdui_global.h>
 #include <libdui/dseparatorhorizontal.h>
-#include <libdui/dswitchbutton.h>
 #include <libdui/dlineedit.h>
 #include <libdui/dtextbutton.h>
 #include <libdui/dheaderline.h>
-#include <libdui/dloadingindicator.h>
 
 #include "constants.h"
 
@@ -22,15 +20,41 @@ AdapterWidget::AdapterWidget(BluetoothMainWidget::AdapterInfo *info,
     QWidget(parent),
     m_info(info)
 {
-    initUI(info);
+    D_THEME_INIT_WIDGET(AdapterWidget);
+
+    initUI();
 }
 
-DListWidget *AdapterWidget::deviceList() const
+AdapterWidget::~AdapterWidget()
 {
-    return m_deviceList;
+    if(m_info)
+        delete m_info;
 }
 
-void AdapterWidget::initUI(BluetoothMainWidget::AdapterInfo *info)
+void AdapterWidget::addDevice(BluetoothMainWidget::DeviceInfo *info)
+{
+    info->adapterInfo = m_info;
+    m_deviceItemList->addWidget(info->item);
+}
+
+void AdapterWidget::removeDevice(BluetoothMainWidget::DeviceInfo *info)
+{
+    int index = m_deviceItemList->indexOf(info->item);
+
+    if(index >= 0){
+        info->adapterInfo = nullptr;
+        m_deviceItemList->removeWidget(index);
+    }
+}
+
+void AdapterWidget::updateUI()
+{
+    m_bluetoothName->setText(m_info->name);
+    m_bluetoothSwitch->setChecked(m_info->powered);
+    m_refreshnndicator->setLoading(m_info->discovering);
+}
+
+void AdapterWidget::initUI()
 {
     QVBoxLayout *main_layout = new QVBoxLayout(this);
 
@@ -41,25 +65,25 @@ void AdapterWidget::initUI(BluetoothMainWidget::AdapterInfo *info)
 
     QWidget *name_edit_switch = new QWidget;
     QHBoxLayout *h_layout = new QHBoxLayout(name_edit_switch);
-    NormalLabel *bluetooth_name = new NormalLabel(info->name);
+    m_bluetoothName = new NormalLabel(m_info->name);
     ImageNameButton *edit_button = new ImageNameButton("edit");
-    DSwitchButton *bluetooth_switch = new DSwitchButton;
+    m_bluetoothSwitch = new DSwitchButton;
 
     name_edit_switch->setFixedWidth(DCC::ModuleContentWidth);
     name_edit_switch->setFixedHeight(DUI::CONTENT_HEADER_HEIGHT);
-    bluetooth_switch->setChecked(info->powered);
+    m_bluetoothSwitch->setChecked(m_info->powered);
 
     h_layout->setSpacing(10);
     h_layout->setMargin(0);
     h_layout->addSpacing(10);
-    h_layout->addWidget(bluetooth_name);
+    h_layout->addWidget(m_bluetoothName);
     h_layout->addWidget(edit_button);
     h_layout->addStretch(1);
-    h_layout->addWidget(bluetooth_switch);
+    h_layout->addWidget(m_bluetoothSwitch);
     h_layout->addSpacing(10);
 
-    connect(bluetooth_switch, &DSwitchButton::checkedChanged, this, [this, info](bool checked){
-        info->bluetoothDbus->SetAdapterPowered(QDBusObjectPath(info->path), checked);
+    connect(m_bluetoothSwitch, &DSwitchButton::checkedChanged, this, [this](bool checked){
+        m_info->bluetoothDbus->SetAdapterPowered(QDBusObjectPath(m_info->path), checked);
     });
 
     QWidget *edit_name_widget = new QWidget;
@@ -82,8 +106,8 @@ void AdapterWidget::initUI(BluetoothMainWidget::AdapterInfo *info)
     editWidget_hLayout->addWidget(apply_button);
 
     connect(edit_button, &ImageNameButton::clicked,
-            this, [name_edit_switch, edit_name_widget, name_lineEdit, bluetooth_name]{
-        name_lineEdit->setText(bluetooth_name->text());
+            this, [name_edit_switch, edit_name_widget, name_lineEdit, this]{
+        name_lineEdit->setText(m_bluetoothName->text());
         name_lineEdit->setFocus();
         name_edit_switch->hide();
         edit_name_widget->show();
@@ -96,39 +120,39 @@ void AdapterWidget::initUI(BluetoothMainWidget::AdapterInfo *info)
     });
 
     connect(apply_button, &DTextButton::clicked,
-            this, [cancel_button, bluetooth_name, name_lineEdit, info]{
+            this, [cancel_button, name_lineEdit, this]{
         cancel_button->click();
 
-        info->bluetoothDbus->SetAdapterAlias(QDBusObjectPath(info->path), name_lineEdit->text());
+        m_info->bluetoothDbus->SetAdapterAlias(QDBusObjectPath(m_info->path), name_lineEdit->text());
     });
 
     DHeaderLine *headerline = new DHeaderLine;
     ImageNameButton *refresh_button = new ImageNameButton("reload");
-    DLoadingIndicator *refresh_indicator = new DLoadingIndicator;
+    m_refreshnndicator = new DLoadingIndicator;
 
     refresh_button->setAttribute(Qt::WA_TranslucentBackground);
-    refresh_indicator->setFixedSize(refresh_button->sizeHint());
-    refresh_indicator->setWidgetSource(refresh_button);
-    refresh_indicator->setSmooth(true);
-    refresh_indicator->setLoading(info->discovering);
+    m_refreshnndicator->setFixedSize(refresh_button->sizeHint());
+    m_refreshnndicator->setWidgetSource(refresh_button);
+    m_refreshnndicator->setSmooth(true);
+    m_refreshnndicator->setLoading(m_info->discovering);
 
     headerline->setTitle(tr("Devices nearby"));
     headerline->setLeftMargin(10);
-    headerline->setContent(refresh_indicator);
+    headerline->setContent(m_refreshnndicator);
     headerline->setFixedHeight(DUI::EXPAND_HEADER_HEIGHT);
 
-    m_deviceList = new DListWidget;
+    m_deviceItemList = new DListWidget;
     DSeparatorHorizontal *listWidget_separator = new DSeparatorHorizontal;
 
-    m_deviceList->setCheckable(true);
+    m_deviceItemList->setStyleSheet(styleSheet());
     listWidget_separator->hide();
-    info->listWidget = this;
+    m_info->widget = this;
 
-    connect(m_deviceList, &DListWidget::visibleCountChanged, this, [listWidget_separator](int count){
+    connect(m_deviceItemList, &DListWidget::visibleCountChanged, this, [listWidget_separator](int count){
         listWidget_separator->setVisible(count > 0);
     });
-    connect(refresh_button, &ImageNameButton::clicked, this, [info] {
-        info->bluetoothDbus->RequestDiscovery(QDBusObjectPath(info->path));
+    connect(refresh_button, &ImageNameButton::clicked, this, [this] {
+        m_info->bluetoothDbus->RequestDiscovery(QDBusObjectPath(m_info->path));
     });
 
     main_layout->addWidget(name_edit_switch);
@@ -136,7 +160,7 @@ void AdapterWidget::initUI(BluetoothMainWidget::AdapterInfo *info)
     main_layout->addWidget(new DSeparatorHorizontal);
     main_layout->addWidget(headerline);
     main_layout->addWidget(new DSeparatorHorizontal);
-    main_layout->addWidget(m_deviceList);
+    main_layout->addWidget(m_deviceItemList);
     main_layout->addWidget(listWidget_separator);
     main_layout->addStretch(1);
 }

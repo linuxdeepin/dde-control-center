@@ -32,12 +32,21 @@ BluetoothMainWidget::BluetoothMainWidget(QWidget *parent) :
 
 void BluetoothMainWidget::addAdapter(AdapterInfo *info)
 {
-    m_adapterList->addWidget(new AdapterWidget(info));
+    info->widget = new AdapterWidget(info);
+    m_adapterList->addWidget(info->widget);
 }
 
 void BluetoothMainWidget::removeAdapter(const AdapterInfo *info)
 {
+    if(!info)
+        return;
 
+    int index = m_adapterList->indexOf(info->widget);
+    if(index < 0)
+        return;
+
+    m_pathToAdapterInfoMap.remove(info->path);
+    m_adapterList->removeWidget(index);
 }
 
 void BluetoothMainWidget::resizeEvent(QResizeEvent *e)
@@ -52,56 +61,78 @@ BluetoothMainWidget::AdapterInfo* BluetoothMainWidget::newAdapterInfoByMap(const
     AdapterInfo *info = new AdapterInfo;
 
     info->path = map["Path"].toString();
-    info->name = map["Alias"].toString();
-    info->powered = map["Powered"].toBool();
-    info->discovering = map["Discovering"].toBool();
-    info->discoverable = map["Discoverable"].toBool();
-    info->discoverableTimeout = map["DiscoverableTimeout"].toUInt();
     info->bluetoothDbus = m_bluetoothDbus;
 
+    m_pathToAdapterInfoMap[info->path] = info;
+
+    updateAdapterInfoByMap(info, map);
+
     ASYN_CALL(m_bluetoothDbus->GetDevices(QDBusObjectPath(info->path)), {
+                  if(!info->widget)
+                    return;
+
                   QJsonDocument json_doc = QJsonDocument::fromJson(args[0].toByteArray());
                   for(const QJsonValue &value : json_doc.array()){
                       const QVariantMap &tmp_map = value.toObject().toVariantMap();
                       DeviceInfo *device_info = newDeviceInfoByMap(tmp_map);
-                      device_info->adapterInfo = info;
-                      info->deviceInfoList.append(device_info);
 
-                      if(info->listWidget){
-                          device_info->listItem = newDeviceListItem(device_info);
-                          info->listWidget->deviceList()->addWidget(device_info->listItem);
-                      }
+                      device_info->item = newDeviceListItem(device_info);
+                      info->widget->addDevice(device_info);
                   }
               }, this, info);
 
     return info;
 }
 
-BluetoothMainWidget::DeviceInfo *BluetoothMainWidget::newDeviceInfoByMap(const QVariantMap &map) const
+BluetoothMainWidget::DeviceInfo *BluetoothMainWidget::newDeviceInfoByMap(const QVariantMap &map)
 {
     DeviceInfo *info = new DeviceInfo;
 
     info->path = map["Path"].toString();
+
+    m_pathToDeviceInfoMap[info->path] = info;
+
+    updateDeviceInfoByMap(info, map);
+
+    return info;
+}
+
+DeviceListItem *BluetoothMainWidget::newDeviceListItem(DeviceInfo *device_info) const
+{
+    DeviceListItem *item = new DeviceListItem(device_info);
+    item->setFixedSize(DCC::ModuleContentWidth, DUI::EXPAND_HEADER_HEIGHT);
+
+    return item;
+}
+
+void BluetoothMainWidget::updateAdapterInfoByMap(BluetoothMainWidget::AdapterInfo *info, const QVariantMap &map)
+{
+    if(!info)
+        return;
+
+    info->name = map["Alias"].toString();
+    info->powered = map["Powered"].toBool();
+    info->discovering = map["Discovering"].toBool();
+    info->discoverable = map["Discoverable"].toBool();
+    info->discoverableTimeout = map["DiscoverableTimeout"].toUInt();
+}
+
+void BluetoothMainWidget::updateDeviceInfoByMap(BluetoothMainWidget::DeviceInfo *info, const QVariantMap &map)
+{
+    if(!info)
+        return;
+
     info->name = map["Alias"].toString();
     info->trusted = map["Trusted"].toBool();
     info->paired = map["Paired"].toBool();
     info->state = map["State"].toInt();
     info->icon = map["Icon"].toString();
-
-    return info;
 }
 
-BluetoothListItem *BluetoothMainWidget::newDeviceListItem(DeviceInfo *device_info) const
+QVariantMap getMapByJson(const QString &json)
 {
-    BluetoothListItem *item = new BluetoothListItem;
-    item->setFixedSize(DCC::ModuleContentWidth, DUI::EXPAND_HEADER_HEIGHT);
-    item->setTitle(device_info->name);
-
-    connect(item, &BluetoothListItem::checkedChanged, this, [item](bool checked){
-        item->setLoading(checked);
-    });
-
-    return item;
+    QJsonDocument json_doc = QJsonDocument::fromJson(json.toUtf8());
+    return json_doc.object().toVariantMap();
 }
 
 void BluetoothMainWidget::intiBackend()
@@ -119,41 +150,50 @@ void BluetoothMainWidget::intiBackend()
     }
 
     connect(m_bluetoothDbus, &DBusBluetooth::AdapterAdded, this, [this](const QString &str) {
-        QJsonDocument json_doc = QJsonDocument::fromJson(str.toLatin1());
-        addAdapter(newAdapterInfoByMap(json_doc.toVariant().toMap()));
+        addAdapter(newAdapterInfoByMap(getMapByJson(str)));
     });
 
     connect(m_bluetoothDbus, &DBusBluetooth::AdapterRemoved, this, [this](const QString &str) {
-        QJsonDocument json_doc = QJsonDocument::fromJson(str.toLatin1());
-        removeAdapter(newAdapterInfoByMap(json_doc.toVariant().toMap()));
+        removeAdapter(m_pathToAdapterInfoMap.value(getMapByJson(str)["Path"].toString(), nullptr));
     });
 
     connect(m_bluetoothDbus, &DBusBluetooth::DeviceAdded, this, [this](const QString &str){
-        QJsonDocument json_doc = QJsonDocument::fromJson(str.toLatin1());
-        const QVariantMap &map = json_doc.toVariant().toMap();
-        DeviceInfo *device_info = newDeviceInfoByMap(map);
-        device_info->adapterInfo = m_pathToAdapterInfoMap.value(map["AdapterPath"].toString(), nullptr);
+        const QVariantMap &map = getMapByJson(str);
 
-        if(device_info->adapterInfo){
-            device_info->listItem = newDeviceListItem(device_info);
-            device_info->adapterInfo->listWidget->deviceList()->addWidget(device_info->listItem);
+        AdapterInfo *info = m_pathToAdapterInfoMap.value(map["AdapterPath"].toString(), nullptr);
+        if(info){
+            DeviceInfo *device_info = newDeviceInfoByMap(map);
+            device_info->item = newDeviceListItem(device_info);
+            info->widget->addDevice(device_info);
         }
     });
 
     connect(m_bluetoothDbus, &DBusBluetooth::DeviceRemoved, this, [this](const QString &str){
-        QJsonDocument json_doc = QJsonDocument::fromJson(str.toLatin1());
-        const QVariantMap &map = json_doc.toVariant().toMap();
+        const QVariantMap &map = getMapByJson(str);
         AdapterInfo *info = m_pathToAdapterInfoMap.value(map["AdapterPath"].toString(), nullptr);
         if(info){
             DeviceInfo *device_info = m_pathToDeviceInfoMap.value(map["Path"].toString(), nullptr);
             if(device_info){
-                info->deviceInfoList.removeOne(device_info);
-                DListWidget *device_list = info->listWidget->deviceList();
-                int index = device_list->indexOf(device_info->listItem);
-                if(index > 0)
-                    device_list->removeWidget(index);
+                info->widget->removeDevice(device_info);
+                m_pathToDeviceInfoMap.remove(device_info->path);
             }
         }
+    });
+
+    connect(m_bluetoothDbus, &DBusBluetooth::AdapterPropertiesChanged, this, [this](const QString &str){
+        const QVariantMap &map = getMapByJson(str);
+        AdapterInfo *info = m_pathToAdapterInfoMap.value(map["Path"].toString(), nullptr);
+        updateAdapterInfoByMap(info, map);
+        if(info)
+            info->widget->updateUI();
+    });
+
+    connect(m_bluetoothDbus, &DBusBluetooth::DevicePropertiesChanged, this, [this](const QString &str){
+        const QVariantMap &map = getMapByJson(str);
+        DeviceInfo *info = m_pathToDeviceInfoMap.value(map["Path"].toString(), nullptr);
+        updateDeviceInfoByMap(info, map);
+        if(info)
+            info->item->updateUI();
     });
 }
 
