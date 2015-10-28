@@ -145,7 +145,7 @@ void Frame::listPlugins()
     QStringList moduleOrder;
     moduleOrder << "account" << "display" << "defaultapps" << "personalization";
     moduleOrder << "network" << "bluetooth" << "sound" << "datetime" << "power";
-    moduleOrder << "mouse" << "keyboard" << "shortcuts" << "grub" << "system_info";
+    moduleOrder << "mouse" << "wacom" << "keyboard" << "shortcuts" << "grub" << "system_info";
 
     foreach(QString fileName, pluginsDir.entryList(QDir::Files)) {
         if (!QLibrary::isLibrary(fileName)) {
