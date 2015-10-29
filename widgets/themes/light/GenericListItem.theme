@@ -27,5 +27,8 @@ GenericListItem[checked="true"] QLabel{
 
 GenericListItem[showBgColor="false"]{
     background-color: transparent;
+}
+
+GenericListItem[showCheckedIcon="false"]{
     background-image: url();
 }

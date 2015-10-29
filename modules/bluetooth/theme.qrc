@@ -10,7 +10,6 @@
         <file>dark/images/waiting.svg</file>
         <file>dark/images/edit_press.png</file>
         <file>dark/images/waiting.png</file>
-        <file>dark/DeviceListItem.theme</file>
         <file>dark/AdapterWidget.theme</file>
         <file>dark/images/clear_normal.png</file>
     </qresource>

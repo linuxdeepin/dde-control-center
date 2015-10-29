@@ -84,7 +84,8 @@ void AdapterWidget::initUI()
     h_layout->addSpacing(10);
 
     connect(m_bluetoothSwitch, &DSwitchButton::checkedChanged, this, [this](bool checked){
-        m_info->bluetoothDbus->SetAdapterPowered(QDBusObjectPath(m_info->path), checked);
+        if(m_info->powered != checked)
+            m_info->bluetoothDbus->SetAdapterPowered(QDBusObjectPath(m_info->path), checked);
     });
 
     QWidget *edit_name_widget = new QWidget;

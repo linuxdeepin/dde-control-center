@@ -19,7 +19,12 @@ class GenericListItem : public QFrame, public SearchItem
     Q_PROPERTY(QString imagePress READ imagePress WRITE setImagePress)
     Q_PROPERTY(QString imageChecked READ imageChecked WRITE setImageChecked)
     Q_PROPERTY(QStringList keyWords READ keyWords WRITE setKeyWords)
+    Q_PROPERTY(QString checkedIcon READ checkedIcon WRITE setCheckedIcon NOTIFY checkedIconChanged)
+    Q_PROPERTY(QString loadingIcon READ loadingIcon WRITE setLoadingIcon NOTIFY loadingIconChanged)
     Q_PROPERTY(bool showBgColor READ showBgColor WRITE setShowBgColor NOTIFY showBgColorChanged)
+    Q_PROPERTY(bool showCheckedIcon READ showCheckedIcon WRITE setShowCheckedIcon NOTIFY showCheckedIconChanged)
+    Q_PROPERTY(bool showClearButton READ showClearButton WRITE setShowClearButton NOTIFY showClearButtonChanged)
+    Q_PROPERTY(bool loading READ loading WRITE setLoading NOTIFY loadingChanged)
 
 public:
     explicit GenericListItem(bool showRmButton = false, QWidget *parent = 0);
@@ -30,13 +35,20 @@ public:
     QWidget *widget() const Q_DECL_OVERRIDE;
     void setListWidget(SearchList *list) Q_DECL_OVERRIDE;
 
+    void addWidgetToRight(QWidget *widget);
+
     bool checked() const;
     QString title() const;
     QString imagePress() const;
     QString imageHover() const;
     QString imageNormal() const;
     QString imageChecked() const;
+    QString checkedIcon() const;
+    QString loadingIcon() const;
     bool showBgColor() const;
+    bool loading() const;
+    bool showClearButton() const;
+    bool showCheckedIcon() const;
 
 public slots:
     void setChecked(bool checked);
@@ -46,7 +58,13 @@ public slots:
     void setImageNormal(QString imageNormal);
     void setImageChecked(QString imageChecked);
     void setKeyWords(QStringList keyWords);
+    void setCheckedIcon(QString checkedIcon);
+    void setLoadingIcon(QString loadingIcon);
     void setShowBgColor(bool showBgColor);
+    void setLoading(bool loading);
+    void setShowClearButton(bool showClearButton);
+    void setShowCheckedIcon(bool showCheckedIcon);
+
 
 signals:
     void clicked();
@@ -56,12 +74,20 @@ signals:
     void removeButtonClicked();
     void showRemoveButton();
     void hideRemoveButton();
+    void checkedIconChanged(QString checkedIcon);
+    void loadingIconChanged(QString loadingIcon);
     void showBgColorChanged(bool showBgColor);
+    void loadingChanged(bool loading);
+    void showClearButtonChanged(bool showClearButton);
+    void showCheckedIconChanged(bool showCheckedIcon);
+    void clearButtonClicked();
 
 protected:
     bool eventFilter(QObject *obj, QEvent *e) Q_DECL_OVERRIDE;
     void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
-    bool event(QEvent *e) Q_DECL_OVERRIDE;
+    void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
+    void enterEvent(QEvent *e) Q_DECL_OVERRIDE;
+    void leaveEvent(QEvent *e) Q_DECL_OVERRIDE;
 
 private:
     QWidget *m_widget;
@@ -73,8 +99,13 @@ private:
     QString m_imageNormal;
     QStringList m_keyWords;
     QString m_imageChecked;
+    QString m_leftIconSource;
     ImageNameButton *m_deleteButton;
     bool m_showBgColor;
+    bool m_loading;
+    bool m_showClearButton;
+    bool m_showCheckedIcon;
+    QString m_loadingIcon;
 };
 
 #endif // GENERICLISTITEM_H

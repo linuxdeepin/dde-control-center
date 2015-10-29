@@ -3,6 +3,7 @@
 #include <libdui/libdui_global.h>
 #include <libdui/dthememanager.h>
 #include <libdui/dconstants.h>
+#include <libdui/dloadingindicator.h>
 
 #include "genericlistitem.h"
 #include "imagenamebutton.h"
@@ -15,9 +16,12 @@ GenericListItem::GenericListItem(bool showRmButton, QWidget *parent) :
     m_label(new QLabel),
     m_checked(false),
     m_layout(new QHBoxLayout),
-    m_showBgColor(false)
+    m_showBgColor(false),
+    m_loading(false),
+    m_showClearButton(false),
+    m_showCheckedIcon(true)
 {
-    D_THEME_INIT_WIDGET(GenericListItem, checked, showBgColor);
+    D_THEME_INIT_WIDGET(GenericListItem, checked, showBgColor, showCheckedIcon, loading);
 
     m_deleteButton = new ImageNameButton("list_remove", this);
     m_deleteButton->setHidden(!showRmButton);
@@ -29,6 +33,52 @@ GenericListItem::GenericListItem(bool showRmButton, QWidget *parent) :
         }
     });
     connect(this, &GenericListItem::hideRemoveButton, m_deleteButton, &ImageNameButton::hide);
+
+    DLoadingIndicator *indicator = new DLoadingIndicator(this);
+    indicator->setFixedSize(20, 20);
+    indicator->setImageSource(QPixmap(checkedIcon()));
+
+    ImageNameButton *clear_button = new ImageNameButton("clear", this);
+    clear_button->setHoverPic(clear_button->getNormalPic());
+    clear_button->setPressPic(clear_button->getNormalPic());
+    clear_button->setFixedSize(15, 15);
+    clear_button->hide();
+
+    connect(this, &GenericListItem::checkedChanged, this, [this, indicator](bool checked){
+        indicator->setLoading(false);
+        if(checked && showCheckedIcon()) {
+            indicator->setImageSource(QPixmap(checkedIcon()));
+            indicator->move(10, height() / 2 - indicator->height() / 2);
+        } else {
+            indicator->setImageSource(QPixmap());
+        }
+    });
+    connect(this, &GenericListItem::loadingChanged, this, [this, indicator](bool loading){
+        if(loading) {
+            setShowClearButton(false);
+            indicator->setImageSource(QPixmap(loadingIcon()));
+            indicator->move(10, height() / 2 - indicator->height() / 2);
+        } else {
+            indicator->setImageSource(QPixmap());
+        }
+        indicator->setLoading(loading);
+    });
+    connect(this, &GenericListItem::showClearButtonChanged, this, [this, indicator, clear_button](bool showClear){
+        clear_button->move(10, height() / 2 - clear_button->height() / 2);
+        indicator->setVisible(!showClear);
+        clear_button->setVisible(showClear);
+    });
+    connect(this, &GenericListItem::showCheckedIconChanged, this, [this, indicator](bool showCheckedIcon){
+        if(showCheckedIcon && checked()) {
+            indicator->setLoading(false);
+            setShowClearButton(false);
+            indicator->setImageSource(QPixmap(checkedIcon()));
+            indicator->move(10, height() / 2 - indicator->height() / 2);
+        } else {
+            indicator->setImageSource(QPixmap());
+        }
+    });
+    connect(clear_button, &ImageNameButton::clicked, this, &GenericListItem::clearButtonClicked);
 
     m_layout->setMargin(0);
     m_layout->setContentsMargins(22, 0, 0, 0);
@@ -71,6 +121,11 @@ void GenericListItem::setListWidget(SearchList *list)
         setShowBgColor(m_list->count()>1);
 }
 
+void GenericListItem::addWidgetToRight(QWidget *widget)
+{
+    m_layout->addWidget(widget, 0, Qt::AlignRight);
+}
+
 bool GenericListItem::checked() const
 {
     return m_checked;
@@ -101,9 +156,34 @@ QString GenericListItem::imageChecked() const
     return m_imageChecked;
 }
 
+QString GenericListItem::checkedIcon() const
+{
+    return m_leftIconSource;
+}
+
+QString GenericListItem::loadingIcon() const
+{
+    return m_loadingIcon;
+}
+
 bool GenericListItem::showBgColor() const
 {
     return m_showBgColor;
+}
+
+bool GenericListItem::loading() const
+{
+    return m_loading;
+}
+
+bool GenericListItem::showClearButton() const
+{
+    return m_showClearButton;
+}
+
+bool GenericListItem::showCheckedIcon() const
+{
+    return m_showCheckedIcon;
 }
 
 void GenericListItem::setChecked(bool checked)
@@ -166,6 +246,24 @@ void GenericListItem::setKeyWords(QStringList keyWords)
     m_keyWords = keyWords;
 }
 
+void GenericListItem::setCheckedIcon(QString leftIconSource)
+{
+    if (m_leftIconSource == leftIconSource)
+        return;
+
+    m_leftIconSource = leftIconSource;
+    emit checkedIconChanged(leftIconSource);
+}
+
+void GenericListItem::setLoadingIcon(QString loadingIcon)
+{
+    if (m_loadingIcon == loadingIcon)
+        return;
+
+    m_loadingIcon = loadingIcon;
+    emit loadingIconChanged(loadingIcon);
+}
+
 void GenericListItem::setShowBgColor(bool showBgColor)
 {
     if (m_showBgColor == showBgColor)
@@ -174,6 +272,33 @@ void GenericListItem::setShowBgColor(bool showBgColor)
     m_showBgColor = showBgColor;
 
     emit showBgColorChanged(showBgColor);
+}
+
+void GenericListItem::setLoading(bool loading)
+{
+    if (m_loading == loading)
+        return;
+
+    m_loading = loading;
+    emit loadingChanged(loading);
+}
+
+void GenericListItem::setShowClearButton(bool showClearButton)
+{
+    if (m_showClearButton == showClearButton)
+        return;
+
+    m_showClearButton = showClearButton;
+    emit showClearButtonChanged(showClearButton);
+}
+
+void GenericListItem::setShowCheckedIcon(bool showCheckedIcon)
+{
+    if (m_showCheckedIcon == showCheckedIcon)
+        return;
+
+    m_showCheckedIcon = showCheckedIcon;
+    emit showCheckedIconChanged(showCheckedIcon);
 }
 
 bool GenericListItem::eventFilter(QObject *obj, QEvent *e)
@@ -215,16 +340,23 @@ void GenericListItem::resizeEvent(QResizeEvent *e)
     QFrame::resizeEvent(e);
 }
 
-bool GenericListItem::event(QEvent *e)
+void GenericListItem::mouseReleaseEvent(QMouseEvent *e)
 {
-    if(e->type() == QEvent::MouseButtonRelease) {
-        emit clicked();
-    } else if(e->type() == QEvent::Enter) {
-        emit mouseEnter();
-    } else if(e->type() == QEvent::Leave) {
-        emit mouseLeave();
-    }
+    QFrame::mouseReleaseEvent(e);
 
-    return QFrame::event(e);
+    emit clicked();
 }
 
+void GenericListItem::enterEvent(QEvent *e)
+{
+    QFrame::enterEvent(e);
+
+    emit mouseEnter();
+}
+
+void GenericListItem::leaveEvent(QEvent *e)
+{
+    QFrame::leaveEvent(e);
+
+    emit mouseLeave();
+}

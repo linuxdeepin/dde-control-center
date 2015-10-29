@@ -1,5 +1,6 @@
 GenericListItem{
     padding-left: 10px;
+    qproperty-loadingIcon: ":/dark/images/waiting.png";
 }
 
 GenericListItem QLabel{
@@ -12,11 +13,11 @@ GenericListItem QLabel:hover{
 }
 
 GenericListItem[checked="true"]{
-    background-image: url(:/dark/images/tick_hover.png);
-    background-repeat: no-repeat;
+    qproperty-checkedIcon: ":/dark/images/tick_hover.png";
     background-position: left center;
     background-color: #66000000;
     border-radius: 3px;
+    border: 2px soild white;
     background-origin: content;
 }
 
@@ -26,5 +27,8 @@ GenericListItem[checked="true"] QLabel{
 
 GenericListItem[showBgColor="false"]{
     background-color: transparent;
-    background-image: url();
+}
+
+GenericListItem[showCheckedIcon="false"]{
+    qproperty-checkedIcon: "";
 }
