@@ -47,11 +47,15 @@ class DBusNetwork: public QDBusAbstractInterface
         }
    }
 public:
+    static inline const char *staticServerPath()
+    { return "com.deepin.daemon.Network"; }
+    static inline const char *staticInterfacePath()
+    { return "/com/deepin/daemon/Network"; }
     static inline const char *staticInterfaceName()
     { return "com.deepin.daemon.Network"; }
 
 public:
-    DBusNetwork(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent = 0);
+    DBusNetwork(QObject *parent = 0);
 
     ~DBusNetwork();
 

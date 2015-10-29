@@ -32,5 +32,8 @@
         <file>dark/images/wired_status_transmit-receive.svg</file>
         <file>dark/images/wired_status_transmit.svg</file>
         <file>dark/images/info_focus.png</file>
+        <file>dark/AbstractDeviceWidget.theme</file>
+        <file>dark/InputPasswordDialog.theme</file>
+        <file>dark/ConnectToHiddenApWidget.theme</file>
     </qresource>
 </RCC>

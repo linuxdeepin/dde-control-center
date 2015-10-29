@@ -6,6 +6,7 @@
 
 #include <libdui/dscrollarea.h>
 #include <libdui/dboxwidget.h>
+#include <libdui/dstackwidget.h>
 
 DUI_USE_NAMESPACE
 
@@ -18,8 +19,16 @@ public:
     QBoxLayout *headerLayout() const;
     QBoxLayout *mainLayout() const;
 
+    void pushWidget(QWidget *widget);
+    void popCurrentWidget();
+    void popAllWidget();
+
+private slots:
+    void onCurrentWidgetSizeChanged(const QSize &size);
+
 signals:
     void sizeChanged(QSize size);
+    void currentMainWidgetChanged(const QWidget *widget);
 
 protected:
     void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
@@ -28,6 +37,8 @@ private:
     void init();
 
     DScrollArea *m_scrollArea = nullptr;
+    DStackWidget *m_stackWidget = nullptr;
+    const DBoxWidget *m_currentWidget = nullptr;
     DVBoxWidget *m_headerWidget = nullptr;
     DVBoxWidget *m_mainWidget = nullptr;
 };

@@ -1,17 +1,19 @@
 #ifndef VPNCONNECTSWIDGET_H
 #define VPNCONNECTSWIDGET_H
 
-#include <QWidget>
+#include "abstractdevicewidget.h"
 
-class VPNConnectsWidget : public QWidget
+class VPNConnectsWidget : public AbstractDeviceWidget
 {
     Q_OBJECT
 public:
-    explicit VPNConnectsWidget(QWidget *parent = 0);
+    explicit VPNConnectsWidget(DBusNetwork *dbus, ScrollFrame *scrollWidget, QWidget *parent = 0);
 
-signals:
+private slots:
+    void onConnectsChanged();
 
-public slots:
+private:
+    QMap<QString, NetworkGenericListItem*> m_mapVpnPathToItem;
 };
 
 #endif // VPNCONNECTSWIDGET_H

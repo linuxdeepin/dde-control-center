@@ -36,6 +36,7 @@ public:
     void setListWidget(SearchList *list) Q_DECL_OVERRIDE;
 
     void addWidgetToRight(QWidget *widget);
+    QBoxLayout *rightLayout() const;
 
     bool checked() const;
     QString title() const;

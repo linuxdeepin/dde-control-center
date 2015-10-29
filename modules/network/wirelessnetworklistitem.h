@@ -1,17 +1,27 @@
 #ifndef WIRELESSNETWORKLISTITEM_H
 #define WIRELESSNETWORKLISTITEM_H
 
-#include <QWidget>
+#include "abstractdevicewidget.h"
 
-class WirelessNetworkListItem : public QWidget
+class WirelessNetworkListItem : public AbstractDeviceWidget
 {
     Q_OBJECT
 public:
-    explicit WirelessNetworkListItem(QWidget *parent = 0);
+    explicit WirelessNetworkListItem(DBusNetwork *dbus, ScrollFrame *scrollWidget, QWidget *parent = 0);
 
-signals:
+private slots:
+    void onItemClicked();
+    void onDbusConnectsChanged();
+    void updateItemIndex(int strength);
+    NetworkGenericListItem *addAccessPoint(const QVariantMap &map);
 
-public slots:
+private:
+    void init();
+
+    bool m_inputPasswording = false;
+    NetworkGenericListItem *m_activeItem = nullptr;
+    QMap<QString, NetworkGenericListItem*> m_mapApPathToItem;
+    QMap<QString, NetworkGenericListItem*> m_mapApSsidToItem;
 };
 
 #endif // WIRELESSNETWORKLISTITEM_H

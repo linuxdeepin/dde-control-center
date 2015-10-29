@@ -58,6 +58,14 @@ GenericListItem::GenericListItem(bool showRmButton, QWidget *parent) :
     };
 
     connect(this, &GenericListItem::checkedChanged, this, updateShowCheckedIcon);
+
+    connect(this, &GenericListItem::checkedIconChanged, this, [this, indicator](const QString &str){
+        if(checked() && showCheckedIcon()) {
+            indicator->setImageSource(QPixmap(str));
+            indicator->move(10, height() / 2 - indicator->height() / 2);
+        }
+    });
+
     connect(this, &GenericListItem::loadingChanged, this, [this, indicator](bool loading){
         if(loading) {
             setShowClearButton(false);
@@ -132,6 +140,11 @@ void GenericListItem::setListWidget(SearchList *list)
 void GenericListItem::addWidgetToRight(QWidget *widget)
 {
     m_layout->addWidget(widget, 0, Qt::AlignRight);
+}
+
+QBoxLayout *GenericListItem::rightLayout() const
+{
+    return m_layout;
 }
 
 bool GenericListItem::checked() const

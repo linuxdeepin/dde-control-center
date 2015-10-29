@@ -1,17 +1,21 @@
 #ifndef WIREDNETWORKLISTITEM_H
 #define WIREDNETWORKLISTITEM_H
 
-#include <QWidget>
+#include "abstractdevicewidget.h"
 
-class WiredNetworkListItem : public QWidget
+class WiredNetworkListItem : public AbstractDeviceWidget
 {
     Q_OBJECT
 public:
-    explicit WiredNetworkListItem(QWidget *parent = 0);
+    explicit WiredNetworkListItem(DBusNetwork *dbus, ScrollFrame *scrollWidget, QWidget *parent = 0);
 
-signals:
+private slots:
+    void init();
+    void onConnectsChanged();
+    void onItemClicked();
 
-public slots:
+private:
+    QMap<QString, NetworkGenericListItem*> m_mapPppoePathToItem;
 };
 
 #endif // WIREDNETWORKLISTITEM_H
