@@ -10,6 +10,7 @@
 #include <libdui/dlistwidget.h>
 
 #include "applictionitemwidget.h"
+#include "dbus/dbuslastoremanager.h"
 
 DUI_USE_NAMESPACE
 
@@ -19,6 +20,9 @@ class UpdateWidget : public QWidget
 public:
     explicit UpdateWidget(QWidget *parent = 0);
 
+protected:
+    void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
+
 private:
     void loadAppList();
 
@@ -27,7 +31,8 @@ private:
     QLabel *m_updateSizeTips;
     DCircleProgress *m_updateProgress;
     DListWidget *m_appsList;
-    QMap<QListWidgetItem *, ApplictionItemWidget *> *m_appItems;
+    DBusLastoreManager *m_dbusUpdateInter;
+//    QMap<QListWidgetItem *, ApplictionItemWidget *> *m_appItems;
 };
 
 #endif // UPDATEWIDGET_H

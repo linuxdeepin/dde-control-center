@@ -19,6 +19,7 @@ DBusLastoreManager::DBusLastoreManager(const QString &service, const QString &pa
     : QDBusAbstractInterface(service, path, staticInterfaceName(), connection, parent)
 {
     MirrorInfo::registerMetaType();
+    AppUpdateInfo::registerMetaType();
     QDBusConnection::sessionBus().connect(this->service(), this->path(), "org.freedesktop.DBus.Properties",  "PropertiesChanged","sa{sv}as", this, SLOT(__propertyChanged__(QDBusMessage)));
 }
 

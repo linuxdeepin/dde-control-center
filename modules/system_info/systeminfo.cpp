@@ -131,12 +131,21 @@ SystemInfo::SystemInfo()
     license->setTitle(tr("GNU GENERAL PUBLIC LICENSE"));
     license->setContent(m_licenseArea);
 
-    UpdateWidget *updateInfoWidget = new UpdateWidget;
-    MirrorsControlWidget *mirrorsControlWidget = new MirrorsControlWidget;
-    mirrorsControlWidget->hide();
-    DVBoxWidget *updateWidget = new DVBoxWidget;
-    updateWidget->layout()->addWidget(updateInfoWidget);
-    updateWidget->layout()->addWidget(mirrorsControlWidget);
+    m_updateInfoWidget = new UpdateWidget;
+    m_mirrorsControlWidget = new MirrorsControlWidget;
+    m_mirrorsControlWidget->hide();
+//    m_updateWidget = new DVBoxWidget;
+//    m_updateWidget->layout()->addWidget(m_updateInfoWidget);
+//    m_updateWidget->layout()->addWidget(m_mirrorsControlWidget);
+
+    QVBoxLayout *tLayout = new QVBoxLayout;
+    tLayout->addWidget(m_updateInfoWidget);
+    tLayout->addWidget(m_mirrorsControlWidget);
+    tLayout->setMargin(0);
+    tLayout->setSpacing(0);
+    m_updateWidget = new QWidget;
+    m_updateWidget->setLayout(tLayout);
+
 
 //    m_updateArea = new QScrollArea;
 //    m_updateArea->setFrameStyle(QFrame::NoFrame);
@@ -146,15 +155,16 @@ SystemInfo::SystemInfo()
 //    m_updateArea->setFixedWidth(DCC::ModuleContentWidth);
 //    m_updateArea->setStyleSheet("background-color:#252627;");
 
-    UpdateArrowExpand *updateExpand = new UpdateArrowExpand;
-    updateExpand->setContent(updateWidget);
+    const int updatableAppNums = m_mirrorsControlWidget->updateableAppList().count();
+    m_updateExpand = new UpdateArrowExpand;
+    m_updateExpand->setContent(m_updateWidget);
 //    updateExpand->setContent(m_updateArea);
-    updateExpand->setExpand(true);
-    updateExpand->setUpdatableNums(mirrorsControlWidget->updateableAppList().count());
+    m_updateExpand->setUpdatableNums(updatableAppNums);
+    m_updateExpand->setExpand(updatableAppNums != 0);
 
     DExpandGroup *expandGrp = new DExpandGroup(this);
     expandGrp->addExpand(license);
-    expandGrp->addExpand(updateExpand);
+    expandGrp->addExpand(m_updateExpand);
 
     QVBoxLayout *centeralLayout = new QVBoxLayout;
     centeralLayout->addWidget(m_baseLine);
@@ -162,7 +172,7 @@ SystemInfo::SystemInfo()
     centeralLayout->addWidget(m_infoWidget);
     centeralLayout->addWidget(new DSeparatorHorizontal);
     centeralLayout->addWidget(license);
-    centeralLayout->addWidget(updateExpand);
+    centeralLayout->addWidget(m_updateExpand);
     centeralLayout->addStretch(1);
     centeralLayout->setSpacing(0);
     centeralLayout->setMargin(0);
@@ -172,14 +182,15 @@ SystemInfo::SystemInfo()
     m_centeralFrame->setLayout(centeralLayout);
 
     // DVBox更新大小的时候通知Expand更新大小，简直是完美的解决方案
-    connect(updateWidget, &DVBoxWidget::sizeChanged, updateExpand, &UpdateArrowExpand::updateContentHeight);
-    connect(updateExpand, &UpdateArrowExpand::configButtonClicked, [updateInfoWidget, mirrorsControlWidget] {
-        updateInfoWidget->hide();
-        mirrorsControlWidget->show();
+//    connect(m_updateWidget, &DVBoxWidget::sizeChanged, updateExpand, &UpdateArrowExpand::updateContentHeight);
+//    connect(m_updateWidget, &QWidget::, updateExpand, &UpdateArrowExpand::updateContentHeight);
+    connect(m_updateExpand, &UpdateArrowExpand::configButtonClicked, [this] {
+        m_updateInfoWidget->hide();
+        m_mirrorsControlWidget->show();
     });
-    connect(mirrorsControlWidget, &MirrorsControlWidget::configAccept, [updateInfoWidget, mirrorsControlWidget] {
-        updateInfoWidget->show();
-        mirrorsControlWidget->hide();
+    connect(m_mirrorsControlWidget, &MirrorsControlWidget::configAccept, [this] {
+        m_updateInfoWidget->show();
+        m_mirrorsControlWidget->hide();
     });
 }
 
@@ -237,7 +248,7 @@ QString SystemInfo::getLicense(const QString &filePath, const QString &type) con
     return std::move(buf);
 }
 
-void SystemInfo::updateLicenseWidget()
+void SystemInfo::updateWidgetHeight()
 {
 //    qDebug() << m_centeralFrame->height();
     const int expandContentHeight = m_centeralFrame->height()
@@ -246,13 +257,16 @@ void SystemInfo::updateLicenseWidget()
                                     - 32 * 2 // 32 for DArrowLine
                                     - 2 * 3; // 2 for DSeparatorHorizontal
     m_licenseArea->setFixedHeight(expandContentHeight);
-//    m_updateArea->setFixedHeight(expandContentHeight);
+    m_updateWidget->setFixedHeight(expandContentHeight);
+    m_updateInfoWidget->setFixedHeight(expandContentHeight);
+    m_mirrorsControlWidget->setFixedHeight(expandContentHeight);
+    m_updateExpand->updateContentHeight();
 }
 
 bool SystemInfo::eventFilter(QObject *o, QEvent *e)
 {
     if (o == m_centeralFrame && e->type() == QEvent::Resize)
-        updateLicenseWidget();
+        updateWidgetHeight();
 
     return false;
 }

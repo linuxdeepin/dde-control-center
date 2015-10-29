@@ -26,6 +26,9 @@ public:
 signals:
     void configAccept() const;
 
+protected:
+    void resizeEvent(QResizeEvent *e);
+
 private:
     void loadMirrorList();
 

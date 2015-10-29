@@ -4,6 +4,7 @@
 
 #include <QGridLayout>
 #include <QVBoxLayout>
+#include <QResizeEvent>
 
 MirrorsControlWidget::MirrorsControlWidget(QWidget *parent)
     : QWidget(parent)
@@ -22,7 +23,7 @@ MirrorsControlWidget::MirrorsControlWidget(QWidget *parent)
 
     loadMirrorList();
     // TODO: max height
-    m_mirrorsList->setMaximumHeight(/*50 * m_mirrorsList->count()*/200);
+//    m_mirrorsList->setMaximumHeight(/*50 * m_mirrorsList->count()*/200);
 
 
     qDebug() << m_mirrorsList->count() << m_mirrorsList->height();
@@ -79,6 +80,11 @@ MirrorsControlWidget::MirrorsControlWidget(QWidget *parent)
 MirrorsControlWidget::~MirrorsControlWidget()
 {
     // TODO: free m_mirrorsItems
+}
+
+void MirrorsControlWidget::resizeEvent(QResizeEvent *e)
+{
+    m_mirrorsList->setMaximumHeight(e->size().height() - 95);
 }
 
 void MirrorsControlWidget::loadMirrorList()

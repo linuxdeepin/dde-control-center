@@ -7,10 +7,15 @@
 #include <QScrollArea>
 
 #include <libdui/dexpandgroup.h>
+#include <libdui/dboxwidget.h>
 
 #include "interfaces.h"
 #include "dbus/dbussysteminfo.h"
 #include "updatearrowexpand.h"
+#include "updatewidget.h"
+#include "mirrorscontrolwidget.h"
+
+DUI_USE_NAMESPACE
 
 class QFrame;
 class QPlainTextEdit;
@@ -29,7 +34,7 @@ public:
 private:
     QString inline formatCap(qulonglong cap) const;
     QString inline getLicense(const QString & filePath, const QString &type) const;
-    Q_SLOT void updateLicenseWidget();
+    Q_SLOT void updateWidgetHeight();
     bool eventFilter(QObject *, QEvent *e) Q_DECL_OVERRIDE;
 
 private:
@@ -38,6 +43,11 @@ private:
     QWidget *m_infoWidget;
     QScrollArea *m_licenseArea;
     ModuleHeader *m_baseLine;
+    QWidget *m_updateWidget;
+//    DVBoxWidget *m_updateWidget;
+    UpdateWidget *m_updateInfoWidget;
+    MirrorsControlWidget *m_mirrorsControlWidget;
+    UpdateArrowExpand *m_updateExpand;
 };
 
 #endif // SYSTEMINFO_H

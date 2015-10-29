@@ -80,7 +80,7 @@ public:
     { return qvariant_cast< QStringList >(property("UpdatablePackages1")); }
 
 public Q_SLOTS: // METHODS
-    inline QDBusPendingReply<AppUpdateInfo> ApplicationUpdateInfos1(const QString &in0)
+    inline QDBusPendingReply<QList<AppUpdateInfo>> ApplicationUpdateInfos1(const QString &in0)
     {
         QList<QVariant> argumentList;
         argumentList << QVariant::fromValue(in0);

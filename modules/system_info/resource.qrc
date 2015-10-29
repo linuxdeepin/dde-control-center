@@ -5,6 +5,7 @@
         <file>images/config_normal.png</file>
         <file>images/config_hover.png</file>
         <file>images/select_active.png</file>
+        <file>images/update.png</file>
     </qresource>
     <qresource prefix="/licenses">
         <file>gpl/gpl-3.0-zh_TW-title.txt</file>

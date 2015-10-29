@@ -77,7 +77,7 @@ QSize MirrorItemWidget::sizeHint() const
 
 void MirrorItemWidget::mouseReleaseEvent(QMouseEvent *e)
 {
-    Q_UNUSED(e)
-
     emit clicked();
+
+    QFrame::mouseReleaseEvent(e);
 }

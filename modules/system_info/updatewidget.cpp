@@ -1,8 +1,10 @@
 #include "updatewidget.h"
 #include "separatorwidget.h"
 #include "constants.h"
+#include "dbus/appupdateinfo.h"
 
 #include <QVBoxLayout>
+#include <QResizeEvent>
 
 #include <libdui/dseparatorhorizontal.h>
 #include <libdui/dthememanager.h>
@@ -11,6 +13,8 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     : QWidget(parent)
 {
     D_THEME_INIT_WIDGET(UpdateWidget);
+
+    m_dbusUpdateInter = new DBusLastoreManager("org.deepin.lastore", "/org/deepin/lastore", QDBusConnection::systemBus(), this);
 
     m_updateCountTips = new QLabel;
     m_updateCountTips->setObjectName("Tips");
@@ -23,9 +27,11 @@ UpdateWidget::UpdateWidget(QWidget *parent)
 //    m_appsList->setSelectionMode(QListWidget::NoSelection);
 //    m_appsList->setFrameStyle(QFrame::NoFrame);
     m_appsList->setFixedWidth(DCC::ModuleContentWidth);
+    m_appsList->setItemSize(DCC::ModuleContentWidth, 50);
+    m_appsList->setEnableVerticalScroll(true);
     m_appsList->setObjectName("AppList");
 //    m_appsList->setStyleSheet(QString("background-color:#252627;"));
-    m_appItems = new QMap<QListWidgetItem *, ApplictionItemWidget *>;
+//    m_appItems = new QMap<QListWidgetItem *, ApplictionItemWidget *>;
 
     // TODO: remove
     m_updateCountTips->setText("You have 2 softwares need update");
@@ -55,12 +61,39 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     loadAppList();
     setLayout(mainLayout);
     setFixedWidth(DCC::ModuleContentWidth);
-    setFixedHeight(200);
+    //    setFixedHeight(200);
+}
+
+void UpdateWidget::resizeEvent(QResizeEvent *e)
+{
+    m_appsList->setMaximumHeight(e->size().height() - 55);
 }
 
 void UpdateWidget::loadAppList()
 {
-    m_appsList->addWidget(new ApplictionItemWidget);
+    // TODO: lang
+    QList<AppUpdateInfo> updateInfoList = m_dbusUpdateInter->ApplicationUpdateInfos1("zh_CN").value();
+    ApplictionItemWidget *appItemWidget;
+
+    for (const AppUpdateInfo &info : updateInfoList)
+    {
+        appItemWidget = new ApplictionItemWidget;
+        appItemWidget->setAppUpdateInfo(info);
+
+        m_appsList->addWidget(appItemWidget);
+    }
+
+
+    for (int i = 0; i != 3; ++i)
+        for (const AppUpdateInfo &info : updateInfoList)
+        {
+            appItemWidget = new ApplictionItemWidget;
+            appItemWidget->setAppUpdateInfo(info);
+
+            m_appsList->addWidget(appItemWidget);
+        }
+
+//    m_appsList->addWidget(new ApplictionItemWidget);
 //    ApplictionItemWidget *appItem = new ApplictionItemWidget;
 //    QListWidgetItem *widgetItem = new QListWidgetItem;
 
