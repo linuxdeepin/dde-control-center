@@ -45,18 +45,18 @@ MirrorItemWidget::MirrorItemWidget(QWidget *parent)
     hLayout->setSpacing(0);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
-    mainLayout->addWidget(new DSeparatorHorizontal);
     mainLayout->addLayout(hLayout);
+    mainLayout->addWidget(new DSeparatorHorizontal);
     mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
 
-    setSelected(true);
+//    setSelected(true);
 
     setLayout(mainLayout);
     setFixedWidth(DCC::ModuleContentWidth);
     setFixedHeight(50);
 
-    D_THEME_INIT_WIDGET(MirrorItemWidget, selected);
+    D_THEME_INIT_WIDGET(MirrorItemWidget, checked);
 }
 
 void MirrorItemWidget::setSelected(bool state)
@@ -68,4 +68,16 @@ void MirrorItemWidget::setSelected(bool state)
     m_selectedBtn->setVisible(state);
 
     emit selectStateChanged(state);
+}
+
+QSize MirrorItemWidget::sizeHint() const
+{
+    return QSize(width(), height());
+}
+
+void MirrorItemWidget::mouseReleaseEvent(QMouseEvent *e)
+{
+    Q_UNUSED(e)
+
+    emit clicked();
 }

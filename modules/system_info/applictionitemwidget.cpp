@@ -1,4 +1,5 @@
 #include "applictionitemwidget.h"
+#include "constants.h"
 
 #include <QVBoxLayout>
 #include <QPixmap>
@@ -43,6 +44,7 @@ ApplictionItemWidget::ApplictionItemWidget(QWidget *parent)
     mainLayout->setMargin(0);
 
     setFixedHeight(50);
+    setFixedWidth(DCC::ModuleContentWidth);
     setLayout(mainLayout);
 }
 

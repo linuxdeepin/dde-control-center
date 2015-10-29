@@ -8,21 +8,24 @@
 MirrorsControlWidget::MirrorsControlWidget(QWidget *parent)
     : QWidget(parent)
 {
+    m_dbusLastoreInter = new DBusLastoreManager("org.deepin.lastore", "/org/deepin/lastore", QDBusConnection::systemBus(), this);
     m_updateSwitchBtn = new DSwitchButton;
+    m_updateSwitchBtn->setChecked(m_dbusLastoreInter->autoCheckUpdates());
     m_changeMirrorBtn = new DTextButton(tr("Change"));
-    m_cancelBtn = new DTextButton(tr("Cancel"));
-    m_cancelBtn->hide();
-    m_applyBtn = new DTextButton(tr("Apply"));
-    m_applyBtn->hide();
-    m_mirrorsList = new QListWidget;
-    m_mirrorsList->setFrameStyle(QFrame::NoFrame);
-    m_mirrorsList->setFixedWidth(DCC::ModuleContentWidth);
+    m_applyBtn = new DTextButton(tr("Complete"));
+    m_mirrorsList = new DListWidget;
+    m_mirrorsList->setEnableVerticalScroll(true);
+    m_mirrorsList->setCheckable(true);
+    m_mirrorsList->setItemSize(DCC::ModuleContentWidth, 50);
     m_mirrorsList->setStyleSheet(QString("background-color:#252627;"));
     m_mirrorsList->hide();
-    m_mirrorItems = new QMap<QListWidgetItem *, MirrorItemWidget *>;
 
     loadMirrorList();
-    m_mirrorsList->setFixedHeight(50 * m_mirrorItems->count());
+    // TODO: max height
+    m_mirrorsList->setMaximumHeight(/*50 * m_mirrorsList->count()*/200);
+
+
+    qDebug() << m_mirrorsList->count() << m_mirrorsList->height();
 
     QLabel *autoCheckUpdate = new QLabel(tr("Auto check update"));
     autoCheckUpdate->setStyleSheet(QString("color:%1;").arg(DCC::TextNormalColor.name()));
@@ -42,10 +45,9 @@ MirrorsControlWidget::MirrorsControlWidget(QWidget *parent)
 
     QHBoxLayout *btnsLayout = new QHBoxLayout;
     btnsLayout->addStretch();
-    btnsLayout->addWidget(m_cancelBtn);
     btnsLayout->addWidget(m_applyBtn);
     btnsLayout->setSpacing(10);
-    btnsLayout->setContentsMargins(0, 10, 10, 0);
+    btnsLayout->setContentsMargins(0, 10, 10, 10);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addLayout(gridLayout);
@@ -57,24 +59,20 @@ MirrorsControlWidget::MirrorsControlWidget(QWidget *parent)
 
     setLayout(mainLayout);
     setFixedWidth(DCC::ModuleContentWidth);
-    setFixedHeight(200);
 
-    connect(m_applyBtn, &DTextButton::clicked, m_cancelBtn, &DTextButton::click);
+    connect(m_updateSwitchBtn, &DSwitchButton::checkedChanged, m_dbusLastoreInter, &DBusLastoreManager::SetAutoCheckUpdates);
+    connect(m_applyBtn, &DTextButton::clicked, this, &MirrorsControlWidget::configAccept);
     connect(m_changeMirrorBtn, &DTextButton::clicked, [this, updateServer] {
         updateServer->hide();
         m_changeMirrorBtn->hide();
 
         m_mirrorsList->show();
-        m_cancelBtn->show();
-        m_applyBtn->show();
     });
-    connect(m_cancelBtn, &DTextButton::clicked, [this, updateServer] {
-        m_mirrorsList->hide();
-        m_cancelBtn->hide();
-        m_applyBtn->hide();
-
+    connect(m_applyBtn, &DTextButton::clicked, [this, updateServer] {
         updateServer->show();
         m_changeMirrorBtn->show();
+
+        m_mirrorsList->hide();
     });
 }
 
@@ -85,12 +83,25 @@ MirrorsControlWidget::~MirrorsControlWidget()
 
 void MirrorsControlWidget::loadMirrorList()
 {
-    MirrorItemWidget *mirrorItem = new MirrorItemWidget;
-    QListWidgetItem *widgetItem = new QListWidgetItem;
+    // TODO: lang
+    MirrorInfoList mirrorList = m_dbusLastoreInter->ListMirrorSources("zh_CN");
+    MirrorItemWidget *mirrorItem;
 
-    m_mirrorsList->addItem(widgetItem);
-    m_mirrorsList->setItemWidget(widgetItem, mirrorItem);
+    const QString currentMirror = m_dbusLastoreInter->mirrorSource();
 
-    m_mirrorItems->insert(widgetItem, mirrorItem);
+    for (MirrorInfo &mirror : mirrorList)
+    {
+        mirrorItem = new MirrorItemWidget;
+
+        mirrorItem->setMirrorName(mirror.m_name);
+        mirrorItem->setMirrorUrl(mirror.m_url);
+
+        m_mirrorsList->addWidget(mirrorItem);
+        if (mirror.m_id == currentMirror)
+            m_mirrorsList->setChecked(m_mirrorsList->count() - 1, true);
+
+        connect(mirrorItem, &MirrorItemWidget::clicked, [this, mirror] {
+            m_dbusLastoreInter->SetMirrorSource(mirror.m_id);
+        });
+    }
 }
-

@@ -12,7 +12,10 @@ HEADERS         = systeminfo.h \
     mirroritemwidget.h \
     updatewidget.h \
     separatorwidget.h \
-    applictionitemwidget.h
+    applictionitemwidget.h \
+    dbus/dbuslastoremanager.h \
+    dbus/mirrorinfo.h \
+    dbus/appupdateinfo.h
 SOURCES         = systeminfo.cpp \
     dbus/dbussysteminfo.cpp \
     updatearrowexpand.cpp \
@@ -20,7 +23,10 @@ SOURCES         = systeminfo.cpp \
     mirroritemwidget.cpp \
     updatewidget.cpp \
     separatorwidget.cpp \
-    applictionitemwidget.cpp
+    applictionitemwidget.cpp \
+    dbus/dbuslastoremanager.cpp \
+    dbus/mirrorinfo.cpp \
+    dbus/appupdateinfo.cpp
 TARGET          = $$qtLibraryTarget(systeminfo)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 

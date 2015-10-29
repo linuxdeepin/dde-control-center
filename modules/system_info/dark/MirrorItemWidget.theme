@@ -1,8 +1,8 @@
-MirrorItemWidget[selected="true"] {
+MirrorItemWidget[checked="true"] {
     background-color:#1a1b1b;
 }
 
-MirrorItemWidget[selected="false"] {
+MirrorItemWidget[checked="false"] {
     background-color:#252627;
 }
 
@@ -12,6 +12,6 @@ QLabel {
     background-color:transparent;
 }
 
-MirrorItemWidget[selected="true"] QLabel {
+MirrorItemWidget[checked="true"] QLabel {
     color:cyan;
 }

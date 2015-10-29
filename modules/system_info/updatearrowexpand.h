@@ -15,6 +15,8 @@ class UpdateArrowExpand : public DArrowLineExpand
 public:
     explicit UpdateArrowExpand(QWidget *parent = 0);
 
+    void setUpdatableNums(int nums) {m_updateCountLabel->setText(QString::number(nums));}
+
 signals:
     void configButtonClicked() const;
 

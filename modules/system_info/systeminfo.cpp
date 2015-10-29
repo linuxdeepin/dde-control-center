@@ -61,7 +61,6 @@ SystemInfo::SystemInfo()
     QLabel *info_memoryContent = new QLabel(formatCap(m_dbusSystemInfo.memoryCap()));
     info_memoryContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
 
-
     QLabel *info_hardDrive = new QLabel(tr("Disk:"));
     info_hardDrive->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
     QLabel *info_hardDriveContent = new QLabel(formatCap(m_dbusSystemInfo.diskCap()));
@@ -105,16 +104,20 @@ SystemInfo::SystemInfo()
     licenseBody->setFixedWidth(DCC::ModuleContentWidth);
     licenseBody->setWordWrap(true);
 
-    QVBoxLayout *licenseLayout = new QVBoxLayout;
-    licenseLayout->addWidget(licenseTitle);
-    licenseLayout->addWidget(licenseBody);
-    licenseLayout->setSpacing(0);
-    licenseLayout->setContentsMargins(2, 5, 2, 2);
+//    QVBoxLayout *licenseLayout = new QVBoxLayout;
+//    licenseLayout->addWidget(licenseTitle);
+//    licenseLayout->addWidget(licenseBody);
+//    licenseLayout->setSpacing(0);
+//    licenseLayout->setContentsMargins(2, 5, 2, 2);
 
-    QWidget *licenseWidget = new QWidget;
-    licenseWidget->setLayout(licenseLayout);
+    DVBoxWidget *licenseWidget = new DVBoxWidget;
+    licenseWidget->layout()->addWidget(licenseTitle);
+    licenseWidget->layout()->addWidget(licenseBody);
+    licenseWidget->layout()->setContentsMargins(2, 5, 2, 2);
+//    QWidget *licenseWidget = new QWidget;
+//    licenseWidget->setLayout(licenseLayout);
     licenseWidget->setFixedWidth(DCC::ModuleContentWidth);
-    licenseWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+//    licenseWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     m_licenseArea = new QScrollArea;
     m_licenseArea->setFrameStyle(QFrame::NoFrame);
@@ -135,8 +138,19 @@ SystemInfo::SystemInfo()
     updateWidget->layout()->addWidget(updateInfoWidget);
     updateWidget->layout()->addWidget(mirrorsControlWidget);
 
+//    m_updateArea = new QScrollArea;
+//    m_updateArea->setFrameStyle(QFrame::NoFrame);
+//    m_updateArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+//    m_updateArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+//    m_updateArea->setWidget(updateWidget);
+//    m_updateArea->setFixedWidth(DCC::ModuleContentWidth);
+//    m_updateArea->setStyleSheet("background-color:#252627;");
+
     UpdateArrowExpand *updateExpand = new UpdateArrowExpand;
     updateExpand->setContent(updateWidget);
+//    updateExpand->setContent(m_updateArea);
+    updateExpand->setExpand(true);
+    updateExpand->setUpdatableNums(mirrorsControlWidget->updateableAppList().count());
 
     DExpandGroup *expandGrp = new DExpandGroup(this);
     expandGrp->addExpand(license);
@@ -157,9 +171,15 @@ SystemInfo::SystemInfo()
     m_centeralFrame->installEventFilter(this);
     m_centeralFrame->setLayout(centeralLayout);
 
+    // DVBox更新大小的时候通知Expand更新大小，简直是完美的解决方案
+    connect(updateWidget, &DVBoxWidget::sizeChanged, updateExpand, &UpdateArrowExpand::updateContentHeight);
     connect(updateExpand, &UpdateArrowExpand::configButtonClicked, [updateInfoWidget, mirrorsControlWidget] {
         updateInfoWidget->hide();
         mirrorsControlWidget->show();
+    });
+    connect(mirrorsControlWidget, &MirrorsControlWidget::configAccept, [updateInfoWidget, mirrorsControlWidget] {
+        updateInfoWidget->show();
+        mirrorsControlWidget->hide();
     });
 }
 
@@ -220,11 +240,13 @@ QString SystemInfo::getLicense(const QString &filePath, const QString &type) con
 void SystemInfo::updateLicenseWidget()
 {
 //    qDebug() << m_centeralFrame->height();
-    m_licenseArea->setFixedHeight(m_centeralFrame->height()
-                                  - m_infoWidget->height()
-                                  - m_baseLine->height()
-                                  - 32 * 2 // 32 for DArrowLine
-                                  - 6); // 6 for DSeparatorHorizontal * 3
+    const int expandContentHeight = m_centeralFrame->height()
+                                    - m_infoWidget->height()
+                                    - m_baseLine->height()
+                                    - 32 * 2 // 32 for DArrowLine
+                                    - 2 * 3; // 2 for DSeparatorHorizontal
+    m_licenseArea->setFixedHeight(expandContentHeight);
+//    m_updateArea->setFixedHeight(expandContentHeight);
 }
 
 bool SystemInfo::eventFilter(QObject *o, QEvent *e)

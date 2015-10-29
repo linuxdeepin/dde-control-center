@@ -19,9 +19,9 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     m_updateProgress = new DCircleProgress;
     m_updateProgress->setFixedSize(35, 35);
     m_updateProgress->setLineWidth(2);
-    m_appsList = new QListWidget;
-    m_appsList->setSelectionMode(QListWidget::NoSelection);
-    m_appsList->setFrameStyle(QFrame::NoFrame);
+    m_appsList = new DListWidget;
+//    m_appsList->setSelectionMode(QListWidget::NoSelection);
+//    m_appsList->setFrameStyle(QFrame::NoFrame);
     m_appsList->setFixedWidth(DCC::ModuleContentWidth);
     m_appsList->setObjectName("AppList");
 //    m_appsList->setStyleSheet(QString("background-color:#252627;"));
@@ -60,12 +60,14 @@ UpdateWidget::UpdateWidget(QWidget *parent)
 
 void UpdateWidget::loadAppList()
 {
-    ApplictionItemWidget *appItem = new ApplictionItemWidget;
-    QListWidgetItem *widgetItem = new QListWidgetItem;
+    m_appsList->addWidget(new ApplictionItemWidget);
+//    ApplictionItemWidget *appItem = new ApplictionItemWidget;
+//    QListWidgetItem *widgetItem = new QListWidgetItem;
 
-    m_appsList->addItem(widgetItem);
-    m_appsList->setItemWidget(widgetItem, appItem);
+//    m_appsList->addWidget()
+//    m_appsList->addItem(widgetItem);
+//    m_appsList->setItemWidget(widgetItem, appItem);
 
-    m_appItems->insert(widgetItem, appItem);
+//    m_appItems->insert(widgetItem, appItem);
 }
 

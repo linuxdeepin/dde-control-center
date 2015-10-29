@@ -7,6 +7,7 @@
 #include <QMap>
 
 #include <libdui/dcircleprogress.h>
+#include <libdui/dlistwidget.h>
 
 #include "applictionitemwidget.h"
 
@@ -25,7 +26,7 @@ private:
     QLabel *m_updateCountTips;
     QLabel *m_updateSizeTips;
     DCircleProgress *m_updateProgress;
-    QListWidget *m_appsList;
+    DListWidget *m_appsList;
     QMap<QListWidgetItem *, ApplictionItemWidget *> *m_appItems;
 };
 

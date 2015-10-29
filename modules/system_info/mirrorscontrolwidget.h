@@ -3,13 +3,14 @@
 
 #include <QWidget>
 #include <QLabel>
-#include <QListWidget>
 #include <QMap>
 
 #include <libdui/dswitchbutton.h>
 #include <libdui/dtextbutton.h>
+#include <libdui/dlistwidget.h>
 
 #include "mirroritemwidget.h"
+#include "dbus/dbuslastoremanager.h"
 
 DUI_USE_NAMESPACE
 
@@ -20,16 +21,21 @@ public:
     explicit MirrorsControlWidget(QWidget *parent = 0);
     ~MirrorsControlWidget();
 
+    inline const QStringList updateableAppList() const {return m_dbusLastoreInter->updatableApps1();}
+
+signals:
+    void configAccept() const;
+
 private:
     void loadMirrorList();
 
 private:
     DSwitchButton *m_updateSwitchBtn;
     DTextButton *m_changeMirrorBtn;
-    DTextButton *m_cancelBtn;
     DTextButton *m_applyBtn;
-    QListWidget *m_mirrorsList;
-    QMap<QListWidgetItem *, MirrorItemWidget *> *m_mirrorItems;
+    DListWidget *m_mirrorsList;
+
+    DBusLastoreManager *m_dbusLastoreInter;
 };
 
 #endif // MIRRORSCONTROLWIDGET_H
