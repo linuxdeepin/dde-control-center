@@ -4,12 +4,15 @@
 #include <QFrame>
 #include <QLabel>
 #include <QPushButton>
+#include <QDBusObjectPath>
+#include <QTimer>
 
 #include <libdui/dimagebutton.h>
 #include <libdui/dcircleprogress.h>
 
 #include "dbus/appupdateinfo.h"
-#include "dbus/dbuslastoremanager.h"
+#include "dbus/dbusupdatejobmanager.h"
+#include "dbus/dbusupdatejob.h"
 
 DUI_USE_NAMESPACE
 
@@ -32,12 +35,17 @@ public:
     inline bool selected() const {return m_selected;}
     void setAppUpdateInfo(const AppUpdateInfo &info);
 
+public slots:
+    void connectToJob(const QDBusObjectPath &jobPath);
+
 protected:
     void enterEvent(QEvent *);
     void leaveEvent(QEvent *);
 
 private:
     void toggleUpdateJob();
+    void startJob();
+    void refreshInfo();
 
 private:
     QLabel *m_appIcon;
@@ -45,7 +53,9 @@ private:
     QLabel *m_appVersion;
     DCircleProgress *m_progress;
     QPushButton *m_updateBtn;
-    DBusLastoreManager *m_dbusUpdateInter;
+    DBusUpdateJobManager *m_dbusJobManagerInter;
+    DBusUpdateJob *m_dbusJobInter = nullptr;
+    QTimer *m_refreshInfoTimer;
 
     AppUpdateInfo m_updateInfo;
 

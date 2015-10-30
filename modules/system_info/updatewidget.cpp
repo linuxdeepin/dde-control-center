@@ -5,9 +5,13 @@
 
 #include <QVBoxLayout>
 #include <QResizeEvent>
+#include <QDBusPendingCallWatcher>
+#include <QMap>
 
 #include <libdui/dseparatorhorizontal.h>
 #include <libdui/dthememanager.h>
+
+#include "dbus/dbusupdatejob.h"
 
 UpdateWidget::UpdateWidget(QWidget *parent)
     : QWidget(parent)
@@ -15,6 +19,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     D_THEME_INIT_WIDGET(UpdateWidget);
 
     m_dbusUpdateInter = new DBusLastoreManager("org.deepin.lastore", "/org/deepin/lastore", QDBusConnection::systemBus(), this);
+    m_dbusJobManagerInter = new DBusUpdateJobManager("org.deepin.lastore", "/org/deepin/lastore", QDBusConnection::systemBus(), this);
 
     m_updateCountTips = new QLabel;
     m_updateCountTips->setObjectName("Tips");
@@ -32,10 +37,6 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     m_appsList->setObjectName("AppList");
 //    m_appsList->setStyleSheet(QString("background-color:#252627;"));
 //    m_appItems = new QMap<QListWidgetItem *, ApplictionItemWidget *>;
-
-    // TODO: remove
-    m_updateCountTips->setText("You have 2 softwares need update");
-    m_updateSizeTips->setText("Total update size: 130M");
 
     QVBoxLayout *tipsLayout = new QVBoxLayout;
     tipsLayout->addWidget(m_updateCountTips);
@@ -59,6 +60,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     mainLayout->setMargin(0);
 
     loadAppList();
+    updateTipsInfo();
     setLayout(mainLayout);
     setFixedWidth(DCC::ModuleContentWidth);
     //    setFixedHeight(200);
@@ -71,6 +73,17 @@ void UpdateWidget::resizeEvent(QResizeEvent *e)
 
 void UpdateWidget::loadAppList()
 {
+    // load JobList
+    QMap<QString, QDBusObjectPath> jobMap;
+    QList<QDBusObjectPath> jobList = m_dbusJobManagerInter->jobList();
+    DBusUpdateJob *dbusJob;
+    for (QDBusObjectPath &job : jobList)
+    {
+        dbusJob = new DBusUpdateJob("org.deepin.lastore", job.path(), QDBusConnection::systemBus(), this);
+        jobMap.insert(dbusJob->packageId(), job);
+        qDebug() << "fond job: " << dbusJob->packageId();
+    }
+
     // TODO: lang
     QList<AppUpdateInfo> updateInfoList = m_dbusUpdateInter->ApplicationUpdateInfos1("zh_CN").value();
     ApplictionItemWidget *appItemWidget;
@@ -79,28 +92,24 @@ void UpdateWidget::loadAppList()
     {
         appItemWidget = new ApplictionItemWidget;
         appItemWidget->setAppUpdateInfo(info);
+        if (jobMap.contains(info.m_packageId))
+            appItemWidget->connectToJob(jobMap.value(info.m_packageId));
 
         m_appsList->addWidget(appItemWidget);
     }
+}
 
+void UpdateWidget::updateTipsInfo()
+{
+    const QStringList &updatableApps = m_dbusUpdateInter->updatableApps1();
 
-    for (int i = 0; i != 3; ++i)
-        for (const AppUpdateInfo &info : updateInfoList)
-        {
-            appItemWidget = new ApplictionItemWidget;
-            appItemWidget->setAppUpdateInfo(info);
+    m_updateCountTips->setText(QString("You have %1 softwares need update").arg(updatableApps.count()));
+//    m_updateSizeTips->setText(QString("Total download size: %1").arg(m_dbusJobInter->PackagesDownloadSize(updatableApps)));
 
-            m_appsList->addWidget(appItemWidget);
-        }
-
-//    m_appsList->addWidget(new ApplictionItemWidget);
-//    ApplictionItemWidget *appItem = new ApplictionItemWidget;
-//    QListWidgetItem *widgetItem = new QListWidgetItem;
-
-//    m_appsList->addWidget()
-//    m_appsList->addItem(widgetItem);
-//    m_appsList->setItemWidget(widgetItem, appItem);
-
-//    m_appItems->insert(widgetItem, appItem);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_dbusJobManagerInter->PackagesDownloadSize(updatableApps), this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [this, watcher] {
+        m_updateSizeTips->setText(QString("Total download size: %1").arg(watcher->reply().arguments().first().toLongLong()));
+        watcher->deleteLater();
+    });
 }
 

@@ -11,6 +11,7 @@
 
 #include "applictionitemwidget.h"
 #include "dbus/dbuslastoremanager.h"
+#include "dbus/dbusupdatejobmanager.h"
 
 DUI_USE_NAMESPACE
 
@@ -25,6 +26,7 @@ protected:
 
 private:
     void loadAppList();
+    void updateTipsInfo();
 
 private:
     QLabel *m_updateCountTips;
@@ -32,6 +34,7 @@ private:
     DCircleProgress *m_updateProgress;
     DListWidget *m_appsList;
     DBusLastoreManager *m_dbusUpdateInter;
+    DBusUpdateJobManager *m_dbusJobManagerInter;
 //    QMap<QListWidgetItem *, ApplictionItemWidget *> *m_appItems;
 };
 

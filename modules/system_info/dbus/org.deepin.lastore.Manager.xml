@@ -1,23 +1,84 @@
-<interface name="org.deepin.lastore.Updater">
-  <method name="ApplicationUpdateInfos1">
-       <arg type="s" direction="in"></arg>
-       <arg type="a(sssss)" direction="out"></arg>
-       <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="AppUpdateInfo"/>
-  </method>
-  <method name="ListMirrorSources">
-       <arg type="s" direction="in"></arg>
-       <arg type="a(sss)" direction="out"></arg>
-       <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="MirrorInfo"/>
-  </method>
-  <method name="SetAutoCheckUpdates">
-       <arg type="b" direction="in"></arg>
-  </method>
-  <method name="SetMirrorSource">
+<interface name="org.deepin.lastore.Manager">
+  <method name="CleanJob">
        <arg type="s" direction="in"></arg>
   </method>
-  <property name="AutoCheckUpdates" type="b" access="read"></property>
-  <property name="MirrorSource" type="s" access="read"></property>
-  <property name="OfficialSource" type="s" access="read"></property>
-  <property name="UpdatableApps1" type="as" access="read"></property>
-  <property name="UpdatablePackages1" type="as" access="read"></property>
+  <method name="DistUpgrade3">
+       <arg type="o" direction="out"></arg>
+  </method>
+  <method name="DownloadPackage">
+       <arg type="s" direction="in"></arg>
+       <arg type="s" direction="in"></arg>
+       <arg type="o" direction="out"></arg>
+  </method>
+  <method name="InstallPackage">
+       <arg type="s" direction="in"></arg>
+       <arg type="s" direction="in"></arg>
+       <arg type="o" direction="out"></arg>
+  </method>
+  <method name="PackageCategory1">
+       <arg type="s" direction="in"></arg>
+       <arg type="s" direction="out"></arg>
+  </method>
+  <method name="PackageDesktopPath">
+       <arg type="s" direction="in"></arg>
+       <arg type="s" direction="out"></arg>
+  </method>
+  <method name="PackageDownloadSize">
+       <arg type="s" direction="in"></arg>
+       <arg type="x" direction="out"></arg>
+  </method>
+  <method name="PackageExists">
+       <arg type="s" direction="in"></arg>
+       <arg type="b" direction="out"></arg>
+  </method>
+  <method name="PackagesDownloadSize">
+       <arg type="as" direction="in"></arg>
+       <arg type="x" direction="out"></arg>
+  </method>
+  <method name="PauseJob2">
+       <arg type="s" direction="in"></arg>
+  </method>
+  <method name="RemovePackage">
+       <arg type="s" direction="in"></arg>
+       <arg type="o" direction="out"></arg>
+  </method>
+  <method name="StartJob">
+       <arg type="s" direction="in"></arg>
+  </method>
+  <property name="Version" type="s" access="read"></property>
+  <property name="JobList" type="ao" access="read"></property>
+  <property name="SystemArchitectures" type="as" access="read"></property>
+  <property name="UpgradableApps" type="as" access="read"></property>
+</interface>
+<interface name="org.freedesktop.DBus.Introspectable">
+  <method name="InterfaceName">
+       <arg type="s" direction="out"></arg>
+  </method>
+  <method name="Introspect">
+       <arg type="s" direction="out"></arg>
+  </method>
+</interface>
+<interface name="org.freedesktop.DBus.Properties">
+  <method name="Get">
+       <arg type="s" direction="in"></arg>
+       <arg type="s" direction="in"></arg>
+       <arg type="v" direction="out"></arg>
+  </method>
+  <method name="GetAll">
+       <arg type="s" direction="in"></arg>
+       <arg type="a{sv}" direction="out"></arg>
+  </method>
+  <method name="InterfaceName">
+       <arg type="s" direction="out"></arg>
+  </method>
+  <method name="Set">
+       <arg type="s" direction="in"></arg>
+       <arg type="s" direction="in"></arg>
+       <arg type="v" direction="in"></arg>
+  </method>
+  <signal name="PropertiesChanged">
+       <arg type="s"></arg>
+       <arg type="a{sv}"></arg>
+       <arg type="as"></arg>
+  </signal>
 </interface>

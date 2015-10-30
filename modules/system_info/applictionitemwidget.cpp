@@ -11,7 +11,9 @@ ApplictionItemWidget::ApplictionItemWidget(QWidget *parent)
 {
     D_THEME_INIT_WIDGET(ApplictionItemWidget, selected, hovered);
 
-    m_dbusUpdateInter = new DBusLastoreManager("org.deepin.lastore", "/org/deepin/lastore", QDBusConnection::systemBus(), this);
+    m_dbusJobManagerInter = new DBusUpdateJobManager("org.deepin.lastore", "/org/deepin/lastore", QDBusConnection::systemBus(), this);
+    m_refreshInfoTimer = new QTimer(this);
+    m_refreshInfoTimer->setInterval(100);
 
     m_appIcon = new QLabel;
     m_appName = new QLabel;
@@ -57,17 +59,33 @@ ApplictionItemWidget::ApplictionItemWidget(QWidget *parent)
     setLayout(mainLayout);
 
     connect(m_updateBtn, &QPushButton::clicked, this, &ApplictionItemWidget::toggleUpdateJob);
+    connect(m_refreshInfoTimer, &QTimer::timeout, this, &ApplictionItemWidget::refreshInfo);
 }
 
 void ApplictionItemWidget::setAppUpdateInfo(const AppUpdateInfo &info)
 {
      m_updateInfo = info;
 
-     qDebug() << info;
-
      m_appName->setText(info.m_name);
      m_appVersion->setText(QString("%1 -> %2").arg(info.m_currentVersion)
-                                            .arg(info.m_avilableVersion));
+                           .arg(info.m_avilableVersion));
+}
+
+void ApplictionItemWidget::connectToJob(const QDBusObjectPath &jobPath)
+{
+    if (m_dbusJobInter)
+        m_dbusJobInter->deleteLater();
+
+    m_dbusJobInter = new DBusUpdateJob("org.deepin.lastore", jobPath.path(), QDBusConnection::systemBus(), this);
+    if (!m_dbusJobInter->isValid()) {
+        m_dbusJobInter->deleteLater();
+        m_dbusJobInter = nullptr;
+        return;
+    }
+
+    qDebug() << "connect to: " << m_dbusJobInter->packageId();
+    m_dbusJobManagerInter->StartJob(jobPath.path());
+    m_refreshInfoTimer->start();
 }
 
 void ApplictionItemWidget::enterEvent(QEvent *)
@@ -92,5 +110,27 @@ void ApplictionItemWidget::toggleUpdateJob()
 
     m_updateBtn->setVisible(!m_jobRunning);
     m_progress->setVisible(m_jobRunning);
+
+    if (m_jobRunning)
+        startJob();
+}
+
+void ApplictionItemWidget::startJob()
+{
+    QDBusPendingReply<QDBusObjectPath> reply = m_dbusJobManagerInter->InstallPackage(m_updateInfo.m_packageId, "");
+    const QDBusObjectPath &jobPath = reply.value();
+    qDebug() << "start Job: " << jobPath.path();
+
+    connectToJob(jobPath);
+}
+
+void ApplictionItemWidget::refreshInfo()
+{
+    if (!m_dbusJobInter || !m_dbusJobInter->isValid()) {
+        m_refreshInfoTimer->stop();
+        return;
+    }
+
+    qDebug() << "progress: " << m_dbusJobInter->progress();
 }
 
