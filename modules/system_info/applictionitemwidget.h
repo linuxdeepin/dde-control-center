@@ -5,7 +5,6 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QDBusObjectPath>
-#include <QTimer>
 
 #include <libdui/dimagebutton.h>
 #include <libdui/dcircleprogress.h>
@@ -23,6 +22,7 @@ class ApplictionItemWidget : public QFrame
     Q_PROPERTY(bool hovered READ hovered NOTIFY hoverStateChanged)
 
 signals:
+    void progressChanged(int percent) const;
     void jobStarted() const;
     void jobStatChanged() const;
     void selectStateChanged() const;
@@ -45,7 +45,8 @@ protected:
 private:
     void toggleUpdateJob();
     void startJob();
-    void refreshInfo();
+    void updateJobProgress();
+    void updateJobStatus();
 
 private:
     QLabel *m_appIcon;
@@ -55,7 +56,6 @@ private:
     QPushButton *m_updateBtn;
     DBusUpdateJobManager *m_dbusJobManagerInter;
     DBusUpdateJob *m_dbusJobInter = nullptr;
-    QTimer *m_refreshInfoTimer;
 
     AppUpdateInfo m_updateInfo;
 

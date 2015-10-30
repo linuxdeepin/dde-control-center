@@ -3,6 +3,7 @@
 
 #include <QVBoxLayout>
 #include <QPixmap>
+#include <QMetaObject>
 
 #include <libdui/dthememanager.h>
 
@@ -12,8 +13,6 @@ ApplictionItemWidget::ApplictionItemWidget(QWidget *parent)
     D_THEME_INIT_WIDGET(ApplictionItemWidget, selected, hovered);
 
     m_dbusJobManagerInter = new DBusUpdateJobManager("org.deepin.lastore", "/org/deepin/lastore", QDBusConnection::systemBus(), this);
-    m_refreshInfoTimer = new QTimer(this);
-    m_refreshInfoTimer->setInterval(100);
 
     m_appIcon = new QLabel;
     m_appName = new QLabel;
@@ -21,6 +20,8 @@ ApplictionItemWidget::ApplictionItemWidget(QWidget *parent)
     m_appVersion = new QLabel;
     m_appVersion->setObjectName("AppVersion");
     m_progress = new DCircleProgress;
+    m_progress->setObjectName("AppProgress");
+    m_progress->setStyleSheet(QString());
     m_progress->setFixedSize(25, 25);
     m_progress->setLineWidth(2);
     m_progress->setValue(0);
@@ -59,7 +60,6 @@ ApplictionItemWidget::ApplictionItemWidget(QWidget *parent)
     setLayout(mainLayout);
 
     connect(m_updateBtn, &QPushButton::clicked, this, &ApplictionItemWidget::toggleUpdateJob);
-    connect(m_refreshInfoTimer, &QTimer::timeout, this, &ApplictionItemWidget::refreshInfo);
 }
 
 void ApplictionItemWidget::setAppUpdateInfo(const AppUpdateInfo &info)
@@ -84,8 +84,18 @@ void ApplictionItemWidget::connectToJob(const QDBusObjectPath &jobPath)
     }
 
     qDebug() << "connect to: " << m_dbusJobInter->packageId();
-    m_dbusJobManagerInter->StartJob(jobPath.path());
-    m_refreshInfoTimer->start();
+
+    // set state to runnning
+    if (!m_jobRunning)
+        toggleUpdateJob();
+
+    m_dbusJobManagerInter->StartJob(m_dbusJobInter->id());
+    connect(m_dbusJobInter, &DBusUpdateJob::ProgressChanged, this, &ApplictionItemWidget::updateJobProgress);
+    connect(m_dbusJobInter, &DBusUpdateJob::StatusChanged, this, &ApplictionItemWidget::updateJobStatus);
+
+    // update immeidately
+    updateJobProgress();
+    updateJobStatus();
 }
 
 void ApplictionItemWidget::enterEvent(QEvent *)
@@ -111,7 +121,7 @@ void ApplictionItemWidget::toggleUpdateJob()
     m_updateBtn->setVisible(!m_jobRunning);
     m_progress->setVisible(m_jobRunning);
 
-    if (m_jobRunning)
+    if (m_jobRunning && !m_dbusJobInter)
         startJob();
 }
 
@@ -124,13 +134,32 @@ void ApplictionItemWidget::startJob()
     connectToJob(jobPath);
 }
 
-void ApplictionItemWidget::refreshInfo()
+void ApplictionItemWidget::updateJobProgress()
 {
-    if (!m_dbusJobInter || !m_dbusJobInter->isValid()) {
-        m_refreshInfoTimer->stop();
+    if (!m_dbusJobInter || !m_dbusJobInter->isValid())
+        return;
+
+    const double progress = m_dbusJobInter->progress();
+    const int percent = int(100 * progress);
+
+    m_progress->setValue(percent);
+    m_progress->setText(QString("%1").arg(percent));
+
+    qDebug() << "progress: " << progress << percent;
+}
+
+void ApplictionItemWidget::updateJobStatus()
+{
+    qDebug() << m_dbusJobInter->status();
+    const QString &status = m_dbusJobInter->status();
+    const QString &id = m_dbusJobInter->id();
+
+    // finished
+    if (status == "success" ||
+        status == "failed") {
+        // !!! 这里如果立即清除Job会导致Job发送其它的Update信号收不到，所以清除Job应该放在所有信号处理完成
+        QMetaObject::invokeMethod(m_dbusJobManagerInter, "CleanJob", Qt::QueuedConnection, Q_ARG(QString, id));
         return;
     }
-
-    qDebug() << "progress: " << m_dbusJobInter->progress();
 }
 

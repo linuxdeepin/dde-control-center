@@ -16,3 +16,13 @@ ApplictionItemWidget #UpdateButton {
     border-width:4px 8px 4px 8px;
     border-image:url(:/images/images/update.png) 4 8 4 8 stretch;
 }
+
+ApplictionItemWidget #AppProgress {
+    qproperty-backgroundColor:#bababa;
+    qproperty-chunkColor:#26aeed;
+}
+
+ApplictionItemWidget #AppProgress #DisplayLabel {
+    color:white;
+    font-size:9px;
+}
