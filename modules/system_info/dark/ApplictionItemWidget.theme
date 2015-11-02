@@ -18,11 +18,11 @@ ApplictionItemWidget #UpdateButton {
 }
 
 ApplictionItemWidget #AppProgress {
-    qproperty-backgroundColor:#bababa;
-    qproperty-chunkColor:#26aeed;
+    qproperty-backgroundColor:rgba(255, 255, 255, .1);
+    qproperty-chunkColor:#01bdff;
 }
 
-ApplictionItemWidget #AppProgress #DisplayLabel {
+ApplictionItemWidget #AppProgress #TopLabel {
     color:white;
-    font-size:9px;
+    font-size:8px;
 }

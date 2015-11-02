@@ -8,6 +8,7 @@
 
 #include <libdui/dcircleprogress.h>
 #include <libdui/dlistwidget.h>
+#include <libdui/dimagebutton.h>
 
 #include "applictionitemwidget.h"
 #include "dbus/dbuslastoremanager.h"
@@ -21,21 +22,27 @@ class UpdateWidget : public QWidget
 public:
     explicit UpdateWidget(QWidget *parent = 0);
 
+    static QString formatCap(qulonglong cap);
+
+signals:
+    void updatableNumsChanged(const int nums) const;
+
 protected:
     void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
 
 private:
     void loadAppList();
-    void updateTipsInfo();
+    void systemUpgrade();
+    void toggleUpdateState();
 
 private:
     QLabel *m_updateCountTips;
     QLabel *m_updateSizeTips;
+    DImageButton *m_updateButton;
     DCircleProgress *m_updateProgress;
     DListWidget *m_appsList;
     DBusLastoreManager *m_dbusUpdateInter;
     DBusUpdateJobManager *m_dbusJobManagerInter;
-//    QMap<QListWidgetItem *, ApplictionItemWidget *> *m_appItems;
 };
 
 #endif // UPDATEWIDGET_H

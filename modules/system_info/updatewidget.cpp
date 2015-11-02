@@ -18,25 +18,22 @@ UpdateWidget::UpdateWidget(QWidget *parent)
 {
     D_THEME_INIT_WIDGET(UpdateWidget);
 
-    m_dbusUpdateInter = new DBusLastoreManager("org.deepin.lastore", "/org/deepin/lastore", QDBusConnection::systemBus(), this);
-    m_dbusJobManagerInter = new DBusUpdateJobManager("org.deepin.lastore", "/org/deepin/lastore", QDBusConnection::systemBus(), this);
-
     m_updateCountTips = new QLabel;
     m_updateCountTips->setObjectName("Tips");
     m_updateSizeTips = new QLabel;
     m_updateSizeTips->setObjectName("Tips");
+    m_updateButton = new DImageButton;
+    m_updateButton->setNormalPic(":/images/images/upgrade_normal.png");
+    m_updateButton->setHoverPic(":/images/images/upgrade_hover.png");
+    m_updateButton->setPressPic(":/images/images/upgrade_press.png");
     m_updateProgress = new DCircleProgress;
-    m_updateProgress->setFixedSize(35, 35);
+    m_updateProgress->setFixedSize(32, 32);
     m_updateProgress->setLineWidth(2);
     m_appsList = new DListWidget;
-//    m_appsList->setSelectionMode(QListWidget::NoSelection);
-//    m_appsList->setFrameStyle(QFrame::NoFrame);
     m_appsList->setFixedWidth(DCC::ModuleContentWidth);
     m_appsList->setItemSize(DCC::ModuleContentWidth, 50);
     m_appsList->setEnableVerticalScroll(true);
     m_appsList->setObjectName("AppList");
-//    m_appsList->setStyleSheet(QString("background-color:#252627;"));
-//    m_appItems = new QMap<QListWidgetItem *, ApplictionItemWidget *>;
 
     QVBoxLayout *tipsLayout = new QVBoxLayout;
     tipsLayout->addWidget(m_updateCountTips);
@@ -47,23 +44,41 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     QHBoxLayout *updateInfoLayout = new QHBoxLayout;
     updateInfoLayout->addLayout(tipsLayout);
     updateInfoLayout->addStretch();
+    updateInfoLayout->addWidget(m_updateButton);
     updateInfoLayout->addWidget(m_updateProgress);
     updateInfoLayout->setSpacing(0);
     updateInfoLayout->setContentsMargins(10, 8, 10, 8);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addLayout(updateInfoLayout);
-//    mainLayout->addWidget(new HSeparatorWidget);
     mainLayout->addWidget(m_appsList);
     mainLayout->addStretch();
     mainLayout->setSpacing(0);
     mainLayout->setMargin(0);
 
-    loadAppList();
-    updateTipsInfo();
+//    loadAppList();
+    QTimer::singleShot(500, this, &UpdateWidget::loadAppList);
     setLayout(mainLayout);
     setFixedWidth(DCC::ModuleContentWidth);
-    //    setFixedHeight(200);
+
+    connect(m_updateButton, &DImageButton::clicked, this, &UpdateWidget::systemUpgrade);
+    connect(m_updateProgress, &DCircleProgress::clicked, this, &UpdateWidget::toggleUpdateState);
+}
+
+QString UpdateWidget::formatCap(qulonglong cap)
+{
+    QString type[] = {"B", "KB", "MB", "GB", "TB"};
+
+    if (cap < qulonglong(1024))
+        return QString::number(cap) + type[0];
+    if (cap < qulonglong(1024) * 1024)
+        return QString::number(double(cap) / 1024, 'f', 2) + type[1];
+    if (cap < qulonglong(1024) * 1024 * 1024)
+        return QString::number(double(cap) / 1024 / 1024, 'f', 2) + type[2];
+    if (cap < qulonglong(1024) * 1024 * 1024 * 1024)
+        return QString::number(double(cap) / 1024 / 1024 / 1024, 'f', 2) + type[3];
+
+    return QString::number(double(cap) / 1024 / 1024 / 1024 / 1024, 'f', 2) + type[4];
 }
 
 void UpdateWidget::resizeEvent(QResizeEvent *e)
@@ -73,6 +88,9 @@ void UpdateWidget::resizeEvent(QResizeEvent *e)
 
 void UpdateWidget::loadAppList()
 {
+    m_dbusUpdateInter = new DBusLastoreManager("org.deepin.lastore", "/org/deepin/lastore", QDBusConnection::systemBus(), this);
+    m_dbusJobManagerInter = new DBusUpdateJobManager("org.deepin.lastore", "/org/deepin/lastore", QDBusConnection::systemBus(), this);
+
     // load JobList
     QMap<QString, QDBusObjectPath> jobMap;
     QList<QDBusObjectPath> jobList = m_dbusJobManagerInter->jobList();
@@ -97,19 +115,28 @@ void UpdateWidget::loadAppList()
 
         m_appsList->addWidget(appItemWidget);
     }
-}
 
-void UpdateWidget::updateTipsInfo()
-{
+    // updatable nums change
+    emit updatableNumsChanged(m_appsList->count());
+
+    // updateTipsInfo  download size, download count ...
     const QStringList &updatableApps = m_dbusUpdateInter->updatableApps1();
-
     m_updateCountTips->setText(QString("You have %1 softwares need update").arg(updatableApps.count()));
-//    m_updateSizeTips->setText(QString("Total download size: %1").arg(m_dbusJobInter->PackagesDownloadSize(updatableApps)));
 
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_dbusJobManagerInter->PackagesDownloadSize(updatableApps), this);
     connect(watcher, &QDBusPendingCallWatcher::finished, [this, watcher] {
         m_updateSizeTips->setText(QString("Total download size: %1").arg(watcher->reply().arguments().first().toLongLong()));
         watcher->deleteLater();
     });
+}
+
+void UpdateWidget::systemUpgrade()
+{
+    qDebug() << "system upgrade";
+}
+
+void UpdateWidget::toggleUpdateState()
+{
+    qDebug() << "toggleUpdateState";
 }
 

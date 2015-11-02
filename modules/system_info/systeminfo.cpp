@@ -58,12 +58,12 @@ SystemInfo::SystemInfo()
 
     QLabel *info_memory = new QLabel(tr("Memory:"));
     info_memory->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
-    QLabel *info_memoryContent = new QLabel(formatCap(m_dbusSystemInfo.memoryCap()));
+    QLabel *info_memoryContent = new QLabel(UpdateWidget::formatCap(m_dbusSystemInfo.memoryCap()));
     info_memoryContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
 
     QLabel *info_hardDrive = new QLabel(tr("Disk:"));
     info_hardDrive->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
-    QLabel *info_hardDriveContent = new QLabel(formatCap(m_dbusSystemInfo.diskCap()));
+    QLabel *info_hardDriveContent = new QLabel(UpdateWidget::formatCap(m_dbusSystemInfo.diskCap()));
     info_hardDriveContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
 
     QGridLayout *infoGrid = new QGridLayout;
@@ -104,20 +104,11 @@ SystemInfo::SystemInfo()
     licenseBody->setFixedWidth(DCC::ModuleContentWidth);
     licenseBody->setWordWrap(true);
 
-//    QVBoxLayout *licenseLayout = new QVBoxLayout;
-//    licenseLayout->addWidget(licenseTitle);
-//    licenseLayout->addWidget(licenseBody);
-//    licenseLayout->setSpacing(0);
-//    licenseLayout->setContentsMargins(2, 5, 2, 2);
-
     DVBoxWidget *licenseWidget = new DVBoxWidget;
     licenseWidget->layout()->addWidget(licenseTitle);
     licenseWidget->layout()->addWidget(licenseBody);
     licenseWidget->layout()->setContentsMargins(2, 5, 2, 2);
-//    QWidget *licenseWidget = new QWidget;
-//    licenseWidget->setLayout(licenseLayout);
     licenseWidget->setFixedWidth(DCC::ModuleContentWidth);
-//    licenseWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     m_licenseArea = new QScrollArea;
     m_licenseArea->setFrameStyle(QFrame::NoFrame);
@@ -134,9 +125,6 @@ SystemInfo::SystemInfo()
     m_updateInfoWidget = new UpdateWidget;
     m_mirrorsControlWidget = new MirrorsControlWidget;
     m_mirrorsControlWidget->hide();
-//    m_updateWidget = new DVBoxWidget;
-//    m_updateWidget->layout()->addWidget(m_updateInfoWidget);
-//    m_updateWidget->layout()->addWidget(m_mirrorsControlWidget);
 
     QVBoxLayout *tLayout = new QVBoxLayout;
     tLayout->addWidget(m_updateInfoWidget);
@@ -146,21 +134,9 @@ SystemInfo::SystemInfo()
     m_updateWidget = new QWidget;
     m_updateWidget->setLayout(tLayout);
 
-
-//    m_updateArea = new QScrollArea;
-//    m_updateArea->setFrameStyle(QFrame::NoFrame);
-//    m_updateArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-//    m_updateArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-//    m_updateArea->setWidget(updateWidget);
-//    m_updateArea->setFixedWidth(DCC::ModuleContentWidth);
-//    m_updateArea->setStyleSheet("background-color:#252627;");
-
-    const int updatableAppNums = m_mirrorsControlWidget->updateableAppList().count();
     m_updateExpand = new UpdateArrowExpand;
     m_updateExpand->setContent(m_updateWidget);
-//    updateExpand->setContent(m_updateArea);
-    m_updateExpand->setUpdatableNums(updatableAppNums);
-    m_updateExpand->setExpand(updatableAppNums != 0);
+    m_updateExpand->setUpdatableNums(0); // 0 for default
 
     DExpandGroup *expandGrp = new DExpandGroup(this);
     expandGrp->addExpand(license);
@@ -181,9 +157,7 @@ SystemInfo::SystemInfo()
     m_centeralFrame->installEventFilter(this);
     m_centeralFrame->setLayout(centeralLayout);
 
-    // DVBox更新大小的时候通知Expand更新大小，简直是完美的解决方案
-//    connect(m_updateWidget, &DVBoxWidget::sizeChanged, updateExpand, &UpdateArrowExpand::updateContentHeight);
-//    connect(m_updateWidget, &QWidget::, updateExpand, &UpdateArrowExpand::updateContentHeight);
+    connect(m_updateInfoWidget, &UpdateWidget::updatableNumsChanged, this, &SystemInfo::onUpdatableNumsChange);
     connect(m_updateExpand, &UpdateArrowExpand::configButtonClicked, [this] {
         m_updateInfoWidget->hide();
         m_mirrorsControlWidget->show();
@@ -209,24 +183,6 @@ SystemInfo::~SystemInfo()
 QFrame *SystemInfo::getContent()
 {
     return m_centeralFrame;
-}
-
-QString SystemInfo::formatCap(qulonglong cap) const
-{
-    QString type[] = {"B", "KB", "MB", "GB", "TB"};
-
-    //qDebug() << cap;
-
-    if (cap < qulonglong(1024))
-        return QString::number(cap) + type[0];
-    if (cap < qulonglong(1024) * 1024)
-        return QString::number(double(cap) / 1024, 'f', 2) + type[1];
-    if (cap < qulonglong(1024) * 1024 * 1024)
-        return QString::number(double(cap) / 1024 / 1024, 'f', 2) + type[2];
-    if (cap < qulonglong(1024) * 1024 * 1024 * 1024)
-        return QString::number(double(cap) / 1024 / 1024 / 1024, 'f', 2) + type[3];
-
-    return QString::number(double(cap) / 1024 / 1024 / 1024 / 1024, 'f', 2) + type[4];
 }
 
 QString SystemInfo::getLicense(const QString &filePath, const QString &type) const
@@ -269,4 +225,12 @@ bool SystemInfo::eventFilter(QObject *o, QEvent *e)
         updateWidgetHeight();
 
     return false;
+}
+
+void SystemInfo::onUpdatableNumsChange(const int updatableNums)
+{
+    m_updateExpand->setUpdatableNums(updatableNums);
+
+    if (updatableNums && !m_updateExpand->expand())
+        m_updateExpand->setExpand(true);
 }

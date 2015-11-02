@@ -32,10 +32,12 @@ public:
     QFrame* getContent() Q_DECL_OVERRIDE;
 
 private:
-    QString inline formatCap(qulonglong cap) const;
-    QString inline getLicense(const QString & filePath, const QString &type) const;
+    QString getLicense(const QString & filePath, const QString &type) const;
     Q_SLOT void updateWidgetHeight();
     bool eventFilter(QObject *, QEvent *e) Q_DECL_OVERRIDE;
+
+private slots:
+    void onUpdatableNumsChange(const int updatableNums);
 
 private:
     QFrame *m_centeralFrame;
