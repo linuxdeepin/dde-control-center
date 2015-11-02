@@ -26,5 +26,5 @@ TARGET          = $$qtLibraryTarget(power)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 DISTFILES += power.json
 
-target.path = $${PREFIX}/share/dde-control-center/modules/
+target.path = $${PREFIX}/lib/dde-control-center/modules/
 INSTALLS += target

@@ -23,7 +23,7 @@ HEADERS += datetimeplugin.h \
 
 DISTFILES += dde-dock-datetime-plugin.json
 
-target.path = $${PREFIX}/share/dde-dock/plugins
+target.path = $${PREFIX}/lib/dde-dock/plugins
 INSTALLS += target
 
 RESOURCES += \

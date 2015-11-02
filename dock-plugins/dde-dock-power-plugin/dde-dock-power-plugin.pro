@@ -22,7 +22,7 @@ HEADERS += powerplugin.h \
 
 DISTFILES += dde-dock-power-plugin.json
 
-target.path = $${PREFIX}/share/dde-dock/plugins/
+target.path = $${PREFIX}/lib/dde-dock/plugins/
 INSTALLS += target
 
 QMAKE_MOC_OPTIONS += -I/usr/include/

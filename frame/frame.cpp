@@ -136,7 +136,7 @@ void Frame::hide(bool imme)
 void Frame::listPlugins()
 {
 #ifndef QT_DEBUG
-    QDir pluginsDir("/usr/share/dde-control-center/modules");
+    QDir pluginsDir("../lib/dde-control-center/modules");
 #else
     QDir pluginsDir("modules");
 #endif

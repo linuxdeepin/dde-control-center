@@ -38,7 +38,7 @@ HEADERS += plugins.h \
 
 DISTFILES += dde-dock-network-plugin.json
 
-target.path = $${PREFIX}/share/dde-dock/plugins
+target.path = $${PREFIX}/lib/dde-dock/plugins
 INSTALLS += target
 
 RESOURCES += \

@@ -42,7 +42,7 @@ HEADERS += soundplugin.h \
     volumeslider.h
 DISTFILES += dde-dock-sound-plugin.json
 
-target.path = $${PREFIX}/share/dde-dock/plugins/
+target.path = $${PREFIX}/lib/dde-dock/plugins/
 INSTALLS += target
 
 PKGCONFIG += gtk+-2.0

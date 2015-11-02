@@ -40,5 +40,5 @@ RESOURCES += \
     resource.qrc \
     theme.qrc
 
-target.path = $${PREFIX}/share/dde-control-center/modules/
+target.path = $${PREFIX}/lib/dde-control-center/modules/
 INSTALLS += target

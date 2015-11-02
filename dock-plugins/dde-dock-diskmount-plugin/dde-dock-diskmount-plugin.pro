@@ -29,7 +29,7 @@ HEADERS += diskmountplugin.h \
     umountbutton.h
 DISTFILES += dde-dock-diskmount-plugin.json
 
-target.path = $${PREFIX}/share/dde-dock/plugins/
+target.path = $${PREFIX}/lib/dde-dock/plugins/
 INSTALLS += target
 
 RESOURCES += \

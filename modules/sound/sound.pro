@@ -23,5 +23,5 @@ DESTDIR         = $$_PRO_FILE_PWD_/../
 
 DISTFILES += sound.json
 
-target.path = $${PREFIX}/share/dde-control-center/modules/
+target.path = $${PREFIX}/lib/dde-control-center/modules/
 INSTALLS += target
