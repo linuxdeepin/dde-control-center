@@ -44,15 +44,18 @@ GenericListItem::GenericListItem(bool showRmButton, QWidget *parent) :
     clear_button->setFixedSize(15, 15);
     clear_button->hide();
 
-    connect(this, &GenericListItem::checkedChanged, this, [this, indicator](bool checked){
-        indicator->setLoading(false);
+    auto updateShowCheckedIcon = [this, indicator](bool checked){
         if(checked && showCheckedIcon()) {
+            indicator->setLoading(false);
+            setShowClearButton(false);
             indicator->setImageSource(QPixmap(checkedIcon()));
             indicator->move(10, height() / 2 - indicator->height() / 2);
         } else {
             indicator->setImageSource(QPixmap());
         }
-    });
+    };
+
+    connect(this, &GenericListItem::checkedChanged, this, updateShowCheckedIcon);
     connect(this, &GenericListItem::loadingChanged, this, [this, indicator](bool loading){
         if(loading) {
             setShowClearButton(false);
@@ -68,14 +71,17 @@ GenericListItem::GenericListItem(bool showRmButton, QWidget *parent) :
         indicator->setVisible(!showClear);
         clear_button->setVisible(showClear);
     });
-    connect(this, &GenericListItem::showCheckedIconChanged, this, [this, indicator](bool showCheckedIcon){
-        if(showCheckedIcon && checked()) {
-            indicator->setLoading(false);
-            setShowClearButton(false);
+    connect(this, &GenericListItem::showCheckedIconChanged, this, updateShowCheckedIcon);
+    connect(this, &GenericListItem::checkedIconChanged, this, [this, indicator]{
+        if(checked() && showCheckedIcon()) {
             indicator->setImageSource(QPixmap(checkedIcon()));
             indicator->move(10, height() / 2 - indicator->height() / 2);
-        } else {
-            indicator->setImageSource(QPixmap());
+        }
+    });
+    connect(this, &GenericListItem::loadingIconChanged, this, [this, indicator]{
+        if(loading()) {
+            indicator->setImageSource(QPixmap(loadingIcon()));
+            indicator->move(10, height() / 2 - indicator->height() / 2);
         }
     });
     connect(clear_button, &ImageNameButton::clicked, this, &GenericListItem::clearButtonClicked);

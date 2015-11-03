@@ -160,10 +160,6 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
         if(enableMonitorList){
             GenericListItem *enableMonitorItem = new GenericListItem;
             enableMonitorItem->setTitle(dbusMonitor->name());
-            enableMonitorItem->setStyleSheet(enableMonitorItem->styleSheet()
-                                             + "GenericListItem[checked=\"true\"]{\
-                                             background-image: url(:/dark/images/tick_hover.png);\
-                                         }");
             enableMonitorList->addWidget(enableMonitorItem, Qt::AlignLeft);
 
             primaryMonitorList->addButton(dbusMonitor->name());
