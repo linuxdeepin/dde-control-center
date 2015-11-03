@@ -42,9 +42,11 @@ int main(int argv, char *args[])
     app.setApplicationName("DDE Control Center");
     app.setApplicationVersion("3.0");
 
+    QDir::setCurrent(QApplication::applicationDirPath());
+
     // install translators
     QTranslator translator;
-    translator.load("/usr/share/dde-control-center/translations/dde-control-center_" + QLocale::system().name());
+    translator.load("../share/dde-control-center/translations/dde-control-center_" + QLocale::system().name());
     app.installTranslator(&translator);
 
     // take care of command line options
