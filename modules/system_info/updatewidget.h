@@ -31,9 +31,11 @@ protected:
     void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
 
 private:
-    void loadAppList();
     void systemUpgrade();
     void toggleUpdateState();
+
+private slots:
+    void loadAppList();
 
 private:
     QLabel *m_updateCountTips;

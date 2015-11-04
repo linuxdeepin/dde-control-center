@@ -57,7 +57,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     mainLayout->setMargin(0);
 
 //    loadAppList();
-    QTimer::singleShot(500, this, &UpdateWidget::loadAppList);
+    QTimer::singleShot(500, this, SLOT(loadAppList()));
     setLayout(mainLayout);
     setFixedWidth(DCC::ModuleContentWidth);
 
