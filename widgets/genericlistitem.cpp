@@ -24,6 +24,7 @@ GenericListItem::GenericListItem(bool showRmButton, QWidget *parent) :
     D_THEME_INIT_WIDGET(GenericListItem, checked, showBgColor, showCheckedIcon, loading);
 
     m_deleteButton = new ImageNameButton("list_remove", this);
+    m_deleteButton->setFixedSize(15, 15);
     m_deleteButton->setHidden(!showRmButton);
 
     connect(m_deleteButton, &ImageNameButton::clicked, this, &GenericListItem::removeButtonClicked);
@@ -37,6 +38,7 @@ GenericListItem::GenericListItem(bool showRmButton, QWidget *parent) :
     DLoadingIndicator *indicator = new DLoadingIndicator(this);
     indicator->setFixedSize(20, 20);
     indicator->setImageSource(QPixmap(checkedIcon()));
+    indicator->lower();
 
     ImageNameButton *clear_button = new ImageNameButton("clear", this);
     clear_button->setHoverPic(clear_button->getNormalPic());
