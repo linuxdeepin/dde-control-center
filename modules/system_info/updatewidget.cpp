@@ -18,6 +18,9 @@ UpdateWidget::UpdateWidget(QWidget *parent)
 {
     D_THEME_INIT_WIDGET(UpdateWidget);
 
+    MirrorInfo::registerMetaType();
+    AppUpdateInfo::registerMetaType();
+
     m_updateCountTips = new QLabel;
     m_updateCountTips->setObjectName("Tips");
     m_updateSizeTips = new QLabel;
@@ -88,18 +91,28 @@ void UpdateWidget::resizeEvent(QResizeEvent *e)
 
 void UpdateWidget::loadAppList()
 {
-    m_dbusUpdateInter = new DBusLastoreManager("org.deepin.lastore", "/org/deepin/lastore", QDBusConnection::systemBus(), this);
+    m_dbusUpdateInter = new DBusLastoreUpdater("org.deepin.lastore", "/org/deepin/lastore", QDBusConnection::systemBus(), this);
     m_dbusJobManagerInter = new DBusUpdateJobManager("org.deepin.lastore", "/org/deepin/lastore", QDBusConnection::systemBus(), this);
 
     // load JobList
-    QMap<QString, QDBusObjectPath> jobMap;
+    QMap<QString, DBusUpdateJob *> jobMap;
     QList<QDBusObjectPath> jobList = m_dbusJobManagerInter->jobList();
     DBusUpdateJob *dbusJob;
     for (QDBusObjectPath &job : jobList)
     {
         dbusJob = new DBusUpdateJob("org.deepin.lastore", job.path(), QDBusConnection::systemBus(), this);
-        jobMap.insert(dbusJob->packageId(), job);
-        qDebug() << "fond job: " << dbusJob->packageId();
+        qDebug() << "fond job: " << dbusJob->packageId() << dbusJob->status() << dbusJob->type();
+
+        if (dbusJob->type() == "install") {
+            // TODO: 将来后端接口会把升级任务类型改为"update"
+            jobMap.insert(dbusJob->packageId(), dbusJob);
+        } else if (dbusJob->type() == "dist_upgrade") {
+            // system upgrade job
+            loadUpgradeData(dbusJob);
+        } else {
+            // TODO/FIXME: not handled job
+            qWarning() << "not handled job: " << dbusJob->packageId() << dbusJob->status() << dbusJob->type();
+        }
     }
 
     // TODO: lang
@@ -130,9 +143,50 @@ void UpdateWidget::loadAppList()
     });
 }
 
+void UpdateWidget::updateUpgradeProcess()
+{
+    if (!m_dbusSystemUpgrade || !m_dbusSystemUpgrade->isValid())
+        return;
+
+    const double progress = m_dbusSystemUpgrade->progress();
+    const int percent = int(100 * progress);
+
+    m_updateProgress->setValue(percent);
+    m_updateProgress->setText(QString("%1").arg(percent));
+
+    qDebug() << "progress: " << progress << percent;
+}
+
 void UpdateWidget::systemUpgrade()
 {
     qDebug() << "system upgrade";
+}
+
+void UpdateWidget::loadUpgradeData(DBusUpdateJob *newJob)
+{
+    if (m_dbusSystemUpgrade)
+        m_dbusSystemUpgrade->deleteLater();
+
+    m_dbusSystemUpgrade = newJob;
+
+    if (m_dbusSystemUpgrade->status() == "ready")
+        m_dbusJobManagerInter->StartJob(m_dbusSystemUpgrade->id());
+
+    connect(m_dbusSystemUpgrade, &DBusUpdateJob::ProgressChanged, this, &UpdateWidget::updateUpgradeProcess);
+
+//    qDebug() << "connect to: " << m_dbusJobInter->packageId();
+
+//    // set state to runnning
+//    if (!m_jobRunning)
+//        toggleUpdateJob();
+
+//    m_dbusJobManagerInter->StartJob(m_dbusJobInter->id());
+//    connect(m_dbusJobInter, &DBusUpdateJob::ProgressChanged, this, &ApplictionItemWidget::updateJobProgress);
+//    connect(m_dbusJobInter, &DBusUpdateJob::StatusChanged, this, &ApplictionItemWidget::updateJobStatus);
+
+//    // update immeidately
+//    updateJobProgress();
+//    updateJobStatus();
 }
 
 void UpdateWidget::toggleUpdateState()

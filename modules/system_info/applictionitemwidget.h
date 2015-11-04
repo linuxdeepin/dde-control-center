@@ -36,7 +36,7 @@ public:
     void setAppUpdateInfo(const AppUpdateInfo &info);
 
 public slots:
-    void connectToJob(const QDBusObjectPath &jobPath);
+    void connectToJob(DBusUpdateJob *dbusJob);
 
 protected:
     void enterEvent(QEvent *);

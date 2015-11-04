@@ -11,8 +11,10 @@
 #include <libdui/dimagebutton.h>
 
 #include "applictionitemwidget.h"
-#include "dbus/dbuslastoremanager.h"
+#include "dbus/dbuslastoreupdater.h"
 #include "dbus/dbusupdatejobmanager.h"
+#include "dbus/dbusupdatejob.h"
+#include "dbus/appupdateinfo.h"
 
 DUI_USE_NAMESPACE
 
@@ -32,10 +34,12 @@ protected:
 
 private:
     void systemUpgrade();
+    void loadUpgradeData(DBusUpdateJob *newJob);
     void toggleUpdateState();
 
 private slots:
     void loadAppList();
+    void updateUpgradeProcess();
 
 private:
     QLabel *m_updateCountTips;
@@ -43,7 +47,8 @@ private:
     DImageButton *m_updateButton;
     DCircleProgress *m_updateProgress;
     DListWidget *m_appsList;
-    DBusLastoreManager *m_dbusUpdateInter;
+    DBusUpdateJob *m_dbusSystemUpgrade = nullptr;
+    DBusLastoreUpdater *m_dbusUpdateInter;
     DBusUpdateJobManager *m_dbusJobManagerInter;
 };
 

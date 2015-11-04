@@ -9,7 +9,7 @@
 MirrorsControlWidget::MirrorsControlWidget(QWidget *parent)
     : QWidget(parent)
 {
-    m_dbusLastoreInter = new DBusLastoreManager("org.deepin.lastore", "/org/deepin/lastore", QDBusConnection::systemBus(), this);
+    m_dbusLastoreInter = new DBusLastoreUpdater("org.deepin.lastore", "/org/deepin/lastore", QDBusConnection::systemBus(), this);
     m_updateSwitchBtn = new DSwitchButton;
     m_updateSwitchBtn->setChecked(m_dbusLastoreInter->autoCheckUpdates());
     m_changeMirrorBtn = new DTextButton(tr("Change"));
@@ -61,7 +61,7 @@ MirrorsControlWidget::MirrorsControlWidget(QWidget *parent)
     setLayout(mainLayout);
     setFixedWidth(DCC::ModuleContentWidth);
 
-    connect(m_updateSwitchBtn, &DSwitchButton::checkedChanged, m_dbusLastoreInter, &DBusLastoreManager::SetAutoCheckUpdates);
+    connect(m_updateSwitchBtn, &DSwitchButton::checkedChanged, m_dbusLastoreInter, &DBusLastoreUpdater::SetAutoCheckUpdates);
     connect(m_applyBtn, &DTextButton::clicked, this, &MirrorsControlWidget::configAccept);
     connect(m_changeMirrorBtn, &DTextButton::clicked, [this, updateServer] {
         updateServer->hide();

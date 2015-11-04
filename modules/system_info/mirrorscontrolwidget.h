@@ -10,7 +10,7 @@
 #include <libdui/dlistwidget.h>
 
 #include "mirroritemwidget.h"
-#include "dbus/dbuslastoremanager.h"
+#include "dbus/dbuslastoreupdater.h"
 
 DUI_USE_NAMESPACE
 
@@ -20,8 +20,6 @@ class MirrorsControlWidget : public QWidget
 public:
     explicit MirrorsControlWidget(QWidget *parent = 0);
     ~MirrorsControlWidget();
-
-    inline const QStringList updateableAppList() const {return m_dbusLastoreInter->updatableApps1();}
 
 signals:
     void configAccept() const;
@@ -38,7 +36,7 @@ private:
     DTextButton *m_applyBtn;
     DListWidget *m_mirrorsList;
 
-    DBusLastoreManager *m_dbusLastoreInter;
+    DBusLastoreUpdater *m_dbusLastoreInter;
 };
 
 #endif // MIRRORSCONTROLWIDGET_H

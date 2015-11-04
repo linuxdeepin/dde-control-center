@@ -71,17 +71,12 @@ void ApplictionItemWidget::setAppUpdateInfo(const AppUpdateInfo &info)
                            .arg(info.m_avilableVersion));
 }
 
-void ApplictionItemWidget::connectToJob(const QDBusObjectPath &jobPath)
+void ApplictionItemWidget::connectToJob(DBusUpdateJob *dbusJob)
 {
     if (m_dbusJobInter)
         m_dbusJobInter->deleteLater();
 
-    m_dbusJobInter = new DBusUpdateJob("org.deepin.lastore", jobPath.path(), QDBusConnection::systemBus(), this);
-    if (!m_dbusJobInter->isValid()) {
-        m_dbusJobInter->deleteLater();
-        m_dbusJobInter = nullptr;
-        return;
-    }
+    m_dbusJobInter = dbusJob;
 
     qDebug() << "connect to: " << m_dbusJobInter->packageId();
 
@@ -131,7 +126,9 @@ void ApplictionItemWidget::startJob()
     const QDBusObjectPath &jobPath = reply.value();
     qDebug() << "start Job: " << jobPath.path();
 
-    connectToJob(jobPath);
+    DBusUpdateJob *newJob = new DBusUpdateJob("org.deepin.lastore", jobPath.path(), QDBusConnection::systemBus(), this);
+
+    connectToJob(newJob);
 }
 
 void ApplictionItemWidget::updateJobProgress()
