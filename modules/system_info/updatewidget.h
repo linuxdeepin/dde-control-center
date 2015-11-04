@@ -40,6 +40,7 @@ private:
 private slots:
     void loadAppList();
     void updateUpgradeProcess();
+    void updateUpgradeState();
 
 private:
     QLabel *m_updateCountTips;

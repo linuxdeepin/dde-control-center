@@ -9,7 +9,7 @@
 MirrorsControlWidget::MirrorsControlWidget(QWidget *parent)
     : QWidget(parent)
 {
-    m_dbusLastoreInter = new DBusLastoreUpdater("org.deepin.lastore", "/org/deepin/lastore", QDBusConnection::systemBus(), this);
+    m_dbusLastoreInter = new DBusLastoreUpdater("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
     m_updateSwitchBtn = new DSwitchButton;
     m_updateSwitchBtn->setChecked(m_dbusLastoreInter->autoCheckUpdates());
     m_changeMirrorBtn = new DTextButton(tr("Change"));

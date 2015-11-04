@@ -30,8 +30,10 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     m_updateButton->setHoverPic(":/images/images/upgrade_hover.png");
     m_updateButton->setPressPic(":/images/images/upgrade_press.png");
     m_updateProgress = new DCircleProgress;
+    m_updateProgress->setObjectName("UpgradeProcess");
     m_updateProgress->setFixedSize(32, 32);
     m_updateProgress->setLineWidth(2);
+    m_updateProgress->setValue(0);
     m_appsList = new DListWidget;
     m_appsList->setFixedWidth(DCC::ModuleContentWidth);
     m_appsList->setItemSize(DCC::ModuleContentWidth, 50);
@@ -91,8 +93,8 @@ void UpdateWidget::resizeEvent(QResizeEvent *e)
 
 void UpdateWidget::loadAppList()
 {
-    m_dbusUpdateInter = new DBusLastoreUpdater("org.deepin.lastore", "/org/deepin/lastore", QDBusConnection::systemBus(), this);
-    m_dbusJobManagerInter = new DBusUpdateJobManager("org.deepin.lastore", "/org/deepin/lastore", QDBusConnection::systemBus(), this);
+    m_dbusUpdateInter = new DBusLastoreUpdater("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
+    m_dbusJobManagerInter = new DBusUpdateJobManager("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
 
     // load JobList
     QMap<QString, DBusUpdateJob *> jobMap;
@@ -100,7 +102,7 @@ void UpdateWidget::loadAppList()
     DBusUpdateJob *dbusJob;
     for (QDBusObjectPath &job : jobList)
     {
-        dbusJob = new DBusUpdateJob("org.deepin.lastore", job.path(), QDBusConnection::systemBus(), this);
+        dbusJob = new DBusUpdateJob("com.deepin.lastore", job.path(), QDBusConnection::systemBus(), this);
         qDebug() << "fond job: " << dbusJob->packageId() << dbusJob->status() << dbusJob->type();
 
         if (dbusJob->type() == "install") {
@@ -134,13 +136,21 @@ void UpdateWidget::loadAppList()
 
     // updateTipsInfo  download size, download count ...
     const QStringList &updatableApps = m_dbusUpdateInter->updatableApps1();
-    m_updateCountTips->setText(QString("You have %1 softwares need update").arg(updatableApps.count()));
+    const int updatableAppsNum = updatableApps.count();
 
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_dbusJobManagerInter->PackagesDownloadSize(updatableApps), this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, [this, watcher] {
-        m_updateSizeTips->setText(QString("Total download size: %1").arg(watcher->reply().arguments().first().toLongLong()));
-        watcher->deleteLater();
-    });
+    if (!updatableAppsNum)
+    {
+        m_updateCountTips->setText(tr("No update avaliable."));
+        m_updateSizeTips->clear();
+    } else {
+        m_updateCountTips->setText(QString(tr("You have %1 softwares need update")).arg(updatableApps.count()));
+
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_dbusJobManagerInter->PackagesDownloadSize(updatableApps), this);
+        connect(watcher, &QDBusPendingCallWatcher::finished, [this, watcher] {
+            m_updateSizeTips->setText(QString(tr("Total download size: %1")).arg(watcher->reply().arguments().first().toLongLong()));
+            watcher->deleteLater();
+        });
+    }
 }
 
 void UpdateWidget::updateUpgradeProcess()
@@ -157,9 +167,32 @@ void UpdateWidget::updateUpgradeProcess()
     qDebug() << "progress: " << progress << percent;
 }
 
+void UpdateWidget::updateUpgradeState()
+{
+    if (!m_dbusSystemUpgrade || !m_dbusSystemUpgrade->isValid())
+        return;
+
+    qDebug() << "state: " << m_dbusSystemUpgrade->type() << m_dbusSystemUpgrade->status();
+}
+
 void UpdateWidget::systemUpgrade()
 {
     qDebug() << "system upgrade";
+
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_dbusJobManagerInter->DistUpgrade(), this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [this, watcher] {
+        const QDBusPendingReply<QDBusObjectPath> &reply = *watcher;
+        const QDBusObjectPath &path = reply;
+
+        DBusUpdateJob *job = new DBusUpdateJob("com.deepin.lastore", path.path(), QDBusConnection::systemBus(), this);
+
+        if (job->isValid())
+            loadUpgradeData(job);
+        else
+            job->deleteLater();
+
+        watcher->deleteLater();
+    });
 }
 
 void UpdateWidget::loadUpgradeData(DBusUpdateJob *newJob)
@@ -173,20 +206,10 @@ void UpdateWidget::loadUpgradeData(DBusUpdateJob *newJob)
         m_dbusJobManagerInter->StartJob(m_dbusSystemUpgrade->id());
 
     connect(m_dbusSystemUpgrade, &DBusUpdateJob::ProgressChanged, this, &UpdateWidget::updateUpgradeProcess);
+    connect(m_dbusSystemUpgrade, &DBusUpdateJob::StatusChanged, this, &UpdateWidget::updateUpgradeState);
 
-//    qDebug() << "connect to: " << m_dbusJobInter->packageId();
-
-//    // set state to runnning
-//    if (!m_jobRunning)
-//        toggleUpdateJob();
-
-//    m_dbusJobManagerInter->StartJob(m_dbusJobInter->id());
-//    connect(m_dbusJobInter, &DBusUpdateJob::ProgressChanged, this, &ApplictionItemWidget::updateJobProgress);
-//    connect(m_dbusJobInter, &DBusUpdateJob::StatusChanged, this, &ApplictionItemWidget::updateJobStatus);
-
-//    // update immeidately
-//    updateJobProgress();
-//    updateJobStatus();
+    updateUpgradeProcess();
+    updateUpgradeState();
 }
 
 void UpdateWidget::toggleUpdateState()

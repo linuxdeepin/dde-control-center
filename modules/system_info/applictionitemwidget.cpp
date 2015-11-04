@@ -12,7 +12,7 @@ ApplictionItemWidget::ApplictionItemWidget(QWidget *parent)
 {
     D_THEME_INIT_WIDGET(ApplictionItemWidget, selected, hovered);
 
-    m_dbusJobManagerInter = new DBusUpdateJobManager("org.deepin.lastore", "/org/deepin/lastore", QDBusConnection::systemBus(), this);
+    m_dbusJobManagerInter = new DBusUpdateJobManager("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
 
     m_appIcon = new QLabel;
     m_appName = new QLabel;
@@ -45,6 +45,7 @@ ApplictionItemWidget::ApplictionItemWidget(QWidget *parent)
     infoLayout->setMargin(0);
 
     QHBoxLayout *mainLayout = new QHBoxLayout;
+    mainLayout->addSpacing(10);
     mainLayout->addWidget(m_appIcon);
     mainLayout->addSpacing(10);
     mainLayout->addLayout(infoLayout);
@@ -64,11 +65,26 @@ ApplictionItemWidget::ApplictionItemWidget(QWidget *parent)
 
 void ApplictionItemWidget::setAppUpdateInfo(const AppUpdateInfo &info)
 {
-     m_updateInfo = info;
+    m_updateInfo = info;
 
-     m_appName->setText(info.m_name);
-     m_appVersion->setText(QString("%1 -> %2").arg(info.m_currentVersion)
-                           .arg(info.m_avilableVersion));
+    // keng: dont forget call gtk_init() method before use gtk functions.
+    GtkIconTheme *theme = gtk_icon_theme_get_default();
+    GtkIconInfo *iconInfo = gtk_icon_theme_lookup_icon(theme, info.m_icon.toStdString().c_str(), 32, GTK_ICON_LOOKUP_GENERIC_FALLBACK);
+
+    if (iconInfo) {
+        const QString &iconPath = g_strdup(gtk_icon_info_get_filename(iconInfo));
+        qDebug() << iconPath;
+        m_appIcon->setPixmap(QPixmap(iconPath).scaled(32, 32, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation));
+
+#       if GTK_MAJOR_VERSION >= 3
+            g_object_unref(iconInfo);
+#       elif GTK_MAJOR_VERSION == 2
+            gtk_icon_info_free(iconInfo);
+#       endif
+    }
+
+    m_appName->setText(info.m_name);
+    m_appVersion->setText(info.m_avilableVersion);
 }
 
 void ApplictionItemWidget::connectToJob(DBusUpdateJob *dbusJob)
@@ -126,7 +142,7 @@ void ApplictionItemWidget::startJob()
     const QDBusObjectPath &jobPath = reply.value();
     qDebug() << "start Job: " << jobPath.path();
 
-    DBusUpdateJob *newJob = new DBusUpdateJob("org.deepin.lastore", jobPath.path(), QDBusConnection::systemBus(), this);
+    DBusUpdateJob *newJob = new DBusUpdateJob("com.deepin.lastore", jobPath.path(), QDBusConnection::systemBus(), this);
 
     connectToJob(newJob);
 }

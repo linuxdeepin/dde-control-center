@@ -13,6 +13,12 @@
 #include "dbus/dbusupdatejobmanager.h"
 #include "dbus/dbusupdatejob.h"
 
+#undef signals
+extern "C" {
+  #include <gtk/gtk.h>
+}
+#define signals public
+
 DUI_USE_NAMESPACE
 
 class ApplictionItemWidget : public QFrame
@@ -20,6 +26,14 @@ class ApplictionItemWidget : public QFrame
     Q_OBJECT
     Q_PROPERTY(bool selected READ selected NOTIFY selectStateChanged)
     Q_PROPERTY(bool hovered READ hovered NOTIFY hoverStateChanged)
+
+public:
+    enum Status {
+        Ready,
+        Updating,
+        SysUpgrading,
+        Fail,
+    };
 
 signals:
     void progressChanged(int percent) const;

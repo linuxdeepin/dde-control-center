@@ -6,3 +6,13 @@ UpdateWidget #Tips {
     color:#ccc;
     font-size:12px;
 }
+
+UpdateWidget #UpgradeProcess {
+    qproperty-backgroundColor:rgba(255, 255, 255, .1);
+    qproperty-chunkColor:#01bdff;
+}
+
+UpdateWidget #UpgradeProcess #TopLabel {
+    color:white;
+    font-size:12px;
+}
