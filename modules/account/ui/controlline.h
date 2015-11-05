@@ -103,6 +103,8 @@ public:
     QString text() const;
     DLineEdit *lineEdit() const;
 
+protected:
+    void showEvent(QShowEvent *e);
 signals:
     void textChanged(const QString &text);
     void focusChanged(bool focus);

@@ -153,6 +153,12 @@ DLineEdit *AccountInputLine::lineEdit() const
     return m_lineEdit;
 }
 
+void AccountInputLine::showEvent(QShowEvent *e)
+{
+    m_lineEdit->setFocus();
+    AccountHeaderLine::showEvent(e);
+}
+
 void AccountInputLine::setContent(QWidget *content)
 {
     DHeaderLine::setContent(content);
