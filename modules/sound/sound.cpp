@@ -80,6 +80,8 @@ void Sound::initUI()
     mainWidgetVLayout->setMargin(0);
 
     m_frame->setFixedWidth(DCC::ModuleContentWidth);
+    m_frame->setObjectName("SoundMainFrame");
+    m_frame->setStyleSheet("QFrame#SoundMainFrame{background:transparent}");
 
     m_scrollArea = new DScrollArea;
     m_scrollArea->setFixedSize(DCC::ModuleContentWidth, qApp->primaryScreen()->geometry().height() - 60);
