@@ -7,9 +7,11 @@
 #include <QHBoxLayout>
 #include <QProgressBar>
 #include <QDebug>
+#include "libdui/dimagebutton.h"
 #include "dbus/dbusdiskmount.h"
 #include "diskicon.h"
-#include "umountbutton.h"
+
+DUI_USE_NAMESPACE
 
 class DiskItem : public QLabel
 {
@@ -28,7 +30,8 @@ private:
 private slots:
     void umountDisk();
     void slotRetry(uint, QString);
-    void umountDiskFailed();
+    void updateUnMountButtonState(bool normal);
+    void umountDiskFailed(const QString &uuid, const QString &reason);
 
 private:
     DBusDiskMount * m_diskMount = NULL;
@@ -40,6 +43,7 @@ private:
     QLabel * m_progressLabel = NULL;
     QProgressBar * m_usedBar = NULL;
     QDBusInterface *notifyInterface;
+    DImageButton *m_unMountButton;
 };
 
 #endif // DISKITEM_H

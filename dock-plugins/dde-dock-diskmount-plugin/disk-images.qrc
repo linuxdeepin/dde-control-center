@@ -42,11 +42,16 @@
         <file>Resource/images/media-removable.png</file>
         <file>Resource/images/multimedia-player-ipod.png</file>
         <file>Resource/images/phone-apple-iphone.png</file>
-        <file>Resource/images/unmount_button.png</file>
         <file>Resource/images/usb_disk.png</file>
         <file>Resource/images/usbpendrive_unmount.png</file>
         <file>Resource/images/xfce-mount.png</file>
         <file>Resource/images/yast_HD.png</file>
         <file>Resource/images/yast_idetude.png</file>
+        <file>Resource/images/unmount_button_hover_fail.png</file>
+        <file>Resource/images/unmount_button_hover.png</file>
+        <file>Resource/images/unmount_button_normal_fail.png</file>
+        <file>Resource/images/unmount_button_normal.png</file>
+        <file>Resource/images/unmount_button_press_fail.png</file>
+        <file>Resource/images/unmount_button_press.png</file>
     </qresource>
 </RCC>

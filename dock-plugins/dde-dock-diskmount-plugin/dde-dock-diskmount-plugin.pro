@@ -17,16 +17,14 @@ SOURCES += diskmountplugin.cpp \
     mainitem.cpp \
     diskcontent.cpp \
     diskicon.cpp \
-    diskitem.cpp \
-    umountbutton.cpp
+    diskitem.cpp
 
 HEADERS += diskmountplugin.h \
     dbus/dbusdiskmount.h \
     mainitem.h \
     diskcontent.h \
     diskicon.h \
-    diskitem.h \
-    umountbutton.h
+    diskitem.h
 DISTFILES += dde-dock-diskmount-plugin.json
 
 target.path = $${PREFIX}/lib/dde-dock/plugins/

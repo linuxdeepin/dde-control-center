@@ -58,7 +58,7 @@ void DiskItem::umountDisk()
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_diskMount->DeviceUnmount(m_diskUuid));
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, watcher]{
         if(!watcher->reply().arguments().first().toBool()){
-            umountDiskFailed();
+            umountDiskFailed(m_id, "Umount disk error.");
         }
 
         watcher->deleteLater();
@@ -72,8 +72,21 @@ void DiskItem::slotRetry(uint, QString id)
     }
 }
 
-void DiskItem::umountDiskFailed()
+void DiskItem::updateUnMountButtonState(bool normal)
 {
+    QString stateStr = normal ? "" : "_fail";
+    m_unMountButton->setNormalPic(QString("://Resource/images/unmount_button_normal%1.png").arg(stateStr));
+    m_unMountButton->setHoverPic(QString("://Resource/images/unmount_button_hover%1.png").arg(stateStr));
+    m_unMountButton->setPressPic(QString("://Resource/images/unmount_button_press%1.png").arg(stateStr));
+}
+
+void DiskItem::umountDiskFailed(const QString &uuid, const QString &reason)
+{
+    if (m_id != uuid)
+        return;
+
+    updateUnMountButtonState(false);
+
     QString disk_type_name;
 
     if(m_diskType == "removable"){
@@ -91,28 +104,32 @@ void DiskItem::umountDiskFailed()
 
 void DiskItem::initWidgets()
 {
+    const int itemSpacing = 5;
+
+    m_diskIcon = new DiskIcon(this);
+    m_diskIcon->move(0, 0);
+
     m_titleLabel = new QLabel("Disk",this);
     m_titleLabel->setObjectName("DiskTitle");
     m_titleLabel->setFixedSize(width(), 20);
-    m_titleLabel->move(0,0);
-
-    m_diskIcon = new DiskIcon(this);
-    m_diskIcon->move(0,m_titleLabel->height() + 5);
+    m_titleLabel->move(m_diskIcon->x() + m_diskIcon->width() + itemSpacing, m_diskIcon->y());
 
     m_progressLabel = new QLabel("0GB/0GB", this);
+    m_progressLabel->setObjectName("DiskProgressLabel");
     m_progressLabel->setFixedSize(width() - m_diskIcon->width() - 10, 20);
-    m_progressLabel->move(m_diskIcon->x() + m_diskIcon->width() + 5, m_diskIcon->y());
+    m_progressLabel->move(m_titleLabel->x(), m_titleLabel->y() + m_titleLabel->height());
 
     m_usedBar = new QProgressBar(this);
     m_usedBar->setRange(0,100);
     m_usedBar->setTextVisible(false);
-    m_usedBar->setFixedSize(m_progressLabel->width(), 5);
-    m_usedBar->move(m_progressLabel->x(),m_progressLabel->y() + m_progressLabel->height() + 5);
+    m_usedBar->setFixedSize(m_progressLabel->width(), 2);
+    m_usedBar->move(m_progressLabel->x(),m_progressLabel->y() + m_progressLabel->height() + itemSpacing);
 
-
-    UmountButton * uButton = new UmountButton(this);
-    uButton->move(width() - uButton->width() - 5, m_usedBar->y() - uButton->height() - 5);
-    connect(uButton, &UmountButton::mousePressed, this, &DiskItem::umountDisk);
+    m_unMountButton = new DImageButton(this);
+    m_unMountButton->setFixedSize(20, 20);
+    updateUnMountButtonState(true);
+    m_unMountButton->move(width() - m_unMountButton->width() - itemSpacing, m_usedBar->y() - m_unMountButton->height() - itemSpacing);
+    connect(m_unMountButton, &DImageButton::clicked, this, &DiskItem::umountDisk);
 }
 
 QString DiskItem::bitToHuman(qint64 value)
