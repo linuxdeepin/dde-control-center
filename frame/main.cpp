@@ -42,7 +42,9 @@ int main(int argv, char *args[])
     app.setApplicationName("DDE Control Center");
     app.setApplicationVersion("3.0");
 
+#ifndef QT_DEBUG
     QDir::setCurrent(QApplication::applicationDirPath());
+#endif
 
     // install translators
     QTranslator translator;

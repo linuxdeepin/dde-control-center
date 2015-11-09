@@ -27,9 +27,10 @@ signals:
 
 private:
     void initSessionManager();
-    void initAccount();
     void onUserAdded(const QString &path);
     void onUserDeleted(const QString &path);
+private slots:
+    void initAccount();
 
 private:
     DBusAccount *m_account = NULL;

@@ -8,7 +8,10 @@ UserListPanel::UserListPanel(QWidget *parent) : QWidget(parent)
     m_mainLayout->setAlignment(Qt::AlignVCenter | Qt::AlignTop);
 
     initSessionManager();
-    initAccount();
+
+    //the "initAccount" slot is invoked as soon as the application enters the main event loop.
+    //make sure the dbus interface is ready
+    QMetaObject::invokeMethod(this, "initAccount", Qt::QueuedConnection);
 }
 
 void UserListPanel::preDestroy()
