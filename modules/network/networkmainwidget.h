@@ -15,6 +15,8 @@ class NetworkMainWidget : public ScrollFrame
 public:
     explicit NetworkMainWidget(QWidget *parent = 0);
 
+    DBusNetwork *dbusNetwork() const;
+
 private:
     void updateUI();
     void initUI();

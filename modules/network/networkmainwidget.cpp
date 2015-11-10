@@ -21,6 +21,23 @@
 #include "vpnconnectswidget.h"
 #include "networkmainwidget.h"
 #include "networkglobal.h"
+#include "addconnectpage.h"
+
+namespace DCCNetwork {
+    NetworkMainWidget *parentNetworkMainWidget(const QObject *obj)
+    {
+        QObject *tmp_obj = obj->parent();
+
+        while(tmp_obj) {
+            NetworkMainWidget *widget = qobject_cast<NetworkMainWidget*>(tmp_obj);
+            if(widget)
+                return widget;
+            tmp_obj = tmp_obj->parent();
+        }
+
+        return NULL;
+    }
+}
 
 NetworkMainWidget::NetworkMainWidget(QWidget *parent) :
     ScrollFrame(parent)
@@ -31,6 +48,11 @@ NetworkMainWidget::NetworkMainWidget(QWidget *parent) :
     updateUI();
 
     connect(m_dbusNetwork, &DBusNetwork::DevicesChanged, this, &NetworkMainWidget::updateUI);
+}
+
+DBusNetwork *NetworkMainWidget::dbusNetwork() const
+{
+    return m_dbusNetwork;
 }
 
 void NetworkMainWidget::updateUI()
@@ -123,5 +145,9 @@ void NetworkMainWidget::initUI()
     connect(this, &NetworkMainWidget::currentMainWidgetChanged,
             this, [header_right_widget, this](const QWidget *w){
         header_right_widget->setVisible(w == mainLayout()->parentWidget());
+    });
+    connect(add_button, &GeneralAddButton::clicked, this, [this] {
+        AddConnectPage *add_connect_page = new AddConnectPage;
+        pushWidget(add_connect_page);
     });
 }

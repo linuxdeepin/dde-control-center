@@ -22,7 +22,7 @@ class NetworkBaseEditLine : public QWidget
 public:
     explicit NetworkBaseEditLine(const QString &section, const QString &key,
                                  DBusConnectionSession *dbus, const QString &title,
-                                 QWidget *rightWidget, QWidget *parent = 0);
+                                 QWidget *parent = 0);
 
     QString section() const;
     QString key() const;
@@ -37,8 +37,10 @@ public:
     const QString getAvailableValuesTextByValue();
     const QStringList getAvailableValuesText();
     int getAvailableValuesIndex();
+    void setRightWidget(QWidget *widget);
 
 public slots:
+    void setDBusKey(const QString &key);
     void setSection(const QString &section);
     void setKey(const QString &key);
     void setAlwaysUpdate(bool alwaysUpdate);

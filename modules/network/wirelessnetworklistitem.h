@@ -7,7 +7,7 @@ class WirelessNetworkListItem : public AbstractDeviceWidget
 {
     Q_OBJECT
 public:
-    explicit WirelessNetworkListItem(DBusNetwork *dbus, ScrollFrame *scrollWidget, QWidget *parent = 0);
+    explicit WirelessNetworkListItem(DBusNetwork *dbus, QWidget *parent = 0);
 
 private slots:
     void onItemClicked();

@@ -7,7 +7,7 @@ class WiredNetworkListItem : public AbstractDeviceWidget
 {
     Q_OBJECT
 public:
-    explicit WiredNetworkListItem(DBusNetwork *dbus, ScrollFrame *scrollWidget, QWidget *parent = 0);
+    explicit WiredNetworkListItem(DBusNetwork *dbus, QWidget *parent = 0);
 
 private slots:
     void init();

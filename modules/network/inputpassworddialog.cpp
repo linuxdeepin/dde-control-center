@@ -40,14 +40,11 @@ InputPasswordDialog::InputPasswordDialog(QWidget *parent) :
     m_mainWidget->addWidget(m_checkBox);
     m_mainWidget->layout()->addLayout(h_layout);
 
-    //m_topSeparator = new DSeparatorHorizontal(this);
-    //m_bottomSeparator = new DSeparatorHorizontal(this);
-
     updateMainWidgetPos();
 
     connect(cancel_button, &DTextButton::clicked, this, &InputPasswordDialog::cancel);
     connect(connect_button, &DTextButton::clicked, this, &InputPasswordDialog::confirm);
-    connect(this, &InputPasswordDialog::setText, m_edit, &DPasswordEdit::setPassword);
+    connect(this, &InputPasswordDialog::setText, m_edit, &DPasswordEdit::setText);
     connect(m_edit, &DPasswordEdit::textChanged, this, &InputPasswordDialog::textChanged);
     connect(m_mainWidget, &DVBoxWidget::sizeChanged, this, [this]{
         setFixedHeight(m_mainWidget->height());

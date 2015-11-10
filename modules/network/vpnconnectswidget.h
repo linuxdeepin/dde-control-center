@@ -7,7 +7,7 @@ class VPNConnectsWidget : public AbstractDeviceWidget
 {
     Q_OBJECT
 public:
-    explicit VPNConnectsWidget(DBusNetwork *dbus, ScrollFrame *scrollWidget, QWidget *parent = 0);
+    explicit VPNConnectsWidget(DBusNetwork *dbus, QWidget *parent = 0);
 
 private slots:
     void onConnectsChanged();

@@ -7,8 +7,8 @@
 #include "networkgenericlistitem.h"
 #include "dbus/dbusnetwork.h"
 
-WiredNetworkListItem::WiredNetworkListItem(DBusNetwork *dbus, ScrollFrame *scrollWidget, QWidget *parent) :
-    AbstractDeviceWidget(tr("Wired Network"), dbus, scrollWidget, parent)
+WiredNetworkListItem::WiredNetworkListItem(DBusNetwork *dbus, QWidget *parent) :
+    AbstractDeviceWidget(tr("Wired Network"), dbus, parent)
 {
     ///show later
     QMetaObject::invokeMethod(this, "init", Qt::QueuedConnection);
@@ -17,7 +17,9 @@ WiredNetworkListItem::WiredNetworkListItem(DBusNetwork *dbus, ScrollFrame *scrol
 void WiredNetworkListItem::init()
 {
     NetworkGenericListItem *item = new NetworkGenericListItem(m_dbusNetwork);
+
     item->setTitle(tr("Wired Connection"));
+    item->setChecked(state() == ActiveConnectionState::Activated);
 
     listWidget()->addWidget(item);
 
@@ -27,8 +29,20 @@ void WiredNetworkListItem::init()
 
     onConnectsChanged();
 
+    auto onActiveConnectsChanged = [this, item] {
+        const QJsonDocument &json_doc = QJsonDocument::fromJson(m_dbusNetwork->activeConnections().toUtf8());
+
+        for(const QJsonValue &value : json_doc.object()) {
+            if(value.toObject()["Uuid"] == item->uuid()) {
+                item->setChecked(value.toObject()["State"].toInt() == ActiveConnectionState::Activated);
+            }
+        }
+    };
+
     connect(item, &NetworkGenericListItem::clicked, this, &WiredNetworkListItem::onItemClicked);
+    connect(item, &NetworkGenericListItem::uuidChanged, item, onActiveConnectsChanged);
     connect(m_dbusNetwork, &DBusNetwork::ConnectionsChanged, this, &WiredNetworkListItem::onConnectsChanged);
+    connect(m_dbusNetwork, &DBusNetwork::ActiveConnectionsChanged, item, onActiveConnectsChanged);
 }
 
 void WiredNetworkListItem::onConnectsChanged()
@@ -63,9 +77,11 @@ void WiredNetworkListItem::onItemClicked()
 {
     NetworkGenericListItem *item = qobject_cast<NetworkGenericListItem*>(sender());
     if(item) {
-        ASYN_CALL(m_dbusNetwork->ActivateConnection(item->uuid(), QDBusObjectPath(path())), {
-                      qDebug() << "ActivateConnection Reply:" << (qvariant_cast<QDBusObjectPath>(args[0]).path());
-                  }, this)
+        ASYN_CALL(m_dbusNetwork->GetWiredConnectionUuid(QDBusObjectPath(path())), {
+                      item->setUuid(args[0].toString());
+                      ASYN_CALL(m_dbusNetwork->ActivateConnection(item->uuid(), QDBusObjectPath(path())), {
+                                    qDebug() << "ActivateConnection Reply:" << (qvariant_cast<QDBusObjectPath>(args[0]).path());
+                                }, this)
+                  }, item, this)
     }
 }
-

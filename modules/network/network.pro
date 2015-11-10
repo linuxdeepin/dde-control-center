@@ -19,8 +19,13 @@ HEADERS         += network.h \
     networkgenericlistitem.h \
     networkglobal.h \
     inputpassworddialog.h \
-    connecttohiddenapwidget.h \
-    networkbaseeditline.h
+    networkbaseeditline.h \
+    addconnectpage.h \
+    adddslpage.h \
+    addvpnpage.h \
+    connecttohiddenappage.h \
+    editlineinput.h \
+    editlinecombobox.h
 SOURCES         += network.cpp \
     networkmainwidget.cpp \
     dbus/dbusnetwork.cpp \
@@ -32,8 +37,13 @@ SOURCES         += network.cpp \
     abstractdevicewidget.cpp \
     networkgenericlistitem.cpp \
     inputpassworddialog.cpp \
-    connecttohiddenapwidget.cpp \
-    networkbaseeditline.cpp
+    networkbaseeditline.cpp \
+    addconnectpage.cpp \
+    adddslpage.cpp \
+    addvpnpage.cpp \
+    connecttohiddenappage.cpp \
+    editlineinput.cpp \
+    editlinecombobox.cpp
 TARGET          = $$qtLibraryTarget(network)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 

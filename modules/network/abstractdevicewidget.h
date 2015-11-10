@@ -29,8 +29,7 @@ class AbstractDeviceWidget : public DVBoxWidget
     Q_PROPERTY(QString mobileSignalQuality READ mobileSignalQuality WRITE setMobileSignalQuality NOTIFY mobileSignalQualityChanged)
 
 public:
-    explicit AbstractDeviceWidget(const QString &title, DBusNetwork *dbus,
-                                  ScrollFrame *scrollWidget, QWidget *parent = 0);
+    explicit AbstractDeviceWidget(const QString &title, DBusNetwork *dbus, QWidget *parent = 0);
 
     DListWidget *listWidget() const;
 
@@ -77,7 +76,6 @@ signals:
 
 protected:
     DBusNetwork *m_dbusNetwork;
-    ScrollFrame *m_scrollWidget;
 
 private:
     bool m_managed;

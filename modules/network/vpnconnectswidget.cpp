@@ -3,8 +3,8 @@
 #include "networkglobal.h"
 #include "networkgenericlistitem.h"
 
-VPNConnectsWidget::VPNConnectsWidget(DBusNetwork *dbus, ScrollFrame *scrollWidget, QWidget *parent) :
-    AbstractDeviceWidget(tr("VPN Connections"), dbus, scrollWidget, parent)
+VPNConnectsWidget::VPNConnectsWidget(DBusNetwork *dbus, QWidget *parent) :
+    AbstractDeviceWidget(tr("VPN Connections"), dbus, parent)
 {
     setEnabled(dbus->vpnEnabled());
 

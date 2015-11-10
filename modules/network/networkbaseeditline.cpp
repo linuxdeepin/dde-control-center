@@ -14,7 +14,7 @@ DUI_USE_NAMESPACE
 
 NetworkBaseEditLine::NetworkBaseEditLine(const QString &section, const QString &key,
                                          DBusConnectionSession *dbus, const QString &title,
-                                         QWidget *rightWidget, QWidget *parent):
+                                         QWidget *parent):
     QWidget(parent),
     m_dbus(dbus),
     m_section(section),
@@ -23,12 +23,9 @@ NetworkBaseEditLine::NetworkBaseEditLine(const QString &section, const QString &
     QHBoxLayout *layout = new QHBoxLayout;
     DLabel *label = new DLabel(title);
 
-    rightWidget->setFixedSize(DCC::ModuleContentWidth / 1.6, DUI::MENU_ITEM_HEIGHT);
-
     layout->setMargin(0);
     layout->setSpacing(15);
     layout->addWidget(label, 0, Qt::AlignRight);
-    layout->addWidget(rightWidget, 0, Qt::AlignRight);
 
     setLayout(layout);
     updateVisible();
@@ -79,8 +76,6 @@ void NetworkBaseEditLine::setDBusKey(const QJsonValue &key)
             json.append(QString::number(key.toInt(-1)));
 
         json += "\"";
-
-        qDebug() << key << json;
 
         m_dbus->SetKey(section(), this->key(), json).waitForFinished();
     }
@@ -169,6 +164,13 @@ int NetworkBaseEditLine::getAvailableValuesIndex()
     return -1;
 }
 
+void NetworkBaseEditLine::setRightWidget(QWidget *widget)
+{
+    widget->setFixedSize(DCC::ModuleContentWidth / 1.6, DUI::MENU_ITEM_HEIGHT);
+    QBoxLayout *layout = qobject_cast<QBoxLayout*>(this->layout());
+    layout->addWidget(widget, 0, Qt::AlignRight);
+}
+
 void NetworkBaseEditLine::showEvent(QShowEvent *e)
 {
     QWidget::showEvent(e);
@@ -196,6 +198,11 @@ void NetworkBaseEditLine::updateVisible()
 {
     setVisible(m_dbus->availableSections().indexOf(section()) != -1
             &&  m_dbus->availableKeys()[section()].indexOf(key()) != -1);
+}
+
+void NetworkBaseEditLine::setDBusKey(const QString &key)
+{
+    setDBusKey(QJsonValue(key));
 }
 
 void NetworkBaseEditLine::setSection(const QString &section)

@@ -6,10 +6,10 @@
 #include "networkgenericlistitem.h"
 #include "networkglobal.h"
 #include "inputpassworddialog.h"
-#include "connecttohiddenapwidget.h"
+#include "connecttohiddenappage.h"
 
-WirelessNetworkListItem::WirelessNetworkListItem(DBusNetwork *dbus, ScrollFrame *scrollWidget, QWidget *parent) :
-    AbstractDeviceWidget(tr("Wireless Network"), dbus, scrollWidget, parent)
+WirelessNetworkListItem::WirelessNetworkListItem(DBusNetwork *dbus, QWidget *parent) :
+    AbstractDeviceWidget(tr("Wireless Network"), dbus, parent)
 {
     init();
 }
@@ -27,14 +27,16 @@ void WirelessNetworkListItem::onItemClicked()
                       qDebug() << "connect to hidden access point:" << object.path();
 
                       DBusConnectionSession *dbus = new DBusConnectionSession(object.path());
-                      ConnectToHiddenApWidget *connect_ap = new ConnectToHiddenApWidget(dbus);
+                      ConnectToHiddenApPage *connect_ap = new ConnectToHiddenApPage(dbus);
 
-                      m_scrollWidget->pushWidget(connect_ap);
+                      ScrollFrame *scrollWidget = DCCNetwork::parentNetworkMainWidget(this);
 
-                      connect(connect_ap, &ConnectToHiddenApWidget::cancel,
-                              m_scrollWidget, &ScrollFrame::popCurrentWidget);
-                      connect(connect_ap, &ConnectToHiddenApWidget::confirm,
-                              m_scrollWidget, &ScrollFrame::popCurrentWidget);
+                      scrollWidget->pushWidget(connect_ap);
+
+                      connect(connect_ap, &ConnectToHiddenApPage::cancel,
+                              scrollWidget, &ScrollFrame::popCurrentWidget);
+                      connect(connect_ap, &ConnectToHiddenApPage::confirm,
+                              scrollWidget, &ScrollFrame::popCurrentWidget);
                   }, this)
     } else {
         ASYN_CALL(m_dbusNetwork->ActivateAccessPoint(item->uuid(),

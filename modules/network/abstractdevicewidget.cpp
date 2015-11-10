@@ -9,11 +9,9 @@
 #include "dbus/dbusnetwork.h"
 #include "networkglobal.h"
 
-AbstractDeviceWidget::AbstractDeviceWidget(const QString &title, DBusNetwork *dbus,
-                                           ScrollFrame *scrollWidget, QWidget *parent) :
+AbstractDeviceWidget::AbstractDeviceWidget(const QString &title, DBusNetwork *dbus, QWidget *parent) :
     DVBoxWidget(parent),
-    m_dbusNetwork(dbus),
-    m_scrollWidget(scrollWidget)
+    m_dbusNetwork(dbus)
 {
     D_THEME_INIT_WIDGET(AbstractDeviceWidget);
 

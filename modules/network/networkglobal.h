@@ -7,6 +7,8 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
+#include "networkmainwidget.h"
+
 #define ASYN_CALL(Fun, Code, captured...) { \
     QDBusPendingCallWatcher * watcher = new QDBusPendingCallWatcher(Fun, this); \
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [watcher, captured]{ \
@@ -93,6 +95,18 @@ namespace ConnectionType {
     const QString VpnVpnc = "vpn-vpnc";
     const QString VpnOpenvpn = "vpn-openvpn";
     const QString VpnOpenconnect = "vpn-openconnect";
+}
+
+namespace DCCNetwork {
+    NetworkMainWidget* parentNetworkMainWidget(const QObject *obj);
+}
+
+namespace BaseLineEditType {
+enum BaseLineEditType {
+    Normal,
+    Password,
+    FileChooser
+};
 }
 
 #endif // NETWORKGLOBAL
