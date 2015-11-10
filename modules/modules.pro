@@ -34,7 +34,5 @@ isEmpty(WITH_MODULE_NETWORK){
 }
 
 isEqual(WITH_MODULE_NETWORK, YES){
-    CONFIG(debug, debug|release) {
-        SUBDIRS += network
-    }
+    SUBDIRS += network
 }

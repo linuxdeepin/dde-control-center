@@ -31,6 +31,7 @@ NetworkBaseEditLine *ConnectToHiddenApWidget::getLineEdit(const QString &section
                                  const QString &title, bool isPasswordEdit)
 {
     QWidget *line_edit;
+
     if(isPasswordEdit)
         line_edit = new DPasswordEdit;
     else
@@ -39,6 +40,34 @@ NetworkBaseEditLine *ConnectToHiddenApWidget::getLineEdit(const QString &section
     NetworkBaseEditLine *base_edit = new NetworkBaseEditLine(section, key,
                                                              m_dbusConnectionSession,
                                                              title, line_edit);
+
+    if(isPasswordEdit) {
+        DPasswordEdit *edit = qobject_cast<DPasswordEdit*>(line_edit);
+
+        auto update_password = [base_edit, edit] {
+            edit->setPassword(base_edit->cacheValue().toString());
+        };
+
+        connect(base_edit, &NetworkBaseEditLine::widgetShown, base_edit, update_password);
+        connect(base_edit, &NetworkBaseEditLine::cacheValueChanged, base_edit, update_password);
+        connect(edit, &DPasswordEdit::textChanged, base_edit, [base_edit](const QString &text) {
+            base_edit->setDBusKey(text);
+            qDebug() << "passwordedit text changed:" << text << base_edit->dbusKey();
+        });
+    } else {
+        DLineEdit *edit = qobject_cast<DLineEdit*>(line_edit);
+
+        auto update_text = [base_edit, edit] {
+            edit->setText(base_edit->cacheValue().toString());
+        };
+
+        connect(base_edit, &NetworkBaseEditLine::widgetShown, base_edit, update_text);
+        connect(base_edit, &NetworkBaseEditLine::cacheValueChanged, base_edit, update_text);
+        connect(edit, &DLineEdit::textChanged, base_edit, [base_edit](const QString &text) {
+            base_edit->setDBusKey(text);
+            qDebug() << "lineedit text changed:" << text << base_edit->dbusKey();
+        });
+    }
 
     return base_edit;
 }
@@ -108,6 +137,7 @@ void ConnectToHiddenApWidget::init()
 
     DVBoxWidget *main_widget = new DVBoxWidget;
 
+    NetworkBaseEditLine *line80211WirelessSsid = getLineEdit("802-11-wireless", "ssid", tr("SSID"));
     NetworkBaseEditLine *line80211WirelessSecurityVkKeyMgmt
             = getCombobox("802-11-wireless-security", "vk-key-mgmt", tr("Security"));
     NetworkBaseEditLine *line8021xPhase2Auth = getCombobox("802-1x", "phase2-auth", tr("Inner Auth"));
@@ -120,7 +150,7 @@ void ConnectToHiddenApWidget::init()
     main_widget->setStyleSheet(styleSheet());
     main_widget->layout()->setContentsMargins(15, 5, 15, 5);
     main_widget->layout()->setSpacing(5);
-    main_widget->layout()->addWidget(getLineEdit("802-11-wireless", "ssid", tr("SSID")));
+    main_widget->layout()->addWidget(line80211WirelessSsid);
     main_widget->layout()->addWidget(line80211WirelessSecurityVkKeyMgmt);
     main_widget->layout()->addWidget(getLineEdit("802-11-wireless-security",
                                                  "wep-key0", tr("Key"), true));
@@ -153,7 +183,17 @@ void ConnectToHiddenApWidget::init()
     layout()->addLayout(button_layout);
 
     connect(button_cancel, &DTextButton::clicked, this, &ConnectToHiddenApWidget::cancel);
-    connect(button_connect, &DTextButton::clicked, this, &ConnectToHiddenApWidget::confirm);
+    connect(button_connect, &DTextButton::clicked, this, [this, line80211WirelessSsid] {
+        m_dbusConnectionSession->SetKey("connection", "id",
+                                        m_dbusConnectionSession->GetKey(line80211WirelessSsid->section(),
+                                                                        line80211WirelessSsid->key()));
+        //checkKeysInPage()
+        if (m_dbusConnectionSession->Save()) {
+            emit confirm();
+        } else {
+            qDebug() << m_dbusConnectionSession->errors();
+        }
+    });
     connect(button_cancel, &DTextButton::clicked, m_dbusConnectionSession, &DBusConnectionSession::Close);
 }
 

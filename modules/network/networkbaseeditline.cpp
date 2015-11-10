@@ -69,7 +69,7 @@ bool NetworkBaseEditLine::setKeyAlways() const
 
 void NetworkBaseEditLine::setDBusKey(const QJsonValue &key)
 {
-    if (!isValueError() || setKeyAlways()) {
+    if (key != cacheValue() || isValueError() || setKeyAlways()) {
 
         QString json = "\"";
 
@@ -80,6 +80,7 @@ void NetworkBaseEditLine::setDBusKey(const QJsonValue &key)
 
         json += "\"";
 
+        qDebug() << key << json;
 
         m_dbus->SetKey(section(), this->key(), json).waitForFinished();
     }
