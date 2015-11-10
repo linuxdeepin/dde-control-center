@@ -16,6 +16,7 @@ static const QColor BgDarkColor = "#1A1B1B";
 static const QColor TextNormalColor = "#b4b4b4";
 static const QColor TextHoverColor = "#ffffff";
 
+static const uint FrameShadowWidth = 16;
 static const uint ControlCenterWidth = 360;
 static const uint ModuleContentWidth = 310;
 static const uint HomeScreen_TopWidgetHeight = 150;

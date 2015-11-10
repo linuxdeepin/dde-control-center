@@ -25,28 +25,44 @@ Frame::Frame(QWidget *parent) :
 {
     QPalette palette;
     palette.setColor(QPalette::Background, DCC::BgLightColor);
-    m_centeralWidget = new QWidget(this);
+    m_centeralWidget = new QWidget;
     m_centeralWidget->setPalette(palette);
     m_centeralWidget->setAutoFillBackground(true);
 
     listPlugins();
     m_contentView = new ContentView(m_modules, m_hideInLeft, m_centeralWidget);
-    m_contentView->setFixedWidth(DCC::ControlCenterWidth);
     m_homeScreen = new HomeScreen(m_modules, m_centeralWidget);
-    m_homeScreen->setFixedWidth(DCC::ControlCenterWidth);
 
-    m_showAni = new QPropertyAnimation(m_centeralWidget, "pos");
+    m_leftShadow = new QWidget;
+    m_leftShadow->setFixedWidth(DCC::FrameShadowWidth);
+    m_leftShadow->setStyleSheet("background-image:url(:/resources/images/shadow_left.png) repeat-y;");
+    m_rightShadow = new QWidget;
+    m_rightShadow->setFixedWidth(DCC::FrameShadowWidth);
+    m_rightShadow->setStyleSheet("background-image:url(:/resources/images/shadow_right.png) repeat-y;");
+
+    QHBoxLayout *warpperLayout = new QHBoxLayout;
+    warpperLayout->addWidget(m_leftShadow);
+    warpperLayout->addWidget(m_centeralWidget);
+    warpperLayout->addWidget(m_rightShadow);
+    warpperLayout->setSpacing(0);
+    warpperLayout->setMargin(0);
+
+    m_centeralWarpper = new QWidget(this);
+    m_centeralWarpper->setLayout(warpperLayout);
+
+    m_showAni = new QPropertyAnimation(m_centeralWarpper, "pos");
     m_showAni->setDuration(DCC::FrameAnimationDuration);
     m_showAni->setEasingCurve(DCC::FrameShowCurve);
 
-    m_hideAni = new QPropertyAnimation(m_centeralWidget, "pos");
+    m_hideAni = new QPropertyAnimation(m_centeralWarpper, "pos");
     m_hideAni->setDuration(DCC::FrameAnimationDuration);
     m_hideAni->setEasingCurve(DCC::FrameHideCurve);
 
-    const QSize frameSize(DCC::ControlCenterWidth, qApp->primaryScreen()->size().height());
-    m_centeralWidget->setFixedSize(frameSize);
-    m_contentView->setFixedSize(frameSize);
-    m_homeScreen->setFixedSize(frameSize);
+    const int frameHeight = qApp->primaryScreen()->size().height();
+    const int frameWidth = DCC::ControlCenterWidth + DCC::FrameShadowWidth;
+    m_centeralWidget->setFixedSize(DCC::ControlCenterWidth, frameHeight);
+    m_contentView->setFixedSize(DCC::ControlCenterWidth, frameHeight);
+    m_homeScreen->setFixedSize(DCC::ControlCenterWidth, frameHeight);
 
     DisplayInterface *display_dbus = new DisplayInterface(this);
     connect(display_dbus, &DisplayInterface::PrimaryChanged, this, &Frame::updateGeometry);
@@ -56,7 +72,7 @@ Frame::Frame(QWidget *parent) :
     connect(m_hideAni, &QPropertyAnimation::finished, this, &QFrame::hide);
     connect(m_hideAni, &QPropertyAnimation::valueChanged, this, &Frame::xChanged);
     connect(m_showAni, &QPropertyAnimation::valueChanged, this, &Frame::xChanged);
-    connect(m_showAni, &QPropertyAnimation::finished, m_centeralWidget, static_cast<void (QWidget::*)()>(&QWidget::update), Qt::QueuedConnection);
+    connect(m_showAni, &QPropertyAnimation::finished, m_centeralWarpper, static_cast<void (QWidget::*)()>(&QWidget::update), Qt::QueuedConnection);
     connect(m_homeScreen, SIGNAL(moduleSelected(ModuleMetaData)), this, SLOT(selectModule(ModuleMetaData)));
     connect(m_contentView, &ContentView::homeSelected, [ = ] {this->selectModule(ModuleMetaData());});
     connect(m_contentView, &ContentView::shutdownSelected, m_homeScreen, &HomeScreen::powerButtonClicked, Qt::DirectConnection);
@@ -64,7 +80,7 @@ Frame::Frame(QWidget *parent) :
     connect(m_homeScreen, &HomeScreen::showAniFinished, m_contentView, &ContentView::unloadOldPlugin);
     connect(this, &Frame::hideInLeftChanged, m_contentView, &ContentView::reLayout);
 
-    setFixedSize(frameSize);
+    setFixedSize(frameWidth, frameHeight);
     setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::Tool | Qt::WindowStaysOnTopHint);
     setAttribute(Qt::WA_TranslucentBackground);
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
@@ -86,14 +102,16 @@ void Frame::show(bool imme)
     m_visible = true;
 
     if (imme) {
-        m_centeralWidget->move(0, 0);
+        m_centeralWarpper->move(0, 0);
     } else {
         int startX = m_hideInLeft ? -DCC::ControlCenterWidth : DCC::ControlCenterWidth;
+        startX += m_hideInLeft ? -DCC::FrameShadowWidth : DCC::FrameShadowWidth;
+        int endX = m_hideInLeft ? -DCC::FrameShadowWidth : 0;
 
         m_hideAni->stop();
         m_showAni->stop();
         m_showAni->setStartValue(QPoint(startX, 0));
-        m_showAni->setEndValue(QPoint(0, 0));
+        m_showAni->setEndValue(QPoint(endX, 0));
         m_showAni->start();
     }
 
@@ -260,11 +278,11 @@ void Frame::updateGeometry()
     if (m_hideInLeft)
         posX = primaryScreen->geometry().left();
     else
-        posX = primaryScreen->geometry().right() - DCC::ControlCenterWidth + 1;
+        posX = primaryScreen->geometry().right() - DCC::ControlCenterWidth - DCC::FrameShadowWidth + 1;
 
     move(posX, primaryScreen->geometry().y());
     setFixedHeight(primaryScreen->size().height());
-    m_centeralWidget->setFixedHeight(primaryScreen->size().height());
+    m_centeralWarpper->setFixedHeight(primaryScreen->size().height());
     m_contentView->setFixedHeight(primaryScreen->size().height());
     m_homeScreen->setFixedHeight(primaryScreen->size().height());
 

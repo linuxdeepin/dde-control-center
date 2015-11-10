@@ -62,6 +62,9 @@ private:
     QPropertyAnimation *m_hideAni;
     DBusXMouseArea *m_dbusXMouseArea;
     QWidget *m_centeralWidget;
+    QWidget *m_centeralWarpper;
+    QWidget *m_leftShadow;
+    QWidget *m_rightShadow;
 
     QString m_dbusFullScreenKey = QString();
 

@@ -6,5 +6,7 @@
         <file>resources/images/power-button-normal.png</file>
         <file>resources/images/power-button-hover.png</file>
         <file>resources/images/control_center_tooltip_left.png</file>
+        <file>resources/images/shadow_left.png</file>
+        <file>resources/images/shadow_right.png</file>
     </qresource>
 </RCC>
