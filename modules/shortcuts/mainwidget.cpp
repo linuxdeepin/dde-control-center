@@ -257,6 +257,7 @@ void MainWidget::init()
     });
 
     DSearchEdit *edit  = new DSearchEdit;
+    edit->setPlaceHolder(tr("Search"));
 
     edit->setFixedWidth(280);
     connect(edit, &DSearchEdit::textChanged, m_searchList, [=]{

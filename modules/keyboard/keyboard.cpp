@@ -308,6 +308,7 @@ void Keyboard::initUI()
     lang_frame_layout->setMargin(0);
 
     DSearchEdit *lang_search = new DSearchEdit;
+    lang_search->setPlaceHolder(tr("Search"));
     lang_search->setFixedWidth(290);
     lang_search->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
